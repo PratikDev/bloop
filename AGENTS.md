@@ -1,3 +1,6 @@
+1. do not commit any changes unless i ask you to specifically
+2. do not move from one phase to another unless i ask you to specifically
+
 <!-- BEGIN:nextjs-agent-rules -->
 
 # This is NOT the Next.js you know
