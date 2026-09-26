@@ -250,11 +250,11 @@ All tests used pass/fail rules written **before** running.
  IMERG last 48 frames ─┘                                                                        │
  GISTEMP / GPCP / GPCC / GRACE / FIRMS / NDVI / GLOBE ─► build_context (small regional JSON) ────┤
                                                                                                 ▼
-                                                   web/data/  (static files, a few MB)
+                                                   public/data/  (static files, a few MB)
                                                                                                 │
-                         STATIC WEB APP (HTML + JS modules, Web Audio; GitHub Pages)            ▼
-   Frame view + cursor ◄─ data.js (grids) ─► audio.js (live synthesis) ─► speakers/headphones
-   Keyboard/speech/captions ─ panels (truth, mapping, provenance, compare) ─ game ─ story mode
+                    NEXT.JS APP (TypeScript, App Router, Tailwind + shadcn/ui, Web Audio; Vercel) ▼
+   Frame view + cursor ◄─ lib/data.ts (grids) ─► lib/audio.ts (live synthesis) ─► speakers/headphones
+   Keyboard/speech/captions ─ panels (truth, mapping, provenance, compare) ─ story mode ─ game (optional, lowest priority)
 ```
 
 **Why a pipeline:**
@@ -267,14 +267,44 @@ All tests used pass/fail rules written **before** running.
 
 **Tech stack:**
 - **Pipeline:** Python 3.10+, `numpy`, `pillow`, `opencv-python` (EXR), `xarray`, `h5netcdf`, `earthaccess` (for any Earthdata downloads), `pandas`, `matplotlib`.
-- **App:** plain HTML/CSS/JavaScript ES modules (no build step), Web Audio API, Web Speech API (speech output; recorded audio for Bangla narration), Canvas 2D.
-- **Hosting:** public GitHub repo + GitHub Pages (`/web`).
+- **App:** Next.js (App Router) + TypeScript, Tailwind CSS, **shadcn/ui as the default component library** for every interface element, ESLint, Web Audio API, Web Speech API (speech output; recorded audio for Bangla narration), Canvas 2D for the frame view.
+- **Hosting:** public GitHub repo, deployed on **Vercel** (auto-deploys on every push — including the data-file commits L1 makes).
 - **Browsers:** Chrome and Edge (desktop and Android) are primary; Firefox and Safari best-effort.
 
 **Repository layout:**
 ```
 earth-jukebox/
-├─ pipeline/
+├─ src/
+│  ├─ app/
+│  │  ├─ layout.tsx
+│  │  ├─ page.tsx                    # app shell: mode tabs, frame canvas, panels, mixer
+│  │  └─ globals.css                 # Tailwind entry (v4 CSS-first theme)
+│  ├─ components/
+│  │  ├─ ui/                         # shadcn/ui primitives (button.tsx, slider.tsx, tabs.tsx, dialog.tsx, ...)
+│  │  ├─ frame-view.tsx              # basemap + frame; cursor; playhead
+│  │  ├─ explore-controls.tsx        # keyboard/touch/speech navigation, ARIA live region
+│  │  ├─ sweep-controls.tsx          # gist sweep, row sweep
+│  │  ├─ panels/
+│  │  │  ├─ truth-panel.tsx
+│  │  │  ├─ mapping-panel.tsx
+│  │  │  ├─ provenance-panel.tsx
+│  │  │  └─ compare-panel.tsx        # Comparison Player
+│  │  ├─ history-chart.tsx           # Place History; chart + playhead
+│  │  ├─ story-mode.tsx              # Story Mode script runner
+│  │  ├─ captions.tsx                # caption bar + Describe toggle
+│  │  └─ game.tsx                    # "Warmer or Colder?" — single mode, lowest priority (see 11.6)
+│  ├─ lib/
+│  │  ├─ data.ts                     # load grids + JSON; valueAt(track, lat, lon); decode encodings
+│  │  ├─ audio.ts                    # Web Audio graph: per-voice synths, panner, limiter, earcons
+│  │  ├─ i18n.ts                     # English / Bangla strings; narration clip mapping
+│  │  └─ utils.ts                    # shadcn's cn() helper etc.
+│  └─ types/
+│     └─ data-contract.ts            # shared TS types for the Section 7 file schemas
+├─ public/
+│  ├─ mapping.json
+│  ├─ audio/narration_en/  audio/narration_bn/       # recorded narration clips
+│  └─ data/ latest/  sequence/  context/  demo/  truth/   # L1's pipeline output lands here
+├─ pipeline/                          # L1 — unchanged, outside the Next.js app, Python
 │  ├─ lut_params.json          # verified colorbar settings (single source of truth)
 │  ├─ fetch_latest.py          # newest 5101 + 4285 frames
 │  ├─ convert_sst.py           # EXR → sRGB → LUT → °C grid
@@ -284,22 +314,23 @@ earth-jukebox/
 │  ├─ build_demo.py            # "Dhaka then vs now" numbers + series (from context JSON)
 │  ├─ spotcheck.py             # acceptance: compares app-format grids to test values
 │  └─ run_all.py               # runs everything in order
-├─ web/
-│  ├─ index.html   mapping.json
-│  ├─ css/app.css
-│  ├─ js/ data.js view.js audio.js explore.js sweep.js panels.js game.js
-│  │      story.js compare.js history.js captions.js i18n.js
-│  ├─ audio/ narration_en/  narration_bn/        # recorded narration clips
-│  └─ data/ latest/  sequence/  context/  demo/  truth/
-├─ tests/  (copies of our test scripts + results for transparency)
+├─ tests/                             # copies of L1's test scripts + results, for transparency
+├─ components.json                    # shadcn/ui config
+├─ postcss.config.mjs                 # required by the Tailwind PostCSS plugin
+├─ eslint.config.mjs                  # Next.js latest flat config
+├─ tsconfig.json
+├─ next.config.ts
+├─ package.json
 ├─ LICENSE (MIT for our code)   README.md (credits, how to run)
+├─ CLAUDE.md   AGENTS.md   .env.example   docs/AI_USE.md
 ```
+Everything under `src/` should be `.ts`/`.tsx` — no `.js` or `.jsx` files anywhere in the app. The only plain-JS-format files in the whole repo are the two build-tool configs that don't support TypeScript (`postcss.config.mjs`, `eslint.config.mjs`); if the team wants to extend Tailwind's defaults beyond the CSS-first `@theme` config, an optional `tailwind.config.ts` can be added — still TypeScript. L1's pipeline stays Python (`.py`), as before — that's a separate language, not covered by the "no `.js`" rule.
 
 ---
 
 ## 7. Data contract (pipeline → app)
 
-All files live under `web/data/`. Binary grids are little-endian, row 0 = north (90° N), column 0 = 180° W.
+All files live under `public/data/` (Next.js serves everything in `public/` at the site root, so `public/data/latest/sst.bin` is reachable at `/data/latest/sst.bin`). Binary grids are little-endian, row 0 = north (90° N), column 0 = 180° W.
 
 | File | Content | Encoding |
 |---|---|---|
@@ -365,16 +396,18 @@ Run order: `python pipeline/run_all.py` (or each script in order). All scripts p
 }
 ```
 
-**Later (October): automation.** A GitHub Actions workflow (daily cron) runs `fetch_latest.py → convert_* → spotcheck.py` and commits `web/data/latest/`. SVS frames need no login; Earthdata-based steps (GRACE etc.) stay one-off.
+**Later (October): automation.** A GitHub Actions workflow (daily cron) runs `fetch_latest.py → convert_* → spotcheck.py` and commits `public/data/latest/`. SVS frames need no login; Earthdata-based steps (GRACE etc.) stay one-off.
 
 ---
 
 ## 9. App specification (web)
 
+**UI library:** shadcn/ui is the default for every interface element — buttons, sliders, tabs, dialogs, toggles, cards — built on top of Tailwind CSS. Nothing hand-rolled where a shadcn primitive fits.
+
 ### 9.1 Screen layout
 - **Top bar:**
   - title and sonic-identity play button;
-  - mode tabs (**Explore · Story · Then vs Now · Game**);
+  - mode tabs (**Explore · Story · Then vs Now**; shadcn `Tabs` — a **Game** tab is added only if it gets built, since it's lowest priority, see 11.6);
   - track selector (Ocean / Rain / Both);
   - frame date and time; language (EN / বাংলা); Describe toggle; Help.
 - **Centre:** frame canvas (basemap + EIC frame) with cursor; large readout ("28.4 °C · 21.5° N, 89.8° E"); caption bar under the map.
@@ -383,20 +416,20 @@ Run order: `python pipeline/run_all.py` (or each script in order). All scripts p
 
 ### 9.2 Modules
 
-| Module | Responsibility |
+| Module (file) | Responsibility |
 |---|---|
-| `data.js` | Load grids + JSON; `valueAt(track, lat, lon)`; decode encodings; nearest cell |
-| `view.js` | Draw basemap + frame; cursor; highlight; playhead sync; reduced-motion option |
-| `audio.js` | Web Audio graph: per-voice synth (Section 10), stereo panner, master limiter/volume cap, legend tones, earcons |
-| `explore.js` | Mouse/touch/keyboard navigation, speech output, ARIA live region |
-| `sweep.js` | Gist sweep (rings outward from Dhaka), row sweep |
-| `panels.js` | Truth, Mapping (renders `mapping.json`), Legend, Provenance |
-| `compare.js` | Comparison Player (A then B; left/right ears; disclosure panel) |
-| `history.js` | Place History (GISTEMP + GPCP monthly series; chart + playhead) |
-| `game.js` | "Warmer or Colder?" (+ blindfold / audio-only mode) |
-| `story.js` | Story Mode script runner; "close your eyes" opening |
-| `captions.js` | Caption bar + Describe toggle (spoken descriptions) |
-| `i18n.js` | English / Bangla strings; narration clip mapping |
+| `lib/data.ts` | Load grids + JSON; `valueAt(track, lat, lon)`; decode encodings; nearest cell |
+| `components/frame-view.tsx` | Draw basemap + frame; cursor; highlight; playhead sync; reduced-motion option |
+| `lib/audio.ts` | Web Audio graph: per-voice synth (Section 10), stereo panner, master limiter/volume cap, legend tones, earcons |
+| `components/explore-controls.tsx` | Mouse/touch/keyboard navigation, speech output, ARIA live region |
+| `components/sweep-controls.tsx` | Gist sweep (rings outward from Dhaka), row sweep |
+| `components/panels/*.tsx` | Truth, Mapping (renders `mapping.json`), Legend, Provenance — built with necessary shadcn components |
+| `components/panels/compare-panel.tsx` | Comparison Player (A then B; left/right ears; disclosure panel) |
+| `components/history-chart.tsx` | Place History (GISTEMP + GPCP monthly series; chart + playhead) - built with shadcn `chart` component |
+| `components/game.tsx` | "Warmer or Colder?" — **single mode only**: hear a sound, choose the answer, reveal. Lowest build priority (Section 11.6) |
+| `components/story-mode.tsx` | Story Mode script runner; "close your eyes" opening |
+| `components/captions.tsx` | Caption bar + Describe toggle (spoken descriptions) |
+| `lib/i18n.ts` | English / Bangla strings; narration clip mapping |
 
 ### 9.3 Keyboard map (shown in Help)
 
@@ -410,7 +443,7 @@ Run order: `python pipeline/run_all.py` (or each script in order). All scripts p
 | M | Mute all |
 | D | Describe mode on/off |
 | C | Captions on/off |
-| G | Game |
+| G | Game (if built — lowest priority) |
 | T | Then vs Now |
 | L | Legend (plays reference sounds) |
 | P | Provenance of the current point |
@@ -472,7 +505,6 @@ Every rule below is shown to users in the Mapping panel. Mappings marked **(desi
 | A6 | Gist sweep from Dhaka | #7 |
 | A7 | Two-voice orchestra with mixer | Architecture B, #13 |
 | A8 | Honest silence + stereo by longitude | 23.4-4, #28 (lite) |
-| A9 | **Game: "Warmer or Colder?"** (5 rounds, reveal real values) | Section 22 |
 
 ### 11.2 CREATIVE LAYER A (Sun)
 | ID | Feature | What it does |
@@ -502,7 +534,6 @@ Every rule below is shown to users in the Mapping panel. Mappings marked **(desi
 | C8 | **Bangla / English** toggle (labels; recorded Bangla narration for Story Mode) |
 | H4 | **Caption bar** (e.g. "Apr–May 2019 · +1.6 °C above 1951–80 normal") |
 | H5 | **Describe mode** (spoken descriptions during any playback) |
-| C5 | **Blindfold challenge** setup (audio-only game mode) |
 | — | Accessibility pass; bug fixes |
 
 ### 11.5 THE KILLER DEMO: "Dhaka then vs now" (in Then vs Now mode and in the video)
@@ -520,6 +551,7 @@ Every rule below is shown to users in the Mapping panel. Mappings marked **(desi
 - Earth Ear ID lite: 8-band comfort check, labelled "comfort check, not a hearing test".
 - Anomaly clip from SVS 5176, **only if** it is an anomaly product and passes a 15-minute checklist.
 - Earth postcard: 10 s audio + frame export.
+- **"Warmer or Colder?" game** (single mode only): hear a sound, choose the answer, then see the real value revealed. This is the **lowest build priority** in the whole plan — build it only once every feature above is done. No separate blindfold/audio-only mode; the one mode already plays sound with no answer-revealing visual on screen.
 
 ### 11.7 CONCEPT-ONLY in Video 1 (labelled "coming in October")
 - "Check the AI by ear" and "Ask the Earth" (voice agent; the AI never produces numbers).
@@ -537,23 +569,23 @@ Every rule below is shown to users in the Mapping panel. Mappings marked **(desi
 
 **Lanes (assign one owner each; owners may help across lanes):**
 - **L1 Data / Pipeline:** Python scripts, data files, spot checks, deployment.
-- **L2 Audio:** `audio.js`, `mapping.json`, sound design, earcons, mix.
-- **L3 Interface / Accessibility:** `view.js`, `explore.js`, panels, keyboard, captions, i18n.
+- **L2 Audio:** `lib/audio.ts`, `mapping.json`, sound design, earcons, mix.
+- **L3 Interface / Accessibility:** `components/frame-view.tsx`, `explore-controls.tsx`, panels, keyboard, captions, i18n.
 - **L4 Story / Video / QA:** script, narration (EN + BN), Story Mode content, recording, editing, QA checklist, submission.
 
 | Day | L1 Data | L2 Audio | L3 Interface / Accessibility | L4 Story / Video / QA |
 |---|---|---|---|---|
 | **Sat 26 (AM)** | Repo, `lut_params.json`, `fetch_latest.py` | Audio graph skeleton, master cap | App shell, layout, frame display | Script draft v1; collect member names/roles |
-| **Sat 26 (PM)** | `convert_sst.py`, `convert_rain.py`, `spotcheck.py` | Ocean, rain and snow voices; stereo | Cursor, readout, `data.js` integration | Narration outline (EN/BN) |
-| **Sun 27** | `build_context.py`, `build_demo.py` | Mixer, sweep, legend tones, **C1**, **C9** | Keyboard + speech + ARIA, Truth/Mapping/Legend panels, **A9** game, **C2** X-ray, **C7** whisper | Voice-over draft; recruit an **adult** for the blindfold challenge; **core acceptance test (Sun night)** |
-| **Mon 28** | `fetch_rain_sequence.py`; deploy to GitHub Pages | GRACE bass + gap silence; FIRMS clicks; Anomaly-Choir dissonance; variability/seasonality mappings | Comparison Player, Place History + scrubbing chart, Provenance drawer, extreme pings + area summary, **Story Mode** | Record Bangla + English narration; rehearse |
+| **Sat 26 (PM)** | `convert_sst.py`, `convert_rain.py`, `spotcheck.py` | Ocean, rain and snow voices; stereo | Cursor, readout, `lib/data.ts` integration | Narration outline (EN/BN) |
+| **Sun 27** | `build_context.py`, `build_demo.py` | Mixer, sweep, legend tones, **C1**, **C9** | Keyboard + speech + ARIA, Truth/Mapping/Legend panels, **C2** X-ray, **C7** whisper | Voice-over draft; **core acceptance test (Sun night)** |
+| **Mon 28** | `fetch_rain_sequence.py`; commit data to trigger the shared Vercel deploy | GRACE bass + gap silence; FIRMS clicks; Anomaly-Choir dissonance; variability/seasonality mappings | Comparison Player, Place History + scrubbing chart, Provenance drawer, extreme pings + area summary, **Story Mode** | Record Bangla + English narration; rehearse |
 | **Tue 29 (AM)** | Final data refresh; spot checks | Mix polish | Bangla toggle, caption bar, Describe mode, accessibility pass; **FREEZE 12:00** | QA checklist run |
-| **Tue 29 (PM)** | Support recording | Support recording | Support recording | **Record** screen clips + blindfold challenge + voice-over |
+| **Tue 29 (PM)** | Support recording | Support recording | Support recording | **Record** screen clips + voice-over |
 | **Wed 30** | — | — | — | **Edit, subtitles, check under 4:00 (aim 3:50), upload to YouTube, submit the Google Form** |
 
 **Dependency order (don't start a task before its inputs exist):**
-`lut_params → convert_* → grids` → `data.js` → `view.js + audio.js` → `explore / sweep / game` → `X-ray, whisper, close-your-eyes` → `time-lapse` → `Story Mode` → `video`.
-`context JSON → demo JSON` → `compare.js / history.js` → `Then vs Now` → `video`.
+`lut_params → convert_* → grids` → `lib/data.ts` → `frame-view.tsx + lib/audio.ts` → `explore / sweep` → `X-ray, whisper, close-your-eyes` → `time-lapse` → `Story Mode` → `game.tsx (lowest priority, time-permitting)` → `video`.
+`context JSON → demo JSON` → `compare-panel.tsx / history-chart.tsx` → `Then vs Now` → `video`.
 
 ---
 
@@ -563,7 +595,7 @@ Every rule below is shown to users in the Mapping panel. Mappings marked **(desi
 - [ ] `spotcheck.py`: all 10 SST and 10 rain points PASS (SST within 0.1 °C of the test pipeline; rain within 1% in log terms; phase correct).
 - [ ] Cursor readout equals `valueAt()` at 5 random points (manual check against the pipeline printout).
 - [ ] Sound responds instantly (T3 standard); no clicks or pops; volume capped.
-- [ ] A complete run using the keyboard only: explore, speak a value, switch tracks, sweep, play the game.
+- [ ] A complete run using the keyboard only: explore, speak a value, switch tracks, sweep.
 - [ ] The Truth panel shows exactly the Section 16 wording.
 - [ ] No errors in the browser console (Chrome, Edge).
 - [ ] Credits visible (footer + README).
@@ -590,7 +622,7 @@ Every rule below is shown to users in the Mapping panel. Mappings marked **(desi
 | 0:45–1:15 | WHY | The official challenge text on screen; "EIC's visuals are for eyes only. What if you can't see them?" | — |
 | 1:15–1:45 | WHY (killer data point) | **Dhaka then vs now:** heat pitch rises (+1.37 °C), monsoon not wetter, GRACE bass sinks, gap silence | 11.5 |
 | 1:45–2:45 | WHAT | Story Mode excerpt → Pipeline X-ray ("colour → 28.4 °C → sound") → storm time-lapse → satellite whisper → **Truth panel** (0.85 °C; ~27%) | C3, C2, C4, C7, A3 |
-| 2:45–3:15 | SO WHAT NEXT (proof) | **Blindfold challenge:** an adult teammate answers "Warmer or Colder?" by ear; score + reveal | C5 |
+| 2:45–3:15 | SO WHAT NEXT (proof) | **If the game is built in time** (it's lowest priority, see 11.6): a teammate hears a sound and guesses "Warmer or Colder?", score + reveal. **If not ready yet:** a live keyboard-only, eyes-closed moment in Explore mode, values spoken aloud, to make the same point | `game.tsx` (optional) / A5 (fallback) |
 | 3:15–3:45 | SO WHAT NEXT (roadmap) | Labelled concepts: check the AI by ear, "Ask the Earth", listening study with blind and low-vision adults, more EIC tracks, NASA–JAXA duet; "What we need: mentors for the study design, contacts with blind and low-vision organisations" | 11.7 |
 | 3:45–3:50 | Close | The live app in Bangla mode, playing; tagline | C8 |
 
@@ -657,7 +689,7 @@ Every rule below is shown to users in the Mapping panel. Mappings marked **(desi
 | Behind schedule on Monday | Drop B3 (FIRMS) and B5/B6 first; keep C4, B2, C3, H1 (they carry the story) |
 | SVS feed stalls | Use cached frames; the frame time is always on screen |
 | EXR conversion issues on a teammate's PC | Use the converted PNG from Check C |
-| GitHub Pages deploy fails | Record from localhost |
+| Vercel deploy fails | Record from localhost |
 | Bangla narration not ready | English narration + Bangla subtitles |
 | Time-lapse too heavy | 24 frames instead of 48; lower resolution |
 | Browser speech sounds poor | Recorded narration for Story Mode; speech only for live values |
