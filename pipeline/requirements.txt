@@ -1,0 +1,10 @@
+numpy
+pandas
+pillow
+opencv-python
+xarray
+h5netcdf
+h5py
+netCDF4
+earthaccess
+matplotlib

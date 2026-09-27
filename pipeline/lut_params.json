@@ -1,0 +1,115 @@
+{
+  "sst": {
+    "svs_id": 5101,
+    "svs_page": "https://svs.gsfc.nasa.gov/5101/",
+    "colorbar_file": "inputs/colorbars/sst_colorbar.png",
+    "colorbar_url": "https://svs.gsfc.nasa.gov/vis/a000000/a005100/a005101/sst_mur_colorbar.png",
+    "orientation": "horizontal",
+    "start": 194,
+    "end": 1413,
+    "across": 446,
+    "vmin": -4.0,
+    "vmax": 34.0,
+    "scale": "linear",
+    "exr_encoding": "srgb",
+    "max_colour_distance": 20,
+    "folder_must_contain": [
+      "no-dates",
+      "2x1"
+    ],
+    "folder_must_not_contain": [
+      "robinson",
+      "hurricane",
+      "print"
+    ],
+    "grid_width": 1024,
+    "display_width": 2048,
+    "source_dataset": "MUR-JPL-L4-GLOB-v4.1 (NASA/JPL PO.DAAC)",
+    "credit": "Visualization: NASA's Scientific Visualization Studio (SVS 5101), NASA Earth Information Center. Data: MUR SST, NASA/JPL PO.DAAC.",
+    "verified": {
+      "metric": "median_abs_error_C",
+      "value": 0.31,
+      "p90_abs_error_C": 0.77,
+      "bias_C": 0.08,
+      "n_points": 60,
+      "frames_tested": 1,
+      "test": "Check C re-evaluated with corrected colorbar positions (same frame, same MUR values)"
+    },
+    "calibration": {
+      "method": "H1 round -4..34",
+      "legend_labels": "-5..35 C",
+      "ticks_px": [
+        194.2,
+        1413.1
+      ],
+      "value_at_ticks_C": [
+        -4.0,
+        34.0
+      ],
+      "evidence": "calibrate_sst_range.py vs NASA MUR (Check C, 60 points)",
+      "note": "Frame colours checked against MUR imply this scale; out-of-sample test = verify_latest.py on a new frame."
+    },
+    "colorbar_online_reference": {
+      "file": "inputs/colorbars/sst_colorbar_official.png",
+      "sha256": "8bfc8b4b20566b073709a3990ad3ff3f0d791a3717391ed87ab28c2bc0e88a88",
+      "full_strip": [
+        264,
+        3574,
+        1079
+      ],
+      "transferred_mapping": [
+        473,
+        3365,
+        1079
+      ],
+      "equivalence_check": "verify_latest.py SST PASS after calibration",
+      "registered_utc": "2026-09-27T07:10:25Z"
+    }
+  },
+  "rain": {
+    "svs_id": 4285,
+    "svs_page": "https://svs.gsfc.nasa.gov/4285/",
+    "colorbars": {
+      "liquid": {
+        "white": "inputs/colorbars/rainbarwhite2.png",
+        "black": "inputs/colorbars/rainbarblack2.png"
+      },
+      "frozen": {
+        "white": "inputs/colorbars/snowbarwhite2.png",
+        "black": "inputs/colorbars/snowbarblack2.png"
+      }
+    },
+    "colorbar_url_base": "https://svs.gsfc.nasa.gov/vis/a000000/a004200/a004285/",
+    "orientation": "horizontal",
+    "start": 40,
+    "end": 416,
+    "across": 37,
+    "vmin": 0.1,
+    "vmax": 50,
+    "scale": "log",
+    "rgb_variant": "auto",
+    "max_colour_distance": 25,
+    "folder_must_contain": [
+      "flatalpha",
+      "3600x1800"
+    ],
+    "folder_must_not_contain": [],
+    "grid_factor": 2,
+    "sequence_factor": 3,
+    "sequence_frames": 48,
+    "source_dataset": "GPM IMERG half-hourly V07 (NASA/JAXA, GES DISC): newest frames match the Early run; older frames matched the Late run",
+    "credit": "Visualization: NASA's Scientific Visualization Studio (SVS 4285), NASA Earth Information Center. Data: GPM IMERG (NASA/JAXA), GES DISC.",
+    "verified": {
+      "metric": "median_abs_log10_error",
+      "value": 0.103,
+      "approx_percent": 27,
+      "bias_log10": -0.103,
+      "n_points": 150,
+      "agreement": 1.0,
+      "phase_agreement": 1.0,
+      "matched_run": "IMERG Late",
+      "frames_tested": 1,
+      "test": "D2"
+    }
+  }
+}

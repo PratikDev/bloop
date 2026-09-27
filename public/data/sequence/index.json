@@ -1,0 +1,349 @@
+{
+  "frames": [
+    {
+      "index": 0,
+      "time_utc": "2026-09-26T03:00:00Z",
+      "grid": "rain_000.u8.gz",
+      "png": "rain_000.png",
+      "unmatched_pct": 0.0
+    },
+    {
+      "index": 1,
+      "time_utc": "2026-09-26T03:30:00Z",
+      "grid": "rain_001.u8.gz",
+      "png": "rain_001.png",
+      "unmatched_pct": 0.0
+    },
+    {
+      "index": 2,
+      "time_utc": "2026-09-26T04:00:00Z",
+      "grid": "rain_002.u8.gz",
+      "png": "rain_002.png",
+      "unmatched_pct": 0.0
+    },
+    {
+      "index": 3,
+      "time_utc": "2026-09-26T04:30:00Z",
+      "grid": "rain_003.u8.gz",
+      "png": "rain_003.png",
+      "unmatched_pct": 0.0
+    },
+    {
+      "index": 4,
+      "time_utc": "2026-09-26T05:00:00Z",
+      "grid": "rain_004.u8.gz",
+      "png": "rain_004.png",
+      "unmatched_pct": 0.0
+    },
+    {
+      "index": 5,
+      "time_utc": "2026-09-26T05:30:00Z",
+      "grid": "rain_005.u8.gz",
+      "png": "rain_005.png",
+      "unmatched_pct": 0.0
+    },
+    {
+      "index": 6,
+      "time_utc": "2026-09-26T06:00:00Z",
+      "grid": "rain_006.u8.gz",
+      "png": "rain_006.png",
+      "unmatched_pct": 0.0
+    },
+    {
+      "index": 7,
+      "time_utc": "2026-09-26T06:30:00Z",
+      "grid": "rain_007.u8.gz",
+      "png": "rain_007.png",
+      "unmatched_pct": 0.0
+    },
+    {
+      "index": 8,
+      "time_utc": "2026-09-26T07:00:00Z",
+      "grid": "rain_008.u8.gz",
+      "png": "rain_008.png",
+      "unmatched_pct": 0.0
+    },
+    {
+      "index": 9,
+      "time_utc": "2026-09-26T07:30:00Z",
+      "grid": "rain_009.u8.gz",
+      "png": "rain_009.png",
+      "unmatched_pct": 0.0
+    },
+    {
+      "index": 10,
+      "time_utc": "2026-09-26T08:00:00Z",
+      "grid": "rain_010.u8.gz",
+      "png": "rain_010.png",
+      "unmatched_pct": 0.0
+    },
+    {
+      "index": 11,
+      "time_utc": "2026-09-26T08:30:00Z",
+      "grid": "rain_011.u8.gz",
+      "png": "rain_011.png",
+      "unmatched_pct": 0.0
+    },
+    {
+      "index": 12,
+      "time_utc": "2026-09-26T09:00:00Z",
+      "grid": "rain_012.u8.gz",
+      "png": "rain_012.png",
+      "unmatched_pct": 0.0
+    },
+    {
+      "index": 13,
+      "time_utc": "2026-09-26T09:30:00Z",
+      "grid": "rain_013.u8.gz",
+      "png": "rain_013.png",
+      "unmatched_pct": 0.0
+    },
+    {
+      "index": 14,
+      "time_utc": "2026-09-26T10:00:00Z",
+      "grid": "rain_014.u8.gz",
+      "png": "rain_014.png",
+      "unmatched_pct": 0.0
+    },
+    {
+      "index": 15,
+      "time_utc": "2026-09-26T10:30:00Z",
+      "grid": "rain_015.u8.gz",
+      "png": "rain_015.png",
+      "unmatched_pct": 0.0
+    },
+    {
+      "index": 16,
+      "time_utc": "2026-09-26T11:00:00Z",
+      "grid": "rain_016.u8.gz",
+      "png": "rain_016.png",
+      "unmatched_pct": 0.0
+    },
+    {
+      "index": 17,
+      "time_utc": "2026-09-26T11:30:00Z",
+      "grid": "rain_017.u8.gz",
+      "png": "rain_017.png",
+      "unmatched_pct": 0.0
+    },
+    {
+      "index": 18,
+      "time_utc": "2026-09-26T12:00:00Z",
+      "grid": "rain_018.u8.gz",
+      "png": "rain_018.png",
+      "unmatched_pct": 0.0
+    },
+    {
+      "index": 19,
+      "time_utc": "2026-09-26T12:30:00Z",
+      "grid": "rain_019.u8.gz",
+      "png": "rain_019.png",
+      "unmatched_pct": 0.0
+    },
+    {
+      "index": 20,
+      "time_utc": "2026-09-26T13:00:00Z",
+      "grid": "rain_020.u8.gz",
+      "png": "rain_020.png",
+      "unmatched_pct": 0.0
+    },
+    {
+      "index": 21,
+      "time_utc": "2026-09-26T13:30:00Z",
+      "grid": "rain_021.u8.gz",
+      "png": "rain_021.png",
+      "unmatched_pct": 0.0
+    },
+    {
+      "index": 22,
+      "time_utc": "2026-09-26T14:00:00Z",
+      "grid": "rain_022.u8.gz",
+      "png": "rain_022.png",
+      "unmatched_pct": 0.0
+    },
+    {
+      "index": 23,
+      "time_utc": "2026-09-26T14:30:00Z",
+      "grid": "rain_023.u8.gz",
+      "png": "rain_023.png",
+      "unmatched_pct": 0.0
+    },
+    {
+      "index": 24,
+      "time_utc": "2026-09-26T15:00:00Z",
+      "grid": "rain_024.u8.gz",
+      "png": "rain_024.png",
+      "unmatched_pct": 0.0
+    },
+    {
+      "index": 25,
+      "time_utc": "2026-09-26T15:30:00Z",
+      "grid": "rain_025.u8.gz",
+      "png": "rain_025.png",
+      "unmatched_pct": 0.0
+    },
+    {
+      "index": 26,
+      "time_utc": "2026-09-26T16:00:00Z",
+      "grid": "rain_026.u8.gz",
+      "png": "rain_026.png",
+      "unmatched_pct": 0.0
+    },
+    {
+      "index": 27,
+      "time_utc": "2026-09-26T16:30:00Z",
+      "grid": "rain_027.u8.gz",
+      "png": "rain_027.png",
+      "unmatched_pct": 0.0
+    },
+    {
+      "index": 28,
+      "time_utc": "2026-09-26T17:00:00Z",
+      "grid": "rain_028.u8.gz",
+      "png": "rain_028.png",
+      "unmatched_pct": 0.0
+    },
+    {
+      "index": 29,
+      "time_utc": "2026-09-26T17:30:00Z",
+      "grid": "rain_029.u8.gz",
+      "png": "rain_029.png",
+      "unmatched_pct": 0.0
+    },
+    {
+      "index": 30,
+      "time_utc": "2026-09-26T18:00:00Z",
+      "grid": "rain_030.u8.gz",
+      "png": "rain_030.png",
+      "unmatched_pct": 0.0
+    },
+    {
+      "index": 31,
+      "time_utc": "2026-09-26T18:30:00Z",
+      "grid": "rain_031.u8.gz",
+      "png": "rain_031.png",
+      "unmatched_pct": 0.0
+    },
+    {
+      "index": 32,
+      "time_utc": "2026-09-26T19:00:00Z",
+      "grid": "rain_032.u8.gz",
+      "png": "rain_032.png",
+      "unmatched_pct": 0.0
+    },
+    {
+      "index": 33,
+      "time_utc": "2026-09-26T19:30:00Z",
+      "grid": "rain_033.u8.gz",
+      "png": "rain_033.png",
+      "unmatched_pct": 0.0
+    },
+    {
+      "index": 34,
+      "time_utc": "2026-09-26T20:00:00Z",
+      "grid": "rain_034.u8.gz",
+      "png": "rain_034.png",
+      "unmatched_pct": 0.0
+    },
+    {
+      "index": 35,
+      "time_utc": "2026-09-26T20:30:00Z",
+      "grid": "rain_035.u8.gz",
+      "png": "rain_035.png",
+      "unmatched_pct": 0.0
+    },
+    {
+      "index": 36,
+      "time_utc": "2026-09-26T21:00:00Z",
+      "grid": "rain_036.u8.gz",
+      "png": "rain_036.png",
+      "unmatched_pct": 0.0
+    },
+    {
+      "index": 37,
+      "time_utc": "2026-09-26T21:30:00Z",
+      "grid": "rain_037.u8.gz",
+      "png": "rain_037.png",
+      "unmatched_pct": 0.0
+    },
+    {
+      "index": 38,
+      "time_utc": "2026-09-26T22:00:00Z",
+      "grid": "rain_038.u8.gz",
+      "png": "rain_038.png",
+      "unmatched_pct": 0.0
+    },
+    {
+      "index": 39,
+      "time_utc": "2026-09-26T22:30:00Z",
+      "grid": "rain_039.u8.gz",
+      "png": "rain_039.png",
+      "unmatched_pct": 0.0
+    },
+    {
+      "index": 40,
+      "time_utc": "2026-09-26T23:00:00Z",
+      "grid": "rain_040.u8.gz",
+      "png": "rain_040.png",
+      "unmatched_pct": 0.0
+    },
+    {
+      "index": 41,
+      "time_utc": "2026-09-26T23:30:00Z",
+      "grid": "rain_041.u8.gz",
+      "png": "rain_041.png",
+      "unmatched_pct": 0.0
+    },
+    {
+      "index": 42,
+      "time_utc": "2026-09-27T00:00:00Z",
+      "grid": "rain_042.u8.gz",
+      "png": "rain_042.png",
+      "unmatched_pct": 0.0
+    },
+    {
+      "index": 43,
+      "time_utc": "2026-09-27T00:30:00Z",
+      "grid": "rain_043.u8.gz",
+      "png": "rain_043.png",
+      "unmatched_pct": 0.0
+    },
+    {
+      "index": 44,
+      "time_utc": "2026-09-27T01:00:00Z",
+      "grid": "rain_044.u8.gz",
+      "png": "rain_044.png",
+      "unmatched_pct": 0.0
+    },
+    {
+      "index": 45,
+      "time_utc": "2026-09-27T01:30:00Z",
+      "grid": "rain_045.u8.gz",
+      "png": "rain_045.png",
+      "unmatched_pct": 0.0
+    },
+    {
+      "index": 46,
+      "time_utc": "2026-09-27T02:00:00Z",
+      "grid": "rain_046.u8.gz",
+      "png": "rain_046.png",
+      "unmatched_pct": 0.0
+    },
+    {
+      "index": 47,
+      "time_utc": "2026-09-27T02:30:00Z",
+      "grid": "rain_047.u8.gz",
+      "png": "rain_047.png",
+      "unmatched_pct": 0.0
+    }
+  ],
+  "grid": {
+    "width": 1200,
+    "height": 600,
+    "encoding": "uint8_log_phase (gzip); see any rain_XXX.json for the formula"
+  },
+  "step_minutes": 30,
+  "credit": "Visualization: NASA's Scientific Visualization Studio (SVS 4285), NASA Earth Information Center. Data: GPM IMERG (NASA/JAXA), GES DISC.",
+  "generated_utc": "2026-09-27T08:16:46Z",
+  "colorbar_variant": "black"
+}
