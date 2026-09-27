@@ -1,0 +1,270 @@
+{
+  "version": "0.1.0",
+  "global": {
+    "masterGain": 0.8,
+    "voiceMaxGain": 0.25,
+    "earconMaxGain": 0.15,
+    "narrationMaxGain": 0.6,
+    "maxConcurrentVoices": 3,
+    "compressor": { "thresholdDb": -6, "ratio": 20, "attackSec": 0.003, "releaseSec": 0.25 },
+    "duck": { "level": 0.3, "attackSec": 0.1, "releaseSec": 0.15 },
+    "stopFadeMs": 50,
+    "pan": { "rule": "lon/180", "min": -1, "max": 1 },
+    "loudnessCompensation": { "refHz": 440, "exponent": 0 },
+    "rules": [
+      "Master volume is capped: all voices together stay below full scale.",
+      "A limiter on the master output is a safety net against sudden loud sounds.",
+      "Every voice can be muted or soloed.",
+      "Style or instrument choices may change timbre only, never the value-to-pitch or value-to-density rules.",
+      "Silence means no data (land, dry, or no measurement), never zero.",
+      "Left-right position follows longitude: west is left, east is right."
+    ]
+  },
+  "voices": [
+    {
+      "id": "ocean",
+      "label": { "en": "Ocean temperature", "bn": "সমুদ্রের তাপমাত্রা" },
+      "group": "live",
+      "source": { "dataset": "MUR SST (NASA/JPL PO.DAAC), via EIC frame SVS 5101", "svsId": 5101 },
+      "status": "verified",
+      "mapping": {
+        "kind": "continuous",
+        "input": { "unit": "°C", "min": -5, "max": 35, "scale": "linear" },
+        "output": { "param": "frequency", "unit": "Hz", "min": 220, "max": 880, "scale": "exponential" }
+      },
+      "silence": "Land or no data at this point.",
+      "sound": { "timbre": "Warm sine with a soft attack and a smooth glide", "attackMs": 20, "releaseMs": 80, "glideMs": 30, "maxGain": 0.25 },
+      "pan": "longitude",
+      "legend": [
+        { "value": 0, "label": "0 °C" },
+        { "value": 10, "label": "10 °C" },
+        { "value": 20, "label": "20 °C" },
+        { "value": 30, "label": "30 °C" }
+      ],
+      "designChoice": false
+    },
+    {
+      "id": "rain",
+      "label": { "en": "Rain", "bn": "বৃষ্টি" },
+      "group": "live",
+      "source": { "dataset": "GPM IMERG (NASA/JAXA, GES DISC), via EIC frame SVS 4285", "svsId": 4285 },
+      "status": "verified",
+      "mapping": {
+        "kind": "continuous",
+        "input": { "unit": "mm/h", "min": 0.1, "max": 50, "scale": "log" },
+        "output": { "param": "dropsPerSecond", "unit": "drops/s", "min": 2, "max": 40, "scale": "linear" }
+      },
+      "silence": "Dry, or no data at this point.",
+      "sound": { "timbre": "Short band-passed noise bursts, like raindrops; slightly louder as rain gets heavier", "attackMs": 2, "releaseMs": 45, "maxGain": 0.25 },
+      "pan": "longitude",
+      "legend": [
+        { "value": 0.5, "label": "0.5 mm/h (light)" },
+        { "value": 5, "label": "5 mm/h (moderate)" },
+        { "value": 25, "label": "25 mm/h (heavy)" }
+      ],
+      "designChoice": false,
+      "note": "Drop timing varies slightly so it sounds like real rain; the average rate always follows the rule. Legend points are our choice."
+    },
+    {
+      "id": "snow",
+      "label": { "en": "Snow", "bn": "তুষার" },
+      "group": "live",
+      "source": { "dataset": "GPM IMERG frozen phase (NASA/JAXA, GES DISC), via EIC frame SVS 4285", "svsId": 4285 },
+      "status": "verified",
+      "mapping": {
+        "kind": "continuous",
+        "input": { "unit": "mm/h", "min": 0.1, "max": 50, "scale": "log" },
+        "output": { "param": "dropsPerSecond", "unit": "bells/s", "min": 2, "max": 40, "scale": "linear" }
+      },
+      "silence": "No snow, or no data at this point.",
+      "sound": { "timbre": "Soft bell (sine partials, slow decay)", "attackMs": 5, "releaseMs": 400, "maxGain": 0.25 },
+      "pan": "longitude",
+      "legend": [
+        { "value": 0.5, "label": "0.5 mm/h (light)" },
+        { "value": 5, "label": "5 mm/h (moderate)" }
+      ],
+      "designChoice": false,
+      "note": "Same density rule as rain; only the sound changes. Legend points are our choice."
+    },
+    {
+      "id": "heat",
+      "label": { "en": "Heat, then vs now", "bn": "তাপ, আগে বনাম এখন" },
+      "group": "thenNow",
+      "source": { "dataset": "NASA GISTEMP v4, April–May anomaly vs 1951–1980" },
+      "status": "context",
+      "mapping": {
+        "kind": "continuous",
+        "input": { "unit": "°C", "min": -2, "max": 3, "scale": "linear" },
+        "output": { "param": "frequency", "unit": "Hz", "min": 220, "max": 880, "scale": "exponential" }
+      },
+      "silence": "No value for that year.",
+      "sound": { "timbre": "Triangle wave through a low-pass filter (deliberately different from the ocean sine)", "attackMs": 20, "releaseMs": 120, "glideMs": 60, "maxGain": 0.15 },
+      "pan": "center",
+      "legend": [
+        { "value": -1, "label": "−1 °C" },
+        { "value": 0, "label": "0 °C (the 1951–1980 normal)" },
+        { "value": 1, "label": "+1 °C" },
+        { "value": 2, "label": "+2 °C" }
+      ],
+      "designChoice": false,
+      "note": "Not paired with an EIC frame: a long-term context record. The same pitch means a different temperature than in the ocean voice, so the sound is different on purpose."
+    },
+    {
+      "id": "heatDeviation",
+      "label": { "en": "Heat: how unusual", "bn": "TODO: তাপ: কতটা অস্বাভাবিক" },
+      "group": "thenNow",
+      "source": { "dataset": "NASA GISTEMP v4, April–May anomaly vs 1951–1980" },
+      "status": "context",
+      "mapping": {
+        "kind": "bands",
+        "input": { "unit": "°C", "transform": "abs" },
+        "bands": [
+          { "upTo": 0.5, "label": "close to normal", "detuneCents": 0, "roughness": 0 },
+          { "upTo": 1.0, "label": "a little unusual", "detuneCents": 8, "roughness": 0 },
+          { "upTo": 1.5, "label": "unusual", "detuneCents": 20, "roughness": 0 },
+          { "upTo": null, "label": "very unusual", "detuneCents": 35, "roughness": 0.4 }
+        ]
+      },
+      "silence": "No value for that year.",
+      "sound": { "timbre": "A second, detuned voice under the heat voice; roughness is a fast (~30 Hz) wobble", "attackMs": 20, "releaseMs": 120, "maxGain": 0.1 },
+      "pan": "center",
+      "legend": [],
+      "designChoice": true,
+      "note": "Our design choice (Anomaly Choir): consonant means close to normal, dissonant means unusual, not 'bad'. Warm and cold anomalies are treated the same. Detune amounts are starting values. Shares the heat voice's volume budget."
+    },
+    {
+      "id": "monsoon",
+      "label": { "en": "Monsoon rain, then vs now", "bn": "বর্ষার বৃষ্টি, আগে বনাম এখন" },
+      "group": "thenNow",
+      "source": { "dataset": "GPCP v2.3 June–September (NOAA PSL); GPCC gauges v2020 for the cross-check" },
+      "status": "context",
+      "mapping": {
+        "kind": "continuous",
+        "input": { "unit": "mm/day", "min": 0, "max": 25, "scale": "linear" },
+        "output": { "param": "dropsPerStep", "unit": "drops per step", "min": 0, "max": 15, "scale": "linear", "round": true }
+      },
+      "silence": "No value for that step.",
+      "sound": { "timbre": "Rain drops, a fixed number per step", "attackMs": 2, "releaseMs": 45, "maxGain": 0.25 },
+      "pan": "center",
+      "legend": [
+        { "value": 5, "label": "5 mm/day" },
+        { "value": 15, "label": "15 mm/day" }
+      ],
+      "designChoice": false,
+      "note": "Not paired with an EIC frame: a long-term context record."
+    },
+    {
+      "id": "water",
+      "label": { "en": "Water storage (bass)", "bn": "পানির মজুদ (বেস)" },
+      "group": "thenNow",
+      "source": { "dataset": "GRACE/GRACE-FO JPL mascons RL06.3Mv04 CRI (NASA/JPL PO.DAAC)" },
+      "status": "context",
+      "mapping": {
+        "kind": "runtimeRange",
+        "input": { "unit": "cm", "range": "p5-p95", "transform": "none" },
+        "output": { "param": "frequency", "unit": "Hz", "min": 80, "max": 320, "scale": "exponential" }
+      },
+      "silence": "No satellite measurements that month (e.g. Jul 2017 – May 2018, between GRACE and GRACE-FO).",
+      "sound": { "timbre": "Low sine with 2nd and 3rd harmonics so the pitch is heard on small speakers", "attackMs": 30, "releaseMs": 150, "glideMs": 40, "maxGain": 0.25 },
+      "pan": "center",
+      "legend": [],
+      "designChoice": false,
+      "note": "The pitch range covers the 5th to 95th percentile of the series being played; the legend is built from that series."
+    },
+    {
+      "id": "fires",
+      "label": { "en": "Fires", "bn": "আগুন" },
+      "group": "context",
+      "source": { "dataset": "NASA FIRMS (LANCE/ESDIS), MODIS standard product" },
+      "status": "context",
+      "mapping": {
+        "kind": "runtimeRange",
+        "input": { "unit": "detections per day", "range": "zero-to-max", "transform": "log1p" },
+        "output": { "param": "gain", "unit": "click strength", "min": 0, "max": 1, "scale": "linear" }
+      },
+      "silence": "No fire detections that day.",
+      "sound": { "timbre": "Percussive click", "attackMs": 1, "releaseMs": 30, "maxGain": 0.25 },
+      "pan": "center",
+      "legend": [],
+      "designChoice": false,
+      "note": "Compare MODIS with MODIS only; single years are example years."
+    },
+    {
+      "id": "vegetation",
+      "label": { "en": "Vegetation (NDVI)", "bn": "গাছপালা (NDVI)" },
+      "group": "context",
+      "source": { "dataset": "MODIS MOD13Q1 NDVI (ORNL DAAC)" },
+      "status": "context",
+      "mapping": {
+        "kind": "continuous",
+        "input": { "unit": "NDVI", "min": 0, "max": 1, "scale": "linear" },
+        "output": { "param": "frequency", "unit": "Hz", "min": 150, "max": 600, "scale": "exponential" }
+      },
+      "silence": "No value for that date.",
+      "sound": { "timbre": "Slow pad", "attackMs": 300, "releaseMs": 500, "glideMs": 150, "maxGain": 0.25 },
+      "pan": "center",
+      "legend": [
+        { "value": 0.2, "label": "0.2 (sparse)" },
+        { "value": 0.5, "label": "0.5" },
+        { "value": 0.8, "label": "0.8 (dense)" }
+      ],
+      "designChoice": false,
+      "note": "Single 250 m pixels. Legend points are our choice."
+    },
+    {
+      "id": "nodata",
+      "label": { "en": "No-data cue", "bn": "তথ্য নেই সংকেত" },
+      "group": "earcon",
+      "source": { "dataset": "Any track" },
+      "status": "designOnly",
+      "mapping": null,
+      "silence": "Plays once when the cursor enters an area with no data; the area itself stays silent.",
+      "sound": { "timbre": "Very soft, short tick (~15 ms)", "attackMs": 1, "releaseMs": 15, "maxGain": 0.075 },
+      "pan": "longitude",
+      "legend": [],
+      "designChoice": true,
+      "note": "Our design choice, so silence over land is not mistaken for the app freezing."
+    },
+    {
+      "id": "whisper",
+      "label": { "en": "Satellite whisper", "bn": "TODO: স্যাটেলাইটের ফিসফিস" },
+      "group": "earcon",
+      "source": { "dataset": "Frame metadata (dataset and mission names)" },
+      "status": "designOnly",
+      "mapping": null,
+      "silence": "Plays only after a spoken value.",
+      "sound": { "timbre": "Soft two-note chime", "attackMs": 5, "releaseMs": 150, "maxGain": 0.15 },
+      "pan": "center",
+      "legend": [],
+      "designChoice": false,
+      "note": "The caption names the dataset and mission that measured the value."
+    },
+    {
+      "id": "ping",
+      "label": { "en": "Extreme ping", "bn": "TODO: চরম মানের সংকেত" },
+      "group": "earcon",
+      "source": { "dataset": "Current frame (hottest ocean point or heaviest rain cell in view)" },
+      "status": "designOnly",
+      "mapping": null,
+      "silence": "Plays once per request.",
+      "sound": { "timbre": "One short bright tone at the extreme point's position", "attackMs": 2, "releaseMs": 80, "maxGain": 0.15 },
+      "pan": "longitude",
+      "legend": [],
+      "designChoice": false
+    },
+    {
+      "id": "motif",
+      "label": { "en": "Sonic identity", "bn": "TODO: সোনিক পরিচয়" },
+      "group": "earcon",
+      "source": { "dataset": "Today's MUR SST via EIC frame SVS 5101", "svsId": 5101 },
+      "status": "designOnly",
+      "mapping": null,
+      "silence": "A latitude band with no ocean data is a rest.",
+      "sound": { "timbre": "Four soft bell-sine notes", "attackMs": 10, "releaseMs": 300, "maxGain": 0.15 },
+      "pan": "center",
+      "legend": [],
+      "designChoice": true,
+      "note": "Each note is one latitude band's mean ocean temperature, using the ocean rule; bands 60°S–30°S, 30°S–0°, 0°–30°N, 30°N–60°N, played south to north (our choice)."
+    }
+  ]
+}
