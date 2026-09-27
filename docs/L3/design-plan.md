@@ -27,7 +27,7 @@ One accent colour marks everything that **listens or points**: the cursor, the s
 Marigold (~45°) sits in the rain colormap's light-rain yellow, so a marigold cursor over a rain band would read as data. That breaks the brief's own rule ("UI chrome must never use colours that could be mistaken for data colours"). The only hue range that neither NASA colormap uses is **255°–330°**, so:
 
 - **All chrome lives in that range.** The surfaces are indigo (hue ~248°, low lightness).
-- **The accent is shapla pink** (hue 324°). The shapla, a water lily, is the national flower of Bangladesh. It floats on the water where the sound rings spread, so it fits the "monsoon country" story.
+- **The accent is shapla pink** (hue 326°). The shapla, a water lily, is the national flower of Bangladesh. It floats on the water where the sound rings spread, so it fits the "monsoon country" story.
 - **The background moves from navy `#0F2236` to indigo `#15122A`.** Navy is hue 211°, the same family as the ocean temperature frame's cold polar water (`#003462`) and the rain colormap's frozen blues. The indigo sits outside both.
 
 This rule came from measuring the data, not from taste. It will be re-run on any new frame type we add.
@@ -47,7 +47,7 @@ Colours are declared once in `src/app/globals.css` (Tailwind v4 `@theme`) and th
 | `--line` | `#7870A8` | 250° / 0.36 | Input and control boundaries, coastlines |
 | `--moon` | `#EDEAF6` | 255° / 0.05 | Primary text |
 | `--haze` | `#ABA4C8` | 252° / 0.18 | Secondary text |
-| `--shapla` | `#F58BCB` | 324° / 0.43 | The only accent: cursor, rings, sweep, playhead, waveform, focus |
+| `--shapla` | `#FF9BD4` | 326° / 0.39 | The only accent: cursor, rings, sweep, playhead, waveform, focus |
 | `--ink` | `#0B0918` | 248° / 0.62 | Cursor outline; text on a shapla fill |
 | `--scrim` | `--night` at 88% | n/a | Plate behind on-map text |
 
@@ -70,16 +70,16 @@ There's no red, green or blue anywhere in the chrome. Status and warnings use a 
 | `--haze` text | `--night` | 7.71 | 4.5 | Pass |
 | `--haze` text | `--dusk` | 6.89 | 4.5 | Pass |
 | `--haze` text | `--tide` | 5.87 | 4.5 | Pass |
-| `--shapla` (focus ring, waveform, UI) | `--night` | 8.19 | 3.0 | Pass |
-| `--shapla` | `--dusk` | 7.32 | 3.0 | Pass |
-| `--shapla` | `--tide` | 6.24 | 3.0 | Pass |
-| `--ink` text | `--shapla` fill | 8.85 | 4.5 | Pass |
+| `--shapla` (focus ring, waveform, UI) | `--night` | 9.46 | 3.0 | Pass |
+| `--shapla` | `--dusk` | 8.45 | 3.0 | Pass |
+| `--shapla` | `--tide` | 7.20 | 3.0 | Pass |
+| `--ink` text | `--shapla` fill | 10.21 | 4.5 | Pass |
 | `--line` boundary | `--night` / `--dusk` / `--tide` | 4.06 / 3.63 / 3.09 | 3.0 | Pass |
 | `--line` coastline | `--land` | 3.39 | 3.0 | Pass |
 | `--moon` text | `--scrim` over a pure white pixel (worst case) | 8.3 at 80%, higher at 88% | 4.5 | Pass |
 | `--haze` text | `--scrim` over a pure white pixel (worst case) | 5.53 at 88% | 4.5 | Pass (fails at 80%, which is why the scrim is 88%) |
 
-Adjusted during the check: `--line` started as `#5A5280` (2.56:1) and was raised to `#7870A8`, and the scrim went from 80% to 88% opacity. `--moon` on `--shapla` is only 1.88:1, so white text on a pink fill is banned; use `--ink`.
+Adjusted during the check: `--line` started as `#5A5280` (2.56:1) and was raised to `#7870A8`, and the scrim went from 80% to 88% opacity. `--moon` on `--shapla` is only 1.63:1, so white text on a pink fill is banned; use `--ink`.
 
 `--land` against `--night` is only 1.20:1 on purpose, because the land fill is a quiet background. Land/ocean information comes from the 3.39:1 coastline stroke, which meets WCAG 1.4.11 for non-text graphics.
 
@@ -89,18 +89,51 @@ The cursor is a **two-colour ring**: a 2 px `--shapla` ring with a 1.5 px `--ink
 
 | Data colour (sampled or colormap end) | `--shapla` vs it | `--ink` vs it | Visible by |
 |---|---|---|---|
-| SST land grey `#696969` | 2.47 | 3.59 | ink |
-| SST cold polar navy `#003462` | 5.66 | 1.56 | shapla |
-| SST warm red `#8A302A` | 3.72 | 2.38 | shapla |
-| SST peach `#BE724E` | 1.65 | 5.35 | ink |
-| SST light blue `#5E758F` | 2.14 | 4.14 | ink |
-| Rain yellow `#FFFF00` | 2.07 | 18.34 | ink |
-| Rain green `#00FF00` | 1.62 | 14.35 | ink |
-| Rain red `#FF0000` | 1.80 | 4.92 | ink |
-| Snow cyan `#40C0FF` | 1.08 | 9.57 | ink |
-| White | 2.23 | 19.69 | ink |
+| SST land grey `#696969` | 2.85 | 3.59 | ink |
+| SST cold polar navy `#003462` | 6.53 | 1.56 | shapla |
+| SST warm red `#8A302A` | 4.29 | 2.38 | shapla |
+| SST peach `#BE724E` | 1.91 | 5.35 | ink |
+| SST light blue `#5E758F` | 2.47 | 4.14 | ink |
+| Rain yellow `#FFFF00` | 1.80 | 18.34 | ink |
+| Rain green `#00FF00` | 1.41 | 14.35 | ink |
+| Rain red `#FF0000` | 2.07 | 4.92 | ink |
+| Snow cyan `#40C0FF` | 1.07 | 9.57 | ink |
+| White | 1.93 | 19.69 | ink |
 
 This will be re-checked on screen against the real colorbars once L1 publishes them (see `contract-proposals.md`).
+
+### 2.4 Colour-vision deficiency check (added before the Phase 2 checkpoint)
+
+**Method:** Machado, Oliveira and Fernandes (2009) simulation matrices at full severity, applied in linear RGB. Contrast is computed on the simulated colours. The cursor passes if at least one of its two rings reaches 3:1.
+
+**Sample colours (`--shapla` / `--ink` contrast under each simulation):**
+
+| Data colour | Protanopia | Deuteranopia | Tritanopia |
+|---|---|---|---|
+| SST land grey `#696969` | 2.55 / **3.58** | **3.05** / **3.59** | 2.75 / **3.58** |
+| SST cold polar navy `#003462` | **5.46** / 1.67 | **7.31** / 1.50 | **5.83** / 1.69 |
+| SST warm red `#8A302A` | **4.68** / 1.95 | **4.12** / 2.66 | **4.16** / 2.37 |
+| SST peach `#BE724E` | 1.97 / **4.64** | 1.88 / **5.81** | 1.85 / **5.30** |
+| SST light blue `#5E758F` | 2.12 / **4.31** | 2.71 / **4.04** | 2.36 / **4.17** |
+| Rain yellow `#FFFF00` | 1.86 / **16.96** | 1.62 / **17.77** | 1.76 / **17.26** |
+| Rain green `#00FF00` | 1.69 / **15.43** | 1.23 / **13.46** | 1.46 / **14.33** |
+| Rain red `#FF0000` | 2.97 / **3.07** | 1.77 / **6.17** | 2.00 / **4.92** |
+| Snow cyan `#40C0FF` | 1.17 / **10.66** | 1.24 / **8.85** | 1.05 / **10.33** |
+| White `#FFFFFF` | 2.15 / **19.64** | 1.80 / **19.72** | 2.00 / **19.65** |
+
+Every row passes (bold = at least 3:1). The tightest is rain red under protanopia, at 3.07:1 from the ink ring.
+
+**Every pixel, not just samples.** Ten samples can miss the failure zone, so the same test ran on every opaque pixel of `latest/sst.webp`, `latest/rain.png`, `sequence/rain_000.png` and `sequence/rain_047.png`. It found a real problem with the first pink:
+
+| Pixels where neither ring reaches 3:1 | Normal vision | Protanopia | Deuteranopia | Tritanopia |
+|---|---|---|---|---|
+| Original `--shapla` `#F58BCB`, ocean temperature frame | 0.47% | **3.32%** | 0% | 0.47% |
+| Original `--shapla` `#F58BCB`, rain frames | ≤ 0.02% | ≤ 0.51% | 0% | 0% |
+| **New `--shapla` `#FF9BD4`, all four frames** | **0%** | **0%** | **0%** | **0%** |
+
+The failing pixels were mid-luminance ocean reds: too light for the ink ring and too dark for the old pink. Under protanopia the pink's simulated luminance drops, which widened that gap.
+
+**Fix:** `--shapla` changed from `#F58BCB` to `#FF9BD4`. The hue stays inside the 255°–330° gap (326°), and every table in §2 above has been updated.
 
 ### 2.3 Shape tokens
 
@@ -149,12 +182,34 @@ I read the fonts' OpenType tables:
 | 2 | 25 px | Anek 600, wdth 100 | App title, dialog titles |
 | 2 (serif) | 25 px | Tiro 400, line-height 1.45 | Story Mode narration line |
 | 1 (serif) | 20 px | Tiro 400 | Caption bar |
-| 5 | 48.8 px (mobile) / 61 px (desktop) | **Anek 300, wdth 112**, tabular, line-height 1.0 | **The readout value** |
+| 5 | 48.8 px (mobile) / 61 px (desktop) | **Anek 350, wdth 112**, tabular, line-height 1.0 | **The readout value** (weight chosen by test, §3.3) |
 
 - **The readout is the typographic hero.** It uses a light weight, slightly extended through the `wdth` axis, like the scale on an instrument dial.
 - **The unit sits apart from the value.** "°C" and "mm/h" are at step 1 in `--haze`, baseline-aligned and separated by a thin space, so the number stands alone.
 - **Sentence case everywhere.** No all-caps, no letter-spaced eyebrows and no monospace. Small labels use Anek at step −1.
 - **Bangla:** `lang="bn"` on the root when Bangla is active, and line-height goes up to 1.6 for body text, because Bengali conjuncts need the room.
+
+### 3.3 Readout weight test at 200% zoom (added before the Phase 2 checkpoint)
+
+**Setup:**
+- Headless Edge with `--force-device-scale-factor=2`, which renders like 200% zoom.
+- The real Anek Bangla variable font at `wdth` 112.
+- Weights 300, 350 and 400.
+- Two renders:
+  - desktop: 61 px, Latin digits, on the 88% scrim over a real crop of the ocean temperature frame (Arabian Sea: grey land and warm red);
+  - mobile: 48.8 px, Bengali digits in the fixed-width cells from §3.1.
+
+**Results:**
+
+| Weight | Latin digits (61 px) | Bengali digits (48.8 px) |
+|---|---|---|
+| 300 | Legible. Strokes are thin but clean. | **Too thin.** The loops of ৮ and ৪ and the tail of ২ become hairlines, and the counters start to close up visually. |
+| **350** | Legible, still reads as light. | **Clearly legible.** Every stroke holds. |
+| 400 | Legible, but heavier than needed. It loses the instrument-dial lightness. | Legible, no gain over 350. |
+
+**Choice: 350.** It's the lightest weight that stays clearly legible in **both** scripts, and one weight is used for both so the readout doesn't change character when the language switches.
+
+The test page and screenshot are not committed (they were scratch files).
 
 ---
 
