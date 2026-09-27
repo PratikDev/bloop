@@ -29,7 +29,7 @@ const RAIN_FILTER_HZ = 2400;
 const SNOW_PARTIAL_RATIO = 2.76; // bell-like inharmonic partial
 const SNOW_BASE_HZ = [1046.5, 1174.7, 1318.5, 1568, 1760]; // a soft pentatonic set
 
-/** One raindrop sound: shared noise buffer → envelope → shared band-pass (AUDIO_RESEARCH A4). */
+/** One raindrop sound: shared noise buffer → envelope → shared band-pass (AUDIO_RESEARCH A4). Returns its source node. */
 export function createRainDropSound(graph: Graph, destination: AudioNode, attackSec: number, releaseSec: number) {
   const { ctx } = graph;
   const filter = new BiquadFilterNode(ctx, { type: "bandpass", frequency: RAIN_FILTER_HZ, Q: 1.2 });
@@ -43,6 +43,7 @@ export function createRainDropSound(graph: Graph, destination: AudioNode, attack
     env.gain.setTargetAtTime(0, time + attackSec, releaseSec / 3);
     src.start(time, Math.random() * 0.8);
     src.stop(time + attackSec + releaseSec * 2);
+    return src;
   };
 }
 
@@ -86,20 +87,36 @@ export function createDropVoice(graph: Graph, kind: DropKind): DropVoice {
 
   const play = kind === "rain" ? createRainDropSound(graph, out, attackSec, releaseSec) : playBell;
 
+  let lastDrop = Number.NEGATIVE_INFINITY;
+  const interval = (rate: number) => (1 / rate) * (1 - JITTER + Math.random() * 2 * JITTER);
+
   addTask((until) => {
     if (nextTime < ctx.currentTime) nextTime = ctx.currentTime + 0.01;
-    while (nextTime < until) {
-      while (queue.length > 0 && queue[0].time <= nextTime) current = queue.shift() ?? current;
+    for (;;) {
+      // A density change takes effect at its own time, not at the next drop
+      // planned under the old rate (no lag on sweeps, no wait for heavier rain).
+      const change = queue[0];
+      if (change && change.time <= nextTime) {
+        queue.shift();
+        current = change;
+        nextTime =
+          current.rate > 0
+            ? Math.max(change.time, ctx.currentTime, lastDrop + interval(current.rate))
+            : change.time;
+        continue;
+      }
+      if (nextTime >= until) return;
       if (current.rate === 0) {
-        // Jump to the next density change, or wait for the next tick.
-        if (queue.length === 0 || queue[0].time >= until) return;
-        nextTime = queue[0].time;
+        // Silent: wait for the next density change.
+        if (!change || change.time >= until) return;
+        nextTime = change.time;
         continue;
       }
       out.pan.setValueAtTime(panFor(current.lon), nextTime);
       play(nextTime, current.peak);
       emit({ kind: "drop", voice: kind, time: nextTime, gain: current.peak / spec.sound.maxGain, lon: current.lon });
-      nextTime += (1 / current.rate) * (1 - JITTER + Math.random() * 2 * JITTER);
+      lastDrop = nextTime;
+      nextTime += interval(current.rate);
     }
   });
 

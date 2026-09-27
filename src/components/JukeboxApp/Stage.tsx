@@ -21,7 +21,7 @@ export function Stage() {
       <div className="relative lg:w-[min(100cqw,200cqh)]">
         <ExploreControls>
           {/* The frame opens out from the equator when the intro ends (C1). */}
-          <FrameView className={cn(state.introDone && "animate-reveal-equator")} />
+          <FrameView revealClassName={cn(state.introDone && "animate-reveal-equator")} />
         </ExploreControls>
         <div className="pointer-events-none absolute top-3 right-3 flex flex-col items-end gap-2">
           {IS_INTERIM_ENGINE && (

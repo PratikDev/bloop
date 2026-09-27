@@ -19,8 +19,10 @@ import { useOverlayLoop, type OverlayInputs } from "./use-overlay-loop";
  * The EIC frame on a 2:1 equirectangular canvas, with the cursor and sound
  * rings on a second canvas. Click, tap or drag to move the cursor.
  * Decorative for assistive tech: the map region around it carries the text.
+ * `revealClassName` animates only the drawing (the opening's reveal), so the
+ * click target stays whole while it plays.
  */
-export function FrameView({ className }: { className?: string }) {
+export function FrameView({ className, revealClassName }: { className?: string; revealClassName?: string }) {
   const { state, dispatch } = useAppState();
   const { sst, fields } = useLiveData();
   const { sweepRef } = useCommands();
@@ -72,8 +74,10 @@ export function FrameView({ className }: { className?: string }) {
       }}
       aria-hidden="true"
     >
-      <canvas ref={baseRef} className="absolute inset-0 size-full" />
-      <canvas ref={overlayRef} className="absolute inset-0 size-full" />
+      <div className={cn("absolute inset-0", revealClassName)}>
+        <canvas ref={baseRef} className="absolute inset-0 size-full" />
+        <canvas ref={overlayRef} className="absolute inset-0 size-full" />
+      </div>
     </div>
   );
 }

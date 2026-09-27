@@ -1,6 +1,7 @@
 // Mute, solo, per-voice volume and track mode, combined into one gain per live
-// voice bus. Sequences that name their own voices (legend, opening) lift the
-// track-mode gate while they play; mute and solo still apply.
+// voice bus, plus the context bus (Then vs Now, History). Sequences that name
+// their own voices (legend, opening) lift the track-mode gate while they play;
+// mute and solo still apply everywhere.
 
 import { getGraph, glideTo, LIVE_VOICES } from "./graph";
 import { TRACK_VOICES, type LiveVoiceId, type TrackMode, type VoiceId } from "./types";
@@ -23,11 +24,19 @@ function voiceGain(id: LiveVoiceId): number {
   return state.volume[id];
 }
 
+/** Context voices (heat, monsoon, water) share one bus: silent under Mute all, or while a live voice is soloed. */
+function contextGain(): number {
+  if (state.allMuted) return 0;
+  if (state.solo !== null && isLive(state.solo)) return 0;
+  return 1;
+}
+
 /** Pushes the current mixer state to the voice buses. */
 export function applyMix(): void {
   const graph = getGraph();
   if (!graph) return;
   for (const id of LIVE_VOICES) glideTo(graph.ctx, graph.voiceBus[id].gain, voiceGain(id), MIX_GLIDE_SEC);
+  glideTo(graph.ctx, graph.context.gain, contextGain(), MIX_GLIDE_SEC);
 }
 
 function isLive(id: VoiceId): id is LiveVoiceId {

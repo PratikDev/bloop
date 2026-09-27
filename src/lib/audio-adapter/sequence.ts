@@ -30,8 +30,20 @@ export interface SequenceOptions {
 
 const START_DELAY_SEC = 0.05;
 export const TAIL_SEC = 0.1;
+const REOPEN_RAMP_SEC = 0.03;
 
 let current: { stop(restore: boolean): void } | null = null;
+// When the fade bus is (or will be) open again. A sequence started during a
+// fade waits for it, so it doesn't play into a closed bus and then jump up.
+let reopenAt = 0;
+
+/** Opens the fade bus again at `at` with a short ramp, so nothing clicks back in. */
+export function reopenFade(graph: Graph, at: number, rampSec = REOPEN_RAMP_SEC): void {
+  const g = graph.fade.gain;
+  g.setValueAtTime(0, at);
+  g.linearRampToValueAtTime(1, at + rampSec);
+  reopenAt = Math.max(reopenAt, at);
+}
 
 export function finishedHandle(): PlayerHandle {
   return { stop() {}, done: Promise.resolve() };
@@ -46,7 +58,8 @@ export function fastFade(graph: Graph): void {
   fade.gain.setValueAtTime(fade.gain.value, now);
   fade.gain.linearRampToValueAtTime(0, now + fadeSec);
   // Re-open only after every drop already scheduled ahead has passed.
-  fade.gain.setValueAtTime(1, now + fadeSec + SCHEDULE_AHEAD_SEC + 0.1);
+  reopenAt = 0;
+  reopenFade(graph, now + fadeSec + SCHEDULE_AHEAD_SEC + 0.1);
 }
 
 export function stopCurrentSequence(restore: boolean): void {
@@ -65,7 +78,7 @@ export function playSequence(steps: Step[], opts: SequenceOptions): PlayerHandle
   });
   const totalSec = steps.reduce((sum, s) => sum + s.durationSec, 0);
   let index = 0;
-  let nextTime = graph.ctx.currentTime + START_DELAY_SEC;
+  let nextTime = Math.max(graph.ctx.currentTime + START_DELAY_SEC, reopenAt);
   let endScheduled = false;
   let finished = false;
 

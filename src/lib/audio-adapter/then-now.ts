@@ -52,6 +52,7 @@ function silenceAllSets(time: number) {
   for (const set of voiceSets.values()) {
     set.heat.at(time, null);
     set.water.at(time, null);
+    set.monsoon.cancel(time);
   }
 }
 

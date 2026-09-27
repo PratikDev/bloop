@@ -22,7 +22,7 @@ const OPENING_KEYS = new Set(["caption.opening.closeEyes", "caption.opening.open
  */
 export function Opening() {
   const { state, dispatch } = useAppState();
-  const { fields } = useLiveData();
+  const { fields, sstStatus } = useLiveData();
   const announce = useAnnounce();
   const t = useT();
   const caption = useLatestCaption();
@@ -45,12 +45,24 @@ export function Opening() {
     if (active && line) announce(line);
   }, [active, line, announce]);
 
+  // Without the ocean data there is nothing to play: go straight to the app,
+  // where the error message explains what happened.
+  useEffect(() => {
+    if (active && sstStatus === "error") dispatch({ type: "introDone" });
+  }, [active, sstStatus, dispatch]);
+
+  // Skip works whether or not the sound has started yet.
+  const skip = () => {
+    handleRef.current?.stop();
+    dispatch({ type: "introDone" });
+  };
+
   if (!active) return null;
   return (
     <div className="fixed inset-0 z-30 flex flex-col items-center justify-center gap-10 bg-night px-4">
       <p className="min-h-10 text-center font-serif text-title text-moon">{line}</p>
       <Waveform className="h-24 w-full max-w-3xl" />
-      <Button autoFocus variant="secondary" onClick={() => handleRef.current?.stop()} className="h-11 px-5 text-body">
+      <Button autoFocus variant="secondary" onClick={skip} className="h-11 px-5 text-body">
         {t("start.skipIntro")}
       </Button>
     </div>
