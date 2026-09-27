@@ -17,6 +17,8 @@ For the teammate translating the interface into Bangla.
 | `start.lead` | Hear NASA's view of today's ocean and rain as live sound. | TODO_BN |  |
 | `start.hint` | Headphones help: west sounds left, east sounds right. | TODO_BN |  |
 | `start.button` | Start listening | TODO_BN |  |
+| `start.silent` | Explore without sound | TODO_BN |  |
+| `start.silentHint` | Values appear as text and captions. You can turn sound on at any time. | TODO_BN |  |
 | `start.loading` | Loading today's ocean frame… | TODO_BN |  |
 | `start.skipIntro` | Skip intro | TODO_BN |  |
 | `mode.label` | Mode | TODO_BN |  |
@@ -76,6 +78,8 @@ For the teammate translating the interface into Bangla.
 | `sound.muteAll` | Mute all | TODO_BN |  |
 | `sound.unmuteAll` | Unmute all | TODO_BN |  |
 | `sound.stopped` | Stopped | TODO_BN |  |
+| `sound.turnOn` | Turn sound on | TODO_BN |  |
+| `sound.offHint` | Sound is off. Choose Turn sound on to hear it. | TODO_BN |  |
 | `mixer.label` | Mixer | TODO_BN |  |
 | `mixer.snow` | Snow | TODO_BN |  |
 | `mixer.muteShort` | Mute | TODO_BN |  |
@@ -107,7 +111,7 @@ For the teammate translating the interface into Bangla.
 | `key.enter.action` | Speak the value and the place | TODO_BN |  |
 | `key.space` | Space | TODO_BN |  |
 | `key.space.action` | Pause or resume the live sound | TODO_BN |  |
-| `key.s.action` | Play the sweep outward from Dhaka | TODO_BN |  |
+| `key.s.action` | Play the sweep outward from Chattogram | TODO_BN |  |
 | `key.123.action` | Hear ocean, rain, or both | TODO_BN |  |
 | `key.m.action` | Mute or unmute everything | TODO_BN |  |
 | `key.d.action` | Describe mode on or off | TODO_BN |  |
@@ -126,7 +130,7 @@ For the teammate translating the interface into Bangla.
 |---|---|---|---|
 | `caption.value` | (sentence with values; see source) | TODO_BN | has values |
 | `caption.nodata` | (sentence with values; see source) | TODO_BN | has values |
-| `caption.sweep.start` | Sweeping outward from Dhaka | TODO_BN |  |
+| `caption.sweep.start` | Sweeping outward from Chattogram | TODO_BN |  |
 | `caption.sweep.end` | Sweep finished | TODO_BN |  |
 | `caption.legend` | (sentence with values; see source) | TODO_BN | has values |
 | `caption.legendUnavailable` | That legend comes with Then vs Now | TODO_BN |  |
@@ -139,6 +143,14 @@ For the teammate translating the interface into Bangla.
 | `caption.earcon.nodata` | Tick: no data here | TODO_BN |  |
 | `caption.earcon.whisper` | (sentence with values; see source) | TODO_BN | has values |
 | `caption.earcon.ping` | Ping: the extreme value in view | TODO_BN |  |
+| `caption.thenNow.caption` | (sentence with values; see source) | TODO_BN | has values |
+| `caption.thenNow.window` | (sentence with values; see source) | TODO_BN | has values |
+| `caption.thenNow.end` | Then vs Now finished | TODO_BN |  |
+| `caption.water.gap` | (sentence with values; see source) | TODO_BN | has values |
+| `caption.water.windowStart` | (sentence with values; see source) | TODO_BN | has values |
+| `caption.water.windowEnd` | (sentence with values; see source) | TODO_BN | has values |
+| `caption.compare.side` | (sentence with values; see source) | TODO_BN | has values |
+| `caption.compare.useHeadphones` | (sentence with values; see source) | TODO_BN | has values |
 | `caption.noBanglaVoice` | This device has no Bangla voice, so the value is shown but not spoken | TODO_BN |  |
 | `caption.noSpeech` | This browser can't speak; the value is shown instead | TODO_BN |  |
 
@@ -171,5 +183,57 @@ For the teammate translating the interface into Bangla.
 | `mapping.status.context` | Context record | TODO_BN |  |
 | `mapping.status.designOnly` | Sound cue | TODO_BN |  |
 | `provenance.notReady` | Provenance for the current point is not ready yet. | TODO_BN |  |
-| `history.notReady` | Place history is not ready yet. | TODO_BN |  |
+
+## Then vs Now and Place History
+
+| Key | English | Bangla | Note |
+|---|---|---|---|
+| `thenNow.contextNote` | Context records, not EIC frames: long-term NASA and partner datasets for Bangladesh. | TODO_BN |  |
+| `thenNow.parts` | Part | TODO_BN |  |
+| `thenNow.part.heat` | Heat | TODO_BN |  |
+| `thenNow.part.monsoon` | Monsoon rain | TODO_BN |  |
+| `thenNow.part.water` | Water underground | TODO_BN |  |
+| `thenNow.play` | Play this part | TODO_BN |  |
+| `thenNow.playAll` | Play all three | TODO_BN |  |
+| `thenNow.split` | Then left, now right | TODO_BN |  |
+| `thenNow.stop` | Stop | TODO_BN |  |
+| `thenNow.soundOff` | Sound is off. Turn sound on to hear this comparison. | TODO_BN |  |
+| `thenNow.loading` | Loading the comparison… | TODO_BN |  |
+| `thenNow.error` | Couldn't load the comparison data. Reload the page to try again. | TODO_BN |  |
+| `thenNow.then` | (sentence with values; see source) | TODO_BN | has values |
+| `thenNow.now` | (sentence with values; see source) | TODO_BN | has values |
+| `thenNow.unit.anomaly` | °C anomaly | TODO_BN |  |
+| `thenNow.unit.mmPerDay` | mm/day | TODO_BN |  |
+| `thenNow.unit.cm` | cm | TODO_BN |  |
+| `thenNow.summary.yearly` | (sentence with values; see source) | TODO_BN | has values |
+| `thenNow.water.played` | Bangladesh (you hear this) | TODO_BN |  |
+| `thenNow.water.notPlayed` | NW India (shown for comparison, not played) | TODO_BN |  |
+| `thenNow.water.shading` | Shaded: the two comparison windows, and months with no satellite measurements. | TODO_BN |  |
+| `thenNow.water.summary` | (sentence with values; see source) | TODO_BN | has values |
+| `disclosure.title` | How this comparison is made | TODO_BN |  |
+| `disclosure.dataset` | Dataset | TODO_BN |  |
+| `disclosure.window` | (sentence with values; see source) | TODO_BN | has values |
+| `disclosure.mean` | (sentence with values; see source) | TODO_BN | has values |
+| `disclosure.spread` | (sentence with values; see source) | TODO_BN | has values |
+| `disclosure.change` | (sentence with values; see source) | TODO_BN | has values |
+| `disclosure.crossCheck` | Cross-check, rain gauges (GPCC, not played) | TODO_BN |  |
+| `disclosure.box` | (sentence with values; see source) | TODO_BN | has values |
+| `disclosure.gapNote` | Gap | TODO_BN |  |
+| `disclosure.notClaimed` | What we don't claim | TODO_BN |  |
+| `disclosure.pending` | Caption shown exactly as the data file gives it, until the team approves final wording. | TODO_BN |  |
+| `history.intro` | One place's monthly record. Pick a decade to hear it month by month. | TODO_BN |  |
+| `history.place` | Place | TODO_BN |  |
+| `history.metric` | Record | TODO_BN |  |
+| `history.heat` | Heat | TODO_BN |  |
+| `history.rain` | Rain | TODO_BN |  |
+| `history.decade` | Decade | TODO_BN |  |
+| `history.decadeLabel` | (sentence with values; see source) | TODO_BN | has values |
+| `history.play` | (sentence with values; see source) | TODO_BN | has values |
+| `history.unit.heat` | °C anomaly | TODO_BN |  |
+| `history.unit.rain` | mm/day | TODO_BN |  |
+| `history.sharedCell` | (sentence with values; see source) | TODO_BN | has values |
+| `history.cell` | (sentence with values; see source) | TODO_BN | has values |
+| `history.summary` | (sentence with values; see source) | TODO_BN | has values |
+| `history.loading` | Loading the records… | TODO_BN |  |
+| `history.error` | Couldn't load the records. Reload the page to try again. | TODO_BN |  |
 
