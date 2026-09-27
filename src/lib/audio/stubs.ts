@@ -4,6 +4,7 @@
 // of this file when its phase is built.
 
 import type {
+  CaptionParams,
   CompareSide,
   EarconId,
   Lang,
@@ -39,7 +40,10 @@ export const silenceLive: () => void = noop("silenceLive", 2);
 
 // Phase 3 — speech, legend, earcons
 export const speak: (text: string, lang: Lang) => Promise<void> = resolved("speak", 3);
-export const playEarcon: (id: EarconId, opts?: { lon?: number }) => void = noop("playEarcon", 3);
+export const playEarcon: (id: EarconId, opts?: { lon?: number; params?: CaptionParams }) => void = noop(
+  "playEarcon",
+  3,
+);
 export const playLegend: (voice: LegendVoice) => PlayerHandle = idlePlayer("playLegend", 3);
 export const playLegendForMode: (mode: TrackMode) => PlayerHandle = idlePlayer("playLegendForMode", 3);
 export const playWarmup: () => PlayerHandle = idlePlayer("playWarmup", 3);

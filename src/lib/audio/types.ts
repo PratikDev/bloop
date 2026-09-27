@@ -22,6 +22,15 @@ export const VOICE_IDS = [
 ] as const;
 export type VoiceId = (typeof VOICE_IDS)[number];
 
+/** The live-exploration voices, and which of them each track mode plays. */
+export const LIVE_VOICES = ["ocean", "rain", "snow"] as const satisfies readonly VoiceId[];
+export type LiveVoiceId = (typeof LIVE_VOICES)[number];
+export const TRACK_VOICES: Readonly<Record<TrackMode, readonly LiveVoiceId[]>> = {
+  ocean: ["ocean"],
+  rain: ["rain", "snow"],
+  both: ["ocean", "rain", "snow"],
+};
+
 export type EarconId = "nodata" | "whisper" | "ping";
 export type LegendVoice = "ocean" | "rain" | "snow" | "heat" | "water";
 
@@ -73,6 +82,8 @@ export type AudioEvent =
   | { kind: "caption"; key: string; params: CaptionParams }
   /** Playhead sync for charts and the map cursor; `time` is on the audio clock. */
   | { kind: "step"; player: string; index: number; total: number; time: number }
-  | { kind: "state"; ready: boolean; playing: boolean; ducked: boolean };
+  | { kind: "state"; ready: boolean; playing: boolean; ducked: boolean }
+  /** One per scheduled rain drop / snow bell (for ripples). `time` is when it sounds on the audio clock; `gain` is 0..1. */
+  | { kind: "drop"; voice: "rain" | "snow"; time: number; gain: number; lon: number };
 
 export type AudioEventListener = (event: AudioEvent) => void;
