@@ -3,7 +3,7 @@
 import { createContext, useContext, type RefObject } from "react";
 import type { PlayerHandle, SweepPoint, TrackMode } from "@/lib/audio-adapter/types";
 import type { LatLon } from "@/lib/data";
-import type { Lang } from "@/lib/i18n";
+import type { BoundT, Lang } from "@/lib/i18n";
 import type { WhisperSource } from "@/lib/whisper";
 import type { Mode, PanelTab } from "../AppState/reducer";
 
@@ -31,6 +31,9 @@ export interface SweepVisual {
   ringDeg: number[]; // radius of each ring, in degrees
 }
 
+/** A line to say, built for a language: once for the screen, once for speech. */
+export type Line = (t: BoundT, lang: Lang) => string;
+
 /** Every user action, shared by keyboard shortcuts and on-screen controls. */
 export interface Commands {
   start(): Promise<void>;
@@ -44,11 +47,11 @@ export interface Commands {
   togglePlaying(): void;
   speakCurrent(): void;
   /**
-   * Speaks `text` (built-in voice) or announces it (screen reader), then, with
+   * Speaks the line (built-in voice, with a caption) or announces it (screen reader), then, with
    * sound on, the satellite whisper with `source`'s caption. Resolves when it has been
    * said; a later say() or Esc cancels a pending whisper.
    */
-  say(text: string, source?: WhisperSource | null): Promise<void>;
+  say(line: Line, source?: WhisperSource | null): Promise<void>;
   playSweep(): void;
   /** Starts the sweep from Chattogram with its map ring; null if there's nothing to play. */
   startSweep(): PlayerHandle | null;

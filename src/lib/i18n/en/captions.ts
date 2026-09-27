@@ -55,6 +55,10 @@ export const captionsEn = {
   "caption.timelapse.peak": (p: CaptionParams) =>
     `Heaviest ${strParam(p, "phase") === "frozen" ? "snow" : "rain"} in this time-lapse: ${formatRainRate(numParam(p, "value") ?? 0, "en")} mm/h`,
   "caption.timelapse.end": "Time-lapse finished",
+  // Place History's end (posted by the UI; playSeries captions only the start).
+  "caption.history.end": "History finished",
+  // A spoken line (Enter, Story, Describe), shown as it is said.
+  "caption.speech": (p: CaptionParams) => strParam(p, "text"),
   "caption.noBanglaVoice": "This device has no Bangla voice, so the value is shown but not spoken",
   "caption.noSpeech": "This browser can't speak; the value is shown instead",
 };
