@@ -5,3 +5,5 @@ export { DATA_PATHS } from "./paths";
 export { START_CURSOR, SWEEP_CENTER, type LatLon } from "./places";
 export { bandMeans, openingPath, pointAt, sweepPath } from "./summaries";
 export { valueAt, type LiveFields } from "./value-at";
+export { loadDemo, loadGistemp, loadGpcp, loadGrace } from "./context";
+export { DataShapeError } from "./validate";

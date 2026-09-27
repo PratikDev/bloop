@@ -11,6 +11,7 @@ import type {
 import { fetchBuffer, fetchJson } from "./fetch";
 import { cellIndex, readUint16LE, readUint8 } from "./grid";
 import { DATA_PATHS } from "./paths";
+import { requirePaths } from "./validate";
 
 export interface SstField {
   meta: SstMetadata;
@@ -33,6 +34,7 @@ function requireEncoding(actual: string, expected: string, file: string) {
 
 export async function loadSst(): Promise<SstField> {
   const meta = await fetchJson<SstMetadata>(DATA_PATHS.sstMeta);
+  requirePaths("sst.json", meta, { frame_time_utc: "string", "grid.width": "number", "grid.height": "number", "grid.scale": "number", "grid.offset": "number", "grid.nodata": "number" });
   requireEncoding(meta.grid.encoding, "uint16_offset", "sst.json");
   const codes = readUint16LE(await fetchBuffer(DATA_PATHS.sstGrid), meta.grid);
   return { meta, codes };
@@ -40,6 +42,7 @@ export async function loadSst(): Promise<SstField> {
 
 export async function loadRain(): Promise<RainField> {
   const meta = await fetchJson<RainMetadata>(DATA_PATHS.rainMeta);
+  requirePaths("rain.json", meta, { frame_time_utc: "string", "grid.width": "number", "grid.height": "number", "grid.phase_file": "string", verified: "object" });
   requireEncoding(meta.grid.encoding, "uint16_log", "rain.json");
   const [codeBuf, phaseBuf] = await Promise.all([
     fetchBuffer(DATA_PATHS.rainGrid),
