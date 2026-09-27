@@ -9,7 +9,7 @@ import type { AppState } from "../AppState/reducer";
 
 /** Keeps the sound engine in step with the app state. */
 export function useSoundSync(state: AppState, fields: LiveFields | null): void {
-  const { started, playing, introDone, cursor, track, mix, solo, allMuted } = state;
+  const { started, soundOn, playing, introDone, cursor, track, mix, solo, allMuted } = state;
 
   useEffect(() => audio.setTrackMode(track), [track]);
   useEffect(() => audio.setSolo(solo), [solo]);
@@ -22,7 +22,7 @@ export function useSoundSync(state: AppState, fields: LiveFields | null): void {
   }, [mix]);
 
   useEffect(() => {
-    if (!started || !fields) return;
+    if (!started || !soundOn || !fields) return;
     if (!playing || !introDone) {
       audio.silenceLive();
       return;
@@ -30,5 +30,5 @@ export function useSoundSync(state: AppState, fields: LiveFields | null): void {
     const r = readAt(fields, cursor);
     audio.setOcean(r.ocean.valueC, cursor.lon);
     audio.setRain(r.rain.mmPerHour, r.rain.phase, cursor.lon);
-  }, [started, playing, introDone, cursor, fields]);
+  }, [started, soundOn, playing, introDone, cursor, fields]);
 }

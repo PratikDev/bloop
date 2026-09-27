@@ -27,6 +27,8 @@ export interface SweepVisual {
 /** Every user action, shared by keyboard shortcuts and on-screen controls. */
 export interface Commands {
   start(): Promise<void>;
+  startSilent(): void;
+  enableSound(): Promise<void>;
   moveCursor(dLat: number, dLon: number): void;
   setTrack(track: TrackMode): void;
   setMode(mode: Mode): void;

@@ -10,6 +10,7 @@ import { StatusBadge } from "./StatusBadge";
 /**
  * The first thing on the page. Sound can only start from a user gesture, so
  * "Start listening" is the first focusable element and creates the AudioContext.
+ * "Explore without sound" comes second, so nobody is locked out by audio.
  */
 export function StartOverlay() {
   const { state } = useAppState();
@@ -26,18 +27,33 @@ export function StartOverlay() {
         <p className="text-lead text-moon">{t("start.lead")}</p>
         <p className="text-haze">{t("start.hint")}</p>
       </div>
-      <Button
-        autoFocus
-        size="lg"
-        disabled={starting}
-        onClick={async () => {
-          setStarting(true);
-          await commands.start();
-        }}
-        className="h-12 rounded-lg bg-shapla px-6 text-lead text-ink hover:bg-shapla/90"
-      >
-        {t("start.button")}
-      </Button>
+      <div className="flex flex-col items-center gap-3">
+        <Button
+          autoFocus
+          size="lg"
+          disabled={starting}
+          onClick={async () => {
+            setStarting(true);
+            await commands.start();
+          }}
+          className="h-12 rounded-lg bg-shapla px-6 text-lead text-ink hover:bg-shapla/90"
+        >
+          {t("start.button")}
+        </Button>
+        <Button
+          variant="outline"
+          size="lg"
+          disabled={starting}
+          aria-describedby="start-silent-hint"
+          onClick={commands.startSilent}
+          className="h-11 rounded-lg px-5 text-body"
+        >
+          {t("start.silent")}
+        </Button>
+        <p id="start-silent-hint" className="max-w-xs text-small text-haze">
+          {t("start.silentHint")}
+        </p>
+      </div>
       <div className="min-h-6">
         {sstStatus === "loading" && <StatusBadge kind="loading">{t("start.loading")}</StatusBadge>}
         {sstStatus === "error" && <StatusBadge kind="error">{t("error.ocean")}</StatusBadge>}
