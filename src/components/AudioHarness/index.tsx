@@ -10,6 +10,7 @@ import SequenceSection from "./SequenceSection";
 import SpeechSection from "./SpeechSection";
 import StartSection from "./StartSection";
 import StubSection from "./StubSection";
+import ThenNowSection from "./ThenNowSection";
 import ToneSection from "./ToneSection";
 import { useAudioEvents } from "./use-audio-events";
 import { useStopOnEscape } from "./use-stop-on-escape";
@@ -39,6 +40,7 @@ export default function AudioHarness() {
       <SpeechSection ready={ready} />
       <LegendSection ready={ready} />
       <SequenceSection ready={ready} />
+      <ThenNowSection ready={ready} />
       <StubSection />
       <EventLog events={events} onClear={clear} />
     </main>
