@@ -3,6 +3,7 @@
 // were playing, then quietly restores the buses so the next sound works.
 
 import { emitState, peekEngine } from "./context";
+import { emit } from "./events";
 import { BUS_LEVELS, type BusName } from "./graph";
 import { MAPPING } from "./mapping";
 import { fadeTo, glideTo } from "./params";
@@ -30,6 +31,7 @@ export function stopAll() {
   const engine = peekEngine();
   if (!engine) return;
   const { ctx, graph } = engine;
+  emit({ kind: "caption", key: "caption.stopped", params: {} });
   const fadeSec = MAPPING.global.stopFadeMs / 1000;
   const stopping = beginStop();
 
