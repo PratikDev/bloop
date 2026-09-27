@@ -10,17 +10,19 @@ import { createThrottledCaption, emitCaption } from "./captions";
 import { getCtx, peekEngine } from "./context";
 import { playEarconAt } from "./earcons";
 import { isVoiceAudible } from "./mixer";
+import { createNoDataTracker, type NoDataTrack } from "./nodata";
 import { onStopAll } from "./stop";
 import type { RainPhase } from "./types";
+import type { VoiceTiming } from "./voices/common";
 import type { DropVoice } from "./voices/drops";
 import { createOceanVoice, type OceanVoice } from "./voices/ocean";
 import { createRainVoice } from "./voices/rain";
 import { createSnowVoice } from "./voices/snow";
 
 const CAPTION_INTERVAL_MS = 250; // ≤ 4 value captions per second per track
-const TICK_MIN_GAP_MS = 300; // at most one no-data tick per 300 ms
+export const NODATA_TICK_GAP_SEC = 0.3; // at most one no-data tick per 300 ms
 
-type Track = "ocean" | "rain";
+type Track = NoDataTrack;
 
 export interface LiveVoices {
   ocean: OceanVoice;
@@ -42,9 +44,7 @@ const captions: Record<Track, ReturnType<typeof createThrottledCaption>> = {
   rain: createThrottledCaption(CAPTION_INTERVAL_MS),
 };
 
-// null = unknown (nothing played yet, or silenced): entering no-data from here still ticks.
-const inNoData: Record<Track, boolean | null> = { ocean: null, rain: null };
-let lastTickAt = -Infinity;
+const noData = createNoDataTracker(NODATA_TICK_GAP_SEC);
 
 // Latest cursor values, kept while a sequence holds the voices.
 let lastOcean: { valueC: number | null; lon: number } | null = null;
@@ -52,10 +52,15 @@ let lastRain: { mmPerHour: number | null; phase: RainPhase; lon: number } | null
 let held = false;
 
 function forgetPosition() {
-  inNoData.ocean = null;
-  inNoData.rain = null;
+  noData.reset();
   captions.ocean.cancel();
   captions.rain.cancel();
+}
+
+/** Rain phase decides the voice: liquid → drops, frozen → bells, dry / no data → both silent. */
+export function routeRain(v: LiveVoices, mmPerHour: number | null, phase: RainPhase, lon: number, at?: VoiceTiming) {
+  v.rain.set(phase === "liquid" ? mmPerHour : null, lon, at);
+  v.snow.set(phase === "frozen" ? mmPerHour : null, lon, at);
 }
 
 function silenceVoices(v: LiveVoices) {
@@ -73,16 +78,13 @@ onStopAll(() => {
 });
 
 /** Tick + caption on the transition into no data, only if that track can be heard. */
-function updateNoData(trackName: Track, noData: boolean, lon: number, audible: boolean) {
-  const entering = noData && inNoData[trackName] !== true;
-  inNoData[trackName] = noData;
+function updateNoData(trackName: Track, isNoData: boolean, lon: number, audible: boolean) {
+  const now = getCtx().currentTime;
+  const { entering, tick } = noData.update(trackName, isNoData, now);
   if (!entering || !audible) return;
   captions[trackName].cancel();
   emitCaption("caption.nodata", { track: trackName });
-  const now = performance.now();
-  if (now - lastTickAt < TICK_MIN_GAP_MS) return;
-  lastTickAt = now;
-  playEarconAt("nodata", getCtx().currentTime, lon);
+  if (tick) playEarconAt("nodata", now, lon);
 }
 
 /** Cursor moved: ocean temperature in °C (null = land / no data) at a longitude. */
@@ -101,8 +103,7 @@ export function setRain(mmPerHour: number | null, phase: RainPhase, lon: number)
   lastRain = { mmPerHour, phase, lon };
   const v = liveVoices();
   if (!v || held) return;
-  v.rain.set(phase === "liquid" ? mmPerHour : null, lon);
-  v.snow.set(phase === "frozen" ? mmPerHour : null, lon);
+  routeRain(v, mmPerHour, phase, lon);
   const audible = isVoiceAudible(phase === "frozen" ? "snow" : "rain");
   updateNoData("rain", phase === "nodata", lon, audible);
   if (phase !== "nodata" && audible) {
