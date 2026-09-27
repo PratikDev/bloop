@@ -45,7 +45,34 @@ export type AudioEvent =
   // AudioContext time the drop sounds; `gain` is its loudness 0..1.
   | { kind: "drop"; voice: "rain" | "snow"; time: number; gain: number; lon: number };
 
-export interface AudioEngine {
+/** Then vs Now input (docs/L2/BUILD_PLAN.md §8.1). One value per year. */
+export interface WindowSeries {
+  label: string;
+  years: number[];
+  values: number[];
+}
+
+export interface ThenNowInput {
+  heat: { A: WindowSeries; B: WindowSeries }; // GISTEMP Apr–May anomalies, °C
+  monsoon: { A: WindowSeries; B: WindowSeries }; // GPCP Jun–Sep, mm/day
+  water: { months: string[]; cm: (number | null)[]; windowA: [string, string]; windowB: [string, string] }; // GRACE Bangladesh
+  captions: { heat: string; monsoon: string; water: string }; // exactly as the JSON gives them
+}
+
+export type ThenNowPart = "heat" | "monsoon" | "water" | "all";
+export type ContextVoice = "heat" | "monsoon" | "water";
+
+export interface CompareSide {
+  label: string;
+  values: (number | null)[];
+  voice: ContextVoice;
+}
+
+/**
+ * Exactly the part of L2's planned API (docs/L2/BUILD_PLAN.md §2.2, §8) that the
+ * UI uses. L2's real engine must satisfy this as-is: same names, same shapes.
+ */
+export interface L2AudioApi {
   // Lifecycle
   ensureAudio(): Promise<void>; // call inside a click/keydown handler
   isAudioReady(): boolean;
@@ -56,7 +83,6 @@ export interface AudioEngine {
   setVoiceMuted(id: VoiceId, muted: boolean): void;
   setSolo(id: VoiceId | null): void;
   setAllMuted(muted: boolean): void;
-  setVoiceVolume(id: VoiceId, v: number): void; // PROPOSAL B3: per-voice volume slider
 
   // Live exploration
   setTrackMode(mode: TrackMode): void;
@@ -75,7 +101,22 @@ export interface AudioEngine {
   playMotif(bandMeansC: (number | null)[]): PlayerHandle;
   playOpening(points: SweepPoint[], opts?: { durationSec?: number }): PlayerHandle;
 
-  // Events and visuals
+  // Then vs Now / Compare
+  playThenNow(input: ThenNowInput, part: ThenNowPart): PlayerHandle;
+  playCompare(a: CompareSide, b: CompareSide, mode: "sequential" | "split"): PlayerHandle;
+
+  // Events
   onAudioEvent(cb: (e: AudioEvent) => void): () => void;
-  getAnalyser(): AnalyserNode | null; // PROPOSAL B1: waveform and rings
 }
+
+/**
+ * L3's additions (docs/L3/contract-proposals.md §B). Requested from L2, but the
+ * UI never depends on them: withFallbacks() fills any that are missing.
+ */
+export interface L3AudioExtensions {
+  setVoiceVolume(id: VoiceId, v: number): void; // B3: per-voice volume slider
+  getAnalyser(): AnalyserNode | null; // B1: waveform, rings, audio clock
+  playSeries(side: CompareSide, opts?: { stepMs?: number; player?: string }): PlayerHandle; // B6
+}
+
+export type AudioEngine = L2AudioApi & L3AudioExtensions;

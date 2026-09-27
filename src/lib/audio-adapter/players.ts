@@ -1,107 +1,13 @@
 // Sequences scheduled on the audio clock: sweep, legend, warm-up, motif, opening.
-// One sequence plays at a time; starting another stops the current one.
 
-import { MAPPING, mapVoice, voiceSpec } from "@/lib/audio/mapping";
+import { mapVoice, voiceSpec } from "@/lib/audio/mapping";
 import { playEarconAt, playTone } from "./earcons";
-import { emit, emitCaption } from "./events";
-import { getGraph, type Graph } from "./graph";
-import { getVoices, live, routeRain, type Voices } from "./live";
+import { emitCaption } from "./events";
+import { routeRain } from "./live";
 import { mixer } from "./mixer";
-import { addTask, SCHEDULE_AHEAD_SEC } from "./scheduler";
+import { SCHEDULE_AHEAD_SEC } from "./scheduler";
+import { finishedHandle, playSequence, TAIL_SEC, type Step } from "./sequence";
 import type { LegendVoice, PlayerHandle, SweepPoint } from "./types";
-
-interface Step {
-  durationSec: number;
-  run(time: number, voices: Voices, graph: Graph): void;
-}
-
-interface SequenceOptions {
-  name: string;
-  liftTrackGate?: boolean; // play voices the current track mode would mute
-  onStart?(time: number, graph: Graph, totalSec: number): void;
-  onEnd?(time: number): void;
-}
-
-const START_DELAY_SEC = 0.05;
-const TAIL_SEC = 0.1;
-
-let current: { stop(restore: boolean): void } | null = null;
-
-function finishedHandle(): PlayerHandle {
-  return { stop() {}, done: Promise.resolve() };
-}
-
-/** Fades everything that is sounding to silence in ~50 ms, then re-opens the bus. */
-export function fastFade(graph: Graph): void {
-  const { ctx, fade } = graph;
-  const now = ctx.currentTime;
-  const fadeSec = MAPPING.global.stopFadeMs / 1000;
-  fade.gain.cancelScheduledValues(now);
-  fade.gain.setValueAtTime(fade.gain.value, now);
-  fade.gain.linearRampToValueAtTime(0, now + fadeSec);
-  // Re-open only after every drop already scheduled ahead has passed.
-  fade.gain.setValueAtTime(1, now + fadeSec + SCHEDULE_AHEAD_SEC + 0.1);
-}
-
-export function stopCurrentSequence(restore: boolean): void {
-  current?.stop(restore);
-}
-
-function playSequence(steps: Step[], opts: SequenceOptions): PlayerHandle {
-  const graph = getGraph();
-  const voices = getVoices();
-  if (!graph || !voices || steps.length === 0) return finishedHandle();
-  current?.stop(false);
-
-  let resolveDone: () => void = () => {};
-  const done = new Promise<void>((resolve) => {
-    resolveDone = resolve;
-  });
-  const totalSec = steps.reduce((sum, s) => sum + s.durationSec, 0);
-  let index = 0;
-  let nextTime = graph.ctx.currentTime + START_DELAY_SEC;
-  let endScheduled = false;
-  let finished = false;
-
-  live.setSequenceActive(true, false);
-  if (opts.liftTrackGate) mixer.liftTrackGate(true);
-  opts.onStart?.(nextTime, graph, totalSec);
-
-  const finish = (restore: boolean) => {
-    if (finished) return;
-    finished = true;
-    removeTask();
-    if (opts.liftTrackGate) mixer.liftTrackGate(false);
-    live.setSequenceActive(false, restore);
-    if (current === handle) current = null;
-    resolveDone();
-  };
-
-  const removeTask = addTask((until) => {
-    while (index < steps.length && nextTime < until) {
-      steps[index].run(nextTime, voices, graph);
-      emit({ kind: "step", player: opts.name, index, total: steps.length, time: nextTime });
-      nextTime += steps[index].durationSec;
-      index++;
-    }
-    if (index < steps.length) return;
-    if (!endScheduled && nextTime < until) {
-      endScheduled = true;
-      opts.onEnd?.(nextTime);
-    }
-    if (graph.ctx.currentTime >= nextTime + TAIL_SEC) finish(true);
-  });
-
-  const handle = {
-    stop(restore: boolean) {
-      if (finished) return;
-      fastFade(graph);
-      finish(restore);
-    },
-  };
-  current = handle;
-  return { stop: () => handle.stop(true), done };
-}
 
 // ---------------------------------------------------------------------------
 // Sweep: each point drives the voices (respecting the track mode).
