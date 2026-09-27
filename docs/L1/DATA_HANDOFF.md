@@ -23,6 +23,8 @@ The source files are in `public/data/`.
 ## How to decode (TypeScript for `src/lib/data.ts`)
 
 ```ts
+import type { RainPhase, RainValue } from "@/types/data-contract";
+
 // All binary grids: little-endian, row 0 = 90°N, column 0 = 180°W, equirectangular.
 export async function loadU16(url: string): Promise<Uint16Array> {
   const buf = await (await fetch(url)).arrayBuffer();
@@ -59,18 +61,34 @@ export function cellIndex(
   return row * width + col;
 }
 
-export const decodeSst = (u: number): number =>
-  u === 65535 ? NaN : u / 1000 - 5;
-// °C; NaN = land/no data
+// Missing data follows src/types/data-contract.ts (ValueAtResult):
+// no data -> null (never NaN), and rain no data -> phase "nodata".
 
-export const decodeRain = (u: number): number =>
+// °C; null = land/no data
+export const decodeSst = (u: number): number | null =>
+  u === 65535 ? null : u / 1000 - 5;
+
+// mm/h; 0 = dry, null = no data
+export const decodeRain = (u: number): number | null =>
   u === 0
     ? 0
     : u === 65535
-      ? NaN
+      ? null
       : Math.pow(10, (u - 1) / 20000 - 1);
 
 // Phase (rain_phase.bin): 0 dry, 1 liquid, 2 frozen.
+// It has no "no data" code, so check rain.bin first:
+export const rainPhase = (
+  rainCode: number,
+  phaseByte: number
+): RainPhase =>
+  rainCode === 65535
+    ? "nodata"
+    : rainCode === 0
+      ? "dry"
+      : phaseByte === 2
+        ? "frozen"
+        : "liquid";
 
 // Time-lapse frames (sequence/rain_XXX.u8.gz):
 // 1 byte per cell, gzipped.
@@ -87,21 +105,21 @@ export async function loadSequenceFrame(
   );
 }
 
-export function decodeRainU8(
-  code: number
-): { mmh: number; phase: 0 | 1 | 2 } {
-  if (code === 0) return { mmh: 0, phase: 0 };
-  if (code === 255) return { mmh: NaN, phase: 0 };
+// Returns the contract's RainValue shape.
+export function decodeRainU8(code: number): RainValue {
+  if (code === 0) return { track: "rain", mmPerHour: 0, phase: "dry" };
+  if (code === 255) return { track: "rain", mmPerHour: null, phase: "nodata" };
 
   const frozen = code >= 128;
   const base = frozen ? 128 : 1;
 
   return {
-    mmh: Math.pow(
+    track: "rain",
+    mmPerHour: Math.pow(
       10,
       -1 + ((code - base) / 126) * Math.log10(500)
     ),
-    phase: frozen ? 2 : 1
+    phase: frozen ? "frozen" : "liquid"
   };
 }
 ```
