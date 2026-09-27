@@ -1,0 +1,16 @@
+Check C: EIC SST frame (SVS 5101) -> degC vs NASA MUR SST
+Run: 2026-09-24. Output below is s5_compare.py re-run on 2026-09-27 from the saved points_with_mur.csv
+(worst5.csv came out byte-identical to the original).
+
+column  n  bias  median_abs  p90_abs  max_abs
+mur_centre_20260921 60 0.560       0.847    1.384    2.086
+   mur_box_20260921 60 0.560       0.863    1.380    2.089
+   mur_box_20260922 60 0.530       0.923    1.227    2.396
+mur_centre_20260922 60 0.529       0.930    1.233    2.410
+
+Best match: mur_centre_20260921
+RESULT vs your thresholds: PASS
+Saved compare.png and worst5.csv
+
+Summary: 60 ocean points, median error 0.85 C, p90 1.38 C, bias +0.56 C, max 2.09 C; best match MUR 2026-09-21. PASS.
+Not included (too large / raw data): sst_mur_*.exr, sst_frame*.png, sst_dated_view.png, lut.npz.

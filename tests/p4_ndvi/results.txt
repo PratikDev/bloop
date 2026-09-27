@@ -1,0 +1,8 @@
+P4: is the MODIS NDVI series accessible? Run: 2026-09-25. PASS.
+The original terminal log was not saved; the lines below are copied from the saved outputs in this folder.
+
+2001-03 (A) vs 2021-23 (B), 16-day composites:
+  Sundarbans: 0.550 -> 0.566 (69 + 69 composites)
+  Madhupur_forest: 0.482 -> 0.530 (69 + 69 composites)
+  Dhaka_city_control: 0.274 -> 0.260 (69 + 69 composites)
+Not included: p4_*.wav (sound render).

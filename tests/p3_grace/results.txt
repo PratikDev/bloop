@@ -1,0 +1,10 @@
+P3: GRACE/GRACE-FO water storage, with a known-answer check. Run: 2026-09-25. PASS.
+The original terminal log was not saved; the lines below are copied from the saved outputs in this folder.
+(p3_grace.py needs an interactive Earthdata login, so it was not re-run.)
+
+  Bangladesh: trend -0.35 cm/yr; mean 2003-06 +0.83 cm -> 2021-24 -5.82 cm; 259 months, 35 missing
+  NW_India: trend -3.25 cm/yr; mean 2003-06 +8.71 cm -> 2021-24 -53.63 cm; 259 months, 35 missing
+
+Known-answer check: NW India shows the documented groundwater depletion (-3.25 cm/yr). The 11-month
+GRACE -> GRACE-FO gap (Jul 2017 - May 2018) is present.
+Not included (raw data): GRCTellus.JPL...RL06.3M.MSCNv04CRI.nc; p3_*.wav.

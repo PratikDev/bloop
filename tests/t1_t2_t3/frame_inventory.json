@@ -1,0 +1,498 @@
+{
+  "5101": {
+    "name": "Sea surface temperature (MUR)",
+    "title": "Sea Surface Temperature (SST) - Near Real Time",
+    "update_date": "2026-09-19T19:30:14.381941-04:00",
+    "frame_dirs": [
+      "https://svs.gsfc.nasa.gov/vis/a000000/a005100/a005101/frames/4096x2048_2x1_30p/sst_mur/",
+      "https://svs.gsfc.nasa.gov/vis/a000000/a005100/a005101/frames/4096x2048_2x1_30p/sst_mur_no-dates/",
+      "https://svs.gsfc.nasa.gov/vis/a000000/a005100/a005101/frames/4096x2048_2x1_30p/sst_mur_robinson/",
+      "https://svs.gsfc.nasa.gov/vis/a000000/a005100/a005101/frames/4096x2048_2x1_30p/sst_mur_robinson_hurricane/"
+    ],
+    "colorbars": [
+      "https://svs.gsfc.nasa.gov/vis/a000000/a005100/a005101/sst_mur_colorbar.exr",
+      "https://svs.gsfc.nasa.gov/vis/a000000/a005100/a005101/sst_mur_colorbar.png",
+      "https://svs.gsfc.nasa.gov/vis/a000000/a005100/a005101/sst_mur_colorbar_F.png",
+      "https://svs.gsfc.nasa.gov/vis/a000000/a005100/a005101/sst_mur_colorbar_F_print.jpg",
+      "https://svs.gsfc.nasa.gov/vis/a000000/a005100/a005101/sst_mur_colorbar_print.jpg",
+      "https://svs.gsfc.nasa.gov/vis/a000000/a005100/a005101/sst_mur_colorbar_spanish.exr",
+      "https://svs.gsfc.nasa.gov/vis/a000000/a005100/a005101/sst_mur_colorbar_spanish_print.jpg"
+    ],
+    "n_images": 27,
+    "dirs": [
+      {
+        "dir": "https://svs.gsfc.nasa.gov/vis/a000000/a005100/a005101/frames/4096x2048_2x1_30p/sst_mur/",
+        "n_files": 901,
+        "first": "sst_mur_20240407.exr",
+        "last": "sst_mur_20260924.exr",
+        "last_date": "2026-09-24",
+        "tags": [
+          "2x1"
+        ]
+      },
+      {
+        "dir": "https://svs.gsfc.nasa.gov/vis/a000000/a005100/a005101/frames/4096x2048_2x1_30p/sst_mur_no-dates/",
+        "n_files": 901,
+        "first": "sst_mur_20240407_no-dates.exr",
+        "last": "sst_mur_20260924_no-dates.exr",
+        "last_date": "2026-09-24",
+        "tags": [
+          "2x1",
+          "no-date"
+        ]
+      },
+      {
+        "dir": "https://svs.gsfc.nasa.gov/vis/a000000/a005100/a005101/frames/4096x2048_2x1_30p/sst_mur_robinson/",
+        "n_files": 901,
+        "first": "sst_mur_20240407_robinson.exr",
+        "last": "sst_mur_20260924_robinson.exr",
+        "last_date": "2026-09-24",
+        "tags": [
+          "2x1"
+        ]
+      },
+      {
+        "dir": "https://svs.gsfc.nasa.gov/vis/a000000/a005100/a005101/frames/4096x2048_2x1_30p/sst_mur_robinson_hurricane/",
+        "n_files": 901,
+        "first": "sst_mur_20240407_robinson_hurricane.exr",
+        "last": "sst_mur_20260924_robinson_hurricane.exr",
+        "last_date": "2026-09-24",
+        "tags": [
+          "2x1"
+        ]
+      }
+    ],
+    "newest_frame_date": "2026-09-24",
+    "age_days": 1
+  },
+  "4285": {
+    "name": "Precipitation (IMERG)",
+    "title": "Near Real-Time Global Precipitation from the Global Precipitation Measurement Constellation",
+    "update_date": "2026-09-25T10:20:39.140894-04:00",
+    "frame_dirs": [
+      "https://svs.gsfc.nasa.gov/vis/a000000/a004200/a004285/frames/1920x1080_16x9_30p/flatcomposite/",
+      "https://svs.gsfc.nasa.gov/vis/a000000/a004200/a004285/frames/3600x1800_2x1_30p/flatalpha/",
+      "https://svs.gsfc.nasa.gov/vis/a000000/a004200/a004285/frames/3600x1800_2x1_30p/flatcomposite/",
+      "https://svs.gsfc.nasa.gov/vis/a000000/a004200/a004285/frames/3600x1800_2x1_30p/flatdates/"
+    ],
+    "colorbars": [
+      "https://svs.gsfc.nasa.gov/vis/a000000/a004200/a004285/rainbarblack2.png",
+      "https://svs.gsfc.nasa.gov/vis/a000000/a004200/a004285/rainbarwhite2.png",
+      "https://svs.gsfc.nasa.gov/vis/a000000/a004200/a004285/snowbarblack2.png",
+      "https://svs.gsfc.nasa.gov/vis/a000000/a004200/a004285/snowbarwhite2.png"
+    ],
+    "n_images": 29,
+    "dirs": [
+      {
+        "dir": "https://svs.gsfc.nasa.gov/vis/a000000/a004200/a004285/frames/1920x1080_16x9_30p/flatcomposite/",
+        "n_files": 356,
+        "first": "/vis/a000000/a004200/a004285/frames/1920x1080_16x9_30p/flatcomposite/imergert_1080p.2026-09-18T00:00:00Z.png",
+        "last": "/vis/a000000/a004200/a004285/frames/1920x1080_16x9_30p/flatcomposite/imergert_1080p.2026-09-25T09:30:00Z.png",
+        "last_date": "2026-09-25",
+        "tags": [
+          "flat"
+        ]
+      },
+      {
+        "dir": "https://svs.gsfc.nasa.gov/vis/a000000/a004200/a004285/frames/3600x1800_2x1_30p/flatalpha/",
+        "n_files": 356,
+        "first": "/vis/a000000/a004200/a004285/frames/3600x1800_2x1_30p/flatalpha/imergert_alpha.2026-09-18T00:00:00Z.png",
+        "last": "/vis/a000000/a004200/a004285/frames/3600x1800_2x1_30p/flatalpha/imergert_alpha.2026-09-25T09:30:00Z.png",
+        "last_date": "2026-09-25",
+        "tags": [
+          "2x1",
+          "alpha",
+          "flat"
+        ]
+      },
+      {
+        "dir": "https://svs.gsfc.nasa.gov/vis/a000000/a004200/a004285/frames/3600x1800_2x1_30p/flatcomposite/",
+        "n_files": 356,
+        "first": "/vis/a000000/a004200/a004285/frames/3600x1800_2x1_30p/flatcomposite/imergert_composite.2026-09-18T00:00:00Z.png",
+        "last": "/vis/a000000/a004200/a004285/frames/3600x1800_2x1_30p/flatcomposite/imergert_composite.2026-09-25T09:30:00Z.png",
+        "last_date": "2026-09-25",
+        "tags": [
+          "2x1",
+          "flat"
+        ]
+      },
+      {
+        "dir": "https://svs.gsfc.nasa.gov/vis/a000000/a004200/a004285/frames/3600x1800_2x1_30p/flatdates/",
+        "n_files": 356,
+        "first": "/vis/a000000/a004200/a004285/frames/3600x1800_2x1_30p/flatdates/imergert_dates.2026-09-18T00:00:00Z.png",
+        "last": "/vis/a000000/a004200/a004285/frames/3600x1800_2x1_30p/flatdates/imergert_dates.2026-09-25T09:30:00Z.png",
+        "last_date": "2026-09-25",
+        "tags": [
+          "2x1",
+          "flat"
+        ]
+      }
+    ],
+    "newest_frame_date": "2026-09-25",
+    "age_days": 0
+  },
+  "5113": {
+    "name": "Active fires (VIIRS)",
+    "title": "Active Fires As Observed by VIIRS, 2024-Present",
+    "update_date": "2026-09-23T15:31:03.190687-04:00",
+    "frame_dirs": [
+      "https://svs.gsfc.nasa.gov/vis/a000000/a005100/a005113/frames/4096x2048_2x1_30p/EIC/",
+      "https://svs.gsfc.nasa.gov/vis/a000000/a005100/a005113/frames/4096x2048_2x1_30p/SoaS/"
+    ],
+    "colorbars": [],
+    "n_images": 12,
+    "dirs": [
+      {
+        "dir": "https://svs.gsfc.nasa.gov/vis/a000000/a005100/a005113/frames/4096x2048_2x1_30p/EIC/",
+        "n_files": 900,
+        "first": "/vis/a000000/a005100/a005113/frames/4096x2048_2x1_30p/EIC/fires_frp_VIIRS.001.exr",
+        "last": "/vis/a000000/a005100/a005113/frames/4096x2048_2x1_30p/EIC/fires_frp_VIIRS.900.exr",
+        "last_date": null,
+        "tags": [
+          "2x1"
+        ]
+      },
+      {
+        "dir": "https://svs.gsfc.nasa.gov/vis/a000000/a005100/a005113/frames/4096x2048_2x1_30p/SoaS/",
+        "n_files": 900,
+        "first": "/vis/a000000/a005100/a005113/frames/4096x2048_2x1_30p/SoaS/fires_frp_VIIRS_eq_nl.001.exr",
+        "last": "/vis/a000000/a005100/a005113/frames/4096x2048_2x1_30p/SoaS/fires_frp_VIIRS_eq_nl.900.exr",
+        "last_date": null,
+        "tags": [
+          "2x1"
+        ]
+      }
+    ],
+    "newest_frame_date": null,
+    "age_days": null
+  },
+  "5151": {
+    "name": "PM2.5 (GEOS-CF)",
+    "title": "Particulate Matter (PM) 2.5",
+    "update_date": "2026-09-25T02:00:33.515732-04:00",
+    "frame_dirs": [
+      "https://svs.gsfc.nasa.gov/vis/a000000/a005100/a005151/frames/2048x1024_2x1_12p/MC01_stage4_GMAO_pm25_2048x1024_en-hwtool/"
+    ],
+    "colorbars": [
+      "https://svs.gsfc.nasa.gov/vis/a000000/a005100/a005151/PM2.5_colorbar.png",
+      "https://svs.gsfc.nasa.gov/vis/a000000/a005100/a005151/PM2.5_colorbar_plain.png"
+    ],
+    "n_images": 26,
+    "dirs": [
+      {
+        "dir": "https://svs.gsfc.nasa.gov/vis/a000000/a005100/a005151/frames/2048x1024_2x1_12p/MC01_stage4_GMAO_pm25_2048x1024_en-hwtool/",
+        "n_files": 372,
+        "first": "00000001.png",
+        "last": "00000372.png",
+        "last_date": null,
+        "tags": [
+          "2x1"
+        ]
+      }
+    ],
+    "newest_frame_date": null,
+    "age_days": null
+  },
+  "5152": {
+    "name": "Ozone (GEOS-CF)",
+    "title": "Near surface Ozone (O3)",
+    "update_date": "2026-09-25T02:00:35.188031-04:00",
+    "frame_dirs": [
+      "https://svs.gsfc.nasa.gov/vis/a000000/a005100/a005152/frames/2048x1024_2x1_12p/MC02_stage4_GMAO_O3_2048x1024_en-hwtool/"
+    ],
+    "colorbars": [
+      "https://svs.gsfc.nasa.gov/vis/a000000/a005100/a005152/O3_colorbar.png",
+      "https://svs.gsfc.nasa.gov/vis/a000000/a005100/a005152/O3_colorbar_plain.png"
+    ],
+    "n_images": 26,
+    "dirs": [
+      {
+        "dir": "https://svs.gsfc.nasa.gov/vis/a000000/a005100/a005152/frames/2048x1024_2x1_12p/MC02_stage4_GMAO_O3_2048x1024_en-hwtool/",
+        "n_files": 372,
+        "first": "00000001.png",
+        "last": "00000372.png",
+        "last_date": null,
+        "tags": [
+          "2x1"
+        ]
+      }
+    ],
+    "newest_frame_date": null,
+    "age_days": null
+  },
+  "5153": {
+    "name": "Carbon monoxide (GEOS-CF)",
+    "title": "Carbon Monoxide (CO)",
+    "update_date": "2026-09-25T02:00:38.145500-04:00",
+    "frame_dirs": [
+      "https://svs.gsfc.nasa.gov/vis/a000000/a005100/a005153/frames/2048x1024_2x1_12p/MC03_stage4_GMAO_CO_2048x1024_en-hwtool/"
+    ],
+    "colorbars": [
+      "https://svs.gsfc.nasa.gov/vis/a000000/a005100/a005153/CO_colorbar.png",
+      "https://svs.gsfc.nasa.gov/vis/a000000/a005100/a005153/CO_colorbar_plain.png"
+    ],
+    "n_images": 25,
+    "dirs": [
+      {
+        "dir": "https://svs.gsfc.nasa.gov/vis/a000000/a005100/a005153/frames/2048x1024_2x1_12p/MC03_stage4_GMAO_CO_2048x1024_en-hwtool/",
+        "n_files": 372,
+        "first": "00000001.png",
+        "last": "00000372.png",
+        "last_date": null,
+        "tags": [
+          "2x1"
+        ]
+      }
+    ],
+    "newest_frame_date": null,
+    "age_days": null
+  },
+  "5154": {
+    "name": "Nitrogen oxides (GEOS-CF)",
+    "title": "Nitrogen Oxides (NOx)",
+    "update_date": "2026-09-25T02:00:42.163101-04:00",
+    "frame_dirs": [
+      "https://svs.gsfc.nasa.gov/vis/a000000/a005100/a005154/frames/2048x1024_2x1_12p/MC04_stage4_GMAO_NO2_2048x1024_en-hwtool/"
+    ],
+    "colorbars": [
+      "https://svs.gsfc.nasa.gov/vis/a000000/a005100/a005154/NOx_colorbar.png",
+      "https://svs.gsfc.nasa.gov/vis/a000000/a005100/a005154/NOx_colorbar_plain.png"
+    ],
+    "n_images": 25,
+    "dirs": [
+      {
+        "dir": "https://svs.gsfc.nasa.gov/vis/a000000/a005100/a005154/frames/2048x1024_2x1_12p/MC04_stage4_GMAO_NO2_2048x1024_en-hwtool/",
+        "n_files": 372,
+        "first": "00000001.png",
+        "last": "00000372.png",
+        "last_date": null,
+        "tags": [
+          "2x1"
+        ]
+      }
+    ],
+    "newest_frame_date": null,
+    "age_days": null
+  },
+  "5147": {
+    "name": "Near-surface temperature (GEOS-FP)",
+    "title": "GEOS-FP Near-Surface Temperature",
+    "update_date": "2026-09-25T02:00:09.145902-04:00",
+    "frame_dirs": [
+      "https://svs.gsfc.nasa.gov/vis/a000000/a005100/a005147/frames/2048x1024_2x1_12p/MC01_stage3_GMAO_near_surface_temperature_2048x1024_en-hwtool/"
+    ],
+    "colorbars": [
+      "https://svs.gsfc.nasa.gov/vis/a000000/a005100/a005147/NearSurfaceTemperature_colorbar.png",
+      "https://svs.gsfc.nasa.gov/vis/a000000/a005100/a005147/NearSurfaceTemperature_colorbar_plain.png"
+    ],
+    "n_images": 18,
+    "dirs": [
+      {
+        "dir": "https://svs.gsfc.nasa.gov/vis/a000000/a005100/a005147/frames/2048x1024_2x1_12p/MC01_stage3_GMAO_near_surface_temperature_2048x1024_en-hwtool/",
+        "n_files": 372,
+        "first": "00000001.png",
+        "last": "00000372.png",
+        "last_date": null,
+        "tags": [
+          "2x1"
+        ]
+      }
+    ],
+    "newest_frame_date": null,
+    "age_days": null
+  },
+  "5148": {
+    "name": "Near-surface wind (GEOS-FP)",
+    "title": "GEOS-FP Near-Surface Wind Speed",
+    "update_date": "2026-09-25T02:00:15.669832-04:00",
+    "frame_dirs": [
+      "https://svs.gsfc.nasa.gov/vis/a000000/a005100/a005148/frames/2048x1024_2x1_12p/MC02_stage3_GMAO_near_surface_wind_2048x1024_en-hwtool/"
+    ],
+    "colorbars": [
+      "https://svs.gsfc.nasa.gov/vis/a000000/a005100/a005148/NearSurfaceWindSpeed_colorbar.png",
+      "https://svs.gsfc.nasa.gov/vis/a000000/a005100/a005148/NearSurfaceWindSpeed_colorbar_plain.png"
+    ],
+    "n_images": 18,
+    "dirs": [
+      {
+        "dir": "https://svs.gsfc.nasa.gov/vis/a000000/a005100/a005148/frames/2048x1024_2x1_12p/MC02_stage3_GMAO_near_surface_wind_2048x1024_en-hwtool/",
+        "n_files": 372,
+        "first": "00000001.png",
+        "last": "00000372.png",
+        "last_date": null,
+        "tags": [
+          "2x1"
+        ]
+      }
+    ],
+    "newest_frame_date": null,
+    "age_days": null
+  },
+  "5150": {
+    "name": "Near-surface humidity (GEOS-FP)",
+    "title": "GEOS-FP Near-Surface Humidity",
+    "update_date": "2026-09-25T02:00:31.703379-04:00",
+    "frame_dirs": [],
+    "colorbars": [
+      "https://svs.gsfc.nasa.gov/vis/a000000/a005100/a005150/NearSurfaceHumidity_colorbar.png",
+      "https://svs.gsfc.nasa.gov/vis/a000000/a005100/a005150/NearSurfaceHumidity_colorbar_plain.png"
+    ],
+    "n_images": 21,
+    "dirs": [],
+    "newest_frame_date": null,
+    "age_days": null
+  },
+  "5544": {
+    "name": "NDVI (vegetation)",
+    "title": "Near Real-Time Normalized Difference Vegetation Index (NDVI)",
+    "update_date": "2026-09-25T05:59:09.279375-04:00",
+    "frame_dirs": [
+      "https://svs.gsfc.nasa.gov/vis/a000000/a005500/a005544/frames/4096x2048_2x1_30p/equirectangular_w_dates/",
+      "https://svs.gsfc.nasa.gov/vis/a000000/a005500/a005544/frames/4096x2048_2x1_30p/robinson_w_dates/",
+      "https://svs.gsfc.nasa.gov/vis/a000000/a005500/a005544/frames/8640x4320_2x1_30p/equirectangular/",
+      "https://svs.gsfc.nasa.gov/vis/a000000/a005500/a005544/frames/8640x4320_2x1_30p/robinson/"
+    ],
+    "colorbars": [
+      "https://svs.gsfc.nasa.gov/vis/a000000/a005500/a005544/NDVI_colorbar.png"
+    ],
+    "n_images": 2,
+    "dirs": [
+      {
+        "dir": "https://svs.gsfc.nasa.gov/vis/a000000/a005500/a005544/frames/4096x2048_2x1_30p/equirectangular_w_dates/",
+        "n_files": 900,
+        "first": "/vis/a000000/a005500/a005544/frames/4096x2048_2x1_30p/equirectangular_w_dates/SNPP_VIIRS.20231227.ndvi_w_snow.oceanblue.annotated.png",
+        "last": "/vis/a000000/a005500/a005544/frames/4096x2048_2x1_30p/equirectangular_w_dates/SNPP_VIIRS.20260613.ndvi_w_snow.oceanblue.annotated.png",
+        "last_date": "2026-06-13",
+        "tags": [
+          "2x1"
+        ]
+      },
+      {
+        "dir": "https://svs.gsfc.nasa.gov/vis/a000000/a005500/a005544/frames/4096x2048_2x1_30p/robinson_w_dates/",
+        "n_files": 900,
+        "first": "/vis/a000000/a005500/a005544/frames/4096x2048_2x1_30p/robinson_w_dates/SNPP_VIIRS.20231227.ndvi_w_snow.oceanblue.rob.annotated.png",
+        "last": "/vis/a000000/a005500/a005544/frames/4096x2048_2x1_30p/robinson_w_dates/SNPP_VIIRS.20260613.ndvi_w_snow.oceanblue.rob.annotated.png",
+        "last_date": "2026-06-13",
+        "tags": [
+          "2x1"
+        ]
+      },
+      {
+        "dir": "https://svs.gsfc.nasa.gov/vis/a000000/a005500/a005544/frames/8640x4320_2x1_30p/equirectangular/",
+        "n_files": 900,
+        "first": "/vis/a000000/a005500/a005544/frames/8640x4320_2x1_30p/equirectangular/SNPP_VIIRS.20231227.ndvi_w_snow.oceanblue.png",
+        "last": "/vis/a000000/a005500/a005544/frames/8640x4320_2x1_30p/equirectangular/SNPP_VIIRS.20260613.ndvi_w_snow.oceanblue.png",
+        "last_date": "2026-06-13",
+        "tags": [
+          "2x1"
+        ]
+      },
+      {
+        "dir": "https://svs.gsfc.nasa.gov/vis/a000000/a005500/a005544/frames/8640x4320_2x1_30p/robinson/",
+        "n_files": 900,
+        "first": "/vis/a000000/a005500/a005544/frames/8640x4320_2x1_30p/robinson/SNPP_VIIRS.20231227.ndvi_w_snow.oceanblue.rob.png",
+        "last": "/vis/a000000/a005500/a005544/frames/8640x4320_2x1_30p/robinson/SNPP_VIIRS.20260613.ndvi_w_snow.oceanblue.rob.png",
+        "last_date": "2026-06-13",
+        "tags": [
+          "2x1"
+        ]
+      }
+    ],
+    "newest_frame_date": "2026-06-13",
+    "age_days": 104
+  },
+  "5176": {
+    "name": "Sea surface temperature (second item)",
+    "title": "Sea Surface Temperature (SST) Anomaly - Near Real Time",
+    "update_date": "2026-09-19T19:30:18.730746-04:00",
+    "frame_dirs": [
+      "https://svs.gsfc.nasa.gov/vis/a000000/a005100/a005176/frames/4096x2048_2x1_30p/sst_mur_anomaly/",
+      "https://svs.gsfc.nasa.gov/vis/a000000/a005100/a005176/frames/4096x2048_2x1_30p/sst_mur_anomaly_nodates/",
+      "https://svs.gsfc.nasa.gov/vis/a000000/a005100/a005176/frames/4096x2048_2x1_30p/sst_mur_anomaly_pacific/",
+      "https://svs.gsfc.nasa.gov/vis/a000000/a005100/a005176/frames/4096x2048_2x1_30p/sst_mur_anomaly_robinson/"
+    ],
+    "colorbars": [
+      "https://svs.gsfc.nasa.gov/vis/a000000/a005100/a005176/sst_mur_anomaly_auto_colorbar_01.exr",
+      "https://svs.gsfc.nasa.gov/vis/a000000/a005100/a005176/sst_mur_anomaly_auto_colorbar_01_print.jpg"
+    ],
+    "n_images": 18,
+    "dirs": [
+      {
+        "dir": "https://svs.gsfc.nasa.gov/vis/a000000/a005100/a005176/frames/4096x2048_2x1_30p/sst_mur_anomaly/",
+        "n_files": 901,
+        "first": "/vis/a000000/a005100/a005176/frames/4096x2048_2x1_30p/sst_mur_anomaly/sst_mur_anomaly_20240405.exr",
+        "last": "/vis/a000000/a005100/a005176/frames/4096x2048_2x1_30p/sst_mur_anomaly/sst_mur_anomaly_20260922.exr",
+        "last_date": "2026-09-22",
+        "tags": [
+          "2x1"
+        ]
+      },
+      {
+        "dir": "https://svs.gsfc.nasa.gov/vis/a000000/a005100/a005176/frames/4096x2048_2x1_30p/sst_mur_anomaly_nodates/",
+        "n_files": 901,
+        "first": "/vis/a000000/a005100/a005176/frames/4096x2048_2x1_30p/sst_mur_anomaly_nodates/sst_mur_anomaly_nodates_20240405.exr",
+        "last": "/vis/a000000/a005100/a005176/frames/4096x2048_2x1_30p/sst_mur_anomaly_nodates/sst_mur_anomaly_nodates_20260922.exr",
+        "last_date": "2026-09-22",
+        "tags": [
+          "2x1",
+          "nodate"
+        ]
+      },
+      {
+        "dir": "https://svs.gsfc.nasa.gov/vis/a000000/a005100/a005176/frames/4096x2048_2x1_30p/sst_mur_anomaly_pacific/",
+        "n_files": 901,
+        "first": "sst_mur_anomaly_pacific_20240405.exr",
+        "last": "sst_mur_anomaly_pacific_20260922.exr",
+        "last_date": "2026-09-22",
+        "tags": [
+          "2x1"
+        ]
+      },
+      {
+        "dir": "https://svs.gsfc.nasa.gov/vis/a000000/a005100/a005176/frames/4096x2048_2x1_30p/sst_mur_anomaly_robinson/",
+        "n_files": 901,
+        "first": "sst_mur_anomaly_robinson_20240405.exr",
+        "last": "sst_mur_anomaly_robinson_20260922.exr",
+        "last_date": "2026-09-22",
+        "tags": [
+          "2x1"
+        ]
+      }
+    ],
+    "newest_frame_date": "2026-09-22",
+    "age_days": 3
+  },
+  "5315": {
+    "name": "Fire weather (experimental)",
+    "title": "Daily Experimental Fire Weather Forecast",
+    "update_date": "2026-09-25T02:20:05.396028-04:00",
+    "frame_dirs": [],
+    "colorbars": [],
+    "n_images": 15,
+    "dirs": [],
+    "newest_frame_date": null,
+    "age_days": null
+  },
+  "5584": {
+    "name": "Landslide exposure",
+    "title": "Daily Global Landslide Exposure Map",
+    "update_date": "2026-01-07T16:31:09.214597-05:00",
+    "frame_dirs": [
+      "https://svs.gsfc.nasa.gov/vis/a000000/a005500/a005584/frames/archive/"
+    ],
+    "colorbars": [],
+    "n_images": 5,
+    "dirs": [
+      {
+        "dir": "https://svs.gsfc.nasa.gov/vis/a000000/a005500/a005584/frames/archive/",
+        "n_files": 238,
+        "first": "landslides.01_01_2026.png",
+        "last": "landslides.12_29_2025.png",
+        "last_date": null,
+        "tags": []
+      }
+    ],
+    "newest_frame_date": null,
+    "age_days": null
+  }
+}

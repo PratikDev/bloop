@@ -1,0 +1,27 @@
+P1b: does NASA POWER agree with independent records for Dhaka? Run: 2026-09-26.
+Output below is p1b_power_crosscheck.py re-run on 2026-09-27 from the already-downloaded inputs
+(p1b_results.json came out byte-identical to the original).
+
+GPCP ok (note: before 1988 GPCP relies on a coarser OLR-based estimate - treat 1981-87 with caution)
+GPCC ok
+GISTEMP ok
+  downloading https://www.ncei.noaa.gov/data/global-summary-of-the-day/access/1981/41923099999.csv
+Station GSOD 41923: usable Apr-May years A=2, B=7
+
+================ CROSS-CHECK ================
+POWER monsoon rain (Jun-Sep, mm/day): (1981, 1990): 6.51 | (2016, 2025): 14.07 | ratio B/A 2.16
+GPCP  monsoon rain: 15.10 | 13.71 | ratio 0.91 | year-to-year corr with POWER 0.20 -> INCONSISTENT
+GPCC  monsoon rain (gauges; B = (2010, 2019)): 14.79 | 13.03 | ratio 0.88 vs POWER ratio 1.84 | corr 0.24 -> INCONSISTENT
+
+POWER Apr-May daily max: 36.57 -> 34.44 C (change -2.13); daily mean 30.13 -> 29.24 (change -0.89)
+GISTEMP Apr-May mean-temperature anomaly change: +1.37 C (years A=10, B=10) -> OPPOSITE DIRECTION as POWER mean temperature
+Dhaka station: not enough complete years in one or both windows -> not used for the verdict
+
+VERDICT
+  Rain:        POWER NOT RELIABLE for this comparison
+  Temperature: POWER NOT RELIABLE for this comparison
+
+Saved p1b_crosscheck.png and p1b_results.json
+
+Conclusion: use GISTEMP (heat) and GPCP/GPCC (rain) for "then vs now"; POWER is not used for long-term claims.
+Not included (raw data): gpcp/gpcc/gistemp .nc files, gsod_41923_*.csv.

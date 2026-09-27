@@ -1,0 +1,41 @@
+{
+  "verdict": "NOT_EQUIVALENT",
+  "local_sha256": "ae78fe07cfa425fb7b3cd724f8d9d49b302e6b0ba806f717051677d6dfecab8b",
+  "new_sha256": "8bfc8b4b20566b073709a3990ad3ff3f0d791a3717391ed87ab28c2bc0e88a88",
+  "local_full_strip": [
+    106,
+    1501,
+    446
+  ],
+  "new_full_strip": [
+    264,
+    3574,
+    1079
+  ],
+  "transferred_mapping": [
+    473,
+    3365,
+    1079
+  ],
+  "R1": true,
+  "R2": {
+    "median": 2.2360680103302,
+    "p95": 10.099504470825195,
+    "pass": false
+  },
+  "R3": {
+    "checkC_frame.exr": {
+      "median": 0.04380607604980469,
+      "p99": 0.535752534866333,
+      "mask_agreement": 0.999794602394104,
+      "pass": false
+    },
+    "sst_sst_mur_20260925_no-dates.exr": {
+      "median": 0.04380619525909424,
+      "p99": 0.535752534866333,
+      "mask_agreement": 0.9997997283935547,
+      "pass": false
+    }
+  },
+  "checked_utc": "2026-09-27T07:10:25Z"
+}
