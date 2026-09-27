@@ -4,7 +4,7 @@
 // of this file when its phase is built.
 
 import { idleHandle } from "./players/sequence";
-import type { CompareSide, PlayerHandle, SweepPoint, ThenNowInput } from "./types";
+import type { PlayerHandle, SweepPoint } from "./types";
 
 function warn(name: string, phase: number) {
   console.warn(`audio: ${name}() is not implemented yet (Phase ${phase}).`);
@@ -19,12 +19,6 @@ const idlePlayer = (name: string, phase: number) => (): PlayerHandle => {
   warn(name, phase);
   return idleHandle();
 };
-
-// Phase 5 — Then vs Now, Comparison
-export const playThenNow: (input: ThenNowInput, part: "heat" | "monsoon" | "water" | "all") => PlayerHandle =
-  idlePlayer("playThenNow", 5);
-export const playCompare: (a: CompareSide, b: CompareSide, mode: "sequential" | "split") => PlayerHandle =
-  idlePlayer("playCompare", 5);
 
 // Phase 6 — time-lapse
 export const playTimelapse: (frames: SweepPoint[], opts?: { fps?: number; loop?: boolean }) => PlayerHandle =

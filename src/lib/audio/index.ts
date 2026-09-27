@@ -26,12 +26,12 @@ export { playWarmup } from "./players/warmup";
 export { playSweep } from "./players/sweep";
 export { playMotif } from "./players/motif";
 export { playOpening } from "./players/opening";
+export { playThenNow } from "./players/then-now";
+export { playCompare, playSeries } from "./players/compare";
 
 // Later phases (typed placeholders until built)
 export {
   playClip,
-  playCompare,
-  playThenNow,
   playTimelapse,
   preloadClips,
 } from "./stubs";
