@@ -2223,12 +2223,12 @@
       "dataset": "GRACE/GRACE-FO JPL mascons RL06.3Mv04 CRI (lwe_thickness, anomalies vs 2004-2009)",
       "place": "Bangladesh box (lon 88-93, lat 20.5-26.7)",
       "resolution": "about 3 deg true resolution",
-      "mapping_key": "Water (bass)",
+      "mapping_key": "Water",
       "gap_note": "No satellite measurements Jul 2017 - May 2018 (between GRACE and GRACE-FO).",
       "starts": "2002-04 (GRACE launch) - the water voice is silent before this",
       "credit": "GRACE/GRACE-FO JPL RL06.3Mv04 CRI mascons, NASA/JPL PO.DAAC"
     }
   },
   "disclosure": "Three independent NASA records at different resolutions (one grid cell, one grid cell, a national box). Voices moving together does not mean one causes the other. Null = no measurement (played as silence).",
-  "generated_utc": "2026-09-27T16:45:24Z"
+  "generated_utc": "2026-09-27T17:48:50Z"
 }
