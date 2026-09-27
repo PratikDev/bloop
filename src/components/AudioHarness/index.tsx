@@ -9,6 +9,7 @@ import SchedulerSection from "./SchedulerSection";
 import SequenceSection from "./SequenceSection";
 import SpeechSection from "./SpeechSection";
 import StartSection from "./StartSection";
+import StormSection from "./StormSection";
 import StubSection from "./StubSection";
 import ThenNowSection from "./ThenNowSection";
 import ToneSection from "./ToneSection";
@@ -41,6 +42,7 @@ export default function AudioHarness() {
       <LegendSection ready={ready} />
       <SequenceSection ready={ready} />
       <ThenNowSection ready={ready} />
+      <StormSection ready={ready} />
       <StubSection />
       <EventLog events={events} onClear={clear} />
     </main>
