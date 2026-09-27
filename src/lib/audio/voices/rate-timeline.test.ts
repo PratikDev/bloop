@@ -40,4 +40,13 @@ describe("rate timeline (rate in force at each drop's time)", () => {
     expect(tl.at(3)).toBe(20);
     expect(tl.at(6)).toBe(30);
   });
+
+  test("changesAfter lists later changes in order", () => {
+    const tl = createTimeline<number | null>(null);
+    tl.set(1, 10);
+    tl.set(2, null);
+    tl.set(3, 20);
+    expect(tl.changesAfter(1).map((c) => c.time)).toEqual([2, 3]);
+    expect(tl.changesAfter(3)).toEqual([]);
+  });
 });

@@ -7,6 +7,8 @@ export interface Timeline<T> {
   set(time: number, value: T): void;
   /** The value in force at `time` (the last change at or before it), or `initial` if none. */
   at(time: number): T;
+  /** Every change after `time`, in time order. */
+  changesAfter(time: number): { time: number; value: T }[];
   /** The first change after `time` whose value passes `accept`, or null. */
   nextAfter(time: number, accept: (value: T) => boolean): { time: number; value: T } | null;
   /** Forgets changes that can no longer matter before `time` (keeps the one in force). */
@@ -32,6 +34,9 @@ export function createTimeline<T>(initial: T): Timeline<T> {
     at(time) {
       const i = lastAtOrBefore(time);
       return i === -1 ? initial : changes[i].value;
+    },
+    changesAfter(time) {
+      return changes.filter((c) => c.time > time);
     },
     nextAfter(time, accept) {
       return changes.find((c) => c.time > time && accept(c.value)) ?? null;
