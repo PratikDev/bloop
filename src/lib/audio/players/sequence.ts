@@ -15,19 +15,29 @@ import { setTrackGateLifted } from "../mixer";
 import { cancel, schedule } from "../scheduler";
 import { onStopAll } from "../stop";
 import type { PlayerHandle } from "../types";
+import { createStepList } from "./steps";
+
+/** A step that plays a data point emits one step event (player, data index, number of data points). */
+export interface StepEvent {
+  player: string;
+  index: number;
+  total: number;
+}
 
 export interface SequenceStep {
   at: number; // seconds after the sequence starts
   run: (time: number) => void; // `time` = exact audio-clock time of this step
-  dataIndex?: number; // set for steps that play a data point → one step event
+  event?: StepEvent; // only for steps that play a data point
 }
+
+/** Builds sequence steps of varying length back to back (see createStepList). */
+export const createSequenceSteps = () => createStepList<Omit<SequenceStep, "at">>();
+export type SequenceStepList = ReturnType<typeof createSequenceSteps>;
 
 export interface SequenceOptions {
   id: string; // e.g. "legend.ocean"; used as the scheduler owner
   steps: SequenceStep[];
   durationSec: number;
-  player?: string; // step-event player name ("sweep", …); no step events without it
-  dataTotal?: number; // number of data points (step event `total`)
   holdLive?: boolean; // borrow the live voices (exploration pauses, then resumes)
   liftTrackGate?: boolean; // play named voices whatever the track mode
   onStart?: (startTime: number) => void;
@@ -54,7 +64,6 @@ export function playSequence(opts: SequenceOptions): PlayerHandle {
   current?.finish(false, false); // replaced: the new sequence takes over
 
   const owner = `${opts.id}#${++runs}`;
-  const total = opts.dataTotal ?? 0;
   let finished = false;
   let resolveDone: () => void = () => {};
   const done = new Promise<void>((resolve) => (resolveDone = resolve));
@@ -82,9 +91,7 @@ export function playSequence(opts: SequenceOptions): PlayerHandle {
   for (const step of opts.steps) {
     schedule(start + step.at, owner, (time) => {
       step.run(time);
-      if (step.dataIndex !== undefined && opts.player) {
-        emit({ kind: "step", player: opts.player, index: step.dataIndex, total, time });
-      }
+      if (step.event) emit({ kind: "step", ...step.event, time });
     });
   }
   schedule(start + opts.durationSec, owner, () => run.finish(true, true));

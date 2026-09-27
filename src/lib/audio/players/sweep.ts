@@ -22,7 +22,7 @@ export function playSweep(points: SweepPoint[], opts: { stepMs?: number } = {}):
 
   const steps = points.map((p, i) => ({
     at: starts[i],
-    dataIndex: i,
+    event: { player: "sweep", index: i, total: points.length },
     run: (time: number) => {
       const v = liveVoices();
       if (!v) return;
@@ -38,8 +38,6 @@ export function playSweep(points: SweepPoint[], opts: { stepMs?: number } = {}):
 
   return playSequence({
     id: "sweep",
-    player: "sweep",
-    dataTotal: points.length,
     steps,
     durationSec: points.length * stepSec + TAIL_SEC,
     holdLive: true,
