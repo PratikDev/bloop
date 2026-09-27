@@ -1,29 +1,35 @@
-import type { Metadata } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
+import type { Metadata, Viewport } from "next";
+import { Anek_Bangla, Tiro_Bangla } from "next/font/google";
+import { TooltipProvider } from "@/components/ui/tooltip";
 import "./globals.css";
 
-const geistSans = Geist({
-	variable: "--font-geist-sans",
-	subsets: ["latin"],
+const anek = Anek_Bangla({
+  variable: "--font-anek",
+  subsets: ["latin", "bengali"],
+  axes: ["wdth"],
 });
 
-const geistMono = Geist_Mono({
-	variable: "--font-geist-mono",
-	subsets: ["latin"],
+const tiro = Tiro_Bangla({
+  variable: "--font-tiro",
+  subsets: ["latin", "bengali"],
+  weight: "400",
 });
 
 export const metadata: Metadata = {
-	title: "NASA-SAC",
-	description: "NASA Space Apps Challenge 2026",
+  title: "Earth Information Jukebox",
+  description: "Hear NASA Earth Information Center frames as live sound, and see how the values were checked.",
+};
+
+export const viewport: Viewport = {
+  colorScheme: "dark",
 };
 
 export default function RootLayout({ children }: LayoutProps<"/">) {
-	return (
-		<html
-			lang="en"
-			className={`${geistSans.variable} ${geistMono.variable} h-full antialiased`}
-		>
-			<body className="min-h-full flex flex-col">{children}</body>
-		</html>
-	);
+  return (
+    <html lang="en" className={`${anek.variable} ${tiro.variable} h-full`}>
+      <body className="min-h-full">
+        <TooltipProvider>{children}</TooltipProvider>
+      </body>
+    </html>
+  );
 }
