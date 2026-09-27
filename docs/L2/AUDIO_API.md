@@ -1,7 +1,7 @@
 # Audio API (for L3 and anyone wiring sound into the UI)
 
 **Owner:** L2 · **Import from:** `@/lib/audio` only (never from its internal files)
-**Status:** the full API exists with its final signatures (except `playSeries`, added in Phase 5), and it already satisfies L3's `AudioEngine` interface (`src/lib/audio-adapter/types.ts`, including L3's requests B1–B3 and earcon params) — checked with `tsc` on 27 Sep. Functions of later phases are typed placeholders that log `audio: <name>() is not implemented yet (Phase N).` and do nothing, so the whole UI can be wired now. The **Phase** column says when each one starts making sound.
+**Status:** the full API exists with its final signatures, including `playSeries` (Phase 5), and it satisfies L3's `AudioEngine` interface on `main` **and** PR #4's `withFallbacks(l2)` (checked 28 Sep) (`src/lib/audio-adapter/types.ts`, including L3's requests B1–B3 and earcon params) — checked with `tsc` on 27 Sep. Functions of later phases are typed placeholders that log `audio: <name>() is not implemented yet (Phase N).` and do nothing, so the whole UI can be wired now. The **Phase** column says when each one starts making sound.
 
 > **The one rule:** the browser blocks audio until the user clicks or presses a key. Call `ensureAudio()` **inside** a click or keydown handler (the Start button, which must be the first focusable element with a clear label). Every other function is safe to call before that: it either does nothing or keeps its setting for later.
 
@@ -41,11 +41,11 @@ Calls may arrive at 60 Hz; they're cheap. Rain phase routes the sound: `"liquid"
 |---|---|
 | `speak(text: string, lang: "en" \| "bn"): Promise<void>` | Ducks the sonification while speaking; a new call interrupts the previous one. Resolves when done. No Bangla voice → silent + `caption.noBanglaVoice`. No speech, no voices installed, or a failure → silent + `caption.noSpeech` (it never hangs: 5 s watchdog). |
 | `playEarcon(id: "nodata" \| "whisper" \| "ping", opts?: { lon?: number; params?: CaptionParams })` | Emits `caption.earcon.<id>` with your `params` (whisper: `{ source }`). `whisper` after a spoken value; `ping` at an extreme point. |
-| `playLegend(voice)` → `PlayerHandle` | The **L** key. `voice`: `"ocean" \| "rain" \| "snow" \| "heat" \| "water"`. Heat and water emit `caption.legendUnavailable` until Phase 5. Plays whatever the track mode; exploration pauses and resumes from the latest cursor values afterwards. |
+| `playLegend(voice)` → `PlayerHandle` | The **L** key. `voice`: `"ocean" \| "rain" \| "snow" \| "heat" \| "water"`. Heat plays its mapping.json points (since Phase 5). Water always emits `caption.legendUnavailable`: its pitch range comes from the series being played, so it has no fixed legend. Plays whatever the track mode; exploration pauses and resumes from the latest cursor values afterwards. |
 | `playLegendForMode(mode)` → `PlayerHandle` | Short legend when the track or app mode changes. |
 | `playWarmup()` → `PlayerHandle` | ~22 s: volume check, then the ocean, rain and snow legends, then one no-data tick. Suggested right after Start. |
 
-## Sequences (Phase 4 — working), Then vs Now (Phase 5), time-lapse (Phase 6)
+## Sequences (Phase 4 — working), Then vs Now (Phase 5 — working), time-lapse (Phase 6)
 
 | Function | Input |
 |---|---|
@@ -54,7 +54,7 @@ Calls may arrive at 60 Hz; they're cheap. Rain phase routes the sound: `"liquid"
 | `playOpening(points: SweepPoint[], opts?: { durationSec?: number })` | ~20 points for the "close your eyes" opening (L3's `openingPath()`). 10 s by default, fading in over 2 s and out over 1.5 s; ocean and rain play whatever the track mode. `caption.opening.openEyes` only when it plays to the end (not on Skip) |
 | `playThenNow(input: ThenNowInput, part: "heat" \| "monsoon" \| "water" \| "all")` | Built from `demo/dhaka_then_now.json` + `context/grace.json` |
 | `playCompare(a: CompareSide, b: CompareSide, mode: "sequential" \| "split")` | Comparison Player. `"sequential"`: A, a short gap, then B. `"split"`: A in the left ear, B in the right, at the same time |
-| `playSeries(side: CompareSide, opts?: { stepMs?: number; player?: string })` | One series on its own, e.g. a decade of Place History. Default step: heat and monsoon 150 ms, water 60 ms. Step events use your `player` name (default `"series"`). **Not exported yet:** added in Phase 5 (L3 proposal B6, agreed on PR #4); until then L3's `withFallbacks()` covers it |
+| `playSeries(side: CompareSide, opts?: { stepMs?: number; player?: string })` | One series on its own, e.g. a decade of Place History. Default step: heat and monsoon 150 ms, water 60 ms. Step events use your `player` name (default `"series"`). Working since Phase 5 (L3 proposal B6, agreed on PR #4) |
 | `playTimelapse(frames: SweepPoint[], opts?: { fps?: number; loop?: boolean })` | Values at the cursor for each time-lapse frame |
 
 `SweepPoint` = `{ lon, lat, valueC, mmPerHour, phase }`. `CompareSide` = `{ label, values: (number | null)[], voice: "heat" | "monsoon" | "water" }`; build `ThenNowInput` with L3's `buildThenNowInput()` (`@/lib/then-now`). All players return a `PlayerHandle`: `{ stop(): void; done: Promise<void> }`. `done` resolves when the player finishes **or** is stopped.
@@ -114,18 +114,18 @@ These are the keys L3's i18n already has English text for (`src/lib/i18n/en/capt
 | `caption.noBanglaVoice` | — | no Bangla voice on the device | **now** |
 | `caption.earcon.nodata` / `.whisper` / `.ping` | your `params` (whisper: `source`) | `playEarcon()` | **now** |
 | `caption.legend` | `voice`, `label` | each legend step | **now** |
-| `caption.legendUnavailable` | `voice` | legend not available yet (heat, water) | **now** |
+| `caption.legendUnavailable` | `voice` | no fixed legend (water) | **now** |
 | `caption.warmup.start` / `.end` | — | warm-up (`.end` only when it plays to the end) | **now** |
 | `caption.sweep.start` / `.end` | — | sweep (`.end` only when it plays to the end) | **now** |
 | `caption.motif` | — | motif | **now** |
 | `caption.opening.closeEyes` / `.openEyes` | — | opening (`.openEyes` only when it plays to the end) | **now** |
-| `caption.thenNow.caption` | `text` (the part's caption from `ThenNowInput.captions`, as-is) | just before each Then vs Now part | Phase 5 |
-| `caption.thenNow.window` | `label` (e.g. "1981–1990") | start of each window (heat, monsoon) | Phase 5 |
-| `caption.thenNow.end` | — | Then vs Now finished | Phase 5 |
-| `caption.water.gap` | `from`, `to` ("YYYY-MM") | once per run of missing GRACE months | Phase 5 |
-| `caption.water.windowStart` / `.windowEnd` | `month` ("YYYY-MM") | water reaches a comparison window's edge | Phase 5 |
-| `caption.compare.side` | `label` | start of each side (`playCompare` sequential, `playSeries`) | Phase 5 |
-| `caption.compare.useHeadphones` | `a`, `b` (the two side labels) | start of split playback | Phase 5 |
+| `caption.thenNow.caption` | `text` (the part's caption from `ThenNowInput.captions`, as-is) | just before each Then vs Now part | **now** |
+| `caption.thenNow.window` | `label` (e.g. "1981–1990") | start of each window (heat, monsoon) | **now** |
+| `caption.thenNow.end` | — | Then vs Now finished | **now** |
+| `caption.water.gap` | `from`, `to` ("YYYY-MM") | once per run of missing GRACE months | **now** |
+| `caption.water.windowStart` / `.windowEnd` | `month` ("YYYY-MM") | water reaches a comparison window's edge | **now** |
+| `caption.compare.side` | `label` | start of each side (`playCompare` sequential, `playSeries`) | **now** |
+| `caption.compare.useHeadphones` | `a`, `b` (the two side labels) | start of split playback | **now** |
 
 The Phase 5 keys were agreed on L3's PR #4 (L3's UI already has their English text). Keys still to come for Phases 6 and 8 (`caption.timelapse.start/peak/end`, `caption.clip`) will be agreed with L3 before they're emitted.
 
