@@ -23,3 +23,20 @@ export function blip(param: AudioParam, time: number, peak: number, attackSec: n
   param.linearRampToValueAtTime(peak, time + attackSec);
   param.setTargetAtTime(0, time + attackSec, decaySec / 3);
 }
+
+/**
+ * Glide toward target starting at `time` on the audio clock (for sequences
+ * scheduled ahead). Omitted or already-past time = now (same as glideTo).
+ */
+export function glideAt(ctx: BaseAudioContext, param: AudioParam, target: number, glideSec: number, time?: number) {
+  if (time === undefined || time <= ctx.currentTime) return glideTo(ctx, param, target, glideSec);
+  param.cancelScheduledValues(time);
+  param.setTargetAtTime(target, time, Math.max(glideSec, 0.001) / 3);
+}
+
+/** Jump to a value at `time` (now if omitted or past), e.g. a new pitch while silent. */
+export function jumpAt(ctx: BaseAudioContext, param: AudioParam, value: number, time?: number) {
+  const t = Math.max(time ?? ctx.currentTime, ctx.currentTime);
+  param.cancelScheduledValues(t);
+  param.setValueAtTime(value, t);
+}
