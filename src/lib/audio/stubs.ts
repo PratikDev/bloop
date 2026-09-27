@@ -3,23 +3,12 @@
 // one logs which phase implements it and does nothing. Move each function out
 // of this file when its phase is built.
 
-import type {
-  CaptionParams,
-  CompareSide,
-  EarconId,
-  Lang,
-  LegendVoice,
-  PlayerHandle,
-  SweepPoint,
-  ThenNowInput,
-  TrackMode,
-} from "./types";
+import { idleHandle } from "./players/sequence";
+import type { CompareSide, PlayerHandle, SweepPoint, ThenNowInput } from "./types";
 
 function warn(name: string, phase: number) {
   console.warn(`audio: ${name}() is not implemented yet (Phase ${phase}).`);
 }
-
-const noop = (name: string, phase: number) => () => warn(name, phase);
 
 const resolved = (name: string, phase: number) => () => {
   warn(name, phase);
@@ -28,18 +17,8 @@ const resolved = (name: string, phase: number) => () => {
 
 const idlePlayer = (name: string, phase: number) => (): PlayerHandle => {
   warn(name, phase);
-  return { stop: () => {}, done: Promise.resolve() };
+  return idleHandle();
 };
-
-// Phase 3 — speech, legend, earcons
-export const speak: (text: string, lang: Lang) => Promise<void> = resolved("speak", 3);
-export const playEarcon: (id: EarconId, opts?: { lon?: number; params?: CaptionParams }) => void = noop(
-  "playEarcon",
-  3,
-);
-export const playLegend: (voice: LegendVoice) => PlayerHandle = idlePlayer("playLegend", 3);
-export const playLegendForMode: (mode: TrackMode) => PlayerHandle = idlePlayer("playLegendForMode", 3);
-export const playWarmup: () => PlayerHandle = idlePlayer("playWarmup", 3);
 
 // Phase 4 — sequences
 export const playSweep: (points: SweepPoint[], opts?: { stepMs?: number }) => PlayerHandle = idlePlayer(

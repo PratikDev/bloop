@@ -19,20 +19,19 @@ export { onAudioEvent } from "./events";
 export { stopAll } from "./stop";
 export { setAllMuted, setMasterVolume, setSolo, setTrackMode, setVoiceMuted, setVoiceVolume } from "./mixer";
 export { setOcean, setRain, silenceLive } from "./live";
+export { speak } from "./speech";
+export { playEarcon } from "./earcons";
+export { playLegend, playLegendForMode } from "./players/legend";
+export { playWarmup } from "./players/warmup";
 
 // Later phases (typed placeholders until built)
 export {
   playClip,
   playCompare,
-  playEarcon,
-  playLegend,
-  playLegendForMode,
   playMotif,
   playOpening,
   playSweep,
   playThenNow,
   playTimelapse,
-  playWarmup,
   preloadClips,
-  speak,
 } from "./stubs";
