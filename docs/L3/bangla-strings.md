@@ -10,6 +10,54 @@ For the teammate translating the interface into Bangla.
 
 **Still to translate:** 272 of 272 strings (every row marked TODO_BN). Until a string is translated, the Bangla setting shows it in English; speech stays English (with Bangla on screen) until `BANGLA_SPEECH_READY` in `src/lib/i18n/bn.ts` is set.
 
+## Priority: the video's closing shot (translate these first)
+
+The video ends on the live app in Bangla mode, playing (team plan §14, 3:45 to 3:50). These are the strings on screen, or read by a screen reader, in that shot: the top bar, the readout, the frame label, the caption bar, the credits and the Start screen.
+
+**Count: 39 strings.** 33 to translate in full, 3 credits lines to translate only their lead-in words, and 3 frame-label strings to **keep English until team approves** (§16 wording). Put each translation in `src/lib/i18n/bn.ts`; the full list below has the same keys.
+
+| Where | Key | English | Note |
+|---|---|---|---|
+| Top bar | `app.title` | Earth Information Jukebox |  |
+| Top bar | `mode.label` | Mode | screen-reader label |
+| Top bar | `mode.explore` | Explore |  |
+| Top bar | `mode.story` | Story |  |
+| Top bar | `mode.thenNow` | Then vs Now |  |
+| Top bar | `track.label` | What you hear | screen-reader label |
+| Top bar | `track.ocean` | Ocean |  |
+| Top bar | `track.rain` | Rain |  |
+| Top bar | `track.both` | Both |  |
+| Top bar | `settings.describe` | Describe |  |
+| Top bar | `settings.language` | Language | screen-reader label |
+| Top bar | `help.open` | Help | screen-reader label |
+| Top bar | `panels.open` | Panels | screen-reader label |
+| Top bar | `motif.play` | Play the Jukebox motif | screen-reader label |
+| Readout (on the map) | `reading.oceanValue` | (sentence with values; see source) | has values |
+| Readout (on the map) | `reading.oceanNone` | No ocean data here |  |
+| Readout (on the map) | `reading.rainValue` | (sentence with values; see source) | has values |
+| Readout (on the map) | `reading.dry` | Dry |  |
+| Readout (on the map) | `reading.rainNone` | No rain data here |  |
+| Readout (on the map) | `reading.rainLoading` | Rain is still loading |  |
+| Readout (on the map) | `unit.celsius` | °C |  |
+| Readout (on the map) | `unit.mmPerHour` | mm/h |  |
+| Readout (on the map) | `place.latlon` | (sentence with values; see source) | has values |
+| Readout (on the map) | `badge.interimEngine` | Interim sound engine |  |
+| Readout (on the map) | `badge.interimEngineHint` | A simple stand-in engine. The team's full sound engine replaces it soon. | tooltip |
+| Frame label | `frame.label` | (sentence with values; see source) | §16 wording: keep English until team approves; has values |
+| Frame label | `frame.product.ocean` | Ocean temperature | §16 wording: keep English until team approves (inside the frame label) |
+| Frame label | `frame.product.rain` | Rain and snow | §16 wording: keep English until team approves (inside the frame label) |
+| Caption bar (live exploring) | `caption.value` | (sentence with values; see source) | has values |
+| Caption bar (live exploring) | `caption.nodata` | (sentence with values; see source) | has values |
+| Credits | `credits.visualizations` | Visualizations: NASA's Scientific Visualization Studio (SVS 5101, 4285) for the NASA Earth Information Center. | §15: translate only the lead-in; names stay English |
+| Credits | `credits.data` | Data in this app: MUR SST (NASA/JPL PO.DAAC); GPM IMERG (NASA/JAXA, GES DISC); GRACE/GRACE-FO JPL mascons RL06.3Mv04 (NASA/JPL PO.DAAC); NASA GISTEMP v4; GPCP v2.3 and GPCC Full Data v2020 (via NOAA PSL). | §15: translate only "Data in this app:"; names stay English |
+| Credits | `credits.testing` | Also used in our testing: NASA FIRMS; MODIS MOD13Q1 via ORNL DAAC; NASA GLOBE Program. | §15: translate only "Also used in our testing:"; names stay English |
+| Start screen | `start.lead` | Hear NASA's view of today's ocean and rain as live sound. |  |
+| Start screen | `start.hint` | Headphones help: west sounds left, east sounds right. |  |
+| Start screen | `start.button` | Start listening |  |
+| Start screen | `start.silent` | Explore without sound |  |
+| Start screen | `start.silentHint` | Values appear as text and captions. You can turn sound on at any time. |  |
+| Start screen | `start.loading` | Loading today's ocean frame… |  |
+
 ## Interface
 
 | Key | English | Bangla | Note |
