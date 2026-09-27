@@ -15,7 +15,7 @@ Update this table when a phase's checklist is fully ticked.
 | 1 | Audio engine core and dev harness | Sun 27 | ✅ done (27 Sep); L3 requests B1/B3 + `caption.stopped` added after the L3 merge |
 | 2 | Live voices (ocean, rain, snow) | Sun 27 | ✅ done (27 Sep) |
 | 3 | Speech, ducking, legend, warm-up, earcons | Sun 27 | ✅ done (27 Sep) |
-| 4 | Sequence player, sweep, motif, opening | Sun 27 night / Mon 28 AM | ⬜ not started |
+| 4 | Sequence player, sweep, motif, opening | Sun 27 night / Mon 28 AM | ✅ done (28 Sep) |
 | 5 | Then vs Now and Comparison audio | Mon 28 | ⬜ not started |
 | 6 | Storm time-lapse audio | Mon 28 | ⬜ not started |
 | 7 | Optional voices (cut first) | Mon 28 PM, only if 0–6 done | ⬜ not started |
@@ -121,12 +121,14 @@ src/lib/audio/
 ├─ stubs.ts             # typed placeholders for API functions of later phases (shrinks each phase)
 ├─ dev.ts               # dev-harness helpers (test tone, ticks, peak meter); not public API
 ├─ captions.ts          # emitCaption() + a throttled caption emitter (≤ 4/s, settles on the last value)
-├─ live.ts              # Phase 2: setOcean / setRain / silenceLive → voices, no-data tick, value captions
+├─ live.ts              # Phase 2: setOcean / setRain / silenceLive → voices, no-data tick, value captions; holdLive/releaseLive; routeRain
+├─ nodata.ts            # PURE: tick only on entering no data, ≥ 300 ms apart (live + sweep)
 ├─ voices/
 │  ├─ common.ts         # voice output (panner → channel), panTo(), voicePeak()
 │  ├─ ocean.ts          # sine + glide
 │  ├─ drops.ts          # generic drop loop on the scheduler (rate, jitter, drop events) for rain and snow
 │  ├─ drop-timing.ts    # PURE: jittered intervals with an honest average, no-burst rate changes
+│  ├─ rate-timeline.ts  # PURE: which rate is in force at each drop's time (sequences schedule ahead)
 │  ├─ rain.ts           # noise-burst drops (liquid) through one shared band-pass
 │  ├─ snow.ts           # soft bells (frozen), one bell synthesised once into a buffer
 │  ├─ heat.ts           # then-vs-now heat pitch + Anomaly-Choir detune (Phase 5)
@@ -138,10 +140,11 @@ src/lib/audio/
 ├─ speech.ts            # speak(): local voice preferred, no-voice/failure → caption.noSpeech, 5 s start watchdog
 ├─ voice-pick.ts        # PURE: which speech voice for a language (never English for Bangla)
 ├─ players/
-│  ├─ sequence.ts       # step player on the scheduler; one at a time; borrows live voices, lifts the track gate (Phase 3 minimal; Phase 4 adds step events + exact-time voice changes)
-│  ├─ sweep.ts          # gist sweep playback
-│  ├─ motif.ts          # sonic identity
-│  ├─ opening.ts        # "close your eyes" bed
+│  ├─ sequence.ts       # step player on the scheduler; one at a time; steps run at their exact audio time; data-point step events; borrows live voices, lifts the track gate
+│  ├─ steps.ts          # PURE: evenly spaced step times
+│  ├─ sweep.ts          # gist sweep playback ("sweep" step events, no-data ticks)
+│  ├─ motif.ts          # sonic identity (4 notes on the earcon bus, null band = rest)
+│  ├─ opening.ts        # "close your eyes" bed (fades via the voices' channel inputs, restored after)
 │  ├─ legend.ts         # audio legend, short legend on mode change
 │  ├─ warmup.ts         # ~22 s warm-up: volume check + legends + no-data tick
 │  ├─ then-now.ts       # heat / monsoon / water (Phase 5)
@@ -582,7 +585,7 @@ Data voices, speech, players. Loudness tuning.
 ### 7.1 Tasks
 1. **`players/sequence.ts`** — `createSequence({ id, steps, stepMs, onStep(i, time) })` returns a `PlayerHandle`.
    - Schedules step `i` at `start + i × stepMs` through the scheduler (owner = this player), calling `onStep(i, audioTime)` inside the scheduler callback so parameter changes land **exactly** on the audio clock.
-   - Emits `{ kind: "step", player: id, index, total, time }` for playhead sync, **only for steps that play a data point** (Section 2.1: steps can be marked silent, and `index` / `total` count data points, not steps). Because scheduling runs ahead of the clock, emit the event with a `setTimeout` of `(time − ctx.currentTime) × 1000` so the UI cursor moves when the sound does (visual only; audio timing never depends on it).
+   - Emits `{ kind: "step", player: id, index, total, time }` for playhead sync, **only for steps that play a data point** (Section 2.1: steps can be marked silent, and `index` / `total` count data points, not steps). **As agreed with L3 (AUDIO_API.md "Step events")**, the event is emitted when the step is handed to Web Audio, up to the look-ahead early, carrying `time`; the UI shows it when the audio clock reaches `time` (same as `drop`). No `setTimeout` in the engine.
    - `stop()` clears only this player's events, fades its voices, resolves `done`. Starting a new sequence of the same kind stops the previous one.
    - Voices need an **"at time t" setter**: extend ocean/rain/snow with `setAt(value, lon, time)` (param automation at `time` instead of `now`). The rain drop loop must look up the rate *in force at each drop's time* (keep a small time-ordered list of rate changes).
 2. **Sweep (`playSweep(points, { stepMs = 80 })`)** — each point drives ocean and/or rain (per track mode) at its time; entering no-data plays the tick; `caption.sweep.start` / `caption.sweep.end`; emits step events. The path is L3's `sweepPath()` (rings outward from **Chattogram**, 22.36 N 91.78 E, `SWEEP_CENTER` in `lib/data/places.ts`, from `valueAt()`; team decision 27 Sep, was Dhaka; L2 is unaffected because it only plays the points it's given); the harness uses a synthetic path.
@@ -596,13 +599,13 @@ Data voices, speech, players. Loudness tuning.
 - A progress bar driven **only** by `step` events (proves playhead sync).
 
 ### 7.3 Deliverables checklist (Phase 4)
-- [ ] `bun test` passes — add tests for the pure step-time maths (`stepTimes(start, n, stepMs)`) and the rate-at-time lookup for drops.
-- [ ] Synthetic sweep: pitch falls smoothly, pans left → right, ticks exactly at the no-data points; progress bar moves in step with the sound (no visible lag or lead > ~50 ms).
-- [ ] Busy main thread 60 ms (shorter than the look-ahead) during a sweep: **audio** stays even (the bar may stutter; that's allowed).
-- [ ] Starting a sweep while one plays replaces it cleanly; Esc stops it without a click.
-- [ ] Motif plays 4 notes in the right order (south → north) with correct relative pitches for hand-typed values (e.g. 10, 25, 28, 15 °C → low, high, highest, mid); a null band is a rest.
-- [ ] Opening plays ~10 s, fades in and out, emits both captions at the right moments; Skip stops it.
-- [ ] Caption and step events visible in the harness log for every player.
+- [x] `bun test` passes — add tests for the pure step-time maths (`stepTimes(start, n, stepMs)`) and the rate-at-time lookup for drops.
+- [x] Synthetic sweep: pitch falls smoothly, pans left → right, ticks exactly at the no-data points; progress bar moves in step with the sound (no visible lag or lead > ~50 ms).
+- [x] Busy main thread 60 ms (shorter than the look-ahead) during a sweep: **audio** stays even (the bar may stutter; that's allowed).
+- [x] Starting a sweep while one plays replaces it cleanly; Esc stops it without a click.
+- [x] Motif plays 4 notes in the right order (south → north) with correct relative pitches for hand-typed values (e.g. 10, 25, 28, 15 °C → low, high, highest, mid); a null band is a rest.
+- [x] Opening plays ~10 s, fades in and out, emits both captions at the right moments; Skip stops it.
+- [x] Caption and step events visible in the harness log for every player.
 
 ---
 
