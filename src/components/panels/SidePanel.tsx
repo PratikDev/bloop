@@ -1,0 +1,77 @@
+"use client";
+
+import { cn } from "cn";
+import { Sheet, SheetContent, SheetTitle } from "@/components/ui/sheet";
+import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
+import { useMediaQuery } from "@/hooks/use-media-query";
+import type { PanelTab } from "../AppState/reducer";
+import { useAppState, useT } from "../AppState/use-app-state";
+import { MappingPanel } from "./MappingPanel";
+import { TruthPanel } from "./TruthPanel";
+
+const TABS: { tab: PanelTab; label: "panel.truth" | "panel.mapping" | "panel.provenance" | "panel.history" }[] = [
+  { tab: "truth", label: "panel.truth" },
+  { tab: "mapping", label: "panel.mapping" },
+  { tab: "provenance", label: "panel.provenance" },
+  { tab: "history", label: "panel.history" },
+];
+
+function PanelTabs() {
+  const { state, dispatch } = useAppState();
+  const t = useT();
+  return (
+    <Tabs value={state.panel} onValueChange={(panel: PanelTab) => dispatch({ type: "setPanel", panel })} className="gap-4">
+      <TabsList aria-label={t("panel.label")} className="w-full bg-night group-data-horizontal/tabs:h-11">
+        {TABS.map(({ tab, label }) => (
+          <TabsTrigger key={tab} value={tab} className="h-full px-2 text-body data-active:bg-tide">
+            {t(label)}
+          </TabsTrigger>
+        ))}
+      </TabsList>
+      <TabsContent value="truth">
+        <TruthPanel />
+      </TabsContent>
+      <TabsContent value="mapping">
+        <MappingPanel />
+      </TabsContent>
+      <TabsContent value="provenance">
+        <p className="text-haze">{t("provenance.notReady")}</p>
+      </TabsContent>
+      <TabsContent value="history">
+        <p className="text-haze">{t("history.notReady")}</p>
+      </TabsContent>
+    </Tabs>
+  );
+}
+
+/**
+ * One tabbed side sheet attached to the map (not a grid of cards).
+ * Wide screens: a column beside the map. Narrower: a sheet (right on tablet, bottom on phones).
+ */
+export function SidePanel() {
+  const { state, dispatch } = useAppState();
+  const t = useT();
+  const phone = useMediaQuery("(max-width: 767px)");
+  return (
+    <>
+      <aside
+        aria-label={t("panel.label")}
+        className="hidden overflow-y-auto rounded-l-sheet bg-dusk p-4 text-body lg:block"
+      >
+        <PanelTabs />
+      </aside>
+      <Sheet open={state.panelOpen} onOpenChange={(open) => dispatch({ type: "setPanelOpen", open })}>
+        <SheetContent
+          side={phone ? "bottom" : "right"}
+          className={cn(
+            "overflow-y-auto bg-dusk p-4 text-body lg:hidden",
+            phone ? "max-h-[85dvh] rounded-t-sheet" : "w-full rounded-l-sheet sm:max-w-md",
+          )}
+        >
+          <SheetTitle className="sr-only">{t("panel.label")}</SheetTitle>
+          <PanelTabs />
+        </SheetContent>
+      </Sheet>
+    </>
+  );
+}
