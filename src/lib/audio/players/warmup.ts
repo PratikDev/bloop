@@ -1,9 +1,9 @@
 // The warm-up (TEAM_BUILD_PLAN A4, AUDIO_RESEARCH A5/C3): a steady tone to set
 // a comfortable volume, then the ocean, rain and snow legends, then one
-// no-data tick after a moment of silence. About 21 s; Esc stops it any time.
+// no-data tick after a moment of silence. About 22 s; Esc stops it any time.
 
 import { emitCaption } from "../captions";
-import { playEarcon } from "../earcons";
+import { playEarconWithCaption } from "../earcons";
 import { liveVoices } from "../live";
 import { voiceSpec } from "../mapping";
 import type { PlayerHandle } from "../types";
@@ -24,8 +24,8 @@ function midOceanValue(): number {
 
 export function playWarmup(): PlayerHandle {
   const steps: SequenceStep[] = [
-    { at: 0, run: () => liveVoices()?.ocean.set(midOceanValue(), 0) },
-    { at: VOLUME_CHECK_SEC, run: () => liveVoices()?.ocean.set(null, 0) },
+    { at: 0, run: (time) => liveVoices()?.ocean.set(midOceanValue(), 0, { time }) },
+    { at: VOLUME_CHECK_SEC, run: (time) => liveVoices()?.ocean.set(null, 0, { time }) },
   ];
   let t = VOLUME_CHECK_SEC + SECTION_GAP_SEC;
   for (const voice of ["ocean", "rain", "snow"] as const) {
@@ -34,7 +34,7 @@ export function playWarmup(): PlayerHandle {
     t = part.end + SECTION_GAP_SEC;
   }
   t += SILENCE_BEFORE_TICK_SEC;
-  steps.push({ at: t, run: () => playEarcon("nodata") });
+  steps.push({ at: t, run: (time) => playEarconWithCaption("nodata", time) });
 
   return playSequence({
     id: "warmup",

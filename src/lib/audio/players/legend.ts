@@ -22,9 +22,9 @@ function isLiveLegendVoice(voice: LegendVoice): voice is LiveLegendVoice {
   return LIVE_LEGEND_VOICES.includes(voice);
 }
 
-/** Sets one live voice to a value (or silence) at the centre. */
-function sound(voice: LiveLegendVoice, value: number | null) {
-  liveVoices()?.[voice].set(value, 0);
+/** Sets one live voice to a value (or silence) at the centre, at an exact time. */
+function sound(voice: LiveLegendVoice, value: number | null, time: number) {
+  liveVoices()?.[voice].set(value, 0, { time });
 }
 
 /**
@@ -42,12 +42,12 @@ export function legendSteps(
     return [
       {
         at,
-        run: () => {
+        run: (time) => {
           emitCaption("caption.legend", { voice, label: point.label });
-          sound(voice, point.value);
+          sound(voice, point.value, time);
         },
       },
-      { at: at + POINT_SEC, run: () => sound(voice, null) },
+      { at: at + POINT_SEC, run: (time) => sound(voice, null, time) },
     ];
   });
   return { steps, end: from + points.length * LEGEND_POINT_SEC };
