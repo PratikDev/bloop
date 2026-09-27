@@ -61,14 +61,12 @@ def grace():
         yrs = (s.index - s.index[0]).days / 365.25
         trend = float(np.polyfit(yrs, s.values, 1)[0])
         mean_a = float(s["2003-01":"2006-12"].mean()); mean_b = float(s["2021-01":"2024-12"].mean())
-        per = s.index.to_period("M"); dup = sorted({str(x) for x in per[per.duplicated()]})
-        if dup: print(f"  GRACE {name}: {len(dup)} calendar months have two solutions (mid-dates in the same month): {dup} - averaged, and recorded in grace.json")
-        monthly = s.groupby(per).mean()
+        monthly = s.groupby(s.index.to_period("M")).mean()
         full = pd.period_range(monthly.index.min(), monthly.index.max(), freq="M")
         filled = monthly.reindex(full)
         out[name] = {"box_lon_lat": [x0, y0, x1, y1], "months": [str(p) for p in full],
                      "cm": [None if pd.isna(v) else round(float(v), 3) for v in filled.values],
-                     "missing_months": int(filled.isna().sum()), "duplicate_months_averaged": dup, "trend_cm_per_yr": round(trend, 3),
+                     "missing_months": int(filled.isna().sum()), "trend_cm_per_yr": round(trend, 3),
                      "mean_A": round(mean_a, 3), "mean_B": round(mean_b, 3), "window_A": "2003-01..2006-12", "window_B": "2021-01..2024-12"}
     return {"dataset": "GRACE/GRACE-FO JPL mascons RL06.3Mv04 CRI (lwe_thickness, anomalies vs 2004-2009)", "units": "cm",
             "gap_note": "No satellite measurements Jul 2017 - May 2018 (between GRACE and GRACE-FO).",
@@ -94,42 +92,16 @@ def globe():
     tcol = (find(r"measured") or find(r"date|time"))[0]
     cloud = find(r"cloud.?cover|total.?cloud|coverage")
     sat = [c for c in find(r"sat|match|goes|himawari|meteosat|aqua|terra|calipso|ceres|modis") if c not in cloud]
-    country = [c for c in df.columns if re.search(r"country", short(c), re.I)]     # lets the duet filter to Bangladesh
-    keep = [tcol, lat, lon] + country + cloud + sat
-    def clean(v):                                      # NaN/inf -> null (JSON has no NaN; null = no data)
-        if v is None: return None
-        if isinstance(v, float) and not np.isfinite(v): return None
-        if isinstance(v, (np.floating,)): return None if not np.isfinite(v) else float(v)
-        if isinstance(v, (np.integer,)): return int(v)
-        return v
-    rows = [{k: clean(v) for k, v in r.items()} for r in df[keep].astype(object).to_dict(orient="records")]
-    # Bangladesh test with the national outline (Natural Earth 1:50m), if fetch_bd_boundary.py has been run
-    bfile = CTX / "bangladesh_boundary.geojson"
-    if bfile.exists():
-        geom = json.load(open(bfile))["features"][0]["geometry"]
-        polys = geom["coordinates"] if geom["type"] == "MultiPolygon" else [geom["coordinates"]]
-        def inside(x, y):
-            hit = False
-            for poly in polys:
-                ring_hits = []
-                for ring in poly:                          # outer ring then holes
-                    r = np.asarray(ring); xs, ys = r[:, 0], r[:, 1]; x2, y2 = np.roll(xs, -1), np.roll(ys, -1)
-                    cross = ((ys > y) != (y2 > y)) & (x < (x2 - xs) * (y - ys) / np.where(y2 != ys, y2 - ys, 1e-12) + xs)
-                    ring_hits.append(bool(cross.sum() % 2))
-                if ring_hits and ring_hits[0] and not any(ring_hits[1:]): hit = True
-            return hit
-        for r in rows:
-            la_, lo_ = r.get(lat), r.get(lon)
-            r["in_bangladesh"] = bool(inside(float(lo_), float(la_))) if la_ is not None and lo_ is not None else None
-        n_in = sum(1 for r in rows if r["in_bangladesh"])
-        print(f"  GLOBE: {n_in} of {len(rows)} observations inside Bangladesh (Natural Earth 1:50m outline)")
-    else:
-        print("  GLOBE: no bangladesh_boundary.geojson - run fetch_bd_boundary.py to enable the Bangladesh filter")
-    print(f"  GLOBE: {len(rows)} rows from {csvs[0].name}; time='{tcol}', lat='{lat}', lon='{lon}', country columns {country}")
+    # drop satellite/cloud columns that carry nothing for Bangladesh (all empty, or always "no match")
+    dead = lambda c: df[c].isna().all() or set(df[c].dropna().astype(str)) <= {"no match"}
+    cloud = [c for c in cloud if not dead(c)]; sat = [c for c in sat if not dead(c)]
+    keep = [tcol, lat, lon] + cloud + sat
+    # astype(object) first: on float columns .where(..., None) silently keeps NaN, which JSON.parse rejects
+    rows = df[keep].astype(object).where(pd.notna(df[keep]), None).to_dict(orient="records")
+    print(f"  GLOBE: {len(rows)} rows from {csvs[0].name}; time='{tcol}', lat='{lat}', lon='{lon}'")
     print(f"         cloud-cover columns: {cloud[:8]}\n         satellite columns: {sat[:12]}")
     return {"dataset": "NASA GLOBE Clouds 2025 v3.4 matched (ground vs satellite)", "rows": len(rows),
-            "columns": {"time": tcol, "lat": lat, "lon": lon, "country": country, "cloud_cover": cloud, "satellite": sat,
-                        "in_bangladesh": "in_bangladesh" if (CTX / "bangladesh_boundary.geojson").exists() else None},
+            "columns": {"time": tcol, "lat": lat, "lon": lon, "cloud_cover": cloud, "satellite": sat},
             "note": "Two perspectives, not right vs wrong.", "credit": "NASA GLOBE Program", "observations": rows}
 
 def main():

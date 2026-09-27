@@ -117,10 +117,35 @@ for rel in ["latest/sst.webp", "latest/rain.png", "sequence/index.json", "contex
             "context/gpcc_bd.json", "context/grace.json", "context/firms.json", "context/ndvi.json", "context/globe_bd.json",
             "truth/sst_compare.png", "truth/rain_compare.png", "truth/crosscheck.png"]:
     check(f"G {rel} present", (PUBLIC / rel).exists())
-# optional (additive) outputs: reported, never counted as failures
-for rel in ["context/ensemble_bd.json", "context/globe_duet.json", "global/manifest.json", "global/heat.i16.gz",
-            "global/rain.i16.gz", "global/water.i16.gz", "global/places.json"]:
-    print(f"[{'INFO' if (PUBLIC / rel).exists() else 'WARN'}] optional {rel} {'present' if (PUBLIC / rel).exists() else 'missing (optional)'}")
+# optional (additive) outputs: missing = WARN only; if present, they must match their TypeScript contract (FAIL otherwise)
+def shape_ok(obj, spec, path=""):
+    """spec: dict of key -> type tuple, nested dict, or ('list', item_spec). Returns list of problems."""
+    probs = []
+    for k, t in spec.items():
+        if k not in obj: probs.append(f"{path}{k} missing"); continue
+        v = obj[k]
+        if isinstance(t, dict):
+            probs += shape_ok(v, t, f"{path}{k}.") if isinstance(v, dict) else [f"{path}{k} not an object"]
+        elif isinstance(t, tuple) and t and t[0] == "list":
+            if not isinstance(v, list): probs.append(f"{path}{k} not a list")
+            elif v and isinstance(t[1], dict): probs += shape_ok(v[0], t[1], f"{path}{k}[0].")
+            elif v and not all(isinstance(x, t[1]) for x in v): probs.append(f"{path}{k} items have wrong type")
+        elif not isinstance(v, t): probs.append(f"{path}{k} has type {type(v).__name__}")
+    return probs
+NUM, NUMN, STR, STRN = (int, float), (int, float, type(None)), (str,), (str, type(None))
+VOICE = {"values": ("list", NUMN), "units": STR, "dataset": STR, "place": STR, "resolution": STR, "mapping_key": STR, "credit": STR}
+ENSEMBLE = {"title": STR, "months": ("list", str), "voices": {"heat": VOICE, "rain": VOICE, "water": VOICE}, "disclosure": STR, "generated_utc": STR}
+PAIR = {"date": STR, "lat": NUM, "lon": NUM, "ground_pct": NUM, "satellite_pct": NUM, "n_reports": (int,), "satellite": STRN, "difference_pct": NUM}
+DUET = {"title": STR, "status": STR, "region": STR, "region_note": STR, "ground_value": {"primary": STR, "fallback": STR, "counts": dict,
+        "category_midpoints": dict, "note": STR}, "satellite_value": STR, "dropped": dict, "summary": dict, "pairs": ("list", PAIR),
+        "disclosure": STR, "credit": STR, "generated_utc": STR}
+for rel, spec in (("context/ensemble_bd.json", ENSEMBLE), ("context/globe_duet.json", DUET)):
+    f = PUBLIC / rel
+    if not f.exists():
+        print(f"[WARN] optional {rel} missing (optional)"); continue
+    o = json.load(open(f)); probs = shape_ok(o, spec)
+    if rel.endswith("globe_duet.json") and o.get("featured") is not None: probs += shape_ok(o["featured"], PAIR, "featured.")
+    check(f"optional {rel} matches its TypeScript contract", not probs, "; ".join(probs[:4]))
 try:
     idx = json.load(open(PUBLIC / "sequence" / "index.json"))["frames"]
     missing = [f["grid"] for f in idx if not (PUBLIC / "sequence" / f["grid"]).exists() or not (PUBLIC / "sequence" / f["png"]).exists()]
