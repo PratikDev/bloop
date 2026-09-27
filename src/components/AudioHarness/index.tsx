@@ -1,10 +1,12 @@
 "use client";
 
 import EventLog from "./EventLog";
+import LegendSection from "./LegendSection";
 import LiveSection from "./LiveSection";
 import MixerSection from "./MixerSection";
 import PitchPairSection from "./PitchPairSection";
 import SchedulerSection from "./SchedulerSection";
+import SpeechSection from "./SpeechSection";
 import StartSection from "./StartSection";
 import StubSection from "./StubSection";
 import ToneSection from "./ToneSection";
@@ -33,6 +35,8 @@ export default function AudioHarness() {
       <MixerSection ready={ready} />
       <LiveSection ready={ready} />
       <PitchPairSection ready={ready} />
+      <SpeechSection ready={ready} />
+      <LegendSection ready={ready} />
       <StubSection />
       <EventLog events={events} onClear={clear} />
     </main>
