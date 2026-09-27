@@ -112,6 +112,15 @@ L2 sends exactly these keys with exactly these params; the UI has English text f
 | `caption.compare.side` | `{ label }` |
 | `caption.compare.useHeadphones` | `{ a, b }` |
 
+**Heads-up (28 Sep): two caption keys the UI posts itself**, not the engine, so L2 needn't emit them. They share the caption bar through `src/lib/ui-captions.ts`:
+
+| Key | Params | Posted when |
+|---|---|---|
+| `caption.speech` | `{ text }` | a line is spoken by the built-in voice (Enter, Story Mode, Describe mode) |
+| `caption.history.end` | none | Place History finishes (`playSeries` captions the start with `caption.compare.side`, but not the end) |
+
+If L2's engine later captions the end of `playSeries`, L3 drops `caption.history.end`.
+
 **Any new caption key needs a heads-up in both directions:** L2 tells L3 before sending a new key (so the UI can add its text in both languages), and L3 tells L2 before expecting one. An unknown key shows on screen as its raw name: visible, but never a crash.
 
 The live-exploration keys the interim engine sends today are listed in `docs/L3/integration.md` §1 for L2's reference. They aren't agreed yet; L2 confirms them with its Phase 2 and 3 work.
@@ -216,3 +225,16 @@ _None in Phase 2 or Phase 3 item 1._ The only contract change on `L3` is L2's ow
 
 ### E2. §16 water wording
 - See A4. §11.5 (water row) and §13 (QA list) quote the same wording.
+
+### E3. §15 credits: split the data line (team plan and README)
+The app's credits footer now splits §15's data line in two, so it doesn't credit datasets the app doesn't use:
+
+| Line | Text in the app |
+|---|---|
+| Visualizations | unchanged from §15 |
+| **Data in this app** | MUR SST (NASA/JPL PO.DAAC); GPM IMERG (NASA/JAXA, GES DISC); GRACE/GRACE-FO JPL mascons RL06.3Mv04 (NASA/JPL PO.DAAC); NASA GISTEMP v4; GPCP v2.3 and GPCC Full Data v2020 (via NOAA PSL). |
+| **Also used in our testing** | NASA FIRMS; MODIS MOD13Q1 via ORNL DAAC; NASA GLOBE Program. |
+
+- **Why:** the app plays and shows only MUR, IMERG, GRACE, GISTEMP, GPCP and GPCC (GPCC in the Then vs Now disclosure). FIRMS, MODIS and GLOBE have context files but no feature in the app yet.
+- **Ask to the team:** use the same split in `TEAM_BUILD_PLAN.md` §15 and in the README. When fires, vegetation or GLOBE reach the app, their line moves up to "Data in this app".
+- The English text is in `src/lib/i18n/en/app.ts` (`credits.*`).
