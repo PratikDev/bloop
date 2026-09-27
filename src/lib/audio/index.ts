@@ -17,7 +17,8 @@ export async function ensureAudio(): Promise<void> {
 export { getAnalyser, isAudioReady } from "./context";
 export { onAudioEvent } from "./events";
 export { stopAll } from "./stop";
-export { setAllMuted, setMasterVolume, setSolo, setVoiceMuted, setVoiceVolume } from "./mixer";
+export { setAllMuted, setMasterVolume, setSolo, setTrackMode, setVoiceMuted, setVoiceVolume } from "./mixer";
+export { setOcean, setRain, silenceLive } from "./live";
 
 // Later phases (typed placeholders until built)
 export {
@@ -33,9 +34,5 @@ export {
   playTimelapse,
   playWarmup,
   preloadClips,
-  setOcean,
-  setRain,
-  setTrackMode,
-  silenceLive,
   speak,
 } from "./stubs";

@@ -10,7 +10,6 @@ import type {
   Lang,
   LegendVoice,
   PlayerHandle,
-  RainPhase,
   SweepPoint,
   ThenNowInput,
   TrackMode,
@@ -31,12 +30,6 @@ const idlePlayer = (name: string, phase: number) => (): PlayerHandle => {
   warn(name, phase);
   return { stop: () => {}, done: Promise.resolve() };
 };
-
-// Phase 2 — live voices
-export const setTrackMode: (mode: TrackMode) => void = noop("setTrackMode", 2);
-export const setOcean: (valueC: number | null, lon: number) => void = noop("setOcean", 2);
-export const setRain: (mmPerHour: number | null, phase: RainPhase, lon: number) => void = noop("setRain", 2);
-export const silenceLive: () => void = noop("silenceLive", 2);
 
 // Phase 3 — speech, legend, earcons
 export const speak: (text: string, lang: Lang) => Promise<void> = resolved("speak", 3);
