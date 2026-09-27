@@ -45,13 +45,13 @@ Calls may arrive at 60 Hz; they're cheap. Rain phase routes the sound: `"liquid"
 | `playLegendForMode(mode)` → `PlayerHandle` | Short legend when the track or app mode changes. |
 | `playWarmup()` → `PlayerHandle` | ~22 s: volume check, then the ocean, rain and snow legends, then one no-data tick. Suggested right after Start. |
 
-## Sequences (Phase 4), Then vs Now (Phase 5), time-lapse (Phase 6)
+## Sequences (Phase 4 — working), Then vs Now (Phase 5), time-lapse (Phase 6)
 
 | Function | Input |
 |---|---|
-| `playSweep(points: SweepPoint[], opts?: { stepMs?: number })` | The gist-sweep path you build from `valueAt()` |
-| `playMotif(bandMeansC: (number \| null)[])` | 4 latitude-band mean SSTs: 60°S–30°S, 30°S–0°, 0°–30°N, 30°N–60°N |
-| `playOpening(points: SweepPoint[], opts?: { durationSec?: number })` | ~20 points for the "close your eyes" opening |
+| `playSweep(points: SweepPoint[], opts?: { stepMs?: number })` | The gist-sweep path you build from `valueAt()` (L3's `sweepPath()`). Default 80 ms per point. Follows the track mode; ticks on entering no data; one `"sweep"` step event per point. Exploration pauses and resumes afterwards |
+| `playMotif(bandMeansC: (number \| null)[])` | 4 latitude-band mean SSTs: 60°S–30°S, 30°S–0°, 0°–30°N, 30°N–60°N (L3's `bandMeans()`). `null` = a rest. ≈ 1.9 s |
+| `playOpening(points: SweepPoint[], opts?: { durationSec?: number })` | ~20 points for the "close your eyes" opening (L3's `openingPath()`). 10 s by default, fading in over 2 s and out over 1.5 s; ocean and rain play whatever the track mode. `caption.opening.openEyes` only when it plays to the end (not on Skip) |
 | `playThenNow(input: ThenNowInput, part: "heat" \| "monsoon" \| "water" \| "all")` | Built from `demo/dhaka_then_now.json` + `context/grace.json` |
 | `playCompare(a: CompareSide, b: CompareSide, mode: "sequential" \| "split")` | Comparison Player. `"sequential"`: A, a short gap, then B. `"split"`: A in the left ear, B in the right, at the same time |
 | `playSeries(side: CompareSide, opts?: { stepMs?: number; player?: string })` | One series on its own, e.g. a decade of Place History. Default step: heat and monsoon 150 ms, water 60 ms. Step events use your `player` name (default `"series"`). **Not exported yet:** added in Phase 5 (L3 proposal B6, agreed on PR #4); until then L3's `withFallbacks()` covers it |
@@ -60,6 +60,8 @@ Calls may arrive at 60 Hz; they're cheap. Rain phase routes the sound: `"liquid"
 `SweepPoint` = `{ lon, lat, valueC, mmPerHour, phase }`. `CompareSide` = `{ label, values: (number | null)[], voice: "heat" | "monsoon" | "water" }`; build `ThenNowInput` with L3's `buildThenNowInput()` (`@/lib/then-now`). All players return a `PlayerHandle`: `{ stop(): void; done: Promise<void> }`. `done` resolves when the player finishes **or** is stopped.
 
 Mute, solo and mute-all (M) apply to the Then vs Now and series voices too, and `stop()` / `stopAll()` silence everything a player has already scheduled.
+
+Only one player plays at a time: starting the sweep, motif, opening, a legend or the warm-up stops the one before it (without its end caption).
 
 ## Recorded narration (Phase 8)
 
@@ -114,9 +116,9 @@ These are the keys L3's i18n already has English text for (`src/lib/i18n/en/capt
 | `caption.legend` | `voice`, `label` | each legend step | **now** |
 | `caption.legendUnavailable` | `voice` | legend not available yet (heat, water) | **now** |
 | `caption.warmup.start` / `.end` | — | warm-up (`.end` only when it plays to the end) | **now** |
-| `caption.sweep.start` / `.end` | — | sweep | Phase 4 |
-| `caption.motif` | — | motif | Phase 4 |
-| `caption.opening.closeEyes` / `.openEyes` | — | opening | Phase 4 |
+| `caption.sweep.start` / `.end` | — | sweep (`.end` only when it plays to the end) | **now** |
+| `caption.motif` | — | motif | **now** |
+| `caption.opening.closeEyes` / `.openEyes` | — | opening (`.openEyes` only when it plays to the end) | **now** |
 | `caption.thenNow.caption` | `text` (the part's caption from `ThenNowInput.captions`, as-is) | just before each Then vs Now part | Phase 5 |
 | `caption.thenNow.window` | `label` (e.g. "1981–1990") | start of each window (heat, monsoon) | Phase 5 |
 | `caption.thenNow.end` | — | Then vs Now finished | Phase 5 |
