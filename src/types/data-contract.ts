@@ -337,8 +337,8 @@ export interface NdviContextFile {
 //
 // Rows keep the original GLOBE CSV column names; `columns` says which ones
 // hold time, position, cloud cover and satellite matches. Missing cells
-// should be null. (As of 9ce77b7 the file contains bare NaN, which the
-// browser's JSON.parse rejects — L1 to fix by writing null.)
+// are null. Columns that are empty for every Bangladesh row (all Terra/Aqua,
+// NOAA20 Total, CALIPSO) are dropped, so only NOAA20 Low/Mid/High remain.
 // ---------------------------------------------------------------------------
 
 export type GlobeObservationRow = Record<string, string | number | null>;
