@@ -13,8 +13,11 @@ const WHISPER_HZ = [1600, 2100]; // two soft notes, rising
 const WHISPER_NOTE_SEC = 0.15;
 const PING_HZ = 2500;
 
-/** One sine blip on the earcon bus, shaped by an earcon's mapping.json envelope. */
-function tone(id: EarconId, freq: number, time: number, lon: number) {
+/** Sounds on the earcon bus with their own mapping.json envelope: the earcons and the motif notes. */
+export type ToneId = EarconId | "motif";
+
+/** One sine blip on the earcon bus at `time`, shaped by its mapping.json envelope. */
+export function playTone(id: ToneId, freq: number, time: number, lon: number) {
   const ctx = getCtx();
   const { attackMs, releaseMs, maxGain } = voiceSpec(id).sound;
   const osc = track(new OscillatorNode(ctx, { type: "sine", frequency: freq }));
@@ -28,11 +31,11 @@ function tone(id: EarconId, freq: number, time: number, lon: number) {
 
 const SOUNDS: Record<EarconId, (time: number, lon: number) => void> = {
   // soft tick when entering no data (AUDIO_RESEARCH C2, a design choice)
-  nodata: (time, lon) => tone("nodata", TICK_HZ, time, lon),
+  nodata: (time, lon) => playTone("nodata", TICK_HZ, time, lon),
   // after a spoken value: which satellite / dataset measured it (C7)
-  whisper: (time, lon) => WHISPER_HZ.forEach((hz, i) => tone("whisper", hz, time + i * WHISPER_NOTE_SEC, lon)),
+  whisper: (time, lon) => WHISPER_HZ.forEach((hz, i) => playTone("whisper", hz, time + i * WHISPER_NOTE_SEC, lon)),
   // the extreme value in view (B5)
-  ping: (time, lon) => tone("ping", PING_HZ, time, lon),
+  ping: (time, lon) => playTone("ping", PING_HZ, time, lon),
 };
 
 /** Plays an earcon now (silent before Start). Internal: no caption. */
@@ -41,9 +44,15 @@ export function playEarconAt(id: EarconId, time: number, lon = 0) {
   SOUNDS[id](time, lon);
 }
 
-/** Public: plays an earcon and emits `caption.earcon.<id>` with the caller's params (e.g. whisper `{ source }`). */
+/** Plays an earcon at `time` and emits `caption.earcon.<id>` with the given params. */
+export function playEarconWithCaption(id: EarconId, time: number, lon = 0, params: CaptionParams = {}) {
+  if (!peekEngine()) return;
+  playEarconAt(id, time, lon);
+  emitCaption(`caption.earcon.${id}`, params);
+}
+
+/** Public: plays an earcon now and emits `caption.earcon.<id>` with the caller's params (e.g. whisper `{ source }`). */
 export function playEarcon(id: EarconId, opts: { lon?: number; params?: CaptionParams } = {}) {
   if (!peekEngine()) return;
-  playEarconAt(id, getCtx().currentTime, opts.lon ?? 0);
-  emitCaption(`caption.earcon.${id}`, opts.params ?? {});
+  playEarconWithCaption(id, getCtx().currentTime, opts.lon, opts.params);
 }
