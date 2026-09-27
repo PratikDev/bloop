@@ -1,0 +1,28 @@
+T1-T3: browser access, frame inventory, sound responsiveness. Run: 2026-09-25.
+The original terminal log was not saved; the lines below are copied from the saved outputs in this folder.
+
+T1 Browser access (t1_cors_test.html)
+  SVS frames: BLOCKED by CORS -> a Python pipeline is needed to read pixels.
+  NASA POWER API: readable from the browser.
+  GLOBE API: responded but returned no data.
+
+T2 Frame inventory (t2_frame_list.py -> frame_inventory.json): PASS
+  5101 SST newest frame 1 day old; 4285 IMERG 0 days; 5176 SST 3 days; NDVI 5544 104 days old (stale);
+  other products have frames, colorbars unchecked.
+  Products in frame_inventory.json:
+  5101: Sea surface temperature (MUR) | updated 2026-09-19
+  4285: Precipitation (IMERG) | updated 2026-09-25
+  5113: Active fires (VIIRS) | updated 2026-09-23
+  5151: PM2.5 (GEOS-CF) | updated 2026-09-25
+  5152: Ozone (GEOS-CF) | updated 2026-09-25
+  5153: Carbon monoxide (GEOS-CF) | updated 2026-09-25
+  5154: Nitrogen oxides (GEOS-CF) | updated 2026-09-25
+  5147: Near-surface temperature (GEOS-FP) | updated 2026-09-25
+  5148: Near-surface wind (GEOS-FP) | updated 2026-09-25
+  5150: Near-surface humidity (GEOS-FP) | updated 2026-09-25
+  5544: NDVI (vegetation) | updated 2026-09-25
+  5176: Sea surface temperature (second item) | updated 2026-09-19
+  5315: Fire weather (experimental) | updated 2026-09-25
+  5584: Landslide exposure | updated 2026-01-07
+
+T3 Sound responsiveness (t3_audio_latency.html): PASS. Value -> sound change is instant in the browser.

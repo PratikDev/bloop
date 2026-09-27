@@ -92,8 +92,12 @@ def globe():
     tcol = (find(r"measured") or find(r"date|time"))[0]
     cloud = find(r"cloud.?cover|total.?cloud|coverage")
     sat = [c for c in find(r"sat|match|goes|himawari|meteosat|aqua|terra|calipso|ceres|modis") if c not in cloud]
+    # drop satellite/cloud columns that carry nothing for Bangladesh (all empty, or always "no match")
+    dead = lambda c: df[c].isna().all() or set(df[c].dropna().astype(str)) <= {"no match"}
+    cloud = [c for c in cloud if not dead(c)]; sat = [c for c in sat if not dead(c)]
     keep = [tcol, lat, lon] + cloud + sat
-    rows = df[keep].where(pd.notna(df[keep]), None).to_dict(orient="records")
+    # astype(object) first: on float columns .where(..., None) silently keeps NaN, which JSON.parse rejects
+    rows = df[keep].astype(object).where(pd.notna(df[keep]), None).to_dict(orient="records")
     print(f"  GLOBE: {len(rows)} rows from {csvs[0].name}; time='{tcol}', lat='{lat}', lon='{lon}'")
     print(f"         cloud-cover columns: {cloud[:8]}\n         satellite columns: {sat[:12]}")
     return {"dataset": "NASA GLOBE Clouds 2025 v3.4 matched (ground vs satellite)", "rows": len(rows),

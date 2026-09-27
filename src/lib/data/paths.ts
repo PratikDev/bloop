@@ -1,0 +1,16 @@
+// URLs of L1's published files (public/data/, served from /data/).
+
+const ROOT = "/data";
+
+export const DATA_PATHS = {
+  sstMeta: `${ROOT}/latest/sst.json`,
+  sstGrid: `${ROOT}/latest/sst.bin`,
+  sstImage: `${ROOT}/latest/sst.webp`,
+  rainMeta: `${ROOT}/latest/rain.json`,
+  rainGrid: `${ROOT}/latest/rain.bin`,
+  rainImage: `${ROOT}/latest/rain.png`,
+  rainPhaseGrid: (phaseFile: string) => `${ROOT}/latest/${phaseFile}`,
+  demo: `${ROOT}/demo/dhaka_then_now.json`,
+  truthImage: (name: "sst_compare" | "rain_compare" | "crosscheck") => `${ROOT}/truth/${name}.png`,
+  mapping: "/mapping.json",
+} as const;

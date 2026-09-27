@@ -1,0 +1,231 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Test 3 — Sound responsiveness</title>
+<style>
+  body { font: 16px/1.5 system-ui, sans-serif; margin: 1.5rem auto; max-width: 72rem; padding: 0 1rem; color: #1b1f24; }
+  fieldset { border: 1px solid #c8ccd1; margin: 0 0 1rem; } legend { font-weight: 600; }
+  label { display: inline-block; margin: .25rem 1rem .25rem 0; }
+  input[type=number] { width: 6rem; font: inherit; }
+  button, select, input { font: inherit; }
+  button { padding: .45rem .9rem; margin: .25rem .5rem .25rem 0; cursor: pointer; }
+  :focus-visible { outline: 3px solid #1a5fb4; outline-offset: 2px; }
+  #view { width: 100%; max-width: 1024px; border: 1px solid #c8ccd1; cursor: crosshair; display: block; }
+  #readout { font-size: 1.25rem; min-height: 1.8rem; margin: .5rem 0; }
+  pre { background: #f2f4f7; padding: 1rem; white-space: pre-wrap; }
+</style>
+</head>
+<body>
+<h1>Test 3: does the sound respond instantly?</h1>
+<p>Load your converted frame and its colorbar from your computer (no internet needed). Then move the mouse over the map, or click the map and use the arrow keys.</p>
+
+<fieldset><legend>1. Files</legend>
+  <label>Frame image <input type="file" id="frameFile" accept="image/*"></label>
+  <label>Colorbar image <input type="file" id="barFile" accept="image/*"></label>
+</fieldset>
+
+<fieldset><legend>2. Colorbar settings (same numbers as s2_build_lut.py)</legend>
+  <label>Orientation <select id="orient"><option value="h">horizontal</option><option value="v">vertical</option></select></label>
+  <label>START <input type="number" id="start" value="0"></label>
+  <label>END <input type="number" id="end" value="0"></label>
+  <label>ACROSS <input type="number" id="across" value="0"></label>
+  <label>Min value <input type="number" id="vmin" value="-5" step="any"></label>
+  <label>Max value <input type="number" id="vmax" value="35" step="any"></label>
+  <label>Scale <select id="scale"><option value="lin">linear (SST)</option><option value="log">log (rain)</option></select></label>
+  <label>Unit <input id="unit" value="°C" size="6"></label><br>
+  <label>Lowest pitch Hz <input type="number" id="fmin" value="220"></label>
+  <label>Highest pitch Hz <input type="number" id="fmax" value="880"></label>
+  <button id="buildLut">Build lookup</button>
+  <button id="convert">Convert whole frame (timed)</button>
+</fieldset>
+
+<fieldset><legend>3. Listen</legend>
+  <button id="startAudio">Start sound</button>
+  <button id="sweep">Sweep this row (5 s)</button>
+  <button id="stopAudio">Stop sound</button>
+  <span>Keyboard: click the map, then arrows move (Shift = bigger steps), Enter speaks the value.</span>
+</fieldset>
+
+<canvas id="view" tabindex="0" aria-label="Map. Use arrow keys to move, Enter to hear the value spoken."></canvas>
+<div id="readout" aria-live="polite">Load files to begin.</div>
+<button id="copy">Copy results</button>
+<pre id="results"></pre>
+
+<script>
+const $ = id => document.getElementById(id);
+const view = $('view'), vctx = view.getContext('2d');
+let frame = null, W = 0, H = 0;          // frame ImageData
+let lutC = null, lutV = null;             // colorbar colours (N x 3) and values
+let grid = null;                          // Float32Array of converted values
+let ctx = null, osc = null, gain = null;
+let cursor = { x: 0, y: 0 };
+const stats = { convertMs: null, uniqueColours: null, handlerMs: [], lutSize: 0 };
+const cache = new Map();
+
+async function loadImageData(file) {
+  const bmp = await createImageBitmap(file);
+  const c = new OffscreenCanvas(bmp.width, bmp.height);
+  const g = c.getContext('2d'); g.drawImage(bmp, 0, 0);
+  return { data: g.getImageData(0, 0, bmp.width, bmp.height), bmp };
+}
+
+$('frameFile').onchange = async e => {
+  const { data, bmp } = await loadImageData(e.target.files[0]);
+  frame = data; W = data.width; H = data.height; grid = null; cache.clear();
+  view.width = Math.min(1024, W); view.height = Math.round(view.width * H / W);
+  vctx.drawImage(bmp, 0, 0, view.width, view.height);
+  cursor = { x: Math.floor(W / 2), y: Math.floor(H / 2) };
+  $('readout').textContent = `Frame loaded: ${W} x ${H}. Now load the colorbar and build the lookup.`;
+};
+let bar = null;
+$('barFile').onchange = async e => { bar = (await loadImageData(e.target.files[0])).data;
+  $('readout').textContent = `Colorbar loaded: ${bar.width} x ${bar.height}. Enter START/END/ACROSS, then Build lookup.`; };
+
+function valueAt(t) {
+  const vmin = +$('vmin').value, vmax = +$('vmax').value;
+  if ($('scale').value === 'log') return Math.pow(10, Math.log10(vmin) + t * (Math.log10(vmax) - Math.log10(vmin)));
+  return vmin + t * (vmax - vmin);
+}
+$('buildLut').onclick = () => {
+  if (!bar) return alert('Load the colorbar image first.');
+  const s = +$('start').value, e = +$('end').value, a = +$('across').value;
+  if (e <= s) return alert('Set START and END (END must be larger).');
+  const n = e - s + 1; lutC = new Float32Array(n * 3); lutV = new Float32Array(n);
+  for (let i = 0; i < n; i++) {
+    const [x, y] = $('orient').value === 'h' ? [s + i, a] : [a, e - i];
+    const k = (y * bar.width + x) * 4;
+    lutC[i * 3] = bar.data[k]; lutC[i * 3 + 1] = bar.data[k + 1]; lutC[i * 3 + 2] = bar.data[k + 2];
+    lutV[i] = valueAt(i / (n - 1));
+  }
+  cache.clear(); grid = null; stats.lutSize = n;
+  $('readout').textContent = `Lookup built: ${n} colours. Cold end RGB ${[...lutC.slice(0, 3)]}, warm end RGB ${[...lutC.slice(-3)]}.`;
+};
+
+function invert(r, g, b) {
+  const key = (r << 16) | (g << 8) | b;
+  let v = cache.get(key);
+  if (v !== undefined) return v;
+  let best = 1e12, bi = 0;
+  for (let i = 0; i < lutV.length; i++) {
+    const dr = r - lutC[i * 3], dg = g - lutC[i * 3 + 1], db = b - lutC[i * 3 + 2];
+    const d = dr * dr + dg * dg + db * db;
+    if (d < best) { best = d; bi = i; }
+  }
+  v = best > 60 * 60 ? NaN : lutV[bi];          // far from every colorbar colour = land/label/no data
+  cache.set(key, v); return v;
+}
+function pixelValue(x, y) {
+  if (grid) return grid[y * W + x];
+  const k = (y * W + x) * 4, d = frame.data;
+  if (d[k + 3] === 0) return NaN;
+  return invert(d[k], d[k + 1], d[k + 2]);
+}
+
+$('convert').onclick = () => {
+  if (!frame || !lutV) return alert('Load the frame and build the lookup first.');
+  const t0 = performance.now(), d = frame.data;
+  grid = new Float32Array(W * H);
+  for (let p = 0, k = 0; p < W * H; p++, k += 4) grid[p] = d[k + 3] === 0 ? NaN : invert(d[k], d[k + 1], d[k + 2]);
+  stats.convertMs = Math.round(performance.now() - t0); stats.uniqueColours = cache.size;
+  $('readout').textContent = `Whole frame converted in ${stats.convertMs} ms (${cache.size} distinct colours).`;
+  report();
+};
+
+function freqFor(v) {
+  const vmin = +$('vmin').value, vmax = +$('vmax').value, fmin = +$('fmin').value, fmax = +$('fmax').value;
+  let t = $('scale').value === 'log'
+    ? (Math.log10(Math.max(v, vmin)) - Math.log10(vmin)) / (Math.log10(vmax) - Math.log10(vmin))
+    : (v - vmin) / (vmax - vmin);
+  t = Math.min(1, Math.max(0, t));
+  return fmin * Math.pow(fmax / fmin, t);         // equal musical steps
+}
+$('startAudio').onclick = async () => {
+  if (!ctx) {
+    ctx = new AudioContext();
+    osc = ctx.createOscillator(); gain = ctx.createGain(); gain.gain.value = 0;
+    osc.type = 'sine'; osc.connect(gain).connect(ctx.destination); osc.start();
+  }
+  await ctx.resume(); report();
+  $('readout').textContent = 'Sound on. Move over the map or use the arrow keys.';
+};
+$('stopAudio').onclick = () => { if (gain) gain.gain.setTargetAtTime(0, ctx.currentTime, 0.02); };
+
+function lat(y) { return (90 - (y + 0.5) * 180 / H).toFixed(1); }
+function lon(x) { return (-180 + (x + 0.5) * 360 / W).toFixed(1); }
+function drawCursor() {
+  const sx = cursor.x * view.width / W, sy = cursor.y * view.height / H;
+  vctx.save(); vctx.strokeStyle = '#ffffff'; vctx.lineWidth = 2;
+  vctx.beginPath(); vctx.arc(sx, sy, 6, 0, Math.PI * 2); vctx.stroke(); vctx.restore();
+}
+let base = null;
+function redraw() { if (!base) base = vctx.getImageData(0, 0, view.width, view.height); vctx.putImageData(base, 0, 0); drawCursor(); }
+
+function update(fromEvent) {
+  if (!frame || !lutV) return;
+  const t0 = performance.now();
+  const v = pixelValue(cursor.x, cursor.y);
+  if (ctx && gain) {
+    const now = ctx.currentTime;
+    if (Number.isNaN(v)) gain.gain.setTargetAtTime(0, now, 0.01);
+    else { osc.frequency.setTargetAtTime(freqFor(v), now, 0.005); gain.gain.setTargetAtTime(0.2, now, 0.01); }
+  }
+  if (fromEvent) { stats.handlerMs.push(performance.now() - t0); if (stats.handlerMs.length > 500) stats.handlerMs.shift(); }
+  $('readout').textContent = Number.isNaN(v) ? `No data here (${lat(cursor.y)}°, ${lon(cursor.x)}°)`
+    : `${v.toFixed(2)} ${$('unit').value} at ${lat(cursor.y)}°, ${lon(cursor.x)}°`;
+  redraw();
+}
+view.addEventListener('pointermove', e => {
+  const r = view.getBoundingClientRect();
+  cursor.x = Math.min(W - 1, Math.max(0, Math.floor((e.clientX - r.left) / r.width * W)));
+  cursor.y = Math.min(H - 1, Math.max(0, Math.floor((e.clientY - r.top) / r.height * H)));
+  update(true);
+});
+view.addEventListener('keydown', e => {
+  const step = e.shiftKey ? Math.round(W / 20) : Math.round(W / 100);
+  if (e.key === 'ArrowLeft') cursor.x = Math.max(0, cursor.x - step);
+  else if (e.key === 'ArrowRight') cursor.x = Math.min(W - 1, cursor.x + step);
+  else if (e.key === 'ArrowUp') cursor.y = Math.max(0, cursor.y - step);
+  else if (e.key === 'ArrowDown') cursor.y = Math.min(H - 1, cursor.y + step);
+  else if (e.key === 'Enter') { speechSynthesis.cancel(); speechSynthesis.speak(new SpeechSynthesisUtterance($('readout').textContent)); return; }
+  else return;
+  e.preventDefault(); update(true);
+});
+
+$('sweep').onclick = () => {
+  if (!ctx) return alert('Press Start sound first.');
+  const steps = 200, dur = 5, y = cursor.y, t0 = ctx.currentTime + 0.05;
+  for (let i = 0; i < steps; i++) {
+    const x = Math.floor(i / (steps - 1) * (W - 1)), v = pixelValue(x, y), t = t0 + i * dur / steps;
+    if (Number.isNaN(v)) gain.gain.setValueAtTime(0, t);
+    else { gain.gain.setValueAtTime(0.2, t); osc.frequency.setValueAtTime(freqFor(v), t); }
+  }
+  gain.gain.setValueAtTime(0, t0 + dur);
+  const start = performance.now();
+  (function anim() {
+    const f = (performance.now() - start) / (dur * 1000);
+    if (f > 1) return;
+    cursor.x = Math.floor(f * (W - 1)); cursor.y = y; redraw();
+    requestAnimationFrame(anim);
+  })();
+};
+
+function report() {
+  const h = stats.handlerMs, avg = h.length ? (h.reduce((a, b) => a + b, 0) / h.length).toFixed(2) : 'n/a';
+  const max = h.length ? Math.max(...h).toFixed(2) : 'n/a';
+  $('results').textContent = [
+    `TEST 3 RESULTS (${new Date().toISOString()})`,
+    `Browser: ${navigator.userAgent}`,
+    `Frame: ${W} x ${H}; lookup size: ${stats.lutSize}; scale: ${$('scale').value}`,
+    `Whole-frame conversion: ${stats.convertMs ?? 'not run'} ms; distinct colours: ${stats.uniqueColours ?? 'n/a'}`,
+    `Audio: sampleRate ${ctx ? ctx.sampleRate : 'n/a'}; baseLatency ${ctx && ctx.baseLatency !== undefined ? (ctx.baseLatency * 1000).toFixed(1) + ' ms' : 'n/a'}; outputLatency ${ctx && ctx.outputLatency ? (ctx.outputLatency * 1000).toFixed(1) + ' ms' : 'n/a (not reported)'}`,
+    `Hover/keyboard handler time: average ${avg} ms, max ${max} ms over ${h.length} moves`,
+    `Speech available: ${'speechSynthesis' in window ? 'yes, ' + speechSynthesis.getVoices().length + ' voices' : 'no'}`,
+  ].join('\n');
+}
+setInterval(() => { if (frame) report(); }, 2000);
+$('copy').onclick = () => { report(); navigator.clipboard.writeText($('results').textContent); };
+</script>
+</body>
+</html>
