@@ -8,7 +8,7 @@ import { useCommands } from "./Commands/use-commands";
 const MODES: { mode: Mode; label: "mode.explore" | "mode.story" | "mode.thenNow"; ready: boolean }[] = [
   { mode: "explore", label: "mode.explore", ready: true },
   { mode: "story", label: "mode.story", ready: false },
-  { mode: "thenNow", label: "mode.thenNow", ready: false },
+  { mode: "thenNow", label: "mode.thenNow", ready: true },
 ];
 
 /** Explore, Story, Then vs Now. Modes not built yet say so, rather than pretending. */

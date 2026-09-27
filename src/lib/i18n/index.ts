@@ -6,11 +6,12 @@ import type { CaptionParams } from "@/lib/audio-adapter/types";
 import { bn } from "./bn";
 import { appEn } from "./en/app";
 import { captionsEn } from "./en/captions";
+import { contextEn } from "./en/context";
 import { helpEn } from "./en/help";
 import { panelsEn } from "./en/panels";
 import type { Lang } from "./types";
 
-export const en = { ...appEn, ...helpEn, ...captionsEn, ...panelsEn };
+export const en = { ...appEn, ...helpEn, ...captionsEn, ...panelsEn, ...contextEn };
 
 export type Messages = typeof en;
 export type MessageKey = keyof Messages;

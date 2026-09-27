@@ -75,7 +75,7 @@ export const initialState: AppState = {
 
 /** Whether a live voice is sounding right now (for rings and captions). */
 export function isVoiceAudible(state: AppState, voice: LiveVoiceId): boolean {
-  if (!state.started || !state.soundOn || !state.playing || !state.introDone || state.allMuted) return false;
+  if (!state.started || !state.soundOn || !state.playing || !state.introDone || state.allMuted || state.mode !== "explore") return false;
   if (state.mix[voice].muted || state.mix[voice].volume === 0) return false;
   if (state.solo !== null && state.solo !== voice) return false;
   return TRACK_VOICES[state.track].includes(voice);
