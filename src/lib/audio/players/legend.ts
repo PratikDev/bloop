@@ -1,12 +1,15 @@
 // The audio legend (TEAM_BUILD_PLAN A4, AUDIO_RESEARCH C3): each reference
-// point of a voice from mapping.json, played through the real live voice with
-// its label as a caption. Numbers and labels come from mapping.json only.
+// point of a voice from mapping.json, played through the real voice (live
+// voices, or the Then vs Now heat voice) with its label as a caption. Numbers
+// and labels come from mapping.json only. Water has no fixed legend: its pitch
+// range comes from the series being played.
 
 import { emitCaption } from "../captions";
 import { liveVoices, type LiveVoices } from "../live";
 import { voiceSpec } from "../mapping";
 import type { LegendVoice, PlayerHandle, TrackMode } from "../types";
 import type { VoiceSpec } from "@/types/data-contract";
+import { contextVoices, silenceContext } from "./context-voices";
 import { idleHandle, playSequence, type SequenceStep } from "./sequence";
 
 const POINT_SEC = 1.2; // each reference sound
@@ -14,17 +17,19 @@ const GAP_SEC = 0.4; // silence between them
 export const LEGEND_POINT_SEC = POINT_SEC + GAP_SEC;
 
 type LiveLegendVoice = keyof LiveVoices;
+type PlayableLegendVoice = LiveLegendVoice | "heat";
 type LegendPoint = VoiceSpec["legend"][number];
 
-const LIVE_LEGEND_VOICES: readonly LegendVoice[] = ["ocean", "rain", "snow"];
+const PLAYABLE: readonly LegendVoice[] = ["ocean", "rain", "snow", "heat"];
 
-function isLiveLegendVoice(voice: LegendVoice): voice is LiveLegendVoice {
-  return LIVE_LEGEND_VOICES.includes(voice);
+function isPlayable(voice: LegendVoice): voice is PlayableLegendVoice {
+  return PLAYABLE.includes(voice);
 }
 
-/** Sets one live voice to a value (or silence) at the centre, at an exact time. */
-function sound(voice: LiveLegendVoice, value: number | null, time: number) {
-  liveVoices()?.[voice].set(value, 0, { time });
+/** Sets one voice to a value (or silence) at the centre, at an exact time. */
+function sound(voice: PlayableLegendVoice, value: number | null, time: number) {
+  if (voice === "heat") contextVoices("center").heat.set(value, { time });
+  else liveVoices()?.[voice].set(value, 0, { time });
 }
 
 /**
@@ -32,7 +37,7 @@ function sound(voice: LiveLegendVoice, value: number | null, time: number) {
  * caption + sound for POINT_SEC, then GAP_SEC of silence. Returns the end time.
  */
 export function legendSteps(
-  voice: LiveLegendVoice,
+  voice: PlayableLegendVoice,
   from: number,
   pick: (points: readonly LegendPoint[]) => readonly LegendPoint[] = (p) => p,
 ): { steps: SequenceStep[]; end: number } {
@@ -53,14 +58,21 @@ export function legendSteps(
   return { steps, end: from + points.length * LEGEND_POINT_SEC };
 }
 
-/** The "L" key: every reference point of one voice. Heat and water arrive with Then vs Now. */
+/** The "L" key: every reference point of one voice. Water has none (its range comes from its series). */
 export function playLegend(voice: LegendVoice): PlayerHandle {
-  if (!isLiveLegendVoice(voice) || voiceSpec(voice).legend.length === 0) {
+  if (!isPlayable(voice) || voiceSpec(voice).legend.length === 0) {
     emitCaption("caption.legendUnavailable", { voice });
     return idleHandle();
   }
   const { steps, end } = legendSteps(voice, 0);
-  return playSequence({ id: `legend.${voice}`, steps, durationSec: end, holdLive: true, liftTrackGate: true });
+  return playSequence({
+    id: `legend.${voice}`,
+    steps,
+    durationSec: end,
+    holdLive: true,
+    liftTrackGate: true,
+    onFinish: silenceContext, // a heat legend stopped part-way must not keep sounding
+  });
 }
 
 const MODE_VOICES: Record<TrackMode, readonly LiveLegendVoice[]> = {
