@@ -24,7 +24,7 @@ All inputs are plain numbers. The audio engine never fetches and never reads `li
 
 `VoiceId` = `"ocean" | "rain" | "snow" | "heat" | "monsoon" | "water" | "fires" | "vegetation"` (also exported as the array `VOICE_IDS`). `LIVE_VOICES` (`ocean`, `rain`, `snow`) and `TRACK_VOICES` (which live voices each track mode plays: rain mode = rain + snow) are exported too.
 
-## Live exploration (Phase 2)
+## Live exploration (Phase 2 — working)
 
 | Function | Call it when |
 |---|---|
@@ -33,7 +33,7 @@ All inputs are plain numbers. The audio engine never fetches and never reads `li
 | `setRain(mmPerHour: number \| null, phase: RainPhase, lon: number)` | The cursor moves (`valueAt("rain", …)`; dry = `0` + `"dry"`, no data = `null` + `"nodata"`) |
 | `silenceLive()` | The cursor leaves the map or exploration pauses |
 
-Calls may arrive at 60 Hz; they're cheap.
+Calls may arrive at 60 Hz; they're cheap. Rain phase routes the sound: `"liquid"` → drops, `"frozen"` → bells, `"dry"` → silence, `"nodata"` → silence plus one soft tick when the cursor **enters** the no-data area. The same tick plays when `setOcean(null, …)` follows a value (entering land). Captions, ticks and `drop` events are skipped for tracks the listener can't hear (track mode, mute, solo).
 
 ## Speech, legend, earcons (Phase 3)
 
@@ -69,7 +69,7 @@ type AudioEvent =
   | { kind: "caption"; key: string; params: Record<string, string | number> } // you turn key + params into EN/BN text
   | { kind: "step"; player: string; index: number; total: number; time: number } // move a chart playhead / map cursor
   | { kind: "state"; ready: boolean; playing: boolean; ducked: boolean }
-  | { kind: "drop"; voice: "rain" | "snow"; time: number; gain: number; lon: number }; // one per drop/bell (Phase 2)
+  | { kind: "drop"; voice: "rain" | "snow"; time: number; gain: number; lon: number }; // one per drop/bell (working)
 ```
 
 A `drop` event arrives when the drop is handed to Web Audio, slightly **before** it sounds: draw its ripple when `getAnalyser()!.context.currentTime >= time`. `gain` is the drop's loudness 0..1 relative to the voice cap.
@@ -87,8 +87,8 @@ These are the keys L3's i18n already has English text for (`src/lib/i18n/en/capt
 | Key | Params | When | Emitted from |
 |---|---|---|---|
 | `caption.stopped` | — | `stopAll()` | **now** |
-| `caption.value` | `track`, `value`, `phase` (rain) | live voices, ≤ 4 per second | Phase 2 |
-| `caption.nodata` | `track` | cursor enters a no-data area | Phase 2 |
+| `caption.value` | `track`, `value`, `phase` (rain) | live voices, ≤ 4 per second (the last value always arrives) | **now** |
+| `caption.nodata` | `track` | cursor enters a no-data area (only if that track is audible) | **now** |
 | `caption.noSpeech` | — | browser can't speak | Phase 3 |
 | `caption.noBanglaVoice` | — | no Bangla voice on the device | Phase 3 |
 | `caption.earcon.nodata` / `.whisper` / `.ping` | your `params` (whisper: `source`) | `playEarcon()` | Phase 3 |
