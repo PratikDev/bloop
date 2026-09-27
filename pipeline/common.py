@@ -180,5 +180,5 @@ def block_max_with_phase(rate, phase, f):
 
 def write_json(path, obj):
     path = Path(path); path.parent.mkdir(parents=True, exist_ok=True)
-    path.write_text(json.dumps(obj, indent=2, ensure_ascii=False))
+    path.write_text(json.dumps(obj, indent=2, ensure_ascii=False, allow_nan=False))
     return path
