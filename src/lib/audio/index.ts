@@ -28,10 +28,10 @@ export { playMotif } from "./players/motif";
 export { playOpening } from "./players/opening";
 export { playThenNow } from "./players/then-now";
 export { playCompare, playSeries } from "./players/compare";
+export { playTimelapse } from "./players/timelapse";
 
 // Later phases (typed placeholders until built)
 export {
   playClip,
-  playTimelapse,
   preloadClips,
 } from "./stubs";
