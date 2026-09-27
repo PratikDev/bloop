@@ -12,13 +12,13 @@ const PAN_GLIDE_SEC = 0.03;
  * the global voice cap, so a voice whose mapping.json maxGain is lower plays
  * proportionally quieter.
  */
-export function voicePeak(id: VoiceId): number {
+export function voicePeak(id: string): number {
   return voiceSpec(id).sound.maxGain / MAPPING.global.voiceMaxGain;
 }
 
-/** A stereo panner feeding the voice's mixer channel. Voices connect their sound into it. */
-export function createVoiceOutput(id: VoiceId): StereoPannerNode {
-  const panner = new StereoPannerNode(getCtx(), { pan: 0 });
+/** A stereo panner (at `pan`, −1..1) feeding the voice's mixer channel. Voices connect their sound into it. */
+export function createVoiceOutput(id: VoiceId, pan = 0): StereoPannerNode {
+  const panner = new StereoPannerNode(getCtx(), { pan });
   panner.connect(getGraph().channels[id].input);
   return panner;
 }
