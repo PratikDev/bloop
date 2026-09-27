@@ -13,7 +13,7 @@ Update this table when a phase's checklist is fully ticked.
 |---|---|---|---|
 | 0 | Mapping spec and pure maths | Sun 27 | ✅ done (27 Sep) |
 | 1 | Audio engine core and dev harness | Sun 27 | ✅ done (27 Sep); L3 requests B1/B3 + `caption.stopped` added after the L3 merge |
-| 2 | Live voices (ocean, rain, snow) | Sun 27 | ⬜ not started |
+| 2 | Live voices (ocean, rain, snow) | Sun 27 | ✅ done (27 Sep) |
 | 3 | Speech, ducking, legend, warm-up, earcons | Sun 27 | ⬜ not started |
 | 4 | Sequence player, sweep, motif, opening | Sun 27 night / Mon 28 AM | ⬜ not started |
 | 5 | Then vs Now and Comparison audio | Mon 28 | ⬜ not started |
@@ -110,21 +110,26 @@ src/lib/audio/
 ├─ mixer.ts             # applies mixer-state to the graph
 ├─ params.ts            # glideTo(), fadeTo(), blip(); safe ramps
 ├─ queue.ts             # PURE: time-ordered event queue behind the scheduler
-├─ scheduler.ts         # the shared look-ahead scheduler driver (25 ms tick, 0.1 s look-ahead)
+├─ scheduler.ts         # the shared look-ahead scheduler driver (25 ms tick, 0.1 s look-ahead; events already inside the window are handed over at once)
 ├─ sources.ts           # registry of playing sources, so stopAll() can stop them
 ├─ stop.ts              # stopAll() and onStopAll() hooks
 ├─ events.ts            # PURE: event emitter for AudioEvent (captions, steps, state)
 ├─ stubs.ts             # typed placeholders for API functions of later phases (shrinks each phase)
 ├─ dev.ts               # dev-harness helpers (test tone, ticks, peak meter); not public API
+├─ captions.ts          # emitCaption() + a throttled caption emitter (≤ 4/s, settles on the last value)
+├─ live.ts              # Phase 2: setOcean / setRain / silenceLive → voices, no-data tick, value captions
 ├─ voices/
+│  ├─ common.ts         # voice output (panner → channel), panTo(), voicePeak()
 │  ├─ ocean.ts          # sine + glide
-│  ├─ rain.ts           # noise-burst drops (liquid)
-│  ├─ snow.ts           # soft bells (frozen)
+│  ├─ drops.ts          # generic drop loop on the scheduler (rate, jitter, drop events) for rain and snow
+│  ├─ drop-timing.ts    # PURE: jittered intervals with an honest average, no-burst rate changes
+│  ├─ rain.ts           # noise-burst drops (liquid) through one shared band-pass
+│  ├─ snow.ts           # soft bells (frozen), one bell synthesised once into a buffer
 │  ├─ heat.ts           # then-vs-now heat pitch + Anomaly-Choir detune (Phase 5)
 │  ├─ bass.ts           # GRACE water bass with harmonics (Phase 5)
 │  ├─ clicks.ts         # FIRMS percussion (Phase 7)
 │  └─ pad.ts            # NDVI slow pad (Phase 7)
-├─ earcons.ts           # no-data tick, satellite-whisper chime, extreme ping
+├─ earcons.ts           # no-data tick (Phase 2); satellite-whisper chime, extreme ping (Phase 3)
 ├─ speech.ts            # speak() with ducking; playClip() for recorded narration
 ├─ players/
 │  ├─ sequence.ts       # generic step player on the scheduler (Phase 4) — all players build on it
@@ -493,20 +498,20 @@ Data voices, speech, players. Loudness tuning.
 - **T6 Rain rate + load:** 2, 5, 10, 20, 40 drops/s on a mid-range Android; no stutter at 40/s; teammates rank the 5 correctly. If stutter: raise look-ahead to 0.2 s and retest.
 
 ### 5.4 Deliverables checklist (Phase 2)
-- [ ] `bun test` passes (incl. `inverseContinuous` round-trip test).
-- [ ] Ocean slider 20 → 21 °C is audibly higher; readout shows the Hz from `mapContinuous`.
-- [ ] Ocean "No data" → silence within ~0.1 s, one soft tick, caption event in the log; toggling back fades the tone in without a click.
-- [ ] Longitude −180 → hard left, 0 → centre, +180 → hard right (headphones).
-- [ ] Every drop/bell emits one `drop` event (count in the harness log matches the drops heard; `time` is in the future when emitted, `gain` 0..1).
-- [ ] Rain presets 2 → 40 drops/s are clearly distinguishable; average rate over 10 s at 10 drops/s is 10 ± 1 (count in the harness log).
-- [ ] Rain "dry" is silent with **no** tick; "nodata" is silent **with** one tick; frozen switches from drops to bells at the same density.
-- [ ] Track mode Ocean / Rain / Both works; switching modes fades, never clicks.
-- [ ] Random walk for 10 s: no clicks, no crackle, no console errors, CPU stays reasonable (DevTools Performance shows no long tasks from audio code).
-- [ ] Caption events arrive at ≤ 4 per second during the random walk.
-- [ ] T1 result recorded in the findings log: PASS / FAIL + action taken.
-- [ ] T4 result recorded.
-- [ ] T6 result recorded (device model written down), look-ahead value decided.
-- [ ] Stop / Esc still silences everything, including drops already scheduled.
+- [x] `bun test` passes (incl. `inverseContinuous` round-trip test).
+- [x] Ocean slider 20 → 21 °C is audibly higher; readout shows the Hz from `mapContinuous`.
+- [x] Ocean "No data" → silence within ~0.1 s, one soft tick, caption event in the log; toggling back fades the tone in without a click.
+- [x] Longitude −180 → hard left, 0 → centre, +180 → hard right (headphones).
+- [x] Every drop/bell emits one `drop` event (count in the harness log matches the drops heard; `time` is in the future when emitted, `gain` 0..1).
+- [x] Rain presets 2 → 40 drops/s are clearly distinguishable; average rate over 10 s at 10 drops/s is 10 ± 1 (count in the harness log).
+- [x] Rain "dry" is silent with **no** tick; "nodata" is silent **with** one tick; frozen switches from drops to bells at the same density.
+- [x] Track mode Ocean / Rain / Both works; switching modes fades, never clicks.
+- [x] Random walk for 10 s: no clicks, no crackle, no console errors, CPU stays reasonable (DevTools Performance shows no long tasks from audio code).
+- [x] Caption events arrive at ≤ 4 per second during the random walk.
+- [x] T1 result recorded in the findings log: PASS / FAIL + action taken.
+- [x] T4 result recorded.
+- [x] T6 result recorded (device model written down), look-ahead value decided.
+- [x] Stop / Esc still silences everything, including drops already scheduled.
 
 ---
 
