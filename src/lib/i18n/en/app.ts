@@ -101,6 +101,13 @@ export const appEn = {
   "mixer.solo": (p: { voice: string }) => `Solo ${p.voice}`,
   "sweep.play": "Play sweep",
   "sweep.needsRain": "The sweep starts once rain has loaded.",
+  "timelapse.play": "Play storm time-lapse",
+  "timelapse.stop": "Stop time-lapse",
+  "timelapse.loading": (p: { loaded: number; total: number }) => `Loading the time-lapse: ${p.loaded} of ${p.total} files`,
+  "timelapse.error": "Couldn't load the time-lapse frames. Reload the page to try again.",
+  "timelapse.announceStart": (p: { count: number; from: string; to: string }) =>
+    `Storm time-lapse: ${p.count} rain frames, ${p.from} to ${p.to} UTC. The cursor follows the heaviest rain near Bangladesh.`,
+  "timelapse.frame": (p: { index: number; total: number }) => `Time-lapse frame ${p.index} of ${p.total}`,
   "xray.unavailable": "X-ray needs the colorbar data, which isn't published yet.",
 
   "announce.track": (p: { track: string }) => `Now hearing: ${p.track}.`,

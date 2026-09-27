@@ -15,6 +15,8 @@ export const DATA_PATHS = {
   gistemp: `${ROOT}/context/gistemp_bd.json`,
   gpcp: `${ROOT}/context/gpcp_bd.json`,
   gpcc: `${ROOT}/context/gpcc_bd.json`,
+  sequenceIndex: `${ROOT}/sequence/index.json`,
+  sequenceFile: (file: string) => `${ROOT}/sequence/${file}`,
   truthImage: (name: "sst_compare" | "rain_compare" | "crosscheck") => `${ROOT}/truth/${name}.png`,
   mapping: "/mapping.json",
 } as const;
