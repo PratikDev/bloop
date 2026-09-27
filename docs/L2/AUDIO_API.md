@@ -45,7 +45,7 @@ Calls may arrive at 60 Hz; they're cheap. Rain phase routes the sound: `"liquid"
 | `playLegendForMode(mode)` → `PlayerHandle` | Short legend when the track or app mode changes. |
 | `playWarmup()` → `PlayerHandle` | ~22 s: volume check, then the ocean, rain and snow legends, then one no-data tick. Suggested right after Start. |
 
-## Sequences (Phase 4 — working), Then vs Now (Phase 5 — working), time-lapse (Phase 6)
+## Sequences (Phase 4), Then vs Now (Phase 5) and time-lapse (Phase 6) — all working
 
 | Function | Input |
 |---|---|
@@ -55,7 +55,7 @@ Calls may arrive at 60 Hz; they're cheap. Rain phase routes the sound: `"liquid"
 | `playThenNow(input: ThenNowInput, part: "heat" \| "monsoon" \| "water" \| "all")` | Built from `demo/dhaka_then_now.json` + `context/grace.json` |
 | `playCompare(a: CompareSide, b: CompareSide, mode: "sequential" \| "split")` | Comparison Player. `"sequential"`: A, a short gap, then B. `"split"`: A in the left ear, B in the right, at the same time |
 | `playSeries(side: CompareSide, opts?: { stepMs?: number; player?: string })` | One series on its own, e.g. a decade of Place History. Default step: heat and monsoon 150 ms, water 60 ms. Step events use your `player` name (default `"series"`). Working since Phase 5 (L3 proposal B6, agreed on PR #4) |
-| `playTimelapse(frames: SweepPoint[], opts?: { fps?: number; loop?: boolean })` | Values at the cursor for each time-lapse frame |
+| `playTimelapse(frames: SweepPoint[], opts?: { fps?: number; loop?: boolean })` | One point per frame (L3's `followStorm()`), 2 fps by default. Rain/snow by phase as in live exploration; no-data frames are silent with one tick per run; heard whatever the track mode. `loop` restarts with no gap until stopped (no end caption). Step events `"timelapse"`, index = frame |
 
 `SweepPoint` = `{ lon, lat, valueC, mmPerHour, phase }`. `CompareSide` = `{ label, values: (number | null)[], voice: "heat" | "monsoon" | "water" }`; build `ThenNowInput` with L3's `buildThenNowInput()` (`@/lib/then-now`). All players return a `PlayerHandle`: `{ stop(): void; done: Promise<void> }`. `done` resolves when the player finishes **or** is stopped.
 
@@ -94,6 +94,7 @@ Step events count **data points only** (L3 proposal B5, agreed on PR #4), so a c
 | `"compare"` | `playCompare(…, "sequential")` | side A values, then side B values (`total` = both) |
 | `"compare.split"` | `playCompare(…, "split")` | the shared step index (`total` = the longer side) |
 | your `player` (default `"series"`) | `playSeries()` | value index (L3's Place History passes `"history"`) |
+| `"timelapse"` | `playTimelapse()` | frame index (`total` = frames; restarts at 0 each loop) |
 
 ```tsx
 useEffect(() => onAudioEvent((e) => {
@@ -126,8 +127,11 @@ These are the keys L3's i18n already has English text for (`src/lib/i18n/en/capt
 | `caption.water.windowStart` / `.windowEnd` | `month` ("YYYY-MM") | water reaches a comparison window's edge | **now** |
 | `caption.compare.side` | `label` | start of each side (`playCompare` sequential, `playSeries`) | **now** |
 | `caption.compare.useHeadphones` | `a`, `b` (the two side labels) | start of split playback | **now** |
+| `caption.timelapse.start` | `count` (frames) | time-lapse starts | **now** |
+| `caption.timelapse.peak` | `value` (mm/h), `phase` (`"liquid"` / `"frozen"`) | the heaviest frame plays (none if every frame is dry or no data) | **now** |
+| `caption.timelapse.end` | — | time-lapse plays to the end (not when stopped or looping) | **now** |
 
-The Phase 5 keys were agreed on L3's PR #4 (L3's UI already has their English text). Keys still to come for Phases 6 and 8 (`caption.timelapse.start/peak/end`, `caption.clip`) will be agreed with L3 before they're emitted.
+The Phase 5 keys were agreed on L3's PR #4 and the time-lapse keys on L3's proposal B8 (accepted as proposed, including `phase` on the peak). The key still to come for Phase 8 (`caption.clip`) will be agreed with L3 before it's emitted.
 
 ## Switching the app to this engine
 
