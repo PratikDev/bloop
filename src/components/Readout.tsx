@@ -1,7 +1,7 @@
 "use client";
 
 import { Fragment } from "react";
-import { cn } from "cn";
+import { cn } from "@/lib/utils";
 import { formatRainRate, formatTemperature, type Lang } from "@/lib/i18n";
 import { readAt, rainText, type Reading } from "@/lib/reading";
 import { useAppState, useT } from "./AppState/use-app-state";
