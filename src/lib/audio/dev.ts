@@ -121,3 +121,4 @@ export { loadVoices } from "./speech";
 export function readSonificationLevel(): number {
   return getGraph().sonification.gain.value;
 }
+export { setBassHarmonics } from "./voices/bass";
