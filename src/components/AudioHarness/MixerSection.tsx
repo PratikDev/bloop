@@ -3,7 +3,7 @@ import { Button } from "@/components/ui/button";
 import { Label } from "@/components/ui/label";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import { Switch } from "@/components/ui/switch";
-import { VOICE_IDS, setAllMuted, setMasterVolume, setSolo, stopAll, type VoiceId } from "@/lib/audio";
+import { VOICE_IDS, setAllMuted, setMasterVolume, setSolo, setVoiceVolume, stopAll, type VoiceId } from "@/lib/audio";
 import HarnessSection from "./HarnessSection";
 import LabeledSlider from "./LabeledSlider";
 import { usePeakMeter } from "./use-peak-meter";
@@ -23,6 +23,7 @@ interface MixerSectionProps {
 
 export default function MixerSection({ ready }: MixerSectionProps) {
   const [volume, setVolume] = useState(100);
+  const [oceanVolume, setOceanVolume] = useState(100);
   const [muted, setMuted] = useState(false);
   const [solo, setSoloValue] = useState<SoloValue>("none");
   const { peakDb, maxDb, resetMax } = usePeakMeter(ready);
@@ -32,7 +33,7 @@ export default function MixerSection({ ready }: MixerSectionProps) {
     <HarnessSection
       title="Mixer and stop"
       phase={1}
-      description="Volume is capped by the gain budget: at 100 % the peak must stay below 0 dBFS. Stop (or Esc) fades everything out in about 50 ms."
+      description="Volume is capped by the gain budget: at 100 % the peak must stay below 0 dBFS. The test tone plays on the ocean voice, so the ocean slider changes it. Stop (or Esc) fades everything out in about 50 ms."
     >
       <LabeledSlider
         label="Master volume"
@@ -43,6 +44,17 @@ export default function MixerSection({ ready }: MixerSectionProps) {
         onChange={(v) => {
           setVolume(v);
           setMasterVolume(v / 100);
+        }}
+      />
+      <LabeledSlider
+        label="Ocean voice volume"
+        value={oceanVolume}
+        min={0}
+        max={100}
+        format={(v) => `${v} %`}
+        onChange={(v) => {
+          setOceanVolume(v);
+          setVoiceVolume("ocean", v / 100);
         }}
       />
       <div className="flex flex-wrap items-center gap-6">
