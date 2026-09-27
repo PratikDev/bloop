@@ -10,7 +10,7 @@ interface EventLogProps {
 /** The last 50 AudioEvents, newest first — what L3 will receive for captions and playheads. */
 export default function EventLog({ events, onClear }: EventLogProps) {
   return (
-    <HarnessSection title="Event log" phase={1} description="Every AudioEvent the engine emits, newest first.">
+    <HarnessSection title="Event log" phase={1} description="Every AudioEvent the engine emits, newest first (drop events are counted in the live section instead).">
       <Button className="self-start" size="sm" variant="ghost" onClick={onClear}>
         Clear log
       </Button>

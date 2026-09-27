@@ -1,5 +1,5 @@
 import { Button } from "@/components/ui/button";
-import { playSweep, setOcean } from "@/lib/audio";
+import { playSweep, speak } from "@/lib/audio";
 import HarnessSection from "./HarnessSection";
 
 /** Later-phase API functions exist with their final signatures but only warn for now. */
@@ -11,8 +11,8 @@ export default function StubSection() {
       description="Each should log a clear 'not implemented yet (Phase N)' warning in the browser console and do nothing else."
     >
       <div className="flex flex-wrap gap-2">
-        <Button variant="outline" onClick={() => setOcean(20, 90)}>
-          Call setOcean (Phase 2)
+        <Button variant="outline" onClick={() => void speak("test", "en")}>
+          Call speak (Phase 3)
         </Button>
         <Button variant="outline" onClick={() => playSweep([])}>
           Call playSweep (Phase 4)

@@ -21,6 +21,7 @@ export function useAudioEvents() {
   useEffect(() => {
     let nextId = 0;
     return onAudioEvent((event) => {
+      if (event.kind === "drop") return; // up to 40/s: counted by use-live-stats instead
       if (event.kind === "state") {
         setReady(event.ready);
         setRevision((r) => r + 1);
