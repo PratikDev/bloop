@@ -52,6 +52,11 @@ export const getCtx = (): AudioContext => requireEngine().ctx;
 export const getGraph = (): Graph => requireEngine().graph;
 export const getNoise = (): AudioBuffer => requireEngine().noise;
 
+/** The output analyser (after the compressor, fftSize 2048), or null before Start. */
+export function getAnalyser(): AnalyserNode | null {
+  return engine?.graph.meter ?? null;
+}
+
 /** The engine if it has started, else null (for code that must be a no-op before Start). */
 export function peekEngine(): Engine | null {
   return engine;

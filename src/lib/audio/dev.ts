@@ -2,7 +2,7 @@
 // test the engine by ear. Everything still goes through the real graph,
 // scheduler and stop logic.
 
-import { getCtx, getGraph } from "./context";
+import { getAnalyser, getCtx, getGraph } from "./context";
 import { blip, fadeTo, glideTo } from "./params";
 import { schedule } from "./scheduler";
 import { track } from "./sources";
@@ -80,7 +80,8 @@ const meterBuffer = new Float32Array(2048);
 
 /** Peak level of the final output in dBFS (−Infinity when silent). */
 export function readPeakDb(): number {
-  const meter = getGraph().meter;
+  const meter = getAnalyser();
+  if (!meter) return -Infinity;
   meter.getFloatTimeDomainData(meterBuffer);
   let peak = 0;
   for (const v of meterBuffer) peak = Math.max(peak, Math.abs(v));
