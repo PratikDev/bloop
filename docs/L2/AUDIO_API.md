@@ -35,15 +35,15 @@ All inputs are plain numbers. The audio engine never fetches and never reads `li
 
 Calls may arrive at 60 Hz; they're cheap. Rain phase routes the sound: `"liquid"` → drops, `"frozen"` → bells, `"dry"` → silence, `"nodata"` → silence plus one soft tick when the cursor **enters** the no-data area. The same tick plays when `setOcean(null, …)` follows a value (entering land). Captions, ticks and `drop` events are skipped for tracks the listener can't hear (track mode, mute, solo).
 
-## Speech, legend, earcons (Phase 3)
+## Speech, legend, earcons (Phase 3 — working)
 
 | Function | Notes |
 |---|---|
-| `speak(text: string, lang: "en" \| "bn"): Promise<void>` | Ducks the sonification while speaking. Resolves when done. With no Bangla voice on the device it stays silent and emits `caption.noBanglaVoice`. |
+| `speak(text: string, lang: "en" \| "bn"): Promise<void>` | Ducks the sonification while speaking; a new call interrupts the previous one. Resolves when done. No Bangla voice → silent + `caption.noBanglaVoice`. No speech, no voices installed, or a failure → silent + `caption.noSpeech` (it never hangs: 5 s watchdog). |
 | `playEarcon(id: "nodata" \| "whisper" \| "ping", opts?: { lon?: number; params?: CaptionParams })` | Emits `caption.earcon.<id>` with your `params` (whisper: `{ source }`). `whisper` after a spoken value; `ping` at an extreme point. |
-| `playLegend(voice)` → `PlayerHandle` | The **L** key. `voice`: `"ocean" \| "rain" \| "snow" \| "heat" \| "water"`. |
+| `playLegend(voice)` → `PlayerHandle` | The **L** key. `voice`: `"ocean" \| "rain" \| "snow" \| "heat" \| "water"`. Heat and water emit `caption.legendUnavailable` until Phase 5. Plays whatever the track mode; exploration pauses and resumes from the latest cursor values afterwards. |
 | `playLegendForMode(mode)` → `PlayerHandle` | Short legend when the track or app mode changes. |
-| `playWarmup()` → `PlayerHandle` | ~30 s volume check + legends. Suggested right after Start. |
+| `playWarmup()` → `PlayerHandle` | ~22 s: volume check, then the ocean, rain and snow legends, then one no-data tick. Suggested right after Start. |
 
 ## Sequences (Phase 4), Then vs Now (Phase 5), time-lapse (Phase 6)
 
@@ -108,12 +108,12 @@ These are the keys L3's i18n already has English text for (`src/lib/i18n/en/capt
 | `caption.stopped` | — | `stopAll()` | **now** |
 | `caption.value` | `track`, `value`, `phase` (rain) | live voices, ≤ 4 per second (the last value always arrives) | **now** |
 | `caption.nodata` | `track` | cursor enters a no-data area (only if that track is audible) | **now** |
-| `caption.noSpeech` | — | browser can't speak | Phase 3 |
-| `caption.noBanglaVoice` | — | no Bangla voice on the device | Phase 3 |
-| `caption.earcon.nodata` / `.whisper` / `.ping` | your `params` (whisper: `source`) | `playEarcon()` | Phase 3 |
-| `caption.legend` | `voice`, `label` | each legend step | Phase 3 |
-| `caption.legendUnavailable` | `voice` | legend not available yet (heat, water) | Phase 3 |
-| `caption.warmup.start` / `.end` | — | warm-up | Phase 3 |
+| `caption.noSpeech` | — | browser can't speak (no speech, no voices, or it failed) | **now** |
+| `caption.noBanglaVoice` | — | no Bangla voice on the device | **now** |
+| `caption.earcon.nodata` / `.whisper` / `.ping` | your `params` (whisper: `source`) | `playEarcon()` | **now** |
+| `caption.legend` | `voice`, `label` | each legend step | **now** |
+| `caption.legendUnavailable` | `voice` | legend not available yet (heat, water) | **now** |
+| `caption.warmup.start` / `.end` | — | warm-up (`.end` only when it plays to the end) | **now** |
 | `caption.sweep.start` / `.end` | — | sweep | Phase 4 |
 | `caption.motif` | — | motif | Phase 4 |
 | `caption.opening.closeEyes` / `.openEyes` | — | opening | Phase 4 |
