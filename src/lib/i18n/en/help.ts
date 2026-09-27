@@ -1,5 +1,7 @@
 // English strings for the Help dialog: the keyboard map (plan §9.3).
 
+import { PLACE_NAMES_EN } from "./places";
+
 export const helpEn = {
   "help.title": "Keys and help",
   "help.focusNote":
@@ -13,7 +15,7 @@ export const helpEn = {
   "key.enter.action": "Speak the value and the place",
   "key.space": "Space",
   "key.space.action": "Pause or resume the live sound",
-  "key.s.action": "Play the sweep outward from Dhaka",
+  "key.s.action": `Play the sweep outward from ${PLACE_NAMES_EN.sweepCenter}`,
   "key.123.action": "Hear ocean, rain, or both",
   "key.m.action": "Mute or unmute everything",
   "key.d.action": "Describe mode on or off",
