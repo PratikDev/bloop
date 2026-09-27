@@ -1,5 +1,5 @@
 import { describe, expect, test } from "bun:test";
-import { JITTER_MAX, JITTER_MIN, jitteredInterval, nextDropTime } from "./drop-timing";
+import { JITTER_MAX, JITTER_MIN, drawJitter, jitteredInterval, whenProgressDone } from "./drop-timing";
 
 /** Deterministic pseudo-random numbers in [0, 1) (mulberry32). */
 function seeded(seed: number) {
@@ -35,15 +35,54 @@ describe("drop timing", () => {
   });
 
   test("jitter endpoints", () => {
-    expect(jitteredInterval(10, () => 0)).toBeCloseTo(0.07, 12);
-    expect(jitteredInterval(10, () => 0.5)).toBeCloseTo(0.1, 12);
+    expect(drawJitter(() => 0)).toBeCloseTo(0.7, 12);
+    expect(drawJitter(() => 0.5)).toBeCloseTo(1, 12);
     expect(jitteredInterval(10, () => 1)).toBeCloseTo(0.13, 12);
   });
+});
 
-  test("after a rate change the next drop is one new interval after the last drop, never in the past", () => {
-    // last drop at 1.0 s, new rate 40/s → next at 1.025 s (mean jitter)
-    expect(nextDropTime(1.0, 40, 1.01, () => 0.5)).toBeCloseTo(1.025, 12);
-    // long ago → play now, no burst of missed drops
-    expect(nextDropTime(0.2, 40, 5.0, () => 0.5)).toBe(5.0);
+describe("whenProgressDone (rate changes move the next drop, never re-draw it)", () => {
+  test("steady rate: start + progress / rate", () => {
+    expect(whenProgressDone(1, 1, 10, [])).toBeCloseTo(1.1, 12);
+  });
+
+  test("a change mid-interval uses the new rate for the rest", () => {
+    // 10/s for 0.05 s = 0.5 progress, the remaining 0.5 at 40/s = 0.0125 s
+    expect(whenProgressDone(0, 1, 10, [{ time: 0.05, rate: 40 }])).toBeCloseTo(0.0625, 12);
+  });
+
+  test("silence pauses progress; it resumes when the rate returns", () => {
+    const changes = [
+      { time: 0.05, rate: null },
+      { time: 2, rate: 10 },
+    ];
+    expect(whenProgressDone(0, 1, 10, changes)).toBeCloseTo(2.05, 12);
+    expect(whenProgressDone(0, 1, 10, [{ time: 0.05, rate: null }])).toBeNull();
+  });
+
+  test("setting the same rate again changes nothing (no re-draw, no bias)", () => {
+    const once = whenProgressDone(0, 0.9, 10, []);
+    const repeated = whenProgressDone(0, 0.9, 10, Array.from({ length: 50 }, (_, i) => ({ time: i * 0.001, rate: 10 })));
+    expect(repeated).toBeCloseTo(once!, 12);
+  });
+
+  test("changes before start only set the rate in force", () => {
+    expect(whenProgressDone(1, 1, null, [{ time: 0.5, rate: 20 }])).toBeCloseTo(1.05, 12);
+  });
+
+  test("over a changing rate, drop count matches the integral of the rate (honest average)", () => {
+    // rate ramps 2 → 40 over 10 s in 0.25 s frames; expected drops = ∫ rate dt
+    const frames = Array.from({ length: 40 }, (_, i) => ({ time: i * 0.25, rate: 2 + (38 * i) / 39 }));
+    const expected = frames.reduce((s, f) => s + f.rate * 0.25, 0);
+    const rand = seeded(7);
+    let drops = 0;
+    let t = 0;
+    for (;;) {
+      const next = whenProgressDone(t, drawJitter(rand), frames.filter((f) => f.time <= t).at(-1)?.rate ?? null, frames.filter((f) => f.time > t));
+      if (next === null || next >= 10) break;
+      drops++;
+      t = next;
+    }
+    expect(Math.abs(drops - expected) / expected).toBeLessThan(0.05);
   });
 });
