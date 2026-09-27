@@ -1,6 +1,6 @@
 # L3 Progress Record: Interface and Accessibility
 
-Last updated: 27 Sep 2026, after Phase 3 item 1.
+Last updated: 28 Sep 2026, after Phase 3 item 1 and the fixes from L2's review of PR #4.
 Branch: `L3-interface` on GitHub (`origin/L3-interface`), local branch `L3`.
 Owner: L3 (Interface / Accessibility).
 
@@ -20,6 +20,8 @@ L3 builds the web app people see and use: the map, the controls, the panels, and
 - You can hear a sweep outward from Chattogram.
 - You can play "Dhaka then vs now" (heat, monsoon, water) with charts that follow the sound, and play a decade of any place's monthly record.
 
+**L2 has reviewed L3's work** (PR #4, 28 Sep): the branches merge cleanly except `bun.lock`, L2's engine type-checks against the UI's adapter, and every bug L2 found has been fixed (section 3b).
+
 **The main caveat:** the sound comes from an **interim sound engine** that L3 built to L2's planned API, because L2's real engine isn't finished. The app says so with an "Interim sound engine" badge. The sound has been measured by software but **not yet listened to and approved by a person**.
 
 ---
@@ -32,6 +34,7 @@ L3 builds the web app people see and use: the map, the controls, the panels, and
 | **Phase 1: design plan** | [design-plan.md](design-plan.md): colours, contrast tables, type scale, layout for desktop, tablet and mobile, the motion list, and a self-review. Measured the colours in the real NASA frames and chose shapla pink and indigo because NASA's colormaps never use those hues. Added a colour-blindness check on every pixel of the real frames, and a 200% readout weight test. |
 | **Phase 2: core app** | The interim sound engine, the real data decoder, the theme, app state and i18n, the map, the readout, keyboard and screen-reader support, the Truth and Mapping panels, the Start overlay and the opening sequence. Then "Explore without sound" and a class-merging fix. |
 | **Phase 3, item 1** | Then vs Now (heat, monsoon, water with charts and playheads, "then left, now right", disclosure panel) and Place History (four places, heat or rain, a decade played month by month). Also: sweep moved to Chattogram, the L2 API split with fallbacks, and shape checks on L1's files. |
+| **L2 review of PR #4 (28 Sep)** | Eight sound and UI bugs fixed (section 3b). L2 accepted step events counting data points (B5) and `playSeries` (B6), and agreed the Then vs Now caption keys (B7). Shared-file rules written down (contract-proposals §B4). |
 
 ---
 
@@ -42,7 +45,7 @@ Status key: **Complete** = works and was tested in a browser. **Interim** = work
 | Feature | What it does for the user | Main files | Status |
 |---|---|---|---|
 | **Interim sound engine** | Turns values into sound: the ocean as a pitch, rain as drops, snow as soft bells, heat and water for Then vs Now, speech with the sound dipping underneath, legend tones, the sweep, the opening. Esc fades everything in about 50 ms. | `src/lib/audio-adapter/` (`interim-engine.ts`, `graph.ts`, `scheduler.ts`, `live.ts`, `players.ts`, `sequence.ts`, `then-now.ts`, `speech.ts`, `earcons.ts`, `mixer.ts`, `voices/*`) | **Interim.** Uses L2's planned function names. To be replaced by L2's engine with a one-file change (`integration.md`). |
-| **Audio adapter** | The one door between the UI and any engine. Checks at build time that an engine matches L2's API, and fills in safe fallbacks for extras. | `src/lib/audio-adapter/index.ts`, `types.ts`, `fallbacks.ts` | **Complete.** |
+| **Audio adapter** | The one door between the UI and any engine. Checks at build time that an engine matches L2's API (now including `playSeries`, which L2 accepted), and fills in safe fallbacks for the remaining extras (analyser, per-voice volume). | `src/lib/audio-adapter/index.ts`, `types.ts`, `fallbacks.ts` | **Complete.** L2 checked that its engine type-checks against it. |
 | **Data decoder** | Reads L1's real grids and gives the value at any point (`valueAt`). The rain grid loads after the page first appears, to keep the first load lighter. | `src/lib/data/` (`latest.ts`, `grid.ts`, `value-at.ts`, `fetch.ts`, `paths.ts`) | **Complete.** Checked against Python at 506 points. |
 | **Context data loaders** | Loads the demo, GRACE, GISTEMP and GPCP files when a view first needs them, and checks their shape so a changed file shows an error instead of crashing. | `src/lib/data/context.ts`, `validate.ts` | **Complete.** |
 | **Theme** | The "Night over the Bay" look: indigo surfaces, one shapla pink accent for anything that listens or points, Anek Bangla and Tiro Bangla fonts, one focus ring for everything. shadcn components re-themed. | `src/app/globals.css`, `src/app/layout.tsx`, `src/components/ui/*`, `src/lib/utils.ts` | **Complete.** |
@@ -64,6 +67,20 @@ Status key: **Complete** = works and was tested in a browser. **Interim** = work
 | **X-ray** | Shows how a colour becomes a number and a sound. | none yet (X announces it isn't ready) | **Pending**, blocked on L1's colorbar files (request C1). |
 | **Satellite whisper** | Chime and caption naming the dataset after a spoken value. | earcon exists in the engine; not wired | **Pending** (Phase 3 item 4). |
 | **Describe mode** | Spoken descriptions during playback. | toggle exists, no behaviour yet | **Pending** (Phase 4). |
+
+### 3b. Fixes from L2's review of PR #4 (28 Sep)
+
+| Bug L2 found | Fix | Checked by |
+|---|---|---|
+| History playhead wouldn't move if the engine had no `playSeries` (the fallback sent "compare" events and added 0.8 s of silence) | `playSeries` is now part of L2's API (B6 accepted); the fallback is removed | History playhead moves while a decade plays |
+| Stop didn't fully stop monsoon: drops already scheduled for the step played after the sound came back | The monsoon voice tracks drops that haven't sounded yet and cancels them on Stop and Esc | Level 0.000 for 0.25 to 1.25 s after Stop |
+| Mute all and solo didn't reach Then vs Now or History | Their shared bus now goes through the mixer: silent under Mute all, and while a live voice is soloed | Level 0.000 with Mute all and with ocean soloed; sound returns when solo is off |
+| History playhead jumped when the place, record or decade changed during playback | Changing the selection stops the playback; the playhead follows the range actually playing | Playhead disappears and that sound stops when the decade changes |
+| A click when sound came back after a fade (end of the opening; starting a new sequence during another) | The bus ramps back up instead of jumping; a sequence started during a fade waits for it | Largest step between neighbouring samples stays at the steady-tone level (0.0125) through both |
+| Rain lagged one step during sweeps | A density change now takes effect at its own time | Same mechanism as the next row (not timed separately) |
+| Light to heavy rain waited up to about 0.65 s | The next drop is placed one new-rate interval after the last drop | First new drop 0.08 s after the move; 36 drops in the next second (the rule says 40) |
+| The opening got stuck if the ocean data failed, and Skip did nothing | Skip always ends the opening; a failed ocean load ends it automatically and shows the error | Both cases checked with the ocean file blocked or delayed |
+| Found while measuring (not in L2's list): clicks on the map were ignored outside the revealed band during the 1.2 s reveal | Only the drawing is animated now; the click target stays whole | A click 0.5 s into the reveal moves the cursor |
 
 ---
 
@@ -90,6 +107,9 @@ All L3 commits, oldest first. None has a Claude co-author line.
 | `1300737` | feat(L3): context data loaders with shape checks | Yes | No |
 | `5b0a46e` | feat(L3): Then vs Now stage and Place History charts | Yes | No |
 | `47e6daa` | docs(L3): integration guide, proposals, Bangla strings | Yes | No |
+| `c84fffb` | docs(L3): progress record | Yes | No |
+| `5a77b30` | fix(L3): L2 review fixes (history playhead, monsoon stop, mixer, clicks, rain timing, opening, map click during reveal) | Yes | No |
+| (this commit) | docs(L3): record L2 agreements and review fixes | Yes | No |
 
 The first three commits were made with an earlier hash and rewritten before any push, to remove a co-author line. Each of the last six commits was type-checked on its own in a separate worktree before pushing.
 
@@ -120,6 +140,11 @@ The first three commits were made with an earlier hash and rewritten before any 
 | 19 | **Step events count data points only** (proposal B5). | Chart playheads can then map an event straight to a data point, whichever engine runs. |
 | 20 | Every **stretch of missing GRACE months** gets its own silence caption. | There are 35 missing months, not one gap (proposal A4). |
 | 21 | In the "Both" track, the **rain frame is drawn over the ocean frame**, and the readout shows both values. | Both sounds play, so both frames and both frame labels are shown. |
+| 22 | **L2's API in `docs/L2/BUILD_PLAN.md` §2 is the source of truth.** A new function or event L3 needs is a proposal first. | Agreed with L2 on 28 Sep, so the lanes don't drift apart. |
+| 23 | **`playSeries` is required**, not optional; its fallback is removed. | L2 accepted it (B6), and the fallback had a playhead bug. |
+| 24 | **Caption keys are an agreed set** (B7). A new key needs a heads-up in both directions. | Captions are the shared language between the engine and the UI. |
+| 25 | **Shared files have owners** (contract-proposals §B4): L2 owns the `test` script and the `badge`, `card`, `label`, `select` and `switch` components; L3 won't add them. | Avoids add/add and script conflicts when the lanes merge. |
+| 26 | **L2's test page reuses L3's `buildThenNowInput`, `loadDemo` and `loadGrace`.** L3 gives L2 a heads-up before changing them. | One adapter, not two. |
 
 ---
 
@@ -179,7 +204,9 @@ The first three commits were made with an earlier hash and rewritten before any 
 | Layout | Screenshots at 1440×900, 900×1100 (tablet) and 390×844 (phone), reviewed by eye | No horizontal scroll on the phone; every phone touch target is at least 44×44 px; issues found in review were fixed (bottom bar pushed off screen, sweep ring not drawing, collapsed sliders, unlabelled unbuilt modes, text sizes dropped) |
 | Console errors | Collected in every scripted run | None |
 | Code checks | `bun run lint`, `bunx tsc --noEmit`, `bun run build` after every step; each of the last six commits type-checked on its own | All pass |
-| Merge safety | Dry-run merges (`git merge-tree`) of L3 with `L2-audio-engine` and `main`, plus a three-way merge of `package.json` and `bun.lock` | Clean, except `bun.lock` (known; see decision 12) |
+| Merge safety | Dry-run merges (`git merge-tree`) of L3 with `L2-audio-engine` and `main`, plus a three-way merge of `package.json` and `bun.lock`. L2 also merged the branches and ran type check, lint and its tests on the result (28 Sep). | Clean, except `bun.lock` (known; see decision 12). L2 confirmed that taking L3's lockfile or running `bun install` fixes it. |
+| Rain density at the heaviest rain today | Cursor on the heaviest cell today (40.33 mm/h), rain only, every drop's start time counted over 12 s | **38.67 drops per second measured; the rule gives 38.68 at 40.33 mm/h** (within 0.03%). Per second: 37 to 41. Mean gap 25.9 ms, longest 33.6 ms. The rule's 40 per second needs 50 mm/h, which today's data doesn't reach; 38.67 is 3.3% below 40. |
+| L2 review fixes | A scripted headless Edge run for each bug in section 3b, then all earlier scripts again | All fixed as listed in section 3b; earlier checks unchanged; no console errors other than the one the test causes by blocking the ocean file |
 
 **Where the test scripts are:** the browser scripts (`qa.ts`, `qa-silent.ts`, `qa-thennow.ts`) were run from a local scratch folder with `playwright-core` driving the installed Microsoft Edge. **They aren't in the repo yet**, so teammates can't run them. Adding them as a proper test setup is listed under remaining work.
 
@@ -214,15 +241,16 @@ Details for each are in [contract-proposals.md](contract-proposals.md).
 | B1 | L2 | `getAnalyser()` for the waveform, rings and audio clock | Open; the UI works without it (fallback) |
 | B2 | L2 | Per-drop events for rain ripples | Open; ripples are skipped without them |
 | B3 | L2 | `setVoiceVolume()` for per-voice volume | Open; mute and solo work without it |
-| B4 | L2 | Keep shared files byte-identical; reuse L3's shadcn components; lockfile plan | Recorded |
-| B5 | L2 | Step events count data points only | Open |
-| B6 | L2 | `playSeries()` for Place History | Open; falls back to `playCompare` |
+| B4 | L2, L3 | Shared files and owners; check before touching; lockfile plan | Agreed |
+| B5 | L2 | Step events count data points only | **Accepted by L2** |
+| B6 | L2 | `playSeries()` for Place History | **Accepted by L2**; now required, fallback removed |
+| B7 | L2, L3 | Caption keys for Then vs Now; heads-up for any new key | **Agreed** |
 | C1 | L1 | Colorbar images and colour tables (blocks X-ray); record the −5..35 °C label vs −4..34 °C calibration | Open, blocking X-ray |
 | C1b | L1 | Truth plots for the check being quoted; `approx_percent` in `latest_check` | Open |
 | C2 | L1 | Data file for the 23-product catalogue | Deferred |
 | C3 | L1, team | Gzipped grids (or a headers rule) to cut first load from 5.9 MB to about 0.7 MB | Open |
 | C4 | L1, team | "Chattogram then vs now" | Deferred to October |
-| E1 | Team, L2, L4 | Update the plan, L2's plan and the video script: sweep from Chattogram | Open |
+| E1 | Team, L4 | Update the team plan and the video script: sweep from Chattogram | Open (L2's plan already updated) |
 | E2 | Team | §16 water wording (same as A4) | Open |
 
 ---
@@ -234,7 +262,7 @@ Details for each are in [contract-proposals.md](contract-proposals.md).
 | L2's engine arrives late or differs from its plan | Video recorded with the interim engine | The interim engine works and is labelled; the swap is one file; the build fails if the API differs |
 | Nobody has listened to the interim sound properly | A bad-sounding demo | Ear test before recording (section 9) |
 | Story Mode (needed by the video) isn't built | Missing video shot 1:45 to 2:45 | It's next (Phase 3 item 2) |
-| `bun.lock` conflict when L2 merges | A failed merge | Regenerate with `bun install` (decision 12) |
+| `bun.lock` conflict when L2 merges | A failed merge | Regenerate with `bun install`, or take L3's lockfile (decision 12; L2 confirmed both work) |
 | First load is about 7 MB (grids and images) | Slow on phones or weak networks | Rain loads after first paint; compression requested (C3) |
 | No Bangla strings yet | বাংলা mode shows English | `bangla-strings.md` lists every string for a translator |
 | Truth and caption wording still pending | On-screen wording could change after recording | Badges make the pending status visible; wording comes from the JSON, so fixing the JSON fixes the app |
@@ -262,7 +290,7 @@ Details for each are in [contract-proposals.md](contract-proposals.md).
 6. Catalogue screen of the 23 products, only if L1 provides the data file (C2).
 
 **Also**
-- Add the browser test scripts to the repo, with a `test` script in `package.json`.
+- Add the browser test scripts to the repo. They must run through L2's existing `"test": "bun test"` script (decision 25), not a new one.
 - Place History scrubbing (drag to hear a month).
 
 ---

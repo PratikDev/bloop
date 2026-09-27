@@ -37,7 +37,17 @@ Until the team approves new §16 wording, L3 builds these sentences **from the J
 
 ## B. Requests to L2 (for the real audio engine)
 
-L2's planned API (`docs/L2/BUILD_PLAN.md` §2) is used as-is: same function names, same argument shapes. The interim engine in `src/lib/audio-adapter/` implements it, plus the two additions below. Please add them to the real engine so it can replace the interim one without UI changes.
+**Source of truth:** L2's API names and shapes in `docs/L2/BUILD_PLAN.md` §2 (and §8 for Then vs Now). The UI's `L2AudioApi` type mirrors them exactly. If L3 needs a new function, event or parameter, it is added here as a proposal first (like B1 to B6) and only used once L2 agrees, or behind a fallback that degrades safely.
+
+| ID | Request | Status (28 Sep) |
+|---|---|---|
+| B1 | `getAnalyser()` | Requested; the UI has a fallback |
+| B2 | Per-drop events | Requested; the UI skips ripples without them |
+| B3 | `setVoiceVolume()` | Requested; the UI has a fallback |
+| B4 | Shared files and merge rules | Agreed; see below |
+| B5 | Step events count data points only | **Accepted by L2** |
+| B6 | `playSeries()` | **Accepted by L2**; now part of `L2AudioApi`, fallback removed |
+| B7 | Caption keys | **Agreed set** for Then vs Now; see below |
 
 ### B1. `getAnalyser(): AnalyserNode | null`
 - **Why:** the live waveform (bottom bar) and the sound rings at the cursor draw from the real output signal.
@@ -59,26 +69,51 @@ L2's planned API (`docs/L2/BUILD_PLAN.md` §2) is used as-is: same function name
 - **Why:** plan §9.1 asks for a per-voice volume slider in the mixer. L2's API only has mute, solo and master volume.
 - **Proposed:** `setVoiceVolume(id: VoiceId, v: number): void`, where `v` is 0..1 and is multiplied under the voice's `maxGain` cap.
 
-### B4. Merge coordination: shared files
-Checked on 27 Sep against `origin/L2-audio-engine@8ccb937` and `origin/main@b436447`: dry-run merges between L3, L2 and main are all clean.
-- **Shared with L2, byte-identical:** L3 carries L2's `public/mapping.json`, `src/lib/audio/mapping.ts` and the contract §10 mapping types, copied unchanged from `8ccb937`. **L2, if you change these, L3 takes your version as-is.** L3 will never edit them.
-- **shadcn components (`src/components/ui/`):** L3 added and re-themed `dialog`, `sheet`, `slider`, `tabs`, `toggle`, `toggle-group` and `tooltip` to the design tokens (no shadows, no black backdrop, no blur, and the slider thumb gets a label).
-  - **L2, please don't add these same components in your branch.** Git would report an add/add conflict.
-  - If the audio test page needs one, take L3's file, or tell L3 first.
-- **Sweep centre is now Chattogram** (22.36° N, 91.78° E), not Dhaka: a team decision on 27 Sep. L3 builds the sweep path and owns the caption text, so L2's engine is unaffected. L2's plan still says "Dhaka" in its sweep description and example caption. Then vs Now stays Dhaka, because its data and §16 wording are Dhaka's.
-- **`bun.lock`:** L3 added `recharts` (the shadcn `chart` component, required by plan §9.2) and the same `@types/bun@^1.4.2` that L2 added. Both branches insert lines at the same place in `bun.lock`. **Decision (27 Sep):** L3 does **not** merge L2's branch. L2 merges into `main` first. If `bun.lock` conflicts before then, resolve it by regenerating the lockfile with `bun install`, never by merging L2's branch. `package.json` already merges cleanly.
-- **L3 doesn't touch:** `package.json`, `bun.lock`, `.claude/launch.json`, `src/lib/audio/**` (other than the copied `mapping.ts`) or `docs/L2/**`.
+### B4. Shared files and merge rules
+Checked on 28 Sep in L2's review of PR #4: L3 and `L2-audio-engine` merge cleanly except `bun.lock`. Type check, lint and L2's tests pass on the merged code, and `withFallbacks(l2)` type-checks.
 
-### B5. Step events count data points only
-- The UI's chart playheads map a step event's `index` straight to a data point. So the proposal is: silent gaps (the pause between windows, the tail) emit **no** step event.
-  - `index` is the data index: 0 to 19 for heat and monsoon (window A, then B), and the month index for water.
-  - `total` is the number of data points.
-- The interim engine does this. Full list of player names and behaviours: `docs/L3/integration.md` §1.
+**Rule: before touching any shared file below, L3 checks with L2 (and L2 does the same with L3).**
 
-### B6. `playSeries(side, { stepMs?, player? })`
-- **Why:** Place History (plan H1) plays one place's monthly series, one decade at a time. `playCompare` needs two sides.
-- **Proposed:** one side, steps of `stepMs` (default: heat and monsoon 150 ms, water 60 ms), step events under `player`.
-- If L2 prefers not to add it, the UI falls back to `playCompare(side, empty, "sequential")`.
+| Shared file | Owner | Rule |
+|---|---|---|
+| `public/mapping.json`, `src/lib/audio/mapping.ts`, contract §10 mapping types | L2 | L3 carries byte-identical copies and never edits them; L2's version always wins |
+| `package.json` **scripts** | L2 | L2 already has `"test": "bun test"`. **L3 won't add another `test` script**; L3's tests will run through L2's. |
+| `package.json` dependencies, `bun.lock` | Both | L3 added `recharts` (for the shadcn `chart` component that plan §9.2 requires) and the same `@types/bun@^1.4.2` that L2 has. Both lanes add lines at the same place in `bun.lock`, so it will conflict once. **Decision (27 Sep):** L3 doesn't merge L2's branch; L2 merges into `main` first; a `bun.lock` conflict is resolved by regenerating the lockfile with `bun install` (or taking L3's lockfile, which L2 confirmed also works). |
+| `src/components/ui/`: `dialog`, `sheet`, `slider`, `tabs`, `toggle`, `toggle-group`, `tooltip`, `chart` | L3 | Added and re-themed by L3 (no shadows, no black backdrop, no blur, labelled slider thumb). L2 reuses them rather than adding its own. |
+| `src/components/ui/`: `badge`, `card`, `label`, `select`, `switch` | L2 | Added on L2's branch. **L3 won't add these**; L3 reuses L2's once they're in `main`. |
+| `src/lib/then-now.ts` (`buildThenNowInput`), `src/lib/data/context.ts` (`loadDemo`, `loadGrace`) | L3 | **L2's audio test page reuses these.** L3 gives L2 a heads-up before changing their names or shapes. |
+| `.claude/launch.json`, `src/lib/audio/**` (other than `mapping.ts`), `docs/L2/**` | L2 | L3 doesn't touch them |
+
+- **Sweep centre is now Chattogram** (22.36° N, 91.78° E): a team decision on 27 Sep. L2's plan has been updated to match. Then vs Now stays Dhaka, because its data and §16 wording are Dhaka's.
+
+### B5. Step events count data points only (accepted by L2, 28 Sep)
+- Silent gaps (the pause between windows, the tail) emit **no** step event.
+- `index` is the data index: 0 to 19 for heat and monsoon (window A, then B), and the month index for water. `total` is the number of data points.
+- Player names: `"thenNow.heat" | "thenNow.monsoon" | "thenNow.water"`, `"compare"`, `"compare.split"`, `"sweep"`, and whatever `playSeries` is given (`"history"`).
+- The interim engine does this; L2's engine will too.
+
+### B6. `playSeries(side, { stepMs?, player? })` (accepted by L2, 28 Sep)
+- **Why:** Place History (plan H1) plays one place's monthly series, one decade at a time.
+- **Agreed:** one side, steps of `stepMs` (default: heat and monsoon 150 ms, water 60 ms), step events under the given `player` name. L2 builds this instead of its planned `playHistory(...)`.
+- **Now required:** `playSeries` has moved from L3's optional extras into `L2AudioApi`, and the old `playCompare` fallback is removed. That fallback was also buggy: its step events came out as `"compare"`, so the History playhead never moved, and it added 0.8 s of silence at the end.
+
+### B7. Caption keys (agreed set for Then vs Now, 28 Sep)
+L2 sends exactly these keys with exactly these params; the UI has English text for each (`src/lib/i18n/en/captions.ts`):
+
+| Key | Params |
+|---|---|
+| `caption.thenNow.caption` | `{ text }` (the JSON caption, shown as-is) |
+| `caption.thenNow.window` | `{ label }` ("1981–1990") |
+| `caption.thenNow.end` | none |
+| `caption.water.gap` | `{ from, to }` ("YYYY-MM") |
+| `caption.water.windowStart` | `{ month }` |
+| `caption.water.windowEnd` | `{ month }` |
+| `caption.compare.side` | `{ label }` |
+| `caption.compare.useHeadphones` | `{ a, b }` |
+
+**Any new caption key needs a heads-up in both directions:** L2 tells L3 before sending a new key (so the UI can add its text in both languages), and L3 tells L2 before expecting one. An unknown key shows on screen as its raw name: visible, but never a crash.
+
+The live-exploration keys the interim engine sends today are listed in `docs/L3/integration.md` §1 for L2's reference. They aren't agreed yet; L2 confirms them with its Phase 2 and 3 work.
 
 ---
 
@@ -153,7 +188,7 @@ _None in Phase 2 or Phase 3 item 1._ The only contract change on `L3` is L2's ow
   - `docs/TEAM_BUILD_PLAN.md` §9.2 modules table (`sweep-controls.tsx`: "rings outward from Dhaka");
   - §9.3 keyboard map ("S: Sweep from Dhaka");
   - §11 feature A6 ("Gist sweep from Dhaka");
-  - L2's `docs/L2/BUILD_PLAN.md` Phase 4 (sweep description and example caption);
+  - ~~L2's `docs/L2/BUILD_PLAN.md` Phase 4~~ (done: L2 updated its plan on 28 Sep);
   - the video script: the §14 shot list doesn't name the sweep centre today, but any narration or on-screen text that says "sweep from Dhaka" must say Chattogram (L4).
 
 ### E2. §16 water wording
