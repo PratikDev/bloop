@@ -11,6 +11,7 @@ import { LiveDataProvider } from "../LiveData";
 import { Opening } from "../Opening";
 import { SidePanel } from "../panels/SidePanel";
 import { StartOverlay } from "../StartOverlay";
+import { StoryProvider } from "../Story";
 import { TimeLapseProvider } from "../TimeLapse";
 import { useTimeLapse } from "../TimeLapse/use-time-lapse";
 import { TopBar } from "../TopBar";
@@ -52,7 +53,9 @@ export function JukeboxApp() {
         <LiveDataProvider>
           <CommandsProvider>
             <TimeLapseProvider>
-              <Shell />
+              <StoryProvider>
+                <Shell />
+              </StoryProvider>
             </TimeLapseProvider>
           </CommandsProvider>
         </LiveDataProvider>

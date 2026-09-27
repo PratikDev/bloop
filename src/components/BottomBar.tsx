@@ -39,14 +39,16 @@ export function BottomBar() {
           </SheetContent>
         </Sheet>
 
-        <Button variant="ghost" onClick={commands.playSweep} className={BAR_BUTTON}>
-          <Radar aria-hidden="true" />
-          {t("sweep.play")}
-        </Button>
+        {state.mode !== "story" && (
+          <Button variant="ghost" onClick={commands.playSweep} className={BAR_BUTTON}>
+            <Radar aria-hidden="true" />
+            {t("sweep.play")}
+          </Button>
+        )}
         {state.mode === "explore" && (
           <Button
             variant="ghost"
-            onClick={timeLapse.status === "playing" ? timeLapse.stop : timeLapse.start}
+            onClick={timeLapse.status === "playing" ? timeLapse.stop : () => void timeLapse.start()}
             disabled={timeLapse.status === "loading"}
             className={BAR_BUTTON}
           >

@@ -14,11 +14,19 @@ export interface TimeLapseFrame {
   image: HTMLImageElement | null;
 }
 
+/** How a run ended, and its heaviest frame (for Story Mode's narration). */
+export interface TimeLapseRun {
+  finished: boolean; // false = stopped, failed to load, or already running
+  peak: { point: SweepPoint; timeUtc: string } | null;
+  last: SweepPoint | null; // where the storm-following ended (the newest frame)
+}
+
 export interface TimeLapseValue {
   status: TimeLapseStatus;
   progress: { loaded: number; total: number } | null;
   current: TimeLapseFrame | null;
-  start(): void;
+  /** Loads the frames (first time only), plays them, and resolves when the run ends. */
+  start(): Promise<TimeLapseRun>;
   stop(): void;
 }
 

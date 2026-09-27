@@ -8,6 +8,7 @@ import { FrameView } from "../FrameView";
 import { useLiveData } from "../LiveData/use-live-data";
 import { Readout } from "../Readout";
 import { StatusBadge } from "../StatusBadge";
+import { StoryPanel } from "../Story/StoryPanel";
 import { useTimeLapse } from "../TimeLapse/use-time-lapse";
 import { TrackChoice } from "../TrackChoice";
 
@@ -32,11 +33,16 @@ export function Stage() {
             </StatusBadge>
           )}
           {rainStatus === "loading" && <StatusBadge kind="loading">{t("badge.loadingRain")}</StatusBadge>}
-          {timeLapse.status === "loading" && timeLapse.progress && (
-            <StatusBadge kind="loading">{t("timelapse.loading", timeLapse.progress)}</StatusBadge>
+          {timeLapse.status === "loading" && (
+            <StatusBadge kind="loading">
+              {timeLapse.progress ? t("timelapse.loading", timeLapse.progress) : t("timelapse.loadingStart")}
+            </StatusBadge>
           )}
           {timeLapse.status === "error" && <StatusBadge kind="error">{t("timelapse.error")}</StatusBadge>}
         </div>
+        {state.mode === "story" && (
+          <StoryPanel className="px-4 py-3 lg:absolute lg:top-0 lg:left-0 lg:max-w-sm lg:rounded-br-lg lg:bg-scrim" />
+        )}
         <Readout className="px-4 py-3 lg:pointer-events-none lg:absolute lg:bottom-0 lg:left-0 lg:max-w-lg lg:rounded-tr-lg lg:bg-scrim" />
       </div>
       <div className="space-y-2 px-4 pb-3">

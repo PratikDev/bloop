@@ -59,10 +59,15 @@ export function readingText(t: BoundT, r: Reading, track: TrackMode): string {
   return parts.join("; ");
 }
 
-/** The full sentence spoken on Enter: value(s) and place. */
-export function spokenReading(t: BoundT, r: Reading, track: TrackMode, at: LatLon): string {
+/** The value(s) for the current track, in words, without the place. */
+export function spokenValue(t: BoundT, r: Reading, track: TrackMode): string {
   const parts: string[] = [];
   if (track !== "rain") parts.push(oceanSpoken(t, r.ocean));
   if (track !== "ocean") parts.push(rainSpoken(t, r.rain, r.rainLoaded));
-  return t("speak.value", { reading: parts.join(". "), place: t("place.spoken", at) });
+  return parts.join(". ");
+}
+
+/** The full sentence spoken on Enter: value(s) and place. */
+export function spokenReading(t: BoundT, r: Reading, track: TrackMode, at: LatLon): string {
+  return t("speak.value", { reading: spokenValue(t, r, track), place: t("place.spoken", at) });
 }

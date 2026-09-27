@@ -1,21 +1,28 @@
 "use client";
 
 import { useMemo, useRef, type ReactNode } from "react";
+import { sleep } from "@/lib/abortable";
 import { audio } from "@/lib/audio-adapter";
 import { bandMeans, SWEEP_CENTER, sweepPath } from "@/lib/data";
 import { bindT } from "@/lib/i18n";
 import { spokenReading, readAt } from "@/lib/reading";
+import { whisperSource, type WhisperSource } from "@/lib/whisper";
 import { useAnnounce } from "../Announcer/use-announcer";
 import { useAppState } from "../AppState/use-app-state";
 import { useLiveData } from "../LiveData/use-live-data";
-import { CommandsContext, SETTING_LABELS, type Commands, type SweepVisual } from "./use-commands";
+import { CommandsContext, MODE_LABELS, SETTING_LABELS, type Commands, type SweepVisual } from "./use-commands";
 import { useSoundSync } from "./use-sound-sync";
+
+// Shortest time a said line stays before the next one (about fast reading speed).
+const MIN_MS_PER_CHAR = 40;
 
 export function CommandsProvider({ children }: { children: ReactNode }) {
   const { state, dispatch } = useAppState();
   const { fields, sst } = useLiveData();
   const announce = useAnnounce();
   const sweepRef = useRef<SweepVisual | null>(null);
+  // Counts say() calls and stops, so a whisper never follows a cancelled value.
+  const sayCount = useRef(0);
   useSoundSync(state, fields);
 
   const commands = useMemo<Commands>(() => {
@@ -29,6 +36,26 @@ export function CommandsProvider({ children }: { children: ReactNode }) {
       announce(t("sound.resumed"));
     };
     const soundOffHint = () => announce(t("sound.offHint"));
+
+    const say = async (text: string, source?: WhisperSource | null) => {
+      const id = ++sayCount.current;
+      const voiced = state.builtInVoice && state.soundOn;
+      const spoken = text.replaceAll("~", t("speak.approx"));
+      // Two voices never talk at once: built-in speech OR the live region.
+      // With sound off, nothing is spoken aloud.
+      if (!voiced) announce(source ? t("whisper.announce", { text: spoken, source: source.caption }) : spoken);
+      // Wait at least a short reading time: speech that can't start (no voice
+      // for this language) resolves at once.
+      await Promise.all([voiced ? audio.speak(spoken, state.lang) : null, sleep(text.length * MIN_MS_PER_CHAR)]);
+      if (source && state.soundOn && id === sayCount.current) audio.playEarcon("whisper", { params: { source: source.caption } });
+    };
+
+    const startSweep = () => {
+      if (!fields) return null;
+      const path = sweepPath(fields, SWEEP_CENTER);
+      sweepRef.current = { ...path, center: SWEEP_CENTER };
+      return audio.playSweep(path.points);
+    };
 
     return {
       async start() {
@@ -47,12 +74,8 @@ export function CommandsProvider({ children }: { children: ReactNode }) {
         announce(t("announce.track", { track: trackName(track) }));
       },
       setMode(mode) {
-        if (mode === "story") {
-          announce(t("mode.notReady"));
-          return;
-        }
         dispatch({ type: "setMode", mode });
-        announce(t("announce.mode", { mode: t(mode === "explore" ? "mode.explore" : "mode.thenNow") }));
+        announce(t("announce.mode", { mode: t(MODE_LABELS[mode]) }));
       },
       setLang(lang) {
         dispatch({ type: "setLang", lang });
@@ -72,11 +95,9 @@ export function CommandsProvider({ children }: { children: ReactNode }) {
       speakCurrent() {
         if (!fields) return;
         const text = spokenReading(t, readAt(fields, state.cursor), state.track, state.cursor);
-        // Two voices never talk at once: built-in speech OR the live region.
-        // With sound off, nothing is spoken aloud.
-        if (state.builtInVoice && state.soundOn) void audio.speak(text, state.lang);
-        else announce(text);
+        void say(text, whisperSource(t, fields, state.track));
       },
+      say,
       playSweep() {
         if (!fields) return;
         if (!state.soundOn) return soundOffHint();
@@ -84,10 +105,9 @@ export function CommandsProvider({ children }: { children: ReactNode }) {
           announce(t("sweep.needsRain"));
           return;
         }
-        const path = sweepPath(fields, SWEEP_CENTER);
-        sweepRef.current = { ...path, center: SWEEP_CENTER };
-        audio.playSweep(path.points);
+        startSweep();
       },
+      startSweep,
       playLegend() {
         if (!state.soundOn) return soundOffHint();
         if (state.track === "both") audio.playWarmup();
@@ -107,6 +127,7 @@ export function CommandsProvider({ children }: { children: ReactNode }) {
         dispatch({ type: "setHelpOpen", open: true });
       },
       stopAll() {
+        sayCount.current++;
         audio.stopAll();
         sweepRef.current = null;
         dispatch({ type: "introDone" }); // Esc also skips the opening

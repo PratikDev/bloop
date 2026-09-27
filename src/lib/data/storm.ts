@@ -26,6 +26,15 @@ function wettest(seq: Sequence, frame: SequenceFrame, box: { latMin: number; lat
   return best;
 }
 
+/** Index of the heaviest rain or snow along a path; -1 if every point is no data. */
+export function peakIndex(points: SweepPoint[]): number {
+  let peak = -1;
+  points.forEach((p, i) => {
+    if (p.mmPerHour !== null && (peak === -1 || p.mmPerHour > (points[peak].mmPerHour ?? 0))) peak = i;
+  });
+  return peak;
+}
+
 /**
  * Starts at the heaviest rain over Bangladesh and the northern Bay (ties:
  * nearest Chattogram), then in each frame moves to the heaviest cell within

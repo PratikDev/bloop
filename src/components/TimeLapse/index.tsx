@@ -4,17 +4,18 @@ import { useCallback, useEffect, useMemo, useRef, useState, type ReactNode } fro
 import { usePlayhead } from "@/hooks/use-playhead";
 import { audio } from "@/lib/audio-adapter";
 import type { PlayerHandle, SweepPoint } from "@/lib/audio-adapter/types";
-import { DATA_PATHS, followStorm, loadSequence, type Sequence } from "@/lib/data";
+import { DATA_PATHS, followStorm, loadSequence, peakIndex, type Sequence } from "@/lib/data";
 import { formatUtc } from "@/lib/i18n";
 import { loadImage } from "@/lib/load-image";
 import { useAnnounce } from "../Announcer/use-announcer";
 import { useAppState, useT } from "../AppState/use-app-state";
-import { TimeLapseContext, type TimeLapseStatus, type TimeLapseValue } from "./use-time-lapse";
+import { TimeLapseContext, type TimeLapseRun, type TimeLapseStatus, type TimeLapseValue } from "./use-time-lapse";
 
 // Player name agreed with L2 (contract-proposals B5): step index = frame index.
 const PLAYER = "timelapse";
 // Frame rate of the plan's C4 ("about 2 frames/s"); also used by the silent visual clock.
 const FPS = 2;
+const NOT_RUN: TimeLapseRun = { finished: false, peak: null, last: null };
 
 interface Loaded {
   seq: Sequence;
@@ -38,6 +39,10 @@ export function TimeLapseProvider({ children }: { children: ReactNode }) {
   const [visualIndex, setVisualIndex] = useState<number | null>(null);
   const [withSound, setWithSound] = useState(false);
   const handle = useRef<PlayerHandle | null>(null);
+  // Resolves the promise start() returned, once the run ends.
+  const settle = useRef<((finished: boolean) => void) | null>(null);
+  // Bumped by stop(), so a stop during loading cancels the run that was loading.
+  const runId = useRef(0);
   const head = usePlayhead(PLAYER);
 
   const load = useCallback(async (): Promise<Loaded> => {
@@ -55,21 +60,30 @@ export function TimeLapseProvider({ children }: { children: ReactNode }) {
     return { seq, path: followStorm(seq), images };
   }, []);
 
-  const finish = useCallback(() => {
+  const finish = useCallback((finished: boolean) => {
     handle.current = null;
     setVisualIndex(null);
     setStatus((s) => (s === "playing" ? "idle" : s));
+    settle.current?.(finished);
+    settle.current = null;
   }, []);
 
-  const start = useCallback(async () => {
-    if (status === "loading" || status === "playing") return;
+  const start = useCallback(async (): Promise<TimeLapseRun> => {
+    if (status === "loading" || status === "playing") return NOT_RUN;
     setStatus("loading");
+    const id = runId.current;
     let loaded = data;
+    if (!loaded) announce(t("timelapse.loadingStart"));
     try {
       loaded ??= await load();
     } catch {
       setStatus("error");
-      return;
+      return NOT_RUN;
+    }
+    if (id !== runId.current) {
+      setData(loaded);
+      setStatus("idle");
+      return NOT_RUN;
     }
     setData(loaded);
     setProgress(null);
@@ -83,20 +97,30 @@ export function TimeLapseProvider({ children }: { children: ReactNode }) {
       }),
     );
     setWithSound(state.soundOn);
+    const p = peakIndex(loaded.path);
+    const peak = p === -1 ? null : { point: loaded.path[p], timeUtc: frames[p].ref.time_utc };
+    const ended = new Promise<boolean>((resolve) => {
+      settle.current = resolve;
+    });
     if (state.soundOn) {
       const h = audio.playTimelapse(loaded.path, { fps: FPS });
       handle.current = h;
+      // stop() clears the handle first, so only a natural end gets here.
       void h.done.then(() => {
-        if (handle.current === h) finish();
+        if (handle.current === h) finish(true);
       });
     } else {
       setVisualIndex(0);
     }
+    return { finished: await ended, peak, last: loaded.path[loaded.path.length - 1] ?? null };
   }, [status, data, load, announce, t, state.lang, state.soundOn, finish]);
 
   const stop = useCallback(() => {
-    if (handle.current) handle.current.stop();
-    else finish();
+    runId.current++;
+    const h = handle.current;
+    handle.current = null;
+    h?.stop();
+    finish(false);
   }, [finish]);
 
   // Visual clock for sound-off playback (visuals only; sound is never timed this way).
@@ -108,7 +132,7 @@ export function TimeLapseProvider({ children }: { children: ReactNode }) {
       i++;
       if (i >= total) {
         clearInterval(id);
-        finish();
+        finish(true);
       } else {
         setVisualIndex(i);
       }
@@ -116,10 +140,8 @@ export function TimeLapseProvider({ children }: { children: ReactNode }) {
     return () => clearInterval(id);
   }, [status, withSound, total, finish]);
 
-  // Leaving Explore stops the time-lapse.
-  useEffect(() => {
-    if (state.mode !== "explore") stop();
-  }, [state.mode, stop]);
+  // Leaving a mode stops the time-lapse (Story Mode starts its own).
+  useEffect(() => () => stop(), [state.mode, stop]);
 
   const value = useMemo<TimeLapseValue>(() => {
     const index = status !== "playing" || !data ? null : withSound ? (head?.index ?? 0) : visualIndex;
@@ -133,7 +155,7 @@ export function TimeLapseProvider({ children }: { children: ReactNode }) {
             point: data.path[index],
             image: data.images[index] ?? null,
           };
-    return { status, progress, current, start: () => void start(), stop };
+    return { status, progress, current, start, stop };
   }, [status, progress, data, withSound, head, visualIndex, start, stop]);
 
   return <TimeLapseContext.Provider value={value}>{children}</TimeLapseContext.Provider>;
