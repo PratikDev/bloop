@@ -8,6 +8,8 @@ For the teammate translating the interface into Bangla.
 - Voice names in the Mapping panel come from `public/mapping.json` (`label.bn`, owned by L2), not from this list. Entries there starting with `TODO:` still show English.
 - Rows this doesn't list: the Mapping panel's rule sentences and global rules are English text from L2's `mapping.ts` and `mapping.json`. Bangla rule sentences need `ruleParts()` (planned for Phase 4).
 
+**Still to translate:** 272 of 272 strings (every row marked TODO_BN). Until a string is translated, the Bangla setting shows it in English; speech stays English (with Bangla on screen) until `BANGLA_SPEECH_READY` in `src/lib/i18n/bn.ts` is set.
+
 ## Interface
 
 | Key | English | Bangla | Note |
@@ -89,14 +91,14 @@ For the teammate translating the interface into Bangla.
 | `mixer.solo` | (sentence with values; see source) | TODO_BN | has values |
 | `sweep.play` | Play sweep | TODO_BN |  |
 | `sweep.needsRain` | The sweep starts once rain has loaded. | TODO_BN |  |
-| `xray.unavailable` | X-ray needs the colorbar data, which isn't published yet. | TODO_BN |  |
+| `xray.unavailable` | X-ray is coming in October: it needs NASA's colorbar data, which isn't published yet. | TODO_BN |  |
 | `announce.track` | (sentence with values; see source) | TODO_BN | has values |
 | `announce.mode` | (sentence with values; see source) | TODO_BN | has values |
 | `announce.toggle` | (sentence with values; see source) | TODO_BN | has values |
 | `announce.started` | Sound started. The cursor is over the Bay of Bengal. Arrow keys move it. | TODO_BN |  |
 | `error.ocean` | Couldn't load today's ocean frame. Check the connection and reload the page. | TODO_BN |  |
 | `error.rain` | Couldn't load today's rain frame. Ocean sound still works; reload the page to try again. | TODO_BN |  |
-| `speak.approx` | about | TODO_BN | spoken in place of "~" (keep a trailing space) |
+| `speak.approx` | about  | TODO_BN | spoken in place of "~" (keep a trailing space) |
 | `timelapse.play` | Play storm time-lapse | TODO_BN |  |
 | `timelapse.stop` | Stop time-lapse | TODO_BN |  |
 | `timelapse.loadingStart` | Loading the time-lapse frames… | TODO_BN |  |
@@ -105,7 +107,12 @@ For the teammate translating the interface into Bangla.
 | `timelapse.announceStart` | (sentence with values; see source) | TODO_BN | has values |
 | `timelapse.frame` | (sentence with values; see source) | TODO_BN | has values |
 | `credits.visualizations` | Visualizations: NASA's Scientific Visualization Studio (SVS 5101, 4285) for the NASA Earth Information Center. | TODO_BN | §15 wording; dataset names stay in English |
-| `credits.data` | Data: MUR SST (NASA/JPL PO.DAAC); GPM IMERG (NASA/JAXA, GES DISC); GRACE/GRACE-FO JPL mascons RL06.3Mv04 (NASA/JPL PO.DAAC); NASA FIRMS; MODIS MOD13Q1 via ORNL DAAC; NASA GLOBE Program; NASA GISTEMP v4; GPCP v2.3 and GPCC Full Data v2020 (via NOAA PSL). | TODO_BN | §15 wording; dataset names stay in English |
+| `credits.data` | Data in this app: MUR SST (NASA/JPL PO.DAAC); GPM IMERG (NASA/JAXA, GES DISC); GRACE/GRACE-FO JPL mascons RL06.3Mv04 (NASA/JPL PO.DAAC); NASA GISTEMP v4; GPCP v2.3 and GPCC Full Data v2020 (via NOAA PSL). | TODO_BN | §15 wording; dataset names stay in English |
+| `place.Chattogram` | Chattogram | TODO_BN | place name |
+| `place.Dhaka` | Dhaka | TODO_BN | place name |
+| `place.Rajshahi` | Rajshahi | TODO_BN | place name |
+| `place.Sylhet` | Sylhet | TODO_BN | place name |
+| `credits.testing` | Also used in our testing: NASA FIRMS; MODIS MOD13Q1 via ORNL DAAC; NASA GLOBE Program. | TODO_BN |  |
 
 ## Help
 
@@ -129,10 +136,20 @@ For the teammate translating the interface into Bangla.
 | `key.t.action` | Then vs Now | TODO_BN |  |
 | `key.l.action` | Hear the legend (reference sounds) | TODO_BN |  |
 | `key.p.action` | Where this value comes from | TODO_BN |  |
-| `key.x.action` | X-ray: how a colour becomes a number and a sound | TODO_BN |  |
+| `key.x.action` | X-ray: how a colour becomes a number and a sound (coming in October) | TODO_BN |  |
 | `key.h.action` | Open this help | TODO_BN |  |
 | `key.esc` | Esc | TODO_BN |  |
 | `key.esc.action` | Stop all sound and close panels | TODO_BN |  |
+| `october.heading` | Not built yet | TODO_BN |  |
+| `october.xray` | X-ray: how a colour becomes a number and a sound (waits for NASA's colorbar data) | TODO_BN |  |
+| `october.aiByEar` | "Check the AI by ear" and "Ask the Earth", a voice agent (the AI never produces numbers) | TODO_BN |  |
+| `october.study` | A listening study with blind and low-vision adults | TODO_BN |  |
+| `october.choirs` | The full Anomaly Choir and Change Choir | TODO_BN |  |
+| `october.passes` | Satellite-pass cues ("who measured this?") | TODO_BN |  |
+| `october.raga` | Raga music mode | TODO_BN |  |
+| `october.duets` | NASA vs JAXA (GSMaP) and NASA vs UK Met Office (OSTIA) duets | TODO_BN |  |
+| `october.tracks` | More EIC tracks: fires, air quality, wind | TODO_BN |  |
+| `october.kiosk` | Kiosk and hyperwall mode | TODO_BN |  |
 
 ## Captions (sound events)
 
@@ -166,6 +183,8 @@ For the teammate translating the interface into Bangla.
 | `caption.timelapse.start` | (sentence with values; see source) | TODO_BN | has values |
 | `caption.timelapse.peak` | (sentence with values; see source) | TODO_BN | has values |
 | `caption.timelapse.end` | Time-lapse finished | TODO_BN |  |
+| `caption.history.end` | History finished | TODO_BN |  |
+| `caption.speech` | (sentence with values; see source) | TODO_BN | has values |
 
 ## Panels
 
@@ -263,7 +282,7 @@ For the teammate translating the interface into Bangla.
 | Key | English | Bangla | Note |
 |---|---|---|---|
 | `whisper.withRun` | (sentence with values; see source) | TODO_BN | has values |
-| `whisper.and` | and | TODO_BN | joins agency names, with a space either side |
+| `whisper.and` |  and  | TODO_BN | joins agency names, with a space either side |
 | `whisper.mission` | (sentence with values; see source) | TODO_BN | has values |
 | `whisper.dataset` | (sentence with values; see source) | TODO_BN | has values |
 | `whisper.kind.sst` | sea surface temperature | TODO_BN |  |
@@ -281,7 +300,6 @@ For the teammate translating the interface into Bangla.
 | `story.step.whisper` | Satellite whisper | TODO_BN |  |
 | `story.step.xray` | X-ray | TODO_BN |  |
 | `story.step.truth` | How we know | TODO_BN |  |
-| `story.stepSkipped` | Skipped: not ready yet | TODO_BN |  |
 | `story.stop` | Stop story | TODO_BN |  |
 | `story.replay` | Play again | TODO_BN |  |
 | `story.backToExplore` | Back to Explore | TODO_BN |  |
@@ -294,7 +312,7 @@ For the teammate translating the interface into Bangla.
 | `story.stormPeak` | (sentence with values; see source) | TODO_BN | has values |
 | `story.stormFailed` | The storm frames couldn't load, so this step is skipped. | TODO_BN |  |
 | `story.whisper` | (sentence with values; see source) | TODO_BN | has values |
-| `story.xraySkipped` | X-ray is skipped: it waits for NASA's colorbar data. | TODO_BN |  |
+| `story.xraySkipped` | X-ray is coming in October: it waits for NASA's colorbar data. | TODO_BN |  |
 | `story.truth` | (sentence with values; see source) | TODO_BN | the sentence inside is §16 wording (Pending team approval); has values |
 | `story.truthLoading` | The rain check appears in the Truth panel once rain has loaded. | TODO_BN |  |
 | `story.end` | That's the story. Press Escape to explore. | TODO_BN |  |
