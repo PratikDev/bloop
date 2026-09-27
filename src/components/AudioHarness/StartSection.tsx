@@ -1,5 +1,5 @@
 import { Button } from "@/components/ui/button";
-import { ensureAudio } from "@/lib/audio";
+import { ensureAudio, isAudioReady } from "@/lib/audio";
 import { getAudioInfo } from "@/lib/audio/dev";
 import HarnessSection from "./HarnessSection";
 
@@ -9,6 +9,8 @@ interface StartSectionProps {
 
 export default function StartSection({ ready }: StartSectionProps) {
   const info = getAudioInfo();
+  // A code change hot-reloads the engine module: the page still says "running", but the new engine never started.
+  const stale = ready && !isAudioReady();
   return (
     <HarnessSection
       title="Start"
@@ -28,6 +30,12 @@ export default function StartSection({ ready }: StartSectionProps) {
           <dd>{info ? `${info.baseLatencyMs.toFixed(1)} ms` : "—"}</dd>
         </dl>
       </div>
+      {stale && (
+        <p role="alert" className="text-sm">
+          The audio engine was reloaded by a code change and is no longer running. Reload the page (F5) and press Start
+          again; until then, the play buttons do nothing.
+        </p>
+      )}
     </HarnessSection>
   );
 }
