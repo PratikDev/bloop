@@ -1,6 +1,6 @@
 "use client";
 
-import { cn } from "cn";
+import { cn } from "@/lib/utils";
 import { IS_INTERIM_ENGINE } from "@/lib/audio-adapter";
 import { useAppState, useT } from "../AppState/use-app-state";
 import { ExploreControls } from "../ExploreControls";

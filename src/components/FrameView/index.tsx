@@ -1,7 +1,7 @@
 "use client";
 
 import { useEffect, useMemo, useRef, type PointerEvent } from "react";
-import { cn } from "cn";
+import { cn } from "@/lib/utils";
 import { readPalette } from "@/lib/css-tokens";
 import type { SstField } from "@/lib/data";
 import { toLatLon } from "@/lib/geo";

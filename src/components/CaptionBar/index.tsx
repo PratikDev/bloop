@@ -1,6 +1,6 @@
 "use client";
 
-import { cn } from "cn";
+import { cn } from "@/lib/utils";
 import { captionText } from "@/lib/i18n";
 import { useAppState } from "../AppState/use-app-state";
 import { useLatestCaption } from "./use-latest-caption";

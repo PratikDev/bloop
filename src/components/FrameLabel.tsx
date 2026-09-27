@@ -1,6 +1,6 @@
 "use client";
 
-import { cn } from "cn";
+import { cn } from "@/lib/utils";
 import { formatUtc } from "@/lib/i18n";
 import { useAppState, useT } from "./AppState/use-app-state";
 import { useLiveData } from "./LiveData/use-live-data";
