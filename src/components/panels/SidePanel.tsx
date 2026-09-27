@@ -8,6 +8,7 @@ import { useMediaQuery } from "@/hooks/use-media-query";
 import type { PanelTab } from "../AppState/reducer";
 import { useAppState, useT } from "../AppState/use-app-state";
 import { MappingPanel } from "./MappingPanel";
+import { ProvenancePanel } from "./ProvenancePanel";
 import { TruthPanel } from "./TruthPanel";
 
 // The chart library loads only when History opens (keeps the first load light).
@@ -39,7 +40,7 @@ function PanelTabs() {
         <MappingPanel />
       </TabsContent>
       <TabsContent value="provenance">
-        <p className="text-haze">{t("provenance.notReady")}</p>
+        <ProvenancePanel />
       </TabsContent>
       <TabsContent value="history">
         <HistoryPanel />

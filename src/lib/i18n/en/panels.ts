@@ -40,5 +40,14 @@ export const panelsEn = {
   "mapping.status.context": "Context record",
   "mapping.status.designOnly": "Sound cue",
 
-  "provenance.notReady": "Provenance for the current point is not ready yet.",
+  "provenance.at": (p: { place: string }) => `Where the value at ${p.place} comes from.`,
+  "provenance.value": "Value",
+  "provenance.dataset": "Dataset",
+  "provenance.visualization": "Visualization",
+  "provenance.svs": (p: { id: number }) => `NASA SVS ${p.id}`,
+  "provenance.frameTime": "Frame time",
+  "provenance.utc": (p: { datetime: string }) => `${p.datetime} UTC`,
+  "provenance.check": "Check",
+  "provenance.checkIsToday": (p: { datetime: string }) =>
+    `This check is for today's frame (${p.datetime} UTC), not the time-lapse frame shown.`,
 };

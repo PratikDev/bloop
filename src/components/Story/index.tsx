@@ -4,7 +4,6 @@ import { useCallback, useEffect, useMemo, useRef, useState, type ReactNode } fro
 import { isAbort } from "@/lib/abortable";
 import { audio } from "@/lib/audio-adapter";
 import { bindT } from "@/lib/i18n";
-import { useAnnounce } from "../Announcer/use-announcer";
 import { useAppState } from "../AppState/use-app-state";
 import { useCommands } from "../Commands/use-commands";
 import { useLiveData } from "../LiveData/use-live-data";
@@ -21,7 +20,6 @@ export function StoryProvider({ children }: { children: ReactNode }) {
   const { fields } = useLiveData();
   const commands = useCommands();
   const timeLapse = useTimeLapse();
-  const announce = useAnnounce();
   const [status, setStatus] = useState<StoryStatus>("idle");
   const [step, setStep] = useState<StoryStepId | null>(null);
   const [line, setLine] = useState<StoryLine | null>(null);
@@ -100,21 +98,8 @@ export function StoryProvider({ children }: { children: ReactNode }) {
     };
   }, [inStory, play, halt]);
 
-  const exit = useCallback(() => {
-    dispatch({ type: "setMode", mode: "explore" });
-    announce(bindT(latest.current.state.lang)("story.stopped"));
-  }, [dispatch, announce]);
-
-  // Esc exits the story. Capture phase: an open sheet would otherwise take the
-  // first Esc for itself (the global Esc handler stops the sound).
-  useEffect(() => {
-    if (state.mode !== "story") return;
-    const onKey = (e: KeyboardEvent) => {
-      if (e.key === "Escape") exit();
-    };
-    window.addEventListener("keydown", onKey, true);
-    return () => window.removeEventListener("keydown", onKey, true);
-  }, [state.mode, exit]);
+  // Stop story does what Esc does (the global Esc handler): stop, back to Explore, one message.
+  const exit = useCallback(() => latest.current.commands.stopAll(), []);
 
   const value = useMemo<StoryValue>(
     () => ({ status, step, line, focus, replay: play, exit }),

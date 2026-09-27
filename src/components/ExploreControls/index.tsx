@@ -42,10 +42,14 @@ export function ExploreControls({ children }: { children: ReactNode }) {
   // nothing speaks at that moment.
   // Not during the time-lapse: a new frame every half second would flood the
   // screen reader (the time-lapse announces itself once when it starts).
+  // Nor right after the story ends: its own "Story stopped" message stays the last word.
   const settled = reading && !timelapse && !story ? `${readingText(t, reading, track)}. ${t("place.latlon", cursor)}` : null;
+  const wasStory = useRef(story);
   useEffect(() => {
-    if (state.introDone && settled) announce(settled);
-  }, [settled, state.introDone, announce]);
+    const leftStory = wasStory.current && !story;
+    wasStory.current = story;
+    if (state.introDone && settled && !leftStory) announce(settled);
+  }, [settled, state.introDone, story, announce]);
 
   return (
     <div
