@@ -16,7 +16,7 @@ Update this table when a phase's checklist is fully ticked.
 | 2 | Live voices (ocean, rain, snow) | Sun 27 | ✅ done (27 Sep) |
 | 3 | Speech, ducking, legend, warm-up, earcons | Sun 27 | ✅ done (27 Sep) |
 | 4 | Sequence player, sweep, motif, opening | Sun 27 night / Mon 28 AM | ✅ done (28 Sep) |
-| 5 | Then vs Now and Comparison audio | Mon 28 | ⬜ not started |
+| 5 | Then vs Now and Comparison audio | Mon 28 | ✅ done (28 Sep); L1 still to fix the demo caption wording (§16) — no L2 change needed |
 | 6 | Storm time-lapse audio | Mon 28 | ⬜ not started |
 | 7 | Optional voices (cut first) | Mon 28 PM, only if 0–6 done | ⬜ not started |
 | 8 | Mix polish, narration clips, phone checks, freeze | Tue 29 AM | ⬜ not started |
@@ -123,6 +123,7 @@ src/lib/audio/
 ├─ captions.ts          # emitCaption() + a throttled caption emitter (≤ 4/s, settles on the last value)
 ├─ live.ts              # Phase 2: setOcean / setRain / silenceLive → voices, no-data tick, value captions; holdLive/releaseLive; routeRain
 ├─ nodata.ts            # PURE: tick only on entering no data, ≥ 300 ms apart (live + sweep)
+├─ context-maths.ts     # PURE: heat tone (pitch, band, roughness), monsoon drops per step and their times, water range/pitch, missing runs
 ├─ voices/
 │  ├─ common.ts         # voice output (panner → channel), panTo(), voicePeak()
 │  ├─ ocean.ts          # sine + glide
@@ -131,8 +132,9 @@ src/lib/audio/
 │  ├─ rate-timeline.ts  # PURE: which rate is in force at each drop's time (sequences schedule ahead)
 │  ├─ rain.ts           # noise-burst drops (liquid) through one shared band-pass
 │  ├─ snow.ts           # soft bells (frozen), one bell synthesised once into a buffer
-│  ├─ heat.ts           # then-vs-now heat pitch + Anomaly-Choir detune (Phase 5)
-│  ├─ bass.ts           # GRACE water bass with harmonics (Phase 5)
+│  ├─ heat.ts           # then-vs-now heat: triangle + low-pass, detuned second voice, ~30 Hz wobble (Anomaly Choir)
+│  ├─ bass.ts           # GRACE water bass with 2nd/3rd harmonics (T5 toggle)
+│  ├─ monsoon.ts        # yearly monsoon steps: round(mm/day × 0.6) drops per step, via the scheduler (cancellable)
 │  ├─ clicks.ts         # FIRMS percussion (Phase 7)
 │  └─ pad.ts            # NDVI slow pad (Phase 7)
 ├─ earcons.ts           # no-data tick, satellite-whisper chime, extreme ping; playEarcon() emits caption.earcon.<id>
@@ -147,8 +149,9 @@ src/lib/audio/
 │  ├─ opening.ts        # "close your eyes" bed (fades via the voices' channel inputs, restored after)
 │  ├─ legend.ts         # audio legend, short legend on mode change
 │  ├─ warmup.ts         # ~22 s warm-up: volume check + legends + no-data tick
-│  ├─ then-now.ts       # heat / monsoon / water (Phase 5)
-│  ├─ compare.ts        # A then B, or A left / B right (Phase 5)
+│  ├─ context-voices.ts # heat / monsoon / water voice sets per stereo side (centre, left, right), through the mixer
+│  ├─ then-now.ts       # heat / monsoon / water / all
+│  ├─ compare.ts        # A then B, or A left / B right; playSeries
 │  └─ timelapse.ts      # storm time-lapse (Phase 6)
 └─ *.test.ts            # bun tests, colocated next to the PURE module they test (AGENTS.md)
 ```
@@ -293,7 +296,7 @@ L2 emits exactly these keys and params. Adding a key means telling L3 so they ad
 | `caption.noBanglaVoice` | — | `speak(…, "bn")` with no Bangla voice | 3 |
 | `caption.earcon.nodata` / `caption.earcon.whisper` / `caption.earcon.ping` | whatever the caller passes in `params` (whisper: `source`) | `playEarcon(id, { params })` | 3 |
 | `caption.legend` | `voice`, `label` (legend label from `mapping.json`) | `playLegend()` | 3 |
-| `caption.legendUnavailable` | `voice` | `playLegend()` for a voice with no legend yet (heat/water before Phase 5) | 3 |
+| `caption.legendUnavailable` | `voice` | `playLegend()` for a voice with no fixed legend (water; heat plays since Phase 5) | 3 |
 | `caption.warmup.start` / `caption.warmup.end` | — | `playWarmup()` | 3 |
 | `caption.sweep.start` / `caption.sweep.end` | — | `playSweep()` | 4 |
 | `caption.motif` | — | `playMotif()` | 4 |
@@ -635,7 +638,7 @@ export interface CompareSide { label: string; values: (number | null)[]; voice: 
 - **Monsoon** — reuses the rain drop generator: each step plays exactly `mapContinuous(mm/day, monsoon)` drops spread evenly (with small jitter) across the step.
 - **`voices/bass.ts`** — sine at `mapContinuous` with `runtimeRange(series, "p5-p95")` computed over the **whole** GRACE series being played; add 2nd and 3rd harmonics (gain 0.5, 0.25) so pitch survives phone speakers (AUDIO_RESEARCH B3; test T5); `null` month → fade to silence and emit caption `caption.water.gap` `{ from, to }` once per run of missing months (the record has 35 missing months in 19 stretches, not only Jul 2017–May 2018; L3 proposal A4).
 - **Routing:** the heat, monsoon and water voices go through the mixer like the live voices (their own channels), so mute, solo and mute-all (M) also silence Then vs Now and History. L3's interim engine skips the mixer for these (reported on PR #4); don't copy that.
-- **Stopping:** `stop()` / `stopAll()` must also cancel monsoon drops already scheduled for the rest of the current step. A whole step's drops are scheduled at once (up to 400 ms ahead), which is more than the scheduler's 100 ms look-ahead. L3's interim engine lets these play after Stop (reported on PR #4); register them in `sources.ts` so they can be cut.
+- **Stopping:** `stop()` / `stopAll()` must also cancel monsoon drops already scheduled for the rest of the current step. A whole step's drops are scheduled at once (up to 400 ms ahead), which is more than the scheduler's 100 ms look-ahead. L3's interim engine lets these play after Stop (reported on PR #4). **As built:** each drop goes through the shared scheduler under the voice's owner, so stopping cancels every drop not yet handed to Web Audio (≤ 100 ms ahead); measured silent within ~250 ms of Skip.
 
 ### 8.3 Players (`players/then-now.ts`)
 - `playThenNow(input, "heat")`: caption `input.captions.heat` → window A (10 steps, 400 ms each, label caption at start "1981–1990") → 800 ms silence → window B (10 steps) → end. Each step = one year: heat pitch + detune band.
@@ -653,6 +656,7 @@ export interface CompareSide { label: string; values: (number | null)[]; voice: 
 - Disclosure text (windows, datasets, numbers) is L3's panel, sourced from the JSON — L2 only emits captions with labels.
 
 ### 8.5 Harness section (Phase 5)
+- **As built (28 Sep):** a source switch: **synthetic** input shaped like the demo (clearly labelled; `ThenNowSection/synthetic.ts`) or the **real** demo via the button below (added after L3's PR #4 reached `main` and was merged into this branch). The series uses the last 120 months of Dhaka GISTEMP (`use-demo-input.ts`).
 - A "Load real demo" button that loads the demo and GRACE files with **L3's** `loadDemo()` / `loadGrace()` (`@/lib/data`) and builds `ThenNowInput` with **L3's** `buildThenNowInput()` (`@/lib/then-now`). Don't write a second adapter (DRY; agreed on PR #4). The harness is the only L2 code that imports from `lib/data`; the engine itself still takes plain arrays.
 - Buttons: Heat / Monsoon / Water / All; Compare sequential / split (heat A vs B); Series (one decade of Dhaka heat through `playSeries`, loaded with L3's `loadGistemp()`).
 - A simple progress bar per player from `step` events, labelled with the current year/month.
@@ -662,19 +666,19 @@ export interface CompareSide { label: string; values: (number | null)[]; voice: 
 - **T3 Loudness balance** can start here (ocean 220/440/880 Hz) — finish in Phase 8.
 
 ### 8.7 Deliverables checklist (Phase 5)
-- [ ] `bun test` passes — tests: `runtimeRange` over the real GRACE Bangladesh series ignores its 35 nulls; heat A mean (−0.14) and B mean (1.228) map to pitches ≈ 6.6 semitones apart; monsoon step drop counts for the real A/B means are 9 and 8.
-- [ ] Heat: window B is clearly higher than window A on laptop speaker; years with |anomaly| > 1.5 sound audibly rough/detuned; heat timbre is clearly **not** the ocean timbre.
-- [ ] Monsoon: B is **not** denser than A (it's slightly sparser) — matches "not wetter".
-- [ ] Water: the bass sinks over the record; the Jul 2017–May 2018 gap is silent with its caption; after the gap it resumes smoothly.
-- [ ] All captions come from `input.captions` (i.e. the JSON), character-for-character equal to TEAM_BUILD_PLAN §16 (check the harness log against §16).
-- [ ] "All" plays heat → monsoon → water with gaps; Esc stops it mid-way without a click.
-- [ ] Compare sequential and split both work; split is clearly left/right on headphones.
-- [ ] Step events drive the progress bar in time with the sound for all three parts; silent gaps emit none, and `index` / `total` count data points (heat 0–19, water = month index).
-- [ ] Every caption key and param matches Section 2.4 exactly (L3 already shows text for them).
-- [ ] `playSeries` plays one side and its step events carry the given `player` name (`"history"`).
-- [ ] Mute-all (M), mute and solo also silence the Then vs Now voices; Stop / Esc during monsoon leaves no drops playing afterwards.
-- [ ] The adapter swap still type-checks: a check file with `withFallbacks(l2)` from `@/lib/audio-adapter` passes `bunx tsc --noEmit`.
-- [ ] T5 recorded in the findings log (phone model), harmonic gains decided.
+- [x] `bun test` passes — tests: `runtimeRange` over the real GRACE Bangladesh series ignores its 35 nulls; heat A mean (−0.14) and B mean (1.228) map to pitches ≈ 6.6 semitones apart; monsoon step drop counts for the real A/B means are 9 and 8.
+- [x] Heat: window B is clearly higher than window A on laptop speaker; years with |anomaly| > 1.5 sound audibly rough/detuned; heat timbre is clearly **not** the ocean timbre.
+- [x] Monsoon: B is **not** denser than A (it's slightly sparser) — matches "not wetter".
+- [x] Water: the bass sinks over the record; the Jul 2017–May 2018 gap is silent with its caption; after the gap it resumes smoothly.
+- [x] All captions come from `input.captions` (i.e. the JSON) unchanged — **verified**. Character-for-character equality with TEAM_BUILD_PLAN §16 **depends on L1's JSON**, which still differs ("10 and 10 years", hyphens instead of "−"); L1 asked to fix `pipeline/build_demo.py` (findings log, 28 Sep). No L2 change is needed when it lands.
+- [x] "All" plays heat → monsoon → water with gaps; Esc stops it mid-way without a click.
+- [x] Compare sequential and split both work; split is clearly left/right on headphones.
+- [x] Step events drive the progress bar in time with the sound for all three parts; silent gaps emit none, and `index` / `total` count data points (heat 0–19, water = month index).
+- [x] Every caption key and param matches Section 2.4 exactly (L3 already shows text for them).
+- [x] `playSeries` plays one side and its step events carry the given `player` name (`"history"`).
+- [x] Mute-all (M), mute and solo also silence the Then vs Now voices; Stop / Esc during monsoon leaves no drops playing afterwards.
+- [x] The adapter swap still type-checks: a check file with `withFallbacks(l2)` from `@/lib/audio-adapter` passes `bunx tsc --noEmit`.
+- [x] T5 recorded in the findings log (phone model), harmonic gains decided.
 
 ---
 
