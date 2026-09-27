@@ -6,7 +6,7 @@ import { startEngine } from "./context";
 import { applyMixer } from "./mixer";
 
 export type * from "./types";
-export { VOICE_IDS } from "./types";
+export { LIVE_VOICES, TRACK_VOICES, VOICE_IDS } from "./types";
 
 /** Must be called inside a click / keydown handler (e.g. the Start button). */
 export async function ensureAudio(): Promise<void> {
@@ -14,10 +14,10 @@ export async function ensureAudio(): Promise<void> {
   applyMixer(); // mixer changes made before Start take effect now
 }
 
-export { isAudioReady } from "./context";
+export { getAnalyser, isAudioReady } from "./context";
 export { onAudioEvent } from "./events";
 export { stopAll } from "./stop";
-export { setAllMuted, setMasterVolume, setSolo, setVoiceMuted } from "./mixer";
+export { setAllMuted, setMasterVolume, setSolo, setVoiceMuted, setVoiceVolume } from "./mixer";
 
 // Later phases (typed placeholders until built)
 export {
