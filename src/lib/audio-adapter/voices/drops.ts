@@ -29,6 +29,23 @@ const RAIN_FILTER_HZ = 2400;
 const SNOW_PARTIAL_RATIO = 2.76; // bell-like inharmonic partial
 const SNOW_BASE_HZ = [1046.5, 1174.7, 1318.5, 1568, 1760]; // a soft pentatonic set
 
+/** One raindrop sound: shared noise buffer → envelope → shared band-pass (AUDIO_RESEARCH A4). */
+export function createRainDropSound(graph: Graph, destination: AudioNode, attackSec: number, releaseSec: number) {
+  const { ctx } = graph;
+  const filter = new BiquadFilterNode(ctx, { type: "bandpass", frequency: RAIN_FILTER_HZ, Q: 1.2 });
+  filter.connect(destination);
+  return (time: number, peak: number) => {
+    const src = new AudioBufferSourceNode(ctx, { buffer: graph.noise, playbackRate: 0.8 + Math.random() * 0.4 });
+    const env = new GainNode(ctx, { gain: 0 });
+    src.connect(env).connect(filter);
+    env.gain.setValueAtTime(0, time);
+    env.gain.linearRampToValueAtTime(peak, time + attackSec);
+    env.gain.setTargetAtTime(0, time + attackSec, releaseSec / 3);
+    src.start(time, Math.random() * 0.8);
+    src.stop(time + attackSec + releaseSec * 2);
+  };
+}
+
 export function createDropVoice(graph: Graph, kind: DropKind): DropVoice {
   const { ctx } = graph;
   const spec = voiceSpec(kind);
@@ -38,8 +55,6 @@ export function createDropVoice(graph: Graph, kind: DropKind): DropVoice {
 
   const out = new StereoPannerNode(ctx, { pan: 0 });
   out.connect(graph.voiceBus[kind]);
-  const rainFilter = new BiquadFilterNode(ctx, { type: "bandpass", frequency: RAIN_FILTER_HZ, Q: 1.2 });
-  rainFilter.connect(out);
 
   let queue: Density[] = [];
   let current: Density = { time: 0, rate: 0, peak: 0, lon: 0 };
@@ -51,16 +66,6 @@ export function createDropVoice(graph: Graph, kind: DropKind): DropVoice {
     return { time, rate, peak: spec.sound.maxGain * (0.6 + 0.4 * t), lon };
   }
 
-  function playRainDrop(time: number, peak: number) {
-    const src = new AudioBufferSourceNode(ctx, { buffer: graph.noise, playbackRate: 0.8 + Math.random() * 0.4 });
-    const env = new GainNode(ctx, { gain: 0 });
-    src.connect(env).connect(rainFilter);
-    env.gain.setValueAtTime(0, time);
-    env.gain.linearRampToValueAtTime(peak, time + attackSec);
-    env.gain.setTargetAtTime(0, time + attackSec, releaseSec / 3);
-    src.start(time, Math.random() * 0.8);
-    src.stop(time + attackSec + releaseSec * 2);
-  }
 
   function playBell(time: number, peak: number) {
     const f = SNOW_BASE_HZ[Math.floor(Math.random() * SNOW_BASE_HZ.length)];
@@ -79,7 +84,7 @@ export function createDropVoice(graph: Graph, kind: DropKind): DropVoice {
     }
   }
 
-  const play = kind === "rain" ? playRainDrop : playBell;
+  const play = kind === "rain" ? createRainDropSound(graph, out, attackSec, releaseSec) : playBell;
 
   addTask((until) => {
     if (nextTime < ctx.currentTime) nextTime = ctx.currentTime + 0.01;
