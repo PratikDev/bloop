@@ -23,11 +23,22 @@ export function CommandsProvider({ children }: { children: ReactNode }) {
     const trackName = (track: typeof state.track) =>
       t(track === "ocean" ? "track.oceanLong" : track === "rain" ? "track.rainLong" : "track.both");
 
+    const enableSound = async () => {
+      await audio.ensureAudio(); // inside the click/keydown gesture
+      dispatch({ type: "enableSound" });
+      announce(t("sound.resumed"));
+    };
+    const soundOffHint = () => announce(t("sound.offHint"));
+
     return {
       async start() {
         await audio.ensureAudio(); // inside the click/keydown gesture
         dispatch({ type: "start" }); // the Opening plays next, then sets introDone
       },
+      startSilent() {
+        dispatch({ type: "startSilent" }); // no AudioContext is created
+      },
+      enableSound,
       moveCursor(dLat, dLon) {
         dispatch({ type: "moveCursor", dLat, dLon });
       },
@@ -51,6 +62,10 @@ export function CommandsProvider({ children }: { children: ReactNode }) {
         announce(t("announce.toggle", { name: t(SETTING_LABELS[key]), on: !state[key] }));
       },
       togglePlaying() {
+        if (!state.soundOn) {
+          void enableSound();
+          return;
+        }
         dispatch({ type: "setPlaying", playing: !state.playing });
         announce(t(state.playing ? "sound.paused" : "sound.resumed"));
       },
@@ -58,11 +73,13 @@ export function CommandsProvider({ children }: { children: ReactNode }) {
         if (!fields) return;
         const text = spokenReading(t, readAt(fields, state.cursor), state.track, state.cursor);
         // Two voices never talk at once: built-in speech OR the live region.
-        if (state.builtInVoice) void audio.speak(text, state.lang);
+        // With sound off, nothing is spoken aloud.
+        if (state.builtInVoice && state.soundOn) void audio.speak(text, state.lang);
         else announce(text);
       },
       playSweep() {
         if (!fields) return;
+        if (!state.soundOn) return soundOffHint();
         if (!fields.rain && state.track !== "ocean") {
           announce(t("sweep.needsRain"));
           return;
@@ -72,10 +89,12 @@ export function CommandsProvider({ children }: { children: ReactNode }) {
         audio.playSweep(path.points);
       },
       playLegend() {
+        if (!state.soundOn) return soundOffHint();
         if (state.track === "both") audio.playWarmup();
         else audio.playLegend(state.track);
       },
       playMotif() {
+        if (!state.soundOn) return soundOffHint();
         if (sst) audio.playMotif(bandMeans(sst));
       },
       xray() {

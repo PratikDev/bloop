@@ -11,6 +11,8 @@ export const appEn = {
   "start.lead": "Hear NASA's view of today's ocean and rain as live sound.",
   "start.hint": "Headphones help: west sounds left, east sounds right.",
   "start.button": "Start listening",
+  "start.silent": "Explore without sound",
+  "start.silentHint": "Values appear as text and captions. You can turn sound on at any time.",
   "start.loading": "Loading today's ocean frame…",
   "start.skipIntro": "Skip intro",
 
@@ -88,6 +90,8 @@ export const appEn = {
   "sound.muteAll": "Mute all",
   "sound.unmuteAll": "Unmute all",
   "sound.stopped": "Stopped",
+  "sound.turnOn": "Turn sound on",
+  "sound.offHint": "Sound is off. Choose Turn sound on to hear it.",
   "mixer.label": "Mixer",
   "mixer.snow": "Snow",
   "mixer.muteShort": "Mute",

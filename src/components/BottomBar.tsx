@@ -22,7 +22,7 @@ export function BottomBar() {
       <div className="flex flex-wrap items-center gap-x-3 gap-y-2">
         <Button variant="secondary" onClick={commands.togglePlaying} className={BAR_BUTTON}>
           {state.playing ? <Pause aria-hidden="true" /> : <Play aria-hidden="true" />}
-          {t(state.playing ? "sound.pause" : "sound.play")}
+          {t(!state.soundOn ? "sound.turnOn" : state.playing ? "sound.pause" : "sound.play")}
         </Button>
 
         <Mixer className="hidden lg:flex" />
