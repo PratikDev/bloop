@@ -1,5 +1,5 @@
 import { describe, expect, test } from "bun:test";
-import { createScheduleQueue, type ScheduledEvent } from "./queue";
+import { createScheduleQueue, drainDue, type ScheduledEvent } from "./queue";
 
 const ev = (time: number, owner = "a"): ScheduledEvent => ({ time, owner, run: () => {} });
 const times = (events: ScheduledEvent[]) => events.map((e) => e.time);
@@ -54,5 +54,29 @@ describe("schedule queue", () => {
     q.add({ time: 0.42, owner: "a", run: (t) => (got = t) });
     for (const e of q.advance(0.4, 0.1)) e.run(e.time);
     expect(got).toBe(0.42);
+  });
+
+  test("drainDue runs chains scheduled inside the window in one pass, and later ones stay queued", () => {
+    const q = createScheduleQueue();
+    const ran: number[] = [];
+    const chain = (t: number) => {
+      ran.push(t);
+      q.add({ time: t + 0.03, owner: "drop", run: chain });
+    };
+    q.add({ time: 1.0, owner: "drop", run: chain });
+    drainDue(q, 1.0, 0.1, () => {});
+    expect(ran.map((t) => Number(t.toFixed(2)))).toEqual([1.0, 1.03, 1.06, 1.09]);
+    expect(q.size()).toBe(1); // 1.12 waits for the next tick
+  });
+
+  test("drainDue reports a failing event and still runs the rest", () => {
+    const q = createScheduleQueue();
+    const errors: string[] = [];
+    let ranAfter = false;
+    q.add({ time: 0.1, owner: "bad", run: () => { throw new Error("boom"); } });
+    q.add({ time: 0.2, owner: "good", run: () => (ranAfter = true) });
+    drainDue(q, 0, 1, (_, e) => errors.push(e.owner));
+    expect(errors).toEqual(["bad"]);
+    expect(ranAfter).toBe(true);
   });
 });

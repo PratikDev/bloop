@@ -20,6 +20,28 @@ export interface ScheduleQueue {
   size(): number;
 }
 
+/**
+ * Runs every due event, including ones that running events schedule inside
+ * the window (a drop scheduling the next drop), so a chain never waits for the
+ * next timer tick. A failing event is reported and never stops the others.
+ */
+export function drainDue(
+  queue: ScheduleQueue,
+  currentTime: number,
+  lookaheadSec: number,
+  onError: (err: unknown, event: ScheduledEvent) => void,
+) {
+  for (let due = queue.advance(currentTime, lookaheadSec); due.length > 0; due = queue.advance(currentTime, lookaheadSec)) {
+    for (const event of due) {
+      try {
+        event.run(event.time);
+      } catch (err) {
+        onError(err, event);
+      }
+    }
+  }
+}
+
 export function createScheduleQueue(): ScheduleQueue {
   const events: ScheduledEvent[] = [];
 
