@@ -2,8 +2,8 @@
 //   voice channels → sonification bus (duckable) ┐
 //   earcon bus ──────────────────────────────────┼→ master → compressor → meter → destination
 //   narration bus ───────────────────────────────┘
-// Each voice channel is  input(level) → mute → sonification bus.  Voices
-// connect their own panners/envelopes into `input`; the mixer only touches `mute`.
+// Each voice channel is  input(level) → mix → sonification bus.  Voices
+// connect their own panners/envelopes into `input`; the mixer only touches `mix`.
 
 import { MAPPING } from "./mapping";
 import { VOICE_IDS, type VoiceId } from "./types";
@@ -11,8 +11,8 @@ import { VOICE_IDS, type VoiceId } from "./types";
 export interface Channel {
   /** Voices connect here. Fixed at the per-voice volume cap. */
   input: GainNode;
-  /** 1 or 0; driven only by the mixer (mute / solo). */
-  mute: GainNode;
+  /** 0..1; driven only by the mixer (mute, solo, per-voice volume). */
+  mix: GainNode;
 }
 
 export interface Graph {
@@ -21,6 +21,7 @@ export interface Graph {
   narration: GainNode;
   master: GainNode;
   compressor: DynamicsCompressorNode;
+  /** After the compressor: what the listener hears (waveform, rings, peak meter). */
   meter: AnalyserNode;
   channels: Record<VoiceId, Channel>;
 }
@@ -59,9 +60,9 @@ export function buildGraph(ctx: AudioContext): Graph {
   const channels = Object.fromEntries(
     VOICE_IDS.map((id) => {
       const input = new GainNode(ctx, { gain: g.voiceMaxGain });
-      const mute = new GainNode(ctx, { gain: 1 });
-      input.connect(mute).connect(sonification);
-      return [id, { input, mute }];
+      const mix = new GainNode(ctx, { gain: 1 });
+      input.connect(mix).connect(sonification);
+      return [id, { input, mix }];
     }),
   ) as Record<VoiceId, Channel>;
 

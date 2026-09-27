@@ -1,10 +1,10 @@
 // Applies the pure mixer rules (mixer-state.ts) to the graph, always with
-// short glides so muting never clicks. Safe to call before Start: the state is
-// kept and applied when the graph exists.
+// short glides so mixer changes never click. Safe to call before Start: the
+// state is kept and applied when the graph exists.
 
 import { peekEngine } from "./context";
 import { MAPPING } from "./mapping";
-import { INITIAL_MIXER, channelOpen, masterLevel, type MixerState } from "./mixer-state";
+import { INITIAL_MIXER, channelLevel, masterLevel, type MixerState } from "./mixer-state";
 import { glideTo } from "./params";
 import { VOICE_IDS, type VoiceId } from "./types";
 
@@ -17,7 +17,7 @@ export function applyMixer() {
   if (!engine) return;
   const { ctx, graph } = engine;
   for (const id of VOICE_IDS) {
-    glideTo(ctx, graph.channels[id].mute.gain, channelOpen(id, state) ? 1 : 0, MIX_GLIDE_SEC);
+    glideTo(ctx, graph.channels[id].mix.gain, channelLevel(id, state), MIX_GLIDE_SEC);
   }
   glideTo(ctx, graph.master.gain, masterLevel(state, MAPPING.global.masterGain), MIX_GLIDE_SEC);
 }
@@ -40,6 +40,11 @@ export function setVoiceMuted(id: VoiceId, muted: boolean) {
 
 export function setSolo(id: VoiceId | null) {
   update({ solo: id });
+}
+
+/** Per-voice volume slider, 0..1, applied under the voice's volume cap. */
+export function setVoiceVolume(id: VoiceId, volume: number) {
+  update({ voiceVolume: { ...state.voiceVolume, [id]: volume } });
 }
 
 /** The "M" key: silences everything (master) and restores it. */

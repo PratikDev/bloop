@@ -1,29 +1,38 @@
 import { describe, expect, test } from "bun:test";
-import { INITIAL_MIXER, channelOpen, masterLevel, type MixerState } from "./mixer-state";
+import { INITIAL_MIXER, channelLevel, masterLevel, type MixerState } from "./mixer-state";
 import type { VoiceId } from "./types";
 
 const state = (over: Partial<MixerState>): MixerState => ({ ...INITIAL_MIXER, ...over });
 
 describe("mixer rules", () => {
-  test("everything is open by default", () => {
-    expect(channelOpen("ocean", INITIAL_MIXER)).toBe(true);
-    expect(channelOpen("rain", INITIAL_MIXER)).toBe(true);
+  test("every voice is at full level by default", () => {
+    expect(channelLevel("ocean", INITIAL_MIXER)).toBe(1);
+    expect(channelLevel("rain", INITIAL_MIXER)).toBe(1);
   });
 
-  test("mute closes only that voice", () => {
+  test("mute silences only that voice", () => {
     const s = state({ muted: new Set<VoiceId>(["rain"]) });
-    expect(channelOpen("rain", s)).toBe(false);
-    expect(channelOpen("ocean", s)).toBe(true);
+    expect(channelLevel("rain", s)).toBe(0);
+    expect(channelLevel("ocean", s)).toBe(1);
   });
 
-  test("solo keeps the soloed voice and closes the others", () => {
+  test("solo keeps the soloed voice and silences the others", () => {
     const s = state({ solo: "ocean" });
-    expect(channelOpen("ocean", s)).toBe(true);
-    expect(channelOpen("rain", s)).toBe(false);
+    expect(channelLevel("ocean", s)).toBe(1);
+    expect(channelLevel("rain", s)).toBe(0);
   });
 
   test("a muted voice stays silent even when soloed", () => {
-    expect(channelOpen("ocean", state({ solo: "ocean", muted: new Set<VoiceId>(["ocean"]) }))).toBe(false);
+    expect(channelLevel("ocean", state({ solo: "ocean", muted: new Set<VoiceId>(["ocean"]) }))).toBe(0);
+  });
+
+  test("per-voice volume sets the level, clamped to 0..1, and mute/solo still win", () => {
+    expect(channelLevel("ocean", state({ voiceVolume: { ocean: 0.4 } }))).toBeCloseTo(0.4, 9);
+    expect(channelLevel("rain", state({ voiceVolume: { ocean: 0.4 } }))).toBe(1);
+    expect(channelLevel("ocean", state({ voiceVolume: { ocean: 7 } }))).toBe(1);
+    expect(channelLevel("ocean", state({ voiceVolume: { ocean: -1 } }))).toBe(0);
+    expect(channelLevel("ocean", state({ voiceVolume: { ocean: 0.4 }, solo: "rain" }))).toBe(0);
+    expect(channelLevel("ocean", state({ voiceVolume: { ocean: 0.4 }, muted: new Set<VoiceId>(["ocean"]) }))).toBe(0);
   });
 
   test("master level: capped by masterGain, scaled by volume, 0 when all muted", () => {
