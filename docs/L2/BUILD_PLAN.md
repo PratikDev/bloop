@@ -17,7 +17,7 @@ Update this table when a phase's checklist is fully ticked.
 | 3 | Speech, ducking, legend, warm-up, earcons | Sun 27 | ✅ done (27 Sep) |
 | 4 | Sequence player, sweep, motif, opening | Sun 27 night / Mon 28 AM | ✅ done (28 Sep) |
 | 5 | Then vs Now and Comparison audio | Mon 28 | ✅ done (28 Sep); L1 still to fix the demo caption wording (§16) — no L2 change needed |
-| 6 | Storm time-lapse audio | Mon 28 | ⬜ not started |
+| 6 | Storm time-lapse audio | Mon 28 | ✅ done (28 Sep) |
 | 7 | Optional voices (cut first) | Mon 28 PM, only if 0–6 done | ⬜ not started |
 | 8 | Mix polish, narration clips, phone checks, freeze | Tue 29 AM | ⬜ not started |
 
@@ -113,7 +113,7 @@ src/lib/audio/
 ├─ mixer-state.ts       # PURE: mute / solo / mute-all / volume rules
 ├─ mixer.ts             # applies mixer-state to the graph
 ├─ params.ts            # glideTo(), fadeTo(), blip(); safe ramps
-├─ queue.ts             # PURE: time-ordered event queue behind the scheduler
+├─ queue.ts             # PURE: time-ordered event queue behind the scheduler; drains due events one at a time
 ├─ scheduler.ts         # the shared look-ahead scheduler driver (25 ms tick, 0.1 s look-ahead; events already inside the window are handed over at once)
 ├─ sources.ts           # registry of playing sources, so stopAll() can stop them
 ├─ stop.ts              # stopAll() and onStopAll() hooks
@@ -123,13 +123,15 @@ src/lib/audio/
 ├─ captions.ts          # emitCaption() + a throttled caption emitter (≤ 4/s, settles on the last value)
 ├─ live.ts              # Phase 2: setOcean / setRain / silenceLive → voices, no-data tick, value captions; holdLive/releaseLive; routeRain
 ├─ nodata.ts            # PURE: tick only on entering no data, ≥ 300 ms apart (live + sweep)
+├─ storm-maths.ts       # PURE: peakFrame() (same rule as L3's peakIndex, no peak when all dry)
 ├─ context-maths.ts     # PURE: heat tone (pitch, band, roughness), monsoon drops per step and their times, water range/pitch, missing runs
 ├─ voices/
 │  ├─ common.ts         # voice output (panner → channel), panTo(), voicePeak()
 │  ├─ ocean.ts          # sine + glide
 │  ├─ drops.ts          # generic drop loop on the scheduler (rate, jitter, drop events) for rain and snow
-│  ├─ drop-timing.ts    # PURE: jittered intervals with an honest average, no-burst rate changes
+│  ├─ drop-timing.ts    # PURE: jitter (drawn once per drop) and whenProgressDone(): the next drop at the rates in force
 │  ├─ rate-timeline.ts  # PURE: which rate is in force at each drop's time (sequences schedule ahead)
+│  ├─ drop-clock.ts     # PURE: drop timing brain — jitter drawn once per drop, rate changes re-time the same interval
 │  ├─ rain.ts           # noise-burst drops (liquid) through one shared band-pass
 │  ├─ snow.ts           # soft bells (frozen), one bell synthesised once into a buffer
 │  ├─ heat.ts           # then-vs-now heat: triangle + low-pass, detuned second voice, ~30 Hz wobble (Anomaly Choir)
@@ -152,7 +154,7 @@ src/lib/audio/
 │  ├─ context-voices.ts # heat / monsoon / water voice sets per stereo side (centre, left, right), through the mixer
 │  ├─ then-now.ts       # heat / monsoon / water / all
 │  ├─ compare.ts        # A then B, or A left / B right; playSeries
-│  └─ timelapse.ts      # storm time-lapse (Phase 6)
+│  └─ timelapse.ts      # storm time-lapse (captions per L3 B8, loop, track gate lifted)
 └─ *.test.ts            # bun tests, colocated next to the PURE module they test (AGENTS.md)
 ```
 
@@ -690,7 +692,7 @@ export interface CompareSide { label: string; values: (number | null)[]; voice: 
 
 ### 9.1 Tasks
 1. `playTimelapse(frames, { fps = 2 })`: one step per frame (500 ms at 2 fps); each step sets rain/snow at that frame's `mmPerHour` / `phase` / `lon` with the same rules as live rain; `nodata` frames → silence + tick (once per run of no-data); dry → silence.
-2. Step events carry the frame index; caption per step is **not** emitted (too chatty) — emit `caption.timelapse.start` with `{ count }`, `caption.timelapse.peak` when the heaviest frame plays (value from input), and `caption.timelapse.end`. L3 shows the frame time from its own index.
+2. Step events carry the frame index; caption per step is **not** emitted (too chatty) — emit `caption.timelapse.start` with `{ count }`, `caption.timelapse.peak` `{ value, phase }` when the heaviest frame plays (value from input; L3 proposal B8, accepted), and `caption.timelapse.end`. L3 shows the frame time from its own index.
 3. Frame changes glide the drop rate (no restart bursts between frames).
 4. Loop option `loop: boolean` for the kiosk/video recording (default false).
 
@@ -698,11 +700,11 @@ export interface CompareSide { label: string; values: (number | null)[]; voice: 
 - "Synthetic storm": 48 frames rising from dry to 40 mm/h and back, 3 frames of frozen in the middle, 2 no-data frames; fps selector (1 / 2 / 4); progress bar.
 
 ### 9.3 Deliverables checklist (Phase 6)
-- [ ] Synthetic storm: density rises and falls smoothly; frozen frames switch to bells and back; no-data frames are silent with a tick; peak caption at the right frame.
-- [ ] 48 frames at 2 fps take 24 s ± 0.2 s (log start/end audio times).
-- [ ] No drop bursts at frame boundaries (listen at 4 fps too).
-- [ ] Loop mode restarts seamlessly; Esc stops it.
-- [ ] Runs on the mid-range Android without stutter (same device as T6).
+- [x] Synthetic storm: density rises and falls smoothly; frozen frames switch to bells and back; no-data frames are silent with a tick; peak caption at the right frame.
+- [x] 48 frames at 2 fps take 24 s ± 0.2 s (log start/end audio times).
+- [x] No drop bursts at frame boundaries (listen at 4 fps too).
+- [x] Loop mode restarts seamlessly; Esc stops it.
+- [x] Runs on the mid-range Android without stutter (same device as T6).
 
 ---
 
