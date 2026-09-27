@@ -14,7 +14,7 @@ Update this table when a phase's checklist is fully ticked.
 | 0 | Mapping spec and pure maths | Sun 27 | ✅ done (27 Sep) |
 | 1 | Audio engine core and dev harness | Sun 27 | ✅ done (27 Sep); L3 requests B1/B3 + `caption.stopped` added after the L3 merge |
 | 2 | Live voices (ocean, rain, snow) | Sun 27 | ✅ done (27 Sep) |
-| 3 | Speech, ducking, legend, warm-up, earcons | Sun 27 | ⬜ not started |
+| 3 | Speech, ducking, legend, warm-up, earcons | Sun 27 | ✅ done (27 Sep) |
 | 4 | Sequence player, sweep, motif, opening | Sun 27 night / Mon 28 AM | ⬜ not started |
 | 5 | Then vs Now and Comparison audio | Mon 28 | ⬜ not started |
 | 6 | Storm time-lapse audio | Mon 28 | ⬜ not started |
@@ -133,14 +133,17 @@ src/lib/audio/
 │  ├─ bass.ts           # GRACE water bass with harmonics (Phase 5)
 │  ├─ clicks.ts         # FIRMS percussion (Phase 7)
 │  └─ pad.ts            # NDVI slow pad (Phase 7)
-├─ earcons.ts           # no-data tick (Phase 2); satellite-whisper chime, extreme ping (Phase 3)
-├─ speech.ts            # speak() with ducking; playClip() for recorded narration
+├─ earcons.ts           # no-data tick, satellite-whisper chime, extreme ping; playEarcon() emits caption.earcon.<id>
+├─ duck.ts              # ducking with per-speaker release (speech now, narration clips in Phase 8)
+├─ speech.ts            # speak(): local voice preferred, no-voice/failure → caption.noSpeech, 5 s start watchdog
+├─ voice-pick.ts        # PURE: which speech voice for a language (never English for Bangla)
 ├─ players/
-│  ├─ sequence.ts       # generic step player on the scheduler (Phase 4) — all players build on it
+│  ├─ sequence.ts       # step player on the scheduler; one at a time; borrows live voices, lifts the track gate (Phase 3 minimal; Phase 4 adds step events + exact-time voice changes)
 │  ├─ sweep.ts          # gist sweep playback
 │  ├─ motif.ts          # sonic identity
 │  ├─ opening.ts        # "close your eyes" bed
-│  ├─ legend.ts         # audio legend + 30 s warm-up
+│  ├─ legend.ts         # audio legend, short legend on mode change
+│  ├─ warmup.ts         # ~22 s warm-up: volume check + legends + no-data tick
 │  ├─ then-now.ts       # heat / monsoon / water (Phase 5)
 │  ├─ compare.ts        # A then B, or A left / B right (Phase 5)
 │  └─ timelapse.ts      # storm time-lapse (Phase 6)
@@ -543,13 +546,13 @@ Data voices, speech, players. Loudness tuning.
 **Reads:** AUDIO_RESEARCH A6, B2 (legend problem), C3, C4.
 
 ### 6.1 Tasks
-1. **`speech.ts` — `speak(text, lang)`**: AUDIO_RESEARCH A6 code. Duck the sonification bus to `duck.level` on `start`, restore on `end` **and** `error` (glide times from `mapping.json`). Pick a voice: prefer a *local* voice (`voice.localService === true`) for `lang` (`en-US`/`en-GB` for en, `bn-BD`/`bn-IN` for bn); if the browser has no speech at all, resolve and emit `caption.noSpeech`; if no Bangla voice exists, resolve immediately, emit caption `caption.noBanglaVoice` and do **not** fall back to reading Bangla with an English voice. Cancel any current utterance before speaking a new one (rapid Enter presses). Voices load asynchronously (`voiceschanged`); handle the empty list at start-up.
+1. **`speech.ts` — `speak(text, lang)`**: AUDIO_RESEARCH A6 code. Duck the sonification bus to `duck.level` on `start`, restore on `end` **and** `error` (glide times from `mapping.json`). Pick a voice: prefer a *local* voice (`voice.localService === true`) for `lang` (`en-US`/`en-GB` for en, `bn-BD`/`bn-IN` for bn); if the browser has no speech at all, **or has no voices installed** (common on Linux Chromium), **or the utterance errors or never starts within 5 s**, resolve and emit `caption.noSpeech` (an interruption by a newer `speak()` stays silent); if no Bangla voice exists, resolve immediately, emit caption `caption.noBanglaVoice` and do **not** fall back to reading Bangla with an English voice. Cancel any current utterance before speaking a new one (rapid Enter presses). Voices load asynchronously (`voiceschanged`); handle the empty list at start-up.
 2. **Earcons (`earcons.ts`)** on the earcon bus, each ≤ 300 ms, panned when `lon` given:
    - `nodata` — (from Phase 2) soft tick.
    - `whisper` — soft two-note chime (e.g. 1.6 kHz → 2.1 kHz sines, 150 ms each, gentle decay). Played **after** a spoken value finishes (C7). `playEarcon(id, { lon, params })` emits `caption.earcon.<id>` with the caller's `params` (whisper: `{ source }`, the dataset/mission from metadata via L3 — L2 never hard-codes them).
    - `ping` — one short bright tone (≈ 2.5 kHz, 80 ms) at the extreme point's longitude (B5).
 3. **Legend (`players/legend.ts`)** — `playLegend(voice)` plays each `legend` entry of that voice from `mapping.json` in turn: caption `caption.legend` `{ voice, label }` → 1.2 s of that sound → 0.4 s gap → next. Labels come from `mapping.json`, not code. A voice with no legend yet (heat/water before Phase 5; water's legend is built from the series range) emits `caption.legendUnavailable` `{ voice }`. Lifts the track gate (Section 2.4). Uses the scheduler (it's the first sequence; Phase 4 generalises it — fine to refactor then).
-4. **Warm-up (`playWarmup`)** — ~30 s, bracketed by `caption.warmup.start` / `caption.warmup.end` and lifting the track gate: (1) 3 s steady mid-level tone for the volume check (A5), (2) ocean legend, (3) rain legend, (4) snow legend, (5) 1 s silence + one no-data tick (with its `caption.earcon.nodata`). Stoppable any time (Esc).
+4. **Warm-up (`playWarmup`)** — ~22 s (3 s volume check + 9 legend points × 1.6 s + gaps + tick). **Decision (27 Sep): keep 22 s**, although TEAM_BUILD_PLAN A4 says "30 s" (less waiting before exploring), bracketed by `caption.warmup.start` / `caption.warmup.end` and lifting the track gate: (1) 3 s steady mid-level tone for the volume check (A5), (2) ocean legend, (3) rain legend, (4) snow legend, (5) 1 s silence + one no-data tick (with its `caption.earcon.nodata`). Stoppable any time (Esc).
 5. **Legend replay on switch (AUDIO_RESEARCH C3):** export `playLegendForMode(mode)`; L3 calls it when the track mode or app mode changes. Make it short (first and last legend points only, ≈ 3 s) so it doesn't annoy; full legend stays on "L".
 
 ### 6.2 Harness section (Phase 3)
@@ -559,14 +562,14 @@ Data voices, speech, players. Loudness tuning.
 - A list of available speech voices (`name`, `lang`, `localService`) — used to answer "Bangla voice on Android?" (AUDIO_RESEARCH §12).
 
 ### 6.3 Deliverables checklist (Phase 3)
-- [ ] Speak "Twenty-eight point four degrees" over ocean + rain: the sound audibly dips during speech and returns smoothly after (no jump).
-- [ ] Interrupting speech (Speak twice quickly, or Esc) always restores the bus — never stays ducked (check with the bus gain readout).
-- [ ] **T2** run with the pass rule written first (10/10 values understood with ducking); result in findings log; duck level adjusted if needed and written back to `mapping.json`.
-- [ ] Bangla: on each teammate's phone, the voices list is recorded in the findings log; with no Bangla voice, `speak(…, "bn")` stays silent and emits `caption.noBanglaVoice`.
-- [ ] Ocean legend plays 0, 10, 20, 30 °C in rising pitch with a caption each; rain legend light → heavy; snow legend bells.
-- [ ] Warm-up runs ~30 s end-to-end, Esc stops it at any point without a click.
-- [ ] Whisper chime and ping are clearly different from each other and from drops/bells; neither is startling at full master volume.
-- [ ] No number in any caption or legend string comes from L2 code (grep `players/legend.ts`, `earcons.ts`, `speech.ts` for digits used in captions).
+- [x] Speak "Twenty-eight point four degrees" over ocean + rain: the sound audibly dips during speech and returns smoothly after (no jump).
+- [x] Interrupting speech (Speak twice quickly, or Esc) always restores the bus — never stays ducked (check with the bus gain readout).
+- [x] **T2** run with the pass rule written first (10/10 values understood with ducking); result in findings log; duck level adjusted if needed and written back to `mapping.json`.
+- [x] Bangla: phone voice lists **skipped by decision (27 Sep)** — recorded clips (Phase 8) are the Bangla audio default; with no Bangla voice, `speak(…, "bn")` stays silent and emits `caption.noBanglaVoice`.
+- [x] Ocean legend plays 0, 10, 20, 30 °C in rising pitch with a caption each; rain legend light → heavy; snow legend bells.
+- [x] Warm-up runs ~22 s end-to-end (decided 27 Sep), Esc stops it at any point without a click.
+- [x] Whisper chime and ping are clearly different from each other and from drops/bells; neither is startling at full master volume.
+- [x] No number in any caption or legend string comes from L2 code (grep `players/legend.ts`, `earcons.ts`, `speech.ts` for digits used in captions).
 
 ---
 
