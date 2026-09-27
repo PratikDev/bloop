@@ -1,7 +1,7 @@
 # Audio API (for L3 and anyone wiring sound into the UI)
 
 **Owner:** L2 · **Import from:** `@/lib/audio` only (never from its internal files)
-**Status:** the full API exists with its final signatures, and it already satisfies L3's `AudioEngine` interface (`src/lib/audio-adapter/types.ts`, including L3's requests B1–B3 and earcon params) — checked with `tsc` on 27 Sep. Functions of later phases are typed placeholders that log `audio: <name>() is not implemented yet (Phase N).` and do nothing, so the whole UI can be wired now. The **Phase** column says when each one starts making sound.
+**Status:** the full API exists with its final signatures (except `playSeries`, added in Phase 5), and it already satisfies L3's `AudioEngine` interface (`src/lib/audio-adapter/types.ts`, including L3's requests B1–B3 and earcon params) — checked with `tsc` on 27 Sep. Functions of later phases are typed placeholders that log `audio: <name>() is not implemented yet (Phase N).` and do nothing, so the whole UI can be wired now. The **Phase** column says when each one starts making sound.
 
 > **The one rule:** the browser blocks audio until the user clicks or presses a key. Call `ensureAudio()` **inside** a click or keydown handler (the Start button, which must be the first focusable element with a clear label). Every other function is safe to call before that: it either does nothing or keeps its setting for later.
 
@@ -53,10 +53,13 @@ Calls may arrive at 60 Hz; they're cheap. Rain phase routes the sound: `"liquid"
 | `playMotif(bandMeansC: (number \| null)[])` | 4 latitude-band mean SSTs: 60°S–30°S, 30°S–0°, 0°–30°N, 30°N–60°N |
 | `playOpening(points: SweepPoint[], opts?: { durationSec?: number })` | ~20 points for the "close your eyes" opening |
 | `playThenNow(input: ThenNowInput, part: "heat" \| "monsoon" \| "water" \| "all")` | Built from `demo/dhaka_then_now.json` + `context/grace.json` |
-| `playCompare(a: CompareSide, b: CompareSide, mode: "sequential" \| "split")` | Comparison Player |
+| `playCompare(a: CompareSide, b: CompareSide, mode: "sequential" \| "split")` | Comparison Player. `"sequential"`: A, a short gap, then B. `"split"`: A in the left ear, B in the right, at the same time |
+| `playSeries(side: CompareSide, opts?: { stepMs?: number; player?: string })` | One series on its own, e.g. a decade of Place History. Default step: heat and monsoon 150 ms, water 60 ms. Step events use your `player` name (default `"series"`). **Not exported yet:** added in Phase 5 (L3 proposal B6, agreed on PR #4); until then L3's `withFallbacks()` covers it |
 | `playTimelapse(frames: SweepPoint[], opts?: { fps?: number; loop?: boolean })` | Values at the cursor for each time-lapse frame |
 
-`SweepPoint` = `{ lon, lat, valueC, mmPerHour, phase }`. All players return a `PlayerHandle`: `{ stop(): void; done: Promise<void> }`.
+`SweepPoint` = `{ lon, lat, valueC, mmPerHour, phase }`. `CompareSide` = `{ label, values: (number | null)[], voice: "heat" | "monsoon" | "water" }`; build `ThenNowInput` with L3's `buildThenNowInput()` (`@/lib/then-now`). All players return a `PlayerHandle`: `{ stop(): void; done: Promise<void> }`. `done` resolves when the player finishes **or** is stopped.
+
+Mute, solo and mute-all (M) apply to the Then vs Now and series voices too, and `stop()` / `stopAll()` silence everything a player has already scheduled.
 
 ## Recorded narration (Phase 8)
 
@@ -73,6 +76,22 @@ type AudioEvent =
 ```
 
 A `drop` event arrives when the drop is handed to Web Audio, slightly **before** it sounds: draw its ripple when `getAnalyser()!.context.currentTime >= time`. `gain` is the drop's loudness 0..1 relative to the voice cap.
+
+### Step events
+
+Step events count **data points only** (L3 proposal B5, agreed on PR #4), so a chart playhead can use `index` directly:
+
+- Silent steps (the gap between two windows, the pause between parts, a player's tail) send **no** step event.
+- `index` is the data index and `total` the number of data points. Like `drop`, a step event arrives up to ~100 ms before it sounds; show it when the audio clock reaches `time`.
+
+| `player` | Sent by | `index` |
+|---|---|---|
+| `"sweep"` | `playSweep()` | point index |
+| `"thenNow.heat"` / `"thenNow.monsoon"` | `playThenNow()` (also inside `"all"`) | 0–19: window A years, then window B years |
+| `"thenNow.water"` | `playThenNow()` (also inside `"all"`) | month index into `ThenNowInput.water.months` |
+| `"compare"` | `playCompare(…, "sequential")` | side A values, then side B values (`total` = both) |
+| `"compare.split"` | `playCompare(…, "split")` | the shared step index (`total` = the longer side) |
+| your `player` (default `"series"`) | `playSeries()` | value index (L3's Place History passes `"history"`) |
 
 ```tsx
 useEffect(() => onAudioEvent((e) => {
@@ -98,16 +117,27 @@ These are the keys L3's i18n already has English text for (`src/lib/i18n/en/capt
 | `caption.sweep.start` / `.end` | — | sweep | Phase 4 |
 | `caption.motif` | — | motif | Phase 4 |
 | `caption.opening.closeEyes` / `.openEyes` | — | opening | Phase 4 |
+| `caption.thenNow.caption` | `text` (the part's caption from `ThenNowInput.captions`, as-is) | just before each Then vs Now part | Phase 5 |
+| `caption.thenNow.window` | `label` (e.g. "1981–1990") | start of each window (heat, monsoon) | Phase 5 |
+| `caption.thenNow.end` | — | Then vs Now finished | Phase 5 |
+| `caption.water.gap` | `from`, `to` ("YYYY-MM") | once per run of missing GRACE months | Phase 5 |
+| `caption.water.windowStart` / `.windowEnd` | `month` ("YYYY-MM") | water reaches a comparison window's edge | Phase 5 |
+| `caption.compare.side` | `label` | start of each side (`playCompare` sequential, `playSeries`) | Phase 5 |
+| `caption.compare.useHeadphones` | `a`, `b` (the two side labels) | start of split playback | Phase 5 |
+
+The Phase 5 keys were agreed on L3's PR #4 (L3's UI already has their English text). Keys still to come for Phases 6 and 8 (`caption.timelapse.start/peak/end`, `caption.clip`) will be agreed with L3 before they're emitted.
 
 ## Switching the app to this engine
 
-L3's UI imports `audio` from `src/lib/audio-adapter/index.ts`. Once L2's voices are ready (Phases 2–4), the switch is:
+L3's UI imports `audio` from `src/lib/audio-adapter/index.ts`. Once L2's voices are ready (Phases 2–4), the switch is (`docs/L3/integration.md` §1):
 
 ```ts
 import * as l2 from "@/lib/audio";
-export const audio: AudioEngine = l2;
+export const audio: AudioEngine = withFallbacks(l2); // fills any missing L3 extras (getAnalyser, setVoiceVolume, playSeries)
 export const IS_INTERIM_ENGINE = false;
 ```
+
+This type-checks against L2's current API (checked 27 Sep, after L3's PR #4). Every change to this API must keep it type-checking.
 
 ## Example wiring
 

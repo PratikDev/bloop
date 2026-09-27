@@ -95,6 +95,10 @@ A phase is ✅ only when **every** box in its checklist is ticked. If a box can'
 | Caption bar, Describe mode UI, i18n strings | **L3** | L2 emits caption *events* with keys + params; the keys are fixed in Section 2.4 (L3 already has the English text). |
 | `src/app/globals.css` (theme), re-themed shadcn components (`dialog`, `sheet`, `slider`, `tabs`, `toggle`, `toggle-group`, `tooltip`) | **L3** | L2 never edits these; if the harness needs one of them, it uses L3's file. |
 | `public/mapping.json`, `src/lib/audio/mapping.ts` | **L2** | L3 imports `MAPPING`, `ruleText`, `mapVoice`, `normalise`, `voiceSpec` — **keep these export names stable**. |
+| `src/lib/then-now.ts` (`buildThenNowInput()`), `src/lib/data/context.ts` (`loadDemo()`, `loadGrace()`, `loadGistemp()`, `loadGpcp()`) | **L3** | Demo/GRACE JSON → `ThenNowInput`, with shape checks. The Phase 5 harness **imports these**; L2 doesn't write its own adapter (DRY; agreed with L3 on PR #4). |
+| `src/components/ui/chart.tsx` + `recharts` dependency | **L3** | Added in L3's PR #4 for the Then vs Now and History charts. |
+| shadcn `badge`, `card`, `label`, `select`, `switch` (`src/components/ui/`) | **L2** (added for the harness) | L3 was asked on PR #4 not to add these same files, and to reuse L2's once merged. |
+| `package.json` `"test": "bun test"` script, `@types/bun` | **L2** | L3 was asked on PR #4 not to add a second `test` script. `bun.lock` conflicts are fixed by regenerating it with `bun install`. |
 
 ### 1.2 Folder layout (L2)
 `TEAM_BUILD_PLAN` lists a single `lib/audio.ts`. We use a folder so the import path stays `@/lib/audio` but the code is testable in pieces:
@@ -204,6 +208,12 @@ export type AudioEvent =
   | { kind: "drop"; voice: "rain" | "snow"; time: number; gain: number; lon: number }; // one per drop/bell, for ripples (L3 B2)
 ```
 
+**Step events count data points only** (L3 proposal B5, accepted on PR #4). L3's chart playheads map `index` straight to a data point, so:
+- a step that plays a data point emits `{ kind: "step", player, index, total, time }` where `index` is the **data index** and `total` the number of data points;
+- silent steps (the gap between windows, a part's tail, the pause between parts in `"all"`) emit **no** step event;
+- `player` names are fixed: `"sweep"`, `"thenNow.heat"`, `"thenNow.monsoon"`, `"thenNow.water"` (also inside `playThenNow(…, "all")`), `"compare"`, `"compare.split"`, and whatever `playSeries` is given (L3 passes `"history"`).
+- The indexes: heat and monsoon count 0–19 (window A, then B); water uses the month index into `ThenNowInput.water.months`; `compare` counts side A then side B (`total` = both lengths); `compare.split` uses the shared step index (`total` = the longer side).
+
 ### 2.2 Functions (`index.ts`)
 ```ts
 // Lifecycle ─ Phase 1
@@ -240,6 +250,7 @@ playOpening(points: SweepPoint[], opts?: { durationSec?: number }): PlayerHandle
 // Then vs Now / Compare ─ Phase 5
 playThenNow(input: ThenNowInput, part: "heat" | "monsoon" | "water" | "all"): PlayerHandle;
 playCompare(a: CompareSide, b: CompareSide, mode: "sequential" | "split"): PlayerHandle;
+playSeries(side: CompareSide, opts?: { stepMs?: number; player?: string }): PlayerHandle; // one series, e.g. Place History (L3 B6)
 
 // Time-lapse ─ Phase 6
 playTimelapse(frames: SweepPoint[], opts?: { fps?: number; loop?: boolean }): PlayerHandle;
@@ -252,13 +263,14 @@ onAudioEvent(cb: (e: AudioEvent) => void): () => void;  // returns unsubscribe
 ### 2.3 How L3 wires it (already built; L3 owns this)
 L3's UI imports `audio` from `src/lib/audio-adapter/index.ts`, whose `AudioEngine` interface (`audio-adapter/types.ts`) is this API plus L3's requests (`getAnalyser`, `setVoiceVolume`, drop events, earcon params). Until L2's voices land, the adapter points at L3's **interim engine** and the UI shows an "Interim sound engine" badge.
 
-**The swap** (L3 does it once L2's Phases 2–4 are ✅), verified to type-check on 27 Sep:
+**The swap** (L3 does it once L2's Phases 2–4 are ✅; `docs/L3/integration.md` §1). Since L3's PR #4 the adapter wraps the engine in `withFallbacks()`, which fills L3's optional extras (`getAnalyser`, `setVoiceVolume`, `playSeries`) if they're missing. Verified to type-check against L2's current `src/lib/audio` on 27 Sep (after PR #4):
 ```ts
 // src/lib/audio-adapter/index.ts
 import * as l2 from "@/lib/audio";
-export const audio: AudioEngine = l2;   // L2's module satisfies AudioEngine as-is
+export const audio: AudioEngine = withFallbacks(l2);   // must type-check against L3's L2AudioApi
 export const IS_INTERIM_ENGINE = false;
 ```
+L2 implements `playSeries` itself (Phase 5). L3's fallback (`playCompare` with an empty second side) sends step events as `"compare"`, not the `player` name, so the History playhead wouldn't move with it (reported on PR #4).
 Afterwards L3's `audio-adapter/types.ts` should re-export L2's types instead of repeating them (DRY).
 
 Keep this true: **every change to L2's public API must still satisfy L3's `AudioEngine`** (`bunx tsc --noEmit` with a one-line check file, as in the findings log).
@@ -280,8 +292,15 @@ L2 emits exactly these keys and params. Adding a key means telling L3 so they ad
 | `caption.sweep.start` / `caption.sweep.end` | — | `playSweep()` | 4 |
 | `caption.motif` | — | `playMotif()` | 4 |
 | `caption.opening.closeEyes` / `caption.opening.openEyes` | — | `playOpening()` | 4 |
+| `caption.thenNow.caption` | `text` (the part's caption from `input.captions`, as-is) | `playThenNow()`, just before a part's first step | 5 |
+| `caption.thenNow.window` | `label` (e.g. "1981–1990") | `playThenNow()`, first step of each window (heat, monsoon) | 5 |
+| `caption.thenNow.end` | — | `playThenNow()`, when the last part ends | 5 |
+| `caption.water.gap` | `from`, `to` ("YYYY-MM", first and last missing month of that stretch) | `playThenNow(…, "water")`, once per run of missing months | 5 |
+| `caption.water.windowStart` / `caption.water.windowEnd` | `month` ("YYYY-MM") | `playThenNow(…, "water")`, at `windowA`/`windowB` edges | 5 |
+| `caption.compare.side` | `label` (the side's label) | `playCompare(…, "sequential")` and `playSeries()`, first step of each side | 5 |
+| `caption.compare.useHeadphones` | `a`, `b` (the two side labels) | `playCompare(…, "split")`, at start | 5 |
 
-Keys planned for Phases 5–6 (`caption.water.gap`, `caption.compare.useHeadphones`, `caption.timelapse.start/peak/end`, `caption.clip`) are **not** in L3's strings yet — tell L3 before emitting them.
+The Phase 5 keys above were fixed on L3's PR #4: L3's UI already has English text for them, so L2 uses these exact names and params. Keys still planned for Phases 6 and 8 (`caption.timelapse.start/peak/end`, `caption.clip`) are **not** in L3's strings yet: tell L3 before emitting them, and L3 tells L2 before relying on a new key.
 
 **Track gate:** legend, warm-up and opening must be heard even when the current track mode would mute that voice (e.g. the rain legend in Ocean mode). Players that name their own voices lift the track-mode gate while they play; mute and solo still apply.
 
@@ -560,10 +579,10 @@ Data voices, speech, players. Loudness tuning.
 ### 7.1 Tasks
 1. **`players/sequence.ts`** — `createSequence({ id, steps, stepMs, onStep(i, time) })` returns a `PlayerHandle`.
    - Schedules step `i` at `start + i × stepMs` through the scheduler (owner = this player), calling `onStep(i, audioTime)` inside the scheduler callback so parameter changes land **exactly** on the audio clock.
-   - Emits `{ kind: "step", player: id, index, total, time }` for playhead sync. Because scheduling runs ahead of the clock, emit the event with a `setTimeout` of `(time − ctx.currentTime) × 1000` so the UI cursor moves when the sound does (visual only; audio timing never depends on it).
+   - Emits `{ kind: "step", player: id, index, total, time }` for playhead sync, **only for steps that play a data point** (Section 2.1: steps can be marked silent, and `index` / `total` count data points, not steps). Because scheduling runs ahead of the clock, emit the event with a `setTimeout` of `(time − ctx.currentTime) × 1000` so the UI cursor moves when the sound does (visual only; audio timing never depends on it).
    - `stop()` clears only this player's events, fades its voices, resolves `done`. Starting a new sequence of the same kind stops the previous one.
    - Voices need an **"at time t" setter**: extend ocean/rain/snow with `setAt(value, lon, time)` (param automation at `time` instead of `now`). The rain drop loop must look up the rate *in force at each drop's time* (keep a small time-ordered list of rate changes).
-2. **Sweep (`playSweep(points, { stepMs = 80 })`)** — each point drives ocean and/or rain (per track mode) at its time; entering no-data plays the tick; `caption.sweep.start` / `caption.sweep.end`; emits step events. The path is L3's `sweepPath()` (rings outward from Dhaka, 23.81 N 90.41 E, from `valueAt()`); the harness uses a synthetic path.
+2. **Sweep (`playSweep(points, { stepMs = 80 })`)** — each point drives ocean and/or rain (per track mode) at its time; entering no-data plays the tick; `caption.sweep.start` / `caption.sweep.end`; emits step events. The path is L3's `sweepPath()` (rings outward from **Chattogram**, 22.36 N 91.78 E, `SWEEP_CENTER` in `lib/data/places.ts`, from `valueAt()`; team decision 27 Sep, was Dhaka; L2 is unaffected because it only plays the points it's given); the harness uses a synthetic path.
 3. **Motif (`playMotif(bandMeansC)`)** — 4 notes, 350 ms each, 50 ms gaps, soft bell-sine timbre, pitch of each = `mapContinuous(bandMean)` with the **ocean** rule; `null` band → a rest (silence). Bands are fixed (design choice, record in `mapping.json` `motif.note`): **60 S–30 S, 30 S–0, 0–30 N, 30 N–60 N**, played south → north. Emits `caption.motif`. L3 computes the band means with `bandMeans()` (area-weighted, same four bands). Played at app start (after warm-up) and on track switch (L3 triggers).
 4. **Opening (`playOpening(points, { durationSec = 10 })`)** — C1: ~10 s bed of real ocean + rain sound: steps through the given points (L3's `openingPath()`, a path over the Bay of Bengal) with long glides, ocean + rain both on (lifts the track gate), fades in over 2 s and out over 1.5 s; emits caption `caption.opening.closeEyes` at start and `caption.opening.openEyes` at the end (L3/L4 own the text and the fade-in of the frame). Skip = `stop()`.
 
@@ -608,24 +627,28 @@ export interface CompareSide { label: string; values: (number | null)[]; voice: 
 ### 8.2 Voices
 - **`voices/heat.ts`** — two sines: main at `mapContinuous(anomaly, heat)`; second voice detuned by the band's `detuneCents` from `bandFor(anomaly, heatDeviation)` (band 0 → second voice silent); band 3 adds roughness = amplitude modulation at ~30 Hz, depth from `roughness`. **Timbre must differ from the ocean voice** (AUDIO_RESEARCH B2 legend problem): e.g. triangle wave + low-pass, so "same pitch = same °C" confusion can't happen.
 - **Monsoon** — reuses the rain drop generator: each step plays exactly `mapContinuous(mm/day, monsoon)` drops spread evenly (with small jitter) across the step.
-- **`voices/bass.ts`** — sine at `mapContinuous` with `runtimeRange(series, "p5-p95")` computed over the **whole** GRACE series being played; add 2nd and 3rd harmonics (gain 0.5, 0.25) so pitch survives phone speakers (AUDIO_RESEARCH B3; test T5); `null` month → fade to silence and emit caption `caption.water.gap` once per gap ("no satellite was watching").
+- **`voices/bass.ts`** — sine at `mapContinuous` with `runtimeRange(series, "p5-p95")` computed over the **whole** GRACE series being played; add 2nd and 3rd harmonics (gain 0.5, 0.25) so pitch survives phone speakers (AUDIO_RESEARCH B3; test T5); `null` month → fade to silence and emit caption `caption.water.gap` `{ from, to }` once per run of missing months (the record has 35 missing months in 19 stretches, not only Jul 2017–May 2018; L3 proposal A4).
+- **Routing:** the heat, monsoon and water voices go through the mixer like the live voices (their own channels), so mute, solo and mute-all (M) also silence Then vs Now and History. L3's interim engine skips the mixer for these (reported on PR #4); don't copy that.
+- **Stopping:** `stop()` / `stopAll()` must also cancel monsoon drops already scheduled for the rest of the current step. A whole step's drops are scheduled at once (up to 400 ms ahead), which is more than the scheduler's 100 ms look-ahead. L3's interim engine lets these play after Stop (reported on PR #4); register them in `sources.ts` so they can be cut.
 
 ### 8.3 Players (`players/then-now.ts`)
 - `playThenNow(input, "heat")`: caption `input.captions.heat` → window A (10 steps, 400 ms each, label caption at start "1981–1990") → 800 ms silence → window B (10 steps) → end. Each step = one year: heat pitch + detune band.
 - `"monsoon"`: same structure, 10 + 10 yearly steps, drops per step from the mapping (see decision D1).
 - `"water"`: the **full monthly record** (292 months, 60 ms/step ≈ 17.5 s) so the fall and the Jul 2017–May 2018 gap are both heard; captions at windowA start/end and windowB start/end; gap = silence + caption (decision D2).
 - `"all"`: heat → monsoon → water with 1 s gaps; max 1 voice at a time (keeps within the 3-voice limit trivially).
-- Every step emits a `step` event (`player: "thenNow.heat"` etc.) for L3's chart playhead.
+- Captions: `caption.thenNow.caption { text }` before each part (the part's text from `input.captions`), `caption.thenNow.window { label }` at the start of each window, water edge captions, and `caption.thenNow.end` at the end (Section 2.4).
+- Every **data** step emits a `step` event (`player: "thenNow.heat"` / `"thenNow.monsoon"` / `"thenNow.water"`, also inside `"all"`) for L3's chart playhead. Silent gaps emit none; `index` is the data index (Section 2.1).
 - **Variability → timbre and seasonality → rhythm are NOT in this phase** (Phase 7, optional).
 
 ### 8.4 Comparison Player (`players/compare.ts`)
-- `mode: "sequential"`: side A, 800 ms gap, side B — same voice, same step length; captions with each side's label.
-- `mode: "split"`: A and B **at the same time**, A panned hard left, B hard right (headphones note caption: `caption.compare.useHeadphones`).
+- `mode: "sequential"`: side A, 800 ms gap, side B — same voice, same step length; `caption.compare.side { label }` at the start of each side. Step events `player: "compare"`, `index` counts A then B.
+- `mode: "split"`: A and B **at the same time**, A panned hard left, B hard right; `caption.compare.useHeadphones { a, b }` at start. Step events `player: "compare.split"`, one per step.
+- **`playSeries(side, { stepMs, player })`** (L3 B6, accepted on PR #4; replaces the Phase 7 `playHistory` idea): one side only, steps of `stepMs` (default heat and monsoon 150 ms, water 60 ms), `caption.compare.side { label }` at start, step events under `player` (default `"series"`; L3's Place History passes `"history"`). It's the same code path as one side of the sequential compare.
 - Disclosure text (windows, datasets, numbers) is L3's panel, sourced from the JSON — L2 only emits captions with labels.
 
 ### 8.5 Harness section (Phase 5)
-- A "Load real demo" button that `fetch`es `/data/demo/dhaka_then_now.json` and `/data/context/grace.json` **in the harness only** and builds `ThenNowInput` (this is the same adapter L3 will write; put it in `src/app/dev/audio/adapters.ts` and hand it to L3).
-- Buttons: Heat / Monsoon / Water / All; Compare sequential / split (heat A vs B).
+- A "Load real demo" button that loads the demo and GRACE files with **L3's** `loadDemo()` / `loadGrace()` (`@/lib/data`) and builds `ThenNowInput` with **L3's** `buildThenNowInput()` (`@/lib/then-now`). Don't write a second adapter (DRY; agreed on PR #4). The harness is the only L2 code that imports from `lib/data`; the engine itself still takes plain arrays.
+- Buttons: Heat / Monsoon / Water / All; Compare sequential / split (heat A vs B); Series (one decade of Dhaka heat through `playSeries`, loaded with L3's `loadGistemp()`).
 - A simple progress bar per player from `step` events, labelled with the current year/month.
 
 ### 8.6 Ear tests in this phase
@@ -640,7 +663,11 @@ export interface CompareSide { label: string; values: (number | null)[]; voice: 
 - [ ] All captions come from `input.captions` (i.e. the JSON), character-for-character equal to TEAM_BUILD_PLAN §16 (check the harness log against §16).
 - [ ] "All" plays heat → monsoon → water with gaps; Esc stops it mid-way without a click.
 - [ ] Compare sequential and split both work; split is clearly left/right on headphones.
-- [ ] Step events drive the progress bar in time with the sound for all three parts.
+- [ ] Step events drive the progress bar in time with the sound for all three parts; silent gaps emit none, and `index` / `total` count data points (heat 0–19, water = month index).
+- [ ] Every caption key and param matches Section 2.4 exactly (L3 already shows text for them).
+- [ ] `playSeries` plays one side and its step events carry the given `player` name (`"history"`).
+- [ ] Mute-all (M), mute and solo also silence the Then vs Now voices; Stop / Esc during monsoon leaves no drops playing afterwards.
+- [ ] The adapter swap still type-checks: a check file with `withFallbacks(l2)` from `@/lib/audio-adapter` passes `bunx tsc --noEmit`.
 - [ ] T5 recorded in the findings log (phone model), harmonic gains decided.
 
 ---
@@ -678,8 +705,9 @@ export interface CompareSide { label: string; values: (number | null)[]; voice: 
 | **FIRMS percussion (B3)** `voices/clicks.ts` + `playFires(caseA, caseB)` | One day per step (61 steps, 120 ms); click gain = `mapContinuous` of `log1p(count)` over `zero-to-max` of **both** cases together (so A and B share a scale); MODIS vs MODIS only; caption "Example years, same sensor (MODIS)" from the JSON-supplied caption | CHT 2003 vs 2023 audibly similar; Punjab similar; never compare MODIS to VIIRS |
 | **NDVI pad** `voices/pad.ts` | Slow pad (2 detuned saw → low-pass 800 Hz, 300 ms attack), 150–600 Hz per `vegetation` rule, one 16-day composite per step (150 ms) | Sundarbans A vs B ~same; Dhaka control lowest |
 | **Variability → timbre (H2)** | Window `spread` → low-pass cutoff 800–3000 Hz on heat/monsoon voices; `designChoice: true` in mapping.json | B window (bigger spread) sounds slightly brighter; caption says "design choice" |
-| **Seasonality → rhythm (H2)** | For monthly Place History playback: accent (+3 dB, 20 ms) on the climatological peak month; `designChoice: true` | Accent audible every 12 steps |
-| **Place History audio (H1 support)** | `playHistory(months, heatAnoms, rainMmDay)`: two voices month by month (heat pitch + drops per month via monsoon rule), 150 ms/month, step events | Plays the Dhaka series with playhead events |
+| **Seasonality → rhythm (H2)** | For monthly Place History playback (`playSeries`, Phase 5): accent (+3 dB, 20 ms) on the climatological peak month; `designChoice: true` | Accent audible every 12 steps |
+
+Place History audio is no longer a Phase 7 item: it's `playSeries()` in Phase 5 (L3 B6, agreed on PR #4). L3's History panel plays one metric at a time, so the planned two-voice `playHistory(months, heatAnoms, rainMmDay)` is dropped.
 
 **Deliverables checklist (Phase 7):** one line per built item: "- [ ] <item>: test in the table passes; entry added/updated in `mapping.json`; `designChoice` set correctly".
 
@@ -725,6 +753,10 @@ Resolve with the lane owner before the phase that needs it. Record the answer he
 | D4 | Sweep step length and path density (points per ring). | Phase 4 | Path: **resolved**, L3's `sweepPath()` (`SWEEP_RINGS` in `lib/data/places.ts`). Step: 80 ms default in L2. |
 | D5 | Heat-deviation detune cents per band (8 / 20 / 35) and roughness. | Phase 5 | Starting values; tune by ear, stay `designChoice: true`. |
 | D6 | Snow bell partials and rain band-pass centre. | Phase 2 | Values in Phase 2 spec; tune by ear. |
+| D7 | Step events for silent gaps (L3 B5). | Phase 4 | **Resolved (27 Sep, PR #4):** data points only; silent steps emit none (Section 2.1). |
+| D8 | Place History audio: L2's `playHistory()` or L3's `playSeries()` (B6)? | Phase 5 | **Resolved (27 Sep, PR #4):** `playSeries(side, { stepMs, player })` in Phase 5; `playHistory` dropped. |
+| D9 | Caption keys and params for Then vs Now and Compare. | Phase 5 | **Resolved (27 Sep, PR #4):** L3's existing keys (Section 2.4). |
+| D10 | Then vs Now data adapter for the harness. | Phase 5 | **Resolved (27 Sep, PR #4):** reuse L3's `buildThenNowInput()` / `loadDemo()` / `loadGrace()`; no `adapters.ts`. |
 
 ---
 
@@ -735,6 +767,8 @@ Resolve with the lane owner before the phase that needs it. Record the answer he
 | L3 | Wiring of the API into the real UI (Start button first in focus order, cursor → `setOcean`/`setRain`, keys → mode/mute/legend/Esc, captions from events) | Phase 2 onward | No — harness covers L2 testing |
 | L3 | Sweep path as `SweepPoint[]` from `valueAt()` | Phase 4 (real use) | ✅ `sweepPath()`, `openingPath()` exist |
 | L3 | `bandMeans()` ✅ / `maxInView()` ⏳ (D3) | Phase 4 (real use) | No |
+| L3 | `buildThenNowInput()`, `loadDemo()`, `loadGrace()`, `loadGistemp()` for the Phase 5 harness (D10) | Phase 5 (harness) | Yes for the "Load real demo" button: they're in L3's PR #4, so it must be on `main` first (then bring this branch up to date) |
+| L3 | Update `docs/L3/` (contract-proposals, integration, PROGRESS) with the PR #4 decisions: B5 and B6 accepted, the Section 2.4 caption keys, and the shared files in Section 1.1 | Phase 5 | No; asked on PR #4 |
 | L3 | Time-lapse frames as `SweepPoint[]` at the cursor (decoded from `sequence/*.u8.gz`) | Phase 6 (real use) | No |
 | L3 | Caption text for every caption key L2 emits (EN + BN) | Phase 3 onward | ✅ English for the Section 2.4 keys (Bangla pending); new keys need L3 first |
 | L4 | Recorded narration clips (EN, BN) and their subtitles | Phase 8 | Only for `playClip` test |
