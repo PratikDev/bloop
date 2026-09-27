@@ -1,12 +1,26 @@
-"""Run the whole L1 pipeline in order. Usage: python run_all.py [--no-sequence] [--no-context]"""
+"""Run the whole L1 pipeline in order.
+Usage: python run_all.py [--no-sequence] [--no-context] [--with-global]
+REQUIRED steps stop the run on failure. OPTIONAL (additive) steps only warn: a problem there never blocks the core data.
+The global cube only needs rebuilding when its source files change, so it runs only with --with-global."""
 import subprocess, sys
-steps = [["fetch_latest.py"], ["convert_sst.py"], ["convert_rain.py"]]
-if "--no-sequence" not in sys.argv: steps.append(["fetch_rain_sequence.py"])
-if "--no-context" not in sys.argv: steps += [["build_context.py"], ["build_demo.py"], ["build_ensemble.py"], ["build_globe_duet.py"]]
-steps.append(["spotcheck.py"])
-for s in steps:
-    print(f"\n==================== {s[0]} ====================")
-    r = subprocess.run([sys.executable] + s)
-    if r.returncode != 0:
-        sys.exit(f"STOPPED: {s[0]} failed (exit {r.returncode}). Fix it before continuing.")
-print("\nALL STEPS PASSED")
+
+required = [["fetch_latest.py"], ["convert_sst.py"], ["convert_rain.py"]]
+if "--no-sequence" not in sys.argv: required.append(["fetch_rain_sequence.py"])
+if "--no-context" not in sys.argv: required += [["build_context.py"], ["build_demo.py"]]
+optional = []
+if "--no-context" not in sys.argv: optional += [["build_ensemble.py"], ["build_globe_duet.py"]]
+if "--with-global" in sys.argv: optional.append(["build_global.py"])
+
+warnings = []
+for s in required:
+    print(f"\n==================== {s[0]} (required) ====================")
+    if subprocess.run([sys.executable] + s).returncode != 0:
+        sys.exit(f"STOPPED: {s[0]} failed. Fix it before continuing.")
+for s in optional:
+    print(f"\n==================== {s[0]} (optional) ====================")
+    if subprocess.run([sys.executable] + s).returncode != 0:
+        warnings.append(s[0]); print(f"WARNING: optional step {s[0]} failed - core data is unaffected; its file was not updated.")
+print("\n==================== spotcheck.py (required) ====================")
+if subprocess.run([sys.executable, "spotcheck.py"]).returncode != 0:
+    sys.exit("STOPPED: spotcheck.py failed. Fix it before continuing.")
+print("\nALL REQUIRED STEPS PASSED" + (f" - optional steps with warnings: {warnings}" if warnings else " - all optional steps passed"))
