@@ -4,6 +4,7 @@
 
 import type { CaptionParams } from "@/lib/audio-adapter/types";
 import { formatRainRate, formatTemperature } from "../format";
+import { PLACE_NAMES_EN } from "./places";
 
 export const numParam = (p: CaptionParams, key: string): number | null =>
   typeof p[key] === "number" ? p[key] : null;
@@ -21,7 +22,7 @@ export const captionsEn = {
   },
   "caption.nodata": (p: CaptionParams) =>
     `Tick, then silence: no ${TRACK_NAMES[strParam(p, "track")] ?? ""} data here`,
-  "caption.sweep.start": "Sweeping outward from Dhaka",
+  "caption.sweep.start": `Sweeping outward from ${PLACE_NAMES_EN.sweepCenter}`,
   "caption.sweep.end": "Sweep finished",
   "caption.legend": (p: CaptionParams) => `Legend, ${TRACK_NAMES[strParam(p, "voice")] ?? ""}: ${strParam(p, "label")}`,
   "caption.legendUnavailable": "That legend comes with Then vs Now",

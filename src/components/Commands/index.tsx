@@ -2,7 +2,7 @@
 
 import { useMemo, useRef, type ReactNode } from "react";
 import { audio } from "@/lib/audio-adapter";
-import { bandMeans, DHAKA, sweepPath } from "@/lib/data";
+import { bandMeans, SWEEP_CENTER, sweepPath } from "@/lib/data";
 import { bindT } from "@/lib/i18n";
 import { spokenReading, readAt } from "@/lib/reading";
 import { useAnnounce } from "../Announcer/use-announcer";
@@ -84,8 +84,8 @@ export function CommandsProvider({ children }: { children: ReactNode }) {
           announce(t("sweep.needsRain"));
           return;
         }
-        const path = sweepPath(fields, DHAKA);
-        sweepRef.current = { ...path, center: DHAKA };
+        const path = sweepPath(fields, SWEEP_CENTER);
+        sweepRef.current = { ...path, center: SWEEP_CENTER };
         audio.playSweep(path.points);
       },
       playLegend() {
