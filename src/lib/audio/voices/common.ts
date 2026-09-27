@@ -1,0 +1,29 @@
+// Shared plumbing for voices: output routing, stereo and per-voice level.
+
+import { getCtx, getGraph } from "../context";
+import { MAPPING, panFor, voiceSpec } from "../mapping";
+import { glideTo } from "../params";
+import type { VoiceId } from "../types";
+
+const PAN_GLIDE_SEC = 0.03;
+
+/**
+ * Peak level of a voice inside its channel, 0..1. The channel input sits at
+ * the global voice cap, so a voice whose mapping.json maxGain is lower plays
+ * proportionally quieter.
+ */
+export function voicePeak(id: VoiceId): number {
+  return voiceSpec(id).sound.maxGain / MAPPING.global.voiceMaxGain;
+}
+
+/** A stereo panner feeding the voice's mixer channel. Voices connect their sound into it. */
+export function createVoiceOutput(id: VoiceId): StereoPannerNode {
+  const panner = new StereoPannerNode(getCtx(), { pan: 0 });
+  panner.connect(getGraph().channels[id].input);
+  return panner;
+}
+
+/** Stereo by longitude (west left, east right), gliding so it never clicks. */
+export function panTo(panner: StereoPannerNode, lon: number) {
+  glideTo(getCtx(), panner.pan, panFor(lon), PAN_GLIDE_SEC);
+}
