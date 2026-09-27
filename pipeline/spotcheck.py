@@ -115,7 +115,7 @@ for rel, size in expected.items():
     check(f"G {rel} size", p.exists() and p.stat().st_size == size, f"{p.stat().st_size if p.exists() else 'missing'} bytes (expected {size})")
 for rel in ["latest/sst.webp", "latest/rain.png", "sequence/index.json", "context/gistemp_bd.json", "context/gpcp_bd.json",
             "context/gpcc_bd.json", "context/grace.json", "context/firms.json", "context/ndvi.json", "context/globe_bd.json",
-            "truth/sst_compare.png", "truth/rain_compare.png", "truth/crosscheck.png"]:
+            "truth/sst_compare.png", "truth/rain_compare.png", "truth/crosscheck.png", "context/ensemble_bd.json", "context/globe_duet.json"]:
     check(f"G {rel} present", (PUBLIC / rel).exists())
 try:
     idx = json.load(open(PUBLIC / "sequence" / "index.json"))["frames"]
