@@ -14,7 +14,7 @@ For the teammate translating the interface into Bangla.
 
 The video ends on the live app in Bangla mode, playing (team plan §14, 3:45 to 3:50). These are the strings on screen, or read by a screen reader, in that shot: the top bar, the readout, the frame label, the caption bar, the bottom bar's buttons, the credits and the Start screen.
 
-**Count: 44 strings.** 38 to translate in full, 3 credits lines to translate only their lead-in words, and 3 frame-label strings to **keep English until team approves** (§16 wording). Put each translation in `src/lib/i18n/bn.ts`; the full list below has the same keys.
+**Count: 47 strings.** 41 to translate in full, 3 credits lines to translate only their lead-in words, and 3 frame-label strings to **keep English until team approves** (§16 wording). Put each translation in `src/lib/i18n/bn.ts`; the full list below has the same keys.
 
 | Where | Key | English | Note |
 |---|---|---|---|
@@ -53,6 +53,9 @@ The video ends on the live app in Bangla mode, playing (team plan §14, 3:45 to 
 | Bottom bar | `sweep.play` | Play sweep |  |
 | Bottom bar | `timelapse.play` | Play storm time-lapse |  |
 | Bottom bar | `help.keys` | Keys |  |
+| Bottom bar | `mixer.snow` | Snow | mixer, wide screens |
+| Bottom bar | `mixer.muteShort` | Mute | mixer, wide screens |
+| Bottom bar | `mixer.soloShort` | Solo | mixer, wide screens |
 | Credits | `credits.visualizations` | Visualizations: NASA's Scientific Visualization Studio (SVS 5101, 4285) for the NASA Earth Information Center. | §15: translate only the lead-in; names stay English |
 | Credits | `credits.data` | Data in this app: MUR SST (NASA/JPL PO.DAAC); GPM IMERG (NASA/JAXA, GES DISC); GRACE/GRACE-FO JPL mascons RL06.3Mv04 (NASA/JPL PO.DAAC); NASA GISTEMP v4; GPCP v2.3 and GPCC Full Data v2020 (via NOAA PSL). | §15: translate only "Data in this app:"; names stay English |
 | Credits | `credits.testing` | Also used in our testing: NASA FIRMS; MODIS MOD13Q1 via ORNL DAAC; NASA GLOBE Program. | §15: translate only "Also used in our testing:"; names stay English |
