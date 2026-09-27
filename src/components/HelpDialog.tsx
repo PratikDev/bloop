@@ -3,6 +3,7 @@
 import { Dialog, DialogContent, DialogDescription, DialogHeader, DialogTitle } from "@/components/ui/dialog";
 import type { MessageKey } from "@/lib/i18n";
 import { useAppState, useT } from "./AppState/use-app-state";
+import { ComingInOctober } from "./ComingInOctober";
 import { SettingToggle } from "./SettingToggle";
 
 /** Keys shown in Help (plan §9.3). Letters are literal key names, not translated. */
@@ -58,7 +59,11 @@ export function HelpDialog() {
           <p className="text-small text-haze">{t("help.voiceNote")}</p>
           <SettingToggle setting="reduceMotion" />
           <SettingToggle setting="captions" />
+          {/* The top bar shows Describe only on wide screens; here it's reachable everywhere. */}
+          <SettingToggle setting="describe" />
         </div>
+
+        <ComingInOctober />
       </DialogContent>
     </Dialog>
   );

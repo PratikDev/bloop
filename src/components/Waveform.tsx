@@ -1,7 +1,7 @@
 "use client";
 
 import { useEffect, useRef } from "react";
-import { cn } from "cn";
+import { cn } from "@/lib/utils";
 import { audio } from "@/lib/audio-adapter";
 import { readPalette } from "@/lib/css-tokens";
 import { useAppState } from "./AppState/use-app-state";

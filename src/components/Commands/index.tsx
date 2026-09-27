@@ -1,21 +1,29 @@
 "use client";
 
 import { useMemo, useRef, type ReactNode } from "react";
+import { sleep } from "@/lib/abortable";
 import { audio } from "@/lib/audio-adapter";
-import { bandMeans, DHAKA, sweepPath } from "@/lib/data";
-import { bindT } from "@/lib/i18n";
+import { bandMeans, SWEEP_CENTER, sweepPath } from "@/lib/data";
+import { bindT, speechLang } from "@/lib/i18n";
 import { spokenReading, readAt } from "@/lib/reading";
+import { postCaption } from "@/lib/ui-captions";
+import { whisperSource, type WhisperSource } from "@/lib/whisper";
 import { useAnnounce } from "../Announcer/use-announcer";
 import { useAppState } from "../AppState/use-app-state";
 import { useLiveData } from "../LiveData/use-live-data";
-import { CommandsContext, SETTING_LABELS, type Commands, type SweepVisual } from "./use-commands";
+import { CommandsContext, MODE_LABELS, SETTING_LABELS, type Line, type Commands, type SweepVisual } from "./use-commands";
 import { useSoundSync } from "./use-sound-sync";
+
+// Shortest time a said line stays before the next one (about fast reading speed).
+const MIN_MS_PER_CHAR = 40;
 
 export function CommandsProvider({ children }: { children: ReactNode }) {
   const { state, dispatch } = useAppState();
   const { fields, sst } = useLiveData();
   const announce = useAnnounce();
   const sweepRef = useRef<SweepVisual | null>(null);
+  // Counts say() calls and stops, so a whisper never follows a cancelled value.
+  const sayCount = useRef(0);
   useSoundSync(state, fields);
 
   const commands = useMemo<Commands>(() => {
@@ -23,11 +31,49 @@ export function CommandsProvider({ children }: { children: ReactNode }) {
     const trackName = (track: typeof state.track) =>
       t(track === "ocean" ? "track.oceanLong" : track === "rain" ? "track.rainLong" : "track.both");
 
+    const enableSound = async () => {
+      await audio.ensureAudio(); // inside the click/keydown gesture
+      dispatch({ type: "enableSound" });
+      announce(t("sound.resumed"));
+    };
+    const soundOffHint = () => announce(t("sound.offHint"));
+
+    // "~" is read aloud as "about".
+    const sayable = (text: string, tl: typeof t) => text.replaceAll("~", tl("speak.approx"));
+
+    const say = async (line: Line, source?: WhisperSource | null) => {
+      const id = ++sayCount.current;
+      const voiced = state.builtInVoice && state.soundOn;
+      const shown = line(t, state.lang);
+      // Two voices never talk at once: built-in speech OR the live region.
+      // With sound off, nothing is spoken aloud.
+      if (!voiced) announce(sayable(source ? t("whisper.announce", { text: shown, source: source.caption }) : shown, t));
+      else postCaption("caption.speech", { text: shown });
+      // Speech may be in another language than the screen (plan §17).
+      const sl = speechLang(state.lang);
+      const ts = bindT(sl);
+      // Wait at least a short reading time: speech that can't start (no voice
+      // for this language) resolves at once.
+      await Promise.all([voiced ? audio.speak(sayable(line(ts, sl), ts), sl) : null, sleep(shown.length * MIN_MS_PER_CHAR)]);
+      if (source && state.soundOn && id === sayCount.current) audio.playEarcon("whisper", { params: { source: source.caption } });
+    };
+
+    const startSweep = () => {
+      if (!fields) return null;
+      const path = sweepPath(fields, SWEEP_CENTER);
+      sweepRef.current = { ...path, center: SWEEP_CENTER };
+      return audio.playSweep(path.points);
+    };
+
     return {
       async start() {
         await audio.ensureAudio(); // inside the click/keydown gesture
         dispatch({ type: "start" }); // the Opening plays next, then sets introDone
       },
+      startSilent() {
+        dispatch({ type: "startSilent" }); // no AudioContext is created
+      },
+      enableSound,
       moveCursor(dLat, dLon) {
         dispatch({ type: "moveCursor", dLat, dLon });
       },
@@ -36,12 +82,8 @@ export function CommandsProvider({ children }: { children: ReactNode }) {
         announce(t("announce.track", { track: trackName(track) }));
       },
       setMode(mode) {
-        if (mode !== "explore") {
-          announce(t("mode.notReady"));
-          return;
-        }
         dispatch({ type: "setMode", mode });
-        announce(t("announce.mode", { mode: t("mode.explore") }));
+        announce(t("announce.mode", { mode: t(MODE_LABELS[mode]) }));
       },
       setLang(lang) {
         dispatch({ type: "setLang", lang });
@@ -51,31 +93,36 @@ export function CommandsProvider({ children }: { children: ReactNode }) {
         announce(t("announce.toggle", { name: t(SETTING_LABELS[key]), on: !state[key] }));
       },
       togglePlaying() {
+        if (!state.soundOn) {
+          void enableSound();
+          return;
+        }
         dispatch({ type: "setPlaying", playing: !state.playing });
         announce(t(state.playing ? "sound.paused" : "sound.resumed"));
       },
       speakCurrent() {
         if (!fields) return;
-        const text = spokenReading(t, readAt(fields, state.cursor), state.track, state.cursor);
-        // Two voices never talk at once: built-in speech OR the live region.
-        if (state.builtInVoice) void audio.speak(text, state.lang);
-        else announce(text);
+        const reading = readAt(fields, state.cursor);
+        void say((tl) => spokenReading(tl, reading, state.track, state.cursor), whisperSource(t, fields, state.track));
       },
+      say,
       playSweep() {
         if (!fields) return;
+        if (!state.soundOn) return soundOffHint();
         if (!fields.rain && state.track !== "ocean") {
           announce(t("sweep.needsRain"));
           return;
         }
-        const path = sweepPath(fields, DHAKA);
-        sweepRef.current = { ...path, center: DHAKA };
-        audio.playSweep(path.points);
+        startSweep();
       },
+      startSweep,
       playLegend() {
+        if (!state.soundOn) return soundOffHint();
         if (state.track === "both") audio.playWarmup();
         else audio.playLegend(state.track);
       },
       playMotif() {
+        if (!state.soundOn) return soundOffHint();
         if (sst) audio.playMotif(bandMeans(sst));
       },
       xray() {
@@ -88,13 +135,16 @@ export function CommandsProvider({ children }: { children: ReactNode }) {
         dispatch({ type: "setHelpOpen", open: true });
       },
       stopAll() {
+        sayCount.current++;
         audio.stopAll();
         sweepRef.current = null;
         dispatch({ type: "introDone" }); // Esc also skips the opening
         dispatch({ type: "setPlaying", playing: false });
         dispatch({ type: "setHelpOpen", open: false });
         dispatch({ type: "setPanelOpen", open: false });
-        announce(t("sound.stopped"));
+        // Ending a story: back to Explore, with one combined message.
+        if (state.mode === "story") dispatch({ type: "setMode", mode: "explore" });
+        announce(t(state.mode === "story" ? "story.stopped" : "sound.stopped"));
       },
       sweepRef,
     };

@@ -9,16 +9,11 @@ import { emit, emitCaption, onAudioEvent } from "./events";
 import { ensureGraph, getGraph, glideTo } from "./graph";
 import { initLive, live } from "./live";
 import { applyMix, mixer } from "./mixer";
-import {
-  fastFade,
-  playLegend,
-  playMotif,
-  playOpening,
-  playSweep,
-  playWarmup,
-  stopCurrentSequence,
-} from "./players";
+import { playLegend, playMotif, playOpening, playSweep, playWarmup } from "./players";
+import { fastFade, stopCurrentSequence } from "./sequence";
 import { startScheduler } from "./scheduler";
+import { playCompare, playSeries, playThenNow } from "./then-now";
+import { playTimelapse } from "./timelapse";
 import { cancelSpeech, initSpeech, speak } from "./speech";
 import type { AudioEngine } from "./types";
 
@@ -78,6 +73,10 @@ export const interimEngine: AudioEngine = {
   playSweep,
   playMotif,
   playOpening,
+  playThenNow,
+  playTimelapse,
+  playCompare,
+  playSeries,
 
   onAudioEvent,
   getAnalyser() {

@@ -3,16 +3,7 @@
 import { useEffect, useState } from "react";
 import { afterFirstPaint } from "@/lib/after-paint";
 import { DATA_PATHS } from "@/lib/data";
-
-function loadImage(src: string): Promise<HTMLImageElement> {
-  return new Promise((resolve, reject) => {
-    const img = new Image();
-    img.decoding = "async";
-    img.onload = () => resolve(img);
-    img.onerror = () => reject(new Error(`Couldn't load ${src}`));
-    img.src = src;
-  });
-}
+import { loadImage } from "@/lib/load-image";
 
 /** The EIC frame images: ocean now, rain once the first paint is done. */
 export function useFrameImages(): { sst: HTMLImageElement | null; rain: HTMLImageElement | null } {

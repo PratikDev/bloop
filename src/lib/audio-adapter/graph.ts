@@ -1,6 +1,7 @@
 // One AudioContext and the fixed node graph (docs/L2/AUDIO_RESEARCH.md A3, A5, A8).
 //
-//   voice buses (ocean, rain, snow) ─► fade ─► sonification (duckable) ─┐
+//   voice buses (ocean, rain, snow) ─┐
+//   context bus (heat, monsoon, water) ─► fade ─► sonification (duckable) ─┐
 //   earcons, legend bells ─────────────────────────────────────────────┤
 //                                                                      ▼
 //            master (masterGain × user volume) ─► compressor (safety net) ─► analyser ─► speakers
@@ -21,6 +22,7 @@ export interface Graph {
   fade: GainNode; // stopAll and the opening's fade in/out
   earcons: GainNode;
   voiceBus: Record<LiveVoiceId, GainNode>; // mixer: mute, solo, volume, track mode
+  context: GainNode; // Then vs Now and history voices (one plays at a time)
   noise: AudioBuffer; // one shared buffer for every raindrop and tick
 }
 
@@ -58,7 +60,10 @@ function build(ctx: AudioContext): Graph {
     voiceBus[id].connect(fade);
   }
 
-  return { ctx, master, analyser, sonification, fade, earcons, voiceBus, noise: makeNoise(ctx) };
+  const context = new GainNode(ctx, { gain: 1 });
+  context.connect(fade);
+
+  return { ctx, master, analyser, sonification, fade, earcons, voiceBus, context, noise: makeNoise(ctx) };
 }
 
 /** Creates the context on first call (must be inside a user gesture) and resumes it. */
