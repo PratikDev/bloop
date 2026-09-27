@@ -47,12 +47,12 @@ export function CommandsProvider({ children }: { children: ReactNode }) {
         announce(t("announce.track", { track: trackName(track) }));
       },
       setMode(mode) {
-        if (mode !== "explore") {
+        if (mode === "story") {
           announce(t("mode.notReady"));
           return;
         }
         dispatch({ type: "setMode", mode });
-        announce(t("announce.mode", { mode: t("mode.explore") }));
+        announce(t("announce.mode", { mode: t(mode === "explore" ? "mode.explore" : "mode.thenNow") }));
       },
       setLang(lang) {
         dispatch({ type: "setLang", lang });

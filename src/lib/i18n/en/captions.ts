@@ -3,7 +3,7 @@
 // they are read through param helpers.
 
 import type { CaptionParams } from "@/lib/audio-adapter/types";
-import { formatRainRate, formatTemperature } from "../format";
+import { formatMonth, formatRainRate, formatTemperature } from "../format";
 import { PLACE_NAMES_EN } from "./places";
 
 export const numParam = (p: CaptionParams, key: string): number | null =>
@@ -35,6 +35,20 @@ export const captionsEn = {
   "caption.earcon.nodata": "Tick: no data here",
   "caption.earcon.whisper": (p: CaptionParams) => `Chime: measured by ${strParam(p, "source")}`,
   "caption.earcon.ping": "Ping: the extreme value in view",
+  // Then vs Now: the part's caption is shown exactly as the JSON gives it.
+  "caption.thenNow.caption": (p: CaptionParams) => strParam(p, "text"),
+  "caption.thenNow.window": (p: CaptionParams) => `Playing ${strParam(p, "label")}`,
+  "caption.thenNow.end": "Then vs Now finished",
+  "caption.water.gap": (p: CaptionParams) => {
+    const from = formatMonth(strParam(p, "from"), "en");
+    const to = formatMonth(strParam(p, "to"), "en");
+    return from === to ? `Silence: no satellite measurement for ${from}` : `Silence: no satellite measurements, ${from} to ${to}`;
+  },
+  "caption.water.windowStart": (p: CaptionParams) => `Comparison window starts: ${formatMonth(strParam(p, "month"), "en")}`,
+  "caption.water.windowEnd": (p: CaptionParams) => `Comparison window ends: ${formatMonth(strParam(p, "month"), "en")}`,
+  "caption.compare.side": (p: CaptionParams) => `Now playing: ${strParam(p, "label")}`,
+  "caption.compare.useHeadphones": (p: CaptionParams) =>
+    `${strParam(p, "a")} in your left ear, ${strParam(p, "b")} in your right. Headphones help.`,
   "caption.noBanglaVoice": "This device has no Bangla voice, so the value is shown but not spoken",
   "caption.noSpeech": "This browser can't speak; the value is shown instead",
 };

@@ -1,5 +1,6 @@
 "use client";
 
+import dynamic from "next/dynamic";
 import { cn } from "@/lib/utils";
 import { Sheet, SheetContent, SheetTitle } from "@/components/ui/sheet";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
@@ -8,6 +9,9 @@ import type { PanelTab } from "../AppState/reducer";
 import { useAppState, useT } from "../AppState/use-app-state";
 import { MappingPanel } from "./MappingPanel";
 import { TruthPanel } from "./TruthPanel";
+
+// The chart library loads only when History opens (keeps the first load light).
+const HistoryPanel = dynamic(() => import("./HistoryPanel").then((m) => m.HistoryPanel), { ssr: false });
 
 const TABS: { tab: PanelTab; label: "panel.truth" | "panel.mapping" | "panel.provenance" | "panel.history" }[] = [
   { tab: "truth", label: "panel.truth" },
@@ -38,7 +42,7 @@ function PanelTabs() {
         <p className="text-haze">{t("provenance.notReady")}</p>
       </TabsContent>
       <TabsContent value="history">
-        <p className="text-haze">{t("history.notReady")}</p>
+        <HistoryPanel />
       </TabsContent>
     </Tabs>
   );

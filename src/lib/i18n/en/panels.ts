@@ -41,5 +41,4 @@ export const panelsEn = {
   "mapping.status.designOnly": "Sound cue",
 
   "provenance.notReady": "Provenance for the current point is not ready yet.",
-  "history.notReady": "Place history is not ready yet.",
 };
