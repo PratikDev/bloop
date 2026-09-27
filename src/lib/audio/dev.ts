@@ -113,3 +113,11 @@ export function playPitchPair(firstC: number, secondC: number) {
     osc.stop(t + PAIR_TONE_SEC + 0.01);
   });
 }
+
+export { isDucked, setDuckingEnabled } from "./duck";
+export { loadVoices } from "./speech";
+
+/** Current gain of the sonification bus (1 = normal, lower = ducked). Reading only. */
+export function readSonificationLevel(): number {
+  return getGraph().sonification.gain.value;
+}
