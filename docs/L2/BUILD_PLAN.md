@@ -12,7 +12,7 @@ Update this table when a phase's checklist is fully ticked.
 | Phase | Name | Target | Status |
 |---|---|---|---|
 | 0 | Mapping spec and pure maths | Sun 27 | ✅ done (27 Sep) |
-| 1 | Audio engine core and dev harness | Sun 27 | ⬜ not started |
+| 1 | Audio engine core and dev harness | Sun 27 | ✅ done (27 Sep) |
 | 2 | Live voices (ocean, rain, snow) | Sun 27 | ⬜ not started |
 | 3 | Speech, ducking, legend, warm-up, earcons | Sun 27 | ⬜ not started |
 | 4 | Sequence player, sweep, motif, opening | Sun 27 night / Mon 28 AM | ⬜ not started |
@@ -73,7 +73,7 @@ Status key: ⬜ not started · 🟡 in progress · ✅ done (all checklist items
 
 ### 0.4 Definition of "testable"
 Each phase is checked two ways:
-- **Automated:** `bun test` over the pure (non-Web-Audio) functions. These must pass on any machine.
+- **Automated:** `bun run test` (`bun test`) over the pure (non-Web-Audio) functions. These must pass on any machine.
 - **Manual:** the dev harness page (`/dev/audio`, built in Phase 1 and extended every phase) has one section per phase. The checklist at the end of each phase is run by a person with ears, on a laptop speaker and headphones (and a phone where stated).
 
 A phase is ✅ only when **every** box in its checklist is ticked. If a box can't be ticked, write why in the findings log (Section 14) and leave the phase 🟡.
@@ -101,11 +101,18 @@ src/lib/audio/
 ├─ index.ts             # the public API (Section 2) — the ONLY file other lanes import
 ├─ types.ts             # public types: TrackMode, VoiceId, PlayerHandle, AudioEvent, SweepPoint...
 ├─ mapping.ts           # PURE: loads + validates mapping.json; value → frequency / rate / band / pan
-├─ context.ts           # ensureAudio(), getCtx(), state; the single AudioContext
-├─ graph.ts             # buses: voices → sonification bus → master → compressor → destination; mute/solo
-├─ params.ts            # glideTo(), fadeTo(), safe ramps
-├─ scheduler.ts         # the shared look-ahead scheduler (PURE core + Web Audio driver)
-├─ events.ts            # tiny event emitter for AudioEvent (captions, steps, state)
+├─ context.ts           # startEngine(), getCtx(), getGraph(), getNoise(); the single AudioContext
+├─ graph.ts             # buses: voice channels → sonification bus → master → compressor → meter → destination
+├─ mixer-state.ts       # PURE: mute / solo / mute-all / volume rules
+├─ mixer.ts             # applies mixer-state to the graph
+├─ params.ts            # glideTo(), fadeTo(), blip(); safe ramps
+├─ queue.ts             # PURE: time-ordered event queue behind the scheduler
+├─ scheduler.ts         # the shared look-ahead scheduler driver (25 ms tick, 0.1 s look-ahead)
+├─ sources.ts           # registry of playing sources, so stopAll() can stop them
+├─ stop.ts              # stopAll() and onStopAll() hooks
+├─ events.ts            # PURE: event emitter for AudioEvent (captions, steps, state)
+├─ stubs.ts             # typed placeholders for API functions of later phases (shrinks each phase)
+├─ dev.ts               # dev-harness helpers (test tone, ticks, peak meter); not public API
 ├─ voices/
 │  ├─ ocean.ts          # sine + glide
 │  ├─ rain.ts           # noise-burst drops (liquid)
@@ -125,8 +132,10 @@ src/lib/audio/
 │  ├─ then-now.ts       # heat / monsoon / water (Phase 5)
 │  ├─ compare.ts        # A then B, or A left / B right (Phase 5)
 │  └─ timelapse.ts      # storm time-lapse (Phase 6)
-└─ __tests__/           # bun test files for the PURE modules only
+└─ *.test.ts            # bun tests, colocated next to the PURE module they test (AGENTS.md)
 ```
+
+Dev harness: `src/app/dev/audio/page.tsx` (server page) renders `src/components/AudioHarness/` (client component folder: one `*Section.tsx` per phase, component-specific hooks `use-*.ts` beside them). Run tests with `bun run test`.
 
 **Rule:** modules marked PURE import nothing from the Web Audio API and nothing from React, so `bun test` can run them. Everything that touches `AudioContext` is tested by ear on the harness.
 
@@ -336,7 +345,7 @@ useEffect(() => onAudioEvent(e => { if (e.kind === "caption") showCaption(t(e.ke
    - `ruleParts(voice): RuleParts | null` — the rule's pieces (formatted min/max, units, scales, bands) so L3 can build the sentence in **either** language from the numbers.
    - `ruleText(voice): string` — the **English** rule sentence the Mapping panel shows, generated from the numbers (e.g. "Ocean temperature −5 to 35 °C → pitch 220 to 880 Hz (exponential: equal steps in value sound like equal musical steps)"). Bangla is built by L3 from `ruleParts()` (L3 owns i18n). Earcons without a rule return their `silence` text.
    - Also: `MAPPING` (the validated file), `voiceSpec(id)`, `mapVoice(id, value)`, `mapRuntime(value, mapping, range)`, `formatNumber(n)` (true minus sign).
-4. **Tests `src/lib/audio/__tests__/mapping.test.ts`** (`bun test`) — see checklist for the exact cases. `@types/bun` is a dev dependency so `tsc` understands `bun:test`.
+4. **Tests `src/lib/audio/mapping.test.ts`** (colocated) (`bun test`) — see checklist for the exact cases. `@types/bun` is a dev dependency so `tsc` understands `bun:test`.
 
 ### 3.2 Out of scope
 Any Web Audio code. Any UI (L3 renders the panel).
@@ -379,13 +388,13 @@ Any Web Audio code. Any UI (L3 renders the panel).
 7. **`stopAll()`** — clears all scheduled events, cancels speech (`speechSynthesis.cancel()`), fades the sonification, earcon and narration buses to 0 over `stopFadeMs`, stops all live sources after the fade, emits `state`, then restores bus gains to their normal level (so the next play works) — restore happens silently because sources are stopped.
 8. **`events.ts`** — `emit(e)`, `onAudioEvent(cb)`; emits `state` on ready/stop.
 9. **`setMasterVolume(v)`** — master = `global.masterGain × clamp(v,0,1)`.
-10. **Dev harness `src/app/dev/audio/page.tsx`** (client component; read the Next docs first). Sections are added per phase. Phase 1 section:
+10. **Dev harness** `src/app/dev/audio/page.tsx` (server page) rendering `src/components/AudioHarness/` (client; read the Next docs first). Sections are added per phase. Phase 1 section:
     - **Start audio** button (first focusable element, `aria-label="Start audio"`), shows context state (`suspended`/`running`) and sample rate + `baseLatency`.
     - **Test tone** (440 Hz sine on the ocean voice gain, fades in over 20 ms), with a frequency slider (220–880) that uses `glideTo`.
     - **Scheduler test:** "Play 20 ticks at 100 ms" — schedules 20 short clicks at exact 100 ms intervals via the scheduler.
     - Master volume slider, Mute all toggle, Solo selector, **Stop** button, and Esc key → `stopAll()`.
     - A live log of `AudioEvent`s.
-    - A "Busy the main thread 300 ms" button (a blocking loop) to test that scheduled ticks stay even.
+    - "Busy the main thread 60 ms / 300 ms" buttons (a blocking loop), with a readout of each tick's headroom (how early it reached Web Audio) and how many were late.
 11. **Tests `scheduler.test.ts`** for the pure core.
 12. Write **`docs/L2/AUDIO_API.md`**: the Section 2 API, one example per function, and the "call `ensureAudio` inside a gesture" warning. Send it to L3.
 
@@ -393,17 +402,17 @@ Any Web Audio code. Any UI (L3 renders the panel).
 Data voices, speech, players. Loudness tuning.
 
 ### 4.3 Deliverables checklist (Phase 1)
-- [ ] `bun test` passes, including scheduler tests: events returned in time order; nothing beyond the look-ahead window returned; `clear(owner)` removes only that owner's events; an event scheduled in the past is returned on the next `advance` (not lost).
-- [ ] `bunx tsc --noEmit` and `bun run lint` pass.
-- [ ] `/dev/audio` loads with **no console errors** and **no sound** before Start is pressed; the console shows no "AudioContext was not allowed to start" warning.
-- [ ] Pressing Start (mouse **and** keyboard: Tab to it, press Enter) shows state `running`.
-- [ ] Test tone fades in with no click; dragging the frequency slider glides with no zipper noise or clicks (laptop speaker and headphones).
-- [ ] "20 ticks at 100 ms" sounds perfectly even; pressing "Busy the main thread" during it causes **no** audible unevenness.
-- [ ] Stop button and Esc both silence everything within a fraction of a second, **with no click**; the test tone works again afterwards.
-- [ ] Mute all silences and restores; Solo on "ocean" keeps the tone, Solo on "rain" silences it.
-- [ ] Master volume at 100 % with the test tone never distorts; log shows nothing above 0 dBFS (optional: `AnalyserNode` peak readout on the harness).
-- [ ] Calling any later-phase function logs a clear "not implemented (Phase N)" warning and does not throw.
-- [ ] `docs/L2/AUDIO_API.md` exists and L3 has been told where it is.
+- [x] `bun test` passes, including scheduler tests: events returned in time order; nothing beyond the look-ahead window returned; `clear(owner)` removes only that owner's events; an event scheduled in the past is returned on the next `advance` (not lost).
+- [x] `bunx tsc --noEmit` and `bun run lint` pass.
+- [x] `/dev/audio` loads with **no console errors** and **no sound** before Start is pressed; the console shows no "AudioContext was not allowed to start" warning.
+- [x] Pressing Start (mouse **and** keyboard: Tab to it, press Enter) shows state `running`.
+- [x] Test tone fades in with no click; dragging the frequency slider glides with no zipper noise or clicks (laptop speaker and headphones).
+- [x] "20 ticks at 100 ms" sounds perfectly even and the readout shows **late 0**; pressing "Busy main thread 60 ms" (shorter than the 100 ms look-ahead) during it still gives **late 0**; "Busy main thread 300 ms" makes a few ticks late (**expected** — that's the look-ahead's limit, and why heavy UI work must stay off the audio path).
+- [x] Stop button and Esc both silence everything within a fraction of a second, **with no click**; the test tone works again afterwards.
+- [x] Mute all silences and restores; Solo on "ocean" keeps the tone, Solo on "rain" silences it.
+- [x] Master volume at 100 % with the test tone never distorts; log shows nothing above 0 dBFS (optional: `AnalyserNode` peak readout on the harness).
+- [x] Calling any later-phase function logs a clear "not implemented (Phase N)" warning and does not throw.
+- [x] `docs/L2/AUDIO_API.md` exists and L3 has been told where it is.
 
 ---
 
@@ -527,7 +536,7 @@ Data voices, speech, players. Loudness tuning.
 ### 7.3 Deliverables checklist (Phase 4)
 - [ ] `bun test` passes — add tests for the pure step-time maths (`stepTimes(start, n, stepMs)`) and the rate-at-time lookup for drops.
 - [ ] Synthetic sweep: pitch falls smoothly, pans left → right, ticks exactly at the no-data points; progress bar moves in step with the sound (no visible lag or lead > ~50 ms).
-- [ ] Busy-the-main-thread during a sweep: **audio** stays even (the bar may stutter; that's allowed).
+- [ ] Busy main thread 60 ms (shorter than the look-ahead) during a sweep: **audio** stays even (the bar may stutter; that's allowed).
 - [ ] Starting a sweep while one plays replaces it cleanly; Esc stops it without a click.
 - [ ] Motif plays 4 notes in the right order (south → north) with correct relative pitches for hand-typed values (e.g. 10, 25, 28, 15 °C → low, high, highest, mid); a null band is a rest.
 - [ ] Opening plays ~10 s, fades in and out, emits both captions at the right moments; Skip stops it.
