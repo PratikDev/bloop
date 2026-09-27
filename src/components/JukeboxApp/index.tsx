@@ -11,6 +11,8 @@ import { LiveDataProvider } from "../LiveData";
 import { Opening } from "../Opening";
 import { SidePanel } from "../panels/SidePanel";
 import { StartOverlay } from "../StartOverlay";
+import { TimeLapseProvider } from "../TimeLapse";
+import { useTimeLapse } from "../TimeLapse/use-time-lapse";
 import { TopBar } from "../TopBar";
 import dynamic from "next/dynamic";
 import { Stage } from "./Stage";
@@ -22,7 +24,8 @@ import { useGlobalEscape } from "./use-global-escape";
 function Shell() {
   const { state } = useAppState();
   const commands = useCommands();
-  useGlobalEscape(commands);
+  const timeLapse = useTimeLapse();
+  useGlobalEscape(commands, timeLapse.stop);
 
   return (
     <>
@@ -48,7 +51,9 @@ export function JukeboxApp() {
       <AnnouncerProvider>
         <LiveDataProvider>
           <CommandsProvider>
-            <Shell />
+            <TimeLapseProvider>
+              <Shell />
+            </TimeLapseProvider>
           </CommandsProvider>
         </LiveDataProvider>
       </AnnouncerProvider>

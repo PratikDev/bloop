@@ -49,6 +49,12 @@ export const captionsEn = {
   "caption.compare.side": (p: CaptionParams) => `Now playing: ${strParam(p, "label")}`,
   "caption.compare.useHeadphones": (p: CaptionParams) =>
     `${strParam(p, "a")} in your left ear, ${strParam(p, "b")} in your right. Headphones help.`,
+  // Storm time-lapse (L2 Phase 6). Params proposed in contract-proposals B8.
+  "caption.timelapse.start": (p: CaptionParams) =>
+    `Storm time-lapse: ${numParam(p, "count") ?? ""} frames; the cursor follows the heaviest rain nearby`,
+  "caption.timelapse.peak": (p: CaptionParams) =>
+    `Heaviest ${strParam(p, "phase") === "frozen" ? "snow" : "rain"} in this time-lapse: ${formatRainRate(numParam(p, "value") ?? 0, "en")} mm/h`,
+  "caption.timelapse.end": "Time-lapse finished",
   "caption.noBanglaVoice": "This device has no Bangla voice, so the value is shown but not spoken",
   "caption.noSpeech": "This browser can't speak; the value is shown instead",
 };

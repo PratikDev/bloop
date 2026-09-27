@@ -1,12 +1,13 @@
 "use client";
 
-import { Keyboard, Pause, Play, Radar, SlidersHorizontal } from "lucide-react";
+import { CloudRain, Keyboard, Pause, Play, Radar, SlidersHorizontal, Square } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Sheet, SheetContent, SheetTitle, SheetTrigger } from "@/components/ui/sheet";
 import { useAppState, useT } from "./AppState/use-app-state";
 import { CaptionBar } from "./CaptionBar";
 import { useCommands } from "./Commands/use-commands";
 import { Mixer } from "./Mixer";
+import { useTimeLapse } from "./TimeLapse/use-time-lapse";
 import { Waveform } from "./Waveform";
 
 const BAR_BUTTON = "h-11 gap-2 px-3 text-body";
@@ -14,6 +15,7 @@ const BAR_BUTTON = "h-11 gap-2 px-3 text-body";
 export function BottomBar() {
   const { state } = useAppState();
   const commands = useCommands();
+  const timeLapse = useTimeLapse();
   const t = useT();
 
   return (
@@ -41,6 +43,17 @@ export function BottomBar() {
           <Radar aria-hidden="true" />
           {t("sweep.play")}
         </Button>
+        {state.mode === "explore" && (
+          <Button
+            variant="ghost"
+            onClick={timeLapse.status === "playing" ? timeLapse.stop : timeLapse.start}
+            disabled={timeLapse.status === "loading"}
+            className={BAR_BUTTON}
+          >
+            {timeLapse.status === "playing" ? <Square aria-hidden="true" /> : <CloudRain aria-hidden="true" />}
+            {t(timeLapse.status === "playing" ? "timelapse.stop" : "timelapse.play")}
+          </Button>
+        )}
         <Button variant="ghost" onClick={commands.openHelp} className={`${BAR_BUTTON} hidden md:inline-flex`}>
           <Keyboard aria-hidden="true" />
           {t("help.keys")}

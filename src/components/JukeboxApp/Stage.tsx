@@ -8,6 +8,7 @@ import { FrameView } from "../FrameView";
 import { useLiveData } from "../LiveData/use-live-data";
 import { Readout } from "../Readout";
 import { StatusBadge } from "../StatusBadge";
+import { useTimeLapse } from "../TimeLapse/use-time-lapse";
 import { TrackChoice } from "../TrackChoice";
 
 /** The map is the stage: full bleed, readout plate on it (below it on smaller screens). */
@@ -15,6 +16,7 @@ export function Stage() {
   const { rainStatus, sstStatus } = useLiveData();
   const { state } = useAppState();
   const t = useT();
+  const timeLapse = useTimeLapse();
   return (
     // On wide screens the map fits the stage both ways: width = min(stage width, 2 × stage height).
     <section className="flex min-h-0 min-w-0 flex-col bg-night lg:items-center lg:justify-center lg:[container-type:size]">
@@ -30,6 +32,10 @@ export function Stage() {
             </StatusBadge>
           )}
           {rainStatus === "loading" && <StatusBadge kind="loading">{t("badge.loadingRain")}</StatusBadge>}
+          {timeLapse.status === "loading" && timeLapse.progress && (
+            <StatusBadge kind="loading">{t("timelapse.loading", timeLapse.progress)}</StatusBadge>
+          )}
+          {timeLapse.status === "error" && <StatusBadge kind="error">{t("timelapse.error")}</StatusBadge>}
         </div>
         <Readout className="px-4 py-3 lg:pointer-events-none lg:absolute lg:bottom-0 lg:left-0 lg:max-w-lg lg:rounded-tr-lg lg:bg-scrim" />
       </div>

@@ -104,6 +104,8 @@ export interface L2AudioApi {
   // Then vs Now / Compare
   playThenNow(input: ThenNowInput, part: ThenNowPart): PlayerHandle;
   playCompare(a: CompareSide, b: CompareSide, mode: "sequential" | "split"): PlayerHandle;
+  // Storm time-lapse (L2 BUILD_PLAN Phase 6): step events under "timelapse", index = frame.
+  playTimelapse(frames: SweepPoint[], opts?: { fps?: number; loop?: boolean }): PlayerHandle;
   // B6, accepted by L2 on 28 Sep: one series, step events under `player`.
   playSeries(side: CompareSide, opts?: { stepMs?: number; player?: string }): PlayerHandle;
 

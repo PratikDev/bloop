@@ -13,6 +13,7 @@ import { playLegend, playMotif, playOpening, playSweep, playWarmup } from "./pla
 import { fastFade, stopCurrentSequence } from "./sequence";
 import { startScheduler } from "./scheduler";
 import { playCompare, playSeries, playThenNow } from "./then-now";
+import { playTimelapse } from "./timelapse";
 import { cancelSpeech, initSpeech, speak } from "./speech";
 import type { AudioEngine } from "./types";
 
@@ -73,6 +74,7 @@ export const interimEngine: AudioEngine = {
   playMotif,
   playOpening,
   playThenNow,
+  playTimelapse,
   playCompare,
   playSeries,
 

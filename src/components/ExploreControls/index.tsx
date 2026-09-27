@@ -1,11 +1,11 @@
 "use client";
 
 import { useEffect, useId, useRef, type ReactNode } from "react";
-import { readAt, readingText } from "@/lib/reading";
+import { readingText } from "@/lib/reading";
 import { useAnnounce } from "../Announcer/use-announcer";
 import { useAppState, useT } from "../AppState/use-app-state";
 import { useCommands } from "../Commands/use-commands";
-import { useLiveData } from "../LiveData/use-live-data";
+import { useShownPoint } from "../TimeLapse/use-shown-point";
 import { useMapKeys } from "./use-map-keys";
 
 export const MAP_REGION_ID = "sound-map";
@@ -17,7 +17,6 @@ export const MAP_REGION_ID = "sound-map";
  */
 export function ExploreControls({ children }: { children: ReactNode }) {
   const { state } = useAppState();
-  const { fields } = useLiveData();
   const commands = useCommands();
   const announce = useAnnounce();
   const t = useT();
@@ -25,10 +24,10 @@ export function ExploreControls({ children }: { children: ReactNode }) {
   const instructionsId = useId();
   const regionRef = useRef<HTMLDivElement>(null);
 
-  const reading = fields ? readAt(fields, state.cursor) : null;
-  const trackName = t(state.track === "ocean" ? "track.oceanLong" : state.track === "rain" ? "track.rainLong" : "track.both");
+  const { reading, cursor, track, timelapse } = useShownPoint();
+  const trackName = t(track === "ocean" ? "track.oceanLong" : track === "rain" ? "track.rainLong" : "track.both");
   const label = reading
-    ? t("map.alt", { track: trackName, reading: readingText(t, reading, state.track), place: t("place.latlon", state.cursor) })
+    ? t("map.alt", { track: trackName, reading: readingText(t, reading, track), place: t("place.latlon", cursor) })
     : t("start.loading");
 
   // Focus the map when the intro ends, so the keys work at once.
@@ -39,7 +38,9 @@ export function ExploreControls({ children }: { children: ReactNode }) {
   // Announce the settled reading after the cursor moves (debounced in the announcer).
   // With the built-in voice on, Enter speaks; moving still announces, since
   // nothing speaks at that moment.
-  const settled = reading ? `${readingText(t, reading, state.track)}. ${t("place.latlon", state.cursor)}` : null;
+  // Not during the time-lapse: a new frame every half second would flood the
+  // screen reader (the time-lapse announces itself once when it starts).
+  const settled = reading && !timelapse ? `${readingText(t, reading, track)}. ${t("place.latlon", cursor)}` : null;
   useEffect(() => {
     if (state.introDone && settled) announce(settled);
   }, [settled, state.introDone, announce]);

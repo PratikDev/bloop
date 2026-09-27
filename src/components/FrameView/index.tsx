@@ -5,11 +5,11 @@ import { cn } from "@/lib/utils";
 import { readPalette } from "@/lib/css-tokens";
 import type { SstField } from "@/lib/data";
 import { toLatLon } from "@/lib/geo";
-import { readAt } from "@/lib/reading";
 import { isVoiceAudible } from "../AppState/reducer";
 import { useAppState } from "../AppState/use-app-state";
 import { useCommands } from "../Commands/use-commands";
 import { useLiveData } from "../LiveData/use-live-data";
+import { useShownPoint } from "../TimeLapse/use-shown-point";
 import { buildLandLayer, drawBase } from "./base-layer";
 import { prepareCanvas, useCanvasSize } from "./use-canvas-size";
 import { useFrameImages } from "./use-frame-images";
@@ -24,7 +24,7 @@ import { useOverlayLoop, type OverlayInputs } from "./use-overlay-loop";
  */
 export function FrameView({ className, revealClassName }: { className?: string; revealClassName?: string }) {
   const { state, dispatch } = useAppState();
-  const { sst, fields } = useLiveData();
+  const { sst } = useLiveData();
   const { sweepRef } = useCommands();
   const images = useFrameImages();
   const containerRef = useRef<HTMLDivElement>(null);
@@ -33,7 +33,12 @@ export function FrameView({ className, revealClassName }: { className?: string; 
   const landCache = useRef<{ sst: SstField; canvas: HTMLCanvasElement } | null>(null);
   const size = useCanvasSize(containerRef);
 
-  // Static layer: redrawn only when the size, track or images change.
+  const shown = useShownPoint();
+  // During the time-lapse the base shows that frame's own image, in the rain style.
+  const frameImage = shown.timelapse?.image ?? null;
+  const baseTrack = shown.timelapse ? "rain" : state.track;
+
+  // Static layer: redrawn only when the size, track or images change (each frame, during the time-lapse).
   useEffect(() => {
     const canvas = baseRef.current;
     if (!canvas || !size) return;
@@ -41,19 +46,20 @@ export function FrameView({ className, revealClassName }: { className?: string; 
     if (!ctx) return;
     const palette = readPalette();
     if (sst && landCache.current?.sst !== sst) landCache.current = { sst, canvas: buildLandLayer(sst, palette) };
-    drawBase(ctx, state.track, { ...images, land: landCache.current?.canvas ?? null }, palette, size.width, size.height);
-  }, [size, state.track, images, sst]);
+    const shownImages = { ...images, rain: frameImage ?? images.rain, land: landCache.current?.canvas ?? null };
+    drawBase(ctx, baseTrack, shownImages, palette, size.width, size.height);
+  }, [size, baseTrack, images, frameImage, sst]);
 
   const overlayInputs = useMemo<OverlayInputs>(() => {
-    const reading = fields ? readAt(fields, state.cursor) : null;
-    const rainAudible = isVoiceAudible(state, "rain") || isVoiceAudible(state, "snow");
+    const { reading, cursor, timelapse } = shown;
+    const rainAudible = timelapse ? state.soundOn : isVoiceAudible(state, "rain") || isVoiceAudible(state, "snow");
     return {
-      cursor: state.cursor,
-      oceanC: reading && isVoiceAudible(state, "ocean") ? reading.ocean.valueC : null,
+      cursor,
+      oceanC: reading && !timelapse && isVoiceAudible(state, "ocean") ? reading.ocean.valueC : null,
       rainMm: reading && rainAudible ? reading.rain.mmPerHour : null,
       reduceMotion: state.reduceMotion,
     };
-  }, [fields, state]);
+  }, [shown, state]);
   useOverlayLoop(overlayRef, size, overlayInputs, sweepRef);
 
   const moveTo = (e: PointerEvent<HTMLDivElement>) => {

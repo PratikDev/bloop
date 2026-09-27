@@ -38,3 +38,11 @@ export const MOTIF_BANDS: readonly [number, number][] = [
 
 /** Sweep rings around the centre (design choice; rings are spaced in degrees). */
 export const SWEEP_RINGS = { stepDeg: 5, maxDeg: 45, pointsPerRing: 16 } as const;
+
+/**
+ * Storm time-lapse (plan C4): where the storm-following starts (Bangladesh and
+ * the Bay of Bengal), and how far the cursor may move from one frame to the
+ * next while following the heaviest rain (design choices).
+ */
+export const STORM_REGION = { latMin: 15, latMax: 26, lonMin: 85, lonMax: 93 } as const;
+export const STORM_STEP_DEG = 3;
