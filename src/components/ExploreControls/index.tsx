@@ -21,6 +21,8 @@ export function ExploreControls({ children }: { children: ReactNode }) {
   const announce = useAnnounce();
   const t = useT();
   const onKeyDown = useMapKeys(commands);
+  // Story Mode drives the map and narrates it; map keys and value announcements pause.
+  const story = state.mode === "story";
   const instructionsId = useId();
   const regionRef = useRef<HTMLDivElement>(null);
 
@@ -40,7 +42,7 @@ export function ExploreControls({ children }: { children: ReactNode }) {
   // nothing speaks at that moment.
   // Not during the time-lapse: a new frame every half second would flood the
   // screen reader (the time-lapse announces itself once when it starts).
-  const settled = reading && !timelapse ? `${readingText(t, reading, track)}. ${t("place.latlon", cursor)}` : null;
+  const settled = reading && !timelapse && !story ? `${readingText(t, reading, track)}. ${t("place.latlon", cursor)}` : null;
   useEffect(() => {
     if (state.introDone && settled) announce(settled);
   }, [settled, state.introDone, announce]);
@@ -54,7 +56,7 @@ export function ExploreControls({ children }: { children: ReactNode }) {
       aria-roledescription={t("map.roleDescription")}
       aria-label={label}
       aria-describedby={instructionsId}
-      onKeyDown={onKeyDown}
+      onKeyDown={story ? undefined : onKeyDown}
       className="relative"
     >
       <p id={instructionsId} className="sr-only">

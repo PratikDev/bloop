@@ -9,9 +9,10 @@ import { captionsEn } from "./en/captions";
 import { contextEn } from "./en/context";
 import { helpEn } from "./en/help";
 import { panelsEn } from "./en/panels";
+import { storyEn } from "./en/story";
 import type { Lang } from "./types";
 
-export const en = { ...appEn, ...helpEn, ...captionsEn, ...panelsEn, ...contextEn };
+export const en = { ...appEn, ...helpEn, ...captionsEn, ...panelsEn, ...contextEn, ...storyEn };
 
 export type Messages = typeof en;
 export type MessageKey = keyof Messages;

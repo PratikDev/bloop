@@ -33,7 +33,7 @@ export const captionsEn = {
   "caption.opening.openEyes": "Now open your eyes.",
   "caption.stopped": "All sound stopped",
   "caption.earcon.nodata": "Tick: no data here",
-  "caption.earcon.whisper": (p: CaptionParams) => `Chime: measured by ${strParam(p, "source")}`,
+  "caption.earcon.whisper": (p: CaptionParams) => `Chime: ${strParam(p, "source")}`,
   "caption.earcon.ping": "Ping: the extreme value in view",
   // Then vs Now: the part's caption is shown exactly as the JSON gives it.
   "caption.thenNow.caption": (p: CaptionParams) => strParam(p, "text"),

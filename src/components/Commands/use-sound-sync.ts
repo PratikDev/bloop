@@ -22,7 +22,8 @@ export function useSoundSync(state: AppState, fields: LiveFields | null): void {
   }, [mix]);
 
   useEffect(() => {
-    if (!started || !soundOn || !fields) return;
+    // Story Mode owns the live voices while it runs.
+    if (!started || !soundOn || !fields || mode === "story") return;
     if (!playing || !introDone || mode !== "explore") {
       audio.silenceLive();
       return;

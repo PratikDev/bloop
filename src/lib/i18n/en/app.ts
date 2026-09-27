@@ -75,6 +75,7 @@ export const appEn = {
     `${p.frozen ? "Snow" : "Rain"}, ${formatRainRate(p.mmPerHour, "en")} millimetres per hour`,
   "speak.dry": "Dry",
   "speak.rainNone": "No rain data here",
+  "speak.approx": "about ", // "~" read aloud
   "speak.value": (p: { reading: string; place: string }) => `${p.reading}, at ${p.place}.`,
 
   "frame.product.ocean": "Ocean temperature",
@@ -103,11 +104,20 @@ export const appEn = {
   "sweep.needsRain": "The sweep starts once rain has loaded.",
   "timelapse.play": "Play storm time-lapse",
   "timelapse.stop": "Stop time-lapse",
+  "timelapse.loadingStart": "Loading the time-lapse frames…",
   "timelapse.loading": (p: { loaded: number; total: number }) => `Loading the time-lapse: ${p.loaded} of ${p.total} files`,
   "timelapse.error": "Couldn't load the time-lapse frames. Reload the page to try again.",
   "timelapse.announceStart": (p: { count: number; from: string; to: string }) =>
     `Storm time-lapse: ${p.count} rain frames, ${p.from} to ${p.to} UTC. The cursor follows the heaviest rain near Bangladesh.`,
   "timelapse.frame": (p: { index: number; total: number }) => `Time-lapse frame ${p.index} of ${p.total}`,
+  // Satellite whisper (C7): the dataset names come from the frame metadata.
+  "whisper.withRun": (p: { dataset: string; run: string }) => `${p.dataset}, ${p.run} run`,
+  "whisper.and": " and ",
+  "whisper.mission": (p: { agencies: string; mission: string; product: string; run: string | null }) =>
+    `measured by ${p.agencies}'s ${p.mission} satellites (${p.product}${p.run ? `, ${p.run} run` : ""})`,
+  "whisper.product": (p: { agencies: string; product: string; run: string | null }) =>
+    `${p.product}${p.run ? `, ${p.run} run` : ""}, from ${p.agencies}`,
+  "whisper.announce": (p: { text: string; source: string }) => `${p.text} Source: ${p.source}.`,
   "xray.unavailable": "X-ray needs the colorbar data, which isn't published yet.",
 
   "announce.track": (p: { track: string }) => `Now hearing: ${p.track}.`,

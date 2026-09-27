@@ -3,6 +3,7 @@
 // No-data frames are silent with one tick per run; dry frames are silent.
 // Captions only at the start, at the heaviest frame and at the end.
 
+import { peakIndex } from "@/lib/data/storm";
 import { playEarconAt } from "./earcons";
 import { emitCaption } from "./events";
 import { routeRain } from "./live";
@@ -14,10 +15,7 @@ export const TIMELAPSE_PLAYER = "timelapse";
 
 export function playTimelapse(frames: SweepPoint[], opts?: { fps?: number; loop?: boolean }): PlayerHandle {
   const stepSec = 1 / (opts?.fps ?? DEFAULT_FPS);
-  let peak = -1;
-  frames.forEach((f, i) => {
-    if (f.mmPerHour !== null && (peak === -1 || f.mmPerHour > (frames[peak].mmPerHour ?? 0))) peak = i;
-  });
+  const peak = peakIndex(frames);
   const steps: Step[] = frames.map((f, i) => ({
     durationSec: stepSec,
     player: TIMELAPSE_PLAYER,

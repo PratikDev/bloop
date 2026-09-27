@@ -56,6 +56,8 @@ export function SidePanel() {
   const { state, dispatch } = useAppState();
   const t = useT();
   const phone = useMediaQuery("(max-width: 767px)");
+  // The column is always there on wide screens; the sheet (modal) only opens below lg.
+  const wide = useMediaQuery("(min-width: 1024px)");
   return (
     <>
       <aside
@@ -64,7 +66,7 @@ export function SidePanel() {
       >
         <PanelTabs />
       </aside>
-      <Sheet open={state.panelOpen} onOpenChange={(open) => dispatch({ type: "setPanelOpen", open })}>
+      <Sheet open={state.panelOpen && !wide} onOpenChange={(open) => dispatch({ type: "setPanelOpen", open })}>
         <SheetContent
           side={phone ? "bottom" : "right"}
           className={cn(

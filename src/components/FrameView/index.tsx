@@ -36,7 +36,7 @@ export function FrameView({ className, revealClassName }: { className?: string; 
   const shown = useShownPoint();
   // During the time-lapse the base shows that frame's own image, in the rain style.
   const frameImage = shown.timelapse?.image ?? null;
-  const baseTrack = shown.timelapse ? "rain" : state.track;
+  const baseTrack = shown.track;
 
   // Static layer: redrawn only when the size, track or images change (each frame, during the time-lapse).
   useEffect(() => {
@@ -63,6 +63,7 @@ export function FrameView({ className, revealClassName }: { className?: string; 
   useOverlayLoop(overlayRef, size, overlayInputs, sweepRef);
 
   const moveTo = (e: PointerEvent<HTMLDivElement>) => {
+    if (state.mode === "story") return; // the story moves the cursor
     const rect = e.currentTarget.getBoundingClientRect();
     dispatch({ type: "setCursor", cursor: toLatLon(e.clientX - rect.left, e.clientY - rect.top, rect.width, rect.height) });
   };
