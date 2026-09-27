@@ -243,6 +243,21 @@ export function mapContinuous(value: number | null, mapping: ContinuousMapping):
   return t === null ? null : scaleOutput(t, mapping.output);
 }
 
+/** The inverse of mapContinuous: the input value that produces `output` (clamped to the rule's range). */
+export function inverseContinuous(output: number, mapping: ContinuousMapping): number {
+  const { input, output: out } = mapping;
+  const t =
+    out.scale === "exponential"
+      ? Math.log(output / out.min) / Math.log(out.max / out.min)
+      : (output - out.min) / (out.max - out.min);
+  const tt = clamp(Number.isFinite(t) ? t : 0, 0, 1);
+  if (input.scale === "log") {
+    const lo = Math.log10(input.min);
+    return Math.pow(10, lo + (Math.log10(input.max) - lo) * tt);
+  }
+  return input.min + (input.max - input.min) * tt;
+}
+
 /** Convenience: apply a voice's continuous rule by id (e.g. mapVoice("ocean", 28.4) → Hz). */
 export function mapVoice(id: string, value: number | null, spec: MappingSpec = MAPPING): number | null {
   const m = voiceSpec(id, spec).mapping;

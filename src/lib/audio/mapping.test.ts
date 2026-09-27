@@ -5,6 +5,7 @@ import {
   MAPPING,
   MappingError,
   bandFor,
+  inverseContinuous,
   loudnessGain,
   mapContinuous,
   mapRuntime,
@@ -185,6 +186,33 @@ describe("runtime-range rules (water, fires)", () => {
     expect(mapRuntime(150, m, r)).toBeCloseTo(1, 9);
     expect(mapRuntime(0, m, r)).toBeCloseTo(0, 9);
     expect(mapRuntime(15, m, r)).toBeCloseTo(Math.log1p(15) / Math.log1p(150), 9);
+  });
+});
+
+describe("inverseContinuous (harness presets: drops/s → mm/h)", () => {
+  test("round-trips every continuous voice", () => {
+    for (const v of MAPPING.voices) {
+      if (v.mapping?.kind !== "continuous" || v.mapping.output.round) continue;
+      const m = v.mapping;
+      for (const t of [0, 0.25, 0.5, 0.9, 1]) {
+        const x = m.input.scale === "log"
+          ? Math.pow(10, Math.log10(m.input.min) + (Math.log10(m.input.max) - Math.log10(m.input.min)) * t)
+          : m.input.min + (m.input.max - m.input.min) * t;
+        expect(inverseContinuous(mapContinuous(x, m)!, m)).toBeCloseTo(x, 6);
+      }
+    }
+  });
+
+  test("rain presets: 2 → 0.1 mm/h, 40 → 50 mm/h, 21 → √5 mm/h; out of range clamps", () => {
+    const m = continuous("rain");
+    expect(inverseContinuous(2, m)).toBeCloseTo(0.1, 9);
+    expect(inverseContinuous(40, m)).toBeCloseTo(50, 9);
+    expect(inverseContinuous(21, m)).toBeCloseTo(Math.sqrt(5), 9);
+    expect(inverseContinuous(100, m)).toBeCloseTo(50, 9);
+  });
+
+  test("ocean: 440 Hz → 15 °C", () => {
+    expect(inverseContinuous(440, continuous("ocean"))).toBeCloseTo(15, 9);
   });
 });
 
