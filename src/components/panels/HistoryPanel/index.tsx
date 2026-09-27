@@ -9,6 +9,7 @@ import type { PlayerHandle } from "@/lib/audio-adapter/types";
 import { decadeRange, fullDecades, monthlySeries, PLACES, sharedCells, type HistoryMetric } from "@/lib/history";
 import { formatMonth } from "@/lib/i18n";
 import { heatNormalLabel } from "@/lib/then-now";
+import { postCaption } from "@/lib/ui-captions";
 import type { ClimateCellName } from "@/types/data-contract";
 import { useAppState, useT } from "../../AppState/use-app-state";
 import { HistoryChart } from "../../charts/HistoryChart";
@@ -40,7 +41,9 @@ export function HistoryPanel() {
   const choose =
     <T,>(set: (value: T) => void) =>
     (value: T) => {
-      handle.current?.stop();
+      const h = handle.current;
+      handle.current = null; // stopped, not finished: no "History finished" caption
+      h?.stop();
       set(value);
     };
 
@@ -55,17 +58,21 @@ export function HistoryPanel() {
   const unit = t(metric === "heat" ? "history.unit.heat" : "history.unit.rain");
   const dataset = metric === "heat" ? data.gistemp.dataset : data.gpcp.dataset;
   const caveat = metric === "rain" ? data.gpcp.caveat : undefined;
+  const placeName = (p: ClimateCellName) => t(`place.${p}`);
 
   const play = () => {
     handle.current?.stop();
     const h = audio.playSeries(
-      { label: `${place}, ${t("history.decadeLabel", { decade })}`, values: series.values.slice(start, end), voice: metric === "heat" ? "heat" : "monsoon" },
+      { label: `${placeName(place)}, ${t("history.decadeLabel", { decade })}`, values: series.values.slice(start, end), voice: metric === "heat" ? "heat" : "monsoon" },
       { player: PLAYER },
     );
     handle.current = h;
     setPlayingFrom(start);
+    // playSeries captions the start ("Now playing: …") but not the end, so History posts that.
     void h.done.then(() => {
-      if (handle.current === h) setPlayingFrom(null);
+      if (handle.current !== h) return;
+      setPlayingFrom(null);
+      postCaption("caption.history.end");
     });
   };
 
@@ -73,7 +80,7 @@ export function HistoryPanel() {
     <div className="space-y-4">
       <p className="text-haze">{t("history.intro")}</p>
       <div className="space-y-3">
-        <ChoiceGroup<ClimateCellName> label={t("history.place")} value={place} onChange={choose(setPlace)} options={PLACES.map((p) => ({ value: p, label: p }))} className="flex-wrap" />
+        <ChoiceGroup<ClimateCellName> label={t("history.place")} value={place} onChange={choose(setPlace)} options={PLACES.map((p) => ({ value: p, label: placeName(p) }))} className="flex-wrap" />
         <ChoiceGroup<HistoryMetric>
           label={t("history.metric")}
           value={metric}
@@ -94,14 +101,14 @@ export function HistoryPanel() {
 
       <HistoryChart
         rows={series.months.map((month, i) => ({ i, month, value: series.values[i] }))}
-        series={[{ key: "value", label: `${place}: ${dataset}`, tone: "now" }]}
+        series={[{ key: "value", label: `${placeName(place)}: ${dataset}`, tone: "now" }]}
         spans={[{ from: start, to: end - 1, kind: "selected" }]}
         unit={unit}
         zeroLine={metric === "heat" ? heatNormalLabel() : undefined}
         playheadIndex={head && playingFrom !== null ? playingFrom + head.index : null}
         summary={t("history.summary", {
           metric: t(metric === "heat" ? "history.heat" : "history.rain"),
-          place,
+          place: placeName(place),
           from: formatMonth(series.months[0], state.lang),
           to: formatMonth(series.months[series.months.length - 1], state.lang),
         })}
@@ -116,7 +123,7 @@ export function HistoryPanel() {
 
       <div className="space-y-1 text-small text-haze">
         <p>{t("history.cell", { lat: series.lat, lon: series.lon })}</p>
-        {shared.length > 0 && <p className="text-moon">{t("history.sharedCell", { places: shared.join(", ") })}</p>}
+        {shared.length > 0 && <p className="text-moon">{t("history.sharedCell", { places: shared.map(placeName).join(", ") })}</p>}
         {caveat && <p>{caveat}</p>}
       </div>
     </div>

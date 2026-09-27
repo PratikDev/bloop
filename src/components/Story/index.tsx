@@ -53,16 +53,16 @@ export function StoryProvider({ children }: { children: ReactNode }) {
     runStory({
       signal: ctrl.signal,
       t: bindT(s.lang),
-      lang: s.lang,
       soundOn: s.soundOn,
       fields: () => latest.current.fields ?? f,
       enterStep(id, at) {
         setStep(id);
         setFocus(at);
       },
-      say(text, source) {
-        setLine({ text, source: source?.full ?? null });
-        return latest.current.commands.say(text, source);
+      say(line, source) {
+        // On screen in the chosen language (Bangla subtitles); speech may be English (plan §17).
+        setLine({ text: line(bindT(s.lang), s.lang), source: source?.full ?? null });
+        return latest.current.commands.say(line, source);
       },
       startSweep: () => latest.current.commands.startSweep(),
       playStorm: () => latest.current.timeLapse.start(),

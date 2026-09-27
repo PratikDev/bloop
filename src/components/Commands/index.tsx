@@ -4,13 +4,14 @@ import { useMemo, useRef, type ReactNode } from "react";
 import { sleep } from "@/lib/abortable";
 import { audio } from "@/lib/audio-adapter";
 import { bandMeans, SWEEP_CENTER, sweepPath } from "@/lib/data";
-import { bindT } from "@/lib/i18n";
+import { bindT, speechLang } from "@/lib/i18n";
 import { spokenReading, readAt } from "@/lib/reading";
+import { postCaption } from "@/lib/ui-captions";
 import { whisperSource, type WhisperSource } from "@/lib/whisper";
 import { useAnnounce } from "../Announcer/use-announcer";
 import { useAppState } from "../AppState/use-app-state";
 import { useLiveData } from "../LiveData/use-live-data";
-import { CommandsContext, MODE_LABELS, SETTING_LABELS, type Commands, type SweepVisual } from "./use-commands";
+import { CommandsContext, MODE_LABELS, SETTING_LABELS, type Line, type Commands, type SweepVisual } from "./use-commands";
 import { useSoundSync } from "./use-sound-sync";
 
 // Shortest time a said line stays before the next one (about fast reading speed).
@@ -37,16 +38,23 @@ export function CommandsProvider({ children }: { children: ReactNode }) {
     };
     const soundOffHint = () => announce(t("sound.offHint"));
 
-    const say = async (text: string, source?: WhisperSource | null) => {
+    // "~" is read aloud as "about".
+    const sayable = (text: string, tl: typeof t) => text.replaceAll("~", tl("speak.approx"));
+
+    const say = async (line: Line, source?: WhisperSource | null) => {
       const id = ++sayCount.current;
       const voiced = state.builtInVoice && state.soundOn;
-      const spoken = text.replaceAll("~", t("speak.approx"));
+      const shown = line(t, state.lang);
       // Two voices never talk at once: built-in speech OR the live region.
       // With sound off, nothing is spoken aloud.
-      if (!voiced) announce(source ? t("whisper.announce", { text: spoken, source: source.caption }) : spoken);
+      if (!voiced) announce(sayable(source ? t("whisper.announce", { text: shown, source: source.caption }) : shown, t));
+      else postCaption("caption.speech", { text: shown });
+      // Speech may be in another language than the screen (plan §17).
+      const sl = speechLang(state.lang);
+      const ts = bindT(sl);
       // Wait at least a short reading time: speech that can't start (no voice
       // for this language) resolves at once.
-      await Promise.all([voiced ? audio.speak(spoken, state.lang) : null, sleep(text.length * MIN_MS_PER_CHAR)]);
+      await Promise.all([voiced ? audio.speak(sayable(line(ts, sl), ts), sl) : null, sleep(shown.length * MIN_MS_PER_CHAR)]);
       if (source && state.soundOn && id === sayCount.current) audio.playEarcon("whisper", { params: { source: source.caption } });
     };
 
@@ -94,8 +102,8 @@ export function CommandsProvider({ children }: { children: ReactNode }) {
       },
       speakCurrent() {
         if (!fields) return;
-        const text = spokenReading(t, readAt(fields, state.cursor), state.track, state.cursor);
-        void say(text, whisperSource(t, fields, state.track));
+        const reading = readAt(fields, state.cursor);
+        void say((tl) => spokenReading(tl, reading, state.track, state.cursor), whisperSource(t, fields, state.track));
       },
       say,
       playSweep() {

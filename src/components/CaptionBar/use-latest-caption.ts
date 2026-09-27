@@ -2,22 +2,22 @@
 
 import { useEffect, useState } from "react";
 import { audio } from "@/lib/audio-adapter";
-import type { CaptionParams } from "@/lib/audio-adapter/types";
+import { onUiCaption, type CaptionEvent } from "@/lib/ui-captions";
 
-export interface CaptionEvent {
-  key: string;
-  params: CaptionParams;
-}
+export type { CaptionEvent };
 
-/** The most recent caption event from the sound engine. */
+/** The most recent caption, from the sound engine or the UI (spoken lines, History). */
 export function useLatestCaption(): CaptionEvent | null {
   const [caption, setCaption] = useState<CaptionEvent | null>(null);
-  useEffect(
-    () =>
-      audio.onAudioEvent((e) => {
-        if (e.kind === "caption") setCaption({ key: e.key, params: e.params });
-      }),
-    [],
-  );
+  useEffect(() => {
+    const offEngine = audio.onAudioEvent((e) => {
+      if (e.kind === "caption") setCaption({ key: e.key, params: e.params });
+    });
+    const offUi = onUiCaption(setCaption);
+    return () => {
+      offEngine();
+      offUi();
+    };
+  }, []);
   return caption;
 }

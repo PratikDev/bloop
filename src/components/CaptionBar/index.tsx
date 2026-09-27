@@ -5,6 +5,7 @@ import { captionText } from "@/lib/i18n";
 import { readingText } from "@/lib/reading";
 import { useAppState, useT } from "../AppState/use-app-state";
 import { useShownPoint } from "../TimeLapse/use-shown-point";
+import { useDescribe } from "./use-describe";
 import { useLatestCaption } from "./use-latest-caption";
 
 /**
@@ -18,6 +19,7 @@ export function CaptionBar({ className }: { className?: string }) {
   const shown = useShownPoint();
   const t = useT();
   const caption = useLatestCaption();
+  useDescribe();
   if (!state.captions) return null;
   const text = !state.soundOn
     ? shown.reading && readingText(t, shown.reading, shown.track)

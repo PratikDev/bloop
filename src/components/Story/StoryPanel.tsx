@@ -32,7 +32,7 @@ export function StoryPanel({ className }: { className?: string }) {
               {i === current ? "▸" : i < current ? "✓" : "·"}
             </span>
             {t(`story.step.${id}`)}
-            {SKIPPED_STEPS.has(id) && <span className="text-small">({t("story.stepSkipped")})</span>}
+            {SKIPPED_STEPS.has(id) && <StatusBadge kind="october">{t("badge.comingOctober")}</StatusBadge>}
           </li>
         ))}
       </ol>
