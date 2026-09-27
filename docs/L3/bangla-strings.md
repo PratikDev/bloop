@@ -96,6 +96,16 @@ For the teammate translating the interface into Bangla.
 | `announce.started` | Sound started. The cursor is over the Bay of Bengal. Arrow keys move it. | TODO_BN |  |
 | `error.ocean` | Couldn't load today's ocean frame. Check the connection and reload the page. | TODO_BN |  |
 | `error.rain` | Couldn't load today's rain frame. Ocean sound still works; reload the page to try again. | TODO_BN |  |
+| `speak.approx` | about | TODO_BN | spoken in place of "~" (keep a trailing space) |
+| `timelapse.play` | Play storm time-lapse | TODO_BN |  |
+| `timelapse.stop` | Stop time-lapse | TODO_BN |  |
+| `timelapse.loadingStart` | Loading the time-lapse frames… | TODO_BN |  |
+| `timelapse.loading` | (sentence with values; see source) | TODO_BN | has values |
+| `timelapse.error` | Couldn't load the time-lapse frames. Reload the page to try again. | TODO_BN |  |
+| `timelapse.announceStart` | (sentence with values; see source) | TODO_BN | has values |
+| `timelapse.frame` | (sentence with values; see source) | TODO_BN | has values |
+| `credits.visualizations` | Visualizations: NASA's Scientific Visualization Studio (SVS 5101, 4285) for the NASA Earth Information Center. | TODO_BN | §15 wording; dataset names stay in English |
+| `credits.data` | Data: MUR SST (NASA/JPL PO.DAAC); GPM IMERG (NASA/JAXA, GES DISC); GRACE/GRACE-FO JPL mascons RL06.3Mv04 (NASA/JPL PO.DAAC); NASA FIRMS; MODIS MOD13Q1 via ORNL DAAC; NASA GLOBE Program; NASA GISTEMP v4; GPCP v2.3 and GPCC Full Data v2020 (via NOAA PSL). | TODO_BN | §15 wording; dataset names stay in English |
 
 ## Help
 
@@ -153,6 +163,9 @@ For the teammate translating the interface into Bangla.
 | `caption.compare.useHeadphones` | (sentence with values; see source) | TODO_BN | has values |
 | `caption.noBanglaVoice` | This device has no Bangla voice, so the value is shown but not spoken | TODO_BN |  |
 | `caption.noSpeech` | This browser can't speak; the value is shown instead | TODO_BN |  |
+| `caption.timelapse.start` | (sentence with values; see source) | TODO_BN | has values |
+| `caption.timelapse.peak` | (sentence with values; see source) | TODO_BN | has values |
+| `caption.timelapse.end` | Time-lapse finished | TODO_BN |  |
 
 ## Panels
 
@@ -182,7 +195,15 @@ For the teammate translating the interface into Bangla.
 | `mapping.status.verified` | Checked against the source | TODO_BN |  |
 | `mapping.status.context` | Context record | TODO_BN |  |
 | `mapping.status.designOnly` | Sound cue | TODO_BN |  |
-| `provenance.notReady` | Provenance for the current point is not ready yet. | TODO_BN |  |
+| `provenance.at` | (sentence with values; see source) | TODO_BN | has values |
+| `provenance.value` | Value | TODO_BN |  |
+| `provenance.dataset` | Dataset | TODO_BN |  |
+| `provenance.visualization` | Visualization | TODO_BN |  |
+| `provenance.svs` | (sentence with values; see source) | TODO_BN | has values |
+| `provenance.frameTime` | Frame time | TODO_BN |  |
+| `provenance.utc` | (sentence with values; see source) | TODO_BN | has values |
+| `provenance.check` | Check | TODO_BN |  |
+| `provenance.checkIsToday` | (sentence with values; see source) | TODO_BN | has values |
 
 ## Then vs Now and Place History
 
@@ -237,3 +258,43 @@ For the teammate translating the interface into Bangla.
 | `history.loading` | Loading the records… | TODO_BN |  |
 | `history.error` | Couldn't load the records. Reload the page to try again. | TODO_BN |  |
 
+## Satellite whisper
+
+| Key | English | Bangla | Note |
+|---|---|---|---|
+| `whisper.withRun` | (sentence with values; see source) | TODO_BN | has values |
+| `whisper.and` | and | TODO_BN | joins agency names, with a space either side |
+| `whisper.mission` | (sentence with values; see source) | TODO_BN | has values |
+| `whisper.dataset` | (sentence with values; see source) | TODO_BN | has values |
+| `whisper.kind.sst` | sea surface temperature | TODO_BN |  |
+| `whisper.kind.rain` | rain | TODO_BN |  |
+| `whisper.announce` | (sentence with values; see source) | TODO_BN | has values |
+
+## Story Mode
+
+| Key | English | Bangla | Note |
+|---|---|---|---|
+| `story.heading` | Story | TODO_BN |  |
+| `story.step.hum` | Ocean hum | TODO_BN |  |
+| `story.step.sweep` | Sweep from Chattogram | TODO_BN |  |
+| `story.step.storm` | Storm time-lapse | TODO_BN |  |
+| `story.step.whisper` | Satellite whisper | TODO_BN |  |
+| `story.step.xray` | X-ray | TODO_BN |  |
+| `story.step.truth` | How we know | TODO_BN |  |
+| `story.stepSkipped` | Skipped: not ready yet | TODO_BN |  |
+| `story.stop` | Stop story | TODO_BN |  |
+| `story.replay` | Play again | TODO_BN |  |
+| `story.backToExplore` | Back to Explore | TODO_BN |  |
+| `story.source` | (sentence with values; see source) | TODO_BN | has values |
+| `story.stopped` | Story stopped. Back to Explore. | TODO_BN |  |
+| `story.hum` | (sentence with values; see source) | TODO_BN | has values |
+| `story.sweep` | Now a sweep from Chattogram across the Bay. Warmer water sounds higher; rain sounds as drops. | TODO_BN |  |
+| `story.sweepNoSound` | The sweep from Chattogram is a sound. Turn sound on to hear it. | TODO_BN |  |
+| `story.storm` | The last day of rain, half an hour per frame, following the storm. | TODO_BN |  |
+| `story.stormPeak` | (sentence with values; see source) | TODO_BN | has values |
+| `story.stormFailed` | The storm frames couldn't load, so this step is skipped. | TODO_BN |  |
+| `story.whisper` | (sentence with values; see source) | TODO_BN | has values |
+| `story.xraySkipped` | X-ray is skipped: it waits for NASA's colorbar data. | TODO_BN |  |
+| `story.truth` | (sentence with values; see source) | TODO_BN | the sentence inside is §16 wording (Pending team approval); has values |
+| `story.truthLoading` | The rain check appears in the Truth panel once rain has loaded. | TODO_BN |  |
+| `story.end` | That's the story. Press Escape to explore. | TODO_BN |  |
