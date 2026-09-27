@@ -1,0 +1,21 @@
+Check D2: EIC rain frame (SVS 4285, flatalpha) -> mm/h vs NASA IMERG
+Run: 2026-09-26. d3 is the corrected RGB-only matching version.
+Output below is d5_compare_rain.py re-run on 2026-09-27 from the saved rain_points_with_imerg.csv
+(rain_worst5.csv came out byte-identical to the original).
+
+candidate   n  agreement  dry_ok  rain_ok  n_both_rain  median_abs_log  median_log_bias  phase_agreement
+ imerg_late_S0000 300      1.000   1.000    1.000          150           0.103           -0.103            1.000
+imerg_early_S0000 300      0.890   0.967    0.813          122           0.186           -0.146            0.992
+ imerg_late_S2330 300      0.897   0.980    0.813          122           0.197           -0.103            0.959
+imerg_early_S2330 300      0.847   0.967    0.727          109           0.276           -0.154            0.954
+
+Best match: imerg_late_S0000
+RESULT vs your thresholds: PASS
+Saved rain_compare.png and rain_worst5.csv
+
+Summary: best match IMERG Late 00:00 UTC; rain/no-rain agreement 100% (150 rain + 150 dry points);
+median |log10 error| 0.103 (about within 27%); bias -0.103 (frame reads ~21% low); rain/snow phase agreement 100%.
+Colorbar strip x = 40-416, y = 37. PASS.
+Also covers Check D (does IMERG qualify?): d1 confirms 3600x1800 RGBA flatalpha frames; liquid and frozen
+log colorbars, 0.1-50 mm/h. PASS.
+Not included (raw data): imerg_files/*.HDF5, rain_frame.png, rain_luts.npz, colorbar PNGs.

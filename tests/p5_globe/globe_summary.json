@@ -1,0 +1,26 @@
+{
+  "sky_conditions": {
+    "access": false,
+    "error": "Expecting value: line 1 column 1 (char 0)"
+  },
+  "precipitations": {
+    "access": false,
+    "error": "Expecting value: line 1 column 1 (char 0)"
+  },
+  "air_temperatures": {
+    "access": false,
+    "error": "Expecting value: line 1 column 1 (char 0)"
+  },
+  "surface_temperatures": {
+    "access": false,
+    "error": "Expecting value: line 1 column 1 (char 0)"
+  },
+  "land_covers": {
+    "access": false,
+    "error": "Expecting value: line 1 column 1 (char 0)"
+  },
+  "aerosols": {
+    "access": false,
+    "error": "Expecting value: line 1 column 1 (char 0)"
+  }
+}

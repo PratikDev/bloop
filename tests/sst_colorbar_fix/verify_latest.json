@@ -1,0 +1,24 @@
+{
+  "sst": {
+    "frame_time_utc": "2026-09-25T00:00:00Z",
+    "date": "2026-09-25",
+    "n": 60,
+    "median_abs": 0.3187321310043103,
+    "p90_abs": 0.7285318893432647,
+    "bias": -0.012641555833815233,
+    "pass": true,
+    "checked_utc": "2026-09-27T09:34:20Z"
+  },
+  "rain": {
+    "frame_time_utc": "2026-09-27T02:30:00Z",
+    "frame": "latest frame",
+    "imerg_run": "Early",
+    "file": "3B-HHR-E.MS.MRG.3IMERG.20260927-S023000-E025959.0150.V07C.HDF5",
+    "agreement": 1.0,
+    "median_abs_log10": 0.1078828236799277,
+    "median_log10_bias": -0.1078828236799277,
+    "n_both_rain": 150,
+    "pass": true,
+    "checked_utc": "2026-09-27T09:34:20Z"
+  }
+}

@@ -1,0 +1,14 @@
+P2: are FIRMS fire counts accessible? Run: 2026-09-25. PASS.
+The original terminal log was not saved; the lines below are copied from the saved outputs in this folder.
+The MAP_KEY in p2_firms.py has been replaced with PASTE_YOUR_MAP_KEY; get a free key from NASA FIRMS to re-run.
+
+Fire detections (total per case, from firms_cases.json):
+  CHT_Bangladesh_MarApr|MODIS_SP|2003: 4,954
+  CHT_Bangladesh_MarApr|MODIS_SP|2023: 4,033
+  CHT_Bangladesh_MarApr|VIIRS_SNPP_SP|2023: 14,521
+  Punjab_India_OctNov|MODIS_SP|2003: 11,879
+  Punjab_India_OctNov|MODIS_SP|2023: 9,850
+  Punjab_India_OctNov|VIIRS_SNPP_SP|2023: 36,165
+
+Rule: compare MODIS with MODIS only; VIIRS counts are much higher because of finer resolution.
+Not included: p2_*.wav (sound renders).

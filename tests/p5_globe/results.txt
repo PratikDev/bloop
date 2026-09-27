@@ -1,0 +1,46 @@
+P5: citizen ground observations (NASA GLOBE) in Bangladesh? Run: 2026-09-25 (API) and 2026-09-26 (CSV).
+
+1) GLOBE API (p5_globe.py, p5_diag.py -> globe_summary.json): FAILED.
+   Every protocol (sky_conditions, precipitations, air_temperatures, surface_temperatures, land_covers, aerosols)
+   returned an empty body: "Expecting value: line 1 column 1 (char 0)".
+
+2) GLOBE Clouds 2025 v3.4 matched CSV (p5b_globe_csv.py): PASS.
+   Output below is p5b_globe_csv.py re-run on 2026-09-27 on the original 125 MB CSV
+   (globe_bangladesh_unique.csv came out byte-identical to the original).
+
+File: C:/Users/Asus/Downloads/juke test T and P/2025_GLOBE_AnnualCloudObs_2026-01-05_v3.4.csv
+Rows: 168145  Columns: 165
+Detected -> lat: Observation Latitude | lon: Observation Longitude | date: Measurement Date (UTC) | id: Observation Id | country: None
+Rows inside the Bangladesh box: 831
+UNIQUE observations in Bangladesh (by ['Observation Id']): 831
+Distinct locations: 139; top 5 locations (lat, lon, count):
+Observation Latitude  Observation Longitude
+23.7461               90.3895                  241
+                      90.3894                   83
+22.6109               88.4340                   59
+23.7460               90.3894                   57
+23.7461               90.3896                   37
+Date range: 2025-01-01 00:00:00+00:00 .. 2025-12-31 00:00:00+00:00
+Observations per month:
+Measurement Date (UTC)
+2025-01      4
+2025-02      5
+2025-03    142
+2025-04    412
+2025-05    124
+2025-06     60
+2025-07     36
+2025-08      6
+2025-09     16
+2025-10      5
+2025-11      1
+2025-12     20
+Freq: M
+
+Satellite-match columns found (56): ['Satellite Comparison Table', 'CALIPSO Satellite Match Table', 'GEO Satellite', 'Terra Satellite', 'Terra Longitude', 'Terra Latitude', 'Terra Date', 'Terra Time', 'Terra Total Cloud Cover', 'Terra Low Cloud Altitude', 'Terra Low Cloud Opt', 'Terra Low Cloud Cover', 'Terra Low Cloud Phase', 'Terra Low Cloud Temp (K)', 'Terra Mid Cloud Altitude', 'Terra Mid Cloud Opt', 'Terra Mid Cloud Cover', 'Terra Mid Cloud Phase', 'Terra Mid Cloud Temp (K)', 'Terra High Cloud Altitude', 'Terra High Cloud Opt', 'Terra High Cloud Cover', 'Terra High Cloud Phase', 'Terra High Cloud Temp (K)', 'Terra Vzen']
+Bangladesh observations with any satellite-match value: 831
+Cloud-cover columns: ['Total Cloud Cover', 'Total Cloud Cover %', 'High Cloud Cover', 'Mid Cloud Cover', 'Low Cloud Cover', 'GEO Total Cloud Cover', 'GEO Low Cloud Cover', 'GEO Mid Cloud Cover', 'GEO High Cloud Cover', 'Terra Total Cloud Cover', 'Terra Low Cloud Cover', 'Terra Mid Cloud Cover', 'Terra High Cloud Cover', 'Aqua Total_Cloud_Cover', 'Aqua Low Cloud Cover']
+
+Saved globe_bangladesh_unique.csv
+
+Not included (too large): 2025_GLOBE_AnnualCloudObs_2026-01-05_v3.4.csv (125 MB), clouds2025.csv (71 MB).
