@@ -12,7 +12,7 @@ Update this table when a phase's checklist is fully ticked.
 | Phase | Name | Target | Status |
 |---|---|---|---|
 | 0 | Mapping spec and pure maths | Sun 27 | ✅ done (27 Sep) |
-| 1 | Audio engine core and dev harness | Sun 27 | ✅ done (27 Sep) |
+| 1 | Audio engine core and dev harness | Sun 27 | ✅ done (27 Sep); L3 requests B1/B3 + `caption.stopped` added after the L3 merge |
 | 2 | Live voices (ocean, rain, snow) | Sun 27 | ⬜ not started |
 | 3 | Speech, ducking, legend, warm-up, earcons | Sun 27 | ⬜ not started |
 | 4 | Sequence player, sweep, motif, opening | Sun 27 night / Mon 28 AM | ⬜ not started |
@@ -89,9 +89,12 @@ A phase is ✅ only when **every** box in its checklist is ticked. If a box can'
 | `public/mapping.json` | **L2** | Single source of truth for every value → sound rule. L3's Mapping panel renders it. |
 | `src/types/data-contract.ts` §10 (mapping types) | **L2** | The rest of the file mirrors L1's output; L3 maintains the data-file types. |
 | `src/app/dev/audio/**` | **L2** | Dev harness. Not linked from the main UI. |
-| `src/lib/data.ts` (`valueAt()`, grid decoders, grid summaries) | **L3** | L2 does **not** depend on it. L2 takes plain numbers. |
-| Wiring cursor/keyboard → audio API | **L3** | A few lines per call site; see Section 2.3. |
-| Caption bar, Describe mode UI, i18n strings | **L3** | L2 emits caption *events* with keys + params (Section 2.2). |
+| `src/lib/data/**` (`valueAt()`, grid decoders, `bandMeans()`, `sweepPath()`, `openingPath()`) | **L3** | L2 does **not** depend on it. L2 takes plain numbers. |
+| `src/lib/audio-adapter/**` (the "which engine" switch + L3's interim engine) | **L3** | The UI imports `audio` from here. Swapping to L2's engine is a one-line change there (Section 2.3). |
+| Wiring cursor/keyboard → audio API | **L3** | Already done against the adapter; see Section 2.3. |
+| Caption bar, Describe mode UI, i18n strings | **L3** | L2 emits caption *events* with keys + params; the keys are fixed in Section 2.4 (L3 already has the English text). |
+| `src/app/globals.css` (theme), re-themed shadcn components (`dialog`, `sheet`, `slider`, `tabs`, `toggle`, `toggle-group`, `tooltip`) | **L3** | L2 never edits these; if the harness needs one of them, it uses L3's file. |
+| `public/mapping.json`, `src/lib/audio/mapping.ts` | **L2** | L3 imports `MAPPING`, `ruleText`, `mapVoice`, `normalise`, `voiceSpec` — **keep these export names stable**. |
 
 ### 1.2 Folder layout (L2)
 `TEAM_BUILD_PLAN` lists a single `lib/audio.ts`. We use a folder so the import path stays `@/lib/audio` but the code is testable in pieces:
@@ -170,7 +173,9 @@ Written in full in Phase 1 as typed stubs (`index.ts`), then implemented phase b
 ```ts
 export type TrackMode = "ocean" | "rain" | "both";
 export type RainPhase = "dry" | "liquid" | "frozen" | "nodata"; // same meaning as data-contract.ts
-export type VoiceId = "ocean" | "rain" | "snow" | "heat" | "monsoon" | "water" | "fires" | "vegetation";
+export type VoiceId = "ocean" | "rain" | "snow" | "heat" | "monsoon" | "water" | "fires" | "vegetation"; // also VOICE_IDS
+export const LIVE_VOICES = ["ocean", "rain", "snow"];                     // LiveVoiceId
+export const TRACK_VOICES = { ocean: ["ocean"], rain: ["rain", "snow"], both: ["ocean", "rain", "snow"] };
 export type EarconId = "nodata" | "whisper" | "ping";
 export type Lang = "en" | "bn";
 
@@ -190,7 +195,8 @@ export interface PlayerHandle {
 export type AudioEvent =
   | { kind: "caption"; key: string; params: Record<string, string | number> } // L3 turns key+params into EN/BN text
   | { kind: "step"; player: string; index: number; total: number; time: number } // playhead sync (chart, map cursor)
-  | { kind: "state"; ready: boolean; playing: boolean; ducked: boolean };
+  | { kind: "state"; ready: boolean; playing: boolean; ducked: boolean }
+  | { kind: "drop"; voice: "rain" | "snow"; time: number; gain: number; lon: number }; // one per drop/bell, for ripples (L3 B2)
 ```
 
 ### 2.2 Functions (`index.ts`)
@@ -205,6 +211,8 @@ setMasterVolume(v: number): void;             // 0..1, user-facing, capped by th
 setVoiceMuted(id: VoiceId, muted: boolean): void;
 setSolo(id: VoiceId | null): void;
 setAllMuted(muted: boolean): void;            // "M" key
+setVoiceVolume(id: VoiceId, v: number): void; // per-voice slider 0..1, under the voice cap (L3 B3)
+getAnalyser(): AnalyserNode | null;           // output after the compressor, fftSize 2048; null before Start (L3 B1)
 
 // Live exploration ─ Phase 2
 setTrackMode(mode: TrackMode): void;          // "1/2/3" keys
@@ -215,7 +223,7 @@ silenceLive(): void;                          // cursor left the map / explorati
 // Speech, legend, earcons ─ Phase 3
 speak(text: string, lang: Lang): Promise<void>;         // ducks the sonification bus
 playClip(url: string): Promise<void>;                   // recorded narration through Web Audio (Phase 8)
-playEarcon(id: EarconId, opts?: { lon?: number }): void;
+playEarcon(id: EarconId, opts?: { lon?: number; params?: CaptionParams }): void; // emits caption.earcon.<id> with params
 playLegend(voice: "ocean" | "rain" | "snow" | "heat" | "water"): PlayerHandle;
 playWarmup(): PlayerHandle;                             // ~30 s: volume check + legends
 
@@ -229,23 +237,48 @@ playThenNow(input: ThenNowInput, part: "heat" | "monsoon" | "water" | "all"): Pl
 playCompare(a: CompareSide, b: CompareSide, mode: "sequential" | "split"): PlayerHandle;
 
 // Time-lapse ─ Phase 6
-playTimelapse(frames: SweepPoint[], opts?: { fps?: number }): PlayerHandle;
+playTimelapse(frames: SweepPoint[], opts?: { fps?: number; loop?: boolean }): PlayerHandle;
 
 // Events ─ Phase 1 (emitted from every later phase)
 onAudioEvent(cb: (e: AudioEvent) => void): () => void;  // returns unsubscribe
 ```
 `ThenNowInput` and `CompareSide` are defined in Phase 5.
 
-### 2.3 How L3 wires it (for reference; L3 writes this)
+### 2.3 How L3 wires it (already built; L3 owns this)
+L3's UI imports `audio` from `src/lib/audio-adapter/index.ts`, whose `AudioEngine` interface (`audio-adapter/types.ts`) is this API plus L3's requests (`getAnalyser`, `setVoiceVolume`, drop events, earcon params). Until L2's voices land, the adapter points at L3's **interim engine** and the UI shows an "Interim sound engine" badge.
+
+**The swap** (L3 does it once L2's Phases 2–4 are ✅), verified to type-check on 27 Sep:
 ```ts
-// Start button (first focusable element, clear accessible label):
-onClick={async () => { await ensureAudio(); playWarmup(); }}
-// Cursor move:
-const o = valueAt("ocean", lat, lon); setOcean(o.valueC, lon);
-const r = valueAt("rain", lat, lon);  setRain(r.mmPerHour, r.phase, lon);
-// Captions:
-useEffect(() => onAudioEvent(e => { if (e.kind === "caption") showCaption(t(e.key, e.params)); }), []);
+// src/lib/audio-adapter/index.ts
+import * as l2 from "@/lib/audio";
+export const audio: AudioEngine = l2;   // L2's module satisfies AudioEngine as-is
+export const IS_INTERIM_ENGINE = false;
 ```
+Afterwards L3's `audio-adapter/types.ts` should re-export L2's types instead of repeating them (DRY).
+
+Keep this true: **every change to L2's public API must still satisfy L3's `AudioEngine`** (`bunx tsc --noEmit` with a one-line check file, as in the findings log).
+
+### 2.4 Caption keys (fixed; L3 already has English text for these, Bangla pending in `docs/L3/bangla-strings.md`)
+L2 emits exactly these keys and params. Adding a key means telling L3 so they add strings.
+
+| Key | Params | Emitted by | Phase |
+|---|---|---|---|
+| `caption.stopped` | — | `stopAll()` | 1 ✅ |
+| `caption.value` | `track` ("ocean" \| "rain"), `value` (°C or mm/h), `phase` (rain only) | live voices, at most every 250 ms | 2 |
+| `caption.nodata` | `track` | entering a no-data area | 2 |
+| `caption.noSpeech` | — | `speak()` when the browser has no speech | 3 |
+| `caption.noBanglaVoice` | — | `speak(…, "bn")` with no Bangla voice | 3 |
+| `caption.earcon.nodata` / `caption.earcon.whisper` / `caption.earcon.ping` | whatever the caller passes in `params` (whisper: `source`) | `playEarcon(id, { params })` | 3 |
+| `caption.legend` | `voice`, `label` (legend label from `mapping.json`) | `playLegend()` | 3 |
+| `caption.legendUnavailable` | `voice` | `playLegend()` for a voice with no legend yet (heat/water before Phase 5) | 3 |
+| `caption.warmup.start` / `caption.warmup.end` | — | `playWarmup()` | 3 |
+| `caption.sweep.start` / `caption.sweep.end` | — | `playSweep()` | 4 |
+| `caption.motif` | — | `playMotif()` | 4 |
+| `caption.opening.closeEyes` / `caption.opening.openEyes` | — | `playOpening()` | 4 |
+
+Keys planned for Phases 5–6 (`caption.water.gap`, `caption.compare.useHeadphones`, `caption.timelapse.start/peak/end`, `caption.clip`) are **not** in L3's strings yet — tell L3 before emitting them.
+
+**Track gate:** legend, warm-up and opening must be heard even when the current track mode would mute that voice (e.g. the rain legend in Ocean mode). Players that name their own voices lift the track-mode gate while they play; mute and solo still apply.
 
 ---
 
@@ -442,7 +475,8 @@ Data voices, speech, players. Loudness tuning.
 - **Snow bells:** 2–3 sine partials (e.g. 1×, 2.76×, 5.4× of ~1.2 kHz, quieter upper partials), 5 ms attack, ~400 ms exponential-style decay via `setTargetAtTime`. Same density rule and jitter as rain.
 - **Rate changes:** when `setRain` changes the rate, the drop loop uses the new rate from the next scheduled drop (no restart, no burst).
 - **No-data tick:** fired only on the **transition** into no-data (ocean `null` while mode includes ocean — i.e. entering land — or rain `nodata`), not on every call; one soft 15 ms click on the earcon bus at `earconMaxGain × 0.5`, panned to lon. Emit caption `{ key: "caption.nodata", params: { track } }`. Rate-limit: at most one tick per 300 ms.
-- **Captions:** emit `caption.value` events **at most every 250 ms** during continuous movement (`{ track, value, unit, lat?, lon }`) so L3 can caption without flooding the screen reader. (Speaking the value on Enter is L3's call to `speak()` in Phase 3.)
+- **Captions:** emit `caption.value` events **at most every 250 ms** during continuous movement (params `{ track, value, phase? }`, Section 2.4) so L3 can caption without flooding the screen reader.
+- **Drop events (L3 B2):** every scheduled rain drop / snow bell emits `{ kind: "drop", voice, time, gain, lon }` when it is handed to Web Audio (`time` = when it will sound, `gain` = its peak 0..1 relative to the voice cap). L3 draws one ripple per drop. (Speaking the value on Enter is L3's call to `speak()` in Phase 3.)
 - **Every voice call must be cheap** (no allocation beyond drops); cursor updates may arrive at 60 Hz.
 
 ### 5.2 Harness section (Phase 2)
@@ -463,6 +497,7 @@ Data voices, speech, players. Loudness tuning.
 - [ ] Ocean slider 20 → 21 °C is audibly higher; readout shows the Hz from `mapContinuous`.
 - [ ] Ocean "No data" → silence within ~0.1 s, one soft tick, caption event in the log; toggling back fades the tone in without a click.
 - [ ] Longitude −180 → hard left, 0 → centre, +180 → hard right (headphones).
+- [ ] Every drop/bell emits one `drop` event (count in the harness log matches the drops heard; `time` is in the future when emitted, `gain` 0..1).
 - [ ] Rain presets 2 → 40 drops/s are clearly distinguishable; average rate over 10 s at 10 drops/s is 10 ± 1 (count in the harness log).
 - [ ] Rain "dry" is silent with **no** tick; "nodata" is silent **with** one tick; frozen switches from drops to bells at the same density.
 - [ ] Track mode Ocean / Rain / Both works; switching modes fades, never clicks.
@@ -484,13 +519,13 @@ Data voices, speech, players. Loudness tuning.
 **Reads:** AUDIO_RESEARCH A6, B2 (legend problem), C3, C4.
 
 ### 6.1 Tasks
-1. **`speech.ts` — `speak(text, lang)`**: AUDIO_RESEARCH A6 code. Duck the sonification bus to `duck.level` on `start`, restore on `end` **and** `error` (glide times from `mapping.json`). Pick a voice: prefer a *local* voice (`voice.localService === true`) for `lang` (`en-US`/`en-GB` for en, `bn-BD`/`bn-IN` for bn); if no Bangla voice exists, resolve immediately, emit caption `caption.noBanglaVoice` and do **not** fall back to reading Bangla with an English voice. Cancel any current utterance before speaking a new one (rapid Enter presses). Voices load asynchronously (`voiceschanged`); handle the empty list at start-up.
+1. **`speech.ts` — `speak(text, lang)`**: AUDIO_RESEARCH A6 code. Duck the sonification bus to `duck.level` on `start`, restore on `end` **and** `error` (glide times from `mapping.json`). Pick a voice: prefer a *local* voice (`voice.localService === true`) for `lang` (`en-US`/`en-GB` for en, `bn-BD`/`bn-IN` for bn); if the browser has no speech at all, resolve and emit `caption.noSpeech`; if no Bangla voice exists, resolve immediately, emit caption `caption.noBanglaVoice` and do **not** fall back to reading Bangla with an English voice. Cancel any current utterance before speaking a new one (rapid Enter presses). Voices load asynchronously (`voiceschanged`); handle the empty list at start-up.
 2. **Earcons (`earcons.ts`)** on the earcon bus, each ≤ 300 ms, panned when `lon` given:
    - `nodata` — (from Phase 2) soft tick.
-   - `whisper` — soft two-note chime (e.g. 1.6 kHz → 2.1 kHz sines, 150 ms each, gentle decay). Played **after** a spoken value finishes (C7). Emits caption `caption.whisper` with `params` supplied by the caller (dataset + mission names come from metadata via L3 — L2 never hard-codes them). Add optional `playEarcon("whisper", { lon, params })`.
+   - `whisper` — soft two-note chime (e.g. 1.6 kHz → 2.1 kHz sines, 150 ms each, gentle decay). Played **after** a spoken value finishes (C7). `playEarcon(id, { lon, params })` emits `caption.earcon.<id>` with the caller's `params` (whisper: `{ source }`, the dataset/mission from metadata via L3 — L2 never hard-codes them).
    - `ping` — one short bright tone (≈ 2.5 kHz, 80 ms) at the extreme point's longitude (B5).
-3. **Legend (`players/legend.ts`)** — `playLegend(voice)` plays each `legend` entry of that voice from `mapping.json` in turn: caption "0 °C" → 1.2 s of that sound → 0.4 s gap → next. Captions come from the legend labels (numbers from `mapping.json`, not code). For `water`, legend is built at call time from the series range (Phase 5; stub until then). Uses the scheduler (it's the first sequence; Phase 4 generalises it — fine to refactor then).
-4. **Warm-up (`playWarmup`)** — ~30 s: (1) caption + 3 s steady mid-level tone "Set a comfortable volume" (volume check, A5), (2) ocean legend, (3) rain legend, (4) snow legend, (5) caption "Silence means no data" + 1 s silence + one no-data tick. Stoppable any time (Esc).
+3. **Legend (`players/legend.ts`)** — `playLegend(voice)` plays each `legend` entry of that voice from `mapping.json` in turn: caption `caption.legend` `{ voice, label }` → 1.2 s of that sound → 0.4 s gap → next. Labels come from `mapping.json`, not code. A voice with no legend yet (heat/water before Phase 5; water's legend is built from the series range) emits `caption.legendUnavailable` `{ voice }`. Lifts the track gate (Section 2.4). Uses the scheduler (it's the first sequence; Phase 4 generalises it — fine to refactor then).
+4. **Warm-up (`playWarmup`)** — ~30 s, bracketed by `caption.warmup.start` / `caption.warmup.end` and lifting the track gate: (1) 3 s steady mid-level tone for the volume check (A5), (2) ocean legend, (3) rain legend, (4) snow legend, (5) 1 s silence + one no-data tick (with its `caption.earcon.nodata`). Stoppable any time (Esc).
 5. **Legend replay on switch (AUDIO_RESEARCH C3):** export `playLegendForMode(mode)`; L3 calls it when the track mode or app mode changes. Make it short (first and last legend points only, ≈ 3 s) so it doesn't annoy; full legend stays on "L".
 
 ### 6.2 Harness section (Phase 3)
@@ -523,9 +558,9 @@ Data voices, speech, players. Loudness tuning.
    - Emits `{ kind: "step", player: id, index, total, time }` for playhead sync. Because scheduling runs ahead of the clock, emit the event with a `setTimeout` of `(time − ctx.currentTime) × 1000` so the UI cursor moves when the sound does (visual only; audio timing never depends on it).
    - `stop()` clears only this player's events, fades its voices, resolves `done`. Starting a new sequence of the same kind stops the previous one.
    - Voices need an **"at time t" setter**: extend ocean/rain/snow with `setAt(value, lon, time)` (param automation at `time` instead of `now`). The rain drop loop must look up the rate *in force at each drop's time* (keep a small time-ordered list of rate changes).
-2. **Sweep (`playSweep(points, { stepMs = 80 })`)** — each point drives ocean and/or rain (per track mode) at its time; entering no-data plays the tick; caption at start ("Sweeping outward from Dhaka") and end; emits step events. The path itself (rings outward from Dhaka, 23.81 N 90.41 E) is built by L3 from `valueAt()`; the harness uses a synthetic path.
-3. **Motif (`playMotif(bandMeansC)`)** — 4 notes, 350 ms each, 50 ms gaps, soft bell-sine timbre, pitch of each = `mapContinuous(bandMean)` with the **ocean** rule; `null` band → a rest (silence). Bands are fixed (design choice, record in `mapping.json` `motif.note`): **60 S–30 S, 30 S–0, 0–30 N, 30 N–60 N**, played south → north. Played at app start (after warm-up) and on track switch (L3 triggers).
-4. **Opening (`playOpening(points, { durationSec = 10 })`)** — C1: ~10 s bed of real ocean + rain sound: steps through the given points (L3 passes ~20 points along a path over the Bay of Bengal) with long glides, ocean + rain both on, fades in over 2 s and out over 1.5 s; emits caption `caption.opening.closeEyes` at start and `caption.opening.openEyes` at the end (L3/L4 own the text and the fade-in of the frame). Skip = `stop()`.
+2. **Sweep (`playSweep(points, { stepMs = 80 })`)** — each point drives ocean and/or rain (per track mode) at its time; entering no-data plays the tick; `caption.sweep.start` / `caption.sweep.end`; emits step events. The path is L3's `sweepPath()` (rings outward from Dhaka, 23.81 N 90.41 E, from `valueAt()`); the harness uses a synthetic path.
+3. **Motif (`playMotif(bandMeansC)`)** — 4 notes, 350 ms each, 50 ms gaps, soft bell-sine timbre, pitch of each = `mapContinuous(bandMean)` with the **ocean** rule; `null` band → a rest (silence). Bands are fixed (design choice, record in `mapping.json` `motif.note`): **60 S–30 S, 30 S–0, 0–30 N, 30 N–60 N**, played south → north. Emits `caption.motif`. L3 computes the band means with `bandMeans()` (area-weighted, same four bands). Played at app start (after warm-up) and on track switch (L3 triggers).
+4. **Opening (`playOpening(points, { durationSec = 10 })`)** — C1: ~10 s bed of real ocean + rain sound: steps through the given points (L3's `openingPath()`, a path over the Bay of Bengal) with long glides, ocean + rain both on (lifts the track gate), fades in over 2 s and out over 1.5 s; emits caption `caption.opening.closeEyes` at start and `caption.opening.openEyes` at the end (L3/L4 own the text and the fade-in of the frame). Skip = `stop()`.
 
 ### 7.2 Harness section (Phase 4)
 - "Synthetic sweep": 60 points, ocean values from 30 °C falling to 5 °C, lon −180 → 180, every 15th point no-data; step-ms slider (40–200).
@@ -681,8 +716,8 @@ Resolve with the lane owner before the phase that needs it. Record the answer he
 |---|---|---|---|
 | D1 | Monsoon step = one **year** (Jun–Sep mean, 10 per window, matches the on-screen numbers) or one **month** (TEAM_BUILD_PLAN §10's "150 ms per month")? | Phase 5 | **One year**, 400 ms/step; update TEAM_BUILD_PLAN §10 text. |
 | D2 | Water plays the **full record** (hears the fall and the gap) or only windows A and B (no gap inside them)? | Phase 5 | **Full record**, 60 ms/month, windows marked by captions. |
-| D3 | Who computes latitude-band means (motif) and "max in view" (ping)? L3 in `lib/data.ts`, or L2 by sampling `valueAt()`? | Phase 4 | **L3** adds `bandMeans()` and `maxInView()` to `lib/data.ts`. |
-| D4 | Sweep step length and path density (points per ring). | Phase 4 | 80 ms/step; L3 chooses points. |
+| D3 | Who computes latitude-band means (motif) and "max in view" (ping)? | Phase 4 | **Resolved (27 Sep):** L3 — `bandMeans()` is in `lib/data/summaries.ts`. `maxInView()` for the ping is still to add (L3). |
+| D4 | Sweep step length and path density (points per ring). | Phase 4 | Path: **resolved**, L3's `sweepPath()` (`SWEEP_RINGS` in `lib/data/places.ts`). Step: 80 ms default in L2. |
 | D5 | Heat-deviation detune cents per band (8 / 20 / 35) and roughness. | Phase 5 | Starting values; tune by ear, stay `designChoice: true`. |
 | D6 | Snow bell partials and rain band-pass centre. | Phase 2 | Values in Phase 2 spec; tune by ear. |
 
@@ -693,14 +728,14 @@ Resolve with the lane owner before the phase that needs it. Record the answer he
 | From | What | Needed by | Blocking? |
 |---|---|---|---|
 | L3 | Wiring of the API into the real UI (Start button first in focus order, cursor → `setOcean`/`setRain`, keys → mode/mute/legend/Esc, captions from events) | Phase 2 onward | No — harness covers L2 testing |
-| L3 | Sweep path as `SweepPoint[]` from `valueAt()` | Phase 4 (real use) | No — harness uses synthetic |
-| L3 | `bandMeans()` / `maxInView()` (D3) | Phase 4 (real use) | No |
+| L3 | Sweep path as `SweepPoint[]` from `valueAt()` | Phase 4 (real use) | ✅ `sweepPath()`, `openingPath()` exist |
+| L3 | `bandMeans()` ✅ / `maxInView()` ⏳ (D3) | Phase 4 (real use) | No |
 | L3 | Time-lapse frames as `SweepPoint[]` at the cursor (decoded from `sequence/*.u8.gz`) | Phase 6 (real use) | No |
-| L3 | Caption text for every caption key L2 emits (EN + BN) | Phase 3 onward | No — keys shown raw until then |
+| L3 | Caption text for every caption key L2 emits (EN + BN) | Phase 3 onward | ✅ English for the Section 2.4 keys (Bangla pending); new keys need L3 first |
 | L4 | Recorded narration clips (EN, BN) and their subtitles | Phase 8 | Only for `playClip` test |
 | L1 | Shapes stay frozen (already agreed) | — | — |
 
-Keep a running list of emitted caption keys in `docs/L2/AUDIO_API.md` so L3 can translate them.
+The caption key list lives in Section 2.4 here and in `docs/L2/AUDIO_API.md`; keep both in step.
 
 ---
 
