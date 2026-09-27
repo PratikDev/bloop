@@ -1,0 +1,283 @@
+# L3 Progress Record: Interface and Accessibility
+
+Last updated: 27 Sep 2026, after Phase 3 item 1.
+Branch: `L3-interface` on GitHub (`origin/L3-interface`), local branch `L3`.
+Owner: L3 (Interface / Accessibility).
+
+This file lets any teammate understand where L3 stands without reading the chat or the code. For the detailed requests to other lanes, see [contract-proposals.md](contract-proposals.md). For how to swap in L2's engine, see [integration.md](integration.md). For the visual design, see [design-plan.md](design-plan.md).
+
+---
+
+## 1. Summary
+
+L3 builds the web app people see and use: the map, the controls, the panels, and the accessibility features that let blind and low-vision people explore NASA's frames by ear.
+
+**Where it stands:** Phase 2 (the core app) is done, and Phase 3 item 1 (Then vs Now and Place History) is done. The next item is Story Mode, which hasn't started.
+
+**What works today:**
+- You can open the app and choose "Start listening" or "Explore without sound".
+- You can move a cursor over today's real NASA ocean temperature and rain frames with the mouse, touch or keyboard, and hear and read the value under it.
+- You can hear a sweep outward from Chattogram.
+- You can play "Dhaka then vs now" (heat, monsoon, water) with charts that follow the sound, and play a decade of any place's monthly record.
+
+**The main caveat:** the sound comes from an **interim sound engine** that L3 built to L2's planned API, because L2's real engine isn't finished. The app says so with an "Interim sound engine" badge. The sound has been measured by software but **not yet listened to and approved by a person**.
+
+---
+
+## 2. Timeline
+
+| Phase | What it produced |
+|---|---|
+| **Phase 0: report** | Checked the repo, branches and lockfile. Found that L1's real data was already published, L2's `audio.ts` didn't exist yet (only `mapping.ts`), and `lib/data.ts` didn't exist anywhere. Listed conflicts between the brief, the plan and the data (for example, the §16 ocean error number no longer matches the data). Proposed the file list. |
+| **Phase 1: design plan** | [design-plan.md](design-plan.md): colours, contrast tables, type scale, layout for desktop, tablet and mobile, the motion list, and a self-review. Measured the colours in the real NASA frames and chose shapla pink and indigo because NASA's colormaps never use those hues. Added a colour-blindness check on every pixel of the real frames, and a 200% readout weight test. |
+| **Phase 2: core app** | The interim sound engine, the real data decoder, the theme, app state and i18n, the map, the readout, keyboard and screen-reader support, the Truth and Mapping panels, the Start overlay and the opening sequence. Then "Explore without sound" and a class-merging fix. |
+| **Phase 3, item 1** | Then vs Now (heat, monsoon, water with charts and playheads, "then left, now right", disclosure panel) and Place History (four places, heat or rain, a decade played month by month). Also: sweep moved to Chattogram, the L2 API split with fallbacks, and shape checks on L1's files. |
+
+---
+
+## 3. What's built, feature by feature
+
+Status key: **Complete** = works and was tested in a browser. **Interim** = works, but a temporary version will be replaced. **Pending** = not built, or blocked.
+
+| Feature | What it does for the user | Main files | Status |
+|---|---|---|---|
+| **Interim sound engine** | Turns values into sound: the ocean as a pitch, rain as drops, snow as soft bells, heat and water for Then vs Now, speech with the sound dipping underneath, legend tones, the sweep, the opening. Esc fades everything in about 50 ms. | `src/lib/audio-adapter/` (`interim-engine.ts`, `graph.ts`, `scheduler.ts`, `live.ts`, `players.ts`, `sequence.ts`, `then-now.ts`, `speech.ts`, `earcons.ts`, `mixer.ts`, `voices/*`) | **Interim.** Uses L2's planned function names. To be replaced by L2's engine with a one-file change (`integration.md`). |
+| **Audio adapter** | The one door between the UI and any engine. Checks at build time that an engine matches L2's API, and fills in safe fallbacks for extras. | `src/lib/audio-adapter/index.ts`, `types.ts`, `fallbacks.ts` | **Complete.** |
+| **Data decoder** | Reads L1's real grids and gives the value at any point (`valueAt`). The rain grid loads after the page first appears, to keep the first load lighter. | `src/lib/data/` (`latest.ts`, `grid.ts`, `value-at.ts`, `fetch.ts`, `paths.ts`) | **Complete.** Checked against Python at 506 points. |
+| **Context data loaders** | Loads the demo, GRACE, GISTEMP and GPCP files when a view first needs them, and checks their shape so a changed file shows an error instead of crashing. | `src/lib/data/context.ts`, `validate.ts` | **Complete.** |
+| **Theme** | The "Night over the Bay" look: indigo surfaces, one shapla pink accent for anything that listens or points, Anek Bangla and Tiro Bangla fonts, one focus ring for everything. shadcn components re-themed. | `src/app/globals.css`, `src/app/layout.tsx`, `src/components/ui/*`, `src/lib/utils.ts` | **Complete.** |
+| **App state and i18n** | One store for cursor, track, mode, language and settings. Every visible string goes through one table, so Bangla can be added in one place. | `src/components/AppState/`, `src/lib/i18n/` | **Complete** for English. **Pending** for Bangla (no strings translated yet; list in `bangla-strings.md`). |
+| **Frame view** | Draws the EIC frame, the land mask and coastline under the rain frame, the cursor, the sound rings (drawn from the actual sound), rain ripples and the sweep ring. Sharp on high-density screens; pauses when the tab is hidden. | `src/components/FrameView/` | **Complete.** |
+| **Readout and frame label** | The big value under the cursor, the coordinates, and the plan §16 frame label ("EIC frame: …, … UTC. Sound generated live from this frame."). On the map on wide screens, below it on phones. Bengali digits sit in fixed-width cells so they don't jump. | `src/components/Readout.tsx`, `FrameLabel.tsx` | **Complete.** |
+| **Keyboard and screen reader** | The map is a focusable region. Keys: arrows (Shift for 10°), Enter speaks, Space pauses, 1/2/3 tracks, S sweep, M mute, D describe, C captions, T Then vs Now, L legend, P provenance, X X-ray, H or ? help. Letter keys only work while the map has focus; Esc works everywhere. One polite live region announces settled values. | `src/components/ExploreControls/`, `Announcer/`, `Commands/`, `HelpDialog.tsx`, `JukeboxApp/use-global-escape.ts` | **Complete** as built. **Not yet tested** with a real screen reader. |
+| **Captions** | A caption for every sound event, in the serif font. With sound off, it shows the reading instead. | `src/components/CaptionBar/`, `src/lib/i18n/en/captions.ts` | **Complete** for English. |
+| **Start overlay** | "Start listening" is the first and only focusable thing on load; it unlocks audio. "Explore without sound" (second in focus order) opens the map with captions on and no audio; "Turn sound on" is available later. | `src/components/StartOverlay.tsx` | **Complete.** |
+| **Opening ("Close your eyes")** | About 10 s of real ocean and rain sound over darkness, the live waveform as one line, then the frame opens outward from the equator. Skip and Esc end it. Instant cut with reduced motion. | `src/components/Opening.tsx`, `players.ts` (`playOpening`) | **Complete.** Simplified: the waveform line doesn't visibly move onto the equator before the reveal. |
+| **Truth panel** | How we know the sound is right. Rain: sentence built from `rain.json` (today's re-check), plus the first check's plot, labelled as such. Ocean: "Verification being updated". | `src/components/panels/TruthPanel.tsx`, `src/lib/truth.ts` | **Complete**, but its wording is **Pending team approval** (see §8). |
+| **Mapping panel** | Every value-to-sound rule, generated from L2's `mapping.json`, with "Hear the legend" buttons. Design choices are marked. | `src/components/panels/MappingPanel.tsx` | **Complete** in English. Rule sentences come from L2's `ruleText()` (English only). |
+| **Provenance panel** | Would show where the current value comes from. | `src/components/panels/SidePanel.tsx` | **Pending.** Shows "not ready yet". On the plan's "cut first" list. |
+| **Mixer** | Volume, mute and solo for ocean, rain and snow. In a bottom sheet on phones. | `src/components/Mixer.tsx`, `BottomBar.tsx` | **Complete.** Per-voice volume is an L3 extra (proposal B3). |
+| **Sweep** | Rings outward from **Chattogram** (22.36° N, 91.78° E), in sound and on the map. | `src/lib/data/summaries.ts`, `places.ts`, `players.ts`, `FrameView/use-overlay-loop.ts` | **Complete** (the ring sweep). Row sweep not built (optional in the plan). |
+| **Then vs Now** | "Dhaka then vs now": heat (GISTEMP), monsoon (GPCP) and water (GRACE). Each part has a chart with a pink playhead that follows the sound; captions exactly as the JSON gives them; a disclosure panel with datasets, windows and numbers. Play one part, all three, or "then left, now right". Every stretch of missing GRACE months is silent, with a caption naming the months. | `src/components/ThenNow/`, `src/components/charts/YearlyChart.tsx`, `HistoryChart.tsx`, `src/lib/then-now.ts`, `src/lib/audio-adapter/then-now.ts`, `voices/heat.ts`, `bass.ts`, `monsoon.ts` | **Complete**, with **Interim** sound. Captions **Pending team approval**. |
+| **Place History** | Pick Chattogram, Dhaka, Rajshahi or Sylhet, then heat or rain, then a decade; hear it month by month with a playhead. Says when two places are the same grid cell in the dataset. | `src/components/panels/HistoryPanel/`, `src/lib/history.ts`, `src/hooks/use-playhead.ts` | **Complete**, with **Interim** sound. Dragging along the chart to hear a month isn't built yet. |
+| **Story Mode** | Scripted tour. | none yet | **Pending** (Phase 3 item 2). |
+| **X-ray** | Shows how a colour becomes a number and a sound. | none yet (X announces it isn't ready) | **Pending**, blocked on L1's colorbar files (request C1). |
+| **Satellite whisper** | Chime and caption naming the dataset after a spoken value. | earcon exists in the engine; not wired | **Pending** (Phase 3 item 4). |
+| **Describe mode** | Spoken descriptions during playback. | toggle exists, no behaviour yet | **Pending** (Phase 4). |
+
+---
+
+## 4. Commits
+
+All L3 commits, oldest first. None has a Claude co-author line.
+
+| Hash | Message | Pushed to `L3-interface` | Also in `main` |
+|---|---|---|---|
+| `30d34b1` | docs(L3): design plan and contract proposals | Yes | Yes (PR #3) |
+| `3365bbc` | docs(L3): CVD cursor check (shapla -> #FF9BD4) and readout weight test (350) | Yes | Yes |
+| `4e47c13` | chore(L3): copy L2 mapping spec unchanged from L2-audio-engine@8ccb937 | Yes | Yes |
+| `0bd0c40` | feat(L3): interim sound engine | Yes | Yes |
+| `50d52bd` | feat(L3): grid decoder and valueAt() | Yes | Yes |
+| `af773e5` | feat(L3): theme tokens and shadcn re-theme | Yes | Yes |
+| `0f5b2a6` | feat(L3): app state, i18n and shared helpers | Yes | Yes |
+| `0f91086` | feat(L3): explore UI, panels and opening | Yes | Yes |
+| `0a90552` | docs(L3): Bangla strings and contract proposals | Yes | Yes |
+| `bae73f9` | fix(L3): cn knows the design type sizes and sheet radius | Yes | No |
+| `5434c37` | feat(L3): Explore without sound option on the Start overlay | Yes | No |
+| `77d7642` | feat(L3): sweep outward from Chattogram | Yes | No |
+| `4f01e7e` | feat(L3): interim Then vs Now, compare and series players | Yes | No |
+| `e4453c8` | feat(L3): L2 API split with fallbacks and shared audio clock | Yes | No |
+| `1300737` | feat(L3): context data loaders with shape checks | Yes | No |
+| `5b0a46e` | feat(L3): Then vs Now stage and Place History charts | Yes | No |
+| `47e6daa` | docs(L3): integration guide, proposals, Bangla strings | Yes | No |
+
+The first three commits were made with an earlier hash and rewritten before any push, to remove a co-author line. Each of the last six commits was type-checked on its own in a separate worktree before pushing.
+
+---
+
+## 5. Decisions log
+
+| # | Decision | Reason |
+|---|---|---|
+| 1 | **Shapla pink (`#FF9BD4`) and indigo** instead of the brief's marigold and navy. | Measured every pixel of the real frames: the rain colormap uses marigold's yellow (17% of rain pixels), so a marigold cursor would look like data. The hues 255° to 330° are used by neither NASA colormap. Shapla (the water lily) is Bangladesh's national flower. The first pink (`#F58BCB`) failed the colour-blindness check on 3.3% of ocean pixels, so it was lightened. |
+| 2 | Readout weight **350**. | At 200% zoom, 300 made Bengali digits too thin; 350 is the lightest that stays clearly legible in both scripts. |
+| 3 | **Real data, no mocks.** | L1's grids were already published. No "Mock data" badge is needed. |
+| 4 | **Interim sound engine written to L2's planned API** (`docs/L2/BUILD_PLAN.md` §2 and §8). | L2's engine wasn't built. Same names and shapes mean L2's engine replaces it with a one-file change. |
+| 5 | **Split the engine type into `L2AudioApi` and `L3AudioExtensions`, with fallbacks.** | If L2's engine doesn't match, the build fails early. If it lacks L3's extras, the UI degrades instead of breaking. |
+| 6 | **AGENTS.md naming** (PascalCase files; a component's own hooks in its folder). | Repo rule. The plan's kebab-case names (`frame-view.tsx`) aren't used. |
+| 7 | Ocean Truth shows **"Verification being updated"**, no number. | §16 says 0.85 °C; the data now says 0.31 °C after recalibration. The product lead won't show 0.31 °C until L1 confirms it was measured on a different frame from the one used for calibration. |
+| 8 | Rain Truth names **the IMERG run the JSON says was checked** (Early today) and builds the sentence from the JSON numbers. | §16 says "Late run", but today's re-check used the Early run. |
+| 9 | **Demo captions shown exactly as the JSON gives them**, marked "Pending team approval". | The JSON differs slightly from §16 ("10 and 10 years", hyphen instead of minus). The product lead asked L1 to fix the JSON; the UI follows automatically. |
+| 10 | **Sweep from Chattogram**, not Dhaka. | The team is from Chattogram, and its grid cell is ocean, so the sweep has sound from the first ring (Dhaka is inland). |
+| 11 | **Then vs Now stays Dhaka.** Request C4 (a Chattogram version) waits for October. | L1's demo file and §16 wording are Dhaka's. Heat is the same grid cell as Chattogram, but rain isn't. |
+| 12 | **Don't merge L2's branch into L3.** L2 merges into `main`. A `bun.lock` conflict is solved by regenerating it with `bun install`. | Keeps lanes independent. |
+| 13 | **X = X-ray, Space = pause and resume the live sound, G reserved** for the game. | The plan didn't define Space in Explore, and X-ray needed a key. |
+| 14 | **Letter keys only while the map has focus.** Esc everywhere. | WCAG 2.1.4: single-letter shortcuts must not clash with screen-reader keys. |
+| 15 | **"Explore without sound"** on the Start overlay. | People who can't or don't want to use sound must not be locked out. |
+| 16 | **Colour never signals status.** Badges use a shape and words. | In this app colour means data. |
+| 17 | Mobile: the **readout goes below the map**. In Then vs Now, the **frame label moves into the stage header**. | The map is too short on phones for text on top. The frame time must be visible in every view. |
+| 18 | `cn` configured with our custom text sizes (`src/lib/utils.ts`). **Always import `cn` from `@/lib/utils`.** | The default setup silently dropped sizes like `text-lead` when a colour class followed them. |
+| 19 | **Step events count data points only** (proposal B5). | Chart playheads can then map an event straight to a data point, whichever engine runs. |
+| 20 | Every **stretch of missing GRACE months** gets its own silence caption. | There are 35 missing months, not one gap (proposal A4). |
+| 21 | In the "Both" track, the **rain frame is drawn over the ocean frame**, and the readout shows both values. | Both sounds play, so both frames and both frame labels are shown. |
+
+---
+
+## 6. Deviations from the team build plan
+
+| What L3 does differently | Plan section that needs updating |
+|---|---|
+| Sweep starts from **Chattogram** | §9.2 (`sweep-controls.tsx` row), §9.3 (key S), §11 feature A6, L2's plan Phase 4; check the video narration (see proposal E1) |
+| Water caption: GRACE has **35 missing months**, not only Jul 2017 to May 2018 | §16 water row, §11.5 water row, §13 QA list (proposal A4) |
+| Ocean Truth number hidden; rain Truth names the Early run and uses today's re-check | §16 Truth rows (proposals A1, A2) |
+| File names in PascalCase folders (`FrameView/index.tsx`, not `frame-view.tsx`); `lib/data.ts` is a folder `src/lib/data/`; `valueAt` takes the loaded frames as its first argument | §6 file tree, §9.2 module table |
+| UI talks to sound only through `src/lib/audio-adapter/` (not `lib/audio.ts` directly) | §9.2 module table |
+| New keys: **X** (X-ray), **Space** (pause and resume live sound); letter keys work only when the map has focus | §9.3 keyboard map |
+| **"Explore without sound"** start option (not in the plan) | §9.1 layout, §9.4 accessibility |
+| Right-panel tabs are Truth, Mapping (includes the legend), Provenance, History. The Comparison Player lives in the Then vs Now stage, not a panel tab. | §9.1 right panel |
+| Then vs Now plays **yearly** values (400 ms per year) for heat and monsoon, following L2's plan §8.3, not the plan's 150 ms monthly steps | §10 heat and monsoon rows |
+| GRACE plays the **Bangladesh** box only; NW India is shown on the chart but not played | §11.5 water row |
+| Place History has a playhead and plays one decade; **dragging to scrub** isn't built yet | §11 H1, H3 |
+| Opening: the frame opens from the equator, but the waveform line doesn't visibly settle onto the equator first | §11 C1 |
+| No "Mock data" badge (real data is used) | brief only |
+
+---
+
+## 7. Honesty status
+
+| On screen | Status | Blocking |
+|---|---|---|
+| Frame label ("EIC frame: …, … UTC. Sound generated live from this frame.") | **Final**: exact §16 wording; time from the JSON | nothing |
+| Values under the cursor (°C, mm/h) | **Final**: decoded from L1's grids, checked against Python at 506 points | nothing |
+| Ocean Truth | **"Verification being updated"**, no number | L1 to confirm the 0.31 °C was measured on a different frame from the calibration frame (A1) |
+| Rain Truth sentence | **Pending team approval** badge; numbers from `rain.json` | team to approve new §16 wording; L1 to align `matched_run` and add `approx_percent` to `latest_check` (A2, C1b) |
+| Rain Truth plot | Shown, captioned as the first check (Late run), not today's re-check | L1 to publish a plot for the check being quoted (C1b) |
+| Then vs Now captions (heat, monsoon, water) | **Pending team approval** badge; shown exactly as the JSON gives them | L1 to fix the JSON text to match §16 (A3); team to update the water wording (A4) |
+| Disclosure numbers (means, spreads, changes, GRACE boxes) | **Final**: from the JSON | nothing |
+| Place History charts and shared-cell notes | **Final**: from the JSON (grid cell positions compared at runtime) | nothing |
+| "0 °C (the 1951–1980 normal)" chart label | **Final**: from L2's `mapping.json` legend | nothing |
+| Mapping panel rules | **Final**: generated from `mapping.json` numbers by L2's `ruleText()` | L2 owns the file |
+| "Interim sound engine" badge | shown until L2's engine replaces it | L2 engine |
+| Story mode | label "Not ready yet" | Phase 3 item 2 |
+
+---
+
+## 8. Testing
+
+| What | How | Result |
+|---|---|---|
+| Grid decoder | TypeScript decoder vs an independent Python decode of the same bytes, 506 points including the grid edges | 506 of 506 match |
+| Contrast | Computed WCAG ratios for every text and background pair | All pass (table in design-plan §2.1) |
+| Cursor visibility for colour-blind users | Machado 2009 simulation (protanopia, deuteranopia, tritanopia) on every pixel of four real frames | 0% of pixels fail after the pink fix (design-plan §2.4) |
+| Readout weight | Headless Edge at 2× scale (like 200% zoom), real fonts, real frame crop | 350 chosen (design-plan §3.3) |
+| Keyboard-only flow, audio, speech, live region | Scripted headless Edge on the production build. Audio measured through the app's own `AnalyserNode`; speech checked by recording what was passed to `speechSynthesis.speak`; live region read from the page. | Start is the only focusable item before starting; focus goes to the map; ocean sound peak 0.13; silence over land (0.000); Enter speaks the value and place; tracks switch; legend plays; Esc stops all (0.000); Space resumes |
+| Opening | Same scripts | "Close your eyes." caption, sound (peak about 0.1), Skip focused; after about 10 s the map is revealed and focused; Skip and Esc both end it |
+| Explore without sound | Same scripts | No AudioContext is created; caption shows the reading; Enter goes to the live region, not speech; "Turn sound on" starts audio (peak 0.13) |
+| Then vs Now | Same scripts | Heading focused on open; heat caption matches the JSON; the playhead moves through both windows; "then left, now right" shows two playheads; Stop gives silence (0.000); water plays with a caption for each stretch of missing months; the Jul 2017 to May 2018 gap is silent (0.000) |
+| Place History | Same scripts, plus a direct check of the shared-cell logic | A decade plays with a playhead. Shared cells: heat Dhaka = Chattogram, rain Dhaka = Sylhet, rain Chattogram has its own cell |
+| Reduced motion | OS setting emulated, and the in-app toggle | The page switches to reduced motion in both cases (checked on the `<html>` attribute; the reduced-motion visuals were not checked by screenshot) |
+| Layout | Screenshots at 1440×900, 900×1100 (tablet) and 390×844 (phone), reviewed by eye | No horizontal scroll on the phone; every phone touch target is at least 44×44 px; issues found in review were fixed (bottom bar pushed off screen, sweep ring not drawing, collapsed sliders, unlabelled unbuilt modes, text sizes dropped) |
+| Console errors | Collected in every scripted run | None |
+| Code checks | `bun run lint`, `bunx tsc --noEmit`, `bun run build` after every step; each of the last six commits type-checked on its own | All pass |
+| Merge safety | Dry-run merges (`git merge-tree`) of L3 with `L2-audio-engine` and `main`, plus a three-way merge of `package.json` and `bun.lock` | Clean, except `bun.lock` (known; see decision 12) |
+
+**Where the test scripts are:** the browser scripts (`qa.ts`, `qa-silent.ts`, `qa-thennow.ts`) were run from a local scratch folder with `playwright-core` driving the installed Microsoft Edge. **They aren't in the repo yet**, so teammates can't run them. Adding them as a proper test setup is listed under remaining work.
+
+---
+
+## 9. Not yet verified
+
+| What | Why it matters | How to test |
+|---|---|---|
+| **Screen readers** (NVDA, JAWS, VoiceOver, TalkBack) | The map uses `role="application"` so arrow keys reach it; screen readers differ in how they handle this | NVDA + Chrome on Windows: Tab to the map, press arrows (the cursor should move and the value be read), press H, press Esc. Repeat with VoiceOver on a Mac and TalkBack on Android. |
+| **Listening by a person** | Only signal levels were measured; nobody has judged whether the sound is pleasant, clear or free of clicks | Listen on laptop speakers and headphones: ocean pitch glides, rain drops, snow bells, heat vs ocean timbre, the GRACE bass, the gap silence. L2's ear tests T2 to T6 cover this. |
+| **Real Android phone** | Rain drops might stutter on a mid-range phone; touch drag on the map | Open the app on a mid-range Android in Chrome; drag over heavy rain. If drops stutter, raise the look-ahead in `src/lib/audio-adapter/scheduler.ts` from 0.1 to 0.2 s. |
+| **Vercel deployment and compression** | Locally the `.bin` grids are sent uncompressed (5.9 MB; 0.7 MB if gzipped) | Deploy, open DevTools Network, check `content-encoding` and transfer size for `/data/latest/*.bin` (proposal C3). |
+| **Bangla speech** | Many devices have no Bangla voice; the app then shows the value without speaking it | Switch to বাংলা and press Enter on each teammate's phone and laptop; note which have a Bangla voice. |
+| **Other browsers** | Only Microsoft Edge (Chromium) was tested | Firefox and Safari: the full keyboard flow and the sound. |
+| **Full-page 200% zoom** | Only the readout was tested at 2× | Browser zoom to 200% at 1280 px wide: check that nothing overlaps or is cut off. |
+| **1280 px laptops** | The top bar may be crowded at that width | Check the top bar at 1280×720. |
+| **Reduced-motion visuals** | Only the setting itself was checked | Turn on reduced motion and check that the rings become one still ring, the wipe becomes a cut, and the sweep shows a dot. |
+
+---
+
+## 10. Open requests to other lanes
+
+Details for each are in [contract-proposals.md](contract-proposals.md).
+
+| ID | Lane | Request | Status |
+|---|---|---|---|
+| A1 | L1, team | Confirm whether the 0.31 °C ocean error was measured on a held-out frame; add a field saying so | Open; ocean Truth shows "Verification being updated" |
+| A2 | L1, team | Align `verified.matched_run` with `latest_check.imerg_run`; approve new rain wording | Open |
+| A3 | L1 | Fix the demo captions to match §16 exactly | Open; product lead asked L1 |
+| A4 | Team, L1 | Update §16 water wording: 35 missing months, not one gap | Open |
+| B1 | L2 | `getAnalyser()` for the waveform, rings and audio clock | Open; the UI works without it (fallback) |
+| B2 | L2 | Per-drop events for rain ripples | Open; ripples are skipped without them |
+| B3 | L2 | `setVoiceVolume()` for per-voice volume | Open; mute and solo work without it |
+| B4 | L2 | Keep shared files byte-identical; reuse L3's shadcn components; lockfile plan | Recorded |
+| B5 | L2 | Step events count data points only | Open |
+| B6 | L2 | `playSeries()` for Place History | Open; falls back to `playCompare` |
+| C1 | L1 | Colorbar images and colour tables (blocks X-ray); record the −5..35 °C label vs −4..34 °C calibration | Open, blocking X-ray |
+| C1b | L1 | Truth plots for the check being quoted; `approx_percent` in `latest_check` | Open |
+| C2 | L1 | Data file for the 23-product catalogue | Deferred |
+| C3 | L1, team | Gzipped grids (or a headers rule) to cut first load from 5.9 MB to about 0.7 MB | Open |
+| C4 | L1, team | "Chattogram then vs now" | Deferred to October |
+| E1 | Team, L2, L4 | Update the plan, L2's plan and the video script: sweep from Chattogram | Open |
+| E2 | Team | §16 water wording (same as A4) | Open |
+
+---
+
+## 11. Known risks
+
+| Risk | Effect | What reduces it |
+|---|---|---|
+| L2's engine arrives late or differs from its plan | Video recorded with the interim engine | The interim engine works and is labelled; the swap is one file; the build fails if the API differs |
+| Nobody has listened to the interim sound properly | A bad-sounding demo | Ear test before recording (section 9) |
+| Story Mode (needed by the video) isn't built | Missing video shot 1:45 to 2:45 | It's next (Phase 3 item 2) |
+| `bun.lock` conflict when L2 merges | A failed merge | Regenerate with `bun install` (decision 12) |
+| First load is about 7 MB (grids and images) | Slow on phones or weak networks | Rain loads after first paint; compression requested (C3) |
+| No Bangla strings yet | বাংলা mode shows English | `bangla-strings.md` lists every string for a translator |
+| Truth and caption wording still pending | On-screen wording could change after recording | Badges make the pending status visible; wording comes from the JSON, so fixing the JSON fixes the app |
+| A change in L1's file shapes | A view could fail | Shape checks show a clear error; the rest of the app keeps working |
+| Screen-reader behaviour unverified | Blind users might not be able to use the map | NVDA test (section 9) |
+| Browser test scripts are not in the repo | Others can't repeat the checks | Add them to the repo (remaining work) |
+
+---
+
+## 12. Remaining work (priority order)
+
+**Phase 3**
+1. **Story Mode** (item 2): scripted tour (ocean hum, sweep, storm time-lapse, satellite whisper, X-ray on one point, Truth reveal), every spoken number from JSON, Esc exits. Needed by the video.
+2. **X-ray** (item 3): blocked until L1 publishes colorbar files (C1).
+3. **Satellite whisper** (item 4): chime and caption naming the dataset and mission after a spoken value.
+4. **Sweep** (item 5): the ring sweep is done; row sweep only if time allows.
+5. Items on the plan's "cut first" list, only if time allows: Provenance panel, extreme pings, area summary.
+
+**Phase 4 (Tuesday morning, freeze at 12:00)**
+1. Caption bar polish (the basic caption bar already exists).
+2. Describe mode (the toggle exists; the behaviour doesn't).
+3. Bangla: translations from `bangla-strings.md`, recorded Bangla clips for Story Mode.
+4. Accessibility pass: screen readers, 200% zoom, mobile, reduced motion (section 9).
+5. "Coming in October" labels on every concept-only item.
+6. Catalogue screen of the 23 products, only if L1 provides the data file (C2).
+
+**Also**
+- Add the browser test scripts to the repo, with a `test` script in `package.json`.
+- Place History scrubbing (drag to hear a month).
+
+---
+
+## 13. How to run it
+
+```
+git switch L3            # or check out origin/L3-interface
+bun install
+bun run dev              # http://localhost:3000
+bun run lint
+bun run build
+bun run start            # serves the production build
+```
+
+- Open the app in Chrome or Edge, press **Start listening**, and use the arrow keys on the map. H opens the key list.
+- There is no automated test command yet (see section 8).
+- Before a merge, `bunx tsc --noEmit` checks the types. A fresh checkout reports a `LayoutProps` error until `bun run build` or `bun run dev` has generated Next.js's types once.
