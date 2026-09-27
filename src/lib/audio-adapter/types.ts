@@ -104,6 +104,8 @@ export interface L2AudioApi {
   // Then vs Now / Compare
   playThenNow(input: ThenNowInput, part: ThenNowPart): PlayerHandle;
   playCompare(a: CompareSide, b: CompareSide, mode: "sequential" | "split"): PlayerHandle;
+  // B6, accepted by L2 on 28 Sep: one series, step events under `player`.
+  playSeries(side: CompareSide, opts?: { stepMs?: number; player?: string }): PlayerHandle;
 
   // Events
   onAudioEvent(cb: (e: AudioEvent) => void): () => void;
@@ -116,7 +118,6 @@ export interface L2AudioApi {
 export interface L3AudioExtensions {
   setVoiceVolume(id: VoiceId, v: number): void; // B3: per-voice volume slider
   getAnalyser(): AnalyserNode | null; // B1: waveform, rings, audio clock
-  playSeries(side: CompareSide, opts?: { stepMs?: number; player?: string }): PlayerHandle; // B6
 }
 
 export type AudioEngine = L2AudioApi & L3AudioExtensions;

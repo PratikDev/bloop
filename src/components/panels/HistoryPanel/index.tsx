@@ -31,8 +31,18 @@ export function HistoryPanel() {
   const [metric, setMetric] = useState<HistoryMetric>("heat");
   const [decadeChoice, setDecadeChoice] = useState<number | null>(null);
   const handle = useRef<PlayerHandle | null>(null);
+  // The range that is actually sounding; the playhead follows it, not the current selection.
+  const [playingFrom, setPlayingFrom] = useState<number | null>(null);
   const head = usePlayhead(PLAYER);
   useEffect(() => () => handle.current?.stop(), []);
+
+  // Changing what is selected stops what is playing, so sound and chart never disagree.
+  const choose =
+    <T,>(set: (value: T) => void) =>
+    (value: T) => {
+      handle.current?.stop();
+      set(value);
+    };
 
   if (data.status === "loading") return <StatusBadge kind="loading">{t("history.loading")}</StatusBadge>;
   if (data.status === "error") return <StatusBadge kind="error">{t("history.error")}</StatusBadge>;
@@ -48,21 +58,26 @@ export function HistoryPanel() {
 
   const play = () => {
     handle.current?.stop();
-    handle.current = audio.playSeries(
+    const h = audio.playSeries(
       { label: `${place}, ${t("history.decadeLabel", { decade })}`, values: series.values.slice(start, end), voice: metric === "heat" ? "heat" : "monsoon" },
       { player: PLAYER },
     );
+    handle.current = h;
+    setPlayingFrom(start);
+    void h.done.then(() => {
+      if (handle.current === h) setPlayingFrom(null);
+    });
   };
 
   return (
     <div className="space-y-4">
       <p className="text-haze">{t("history.intro")}</p>
       <div className="space-y-3">
-        <ChoiceGroup<ClimateCellName> label={t("history.place")} value={place} onChange={setPlace} options={PLACES.map((p) => ({ value: p, label: p }))} className="flex-wrap" />
+        <ChoiceGroup<ClimateCellName> label={t("history.place")} value={place} onChange={choose(setPlace)} options={PLACES.map((p) => ({ value: p, label: p }))} className="flex-wrap" />
         <ChoiceGroup<HistoryMetric>
           label={t("history.metric")}
           value={metric}
-          onChange={setMetric}
+          onChange={choose(setMetric)}
           options={[
             { value: "heat", label: t("history.heat") },
             { value: "rain", label: t("history.rain") },
@@ -71,7 +86,7 @@ export function HistoryPanel() {
         <ChoiceGroup<string>
           label={t("history.decade")}
           value={String(decade)}
-          onChange={(d) => setDecadeChoice(Number(d))}
+          onChange={choose((d: string) => setDecadeChoice(Number(d)))}
           options={decades.map((d) => ({ value: String(d), label: t("history.decadeLabel", { decade: d }) }))}
           className="flex-wrap"
         />
@@ -83,7 +98,7 @@ export function HistoryPanel() {
         spans={[{ from: start, to: end - 1, kind: "selected" }]}
         unit={unit}
         zeroLine={metric === "heat" ? heatNormalLabel() : undefined}
-        playheadIndex={head ? start + head.index : null}
+        playheadIndex={head && playingFrom !== null ? playingFrom + head.index : null}
         summary={t("history.summary", {
           metric: t(metric === "heat" ? "history.heat" : "history.rain"),
           place,

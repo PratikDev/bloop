@@ -6,7 +6,7 @@ import { emitCaption } from "./events";
 import { routeRain } from "./live";
 import { mixer } from "./mixer";
 import { SCHEDULE_AHEAD_SEC } from "./scheduler";
-import { finishedHandle, playSequence, TAIL_SEC, type Step } from "./sequence";
+import { finishedHandle, playSequence, reopenFade, TAIL_SEC, type Step } from "./sequence";
 import type { LegendVoice, PlayerHandle, SweepPoint } from "./types";
 
 // ---------------------------------------------------------------------------
@@ -115,6 +115,7 @@ export function playMotif(bandMeansC: (number | null)[]): PlayerHandle {
 
 const OPENING_FADE_IN_SEC = 2;
 const OPENING_FADE_OUT_SEC = 1.5;
+const OPENING_REOPEN_SEC = 0.4;
 
 export function playOpening(points: SweepPoint[], opts?: { durationSec?: number }): PlayerHandle {
   const durationSec = opts?.durationSec ?? 10;
@@ -129,7 +130,8 @@ export function playOpening(points: SweepPoint[], opts?: { durationSec?: number 
       g.linearRampToValueAtTime(1, time + OPENING_FADE_IN_SEC);
       g.setValueAtTime(1, time + totalSec - OPENING_FADE_OUT_SEC);
       g.linearRampToValueAtTime(0, time + totalSec);
-      g.setValueAtTime(1, time + totalSec + TAIL_SEC + SCHEDULE_AHEAD_SEC + 0.1);
+      // Open again slowly: the cursor's own sound comes back in under it.
+      reopenFade(graph, time + totalSec + TAIL_SEC + SCHEDULE_AHEAD_SEC + 0.1, OPENING_REOPEN_SEC);
       emitCaption("caption.opening.closeEyes");
     },
     onEnd: () => emitCaption("caption.opening.openEyes"),
