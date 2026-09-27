@@ -20,17 +20,6 @@ const idlePlayer = (name: string, phase: number) => (): PlayerHandle => {
   return idleHandle();
 };
 
-// Phase 4 — sequences
-export const playSweep: (points: SweepPoint[], opts?: { stepMs?: number }) => PlayerHandle = idlePlayer(
-  "playSweep",
-  4,
-);
-export const playMotif: (bandMeansC: (number | null)[]) => PlayerHandle = idlePlayer("playMotif", 4);
-export const playOpening: (points: SweepPoint[], opts?: { durationSec?: number }) => PlayerHandle = idlePlayer(
-  "playOpening",
-  4,
-);
-
 // Phase 5 — Then vs Now, Comparison
 export const playThenNow: (input: ThenNowInput, part: "heat" | "monsoon" | "water" | "all") => PlayerHandle =
   idlePlayer("playThenNow", 5);
