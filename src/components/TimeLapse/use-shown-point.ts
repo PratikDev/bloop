@@ -24,7 +24,9 @@ export function useShownPoint(): ShownPoint {
   const { state } = useAppState();
   const { fields } = useLiveData();
   const { current } = useTimeLapse();
-  const { focus } = useStory();
+  const story = useStory();
+  // Only while in Story mode, so leaving it shows the user's cursor in the same render.
+  const focus = state.mode === "story" ? story.focus : null;
   if (current) return { cursor: current.point, reading: readingFromPoint(current.point), track: "rain", timelapse: current };
   const { point, track } = focus ?? { point: state.cursor, track: state.track };
   return { cursor: point, reading: fields ? readAt(fields, point) : null, track, timelapse: null };

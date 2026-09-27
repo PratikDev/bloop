@@ -115,8 +115,10 @@ export const appEn = {
   "whisper.and": " and ",
   "whisper.mission": (p: { agencies: string; mission: string; product: string; run: string | null }) =>
     `measured by ${p.agencies}'s ${p.mission} satellites (${p.product}${p.run ? `, ${p.run} run` : ""})`,
-  "whisper.product": (p: { agencies: string; product: string; run: string | null }) =>
-    `${p.product}${p.run ? `, ${p.run} run` : ""}, from ${p.agencies}`,
+  "whisper.dataset": (p: { maker: string; name: string; kind: string; analysis: boolean; run: string | null }) =>
+    `from ${p.maker}'s ${p.name} ${p.kind} ${p.analysis ? "analysis" : "data"}${p.run ? ` (${p.run} run)` : ""}`,
+  "whisper.kind.sst": "sea surface temperature",
+  "whisper.kind.rain": "rain",
   "whisper.announce": (p: { text: string; source: string }) => `${p.text} Source: ${p.source}.`,
   "xray.unavailable": "X-ray needs the colorbar data, which isn't published yet.",
 
@@ -124,6 +126,11 @@ export const appEn = {
   "announce.mode": (p: { mode: string }) => `${p.mode} mode.`,
   "announce.toggle": (p: { name: string; on: boolean }) => `${p.name} ${p.on ? "on" : "off"}.`,
   "announce.started": "Sound started. The cursor is over the Bay of Bengal. Arrow keys move it.",
+
+  // Team plan §15, exact wording (dataset names stay in English).
+  "credits.visualizations": "Visualizations: NASA's Scientific Visualization Studio (SVS 5101, 4285) for the NASA Earth Information Center.",
+  "credits.data":
+    "Data: MUR SST (NASA/JPL PO.DAAC); GPM IMERG (NASA/JAXA, GES DISC); GRACE/GRACE-FO JPL mascons RL06.3Mv04 (NASA/JPL PO.DAAC); NASA FIRMS; MODIS MOD13Q1 via ORNL DAAC; NASA GLOBE Program; NASA GISTEMP v4; GPCP v2.3 and GPCC Full Data v2020 (via NOAA PSL).",
 
   "error.ocean": "Couldn't load today's ocean frame. Check the connection and reload the page.",
   "error.rain": "Couldn't load today's rain frame. Ocean sound still works; reload the page to try again.",

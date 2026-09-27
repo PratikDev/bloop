@@ -6,6 +6,7 @@ import type { Commands } from "../Commands/use-commands";
 /**
  * Esc stops all sound and closes panels from anywhere on the page (plan §9.3).
  * `alsoStop` covers things that run without sound (the silent time-lapse).
+ * Capture phase: an open sheet or dialog would otherwise take the first Esc.
  */
 export function useGlobalEscape(commands: Commands, alsoStop: () => void): void {
   useEffect(() => {
@@ -14,7 +15,7 @@ export function useGlobalEscape(commands: Commands, alsoStop: () => void): void 
       commands.stopAll();
       alsoStop();
     };
-    window.addEventListener("keydown", onKey);
-    return () => window.removeEventListener("keydown", onKey);
+    window.addEventListener("keydown", onKey, true);
+    return () => window.removeEventListener("keydown", onKey, true);
   }, [commands, alsoStop]);
 }

@@ -14,7 +14,7 @@ export const storyEn = {
   "story.replay": "Play again",
   "story.backToExplore": "Back to Explore",
   "story.source": (p: { source: string }) => `Data: ${p.source}`,
-  "story.stopped": "Story stopped. Explore mode.",
+  "story.stopped": "Story stopped. Back to Explore.",
 
   "story.hum": (p: { reading: string }) => `Listen: the northern Bay of Bengal in today's NASA frame. ${p.reading}.`,
   "story.sweep": "Now a sweep from Chattogram across the Bay. Warmer water sounds higher; rain sounds as drops.",

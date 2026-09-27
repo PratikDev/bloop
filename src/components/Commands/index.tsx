@@ -134,7 +134,9 @@ export function CommandsProvider({ children }: { children: ReactNode }) {
         dispatch({ type: "setPlaying", playing: false });
         dispatch({ type: "setHelpOpen", open: false });
         dispatch({ type: "setPanelOpen", open: false });
-        announce(t("sound.stopped"));
+        // Ending a story: back to Explore, with one combined message.
+        if (state.mode === "story") dispatch({ type: "setMode", mode: "explore" });
+        announce(t(state.mode === "story" ? "story.stopped" : "sound.stopped"));
       },
       sweepRef,
     };
