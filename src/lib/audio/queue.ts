@@ -15,6 +15,8 @@ export interface ScheduleQueue {
    * (never lost), so the caller can still play them as soon as possible.
    */
   advance(currentTime: number, lookaheadSec: number): ScheduledEvent[];
+  /** Removes and returns the earliest event due before currentTime + lookaheadSec, or null. */
+  takeNextDue(currentTime: number, lookaheadSec: number): ScheduledEvent | null;
   /** Removes all events of one owner, or all events when owner is omitted. */
   clear(owner?: string): void;
   size(): number;
@@ -23,7 +25,10 @@ export interface ScheduleQueue {
 /**
  * Runs every due event, including ones that running events schedule inside
  * the window (a drop scheduling the next drop), so a chain never waits for the
- * next timer tick. A failing event is reported and never stops the others.
+ * next timer tick. Events are taken one at a time, so an event cancelled by an
+ * earlier one in the same pass never runs (taking a whole batch first let a
+ * re-timed drop chain run twice: +20–35 % drops in the Phase 6 storm).
+ * A failing event is reported and never stops the others.
  */
 export function drainDue(
   queue: ScheduleQueue,
@@ -31,13 +36,11 @@ export function drainDue(
   lookaheadSec: number,
   onError: (err: unknown, event: ScheduledEvent) => void,
 ) {
-  for (let due = queue.advance(currentTime, lookaheadSec); due.length > 0; due = queue.advance(currentTime, lookaheadSec)) {
-    for (const event of due) {
-      try {
-        event.run(event.time);
-      } catch (err) {
-        onError(err, event);
-      }
+  for (let event = queue.takeNextDue(currentTime, lookaheadSec); event; event = queue.takeNextDue(currentTime, lookaheadSec)) {
+    try {
+      event.run(event.time);
+    } catch (err) {
+      onError(err, event);
     }
   }
 }
@@ -66,6 +69,10 @@ export function createScheduleQueue(): ScheduleQueue {
       let n = 0;
       while (n < events.length && events[n].time < horizon) n++;
       return events.splice(0, n);
+    },
+    takeNextDue(currentTime, lookaheadSec) {
+      if (events.length === 0 || events[0].time >= currentTime + lookaheadSec) return null;
+      return events.shift() ?? null;
     },
     clear(owner) {
       if (owner === undefined) {

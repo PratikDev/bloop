@@ -79,4 +79,13 @@ describe("schedule queue", () => {
     expect(errors).toEqual(["bad"]);
     expect(ranAfter).toBe(true);
   });
+
+  test("drainDue: an event cancelled by an earlier event in the same pass never runs", () => {
+    const q = createScheduleQueue();
+    const ran: string[] = [];
+    q.add({ time: 0.01, owner: "sequence", run: () => { ran.push("step"); q.clear("rain"); q.add({ time: 0.05, owner: "rain", run: () => ran.push("rescheduled drop") }); } });
+    q.add({ time: 0.02, owner: "rain", run: () => ran.push("old drop") });
+    drainDue(q, 0, 0.1, () => {});
+    expect(ran).toEqual(["step", "rescheduled drop"]);
+  });
 });
