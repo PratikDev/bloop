@@ -1,12 +1,15 @@
-// A sequence: timed steps on the shared scheduler (legend, warm-up; later the
-// sweep, motif and opening). Only one sequence plays at a time; starting one
-// replaces the last. A sequence can borrow the live voices (holdLive) and
-// lift the track gate so the voices it names are heard whatever the track mode.
+// A sequence: timed steps on the shared scheduler (legend, warm-up, sweep,
+// motif, opening). Only one sequence plays at a time; starting one replaces
+// the last. Each step runs when the scheduler hands it over and receives its
+// exact audio-clock time, so voice changes land exactly on time. A sequence
+// can borrow the live voices (holdLive) and lift the track gate.
 //
-// Phase 3 runs each step when the scheduler hands it over (up to the
-// look-ahead early). Phase 4 adds playhead events and exact-time voice changes.
+// Step events (BUILD_PLAN §2.1, agreed with L3): only steps that play a data
+// point emit one; `index` / `total` count data points. Like drop events they
+// arrive up to the look-ahead early, carrying `time`.
 
 import { getCtx, peekEngine } from "../context";
+import { emit } from "../events";
 import { holdLive, releaseLive } from "../live";
 import { setTrackGateLifted } from "../mixer";
 import { cancel, schedule } from "../scheduler";
@@ -15,17 +18,21 @@ import type { PlayerHandle } from "../types";
 
 export interface SequenceStep {
   at: number; // seconds after the sequence starts
-  run: () => void;
+  run: (time: number) => void; // `time` = exact audio-clock time of this step
+  dataIndex?: number; // set for steps that play a data point → one step event
 }
 
 export interface SequenceOptions {
   id: string; // e.g. "legend.ocean"; used as the scheduler owner
   steps: SequenceStep[];
   durationSec: number;
+  player?: string; // step-event player name ("sweep", …); no step events without it
+  dataTotal?: number; // number of data points (step event `total`)
   holdLive?: boolean; // borrow the live voices (exploration pauses, then resumes)
   liftTrackGate?: boolean; // play named voices whatever the track mode
-  onStart?: () => void;
+  onStart?: (startTime: number) => void;
   onEnd?: () => void; // only when it plays to the end, not when stopped
+  onFinish?: () => void; // always, after it ends or is stopped (cleanup)
 }
 
 /** Lets live voices fade out before the first step. */
@@ -47,6 +54,7 @@ export function playSequence(opts: SequenceOptions): PlayerHandle {
   current?.finish(false, false); // replaced: the new sequence takes over
 
   const owner = `${opts.id}#${++runs}`;
+  const total = opts.dataTotal ?? 0;
   let finished = false;
   let resolveDone: () => void = () => {};
   const done = new Promise<void>((resolve) => (resolveDone = resolve));
@@ -58,6 +66,7 @@ export function playSequence(opts: SequenceOptions): PlayerHandle {
       cancel(owner);
       if (opts.liftTrackGate) setTrackGateLifted(false);
       if (opts.holdLive) releaseLive(resume);
+      opts.onFinish?.();
       if (current === run) current = null;
       if (completed) opts.onEnd?.();
       resolveDone();
@@ -67,10 +76,17 @@ export function playSequence(opts: SequenceOptions): PlayerHandle {
 
   if (opts.holdLive) holdLive();
   if (opts.liftTrackGate) setTrackGateLifted(true);
-  opts.onStart?.();
-
   const start = getCtx().currentTime + LEAD_IN_SEC;
-  for (const step of opts.steps) schedule(start + step.at, owner, () => step.run());
+  opts.onStart?.(start);
+
+  for (const step of opts.steps) {
+    schedule(start + step.at, owner, (time) => {
+      step.run(time);
+      if (step.dataIndex !== undefined && opts.player) {
+        emit({ kind: "step", player: opts.player, index: step.dataIndex, total, time });
+      }
+    });
+  }
   schedule(start + opts.durationSec, owner, () => run.finish(true, true));
 
   return { stop: () => run.finish(false, true), done };
