@@ -1,0 +1,36 @@
+SST colorbar fix (pipeline, 2026-09-26/27): the published SST range is calibrated to -4..34 C, not the legend's -5..35 C.
+The original terminal log was not saved; the lines below are copied from the saved outputs in this folder.
+The scripts are in pipeline/ (compare_sst_colorbar.py, diagnose_sst_strip.py, test_sst_encodings.py,
+calibrate_sst_range.py, verify_latest.py); they are not duplicated here.
+
+1) compare_sst_colorbar.py -> sst_colorbar_comparison.json  (2026-09-27T07:10:25Z)
+   The current colorbar image is NOT_EQUIVALENT to the one used in Check C
+   (strip [106, 1501, 446] vs [264, 3574, 1079]), so Check C's mapping could not be reused as-is.
+
+2) diagnose_sst_strip.py -> sst_strip_diagnosis.json (fit against mur_centre_20260921, 60 points)
+   A lut_params: median 0.31 C, p90 0.77 C, bias +0.08 C, supported=True
+   B full strip ends: median 0.68 C, p90 1.33 C, bias -0.35 C, supported=False
+   C MUR fit: median 0.32 C, p90 0.77 C, bias +0.00 C, supported=True
+   Mapping the full strip ends to -5..35 was not supported; the -5/35 points sit inside the strip.
+
+3) test_sst_encodings.py -> sst_encoding_test.json (how the EXR frame's colours are encoded)
+   srgb: median error 0.82 C, p90 1.35 C
+   raw: median error 6.03 C, p90 7.17 C
+   gamma2.2: median error 0.84 C, p90 1.39 C
+   gamma1.8: median error 2.29 C, p90 2.94 C
+   sRGB is the best encoding.
+
+4) calibrate_sst_range.py -> sst_range_calibration.json  (2026-09-26T21:19:53Z)
+   hypothesis: [vmin, vmax, median abs error C, p90 C, bias C]
+   H0 legend -5..35: [-5.0, 35.0, 0.668, 1.101, 0.384]
+   H1 round -4..34: [-4.0, 34.0, 0.276, 0.734, 0.104]
+   H1 round -3..33: [-3.0, 33.0, 0.451, 0.976, -0.177]
+   H1 round -6..36: [-6.0, 36.0, 1.183, 1.795, 0.665]
+   H2 fitted (5-fold CV): [-3.9, 33.8, 0.281, 0.673, 0.001]
+   Chosen: H1 round -4..34 (vmin -4.0, vmax 34.0); ticks_sst_colorbar.png shows the detected ticks.
+
+5) verify_latest.py --reverify -> verify_latest.json (checks of the frames currently published in public/data/latest)
+   SST  frame 2026-09-25T00:00:00Z vs MUR 2026-09-25: n 60, median 0.32 C,
+        p90 0.73 C, bias -0.01 C -> PASS
+   Rain frame 2026-09-27T02:30:00Z vs IMERG Early: agreement 100%,
+        median |log10| 0.108, bias -0.108 -> PASS

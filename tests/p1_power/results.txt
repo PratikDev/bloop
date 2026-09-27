@@ -1,0 +1,8 @@
+P1: NASA POWER daily data for Dhaka. Run: 2026-09-25.
+The original terminal log was not saved; the lines below are copied from the saved outputs in this folder.
+
+Data access: PASS (power_dhaka.json, 1981-2026 daily).
+Speed: FAIL (about 172 s to fetch 1981-2026).
+Follow-up P1b showed POWER is not reliable for long-term claims here, so POWER is not used for any "then vs now" claim.
+power_dhaka.json top-level keys: ['summary', 'dates', 'series']
+Not included: p1_heat_then_vs_now.wav (sound render, optional).
