@@ -1,7 +1,7 @@
 // What the cursor is over, as text: used by the readout, the map's text
 // alternative, the live region and speech, so they always say the same thing.
 
-import type { TrackMode } from "@/lib/audio-adapter/types";
+import type { SweepPoint, TrackMode } from "@/lib/audio-adapter/types";
 import { valueAt, type LatLon, type LiveFields } from "@/lib/data";
 import type { BoundT } from "@/lib/i18n";
 import type { OceanValue, RainValue } from "@/types/data-contract";
@@ -17,6 +17,15 @@ export function readAt(fields: LiveFields, at: LatLon): Reading {
     ocean: valueAt(fields, "ocean", at.lat, at.lon),
     rain: valueAt(fields, "rain", at.lat, at.lon),
     rainLoaded: fields.rain !== null,
+  };
+}
+
+/** A reading built from one sweep or time-lapse point (rain only). */
+export function readingFromPoint(p: SweepPoint): Reading {
+  return {
+    ocean: { track: "ocean", valueC: p.valueC },
+    rain: { track: "rain", mmPerHour: p.mmPerHour, phase: p.phase },
+    rainLoaded: true,
   };
 }
 
@@ -50,10 +59,15 @@ export function readingText(t: BoundT, r: Reading, track: TrackMode): string {
   return parts.join("; ");
 }
 
-/** The full sentence spoken on Enter: value(s) and place. */
-export function spokenReading(t: BoundT, r: Reading, track: TrackMode, at: LatLon): string {
+/** The value(s) for the current track, in words, without the place. */
+export function spokenValue(t: BoundT, r: Reading, track: TrackMode): string {
   const parts: string[] = [];
   if (track !== "rain") parts.push(oceanSpoken(t, r.ocean));
   if (track !== "ocean") parts.push(rainSpoken(t, r.rain, r.rainLoaded));
-  return t("speak.value", { reading: parts.join(". "), place: t("place.spoken", at) });
+  return parts.join(". ");
+}
+
+/** The full sentence spoken on Enter: value(s) and place. */
+export function spokenReading(t: BoundT, r: Reading, track: TrackMode, at: LatLon): string {
+  return t("speak.value", { reading: spokenValue(t, r, track), place: t("place.spoken", at) });
 }

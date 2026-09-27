@@ -1,21 +1,19 @@
 "use client";
 
 import { DATA_PATHS } from "@/lib/data";
-import { formatUtc } from "@/lib/i18n";
-import { rainPlotSource, rainTruth } from "@/lib/truth";
-import { useAppState, useT } from "../AppState/use-app-state";
+import { rainPlotSource } from "@/lib/truth";
+import { useT } from "../AppState/use-app-state";
 import { useLiveData } from "../LiveData/use-live-data";
 import { StatusBadge } from "../StatusBadge";
+import { OceanCheck, RainCheck } from "./Checks";
 
 /**
  * How we know the sound is right. Wording is built from the JSON numbers and
  * marked pending until the team approves new §16 wording (contract-proposals §A).
  */
 export function TruthPanel() {
-  const { state } = useAppState();
   const { rain, rainStatus } = useLiveData();
   const t = useT();
-  const truth = rain ? rainTruth(rain.meta) : null;
   const plot = rain ? rainPlotSource(rain.meta) : null;
 
   return (
@@ -24,23 +22,14 @@ export function TruthPanel() {
 
       <section className="space-y-2">
         <h3 className="text-lead font-medium">{t("truth.ocean.heading")}</h3>
-        <p className="text-lead">{t("truth.ocean.updating")}</p>
-        <p className="text-small text-haze">{t("truth.ocean.updatingNote")}</p>
+        <OceanCheck />
       </section>
 
       <section className="space-y-2">
         <h3 className="text-lead font-medium">{t("truth.rain.heading")}</h3>
         {rainStatus === "loading" && <StatusBadge kind="loading">{t("badge.loadingRain")}</StatusBadge>}
         {rainStatus === "error" && <StatusBadge kind="error">{t("error.rain")}</StatusBadge>}
-        {truth && (
-          <>
-            <StatusBadge kind="pending">{t("badge.pending")}</StatusBadge>
-            <p>{t("truth.rain.sentence", truth)}</p>
-            {truth.checkedUtc && (
-              <p className="text-small text-haze">{t("truth.checkedOn", { datetime: formatUtc(truth.checkedUtc, state.lang) })}</p>
-            )}
-          </>
-        )}
+        {rain && <RainCheck meta={rain.meta} />}
         {plot && (
           <figure className="space-y-1 pt-2">
             {/* A static published chart image; next/image adds nothing for a local PNG this small. */}

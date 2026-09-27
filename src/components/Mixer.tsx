@@ -1,6 +1,6 @@
 "use client";
 
-import { cn } from "cn";
+import { cn } from "@/lib/utils";
 import { Slider } from "@/components/ui/slider";
 import { Toggle } from "@/components/ui/toggle";
 import { LIVE_VOICES, type LiveVoiceId } from "@/lib/audio-adapter/types";

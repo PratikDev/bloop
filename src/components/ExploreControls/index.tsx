@@ -1,11 +1,11 @@
 "use client";
 
 import { useEffect, useId, useRef, type ReactNode } from "react";
-import { readAt, readingText } from "@/lib/reading";
+import { readingText } from "@/lib/reading";
 import { useAnnounce } from "../Announcer/use-announcer";
 import { useAppState, useT } from "../AppState/use-app-state";
 import { useCommands } from "../Commands/use-commands";
-import { useLiveData } from "../LiveData/use-live-data";
+import { useShownPoint } from "../TimeLapse/use-shown-point";
 import { useMapKeys } from "./use-map-keys";
 
 export const MAP_REGION_ID = "sound-map";
@@ -17,18 +17,19 @@ export const MAP_REGION_ID = "sound-map";
  */
 export function ExploreControls({ children }: { children: ReactNode }) {
   const { state } = useAppState();
-  const { fields } = useLiveData();
   const commands = useCommands();
   const announce = useAnnounce();
   const t = useT();
   const onKeyDown = useMapKeys(commands);
+  // Story Mode drives the map and narrates it; map keys and value announcements pause.
+  const story = state.mode === "story";
   const instructionsId = useId();
   const regionRef = useRef<HTMLDivElement>(null);
 
-  const reading = fields ? readAt(fields, state.cursor) : null;
-  const trackName = t(state.track === "ocean" ? "track.oceanLong" : state.track === "rain" ? "track.rainLong" : "track.both");
+  const { reading, cursor, track, timelapse } = useShownPoint();
+  const trackName = t(track === "ocean" ? "track.oceanLong" : track === "rain" ? "track.rainLong" : "track.both");
   const label = reading
-    ? t("map.alt", { track: trackName, reading: readingText(t, reading, state.track), place: t("place.latlon", state.cursor) })
+    ? t("map.alt", { track: trackName, reading: readingText(t, reading, track), place: t("place.latlon", cursor) })
     : t("start.loading");
 
   // Focus the map when the intro ends, so the keys work at once.
@@ -39,10 +40,16 @@ export function ExploreControls({ children }: { children: ReactNode }) {
   // Announce the settled reading after the cursor moves (debounced in the announcer).
   // With the built-in voice on, Enter speaks; moving still announces, since
   // nothing speaks at that moment.
-  const settled = reading ? `${readingText(t, reading, state.track)}. ${t("place.latlon", state.cursor)}` : null;
+  // Not during the time-lapse: a new frame every half second would flood the
+  // screen reader (the time-lapse announces itself once when it starts).
+  // Nor right after the story ends: its own "Story stopped" message stays the last word.
+  const settled = reading && !timelapse && !story ? `${readingText(t, reading, track)}. ${t("place.latlon", cursor)}` : null;
+  const wasStory = useRef(story);
   useEffect(() => {
-    if (state.introDone && settled) announce(settled);
-  }, [settled, state.introDone, announce]);
+    const leftStory = wasStory.current && !story;
+    wasStory.current = story;
+    if (state.introDone && settled && !leftStory) announce(settled);
+  }, [settled, state.introDone, story, announce]);
 
   return (
     <div
@@ -53,7 +60,7 @@ export function ExploreControls({ children }: { children: ReactNode }) {
       aria-roledescription={t("map.roleDescription")}
       aria-label={label}
       aria-describedby={instructionsId}
-      onKeyDown={onKeyDown}
+      onKeyDown={story ? undefined : onKeyDown}
       className="relative"
     >
       <p id={instructionsId} className="sr-only">

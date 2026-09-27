@@ -21,6 +21,12 @@
   --ink: #0b0918;
   --scrim: rgb(21 18 42 / 0.88);
 
+  /* Charts: "then" is the quieter tone, "now" the brighter; shape tells them
+     apart too (hollow vs filled). The playhead is --shapla, as it listens. */
+  --chart-then: var(--haze);
+  --chart-now: var(--moon);
+  --chart-grid: var(--tide);
+
   /* shadcn variables, mapped onto the palette */
   --background: var(--night);
   --foreground: var(--moon);
@@ -65,6 +71,9 @@
   --color-shapla: var(--shapla);
   --color-ink: var(--ink);
   --color-scrim: var(--scrim);
+  --color-chart-then: var(--chart-then);
+  --color-chart-now: var(--chart-now);
+  --color-chart-grid: var(--chart-grid);
 
   --color-background: var(--background);
   --color-foreground: var(--foreground);

@@ -1,13 +1,18 @@
 "use client";
 
-import { cn } from "cn";
+import dynamic from "next/dynamic";
+import { cn } from "@/lib/utils";
 import { Sheet, SheetContent, SheetTitle } from "@/components/ui/sheet";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { useMediaQuery } from "@/hooks/use-media-query";
 import type { PanelTab } from "../AppState/reducer";
 import { useAppState, useT } from "../AppState/use-app-state";
 import { MappingPanel } from "./MappingPanel";
+import { ProvenancePanel } from "./ProvenancePanel";
 import { TruthPanel } from "./TruthPanel";
+
+// The chart library loads only when History opens (keeps the first load light).
+const HistoryPanel = dynamic(() => import("./HistoryPanel").then((m) => m.HistoryPanel), { ssr: false });
 
 const TABS: { tab: PanelTab; label: "panel.truth" | "panel.mapping" | "panel.provenance" | "panel.history" }[] = [
   { tab: "truth", label: "panel.truth" },
@@ -35,10 +40,10 @@ function PanelTabs() {
         <MappingPanel />
       </TabsContent>
       <TabsContent value="provenance">
-        <p className="text-haze">{t("provenance.notReady")}</p>
+        <ProvenancePanel />
       </TabsContent>
       <TabsContent value="history">
-        <p className="text-haze">{t("history.notReady")}</p>
+        <HistoryPanel />
       </TabsContent>
     </Tabs>
   );
@@ -52,6 +57,8 @@ export function SidePanel() {
   const { state, dispatch } = useAppState();
   const t = useT();
   const phone = useMediaQuery("(max-width: 767px)");
+  // The column is always there on wide screens; the sheet (modal) only opens below lg.
+  const wide = useMediaQuery("(min-width: 1024px)");
   return (
     <>
       <aside
@@ -60,7 +67,7 @@ export function SidePanel() {
       >
         <PanelTabs />
       </aside>
-      <Sheet open={state.panelOpen} onOpenChange={(open) => dispatch({ type: "setPanelOpen", open })}>
+      <Sheet open={state.panelOpen && !wide} onOpenChange={(open) => dispatch({ type: "setPanelOpen", open })}>
         <SheetContent
           side={phone ? "bottom" : "right"}
           className={cn(

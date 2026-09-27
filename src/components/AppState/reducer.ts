@@ -11,7 +11,8 @@ export interface VoiceMix {
 }
 
 export interface AppState {
-  started: boolean; // the Start button has been pressed (audio unlocked)
+  started: boolean; // past the Start overlay (with or without sound)
+  soundOn: boolean; // false after "Explore without sound", until the user turns it on
   introDone: boolean; // the opening has finished or been skipped
   playing: boolean; // live sound on (Space toggles)
   cursor: LatLon;
@@ -32,6 +33,8 @@ export interface AppState {
 
 export type AppAction =
   | { type: "start" }
+  | { type: "startSilent" }
+  | { type: "enableSound" }
   | { type: "introDone" }
   | { type: "setPlaying"; playing: boolean }
   | { type: "moveCursor"; dLat: number; dLon: number }
@@ -51,6 +54,7 @@ const FULL_MIX: VoiceMix = { volume: 1, muted: false };
 
 export const initialState: AppState = {
   started: false,
+  soundOn: false,
   introDone: false,
   playing: false,
   cursor: START_CURSOR,
@@ -71,7 +75,7 @@ export const initialState: AppState = {
 
 /** Whether a live voice is sounding right now (for rings and captions). */
 export function isVoiceAudible(state: AppState, voice: LiveVoiceId): boolean {
-  if (!state.started || !state.playing || !state.introDone || state.allMuted) return false;
+  if (!state.started || !state.soundOn || !state.playing || !state.introDone || state.allMuted || state.mode !== "explore") return false;
   if (state.mix[voice].muted || state.mix[voice].volume === 0) return false;
   if (state.solo !== null && state.solo !== voice) return false;
   return TRACK_VOICES[state.track].includes(voice);
@@ -80,7 +84,12 @@ export function isVoiceAudible(state: AppState, voice: LiveVoiceId): boolean {
 export function reducer(state: AppState, action: AppAction): AppState {
   switch (action.type) {
     case "start":
-      return { ...state, started: true, playing: true };
+      return { ...state, started: true, soundOn: true, playing: true };
+    case "startSilent":
+      // Straight to the map: no opening (it is a sound piece), captions carry the values.
+      return { ...state, started: true, soundOn: false, playing: false, introDone: true, captions: true };
+    case "enableSound":
+      return { ...state, soundOn: true, playing: true };
     case "introDone":
       return { ...state, introDone: true };
     case "setPlaying":

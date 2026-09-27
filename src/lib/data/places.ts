@@ -5,8 +5,12 @@ export interface LatLon {
   lon: number;
 }
 
-/** Sweep centre (docs/L2/BUILD_PLAN.md Phase 4). */
-export const DHAKA: LatLon = { lat: 23.81, lon: 90.41 };
+/**
+ * Sweep centre: Chattogram, the team's home city. It is on the Bay of Bengal
+ * coast, so the sweep has ocean and monsoon sound from the first ring (Dhaka,
+ * the plan's original centre, is inland). Team decision, 27 Sep.
+ */
+export const SWEEP_CENTER: LatLon = { lat: 22.36, lon: 91.78 };
 
 /** Where the cursor starts: the northern Bay of Bengal (design choice). */
 export const START_CURSOR: LatLon = { lat: 21.5, lon: 89.8 };
@@ -32,5 +36,13 @@ export const MOTIF_BANDS: readonly [number, number][] = [
   [30, 60],
 ];
 
-/** Sweep rings around Dhaka (design choice; rings are spaced in degrees). */
+/** Sweep rings around the centre (design choice; rings are spaced in degrees). */
 export const SWEEP_RINGS = { stepDeg: 5, maxDeg: 45, pointsPerRing: 16 } as const;
+
+/**
+ * Storm time-lapse (plan C4): where the storm-following starts (Bangladesh and
+ * the Bay of Bengal), and how far the cursor may move from one frame to the
+ * next while following the heaviest rain (design choices).
+ */
+export const STORM_REGION = { latMin: 15, latMax: 26, lonMin: 85, lonMax: 93 } as const;
+export const STORM_STEP_DEG = 3;

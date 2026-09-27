@@ -15,6 +15,11 @@ export function formatFixed(value: number, lang: Lang, decimals: number): string
   return fmt(value, lang, { minimumFractionDigits: decimals, maximumFractionDigits: decimals });
 }
 
+/** With an explicit sign: "+1.37", "−9". */
+export function formatSigned(value: number, lang: Lang, decimals: number): string {
+  return fmt(value, lang, { minimumFractionDigits: decimals, maximumFractionDigits: decimals, signDisplay: "exceptZero" });
+}
+
 export function formatInteger(value: number, lang: Lang): string {
   return fmt(value, lang, { maximumFractionDigits: 0 });
 }
@@ -33,6 +38,14 @@ export function formatRainRate(mmPerHour: number, lang: Lang): string {
 /** A coordinate magnitude with one decimal ("21.5"); the hemisphere is a word. */
 export function formatDegrees(value: number, lang: Lang): string {
   return formatFixed(Math.abs(value), lang, 1);
+}
+
+/** "2017-07" → "Jul 2017". */
+export function formatMonth(yyyyMm: string, lang: Lang): string {
+  const [y, m] = yyyyMm.split("-").map(Number);
+  return new Intl.DateTimeFormat(LOCALE[lang], { month: "short", year: "numeric", timeZone: "UTC" }).format(
+    new Date(Date.UTC(y, m - 1, 1)),
+  );
 }
 
 /** "25 Sep 2026, 00:00" in UTC. */

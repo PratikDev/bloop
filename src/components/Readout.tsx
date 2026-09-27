@@ -1,12 +1,12 @@
 "use client";
 
 import { Fragment } from "react";
-import { cn } from "cn";
+import { cn } from "@/lib/utils";
 import { formatRainRate, formatTemperature, type Lang } from "@/lib/i18n";
-import { readAt, rainText, type Reading } from "@/lib/reading";
+import { rainText, type Reading } from "@/lib/reading";
 import { useAppState, useT } from "./AppState/use-app-state";
 import { FrameLabel } from "./FrameLabel";
-import { useLiveData } from "./LiveData/use-live-data";
+import { useShownPoint } from "./TimeLapse/use-shown-point";
 
 const BENGALI_DIGIT = /[০-৯]/;
 
@@ -42,13 +42,12 @@ function hero(r: Reading, track: string, lang: Lang): { figure: string; unit: "u
  */
 export function Readout({ className }: { className?: string }) {
   const { state } = useAppState();
-  const { fields } = useLiveData();
   const t = useT();
-  if (!fields) return null;
+  const { reading: r, cursor, track, timelapse } = useShownPoint();
+  if (!r) return null;
 
-  const r = readAt(fields, state.cursor);
-  const main = hero(r, state.track, state.lang);
-  const fallback = state.track === "rain" ? rainText(t, r.rain, r.rainLoaded) : t("reading.oceanNone");
+  const main = hero(r, track, state.lang);
+  const fallback = track === "rain" ? rainText(t, r.rain, r.rainLoaded) : t("reading.oceanNone");
 
   return (
     <div className={cn("space-y-1", className)}>
@@ -63,8 +62,9 @@ export function Readout({ className }: { className?: string }) {
             <span className="text-title font-medium">{fallback}</span>
           )}
         </p>
-        {state.track === "both" && <p className="text-lead font-medium">{rainText(t, r.rain, r.rainLoaded)}</p>}
-        <p className="text-lead font-medium">{t("place.latlon", state.cursor)}</p>
+        {track === "both" && <p className="text-lead font-medium">{rainText(t, r.rain, r.rainLoaded)}</p>}
+        <p className="text-lead font-medium">{t("place.latlon", cursor)}</p>
+        {timelapse && <p className="text-small text-haze">{t("timelapse.frame", { index: timelapse.index + 1, total: timelapse.total })}</p>}
       </div>
       <FrameLabel className="max-w-md pt-1" />
     </div>
