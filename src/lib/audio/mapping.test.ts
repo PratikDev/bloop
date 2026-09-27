@@ -1,5 +1,5 @@
 import { describe, expect, test } from "bun:test";
-import raw from "../../../../public/mapping.json";
+import raw from "../../../public/mapping.json";
 import type { BandsMapping, ContinuousMapping, RuntimeRangeMapping } from "@/types/data-contract";
 import {
   MAPPING,
@@ -16,7 +16,7 @@ import {
   runtimeRange,
   validateMapping,
   voiceSpec,
-} from "../mapping";
+} from "./mapping";
 
 const continuous = (id: string) => voiceSpec(id).mapping as ContinuousMapping;
 const bands = (id: string) => voiceSpec(id).mapping as BandsMapping;
