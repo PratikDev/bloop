@@ -1,33 +1,37 @@
 // Live exploration (Phase 2): the cursor's values drive the ocean, rain and
 // snow voices. Handles honest silence, the no-data tick on entering a
 // no-data area, and throttled value captions. Calls before Start do nothing.
+//
+// Sequences (legend, warm-up, …) borrow the same voices with holdLive():
+// cursor updates are remembered but not played until releaseLive(), which
+// then resumes from the latest cursor values.
 
 import { createThrottledCaption, emitCaption } from "./captions";
 import { getCtx, peekEngine } from "./context";
+import { playEarconAt } from "./earcons";
 import { isVoiceAudible } from "./mixer";
 import { onStopAll } from "./stop";
 import type { RainPhase } from "./types";
+import type { DropVoice } from "./voices/drops";
 import { createOceanVoice, type OceanVoice } from "./voices/ocean";
 import { createRainVoice } from "./voices/rain";
 import { createSnowVoice } from "./voices/snow";
-import type { DropVoice } from "./voices/drops";
-import { playNoDataTick } from "./earcons";
 
 const CAPTION_INTERVAL_MS = 250; // ≤ 4 value captions per second per track
 const TICK_MIN_GAP_MS = 300; // at most one no-data tick per 300 ms
 
 type Track = "ocean" | "rain";
 
-interface Voices {
+export interface LiveVoices {
   ocean: OceanVoice;
   rain: DropVoice;
   snow: DropVoice;
 }
 
-let voices: Voices | null = null;
+let voices: LiveVoices | null = null;
 
-/** Built on first use, after Start (they need the AudioContext). */
-function getVoices(): Voices | null {
+/** The live voices, built on first use after Start (they need the AudioContext). null before Start. */
+export function liveVoices(): LiveVoices | null {
   if (!peekEngine()) return null;
   voices ??= { ocean: createOceanVoice(), rain: createRainVoice(), snow: createSnowVoice() };
   return voices;
@@ -42,6 +46,11 @@ const captions: Record<Track, ReturnType<typeof createThrottledCaption>> = {
 const inNoData: Record<Track, boolean | null> = { ocean: null, rain: null };
 let lastTickAt = -Infinity;
 
+// Latest cursor values, kept while a sequence holds the voices.
+let lastOcean: { valueC: number | null; lon: number } | null = null;
+let lastRain: { mmPerHour: number | null; phase: RainPhase; lon: number } | null = null;
+let held = false;
+
 function forgetPosition() {
   inNoData.ocean = null;
   inNoData.rain = null;
@@ -49,7 +58,19 @@ function forgetPosition() {
   captions.rain.cancel();
 }
 
-onStopAll(forgetPosition);
+function silenceVoices(v: LiveVoices) {
+  v.ocean.set(null, 0);
+  v.rain.set(null, 0);
+  v.snow.set(null, 0);
+}
+
+// Esc: nothing resumes afterwards; the next cursor move starts fresh.
+onStopAll(() => {
+  forgetPosition();
+  lastOcean = null;
+  lastRain = null;
+  held = false;
+});
 
 /** Tick + caption on the transition into no data, only if that track can be heard. */
 function updateNoData(trackName: Track, noData: boolean, lon: number, audible: boolean) {
@@ -61,13 +82,14 @@ function updateNoData(trackName: Track, noData: boolean, lon: number, audible: b
   const now = performance.now();
   if (now - lastTickAt < TICK_MIN_GAP_MS) return;
   lastTickAt = now;
-  playNoDataTick(getCtx().currentTime, lon);
+  playEarconAt("nodata", getCtx().currentTime, lon);
 }
 
 /** Cursor moved: ocean temperature in °C (null = land / no data) at a longitude. */
 export function setOcean(valueC: number | null, lon: number) {
-  const v = getVoices();
-  if (!v) return;
+  lastOcean = { valueC, lon };
+  const v = liveVoices();
+  if (!v || held) return;
   v.ocean.set(valueC, lon);
   const audible = isVoiceAudible("ocean");
   updateNoData("ocean", valueC === null, lon, audible);
@@ -76,8 +98,9 @@ export function setOcean(valueC: number | null, lon: number) {
 
 /** Cursor moved: rain rate (0 = dry, null = no data) and phase at a longitude. */
 export function setRain(mmPerHour: number | null, phase: RainPhase, lon: number) {
-  const v = getVoices();
-  if (!v) return;
+  lastRain = { mmPerHour, phase, lon };
+  const v = liveVoices();
+  if (!v || held) return;
   v.rain.set(phase === "liquid" ? mmPerHour : null, lon);
   v.snow.set(phase === "frozen" ? mmPerHour : null, lon);
   const audible = isVoiceAudible(phase === "frozen" ? "snow" : "rain");
@@ -89,10 +112,31 @@ export function setRain(mmPerHour: number | null, phase: RainPhase, lon: number)
 
 /** The cursor left the map, or exploration paused: fade the live voices out (no tick). */
 export function silenceLive() {
-  const v = getVoices();
+  lastOcean = null;
+  lastRain = null;
+  const v = liveVoices();
   if (!v) return;
-  v.ocean.set(null, 0);
-  v.rain.set(null, 0);
-  v.snow.set(null, 0);
+  silenceVoices(v);
   forgetPosition();
+}
+
+/** A sequence takes the voices: exploration goes quiet but keeps listening to the cursor. */
+export function holdLive(): LiveVoices | null {
+  const v = liveVoices();
+  if (!v) return null;
+  held = true;
+  silenceVoices(v);
+  forgetPosition();
+  return v;
+}
+
+/** The sequence is done: give the voices back and, if asked, resume from the latest cursor values. */
+export function releaseLive(resume: boolean) {
+  const v = liveVoices();
+  held = false;
+  if (!v) return;
+  silenceVoices(v);
+  if (!resume) return;
+  if (lastOcean) setOcean(lastOcean.valueC, lastOcean.lon);
+  if (lastRain) setRain(lastRain.mmPerHour, lastRain.phase, lastRain.lon);
 }
