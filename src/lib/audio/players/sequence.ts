@@ -40,6 +40,7 @@ export interface SequenceOptions {
   durationSec: number;
   holdLive?: boolean; // borrow the live voices (exploration pauses, then resumes)
   liftTrackGate?: boolean; // play named voices whatever the track mode
+  loop?: boolean; // start again exactly where it ends (no gap) until stopped; onEnd never fires
   onStart?: (startTime: number) => void;
   onEnd?: () => void; // only when it plays to the end, not when stopped
   onFinish?: () => void; // always, after it ends or is stopped (cleanup)
@@ -88,13 +89,17 @@ export function playSequence(opts: SequenceOptions): PlayerHandle {
   const start = getCtx().currentTime + LEAD_IN_SEC;
   opts.onStart?.(start);
 
-  for (const step of opts.steps) {
-    schedule(start + step.at, owner, (time) => {
-      step.run(time);
-      if (step.event) emit({ kind: "step", ...step.event, time });
-    });
-  }
-  schedule(start + opts.durationSec, owner, () => run.finish(true, true));
+  const scheduleRound = (roundStart: number) => {
+    for (const step of opts.steps) {
+      schedule(roundStart + step.at, owner, (time) => {
+        step.run(time);
+        if (step.event) emit({ kind: "step", ...step.event, time });
+      });
+    }
+    const end = roundStart + opts.durationSec;
+    schedule(end, owner, () => (opts.loop ? scheduleRound(end) : run.finish(true, true)));
+  };
+  scheduleRound(start);
 
   return { stop: () => run.finish(false, true), done };
 }
