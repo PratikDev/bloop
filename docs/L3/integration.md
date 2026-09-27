@@ -18,32 +18,43 @@ export const IS_INTERIM_ENGINE = false;     // removes the "Interim sound engine
 Then run `bun run lint` and `bun run build`.
 
 ### Why this can't break silently
-- **`L2AudioApi`** (in `src/lib/audio-adapter/types.ts`) is exactly the part of `docs/L2/BUILD_PLAN.md` §2 and §8 that the UI calls. If L2's exports differ in any name or argument shape, `withFallbacks(l2)` **fails the type check**, so `bun run build` fails before anything ships.
-- **`L3AudioExtensions`** are the extras L3 asked for (`contract-proposals.md` §B). They're optional. `withFallbacks()` fills any that are missing, and the UI degrades rather than breaking:
+- **Source of truth:** L2's API names and shapes in `docs/L2/BUILD_PLAN.md` §2 (and §8). **`L2AudioApi`** (in `src/lib/audio-adapter/types.ts`) mirrors exactly the part of that API the UI calls, including `playSeries` (B6, accepted by L2 on 28 Sep). If L2's exports differ in any name or argument shape, `withFallbacks(l2)` **fails the type check**, so `bun run build` fails before anything ships. L2 has already checked that `withFallbacks(l2)` type-checks against its branch.
+- **New needs go through a proposal first.** If L3 needs a new function, event or parameter, it is added to `contract-proposals.md` §B (like B1 to B7) and only used once L2 agrees, or behind a fallback that degrades safely.
+- **`L3AudioExtensions`** are the extras still being requested (B1, B3). They're optional. `withFallbacks()` fills any that are missing, and the UI degrades rather than breaking:
 
 | Missing from L2's engine | What happens |
 |---|---|
-| `getAnalyser()` | The waveform is a flat line. Rings, sweep and chart playheads run on a local clock and show events as they arrive. |
-| Drop events | Rain ripples don't draw. Ocean rings and the static reduced-motion ring still work. |
-| `setVoiceVolume()` | Volume sliders do nothing; mute and solo still work. |
-| `playSeries()` | Place History plays through `playCompare()` with an empty second side. |
+| `getAnalyser()` (B1) | The waveform is a flat line. Rings, sweep and chart playheads run on a local clock and show events as they arrive. |
+| Drop events (B2) | Rain ripples don't draw. Ocean rings and the static reduced-motion ring still work. |
+| `setVoiceVolume()` (B3) | Volume sliders do nothing; mute and solo still work. |
+
+`playSeries()` no longer has a fallback: it's part of `L2AudioApi`.
 
 ### What the UI relies on (please keep these behaviours)
-1. **Captions:** `AudioEvent` `{ kind: "caption", key, params }`. The UI has English text for every key the interim engine emits (`src/lib/i18n/en/captions.ts`). A new key shows as its raw name until L3 adds text, so it's visible but never crashes.
-2. **Step events count data points only** (proposal B5):
+1. **Step events count data points only** (B5, accepted by L2):
    - Heat and monsoon: index 0 to 19 (window A, then B).
    - Water: the month index into `ThenNowInput.water.months`.
-   - Silent gaps between windows emit no step event.
+   - Silent gaps between windows emit no step event; `total` is the number of data points.
    - `player` names: `"thenNow.heat" | "thenNow.monsoon" | "thenNow.water"`, `"compare"`, `"compare.split"`, `"sweep"`, and whatever `playSeries` is given (`"history"`).
+2. **Captions:** `AudioEvent` `{ kind: "caption", key, params }`. The UI turns each key into text in both languages (`src/lib/i18n/en/captions.ts`). An unknown key shows as its raw name: visible, but never a crash.
+   - **Agreed set for Then vs Now** (B7, 28 Sep): `caption.thenNow.caption {text}`, `caption.thenNow.window {label}`, `caption.thenNow.end`, `caption.water.gap {from, to}`, `caption.water.windowStart {month}`, `caption.water.windowEnd {month}`, `caption.compare.side {label}`, `caption.compare.useHeadphones {a, b}`.
+   - **Live exploration keys the interim engine sends today** (for L2's reference, not yet agreed): `caption.value {track, value, phase?}`, `caption.nodata {track}`, `caption.sweep.start`, `caption.sweep.end`, `caption.legend {voice, label}`, `caption.legendUnavailable {voice}`, `caption.warmup.start`, `caption.warmup.end`, `caption.motif`, `caption.opening.closeEyes`, `caption.opening.openEyes`, `caption.stopped`, `caption.earcon.nodata`, `caption.earcon.whisper {source}`, `caption.earcon.ping`, `caption.noBanglaVoice`, `caption.noSpeech`.
+   - **Any new key needs a heads-up in both directions** before it's sent or expected.
 3. **`PlayerHandle.done` resolves** when the player finishes **or** is stopped. The UI uses it to release the view.
-4. **Stopping early silences everything the player owns** (the interim engine's `onStop`), and `stopAll()` resolves every open `done`.
-5. **`ensureAudio()` is only called inside a user gesture** (Start, "Turn sound on").
+4. **Stopping early silences everything the player owns**, including sounds already scheduled ahead (for example monsoon drops), and `stopAll()` resolves every open `done`.
+5. **Mute all and solo apply to every voice**, including Then vs Now and History (the interim engine routes them through the mixer).
+6. **No clicks when sound comes back:** after a fade, the output ramps back up rather than jumping; a sequence started during a fade waits for it.
+7. **`ensureAudio()` is only called inside a user gesture** (Start, "Turn sound on").
+
+### Shared helpers L2 uses
+L2's audio test page reuses `buildThenNowInput` (`src/lib/then-now.ts`) and `loadDemo`, `loadGrace` (`src/lib/data/context.ts`). L3 gives L2 a heads-up before changing their names or shapes.
 
 ### Checklist when the real engine lands
 - [ ] `bun run build` passes with the one-file swap above.
 - [ ] Run the app. The badge is gone, and Start → opening → explore sounds as before.
-- [ ] Then vs Now: the playhead follows the sound for all three parts, and Stop is silent.
+- [ ] Then vs Now: the playhead follows the sound for all three parts, and Stop is silent (including monsoon).
 - [ ] History: "Play the 2010s" moves the playhead.
+- [ ] Mute all (M on the map), then Then vs Now: silent.
 - [ ] Esc stops everything, from every mode.
 
 ---
@@ -59,6 +70,7 @@ Then run `bun run lint` and `bun run build`.
 ---
 
 ## 3. Keeping branches merge-clean
-- **Byte-identical copies:** L3 carries L2's `mapping.json`, `mapping.ts` and the contract §10 types unchanged from L2's branch.
-- **`bun.lock`:** L2 and L3 both added packages, at the same place in the lockfile. L2 merges into `main` first. If the lockfile conflicts, regenerate it with `bun install` and commit the result; don't merge one lane's branch into another. Details are in `contract-proposals.md` §B4.
-- **shadcn components:** L3 owns the re-themed components in `src/components/ui/`. Please reuse them rather than re-adding them.
+**Before touching a shared file, check with the other lane.** The full table is in `contract-proposals.md` §B4. In short:
+- **L2 owns:** `public/mapping.json`, `src/lib/audio/**`, the contract §10 mapping types, the `package.json` **scripts** (including `"test": "bun test"`; L3 won't add another), and the shadcn components `badge`, `card`, `label`, `select`, `switch` (L3 won't add these; it reuses L2's once merged).
+- **L3 owns:** the re-themed shadcn components `dialog`, `sheet`, `slider`, `tabs`, `toggle`, `toggle-group`, `tooltip`, `chart`, and the helpers L2 reuses (`buildThenNowInput`, `loadDemo`, `loadGrace`).
+- **`bun.lock`:** both lanes added packages at the same place, so it conflicts once. L2 merges into `main` first; resolve the conflict by regenerating the lockfile with `bun install` (or taking L3's lockfile). Never merge one lane's branch into another.
