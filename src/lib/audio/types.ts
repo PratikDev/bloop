@@ -69,6 +69,8 @@ export interface ThenNowInput {
   captions: { heat: string; monsoon: string; water: string }; // exact wording from the JSON
 }
 
+export type ThenNowPart = "heat" | "monsoon" | "water" | "all";
+
 export interface CompareSide {
   label: string;
   values: (number | null)[];
