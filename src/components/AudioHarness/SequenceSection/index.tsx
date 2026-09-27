@@ -1,12 +1,11 @@
 import { useState } from "react";
 import { Button } from "@/components/ui/button";
-import { Progress } from "@/components/ui/progress";
 import { playOpening, playSweep } from "@/lib/audio";
 import HarnessSection from "../HarnessSection";
 import LabeledSlider from "../LabeledSlider";
+import StepProgress from "../StepProgress";
 import MotifControls from "./MotifControls";
 import { syntheticOpening, syntheticSweep } from "./synthetic";
-import { useStepPlayhead } from "./use-step-playhead";
 
 interface SequenceSectionProps {
   ready: boolean;
@@ -15,9 +14,7 @@ interface SequenceSectionProps {
 /** Phase 4: the sweep (with a step-event playhead), the motif and the opening. */
 export default function SequenceSection({ ready }: SequenceSectionProps) {
   const [stepMs, setStepMs] = useState(80);
-  const head = useStepPlayhead("sweep");
   const disabled = !ready;
-  const pct = head.total > 0 ? ((head.index + 1) / head.total) * 100 : 0;
 
   return (
     <HarnessSection
@@ -31,10 +28,7 @@ export default function SequenceSection({ ready }: SequenceSectionProps) {
         <Button className="self-start" variant="outline" disabled={disabled} onClick={() => playSweep(syntheticSweep(), { stepMs })}>
           Play synthetic sweep
         </Button>
-        <Progress value={pct} aria-label="Sweep playhead" />
-        <p className="font-mono text-sm text-muted-foreground">
-          point {head.index + 1}/{head.total} · step events {head.events} · max display lag {head.maxLagMs.toFixed(0)} ms
-        </p>
+        <StepProgress player="sweep" />
       </fieldset>
       <MotifControls disabled={disabled} />
       <fieldset className="flex flex-col gap-3" disabled={disabled}>

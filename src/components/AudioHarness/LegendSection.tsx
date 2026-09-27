@@ -1,4 +1,3 @@
-import { useRef, useState } from "react";
 import { Button } from "@/components/ui/button";
 import {
   playEarcon,
@@ -7,10 +6,10 @@ import {
   playWarmup,
   type EarconId,
   type LegendVoice,
-  type PlayerHandle,
   type TrackMode,
 } from "@/lib/audio";
 import HarnessSection from "./HarnessSection";
+import { usePlayer } from "./use-player";
 
 const EARCONS: readonly EarconId[] = ["nodata", "whisper", "ping"];
 const LEGENDS: readonly LegendVoice[] = ["ocean", "rain", "snow", "heat", "water"];
@@ -22,17 +21,7 @@ interface LegendSectionProps {
 
 /** Phase 3: earcons, the audio legend, the warm-up and the short legend on mode change. */
 export default function LegendSection({ ready }: LegendSectionProps) {
-  const current = useRef<PlayerHandle | null>(null);
-  const [playing, setPlaying] = useState<string | null>(null);
-
-  const start = (name: string, play: () => PlayerHandle) => {
-    const handle = play();
-    current.current = handle;
-    setPlaying(name);
-    void handle.done.then(() => {
-      if (current.current === handle) setPlaying(null);
-    });
-  };
+  const { playing, start, stop } = usePlayer();
 
   return (
     <HarnessSection
@@ -74,7 +63,7 @@ export default function LegendSection({ ready }: LegendSectionProps) {
         <Button variant="outline" disabled={!ready} onClick={() => start("warm-up", playWarmup)}>
           Warm-up
         </Button>
-        <Button variant="secondary" disabled={!playing} onClick={() => current.current?.stop()}>
+        <Button variant="secondary" disabled={!playing} onClick={stop}>
           Skip (stop this player)
         </Button>
         <span className="font-mono text-sm text-muted-foreground">{playing ? `playing: ${playing}` : "idle"}</span>
