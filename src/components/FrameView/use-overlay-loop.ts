@@ -2,7 +2,7 @@
 
 import { useEffect, useRef, type RefObject } from "react";
 import { mapVoice, normalise, voiceSpec } from "@/lib/audio/mapping";
-import { audio } from "@/lib/audio-adapter";
+import { audio, clockNow, eventClockTime } from "@/lib/audio-adapter";
 import { readPalette } from "@/lib/css-tokens";
 import type { LatLon } from "@/lib/data";
 import { pxPerDeg, toXY } from "@/lib/geo";
@@ -23,7 +23,6 @@ const RAIN = { life: 0.7, speed: 30, alpha: 0.35, alphaPerGain: 0.6 };
 const SNOW = { life: 1.4, speed: 14, alpha: 0.25, alphaPerGain: 0.4 };
 const SWEEP_LINGER_SEC = 0.8;
 
-const audioNow = () => audio.getAnalyser()?.context.currentTime ?? performance.now() / 1000;
 
 /** Redraws the overlay every animation frame while the tab is visible. */
 export function useOverlayLoop(
@@ -53,11 +52,11 @@ export function useOverlayLoop(
     const off = audio.onAudioEvent((e) => {
       if (e.kind === "step" && e.player === "sweep") {
         if (e.index === 0) sweepSteps = [];
-        sweepSteps.push({ index: e.index, time: e.time });
+        sweepSteps.push({ index: e.index, time: eventClockTime(e) });
       }
       if (e.kind !== "drop" || inputsRef.current.rainMm === null || inputsRef.current.reduceMotion) return;
       const shape = e.voice === "rain" ? RAIN : SNOW;
-      rings.push({ t0: e.time, life: shape.life, r0: 0, speed: shape.speed, alpha: shape.alpha + shape.alphaPerGain * e.gain });
+      rings.push({ t0: eventClockTime(e), life: shape.life, r0: 0, speed: shape.speed, alpha: shape.alpha + shape.alphaPerGain * e.gain });
     });
 
     const drawSweep = (now: number): boolean => {
@@ -85,7 +84,7 @@ export function useOverlayLoop(
 
     const draw = () => {
       raf = requestAnimationFrame(draw);
-      const now = audioNow();
+      const now = clockNow();
       const { cursor, oceanC, rainMm, reduceMotion } = inputsRef.current;
       ctx.clearRect(0, 0, size.width, size.height);
       const sweeping = drawSweep(now);
