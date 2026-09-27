@@ -2,7 +2,7 @@
 
 import { getCtx, getGraph } from "../context";
 import { MAPPING, panFor, voiceSpec } from "../mapping";
-import { glideTo } from "../params";
+import { glideAt } from "../params";
 import type { VoiceId } from "../types";
 
 const PAN_GLIDE_SEC = 0.03;
@@ -23,7 +23,13 @@ export function createVoiceOutput(id: VoiceId): StereoPannerNode {
   return panner;
 }
 
-/** Stereo by longitude (west left, east right), gliding so it never clicks. */
-export function panTo(panner: StereoPannerNode, lon: number) {
-  glideTo(getCtx(), panner.pan, panFor(lon), PAN_GLIDE_SEC);
+/** When a voice change happens: now (omitted) or at an audio-clock time, with an optional glide override. */
+export interface VoiceTiming {
+  time?: number;
+  glideSec?: number;
+}
+
+/** Stereo by longitude (west left, east right), gliding so it never clicks; at `time` if given. */
+export function panTo(panner: StereoPannerNode, lon: number, time?: number) {
+  glideAt(getCtx(), panner.pan, panFor(lon), PAN_GLIDE_SEC, time);
 }
