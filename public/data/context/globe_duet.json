@@ -1,0 +1,1018 @@
+{
+  "title": "Ground vs satellite cloud cover (GLOBE, Bangladesh, 2025)",
+  "status": "ok",
+  "region": "Bangladesh",
+  "region_note": "Filtered with Bangladesh's national outline (Natural Earth 1:50m, generalised: points within a few km of the border may be misclassified). Kept 667 of 831 observations.",
+  "ground_value": {
+    "primary": "Total Cloud Cover (category midpoints)",
+    "fallback": "Total Cloud Cover % (range midpoints)",
+    "counts": {
+      "category": 424,
+      "range_fallback": 0
+    },
+    "category_midpoints": {
+      "overcast": 95,
+      "broken": 70,
+      "scattered": 37.5,
+      "isolated": 17.5,
+      "few": 5,
+      "no clouds": 0,
+      "none": 0,
+      "clear": 0
+    },
+    "note": "Approximate: GLOBE reports categories/ranges, not exact percentages."
+  },
+  "satellite_value": "GEO Total Cloud Cover",
+  "dropped": {
+    "outside_bangladesh": 164,
+    "obscured": 6,
+    "unknown_category": 0,
+    "missing_ground": 0,
+    "missing_satellite": 237
+  },
+  "summary": {
+    "raw_pairs": 424,
+    "unique_place_days": 96,
+    "merge_radius_km": 1.0,
+    "busiest_day": {
+      "2025-04-26": 3
+    },
+    "median_abs_difference_pct": 38.6,
+    "share_within_25_points": 0.427
+  },
+  "featured": {
+    "date": "2025-04-09",
+    "lat": 23.7461,
+    "lon": 90.3894,
+    "ground_pct": 0.0,
+    "satellite_pct": 38.46,
+    "n_reports": 42,
+    "satellite": "METEOSAT-9",
+    "difference_pct": 38.5
+  },
+  "pairs": [
+    {
+      "date": "2025-03-03",
+      "lat": 23.1569,
+      "lon": 89.2075,
+      "ground_pct": 37.5,
+      "satellite_pct": 10.45,
+      "n_reports": 1,
+      "satellite": "METEOSAT-9",
+      "difference_pct": -27.0
+    },
+    {
+      "date": "2025-03-04",
+      "lat": 23.1569,
+      "lon": 89.2076,
+      "ground_pct": 0.0,
+      "satellite_pct": 0.0,
+      "n_reports": 1,
+      "satellite": "METEOSAT-9",
+      "difference_pct": 0.0
+    },
+    {
+      "date": "2025-03-05",
+      "lat": 23.1536,
+      "lon": 89.209,
+      "ground_pct": 0.0,
+      "satellite_pct": 100.0,
+      "n_reports": 1,
+      "satellite": "METEOSAT-9",
+      "difference_pct": 100.0
+    },
+    {
+      "date": "2025-03-06",
+      "lat": 23.1569,
+      "lon": 89.2076,
+      "ground_pct": 0.0,
+      "satellite_pct": 0.0,
+      "n_reports": 1,
+      "satellite": "METEOSAT-9",
+      "difference_pct": 0.0
+    },
+    {
+      "date": "2025-03-07",
+      "lat": 23.8717,
+      "lon": 90.3917,
+      "ground_pct": 0.0,
+      "satellite_pct": 0.0,
+      "n_reports": 1,
+      "satellite": "METEOSAT-9",
+      "difference_pct": 0.0
+    },
+    {
+      "date": "2025-03-08",
+      "lat": 23.1569,
+      "lon": 89.2076,
+      "ground_pct": 37.5,
+      "satellite_pct": 35.82,
+      "n_reports": 1,
+      "satellite": "METEOSAT-9",
+      "difference_pct": -1.7
+    },
+    {
+      "date": "2025-03-10",
+      "lat": 23.1569,
+      "lon": 89.2076,
+      "ground_pct": 0.0,
+      "satellite_pct": 42.43,
+      "n_reports": 1,
+      "satellite": "METEOSAT-9",
+      "difference_pct": 42.4
+    },
+    {
+      "date": "2025-03-11",
+      "lat": 23.1569,
+      "lon": 89.2076,
+      "ground_pct": 0.0,
+      "satellite_pct": 0.0,
+      "n_reports": 1,
+      "satellite": "METEOSAT-9",
+      "difference_pct": 0.0
+    },
+    {
+      "date": "2025-03-15",
+      "lat": 23.1569,
+      "lon": 89.2076,
+      "ground_pct": 0.0,
+      "satellite_pct": 39.39,
+      "n_reports": 1,
+      "satellite": "METEOSAT-9",
+      "difference_pct": 39.4
+    },
+    {
+      "date": "2025-03-16",
+      "lat": 23.1569,
+      "lon": 89.2076,
+      "ground_pct": 0.0,
+      "satellite_pct": 98.54,
+      "n_reports": 1,
+      "satellite": "METEOSAT-9",
+      "difference_pct": 98.5
+    },
+    {
+      "date": "2025-03-19",
+      "lat": 24.2222,
+      "lon": 90.4083,
+      "ground_pct": 0.0,
+      "satellite_pct": 0.0,
+      "n_reports": 1,
+      "satellite": "METEOSAT-9",
+      "difference_pct": 0.0
+    },
+    {
+      "date": "2025-03-19",
+      "lat": 23.1089,
+      "lon": 90.0671,
+      "ground_pct": 37.5,
+      "satellite_pct": 79.03,
+      "n_reports": 1,
+      "satellite": "METEOSAT-9",
+      "difference_pct": 41.5
+    },
+    {
+      "date": "2025-03-22",
+      "lat": 24.2222,
+      "lon": 90.4079,
+      "ground_pct": 95.0,
+      "satellite_pct": 100.0,
+      "n_reports": 1,
+      "satellite": "METEOSAT-9",
+      "difference_pct": 5.0
+    },
+    {
+      "date": "2025-03-23",
+      "lat": 24.2222,
+      "lon": 90.4082,
+      "ground_pct": 70.0,
+      "satellite_pct": 15.39,
+      "n_reports": 1,
+      "satellite": "METEOSAT-9",
+      "difference_pct": -54.6
+    },
+    {
+      "date": "2025-03-24",
+      "lat": 24.2222,
+      "lon": 90.4082,
+      "ground_pct": 0.0,
+      "satellite_pct": 0.0,
+      "n_reports": 1,
+      "satellite": "METEOSAT-9",
+      "difference_pct": 0.0
+    },
+    {
+      "date": "2025-03-25",
+      "lat": 23.7461,
+      "lon": 90.3895,
+      "ground_pct": 70.0,
+      "satellite_pct": 56.52,
+      "n_reports": 6,
+      "satellite": "METEOSAT-9",
+      "difference_pct": -13.5
+    },
+    {
+      "date": "2025-03-25",
+      "lat": 24.2222,
+      "lon": 90.4083,
+      "ground_pct": 0.0,
+      "satellite_pct": 0.0,
+      "n_reports": 1,
+      "satellite": "METEOSAT-9",
+      "difference_pct": 0.0
+    },
+    {
+      "date": "2025-03-26",
+      "lat": 23.7461,
+      "lon": 90.3895,
+      "ground_pct": 95.0,
+      "satellite_pct": 1.56,
+      "n_reports": 7,
+      "satellite": "METEOSAT-9",
+      "difference_pct": -93.4
+    },
+    {
+      "date": "2025-03-26",
+      "lat": 24.2223,
+      "lon": 90.4082,
+      "ground_pct": 0.0,
+      "satellite_pct": 1.49,
+      "n_reports": 2,
+      "satellite": "METEOSAT-9",
+      "difference_pct": 1.5
+    },
+    {
+      "date": "2025-03-27",
+      "lat": 24.2222,
+      "lon": 90.4083,
+      "ground_pct": 70.0,
+      "satellite_pct": 68.66,
+      "n_reports": 1,
+      "satellite": "METEOSAT-9",
+      "difference_pct": -1.3
+    },
+    {
+      "date": "2025-03-27",
+      "lat": 23.7461,
+      "lon": 90.3894,
+      "ground_pct": 95.0,
+      "satellite_pct": 0.0,
+      "n_reports": 2,
+      "satellite": "METEOSAT-9",
+      "difference_pct": -95.0
+    },
+    {
+      "date": "2025-03-28",
+      "lat": 23.7461,
+      "lon": 90.3895,
+      "ground_pct": 0.0,
+      "satellite_pct": 0.0,
+      "n_reports": 14,
+      "satellite": "METEOSAT-9",
+      "difference_pct": 0.0
+    },
+    {
+      "date": "2025-03-28",
+      "lat": 24.2222,
+      "lon": 90.4083,
+      "ground_pct": 0.0,
+      "satellite_pct": 0.0,
+      "n_reports": 2,
+      "satellite": "METEOSAT-9",
+      "difference_pct": 0.0
+    },
+    {
+      "date": "2025-03-31",
+      "lat": 23.7441,
+      "lon": 90.3888,
+      "ground_pct": 0.0,
+      "satellite_pct": 100.0,
+      "n_reports": 5,
+      "satellite": "METEOSAT-9",
+      "difference_pct": 100.0
+    },
+    {
+      "date": "2025-04-01",
+      "lat": 23.6209,
+      "lon": 90.4975,
+      "ground_pct": 0.0,
+      "satellite_pct": 98.46,
+      "n_reports": 1,
+      "satellite": "METEOSAT-9",
+      "difference_pct": 98.5
+    },
+    {
+      "date": "2025-04-02",
+      "lat": 24.2222,
+      "lon": 90.4083,
+      "ground_pct": 95.0,
+      "satellite_pct": 100.0,
+      "n_reports": 1,
+      "satellite": "METEOSAT-9",
+      "difference_pct": 5.0
+    },
+    {
+      "date": "2025-04-02",
+      "lat": 23.621,
+      "lon": 90.4975,
+      "ground_pct": 0.0,
+      "satellite_pct": 66.67,
+      "n_reports": 2,
+      "satellite": "METEOSAT-9",
+      "difference_pct": 66.7
+    },
+    {
+      "date": "2025-04-03",
+      "lat": 23.7459,
+      "lon": 90.3894,
+      "ground_pct": 0.0,
+      "satellite_pct": 99.99,
+      "n_reports": 3,
+      "satellite": "METEOSAT-9",
+      "difference_pct": 100.0
+    },
+    {
+      "date": "2025-04-03",
+      "lat": 24.2222,
+      "lon": 90.4083,
+      "ground_pct": 0.0,
+      "satellite_pct": 62.86,
+      "n_reports": 1,
+      "satellite": "METEOSAT-9",
+      "difference_pct": 62.9
+    },
+    {
+      "date": "2025-04-04",
+      "lat": 23.7461,
+      "lon": 90.3896,
+      "ground_pct": 0.0,
+      "satellite_pct": 99.99,
+      "n_reports": 2,
+      "satellite": "METEOSAT-9",
+      "difference_pct": 100.0
+    },
+    {
+      "date": "2025-04-04",
+      "lat": 24.2223,
+      "lon": 90.4081,
+      "ground_pct": 70.0,
+      "satellite_pct": 100.0,
+      "n_reports": 1,
+      "satellite": "METEOSAT-9",
+      "difference_pct": 30.0
+    },
+    {
+      "date": "2025-04-05",
+      "lat": 24.2222,
+      "lon": 90.4083,
+      "ground_pct": 70.0,
+      "satellite_pct": 75.76,
+      "n_reports": 1,
+      "satellite": "METEOSAT-9",
+      "difference_pct": 5.8
+    },
+    {
+      "date": "2025-04-05",
+      "lat": 23.7461,
+      "lon": 90.3895,
+      "ground_pct": 0.0,
+      "satellite_pct": 40.33,
+      "n_reports": 5,
+      "satellite": "METEOSAT-9",
+      "difference_pct": 40.3
+    },
+    {
+      "date": "2025-04-06",
+      "lat": 23.7461,
+      "lon": 90.3895,
+      "ground_pct": 0.0,
+      "satellite_pct": 6.25,
+      "n_reports": 11,
+      "satellite": "METEOSAT-9",
+      "difference_pct": 6.2
+    },
+    {
+      "date": "2025-04-07",
+      "lat": 23.7461,
+      "lon": 90.3894,
+      "ground_pct": 0.0,
+      "satellite_pct": 0.0,
+      "n_reports": 6,
+      "satellite": "METEOSAT-9",
+      "difference_pct": 0.0
+    },
+    {
+      "date": "2025-04-09",
+      "lat": 23.7461,
+      "lon": 90.3894,
+      "ground_pct": 0.0,
+      "satellite_pct": 38.46,
+      "n_reports": 42,
+      "satellite": "METEOSAT-9",
+      "difference_pct": 38.5
+    },
+    {
+      "date": "2025-04-10",
+      "lat": 23.746,
+      "lon": 90.3894,
+      "ground_pct": 0.0,
+      "satellite_pct": 92.65,
+      "n_reports": 13,
+      "satellite": "METEOSAT-9",
+      "difference_pct": 92.6
+    },
+    {
+      "date": "2025-04-11",
+      "lat": 23.7461,
+      "lon": 90.3895,
+      "ground_pct": 0.0,
+      "satellite_pct": 20.84,
+      "n_reports": 11,
+      "satellite": "METEOSAT-9",
+      "difference_pct": 20.8
+    },
+    {
+      "date": "2025-04-12",
+      "lat": 23.7461,
+      "lon": 90.3895,
+      "ground_pct": 0.0,
+      "satellite_pct": 100.0,
+      "n_reports": 3,
+      "satellite": "METEOSAT-9",
+      "difference_pct": 100.0
+    },
+    {
+      "date": "2025-04-15",
+      "lat": 22.3738,
+      "lon": 91.8088,
+      "ground_pct": 17.5,
+      "satellite_pct": 82.35,
+      "n_reports": 1,
+      "satellite": "METEOSAT-9",
+      "difference_pct": 64.8
+    },
+    {
+      "date": "2025-04-16",
+      "lat": 23.746,
+      "lon": 90.3895,
+      "ground_pct": 0.0,
+      "satellite_pct": 100.0,
+      "n_reports": 26,
+      "satellite": "METEOSAT-9",
+      "difference_pct": 100.0
+    },
+    {
+      "date": "2025-04-16",
+      "lat": 22.3738,
+      "lon": 91.8088,
+      "ground_pct": 37.5,
+      "satellite_pct": 32.86,
+      "n_reports": 1,
+      "satellite": "METEOSAT-9",
+      "difference_pct": -4.6
+    },
+    {
+      "date": "2025-04-16",
+      "lat": 23.1569,
+      "lon": 89.2076,
+      "ground_pct": 37.5,
+      "satellite_pct": 79.66,
+      "n_reports": 1,
+      "satellite": "METEOSAT-9",
+      "difference_pct": 42.2
+    },
+    {
+      "date": "2025-04-17",
+      "lat": 23.75,
+      "lon": 90.42,
+      "ground_pct": 95.0,
+      "satellite_pct": 98.57,
+      "n_reports": 3,
+      "satellite": "METEOSAT-9",
+      "difference_pct": 3.6
+    },
+    {
+      "date": "2025-04-18",
+      "lat": 22.3738,
+      "lon": 91.8088,
+      "ground_pct": 95.0,
+      "satellite_pct": 100.0,
+      "n_reports": 1,
+      "satellite": "METEOSAT-9",
+      "difference_pct": 5.0
+    },
+    {
+      "date": "2025-04-18",
+      "lat": 23.75,
+      "lon": 90.42,
+      "ground_pct": 95.0,
+      "satellite_pct": 74.59,
+      "n_reports": 2,
+      "satellite": "METEOSAT-9",
+      "difference_pct": -20.4
+    },
+    {
+      "date": "2025-04-19",
+      "lat": 22.3736,
+      "lon": 91.809,
+      "ground_pct": 95.0,
+      "satellite_pct": 100.0,
+      "n_reports": 1,
+      "satellite": "METEOSAT-9",
+      "difference_pct": 5.0
+    },
+    {
+      "date": "2025-04-20",
+      "lat": 23.7461,
+      "lon": 90.3895,
+      "ground_pct": 0.0,
+      "satellite_pct": 100.0,
+      "n_reports": 12,
+      "satellite": "METEOSAT-9",
+      "difference_pct": 100.0
+    },
+    {
+      "date": "2025-04-21",
+      "lat": 23.7461,
+      "lon": 90.3894,
+      "ground_pct": 0.0,
+      "satellite_pct": 100.0,
+      "n_reports": 31,
+      "satellite": "METEOSAT-9",
+      "difference_pct": 100.0
+    },
+    {
+      "date": "2025-04-21",
+      "lat": 22.3737,
+      "lon": 91.809,
+      "ground_pct": 95.0,
+      "satellite_pct": 100.0,
+      "n_reports": 1,
+      "satellite": "METEOSAT-9",
+      "difference_pct": 5.0
+    },
+    {
+      "date": "2025-04-21",
+      "lat": 23.7499,
+      "lon": 90.42,
+      "ground_pct": 0.0,
+      "satellite_pct": 38.71,
+      "n_reports": 2,
+      "satellite": "METEOSAT-9",
+      "difference_pct": 38.7
+    },
+    {
+      "date": "2025-04-23",
+      "lat": 23.746,
+      "lon": 90.3894,
+      "ground_pct": 0.0,
+      "satellite_pct": 100.0,
+      "n_reports": 2,
+      "satellite": "METEOSAT-9",
+      "difference_pct": 100.0
+    },
+    {
+      "date": "2025-04-24",
+      "lat": 23.746,
+      "lon": 90.3894,
+      "ground_pct": 0.0,
+      "satellite_pct": 100.0,
+      "n_reports": 3,
+      "satellite": "METEOSAT-9",
+      "difference_pct": 100.0
+    },
+    {
+      "date": "2025-04-24",
+      "lat": 22.3737,
+      "lon": 91.809,
+      "ground_pct": 95.0,
+      "satellite_pct": 98.48,
+      "n_reports": 1,
+      "satellite": "METEOSAT-9",
+      "difference_pct": 3.5
+    },
+    {
+      "date": "2025-04-24",
+      "lat": 23.7499,
+      "lon": 90.42,
+      "ground_pct": 0.0,
+      "satellite_pct": 69.12,
+      "n_reports": 1,
+      "satellite": "METEOSAT-9",
+      "difference_pct": 69.1
+    },
+    {
+      "date": "2025-04-25",
+      "lat": 23.746,
+      "lon": 90.3895,
+      "ground_pct": 0.0,
+      "satellite_pct": 100.0,
+      "n_reports": 2,
+      "satellite": "METEOSAT-9",
+      "difference_pct": 100.0
+    },
+    {
+      "date": "2025-04-25",
+      "lat": 22.3735,
+      "lon": 91.8092,
+      "ground_pct": 70.0,
+      "satellite_pct": 68.66,
+      "n_reports": 1,
+      "satellite": "METEOSAT-9",
+      "difference_pct": -1.3
+    },
+    {
+      "date": "2025-04-26",
+      "lat": 23.7461,
+      "lon": 90.3896,
+      "ground_pct": 0.0,
+      "satellite_pct": 100.0,
+      "n_reports": 4,
+      "satellite": "METEOSAT-9",
+      "difference_pct": 100.0
+    },
+    {
+      "date": "2025-04-26",
+      "lat": 22.3739,
+      "lon": 91.809,
+      "ground_pct": 70.0,
+      "satellite_pct": 67.16,
+      "n_reports": 1,
+      "satellite": "METEOSAT-9",
+      "difference_pct": -2.8
+    },
+    {
+      "date": "2025-04-26",
+      "lat": 23.75,
+      "lon": 90.4201,
+      "ground_pct": 0.0,
+      "satellite_pct": 100.0,
+      "n_reports": 1,
+      "satellite": "METEOSAT-9",
+      "difference_pct": 100.0
+    },
+    {
+      "date": "2025-04-27",
+      "lat": 23.7461,
+      "lon": 90.3895,
+      "ground_pct": 0.0,
+      "satellite_pct": 100.0,
+      "n_reports": 63,
+      "satellite": "METEOSAT-9",
+      "difference_pct": 100.0
+    },
+    {
+      "date": "2025-04-27",
+      "lat": 22.3737,
+      "lon": 91.8091,
+      "ground_pct": 17.5,
+      "satellite_pct": 100.0,
+      "n_reports": 1,
+      "satellite": "METEOSAT-9",
+      "difference_pct": 82.5
+    },
+    {
+      "date": "2025-04-28",
+      "lat": 23.746,
+      "lon": 90.3894,
+      "ground_pct": 0.0,
+      "satellite_pct": 100.0,
+      "n_reports": 21,
+      "satellite": "METEOSAT-9",
+      "difference_pct": 100.0
+    },
+    {
+      "date": "2025-04-28",
+      "lat": 22.3736,
+      "lon": 91.809,
+      "ground_pct": 70.0,
+      "satellite_pct": 57.14,
+      "n_reports": 1,
+      "satellite": "METEOSAT-9",
+      "difference_pct": -12.9
+    },
+    {
+      "date": "2025-04-28",
+      "lat": 24.4672,
+      "lon": 91.7664,
+      "ground_pct": 95.0,
+      "satellite_pct": 100.0,
+      "n_reports": 1,
+      "satellite": "METEOSAT-9",
+      "difference_pct": 5.0
+    },
+    {
+      "date": "2025-04-29",
+      "lat": 23.7461,
+      "lon": 90.3896,
+      "ground_pct": 0.0,
+      "satellite_pct": 96.08,
+      "n_reports": 1,
+      "satellite": "METEOSAT-9",
+      "difference_pct": 96.1
+    },
+    {
+      "date": "2025-04-29",
+      "lat": 24.4672,
+      "lon": 91.7664,
+      "ground_pct": 95.0,
+      "satellite_pct": 53.52,
+      "n_reports": 1,
+      "satellite": "METEOSAT-9",
+      "difference_pct": -41.5
+    },
+    {
+      "date": "2025-04-30",
+      "lat": 23.746,
+      "lon": 90.3894,
+      "ground_pct": 0.0,
+      "satellite_pct": 100.0,
+      "n_reports": 2,
+      "satellite": "METEOSAT-9",
+      "difference_pct": 100.0
+    },
+    {
+      "date": "2025-04-30",
+      "lat": 22.3736,
+      "lon": 91.8092,
+      "ground_pct": 95.0,
+      "satellite_pct": 67.74,
+      "n_reports": 1,
+      "satellite": "METEOSAT-9",
+      "difference_pct": -27.3
+    },
+    {
+      "date": "2025-05-01",
+      "lat": 22.3738,
+      "lon": 91.8089,
+      "ground_pct": 17.5,
+      "satellite_pct": 25.0,
+      "n_reports": 1,
+      "satellite": "METEOSAT-9",
+      "difference_pct": 7.5
+    },
+    {
+      "date": "2025-05-01",
+      "lat": 23.7461,
+      "lon": 90.3895,
+      "ground_pct": 0.0,
+      "satellite_pct": 70.43,
+      "n_reports": 8,
+      "satellite": "METEOSAT-9",
+      "difference_pct": 70.4
+    },
+    {
+      "date": "2025-05-02",
+      "lat": 23.7461,
+      "lon": 90.3895,
+      "ground_pct": 0.0,
+      "satellite_pct": 41.224999999999994,
+      "n_reports": 22,
+      "satellite": "METEOSAT-9",
+      "difference_pct": 41.2
+    },
+    {
+      "date": "2025-05-02",
+      "lat": 22.3738,
+      "lon": 91.8091,
+      "ground_pct": 0.0,
+      "satellite_pct": 7.47,
+      "n_reports": 1,
+      "satellite": "METEOSAT-9",
+      "difference_pct": 7.5
+    },
+    {
+      "date": "2025-05-03",
+      "lat": 23.746,
+      "lon": 90.3895,
+      "ground_pct": 0.0,
+      "satellite_pct": 85.72,
+      "n_reports": 15,
+      "satellite": "METEOSAT-9",
+      "difference_pct": 85.7
+    },
+    {
+      "date": "2025-05-07",
+      "lat": 22.3737,
+      "lon": 91.8091,
+      "ground_pct": 37.5,
+      "satellite_pct": 30.64,
+      "n_reports": 1,
+      "satellite": "METEOSAT-9",
+      "difference_pct": -6.9
+    },
+    {
+      "date": "2025-05-07",
+      "lat": 23.746,
+      "lon": 90.3894,
+      "ground_pct": 0.0,
+      "satellite_pct": 12.12,
+      "n_reports": 1,
+      "satellite": "METEOSAT-9",
+      "difference_pct": 12.1
+    },
+    {
+      "date": "2025-05-08",
+      "lat": 22.3738,
+      "lon": 91.8088,
+      "ground_pct": 37.5,
+      "satellite_pct": 47.46,
+      "n_reports": 1,
+      "satellite": "METEOSAT-9",
+      "difference_pct": 10.0
+    },
+    {
+      "date": "2025-05-08",
+      "lat": 23.7461,
+      "lon": 90.3894,
+      "ground_pct": 0.0,
+      "satellite_pct": 85.9,
+      "n_reports": 1,
+      "satellite": "METEOSAT-9",
+      "difference_pct": 85.9
+    },
+    {
+      "date": "2025-05-09",
+      "lat": 23.7461,
+      "lon": 90.3894,
+      "ground_pct": 0.0,
+      "satellite_pct": 66.67,
+      "n_reports": 1,
+      "satellite": "METEOSAT-9",
+      "difference_pct": 66.7
+    },
+    {
+      "date": "2025-05-10",
+      "lat": 23.7461,
+      "lon": 90.3894,
+      "ground_pct": 0.0,
+      "satellite_pct": 37.15,
+      "n_reports": 1,
+      "satellite": "METEOSAT-9",
+      "difference_pct": 37.2
+    },
+    {
+      "date": "2025-05-11",
+      "lat": 22.3739,
+      "lon": 91.8088,
+      "ground_pct": 0.0,
+      "satellite_pct": 18.18,
+      "n_reports": 1,
+      "satellite": "METEOSAT-9",
+      "difference_pct": 18.2
+    },
+    {
+      "date": "2025-05-12",
+      "lat": 22.3739,
+      "lon": 91.8088,
+      "ground_pct": 95.0,
+      "satellite_pct": 94.28,
+      "n_reports": 1,
+      "satellite": "METEOSAT-9",
+      "difference_pct": -0.7
+    },
+    {
+      "date": "2025-05-12",
+      "lat": 23.7461,
+      "lon": 90.3895,
+      "ground_pct": 0.0,
+      "satellite_pct": 100.0,
+      "n_reports": 1,
+      "satellite": "METEOSAT-9",
+      "difference_pct": 100.0
+    },
+    {
+      "date": "2025-05-13",
+      "lat": 23.7461,
+      "lon": 90.3895,
+      "ground_pct": 0.0,
+      "satellite_pct": 100.0,
+      "n_reports": 1,
+      "satellite": "METEOSAT-9",
+      "difference_pct": 100.0
+    },
+    {
+      "date": "2025-05-13",
+      "lat": 23.8571,
+      "lon": 90.319,
+      "ground_pct": 17.5,
+      "satellite_pct": 63.49,
+      "n_reports": 1,
+      "satellite": "METEOSAT-9",
+      "difference_pct": 46.0
+    },
+    {
+      "date": "2025-05-14",
+      "lat": 23.7461,
+      "lon": 90.3894,
+      "ground_pct": 0.0,
+      "satellite_pct": 63.57,
+      "n_reports": 2,
+      "satellite": "METEOSAT-9",
+      "difference_pct": 63.6
+    },
+    {
+      "date": "2025-05-15",
+      "lat": 23.746,
+      "lon": 90.3894,
+      "ground_pct": 0.0,
+      "satellite_pct": 100.0,
+      "n_reports": 1,
+      "satellite": "METEOSAT-9",
+      "difference_pct": 100.0
+    },
+    {
+      "date": "2025-05-16",
+      "lat": 23.7461,
+      "lon": 90.3895,
+      "ground_pct": 0.0,
+      "satellite_pct": 67.16,
+      "n_reports": 1,
+      "satellite": "METEOSAT-9",
+      "difference_pct": 67.2
+    },
+    {
+      "date": "2025-05-20",
+      "lat": 23.8569,
+      "lon": 90.3205,
+      "ground_pct": 95.0,
+      "satellite_pct": 100.0,
+      "n_reports": 1,
+      "satellite": "METEOSAT-9",
+      "difference_pct": 5.0
+    },
+    {
+      "date": "2025-05-26",
+      "lat": 22.3735,
+      "lon": 91.8093,
+      "ground_pct": 70.0,
+      "satellite_pct": 98.41,
+      "n_reports": 1,
+      "satellite": "METEOSAT-9",
+      "difference_pct": 28.4
+    },
+    {
+      "date": "2025-05-28",
+      "lat": 22.3736,
+      "lon": 91.809,
+      "ground_pct": 95.0,
+      "satellite_pct": 100.0,
+      "n_reports": 1,
+      "satellite": "METEOSAT-9",
+      "difference_pct": 5.0
+    },
+    {
+      "date": "2025-06-01",
+      "lat": 22.3734,
+      "lon": 91.8102,
+      "ground_pct": 95.0,
+      "satellite_pct": 100.0,
+      "n_reports": 1,
+      "satellite": "METEOSAT-9",
+      "difference_pct": 5.0
+    },
+    {
+      "date": "2025-06-29",
+      "lat": 23.764,
+      "lon": 90.4566,
+      "ground_pct": 37.5,
+      "satellite_pct": 100.0,
+      "n_reports": 1,
+      "satellite": "METEOSAT-9",
+      "difference_pct": 62.5
+    },
+    {
+      "date": "2025-07-14",
+      "lat": 23.9353,
+      "lon": 90.3174,
+      "ground_pct": 95.0,
+      "satellite_pct": 100.0,
+      "n_reports": 1,
+      "satellite": "METEOSAT-9",
+      "difference_pct": 5.0
+    },
+    {
+      "date": "2025-09-02",
+      "lat": 23.5535,
+      "lon": 90.7561,
+      "ground_pct": 0.0,
+      "satellite_pct": 49.12,
+      "n_reports": 3,
+      "satellite": "METEOSAT-9",
+      "difference_pct": 49.1
+    },
+    {
+      "date": "2025-12-01",
+      "lat": 23.8745,
+      "lon": 90.3115,
+      "ground_pct": 17.5,
+      "satellite_pct": 48.43,
+      "n_reports": 5,
+      "satellite": "METEOSAT-9",
+      "difference_pct": 30.9
+    }
+  ],
+  "disclosure": "Two perspectives, not right vs wrong: an observer sees the sky from below at one spot; the satellite sees from above over a wider area. Differences are expected. Reports from the same day within 1 km are combined.",
+  "credit": "NASA GLOBE Program (GLOBE Clouds 2025 v3.4, satellite-matched)",
+  "generated_utc": "2026-09-27T18:52:15Z"
+}
