@@ -1,0 +1,58 @@
+{
+  "product": "rain",
+  "svs_id": 4285,
+  "svs_page": "https://svs.gsfc.nasa.gov/4285/",
+  "frame_time_utc": "2026-09-27T02:30:00Z",
+  "frame_time_meaning": "start of the 30-minute period",
+  "source_file": "rain_imergert_alpha.2026-09-27T02_30_00Z.png",
+  "source_dataset": "GPM IMERG half-hourly V07 (NASA/JAXA, GES DISC): newest frames match the Early run; older frames matched the Late run",
+  "units": "mm/h",
+  "value_range": [
+    0.1,
+    50
+  ],
+  "scale": "log",
+  "verified": {
+    "metric": "median_abs_log10_error",
+    "value": 0.103,
+    "approx_percent": 27,
+    "bias_log10": -0.103,
+    "n_points": 150,
+    "agreement": 1.0,
+    "phase_agreement": 1.0,
+    "matched_run": "IMERG Late",
+    "frames_tested": 1,
+    "test": "D2"
+  },
+  "credit": "Visualization: NASA's Scientific Visualization Studio (SVS 4285), NASA Earth Information Center. Data: GPM IMERG (NASA/JAXA), GES DISC.",
+  "generated_utc": "2026-09-27T09:06:35Z",
+  "colorbar_variant": "black",
+  "grid": {
+    "width": 1800,
+    "height": 900,
+    "encoding": "uint16_log",
+    "formula": "0 = dry; else mm/h = 10^((code-1)/20000 - 1); 65535 = no data",
+    "phase_file": "rain_phase.bin",
+    "phase_codes": {
+      "0": "dry",
+      "1": "liquid",
+      "2": "frozen"
+    },
+    "byte_order": "little",
+    "row0": "north (90N)",
+    "col0": "180W",
+    "aggregation": "max of 2x2 source pixels"
+  },
+  "latest_check": {
+    "frame": "latest frame",
+    "frame_time_utc": "2026-09-27T02:30:00Z",
+    "imerg_run": "Early",
+    "file": "3B-HHR-E.MS.MRG.3IMERG.20260927-S023000-E025959.0150.V07C.HDF5",
+    "agreement": 1.0,
+    "median_abs_log10": 0.1078828236799277,
+    "median_log10_bias": -0.1078828236799277,
+    "n_both_rain": 150,
+    "pass": true,
+    "checked_utc": "2026-09-27T09:34:20Z"
+  }
+}

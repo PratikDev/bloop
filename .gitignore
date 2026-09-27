@@ -42,4 +42,10 @@ yarn-error.log*
 next-env.d.ts
 
 # notes
-/notes
+/notes# L1 pipeline: never commit raw downloads, work files or large inputs
+pipeline/raw/
+pipeline/work/
+pipeline/inputs/context/*.nc
+pipeline/inputs/context/*.nc.gz
+pipeline/__pycache__/
+*.part

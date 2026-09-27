@@ -1,0 +1,59 @@
+{
+  "product": "sst",
+  "svs_id": 5101,
+  "svs_page": "https://svs.gsfc.nasa.gov/5101/",
+  "frame_time_utc": "2026-09-25T00:00:00Z",
+  "source_file": "sst_sst_mur_20260925_no-dates.exr",
+  "source_dataset": "MUR-JPL-L4-GLOB-v4.1 (NASA/JPL PO.DAAC)",
+  "grid": {
+    "width": 1024,
+    "height": 512,
+    "encoding": "uint16_offset",
+    "scale": 1000,
+    "offset": -5,
+    "nodata": 65535,
+    "byte_order": "little",
+    "row0": "north (90N)",
+    "col0": "180W",
+    "aggregation": "mean of 4x4 source pixels"
+  },
+  "units": "degC",
+  "value_range": [
+    -4.0,
+    34.0
+  ],
+  "verified": {
+    "metric": "median_abs_error_C",
+    "value": 0.31,
+    "p90_abs_error_C": 0.77,
+    "bias_C": 0.08,
+    "n_points": 60,
+    "frames_tested": 1,
+    "test": "Check C re-evaluated with corrected colorbar positions (same frame, same MUR values)"
+  },
+  "calibration": {
+    "method": "H1 round -4..34",
+    "legend_labels": "-5..35 C",
+    "ticks_px": [
+      194.2,
+      1413.1
+    ],
+    "value_at_ticks_C": [
+      -4.0,
+      34.0
+    ],
+    "evidence": "calibrate_sst_range.py vs NASA MUR (Check C, 60 points)",
+    "note": "Frame colours checked against MUR imply this scale; out-of-sample test = verify_latest.py on a new frame."
+  },
+  "credit": "Visualization: NASA's Scientific Visualization Studio (SVS 5101), NASA Earth Information Center. Data: MUR SST, NASA/JPL PO.DAAC.",
+  "generated_utc": "2026-09-27T08:12:54Z",
+  "latest_check": {
+    "date": "2026-09-25",
+    "n": 60,
+    "median_abs": 0.3187321310043103,
+    "p90_abs": 0.7285318893432647,
+    "bias": -0.012641555833815233,
+    "pass": true,
+    "checked_utc": "2026-09-27T09:34:20Z"
+  }
+}
