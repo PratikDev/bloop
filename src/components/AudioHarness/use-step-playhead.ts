@@ -6,9 +6,10 @@ export interface Playhead {
   total: number;
   events: number; // step events received this run
   maxLagMs: number; // largest gap between a step's audio time and when it was shown
+  spanSec: number; // audio time from this run's first step to its latest step
 }
 
-const EMPTY: Playhead = { index: -1, total: 0, events: 0, maxLagMs: 0 };
+const EMPTY: Playhead = { index: -1, total: 0, events: 0, maxLagMs: 0, spanSec: 0 };
 
 /**
  * Shows step events for one player when the audio clock reaches their time
@@ -17,12 +18,12 @@ const EMPTY: Playhead = { index: -1, total: 0, events: 0, maxLagMs: 0 };
 export function useStepPlayhead(player: string) {
   const [head, setHead] = useState(EMPTY);
   const queue = useRef<{ index: number; total: number; time: number }[]>([]);
-  const stats = useRef({ events: 0, maxLagMs: 0 });
+  const stats = useRef({ events: 0, maxLagMs: 0, firstTime: 0 });
 
   useEffect(() => {
     const unsubscribe = onAudioEvent((e) => {
       if (e.kind !== "step" || e.player !== player) return;
-      if (e.index === 0) stats.current = { events: 0, maxLagMs: 0 };
+      if (e.index === 0) stats.current = { events: 0, maxLagMs: 0, firstTime: e.time };
       stats.current.events++;
       queue.current.push({ index: e.index, total: e.total, time: e.time });
     });
@@ -35,7 +36,7 @@ export function useStepPlayhead(player: string) {
         if (shown) {
           const s = stats.current;
           s.maxLagMs = Math.max(s.maxLagMs, (now - shown.time) * 1000);
-          setHead({ index: shown.index, total: shown.total, events: s.events, maxLagMs: s.maxLagMs });
+          setHead({ index: shown.index, total: shown.total, events: s.events, maxLagMs: s.maxLagMs, spanSec: shown.time - s.firstTime });
         }
       }
       frame = requestAnimationFrame(loop);

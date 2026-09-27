@@ -16,7 +16,7 @@ export default function StepProgress({ player, describe }: StepProgressProps) {
       <Progress value={pct} aria-label={`${player} playhead`} />
       <p className="font-mono text-xs text-muted-foreground">
         {player}: {head.index + 1}/{head.total}
-        {at} · step events {head.events} · max display lag {head.maxLagMs.toFixed(0)} ms
+        {at} · step events {head.events} · first→latest step {head.spanSec.toFixed(2)} s · max display lag {head.maxLagMs.toFixed(0)} ms
       </p>
     </div>
   );
