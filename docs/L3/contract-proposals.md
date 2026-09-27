@@ -48,6 +48,7 @@ Until the team approves new §16 wording, L3 builds these sentences **from the J
 | B5 | Step events count data points only | **Accepted by L2** |
 | B6 | `playSeries()` | **Accepted by L2**; now part of `L2AudioApi`, fallback removed |
 | B7 | Caption keys | **Agreed set** for Then vs Now; see below |
+| B8 | Time-lapse caption keys, params and player name | **Heads-up to L2**, waiting for L2 to confirm |
 
 ### B1. `getAnalyser(): AnalyserNode | null`
 - **Why:** the live waveform (bottom bar) and the sound rings at the cursor draw from the real output signal.
@@ -115,6 +116,20 @@ L2 sends exactly these keys with exactly these params; the UI has English text f
 
 The live-exploration keys the interim engine sends today are listed in `docs/L3/integration.md` §1 for L2's reference. They aren't agreed yet; L2 confirms them with its Phase 2 and 3 work.
 
+### B8. Storm time-lapse: caption keys, params and player name (heads-up to L2, 28 Sep)
+L2's plan (Phase 6) says to tell L3 before emitting the time-lapse keys. L3 now has English text for them, with these params:
+
+| Key | Params |
+|---|---|
+| `caption.timelapse.start` | `{ count }` (number of frames) |
+| `caption.timelapse.peak` | `{ value, phase }`: the heaviest frame's mm/h, and `"liquid"` or `"frozen"` (the caption says "rain" or "snow") |
+| `caption.timelapse.end` | none |
+
+- **Player name:** `"timelapse"`; step `index` = frame index (0 to 47), `total` = number of frames. This follows B5.
+- **Signature:** as in L2's plan, `playTimelapse(frames: SweepPoint[], { fps?: number; loop?: boolean })`. The UI passes `fps: 2` and doesn't use `loop`. It's now part of `L2AudioApi`.
+- **Frames:** L3 builds one `SweepPoint` per frame: the point that follows the heaviest rain near Bangladesh (see `src/lib/data/storm.ts`), with that frame's decoded value.
+- **Please confirm** the `peak` params (`phase` is L3's addition, so the caption can say "snow").
+
 ---
 
 ## C. Requests to L1 (data)
@@ -146,7 +161,7 @@ Measured on 27 Sep with `next start` on localhost (Vercel may differ, and there'
 | `latest/rain_phase.bin` | 1,620,000 B | 52,073 B | 44,608 B |
 | Total grids | **5.9 MB** | **0.70 MB** | 0.60 MB |
 
-The images add `sst.webp` (207 KB) and `rain.png` (931 KB).
+The images add `sst.webp` (207 KB) and `rain.png` (931 KB). The storm time-lapse adds **10.5 MB** more when it's first played (48 grids, already gzipped, and 48 PNG frames of about 158 KB each); it only loads when someone presses "Play storm time-lapse".
 - **Ask to L1:** also publish `sst.bin.gz`, `rain.bin.gz` and `rain_phase.bin.gz`, the way `sequence/*.u8.gz` already is. L3 would decode them with the browser's `DecompressionStream("gzip")`: a small change in `src/lib/data/fetch.ts`.
 - **Alternative:** a `headers` rule in `next.config.ts`. It's shared config, so this needs the team to agree, and it would have to be checked on Vercel.
 - Until then, the rain grid loads after first paint, so the ocean view isn't blocked.
@@ -157,6 +172,14 @@ The images add `sst.webp` (207 KB) and `rain.png` (931 KB).
   - **rain (GPCP, GPCC):** Chattogram has **its own cell** (21.25° N, 91.25° E); Dhaka shares one with Sylhet.
 - A "Chattogram then vs now" would need L1 to rebuild the demo file for Chattogram (new rain windows and numbers) and the team to agree new §16 wording.
 - **L3 needs no code change:** the UI renders any demo file of the same shape. Only the file path in `src/lib/data/paths.ts` would change.
+
+### C5. Lighter storm time-lapse frames (for October)
+The storm time-lapse is a **10.5 MB first download**: 48 grids (already gzipped) and 48 PNG frames of about 158 KB each. That's slow on phones and weak networks. Plan §17 lists the fallback for "Time-lapse too heavy": 24 frames instead of 48, at lower resolution.
+- **Ask to L1 (October):** publish lighter frames, either of these:
+  - the same 48 frames as **WebP** (the ocean image is already `sst.webp`); or
+  - **24 frames** (hourly) at **lower resolution**.
+- **L3 needs no code change** if `sequence.json` keeps its shape: the UI reads the frame list and file names from it.
+- **Until then:** the time-lapse loads only when someone presses "Play storm time-lapse", and the app shows a loading message with a file count ("Loading the time-lapse: 12 of 96 files") while the frames download.
 
 ---
 
