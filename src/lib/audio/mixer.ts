@@ -4,9 +4,9 @@
 
 import { peekEngine } from "./context";
 import { MAPPING } from "./mapping";
-import { INITIAL_MIXER, channelLevel, masterLevel, type MixerState } from "./mixer-state";
+import { INITIAL_MIXER, channelLevel, isAudible, masterLevel, type MixerState } from "./mixer-state";
 import { glideTo } from "./params";
-import { VOICE_IDS, type VoiceId } from "./types";
+import { VOICE_IDS, type TrackMode, type VoiceId } from "./types";
 
 const MIX_GLIDE_SEC = 0.02;
 
@@ -29,6 +29,21 @@ function update(next: Partial<MixerState>) {
 
 export function getMixerState(): MixerState {
   return state;
+}
+
+/** Whether a listener can hear this voice now (captions, ticks and drop events are skipped otherwise). */
+export function isVoiceAudible(id: VoiceId): boolean {
+  return isAudible(id, state);
+}
+
+/** Track selector / keys 1, 2, 3: which live voices play. Switching fades, never clicks. */
+export function setTrackMode(trackMode: TrackMode) {
+  update({ trackMode });
+}
+
+/** Legend, warm-up and opening play their voices whatever the track mode (mute and solo still apply). */
+export function setTrackGateLifted(trackGateLifted: boolean) {
+  update({ trackGateLifted });
 }
 
 export function setVoiceMuted(id: VoiceId, muted: boolean) {

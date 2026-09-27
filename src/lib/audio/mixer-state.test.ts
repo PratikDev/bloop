@@ -1,5 +1,5 @@
 import { describe, expect, test } from "bun:test";
-import { INITIAL_MIXER, channelLevel, masterLevel, type MixerState } from "./mixer-state";
+import { INITIAL_MIXER, channelLevel, isAudible, masterLevel, trackAllows, type MixerState } from "./mixer-state";
 import type { VoiceId } from "./types";
 
 const state = (over: Partial<MixerState>): MixerState => ({ ...INITIAL_MIXER, ...over });
@@ -33,6 +33,32 @@ describe("mixer rules", () => {
     expect(channelLevel("ocean", state({ voiceVolume: { ocean: -1 } }))).toBe(0);
     expect(channelLevel("ocean", state({ voiceVolume: { ocean: 0.4 }, solo: "rain" }))).toBe(0);
     expect(channelLevel("ocean", state({ voiceVolume: { ocean: 0.4 }, muted: new Set<VoiceId>(["ocean"]) }))).toBe(0);
+  });
+
+  test("track mode gates the live voices; rain mode plays rain and snow", () => {
+    const ocean = state({ trackMode: "ocean" });
+    expect(channelLevel("ocean", ocean)).toBe(1);
+    expect(channelLevel("rain", ocean)).toBe(0);
+    expect(channelLevel("snow", ocean)).toBe(0);
+    const rain = state({ trackMode: "rain" });
+    expect(channelLevel("ocean", rain)).toBe(0);
+    expect(channelLevel("rain", rain)).toBe(1);
+    expect(channelLevel("snow", rain)).toBe(1);
+    for (const id of ["ocean", "rain", "snow"] as const) expect(channelLevel(id, state({ trackMode: "both" }))).toBe(1);
+  });
+
+  test("track mode never gates non-live voices, and a lifted gate lets every voice play", () => {
+    expect(trackAllows("heat", state({ trackMode: "ocean" }))).toBe(true);
+    expect(channelLevel("rain", state({ trackMode: "ocean", trackGateLifted: true }))).toBe(1);
+    // mute still wins over a lifted gate
+    expect(channelLevel("rain", state({ trackGateLifted: true, muted: new Set<VoiceId>(["rain"]) }))).toBe(0);
+  });
+
+  test("audible = open channel and master not muted or at zero", () => {
+    expect(isAudible("ocean", INITIAL_MIXER)).toBe(true);
+    expect(isAudible("ocean", state({ allMuted: true }))).toBe(false);
+    expect(isAudible("ocean", state({ volume: 0 }))).toBe(false);
+    expect(isAudible("rain", state({ trackMode: "ocean" }))).toBe(false);
   });
 
   test("master level: capped by masterGain, scaled by volume, 0 when all muted", () => {
