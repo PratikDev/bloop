@@ -8,7 +8,7 @@ For the teammate translating the interface into Bangla.
 - Voice names in the Mapping panel come from `public/mapping.json` (`label.bn`, owned by L2), not from this list. Entries there starting with `TODO:` still show English.
 - Rows this doesn't list: the Mapping panel's rule sentences and global rules are English text from L2's `mapping.ts` and `mapping.json`. Bangla rule sentences need `ruleParts()` (planned for Phase 4).
 
-**Still to translate:** 273 of 273 strings (every row marked TODO_BN). Until a string is translated, the Bangla setting shows it in English; speech stays English (with Bangla on screen) until `BANGLA_SPEECH_READY` in `src/lib/i18n/bn.ts` is set.
+**Still to translate:** 274 of 274 strings (every row marked TODO_BN). Until a string is translated, the Bangla setting shows it in English; speech stays English (with Bangla on screen) until `BANGLA_SPEECH_READY` in `src/lib/i18n/bn.ts` is set.
 
 ## Priority: the video's closing shot (translate these first)
 
@@ -71,6 +71,7 @@ The video ends on the live app in Bangla mode, playing (team plan §14, 3:45 to 
 | Key | English | Bangla | Note |
 |---|---|---|---|
 | `app.title` | Earth Information Jukebox | TODO_BN |  |
+| `app.titleShort` | Jukebox | TODO_BN | phone header only; shown on screen, not read by screen readers (they get `app.title`) |
 | `app.skipToMap` | Skip to the sound map | TODO_BN |  |
 | `start.lead` | Hear NASA's view of today's ocean and rain as live sound. | TODO_BN |  |
 | `start.hint` | Headphones help: west sounds left, east sounds right. | TODO_BN |  |
