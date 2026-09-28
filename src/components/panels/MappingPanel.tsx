@@ -50,7 +50,7 @@ export function MappingPanel() {
             {v.note && <p className="text-small text-haze">{v.note}</p>}
             {v.designChoice && <p className="text-small text-moon">{t("mapping.designChoice")}</p>}
             {isLegendVoice(v.id) && (
-              <Button variant="secondary" onClick={() => isLegendVoice(v.id) && audio.playLegend(v.id)} className="mt-1 h-10 gap-2">
+              <Button variant="secondary" onClick={() => isLegendVoice(v.id) && audio.playLegend(v.id)} className="mt-1 h-10 gap-2 pointer-coarse:h-11">
                 <Volume2 aria-hidden="true" />
                 {t("mapping.hearLegend")}
               </Button>

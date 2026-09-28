@@ -34,7 +34,7 @@ function FrameFacts({
         <dd>{meta.source_dataset}</dd>
         <dt className="text-haze">{t("provenance.visualization")}</dt>
         <dd>
-          <a href={meta.svs_page} target="_blank" rel="noreferrer" className="underline underline-offset-2">
+          <a href={meta.svs_page} target="_blank" rel="noreferrer" className="underline underline-offset-2 pointer-coarse:inline-flex pointer-coarse:min-h-11 pointer-coarse:items-center">
             {t("provenance.svs", { id: meta.svs_id })}
           </a>
         </dd>

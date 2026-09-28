@@ -26,7 +26,7 @@ function PanelTabs() {
   const t = useT();
   return (
     <Tabs value={state.panel} onValueChange={(panel: PanelTab) => dispatch({ type: "setPanel", panel })} className="gap-4">
-      <TabsList aria-label={t("panel.label")} className="w-full bg-night group-data-horizontal/tabs:h-11">
+      <TabsList aria-label={t("panel.label")} className="w-full bg-night group-data-horizontal/tabs:h-11 pointer-coarse:group-data-horizontal/tabs:h-13">
         {TABS.map(({ tab, label }) => (
           <TabsTrigger key={tab} value={tab} className="h-full px-2 text-body data-active:bg-tide">
             {t(label)}
@@ -71,7 +71,8 @@ export function SidePanel() {
         <SheetContent
           side={phone ? "bottom" : "right"}
           className={cn(
-            "overflow-y-auto bg-dusk p-4 text-body lg:hidden",
+            // pt-16: the tabs start below the 44 px close button instead of under it.
+            "overflow-y-auto bg-dusk p-4 pt-16 text-body lg:hidden",
             phone ? "max-h-[85dvh] rounded-t-sheet" : "w-full rounded-l-sheet sm:max-w-md",
           )}
         >

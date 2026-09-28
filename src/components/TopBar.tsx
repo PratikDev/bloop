@@ -29,7 +29,7 @@ export function TopBar() {
       <TrackChoice className="hidden md:flex" />
 
       <div className="ml-auto flex items-center gap-2">
-        <SettingToggle setting="describe" className="hidden h-9 px-3 text-body aria-pressed:bg-tide lg:inline-flex" />
+        <SettingToggle setting="describe" className="hidden h-9 px-3 text-body pointer-coarse:h-11 aria-pressed:bg-tide lg:inline-flex" />
         <ChoiceGroup<Lang>
           label={t("settings.language")}
           value={state.lang}

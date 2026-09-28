@@ -11,7 +11,7 @@ const VOICE_LABEL = { ocean: "track.ocean", rain: "track.rain", snow: "mixer.sno
   string
 >;
 
-const SMALL_TOGGLE = "h-9 min-w-11 px-2 text-small aria-pressed:bg-tide";
+const SMALL_TOGGLE = "h-9 min-w-11 px-2 text-small pointer-coarse:h-11 aria-pressed:bg-tide";
 
 /** Volume, mute and solo for each live voice. */
 export function Mixer({ className }: { className?: string }) {
@@ -26,7 +26,7 @@ export function Mixer({ className }: { className?: string }) {
         return (
           <div key={voice} className="flex items-center gap-2">
             <span className="w-12 text-body">{name}</span>
-            <div className="w-24 shrink-0">
+            <div className="w-24 shrink-0 pointer-coarse:w-32">
               <Slider
                 value={[Math.round(mix.volume * 100)]}
                 onValueChange={(v) => dispatch({ type: "setVoiceMix", voice, mix: { volume: (Array.isArray(v) ? v[0] : v) / 100 } })}
