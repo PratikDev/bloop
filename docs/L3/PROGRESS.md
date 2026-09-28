@@ -341,6 +341,14 @@ Done in code: captions, Describe mode, the Bangla setting, October labels, the s
 - Add the browser test scripts to the repo. They must run through L2's existing `"test": "bun test"` script (decision 25), not a new one.
 - Place History scrubbing (drag to hear a month).
 
+**Post-freeze (from the 28 Sep phone review)**
+
+| # | Item | What we know | What to do |
+|---|---|---|---|
+| 14 | Sound in a hidden tab | Phone browsers slow down timers in background tabs, so the 25 ms scheduler falls behind: drops thin out or stop until the tab is shown again. Known from browser documentation; not measured on a phone. | Decide whether the app should keep playing in the background. If yes, move scheduling off `setInterval` (for example an `AudioWorklet` clock) or pause cleanly on `visibilitychange`. |
+| 15 | 7.6 MB before the Start screen settles | Measured with phone emulation on `next start`: `rain.bin` 3.1 MB, `rain_phase.bin` 1.6 MB, `sst.bin` 1.0 MB, `rain.png` 0.9 MB, fonts 0.6 MB, scripts 0.3 MB. The grids load before anyone presses Start, and the `.bin` files are sent uncompressed. | Compressed grids from L1 (C3), then decode with `DecompressionStream`. Consider loading the grids after Start. Check Vercel's compression once there's a deployment. |
+| 16 | The time-lapse adds 10 MB | 48 frame PNGs (7.1 MB) and 48 grids (3.0 MB), loaded when "Play storm time-lapse" is first pressed. | Lighter frames (C5), or draw the frames from the grids and skip the PNGs. |
+
 ---
 
 ## 13. How to run it

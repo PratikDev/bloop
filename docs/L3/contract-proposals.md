@@ -174,6 +174,7 @@ The images add `sst.webp` (207 KB) and `rain.png` (931 KB). The storm time-lapse
 - **Ask to L1:** also publish `sst.bin.gz`, `rain.bin.gz` and `rain_phase.bin.gz`, the way `sequence/*.u8.gz` already is. L3 would decode them with the browser's `DecompressionStream("gzip")`: a small change in `src/lib/data/fetch.ts`.
 - **Alternative:** a `headers` rule in `next.config.ts`. It's shared config, so this needs the team to agree, and it would have to be checked on Vercel.
 - Until then, the rain grid loads after first paint, so the ocean view isn't blocked.
+- **Update 28 Sep (phone review):** with phone emulation, a phone downloads **7.6 MB before the Start screen settles**, because the grids load before anyone presses Start. The grids are 5.6 MB of that, so compressed grids (0.7 MB) would bring it to about 2.7 MB. This makes C3 the biggest single win for phones. Recorded as post-freeze item 15 in `PROGRESS.md` §12.
 
 ### C4. Then vs Now for Chattogram? (question for L1 and the team)
 - The team is from Chattogram. In L1's context files:
