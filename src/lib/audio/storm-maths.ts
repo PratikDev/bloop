@@ -4,8 +4,8 @@ import type { SweepPoint } from "./types";
 
 /**
  * Index of the frame with the heaviest rain or snow (first one on a tie), or
- * -1 when no frame has any (all dry or no data). Same rule as L3's
- * peakIndex() in lib/data/storm.ts, except that an all-dry storm has no peak.
+ * -1 when no frame has any (all dry or no data). The app's one copy of this
+ * rule: L3's time-lapse imports it from `@/lib/audio`.
  */
 export function peakFrame(frames: readonly SweepPoint[]): number {
   let peak = -1;
