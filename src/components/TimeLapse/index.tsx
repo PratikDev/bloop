@@ -4,7 +4,7 @@ import { useCallback, useEffect, useMemo, useRef, useState, type ReactNode } fro
 import { usePlayhead } from "@/hooks/use-playhead";
 import { audio } from "@/lib/audio-adapter";
 import type { PlayerHandle, SweepPoint } from "@/lib/audio-adapter/types";
-import { DATA_PATHS, followStorm, loadSequence, peakIndex, type Sequence } from "@/lib/data";
+import { DATA_PATHS, followStorm, loadSequence, peakIndex, windowStart, type Sequence } from "@/lib/data";
 import { formatUtc } from "@/lib/i18n";
 import { loadImage } from "@/lib/load-image";
 import { useAnnounce } from "../Announcer/use-announcer";
@@ -38,6 +38,8 @@ export function TimeLapseProvider({ children }: { children: ReactNode }) {
   const [data, setData] = useState<Loaded | null>(null);
   const [visualIndex, setVisualIndex] = useState<number | null>(null);
   const [withSound, setWithSound] = useState(false);
+  // Which of the loaded frames this run plays: all of them, or a window around the peak (Story Mode).
+  const [played, setPlayed] = useState({ first: 0, count: 0 });
   const handle = useRef<PlayerHandle | null>(null);
   // Resolves the promise start() returned, once the run ends.
   const settle = useRef<((finished: boolean) => void) | null>(null);
@@ -68,7 +70,7 @@ export function TimeLapseProvider({ children }: { children: ReactNode }) {
     settle.current = null;
   }, []);
 
-  const start = useCallback(async (): Promise<TimeLapseRun> => {
+  const start = useCallback(async (options?: { framesAroundPeak?: number }): Promise<TimeLapseRun> => {
     if (status === "loading" || status === "playing") return NOT_RUN;
     setStatus("loading");
     const id = runId.current;
@@ -88,7 +90,13 @@ export function TimeLapseProvider({ children }: { children: ReactNode }) {
     setData(loaded);
     setProgress(null);
     setStatus("playing");
-    const frames = loaded.seq.frames;
+    const all = loaded.seq.frames;
+    // The same peak rule picks the window's centre and, below, the peak inside it.
+    const size = Math.min(options?.framesAroundPeak ?? all.length, all.length);
+    const first = windowStart(Math.max(0, peakIndex(loaded.path)), size, all.length);
+    const frames = all.slice(first, first + size);
+    const path = loaded.path.slice(first, first + size);
+    setPlayed({ first, count: frames.length });
     announce(
       t("timelapse.announceStart", {
         count: frames.length,
@@ -97,13 +105,13 @@ export function TimeLapseProvider({ children }: { children: ReactNode }) {
       }),
     );
     setWithSound(state.soundOn);
-    const p = peakIndex(loaded.path);
-    const peak = p === -1 ? null : { point: loaded.path[p], timeUtc: frames[p].ref.time_utc };
+    const p = peakIndex(path);
+    const peak = p === -1 ? null : { point: path[p], timeUtc: frames[p].ref.time_utc };
     const ended = new Promise<boolean>((resolve) => {
       settle.current = resolve;
     });
     if (state.soundOn) {
-      const h = audio.playTimelapse(loaded.path, { fps: FPS });
+      const h = audio.playTimelapse(path, { fps: FPS });
       handle.current = h;
       // stop() clears the handle first, so only a natural end gets here.
       void h.done.then(() => {
@@ -112,6 +120,7 @@ export function TimeLapseProvider({ children }: { children: ReactNode }) {
     } else {
       setVisualIndex(0);
     }
+    // "last" is where the storm is at the newest frame, even when a window ending earlier was played.
     return { finished: await ended, peak, last: loaded.path[loaded.path.length - 1] ?? null };
   }, [status, data, load, announce, t, state.lang, state.soundOn, finish]);
 
@@ -124,7 +133,7 @@ export function TimeLapseProvider({ children }: { children: ReactNode }) {
   }, [finish]);
 
   // Visual clock for sound-off playback (visuals only; sound is never timed this way).
-  const total = data?.seq.frames.length ?? 0;
+  const total = played.count;
   useEffect(() => {
     if (status !== "playing" || withSound) return;
     let i = 0;
@@ -145,18 +154,19 @@ export function TimeLapseProvider({ children }: { children: ReactNode }) {
 
   const value = useMemo<TimeLapseValue>(() => {
     const index = status !== "playing" || !data ? null : withSound ? (head?.index ?? 0) : visualIndex;
+    const at = index === null ? -1 : played.first + index; // position in the loaded frames
     const current =
-      index === null || !data || !data.seq.frames[index]
+      index === null || !data || !data.seq.frames[at]
         ? null
         : {
             index,
-            total: data.seq.frames.length,
-            timeUtc: data.seq.frames[index].ref.time_utc,
-            point: data.path[index],
-            image: data.images[index] ?? null,
+            total: played.count,
+            timeUtc: data.seq.frames[at].ref.time_utc,
+            point: data.path[at],
+            image: data.images[at] ?? null,
           };
     return { status, progress, current, start, stop };
-  }, [status, progress, data, withSound, head, visualIndex, start, stop]);
+  }, [status, progress, data, withSound, head, visualIndex, played, start, stop]);
 
   return <TimeLapseContext.Provider value={value}>{children}</TimeLapseContext.Provider>;
 }

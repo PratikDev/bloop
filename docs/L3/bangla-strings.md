@@ -8,7 +8,7 @@ For the teammate translating the interface into Bangla.
 - Voice names in the Mapping panel come from `public/mapping.json` (`label.bn`, owned by L2), not from this list. Entries there starting with `TODO:` still show English.
 - Rows this doesn't list: the Mapping panel's rule sentences and global rules are English text from L2's `mapping.ts` and `mapping.json`. Bangla rule sentences need `ruleParts()` (planned for Phase 4).
 
-**Still to translate:** 272 of 272 strings (every row marked TODO_BN). Until a string is translated, the Bangla setting shows it in English; speech stays English (with Bangla on screen) until `BANGLA_SPEECH_READY` in `src/lib/i18n/bn.ts` is set.
+**Still to translate:** 273 of 273 strings (every row marked TODO_BN). Until a string is translated, the Bangla setting shows it in English; speech stays English (with Bangla on screen) until `BANGLA_SPEECH_READY` in `src/lib/i18n/bn.ts` is set.
 
 ## Priority: the video's closing shot (translate these first)
 
@@ -364,7 +364,8 @@ The video ends on the live app in Bangla mode, playing (team plan §14, 3:45 to 
 | `story.hum` | (sentence with values; see source) | TODO_BN | has values |
 | `story.sweep` | Now a sweep from Chattogram across the Bay. Warmer water sounds higher; rain sounds as drops. | TODO_BN |  |
 | `story.sweepNoSound` | The sweep from Chattogram is a sound. Turn sound on to hear it. | TODO_BN |  |
-| `story.storm` | The last day of rain, half an hour per frame, following the storm. | TODO_BN |  |
+| `story.storm` | (sentence with values; see source) | TODO_BN | has values |
+| `story.stormNoSpan` | Rain around the heaviest storm, half an hour per frame. | TODO_BN |  |
 | `story.stormPeak` | (sentence with values; see source) | TODO_BN | has values |
 | `story.stormFailed` | The storm frames couldn't load, so this step is skipped. | TODO_BN |  |
 | `story.whisper` | (sentence with values; see source) | TODO_BN | has values |

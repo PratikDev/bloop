@@ -5,8 +5,8 @@
 import { abortable, sleep } from "@/lib/abortable";
 import { audio } from "@/lib/audio-adapter";
 import type { PlayerHandle } from "@/lib/audio-adapter/types";
-import { START_CURSOR, SWEEP_CENTER, valueAt, type LatLon, type LiveFields } from "@/lib/data";
-import { formatUtc, type BoundT } from "@/lib/i18n";
+import { loadSequenceIndex, spanHours, START_CURSOR, SWEEP_CENTER, valueAt, type LatLon, type LiveFields } from "@/lib/data";
+import { formatInteger, formatUtc, type BoundT } from "@/lib/i18n";
 import { readAt, readingFromPoint, spokenValue } from "@/lib/reading";
 import { rainTruth } from "@/lib/truth";
 import { whisperSource, type WhisperSource } from "@/lib/whisper";
@@ -21,6 +21,9 @@ export const SKIPPED_STEPS: ReadonlySet<StoryStepId> = new Set(["xray"]);
 // Pauses that let a sound be heard on its own (design choices).
 const HUM_HOLD_MS = 2500;
 const WHISPER_HOLD_MS = 1500;
+// The storm step plays only this many frames, centred on the heaviest one, to keep the
+// tour under 90 s (design choice). Explore's time-lapse still plays every frame.
+const STORM_FRAMES = 24;
 
 export interface StoryDeps {
   signal: AbortSignal;
@@ -30,7 +33,7 @@ export interface StoryDeps {
   enterStep(step: StoryStepId, focus: StoryFocus): void;
   say(line: Line, source?: WhisperSource | null): Promise<void>; // shows, then speaks or announces
   startSweep(): PlayerHandle | null;
-  playStorm(): Promise<TimeLapseRun>;
+  playStorm(framesAroundPeak: number): Promise<TimeLapseRun>;
   openTruth(): void;
 }
 
@@ -63,8 +66,10 @@ export async function runStory(d: StoryDeps): Promise<void> {
 
   // 3. Storm time-lapse, then its heaviest frame, in words.
   d.enterStep("storm", { point: SWEEP_CENTER, track: "rain" });
-  await say((tl) => tl("story.storm"));
-  const run = await wait(d.playStorm());
+  // The span said comes from index.json (frames × step_minutes); without it, the line leaves the span out.
+  const hours = await wait(loadSequenceIndex().then((index) => spanHours(index, STORM_FRAMES), () => null));
+  await say((tl, lang) => (hours === null ? tl("story.stormNoSpan") : tl("story.storm", { hours: formatInteger(hours, lang) })));
+  const run = await wait(d.playStorm(STORM_FRAMES));
   if (run.peak) {
     const { point, timeUtc } = run.peak;
     await say((tl, lang) =>

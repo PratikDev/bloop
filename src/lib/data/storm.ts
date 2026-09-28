@@ -35,6 +35,11 @@ export function peakIndex(points: SweepPoint[]): number {
   return peak;
 }
 
+/** First index of a `size`-frame window centred on `center`, shifted inward to stay within `total` frames. */
+export function windowStart(center: number, size: number, total: number): number {
+  return Math.min(Math.max(0, center - Math.floor(size / 2)), Math.max(0, total - size));
+}
+
 /**
  * Starts at the heaviest rain over Bangladesh and the northern Bay (ties:
  * nearest Chattogram), then in each frame moves to the heaviest cell within

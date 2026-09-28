@@ -7,5 +7,5 @@ export { bandMeans, openingPath, pointAt, sweepPath } from "./summaries";
 export { valueAt, type LiveFields } from "./value-at";
 export { loadDemo, loadGistemp, loadGpcp, loadGrace } from "./context";
 export { DataShapeError } from "./validate";
-export { decodeSequenceCode, loadSequence, valueInFrame, type Sequence, type SequenceFrame } from "./sequence";
-export { followStorm, peakIndex } from "./storm";
+export { decodeSequenceCode, loadSequence, loadSequenceIndex, spanHours, valueInFrame, type Sequence, type SequenceFrame } from "./sequence";
+export { followStorm, peakIndex, windowStart } from "./storm";

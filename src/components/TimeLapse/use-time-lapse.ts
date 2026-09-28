@@ -7,8 +7,8 @@ export type TimeLapseStatus = "idle" | "loading" | "playing" | "error";
 
 /** The frame on screen while the time-lapse plays. */
 export interface TimeLapseFrame {
-  index: number;
-  total: number;
+  index: number; // within the frames being played
+  total: number; // frames being played
   timeUtc: string; // this frame's own time (index.json)
   point: SweepPoint; // where the cursor is (the heaviest rain nearby) and its value
   image: HTMLImageElement | null;
@@ -25,8 +25,12 @@ export interface TimeLapseValue {
   status: TimeLapseStatus;
   progress: { loaded: number; total: number } | null;
   current: TimeLapseFrame | null;
-  /** Loads the frames (first time only), plays them, and resolves when the run ends. */
-  start(): Promise<TimeLapseRun>;
+  /**
+   * Loads the frames (first time only), plays them, and resolves when the run
+   * ends. `framesAroundPeak` plays only that many frames, centred on the
+   * heaviest frame (Story Mode); default all.
+   */
+  start(options?: { framesAroundPeak?: number }): Promise<TimeLapseRun>;
   stop(): void;
 }
 
