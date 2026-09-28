@@ -32,10 +32,10 @@ Change the mark in the table **and** tick the item's checklist below. Commit thi
 |---|---|---|---|---|---|---|
 | 1 | Phone wake fix in `startEngine` | 8 | **Required, now** | an iPhone | 🟡 | Code done (28 Sep). Desktop ✓; Android (Honor 400 Pro) ✓, sound resumes by itself on return. iPhone test still to do |
 | 2 | Merge `main` (PR #6) and re-check the demo captions | Follow-up | **Now, small** | — | ✅ | Merged 28 Sep (`a803fbb`); the three captions match the JSON word for word |
-| 3 | Recorded narration: `preloadClips` / `playClip` | 8 | High | L4 clips (due Tue 29, 10:00) for the real test | ⬜ | |
+| 3 | Recorded narration: `preloadClips` / `playClip` | 8 | High | L4 clips (due Tue 29, 10:00) for the real test | 🟡 | Built and tested with a generated clip (28 Sep); waiting for L4's EN and BN clips |
 | 4 | T3 loudness balance | 8 | High | teammates' ears | ⬜ | |
 | 5 | T7 how many voices at once | 8 | High | teammates' ears | ⬜ | |
-| 6 | Screen-off test on Android | 8 | High | an Android phone | ✅ | Honor 400 Pro (28 Sep): plays on and stays even while locked; no fix needed |
+| 6 | Screen-off test on Android | 8 | High | an Android phone | ✅ | Honor 400 Pro (28 Sep): plays on and stays even while locked; no fix needed (`9f8e8bb`) |
 | 7 | Mix pass with L4 | 8 | High | L4's recording plan | ⬜ | |
 | 8 | Clean-up | 8 | Medium | 1, 3 | ⬜ | |
 | 9 | Freeze note | 8 | High (Tue 29, 12:00) | 1–8 | ⬜ | |
@@ -69,12 +69,12 @@ Change the mark in the table **and** tick the item's checklist below. Commit thi
 
 **Why:** recorded narration (EN, BN) must play through the same mix, with the sonification ducked, and stop on Esc. Spec: `BUILD_PLAN.md` §11.1 task 3; clip format and deadline: decision D12.
 
-**Files:** new `src/lib/audio/clips.ts` (or `players/clip.ts`); remove both stubs from `src/lib/audio/stubs.ts`; export from `src/lib/audio/index.ts`.
+**Files:** `src/lib/audio/clips.ts` (engine), `src/lib/audio/index.ts` (exports; `stubs.ts` removed), harness `src/components/AudioHarness/ClipSection/` (the generated test clip is `test-clip.ts`).
 
-- [ ] Agree the caption key with L3 first (proposed: `caption.clip` with `{ url }`, L3 maps the url to its subtitle); add it to `AUDIO_API.md` and `BUILD_PLAN.md` §2.4.
-- [ ] `preloadClips(urls)` fetches and decodes ahead of time (the only network use in L2; never during playback).
-- [ ] `playClip(url)` plays through the narration bus, ducks the sonification (same `duck` values as speech), resolves when it ends, and stops on Esc (`stopAll`).
-- [ ] Harness section to test it; test with a generated clip until L4's arrive.
+- [x] Agree the caption key with L3 first: `caption.clip` with `{ url }`, L3 maps the url to its subtitle (agreed 28 Sep); in `AUDIO_API.md` and `BUILD_PLAN.md` §2.4.
+- [x] `preloadClips(urls)` fetches and decodes ahead of time (the only network use in L2; never during playback). Works before Start (decodes with an offline context); never rejects.
+- [x] `playClip(url)` plays through the narration bus, ducks the sonification (same `duck` values as speech), resolves when it ends, and stops on Esc (`stopAll`).
+- [x] Harness section "Recorded narration" with a generated 4 s test clip; duck, Esc, replace and missing-file cases pass (findings log, 28 Sep).
 - [ ] With L4's clips (MP3, `public/audio/narration_en/` and `public/audio/narration_bn/`, named after their segment, e.g. `opening.mp3`): an EN and a BN clip play, duck, and stop on Esc.
 - [ ] If L4's clips haven't arrived by **Tue 29, 10:00**: narration uses the browser speech voice only (D12). Note it here and in the freeze note.
 
@@ -114,7 +114,7 @@ Change the mark in the table **and** tick the item's checklist below. Commit thi
 
 **Why:** nothing unfinished or noisy ships. Spec: `BUILD_PLAN.md` §11.1 task 6.
 
-- [ ] `src/lib/audio/stubs.ts` is empty (delete it) or only holds features marked "cut for Video 1".
+- [x] `src/lib/audio/stubs.ts` removed (its last two stubs became `clips.ts` in item 3), and the harness "Later-phase stubs" card with it.
 - [ ] No debug logs left in `src/lib/audio/` (warnings for real problems may stay).
 - [ ] Split `src/lib/audio/mapping.ts` (451 lines, too long for `AGENTS.md`) into smaller files without changing its exported names.
 - [ ] No hard-coded data numbers in `src/lib/audio/**`.

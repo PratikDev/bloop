@@ -118,7 +118,7 @@ src/lib/audio/
 ├─ sources.ts           # registry of playing sources, so stopAll() can stop them
 ├─ stop.ts              # stopAll() and onStopAll() hooks
 ├─ events.ts            # PURE: event emitter for AudioEvent (captions, steps, state)
-├─ stubs.ts             # typed placeholders for API functions of later phases (shrinks each phase)
+├─ clips.ts             # preloadClips / playClip: recorded narration through the narration bus (Phase 8; stubs.ts removed)
 ├─ dev.ts               # dev-harness helpers (test tone, ticks, peak meter); not public API
 ├─ captions.ts          # emitCaption() + a throttled caption emitter (≤ 4/s, settles on the last value)
 ├─ live.ts              # Phase 2: setOcean / setRain / silenceLive → voices, no-data tick, value captions; holdLive/releaseLive; routeRain
@@ -310,8 +310,9 @@ L2 emits exactly these keys and params. Adding a key means telling L3 so they ad
 | `caption.water.windowStart` / `caption.water.windowEnd` | `month` ("YYYY-MM") | `playThenNow(…, "water")`, at `windowA`/`windowB` edges | 5 |
 | `caption.compare.side` | `label` (the side's label) | `playCompare(…, "sequential")` and `playSeries()`, first step of each side | 5 |
 | `caption.compare.useHeadphones` | `a`, `b` (the two side labels) | `playCompare(…, "split")`, at start | 5 |
+| `caption.clip` | `url` (as passed to `playClip`; L3 maps it to the subtitle) | `playClip()`, as the clip starts | 8 |
 
-The Phase 5 keys above were fixed on L3's PR #4: L3's UI already has English text for them, so L2 uses these exact names and params. Keys still planned for Phases 6 and 8 (`caption.timelapse.start/peak/end`, `caption.clip`) are **not** in L3's strings yet: tell L3 before emitting them, and L3 tells L2 before relying on a new key.
+The Phase 5 keys above were fixed on L3's PR #4: L3's UI already has English text for them, so L2 uses these exact names and params. The Phase 6 time-lapse keys (`caption.timelapse.start/peak/end`) were agreed on L3's proposal B8 and `caption.clip` with L3 on 28 Sep (full list in `AUDIO_API.md`). Tell L3 before emitting any new key, and L3 tells L2 before relying on one.
 
 **Track gate:** legend, warm-up and opening must be heard even when the current track mode would mute that voice (e.g. the rain legend in Ocean mode). Players that name their own voices lift the track-mode gate while they play; mute and solo still apply.
 

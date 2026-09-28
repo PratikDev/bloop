@@ -63,9 +63,14 @@ Mute, solo and mute-all (M) apply to the Then vs Now and series voices too, and 
 
 Only one player plays at a time: starting the sweep, motif, opening, a legend or the warm-up stops the one before it (without its end caption).
 
-## Recorded narration (Phase 8)
+## Recorded narration (Phase 8 — working)
 
-`preloadClips(urls: string[]): Promise<void>` at start-up, then `playClip(url): Promise<void>`.
+| Function | What it does |
+|---|---|
+| `preloadClips(urls: string[]): Promise<void>` | Call once at start-up (before or after `ensureAudio()`): fetches and decodes every clip so playback starts without delay. The only function in L2 that uses the network. Never rejects: a clip that can't be loaded is skipped with a console warning. |
+| `playClip(url: string): Promise<void>` | Plays a clip through the narration bus, ducking the sonification like `speak()`. Emits `caption.clip` `{ url }` as it starts (you map the url to its subtitle). A new clip replaces the one playing. Resolves when it ends, is replaced, or is stopped (Esc). An un-preloaded url still plays (loaded then, with a console warning); one that fails to load resolves silently. |
+
+Clips from L4 (D12): MP3 in `public/audio/narration_en/` and `public/audio/narration_bn/`, named after their segment, e.g. `/audio/narration_en/opening.mp3`.
 
 ## Events
 
@@ -130,8 +135,9 @@ These are the keys L3's i18n already has English text for (`src/lib/i18n/en/capt
 | `caption.timelapse.start` | `count` (frames) | time-lapse starts | **now** |
 | `caption.timelapse.peak` | `value` (mm/h), `phase` (`"liquid"` / `"frozen"`) | the heaviest frame plays (none if every frame is dry or no data) | **now** |
 | `caption.timelapse.end` | — | time-lapse plays to the end (not when stopped or looping) | **now** |
+| `caption.clip` | `url` (as passed to `playClip`) | a recorded narration clip starts | **now** |
 
-The Phase 5 keys were agreed on L3's PR #4 and the time-lapse keys on L3's proposal B8 (accepted as proposed, including `phase` on the peak). The key still to come for Phase 8 (`caption.clip`) will be agreed with L3 before it's emitted.
+The Phase 5 keys were agreed on L3's PR #4 and the time-lapse keys on L3's proposal B8 (accepted as proposed, including `phase` on the peak). `caption.clip` was agreed with L3 on 28 Sep.
 
 ## Switching the app to this engine
 
