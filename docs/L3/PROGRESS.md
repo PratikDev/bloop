@@ -1,6 +1,6 @@
 # L3 Progress Record: Interface and Accessibility
 
-Last updated: 28 Sep 2026, after Phase 4 (captions, Describe mode, Bangla fallback, October labels, accessibility pass).
+Last updated: 28 Sep 2026, after Batch C (tablet and phone layout) and the Story closing line.
 Branch: `L3-interface` on GitHub (`origin/L3-interface`), local branch `L3`.
 Owner: L3 (Interface / Accessibility).
 
@@ -12,7 +12,7 @@ This file lets any teammate understand where L3 stands without reading the chat 
 
 L3 builds the web app people see and use: the map, the controls, the panels, and the accessibility features that let blind and low-vision people explore NASA's frames by ear.
 
-**Where it stands:** Phase 2 (the core app) is done. Phase 3 item 1 (Then vs Now and Place History) is done and pushed. Phase 3 item 2 (storm time-lapse) is done and pushed. The satellite whisper and Story Mode are done and pushed. Story Mode's length (97 s with the test voice, target 60 to 90 s) still needs a person to listen. X-ray is still blocked on L1's colorbar data. Phase 4 is done in code and scripted checks; screen readers, Bangla translation and a person listening remain (section 9).
+**Where it stands:** Phase 2 (the core app) is done. Phase 3 item 1 (Then vs Now and Place History) is done and pushed. Phase 3 item 2 (storm time-lapse) is done and pushed. The satellite whisper and Story Mode are done and pushed. Story Mode measures 87.7 s with the headless test voice (target 60 to 90 s); a person still needs to listen and time it. X-ray is still blocked on L1's colorbar data. Phase 4 is done in code and scripted checks; screen readers, Bangla translation and a person listening remain (section 9).
 
 **What works today:**
 - You can open the app and choose "Start listening" or "Explore without sound".
@@ -40,6 +40,8 @@ L3 builds the web app people see and use: the map, the controls, the panels, and
 | **Phase 3, whisper and Story Mode (28 Sep)** | Satellite whisper after every spoken value. Story Mode: ocean hum, sweep from Chattogram, storm time-lapse, satellite whisper, X-ray (skipped, labelled), "How we know". The time-lapse loading message now shows at once. |
 | **Phase 4 (28 Sep)** | Captions for every sound (spoken lines and the end of Place History added); Describe mode; the Bangla setting (English fallback, English speech with Bangla on screen); "Coming in October" labels; credits split into "Data in this app" and "Also used in our testing"; an accessibility pass (keyboard, contrast, 200% zoom, phone, reduced motion). |
 | **L2 review of PR #4 (28 Sep)** | Eight sound and UI bugs fixed (section 3b). L2 accepted step events counting data points (B5) and `playSeries` (B6), and agreed the Then vs Now caption keys (B7). Shared-file rules written down (contract-proposals §B4). |
+| **Batch B: short desktop screens (28 Sep)** | On screens under 800 px tall (a 1280×720 laptop), the Story panel and the readout plate get compact: two columns of Story steps, a wider and shorter readout with each frame label on one line, and in Story the readout moves to the right. Help fades at its bottom edge while there is more to scroll. |
+| **Batch C: tablet and phone layout (28 Sep)** | One track selector at every width (in the top bar from 1280 px). A one-row phone header: "Jukebox" as a short title below 1024 px (screen readers still get the full name), and one button that switches to the other language. The side column starts at 1280 px; at 1024 to 1279 px the map is full width, the panels open as a right-hand sheet and the readout takes at most 40% of the map's width. Phone landscape (#2) was dropped before the freeze. Story Mode now ends by pointing to Explore. |
 
 ---
 
@@ -70,11 +72,11 @@ Status key: **Complete** = works and was tested in a browser. **Interim** = work
 | **Then vs Now** | "Dhaka then vs now": heat (GISTEMP), monsoon (GPCP) and water (GRACE). Each part has a chart with a pink playhead that follows the sound; captions exactly as the JSON gives them; a disclosure panel with datasets, windows and numbers. Play one part, all three, or "then left, now right". Every stretch of missing GRACE months is silent, with a caption naming the months. | `src/components/ThenNow/`, `src/components/charts/YearlyChart.tsx`, `HistoryChart.tsx`, `src/lib/then-now.ts`, `src/lib/audio-adapter/then-now.ts`, `voices/heat.ts`, `bass.ts`, `monsoon.ts` | **Complete**, with **Interim** sound. Captions **Pending team approval**. |
 | **Place History** | Pick Chattogram, Dhaka, Rajshahi or Sylhet, then heat or rain, then a decade; hear it month by month with a playhead. Says when two places are the same grid cell in the dataset. | `src/components/panels/HistoryPanel/`, `src/lib/history.ts`, `src/hooks/use-playhead.ts` | **Complete**, with **Interim** sound. Dragging along the chart to hear a month isn't built yet. |
 | **Storm time-lapse** | "Play storm time-lapse" loads the last 48 half-hourly IMERG frames (26 Sep 03:00 to 27 Sep 02:30 UTC) and plays them at 2 frames per second. The map shows each frame's own image; the cursor follows the heaviest rain near Bangladesh; the readout, frame label, caption and screen-reader label show that frame's value and time. Captions at start, at the heaviest frame, and at the end; one announcement at the start. Esc or Stop ends it. With sound off it still plays, on a visual clock. | `src/lib/data/sequence.ts`, `storm.ts`, `src/lib/audio-adapter/timelapse.ts`, `src/components/TimeLapse/` (`index.tsx`, `use-time-lapse.ts`, `use-shown-point.ts`), `BottomBar.tsx`, `FrameView/index.tsx`, `Readout.tsx`, `FrameLabel.tsx` | **Complete**, with **Interim** sound. First download is 10.5 MB; lighter frames requested (C5). A loading message shows (and is announced) as soon as loading starts, then counts files; stopping during loading cancels the run. |
-| **Story Mode** | The Story tab starts a guided tour: (1) ocean hum over the northern Bay of Bengal, with today's value spoken; (2) the sweep from Chattogram; (3) the storm time-lapse, then its heaviest rain and that frame's time; (4) satellite whisper: today's rain where the storm ended, then the chime; (5) X-ray, shown as "Skipped: not ready yet" and said to be waiting for colorbar data; (6) "How we know": the rain check sentence from `rain.json`, with the Truth panel opened and the Pending team approval badge. A panel on the map lists the steps and shows the line being said. Every number said is read from L1's files. Esc, Stop story, or another mode ends it at once; Esc and Stop story announce one message, "Story stopped. Back to Explore." Play again at the end. With sound off it still runs: lines go to the live region, the sweep step says it needs sound, the time-lapse plays on its visual clock. | `src/components/Story/` (`index.tsx`, `script.ts`, `StoryPanel.tsx`, `use-story.ts`), `src/lib/abortable.ts`, `src/lib/i18n/en/story.ts`, `TimeLapse/use-shown-point.ts`, `ModeTabs.tsx` | **Complete**, with **Interim** sound and browser speech (English). **Length not verified by a person:** 97 s with the headless test voice, target 60 to 90 s. Recorded or Bangla narration: not yet. |
+| **Story Mode** | The Story tab starts a guided tour: (1) ocean hum over the northern Bay of Bengal, with today's value spoken; (2) the sweep from Chattogram; (3) the storm time-lapse, then its heaviest rain and that frame's time; (4) satellite whisper: today's rain where the storm ended, then the chime; (5) X-ray, shown as "Skipped: not ready yet" and said to be waiting for colorbar data; (6) "How we know": the rain check sentence from `rain.json`, with the Truth panel opened and the Pending team approval badge. A panel on the map lists the steps and shows the line being said. Every number said is read from L1's files. Esc, Stop story, or another mode ends it at once; Esc and Stop story announce one message, "Story stopped. Back to Explore." Play again at the end. With sound off it still runs: lines go to the live region, the sweep step says it needs sound, the time-lapse plays on its visual clock. | `src/components/Story/` (`index.tsx`, `script.ts`, `StoryPanel.tsx`, `use-story.ts`), `src/lib/abortable.ts`, `src/lib/i18n/en/story.ts`, `TimeLapse/use-shown-point.ts`, `ModeTabs.tsx` | **Complete**, with **Interim** sound and browser speech (English). **Length not verified by a person:** 87.7 s with the headless test voice (28 Sep, after the 12-hour storm step and the new closing line), target 60 to 90 s. The tour ends: "That was one place. Choose "Back to Explore" to hear anywhere on Earth.", with the button's own name passed in. Recorded or Bangla narration: not yet. |
 | **X-ray** | Shows how a colour becomes a number and a sound. | none yet (X announces it isn't ready) | **Pending**, blocked on L1's colorbar files (request C1). |
 | **Satellite whisper** | After Enter speaks a value (or Story Mode says one), a soft chime and a caption lead with the mission: "Chime: measured by NASA and JAXA's GPM satellites (IMERG, Early run)". Ocean: "Chime: from NASA JPL's MUR sea surface temperature analysis" (the metadata names no single mission; PO.DAAC, the data archive, is left out; "analysis" because the ID says level 4, "L4"). Built from `source_dataset` and `latest_check.imerg_run`; if a name doesn't fit the pattern, the full dataset name is used. With a screen reader, the announcement ends with "Source: …". With sound off: no chime. Esc or a new value cancels a pending chime. | `src/lib/whisper.ts`, `Commands/index.tsx` (`say`), `i18n/en/app.ts`, `captions.ts` | **Complete**, with **Interim** sound. The full dataset name shows in the Provenance panel and in Story Mode's "Data:" line. |
 | **Describe mode** | D (or the Describe toggle; also in Help, for phones) says what is playing: sweep start and end, time-lapse start, peak and end, legend points, warm-up, motif, Then vs Now windows, captions, gaps and window marks, compare sides, Place History. Not live values (Enter speaks those), not the opening (it announces itself), not during Story Mode (it narrates). Two-voices rule: through the same path as Enter, so it's the built-in voice (with a caption) or the live region, never both. | `src/components/CaptionBar/use-describe.ts`, `Commands/index.tsx` (`say`), `HelpDialog.tsx` | **Complete.** |
-| **Bangla setting** | EN / বাংলা switches every string in the app's table (place names in Place History added to it). Untranslated strings show in English: **272 of 272 still to translate**. Speech stays English with Bangla on screen (plan §17) until `BANGLA_SPEECH_READY` is set; Story Mode shows its lines as Bangla subtitles. `<html lang>` stays `en` until a Bangla string exists, so screen readers don't read English with a Bangla voice. | `src/lib/i18n/` (`index.ts` `speechLang`, `contentLang`; `bn.ts`), `docs/L3/bangla-strings.md` | **Complete** as a mechanism; **translations: none yet**. Not from the app's table: L2's `mapping.json` labels and rule text, and L1's JSON captions (data, shown as given). |
+| **Bangla setting** | EN / বাংলা switches every string in the app's table (place names in Place History added to it). Untranslated strings show in English: **274 of 274 still to translate**. Speech stays English with Bangla on screen (plan §17) until `BANGLA_SPEECH_READY` is set; Story Mode shows its lines as Bangla subtitles. `<html lang>` stays `en` until a Bangla string exists, so screen readers don't read English with a Bangla voice. | `src/lib/i18n/` (`index.ts` `speechLang`, `contentLang`; `bn.ts`), `docs/L3/bangla-strings.md` | **Complete** as a mechanism; **translations: none yet**. Not from the app's table: L2's `mapping.json` labels and rule text, and L1's JSON captions (data, shown as given). |
 | **"Coming in October" labels** | Help lists every §11.7 concept-only item and X-ray, each with a "Coming in October" badge. X-ray is also labelled in its Help row, when X is pressed, and in Story Mode's step list and narration. | `src/components/ComingInOctober.tsx`, `HelpDialog.tsx`, `i18n/en/help.ts` | **Complete.** |
 
 ### 3b. Fixes from L2's review of PR #4 (28 Sep)
@@ -108,27 +110,46 @@ All L3 commits, oldest first. None has a Claude co-author line.
 | `0f5b2a6` | feat(L3): app state, i18n and shared helpers | Yes | Yes |
 | `0f91086` | feat(L3): explore UI, panels and opening | Yes | Yes |
 | `0a90552` | docs(L3): Bangla strings and contract proposals | Yes | Yes |
-| `bae73f9` | fix(L3): cn knows the design type sizes and sheet radius | Yes | No |
-| `5434c37` | feat(L3): Explore without sound option on the Start overlay | Yes | No |
-| `77d7642` | feat(L3): sweep outward from Chattogram | Yes | No |
-| `4f01e7e` | feat(L3): interim Then vs Now, compare and series players | Yes | No |
-| `e4453c8` | feat(L3): L2 API split with fallbacks and shared audio clock | Yes | No |
-| `1300737` | feat(L3): context data loaders with shape checks | Yes | No |
-| `5b0a46e` | feat(L3): Then vs Now stage and Place History charts | Yes | No |
-| `47e6daa` | docs(L3): integration guide, proposals, Bangla strings | Yes | No |
-| `c84fffb` | docs(L3): progress record | Yes | No |
-| `5a77b30` | fix(L3): L2 review fixes (history playhead, monsoon stop, mixer, clicks, rain timing, opening, map click during reveal) | Yes | No |
-| `21e4264` | docs(L3): record L2 agreements and review fixes | Yes | No |
-| `47727d5` | feat(L3): storm time-lapse | Yes | No |
-| `2421568` | docs(L3): time-lapse and B8 | Yes | No |
-| `6a9180d` | feat(L3): satellite whisper and Story Mode | Yes | No |
-| `46115a3` | docs(L3): whisper and Story Mode progress | Yes | No |
-| `d5b1fa6` | feat(L3): Provenance panel, credits footer, story Esc message, ocean whisper wording | Yes | No |
-| `9aa8118` | docs(L3): Provenance, credits and Bangla strings | Yes | No |
-| `13c6ca3` | feat(L3): Phase 4 captions, Describe mode, Bangla fallback, October labels, credits split | Yes | No |
-| (this commit) | docs(L3): Phase 4 progress, Bangla strings, proposals E3 | Yes | No |
+| `bae73f9` | fix(L3): cn knows the design type sizes and sheet radius | Yes | Yes (PR #4) |
+| `5434c37` | feat(L3): Explore without sound option on the Start overlay | Yes | Yes (PR #4) |
+| `77d7642` | feat(L3): sweep outward from Chattogram | Yes | Yes (PR #4) |
+| `4f01e7e` | feat(L3): interim Then vs Now, compare and series players | Yes | Yes (PR #4) |
+| `e4453c8` | feat(L3): L2 API split with fallbacks and shared audio clock | Yes | Yes (PR #4) |
+| `1300737` | feat(L3): context data loaders with shape checks | Yes | Yes (PR #4) |
+| `5b0a46e` | feat(L3): Then vs Now stage and Place History charts | Yes | Yes (PR #4) |
+| `47e6daa` | docs(L3): integration guide, proposals, Bangla strings | Yes | Yes (PR #4) |
+| `c84fffb` | docs(L3): progress record | Yes | Yes (PR #4) |
+| `5a77b30` | fix(L3): L2 review fixes (history playhead, monsoon stop, mixer, clicks, rain timing, opening, map click during reveal) | Yes | Yes (PR #4) |
+| `21e4264` | docs(L3): record L2 agreements and review fixes | Yes | Yes (PR #4) |
+| `47727d5` | feat(L3): storm time-lapse | Yes | Yes (PR #4) |
+| `2421568` | docs(L3): time-lapse and B8 | Yes | Yes (PR #4) |
+| `6a9180d` | feat(L3): satellite whisper and Story Mode | Yes | Yes (PR #4) |
+| `46115a3` | docs(L3): whisper and Story Mode progress | Yes | Yes (PR #4) |
+| `d5b1fa6` | feat(L3): Provenance panel, credits footer, story Esc message, ocean whisper wording | Yes | Yes (PR #4) |
+| `9aa8118` | docs(L3): Provenance, credits and Bangla strings | Yes | Yes (PR #4) |
+| `13c6ca3` | feat(L3): Phase 4 captions, Describe mode, Bangla fallback, October labels, credits split | Yes | Yes (PR #4) |
+| `c5102f9` | docs(L3): Phase 4 progress, Bangla strings, proposals E3 | Yes | Yes (PR #4) |
+| `c6009c5` | docs(L3): Bangla closing-shot priority list and PR description | Yes | Yes (PR #4) |
+| `9a2f640` | docs(L3): add bottom-bar strings to the Bangla priority list | Yes | Yes (PR #4) |
+| `ec0e3da` | docs(L3): add mixer strings to the Bangla priority list | Yes | Yes (PR #4) |
+| `f0af1e4` | fix(L3): drop timing drawn once per drop, so rain density holds while dragging | Yes | No |
+| `1f5521f` | docs(L3): drop-rate fix and peakFrame swap-time task | Yes | No |
+| `2730ad2` | fix(L3): 44 px touch targets on touch screens, captions no longer widen the page | Yes | No |
+| `ae286f1` | fix(L3): wake audio a phone suspended, and ask iPhone for a playback session | Yes | No |
+| `fbc7206` | refactor(L3): shared chart style, zero-line label moved into the legend | Yes | No |
+| `f168472` | docs(L3): phone review, post-freeze items 14 to 16 and C3 update | Yes | No |
+| `b92e18c` | fix(L3): hide the History playhead as soon as the selection changes | Yes | No |
+| `f797f89` | feat(L3): Story Mode plays 12 hours around the storm's peak, so the tour stays under 90 s | Yes | No |
+| `dac88fd` | fix(L3): compact Story panel and readout plate on short desktop screens | Yes | No |
+| `9a93d46` | fix(L3): Help fades at the bottom edge to show there is more below | Yes | No |
+| `bceffb5` | docs(L3): record Batch B and the commits since Phase 4 | Yes | No |
+| `0573081` | feat(L3): Story ends by pointing to Explore, using the close button's name | Yes | No |
+| `5d92f12` | fix(L3): one track selector at every width, in the top bar from 1280 px | Yes | No |
+| `84463d8` | feat(L3): one-row phone header with a short title and a one-tap language switch | Yes | No |
+| `cbe11d9` | fix(L3): short title below 1024 px, so the tablet header fits on one row | Yes | No |
+| `43a5962` | feat(L3): side column from 1280 px; at 1024 to 1279 px the map is full width and the panels are a sheet | Yes | No |
 
-The first three commits were made with an earlier hash and rewritten before any push, to remove a co-author line. Each of the last six commits was type-checked on its own in a separate worktree before pushing.
+"Yes" in the last column means the commit reached `main` through PR #3; "Yes (PR #4)" through PR #4. The first three commits were made with an earlier hash and rewritten before any push, to remove a co-author line. Each of the last six commits was type-checked on its own in a separate worktree before pushing.
 
 ---
 
@@ -170,7 +191,7 @@ The first three commits were made with an earlier hash and rewritten before any 
 | 32 | **The whisper plays after speech ends.** With a screen reader, the source is added to the same announcement. With sound off, there is no chime. | One voice at a time, and one live-region message (the announcer keeps only the last of quick messages). |
 | 33 | **Story Mode skips X-ray** and says why. The storm peak is spoken with its frame time. The whisper step uses today's frame at the storm's last position (the newest time-lapse frame is today's frame). | Never fake a step; never mix an old value with today's map without saying so. |
 | 34 | **Story Mode owns the live voices** while it runs (the live-sound sync leaves them alone) and hands them back with the user's track when it ends. Map keys and map clicks pause during the story. | Otherwise the sync silenced the ocean hum the moment the story started. |
-| 35 | **The panel sheet opens only below 1024 px.** Wide screens always show the panel column. | The sheet is modal: open but hidden on desktop, it trapped focus and took Esc. |
+| 35 | **The panel sheet opens only below 1280 px** (1024 px until Batch C). Wide screens always show the panel column. | The sheet is modal: open but hidden on desktop, it trapped focus and took Esc. |
 | 36 | **"~" is read as "about"** by speech and screen readers; the screen keeps "~". | Speech engines read it as "tilde". |
 | 37 | **Esc is handled once, in the capture phase**, by the global handler. In Story mode it goes back to Explore and announces "Story stopped. Back to Explore."; Stop story does the same. The map doesn't announce its reading straight after. | React applied the story's mode change between two Esc listeners, so the second one said "Stopped" over the story's message. Capture also gets Esc before an open sheet takes it. |
 | 38 | **The whisper never calls an archive a mission.** Each bracketed agency keeps its first word ("JPL PO.DAAC" gives "JPL"); a centre and its agency are written together ("NASA JPL"), partner agencies with "and" ("NASA and JAXA"). | User request (28 Sep). Tuned to today's two datasets; any other name falls back to the full dataset name. |
@@ -180,6 +201,9 @@ The first three commits were made with an earlier hash and rewritten before any 
 | 42 | **Speech stays English while Bangla is on screen** until the spoken strings are translated (`BANGLA_SPEECH_READY`). Each line is built twice: in the screen language (caption, subtitle, screen reader) and in the speech language. | Plan §17 fallback; a Bangla voice reading English text is worse than English. |
 | 43 | **`<html lang>` follows the text, not the setting**: `en` until a Bangla string exists. | Screen readers choose their voice from it. |
 | 44 | **UI-posted captions** (`caption.speech`, `caption.history.end`) go through `src/lib/ui-captions.ts` into the same caption bar. | The engine can't caption browser speech, and `playSeries` doesn't caption its end. Heads-up to L2 in contract-proposals B7. |
+| 45 | **The side column starts at 1280 px, not 1024.** At 1024 to 1279 px the map takes the full width and the panels are a sheet. | At 1024×768 (iPad landscape) the column left the map only 640×320, with the readout plate covering about half of it. |
+| 46 | **Media queries the scripts use live in `src/lib/breakpoints.ts`**, next to the Tailwind breakpoints they match. | The panel sheet (JS) and the side column (CSS) must switch at the same width. |
+| 47 | **Phones show a short title, "Jukebox"**, but the `<h1>` keeps the full name for screen readers. | The header fits on one row, and the page heading doesn't change. |
 
 ---
 
@@ -254,6 +278,8 @@ The first three commits were made with an earlier hash and rewritten before any 
 | Phase 4 pass | Scripted headless Edge (`qa-a11y.ts`), keyboard only: start, every Tab stop, Explore keys, time-lapse, Place History (tabs by arrow keys), Provenance, Help, Then vs Now, Story, the Bangla setting; then 200% zoom at 1280×900 and 1280×720, a phone, and reduced motion | 23 Tab stops, all with a visible focus ring; every mode reached and played by keyboard; captions seen for sweep start and end, spoken lines, time-lapse, Place History ("Now playing: Chattogram, 2010s", "History finished"), Then vs Now; Describe on: the sweep start was spoken; X says "coming in October"; Help lists 9 October items; Bangla: `<html lang>` stays `en`, Story subtitles on screen, speech `en-US`; 200% zoom: no sideways scroll, no control cut off; phone: no sideways scroll, no target under 44 px with Story on; reduced motion: 0 running CSS animations during a sweep; no console errors. Earlier scripts unchanged. |
 | Rain density at the heaviest rain today | Cursor on the heaviest cell today (40.33 mm/h), rain only, every drop's start time counted over 12 s | **38.67 drops per second measured; the rule gives 38.68 at 40.33 mm/h** (within 0.03%). Per second: 37 to 41. Mean gap 25.9 ms, longest 33.6 ms. The rule's 40 per second needs 50 mm/h, which today's data doesn't reach; 38.67 is 3.3% below 40. |
 | L2 review fixes | A scripted headless Edge run for each bug in section 3b, then all earlier scripts again | All fixed as listed in section 3b; earlier checks unchanged; no console errors other than the one the test causes by blocking the ocean file |
+| Batch B layout | Scripted headless Edge (`qa-desktop.ts`) at 1280×720 and 1920×1080: Explore, Help at the top and scrolled, every Story step with sound off; boxes of the map, Story panel and readout measured | Story panel and readout never overlap (0 px² at every step, both sizes); neither leaves the map; the readout takes 36 to 40% of the map's height at 1280×720 and 22 to 30% at 1920×1080. `qa-story.ts` and `qa-mobile.ts` unchanged. No console errors. Lint, type check and build pass. |
+| Batch C layout | Scripted headless Edge on the production build: `qa-ipad.ts` (1024×768, 1024×1366, 1279×800, 1280×720), `qa-desktop.ts` (now also 1024×768, 1024×1366, 1279×800), `qa-header.ts` (360 to 1280 px), `qa-track-choice.ts` (390 to 1920 px), then `qa-story.ts` and `qa-mobile.ts` | 1024 to 1279 px: the map is full width (1024×512 at 1024), no side column, Panels opens a 384 px right-hand sheet that Esc closes, the readout is 40% of the map's width. 1280×720: the side column is back and the map starts below the header (it overlapped it by 2 px before). Story panel and readout: 0 px² overlap at every step and size, neither leaves the map. Header: one row at every width; 120 px on phones (was 172), 68 px from 768 px. Exactly one track selector at every width. The language button switches both ways; screen readers get "Earth Information Jukebox" at every width. Story Mode: 87.7 s with sound, 34.9 s without. No console errors. Lint, type check and build pass. |
 
 **Where the test scripts are:** the browser scripts (`qa.ts`, `qa-silent.ts`, `qa-thennow.ts`) were run from a local scratch folder with `playwright-core` driving the installed Microsoft Edge. **They aren't in the repo yet**, so teammates can't run them. Adding them as a proper test setup is listed under remaining work.
 
@@ -270,7 +296,7 @@ The first three commits were made with an earlier hash and rewritten before any 
 | **Bangla speech** | Many devices have no Bangla voice; the app then shows the value without speaking it | Switch to বাংলা and press Enter on each teammate's phone and laptop; note which have a Bangla voice. |
 | **Other browsers** | Only Microsoft Edge (Chromium) was tested | Firefox and Safari: the full keyboard flow and the sound. |
 | **200% zoom in a real browser** | Checked by emulation (a 640 px viewport at 2×): no sideways scroll or cut-off controls, screenshots reviewed | Ctrl + plus to 200% in Chrome at 1280×720: Story panel, Help, panels sheet. |
-| **Story Mode length and sound** | Measured at 97 s with the headless test voice, which speaks slowly (about 10 characters a second); the target is 60 to 90 s. Nobody has listened to the tour. | Play Story Mode on a laptop with its normal English voice and time it. If it's over 90 s, shorten the lines in `src/lib/i18n/en/story.ts` or the pauses in `Story/script.ts`. Check that the hum, sweep and chime are clear under the ducked speech. |
+| **Story Mode length and sound** | Measured at 87.7 s (28 Sep) with the headless test voice, which speaks slowly (about 10 characters a second); the target is 60 to 90 s. Nobody has listened to the tour. | Play Story Mode on a laptop with its normal English voice and time it. If it's over 90 s, shorten the lines in `src/lib/i18n/en/story.ts` or the pauses in `Story/script.ts`. Check that the hum, sweep and chime are clear under the ducked speech. |
 | **Reduced-motion visuals** | Checked: the setting follows the OS, and no CSS animation runs during a sweep. Not checked: the canvas drawing itself (rings, sweep) | Turn on reduced motion and check that the rings become one still ring, the wipe becomes a cut, and the sweep shows a dot. |
 
 ---
@@ -314,7 +340,7 @@ Details for each are in [contract-proposals.md](contract-proposals.md).
 | Story Mode runs longer than 90 s with a slow voice | A longer video shot 1:45 to 2:45 | Human listen and timing (section 9); lines and pauses are easy to trim |
 | `bun.lock` conflict when L2 merges | A failed merge | Regenerate with `bun install`, or take L3's lockfile (decision 12; L2 confirmed both work) |
 | First load is about 7 MB (grids and images); the time-lapse adds 10.5 MB when played | Slow on phones or weak networks | Rain loads after first paint; the time-lapse loads only on request, with a loading message and file count; compression requested (C3); lighter time-lapse frames requested (C5) |
-| No Bangla strings yet (272 to translate) | বাংলা mode shows English | `bangla-strings.md` lists every string for a translator, with the count at the top |
+| No Bangla strings yet (274 to translate) | বাংলা mode shows English | `bangla-strings.md` lists every string for a translator, with the count at the top |
 | Truth and caption wording still pending | On-screen wording could change after recording | Badges make the pending status visible; wording comes from the JSON, so fixing the JSON fixes the app |
 | A change in L1's file shapes | A view could fail | Shape checks show a clear error; the rest of the app keeps working |
 | Screen-reader behaviour unverified | Blind users might not be able to use the map | NVDA test (section 9) |
@@ -325,7 +351,7 @@ Details for each are in [contract-proposals.md](contract-proposals.md).
 ## 12. Remaining work (priority order)
 
 **Phase 3**
-1. **Story Mode: listen and time it** (section 9); trim if over 90 s.
+1. **Story Mode: listen and time it** (section 9); 87.7 s with the test voice, trim if a person measures over 90 s.
 2. **X-ray**: blocked until L1 publishes colorbar files (C1). Then add it to Story Mode in place of the skipped step.
 3. **Provenance panel**: the minimal panel is done; the plan's fuller version (processing steps, calibration details) only if time allows.
 4. **Sweep**: the ring sweep is done; row sweep only if time allows.
@@ -334,12 +360,21 @@ Details for each are in [contract-proposals.md](contract-proposals.md).
 **Phase 4 (Tuesday morning, freeze at 12:00)**
 Done in code: captions, Describe mode, the Bangla setting, October labels, the scripted accessibility pass.
 1. **Human tests** (section 9): NVDA, VoiceOver and TalkBack; Story Mode listening and timing; 200% zoom in a real browser.
-2. **Bangla**: a person translates `bangla-strings.md` (272 strings); then set `BANGLA_SPEECH_READY` if the spoken ones are done; recorded Bangla clips for Story Mode (L4).
+2. **Bangla**: a person translates `bangla-strings.md` (274 strings); then set `BANGLA_SPEECH_READY` if the spoken ones are done; recorded Bangla clips for Story Mode (L4).
 3. Catalogue screen of the 23 products, only if L1 provides the data file (C2).
 
 **Also**
 - Add the browser test scripts to the repo. They must run through L2's existing `"test": "bun test"` script (decision 25), not a new one.
 - Place History scrubbing (drag to hear a month).
+- Phone landscape layout (Batch C #2, dropped before the freeze): a slim top bar, the map at full height on the left, value and three buttons on the right.
+
+**Post-freeze (from the 28 Sep phone review)**
+
+| # | Item | What we know | What to do |
+|---|---|---|---|
+| 14 | Sound in a hidden tab | Phone browsers slow down timers in background tabs, so the 25 ms scheduler falls behind: drops thin out or stop until the tab is shown again. Known from browser documentation; not measured on a phone. | Decide whether the app should keep playing in the background. If yes, move scheduling off `setInterval` (for example an `AudioWorklet` clock) or pause cleanly on `visibilitychange`. |
+| 15 | 7.6 MB before the Start screen settles | Measured with phone emulation on `next start`: `rain.bin` 3.1 MB, `rain_phase.bin` 1.6 MB, `sst.bin` 1.0 MB, `rain.png` 0.9 MB, fonts 0.6 MB, scripts 0.3 MB. The grids load before anyone presses Start, and the `.bin` files are sent uncompressed. | Compressed grids from L1 (C3), then decode with `DecompressionStream`. Consider loading the grids after Start. Check Vercel's compression once there's a deployment. |
+| 16 | The time-lapse adds 10 MB | 48 frame PNGs (7.1 MB) and 48 grids (3.0 MB), loaded when "Play storm time-lapse" is first pressed. | Lighter frames (C5), or draw the frames from the grids and skip the PNGs. |
 
 ---
 

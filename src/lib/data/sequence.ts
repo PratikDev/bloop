@@ -43,10 +43,21 @@ async function gunzip(buffer: ArrayBuffer): Promise<ArrayBuffer> {
   return new Response(stream).arrayBuffer();
 }
 
+/** The frame list (index.json) on its own: a few KB, so it can be read before the frames load. */
+export async function loadSequenceIndex(): Promise<SequenceIndex> {
+  const index = await fetchJson<SequenceIndex>(DATA_PATHS.sequenceIndex);
+  requirePaths("sequence/index.json", index, { frames: "array", "grid.width": "number", "grid.height": "number", step_minutes: "number", credit: "string" });
+  return index;
+}
+
+/** Hours covered by the newest `count` frames (each frame is one step long). */
+export function spanHours(index: SequenceIndex, count: number): number {
+  return (Math.min(count, index.frames.length) * index.step_minutes) / 60;
+}
+
 /** Loads the index and every frame's grid, reporting progress (frames loaded, total). */
 export async function loadSequence(onProgress?: (loaded: number, total: number) => void): Promise<Sequence> {
-  const index = await fetchJson<SequenceIndex>(DATA_PATHS.sequenceIndex);
-  requirePaths("sequence/index.json", index, { frames: "array", "grid.width": "number", "grid.height": "number", credit: "string" });
+  const index = await loadSequenceIndex();
   const size = { width: index.grid.width, height: index.grid.height };
   let loaded = 0;
   const frames = await Promise.all(

@@ -64,6 +64,8 @@ export function HelpDialog() {
         </div>
 
         <ComingInOctober />
+        {/* "More below": fades the content at the bottom edge while scrolling; at the end it sits under the last row. */}
+        <div aria-hidden="true" className="pointer-events-none sticky bottom-0 -mt-4 h-8 bg-linear-to-t from-popover to-transparent" />
       </DialogContent>
     </Dialog>
   );

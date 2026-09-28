@@ -2,10 +2,9 @@
 
 import { CircleHelp, Music2, PanelRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import type { Lang } from "@/lib/i18n";
 import { useAppState, useT } from "./AppState/use-app-state";
-import { ChoiceGroup } from "./ChoiceGroup";
 import { useCommands } from "./Commands/use-commands";
+import { LanguageChoice } from "./LanguageChoice";
 import { ModeTabs } from "./ModeTabs";
 import { SettingToggle } from "./SettingToggle";
 import { TrackChoice } from "./TrackChoice";
@@ -21,24 +20,22 @@ export function TopBar() {
         <Button variant="ghost" size="icon-lg" onClick={commands.playMotif} aria-label={t("motif.play")} className="size-11">
           <Music2 aria-hidden="true" />
         </Button>
-        <h1 className="text-lead font-semibold md:text-title">{t("app.title")}</h1>
+        {/* Below 1024 px the short title keeps the header to one row; screen readers always get the full one. */}
+        <h1 className="text-lead font-semibold md:text-title">
+          <span aria-hidden="true" className="lg:hidden">
+            {t("app.titleShort")}
+          </span>
+          <span className="sr-only lg:not-sr-only">{t("app.title")}</span>
+        </h1>
       </div>
 
       <ModeTabs className="order-last w-full md:order-none md:w-auto" />
 
-      <TrackChoice className="hidden md:flex" />
+      <TrackChoice className="hidden xl:flex" />
 
       <div className="ml-auto flex items-center gap-2">
-        <SettingToggle setting="describe" className="hidden h-9 px-3 text-body aria-pressed:bg-tide lg:inline-flex" />
-        <ChoiceGroup<Lang>
-          label={t("settings.language")}
-          value={state.lang}
-          onChange={commands.setLang}
-          options={[
-            { value: "en", label: "EN" },
-            { value: "bn", label: t("lang.bn"), lang: "bn" },
-          ]}
-        />
+        <SettingToggle setting="describe" className="hidden h-9 px-3 text-body pointer-coarse:h-11 aria-pressed:bg-tide lg:inline-flex" />
+        <LanguageChoice />
         <Button variant="ghost" size="icon-lg" onClick={commands.openHelp} aria-label={t("help.open")} className="size-11">
           <CircleHelp aria-hidden="true" />
         </Button>
@@ -47,7 +44,7 @@ export function TopBar() {
           size="icon-lg"
           onClick={() => commands.openPanel(state.panel)}
           aria-label={t("panels.open")}
-          className="size-11 lg:hidden"
+          className="size-11 xl:hidden"
         >
           <PanelRight aria-hidden="true" />
         </Button>

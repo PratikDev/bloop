@@ -65,7 +65,7 @@ export function StoryProvider({ children }: { children: ReactNode }) {
         return latest.current.commands.say(line, source);
       },
       startSweep: () => latest.current.commands.startSweep(),
-      playStorm: () => latest.current.timeLapse.start(),
+      playStorm: (framesAroundPeak) => latest.current.timeLapse.start({ framesAroundPeak }),
       openTruth: () => dispatch({ type: "setPanel", panel: "truth", open: true }),
     })
       .then(() => {

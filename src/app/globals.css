@@ -2,6 +2,9 @@
 @import "tw-animate-css";
 @import "shadcn/tailwind.css";
 
+/* Short screens (a 1280×720 laptop): the map is under 450 px tall, so the plates on it get compact. */
+@custom-variant short (@media (max-height: 50rem));
+
 /* "Night over the Bay" — docs/L3/design-plan.md §2.
    Every chrome colour sits in the hue range NASA's colormaps don't use
    (255°–330°), so nothing in the interface can be mistaken for data. */

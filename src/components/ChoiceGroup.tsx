@@ -42,7 +42,7 @@ export function ChoiceGroup<T extends string>({
           key={o.value}
           value={o.value}
           lang={o.lang}
-          className={cn("h-11 min-w-11 px-3 text-body md:h-9 aria-pressed:bg-tide aria-pressed:text-moon", itemClassName)}
+          className={cn("h-11 min-w-11 px-3 text-body md:pointer-fine:h-9 aria-pressed:bg-tide aria-pressed:text-moon", itemClassName)}
         >
           {o.label}
         </ToggleGroupItem>

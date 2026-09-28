@@ -21,7 +21,8 @@ export function StoryPanel({ className }: { className?: string }) {
       <h2 id="story-heading" className="text-lead font-medium">
         {t("story.heading")}
       </h2>
-      <ol className="space-y-1">
+      {/* Short screens: two columns of steps, so the panel leaves room for the readout. */}
+      <ol className="space-y-1 lg:short:grid lg:short:grid-cols-2 lg:short:gap-x-4 lg:short:space-y-0 lg:short:gap-y-1">
         {STORY_STEPS.map((id, i) => (
           <li
             key={id}
@@ -38,7 +39,7 @@ export function StoryPanel({ className }: { className?: string }) {
       </ol>
       {story.line && (
         <div aria-hidden="true" className="space-y-1">
-          <p className="font-serif text-lead text-moon">{story.line.text}</p>
+          <p className="font-serif text-lead text-moon lg:short:text-body">{story.line.text}</p>
           {story.line.source && <p className="text-small text-haze">{t("story.source", { source: story.line.source })}</p>}
           {story.step === "truth" && <StatusBadge kind="pending">{t("badge.pending")}</StatusBadge>}
         </div>

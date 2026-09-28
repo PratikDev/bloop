@@ -2,8 +2,7 @@
 
 import { CartesianGrid, Line, LineChart, ReferenceArea, ReferenceLine, XAxis, YAxis } from "recharts";
 import { ChartContainer, type ChartConfig } from "@/components/ui/chart";
-
-const AXIS = { stroke: "var(--line)", tick: { fill: "var(--haze)", fontSize: 12 } };
+import { AXIS, LegendItem, LineSwatch, unitLabel, ZERO_LINE_STROKE, ZeroLineKey } from "./chart-style";
 
 export interface MonthlyPoint {
   i: number;
@@ -62,8 +61,8 @@ export function HistoryChart({
           ))}
           <CartesianGrid stroke="var(--chart-grid)" vertical={false} />
           <XAxis dataKey="i" type="number" domain={["dataMin", "dataMax"]} tickFormatter={yearOf} minTickGap={24} {...AXIS} />
-          <YAxis width={44} {...AXIS} label={{ value: unit, angle: -90, position: "insideLeft", fill: "var(--haze)", fontSize: 12 }} />
-          {zeroLine && <ReferenceLine y={0} stroke="var(--line)" label={{ value: zeroLine, fill: "var(--haze)", fontSize: 11, position: "insideBottomRight" }} />}
+          <YAxis width={44} {...AXIS} label={unitLabel(unit)} />
+          {zeroLine && <ReferenceLine y={0} stroke={ZERO_LINE_STROKE} />}
           {series.map((s) => (
             <Line
               key={s.key}
@@ -81,13 +80,11 @@ export function HistoryChart({
       </ChartContainer>
       <figcaption className="flex flex-wrap gap-x-5 gap-y-1 text-small text-haze">
         {series.map((s) => (
-          <span key={s.key} className="inline-flex items-center gap-2">
-            <svg viewBox="0 0 16 4" className="h-1 w-4" aria-hidden="true">
-              <line x1="0" y1="2" x2="16" y2="2" stroke={s.tone === "now" ? "var(--chart-now)" : "var(--chart-then)"} strokeWidth="2" strokeDasharray={s.tone === "then" ? "3 3" : undefined} />
-            </svg>
+          <LegendItem key={s.key} swatch={<LineSwatch stroke={s.tone === "now" ? "var(--chart-now)" : "var(--chart-then)"} dashed={s.tone === "then"} />}>
             {s.label}
-          </span>
+          </LegendItem>
         ))}
+        {zeroLine && <ZeroLineKey label={zeroLine} />}
       </figcaption>
     </figure>
   );

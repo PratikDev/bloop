@@ -4,8 +4,7 @@ import { CartesianGrid, Line, LineChart, ReferenceLine, XAxis, YAxis } from "rec
 import { ChartContainer, type ChartConfig } from "@/components/ui/chart";
 import type { YearRow } from "@/lib/then-now";
 import type { DemoWindow } from "@/types/data-contract";
-
-const AXIS = { stroke: "var(--line)", tick: { fill: "var(--haze)", fontSize: 12 } };
+import { AXIS, LegendItem, unitLabel, ZERO_LINE_STROKE, ZeroLineKey } from "./chart-style";
 
 /**
  * Then vs Now for one yearly part: the two windows on one time axis, each
@@ -50,8 +49,8 @@ export function YearlyChart({
         <LineChart data={rows} margin={{ top: 8, right: 16, bottom: 4, left: 0 }} accessibilityLayer>
           <CartesianGrid stroke="var(--chart-grid)" vertical={false} />
           <XAxis dataKey="year" type="number" domain={["dataMin", "dataMax"]} allowDecimals={false} {...AXIS} />
-          <YAxis width={44} {...AXIS} label={{ value: unit, angle: -90, position: "insideLeft", fill: "var(--haze)", fontSize: 12 }} />
-          {zeroLine && <ReferenceLine y={0} stroke="var(--line)" label={{ value: zeroLine, fill: "var(--haze)", fontSize: 11, position: "insideBottomRight" }} />}
+          <YAxis width={44} {...AXIS} label={unitLabel(unit)} />
+          {zeroLine && <ReferenceLine y={0} stroke={ZERO_LINE_STROKE} />}
           {mean(pair.A, "then")}
           {mean(pair.B, "now")}
           <Line dataKey="then" stroke="var(--color-then)" strokeWidth={1.5} dot={{ r: 3.5, fill: "var(--night)", strokeWidth: 1.5 }} connectNulls={false} isAnimationActive={false} />
@@ -62,18 +61,25 @@ export function YearlyChart({
         </LineChart>
       </ChartContainer>
       <figcaption className="flex flex-wrap gap-x-5 gap-y-1 text-small text-haze">
-        <span className="inline-flex items-center gap-2">
-          <svg viewBox="0 0 10 10" className="size-2.5" aria-hidden="true">
-            <circle cx="5" cy="5" r="3.5" fill="none" stroke="var(--chart-then)" strokeWidth="1.5" />
-          </svg>
+        <LegendItem
+          swatch={
+            <svg viewBox="0 0 10 10" className="size-2.5" aria-hidden="true">
+              <circle cx="5" cy="5" r="3.5" fill="none" stroke="var(--chart-then)" strokeWidth="1.5" />
+            </svg>
+          }
+        >
           {labels.then}
-        </span>
-        <span className="inline-flex items-center gap-2">
-          <svg viewBox="0 0 10 10" className="size-2.5" aria-hidden="true">
-            <circle cx="5" cy="5" r="4" fill="var(--chart-now)" />
-          </svg>
+        </LegendItem>
+        <LegendItem
+          swatch={
+            <svg viewBox="0 0 10 10" className="size-2.5" aria-hidden="true">
+              <circle cx="5" cy="5" r="4" fill="var(--chart-now)" />
+            </svg>
+          }
+        >
           {labels.now}
-        </span>
+        </LegendItem>
+        {zeroLine && <ZeroLineKey label={zeroLine} />}
       </figcaption>
     </figure>
   );

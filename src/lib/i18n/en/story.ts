@@ -18,12 +18,14 @@ export const storyEn = {
   "story.hum": (p: { reading: string }) => `Listen: the northern Bay of Bengal in today's NASA frame. ${p.reading}.`,
   "story.sweep": "Now a sweep from Chattogram across the Bay. Warmer water sounds higher; rain sounds as drops.",
   "story.sweepNoSound": "The sweep from Chattogram is a sound. Turn sound on to hear it.",
-  "story.storm": "The last day of rain, half an hour per frame, following the storm.",
+  "story.storm": (p: { hours: string }) => `${p.hours} hours of rain around the heaviest storm, half an hour per frame.`,
+  "story.stormNoSpan": "Rain around the heaviest storm, half an hour per frame.",
   "story.stormPeak": (p: { reading: string; datetime: string }) => `Heaviest on its path: ${p.reading}, ${p.datetime} UTC.`,
   "story.stormFailed": "The storm frames couldn't load, so this step is skipped.",
   "story.whisper": (p: { reading: string }) => `Where the storm is now: ${p.reading}.`,
   "story.xraySkipped": "X-ray is coming in October: it waits for NASA's colorbar data.",
   "story.truth": (p: { sentence: string }) => `How do we know? ${p.sentence}`,
   "story.truthLoading": "The rain check appears in the Truth panel once rain has loaded.",
-  "story.end": "That's the story. Press Escape to explore.",
+  // `close` is the on-screen name of the button that ends the story (story.backToExplore), so the two never drift apart.
+  "story.end": (p: { close: string }) => `That was one place. Choose "${p.close}" to hear anywhere on Earth.`,
 };

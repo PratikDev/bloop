@@ -54,7 +54,7 @@ export function Readout({ className }: { className?: string }) {
       <div aria-hidden="true" className="space-y-1">
         <p key={main?.figure ?? fallback} className="duration-100 animate-in fade-in">
           {main ? (
-            <span className="readout-figure text-readout-mobile md:text-readout">
+            <span className="readout-figure text-readout-mobile md:text-readout lg:max-xl:text-readout-mobile xl:short:text-readout-mobile">
               <Figure text={main.figure} lang={state.lang} />
               <span className="text-lead font-medium text-haze">{" " + t(main.unit)}</span>
             </span>
@@ -66,7 +66,7 @@ export function Readout({ className }: { className?: string }) {
         <p className="text-lead font-medium">{t("place.latlon", cursor)}</p>
         {timelapse && <p className="text-small text-haze">{t("timelapse.frame", { index: timelapse.index + 1, total: timelapse.total })}</p>}
       </div>
-      <FrameLabel className="max-w-md pt-1" />
+      <FrameLabel className="max-w-md pt-1 lg:short:max-w-none" />
     </div>
   );
 }
