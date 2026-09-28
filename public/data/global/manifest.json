@@ -1,0 +1,16 @@
+{
+  "layers": [
+    "heat",
+    "rain",
+    "water"
+  ],
+  "files": [
+    "heat.json",
+    "rain.json",
+    "water.json",
+    "confidence.json",
+    "places.json"
+  ],
+  "generated_utc": "2026-09-28T13:47:41Z",
+  "disclosure": "Three NASA records at their own resolutions (about 2, 2.5 and 3 degrees). Missing data = silence. Voices moving together does not mean one causes the other."
+}

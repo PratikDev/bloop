@@ -155,7 +155,18 @@ PAIR = {"date": STR, "lat": NUM, "lon": NUM, "ground_pct": NUM, "satellite_pct":
 DUET = {"title": STR, "status": STR, "region": STR, "region_note": STR, "ground_value": {"primary": STR, "fallback": STR, "counts": dict,
         "category_midpoints": dict, "note": STR}, "satellite_value": STR, "dropped": dict, "summary": dict, "pairs": ("list", PAIR),
         "disclosure": STR, "credit": STR, "generated_utc": STR}
-for rel, spec in (("context/ensemble_bd.json", ENSEMBLE), ("context/globe_duet.json", DUET), ("demo/cities_then_now.json", CITIES)):
+G_GRID = {"lat": ("list", (int, float)), "lon": ("list", (int, float)), "cell_id": STR}
+G_LAYER = {"layer": STR, "file": STR, "compression": STR, "dtype": STR, "layout": STR, "scale": NUM, "month_start": STR,
+           "n_months": (int,), "grid": G_GRID, "cells": ("list", int), "units": STR, "dataset": STR, "credit": STR}
+G_CELLREF = {"index": (int,), "lat": NUM, "lon": NUM}
+G_MANIFEST = {"layers": ("list", str), "files": ("list", str), "generated_utc": STR, "disclosure": STR}
+G_CONF = {"layer": STR, "method": STR, "flags": dict}
+G_PLACES = {"note": STR, "basis": {"heat": STR, "rain": STR, "water": STR}, "demo_note": STR,
+            "places": ("list", {"name": STR, "lat": NUM, "lon": NUM, "in_bangladesh": (bool,), "heat_cell_is_neighbour": (bool,)})}
+OPTIONAL_FILES = (("context/ensemble_bd.json", ENSEMBLE), ("context/globe_duet.json", DUET), ("demo/cities_then_now.json", CITIES),
+                  ("global/manifest.json", G_MANIFEST), ("global/heat.json", G_LAYER), ("global/rain.json", G_LAYER),
+                  ("global/water.json", G_LAYER), ("global/confidence.json", G_CONF), ("global/places.json", G_PLACES))
+for rel, spec in OPTIONAL_FILES:
     f = PUBLIC / rel
     if not f.exists():
         print(f"[WARN] optional {rel} missing (optional)"); continue
@@ -180,6 +191,46 @@ for rel, spec in (("context/ensemble_bd.json", ENSEMBLE), ("context/globe_duet.j
                 probs.append(f"{c['name']}: rain shares {c['rain']['gpcp']['same_record_as']}'s cells but the caption doesn't say so")
         if dh is not None and (dh["heat"]["same_record_as"] is not None or dh["rain"]["gpcp"]["same_record_as"] is not None):
             probs.append("Dhaka must be the reference city (same_record_as null)")
+    if rel.startswith("global/") and rel.endswith(("heat.json", "rain.json", "water.json")):
+        gz = PUBLIC / "global" / o.get("file", "")
+        if not gz.exists(): probs.append(f"data file {o.get('file')} missing")
+        else:
+            import gzip as _gz
+            n = len(_gz.open(gz).read())
+            if n != len(o["cells"]) * o["n_months"] * 2: probs.append(f"{o['file']} has {n} bytes, expected cells x months x 2")
+        if len(o["grid"]["lat"]) * len(o["grid"]["lon"]) <= max(o["cells"] or [0]): probs.append("cell id outside the grid")
+    if rel == "global/places.json":
+        for pl in o.get("places", []):
+            for k in ("heat_cell", "rain_cell", "water_cell"):
+                if pl.get(k) is not None: probs += [f"{pl['name']}.{k}: {p}" for p in shape_ok(pl[k], G_CELLREF)]
+            for layer in ("heat", "rain", "water"):
+                if not isinstance(pl.get(f"{layer}_shares_cell_with"), list) or not isinstance(pl.get(f"{layer}_same_record_as"), (str, type(None))):
+                    probs.append(f"{pl['name']}: {layer}_shares_cell_with / {layer}_same_record_as missing or wrong type")
+                elif pl[f"{layer}_same_record_as"] and pl[f"{layer}_same_record_as"] not in pl[f"{layer}_shares_cell_with"]:
+                    probs.append(f"{pl['name']}: {layer}_same_record_as not among {layer}_shares_cell_with")
+            for k in ("heat_annual_then_now", "rain_annual_then_now", "water_then_now"):
+                v = pl.get(k)
+                if v is not None and not (isinstance(v, list) and len(v) == 2 and all(x is None or isinstance(x, (int, float)) for x in v)):
+                    probs.append(f"{pl['name']}.{k} is not [number|null, number|null]")
+            if any(k in pl for k in ("heat_then_now", "rain_then_now")):
+                probs.append(f"{pl['name']}: old unlabelled keys heat_then_now/rain_then_now present (must be *_annual_then_now)")
+            wr = pl.get("water_region")
+            if wr is not None and not (isinstance(wr, dict) and wr.get("kind") in ("box", "cell") and isinstance(wr.get("label"), str)):
+                probs.append(f"{pl['name']}: water_region must be {{kind: 'box'|'cell', label}}")
+        # cross-file consistency with the Bangladesh files the demo uses
+        try:
+            gbox = json.load(open(PUBLIC / "context" / "grace.json"))["boxes"]["Bangladesh"]
+            gis_c = json.load(open(PUBLIC / "context" / "gistemp_bd.json"))["cells"]
+            want = [round(float(gbox["mean_A"]), 2), round(float(gbox["mean_B"]), 2)]
+            for pl in o.get("places", []):
+                if pl.get("in_bangladesh"):
+                    if (pl.get("water_region") or {}).get("kind") != "box" or pl.get("water_then_now") != want:
+                        probs.append(f"{pl['name']}: Bangladesh water must be the national box {want} (same record as the demo)")
+                    hc = pl.get("heat_cell"); ref = gis_c.get(pl["name"])
+                    if ref and (not hc or abs(hc["lat"] - ref["lat"]) > 1e-3 or abs(((hc["lon"] - ref["lon"] + 180) % 360) - 180) > 1e-3):
+                        probs.append(f"{pl['name']}: heat cell differs from gistemp_bd.json")
+        except FileNotFoundError as ex:
+            probs.append(f"context file missing for the cross-file check: {ex}")
     check(f"optional {rel} matches its TypeScript contract", not probs, "; ".join(probs[:4]))
 try:
     idx = json.load(open(PUBLIC / "sequence" / "index.json"))["frames"]
