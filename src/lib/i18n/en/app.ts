@@ -45,8 +45,6 @@ export const appEn = {
   "help.keys": "Keys",
   "panels.open": "Panels",
 
-  "badge.interimEngine": "Interim sound engine",
-  "badge.interimEngineHint": "A simple stand-in engine. The team's full sound engine replaces it soon.",
   "badge.pending": "Pending team approval",
   "badge.comingOctober": "Coming in October",
   "badge.loadingRain": "Loading rain…",

@@ -1,12 +1,11 @@
 import type { ReactNode } from "react";
 import { cn } from "@/lib/utils";
 
-export type BadgeKind = "pending" | "interim" | "october" | "error" | "loading";
+export type BadgeKind = "pending" | "october" | "error" | "loading";
 
 /** Status is shape + words, never colour: colour means data here (design-plan §2). */
 const GLYPHS: Record<BadgeKind, ReactNode> = {
   pending: null, // the dashed outline is its shape
-  interim: <path d="M1 6c1.5-4 3-4 4.5 0S8.5 10 10 6" fill="none" stroke="currentColor" strokeWidth="1.5" />,
   october: <circle cx="6" cy="6" r="4" fill="none" stroke="currentColor" strokeWidth="1.5" />,
   error: <path d="M2 2h8v5l-3 3H2z" fill="none" stroke="currentColor" strokeWidth="1.5" />,
   loading: <path d="M6 2a4 4 0 1 1-4 4" fill="none" stroke="currentColor" strokeWidth="1.5" />,
