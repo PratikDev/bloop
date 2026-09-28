@@ -1,9 +1,8 @@
 "use client";
 
 import { useEffect, useRef } from "react";
-import { audio } from "@/lib/audio-adapter";
 import { captionText } from "@/lib/i18n";
-import { onUiCaption, type CaptionEvent } from "@/lib/ui-captions";
+import { onCaption, type CaptionEvent } from "@/lib/ui-captions";
 import { useAppState } from "../AppState/use-app-state";
 import { useCommands } from "../Commands/use-commands";
 
@@ -49,17 +48,9 @@ export function useDescribe(): void {
   });
 
   useEffect(() => {
-    const describe = (e: CaptionEvent) => {
+    return onCaption((e: CaptionEvent) => {
       if (!latest.current.on || !DESCRIBED.has(e.key)) return;
       void latest.current.say((_t, lang) => captionText(lang, e.key, e.params));
-    };
-    const offEngine = audio.onAudioEvent((e) => {
-      if (e.kind === "caption") describe({ key: e.key, params: e.params });
     });
-    const offUi = onUiCaption(describe);
-    return () => {
-      offEngine();
-      offUi();
-    };
   }, []);
 }

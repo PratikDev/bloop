@@ -10,8 +10,11 @@ export interface ChartScrub {
   label: string;
   /** What the slider announces for an index, e.g. "Mar 2015: +1.23 °C anomaly". */
   valueText(index: number): string;
-  onChange(index: number): void;
+  /** `source`: dragging (pointer) or a key, so the caller can pace the sound differently. */
+  onChange(index: number, source: ScrubSource): void;
 }
+
+export type ScrubSource = "pointer" | "key";
 
 /** Plot edges inside the chart box, in px (the y-axis sits on the left). */
 export interface PlotInset {
@@ -30,17 +33,17 @@ const KEY_STEPS: Record<string, number> = { ArrowLeft: -1, ArrowDown: -1, ArrowR
 export function useScrub(count: number, scrub: ChartScrub | undefined, inset: PlotInset) {
   const last = useRef<number | null>(null);
   if (!scrub) return {}; // a chart that isn't scrubbable stays a plain figure
-  const change = (index: number) => {
+  const change = (index: number, source: ScrubSource) => {
     const i = Math.min(count - 1, Math.max(0, index));
     if (i === last.current) return;
     last.current = i;
-    scrub.onChange(i);
+    scrub.onChange(i, source);
   };
   const fromPointer = (e: PointerEvent<HTMLDivElement>) => {
     const box = e.currentTarget.getBoundingClientRect();
     const width = box.width - inset.left - inset.right;
     if (width <= 0) return;
-    change(Math.round(((e.clientX - box.left - inset.left) / width) * (count - 1)));
+    change(Math.round(((e.clientX - box.left - inset.left) / width) * (count - 1)), "pointer");
   };
   const current = scrub.value ?? 0;
 
@@ -66,7 +69,7 @@ export function useScrub(count: number, scrub: ChartScrub | undefined, inset: Pl
       if (target === null) return;
       e.preventDefault();
       last.current = scrub.value; // start from what's shown
-      change(target);
+      change(target, "key");
     },
   };
 }

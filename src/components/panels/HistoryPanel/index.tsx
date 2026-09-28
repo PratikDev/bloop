@@ -9,7 +9,7 @@ import { formatFixed, formatMonth, formatSigned } from "@/lib/i18n";
 import { heatNormalLabel } from "@/lib/then-now";
 import type { ClimateCellName } from "@/types/data-contract";
 import { useAppState, useT } from "../../AppState/use-app-state";
-import { HistoryChart } from "../../charts/HistoryChart";
+import { HistoryChart, type ScrubSource } from "../../charts/HistoryChart";
 import { ChoiceGroup } from "../../ChoiceGroup";
 import { StatusBadge } from "../../StatusBadge";
 import { useHistoryData } from "./use-history-data";
@@ -62,8 +62,8 @@ export function HistoryPanel() {
     });
 
   // One month, through the same voice as the decade (silent with sound off; the slider still announces it).
-  const playMonth = (i: number) =>
-    players.playMonth(i, state.soundOn ? { label: monthText(i), values: [series.values[i]], voice } : null);
+  const playMonth = (i: number, source: ScrubSource) =>
+    players.playMonth(i, state.soundOn ? { label: monthText(i), values: [series.values[i]], voice } : null, source);
 
   const play = () =>
     players.playDecade({ label: `${placeName(place)}, ${t("history.decadeLabel", { decade })}`, values: series.values.slice(start, end), voice }, start);
@@ -107,6 +107,10 @@ export function HistoryPanel() {
         })}
         heightClass="h-52"
       />
+      {/* The picked month on screen (its engine caption is left out); the slider announces it to screen readers. */}
+      <p aria-hidden="true" className="min-h-6 font-serif text-lead text-moon tabular-nums">
+        {players.monthIndex !== null ? monthText(players.monthIndex) : ""}
+      </p>
 
       <Button disabled={!state.soundOn} onClick={play} className="h-11 gap-2 bg-tide px-4 text-body">
         <Play aria-hidden="true" />
