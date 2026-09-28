@@ -10,6 +10,7 @@
 // voices, so the sum stays below 1.0 before the master.
 
 import { MAPPING } from "@/lib/audio/mapping";
+import { preferPlaybackSession } from "./audio-session";
 import { LIVE_VOICES, type LiveVoiceId } from "./types";
 
 export { LIVE_VOICES };
@@ -66,10 +67,17 @@ function build(ctx: AudioContext): Graph {
   return { ctx, master, analyser, sonification, fade, earcons, voiceBus, context, noise: makeNoise(ctx) };
 }
 
-/** Creates the context on first call (must be inside a user gesture) and resumes it. */
+/**
+ * Creates the context on first call (must be inside a user gesture) and
+ * resumes it. Anything but "running" is resumed: "suspended", and Safari's
+ * "interrupted" after a phone call or a locked screen.
+ */
 export async function ensureGraph(): Promise<Graph> {
-  graph ??= build(new AudioContext({ latencyHint: "interactive" }));
-  if (graph.ctx.state === "suspended") await graph.ctx.resume();
+  if (!graph) {
+    preferPlaybackSession();
+    graph = build(new AudioContext({ latencyHint: "interactive" }));
+  }
+  if (graph.ctx.state !== "running") await graph.ctx.resume();
   return graph;
 }
 

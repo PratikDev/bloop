@@ -97,6 +97,10 @@ export function CommandsProvider({ children }: { children: ReactNode }) {
           void enableSound();
           return;
         }
+        // Every tap is a user gesture: wake audio a phone suspended (a call, a
+        // locked screen), even if the button still said "Pause". If the browser
+        // refuses, the next tap tries again.
+        void audio.ensureAudio().catch(() => {});
         dispatch({ type: "setPlaying", playing: !state.playing });
         announce(t(state.playing ? "sound.paused" : "sound.resumed"));
       },
