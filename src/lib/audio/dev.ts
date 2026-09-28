@@ -89,6 +89,7 @@ export function readPeakDb(): number {
 }
 
 export { getLoudnessCompensation, playLoudnessSet, playPitchPair, setLoudnessExponent } from "./dev-tones";
+export { playT7, T7_VOICES, type T7Voice } from "./dev-t7";
 
 export { isDucked, setDuckingEnabled } from "./duck";
 export { loadVoices } from "./speech";

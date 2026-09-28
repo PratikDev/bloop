@@ -14,6 +14,7 @@ import StartSection from "./StartSection";
 import StormSection from "./StormSection";
 import ThenNowSection from "./ThenNowSection";
 import ToneSection from "./ToneSection";
+import VoiceCountSection from "./VoiceCountSection";
 import { useAudioEvents } from "./use-audio-events";
 import { useStopOnEscape } from "./use-stop-on-escape";
 
@@ -45,6 +46,7 @@ export default function AudioHarness() {
       <ThenNowSection ready={ready} />
       <StormSection ready={ready} />
       <LoudnessSection ready={ready} />
+      <VoiceCountSection ready={ready} />
       <ClipSection ready={ready} />
       <EventLog events={events} onClear={clear} />
     </main>
