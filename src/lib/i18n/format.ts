@@ -48,6 +48,20 @@ export function formatMonth(yyyyMm: string, lang: Lang): string {
   );
 }
 
+/** "2003-03-01" → "1 Mar" (a day within a season; the year is shown elsewhere). */
+export function formatDayMonth(yyyyMmDd: string, lang: Lang): string {
+  const [y, m, d] = yyyyMmDd.split("-").map(Number);
+  return new Intl.DateTimeFormat(LOCALE[lang], { day: "numeric", month: "short", timeZone: "UTC" }).format(new Date(Date.UTC(y, m - 1, d)));
+}
+
+/** "2026-09-25" → "25 Sept 2026". */
+export function formatDay(yyyyMmDd: string, lang: Lang): string {
+  const [y, m, d] = yyyyMmDd.split("-").map(Number);
+  return new Intl.DateTimeFormat(LOCALE[lang], { day: "numeric", month: "short", year: "numeric", timeZone: "UTC" }).format(
+    new Date(Date.UTC(y, m - 1, d)),
+  );
+}
+
 /** "25 Sep 2026, 00:00" in UTC. */
 export function formatUtc(iso: string, lang: Lang): string {
   const d = new Date(iso);
