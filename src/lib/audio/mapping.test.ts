@@ -231,10 +231,22 @@ describe("stereo and loudness", () => {
     expect(panFor(200)).toBe(1);
   });
 
-  test("loudness compensation is off (1) until tuned, and follows (ref/f)^k when on", () => {
-    expect(loudnessGain(880)).toBe(1);
+  test("loudness compensation is 1 when off, and follows (ref/f)^k when on", () => {
+    expect(loudnessGain(880, { refHz: 440, exponent: 0 })).toBe(1);
     expect(loudnessGain(880, { refHz: 440, exponent: 0.5 })).toBeCloseTo(Math.SQRT1_2, 9);
     expect(loudnessGain(220, { refHz: 440, exponent: 0.5 })).toBeCloseTo(Math.SQRT2, 9);
+  });
+
+  test("compensation never lifts a voice above its cap (refHz is the lowest compensated pitch)", () => {
+    const { refHz } = MAPPING.global.loudnessCompensation;
+    for (const id of ["ocean", "heat"]) {
+      const out = continuous(id).output;
+      expect(refHz).toBeLessThanOrEqual(out.min);
+      for (const exponent of [0, 0.25, 0.5, 1]) {
+        expect(loudnessGain(out.min, { refHz, exponent })).toBeLessThanOrEqual(1);
+        expect(loudnessGain(out.max, { refHz, exponent })).toBeLessThanOrEqual(1);
+      }
+    }
   });
 });
 
