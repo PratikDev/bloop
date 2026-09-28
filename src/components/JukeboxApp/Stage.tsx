@@ -1,7 +1,6 @@
 "use client";
 
 import { cn } from "@/lib/utils";
-import { IS_INTERIM_ENGINE } from "@/lib/audio-adapter";
 import { useAppState, useT } from "../AppState/use-app-state";
 import { ExploreControls } from "../ExploreControls";
 import { FrameView } from "../FrameView";
@@ -28,11 +27,6 @@ export function Stage() {
           <FrameView revealClassName={cn(state.introDone && "animate-reveal-equator")} />
         </ExploreControls>
         <div className="pointer-events-none absolute top-3 right-3 flex flex-col items-end gap-2">
-          {IS_INTERIM_ENGINE && (
-            <StatusBadge kind="interim">
-              <span title={t("badge.interimEngineHint")}>{t("badge.interimEngine")}</span>
-            </StatusBadge>
-          )}
           {rainStatus === "loading" && <StatusBadge kind="loading">{t("badge.loadingRain")}</StatusBadge>}
           {timeLapse.status === "loading" && (
             <StatusBadge kind="loading">
