@@ -29,4 +29,5 @@ export { playOpening } from "./players/opening";
 export { playThenNow } from "./players/then-now";
 export { playCompare, playSeries } from "./players/compare";
 export { playTimelapse } from "./players/timelapse";
+export { peakFrame } from "./storm-maths";
 export { playClip, preloadClips } from "./clips";
