@@ -70,7 +70,7 @@
       "n_years": 10
     },
     "change_C": 1.37,
-    "caption": "Dhaka, April–May: +1.37 °C (NASA GISTEMP, 1981–1990 vs 2016–2025, 10 and 10 years)."
+    "caption": "Dhaka, April–May: +1.37 °C (NASA GISTEMP, 1981–1990 vs 2016–2025, 10 years each)."
   },
   "rain": {
     "gpcp": {
@@ -213,7 +213,7 @@
       },
       "change_pct": -12
     },
-    "caption": "Dhaka, June–September: not wetter. GPCP -9% (1981–1990 vs 2016–2025); rain gauges (GPCC) -12% (1981–1990 vs 2010–2019)."
+    "caption": "Dhaka, June–September: not wetter. GPCP −9% (1981–1990 vs 2016–2025); rain gauges (GPCC) −12% (1981–1990 vs 2010–2019)."
   },
   "water": {
     "dataset": "GRACE/GRACE-FO JPL mascons RL06.3Mv04 CRI",
@@ -231,11 +231,11 @@
       "window_A": "2003-01..2006-12",
       "window_B": "2021-01..2024-12"
     },
-    "caption": "Water storage (GRACE): Bangladesh +0.83 → -5.82 cm; NW India +8.71 → -53.63 cm (2003–06 vs 2021–24). Silence = no satellite measurements (Jul 2017–May 2018)."
+    "caption": "Water storage (GRACE): Bangladesh +0.83 → −5.82 cm; NW India +8.71 → −53.63 cm (2003–06 vs 2021–24). Silence = no satellite measurements (Jul 2017–May 2018)."
   },
   "honesty_beat": "A popular reanalysis-based dataset disagreed with independent records at this location, so we checked before you heard it.",
   "not_claimed": [
     "more erratic rain (not tested)"
   ],
-  "generated_utc": "2026-09-27T08:16:53Z"
+  "generated_utc": "2026-09-28T05:17:29Z"
 }
