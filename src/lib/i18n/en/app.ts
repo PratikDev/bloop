@@ -112,6 +112,7 @@ export const appEn = {
   "timelapse.stop": "Stop time-lapse",
   "timelapse.loadingStart": "Loading the time-lapse frames…",
   "timelapse.loading": (p: { loaded: number; total: number }) => `Loading the time-lapse: ${p.loaded} of ${p.total} files`,
+  "timelapse.loadingShort": (p: { percent: number }) => `Loading ${p.percent}%`,
   "timelapse.error": "Couldn't load the time-lapse frames. Reload the page to try again.",
   "timelapse.announceStart": (p: { count: number; from: string; to: string }) =>
     `Storm time-lapse: ${p.count} rain frames, ${p.from} to ${p.to} UTC. The cursor follows the heaviest rain near Bangladesh.`,

@@ -45,7 +45,7 @@ export const contextEn = {
   "disclosure.notClaimed": "What we don't claim",
   "disclosure.pending": "Caption shown exactly as the data file gives it, until the team approves final wording.",
 
-  "history.intro": "One place's monthly record. Pick a decade to hear it month by month.",
+  "history.intro": "One place's monthly record. Pick a decade to hear it month by month, or drag along the chart to hear one month.",
   "history.place": "Place",
   "history.metric": "Record",
   "history.heat": "Heat",
@@ -60,6 +60,8 @@ export const contextEn = {
   "history.cell": (p: { lat: number; lon: number }) => `Grid cell centred at ${n1(p.lat)}° N, ${n1(p.lon)}° E`,
   "history.summary": (p: { metric: string; place: string; from: string; to: string }) =>
     `${p.metric} for ${p.place}, monthly from ${p.from} to ${p.to}.`,
+  "history.scrub": (p: { place: string }) => `${p.place} chart: drag along it, or use the arrow keys, to hear one month`,
+  "history.monthValue": (p: { month: string; value: string; unit: string }) => `${p.month}: ${p.value} ${p.unit}`,
   "history.loading": "Loading the records…",
   "history.error": "Couldn't load the records. Reload the page to try again.",
 };

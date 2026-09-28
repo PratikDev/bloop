@@ -1,9 +1,10 @@
 "use client";
 
 import { createContext, useContext } from "react";
+import type { LoadStatus } from "@/hooks/use-loaded";
 import type { LiveFields, RainField, SstField } from "@/lib/data";
 
-export type LoadStatus = "loading" | "ready" | "error";
+export type { LoadStatus };
 
 export interface LiveDataValue {
   sst: SstField | null;

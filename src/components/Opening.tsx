@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 import { Button } from "@/components/ui/button";
 import { audio } from "@/lib/audio-adapter";
 import type { PlayerHandle } from "@/lib/audio-adapter/types";
@@ -13,6 +13,8 @@ import { useLiveData } from "./LiveData/use-live-data";
 import { Waveform } from "./Waveform";
 
 const OPENING_KEYS = new Set(["caption.opening.closeEyes", "caption.opening.openEyes"]);
+// The rain grid starts loading at Start; the opening waits this long for it, then plays the ocean alone.
+const RAIN_WAIT_MS = 4000;
 
 /**
  * "Close your eyes" (feature C1): real ocean and rain sound over darkness, the
@@ -22,16 +24,25 @@ const OPENING_KEYS = new Set(["caption.opening.closeEyes", "caption.opening.open
  */
 export function Opening() {
   const { state, dispatch } = useAppState();
-  const { fields, sstStatus } = useLiveData();
+  const { fields, sstStatus, rainStatus } = useLiveData();
   const announce = useAnnounce();
   const t = useT();
   const caption = useLatestCaption();
   const handleRef = useRef<PlayerHandle | null>(null);
+  const [rainWaitOver, setRainWaitOver] = useState(false);
   const active = state.started && !state.introDone;
-  const line = caption && OPENING_KEYS.has(caption.key) ? captionText(state.lang, caption.key, caption.params) : "";
+  const rainSettled = rainStatus !== "loading" || rainWaitOver;
+  const openingLine = caption && OPENING_KEYS.has(caption.key) ? captionText(state.lang, caption.key, caption.params) : "";
+  const line = openingLine || (rainSettled ? "" : t("badge.loadingRain"));
 
   useEffect(() => {
-    if (!active || !fields || handleRef.current) return;
+    if (!active) return;
+    const id = setTimeout(() => setRainWaitOver(true), RAIN_WAIT_MS);
+    return () => clearTimeout(id);
+  }, [active]);
+
+  useEffect(() => {
+    if (!active || !fields || !rainSettled || handleRef.current) return;
     const handle = audio.playOpening(openingPath(fields));
     handleRef.current = handle;
     const started = t("announce.started");
@@ -39,7 +50,7 @@ export function Opening() {
       dispatch({ type: "introDone" });
       announce(started);
     });
-  }, [active, fields, dispatch, announce, t]);
+  }, [active, fields, rainSettled, dispatch, announce, t]);
 
   useEffect(() => {
     if (active && line) announce(line);

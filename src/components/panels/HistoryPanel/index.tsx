@@ -1,28 +1,26 @@
 "use client";
 
-import { useEffect, useRef, useState } from "react";
+import { useState } from "react";
 import { Play } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { usePlayhead } from "@/hooks/use-playhead";
-import { audio } from "@/lib/audio-adapter";
-import type { PlayerHandle } from "@/lib/audio-adapter/types";
 import { decadeRange, fullDecades, monthlySeries, PLACES, sharedCells, type HistoryMetric } from "@/lib/history";
-import { formatMonth } from "@/lib/i18n";
+import { formatFixed, formatMonth, formatSigned } from "@/lib/i18n";
 import { heatNormalLabel } from "@/lib/then-now";
-import { postCaption } from "@/lib/ui-captions";
 import type { ClimateCellName } from "@/types/data-contract";
 import { useAppState, useT } from "../../AppState/use-app-state";
-import { HistoryChart } from "../../charts/HistoryChart";
+import { HistoryChart, type ScrubMotion } from "../../charts/HistoryChart";
 import { ChoiceGroup } from "../../ChoiceGroup";
 import { StatusBadge } from "../../StatusBadge";
 import { useHistoryData } from "./use-history-data";
+import { HISTORY_PLAYER, useHistoryPlayers } from "./use-history-players";
 
-const PLAYER = "history";
 const DECADES_SHOWN = 4;
 
 /**
  * Place History (plan H1, H3): one place's monthly heat or rain record, with a
- * decade played month by month and a playhead on the chart.
+ * decade played month by month and a playhead on the chart. Dragging along the
+ * chart (or its arrow keys) plays the month under the pointer.
  */
 export function HistoryPanel() {
   const { state } = useAppState();
@@ -31,20 +29,14 @@ export function HistoryPanel() {
   const [place, setPlace] = useState<ClimateCellName>("Chattogram");
   const [metric, setMetric] = useState<HistoryMetric>("heat");
   const [decadeChoice, setDecadeChoice] = useState<number | null>(null);
-  const handle = useRef<PlayerHandle | null>(null);
-  // The range that is actually sounding; the playhead follows it, not the current selection.
-  const [playingFrom, setPlayingFrom] = useState<number | null>(null);
-  const head = usePlayhead(PLAYER);
-  useEffect(() => () => handle.current?.stop(), []);
+  const players = useHistoryPlayers();
+  const head = usePlayhead(HISTORY_PLAYER);
 
   // Changing what is selected stops what is playing, so sound and chart never disagree.
   const choose =
     <T,>(set: (value: T) => void) =>
     (value: T) => {
-      const h = handle.current;
-      handle.current = null; // stopped, not finished: no "History finished" caption
-      h?.stop();
-      setPlayingFrom(null); // hide the playhead now, not after the playhead's linger
+      players.stop();
       set(value);
     };
 
@@ -61,21 +53,20 @@ export function HistoryPanel() {
   const caveat = metric === "rain" ? data.gpcp.caveat : undefined;
   const placeName = (p: ClimateCellName) => t(`place.${p}`);
 
-  const play = () => {
-    handle.current?.stop();
-    const h = audio.playSeries(
-      { label: `${placeName(place)}, ${t("history.decadeLabel", { decade })}`, values: series.values.slice(start, end), voice: metric === "heat" ? "heat" : "monsoon" },
-      { player: PLAYER },
-    );
-    handle.current = h;
-    setPlayingFrom(start);
-    // playSeries captions the start ("Now playing: …") but not the end, so History posts that.
-    void h.done.then(() => {
-      if (handle.current !== h) return;
-      setPlayingFrom(null);
-      postCaption("caption.history.end");
+  const voice = metric === "heat" ? "heat" : "monsoon";
+  const monthText = (i: number) =>
+    t("history.monthValue", {
+      month: formatMonth(series.months[i], state.lang),
+      value: metric === "heat" ? formatSigned(series.values[i], state.lang, 2) : formatFixed(series.values[i], state.lang, 1),
+      unit,
     });
-  };
+
+  // One month, through the same voice as the decade (silent with sound off; the slider still announces it).
+  const playMonth = (i: number, motion: ScrubMotion) =>
+    players.playMonth(i, state.soundOn ? { label: monthText(i), values: [series.values[i]], voice } : null, motion);
+
+  const play = () =>
+    players.playDecade({ label: `${placeName(place)}, ${t("history.decadeLabel", { decade })}`, values: series.values.slice(start, end), voice }, start);
 
   return (
     <div className="space-y-4">
@@ -106,7 +97,8 @@ export function HistoryPanel() {
         spans={[{ from: start, to: end - 1, kind: "selected" }]}
         unit={unit}
         zeroLine={metric === "heat" ? heatNormalLabel() : undefined}
-        playheadIndex={head && playingFrom !== null ? playingFrom + head.index : null}
+        playheadIndex={head && players.playingFrom !== null ? players.playingFrom + head.index : players.monthIndex}
+        scrub={{ value: players.monthIndex, label: t("history.scrub", { place: placeName(place) }), valueText: monthText, onChange: playMonth }}
         summary={t("history.summary", {
           metric: t(metric === "heat" ? "history.heat" : "history.rain"),
           place: placeName(place),
@@ -115,6 +107,10 @@ export function HistoryPanel() {
         })}
         heightClass="h-52"
       />
+      {/* The picked month on screen (its engine caption is left out); the slider announces it to screen readers. */}
+      <p aria-hidden="true" className="min-h-6 font-serif text-lead text-moon tabular-nums">
+        {players.monthIndex !== null ? monthText(players.monthIndex) : ""}
+      </p>
 
       <Button disabled={!state.soundOn} onClick={play} className="h-11 gap-2 bg-tide px-4 text-body">
         <Play aria-hidden="true" />

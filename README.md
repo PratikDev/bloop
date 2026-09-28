@@ -86,7 +86,7 @@ Every rule and number lives in one file, [`public/mapping.json`](public/mapping.
     </td>
   </tr>
   <tr>
-    <td valign="top"><sub><b>Place History:</b> a decade of monthly heat or rain for Chattogram, Dhaka, Rajshahi or Sylhet, month by month with a playhead. Beside it, the <b>Truth</b>, <b>Mapping</b> and <b>Provenance</b> panels.</sub></td>
+    <td valign="top"><sub><b>Place History:</b> a decade of monthly heat or rain for Chattogram, Dhaka, Rajshahi or Sylhet, month by month with a playhead. Drag along the chart, or use its arrow keys, to hear any single month in the record. Beside it, the <b>Truth</b>, <b>Mapping</b> and <b>Provenance</b> panels.</sub></td>
     <td valign="top" align="center"><sub><b>On a phone:</b> the same app, with 44 px touch targets.</sub></td>
   </tr>
 </table>
@@ -189,7 +189,7 @@ We follow each dataset's own acknowledgement text where one is provided (for exa
 
 ## Licence
 
-[MIT](LICENSE) © 2026 Team PTSD.
+Open source under the [MIT License](LICENSE), © 2026 Team PTSD, as the NASA Space Apps Challenge asks for public, reusable code.
 
 ## Use of AI
 

@@ -8,7 +8,7 @@ For the teammate translating the interface into Bangla.
 - Voice names in the Mapping panel come from `public/mapping.json` (`label.bn`, owned by L2), not from this list. Entries there starting with `TODO:` still show English.
 - Rows this doesn't list: the Mapping panel's rule sentences and global rules are English text from L2's `mapping.ts` and `mapping.json`. Bangla rule sentences need `ruleParts()` (planned for Phase 4).
 
-**Still to translate:** 272 of 272 strings (every row marked TODO_BN). Until a string is translated, the Bangla setting shows it in English; speech stays English (with Bangla on screen) until `BANGLA_SPEECH_READY` in `src/lib/i18n/bn.ts` is set.
+**Still to translate:** 275 of 275 strings (every row marked TODO_BN). Until a string is translated, the Bangla setting shows it in English; speech stays English (with Bangla on screen) until `BANGLA_SPEECH_READY` in `src/lib/i18n/bn.ts` is set.
 
 ## Priority: the video's closing shot (translate these first)
 
@@ -156,6 +156,7 @@ The video ends on the live app in Bangla mode, playing (team plan §14, 3:45 to 
 | `timelapse.stop` | Stop time-lapse | TODO_BN |  |
 | `timelapse.loadingStart` | Loading the time-lapse frames… | TODO_BN |  |
 | `timelapse.loading` | (sentence with values; see source) | TODO_BN | has values |
+| `timelapse.loadingShort` | (sentence with values; see source) | TODO_BN | has values; on the time-lapse button while it loads |
 | `timelapse.error` | Couldn't load the time-lapse frames. Reload the page to try again. | TODO_BN |  |
 | `timelapse.announceStart` | (sentence with values; see source) | TODO_BN | has values |
 | `timelapse.frame` | (sentence with values; see source) | TODO_BN | has values |
@@ -314,7 +315,7 @@ The video ends on the live app in Bangla mode, playing (team plan §14, 3:45 to 
 | `disclosure.gapNote` | Gap | TODO_BN |  |
 | `disclosure.notClaimed` | What we don't claim | TODO_BN |  |
 | `disclosure.pending` | Caption shown exactly as the data file gives it, until the team approves final wording. | TODO_BN |  |
-| `history.intro` | One place's monthly record. Pick a decade to hear it month by month. | TODO_BN |  |
+| `history.intro` | One place's monthly record. Pick a decade to hear it month by month, or drag along the chart to hear one month. | TODO_BN |  |
 | `history.place` | Place | TODO_BN |  |
 | `history.metric` | Record | TODO_BN |  |
 | `history.heat` | Heat | TODO_BN |  |
@@ -327,6 +328,8 @@ The video ends on the live app in Bangla mode, playing (team plan §14, 3:45 to 
 | `history.sharedCell` | (sentence with values; see source) | TODO_BN | has values |
 | `history.cell` | (sentence with values; see source) | TODO_BN | has values |
 | `history.summary` | (sentence with values; see source) | TODO_BN | has values |
+| `history.scrub` | (sentence with values; see source) | TODO_BN | has values; the chart's name as a slider (screen readers) |
+| `history.monthValue` | (sentence with values; see source) | TODO_BN | has values; the month and value while dragging along the chart |
 | `history.loading` | Loading the records… | TODO_BN |  |
 | `history.error` | Couldn't load the records. Reload the page to try again. | TODO_BN |  |
 
