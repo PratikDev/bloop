@@ -6,7 +6,7 @@ import { Label } from "@/components/ui/label";
 import { speak, type Lang } from "@/lib/audio";
 import HarnessSection from "../HarnessSection";
 import DuckingTest from "./DuckingTest";
-import { useBusLevel } from "./use-bus-level";
+import { useBusLevel } from "../use-bus-level";
 import { useSpeechVoices } from "./use-speech-voices";
 
 const LANGS: readonly Choice<Lang>[] = [

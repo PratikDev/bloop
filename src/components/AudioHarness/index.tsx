@@ -1,5 +1,6 @@
 "use client";
 
+import ClipSection from "./ClipSection";
 import EventLog from "./EventLog";
 import LegendSection from "./LegendSection";
 import LiveSection from "./LiveSection";
@@ -10,7 +11,6 @@ import SequenceSection from "./SequenceSection";
 import SpeechSection from "./SpeechSection";
 import StartSection from "./StartSection";
 import StormSection from "./StormSection";
-import StubSection from "./StubSection";
 import ThenNowSection from "./ThenNowSection";
 import ToneSection from "./ToneSection";
 import { useAudioEvents } from "./use-audio-events";
@@ -43,7 +43,7 @@ export default function AudioHarness() {
       <SequenceSection ready={ready} />
       <ThenNowSection ready={ready} />
       <StormSection ready={ready} />
-      <StubSection />
+      <ClipSection ready={ready} />
       <EventLog events={events} onClear={clear} />
     </main>
   );
