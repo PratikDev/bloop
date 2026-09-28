@@ -66,7 +66,8 @@ export function SidePanel() {
         aria-label={t("panel.label")}
         className="hidden overflow-y-auto rounded-l-sheet bg-dusk p-4 text-body xl:block"
       >
-        <PanelTabs />
+        {/* Mounted only while the column shows: hidden, a History chart would render at 0×0 on every playhead step. */}
+        {wide && <PanelTabs />}
       </aside>
       <Sheet open={state.panelOpen && !wide} onOpenChange={(open) => dispatch({ type: "setPanelOpen", open })}>
         <SheetContent
