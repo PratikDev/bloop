@@ -598,6 +598,54 @@ export interface GlobeDuetFile {
   credit: string;
   generated_utc: string;
 }
+// ---------------------------------------------------------------------------
+// 13. Bangladesh cities then vs now (demo/cities_then_now.json) — OPTIONAL, additive
+// Needed by: BOTH — L3 city picker in Then vs Now (captions as-is); L2 plays
+// the same heat/rain windows as the Dhaka demo. Built by build_demo.py with
+// the same method and Section 16 caption templates as file 9 (city name
+// substituted; rain phrase is "not wetter." / "wetter." / "no clear change."
+// from the signs of the GPCP and GPCC changes). Signed numbers use "−" (U+2212).
+// Only Dhaka is cross_checked (P1b). Cities that share a dataset grid cell
+// (shares_cell_with) are the same record — say so in the UI, don't present
+// them as independent evidence. Water is national only: see file 9 `water`.
+// The Dhaka entry is identical to dhaka_then_now.json (spotcheck enforces it).
+// ---------------------------------------------------------------------------
+
+export interface GridCellRef {
+  lat: number;
+  lon: number;
+}
+
+export interface CityHeatDemo extends HeatDemo {
+  cell: GridCellRef;
+  shares_cell_with: ClimateCellName[];
+}
+
+export interface CityRainSeriesDemo extends RainSeriesDemo {
+  cell: GridCellRef;
+  shares_cell_with: ClimateCellName[];
+}
+
+export interface CityRainDemo {
+  gpcp: CityRainSeriesDemo;
+  gpcc: CityRainSeriesDemo;
+  caption: string;
+}
+
+export interface CityThenNow {
+  name: ClimateCellName;
+  cross_checked: boolean; // true only for Dhaka
+  heat: CityHeatDemo;
+  rain: CityRainDemo;
+}
+
+export interface CitiesThenNowFile {
+  title: string;
+  note: string;
+  water_note: string;
+  cities: CityThenNow[];
+  generated_utc: string;
+}
 
 // ---------------------------------------------------------------------------
 // Not typed here (binary/image assets):
