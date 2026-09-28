@@ -2,9 +2,10 @@
 
 import { useCallback, useEffect, useMemo, useRef, useState, type ReactNode } from "react";
 import { usePlayhead } from "@/hooks/use-playhead";
+import { peakFrame } from "@/lib/audio";
 import { audio } from "@/lib/audio-adapter";
 import type { PlayerHandle, SweepPoint } from "@/lib/audio-adapter/types";
-import { DATA_PATHS, followStorm, loadSequence, peakIndex, windowStart, type Sequence } from "@/lib/data";
+import { DATA_PATHS, followStorm, loadSequence, windowStart, type Sequence } from "@/lib/data";
 import { formatUtc } from "@/lib/i18n";
 import { loadImage } from "@/lib/load-image";
 import { useAnnounce } from "../Announcer/use-announcer";
@@ -93,7 +94,7 @@ export function TimeLapseProvider({ children }: { children: ReactNode }) {
     const all = loaded.seq.frames;
     // The same peak rule picks the window's centre and, below, the peak inside it.
     const size = Math.min(options?.framesAroundPeak ?? all.length, all.length);
-    const first = windowStart(Math.max(0, peakIndex(loaded.path)), size, all.length);
+    const first = windowStart(Math.max(0, peakFrame(loaded.path)), size, all.length);
     const frames = all.slice(first, first + size);
     const path = loaded.path.slice(first, first + size);
     setPlayed({ first, count: frames.length });
@@ -105,7 +106,7 @@ export function TimeLapseProvider({ children }: { children: ReactNode }) {
       }),
     );
     setWithSound(state.soundOn);
-    const p = peakIndex(path);
+    const p = peakFrame(path);
     const peak = p === -1 ? null : { point: path[p], timeUtc: frames[p].ref.time_utc };
     const ended = new Promise<boolean>((resolve) => {
       settle.current = resolve;

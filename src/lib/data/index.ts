@@ -8,4 +8,4 @@ export { valueAt, type LiveFields } from "./value-at";
 export { loadDemo, loadGistemp, loadGpcp, loadGrace } from "./context";
 export { DataShapeError } from "./validate";
 export { decodeSequenceCode, loadSequence, loadSequenceIndex, spanHours, valueInFrame, type Sequence, type SequenceFrame } from "./sequence";
-export { followStorm, peakIndex, windowStart } from "./storm";
+export { followStorm, windowStart } from "./storm";
