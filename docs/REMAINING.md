@@ -2,7 +2,63 @@
 
 For everyone on Team PTSD: what still has to happen before the feature freeze (**Tue 29 Sep, 12:00**) and the Video 1 upload (**Wed 30 Sep**), who owns it, and how to know it's done.
 
-**Written 28 Sep, evening**, from the merged `main` (L1, L2 and L3 joined, plus L3's UI batch on `L3-interface`). Tick items here as you finish them.
+**Written 28 Sep, evening**, from the merged `main` (L1, L2 and L3 joined, plus L3's UI batch on `L3-interface`). **Section 0 added 29 Sep** for the UI redesign on `UI-Redesign`. Tick items here as you finish them.
+
+---
+
+## 0. UI redesign (29 Sep, branch `UI-Redesign`): needs attention
+
+The interface was redesigned on 29 Sep, after the freeze time, on its own branch: **`UI-Redesign`** (not merged into `main`). Full plan, decisions and feature checklist: [`docs/L3/REDESIGN.md`](L3/REDESIGN.md).
+
+**What changed for users.** The single packed page became four pages with a header nav: **Home** (`/`, a live globe of today's ocean frame and Start listening), **Listen** (`/listen`, the map; Story is now "the tour" on the same page, `?tour=true`), **Then vs Now** (`/then-now`, Compare decades and Month by month, which is the old Place History), and **How we know** (`/how`, the checks, sound rules, GLOBE and credits). A sound dock sits at the bottom of every page after Start (play or pause, the caption, the waveform, the mixer). The side panels became the Listen page's Inspector ("About this sound": Where it's from, What you hear, Checks). The intro ("Close your eyes") has its own dark stage. New fonts, colours, icons and animations; every page fits one screen from 1280×720.
+
+**What changed for developers.** TanStack Router runs inside Next through one catch-all page (`src/app/[[...path]]/page.tsx`, `src/router/`). The URL is the only source of the mode. New dependencies: `@tanstack/react-router`, `motion`, `@phosphor-icons/react` (`package.json` and `bun.lock` changed). The QA scripts in `C:\Users\User\nasa-l3-qa\` were updated for the new pages (the old versions are in `pre-redesign/`).
+
+### 0.1 Decisions the team must make
+
+- [ ] **Merge or not.** Review `UI-Redesign` and open a PR into `main` if the team wants it for the video. The video shots change if it is merged (0.5).
+- [ ] **Credits (plan §15).** The credits paragraph moved from the foot of every screen to How we know (the SVS line is always visible there; the full credits open from a "Credits" button). If plan §15 needs them on every screen, approve the change or ask L3 to bring a one-line credit back to the dock.
+- [ ] **L2 heads-up.** `package.json` and `bun.lock` changed (three new packages). L2's `/dev/audio` page is untouched and still works; `lucide-react` stays for it.
+
+### 0.2 Must be checked by a person (not tested yet on the redesign)
+
+- [ ] **Listening** on the new pages, headphones and a laptop speaker: Start, the intro, Listen, the tour, Then vs Now, Month by month, How we know (live sound keeps playing there), Esc from every page.
+- [ ] **NVDA + Chrome.** The steps in PROGRESS §9 were written for the old tabs. On the redesign: after moving to another page, focus goes to that page's heading (on Listen, to the map); the header nav links; the Inspector (P); Then vs Now's "Month by month" switch and the chart slider; the tour ("Take the tour", "Stop the tour"); the Details sheets; Help; বাংলা.
+- [ ] **A real phone** (Android Chrome, and an iPhone if anyone has one): Home, the dock's icon row, the Inspector and Details sheets, the tour, sound after locking the screen.
+- [ ] **Firefox and Safari:** page changes may not animate on older versions (View Transitions); everything else should work the same.
+- [ ] **Look at it slowly** at 1280×720, 1920×1080 and on a phone: anything that feels cramped, unclear or slow.
+
+### 0.3 Known issues and limits (to fix or accept)
+
+| Item | Detail | Owner |
+|---|---|---|
+| First paint | The app renders in the browser only; before its code arrives the server sends a small splash with the name. Page titles are server-rendered for link previews. | L3: accept, or improve later |
+| Router seam | Next's router still writes history entries; `src/router/history.ts` keeps them away from TanStack (REDESIGN §3). After any Next upgrade, re-run `qa-navigation.ts` and `qa-router-spike.ts`. | L3 |
+| Tour URL | Shows as `?tour=true` (TanStack writes booleans that way). Harmless. | Accept |
+| Reload loses Start | Reloading any page shows the start gate again (sound needs a click to start). Language and settings are remembered. | By design |
+| Sweep on Then vs Now | The old bottom bar let you play the sweep in Then vs Now; now it is a Listen action (its ring is drawn on the map). S still works on the map. | Accept, or add back |
+| Bangla digits | Coordinates and the dock caption still show Latin digits in Bangla mode (as before the redesign). | L3, with the translator |
+| Bangla strings | 375 strings now (55 new for the pages). The video's closing shot is the Listen page: translate the `nav.*`, `listen.title`, `dock.*`, `tour.start` and `inspector.open` rows first (bangla-strings.md, "Pages"). | Translator |
+| Unused strings | `lang.en`, `sound.unmuteAll` and `mapping.source` were already unused before the redesign; left for now. | L3, tidy later |
+| QA scripts | `qa-header.ts`, `qa-ipad.ts` and `qa-ui-tour.ts` still check the old header and side column; they need rewriting, not just new selectors. | L3 |
+| Intro fade | The intro fades out over 0.8 s and is click-through while it fades. This fix was pushed after the last full QA run (re-check in 0.4). | L3 |
+
+### 0.4 Automated checks on the redesign (29 Sep, production build, headless Edge)
+
+| Script | Result |
+|---|---|
+| `qa-navigation.ts` (new: every page in every order, Back/Forward, shared links, start gate, 404, T/P/Esc, the tour in the URL, remembered language, live sound per page, no scroll at 1280×720, 1920×1080 and 1024×768 for every page and Then vs Now part) | 79 of 79 pass, no console errors |
+| `qa.ts`, `qa-silent.ts`, `qa-thennow.ts`, `qa-story.ts`, `qa-review.ts`, `qa-timelapse.ts`, `qa-a11y.ts`, `qa-held-key.ts`, `qa-history-world.ts`, `qa-click.ts`, `qa-rate.ts`, `qa-slow-start.ts`, `qa-resume.ts` | Pass, with the same values as before the redesign (tour 89.0 s with sound, 35.2 s without; time-lapse frames; rain drop rate) |
+| `qa-provenance.ts`, `qa-scrub.ts`, `qa-integration.ts` | Failed on old selectors only (credits in the footer, Describe in the top bar, the always-open Truth column). Scripts updated; re-run still to do |
+| `qa-thennow-layout.ts` | Failed on an old selector only (the disclosure is now behind "Details"). Script needs the same change as `qa-thennow.ts` |
+| `qa-new-features.ts`, `qa-track-choice.ts`, `qa-mobile.ts`, `qa-desktop.ts` | Not finished at the time of writing |
+
+Fixed during these checks: focus left "Skip intro" during the intro; the mixer (mute all, solo) wasn't reachable on Then vs Now; on phones the tour opened the checks sheet over its own Stop button; the start gate had no language switch; an unknown place in a Month by month link loaded forever; the first-visit hint's button was under 44 px on phones.
+
+### 0.5 The video, if the redesign is merged
+
+- [ ] Re-record the screen shots on the new pages: Home's globe, the intro stage, Listen and the tour, Then vs Now, How we know (the "Truth panel" shot becomes the How we know tiles, or the Inspector's Checks tab).
+- [ ] The closing shot in Bangla is the Listen page (see 0.3, Bangla strings).
 
 ---
 
@@ -74,7 +130,7 @@ The app is built for blind and low-vision users, and **no screen reader has been
 The video ends on the app in Bangla mode (plan §14, 3:45–3:50), and §13 asks for captions in both languages.
 
 - [ ] **At minimum,** translate the "Priority: the video's closing shot" section at the top of [`docs/L3/bangla-strings.md`](L3/bangla-strings.md): the strings visible in that shot.
-- [ ] **Ideally,** all 275 strings (Section 16 wording by a person, never a machine).
+- [ ] **Ideally,** all 375 strings on `UI-Redesign` (Section 16 wording by a person, never a machine).
 - Translations go in `src/lib/i18n/bn.ts` under the same key; anything untranslated shows in English.
 - If the spoken strings are done, set `BANGLA_SPEECH_READY` in `bn.ts` (speech stays English until then).
 
