@@ -37,7 +37,7 @@ Change the mark in the table **and** tick the item's checklist below. Commit thi
 | 5 | T7 how many voices at once | 8 | High | teammates' ears | 🟡 | Test ready on `/dev/audio` (28 Sep); pass rule in the findings log; waiting for teammates to listen |
 | 6 | Screen-off test on Android | 8 | High | an Android phone | ✅ | Honor 400 Pro (28 Sep): plays on and stays even while locked; no fix needed (`9f8e8bb`) |
 | 7 | Mix pass with L4 | 8 | High | L4's recording plan | ⬜ | |
-| 8 | Clean-up | 8 | Medium | 1, 3 | ⬜ | |
+| 8 | Clean-up | 8 | Medium | 1, 3 | 🟡 | Code clean-up done (28 Sep); only the console check in Chrome and Edge is left (manual) |
 | 9 | Freeze note | 8 | High (Tue 29, 12:00) | 1–8 | ⬜ | |
 | 10 | Optional voices (FIRMS, NDVI, variability, seasonality) | 7 | Optional, cut first | time before the freeze | ⬜ | Only if 1–8 are done early |
 | 11 | Ensemble (L1 §11) and GLOBE duet (L1 §12) | 7 | — | — | ✂️ | Cut for Video 1 (D11, 28 Sep); may come after the freeze |
@@ -117,10 +117,11 @@ Change the mark in the table **and** tick the item's checklist below. Commit thi
 **Why:** nothing unfinished or noisy ships. Spec: `BUILD_PLAN.md` §11.1 task 6.
 
 - [x] `src/lib/audio/stubs.ts` removed (its last two stubs became `clips.ts` in item 3), and the harness "Later-phase stubs" card with it.
-- [ ] No debug logs left in `src/lib/audio/` (warnings for real problems may stay).
-- [ ] Split `src/lib/audio/mapping.ts` (451 lines, too long for `AGENTS.md`) into smaller files without changing its exported names.
-- [ ] No hard-coded data numbers in `src/lib/audio/**`.
-- [ ] `bun test`, `bunx tsc --noEmit`, `bun run lint` pass; no console errors in Chrome and Edge.
+- [x] No debug logs left in `src/lib/audio/`: none found; the only two logs are warnings in `clips.ts` for a clip that can't load or wasn't preloaded (kept).
+- [x] Split `src/lib/audio/mapping.ts` (451 lines) into `mapping-validate.ts` (177), `mapping-spec.ts` (16), `mapping-maths.ts` (141) and `mapping-text.ts` (112). `mapping.ts` stays the one import path and re-exports all 19 names unchanged, so L2, L3 and the tests import as before (code moved, not rewritten).
+- [x] No hard-coded data numbers in `src/lib/audio/**`: every caption param comes from the caller's data or mapping.json; the remaining numbers are timing and sound-design constants (note lengths, step lengths, fades).
+- [x] `bun test` (92), `bunx tsc --noEmit` (with the engine-swap check), `bun run lint` and `bun run build` pass (28 Sep).
+- [ ] No console errors in Chrome and Edge: run the harness sections once in each (manual).
 
 ### 9. Freeze note (Tue 29, 12:00)
 

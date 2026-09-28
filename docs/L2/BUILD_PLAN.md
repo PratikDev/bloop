@@ -94,7 +94,7 @@ A phase is ✅ only when **every** box in its checklist is ticked. If a box can'
 | Wiring cursor/keyboard → audio API | **L3** | Already done against the adapter; see Section 2.3. |
 | Caption bar, Describe mode UI, i18n strings | **L3** | L2 emits caption *events* with keys + params; the keys are fixed in Section 2.4 (L3 already has the English text). |
 | `src/app/globals.css` (theme), re-themed shadcn components (`dialog`, `sheet`, `slider`, `tabs`, `toggle`, `toggle-group`, `tooltip`) | **L3** | L2 never edits these; if the harness needs one of them, it uses L3's file. |
-| `public/mapping.json`, `src/lib/audio/mapping.ts` | **L2** | L3 imports `MAPPING`, `ruleText`, `mapVoice`, `normalise`, `voiceSpec` — **keep these export names stable**. |
+| `public/mapping.json`, `src/lib/audio/mapping.ts` (+ `mapping-*.ts`) | **L2** | L3 imports `MAPPING`, `ruleText`, `mapVoice`, `normalise`, `voiceSpec` (and more) from `@/lib/audio/mapping` — **keep that path and these export names stable**. |
 | `src/lib/then-now.ts` (`buildThenNowInput()`), `src/lib/data/context.ts` (`loadDemo()`, `loadGrace()`, `loadGistemp()`, `loadGpcp()`) | **L3** | Demo/GRACE JSON → `ThenNowInput`, with shape checks. The Phase 5 harness **imports these**; L2 doesn't write its own adapter (DRY; agreed with L3 on PR #4). |
 | `src/components/ui/chart.tsx` + `recharts` dependency | **L3** | Added in L3's PR #4 for the Then vs Now and History charts. |
 | shadcn `badge`, `card`, `label`, `select`, `switch` (`src/components/ui/`) | **L2** (added for the harness) | L3 was asked on PR #4 not to add these same files, and to reuse L2's once merged. |
@@ -107,7 +107,11 @@ A phase is ✅ only when **every** box in its checklist is ticked. If a box can'
 src/lib/audio/
 ├─ index.ts             # the public API (Section 2) — the ONLY file other lanes import
 ├─ types.ts             # public types: TrackMode, VoiceId, PlayerHandle, AudioEvent, SweepPoint...
-├─ mapping.ts           # PURE: loads + validates mapping.json; value → frequency / rate / band / pan
+├─ mapping.ts           # PURE: the one import path (`@/lib/audio/mapping`); re-exports the four below
+├─ mapping-validate.ts  # PURE: checks mapping.json's shape and sanity (MappingError)
+├─ mapping-spec.ts      # PURE: MAPPING (validated once) and voiceSpec(id)
+├─ mapping-maths.ts     # PURE: value → frequency / rate / band / pan, loudness compensation
+├─ mapping-text.ts      # PURE: rule sentences for the Mapping panel (ruleParts, ruleText)
 ├─ context.ts           # startEngine(), getCtx(), getGraph(), getNoise(); the single AudioContext
 ├─ graph.ts             # buses: voice channels → sonification bus → master → compressor → meter → destination
 ├─ mixer-state.ts       # PURE: mute / solo / mute-all / volume rules
