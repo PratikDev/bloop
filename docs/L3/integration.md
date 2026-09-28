@@ -4,18 +4,17 @@ For L2 and L1: what the interface expects from you, how to swap in L2's real sou
 
 ---
 
-## 1. Swapping in L2's sound engine
+## 1. L2's sound engine in the UI
 
-Components never import a sound engine directly. They use `audio` from `src/lib/audio-adapter/index.ts`. Switching engines is **one file**:
+**Done on `L2-L3-merge` (28 Sep).** Components never import a sound engine directly. They use `audio` from `src/lib/audio-adapter/index.ts`, which now wraps L2's engine:
 
 ```ts
 // src/lib/audio-adapter/index.ts
 import * as l2 from "@/lib/audio";          // L2's index.ts
 export const audio: AudioEngine = withFallbacks(l2);
-export const IS_INTERIM_ENGINE = false;     // removes the "Interim sound engine" badge
 ```
 
-Then run `bun run lint` and `bun run build`.
+L3's interim engine (the rest of `src/lib/audio-adapter/`), the `IS_INTERIM_ENGINE` flag and the "Interim sound engine" badge (and its two strings) are deleted. The adapter keeps only `index.ts`, `types.ts` and `fallbacks.ts`.
 
 ### Why this can't break silently
 - **Source of truth:** L2's API names and shapes in `docs/L2/BUILD_PLAN.md` §2 (and §8). **`L2AudioApi`** (in `src/lib/audio-adapter/types.ts`) mirrors exactly the part of that API the UI calls, including `playSeries` (B6, accepted by L2 on 28 Sep). If L2's exports differ in any name or argument shape, `withFallbacks(l2)` **fails the type check**, so `bun run build` fails before anything ships. L2 has already checked that `withFallbacks(l2)` type-checks against its branch.
@@ -42,28 +41,22 @@ Then run `bun run lint` and `bun run build`.
    - **Any new key needs a heads-up in both directions** before it's sent or expected.
 3. **`PlayerHandle.done` resolves** when the player finishes **or** is stopped. The UI uses it to release the view.
 4. **Stopping early silences everything the player owns**, including sounds already scheduled ahead (for example monsoon drops), and `stopAll()` resolves every open `done`.
-5. **Mute all and solo apply to every voice**, including Then vs Now and History (the interim engine routes them through the mixer).
+5. **Mute all and solo apply to every voice**, including Then vs Now and History.
 6. **No clicks when sound comes back:** after a fade, the output ramps back up rather than jumping; a sequence started during a fade waits for it.
 7. **`ensureAudio()` is only called inside a user gesture** (Start, "Turn sound on").
 
 ### Shared helpers L2 uses
 L2's audio test page reuses `buildThenNowInput` (`src/lib/then-now.ts`) and `loadDemo`, `loadGrace` (`src/lib/data/context.ts`). L3 gives L2 a heads-up before changing their names or shapes.
 
-### Checklist when the real engine lands
-- [ ] `bun run build` passes with the one-file swap above.
-- [ ] Run the app. The badge is gone, and Start → opening → explore sounds as before.
+### Checklist for the joined app
+- [x] `bun x tsc --noEmit`, `bun run lint`, `bun test` (92 pass) and `bun run build` pass on `L2-L3-merge`.
+- [x] **One copy of the peak rule:** the time-lapse uses `import { peakFrame } from "@/lib/audio"` (never `@/lib/audio/storm-maths`), and L3's `peakIndex()` is deleted. Before the join, both picked frame 2 (21.6 mm/h) on the real storm and agreed on all 1,176 runs of consecutive frames within the 48, including an all-dry storm (-1: no marker, no peak caption).
+- [ ] Run the app. No badge, and Start → opening → explore sounds right.
 - [ ] Then vs Now: the playhead follows the sound for all three parts, and Stop is silent (including monsoon).
 - [ ] History: "Play the 2010s" moves the playhead.
 - [ ] Mute all (M on the map), then Then vs Now: silent.
 - [ ] Esc stops everything, from every mode.
-- [ ] **Use L2's `peakFrame()` and delete our `peakIndex()`** (one copy of the peak rule). L2's is in `src/lib/audio/storm-maths.ts`, which only exists on `L2-audio-engine`, so this waits for the swap. Other lanes import only from `@/lib/audio`, and L2 exports `peakFrame` from there, so always use `import { peakFrame } from "@/lib/audio"` (never `@/lib/audio/storm-maths`). Steps:
-  - `src/lib/audio-adapter/timelapse.ts`: L2's engine has its own `playTimelapse`, which already uses `peakFrame`. If the interim engine is removed, this file goes with it; if it stays as a backup, import `peakFrame` here instead.
-  - `src/components/TimeLapse/index.tsx`: import `peakFrame` from `@/lib/audio` instead of `peakIndex`.
-  - `src/lib/data/storm.ts` and `src/lib/data/index.ts`: delete `peakIndex` and its export.
-  - **Already checked (28 Sep):** on the real storm, both pick frame 2 (21.6 mm/h), and they agree on all 1,176 runs of consecutive frames within the 48. There used to be one difference: when every frame was dry, ours returned the first dry frame (so the caption and Story said "heaviest: 0 mm/h") and L2's returned -1. Ours now skips dry points too, so it also returns -1. The time-lapse already treats -1 as "no peak" (no marker, no peak caption), so nothing else changes.
-
-### Drop rate (fixed in the interim engine, 28 Sep)
-L2 found that re-drawing a drop's timing on every rate change made rain too dense. The interim engine had the same bug: dragging over light rain played 6.2 to 6.6 drops per second where the rule gives 5.64 (+9 to 17%). It's now fixed the same way as L2's (each drop's timing is drawn once; a rate change only re-times it). After the fix: 5.67 to 5.83 while dragging, 38.67 at the heaviest cell (rule 38.68), and the storm time-lapse within 2% of the rule. The storm time-lapse was already within 2% before the fix. The swap to L2's engine brings L2's own fix, so nothing more is needed then.
+- [ ] Storm time-lapse and Story Mode: rain density sounds right, and the peak caption lands on the heaviest frame.
 
 ---
 

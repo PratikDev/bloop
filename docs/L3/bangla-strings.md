@@ -8,7 +8,7 @@ For the teammate translating the interface into Bangla.
 - Voice names in the Mapping panel come from `public/mapping.json` (`label.bn`, owned by L2), not from this list. Entries there starting with `TODO:` still show English.
 - Rows this doesn't list: the Mapping panel's rule sentences and global rules are English text from L2's `mapping.ts` and `mapping.json`. Bangla rule sentences need `ruleParts()` (planned for Phase 4).
 
-**Still to translate:** 274 of 274 strings (every row marked TODO_BN). Until a string is translated, the Bangla setting shows it in English; speech stays English (with Bangla on screen) until `BANGLA_SPEECH_READY` in `src/lib/i18n/bn.ts` is set.
+**Still to translate:** 272 of 272 strings (every row marked TODO_BN). Until a string is translated, the Bangla setting shows it in English; speech stays English (with Bangla on screen) until `BANGLA_SPEECH_READY` in `src/lib/i18n/bn.ts` is set.
 
 ## Priority: the video's closing shot (translate these first)
 
@@ -41,8 +41,6 @@ The video ends on the live app in Bangla mode, playing (team plan §14, 3:45 to 
 | Readout (on the map) | `unit.celsius` | °C |  |
 | Readout (on the map) | `unit.mmPerHour` | mm/h |  |
 | Readout (on the map) | `place.latlon` | (sentence with values; see source) | has values |
-| Readout (on the map) | `badge.interimEngine` | Interim sound engine |  |
-| Readout (on the map) | `badge.interimEngineHint` | A simple stand-in engine. The team's full sound engine replaces it soon. | tooltip |
 | Frame label | `frame.label` | (sentence with values; see source) | §16 wording: keep English until team approves; has values |
 | Frame label | `frame.product.ocean` | Ocean temperature | §16 wording: keep English until team approves (inside the frame label) |
 | Frame label | `frame.product.rain` | Rain and snow | §16 wording: keep English until team approves (inside the frame label) |
@@ -103,8 +101,6 @@ The video ends on the live app in Bangla mode, playing (team plan §14, 3:45 to 
 | `help.open` | Help | TODO_BN |  |
 | `help.keys` | Keys | TODO_BN |  |
 | `panels.open` | Panels | TODO_BN |  |
-| `badge.interimEngine` | Interim sound engine | TODO_BN |  |
-| `badge.interimEngineHint` | A simple stand-in engine. The team's full sound engine replaces it soon. | TODO_BN |  |
 | `badge.pending` | Pending team approval | TODO_BN |  |
 | `badge.comingOctober` | Coming in October | TODO_BN |  |
 | `badge.loadingRain` | Loading rain… | TODO_BN |  |
