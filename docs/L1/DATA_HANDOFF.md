@@ -1,6 +1,8 @@
 # L1 Data Handoff
 
-This is **the one document** L2, L3 and L4 need to use L1's data. Every shape here is typed in `src/types/data-contract.ts` (section numbers given below); if this document and the contract ever disagree, **the contract wins**. Tell L1 and we'll fix this document.
+This is **the one document** describing L1's data for the team. **L3** loads and decodes the files; **L2**'s engine only receives numbers from L3 (it never loads data files); **L4** uses the wording. Every shape here is typed in `src/types/data-contract.ts` (section numbers given below); if this document and the contract ever disagree, **the contract wins**. Tell L1 and we'll fix this document.
+
+**Where the code lives:** the decoders are already implemented in **`src/lib/data/`** (`latest.ts`, `sequence.ts`, `grid.ts`), and number formatting in **`src/lib/i18n/format.ts`**. The code snippets below are a **reference spec only**, so you can check an implementation against them. **Don't paste them into the app**; there must be only one copy.
 
 ---
 
@@ -14,14 +16,14 @@ All data is live on the site under **`/data/...`** (source files: `public/data/`
 | Latest rain frame | `latest/rain.bin`, `rain_phase.bin`, `rain.json`, `rain.png` | §1 | **Core, use it** |
 | Storm time-lapse (48 × 30 min) | `sequence/index.json`, `rain_NNN.u8.gz`, `rain_NNN.png`, `rain_NNN.json` | §2 | **Core, use it** |
 | Dhaka then vs now (killer demo) | `demo/dhaka_then_now.json` | §9 | **Core, use it** |
-| Bangladesh cities then vs now | `demo/cities_then_now.json` | §13 | **Available.** L3 builds a `ThenNowInput` per city and calls `playThenNow`; no L2 change (team message row 5) |
+| Bangladesh cities then vs now | `demo/cities_then_now.json` | §13 | **Available.** L3 builds a `ThenNowInput` per city and calls `playThenNow`; no L2 change (see `docs/L2/AUDIO_API.md`) |
 | Climate context (GISTEMP, GPCP, GPCC) | `context/gistemp_bd.json`, `gpcp_bd.json`, `gpcc_bd.json` | §4 | Available (History/Compare) |
 | GRACE water | `context/grace.json` | §5 | Available (demo water, bass voice) |
 | FIRMS fires | `context/firms.json` | §6 | Available |
 | NDVI | `context/ndvi.json` | §7 | Available |
 | GLOBE observations | `context/globe_bd.json` | §8 | Available |
-| Bangladesh ensemble | `context/ensemble_bd.json` | §11 | **Cut for Video 1** (team message row 6). The file stays; after the freeze |
-| GLOBE duet teaser | `context/globe_duet.json` | §12 | **Cut for Video 1** (row 6). The file stays; after the freeze |
+| Bangladesh ensemble | `context/ensemble_bd.json` | §11 | **Cut for Video 1** (decision D11, `docs/L2/BUILD_PLAN.md` §12). The file stays; after the freeze |
+| GLOBE duet teaser | `context/globe_duet.json` | §12 | **Cut for Video 1** (D11, `docs/L2/BUILD_PLAN.md` §12). The file stays; after the freeze |
 | Global history cube | `global/*` | §14 | **Post-freeze.** Optional, load lazily |
 | Truth-panel images | `truth/sst_compare.png`, `rain_compare.png`, `crosscheck.png` | not typed (images) | Core |
 
@@ -34,26 +36,30 @@ Not used anywhere: **NASA POWER** (it failed our cross-check against independent
 1. **Never hard-code numbers.** Every number shown or played comes from these files (truth panel, captions, then vs now).
 2. **Read `width`/`height` from the matching `.json`.** Never hard-code grid sizes.
 3. **Missing data is `null`, never `NaN`** (the contract's `ValueAtResult`). Missing data plays as **silence**.
-4. **Negative numbers use the true minus sign "−" (U+2212), and a value that rounds to zero has no sign** (`0%`, `0.00`), exactly as the pipeline writes captions. Use `fmtSigned()` below for any number you format yourself.
+4. **Negative numbers use the true minus sign "−" (U+2212), and a value that rounds to zero has no sign** (`0%`, `0.00`, never `−0`), exactly as the pipeline writes captions. Format any number you show yourself with **`src/lib/i18n/format.ts`**. The reference spec below shows the required behaviour.
 5. **Captions are shown as-is.** They already follow TEAM_BUILD_PLAN Section 16. Don't re-format them.
 6. **Always show each frame's own time** (`frame_time_utc`). Rain `frame_time_utc` is **the start** of the 30-minute period.
 7. **Show credits:** every JSON has a `credit` string; put them in the footer or credits panel.
 8. **Same grid cell = same record.** Where a file says `same_record_as` / `shares_cell_with`, don't present those places as separate findings.
 
 ```ts
-// Number formatting shared by all lanes (same rules as pipeline/build_demo.py signed()).
-export function fmtSigned(x: number, digits: number): string {
+// REFERENCE SPEC ONLY. The app's implementation is src/lib/i18n/format.ts; check it behaves like this.
+// Same rules as pipeline/build_demo.py signed().
+export function fmtSigned(x: number, digits: number): string {   // "+1.37", "−9", "0", "0.00"
   const s = (x >= 0 ? "+" : "") + x.toFixed(digits);
   return Number(s) === 0 ? Math.abs(x).toFixed(digits) : s.replace("-", "\u2212");
 }
-export function fmtNumber(x: number, digits: number): string {
-  return x.toFixed(digits).replace("-", "\u2212"); // no plus sign
+export function fmtNumber(x: number, digits: number): string {   // "−4", "34", "0" (no plus sign, never "−0")
+  const s = x.toFixed(digits);
+  return Number(s) === 0 ? Math.abs(x).toFixed(digits) : s.replace("-", "\u2212");
 }
+// Expected: fmtSigned(-9,0) "−9" · fmtSigned(1.37,2) "+1.37" · fmtSigned(-0.001,2) "0.00"
+//           fmtNumber(-4,0) "−4" · fmtNumber(-0.4,0) "0" · fmtNumber(-0.001,2) "0.00"
 ```
 
 ---
 
-## 3. Latest frames: decoding (TypeScript for `src/lib/data.ts`)
+## 3. Latest frames: decoding (reference spec; implemented in `src/lib/data/`: `latest.ts`, `sequence.ts`, `grid.ts`)
 
 Grids: little-endian, row 0 = 90°N, column 0 = 180°W, equirectangular.
 
@@ -65,6 +71,7 @@ Grids: little-endian, row 0 = 90°N, column 0 = 180°W, equirectangular.
 | `sequence/rain_NNN.u8.gz` | 1200 × 600, Uint8, gzip | 0 dry; 255 no data; 1–127 liquid, 128–254 frozen (formula below) |
 
 ```ts
+// REFERENCE SPEC ONLY: the app's code is in src/lib/data/ (latest.ts, sequence.ts, grid.ts). Don't paste a second copy.
 import type { RainPhase, RainValue } from "@/types/data-contract";
 
 export async function loadU16(url: string): Promise<Uint16Array> {
@@ -126,7 +133,7 @@ Read from `latest/rain.json`: `verified`, `latest_check` (optional).
 **SST template:**
 > "Colour scale checked against NASA MUR SST: the frame's colours match {lo}…{hi} °C (the legend reads {legend}). Median error {verified.value} °C ({verified.n_points} points)."
 
-- `{lo}`, `{hi}` = `fmtNumber(calibration.value_at_ticks_C[0], 0)`, `fmtNumber(calibration.value_at_ticks_C[1], 0)`, which currently gives **−4** and **34**.
+- `{lo}`, `{hi}` = `calibration.value_at_ticks_C[0]` and `[1]`, formatted with `src/lib/i18n/format.ts` (no plus sign, minus as "−"), which currently gives **−4** and **34**.
 - `{legend}` = `calibration.legend_labels` formatted for display: `legend_labels.replace(" C", "").replace("..", "…").replace(/-/g, "\u2212")`, which turns "-5..35 C" into "−5…35".
 - If `latest_check?.pass`, append: *" Also checked on the {latest_check.date} frame: median error {latest_check.median_abs.toFixed(2)} °C."*
 - **Current values (as of the last refresh):** `verified.value` 0.31 °C (60 points); `latest_check` 0.32 °C on 2026-09-25. **They change with each refresh**, which is why they're read, not typed.
@@ -174,12 +181,12 @@ The optional `honesty_beat` can be shown as one caption. `not_claimed` lists wha
 
 ---
 
-## 7. Optional files cut for Video 1 (team message row 6)
+## 7. Optional files cut for Video 1 (D11)
 
 - `context/ensemble_bd.json` (§11): heat, rain and water on one monthly timeline since 1981.
 - `context/globe_duet.json` (§12): ground vs satellite cloud cover, Bangladesh only, reports on the same date within 1 km merged. **Show only if `status === "ok"`.**
 
-Both files stay and are kept up to date by the pipeline. We'll agree an API after the freeze.
+Cut by decision **D11** (`docs/L2/BUILD_PLAN.md` §12). Both files stay and are kept up to date by the pipeline. We'll agree an API after the freeze.
 
 ---
 
@@ -197,9 +204,10 @@ Both files stay and are kept up to date by the pipeline. We'll agree an API afte
   - **Same cell/box = same record** (`<layer>_same_record_as`).
 - **`confidence.json`:** a rain badge per cell (high / medium / low / satellite-only).
 - Show `manifest.disclosure`. Outside Dhaka, label numbers "computed from NASA GISTEMP / GPCP / GRACE (same method as Dhaka)".
-- **Sound (L2):** the same three voices as the ensemble (Section 10 rules).
+- **Sound:** no new L2 API. L3 passes the decoded monthly numbers to L2's existing **`playSeries()`** (the ensemble is cut, so there's no three-voice ensemble API to reuse).
 
 ```ts
+// REFERENCE SPEC ONLY: when the global view is built, implement this once in src/lib/data/ alongside the other decoders.
 import type { GlobalLayerFile } from "@/types/data-contract";
 
 // Missing data follows the contract: no data -> null (never NaN).
@@ -238,7 +246,7 @@ From `pipeline/` (Git Bash), print the published SST at a point using exactly th
 ```bash
 python -c "import json,numpy as np;from common import PUBLIC;lat,lon=0,-160;m=json.load(open(PUBLIC/'latest/sst.json'));W,H=m['grid']['width'],m['grid']['height'];r=min(H-1,max(0,int(np.floor((90-lat)/180*H))));c=min(W-1,max(0,int(np.floor((lon+180)/360*W))));u=int(np.fromfile(PUBLIC/'latest/sst.bin',dtype='<u2')[r*W+c]);print(m['frame_time_utc'],'null' if u==65535 else round(u/1000-5,3))"
 ```
-It prints the frame time and the value. Tropical Pacific (0°, 160°W): about 28–29 °C, depending on the frame. L3's `valueAt()` at the same point and frame must give the **same number**. Change `lat,lon=0,-160` to test other points; land prints `null`.
+It prints the frame time and the value. Tropical Pacific (0°, 160°W): about 28–29 °C, depending on the frame. L3's `valueAt()` (`src/lib/data/`) at the same point and frame must give the **same number**. Change `lat,lon=0,-160` to test other points; land prints `null`.
 
 Global (after the freeze):
 ```bash
@@ -267,6 +275,6 @@ L3's `series(23.81, 90.41)` on `heat` must give the same latest value.
 
 ## Completion
 
-**Core (before the freeze):** done when L2 and L3 confirm they can load `sst.json` + `sst.bin`, and read at `0°, 160°W` the **same value** the command in section 9 prints (tropical ocean, about 28–29 °C).
+**Core (before the freeze):** done when **L3** confirms `src/lib/data/` loads `sst.json` + `sst.bin` and reads at `0°, 160°W` the **same value** the command in section 9 prints (tropical ocean, about 28–29 °C). (L2 needs no check: its engine only receives numbers from L3.)
 
 **Post-freeze:** done when L3 reads the same latest Dhaka heat value from `global/heat` as `inspect_global.py --place Dhaka` prints.
