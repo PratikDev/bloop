@@ -41,9 +41,17 @@ export function Stage() {
           {timeLapse.status === "error" && <StatusBadge kind="error">{t("timelapse.error")}</StatusBadge>}
         </div>
         {state.mode === "story" && (
-          <StoryPanel className="px-4 py-3 lg:absolute lg:top-0 lg:left-0 lg:max-w-sm lg:rounded-br-lg lg:bg-scrim" />
+          <StoryPanel className="px-4 py-3 lg:absolute lg:top-0 lg:left-0 lg:max-w-sm lg:rounded-br-lg lg:bg-scrim lg:short:max-w-md" />
         )}
-        <Readout className="px-4 py-3 lg:pointer-events-none lg:absolute lg:bottom-0 lg:left-0 lg:max-w-lg lg:rounded-tr-lg lg:bg-scrim" />
+        <Readout
+          className={cn(
+            "px-4 py-3 lg:pointer-events-none lg:absolute lg:bottom-0 lg:left-0 lg:max-w-lg lg:rounded-tr-lg lg:bg-scrim",
+            // Short screens: a wider, shorter plate (each frame label on one line).
+            "lg:short:max-w-xl lg:short:py-2",
+            // Short screens in Story: the story panel has the left side, so the readout moves right.
+            state.mode === "story" && "lg:short:right-0 lg:short:left-auto lg:short:max-w-md lg:short:rounded-tr-none lg:short:rounded-tl-lg",
+          )}
+        />
       </div>
       <div className="space-y-2 px-4 pb-3">
         <TrackChoice className="lg:hidden" itemClassName="h-11" />
