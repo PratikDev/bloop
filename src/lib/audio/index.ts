@@ -1,6 +1,6 @@
 // The public audio API (docs/L2/AUDIO_API.md). This is the ONLY module other
 // lanes import: `import { ensureAudio, setOcean } from "@/lib/audio"`.
-// Everything takes plain numbers; nothing here fetches.
+// Everything takes plain numbers; only preloadClips() fetches (recorded narration).
 
 import { startEngine } from "./context";
 import { applyMixer } from "./mixer";
@@ -29,9 +29,4 @@ export { playOpening } from "./players/opening";
 export { playThenNow } from "./players/then-now";
 export { playCompare, playSeries } from "./players/compare";
 export { playTimelapse } from "./players/timelapse";
-
-// Later phases (typed placeholders until built)
-export {
-  playClip,
-  preloadClips,
-} from "./stubs";
+export { playClip, preloadClips } from "./clips";

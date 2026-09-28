@@ -116,6 +116,7 @@ export function playPitchPair(firstC: number, secondC: number) {
 
 export { isDucked, setDuckingEnabled } from "./duck";
 export { loadVoices } from "./speech";
+export { clipStatus, type ClipStatus } from "./clips";
 
 /** Current gain of the sonification bus (1 = normal, lower = ducked). Reading only. */
 export function readSonificationLevel(): number {
