@@ -44,6 +44,7 @@ export function HistoryPanel() {
       const h = handle.current;
       handle.current = null; // stopped, not finished: no "History finished" caption
       h?.stop();
+      setPlayingFrom(null); // hide the playhead now, not after the playhead's linger
       set(value);
     };
 
