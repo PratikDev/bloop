@@ -2,8 +2,14 @@ import { TRACK_VOICES, type LiveVoiceId, type TrackMode } from "@/lib/audio-adap
 import { clampLat, START_CURSOR, wrapLon, type LatLon } from "@/lib/data";
 import type { Lang } from "@/lib/i18n";
 
-export type Mode = "explore" | "story" | "thenNow";
-export type PanelTab = "truth" | "mapping" | "provenance" | "history";
+/** What the current page is doing; set from the URL only (src/router/modes.ts). */
+export type Mode = "home" | "explore" | "story" | "thenNow" | "how";
+/** The Listen page's Inspector tabs. */
+export type PanelTab = "truth" | "mapping" | "provenance";
+
+/** Settings remembered on this device (src/components/AppState/prefs.ts). */
+export type PrefKey = "lang" | "describe" | "captions" | "builtInVoice";
+export type Prefs = Partial<Pick<AppState, PrefKey>>;
 
 export interface VoiceMix {
   volume: number; // 0..1
@@ -27,7 +33,7 @@ export interface AppState {
   solo: LiveVoiceId | null;
   mix: Record<LiveVoiceId, VoiceMix>;
   panel: PanelTab;
-  panelOpen: boolean; // the sheet on narrow screens
+  panelOpen: boolean; // the Listen page's Inspector
   helpOpen: boolean;
 }
 
@@ -68,14 +74,19 @@ export const initialState: AppState = {
   allMuted: false,
   solo: null,
   mix: { ocean: FULL_MIX, rain: FULL_MIX, snow: FULL_MIX },
-  panel: "truth",
+  panel: "provenance",
   panelOpen: false,
   helpOpen: false,
 };
 
+/** Pages where the live sound of the cursor plays: the map, and How we know beside it (Hear the legend over it, as before). */
+export function isLiveMode(mode: Mode): boolean {
+  return mode === "explore" || mode === "how";
+}
+
 /** Whether a live voice is sounding right now (for rings and captions). */
 export function isVoiceAudible(state: AppState, voice: LiveVoiceId): boolean {
-  if (!state.started || !state.soundOn || !state.playing || !state.introDone || state.allMuted || state.mode !== "explore") return false;
+  if (!state.started || !state.soundOn || !state.playing || !state.introDone || state.allMuted || !isLiveMode(state.mode)) return false;
   if (state.mix[voice].muted || state.mix[voice].volume === 0) return false;
   if (state.solo !== null && state.solo !== voice) return false;
   return TRACK_VOICES[state.track].includes(voice);

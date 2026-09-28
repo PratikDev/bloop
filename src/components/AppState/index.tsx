@@ -2,13 +2,19 @@
 
 import { useEffect, useMemo, useReducer, type ReactNode } from "react";
 import { contentLang } from "@/lib/i18n";
-import { initialState, reducer } from "./reducer";
+import { readPrefs, writePrefs } from "./prefs";
+import { initialState, reducer, type Mode } from "./reducer";
 import { AppStateContext } from "./use-app-state";
 
 const REDUCED_MOTION_QUERY = "(prefers-reduced-motion: reduce)";
 
-export function AppStateProvider({ children }: { children: ReactNode }) {
-  const [state, dispatch] = useReducer(reducer, initialState);
+/**
+ * `initialMode` comes from the URL, so a deep link renders the right page state
+ * from the first frame. The app renders in the browser only, so remembered
+ * settings are read here too, before the first paint.
+ */
+export function AppStateProvider({ initialMode, children }: { initialMode: Mode; children: ReactNode }) {
+  const [state, dispatch] = useReducer(reducer, initialMode, (mode) => ({ ...initialState, ...readPrefs(), mode }));
 
   // The OS setting is the default; the in-app toggle can override it.
   useEffect(() => {
@@ -18,6 +24,10 @@ export function AppStateProvider({ children }: { children: ReactNode }) {
     media.addEventListener("change", sync);
     return () => media.removeEventListener("change", sync);
   }, []);
+
+  // Settings remembered on this device.
+  const { lang, describe, captions, builtInVoice } = state;
+  useEffect(() => writePrefs({ lang, describe, captions, builtInVoice }), [lang, describe, captions, builtInVoice]);
 
   // Language and reduced motion live on <html> so CSS and screen readers see them.
   useEffect(() => {

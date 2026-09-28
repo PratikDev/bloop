@@ -8,11 +8,12 @@ import { appEn } from "./en/app";
 import { captionsEn } from "./en/captions";
 import { contextEn } from "./en/context";
 import { helpEn } from "./en/help";
+import { pagesEn } from "./en/pages";
 import { panelsEn } from "./en/panels";
 import { storyEn } from "./en/story";
 import type { Lang } from "./types";
 
-export const en = { ...appEn, ...helpEn, ...captionsEn, ...panelsEn, ...contextEn, ...storyEn };
+export const en = { ...appEn, ...helpEn, ...captionsEn, ...panelsEn, ...contextEn, ...storyEn, ...pagesEn };
 
 export type Messages = typeof en;
 export type MessageKey = keyof Messages;
@@ -60,4 +61,5 @@ export function captionText(lang: Lang, key: string, params: CaptionParams): str
 }
 
 export type { Lang };
+export { LANGS } from "./types";
 export * from "./format";
