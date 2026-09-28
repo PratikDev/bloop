@@ -34,7 +34,12 @@ export function StartOverlay() {
           disabled={starting}
           onClick={async () => {
             setStarting(true);
-            await commands.start();
+            // If audio fails to start, both buttons come back so nobody is stuck.
+            try {
+              await commands.start();
+            } finally {
+              setStarting(false);
+            }
           }}
           className="h-12 rounded-lg bg-shapla px-6 text-lead text-ink hover:bg-shapla/90"
         >

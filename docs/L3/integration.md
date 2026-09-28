@@ -56,11 +56,11 @@ L2's audio test page reuses `buildThenNowInput` (`src/lib/then-now.ts`) and `loa
 - [ ] History: "Play the 2010s" moves the playhead.
 - [ ] Mute all (M on the map), then Then vs Now: silent.
 - [ ] Esc stops everything, from every mode.
-- [ ] **Use L2's `peakFrame()` and delete our `peakIndex()`** (one copy of the peak rule). L2's is in `src/lib/audio/storm-maths.ts`, which only exists on `L2-audio-engine`, so this waits for the swap. Steps:
+- [ ] **Use L2's `peakFrame()` and delete our `peakIndex()`** (one copy of the peak rule). L2's is in `src/lib/audio/storm-maths.ts`, which only exists on `L2-audio-engine`, so this waits for the swap. Other lanes import only from `@/lib/audio`, and L2 exports `peakFrame` from there, so always use `import { peakFrame } from "@/lib/audio"` (never `@/lib/audio/storm-maths`). Steps:
   - `src/lib/audio-adapter/timelapse.ts`: L2's engine has its own `playTimelapse`, which already uses `peakFrame`. If the interim engine is removed, this file goes with it; if it stays as a backup, import `peakFrame` here instead.
-  - `src/components/TimeLapse/index.tsx`: import `peakFrame` from `@/lib/audio/storm-maths` instead of `peakIndex`.
+  - `src/components/TimeLapse/index.tsx`: import `peakFrame` from `@/lib/audio` instead of `peakIndex`.
   - `src/lib/data/storm.ts` and `src/lib/data/index.ts`: delete `peakIndex` and its export.
-  - **Already checked (28 Sep):** on the real storm, both pick frame 2 (21.6 mm/h), and they agree on all 1,176 runs of consecutive frames within the 48. The one difference: when every frame is dry, ours returns the first dry frame and L2's returns -1. The time-lapse already treats -1 as "no peak" (no marker, no peak caption), so nothing else changes.
+  - **Already checked (28 Sep):** on the real storm, both pick frame 2 (21.6 mm/h), and they agree on all 1,176 runs of consecutive frames within the 48. There used to be one difference: when every frame was dry, ours returned the first dry frame (so the caption and Story said "heaviest: 0 mm/h") and L2's returned -1. Ours now skips dry points too, so it also returns -1. The time-lapse already treats -1 as "no peak" (no marker, no peak caption), so nothing else changes.
 
 ### Drop rate (fixed in the interim engine, 28 Sep)
 L2 found that re-drawing a drop's timing on every rate change made rain too dense. The interim engine had the same bug: dragging over light rain played 6.2 to 6.6 drops per second where the rule gives 5.64 (+9 to 17%). It's now fixed the same way as L2's (each drop's timing is drawn once; a rate change only re-times it). After the fix: 5.67 to 5.83 while dragging, 38.67 at the heaviest cell (rule 38.68), and the storm time-lapse within 2% of the rule. The storm time-lapse was already within 2% before the fix. The swap to L2's engine brings L2's own fix, so nothing more is needed then.
