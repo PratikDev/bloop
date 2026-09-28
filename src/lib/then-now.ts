@@ -3,7 +3,7 @@
 
 import { voiceSpec } from "@/lib/audio/mapping";
 import type { ThenNowInput, WindowSeries } from "@/lib/audio-adapter/types";
-import type { DemoWindow, DhakaThenNowDemo, GraceContextFile } from "@/types/data-contract";
+import type { CityThenNow, DemoWindow, DhakaThenNowDemo, GraceContextFile } from "@/types/data-contract";
 
 export type YearlyPart = "heat" | "monsoon";
 
@@ -20,6 +20,15 @@ const monthRange = (s: string): [string, string] => {
   const [a, b] = s.split("..");
   return [a, b];
 };
+
+/**
+ * A city's comparison in the Dhaka demo's shape: its own heat and rain, the
+ * national water record (contract §13: water is national only). Everything
+ * that reads a demo, including buildThenNowInput, then works for any city.
+ */
+export function cityDemo(demo: DhakaThenNowDemo, city: CityThenNow): DhakaThenNowDemo {
+  return { ...demo, heat: city.heat, rain: city.rain };
+}
 
 export function buildThenNowInput(demo: DhakaThenNowDemo, grace: GraceContextFile): ThenNowInput {
   const bd = grace.boxes.Bangladesh;

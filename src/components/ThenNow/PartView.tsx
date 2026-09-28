@@ -71,18 +71,29 @@ function WaterView({ grace, index }: { grace: GraceContextFile; index: number | 
   );
 }
 
-/** One part: chart with playhead, then its caption exactly as the JSON gives it. */
-export function PartView({ part, demo, grace, index, splitIndex }: { part: Part; demo: DhakaThenNowDemo; grace: GraceContextFile; index: number | null; splitIndex: number | null }) {
+/** A finding's headline: the caption exactly as the JSON gives it, marked pending until the team approves. */
+export function Headline({ caption, pending = true }: { caption: string; pending?: boolean }) {
   const t = useT();
+  return (
+    <div className="space-y-2">
+      <p className="font-serif text-lead leading-snug text-moon">{caption}</p>
+      {pending && (
+        <div className="flex flex-wrap items-center gap-x-3 gap-y-1">
+          <StatusBadge kind="pending">{t("badge.pending")}</StatusBadge>
+          <span className="text-small text-haze">{t("disclosure.pending")}</span>
+        </div>
+      )}
+    </div>
+  );
+}
+
+/** One sounded part: its caption as the headline, then the chart with its playhead. */
+export function PartView({ part, demo, grace, index, splitIndex }: { part: Part; demo: DhakaThenNowDemo; grace: GraceContextFile; index: number | null; splitIndex: number | null }) {
   const caption = part === "heat" ? demo.heat.caption : part === "monsoon" ? demo.rain.caption : demo.water.caption;
   return (
-    <div className="space-y-4">
+    <>
+      <Headline caption={caption} />
       {part === "water" ? <WaterView grace={grace} index={index} /> : <YearlyView part={part} demo={demo} index={index} splitIndex={splitIndex} />}
-      <div className="space-y-2">
-        <p className="font-serif text-lead text-moon">{caption}</p>
-        <StatusBadge kind="pending">{t("badge.pending")}</StatusBadge>
-        <p className="text-small text-haze">{t("disclosure.pending")}</p>
-      </div>
-    </div>
+    </>
   );
 }
