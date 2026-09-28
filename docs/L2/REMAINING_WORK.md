@@ -34,7 +34,7 @@ Change the mark in the table **and** tick the item's checklist below. Commit thi
 | 2 | Merge `main` (PR #6) and re-check the demo captions | Follow-up | **Now, small** | — | ✅ | Merged 28 Sep (`a803fbb`); the three captions match the JSON word for word |
 | 3 | Recorded narration: `preloadClips` / `playClip` | 8 | High | L4 clips (due Tue 29, 10:00) for the real test | 🟡 | Built and tested with a generated clip (28 Sep); waiting for L4's EN and BN clips |
 | 4 | T3 loudness balance | 8 | High | teammates' ears | 🟡 | Test ready on `/dev/audio` (28 Sep); pass rule in the findings log; waiting for teammates to listen |
-| 5 | T7 how many voices at once | 8 | High | teammates' ears | ⬜ | |
+| 5 | T7 how many voices at once | 8 | High | teammates' ears | 🟡 | Test ready on `/dev/audio` (28 Sep); pass rule in the findings log; waiting for teammates to listen |
 | 6 | Screen-off test on Android | 8 | High | an Android phone | ✅ | Honor 400 Pro (28 Sep): plays on and stays even while locked; no fix needed (`9f8e8bb`) |
 | 7 | Mix pass with L4 | 8 | High | L4's recording plan | ⬜ | |
 | 8 | Clean-up | 8 | Medium | 1, 3 | ⬜ | |
@@ -92,8 +92,9 @@ Change the mark in the table **and** tick the item's checklist below. Commit thi
 
 **Why:** listeners must be able to tell which voices are playing. Spec: `BUILD_PLAN.md` §11.1 task 2.
 
-- [ ] Write the pass rule first: "which voices are playing?" answered correctly ≥ 8 of 10 at the chosen default.
-- [ ] Test 1, 2, 3 and 4 voices together (ocean, rain, water, heat).
+- [x] Write the pass rule first: "which voices are playing?" answered correctly ≥ 8 of 10 at the chosen default (findings log, 28 Sep).
+- [x] Test card: `/dev/audio` → "How many voices at once (T7)". Pick N, play a random set of N voices for 6 s, choose the voices heard, submit; it scores 10 trials and shows PASS / FAIL. Code: `src/lib/audio/dev-t7.ts`, `src/components/AudioHarness/VoiceCountSection/`.
+- [ ] Each teammate runs 10 trials at N = 1, 2, 3 and 4 (ocean, rain, water, heat).
 - [ ] Set `maxConcurrentVoices` in `public/mapping.json` (now `3`); record the result.
 
 ### 6. Screen-off test on Android
