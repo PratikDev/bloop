@@ -4,9 +4,9 @@ import { CartesianGrid, Line, LineChart, ReferenceArea, ReferenceLine, XAxis, YA
 import { ChartContainer, type ChartConfig } from "@/components/ui/chart";
 import { cn } from "@/lib/utils";
 import { AXIS, LegendItem, LineSwatch, unitLabel, ZERO_LINE_STROKE, ZeroLineKey } from "../chart-style";
-import { useScrub, type ChartScrub, type ScrubSource } from "./use-scrub";
+import { useScrub, type ChartScrub, type ScrubMotion } from "./use-scrub";
 
-export type { ChartScrub, ScrubSource };
+export type { ChartScrub, ScrubMotion };
 
 const MARGIN = { top: 8, right: 12, bottom: 4, left: 0 };
 const Y_AXIS_WIDTH = 44;

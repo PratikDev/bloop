@@ -4,15 +4,15 @@ import { useCallback, useEffect, useRef, useState } from "react";
 import { audio } from "@/lib/audio-adapter";
 import type { CompareSide, PlayerHandle } from "@/lib/audio-adapter/types";
 import { postCaption, quietSideCaption } from "@/lib/ui-captions";
-import type { ScrubSource } from "../../charts/HistoryChart";
+import type { ScrubMotion } from "../../charts/HistoryChart";
 
 export const HISTORY_PLAYER = "history";
 const MONTH_PLAYER = "history.scrub";
 const MONTH_STEP_MS = 300; // how long one dragged-to month sounds
-// Dragging: the month sounds once the pointer rests this long. Each new sequence
-// silences the last and has a short lead-in, so playing on every move would cut
-// each month off before it sounds.
-const DRAG_REST_MS = 180;
+// Continuous scrubbing (a drag or a held key): the month sounds once the motion
+// rests this long. Each new sequence silences the last and has a short lead-in,
+// so playing on every change would cut each month off before it sounds.
+const REST_MS = 180;
 
 /**
  * Place History's two ways to listen: a whole decade (step events under
@@ -83,11 +83,11 @@ export function useHistoryPlayers() {
 
   /**
    * Shows month `index` at once and plays `side` (that one month) when sound is on:
-   * after the pointer rests when dragging, at once for a key. Its "Now playing"
-   * caption is left out: the chart shows and announces the month.
+   * at once for a single step, after the motion rests when continuous. Its "Now
+   * playing" caption is left out: the chart shows and announces the month.
    */
   const playMonth = useCallback(
-    (index: number, side: CompareSide | null, source: ScrubSource) => {
+    (index: number, side: CompareSide | null, motion: ScrubMotion) => {
       stopDecade();
       cancelPending();
       setMonthIndex(index);
@@ -97,8 +97,8 @@ export function useHistoryPlayers() {
         quietSideCaption(side.label);
         month.current = audio.playSeries(side, { player: MONTH_PLAYER, stepMs: MONTH_STEP_MS });
       };
-      if (source === "key") sound();
-      else pending.current = setTimeout(sound, DRAG_REST_MS);
+      if (motion === "step") sound();
+      else pending.current = setTimeout(sound, REST_MS);
     },
     [stopDecade, cancelPending],
   );

@@ -9,7 +9,7 @@ import { formatFixed, formatMonth, formatSigned } from "@/lib/i18n";
 import { heatNormalLabel } from "@/lib/then-now";
 import type { ClimateCellName } from "@/types/data-contract";
 import { useAppState, useT } from "../../AppState/use-app-state";
-import { HistoryChart, type ScrubSource } from "../../charts/HistoryChart";
+import { HistoryChart, type ScrubMotion } from "../../charts/HistoryChart";
 import { ChoiceGroup } from "../../ChoiceGroup";
 import { StatusBadge } from "../../StatusBadge";
 import { useHistoryData } from "./use-history-data";
@@ -62,8 +62,8 @@ export function HistoryPanel() {
     });
 
   // One month, through the same voice as the decade (silent with sound off; the slider still announces it).
-  const playMonth = (i: number, source: ScrubSource) =>
-    players.playMonth(i, state.soundOn ? { label: monthText(i), values: [series.values[i]], voice } : null, source);
+  const playMonth = (i: number, motion: ScrubMotion) =>
+    players.playMonth(i, state.soundOn ? { label: monthText(i), values: [series.values[i]], voice } : null, motion);
 
   const play = () =>
     players.playDecade({ label: `${placeName(place)}, ${t("history.decadeLabel", { decade })}`, values: series.values.slice(start, end), voice }, start);
