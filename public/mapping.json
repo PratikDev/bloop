@@ -10,7 +10,7 @@
     "duck": { "level": 0.3, "attackSec": 0.1, "releaseSec": 0.15 },
     "stopFadeMs": 50,
     "pan": { "rule": "lon/180", "min": -1, "max": 1 },
-    "loudnessCompensation": { "refHz": 440, "exponent": 0 },
+    "loudnessCompensation": { "refHz": 220, "exponent": 0 },
     "rules": [
       "Master volume is capped: all voices together stay below full scale.",
       "A limiter on the master output is a safety net against sudden loud sounds.",
