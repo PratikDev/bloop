@@ -6,7 +6,7 @@ import subprocess, sys
 required = [["fetch_latest.py"], ["convert_sst.py"], ["convert_rain.py"]]
 if "--no-sequence" not in sys.argv: required.append(["fetch_rain_sequence.py"])
 if "--no-context" not in sys.argv: required += [["build_context.py"], ["build_demo.py"]]
-optional = [["build_ensemble.py"], ["build_globe_duet.py"]] if "--no-context" not in sys.argv else []
+optional = [["build_ensemble.py"], ["build_globe_duet.py"], ["build_cities.py"]] if "--no-context" not in sys.argv else []
 
 warnings = []
 for s in required:
