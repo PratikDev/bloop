@@ -2,6 +2,7 @@
 // gesture and reused everywhere; the graph, noise buffer and scheduler start
 // with it.
 
+import { preferPlaybackSession } from "./audio-session";
 import { emit } from "./events";
 import { buildGraph, type Graph } from "./graph";
 import { startScheduler } from "./scheduler";
@@ -27,15 +28,20 @@ export function emitState(playing = false, ducked = false) {
   emit({ kind: "state", ready: isAudioReady(), playing, ducked });
 }
 
-/** Creates / resumes the engine. Public entry point is ensureAudio() in index.ts. */
+/**
+ * Creates / resumes the engine. Public entry point is ensureAudio() in index.ts.
+ * Resumes from any state but "running": after a phone lock Safari reports
+ * "interrupted", not "suspended", and one tap must bring the sound back.
+ */
 export async function startEngine(): Promise<void> {
+  preferPlaybackSession();
   if (!engine) {
     const ctx = new AudioContext({ latencyHint: "interactive" });
     engine = { ctx, graph: buildGraph(ctx), noise: createNoise(ctx) };
     ctx.addEventListener("statechange", () => emitState());
     startScheduler(() => ctx.currentTime);
   }
-  if (engine.ctx.state === "suspended") await engine.ctx.resume();
+  if (engine.ctx.state !== "running") await engine.ctx.resume();
   emitState();
 }
 

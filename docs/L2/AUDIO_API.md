@@ -11,7 +11,7 @@ All inputs are plain numbers. The audio engine never fetches and never reads `li
 
 | Function | What it does |
 |---|---|
-| `ensureAudio(): Promise<void>` | Creates / resumes the single AudioContext. **Call inside a user gesture.** |
+| `ensureAudio(): Promise<void>` | Creates / resumes the single AudioContext. **Call inside a user gesture.** Safe to call on every tap: it resumes from any state but `"running"` (after a phone lock Safari reports `"interrupted"`), and asks for the iPhone `"playback"` audio session so sound plays with the silent switch on. |
 | `isAudioReady(): boolean` | True once audio is running. |
 | `stopAll(): void` | The **Esc** key. Fades every sound out in ~50 ms (no click), stops players and speech. |
 | `setMasterVolume(v: number): void` | User volume 0..1. Always capped by the gain budget in `public/mapping.json`. |
