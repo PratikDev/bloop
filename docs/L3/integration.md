@@ -51,12 +51,13 @@ L2's audio test page reuses `buildThenNowInput` (`src/lib/then-now.ts`) and `loa
 ### Checklist for the joined app
 - [x] `bun x tsc --noEmit`, `bun run lint`, `bun test` (92 pass) and `bun run build` pass on `L2-L3-merge`.
 - [x] **One copy of the peak rule:** the time-lapse uses `import { peakFrame } from "@/lib/audio"` (never `@/lib/audio/storm-maths`), and L3's `peakIndex()` is deleted. Before the join, both picked frame 2 (21.6 mm/h) on the real storm and agreed on all 1,176 runs of consecutive frames within the 48, including an all-dry storm (-1: no marker, no peak caption).
-- [ ] Run the app. No badge, and Start → opening → explore sounds right.
-- [ ] Then vs Now: the playhead follows the sound for all three parts, and Stop is silent (including monsoon).
-- [ ] History: "Play the 2010s" moves the playhead.
-- [ ] Mute all (M on the map), then Then vs Now: silent.
-- [ ] Esc stops everything, from every mode.
-- [ ] Storm time-lapse and Story Mode: rain density sounds right, and the peak caption lands on the heaviest frame.
+- [x] Start → opening → explore: no badge; the opening plays (peak 0.136) and the ocean sounds over the Bay (0.194); silent on dry land.
+- [x] Then vs Now: the playhead follows heat, split and water; Stop is silent within 0.25 s, including monsoon (0.000); GRACE gaps are silent with their captions.
+- [x] History: "Play the 2010s" moves the playhead; changing decade mid-play stops it.
+- [x] Mute all, then Then vs Now: silent (0.000). Solo Ocean: silent; solo off: heard again.
+- [x] Esc stops everything: explore, legend, time-lapse, Story (also during loading); "All sound stopped" / "Story stopped. Back to Explore."
+- [x] Storm time-lapse: 48 frames, peak caption "22 mm/h" on frame 3, "Time-lapse finished" at the end; the sound-off version still plays. Rain at the heaviest cell: 38.75 drops per second (rule 38.68), longest gap 33.6 ms. Story Mode: 87.8 s with the headless voice (target 60 to 90 s).
+- [ ] **Listen by a person, with L2** (the ticks above are signal checks, 28 Sep, headless Edge, `C:\Users\User\nasa-l3-qa`). L2's engine is about 45% louder than the interim one was (Story ocean 0.194 vs 0.133, sweep 0.262 vs 0.178, whisper 0.308 vs 0.204; no clipping): for L2's mix pass.
 
 ---
 
