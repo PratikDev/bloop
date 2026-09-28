@@ -8,11 +8,13 @@ import { createCn } from "cn/config";
 export const cn = createCn({
   extend: {
     classGroups: {
-      "font-size": [{ text: ["small", "body", "lead", "title", "readout", "readout-mobile"] }],
-      rounded: [{ rounded: ["sheet"] }],
+      "font-size": [{ text: ["small", "body", "lead", "title", "headline", "display", "readout", "readout-mobile"] }],
+      rounded: [{ rounded: ["sheet", "plate"] }],
       "rounded-t": [{ "rounded-t": ["sheet"] }],
       "rounded-l": [{ "rounded-l": ["sheet"] }],
-      "rounded-tr": [{ "rounded-tr": ["sheet"] }],
+      "rounded-tr": [{ "rounded-tr": ["sheet", "plate"] }],
+      "rounded-tl": [{ "rounded-tl": ["sheet", "plate"] }],
+      "rounded-r": [{ "rounded-r": ["sheet"] }],
     },
   },
 });

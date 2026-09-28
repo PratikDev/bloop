@@ -2,9 +2,10 @@
 
 import { CartesianGrid, Line, LineChart, ReferenceLine, XAxis, YAxis } from "recharts";
 import { ChartContainer, type ChartConfig } from "@/components/ui/chart";
+import { cn } from "@/lib/utils";
 import type { YearRow } from "@/lib/then-now";
 import type { DemoWindow } from "@/types/data-contract";
-import { AXIS, LegendItem, unitLabel, ZERO_LINE_STROKE, ZeroLineKey } from "./chart-style";
+import { AXIS, CHART_HEIGHT, LegendItem, unitLabel, ZERO_LINE_STROKE, ZeroLineKey } from "./chart-style";
 
 /**
  * Then vs Now for one yearly part: the two windows on one time axis, each
@@ -19,6 +20,7 @@ export function YearlyChart({
   zeroLine,
   playheadYears,
   summary,
+  heightClass = CHART_HEIGHT,
 }: {
   rows: YearRow[];
   pair: { A: DemoWindow; B: DemoWindow };
@@ -27,6 +29,7 @@ export function YearlyChart({
   zeroLine?: string; // e.g. "1951–1980 normal" for anomalies
   playheadYears: number[]; // one, or two when both windows play at once
   summary: string; // text alternative for the whole chart
+  heightClass?: string;
 }) {
   const config = {
     then: { label: labels.then, color: "var(--chart-then)" },
@@ -45,7 +48,7 @@ export function YearlyChart({
 
   return (
     <figure aria-label={summary} className="space-y-2">
-      <ChartContainer config={config} className="aspect-auto h-60 w-full">
+      <ChartContainer config={config} className={cn("aspect-auto w-full", heightClass)}>
         <LineChart data={rows} margin={{ top: 8, right: 16, bottom: 4, left: 0 }} accessibilityLayer>
           <CartesianGrid stroke="var(--chart-grid)" vertical={false} />
           <XAxis dataKey="year" type="number" domain={["dataMin", "dataMax"]} allowDecimals={false} {...AXIS} />
