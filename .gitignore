@@ -10,10 +10,6 @@
 !.yarn/releases
 !.yarn/versions
 
-
-
-
-
 # testing
 /coverage
 
@@ -53,4 +49,4 @@ pipeline/inputs/context/*.nc
 pipeline/inputs/context/*.nc.gz
 pipeline/__pycache__/
 *.part
-public/data/global_building/
+
