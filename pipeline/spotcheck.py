@@ -105,6 +105,14 @@ try:
            ("GRACE NWI trend", d["water"]["NW_India"]["trend_cm_per_yr"], -3.25, 0.01)]
     for name, got, want, tol in exp:
         check(f"F demo {name}", abs(got - want) <= tol, f"got {got} expected {want}")
+    # captions must equal TEAM_BUILD_PLAN Section 16 word for word (true minus sign U+2212)
+    SEC16 = {"heat": "Dhaka, April–May: +1.37 °C (NASA GISTEMP, 1981–1990 vs 2016–2025, 10 years each).",
+             "rain": "Dhaka, June–September: not wetter. GPCP \u22129% (1981–1990 vs 2016–2025); rain gauges (GPCC) \u221212% (1981–1990 vs 2010–2019).",
+             "water": "Water storage (GRACE): Bangladesh +0.83 → \u22125.82 cm; NW India +8.71 → \u221253.63 cm (2003–06 vs 2021–24). "
+                      "Silence = no satellite measurements (Jul 2017–May 2018)."}
+    for k, want in SEC16.items():
+        got = d[k]["caption"]
+        check(f"F demo {k} caption = Section 16 word for word", got == want, "" if got == want else f"got: {got!r}")
 except Exception as e:
     check("F demo", False, str(e))
 
@@ -133,18 +141,45 @@ def shape_ok(obj, spec, path=""):
         elif not isinstance(v, t): probs.append(f"{path}{k} has type {type(v).__name__}")
     return probs
 NUM, NUMN, STR, STRN = (int, float), (int, float, type(None)), (str,), (str, type(None))
+WINDOW = {"window": ("list", int), "years": ("list", int), "values": ("list", (int, float)), "mean": NUM, "spread": NUM, "n_years": (int,)}
+CELL = {"lat": NUM, "lon": NUM}
+CITY_RAIN_SERIES = {"dataset": STR, "A": WINDOW, "B": WINDOW, "change_pct": (int,), "cell": CELL, "shares_cell_with": ("list", str),
+                    "same_record_as": STRN}
+CITY = {"name": STR, "cross_checked": (bool,), "heat": {"dataset": STR, "A": WINDOW, "B": WINDOW, "change_C": NUM, "caption": STR,
+        "cell": CELL, "shares_cell_with": ("list", str), "same_record_as": STRN},
+        "rain": {"gpcp": CITY_RAIN_SERIES, "gpcc": CITY_RAIN_SERIES, "caption": STR}}
+CITIES = {"title": STR, "note": STR, "water_note": STR, "cities": ("list", CITY), "generated_utc": STR}
 VOICE = {"values": ("list", NUMN), "units": STR, "dataset": STR, "place": STR, "resolution": STR, "mapping_key": STR, "credit": STR}
 ENSEMBLE = {"title": STR, "months": ("list", str), "voices": {"heat": VOICE, "rain": VOICE, "water": VOICE}, "disclosure": STR, "generated_utc": STR}
 PAIR = {"date": STR, "lat": NUM, "lon": NUM, "ground_pct": NUM, "satellite_pct": NUM, "n_reports": (int,), "satellite": STRN, "difference_pct": NUM}
 DUET = {"title": STR, "status": STR, "region": STR, "region_note": STR, "ground_value": {"primary": STR, "fallback": STR, "counts": dict,
         "category_midpoints": dict, "note": STR}, "satellite_value": STR, "dropped": dict, "summary": dict, "pairs": ("list", PAIR),
         "disclosure": STR, "credit": STR, "generated_utc": STR}
-for rel, spec in (("context/ensemble_bd.json", ENSEMBLE), ("context/globe_duet.json", DUET)):
+for rel, spec in (("context/ensemble_bd.json", ENSEMBLE), ("context/globe_duet.json", DUET), ("demo/cities_then_now.json", CITIES)):
     f = PUBLIC / rel
     if not f.exists():
         print(f"[WARN] optional {rel} missing (optional)"); continue
     o = json.load(open(f)); probs = shape_ok(o, spec)
     if rel.endswith("globe_duet.json") and o.get("featured") is not None: probs += shape_ok(o["featured"], PAIR, "featured.")
+    if rel.endswith("cities_then_now.json"):
+        for c in o.get("cities", []): probs += [f"{c.get('name')}: {p}" for p in shape_ok(c, CITY)]
+        dh = next((c for c in o.get("cities", []) if c.get("name") == "Dhaka"), None)
+        main_demo = json.load(open(PUBLIC / "demo" / "dhaka_then_now.json"))
+        if dh is None or dh["heat"]["caption"] != main_demo["heat"]["caption"] or dh["rain"]["caption"] != main_demo["rain"]["caption"] \
+                or dh["heat"]["change_C"] != main_demo["heat"]["change_C"]:
+            probs.append("Dhaka entry differs from dhaka_then_now.json")
+        import re as _re
+        for c in o.get("cities", []):
+            caps = (c["heat"]["caption"], c["rain"]["caption"])
+            if any("-" in t for t in caps): probs.append(f"{c['name']}: ASCII hyphen in a caption (signs must be \u2212, ranges \u2013)")
+            if any(_re.search(r"[+\u2212]0(\.0+)?(%| °C)", t) for t in caps): probs.append(f"{c['name']}: signed zero in a caption")
+            if c["heat"]["same_record_as"] and "same record" not in c["heat"]["caption"]:
+                probs.append(f"{c['name']}: heat shares {c['heat']['same_record_as']}'s cell but the caption doesn't say so")
+            if c["rain"]["gpcp"]["same_record_as"] and c["rain"]["gpcp"]["same_record_as"] == c["rain"]["gpcc"]["same_record_as"] \
+                    and "same record" not in c["rain"]["caption"]:
+                probs.append(f"{c['name']}: rain shares {c['rain']['gpcp']['same_record_as']}'s cells but the caption doesn't say so")
+        if dh is not None and (dh["heat"]["same_record_as"] is not None or dh["rain"]["gpcp"]["same_record_as"] is not None):
+            probs.append("Dhaka must be the reference city (same_record_as null)")
     check(f"optional {rel} matches its TypeScript contract", not probs, "; ".join(probs[:4]))
 try:
     idx = json.load(open(PUBLIC / "sequence" / "index.json"))["frames"]
