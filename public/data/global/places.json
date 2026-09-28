@@ -1,37 +1,45 @@
 {
-  "note": "Annual means; heat 1981-1990 vs 2016-2025; rain same; water 2003-06 vs 2021-24. Places in the same grid cell are the same record: <layer>_same_record_as names the first listed place with that cell. Computed with the same method as Dhaka (which was cross-checked); other places are not individually cross-checked. Coordinates are approximate.",
+  "note": "Computed with the same datasets as the Bangladesh files. Only Dhaka's April–May heat and June–September rain were cross-checked against independent records (P1b); the annual values here were not separately cross-checked. Places in the same grid cell (or the same box) are the same record: <layer>_same_record_as names the first listed place. Coordinates are approximate.",
+  "basis": {
+    "heat": "annual mean anomaly vs 1951–1980 (°C), 1981–1990 vs 2016–2025",
+    "rain": "annual mean (mm/day), 1981–1990 vs 2016–2025",
+    "water": "mean of monthly values (cm), 2003–2006 vs 2021–2024; Bangladesh places: national box, other places: their 3° cell"
+  },
+  "demo_note": "These heat and rain values are ANNUAL, so for Bangladesh cities they differ on purpose from the Dhaka demo and cities files (April–May heat, June–September rain). Label them 'annual' in the UI. Bangladesh water here is the same national record as the demo.",
   "places": [
     {
       "name": "Dhaka",
       "lat": 23.81,
       "lon": 90.41,
+      "in_bangladesh": true,
       "heat_cell": {
         "index": 3889,
         "lat": 23.0,
         "lon": 91.0
       },
+      "heat_cell_is_neighbour": false,
       "rain_cell": {
         "index": 3852,
         "lat": 23.75,
         "lon": 91.25
       },
-      "water_cell": {
-        "index": 2730,
-        "lat": 22.5,
-        "lon": 91.5
-      },
-      "heat_then_now": [
+      "heat_annual_then_now": [
         0.18,
         1.43
       ],
-      "rain_then_now": [
+      "rain_annual_then_now": [
         7.68,
         6.98
       ],
       "rain_confidence": "high",
+      "water_cell": null,
+      "water_region": {
+        "kind": "box",
+        "label": "Bangladesh box (lon 88–93, lat 20.5–26.7): the same national record as the Dhaka demo"
+      },
       "water_then_now": [
-        -0.36,
-        0.24
+        0.83,
+        -5.82
       ],
       "heat_shares_cell_with": [
         "Chattogram"
@@ -42,7 +50,9 @@
       ],
       "rain_same_record_as": null,
       "water_shares_cell_with": [
-        "Chattogram"
+        "Chattogram",
+        "Rajshahi",
+        "Sylhet"
       ],
       "water_same_record_as": null
     },
@@ -50,33 +60,35 @@
       "name": "Chattogram",
       "lat": 22.36,
       "lon": 91.78,
+      "in_bangladesh": true,
       "heat_cell": {
         "index": 3889,
         "lat": 23.0,
         "lon": 91.0
       },
+      "heat_cell_is_neighbour": false,
       "rain_cell": {
         "index": 3996,
         "lat": 21.25,
         "lon": 91.25
       },
-      "water_cell": {
-        "index": 2730,
-        "lat": 22.5,
-        "lon": 91.5
-      },
-      "heat_then_now": [
+      "heat_annual_then_now": [
         0.18,
         1.43
       ],
-      "rain_then_now": [
+      "rain_annual_then_now": [
         8.41,
         7.9
       ],
       "rain_confidence": "high",
+      "water_cell": null,
+      "water_region": {
+        "kind": "box",
+        "label": "Bangladesh box (lon 88–93, lat 20.5–26.7): the same national record as the Dhaka demo"
+      },
       "water_then_now": [
-        -0.36,
-        0.24
+        0.83,
+        -5.82
       ],
       "heat_shares_cell_with": [
         "Dhaka"
@@ -85,7 +97,9 @@
       "rain_shares_cell_with": [],
       "rain_same_record_as": null,
       "water_shares_cell_with": [
-        "Dhaka"
+        "Dhaka",
+        "Rajshahi",
+        "Sylhet"
       ],
       "water_same_record_as": "Dhaka"
     },
@@ -93,33 +107,35 @@
       "name": "Rajshahi",
       "lat": 24.37,
       "lon": 88.6,
+      "in_bangladesh": true,
       "heat_cell": {
         "index": 3790,
         "lat": 25.0,
         "lon": 89.0
       },
+      "heat_cell_is_neighbour": false,
       "rain_cell": {
         "index": 3851,
         "lat": 23.75,
         "lon": 88.75
       },
-      "water_cell": {
-        "index": 2609,
-        "lat": 25.5,
-        "lon": 88.5
-      },
-      "heat_then_now": [
+      "heat_annual_then_now": [
         0.1,
         1.21
       ],
-      "rain_then_now": [
+      "rain_annual_then_now": [
         4.58,
         4.36
       ],
       "rain_confidence": "high",
+      "water_cell": null,
+      "water_region": {
+        "kind": "box",
+        "label": "Bangladesh box (lon 88–93, lat 20.5–26.7): the same national record as the Dhaka demo"
+      },
       "water_then_now": [
-        3.74,
-        -22.43
+        0.83,
+        -5.82
       ],
       "heat_shares_cell_with": [],
       "heat_same_record_as": null,
@@ -127,40 +143,46 @@
         "Kolkata"
       ],
       "rain_same_record_as": null,
-      "water_shares_cell_with": [],
-      "water_same_record_as": null
+      "water_shares_cell_with": [
+        "Dhaka",
+        "Chattogram",
+        "Sylhet"
+      ],
+      "water_same_record_as": "Dhaka"
     },
     {
       "name": "Sylhet",
       "lat": 24.9,
       "lon": 91.87,
+      "in_bangladesh": true,
       "heat_cell": {
         "index": 3791,
         "lat": 25.0,
         "lon": 91.0
       },
+      "heat_cell_is_neighbour": false,
       "rain_cell": {
         "index": 3852,
         "lat": 23.75,
         "lon": 91.25
       },
-      "water_cell": {
-        "index": 2610,
-        "lat": 25.5,
-        "lon": 91.5
-      },
-      "heat_then_now": [
+      "heat_annual_then_now": [
         0.12,
         1.44
       ],
-      "rain_then_now": [
+      "rain_annual_then_now": [
         7.68,
         6.98
       ],
       "rain_confidence": "high",
+      "water_cell": null,
+      "water_region": {
+        "kind": "box",
+        "label": "Bangladesh box (lon 88–93, lat 20.5–26.7): the same national record as the Dhaka demo"
+      },
       "water_then_now": [
-        1.5,
-        -9.55
+        0.83,
+        -5.82
       ],
       "heat_shares_cell_with": [],
       "heat_same_record_as": null,
@@ -168,37 +190,47 @@
         "Dhaka"
       ],
       "rain_same_record_as": "Dhaka",
-      "water_shares_cell_with": [],
-      "water_same_record_as": null
+      "water_shares_cell_with": [
+        "Dhaka",
+        "Chattogram",
+        "Rajshahi"
+      ],
+      "water_same_record_as": "Dhaka"
     },
     {
       "name": "Kolkata",
       "lat": 22.57,
       "lon": 88.36,
+      "in_bangladesh": false,
       "heat_cell": {
         "index": 3888,
         "lat": 23.0,
         "lon": 89.0
       },
+      "heat_cell_is_neighbour": false,
       "rain_cell": {
         "index": 3851,
         "lat": 23.75,
         "lon": 88.75
       },
+      "heat_annual_then_now": [
+        0.13,
+        1.17
+      ],
+      "rain_annual_then_now": [
+        4.58,
+        4.36
+      ],
+      "rain_confidence": "high",
       "water_cell": {
         "index": 2729,
         "lat": 22.5,
         "lon": 88.5
       },
-      "heat_then_now": [
-        0.13,
-        1.17
-      ],
-      "rain_then_now": [
-        4.58,
-        4.36
-      ],
-      "rain_confidence": "high",
+      "water_region": {
+        "kind": "cell",
+        "label": "3° GRACE cell 21°N–24°N, 87°E–90°E"
+      },
       "water_then_now": [
         1.71,
         -6.91
@@ -216,30 +248,36 @@
       "name": "Delhi",
       "lat": 28.61,
       "lon": 77.21,
+      "in_bangladesh": false,
       "heat_cell": {
         "index": 3580,
         "lat": 29.0,
         "lon": 77.0
       },
+      "heat_cell_is_neighbour": false,
       "rain_cell": {
         "index": 3558,
         "lat": 28.75,
         "lon": 76.25
       },
+      "heat_annual_then_now": [
+        0.09,
+        0.88
+      ],
+      "rain_annual_then_now": [
+        1.41,
+        1.8
+      ],
+      "rain_confidence": "high",
       "water_cell": {
         "index": 2485,
         "lat": 28.5,
         "lon": 76.5
       },
-      "heat_then_now": [
-        0.09,
-        0.88
-      ],
-      "rain_then_now": [
-        1.41,
-        1.8
-      ],
-      "rain_confidence": "high",
+      "water_region": {
+        "kind": "cell",
+        "label": "3° GRACE cell 27°N–30°N, 75°E–78°E"
+      },
       "water_then_now": [
         13.07,
         -73.61
@@ -255,30 +293,36 @@
       "name": "Punjab (Ludhiana)",
       "lat": 30.9,
       "lon": 75.85,
+      "in_bangladesh": false,
       "heat_cell": {
         "index": 3473,
         "lat": 31.0,
         "lon": 75.0
       },
+      "heat_cell_is_neighbour": false,
       "rain_cell": {
         "index": 3414,
         "lat": 31.25,
         "lon": 76.25
       },
+      "heat_annual_then_now": [
+        0.07,
+        0.92
+      ],
+      "rain_annual_then_now": [
+        3.24,
+        2.89
+      ],
+      "rain_confidence": "high",
       "water_cell": {
         "index": 2365,
         "lat": 31.5,
         "lon": 76.5
       },
-      "heat_then_now": [
-        0.07,
-        0.92
-      ],
-      "rain_then_now": [
-        3.24,
-        2.89
-      ],
-      "rain_confidence": "high",
+      "water_region": {
+        "kind": "cell",
+        "label": "3° GRACE cell 30°N–33°N, 75°E–78°E"
+      },
       "water_then_now": [
         8.59,
         -59.01
@@ -294,30 +338,36 @@
       "name": "Karachi",
       "lat": 24.86,
       "lon": 67.01,
+      "in_bangladesh": false,
       "heat_cell": {
         "index": 3779,
         "lat": 25.0,
         "lon": 67.0
       },
+      "heat_cell_is_neighbour": false,
       "rain_cell": {
         "index": 3842,
         "lat": 23.75,
         "lon": 66.25
       },
+      "heat_annual_then_now": [
+        -0.11,
+        1.1
+      ],
+      "rain_annual_then_now": [
+        0.48,
+        1.12
+      ],
+      "rain_confidence": "low",
       "water_cell": {
         "index": 2602,
         "lat": 25.5,
         "lon": 67.5
       },
-      "heat_then_now": [
-        -0.11,
-        1.1
-      ],
-      "rain_then_now": [
-        0.48,
-        1.12
-      ],
-      "rain_confidence": "low",
+      "water_region": {
+        "kind": "cell",
+        "label": "3° GRACE cell 24°N–27°N, 66°E–69°E"
+      },
       "water_then_now": [
         -1.18,
         -1.78
@@ -333,30 +383,36 @@
       "name": "Kathmandu",
       "lat": 27.72,
       "lon": 85.32,
+      "in_bangladesh": false,
       "heat_cell": {
         "index": 3688,
         "lat": 27.0,
         "lon": 85.0
       },
+      "heat_cell_is_neighbour": false,
       "rain_cell": {
         "index": 3562,
         "lat": 28.75,
         "lon": 86.25
       },
+      "heat_annual_then_now": [
+        0.04,
+        1.04
+      ],
+      "rain_annual_then_now": [
+        2.81,
+        2.29
+      ],
+      "rain_confidence": "high",
       "water_cell": {
         "index": 2488,
         "lat": 28.5,
         "lon": 85.5
       },
-      "heat_then_now": [
-        0.04,
-        1.04
-      ],
-      "rain_then_now": [
-        2.81,
-        2.29
-      ],
-      "rain_confidence": "high",
+      "water_region": {
+        "kind": "cell",
+        "label": "3° GRACE cell 27°N–30°N, 84°E–87°E"
+      },
       "water_then_now": [
         0.98,
         -15.62
@@ -372,30 +428,36 @@
       "name": "Beijing",
       "lat": 39.9,
       "lon": 116.4,
+      "in_bangladesh": false,
       "heat_cell": {
         "index": 3058,
         "lat": 39.0,
         "lon": 117.0
       },
+      "heat_cell_is_neighbour": false,
       "rain_cell": {
         "index": 2998,
         "lat": 38.75,
         "lon": 116.25
       },
+      "heat_annual_then_now": [
+        0.37,
+        1.98
+      ],
+      "rain_annual_then_now": [
+        1.48,
+        1.87
+      ],
+      "rain_confidence": "high",
       "water_cell": {
         "index": 2018,
         "lat": 40.5,
         "lon": 115.5
       },
-      "heat_then_now": [
-        0.37,
-        1.98
-      ],
-      "rain_then_now": [
-        1.48,
-        1.87
-      ],
-      "rain_confidence": "high",
+      "water_region": {
+        "kind": "cell",
+        "label": "3° GRACE cell 39°N–42°N, 114°E–117°E"
+      },
       "water_then_now": [
         2.73,
         -12.0
@@ -411,30 +473,36 @@
       "name": "Shanghai",
       "lat": 31.23,
       "lon": 121.47,
+      "in_bangladesh": false,
       "heat_cell": {
         "index": 3496,
         "lat": 31.0,
         "lon": 121.0
       },
+      "heat_cell_is_neighbour": false,
       "rain_cell": {
         "index": 3432,
         "lat": 31.25,
         "lon": 121.25
       },
+      "heat_annual_then_now": [
+        0.02,
+        1.77
+      ],
+      "rain_annual_then_now": [
+        3.67,
+        4.7
+      ],
+      "rain_confidence": "high",
       "water_cell": {
         "index": 2380,
         "lat": 31.5,
         "lon": 121.5
       },
-      "heat_then_now": [
-        0.02,
-        1.77
-      ],
-      "rain_then_now": [
-        3.67,
-        4.7
-      ],
-      "rain_confidence": "high",
+      "water_region": {
+        "kind": "cell",
+        "label": "3° GRACE cell 30°N–33°N, 120°E–123°E"
+      },
       "water_then_now": [
         -0.37,
         6.4
@@ -450,30 +518,36 @@
       "name": "Tokyo",
       "lat": 35.68,
       "lon": 139.69,
+      "in_bangladesh": false,
       "heat_cell": {
         "index": 3294,
         "lat": 35.0,
         "lon": 139.0
       },
+      "heat_cell_is_neighbour": false,
       "rain_cell": {
         "index": 3151,
         "lat": 36.25,
         "lon": 138.75
       },
+      "heat_annual_then_now": [
+        -0.05,
+        1.52
+      ],
+      "rain_annual_then_now": [
+        4.66,
+        4.59
+      ],
+      "rain_confidence": "high",
       "water_cell": {
         "index": 2266,
         "lat": 34.5,
         "lon": 139.5
       },
-      "heat_then_now": [
-        -0.05,
-        1.52
-      ],
-      "rain_then_now": [
-        4.66,
-        4.59
-      ],
-      "rain_confidence": "high",
+      "water_region": {
+        "kind": "cell",
+        "label": "3° GRACE cell 33°N–36°N, 138°E–141°E"
+      },
       "water_then_now": [
         0.21,
         7.45
@@ -489,30 +563,36 @@
       "name": "Jakarta",
       "lat": -6.21,
       "lon": 106.85,
+      "in_bangladesh": false,
       "heat_cell": {
         "index": 5085,
         "lat": -7.0,
         "lon": 107.0
       },
+      "heat_cell_is_neighbour": false,
       "rain_cell": {
         "index": 5586,
         "lat": -6.25,
         "lon": 106.25
       },
+      "heat_annual_then_now": [
+        0.34,
+        1.49
+      ],
+      "rain_annual_then_now": [
+        7.95,
+        7.88
+      ],
+      "rain_confidence": "high",
       "water_cell": {
         "index": 3935,
         "lat": -7.5,
         "lon": 106.5
       },
-      "heat_then_now": [
-        0.34,
-        1.49
-      ],
-      "rain_then_now": [
-        7.95,
-        7.88
-      ],
-      "rain_confidence": "high",
+      "water_region": {
+        "kind": "cell",
+        "label": "3° GRACE cell 9°S–6°S, 105°E–108°E"
+      },
       "water_then_now": [
         0.26,
         4.04
@@ -528,30 +608,36 @@
       "name": "Manila",
       "lat": 14.6,
       "lon": 120.98,
+      "in_bangladesh": false,
       "heat_cell": {
         "index": 4253,
         "lat": 15.0,
         "lon": 121.0
       },
+      "heat_cell_is_neighbour": false,
       "rain_cell": {
         "index": 4440,
         "lat": 13.75,
         "lon": 121.25
       },
+      "heat_annual_then_now": [
+        0.36,
+        1.48
+      ],
+      "rain_annual_then_now": [
+        6.81,
+        6.79
+      ],
+      "rain_confidence": "high",
       "water_cell": {
         "index": 3100,
         "lat": 13.5,
         "lon": 121.5
       },
-      "heat_then_now": [
-        0.36,
-        1.48
-      ],
-      "rain_then_now": [
-        6.81,
-        6.79
-      ],
-      "rain_confidence": "high",
+      "water_region": {
+        "kind": "cell",
+        "label": "3° GRACE cell 12°N–15°N, 120°E–123°E"
+      },
       "water_then_now": [
         -0.74,
         4.55
@@ -567,30 +653,36 @@
       "name": "Sydney",
       "lat": -33.87,
       "lon": 151.21,
+      "in_bangladesh": false,
       "heat_cell": {
         "index": 6132,
         "lat": -33.0,
         "lon": 151.0
       },
+      "heat_cell_is_neighbour": false,
       "rain_cell": {
         "index": 7188,
         "lat": -33.75,
         "lon": 151.25
       },
+      "heat_annual_then_now": [
+        0.25,
+        1.24
+      ],
+      "rain_annual_then_now": [
+        2.94,
+        2.75
+      ],
+      "rain_confidence": "high",
       "water_cell": {
         "index": 5030,
         "lat": -34.5,
         "lon": 151.5
       },
-      "heat_then_now": [
-        0.25,
-        1.24
-      ],
-      "rain_then_now": [
-        2.94,
-        2.75
-      ],
-      "rain_confidence": "high",
+      "water_region": {
+        "kind": "cell",
+        "label": "3° GRACE cell 36°S–33°S, 150°E–153°E"
+      },
       "water_then_now": [
         0.33,
         9.36
@@ -606,30 +698,36 @@
       "name": "Perth",
       "lat": -31.95,
       "lon": 115.86,
+      "in_bangladesh": false,
       "heat_cell": {
         "index": 6057,
         "lat": -31.0,
         "lon": 115.0
       },
+      "heat_cell_is_neighbour": false,
       "rain_cell": {
         "index": 7030,
         "lat": -31.25,
         "lon": 116.25
       },
+      "heat_annual_then_now": [
+        0.18,
+        0.92
+      ],
+      "rain_annual_then_now": [
+        1.51,
+        1.3
+      ],
+      "rain_confidence": "high",
       "water_cell": {
         "index": 4898,
         "lat": -31.5,
         "lon": 115.5
       },
-      "heat_then_now": [
-        0.18,
-        0.92
-      ],
-      "rain_then_now": [
-        1.51,
-        1.3
-      ],
-      "rain_confidence": "high",
+      "water_region": {
+        "kind": "cell",
+        "label": "3° GRACE cell 33°S–30°S, 114°E–117°E"
+      },
       "water_then_now": [
         0.23,
         0.71
@@ -645,30 +743,36 @@
       "name": "Auckland",
       "lat": -36.85,
       "lon": 174.76,
+      "in_bangladesh": false,
       "heat_cell": {
         "index": 6234,
         "lat": -37.0,
         "lon": 175.0
       },
+      "heat_cell_is_neighbour": false,
       "rain_cell": {
         "index": 7341,
         "lat": -36.25,
         "lon": 173.75
       },
+      "heat_annual_then_now": [
+        0.37,
+        1.23
+      ],
+      "rain_annual_then_now": [
+        4.01,
+        3.59
+      ],
+      "rain_confidence": "high",
       "water_cell": {
         "index": 5158,
         "lat": -37.5,
         "lon": 175.5
       },
-      "heat_then_now": [
-        0.37,
-        1.23
-      ],
-      "rain_then_now": [
-        4.01,
-        3.59
-      ],
-      "rain_confidence": "high",
+      "water_region": {
+        "kind": "cell",
+        "label": "3° GRACE cell 39°S–36°S, 174°E–177°E"
+      },
       "water_then_now": [
         -0.07,
         2.86
@@ -684,30 +788,36 @@
       "name": "Tehran",
       "lat": 35.69,
       "lon": 51.39,
+      "in_bangladesh": false,
       "heat_cell": {
         "index": 3251,
         "lat": 35.0,
         "lon": 51.0
       },
+      "heat_cell_is_neighbour": false,
       "rain_cell": {
         "index": 3116,
         "lat": 36.25,
         "lon": 51.25
       },
+      "heat_annual_then_now": [
+        0.22,
+        2.03
+      ],
+      "rain_annual_then_now": [
+        1.49,
+        1.25
+      ],
+      "rain_confidence": "high",
       "water_cell": {
         "index": 2237,
         "lat": 34.5,
         "lon": 52.5
       },
-      "heat_then_now": [
-        0.22,
-        2.03
-      ],
-      "rain_then_now": [
-        1.49,
-        1.25
-      ],
-      "rain_confidence": "high",
+      "water_region": {
+        "kind": "cell",
+        "label": "3° GRACE cell 33°N–36°N, 51°E–54°E"
+      },
       "water_then_now": [
         2.5,
         -30.3
@@ -723,30 +833,36 @@
       "name": "Riyadh",
       "lat": 24.71,
       "lon": 46.68,
+      "in_bangladesh": false,
       "heat_cell": {
         "index": 3769,
         "lat": 25.0,
         "lon": 47.0
       },
+      "heat_cell_is_neighbour": false,
       "rain_cell": {
         "index": 3834,
         "lat": 23.75,
         "lon": 46.25
       },
+      "heat_annual_then_now": [
+        -0.16,
+        2.12
+      ],
+      "rain_annual_then_now": [
+        0.34,
+        0.22
+      ],
+      "rain_confidence": "high",
       "water_cell": {
         "index": 2595,
         "lat": 25.5,
         "lon": 46.5
       },
-      "heat_then_now": [
-        -0.16,
-        2.12
-      ],
-      "rain_then_now": [
-        0.34,
-        0.22
-      ],
-      "rain_confidence": "high",
+      "water_region": {
+        "kind": "cell",
+        "label": "3° GRACE cell 24°N–27°N, 45°E–48°E"
+      },
       "water_then_now": [
         2.23,
         -14.06
@@ -762,30 +878,36 @@
       "name": "Aral Sea region (Nukus)",
       "lat": 42.46,
       "lon": 59.6,
+      "in_bangladesh": false,
       "heat_cell": {
         "index": 2803,
         "lat": 43.0,
         "lon": 59.0
       },
+      "heat_cell_is_neighbour": false,
       "rain_cell": {
         "index": 2831,
         "lat": 41.25,
         "lon": 58.75
       },
+      "heat_annual_then_now": [
+        0.58,
+        2.18
+      ],
+      "rain_annual_then_now": [
+        0.4,
+        0.3
+      ],
+      "rain_confidence": "medium",
       "water_cell": {
         "index": 1879,
         "lat": 43.5,
         "lon": 58.5
       },
-      "heat_then_now": [
-        0.58,
-        2.18
-      ],
-      "rain_then_now": [
-        0.4,
-        0.3
-      ],
-      "rain_confidence": "medium",
+      "water_region": {
+        "kind": "cell",
+        "label": "3° GRACE cell 42°N–45°N, 57°E–60°E"
+      },
       "water_then_now": [
         3.71,
         -13.7
@@ -801,30 +923,36 @@
       "name": "Cairo (Nile delta)",
       "lat": 30.04,
       "lon": 31.24,
+      "in_bangladesh": false,
       "heat_cell": {
         "index": 3451,
         "lat": 31.0,
         "lon": 31.0
       },
+      "heat_cell_is_neighbour": false,
       "rain_cell": {
         "index": 3396,
         "lat": 31.25,
         "lon": 31.25
       },
+      "heat_annual_then_now": [
+        -0.19,
+        1.6
+      ],
+      "rain_annual_then_now": [
+        0.19,
+        0.36
+      ],
+      "rain_confidence": "low",
       "water_cell": {
         "index": 2350,
         "lat": 31.5,
         "lon": 31.5
       },
-      "heat_then_now": [
-        -0.19,
-        1.6
-      ],
-      "rain_then_now": [
-        0.19,
-        0.36
-      ],
-      "rain_confidence": "low",
+      "water_region": {
+        "kind": "cell",
+        "label": "3° GRACE cell 30°N–33°N, 30°E–33°E"
+      },
       "water_then_now": [
         -0.34,
         -3.19
@@ -840,30 +968,36 @@
       "name": "Sahel (Niamey)",
       "lat": 13.51,
       "lon": 2.11,
+      "in_bangladesh": false,
       "heat_cell": {
         "index": 4290,
         "lat": 13.0,
         "lon": 3.0
       },
+      "heat_cell_is_neighbour": false,
       "rain_cell": {
         "index": 4392,
         "lat": 13.75,
         "lon": 1.25
       },
+      "heat_annual_then_now": [
+        0.56,
+        1.28
+      ],
+      "rain_annual_then_now": [
+        1.17,
+        1.58
+      ],
+      "rain_confidence": "high",
       "water_cell": {
         "index": 3060,
         "lat": 13.5,
         "lon": 1.5
       },
-      "heat_then_now": [
-        0.56,
-        1.28
-      ],
-      "rain_then_now": [
-        1.17,
-        1.58
-      ],
-      "rain_confidence": "high",
+      "water_region": {
+        "kind": "cell",
+        "label": "3° GRACE cell 12°N–15°N, 0°E–3°E"
+      },
       "water_then_now": [
         -0.79,
         18.98
@@ -879,30 +1013,36 @@
       "name": "Lagos",
       "lat": 6.52,
       "lon": 3.38,
+      "in_bangladesh": false,
       "heat_cell": {
         "index": 4537,
         "lat": 7.0,
         "lon": 3.0
       },
+      "heat_cell_is_neighbour": false,
       "rain_cell": {
         "index": 4825,
         "lat": 6.25,
         "lon": 3.75
       },
+      "heat_annual_then_now": [
+        0.54,
+        1.48
+      ],
+      "rain_annual_then_now": [
+        4.01,
+        3.94
+      ],
+      "rain_confidence": "high",
       "water_cell": {
         "index": 3301,
         "lat": 7.5,
         "lon": 4.5
       },
-      "heat_then_now": [
-        0.54,
-        1.48
-      ],
-      "rain_then_now": [
-        4.01,
-        3.94
-      ],
-      "rain_confidence": "high",
+      "water_region": {
+        "kind": "cell",
+        "label": "3° GRACE cell 6°N–9°N, 3°E–6°E"
+      },
       "water_then_now": [
         -2.7,
         20.45
@@ -918,30 +1058,36 @@
       "name": "Kinshasa",
       "lat": -4.44,
       "lon": 15.27,
+      "in_bangladesh": false,
       "heat_cell": {
         "index": 4982,
         "lat": -5.0,
         "lon": 15.0
       },
+      "heat_cell_is_neighbour": false,
       "rain_cell": {
         "index": 5406,
         "lat": -3.75,
         "lon": 16.25
       },
+      "heat_annual_then_now": [
+        -0.05,
+        1.35
+      ],
+      "rain_annual_then_now": [
+        4.49,
+        4.77
+      ],
+      "rain_confidence": "high",
       "water_cell": {
         "index": 3785,
         "lat": -4.5,
         "lon": 16.5
       },
-      "heat_then_now": [
-        -0.05,
-        1.35
-      ],
-      "rain_then_now": [
-        4.49,
-        4.77
-      ],
-      "rain_confidence": "high",
+      "water_region": {
+        "kind": "cell",
+        "label": "3° GRACE cell 6°S–3°S, 15°E–18°E"
+      },
       "water_then_now": [
         -4.84,
         26.75
@@ -957,30 +1103,36 @@
       "name": "Nairobi",
       "lat": -1.29,
       "lon": 36.82,
+      "in_bangladesh": false,
       "heat_cell": {
         "index": 4844,
         "lat": -1.0,
         "lon": 37.0
       },
+      "heat_cell_is_neighbour": false,
       "rain_cell": {
         "index": 5270,
         "lat": -1.25,
         "lon": 36.25
       },
+      "heat_annual_then_now": [
+        0.19,
+        1.16
+      ],
+      "rain_annual_then_now": [
+        2.79,
+        2.47
+      ],
+      "rain_confidence": "high",
       "water_cell": {
         "index": 3672,
         "lat": -1.5,
         "lon": 37.5
       },
-      "heat_then_now": [
-        0.19,
-        1.16
-      ],
-      "rain_then_now": [
-        2.79,
-        2.47
-      ],
-      "rain_confidence": "high",
+      "water_region": {
+        "kind": "cell",
+        "label": "3° GRACE cell 3°S–0°N, 36°E–39°E"
+      },
       "water_then_now": [
         -0.48,
         8.64
@@ -996,30 +1148,36 @@
       "name": "Johannesburg",
       "lat": -26.2,
       "lon": 28.05,
+      "in_bangladesh": false,
       "heat_cell": {
         "index": 5926,
         "lat": -27.0,
         "lon": 29.0
       },
+      "heat_cell_is_neighbour": false,
       "rain_cell": {
         "index": 6707,
         "lat": -26.25,
         "lon": 28.75
       },
+      "heat_annual_then_now": [
+        0.38,
+        1.03
+      ],
+      "rain_annual_then_now": [
+        1.89,
+        1.87
+      ],
+      "rain_confidence": "high",
       "water_cell": {
         "index": 4629,
         "lat": -25.5,
         "lon": 28.5
       },
-      "heat_then_now": [
-        0.38,
-        1.03
-      ],
-      "rain_then_now": [
-        1.89,
-        1.87
-      ],
-      "rain_confidence": "high",
+      "water_region": {
+        "kind": "cell",
+        "label": "3° GRACE cell 27°S–24°S, 27°E–30°E"
+      },
       "water_then_now": [
         -0.89,
         8.51
@@ -1035,30 +1193,36 @@
       "name": "Madrid",
       "lat": 40.42,
       "lon": -3.7,
+      "in_bangladesh": false,
       "heat_cell": {
         "index": 2885,
         "lat": 41.0,
         "lon": -3.0
       },
+      "heat_cell_is_neighbour": false,
       "rain_cell": {
         "index": 2806,
         "lat": 41.25,
         "lon": -3.75
       },
+      "heat_annual_then_now": [
+        0.64,
+        1.91
+      ],
+      "rain_annual_then_now": [
+        1.55,
+        1.58
+      ],
+      "rain_confidence": "high",
       "water_cell": {
         "index": 1978,
         "lat": 40.5,
         "lon": -4.5
       },
-      "heat_then_now": [
-        0.64,
-        1.91
-      ],
-      "rain_then_now": [
-        1.55,
-        1.58
-      ],
-      "rain_confidence": "high",
+      "water_region": {
+        "kind": "cell",
+        "label": "3° GRACE cell 39°N–42°N, 6°W–3°W"
+      },
       "water_then_now": [
         2.18,
         -2.28
@@ -1074,30 +1238,36 @@
       "name": "London",
       "lat": 51.51,
       "lon": -0.13,
+      "in_bangladesh": false,
       "heat_cell": {
         "index": 2263,
         "lat": 51.0,
         "lon": -1.0
       },
+      "heat_cell_is_neighbour": false,
       "rain_cell": {
         "index": 2231,
         "lat": 51.25,
         "lon": -1.25
       },
+      "heat_annual_then_now": [
+        0.27,
+        1.51
+      ],
+      "rain_annual_then_now": [
+        2.25,
+        2.44
+      ],
+      "rain_confidence": "high",
       "water_cell": {
         "index": 1499,
         "lat": 52.5,
         "lon": -1.5
       },
-      "heat_then_now": [
-        0.27,
-        1.51
-      ],
-      "rain_then_now": [
-        2.25,
-        2.44
-      ],
-      "rain_confidence": "high",
+      "water_region": {
+        "kind": "cell",
+        "label": "3° GRACE cell 51°N–54°N, 3°W–0°E"
+      },
       "water_then_now": [
         -0.0,
         -4.92
@@ -1113,30 +1283,36 @@
       "name": "Amsterdam (Rhine delta)",
       "lat": 52.37,
       "lon": 4.9,
+      "in_bangladesh": false,
       "heat_cell": {
         "index": 2122,
         "lat": 53.0,
         "lon": 5.0
       },
+      "heat_cell_is_neighbour": false,
       "rain_cell": {
         "index": 2233,
         "lat": 51.25,
         "lon": 3.75
       },
+      "heat_annual_then_now": [
+        0.4,
+        2.06
+      ],
+      "rain_annual_then_now": [
+        2.5,
+        2.28
+      ],
+      "rain_confidence": "high",
       "water_cell": {
         "index": 1501,
         "lat": 52.5,
         "lon": 4.5
       },
-      "heat_then_now": [
-        0.4,
-        2.06
-      ],
-      "rain_then_now": [
-        2.5,
-        2.28
-      ],
-      "rain_confidence": "high",
+      "water_region": {
+        "kind": "cell",
+        "label": "3° GRACE cell 51°N–54°N, 3°E–6°E"
+      },
       "water_then_now": [
         -0.24,
         2.68
@@ -1152,30 +1328,36 @@
       "name": "Moscow",
       "lat": 55.76,
       "lon": 37.62,
+      "in_bangladesh": false,
       "heat_cell": {
         "index": 1994,
         "lat": 55.0,
         "lon": 37.0
       },
+      "heat_cell_is_neighbour": false,
       "rain_cell": {
         "index": 1959,
         "lat": 56.25,
         "lon": 38.75
       },
+      "heat_annual_then_now": [
+        0.73,
+        2.41
+      ],
+      "rain_annual_then_now": [
+        2.45,
+        2.54
+      ],
+      "rain_confidence": "low",
       "water_cell": {
         "index": 1392,
         "lat": 55.5,
         "lon": 37.5
       },
-      "heat_then_now": [
-        0.73,
-        2.41
-      ],
-      "rain_then_now": [
-        2.45,
-        2.54
-      ],
-      "rain_confidence": "low",
+      "water_region": {
+        "kind": "cell",
+        "label": "3° GRACE cell 54°N–57°N, 36°E–39°E"
+      },
       "water_then_now": [
         0.08,
         -9.55
@@ -1191,30 +1373,36 @@
       "name": "Reykjavik",
       "lat": 64.15,
       "lon": -21.94,
+      "in_bangladesh": false,
       "heat_cell": {
         "index": 1163,
         "lat": 65.0,
         "lon": -21.0
       },
+      "heat_cell_is_neighbour": false,
       "rain_cell": {
         "index": 1503,
         "lat": 63.75,
         "lon": -21.25
       },
+      "heat_annual_then_now": [
+        -0.13,
+        1.19
+      ],
+      "rain_annual_then_now": [
+        4.26,
+        2.8
+      ],
+      "rain_confidence": "low",
       "water_cell": {
         "index": 1012,
         "lat": 64.5,
         "lon": -22.5
       },
-      "heat_then_now": [
-        -0.13,
-        1.19
-      ],
-      "rain_then_now": [
-        4.26,
-        2.8
-      ],
-      "rain_confidence": "low",
+      "water_region": {
+        "kind": "cell",
+        "label": "3° GRACE cell 63°N–66°N, 24°W–21°W"
+      },
       "water_then_now": [
         5.35,
         -32.56
@@ -1230,30 +1418,36 @@
       "name": "Svalbard (Longyearbyen)",
       "lat": 78.22,
       "lon": 15.65,
+      "in_bangladesh": false,
       "heat_cell": {
         "index": 136,
         "lat": 79.0,
         "lon": 15.0
       },
+      "heat_cell_is_neighbour": false,
       "rain_cell": {
         "index": 654,
         "lat": 78.75,
         "lon": 16.25
       },
+      "heat_annual_then_now": [
+        0.0,
+        3.44
+      ],
+      "rain_annual_then_now": [
+        1.1,
+        1.16
+      ],
+      "rain_confidence": "medium",
       "water_cell": {
         "index": 425,
         "lat": 79.5,
         "lon": 16.5
       },
-      "heat_then_now": [
-        0.0,
-        3.44
-      ],
-      "rain_then_now": [
-        1.1,
-        1.16
-      ],
-      "rain_confidence": "medium",
+      "water_region": {
+        "kind": "cell",
+        "label": "3° GRACE cell 78°N–81°N, 15°E–18°E"
+      },
       "water_then_now": [
         18.69,
         -396.64
@@ -1269,30 +1463,36 @@
       "name": "West Greenland (Ilulissat)",
       "lat": 69.22,
       "lon": -51.1,
+      "in_bangladesh": false,
       "heat_cell": {
         "index": 800,
         "lat": 69.0,
         "lon": -51.0
       },
+      "heat_cell_is_neighbour": false,
       "rain_cell": {
         "index": 1203,
         "lat": 68.75,
         "lon": -51.25
       },
+      "heat_annual_then_now": [
+        -1.06,
+        0.87
+      ],
+      "rain_annual_then_now": [
+        1.17,
+        1.66
+      ],
+      "rain_confidence": "low",
       "water_cell": {
         "index": 762,
         "lat": 70.5,
         "lon": -52.5
       },
-      "heat_then_now": [
-        -1.06,
-        0.87
-      ],
-      "rain_then_now": [
-        1.17,
-        1.66
-      ],
-      "rain_confidence": "low",
+      "water_region": {
+        "kind": "cell",
+        "label": "3° GRACE cell 69°N–72°N, 54°W–51°W"
+      },
       "water_then_now": [
         22.96,
         -214.21
@@ -1308,30 +1508,36 @@
       "name": "New York",
       "lat": 40.71,
       "lon": -74.01,
+      "in_bangladesh": false,
       "heat_cell": {
         "index": 2874,
         "lat": 41.0,
         "lon": -75.0
       },
+      "heat_cell_is_neighbour": false,
       "rain_cell": {
         "index": 2778,
         "lat": 41.25,
         "lon": -73.75
       },
+      "heat_annual_then_now": [
+        0.27,
+        1.5
+      ],
+      "rain_annual_then_now": [
+        3.71,
+        3.85
+      ],
+      "rain_confidence": "high",
       "water_cell": {
         "index": 1955,
         "lat": 40.5,
         "lon": -73.5
       },
-      "heat_then_now": [
-        0.27,
-        1.5
-      ],
-      "rain_then_now": [
-        3.71,
-        3.85
-      ],
-      "rain_confidence": "high",
+      "water_region": {
+        "kind": "cell",
+        "label": "3° GRACE cell 39°N–42°N, 75°W–72°W"
+      },
       "water_then_now": [
         0.01,
         4.6
@@ -1347,30 +1553,36 @@
       "name": "Phoenix",
       "lat": 33.45,
       "lon": -112.07,
+      "in_bangladesh": false,
       "heat_cell": {
         "index": 3302,
         "lat": 33.0,
         "lon": -113.0
       },
+      "heat_cell_is_neighbour": false,
       "rain_cell": {
         "index": 3195,
         "lat": 33.75,
         "lon": -111.25
       },
+      "heat_annual_then_now": [
+        0.33,
+        1.5
+      ],
+      "rain_annual_then_now": [
+        1.22,
+        0.86
+      ],
+      "rain_confidence": "high",
       "water_cell": {
         "index": 2182,
         "lat": 34.5,
         "lon": -112.5
       },
-      "heat_then_now": [
-        0.33,
-        1.5
-      ],
-      "rain_then_now": [
-        1.22,
-        0.86
-      ],
-      "rain_confidence": "high",
+      "water_region": {
+        "kind": "cell",
+        "label": "3° GRACE cell 33°N–36°N, 114°W–111°W"
+      },
       "water_then_now": [
         -0.14,
         -8.1
@@ -1386,30 +1598,36 @@
       "name": "California Central Valley (Fresno)",
       "lat": 36.74,
       "lon": -119.79,
+      "in_bangladesh": false,
       "heat_cell": {
         "index": 3077,
         "lat": 37.0,
         "lon": -119.0
       },
+      "heat_cell_is_neighbour": false,
       "rain_cell": {
         "index": 3048,
         "lat": 36.25,
         "lon": -118.75
       },
+      "heat_annual_then_now": [
+        0.28,
+        1.28
+      ],
+      "rain_annual_then_now": [
+        1.02,
+        1.0
+      ],
+      "rain_confidence": "high",
       "water_cell": {
         "index": 2060,
         "lat": 37.5,
         "lon": -118.5
       },
-      "heat_then_now": [
-        0.28,
-        1.28
-      ],
-      "rain_then_now": [
-        1.02,
-        1.0
-      ],
-      "rain_confidence": "high",
+      "water_region": {
+        "kind": "cell",
+        "label": "3° GRACE cell 36°N–39°N, 120°W–117°W"
+      },
       "water_then_now": [
         3.36,
         -16.75
@@ -1425,30 +1643,36 @@
       "name": "New Orleans (Mississippi delta)",
       "lat": 29.95,
       "lon": -90.07,
+      "in_bangladesh": false,
       "heat_cell": {
         "index": 3524,
         "lat": 29.0,
         "lon": -91.0
       },
+      "heat_cell_is_neighbour": false,
       "rain_cell": {
         "index": 3491,
         "lat": 28.75,
         "lon": -91.25
       },
+      "heat_annual_then_now": [
+        0.12,
+        1.25
+      ],
+      "rain_annual_then_now": [
+        4.58,
+        4.04
+      ],
+      "rain_confidence": "high",
       "water_cell": {
         "index": 2429,
         "lat": 28.5,
         "lon": -91.5
       },
-      "heat_then_now": [
-        0.12,
-        1.25
-      ],
-      "rain_then_now": [
-        4.58,
-        4.04
-      ],
-      "rain_confidence": "high",
+      "water_region": {
+        "kind": "cell",
+        "label": "3° GRACE cell 27°N–30°N, 93°W–90°W"
+      },
       "water_then_now": [
         -0.01,
         4.0
@@ -1464,30 +1688,36 @@
       "name": "Mexico City",
       "lat": 19.43,
       "lon": -99.13,
+      "in_bangladesh": false,
       "heat_cell": {
         "index": 4017,
         "lat": 19.0,
         "lon": -99.0
       },
+      "heat_cell_is_neighbour": false,
       "rain_cell": {
         "index": 4064,
         "lat": 18.75,
         "lon": -98.75
       },
+      "heat_annual_then_now": [
+        0.18,
+        1.7
+      ],
+      "rain_annual_then_now": [
+        2.35,
+        2.59
+      ],
+      "rain_confidence": "high",
       "water_cell": {
         "index": 2786,
         "lat": 19.5,
         "lon": -100.5
       },
-      "heat_then_now": [
-        0.18,
-        1.7
-      ],
-      "rain_then_now": [
-        2.35,
-        2.59
-      ],
-      "rain_confidence": "high",
+      "water_region": {
+        "kind": "cell",
+        "label": "3° GRACE cell 18°N–21°N, 102°W–99°W"
+      },
       "water_then_now": [
         1.16,
         -14.65
@@ -1503,30 +1733,36 @@
       "name": "Manaus (Amazon)",
       "lat": -3.12,
       "lon": -60.02,
+      "in_bangladesh": false,
       "heat_cell": {
         "index": 4888,
         "lat": -3.0,
         "lon": -61.0
       },
+      "heat_cell_is_neighbour": false,
       "rain_cell": {
         "index": 5375,
         "lat": -3.75,
         "lon": -61.25
       },
+      "heat_annual_then_now": [
+        0.18,
+        1.51
+      ],
+      "rain_annual_then_now": [
+        6.67,
+        7.05
+      ],
+      "rain_confidence": "high",
       "water_cell": {
         "index": 3759,
         "lat": -4.5,
         "lon": -61.5
       },
-      "heat_then_now": [
-        0.18,
-        1.51
-      ],
-      "rain_then_now": [
-        6.67,
-        7.05
-      ],
-      "rain_confidence": "high",
+      "water_region": {
+        "kind": "cell",
+        "label": "3° GRACE cell 6°S–3°S, 63°W–60°W"
+      },
       "water_then_now": [
         -6.27,
         -4.6
@@ -1542,30 +1778,36 @@
       "name": "Lima",
       "lat": -12.05,
       "lon": -77.04,
+      "in_bangladesh": false,
       "heat_cell": {
         "index": 5307,
         "lat": -13.0,
         "lon": -77.0
       },
+      "heat_cell_is_neighbour": false,
       "rain_cell": {
         "index": 5801,
         "lat": -11.25,
         "lon": -76.25
       },
+      "heat_annual_then_now": [
+        0.71,
+        1.08
+      ],
+      "rain_annual_then_now": [
+        2.74,
+        2.28
+      ],
+      "rain_confidence": "high",
       "water_cell": {
         "index": 4114,
         "lat": -13.5,
         "lon": -76.5
       },
-      "heat_then_now": [
-        0.71,
-        1.08
-      ],
-      "rain_then_now": [
-        2.74,
-        2.28
-      ],
-      "rain_confidence": "high",
+      "water_region": {
+        "kind": "cell",
+        "label": "3° GRACE cell 15°S–12°S, 78°W–75°W"
+      },
       "water_then_now": [
         -0.26,
         2.6
@@ -1581,30 +1823,36 @@
       "name": "São Paulo",
       "lat": -23.55,
       "lon": -46.63,
+      "in_bangladesh": false,
       "heat_cell": {
         "index": 5766,
         "lat": -23.0,
         "lon": -47.0
       },
+      "heat_cell_is_neighbour": false,
       "rain_cell": {
         "index": 6533,
         "lat": -23.75,
         "lon": -46.25
       },
+      "heat_annual_then_now": [
+        0.36,
+        1.63
+      ],
+      "rain_annual_then_now": [
+        4.96,
+        3.76
+      ],
+      "rain_confidence": "high",
       "water_cell": {
         "index": 4484,
         "lat": -22.5,
         "lon": -46.5
       },
-      "heat_then_now": [
-        0.36,
-        1.63
-      ],
-      "rain_then_now": [
-        4.96,
-        3.76
-      ],
-      "rain_confidence": "high",
+      "water_region": {
+        "kind": "cell",
+        "label": "3° GRACE cell 24°S–21°S, 48°W–45°W"
+      },
       "water_then_now": [
         -3.39,
         -13.48
@@ -1620,30 +1868,36 @@
       "name": "Buenos Aires",
       "lat": -34.6,
       "lon": -58.38,
+      "in_bangladesh": false,
       "heat_cell": {
         "index": 6153,
         "lat": -35.0,
         "lon": -59.0
       },
+      "heat_cell_is_neighbour": false,
       "rain_cell": {
         "index": 7104,
         "lat": -33.75,
         "lon": -58.75
       },
+      "heat_annual_then_now": [
+        0.28,
+        0.88
+      ],
+      "rain_annual_then_now": [
+        3.35,
+        3.19
+      ],
+      "rain_confidence": "high",
       "water_cell": {
         "index": 4960,
         "lat": -34.5,
         "lon": -58.5
       },
-      "heat_then_now": [
-        0.28,
-        0.88
-      ],
-      "rain_then_now": [
-        3.35,
-        3.19
-      ],
-      "rain_confidence": "high",
+      "water_region": {
+        "kind": "cell",
+        "label": "3° GRACE cell 36°S–33°S, 60°W–57°W"
+      },
       "water_then_now": [
         5.6,
         -3.63
