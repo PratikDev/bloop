@@ -28,7 +28,8 @@ export function Stage() {
         </ExploreControls>
         <div className="pointer-events-none absolute top-3 right-3 flex flex-col items-end gap-2">
           {rainStatus === "loading" && <StatusBadge kind="loading">{t("badge.loadingRain")}</StatusBadge>}
-          {timeLapse.status === "loading" && (
+          {/* In Explore the time-lapse button shows the progress itself; Story has no button. */}
+          {timeLapse.status === "loading" && state.mode !== "explore" && (
             <StatusBadge kind="loading">
               {timeLapse.progress ? t("timelapse.loading", timeLapse.progress) : t("timelapse.loadingStart")}
             </StatusBadge>
