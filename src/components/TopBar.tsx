@@ -20,12 +20,12 @@ export function TopBar() {
         <Button variant="ghost" size="icon-lg" onClick={commands.playMotif} aria-label={t("motif.play")} className="size-11">
           <Music2 aria-hidden="true" />
         </Button>
-        {/* Phones show the short title; screen readers always get the full one. */}
+        {/* Below 1024 px the short title keeps the header to one row; screen readers always get the full one. */}
         <h1 className="text-lead font-semibold md:text-title">
-          <span aria-hidden="true" className="md:hidden">
+          <span aria-hidden="true" className="lg:hidden">
             {t("app.titleShort")}
           </span>
-          <span className="sr-only md:not-sr-only">{t("app.title")}</span>
+          <span className="sr-only lg:not-sr-only">{t("app.title")}</span>
         </h1>
       </div>
 
