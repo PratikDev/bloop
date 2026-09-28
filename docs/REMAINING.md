@@ -93,8 +93,10 @@ The video ends on the app in Bangla mode (plan §14, 3:45–3:50), and §13 asks
 
 These show a "Pending team approval" badge in the app until the team decides. Details in [`docs/L3/contract-proposals.md`](L3/contract-proposals.md).
 
-- [ ] **A1 (L1, team):** was the ocean error measured on a held-out frame? Until then, the Truth panel says "Verification being updated" for the ocean.
-- [ ] **A2 (L1, team):** align `verified.matched_run` with `latest_check.imerg_run`, and approve the new rain wording (the app says "Early run … ~28%"; plan §16 says "Late run … ~27%").
+- [x] **A1 (L1):** answered: `sst.json` now has a passing re-check on a later frame (0.32 °C). The Truth panel shows L1's wording: "median error 0.31 °C (60 points). Also checked on the 25 Sept 2026 frame: median error 0.32 °C."
+- [ ] **A1 / A2 wording (team):** L1 asked the plan owner to adopt its Truth templates (DATA_HANDOFF §4, §11) in plan §16. Until then the panel keeps its "Pending team approval" badge.
+- [x] **A2 (L1):** resolved by L1's template: the app says "IMERG Late run … ~27%" (the original check) plus "The newest frame was also checked against IMERG Early and passed."
+- [ ] **L1: redraw `truth/sst_compare.png`** with the recalibrated colour scale. `build_context.py` copies the older `truth/compare.png`, so the plot doesn't match the 0.31 °C quoted; the Truth panel leaves the ocean plot out until it does.
 - [ ] **A3 (L1):** demo captions exactly as §16.
 - [ ] **A4 / E2 (team):** the §16 water wording says one gap; the data has 35 missing months.
 - [ ] **E1 / E3 (team, L4):** plan and video script: the sweep is from Chattogram (not Dhaka); the credits split into "Data in this app" and "Also used in our testing".
@@ -109,7 +111,7 @@ From plan §14. **Hard requirements:** at most 240 s; the team name (**Team PTSD
 - [ ] Record with system audio (OBS), and a separate clean voice-over.
 - [ ] Shots, per §14: "Close your eyes" opening (0:00–0:15); Dhaka then vs now (1:15–1:45); Story Mode, storm time-lapse, satellite whisper, Truth panel (1:45–2:45); keyboard-only, eyes-closed Explore (2:45–3:15, since the game isn't built); "Coming in October" roadmap (3:15–3:45); the app in Bangla mode (3:45–3:50).
 - [ ] **The shot list needs one change:** X-ray (1:45–2:45) is not built; it's blocked on L1's colorbar files (C1). Use the Truth or Provenance panel in its place, or show X-ray as "Coming in October", which is how the app labels it.
-- [ ] **The Truth panel shot:** §14 quotes "0.85 °C; ~27%", but the app currently shows "Verification being updated" for the ocean and "~28%, Early run" for rain (see 2.10). Every on-screen number must match what the app shows.
+- [ ] **The Truth panel shot:** §14 quotes "0.85 °C; ~27%". The app now shows **0.31 °C** for the ocean (recalibrated; re-checked at 0.32 °C) and **~27%, IMERG Late** for rain (see 2.10). Update the script: every on-screen number must match what the app shows.
 - [ ] Subtitles in English (Bangla optional); NASA SVS credit visible; no copyrighted music; no one under 18 on camera; final length under 4:00 (aim 3:50).
 - [ ] Upload to YouTube and submit the Google Form on **Wed 30**.
 
@@ -120,11 +122,12 @@ From plan §14. **Hard requirements:** at most 240 s; the team name (**Team PTSD
 | Plan item | Status | Owner |
 |---|---|---|
 | C2 Pipeline X-ray | **Blocked** until L1 publishes the colorbar images and colour tables (C1). The app says "Coming in October". | L1, then L3 |
-| B3 FIRMS fire percussion | Not started; L2's optional list, cut first | L2 |
+| B3 FIRMS fire percussion | **Shown** in Then vs Now (Fires tab, MODIS example years) without sound; the voice is L2's optional list, not started | L2 (sound) |
 | H2 Variability → timbre, seasonality → rhythm | Not started; L2's optional list | L2 |
 | B5/B6 Extreme pings and area summary | Not built; on the plan's "cut first" list | L3 |
 | "Warmer or Colder?" game | Not built; lowest priority in the plan; the video has a fallback shot | — |
-| Teasers: GLOBE duet, Earth Ear ID, Earth postcard | Not built (L2 cut the ensemble and GLOBE duet, D11) | — |
+| Teasers: GLOBE duet, Earth Ear ID, Earth postcard | **GLOBE duet shown** as a Truth-panel teaser ("coming in October"), no sound (D11). Earth Ear ID and the postcard: not built | — |
+| Ensemble (three voices together) | Its three records are Place History's heat, rain and water; playing all three at once needs an L2 API (cut, D11) | L2, after the freeze |
 | Catalogue of the 23 products | Deferred until L1 provides the data file (C2) | L1, L3 |
 
 ---
@@ -138,6 +141,9 @@ From plan §14. **Hard requirements:** at most 240 s; the team name (**Team PTSD
 - The History chart no longer floods the console with Recharts warnings below 1280 px.
 - A visual README (animated banner, feature GIFs, how it works, accessibility, credits) and the MIT licence for Team PTSD.
 - L2: `/dev/audio` hidden in production unless built with `AUDIO_HARNESS=1`; the test page imports `peakFrame` from `@/lib/audio`.
+- **Everything L1 published is in the UI:** the Truth panel in L1's §4 wording; Then vs Now for four cities plus fires (FIRMS) and vegetation (NDVI); the POWER cross-check plot; the GLOBE teaser; Place History with water and 38 world places (decoded values match L1's `inspect_global.py` for Dhaka, Kolkata and Sydney).
+- **Then vs Now redesigned:** a tab per record, the finding beside a Listen card, details folded; on phones the Listen card comes first and the tabs wrap.
+- Credits: FIRMS, MODIS and GLOBE moved to "Data in this app"; "Also used in our testing" now names NASA POWER (dropped after our cross-check).
 
 ---
 
@@ -145,4 +151,4 @@ From plan §14. **Hard requirements:** at most 240 s; the team name (**Team PTSD
 
 - The 28 Oct full challenge statements: re-check every feature against them.
 - A mentor is assigned after 1 Oct; the 1 Nov video needs the full working build.
-- Candidates: X-ray (once colorbars exist), Place History for L1's 42-place global history data, sound in a hidden phone tab, drawing the time-lapse from the grids instead of 10 MB of images, compressed grids, the phone landscape layout, and the "Coming in October" concepts in plan §11.7.
+- Candidates: X-ray (once colorbars exist), voices for fires and vegetation, the ensemble played together, sound in a hidden phone tab, drawing the time-lapse from the grids instead of 10 MB of images, compressed grids, the phone landscape layout, and the "Coming in October" concepts in plan §11.7.
