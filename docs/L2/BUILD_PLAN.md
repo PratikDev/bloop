@@ -776,6 +776,7 @@ Resolve with the lane owner before the phase that needs it. Record the answer he
 | D10 | Then vs Now data adapter for the harness. | Phase 5 | **Resolved (27 Sep, PR #4):** reuse L3's `buildThenNowInput()` / `loadDemo()` / `loadGrace()`; no `adapters.ts`. |
 | D11 | Sonify L1's §11 ensemble and §12 GLOBE duet? | Phase 7 | **Resolved (28 Sep):** ✂️ cut for Video 1 (L3's UI doesn't use them; no time before the freeze). May come after the freeze. |
 | D12 | Recorded narration clips: format, place, deadline. | Phase 8 | **Resolved (28 Sep):** MP3, `public/audio/narration_en/` and `narration_bn/`, named after the segment, with subtitle text; due Tue 29, 10:00. If late, narration uses the browser speech voice only. |
+| D13 | Loudness compensation reference pitch. | Phase 8 (T3) | **Resolved (28 Sep):** `refHz` = 220 Hz, the lowest ocean and heat pitch, so `(refHz / f)^k` ≤ 1: compensation only turns higher pitches down and can never push a voice over its cap. |
 
 ---
 

@@ -33,7 +33,7 @@ Change the mark in the table **and** tick the item's checklist below. Commit thi
 | 1 | Phone wake fix in `startEngine` | 8 | **Required, now** | an iPhone | 🟡 | Code done (28 Sep). Desktop ✓; Android (Honor 400 Pro) ✓, sound resumes by itself on return. iPhone test still to do |
 | 2 | Merge `main` (PR #6) and re-check the demo captions | Follow-up | **Now, small** | — | ✅ | Merged 28 Sep (`a803fbb`); the three captions match the JSON word for word |
 | 3 | Recorded narration: `preloadClips` / `playClip` | 8 | High | L4 clips (due Tue 29, 10:00) for the real test | 🟡 | Built and tested with a generated clip (28 Sep); waiting for L4's EN and BN clips |
-| 4 | T3 loudness balance | 8 | High | teammates' ears | ⬜ | |
+| 4 | T3 loudness balance | 8 | High | teammates' ears | 🟡 | Test ready on `/dev/audio` (28 Sep); pass rule in the findings log; waiting for teammates to listen |
 | 5 | T7 how many voices at once | 8 | High | teammates' ears | ⬜ | |
 | 6 | Screen-off test on Android | 8 | High | an Android phone | ✅ | Honor 400 Pro (28 Sep): plays on and stays even while locked; no fix needed (`9f8e8bb`) |
 | 7 | Mix pass with L4 | 8 | High | L4's recording plan | ⬜ | |
@@ -82,8 +82,9 @@ Change the mark in the table **and** tick the item's checklist below. Commit thi
 
 **Why:** high and low ocean pitches must sound equally loud. Spec: `BUILD_PLAN.md` §11.1 task 1.
 
-- [ ] Write the pass rule in `audio_findings.md` before testing (e.g. "teammates rate 220 / 440 / 880 Hz as equally loud").
-- [ ] Play the ocean voice at 220 / 440 / 880 Hz at the same gain, on headphones and a phone. Include the compressor's make-up gain (see the 27 Sep findings row).
+- [x] Write the pass rule in `audio_findings.md` before testing: at one chosen exponent, every teammate answers "All equal" on headphones and on a phone speaker; if no single value passes both, the phone wins.
+- [x] Test card: `/dev/audio` → "Loudness balance (T3)". Plays 220 → 440 → 880 Hz (or one at a time) at the ocean voice's real level through the real chain (so the compressor's make-up gain is included); the slider tries an exponent on the page only; answer buttons log exponent, device and answer. `refHz` moved to 220 Hz so compensation never lifts a voice above its cap (test in `mapping.test.ts`).
+- [ ] Each teammate listens on headphones and on a phone speaker, moving the slider until "All equal"; note the value.
 - [ ] Set `loudnessCompensation.exponent` in `public/mapping.json` (now `0`); check heat sounds balanced with the same value.
 - [ ] Record the result and the chosen value in the findings log.
 
