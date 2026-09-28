@@ -51,7 +51,9 @@ The interface was redesigned on 29 Sep, after the freeze time, on its own branch
 | `qa.ts`, `qa-silent.ts`, `qa-thennow.ts`, `qa-story.ts`, `qa-review.ts`, `qa-timelapse.ts`, `qa-a11y.ts`, `qa-held-key.ts`, `qa-history-world.ts`, `qa-click.ts`, `qa-rate.ts`, `qa-slow-start.ts`, `qa-resume.ts` | Pass, with the same values as before the redesign (tour 89.0 s with sound, 35.2 s without; time-lapse frames; rain drop rate) |
 | `qa-provenance.ts`, `qa-scrub.ts`, `qa-integration.ts` | Failed on old selectors only (credits in the footer, Describe in the top bar, the always-open Truth column). Scripts updated; re-run still to do |
 | `qa-thennow-layout.ts` | Failed on an old selector only (the disclosure is now behind "Details"). Script needs the same change as `qa-thennow.ts` |
-| `qa-new-features.ts`, `qa-track-choice.ts`, `qa-mobile.ts`, `qa-desktop.ts` | Not finished at the time of writing |
+| `qa-new-features.ts` | Failed on an old selector only (the "Panels" button is gone; the Inspector opens from "About this sound" in the dock). Script needs updating |
+| `qa-track-choice.ts` | Exactly one track choice is visible at every size (390 to 1920 px), which is the check's aim. It flags 1280 and 1920 px as "WRONG" only because the old design moved the choice into the top bar from 1280 px; the script's expectation needs updating |
+| `qa-mobile.ts`, `qa-desktop.ts` | Not run to the end (stopped to save time). `qa-navigation.ts` covers the desktop sizes; the phone layout still needs a run |
 
 Fixed during these checks: focus left "Skip intro" during the intro; the mixer (mute all, solo) wasn't reachable on Then vs Now; on phones the tour opened the checks sheet over its own Stop button; the start gate had no language switch; an unknown place in a Month by month link loaded forever; the first-visit hint's button was under 44 px on phones.
 
