@@ -1,6 +1,6 @@
 {
   "title": "Bangladesh cities then vs now",
-  "note": "Same method and caption templates as Dhaka. Only Dhaka's heat and rain were cross-checked against independent records (P1b); other cities are computed, not individually cross-checked. Values come from each dataset's nearest grid cell, so some cities share a cell (see shares_cell_with) and are then the same record.",
+  "note": "Same method and caption templates as Dhaka. Only Dhaka's heat and rain were cross-checked against independent records (P1b); other cities are computed, not individually cross-checked. Values come from each dataset's nearest grid cell, so some cities share a cell (see shares_cell_with / same_record_as) and are then the same record.",
   "water_note": "GRACE water storage is a national record (Bangladesh box); see dhaka_then_now.json water.",
   "cities": [
     {
@@ -82,7 +82,8 @@
         },
         "shares_cell_with": [
           "Chattogram"
-        ]
+        ],
+        "same_record_as": null
       },
       "rain": {
         "gpcp": {
@@ -160,7 +161,8 @@
           },
           "shares_cell_with": [
             "Sylhet"
-          ]
+          ],
+          "same_record_as": null
         },
         "gpcc": {
           "dataset": "GPCC gauges v2020, Dhaka cell, June-September",
@@ -237,7 +239,8 @@
           },
           "shares_cell_with": [
             "Sylhet"
-          ]
+          ],
+          "same_record_as": null
         },
         "caption": "Dhaka, June–September: not wetter. GPCP −9% (1981–1990 vs 2016–2025); rain gauges (GPCC) −12% (1981–1990 vs 2010–2019)."
       }
@@ -314,14 +317,15 @@
           "n_years": 10
         },
         "change_C": 1.37,
-        "caption": "Chattogram, April–May: +1.37 °C (NASA GISTEMP, 1981–1990 vs 2016–2025, 10 years each).",
+        "caption": "Chattogram, April–May: +1.37 °C (NASA GISTEMP, 1981–1990 vs 2016–2025, 10 years each). Same NASA GISTEMP grid cell as Dhaka: this is the same record.",
         "cell": {
           "lat": 23.0,
           "lon": 91.0
         },
         "shares_cell_with": [
           "Dhaka"
-        ]
+        ],
+        "same_record_as": "Dhaka"
       },
       "rain": {
         "gpcp": {
@@ -397,7 +401,8 @@
             "lat": 21.25,
             "lon": 91.25
           },
-          "shares_cell_with": []
+          "shares_cell_with": [],
+          "same_record_as": null
         },
         "gpcc": {
           "dataset": "GPCC gauges v2020, Chattogram cell, June-September",
@@ -472,9 +477,10 @@
             "lat": 21.25,
             "lon": 91.25
           },
-          "shares_cell_with": []
+          "shares_cell_with": [],
+          "same_record_as": null
         },
-        "caption": "Chattogram, June–September: not wetter. GPCP −6% (1981–1990 vs 2016–2025); rain gauges (GPCC) +0% (1981–1990 vs 2010–2019)."
+        "caption": "Chattogram, June–September: not wetter. GPCP −6% (1981–1990 vs 2016–2025); rain gauges (GPCC) 0% (1981–1990 vs 2010–2019)."
       }
     },
     {
@@ -554,7 +560,8 @@
           "lat": 25.0,
           "lon": 89.0
         },
-        "shares_cell_with": []
+        "shares_cell_with": [],
+        "same_record_as": null
       },
       "rain": {
         "gpcp": {
@@ -630,7 +637,8 @@
             "lat": 23.75,
             "lon": 88.75
           },
-          "shares_cell_with": []
+          "shares_cell_with": [],
+          "same_record_as": null
         },
         "gpcc": {
           "dataset": "GPCC gauges v2020, Rajshahi cell, June-September",
@@ -705,7 +713,8 @@
             "lat": 23.75,
             "lon": 88.75
           },
-          "shares_cell_with": []
+          "shares_cell_with": [],
+          "same_record_as": null
         },
         "caption": "Rajshahi, June–September: not wetter. GPCP −8% (1981–1990 vs 2016–2025); rain gauges (GPCC) −13% (1981–1990 vs 2010–2019)."
       }
@@ -787,7 +796,8 @@
           "lat": 25.0,
           "lon": 91.0
         },
-        "shares_cell_with": []
+        "shares_cell_with": [],
+        "same_record_as": null
       },
       "rain": {
         "gpcp": {
@@ -865,7 +875,8 @@
           },
           "shares_cell_with": [
             "Dhaka"
-          ]
+          ],
+          "same_record_as": "Dhaka"
         },
         "gpcc": {
           "dataset": "GPCC gauges v2020, Sylhet cell, June-September",
@@ -942,11 +953,12 @@
           },
           "shares_cell_with": [
             "Dhaka"
-          ]
+          ],
+          "same_record_as": "Dhaka"
         },
-        "caption": "Sylhet, June–September: not wetter. GPCP −9% (1981–1990 vs 2016–2025); rain gauges (GPCC) −12% (1981–1990 vs 2010–2019)."
+        "caption": "Sylhet, June–September: not wetter. GPCP −9% (1981–1990 vs 2016–2025); rain gauges (GPCC) −12% (1981–1990 vs 2010–2019). Same GPCP and GPCC grid cells as Dhaka: this is the same record."
       }
     }
   ],
-  "generated_utc": "2026-09-28T05:17:29Z"
+  "generated_utc": "2026-09-28T09:06:21Z"
 }

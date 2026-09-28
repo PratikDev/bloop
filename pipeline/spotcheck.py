@@ -143,9 +143,11 @@ def shape_ok(obj, spec, path=""):
 NUM, NUMN, STR, STRN = (int, float), (int, float, type(None)), (str,), (str, type(None))
 WINDOW = {"window": ("list", int), "years": ("list", int), "values": ("list", (int, float)), "mean": NUM, "spread": NUM, "n_years": (int,)}
 CELL = {"lat": NUM, "lon": NUM}
-CITY_RAIN_SERIES = {"dataset": STR, "A": WINDOW, "B": WINDOW, "change_pct": (int,), "cell": CELL, "shares_cell_with": ("list", str)}
+CITY_RAIN_SERIES = {"dataset": STR, "A": WINDOW, "B": WINDOW, "change_pct": (int,), "cell": CELL, "shares_cell_with": ("list", str),
+                    "same_record_as": STRN}
 CITY = {"name": STR, "cross_checked": (bool,), "heat": {"dataset": STR, "A": WINDOW, "B": WINDOW, "change_C": NUM, "caption": STR,
-        "cell": CELL, "shares_cell_with": ("list", str)}, "rain": {"gpcp": CITY_RAIN_SERIES, "gpcc": CITY_RAIN_SERIES, "caption": STR}}
+        "cell": CELL, "shares_cell_with": ("list", str), "same_record_as": STRN},
+        "rain": {"gpcp": CITY_RAIN_SERIES, "gpcc": CITY_RAIN_SERIES, "caption": STR}}
 CITIES = {"title": STR, "note": STR, "water_note": STR, "cities": ("list", CITY), "generated_utc": STR}
 VOICE = {"values": ("list", NUMN), "units": STR, "dataset": STR, "place": STR, "resolution": STR, "mapping_key": STR, "credit": STR}
 ENSEMBLE = {"title": STR, "months": ("list", str), "voices": {"heat": VOICE, "rain": VOICE, "water": VOICE}, "disclosure": STR, "generated_utc": STR}
@@ -166,8 +168,18 @@ for rel, spec in (("context/ensemble_bd.json", ENSEMBLE), ("context/globe_duet.j
         if dh is None or dh["heat"]["caption"] != main_demo["heat"]["caption"] or dh["rain"]["caption"] != main_demo["rain"]["caption"] \
                 or dh["heat"]["change_C"] != main_demo["heat"]["change_C"]:
             probs.append("Dhaka entry differs from dhaka_then_now.json")
-        if any("-" in c["heat"]["caption"] or "-" in c["rain"]["caption"] for c in o.get("cities", [])):   # captions use – and − only
-            probs.append("a caption contains an ASCII hyphen (signs must be \u2212, ranges \u2013)")
+        import re as _re
+        for c in o.get("cities", []):
+            caps = (c["heat"]["caption"], c["rain"]["caption"])
+            if any("-" in t for t in caps): probs.append(f"{c['name']}: ASCII hyphen in a caption (signs must be \u2212, ranges \u2013)")
+            if any(_re.search(r"[+\u2212]0(\.0+)?(%| °C)", t) for t in caps): probs.append(f"{c['name']}: signed zero in a caption")
+            if c["heat"]["same_record_as"] and "same record" not in c["heat"]["caption"]:
+                probs.append(f"{c['name']}: heat shares {c['heat']['same_record_as']}'s cell but the caption doesn't say so")
+            if c["rain"]["gpcp"]["same_record_as"] and c["rain"]["gpcp"]["same_record_as"] == c["rain"]["gpcc"]["same_record_as"] \
+                    and "same record" not in c["rain"]["caption"]:
+                probs.append(f"{c['name']}: rain shares {c['rain']['gpcp']['same_record_as']}'s cells but the caption doesn't say so")
+        if dh is not None and (dh["heat"]["same_record_as"] is not None or dh["rain"]["gpcp"]["same_record_as"] is not None):
+            probs.append("Dhaka must be the reference city (same_record_as null)")
     check(f"optional {rel} matches its TypeScript contract", not probs, "; ".join(probs[:4]))
 try:
     idx = json.load(open(PUBLIC / "sequence" / "index.json"))["frames"]

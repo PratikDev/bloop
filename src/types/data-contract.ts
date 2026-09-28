@@ -599,16 +599,20 @@ export interface GlobeDuetFile {
   generated_utc: string;
 }
 // ---------------------------------------------------------------------------
+/// ---------------------------------------------------------------------------
 // 13. Bangladesh cities then vs now (demo/cities_then_now.json) — OPTIONAL, additive
 // Needed by: BOTH — L3 city picker in Then vs Now (captions as-is); L2 plays
-// the same heat/rain windows as the Dhaka demo. Built by build_demo.py with
-// the same method and Section 16 caption templates as file 9 (city name
-// substituted; rain phrase is "not wetter." / "wetter." / "no clear change."
-// from the signs of the GPCP and GPCC changes). Signed numbers use "−" (U+2212).
-// Only Dhaka is cross_checked (P1b). Cities that share a dataset grid cell
-// (shares_cell_with) are the same record — say so in the UI, don't present
-// them as independent evidence. Water is national only: see file 9 `water`.
+// the same heat/rain windows as the Dhaka demo. Built by the optional
+// build_cities.py, reusing build_demo.py's functions and Section 16 templates
+// (city name substituted; rain phrase "not wetter." / "wetter." / "no clear
+// change." from the signs of the GPCP and GPCC changes). Signed numbers use
+// "−" (U+2212); a value that rounds to zero prints unsigned ("0%", "0.00").
+// Only Dhaka is cross_checked (P1b). Cities sharing a dataset grid cell:
+// the first city (Dhaka) is the reference; the others get same_record_as and
+// a caption sentence "Same … grid cell(s) as <city>: this is the same record."
 // The Dhaka entry is identical to dhaka_then_now.json (spotcheck enforces it).
+// A city that fails a data check is left out; if Dhaka fails, the file is
+// removed. Water is national only: see file 9 `water`.
 // ---------------------------------------------------------------------------
 
 export interface GridCellRef {
@@ -619,17 +623,18 @@ export interface GridCellRef {
 export interface CityHeatDemo extends HeatDemo {
   cell: GridCellRef;
   shares_cell_with: ClimateCellName[];
+  same_record_as: ClimateCellName | null; // non-null = identical to that city's heat record
 }
 
 export interface CityRainSeriesDemo extends RainSeriesDemo {
   cell: GridCellRef;
   shares_cell_with: ClimateCellName[];
+  same_record_as: ClimateCellName | null;
 }
 
-export interface CityRainDemo {
+export interface CityRainDemo extends RainDemo {
   gpcp: CityRainSeriesDemo;
   gpcc: CityRainSeriesDemo;
-  caption: string;
 }
 
 export interface CityThenNow {
