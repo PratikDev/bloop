@@ -1,7 +1,10 @@
 "use client";
 
 import { useEffect, useRef, useState } from "react";
+import { ArrowRight } from "@phosphor-icons/react";
+import { AnimatePresence, motion } from "motion/react";
 import { Button } from "@/components/ui/button";
+import { EASE_OUT_SOFT } from "@/lib/motion";
 import { audio } from "@/lib/audio-adapter";
 import type { PlayerHandle } from "@/lib/audio-adapter/types";
 import { openingPath } from "@/lib/data";
@@ -10,6 +13,7 @@ import { useAnnounce } from "./Announcer/use-announcer";
 import { useAppState, useT } from "./AppState/use-app-state";
 import { useLatestCaption } from "./CaptionBar/use-latest-caption";
 import { useLiveData } from "./LiveData/use-live-data";
+import { SignalMark } from "./SignalMark";
 import { Waveform } from "./Waveform";
 
 const OPENING_KEYS = new Set(["caption.opening.closeEyes", "caption.opening.openEyes"]);
@@ -68,14 +72,60 @@ export function Opening() {
     dispatch({ type: "introDone" });
   };
 
-  if (!active) return null;
+  // Its own stage, unlike any page: near-black, a breathing glow, a big signal
+  // ring, no header or dock. It fades away as the map opens from the equator.
   return (
-    <div className="fixed inset-0 z-30 flex flex-col items-center justify-center gap-10 bg-night px-4">
-      <p className="min-h-10 text-center font-serif text-title text-moon">{line}</p>
-      <Waveform className="h-24 w-full max-w-3xl" />
-      <Button autoFocus variant="secondary" onClick={skip} className="h-11 px-5 text-body">
-        {t("start.skipIntro")}
-      </Button>
-    </div>
+    <AnimatePresence>
+      {active && (
+        <motion.div
+          key="opening"
+          role="region"
+          aria-label={t("opening.label")}
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          // Click-through while it fades, so the map is usable the moment the intro ends.
+          exit={{ opacity: 0, pointerEvents: "none", transition: { duration: 0.8, ease: EASE_OUT_SOFT } }}
+          className="fixed inset-0 z-(--layer-opening) grid grid-rows-[auto_1fr_auto] overflow-hidden bg-void px-5 py-6 md:px-10 md:py-8"
+        >
+          <div aria-hidden="true" className="pointer-events-none absolute top-1/2 left-1/2 size-[min(120vw,70rem)] -translate-x-1/2 -translate-y-1/2">
+            <div className="size-full animate-breathe rounded-full bg-radial from-tide from-0% via-land/35 via-35% to-transparent to-70%" />
+          </div>
+
+          <p className="eyebrow relative flex items-center gap-2">
+            <span aria-hidden="true" className="size-1.5 animate-pulse rounded-full bg-shapla" />
+            {t("opening.label")}
+          </p>
+
+          <div className="relative flex flex-col items-center justify-center gap-10">
+            <SignalMark className="size-16 md:size-20" />
+            <AnimatePresence mode="wait">
+              <motion.p
+                key={line}
+                initial={{ opacity: 0, y: 12, filter: "blur(6px)" }}
+                animate={{ opacity: 1, y: 0, filter: "blur(0px)" }}
+                exit={{ opacity: 0, y: -8, filter: "blur(6px)" }}
+                transition={{ duration: 0.7, ease: EASE_OUT_SOFT }}
+                className="display-tight min-h-20 max-w-3xl text-center font-serif text-display text-moon italic"
+              >
+                {line}
+              </motion.p>
+            </AnimatePresence>
+            <Waveform className="h-24 w-full max-w-2xl" />
+          </div>
+
+          <div className="relative flex flex-col items-center gap-2 md:flex-row md:justify-end md:gap-4">
+            <span className="order-last text-small text-haze pointer-coarse:hidden md:order-first">{t("opening.escHint")}</span>
+            <Button
+              autoFocus
+              onClick={skip}
+              className="group h-12 gap-2 rounded-full bg-moon px-6 text-body text-ink hover:bg-moon/90 active:scale-[0.98]"
+            >
+              {t("start.skipIntro")}
+              <ArrowRight aria-hidden="true" className="size-4 transition-transform duration-200 group-hover:translate-x-0.5" />
+            </Button>
+          </div>
+        </motion.div>
+      )}
+    </AnimatePresence>
   );
 }

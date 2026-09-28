@@ -11,7 +11,7 @@ import { PairChart } from "../charts/PairChart";
 import { ChoiceGroup } from "../ChoiceGroup";
 import { StatusBadge } from "../StatusBadge";
 import { Row } from "./Disclosure";
-import { Fold, PartLayout } from "./Layout";
+import { PartLayout } from "./Layout";
 import { Headline } from "./PartView";
 
 export type FieldPart = "fires" | "vegetation";
@@ -35,11 +35,8 @@ function FieldLayout({ picker, pair, chart, caption, facts }: { picker: ReactNod
           <StatusBadge kind="october">{t("field.soundOctober")}</StatusBadge>
         </>
       }
-      folds={
-        <Fold title={t("field.sources")}>
-          <dl className="space-y-2">{facts}</dl>
-        </Fold>
-      }
+      detailsTitle={t("field.sources")}
+      details={<dl className="space-y-2">{facts}</dl>}
     />
   );
 }

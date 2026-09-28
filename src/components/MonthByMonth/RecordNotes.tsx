@@ -1,7 +1,7 @@
 "use client";
 
 import type { PlaceSeries } from "@/lib/history";
-import { useT } from "../../AppState/use-app-state";
+import { useT } from "../AppState/use-app-state";
 
 /**
  * Where the record comes from and how far to trust it, with L1's rules

@@ -3,7 +3,7 @@
 import { Select, SelectContent, SelectGroup, SelectItem, SelectLabel, SelectTrigger, SelectValue } from "@/components/ui/select";
 import { PLACES } from "@/lib/history";
 import type { GlobalPlace } from "@/types/data-contract";
-import { useT } from "../../AppState/use-app-state";
+import { useT } from "../AppState/use-app-state";
 
 /**
  * Bangladesh's four cities first, then L1's world places. A list, not toggle

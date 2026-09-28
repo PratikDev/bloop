@@ -1,6 +1,6 @@
 "use client";
 
-import { Volume2 } from "lucide-react";
+import { SpeakerHigh } from "@phosphor-icons/react";
 import { Button } from "@/components/ui/button";
 import { MAPPING, ruleText } from "@/lib/audio/mapping";
 import { audio } from "@/lib/audio-adapter";
@@ -51,7 +51,7 @@ export function MappingPanel() {
             {v.designChoice && <p className="text-small text-moon">{t("mapping.designChoice")}</p>}
             {isLegendVoice(v.id) && (
               <Button variant="secondary" onClick={() => isLegendVoice(v.id) && audio.playLegend(v.id)} className="mt-1 h-10 gap-2 pointer-coarse:h-11">
-                <Volume2 aria-hidden="true" />
+                <SpeakerHigh aria-hidden="true" className="size-4.5" />
                 {t("mapping.hearLegend")}
               </Button>
             )}

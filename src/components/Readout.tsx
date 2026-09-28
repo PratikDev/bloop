@@ -50,23 +50,23 @@ export function Readout({ className }: { className?: string }) {
   const fallback = track === "rain" ? rainText(t, r.rain, r.rainLoaded) : t("reading.oceanNone");
 
   return (
-    <div className={cn("space-y-1", className)}>
-      <div aria-hidden="true" className="space-y-1">
-        <p key={main?.figure ?? fallback} className="duration-100 animate-in fade-in">
+    <div data-slot="readout" className={cn("space-y-2", className)}>
+      <div aria-hidden="true" className="space-y-1.5">
+        <p key={main?.figure ?? fallback} className="duration-150 animate-in fade-in slide-in-from-bottom-1">
           {main ? (
             <span className="readout-figure text-readout-mobile md:text-readout lg:max-xl:text-readout-mobile xl:short:text-readout-mobile">
               <Figure text={main.figure} lang={state.lang} />
-              <span className="text-lead font-medium text-haze">{" " + t(main.unit)}</span>
+              <span className="font-sans text-lead text-haze">{" " + t(main.unit)}</span>
             </span>
           ) : (
-            <span className="text-title font-medium">{fallback}</span>
+            <span className="font-serif text-title">{fallback}</span>
           )}
         </p>
-        {track === "both" && <p className="text-lead font-medium">{rainText(t, r.rain, r.rainLoaded)}</p>}
-        <p className="text-lead font-medium">{t("place.latlon", cursor)}</p>
-        {timelapse && <p className="text-small text-haze">{t("timelapse.frame", { index: timelapse.index + 1, total: timelapse.total })}</p>}
+        {track === "both" && <p className="text-lead">{rainText(t, r.rain, r.rainLoaded)}</p>}
+        <p className="font-mono text-body tracking-tight text-moon">{t("place.latlon", cursor)}</p>
+        {timelapse && <p className="font-mono text-small text-shapla">{t("timelapse.frame", { index: timelapse.index + 1, total: timelapse.total })}</p>}
       </div>
-      <FrameLabel className="max-w-md pt-1 lg:short:max-w-none" />
+      <FrameLabel className="max-w-md border-t border-glass-edge pt-2 lg:short:max-w-none" />
     </div>
   );
 }
