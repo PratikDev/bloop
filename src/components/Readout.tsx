@@ -54,7 +54,7 @@ export function Readout({ className }: { className?: string }) {
       <div aria-hidden="true" className="space-y-1">
         <p key={main?.figure ?? fallback} className="duration-100 animate-in fade-in">
           {main ? (
-            <span className="readout-figure text-readout-mobile md:text-readout lg:short:text-readout-mobile">
+            <span className="readout-figure text-readout-mobile md:text-readout lg:max-xl:text-readout-mobile xl:short:text-readout-mobile">
               <Figure text={main.figure} lang={state.lang} />
               <span className="text-lead font-medium text-haze">{" " + t(main.unit)}</span>
             </span>

@@ -5,6 +5,7 @@ import { cn } from "@/lib/utils";
 import { Sheet, SheetContent, SheetTitle } from "@/components/ui/sheet";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { useMediaQuery } from "@/hooks/use-media-query";
+import { MEDIA } from "@/lib/breakpoints";
 import type { PanelTab } from "../AppState/reducer";
 import { useAppState, useT } from "../AppState/use-app-state";
 import { MappingPanel } from "./MappingPanel";
@@ -56,14 +57,14 @@ function PanelTabs() {
 export function SidePanel() {
   const { state, dispatch } = useAppState();
   const t = useT();
-  const phone = useMediaQuery("(max-width: 767px)");
-  // The column is always there on wide screens; the sheet (modal) only opens below lg.
-  const wide = useMediaQuery("(min-width: 1024px)");
+  const phone = useMediaQuery(MEDIA.phone);
+  // The column is always there on wide screens; the sheet (modal) only opens below xl.
+  const wide = useMediaQuery(MEDIA.sideColumn);
   return (
     <>
       <aside
         aria-label={t("panel.label")}
-        className="hidden overflow-y-auto rounded-l-sheet bg-dusk p-4 text-body lg:block"
+        className="hidden overflow-y-auto rounded-l-sheet bg-dusk p-4 text-body xl:block"
       >
         <PanelTabs />
       </aside>
@@ -72,7 +73,7 @@ export function SidePanel() {
           side={phone ? "bottom" : "right"}
           className={cn(
             // pt-16: the tabs start below the 44 px close button instead of under it.
-            "overflow-y-auto bg-dusk p-4 pt-16 text-body lg:hidden",
+            "overflow-y-auto bg-dusk p-4 pt-16 text-body xl:hidden",
             phone ? "max-h-[85dvh] rounded-t-sheet" : "w-full rounded-l-sheet sm:max-w-md",
           )}
         >

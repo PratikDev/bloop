@@ -19,9 +19,10 @@ export function Stage() {
   const t = useT();
   const timeLapse = useTimeLapse();
   return (
-    // On wide screens the map fits the stage both ways: width = min(stage width, 2 × stage height).
-    <section className="flex min-h-0 min-w-0 flex-col bg-night lg:items-center lg:justify-center lg:[container-type:size]">
-      <div className="relative lg:w-[min(100cqw,200cqh)]">
+    // From 1280 px the map fits the stage both ways: width = min(stage width, 2 × stage height).
+    // Below that it takes the full width, and the page scrolls if it must.
+    <section className="flex min-h-0 min-w-0 flex-col bg-night xl:items-center xl:justify-center xl:[container-type:size]">
+      <div className="relative xl:w-[min(100cqw,200cqh)]">
         <ExploreControls>
           {/* The frame opens out from the equator when the intro ends (C1). */}
           <FrameView revealClassName={cn(state.introDone && "animate-reveal-equator")} />
@@ -45,15 +46,19 @@ export function Stage() {
         )}
         <Readout
           className={cn(
-            "px-4 py-3 lg:pointer-events-none lg:absolute lg:bottom-0 lg:left-0 lg:max-w-lg lg:rounded-tr-lg lg:bg-scrim",
-            // Short screens: a wider, shorter plate (each frame label on one line).
-            "lg:short:max-w-xl lg:short:py-2",
-            // Short screens in Story: the story panel has the left side, so the readout moves right.
-            state.mode === "story" && "lg:short:right-0 lg:short:left-auto lg:short:max-w-md lg:short:rounded-tr-none lg:short:rounded-tl-lg",
+            "px-4 py-3 lg:pointer-events-none lg:absolute lg:bottom-0 lg:left-0 lg:rounded-tr-lg lg:bg-scrim",
+            // 1024 to 1279 px: the map is smaller, so the plate takes at most 40% of its width.
+            "lg:max-w-[40%] xl:max-w-lg",
+            // Short screens: a shorter plate; from 1280 px also wider (each frame label on one line).
+            "lg:short:py-2 xl:short:max-w-xl",
+            // Story: the story panel has the left side, so the readout moves right (1024 to 1279 px, and short screens).
+            state.mode === "story" &&
+              "lg:max-xl:right-0 lg:max-xl:left-auto lg:max-xl:rounded-tr-none lg:max-xl:rounded-tl-lg xl:short:right-0 xl:short:left-auto xl:short:max-w-md xl:short:rounded-tr-none xl:short:rounded-tl-lg",
           )}
         />
       </div>
-      <div className="space-y-2 px-4 pb-3">
+      {/* From 1280 px the selector is in the top bar; no padding then, or the strip pushes the map up. */}
+      <div className="space-y-2 px-4 pb-3 xl:pb-0">
         <TrackChoice className="xl:hidden" itemClassName="h-11" />
         {sstStatus === "error" && <StatusBadge kind="error">{t("error.ocean")}</StatusBadge>}
         {rainStatus === "error" && <StatusBadge kind="error">{t("error.rain")}</StatusBadge>}

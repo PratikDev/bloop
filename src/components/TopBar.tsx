@@ -44,7 +44,7 @@ export function TopBar() {
           size="icon-lg"
           onClick={() => commands.openPanel(state.panel)}
           aria-label={t("panels.open")}
-          className="size-11 lg:hidden"
+          className="size-11 xl:hidden"
         >
           <PanelRight aria-hidden="true" />
         </Button>

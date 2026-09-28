@@ -34,9 +34,9 @@ function Shell() {
       <Opening />
       {/* Inert until Start, so "Start listening" is the first and only focusable thing.
           minmax(0, 1fr): the column is the screen width, so a long caption truncates instead of widening the page. */}
-      <div inert={!state.started} className="grid min-h-dvh grid-cols-[minmax(0,1fr)] grid-rows-[auto_1fr_auto] lg:h-dvh">
+      <div inert={!state.started} className="grid min-h-dvh grid-cols-[minmax(0,1fr)] grid-rows-[auto_1fr_auto] xl:h-dvh">
         <TopBar />
-        <main className="grid min-h-0 content-start lg:content-stretch lg:grid-cols-[minmax(0,1fr)_24rem]">
+        <main className="grid min-h-0 content-start xl:content-stretch xl:grid-cols-[minmax(0,1fr)_24rem]">
           {state.mode === "thenNow" ? <ThenNow /> : <Stage />}
           <SidePanel />
         </main>
