@@ -4,6 +4,7 @@ import ClipSection from "./ClipSection";
 import EventLog from "./EventLog";
 import LegendSection from "./LegendSection";
 import LiveSection from "./LiveSection";
+import LoudnessSection from "./LoudnessSection";
 import MixerSection from "./MixerSection";
 import PitchPairSection from "./PitchPairSection";
 import SchedulerSection from "./SchedulerSection";
@@ -43,6 +44,7 @@ export default function AudioHarness() {
       <SequenceSection ready={ready} />
       <ThenNowSection ready={ready} />
       <StormSection ready={ready} />
+      <LoudnessSection ready={ready} />
       <ClipSection ready={ready} />
       <EventLog events={events} onClear={clear} />
     </main>

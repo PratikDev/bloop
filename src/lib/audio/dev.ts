@@ -3,7 +3,6 @@
 // scheduler and stop logic.
 
 import { getAnalyser, getCtx, getGraph } from "./context";
-import { mapVoice } from "./mapping";
 import { blip, fadeTo, glideTo } from "./params";
 import { schedule } from "./scheduler";
 import { track } from "./sources";
@@ -89,30 +88,7 @@ export function readPeakDb(): number {
   return 20 * Math.log10(peak);
 }
 
-const PAIR_TONE_SEC = 0.6;
-const PAIR_GAP_SEC = 0.3;
-const PAIR_FADE_SEC = 0.02;
-
-/**
- * Ear test T4: two ocean tones (°C through the real ocean rule), 600 ms each
- * with a 300 ms gap, on the ocean channel. Timed on the audio clock.
- */
-export function playPitchPair(firstC: number, secondC: number) {
-  const ctx = getCtx();
-  const start = ctx.currentTime + 0.05;
-  [firstC, secondC].forEach((c, i) => {
-    const t = start + i * (PAIR_TONE_SEC + PAIR_GAP_SEC);
-    const osc = track(new OscillatorNode(ctx, { type: "sine", frequency: mapVoice("ocean", c) ?? 440 }));
-    const env = new GainNode(ctx, { gain: 0 });
-    osc.connect(env).connect(getGraph().channels.ocean.input);
-    env.gain.setValueAtTime(0, t);
-    env.gain.linearRampToValueAtTime(1, t + PAIR_FADE_SEC);
-    env.gain.setValueAtTime(1, t + PAIR_TONE_SEC - PAIR_FADE_SEC);
-    env.gain.linearRampToValueAtTime(0, t + PAIR_TONE_SEC);
-    osc.start(t);
-    osc.stop(t + PAIR_TONE_SEC + 0.01);
-  });
-}
+export { getLoudnessCompensation, playLoudnessSet, playPitchPair, setLoudnessExponent } from "./dev-tones";
 
 export { isDucked, setDuckingEnabled } from "./duck";
 export { loadVoices } from "./speech";
