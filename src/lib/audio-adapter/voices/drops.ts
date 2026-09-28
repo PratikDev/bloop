@@ -25,6 +25,7 @@ export interface DropVoice {
 }
 
 const JITTER = 0.3;
+const MAX_LATE_SEC = 0.25; // later than this, a drop restarts the chain (no catch-up burst)
 const RAIN_FILTER_HZ = 2400;
 const SNOW_PARTIAL_RATIO = 2.76; // bell-like inharmonic partial
 const SNOW_BASE_HZ = [1046.5, 1174.7, 1318.5, 1568, 1760]; // a soft pentatonic set
@@ -59,7 +60,6 @@ export function createDropVoice(graph: Graph, kind: DropKind): DropVoice {
 
   let queue: Density[] = [];
   let current: Density = { time: 0, rate: 0, peak: 0, lon: 0 };
-  let nextTime = 0;
 
   function density(time: number, mmPerHour: number | null, lon: number): Density {
     const rate = mapVoice(kind, mmPerHour) ?? 0; // null / dry / no data → 0
@@ -87,36 +87,40 @@ export function createDropVoice(graph: Graph, kind: DropKind): DropVoice {
 
   const play = kind === "rain" ? createRainDropSound(graph, out, attackSec, releaseSec) : playBell;
 
-  let lastDrop = Number.NEGATIVE_INFINITY;
-  const interval = (rate: number) => (1 / rate) * (1 - JITTER + Math.random() * 2 * JITTER);
+  // The next drop is due once `left` drops' worth of progress has built up
+  // after `from`, at the rate in force. The jitter is drawn once per drop; a
+  // density change only re-times the rest of the interval, never re-draws it.
+  // (Re-drawing on every change favoured short intervals: +17% drops while
+  // dragging over light rain, the same bug L2 fixed in its engine.)
+  let from = 0;
+  let left = 0; // no progress needed: the first drop falls as soon as it rains
+  const drawJitter = () => 1 - JITTER + Math.random() * 2 * JITTER;
 
   addTask((until) => {
-    if (nextTime < ctx.currentTime) nextTime = ctx.currentTime + 0.01;
     for (;;) {
+      const change = queue[0];
+      const due = current.rate > 0 ? from + left / current.rate : Number.POSITIVE_INFINITY;
       // A density change takes effect at its own time, not at the next drop
       // planned under the old rate (no lag on sweeps, no wait for heavier rain).
-      const change = queue[0];
-      if (change && change.time <= nextTime) {
+      if (change && change.time <= due) {
+        if (change.time > from) {
+          left = Math.max(0, left - (change.time - from) * current.rate); // silence pauses progress
+          from = change.time;
+        }
         queue.shift();
         current = change;
-        nextTime =
-          current.rate > 0
-            ? Math.max(change.time, ctx.currentTime, lastDrop + interval(current.rate))
-            : change.time;
         continue;
       }
-      if (nextTime >= until) return;
-      if (current.rate === 0) {
-        // Silent: wait for the next density change.
-        if (!change || change.time >= until) return;
-        nextTime = change.time;
-        continue;
-      }
-      out.pan.setValueAtTime(panFor(current.lon), nextTime);
-      play(nextTime, current.peak);
-      emit({ kind: "drop", voice: kind, time: nextTime, gain: current.peak / spec.sound.maxGain, lon: current.lon });
-      lastDrop = nextTime;
-      nextTime += interval(current.rate);
+      if (due >= until) return;
+      // A slightly late tick plays the drop now but keeps its place in the
+      // chain (so the average holds); after a long stall (a hidden tab) the
+      // chain restarts now instead of catching up in a burst.
+      const time = Math.max(due, ctx.currentTime + 0.01);
+      out.pan.setValueAtTime(panFor(current.lon), time);
+      play(time, current.peak);
+      emit({ kind: "drop", voice: kind, time, gain: current.peak / spec.sound.maxGain, lon: current.lon });
+      from = time - due > MAX_LATE_SEC ? time : due;
+      left = drawJitter();
     }
   });
 
