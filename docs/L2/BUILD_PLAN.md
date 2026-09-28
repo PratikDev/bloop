@@ -791,7 +791,7 @@ Resolve with the lane owner before the phase that needs it. Record the answer he
 | L3 | Caption text for every caption key L2 emits (EN + BN) | Phase 3 onward | ✅ English for the Section 2.4 keys (Bangla pending); new keys need L3 first |
 | L4 | Recorded narration clips (EN, BN, MP3 in `public/audio/narration_en/` and `narration_bn/`) and their subtitles, by Tue 29, 10:00 (D12) | Phase 8 | No: if late, narration uses the browser speech voice |
 | L1 | Shapes stay frozen (already agreed) | — | — |
-| L1 | Merge `L1` into `main` (the §16 demo caption fix), then L2 merges `main` and re-checks the Phase 5 captions | Phase 8 (freeze) | No: the fix is confirmed on the `L1` branch |
+| L1 | Merge `L1` into `main` (the §16 demo caption fix), then L2 merges `main` and re-checks the Phase 5 captions | Phase 8 (freeze) | ✅ PR #6 merged 28 Sep; merged into `L2-audio-engine` (`a803fbb`); captions re-checked |
 
 The caption key list lives in Section 2.4 here and in `docs/L2/AUDIO_API.md`; keep both in step.
 
