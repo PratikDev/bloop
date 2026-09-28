@@ -30,6 +30,7 @@ The scripted checks prove the sound plays, stops and follows the charts. They ca
 
 - **How:** `bun run dev`, open `http://localhost:3000`, headphones and then a laptop speaker. Go through the unticked item in [`docs/L3/integration.md`](L3/integration.md) §1: Start → opening → Explore; Then vs Now (all three parts, Stop, "then left, now right"); Place History (play a decade, then drag along the chart); press M, then Then vs Now (silent); Esc from every mode; storm time-lapse; Story Mode end to end.
 - **Listen for:** clicks or pops, distortion at full volume, anything startling, rain density that sounds wrong, voices you can't tell apart.
+- **Known, by design:** on a slow connection the opening shows "Loading rain…" in silence for up to 4 s after Start while the rain grid loads, then plays (with the ocean alone if the rain still isn't there). Check that this feels fine.
 - **Known:** L2's engine is about 45% louder than L3's old stand-in (for example, Story ocean peak 0.194 vs 0.133 on a 0 to 1 scale). Nothing clips. Decide in the mix pass (2.3) whether to lower it.
 - **Done when:** the item in `integration.md` is ticked, and anything that sounds wrong is written down for L2.
 
@@ -56,7 +57,7 @@ The app is built for blind and low-vision users, and **no screen reader has been
 ### 2.5 Devices and browsers (anyone)
 
 - [ ] **iPhone** (L2 item 1): lock and unlock, then one tap gives sound again; sound plays with the silent switch on. If nobody has an iPhone, write "untested on iPhone" in the freeze note.
-- [ ] **Mid-range Android, Chrome:** drag over heavy rain; drops don't stutter. Place History: drag along the chart with a finger.
+- [ ] **Mid-range Android, Chrome:** Place History: drag along the chart with a finger; each month sounds once the finger rests. (Drop timing on Android is already done: L2's T6 passed on 27 Sep, and the Honor 400 Pro held steady with the screen locked; see `docs/L2/audio_findings.md`.)
 - [ ] **Firefox and Safari:** the keyboard flow and the sound (only Edge and Chrome have been tried).
 - [ ] **Console check, Chrome and Edge** (L2 item 8, and plan §13): no errors while using every mode and `/dev/audio`.
 - [ ] **200% zoom** in Chrome at 1280×720: Story panel, Help, the panels sheet.
