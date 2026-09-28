@@ -447,7 +447,7 @@ Any Web Audio code. Any UI (L3 renders the panel).
 ### 4.1 Tasks
 1. **`types.ts`** — all public types from Section 2.1 (and placeholders for `ThenNowInput`, `CompareSide`).
 2. **`index.ts`** — every function in Section 2.2 exported. Functions of later phases are stubs that `console.warn("not implemented: <name> (Phase N)")` and return a resolved/no-op handle, so L3 can wire the full UI today.
-3. **`context.ts`** — `ensureAudio()` exactly as AUDIO_RESEARCH A3 (lazy, `latencyHint: "interactive"`, `resume()` if suspended); `getCtx()` throws a clear error if called before `ensureAudio()`. On first creation, builds the graph (below) and the noise buffer (2 s white noise, mono, created once).
+3. **`context.ts`** — `ensureAudio()` as AUDIO_RESEARCH A3 (lazy, `latencyHint: "interactive"`), plus the phone wake fix (L3 `ae286f1`, added in Phase 8): request `navigator.audioSession.type = "playback"` where the API exists (iPhone: plays with the silent switch on) before creating the context, and `resume()` whenever the state isn't `"running"` (covers Safari's `"interrupted"` after a lock); `getCtx()` throws a clear error if called before `ensureAudio()`. On first creation, builds the graph (below) and the noise buffer (2 s white noise, mono, created once).
 4. **`graph.ts`** — builds Section 1.3's buses. Each voice gets its own `GainNode` ("voice gain", max `voiceMaxGain`) and a `mute` `GainNode` (1 or 0) so mute/solo never fights value-driven gain changes. Solo = mute all other voices (earcons and narration are never muted by solo). `setAllMuted` ramps the **master** to 0/restore. All changes via `glideTo` (20 ms).
 5. **`params.ts`** — `glideTo(param, target, glideSec)` (A1 code), `fadeTo(param, target, sec)` (linear ramp; safe for 0), `now()`.
 6. **`scheduler.ts`** — split in two:
@@ -719,6 +719,8 @@ export interface CompareSide { label: string; values: (number | null)[]; voice: 
 | **Variability → timbre (H2)** | Window `spread` → low-pass cutoff 800–3000 Hz on heat/monsoon voices; `designChoice: true` in mapping.json | B window (bigger spread) sounds slightly brighter; caption says "design choice" |
 | **Seasonality → rhythm (H2)** | For monthly Place History playback (`playSeries`, Phase 5): accent (+3 dB, 20 ms) on the climatological peak month; `designChoice: true` | Accent audible every 12 steps |
 
+**L1 §11 ensemble and §12 GLOBE duet: ✂️ cut for Video 1** (D11). L3's UI doesn't use them and there's no time before the freeze to agree an API, build and test; they may come after the freeze.
+
 Place History audio is no longer a Phase 7 item: it's `playSeries()` in Phase 5 (L3 B6, agreed on PR #4). L3's History panel plays one metric at a time, so the planned two-voice `playHistory(months, heatAnoms, rainMmDay)` is dropped.
 
 **Deliverables checklist (Phase 7):** one line per built item: "- [ ] <item>: test in the table passes; entry added/updated in `mapping.json`; `designChoice` set correctly".
@@ -732,15 +734,17 @@ Place History audio is no longer a Phase 7 item: it's `playSeries()` in Phase 5 
 **Prerequisites:** Phases 0–6 ✅ (7 optional).
 
 ### 11.1 Tasks
+0. **Phone wake fix** — port L3's `ae286f1` into `startEngine` (Section 4.1 task 3): `"playback"` audio session where supported, resume unless `"running"`. Re-check through L3's `withFallbacks(l2)`.
 1. **T3 Loudness balance** — ocean at 220 / 440 / 880 Hz, same gain, headphones + phone; adjust `loudnessCompensation.exponent` in `mapping.json` until teammates rate them equally loud; apply the same to heat. Record the value.
 2. **T7 How many voices** — 1, 2, 3, 4 voices together (ocean, rain, water, heat); "which are playing?"; pass ≥ 8/10 at the chosen default. Set `maxConcurrentVoices` from the result.
-3. **`playClip(url)`** — fetch + `decodeAudioData` **ahead of time** (`preloadClips(urls)` called by L3 at start-up — the only place L2 touches the network, and never during playback); plays through the narration bus with the sonification bus ducked (same duck values); resolves on end; Esc stops it. Emits caption `{ key: "caption.clip", params: { url } }` (L3 maps url → subtitle).
+3. **`playClip(url)`** — fetch + `decodeAudioData` **ahead of time** (`preloadClips(urls)` called by L3 at start-up — the only place L2 touches the network, and never during playback); plays through the narration bus with the sonification bus ducked (same duck values); resolves on end; Esc stops it. Clips: MP3 in `public/audio/narration_en/` and `public/audio/narration_bn/`, named after their segment (e.g. `opening.mp3`), due from L4 Tue 29, 10:00 (D12); build and test with a generated clip until then. Emits caption `{ key: "caption.clip", params: { url } }` (L3 maps url → subtitle).
 4. **Screen-off / background check** — on Android, start a sweep or then-vs-now, turn the screen off. Record whether audio continues evenly. Background timer throttling may slow the 25 ms scheduler tick (**unverified**; audible tabs are reportedly exempt). If it stutters: raise look-ahead to 1 s while `document.hidden` and back on return; retest.
 5. **Mix pass** with L4 on the actual video segments: opening, then-vs-now, time-lapse, story. Adjust only gains/timbres in `mapping.json` — no rule changes.
 6. **Clean-up:** remove every `console.warn("not implemented")` stub that's now implemented; stubs left for cut features say "cut for Video 1" instead. Remove debug logs.
 7. **Freeze note:** at 12:00 update the status table, write the final settings (duck, look-ahead, loudness exponent, max voices, harmonic gains) into the findings log.
 
 ### 11.2 Deliverables checklist (Phase 8)
+- [ ] Phone wake fix: after locking and unlocking the phone, one tap gives sound again (Android and iPhone); on iPhone it plays with the silent switch on.
 - [ ] T3 recorded; exponent set in `mapping.json`.
 - [ ] T7 recorded; `maxConcurrentVoices` set.
 - [ ] A recorded EN clip and a BN clip play via `playClip`, duck the sonification, and stop on Esc.
@@ -769,6 +773,8 @@ Resolve with the lane owner before the phase that needs it. Record the answer he
 | D8 | Place History audio: L2's `playHistory()` or L3's `playSeries()` (B6)? | Phase 5 | **Resolved (27 Sep, PR #4):** `playSeries(side, { stepMs, player })` in Phase 5; `playHistory` dropped. |
 | D9 | Caption keys and params for Then vs Now and Compare. | Phase 5 | **Resolved (27 Sep, PR #4):** L3's existing keys (Section 2.4). |
 | D10 | Then vs Now data adapter for the harness. | Phase 5 | **Resolved (27 Sep, PR #4):** reuse L3's `buildThenNowInput()` / `loadDemo()` / `loadGrace()`; no `adapters.ts`. |
+| D11 | Sonify L1's §11 ensemble and §12 GLOBE duet? | Phase 7 | **Resolved (28 Sep):** ✂️ cut for Video 1 (L3's UI doesn't use them; no time before the freeze). May come after the freeze. |
+| D12 | Recorded narration clips: format, place, deadline. | Phase 8 | **Resolved (28 Sep):** MP3, `public/audio/narration_en/` and `narration_bn/`, named after the segment, with subtitle text; due Tue 29, 10:00. If late, narration uses the browser speech voice only. |
 
 ---
 
@@ -783,8 +789,9 @@ Resolve with the lane owner before the phase that needs it. Record the answer he
 | L3 | Update `docs/L3/` (contract-proposals, integration, PROGRESS) with the PR #4 decisions: B5 and B6 accepted, the Section 2.4 caption keys, and the shared files in Section 1.1 | Phase 5 | No; asked on PR #4 |
 | L3 | Time-lapse frames as `SweepPoint[]` at the cursor (decoded from `sequence/*.u8.gz`) | Phase 6 (real use) | No |
 | L3 | Caption text for every caption key L2 emits (EN + BN) | Phase 3 onward | ✅ English for the Section 2.4 keys (Bangla pending); new keys need L3 first |
-| L4 | Recorded narration clips (EN, BN) and their subtitles | Phase 8 | Only for `playClip` test |
+| L4 | Recorded narration clips (EN, BN, MP3 in `public/audio/narration_en/` and `narration_bn/`) and their subtitles, by Tue 29, 10:00 (D12) | Phase 8 | No: if late, narration uses the browser speech voice |
 | L1 | Shapes stay frozen (already agreed) | — | — |
+| L1 | Merge `L1` into `main` (the §16 demo caption fix), then L2 merges `main` and re-checks the Phase 5 captions | Phase 8 (freeze) | No: the fix is confirmed on the `L1` branch |
 
 The caption key list lives in Section 2.4 here and in `docs/L2/AUDIO_API.md`; keep both in step.
 
