@@ -372,4 +372,4 @@ The video ends on the live app in Bangla mode, playing (team plan §14, 3:45 to 
 | `story.xraySkipped` | X-ray is coming in October: it waits for NASA's colorbar data. | TODO_BN |  |
 | `story.truth` | (sentence with values; see source) | TODO_BN | the sentence inside is §16 wording (Pending team approval); has values |
 | `story.truthLoading` | The rain check appears in the Truth panel once rain has loaded. | TODO_BN |  |
-| `story.end` | That's the story. Press Escape to explore. | TODO_BN |  |
+| `story.end` | (sentence with values; see source) | TODO_BN | has values; `close` is the translated `story.backToExplore`. Draft, not checked by a native speaker: এই ছিল একটি জায়গা। পৃথিবীর যেকোনো জায়গা শুনতে "{close}" বেছে নিন। |

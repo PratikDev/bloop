@@ -97,5 +97,5 @@ export async function runStory(d: StoryDeps): Promise<void> {
   d.openTruth();
   const rain = d.fields().rain;
   await say((tl) => (rain ? tl("story.truth", { sentence: tl("truth.rain.sentence", rainTruth(rain.meta)) }) : tl("story.truthLoading")));
-  await say((tl) => tl("story.end"));
+  await say((tl) => tl("story.end", { close: tl("story.backToExplore") }));
 }

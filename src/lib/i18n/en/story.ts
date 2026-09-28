@@ -26,5 +26,6 @@ export const storyEn = {
   "story.xraySkipped": "X-ray is coming in October: it waits for NASA's colorbar data.",
   "story.truth": (p: { sentence: string }) => `How do we know? ${p.sentence}`,
   "story.truthLoading": "The rain check appears in the Truth panel once rain has loaded.",
-  "story.end": "That's the story. Press Escape to explore.",
+  // `close` is the on-screen name of the button that ends the story (story.backToExplore), so the two never drift apart.
+  "story.end": (p: { close: string }) => `That was one place. Choose "${p.close}" to hear anywhere on Earth.`,
 };
