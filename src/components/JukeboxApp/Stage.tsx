@@ -54,7 +54,7 @@ export function Stage() {
         />
       </div>
       <div className="space-y-2 px-4 pb-3">
-        <TrackChoice className="lg:hidden" itemClassName="h-11" />
+        <TrackChoice className="xl:hidden" itemClassName="h-11" />
         {sstStatus === "error" && <StatusBadge kind="error">{t("error.ocean")}</StatusBadge>}
         {rainStatus === "error" && <StatusBadge kind="error">{t("error.rain")}</StatusBadge>}
       </div>

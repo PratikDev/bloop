@@ -26,7 +26,7 @@ export function TopBar() {
 
       <ModeTabs className="order-last w-full md:order-none md:w-auto" />
 
-      <TrackChoice className="hidden md:flex" />
+      <TrackChoice className="hidden xl:flex" />
 
       <div className="ml-auto flex items-center gap-2">
         <SettingToggle setting="describe" className="hidden h-9 px-3 text-body pointer-coarse:h-11 aria-pressed:bg-tide lg:inline-flex" />
