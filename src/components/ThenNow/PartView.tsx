@@ -64,7 +64,6 @@ function WaterView({ grace, index }: { grace: GraceContextFile; index: number | 
           from: formatMonth(bd.months[0], state.lang),
           to: formatMonth(bd.months[bd.months.length - 1], state.lang),
         })}
-        heightClass="h-64"
       />
       <p className="text-small text-haze">{t("thenNow.water.shading")}</p>
     </>
@@ -76,7 +75,7 @@ export function Headline({ caption, pending = true }: { caption: string; pending
   const t = useT();
   return (
     <div className="space-y-2">
-      <p className="font-serif text-lead leading-snug text-moon">{caption}</p>
+      <p className="font-serif text-lead leading-snug text-moon md:text-title lg:short:text-lead">{caption}</p>
       {pending && (
         <div className="flex flex-wrap items-center gap-x-3 gap-y-1">
           <StatusBadge kind="pending">{t("badge.pending")}</StatusBadge>

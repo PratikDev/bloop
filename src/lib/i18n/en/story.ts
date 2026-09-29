@@ -2,18 +2,18 @@
 // they arrive as params, read from L1's data files.
 
 export const storyEn = {
-  "story.heading": "Story",
+  "story.heading": "The tour",
   "story.step.hum": "Ocean hum",
   "story.step.sweep": "Sweep from Chattogram",
   "story.step.storm": "Storm time-lapse",
   "story.step.whisper": "Satellite whisper",
   "story.step.xray": "X-ray",
   "story.step.truth": "How we know",
-  "story.stop": "Stop story",
+  "story.stop": "Stop the tour",
   "story.replay": "Play again",
-  "story.backToExplore": "Back to Explore",
+  "story.backToExplore": "Back to the map",
   "story.source": (p: { source: string }) => `Data: ${p.source}`,
-  "story.stopped": "Story stopped. Back to Explore.",
+  "story.stopped": "Tour stopped. Back to the map.",
 
   "story.hum": (p: { reading: string }) => `Listen: the northern Bay of Bengal in today's NASA frame. ${p.reading}.`,
   "story.sweep": "Now a sweep from Chattogram across the Bay. Warmer water sounds higher; rain sounds as drops.",

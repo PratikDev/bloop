@@ -31,35 +31,40 @@ export function HelpDialog() {
 
   return (
     <Dialog open={state.helpOpen} onOpenChange={(open) => dispatch({ type: "setHelpOpen", open })}>
-      <DialogContent className="max-h-[85dvh] overflow-y-auto sm:max-w-lg">
+      <DialogContent className="max-h-[85dvh] overflow-y-auto p-6 sm:max-w-xl">
         <DialogHeader>
-          <DialogTitle className="text-title">{t("help.title")}</DialogTitle>
+          <DialogTitle className="pr-10 font-serif text-headline">{t("help.title")}</DialogTitle>
           <DialogDescription className="text-body text-haze">{t("help.focusNote")}</DialogDescription>
         </DialogHeader>
 
         <table className="w-full text-body">
-          <thead className="text-small text-haze">
+          <thead>
             <tr>
-              <th scope="col" className="pb-2 text-left font-medium">{t("help.keyColumn")}</th>
-              <th scope="col" className="pb-2 text-left font-medium">{t("help.actionColumn")}</th>
+              <th scope="col" className="eyebrow pb-2 text-left font-normal">
+                {t("help.keyColumn")}
+              </th>
+              <th scope="col" className="eyebrow pb-2 text-left font-normal">
+                {t("help.actionColumn")}
+              </th>
             </tr>
           </thead>
           <tbody>
             {KEYS.map((row) => (
-              <tr key={row.action} className="border-t border-tide">
-                <td className="py-1.5 pr-4 align-top font-medium whitespace-nowrap">{label(row.key)}</td>
-                <td className="py-1.5 text-haze">{t(row.action)}</td>
+              <tr key={row.action} className="border-t border-glass-edge">
+                <td className="py-2 pr-4 align-top whitespace-nowrap">
+                  <kbd className="inline-block rounded-md bg-night px-2 py-0.5 font-mono text-small text-moon ring-1 ring-line">{label(row.key)}</kbd>
+                </td>
+                <td className="py-2 text-haze">{t(row.action)}</td>
               </tr>
             ))}
           </tbody>
         </table>
 
-        <div className="space-y-3 border-t border-tide pt-4">
+        <div className="space-y-1 border-t border-glass-edge pt-4">
           <SettingToggle setting="builtInVoice" />
-          <p className="text-small text-haze">{t("help.voiceNote")}</p>
+          <p className="px-3 pb-1 text-small text-haze">{t("help.voiceNote")}</p>
           <SettingToggle setting="reduceMotion" />
           <SettingToggle setting="captions" />
-          {/* The top bar shows Describe only on wide screens; here it's reachable everywhere. */}
           <SettingToggle setting="describe" />
         </div>
 

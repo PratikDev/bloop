@@ -18,9 +18,11 @@ export const SETTING_LABELS = {
 } as const satisfies Record<SettingKey, string>;
 
 export const MODE_LABELS = {
+  home: "nav.home",
   explore: "mode.explore",
   story: "mode.story",
   thenNow: "mode.thenNow",
+  how: "nav.how",
 } as const satisfies Record<Mode, string>;
 
 /** The sweep currently playing, for the map's sweep ring. */

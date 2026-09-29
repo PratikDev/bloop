@@ -8,7 +8,6 @@ const deg = (v: number) => formatDegrees(v, "en");
 export const appEn = {
   "app.title": "Earth Information Jukebox",
   "app.titleShort": "Jukebox", // phones, on screen only
-  "app.skipToMap": "Skip to the sound map",
 
   "start.lead": "Hear NASA's view of today's ocean and rain as live sound.",
   "start.hint": "Headphones help: west sounds left, east sounds right.",
@@ -18,11 +17,9 @@ export const appEn = {
   "start.loading": "Loading today's ocean frame…",
   "start.skipIntro": "Skip intro",
 
-  "mode.label": "Mode",
   "mode.explore": "Explore",
-  "mode.story": "Story",
+  "mode.story": "Tour",
   "mode.thenNow": "Then vs Now",
-  "mode.notReady": "Not ready yet",
 
   "track.label": "What you hear",
   "track.ocean": "Ocean",
@@ -43,7 +40,6 @@ export const appEn = {
   "motif.play": "Play the Jukebox motif",
   "help.open": "Help",
   "help.keys": "Keys",
-  "panels.open": "Panels",
 
   "badge.pending": "Pending team approval",
   "badge.comingOctober": "Coming in October",

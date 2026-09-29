@@ -1,7 +1,7 @@
 "use client";
 
 import { useState } from "react";
-import { Play } from "lucide-react";
+import { Play } from "@phosphor-icons/react";
 import { Button } from "@/components/ui/button";
 import { useLoaded } from "@/hooks/use-loaded";
 import { usePlayhead } from "@/hooks/use-playhead";
@@ -10,10 +10,10 @@ import { decadeRange, fullDecades, HISTORY_METRICS, HISTORY_VOICE, isBangladesh,
 import { formatFixed, formatMonth, formatSigned } from "@/lib/i18n";
 import { heatNormalLabel, missingRuns } from "@/lib/then-now";
 import type { GlobalLayerName } from "@/types/data-contract";
-import { useAppState, useT } from "../../AppState/use-app-state";
-import { HistoryChart, type ChartSpan, type ScrubMotion } from "../../charts/HistoryChart";
-import { ChoiceGroup } from "../../ChoiceGroup";
-import { StatusBadge } from "../../StatusBadge";
+import { useAppState, useT } from "../AppState/use-app-state";
+import { HistoryChart, type ChartSpan, type ScrubMotion } from "../charts/HistoryChart";
+import { ChoiceGroup } from "../ChoiceGroup";
+import { StatusBadge } from "../StatusBadge";
 import { PlacePicker } from "./PlacePicker";
 import { RecordNotes } from "./RecordNotes";
 import { useHistoryData } from "./use-history-data";
@@ -27,17 +27,31 @@ const LAYER_LOADERS: Record<GlobalLayerName, () => ReturnType<typeof loadGlobalL
   water: () => loadGlobalLayer("water"),
 };
 
+export const DEFAULT_PLACE = "Chattogram";
+
 /**
- * Place History (plan H1, H3): one place's monthly heat, rain or water record,
- * a decade played month by month with a playhead, and dragging along the chart
- * (or its arrow keys) to hear one month. Bangladesh's cities and L1's world places.
+ * Month by month (Place History, plan H1, H3): one place's monthly heat, rain
+ * or water record, a decade played month by month with a playhead, and
+ * dragging along the chart (or its arrow keys) to hear one month. Bangladesh's
+ * cities and L1's world places. The place and the record live in the URL (the page passes them in).
  */
-export function HistoryPanel() {
+export function MonthByMonth({
+  place: requested,
+  metric,
+  onPlace,
+  onMetric,
+}: {
+  place: string;
+  metric: HistoryMetric;
+  onPlace: (place: string) => void;
+  onMetric: (metric: HistoryMetric) => void;
+}) {
   const { state } = useAppState();
   const t = useT();
   const data = useHistoryData();
-  const [place, setPlace] = useState<string>("Chattogram");
-  const [metric, setMetric] = useState<HistoryMetric>("heat");
+  // A place the files don't have (an old or mistyped link) shows the default place, never an endless "loading".
+  const known = isBangladesh(requested) || data.status !== "ready" || (data.world?.places.places.some((w) => w.name === requested) ?? false);
+  const place = known ? requested : DEFAULT_PLACE;
   const [decadeChoice, setDecadeChoice] = useState<number | null>(null);
   const players = useHistoryPlayers();
   const head = usePlayhead(HISTORY_PLAYER);
@@ -59,12 +73,12 @@ export function HistoryPanel() {
   const series = placeSeries(metric, place, data, { places: data.world?.places.places ?? [], layer: layer.value });
   const pickers = (
     <div className="space-y-3">
-      <PlacePicker value={place} onChange={choose(setPlace)} world={data.world?.places.places ?? []} name={name} />
+      <PlacePicker value={place} onChange={choose(onPlace)} world={data.world?.places.places ?? []} name={name} />
       <ChoiceGroup<HistoryMetric>
         label={t("history.metric")}
         showLabel
         value={metric}
-        onChange={choose(setMetric)}
+        onChange={choose(onMetric)}
         options={HISTORY_METRICS.map((m) => ({ value: m, label: t(`history.${m}`) }))}
       />
     </div>
@@ -106,50 +120,50 @@ export function HistoryPanel() {
     players.playDecade({ label: `${name(place)}, ${t("history.decadeLabel", { decade })}`, values: series.values.slice(start, end), voice }, start);
 
   return (
-    <div className="space-y-4">
-      <p className="text-haze">{t("history.intro")}</p>
-      {pickers}
-      {decades.length > 0 && (
-        <ChoiceGroup<string>
-          label={t("history.decade")}
-          showLabel
-          value={String(decade)}
-          onChange={choose((d: string) => setDecadeChoice(Number(d)))}
-          options={decades.map((d) => ({ value: String(d), label: t("history.decadeLabel", { decade: d }) }))}
-          className="flex-wrap"
+    <div className="grid items-start gap-4 lg:grid-cols-[20rem_minmax(0,1fr)]">
+      <div className="surface-plate space-y-4 rounded-plate p-4 lg:short:space-y-3">
+        <p className="text-small text-haze">{t("history.intro")}</p>
+        {pickers}
+        {decades.length > 0 && (
+          <ChoiceGroup<string>
+            label={t("history.decade")}
+            showLabel
+            value={String(decade)}
+            onChange={choose((d: string) => setDecadeChoice(Number(d)))}
+            options={decades.map((d) => ({ value: String(d), label: t("history.decadeLabel", { decade: d }) }))}
+          />
+        )}
+        {decade !== undefined && (
+          <Button disabled={!state.soundOn} onClick={play} className="h-11 w-full justify-start gap-2 rounded-full bg-shapla px-4 text-body text-ink hover:bg-shapla/90">
+            <Play aria-hidden="true" weight="fill" />
+            {t("history.play", { decade })}
+          </Button>
+        )}
+        {!state.soundOn && <p className="text-small text-haze">{t("thenNow.soundOff")}</p>}
+      </div>
+
+      <div className="surface-plate space-y-3 rounded-plate p-4 md:p-5">
+        {/* The picked month on screen (its engine caption is left out); the slider announces it to screen readers. */}
+        <p aria-hidden="true" className="min-h-8 font-serif text-title text-moon tabular-nums">
+          {players.monthIndex !== null ? monthText(players.monthIndex) : name(place)}
+        </p>
+        <HistoryChart
+          rows={series.months.map((month, i) => ({ i, month, value: series.values[i] }))}
+          series={[{ key: "value", label: `${name(place)}: ${series.dataset}`, tone: "now" }]}
+          spans={spans}
+          unit={unit}
+          zeroLine={metric === "heat" ? heatNormalLabel() : undefined}
+          playheadIndex={head && players.playingFrom !== null ? players.playingFrom + head.index : players.monthIndex}
+          scrub={{ value: players.monthIndex, label: t("history.scrub", { place: name(place) }), valueText: monthText, onChange: playMonth }}
+          summary={t("history.summary", {
+            metric: t(`history.${metric}`),
+            place: name(place),
+            from: formatMonth(series.months[0], state.lang),
+            to: formatMonth(series.months[series.months.length - 1], state.lang),
+          })}
         />
-      )}
-
-      <HistoryChart
-        rows={series.months.map((month, i) => ({ i, month, value: series.values[i] }))}
-        series={[{ key: "value", label: `${name(place)}: ${series.dataset}`, tone: "now" }]}
-        spans={spans}
-        unit={unit}
-        zeroLine={metric === "heat" ? heatNormalLabel() : undefined}
-        playheadIndex={head && players.playingFrom !== null ? players.playingFrom + head.index : players.monthIndex}
-        scrub={{ value: players.monthIndex, label: t("history.scrub", { place: name(place) }), valueText: monthText, onChange: playMonth }}
-        summary={t("history.summary", {
-          metric: t(`history.${metric}`),
-          place: name(place),
-          from: formatMonth(series.months[0], state.lang),
-          to: formatMonth(series.months[series.months.length - 1], state.lang),
-        })}
-        heightClass="h-52"
-      />
-      {/* The picked month on screen (its engine caption is left out); the slider announces it to screen readers. */}
-      <p aria-hidden="true" className="min-h-6 font-serif text-lead text-moon tabular-nums">
-        {players.monthIndex !== null ? monthText(players.monthIndex) : ""}
-      </p>
-
-      {decade !== undefined && (
-        <Button disabled={!state.soundOn} onClick={play} className="h-11 gap-2 bg-tide px-4 text-body">
-          <Play aria-hidden="true" />
-          {t("history.play", { decade })}
-        </Button>
-      )}
-      {!state.soundOn && <p className="text-small text-haze">{t("thenNow.soundOff")}</p>}
-
-      <RecordNotes series={series} name={name} world={world && data.world ? { disclosure: data.world.manifest.disclosure } : null} />
+        <RecordNotes series={series} name={name} world={world && data.world ? { disclosure: data.world.manifest.disclosure } : null} />
+      </div>
     </div>
   );
 }

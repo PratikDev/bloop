@@ -1,6 +1,8 @@
 "use client";
 
 import { useMemo, useRef, type ReactNode } from "react";
+import { useNavigate } from "@tanstack/react-router";
+import { locationForMode } from "@/router/modes";
 import { sleep } from "@/lib/abortable";
 import { audio } from "@/lib/audio-adapter";
 import { bandMeans, SWEEP_CENTER, sweepPath } from "@/lib/data";
@@ -11,7 +13,7 @@ import { whisperSource, type WhisperSource } from "@/lib/whisper";
 import { useAnnounce } from "../Announcer/use-announcer";
 import { useAppState } from "../AppState/use-app-state";
 import { useLiveData } from "../LiveData/use-live-data";
-import { CommandsContext, MODE_LABELS, SETTING_LABELS, type Line, type Commands, type SweepVisual } from "./use-commands";
+import { CommandsContext, SETTING_LABELS, type Line, type Commands, type SweepVisual } from "./use-commands";
 import { useSoundSync } from "./use-sound-sync";
 
 // Shortest time a said line stays before the next one (about fast reading speed).
@@ -24,6 +26,7 @@ export function CommandsProvider({ children }: { children: ReactNode }) {
   const sweepRef = useRef<SweepVisual | null>(null);
   // Counts say() calls and stops, so a whisper never follows a cancelled value.
   const sayCount = useRef(0);
+  const navigate = useNavigate();
   useSoundSync(state, fields);
 
   const commands = useMemo<Commands>(() => {
@@ -81,9 +84,9 @@ export function CommandsProvider({ children }: { children: ReactNode }) {
         dispatch({ type: "setTrack", track });
         announce(t("announce.track", { track: trackName(track) }));
       },
+      // The URL is the mode's one source: this navigates, and use-route-sync copies it into the state.
       setMode(mode) {
-        dispatch({ type: "setMode", mode });
-        announce(t("announce.mode", { mode: t(MODE_LABELS[mode]) }));
+        void navigate(locationForMode(mode));
       },
       setLang(lang) {
         dispatch({ type: "setLang", lang });
@@ -147,12 +150,12 @@ export function CommandsProvider({ children }: { children: ReactNode }) {
         dispatch({ type: "setHelpOpen", open: false });
         dispatch({ type: "setPanelOpen", open: false });
         // Ending a story: back to Explore, with one combined message.
-        if (state.mode === "story") dispatch({ type: "setMode", mode: "explore" });
+        if (state.mode === "story") void navigate(locationForMode("explore"));
         announce(t(state.mode === "story" ? "story.stopped" : "sound.stopped"));
       },
       sweepRef,
     };
-  }, [state, dispatch, fields, sst, announce]);
+  }, [state, dispatch, fields, sst, announce, navigate]);
 
   return <CommandsContext.Provider value={commands}>{children}</CommandsContext.Provider>;
 }

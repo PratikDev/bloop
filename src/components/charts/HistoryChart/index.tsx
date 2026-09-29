@@ -3,7 +3,7 @@
 import { CartesianGrid, Line, LineChart, ReferenceArea, ReferenceLine, XAxis, YAxis } from "recharts";
 import { ChartContainer, type ChartConfig } from "@/components/ui/chart";
 import { cn } from "@/lib/utils";
-import { AXIS, LegendItem, LineSwatch, unitLabel, ZERO_LINE_STROKE, ZeroLineKey } from "../chart-style";
+import { AXIS, CHART_HEIGHT, LegendItem, LineSwatch, unitLabel, ZERO_LINE_STROKE, ZeroLineKey } from "../chart-style";
 import { useScrub, type ChartScrub, type ScrubMotion } from "./use-scrub";
 
 export type { ChartScrub, ScrubMotion };
@@ -43,7 +43,7 @@ export function HistoryChart({
   zeroLine,
   playheadIndex,
   summary,
-  heightClass = "h-60",
+  heightClass = CHART_HEIGHT,
   scrub,
 }: {
   rows: MonthlyPoint[];

@@ -5,24 +5,32 @@
 /* Short screens (a 1280×720 laptop): the map is under 450 px tall, so the plates on it get compact. */
 @custom-variant short (@media (max-height: 50rem));
 
-/* "Night over the Bay" — docs/L3/design-plan.md §2.
-   Every chrome colour sits in the hue range NASA's colormaps don't use
-   (255°–330°), so nothing in the interface can be mistaken for data. */
+/* "Signals over the Bay" (docs/L3/REDESIGN.md §1), on the "Night over the Bay"
+   palette (docs/L3/design-plan.md §2). Every chrome colour sits in the hue range
+   NASA's colormaps don't use (255°–330°), so nothing in the interface can be
+   mistaken for data. */
 
 :root {
   color-scheme: dark;
 
-  /* Palette */
-  --night: #15122a;
-  --dusk: #201c3a;
-  --tide: #2c2750;
-  --land: #26223f;
-  --line: #7870a8;
-  --moon: #edeaf6;
-  --haze: #aba4c8;
+  /* Palette (hue ≈ 258°) */
+  --night: #120c20;
+  --dusk: #1a132c;
+  --tide: #2a1e46;
+  --land: #241a3a;
+  --line: #7664a0;
+  --moon: #efeaf8;
+  --haze: #ada0cd;
   --shapla: #ff9bd4;
-  --ink: #0b0918;
-  --scrim: rgb(21 18 42 / 0.88);
+  --ink: #0b0716;
+  --void: #06040c; /* the intro's darkness: deeper than any page, so it never reads as one */
+  --scrim: rgb(18 12 32 / 0.84);
+
+  /* Surfaces: glass over the map, and the glow of "listening now" */
+  --glass: rgb(26 19 44 / 0.72);
+  --glass-edge: rgb(239 234 248 / 0.08);
+  --glow: rgb(255 155 212 / 0.28);
+  --shadow-tint: rgb(6 3 14 / 0.55);
 
   /* Charts: "then" is the quieter tone, "now" the brighter; shape tells them
      apart too (hollow vs filled). The playhead is --shapla, as it listens. */
@@ -58,9 +66,24 @@
   --sidebar-border: var(--line);
   --sidebar-ring: var(--shapla);
 
-  /* Radius hierarchy: controls 6 px; sheets and dialogs 14 px on their map edge */
-  --radius: 6px;
-  --radius-sheet-value: 14px;
+  /* Radius hierarchy: controls 8 px; plates 14 px; sheets and dialogs 20 px on their map edge */
+  --radius: 8px;
+  --radius-plate-value: 14px;
+  --radius-sheet-value: 20px;
+
+  /* Motion: exits fast, entrances a little slower, movement longest */
+  --ease-out-soft: cubic-bezier(0.22, 1, 0.36, 1);
+  --duration-exit: 160ms;
+  --duration-enter: 260ms;
+  --duration-move: 420ms;
+
+  /* Layers */
+  --layer-map-plates: 10;
+  --layer-dock: 20;
+  --layer-header: 25;
+  --layer-opening: 30;
+  --layer-start: 40;
+  --layer-grain: 60;
 }
 
 @theme inline {
@@ -73,7 +96,11 @@
   --color-haze: var(--haze);
   --color-shapla: var(--shapla);
   --color-ink: var(--ink);
+  --color-void: var(--void);
   --color-scrim: var(--scrim);
+  --color-glass: var(--glass);
+  --color-glass-edge: var(--glass-edge);
+  --color-glow: var(--glow);
   --color-chart-then: var(--chart-then);
   --color-chart-now: var(--chart-now);
   --color-chart-grid: var(--chart-grid);
@@ -105,23 +132,30 @@
   --color-sidebar-border: var(--sidebar-border);
   --color-sidebar-ring: var(--sidebar-ring);
 
-  /* Type: Anek Bangla for UI, Tiro Bangla only for narration and captions */
-  --font-sans: var(--font-anek), system-ui, sans-serif;
-  --font-serif: var(--font-tiro), Georgia, serif;
-  --font-heading: var(--font-anek), system-ui, sans-serif;
+  /* Type: Geist for the interface, Instrument Serif for display and narration,
+     Geist Mono for coordinates, times and units. Bengali text falls through
+     each stack to its Bangla partner (Anek Bangla, Tiro Bangla). */
+  --font-sans: var(--font-geist), var(--font-anek), system-ui, sans-serif;
+  --font-serif: var(--font-instrument), var(--font-tiro), Georgia, serif;
+  --font-heading: var(--font-geist), var(--font-anek), system-ui, sans-serif;
+  --font-mono: var(--font-geist-mono), var(--font-anek), ui-monospace, monospace;
 
-  /* Scale, ratio 1.25 from 16 px (design-plan §3.2) */
+  /* Scale, ratio 1.25 from 16 px (design-plan §3.2), plus two display steps */
   --text-small: 0.8rem;
-  --text-small--line-height: 1.4;
+  --text-small--line-height: 1.45;
   --text-body: 1rem;
-  --text-body--line-height: 1.5;
+  --text-body--line-height: 1.55;
   --text-lead: 1.25rem;
   --text-lead--line-height: 1.4;
   --text-title: 1.5625rem;
-  --text-title--line-height: 1.3;
+  --text-title--line-height: 1.25;
+  --text-headline: clamp(2rem, 1.2rem + 2.4vw, 3.25rem);
+  --text-headline--line-height: 1.02;
+  --text-display: clamp(3rem, 1.6rem + 5.2vw, 6.5rem);
+  --text-display--line-height: 0.94;
   --text-readout-mobile: 3.05rem;
   --text-readout-mobile--line-height: 1;
-  --text-readout: 3.8125rem;
+  --text-readout: 4.25rem;
   --text-readout--line-height: 1;
 
   --radius-sm: calc(var(--radius) * 0.6);
@@ -131,15 +165,25 @@
   --radius-2xl: calc(var(--radius) * 1.8);
   --radius-3xl: calc(var(--radius) * 2.2);
   --radius-4xl: calc(var(--radius) * 2.6);
+  --radius-plate: var(--radius-plate-value);
   --radius-sheet: var(--radius-sheet-value);
+
+  --shadow-float: 0 18px 48px -18px var(--shadow-tint), 0 2px 6px -2px var(--shadow-tint);
+  --shadow-glow: 0 0 14px 1px var(--glow);
+
+  --ease-out-soft: var(--ease-out-soft);
+
+  --animate-signal-pulse: signal-pulse 2.4s var(--ease-out-soft) infinite;
+  --animate-rise: rise var(--duration-move) var(--ease-out-soft) both;
+  --animate-breathe: breathe 6s ease-in-out infinite;
 }
 
-/* The readout value: Anek at weight 350, slightly extended, tabular digits
-   (weight chosen by the 200% zoom test, design-plan §3.3). */
+/* The readout value: the display serif, tabular digits (the 200% zoom test, design-plan §3.3). */
 @utility readout-figure {
-  font-weight: 350;
-  font-stretch: 112%;
+  font-family: var(--font-serif);
+  font-weight: 400;
   font-variant-numeric: tabular-nums;
+  letter-spacing: -0.02em;
 }
 
 /* Bengali digits are not covered by tnum: each sits in a fixed cell (§3.1). */
@@ -149,6 +193,47 @@
   text-align: center;
 }
 
+/* Display type: tight tracking, balanced lines. */
+@utility display-tight {
+  letter-spacing: -0.025em;
+  text-wrap: balance;
+}
+
+/* Small labels above values: mono, spaced, quiet. */
+@utility eyebrow {
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--haze);
+}
+
+/* Nakshi kantha running stitch: a hand-sewn dashed line (dividers, timelines). */
+@utility stitch-x {
+  height: 1.5px;
+  background: repeating-linear-gradient(90deg, var(--line) 0 7px, transparent 7px 12px);
+}
+@utility stitch-y {
+  width: 1.5px;
+  background: repeating-linear-gradient(180deg, var(--line) 0 7px, transparent 7px 12px);
+}
+@utility stitch-border {
+  border: 1.5px dashed var(--line);
+}
+
+/* Glass over the map: blur, a 1 px lit edge, a tinted shadow. */
+@utility surface-glass {
+  background: var(--glass);
+  backdrop-filter: blur(14px) saturate(1.2);
+  box-shadow: inset 0 0 0 1px var(--glass-edge), var(--shadow-float);
+}
+
+/* A quiet raised surface (no blur), for plates away from the map. */
+@utility surface-plate {
+  background: var(--dusk);
+  box-shadow: inset 0 0 0 1px var(--glass-edge);
+}
+
 @layer base {
   * {
     @apply border-border;
@@ -156,12 +241,34 @@
   html {
     @apply bg-background font-sans text-foreground;
     -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
   }
   html:lang(bn) body {
     line-height: 1.6;
   }
   body {
     @apply bg-background;
+    background-image: radial-gradient(120% 80% at 80% -10%, var(--tide) 0%, transparent 55%),
+      radial-gradient(90% 70% at -10% 110%, var(--land) 0%, transparent 60%);
+    background-attachment: fixed;
+  }
+  /* Film grain over everything: breaks the flat digital dark. Decorative and click-through. */
+  body::after {
+    content: "";
+    position: fixed;
+    inset: 0;
+    z-index: var(--layer-grain);
+    pointer-events: none;
+    opacity: 0.06;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  }
+  h1,
+  h2,
+  h3 {
+    text-wrap: balance;
+  }
+  p {
+    text-wrap: pretty;
   }
 }
 
@@ -178,6 +285,11 @@
   outline-offset: -4px;
 }
 
+/* A page's heading takes focus after navigation; it needs no ring (it isn't a control). */
+[data-page-title]:focus {
+  outline: none;
+}
+
 /* C1: the frame opens out from the equator line, 1.2 s. */
 @keyframes reveal-from-equator {
   from {
@@ -189,7 +301,68 @@
 }
 
 @utility animate-reveal-equator {
-  animation: reveal-from-equator 1.2s cubic-bezier(0.22, 1, 0.36, 1) both;
+  animation: reveal-from-equator 1.2s var(--ease-out-soft) both;
+}
+
+/* A ring spreading from a point: "a signal". */
+@keyframes signal-pulse {
+  0% {
+    transform: scale(0.4);
+    opacity: 0.9;
+  }
+  100% {
+    transform: scale(2.6);
+    opacity: 0;
+  }
+}
+
+/* The intro's glow: a slow breath (about the pace of calm breathing). */
+@keyframes breathe {
+  0%,
+  100% {
+    opacity: 0.35;
+    transform: scale(0.92);
+  }
+  50% {
+    opacity: 0.7;
+    transform: scale(1.06);
+  }
+}
+
+@keyframes rise {
+  from {
+    opacity: 0;
+    transform: translateY(14px);
+    filter: blur(4px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+    filter: none;
+  }
+}
+
+/* Page changes: "retuning". The old page dims and drifts away, the new one
+   rises into focus, the header stays put (view-transition-name: header). */
+@keyframes retune-out {
+  to {
+    opacity: 0;
+    transform: translateY(-10px) scale(0.99);
+    filter: blur(6px);
+  }
+}
+@keyframes retune-in {
+  from {
+    opacity: 0;
+    transform: translateY(16px) scale(1.01);
+    filter: blur(6px);
+  }
+}
+::view-transition-old(root) {
+  animation: retune-out var(--duration-exit) ease-in both;
+}
+::view-transition-new(root) {
+  animation: retune-in var(--duration-move) var(--ease-out-soft) var(--duration-exit) both;
 }
 
 /* In-app "Reduce motion" (the OS setting sets its default). */
@@ -197,5 +370,11 @@ html[data-reduce-motion="true"] *,
 html[data-reduce-motion="true"] *::before,
 html[data-reduce-motion="true"] *::after {
   animation-duration: 0s !important;
+  animation-delay: 0s !important;
   transition-duration: 0s !important;
+}
+html[data-reduce-motion="true"]::view-transition-group(*),
+html[data-reduce-motion="true"]::view-transition-old(*),
+html[data-reduce-motion="true"]::view-transition-new(*) {
+  animation: none !important;
 }

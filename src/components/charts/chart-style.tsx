@@ -5,7 +5,10 @@ import type { ReactNode } from "react";
 
 const AXIS_FONT_PX = 12.8;
 
-export const AXIS = { stroke: "var(--line)", tick: { fill: "var(--haze)", fontSize: AXIS_FONT_PX } };
+/** Chart height on the pages that fit one screen: grows with the screen, within reason (a little less on short laptops). */
+export const CHART_HEIGHT = "h-[clamp(9rem,28dvh,21rem)] lg:short:h-[clamp(8rem,24dvh,18rem)]";
+
+export const AXIS = { stroke: "var(--line)", tick: { fill: "var(--haze)", fontSize: AXIS_FONT_PX, fontFamily: "var(--font-mono)" } };
 
 /** The unit, written up the y-axis. */
 export const unitLabel = (unit: string) => ({ value: unit, angle: -90, position: "insideLeft" as const, fill: "var(--haze)", fontSize: AXIS_FONT_PX });

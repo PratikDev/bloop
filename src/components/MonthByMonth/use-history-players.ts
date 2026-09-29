@@ -4,7 +4,7 @@ import { useCallback, useEffect, useRef, useState } from "react";
 import { audio } from "@/lib/audio-adapter";
 import type { CompareSide, PlayerHandle } from "@/lib/audio-adapter/types";
 import { postCaption, quietSideCaption } from "@/lib/ui-captions";
-import type { ScrubMotion } from "../../charts/HistoryChart";
+import type { ScrubMotion } from "../charts/HistoryChart";
 
 export const HISTORY_PLAYER = "history";
 const MONTH_PLAYER = "history.scrub";

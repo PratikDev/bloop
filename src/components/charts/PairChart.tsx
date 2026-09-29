@@ -2,8 +2,9 @@
 
 import { CartesianGrid, Line, LineChart, ReferenceLine, XAxis, YAxis } from "recharts";
 import { ChartContainer, type ChartConfig } from "@/components/ui/chart";
+import { cn } from "@/lib/utils";
 import type { PairRow, SeriesPair } from "@/lib/field-records";
-import { AXIS, LegendItem, LineSwatch, unitLabel } from "./chart-style";
+import { AXIS, CHART_HEIGHT, LegendItem, LineSwatch, unitLabel } from "./chart-style";
 
 /**
  * Two periods on one shared axis (position in the season or window), each
@@ -17,6 +18,7 @@ export function PairChart({
   unit,
   tick,
   summary,
+  heightClass = CHART_HEIGHT,
 }: {
   rows: PairRow[];
   pair: SeriesPair;
@@ -25,6 +27,7 @@ export function PairChart({
   /** Axis label for a position, e.g. "1 Mar". */
   tick: (i: number) => string;
   summary: string; // text alternative for the whole chart
+  heightClass?: string;
 }) {
   const config = {
     then: { label: labels.then, color: "var(--chart-then)" },
@@ -34,7 +37,7 @@ export function PairChart({
 
   return (
     <figure aria-label={summary} className="space-y-2">
-      <ChartContainer config={config} className="aspect-auto h-60 w-full">
+      <ChartContainer config={config} className={cn("aspect-auto w-full", heightClass)}>
         <LineChart data={rows} margin={{ top: 8, right: 16, bottom: 4, left: 0 }} accessibilityLayer>
           <CartesianGrid stroke="var(--chart-grid)" vertical={false} />
           <XAxis dataKey="i" type="number" domain={[0, last]} tickFormatter={tick} minTickGap={32} {...AXIS} />

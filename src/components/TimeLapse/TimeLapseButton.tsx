@@ -1,6 +1,6 @@
 "use client";
 
-import { CloudRain, Square } from "lucide-react";
+import { CloudRain, Stop } from "@phosphor-icons/react";
 import { Button } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
 import { useT } from "../AppState/use-app-state";
@@ -24,14 +24,21 @@ export function TimeLapseButton({ className }: { className?: string }) {
       variant="ghost"
       onClick={busy ? timeLapse.stop : () => void timeLapse.start()}
       // Loading: say what pressing it does, since the visible text is the percentage.
-      aria-label={status === "loading" ? `${label}. ${t("timelapse.stop")}` : undefined}
-      className={cn("relative overflow-hidden", className)}
+      // Always the full name, so the phone's short word never changes it (the word is part of it).
+      aria-label={status === "loading" ? `${label}. ${t("timelapse.stop")}` : label}
+      className={cn("overflow-hidden", className)}
     >
-      {busy ? <Square aria-hidden="true" /> : <CloudRain aria-hidden="true" />}
-      <span className="tabular-nums">{label}</span>
+      {busy ? <Stop aria-hidden="true" weight="fill" /> : <CloudRain aria-hidden="true" />}
+      {/* The visible word: short on phones, a little longer from 768 px; both are part of the name. */}
+      <span aria-hidden="true" className="tabular-nums md:hidden">
+        {status === "loading" ? label : t(status === "playing" ? "dock.short.stop" : "dock.short.timelapse")}
+      </span>
+      <span aria-hidden="true" className="hidden tabular-nums md:inline">
+        {status === "loading" ? label : t(status === "playing" ? "timelapse.stop" : "dock.label.timelapse")}
+      </span>
       {status === "loading" && (
-        <span aria-hidden="true" className="absolute inset-x-0 bottom-0 h-0.5 bg-tide">
-          <span className="block h-full bg-shapla transition-[width] duration-200 motion-reduce:transition-none" style={{ width: `${percent}%` }} />
+        <span aria-hidden="true" className="absolute inset-x-2 bottom-1 h-0.5 overflow-hidden rounded-full bg-tide">
+          <span className="block h-full origin-left bg-shapla transition-transform duration-200" style={{ transform: `scaleX(${percent / 100})` }} />
         </span>
       )}
     </Button>
