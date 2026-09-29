@@ -8,7 +8,7 @@ For the teammate translating the interface into Bangla.
 - Voice names in the Mapping panel come from `public/mapping.json` (`label.bn`, owned by L2), not from this list. Entries there starting with `TODO:` still show English.
 - Rows this doesn't list: the Mapping panel's rule sentences and global rules are English text from L2's `mapping.ts` and `mapping.json`. Bangla rule sentences need `ruleParts()` (planned for Phase 4).
 
-**Still to translate:** 275 of 275 strings (every row marked TODO_BN). Until a string is translated, the Bangla setting shows it in English; speech stays English (with Bangla on screen) until `BANGLA_SPEECH_READY` in `src/lib/i18n/bn.ts` is set.
+**Still to translate:** 326 of 326 strings (every row marked TODO_BN). Until a string is translated, the Bangla setting shows it in English; speech stays English (with Bangla on screen) until `BANGLA_SPEECH_READY` in `src/lib/i18n/bn.ts` is set.
 
 ## Priority: the video's closing shot (translate these first)
 
@@ -55,8 +55,8 @@ The video ends on the live app in Bangla mode, playing (team plan §14, 3:45 to 
 | Bottom bar | `mixer.muteShort` | Mute | mixer, wide screens |
 | Bottom bar | `mixer.soloShort` | Solo | mixer, wide screens |
 | Credits | `credits.visualizations` | Visualizations: NASA's Scientific Visualization Studio (SVS 5101, 4285) for the NASA Earth Information Center. | §15: translate only the lead-in; names stay English |
-| Credits | `credits.data` | Data in this app: MUR SST (NASA/JPL PO.DAAC); GPM IMERG (NASA/JAXA, GES DISC); GRACE/GRACE-FO JPL mascons RL06.3Mv04 (NASA/JPL PO.DAAC); NASA GISTEMP v4; GPCP v2.3 and GPCC Full Data v2020 (via NOAA PSL). | §15: translate only "Data in this app:"; names stay English |
-| Credits | `credits.testing` | Also used in our testing: NASA FIRMS; MODIS MOD13Q1 via ORNL DAAC; NASA GLOBE Program. | §15: translate only "Also used in our testing:"; names stay English |
+| Credits | `credits.data` | Data in this app: MUR SST (NASA/JPL PO.DAAC); GPM IMERG (NASA/JAXA, GES DISC); GRACE/GRACE-FO JPL mascons RL06.3Mv04 (NASA/JPL PO.DAAC); NASA GISTEMP v4; GPCP v2.3 and GPCC Full Data v2020 (via NOAA PSL); NASA FIRMS; MODIS MOD13Q1 via ORNL DAAC; NASA GLOBE Program. | §15: translate only "Data in this app:"; names stay English |
+| Credits | `credits.testing` | Also used in our testing: NASA POWER (dropped: it disagreed with independent records). | §15: translate only "Also used in our testing:"; names stay English |
 | Start screen | `start.lead` | Hear NASA's view of today's ocean and rain as live sound. |  |
 | Start screen | `start.hint` | Headphones help: west sounds left, east sounds right. |  |
 | Start screen | `start.button` | Start listening |  |
@@ -161,12 +161,12 @@ The video ends on the live app in Bangla mode, playing (team plan §14, 3:45 to 
 | `timelapse.announceStart` | (sentence with values; see source) | TODO_BN | has values |
 | `timelapse.frame` | (sentence with values; see source) | TODO_BN | has values |
 | `credits.visualizations` | Visualizations: NASA's Scientific Visualization Studio (SVS 5101, 4285) for the NASA Earth Information Center. | TODO_BN | §15 wording; dataset names stay in English |
-| `credits.data` | Data in this app: MUR SST (NASA/JPL PO.DAAC); GPM IMERG (NASA/JAXA, GES DISC); GRACE/GRACE-FO JPL mascons RL06.3Mv04 (NASA/JPL PO.DAAC); NASA GISTEMP v4; GPCP v2.3 and GPCC Full Data v2020 (via NOAA PSL). | TODO_BN | §15 wording; dataset names stay in English |
+| `credits.data` | Data in this app: MUR SST (NASA/JPL PO.DAAC); GPM IMERG (NASA/JAXA, GES DISC); GRACE/GRACE-FO JPL mascons RL06.3Mv04 (NASA/JPL PO.DAAC); NASA GISTEMP v4; GPCP v2.3 and GPCC Full Data v2020 (via NOAA PSL); NASA FIRMS; MODIS MOD13Q1 via ORNL DAAC; NASA GLOBE Program. | TODO_BN | §15 wording; dataset names stay in English |
 | `place.Chattogram` | Chattogram | TODO_BN | place name |
 | `place.Dhaka` | Dhaka | TODO_BN | place name |
 | `place.Rajshahi` | Rajshahi | TODO_BN | place name |
 | `place.Sylhet` | Sylhet | TODO_BN | place name |
-| `credits.testing` | Also used in our testing: NASA FIRMS; MODIS MOD13Q1 via ORNL DAAC; NASA GLOBE Program. | TODO_BN |  |
+| `credits.testing` | Also used in our testing: NASA POWER (dropped: it disagreed with independent records). | TODO_BN |  |
 
 ## Help
 
@@ -277,6 +277,13 @@ The video ends on the live app in Bangla mode, playing (team plan §14, 3:45 to 
 | `provenance.utc` | (sentence with values; see source) | TODO_BN | has values |
 | `provenance.check` | Check | TODO_BN |  |
 | `provenance.checkIsToday` | (sentence with values; see source) | TODO_BN | has values |
+| `truth.ocean.sentence` | (sentence with values; see source) | TODO_BN | L1's template; has values |
+| `truth.ocean.recheck` | (sentence with values; see source) | TODO_BN | has values |
+| `truth.rain.recheck` | (sentence with values; see source) | TODO_BN | has values |
+| `globe.teaser` | Teaser: coming in October | TODO_BN | badge |
+| `globe.plan` | Citizen observers vs satellite: two perspectives, not right vs wrong. | TODO_BN |  |
+| `globe.featured` | (sentence with values; see source) | TODO_BN | has values |
+| `globe.summary` | (sentence with values; see source) | TODO_BN | has values |
 
 ## Then vs Now and Place History
 
@@ -288,7 +295,7 @@ The video ends on the live app in Bangla mode, playing (team plan §14, 3:45 to 
 | `thenNow.part.monsoon` | Monsoon rain | TODO_BN |  |
 | `thenNow.part.water` | Water underground | TODO_BN |  |
 | `thenNow.play` | Play this part | TODO_BN |  |
-| `thenNow.playAll` | Play all three | TODO_BN |  |
+| `thenNow.playAll` | Play heat, rain and water | TODO_BN |  |
 | `thenNow.split` | Then left, now right | TODO_BN |  |
 | `thenNow.stop` | Stop | TODO_BN |  |
 | `thenNow.soundOff` | Sound is off. Turn sound on to hear this comparison. | TODO_BN |  |
@@ -332,6 +339,50 @@ The video ends on the live app in Bangla mode, playing (team plan §14, 3:45 to 
 | `history.monthValue` | (sentence with values; see source) | TODO_BN | has values; the month and value while dragging along the chart |
 | `history.loading` | Loading the records… | TODO_BN |  |
 | `history.error` | Couldn't load the records. Reload the page to try again. | TODO_BN |  |
+| `thenNow.title` | (sentence with values; see source) | TODO_BN | has values |
+| `thenNow.city` | City | TODO_BN |  |
+| `thenNow.computed` | Computed, same method as Dhaka. Only Dhaka's records were cross-checked against independent records. | TODO_BN |  |
+| `thenNow.waterNational` | Water underground is one national record (the Bangladesh box), the same for every city. | TODO_BN |  |
+| `thenNow.crosscheckAlt` | Two charts for Dhaka. Top: June to September rain since the 1890s from rain gauges (GPCC), GPCP and NASA POWER; POWER reads far below the other two. Bottom: April to May daily maximum temperature from NASA POWER and a weather station; POWER runs well above the station. | TODO_BN | image description, read by screen readers |
+| `thenNow.moreTitle` | More records, then vs now | TODO_BN |  |
+| `thenNow.part.fires` | Fires | TODO_BN |  |
+| `thenNow.part.vegetation` | Vegetation | TODO_BN |  |
+| `field.soundOctober` | No sound for this record yet: coming in October | TODO_BN | badge |
+| `field.rule` | Rule | TODO_BN |  |
+| `field.caveat` | Caveat | TODO_BN |  |
+| `field.credit` | Credit | TODO_BN |  |
+| `field.fires.region` | Region | TODO_BN |  |
+| `field.fires.region.CHT_Bangladesh_MarApr` | Chittagong Hill Tracts, March–April | TODO_BN |  |
+| `field.fires.region.Punjab_India_OctNov` | Punjab (India), October–November | TODO_BN |  |
+| `field.fires.unit` | fires per day | TODO_BN |  |
+| `field.fires.summary` | (sentence with values; see source) | TODO_BN | has values |
+| `field.fires.caption` | (sentence with values; see source) | TODO_BN | has values |
+| `field.veg.point` | Place | TODO_BN |  |
+| `field.veg.point.Sundarbans` | Sundarbans | TODO_BN |  |
+| `field.veg.point.Madhupur_forest` | Madhupur forest | TODO_BN |  |
+| `field.veg.point.Dhaka_city_control` | Dhaka city (control) | TODO_BN |  |
+| `field.veg.unit` | NDVI | TODO_BN |  |
+| `field.veg.summary` | (sentence with values; see source) | TODO_BN | has values |
+| `field.veg.caption` | (sentence with values; see source) | TODO_BN | has values |
+| `history.water` | Water | TODO_BN |  |
+| `history.unit.water` | cm | TODO_BN |  |
+| `history.group.bangladesh` | Bangladesh | TODO_BN |  |
+| `history.group.world` | World | TODO_BN |  |
+| `history.loadingWorld` | Loading this record for the world (a few megabytes, first time only)… | TODO_BN |  |
+| `history.noValue` | (sentence with values; see source) | TODO_BN | has values |
+| `history.sharedRegion` | (sentence with values; see source) | TODO_BN | has values |
+| `history.neighbour` | (the nearest land cell; the place's own cell is sea) | TODO_BN |  |
+| `history.nationalBox` | Bangladesh national box (GRACE): one record for the whole country, the same for every city. | TODO_BN |  |
+| `history.confidence.high` | Rain confidence: high (GPCP agrees closely with independent rain gauges here) | TODO_BN |  |
+| `history.confidence.medium` | Rain confidence: medium (GPCP roughly agrees with independent rain gauges here) | TODO_BN |  |
+| `history.confidence.low` | Rain confidence: low (GPCP and independent rain gauges disagree here) | TODO_BN |  |
+| `history.confidence.satellite-only` | Rain confidence: satellite only (no rain gauges to check against here, for example at sea) | TODO_BN |  |
+| `history.computed` | Computed from NASA GISTEMP / GPCP / GRACE with the same method as Dhaka; not separately cross-checked. | TODO_BN |  |
+| `thenNow.powerTitle` | Why we don't use NASA POWER here | TODO_BN |  |
+| `thenNow.listen` | Listen | TODO_BN |  |
+| `thenNow.noSound` | (no sound yet) | TODO_BN |  |
+| `field.place` | Place | TODO_BN |  |
+| `field.sources` | Where these numbers come from | TODO_BN |  |
 
 ## Satellite whisper
 

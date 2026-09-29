@@ -71,7 +71,7 @@ export function ProvenancePanel() {
           value={oceanText(t, reading.ocean)}
           meta={sst.meta}
           frameTime={time(sst.meta.frame_time_utc)}
-          check={<OceanCheck />}
+          check={<OceanCheck meta={sst.meta} />}
         />
       )}
       {track !== "ocean" && rainStatus === "loading" && <StatusBadge kind="loading">{t("badge.loadingRain")}</StatusBadge>}

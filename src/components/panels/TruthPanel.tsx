@@ -1,20 +1,21 @@
 "use client";
 
 import { DATA_PATHS } from "@/lib/data";
-import { rainPlotSource } from "@/lib/truth";
+import { rainTruth } from "@/lib/truth";
 import { useT } from "../AppState/use-app-state";
 import { useLiveData } from "../LiveData/use-live-data";
 import { StatusBadge } from "../StatusBadge";
 import { OceanCheck, RainCheck } from "./Checks";
+import { GlobeTeaser } from "./GlobeTeaser";
 
 /**
- * How we know the sound is right. Wording is built from the JSON numbers and
- * marked pending until the team approves new §16 wording (contract-proposals §A).
+ * How we know the sound is right: L1's check wording (DATA_HANDOFF §4), filled
+ * from the JSON and marked pending until the team adopts it in plan §16.
  */
 export function TruthPanel() {
-  const { rain, rainStatus } = useLiveData();
+  const { sst, rain, rainStatus } = useLiveData();
   const t = useT();
-  const plot = rain ? rainPlotSource(rain.meta) : null;
+  const plot = rain ? rainTruth(rain.meta) : null;
 
   return (
     <div className="space-y-6">
@@ -22,7 +23,8 @@ export function TruthPanel() {
 
       <section className="space-y-2">
         <h3 className="text-lead font-medium">{t("truth.ocean.heading")}</h3>
-        <OceanCheck />
+        {/* The ocean plot (truth/sst_compare.png) waits until L1 redraws it with the recalibrated scale. */}
+        {sst && <OceanCheck meta={sst.meta} />}
       </section>
 
       <section className="space-y-2">
@@ -46,6 +48,8 @@ export function TruthPanel() {
           </figure>
         )}
       </section>
+
+      <GlobeTeaser />
     </div>
   );
 }

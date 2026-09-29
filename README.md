@@ -66,7 +66,7 @@ Every rule and number lives in one file, [`public/mapping.json`](public/mapping.
     <td width="50%" valign="top">
       <img src="docs/readme/thennow.gif" alt="Dhaka then vs now: a chart of pre-monsoon heat anomalies with a pink playhead moving across the years as they play" width="100%">
       <h3>🌡️ Dhaka then vs now</h3>
-      <i>Hotter, not wetter, and the water underground is falling.</i> Heat (NASA GISTEMP), monsoon rain (GPCP, cross-checked with GPCC rain gauges) and groundwater (GRACE), each with a chart whose playhead follows the sound. Play them one after the other, or "then" in your left ear and "now" in your right.
+      <i>Hotter, not wetter, and the water underground is falling.</i> Heat (NASA GISTEMP), monsoon rain (GPCP, cross-checked with GPCC rain gauges) and groundwater (GRACE), each with a chart whose playhead follows the sound. Play them one after the other, or "then" in your left ear and "now" in your right. Switch to <b>Chattogram, Rajshahi or Sylhet</b> (same method, labelled as not cross-checked), and see two more records: <b>fires</b> (NASA FIRMS, same-sensor example years) and <b>vegetation</b> (MODIS NDVI).
     </td>
     <td width="50%" valign="top">
       <img src="docs/readme/story.gif" alt="Story Mode: a panel on the map lists the tour's steps and shows the line being spoken" width="100%">
@@ -86,7 +86,7 @@ Every rule and number lives in one file, [`public/mapping.json`](public/mapping.
     </td>
   </tr>
   <tr>
-    <td valign="top"><sub><b>Place History:</b> a decade of monthly heat or rain for Chattogram, Dhaka, Rajshahi or Sylhet, month by month with a playhead. Drag along the chart, or use its arrow keys, to hear any single month in the record. Beside it, the <b>Truth</b>, <b>Mapping</b> and <b>Provenance</b> panels.</sub></td>
+    <td valign="top"><sub><b>Place History:</b> monthly heat, rain or groundwater for Bangladesh's four cities and <b>38 more places worldwide</b>, a decade at a time with a playhead. Drag along the chart, or use its arrow keys, to hear any single month in the record. Beside it, the <b>Truth</b>, <b>Mapping</b> and <b>Provenance</b> panels.</sub></td>
     <td valign="top" align="center"><sub><b>On a phone:</b> the same app, with 44 px touch targets.</sub></td>
   </tr>
 </table>
@@ -94,7 +94,8 @@ Every rule and number lives in one file, [`public/mapping.json`](public/mapping.
 ### And also
 
 - **🌊 Sweep:** rings of sound spread out from Chattogram across the Bay of Bengal.
-- **🔍 Truth panel:** how each value was checked against NASA's source data, with the measured error.
+- **🔍 Truth panel:** how each value was checked against NASA's source data, with the measured error and the newest frame's re-check.
+- **☁️ Citizen observers vs satellite:** a teaser of GLOBE cloud reports from Bangladesh set against satellite cloud cover (coming in October).
 - **🧭 Provenance panel:** for the point on screen, its value, dataset, NASA SVS visualization and frame time.
 - **🎼 Legend and warm-up:** hear what 0, 10, 20 and 30 °C, light and heavy rain, and snow sound like before you explore.
 
@@ -177,9 +178,9 @@ python run_all.py            # options: --no-sequence --no-context --with-global
 
 Visualizations: NASA's Scientific Visualization Studio (SVS 5101, 4285) for the NASA Earth Information Center.
 
-Data in this app: MUR SST (NASA/JPL PO.DAAC); GPM IMERG (NASA/JAXA, GES DISC); GRACE/GRACE-FO JPL mascons RL06.3Mv04 (NASA/JPL PO.DAAC); NASA GISTEMP v4; GPCP v2.3 and GPCC Full Data v2020 (via NOAA PSL).
+Data in this app: MUR SST (NASA/JPL PO.DAAC); GPM IMERG (NASA/JAXA, GES DISC); GRACE/GRACE-FO JPL mascons RL06.3Mv04 (NASA/JPL PO.DAAC); NASA GISTEMP v4; GPCP v2.3 and GPCC Full Data v2020 (via NOAA PSL); NASA FIRMS; MODIS MOD13Q1 via ORNL DAAC; NASA GLOBE Program.
 
-Also used in our testing: NASA FIRMS; MODIS MOD13Q1 via ORNL DAAC; NASA GLOBE Program.
+Also used in our testing: NASA POWER (dropped: it disagreed with independent records).
 
 We follow each dataset's own acknowledgement text where one is provided (for example GRACE and GPCP).
 

@@ -9,7 +9,11 @@ export interface Choice<T extends string> {
   lang?: string; // for an option written in another language (e.g. "বাংলা")
 }
 
-/** Pick exactly one: a toggle group that can't be emptied. */
+/**
+ * Pick exactly one: a toggle group that can't be emptied. `showLabel` also
+ * writes the label above it (screen readers already get it as the group name,
+ * so the visible copy is hidden from them).
+ */
 export function ChoiceGroup<T extends string>({
   label,
   options,
@@ -17,6 +21,8 @@ export function ChoiceGroup<T extends string>({
   onChange,
   className,
   itemClassName,
+  showLabel = false,
+  vertical = false,
 }: {
   label: string;
   options: readonly Choice<T>[];
@@ -24,8 +30,11 @@ export function ChoiceGroup<T extends string>({
   onChange: (value: T) => void;
   className?: string;
   itemClassName?: string;
+  showLabel?: boolean;
+  /** Stacked options that fill the width (for side cards). */
+  vertical?: boolean;
 }) {
-  return (
+  const group = (
     <ToggleGroup
       aria-label={label}
       value={[value]}
@@ -35,18 +44,28 @@ export function ChoiceGroup<T extends string>({
       }}
       spacing={0}
       variant="outline"
-      className={className}
+      orientation={vertical ? "vertical" : "horizontal"}
+      className={cn(vertical && "w-full", className)}
     >
       {options.map((o) => (
         <ToggleGroupItem
           key={o.value}
           value={o.value}
           lang={o.lang}
-          className={cn("h-11 min-w-11 px-3 text-body md:pointer-fine:h-9 aria-pressed:bg-tide aria-pressed:text-moon", itemClassName)}
+          className={cn("h-11 min-w-11 px-3 text-body md:pointer-fine:h-9 aria-pressed:bg-tide aria-pressed:text-moon", vertical && "h-auto min-h-11 justify-start py-2 text-left whitespace-normal md:pointer-fine:h-auto", itemClassName)}
         >
           {o.label}
         </ToggleGroupItem>
       ))}
     </ToggleGroup>
+  );
+  if (!showLabel) return group;
+  return (
+    <div className="space-y-1.5">
+      <p aria-hidden="true" className="text-small font-medium text-haze">
+        {label}
+      </p>
+      {group}
+    </div>
   );
 }
