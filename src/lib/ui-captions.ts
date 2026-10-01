@@ -35,6 +35,26 @@ export function quietSideCaption(label: string | null): void {
   quietLabel = label;
 }
 
+// Describe mode keeps quiet while a narrated sound plays: its line was said
+// before the sound started (src/hooks/use-narrated-player.ts), so speech never
+// talks over the data. The captions still show.
+let describeHolds = 0;
+
+/** Keeps Describe quiet until the returned function is called (once). */
+export function holdDescribe(): () => void {
+  describeHolds++;
+  let released = false;
+  return () => {
+    if (released) return;
+    released = true;
+    describeHolds--;
+  };
+}
+
+export function isDescribeHeld(): boolean {
+  return describeHolds > 0;
+}
+
 /** Every caption, from the sound engine and from the UI. */
 export function onCaption(cb: Listener): () => void {
   const offEngine = audio.onAudioEvent((e) => {
