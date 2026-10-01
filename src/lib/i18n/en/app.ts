@@ -9,12 +9,12 @@ export const appEn = {
   "app.title": "Earth Information Jukebox",
   "app.titleShort": "Jukebox", // phones, on screen only
 
-  "start.lead": "Hear NASA's view of today's ocean and rain as live sound.",
+  "start.lead": "Hear NASA's view of the latest ocean and rain as live sound.",
   "start.hint": "Headphones help: west sounds left, east sounds right.",
   "start.button": "Start listening",
   "start.silent": "Explore without sound",
   "start.silentHint": "Values appear as text and captions. You can turn sound on at any time.",
-  "start.loading": "Loading today's ocean frame…",
+  "start.loading": "Loading the latest ocean frame…",
   "start.skipIntro": "Skip intro",
 
   "mode.explore": "Explore",
@@ -138,6 +138,6 @@ export const appEn = {
     "Data in this app: MUR SST (NASA/JPL PO.DAAC); GPM IMERG (NASA/JAXA, GES DISC); GRACE/GRACE-FO JPL mascons RL06.3Mv04 (NASA/JPL PO.DAAC); NASA GISTEMP v4; GPCP v2.3 and GPCC Full Data v2020 (via NOAA PSL); NASA FIRMS; MODIS MOD13Q1 via ORNL DAAC; NASA GLOBE Program.",
   "credits.testing": "Also used in our testing: NASA POWER (dropped: it disagreed with independent records).",
 
-  "error.ocean": "Couldn't load today's ocean frame. Check the connection and reload the page.",
-  "error.rain": "Couldn't load today's rain frame. Ocean sound still works; reload the page to try again.",
+  "error.ocean": "Couldn't load the latest ocean frame. Check the connection and reload the page.",
+  "error.rain": "Couldn't load the latest rain frame. Ocean sound still works; reload the page to try again.",
 };

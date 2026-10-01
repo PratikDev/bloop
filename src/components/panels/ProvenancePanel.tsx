@@ -86,7 +86,7 @@ export function ProvenancePanel() {
             <>
               {timelapse && (
                 <p className="text-small text-haze">
-                  {t("provenance.checkIsToday", { datetime: formatUtc(rain.meta.frame_time_utc, state.lang) })}
+                  {t("provenance.checkIsLatest", { datetime: formatUtc(rain.meta.frame_time_utc, state.lang) })}
                 </p>
               )}
               <RainCheck meta={rain.meta} />
