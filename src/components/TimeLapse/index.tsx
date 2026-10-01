@@ -107,7 +107,7 @@ export function TimeLapseProvider({ children }: { children: ReactNode }) {
     );
     setWithSound(state.soundOn);
     const p = peakFrame(path);
-    const peak = p === -1 ? null : { point: path[p], timeUtc: frames[p].ref.time_utc };
+    const peak = p === -1 ? null : { index: p, total: frames.length, timeUtc: frames[p].ref.time_utc, point: path[p], image: loaded.images[first + p] ?? null };
     const ended = new Promise<boolean>((resolve) => {
       settle.current = resolve;
     });
