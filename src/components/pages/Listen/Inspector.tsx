@@ -8,7 +8,8 @@ import { Sheet, SheetContent, SheetTitle } from "@/components/ui/sheet";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { useMediaQuery } from "@/hooks/use-media-query";
 import { MEDIA } from "@/lib/breakpoints";
-import { FROM_RIGHT } from "@/lib/motion";
+import { FROM_LEFT, FROM_RIGHT } from "@/lib/motion";
+import { cn } from "@/lib/utils";
 import type { PanelTab } from "../../AppState/reducer";
 import { useAppState, useT } from "../../AppState/use-app-state";
 import { MappingPanel } from "../../panels/MappingPanel";
@@ -52,7 +53,8 @@ function InspectorTabs() {
  * About this sound (P opens it at "Where it's from"): where the value comes
  * from, what you hear, and how it was checked. From 1024 px a drawer over the
  * map's right edge that leaves the map usable (move the cursor, the facts
- * follow); below that a sheet (bottom on phones, right on tablets).
+ * follow); during the tour, over its left edge, since the tour points at
+ * Bangladesh on the right. Below 1024 px a sheet (bottom on phones, right on tablets).
  */
 export function Inspector() {
   const { state, dispatch } = useAppState();
@@ -60,6 +62,7 @@ export function Inspector() {
   const phone = useMediaQuery(MEDIA.phone);
   const drawer = useMediaQuery(MEDIA.mapOverlay);
   const close = () => dispatch({ type: "setPanelOpen", open: false });
+  const left = state.mode === "story";
 
   if (drawer) {
     return (
@@ -68,11 +71,11 @@ export function Inspector() {
           <motion.aside
             key="inspector"
             aria-label={t("panel.label")}
-            variants={FROM_RIGHT}
+            variants={left ? FROM_LEFT : FROM_RIGHT}
             initial="hidden"
             animate="shown"
             exit="hidden"
-            className="surface-glass absolute top-3 right-3 bottom-3 z-(--layer-map-plates) flex w-[min(24rem,45%)] flex-col rounded-plate"
+            className={cn("surface-glass absolute top-3 bottom-3 z-(--layer-map-plates) flex w-[min(24rem,45%)] flex-col rounded-plate", left ? "left-3" : "right-3")}
           >
             <div className="flex items-center justify-between px-4 pt-3">
               <h2 className="eyebrow">{t("panel.label")}</h2>

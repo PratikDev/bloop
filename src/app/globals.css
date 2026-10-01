@@ -4,6 +4,8 @@
 
 /* Short screens (a 1280×720 laptop): the map is under 450 px tall, so the plates on it get compact. */
 @custom-variant short (@media (max-height: 50rem));
+/* Listen from 1024 px: the stage (a container named listen) is wider than 2:1, so there is room beside the map. */
+@custom-variant listen-wide (@container listen (min-aspect-ratio: 2 / 1));
 
 /* "Signals over the Bay" (docs/L3/REDESIGN.md §1), on the "Night over the Bay"
    palette (docs/L3/design-plan.md §2). Every chrome colour sits in the hue range
@@ -155,6 +157,8 @@
   --text-display--line-height: 0.94;
   --text-readout-mobile: 3.05rem;
   --text-readout-mobile--line-height: 1;
+  --text-readout-strip: 2.25rem;
+  --text-readout-strip--line-height: 1;
   --text-readout: 4.25rem;
   --text-readout--line-height: 1;
 
