@@ -6,8 +6,9 @@ import { useCommands } from "../Commands/use-commands";
 import { TimeLapseButton } from "../TimeLapse/TimeLapseButton";
 import { DOCK_BUTTON } from "./dock-button";
 import { DockAction } from "./DockAction";
+import { GoToMenu } from "./GoToMenu";
 
-/** The Listen page's actions: sweep, storm time-lapse, the tour, the Inspector, the keys (the mixer is on every page, in the dock). */
+/** The Listen page's actions: go to a place, sweep, storm time-lapse, the tour, the Inspector, the keys (the mixer is on every page, in the dock). */
 export function ListenActions() {
   const { state } = useAppState();
   const commands = useCommands();
@@ -18,6 +19,7 @@ export function ListenActions() {
       {/* The tour drives the map itself, so its own controls step aside while it runs. */}
       {explore && (
         <>
+          <GoToMenu />
           <DockAction icon={<Broadcast aria-hidden="true" />} full={t("sweep.play")} label={t("dock.short.sweep")} short={t("dock.short.sweep")} onClick={commands.playSweep} />
           <TimeLapseButton className={DOCK_BUTTON} />
           <DockAction icon={<Compass aria-hidden="true" />} full={t("tour.start")} label={t("dock.short.tour")} short={t("dock.short.tour")} onClick={() => commands.setMode("story")} />

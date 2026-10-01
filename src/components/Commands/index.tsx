@@ -80,6 +80,9 @@ export function CommandsProvider({ children }: { children: ReactNode }) {
       moveCursor(dLat, dLon) {
         dispatch({ type: "moveCursor", dLat, dLon });
       },
+      setCursor(cursor) {
+        dispatch({ type: "setCursor", cursor });
+      },
       setTrack(track) {
         dispatch({ type: "setTrack", track });
         announce(t("announce.track", { track: trackName(track) }));
