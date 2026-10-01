@@ -21,12 +21,12 @@ export function TuningDial({ className }: { className?: string }) {
         {NAV_ITEMS.map((item, i) => {
           const active = pathname === item.to;
           return (
-            <li key={item.to} className="relative flex-1 md:flex-none">
+            <li key={item.to} className="relative flex-1 lg:flex-none">
               <Link
                 to={item.to}
                 aria-current={active ? "page" : undefined}
                 className={cn(
-                  "group flex h-11 items-center justify-center gap-2 px-2 text-body whitespace-nowrap transition-colors duration-200 sm:px-3 md:justify-start md:px-4",
+                  "group flex h-11 items-center justify-center gap-2 px-2 text-body whitespace-nowrap transition-colors duration-200 sm:px-3 lg:justify-start lg:px-4",
                   active ? "text-moon" : "text-haze hover:text-moon",
                 )}
               >
