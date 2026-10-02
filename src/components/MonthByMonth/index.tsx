@@ -69,7 +69,7 @@ export function MonthByMonth({
   if (data.status === "loading") return <StatusBadge kind="loading">{t("history.loading")}</StatusBadge>;
   if (data.status === "error") return <StatusBadge kind="error">{t("history.error")}</StatusBadge>;
 
-  const name = (p: string) => (isBangladesh(p) ? t(`place.${p}`) : p);
+  const name = (p: string) => (isBangladesh(p) ? t(`place.${p}`) : t("data.text", { text: p }));
   const series = placeSeries(metric, place, data, { places: data.world?.places.places ?? [], layer: layer.value });
   const pickers = (
     <div className="space-y-3">
@@ -152,7 +152,7 @@ export function MonthByMonth({
           series={[{ key: "value", label: `${name(place)}: ${series.dataset}`, tone: "now" }]}
           spans={spans}
           unit={unit}
-          zeroLine={metric === "heat" ? heatNormalLabel() : undefined}
+          zeroLine={metric === "heat" ? heatNormalLabel(t) : undefined}
           playheadIndex={head && players.playingFrom !== null ? players.playingFrom + head.index : players.monthIndex}
           scrub={{ value: players.monthIndex, label: t("history.scrub", { place: name(place) }), valueText: monthText, onChange: playMonth }}
           summary={t("history.summary", {
@@ -162,7 +162,7 @@ export function MonthByMonth({
             to: formatMonth(series.months[series.months.length - 1], state.lang),
           })}
         />
-        <RecordNotes series={series} name={name} world={world && data.world ? { disclosure: data.world.manifest.disclosure } : null} />
+        <RecordNotes series={series} name={name} world={world && data.world ? { disclosure: t("data.text", { text: data.world.manifest.disclosure }) } : null} />
       </div>
     </div>
   );

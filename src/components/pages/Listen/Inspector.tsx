@@ -94,7 +94,7 @@ export function Inspector() {
 
   return (
     <Sheet open={state.panelOpen} onOpenChange={(open) => dispatch({ type: "setPanelOpen", open })}>
-      <SheetContent side={phone ? "bottom" : "right"} className={phone ? "max-h-[85dvh] overflow-y-auto rounded-t-sheet bg-dusk p-4 pt-14" : "w-full overflow-y-auto rounded-l-sheet bg-dusk p-4 pt-14 sm:max-w-md"}>
+      <SheetContent closeLabel={t("inspector.close")} side={phone ? "bottom" : "right"} className={phone ? "max-h-[85dvh] overflow-y-auto rounded-t-sheet bg-dusk p-4 pt-14" : "w-full overflow-y-auto rounded-l-sheet bg-dusk p-4 pt-14 sm:max-w-md"}>
         <SheetTitle className="eyebrow absolute top-5 left-4">{t("panel.label")}</SheetTitle>
         <InspectorTabs />
       </SheetContent>

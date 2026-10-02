@@ -22,7 +22,7 @@ export function GlobeTeaser() {
   return (
     <section className="space-y-2 rounded-lg border border-tide p-4">
       <StatusBadge kind="october">{t("globe.teaser")}</StatusBadge>
-      <h3 className="text-lead font-medium">{duet.title}</h3>
+      <h3 className="text-lead font-medium">{t("data.text", { text: duet.title })}</h3>
       <p className="text-moon">{t("globe.plan")}</p>
       <p>
         {t("globe.featured", {
@@ -39,7 +39,7 @@ export function GlobeTeaser() {
           {t("globe.summary", { placeDays: s.unique_place_days, median: s.median_abs_difference_pct, within: s.share_within_25_points * 100 })}
         </p>
       )}
-      <p className="text-small text-haze">{duet.disclosure}</p>
+      <p className="text-small text-haze">{t("data.text", { text: duet.disclosure })}</p>
       <p className="text-small text-haze">{duet.credit}</p>
     </section>
   );

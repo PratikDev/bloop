@@ -16,7 +16,9 @@ export function RecordNotes({ series, name, world }: { series: PlaceSeries; name
       <p>
         {source.kind === "cell"
           ? `${t("history.cell", { lat: source.lat, lon: source.lon })}${source.neighbour ? ` ${t("history.neighbour")}` : ""}`
-          : (source.label ?? t("history.nationalBox"))}
+          : source.label === null
+            ? t("history.nationalBox")
+            : t("data.text", { text: source.label })}
       </p>
       {/* The national box already says it's one record for every city; other shared cells or regions are named. */}
       {sameRecord.length > 0 && !(source.kind === "region" && source.label === null) && (
@@ -25,7 +27,7 @@ export function RecordNotes({ series, name, world }: { series: PlaceSeries; name
         </p>
       )}
       {confidence && <p>{t(`history.confidence.${confidence}`)}</p>}
-      {caveat && <p>{caveat}</p>}
+      {caveat && <p>{t("data.text", { text: caveat })}</p>}
       {world && (
         <>
           <p className="text-moon">{t("history.computed")}</p>

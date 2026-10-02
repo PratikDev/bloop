@@ -31,7 +31,7 @@ function FrameFacts({
         <dt className="text-haze">{t("provenance.value")}</dt>
         <dd>{value}</dd>
         <dt className="text-haze">{t("provenance.dataset")}</dt>
-        <dd>{meta.source_dataset}</dd>
+        <dd>{t("data.text", { text: meta.source_dataset })}</dd>
         <dt className="text-haze">{t("provenance.visualization")}</dt>
         <dd>
           <a href={meta.svs_page} target="_blank" rel="noreferrer" className="underline underline-offset-2 pointer-coarse:inline-flex pointer-coarse:min-h-11 pointer-coarse:items-center">
@@ -81,7 +81,7 @@ export function ProvenancePanel() {
           heading={t("frame.product.rain")}
           value={rainText(t, reading.rain, reading.rainLoaded)}
           meta={rain.meta}
-          frameTime={`${time(timelapse?.timeUtc ?? rain.meta.frame_time_utc)} (${rain.meta.frame_time_meaning})`}
+          frameTime={`${time(timelapse?.timeUtc ?? rain.meta.frame_time_utc)} (${t("data.text", { text: rain.meta.frame_time_meaning })})`}
           check={
             <>
               {timelapse && (

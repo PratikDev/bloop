@@ -10,7 +10,7 @@ const geistMono = Geist_Mono({ variable: "--font-geist-mono", subsets: ["latin"]
 const instrument = Instrument_Serif({ variable: "--font-instrument", subsets: ["latin"], weight: "400", style: ["normal", "italic"] });
 
 const anek = Anek_Bangla({ variable: "--font-anek", subsets: ["bengali"], preload: false });
-const tiro = Tiro_Bangla({ variable: "--font-tiro", subsets: ["bengali"], weight: "400", preload: false });
+const tiro = Tiro_Bangla({ variable: "--font-tiro", subsets: ["bengali"], weight: "400", style: ["normal", "italic"], preload: false });
 
 export const metadata: Metadata = {
   title: { default: "Earth Information Jukebox", template: "%s · Earth Information Jukebox" },

@@ -39,6 +39,8 @@ export const contextEn = {
     `${p.part}: mean ${n2(p.thenMean)} ${p.unit} in ${p.thenLabel}, mean ${n2(p.nowMean)} ${p.unit} in ${p.nowLabel}.`,
   "thenNow.water.played": "Bangladesh (you hear this)",
   "thenNow.water.notPlayed": "NW India (shown for comparison, not played)",
+  "thenNow.box.Bangladesh": "Bangladesh",
+  "thenNow.box.NW_India": "NW India",
   "thenNow.water.shading": "Shaded: the two comparison windows, and months with no satellite measurements.",
   "thenNow.water.summary": (p: { missing: number; from: string; to: string }) =>
     `Water storage in Bangladesh, monthly from ${p.from} to ${p.to}; ${formatInteger(p.missing, "en")} months have no measurement.`,

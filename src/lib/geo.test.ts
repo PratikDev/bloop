@@ -20,6 +20,12 @@ describe("parseCoordinate", () => {
     expect(parseCoordinate("২৩.৮", "lat")).toBe(23.8);
   });
 
+  test("reads the Bangla hemisphere words", () => {
+    expect(parseCoordinate("২১.৫° দক্ষিণ", "lat")).toBe(-21.5);
+    expect(parseCoordinate("৮৯.৮° পশ্চিম", "lon")).toBe(-89.8);
+    expect(parseCoordinate("৮৯.৮° উত্তর", "lon")).toBeNull();
+  });
+
   test("refuses the wrong hemisphere, two letters, a letter with a minus, and out-of-range values", () => {
     expect(parseCoordinate("23.8 E", "lat")).toBeNull();
     expect(parseCoordinate("N23.8S", "lat")).toBeNull();
@@ -38,6 +44,7 @@ describe("parseLatLon", () => {
   test("reads a pasted pair, latitude first", () => {
     expect(parseLatLon("23.8, 90.4")).toEqual({ lat: 23.8, lon: 90.4 });
     expect(parseLatLon("21.5° N, 89.8° W")).toEqual({ lat: 21.5, lon: -89.8 });
+    expect(parseLatLon("২১.৫° উত্তর, ৮৯.৮° পূর্ব")).toEqual({ lat: 21.5, lon: 89.8 });
   });
 
   test("refuses a single value or a bad half", () => {

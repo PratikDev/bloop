@@ -1,5 +1,7 @@
 // English strings for the side sheet: Truth, Mapping, Provenance, History.
 
+import { ruleText } from "@/lib/audio/mapping";
+import type { VoiceSpec } from "@/types/data-contract";
 import { formatFixed, formatInteger } from "../format";
 
 export const panelsEn = {
@@ -58,6 +60,9 @@ export const panelsEn = {
   "mapping.status.verified": "Checked against the source",
   "mapping.status.context": "Context record",
   "mapping.status.designOnly": "Sound cue",
+  "mapping.voiceLabel": (p: { voice: VoiceSpec }) => p.voice.label.en,
+  // L2's rule sentence, generated from mapping.json's numbers.
+  "mapping.rule": (p: { voice: VoiceSpec }) => ruleText(p.voice),
 
   "provenance.at": (p: { place: string }) => `Where the value at ${p.place} comes from.`,
   "provenance.value": "Value",

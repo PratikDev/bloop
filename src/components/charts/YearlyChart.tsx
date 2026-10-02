@@ -6,6 +6,7 @@ import { cn } from "@/lib/utils";
 import type { YearRow } from "@/lib/then-now";
 import type { DemoWindow } from "@/types/data-contract";
 import { AXIS, CHART_HEIGHT, LegendItem, unitLabel, ZERO_LINE_STROKE, ZeroLineKey } from "./chart-style";
+import { useAxisFormat } from "./use-axis-format";
 
 /**
  * Then vs Now for one yearly part: the two windows on one time axis, each
@@ -31,6 +32,7 @@ export function YearlyChart({
   summary: string; // text alternative for the whole chart
   heightClass?: string;
 }) {
+  const axis = useAxisFormat();
   const config = {
     then: { label: labels.then, color: "var(--chart-then)" },
     now: { label: labels.now, color: "var(--chart-now)" },
@@ -51,8 +53,8 @@ export function YearlyChart({
       <ChartContainer config={config} className={cn("aspect-auto w-full", heightClass)}>
         <LineChart data={rows} margin={{ top: 8, right: 16, bottom: 4, left: 0 }} accessibilityLayer>
           <CartesianGrid stroke="var(--chart-grid)" vertical={false} />
-          <XAxis dataKey="year" type="number" domain={["dataMin", "dataMax"]} allowDecimals={false} {...AXIS} />
-          <YAxis width={44} {...AXIS} label={unitLabel(unit)} />
+          <XAxis dataKey="year" type="number" domain={["dataMin", "dataMax"]} allowDecimals={false} tickFormatter={axis.year} {...AXIS} />
+          <YAxis width={44} tickFormatter={axis.value} {...AXIS} label={unitLabel(unit)} />
           {zeroLine && <ReferenceLine y={0} stroke={ZERO_LINE_STROKE} />}
           {mean(pair.A, "then")}
           {mean(pair.B, "now")}

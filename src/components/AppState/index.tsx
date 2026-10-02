@@ -1,7 +1,6 @@
 "use client";
 
 import { useEffect, useMemo, useReducer, type ReactNode } from "react";
-import { contentLang } from "@/lib/i18n";
 import { readPrefs, writePrefs } from "./prefs";
 import { initialState, reducer, type Mode } from "./reducer";
 import { AppStateContext } from "./use-app-state";
@@ -31,7 +30,7 @@ export function AppStateProvider({ initialMode, children }: { initialMode: Mode;
 
   // Language and reduced motion live on <html> so CSS and screen readers see them.
   useEffect(() => {
-    document.documentElement.lang = contentLang(state.lang);
+    document.documentElement.lang = state.lang;
     document.documentElement.dataset.reduceMotion = String(state.reduceMotion);
   }, [state.lang, state.reduceMotion]);
 

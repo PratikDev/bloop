@@ -1,6 +1,7 @@
 // Equirectangular map ↔ screen: x = (lon + 180) / 360 · width, y = (90 − lat) / 180 · height.
 
 import type { LatLon } from "@/lib/data";
+import { BENGALI_DIGITS } from "@/lib/i18n/format";
 
 export function toXY(p: LatLon, width: number, height: number): { x: number; y: number } {
   return { x: ((p.lon + 180) / 360) * width, y: ((90 - p.lat) / 180) * height };
@@ -20,11 +21,13 @@ export type CoordAxis = "lat" | "lon";
 const LIMIT: Record<CoordAxis, number> = { lat: 90, lon: 180 };
 /** Hemisphere letters: positive, then negative. */
 const HEMISPHERE: Record<CoordAxis, [string, string]> = { lat: ["N", "S"], lon: ["E", "W"] };
-const BENGALI_DIGITS = "০১২৩৪৫৬৭৮৯";
+/** The hemisphere words the Bangla readout shows, so a copied place can be pasted back. */
+const BANGLA_HEMISPHERE = /উত্তর|দক্ষিণ|পূর্ব|পশ্চিম/g;
+const BANGLA_LETTER: Record<string, string> = { উত্তর: "N", দক্ষিণ: "S", পূর্ব: "E", পশ্চিম: "W" };
 
-/** Bengali digits as ASCII, any minus sign as "-", no degree signs or spaces, upper case. */
+/** Bengali digits and hemisphere words as ASCII, any minus sign as "-", no degree signs or spaces, upper case. */
 function normalise(text: string): string {
-  return [...text.trim()]
+  return [...text.trim().replace(BANGLA_HEMISPHERE, (word) => BANGLA_LETTER[word])]
     .map((ch) => {
       const d = BENGALI_DIGITS.indexOf(ch);
       return d >= 0 ? String(d) : ch === "−" || ch === "–" ? "-" : ch;

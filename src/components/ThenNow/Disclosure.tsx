@@ -1,7 +1,7 @@
 "use client";
 
 import type { ReactNode } from "react";
-import { formatSigned } from "@/lib/i18n";
+import { formatMonthRange, formatSigned } from "@/lib/i18n";
 import { windowLabel } from "@/lib/then-now";
 import type { DemoWindow, DhakaThenNowDemo, GraceContextFile } from "@/types/data-contract";
 import { useAppState, useT } from "../AppState/use-app-state";
@@ -23,7 +23,7 @@ export function Row({ label, children }: { label: string; children: ReactNode })
 export function Disclosure({ part, demo, grace }: { part: Part; demo: DhakaThenNowDemo; grace: GraceContextFile }) {
   const { state } = useAppState();
   const t = useT();
-  const unit = part === "heat" ? "°C" : "mm/day";
+  const unit = t(part === "heat" ? "unit.celsius" : "thenNow.unit.mmPerDay");
   const windows = (w: { A: DemoWindow; B: DemoWindow }) =>
     (["A", "B"] as const).map((k) => (
       <Row key={k} label={t("disclosure.window", { label: windowLabel(w[k]), years: w[k].n_years })}>
@@ -37,7 +37,7 @@ export function Disclosure({ part, demo, grace }: { part: Part; demo: DhakaThenN
         <>
           <Row label={t("disclosure.dataset")}>{demo.heat.dataset}</Row>
           {windows(demo.heat)}
-          <Row label="">{t("disclosure.change", { value: `${formatSigned(demo.heat.change_C, state.lang, 2)} °C` })}</Row>
+          <Row label="">{t("disclosure.change", { value: `${formatSigned(demo.heat.change_C, state.lang, 2)} ${unit}` })}</Row>
         </>
       )}
       {part === "monsoon" && (
@@ -58,17 +58,17 @@ export function Disclosure({ part, demo, grace }: { part: Part; demo: DhakaThenN
             return (
               <Row key={box} label={box === "Bangladesh" ? t("thenNow.water.played") : t("thenNow.water.notPlayed")}>
                 {t("disclosure.box", {
-                  name: box.replace("_", " "),
+                  name: t(`thenNow.box.${box}`),
                   a: b.mean_A,
                   b: b.mean_B,
-                  windowA: b.window_A,
-                  windowB: b.window_B,
+                  windowA: formatMonthRange(b.window_A, state.lang),
+                  windowB: formatMonthRange(b.window_B, state.lang),
                   trend: b.trend_cm_per_yr,
                 })}
               </Row>
             );
           })}
-          <Row label={t("disclosure.gapNote")}>{grace.gap_note}</Row>
+          <Row label={t("disclosure.gapNote")}>{t("data.text", { text: grace.gap_note })}</Row>
         </>
       )}
     </dl>

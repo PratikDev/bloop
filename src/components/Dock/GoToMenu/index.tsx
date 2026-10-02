@@ -31,7 +31,7 @@ export function GoToMenu() {
   const id = useId();
   const hintId = `${id}-hint`;
   const errorId = `${id}-error`;
-  const form = useGoToForm((place) => {
+  const form = useGoToForm(state.lang, (place) => {
     commands.setCursor(place);
     went.current = true;
     setOpen(false);

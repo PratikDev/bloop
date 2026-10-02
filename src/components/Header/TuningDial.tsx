@@ -3,8 +3,9 @@
 import { Link, useRouterState } from "@tanstack/react-router";
 import { motion } from "motion/react";
 import { cn } from "@/lib/utils";
+import { formatIndex } from "@/lib/i18n";
 import { SPRING } from "@/lib/motion";
-import { useT } from "../AppState/use-app-state";
+import { useAppState, useT } from "../AppState/use-app-state";
 import { NAV_ITEMS } from "./nav-items";
 
 /**
@@ -12,6 +13,7 @@ import { NAV_ITEMS } from "./nav-items";
  * number and name, and a needle that glides to the one tuned in.
  */
 export function TuningDial({ className }: { className?: string }) {
+  const { state } = useAppState();
   const t = useT();
   const pathname = useRouterState({ select: (s) => s.location.pathname });
   return (
@@ -31,7 +33,7 @@ export function TuningDial({ className }: { className?: string }) {
                 )}
               >
                 <span aria-hidden="true" className={cn("hidden font-mono text-small tabular-nums sm:inline", active ? "text-shapla" : "text-haze/70 group-hover:text-haze")}>
-                  {String(i + 1).padStart(2, "0")}
+                  {formatIndex(i + 1, state.lang)}
                 </span>
                 <span className="hidden sm:inline">{t(item.label)}</span>
                 <span className="sm:hidden">{t(item.short)}</span>

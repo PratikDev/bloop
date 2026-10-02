@@ -382,3 +382,16 @@ html[data-reduce-motion="true"]::view-transition-old(*),
 html[data-reduce-motion="true"]::view-transition-new(*) {
   animation: none !important;
 }
+
+/* Tracking pulls Bengali conjuncts and vowel signs apart: Bangla text keeps the font's own spacing.
+   Unlayered, so it wins over the utilities above. */
+html:lang(bn) .eyebrow,
+html:lang(bn) .display-tight,
+html:lang(bn) .readout-figure {
+  letter-spacing: normal;
+}
+
+/* The mono eyebrow's size is too small for Bengali glyphs. */
+html:lang(bn) .eyebrow {
+  font-size: 0.8rem;
+}

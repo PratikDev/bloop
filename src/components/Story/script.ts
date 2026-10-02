@@ -27,7 +27,7 @@ const STORM_FRAMES = 24;
 
 export interface StoryDeps {
   signal: AbortSignal;
-  t: BoundT; // the screen language (whisper captions)
+  t(): BoundT; // the screen language now (whisper captions)
   soundOn: boolean;
   fields(): LiveFields; // read at each step: rain may load during the story
   enterStep(step: StoryStepId, focus: StoryFocus): void;
@@ -38,7 +38,7 @@ export interface StoryDeps {
 }
 
 export async function runStory(d: StoryDeps): Promise<void> {
-  const { signal, t } = d;
+  const { signal } = d;
   const wait = <T>(p: Promise<T>) => abortable(p, signal);
   const say = (line: Line, source?: WhisperSource | null) => wait(d.say(line, source));
 
@@ -89,7 +89,7 @@ export async function runStory(d: StoryDeps): Promise<void> {
   const at: LatLon = fields.rain ? (run.last ?? SWEEP_CENTER) : hum;
   d.enterStep("whisper", { point: at, track });
   const now = readAt(fields, at);
-  await say((tl) => tl("story.whisper", { reading: spokenValue(tl, now, track) }), whisperSource(t, fields, track));
+  await say((tl) => tl("story.whisper", { reading: spokenValue(tl, now, track) }), whisperSource(d.t(), fields, track));
   await sleep(WHISPER_HOLD_MS, signal);
 
   // 5. X-ray: said to be not ready, never faked.

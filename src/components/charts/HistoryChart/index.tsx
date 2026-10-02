@@ -4,6 +4,7 @@ import { CartesianGrid, Line, LineChart, ReferenceArea, ReferenceLine, XAxis, YA
 import { ChartContainer, type ChartConfig } from "@/components/ui/chart";
 import { cn } from "@/lib/utils";
 import { AXIS, CHART_HEIGHT, LegendItem, LineSwatch, unitLabel, ZERO_LINE_STROKE, ZeroLineKey } from "../chart-style";
+import { useAxisFormat } from "../use-axis-format";
 import { useScrub, type ChartScrub, type ScrubMotion } from "./use-scrub";
 
 export type { ChartScrub, ScrubMotion };
@@ -60,7 +61,8 @@ export function HistoryChart({
   const config = Object.fromEntries(
     series.map((s) => [s.key, { label: s.label, color: s.tone === "now" ? "var(--chart-now)" : "var(--chart-then)" }]),
   ) satisfies ChartConfig;
-  const yearOf = (i: number) => rows[i]?.month.slice(0, 4) ?? "";
+  const axis = useAxisFormat();
+  const yearOf = (i: number) => (rows[i] ? axis.year(Number(rows[i].month.slice(0, 4))) : "");
   const fill = { window: "var(--dusk)", gap: "var(--tide)", selected: "var(--tide)" } as const;
 
   return (
@@ -76,7 +78,7 @@ export function HistoryChart({
           ))}
           <CartesianGrid stroke="var(--chart-grid)" vertical={false} />
           <XAxis dataKey="i" type="number" domain={["dataMin", "dataMax"]} tickFormatter={yearOf} minTickGap={24} {...AXIS} />
-          <YAxis width={Y_AXIS_WIDTH} {...AXIS} label={unitLabel(unit)} />
+          <YAxis width={Y_AXIS_WIDTH} tickFormatter={axis.value} {...AXIS} label={unitLabel(unit)} />
           {zeroLine && <ReferenceLine y={0} stroke={ZERO_LINE_STROKE} />}
           {series.map((s) => (
             <Line
