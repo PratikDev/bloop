@@ -2,13 +2,20 @@
 
 For the teammate translating the interface into Bangla.
 
-**How to add a translation:** put it in `src/lib/i18n/bn.ts` under the same key, for example `"start.button": "শোনা শুরু করুন"`. Any key without a translation falls back to English.
-- Rows marked "has values" are functions, because a number or place name is inserted into the sentence. Copy the English function from `src/lib/i18n/en/` and translate its text. Numbers are formatted in Bangla automatically when you pass `"bn"` to the format helpers.
-- **§16 wording is translated by a person, never by a machine.** These rows are marked in the table.
-- Voice names in the Mapping panel come from `public/mapping.json` (`label.bn`, owned by L2), not from this list. Entries there starting with `TODO:` still show English.
-- Rows this doesn't list: the Mapping panel's rule sentences and global rules are English text from L2's `mapping.ts` and `mapping.json`. Bangla rule sentences need `ruleParts()` (planned for Phase 4).
+**Status (2 Oct): every string is translated** (draft, needs a review by a native Bangla speaker on the team). The translations are in `src/lib/i18n/bn/`, one file per English file in `src/lib/i18n/en/`, with the same keys. Each Bangla file is typed against its English twin, so a missing key fails `bunx tsc --noEmit`.
 
-**Still to translate:** 387 of 387 strings (every row marked TODO_BN). Until a string is translated, the Bangla setting shows it in English; speech stays English (with Bangla on screen) until `BANGLA_SPEECH_READY` in `src/lib/i18n/bn.ts` is set.
+| What | Where | Note |
+|---|---|---|
+| Interface strings | `src/lib/i18n/bn/*.ts` | Functions with values use the `"bn"` number helpers, so digits are Bengali |
+| Prose from the data files (L1's JSON, L2's `mapping.json`) | `src/lib/i18n/bn/data.ts` | Those files stay English. The app matches each sentence exactly, or by its fixed shape with the numbers taken from the sentence itself. A sentence L1 or L2 rewords shows in English until `data.ts` is updated; `bun test` (`data.test.ts`) lists any that fell back |
+| Mapping panel rule sentences | `src/lib/i18n/bn/rules.ts` | Built from `ruleParts()`, the same numbers as the sound |
+| Dataset, mission and credit names | unchanged | Stay English (plan §15) |
+
+**Please review first:** the plan §16 wording, which is still marked "Pending team approval" on screen: `frame.label`, `field.fires.caption`, the Then vs Now captions (`data.ts`, heat, rain and water patterns), and the Truth sentences (`truth.*`).
+
+Speech: `BANGLA_SPEECH_READY` is on. The built-in voice speaks Bangla when the device has a Bangla voice, and English (with Bangla on screen) when it doesn't (`src/lib/speech-lang.ts`).
+
+The table below is the original list (written 28 Sep), kept for the reviewer as the key list. The `TODO_BN` marks in it are out of date.
 
 ## Priority: the video's closing shot (translate these first)
 

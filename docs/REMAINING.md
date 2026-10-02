@@ -37,8 +37,8 @@ The interface was redesigned on 29 Sep, after the freeze time, on its own branch
 | Tour URL | Shows as `?tour=true` (TanStack writes booleans that way). Harmless. | Accept |
 | Reload loses Start | Reloading any page shows the start gate again (sound needs a click to start). Language and settings are remembered. | By design |
 | Sweep on Then vs Now | The old bottom bar let you play the sweep in Then vs Now; now it is a Listen action (its ring is drawn on the map). S still works on the map. | Accept, or add back |
-| Bangla digits | Coordinates and the dock caption still show Latin digits in Bangla mode (as before the redesign). | L3, with the translator |
-| Bangla strings | 375 strings now (55 new for the pages). The video's closing shot is the Listen page: translate the `nav.*`, `listen.title`, `dock.*`, `tour.start` and `inspector.open` rows first (bangla-strings.md, "Pages"). | Translator |
+| Bangla digits | Fixed 2 Oct: every number in Bangla mode uses Bengali digits (coordinates, captions, charts, Go to). | Done |
+| Bangla strings | Translated 2 Oct (draft), including data-file prose and the rule sentences ([bangla-strings.md](L3/bangla-strings.md)). Needs a native speaker's review, §16 rows first. | Translator: review |
 | Unused strings | `lang.en`, `sound.unmuteAll` and `mapping.source` were already unused before the redesign; left for now. | L3, tidy later |
 | QA scripts | `qa-header.ts`, `qa-ipad.ts` and `qa-ui-tour.ts` still check the old header and side column; they need rewriting, not just new selectors. | L3 |
 | Intro fade | The intro fades out over 0.8 s and is click-through while it fades. This fix was pushed after the last full QA run (re-check in 0.4). | L3 |
