@@ -16,7 +16,7 @@ export function HonestyFolds({ demo, isDhaka }: { demo: DhakaThenNowDemo; isDhak
     <>
       {isDhaka && (
         <Fold title={t("thenNow.powerTitle")}>
-          <p>{demo.honesty_beat}</p>
+          <p>{t("data.text", { text: demo.honesty_beat })}</p>
           {/* A static published chart image; next/image adds nothing for a local PNG. */}
           {/* eslint-disable-next-line @next/next/no-img-element */}
           <img
@@ -32,7 +32,7 @@ export function HonestyFolds({ demo, isDhaka }: { demo: DhakaThenNowDemo; isDhak
       <Fold title={t("disclosure.notClaimed")}>
         <ul className="list-disc space-y-1 pl-5 text-haze">
           {demo.not_claimed.map((claim) => (
-            <li key={claim}>{claim}</li>
+            <li key={claim}>{t("data.text", { text: claim })}</li>
           ))}
         </ul>
       </Fold>

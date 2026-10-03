@@ -22,7 +22,7 @@ function YearlyView({ part, demo, index, splitIndex }: { part: YearlyPart; demo:
       pair={pair}
       labels={{ then: t("thenNow.then", { label: windowLabel(pair.A) }), now: t("thenNow.now", { label: windowLabel(pair.B) }) }}
       unit={unit}
-      zeroLine={part === "heat" ? heatNormalLabel() : undefined}
+      zeroLine={part === "heat" ? heatNormalLabel(t) : undefined}
       playheadYears={playheadYears}
       summary={t("thenNow.summary.yearly", {
         part: t(part === "heat" ? "thenNow.part.heat" : "thenNow.part.monsoon"),
@@ -70,7 +70,7 @@ function WaterView({ grace, index }: { grace: GraceContextFile; index: number | 
   );
 }
 
-/** A finding's headline: the caption exactly as the JSON gives it, marked pending until the team approves. */
+/** A finding's headline: its caption, marked pending until the team approves the wording. */
 export function Headline({ caption, pending = true }: { caption: string; pending?: boolean }) {
   const t = useT();
   return (
@@ -88,10 +88,12 @@ export function Headline({ caption, pending = true }: { caption: string; pending
 
 /** One sounded part: its caption as the headline, then the chart with its playhead. */
 export function PartView({ part, demo, grace, index, splitIndex }: { part: Part; demo: DhakaThenNowDemo; grace: GraceContextFile; index: number | null; splitIndex: number | null }) {
+  const t = useT();
   const caption = part === "heat" ? demo.heat.caption : part === "monsoon" ? demo.rain.caption : demo.water.caption;
   return (
     <>
-      <Headline caption={caption} />
+      {/* The caption exactly as the JSON gives it (translated in Bangla). */}
+      <Headline caption={t("data.text", { text: caption })} />
       {part === "water" ? <WaterView grace={grace} index={index} /> : <YearlyView part={part} demo={demo} index={index} splitIndex={splitIndex} />}
     </>
   );

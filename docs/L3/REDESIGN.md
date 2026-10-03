@@ -23,7 +23,7 @@ Goal: a calmer, more distinctive interface with motion throughout, split into a 
 |---|---|---|
 | `/` | Home | Globe hero with today's real frame, Start listening, Explore without sound, and entries for the three pages below, all on one screen. |
 | `/listen` | Listen | Explore, and Story as a guided tour on the same map (`?tour=1`). Inspector drawer: what you hear, where it comes from. |
-| `/then-now` | Then vs Now | Compare decades (4 cities, 5 records) and Month by month (Place History, 38 places). |
+| `/then-now` | Then vs Now | Compare decades (4 cities, 5 records) and Month by month (Place History, 42 places: the 4 Bangladesh cities and 38 more). |
 | `/how` | How we know | Truth checks, scatter plot, sound rules, GLOBE teaser, credits, accessibility, Coming in October. |
 | other | 404 | "No signal", with a way back to Listen. |
 
@@ -81,6 +81,14 @@ What that means per page:
 | Sweep is now a Listen action only (it was also in the old bottom bar during Then vs Now) | Its ring is drawn on the map; S still works on the map |
 | Story is called "the tour" on screen ("Take the tour", "Stop the tour", "Back to the map") | There is no "Explore" on screen any more; the page is Listen |
 | Credits moved from every screen's foot to How we know (a Credits sheet, with the SVS line always visible there) | The foot of every page was the most packed part. **Needs the team's OK against plan §15.** |
+| **2 Oct.** Nothing sits on Listen's map but what you open (Inspector, Go to, the first-visit hint) and loading badges. When the stage is wider than 2:1 (most desktops, a container query `listen-wide`), the track choice, the value and the frame times sit in a panel beside the map, as tall as it; otherwise (16:10, 4:3, and the tour) the title, frame times and track choice sit above the map and the value in a one-line strip under it. From 1024 px the tour is a column beside the map | The title plate hid North America, the readout the South Pacific, and the tour panel a quarter of the map. Map width at 1280×720: 1152 px with the plates on it, 992 px now (1632 px at 1920×1080) |
+| **2 Oct.** "Today's" is now "latest" everywhere on screen and in speech | The frames are the newest available, which are often a day or more old (25 and 27 Sept right now), so "today's" wasn't always true |
+| **2 Oct.** With Describe on, Then vs Now and Month by month say each description before the sound and keep quiet while it plays (`src/hooks/use-narrated-player.ts`) | Describe used to speak the caption over the data (ducking it), so the voice covered the sound. "Play heat, rain and water" with Describe plays the parts one by one, each after its description; without Describe nothing changes |
+| **2 Oct.** Go to (dock, Listen): type a latitude and longitude. Accepts signed decimals, N/S/E/W, a pasted pair ("23.8, 90.4") and Bengali digits; after Go, focus is back on the map | Asked for by the L3 lead. No key for it (G is kept for the game) |
+| **2 Oct.** The tour holds the storm's heaviest frame on screen while its line is said, and opens the Checks drawer on the map's left. On phones its steps are a row of dots with the current step's name, and the line has a fixed minimum height | The map used to jump back to Chattogram ("Dry") while the line said 22 mm/h, and the drawer covered the place the tour points at. On phones the panel grew and shrank with each line, moving the map |
+| **2 Oct.** How we know's "Sound rules" counts the sounds that play (11) and its sheet lists all 13 rules: on the map, in Then vs Now, and "written, but not played yet" (fires, vegetation) | The tile said 13 sounds while the sheet showed only the map's 7 rules, and 2 of the 13 don't sound yet |
+| **2 Oct.** The tour's storm line takes both numbers from the sequence's `index.json` ("12 hours … 30 minutes per frame") | "half an hour per frame" was written into the sentence, breaking the rule that numbers come from the data |
+| **2 Oct.** The dock keeps icons with short labels under them up to 1024 px, sharing the row's width; the header's dial has its own row up to 1024 px, and below 360 px the name shows as the mark only | Adding Go to made the dock overflow at 320, 360, 768 and 800 px; the header already overflowed at 320 px and pushed Help off screen at 768 px |
 
 ## 5. Feature checklist (nothing may be lost)
 
@@ -99,6 +107,7 @@ Each row is checked by hand and, where one exists, by the QA script named. The e
 | Language EN / বাংলা | Top bar | | |
 | Jukebox motif | Top bar | | |
 | Mixer: volume, mute, solo per voice; Mute all | Dock popover (sheet on phones) | | |
+| Go to a latitude and longitude (2 Oct) | Dock, Listen | `audit-oct2.ts` (goto) | Yes |
 | Sweep from Chattogram with map ring | Dock | `qa-review.ts` | |
 | Storm time-lapse: loading %, cancel on press, frame captions | Dock | `qa-timelapse.ts`, `qa-timelapse-rate.ts` | |
 | Satellite whisper | Listen | | |
@@ -115,7 +124,7 @@ Each row is checked by hand and, where one exists, by the QA script named. The e
 | GLOBE teaser | How we know | | |
 | Mapping: live rules, rules for every sound, Hear the legend | Listen Inspector (live), How we know (all) | | |
 | Provenance for the cursor, time-lapse note | Listen Inspector | `qa-provenance.ts` | |
-| Place History: 38 places, heat / rain / water, decades, record notes | Then vs Now, Month by month | `qa-history-world.ts` | |
+| Place History: 42 places (4 in Bangladesh, 38 world), heat / rain / water, decades, record notes | Then vs Now, Month by month | `qa-history-world.ts` | |
 | History chart: drag or arrow keys to hear one month, held-key behaviour | Then vs Now, Month by month | `qa-scrub.ts`, `qa-held-key.ts` | |
 | Help dialog: keys table, settings, Coming in October | Everywhere (H, ?) | | |
 | Credits (plan §15 wording) | How we know, one-line link in the shell | | |

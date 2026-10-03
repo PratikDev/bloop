@@ -15,11 +15,12 @@ export const storyEn = {
   "story.source": (p: { source: string }) => `Data: ${p.source}`,
   "story.stopped": "Tour stopped. Back to the map.",
 
-  "story.hum": (p: { reading: string }) => `Listen: the northern Bay of Bengal in today's NASA frame. ${p.reading}.`,
+  "story.hum": (p: { reading: string }) => `Listen: the northern Bay of Bengal in the latest NASA frame. ${p.reading}.`,
   "story.sweep": "Now a sweep from Chattogram across the Bay. Warmer water sounds higher; rain sounds as drops.",
   "story.sweepNoSound": "The sweep from Chattogram is a sound. Turn sound on to hear it.",
-  "story.storm": (p: { hours: string }) => `${p.hours} hours of rain around the heaviest storm, half an hour per frame.`,
-  "story.stormNoSpan": "Rain around the heaviest storm, half an hour per frame.",
+  // The span and the step come from the sequence's index.json (frames × step_minutes).
+  "story.storm": (p: { hours: string; minutes: string }) => `${p.hours} hours of rain around the heaviest storm, ${p.minutes} minutes per frame.`,
+  "story.stormNoSpan": "Rain around the heaviest storm, frame by frame.",
   "story.stormPeak": (p: { reading: string; datetime: string }) => `Heaviest on its path: ${p.reading}, ${p.datetime} UTC.`,
   "story.stormFailed": "The storm frames couldn't load, so this step is skipped.",
   "story.whisper": (p: { reading: string }) => `Where the storm is now: ${p.reading}.`,

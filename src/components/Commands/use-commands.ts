@@ -42,6 +42,8 @@ export interface Commands {
   startSilent(): void;
   enableSound(): Promise<void>;
   moveCursor(dLat: number, dLon: number): void;
+  /** Puts the cursor at an exact place (Go to). */
+  setCursor(cursor: LatLon): void;
   setTrack(track: TrackMode): void;
   setMode(mode: Mode): void;
   setLang(lang: Lang): void;

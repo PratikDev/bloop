@@ -1,10 +1,17 @@
 "use client";
 
 import { useEffect, useRef } from "react";
+import type { CaptionParams } from "@/lib/audio-adapter/types";
 import { captionText } from "@/lib/i18n";
-import { onCaption, type CaptionEvent } from "@/lib/ui-captions";
+import { isDescribeHeld, onCaption, type CaptionEvent } from "@/lib/ui-captions";
+import type { AppState } from "../AppState/reducer";
 import { useAppState } from "../AppState/use-app-state";
-import { useCommands } from "../Commands/use-commands";
+import { useCommands, type Line } from "../Commands/use-commands";
+
+/** A caption as a line to say: the same words Describe would speak for it. */
+export function captionLine(key: string, params: CaptionParams = {}): Line {
+  return (_t, lang) => captionText(lang, key, params);
+}
 
 /**
  * Captions Describe mode says aloud: what is playing, not every value.
@@ -37,20 +44,26 @@ const DESCRIBED = new Set([
 /**
  * Describe mode (plan H5, key D): spoken descriptions during playback. Goes
  * through say(), so the two-voices rule holds: the built-in voice or the live
- * region, never both. Off during Story Mode, which narrates itself.
+ * region, never both. Off during Story Mode, which narrates itself, and
+ * while a narrated sound plays (its line was said before it).
  */
 export function useDescribe(): void {
   const { state } = useAppState();
   const { say } = useCommands();
   const latest = useRef({ on: false, say });
   useEffect(() => {
-    latest.current = { on: state.describe && state.mode !== "story", say };
+    latest.current = { on: describeOn(state), say };
   });
 
   useEffect(() => {
     return onCaption((e: CaptionEvent) => {
-      if (!latest.current.on || !DESCRIBED.has(e.key)) return;
-      void latest.current.say((_t, lang) => captionText(lang, e.key, e.params));
+      if (!latest.current.on || isDescribeHeld() || !DESCRIBED.has(e.key)) return;
+      void latest.current.say(captionLine(e.key, e.params));
     });
   }, []);
+}
+
+/** Whether Describe mode speaks on this page. */
+export function describeOn(state: Pick<AppState, "describe" | "mode">): boolean {
+  return state.describe && state.mode !== "story";
 }

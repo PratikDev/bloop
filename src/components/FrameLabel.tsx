@@ -4,23 +4,24 @@ import { cn } from "@/lib/utils";
 import { formatUtc } from "@/lib/i18n";
 import { useAppState, useT } from "./AppState/use-app-state";
 import { useLiveData } from "./LiveData/use-live-data";
-import { useTimeLapse } from "./TimeLapse/use-time-lapse";
+import { useShownPoint } from "./TimeLapse/use-shown-point";
 
 /**
  * Plan §16 frame label for every frame on screen. The frame time is always
- * visible; during the time-lapse it is the time of the frame being shown.
+ * visible; during the time-lapse (or while the tour holds one of its frames)
+ * it is the time of the frame being shown. Only the frames of the track shown.
  */
 export function FrameLabel({ className }: { className?: string }) {
   const { state } = useAppState();
   const { sst, rain } = useLiveData();
   const t = useT();
-  const { current } = useTimeLapse();
-  const frames = current
-    ? [{ product: t("frame.product.rain"), time: current.timeUtc }]
+  const { track, timelapse } = useShownPoint();
+  const frames = timelapse
+    ? [{ product: t("frame.product.rain"), time: timelapse.timeUtc }]
     : [
-    state.track !== "rain" && sst ? { product: t("frame.product.ocean"), time: sst.meta.frame_time_utc } : null,
-    state.track !== "ocean" && rain ? { product: t("frame.product.rain"), time: rain.meta.frame_time_utc } : null,
-  ].filter((f) => f !== null);
+        track !== "rain" && sst ? { product: t("frame.product.ocean"), time: sst.meta.frame_time_utc } : null,
+        track !== "ocean" && rain ? { product: t("frame.product.rain"), time: rain.meta.frame_time_utc } : null,
+      ].filter((f) => f !== null);
 
   return (
     <div className={cn("space-y-0.5 text-small text-haze", className)}>

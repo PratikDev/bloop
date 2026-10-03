@@ -4,7 +4,6 @@ import { Keyboard, Scroll, Sparkle } from "@phosphor-icons/react";
 import { motion } from "motion/react";
 import { Button } from "@/components/ui/button";
 import { useLoaded } from "@/hooks/use-loaded";
-import { MAPPING } from "@/lib/audio/mapping";
 import { loadGlobeDuet } from "@/lib/data";
 import { RISE, STAGGER } from "@/lib/motion";
 import { oceanTruth, rainTruth } from "@/lib/truth";
@@ -15,7 +14,7 @@ import { Credits } from "../../Credits";
 import { FrameLabel } from "../../FrameLabel";
 import { InfoSheet } from "../../InfoSheet";
 import { GlobeTeaser } from "../../panels/GlobeTeaser";
-import { MappingPanel } from "../../panels/MappingPanel";
+import { MappingPanel, PLAYED_VOICES } from "../../panels/MappingPanel";
 import { OceanTruth, RainTruth } from "../../panels/TruthPanel";
 import { StatusBadge } from "../../StatusBadge";
 import { useLiveData } from "../../LiveData/use-live-data";
@@ -69,8 +68,8 @@ export function HowPage() {
         >
           <RainTruth showHeading={false} />
         </Tile>
-        <Tile title={t("how.rules.title")} figure={t("how.rules.value", { count: MAPPING.voices.length })} figureLabel={t("how.rules.figure")} open={t("how.openRules")}>
-          <MappingPanel />
+        <Tile title={t("how.rules.title")} figure={t("how.rules.value", { count: PLAYED_VOICES.length })} figureLabel={t("how.rules.figure")} open={t("how.openRules")}>
+          <MappingPanel scope="all" />
         </Tile>
         <Tile
           title={t("how.globe.title")}

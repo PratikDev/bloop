@@ -1,9 +1,11 @@
 "use client";
 
 import { useCallback, useEffect, useRef, useState } from "react";
+import { useNarratedPlayer } from "@/hooks/use-narrated-player";
 import { audio } from "@/lib/audio-adapter";
 import type { CompareSide, PlayerHandle } from "@/lib/audio-adapter/types";
 import { postCaption, quietSideCaption } from "@/lib/ui-captions";
+import { captionLine } from "../CaptionBar/use-describe";
 import type { ScrubMotion } from "../charts/HistoryChart";
 
 export const HISTORY_PLAYER = "history";
@@ -17,10 +19,11 @@ const REST_MS = 180;
 /**
  * Place History's two ways to listen: a whole decade (step events under
  * "history" drive the playhead), or one month picked on the chart. Either one
- * ends the other, so sound and chart never disagree.
+ * ends the other, so sound and chart never disagree. With Describe on, the
+ * decade's "Now playing" is said before it sounds and "History finished" after.
  */
 export function useHistoryPlayers() {
-  const decade = useRef<PlayerHandle | null>(null);
+  const { narrating, start: startDecade, stop: stopDecadeSound } = useNarratedPlayer();
   const month = useRef<PlayerHandle | null>(null);
   const pending = useRef<ReturnType<typeof setTimeout> | null>(null);
   // The range that is actually sounding; the playhead follows it, not the current selection.
@@ -35,7 +38,6 @@ export function useHistoryPlayers() {
   useEffect(
     () => () => {
       cancelPending();
-      decade.current?.stop();
       month.current?.stop();
       quietSideCaption(null);
     },
@@ -44,11 +46,9 @@ export function useHistoryPlayers() {
 
   // Stopped, not finished: no "History finished" caption.
   const stopDecade = useCallback(() => {
-    const h = decade.current;
-    decade.current = null;
-    h?.stop();
+    stopDecadeSound();
     setPlayingFrom(null); // hide the playhead now, not after the playhead's linger
-  }, []);
+  }, [stopDecadeSound]);
 
   const stopMonth = useCallback(() => {
     cancelPending();
@@ -65,20 +65,26 @@ export function useHistoryPlayers() {
 
   const playDecade = useCallback(
     (side: CompareSide, from: number) => {
-      decade.current?.stop();
       stopMonth();
       setMonthIndex(null);
-      const h = audio.playSeries(side, { player: HISTORY_PLAYER });
-      decade.current = h;
       setPlayingFrom(from);
-      // playSeries captions the start ("Now playing: …") but not the end, so History posts that.
-      void h.done.then(() => {
-        if (decade.current !== h) return;
-        setPlayingFrom(null);
-        postCaption("caption.history.end");
+      // playSeries captions the start ("Now playing: …") but not the end, so History adds that:
+      // said after the sound with Describe on, otherwise shown.
+      void startDecade({
+        steps: [
+          {
+            lines: narrating ? [captionLine("caption.compare.side", { label: side.label })] : [],
+            play: () => audio.playSeries(side, { player: HISTORY_PLAYER }),
+          },
+        ],
+        end: narrating ? captionLine("caption.history.end") : undefined,
+        onEnd: () => {
+          setPlayingFrom(null);
+          if (!narrating) postCaption("caption.history.end");
+        },
       });
     },
-    [stopMonth],
+    [stopMonth, startDecade, narrating],
   );
 
   /**

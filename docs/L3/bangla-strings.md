@@ -2,13 +2,20 @@
 
 For the teammate translating the interface into Bangla.
 
-**How to add a translation:** put it in `src/lib/i18n/bn.ts` under the same key, for example `"start.button": "শোনা শুরু করুন"`. Any key without a translation falls back to English.
-- Rows marked "has values" are functions, because a number or place name is inserted into the sentence. Copy the English function from `src/lib/i18n/en/` and translate its text. Numbers are formatted in Bangla automatically when you pass `"bn"` to the format helpers.
-- **§16 wording is translated by a person, never by a machine.** These rows are marked in the table.
-- Voice names in the Mapping panel come from `public/mapping.json` (`label.bn`, owned by L2), not from this list. Entries there starting with `TODO:` still show English.
-- Rows this doesn't list: the Mapping panel's rule sentences and global rules are English text from L2's `mapping.ts` and `mapping.json`. Bangla rule sentences need `ruleParts()` (planned for Phase 4).
+**Status (2 Oct): every string is translated** (draft, needs a review by a native Bangla speaker on the team). The translations are in `src/lib/i18n/bn/`, one file per English file in `src/lib/i18n/en/`, with the same keys. Each Bangla file is typed against its English twin, so a missing key fails `bunx tsc --noEmit`.
 
-**Still to translate:** 375 of 375 strings (every row marked TODO_BN). Until a string is translated, the Bangla setting shows it in English; speech stays English (with Bangla on screen) until `BANGLA_SPEECH_READY` in `src/lib/i18n/bn.ts` is set.
+| What | Where | Note |
+|---|---|---|
+| Interface strings | `src/lib/i18n/bn/*.ts` | Functions with values use the `"bn"` number helpers, so digits are Bengali |
+| Prose from the data files (L1's JSON, L2's `mapping.json`) | `src/lib/i18n/bn/data.ts` | Those files stay English. The app matches each sentence exactly, or by its fixed shape with the numbers taken from the sentence itself. A sentence L1 or L2 rewords shows in English until `data.ts` is updated; `bun test` (`data.test.ts`) lists any that fell back |
+| Mapping panel rule sentences | `src/lib/i18n/bn/rules.ts` | Built from `ruleParts()`, the same numbers as the sound |
+| Dataset, mission and credit names | unchanged | Stay English (plan §15) |
+
+**Please review first:** the plan §16 wording, which is still marked "Pending team approval" on screen: `frame.label`, `field.fires.caption`, the Then vs Now captions (`data.ts`, heat, rain and water patterns), and the Truth sentences (`truth.*`).
+
+Speech: `BANGLA_SPEECH_READY` is on. The built-in voice speaks Bangla when the device has a Bangla voice, and English (with Bangla on screen) when it doesn't (`src/lib/speech-lang.ts`).
+
+The table below is the original list (written 28 Sep), kept for the reviewer as the key list. The `TODO_BN` marks in it are out of date.
 
 ## Priority: the video's closing shot (translate these first)
 
@@ -55,12 +62,12 @@ The video ends on the live app in Bangla mode, playing (team plan §14, 3:45 to 
 | Credits | `credits.visualizations` | Visualizations: NASA's Scientific Visualization Studio (SVS 5101, 4285) for the NASA Earth Information Center. | §15: translate only the lead-in; names stay English |
 | Credits | `credits.data` | Data in this app: MUR SST (NASA/JPL PO.DAAC); GPM IMERG (NASA/JAXA, GES DISC); GRACE/GRACE-FO JPL mascons RL06.3Mv04 (NASA/JPL PO.DAAC); NASA GISTEMP v4; GPCP v2.3 and GPCC Full Data v2020 (via NOAA PSL); NASA FIRMS; MODIS MOD13Q1 via ORNL DAAC; NASA GLOBE Program. | §15: translate only "Data in this app:"; names stay English |
 | Credits | `credits.testing` | Also used in our testing: NASA POWER (dropped: it disagreed with independent records). | §15: translate only "Also used in our testing:"; names stay English |
-| Start screen | `start.lead` | Hear NASA's view of today's ocean and rain as live sound. |  |
+| Start screen | `start.lead` | Hear NASA's view of the latest ocean and rain as live sound. |  |
 | Start screen | `start.hint` | Headphones help: west sounds left, east sounds right. |  |
 | Start screen | `start.button` | Start listening |  |
 | Start screen | `start.silent` | Explore without sound |  |
 | Start screen | `start.silentHint` | Values appear as text and captions. You can turn sound on at any time. |  |
-| Start screen | `start.loading` | Loading today's ocean frame… |  |
+| Start screen | `start.loading` | Loading the latest ocean frame… |  |
 
 ## Interface
 
@@ -68,12 +75,12 @@ The video ends on the live app in Bangla mode, playing (team plan §14, 3:45 to 
 |---|---|---|---|
 | `app.title` | Earth Information Jukebox | TODO_BN |  |
 | `app.titleShort` | Jukebox | TODO_BN | phone header only; shown on screen, not read by screen readers (they get `app.title`) |
-| `start.lead` | Hear NASA's view of today's ocean and rain as live sound. | TODO_BN |  |
+| `start.lead` | Hear NASA's view of the latest ocean and rain as live sound. | TODO_BN |  |
 | `start.hint` | Headphones help: west sounds left, east sounds right. | TODO_BN |  |
 | `start.button` | Start listening | TODO_BN |  |
 | `start.silent` | Explore without sound | TODO_BN |  |
 | `start.silentHint` | Values appear as text and captions. You can turn sound on at any time. | TODO_BN |  |
-| `start.loading` | Loading today's ocean frame… | TODO_BN |  |
+| `start.loading` | Loading the latest ocean frame… | TODO_BN |  |
 | `start.skipIntro` | Skip intro | TODO_BN |  |
 | `mode.explore` | Explore | TODO_BN |  |
 | `mode.story` | Tour | TODO_BN |  |
@@ -143,8 +150,8 @@ The video ends on the live app in Bangla mode, playing (team plan §14, 3:45 to 
 | `announce.mode` | (sentence with values; see source) | TODO_BN | has values |
 | `announce.toggle` | (sentence with values; see source) | TODO_BN | has values |
 | `announce.started` | Sound started. The cursor is over the Bay of Bengal. Arrow keys move it. | TODO_BN |  |
-| `error.ocean` | Couldn't load today's ocean frame. Check the connection and reload the page. | TODO_BN |  |
-| `error.rain` | Couldn't load today's rain frame. Ocean sound still works; reload the page to try again. | TODO_BN |  |
+| `error.ocean` | Couldn't load the latest ocean frame. Check the connection and reload the page. | TODO_BN |  |
+| `error.rain` | Couldn't load the latest rain frame. Ocean sound still works; reload the page to try again. | TODO_BN |  |
 | `speak.approx` | about  | TODO_BN | spoken in place of "~" (keep a trailing space) |
 | `timelapse.play` | Play storm time-lapse | TODO_BN |  |
 | `timelapse.stop` | Stop time-lapse | TODO_BN |  |
@@ -253,6 +260,8 @@ The video ends on the live app in Bangla mode, playing (team plan §14, 3:45 to 
 | `truth.rain.plotCaption` | (sentence with values; see source) | TODO_BN | has values |
 | `mapping.intro` | Every sound follows a written rule. The same numbers drive the sound engine, so this page and the sound can't disagree. | TODO_BN |  |
 | `mapping.live` | What you hear on the map | TODO_BN |  |
+| `mapping.thenNow` | What you hear in Then vs Now | TODO_BN |  |
+| `mapping.notPlayed` | Written, but not played yet | TODO_BN |  |
 | `mapping.global` | Rules for every sound | TODO_BN |  |
 | `mapping.designChoice` | Our design choice, to be tested with listeners | TODO_BN |  |
 | `mapping.silence` | Silence | TODO_BN |  |
@@ -269,7 +278,7 @@ The video ends on the live app in Bangla mode, playing (team plan §14, 3:45 to 
 | `provenance.frameTime` | Frame time | TODO_BN |  |
 | `provenance.utc` | (sentence with values; see source) | TODO_BN | has values |
 | `provenance.check` | Check | TODO_BN |  |
-| `provenance.checkIsToday` | (sentence with values; see source) | TODO_BN | has values |
+| `provenance.checkIsLatest` | (sentence with values; see source) | TODO_BN | has values |
 | `truth.ocean.sentence` | (sentence with values; see source) | TODO_BN | L1's template; has values |
 | `truth.ocean.recheck` | (sentence with values; see source) | TODO_BN | has values |
 | `truth.rain.recheck` | (sentence with values; see source) | TODO_BN | has values |
@@ -390,17 +399,18 @@ The redesign splits the app into Home, Listen, Then vs Now and How we know (docs
 | `nav.thenNow` | Then vs Now | TODO_BN |  |
 | `nav.how` | How we know | TODO_BN |  |
 | `nav.howShort` | How | TODO_BN |  |
-| `home.eyebrow` | NASA Earth Information Center · today's frames | TODO_BN |  |
+| `home.eyebrow` | NASA Earth Information Center · latest frames | TODO_BN |  |
 | `home.titleLead` | Listen to | TODO_BN |  |
-| `home.titleAccent` | today's Earth. | TODO_BN |  |
+| `home.titleAccent` | Earth's latest frames. | TODO_BN |  |
 | `home.continue` | Continue listening | TODO_BN |  |
 | `home.stations` | Three ways in | TODO_BN |  |
-| `home.station.listen` | Move across today's NASA frame and hear the ocean and rain under the cursor. | TODO_BN |  |
+| `home.station.listen` | Move across the latest NASA frame and hear the ocean and rain under the cursor. | TODO_BN |  |
 | `home.station.thenNow` | Hear how heat, monsoon rain and water underground in Bangladesh have changed. | TODO_BN |  |
 | `home.station.how` | How each value was checked against NASA's source data, and every rule behind the sound. | TODO_BN |  |
 | `opening.label` | Intro | TODO_BN |  |
 | `opening.escHint` | or press Esc | TODO_BN |  |
-| `listen.title` | Today's ocean and rain, as sound | TODO_BN |  |
+| `listen.title` | Latest ocean and rain, as sound | TODO_BN |  |
+| `listen.panel` | Under the cursor | TODO_BN | screen-reader label |
 | `listen.hint` | Tap or drag on the map, or use the arrow keys, to hear another place. | TODO_BN |  |
 | `listen.hintDismiss` | Got it | TODO_BN |  |
 | `tour.start` | Take the tour | TODO_BN |  |
@@ -411,6 +421,15 @@ The redesign splits the app into Home, Listen, Then vs Now and How we know (docs
 | `dock.short.tour` | Tour | TODO_BN |  |
 | `dock.short.mixer` | Mixer | TODO_BN |  |
 | `dock.short.inspector` | About | TODO_BN |  |
+| `dock.short.goto` | Go to | TODO_BN |  |
+| `goto.open` | Go to a latitude and longitude | TODO_BN | screen-reader label |
+| `goto.title` | Go to a place | TODO_BN |  |
+| `goto.lat` | Latitude | TODO_BN |  |
+| `goto.lon` | Longitude | TODO_BN |  |
+| `goto.hint` | In degrees. North and east are positive, south and west negative, or add N, S, E or W. You can paste both, like 23.8, 90.4. | TODO_BN | the fields also accept Bengali digits; N, S, E, W stay Latin letters |
+| `goto.submit` | Go | TODO_BN |  |
+| `goto.badLat` | Latitude is a number from -90 to 90 (or add N or S). | TODO_BN |  |
+| `goto.badLon` | Longitude is a number from -180 to 180 (or add E or W). | TODO_BN |  |
 | `dock.label` | Sound | TODO_BN |  |
 | `inspector.open` | About this sound | TODO_BN |  |
 | `inspector.close` | Close | TODO_BN |  |
@@ -436,7 +455,7 @@ The redesign splits the app into Home, Listen, Then vs Now and How we know (docs
 | `how.credits` | Credits | TODO_BN |  |
 | `how.keys` | Keys and accessibility | TODO_BN |  |
 | `notFound.title` | No signal here | TODO_BN |  |
-| `notFound.text` | This page doesn't exist. Today's frames are still live on the map. | TODO_BN |  |
+| `notFound.text` | This page doesn't exist. The latest frames are still live on the map. | TODO_BN |  |
 | `notFound.back` | Go to Listen | TODO_BN |  |
 
 ## Satellite whisper
@@ -471,7 +490,7 @@ The redesign splits the app into Home, Listen, Then vs Now and How we know (docs
 | `story.sweep` | Now a sweep from Chattogram across the Bay. Warmer water sounds higher; rain sounds as drops. | TODO_BN |  |
 | `story.sweepNoSound` | The sweep from Chattogram is a sound. Turn sound on to hear it. | TODO_BN |  |
 | `story.storm` | (sentence with values; see source) | TODO_BN | has values |
-| `story.stormNoSpan` | Rain around the heaviest storm, half an hour per frame. | TODO_BN |  |
+| `story.stormNoSpan` | Rain around the heaviest storm, frame by frame. | TODO_BN |  |
 | `story.stormPeak` | (sentence with values; see source) | TODO_BN | has values |
 | `story.stormFailed` | The storm frames couldn't load, so this step is skipped. | TODO_BN |  |
 | `story.whisper` | (sentence with values; see source) | TODO_BN | has values |

@@ -31,7 +31,7 @@ export function HelpDialog() {
 
   return (
     <Dialog open={state.helpOpen} onOpenChange={(open) => dispatch({ type: "setHelpOpen", open })}>
-      <DialogContent className="max-h-[85dvh] overflow-y-auto p-6 sm:max-w-xl">
+      <DialogContent closeLabel={t("inspector.close")} className="max-h-[85dvh] overflow-y-auto p-6 sm:max-w-xl">
         <DialogHeader>
           <DialogTitle className="pr-10 font-serif text-headline">{t("help.title")}</DialogTitle>
           <DialogDescription className="text-body text-haze">{t("help.focusNote")}</DialogDescription>

@@ -1,5 +1,7 @@
 // English strings for the side sheet: Truth, Mapping, Provenance, History.
 
+import { ruleText } from "@/lib/audio/mapping";
+import type { VoiceSpec } from "@/types/data-contract";
 import { formatFixed, formatInteger } from "../format";
 
 export const panelsEn = {
@@ -48,6 +50,8 @@ export const panelsEn = {
 
   "mapping.intro": "Every sound follows a written rule. The same numbers drive the sound engine, so this page and the sound can't disagree.",
   "mapping.live": "What you hear on the map",
+  "mapping.thenNow": "What you hear in Then vs Now",
+  "mapping.notPlayed": "Written, but not played yet",
   "mapping.global": "Rules for every sound",
   "mapping.designChoice": "Our design choice, to be tested with listeners",
   "mapping.silence": "Silence",
@@ -56,6 +60,9 @@ export const panelsEn = {
   "mapping.status.verified": "Checked against the source",
   "mapping.status.context": "Context record",
   "mapping.status.designOnly": "Sound cue",
+  "mapping.voiceLabel": (p: { voice: VoiceSpec }) => p.voice.label.en,
+  // L2's rule sentence, generated from mapping.json's numbers.
+  "mapping.rule": (p: { voice: VoiceSpec }) => ruleText(p.voice),
 
   "provenance.at": (p: { place: string }) => `Where the value at ${p.place} comes from.`,
   "provenance.value": "Value",
@@ -65,6 +72,6 @@ export const panelsEn = {
   "provenance.frameTime": "Frame time",
   "provenance.utc": (p: { datetime: string }) => `${p.datetime} UTC`,
   "provenance.check": "Check",
-  "provenance.checkIsToday": (p: { datetime: string }) =>
-    `This check is for today's frame (${p.datetime} UTC), not the time-lapse frame shown.`,
+  "provenance.checkIsLatest": (p: { datetime: string }) =>
+    `This check is for the latest frame (${p.datetime} UTC), not the time-lapse frame shown.`,
 };

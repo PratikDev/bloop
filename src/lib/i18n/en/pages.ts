@@ -14,23 +14,24 @@ export const pagesEn = {
   "nav.how": "How we know",
   "nav.howShort": "How",
 
-  "home.eyebrow": "NASA Earth Information Center · today's frames",
+  "home.eyebrow": "NASA Earth Information Center · latest frames",
   "home.titleLead": "Listen to",
-  "home.titleAccent": "today's Earth.",
+  "home.titleAccent": "Earth's latest frames.",
   "home.continue": "Continue listening",
   "home.stations": "Three ways in",
-  "home.station.listen": "Move across today's NASA frame and hear the ocean and rain under the cursor.",
+  "home.station.listen": "Move across the latest NASA frame and hear the ocean and rain under the cursor.",
   "home.station.thenNow": "Hear how heat, monsoon rain and water underground in Bangladesh have changed.",
   "home.station.how": "How each value was checked against NASA's source data, and every rule behind the sound.",
 
   "opening.label": "Intro",
   "opening.escHint": "or press Esc",
 
-  "listen.title": "Today's ocean and rain, as sound",
+  "listen.title": "Latest ocean and rain, as sound",
+  "listen.panel": "Under the cursor",
   "listen.hint": "Tap or drag on the map, or use the arrow keys, to hear another place.",
   "listen.hintDismiss": "Got it",
   "tour.start": "Take the tour",
-  // Phone dock labels (under the icons); the full names show from 768 px.
+  // Dock labels under the icons below 1024 px; the full names show from 1024 px.
   "dock.short.sweep": "Sweep",
   "dock.short.timelapse": "Storm",
   "dock.label.timelapse": "Storm time-lapse",
@@ -38,6 +39,16 @@ export const pagesEn = {
   "dock.short.tour": "Tour",
   "dock.short.mixer": "Mixer",
   "dock.short.inspector": "About",
+  "dock.short.goto": "Go to",
+  // Go to: type an exact place for the cursor.
+  "goto.open": "Go to a latitude and longitude",
+  "goto.title": "Go to a place",
+  "goto.lat": "Latitude",
+  "goto.lon": "Longitude",
+  "goto.hint": "In degrees. North and east are positive, south and west negative, or add N, S, E or W. You can paste both, like 23.8, 90.4.",
+  "goto.submit": "Go",
+  "goto.badLat": "Latitude is a number from -90 to 90 (or add N or S).",
+  "goto.badLon": "Longitude is a number from -180 to 180 (or add E or W).",
   "dock.label": "Sound",
   "mixer.limited": "Mixer: some sound is muted or soloed",
   "inspector.open": "About this sound",
@@ -67,6 +78,6 @@ export const pagesEn = {
   "how.keys": "Keys and accessibility",
 
   "notFound.title": "No signal here",
-  "notFound.text": "This page doesn't exist. Today's frames are still live on the map.",
+  "notFound.text": "This page doesn't exist. The latest frames are still live on the map.",
   "notFound.back": "Go to Listen",
 };

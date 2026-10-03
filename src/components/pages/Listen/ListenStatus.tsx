@@ -1,12 +1,13 @@
 "use client";
 
+import { cn } from "@/lib/utils";
 import { useAppState, useT } from "../../AppState/use-app-state";
 import { useLiveData } from "../../LiveData/use-live-data";
 import { StatusBadge } from "../../StatusBadge";
 import { useTimeLapse } from "../../TimeLapse/use-time-lapse";
 
 /** Loading and error states for the map's data, in words and shapes (never colour alone). */
-export function ListenStatus() {
+export function ListenStatus({ className }: { className?: string }) {
   const { rainStatus, sstStatus } = useLiveData();
   const { state } = useAppState();
   const t = useT();
@@ -24,5 +25,5 @@ export function ListenStatus() {
     rainStatus === "error" && <StatusBadge key="rne" kind="error">{t("error.rain")}</StatusBadge>,
   ].filter(Boolean);
   if (items.length === 0) return null;
-  return <div className="flex flex-col items-start gap-1.5">{items}</div>;
+  return <div className={cn("flex flex-col items-start gap-1.5", className)}>{items}</div>;
 }

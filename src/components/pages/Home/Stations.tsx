@@ -3,12 +3,14 @@
 import { Link } from "@tanstack/react-router";
 import { ArrowUpRight } from "@phosphor-icons/react";
 import { motion } from "motion/react";
+import { formatIndex } from "@/lib/i18n";
 import { RISE, STAGGER } from "@/lib/motion";
-import { useT } from "../../AppState/use-app-state";
+import { useAppState, useT } from "../../AppState/use-app-state";
 import { NAV_ITEMS } from "../../Header/nav-items";
 
 /** The three pages as stations on the dial: number, name, one line on what each shows. */
 export function Stations() {
+  const { state } = useAppState();
   const t = useT();
   return (
     <motion.nav aria-label={t("home.stations")} variants={STAGGER} initial="hidden" animate="shown" className="px-4 pb-4 md:px-8 lg:px-12 lg:pb-6">
@@ -20,7 +22,7 @@ export function Stations() {
               <span className="flex items-baseline justify-between gap-3">
                 <span className="flex items-baseline gap-3">
                   <span aria-hidden="true" className="font-mono text-small text-shapla tabular-nums">
-                    {String(i + 1).padStart(2, "0")}
+                    {formatIndex(i + 1, state.lang)}
                   </span>
                   <span className="font-serif text-title">{t(item.label)}</span>
                 </span>

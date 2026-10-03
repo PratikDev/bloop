@@ -5,6 +5,7 @@ import { Button } from "@/components/ui/button";
 import { Sheet, SheetContent, SheetTitle, SheetTrigger } from "@/components/ui/sheet";
 import { useMediaQuery } from "@/hooks/use-media-query";
 import { MEDIA } from "@/lib/breakpoints";
+import { useT } from "./AppState/use-app-state";
 
 /**
  * Full text one click away, so pages never grow: a side sheet (a bottom sheet
@@ -25,10 +26,12 @@ export function InfoSheet({
   children: ReactNode;
 }) {
   const phone = useMediaQuery(MEDIA.phone);
+  const t = useT();
   return (
     <Sheet>
       <SheetTrigger render={<Button variant="ghost" aria-label={triggerLabel} className={triggerClassName} />}>{trigger}</SheetTrigger>
       <SheetContent
+        closeLabel={t("inspector.close")}
         side={phone ? "bottom" : "right"}
         className={phone ? "max-h-[85dvh] overflow-y-auto rounded-t-sheet bg-dusk p-5 pt-6" : "w-full overflow-y-auto rounded-l-sheet bg-dusk p-6 sm:max-w-xl"}
       >

@@ -5,6 +5,7 @@ import { ChartContainer, type ChartConfig } from "@/components/ui/chart";
 import { cn } from "@/lib/utils";
 import type { PairRow, SeriesPair } from "@/lib/field-records";
 import { AXIS, CHART_HEIGHT, LegendItem, LineSwatch, unitLabel } from "./chart-style";
+import { useAxisFormat } from "./use-axis-format";
 
 /**
  * Two periods on one shared axis (position in the season or window), each
@@ -29,6 +30,7 @@ export function PairChart({
   summary: string; // text alternative for the whole chart
   heightClass?: string;
 }) {
+  const axis = useAxisFormat();
   const config = {
     then: { label: labels.then, color: "var(--chart-then)" },
     now: { label: labels.now, color: "var(--chart-now)" },
@@ -41,7 +43,7 @@ export function PairChart({
         <LineChart data={rows} margin={{ top: 8, right: 16, bottom: 4, left: 0 }} accessibilityLayer>
           <CartesianGrid stroke="var(--chart-grid)" vertical={false} />
           <XAxis dataKey="i" type="number" domain={[0, last]} tickFormatter={tick} minTickGap={32} {...AXIS} />
-          <YAxis width={44} {...AXIS} label={unitLabel(unit)} />
+          <YAxis width={44} tickFormatter={axis.value} {...AXIS} label={unitLabel(unit)} />
           {pair.then.mean !== null && <ReferenceLine segment={[{ x: 0, y: pair.then.mean }, { x: last, y: pair.then.mean }]} stroke="var(--color-then)" strokeDasharray="4 4" />}
           {pair.now.mean !== null && <ReferenceLine segment={[{ x: 0, y: pair.now.mean }, { x: last, y: pair.now.mean }]} stroke="var(--color-now)" strokeDasharray="4 4" />}
           <Line dataKey="then" stroke="var(--color-then)" strokeWidth={1} strokeDasharray="3 3" dot={false} connectNulls={false} isAnimationActive={false} />

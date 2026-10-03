@@ -6,8 +6,9 @@ import { locationForMode } from "@/router/modes";
 import { sleep } from "@/lib/abortable";
 import { audio } from "@/lib/audio-adapter";
 import { bandMeans, SWEEP_CENTER, sweepPath } from "@/lib/data";
-import { bindT, speechLang } from "@/lib/i18n";
+import { bindT } from "@/lib/i18n";
 import { spokenReading, readAt } from "@/lib/reading";
+import { speechLangFor } from "@/lib/speech-lang";
 import { postCaption } from "@/lib/ui-captions";
 import { whisperSource, type WhisperSource } from "@/lib/whisper";
 import { useAnnounce } from "../Announcer/use-announcer";
@@ -44,6 +45,15 @@ export function CommandsProvider({ children }: { children: ReactNode }) {
     // "~" is read aloud as "about".
     const sayable = (text: string, tl: typeof t) => text.replaceAll("~", tl("speak.approx"));
 
+    // Speech may be in another language than the screen (plan §17). `id` is the
+    // say() it belongs to: a later say() or Esc while voices load cancels it.
+    const speakLine = async (line: Line, id: number) => {
+      const sl = await speechLangFor(state.lang);
+      if (id !== sayCount.current) return;
+      const ts = bindT(sl);
+      await audio.speak(sayable(line(ts, sl), ts), sl);
+    };
+
     const say = async (line: Line, source?: WhisperSource | null) => {
       const id = ++sayCount.current;
       const voiced = state.builtInVoice && state.soundOn;
@@ -52,12 +62,8 @@ export function CommandsProvider({ children }: { children: ReactNode }) {
       // With sound off, nothing is spoken aloud.
       if (!voiced) announce(sayable(source ? t("whisper.announce", { text: shown, source: source.caption }) : shown, t));
       else postCaption("caption.speech", { text: shown });
-      // Speech may be in another language than the screen (plan §17).
-      const sl = speechLang(state.lang);
-      const ts = bindT(sl);
-      // Wait at least a short reading time: speech that can't start (no voice
-      // for this language) resolves at once.
-      await Promise.all([voiced ? audio.speak(sayable(line(ts, sl), ts), sl) : null, sleep(shown.length * MIN_MS_PER_CHAR)]);
+      // Wait at least a short reading time: speech that can't start resolves at once.
+      await Promise.all([voiced ? speakLine(line, id) : null, sleep(shown.length * MIN_MS_PER_CHAR)]);
       if (source && state.soundOn && id === sayCount.current) audio.playEarcon("whisper", { params: { source: source.caption } });
     };
 
@@ -79,6 +85,9 @@ export function CommandsProvider({ children }: { children: ReactNode }) {
       enableSound,
       moveCursor(dLat, dLon) {
         dispatch({ type: "moveCursor", dLat, dLon });
+      },
+      setCursor(cursor) {
+        dispatch({ type: "setCursor", cursor });
       },
       setTrack(track) {
         dispatch({ type: "setTrack", track });

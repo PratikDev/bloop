@@ -17,7 +17,7 @@ export interface TimeLapseFrame {
 /** How a run ended, and its heaviest frame (for Story Mode's narration). */
 export interface TimeLapseRun {
   finished: boolean; // false = stopped, failed to load, or already running
-  peak: { point: SweepPoint; timeUtc: string } | null;
+  peak: TimeLapseFrame | null; // the heaviest frame played (Story Mode holds it on screen while it is said)
   last: SweepPoint | null; // where the storm-following ended (the newest frame)
 }
 

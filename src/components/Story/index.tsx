@@ -53,7 +53,7 @@ export function StoryProvider({ children }: { children: ReactNode }) {
     audio.silenceLive();
     runStory({
       signal: ctrl.signal,
-      t: bindT(s.lang),
+      t: () => bindT(latest.current.state.lang),
       soundOn: s.soundOn,
       fields: () => latest.current.fields ?? f,
       enterStep(id, at) {
@@ -61,8 +61,9 @@ export function StoryProvider({ children }: { children: ReactNode }) {
         setFocus(at);
       },
       say(line, source) {
-        // On screen in the chosen language (Bangla subtitles); speech may be English (plan §17).
-        setLine({ text: line(bindT(s.lang), s.lang), source: source?.full ?? null });
+        // On screen in the chosen language, read when the line starts (the language can change mid-tour); speech may be English (plan §17).
+        const lang = latest.current.state.lang;
+        setLine({ text: line(bindT(lang), lang), source: source?.full ?? null });
         return latest.current.commands.say(line, source);
       },
       startSweep: () => latest.current.commands.startSweep(),

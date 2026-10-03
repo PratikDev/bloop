@@ -29,11 +29,11 @@ export function TimeLapseButton({ className }: { className?: string }) {
       className={cn("overflow-hidden", className)}
     >
       {busy ? <Stop aria-hidden="true" weight="fill" /> : <CloudRain aria-hidden="true" />}
-      {/* The visible word: short on phones, a little longer from 768 px; both are part of the name. */}
-      <span aria-hidden="true" className="tabular-nums md:hidden">
+      {/* The visible word: short below 1024 px, a little longer from there; both are part of the name. */}
+      <span aria-hidden="true" className="tabular-nums lg:hidden">
         {status === "loading" ? label : t(status === "playing" ? "dock.short.stop" : "dock.short.timelapse")}
       </span>
-      <span aria-hidden="true" className="hidden tabular-nums md:inline">
+      <span aria-hidden="true" className="hidden tabular-nums lg:inline">
         {status === "loading" ? label : t(status === "playing" ? "timelapse.stop" : "dock.label.timelapse")}
       </span>
       {status === "loading" && (
