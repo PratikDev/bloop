@@ -172,7 +172,7 @@ python run_all.py            # options: --no-sequence --no-context --with-global
 > - No number appears unless it comes from our data files or our tests.
 > - The sound is generated live; the data is near real time, and the frame's time is always shown.
 > - Comparisons use multi-year windows; single years are labelled "example years".
-> - Anything not working yet is labelled "Coming in October". Wording still under team review carries a "Pending team approval" badge.
+> - Anything not working yet is labelled "Coming in October".
 
 ## Credits
 
