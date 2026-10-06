@@ -85,7 +85,6 @@ export const contextEn = {
     `${p.name}: ${n2(p.a)} cm (${p.windowA}) → ${n2(p.b)} cm (${p.windowB}); trend ${n2(p.trend)} cm per year`,
   "disclosure.gapNote": "Gap",
   "disclosure.notClaimed": "What we don't claim",
-  "disclosure.pending": "Caption shown exactly as the data file gives it, until the team approves final wording.",
 
   "history.intro": "One place's monthly record. Pick a decade to hear it month by month, or drag along the chart to hear one month.",
   "history.place": "Place",

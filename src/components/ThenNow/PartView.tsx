@@ -6,7 +6,6 @@ import type { DhakaThenNowDemo, GraceContextFile } from "@/types/data-contract";
 import { useAppState, useT } from "../AppState/use-app-state";
 import { HistoryChart, type ChartSpan } from "../charts/HistoryChart";
 import { YearlyChart } from "../charts/YearlyChart";
-import { StatusBadge } from "../StatusBadge";
 import type { Part } from "./use-then-now-player";
 
 function YearlyView({ part, demo, index, splitIndex }: { part: YearlyPart; demo: DhakaThenNowDemo; index: number | null; splitIndex: number | null }) {
@@ -70,20 +69,9 @@ function WaterView({ grace, index }: { grace: GraceContextFile; index: number | 
   );
 }
 
-/** A finding's headline: its caption, marked pending until the team approves the wording. */
-export function Headline({ caption, pending = true }: { caption: string; pending?: boolean }) {
-  const t = useT();
-  return (
-    <div className="space-y-2">
-      <p className="font-serif text-lead leading-snug text-moon md:text-title lg:short:text-lead">{caption}</p>
-      {pending && (
-        <div className="flex flex-wrap items-center gap-x-3 gap-y-1">
-          <StatusBadge kind="pending">{t("badge.pending")}</StatusBadge>
-          <span className="text-small text-haze">{t("disclosure.pending")}</span>
-        </div>
-      )}
-    </div>
-  );
+/** A finding's headline: its caption. */
+export function Headline({ caption }: { caption: string }) {
+  return <p className="font-serif text-lead leading-snug text-moon md:text-title lg:short:text-lead">{caption}</p>;
 }
 
 /** One sounded part: its caption as the headline, then the chart with its playhead. */

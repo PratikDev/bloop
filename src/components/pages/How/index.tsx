@@ -35,7 +35,6 @@ export function HowPage() {
   const rainCheck = rain ? rainTruth(rain.meta) : null;
   const { value: duet } = useLoaded(loadGlobeDuet);
   const globe = duet?.status === "ok" ? duet.summary.share_within_25_points : undefined;
-  const pending = <StatusBadge kind="pending">{t("badge.pending")}</StatusBadge>;
 
   return (
     <section aria-labelledby="how-title" className="mx-auto flex h-full min-h-0 w-full max-w-7xl flex-col gap-5 overflow-y-auto px-4 pt-3 pb-4 md:px-8">
@@ -54,7 +53,6 @@ export function HowPage() {
           title={t("truth.ocean.heading")}
           figure={ocean ? t("how.ocean.value", { median: ocean.median }) : undefined}
           figureLabel={ocean ? t("how.ocean.figure") : t("truth.ocean.updating")}
-          note={ocean && pending}
           open={t("how.open")}
         >
           <OceanTruth showHeading={false} />
@@ -63,7 +61,7 @@ export function HowPage() {
           title={t("truth.rain.heading")}
           figure={rainCheck ? t("how.rain.value", { percent: rainCheck.percent }) : undefined}
           figureLabel={t("how.rain.figure")}
-          note={rainStatus === "loading" ? <StatusBadge kind="loading">{t("badge.loadingRain")}</StatusBadge> : rainCheck && pending}
+          note={rainStatus === "loading" ? <StatusBadge kind="loading">{t("badge.loadingRain")}</StatusBadge> : undefined}
           open={t("how.open")}
         >
           <RainTruth showHeading={false} />

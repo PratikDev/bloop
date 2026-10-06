@@ -22,7 +22,7 @@ export function Tile({
   /** Left out while the data loads, or when the file has no number to show. */
   figure?: string;
   figureLabel: string;
-  /** A status line under the number (e.g. "Pending team approval"). */
+  /** A status line under the number (e.g. "Coming in October"). */
   note?: ReactNode;
   /** The button text that opens the full content. */
   open: string;

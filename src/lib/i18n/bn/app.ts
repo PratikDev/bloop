@@ -47,7 +47,6 @@ export const appBn: typeof appEn = {
   "help.open": "সাহায্য",
   "help.keys": "কীবোর্ড",
 
-  "badge.pending": "দলের অনুমোদনের অপেক্ষায়",
   "badge.comingOctober": "অক্টোবরে আসছে",
   "badge.loadingRain": "বৃষ্টি লোড হচ্ছে…",
 

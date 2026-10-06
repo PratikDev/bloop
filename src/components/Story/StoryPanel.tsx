@@ -89,7 +89,6 @@ export function StoryPanel({ className }: { className?: string }) {
             >
               <p className="font-serif text-lead leading-snug text-moon lg:short:text-body">{story.line.text}</p>
               {story.line.source && <p className="text-small text-haze">{t("story.source", { source: story.line.source })}</p>}
-              {story.step === "truth" && <StatusBadge kind="pending">{t("badge.pending")}</StatusBadge>}
             </motion.div>
           )}
         </AnimatePresence>

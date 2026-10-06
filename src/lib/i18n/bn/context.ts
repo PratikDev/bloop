@@ -87,7 +87,6 @@ export const contextBn: typeof contextEn = {
     `${p.name}: ${n2(p.a)} সেমি (${p.windowA}) → ${n2(p.b)} সেমি (${p.windowB}); প্রবণতা বছরে ${n2(p.trend)} সেমি`,
   "disclosure.gapNote": "ফাঁক",
   "disclosure.notClaimed": "যা আমরা দাবি করি না",
-  "disclosure.pending": "দল চূড়ান্ত ভাষা অনুমোদন না করা পর্যন্ত এই ক্যাপশনটি ডেটা ফাইলের ভাষ্যের অনুবাদ।",
 
   "history.intro": "একটি স্থানের মাসিক রেকর্ড। মাসে মাসে শুনতে একটি দশক বেছে নিন, অথবা একটি মাস শুনতে চার্ট বরাবর টানুন।",
   "history.place": "স্থান",
