@@ -28,7 +28,7 @@ export const captionsBn: typeof captionsEn = {
   "caption.legendUnavailable": "এই লেজেন্ড আগে বনাম এখন-এর সাথে আসবে",
   "caption.warmup.start": "ওয়ার্ম-আপ: নমুনা শব্দগুলো বাজার সময় আরামদায়ক ভলিউম ঠিক করুন",
   "caption.warmup.end": "ওয়ার্ম-আপ শেষ",
-  "caption.motif": "জুকবক্সের সুর: চারটি নোট, দক্ষিণ থেকে উত্তরে সমুদ্রের প্রতিটি অক্ষাংশ-বলয়ের জন্য একটি",
+  "caption.motif": "ব্লুপের সুর: চারটি নোট, দক্ষিণ থেকে উত্তরে সমুদ্রের প্রতিটি অক্ষাংশ-বলয়ের জন্য একটি",
   "caption.opening.closeEyes": "চোখ বন্ধ করুন।",
   "caption.opening.openEyes": "এবার চোখ খুলুন।",
   "caption.stopped": "সব শব্দ থেমেছে",
