@@ -1,7 +1,6 @@
 // Bangla strings: every key the English has (each file is typed against its
 // English twin, so a missing key fails the type check). Data-file prose is
-// translated in data.ts. Plan §16 wording here is a translation the team still
-// has to approve; it shows with its "Pending team approval" mark where English does.
+// translated in data.ts.
 
 import type { Messages } from "../index";
 import { appBn } from "./app";

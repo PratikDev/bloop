@@ -42,7 +42,6 @@ export const appEn = {
   "help.open": "Help",
   "help.keys": "Keys",
 
-  "badge.pending": "Pending team approval",
   "badge.comingOctober": "Coming in October",
   "badge.loadingRain": "Loading rain…",
 

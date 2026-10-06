@@ -23,7 +23,7 @@ function FieldLayout({ picker, pair, chart, caption, facts }: { picker: ReactNod
     <PartLayout
       finding={
         <>
-          <Headline caption={caption} pending={false} />
+          <Headline caption={caption} />
           <FieldChart pair={pair} {...chart} />
         </>
       }

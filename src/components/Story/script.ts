@@ -96,7 +96,7 @@ export async function runStory(d: StoryDeps): Promise<void> {
   d.enterStep("xray", { point: at, track });
   await say((tl) => tl("story.xraySkipped"));
 
-  // 6. Truth: the rain check, worded from rain.json (Pending team approval, shown in the panel).
+  // 6. Truth: the rain check, worded from rain.json, shown in the panel.
   d.enterStep("truth", { point: at, track });
   d.openTruth();
   const rain = d.fields().rain;
