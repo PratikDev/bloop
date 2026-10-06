@@ -12,8 +12,7 @@ const ns = (lat: number) => (lat >= 0 ? "উত্তর" : "দক্ষিণ"
 const ew = (lon: number) => (lon >= 0 ? "পূর্ব" : "পশ্চিম");
 
 export const appBn: typeof appEn = {
-  "app.title": "আর্থ ইনফরমেশন জুকবক্স",
-  "app.titleShort": "জুকবক্স",
+  "app.title": "ব্লুপ",
 
   "start.lead": "নাসার চোখে সর্বশেষ সমুদ্র আর বৃষ্টি, শুনুন জীবন্ত শব্দে।",
   "start.hint": "হেডফোন থাকলে ভালো: পশ্চিম শোনা যায় বাঁ কানে, পূর্ব ডান কানে।",
@@ -43,7 +42,7 @@ export const appBn: typeof appEn = {
   "lang.en": "English",
   "lang.bn": "বাংলা",
 
-  "motif.play": "জুকবক্সের সুর বাজান",
+  "motif.play": "ব্লুপের সুর বাজান",
   "help.open": "সাহায্য",
   "help.keys": "কীবোর্ড",
 

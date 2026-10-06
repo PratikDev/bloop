@@ -7,8 +7,7 @@ import { PLACE_NAMES_EN } from "./places";
 const deg = (v: number) => formatDegrees(v, "en");
 
 export const appEn = {
-  "app.title": "Earth Information Jukebox",
-  "app.titleShort": "Jukebox", // phones, on screen only
+  "app.title": "Bloop",
 
   "start.lead": "Hear NASA's view of the latest ocean and rain as live sound.",
   "start.hint": "Headphones help: west sounds left, east sounds right.",
@@ -38,7 +37,7 @@ export const appEn = {
   "lang.en": "English",
   "lang.bn": "বাংলা",
 
-  "motif.play": "Play the Jukebox motif",
+  "motif.play": "Play the Bloop motif",
   "help.open": "Help",
   "help.keys": "Keys",
 

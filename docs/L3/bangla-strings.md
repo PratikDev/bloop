@@ -25,7 +25,7 @@ The video ends on the live app in Bangla mode, playing (team plan §14, 3:45 to 
 
 | Where | Key | English | Note |
 |---|---|---|---|
-| Top bar | `app.title` | Earth Information Jukebox |  |
+| Top bar | `app.title` | Bloop |  |
 | Top bar | `mode.explore` | Explore |  |
 | Top bar | `mode.story` | Tour |  |
 | Top bar | `mode.thenNow` | Then vs Now |  |
@@ -36,7 +36,7 @@ The video ends on the live app in Bangla mode, playing (team plan §14, 3:45 to 
 | Top bar | `settings.describe` | Describe |  |
 | Top bar | `settings.language` | Language | screen-reader label |
 | Top bar | `help.open` | Help | screen-reader label |
-| Top bar | `motif.play` | Play the Jukebox motif | screen-reader label |
+| Top bar | `motif.play` | Play the Bloop motif | screen-reader label |
 | Readout (on the map) | `reading.oceanValue` | (sentence with values; see source) | has values |
 | Readout (on the map) | `reading.oceanNone` | No ocean data here |  |
 | Readout (on the map) | `reading.rainValue` | (sentence with values; see source) | has values |
@@ -73,8 +73,7 @@ The video ends on the live app in Bangla mode, playing (team plan §14, 3:45 to 
 
 | Key | English | Bangla | Note |
 |---|---|---|---|
-| `app.title` | Earth Information Jukebox | TODO_BN |  |
-| `app.titleShort` | Jukebox | TODO_BN | phone header only; shown on screen, not read by screen readers (they get `app.title`) |
+| `app.title` | Bloop | TODO_BN |  |
 | `start.lead` | Hear NASA's view of the latest ocean and rain as live sound. | TODO_BN |  |
 | `start.hint` | Headphones help: west sounds left, east sounds right. | TODO_BN |  |
 | `start.button` | Start listening | TODO_BN |  |
@@ -99,7 +98,7 @@ The video ends on the live app in Bangla mode, playing (team plan §14, 3:45 to 
 | `settings.open` | Settings | TODO_BN |  |
 | `lang.en` | English | TODO_BN |  |
 | `lang.bn` | বাংলা | TODO_BN |  |
-| `motif.play` | Play the Jukebox motif | TODO_BN |  |
+| `motif.play` | Play the Bloop motif | TODO_BN |  |
 | `help.open` | Help | TODO_BN |  |
 | `help.keys` | Keys | TODO_BN |  |
 | `badge.pending` | Pending team approval | TODO_BN |  |
@@ -218,7 +217,7 @@ The video ends on the live app in Bangla mode, playing (team plan §14, 3:45 to 
 | `caption.legendUnavailable` | That legend comes with Then vs Now | TODO_BN |  |
 | `caption.warmup.start` | Warm-up: set a comfortable volume while the reference sounds play | TODO_BN |  |
 | `caption.warmup.end` | Warm-up finished | TODO_BN |  |
-| `caption.motif` | The Jukebox motif: four notes, one per band of ocean from south to north | TODO_BN |  |
+| `caption.motif` | The Bloop motif: four notes, one per band of ocean from south to north | TODO_BN |  |
 | `caption.opening.closeEyes` | Close your eyes. | TODO_BN |  |
 | `caption.opening.openEyes` | Now open your eyes. | TODO_BN |  |
 | `caption.stopped` | All sound stopped | TODO_BN |  |
@@ -394,7 +393,7 @@ The redesign splits the app into Home, Listen, Then vs Now and How we know (docs
 |---|---|---|---|
 | `app.skipToContent` | Skip to content | TODO_BN |  |
 | `nav.label` | Pages | TODO_BN |  |
-| `nav.home` | Earth Information Jukebox, home | TODO_BN |  |
+| `nav.home` | Bloop, home | TODO_BN |  |
 | `nav.listen` | Listen | TODO_BN |  |
 | `nav.thenNow` | Then vs Now | TODO_BN |  |
 | `nav.how` | How we know | TODO_BN |  |

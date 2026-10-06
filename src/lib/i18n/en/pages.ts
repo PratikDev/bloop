@@ -8,7 +8,7 @@ export const pagesEn = {
   "app.skipToContent": "Skip to content",
 
   "nav.label": "Pages",
-  "nav.home": "Earth Information Jukebox, home",
+  "nav.home": "Bloop, home",
   "nav.listen": "Listen",
   "nav.thenNow": "Then vs Now",
   "nav.how": "How we know",

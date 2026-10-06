@@ -1,6 +1,7 @@
 import type { Metadata, Viewport } from "next";
 import { Anek_Bangla, Geist, Geist_Mono, Instrument_Serif, Tiro_Bangla } from "next/font/google";
 import { TooltipProvider } from "@/components/ui/tooltip";
+import { appEn } from "@/lib/i18n/en/app";
 import "./globals.css";
 
 // Latin faces for the interface; the Bangla faces cover Bengali glyphs only
@@ -13,7 +14,7 @@ const anek = Anek_Bangla({ variable: "--font-anek", subsets: ["bengali"], preloa
 const tiro = Tiro_Bangla({ variable: "--font-tiro", subsets: ["bengali"], weight: "400", style: ["normal", "italic"], preload: false });
 
 export const metadata: Metadata = {
-  title: { default: "Earth Information Jukebox", template: "%s · Earth Information Jukebox" },
+  title: { default: appEn["app.title"], template: `%s · ${appEn["app.title"]}` },
   description: "Hear NASA Earth Information Center frames as live sound, and see how the values were checked.",
 };
 

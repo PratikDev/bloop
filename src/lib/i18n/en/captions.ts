@@ -28,7 +28,7 @@ export const captionsEn = {
   "caption.legendUnavailable": "That legend comes with Then vs Now",
   "caption.warmup.start": "Warm-up: set a comfortable volume while the reference sounds play",
   "caption.warmup.end": "Warm-up finished",
-  "caption.motif": "The Jukebox motif: four notes, one per band of ocean from south to north",
+  "caption.motif": "The Bloop motif: four notes, one per band of ocean from south to north",
   "caption.opening.closeEyes": "Close your eyes.",
   "caption.opening.openEyes": "Now open your eyes.",
   "caption.stopped": "All sound stopped",

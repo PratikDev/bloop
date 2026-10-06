@@ -9,7 +9,7 @@ export const pagesBn: typeof pagesEn = {
   "app.skipToContent": "মূল অংশে যান",
 
   "nav.label": "পাতা",
-  "nav.home": "আর্থ ইনফরমেশন জুকবক্স, প্রথম পাতা",
+  "nav.home": "ব্লুপ, প্রথম পাতা",
   "nav.listen": "শুনুন",
   "nav.thenNow": "আগে বনাম এখন",
   "nav.how": "আমরা কীভাবে জানি",

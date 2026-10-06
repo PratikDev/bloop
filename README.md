@@ -1,6 +1,6 @@
 <div align="center">
 
-<img src="docs/readme/banner.svg" alt="Earth Information Jukebox: hear NASA's view of today's ocean and rain as live sound" width="100%">
+<img src="docs/readme/banner.svg" alt="Bloop: hear NASA's view of today's ocean and rain as live sound" width="100%">
 
 <p>
   <img alt="Team PTSD" src="https://img.shields.io/badge/Team-PTSD-ff9bd4?style=flat-square&labelColor=15122a">
@@ -33,9 +33,11 @@ Built by **Team PTSD** for the NASA Space Apps Challenge 2026.
 
 ## The idea
 
-NASA's Earth Information Center (EIC) publishes stunning visualizations of our planet, but they are for eyes only. The Jukebox takes the **exact EIC frame on screen** (today's sea surface temperature, the latest half-hourly rainfall) and turns each pixel's colour back into the value it stands for, using the frame's own colorbar. Those values become **sound, generated live** while you explore. Then we **check the values against NASA's source datasets** and show how close they are.
+NASA's Earth Information Center (EIC) publishes stunning visualizations of our planet, but they are for eyes only. Bloop takes the **exact EIC frame on screen** (today's sea surface temperature, the latest half-hourly rainfall) and turns each pixel's colour back into the value it stands for, using the frame's own colorbar. Those values become **sound, generated live** while you explore. Then we **check the values against NASA's source datasets** and show how close they are.
 
 Blind and low-vision users can explore the planet by ear with a keyboard and speech. Everyone else hears patterns like the monsoon moving over the Bay of Bengal.
+
+**Why "Bloop"?** The name comes from [the Bloop](https://oceanservice.noaa.gov/facts/bloop.html), a mysterious underwater sound that NOAA scientists recorded in the southern Pacific in 1997 with hydrophones placed thousands of kilometres apart. In 2005 it was traced to an icequake: an iceberg cracking and breaking away from an Antarctic glacier. Like the Bloop, our project lets you learn about the ocean by listening to it.
 
 ## How it works
 
