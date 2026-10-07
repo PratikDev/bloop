@@ -7,6 +7,7 @@ import { numParam, strParam, type captionsEn } from "../en/captions";
 import { formatInteger, formatMonth, formatRainRate, formatTemperature, localDigits } from "../format";
 import { translateData } from "./data";
 import { PLACE_NAMES_BN } from "./places";
+import { APP_NAME } from "../brand";
 
 const TRACK_NAMES: Record<string, string> = { ocean: "সমুদ্র", rain: "বৃষ্টি", snow: "তুষার" };
 const TRACK_OF: Record<string, string> = { ocean: "সমুদ্রের", rain: "বৃষ্টির", snow: "তুষারের" };
@@ -28,7 +29,7 @@ export const captionsBn: typeof captionsEn = {
   "caption.legendUnavailable": "এই লেজেন্ড আগে বনাম এখন-এর সাথে আসবে",
   "caption.warmup.start": "ওয়ার্ম-আপ: নমুনা শব্দগুলো বাজার সময় আরামদায়ক ভলিউম ঠিক করুন",
   "caption.warmup.end": "ওয়ার্ম-আপ শেষ",
-  "caption.motif": "ব্লুপের সুর: চারটি নোট, দক্ষিণ থেকে উত্তরে সমুদ্রের প্রতিটি অক্ষাংশ-বলয়ের জন্য একটি",
+  "caption.motif": `${APP_NAME}-এর সুর: চারটি নোট, দক্ষিণ থেকে উত্তরে সমুদ্রের প্রতিটি অক্ষাংশ-বলয়ের জন্য একটি`,
   "caption.opening.closeEyes": "চোখ বন্ধ করুন।",
   "caption.opening.openEyes": "এবার চোখ খুলুন।",
   "caption.stopped": "সব শব্দ থেমেছে",

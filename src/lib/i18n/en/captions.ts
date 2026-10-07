@@ -5,6 +5,7 @@
 import type { CaptionParams } from "@/lib/audio-adapter/types";
 import { formatMonth, formatRainRate, formatTemperature } from "../format";
 import { PLACE_NAMES_EN } from "./places";
+import { APP_NAME } from "../brand";
 
 export const numParam = (p: CaptionParams, key: string): number | null =>
   typeof p[key] === "number" ? p[key] : null;
@@ -28,7 +29,7 @@ export const captionsEn = {
   "caption.legendUnavailable": "That legend comes with Then vs Now",
   "caption.warmup.start": "Warm-up: set a comfortable volume while the reference sounds play",
   "caption.warmup.end": "Warm-up finished",
-  "caption.motif": "The Bloop motif: four notes, one per band of ocean from south to north",
+  "caption.motif": `The ${APP_NAME} motif: four notes, one per band of ocean from south to north`,
   "caption.opening.closeEyes": "Close your eyes.",
   "caption.opening.openEyes": "Now open your eyes.",
   "caption.stopped": "All sound stopped",

@@ -2,6 +2,7 @@
 
 import type { pagesEn } from "../en/pages";
 import { formatFixed, formatInteger } from "../format";
+import { APP_NAME } from "../brand";
 
 const int = (v: number) => formatInteger(v, "bn");
 
@@ -9,7 +10,7 @@ export const pagesBn: typeof pagesEn = {
   "app.skipToContent": "মূল অংশে যান",
 
   "nav.label": "পাতা",
-  "nav.home": "ব্লুপ, প্রথম পাতা",
+  "nav.home": `${APP_NAME}, প্রথম পাতা`,
   "nav.listen": "শুনুন",
   "nav.thenNow": "আগে বনাম এখন",
   "nav.how": "আমরা কীভাবে জানি",

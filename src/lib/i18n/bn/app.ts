@@ -5,6 +5,7 @@ import { CREDIT_NAMES } from "../credits";
 import { formatDegrees, formatInteger, formatRainRate, formatTemperature } from "../format";
 import { translateData } from "./data";
 import { PLACE_NAMES_BN, PLACES_BN } from "./places";
+import { APP_NAME } from "../brand";
 
 const deg = (v: number) => formatDegrees(v, "bn");
 const int = (v: number) => formatInteger(v, "bn");
@@ -12,7 +13,7 @@ const ns = (lat: number) => (lat >= 0 ? "উত্তর" : "দক্ষিণ"
 const ew = (lon: number) => (lon >= 0 ? "পূর্ব" : "পশ্চিম");
 
 export const appBn: typeof appEn = {
-  "app.title": "ব্লুপ",
+  "app.title": APP_NAME,
 
   "start.lead": "নাসার চোখে সর্বশেষ সমুদ্র আর বৃষ্টি, শুনুন জীবন্ত শব্দে।",
   "start.hint": "হেডফোন থাকলে ভালো: পশ্চিম শোনা যায় বাঁ কানে, পূর্ব ডান কানে।",
@@ -42,7 +43,7 @@ export const appBn: typeof appEn = {
   "lang.en": "English",
   "lang.bn": "বাংলা",
 
-  "motif.play": "ব্লুপের সুর বাজান",
+  "motif.play": `${APP_NAME}-এর সুর বাজান`,
   "help.open": "সাহায্য",
   "help.keys": "কীবোর্ড",
 

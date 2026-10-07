@@ -3,11 +3,12 @@
 import { CREDIT_NAMES } from "../credits";
 import { formatDegrees, formatRainRate, formatTemperature } from "../format";
 import { PLACE_NAMES_EN } from "./places";
+import { APP_NAME } from "../brand";
 
 const deg = (v: number) => formatDegrees(v, "en");
 
 export const appEn = {
-  "app.title": "Bloop",
+  "app.title": APP_NAME,
 
   "start.lead": "Hear NASA's view of the latest ocean and rain as live sound.",
   "start.hint": "Headphones help: west sounds left, east sounds right.",
@@ -37,7 +38,7 @@ export const appEn = {
   "lang.en": "English",
   "lang.bn": "বাংলা",
 
-  "motif.play": "Play the Bloop motif",
+  "motif.play": `Play the ${APP_NAME} motif`,
   "help.open": "Help",
   "help.keys": "Keys",
 
