@@ -15,7 +15,7 @@ export function Brand() {
     <div className="flex items-center gap-1">
       <Link to="/" aria-label={t("nav.home")} className="flex h-11 items-center gap-2.5 rounded-lg pr-2">
         <SignalMark className="size-7" />
-        <span aria-hidden="true" className="hidden font-serif text-title leading-none italic min-[22.5rem]:inline">
+        <span aria-hidden="true" translate="no" className="hidden font-serif text-title leading-none italic min-[22.5rem]:inline">
           {/* Below 360 px only the mark shows, so the bar fits (the link keeps its name). */}
           {t("app.title")}
         </span>

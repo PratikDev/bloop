@@ -22,7 +22,7 @@ export function StartGate() {
           <LanguageChoice />
         </motion.div>
         <motion.div variants={RISE} className="space-y-3">
-          <h1 id="start-gate-title" className="display-tight font-serif text-headline">
+          <h1 id="start-gate-title" translate="no" className="display-tight font-serif text-headline">
             {t("app.title")}
           </h1>
           <p className="text-lead text-moon">{t("start.lead")}</p>

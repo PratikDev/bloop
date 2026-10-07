@@ -4,7 +4,7 @@ import { appEn } from "@/lib/i18n/en/app";
 export function Splash() {
   return (
     <div className="grid min-h-dvh place-items-center">
-      <p className="font-serif text-title text-haze italic">{appEn["app.title"]}</p>
+      <p translate="no" className="font-serif text-title text-haze italic">{appEn["app.title"]}</p>
     </div>
   );
 }
