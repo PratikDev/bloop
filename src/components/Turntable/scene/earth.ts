@@ -166,10 +166,12 @@ export function createEarth(palette: Palette, dataCanvas: HTMLCanvasElement, ani
     surface,
     atmosphere,
     setTextures(t) {
-      textures = t;
+      // A new quality replaces the old textures: free those first.
+      if (textures) for (const old of [textures.day, textures.night, textures.relief]) old.dispose();
+      textures = { day: t.day, night: t.night, relief: t.relief };
       t.day.colorSpace = SRGBColorSpace;
       t.night.colorSpace = SRGBColorSpace;
-      for (const tex of Object.values(t)) tex.anisotropy = anisotropy;
+      for (const tex of [t.day, t.night, t.relief]) tex.anisotropy = anisotropy;
       uniforms.dayMap.value = t.day;
       uniforms.nightMap.value = t.night;
       uniforms.reliefMap.value = t.relief;
@@ -203,7 +205,7 @@ export function createEarth(palette: Palette, dataCanvas: HTMLCanvasElement, ani
       for (const g of [geometry, dataGeometry, atmosphereGeometry]) g.dispose();
       for (const m of [earthMaterial, dataMaterial, atmosphereMaterial]) m.dispose();
       for (const t of [dataTexture, oceanMask, empty]) t.dispose();
-      if (textures) for (const t of Object.values(textures)) t.dispose();
+      if (textures) for (const t of [textures.day, textures.night, textures.relief]) t.dispose();
     },
   };
 }
