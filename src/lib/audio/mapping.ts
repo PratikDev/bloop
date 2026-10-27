@@ -243,6 +243,17 @@ export function mapContinuous(value: number | null, mapping: ContinuousMapping):
   return t === null ? null : scaleOutput(t, mapping.output);
 }
 
+/**
+ * The same continuous rule over a narrower input range: a zoomed axis (Sound
+ * terrain plays the ocean rule over a region's own range). Output and scales
+ * stay the rule's own; mapping.json is not changed. Throws on an empty range.
+ */
+export function withInputRange(mapping: ContinuousMapping, range: { min: number; max: number }): ContinuousMapping {
+  checkRange(range.min, range.max, "zoomed axis");
+  if (mapping.input.scale === "log" && range.min <= 0) fail("zoomed axis: log scale needs min > 0");
+  return { ...mapping, input: { ...mapping.input, min: range.min, max: range.max } };
+}
+
 /** Convenience: apply a voice's continuous rule by id (e.g. mapVoice("ocean", 28.4) → Hz). */
 export function mapVoice(id: string, value: number | null, spec: MappingSpec = MAPPING): number | null {
   const m = voiceSpec(id, spec).mapping;

@@ -66,6 +66,33 @@ export interface CompareSide {
   label: string;
   values: (number | null)[];
   voice: ContextVoice;
+  /** PROPOSAL (scenes): one label per value ("YYYY-MM"), for the missing-months caption. */
+  months?: string[];
+  /** PROPOSAL (scenes): a missing value plays the neutral no-data tick instead of silence. */
+  gapTexture?: boolean;
+}
+
+/** PROPOSAL (Dhaka time tunnel): one year's heat anomaly and its twelve monthly rain values. */
+export interface TunnelYear {
+  year: number;
+  heat: number | null; // °C (April–May anomaly)
+  months: (number | null)[]; // mm/day, January … December; null = no record
+}
+
+/** PROPOSAL (Sound terrain): a rain source around the listener, in the scene's own units. */
+export interface SpatialRainSource {
+  x: number;
+  y: number;
+  z: number;
+  mmPerHour: number | null;
+}
+
+export interface SpatialListener {
+  x: number;
+  y: number;
+  z: number;
+  /** Heading in radians: 0 = looking towards −z (north in the scenes). */
+  yaw: number;
 }
 
 /**
@@ -123,6 +150,12 @@ export interface L3AudioExtensions {
   // PROPOSAL (Turntable Earth): the needle-drop cue when a record is chosen.
   // A UI sound on the earcon bus, never a data value.
   playNeedleDrop(): void;
+  // PROPOSAL (scenes): the ocean rule over a zoomed input range (null = the rule's own).
+  setOceanAxis(range: { min: number; max: number } | null): void;
+  // PROPOSAL (Sound terrain): nearby rain around the listener; null silences it.
+  setSpatialRain(sources: readonly SpatialRainSource[] | null, listener: SpatialListener): void;
+  // PROPOSAL (Dhaka time tunnel): heat per year and monsoon per month together; step index = row.
+  playYearsAndMonths(rows: readonly TunnelYear[], opts: { yearSec: number; player: string; captions?: ReadonlyMap<number, string> }): PlayerHandle;
 }
 
 export type AudioEngine = L2AudioApi & L3AudioExtensions;

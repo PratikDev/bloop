@@ -29,6 +29,18 @@ const RAIN_FILTER_HZ = 2400;
 const SNOW_PARTIAL_RATIO = 2.76; // bell-like inharmonic partial
 const SNOW_BASE_HZ = [1046.5, 1174.7, 1318.5, 1568, 1760]; // a soft pentatonic set
 
+/** The rule's drops per second and each drop's peak gain (heavier rain: louder drops). null / dry / no data → 0. */
+export function dropRate(kind: DropKind, mmPerHour: number | null): { rate: number; peak: number } {
+  const spec = voiceSpec(kind);
+  const input = spec.mapping?.kind === "continuous" ? spec.mapping.input : null;
+  const rate = mapVoice(kind, mmPerHour) ?? 0;
+  const t = input && mmPerHour !== null ? (normalise(mmPerHour, input) ?? 0) : 0;
+  return { rate, peak: spec.sound.maxGain * (0.6 + 0.4 * t) };
+}
+
+/** A drop interval around the rule's rate: ±30% jitter, the average stays the rule's. */
+export const dropInterval = (rate: number) => (1 / rate) * (1 - JITTER + Math.random() * 2 * JITTER);
+
 /** One raindrop sound: shared noise buffer → envelope → shared band-pass (AUDIO_RESEARCH A4). Returns its source node. */
 export function createRainDropSound(graph: Graph, destination: AudioNode, attackSec: number, releaseSec: number) {
   const { ctx } = graph;
@@ -52,8 +64,6 @@ export function createDropVoice(graph: Graph, kind: DropKind): DropVoice {
   const spec = voiceSpec(kind);
   const attackSec = spec.sound.attackMs / 1000;
   const releaseSec = spec.sound.releaseMs / 1000;
-  const input = spec.mapping?.kind === "continuous" ? spec.mapping.input : null;
-
   const out = new StereoPannerNode(ctx, { pan: 0 });
   out.connect(graph.voiceBus[kind]);
 
@@ -62,9 +72,7 @@ export function createDropVoice(graph: Graph, kind: DropKind): DropVoice {
   let nextTime = 0;
 
   function density(time: number, mmPerHour: number | null, lon: number): Density {
-    const rate = mapVoice(kind, mmPerHour) ?? 0; // null / dry / no data → 0
-    const t = input && mmPerHour !== null ? (normalise(mmPerHour, input) ?? 0) : 0;
-    return { time, rate, peak: spec.sound.maxGain * (0.6 + 0.4 * t), lon };
+    return { time, lon, ...dropRate(kind, mmPerHour) };
   }
 
 
@@ -88,7 +96,7 @@ export function createDropVoice(graph: Graph, kind: DropKind): DropVoice {
   const play = kind === "rain" ? createRainDropSound(graph, out, attackSec, releaseSec) : playBell;
 
   let lastDrop = Number.NEGATIVE_INFINITY;
-  const interval = (rate: number) => (1 / rate) * (1 - JITTER + Math.random() * 2 * JITTER);
+  const interval = dropInterval;
 
   addTask((until) => {
     if (nextTime < ctx.currentTime) nextTime = ctx.currentTime + 0.01;

@@ -44,6 +44,11 @@ export const captionsEn = {
     const to = formatMonth(strParam(p, "to"), "en");
     return from === to ? `Silence: no satellite measurement for ${from}` : `Silence: no satellite measurements, ${from} to ${to}`;
   },
+  "caption.water.gapTexture": (p: CaptionParams) => {
+    const from = formatMonth(strParam(p, "from"), "en");
+    const to = formatMonth(strParam(p, "to"), "en");
+    return from === to ? `Soft ticks: no satellite measurement for ${from}` : `Soft ticks: no satellite measurements, ${from} to ${to}`;
+  },
   "caption.water.windowStart": (p: CaptionParams) => `Comparison window starts: ${formatMonth(strParam(p, "month"), "en")}`,
   "caption.water.windowEnd": (p: CaptionParams) => `Comparison window ends: ${formatMonth(strParam(p, "month"), "en")}`,
   "caption.compare.side": (p: CaptionParams) => `Now playing: ${strParam(p, "label")}`,
