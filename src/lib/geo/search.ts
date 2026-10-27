@@ -12,6 +12,7 @@ export interface SearchEntry {
   lon: number;
   zoom: ZoomLevel;
   weight: number; // tie-break: more important first
+  detail?: string; // e.g. the country of a city
 }
 
 /** Lower case, no accents or apostrophes, words separated by single spaces. Bangla vowel signs are kept. */

@@ -2,7 +2,7 @@
 // choosing a record is choosing a track: the mixer, frame labels and readout
 // follow exactly as they do on the flat map.
 
-import type { TrackMode } from "@/lib/audio-adapter/types";
+import type { TrackMode, VoiceId } from "@/lib/audio-adapter/types";
 import type { LiveFields } from "@/lib/data";
 import type { BoundT, MessageKey } from "@/lib/i18n";
 import { rainTruth } from "@/lib/truth";
@@ -11,13 +11,43 @@ import type { RainMetadata, SstMetadata } from "@/types/data-contract";
 
 export const LIVE_RECORDS = ["ocean", "rain", "both"] as const satisfies readonly TrackMode[];
 
-/**
- * EIC areas without a record yet: shown, disabled, with no data and no sound.
- * TODO(turntable: more records): one live record per EIC area. Each needs an
- * L1 grid + metadata, a valueAt track and a voice in mapping.json first.
- */
+/** EIC areas without a record yet: shown, locked, with no data and no sound. */
 export const COMING_RECORDS = ["air", "forests", "fire", "energy", "seaLevel", "disasters", "agriculture", "water"] as const;
 export type ComingRecord = (typeof COMING_RECORDS)[number];
+
+/** The legend a record's range bar uses (its frame's own range). */
+export interface RecordLegend {
+  unit: string;
+  range: [number, number];
+  scale: "linear" | "log";
+}
+
+/**
+ * What a new record needs to go live, in one entry: its L1 grid (loaded into a
+ * lookup with valueAt semantics: null = no data → silence), the mapping.json
+ * voice that plays it, its legend and the display image drawn on the globe.
+ */
+export interface RecordPlugin {
+  load(): Promise<(lat: number, lon: number) => number | null>;
+  voice: VoiceId;
+  legend: RecordLegend;
+  image: string;
+}
+
+/**
+ * TODO(turntable: more records): one live record per EIC area. Each entry stays
+ * null until L1 publishes the grid + metadata and L2 adds the voice to mapping.json.
+ */
+export const RECORD_PLUGINS: Record<ComingRecord, RecordPlugin | null> = {
+  air: null,
+  forests: null,
+  fire: null,
+  energy: null,
+  seaLevel: null,
+  disasters: null,
+  agriculture: null,
+  water: null,
+};
 
 export const RECORD_LABELS = {
   ocean: "turntable.record.ocean",

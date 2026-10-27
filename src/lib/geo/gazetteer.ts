@@ -103,7 +103,7 @@ function buildSearchEntries(files: GeoFiles, places: Place[]): SearchEntry[] {
   }
   for (const p of places) {
     const weight = (p.country === "Bangladesh" ? 60 : 40) + Math.log10(Math.max(p.pop, 1));
-    entries.push({ kind: "city", name: p.name, nameBn: p.nameBn, lat: p.lat, lon: p.lon, zoom: "local", weight });
+    entries.push({ kind: "city", name: p.name, nameBn: p.nameBn, lat: p.lat, lon: p.lon, zoom: "local", weight, detail: p.country });
   }
   for (const f of files.districts.features) {
     const [lon, lat] = f.properties.label ?? [NaN, NaN];

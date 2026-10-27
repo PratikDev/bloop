@@ -6,7 +6,9 @@ import { readingText } from "@/lib/reading";
 import { useAppState, useT } from "../AppState/use-app-state";
 import { useLiveData } from "../LiveData/use-live-data";
 import { checkPick, createDebugApi, type PickCheck } from "./debug";
+import type { PlacedLabels } from "./LabelLayer";
 import type { SentReading } from "./needle-sound";
+import type { Geo } from "./use-geo";
 import type { Turntable } from "./use-turntable";
 
 const POLL_MS = 250;
@@ -15,13 +17,23 @@ const POLL_MS = 250;
  * ?debug=1: the needle's lat/lon and value next to the flat map's reading of
  * the same place, and FPS. Developer-only, so its labels aren't translated.
  */
-export function DebugOverlay({ tt, sendLog }: { tt: Turntable; sendLog: RefObject<SentReading[]> }) {
+export function DebugOverlay({
+  tt,
+  sendLog,
+  placed,
+  geo,
+}: {
+  tt: Turntable;
+  sendLog: RefObject<SentReading[]>;
+  placed: { current: PlacedLabels };
+  geo: Geo | null;
+}) {
   const { state } = useAppState();
   const { fields } = useLiveData();
   const t = useT();
-  const latest = useRef({ tt, fields });
+  const latest = useRef({ tt, fields, geo });
   useEffect(() => {
-    latest.current = { tt, fields };
+    latest.current = { tt, fields, geo };
   });
   const [snap, setSnap] = useState<{ check: PickCheck | null; fps: number } | null>(null);
 
@@ -30,6 +42,8 @@ export function DebugOverlay({ tt, sendLog }: { tt: Turntable; sendLog: RefObjec
       () => latest.current.tt,
       () => latest.current.fields,
       sendLog.current,
+      () => latest.current.geo,
+      placed,
     );
     const timer = setInterval(() => {
       const { tt: now, fields: f } = latest.current;
@@ -40,12 +54,12 @@ export function DebugOverlay({ tt, sendLog }: { tt: Turntable; sendLog: RefObjec
       clearInterval(timer);
       delete window.__turntable;
     };
-  }, [sendLog]);
+  }, [sendLog, placed]);
 
   const c = snap?.check;
   const deg = (v: number) => formatFixed(v, "en", 4);
   return (
-    <div aria-hidden="true" className="pointer-events-none absolute top-2 left-2 max-w-sm space-y-0.5 rounded-lg bg-scrim p-2 font-mono text-small text-moon">
+    <div aria-hidden="true" className="pointer-events-none absolute top-2 right-2 max-w-sm space-y-0.5 rounded-lg bg-scrim p-2 font-mono text-small text-moon">
       <p>debug · FPS {snap ? formatFixed(snap.fps, "en", 0) : "—"}</p>
       {c && (
         <>

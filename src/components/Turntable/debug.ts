@@ -4,7 +4,11 @@
 import { audio } from "@/lib/audio-adapter";
 import { mapVoice } from "@/lib/audio/mapping";
 import type { LatLon, LiveFields } from "@/lib/data";
-import { cellIndex } from "@/lib/data/grid";
+import { cellIndex, wrapLon } from "@/lib/data/grid";
+import type { WhereAmI } from "@/lib/geo/gazetteer";
+import type { SearchEntry } from "@/lib/geo/search";
+import type { PlacedLabels } from "./LabelLayer";
+import type { Geo } from "./use-geo";
 import { toLatLon, toXY } from "@/lib/geo";
 import { readAt, type Reading } from "@/lib/reading";
 import type { SentReading } from "./needle-sound";
@@ -143,6 +147,15 @@ export interface DebugApi {
   countDrops(ms: number): Promise<{ rain: number; snow: number; seconds: number }>;
   sampleSteps(ms: number): ReturnType<typeof sampleSteps>;
   fps(): number;
+  /** v2: reverse lookup, search and fly, label anchors, particles. */
+  whereAmI(lat: number, lon: number): WhereAmI | null;
+  search(query: string): SearchEntry[];
+  /** Flies to the top search result; resolves with the needle on arrival (null if nothing found or interrupted). */
+  searchAndFly(query: string): Promise<{ entry: SearchEntry; needle: LatLon } | null>;
+  /** Label anchors on screen, raycast back to the globe: how far each lands from its own coordinates (degrees). */
+  labelCheck(): { key: string; lat: number; lon: number; picked: LatLon | null; errorDeg: number | null }[];
+  particlesSpawned(): number;
+  distance(): number;
 }
 
 declare global {
@@ -151,8 +164,33 @@ declare global {
   }
 }
 
-export function createDebugApi(tt: () => Turntable, fields: () => LiveFields | null, log: SentReading[]): DebugApi {
+export function createDebugApi(
+  tt: () => Turntable,
+  fields: () => LiveFields | null,
+  log: SentReading[],
+  geo: () => Geo | null,
+  placed: { current: PlacedLabels },
+): DebugApi {
   return {
+    whereAmI: (lat, lon) => geo()?.gazetteer.whereAmI({ lat, lon }) ?? null,
+    search: (query) => geo()?.gazetteer.search(query) ?? [],
+    async searchAndFly(query) {
+      const [entry] = geo()?.gazetteer.search(query) ?? [];
+      if (!entry) return null;
+      const arrived = await tt().flyTo(entry, entry.zoom);
+      return arrived ? { entry, needle: tt().needle() } : null;
+    },
+    labelCheck() {
+      const canvas = document.querySelector<HTMLCanvasElement>('[aria-roledescription="turntable"] canvas');
+      const rect = canvas?.getBoundingClientRect();
+      return [...placed.current.entries()].map(([key, a]) => {
+        const picked = rect ? tt().pickAt(rect.left + a.x, rect.top + a.y) : null;
+        const errorDeg = picked ? Math.max(Math.abs(picked.lat - a.lat), Math.abs(wrapLon(picked.lon - a.lon)) * Math.cos((a.lat * Math.PI) / 180)) : null;
+        return { key, lat: a.lat, lon: a.lon, picked, errorDeg };
+      });
+    },
+    particlesSpawned: () => tt().particlesSpawned.current,
+    distance: () => tt().distance(),
     needle: () => tt().needle(),
     readingAt(lat, lon) {
       const f = fields();

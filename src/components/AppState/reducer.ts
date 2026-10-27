@@ -28,6 +28,8 @@ export interface AppState {
   mix: Record<LiveVoiceId, VoiceMix>;
   panel: PanelTab;
   panelOpen: boolean; // the sheet on narrow screens
+  /** Turntable only: the side column folded to a button, so the globe gets the space. */
+  panelCollapsed: boolean;
   helpOpen: boolean;
 }
 
@@ -48,6 +50,7 @@ export type AppAction =
   | { type: "setVoiceMix"; voice: LiveVoiceId; mix: Partial<VoiceMix> }
   | { type: "setPanel"; panel: PanelTab; open?: boolean }
   | { type: "setPanelOpen"; open: boolean }
+  | { type: "setPanelCollapsed"; collapsed: boolean }
   | { type: "setHelpOpen"; open: boolean };
 
 const FULL_MIX: VoiceMix = { volume: 1, muted: false };
@@ -70,6 +73,7 @@ export const initialState: AppState = {
   mix: { ocean: FULL_MIX, rain: FULL_MIX, snow: FULL_MIX },
   panel: "truth",
   panelOpen: false,
+  panelCollapsed: true,
   helpOpen: false,
 };
 
@@ -127,6 +131,8 @@ export function reducer(state: AppState, action: AppAction): AppState {
       return { ...state, panel: action.panel, panelOpen: action.open ?? state.panelOpen };
     case "setPanelOpen":
       return { ...state, panelOpen: action.open };
+    case "setPanelCollapsed":
+      return { ...state, panelCollapsed: action.collapsed };
     case "setHelpOpen":
       return { ...state, helpOpen: action.open };
   }

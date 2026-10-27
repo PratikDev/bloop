@@ -1,11 +1,32 @@
 // Canvas code can't use Tailwind classes, so it reads the same colour tokens
 // from globals.css at runtime. Colours are declared once, in CSS.
 
-export type ColorToken = "night" | "dusk" | "tide" | "land" | "line" | "moon" | "haze" | "shapla" | "ink";
+const TOKENS = [
+  "night",
+  "dusk",
+  "tide",
+  "land",
+  "line",
+  "moon",
+  "haze",
+  "shapla",
+  "ink",
+  "studio-top",
+  "studio-bottom",
+  "plinth",
+  "vinyl",
+  "metal",
+  "atmosphere",
+  "sun-glint",
+  "geo-border",
+  "geo-district",
+  "geo-river",
+  "geo-graticule",
+] as const;
+
+export type ColorToken = (typeof TOKENS)[number];
 
 export type Palette = Record<ColorToken, string>;
-
-const TOKENS: readonly ColorToken[] = ["night", "dusk", "tide", "land", "line", "moon", "haze", "shapla", "ink"];
 
 export function readPalette(): Palette {
   const style = getComputedStyle(document.documentElement);

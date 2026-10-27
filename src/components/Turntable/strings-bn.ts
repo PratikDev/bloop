@@ -1,0 +1,153 @@
+// DRAFT Bangla for the Turntable's own strings, written by the developer, NOT
+// yet checked by a translator (docs/L3/bangla-strings.md). Used only inside the
+// Turntable; src/lib/i18n/bn.ts stays empty, so <html lang> and the rest of the
+// app are unchanged. Deliberately left out (they fall back to English): the
+// honesty wording ("pending team approval", "Verification being updated"), the
+// credits line, and captions raised by the sound engine.
+
+import type { turntableEn } from "@/lib/i18n/en/turntable";
+import { formatInteger } from "@/lib/i18n/format";
+import type { CompassPoint } from "@/lib/geo/spherical";
+
+type Table = typeof turntableEn;
+export type TurntableKey = keyof Table;
+
+const bnInt = (n: number) => formatInteger(n, "bn");
+const bnNum = (n: number) => n.toLocaleString("bn-BD");
+
+const DIRECTION_BN: Record<CompassPoint, string> = {
+  N: "উত্তরে",
+  NE: "উত্তর-পূর্বে",
+  E: "পূর্বে",
+  SE: "দক্ষিণ-পূর্বে",
+  S: "দক্ষিণে",
+  SW: "দক্ষিণ-পশ্চিমে",
+  W: "পশ্চিমে",
+  NW: "উত্তর-পশ্চিমে",
+};
+
+export const turntableBnDraft: { [K in TurntableKey]?: Table[K] } = {
+  "mode.turntable": "টার্নটেবিল",
+  "turntable.roleDescription": "টার্নটেবিল",
+  "turntable.region": (p) => `টার্নটেবিল আর্থ, ${p.record} রেকর্ড বাজছে`,
+  "turntable.instructions":
+    "তীর চিহ্নের কী দিয়ে গ্লোব ঘোরান ও সুই সরান (Shift সহ: ১০ ডিগ্রি)। Enter চাপলে মান বলা হবে। স্ল্যাশ (/) দিয়ে জায়গা খুঁজুন, L চাপলে আপনি কোথায় আছেন জানাবে, " +
+    "১ থেকে ৯ বুকমার্কে যায়, T দিয়ে ট্যুর শুরু, প্লাস ও মাইনাস দিয়ে জুম, V দিয়ে দৃশ্য বদলান। সব কী দেখতে H চাপুন। Esc চাপলে সমতল মানচিত্রে ফিরবেন।",
+  "turntable.canvas": (p) => `টার্নটেবিলে একটি বাস্তবসম্মত গ্লোব, তার ওপর সর্বশেষ প্রাপ্ত ${p.record} ফ্রেম। টোনআর্মের সুই নিচের বিন্দুটি পড়ে।`,
+
+  "turntable.records": "রেকর্ড",
+  "turntable.record.ocean": "সমুদ্র",
+  "turntable.record.rain": "বৃষ্টি",
+  "turntable.record.both": "সমুদ্র + বৃষ্টি",
+  "turntable.record.air": "বায়ু",
+  "turntable.record.forests": "বন",
+  "turntable.record.fire": "আগুন",
+  "turntable.record.energy": "শক্তি",
+  "turntable.record.seaLevel": "সমুদ্রপৃষ্ঠের উচ্চতা",
+  "turntable.record.disasters": "দুর্যোগ",
+  "turntable.record.agriculture": "কৃষি",
+  "turntable.record.water": "পানি ও ভূগর্ভস্থ পানি",
+  "turntable.comingNext": "শিগগির আসছে",
+  "turntable.sleeve.details": "বিস্তারিত",
+  "turntable.sleeve.cover": "প্রচ্ছদ",
+  "turntable.sleeve.play": (p) => `${p.record} রেকর্ড বাজান`,
+  "turntable.sleeve.flip": (p) => (p.back ? `${p.record} রেকর্ডের প্রচ্ছদ দেখান` : `${p.record} রেকর্ডের বিস্তারিত দেখান`),
+  "turntable.sleeve.playing": "বাজছে",
+
+  "turntable.frameTime": (p) => `ফ্রেম: ${p.datetime} UTC`,
+  "turntable.age": (p) =>
+    p.days === null ? "সর্বশেষ প্রাপ্ত: —" : p.days < 1 ? "সর্বশেষ প্রাপ্ত: এক দিনের কম পুরোনো" : `সর্বশেষ প্রাপ্ত: ${bnInt(p.days)} দিন পুরোনো`,
+  "turntable.error": (p) => `পরিমাপিত ত্রুটি: ${p.text}`,
+
+  "turntable.turn": "ঘোরান",
+  "turntable.stopTurning": "ঘোরানো থামান",
+  "turntable.slower": "ধীরে",
+  "turntable.faster": "দ্রুত",
+  "turntable.speed": (p) => `গতি ${bnNum(p.speed)}×`,
+  "turntable.flatMap": "সমতল মানচিত্র",
+  "turntable.zoomIn": "জুম ইন",
+  "turntable.zoomOut": "জুম আউট",
+  "turntable.view.jukebox": "জুকবক্স দৃশ্য",
+  "turntable.view.explore": "কাছ থেকে দৃশ্য",
+  "turntable.view.label": "দৃশ্য",
+  "turntable.opacity": "ডেটা স্তর",
+  "turntable.opacity.value": (p) => `ডেটা স্তর ${bnInt(p.percent)}%`,
+  "turntable.sun.label": "আলো",
+  "turntable.sun.frame": "ফ্রেমের সময়ের সূর্য",
+  "turntable.sun.day": "সবসময় দিন",
+  "turntable.graticule": "গ্রিড রেখা",
+  "turntable.quality": "টেক্সচারের মান",
+  "turntable.quality.auto": "স্বয়ংক্রিয়",
+  "turntable.quality.size": (p) => `${bnInt(p.size)} পিক্সেল`,
+  "turntable.settings": "গ্লোবের সেটিংস",
+  "turntable.skip": "অ্যানিমেশন এড়িয়ে যান",
+
+  "turntable.search.label": "জায়গা খুঁজুন",
+  "turntable.search.placeholder": "জায়গা খুঁজুন: ঢাকা, সুন্দরবন, বঙ্গোপসাগর…",
+  "turntable.search.none": "কোনো জায়গা পাওয়া যায়নি",
+  "turntable.search.loading": "জায়গাগুলো এখনও লোড হচ্ছে",
+  "turntable.search.count": (p) => `${bnInt(p.count)}টি জায়গা পাওয়া গেছে`,
+  "turntable.kind.story": "গল্পের জায়গা",
+  "turntable.kind.country": "দেশ",
+  "turntable.kind.city": "শহর",
+  "turntable.kind.district": "জেলা, বাংলাদেশ",
+  "turntable.kind.sea": "সাগর বা মহাসাগর",
+
+  "turntable.where.button": "আমি কোথায়?",
+  "turntable.where.city": (p) => `${p.city}, ${p.country}`,
+  "turntable.where.near": (p) => `${p.city}, ${p.country} থেকে ${bnInt(p.km)} কিমি ${DIRECTION_BN[p.dir]}`,
+  "turntable.where.nearSpoken": (p) => `${p.city}, ${p.country} থেকে ${bnInt(p.km)} কিলোমিটার ${DIRECTION_BN[p.dir]}`,
+  "turntable.where.district": (p) => `${p.district} জেলা`,
+  "turntable.where.unnamed": "কাছাকাছি নামওয়ালা কোনো জায়গা নেই",
+  "turntable.arrived": (p) => `পৌঁছেছি: ${p.place}। ${p.reading}।`,
+  "turntable.speak": (p) => `${p.value}, ${p.place}, ${p.latlon}। ফ্রেমের সময় ${p.datetime} UTC, সর্বশেষ প্রাপ্ত।`,
+
+  "turntable.bookmarks": "বুকমার্ক",
+  "turntable.bookmark": (p) => `${bnInt(p.key)}: ${p.place}`,
+  "turntable.tour.start": "ট্যুর",
+  "turntable.tour.stop": "ট্যুর থামান",
+  "turntable.tour.stop.announce": "ট্যুর থামানো হয়েছে",
+  "turntable.tour.at": (p) => `ট্যুর, ${bnInt(p.total)}টির মধ্যে ${bnInt(p.index)} নম্বর: ${p.place}`,
+  "turntable.tour.done": "ট্যুর শেষ",
+  "turntable.myLocation": "আমার অবস্থান",
+  "turntable.myLocation.note": "শুধু সেখানে যেতে একবার ব্যবহার হয়। কখনো সংরক্ষণ বা কোথাও পাঠানো হয় না।",
+  "turntable.myLocation.denied": "অবস্থান শেয়ার করা হয়নি। কিছুই সংরক্ষণ করা হয়নি।",
+  "turntable.myLocation.unsupported": "এই ব্রাউজার অবস্থান শেয়ার করতে পারে না।",
+  "turntable.idleHint": "জায়গা খুঁজতে / চাপুন",
+  "turntable.background": "পটভূমি: ব্লু মার্বেল কম্পোজিট, আজকের মেঘ নয়",
+  "turntable.inset": "বিশ্ব মানচিত্র: বিন্দুটি সুই",
+  "turntable.legend.ocean": "এই ফ্রেমের সমুদ্রের তাপমাত্রার সীমা",
+  "turntable.legend.rain": "এই ফ্রেমের বৃষ্টির সীমা (লগারিদমিক)",
+  "turntable.legend.pixel": "সুইয়ের নিচে ফ্রেমের পিক্সেল",
+  "turntable.legend.noValue": "এখানে কোনো মান নেই",
+  "turntable.legend.marker": "সুইয়ের মান",
+  "turntable.panels.hide": "প্যানেল লুকান",
+  "turntable.panels.show": "প্যানেল দেখান",
+  "turntable.graticule.equator": "বিষুবরেখা",
+  "turntable.graticule.cancer": "কর্কটক্রান্তি রেখা",
+  "turntable.graticule.capricorn": "মকরক্রান্তি রেখা",
+
+  "turntable.announce.record": (p) => `রেকর্ড: ${p.record}। ${p.frames}`,
+  "turntable.announce.frame": (p) => `${p.product}, সর্বশেষ প্রাপ্ত ফ্রেম ${p.datetime} UTC।`,
+  "turntable.announce.turning": "ঘুরছে",
+  "turntable.announce.stoppedTurning": "ঘোরানো থেমেছে",
+  "turntable.announce.view": (p) => `${p.view}।`,
+
+  "help.turntable": "টার্নটেবিলে",
+  "key.tt.leftRight": "বাম / ডান",
+  "key.tt.leftRight.action": "গ্লোব ১ ডিগ্রি ঘোরান (Shift সহ: ১০ ডিগ্রি); ঘোরানো থেমে যায়",
+  "key.tt.upDown": "ওপর / নিচ",
+  "key.tt.upDown.action": "সুই ১ ডিগ্রি উত্তরে বা দক্ষিণে সরান (Shift সহ: ১০ ডিগ্রি), ৮০ ডিগ্রি পর্যন্ত",
+  "key.tt.space.action": "ঘোরানো শুরু বা বন্ধ করুন",
+  "key.tt.enter.action": "সুইয়ের নিচের মান, জায়গা ও ফ্রেমের সময় শুনুন",
+  "key.tt.r.action": "পরের / আগের রেকর্ড",
+  "key.tt.search.action": "জায়গা খুঁজুন (G-ও কাজ করে)",
+  "key.tt.where.action": "আমি কোথায়? (Shift+L: লেজেন্ড শুনুন)",
+  "key.tt.bookmarks.action": "বুকমার্ক করা জায়গায় যান",
+  "key.tt.tour.action": "ট্যুর শুরু বা বন্ধ করুন",
+  "key.tt.zoom.action": "জুম ইন / আউট",
+  "key.tt.speed.action": "ধীরে / দ্রুত ঘোরান",
+  "key.tt.view.action": "জুকবক্স দৃশ্য / কাছ থেকে দৃশ্য",
+  "key.tt.opacity.action": "ডেটা স্তরের অস্বচ্ছতা (০, ২৫, ৫০, ৮৫, ১০০%)",
+  "key.tt.esc.action": "ট্যুর বা উড়ান থামান, বা সার্চ বন্ধ করুন; না হলে সব শব্দ থামিয়ে সমতল মানচিত্রে ফিরুন",
+};

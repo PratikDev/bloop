@@ -1,31 +1,40 @@
 "use client";
 
 import type { KeyboardEvent } from "react";
-import type { TrackMode } from "@/lib/audio-adapter/types";
 import type { Commands } from "../Commands/use-commands";
-import { ARROWS, BIG_STEP_DEG, letterAction, STEP_DEG, TRACK_KEYS } from "../ExploreControls/use-map-keys";
+import { ARROWS, BIG_STEP_DEG, letterAction, STEP_DEG } from "../ExploreControls/use-map-keys";
 
 export interface TurntableKeyActions {
   commands: Commands;
   nudge(dLat: number, dLon: number): void;
   toggleRotation(): void;
   speak(): void;
-  selectRecord(track: TrackMode): void;
   stepRecord(step: 1 | -1): void;
   changeSpeed(step: 1 | -1): void;
+  zoom(step: 1 | -1): void;
+  focusSearch(): void;
+  whereAmI(): void;
+  bookmark(n: number): void;
+  toggleTour(): void;
+  toggleCamera(): void;
+  stepOpacity(): void;
+  /** Ends a running record-change animation; true if one was running. */
+  skipAnimation(): boolean;
 }
 
-const FASTER = new Set(["+", "="]);
-const SLOWER = new Set(["-", "_", "−"]);
+const ZOOM_IN = new Set(["+", "="]);
+const ZOOM_OUT = new Set(["-", "_", "−"]);
 
 /**
- * Keys while the turntable has focus. Arrows, Space, Enter, R, 1–3 and +/−
- * are the turntable's; every other map letter (H, M, D, C, L, P, X, S, T)
- * keeps its meaning. Esc is global (stop all, back to the flat map).
+ * Keys while the turntable has focus. Turntable meanings (see Help) win over
+ * the map's letters there: L (legend → Shift+L), T (Then vs Now → mode tabs),
+ * 1–3 (tracks → R and the sleeves). Every other map letter keeps its meaning.
+ * Esc is global; a tour, flight or open search claims it first.
  */
 export function useTurntableKeys(a: TurntableKeyActions) {
   return (e: KeyboardEvent<HTMLElement>) => {
     if (e.altKey || e.ctrlKey || e.metaKey) return;
+    a.skipAnimation();
     const action = turntableAction(a, e) ?? letterAction(a.commands, e.key);
     if (!action) return;
     action();
@@ -39,10 +48,9 @@ function turntableAction(a: TurntableKeyActions, e: KeyboardEvent<HTMLElement>):
     const step = e.shiftKey ? BIG_STEP_DEG : STEP_DEG;
     return () => a.nudge(arrow[0] * step, arrow[1] * step);
   }
-  const track = TRACK_KEYS[e.key];
-  if (track) return () => a.selectRecord(track);
-  if (FASTER.has(e.key)) return () => a.changeSpeed(1);
-  if (SLOWER.has(e.key)) return () => a.changeSpeed(-1);
+  if (/^[1-9]$/.test(e.key)) return () => a.bookmark(Number(e.key));
+  if (ZOOM_IN.has(e.key)) return () => a.zoom(1);
+  if (ZOOM_OUT.has(e.key)) return () => a.zoom(-1);
   switch (e.key) {
     case " ":
       return a.toggleRotation;
@@ -51,6 +59,27 @@ function turntableAction(a: TurntableKeyActions, e: KeyboardEvent<HTMLElement>):
     case "r":
     case "R":
       return () => a.stepRecord(e.shiftKey ? -1 : 1);
+    case "[":
+      return () => a.changeSpeed(-1);
+    case "]":
+      return () => a.changeSpeed(1);
+    case "/":
+    case "g":
+    case "G":
+      return a.focusSearch;
+    case "l":
+      return a.whereAmI;
+    case "L":
+      return a.commands.playLegend;
+    case "t":
+    case "T":
+      return a.toggleTour;
+    case "v":
+    case "V":
+      return a.toggleCamera;
+    case "o":
+    case "O":
+      return a.stepOpacity;
     default:
       return null;
   }
