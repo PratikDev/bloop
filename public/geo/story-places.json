@@ -1,0 +1,20 @@
+{
+  "note": "Our own list for Turntable bookmarks (keys 1-9), the tour and always-on labels. Coordinates only; no value comes from this file. name_bn only where a source gives it, otherwise null (English is shown).",
+  "bookmarks": [
+    { "id": "bay-of-bengal", "name": "Bay of Bengal", "name_bn": "বঙ্গোপসাগর", "lat": 18.0, "lon": 88.0, "zoom": "region", "source": "Point inside Natural Earth's 'Bay of Bengal' marine polygon (the v1 test point); name_bn from Natural Earth" },
+    { "id": "sundarbans", "name": "Sundarbans", "name_bn": null, "lat": 21.95, "lon": 89.18, "zoom": "local", "source": "docs/TEAM_BUILD_PLAN.md, P4 NDVI point" },
+    { "id": "dhaka", "name": "Dhaka", "name_bn": "ঢাকা", "lat": 23.725, "lon": 90.4066, "zoom": "local", "source": "Natural Earth 10m populated places" },
+    { "id": "st-martins", "name": "St Martin's Island", "name_bn": null, "lat": 20.61306, "lon": 92.32667, "zoom": "local", "source": "Wikipedia, St. Martin's Island (20.61306 N, 92.32667 E)" },
+    { "id": "jamuna", "name": "Jamuna at Sirajganj", "name_bn": null, "lat": 24.46, "lon": 89.705, "zoom": "local", "source": "Wikipedia, Sirajganj (24.460 N, 89.705 E), on the right bank of the Jamuna. The SWOT reach itself isn't chosen yet (IDEA LIST)" },
+    { "id": "madhupur", "name": "Madhupur forest", "name_bn": null, "lat": 24.62, "lon": 90.05, "zoom": "local", "source": "docs/TEAM_BUILD_PLAN.md, P4 NDVI point" },
+    { "id": "lawachara", "name": "Lawachara National Park", "name_bn": null, "lat": 24.31972, "lon": 91.78361, "zoom": "local", "source": "Wikipedia, Lawachara National Park (24.31972 N, 91.78361 E)" },
+    { "id": "chattogram", "name": "Chattogram", "name_bn": "চট্টগ্রাম", "lat": 22.3319, "lon": 91.798, "zoom": "local", "source": "Natural Earth 10m populated places" },
+    { "id": "coxs-bazar", "name": "Cox's Bazar", "name_bn": "কক্সবাজার", "lat": 21.42722, "lon": 92.005, "zoom": "local", "source": "Wikipedia, Cox's Bazar (21.42722 N, 92.00500 E; native name কক্সবাজার)" }
+  ],
+  "tour": ["bay-of-bengal", "sundarbans", "dhaka", "st-martins", "jamuna"],
+  "alwaysLabel": ["Dhaka", "Chattogram", "Khulna", "Rajshahi", "Sylhet", "Barishal", "Rangpur", "Mymensingh", "Cox's Bazar", "Bogura"],
+  "extraCities": [
+    { "name": "Cox's Bazar", "name_bn": "কক্সবাজার", "lat": 21.42722, "lon": 92.005, "country": "Bangladesh", "source": "Wikipedia, Cox's Bazar (not in Natural Earth 10m populated places)" },
+    { "name": "Bogura", "name_bn": "বগুড়া", "lat": 24.85, "lon": 89.367, "country": "Bangladesh", "source": "Wikipedia, Bogura (24.850 N, 89.367 E; native name বগুড়া; not in Natural Earth 10m populated places)" }
+  ]
+}

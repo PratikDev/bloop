@@ -1,0 +1,21 @@
+{
+  "generated_utc": "2026-10-27T10:03:30.924Z",
+  "projection": "equirectangular, row 0 = 90N, column 0 = 180W",
+  "note": "Design layers only. No value, sound or label in the app comes from these images.",
+  "day": {
+    "source": "https://gibs.earthdata.nasa.gov/wms/epsg4326/best/wms.cgi LAYERS=BlueMarble_NextGeneration",
+    "credit": "NASA Blue Marble",
+    "licence": "NASA imagery, open use"
+  },
+  "night": {
+    "source": "https://gibs.earthdata.nasa.gov/wms/epsg4326/best/wms.cgi LAYERS=VIIRS_Black_Marble TIME=2016-01-01",
+    "credit": "NASA Black Marble",
+    "licence": "NASA imagery, open use"
+  },
+  "relief": {
+    "source": "https://naciscdn.org/naturalearth/50m/raster/SR_50M.zip",
+    "credit": "Natural Earth",
+    "licence": "Public domain"
+  },
+  "acknowledgement": "Imagery from NASA's Global Imagery Browse Services (GIBS), part of NASA's Earth Science Data and Information System (ESDIS)."
+}
