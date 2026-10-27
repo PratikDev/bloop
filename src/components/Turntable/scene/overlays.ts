@@ -1,10 +1,12 @@
 // Orientation lines on the globe: borders and coastlines, Bangladesh districts,
-// rivers and a graticule. They spin with the surface and appear by zoom level.
+// rivers and a graticule. They spin with the surface, appear by zoom level, and
+// are drawn in the overlay pass (above the data frame, never tone-mapped).
 
 import { Color, Group, LineBasicMaterial, LineSegments, type BufferGeometry } from "three";
 import type { Palette } from "@/lib/css-tokens";
 import type { AreaGeometry, Feature, LineGeometry, Position } from "@/lib/geo/types";
 import { meridian, parallel, pathsGeometry } from "./geometry";
+import { onOverlay } from "./layers";
 
 /** Latitudes of the graticule's labelled lines: equator, tropics (≈23.44°, Earth's tilt), 30° and 60°. */
 export const GRATICULE_LATS = [0, 23.44, -23.44, 30, -30, 60, -60] as const;
@@ -63,6 +65,7 @@ export function createOverlays(palette: Palette): Overlays {
     geometries.push(g);
     const lines = new LineSegments(g, m);
     lines.renderOrder = 2;
+    onOverlay(lines);
     group.add(lines);
     return lines;
   };

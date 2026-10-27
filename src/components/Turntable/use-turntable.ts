@@ -4,7 +4,6 @@ import { useCallback, useEffect, useRef, useState, type Dispatch, type RefObject
 import { Vector2 } from "three";
 import { audio } from "@/lib/audio-adapter";
 import type { TrackMode } from "@/lib/audio-adapter/types";
-import { readPalette } from "@/lib/css-tokens";
 import { wrapLon, type LatLon, type LiveFields } from "@/lib/data";
 import type { ZoomLevel } from "@/lib/geo/search";
 import type { AppAction } from "../AppState/reducer";
@@ -13,7 +12,8 @@ import { createControl } from "./control";
 import { createFlight, type Flight } from "./flight";
 import { createNeedleDrop } from "./needle-drop";
 import type { SentReading } from "./needle-sound";
-import { createTurntableScene, DISTANCE, type CameraMode, type ScreenPoint, type TurntableScene } from "./scene";
+import { recordLabelCanvas, type RecordLabel } from "./record-label";
+import { DISTANCE, type CameraMode, type ScreenPoint, type TurntableScene } from "./scene";
 import { useGlobeTexture, type GlobeTexture } from "./use-globe-texture";
 import { useSceneAssets, type SceneSettings } from "./use-scene-assets";
 
@@ -33,7 +33,8 @@ const clampNeedleLat = (lat: number) => Math.min(NEEDLE_MAX_LAT, Math.max(-NEEDL
 
 interface Options {
   hostRef: RefObject<HTMLDivElement | null>;
-  canvasLabel: string;
+  /** The current record's centre label (name and frame time). */
+  label: RecordLabel;
   track: TrackMode;
   fields: LiveFields | null;
   liveOn: boolean;
@@ -84,6 +85,8 @@ export interface Turntable {
   lastInput(): number;
   subscribe(fn: (f: FrameInfo) => void): () => void;
   texture: GlobeTexture;
+  /** R3F hands the scene over here once it exists (and null when it's gone). */
+  onSceneReady(scene: TurntableScene | null): void;
   sceneRef: RefObject<TurntableScene | null>;
   fpsRef: RefObject<number>;
   particlesSpawned: RefObject<number>;
@@ -92,7 +95,7 @@ export interface Turntable {
 export function useTurntable(o: Options): Turntable {
   const { hostRef, dispatch } = o;
   const sceneRef = useRef<TurntableScene | null>(null);
-  const canvasRef = useRef<HTMLCanvasElement | null>(null);
+  const [scene, setScene] = useState<TurntableScene | null>(null);
   const fpsRef = useRef(0);
   const particlesSpawned = useRef(0);
   const unsynced = useRef(false);
@@ -123,6 +126,19 @@ export function useTurntable(o: Options): Turntable {
   useEffect(() => {
     textureRef.current = texture;
   });
+
+  const onSceneReady = useCallback((s: TurntableScene | null) => {
+    sceneRef.current = s;
+    setScene(s);
+  }, []);
+
+  /** Draws the current record's label onto the record (async: waits for the fonts). */
+  const labelRecord = useCallback((s: TurntableScene) => {
+    const text = live.current.label;
+    void recordLabelCanvas(text).then((canvas) => {
+      if (sceneRef.current === s && live.current.label === text) s.deck.setLabel(canvas);
+    });
+  }, []);
 
   const touched = () => {
     inputAt.current = performance.now();
@@ -195,21 +211,12 @@ export function useTurntable(o: Options): Turntable {
     audio.silenceLive();
   }, []);
 
-  // The scene and its loop live as long as the view.
+  // The loop runs as long as R3F's scene exists (TurntableCanvas creates and disposes it).
   useEffect(() => {
     const host = hostRef.current;
-    if (!host) return;
-    const canvas = document.createElement("canvas");
-    canvas.className = "absolute inset-0 size-full";
-    canvas.setAttribute("role", "img");
-    canvas.setAttribute("aria-label", live.current.canvasLabel);
-    host.append(canvas);
-    canvasRef.current = canvas;
-    const scene = createTurntableScene(canvas, textureRef.current.canvas, readPalette());
-    sceneRef.current = scene;
+    if (!host || !scene) return;
     const { width, height } = host.getBoundingClientRect();
     size.current = { width, height };
-    if (width > 0 && height > 0) scene.resize(width, height);
     applyPose();
     syncCursor();
     const control = createControl((sent) => live.current.onSend?.(sent));
@@ -244,10 +251,7 @@ export function useTurntable(o: Options): Turntable {
         motion.current = { lift: d.lift, park: d.park };
         scene.setRecordLift(d.recordLift);
         moved = true;
-        if (d.swap) {
-          const cover = textureRef.current.coverCanvas[o.track];
-          if (cover) scene.deck.setLabel(cover);
-        }
+        if (d.swap) labelRecord(scene);
         if (d.landed && o.liveOn && !o.allMuted) audio.playNeedleDrop();
         if (d.done) holding.current = false;
       }
@@ -304,31 +308,20 @@ export function useTurntable(o: Options): Turntable {
       flight.current?.resolve(false);
       flight.current = null;
       if (unsynced.current) syncCursor(); // the flat map opens where the needle was
-      sceneRef.current = null;
-      canvasRef.current = null;
-      scene.dispose();
-      canvas.remove();
     };
-  }, [hostRef, applyPose, syncCursor, startDrop]);
+  }, [hostRef, scene, applyPose, syncCursor, startDrop, labelRecord]);
 
-  // After the scene effect above, so these find the scene.
-  useSceneAssets(sceneRef, { ...o.scene, sst: o.fields?.sst ?? null });
+  useSceneAssets(scene, { ...o.scene, sst: o.fields?.sst ?? null });
 
+  // R3F sizes the canvas and the post chain; the overlays project with the same size.
   useEffect(() => {
-    if (!hostSize) return;
-    size.current = { width: hostSize.width, height: hostSize.height };
-    sceneRef.current?.resize(hostSize.width, hostSize.height);
+    if (hostSize) size.current = { width: hostSize.width, height: hostSize.height };
   }, [hostSize]);
 
+  // The record label shows the current record (not mid-change: the swap redraws it).
   useEffect(() => {
-    canvasRef.current?.setAttribute("aria-label", o.canvasLabel);
-  }, [o.canvasLabel]);
-
-  // The record label shows the current record's cover once covers are drawn (not mid-change).
-  useEffect(() => {
-    const cover = texture.coverCanvas[o.track];
-    if (cover && !drop.current.running()) sceneRef.current?.deck.setLabel(cover);
-  }, [texture.coverCanvas, o.track]);
+    if (scene && !drop.current.running()) labelRecord(scene);
+  }, [scene, labelRecord, o.label.title, o.label.subtitle]);
 
   // Every record change is a record-change animation, wherever it was chosen.
   const trackWas = useRef(o.track);
@@ -373,10 +366,10 @@ export function useTurntable(o: Options): Turntable {
     moveTo: (at) => place(at, true),
     turnTo: (at) => place(at, false),
     pickAt(clientX, clientY) {
-      const canvas = canvasRef.current;
+      const host = hostRef.current;
       const scene = sceneRef.current;
-      if (!canvas || !scene) return null;
-      const r = canvas.getBoundingClientRect();
+      if (!host || !scene) return null;
+      const r = host.getBoundingClientRect();
       return scene.pick(new Vector2(((clientX - r.left) / r.width) * 2 - 1, 1 - ((clientY - r.top) / r.height) * 2));
     },
     flyTo(at, zoom) {
@@ -425,6 +418,7 @@ export function useTurntable(o: Options): Turntable {
     lastInput,
     subscribe,
     texture,
+    onSceneReady,
     sceneRef,
     fpsRef,
     particlesSpawned,

@@ -74,9 +74,11 @@ export const turntableEn = {
   "turntable.sun.frame": "Sun at frame time",
   "turntable.sun.day": "Always day",
   "turntable.graticule": "Grid lines",
-  "turntable.quality": "Texture quality",
+  "turntable.quality": "Quality",
   "turntable.quality.auto": "Auto",
-  "turntable.quality.size": (p: { size: number }) => `${p.size} px`,
+  "turntable.quality.ultra": "Ultra",
+  "turntable.quality.high": "High",
+  "turntable.quality.low": "Low",
   "turntable.settings": "Globe settings",
   "turntable.skip": "Skip animation",
 

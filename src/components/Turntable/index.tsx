@@ -6,7 +6,7 @@ import { liveSoundOn } from "../AppState/reducer";
 import { useCommands } from "../Commands/use-commands";
 import { MAP_REGION_ID } from "../ExploreControls";
 import { useLiveData } from "../LiveData/use-live-data";
-import { formatDegrees } from "@/lib/i18n";
+import { formatDegrees, formatUtc } from "@/lib/i18n";
 import { readAt } from "@/lib/reading";
 import { ttFor, useTT } from "./i18n";
 import { labelCandidates } from "./labels";
@@ -55,11 +55,11 @@ export function Turntable() {
   const settingsState = useState<ToolbarSettings>(DEFAULT_SETTINGS);
   const settings = settingsState[0];
   const record = tr(RECORD_LABELS[state.track]);
-  const sunTime = recordFrames(state.track, fields)[0]?.meta.frame_time_utc ?? null;
+  const frameTime = recordFrames(state.track, fields)[0]?.meta.frame_time_utc ?? null;
 
   const tt = useTurntable({
     hostRef,
-    canvasLabel: tr("turntable.canvas", { record }),
+    label: { title: record, subtitle: frameTime ? tr("turntable.frameTime", { datetime: formatUtc(frameTime, state.lang) }) : "" },
     track: state.track,
     fields,
     liveOn: liveSoundOn(state),
@@ -76,7 +76,8 @@ export function Turntable() {
       : undefined,
     scene: {
       quality: settings.quality,
-      sunTime: settings.sunAtFrameTime ? sunTime : null,
+      frameTime,
+      sunTime: settings.sunAtFrameTime ? frameTime : null,
       dataOpacity: settings.dataOpacity,
       geo,
     },
@@ -141,6 +142,7 @@ export function Turntable() {
           hostRef={hostRef}
           geo={geo}
           record={record}
+          tier={settings.quality}
           place={place}
           labels={labels}
           graticule={graticule}
