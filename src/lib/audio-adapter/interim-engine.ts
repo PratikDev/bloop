@@ -7,18 +7,20 @@ import { MAPPING } from "@/lib/audio/mapping";
 import { playEarconAt, playNeedleDropAt } from "./earcons";
 import { emit, emitCaption, onAudioEvent } from "./events";
 import { ensureGraph, getGraph, glideTo } from "./graph";
-import { initLive, live } from "./live";
+import { getVoices, initLive, live } from "./live";
 import { applyMix, mixer } from "./mixer";
 import { playLegend, playMotif, playOpening, playSweep, playWarmup } from "./players";
 import { fastFade, stopCurrentSequence } from "./sequence";
 import { startScheduler } from "./scheduler";
-import { playCompare, playSeries, playThenNow } from "./then-now";
+import { createSpatialRain, type SpatialRain } from "./spatial-rain";
+import { playCompare, playSeries, playThenNow, playYearsAndMonths } from "./then-now";
 import { playTimelapse } from "./timelapse";
 import { cancelSpeech, initSpeech, speak } from "./speech";
 import type { AudioEngine } from "./types";
 
 const VOLUME_GLIDE_SEC = 0.05;
 let initialised = false;
+let spatialRain: SpatialRain | null = null;
 
 export const interimEngine: AudioEngine = {
   async ensureAudio() {
@@ -74,6 +76,20 @@ export const interimEngine: AudioEngine = {
     playNeedleDropAt(graph, graph.ctx.currentTime);
     emitCaption("caption.earcon.needleDrop");
   },
+  setOceanAxis(range) {
+    getVoices()?.ocean.setAxis(range);
+  },
+  setSpatialRain(sources, listener) {
+    const graph = getGraph();
+    if (!graph) return;
+    if (!sources) {
+      spatialRain?.silence();
+      return;
+    }
+    spatialRain ??= createSpatialRain(graph);
+    spatialRain.set(sources, listener);
+  },
+  playYearsAndMonths,
   playLegend,
   playWarmup,
   playSweep,

@@ -2,10 +2,11 @@
 // (docs/L2/BUILD_PLAN.md §8.3–8.4; playSeries is proposal B6).
 // Step events count data points only, so a chart playhead maps index → point.
 
+import { playEarconAt } from "./earcons";
 import { emitCaption } from "./events";
 import { getGraph, type Graph } from "./graph";
 import { finishedHandle, playSequence, type Step } from "./sequence";
-import type { CompareSide, ContextVoice, PlayerHandle, ThenNowInput, ThenNowPart, WindowSeries } from "./types";
+import type { CompareSide, ContextVoice, PlayerHandle, ThenNowInput, ThenNowPart, TunnelYear, WindowSeries } from "./types";
 import { createBassVoice, type BassVoice } from "./voices/bass";
 import { createHeatVoice, type HeatVoice } from "./voices/heat";
 import { createMonsoonVoice, type MonsoonVoice } from "./voices/monsoon";
@@ -58,6 +59,14 @@ function silenceAllSets(time: number) {
 
 const caption = (key: string, params: Record<string, string | number> = {}) => () => emitCaption(key, params);
 
+/** At the first of a run of missing months: one caption naming the run's first and last month. */
+function captionGapRun(values: readonly (number | null)[], months: readonly string[], i: number, key: string) {
+  if (values[i] !== null || (i > 0 && values[i - 1] === null)) return;
+  let end = i;
+  while (end + 1 < values.length && values[end + 1] === null) end++;
+  emitCaption(key, { from: months[i], to: months[end] });
+}
+
 // ---------------------------------------------------------------------------
 // Then vs Now
 // ---------------------------------------------------------------------------
@@ -106,12 +115,7 @@ function waterPart(set: ContextVoices, water: ThenNowInput["water"], text: strin
     player: "thenNow.water",
     run(time) {
       const cm = water.cm[i];
-      // One caption per run of missing months, naming the months.
-      if (cm === null && (i === 0 || water.cm[i - 1] !== null)) {
-        let end = i;
-        while (end + 1 < water.cm.length && water.cm[end + 1] === null) end++;
-        emitCaption("caption.water.gap", { from: month, to: water.months[end] });
-      }
+      captionGapRun(water.cm, water.months, i, "caption.water.gap");
       const edge = edges.get(month);
       if (edge) emitCaption(edge, { month });
       set.water.at(time, cm);
@@ -151,9 +155,13 @@ function sideSteps(set: ContextVoices, side: CompareSide, stepSec: number, offse
     durationSec: stepSec,
     eventIndex: offset + i,
     player,
-    run(time) {
+    run(time, _voices, graph) {
       if (i === 0) emitCaption("caption.compare.side", { label: side.label });
       sound(set, side.voice, time, v, stepSec);
+      if (v === null && side.gapTexture) {
+        playEarconAt(graph, "nodata", time);
+        if (side.months) captionGapRun(side.values, side.months, i, "caption.water.gapTexture");
+      }
     },
   }));
 }
@@ -203,4 +211,33 @@ export function playSeries(side: CompareSide, opts?: { stepMs?: number; player?:
     eventTotal: side.values.length,
     onStop: silenceAllSets,
   });
+}
+
+// ---------------------------------------------------------------------------
+// Years and months together (Dhaka time tunnel, PROPOSAL)
+// ---------------------------------------------------------------------------
+
+const MONTHS_PER_YEAR = 12;
+
+/** Each row: the heat voice holds the year's anomaly while the monsoon voice plays its twelve months. */
+export function playYearsAndMonths(
+  rows: readonly TunnelYear[],
+  opts: { yearSec: number; player: string; captions?: ReadonlyMap<number, string> },
+): PlayerHandle {
+  const graph = getGraph();
+  if (!graph) return finishedHandle();
+  const set = voicesAt(graph, "center");
+  const monthSec = opts.yearSec / MONTHS_PER_YEAR;
+  const steps: Step[] = rows.map((row, i) => ({
+    durationSec: opts.yearSec,
+    eventIndex: i,
+    run(time) {
+      const text = opts.captions?.get(i);
+      if (text) emitCaption("caption.thenNow.caption", { text });
+      set.heat.at(time, row.heat);
+      row.months.forEach((mm, m) => set.monsoon.at(time + m * monthSec, mm, monthSec));
+    },
+  }));
+  steps.push(silence(set, "heat", 0.2));
+  return playSequence(steps, { name: opts.player, eventTotal: rows.length, onStop: silenceAllSets });
 }
