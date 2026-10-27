@@ -1,7 +1,10 @@
 "use client";
 
 import dynamic from "next/dynamic";
+import { PanelRightClose, PanelRightOpen } from "lucide-react";
+import { Button } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
+import { ttFor } from "../Turntable/i18n";
 import { Sheet, SheetContent, SheetTitle } from "@/components/ui/sheet";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { useMediaQuery } from "@/hooks/use-media-query";
@@ -59,14 +62,30 @@ export function SidePanel() {
   const phone = useMediaQuery("(max-width: 767px)");
   // The column is always there on wide screens; the sheet (modal) only opens below lg.
   const wide = useMediaQuery("(min-width: 1024px)");
+  // Turntable only: the column folds to one button so the globe gets the width.
+  const foldable = state.mode === "turntable";
+  const tr = ttFor(state.lang);
+  const fold = (collapsed: boolean) => dispatch({ type: "setPanelCollapsed", collapsed });
   return (
     <>
-      <aside
-        aria-label={t("panel.label")}
-        className="hidden overflow-y-auto rounded-l-sheet bg-dusk p-4 text-body lg:block"
-      >
-        <PanelTabs />
-      </aside>
+      {foldable && state.panelCollapsed ? (
+        <aside aria-label={t("panel.label")} className="hidden rounded-l-sheet bg-dusk p-2 lg:block">
+          <Button variant="ghost" onClick={() => fold(false)} className="h-auto min-h-11 flex-col gap-2 px-2 py-3 text-body [writing-mode:vertical-rl]">
+            <PanelRightOpen aria-hidden="true" />
+            {tr("turntable.panels.show")}
+          </Button>
+        </aside>
+      ) : (
+        <aside aria-label={t("panel.label")} className="hidden overflow-y-auto rounded-l-sheet bg-dusk p-4 text-body lg:block">
+          {foldable && (
+            <Button variant="ghost" onClick={() => fold(true)} className="mb-3 h-11 gap-2 px-3 text-body">
+              <PanelRightClose aria-hidden="true" />
+              {tr("turntable.panels.hide")}
+            </Button>
+          )}
+          <PanelTabs />
+        </aside>
+      )}
       <Sheet open={state.panelOpen && !wide} onOpenChange={(open) => dispatch({ type: "setPanelOpen", open })}>
         <SheetContent
           side={phone ? "bottom" : "right"}

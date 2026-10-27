@@ -25,7 +25,8 @@ export function CaptionBar({ className }: { className?: string }) {
     ? shown.reading && readingText(t, shown.reading, shown.track)
     : caption && captionText(state.lang, caption.key, caption.params);
   return (
-    <p aria-hidden="true" className={cn("min-h-8 truncate font-serif text-lead text-moon", className)}>
+    // Up to two lines rather than cut off: long captions stay readable.
+    <p aria-hidden="true" className={cn("line-clamp-2 min-h-8 font-serif text-lead text-moon", className)}>
       {text || " "}
     </p>
   );

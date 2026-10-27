@@ -1,7 +1,19 @@
-// English strings for Turntable Earth (prototype). Bangla falls back to these
-// until a human translation exists (docs/L3/bangla-strings.md).
+// English strings for Turntable Earth. Bangla drafts for the Turntable live in
+// src/components/Turntable/strings-bn.ts (Turntable only; bn.ts stays empty).
 
+import type { CompassPoint } from "@/lib/geo/spherical";
 import { formatInteger } from "../format";
+
+const COMPASS_WORDS: Record<CompassPoint, string> = {
+  N: "north",
+  NE: "north-east",
+  E: "east",
+  SE: "south-east",
+  S: "south",
+  SW: "south-west",
+  W: "west",
+  NW: "north-west",
+};
 
 export const turntableEn = {
   "mode.turntable": "Turntable",
@@ -9,10 +21,10 @@ export const turntableEn = {
   "turntable.roleDescription": "turntable",
   "turntable.region": (p: { record: string }) => `Turntable Earth, playing the ${p.record} record`,
   "turntable.instructions":
-    "Left and right arrows turn the globe 1 degree, up and down move the needle 1 degree; with Shift, 10. " +
-    "Space starts or stops the turning. Enter speaks the value under the needle. R changes the record. Esc goes back to the flat map.",
+    "Arrows turn the globe and move the needle (Shift: 10 degrees). Enter speaks the value. Slash searches places, L says where you are, " +
+    "1 to 9 jump to bookmarks, T starts a tour, plus and minus zoom, V switches the view. H lists all keys. Esc goes back to the flat map.",
   "turntable.canvas": (p: { record: string }) =>
-    `A globe on a turntable showing the latest available ${p.record} frame. A tonearm's needle reads the point beneath it.`,
+    `A realistic globe on a turntable with the latest available ${p.record} frame over it. A tonearm's needle reads the point beneath it.`,
 
   "turntable.records": "Records",
   "turntable.record.ocean": "Ocean",
@@ -27,6 +39,11 @@ export const turntableEn = {
   "turntable.record.agriculture": "Agriculture",
   "turntable.record.water": "Water and groundwater",
   "turntable.comingNext": "Coming next",
+  "turntable.sleeve.details": "Details",
+  "turntable.sleeve.cover": "Cover",
+  "turntable.sleeve.play": (p: { record: string }) => `Play the ${p.record} record`,
+  "turntable.sleeve.flip": (p: { record: string; back: boolean }) => (p.back ? `Show the ${p.record} cover` : `Show the ${p.record} details`),
+  "turntable.sleeve.playing": "Playing",
 
   // Record labels: every value comes from sst.json / rain.json; "—" when a field is missing.
   "turntable.missing": "—",
@@ -46,12 +63,81 @@ export const turntableEn = {
   "turntable.faster": "Faster",
   "turntable.speed": (p: { speed: number }) => `Speed ${p.speed}×`,
   "turntable.flatMap": "Flat map",
+  "turntable.zoomIn": "Zoom in",
+  "turntable.zoomOut": "Zoom out",
+  "turntable.view.jukebox": "Jukebox view",
+  "turntable.view.explore": "Close-up view",
+  "turntable.view.label": "View",
+  "turntable.opacity": "Data layer",
+  "turntable.opacity.value": (p: { percent: number }) => `Data layer ${formatInteger(p.percent, "en")}%`,
+  "turntable.sun.label": "Light",
+  "turntable.sun.frame": "Sun at frame time",
+  "turntable.sun.day": "Always day",
+  "turntable.graticule": "Grid lines",
+  "turntable.quality": "Texture quality",
+  "turntable.quality.auto": "Auto",
+  "turntable.quality.size": (p: { size: number }) => `${p.size} px`,
+  "turntable.settings": "Globe settings",
+  "turntable.skip": "Skip animation",
+
+  "turntable.search.label": "Search places",
+  "turntable.search.placeholder": "Search a place: Dhaka, Sundarbans, Bay of Bengal…",
+  "turntable.search.none": "No place found",
+  "turntable.search.loading": "Places are still loading",
+  "turntable.search.count": (p: { count: number }) => `${formatInteger(p.count, "en")} ${p.count === 1 ? "place" : "places"} found`,
+  "turntable.kind.story": "Story place",
+  "turntable.kind.country": "Country",
+  "turntable.kind.city": "City",
+  "turntable.kind.district": "District, Bangladesh",
+  "turntable.kind.sea": "Sea or ocean",
+
+  "turntable.where.button": "Where am I?",
+  "turntable.where.city": (p: { city: string; country: string }) => `${p.city}, ${p.country}`,
+  "turntable.where.near": (p: { km: number; dir: CompassPoint; city: string; country: string }) =>
+    `${formatInteger(p.km, "en")} km ${p.dir} of ${p.city}, ${p.country}`,
+  "turntable.where.nearSpoken": (p: { km: number; dir: CompassPoint; city: string; country: string }) =>
+    `${formatInteger(p.km, "en")} kilometres ${COMPASS_WORDS[p.dir]} of ${p.city}, ${p.country}`,
+  "turntable.where.district": (p: { district: string }) => `${p.district} District`,
+  "turntable.where.unnamed": "No named place nearby",
+  "turntable.arrived": (p: { place: string; reading: string }) => `Arrived: ${p.place}. ${p.reading}.`,
+  "turntable.speak": (p: { value: string; place: string; latlon: string; datetime: string }) =>
+    `${p.value}, at ${p.place}, ${p.latlon}. Frame time ${p.datetime} UTC, latest available.`,
+
+  "turntable.bookmarks": "Bookmarks",
+  "turntable.bookmark": (p: { key: number; place: string }) => `${p.key}: ${p.place}`,
+  "turntable.tour.start": "Tour",
+  "turntable.tour.stop": "Stop tour",
+  "turntable.tour.stop.announce": "Tour stopped",
+  "turntable.tour.at": (p: { index: number; total: number; place: string }) => `Tour stop ${p.index} of ${p.total}: ${p.place}`,
+  "turntable.tour.done": "Tour finished",
+  "turntable.myLocation": "My location",
+  "turntable.myLocation.note": "Used once to fly there. Never stored or sent anywhere.",
+  "turntable.myLocation.denied": "Location wasn't shared. Nothing was stored.",
+  "turntable.myLocation.unsupported": "This browser can't share a location.",
+  "turntable.idleHint": "Press / to search a place",
+  "turntable.background": "Background: Blue Marble composite, not today's clouds",
+  "turntable.credits":
+    "Background: NASA Blue Marble · Night: NASA Black Marble · Relief: Natural Earth · Borders, places, rivers, seas: Natural Earth (public domain) · " +
+    "Districts: geoBoundaries (CC BY 3.0 IGO; source BBS, OCHA ROAP) · Imagery via NASA GIBS (ESDIS) · " +
+    "Data frames: NASA SVS 5101 / 4285 for the NASA Earth Information Center",
+  "turntable.inset": "World map: the dot is the needle",
+  "turntable.legend.ocean": "This frame's ocean temperature range",
+  "turntable.legend.rain": "This frame's rain range (logarithmic)",
+  "turntable.legend.pixel": "Frame pixel under the needle",
+  "turntable.legend.noValue": "No value here",
+  "turntable.legend.marker": "Needle value",
+  "turntable.panels.hide": "Hide panels",
+  "turntable.panels.show": "Show panels",
+  "turntable.graticule.equator": "Equator",
+  "turntable.graticule.cancer": "Tropic of Cancer",
+  "turntable.graticule.capricorn": "Tropic of Capricorn",
 
   "turntable.announce.record": (p: { record: string; frames: string }) => `Record: ${p.record}. ${p.frames}`,
   "turntable.announce.frame": (p: { product: string; datetime: string }) =>
     `${p.product}, latest available frame ${p.datetime} UTC.`,
   "turntable.announce.turning": "Turning",
   "turntable.announce.stoppedTurning": "Turning stopped",
+  "turntable.announce.view": (p: { view: string }) => `${p.view}.`,
   "turntable.stopped": "Stopped. Back to the flat map.",
 
   "caption.earcon.needleDrop": "Needle drop: a new record",
@@ -62,9 +148,15 @@ export const turntableEn = {
   "key.tt.upDown": "Up / Down",
   "key.tt.upDown.action": "Move the needle 1 degree north or south (with Shift: 10 degrees), up to 80 degrees",
   "key.tt.space.action": "Start or stop the turning",
-  "key.tt.enter.action": "Speak the value and the place under the needle",
+  "key.tt.enter.action": "Speak the value, place and frame time under the needle",
   "key.tt.r.action": "Next / previous record",
-  "key.tt.123.action": "Ocean, Rain, or Ocean + Rain record",
-  "key.tt.plusMinus.action": "Turn faster / slower",
-  "key.tt.esc.action": "Stop all sound and go back to the flat map",
+  "key.tt.search.action": "Search a place (G works too)",
+  "key.tt.where.action": "Where am I? (Shift+L: hear the legend)",
+  "key.tt.bookmarks.action": "Jump to a bookmarked place",
+  "key.tt.tour.action": "Start or stop the tour",
+  "key.tt.zoom.action": "Zoom in / out",
+  "key.tt.speed.action": "Turn slower / faster",
+  "key.tt.view.action": "Jukebox view / close-up view",
+  "key.tt.opacity.action": "Data layer opacity (0, 25, 50, 85, 100%)",
+  "key.tt.esc.action": "Stop a tour or flight, or close search; otherwise stop all sound and go back to the flat map",
 };

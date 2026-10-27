@@ -5,6 +5,8 @@ import type { MessageKey } from "@/lib/i18n";
 import { useAppState, useT } from "./AppState/use-app-state";
 import { ComingInOctober } from "./ComingInOctober";
 import { SettingToggle } from "./SettingToggle";
+import { isTurntableKey, ttFor } from "./Turntable/i18n";
+import type { TurntableKey } from "./Turntable/strings-bn";
 
 type KeyRow = { key: string | MessageKey; action: MessageKey };
 
@@ -27,22 +29,29 @@ const KEYS: KeyRow[] = [
 ];
 
 /** Turntable keys that differ from the map's; the other letters work there too. */
-const TURNTABLE_KEYS: KeyRow[] = [
+const TURNTABLE_KEYS: { key: string | TurntableKey; action: TurntableKey }[] = [
   { key: "key.tt.leftRight", action: "key.tt.leftRight.action" },
   { key: "key.tt.upDown", action: "key.tt.upDown.action" },
-  { key: "key.space", action: "key.tt.space.action" },
+  { key: "Space", action: "key.tt.space.action" },
   { key: "Enter", action: "key.tt.enter.action" },
   { key: "R / Shift+R", action: "key.tt.r.action" },
-  { key: "1 / 2 / 3", action: "key.tt.123.action" },
-  { key: "+ / −", action: "key.tt.plusMinus.action" },
-  { key: "key.esc", action: "key.tt.esc.action" },
+  { key: "/ , G", action: "key.tt.search.action" },
+  { key: "L", action: "key.tt.where.action" },
+  { key: "1 – 9", action: "key.tt.bookmarks.action" },
+  { key: "T", action: "key.tt.tour.action" },
+  { key: "+ / −", action: "key.tt.zoom.action" },
+  { key: "[ / ]", action: "key.tt.speed.action" },
+  { key: "V", action: "key.tt.view.action" },
+  { key: "O", action: "key.tt.opacity.action" },
+  { key: "Esc", action: "key.tt.esc.action" },
 ];
 
-function KeyTable({ rows, caption }: { rows: KeyRow[]; caption?: string }) {
+function KeyTable({ rows, caption, translate, lang }: { rows: KeyRow[]; caption?: string; translate?: (k: MessageKey) => string; lang?: string }) {
   const t = useT();
-  const label = (k: string | MessageKey) => (k.startsWith("key.") ? t(k as MessageKey) : k);
+  const tr = translate ?? ((k: MessageKey) => t(k));
+  const label = (k: string | MessageKey) => (k.startsWith("key.") ? tr(k as MessageKey) : k);
   return (
-    <table className="w-full text-body">
+    <table lang={lang} className="w-full text-body">
       {caption && <caption className="pb-2 text-left text-lead font-medium">{caption}</caption>}
       <thead className="text-small text-haze">
         <tr>
@@ -54,7 +63,7 @@ function KeyTable({ rows, caption }: { rows: KeyRow[]; caption?: string }) {
         {rows.map((row) => (
           <tr key={row.action} className="border-t border-tide">
             <td className="py-1.5 pr-4 align-top font-medium whitespace-nowrap">{label(row.key)}</td>
-            <td className="py-1.5 text-haze">{t(row.action)}</td>
+            <td className="py-1.5 text-haze">{tr(row.action)}</td>
           </tr>
         ))}
       </tbody>
@@ -65,6 +74,7 @@ function KeyTable({ rows, caption }: { rows: KeyRow[]; caption?: string }) {
 export function HelpDialog() {
   const { state, dispatch } = useAppState();
   const t = useT();
+  const tr = ttFor(state.lang);
 
   return (
     <Dialog open={state.helpOpen} onOpenChange={(open) => dispatch({ type: "setHelpOpen", open })}>
@@ -75,7 +85,12 @@ export function HelpDialog() {
         </DialogHeader>
 
         <KeyTable rows={KEYS} />
-        <KeyTable rows={TURNTABLE_KEYS} caption={t("help.turntable")} />
+        <KeyTable
+          rows={TURNTABLE_KEYS}
+          caption={tr("help.turntable")}
+          translate={(k) => (isTurntableKey(k) ? tr(k) : t(k))}
+          lang={state.lang === "bn" ? "bn" : undefined}
+        />
 
         <div className="space-y-3 border-t border-tide pt-4">
           <SettingToggle setting="builtInVoice" />

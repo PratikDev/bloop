@@ -21,6 +21,21 @@
   --ink: #0b0918;
   --scrim: rgb(21 18 42 / 0.88);
 
+  /* Turntable Earth: the 3D studio and the map overlays. Chrome only, never
+     data: the warm tones stay in the backdrop and the turntable, away from the
+     globe, and overlay lines stay pale and in the interface's hue range. */
+  --studio-top: #2b211e;
+  --studio-bottom: #0d0a0a;
+  --plinth: #241b19;
+  --vinyl: #141117;
+  --metal: #d4d1da;
+  --atmosphere: #7fb2ff;
+  --sun-glint: #fff3d6;
+  --geo-border: #f3f0fa;
+  --geo-district: #d6d0ee;
+  --geo-river: #b4b1ff;
+  --geo-graticule: #c5bfe2;
+
   /* Charts: "then" is the quieter tone, "now" the brighter; shape tells them
      apart too (hollow vs filled). The playhead is --shapla, as it listens. */
   --chart-then: var(--haze);
@@ -71,6 +86,7 @@
   --color-shapla: var(--shapla);
   --color-ink: var(--ink);
   --color-scrim: var(--scrim);
+  --color-studio-bottom: var(--studio-bottom);
   --color-chart-then: var(--chart-then);
   --color-chart-now: var(--chart-now);
   --color-chart-grid: var(--chart-grid);
@@ -137,6 +153,19 @@
   font-weight: 350;
   font-stretch: 112%;
   font-variant-numeric: tabular-nums;
+}
+
+/* Turntable globe labels: a dark halo keeps light text readable on any imagery. */
+@utility label-halo {
+  text-shadow:
+    0 0 2px var(--ink),
+    0 0 4px var(--ink),
+    0 1px 6px var(--ink);
+}
+
+/* "No value here": a hatch, so it reads as empty without relying on colour. */
+@utility hatch {
+  background: repeating-linear-gradient(45deg, var(--tide) 0 4px, var(--night) 4px 8px);
 }
 
 /* Bengali digits are not covered by tnum: each sits in a fixed cell (§3.1). */

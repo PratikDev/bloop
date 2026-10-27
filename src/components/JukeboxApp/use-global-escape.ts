@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect } from "react";
+import { consumeEscape } from "@/lib/escape";
 import type { Commands } from "../Commands/use-commands";
 
 /**
@@ -12,6 +13,11 @@ export function useGlobalEscape(commands: Commands, alsoStop: () => void): void 
   useEffect(() => {
     const onKey = (e: KeyboardEvent) => {
       if (e.key !== "Escape") return;
+      // A view may use this Esc for something smaller first (Turntable: close search, stop a tour).
+      if (consumeEscape()) {
+        e.preventDefault();
+        return;
+      }
       commands.stopAll();
       alsoStop();
     };

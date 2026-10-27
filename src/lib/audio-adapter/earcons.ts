@@ -47,9 +47,35 @@ function playTick(graph: Graph, time: number, lon: number) {
 const NEEDLE_DROP_HZ = [196, 147];
 const NEEDLE_DROP_STEP_SEC = 0.06;
 
-/** Turntable Earth: the needle settling on a new record (UI sound, not data). */
+// A few soft grains of band-passed noise: vinyl crackle as the stylus lands.
+// Band-passed with a 3 ms attack, so it crackles without hard steps (clicks) in the output.
+const CRACKLE_GRAINS = 7;
+const CRACKLE_SEC = 0.35;
+const CRACKLE_LEVEL = 0.25; // of the earcon's own peak
+const CRACKLE_BAND_HZ = 2200;
+const CRACKLE_ATTACK_SEC = 0.003;
+
+function playCrackle(graph: Graph, time: number, peak: number) {
+  const band = new BiquadFilterNode(graph.ctx, { type: "bandpass", frequency: CRACKLE_BAND_HZ, Q: 1.2 });
+  band.connect(graph.earcons);
+  for (let i = 0; i < CRACKLE_GRAINS; i++) {
+    const at = time + Math.random() * CRACKLE_SEC;
+    const env = new GainNode(graph.ctx, { gain: 0 });
+    env.connect(band);
+    env.gain.setValueAtTime(0, at);
+    env.gain.linearRampToValueAtTime(peak * CRACKLE_LEVEL * (0.4 + Math.random() * 0.6), at + CRACKLE_ATTACK_SEC);
+    env.gain.setTargetAtTime(0, at + CRACKLE_ATTACK_SEC, 0.006);
+    const src = new AudioBufferSourceNode(graph.ctx, { buffer: graph.noise });
+    src.connect(env);
+    src.start(at, Math.random() * 0.8);
+    src.stop(at + 0.03);
+  }
+}
+
+/** Turntable Earth: the needle settling on a new record, with a little crackle (UI sound, not data). */
 export function playNeedleDropAt(graph: Graph, time: number): void {
   const s = voiceSpec("ping").sound;
+  playCrackle(graph, time, s.maxGain);
   NEEDLE_DROP_HZ.forEach((freq, i) =>
     playTone(graph, {
       time: time + i * NEEDLE_DROP_STEP_SEC,
