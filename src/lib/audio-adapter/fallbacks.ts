@@ -11,5 +11,6 @@ export function withFallbacks(core: L2AudioApi & Partial<L3AudioExtensions>): Au
     ...core,
     setVoiceVolume: core.setVoiceVolume ?? (() => undefined),
     getAnalyser: core.getAnalyser ?? (() => null),
+    playNeedleDrop: core.playNeedleDrop ?? (() => undefined),
   };
 }

@@ -4,8 +4,14 @@ import { useEffect } from "react";
 import { audio } from "@/lib/audio-adapter";
 import { LIVE_VOICES } from "@/lib/audio-adapter/types";
 import type { LiveFields } from "@/lib/data";
-import { readAt } from "@/lib/reading";
+import { readAt, type Reading } from "@/lib/reading";
 import type { AppState } from "../AppState/reducer";
+
+/** Sends one reading to the live voices: Explore's cursor, or the turntable's needle. */
+export function playReading(r: Reading, lon: number): void {
+  audio.setOcean(r.ocean.valueC, lon);
+  audio.setRain(r.rain.mmPerHour, r.rain.phase, lon);
+}
 
 /** Keeps the sound engine in step with the app state. */
 export function useSoundSync(state: AppState, fields: LiveFields | null): void {
@@ -24,12 +30,12 @@ export function useSoundSync(state: AppState, fields: LiveFields | null): void {
   useEffect(() => {
     // Story Mode owns the live voices while it runs.
     if (!started || !soundOn || !fields || mode === "story") return;
-    if (!playing || !introDone || mode !== "explore") {
+    if (!playing || !introDone || (mode !== "explore" && mode !== "turntable")) {
       audio.silenceLive();
       return;
     }
-    const r = readAt(fields, cursor);
-    audio.setOcean(r.ocean.valueC, cursor.lon);
-    audio.setRain(r.rain.mmPerHour, r.rain.phase, cursor.lon);
+    // The turntable feeds the voices from its needle, at its own control rate.
+    if (mode === "turntable") return;
+    playReading(readAt(fields, cursor), cursor.lon);
   }, [started, soundOn, playing, introDone, cursor, fields, mode]);
 }

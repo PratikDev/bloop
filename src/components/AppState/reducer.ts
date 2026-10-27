@@ -2,7 +2,7 @@ import { TRACK_VOICES, type LiveVoiceId, type TrackMode } from "@/lib/audio-adap
 import { clampLat, START_CURSOR, wrapLon, type LatLon } from "@/lib/data";
 import type { Lang } from "@/lib/i18n";
 
-export type Mode = "explore" | "story" | "thenNow";
+export type Mode = "explore" | "story" | "thenNow" | "turntable";
 export type PanelTab = "truth" | "mapping" | "provenance" | "history";
 
 export interface VoiceMix {
@@ -73,9 +73,14 @@ export const initialState: AppState = {
   helpOpen: false,
 };
 
+/** Whether live sound may play at all: past Start, sound on and playing, intro over. */
+export function liveSoundOn(state: AppState): boolean {
+  return state.started && state.soundOn && state.playing && state.introDone;
+}
+
 /** Whether a live voice is sounding right now (for rings and captions). */
 export function isVoiceAudible(state: AppState, voice: LiveVoiceId): boolean {
-  if (!state.started || !state.soundOn || !state.playing || !state.introDone || state.allMuted || state.mode !== "explore") return false;
+  if (!liveSoundOn(state) || state.allMuted || state.mode !== "explore") return false;
   if (state.mix[voice].muted || state.mix[voice].volume === 0) return false;
   if (state.solo !== null && state.solo !== voice) return false;
   return TRACK_VOICES[state.track].includes(voice);

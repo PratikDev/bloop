@@ -120,6 +120,9 @@ export interface L2AudioApi {
 export interface L3AudioExtensions {
   setVoiceVolume(id: VoiceId, v: number): void; // B3: per-voice volume slider
   getAnalyser(): AnalyserNode | null; // B1: waveform, rings, audio clock
+  // PROPOSAL (Turntable Earth): the needle-drop cue when a record is chosen.
+  // A UI sound on the earcon bus, never a data value.
+  playNeedleDrop(): void;
 }
 
 export type AudioEngine = L2AudioApi & L3AudioExtensions;

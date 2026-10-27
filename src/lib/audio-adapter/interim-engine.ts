@@ -4,7 +4,7 @@
 // shows an "Interim sound engine" badge while it is in use.
 
 import { MAPPING } from "@/lib/audio/mapping";
-import { playEarconAt } from "./earcons";
+import { playEarconAt, playNeedleDropAt } from "./earcons";
 import { emit, emitCaption, onAudioEvent } from "./events";
 import { ensureGraph, getGraph, glideTo } from "./graph";
 import { initLive, live } from "./live";
@@ -67,6 +67,12 @@ export const interimEngine: AudioEngine = {
     if (!graph) return;
     playEarconAt(graph, id, graph.ctx.currentTime, opts?.lon ?? 0);
     emitCaption(`caption.earcon.${id}`, opts?.params ?? {});
+  },
+  playNeedleDrop() {
+    const graph = getGraph();
+    if (!graph) return;
+    playNeedleDropAt(graph, graph.ctx.currentTime);
+    emitCaption("caption.earcon.needleDrop");
   },
   playLegend,
   playWarmup,
