@@ -21,6 +21,7 @@ export const MODE_LABELS = {
   explore: "mode.explore",
   story: "mode.story",
   thenNow: "mode.thenNow",
+  turntable: "mode.turntable",
 } as const satisfies Record<Mode, string>;
 
 /** The sweep currently playing, for the map's sweep ring. */
@@ -46,6 +47,8 @@ export interface Commands {
   toggleSetting(key: SettingKey): void;
   togglePlaying(): void;
   speakCurrent(): void;
+  /** Speaks the value(s) and place at `at` (the turntable's needle). */
+  speakAt(at: LatLon): void;
   /**
    * Speaks the line (built-in voice, with a caption) or announces it (screen reader), then, with
    * sound on, the satellite whisper with `source`'s caption. Resolves when it has been

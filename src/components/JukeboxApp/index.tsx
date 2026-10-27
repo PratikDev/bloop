@@ -18,8 +18,9 @@ import { TopBar } from "../TopBar";
 import dynamic from "next/dynamic";
 import { Stage } from "./Stage";
 
-// Then vs Now (and its chart library) loads only when chosen.
+// Then vs Now (and its chart library) and Turntable (and three.js) load only when chosen.
 const ThenNow = dynamic(() => import("../ThenNow").then((m) => m.ThenNow), { ssr: false });
+const Turntable = dynamic(() => import("../Turntable").then((m) => m.Turntable), { ssr: false });
 import { useGlobalEscape } from "./use-global-escape";
 
 function Shell() {
@@ -36,7 +37,7 @@ function Shell() {
       <div inert={!state.started} className="grid min-h-dvh grid-rows-[auto_1fr_auto] lg:h-dvh">
         <TopBar />
         <main className="grid min-h-0 content-start lg:content-stretch lg:grid-cols-[minmax(0,1fr)_24rem]">
-          {state.mode === "thenNow" ? <ThenNow /> : <Stage />}
+          {state.mode === "thenNow" ? <ThenNow /> : state.mode === "turntable" ? <Turntable /> : <Stage />}
           <SidePanel />
         </main>
         <BottomBar />

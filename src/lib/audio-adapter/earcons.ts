@@ -42,6 +42,25 @@ function playTick(graph: Graph, time: number, lon: number) {
   src.stop(time + 0.05);
 }
 
+// Two low notes stepping down, well below the ping and whisper, so it can't be
+// mistaken for them. Level and envelope are the ping's (mapping.json earcon caps).
+const NEEDLE_DROP_HZ = [196, 147];
+const NEEDLE_DROP_STEP_SEC = 0.06;
+
+/** Turntable Earth: the needle settling on a new record (UI sound, not data). */
+export function playNeedleDropAt(graph: Graph, time: number): void {
+  const s = voiceSpec("ping").sound;
+  NEEDLE_DROP_HZ.forEach((freq, i) =>
+    playTone(graph, {
+      time: time + i * NEEDLE_DROP_STEP_SEC,
+      freq,
+      peak: s.maxGain,
+      attackSec: s.attackMs / 1000,
+      releaseSec: s.releaseMs / 1000,
+    }),
+  );
+}
+
 export function playEarconAt(graph: Graph, id: EarconId, time: number, lon = 0): void {
   if (id === "nodata") {
     playTick(graph, time, lon);

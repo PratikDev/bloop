@@ -3,7 +3,7 @@
 import { useMemo, useRef, type ReactNode } from "react";
 import { sleep } from "@/lib/abortable";
 import { audio } from "@/lib/audio-adapter";
-import { bandMeans, SWEEP_CENTER, sweepPath } from "@/lib/data";
+import { bandMeans, SWEEP_CENTER, sweepPath, type LatLon } from "@/lib/data";
 import { bindT, speechLang } from "@/lib/i18n";
 import { spokenReading, readAt } from "@/lib/reading";
 import { postCaption } from "@/lib/ui-captions";
@@ -58,6 +58,12 @@ export function CommandsProvider({ children }: { children: ReactNode }) {
       if (source && state.soundOn && id === sayCount.current) audio.playEarcon("whisper", { params: { source: source.caption } });
     };
 
+    const speakAt = (at: LatLon) => {
+      if (!fields) return;
+      const reading = readAt(fields, at);
+      void say((tl) => spokenReading(tl, reading, state.track, at), whisperSource(t, fields, state.track));
+    };
+
     const startSweep = () => {
       if (!fields) return null;
       const path = sweepPath(fields, SWEEP_CENTER);
@@ -101,10 +107,9 @@ export function CommandsProvider({ children }: { children: ReactNode }) {
         announce(t(state.playing ? "sound.paused" : "sound.resumed"));
       },
       speakCurrent() {
-        if (!fields) return;
-        const reading = readAt(fields, state.cursor);
-        void say((tl) => spokenReading(tl, reading, state.track, state.cursor), whisperSource(t, fields, state.track));
+        speakAt(state.cursor);
       },
+      speakAt,
       say,
       playSweep() {
         if (!fields) return;
@@ -142,9 +147,9 @@ export function CommandsProvider({ children }: { children: ReactNode }) {
         dispatch({ type: "setPlaying", playing: false });
         dispatch({ type: "setHelpOpen", open: false });
         dispatch({ type: "setPanelOpen", open: false });
-        // Ending a story: back to Explore, with one combined message.
-        if (state.mode === "story") dispatch({ type: "setMode", mode: "explore" });
-        announce(t(state.mode === "story" ? "story.stopped" : "sound.stopped"));
+        // Ending a story or leaving the turntable: back to Explore, with one combined message.
+        if (state.mode === "story" || state.mode === "turntable") dispatch({ type: "setMode", mode: "explore" });
+        announce(t(state.mode === "story" ? "story.stopped" : state.mode === "turntable" ? "turntable.stopped" : "sound.stopped"));
       },
       sweepRef,
     };

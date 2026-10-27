@@ -4,17 +4,18 @@ import type { KeyboardEvent } from "react";
 import type { TrackMode } from "@/lib/audio-adapter/types";
 import type { Commands } from "../Commands/use-commands";
 
-const STEP_DEG = 1;
-const BIG_STEP_DEG = 10;
+export const STEP_DEG = 1;
+export const BIG_STEP_DEG = 10;
 
-const ARROWS: Record<string, [number, number]> = {
+/** Arrow key → [dLat, dLon] direction (shared with the turntable). */
+export const ARROWS: Record<string, [number, number]> = {
   ArrowUp: [1, 0],
   ArrowDown: [-1, 0],
   ArrowLeft: [0, -1],
   ArrowRight: [0, 1],
 };
 
-const TRACK_KEYS: Record<string, TrackMode> = { "1": "ocean", "2": "rain", "3": "both" };
+export const TRACK_KEYS: Record<string, TrackMode> = { "1": "ocean", "2": "rain", "3": "both" };
 
 /**
  * Keys that only work while the map region has focus (plan §9.3), so single
@@ -39,7 +40,8 @@ export function useMapKeys(commands: Commands) {
   };
 }
 
-function letterAction(c: Commands, key: string): (() => void) | null {
+/** The map's letter keys (also used by the turntable for the keys it doesn't redefine). */
+export function letterAction(c: Commands, key: string): (() => void) | null {
   switch (key.toLowerCase()) {
     case "enter":
       return c.speakCurrent;

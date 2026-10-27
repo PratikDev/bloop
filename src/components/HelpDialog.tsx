@@ -6,8 +6,10 @@ import { useAppState, useT } from "./AppState/use-app-state";
 import { ComingInOctober } from "./ComingInOctober";
 import { SettingToggle } from "./SettingToggle";
 
+type KeyRow = { key: string | MessageKey; action: MessageKey };
+
 /** Keys shown in Help (plan §9.3). Letters are literal key names, not translated. */
-const KEYS: { key: string | MessageKey; action: MessageKey }[] = [
+const KEYS: KeyRow[] = [
   { key: "key.arrows", action: "key.arrows.action" },
   { key: "Enter", action: "key.enter.action" },
   { key: "key.space", action: "key.space.action" },
@@ -24,10 +26,45 @@ const KEYS: { key: string | MessageKey; action: MessageKey }[] = [
   { key: "key.esc", action: "key.esc.action" },
 ];
 
+/** Turntable keys that differ from the map's; the other letters work there too. */
+const TURNTABLE_KEYS: KeyRow[] = [
+  { key: "key.tt.leftRight", action: "key.tt.leftRight.action" },
+  { key: "key.tt.upDown", action: "key.tt.upDown.action" },
+  { key: "key.space", action: "key.tt.space.action" },
+  { key: "Enter", action: "key.tt.enter.action" },
+  { key: "R / Shift+R", action: "key.tt.r.action" },
+  { key: "1 / 2 / 3", action: "key.tt.123.action" },
+  { key: "+ / −", action: "key.tt.plusMinus.action" },
+  { key: "key.esc", action: "key.tt.esc.action" },
+];
+
+function KeyTable({ rows, caption }: { rows: KeyRow[]; caption?: string }) {
+  const t = useT();
+  const label = (k: string | MessageKey) => (k.startsWith("key.") ? t(k as MessageKey) : k);
+  return (
+    <table className="w-full text-body">
+      {caption && <caption className="pb-2 text-left text-lead font-medium">{caption}</caption>}
+      <thead className="text-small text-haze">
+        <tr>
+          <th scope="col" className="pb-2 text-left font-medium">{t("help.keyColumn")}</th>
+          <th scope="col" className="pb-2 text-left font-medium">{t("help.actionColumn")}</th>
+        </tr>
+      </thead>
+      <tbody>
+        {rows.map((row) => (
+          <tr key={row.action} className="border-t border-tide">
+            <td className="py-1.5 pr-4 align-top font-medium whitespace-nowrap">{label(row.key)}</td>
+            <td className="py-1.5 text-haze">{t(row.action)}</td>
+          </tr>
+        ))}
+      </tbody>
+    </table>
+  );
+}
+
 export function HelpDialog() {
   const { state, dispatch } = useAppState();
   const t = useT();
-  const label = (k: string | MessageKey) => (k.startsWith("key.") ? t(k as MessageKey) : k);
 
   return (
     <Dialog open={state.helpOpen} onOpenChange={(open) => dispatch({ type: "setHelpOpen", open })}>
@@ -37,22 +74,8 @@ export function HelpDialog() {
           <DialogDescription className="text-body text-haze">{t("help.focusNote")}</DialogDescription>
         </DialogHeader>
 
-        <table className="w-full text-body">
-          <thead className="text-small text-haze">
-            <tr>
-              <th scope="col" className="pb-2 text-left font-medium">{t("help.keyColumn")}</th>
-              <th scope="col" className="pb-2 text-left font-medium">{t("help.actionColumn")}</th>
-            </tr>
-          </thead>
-          <tbody>
-            {KEYS.map((row) => (
-              <tr key={row.action} className="border-t border-tide">
-                <td className="py-1.5 pr-4 align-top font-medium whitespace-nowrap">{label(row.key)}</td>
-                <td className="py-1.5 text-haze">{t(row.action)}</td>
-              </tr>
-            ))}
-          </tbody>
-        </table>
+        <KeyTable rows={KEYS} />
+        <KeyTable rows={TURNTABLE_KEYS} caption={t("help.turntable")} />
 
         <div className="space-y-3 border-t border-tide pt-4">
           <SettingToggle setting="builtInVoice" />
