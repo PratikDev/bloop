@@ -147,12 +147,13 @@ export function Turntable() {
           idle={idle}
           onKeyDown={onKeyDown}
           debug={debug ? { sendLog, placed } : null}
-          className="aspect-square w-full sm:aspect-[4/3] lg:aspect-auto lg:min-h-0 lg:flex-1"
+          className="aspect-square w-full sm:aspect-[4/3] lg:aspect-auto lg:min-h-80 lg:flex-1"
         />
         <ReadoutCard place={place} now={now} className="w-full md:hidden" />
-        <LegendBar pixel={fields ? tt.texture.sample(state.track, readAt(fields, state.cursor), state.cursor) : null} />
       </div>
+      {/* The legend heads the side column, so on wide screens the globe keeps the full height. */}
       <aside className="flex min-h-0 flex-col gap-4 lg:overflow-y-auto lg:pr-1">
+        <LegendBar pixel={fields ? tt.texture.sample(state.track, readAt(fields, state.cursor), state.cursor) : null} />
         {actions.where && <p className="rounded-lg border border-haze px-3 py-2 text-body text-moon">{actions.where}</p>}
         <Toolbar
           rotating={tt.rotating}
@@ -174,6 +175,10 @@ export function Turntable() {
           onSettings={actions.updateSettings}
         />
         <SleeveRow covers={tt.texture.covers} onSelect={actions.selectRecord} />
+        {/* Attribution stays English (names and licences). */}
+        <p lang="en" className="border-t border-haze pt-3 text-body text-haze">
+          {tr("turntable.credits")}
+        </p>
       </aside>
     </section>
   );

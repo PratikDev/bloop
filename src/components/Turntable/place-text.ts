@@ -13,6 +13,9 @@ export function localName(n: Named | Place, lang: Lang): { text: string; lang: L
   return lang === "bn" && bn ? { text: bn, lang: "bn" } : { text: n.name, lang: "en" };
 }
 
+/** A place's country in the UI language (Natural Earth's Bangla name when it has one). */
+const placeCountry = (p: Place, lang: Lang) => (lang === "bn" && p.countryBn ? p.countryBn : p.country);
+
 export interface PlaceText {
   /** The main name: the city, the sea, or the district and country. */
   name: string;
@@ -24,7 +27,7 @@ export function placeText(tt: TT, lang: Lang, w: WhereAmI, spoken = false): Plac
   const country = w.country ? localName(w.country, lang).text : null;
   if (w.atCity) {
     const city = localName(w.atCity, lang).text;
-    const line = tt("turntable.where.city", { city, country: country ?? w.atCity.country });
+    const line = tt("turntable.where.city", { city, country: country ?? placeCountry(w.atCity, lang) });
     return { name: line, line };
   }
   const near = w.nearest
@@ -32,7 +35,7 @@ export function placeText(tt: TT, lang: Lang, w: WhereAmI, spoken = false): Plac
         km: roundKm(w.nearest.km),
         dir: w.nearest.direction,
         city: localName(w.nearest.place, lang).text,
-        country: w.nearest.place.country,
+        country: placeCountry(w.nearest.place, lang),
       })
     : null;
   const district = w.district ? tt("turntable.where.district", { district: w.district }) : null;

@@ -39,6 +39,8 @@ const RAD = Math.PI / 180;
 /** Above this Explore blend the tonearm is hidden and the crosshair marks the needle. */
 const ARM_HIDDEN_ABOVE = 0.55;
 const RECORD_LIFT = 0.7;
+/** Camera height above the surface in the Jukebox view (globe radii), the reference for effect sizes. */
+const JUKEBOX_HEIGHT = 4.2;
 
 /** A globe point projected to CSS pixels; `facing` > 0 when it is on the side facing the camera. */
 export interface ScreenPoint {
@@ -78,6 +80,9 @@ export interface TurntableScene {
 export function createTurntableScene(canvas: HTMLCanvasElement, dataCanvas: HTMLCanvasElement, palette: Palette): TurntableScene {
   const renderer = new WebGLRenderer({ canvas, antialias: true });
   renderer.setPixelRatio(Math.min(window.devicePixelRatio || 1, MAX_PIXEL_RATIO));
+  // three logs every shader compiler note; Windows' D3D compiler adds harmless precision notes on
+  // three's own PBR shaders. Checked in development, quiet in production builds.
+  renderer.debug.checkShaderErrors = process.env.NODE_ENV !== "production";
   const pmrem = new PMREMGenerator(renderer);
   const environment = pmrem.fromScene(new RoomEnvironment(), 0.04);
 
@@ -180,7 +185,9 @@ export function createTurntableScene(canvas: HTMLCanvasElement, dataCanvas: HTML
       earth.setCameraLocal(globe.worldToLocal(cameraLocal));
       overlays.setVisibility({ distance: rig.blend() > 0.5 ? rig.distance() : Infinity, graticule });
       deck.arm.visible = rig.blend() < ARM_HIDDEN_ABOVE;
-      return effects.update(dt);
+      // The camera's height above the surface, relative to the Jukebox view: effects keep their screen size.
+      const zoom = Math.min(1, Math.max(0.03, (camera.position.length() - EARTH_RADIUS) / JUKEBOX_HEIGHT));
+      return effects.update(dt, zoom);
     },
     render() {
       renderer.render(scene, camera);

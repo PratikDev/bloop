@@ -30,6 +30,10 @@ const RIPPLE_MAX_SCALE = 2.4;
 const SPARKLE_SEC = 0.9;
 const SPARKLE_POINTS = 24;
 const GROOVE_RADIUS = 1.004;
+/** Dot sizes in CSS pixels. */
+const RAIN_PX = 4;
+const SNOW_PX = 6;
+const SPARKLE_PX = 7;
 
 export type ParticleKind = "rain" | "snow";
 
@@ -44,8 +48,11 @@ export interface Effects {
   /** Particles per second (the voice's own drops/s) and their kind; 0 = none. */
   setParticles(perSecond: number, kind: ParticleKind): void;
   sparkle(): void;
-  /** Advance by dt seconds; returns how many particles were spawned (for the debug count). */
-  update(dt: number): number;
+  /**
+   * Advance by dt seconds; `zoom` (0..1, camera height) keeps the effects the same size on
+   * screen at any zoom. Returns how many particles were spawned (for the debug count).
+   */
+  update(dt: number, zoom: number): number;
   setMotion(on: boolean): void;
   dispose(): void;
 }
@@ -83,7 +90,8 @@ export function createEffects(palette: Palette): Effects {
   const particlePositions = new Float32Array(MAX_PARTICLES * 3);
   const particleGeometry = new BufferGeometry();
   particleGeometry.setAttribute("position", new BufferAttribute(particlePositions, 3));
-  const particleMaterial = new PointsMaterial({ map: dot, size: 0.02, transparent: true, depthWrite: false, color: new Color(palette.moon) });
+  // Pixel-sized dots (no size attenuation), so drops look the same at any zoom.
+  const particleMaterial = new PointsMaterial({ map: dot, size: RAIN_PX, sizeAttenuation: false, transparent: true, depthWrite: false, color: new Color(palette.moon) });
   const particles = new Points(particleGeometry, particleMaterial);
   particles.frustumCulled = false;
   particles.renderOrder = 6;
@@ -93,7 +101,7 @@ export function createEffects(palette: Palette): Effects {
   const sparklePositions = new Float32Array(SPARKLE_POINTS * 3);
   const sparkleGeometry = new BufferGeometry();
   sparkleGeometry.setAttribute("position", new BufferAttribute(sparklePositions, 3));
-  const sparkleMaterial = new PointsMaterial({ map: dot, size: 0.03, color: glow, transparent: true, opacity: 0, blending: AdditiveBlending, depthWrite: false });
+  const sparkleMaterial = new PointsMaterial({ map: dot, size: SPARKLE_PX, sizeAttenuation: false, color: glow, transparent: true, opacity: 0, blending: AdditiveBlending, depthWrite: false });
   const sparkles = new Points(sparkleGeometry, sparkleMaterial);
   sparkles.frustumCulled = false;
 
@@ -105,6 +113,7 @@ export function createEffects(palette: Palette): Effects {
   const tangentB = new Vector3();
   const orient = new Quaternion();
   const scratch = new Vector3();
+  let zoomNow = 1;
   let rippleClock = 0;
   let rate = 0;
   let kind: ParticleKind = "rain";
@@ -144,7 +153,7 @@ export function createEffects(palette: Palette): Effects {
       rate = Math.max(0, perSecond);
       if (k !== kind) {
         kind = k;
-        particleMaterial.size = k === "snow" ? 0.03 : 0.016;
+        particleMaterial.size = k === "snow" ? SNOW_PX : RAIN_PX;
       }
     },
     sparkle() {
@@ -152,17 +161,18 @@ export function createEffects(palette: Palette): Effects {
       sparkleAge = 0;
       for (let i = 0; i < SPARKLE_POINTS; i++) {
         const a = (i / SPARKLE_POINTS) * Math.PI * 2;
-        const r = 0.02 + 0.03 * ((i * 7) % 5) / 5;
+        const r = (0.02 + (0.03 * ((i * 7) % 5)) / 5) * zoomNow;
         const p = needlePoint.clone().addScaledVector(tangentA, Math.cos(a) * r).addScaledVector(tangentB, Math.sin(a) * r).addScaledVector(needleNormal, 0.01);
         sparklePositions.set([p.x, p.y, p.z], i * 3);
       }
       sparkleGeometry.attributes.position.needsUpdate = true;
     },
-    update(dt) {
-      // Ripple: one fixed-size pulse per period.
+    update(dt, zoom) {
+      zoomNow = zoom;
+      // Ripple: one fixed-size pulse per period (fixed on screen, whatever the zoom).
       rippleClock = (rippleClock + dt) % RIPPLE_PERIOD_SEC;
       const phase = rippleClock / RIPPLE_PERIOD_SEC;
-      ripple.scale.setScalar(motion ? 1 + (RIPPLE_MAX_SCALE - 1) * phase : 1.4);
+      ripple.scale.setScalar(zoom * (motion ? 1 + (RIPPLE_MAX_SCALE - 1) * phase : 1.4));
       rippleMaterial.opacity = motion ? 0.9 * (1 - phase) : 0.8;
 
       // Particles: spawn at the voice's rate (deterministic spacing, so the count equals rate × time).
@@ -185,10 +195,10 @@ export function createEffects(palette: Palette): Effects {
         ages[i] += dt;
         const t = ages[i] / FALL_SEC;
         // Landed particles are parked inside the globe (hidden); falling ones drop along the normal.
-        scratch.copy(needlePoint).addScaledVector(needleNormal, t < 1 ? FALL_HEIGHT * (1 - t) : -10);
+        scratch.copy(needlePoint).addScaledVector(needleNormal, t < 1 ? FALL_HEIGHT * zoom * (1 - t) : -10);
         if (t < 1) {
           const drift = kind === "snow" ? Math.sin(ages[i] * 9 + i) * 0.01 : 0;
-          scratch.addScaledVector(tangentA, offsets[i * 2] + drift).addScaledVector(tangentB, offsets[i * 2 + 1]);
+          scratch.addScaledVector(tangentA, (offsets[i * 2] + drift) * zoom).addScaledVector(tangentB, offsets[i * 2 + 1] * zoom);
         }
         particlePositions[i * 3] = scratch.x;
         particlePositions[i * 3 + 1] = scratch.y;
