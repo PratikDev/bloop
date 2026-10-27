@@ -44,6 +44,8 @@ interface Options {
   layers: LayerToggles;
   /** The intro will run (once per session): the arm waits at rest until startIntro(). */
   introPending: boolean;
+  /** A scene is open over the turntable: no frames, no live sound (the needle drops again on return). */
+  paused: boolean;
   start: LatLon;
   dispatch: Dispatch<AppAction>;
   onSend?: (sent: SentReading) => void;
@@ -84,6 +86,8 @@ export interface Turntable {
   distance(): number;
   /** Ends a running record change at once; true if one was running. */
   skipAnimation(): boolean;
+  /** Plays the record-change animation (no track change); resolves once the needle has settled. */
+  changeRecord(): Promise<void>;
   /** The intro: the camera glides in from a wide shot while the arm swings onto the globe. */
   startIntro(): void;
   /** Ends the intro at once (camera in place, needle down); true if it was running. */
@@ -100,7 +104,7 @@ export interface Turntable {
 }
 
 export function useTurntable(o: Options): Turntable {
-  const { hostRef, dispatch } = o;
+  const { hostRef, dispatch, paused } = o;
   const sceneRef = useRef<TurntableScene | null>(null);
   const [scene, setScene] = useState<TurntableScene | null>(null);
   const fpsRef = useRef(0);
@@ -112,6 +116,7 @@ export function useTurntable(o: Options): Turntable {
   const reading = useRef<LatLon>(startPose);
   const motion = useRef({ lift: 0, park: 0 });
   const drop = useRef(createNeedleDrop());
+  const dropDone = useRef<(() => void) | null>(null);
   const holding = useRef(false);
   const flight = useRef<{ flight: Flight; resolve: (arrived: boolean) => void } | null>(null);
   const subscribers = useRef(new Set<(f: FrameInfo) => void>());
@@ -222,6 +227,10 @@ export function useTurntable(o: Options): Turntable {
   useEffect(() => {
     const host = hostRef.current;
     if (!host || !scene) return;
+    if (paused) {
+      audio.silenceLive();
+      return;
+    }
     const { width, height } = host.getBoundingClientRect();
     size.current = { width, height };
     applyPose();
@@ -260,7 +269,11 @@ export function useTurntable(o: Options): Turntable {
         moved = true;
         if (d.swap) labelRecord(scene);
         if (d.landed && o.liveOn && !o.allMuted) audio.playNeedleDrop();
-        if (d.done) holding.current = false;
+        if (d.done) {
+          holding.current = false;
+          dropDone.current?.();
+          dropDone.current = null;
+        }
       }
       if (moved) applyPose();
       scene.effects.setMotion(!o.reduceMotion);
@@ -320,11 +333,13 @@ export function useTurntable(o: Options): Turntable {
 
     return () => {
       cancelAnimationFrame(raf);
+      dropDone.current?.();
+      dropDone.current = null;
       flight.current?.resolve(false);
       flight.current = null;
       if (unsynced.current) syncCursor(); // the flat map opens where the needle was
     };
-  }, [hostRef, scene, applyPose, syncCursor, startDrop, labelRecord]);
+  }, [hostRef, scene, paused, applyPose, syncCursor, startDrop, labelRecord]);
 
   useSceneAssets(scene, { ...o.scene, sst: o.fields?.sst ?? null });
 
@@ -443,6 +458,14 @@ export function useTurntable(o: Options): Turntable {
       if (!drop.current.running()) return false;
       drop.current.skip(performance.now());
       return true;
+    },
+    changeRecord() {
+      touched();
+      dropDone.current?.();
+      return new Promise<void>((resolve) => {
+        dropDone.current = resolve;
+        startDrop("change");
+      });
     },
     lastInput,
     subscribe,

@@ -4,8 +4,8 @@
 // latitude is the groove. Every position goes through latLonToSphere.
 // React Three Fiber owns the renderer, camera and scene (TurntableCanvas.tsx);
 // this module builds the objects and the API the Turntable's loop drives.
-// TODO(turntable: more scenes): the Amphan cold scar, the playable delta and the
-// satellite orrery would be sibling scenes reusing latLonToSphere and the deck.
+// The 3D scenes (records on the carousel) live in src/components/Scenes/; the
+// ones that need new data are typed hooks in Scenes/future.ts.
 
 import {
   Color,

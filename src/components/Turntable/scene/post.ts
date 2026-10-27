@@ -93,8 +93,14 @@ export interface Post {
   dispose(): void;
 }
 
-export function createPost(renderer: WebGLRenderer, scene: Scene, camera: PerspectiveCamera, tier: Tier): Post {
+export interface PostOptions {
+  /** The aerial-perspective pass: only for scenes with a globe at radius 1 (default on). */
+  atmosphere?: boolean;
+}
+
+export function createPost(renderer: WebGLRenderer, scene: Scene, camera: PerspectiveCamera, tier: Tier, opts: PostOptions = {}): Post {
   const spec = TIER_SPEC[tier];
+  const withAtmosphere = opts.atmosphere ?? true;
   const composer = new EffectComposer(renderer, { frameBufferType: HalfFloatType });
   const overlayTarget = new WebGLRenderTarget(1, 1, { type: HalfFloatType, samples: 4 });
   const depthOnly = new MeshBasicMaterial({ colorWrite: false });
@@ -115,23 +121,25 @@ export function createPost(renderer: WebGLRenderer, scene: Scene, camera: Perspe
   atmosphere.stbnTexture = null;
   let atmosphereTextures: PrecomputedTextures | null = null;
   let disposed = false;
-  new PrecomputedTexturesLoader({ format: "binary", combinedScattering: true, higherOrderScattering: false })
-    .setType(renderer)
-    .loadAsync(ATMOSPHERE_TABLES)
-    .then((t) => {
-      if (disposed) {
-        for (const tex of Object.values(t)) tex?.dispose();
-        return;
-      }
-      atmosphereTextures = t;
-      atmosphere.irradianceTexture = t.irradianceTexture;
-      atmosphere.scatteringTexture = t.scatteringTexture;
-      atmosphere.transmittanceTexture = t.transmittanceTexture;
-      atmosphere.singleMieScatteringTexture = t.singleMieScatteringTexture ?? null;
-      atmosphere.higherOrderScatteringTexture = t.higherOrderScatteringTexture ?? null;
-      atmospherePass.enabled = true;
-    })
-    .catch(() => undefined); // tables missing: the globe shows without an atmosphere
+  if (withAtmosphere) {
+    new PrecomputedTexturesLoader({ format: "binary", combinedScattering: true, higherOrderScattering: false })
+      .setType(renderer)
+      .loadAsync(ATMOSPHERE_TABLES)
+      .then((t) => {
+        if (disposed) {
+          for (const tex of Object.values(t)) tex?.dispose();
+          return;
+        }
+        atmosphereTextures = t;
+        atmosphere.irradianceTexture = t.irradianceTexture;
+        atmosphere.scatteringTexture = t.scatteringTexture;
+        atmosphere.transmittanceTexture = t.transmittanceTexture;
+        atmosphere.singleMieScatteringTexture = t.singleMieScatteringTexture ?? null;
+        atmosphere.higherOrderScatteringTexture = t.higherOrderScatteringTexture ?? null;
+        atmospherePass.enabled = true;
+      })
+      .catch(() => undefined); // tables missing: the globe shows without an atmosphere
+  }
 
   const bloom = new BloomEffect({
     luminanceThreshold: 1,
