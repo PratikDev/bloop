@@ -160,16 +160,20 @@
       "source": { "dataset": "GRACE/GRACE-FO JPL mascons RL06.3Mv04 CRI (NASA/JPL PO.DAAC)" },
       "status": "context",
       "mapping": {
-        "kind": "runtimeRange",
-        "input": { "unit": "cm", "range": "p5-p95", "transform": "none" },
+        "kind": "continuous",
+        "input": { "unit": "cm", "min": -70, "max": 35, "scale": "linear" },
         "output": { "param": "frequency", "unit": "Hz", "min": 80, "max": 320, "scale": "exponential" }
       },
       "silence": "No satellite measurements that month (e.g. Jul 2017 – May 2018, between GRACE and GRACE-FO).",
       "sound": { "timbre": "Low sine with 2nd and 3rd harmonics so the pitch is heard on small speakers", "attackMs": 30, "releaseMs": 150, "glideMs": 40, "maxGain": 0.25 },
       "pan": "center",
-      "legend": [],
+      "legend": [
+        { "value": -50, "label": "−50 cm" },
+        { "value": 0, "label": "0 cm (the 2004–2009 average)" },
+        { "value": 25, "label": "+25 cm" }
+      ],
       "designChoice": false,
-      "note": "The pitch range covers the 5th to 95th percentile of the series being played; the legend is built from that series."
+      "note": "One fixed range for every box (team decision, build book A3/D1), so Bangladesh and NW India are heard on the same scale. Legend points are our choice."
     },
     {
       "id": "fires",

@@ -1,8 +1,10 @@
 // Water voice: a low sine with 2nd and 3rd harmonics so the pitch survives
-// phone speakers (AUDIO_RESEARCH B3). Pitch range = 5th–95th percentile of the
-// series being played (mapping.json "water"). A missing month is silence.
+// phone speakers (AUDIO_RESEARCH B3). Pitch follows mapping.json "water": one
+// fixed range for every series (build book A3/D1); a runtime-range rule (p5–p95
+// of the series being played) still works if the file goes back to one.
+// A missing month is silence.
 
-import { loudnessGain, mapRuntime, runtimeRange, voiceSpec } from "@/lib/audio/mapping";
+import { loudnessGain, mapContinuous, mapRuntime, runtimeRange, voiceSpec } from "@/lib/audio/mapping";
 import { glideAt, type Graph } from "../graph";
 
 const HARMONICS: readonly [number, number][] = [
@@ -12,7 +14,7 @@ const HARMONICS: readonly [number, number][] = [
 ];
 
 export interface BassVoice {
-  /** Fix the pitch range from the whole series before playing it. */
+  /** Fix the pitch range from the whole series before playing it (runtime-range rules only). */
   prepare(series: readonly (number | null)[]): void;
   at(time: number, cm: number | null): void;
 }
@@ -20,7 +22,7 @@ export interface BassVoice {
 export function createBassVoice(graph: Graph, destination: AudioNode = graph.context): BassVoice {
   const { ctx } = graph;
   const spec = voiceSpec("water");
-  const mapping = spec.mapping?.kind === "runtimeRange" ? spec.mapping : null;
+  const mapping = spec.mapping;
   const glideSec = (spec.sound.glideMs ?? 40) / 1000;
   const attackSec = spec.sound.attackMs / 1000;
   const releaseSec = spec.sound.releaseMs / 1000;
@@ -38,10 +40,11 @@ export function createBassVoice(graph: Graph, destination: AudioNode = graph.con
 
   return {
     prepare(series) {
-      range = mapping ? runtimeRange(series, mapping.input) : null;
+      range = mapping?.kind === "runtimeRange" ? runtimeRange(series, mapping.input) : null;
     },
     at(time, cm) {
-      const freq = mapping && range ? mapRuntime(cm, mapping, range) : null;
+      const freq =
+        mapping?.kind === "continuous" ? mapContinuous(cm, mapping) : mapping?.kind === "runtimeRange" && range ? mapRuntime(cm, mapping, range) : null;
       if (freq === null) {
         glideAt(out.gain, 0, time, releaseSec);
         return;
