@@ -12,6 +12,8 @@ const eslintConfig = defineConfig([
     "out/**",
     "build/**",
     "next-env.d.ts",
+    // three's Basis transcoder, copied verbatim by scripts/build-earth-textures.mjs.
+    "public/basis/**",
   ]),
 ]);
 
