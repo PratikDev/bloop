@@ -1,11 +1,11 @@
-export { DataLoadError, fetchJson } from "./fetch";
+export { DataLoadError, fetchBuffer, fetchJson } from "./fetch";
 export { wrapLon, clampLat } from "./grid";
 export { loadRain, loadSst, type RainField, type SstField } from "./latest";
 export { DATA_PATHS } from "./paths";
 export { START_CURSOR, SWEEP_CENTER, type LatLon } from "./places";
 export { bandMeans, openingPath, pointAt, sweepPath } from "./summaries";
 export { valueAt, type LiveFields } from "./value-at";
-export { loadDemo, loadGistemp, loadGpcp, loadGrace } from "./context";
+export { loadDemo, loadEnsemble, loadGistemp, loadGpcp, loadGrace } from "./context";
 export { DataShapeError } from "./validate";
 export { decodeSequenceCode, loadSequence, valueInFrame, type Sequence, type SequenceFrame } from "./sequence";
 export { followStorm, peakIndex } from "./storm";
