@@ -1,0 +1,35 @@
+{
+  "gpu": "ANGLE (NVIDIA, NVIDIA GeForce RTX 3050 Laptop GPU (0x000025A2) Direct3D11 vs_5_0 ps_5_0, D3D11)",
+  "viewport": "1920x1080 @1x",
+  "results": [
+    {
+      "shot": "a-jukebox-product",
+      "fps": 144
+    },
+    {
+      "shot": "b-closeup-bay-of-bengal-sst85",
+      "fps": 143
+    },
+    {
+      "shot": "c-night-south-asia-city-lights",
+      "fps": 144
+    }
+  ],
+  "tier": "ultra (auto on this machine)",
+  "build": "next dev (Turbopack)",
+  "fps_note": "results = vsync-capped at the 144 Hz display; uncapped = --disable-gpu-vsync --disable-frame-rate-limit",
+  "uncapped": [
+    {
+      "shot": "a-jukebox-product",
+      "fps": 210.9
+    },
+    {
+      "shot": "b-closeup-bay-of-bengal-sst85",
+      "fps": 184.7
+    },
+    {
+      "shot": "c-night-south-asia-city-lights",
+      "fps": 183.8
+    }
+  ]
+}
