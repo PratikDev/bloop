@@ -1,19 +1,13 @@
 "use client";
 
 import { ContactShadows, Environment } from "@react-three/drei";
-import { Canvas, events, useFrame, useThree, type RootStore } from "@react-three/fiber";
+import { Canvas, useFrame, useThree } from "@react-three/fiber";
 import { useEffect, useRef } from "react";
 import { PerspectiveCamera } from "three";
 import { readPalette } from "@/lib/css-tokens";
+import { CAMERA, GL_OPTIONS, noPointerEvents, STUDIO_ENV_INTENSITY, STUDIO_HDRI } from "./canvas-config";
 import { resolveTier, type Tier } from "./quality";
 import { createTurntableScene, type TurntableScene } from "./scene";
-
-/** Poly Haven studio_small_09 (CC0), stored locally: reflections on the vinyl, metal and glass. */
-const STUDIO_HDRI = "/textures/studio/studio_small_09_1k.hdr";
-const CAMERA = { fov: 30, near: 0.02, far: 100 } as const;
-
-/** The globe is driven by its own pointer handlers (use-globe-pointer), so R3F's raycasting stays off. */
-const noPointerEvents = (store: RootStore) => ({ ...events(store), enabled: false });
 
 interface Props {
   dataCanvas: HTMLCanvasElement;
@@ -34,14 +28,14 @@ export function TurntableCanvas({ dataCanvas, tier, label, onReady }: Props) {
       frameloop="never"
       flat
       dpr={[1, 2]}
-      gl={{ antialias: false, stencil: false, powerPreference: "high-performance" }}
+      gl={GL_OPTIONS}
       camera={CAMERA}
       events={noPointerEvents}
       role="img"
       aria-label={label}
       className="absolute inset-0"
     >
-      <Environment files={STUDIO_HDRI} environmentIntensity={0.32} />
+      <Environment files={STUDIO_HDRI} environmentIntensity={STUDIO_ENV_INTENSITY} />
       <ContactShadows position={[0.35, -1.545, 0.1]} scale={[6.6, 5.6]} far={1.4} blur={2.8} opacity={0.7} resolution={512} />
       <SceneBridge dataCanvas={dataCanvas} tier={tier} onReady={onReady} />
     </Canvas>

@@ -4,7 +4,7 @@
 
 import { Color, Group, LineBasicMaterial, LineSegments, type BufferGeometry } from "three";
 import type { Palette } from "@/lib/css-tokens";
-import type { AreaGeometry, Feature, LineGeometry, Position } from "@/lib/geo/types";
+import type { AreaGeometry, Feature, LineGeometry, Position, RiverProps } from "@/lib/geo/types";
 import { meridian, parallel, pathsGeometry } from "./geometry";
 import type { LayerToggles } from "../settings";
 import { onOverlay } from "./layers";
@@ -16,7 +16,7 @@ export interface OverlayData {
   countriesWorld: Feature<unknown, AreaGeometry>[];
   countriesDetail: Feature<unknown, AreaGeometry>[];
   districts: Feature<unknown, AreaGeometry>[];
-  rivers: Feature<{ highlight?: boolean }, LineGeometry>[];
+  rivers: Feature<RiverProps, LineGeometry>[];
 }
 
 export interface OverlayVisibility extends Omit<LayerToggles, "clouds"> {

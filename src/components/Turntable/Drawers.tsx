@@ -21,7 +21,7 @@ const SECTION = "space-y-2";
 const HEADING = "text-body font-semibold text-moon";
 
 /** One slide-over drawer: right on wide screens, bottom sheet on phones. */
-function Drawer({ open, onClose, title, description, children }: { open: boolean; onClose: () => void; title: string; description?: string; children: React.ReactNode }) {
+export function Drawer({ open, onClose, title, description, children }: { open: boolean; onClose: () => void; title: string; description?: string; children: React.ReactNode }) {
   const phone = useMediaQuery("(max-width: 767px)");
   return (
     <Sheet open={open} onOpenChange={(o) => !o && onClose()}>
