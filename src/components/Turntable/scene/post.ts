@@ -7,8 +7,7 @@
 
 import {
   AerialPerspectiveEffect,
-  AtmosphereParameters,
-  PrecomputedTexturesGenerator,
+  PrecomputedTexturesLoader,
   type PrecomputedTextures,
 } from "@takram/three-atmosphere";
 import { Ellipsoid } from "@takram/three-geospatial";
@@ -47,15 +46,13 @@ import { LAYER } from "./layers";
 /** Our globe has radius 1; the atmosphere model's ground is 6,360 km (Bruneton's Earth). */
 const METRES_PER_UNIT = 6_360_000;
 const SPHERE = new Ellipsoid(METRES_PER_UNIT, METRES_PER_UNIT, METRES_PER_UNIT);
-/** Our axes (y north, lon 0° at +z, east +x) → ECEF (x lon 0°, y 90° E, z north), scaled to metres. */
 /**
- * The Earth shader's sun is brighter than the atmosphere model's (its units are
- * relative luminance), so the model's sun is scaled up to match: the haze,
- * blue limb and sunset tones then sit at the same brightness as the surface.
- * Scattering is linear in the sun's irradiance; transmittance is unchanged.
+ * Bruneton's tables, precomputed and pre-scaled to match the Earth shader's sun
+ * by scripts/build-atmosphere.mjs (SUN_MATCH lives there), so nothing is
+ * computed on the GPU at load.
  */
-const SUN_MATCH = 5;
-const ATMOSPHERE = new AtmosphereParameters({ solarIrradiance: AtmosphereParameters.DEFAULT.solarIrradiance.clone().multiplyScalar(SUN_MATCH) });
+const ATMOSPHERE_TABLES = "/atmosphere/";
+/** Our axes (y north, lon 0° at +z, east +x) → ECEF (x lon 0°, y 90° E, z north), scaled to metres. */
 const LOCAL_TO_ECEF = new Matrix4().set(0, 0, 1, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 1).multiplyScalar(METRES_PER_UNIT);
 LOCAL_TO_ECEF.elements[15] = 1;
 
@@ -114,13 +111,18 @@ export function createPost(renderer: WebGLRenderer, scene: Scene, camera: Perspe
     sky: false,
     sun: false,
     moon: false,
-  }, ATMOSPHERE);
+  });
   atmosphere.stbnTexture = null;
   let atmosphereTextures: PrecomputedTextures | null = null;
-  const generator = new PrecomputedTexturesGenerator(renderer);
-  generator
-    .update(ATMOSPHERE)
+  let disposed = false;
+  new PrecomputedTexturesLoader({ format: "binary", combinedScattering: true, higherOrderScattering: false })
+    .setType(renderer)
+    .loadAsync(ATMOSPHERE_TABLES)
     .then((t) => {
+      if (disposed) {
+        for (const tex of Object.values(t)) tex?.dispose();
+        return;
+      }
       atmosphereTextures = t;
       atmosphere.irradianceTexture = t.irradianceTexture;
       atmosphere.scatteringTexture = t.scatteringTexture;
@@ -129,7 +131,7 @@ export function createPost(renderer: WebGLRenderer, scene: Scene, camera: Perspe
       atmosphere.higherOrderScatteringTexture = t.higherOrderScatteringTexture ?? null;
       atmospherePass.enabled = true;
     })
-    .catch(() => undefined); // no float render targets: the globe shows without an atmosphere
+    .catch(() => undefined); // tables missing: the globe shows without an atmosphere
 
   const bloom = new BloomEffect({
     luminanceThreshold: 1,
@@ -235,7 +237,8 @@ export function createPost(renderer: WebGLRenderer, scene: Scene, camera: Perspe
       composer.dispose();
       overlayTarget.dispose();
       depthOnly.dispose();
-      generator.dispose();
+      disposed = true;
+      if (atmosphereTextures) for (const tex of Object.values(atmosphereTextures)) tex?.dispose();
     },
   };
 }
