@@ -1,0 +1,96 @@
+{
+  "generated_utc": "2026-10-27T15:07:43.562Z",
+  "projection": "equirectangular, row 0 = 90N, column 0 = 180W",
+  "note": "Design layers only. No value, sound or label in the app comes from these images.",
+  "months": [
+    "09"
+  ],
+  "sources": {
+    "day-09": {
+      "url": "https://eoimages.gsfc.nasa.gov/images/imagerecords/73000/73801/world.topo.bathy.200409.3x21600x10800.jpg",
+      "sha256": "863036b622ba3dab4eb4ffb7149730b02cfa433ce49672e9b7267022051e04a2",
+      "credit": "NASA Earth Observatory, Blue Marble Next Generation (Reto Stöckli)",
+      "licence": "NASA imagery, not subject to US copyright; NASA acknowledged as the source"
+    },
+    "elevation": {
+      "url": "https://eoimages.gsfc.nasa.gov/images/imagerecords/73000/73934/gebco_08_rev_elev_21600x10800.png",
+      "sha256": "4a70590d40dd7b9c69b9ab359d1dc4475ce97c1d2d13625223b248364112c699",
+      "credit": "Imagery by Jesse Allen, NASA's Earth Observatory, using data from the General Bathymetric Chart of the Oceans (GEBCO) produced by the British Oceanographic Data Centre",
+      "licence": "NASA imagery; GEBCO data free to use with acknowledgement"
+    },
+    "bathymetry": {
+      "url": "https://eoimages.gsfc.nasa.gov/images/imagerecords/73000/73963/gebco_08_rev_bath_21600x10800.png",
+      "sha256": "b3a67076fccfbee73ebe437fd66a8ed4969fbc5ce949033b50675d43f379e403",
+      "credit": "Imagery by Jesse Allen, NASA's Earth Observatory, using data from GEBCO (British Oceanographic Data Centre)",
+      "licence": "NASA imagery; GEBCO data free to use with acknowledgement"
+    },
+    "night": {
+      "url": "https://eoimages.gsfc.nasa.gov/images/imagerecords/144000/144898/BlackMarble_2016_3km.jpg",
+      "sha256": "230aac448ae68c358be433dd518888cccb3a85ccf66f7b44326441c324ad6725",
+      "credit": "NASA Earth Observatory, Black Marble 2016 (Joshua Stevens, using Suomi NPP VIIRS data from Miguel Román, NASA GSFC)",
+      "licence": "NASA imagery, not subject to US copyright; NASA acknowledged as the source"
+    },
+    "clouds": {
+      "url": "https://eoimages.gsfc.nasa.gov/images/imagerecords/57000/57747/cloud_combined_8192.tif",
+      "sha256": "d137775d8966ab8d443fd5126dc6e7ad72072bc1ed50555c5818d221735daf0f",
+      "credit": "NASA Visible Earth, Blue Marble clouds (Reto Stöckli, NASA GSFC)",
+      "licence": "NASA imagery, not subject to US copyright; NASA acknowledged as the source"
+    },
+    "studio": {
+      "url": "https://dl.polyhaven.org/file/ph-assets/HDRIs/hdr/1k/studio_small_09_1k.hdr",
+      "sha256": "e7cfda5f4e98e623db12b8bfd0184e048488e4855d9c83e2751fb44a32e80c45",
+      "credit": "Poly Haven, studio_small_09 (Sergej Majboroda)",
+      "licence": "CC0"
+    }
+  },
+  "calibration": {
+    "ELEVATION": {
+      "maxMetres": 6400
+    },
+    "BATHYMETRY": {
+      "maxDepthMetres": 8000
+    },
+    "RELIEF_EXAGGERATION": {
+      "land": 18,
+      "sea": 3
+    },
+    "NIGHT_LEVELS": {
+      "black": 48,
+      "white": 120
+    }
+  },
+  "files": {
+    "clouds-8192": {
+      "ktx2": 5784188,
+      "webp": 6991884,
+      "tiles": [
+        2,
+        2
+      ]
+    },
+    "clouds-4096": {
+      "ktx2": 1513541,
+      "webp": 2022998,
+      "tiles": [
+        1,
+        1
+      ]
+    },
+    "normal-4096": {
+      "ktx2": 7394588,
+      "webp": 1140976,
+      "tiles": [
+        1,
+        1
+      ]
+    },
+    "normal-2048": {
+      "ktx2": 1714686,
+      "webp": 197894,
+      "tiles": [
+        1,
+        1
+      ]
+    }
+  }
+}
