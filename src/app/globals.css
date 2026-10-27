@@ -37,6 +37,21 @@
   --atmosphere: #7fb2ff;
   --sun-glint: #fff3d6;
   --terminator-warm: #ffb27a;
+
+  /* Turntable v3 interface: near-black, warm off-white, one amber accent
+     (--amber, used sparingly: focus, pressed, the needle mark). Glass panels
+     float over the globe; text on them stays ≥ 4.5:1 over white cloud too. */
+  --tt-black: #0c0a09;
+  --tt-panel: #16120f;
+  --tt-raise: #2a231d;
+  --tt-line: #5a4f45;
+  --tt-text: #f4efe7;
+  --tt-muted: #c4baad;
+  --tt-glass: rgb(16 13 11 / 0.8);
+  --tt-glass-strong: rgb(16 13 11 / 0.94);
+  --tt-glass-edge: rgb(244 239 231 / 0.14);
+  --tt-glass-shadow: rgb(0 0 0 / 0.45);
+  --label-shadow: rgb(0 0 0 / 0.85);
   --geo-border: #f3f0fa;
   --geo-district: #d6d0ee;
   --geo-river: #b4b1ff;
@@ -93,6 +108,9 @@
   --color-ink: var(--ink);
   --color-scrim: var(--scrim);
   --color-studio-bottom: var(--studio-bottom);
+  --color-amber: var(--amber);
+  --color-tt-black: var(--tt-black);
+  --font-display: var(--font-anek), system-ui, sans-serif;
   --color-chart-then: var(--chart-then);
   --color-chart-now: var(--chart-now);
   --color-chart-grid: var(--chart-grid);
@@ -138,6 +156,8 @@
   --text-lead--line-height: 1.4;
   --text-title: 1.5625rem;
   --text-title--line-height: 1.3;
+  --text-value: 2.75rem;
+  --text-value--line-height: 1;
   --text-readout-mobile: 3.05rem;
   --text-readout-mobile--line-height: 1;
   --text-readout: 3.8125rem;
@@ -230,4 +250,103 @@ html[data-reduce-motion="true"] *::before,
 html[data-reduce-motion="true"] *::after {
   animation-duration: 0s !important;
   transition-duration: 0s !important;
+}
+
+/* Turntable v3: the warm palette, re-pointing the app's tokens (and the shadcn
+   variables built on them) inside the Turntable and its drawers and popovers. */
+.tt-warm {
+  --night: var(--tt-black);
+  --dusk: var(--tt-panel);
+  --tide: var(--tt-raise);
+  --line: var(--tt-line);
+  --moon: var(--tt-text);
+  --haze: var(--tt-muted);
+  --shapla: var(--amber);
+  --ink: var(--tt-black);
+  --scrim: var(--tt-glass);
+  --background: var(--night);
+  --foreground: var(--moon);
+  --card: var(--dusk);
+  --card-foreground: var(--moon);
+  --popover: var(--dusk);
+  --popover-foreground: var(--moon);
+  --primary: var(--tide);
+  --primary-foreground: var(--moon);
+  --secondary: var(--tide);
+  --secondary-foreground: var(--moon);
+  --muted: var(--tide);
+  --muted-foreground: var(--haze);
+  --accent: var(--tide);
+  --accent-foreground: var(--moon);
+  --border: var(--line);
+  --input: var(--line);
+  --ring: var(--shapla);
+  color: var(--moon);
+}
+
+@utility glass-chip {
+  background: var(--tt-glass);
+  border: 1px solid var(--tt-glass-edge);
+  box-shadow: 0 6px 20px var(--tt-glass-shadow);
+  backdrop-filter: blur(14px) saturate(1.1);
+}
+
+@utility glass-card {
+  background: var(--tt-glass-strong);
+  border: 1px solid var(--tt-glass-edge);
+  box-shadow: 0 12px 32px var(--tt-glass-shadow);
+  backdrop-filter: blur(18px) saturate(1.1);
+}
+
+@utility glass-dock {
+  background: var(--tt-glass);
+  border: 1px solid var(--tt-glass-edge);
+  box-shadow: 0 10px 30px var(--tt-glass-shadow);
+  backdrop-filter: blur(16px) saturate(1.15);
+}
+
+/* Place names on the globe: sentence case, light, small, a soft shadow (no outline). */
+@utility globe-label {
+  font-size: 0.875rem;
+  font-weight: 300;
+  letter-spacing: 0.01em;
+  color: var(--tt-text);
+  text-shadow:
+    0 1px 2px var(--label-shadow),
+    0 0 8px var(--label-shadow);
+  transition: opacity 0.25s ease-out;
+}
+
+/* Turntable captions: a new one shows for 3 s, then fades. */
+@keyframes caption-fade {
+  0%,
+  75% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+
+.caption-fade {
+  animation: caption-fade 4s ease-out forwards;
+}
+
+/* The intro's fade from black. */
+@keyframes intro-fade {
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 0;
+  }
+}
+
+@utility animate-intro-fade {
+  animation: intro-fade 1.4s ease-out 0.2s both;
+}
+
+/* Reduced motion: captions just stay (no fade-out to nothing). */
+html[data-reduce-motion="true"] .caption-fade {
+  animation: none !important;
 }

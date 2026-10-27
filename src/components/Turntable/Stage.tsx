@@ -5,12 +5,13 @@ import { Search } from "lucide-react";
 import { useEffect, useId, useRef, type KeyboardEvent, type RefObject } from "react";
 import { cn } from "@/lib/utils";
 import { useTT } from "./i18n";
-import { InsetMap } from "./InsetMap";
 import type { LabelCandidate } from "./labels";
 import { LabelLayer, type GraticuleLabel, type PlacedLabels, type Rect } from "./LabelLayer";
+import { NeedleChip } from "./NeedleChip";
+import type { Details } from "./NeedleChip/use-details";
 import type { SentReading } from "./needle-sound";
 import type { Tier } from "./quality";
-import { NeedleMarks } from "./NeedleMarks";
+import type { IntroPhase } from "./use-intro";
 import type { Geo } from "./use-geo";
 import { useGlobePointer, wheelZoom } from "./use-globe-pointer";
 import type { Turntable } from "./use-turntable";
@@ -27,8 +28,11 @@ export interface StageProps {
   record: string;
   tier: Tier | null;
   place: string | null;
-  labels: LabelCandidate[];
+  /** null = names hidden (Layers). */
+  labels: LabelCandidate[] | null;
   graticule: GraticuleLabel[] | null;
+  details: Details;
+  intro: IntroPhase;
   idle: boolean;
   onKeyDown(e: KeyboardEvent<HTMLElement>): void;
   debug: { sendLog: RefObject<SentReading[]>; placed: { current: PlacedLabels } } | null;
@@ -36,7 +40,7 @@ export interface StageProps {
 }
 
 /** The globe and everything drawn over it; the focusable region for the Turntable keys. */
-export function Stage({ tt, hostRef, geo, record, tier, place, labels, graticule, idle, onKeyDown, debug, className }: StageProps) {
+export function Stage({ tt, hostRef, geo, record, tier, place, labels, graticule, details, intro, idle, onKeyDown, debug, className }: StageProps) {
   const { tt: tr } = useTT();
   const pointer = useGlobePointer(tt);
   const instructionsId = useId();
@@ -62,7 +66,7 @@ export function Stage({ tt, hostRef, geo, record, tier, place, labels, graticule
       aria-label={tr("turntable.region", { record })}
       aria-describedby={instructionsId}
       onKeyDown={onKeyDown}
-      className={cn("relative overflow-hidden rounded-xl bg-studio-bottom", className)}
+      className={cn("relative overflow-hidden bg-studio-bottom", className)}
     >
       <p id={instructionsId} className="sr-only">
         {tr("turntable.instructions")}
@@ -70,15 +74,19 @@ export function Stage({ tt, hostRef, geo, record, tier, place, labels, graticule
       <div ref={hostRef} {...pointer} className="absolute inset-0 touch-none select-none">
         <TurntableCanvas dataCanvas={tt.texture.canvas} tier={tier} label={tr("turntable.canvas", { record })} onReady={tt.onSceneReady} />
       </div>
-      <LabelLayer subscribe={tt.subscribe} candidates={labels} graticule={graticule} reserved={reserved} placedRef={debug?.placed} />
-      <NeedleMarks subscribe={tt.subscribe} place={place} reserved={reserved} />
-      <p className="pointer-events-none absolute top-2 left-2 rounded-md bg-scrim px-2 py-1 text-body text-moon">{tr("turntable.background")}</p>
-      <InsetMap tt={tt} files={geo?.files ?? null} label={tr("turntable.inset")} className="pointer-events-none absolute bottom-2 left-2 hidden sm:block" />
-      {idle && (
-        <p className="pointer-events-none absolute bottom-3 left-1/2 flex -translate-x-1/2 items-center gap-2 rounded-full bg-scrim px-4 py-2 text-body text-moon">
+      {labels && <LabelLayer subscribe={tt.subscribe} candidates={labels} graticule={graticule} reserved={reserved} placedRef={debug?.placed} />}
+      <NeedleChip subscribe={tt.subscribe} place={place} details={details} reserved={reserved} />
+      <p className="pointer-events-none absolute top-3 left-4 max-w-[60%] text-small text-haze">{tr("turntable.background")}</p>
+      {idle && intro === "done" && (
+        <p className="glass-chip pointer-events-none absolute top-16 left-1/2 flex -translate-x-1/2 items-center gap-2 rounded-full px-4 py-2 text-body text-moon">
           <Search aria-hidden="true" className="size-4" />
           {tr("turntable.idleHint")}
         </p>
+      )}
+      {intro !== "done" && (
+        <div aria-hidden="true" className={cn("pointer-events-none absolute inset-0 grid place-items-center bg-tt-black", intro === "running" && "animate-intro-fade")}>
+          <p className="text-body text-haze">{tr("turntable.intro.skip")}</p>
+        </div>
       )}
       {debug && <DebugOverlay tt={tt} sendLog={debug.sendLog} placed={debug.placed} geo={geo} />}
     </div>

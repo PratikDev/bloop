@@ -6,6 +6,7 @@ import { Color, Group, LineBasicMaterial, LineSegments, type BufferGeometry } fr
 import type { Palette } from "@/lib/css-tokens";
 import type { AreaGeometry, Feature, LineGeometry, Position } from "@/lib/geo/types";
 import { meridian, parallel, pathsGeometry } from "./geometry";
+import type { LayerToggles } from "../settings";
 import { onOverlay } from "./layers";
 
 /** Latitudes of the graticule's labelled lines: equator, tropics (≈23.44°, Earth's tilt), 30° and 60°. */
@@ -18,10 +19,9 @@ export interface OverlayData {
   rivers: Feature<{ highlight?: boolean }, LineGeometry>[];
 }
 
-export interface OverlayVisibility {
+export interface OverlayVisibility extends Omit<LayerToggles, "clouds"> {
   /** Camera distance from the globe's centre, in radii. */
   distance: number;
-  graticule: boolean;
 }
 
 export interface Overlays {
@@ -88,16 +88,15 @@ export function createOverlays(palette: Palette): Overlays {
         riversMajor: layer(linePaths(data.rivers.filter((f) => f.properties.highlight)), 1.0024, materials.riverMajor),
       };
     },
-    setVisibility({ distance, graticule: showGraticule }) {
+    setVisibility({ distance, graticule: showGraticule, borders, districts, rivers }) {
       graticule.visible = showGraticule;
       if (!layers) return;
-      const detail = distance < ZOOM.detailBorders;
       // The 10m South Asia borders replace the 110m ones close up (the world layer stays for elsewhere).
-      layers.detail.visible = detail;
-      layers.districts.visible = distance < ZOOM.districts;
-      layers.rivers.visible = distance < ZOOM.allRivers;
-      layers.riversMajor.visible = true;
-      layers.world.visible = true;
+      layers.detail.visible = borders && distance < ZOOM.detailBorders;
+      layers.world.visible = borders;
+      layers.districts.visible = districts && distance < ZOOM.districts;
+      layers.rivers.visible = rivers && distance < ZOOM.allRivers;
+      layers.riversMajor.visible = rivers;
     },
     dispose() {
       for (const g of geometries) g.dispose();

@@ -14,7 +14,7 @@ import { useLatestCaption } from "./use-latest-caption";
  * With sound off, it shows the reading being shown (the cursor, or the
  * time-lapse frame) instead.
  */
-export function CaptionBar({ className }: { className?: string }) {
+export function CaptionBar({ className, fade = false }: { className?: string; /** Each new caption shows for 3 s, then fades (Turntable). */ fade?: boolean }) {
   const { state } = useAppState();
   const shown = useShownPoint();
   const t = useT();
@@ -26,7 +26,7 @@ export function CaptionBar({ className }: { className?: string }) {
     : caption && captionText(state.lang, caption.key, caption.params);
   return (
     // Up to two lines rather than cut off: long captions stay readable.
-    <p aria-hidden="true" className={cn("line-clamp-2 min-h-8 font-serif text-lead text-moon", className)}>
+    <p key={fade ? text || "" : undefined} aria-hidden="true" className={cn("line-clamp-2 min-h-8 font-serif text-lead text-moon", fade && "caption-fade", className)}>
       {text || " "}
     </p>
   );

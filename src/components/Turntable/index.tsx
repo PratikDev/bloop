@@ -1,42 +1,50 @@
 "use client";
 
+import { BookOpenText } from "lucide-react";
 import { useEffect, useMemo, useRef, useState } from "react";
-import { useAppState } from "../AppState/use-app-state";
+import { Button } from "@/components/ui/button";
+import { formatDegrees, formatUtc } from "@/lib/i18n";
+import { readAt } from "@/lib/reading";
 import { liveSoundOn } from "../AppState/reducer";
+import { useAppState } from "../AppState/use-app-state";
+import { CaptionBar } from "../CaptionBar";
 import { useCommands } from "../Commands/use-commands";
 import { MAP_REGION_ID } from "../ExploreControls";
 import { useLiveData } from "../LiveData/use-live-data";
-import { formatDegrees, formatUtc } from "@/lib/i18n";
-import { readAt } from "@/lib/reading";
+import { CreditsLink } from "./CreditsLink";
+import { Dock } from "./Dock";
+import { Drawers, type DrawerId } from "./Drawers";
 import { ttFor, useTT } from "./i18n";
-import { labelCandidates } from "./labels";
 import { graticuleLabels, type PlacedLabels } from "./LabelLayer";
+import { labelCandidates } from "./labels";
 import { LegendBar } from "./LegendBar";
+import { useDetails } from "./NeedleChip/use-details";
 import type { SentReading } from "./needle-sound";
 import { placeText } from "./place-text";
-import { ReadoutCard } from "./ReadoutCard";
 import { RECORD_LABELS, recordFrames } from "./records";
 import { SearchBox } from "./SearchBox";
-import { SleeveRow } from "./SleeveRow";
+import { DEFAULT_SETTINGS, layerToggles, type TurntableSettings } from "./settings";
 import { Stage } from "./Stage";
-import { Toolbar, type ToolbarSettings } from "./Toolbar";
 import { useGeo } from "./use-geo";
+import { introWanted, useIntro } from "./use-intro";
 import { useTurntable } from "./use-turntable";
-import { DEFAULT_SETTINGS, useTurntableActions } from "./use-turntable-actions";
+import { useTurntableActions } from "./use-turntable-actions";
 import { useTurntableKeys } from "./use-turntable-keys";
 
 const SEND_LOG_MAX = 5000;
 const IDLE_MS = 30_000;
 const IDLE_CHECK_MS = 5_000;
+const GLASS_BUTTON = "glass-chip pointer-events-auto h-11 gap-2 rounded-full px-4 text-body text-moon";
 
 /** After leaving, keyboard focus lands on the flat map rather than the page. */
 const focusFlatMap = () => requestAnimationFrame(() => document.getElementById(MAP_REGION_ID)?.focus());
 
 /**
  * Turntable Earth: the latest EIC frame over a realistic globe on a turntable.
- * The needle is the app's cursor and the records are its tracks, so readout,
+ * The needle is the app's cursor and the records are its tracks, so the value,
  * captions, speech and panels are the flat map's own; the globe, places and
- * motion are presentation only.
+ * motion are presentation only. The screen stays calm: the globe, a needle
+ * chip, a slim legend and one dock; everything else opens on demand.
  */
 export function Turntable() {
   const { state, dispatch } = useAppState();
@@ -47,13 +55,16 @@ export function Turntable() {
   const sectionRef = useRef<HTMLElement>(null);
   const hostRef = useRef<HTMLDivElement>(null);
   const searchRef = useRef<HTMLInputElement>(null);
+  const dockRef = useRef<HTMLDivElement>(null);
   const [debug] = useState(() => new URLSearchParams(window.location.search).get("debug") === "1");
   const sendLog = useRef<SentReading[]>([]);
   const placed = useRef<PlacedLabels>(new Map());
   const [start] = useState(state.cursor);
-  const [now] = useState(Date.now);
-  const settingsState = useState<ToolbarSettings>(DEFAULT_SETTINGS);
+  const [introPending] = useState(() => introWanted(state.reduceMotion));
+  const settingsState = useState<TurntableSettings>(DEFAULT_SETTINGS);
   const settings = settingsState[0];
+  const [drawer, setDrawer] = useState<DrawerId | null>(null);
+  const details = useDetails();
   const record = tr(RECORD_LABELS[state.track]);
   const frameTime = recordFrames(state.track, fields)[0]?.meta.frame_time_utc ?? null;
 
@@ -65,7 +76,8 @@ export function Turntable() {
     liveOn: liveSoundOn(state),
     allMuted: state.allMuted,
     reduceMotion: state.reduceMotion,
-    graticule: settings.graticule,
+    layers: layerToggles(settings),
+    introPending,
     start,
     dispatch,
     onSend: debug
@@ -82,13 +94,17 @@ export function Turntable() {
       geo,
     },
   });
+  const intro = useIntro(tt, introPending);
   const actions = useTurntableActions(tt, geo, searchRef, settingsState);
 
   const onKeyDown = useTurntableKeys({
     commands,
     nudge: tt.nudge,
     toggleRotation: actions.toggleRotation,
-    speak: actions.speak,
+    speak() {
+      actions.speak();
+      details.show();
+    },
     stepRecord: actions.stepRecord,
     changeSpeed: actions.changeSpeed,
     zoom: actions.zoom,
@@ -98,6 +114,8 @@ export function Turntable() {
     toggleTour: actions.toggleTour,
     toggleCamera: () => actions.setCameraMode(tt.cameraMode === "explore" ? "jukebox" : "explore"),
     stepOpacity: actions.stepOpacity,
+    toggleDetails: details.toggle,
+    focusDock: () => dockRef.current?.querySelector("button")?.focus(),
     skipAnimation: tt.skipAnimation,
   });
 
@@ -130,58 +148,79 @@ export function Turntable() {
   }, []);
 
   return (
-    <section
-      ref={sectionRef}
-      lang={rootLang}
-      className="grid min-h-0 min-w-0 grid-cols-[minmax(0,1fr)] content-start gap-3 overflow-x-hidden overflow-y-auto bg-night p-3 lg:grid-cols-[minmax(0,1fr)_21rem] lg:content-stretch lg:overflow-hidden"
-    >
-      <div className="flex min-h-0 min-w-0 flex-col gap-3">
-        <SearchBox gazetteer={geo?.gazetteer ?? null} onChoose={actions.choosePlace} inputRef={searchRef} />
-        <Stage
-          tt={tt}
-          hostRef={hostRef}
-          geo={geo}
-          record={record}
-          tier={settings.quality}
-          place={place}
-          labels={labels}
-          graticule={graticule}
-          idle={idle}
-          onKeyDown={onKeyDown}
-          debug={debug ? { sendLog, placed } : null}
-          className="aspect-square w-full sm:aspect-[4/3] lg:aspect-auto lg:min-h-80 lg:flex-1"
-        />
-        <ReadoutCard place={place} now={now} className="w-full md:hidden" />
+    <section ref={sectionRef} lang={rootLang} className="tt-warm relative min-h-[32rem] min-w-0 overflow-hidden bg-tt-black">
+      <Stage
+        tt={tt}
+        hostRef={hostRef}
+        geo={geo}
+        record={record}
+        tier={settings.quality}
+        place={place}
+        labels={settings.labels ? labels : null}
+        graticule={graticule}
+        details={details}
+        intro={intro.phase}
+        idle={idle}
+        onKeyDown={onKeyDown}
+        debug={debug ? { sendLog, placed } : null}
+        className="absolute inset-0"
+      />
+      <div className="pointer-events-none absolute top-3 right-3 left-3 flex items-start justify-end gap-2 pt-6 sm:pt-0">
+        <SearchBox gazetteer={geo?.gazetteer ?? null} onChoose={actions.choosePlace} inputRef={searchRef} className="pointer-events-auto max-w-[calc(100%-3.5rem)]" />
+        <Button variant="ghost" onClick={() => setDrawer("howWeKnow")} className={GLASS_BUTTON}>
+          <BookOpenText aria-hidden="true" />
+          <span className="hidden sm:inline">{tr("turntable.howWeKnow")}</span>
+          <span className="sr-only sm:hidden">{tr("turntable.howWeKnow")}</span>
+        </Button>
       </div>
-      {/* The legend heads the side column, so on wide screens the globe keeps the full height. */}
-      <aside className="flex min-h-0 flex-col gap-4 lg:overflow-y-auto lg:pr-1">
-        <LegendBar pixel={fields ? tt.texture.sample(state.track, readAt(fields, state.cursor), state.cursor) : null} />
-        {actions.where && <p className="rounded-lg border border-haze px-3 py-2 text-body text-moon">{actions.where}</p>}
-        <Toolbar
-          rotating={tt.rotating}
-          speed={tt.speed}
-          cameraMode={tt.cameraMode}
-          touring={actions.touring}
-          settings={settings}
-          onToggleRotation={actions.toggleRotation}
-          onSpeed={actions.changeSpeed}
-          onZoom={actions.zoom}
-          onCameraMode={actions.setCameraMode}
-          onTour={actions.toggleTour}
-          onMyLocation={actions.myLocation}
-          onWhereAmI={actions.whereAmI}
-          onFlatMap={() => {
-            commands.setMode("explore");
-            focusFlatMap();
-          }}
-          onSettings={actions.updateSettings}
+      <div className="pointer-events-none absolute inset-x-3 bottom-3 flex flex-col items-center gap-2">
+        <div className="max-w-2xl text-center">
+          <CaptionBar fade className="min-h-0 text-body [text-shadow:0_1px_3px_var(--label-shadow)] sm:text-lead" />
+          {actions.where && (
+            <p key={actions.where} className="caption-fade text-body text-moon [text-shadow:0_1px_3px_var(--label-shadow)]">
+              {actions.where}
+            </p>
+          )}
+        </div>
+        <LegendBar
+          pixel={fields ? tt.texture.sample(state.track, readAt(fields, state.cursor), state.cursor) : null}
+          className="pointer-events-auto w-full max-w-md"
         />
-        <SleeveRow covers={tt.texture.covers} onSelect={actions.selectRecord} />
-        {/* Attribution stays English (names and licences). */}
-        <p lang="en" className="border-t border-haze pt-3 text-body text-haze">
-          {tr("turntable.credits")}
-        </p>
-      </aside>
+        <div className="pointer-events-auto max-w-full">
+          <Dock
+            ref={dockRef}
+            rotating={tt.rotating}
+            speed={tt.speed}
+            touring={actions.touring}
+            cameraMode={tt.cameraMode}
+            covers={tt.texture.covers}
+            onPlay={commands.togglePlaying}
+            onToggleRotation={actions.toggleRotation}
+            onSpeed={actions.changeSpeed}
+            onSearch={actions.focusSearch}
+            onWhereAmI={actions.whereAmI}
+            onTour={actions.toggleTour}
+            onRecord={actions.selectRecord}
+            onCameraMode={actions.setCameraMode}
+            onLayers={() => setDrawer("layers")}
+            onSettings={() => setDrawer("settings")}
+            onHelp={commands.openHelp}
+          />
+        </div>
+      </div>
+      <CreditsLink className="absolute right-2 bottom-2 hidden h-8 px-2 text-small text-haze lg:inline-flex" />
+      <Drawers
+        open={drawer}
+        onClose={() => setDrawer(null)}
+        settings={settings}
+        update={actions.updateSettings}
+        onMyLocation={actions.myLocation}
+        onFlatMap={() => {
+          setDrawer(null);
+          commands.setMode("explore");
+          focusFlatMap();
+        }}
+      />
     </section>
   );
 }

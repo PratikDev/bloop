@@ -80,6 +80,26 @@ export const turntableEn = {
   "turntable.quality.high": "High",
   "turntable.quality.low": "Low",
   "turntable.settings": "Globe settings",
+  "turntable.dock": "Turntable controls",
+  "turntable.dock.speed": "Turning and speed",
+  "turntable.dock.layers": "Layers and sound",
+  "turntable.dock.settings": "Settings",
+  "turntable.dock.help": "Keys and help",
+  "turntable.details.open": "Details of the value under the needle",
+  "turntable.details.pin": "Keep details open",
+  "turntable.details.unpin": "Let details close",
+  "turntable.details.close": "Close details",
+  "turntable.layers.note": "Clouds, borders and names are decoration. The data layer, values and sound don't change.",
+  "turntable.layers.decoration": "Background and map layers",
+  "turntable.layers.clouds": "Clouds",
+  "turntable.layers.labels": "Place names",
+  "turntable.layers.borders": "Borders",
+  "turntable.layers.districts": "Districts",
+  "turntable.layers.rivers": "Rivers",
+  "turntable.layers.sound": "Sound mixer",
+  "turntable.howWeKnow": "How we know",
+  "turntable.creditsLink": "Credits",
+  "turntable.intro.skip": "Press any key to skip",
   "turntable.skip": "Skip animation",
 
   "turntable.search.label": "Search places",
@@ -119,8 +139,11 @@ export const turntableEn = {
   "turntable.idleHint": "Press / to search a place",
   "turntable.background": "Background: Blue Marble composite, not today's clouds",
   "turntable.credits":
-    "Background: NASA Blue Marble · Night: NASA Black Marble · Relief: Natural Earth · Borders, places, rivers, seas: Natural Earth (public domain) · " +
-    "Districts: geoBoundaries (CC BY 3.0 IGO; source BBS, OCHA ROAP) · Imagery via NASA GIBS (ESDIS) · " +
+    "Background: NASA Earth Observatory, Blue Marble Next Generation, September (Reto Stöckli) · " +
+    "Night: NASA Earth Observatory, Black Marble 2016 (Joshua Stevens; Suomi NPP VIIRS data, Miguel Román, NASA GSFC) · " +
+    "Topography: NASA Earth Observatory (Jesse Allen), GEBCO data from the British Oceanographic Data Centre · Clouds: NASA Visible Earth · " +
+    "Studio light: Poly Haven studio_small_09 (CC0) · Atmosphere: Bruneton precomputed scattering via takram three-atmosphere (MIT) · " +
+    "Borders, places, rivers, seas: Natural Earth (public domain) · Districts: geoBoundaries (CC BY 3.0 IGO; source BBS, OCHA ROAP) · " +
     "Data frames: NASA SVS 5101 / 4285 for the NASA Earth Information Center",
   "turntable.inset": "World map: the dot is the needle",
   "turntable.legend.ocean": "This frame's ocean temperature range",
@@ -150,7 +173,9 @@ export const turntableEn = {
   "key.tt.upDown": "Up / Down",
   "key.tt.upDown.action": "Move the needle 1 degree north or south (with Shift: 10 degrees), up to 80 degrees",
   "key.tt.space.action": "Start or stop the turning",
-  "key.tt.enter.action": "Speak the value, place and frame time under the needle",
+  "key.tt.enter.action": "Speak the value, place and frame time under the needle, and show its details",
+  "key.tt.details.action": "Show or hide the details of the value under the needle",
+  "key.tt.dock.action": "Move focus to the controls (D still turns describing on or off)",
   "key.tt.r.action": "Next / previous record",
   "key.tt.search.action": "Search a place (G works too)",
   "key.tt.where.action": "Where am I? (Shift+L: hear the legend)",

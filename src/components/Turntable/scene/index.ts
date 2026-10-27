@@ -23,6 +23,7 @@ import type { Palette } from "@/lib/css-tokens";
 import type { LatLon } from "@/lib/data";
 import { latLonToSphere, sphereHitToLatLon } from "@/lib/sphere";
 import type { Tier } from "../quality";
+import type { LayerToggles } from "../settings";
 import { createEarthTextureLoader, type EarthTextureLoader } from "../textures";
 import { createCameraRig, type CameraRig } from "./camera";
 import { ARM_REST, createDeck, type Deck } from "./deck";
@@ -105,7 +106,7 @@ export interface TurntableScene {
   /** Size in CSS pixels (R3F sizes the canvas; this keeps projection and the post chain in step). */
   resize(width: number, height: number): void;
   /** Advance camera and effects by dt seconds; returns the number of particles spawned. */
-  update(dt: number, opts: { instant: boolean; graticule: boolean }): number;
+  update(dt: number, opts: { instant: boolean; layers: LayerToggles }): number;
   /** Renders one frame: R3F's advance, which runs `draw` and drei's helpers. */
   render(): void;
   /** Draws one frame through the post chain (called from R3F's frame, see TurntableCanvas). */
@@ -234,17 +235,18 @@ export function createTurntableScene(host: SceneHost, dataCanvas: HTMLCanvasElem
     resize(w, h) {
       width = w;
       height = h;
+      if (h > 0) rig.setAspect(w / h);
       post.setSize(w, h);
     },
-    update(dt, { instant, graticule }) {
+    update(dt, { instant, layers }) {
       rig.update(dt, needleNormal, instant);
       cameraLocal.copy(camera.position);
       earth.setCameraLocal(globe.worldToLocal(cameraLocal));
       const blend = rig.blend();
-      overlays.setVisibility({ distance: blend > 0.5 ? rig.distance() : Infinity, graticule });
+      overlays.setVisibility({ distance: blend > 0.5 ? rig.distance() : Infinity, ...layers });
       deck.arm.visible = blend < ARM_HIDDEN_ABOVE;
       // Decoration steps aside in the close-up: clouds fade out, the stars come in.
-      earth.setClouds(1 - blend);
+      earth.setClouds(layers.clouds ? 1 - blend : 0);
       studio.setStars(blend);
       post.setViewBlend(blend, camera.position.length() - FOCUS_IN_FRONT);
       // The camera's height above the surface, relative to the Jukebox view: effects keep their screen size.

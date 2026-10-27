@@ -24,7 +24,8 @@ const TABS: { tab: PanelTab; label: "panel.truth" | "panel.mapping" | "panel.pro
   { tab: "history", label: "panel.history" },
 ];
 
-function PanelTabs() {
+/** Truth, Mapping, Provenance and History (also the Turntable's "How we know" drawer). */
+export function PanelTabs() {
   const { state, dispatch } = useAppState();
   const t = useT();
   return (
