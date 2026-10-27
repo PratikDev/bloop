@@ -84,6 +84,8 @@ export interface Place {
   pop: number;
   rank: number; // Natural Earth scalerank (lower = more important); curated places use 0
   country: string;
+  /** The country's Bangla name from Natural Earth's countries, when it has one. */
+  countryBn: string | null;
   capital: boolean;
   alwaysLabel: boolean;
 }

@@ -13,6 +13,8 @@ import type { CameraMode } from "./scene";
 
 const BUTTON = "h-11 gap-2 px-3 text-body";
 const ICON_BUTTON = "size-11";
+/** Choice groups wrap rather than overflow (Bangla labels are longer). */
+const WRAP = "flex-wrap";
 
 export interface ToolbarSettings {
   dataOpacity: number; // 0..1
@@ -92,6 +94,7 @@ export function Toolbar(p: ToolbarProps) {
           { value: "jukebox", label: tt("turntable.view.jukebox") },
           { value: "explore", label: tt("turntable.view.explore") },
         ]}
+        className={WRAP}
         itemClassName="md:h-11"
       />
 
@@ -114,6 +117,7 @@ export function Toolbar(p: ToolbarProps) {
             { value: "frame", label: tt("turntable.sun.frame") },
             { value: "day", label: tt("turntable.sun.day") },
           ]}
+          className={WRAP}
           itemClassName="md:h-11"
         />
         <Toggle
@@ -135,6 +139,7 @@ export function Toolbar(p: ToolbarProps) {
               { value: "auto", label: tt("turntable.quality.auto") },
               ...QUALITIES.map((q) => ({ value: String(q), label: tt("turntable.quality.size", { size: q }) })),
             ]}
+            className={WRAP}
             itemClassName="md:h-11"
           />
         </div>

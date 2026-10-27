@@ -61,6 +61,11 @@ const named = (name: string | null | undefined, nameBn: string | null | undefine
 
 function buildPlaces(files: GeoFiles): Place[] {
   const always = new Set(files.story.alwaysLabel);
+  // Country names in Bangla, from Natural Earth's own country table.
+  const countryBn = new Map<string, string>();
+  for (const f of [...files.countries110m.features, ...files.countriesSouthAsia.features]) {
+    if (f.properties.NAME_BN) countryBn.set(f.properties.NAME, f.properties.NAME_BN);
+  }
   const fromNe: Place[] = files.places.rows.map(([name, nameBn, lat, lon, pop, rank, country, capital]) => ({
     name,
     nameBn,
@@ -69,6 +74,7 @@ function buildPlaces(files: GeoFiles): Place[] {
     pop,
     rank,
     country,
+    countryBn: countryBn.get(country) ?? null,
     capital,
     alwaysLabel: always.has(name) && country === "Bangladesh",
   }));
@@ -80,6 +86,7 @@ function buildPlaces(files: GeoFiles): Place[] {
     pop: 0,
     rank: 0,
     country: c.country,
+    countryBn: countryBn.get(c.country) ?? null,
     capital: false,
     alwaysLabel: always.has(c.name),
   }));
