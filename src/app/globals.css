@@ -24,13 +24,19 @@
   /* Turntable Earth: the 3D studio and the map overlays. Chrome only, never
      data: the warm tones stay in the backdrop and the turntable, away from the
      globe, and overlay lines stay pale and in the interface's hue range. */
-  --studio-top: #2b211e;
-  --studio-bottom: #0d0a0a;
-  --plinth: #241b19;
-  --vinyl: #141117;
-  --metal: #d4d1da;
+  --studio-top: #110d0c;
+  --studio-bottom: #040303;
+  --studio-glow: #3a2618;
+  --anodised: #1d1b1f;
+  --glass: #0e0c0d;
+  --vinyl: #0d0c0e;
+  --metal: #d9d6dc;
+  --label: #f1ebe0;
+  --label-ink: #1a1512;
+  --amber: #f2a541;
   --atmosphere: #7fb2ff;
   --sun-glint: #fff3d6;
+  --terminator-warm: #ffb27a;
   --geo-border: #f3f0fa;
   --geo-district: #d6d0ee;
   --geo-river: #b4b1ff;

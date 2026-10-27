@@ -1,18 +1,21 @@
 "use client";
 
-import { useEffect, type RefObject } from "react";
+import { useEffect } from "react";
 import { Vector3 } from "three";
 import type { SstField } from "@/lib/data";
 import { subsolarPoint } from "@/lib/geo/sun";
 import { latLonToSphere } from "@/lib/sphere";
 import { oceanMask } from "./data-layer";
+import { resolveTier, type Tier } from "./quality";
 import type { TurntableScene } from "./scene";
-import { defaultQuality, loadEarthTextures, type TextureQuality } from "./textures";
+import { builtMonths, frameMonth, surfaceMonth } from "./textures";
 import type { Geo } from "./use-geo";
 
 export interface SceneSettings {
   /** null = automatic (by device). */
-  quality: TextureQuality | null;
+  quality: Tier | null;
+  /** The record's frame time: picks the Blue Marble month. */
+  frameTime: string | null;
   /** The frame time the sun is placed at; null = always day. */
   sunTime: string | null;
   dataOpacity: number;
@@ -20,56 +23,52 @@ export interface SceneSettings {
   geo: Geo | null;
 }
 
-/**
- * Feeds the scene what loads later or changes rarely. Must be called after the
- * effect that creates the scene, so these effects run after it.
- */
-export function useSceneAssets(sceneRef: RefObject<TurntableScene | null>, s: SceneSettings): void {
+/** Feeds the scene what loads later or changes rarely, once R3F has created it. */
+export function useSceneAssets(scene: TurntableScene | null, s: SceneSettings): void {
+  // The surface textures follow the tier and the frame's month (not the exact time,
+  // so switching between two September records doesn't reload them).
+  const month = s.frameTime ? frameMonth(s.frameTime) : null;
   useEffect(() => {
-    const scene = sceneRef.current;
-    if (!scene) return;
+    if (!scene || !month) return;
     let cancelled = false;
-    const wanted = s.quality ?? defaultQuality(scene.maxTextureSize);
-    const quality = (wanted > scene.maxTextureSize ? 4096 : wanted) as TextureQuality;
-    loadEarthTextures(quality)
+    const tier = resolveTier(s.quality, scene.maxTextureSize);
+    builtMonths()
+      .then((built) => scene.textures.load(tier, surfaceMonth(month, built)))
       .then((t) => {
-        if (cancelled || sceneRef.current !== scene) {
-          for (const tex of [t.day, t.night, t.relief]) tex.dispose();
+        if (cancelled) {
+          for (const tex of [t.day, t.night, t.normal, t.clouds]) tex?.dispose();
           return;
         }
         scene.earth.setTextures(t);
-        scene.earth.setRelief(t.reliefOn);
       })
       .catch(() => undefined); // the globe keeps its plain fallback colour; the data frame still shows
     return () => {
       cancelled = true;
     };
-  }, [sceneRef, s.quality]);
+  }, [scene, s.quality, month]);
 
   useEffect(() => {
-    const scene = sceneRef.current;
     if (!scene || !s.sst) return;
     const { width, height } = s.sst.meta.grid;
     scene.earth.setOceanMask(oceanMask(s.sst), width, height);
-  }, [sceneRef, s.sst]);
+  }, [scene, s.sst]);
 
   useEffect(() => {
-    if (s.geo) sceneRef.current?.overlays.setData(s.geo.overlays);
-  }, [sceneRef, s.geo]);
+    if (scene && s.geo) scene.overlays.setData(s.geo.overlays);
+  }, [scene, s.geo]);
 
   useEffect(() => {
-    const scene = sceneRef.current;
     if (!scene) return;
     if (!s.sunTime) {
-      scene.earth.setSun(null);
+      scene.setSun(null);
       return;
     }
     const sun = subsolarPoint(new Date(s.sunTime));
     const d = latLonToSphere(sun.lat, sun.lon);
-    scene.earth.setSun(new Vector3(d.x, d.y, d.z));
-  }, [sceneRef, s.sunTime]);
+    scene.setSun(new Vector3(d.x, d.y, d.z));
+  }, [scene, s.sunTime]);
 
   useEffect(() => {
-    sceneRef.current?.earth.setDataOpacity(s.dataOpacity);
-  }, [sceneRef, s.dataOpacity]);
+    scene?.earth.setDataOpacity(s.dataOpacity);
+  }, [scene, s.dataOpacity]);
 }

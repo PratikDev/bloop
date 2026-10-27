@@ -7,7 +7,7 @@ import { Toggle } from "@/components/ui/toggle";
 import { cn } from "@/lib/utils";
 import { ChoiceGroup } from "../ChoiceGroup";
 import { useTT } from "./i18n";
-import { QUALITIES, type TextureQuality } from "./textures";
+import { TIERS, type Tier } from "./quality";
 import { SPEEDS } from "./use-turntable";
 import type { CameraMode } from "./scene";
 
@@ -20,7 +20,8 @@ export interface ToolbarSettings {
   dataOpacity: number; // 0..1
   sunAtFrameTime: boolean;
   graticule: boolean;
-  quality: TextureQuality | null;
+  /** Rendering tier (null = automatic). */
+  quality: Tier | null;
 }
 
 export interface ToolbarProps {
@@ -44,7 +45,7 @@ export interface ToolbarProps {
 /** Every Turntable key has a button here (or on the globe and sleeves). */
 export function Toolbar(p: ToolbarProps) {
   const { tt } = useTT();
-  const quality = p.settings.quality === null ? "auto" : String(p.settings.quality);
+  const quality = p.settings.quality ?? "auto";
   return (
     <div className={cn("space-y-3", p.className)}>
       <div className="flex flex-wrap items-center gap-2">
@@ -131,13 +132,13 @@ export function Toolbar(p: ToolbarProps) {
         </Toggle>
         <div className="space-y-1">
           <p className="text-body text-moon">{tt("turntable.quality")}</p>
-          <ChoiceGroup<string>
+          <ChoiceGroup<Tier | "auto">
             label={tt("turntable.quality")}
             value={quality}
-            onChange={(v) => p.onSettings({ quality: v === "auto" ? null : (Number(v) as TextureQuality) })}
+            onChange={(v) => p.onSettings({ quality: v === "auto" ? null : v })}
             options={[
               { value: "auto", label: tt("turntable.quality.auto") },
-              ...QUALITIES.map((q) => ({ value: String(q), label: tt("turntable.quality.size", { size: q }) })),
+              ...TIERS.map((t) => ({ value: t, label: tt(`turntable.quality.${t}`) })),
             ]}
             className={WRAP}
             itemClassName="md:h-11"

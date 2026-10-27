@@ -76,9 +76,11 @@ export const turntableBnDraft: { [K in TurntableKey]?: Table[K] } = {
   "turntable.sun.frame": "ফ্রেমের সময়ের সূর্য",
   "turntable.sun.day": "সবসময় দিন",
   "turntable.graticule": "গ্রিড রেখা",
-  "turntable.quality": "টেক্সচারের মান",
+  "turntable.quality": "ছবির মান",
   "turntable.quality.auto": "স্বয়ংক্রিয়",
-  "turntable.quality.size": (p) => `${bnInt(p.size)} পিক্সেল`,
+  "turntable.quality.ultra": "সর্বোচ্চ",
+  "turntable.quality.high": "উচ্চ",
+  "turntable.quality.low": "নিম্ন",
   "turntable.settings": "গ্লোবের সেটিংস",
   "turntable.skip": "অ্যানিমেশন এড়িয়ে যান",
 

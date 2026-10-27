@@ -17,10 +17,12 @@ import {
   PointsMaterial,
   Quaternion,
   RingGeometry,
+  SRGBColorSpace,
   Vector3,
 } from "three";
 import type { Palette } from "@/lib/css-tokens";
 import { parallel, pathsGeometry } from "./geometry";
+import { onOverlay } from "./layers";
 
 const MAX_PARTICLES = 96;
 const FALL_SEC = 0.5;
@@ -72,7 +74,8 @@ function dotTexture(): CanvasTexture {
   return new CanvasTexture(c);
 }
 
-export function createEffects(palette: Palette): Effects {
+/** `onRippleColor` hears every ripple colour change (the stylus glows with it). */
+export function createEffects(palette: Palette, onRippleColor?: (rgb: [number, number, number] | null) => void): Effects {
   const group = new Group();
   const glow = new Color(palette.shapla);
   const dot = dotTexture();
@@ -106,6 +109,8 @@ export function createEffects(palette: Palette): Effects {
   sparkles.frustumCulled = false;
 
   group.add(groove, ripple, particles, sparkles);
+  // Drawn in the overlay pass with the data frame, so their colours are exact.
+  onOverlay(group);
 
   const needlePoint = new Vector3(0, 0, 1);
   const needleNormal = new Vector3(0, 0, 1);
@@ -147,7 +152,8 @@ export function createEffects(palette: Palette): Effects {
     },
     setRippleColor(rgb) {
       ripple.visible = rgb !== null;
-      if (rgb) rippleMaterial.color.setRGB(rgb[0] / 255, rgb[1] / 255, rgb[2] / 255);
+      if (rgb) rippleMaterial.color.setRGB(rgb[0] / 255, rgb[1] / 255, rgb[2] / 255, SRGBColorSpace);
+      onRippleColor?.(rgb);
     },
     setParticles(perSecond, k) {
       rate = Math.max(0, perSecond);
@@ -194,8 +200,8 @@ export function createEffects(palette: Palette): Effects {
       for (let i = 0; i < MAX_PARTICLES; i++) {
         ages[i] += dt;
         const t = ages[i] / FALL_SEC;
-        // Landed particles are parked inside the globe (hidden); falling ones drop along the normal.
-        scratch.copy(needlePoint).addScaledVector(needleNormal, t < 1 ? FALL_HEIGHT * zoom * (1 - t) : -10);
+        // Landed particles are parked just inside the globe (hidden by its depth); falling ones drop along the normal.
+        scratch.copy(needlePoint).addScaledVector(needleNormal, t < 1 ? FALL_HEIGHT * zoom * (1 - t) : -0.5);
         if (t < 1) {
           const drift = kind === "snow" ? Math.sin(ages[i] * 9 + i) * 0.01 : 0;
           scratch.addScaledVector(tangentA, (offsets[i * 2] + drift) * zoom).addScaledVector(tangentB, offsets[i * 2 + 1] * zoom);
