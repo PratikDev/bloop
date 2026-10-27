@@ -32,16 +32,20 @@ export function useSceneAssets(scene: TurntableScene | null, s: SceneSettings): 
     if (!scene || !month) return;
     let cancelled = false;
     const tier = resolveTier(s.quality, scene.maxTextureSize);
-    builtMonths()
-      .then((built) => scene.textures.load(tier, surfaceMonth(month, built)))
-      .then((t) => {
+    // Progressive: the small Low set first (the globe and the intro appear quickly), then the tier's own maps.
+    const steps: Tier[] = tier === "low" ? ["low"] : ["low", tier];
+    const load = async () => {
+      const m = surfaceMonth(month, await builtMonths());
+      for (const step of steps) {
+        const t = await scene.textures.load(step, m);
         if (cancelled) {
           for (const tex of [t.day, t.night, t.normal, t.clouds]) tex?.dispose();
           return;
         }
         scene.earth.setTextures(t);
-      })
-      .catch(() => undefined); // the globe keeps its plain fallback colour; the data frame still shows
+      }
+    };
+    load().catch(() => undefined); // the globe keeps its plain fallback colour; the data frame still shows
     return () => {
       cancelled = true;
     };

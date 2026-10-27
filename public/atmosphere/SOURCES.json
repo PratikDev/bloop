@@ -1,0 +1,6 @@
+{
+  "source": "@takram/three-atmosphere assets (Bruneton precomputed scattering, default Earth atmosphere)",
+  "licence": "MIT",
+  "sun_match": 3.25,
+  "note": "Scattering and irradiance scaled by sun_match; transmittance unchanged. Decoration only."
+}

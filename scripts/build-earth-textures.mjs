@@ -20,6 +20,7 @@ import { copyFile, mkdir, readFile, stat, writeFile } from "node:fs/promises";
 import { fileURLToPath } from "node:url";
 import sharp from "sharp";
 import { encodeToKTX2 } from "ktx2-encoder";
+import { buildAtmosphere } from "./build-atmosphere.mjs";
 
 const ROOT = new URL("../", import.meta.url);
 const OUT = fileURLToPath(new URL("public/textures/earth/", ROOT));
@@ -303,6 +304,7 @@ async function main() {
   await copyFile(downloaded.studio.path, `${STUDIO_OUT}studio_small_09_1k.hdr`);
   const basis = fileURLToPath(new URL("node_modules/three/examples/jsm/libs/basis/", ROOT));
   for (const f of ["basis_transcoder.js", "basis_transcoder.wasm"]) await copyFile(basis + f, BASIS_OUT + f);
+  await buildAtmosphere();
 
   const previous = (await exists(`${OUT}SOURCES.json`)) ? JSON.parse(await readFile(`${OUT}SOURCES.json`, "utf8")) : { files: {} };
   await writeFile(
