@@ -1,7 +1,7 @@
 // Long-term context files (Then vs Now, Place History). Loaded only when a
 // view needs them, and checked against the contract shapes on the way in.
 
-import type { DhakaThenNowDemo, GistempContextFile, GraceContextFile, RainContextFile } from "@/types/data-contract";
+import type { DhakaThenNowDemo, EnsembleFile, GistempContextFile, GraceContextFile, RainContextFile } from "@/types/data-contract";
 import { fetchJson } from "./fetch";
 import { DATA_PATHS } from "./paths";
 import { requirePaths } from "./validate";
@@ -48,6 +48,8 @@ const CELLS = ["Dhaka", "Chattogram", "Rajshahi", "Sylhet"] as const;
 
 export const loadGistemp = () =>
   load<GistempContextFile>(DATA_PATHS.gistemp, Object.fromEntries(CELLS.map((c) => [`cells.${c}.anom_C`, "array"])));
+
+export const loadEnsemble = () => load<EnsembleFile>(DATA_PATHS.ensemble, { months: "array", "voices.water.resolution": "string", disclosure: "string" });
 
 export const loadGpcp = () =>
   load<RainContextFile>(DATA_PATHS.gpcp, Object.fromEntries(CELLS.map((c) => [`cells.${c}.mm_per_day`, "array"])));

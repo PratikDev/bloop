@@ -4,7 +4,7 @@
 //   1..127 liquid, 128..254 frozen: mm/h = 10^(−1 + (code − base) / 126 × log10(500))
 
 import type { RainPhase, SequenceFrameRef, SequenceIndex } from "@/types/data-contract";
-import { fetchBuffer, fetchJson } from "./fetch";
+import { fetchBuffer, fetchJson, gunzip } from "./fetch";
 import { cellIndex, readUint8, type GridSize } from "./grid";
 import { DATA_PATHS } from "./paths";
 import { requirePaths } from "./validate";
@@ -32,15 +32,6 @@ export function decodeSequenceCode(code: number): { mmPerHour: number | null; ph
   const frozen = code >= FROZEN_BASE;
   const step = code - (frozen ? FROZEN_BASE : 1);
   return { mmPerHour: Math.pow(10, -1 + (step / 126) * LOG_SPAN), phase: frozen ? "frozen" : "liquid" };
-}
-
-/** Gunzip in the browser. A server that already decompressed the file is handled too. */
-async function gunzip(buffer: ArrayBuffer): Promise<ArrayBuffer> {
-  const bytes = new Uint8Array(buffer);
-  const isGzip = bytes[0] === 0x1f && bytes[1] === 0x8b;
-  if (!isGzip) return buffer;
-  const stream = new Blob([bytes]).stream().pipeThrough(new DecompressionStream("gzip"));
-  return new Response(stream).arrayBuffer();
 }
 
 /** Loads the index and every frame's grid, reporting progress (frames loaded, total). */
