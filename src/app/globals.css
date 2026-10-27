@@ -346,6 +346,26 @@ html[data-reduce-motion="true"] *::after {
   animation: intro-fade 1.4s ease-out 0.2s both;
 }
 
+/* A scene opening over the turntable: a soft ease in (≤ 1.2 s; a cut with reduced motion). */
+@keyframes scene-in {
+  from {
+    opacity: 0;
+    transform: scale(1.03);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+@utility animate-scene-in {
+  animation: scene-in 0.9s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+html[data-reduce-motion="true"] .animate-scene-in {
+  animation: none !important;
+}
+
 /* Reduced motion: captions just stay (no fade-out to nothing). */
 html[data-reduce-motion="true"] .caption-fade {
   animation: none !important;

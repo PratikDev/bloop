@@ -5,11 +5,13 @@
 // honesty wording ("pending team approval", "Verification being updated"), the
 // credits line, and captions raised by the sound engine.
 
+import type { scenesEn } from "@/lib/i18n/en/scenes";
 import type { turntableEn } from "@/lib/i18n/en/turntable";
 import { formatInteger } from "@/lib/i18n/format";
+import { scenesBnDraft } from "../Scenes/strings-bn";
 import type { CompassPoint } from "@/lib/geo/spherical";
 
-type Table = typeof turntableEn;
+type Table = typeof turntableEn & typeof scenesEn;
 export type TurntableKey = keyof Table;
 
 const bnInt = (n: number) => formatInteger(n, "bn");
@@ -174,4 +176,6 @@ export const turntableBnDraft: { [K in TurntableKey]?: Table[K] } = {
   "key.tt.view.action": "জুকবক্স দৃশ্য / কাছ থেকে দৃশ্য",
   "key.tt.opacity.action": "ডেটা স্তরের অস্বচ্ছতা (০, ২৫, ৫০, ৮৫, ১০০%)",
   "key.tt.esc.action": "ট্যুর বা উড়ান থামান, বা সার্চ বন্ধ করুন; না হলে সব শব্দ থামিয়ে সমতল মানচিত্রে ফিরুন",
+
+  ...scenesBnDraft,
 };
