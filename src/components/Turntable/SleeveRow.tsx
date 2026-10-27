@@ -1,6 +1,6 @@
 "use client";
 
-import { Lock, Play, RotateCcw, Volume2 } from "lucide-react";
+import { Box, Lock, Play, RotateCcw, Volume2 } from "lucide-react";
 import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import type { TrackMode } from "@/lib/audio-adapter/types";
@@ -10,6 +10,7 @@ import { useLiveData } from "../LiveData/use-live-data";
 import { useTT } from "./i18n";
 import { FrameFacts } from "./FrameFacts";
 import { COMING_RECORDS, LIVE_RECORDS, RECORD_LABELS, recordFrames } from "./records";
+import { SCENE_IDS, SCENE_SLEEVES, sceneCover, type SceneId } from "../Scenes/registry";
 
 function Sleeve({ track, cover, now, onSelect }: { track: TrackMode; cover: string | undefined; now: number; onSelect: (t: TrackMode) => void }) {
   const { state } = useAppState();
@@ -70,8 +71,41 @@ function Sleeve({ track, cover, now, onSelect }: { track: TrackMode; cover: stri
   );
 }
 
-/** A carousel of record sleeves: live records (the frame as cover) first; EIC areas not live yet, small and locked. */
-export function SleeveRow({ covers, onSelect, className }: { covers: Partial<Record<TrackMode, string>>; onSelect: (track: TrackMode) => void; className?: string }) {
+/** A scene's sleeve: a still from its own render; choosing it drops the needle into the scene. */
+function SceneSleeve({ id, onScene }: { id: SceneId; onScene: (id: SceneId) => void }) {
+  const { tt } = useTT();
+  const name = tt(SCENE_SLEEVES[id]);
+  return (
+    <li className="w-44 shrink-0 snap-start">
+      <button
+        type="button"
+        onClick={() => onScene(id)}
+        aria-label={tt("scenes.open", { scene: name })}
+        className="relative block h-32 w-full overflow-hidden rounded-lg border-2 border-haze bg-night text-left hover:border-amber focus-visible:border-amber"
+      >
+        {/* eslint-disable-next-line @next/next/no-img-element */}
+        <img src={sceneCover(id)} alt="" className="absolute inset-0 size-full object-cover" />
+        <span className="absolute inset-x-0 bottom-0 flex items-center justify-between gap-2 bg-scrim px-3 py-2">
+          <span className="text-body font-semibold text-moon">{name}</span>
+          <Box aria-hidden="true" className="size-4 shrink-0 text-moon" />
+        </span>
+      </button>
+    </li>
+  );
+}
+
+/** A carousel of record sleeves: live records (the frame as cover) first, then the 3D scenes; EIC areas not live yet, small and locked. */
+export function SleeveRow({
+  covers,
+  onSelect,
+  onScene,
+  className,
+}: {
+  covers: Partial<Record<TrackMode, string>>;
+  onSelect: (track: TrackMode) => void;
+  onScene: (id: SceneId) => void;
+  className?: string;
+}) {
   const { tt } = useTT();
   const [now] = useState(Date.now);
   return (
@@ -80,6 +114,13 @@ export function SleeveRow({ covers, onSelect, className }: { covers: Partial<Rec
       <ul className="flex snap-x gap-3 overflow-x-auto pt-1 pb-2">
         {LIVE_RECORDS.map((track) => (
           <Sleeve key={track} track={track} cover={covers[track]} now={now} onSelect={onSelect} />
+        ))}
+      </ul>
+      <h3 className="mt-2 text-body font-semibold text-moon">{tt("scenes.heading")}</h3>
+      <p className="text-small text-haze">{tt("scenes.note")}</p>
+      <ul className="flex snap-x gap-3 overflow-x-auto pt-1 pb-2">
+        {SCENE_IDS.map((id) => (
+          <SceneSleeve key={id} id={id} onScene={onScene} />
         ))}
       </ul>
       <ul className="mt-2 flex flex-wrap gap-2">

@@ -6,28 +6,24 @@ import {
   Gauge,
   Layers,
   LocateFixed,
-  Minus,
   Pause,
   Play,
-  Plus,
   Route,
   ScanEye,
   Search,
   Settings2,
   Square,
-  type LucideIcon,
 } from "lucide-react";
-import { useState, type ReactElement, type Ref } from "react";
+import { useState, type Ref } from "react";
 import { Button } from "@/components/ui/button";
 import { Popover, PopoverContent, PopoverTrigger } from "@/components/ui/popover";
-import { Tooltip, TooltipContent, TooltipTrigger } from "@/components/ui/tooltip";
 import type { TrackMode } from "@/lib/audio-adapter/types";
 import { useAppState, useT } from "../AppState/use-app-state";
+import { DockButton, DockDivider, SpeedStepper } from "./DockButton";
 import { useTT } from "./i18n";
 import type { CameraMode } from "./scene";
+import type { SceneId } from "../Scenes/registry";
 import { SleeveRow } from "./SleeveRow";
-
-const DOCK_BUTTON = "size-11 rounded-full text-moon hover:bg-tide/60 active:scale-95 aria-pressed:bg-amber aria-pressed:text-ink motion-reduce:active:scale-100";
 
 export interface DockProps {
   ref?: Ref<HTMLDivElement>;
@@ -43,40 +39,11 @@ export interface DockProps {
   onWhereAmI(): void;
   onTour(): void;
   onRecord(track: TrackMode): void;
+  onScene(id: SceneId): void;
   onCameraMode(mode: CameraMode): void;
   onLayers(): void;
   onSettings(): void;
   onHelp(): void;
-}
-
-/** An icon button with a tooltip naming it and its key; `render` lets a popover trigger wrap it. */
-function DockButton({
-  icon: Icon,
-  label,
-  keys,
-  pressed,
-  onClick,
-  wrap,
-}: {
-  icon: LucideIcon;
-  label: string;
-  keys?: string;
-  pressed?: boolean;
-  onClick?: () => void;
-  wrap?: (button: ReactElement) => ReactElement;
-}) {
-  const button = <Button variant="ghost" size="icon" aria-label={label} aria-pressed={pressed} onClick={onClick} className={DOCK_BUTTON} />;
-  return (
-    <Tooltip>
-      <TooltipTrigger render={wrap ? wrap(button) : button}>
-        <Icon aria-hidden="true" className="size-5" />
-      </TooltipTrigger>
-      <TooltipContent side="top" className="tt-warm text-body">
-        {label}
-        {keys && <kbd className="ml-2 rounded border border-line px-1 text-small text-haze">{keys}</kbd>}
-      </TooltipContent>
-    </Tooltip>
-  );
 }
 
 /** The one floating control strip: everything else opens from here, closed by default. */
@@ -97,20 +64,10 @@ export function Dock({ ref, ...p }: DockProps) {
             {p.rotating ? <Square aria-hidden="true" /> : <Play aria-hidden="true" />}
             {tt(p.rotating ? "turntable.stopTurning" : "turntable.turn")}
           </Button>
-          <div className="flex items-center gap-2">
-            <Button variant="ghost" size="icon" aria-label={tt("turntable.slower")} onClick={() => p.onSpeed(-1)} className="size-11">
-              <Minus aria-hidden="true" />
-            </Button>
-            <span aria-live="polite" className="min-w-20 text-center text-moon tabular-nums">
-              {tt("turntable.speed", { speed: p.speed })}
-            </span>
-            <Button variant="ghost" size="icon" aria-label={tt("turntable.faster")} onClick={() => p.onSpeed(1)} className="size-11">
-              <Plus aria-hidden="true" />
-            </Button>
-          </div>
+          <SpeedStepper text={tt("turntable.speed", { speed: p.speed })} slower={tt("turntable.slower")} faster={tt("turntable.faster")} onStep={p.onSpeed} />
         </PopoverContent>
       </Popover>
-      <span aria-hidden="true" className="mx-1 h-6 w-px bg-line" />
+      <DockDivider />
       <DockButton icon={Search} label={tt("turntable.search.label")} keys="/" onClick={p.onSearch} />
       <DockButton icon={LocateFixed} label={tt("turntable.where.button")} keys="L" onClick={p.onWhereAmI} />
       <DockButton icon={Route} label={tt(p.touring ? "turntable.tour.stop" : "turntable.tour.start")} keys="T" pressed={p.touring} onClick={p.onTour} />
@@ -123,6 +80,10 @@ export function Dock({ ref, ...p }: DockProps) {
               p.onRecord(track);
               setRecordsOpen(false);
             }}
+            onScene={(id) => {
+              setRecordsOpen(false);
+              p.onScene(id);
+            }}
           />
         </PopoverContent>
       </Popover>
@@ -133,7 +94,7 @@ export function Dock({ ref, ...p }: DockProps) {
         pressed={p.cameraMode === "explore"}
         onClick={() => p.onCameraMode(p.cameraMode === "explore" ? "jukebox" : "explore")}
       />
-      <span aria-hidden="true" className="mx-1 h-6 w-px bg-line" />
+      <DockDivider />
       <DockButton icon={Layers} label={tt("turntable.dock.layers")} keys="O" onClick={p.onLayers} />
       <DockButton icon={Settings2} label={tt("turntable.dock.settings")} onClick={p.onSettings} />
       <DockButton icon={CircleHelp} label={tt("turntable.dock.help")} keys="H" onClick={p.onHelp} />

@@ -20,6 +20,11 @@ export function formatSigned(value: number, lang: Lang, decimals: number): strin
   return fmt(value, lang, { minimumFractionDigits: decimals, maximumFractionDigits: decimals, signDisplay: "exceptZero" });
 }
 
+/** With an explicit sign and at most `decimals` (a JSON value as written: "+0.255", "−1.37"). */
+export function formatSignedUpTo(value: number, lang: Lang, decimals: number): string {
+  return fmt(value, lang, { maximumFractionDigits: decimals, signDisplay: "exceptZero" });
+}
+
 export function formatInteger(value: number, lang: Lang): string {
   return fmt(value, lang, { maximumFractionDigits: 0 });
 }

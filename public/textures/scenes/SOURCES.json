@@ -1,0 +1,43 @@
+{
+  "generated_utc": "2026-10-27T20:32:08.724Z",
+  "note": "Basemap crops for the 3D scenes. Decoration only: no value, sound or label in the app comes from these files.",
+  "projection": "equirectangular, row 0 = north, column 0 = west; heights Int16 little-endian metres",
+  "sources": {
+    "colour": "NASA Blue Marble Next Generation, September 2004 (Reto Stöckli, NASA Earth Observatory)",
+    "relief": "GEBCO 2008 elevation and bathymetry rasters (Jesse Allen, NASA Earth Observatory; GEBCO, British Oceanographic Data Centre)"
+  },
+  "calibration": {
+    "ELEVATION_MAX_M": 6400,
+    "DEPTH_MAX_M": 8000
+  },
+  "regions": {
+    "bd": {
+      "bounds": [
+        86,
+        19,
+        95,
+        28
+      ],
+      "colour": "bd-colour.webp",
+      "height": "bd-height.i16",
+      "height_size": [
+        270,
+        270
+      ]
+    },
+    "bay": {
+      "bounds": [
+        76,
+        3,
+        102,
+        27
+      ],
+      "colour": "bay-colour.webp",
+      "height": "bay-height.i16",
+      "height_size": [
+        390,
+        360
+      ]
+    }
+  }
+}
