@@ -8,9 +8,18 @@
 const SETTLE_MS = 150; // earcon first, then the data
 const LIFT_HEIGHT = 0.3; // globe radii
 
-/** Phases in ms: needle drop alone, or a full record change (~1 s). */
+/** Phases in ms: needle drop alone, a full record change (1.2 s), or the intro (arm from rest, after the camera glide). */
 const DROP = { lift: 220, lower: 280 } as const;
 const CHANGE = { park: 300, rise: 300, fall: 300, back: 300 } as const;
+const INTRO = { wait: 1500, swing: 750, lower: 450 } as const;
+
+/** A plain drop, a record change, or the intro's arrival from the rest. */
+export type DropKind = "drop" | "change" | "intro";
+const TOUCHDOWN: Record<DropKind, number> = {
+  drop: DROP.lift + DROP.lower,
+  change: CHANGE.park + CHANGE.rise + CHANGE.fall + CHANGE.back,
+  intro: INTRO.wait + INTRO.swing + INTRO.lower,
+};
 
 export interface DropFrame {
   lift: number; // needle height off the globe
@@ -22,7 +31,7 @@ export interface DropFrame {
 }
 
 export interface NeedleDrop {
-  start(now: number, opts: { reduceMotion: boolean; recordChange: boolean }): void;
+  start(now: number, opts: { reduceMotion: boolean; kind: DropKind }): void;
   /** Jump to touchdown (any key or click during a record change). */
   skip(now: number): void;
   running(): boolean;
@@ -37,13 +46,18 @@ const ease = (x: number) => {
 export function createNeedleDrop(): NeedleDrop {
   let start: number | null = null;
   let touchdown = 0;
-  let recordChange = false;
+  let kind: DropKind = "drop";
   let landed = false;
   let swapped = false;
 
   const shape = (t: number): Omit<DropFrame, "swap" | "landed" | "done"> => {
     if (t >= touchdown) return { lift: 0, park: 0, recordLift: 0 };
-    if (!recordChange) {
+    if (kind === "intro") {
+      const park = 1 - ease((t - INTRO.wait) / INTRO.swing);
+      const lift = 1 - ease((t - INTRO.wait - INTRO.swing) / INTRO.lower);
+      return { lift: lift * LIFT_HEIGHT, park, recordLift: 0 };
+    }
+    if (kind === "drop") {
       const lift = t < DROP.lift ? ease(t / DROP.lift) : ease(1 - (t - DROP.lift) / DROP.lower);
       return { lift: lift * LIFT_HEIGHT, park: 0, recordLift: 0 };
     }
@@ -56,8 +70,8 @@ export function createNeedleDrop(): NeedleDrop {
   return {
     start(now, opts) {
       start = now;
-      recordChange = opts.recordChange;
-      touchdown = opts.reduceMotion ? 0 : recordChange ? CHANGE.park + CHANGE.rise + CHANGE.fall + CHANGE.back : DROP.lift + DROP.lower;
+      kind = opts.kind;
+      touchdown = opts.reduceMotion ? 0 : TOUCHDOWN[kind];
       landed = false;
       swapped = false;
     },
@@ -69,7 +83,7 @@ export function createNeedleDrop(): NeedleDrop {
       if (start === null) return null;
       const t = now - start;
       const f = shape(t);
-      const swap = !swapped && (!recordChange || t >= CHANGE.park * 0.6 + CHANGE.rise || t >= touchdown);
+      const swap = !swapped && (kind !== "change" || t >= CHANGE.park * 0.6 + CHANGE.rise || t >= touchdown);
       if (swap) swapped = true;
       const landsNow = !landed && t >= touchdown;
       if (landsNow) landed = true;

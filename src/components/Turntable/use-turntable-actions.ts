@@ -14,20 +14,17 @@ import { useLiveData } from "../LiveData/use-live-data";
 import { ttFor } from "./i18n";
 import { localName, placeText } from "./place-text";
 import { FRAME_PRODUCT_LABELS, RECORD_LABELS, recordFrames, stepRecord } from "./records";
-import type { ToolbarSettings } from "./Toolbar";
+import { OPACITY_STEPS, type TurntableSettings } from "./settings";
 import type { Geo } from "./use-geo";
 import { useTour } from "./use-tour";
 import type { Turntable } from "./use-turntable";
 
-/** Opacity steps for the O key (default 85%, as the data layer starts). */
-const OPACITY_STEPS = [0, 0.25, 0.5, 0.85, 1] as const;
-export const DEFAULT_SETTINGS: ToolbarSettings = { dataOpacity: 0.85, sunAtFrameTime: true, graticule: false, quality: null };
 
 export function useTurntableActions(
   tt: Turntable,
   geo: Geo | null,
   searchRef: RefObject<HTMLInputElement | null>,
-  [settings, setSettings]: [ToolbarSettings, Dispatch<SetStateAction<ToolbarSettings>>],
+  [settings, setSettings]: [TurntableSettings, Dispatch<SetStateAction<TurntableSettings>>],
 ) {
   const { state, dispatch } = useAppState();
   const { fields } = useLiveData();
@@ -93,7 +90,7 @@ export function useTurntableActions(
   return {
     where,
     touring: tour.touring,
-    updateSettings: (next: Partial<ToolbarSettings>) => setSettings((s) => ({ ...s, ...next })),
+    updateSettings: (next: Partial<TurntableSettings>) => setSettings((s) => ({ ...s, ...next })),
     speak: () => void speak(),
     whereAmI,
     selectRecord,

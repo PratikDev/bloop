@@ -15,13 +15,17 @@ export interface LabelCandidate {
   lat: number;
   lon: number;
   kind: LabelKind;
-  /** Shown only when the camera is at most this far (globe radii). */
+  /** Shown only when the camera is at most this far (globe radii)… */
   maxDistance: number;
+  /** …and at least this far: country names give way to cities and districts close up. */
+  minDistance: number;
 }
 
 /** Distance tiers (design choices): the Jukebox view counts as far away. */
 export const JUKEBOX_DISTANCE = 4.6;
 const ALWAYS = 6;
+/** Closer than this, country names are hidden (cities and districts take over). */
+const COUNTRY_MIN_DISTANCE = 1.9;
 
 const placeTier = (rank: number) => (rank <= 2 ? 3.2 : rank <= 4 ? 2.3 : rank <= 6 ? 1.75 : 1.4);
 const countryTier = (rank: number) => (rank <= 2 ? ALWAYS : rank <= 4 ? 3.4 : 2.4);
@@ -33,7 +37,7 @@ export function labelCandidates(files: GeoFiles, gaz: Gazetteer, lang: Lang): La
 
   for (const b of gaz.bookmarks) {
     const { text, lang: l } = named({ name: b.name, nameBn: b.name_bn });
-    out.push({ key: `story:${b.id}`, text, lang: l, lat: b.lat, lon: b.lon, kind: "story", maxDistance: 3.6 });
+    out.push({ key: `story:${b.id}`, text, lang: l, lat: b.lat, lon: b.lon, kind: "story", minDistance: 0, maxDistance: 3.6 });
   }
   const storyNames = new Set(gaz.bookmarks.map((b) => b.name));
   const places = [...gaz.places].sort((a, b) => Number(b.alwaysLabel) - Number(a.alwaysLabel) || a.rank - b.rank || b.pop - a.pop);
@@ -41,24 +45,24 @@ export function labelCandidates(files: GeoFiles, gaz: Gazetteer, lang: Lang): La
     if (storyNames.has(p.name)) continue;
     const { text, lang: l } = named(p);
     const maxDistance = p.alwaysLabel ? 3.6 : placeTier(p.rank);
-    out.push({ key: `city:${p.name}:${p.lat}`, text, lang: l, lat: p.lat, lon: p.lon, kind: p.capital ? "capital" : "city", maxDistance });
+    out.push({ key: `city:${p.name}:${p.lat}`, text, lang: l, lat: p.lat, lon: p.lon, kind: p.capital ? "capital" : "city", minDistance: 0, maxDistance });
   }
   for (const f of files.countries110m.features) {
     const p = f.properties;
     if (p.LABEL_X === undefined || p.LABEL_Y === undefined) continue;
     const { text, lang: l } = named({ name: p.NAME, nameBn: p.NAME_BN ?? null });
-    out.push({ key: `country:${p.NAME}`, text, lang: l, lat: p.LABEL_Y, lon: p.LABEL_X, kind: "country", maxDistance: countryTier(p.LABELRANK ?? 5) });
+    out.push({ key: `country:${p.NAME}`, text, lang: l, lat: p.LABEL_Y, lon: p.LABEL_X, kind: "country", minDistance: COUNTRY_MIN_DISTANCE, maxDistance: countryTier(p.LABELRANK ?? 5) });
   }
   for (const f of files.marine.features) {
     const p = f.properties;
     if (!p.name || !p.label) continue;
     const { text, lang: l } = named({ name: p.name, nameBn: p.name_bn ?? null });
-    out.push({ key: `sea:${p.name}`, text, lang: l, lat: p.label[1], lon: p.label[0], kind: "sea", maxDistance: seaTier(p.scalerank ?? 5) });
+    out.push({ key: `sea:${p.name}`, text, lang: l, lat: p.label[1], lon: p.label[0], kind: "sea", minDistance: 0, maxDistance: seaTier(p.scalerank ?? 5) });
   }
   for (const f of files.districts.features) {
     const label = f.properties.label;
     if (!label) continue;
-    out.push({ key: `district:${f.properties.shapeName}`, text: f.properties.shapeName, lang: "en", lat: label[1], lon: label[0], kind: "district", maxDistance: 1.6 });
+    out.push({ key: `district:${f.properties.shapeName}`, text: f.properties.shapeName, lang: "en", lat: label[1], lon: label[0], kind: "district", minDistance: 0, maxDistance: 1.6 });
   }
 
   // Priority: story places and Bangladesh's always-on cities, then countries and seas, then other places, then districts.

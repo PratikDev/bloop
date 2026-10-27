@@ -4,43 +4,12 @@ import { Lock, Play, RotateCcw, Volume2 } from "lucide-react";
 import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import type { TrackMode } from "@/lib/audio-adapter/types";
-import { formatUtc } from "@/lib/i18n";
 import { cn } from "@/lib/utils";
-import { useAppState, useT } from "../AppState/use-app-state";
+import { useAppState } from "../AppState/use-app-state";
 import { useLiveData } from "../LiveData/use-live-data";
-import { En, useTT, type TT } from "./i18n";
-import {
-  COMING_RECORDS,
-  frameAgeDays,
-  frameSource,
-  LIVE_RECORDS,
-  measuredError,
-  RECORD_LABELS,
-  recordFrames,
-  type RecordFrame,
-} from "./records";
-
-/** A frame's facts, all read from its metadata ("—" where a field is missing). */
-function FrameFacts({ frame, now, tt }: { frame: RecordFrame; now: number; tt: TT }) {
-  const { state } = useAppState();
-  const t = useT();
-  const bn = state.lang === "bn";
-  const { dataset, svs } = frameSource(t, frame);
-  const time = frame.meta.frame_time_utc;
-  return (
-    <span className="block space-y-0.5 text-body">
-      <span className="block font-medium text-moon">
-        <En active={bn}>{dataset}</En> · <En active={bn}>{svs}</En>
-      </span>
-      <span className="block text-moon">{time ? tt("turntable.frameTime", { datetime: formatUtc(time, state.lang) }) : tt("turntable.missing")}</span>
-      <span className="block text-moon">{tt("turntable.age", { days: time ? frameAgeDays(time, now) : null })}</span>
-      <span className="block text-moon">
-        {tt("turntable.error", { text: "" })}
-        <En active={bn}>{measuredError(t, frame)}</En>
-      </span>
-    </span>
-  );
-}
+import { useTT } from "./i18n";
+import { FrameFacts } from "./FrameFacts";
+import { COMING_RECORDS, LIVE_RECORDS, RECORD_LABELS, recordFrames } from "./records";
 
 function Sleeve({ track, cover, now, onSelect }: { track: TrackMode; cover: string | undefined; now: number; onSelect: (t: TrackMode) => void }) {
   const { state } = useAppState();
@@ -51,9 +20,9 @@ function Sleeve({ track, cover, now, onSelect }: { track: TrackMode; cover: stri
   const name = tt(RECORD_LABELS[track]);
 
   return (
-    <li className={cn("w-56 shrink-0 transition-transform duration-300 lg:w-full", playing && "-translate-y-1")}>
+    <li className={cn("w-52 shrink-0 snap-start transition-transform duration-300", playing && "-translate-y-1")}>
       <div className="perspective-distant">
-        <div className={cn("relative h-52 transition-transform duration-500 transform-3d", back && "rotate-y-180")}>
+        <div className={cn("relative h-48 transition-transform duration-500 transform-3d", back && "rotate-y-180")}>
           <button
             type="button"
             onClick={() => onSelect(track)}
@@ -101,19 +70,19 @@ function Sleeve({ track, cover, now, onSelect }: { track: TrackMode; cover: stri
   );
 }
 
-/** Live records first (sleeves with the frame as cover); EIC areas not live yet, small and locked. */
+/** A carousel of record sleeves: live records (the frame as cover) first; EIC areas not live yet, small and locked. */
 export function SleeveRow({ covers, onSelect, className }: { covers: Partial<Record<TrackMode, string>>; onSelect: (track: TrackMode) => void; className?: string }) {
   const { tt } = useTT();
   const [now] = useState(Date.now);
   return (
     <section aria-label={tt("turntable.records")} className={className}>
       <h2 className="mb-2 text-lead font-semibold text-moon">{tt("turntable.records")}</h2>
-      <ul className="flex gap-3 overflow-x-auto pb-2 lg:flex-col lg:overflow-visible">
+      <ul className="flex snap-x gap-3 overflow-x-auto pt-1 pb-2">
         {LIVE_RECORDS.map((track) => (
           <Sleeve key={track} track={track} cover={covers[track]} now={now} onSelect={onSelect} />
         ))}
       </ul>
-      <ul className="mt-2 grid grid-cols-2 gap-2">
+      <ul className="mt-2 flex flex-wrap gap-2">
         {COMING_RECORDS.map((record) => (
           <li key={record} className="flex min-h-11 items-center gap-2 rounded-lg border border-dashed border-haze px-2 py-1">
             <Lock aria-hidden="true" className="size-4 shrink-0 text-moon" />

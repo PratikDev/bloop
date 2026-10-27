@@ -10,9 +10,10 @@ import type { AppAction } from "../AppState/reducer";
 import { useCanvasSize } from "../FrameView/use-canvas-size";
 import { createControl } from "./control";
 import { createFlight, type Flight } from "./flight";
-import { createNeedleDrop } from "./needle-drop";
+import { createNeedleDrop, type DropKind } from "./needle-drop";
 import type { SentReading } from "./needle-sound";
 import { recordLabelCanvas, type RecordLabel } from "./record-label";
+import type { LayerToggles } from "./settings";
 import { DISTANCE, type CameraMode, type ScreenPoint, type TurntableScene } from "./scene";
 import { useGlobeTexture, type GlobeTexture } from "./use-globe-texture";
 import { useSceneAssets, type SceneSettings } from "./use-scene-assets";
@@ -40,7 +41,9 @@ interface Options {
   liveOn: boolean;
   allMuted: boolean;
   reduceMotion: boolean;
-  graticule: boolean;
+  layers: LayerToggles;
+  /** The intro will run (once per session): the arm waits at rest until startIntro(). */
+  introPending: boolean;
   start: LatLon;
   dispatch: Dispatch<AppAction>;
   onSend?: (sent: SentReading) => void;
@@ -81,6 +84,10 @@ export interface Turntable {
   distance(): number;
   /** Ends a running record change at once; true if one was running. */
   skipAnimation(): boolean;
+  /** The intro: the camera glides in from a wide shot while the arm swings onto the globe. */
+  startIntro(): void;
+  /** Ends the intro at once (camera in place, needle down); true if it was running. */
+  skipIntro(): boolean;
   /** ms timestamp of the last user action on the turntable (for the idle hint). */
   lastInput(): number;
   subscribe(fn: (f: FrameInfo) => void): () => void;
@@ -205,8 +212,8 @@ export function useTurntable(o: Options): Turntable {
     };
   }, []);
 
-  const startDrop = useCallback((recordChange: boolean) => {
-    drop.current.start(performance.now(), { reduceMotion: live.current.reduceMotion, recordChange });
+  const startDrop = useCallback((kind: DropKind) => {
+    drop.current.start(performance.now(), { reduceMotion: live.current.reduceMotion, kind });
     holding.current = true;
     audio.silenceLive();
   }, []);
@@ -257,7 +264,7 @@ export function useTurntable(o: Options): Turntable {
       }
       if (moved) applyPose();
       scene.effects.setMotion(!o.reduceMotion);
-      particlesSpawned.current += scene.update(dt, { instant: o.reduceMotion, graticule: o.graticule });
+      particlesSpawned.current += scene.update(dt, { instant: o.reduceMotion, layers: o.layers });
       scene.render();
 
       const view = scene.viewCenter();
@@ -301,7 +308,15 @@ export function useTurntable(o: Options): Turntable {
       if (unsynced.current && !flight.current && now - lastSync.current >= CURSOR_SYNC_MS) syncCursor();
     };
     raf = requestAnimationFrame(loop);
-    startDrop(false); // putting a record on is a needle drop too
+    if (live.current.introPending) {
+      // The arm waits at rest, silent, until the intro starts.
+      motion.current = { lift: 0, park: 1 };
+      holding.current = true;
+      audio.silenceLive();
+      applyPose();
+    } else {
+      startDrop("drop"); // putting a record on is a needle drop too
+    }
 
     return () => {
       cancelAnimationFrame(raf);
@@ -328,7 +343,7 @@ export function useTurntable(o: Options): Turntable {
   useEffect(() => {
     if (trackWas.current === o.track) return;
     trackWas.current = o.track;
-    startDrop(true);
+    startDrop("change");
   }, [o.track, startDrop]);
 
   // Reduced motion switched on: stop turning (it can be started again by hand).
@@ -337,6 +352,18 @@ export function useTurntable(o: Options): Turntable {
     setReduceMotionWas(o.reduceMotion);
     if (o.reduceMotion) setRotatingState(false);
   }
+
+  const startIntro = useCallback(() => {
+    sceneRef.current?.rig.startIntro();
+    startDrop("intro");
+  }, [startDrop]);
+
+  const skipIntro = useCallback(() => {
+    const running = drop.current.running();
+    sceneRef.current?.rig.skipIntro();
+    if (running) drop.current.skip(performance.now());
+    return running;
+  }, []);
 
   const toExplore = () => {
     if (sceneRef.current?.rig.mode !== "explore") setCameraMode("explore");
@@ -410,6 +437,8 @@ export function useTurntable(o: Options): Turntable {
       scene.rig.setDistance(1 + (scene.rig.targetDistance() - 1) * factor);
     },
     distance: () => sceneRef.current?.rig.distance() ?? DISTANCE.explore,
+    startIntro,
+    skipIntro,
     skipAnimation() {
       if (!drop.current.running()) return false;
       drop.current.skip(performance.now());

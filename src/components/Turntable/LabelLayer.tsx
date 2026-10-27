@@ -11,21 +11,23 @@ const MIN_FACING = 0.3; // hide names close to the globe's edge
 const GAP_PX = 4;
 const DOT_OFFSET_PX = 7;
 
+/** Sentence case, light and small, with a soft shadow (globe-label); story places and capitals a touch heavier. */
 const KIND_CLASS: Record<LabelKind, string> = {
-  story: "font-semibold text-moon",
-  capital: "font-semibold text-moon",
-  city: "text-moon",
-  country: "font-semibold uppercase tracking-wider text-moon",
-  sea: "italic text-moon",
-  district: "text-moon",
+  story: "font-normal",
+  capital: "font-normal",
+  city: "",
+  country: "tracking-wide",
+  sea: "italic",
+  district: "",
 };
 const DOT_KINDS: ReadonlySet<LabelKind> = new Set(["story", "capital", "city"]);
-const BOLD_KINDS: ReadonlySet<LabelKind> = new Set(["story", "capital", "country"]);
-/** text-body with leading-tight: 16 px font, 20 px line. */
-const FONT_PX = 16;
-const LINE_PX = 20;
-/** tracking-wider (0.05em per letter) on country names. */
-const TRACKING_PX = 0.05 * FONT_PX;
+const NORMAL_WEIGHT_KINDS: ReadonlySet<LabelKind> = new Set(["story", "capital"]);
+/** globe-label: 14 px font, 18 px line; tracking-wide (0.025em per letter) on country names. */
+const FONT_PX = 14;
+const LINE_PX = 18;
+const TRACKING_PX = 0.025 * FONT_PX;
+/** Labels fade in from MIN_FACING over this much of the facing range (angle to the camera). */
+const FADE_FACING = 0.35;
 /** Labels are re-placed at most this often (ms), and less often on slow devices (3 × the frame time). */
 const MIN_UPDATE_MS = 33;
 const MAX_UPDATE_MS = 120;
@@ -70,7 +72,7 @@ export function LabelLayer({
   useEffect(() => {
     const host = hostRef.current;
     if (!host) return;
-    type Entry = { el: HTMLSpanElement; w: number; h: number; transform: string };
+    type Entry = { el: HTMLSpanElement; w: number; h: number; transform: string; opacity: string };
     const els = new Map<string, Entry>();
     // Unit vectors of every candidate, so ones beyond the horizon are skipped before projecting.
     const units = candidates.map((c) => latLonToSphere(c.lat, c.lon));
@@ -84,26 +86,25 @@ export function LabelLayer({
     const family = getComputedStyle(host).fontFamily;
     const textWidth = (text: string, kind: LabelKind) => {
       if (!measure) return text.length * 9;
-      measure.font = `${kind === "sea" ? "italic " : ""}${BOLD_KINDS.has(kind) ? 600 : 400} ${FONT_PX}px ${family}`;
-      const shown = kind === "country" ? text.toUpperCase() : text;
-      return Math.ceil(measure.measureText(shown).width + (kind === "country" ? TRACKING_PX * shown.length : 0)) + 2;
+      measure.font = `${kind === "sea" ? "italic " : ""}${NORMAL_WEIGHT_KINDS.has(kind) ? 400 : 300} ${FONT_PX}px ${family}`;
+      return Math.ceil(measure.measureText(text).width + (kind === "country" ? TRACKING_PX * text.length : 0)) + 2;
     };
 
     const element = (key: string, text: string, lang: string, kind: LabelKind, dot: boolean): Entry => {
       const existing = els.get(key);
       if (existing) return existing;
       const el = document.createElement("span");
-      el.className = `label-halo absolute top-0 left-0 whitespace-nowrap text-body leading-tight ${KIND_CLASS[kind]}`;
+      el.className = `globe-label absolute top-0 left-0 whitespace-nowrap leading-[18px] ${KIND_CLASS[kind]}`;
       el.lang = lang;
       el.textContent = text;
       el.hidden = true;
       if (dot) {
         const d = document.createElement("span");
-        d.className = "absolute top-1/2 size-1.5 -translate-y-1/2 rounded-full bg-moon ring-2 ring-ink";
+        d.className = "absolute top-1/2 size-1.5 -translate-y-1/2 rounded-full bg-moon shadow-sm";
         el.prepend(d);
       }
       host.append(el);
-      const entry = { el, w: textWidth(text, kind), h: LINE_PX, transform: "" };
+      const entry = { el, w: textWidth(text, kind), h: LINE_PX, transform: "", opacity: "" };
       els.set(key, entry);
       return entry;
     };
@@ -115,7 +116,7 @@ export function LabelLayer({
       const placed: Rect[] = [];
       const shown = new Set<string>();
       const anchors: PlacedLabels = new Map();
-      const tryPlace = (key: string, x: number, y: number, entry: Entry, dot: boolean, lat: number, lon: number) => {
+      const tryPlace = (key: string, x: number, y: number, entry: Entry, dot: boolean, lat: number, lon: number, facing: number) => {
         const sides = dot
           ? [
               // The 6 px dot's centre sits on the anchor, with the name to its right, or else its left.
@@ -136,6 +137,12 @@ export function LabelLayer({
             entry.transform = transform;
             if (dot) (entry.el.firstElementChild as HTMLElement).style.left = `${side.dotLeft}px`;
           }
+          // Fade with the angle to the camera (in 5% steps, so the DOM is touched only on change).
+          const opacity = String(Math.round(Math.min(1, (facing - MIN_FACING) / FADE_FACING) * 20) / 20);
+          if (opacity !== entry.opacity) {
+            entry.el.style.opacity = opacity;
+            entry.opacity = opacity;
+          }
           if (entry.el.hidden) entry.el.hidden = false;
           return;
         }
@@ -146,20 +153,20 @@ export function LabelLayer({
 
       for (let i = 0; i < candidates.length && placed.length <= MAX_LABELS; i++) {
         const c = candidates[i];
-        if (distance > c.maxDistance) continue;
+        if (distance > c.maxDistance || distance < c.minDistance) continue;
         const u = units[i];
         if (u.x * view.x + u.y * view.y + u.z * view.z < horizon + 0.1) continue;
         const p = f.project(c.lat, c.lon);
         if (p.facing < MIN_FACING) continue;
         const dot = DOT_KINDS.has(c.kind);
-        tryPlace(c.key, p.x, p.y, element(c.key, c.text, c.lang, c.kind, dot), dot, c.lat, c.lon);
+        tryPlace(c.key, p.x, p.y, element(c.key, c.text, c.lang, c.kind, dot), dot, c.lat, c.lon, p.facing);
       }
       if (graticule) {
         for (const g of graticule) {
           const key = `grat:${g.lat}`;
           const p = f.project(g.lat, f.viewLon + 18);
           if (p.facing < MIN_FACING) continue;
-          tryPlace(key, p.x, p.y, element(key, g.text, document.documentElement.lang, "district", false), false, g.lat, f.viewLon + 18);
+          tryPlace(key, p.x, p.y, element(key, g.text, document.documentElement.lang, "district", false), false, g.lat, f.viewLon + 18, p.facing);
         }
       }
       // Only labels that changed state are touched (hidden ones stay untouched).

@@ -29,26 +29,26 @@ function Shell() {
   const commands = useCommands();
   const timeLapse = useTimeLapse();
   useGlobalEscape(commands, timeLapse.stop);
+  const turntable = state.mode === "turntable";
 
   return (
     <>
       <StartOverlay />
       <Opening />
       {/* Inert until Start, so "Start listening" is the first and only focusable thing. */}
-      <div inert={!state.started} className="grid min-h-dvh grid-rows-[auto_1fr_auto] lg:h-dvh">
+      <div inert={!state.started} className={cn("grid min-h-dvh grid-rows-[auto_1fr_auto] lg:h-dvh", turntable && "h-dvh")}>
         <TopBar />
         <main
           className={cn(
             "grid min-h-0 content-start lg:content-stretch",
-            // Turntable: one column that never outgrows the screen; on wide screens the side column can fold away.
-            state.mode === "turntable" && "grid-cols-[minmax(0,1fr)]",
-            state.mode === "turntable" && state.panelCollapsed ? "lg:grid-cols-[minmax(0,1fr)_auto]" : "lg:grid-cols-[minmax(0,1fr)_24rem]",
+            // Turntable: the stage takes everything; its panels, mixer and controls open from its own dock and drawers.
+            turntable ? "grid-cols-[minmax(0,1fr)] content-stretch" : "lg:grid-cols-[minmax(0,1fr)_24rem]",
           )}
         >
-          {state.mode === "thenNow" ? <ThenNow /> : state.mode === "turntable" ? <Turntable /> : <Stage />}
-          <SidePanel />
+          {state.mode === "thenNow" ? <ThenNow /> : turntable ? <Turntable /> : <Stage />}
+          {!turntable && <SidePanel />}
         </main>
-        <BottomBar />
+        {!turntable && <BottomBar />}
       </div>
       <HelpDialog />
     </>

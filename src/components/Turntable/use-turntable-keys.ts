@@ -18,6 +18,8 @@ export interface TurntableKeyActions {
   toggleTour(): void;
   toggleCamera(): void;
   stepOpacity(): void;
+  toggleDetails(): void;
+  focusDock(): void;
   /** Ends a running record-change animation; true if one was running. */
   skipAnimation(): boolean;
 }
@@ -28,7 +30,8 @@ const ZOOM_OUT = new Set(["-", "_", "−"]);
 /**
  * Keys while the turntable has focus. Turntable meanings (see Help) win over
  * the map's letters there: L (legend → Shift+L), T (Then vs Now → mode tabs),
- * 1–3 (tracks → R and the sleeves). Every other map letter keeps its meaning.
+ * 1–3 (tracks → R and the sleeves). I opens the details; Shift+D focuses the
+ * dock (plain D keeps "describe"). Every other map letter keeps its meaning.
  * Esc is global; a tour, flight or open search claims it first.
  */
 export function useTurntableKeys(a: TurntableKeyActions) {
@@ -80,6 +83,11 @@ function turntableAction(a: TurntableKeyActions, e: KeyboardEvent<HTMLElement>):
     case "o":
     case "O":
       return a.stepOpacity;
+    case "i":
+    case "I":
+      return a.toggleDetails;
+    case "D":
+      return e.shiftKey ? a.focusDock : null;
     default:
       return null;
   }

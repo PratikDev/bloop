@@ -70,7 +70,13 @@ export function SearchBox({
 
   return (
     <div className={cn("relative", className)}>
-      <label className="flex h-11 items-center gap-2 rounded-lg border border-haze bg-night px-3 focus-within:outline-2 focus-within:outline-shapla">
+      {/* Compact until used: an icon-sized pill that widens on focus (/ or a click). */}
+      <label
+        className={cn(
+          "glass-chip ml-auto flex h-11 cursor-text items-center gap-2 overflow-hidden rounded-full px-3 transition-[width] duration-200 ease-out focus-within:outline-2 focus-within:outline-shapla motion-reduce:transition-none",
+          query ? "w-80 max-w-full" : "w-11 focus-within:w-80 focus-within:max-w-full",
+        )}
+      >
         <Search aria-hidden="true" className="size-5 shrink-0 text-moon" />
         <span className="sr-only">{tt("turntable.search.label")}</span>
         <input
@@ -101,7 +107,7 @@ export function SearchBox({
         role="listbox"
         aria-label={tt("turntable.search.label")}
         hidden={!expanded}
-        className="absolute inset-x-0 top-12 z-30 max-h-80 overflow-y-auto rounded-lg border border-haze bg-dusk p-1 shadow-xl"
+        className="glass-card absolute top-13 right-0 z-30 max-h-80 w-80 max-w-full overflow-y-auto rounded-2xl p-1"
       >
         {!gazetteer && <li className="px-3 py-2 text-body text-haze">{tt("turntable.search.loading")}</li>}
         {gazetteer && results.length === 0 && <li className="px-3 py-2 text-body text-haze">{tt("turntable.search.none")}</li>}

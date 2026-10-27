@@ -34,6 +34,8 @@ const TURNTABLE_KEYS: { key: string | TurntableKey; action: TurntableKey }[] = [
   { key: "key.tt.upDown", action: "key.tt.upDown.action" },
   { key: "Space", action: "key.tt.space.action" },
   { key: "Enter", action: "key.tt.enter.action" },
+  { key: "I", action: "key.tt.details.action" },
+  { key: "Shift+D", action: "key.tt.dock.action" },
   { key: "R / Shift+R", action: "key.tt.r.action" },
   { key: "/ , G", action: "key.tt.search.action" },
   { key: "L", action: "key.tt.where.action" },
