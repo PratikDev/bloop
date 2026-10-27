@@ -1,143 +1,123 @@
-# Turntable Earth (prototype)
+# Turntable Earth (v2)
 
-The latest EIC frame on a globe that turns under a fixed tonearm. The needle reads the point beneath it and plays it with the app's existing voices and `mapping.json` rules. Longitude changes as the globe turns; latitude is the needle's groove. Branch: `feat/turntable-earth`. Build plan: [turntable-plan.md](turntable-plan.md).
+The latest EIC frame over a realistic Earth on a turntable. The needle reads the point beneath it and plays it with the app's existing voices and `mapping.json` rules: longitude changes as the globe turns, latitude is the needle's groove. v2 rebuilds the presentation (realistic globe, places, navigation, readability, motion). **Data, `valueAt()`, the sound mapping and every value are unchanged from v1.**
+
+Branches: v1 `feat/turntable-earth`, v2 `feat/turntable-v2` (its child). Plans: [turntable-plan.md](turntable-plan.md) (v1), [turntable-v2-plan.md](turntable-v2-plan.md) (v2 audit, approach, assets). The repository now lives at `D:\Jukebox\nasa-sac` (moved from OneDrive Desktop on 27 Oct 2026, because drive C: was full).
 
 ## Open it
 
 - **Locally:** `bun install`, then `bun run dev` (or `bun run build && bun run start`). Open http://localhost:3000, choose **Start listening**, then the **Turntable** tab.
-- **Vercel preview:** push the branch, open the preview URL Vercel posts on the PR, then the **Turntable** tab.
-- **Debug overlay:** add `?debug=1` to the URL (any build). It shows the needle's lat/lon, SST cell and value, a camera-ray pick of the needle tip, the flat map's reading of the same place, and FPS. It also exposes `window.__turntable` for the checks below. It is a separate chunk that never loads without the flag.
-
-three.js (`three@0.186.1`) and the view load only when the tab is chosen (`next/dynamic`, like Then vs Now).
+- **Vercel preview:** push the branch and open the preview URL, then the **Turntable** tab.
+- **Debug overlay:** add `?debug=1` (any build): needle lat/lon, SST cell, value, a camera-ray pick, the flat map's reading of the same place, FPS, and `window.__turntable` for the checks below.
+- Everything for the tab (three.js, textures, geography) loads only when the tab is opened: **3.29 MB** measured (textures at 4096, geography, JS chunks).
 
 ## Controls
 
-Keys work while the turntable has focus (Tab to it), like the map keys. Every key also has a button or pointer equivalent.
+Keys work while the turntable has focus (Tab to it). Every key has a button, the globe (drag, click, wheel, pinch) or the sleeves.
 
 | Key | Action | Pointer / button |
 |---|---|---|
-| ← / → | Turn the globe 1° (Shift: 10°); stops the turning | Drag sideways |
-| ↑ / ↓ | Move the needle 1° north or south (Shift: 10°), within ±80° | Click or tap a point: it comes under the needle |
-| Space | Start or stop the turning | **Turn / Stop turning** |
-| Enter | Speak the value and place under the needle (existing speech path, e.g. "28.9 degrees Celsius, at 18.0 degrees north, 88.0 degrees east.") | |
-| R / Shift+R | Next / previous record | Record cards |
-| 1 / 2 / 3 | Ocean / Rain / Ocean + Rain record | Record cards, or the top bar's track buttons |
-| + / − | Faster / slower (¼×, ½×, 1×, 2×, 4×; 1× = one turn a minute) | **−** / **+** |
-| Esc | Stop all sound and go back to the flat map (global) | **Flat map** (keeps the needle's lat/lon) |
+| ← / → | Turn the globe 1° (Shift: 10°); stops the turning; switches to the close-up view | Drag |
+| ↑ / ↓ | Move the needle 1° north / south (Shift: 10°), within ±80° | Drag up/down (close-up), or click a point |
+| Space | Start / stop the turning | **Turn / Stop turning** |
+| Enter | Speak value + unit + place + "frame time … UTC, latest available" (existing speech path) | |
+| / or G | Search a place (English or বাংলা), offline | Search box |
+| L (Shift+L) | Where am I? (Shift+L: hear the legend) | **Where am I?** |
+| 1–9 | Bookmarks: Bay of Bengal, Sundarbans, Dhaka, St Martin's Island, Jamuna at Sirajganj, Madhupur, Lawachara, Chattogram, Cox's Bazar | |
+| T | Tour (Bay of Bengal → Sundarbans → Dhaka → St Martin's → Jamuna); the value is spoken at each stop | **Tour / Stop tour** |
+| + / − | Zoom in / out (whole Earth to district level) | Wheel, pinch, zoom buttons |
+| [ / ] | Turn slower / faster (¼× … 4×) | **−** / **+** |
+| V | Jukebox view / close-up view | **Jukebox view / Close-up view** |
+| O | Data layer opacity: 0, 25, 50, 85, 100% | **Data layer** slider |
+| R / Shift+R | Next / previous record | Sleeves |
+| Esc | Stops a tour or flight, or closes search; otherwise stops all sound and goes back to the flat map | **Flat map** (same lat/lon) |
 
-The other map letters keep their meaning on the turntable: H/? help, M mute, D describe, C captions, L legend, P provenance, X, S sweep, T Then vs Now. The Help dialog has a new "On the turntable" table.
+Also: **My location** (asks the browser once, flies there; never stored or sent), **Sun at frame time / Always day**, **Grid lines**, **Texture quality** (Auto / 2048 / 4096 / 8192 px). Help (H/?) lists all of this under "On the turntable".
 
-**Key clashes:** none of these is global, so nothing was overridden. Space pauses the *sound* on the flat map but the *turning* on the turntable (as specified); the bottom bar's **Pause sound** and **M** still control sound there. Esc keeps its global meaning and also leaves the turntable, as it already leaves Story.
+**Key clashes, resolved inside the Turntable only** (Explore keeps its keys): L was the legend → Shift+L; T was Then vs Now → the mode tabs; 1–3 were tracks → R and the sleeves; + / − were speed → [ / ]. G is noted as "reserved for the game" in `use-map-keys.ts`; no game exists, and it's used only here. Every other map letter (H, M, D, C, P, X, S) keeps its meaning.
 
-## What is real and what is a placeholder
+## What is data and what is design
 
-| Record | Status | Data | Sound |
-|---|---|---|---|
-| Ocean | Live | `latest/sst.bin` (MUR SST via SVS 5101); texture `latest/sst.webp` | Existing ocean voice: f = 220 × 4^((T+5)/40) Hz |
-| Rain | Live | `latest/rain.bin` + `rain_phase.bin` (IMERG via SVS 4285); texture = night + land mask from the SST no-data cells + `latest/rain.png` | Existing drops: 2 + 38t per second on log 0.1–50 mm/h; frozen → snow bell |
-| Ocean + Rain | Live | Both | Both voices, through the existing mixer (same as track "Both") |
-| Air, Forests, Fire, Energy, Sea level, Disasters, Agriculture, Water and groundwater | Placeholder | None | None. Disabled cards labelled "Coming next" |
-
-- Records **are** the app's track modes, so the mixer (mute/solo/volume), frame labels, readout, captions and side panels behave exactly as on the flat map.
-- The globe texture is drawn by the flat map's own `drawBase()` at 2048 × 1024, so both views show the same pixels.
-- Record labels are read from `sst.json` / `rain.json`: dataset name (`source_dataset`, before any colon), SVS ID, frame time (UTC), age ("Latest available: N days old", from `frame_time_utc` and the viewer's clock), and the measured error **as the Truth panel shows it**. Ocean shows "Verification being updated", because the Truth panel deliberately shows no SST number until the recalibrated error is checked on a separate frame. Rain shows "~27%" (`rainTruth()`, pending team approval). A missing field shows "—".
-- Land and no data are silent (null reaches the voice). Nothing is interpolated.
-- The needle drop is a UI earcon (two low notes, ping's level and envelope from `mapping.json`), captioned "Needle drop: a new record". It is not data.
-- The frame time is always on screen (the existing frame label under the readout: "EIC frame: …, … UTC. Sound generated live from this frame.").
-
-## How it works
-
-- `src/lib/sphere.ts`: `latLonToSphere()` and `sphereHitToLatLon()`. These are the only lat/lon ↔ globe conversions. They build the globe mesh (vertices + UVs), place the needle and turn clicks into places.
-- The needle **is** the app cursor. Each frame, the loop turns the globe, places the needle and reads the globe point under its tip with `sphereHitToLatLon`. That reading is stored unchanged in the app state, so the readout, speech and sound all look up the same grid cell.
-- At a fixed 30 Hz control rate, `readAt()` → `valueAt()` at the needle goes to `audio.setOcean / setRain`: the same calls Explore makes, which re-synthesise from the value. Rotation speed never reaches the audio code.
-- React state follows the needle at ~7 Hz (and at once on keys, clicks and stops), so the app doesn't re-render 30 times a second.
-- WebGL: pixel ratio capped at 2; a fresh canvas per visit; geometries, materials, texture and renderer are disposed and the context released on leaving.
-- Reduced motion (OS setting or the in-app toggle): the globe doesn't turn on its own and the needle doesn't animate. Turning can still be started by hand.
-
-## Verification results
-
-Run on 27 Oct 2026 against the production build (`next build && next start`) in headless Microsoft Edge on the RTX 3050 laptop GPU (ANGLE/D3D11), driven by Playwright. Data: SST frame 25 Sep 2026 00:00 UTC, rain frame 28 Sep 2026 08:30 UTC.
-
-### 1. Mapping (unit test, `bun run test`)
-
-`src/lib/sphere.test.ts`: **8/8 pass.** 1,000 random points (fixed seed, |lat| ≤ 89.9°) round-trip within 0.01° (requirement). These must be exact, and are within 1e-9°: (0, 0); (89.9, 0); (−89.9, 0); Dhaka (23.81, 90.41); Bay of Bengal (18.0, 88.0). (0, 180) and (0, −180) map to the same point (distance < 1e-12) and both read back as −180°, the grid's column 0.
-
-### 2. Picking (3D needle vs the flat map's `valueAt`)
-
-For each point, the needle was moved there and read three ways: the needle reading (what is heard, shown and spoken), a camera ray through the needle tip's pixel (the click path), and the flat map's pixel transform of the same place (`toXY` → `toLatLon`, as FrameView does on click).
-
-| Point | Needle (lat, lon) | SST cell (needle / camera / 2D) | Needle °C | 2D °C | Equal |
-|---|---|---|---|---|---|
-| Ocean 1 | 13.50, 153.71 | 223157 / 223157 / 223157 | 29.846 | 29.846 | yes |
-| Ocean 2 | −54.08, 128.08 | 419692 / 419692 / 419692 | 4.105 | 4.105 | yes |
-| Ocean 3 | −16.68, −160.88 | 310326 / 310326 / 310326 | 27.243 | 27.243 | yes |
-| Ocean 4 | −51.75, 174.22 | 413679 / 413679 / 413679 | 7.972 | 7.972 | yes |
-| Ocean 5 | 56.74, 11.25 | 96800 / 96800 / 96800 | 16.175 | 16.175 | yes |
-| Land: Dhaka | 23.81, 90.41 | 193281 / 193281 / 193281 | no data | no data | yes |
-| Land: Sahara | 23.00, 10.00 | 195100 / 195100 / 195100 | no data | no data | yes |
-
-"Equal" compares the full reading (ocean °C, rain mm/h and phase), exactly (`===`), not rounded. For both land points the update sent to the voices carried `valueC = null` (ocean silent), as the flat map sends.
-
-### 3. Texture alignment
-
-| Needle at | Readout | Screenshot |
+| Layer | Source | Data or design |
 |---|---|---|
-| Dhaka (23.81° N, 90.41° E) | "No ocean data here" (land) | [dhaka.png](turntable-screens/dhaka.png) |
-| 18° N, 88° E (Bay of Bengal) | 28.9 °C (28.862) | [bay-of-bengal-18n-88e.png](turntable-screens/bay-of-bengal-18n-88e.png) |
-| 0° N, 0° E (Gulf of Guinea) | 26.6 °C (26.639), ocean | [gulf-of-guinea-0n-0e.png](turntable-screens/gulf-of-guinea-0n-0e.png) |
+| Data frame on the globe | The app's own `sst.webp` / `rain.png` (SVS 5101 / 4285), land cut by the SST grid's no-data mask | **Data** (display image, same pixels as the flat map) |
+| Every number, sound, ripple colour, particle rate, extreme ping | `valueAt()` on the existing grids; the frame's own pixel under the needle | **Data** |
+| Day / night Earth, relief, ocean glint, atmosphere | NASA Blue Marble / Black Marble, Natural Earth relief, SST mask | Design |
+| Sun / terminator | Computed from the frame time (`src/lib/geo/sun.ts`) | Design (decoration) |
+| Borders, rivers, seas, places, districts, labels, search, where-am-I | Natural Earth, geoBoundaries, our story places | Orientation |
+| Turntable, sleeves, animations | Procedural, own design | Design |
 
-In each screenshot the needle tip sits on that place in the texture (India and the Bay; the Gulf of Guinea coast).
+Rules kept: the grid decides land/ocean for sound and readout (realism layers never do); no number appears unless it comes from data/JSON (distances in "where am I" come from Natural Earth coordinates); the frame time and "latest available, N days old" are always shown; "Verification being updated" and "pending team approval" are unchanged; NASA's colormap is never recoloured (the legend bar shows the frame's range and the actual pixel colour, not a reconstructed colorbar; X-ray stays "coming in October").
 
-**The one 3D/2D disagreement found:** at exactly 0° N, 0° E the debug camera-ray pick reads SST cell 261631 instead of 262656. The equator and the prime meridian are both cell edges in this grid, and the ray lands ~1e-14° south-west of the needle's point, in the diagonal neighbour cell. The needle itself (sound, readout, speech) and the flat map both read 262656, so nothing heard or shown disagrees. Clicks land on arbitrary sub-pixel positions, so this can only happen on an exact edge.
+## Assets, licences and credits
 
-### 4. Audio
+| Asset | Source | Licence | Credit |
+|---|---|---|---|
+| Blue Marble Next Generation (day) | NASA GIBS WMS `BlueMarble_NextGeneration` | NASA, open use | NASA Blue Marble |
+| Black Marble 2016 (night) | GIBS `VIIRS_Black_Marble` | NASA, open use | NASA Black Marble |
+| Shaded relief (bump) | Natural Earth `SR_50M` | Public domain | Natural Earth |
+| Countries, coastlines, rivers, seas, places (`name_bn`) | Natural Earth v5.1.2, commit `ca96624` | Public domain | Natural Earth |
+| Bangladesh districts (64) | geoBoundaries gbOpen BGD ADM2 (source BBS, OCHA ROAP) | CC BY 3.0 IGO | geoBoundaries |
+| Story places | `public/geo/story-places.json` (team plan, Wikipedia coordinates, each with its source) | Facts | — |
+| GIBS service | — | — | "Imagery via NASA GIBS (ESDIS)" |
 
-- **Pitch doesn't depend on speed.** At 18° N 88° E (28.862 °C) after turning at 0.5×, 1× and 4×: the rule frequency is 711.372 Hz each time. The master analyser's peak (parabolic interpolation, 2048-point FFT) is 711.515 Hz each time, identical to 3 decimals. While turning across 80–100° E at 18° N, the frequency sent in each SST cell visited at all three speeds (21 cells, 13 of them ocean) was bit-identical at every speed: **0 mismatches**.
-- **Rain rate follows 2 + 38t (log 0.1–50 mm/h).** 20 s counts of scheduled drops at fixed points:
+Rebuild them with `node scripts/fetch-basemap.mjs [--hires]` (textures to `public/textures/`) and `node scripts/build-geo.mjs` (geography to `public/geo/`); each folder has a `SOURCES.json`. The credits strip at the end of the Turntable's side column reads: "Background: NASA Blue Marble · Night: NASA Black Marble · Relief: Natural Earth · Borders, places, rivers, seas: Natural Earth (public domain) · Districts: geoBoundaries (CC BY 3.0 IGO; source BBS, OCHA ROAP) · Imagery via NASA GIBS (ESDIS) · Data frames: NASA SVS 5101 / 4285 for the NASA Earth Information Center". The globe itself is labelled "Background: Blue Marble composite, not today's clouds".
 
-  | Point | Phase | mm/h | Rule (/s) | Measured (/s) |
-  |---|---|---|---|---|
-  | 50° S, 176° W | rain | 0.596 | 12.92 | 12.95 |
-  | 50° S, 173° W | rain | 3.552 | 23.83 | 23.75 |
-  | 47.5° S, 50° E | rain | 11.68 | 31.11 | 30.85 |
-  | 50° S, 2° W | snow (bell) | 1.081 | 16.55 | 16.45 |
+## Verification (27 Oct 2026, production build, headless Edge on an RTX 3050 laptop GPU, Playwright)
 
-  Within 1% (the voice jitters each interval ±30% by design; earlier runs were within 2.4%).
-- **No clicks on record change.** At a dry ocean point (20° S, 60° E), the largest sample-to-sample step on the master output (after the limiter) was 0.01117 while steady and 0.01118 across Ocean → Ocean + Rain → Ocean switches, needle-drop earcon included. A click would be a step many times larger.
-- **Master cap and limiter:** `audio-adapter/graph.ts` is unchanged. The voices still run bus → fade → sonification → master (`masterGain`) → compressor; the needle-drop earcon goes to the existing earcon bus → master.
+**Unit tests (`bun run test`): 22/22.** Mapping round trip (1,000 points within 0.01°, exact cases within 1e-9°); subsolar point vs astronomy-engine for 3 dates: within **0.005°** (limit 1°): 25 Sep 00:00 UTC −0.774/177.957 vs −0.777/177.962; 28 Sep 08:30 UTC −2.080/50.171 vs −2.082/50.175; 21 Jun 12:00 UTC 23.435/0.457 vs 23.439/0.454; gazetteer and search cases.
 
-### 5. Performance
+**Values unchanged (before = v1, after = v2), exact equality:**
 
-- **FPS while turning at 1×:** 143–144 (the display's 144 Hz refresh cap). With Chrome DevTools **4× CPU slowdown** (`Emulation.setCPUThrottlingRate`): **103–111** (96–113 in a separate 10 s run each for Ocean and Ocean + Rain). Target was ≥ 30 there and 60 normally.
-- **Memory (JS heap after forced GC):** 11.19 MB at start, 11.86 MB after 20 record switches, 11.34 MB after 40: no growth. Leaving and reopening the view: 12.41 / 12.52 / 12.57 MB after 10 / 20 / 30 cycles, levelling off. A heap-snapshot diff over 30 cycles shows no retained WebGL contexts, canvases, textures or shaders. What grows is Chrome's own performance-timeline entries, and Then vs Now shows the same.
-- **Leak found and fixed during verification:** the deck first used `MeshStandardMaterial`. three.js registers every renderer on a module-level PBR lookup texture (`DFG_LUT`), so each visit kept its whole renderer and GL context alive (+1 context per visit). The deck now uses flat-shaded `MeshLambertMaterial`, which doesn't touch that texture.
-- **Lazy loading:** the three.js chunk (547 KB minified) and the Turntable code are not among the page's initial scripts; they load when the tab is opened. The initial bundle gains only the new strings, the tab and the Help rows. I did not measure a byte-level comparison against the base commit (a clean second install failed on Windows path length).
+| Point | SST cell (v1 = v2 = 2D) | °C (v1 = v2 = 2D) |
+|---|---|---|
+| 13.50, 153.71 | 223157 | 29.846 |
+| −54.08, 128.08 | 419692 | 4.105 |
+| −16.68, −160.88 | 310326 | 27.243 |
+| −51.75, 174.22 | 413679 | 7.972 |
+| 56.74, 11.25 | 96800 | 16.175 |
+| Dhaka 23.81, 90.41 | 193281 | land (silent) |
+| Sahara 23, 10 | 195100 | land (silent) |
 
-### 6. Regression
+**Labels:** Dhaka, Chattogram, Khulna and St Martin's anchors raycast back to within **1.4e-14°** (limit 0.1°); all 54 labels on screen at that moment within 2.1e-14°.
 
-- `bun run lint`, `bunx tsc --noEmit`, `bun run build`: pass. `bun run test`: 8/8.
-- Production build, automated: Explore (arrows move the cursor, Enter speaks with a caption, 1/2/3 switch the track), Play sweep, storm time-lapse, Story (runs; Esc ends it), Then vs Now, Bangla toggle (Bengali digits in the frame labels), Help (H, including the new turntable table). **No console errors or warnings** in any run.
+**Reverse lookup:** 18.0 N 88.0 E → "Bay of Bengal" (341 km SE of Bhubaneswar). 23.81 N 90.41 E → "Dhaka, Bangladesh" (Dhaka District). 0 N 0 E → **"South Atlantic Ocean"**: Natural Earth's own name there (checked on the raw 10m file: its "Gulf of Guinea" polygon spans only ~3–6° N near the coast; 3 N 2 E gives "Gulf of Guinea"). Sundarbans (21.95 N 89.18 E) → **Satkhira District**, Bangladesh.
 
-### 7. Keyboard-only run
+**Search:** "dhaka", "ঢাকা", "sundarbans", "bay of bengal", "cox" each fly to the right place; the needle lands within 6e-14° (limit 0.2°).
 
-From a fresh page with keys only: Enter on Start listening → Enter on Skip intro → Shift+Tab to the mode tabs → arrows to Turntable → Tab to the turntable → 2 (announced "Record: Rain. Rain and snow, latest available frame 28 Sept 2026, 08:30 UTC.") → R → Shift+R → Space ("Turning stopped") → ↑, Shift+↑, → (needle 21.5° N → 32.5° N) → + ("Speed 2×") → − → Enter (caption "Dry, at 32.5 degrees north, 71.0 degrees east.") → Tab to **Flat map** → Enter (Explore, focus on the sound map at the same place) → back to Turntable → Esc (Explore, focus on the sound map). The mouse was never used. All steps passed.
+**Coastline vs data mask:** on 1,000 coastal SST cells (cells with a land/ocean neighbour), Natural Earth 10m land and the grid's no-data mask disagree at the cell centre on **27.2%** (219 grid-ocean / NE-land, 53 grid-land / NE-sea). On 1,000 cells anywhere: **1.7%**. Coastal grid cells are ~0.35° wide and average 4×4 source pixels, so a partly-ocean cell has a value even when its centre is on land. The grid decides sound and readout.
 
-Method: Playwright (`playwright-core`) drove the production build (`next start`) in headless Edge, calling the `?debug=1` hooks (`window.__turntable`). The scripts are kept outside the repo; they can be added under `docs/` if the team wants them.
+**Audio:** at 18 N 88 E (28.862 °C) after turning at 0.5×, 1×, 4×: rule 711.372 Hz each time, analyser 711.515 Hz each time. Rain particles vs the voice's drops/s at 3 points: rule 12.92 / 23.83 / 31.11, particles 12.89 / 23.78 / 31.07, audio drops 13.0 / 23.7 / 30.7. Record switching at a dry ocean point: largest sample step 0.0156 vs 0.0112 steady (the soft crackle grains; no click); the master cap and limiter are unchanged.
+
+**Accessibility:** Lighthouse accessibility **100**; axe-core (WCAG 2.1 A/AA + best practice) **0 violations** in English and in বাংলা. Keyboard-only run: open → search ("/", type, arrows, Enter; "Arrived: Dhaka, Bangladesh…") → tour (T; Esc stops only the tour) → where am I (L) → record change (R) → Enter → Flat map (focus on the sound map): **11/11 steps pass**. Contrast (WCAG): body 15.4:1, panels 13.7:1, selected 11.7:1, secondary 5.9–7.7:1, card text over the worst case (scrim over white ice) 11.0:1 / secondary 5.5:1, labels vs halo 16.6:1, focus ring 9.5:1, control borders 7.7:1. Body text ≥ 16 px; controls ≥ 44 px.
+
+**Performance (FPS while turning):** Jukebox 144 (display cap), **60–82 with 4× CPU slowdown**; close-up 143–144, **41–64 with 4× CPU**. JS heap after 20 record switches and 20 searches: 19.8 → 19.8 → 19.3 MB, and 19.5 MB after 40 of each (no growth). Tab download 3.29 MB.
+
+**Regression:** `bun run lint`, `bunx tsc --noEmit`, `bun run build` pass. Explore (arrows, Enter, 1/2/3), sweep, storm time-lapse, Story (Esc ends it), Then vs Now, বাংলা toggle (`<html lang>` unchanged), Help: all pass. **No console errors or warnings** in production.
+
+Screenshots: `docs/turntable-v2-screens/` — before (`before-*.png`) and after (`after-1280x720.png`, `after-1920x1080.png`, `after-390x844.png`), plus `v2-dhaka.png`, `v2-bay-of-bengal.png`, `v2-gulf-of-guinea-0n-0e.png`, `v2-rain-particles.png`, `v2-bangla.png`, `v2-help.png`, `v2-sleeve-details.png`.
+
+### Bugs found and fixed during verification
+
+- A leftover boolean in the loaded-texture object made the Earth's texture setup throw (silently, so the realistic textures never showed) and made leaving the Turntable crash the page. Fixed; all three ways out (Flat map, Esc, tab) checked.
+- Label layout forced a page layout every frame (re-hiding every label ever created, reading the card size); 4× CPU close-up was 18–25 FPS. Fixed with horizon culling, change-only DOM writes, canvas text metrics and a ResizeObserver.
+- three's PBR materials register on a module-level lookup texture (`DFG_LUT`) that kept every disposed renderer alive (the v1 leak); v2 releases it on unmount, so the deck can use `MeshPhysicalMaterial`.
+- The phone layout overflowed sideways; fixed with a shrinkable grid column.
 
 ## Known limitations
 
-- **Cell edges:** at a point exactly on a grid-cell edge, two different float paths to the "same" lat/lon can round to neighbouring cells (see 0° N, 0° E above). The needle, readout, speech and flat map always agree because they share one stored reading. Only the debug camera-ray pick can differ, by ~1e-14°.
-- **Drop timing while turning:** the needle sends a new update only when the reading (value, phase or whole-degree pan) changes. Each update restarts the drop voice's next-drop timer (existing `voices/drops.ts` behaviour, the same as dragging on the flat map). So over fast-changing rain the drop rate follows the rule only on average; at a fixed point it is exact (above).
-- **Esc message:** after Esc, Explore's own settled-reading announcement replaces "Stopped. Back to the flat map." in the live region (the Story mode has a special case for this in `ExploreControls`; I didn't touch it for the turntable).
-- **Sweep** works on the turntable (sound and captions) but its ring is only drawn on the flat map.
-- **Bangla:** the new strings are English-only and fall back like the rest of the app until a human translation exists.
-- **Speed label** ("Speed 1×") is a control setting, not data.
-- **Needle-drop earcon** is an L3 engine extension (`playNeedleDrop`, PROPOSAL in `audio-adapter/types.ts`, no-op fallback). L2's engine doesn't need it to keep working.
-- The 3D globe was not tested on a phone or with a real screen reader; the keyboard and live-region checks were automated.
+- **Bangla:** Turntable strings are developer drafts (`src/components/Turntable/strings-bn.ts`), marked for a translator; the app's other strings (e.g. "No ocean data here") still show English; honesty wording and credits stay English on purpose. Districts and story places have no Bangla names in the sources, so they show in English.
+- **Rivers:** Natural Earth names the Padma "Ganges" and the Jamuna "Brahmaputra" in Bangladesh, and leaves the Meghna unnamed in its 10m layer; labels follow Natural Earth.
+- **Jamuna SWOT reach:** the team hasn't chosen the reach yet; the bookmark is Sirajganj on the Jamuna.
+- **Esc** keeps its global meaning: with Help open, Esc closes Help *and* leaves the Turntable (as it already ends Story).
+- **Extreme ping** is new logic (the app had only the earcon): the hottest/wettest cell on the needle's groove within ±70° of the view centre.
+- **Drop timing while turning** (from v1): each new reading restarts the drop voice's next-drop timer, so over fast-changing rain the rate follows the rule only on average; at a fixed point it's exact.
+- The 4096 basemap is soft at district zoom (≈10 km/px); 8192 is available in Texture quality.
+- Not yet tested on a real phone or with a screen reader by a person; checks were automated.
 
-## TODO hooks (marked `TODO(turntable: …)` in code)
+## TODO hooks (typed, in code)
 
-- **More records**, one per EIC area: `Turntable/records.ts`. Each needs an L1 grid + metadata, a `valueAt` track and a voice in `mapping.json`.
+- **More records:** `RECORD_PLUGINS` in `Turntable/records.ts` — one entry per EIC area (air, forests, fire, energy, sea level, disasters, agriculture, water) with a grid loader, voice id, legend and image.
 - **Bloop drop** (needle-drop cue with pitch = Bay of Bengal SST): `Turntable/needle-drop.ts`.
-- **Proof in unison** (frame tone + NASA source-file tone at the same point): `Turntable/needle-sound.ts`.
-- **Amphan cold scar, playable delta, satellite orrery** (sibling scenes reusing `latLonToSphere` and the deck): `Turntable/scene.ts`.
+- **Proof in unison** (frame tone + NASA file tone): `Turntable/needle-sound.ts`.
+- **Amphan cold scar, playable delta, satellite orrery** (sibling scenes): `Turntable/scene/index.ts`.
