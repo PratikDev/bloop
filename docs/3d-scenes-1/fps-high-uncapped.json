@@ -1,0 +1,27 @@
+{
+  "tier": "high",
+  "scenes": {
+    "ghost": {
+      "fps": 538,
+      "checks": [],
+      "backToTurntable": true
+    },
+    "delta": {
+      "fps": 282,
+      "checks": [],
+      "backToTurntable": true
+    },
+    "terrain": {
+      "fps": 249,
+      "checks": [],
+      "backToTurntable": true
+    },
+    "tunnel": {
+      "fps": 450,
+      "checks": [],
+      "backToTurntable": true
+    }
+  },
+  "errors": [],
+  "tabs": {}
+}

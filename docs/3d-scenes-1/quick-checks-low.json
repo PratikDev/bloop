@@ -1,0 +1,252 @@
+{
+  "tier": "low",
+  "scenes": {
+    "ghost": {
+      "fps": 141,
+      "checks": [
+        {
+          "pass": true,
+          "label": "heat at Dhaka",
+          "detail": "chip 0.18 → 1.43; places.json 0.18 → 1.43"
+        },
+        {
+          "pass": true,
+          "label": "rain at Kolkata",
+          "detail": "chip 4.58 → 4.36; places.json 4.58 → 4.36"
+        },
+        {
+          "pass": true,
+          "label": "water at Kolkata",
+          "detail": "chip 1.71 → -6.91; places.json 1.71 → -6.91"
+        },
+        {
+          "pass": false,
+          "label": "layer 0: cube window means = places.json (all places)",
+          "detail": [
+            "Johannesburg: cube 0.38 → 1.04 vs places 0.38 → 1.03"
+          ]
+        },
+        {
+          "pass": true,
+          "label": "layer 1: cube window means = places.json (all places)",
+          "detail": []
+        },
+        {
+          "pass": false,
+          "label": "layer 2: cube window means = places.json (all places)",
+          "detail": [
+            "Sahel (Niamey): cube -0.79 → 18.97 vs places -0.79 → 18.98"
+          ]
+        }
+      ],
+      "backToTurntable": true
+    },
+    "delta": {
+      "fps": 143,
+      "checks": [
+        {
+          "pass": true,
+          "label": "GRACE 2003-01",
+          "detail": "chip BD -6.757 NW 11.306; grace.json -6.757 / 11.306"
+        },
+        {
+          "pass": true,
+          "label": "GRACE 2017-08",
+          "detail": "chip BD null NW null; grace.json null / null"
+        },
+        {
+          "pass": true,
+          "label": "GRACE 2024-12",
+          "detail": "chip BD -10.499 NW -49.802; grace.json -10.499 / -49.802"
+        },
+        {
+          "pass": true,
+          "label": "gap texture caption Jul 2017 – May 2018",
+          "detail": [
+            "Soft ticks: no satellite measurements, Jun 2002 to Jul 2002",
+            "Soft ticks: no satellite measurement for Jun 2003",
+            "Soft ticks: no satellite measurement for Jan 2011",
+            "Soft ticks: no satellite measurement for Jun 2011",
+            "Soft ticks: no satellite measurement for Dec 2011",
+            "Soft ticks: no satellite measurement for May 2012",
+            "Soft ticks: no satellite measurement for Oct 2012",
+            "Soft ticks: no satellite measurement for Mar 2013",
+            "Soft ticks: no satellite measurements, Aug 2013 to Sept 2013",
+            "Soft ticks: no satellite measurement for Feb 2014",
+            "Soft ticks: no satellite measurement for Jul 2014",
+            "Soft ticks: no satellite measurement for Dec 2014",
+            "Soft ticks: no satellite measurements, May 2015 to Jun 2015",
+            "Soft ticks: no satellite measurements, Oct 2015 to Nov 2015",
+            "Soft ticks: no satellite measurement for Apr 2016",
+            "Soft ticks: no satellite measurements, Sept 2016 to Oct 2016",
+            "Soft ticks: no satellite measurement for Feb 2017",
+            "Soft ticks: no satellite measurements, Jul 2017 to May 2018",
+            "Soft ticks: no satellite measurements, Aug 2018 to Sept 2018"
+          ]
+        }
+      ],
+      "semitones": {
+        "bd": -1.5200000000000027,
+        "nw": -14.249828571428571,
+        "ratio": 9.374887218045096
+      },
+      "gapCaptions": [
+        "Soft ticks: no satellite measurements, Jun 2002 to Jul 2002",
+        "Soft ticks: no satellite measurement for Jun 2003",
+        "Soft ticks: no satellite measurement for Jan 2011",
+        "Soft ticks: no satellite measurement for Jun 2011",
+        "Soft ticks: no satellite measurement for Dec 2011",
+        "Soft ticks: no satellite measurement for May 2012",
+        "Soft ticks: no satellite measurement for Oct 2012",
+        "Soft ticks: no satellite measurement for Mar 2013",
+        "Soft ticks: no satellite measurements, Aug 2013 to Sept 2013",
+        "Soft ticks: no satellite measurement for Feb 2014",
+        "Soft ticks: no satellite measurement for Jul 2014",
+        "Soft ticks: no satellite measurement for Dec 2014",
+        "Soft ticks: no satellite measurements, May 2015 to Jun 2015",
+        "Soft ticks: no satellite measurements, Oct 2015 to Nov 2015",
+        "Soft ticks: no satellite measurement for Apr 2016",
+        "Soft ticks: no satellite measurements, Sept 2016 to Oct 2016",
+        "Soft ticks: no satellite measurement for Feb 2017",
+        "Soft ticks: no satellite measurements, Jul 2017 to May 2018",
+        "Soft ticks: no satellite measurements, Aug 2018 to Sept 2018"
+      ],
+      "backToTurntable": true
+    },
+    "terrain": {
+      "fps": 144,
+      "checks": [
+        {
+          "pass": true,
+          "label": "SST at 15, 88",
+          "detail": "chip 28.835; sst.bin 28.835"
+        },
+        {
+          "pass": true,
+          "label": "SST at 10.3, 84.1",
+          "detail": "chip 29.973; sst.bin 29.973"
+        },
+        {
+          "pass": true,
+          "label": "SST at 21, 89",
+          "detail": "chip 29.404000000000003; sst.bin 29.404000000000003"
+        },
+        {
+          "pass": true,
+          "label": "hunt target = grid max",
+          "detail": "scene 31.186999999999998 cell 243481; grid 31.186999999999998 cell 243481"
+        },
+        {
+          "pass": true,
+          "label": "arriving at the warmest cell finds it",
+          "detail": true
+        },
+        {
+          "pass": true,
+          "label": "pitch identical at 3 walk speeds",
+          "detail": [
+            {
+              "speed": 0,
+              "cell": 225012,
+              "value": 29.289,
+              "hz": 470.38330519901115
+            },
+            {
+              "speed": 2,
+              "cell": 225012,
+              "value": 29.289,
+              "hz": 470.38330519901115
+            },
+            {
+              "speed": 4,
+              "cell": 225012,
+              "value": 29.289,
+              "hz": 470.38330519901115
+            }
+          ]
+        }
+      ],
+      "pitches": [
+        {
+          "speed": 0,
+          "cell": 225012,
+          "value": 29.289,
+          "hz": 470.38330519901115
+        },
+        {
+          "speed": 2,
+          "cell": 225012,
+          "value": 29.289,
+          "hz": 470.38330519901115
+        },
+        {
+          "speed": 4,
+          "cell": 225012,
+          "value": 29.289,
+          "hz": 470.38330519901115
+        }
+      ],
+      "axis": [
+        26,
+        32
+      ],
+      "backToTurntable": true
+    },
+    "tunnel": {
+      "fps": 144,
+      "checks": [
+        {
+          "pass": true,
+          "label": "ring count = years in the series",
+          "detail": "76 rings, 76 years (1951–2026)"
+        },
+        {
+          "pass": true,
+          "label": "heat 1951",
+          "detail": "chip -0.285; GISTEMP Apr–May -0.285"
+        },
+        {
+          "pass": true,
+          "label": "heat 1998",
+          "detail": "chip 0.27; GISTEMP Apr–May 0.27"
+        },
+        {
+          "pass": true,
+          "label": "heat 2024",
+          "detail": "chip 2.4000000000000004; GISTEMP Apr–May 2.4000000000000004"
+        },
+        {
+          "pass": true,
+          "label": "window values = demo JSON (20 years)",
+          "detail": []
+        },
+        {
+          "pass": true,
+          "label": "window captions = demo JSON captions",
+          "detail": [
+            [
+              1981,
+              "Window 1981–1990"
+            ],
+            [
+              2016,
+              "Dhaka, April–May: +1.37 °C (NASA GISTEMP, 1981–1990 vs 2016–2025, 10 years each)."
+            ],
+            [
+              2020,
+              "Dhaka, June–September: not wetter. GPCP −9% (1981–1990 vs 2016–2025); rain gauges (GPCC) −12% (1981–1990 vs 2010–2019)."
+            ]
+          ]
+        }
+      ],
+      "backToTurntable": true
+    }
+  },
+  "errors": [],
+  "tabs": {
+    "Explore": "true",
+    "Story": "true",
+    "Then vs Now": "true",
+    "Turntable": "true"
+  }
+}
