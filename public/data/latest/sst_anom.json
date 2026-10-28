@@ -1,0 +1,102 @@
+{
+  "product": "sst_anom",
+  "title": "Ocean temperature vs normal (EIC frame)",
+  "pairing": "frame-paired",
+  "datasets": [
+    {
+      "id": "svs5176",
+      "name": "EIC frame: SVS 5176 SST anomaly (from MUR)",
+      "agency": "NASA",
+      "kind": "measurement",
+      "shares_inputs_with": [
+        "mur"
+      ]
+    },
+    {
+      "id": "mur",
+      "name": "MUR SST v4.1 (NASA/JPL PO.DAAC)",
+      "agency": "NASA",
+      "kind": "measurement",
+      "shares_inputs_with": []
+    },
+    {
+      "id": "crw",
+      "name": "NOAA Coral Reef Watch SST anomaly and Degree Heating Weeks (5 km)",
+      "agency": "NOAA",
+      "kind": "measurement",
+      "shares_inputs_with": []
+    }
+  ],
+  "credit": "Visualization: NASA's Scientific Visualization Studio (SVS 5176) for the NASA Earth Information Center. Data: MUR SST (NASA/JPL PO.DAAC). Check: NOAA Coral Reef Watch.",
+  "disclosure": "Anomaly = difference from MUR's own climatology. NOAA Coral Reef Watch uses a different baseline, so an offset is expected.",
+  "source_time_utc": "2026-10-25T00:00:00Z",
+  "generated_utc": "2026-10-28T13:51:50Z",
+  "svs_id": 5176,
+  "svs_page": "https://svs.gsfc.nasa.gov/5176/",
+  "frame_time_utc": "2026-10-25T00:00:00Z",
+  "frame_time_source": "newest dated file in the SVS 5176 frame folders (file name)",
+  "source_file": "sst_mur_anomaly_nodates_most_recent.exr",
+  "colorbar_file": "sst_mur_anomaly_auto_colorbar_01_print.jpg",
+  "units": "degC",
+  "value_range": [
+    -4.0,
+    4.0
+  ],
+  "saturates_at_range_ends": true,
+  "calibration": {
+    "ticks_px": [
+      127.0,
+      223.1,
+      319.2,
+      415.4,
+      511.5,
+      607.6,
+      703.8,
+      799.9,
+      896.0
+    ],
+    "px_per_C": 96.12,
+    "value_at_ticks_C": [
+      -4.0,
+      -3.0,
+      -2.0,
+      -1.0,
+      0.0,
+      1.0,
+      2.0,
+      3.0,
+      4.0
+    ],
+    "strip_span_px": [
+      71,
+      952
+    ],
+    "max_colour_distance": 20,
+    "decoded_pixel_share": 0.5301,
+    "saturated_share": 0.0229
+  },
+  "grid": {
+    "width": 1024,
+    "height": 512,
+    "encoding": "int16_scaled",
+    "byte_order": "little",
+    "row0": "north (90N)",
+    "col0": "180W",
+    "scale": 1000,
+    "nodata": -32768,
+    "aggregation": "mean of 4x4 source pixels"
+  },
+  "verified": {
+    "test": "C5176",
+    "status": "WARN",
+    "against": "noaacrwsstanomalyDaily",
+    "against_time": "2026-10-26T12:00:00Z",
+    "n_points": 1500,
+    "n_abs_ge_0_5": 1096,
+    "sign_agreement": 0.8987226277372263,
+    "spearman": 0.7868213156385638,
+    "median_offset_C": -0.270897269180754,
+    "median_abs_offset_C": 0.45915474642392756,
+    "ticks_found": 9
+  }
+}

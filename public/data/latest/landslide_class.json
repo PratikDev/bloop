@@ -1,0 +1,90 @@
+{
+  "product": "landslide_class",
+  "title": "Landslide exposure (EIC frame)",
+  "pairing": "frame-paired",
+  "datasets": [
+    {
+      "id": "svs5584",
+      "name": "EIC frame: SVS 5584 landslide exposure (LHASA)",
+      "agency": "NASA",
+      "kind": "model",
+      "shares_inputs_with": []
+    }
+  ],
+  "credit": "Visualization: NASA's Scientific Visualization Studio (SVS 5584) for the NASA Earth Information Center. Data: NASA LHASA.",
+  "disclosure": "A model nowcast of landslide exposure, decoded from the picture's legend classes.",
+  "source_time_utc": "2026-10-28T04:00:55Z",
+  "generated_utc": "2026-10-28T14:00:18Z",
+  "svs_id": 5584,
+  "svs_page": "https://svs.gsfc.nasa.gov/5584/",
+  "frame_time_utc": "2026-10-28T04:00:55Z",
+  "frame_time_source": "HTTP Last-Modified of landslides_daily.png",
+  "source_file": "landslides_daily.png",
+  "projection_of_source": "Robinson",
+  "classes": [
+    {
+      "code": 0,
+      "label": "none shown"
+    },
+    {
+      "code": 1,
+      "label": "low"
+    },
+    {
+      "code": 2,
+      "label": "moderate"
+    },
+    {
+      "code": 3,
+      "label": "high"
+    },
+    {
+      "code": 4,
+      "label": "very high"
+    }
+  ],
+  "legend_swatches_rgb": [
+    [
+      251,
+      251,
+      200
+    ],
+    [
+      240,
+      207,
+      125
+    ],
+    [
+      225,
+      151,
+      91
+    ],
+    [
+      192,
+      67,
+      53
+    ]
+  ],
+  "grid": {
+    "width": 1024,
+    "height": 512,
+    "encoding": "uint8_class",
+    "byte_order": "little",
+    "row0": "north (90N)",
+    "col0": "180W",
+    "nodata": 0,
+    "aggregation": "highest class within 3×3 source pixels, nearest to each cell centre (Robinson → equirectangular)"
+  },
+  "cells_per_class": [
+    522482,
+    864,
+    353,
+    303,
+    286
+  ],
+  "verified": {
+    "test": "C5584",
+    "status": "PASS",
+    "age_days": 0.42
+  }
+}

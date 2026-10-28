@@ -1,0 +1,46 @@
+{
+  "product": "fwi_archive",
+  "title": "Fire-weather archive (our daily copies)",
+  "pairing": "frame-paired",
+  "datasets": [
+    {
+      "id": "svs5315",
+      "name": "EIC frame: SVS 5315 Fire Weather Index, 1-day forecast (NASA GISS GlobalFWI)",
+      "agency": "NASA",
+      "kind": "model",
+      "shares_inputs_with": []
+    }
+  ],
+  "credit": "Visualization: NASA's Scientific Visualization Studio (SVS 5315) for the NASA Earth Information Center.",
+  "disclosure": "SVS keeps no archive of this map, so Bloop saves one copy a day.",
+  "source_time_utc": "2026-10-28T06:11:01Z",
+  "generated_utc": "2026-10-28T13:59:25Z",
+  "keep_days": 60,
+  "grid": {
+    "width": 1024,
+    "height": 512,
+    "encoding": "gzip of uint8_class (see latest/fwi_class.json)"
+  },
+  "days": [
+    {
+      "date": "2026-10-28",
+      "file": "archive/fwi/FWI_20261028.u8.gz",
+      "issued_utc": "2026-10-28T06:11:01Z",
+      "places": {
+        "Dhaka": 1,
+        "Chattogram": 1,
+        "Rajshahi": 1,
+        "Sylhet": 1
+      },
+      "bd_box_counts": {
+        "0": 27,
+        "1": 225,
+        "2": 0,
+        "3": 0,
+        "4": 0,
+        "5": 0,
+        "6": 0
+      }
+    }
+  ]
+}

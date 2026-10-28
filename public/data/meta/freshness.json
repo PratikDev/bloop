@@ -1,0 +1,647 @@
+{
+  "generated_utc": "2026-10-28T14:17:08Z",
+  "products": {
+    "sst": {
+      "product": "sst",
+      "title": "Ocean temperature (EIC frame)",
+      "outputs": [
+        "latest/sst.json",
+        "latest/sst.bin",
+        "latest/sst.webp"
+      ],
+      "cadence": "daily",
+      "pairing": "frame-paired",
+      "datasets": [
+        {
+          "id": "svs5101",
+          "name": "EIC frame: SVS 5101 sea surface temperature (from MUR)",
+          "agency": "NASA",
+          "kind": "measurement",
+          "shares_inputs_with": [
+            "mur"
+          ]
+        },
+        {
+          "id": "mur",
+          "name": "MUR SST v4.1 (NASA/JPL PO.DAAC)",
+          "agency": "NASA",
+          "kind": "measurement",
+          "shares_inputs_with": []
+        }
+      ],
+      "limit_days": 2,
+      "status": "ok",
+      "source_time_utc": "2026-10-27T00:00:00Z",
+      "age_days": 1.6,
+      "period": null,
+      "credit": "Visualization: NASA's Scientific Visualization Studio (SVS 5101), NASA Earth Information Center. Data: MUR SST, NASA/JPL PO.DAAC.",
+      "bytes": 1255488
+    },
+    "rain": {
+      "product": "rain",
+      "title": "Rain and snow (EIC frame)",
+      "outputs": [
+        "latest/rain.json",
+        "latest/rain.bin",
+        "latest/rain_phase.bin",
+        "latest/rain.png"
+      ],
+      "cadence": "daily",
+      "pairing": "frame-paired",
+      "datasets": [
+        {
+          "id": "svs4285",
+          "name": "EIC frame: SVS 4285 IMERG precipitation",
+          "agency": "NASA",
+          "kind": "measurement",
+          "shares_inputs_with": [
+            "imerg"
+          ]
+        },
+        {
+          "id": "imerg",
+          "name": "GPM IMERG half-hourly V07 (NASA/JAXA, GES DISC)",
+          "agency": "NASA",
+          "kind": "measurement",
+          "shares_inputs_with": []
+        }
+      ],
+      "limit_days": 2,
+      "status": "ok",
+      "source_time_utc": "2026-10-28T08:30:00Z",
+      "age_days": 0.24,
+      "period": null,
+      "credit": "Visualization: NASA's Scientific Visualization Studio (SVS 4285), NASA Earth Information Center. Data: GPM IMERG (NASA/JAXA), GES DISC.",
+      "bytes": 5726289
+    },
+    "sequence": {
+      "product": "sequence",
+      "title": "Storm time-lapse (48 EIC frames)",
+      "outputs": [
+        "sequence/index.json"
+      ],
+      "cadence": "daily",
+      "pairing": "frame-paired",
+      "datasets": [
+        {
+          "id": "svs4285",
+          "name": "EIC frame: SVS 4285 IMERG precipitation",
+          "agency": "NASA",
+          "kind": "measurement",
+          "shares_inputs_with": [
+            "imerg"
+          ]
+        }
+      ],
+      "limit_days": 2,
+      "status": "ok",
+      "source_time_utc": "2026-10-28T08:30:00Z",
+      "age_days": 0.24,
+      "period": null,
+      "credit": "Visualization: NASA's Scientific Visualization Studio (SVS 4285), NASA Earth Information Center. Data: GPM IMERG (NASA/JAXA), GES DISC.",
+      "bytes": 8516
+    },
+    "grace": {
+      "product": "grace",
+      "title": "Water storage (GRACE)",
+      "outputs": [
+        "context/grace.json"
+      ],
+      "cadence": "weekly",
+      "pairing": "context",
+      "datasets": [
+        {
+          "id": "grace",
+          "name": "GRACE/GRACE-FO JPL mascons RL06.3 v4 (NASA/JPL PO.DAAC)",
+          "agency": "NASA",
+          "kind": "measurement",
+          "shares_inputs_with": []
+        }
+      ],
+      "limit_days": null,
+      "status": "baseline",
+      "source_time_utc": null,
+      "age_days": null,
+      "period": [
+        "2002-04",
+        "2026-07"
+      ],
+      "credit": "GRACE/GRACE-FO JPL RL06.3Mv04 CRI mascons, NASA/JPL PO.DAAC",
+      "bytes": 22666
+    },
+    "gistemp_bd": {
+      "product": "gistemp_bd",
+      "title": "Heat record (GISTEMP)",
+      "outputs": [
+        "context/gistemp_bd.json"
+      ],
+      "cadence": "static",
+      "pairing": "context",
+      "datasets": [
+        {
+          "id": "gistemp",
+          "name": "NASA GISTEMP v4",
+          "agency": "NASA",
+          "kind": "measurement",
+          "shares_inputs_with": []
+        }
+      ],
+      "limit_days": null,
+      "status": "baseline",
+      "source_time_utc": null,
+      "age_days": null,
+      "period": [
+        "1951-01",
+        "2026-08"
+      ],
+      "credit": "GISTEMP Team, NASA Goddard Institute for Space Studies",
+      "bytes": 128612
+    },
+    "gpcp_bd": {
+      "product": "gpcp_bd",
+      "title": "Rain record (GPCP)",
+      "outputs": [
+        "context/gpcp_bd.json"
+      ],
+      "cadence": "static",
+      "pairing": "context",
+      "datasets": [
+        {
+          "id": "gpcp",
+          "name": "GPCP v2.3 (via NOAA PSL)",
+          "agency": "NASA",
+          "kind": "measurement",
+          "shares_inputs_with": []
+        }
+      ],
+      "limit_days": null,
+      "status": "baseline",
+      "source_time_utc": null,
+      "age_days": null,
+      "period": [
+        "1979-01",
+        "2026-06"
+      ],
+      "credit": "GPCP v2.3 (Adler et al.); data provided by NOAA PSL",
+      "bytes": 83289
+    },
+    "gpcc_bd": {
+      "product": "gpcc_bd",
+      "title": "Rain-gauge record (GPCC)",
+      "outputs": [
+        "context/gpcc_bd.json"
+      ],
+      "cadence": "static",
+      "pairing": "context",
+      "datasets": [
+        {
+          "id": "gpcc",
+          "name": "GPCC full v2020 rain gauges (DWD, via NOAA PSL)",
+          "agency": "other",
+          "kind": "measurement",
+          "shares_inputs_with": []
+        }
+      ],
+      "limit_days": null,
+      "status": "baseline",
+      "source_time_utc": null,
+      "age_days": null,
+      "period": [
+        "1891-01",
+        "2019-12"
+      ],
+      "credit": "GPCC, Deutscher Wetterdienst; data provided by NOAA PSL",
+      "bytes": 224716
+    },
+    "firms": {
+      "product": "firms",
+      "title": "Fires: example years (FIRMS archive)",
+      "outputs": [
+        "context/firms.json"
+      ],
+      "cadence": "static",
+      "pairing": "context",
+      "datasets": [
+        {
+          "id": "firms_history",
+          "name": "NASA FIRMS archive (MODIS_SP, VIIRS_SNPP_SP)",
+          "agency": "NASA",
+          "kind": "measurement",
+          "shares_inputs_with": []
+        }
+      ],
+      "limit_days": null,
+      "status": "baseline",
+      "source_time_utc": null,
+      "age_days": null,
+      "period": null,
+      "credit": "NASA FIRMS (LANCE/ESDIS)",
+      "bytes": 20382
+    },
+    "ndvi": {
+      "product": "ndvi",
+      "title": "Greenness (MODIS NDVI)",
+      "outputs": [
+        "context/ndvi.json"
+      ],
+      "cadence": "static",
+      "pairing": "context",
+      "datasets": [
+        {
+          "id": "mod13q1",
+          "name": "MODIS MOD13Q1 NDVI (ORNL DAAC)",
+          "agency": "NASA",
+          "kind": "measurement",
+          "shares_inputs_with": []
+        }
+      ],
+      "limit_days": null,
+      "status": "baseline",
+      "source_time_utc": null,
+      "age_days": null,
+      "period": [
+        "2001-01-01",
+        "2023-12-19"
+      ],
+      "credit": "MODIS MOD13Q1, ORNL DAAC",
+      "bytes": 19429
+    },
+    "globe_bd": {
+      "product": "globe_bd",
+      "title": "GLOBE cloud observations",
+      "outputs": [
+        "context/globe_bd.json"
+      ],
+      "cadence": "static",
+      "pairing": "context",
+      "datasets": [
+        {
+          "id": "globe",
+          "name": "NASA GLOBE Program cloud observations",
+          "agency": "ground",
+          "kind": "measurement",
+          "shares_inputs_with": []
+        }
+      ],
+      "limit_days": null,
+      "status": "baseline",
+      "source_time_utc": null,
+      "age_days": null,
+      "period": [
+        "2025-01-01",
+        "2025-12-31"
+      ],
+      "credit": "NASA GLOBE Program",
+      "bytes": 637680
+    },
+    "sst_pairs": {
+      "product": "sst_pairs",
+      "title": "Frame vs file: ocean temperature",
+      "outputs": [
+        "truth/sst_pairs.json"
+      ],
+      "cadence": "daily",
+      "pairing": "frame-paired",
+      "datasets": [
+        {
+          "id": "svs5101",
+          "name": "EIC frame: SVS 5101 sea surface temperature (from MUR)",
+          "agency": "NASA",
+          "kind": "measurement",
+          "shares_inputs_with": [
+            "mur"
+          ]
+        },
+        {
+          "id": "mur",
+          "name": "MUR SST v4.1 (NASA/JPL PO.DAAC)",
+          "agency": "NASA",
+          "kind": "measurement",
+          "shares_inputs_with": []
+        }
+      ],
+      "limit_days": 4,
+      "status": "ok",
+      "source_time_utc": "2026-10-27T00:00:00Z",
+      "age_days": 1.6,
+      "period": null,
+      "credit": "Data: MUR SST (NASA/JPL PO.DAAC). Visualization: NASA's Scientific Visualization Studio (SVS 5101) for the NASA Earth Information Center.",
+      "bytes": 8957
+    },
+    "rain_pairs": {
+      "product": "rain_pairs",
+      "title": "Frame vs file: rain",
+      "outputs": [
+        "truth/rain_pairs.json"
+      ],
+      "cadence": "daily",
+      "pairing": "frame-paired",
+      "datasets": [
+        {
+          "id": "svs4285",
+          "name": "EIC frame: SVS 4285 IMERG precipitation",
+          "agency": "NASA",
+          "kind": "measurement",
+          "shares_inputs_with": [
+            "imerg"
+          ]
+        },
+        {
+          "id": "imerg",
+          "name": "GPM IMERG half-hourly V07 (NASA/JAXA, GES DISC)",
+          "agency": "NASA",
+          "kind": "measurement",
+          "shares_inputs_with": []
+        }
+      ],
+      "limit_days": 3,
+      "status": "ok",
+      "source_time_utc": "2026-10-28T08:30:00Z",
+      "age_days": 0.24,
+      "period": null,
+      "credit": "Data: GPM IMERG (NASA/JAXA, GES DISC). Visualization: NASA's Scientific Visualization Studio (SVS 4285) for the NASA Earth Information Center.",
+      "bytes": 42093
+    },
+    "threeway": {
+      "product": "threeway",
+      "title": "Three readings of one ocean",
+      "outputs": [
+        "truth/threeway.json"
+      ],
+      "cadence": "daily",
+      "pairing": "frame-paired",
+      "datasets": [
+        {
+          "id": "svs5101",
+          "name": "EIC frame: SVS 5101 sea surface temperature (from MUR)",
+          "agency": "NASA",
+          "kind": "measurement",
+          "shares_inputs_with": [
+            "mur"
+          ]
+        },
+        {
+          "id": "gibs_mur",
+          "name": "GIBS MUR SST layer, colormap sourceValue (NASA EOSDIS)",
+          "agency": "NASA",
+          "kind": "measurement",
+          "shares_inputs_with": [
+            "mur"
+          ]
+        },
+        {
+          "id": "mur",
+          "name": "MUR SST v4.1 (NASA/JPL PO.DAAC)",
+          "agency": "NASA",
+          "kind": "measurement",
+          "shares_inputs_with": []
+        }
+      ],
+      "limit_days": 4,
+      "status": "ok",
+      "source_time_utc": "2026-10-27T00:00:00Z",
+      "age_days": 1.6,
+      "period": null,
+      "credit": "Data: MUR SST (NASA/JPL PO.DAAC); GIBS (NASA EOSDIS). Visualization: NASA's Scientific Visualization Studio (SVS 5101) for the NASA Earth Information Center.",
+      "bytes": 16081
+    },
+    "sst_anom": {
+      "product": "sst_anom",
+      "title": "Ocean temperature vs normal (EIC frame)",
+      "outputs": [
+        "latest/sst_anom.json",
+        "latest/sst_anom.bin",
+        "latest/sst_anom.webp"
+      ],
+      "cadence": "daily",
+      "pairing": "frame-paired",
+      "datasets": [
+        {
+          "id": "svs5176",
+          "name": "EIC frame: SVS 5176 SST anomaly (from MUR)",
+          "agency": "NASA",
+          "kind": "measurement",
+          "shares_inputs_with": [
+            "mur"
+          ]
+        },
+        {
+          "id": "mur",
+          "name": "MUR SST v4.1 (NASA/JPL PO.DAAC)",
+          "agency": "NASA",
+          "kind": "measurement",
+          "shares_inputs_with": []
+        },
+        {
+          "id": "crw",
+          "name": "NOAA Coral Reef Watch SST anomaly and Degree Heating Weeks (5 km)",
+          "agency": "NOAA",
+          "kind": "measurement",
+          "shares_inputs_with": []
+        }
+      ],
+      "limit_days": 5,
+      "status": "ok",
+      "source_time_utc": "2026-10-25T00:00:00Z",
+      "age_days": 3.6,
+      "period": null,
+      "credit": "Visualization: NASA's Scientific Visualization Studio (SVS 5176) for the NASA Earth Information Center. Data: MUR SST (NASA/JPL PO.DAAC). Check: NOAA Coral Reef Watch.",
+      "bytes": 1502708
+    },
+    "sst_dt": {
+      "product": "sst_dt",
+      "title": "Hours since a clear look (MUR)",
+      "outputs": [
+        "latest/sst_dt.json",
+        "latest/sst_dt.bin"
+      ],
+      "cadence": "daily",
+      "pairing": "context",
+      "datasets": [
+        {
+          "id": "mur",
+          "name": "MUR SST v4.1 (NASA/JPL PO.DAAC)",
+          "agency": "NASA",
+          "kind": "measurement",
+          "shares_inputs_with": []
+        }
+      ],
+      "limit_days": 3,
+      "status": "ok",
+      "source_time_utc": "2026-10-27T09:00:00Z",
+      "age_days": 1.22,
+      "period": null,
+      "credit": "Data: MUR SST v4.1, dt_1km_data (NASA/JPL PO.DAAC).",
+      "bytes": 525751
+    },
+    "fwi_class": {
+      "product": "fwi_class",
+      "title": "Tomorrow's fire weather (EIC frame)",
+      "outputs": [
+        "latest/fwi_class.json",
+        "latest/fwi_class.bin"
+      ],
+      "cadence": "daily",
+      "pairing": "frame-paired",
+      "datasets": [
+        {
+          "id": "svs5315",
+          "name": "EIC frame: SVS 5315 Fire Weather Index, 1-day forecast (NASA GISS GlobalFWI)",
+          "agency": "NASA",
+          "kind": "model",
+          "shares_inputs_with": []
+        }
+      ],
+      "limit_days": 2,
+      "status": "ok",
+      "source_time_utc": "2026-10-28T06:11:01Z",
+      "age_days": 0.34,
+      "period": null,
+      "credit": "Visualization: NASA's Scientific Visualization Studio (SVS 5315) for the NASA Earth Information Center. Data: NASA GISS GlobalFWI (experimental).",
+      "bytes": 526786
+    },
+    "fwi_archive": {
+      "product": "fwi_archive",
+      "title": "Fire-weather archive (our daily copies)",
+      "outputs": [
+        "context/fwi_archive_index.json"
+      ],
+      "cadence": "daily",
+      "pairing": "frame-paired",
+      "datasets": [
+        {
+          "id": "svs5315",
+          "name": "EIC frame: SVS 5315 Fire Weather Index, 1-day forecast (NASA GISS GlobalFWI)",
+          "agency": "NASA",
+          "kind": "model",
+          "shares_inputs_with": []
+        }
+      ],
+      "limit_days": 2,
+      "status": "ok",
+      "source_time_utc": "2026-10-28T06:11:01Z",
+      "age_days": 0.34,
+      "period": null,
+      "credit": "Visualization: NASA's Scientific Visualization Studio (SVS 5315) for the NASA Earth Information Center.",
+      "bytes": 1228
+    },
+    "fires_frame": {
+      "product": "fires_frame",
+      "title": "Active fires (EIC frame, picture only)",
+      "outputs": [
+        "latest/fires.json",
+        "latest/fires.webp"
+      ],
+      "cadence": "daily",
+      "pairing": "frame-paired",
+      "datasets": [
+        {
+          "id": "svs5113",
+          "name": "EIC frame: SVS 5113 VIIRS active fires",
+          "agency": "NASA",
+          "kind": "measurement",
+          "shares_inputs_with": [
+            "firms"
+          ]
+        }
+      ],
+      "limit_days": 3,
+      "status": "ok",
+      "source_time_utc": "2026-10-28T10:29:02Z",
+      "age_days": 0.16,
+      "period": null,
+      "credit": "Visualization: NASA's Scientific Visualization Studio (SVS 5113) for the NASA Earth Information Center. Data: VIIRS active fires (NASA FIRMS, LANCE/ESDIS).",
+      "bytes": 117881
+    },
+    "firms_daily": {
+      "product": "firms_daily",
+      "title": "Fires, recent days (FIRMS NOAA-20/21)",
+      "outputs": [
+        "context/firms.json"
+      ],
+      "cadence": "daily",
+      "pairing": "context",
+      "datasets": [
+        {
+          "id": "firms_viirs_noaa21_nrt",
+          "name": "NASA FIRMS VIIRS NOAA-21 NRT",
+          "agency": "NASA",
+          "kind": "measurement",
+          "shares_inputs_with": []
+        },
+        {
+          "id": "firms_viirs_noaa20_nrt",
+          "name": "NASA FIRMS VIIRS NOAA-20 NRT",
+          "agency": "NASA",
+          "kind": "measurement",
+          "shares_inputs_with": []
+        },
+        {
+          "id": "firms_modis_nrt",
+          "name": "NASA FIRMS MODIS NRT",
+          "agency": "NASA",
+          "kind": "measurement",
+          "shares_inputs_with": []
+        }
+      ],
+      "limit_days": 2,
+      "status": "ok",
+      "source_time_utc": "2026-10-28T14:02:38Z",
+      "age_days": 0.01,
+      "period": null,
+      "credit": "NASA FIRMS (LANCE/ESDIS): VIIRS NOAA-21 and NOAA-20, MODIS.",
+      "bytes": 20382
+    },
+    "landslide_class": {
+      "product": "landslide_class",
+      "title": "Landslide exposure (EIC frame)",
+      "outputs": [
+        "latest/landslide_class.json",
+        "latest/landslide_class.bin"
+      ],
+      "cadence": "daily",
+      "pairing": "frame-paired",
+      "datasets": [
+        {
+          "id": "svs5584",
+          "name": "EIC frame: SVS 5584 landslide exposure (LHASA)",
+          "agency": "NASA",
+          "kind": "model",
+          "shares_inputs_with": []
+        }
+      ],
+      "limit_days": 2,
+      "status": "ok",
+      "source_time_utc": "2026-10-28T04:00:55Z",
+      "age_days": 0.43,
+      "period": null,
+      "credit": "Visualization: NASA's Scientific Visualization Studio (SVS 5584) for the NASA Earth Information Center. Data: NASA LHASA.",
+      "bytes": 526228
+    },
+    "nightlights": {
+      "product": "nightlights",
+      "title": "Night lights (Black Marble, NOAA-20)",
+      "outputs": [
+        "context/nightlights.json"
+      ],
+      "cadence": "daily",
+      "pairing": "context",
+      "datasets": [
+        {
+          "id": "vj146a2",
+          "name": "Black Marble VJ146A2, NOAA-20 VIIRS (NASA LAADS)",
+          "agency": "NASA",
+          "kind": "measurement",
+          "shares_inputs_with": []
+        }
+      ],
+      "limit_days": 14,
+      "status": "ok",
+      "source_time_utc": "2026-10-19T00:00:00Z",
+      "age_days": 9.6,
+      "period": null,
+      "credit": "NASA Black Marble VJ146A2 (NOAA-20 VIIRS), NASA LAADS DAAC.",
+      "bytes": 4356
+    }
+  }
+}

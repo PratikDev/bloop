@@ -1,0 +1,39 @@
+{
+  "product": "sst_dt",
+  "title": "Hours since a clear look (MUR)",
+  "pairing": "context",
+  "datasets": [
+    {
+      "id": "mur",
+      "name": "MUR SST v4.1 (NASA/JPL PO.DAAC)",
+      "agency": "NASA",
+      "kind": "measurement",
+      "shares_inputs_with": []
+    }
+  ],
+  "credit": "Data: MUR SST v4.1, dt_1km_data (NASA/JPL PO.DAAC).",
+  "disclosure": "Hours between the analysis and the nearest 1 km infrared measurement. Long gaps (often clouds) mean the value is filled in from other sensors.",
+  "source_time_utc": "2026-10-27T09:00:00Z",
+  "generated_utc": "2026-10-28T13:58:39Z",
+  "mur_date": "2026-10-27",
+  "mur_file": "20261027090000-JPL-L4_GHRSST-SSTfnd-MUR-GLOB-v02.0-fv04.1.nc",
+  "units": "hours",
+  "variable": "dt_1km_data",
+  "variable_comment": "The grid value is hours between the analysis time and the most recent MODIS or VIIRS 1km L2P datum within 0.01 degrees from the grid point.  \"Fill value\" indicates absence of such 1km data at the grid point.",
+  "grid": {
+    "width": 1024,
+    "height": 512,
+    "encoding": "uint8_hours",
+    "byte_order": "little",
+    "row0": "north (90N)",
+    "col0": "180W",
+    "nodata": 255,
+    "no_look": 254,
+    "aggregation": "mean |hours| over pixels with a 1 km datum; 254 when fewer than 50% of the cell's pixels had one; 255 = land (no SST)"
+  },
+  "summary": {
+    "ocean_cells": 352364,
+    "looked_share": 0.2238,
+    "median_hours": 18.0
+  }
+}

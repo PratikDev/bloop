@@ -1,0 +1,31 @@
+{
+  "product": "fires_frame",
+  "title": "Active fires (EIC frame, picture only)",
+  "pairing": "frame-paired",
+  "datasets": [
+    {
+      "id": "svs5113",
+      "name": "EIC frame: SVS 5113 VIIRS active fires",
+      "agency": "NASA",
+      "kind": "measurement",
+      "shares_inputs_with": [
+        "firms"
+      ]
+    }
+  ],
+  "credit": "Visualization: NASA's Scientific Visualization Studio (SVS 5113) for the NASA Earth Information Center. Data: VIIRS active fires (NASA FIRMS, LANCE/ESDIS).",
+  "disclosure": "Shown as a picture only: its hot pixels agree only moderately with FIRMS, so the sound uses FIRMS counts.",
+  "source_time_utc": "2026-10-28T10:29:02Z",
+  "generated_utc": "2026-10-28T14:01:26Z",
+  "svs_id": 5113,
+  "svs_page": "https://svs.gsfc.nasa.gov/5113/",
+  "frame_time_utc": "2026-10-28T10:29:02Z",
+  "frame_time_source": "newest dated file in the SVS 5113 frame folders (Last-Modified)",
+  "source_file": "VIIRS_fires_latest.png",
+  "display": {
+    "file": "fires.webp",
+    "width": 2048,
+    "height": 1024
+  },
+  "values_read": false
+}
