@@ -50,3 +50,24 @@ pipeline/inputs/context/*.nc.gz
 pipeline/__pycache__/
 *.part
 
+
+# raw source formats are never committed (docs/data-integration-plan.md; the one tracked EXR is the spotcheck frame)
+*.nc
+*.nc4
+*.exr
+!pipeline/inputs/reference/checkC_frame.exr
+*.hdf
+*.HDF
+*.h5
+*.he5
+*.hdf5
+*.HDF5
+*.tif
+*.tiff
+*.grib
+*.grib2
+bloop_test_results/
+pipeline/manual_inputs/*
+!pipeline/manual_inputs/README.md
+__pycache__/
+*.pyc
