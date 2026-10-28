@@ -9,3 +9,15 @@ export { loadDemo, loadEnsemble, loadGistemp, loadGpcp, loadGrace } from "./cont
 export { DataShapeError } from "./validate";
 export { decodeSequenceCode, loadSequence, valueInFrame, type Sequence, type SequenceFrame } from "./sequence";
 export { followStorm, peakIndex } from "./storm";
+export { ageDaysAt, creditLines, isModel, livenessAt, loadFreshness, type Liveness } from "./freshness";
+export {
+  anomalyAt,
+  clarityAt,
+  loadSstAnomaly,
+  loadSstAnomalyMeta,
+  loadSstDt,
+  type Clarity,
+  type SstAnomalyField,
+  type SstDtField,
+} from "./ocean-extra";
+export { loadSstPairs, loadThreeWay, nearestPair } from "./truth-pairs";

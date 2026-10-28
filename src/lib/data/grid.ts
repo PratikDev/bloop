@@ -42,6 +42,19 @@ export function readUint16LE(buffer: ArrayBuffer, size: GridSize): Uint16Array {
   return out;
 }
 
+/** Reads a little-endian Int16 grid, whatever the host's byte order. */
+export function readInt16LE(buffer: ArrayBuffer, size: GridSize): Int16Array {
+  const expected = size.width * size.height;
+  if (buffer.byteLength !== expected * 2) {
+    throw new Error(`Grid is ${buffer.byteLength} bytes; expected ${expected * 2} for ${size.width}×${size.height}`);
+  }
+  if (LITTLE_ENDIAN_HOST) return new Int16Array(buffer);
+  const view = new DataView(buffer);
+  const out = new Int16Array(expected);
+  for (let i = 0; i < expected; i++) out[i] = view.getInt16(i * 2, true);
+  return out;
+}
+
 export function readUint8(buffer: ArrayBuffer, size: GridSize): Uint8Array {
   const expected = size.width * size.height;
   if (buffer.byteLength !== expected) {
