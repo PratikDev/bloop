@@ -1,0 +1,159 @@
+{
+  "errors": [],
+  "steps": {
+    "frameLabel": [
+      "EIC frame: Ocean temperature, 27 Oct 2026, 00:00 UTC. Sound generated live from this frame.",
+      "Higher = warmer · each semitone ≈ 1.7 °C · MUR check 0.29 °C",
+      "NASA",
+      "Measurement",
+      "Frame-paired",
+      "Latest available: 1.6 days old",
+      "EIC frame: Rain and snow, 28 Oct 2026, 08:30 UTC. Sound generated live from this frame.",
+      "More drops = heavier rain (0.1–50 mm/h, logarithmic) · IMERG check ~25%",
+      "NASA",
+      "Measurement",
+      "Frame-paired",
+      "Latest available: 6 h old"
+    ],
+    "truth": "We read each value back from the frame's colours, then checked those values against NASA's source data.\n\nOcean temperature\nNASA\nMeasurement\nFrame-paired\nLatest available: 1.6 days old\n\nChecked against NASA MUR SST: median error 0.29 °C (60 ocean points).\n\nOn today's EIC frame, against MUR for 2026-10-27. Checked 28 Oct 2026, 13:43 UTC\n\nProof in unison\n\nTwo tones: one from the EIC picture, one from NASA's file. Beats mean they disagree. 0.29 °C ≈ 0.17 of a semitone.\n\nFrame 29.42 °C, NASA file 29.38 °C: 1.0 beats per second.\n\nHear the nearest checked point\nU\nThree readings of the same points\nNASA\nMeasurement\nFrame-paired\nLatest available: 1.6 days old\n\nAt 55 points, NASA's GIBS map layer and the MUR file differ by a median of 0.07 °C; the EIC picture and the MUR file by 0.28 °C. 100% of GIBS pixels decode to a value.\n\nThe EIC picture, NASA's GIBS map layer and the MUR file, read at the same points. GIBS and the picture are both drawn from MUR, so this checks the decoding, not the ocean.\n\nOcean temperature vs normal\nNASA\nNOAA\nMeasurement\nFrame-paired\nLatest available: 3.6 days old\n\nSST anomaly checked against NOAA Coral Reef Watch: same sign at 90% of 1,096 points; reads 0.27 °C cooler (different baselines).\n\nAnomaly = difference from MUR's own climatology. NOAA Coral Reef Watch uses a different baseline, so an offset is expected.\n\nRain\nNASA\nMeasurement\nFrame-paired\nLatest available: 6 h old\nPending team approval\n\nChecked against NASA IMERG (Early run): typically within ~25% (150 rain points, one frame); agreed on where it was raining at every sampled point.\n\nChecked 28 Oct 2026, 13:43 UTC\n\nPlot from the first check (IMERG Late run, 150 points), not today's re-check.",
+    "unisonCaption": "29.9 °C; Dry. 21.5° N, 89.8° E",
+    "mapping": [
+      "Ocean vs normal",
+      "Ocean vs normal −4 to 4 °C vs normal → pitch 123.5 to 493.9 Hz (exponential: equal steps in value sound like equal musical steps).",
+      "A quiet fixed reference sine at 'normal' (the rule's centre, B3) and the data sine bending above or below it: the gap is heard as an interval and as beating",
+      "Silence: Land, sea ice or no data at this point (the reference tone stops too).",
+      "B3: the reference tone is the data voice's own pitch at anomaly 0. Warm and cold bend the same distance.",
+      "How recently measured",
+      "How recently measured 0 to 48 hours since a 1 km infrared look → echo length 0.1 to 2.4 s (linear).",
+      "Proof in unison",
+      "Proof in unison: two tones in one ear, both by the Ocean temperature rule (Ocean temperature −5 to 35 °C → pitch 220 to 880 Hz (exponential: equal steps in value sound like equal musical steps).) Beats per second = the difference between the two pitches in Hz.",
+      "Recorded-data texture"
+    ],
+    "help": [
+      "U\tProof in unison: hear the nearest checked point (EIC frame tone, then NASA's file tone)",
+      "In the 3D scenes",
+      "Every scene\tSpace: play or pause · [ / ]: slower or faster · I: details · O: layers · H: help · Shift+D: the controls · Esc: back to the turntable",
+      "Sound terrain\tW / S: walk · A / D: step sideways · Left / Right: turn (with Shift: faster) · Enter: speak · G: find the warmest water · N: the temperature or how far from normal · , / .: rain frame · + / −: zoom"
+    ],
+    "turntableDebug": "3D = 2D ✓ · ocean voice silent (land / no data)",
+    "terrainAbsolute": {
+      "lat": 15,
+      "lon": 88,
+      "cell": 218874,
+      "value": 29.593000000000004,
+      "hz": 382.11410785688247,
+      "axisMin": 28,
+      "axisMax": 32,
+      "warmest": {
+        "lat": 13.53515625,
+        "lon": 98.61328125,
+        "valueC": 31.287999999999997,
+        "cell": 223000
+      },
+      "regionMax": 31.287999999999997,
+      "found": false,
+      "hunting": false,
+      "vsNormal": false,
+      "anomaly": 0.362,
+      "normalHz": 262.926680510012,
+      "clarity": "noLook",
+      "echoSec": 2.4
+    },
+    "terrainVsNormal": {
+      "lat": 15,
+      "lon": 88,
+      "cell": 218874,
+      "value": 29.593000000000004,
+      "hz": 382.11410785688247,
+      "axisMin": 28,
+      "axisMax": 32,
+      "warmest": {
+        "lat": 13.53515625,
+        "lon": 98.61328125,
+        "valueC": 31.287999999999997,
+        "cell": 223000
+      },
+      "regionMax": 31.287999999999997,
+      "found": false,
+      "hunting": false,
+      "vsNormal": true,
+      "anomaly": 0.362,
+      "normalHz": 262.926680510012,
+      "clarity": "noLook",
+      "echoSec": 2.4
+    },
+    "terrainCaption": "Sound terrain: Bay of Bengal. Arrows or W A S D walk (Shift: faster); drag to look around. Under your feet you hear the sea temperature on a zoomed axis. Enter speaks it. G starts the warmest-water hunt. Zoomed axis: the ocean rule's 220 to 880 hertz now spans 28 to 32 degrees, this region's range today.",
+    "terrainPoints": [
+      {
+        "lat": 15,
+        "lon": 88,
+        "cell": 218874,
+        "value": 29.593000000000004,
+        "hz": 382.11410785688247,
+        "axisMin": 28,
+        "axisMax": 32,
+        "warmest": {
+          "lat": 13.53515625,
+          "lon": 98.61328125,
+          "valueC": 31.287999999999997,
+          "cell": 223000
+        },
+        "regionMax": 31.287999999999997,
+        "found": false,
+        "hunting": false,
+        "vsNormal": true,
+        "anomaly": 0.362,
+        "normalHz": 262.926680510012,
+        "clarity": "noLook",
+        "echoSec": 2.4
+      },
+      {
+        "lat": 18,
+        "lon": 89.5,
+        "cell": 209662,
+        "value": 29.692,
+        "hz": 395.45225570885316,
+        "axisMin": 28,
+        "axisMax": 32,
+        "warmest": {
+          "lat": 13.53515625,
+          "lon": 98.61328125,
+          "valueC": 31.287999999999997,
+          "cell": 223000
+        },
+        "regionMax": 31.287999999999997,
+        "found": false,
+        "hunting": false,
+        "vsNormal": true,
+        "anomaly": 0.134,
+        "normalHz": 252.74114500522936,
+        "clarity": "noLook",
+        "echoSec": 2.4
+      },
+      {
+        "lat": 12,
+        "lon": 85,
+        "cell": 227057,
+        "value": 29.737000000000002,
+        "hz": 401.6679983593726,
+        "axisMin": 28,
+        "axisMax": 32,
+        "warmest": {
+          "lat": 13.53515625,
+          "lon": 98.61328125,
+          "valueC": 31.287999999999997,
+          "cell": 223000
+        },
+        "regionMax": 31.287999999999997,
+        "found": false,
+        "hunting": false,
+        "vsNormal": true,
+        "anomaly": 1.044,
+        "normalHz": 295.9104297295561,
+        "clarity": "noLook",
+        "echoSec": 2.4
+      }
+    ],
+    "fps": 125.523012558264
+  }
+}
