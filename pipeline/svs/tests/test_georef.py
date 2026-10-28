@@ -33,5 +33,14 @@ class Coastlines(unittest.TestCase):
         m = georef.outline_mask(img)
         self.assertTrue(m[30].all() and not m[10].any())
 
+
+class FitBounds(unittest.TestCase):
+    def test_recovers_a_known_box(self):
+        truth = (-100.0, -40.0, 60.0, 50.0)                               # a 16:9 flat map of part of the world
+        frame = georef.rasterise_land(320, 180, truth)
+        (w, s, e, n), score = georef.fit_bounds(frame, (-95.0, -36.0, 64.0, 47.0))
+        self.assertGreater(score, 0.97)
+        self.assertLess(max(abs(w - truth[0]), abs(s - truth[1]), abs(e - truth[2]), abs(n - truth[3])), 1.0)
+
 if __name__ == "__main__":
     unittest.main()

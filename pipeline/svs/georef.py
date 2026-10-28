@@ -6,6 +6,7 @@ import numpy as np
 
 GLOBAL = (-180.0, -90.0, 180.0, 90.0)
 IOU_PASS = 0.90
+SHIFTS_DEG = (0.5, 1.0)             # the assumed bounds must beat the same bounds shifted by these
 
 def pixel_centres(W, H, bounds=GLOBAL):
     w, s, e, n = bounds
@@ -103,7 +104,7 @@ def outline_mask(rgb, size=5, thresh=25):
     k = cv2.getStructuringElement(cv2.MORPH_RECT, (size, size))
     return cv2.morphologyEx(lum, cv2.MORPH_BLACKHAT, k) > thresh
 
-def verify(land_frame, bounds=GLOBAL, shifts=(0.5, 1.0)):
+def verify(land_frame, bounds=GLOBAL, shifts=SHIFTS_DEG):
     """IoU at the assumed bounds and at shifted bounds (the assumption should be the best)."""
     H, W = land_frame.shape
     path, sha = natural_earth_land()
@@ -118,3 +119,22 @@ def verify(land_frame, bounds=GLOBAL, shifts=(0.5, 1.0)):
     out["best_is_assumed"] = out["iou"] >= max(out["shifted"].values())
     out["pass"] = out["iou"] >= IOU_PASS
     return out
+
+def fit_bounds(land_frame, guess, span=(10.0, 3.0, 1.0, 0.25), max_rounds=6):
+    """Non-2:1 flat maps: bounds (W, S, E, N) maximising IoU with Natural Earth land, by coordinate search at shrinking step
+    sizes starting from `guess`. Returns (bounds, iou)."""
+    H, W = land_frame.shape
+    path, _ = natural_earth_land()
+    score = lambda b: iou(land_frame, rasterise_land(W, H, b, path))
+    best = tuple(map(float, guess)); best_iou = score(best)
+    for step in span:
+        for _ in range(max_rounds):
+            improved = False
+            for i in range(4):
+                for d in (-step, step):
+                    b = list(best); b[i] += d
+                    if b[2] - b[0] < 1 or b[3] - b[1] < 1: continue
+                    s = score(tuple(b))
+                    if s > best_iou: best, best_iou, improved = tuple(b), s, True
+            if not improved: break
+    return best, best_iou
