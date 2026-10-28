@@ -39,3 +39,33 @@ class Inversion(unittest.TestCase):
 
 if __name__ == "__main__":
     unittest.main()
+
+class HueAndOpacity(unittest.TestCase):
+    def test_hue_mode_ignores_grey_floor_and_dimming(self):
+        """3912: the colorbar image's lowest channel is lifted; the render's is 0 and dimmed."""
+        jet = synth.mpl("jet")
+        t = np.linspace(0.15, 0.85, 60)
+        cb = bar(jet)
+        lifted = Colorbar(rgb=cb.rgb * 215 / 255 + 40, alpha=cb.alpha, geometry={}, scale="linear", fit=cb.fit)   # a grey floor, no clipping
+        px = jet(t); px = (px - px.min(-1, keepdims=True)) * 0.6                    # floor removed, dimmed
+        img = np.round(px).astype(np.uint8)[None]
+        v, _, res, k = Inverter(lifted, mode="hue").invert(img, max_dist=10)
+        self.assertLess(np.nanmax(np.abs(v[0] - 40 * t)), 0.8)
+        grey = Inverter(lifted, mode="hue").invert(np.array([[[90, 90, 90]]], np.uint8), max_dist=10, min_k=0.1)[0]
+        self.assertTrue(np.isnan(grey).all())
+
+    def test_opacity_learns_ramp_and_censors_background(self):
+        from svs.opacity import OpacityInverter
+        cb = bar(synth.viridis)
+        B = np.array([30.0, 30.0, 30.0])
+        vals = np.linspace(0, 40, 400)
+        alpha = np.clip(vals / 20, 0.0, 1.0)                                        # fades out below 20
+        px = alpha[:, None] * synth.viridis(vals / 40) + (1 - alpha[:, None]) * B
+        img = np.round(px).astype(np.uint8)[None]
+        oi = OpacityInverter(cb, B)
+        u, cnt = np.unique(img.reshape(-1, 3), axis=0, return_counts=True)
+        oi.learn_ramp(u, cnt)
+        v, a, _, flag = oi.invert(img)
+        ok = alpha >= 0.3
+        self.assertLess(np.nanmax(np.abs(v[0][ok] - vals[ok])), 0.6)
+        self.assertTrue((flag[0][alpha == 0] == 2).all())                          # background = below range

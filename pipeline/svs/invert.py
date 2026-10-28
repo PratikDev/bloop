@@ -9,7 +9,10 @@ Modes:
   chroma — colours dimmed by a factor k (trails fading over black, opacity over a black background): curve and pixels
            are brightness-normalised first and k is returned so the caller can require a minimum brightness. Where the
            colormap itself only changes brightness (jet's dark-blue end), normalised colours of distant positions
-           coincide: uncertain() lists those strip positions so the record can say which values are ambiguous."""
+           coincide: uncertain() lists those strip positions so the record can say which values are ambiguous.
+  hue    — colours that also differ from the colorbar image by a grey floor (3912: the render's lowest channel is 0
+           where the colorbar image's is lifted by 25–60): each colour minus its smallest channel, scaled to a maximum
+           of 255 (HSV hue at full saturation and value). k = chroma (max − min channel) / 255."""
 import numpy as np
 from . import colour
 
@@ -18,7 +21,7 @@ METHODS = ("rgb-nearest", "lab-curve")
 
 class Inverter:
     def __init__(self, cb, mode="exact", method=DEFAULT, dense=2048):
-        assert mode in ("exact", "chroma") and method in METHODS
+        assert mode in ("exact", "chroma", "hue") and method in METHODS
         self.cb, self.mode, self.method = cb, mode, method
         self.px = np.linspace(0, cb.n - 1, dense) if method == "lab-curve" else np.arange(cb.n, dtype=float)
         self.px = np.unique(self.px)
@@ -40,6 +43,9 @@ class Inverter:
         if self.mode == "chroma":
             lin = colour.to_linear(rgb); k = lin.max(-1)
             rgb = colour.from_linear(lin / np.maximum(k, 1e-6)[..., None])
+        elif self.mode == "hue":
+            c = rgb - rgb.min(-1, keepdims=True); k = c.max(-1) / 255
+            rgb = 255 * c / np.maximum(c.max(-1, keepdims=True), 1e-6)
         else:
             k = np.ones(rgb.shape[:-1])
         return (colour.rgb_to_lab(rgb) if self.method == "lab-curve" else rgb), k
