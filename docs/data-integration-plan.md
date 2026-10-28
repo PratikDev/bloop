@@ -747,3 +747,21 @@ G1 IMERG audification (an overnight background job: 12–14 h per cell-year, so 
 - **Q2. Untracked files:** may I commit `pipeline/reference/bloop_data_tests.py` (the pipeline imports it; Actions needs it) and the book, renamed to `docs/BLOOP_MASTER_BUILD_BOOK.md`? (`IDEA LIST.MD` and `package-lock.json` stay untouched.)
 - **Q3. Pushing:** may I push `feat/data-all` to `origin` at the checkpoints (for a Vercel preview and to smoke-test workflows with a `push` trigger)? I won't push without a yes, and I never touch `main`.
 - **Q4.** Do you agree with the daily air backfill instead of hourly commits (§12.3)?
+
+---
+
+## 14. Official resources toolkit (`pipeline/svs/`, `feat/official-resources`): libraries and licences
+
+Checked 29 Oct 2026. Nothing new is installed; everything below was already in `pipeline/requirements.txt` or the standard library.
+
+| Library / data | Used for | Licence |
+|---|---|---|
+| OpenCV (`opencv-python`) | Farnebäck optical flow, morphology, connected components, resizing | OpenCV ≥ 4.5: Apache 2.0; the `opencv-python` wheels: MIT |
+| NumPy, SciPy | LoG blobs, isotonic regression (opacity ramps), statistics | BSD-3-Clause |
+| Pillow | PNG/TIF decoding, including PNG prefixes | MIT-CMU (HPND) |
+| xarray, netCDF4, h5netcdf, earthaccess, requests | MUR25, OSCAR, GEOS-CF (OPeNDAP) and SVS access | Apache 2.0 (xarray, requests); MIT (netCDF4, earthaccess); BSD-3 (h5netcdf) |
+| matplotlib | test colormaps only (synthetic colorbars) | matplotlib licence (PSF-based, BSD-compatible) |
+| Natural Earth 1:50m land (data) | coastline IoU for georeferencing; cached in `data_raw/ref/`, never committed | Public domain |
+| System fonts (Arial, Verdana, Tahoma, Segoe UI, Calibri) | rendered at runtime as glyph templates for the built-in OCR; never redistributed | Used locally only |
+
+**Not used in this pass**, so no licence question yet: Tesseract (no binary installed; the built-in glyph OCR read all 24 colorbar labels of 5518 and 3912), scikit-image (LoG via SciPy instead), librosa/pYIN and ffmpeg (needed for 13786 and 5011, later steps). Before either is installed: Tesseract is Apache 2.0; librosa is ISC; ffmpeg is LGPL 2.1+ (GPL if built with GPL components); I'll record the exact build when it is added.

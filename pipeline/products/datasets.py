@@ -27,6 +27,9 @@ SVS5176 = Dataset("svs5176", "EIC frame: SVS 5176 SST anomaly (from MUR)", "NASA
 SVS5315 = Dataset("svs5315", "EIC frame: SVS 5315 Fire Weather Index, 1-day forecast (NASA GISS GlobalFWI)", "NASA", "model")
 SVS5584 = Dataset("svs5584", "EIC frame: SVS 5584 landslide exposure (LHASA)", "NASA", "model")
 SVS5113 = Dataset("svs5113", "EIC frame: SVS 5113 VIIRS active fires", "NASA", "measurement", ("firms",))
+# Official Challenge #14 resources (pipeline/svs): archive animations of models
+SVS5533 = Dataset("svs5533", "EIC frames: SVS 5533 / 5518 Air Quality Model Runs", "NASA", "model", ("geoscf",))
+SVS3912 = Dataset("svs3912", "EIC frames: SVS 3912 Global Sea Surface Currents and Temperature", "NASA", "model", ("ecco2",))
 
 # NASA source files and services
 MUR = Dataset("mur", "MUR SST v4.1 (NASA/JPL PO.DAAC)", "NASA", "measurement")
@@ -43,6 +46,8 @@ GPCP = Dataset("gpcp", "GPCP v2.3 (via NOAA PSL)", "NASA", "measurement")
 GPCC = Dataset("gpcc", "GPCC full v2020 rain gauges (DWD, via NOAA PSL)", "other", "measurement")
 MODIS_NDVI = Dataset("mod13q1", "MODIS MOD13Q1 NDVI (ORNL DAAC)", "NASA", "measurement")
 GLOBE = Dataset("globe", "NASA GLOBE Program cloud observations", "ground", "measurement")
+GEOSCF = Dataset("geoscf", "NASA GEOS-CF composition model (GMAO)", "NASA", "model")
+ECCO2 = Dataset("ecco2", "ECCO2 ocean model (MIT/JPL)", "NASA", "model")
 
 # Partner / other agencies
 CRW = Dataset("crw", "NOAA Coral Reef Watch SST anomaly and Degree Heating Weeks (5 km)", "NOAA", "measurement")

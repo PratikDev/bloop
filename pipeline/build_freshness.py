@@ -1,8 +1,8 @@
 """public/data/meta/freshness.json: for every product in products/registry.py its newest source time, age at build
 time, freshness limit, status, badges, credit and output sizes. The app's data-age badge, source badges and credits
 drawer read this one file (the app recomputes the age from source_time_utc at view time).
-Usage: python build_freshness.py"""
-import json
+Usage: python build_freshness.py [--only=id1,id2]   (--only updates just those entries, keeping the others as built)"""
+import json, sys
 from datetime import datetime, timezone
 from common import PUBLIC, now_utc, write_json
 from products.registry import PRODUCTS
@@ -45,7 +45,9 @@ def entry(p, now):
 
 def main():
     now = datetime.now(timezone.utc)
-    products = {pid: entry(p, now) for pid, p in PRODUCTS.items()}
+    only = next((a.split("=", 1)[1].split(",") for a in sys.argv if a.startswith("--only=")), None)
+    old = json.load(open(PUBLIC / "meta" / "freshness.json", encoding="utf-8"))["products"] if only else {}
+    products = {pid: (entry(p, now) if not only or pid in only else old[pid]) for pid, p in PRODUCTS.items() if not only or pid in only or pid in old}
     write_json(PUBLIC / "meta" / "freshness.json", {"generated_utc": now_utc(), "products": products})
     for e in products.values():
         print(f"  {e['product']:16} {e['status']:9} age {e['age_days']} d (limit {e['limit_days']})")

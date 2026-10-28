@@ -108,6 +108,17 @@ _ALL = [
             credit="NASA Black Marble VJ146A2 (NOAA-20 VIIRS), NASA LAADS DAAC.",
             disclosure="Median of {win}×{win} pixels around each city. Cloudy nights are flagged, not filled: clouds, not blackouts.",
             limit_days=14),
+
+    # ---- official Challenge #14 resources (pipeline/svs; archive records: a period, never an age) ----
+    Product("air_5533", "Air (model, Jul–Sep 2024)", ("official/air_5533/manifest.json",), "static", "frame-paired",
+            (D.SVS5533, D.GEOSCF), credit=SVS_CREDIT.format(id="5533, 5518") + " Data: NASA GEOS-CF (GMAO), model output.",
+            disclosure="Values read from the EIC frames' colours with each species' colorbar: a model run, not measurements.",
+            period_keys=("period.start", "period.end"), time_key="period.end"),
+    Product("currents_3912", "Currents & SST (model, 2007–08)", ("official/currents_3912/manifest.json",), "static", "frame-paired",
+            (D.SVS3912, D.ECCO2), credit=SVS_CREDIT.format(id=3912) + " Data: ECCO2 ocean model (MIT/JPL).",
+            disclosure="Temperature read from the streak colours; motion from how the drawn streaks move (pattern drift, not "
+                       "water speed). A model, not measurements.",
+            period_keys=("period.start", "period.end"), time_key="period.end"),
 ]
 
 PRODUCTS = {p.id: p for p in _ALL}
