@@ -1,0 +1,114 @@
+{
+  "high": {
+    "fps": 139.74845277500938,
+    "before": {
+      "lat": 15,
+      "lon": 88,
+      "cell": 218874,
+      "value": 29.593000000000004,
+      "hz": 382.11410785688247,
+      "axisMin": 28,
+      "axisMax": 32,
+      "warmest": {
+        "lat": 13.53515625,
+        "lon": 98.61328125,
+        "valueC": 31.287999999999997,
+        "cell": 223000
+      },
+      "regionMax": 31.287999999999997,
+      "found": false,
+      "hunting": false,
+      "vsNormal": false,
+      "anomaly": 0.362,
+      "normalHz": 262.926680510012,
+      "clarity": "noLook",
+      "echoSec": 2.4
+    },
+    "afterWalk": {
+      "lat": 16.20368000001907,
+      "lon": 88,
+      "cell": 214778,
+      "value": 29.418,
+      "hz": 359.6275445348445,
+      "axisMin": 28,
+      "axisMax": 32,
+      "warmest": {
+        "lat": 13.53515625,
+        "lon": 98.61328125,
+        "valueC": 31.287999999999997,
+        "cell": 223000
+      },
+      "regionMax": 31.287999999999997,
+      "found": false,
+      "hunting": false,
+      "vsNormal": true,
+      "anomaly": 0.598,
+      "normalHz": 273.90214173224894,
+      "clarity": "noLook",
+      "echoSec": 2.4
+    },
+    "spoken": [
+      "+0.6 °C vs normal",
+      "+0.6 °C vs normal",
+      "+0.6 degrees from normal at 16.2° N, 88.0° E. Zoomed axis: 28–32 °C."
+    ],
+    "backOnTurntable": true,
+    "errors": []
+  },
+  "low-reduced": {
+    "fps": 143.9348818775379,
+    "before": {
+      "lat": 15,
+      "lon": 88,
+      "cell": 218874,
+      "value": 29.593000000000004,
+      "hz": 382.11410785688247,
+      "axisMin": 28,
+      "axisMax": 32,
+      "warmest": {
+        "lat": 13.53515625,
+        "lon": 98.61328125,
+        "valueC": 31.287999999999997,
+        "cell": 223000
+      },
+      "regionMax": 31.287999999999997,
+      "found": false,
+      "hunting": false,
+      "vsNormal": false,
+      "anomaly": 0.362,
+      "normalHz": 262.926680510012,
+      "clarity": "noLook",
+      "echoSec": 2.4
+    },
+    "afterWalk": {
+      "lat": 16.210719999980878,
+      "lon": 88,
+      "cell": 214778,
+      "value": 29.418,
+      "hz": 359.6275445348445,
+      "axisMin": 28,
+      "axisMax": 32,
+      "warmest": {
+        "lat": 13.53515625,
+        "lon": 98.61328125,
+        "valueC": 31.287999999999997,
+        "cell": 223000
+      },
+      "regionMax": 31.287999999999997,
+      "found": false,
+      "hunting": false,
+      "vsNormal": true,
+      "anomaly": 0.598,
+      "normalHz": 273.90214173224894,
+      "clarity": "noLook",
+      "echoSec": 2.4
+    },
+    "spoken": [
+      "+0.6 °C vs normal",
+      "+0.6 °C vs normal",
+      "+0.6 degrees from normal at 16.2° N, 88.0° E. Zoomed axis: 28–32 °C."
+    ],
+    "backOnTurntable": true,
+    "errors": []
+  }
+}
