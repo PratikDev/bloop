@@ -2,7 +2,7 @@
 // src/components/Turntable/strings-bn.ts (Turntable only; bn.ts stays empty).
 
 import type { CompassPoint } from "@/lib/geo/spherical";
-import { formatInteger } from "../format";
+import { formatFixed, formatInteger } from "../format";
 
 const COMPASS_WORDS: Record<CompassPoint, string> = {
   N: "north",
@@ -38,6 +38,7 @@ export const turntableEn = {
   "turntable.record.disasters": "Disasters",
   "turntable.record.agriculture": "Agriculture",
   "turntable.record.water": "Water and groundwater",
+  "turntable.record.ghg": "Greenhouse gases",
   "turntable.comingNext": "Coming next",
   "turntable.sleeve.details": "Details",
   "turntable.sleeve.cover": "Cover",
@@ -48,14 +49,10 @@ export const turntableEn = {
   // Record labels: every value comes from sst.json / rain.json; "—" when a field is missing.
   "turntable.missing": "—",
   "turntable.frameTime": (p: { datetime: string }) => `Frame: ${p.datetime} UTC`,
-  "turntable.age": (p: { days: number | null }) =>
-    p.days === null
-      ? "Latest available: —"
-      : p.days < 1
-        ? "Latest available: less than a day old"
-        : `Latest available: ${formatInteger(p.days, "en")} ${p.days === 1 ? "day" : "days"} old`,
   "turntable.error": (p: { text: string }) => `Measured error: ${p.text}`,
   "turntable.error.rain": (p: { percent: number }) => `typically within ~${formatInteger(p.percent, "en")}% (pending team approval)`,
+  "turntable.error.ocean": (p: { median: number; n: number }) =>
+    `median ${formatFixed(p.median, "en", 2)} °C against NASA MUR (${formatInteger(p.n, "en")} points, latest frame)`,
 
   "turntable.turn": "Turn",
   "turntable.stopTurning": "Stop turning",

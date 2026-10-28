@@ -4,15 +4,16 @@
 
 import type { TrackMode, VoiceId } from "@/lib/audio-adapter/types";
 import type { LiveFields } from "@/lib/data";
+import { voiceSpec } from "@/lib/audio/mapping";
 import type { BoundT, MessageKey } from "@/lib/i18n";
-import { rainTruth } from "@/lib/truth";
+import { oceanTruth, rainTruth } from "@/lib/truth";
 import { datasetName } from "@/lib/whisper";
 import type { RainMetadata, SstMetadata } from "@/types/data-contract";
 
 export const LIVE_RECORDS = ["ocean", "rain", "both"] as const satisfies readonly TrackMode[];
 
 /** EIC areas without a record yet: shown, locked, with no data and no sound. */
-export const COMING_RECORDS = ["air", "forests", "fire", "energy", "seaLevel", "disasters", "agriculture", "water"] as const;
+export const COMING_RECORDS = ["air", "forests", "fire", "energy", "seaLevel", "disasters", "agriculture", "water", "ghg"] as const;
 export type ComingRecord = (typeof COMING_RECORDS)[number];
 
 /** The legend a record's range bar uses (its frame's own range). */
@@ -34,11 +35,36 @@ export interface RecordPlugin {
   image: string;
 }
 
+/** One named place a place record plays (a pipeline file's point or series value). */
+export interface PlacePin {
+  id: string;
+  lat: number;
+  lon: number;
+  label: string;
+  value: number | null; // null = no measurement there → the neutral no-data texture
+}
+
+/**
+ * §15: a record built from named places (point series, e.g. SWOT reaches, night-light cities)
+ * instead of a global grid. Its pins sit on the globe; the needle plays the pin it is on with
+ * the voice's mapping.json rule; off a pin is honest silence. `product` names its
+ * meta/freshness.json entry, which the sleeve back reads (datasets, badges, age, check).
+ */
+export interface PlaceRecordPlugin {
+  kind: "place";
+  load(): Promise<PlacePin[]>;
+  voice: string; // a mapping.json voice id
+  legend: RecordLegend;
+  product: string;
+}
+
+export type AnyRecordPlugin = (RecordPlugin & { kind?: "grid" }) | PlaceRecordPlugin;
+
 /**
  * TODO(turntable: more records): one live record per EIC area. Each entry stays
- * null until L1 publishes the grid + metadata and L2 adds the voice to mapping.json.
+ * null until L1 publishes the grid (or the place file) + metadata and L2 adds the voice to mapping.json.
  */
-export const RECORD_PLUGINS: Record<ComingRecord, RecordPlugin | null> = {
+export const RECORD_PLUGINS: Record<ComingRecord, AnyRecordPlugin | null> = {
   air: null,
   forests: null,
   fire: null,
@@ -47,6 +73,7 @@ export const RECORD_PLUGINS: Record<ComingRecord, RecordPlugin | null> = {
   disasters: null,
   agriculture: null,
   water: null,
+  ghg: null,
 };
 
 export const RECORD_LABELS = {
@@ -61,6 +88,7 @@ export const RECORD_LABELS = {
   disasters: "turntable.record.disasters",
   agriculture: "turntable.record.agriculture",
   water: "turntable.record.water",
+  ghg: "turntable.record.ghg",
 } as const satisfies Record<TrackMode | ComingRecord, MessageKey>;
 
 export function stepRecord(track: TrackMode, step: 1 | -1): TrackMode {
@@ -84,19 +112,19 @@ export function recordFrames(track: TrackMode, fields: LiveFields | null): Recor
   return frames;
 }
 
-const DAY_MS = 86_400_000;
-
-/** Whole days since the frame time; null if the time doesn't parse. */
-export function frameAgeDays(frameTimeUtc: string, now: number): number | null {
-  const time = Date.parse(frameTimeUtc);
-  return Number.isNaN(time) ? null : Math.floor((now - time) / DAY_MS);
-}
-
 /** The measured error as the Truth panel shows it: ocean has no number until its re-check (contract-proposals §A1). */
 export function measuredError(t: BoundT, frame: RecordFrame): string {
-  if (frame.product === "ocean") return t("truth.ocean.updating");
+  if (frame.product === "ocean") {
+    const truth = oceanTruth(frame.meta);
+    return truth ? t("turntable.error.ocean", truth) : t("truth.ocean.updating");
+  }
   const percent = rainTruth(frame.meta).percent;
   return Number.isFinite(percent) ? t("turntable.error.rain", { percent }) : t("turntable.missing");
+}
+
+/** The meta/freshness.json product a frame belongs to (its voice's source.product in mapping.json). */
+export function frameProduct(frame: RecordFrame): string | undefined {
+  return voiceSpec(frame.product).source.product;
 }
 
 /** The dataset name and SVS ID, as the metadata gives them. */

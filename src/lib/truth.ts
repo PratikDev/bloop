@@ -1,7 +1,22 @@
-// Truth panel numbers, taken from rain.json (docs/L3/contract-proposals.md §A2).
+// Truth panel numbers, taken from rain.json (docs/L3/contract-proposals.md §A2) and
+// sst.json's latest_check (written by verify_latest.py on a frame other than the calibration one).
 // The sentence names the IMERG run that was actually checked.
 
-import type { RainMetadata } from "@/types/data-contract";
+import type { RainMetadata, SstMetadata } from "@/types/data-contract";
+
+export interface OceanTruth {
+  median: number; // °C
+  n: number;
+  date: string; // the MUR day the frame was checked against
+  checkedUtc: string;
+  pass: boolean;
+}
+
+/** The ocean check on today's frame; null until verify_latest.py has run for it. */
+export function oceanTruth(meta: SstMetadata): OceanTruth | null {
+  const c = meta.latest_check;
+  return c ? { median: c.median_abs, n: c.n, date: c.date, checkedUtc: c.checked_utc, pass: c.pass } : null;
+}
 
 export interface RainTruth {
   run: string; // "Early" | "Late"

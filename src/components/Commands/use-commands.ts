@@ -60,6 +60,8 @@ export interface Commands {
   startSweep(): PlayerHandle | null;
   playLegend(): void;
   playMotif(): void;
+  /** U: proof in unison (C1) at the checked point nearest the cursor (or the turntable's needle). */
+  playUnison(): void;
   xray(): void;
   openPanel(panel: PanelTab): void;
   openHelp(): void;

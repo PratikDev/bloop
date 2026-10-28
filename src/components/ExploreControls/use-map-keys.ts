@@ -63,6 +63,8 @@ export function letterAction(c: Commands, key: string): (() => void) | null {
       return () => c.openPanel("provenance");
     case "x":
       return c.xray;
+    case "u":
+      return c.playUnison;
     case "h":
     case "?":
       return c.openHelp;

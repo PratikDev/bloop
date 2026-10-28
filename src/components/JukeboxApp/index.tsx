@@ -16,6 +16,7 @@ import { TimeLapseProvider } from "../TimeLapse";
 import { useTimeLapse } from "../TimeLapse/use-time-lapse";
 import { TopBar } from "../TopBar";
 import dynamic from "next/dynamic";
+import { useRecordedTexture } from "@/hooks/use-recorded-texture";
 import { cn } from "@/lib/utils";
 import { Stage } from "./Stage";
 
@@ -29,6 +30,7 @@ function Shell() {
   const commands = useCommands();
   const timeLapse = useTimeLapse();
   useGlobalEscape(commands, timeLapse.stop);
+  useRecordedTexture();
   const turntable = state.mode === "turntable";
 
   return (
