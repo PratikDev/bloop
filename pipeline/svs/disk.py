@@ -23,11 +23,16 @@ def record(force=False):
         if not force and time.time() - _cached[0] < 5: return _cached[1]
         cur = usage()
         _cached = (time.time(), cur)
-        peak = json.loads(PEAK_FILE.read_text()) if PEAK_FILE.exists() else {"peak_bytes": 0}
-        if cur > peak["peak_bytes"]:
+        try:                                   # several jobs share this file: a half-written read keeps the old peak
+            peak = json.loads(PEAK_FILE.read_text()) if PEAK_FILE.exists() else {"peak_bytes": 0}
+        except (json.JSONDecodeError, OSError):
+            peak = {"peak_bytes": 0}
+        if cur > peak.get("peak_bytes", 0):
             peak = {"peak_bytes": cur, "peak_utc": now_utc()}
         peak.update(current_bytes=cur, checked_utc=now_utc(), cap_bytes=RAW_CAP_BYTES)
-        PEAK_FILE.write_text(json.dumps(peak, indent=1))
+        tmp = PEAK_FILE.with_suffix(f".{os.getpid()}.tmp")
+        tmp.write_text(json.dumps(peak, indent=1))
+        os.replace(tmp, PEAK_FILE)               # atomic: readers see the old or the new file, never half
         return cur
 
 def wait_for_room(need_bytes, poll_s=20, timeout_s=6 * 3600):

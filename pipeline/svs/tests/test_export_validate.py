@@ -11,6 +11,12 @@ class Export(unittest.TestCase):
             self.assertTrue(np.isnan(back[0, 2]) and q[0, 2] == export.NODATA)
             np.testing.assert_allclose(back[np.isfinite(v)], v[np.isfinite(v)], rtol=1e-4 if enc == "log10" else 0, atol=0 if enc == "log10" else 0.01)
 
+    def test_quantise_step(self):
+        v = np.linspace(0, 30, 1000)
+        q, scale, off = export.quantise(v, step=0.01)
+        self.assertAlmostEqual(scale, 0.01)
+        self.assertLessEqual(np.abs(export.dequantise(q, scale, off) - v).max(), 0.005 + 1e-9)
+
     def test_block_and_time_mean(self):
         c = np.arange(16, dtype=float).reshape(1, 4, 4); c[0, 0, 0] = np.nan
         b = export.block_mean(c, 2)

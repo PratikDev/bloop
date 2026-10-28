@@ -2,23 +2,27 @@
   manifest.json — provenance, period, badge, credits, frame times, georef, colorbars, layers, validation, checksums;
   <layer>_<k>.u16.gz — time chunks, each T×H×W little-endian uint16 (row 0 = north edge of the layer's bounds,
                        col 0 = west edge), gzip; value = q·scale + offset (encoding "linear") or 10^(q·scale + offset)
-                       ("log10"); q = 65535 is no data.
-A record stays ≤ RECORD_BUDGET_BYTES: fit() picks the first (space, time) reduction that fits and the manifest says so."""
+                       ("log10"); q = 65535 is no data; q = 65534 is below the colorbar's range (censored: the value is
+                       under the layer's below_range_bound, not unknown).
+A record stays ≤ RECORD_BUDGET_BYTES: fit() picks the first (space, time) reduction that fits and the manifest says so.
+Quantisation step: given, it is tied to what the decode can resolve (one tenth of a colorbar pixel), so no information
+is lost and the chunks compress far better than 65534 levels of noise; otherwise the data range over 65533 levels."""
 import gzip, io, json, subprocess
 import numpy as np
 from common import now_utc
 from core.log import say
 from .config import PUBLIC_OFFICIAL, RECORD_BUDGET_BYTES, REPO
 
-NODATA = 65535
+NODATA, BELOW = 65535, 65534
 
-def quantise(values, encoding="linear", vmin=None, vmax=None):
-    """float array (NaN = no data) → (uint16, scale, offset). Range from the data unless given."""
+def quantise(values, encoding="linear", vmin=None, vmax=None, step=None):
+    """float array (NaN = no data) → (uint16, scale, offset). Range from the data unless given; step (in encoded units:
+    value units, or decades for log10) sets the resolution when the range allows it."""
     v = np.asarray(values, np.float64)
     x = np.log10(np.where(v > 0, v, np.nan)) if encoding == "log10" else v
     lo = np.nanmin(x) if vmin is None else (np.log10(vmin) if encoding == "log10" else vmin)
     hi = np.nanmax(x) if vmax is None else (np.log10(vmax) if encoding == "log10" else vmax)
-    scale = max((hi - lo) / 65534.0, 1e-12)
+    scale = max((hi - lo) / 65533.0, step or 0.0, 1e-12)
     q = np.round((np.clip(x, lo, hi) - lo) / scale)
     q = np.where(np.isfinite(x), q, NODATA).astype("<u2")
     return q, float(scale), float(lo)
@@ -26,7 +30,7 @@ def quantise(values, encoding="linear", vmin=None, vmax=None):
 def dequantise(q, scale, offset, encoding="linear"):
     x = q.astype(np.float64) * scale + offset
     v = 10 ** x if encoding == "log10" else x
-    return np.where(q == NODATA, np.nan, v)
+    return np.where(q >= BELOW, np.nan, v)
 
 def gz(arr):
     buf = io.BytesIO()
@@ -51,11 +55,13 @@ def time_mean(cube, f):
         cnt = np.isfinite(b).sum(1)
         return np.where(cnt > 0, np.nansum(b, 1) / np.maximum(cnt, 1), np.nan)
 
-def layer(record, lid, cube, times, bounds, unit, encoding="linear", chunk_t=32, vmin=None, vmax=None, **meta):
-    """Write one layer's chunks; returns its manifest entry. cube: (T, H, W) float, NaN = no data."""
+def layer(record, lid, cube, times, bounds, unit, encoding="linear", chunk_t=32, vmin=None, vmax=None, below=None, step=None, **meta):
+    """Write one layer's chunks; returns its manifest entry. cube: (T, H, W) float, NaN = no data; below: bool cube of
+    censored cells (written as BELOW)."""
     out = PUBLIC_OFFICIAL / record
     out.mkdir(parents=True, exist_ok=True)
-    q, scale, offset = quantise(cube, encoding, vmin, vmax)
+    q, scale, offset = quantise(cube, encoding, vmin, vmax, step)
+    if below is not None: q[below] = BELOW
     T, H, W = q.shape
     chunks = []
     for k, t0 in enumerate(range(0, T, chunk_t)):
@@ -64,10 +70,10 @@ def layer(record, lid, cube, times, bounds, unit, encoding="linear", chunk_t=32,
         (out / name).write_bytes(data)
         chunks.append({"file": name, "t0": t0, "t1": min(T, t0 + chunk_t), "bytes": len(data)})
     finite = np.isfinite(cube)
-    return {"id": lid, "unit": unit, "encoding": encoding, "scale": scale, "offset": offset, "nodata": NODATA,
+    return {"id": lid, "unit": unit, "encoding": encoding, "scale": scale, "offset": offset, "nodata": NODATA, "below": BELOW,
             "grid": {"width": W, "height": H, "bounds": list(bounds), "row0": "north", "col0": "west", "byte_order": "little"},
             "times": [t if isinstance(t, str) else t.strftime("%Y-%m-%dT%H:%M:%SZ") for t in times], "chunks": chunks,
-            "coverage": float(finite.mean()), "value_range": [float(np.nanmin(cube)), float(np.nanmax(cube))] if finite.any() else None,
+            "quantisation_step": scale, "coverage": float(finite.mean()), "value_range": [float(np.nanmin(cube)), float(np.nanmax(cube))] if finite.any() else None,
             **meta}
 
 def fit(estimate, options):
