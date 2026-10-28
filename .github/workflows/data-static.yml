@@ -1,0 +1,19 @@
+# Static baselines (GEDI, CMS, ICESat-2, GPW, LIS/OTD, cold wakes, OPERA Aug 2024, wells, PSMSL, NEX-GDDP, …): by hand only.
+name: data-static
+
+on:
+  workflow_dispatch:
+
+concurrency:
+  group: data-refresh
+  cancel-in-progress: false
+
+jobs:
+  static:
+    permissions:
+      contents: write
+      issues: write
+    uses: ./.github/workflows/data-run.yml
+    with:
+      cadence: static
+    secrets: inherit
