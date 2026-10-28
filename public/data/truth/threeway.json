@@ -1,0 +1,770 @@
+{
+  "product": "threeway",
+  "title": "Three readings of one ocean",
+  "pairing": "frame-paired",
+  "datasets": [
+    {
+      "id": "svs5101",
+      "name": "EIC frame: SVS 5101 sea surface temperature (from MUR)",
+      "agency": "NASA",
+      "kind": "measurement",
+      "shares_inputs_with": [
+        "mur"
+      ]
+    },
+    {
+      "id": "gibs_mur",
+      "name": "GIBS MUR SST layer, colormap sourceValue (NASA EOSDIS)",
+      "agency": "NASA",
+      "kind": "measurement",
+      "shares_inputs_with": [
+        "mur"
+      ]
+    },
+    {
+      "id": "mur",
+      "name": "MUR SST v4.1 (NASA/JPL PO.DAAC)",
+      "agency": "NASA",
+      "kind": "measurement",
+      "shares_inputs_with": []
+    }
+  ],
+  "credit": "Data: MUR SST (NASA/JPL PO.DAAC); GIBS (NASA EOSDIS). Visualization: NASA's Scientific Visualization Studio (SVS 5101) for the NASA Earth Information Center.",
+  "disclosure": "The EIC picture, NASA's GIBS map layer and the MUR file, read at the same points. GIBS and the picture are both drawn from MUR, so this checks the decoding, not the ocean.",
+  "source_time_utc": "2026-10-27T00:00:00Z",
+  "generated_utc": "2026-10-28T14:07:37Z",
+  "units": "°C",
+  "mur_date": "2026-10-27",
+  "gibs_layer": "GHRSST_L4_MUR_Sea_Surface_Temperature",
+  "gibs_colormap": "https://gibs.earthdata.nasa.gov/colormaps/v1.3/GHRSST_Sea_Surface_Temperature.xml",
+  "gibs_bin_widths": [
+    0.15,
+    0.2
+  ],
+  "gibs_range": [
+    0.0,
+    32.0
+  ],
+  "gibs_decode_share": 1.0,
+  "summary": {
+    "n": 60,
+    "n_gibs": 55,
+    "n_beyond_gibs_range": 2,
+    "median_abs_frame_vs_file": 0.279,
+    "median_abs_gibs_vs_file": 0.066,
+    "median_abs_frame_vs_gibs": 0.319
+  },
+  "points": [
+    {
+      "lat": 19.116,
+      "lon": -137.241,
+      "frame": 25.83264923095703,
+      "file": 26.348000000000013,
+      "gibs": 26.325,
+      "gibs_bin": [
+        26.25,
+        26.4
+      ],
+      "gibs_beyond": null
+    },
+    {
+      "lat": 33.794,
+      "lon": -124.409,
+      "frame": 18.382280349731445,
+      "file": 17.86099999999999,
+      "gibs": 17.775,
+      "gibs_bin": [
+        17.7,
+        17.85
+      ],
+      "gibs_beyond": null
+    },
+    {
+      "lat": -28.608,
+      "lon": 92.505,
+      "frame": 19.753896713256836,
+      "file": 19.529999999999973,
+      "gibs": 19.425,
+      "gibs_bin": [
+        19.35,
+        19.5
+      ],
+      "gibs_beyond": null
+    },
+    {
+      "lat": -20.522,
+      "lon": -118.257,
+      "frame": 25.988515853881836,
+      "file": 26.146000000000015,
+      "gibs": 26.025,
+      "gibs_bin": [
+        25.95,
+        26.1
+      ],
+      "gibs_beyond": null
+    },
+    {
+      "lat": -24.038,
+      "lon": -178.022,
+      "frame": 22.995899200439453,
+      "file": 22.716000000000008,
+      "gibs": 22.575,
+      "gibs_bin": [
+        22.5,
+        22.65
+      ],
+      "gibs_beyond": null
+    },
+    {
+      "lat": 35.024,
+      "lon": 175.386,
+      "frame": 23.65053367614746,
+      "file": 23.209000000000003,
+      "gibs": 23.175,
+      "gibs_bin": [
+        23.1,
+        23.25
+      ],
+      "gibs_beyond": null
+    },
+    {
+      "lat": -38.013,
+      "lon": -16.04,
+      "frame": 12.584085464477539,
+      "file": 13.201999999999998,
+      "gibs": 13.275,
+      "gibs_bin": [
+        13.2,
+        13.35
+      ],
+      "gibs_beyond": null
+    },
+    {
+      "lat": 36.343,
+      "lon": -177.583,
+      "frame": 22.403610229492188,
+      "file": 22.000999999999976,
+      "gibs": 21.975,
+      "gibs_bin": [
+        21.9,
+        22.05
+      ],
+      "gibs_beyond": null
+    },
+    {
+      "lat": -21.577,
+      "lon": 100.151,
+      "frame": 24.429861068725586,
+      "file": 23.81400000000002,
+      "gibs": 23.775,
+      "gibs_bin": [
+        23.7,
+        23.85
+      ],
+      "gibs_beyond": null
+    },
+    {
+      "lat": -5.405,
+      "lon": 117.729,
+      "frame": 28.79409408569336,
+      "file": 28.786,
+      "gibs": 28.875,
+      "gibs_bin": [
+        28.8,
+        28.95
+      ],
+      "gibs_beyond": null
+    },
+    {
+      "lat": -59.546,
+      "lon": 15.425,
+      "frame": -1.4749795198440552,
+      "file": -1.7989999999999782,
+      "gibs": null,
+      "gibs_bin": null,
+      "gibs_beyond": null
+    },
+    {
+      "lat": -41.968,
+      "lon": -147.7,
+      "frame": 10.059064865112305,
+      "file": 9.908999999999992,
+      "gibs": 9.975,
+      "gibs_bin": [
+        9.9,
+        10.05
+      ],
+      "gibs_beyond": null
+    },
+    {
+      "lat": -55.503,
+      "lon": -28.872,
+      "frame": -1.4749795198440552,
+      "file": -1.8000000000000114,
+      "gibs": null,
+      "gibs_bin": null,
+      "gibs_beyond": null
+    },
+    {
+      "lat": -43.726,
+      "lon": -2.593,
+      "frame": 8.843314170837402,
+      "file": 8.481999999999971,
+      "gibs": 8.625,
+      "gibs_bin": [
+        8.55,
+        8.7
+      ],
+      "gibs_beyond": null
+    },
+    {
+      "lat": -53.745,
+      "lon": -84.683,
+      "frame": 5.694831848144531,
+      "file": 6.499000000000024,
+      "gibs": 6.525,
+      "gibs_bin": [
+        6.45,
+        6.6
+      ],
+      "gibs_beyond": null
+    },
+    {
+      "lat": 45.835,
+      "lon": -151.743,
+      "frame": 13.706316947937012,
+      "file": 14.134000000000015,
+      "gibs": 14.025,
+      "gibs_bin": [
+        13.95,
+        14.1
+      ],
+      "gibs_beyond": null
+    },
+    {
+      "lat": -53.745,
+      "lon": -127.661,
+      "frame": 7.222313404083252,
+      "file": 6.77800000000002,
+      "gibs": 6.825,
+      "gibs_bin": [
+        6.75,
+        6.9
+      ],
+      "gibs_beyond": null
+    },
+    {
+      "lat": -14.81,
+      "lon": 58.315,
+      "frame": 26.082035064697266,
+      "file": 26.137,
+      "gibs": 26.325,
+      "gibs_bin": [
+        26.25,
+        26.4
+      ],
+      "gibs_beyond": null
+    },
+    {
+      "lat": -58.491,
+      "lon": -72.817,
+      "frame": 4.759639263153076,
+      "file": 5.447999999999979,
+      "gibs": 5.475,
+      "gibs_bin": [
+        5.4,
+        5.55
+      ],
+      "gibs_beyond": null
+    },
+    {
+      "lat": 35.464,
+      "lon": 176.44,
+      "frame": 23.182937622070312,
+      "file": 22.694000000000017,
+      "gibs": 22.575,
+      "gibs_bin": [
+        22.5,
+        22.65
+      ],
+      "gibs_beyond": null
+    },
+    {
+      "lat": -57.173,
+      "lon": -37.397,
+      "frame": -1.0385562181472778,
+      "file": -1.4359999999999786,
+      "gibs": null,
+      "gibs_bin": [
+        null,
+        0.0
+      ],
+      "gibs_beyond": "below"
+    },
+    {
+      "lat": -29.487,
+      "lon": -79.058,
+      "frame": 18.382280349731445,
+      "file": 17.264999999999986,
+      "gibs": 17.175,
+      "gibs_bin": [
+        17.1,
+        17.25
+      ],
+      "gibs_beyond": null
+    },
+    {
+      "lat": -16.04,
+      "lon": 160.972,
+      "frame": 27.453651428222656,
+      "file": 27.524999999999977,
+      "gibs": 27.525,
+      "gibs_bin": [
+        27.45,
+        27.6
+      ],
+      "gibs_beyond": null
+    },
+    {
+      "lat": -54.888,
+      "lon": -47.329,
+      "frame": 2.016406774520874,
+      "file": 1.9560000000000173,
+      "gibs": 2.025,
+      "gibs_bin": [
+        1.95,
+        2.1
+      ],
+      "gibs_beyond": null
+    },
+    {
+      "lat": -42.407,
+      "lon": -24.302,
+      "frame": 10.059064865112305,
+      "file": 10.237000000000023,
+      "gibs": 10.275,
+      "gibs_bin": [
+        10.2,
+        10.35
+      ],
+      "gibs_beyond": null
+    },
+    {
+      "lat": -11.382,
+      "lon": -158.599,
+      "frame": 27.983592987060547,
+      "file": 27.84699999999998,
+      "gibs": 27.825,
+      "gibs_bin": [
+        27.75,
+        27.9
+      ],
+      "gibs_beyond": null
+    },
+    {
+      "lat": 11.821,
+      "lon": -127.837,
+      "frame": 28.79409408569336,
+      "file": 28.771000000000015,
+      "gibs": 28.725,
+      "gibs_bin": [
+        28.65,
+        28.8
+      ],
+      "gibs_beyond": null
+    },
+    {
+      "lat": 7.251,
+      "lon": -45.044,
+      "frame": 29.978670120239258,
+      "file": 29.880999999999972,
+      "gibs": 29.925,
+      "gibs_bin": [
+        29.85,
+        30.0
+      ],
+      "gibs_beyond": null
+    },
+    {
+      "lat": -48.384,
+      "lon": -8.657,
+      "frame": 2.1722724437713623,
+      "file": 2.113999999999976,
+      "gibs": 2.175,
+      "gibs_bin": [
+        2.1,
+        2.25
+      ],
+      "gibs_beyond": null
+    },
+    {
+      "lat": -58.228,
+      "lon": -8.569,
+      "frame": -1.4749795198440552,
+      "file": -1.8000000000000114,
+      "gibs": null,
+      "gibs_bin": null,
+      "gibs_beyond": null
+    },
+    {
+      "lat": -47.241,
+      "lon": 26.851,
+      "frame": 4.35438871383667,
+      "file": 5.0020000000000095,
+      "gibs": 5.175,
+      "gibs_bin": [
+        5.1,
+        5.25
+      ],
+      "gibs_beyond": null
+    },
+    {
+      "lat": 1.187,
+      "lon": -28.872,
+      "frame": 27.827728271484375,
+      "file": 27.812000000000012,
+      "gibs": 27.825,
+      "gibs_bin": [
+        27.75,
+        27.9
+      ],
+      "gibs_beyond": null
+    },
+    {
+      "lat": -11.47,
+      "lon": -92.593,
+      "frame": 23.276456832885742,
+      "file": 22.966000000000008,
+      "gibs": 23.025,
+      "gibs_bin": [
+        22.95,
+        23.1
+      ],
+      "gibs_beyond": null
+    },
+    {
+      "lat": -48.296,
+      "lon": -13.403,
+      "frame": 3.450369119644165,
+      "file": 4.213000000000022,
+      "gibs": 4.125,
+      "gibs_bin": [
+        4.05,
+        4.2
+      ],
+      "gibs_beyond": null
+    },
+    {
+      "lat": 6.636,
+      "lon": 99.097,
+      "frame": 29.41755485534668,
+      "file": 29.377999999999986,
+      "gibs": 29.475,
+      "gibs_bin": [
+        29.4,
+        29.55
+      ],
+      "gibs_beyond": null
+    },
+    {
+      "lat": -20.435,
+      "lon": 58.667,
+      "frame": 24.772764205932617,
+      "file": 24.49599999999998,
+      "gibs": 24.375,
+      "gibs_bin": [
+        24.3,
+        24.45
+      ],
+      "gibs_beyond": null
+    },
+    {
+      "lat": -58.579,
+      "lon": 105.864,
+      "frame": -0.00984413456171751,
+      "file": -0.2950000000000159,
+      "gibs": null,
+      "gibs_bin": [
+        null,
+        0.0
+      ],
+      "gibs_beyond": "below"
+    },
+    {
+      "lat": -33.97,
+      "lon": -98.657,
+      "frame": 16.480722427368164,
+      "file": 16.113999999999976,
+      "gibs": 16.125,
+      "gibs_bin": [
+        16.05,
+        16.2
+      ],
+      "gibs_beyond": null
+    },
+    {
+      "lat": 36.431,
+      "lon": 17.534,
+      "frame": 23.369976043701172,
+      "file": 23.091000000000008,
+      "gibs": 23.025,
+      "gibs_bin": [
+        22.95,
+        23.1
+      ],
+      "gibs_beyond": null
+    },
+    {
+      "lat": 25.005,
+      "lon": 169.497,
+      "frame": 28.295324325561523,
+      "file": 27.77600000000001,
+      "gibs": 27.975,
+      "gibs_bin": [
+        27.9,
+        28.05
+      ],
+      "gibs_beyond": null
+    },
+    {
+      "lat": -8.481,
+      "lon": 41.968,
+      "frame": 27.017227172851562,
+      "file": 27.252999999999986,
+      "gibs": 27.375,
+      "gibs_bin": [
+        27.3,
+        27.45
+      ],
+      "gibs_beyond": null
+    },
+    {
+      "lat": 20.698,
+      "lon": -176.88,
+      "frame": 27.827728271484375,
+      "file": 27.709000000000003,
+      "gibs": 27.825,
+      "gibs_bin": [
+        27.75,
+        27.9
+      ],
+      "gibs_beyond": null
+    },
+    {
+      "lat": -45.747,
+      "lon": 34.497,
+      "frame": 7.939294338226318,
+      "file": 7.709000000000003,
+      "gibs": 7.725,
+      "gibs_bin": [
+        7.65,
+        7.8
+      ],
+      "gibs_beyond": null
+    },
+    {
+      "lat": -3.647,
+      "lon": 71.06,
+      "frame": 30.196882247924805,
+      "file": 30.158999999999992,
+      "gibs": 30.075,
+      "gibs_bin": [
+        30.0,
+        30.15
+      ],
+      "gibs_beyond": null
+    },
+    {
+      "lat": 33.53,
+      "lon": 172.134,
+      "frame": 24.46103286743164,
+      "file": 23.533999999999992,
+      "gibs": 23.475,
+      "gibs_bin": [
+        23.4,
+        23.55
+      ],
+      "gibs_beyond": null
+    },
+    {
+      "lat": -10.063,
+      "lon": -159.478,
+      "frame": 28.544708251953125,
+      "file": 28.37299999999999,
+      "gibs": 28.425,
+      "gibs_bin": [
+        28.35,
+        28.5
+      ],
+      "gibs_beyond": null
+    },
+    {
+      "lat": -41.089,
+      "lon": 59.897,
+      "frame": 14.17391300201416,
+      "file": 14.668000000000006,
+      "gibs": 14.625,
+      "gibs_bin": [
+        14.55,
+        14.7
+      ],
+      "gibs_beyond": null
+    },
+    {
+      "lat": -58.315,
+      "lon": 160.796,
+      "frame": 2.4528300762176514,
+      "file": 1.886000000000024,
+      "gibs": 2.025,
+      "gibs_bin": [
+        1.95,
+        2.1
+      ],
+      "gibs_beyond": null
+    },
+    {
+      "lat": 54.536,
+      "lon": 148.931,
+      "frame": 4.19852352142334,
+      "file": 5.014999999999986,
+      "gibs": 5.025,
+      "gibs_bin": [
+        4.95,
+        5.1
+      ],
+      "gibs_beyond": null
+    },
+    {
+      "lat": -15.425,
+      "lon": -147.349,
+      "frame": 26.67432403564453,
+      "file": 26.596000000000004,
+      "gibs": 26.625,
+      "gibs_bin": [
+        26.55,
+        26.7
+      ],
+      "gibs_beyond": null
+    },
+    {
+      "lat": 4.79,
+      "lon": -106.304,
+      "frame": 29.41755485534668,
+      "file": 29.122000000000014,
+      "gibs": 29.175,
+      "gibs_bin": [
+        29.1,
+        29.25
+      ],
+      "gibs_beyond": null
+    },
+    {
+      "lat": -50.054,
+      "lon": -123.003,
+      "frame": 7.752255916595459,
+      "file": 7.488999999999976,
+      "gibs": 7.575,
+      "gibs_bin": [
+        7.5,
+        7.65
+      ],
+      "gibs_beyond": null
+    },
+    {
+      "lat": -8.306,
+      "lon": -148.315,
+      "frame": 29.853979110717773,
+      "file": 29.81099999999998,
+      "gibs": 29.775,
+      "gibs_bin": [
+        29.7,
+        29.85
+      ],
+      "gibs_beyond": null
+    },
+    {
+      "lat": -34.761,
+      "lon": 165.103,
+      "frame": 18.07054901123047,
+      "file": 17.680000000000007,
+      "gibs": 17.625,
+      "gibs_bin": [
+        17.55,
+        17.7
+      ],
+      "gibs_beyond": null
+    },
+    {
+      "lat": -20.259,
+      "lon": 35.991,
+      "frame": 26.67432403564453,
+      "file": 26.74599999999998,
+      "gibs": 26.775,
+      "gibs_bin": [
+        26.7,
+        26.85
+      ],
+      "gibs_beyond": null
+    },
+    {
+      "lat": 35.64,
+      "lon": 20.962,
+      "frame": 22.434782028198242,
+      "file": 21.954999999999984,
+      "gibs": 21.825,
+      "gibs_bin": [
+        21.75,
+        21.9
+      ],
+      "gibs_beyond": null
+    },
+    {
+      "lat": 36.255,
+      "lon": 124.497,
+      "frame": 20.034454345703125,
+      "file": 19.500999999999976,
+      "gibs": 19.425,
+      "gibs_bin": [
+        19.35,
+        19.5
+      ],
+      "gibs_beyond": null
+    },
+    {
+      "lat": -15.513,
+      "lon": 122.388,
+      "frame": 27.890073776245117,
+      "file": 28.108000000000004,
+      "gibs": 27.825,
+      "gibs_bin": [
+        27.75,
+        27.9
+      ],
+      "gibs_beyond": null
+    },
+    {
+      "lat": 15.688,
+      "lon": -41.704,
+      "frame": 28.544708251953125,
+      "file": 28.649999999999977,
+      "gibs": 28.725,
+      "gibs_bin": [
+        28.65,
+        28.8
+      ],
+      "gibs_beyond": null
+    },
+    {
+      "lat": -44.341,
+      "lon": 120.454,
+      "frame": 9.684988021850586,
+      "file": 9.913999999999987,
+      "gibs": 9.825,
+      "gibs_bin": [
+        9.75,
+        9.9
+      ],
+      "gibs_beyond": null
+    }
+  ]
+}

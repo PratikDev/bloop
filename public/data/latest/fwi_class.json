@@ -1,0 +1,119 @@
+{
+  "product": "fwi_class",
+  "title": "Tomorrow's fire weather (EIC frame)",
+  "pairing": "frame-paired",
+  "datasets": [
+    {
+      "id": "svs5315",
+      "name": "EIC frame: SVS 5315 Fire Weather Index, 1-day forecast (NASA GISS GlobalFWI)",
+      "agency": "NASA",
+      "kind": "model",
+      "shares_inputs_with": []
+    }
+  ],
+  "credit": "Visualization: NASA's Scientific Visualization Studio (SVS 5315) for the NASA Earth Information Center. Data: NASA GISS GlobalFWI (experimental).",
+  "disclosure": "An experimental 1-day forecast (a model), decoded from the picture's six legend classes.",
+  "source_time_utc": "2026-10-28T06:11:01Z",
+  "generated_utc": "2026-10-28T13:59:25Z",
+  "svs_id": 5315,
+  "svs_page": "https://svs.gsfc.nasa.gov/5315/",
+  "frame_time_utc": "2026-10-28T06:11:01Z",
+  "frame_time_source": "HTTP Last-Modified of FWI_forecast_latest.png",
+  "forecast": "1-day",
+  "source_file": "FWI_forecast_latest.png",
+  "projection_of_source": "Robinson",
+  "classes": [
+    {
+      "code": 0,
+      "label": "no calculation"
+    },
+    {
+      "code": 1,
+      "label": "very low"
+    },
+    {
+      "code": 2,
+      "label": "low"
+    },
+    {
+      "code": 3,
+      "label": "moderate"
+    },
+    {
+      "code": 4,
+      "label": "high"
+    },
+    {
+      "code": 5,
+      "label": "very high"
+    },
+    {
+      "code": 6,
+      "label": "extreme"
+    }
+  ],
+  "grid": {
+    "width": 1024,
+    "height": 512,
+    "encoding": "uint8_class",
+    "byte_order": "little",
+    "row0": "north (90N)",
+    "col0": "180W",
+    "nodata": 0,
+    "aggregation": "class of the nearest source pixel after a 3×3 majority filter (Robinson → equirectangular)"
+  },
+  "verified": {
+    "test": "C5315",
+    "status": "PASS",
+    "decoded_share": 0.9297673134365823,
+    "swatches": [
+      [
+        127,
+        255,
+        127
+      ],
+      [
+        255,
+        255,
+        64
+      ],
+      [
+        255,
+        176,
+        0
+      ],
+      [
+        250,
+        80,
+        0
+      ],
+      [
+        180,
+        0,
+        0
+      ],
+      [
+        40,
+        5,
+        34
+      ]
+    ]
+  },
+  "bangladesh": {
+    "places": {
+      "Dhaka": 1,
+      "Chattogram": 1,
+      "Rajshahi": 1,
+      "Sylhet": 1
+    },
+    "bd_box_counts": {
+      "0": 27,
+      "1": 225,
+      "2": 0,
+      "3": 0,
+      "4": 0,
+      "5": 0,
+      "6": 0
+    }
+  }
+}
