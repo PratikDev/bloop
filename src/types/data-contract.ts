@@ -7,6 +7,8 @@
 //
 // Binary grids: little-endian, row 0 = north (90° N), column 0 = 180° W.
 
+import type { ExtraOutputParam, FirmsDailyBlock, SameAsMapping } from "./contract-15";
+
 // ---------------------------------------------------------------------------
 // 1. Latest-frame metadata (latest/sst.json, latest/rain.json)
 // Needed by: L3 — frame label, Truth panel, Provenance drawer, and the grid
@@ -307,6 +309,7 @@ export interface FirmsContextFile {
   rule: string;
   credit: string;
   cases: Partial<Record<FirmsCaseKey, FirmsCase>>;
+  daily?: FirmsDailyBlock; // §15, additive: FIRMS NRT on NOAA-20/21 + MODIS
 }
 
 // ---------------------------------------------------------------------------
@@ -440,7 +443,7 @@ export interface ContinuousMapping {
   kind: "continuous";
   input: { unit: string; min: number; max: number; scale: InputScale };
   output: {
-    param: "frequency" | "dropsPerSecond" | "dropsPerStep" | "gain";
+    param: "frequency" | "dropsPerSecond" | "dropsPerStep" | "gain" | ExtraOutputParam;
     unit: string;
     min: number;
     max: number;
@@ -471,13 +474,13 @@ export interface RuntimeRangeMapping {
   };
 }
 
-export type VoiceMapping = ContinuousMapping | BandsMapping | RuntimeRangeMapping;
+export type VoiceMapping = ContinuousMapping | BandsMapping | RuntimeRangeMapping | SameAsMapping;
 
 export interface VoiceSpec {
   id: string; // a voice id (lib/audio VoiceId) or an earcon id
   label: { en: string; bn: string };
   group: "live" | "thenNow" | "context" | "earcon";
-  source: { dataset: string; svsId?: number };
+  source: { dataset: string; svsId?: number; product?: string }; // product = its meta/freshness.json id (§15)
   status: "verified" | "context" | "designOnly"; // badge in the Mapping panel
   mapping: VoiceMapping | null; // null = no value rule (most earcons)
   silence: string; // when this voice is silent, and why
@@ -487,6 +490,7 @@ export interface VoiceSpec {
     releaseMs: number;
     glideMs?: number;
     maxGain: number;
+    family?: "model"; // §15 guardrail 15: every voice on a model/inventory product plays in the model timbre family
   };
   pan: "longitude" | "center" | "compareSide";
   legend: { value: number; label: string }[]; // reference points for the audio legend
@@ -753,6 +757,20 @@ export interface GlobalManifest {
   generated_utc: string;
   disclosure: string;
 }
+// ---------------------------------------------------------------------------
+// 15. Additive products (docs/data-integration-plan.md) — OPTIONAL, additive
+// Every new file starts with a ProductHeader (product, title, pairing, datasets
+// with agency + measurement/model badges, credit, disclosure, source_time_utc);
+// meta/freshness.json lists them all with age and freshness limit. Built by
+// pipeline/products/* (registry: pipeline/products/registry.py) and checked by
+// pipeline/checks/*. The types live in ./contract-15/ by area:
+//   common (header, freshness) · truth (sst/rain pairs, three-way) ·
+//   ocean (sst_anom, sst_dt) · fire (fwi_class + archive, fires frame, FIRMS daily) ·
+//   disasters (landslide_class) · energy (night lights) · mapping (sameAs rule).
+// ---------------------------------------------------------------------------
+
+export type * from "./contract-15";
+
 // ---------------------------------------------------------------------------
 // Not typed here (binary/image assets):
 // latest/sst.bin, latest/rain.bin, latest/rain_phase.bin, sequence/*.u8.gz
