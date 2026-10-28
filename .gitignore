@@ -71,3 +71,6 @@ pipeline/manual_inputs/*
 !pipeline/manual_inputs/README.md
 __pycache__/
 *.pyc
+
+# official resources: raw downloads and frame dumps never enter git (docs/official/README.md)
+data_raw/

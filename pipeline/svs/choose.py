@@ -1,0 +1,114 @@
+"""Asset choice by rule, not by hand, and the docs/official/<id>_assets.md that shows every asset and the decision.
+Rule (in order):
+ 1 frame sets (PNG/TIF/EXR sequences) beat movies; a movie only for a layer with no frame set;
+ 2 a flat 2:1 set beats other aspects (2:1 = equirectangular candidate; others need a fitted or no georef);
+ 3 the smallest width ≥ 2048 px (≤ 4096 unless nothing smaller exists; never 9600-px or ProRes without approval);
+ 4 per layer, a clean variant beats one with burned-in labels/colorbar/composite;
+ 5 every colorbar image is taken; a colorbar is paired to the layer whose name shares the most tokens with it; a
+   layer left without a colorbar while its siblings have one is a composite and is not chosen;
+ 6 links to per-frame date lists in the page text are taken (frame-time method a).
+A record with no 2:1 frame set also looks at its alternate versions (5533 → 5518)."""
+import re
+from .config import DOCS_OFFICIAL
+
+BAR_RX = re.compile(r"colou?rbar|cbar|legend|_bar[\W_]|_key[\W_]", re.I)
+DIRTY_RX = re.compile(r"label|colou?rbar|_comp\b|comp[._]|with_", re.I)
+MAX_W = 4096
+
+def _tokens(s):
+    s = re.sub(r"(?i)colou?rbar|cbar|layer|frames?|\d+x\d+|_30p|2x1|1x1|16x9|32x9", " ", s)
+    return {t.lower() for t in re.split(r"[\W_]+", s) if len(t) > 1}
+
+def frame_sets(rec):
+    """Every frame set, with sub-folders (one per layer) expanded."""
+    out = []
+    for m in rec["media"]:
+        if m["media_type"] != "Frames": continue
+        summ = rec.get("frame_folders", {}).get(m["url"])
+        if not summ: continue
+        parts = [(summ["url"].rstrip("/").split("/")[-1], summ)] + list(summ["subfolders"].items())
+        for name, s in parts:
+            if s["frame_count"]:
+                out.append({"layer": name, "url": s["url"], "width": m["width"], "height": m["height"],
+                            "frame_count": s["frame_count"], "bytes_approx": s["bytes_approx"],
+                            "first": s["first"], "last": s["last"], "group": m["group"], "svs_id": rec["id"]})
+    return list({f["url"]: f for f in out}.values())
+
+def _rank(f):
+    w, h = f["width"], f["height"]
+    flat = h and abs(w / h - 2) < 0.01
+    size_ok = 2048 <= w <= MAX_W
+    return (not flat, not size_ok, w if size_ok else 10 ** 6 + w, bool(DIRTY_RX.search(f["layer"] + f["url"])))
+
+def colorbars(rec):
+    return [m for m in rec["media"] if m["media_type"] == "Image" and BAR_RX.search(m["filename"] or "")]
+
+def date_lists(rec):
+    return [u for u in rec.get("text_links", []) if re.search(r"date", u, re.I) and u.lower().endswith((".txt", ".csv"))]
+
+def choose(rec, alternates=()):
+    """{'frames': [chosen set per layer], 'colorbars': {layer: bar}, 'date_lists', 'source_id', 'notes'}."""
+    notes, source = [], rec
+    sets = frame_sets(rec)
+    if not any(abs(f["width"] / max(1, f["height"]) - 2) < 0.01 for f in sets):
+        for alt in alternates:
+            alt_sets = frame_sets(alt)
+            if any(abs(f["width"] / max(1, f["height"]) - 2) < 0.01 for f in alt_sets):
+                notes.append(f"{rec['id']} has no flat 2:1 frame set; its alternate version {alt['id']} has, so frames come from {alt['id']}.")
+                source, sets = alt, alt_sets
+                break
+    ranked = sorted(sets, key=_rank)
+    tier = [f for f in ranked if _rank(f)[:3] == _rank(ranked[0])[:3]] if ranked else []
+    by_layer = {}
+    for f in tier: by_layer.setdefault(f["layer"], f)
+    chosen = [f for f in by_layer.values() if not DIRTY_RX.search(f["layer"] + f["url"])] or list(by_layer.values())
+    bars = colorbars(source) or colorbars(rec)
+    pairing = {}
+    for f in chosen:
+        scored = sorted(bars, key=lambda b: -len(_tokens(b["filename"]) & _tokens(f["layer"])))
+        if len(bars) == 1 or (scored and _tokens(scored[0]["filename"]) & _tokens(f["layer"])):
+            pairing[f["layer"]] = scored[0]
+    if pairing and len(pairing) < len(chosen):     # siblings with no colorbar of their own = composites / beauty passes
+        dropped = [f["layer"] for f in chosen if f["layer"] not in pairing]
+        notes.append(f"Not chosen (no colorbar of their own while sibling layers have one: composites): {', '.join(dropped)}.")
+        chosen = [f for f in chosen if f["layer"] in pairing]
+    movies = [m for m in source["media"] if m["media_type"] == "Movie"]
+    if not chosen and movies:
+        notes.append("No frame set: the movie is taken (frame extraction with ffmpeg).")
+    return {"source_id": source["id"], "frames": chosen, "colorbars": pairing, "all_colorbars": bars,
+            "date_lists": date_lists(source) or date_lists(rec), "movies_fallback": [] if chosen else movies[:1], "notes": notes}
+
+def write_assets_doc(rec, choice, extra_recs=()):
+    """docs/official/<id>_assets.md: every asset that exists, then what the rule chose and why."""
+    lines = [f"# SVS {rec['id']}: {rec['title']}: assets", "",
+             f"Source: {rec['url']} (API {rec['api_url']}, read {rec['fetched_utc']}). Generated by `pipeline/svs/choose.py`; "
+             "do not edit by hand.", "", "## Rule", ""]
+    lines += [f"{l.strip()}" for l in __doc__.split("Rule (in order):")[1].strip().splitlines()]
+    for r in (rec, *extra_recs):
+        lines += ["", f"## Everything SVS {r['id']} lists", "", "| Group | Type | Size (px) | File / folder | Frames | ≈ bytes |", "|---|---|---|---|---|---|"]
+        for m in r["media"]:
+            fs = r.get("frame_folders", {}).get(m["url"]) if m["media_type"] == "Frames" else None
+            n = fs["frame_count"] if fs else ""
+            if fs and fs["subfolders"]:
+                n = f"{n} + sub-folders " + ", ".join(f"{k} ({v['frame_count']})" for k, v in fs["subfolders"].items())
+            b = f"{fs['bytes_approx']:,}" if fs and fs["bytes_approx"] else ""
+            lines.append(f"| {m['group']} {m['group_title'][:40]} | {m['media_type']} | {m['width']}×{m['height']} | {m['url'].split('/a0', 1)[-1]} | {n} | {b} |")
+        if r.get("text_links"):
+            lines += ["", "Links in the page text: " + ", ".join(r["text_links"])]
+    lines += ["", "## Chosen", ""]
+    lines += [f"- {n}" for n in choice["notes"]]
+    for f in choice["frames"]:
+        bar = choice["colorbars"].get(f["layer"])
+        lines.append(f"- **Frames `{f['layer']}`** (SVS {f['svs_id']}): {f['url']} — {f['width']}×{f['height']}, {f['frame_count']} frames, "
+                     f"≈{(f['bytes_approx'] or 0) / 1e9:.1f} GB. Colorbar: {bar['url'] if bar else 'none listed'}.")
+    for u in choice["date_lists"]:
+        lines.append(f"- **Frame dates:** {u} (frame-time method a).")
+    for m in choice["movies_fallback"]:
+        lines.append(f"- **Movie (no frame set exists):** {m['url']} ({m['width']}×{m['height']}).")
+    if not choice["frames"] and not choice["movies_fallback"]:
+        lines.append("- Nothing usable as frames.")
+    lines += ["", "**Why:** the rule above; widths above 4096 px (6840, 9600) and ProRes are never fetched without approval."]
+    DOCS_OFFICIAL.mkdir(parents=True, exist_ok=True)
+    path = DOCS_OFFICIAL / f"{rec['id']}_assets.md"
+    path.write_text("\n".join(lines) + "\n", encoding="utf-8")
+    return path
