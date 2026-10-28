@@ -129,4 +129,22 @@ export const scenesEn = {
   "scenes.tunnel.end": "End of the record: back to the turntable.",
   "scenes.tunnel.rings": (p: { n: string; from: string; to: string }) => `${p.n} rings, ${p.from} to ${p.to}`,
   "scenes.tunnel.speed": (p: { speed: string }) => `${p.speed} years/s`,
+  // Help: the scenes' keys (SceneShell and each scene's own onKey)
+  "help.scenes": "In the 3D scenes",
+  "key.sc.all": "Every scene",
+  "key.sc.all.action": "Space: play or pause · [ / ]: slower or faster · I: details · O: layers · H: help · Shift+D: the controls · Esc: back to the turntable",
+  "key.sc.ghost.action": "Arrows: turn one grid cell (with Shift: five) · 1–3: heat, rain or water · Enter: play both windows · /: search · + / −: zoom",
+  "key.sc.delta.action": "Arrows or W A S D: move one degree (with Shift: ten) · , / .: month · Shift+, / .: rain frame · Enter: speak · + / −: zoom",
+  "key.sc.terrain.action": "W / S: walk · A / D: step sideways · Left / Right: turn (with Shift: faster) · Enter: speak · G: find the warmest water · N: the temperature or how far from normal · , / .: rain frame · + / −: zoom",
+  "key.sc.tunnel.action": "Arrows: next or previous year (with Shift: ten) · 1 / 2: jump to a window · Enter: speak",
+  // Sound terrain: the normal tone (B3) and clarity (C5), §15
+  "scenes.terrain.vsNormal": "Vs normal",
+  "scenes.terrain.vsNormalOn": "Now hearing how far from normal (SVS 5176), around a fixed reference tone.",
+  "scenes.terrain.vsNormalOff": "Now hearing the temperature itself.",
+  "scenes.terrain.anomalyValue": (p: { value: string }) => `${p.value} °C vs normal`,
+  "scenes.terrain.anomalyNone": "No anomaly here (land or sea ice)",
+  "scenes.terrain.sayAnomaly": (p: { value: string; lat: string; lon: string }) => `${p.value} degrees from normal at ${p.lat}, ${p.lon}.`,
+  "scenes.terrain.clarity": (p: { hours: string }) => `Last clear 1 km look: ${p.hours} h before the analysis (echo length)`,
+  "scenes.terrain.clarityNone": "No clear 1 km look in MUR's window: the longest echo",
+  "scenes.terrain.anomalyFrame": (p: { datetime: string }) => `Anomaly: EIC frame SVS 5176, ${p.datetime} UTC`,
 };

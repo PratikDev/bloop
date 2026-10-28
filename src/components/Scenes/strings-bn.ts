@@ -1,4 +1,4 @@
-// DRAFT Bangla for the scenes' strings, written by the developer, NOT yet
+// DRAFT Bangla (NEEDS TRANSLATOR REVIEW) for the scenes' strings, written by the developer, NOT yet
 // checked by a translator (docs/L3/bangla-strings.md). Merged into the
 // Turntable's drafts. Left out on purpose (English fallback): the honesty line
 // and the credit, which are quoted as written.
@@ -125,4 +125,20 @@ export const scenesBnDraft: { [K in keyof Table]?: Table[K] } = {
   "scenes.tunnel.end": "রেকর্ড শেষ: টার্নটেবিলে ফেরা।",
   "scenes.tunnel.rings": (p) => `${p.n}টি বলয়, ${p.from} থেকে ${p.to}`,
   "scenes.tunnel.speed": (p) => `${p.speed} বছর/সেকেন্ড`,
+  "help.scenes": "ত্রিমাত্রিক দৃশ্যে",
+  "key.sc.all": "প্রতিটি দৃশ্য",
+  "key.sc.all.action": "Space: চালান বা থামান · [ / ]: ধীরে বা দ্রুত · I: বিস্তারিত · O: স্তর · H: সাহায্য · Shift+D: নিয়ন্ত্রণ · Esc: টার্নটেবিলে ফিরুন",
+  "key.sc.ghost.action": "তীর: এক গ্রিড ঘর ঘোরান (Shift দিয়ে পাঁচ) · ১–৩: তাপ, বৃষ্টি বা পানি · Enter: দুই সময়কাল বাজান · /: খুঁজুন · + / −: জুম",
+  "key.sc.delta.action": "তীর বা W A S D: এক ডিগ্রি সরান (Shift দিয়ে দশ) · , / .: মাস · Shift+, / .: বৃষ্টির ফ্রেম · Enter: বলুন · + / −: জুম",
+  "key.sc.terrain.action": "W / S: হাঁটুন · A / D: পাশে সরুন · বাম / ডান: ঘুরুন (Shift দিয়ে দ্রুত) · Enter: বলুন · G: সবচেয়ে উষ্ণ পানি খুঁজুন · N: তাপমাত্রা নাকি স্বাভাবিক থেকে কতটা দূরে · , / .: বৃষ্টির ফ্রেম · + / −: জুম",
+  "key.sc.tunnel.action": "তীর: পরের বা আগের বছর (Shift দিয়ে দশ) · ১ / ২: একটি সময়কালে যান · Enter: বলুন",
+  "scenes.terrain.vsNormal": "স্বাভাবিকের তুলনায়",
+  "scenes.terrain.vsNormalOn": "এখন শুনছেন স্বাভাবিক থেকে কতটা দূরে (SVS 5176), একটি স্থির তুলনার সুরের চারপাশে।",
+  "scenes.terrain.vsNormalOff": "এখন শুনছেন তাপমাত্রা নিজেই।",
+  "scenes.terrain.anomalyValue": (p) => `স্বাভাবিকের তুলনায় ${p.value} °C`,
+  "scenes.terrain.anomalyNone": "এখানে স্বাভাবিকের তুলনা নেই (স্থল বা সমুদ্রের বরফ)",
+  "scenes.terrain.sayAnomaly": (p) => `${p.lat}, ${p.lon}-এ স্বাভাবিক থেকে ${p.value} ডিগ্রি।`,
+  "scenes.terrain.clarity": (p) => `শেষ পরিষ্কার ১ কিমি পর্যবেক্ষণ: বিশ্লেষণের ${p.hours} ঘণ্টা আগে (প্রতিধ্বনির দৈর্ঘ্য)`,
+  "scenes.terrain.clarityNone": "MUR-এর সময়সীমায় কোনো পরিষ্কার ১ কিমি পর্যবেক্ষণ নেই: সবচেয়ে লম্বা প্রতিধ্বনি",
+  "scenes.terrain.anomalyFrame": (p) => `স্বাভাবিকের তুলনা: EIC ফ্রেম SVS 5176, ${p.datetime} UTC`,
 };

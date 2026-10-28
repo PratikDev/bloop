@@ -1,9 +1,9 @@
 "use client";
 
-import { Target } from "lucide-react";
+import { Scale, Target } from "lucide-react";
 import { useEffect, useMemo, useRef, useState, type KeyboardEvent } from "react";
-import { mapContinuous, voiceSpec, withInputRange } from "@/lib/audio/mapping";
-import { formatDegrees, formatFixed, formatInteger, formatTemperature, formatUtc, type Lang } from "@/lib/i18n";
+import { continuousRule, mapContinuous, voiceSpec, withInputRange } from "@/lib/audio/mapping";
+import { formatDegrees, formatFixed, formatInteger, formatSigned, formatTemperature, formatUtc, type Lang } from "@/lib/i18n";
 import { useAppState } from "../../AppState/use-app-state";
 import { useCommands } from "../../Commands/use-commands";
 import { OnOffToggle } from "../../OnOffToggle";
@@ -27,6 +27,7 @@ import { useSampled } from "../use-sampled";
 import { useSceneTrack } from "../use-scene-track";
 import { sstCell } from "./field";
 import { KM_PER_DEGREE_C, type TerrainLayers } from "./terrain-scene";
+import type { TerrainReading } from "./terrain-sound";
 import { sstTexture, type TerrainData } from "./use-terrain-data";
 import { useTerrainScene } from "./use-terrain-scene";
 
@@ -34,6 +35,18 @@ const DEFAULT_SPEED = 2;
 const ZOOM_STEP = 0.85;
 const latText = (lat: number, lang: Lang) => `${formatDegrees(lat, lang)}° ${lat >= 0 ? "N" : "S"}`;
 const lonText = (lon: number, lang: Lang) => `${formatDegrees(lon, lang)}° ${lon >= 0 ? "E" : "W"}`;
+
+/** ?debug=1: the anomaly and clarity under the walker, with the Hz and echo length their rules give. */
+function normalDebug(r: TerrainReading) {
+  const echo = continuousRule("clarity");
+  const hours = r.clarity === null ? null : r.clarity.kind === "noLook" ? echo.input.max : r.clarity.hours;
+  return {
+    anomaly: r.anomalyC,
+    normalHz: mapContinuous(r.anomalyC, continuousRule("normalTone")),
+    clarity: r.clarity === null ? null : r.clarity.kind === "noLook" ? "noLook" : r.clarity.hours,
+    echoSec: mapContinuous(hours, echo),
+  };
+}
 
 /** The ocean rule's own output range (mapping.json), for the zoomed-axis sentence. */
 function oceanOutput(): { lo: number; hi: number } | null {
@@ -55,6 +68,8 @@ export function TerrainView({ data, onExit, tier, geo }: SceneProps & { data: Te
   const [hunting, setHunting] = useState(false);
   const [found, setFound] = useState(false);
   const [show, setShow] = useState<TerrainLayers>({ relief: true, rain: true, stars: true });
+  // §15 (B3): hear the SVS 5176 anomaly around the normal tone instead of the temperature (only if it is published).
+  const [vsNormal, setVsNormal] = useState(false);
   const loop = useRainLoop(relief.plane.bounds, raining && !state.reduceMotion);
   const frame = loop.seq?.frames[loop.frame] ?? null;
   const rain = useMemo(
@@ -67,6 +82,9 @@ export function TerrainView({ data, onExit, tier, geo }: SceneProps & { data: Te
     relief,
     sstImage,
     sst,
+    anomaly: data.anomaly,
+    dt: data.dt,
+    vsNormal,
     seq: loop.seq,
     frame,
     rain,
@@ -79,16 +97,33 @@ export function TerrainView({ data, onExit, tier, geo }: SceneProps & { data: Te
   });
 
   const here = useSampled(
-    () => ({ at: ctl.walker(), value: ctl.value() }),
-    (h) => `${h.at.lat.toFixed(2)},${h.at.lon.toFixed(2)},${h.value}`,
+    () => ({ at: ctl.walker(), value: ctl.value(), r: ctl.reading() }),
+    (h) => `${h.at.lat.toFixed(2)},${h.at.lon.toFixed(2)},${h.value},${h.r.anomalyC},${h.r.clarity?.kind}`,
   );
+  const anomalyText = (l: Lang) =>
+    here.r.anomalyC === null ? ttFor(l)("scenes.terrain.anomalyNone") : ttFor(l)("scenes.terrain.anomalyValue", { value: formatSigned(here.r.anomalyC, l, 1) });
+  const clarityText = (l: Lang) => {
+    const c = here.r.clarity;
+    return c === null ? null : c.kind === "noLook" ? ttFor(l)("scenes.terrain.clarityNone") : ttFor(l)("scenes.terrain.clarity", { hours: formatInteger(c.hours, l) });
+  };
+  const toggleNormal = () => {
+    if (!data.anomaly) return;
+    setVsNormal((on) => {
+      void commands.say((_, l) => ttFor(l)(on ? "scenes.terrain.vsNormalOff" : "scenes.terrain.vsNormalOn"));
+      return !on;
+    });
+  };
   const axis = field.axis;
   const out = oceanOutput();
   const axisText = (l: Lang) => ttFor(l)("scenes.terrain.axis", { min: formatInteger(axis.min, l), max: formatInteger(axis.max, l) });
   const axisSpoken = (l: Lang) =>
     out ? ttFor(l)("scenes.terrain.axisSpoken", { min: formatInteger(axis.min, l), max: formatInteger(axis.max, l), lo: formatInteger(out.lo, l), hi: formatInteger(out.hi, l) }) : axisText(l);
   const valueLine = (l: Lang) =>
-    here.value === null
+    vsNormal
+      ? here.r.anomalyC === null
+        ? anomalyText(l)
+        : ttFor(l)("scenes.terrain.sayAnomaly", { value: formatSigned(here.r.anomalyC, l, 1), lat: latText(here.at.lat, l), lon: lonText(here.at.lon, l) })
+      : here.value === null
       ? ttFor(l)("scenes.terrain.sayLand", { lat: latText(here.at.lat, l), lon: lonText(here.at.lon, l) })
       : ttFor(l)("scenes.terrain.say", { value: formatTemperature(here.value, l), lat: latText(here.at.lat, l), lon: lonText(here.at.lon, l) });
 
@@ -120,6 +155,10 @@ export function TerrainView({ data, onExit, tier, geo }: SceneProps & { data: Te
       case "g":
       case "G":
         toggleHunt();
+        return true;
+      case "n":
+      case "N":
+        toggleNormal();
         return true;
       case ",":
         loop.step(-1);
@@ -158,11 +197,14 @@ export function TerrainView({ data, onExit, tier, geo }: SceneProps & { data: Te
         regionMax: field.max,
         found,
         hunting,
+        vsNormal,
+        ...normalDebug(ctl.reading()),
       };
     },
     act: {
       place: (lat, lon) => ctl.placeWalker({ lat, lon }),
       hunt: () => toggleHunt(),
+      normal: () => toggleNormal(),
       speed: (i) => setSpeedIndex(i),
     },
   });
@@ -191,7 +233,7 @@ export function TerrainView({ data, onExit, tier, geo }: SceneProps & { data: Te
             chip={
               <>
                 <span className="shrink-0 font-display text-lead font-semibold whitespace-nowrap tabular-nums text-moon">
-                  {here.value === null ? tt("scenes.terrain.land") : `${formatTemperature(here.value, lang)} ${tt("scenes.unit.celsius")}`}
+                  {vsNormal ? anomalyText(lang) : here.value === null ? tt("scenes.terrain.land") : `${formatTemperature(here.value, lang)} ${tt("scenes.unit.celsius")}`}
                 </span>
                 <span className="min-w-0 truncate text-haze">
                   · {latText(here.at.lat, lang)}, {lonText(here.at.lon, lang)}
@@ -207,6 +249,8 @@ export function TerrainView({ data, onExit, tier, geo }: SceneProps & { data: Te
           >
             {zoomBadge}
             <p className="text-body text-haze">{axisSpoken(lang)}</p>
+            {vsNormal && <p className="text-body font-medium text-moon">{anomalyText(lang)}</p>}
+            {!vsNormal && clarityText(lang) && <p className="text-body text-haze">{clarityText(lang)}</p>}
             <p className="border-t border-line pt-2 text-small text-haze">{sst.meta.source_dataset}</p>
             <p className="text-small text-haze">{tt("scenes.framePaired", { datetime: formatUtc(sst.meta.frame_time_utc, lang) })}</p>
             {frame && <p className="text-small text-haze">{tt("scenes.rainTime", { datetime: formatUtc(frame.ref.time_utc, lang) })}</p>}
@@ -237,6 +281,8 @@ export function TerrainView({ data, onExit, tier, geo }: SceneProps & { data: Te
         tt("scenes.framePaired", { datetime: formatUtc(sst.meta.frame_time_utc, lang) }),
         tt("scenes.exaggerated", { text: tt("scenes.terrain.height", { per }) }),
         tt("scenes.terrain.land"),
+        vsNormal && data.anomaly?.meta.frame_time_utc ? tt("scenes.terrain.anomalyFrame", { datetime: formatUtc(data.anomaly.meta.frame_time_utc, lang) }) : "",
+        vsNormal ? (data.anomaly?.meta.disclosure ?? "") : (data.dt?.meta.disclosure ?? ""),
         loop.seq?.index.credit ?? "",
       ].filter(Boolean)}
       dock={{
@@ -244,7 +290,12 @@ export function TerrainView({ data, onExit, tier, geo }: SceneProps & { data: Te
         onPlay: () => setRaining((r) => !r),
         speedText: `${tt("scenes.terrain.walk")} ${tt("scenes.speed", { speed: formatFixed(SPEEDS[speedIndex], lang, SPEEDS[speedIndex] < 1 ? 2 : 0) })}`,
         onSpeed: (step) => setSpeedIndex((i) => Math.min(SPEEDS.length - 1, Math.max(0, i + step))),
-        extra: <DockButton icon={Target} label={tt("scenes.terrain.goal")} keys="G" pressed={hunting} onClick={toggleHunt} />,
+        extra: (
+          <>
+            <DockButton icon={Target} label={tt("scenes.terrain.goal")} keys="G" pressed={hunting} onClick={toggleHunt} />
+            {data.anomaly && <DockButton icon={Scale} label={tt("scenes.terrain.vsNormal")} keys="N" pressed={vsNormal} onClick={toggleNormal} />}
+          </>
+        ),
       }}
       layers={
         <section className="space-y-2">

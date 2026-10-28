@@ -2,7 +2,7 @@
 
 import { useCallback, useEffect, useMemo, useRef, type KeyboardEvent } from "react";
 import { Vector3, type Texture } from "three";
-import type { LatLon, Sequence, SequenceFrame, SstField } from "@/lib/data";
+import type { LatLon, Sequence, SequenceFrame, SstAnomalyField, SstDtField, SstField } from "@/lib/data";
 import { createFrameBus } from "../frame-bus";
 import { createOrbit, type Orbit } from "../orbit";
 import { planeFrame, type SceneFrame } from "../plane-frame";
@@ -11,7 +11,7 @@ import type { Relief } from "../relief";
 import type { SceneBuildHost, SceneHandle } from "../types";
 import { sstCell, type TerrainField } from "./field";
 import { createTerrainScene, type TerrainLayers, type TerrainScene } from "./terrain-scene";
-import { createTerrainSound } from "./terrain-sound";
+import { createTerrainSound, type TerrainReading } from "./terrain-sound";
 
 /** Where the walk starts: the middle of the Bay of Bengal. */
 export const WALK_START: LatLon = { lat: 15, lon: 88 };
@@ -39,6 +39,8 @@ export interface TerrainControl {
   walker(): LatLon;
   /** The SST under the walker (null = land), as the voice plays it. */
   value(): number | null;
+  /** §15: the SST, its anomaly and its clarity under the walker. */
+  reading(): TerrainReading;
   orbit(): Orbit | null;
   /** Test hook: put the walker somewhere (the hunt check). */
   placeWalker(at: LatLon): void;
@@ -49,6 +51,10 @@ export function useTerrainScene(o: {
   relief: Relief;
   sstImage: Texture;
   sst: SstField;
+  anomaly: SstAnomalyField | null;
+  dt: SstDtField | null;
+  /** N: play the anomaly against the normal tone instead of the temperature. */
+  vsNormal: boolean;
   seq: Sequence | null;
   frame: SequenceFrame | null;
   rain: { cells: RainCell[]; cellSize: number };
@@ -63,7 +69,7 @@ export function useTerrainScene(o: {
   const sceneRef = useRef<TerrainScene | null>(null);
   const orbitRef = useRef<Orbit | null>(null);
   const walkerRef = useRef<LatLon>(WALK_START);
-  const valueRef = useRef<number | null>(null);
+  const readingRef = useRef<TerrainReading>({ valueC: null, anomalyC: null, clarity: null });
   const held = useRef(new Set<string>());
   const shift = useRef(false);
   const soundRef = useRef<ReturnType<typeof createTerrainSound> | null>(null);
@@ -94,7 +100,7 @@ export function useTerrainScene(o: {
       host.scene.add(scene.group);
       sceneRef.current = scene;
       const plane = l.relief.plane;
-      const sound = createTerrainSound(l.sst, plane, l.field.axis);
+      const sound = createTerrainSound(l.sst, plane, l.field.axis, { anomaly: l.anomaly, dt: l.dt });
       soundRef.current = sound;
       sound.setFrame(l.seq, l.frame);
       const surface = (at: LatLon) => {
@@ -131,7 +137,7 @@ export function useTerrainScene(o: {
           scene.setWalker(at);
           orbit.target.lerp(surface(at), now.reduceMotion ? 1 : 1 - Math.exp(-FOLLOW_PER_SEC * dt));
           orbit.update(dt, now.reduceMotion);
-          valueRef.current = sound.at(at.lat, at.lon, orbit.pose().yaw, dt);
+          readingRef.current = sound.at(at.lat, at.lon, orbit.pose().yaw, dt, now.vsNormal);
           // The hunt: arriving in the warmest cell (the grid's own maximum in the region).
           if (now.hunting && !found && sstCell(now.sst, at.lat, at.lon) === now.field.warmest.cell) {
             found = true;
@@ -178,11 +184,12 @@ export function useTerrainScene(o: {
     return true;
   }, []);
   const walker = useCallback(() => walkerRef.current, []);
-  const value = useCallback(() => valueRef.current, []);
+  const value = useCallback(() => readingRef.current.valueC, []);
+  const reading = useCallback(() => readingRef.current, []);
   const orbit = useCallback(() => orbitRef.current, []);
   const placeWalker = useCallback((at: LatLon) => {
     walkerRef.current = at;
   }, []);
 
-  return { bus, build, keyDown, walker, value, orbit, placeWalker };
+  return { bus, build, keyDown, walker, value, reading, orbit, placeWalker };
 }
