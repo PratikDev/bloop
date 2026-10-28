@@ -25,7 +25,7 @@
       "id": "ocean",
       "label": { "en": "Ocean temperature", "bn": "সমুদ্রের তাপমাত্রা" },
       "group": "live",
-      "source": { "dataset": "MUR SST (NASA/JPL PO.DAAC), via EIC frame SVS 5101", "svsId": 5101 },
+      "source": { "dataset": "MUR SST (NASA/JPL PO.DAAC), via EIC frame SVS 5101", "svsId": 5101, "product": "sst" },
       "status": "verified",
       "mapping": {
         "kind": "continuous",
@@ -47,7 +47,7 @@
       "id": "rain",
       "label": { "en": "Rain", "bn": "বৃষ্টি" },
       "group": "live",
-      "source": { "dataset": "GPM IMERG (NASA/JAXA, GES DISC), via EIC frame SVS 4285", "svsId": 4285 },
+      "source": { "dataset": "GPM IMERG (NASA/JAXA, GES DISC), via EIC frame SVS 4285", "svsId": 4285, "product": "rain" },
       "status": "verified",
       "mapping": {
         "kind": "continuous",
@@ -69,7 +69,7 @@
       "id": "snow",
       "label": { "en": "Snow", "bn": "তুষার" },
       "group": "live",
-      "source": { "dataset": "GPM IMERG frozen phase (NASA/JAXA, GES DISC), via EIC frame SVS 4285", "svsId": 4285 },
+      "source": { "dataset": "GPM IMERG frozen phase (NASA/JAXA, GES DISC), via EIC frame SVS 4285", "svsId": 4285, "product": "rain" },
       "status": "verified",
       "mapping": {
         "kind": "continuous",
@@ -87,10 +87,68 @@
       "note": "Same density rule as rain; only the sound changes. Legend points are our choice."
     },
     {
+      "id": "normalTone",
+      "label": { "en": "Ocean vs normal", "bn": "স্বাভাবিকের তুলনায় সমুদ্র" },
+      "group": "live",
+      "source": { "dataset": "MUR SST anomaly via EIC frame SVS 5176 (checked against NOAA Coral Reef Watch)", "svsId": 5176, "product": "sst_anom" },
+      "status": "verified",
+      "mapping": {
+        "kind": "continuous",
+        "input": { "unit": "°C vs normal", "min": -4, "max": 4, "scale": "linear" },
+        "output": { "param": "frequency", "unit": "Hz", "min": 123.47, "max": 493.88, "scale": "exponential" }
+      },
+      "silence": "Land, sea ice or no data at this point (the reference tone stops too).",
+      "sound": { "timbre": "A quiet fixed reference sine at 'normal' (the rule's centre, B3) and the data sine bending above or below it: the gap is heard as an interval and as beating", "attackMs": 20, "releaseMs": 120, "glideMs": 30, "maxGain": 0.2 },
+      "pan": "longitude",
+      "legend": [
+        { "value": -2, "label": "2 °C cooler than normal" },
+        { "value": 0, "label": "normal" },
+        { "value": 2, "label": "2 °C warmer than normal" }
+      ],
+      "designChoice": true,
+      "note": "B3: the reference tone is the data voice's own pitch at anomaly 0. Warm and cold bend the same distance."
+    },
+    {
+      "id": "clarity",
+      "label": { "en": "How recently measured", "bn": "কত আগে মাপা হয়েছে" },
+      "group": "live",
+      "source": { "dataset": "MUR SST v4.1 dt_1km_data (NASA/JPL PO.DAAC)", "product": "sst_dt" },
+      "status": "context",
+      "mapping": {
+        "kind": "continuous",
+        "input": { "unit": "hours since a 1 km infrared look", "min": 0, "max": 48, "scale": "linear" },
+        "output": { "param": "reverbSec", "unit": "s", "min": 0.1, "max": 2.4, "scale": "linear" }
+      },
+      "silence": "Land: no echo. A cell with no 1 km look in MUR's window gets the longest echo.",
+      "sound": { "timbre": "An echo tail on the ocean voice; only its length changes, never its loudness or pitch", "attackMs": 10, "releaseMs": 200, "maxGain": 0.12 },
+      "pan": "longitude",
+      "legend": [
+        { "value": 0, "label": "seen just now" },
+        { "value": 24, "label": "a day ago" },
+        { "value": 48, "label": "two days or more" }
+      ],
+      "designChoice": true,
+      "note": "C5: a reverb tail, not a low-pass (that cue belongs to the air voice)."
+    },
+    {
+      "id": "unison",
+      "label": { "en": "Proof in unison", "bn": "একসুরে প্রমাণ" },
+      "group": "live",
+      "source": { "dataset": "EIC frame SVS 5101 vs NASA MUR SST file at the same 60 points", "svsId": 5101, "product": "sst_pairs" },
+      "status": "verified",
+      "mapping": { "kind": "sameAs", "voice": "ocean", "input": { "unit": "°C" } },
+      "silence": "Plays only when asked (U, or the Truth panel button).",
+      "sound": { "timbre": "Two sines in the left ear: first the frame tone alone, then the file tone joins it", "attackMs": 30, "releaseMs": 300, "maxGain": 0.2 },
+      "pan": "center",
+      "legend": [],
+      "designChoice": false,
+      "note": "C1: identical values sound as one pure tone; any difference beats at |f1 − f2| times per second."
+    },
+    {
       "id": "heat",
       "label": { "en": "Heat, then vs now", "bn": "তাপ, আগে বনাম এখন" },
       "group": "thenNow",
-      "source": { "dataset": "NASA GISTEMP v4, April–May anomaly vs 1951–1980" },
+      "source": { "dataset": "NASA GISTEMP v4, April–May anomaly vs 1951–1980", "product": "gistemp_bd" },
       "status": "context",
       "mapping": {
         "kind": "continuous",
@@ -113,7 +171,7 @@
       "id": "heatDeviation",
       "label": { "en": "Heat: how unusual", "bn": "TODO: তাপ: কতটা অস্বাভাবিক" },
       "group": "thenNow",
-      "source": { "dataset": "NASA GISTEMP v4, April–May anomaly vs 1951–1980" },
+      "source": { "dataset": "NASA GISTEMP v4, April–May anomaly vs 1951–1980", "product": "gistemp_bd" },
       "status": "context",
       "mapping": {
         "kind": "bands",
@@ -136,7 +194,7 @@
       "id": "monsoon",
       "label": { "en": "Monsoon rain, then vs now", "bn": "বর্ষার বৃষ্টি, আগে বনাম এখন" },
       "group": "thenNow",
-      "source": { "dataset": "GPCP v2.3 June–September (NOAA PSL); GPCC gauges v2020 for the cross-check" },
+      "source": { "dataset": "GPCP v2.3 June–September (NOAA PSL); GPCC gauges v2020 for the cross-check", "product": "gpcp_bd" },
       "status": "context",
       "mapping": {
         "kind": "continuous",
@@ -157,7 +215,7 @@
       "id": "water",
       "label": { "en": "Water storage (bass)", "bn": "পানির মজুদ (বেস)" },
       "group": "thenNow",
-      "source": { "dataset": "GRACE/GRACE-FO JPL mascons RL06.3Mv04 CRI (NASA/JPL PO.DAAC)" },
+      "source": { "dataset": "GRACE/GRACE-FO JPL mascons RL06.3Mv04 CRI (NASA/JPL PO.DAAC)", "product": "grace" },
       "status": "context",
       "mapping": {
         "kind": "continuous",
@@ -179,7 +237,7 @@
       "id": "fires",
       "label": { "en": "Fires", "bn": "আগুন" },
       "group": "context",
-      "source": { "dataset": "NASA FIRMS (LANCE/ESDIS), MODIS standard product" },
+      "source": { "dataset": "NASA FIRMS (LANCE/ESDIS), MODIS standard product", "product": "firms" },
       "status": "context",
       "mapping": {
         "kind": "runtimeRange",
@@ -197,7 +255,7 @@
       "id": "vegetation",
       "label": { "en": "Vegetation (NDVI)", "bn": "গাছপালা (NDVI)" },
       "group": "context",
-      "source": { "dataset": "MODIS MOD13Q1 NDVI (ORNL DAAC)" },
+      "source": { "dataset": "MODIS MOD13Q1 NDVI (ORNL DAAC)", "product": "ndvi" },
       "status": "context",
       "mapping": {
         "kind": "continuous",
@@ -228,6 +286,20 @@
       "legend": [],
       "designChoice": true,
       "note": "Our design choice, so silence over land is not mistaken for the app freezing."
+    },
+    {
+      "id": "recorded",
+      "label": { "en": "Recorded-data texture", "bn": "রেকর্ড করা তথ্যের আবহ" },
+      "group": "earcon",
+      "source": { "dataset": "meta/freshness.json (any product past its freshness limit)" },
+      "status": "designOnly",
+      "mapping": null,
+      "silence": "Off while the data is within its freshness limit.",
+      "sound": { "timbre": "A soft, steady tape-like hiss under the voice while its data is older than its limit", "attackMs": 300, "releaseMs": 400, "maxGain": 0.03 },
+      "pan": "center",
+      "legend": [],
+      "designChoice": true,
+      "note": "Guardrail 16: stale data never sounds live. Fixed level, distinct from the no-data tick."
     },
     {
       "id": "whisper",

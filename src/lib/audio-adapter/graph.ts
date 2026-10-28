@@ -23,6 +23,7 @@ export interface Graph {
   earcons: GainNode;
   voiceBus: Record<LiveVoiceId, GainNode>; // mixer: mute, solo, volume, track mode
   context: GainNode; // Then vs Now and history voices (one plays at a time)
+  extras: GainNode; // §15 voices (normal tone, proof in unison): Mute all and solo, like the context bus
   noise: AudioBuffer; // one shared buffer for every raindrop and tick
 }
 
@@ -62,8 +63,10 @@ function build(ctx: AudioContext): Graph {
 
   const context = new GainNode(ctx, { gain: 1 });
   context.connect(fade);
+  const extras = new GainNode(ctx, { gain: 1 });
+  extras.connect(fade);
 
-  return { ctx, master, analyser, sonification, fade, earcons, voiceBus, context, noise: makeNoise(ctx) };
+  return { ctx, master, analyser, sonification, fade, earcons, voiceBus, context, extras, noise: makeNoise(ctx) };
 }
 
 /** Creates the context on first call (must be inside a user gesture) and resumes it. */
