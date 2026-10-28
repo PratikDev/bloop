@@ -250,6 +250,9 @@ try:   # H) the compact time-lapse encoding round-trips within half a log step, 
           f"max |log10 diff| {ld.max():.4f} (limit {half:.4f}, about ±2.5%)")
 except Exception as e:
     check("H time-lapse encoding", False, str(e))
+# additive products (pipeline/checks/): a missing optional file only WARNs; contract or integrity problems FAIL
+from checks import run_all as product_checks
+product_checks(check)
 total = sum(p.stat().st_size for p in PUBLIC.rglob("*") if p.is_file())
 check("G total public/data size < 60 MB", total < 60e6, f"{total/1e6:.1f} MB")
 
