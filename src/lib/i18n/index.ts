@@ -5,8 +5,10 @@
 import type { CaptionParams } from "@/lib/audio-adapter/types";
 import { BANGLA_SPEECH_READY, bn } from "./bn";
 import { appEn } from "./en/app";
+import { badgesEn } from "./en/badges";
 import { captionsEn } from "./en/captions";
 import { contextEn } from "./en/context";
+import { dataEn } from "./en/data";
 import { helpEn } from "./en/help";
 import { panelsEn } from "./en/panels";
 import { storyEn } from "./en/story";
@@ -14,7 +16,18 @@ import { scenesEn } from "./en/scenes";
 import { turntableEn } from "./en/turntable";
 import type { Lang } from "./types";
 
-export const en = { ...appEn, ...helpEn, ...captionsEn, ...panelsEn, ...contextEn, ...storyEn, ...turntableEn, ...scenesEn };
+export const en = {
+  ...appEn,
+  ...helpEn,
+  ...captionsEn,
+  ...panelsEn,
+  ...contextEn,
+  ...storyEn,
+  ...turntableEn,
+  ...scenesEn,
+  ...badgesEn,
+  ...dataEn,
+};
 
 export type Messages = typeof en;
 export type MessageKey = keyof Messages;

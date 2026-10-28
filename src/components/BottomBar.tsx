@@ -6,6 +6,7 @@ import { Sheet, SheetContent, SheetTitle, SheetTrigger } from "@/components/ui/s
 import { useAppState, useT } from "./AppState/use-app-state";
 import { CaptionBar } from "./CaptionBar";
 import { Credits } from "./Credits";
+import { ProductCredits } from "./ProductCredits";
 import { useCommands } from "./Commands/use-commands";
 import { Mixer } from "./Mixer";
 import { useTimeLapse } from "./TimeLapse/use-time-lapse";
@@ -64,6 +65,10 @@ export function BottomBar() {
         <Waveform className="ml-auto hidden sm:block" />
       </div>
       <Credits t={t} className="pt-1" />
+      <details className="text-small text-haze">
+        <summary className="cursor-pointer">{t("credits.products")}</summary>
+        <ProductCredits className="pt-1" />
+      </details>
     </footer>
   );
 }

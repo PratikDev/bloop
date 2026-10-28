@@ -3,7 +3,8 @@
 import { useMemo, useRef, type ReactNode } from "react";
 import { sleep } from "@/lib/abortable";
 import { audio } from "@/lib/audio-adapter";
-import { bandMeans, SWEEP_CENTER, sweepPath, type LatLon } from "@/lib/data";
+import { bandMeans, loadSstPairs, nearestPair, SWEEP_CENTER, sweepPath, type LatLon } from "@/lib/data";
+import { roundKm } from "@/lib/geo/spherical";
 import { bindT, speechLang } from "@/lib/i18n";
 import { spokenReading, readAt } from "@/lib/reading";
 import { postCaption } from "@/lib/ui-captions";
@@ -129,6 +130,19 @@ export function CommandsProvider({ children }: { children: ReactNode }) {
       playMotif() {
         if (!state.soundOn) return soundOffHint();
         if (sst) audio.playMotif(bandMeans(sst));
+      },
+      playUnison() {
+        if (!state.soundOn) return soundOffHint();
+        const at = state.cursor;
+        loadSstPairs()
+          .then(async (file) => {
+            const near = nearestPair(file.pairs, at.lat, at.lon);
+            if (!near) return;
+            const { pair, km } = near;
+            await say((tl) => tl("unison.say", { km: roundKm(km), place: tl("place.spoken", pair), frame: pair.frame, file: pair.file }));
+            audio.playUnison({ frameC: pair.frame, fileC: pair.file });
+          })
+          .catch(() => announce(t("unison.loading")));
       },
       xray() {
         announce(t("xray.unavailable"));

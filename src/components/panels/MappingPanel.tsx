@@ -8,6 +8,7 @@ import type { LegendVoice } from "@/lib/audio-adapter/types";
 import type { Lang } from "@/lib/i18n";
 import type { VoiceSpec } from "@/types/data-contract";
 import { useAppState, useT } from "../AppState/use-app-state";
+import { ProductBadges } from "../SourceBadges/ProductBadges";
 
 const LEGEND_VOICES: readonly string[] = ["ocean", "rain", "snow"] satisfies LegendVoice[];
 
@@ -42,6 +43,7 @@ export function MappingPanel() {
               <h4 className="font-medium">{voiceLabel(v, state.lang)}</h4>
               <span className="text-small text-haze">{t(STATUS_KEY[v.status])}</span>
             </div>
+            <ProductBadges product={v.source.product} />
             <p>{ruleText(v)}</p>
             <p className="text-small text-haze">{v.sound.timbre}</p>
             <p className="text-small text-haze">

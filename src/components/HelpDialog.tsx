@@ -24,6 +24,7 @@ const KEYS: KeyRow[] = [
   { key: "L", action: "key.l.action" },
   { key: "P", action: "key.p.action" },
   { key: "X", action: "key.x.action" },
+  { key: "U", action: "key.u.action" },
   { key: "H, ?", action: "key.h.action" },
   { key: "key.esc", action: "key.esc.action" },
 ];
@@ -48,10 +49,19 @@ const TURNTABLE_KEYS: { key: string | TurntableKey; action: TurntableKey }[] = [
   { key: "Esc", action: "key.tt.esc.action" },
 ];
 
+/** The scenes' keys (SceneShell's shared keys, then each scene's own), named by the scenes' sleeves. */
+const SCENE_KEYS: { key: TurntableKey; action: TurntableKey }[] = [
+  { key: "key.sc.all", action: "key.sc.all.action" },
+  { key: "scenes.ghost.sleeve", action: "key.sc.ghost.action" },
+  { key: "scenes.delta.sleeve", action: "key.sc.delta.action" },
+  { key: "scenes.terrain.sleeve", action: "key.sc.terrain.action" },
+  { key: "scenes.tunnel.sleeve", action: "key.sc.tunnel.action" },
+];
+
 function KeyTable({ rows, caption, translate, lang }: { rows: KeyRow[]; caption?: string; translate?: (k: MessageKey) => string; lang?: string }) {
   const t = useT();
   const tr = translate ?? ((k: MessageKey) => t(k));
-  const label = (k: string | MessageKey) => (k.startsWith("key.") ? tr(k as MessageKey) : k);
+  const label = (k: string | MessageKey) => (k.startsWith("key.") || k.startsWith("scenes.") ? tr(k as MessageKey) : k);
   return (
     <table lang={lang} className="w-full text-body">
       {caption && <caption className="pb-2 text-left text-lead font-medium">{caption}</caption>}
@@ -93,6 +103,7 @@ export function HelpDialog() {
           translate={(k) => (isTurntableKey(k) ? tr(k) : t(k))}
           lang={state.lang === "bn" ? "bn" : undefined}
         />
+        <KeyTable rows={SCENE_KEYS} caption={tr("help.scenes")} translate={(k) => tr(k as TurntableKey)} lang={state.lang === "bn" ? "bn" : undefined} />
 
         <div className="space-y-3 border-t border-tide pt-4">
           <SettingToggle setting="builtInVoice" />

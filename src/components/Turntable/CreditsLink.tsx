@@ -4,6 +4,7 @@ import { Button } from "@/components/ui/button";
 import { Dialog, DialogContent, DialogDescription, DialogTitle, DialogTrigger } from "@/components/ui/dialog";
 import { useT } from "../AppState/use-app-state";
 import { Credits } from "../Credits";
+import { ProductCredits } from "../ProductCredits";
 import { useTT } from "./i18n";
 
 /** A tiny link in the corner; the full list (assets, licences, data) opens in a dialog. Attribution stays English. */
@@ -19,6 +20,7 @@ export function CreditsLink({ className }: { className?: string }) {
           {tt("turntable.credits")}
         </DialogDescription>
         <Credits t={t} className="text-body" />
+        <ProductCredits />
       </DialogContent>
     </Dialog>
   );

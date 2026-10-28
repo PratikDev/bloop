@@ -1,17 +1,19 @@
-// DRAFT Bangla for the Turntable's own strings, written by the developer, NOT
+// DRAFT Bangla (NEEDS TRANSLATOR REVIEW) for the Turntable's own strings, written by the developer, NOT
 // yet checked by a translator (docs/L3/bangla-strings.md). Used only inside the
 // Turntable; src/lib/i18n/bn.ts stays empty, so <html lang> and the rest of the
 // app are unchanged. Deliberately left out (they fall back to English): the
 // honesty wording ("pending team approval", "Verification being updated"), the
 // credits line, and captions raised by the sound engine.
 
+import type { badgesEn } from "@/lib/i18n/en/badges";
 import type { scenesEn } from "@/lib/i18n/en/scenes";
 import type { turntableEn } from "@/lib/i18n/en/turntable";
 import { formatInteger } from "@/lib/i18n/format";
 import { scenesBnDraft } from "../Scenes/strings-bn";
+import { badgesBnDraft } from "../SourceBadges/strings-bn";
 import type { CompassPoint } from "@/lib/geo/spherical";
 
-type Table = typeof turntableEn & typeof scenesEn;
+type Table = typeof turntableEn & typeof scenesEn & typeof badgesEn;
 export type TurntableKey = keyof Table;
 
 const bnInt = (n: number) => formatInteger(n, "bn");
@@ -49,6 +51,7 @@ export const turntableBnDraft: { [K in TurntableKey]?: Table[K] } = {
   "turntable.record.disasters": "দুর্যোগ",
   "turntable.record.agriculture": "কৃষি",
   "turntable.record.water": "পানি ও ভূগর্ভস্থ পানি",
+  "turntable.record.ghg": "গ্রিনহাউস গ্যাস",
   "turntable.comingNext": "শিগগির আসছে",
   "turntable.sleeve.details": "বিস্তারিত",
   "turntable.sleeve.cover": "প্রচ্ছদ",
@@ -57,8 +60,6 @@ export const turntableBnDraft: { [K in TurntableKey]?: Table[K] } = {
   "turntable.sleeve.playing": "বাজছে",
 
   "turntable.frameTime": (p) => `ফ্রেম: ${p.datetime} UTC`,
-  "turntable.age": (p) =>
-    p.days === null ? "সর্বশেষ প্রাপ্ত: —" : p.days < 1 ? "সর্বশেষ প্রাপ্ত: এক দিনের কম পুরোনো" : `সর্বশেষ প্রাপ্ত: ${bnInt(p.days)} দিন পুরোনো`,
   "turntable.error": (p) => `পরিমাপিত ত্রুটি: ${p.text}`,
 
   "turntable.turn": "ঘোরান",
@@ -178,4 +179,5 @@ export const turntableBnDraft: { [K in TurntableKey]?: Table[K] } = {
   "key.tt.esc.action": "ট্যুর বা উড়ান থামান, বা সার্চ বন্ধ করুন; না হলে সব শব্দ থামিয়ে সমতল মানচিত্রে ফিরুন",
 
   ...scenesBnDraft,
+  ...badgesBnDraft,
 };
