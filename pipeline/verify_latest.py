@@ -1,16 +1,19 @@
 """Step 8 (recommended): re-verify the LATEST frames against NASA source data (needs Earthdata Login).
 SST: 60 random ocean points vs MUR SST for 3 candidate dates. Rain: 150 rain + 150 dry points vs IMERG Late.
-Same pass rules as Check C / D2. Writes work/verify_latest.json (not published unless you choose to)."""
+Same pass rules as Check C / D2. Writes work/verify_latest.json, latest_check in latest/*.json and the points
+themselves as truth/sst_pairs.json + truth/rain_pairs.json (proof in unison, C1)."""
 import json, datetime as dt
 import earthaccess, h5py, xarray as xr
 from common import *
+from core.ref import T
+from core.header import header, publish_json
 
 SST_MEDIAN, SST_P90 = 1.0, 2.0
 RAIN_AGREE, RAIN_LOG = 0.90, 0.15
 rng = np.random.default_rng(11)
-earthaccess.login(strategy="interactive", persist=True)
+T.earthdata()                      # environment (CI secrets / .env.local), ~/.netrc, or an interactive prompt
 man = json.load(open(RAW / "manifest.json"))
-report = {}
+report, pairs = {}, {}
 
 # ---- SST ----
 full = np.load(WORK / "sst_fullres.npy"); H, W = full.shape
@@ -34,7 +37,10 @@ for off in (-1, 0, 1):
     stats = {"date": str(day), "n": int(ok.sum()), "median_abs": float(np.median(np.abs(err[ok]))),
              "p90_abs": float(np.percentile(np.abs(err[ok]), 90)), "bias": float(np.mean(err[ok]))}
     print(f"SST vs MUR {day}: median {stats['median_abs']:.2f}, p90 {stats['p90_abs']:.2f}, bias {stats['bias']:+.2f} (n={stats['n']})")
-    if best is None or stats["median_abs"] < best["median_abs"]: best = stats
+    if best is None or stats["median_abs"] < best["median_abs"]:
+        best = stats
+        pairs["sst"] = [{"lat": round(float(lat[y]), 3), "lon": round(float(lon[x]), 3), "frame": float(full[y, x]), "file": float(m)}
+                        for y, x, m, k in zip(ys, xs, mur, ok) if k]
 if best:
     best["pass"] = best["median_abs"] <= SST_MEDIAN and best["p90_abs"] <= SST_P90 and best["n"] >= 45
     report["sst"] = best; print(f"SST RESULT: {'PASS' if best['pass'] else 'FAIL'} (best date {best['date']})")
@@ -72,6 +78,10 @@ def verify_rain(rate, ft, label):
     st["pass"] = st["agreement"] >= RAIN_AGREE and st["median_abs_log10"] <= RAIN_LOG
     print(f"Rain {label} vs IMERG {run} {st['file']}: agreement {agree*100:.1f}%, median |log10| {st['median_abs_log10']:.3f}, "
           f"bias {st['median_log10_bias']:+.3f} -> {'PASS' if st['pass'] else 'FAIL'}")
+    cell = lambda y, x: {"lat": round(90 - (y + 0.5) * 0.1, 2), "lon": round(-180 + (x + 0.5) * 0.1, 2)}
+    pairs["rain"] = ([{**cell(y, x), "kind": "rain", "frame": float(rate[y, x]), "file": float(v)}
+                      for y, x, v in zip(wy[pw], wx[pw], im_w)] +
+                     [{**cell(y, x), "kind": "dry", "frame": 0.0, "file": float(v)} for y, x, v in zip(dy[pd_], dx[pd_], im_d)])
     return st
 
 ft = dt.datetime.fromisoformat(man["products"]["rain"]["frame_time_utc"].replace("Z", "+00:00"))
@@ -91,8 +101,12 @@ else:
     print("RAIN RESULT: NOT TESTED - no IMERG file available for any recent frame yet; re-run later.")
 write_json(WORK / "verify_latest.json", report); print("Saved work/verify_latest.json")
 # record the result in the published metadata so the truth panel can show "also checked on today's frame"
+UNITS = {"sst": "degC", "rain": "mm/h"}
 for prod in ("sst", "rain"):
     mj = PUBLIC / "latest" / f"{prod}.json"
     if prod in report and mj.exists():
         m = json.load(open(mj)); m["latest_check"] = {**report[prod], "checked_utc": now_utc()}
         write_json(mj, m); print(f"Added latest_check to public/data/latest/{prod}.json ({'PASS' if report[prod]['pass'] else 'FAIL'})")
+        frame_time = report[prod].get("frame_time_utc") or m["frame_time_utc"]
+        publish_json(f"truth/{prod}_pairs.json", {**header(f"{prod}_pairs", frame_time), "units": UNITS[prod],
+                     "frame_time_utc": frame_time, "check": m["latest_check"], "pairs": pairs[prod]})
