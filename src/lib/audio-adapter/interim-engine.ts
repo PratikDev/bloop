@@ -15,6 +15,7 @@ import { startScheduler } from "./scheduler";
 import { createSpatialRain, type SpatialRain } from "./spatial-rain";
 import { playCompare, playSeries, playThenNow, playYearsAndMonths } from "./then-now";
 import { playTimelapse } from "./timelapse";
+import { playUnison } from "./unison";
 import { cancelSpeech, initSpeech, speak } from "./speech";
 import type { AudioEngine } from "./types";
 
@@ -62,6 +63,10 @@ export const interimEngine: AudioEngine = {
   setOcean: live.setOcean,
   setRain: live.setRain,
   silenceLive: live.silence,
+  setNormalTone: live.setNormalTone,
+  setClarity: live.setClarity,
+  setRecorded: live.setRecorded,
+  playUnison,
 
   speak,
   playEarcon(id, opts) {

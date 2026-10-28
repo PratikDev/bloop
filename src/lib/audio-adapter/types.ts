@@ -3,6 +3,7 @@
 // can replace the interim one without UI changes. Additions that L2's plan does
 // not have yet are marked PROPOSAL and listed in docs/L3/contract-proposals.md §B.
 
+import type { Clarity } from "@/lib/data/ocean-extra";
 import type { RainPhase } from "@/types/data-contract";
 
 export type { RainPhase };
@@ -156,6 +157,14 @@ export interface L3AudioExtensions {
   setSpatialRain(sources: readonly SpatialRainSource[] | null, listener: SpatialListener): void;
   // PROPOSAL (Dhaka time tunnel): heat per year and monsoon per month together; step index = row.
   playYearsAndMonths(rows: readonly TunnelYear[], opts: { yearSec: number; player: string; captions?: ReadonlyMap<number, string> }): PlayerHandle;
+  // PROPOSAL (§15, B3): the normal tone on the SVS 5176 anomaly (°C vs normal); null silences it.
+  setNormalTone(anomalyC: number | null, lon: number): void;
+  // PROPOSAL (§15, C5): the ocean voice's echo length from MUR's hours since a 1 km look.
+  setClarity(c: Clarity): void;
+  // PROPOSAL (§15, C1): proof in unison for one checked point (frame tone, then the file tone joins).
+  playUnison(pair: { frameC: number; fileC: number }): PlayerHandle;
+  // PROPOSAL (§15, guardrail 16): a live track's data is past its freshness limit → the recorded texture.
+  setRecorded(track: "ocean" | "rain", stale: boolean): void;
 }
 
 export type AudioEngine = L2AudioApi & L3AudioExtensions;

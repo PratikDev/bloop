@@ -24,7 +24,8 @@ function voiceGain(id: LiveVoiceId): number {
   return state.volume[id];
 }
 
-/** Context voices (heat, monsoon, water) share one bus: silent under Mute all, or while a live voice is soloed. */
+/** Context voices (heat, monsoon, water) share one bus: silent under Mute all, or while a live voice is soloed.
+ *  The §15 extras bus (normal tone, proof in unison) follows the same rule. */
 function contextGain(): number {
   if (state.allMuted) return 0;
   if (state.solo !== null && isLive(state.solo)) return 0;
@@ -37,6 +38,7 @@ export function applyMix(): void {
   if (!graph) return;
   for (const id of LIVE_VOICES) glideTo(graph.ctx, graph.voiceBus[id].gain, voiceGain(id), MIX_GLIDE_SEC);
   glideTo(graph.ctx, graph.context.gain, contextGain(), MIX_GLIDE_SEC);
+  glideTo(graph.ctx, graph.extras.gain, contextGain(), MIX_GLIDE_SEC);
 }
 
 function isLive(id: VoiceId): id is LiveVoiceId {

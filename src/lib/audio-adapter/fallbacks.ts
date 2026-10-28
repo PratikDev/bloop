@@ -16,5 +16,9 @@ export function withFallbacks(core: L2AudioApi & Partial<L3AudioExtensions>): Au
     setOceanAxis: core.setOceanAxis ?? (() => undefined),
     setSpatialRain: core.setSpatialRain ?? (() => undefined),
     playYearsAndMonths: core.playYearsAndMonths ?? finishedHandle,
+    setNormalTone: core.setNormalTone ?? (() => undefined),
+    setClarity: core.setClarity ?? (() => undefined),
+    playUnison: core.playUnison ?? finishedHandle,
+    setRecorded: core.setRecorded ?? (() => undefined),
   };
 }
