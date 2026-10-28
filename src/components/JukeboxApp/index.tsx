@@ -23,6 +23,7 @@ import { Stage } from "./Stage";
 // Then vs Now (and its chart library) and Turntable (and three.js) load only when chosen.
 const ThenNow = dynamic(() => import("../ThenNow").then((m) => m.ThenNow), { ssr: false });
 const Turntable = dynamic(() => import("../Turntable").then((m) => m.Turntable), { ssr: false });
+const OfficialRecords = dynamic(() => import("../OfficialRecords").then((m) => m.OfficialRecords), { ssr: false });
 import { useGlobalEscape } from "./use-global-escape";
 
 function Shell() {
@@ -32,6 +33,8 @@ function Shell() {
   useGlobalEscape(commands, timeLapse.stop);
   useRecordedTexture();
   const turntable = state.mode === "turntable";
+  // Turntable and Official records bring their own controls and panels.
+  const ownStage = turntable || state.mode === "official";
 
   return (
     <>
@@ -44,13 +47,13 @@ function Shell() {
           className={cn(
             "grid min-h-0 content-start lg:content-stretch",
             // Turntable: the stage takes everything; its panels, mixer and controls open from its own dock and drawers.
-            turntable ? "grid-cols-[minmax(0,1fr)] content-stretch" : "lg:grid-cols-[minmax(0,1fr)_24rem]",
+            ownStage ? "grid-cols-[minmax(0,1fr)] content-stretch" : "lg:grid-cols-[minmax(0,1fr)_24rem]",
           )}
         >
-          {state.mode === "thenNow" ? <ThenNow /> : turntable ? <Turntable /> : <Stage />}
-          {!turntable && <SidePanel />}
+          {state.mode === "thenNow" ? <ThenNow /> : turntable ? <Turntable /> : state.mode === "official" ? <OfficialRecords /> : <Stage />}
+          {!ownStage && <SidePanel />}
         </main>
-        {!turntable && <BottomBar />}
+        {!ownStage && <BottomBar />}
       </div>
       <HelpDialog />
     </>

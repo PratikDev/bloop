@@ -165,6 +165,11 @@ export interface L3AudioExtensions {
   playUnison(pair: { frameC: number; fileC: number }): PlayerHandle;
   // PROPOSAL (§15, guardrail 16): a live track's data is past its freshness limit → the recorded texture.
   setRecorded(track: "ocean" | "rain", stale: boolean): void;
+  // PROPOSAL (§15 official records, B9): a plain record voice by its mapping.json id; the synth follows the rule's
+  // output param (frequency → tone, cutoff → haze, clicksPerSecond → clicks). null silences it.
+  setRecordVoice(voice: string, value: number | null, lon: number): void;
+  // PROPOSAL (§15 official records, B9): every record voice silent (leaving a record, pausing).
+  silenceRecord(): void;
 }
 
 export type AudioEngine = L2AudioApi & L3AudioExtensions;

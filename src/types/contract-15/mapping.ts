@@ -7,5 +7,5 @@ export interface SameAsMapping {
   input: { unit: string };
 }
 
-/** Output params added after §10 (continuous rules). */
-export type ExtraOutputParam = "reverbSec";
+/** Output params added after §10 (continuous rules). cutoff = low-pass Hz (air "haze"); clicksPerSecond = rhythm slot. */
+export type ExtraOutputParam = "reverbSec" | "cutoff" | "clicksPerSecond";

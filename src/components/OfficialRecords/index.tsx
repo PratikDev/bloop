@@ -1,0 +1,80 @@
+"use client";
+
+import { useState } from "react";
+import { ruleText, voiceSpec } from "@/lib/audio/mapping";
+import { loadOfficialIndex, type OfficialReading } from "@/lib/data";
+import { formatFixed, formatUtc, type BoundT, type Lang } from "@/lib/i18n";
+import { useLoaded } from "@/hooks/use-loaded";
+import { useAppState, useT } from "../AppState/use-app-state";
+import { ChoiceGroup } from "../ChoiceGroup";
+import { StatusBadge } from "../StatusBadge";
+import { ProvenanceCard } from "./ProvenanceCard";
+import { RecordControls } from "./RecordControls";
+import { RecordMap } from "./RecordMap";
+import { useOfficialRecord } from "./use-official-record";
+
+const SIGNIFICANT = 3;
+
+function readingText(t: BoundT, lang: Lang, r: OfficialReading | null, unit: string): string {
+  if (!r) return t("official.noValue");
+  const value = formatFixed(r.value, lang, Math.max(0, SIGNIFICANT - 1 - Math.floor(Math.log10(Math.abs(r.value) || 1))));
+  return t(r.below ? "official.below" : "official.value", { value, unit });
+}
+
+function Player({ record }: { record: string }) {
+  const { state } = useAppState();
+  const t = useT();
+  const rec = useOfficialRecord(record, state.soundOn);
+  if (rec.error) return <StatusBadge kind="error">{t("official.error")}</StatusBadge>;
+  if (!rec.manifest || !rec.option) return <StatusBadge kind="loading">{t("official.loading")}</StatusBadge>;
+  const map = rec.grids[rec.option.map];
+  const first = rec.readings[0];
+  const unit = map?.layer.unit ?? "";
+  const text = readingText(t, state.lang, first?.reading ?? null, unit);
+  const place = t("place.latlon", rec.needle);
+  const times = map?.layer.times ?? [];
+  const timeText = times[rec.step] ? formatUtc(times[rec.step], state.lang) : "";
+  return (
+    <div className="grid gap-6 lg:grid-cols-[minmax(0,1fr)_24rem]">
+      <div className="space-y-3">
+        {map && rec.ready ? (
+          <RecordMap grid={map} step={rec.step} needle={rec.needle} onMove={rec.moveNeedle}
+            label={t("official.map", { layer: map.layer.label, time: timeText, reading: text })} />
+        ) : (
+          <StatusBadge kind="loading">{t("official.loading")}</StatusBadge>
+        )}
+        <p aria-live="off" className="text-body">
+          {place}: {text}
+        </p>
+        <ul className="space-y-1 text-small text-haze">
+          {rec.option.channels.map((c) => (
+            <li key={c.voice}>{ruleText(voiceSpec(c.voice))}</li>
+          ))}
+        </ul>
+        <RecordControls rec={rec} timeText={timeText} readingText={`${place}: ${text}`} />
+      </div>
+      <ProvenanceCard manifest={rec.manifest} validation={rec.validation} />
+    </div>
+  );
+}
+
+/** The Official mode: every Challenge #14 resource decoded into data, one plain voice each, with its provenance. */
+export function OfficialRecords() {
+  const t = useT();
+  const { value: index, error } = useLoaded(loadOfficialIndex);
+  const [record, setRecord] = useState<string | null>(null);
+  if (error) return <StatusBadge kind="error">{t("official.error")}</StatusBadge>;
+  if (!index) return <StatusBadge kind="loading">{t("official.loading")}</StatusBadge>;
+  const current = record ?? index.records[0]?.record;
+  return (
+    <section className="min-h-0 space-y-4 overflow-y-auto bg-night px-4 py-4" aria-labelledby="official-heading">
+      <div className="space-y-1">
+        <h2 id="official-heading" className="text-lead font-medium">{t("official.heading")}</h2>
+        <p className="text-haze">{t("official.intro")}</p>
+      </div>
+      <ChoiceGroup label={t("official.records")} value={current ?? ""} onChange={setRecord} className="flex-wrap"
+        options={index.records.map((r) => ({ value: r.record, label: r.title }))} />
+      {current && <Player key={current} record={current} />}
+    </section>
+  );
+}

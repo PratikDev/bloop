@@ -21,3 +21,13 @@ export {
   type SstDtField,
 } from "./ocean-extra";
 export { loadSstPairs, loadThreeWay, nearestPair } from "./truth-pairs";
+export {
+  decodeCode,
+  loadOfficialIndex,
+  loadOfficialLayer,
+  loadOfficialManifest,
+  loadOfficialValidation,
+  officialValueAt,
+  type OfficialGrid,
+  type OfficialReading,
+} from "./official";

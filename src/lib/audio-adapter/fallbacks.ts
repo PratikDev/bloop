@@ -20,5 +20,7 @@ export function withFallbacks(core: L2AudioApi & Partial<L3AudioExtensions>): Au
     setClarity: core.setClarity ?? (() => undefined),
     playUnison: core.playUnison ?? finishedHandle,
     setRecorded: core.setRecorded ?? (() => undefined),
+    setRecordVoice: core.setRecordVoice ?? (() => undefined),
+    silenceRecord: core.silenceRecord ?? (() => undefined),
   };
 }

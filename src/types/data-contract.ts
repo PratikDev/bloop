@@ -439,6 +439,7 @@ export type OutputScale = "linear" | "exponential";
 
 // value → t in [0,1] over [input.min, input.max] (clamped; log uses log10),
 // then t → output: linear = min + (max − min)·t; exponential = min·(max/min)^t.
+// falling (§15): t → 1 − t first, so a higher value gives a lower output (the air "haze" cutoff).
 export interface ContinuousMapping {
   kind: "continuous";
   input: { unit: string; min: number; max: number; scale: InputScale };
@@ -449,6 +450,7 @@ export interface ContinuousMapping {
     max: number;
     scale: OutputScale;
     round?: boolean;
+    falling?: boolean;
   };
 }
 

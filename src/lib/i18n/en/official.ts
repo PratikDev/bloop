@@ -1,0 +1,42 @@
+// English strings for the Official records mode (the Challenge #14 resources as data; docs/official/).
+// Every number is a {param} filled from the record's manifest, validation.json or mapping.json.
+
+import { formatFixed } from "../format";
+
+export const officialEn = {
+  "mode.official": "Official",
+  "official.heading": "NASA's Challenge resources, as data",
+  "official.intro": "Each record is one official SVS visualization, read back into values. Plain sound only: one voice per record.",
+  "official.loading": "Loading the records…",
+  "official.error": "Couldn't load the official records.",
+  "official.records": "Records",
+  "official.layer": "Layer",
+  "official.view": "Area",
+  "official.view.global": "World (daily)",
+  "official.view.box": "Bangladesh (hourly)",
+  "official.play": "Play",
+  "official.pause": "Pause",
+  "official.time": "Time step",
+  "official.timeValue": (p: { time: string; step: number; total: number }) => `${p.time} (step ${p.step} of ${p.total})`,
+  "official.approximate": "approximate time",
+  "official.speak": "Speak value",
+  "official.value": (p: { value: string; unit: string }) => `${p.value} ${p.unit}`,
+  "official.below": (p: { value: string; unit: string }) => `below ${p.value} ${p.unit} (under the colorbar's range)`,
+  "official.noValue": "No value here",
+  "official.map": (p: { layer: string; time: string; reading: string }) => `${p.layer}, ${p.time}. Under the needle: ${p.reading}. Arrow keys move the needle.`,
+  "official.provenance": "Where this comes from",
+  "official.svs": (p: { id: number }) => `SVS ${p.id}`,
+  "official.period": "Period",
+  "official.frameTime": "Frame times",
+  "official.frameTime.method": (p: { method: string; count: number }) => `${p.method}, ${p.count} frames`,
+  "official.georef": "Map position",
+  "official.georef.iou": (p: { iou: string; passAt: string }) => `coastline match ${p.iou} (passes at ${p.passAt})`,
+  "official.credits": "Credits",
+  "official.licence": "Licence",
+  "official.description": "From the SVS page",
+  "official.checks": "Checks",
+  "official.check.pass": "pass",
+  "official.check.miss": "missed the provisional threshold",
+  "official.check.none": "no threshold",
+  "official.size": (p: { mb: number }) => `${formatFixed(p.mb, "en", 1)} MB of data`,
+};

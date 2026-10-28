@@ -2,7 +2,7 @@ import { TRACK_VOICES, type LiveVoiceId, type TrackMode } from "@/lib/audio-adap
 import { clampLat, START_CURSOR, wrapLon, type LatLon } from "@/lib/data";
 import type { Lang } from "@/lib/i18n";
 
-export type Mode = "explore" | "story" | "thenNow" | "turntable";
+export type Mode = "explore" | "story" | "thenNow" | "turntable" | "official";
 export type PanelTab = "truth" | "mapping" | "provenance" | "history";
 
 export interface VoiceMix {

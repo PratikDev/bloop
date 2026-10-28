@@ -22,6 +22,7 @@ export const MODE_LABELS = {
   story: "mode.story",
   thenNow: "mode.thenNow",
   turntable: "mode.turntable",
+  official: "mode.official",
 } as const satisfies Record<Mode, string>;
 
 /** The sweep currently playing, for the map's sweep ring. */

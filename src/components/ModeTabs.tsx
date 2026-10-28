@@ -10,9 +10,10 @@ const MODES: { mode: Mode; ready: boolean }[] = [
   { mode: "story", ready: true },
   { mode: "thenNow", ready: true },
   { mode: "turntable", ready: true },
+  { mode: "official", ready: true },
 ];
 
-/** Explore, Story, Then vs Now, Turntable. Modes not built yet say so, rather than pretending. */
+/** Explore, Story, Then vs Now, Turntable, Official. Modes not built yet say so, rather than pretending. */
 export function ModeTabs({ className }: { className?: string }) {
   const { state } = useAppState();
   const commands = useCommands();

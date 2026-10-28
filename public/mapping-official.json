@@ -1,0 +1,47 @@
+{
+  "generated_by": "pipeline/svs/records/voices.py",
+  "voices": [
+    {
+      "id": "currentDrift",
+      "label": {
+        "en": "Current pattern drift (model)",
+        "bn": "TODO: current drift"
+      },
+      "group": "context",
+      "source": {
+        "dataset": "ECCO2 model, via EIC frames SVS 3912 (optical flow of the drawn streaks)",
+        "svsId": 3912,
+        "product": "currents_3912"
+      },
+      "status": "context",
+      "mapping": {
+        "kind": "continuous",
+        "input": {
+          "unit": "km/day",
+          "min": 0,
+          "max": 14.5,
+          "scale": "linear"
+        },
+        "output": {
+          "param": "clicksPerSecond",
+          "unit": "clicks/s",
+          "min": 1,
+          "max": 12,
+          "scale": "linear"
+        }
+      },
+      "silence": "Land, or nothing drawn to follow at this point.",
+      "sound": {
+        "timbre": "Plain click train",
+        "attackMs": 1,
+        "releaseMs": 20,
+        "maxGain": 0.15,
+        "family": "model"
+      },
+      "pan": "longitude",
+      "legend": [],
+      "designChoice": true,
+      "note": "How fast the drawn eddies and meanders move, not the speed of the water; range = the record's 1st–99th percentile."
+    }
+  ]
+}
