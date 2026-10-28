@@ -1,0 +1,22 @@
+# Daily: SVS frames (5101, 4285 sequence, 5176, 5315 + archive, 5584, 5113), truth checks (latest_check, truth pairs,
+# three-way), freshness and the daily products (FIRMS NOAA-20/21, Black Marble VJ146A2, …). 02:15 UTC = 08:15 Dhaka.
+name: data-daily
+
+on:
+  schedule:
+    - cron: "15 2 * * *"
+  workflow_dispatch:
+
+concurrency:
+  group: data-refresh
+  cancel-in-progress: false
+
+jobs:
+  daily:
+    permissions:
+      contents: write
+      issues: write
+    uses: ./.github/workflows/data-run.yml
+    with:
+      cadence: daily
+    secrets: inherit
