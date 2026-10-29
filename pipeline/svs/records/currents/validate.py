@@ -1,6 +1,9 @@
 """Validate 3912 (every choice below was fixed before the comparison numbers were read):
 (a) SST vs MUR25 at the weekly sample dates, 0.5° cells with streak coverage ≥ MIN_COV: global Spearman (provisional
     ≥ 0.9) and median |Δ| + bias per basin. Model (ECCO2) vs observation (MUR): an offset is expected, not hidden.
+    Team decision A6 (29 Oct 2026): cells at the colorbar's bottom ("≤ 0 °C": decoded SST at or below the measured floor
+    + one colorbar pixel, records/currents/__init__.py) are excluded from the statistics; the numbers with them included
+    are reported next to it, with each basin's share of limit cells.
 (b) Direction vs OSCAR in strong-current cells (OSCAR speed ≥ STRONG m/s) inside fixed boxes: median angular difference
     for the pattern drift (0–180°, chance 90°), the streak axis (0–90°, chance 45°) and the axis signed by the drift
     (0–180°, chance 90°). Provisional ≤ 45° for the two directions.
@@ -11,9 +14,10 @@ import datetime as dt, json
 import numpy as np
 from core.log import say
 from svs import flow, validate as V
+from svs.records import decisions
 from svs.config import raw_dir
 from svs.regrid import centres
-from . import MIN_COV, SID, grids
+from . import MIN_COV, SID, grids, limit_C, sst_at_limit, sst_cells, sst_floor
 from .truth import GRID_DEG, sample_dates
 
 ROOT = raw_dir(SID)
@@ -46,27 +50,39 @@ def main():
     lat, lon = centres(GRID_DEG)
     samples = [(n, t) for n, t in sample_dates() if n in nums]
     checks = []
-    # (a) SST
-    f_all, m_all, per_basin = [], [], {k: ([], []) for k in basins(lat, lon)}
+    # (a) SST, without (the record's rule) and with the colorbar-limit pixels
     B = basins(lat, lon)
-    for n, t in samples:
-        p = ROOT / "truth" / "mur" / f"{t:%Y%m%d}.npz"
-        if not p.exists(): continue
-        k = nums.index(n); mur = np.load(p)["sst"]
-        ok = (g["sst_cov"][k] >= MIN_COV) & np.isfinite(g["sst"][k]) & np.isfinite(mur)
-        f_all.append(g["sst"][k][ok]); m_all.append(mur[ok])
-        for name, m in B.items():
-            per_basin[name][0].append(g["sst"][k][ok & m]); per_basin[name][1].append(mur[ok & m])
-    f_all, m_all = np.concatenate(f_all), np.concatenate(m_all)
-    rho, n = V.spearman(f_all, m_all)
-    err = V.errors(f_all, m_all)
-    basin_stats = {name: {**V.errors(np.concatenate(a), np.concatenate(b)), "spearman": V.spearman(np.concatenate(a), np.concatenate(b))[0]}
-                   for name, (a, b) in per_basin.items()}
+    dec = json.loads((ROOT / "decode.json").read_text(encoding="utf-8"))
+    floor, limit = sst_floor(g), limit_C(g, dec["colorbar"])
+    def sst_stats(cut):
+        f_all, m_all, per_basin, share = [], [], {k: ([], []) for k in B}, {k: [] for k in B}
+        for n, t in samples:
+            p = ROOT / "truth" / "mur" / f"{t:%Y%m%d}.npz"
+            if not p.exists(): continue
+            k = nums.index(n); mur = np.load(p)["sst"]
+            sst = sst_cells(g, k, k + 1, cut)[0]
+            at = sst_at_limit(g, k, k + 1, limit)[0]
+            ok = np.isfinite(sst) & np.isfinite(mur)
+            f_all.append(sst[ok]); m_all.append(mur[ok])
+            for name, m in B.items():
+                per_basin[name][0].append(sst[ok & m]); per_basin[name][1].append(mur[ok & m])
+                share[name].append(at[m & (g["sst_cov"][k] >= MIN_COV)])
+        f_all, m_all = np.concatenate(f_all), np.concatenate(m_all)
+        rho, n = V.spearman(f_all, m_all)
+        err = V.errors(f_all, m_all)
+        basin = {name: {**V.errors(np.concatenate(a), np.concatenate(b)), "spearman": V.spearman(np.concatenate(a), np.concatenate(b))[0],
+                        "limit_cell_share": float(np.mean(np.concatenate(share[name])))} for name, (a, b) in per_basin.items()}
+        return {"spearman": rho, "n_cells": n, "median_abs_C": err["median_abs"], "bias_C": err["bias"], "per_basin": basin}
+    excl, incl = sst_stats(limit), sst_stats(None)
     checks.append(V.check(RECORD, "a_sst_mur", "ECCO2 SST (decoded from frames) vs MUR25 SST, same dates", kind="model-vs-obs",
-                          source="MUR25-JPL-L4-GLOB-v04.2 (PO.DAAC)", threshold="Spearman ≥ 0.9 (provisional)", passed=rho >= 0.9,
-                          metrics={"spearman": rho, "n_cells": n, "dates": len(samples), "median_abs_C": err["median_abs"], "bias_C": err["bias"],
-                                   "per_basin": basin_stats}, note="Model vs observation: differences include real ECCO2–MUR differences."))
-    say(f"(a) SST vs MUR: Spearman {rho:.3f} (n {n}); median |Δ| {err['median_abs']:.2f} °C; bias {err['bias']:+.2f} °C")
+                          source="MUR25-JPL-L4-GLOB-v04.2 (PO.DAAC)", threshold="Spearman ≥ 0.9 (provisional)", passed=excl["spearman"] >= 0.9,
+                          metrics={**excl, "dates": len(samples), "floor_C": floor["value_C"], "limit_C": limit,
+                                   "floor_share_within_0.1C": floor["share_within_0.1C"], "with_limit_cells": incl},
+                          note="Model vs observation: differences include real ECCO2–MUR differences. Cells at the colorbar's "
+                               "bottom (≤ 0 °C: decoded at or below limit_C) are excluded; with_limit_cells = the same "
+                               "statistics with them included."))
+    say(f"(a) SST vs MUR without limit cells (floor {floor['value_C']:.3f} °C, cut {limit:.3f}): Spearman {excl['spearman']:.3f} (n {excl['n_cells']}); median |Δ| {excl['median_abs_C']:.2f} °C; "
+        f"bias {excl['bias_C']:+.2f} °C | with: Spearman {incl['spearman']:.3f}; |Δ| {incl['median_abs_C']:.2f}; bias {incl['bias_C']:+.2f}")
     # (b) directions in strong currents
     res = {b: {"drift": [], "axis": [], "combined": [], "speed_pairs": []} for b in BOXES}
     for n, t in samples:
@@ -103,6 +119,13 @@ def main():
                           note="Pattern drift = optical flow of the drawn streaks (eddies/meanders moving), not water speed. "
                                "Axis = streak orientation (direction modulo 180°). Combined = axis signed by the drift."))
     say(f"(b) direction vs OSCAR: {overall}")
+    ft = ROOT / "flow_test.json"
+    if ft.exists():
+        r = json.loads(ft.read_text(encoding="utf-8"))
+        checks.append(V.check(RECORD, "b2_direction_consecutive", "Flow direction vs OSCAR, 20 consecutive frames (no subsampling)",
+                              kind="model-vs-obs", source="OSCAR_L4_OC_FINAL_V2.0 (PO.DAAC)", threshold="median ≤ 45° (provisional; directions)",
+                              passed=r["median_deg_summed"] <= 45 and r["median_deg_per_pair"] <= 45, metrics=r,
+                              note="Team decision A3 test: Farnebäck between frames 4.1 h apart, and the displacement summed over the 19 pairs."))
     # (c) EICC
     eicc = in_box(lat, lon, EICC_BOX)
     oc = np.nanmean(g["ocean_frac"], 0)
@@ -140,7 +163,7 @@ def main():
                           note="Along-shore component towards N30°E (positive = poleward). Combined = unit vectors (no speed); "
                                "drift in km/day; OSCAR in m/s."))
     say(f"(c) EICC reversal shown: {verdict}")
-    V.save(RECORD, checks)
+    V.save(RECORD, [decisions.apply(RECORD, c) for c in checks])
     (ROOT / "validation_full.json").write_text(json.dumps(V._clean(checks), indent=1), encoding="utf-8")
 
 if __name__ == "__main__":

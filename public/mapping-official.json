@@ -264,7 +264,7 @@
     {
       "id": "currentDrift",
       "label": {
-        "en": "Current pattern drift (model)",
+        "en": "Drawn streak motion (visual texture, not water speed)",
         "bn": "TODO: current drift"
       },
       "group": "context",
@@ -279,7 +279,7 @@
         "input": {
           "unit": "km/day",
           "min": 0,
-          "max": 14.5,
+          "max": 14.3,
           "scale": "linear"
         },
         "output": {
@@ -301,7 +301,48 @@
       "pan": "longitude",
       "legend": [],
       "designChoice": true,
-      "note": "How fast the drawn eddies and meanders move, not the speed of the water; range = the record's 1st–99th percentile."
+      "note": "Pattern of the drawing, not water speed: how fast the drawn eddies and meanders move, not the speed of the water; range = the record's 1st–99th percentile."
+    },
+    {
+      "id": "oscarCurrent",
+      "label": {
+        "en": "NASA OSCAR surface currents (observation)",
+        "bn": "TODO: OSCAR currents"
+      },
+      "group": "context",
+      "source": {
+        "dataset": "NASA OSCAR surface currents, 25 Mar 2007 – 3 Mar 2008: ESR; Dohan, Kathleen. 2022. Ocean Surface Current Analyses Real-time (OSCAR) Surface Currents - Final 0.25 Degree (Version 2.0). Ver. 2.0. PO.DAAC, CA, USA. https://doi.org/10.5067/OSCAR-25F20.",
+        "svsId": 3912,
+        "product": "oscar_3912"
+      },
+      "status": "context",
+      "mapping": {
+        "kind": "continuous",
+        "input": {
+          "unit": "m/s",
+          "min": 0,
+          "max": 0.8,
+          "scale": "linear"
+        },
+        "output": {
+          "param": "clicksPerSecond",
+          "unit": "clicks/s",
+          "min": 1,
+          "max": 12,
+          "scale": "linear"
+        }
+      },
+      "silence": "Land, or no OSCAR current for this day.",
+      "sound": {
+        "timbre": "Plain click train",
+        "attackMs": 1,
+        "releaseMs": 20,
+        "maxGain": 0.15
+      },
+      "pan": "longitude",
+      "legend": [],
+      "designChoice": true,
+      "note": "Surface current speed from NASA OSCAR for the record's days (team decision A3: the frames' motion is not a data claim); range = the record's 1st–99th percentile."
     }
   ]
 }

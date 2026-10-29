@@ -8,35 +8,37 @@
    "kind": "model-vs-obs",
    "source": "MUR25-JPL-L4-GLOB-v04.2 (PO.DAAC)",
    "metrics": {
-    "spearman": 0.9935924786797061,
-    "n_cells": 6330856,
-    "dates": 48,
-    "median_abs_C": 0.7638664245605469,
-    "bias_C": 0.41710067041863574,
+    "spearman": 0.9933975858279842,
+    "n_cells": 5602140,
+    "median_abs_C": 0.6438369750976562,
+    "bias_C": 0.03555672412804982,
     "per_basin": {
      "Arctic (>66°N)": {
-      "n": 466621,
-      "median_abs": 3.754072666168213,
-      "median_rel": 2.1018792417812144,
-      "bias": 2.948784433712563,
-      "median_bias": 3.7522976398468018,
-      "spearman": 0.4971722286073692
+      "n": 92793,
+      "median_abs": 1.1766257286071777,
+      "median_rel": 0.26808820189099086,
+      "bias": 0.8957773884453866,
+      "median_bias": 0.7972328662872314,
+      "spearman": 0.8513990169647061,
+      "limit_cell_share": 0.8011432905599253
      },
      "Southern Ocean (<50°S)": {
-      "n": 1016628,
-      "median_abs": 2.0900775529444218,
-      "median_rel": 1.9005522312826337,
-      "bias": 1.9559411766943673,
-      "median_bias": 2.0820724330842495,
-      "spearman": 0.9261865799072729
+      "n": 691736,
+      "median_abs": 1.457248330116272,
+      "median_rel": 0.5498482112303593,
+      "bias": 1.3380295076597675,
+      "median_bias": 1.413944959640503,
+      "spearman": 0.9144943815267653,
+      "limit_cell_share": 0.31969691009578505
      },
      "North Atlantic": {
-      "n": 765996,
-      "median_abs": 0.6407690048217773,
-      "median_rel": 0.029847066485270215,
-      "bias": -0.17617360949358996,
-      "median_bias": -0.03473663330078125,
-      "spearman": 0.9876973082231904
+      "n": 746998,
+      "median_abs": 0.6225061416625977,
+      "median_rel": 0.028769749097700463,
+      "bias": -0.24995994600249485,
+      "median_bias": -0.05927562713623047,
+      "spearman": 0.9867698658240446,
+      "limit_cell_share": 0.02480065773160896
      },
      "South Atlantic": {
       "n": 547396,
@@ -44,7 +46,8 @@
       "median_rel": 0.03952500151990509,
       "bias": -0.2691242158306659,
       "median_bias": 0.012770652770996094,
-      "spearman": 0.9915458077279832
+      "spearman": 0.9915458077279832,
+      "limit_cell_share": 0.0
      },
      "Indian": {
       "n": 947345,
@@ -52,15 +55,17 @@
       "median_rel": 0.0247296489498561,
       "bias": -0.17890421795094677,
       "median_bias": -0.057281494140625,
-      "spearman": 0.9860265985185883
+      "spearman": 0.9860265985185883,
+      "limit_cell_share": 0.0
      },
      "North Pacific": {
-      "n": 1306701,
-      "median_abs": 0.5406589508056641,
-      "median_rel": 0.02350674625002535,
-      "bias": 0.07665445206679233,
-      "median_bias": 0.0646514892578125,
-      "spearman": 0.9864163014682662
+      "n": 1295703,
+      "median_abs": 0.534764289855957,
+      "median_rel": 0.023200177996279978,
+      "bias": 0.05114557149794437,
+      "median_bias": 0.05723762512207031,
+      "spearman": 0.9860717827773569,
+      "limit_cell_share": 0.00841616472970398
      },
      "South Pacific": {
       "n": 1280169,
@@ -68,7 +73,8 @@
       "median_rel": 0.024303112488811417,
       "bias": -0.2907738425855361,
       "median_bias": -0.18541717529296875,
-      "spearman": 0.9944798038346395
+      "spearman": 0.9944798038346395,
+      "limit_cell_share": 0.0
      },
      "Bay of Bengal": {
       "n": 38295,
@@ -76,14 +82,99 @@
       "median_rel": 0.013347698115507166,
       "bias": -0.2222927703140205,
       "median_bias": -0.26012420654296875,
-      "spearman": 0.8188415981321723
+      "spearman": 0.8188415981321723,
+      "limit_cell_share": 0.0
+     }
+    },
+    "dates": 48,
+    "floor_C": 1.975,
+    "limit_C": 2.0896690761633536,
+    "floor_share_within_0.1C": 0.11274597752632952,
+    "with_limit_cells": {
+     "spearman": 0.9935924786797061,
+     "n_cells": 6330856,
+     "median_abs_C": 0.7638664245605469,
+     "bias_C": 0.41710067041863574,
+     "per_basin": {
+      "Arctic (>66°N)": {
+       "n": 466621,
+       "median_abs": 3.754072666168213,
+       "median_rel": 2.1018792417812144,
+       "bias": 2.948784433712563,
+       "median_bias": 3.7522976398468018,
+       "spearman": 0.4971722286073692,
+       "limit_cell_share": 0.8011432905599253
+      },
+      "Southern Ocean (<50°S)": {
+       "n": 1016628,
+       "median_abs": 2.0900775529444218,
+       "median_rel": 1.9005522312826337,
+       "bias": 1.9559411766943673,
+       "median_bias": 2.0820724330842495,
+       "spearman": 0.9261865799072729,
+       "limit_cell_share": 0.31969691009578505
+      },
+      "North Atlantic": {
+       "n": 765996,
+       "median_abs": 0.6407690048217773,
+       "median_rel": 0.029847066485270215,
+       "bias": -0.17617360949358996,
+       "median_bias": -0.03473663330078125,
+       "spearman": 0.9876973082231904,
+       "limit_cell_share": 0.02480065773160896
+      },
+      "South Atlantic": {
+       "n": 547396,
+       "median_abs": 0.7555809020996094,
+       "median_rel": 0.03952500151990509,
+       "bias": -0.2691242158306659,
+       "median_bias": 0.012770652770996094,
+       "spearman": 0.9915458077279832,
+       "limit_cell_share": 0.0
+      },
+      "Indian": {
+       "n": 947345,
+       "median_abs": 0.5726442337036133,
+       "median_rel": 0.0247296489498561,
+       "bias": -0.17890421795094677,
+       "median_bias": -0.057281494140625,
+       "spearman": 0.9860265985185883,
+       "limit_cell_share": 0.0
+      },
+      "North Pacific": {
+       "n": 1306701,
+       "median_abs": 0.5406589508056641,
+       "median_rel": 0.02350674625002535,
+       "bias": 0.07665445206679233,
+       "median_bias": 0.0646514892578125,
+       "spearman": 0.9864163014682662,
+       "limit_cell_share": 0.00841616472970398
+      },
+      "South Pacific": {
+       "n": 1280169,
+       "median_abs": 0.5391483306884766,
+       "median_rel": 0.024303112488811417,
+       "bias": -0.2907738425855361,
+       "median_bias": -0.18541717529296875,
+       "spearman": 0.9944798038346395,
+       "limit_cell_share": 0.0
+      },
+      "Bay of Bengal": {
+       "n": 38295,
+       "median_abs": 0.3808097839355469,
+       "median_rel": 0.013347698115507166,
+       "bias": -0.2222927703140205,
+       "median_bias": -0.26012420654296875,
+       "spearman": 0.8188415981321723,
+       "limit_cell_share": 0.0
+      }
      }
     }
    },
    "threshold": "Spearman ≥ 0.9 (provisional)",
    "pass": true,
-   "note": "Model vs observation: differences include real ECCO2–MUR differences.",
-   "run_utc": "2026-10-28T23:54:48Z"
+   "note": "Model vs observation: differences include real ECCO2–MUR differences. Cells at the colorbar's bottom (≤ 0 °C: decoded at or below limit_C) are excluded; with_limit_cells = the same statistics with them included.",
+   "run_utc": "2026-10-29T07:06:34Z"
   },
   {
    "record": "currents_3912",
@@ -139,7 +230,13 @@
    "threshold": "median ≤ 45° (provisional; directions)",
    "pass": false,
    "note": "Pattern drift = optical flow of the drawn streaks (eddies/meanders moving), not water speed. Axis = streak orientation (direction modulo 180°). Combined = axis signed by the drift.",
-   "run_utc": "2026-10-28T23:54:54Z"
+   "run_utc": "2026-10-29T07:06:39Z",
+   "decision": {
+    "on": "2026-10-29",
+    "status": "visual texture",
+    "statement": "pattern of the drawing, not water speed (direction vs OSCAR 72.5°)",
+    "table": "threshold missed; frame motion kept only as labelled visual texture, the currents voice plays NASA OSCAR"
+   }
   },
   {
    "record": "currents_3912",
@@ -226,8 +323,48 @@
    "threshold": "poleward ≥2 of Mar–May and equatorward ≥2 of Oct–Dec",
    "pass": true,
    "note": "Along-shore component towards N30°E (positive = poleward). Combined = unit vectors (no speed); drift in km/day; OSCAR in m/s.",
-   "run_utc": "2026-10-28T23:55:18Z"
+   "run_utc": "2026-10-29T07:06:58Z"
+  },
+  {
+   "record": "currents_3912",
+   "id": "b2_direction_consecutive",
+   "title": "Flow direction vs OSCAR, 20 consecutive frames (no subsampling)",
+   "kind": "model-vs-obs",
+   "source": "OSCAR_L4_OC_FINAL_V2.0 (PO.DAAC)",
+   "metrics": {
+    "frames": 20,
+    "pairs": 19,
+    "hours_per_pair": 4.12719298245614,
+    "first": "2007-03-25 12:00:00+00:00",
+    "median_deg_per_pair": 70.10821056365967,
+    "median_deg_summed": 59.512813568115234,
+    "regions_per_pair": {
+     "Gulf Stream": 69.02008438110352,
+     "Kuroshio": 80.61416625976562,
+     "Agulhas": 68.95817565917969,
+     "Bay of Bengal (EICC)": 56.563201904296875
+    },
+    "regions_summed": {
+     "Gulf Stream": 58.33252143859863,
+     "Kuroshio": 69.07426452636719,
+     "Agulhas": 60.91227340698242,
+     "Bay of Bengal (EICC)": 48.83796691894531
+    },
+    "n_cells_per_pair": 6691,
+    "threshold_deg": 45,
+    "chance_deg": 90
+   },
+   "threshold": "median ≤ 45° (provisional; directions)",
+   "pass": false,
+   "note": "Team decision A3 test: Farnebäck between frames 4.1 h apart, and the displacement summed over the 19 pairs.",
+   "run_utc": "2026-10-29T07:06:39Z",
+   "decision": {
+    "on": "2026-10-29",
+    "status": "visual texture",
+    "statement": "consecutive frames vs OSCAR: 70.1° per pair, 59.5° summed (chance 90°)",
+    "table": "threshold missed (> 45°): the currents voice plays NASA OSCAR; frame flow is visual texture only"
+   }
   }
  ],
- "updated_utc": "2026-10-28T23:55:18Z"
+ "updated_utc": "2026-10-29T07:06:58Z"
 }

@@ -21,3 +21,31 @@ def grids():
                 np.save(root / f"{name}.npy", z[name])
         packed.unlink()
     return {p.stem: np.load(p, mmap_mode="r") for p in root.glob("*.npy")}
+
+FLOOR_BINS = (0.0, 6.0, 0.05)        # °C: where the floor is looked for, and the histogram bin
+
+def sst_floor(g, every=7):
+    """The render's floor as decoded (team decision A6, 29 Oct 2026; frames only): the mode of the cell SST histogram
+    (every 7th day, FLOOR_BINS). Water colder than the colorbar's 0 °C is drawn in its bottom colour, so it piles up
+    here; in hue mode that dark-blue end decodes ~2 °C high, so the floor is measured, not assumed to be 0 °C."""
+    v = np.asarray(g["sst"][::every]); c = np.asarray(g["sst_cov"][::every])
+    v = v[(c >= MIN_COV) & np.isfinite(v)]
+    lo, hi, w = FLOOR_BINS
+    h, e = np.histogram(v[(v >= lo) & (v < hi)], bins=np.arange(lo, hi + w / 2, w))
+    i = int(h.argmax())
+    return {"value_C": float((e[i] + e[i + 1]) / 2), "bin_C": w, "share_within_0.1C": float(np.mean(np.abs(v - (e[i] + e[i + 1]) / 2) <= 0.1))}
+
+def sst_cells(g, a, b, limit=None):
+    """SST for days a..b-1 per cell with streak coverage ≥ MIN_COV. limit (°C): cells at or below it are at the colorbar's
+    bottom and are left out (NaN); None keeps them (the with/without comparison)."""
+    v = np.where(np.asarray(g["sst_cov"][a:b]) >= MIN_COV, g["sst"][a:b], np.nan)
+    return v if limit is None else np.where(v <= limit, np.nan, v)
+
+def sst_at_limit(g, a, b, limit):
+    """Cells that read "≤ 0 °C (colorbar limit)": enough streak pixels, and a decoded SST at or below `limit`."""
+    with np.errstate(invalid="ignore"):
+        return (np.asarray(g["sst_cov"][a:b]) >= MIN_COV) & (np.asarray(g["sst"][a:b]) <= limit)
+
+def limit_C(g, cb_summary):
+    """The floor plus one colorbar pixel: the cut between 'at the colorbar's bottom' and a value."""
+    return sst_floor(g)["value_C"] + 1 / cb_summary["px_per_unit"]

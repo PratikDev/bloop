@@ -48,6 +48,7 @@ MODIS_NDVI = Dataset("mod13q1", "MODIS MOD13Q1 NDVI (ORNL DAAC)", "NASA", "measu
 GLOBE = Dataset("globe", "NASA GLOBE Program cloud observations", "ground", "measurement")
 GEOSCF = Dataset("geoscf", "NASA GEOS-CF composition model (GMAO)", "NASA", "model")
 ECCO2 = Dataset("ecco2", "ECCO2 ocean model (MIT/JPL)", "NASA", "model")
+OSCAR = Dataset("oscar", "OSCAR L4 surface currents, final v2.0 (ESR, NASA PO.DAAC)", "NASA", "measurement")
 
 # Partner / other agencies
 CRW = Dataset("crw", "NOAA Coral Reef Watch SST anomaly and Degree Heating Weeks (5 km)", "NOAA", "measurement")

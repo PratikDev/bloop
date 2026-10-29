@@ -7,6 +7,7 @@ Fixed before any validation data was read (frame and colorbar colours only):
   land    — grey relief pixels (saturation < 0.1, 0.10 < value < 0.35), 5×5 majority;
   motion  — Farnebäck (flow.FARNEBACK) between consecutive daily frames (24.75 h) = pattern drift; structure-tensor
             streak axis (σ 2 px) weighted by coherence.
+  limit   — found later from the decoded cells (records/currents/__init__.py sst_floor, team decision A6).
 Two stills (frame | decoded SST | confidence) are written to data_raw/3912/stills/ before the raw frames are deleted.
 Usage (from pipeline/): python -m svs.records.currents.decode [--keep-frames] [--limit=N]   (--limit implies --keep-frames)"""
 import json, sys
@@ -36,13 +37,20 @@ def cell_mean(values, valid, gw, gh):
     with np.errstate(invalid="ignore", divide="ignore"):
         return np.where(f > 0, s / f, np.nan), f
 
+def stated_range():
+    """The SVS caption's colorbar ends ("blue is 0 degrees C, … red is 32 degrees C"), read from the cached record."""
+    import re
+    rec = svs_api.fetch_record(SID)
+    text = rec["description"] + " " + rec.get("full_text", "")
+    lo = re.search(r"blue is (-?\d+(?:\.\d+)?) degrees C", text); hi = re.search(r"red is (-?\d+(?:\.\d+)?) degrees C", text)
+    return float(lo.group(1)), float(hi.group(1))
+
 def colorbar_3912():
     choice = choose.choose(svs_api.fetch_record(SID))
     bar = choice["colorbars"]["orig"]
     path = ROOT / bar["filename"]
     e = Fetcher(ROOT / "manifest.jsonl").get(bar["url"], path, expect_bytes=50_000)
-    stated = (0.0, 32.0)                         # SVS caption: "blue is 0 degrees C … red is 32 degrees C" (cross-check)
-    return colorbar.read(frames.read_rgba(path), stated_range=stated), e
+    return colorbar.read(frames.read_rgba(path), stated_range=stated_range()), e      # the caption's range: a cross-check
 
 def still(rgb, sst, res, name, cb):
     """frame | decoded SST (same colours, NaN = dark grey) | residual (confidence) — for the checkpoint report."""
@@ -74,7 +82,7 @@ def main():
         H, W = rgb.shape[:2]
         land = land_mask(rgb)
         if k in still_at: georefs[nums[k]] = georef.verify(land)
-        sst, _, res, kb = inv.invert(rgb, MAX_DIST, min_k=MIN_K)
+        sst, pos, res, kb = inv.invert(rgb, MAX_DIST, min_k=MIN_K)
         sst[land] = np.nan
         ocean = ~land
         coverage.append(float(np.isfinite(sst)[ocean].mean()))

@@ -13,6 +13,7 @@ CUTOFF = {"param": "cutoff", "unit": "Hz", "min": 800, "max": 8000, "scale": "ex
 CLICKS = {"param": "clicksPerSecond", "unit": "clicks/s", "min": 1, "max": 12, "scale": "linear"}
 AIR_NAMES = {"pm25": "PM2.5", "co": "Carbon monoxide", "nox": "Nitrogen oxides", "o3": "Ozone"}
 VOICE_IDS = {"pm25": "airPm25", "co": "airCo", "nox": "airNox", "o3": "airO3"}
+OSCAR_PRODUCT = "oscar_3912"                     # products/registry.py: an observation product, so not the model timbre
 
 def input_scale(cb):
     if cb["scale"] in ("linear", "log"): return cb["scale"]
@@ -32,14 +33,25 @@ def air_voice(sp, cb, unit, record):
             "designChoice": True, "note": "The book's air rule (§5.4), one voice per species; range = the SVS colorbar's own labels."}
 
 def drift_voice(rng, record):
-    return {"id": "currentDrift", "label": {"en": "Current pattern drift (model)", "bn": "TODO: current drift"}, "group": "context",
+    return {"id": "currentDrift", "label": {"en": "Drawn streak motion (visual texture, not water speed)", "bn": "TODO: current drift"}, "group": "context",
             "source": {"dataset": "ECCO2 model, via EIC frames SVS 3912 (optical flow of the drawn streaks)", "svsId": 3912, "product": record},
             "status": "context",
             "mapping": {"kind": "continuous", "input": {"unit": "km/day", "min": 0, "max": round(rng[1], 1), "scale": "linear"}, "output": CLICKS},
             "silence": "Land, or nothing drawn to follow at this point.",
             "sound": {"timbre": "Plain click train", "attackMs": 1, "releaseMs": 20, "maxGain": 0.15, "family": "model"},
             "pan": "longitude", "legend": [],
-            "designChoice": True, "note": "How fast the drawn eddies and meanders move, not the speed of the water; range = the record's 1st–99th percentile."}
+            "designChoice": True, "note": "Pattern of the drawing, not water speed: how fast the drawn eddies and meanders move, not the speed of the water; range = the record's 1st–99th percentile."}
+
+def oscar_voice(rng, src):
+    return {"id": "oscarCurrent", "label": {"en": f"{src['label']} (observation)", "bn": "TODO: OSCAR currents"}, "group": "context",
+            "source": {"dataset": f"{src['label']}, {src['period']}: {src['citation']['text']}", "svsId": 3912, "product": OSCAR_PRODUCT},
+            "status": "context",
+            "mapping": {"kind": "continuous", "input": {"unit": "m/s", "min": 0, "max": round(rng[1], 2), "scale": "linear"}, "output": CLICKS},
+            "silence": "Land, or no OSCAR current for this day.",
+            "sound": {"timbre": "Plain click train", "attackMs": 1, "releaseMs": 20, "maxGain": 0.15},
+            "pan": "longitude", "legend": [],
+            "designChoice": True, "note": "Surface current speed from NASA OSCAR for the record's days (team decision A3: the frames' "
+                                          "motion is not a data claim); range = the record's 1st–99th percentile."}
 
 def main():
     voices = []
@@ -52,6 +64,8 @@ def main():
     if cur.exists():
         m = json.loads(cur.read_text(encoding="utf-8"))
         voices.append(drift_voice(m["drift_speed_range_km_day"], m["record"]))
+        if "oscarCurrent" in m.get("voice_sources", {}):
+            voices.append(oscar_voice(m["oscar_speed_range_m_s"], m["voice_sources"]["oscarCurrent"]))
     OUT.write_text(json.dumps({"generated_by": "pipeline/svs/records/voices.py", "voices": voices}, indent=2, ensure_ascii=False) + "\n",
                    encoding="utf-8")
     print(f"wrote {OUT.name}: {[v['id'] for v in voices]}")
