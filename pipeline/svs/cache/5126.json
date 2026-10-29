@@ -1,0 +1,88 @@
+{
+ "id": 5126,
+ "title": "NOAA Annual Greenhouse Gas Index",
+ "url": "https://svs.gsfc.nasa.gov/5126/",
+ "page_type": "Visualization",
+ "release_date": "2023-07-07T00:00:00-04:00",
+ "update_date": "2025-04-01T09:34:27.086916-04:00",
+ "description": "This visualization of the NOAA Annual Greenhouse Gas Index shows the relative warming contribution from various greenhouse gasses (1979-2023). The donut chart shows 2023 AGGI data.",
+ "full_text": "This visualization of the NOAA Annual Greenhouse Gas Index shows the relative warming contribution from various greenhouse gasses (1979-2023). The donut chart shows 2023 AGGI data.\n\nThis visualization of the NOAA Annual Greenhouse Gas Index shows the relative warming contribution from various greenhouse gasses (1979-2022). The donut chart shows 2022 AGGI data.\n\nThe <a href=\"https://gml.noaa.gov/aggi/\">NOAA Annual Greenhouse Gas Index (AGGI)</a> tracks the increasing amount of heat being added to the atmosphere by human-related greenhouse gas (GHG) emissions. It is based on the highest quality measurements of GHGs in the atmosphere from sites around the world. <br><br>This visualization contains data from 1979-2023. The quantity plotted is the global radiative forcing, which is a measure of how much each component is warming the Earth. The 'other' category includes hydrofluorocarbons (HFCs), Chlorofluorocarbons (CFCs), and hydrochlorofluorocarbons (HCFCs). The donut chart shows the 2023 data. <br><br>This visualization, aimed at showing the relative contributions of each gas, leaves off the scale and units. In 2023 the total radiative forcing was 3.5 Watts per meter squared.",
+ "credits_by_role": {
+  "Visualizer": [
+   "Mark SubbaRao (NASA/GSFC)"
+  ],
+  "Technical support": [
+   "Laurence Schuler (ADNET Systems, Inc.)",
+   "Ian Jones (ADNET Systems, Inc.)"
+  ],
+  "Scientist": [
+   "Lesley Ott (NASA/GSFC)"
+  ]
+ },
+ "keywords": [
+  "Atmosphere",
+  "Atmospheric Chemistry/Nitrogen Compounds",
+  "Carbon Dioxide",
+  "Climate",
+  "Climate Change",
+  "Earth Information Center",
+  "Earth Science",
+  "Greenhouse Gases",
+  "Hyperwall",
+  "Methane",
+  "Nitrous Oxide"
+ ],
+ "datasets": [],
+ "missions": [],
+ "related": [],
+ "alternate_versions": [],
+ "newer_versions": [],
+ "older_versions": [],
+ "media": [
+  {
+   "group": 0,
+   "group_title": "",
+   "widget": "Single image",
+   "caption": "",
+   "group_text": "This visualization of the NOAA Annual Greenhouse Gas Index shows the relative warming contribution from various greenhouse gasses (1979-2022). The donut chart shows 2022 AGGI data.",
+   "url": "https://svs.gsfc.nasa.gov/vis/a000000/a005100/a005126/AGGI_1920x800_cc.png",
+   "filename": "AGGI_1920x800_cc.png",
+   "media_type": "Image",
+   "width": 1920,
+   "height": 800,
+   "alt_text": "This visualization of the NOAA Annual Greenhouse Gas Index shows the relative warming contribution from various greenhouse gasses (1979-2023). The donut chart shows 2023 AGGI data."
+  },
+  {
+   "group": 0,
+   "group_title": "",
+   "widget": "Single image",
+   "caption": "",
+   "group_text": "This visualization of the NOAA Annual Greenhouse Gas Index shows the relative warming contribution from various greenhouse gasses (1979-2022). The donut chart shows 2022 AGGI data.",
+   "url": "https://svs.gsfc.nasa.gov/vis/a000000/a005100/a005126/AGGI_1920x800_cc_print.jpg",
+   "filename": "AGGI_1920x800_cc_print.jpg",
+   "media_type": "Image",
+   "width": 1024,
+   "height": 426,
+   "alt_text": "This visualization of the NOAA Annual Greenhouse Gas Index shows the relative warming contribution from various greenhouse gasses (1979-2022). The donut chart shows 2022 AGGI data."
+  },
+  {
+   "group": 0,
+   "group_title": "",
+   "widget": "Single image",
+   "caption": "",
+   "group_text": "This visualization of the NOAA Annual Greenhouse Gas Index shows the relative warming contribution from various greenhouse gasses (1979-2022). The donut chart shows 2022 AGGI data.",
+   "url": "https://svs.gsfc.nasa.gov/vis/a000000/a005100/a005126/AGGI_1920x800_cc_thm.png",
+   "filename": "AGGI_1920x800_cc_thm.png",
+   "media_type": "Image",
+   "width": 80,
+   "height": 40,
+   "alt_text": "This visualization of the NOAA Annual Greenhouse Gas Index shows the relative warming contribution from various greenhouse gasses (1979-2022). The donut chart shows 2022 AGGI data."
+  }
+ ],
+ "text_links": [
+  "https://gml.noaa.gov/aggi/"
+ ],
+ "frame_folders": {},
+ "api_url": "https://svs.gsfc.nasa.gov/api/5126",
+ "fetched_utc": "2026-10-29T07:41:19Z"
+}

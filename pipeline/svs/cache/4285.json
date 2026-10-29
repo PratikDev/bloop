@@ -1,0 +1,429 @@
+{
+ "id": 4285,
+ "title": "Near Real-Time Global Precipitation from the Global Precipitation Measurement Constellation",
+ "url": "https://svs.gsfc.nasa.gov/4285/",
+ "page_type": "Visualization",
+ "release_date": "2015-03-31T12:00:00-04:00",
+ "update_date": "2026-10-29T03:20:37.826053-04:00",
+ "description": "An animation of the most currently available global precipitation data from IMERG.",
+ "full_text": "An animation of the most currently available global precipitation data from IMERG.\n\nThe Global Precipitation Measurement (GPM) mission produces NASA's most comprehensive global rain and snowfall product to date, called the Integrated Multi-satellite Retrievals for GPM (IMERG). It is computed using data from the GPM constellation of satellites — a network of international satellites that currently includes the GPM Core Observatory, GCOM-W1, NOAA-18, NOAA-19, DMSP F-16, DMSP F-17, DMSP F-18, Metop-A, and Metop-B. The global IMERG dataset provides precipitation rates for the entire world every 30 minutes. Although the process to create the combined dataset is intensive, the GPM team creates a preliminary, near-real-time dataset of precipitation within several hours of data acquisition. This visualization shows the most currently available precipitation data from IMERG, depicting how rain and snowstorms move around the planet. As scientists work to understand all the elements of Earth's climate and weather systems, and how they could change in the future, GPM provides a major step forward in providing comprehensive and consistent measurements of precipitation for scientists and a wide variety of user communities.\n\nColorbar for frozen precipitation\n\nColor bar for liquid precipitation\n\nAn image of the most currently available global precipitation data from IMERG.",
+ "credits_by_role": {
+  "Animator": [
+   "Horace Mitchell (NASA/GSFC)"
+  ],
+  "Scientist": [
+   "George Huffman (NASA/GSFC)",
+   "Gail Skofronick Jackson (NASA/GSFC)",
+   "Dalia B Kirschbaum (NASA/GSFC)"
+  ],
+  "Programmer": [
+   "Leann Johnson (Global Science and Technology, Inc.)"
+  ],
+  "Producer": [
+   "Ryan Fitzgibbons (USRA)"
+  ]
+ },
+ "keywords": [
+  "Atmosphere",
+  "Atmospheric science",
+  "Earth Science",
+  "Global Precipitation Measurement",
+  "Hyperwall",
+  "precipitation",
+  "Precipitation Rate",
+  "rain",
+  "Real-time",
+  "Realtime",
+  "Up-to-date",
+  "Updated",
+  "Weather and Atmospheric Dynamics"
+ ],
+ "datasets": [
+  {
+   "name": "",
+   "common_name": "IMERG",
+   "platform": null,
+   "sensor": null,
+   "type": "Data Compilation",
+   "organizations": [
+    "NASA/GSFC"
+   ],
+   "description": "",
+   "credit": "",
+   "url": "http://pmm.nasa.gov/sites/default/files/document_files/IMERG_ATBD_V4.4.pdf",
+   "date_range": null
+  }
+ ],
+ "missions": [
+  "Global Precipitation Measurement (GPM)"
+ ],
+ "related": [
+  {
+   "id": 14566,
+   "title": "NASA Interview Opportunity: Celebrate Earth Day With A Global Pulse Check Of Our Oceans! See Our Oceans In A Whole New Light",
+   "url": "https://svs.gsfc.nasa.gov/14566/"
+  },
+  {
+   "id": 14508,
+   "title": "Global Pulse Check! NASA’s New Earth Satellite, PACE, Launching Next Week to Capture Earth Like Never Before!",
+   "url": "https://svs.gsfc.nasa.gov/14508/"
+  },
+  {
+   "id": 13833,
+   "title": "Celebrate Earth Day with NASA’s World-Wide View of Our Changing Climate Live Shots",
+   "url": "https://svs.gsfc.nasa.gov/13833/"
+  },
+  {
+   "id": 13079,
+   "title": "Inside Hurricane Maria in 360°",
+   "url": "https://svs.gsfc.nasa.gov/13079/"
+  },
+  {
+   "id": 12592,
+   "title": "Meteorologists live shots April 21",
+   "url": "https://svs.gsfc.nasa.gov/12592/"
+  },
+  {
+   "id": 12126,
+   "title": "Science On a Sphere: A Global Tour of Precipitation from NASA",
+   "url": "https://svs.gsfc.nasa.gov/12126/"
+  },
+  {
+   "id": 12091,
+   "title": "OLYMPEX Scientist Profiles",
+   "url": "https://svs.gsfc.nasa.gov/12091/"
+  },
+  {
+   "id": 12053,
+   "title": "OLYMPEX Field Campaign B-Roll",
+   "url": "https://svs.gsfc.nasa.gov/12053/"
+  },
+  {
+   "id": 12050,
+   "title": "Researchers Gear Up For OLYMPEX",
+   "url": "https://svs.gsfc.nasa.gov/12050/"
+  },
+  {
+   "id": 4386,
+   "title": "Beyond Graphs: You, Too, Can Be A Data Visualizer!",
+   "url": "https://svs.gsfc.nasa.gov/4386/"
+  },
+  {
+   "id": 12017,
+   "title": "NASA Takes You Inside Hurricane Joaquin Live Shots",
+   "url": "https://svs.gsfc.nasa.gov/12017/"
+  },
+  {
+   "id": 4372,
+   "title": "IMERG Global Precipitation Rates (New Colorbar)",
+   "url": "https://svs.gsfc.nasa.gov/4372/"
+  },
+  {
+   "id": 11826,
+   "title": "GPM April Showers Bring May Flowers Live Shots 4.1.15",
+   "url": "https://svs.gsfc.nasa.gov/11826/"
+  }
+ ],
+ "alternate_versions": [],
+ "newer_versions": [],
+ "older_versions": [],
+ "media": [
+  {
+   "group": 0,
+   "group_title": "",
+   "widget": "Video player",
+   "caption": "",
+   "group_text": "An animation of the most currently available global precipitation data from IMERG.",
+   "url": "https://svs.gsfc.nasa.gov/vis/a000000/a004200/a004285/imergert_1080p_30_print.jpg",
+   "filename": "imergert_1080p_30_print.jpg",
+   "media_type": "Image",
+   "width": 576,
+   "height": 1024,
+   "alt_text": "The Global Precipitation Measurement (GPM) mission produces NASA's most comprehensive global rain and snowfall product to date, called the Integrated Multi-satellite Retrievals for GPM (IMERG). It is computed using data from the GPM constellation of satellites — a network of international satellites that currently includes the GPM Core Observatory, GCOM-W1, NOAA-18, NOAA-19, DMSP F-16, DMSP F-17, DMSP F-18, Metop-A, and Metop-B. The global IMERG dataset provides precipitation rates for the entire world every 30 minutes. Although the process to create the combined dataset is intensive, the GPM team creates a preliminary, near-real-time dataset of precipitation within several hours of data acquisition. This visualization shows the most currently available precipitation data from IMERG, depicting how rain and snowstorms move around the planet. As scientists work to understand all the elements of Earth's climate and weather systems, and how they could change in the future, GPM provides a major step forward in providing comprehensive and consistent measurements of precipitation for scientists and a wide variety of user communities."
+  },
+  {
+   "group": 0,
+   "group_title": "",
+   "widget": "Video player",
+   "caption": "",
+   "group_text": "An animation of the most currently available global precipitation data from IMERG.",
+   "url": "https://svs.gsfc.nasa.gov/vis/a000000/a004200/a004285/imergert_1080p_30_print_thm.png",
+   "filename": "imergert_1080p_30_print_thm.png",
+   "media_type": "Image",
+   "width": 80,
+   "height": 40,
+   "alt_text": "An animation of the most currently available global precipitation data from IMERG."
+  },
+  {
+   "group": 0,
+   "group_title": "",
+   "widget": "Video player",
+   "caption": "",
+   "group_text": "An animation of the most currently available global precipitation data from IMERG.",
+   "url": "https://svs.gsfc.nasa.gov/vis/a000000/a004200/a004285/imergert_1080p_30_searchweb.png",
+   "filename": "imergert_1080p_30_searchweb.png",
+   "media_type": "Image",
+   "width": 180,
+   "height": 320,
+   "alt_text": "This gallery brings together the data visualizations that are updated daily for NASA's Earth Information Center (EIC)."
+  },
+  {
+   "group": 0,
+   "group_title": "",
+   "widget": "Video player",
+   "caption": "",
+   "group_text": "An animation of the most currently available global precipitation data from IMERG.",
+   "url": "https://svs.gsfc.nasa.gov/vis/a000000/a004200/a004285/imergert_1080p_30.mp4",
+   "filename": "imergert_1080p_30.mp4",
+   "media_type": "Movie",
+   "width": 1920,
+   "height": 1080,
+   "alt_text": "An animation of the most currently available global precipitation data from IMERG."
+  },
+  {
+   "group": 0,
+   "group_title": "",
+   "widget": "Video player",
+   "caption": "",
+   "group_text": "An animation of the most currently available global precipitation data from IMERG.",
+   "url": "https://svs.gsfc.nasa.gov/vis/a000000/a004200/a004285/frames/1920x1080_16x9_30p/flatcomposite/",
+   "filename": "flatcomposite",
+   "media_type": "Frames",
+   "width": 1920,
+   "height": 1080,
+   "alt_text": "An animation of the most currently available global precipitation data from IMERG."
+  },
+  {
+   "group": 0,
+   "group_title": "",
+   "widget": "Video player",
+   "caption": "",
+   "group_text": "An animation of the most currently available global precipitation data from IMERG.",
+   "url": "https://svs.gsfc.nasa.gov/vis/a000000/a004200/a004285/imergert_1080p_30.webm",
+   "filename": "imergert_1080p_30.webm",
+   "media_type": "Movie",
+   "width": 1920,
+   "height": 1080,
+   "alt_text": "An animation of the most currently available global precipitation data from IMERG."
+  },
+  {
+   "group": 0,
+   "group_title": "",
+   "widget": "Video player",
+   "caption": "",
+   "group_text": "An animation of the most currently available global precipitation data from IMERG.",
+   "url": "https://svs.gsfc.nasa.gov/vis/a000000/a004200/a004285/frames/3600x1800_2x1_30p/flatalpha/",
+   "filename": "flatalpha",
+   "media_type": "Frames",
+   "width": 3600,
+   "height": 1800,
+   "alt_text": "An animation of the most currently available global precipitation data from IMERG."
+  },
+  {
+   "group": 0,
+   "group_title": "",
+   "widget": "Video player",
+   "caption": "",
+   "group_text": "An animation of the most currently available global precipitation data from IMERG.",
+   "url": "https://svs.gsfc.nasa.gov/vis/a000000/a004200/a004285/frames/3600x1800_2x1_30p/flatcomposite/",
+   "filename": "flatcomposite",
+   "media_type": "Frames",
+   "width": 3600,
+   "height": 1800,
+   "alt_text": "An animation of the most currently available global precipitation data from IMERG."
+  },
+  {
+   "group": 0,
+   "group_title": "",
+   "widget": "Video player",
+   "caption": "",
+   "group_text": "An animation of the most currently available global precipitation data from IMERG.",
+   "url": "https://svs.gsfc.nasa.gov/vis/a000000/a004200/a004285/frames/3600x1800_2x1_30p/flatdates/",
+   "filename": "flatdates",
+   "media_type": "Frames",
+   "width": 343,
+   "height": 63,
+   "alt_text": "An animation of the most currently available global precipitation data from IMERG."
+  },
+  {
+   "group": 0,
+   "group_title": "",
+   "widget": "Video player",
+   "caption": "",
+   "group_text": "An animation of the most currently available global precipitation data from IMERG.",
+   "url": "https://svs.gsfc.nasa.gov/vis/a030000/a030700/a030781/the-earth-observing-fleet-by-theme-precipitation.hwshow",
+   "filename": "the-earth-observing-fleet-by-theme-precipitation.hwshow",
+   "media_type": "HyperwallShow",
+   "width": 0,
+   "height": 0,
+   "alt_text": ""
+  },
+  {
+   "group": 2,
+   "group_title": "",
+   "widget": "Single image",
+   "caption": "",
+   "group_text": "Colorbar for frozen precipitation",
+   "url": "https://svs.gsfc.nasa.gov/vis/a000000/a004200/a004285/snowbarwhite2.png",
+   "filename": "snowbarwhite2.png",
+   "media_type": "Image",
+   "width": 440,
+   "height": 90,
+   "alt_text": "Colorbar for frozen precipitation"
+  },
+  {
+   "group": 2,
+   "group_title": "",
+   "widget": "Single image",
+   "caption": "",
+   "group_text": "Colorbar for frozen precipitation",
+   "url": "https://svs.gsfc.nasa.gov/vis/a000000/a004200/a004285/snowbarblack2.png",
+   "filename": "snowbarblack2.png",
+   "media_type": "Image",
+   "width": 440,
+   "height": 90,
+   "alt_text": "Colorbar for frozen precipitation"
+  },
+  {
+   "group": 3,
+   "group_title": "",
+   "widget": "Single image",
+   "caption": "",
+   "group_text": "Color bar for liquid precipitation",
+   "url": "https://svs.gsfc.nasa.gov/vis/a000000/a004200/a004285/rainbarwhite2.png",
+   "filename": "rainbarwhite2.png",
+   "media_type": "Image",
+   "width": 440,
+   "height": 90,
+   "alt_text": "Color bar for liquid precipitation"
+  },
+  {
+   "group": 3,
+   "group_title": "",
+   "widget": "Single image",
+   "caption": "",
+   "group_text": "Color bar for liquid precipitation",
+   "url": "https://svs.gsfc.nasa.gov/vis/a000000/a004200/a004285/rainbarblack2.png",
+   "filename": "rainbarblack2.png",
+   "media_type": "Image",
+   "width": 440,
+   "height": 90,
+   "alt_text": "Color bar for liquid precipitation"
+  },
+  {
+   "group": 4,
+   "group_title": "",
+   "widget": "Single image",
+   "caption": "",
+   "group_text": "An image of the most currently available global precipitation data from IMERG.",
+   "url": "https://svs.gsfc.nasa.gov/vis/a000000/a004200/a004285/imergert_1080p.now.png",
+   "filename": "imergert_1080p.now.png",
+   "media_type": "Image",
+   "width": 1920,
+   "height": 1080,
+   "alt_text": "An image of the most currently available global precipitation data from IMERG."
+  },
+  {
+   "group": 4,
+   "group_title": "",
+   "widget": "Single image",
+   "caption": "",
+   "group_text": "An image of the most currently available global precipitation data from IMERG.",
+   "url": "https://svs.gsfc.nasa.gov/vis/a000000/a004200/a004285/imergert_1080p.now_print.jpg",
+   "filename": "imergert_1080p.now_print.jpg",
+   "media_type": "Image",
+   "width": 1024,
+   "height": 576,
+   "alt_text": "An image of the most currently available global precipitation data from IMERG."
+  },
+  {
+   "group": 4,
+   "group_title": "",
+   "widget": "Single image",
+   "caption": "",
+   "group_text": "An image of the most currently available global precipitation data from IMERG.",
+   "url": "https://svs.gsfc.nasa.gov/vis/a000000/a004200/a004285/imergert_alpha.now.png",
+   "filename": "imergert_alpha.now.png",
+   "media_type": "Image",
+   "width": 3600,
+   "height": 1800,
+   "alt_text": "An image of the most currently available global precipitation data from IMERG."
+  },
+  {
+   "group": 4,
+   "group_title": "",
+   "widget": "Single image",
+   "caption": "",
+   "group_text": "An image of the most currently available global precipitation data from IMERG.",
+   "url": "https://svs.gsfc.nasa.gov/vis/a000000/a004200/a004285/imergert_composite.now.png",
+   "filename": "imergert_composite.now.png",
+   "media_type": "Image",
+   "width": 3600,
+   "height": 1800,
+   "alt_text": "An image of the most currently available global precipitation data from IMERG."
+  },
+  {
+   "group": 4,
+   "group_title": "",
+   "widget": "Single image",
+   "caption": "",
+   "group_text": "An image of the most currently available global precipitation data from IMERG.",
+   "url": "https://svs.gsfc.nasa.gov/vis/a000000/a004200/a004285/imergert_dates.now.png",
+   "filename": "imergert_dates.now.png",
+   "media_type": "Image",
+   "width": 343,
+   "height": 63,
+   "alt_text": "An image of the most currently available global precipitation data from IMERG."
+  },
+  {
+   "group": 4,
+   "group_title": "",
+   "widget": "Single image",
+   "caption": "",
+   "group_text": "An image of the most currently available global precipitation data from IMERG.",
+   "url": "https://svs.gsfc.nasa.gov/vis/a000000/a004200/a004285/imergert_1080p.now_searchweb.png",
+   "filename": "imergert_1080p.now_searchweb.png",
+   "media_type": "Image",
+   "width": 320,
+   "height": 180,
+   "alt_text": "An image of the most currently available global precipitation data from IMERG."
+  }
+ ],
+ "text_links": [],
+ "frame_folders": {
+  "https://svs.gsfc.nasa.gov/vis/a000000/a004200/a004285/frames/1920x1080_16x9_30p/flatcomposite/": {
+   "url": "https://svs.gsfc.nasa.gov/vis/a000000/a004200/a004285/frames/1920x1080_16x9_30p/flatcomposite/",
+   "frame_count": 342,
+   "bytes_approx": null,
+   "first": "imergert_1080p.2026-10-22T00:00:00Z.png",
+   "last": "imergert_1080p.2026-10-29T02:30:00Z.png",
+   "subfolders": {}
+  },
+  "https://svs.gsfc.nasa.gov/vis/a000000/a004200/a004285/frames/3600x1800_2x1_30p/flatalpha/": {
+   "url": "https://svs.gsfc.nasa.gov/vis/a000000/a004200/a004285/frames/3600x1800_2x1_30p/flatalpha/",
+   "frame_count": 342,
+   "bytes_approx": null,
+   "first": "imergert_alpha.2026-10-22T00:00:00Z.png",
+   "last": "imergert_alpha.2026-10-29T02:30:00Z.png",
+   "subfolders": {}
+  },
+  "https://svs.gsfc.nasa.gov/vis/a000000/a004200/a004285/frames/3600x1800_2x1_30p/flatcomposite/": {
+   "url": "https://svs.gsfc.nasa.gov/vis/a000000/a004200/a004285/frames/3600x1800_2x1_30p/flatcomposite/",
+   "frame_count": 342,
+   "bytes_approx": null,
+   "first": "imergert_composite.2026-10-22T00:00:00Z.png",
+   "last": "imergert_composite.2026-10-29T02:30:00Z.png",
+   "subfolders": {}
+  },
+  "https://svs.gsfc.nasa.gov/vis/a000000/a004200/a004285/frames/3600x1800_2x1_30p/flatdates/": {
+   "url": "https://svs.gsfc.nasa.gov/vis/a000000/a004200/a004285/frames/3600x1800_2x1_30p/flatdates/",
+   "frame_count": 342,
+   "bytes_approx": null,
+   "first": "imergert_dates.2026-10-22T00:00:00Z.png",
+   "last": "imergert_dates.2026-10-29T02:30:00Z.png",
+   "subfolders": {}
+  }
+ },
+ "api_url": "https://svs.gsfc.nasa.gov/api/4285",
+ "fetched_utc": "2026-10-29T07:31:57Z"
+}

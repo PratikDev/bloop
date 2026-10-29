@@ -1,0 +1,240 @@
+{
+ "id": 12647,
+ "title": "Trading Water",
+ "url": "https://svs.gsfc.nasa.gov/12647/",
+ "page_type": "Produced Video",
+ "release_date": "2017-06-26T12:00:00-04:00",
+ "update_date": "2023-05-03T13:47:34.884537-04:00",
+ "description": "Crops sold in the international market trade away they water they're grown with. || usa_west.1974_1024x576.jpg (1024x576) [83.6 KB] || usa_west.1974_thm.png (80x40) [5.6 KB] || usa_west.1974_searchweb.png (320x180) [66.6 KB] || usa_west.1974.tif (1920x1080) [4.0 MB] || ",
+ "full_text": "Crops sold in the international market trade away they water they're grown with. || usa_west.1974_1024x576.jpg (1024x576) [83.6 KB] || usa_west.1974_thm.png (80x40) [5.6 KB] || usa_west.1974_searchweb.png (320x180) [66.6 KB] || usa_west.1974.tif (1920x1080) [4.0 MB] ||\n\nCrops sold in the international market trade away they water they're grown with.\n\nThe connection between water supplies, food, and international trade is closer than you might think. Globally, 70 percent of freshwater is used for irrigated agriculture, and one source of that water is underground aquifers. Aquifers form when water accumulates in the ground over time, sometimes over hundreds or thousands of years. Some of these aquifers become depleted, meaning that they do not accumulate rainfall fast enough to replace what is drawn out to the surface, either naturally to lakes and rivers or in this case by people via pumping. Once that groundwater is depleted, it will effectively be gone for good on the scale of a human life-time, and will no longer be available for relief during emergencies such as droughts. University and NASA researchers have used computer models of groundwater depletion and irrigation and compared them to records of the international food trade. They've traced the connections between food grown with depleted groundwater to individual crop sectors, countries, and their trade partners in order to better understand how we might conserve our freshwater resources. Watch the video to learn more.\n\nExplore how irrigation taps groundwater around the world to produce essential crops for the international market.\n\nIn the western United States, irrigation shown in blue coincides with groundwater depletion shown in greens (mild) to reds (severe).\n\nTwo-thirds of the exported crops that depend on non-renewable groundwater are produced in the United States, Pakistan, and India.\n\nNASA's Gravity Recovery and Climate satellites have observed aquifer drawdowns globally over the last 15 years, validating model results.\n\nSee [NASA.gov](https://www.nasa.gov/feature/goddard/2017/11-percent-of-disappearing-groundwater-used-to-grow)",
+ "credits_by_role": {
+  "Animator": [
+   "Ernie Wright (USRA)"
+  ],
+  "Producer": [
+   "Kathryn Mersmann (USRA)"
+  ],
+  "Scientist": [
+   "Michael Puma (Columbia University)",
+   "Thomas Kastner (Alpen-Adria Universitaet Klagenfurt)",
+   "Yoshihide Wada (Columbia University)",
+   "Carole Dalin (University College London)"
+  ],
+  "Writer": [
+   "Ellen T. Gray (ADNET Systems, Inc.)"
+  ]
+ },
+ "keywords": [
+  "App",
+  "HDTV"
+ ],
+ "datasets": [],
+ "missions": [],
+ "related": [],
+ "alternate_versions": [],
+ "newer_versions": [],
+ "older_versions": [],
+ "media": [
+  {
+   "group": 0,
+   "group_title": "",
+   "widget": "Single image",
+   "caption": "",
+   "group_text": "Crops sold in the international market trade away they water they're grown with. ",
+   "url": "https://svs.gsfc.nasa.gov/vis/a010000/a012600/a012647/usa_west.1974_1024x576.jpg",
+   "filename": "usa_west.1974_1024x576.jpg",
+   "media_type": "Image",
+   "width": 1024,
+   "height": 576,
+   "alt_text": "Crops sold in the international market trade away they water they're grown with. "
+  },
+  {
+   "group": 0,
+   "group_title": "",
+   "widget": "Single image",
+   "caption": "",
+   "group_text": "Crops sold in the international market trade away they water they're grown with. ",
+   "url": "https://svs.gsfc.nasa.gov/vis/a010000/a012600/a012647/usa_west.1974_thm.png",
+   "filename": "usa_west.1974_thm.png",
+   "media_type": "Image",
+   "width": 80,
+   "height": 40,
+   "alt_text": "Crops sold in the international market trade away they water they're grown with. "
+  },
+  {
+   "group": 0,
+   "group_title": "",
+   "widget": "Single image",
+   "caption": "",
+   "group_text": "Crops sold in the international market trade away they water they're grown with. ",
+   "url": "https://svs.gsfc.nasa.gov/vis/a010000/a012600/a012647/usa_west.1974_searchweb.png",
+   "filename": "usa_west.1974_searchweb.png",
+   "media_type": "Image",
+   "width": 320,
+   "height": 180,
+   "alt_text": "Crops sold in the international market trade away they water they're grown with. "
+  },
+  {
+   "group": 0,
+   "group_title": "",
+   "widget": "Single image",
+   "caption": "",
+   "group_text": "Crops sold in the international market trade away they water they're grown with. ",
+   "url": "https://svs.gsfc.nasa.gov/vis/a010000/a012600/a012647/usa_west.1974.tif",
+   "filename": "usa_west.1974.tif",
+   "media_type": "Image",
+   "width": 1920,
+   "height": 1080,
+   "alt_text": "Crops sold in the international market trade away they water they're grown with. "
+  },
+  {
+   "group": 2,
+   "group_title": "",
+   "widget": "Video player",
+   "caption": "",
+   "group_text": "Explore how irrigation taps groundwater around the world to produce essential crops for the international market.",
+   "url": "https://svs.gsfc.nasa.gov/vis/a010000/a012600/a012647/PosterFrame_1280x720_1024x576.jpg",
+   "filename": "PosterFrame_1280x720_1024x576.jpg",
+   "media_type": "Image",
+   "width": 1024,
+   "height": 576,
+   "alt_text": "Explore how irrigation taps groundwater around the world to produce essential crops for the international market."
+  },
+  {
+   "group": 2,
+   "group_title": "",
+   "widget": "Video player",
+   "caption": "",
+   "group_text": "Explore how irrigation taps groundwater around the world to produce essential crops for the international market.",
+   "url": "https://svs.gsfc.nasa.gov/vis/a010000/a012600/a012647/12429_irrigation_high.webm",
+   "filename": "12429_irrigation_high.webm",
+   "media_type": "Movie",
+   "width": 1280,
+   "height": 720,
+   "alt_text": "Explore how irrigation taps groundwater around the world to produce essential crops for the international market."
+  },
+  {
+   "group": 2,
+   "group_title": "",
+   "widget": "Video player",
+   "caption": "",
+   "group_text": "Explore how irrigation taps groundwater around the world to produce essential crops for the international market.",
+   "url": "https://svs.gsfc.nasa.gov/vis/a010000/a012600/a012647/12429_irrigation_high.mp4",
+   "filename": "12429_irrigation_high.mp4",
+   "media_type": "Movie",
+   "width": 1280,
+   "height": 720,
+   "alt_text": "Explore how irrigation taps groundwater around the world to produce essential crops for the international market."
+  },
+  {
+   "group": 2,
+   "group_title": "",
+   "widget": "Video player",
+   "caption": "",
+   "group_text": "Explore how irrigation taps groundwater around the world to produce essential crops for the international market.",
+   "url": "https://svs.gsfc.nasa.gov/vis/a010000/a012600/a012647/PosterFrame_1280x720.tiff",
+   "filename": "PosterFrame_1280x720.tiff",
+   "media_type": "Image",
+   "width": 1280,
+   "height": 720,
+   "alt_text": "Explore how irrigation taps groundwater around the world to produce essential crops for the international market."
+  },
+  {
+   "group": 2,
+   "group_title": "",
+   "widget": "Video player",
+   "caption": "",
+   "group_text": "Explore how irrigation taps groundwater around the world to produce essential crops for the international market.",
+   "url": "https://svs.gsfc.nasa.gov/vis/a010000/a012600/a012647/a012647_iPad_movie_12429_irrigation/12429_irrigation.m3u8",
+   "filename": "12429_irrigation.m3u8",
+   "media_type": "File",
+   "width": 0,
+   "height": 0,
+   "alt_text": "Explore how irrigation taps groundwater around the world to produce essential crops for the international market."
+  },
+  {
+   "group": 3,
+   "group_title": "",
+   "widget": "Single image",
+   "caption": "",
+   "group_text": "In the western United States, irrigation shown in blue coincides with groundwater depletion shown in greens (mild) to reds (severe).",
+   "url": "https://svs.gsfc.nasa.gov/vis/a010000/a012600/a012647/usa_west.1780_1024x576.jpg",
+   "filename": "usa_west.1780_1024x576.jpg",
+   "media_type": "Image",
+   "width": 1024,
+   "height": 576,
+   "alt_text": "In the western United States, irrigation shown in blue coincides with groundwater depletion shown in greens (mild) to reds (severe)."
+  },
+  {
+   "group": 3,
+   "group_title": "",
+   "widget": "Single image",
+   "caption": "",
+   "group_text": "In the western United States, irrigation shown in blue coincides with groundwater depletion shown in greens (mild) to reds (severe).",
+   "url": "https://svs.gsfc.nasa.gov/vis/a010000/a012600/a012647/usa_west.1780.tif",
+   "filename": "usa_west.1780.tif",
+   "media_type": "Image",
+   "width": 1920,
+   "height": 1080,
+   "alt_text": "In the western United States, irrigation shown in blue coincides with groundwater depletion shown in greens (mild) to reds (severe)."
+  },
+  {
+   "group": 4,
+   "group_title": "",
+   "widget": "Single image",
+   "caption": "",
+   "group_text": "Two-thirds of the exported crops that depend on non-renewable groundwater are produced in the United States, Pakistan, and India.",
+   "url": "https://svs.gsfc.nasa.gov/vis/a010000/a012600/a012647/asia_irr.1800_1024x576.jpg",
+   "filename": "asia_irr.1800_1024x576.jpg",
+   "media_type": "Image",
+   "width": 1024,
+   "height": 576,
+   "alt_text": "Two-thirds of the exported crops that depend on non-renewable groundwater are produced in the United States, Pakistan, and India."
+  },
+  {
+   "group": 4,
+   "group_title": "",
+   "widget": "Single image",
+   "caption": "",
+   "group_text": "Two-thirds of the exported crops that depend on non-renewable groundwater are produced in the United States, Pakistan, and India.",
+   "url": "https://svs.gsfc.nasa.gov/vis/a010000/a012600/a012647/asia_irr.1800.tif",
+   "filename": "asia_irr.1800.tif",
+   "media_type": "Image",
+   "width": 1920,
+   "height": 1080,
+   "alt_text": "Two-thirds of the exported crops that depend on non-renewable groundwater are produced in the United States, Pakistan, and India."
+  },
+  {
+   "group": 5,
+   "group_title": "",
+   "widget": "Single image",
+   "caption": "",
+   "group_text": "NASA's Gravity Recovery and Climate satellites have observed aquifer drawdowns globally over the last 15 years, validating model results.",
+   "url": "https://svs.gsfc.nasa.gov/vis/a010000/a012600/a012647/asia_dep.1225_1024x576.jpg",
+   "filename": "asia_dep.1225_1024x576.jpg",
+   "media_type": "Image",
+   "width": 1024,
+   "height": 576,
+   "alt_text": "NASA's Gravity Recovery and Climate satellites have observed aquifer drawdowns globally over the last 15 years, validating model results."
+  },
+  {
+   "group": 5,
+   "group_title": "",
+   "widget": "Single image",
+   "caption": "",
+   "group_text": "NASA's Gravity Recovery and Climate satellites have observed aquifer drawdowns globally over the last 15 years, validating model results.",
+   "url": "https://svs.gsfc.nasa.gov/vis/a010000/a012600/a012647/asia_dep.1225.tif",
+   "filename": "asia_dep.1225.tif",
+   "media_type": "Image",
+   "width": 1920,
+   "height": 1080,
+   "alt_text": "NASA's Gravity Recovery and Climate satellites have observed aquifer drawdowns globally over the last 15 years, validating model results."
+  }
+ ],
+ "text_links": [
+  "https://www.nasa.gov/feature/goddard/2017/11-percent-of-disappearing-groundwater-used-to-grow"
+ ],
+ "frame_folders": {},
+ "api_url": "https://svs.gsfc.nasa.gov/api/12647",
+ "fetched_utc": "2026-10-29T07:42:39Z"
+}

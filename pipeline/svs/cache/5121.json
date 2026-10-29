@@ -1,0 +1,161 @@
+{
+ "id": 5121,
+ "title": "ODIAC: a map of human made carbon dioxide emissions",
+ "url": "https://svs.gsfc.nasa.gov/5121/",
+ "page_type": "Visualization",
+ "release_date": "2023-06-30T00:00:00-04:00",
+ "update_date": "2025-05-29T14:20:05.512646-04:00",
+ "description": "ODIAC (Open-source Data Inventory for Anthropogenic CO2) map for December 2021. || odiac_2023_2160p60.00001_print.jpg (1024x1024) [310.4 KB] || odiac_2023_2160p60.00001_searchweb.png (320x180) [64.3 KB] || odiac_2023_2160p60.00001_thm.png (80x40) [5.2 KB] || 2160x2160_1x1_60p (2160x2160) [0 Item(s)] || odiac_2023_2160p60.mp4 (2160x2160) [126.7 MB] ||",
+ "full_text": "ODIAC (Open-source Data Inventory for Anthropogenic CO2) map for December 2021. || odiac_2023_2160p60.00001_print.jpg (1024x1024) [310.4 KB] || odiac_2023_2160p60.00001_searchweb.png (320x180) [64.3 KB] || odiac_2023_2160p60.00001_thm.png (80x40) [5.2 KB] || 2160x2160_1x1_60p (2160x2160) [0 Item(s)] || odiac_2023_2160p60.mp4 (2160x2160) [126.7 MB] ||\n\nODIAC (Open-source Data Inventory for Anthropogenic CO2) map for December 2021.\n\nThe Open-source Data Inventory for Anthropogenic CO2 (A.K.A. ODIAC) is a global high-resolution (1x1km) emission data product for fossil fuel carbon dioxide (CO2) emission. ODIAC was originally designed and developed under the Greenhouse gas Observing SATellite (GOSAT) project at Japan’s National Institute for Environmental Studies (NIES). Since then, ODIAC has been maintained at the Universities Space Research Association (USRA) in collaboration with NASA, NIES and the Appalachian State University. ODIAC pioneered the combined use of space-based nighttime light data and individual power plant emission/location profiles to estimate the global spatial extent of fossil fuel CO2 emissions. ODIAC has been a key input data for NASA’s carbon modeling. ODIAC has been also widely used in the international science research community for a variety of applications across key policy relevant scales (global to local).\n\nODIAC (Open-source Data Inventory for Anthropogenic CO2) map for December 2021. This equirectangular map is provided for wrapping to a sphere.",
+ "credits_by_role": {
+  "Visualizer": [
+   "Mark SubbaRao (NASA/GSFC)"
+  ],
+  "Technical support": [
+   "Laurence Schuler (ADNET Systems, Inc.)",
+   "Ian Jones (ADNET Systems, Inc.)"
+  ],
+  "Scientist": [
+   "Lesley Ott (NASA/GSFC)",
+   "Tomohiro Oda (USRA/EfSI)"
+  ]
+ },
+ "keywords": [
+  "Carbon Dioxide",
+  "Climate Change",
+  "Earth Information Center",
+  "Hyperwall",
+  "Science On a Sphere"
+ ],
+ "datasets": [
+  {
+   "name": "Open-source Data Inventory for Anthropogenic CO₂",
+   "common_name": "ODIAC",
+   "platform": null,
+   "sensor": null,
+   "type": "Data Compilation",
+   "organizations": [],
+   "description": "The Open-source Data Inventory for Anthropogenic CO₂ (A.K.A. ODIAC) is a global high-resolution emission data product for fossil fuel carbon dioxide (CO₂) emissions. ODAIC was originally developed under the Greenhouse gas Observing SATellite (GOSAT) project at Japan’s National Institute for Environmental Studies (NIES). Since then, ODIAC has been maintained at the Universities Space Research Association (USRA) in collaboration with NASA, NIES and the Appalachian State University. ODIAC pioneered the combined use of space-based nighttime light data and individual power plant emission/location profiles to estimate the global spatial extent of fossil fuel CO₂ emissions. With the innovative emission modeling approach, ODIAC achieved the fine picture of global fossil fuel CO₂ emissions at a 1x1km, possibly the most beautiful global picture of human-made emissions. ODIAC was specifically designed for atmospheric CO₂ simulation applications, specially analyses using CO₂ data collected by satellites, such as GOSAT and NASA’s Orbiting Carbon Observatory missions. ODIAC has been a key input data for NASA’s carbon modeling. As seen in a number of publications in the literature, the ODIAC emission data product has been also widely used in the international science research community for a variety of research applications (e.g. carbon budget analysis, urban emission study, observing system design experiments, and etc.) across various key policy relevant scales (global to local).",
+   "credit": "Tomohiro Oda, Shamil Maksyutov (2015), ODIAC Fossil Fuel CO2 Emissions Dataset (Version name*1 : ODIACYYYY or ODIACYYYYa), Center for Global Environmental Research, National Institute for Environmental Studies, doi:10.17595/20170411.001. (Reference date*2 : YYYY/MM/DD)",
+   "url": "https://db.cger.nies.go.jp/dataset/ODIAC/",
+   "date_range": null
+  }
+ ],
+ "missions": [],
+ "related": [
+  {
+   "id": 5194,
+   "title": "OCO-2 and Keeling Curve: Trends in global atmospheric Carbon Dioxide (CO₂) 1958-present",
+   "url": "https://svs.gsfc.nasa.gov/5194/"
+  }
+ ],
+ "alternate_versions": [],
+ "newer_versions": [],
+ "older_versions": [],
+ "media": [
+  {
+   "group": 0,
+   "group_title": "",
+   "widget": "Video player",
+   "caption": "",
+   "group_text": "ODIAC (Open-source Data Inventory for Anthropogenic CO2) map for December 2021.",
+   "url": "https://svs.gsfc.nasa.gov/vis/a000000/a005100/a005121/odiac_2023_2160p60.00001_print.jpg",
+   "filename": "odiac_2023_2160p60.00001_print.jpg",
+   "media_type": "Image",
+   "width": 1024,
+   "height": 1024,
+   "alt_text": "ODIAC (Open-source Data Inventory for Anthropogenic CO2) map for December 2021."
+  },
+  {
+   "group": 0,
+   "group_title": "",
+   "widget": "Video player",
+   "caption": "",
+   "group_text": "ODIAC (Open-source Data Inventory for Anthropogenic CO2) map for December 2021.",
+   "url": "https://svs.gsfc.nasa.gov/vis/a000000/a005100/a005121/odiac_2023_2160p60.00001_searchweb.png",
+   "filename": "odiac_2023_2160p60.00001_searchweb.png",
+   "media_type": "Image",
+   "width": 180,
+   "height": 320,
+   "alt_text": "The Open-source Data Inventory for Anthropogenic CO2 (A.K.A. ODIAC) is a global high-resolution (1x1km) emission data product for fossil fuel carbon dioxide (CO2) emission. ODIAC was originally designed and developed under the Greenhouse gas Observing SATellite (GOSAT) project at Japan’s National Institute for Environmental Studies (NIES). Since then, ODIAC has been maintained at the Universities Space Research Association (USRA) in collaboration with NASA, NIES and the Appalachian State University. ODIAC pioneered the combined use of space-based nighttime light data and individual power plant emission/location profiles to estimate the global spatial extent of fossil fuel CO2 emissions. ODIAC has been a key input data for NASA’s carbon modeling. ODIAC has been also widely used in the international science research community for a variety of applications across key policy relevant scales (global to local)."
+  },
+  {
+   "group": 0,
+   "group_title": "",
+   "widget": "Video player",
+   "caption": "",
+   "group_text": "ODIAC (Open-source Data Inventory for Anthropogenic CO2) map for December 2021.",
+   "url": "https://svs.gsfc.nasa.gov/vis/a000000/a005100/a005121/odiac_2023_2160p60.00001_thm.png",
+   "filename": "odiac_2023_2160p60.00001_thm.png",
+   "media_type": "Image",
+   "width": 80,
+   "height": 40,
+   "alt_text": "ODIAC (Open-source Data Inventory for Anthropogenic CO2) map for December 2021."
+  },
+  {
+   "group": 0,
+   "group_title": "",
+   "widget": "Video player",
+   "caption": "",
+   "group_text": "ODIAC (Open-source Data Inventory for Anthropogenic CO2) map for December 2021.",
+   "url": "https://svs.gsfc.nasa.gov/vis/a000000/a005100/a005121/frames/2160x2160_1x1_60p/",
+   "filename": "2160x2160_1x1_60p",
+   "media_type": "Frames",
+   "width": 2160,
+   "height": 2160,
+   "alt_text": "ODIAC (Open-source Data Inventory for Anthropogenic CO2) map for December 2021."
+  },
+  {
+   "group": 0,
+   "group_title": "",
+   "widget": "Video player",
+   "caption": "",
+   "group_text": "ODIAC (Open-source Data Inventory for Anthropogenic CO2) map for December 2021.",
+   "url": "https://svs.gsfc.nasa.gov/vis/a000000/a005100/a005121/odiac_2023_2160p60.mp4",
+   "filename": "odiac_2023_2160p60.mp4",
+   "media_type": "Movie",
+   "width": 2160,
+   "height": 2160,
+   "alt_text": "ODIAC (Open-source Data Inventory for Anthropogenic CO2) map for December 2021."
+  },
+  {
+   "group": 2,
+   "group_title": "Science On a Sphere version",
+   "widget": "Globe Viewer",
+   "caption": "",
+   "group_text": "ODIAC (Open-source Data Inventory for Anthropogenic CO2) map for December 2021. This equirectangular map is provided for wrapping to a sphere.",
+   "url": "https://svs.gsfc.nasa.gov/vis/a000000/a005100/a005121/emissionsGlobe_12_2021.png",
+   "filename": "emissionsGlobe_12_2021.png",
+   "media_type": "Image",
+   "width": 6184,
+   "height": 3092,
+   "alt_text": "ODIAC (Open-source Data Inventory for Anthropogenic CO2) map for December 2021. This equirectangular map is provided for wrapping to a sphere."
+  },
+  {
+   "group": 2,
+   "group_title": "Science On a Sphere version",
+   "widget": "Globe Viewer",
+   "caption": "",
+   "group_text": "ODIAC (Open-source Data Inventory for Anthropogenic CO2) map for December 2021. This equirectangular map is provided for wrapping to a sphere.",
+   "url": "https://svs.gsfc.nasa.gov/vis/a000000/a005100/a005121/emissionsGlobe_12_2021_print.jpg",
+   "filename": "emissionsGlobe_12_2021_print.jpg",
+   "media_type": "Image",
+   "width": 1024,
+   "height": 512,
+   "alt_text": "ODIAC (Open-source Data Inventory for Anthropogenic CO2) map for December 2021. This equirectangular map is provided for wrapping to a sphere."
+  }
+ ],
+ "text_links": [],
+ "frame_folders": {
+  "https://svs.gsfc.nasa.gov/vis/a000000/a005100/a005121/frames/2160x2160_1x1_60p/": {
+   "url": "https://svs.gsfc.nasa.gov/vis/a000000/a005100/a005121/frames/2160x2160_1x1_60p/",
+   "frame_count": 1800,
+   "bytes_approx": 15779199959,
+   "first": "odiac_2023-06-25_2330.00001.exr",
+   "last": "odiac_2023-06-25_2330.01800.exr",
+   "subfolders": {}
+  }
+ },
+ "api_url": "https://svs.gsfc.nasa.gov/api/5121",
+ "fetched_utc": "2026-10-29T07:41:19Z"
+}

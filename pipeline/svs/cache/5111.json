@@ -1,0 +1,178 @@
+{
+ "id": 5111,
+ "title": "Increase in Ocean Heat since 1957 Map - Spilhaus Projection",
+ "url": "https://svs.gsfc.nasa.gov/5111/",
+ "page_type": "Visualization",
+ "release_date": "2023-06-16T10:00:00-04:00",
+ "update_date": "2023-09-21T22:44:17.325970-04:00",
+ "description": "A graph of changes in ocean heat content since 1957 overlaying a Spilhaus projection map highlighting the world’s oceans. || oceans_spilhaus_map2160.png (2160x2160) [2.2 MB] || oceans_spilhaus_map2160_print.jpg (1024x1024) [151.3 KB] || oceans_spilhaus_map2160_searchweb.png (320x180) [62.9 KB] || oceans_spilhaus_map2160_thm.png (80x40) [5.4 KB] || ",
+ "full_text": "A graph of changes in ocean heat content since 1957 overlaying a Spilhaus projection map highlighting the world’s oceans. || oceans_spilhaus_map2160.png (2160x2160) [2.2 MB] || oceans_spilhaus_map2160_print.jpg (1024x1024) [151.3 KB] || oceans_spilhaus_map2160_searchweb.png (320x180) [62.9 KB] || oceans_spilhaus_map2160_thm.png (80x40) [5.4 KB] ||\n\nA graph of changes in ocean heat content since 1957 overlaying a Spilhaus projection map highlighting the world’s oceans.\n\nThe internal temperature of the ocean has been increasing since modern recordkeeping began in 1955. The ocean has been absorbing the increased amount of heat trapped by greenhouse gasses in the Earth system. If the ocean absorbs more heat than is released, its heat content rises. The graph on the map above illustrates this increase in ocean heat content. \r<br>\r<br>The ocean heat graph is overlaid on a map in the Spilhaus projection to highlight the world’s oceans. This map projection presents the oceans as one body of water.\n\nA graph of ocean heat content changes since 1957. Each data point represents a five-year average.\n\nA map in the Spilhaus projection highlighting the world’s oceans.",
+ "credits_by_role": {
+  "Visualizer": [
+   "Michala Garrison (SSAI)",
+   "Mark SubbaRao (NASA/GSFC)"
+  ],
+  "Technical support": [
+   "Laurence Schuler (ADNET Systems, Inc.)",
+   "Ian Jones (ADNET Systems, Inc.)"
+  ]
+ },
+ "keywords": [
+  "Earth Information Center",
+  "Earth Science",
+  "Ocean Temperature",
+  "Oceans"
+ ],
+ "datasets": [
+  {
+   "name": "Ocean Heat Content Changes since 1955",
+   "common_name": "Ocean Heat Content",
+   "platform": null,
+   "sensor": null,
+   "type": "Other",
+   "organizations": [
+    "NOAA/NCEI"
+   ],
+   "description": "",
+   "credit": "NOAA/NCEI World Ocean Database",
+   "url": "https://www.ncei.noaa.gov/data/oceans/woa/DATA_ANALYSIS/3M_HEAT_CONTENT/DATA/basin/pentad/pent_h22-w0-2000m.dat",
+   "date_range": null
+  }
+ ],
+ "missions": [],
+ "related": [
+  {
+   "id": 5520,
+   "title": "Sea Level Through a Porthole (2025)",
+   "url": "https://svs.gsfc.nasa.gov/5520/"
+  },
+  {
+   "id": 5304,
+   "title": "Sea Level Through a Porthole (2023) for Science-on-a-Sphere",
+   "url": "https://svs.gsfc.nasa.gov/5304/"
+  },
+  {
+   "id": 5235,
+   "title": "Sea Level Through a Porthole (2023)",
+   "url": "https://svs.gsfc.nasa.gov/5235/"
+  },
+  {
+   "id": 5114,
+   "title": "Sea Level Through a Porthole",
+   "url": "https://svs.gsfc.nasa.gov/5114/"
+  }
+ ],
+ "alternate_versions": [],
+ "newer_versions": [],
+ "older_versions": [],
+ "media": [
+  {
+   "group": 0,
+   "group_title": "",
+   "widget": "Single image",
+   "caption": "",
+   "group_text": "A graph of changes in ocean heat content since 1957 overlaying a Spilhaus projection map highlighting the world’s oceans. ",
+   "url": "https://svs.gsfc.nasa.gov/vis/a000000/a005100/a005111/oceans_spilhaus_map2160_print.jpg",
+   "filename": "oceans_spilhaus_map2160_print.jpg",
+   "media_type": "Image",
+   "width": 1024,
+   "height": 1024,
+   "alt_text": "A graph of changes in ocean heat content since 1957 overlaying a Spilhaus projection map highlighting the world’s oceans. "
+  },
+  {
+   "group": 0,
+   "group_title": "",
+   "widget": "Single image",
+   "caption": "",
+   "group_text": "A graph of changes in ocean heat content since 1957 overlaying a Spilhaus projection map highlighting the world’s oceans. ",
+   "url": "https://svs.gsfc.nasa.gov/vis/a000000/a005100/a005111/oceans_spilhaus_map2160.png",
+   "filename": "oceans_spilhaus_map2160.png",
+   "media_type": "Image",
+   "width": 2160,
+   "height": 2160,
+   "alt_text": "A graph of changes in ocean heat content since 1957 overlaying a Spilhaus projection map highlighting the world’s oceans. "
+  },
+  {
+   "group": 0,
+   "group_title": "",
+   "widget": "Single image",
+   "caption": "",
+   "group_text": "A graph of changes in ocean heat content since 1957 overlaying a Spilhaus projection map highlighting the world’s oceans. ",
+   "url": "https://svs.gsfc.nasa.gov/vis/a000000/a005100/a005111/oceans_spilhaus_map2160_searchweb.png",
+   "filename": "oceans_spilhaus_map2160_searchweb.png",
+   "media_type": "Image",
+   "width": 320,
+   "height": 180,
+   "alt_text": "A graph of changes in ocean heat content since 1957 overlaying a Spilhaus projection map highlighting the world’s oceans. "
+  },
+  {
+   "group": 0,
+   "group_title": "",
+   "widget": "Single image",
+   "caption": "",
+   "group_text": "A graph of changes in ocean heat content since 1957 overlaying a Spilhaus projection map highlighting the world’s oceans. ",
+   "url": "https://svs.gsfc.nasa.gov/vis/a000000/a005100/a005111/oceans_spilhaus_map2160_thm.png",
+   "filename": "oceans_spilhaus_map2160_thm.png",
+   "media_type": "Image",
+   "width": 80,
+   "height": 40,
+   "alt_text": "A graph of changes in ocean heat content since 1957 overlaying a Spilhaus projection map highlighting the world’s oceans. "
+  },
+  {
+   "group": 2,
+   "group_title": "",
+   "widget": "Single image",
+   "caption": "",
+   "group_text": "A graph of ocean heat content changes since 1957. Each data point represents a five-year average. ",
+   "url": "https://svs.gsfc.nasa.gov/vis/a000000/a005100/a005111/OceanHeatGraph.png",
+   "filename": "OceanHeatGraph.png",
+   "media_type": "Image",
+   "width": 1800,
+   "height": 1440,
+   "alt_text": "A graph of ocean heat content changes since 1957. Each data point represents a five-year average. "
+  },
+  {
+   "group": 2,
+   "group_title": "",
+   "widget": "Single image",
+   "caption": "",
+   "group_text": "A graph of ocean heat content changes since 1957. Each data point represents a five-year average. ",
+   "url": "https://svs.gsfc.nasa.gov/vis/a000000/a005100/a005111/OceanHeatGraph_print.jpg",
+   "filename": "OceanHeatGraph_print.jpg",
+   "media_type": "Image",
+   "width": 1024,
+   "height": 819,
+   "alt_text": "A graph of ocean heat content changes since 1957. Each data point represents a five-year average. "
+  },
+  {
+   "group": 3,
+   "group_title": "",
+   "widget": "Single image",
+   "caption": "",
+   "group_text": "A map in the Spilhaus projection highlighting the world’s oceans. ",
+   "url": "https://svs.gsfc.nasa.gov/vis/a000000/a005100/a005111/oceans_spilhaus_basemap_print.jpg",
+   "filename": "oceans_spilhaus_basemap_print.jpg",
+   "media_type": "Image",
+   "width": 1024,
+   "height": 1024,
+   "alt_text": "A map in the Spilhaus projection highlighting the world’s oceans. "
+  },
+  {
+   "group": 3,
+   "group_title": "",
+   "widget": "Single image",
+   "caption": "",
+   "group_text": "A map in the Spilhaus projection highlighting the world’s oceans. ",
+   "url": "https://svs.gsfc.nasa.gov/vis/a000000/a005100/a005111/oceans_spilhaus_basemap.png",
+   "filename": "oceans_spilhaus_basemap.png",
+   "media_type": "Image",
+   "width": 2160,
+   "height": 2160,
+   "alt_text": "A map in the Spilhaus projection highlighting the world’s oceans. "
+  }
+ ],
+ "text_links": [],
+ "frame_folders": {},
+ "api_url": "https://svs.gsfc.nasa.gov/api/5111",
+ "fetched_utc": "2026-10-29T07:40:34Z"
+}

@@ -1,0 +1,164 @@
+{
+ "id": 5117,
+ "title": "Trends in atmospheric Nitrous Oxide (N₂O)",
+ "url": "https://svs.gsfc.nasa.gov/5117/",
+ "page_type": "Visualization",
+ "release_date": "2023-06-20T21:00:00-04:00",
+ "update_date": "2025-03-16T23:03:26.017499-04:00",
+ "description": "Global trends in atmospheric Nitrous Oxide (N₂O) for the period January 2001-December 2022. || N2OTrends_1920x1080p30.00900_print.jpg (1024x576) [60.7 KB] || N2OTrends_1920x1080p30.00900.png (1920x1080) [685.4 KB] || N2OTrends_1920x1080p30.00900_searchweb.png (320x180) [24.2 KB] || N2OTrends_1920x1080p30.00900_thm.png (80x40) [3.0 KB] || 1920x1080_16x9_30p (1920x1080) [0 Item(s)] || N2O_Trends_1920x1080p30.mp4 (1920x1080) [7.4 MB] || N2OTrends_1920x1080p30.00900.exr (1920x1080) [1.8 MB] || ",
+ "full_text": "Global trends in atmospheric Nitrous Oxide (N₂O) for the period January 2001-December 2022. || N2OTrends_1920x1080p30.00900_print.jpg (1024x576) [60.7 KB] || N2OTrends_1920x1080p30.00900.png (1920x1080) [685.4 KB] || N2OTrends_1920x1080p30.00900_searchweb.png (320x180) [24.2 KB] || N2OTrends_1920x1080p30.00900_thm.png (80x40) [3.0 KB] || 1920x1080_16x9_30p (1920x1080) [0 Item(s)] || N2O_Trends_1920x1080p30.mp4 (1920x1080) [7.4 MB] || N2OTrends_1920x1080p30.00900.exr (1920x1080) [1.8 MB] ||\n\nGlobal trends in atmospheric Nitrous Oxide (N₂O) for the period January 2001-December 2022.",
+ "credits_by_role": {
+  "Visualizer": [
+   "Helen-Nicole Kostis (USRA)",
+   "AJ Christensen (SSAI)"
+  ],
+  "Technical support": [
+   "Laurence Schuler (ADNET Systems, Inc.)",
+   "Ian Jones (ADNET Systems, Inc.)"
+  ]
+ },
+ "keywords": [
+  "Atmostpheric Science",
+  "Earth Information Center",
+  "GMAO",
+  "Hyperwall"
+ ],
+ "datasets": [],
+ "missions": [],
+ "related": [
+  {
+   "id": 5273,
+   "title": "Atmospheric Carbon Dioxide Tagged by Source for Science-on-a-Sphere",
+   "url": "https://svs.gsfc.nasa.gov/5273/"
+  },
+  {
+   "id": 5118,
+   "title": "Trends in atmospheric Methane (CH₄)",
+   "url": "https://svs.gsfc.nasa.gov/5118/"
+  },
+  {
+   "id": 5116,
+   "title": "Global Atmospheric Methane (CH₄)",
+   "url": "https://svs.gsfc.nasa.gov/5116/"
+  },
+  {
+   "id": 5115,
+   "title": "Global Atmospheric Carbon Dioxide (CO₂)",
+   "url": "https://svs.gsfc.nasa.gov/5115/"
+  },
+  {
+   "id": 5110,
+   "title": "Atmospheric Carbon Dioxide Tagged by Source",
+   "url": "https://svs.gsfc.nasa.gov/5110/"
+  }
+ ],
+ "alternate_versions": [],
+ "newer_versions": [],
+ "older_versions": [],
+ "media": [
+  {
+   "group": 0,
+   "group_title": "",
+   "widget": "Video player",
+   "caption": "",
+   "group_text": "Global trends in atmospheric Nitrous Oxide (N₂O) for the period January 2001-December 2022.",
+   "url": "https://svs.gsfc.nasa.gov/vis/a000000/a005100/a005117/N2OTrends_1920x1080p30.00900_print.jpg",
+   "filename": "N2OTrends_1920x1080p30.00900_print.jpg",
+   "media_type": "Image",
+   "width": 1024,
+   "height": 576,
+   "alt_text": "Global trends in atmospheric Nitrous Oxide (N₂O) for the period January 2001-December 2022."
+  },
+  {
+   "group": 0,
+   "group_title": "",
+   "widget": "Video player",
+   "caption": "",
+   "group_text": "Global trends in atmospheric Nitrous Oxide (N₂O) for the period January 2001-December 2022.",
+   "url": "https://svs.gsfc.nasa.gov/vis/a000000/a005100/a005117/N2OTrends_1920x1080p30.00900.png",
+   "filename": "N2OTrends_1920x1080p30.00900.png",
+   "media_type": "Image",
+   "width": 1920,
+   "height": 1080,
+   "alt_text": "Global trends in atmospheric Nitrous Oxide (N₂O) for the period January 2001-December 2022."
+  },
+  {
+   "group": 0,
+   "group_title": "",
+   "widget": "Video player",
+   "caption": "",
+   "group_text": "Global trends in atmospheric Nitrous Oxide (N₂O) for the period January 2001-December 2022.",
+   "url": "https://svs.gsfc.nasa.gov/vis/a000000/a005100/a005117/N2OTrends_1920x1080p30.00900_searchweb.png",
+   "filename": "N2OTrends_1920x1080p30.00900_searchweb.png",
+   "media_type": "Image",
+   "width": 320,
+   "height": 180,
+   "alt_text": "Global trends in atmospheric Nitrous Oxide (N₂O) for the period January 2001-December 2022."
+  },
+  {
+   "group": 0,
+   "group_title": "",
+   "widget": "Video player",
+   "caption": "",
+   "group_text": "Global trends in atmospheric Nitrous Oxide (N₂O) for the period January 2001-December 2022.",
+   "url": "https://svs.gsfc.nasa.gov/vis/a000000/a005100/a005117/N2OTrends_1920x1080p30.00900_thm.png",
+   "filename": "N2OTrends_1920x1080p30.00900_thm.png",
+   "media_type": "Image",
+   "width": 80,
+   "height": 40,
+   "alt_text": "Global trends in atmospheric Nitrous Oxide (N₂O) for the period January 2001-December 2022."
+  },
+  {
+   "group": 0,
+   "group_title": "",
+   "widget": "Video player",
+   "caption": "",
+   "group_text": "Global trends in atmospheric Nitrous Oxide (N₂O) for the period January 2001-December 2022.",
+   "url": "https://svs.gsfc.nasa.gov/vis/a000000/a005100/a005117/frames/1920x1080_16x9_30p/",
+   "filename": "1920x1080_16x9_30p",
+   "media_type": "Frames",
+   "width": 1920,
+   "height": 1080,
+   "alt_text": "Global trends in atmospheric Nitrous Oxide (N₂O) for the period January 2001-December 2022."
+  },
+  {
+   "group": 0,
+   "group_title": "",
+   "widget": "Video player",
+   "caption": "",
+   "group_text": "Global trends in atmospheric Nitrous Oxide (N₂O) for the period January 2001-December 2022.",
+   "url": "https://svs.gsfc.nasa.gov/vis/a000000/a005100/a005117/N2O_Trends_1920x1080p30.mp4",
+   "filename": "N2O_Trends_1920x1080p30.mp4",
+   "media_type": "Movie",
+   "width": 1920,
+   "height": 1080,
+   "alt_text": "Global trends in atmospheric Nitrous Oxide (N₂O) for the period January 2001-December 2022."
+  },
+  {
+   "group": 0,
+   "group_title": "",
+   "widget": "Video player",
+   "caption": "",
+   "group_text": "Global trends in atmospheric Nitrous Oxide (N₂O) for the period January 2001-December 2022.",
+   "url": "https://svs.gsfc.nasa.gov/vis/a000000/a005100/a005117/N2OTrends_1920x1080p30.00900.exr",
+   "filename": "N2OTrends_1920x1080p30.00900.exr",
+   "media_type": "Image",
+   "width": 1920,
+   "height": 1080,
+   "alt_text": "Global trends in atmospheric Nitrous Oxide (N₂O) for the period January 2001-December 2022."
+  }
+ ],
+ "text_links": [],
+ "frame_folders": {
+  "https://svs.gsfc.nasa.gov/vis/a000000/a005100/a005117/frames/1920x1080_16x9_30p/": {
+   "url": "https://svs.gsfc.nasa.gov/vis/a000000/a005100/a005117/frames/1920x1080_16x9_30p/",
+   "frame_count": 900,
+   "bytes_approx": 1694400000,
+   "first": "N2OTrends_1920x1080p30.00001.exr",
+   "last": "N2OTrends_1920x1080p30.00900.exr",
+   "subfolders": {}
+  }
+ },
+ "api_url": "https://svs.gsfc.nasa.gov/api/5117",
+ "fetched_utc": "2026-10-29T07:41:11Z"
+}

@@ -1,0 +1,332 @@
+{
+ "id": 5191,
+ "title": "Global Temperature Graph 1880-2024",
+ "url": "https://svs.gsfc.nasa.gov/5191/",
+ "page_type": "Visualization",
+ "release_date": "2023-11-16T00:00:00-05:00",
+ "update_date": "2025-06-22T20:07:53.052254-04:00",
+ "description": "The seasonal cycle of average temperature variation on the earth's surface.",
+ "full_text": "The seasonal cycle of average temperature variation on the earth's surface.\n\nThe seasonal cycle of temperature variation on the earth's surface. This version is labeled in English and Celsius.\n\nThe visualization presents the seasonal cycle of temperature variation on the earth's surface. This visualization is updated roughly two weeks after the end of each month.<br><br>Temperature anomalies are deviations from a long term global average. In this case the period 1951-1980 is used to define the baseline for the anomaly. These temperatures are based on the GISS Surface Temperature Analysis (GISTEMP v4), an estimate of global surface temperature change. The data file used to create this visualization is publicaly accessible <a href=\"https://data.giss.nasa.gov/gistemp/tabledata_v4/GLB.Ts+dSST.csv\">here</a>.  The seasonal temperature offsets are based on the MERRA-2 reanalysis <a href=\"Seasonal cycle of temperature variation in the earth's surface\" target=\"_blank\">data here</a>.<br><br>The Goddard Institute of Space Studies (GISS) is a NASA laboratory managed by the Earth Sciences Division of the agency’s Goddard Space Flight Center in Greenbelt, Maryland. The laboratory is affiliated with Columbia University’s Earth Institute and School of Engineering and Applied Science in New York.\n\nThe seasonal cycle of temperature variation on the earth's surface. This version is labeled in English and Fahrenheit.\n\nThe seasonal cycle of temperature variation on the earth's surface. This version is labeled in Spanish and Celsius.",
+ "credits_by_role": {
+  "Visualizer": [
+   "Mark SubbaRao (NASA/GSFC)"
+  ],
+  "Technical support": [
+   "Laurence Schuler (ADNET Systems, Inc.)",
+   "Ian Jones (ADNET Systems, Inc.)"
+  ],
+  "Web administrator": [
+   "Ella Kaplan (Global Science and Technology, Inc.)"
+  ],
+  "Scientist": [
+   "Gavin A. Schmidt (NASA/GSFC GISS)"
+  ],
+  "Science support": [
+   "Peter H. Jacobs (NASA/GSFC)"
+  ]
+ },
+ "keywords": [
+  "Climate",
+  "Climate Change",
+  "Climate Variability and Change",
+  "Earth Information Center",
+  "Hyperwall",
+  "Spanish"
+ ],
+ "datasets": [
+  {
+   "name": "GISTEMP",
+   "common_name": "",
+   "platform": null,
+   "sensor": "GISS Surface Temperature Analysis (GISTEMP)",
+   "type": "Model",
+   "organizations": [
+    "NASA/GISS"
+   ],
+   "description": "The GISS Surface Temperature Analysis version 4 (GISTEMP v4) is an estimate of global surface temperature change. Graphs and tables are updated around the middle of every month using current data files from NOAA GHCN v4 (meteorological stations) and ERSST v5 (ocean areas), combined as described in our publications [Hansen et al. (2010)](https://pubs.giss.nasa.gov/abs/ha00510u.html), [Lenssen et al. (2019)](https://pubs.giss.nasa.gov/abs/le05800h.html), and [Lenssen et al. (2024)](https://pubs.giss.nasa.gov/abs/le07900t.html).",
+   "credit": "Lenssen, N., G.A. Schmidt, M. Hendrickson, P. Jacobs, M. Menne, and R. Ruedy, 2024: [A GISTEMPv4 observational uncertainty ensemble](https://pubs.giss.nasa.gov/abs/le07900t.html). J. Geophys. Res. Atmos., 129, no. 17, e2023JD040179, doi:10.1029/2023JD040179.",
+   "url": "https://data.giss.nasa.gov/gistemp/",
+   "date_range": null
+  },
+  {
+   "name": "MERRA-2",
+   "common_name": "MERRA-2",
+   "platform": null,
+   "sensor": null,
+   "type": "Model",
+   "organizations": [
+    "GMAO"
+   ],
+   "description": "",
+   "credit": "",
+   "url": "",
+   "date_range": null
+  }
+ ],
+ "missions": [],
+ "related": [
+  {
+   "id": 5603,
+   "title": "Global Temperature Anomalies from 1880 to 2025",
+   "url": "https://svs.gsfc.nasa.gov/5603/"
+  },
+  {
+   "id": 5450,
+   "title": "Global Temperature Anomalies from 1880 to 2024",
+   "url": "https://svs.gsfc.nasa.gov/5450/"
+  },
+  {
+   "id": 5451,
+   "title": "Zonal Climate Anomalies 1880-2024",
+   "url": "https://svs.gsfc.nasa.gov/5451/"
+  },
+  {
+   "id": 5452,
+   "title": "Shifting Distribution of Land Temperature Anomalies, 1964-2024",
+   "url": "https://svs.gsfc.nasa.gov/5452/"
+  },
+  {
+   "id": 14743,
+   "title": "2024 is the Warmest Year on Record",
+   "url": "https://svs.gsfc.nasa.gov/14743/"
+  },
+  {
+   "id": 5207,
+   "title": "Global Temperature Anomalies from 1880 to 2023",
+   "url": "https://svs.gsfc.nasa.gov/5207/"
+  },
+  {
+   "id": 5209,
+   "title": "Zonal Climate Anomalies 1880-2023",
+   "url": "https://svs.gsfc.nasa.gov/5209/"
+  },
+  {
+   "id": 5211,
+   "title": "Shifting Distribution of Land Temperature Anomalies, 1963-2023",
+   "url": "https://svs.gsfc.nasa.gov/5211/"
+  },
+  {
+   "id": 14502,
+   "title": "2023 Was the Hottest Year on Record",
+   "url": "https://svs.gsfc.nasa.gov/14502/"
+  },
+  {
+   "id": 5065,
+   "title": "Shifting Distribution of Land Temperature Anomalies, 1962-2022",
+   "url": "https://svs.gsfc.nasa.gov/5065/"
+  },
+  {
+   "id": 5057,
+   "title": "NASA Climate Spiral 1880-2022",
+   "url": "https://svs.gsfc.nasa.gov/5057/"
+  },
+  {
+   "id": 5059,
+   "title": "Zonal Climate Anomalies 1880-2022",
+   "url": "https://svs.gsfc.nasa.gov/5059/"
+  },
+  {
+   "id": 14273,
+   "title": "A Look Back: 2022's Temperature Record",
+   "url": "https://svs.gsfc.nasa.gov/14273/"
+  },
+  {
+   "id": 5060,
+   "title": "Global Temperature Anomalies from 1880 to 2022",
+   "url": "https://svs.gsfc.nasa.gov/5060/"
+  },
+  {
+   "id": 5028,
+   "title": "Arctic Sea Ice Spiral",
+   "url": "https://svs.gsfc.nasa.gov/5028/"
+  },
+  {
+   "id": 4891,
+   "title": "Shifting Distribution of Land Temperature Anomalies, 1951-2020",
+   "url": "https://svs.gsfc.nasa.gov/4891/"
+  }
+ ],
+ "alternate_versions": [],
+ "newer_versions": [],
+ "older_versions": [
+  {
+   "id": 5161,
+   "title": "Summer 2023 Record High Global Temperatures",
+   "url": "https://svs.gsfc.nasa.gov/5161/"
+  }
+ ],
+ "media": [
+  {
+   "group": 0,
+   "group_title": "",
+   "widget": "Video player",
+   "caption": "",
+   "group_text": "The seasonal cycle of temperature variation on the earth's surface. This version is labeled in English and Celsius.",
+   "url": "https://svs.gsfc.nasa.gov/vis/a000000/a005100/a005191/GISTEMP_Curves_English_degC_2160p60.01750_print.jpg",
+   "filename": "GISTEMP_Curves_English_degC_2160p60.01750_print.jpg",
+   "media_type": "Image",
+   "width": 1024,
+   "height": 576,
+   "alt_text": "The seasonal cycle of temperature variation on the earth's surface. This version is labeled in English and Celsius."
+  },
+  {
+   "group": 0,
+   "group_title": "",
+   "widget": "Video player",
+   "caption": "",
+   "group_text": "The seasonal cycle of temperature variation on the earth's surface. This version is labeled in English and Celsius.",
+   "url": "https://svs.gsfc.nasa.gov/vis/a000000/a005100/a005191/GISTEMP_Curves_English_degC_2160p60.01750_searchweb.png",
+   "filename": "GISTEMP_Curves_English_degC_2160p60.01750_searchweb.png",
+   "media_type": "Image",
+   "width": 320,
+   "height": 180,
+   "alt_text": "The seasonal cycle of temperature variation on the earth's surface. This version is labeled in English and Celsius."
+  },
+  {
+   "group": 0,
+   "group_title": "",
+   "widget": "Video player",
+   "caption": "",
+   "group_text": "The seasonal cycle of temperature variation on the earth's surface. This version is labeled in English and Celsius.",
+   "url": "https://svs.gsfc.nasa.gov/vis/a000000/a005100/a005191/GISTEMP_Curves_English_degC_2160p60.01750_thm.png",
+   "filename": "GISTEMP_Curves_English_degC_2160p60.01750_thm.png",
+   "media_type": "Image",
+   "width": 80,
+   "height": 40,
+   "alt_text": "The seasonal cycle of temperature variation on the earth's surface. This version is labeled in English and Celsius."
+  },
+  {
+   "group": 0,
+   "group_title": "",
+   "widget": "Video player",
+   "caption": "",
+   "group_text": "The seasonal cycle of temperature variation on the earth's surface. This version is labeled in English and Celsius.",
+   "url": "https://svs.gsfc.nasa.gov/vis/a000000/a005100/a005191/GISTEMP_Curves_English_degC_2160p60.01750_web.png",
+   "filename": "GISTEMP_Curves_English_degC_2160p60.01750_web.png",
+   "media_type": "Image",
+   "width": 320,
+   "height": 180,
+   "alt_text": "The seasonal cycle of temperature variation on the earth's surface. This version is labeled in English and Celsius."
+  },
+  {
+   "group": 0,
+   "group_title": "",
+   "widget": "Video player",
+   "caption": "",
+   "group_text": "The seasonal cycle of temperature variation on the earth's surface. This version is labeled in English and Celsius.",
+   "url": "https://svs.gsfc.nasa.gov/vis/a000000/a005100/a005191/GISTEMP_Curves_English_degC_2160p60.mp4",
+   "filename": "GISTEMP_Curves_English_degC_2160p60.mp4",
+   "media_type": "Movie",
+   "width": 3840,
+   "height": 2160,
+   "alt_text": "The seasonal cycle of temperature variation on the earth's surface. This version is labeled in English and Celsius."
+  },
+  {
+   "group": 0,
+   "group_title": "",
+   "widget": "Video player",
+   "caption": "",
+   "group_text": "The seasonal cycle of temperature variation on the earth's surface. This version is labeled in English and Celsius.",
+   "url": "https://svs.gsfc.nasa.gov/vis/a000000/a005100/a005191/frames/3840x2160_16x9_60p/En_C/",
+   "filename": "En_C",
+   "media_type": "Frames",
+   "width": 3840,
+   "height": 2160,
+   "alt_text": "The seasonal cycle of temperature variation on the earth's surface. This version is labeled in English and Celsius."
+  },
+  {
+   "group": 0,
+   "group_title": "",
+   "widget": "Video player",
+   "caption": "",
+   "group_text": "The seasonal cycle of temperature variation on the earth's surface. This version is labeled in English and Celsius.",
+   "url": "https://svs.gsfc.nasa.gov/hyperwall/data/events/2024/20240718-GISS/HWshows/GISTEMP_Curves_English_degC_2160p60.mp4.hwshow",
+   "filename": "GISTEMP_Curves_English_degC_2160p60.mp4.hwshow",
+   "media_type": "HyperwallShow",
+   "width": 0,
+   "height": 0,
+   "alt_text": ""
+  },
+  {
+   "group": 2,
+   "group_title": "",
+   "widget": "Video player",
+   "caption": "",
+   "group_text": "The seasonal cycle of temperature variation on the earth's surface. This version is labeled in English and Fahrenheit.",
+   "url": "https://svs.gsfc.nasa.gov/vis/a000000/a005100/a005191/GISTEMP_Curves_English_degF_2160p60.01750_print.jpg",
+   "filename": "GISTEMP_Curves_English_degF_2160p60.01750_print.jpg",
+   "media_type": "Image",
+   "width": 1024,
+   "height": 576,
+   "alt_text": "The seasonal cycle of temperature variation on the earth's surface. This version is labeled in English and Fahrenheit."
+  },
+  {
+   "group": 2,
+   "group_title": "",
+   "widget": "Video player",
+   "caption": "",
+   "group_text": "The seasonal cycle of temperature variation on the earth's surface. This version is labeled in English and Fahrenheit.",
+   "url": "https://svs.gsfc.nasa.gov/vis/a000000/a005100/a005191/GISTEMP_Curves_English_degF_2160p60.mp4",
+   "filename": "GISTEMP_Curves_English_degF_2160p60.mp4",
+   "media_type": "Movie",
+   "width": 3840,
+   "height": 2160,
+   "alt_text": "The seasonal cycle of temperature variation on the earth's surface. This version is labeled in English and Fahrenheit."
+  },
+  {
+   "group": 3,
+   "group_title": "",
+   "widget": "Video player",
+   "caption": "",
+   "group_text": "The seasonal cycle of temperature variation on the earth's surface. This version is labeled in Spanish and Celsius.",
+   "url": "https://svs.gsfc.nasa.gov/vis/a000000/a005100/a005191/GISTEMP_Curves_Spanish_degC_2160p60.01750_print.jpg",
+   "filename": "GISTEMP_Curves_Spanish_degC_2160p60.01750_print.jpg",
+   "media_type": "Image",
+   "width": 1024,
+   "height": 576,
+   "alt_text": "The seasonal cycle of temperature variation on the earth's surface. This version is labeled in Spanish and Celsius."
+  },
+  {
+   "group": 3,
+   "group_title": "",
+   "widget": "Video player",
+   "caption": "",
+   "group_text": "The seasonal cycle of temperature variation on the earth's surface. This version is labeled in Spanish and Celsius.",
+   "url": "https://svs.gsfc.nasa.gov/vis/a000000/a005100/a005191/GISTEMP_Curves_Spanish_degC_2160p60.mp4",
+   "filename": "GISTEMP_Curves_Spanish_degC_2160p60.mp4",
+   "media_type": "Movie",
+   "width": 3840,
+   "height": 2160,
+   "alt_text": "The seasonal cycle of temperature variation on the earth's surface. This version is labeled in Spanish and Celsius."
+  },
+  {
+   "group": 3,
+   "group_title": "",
+   "widget": "Video player",
+   "caption": "",
+   "group_text": "The seasonal cycle of temperature variation on the earth's surface. This version is labeled in Spanish and Celsius.",
+   "url": "https://svs.gsfc.nasa.gov/vis/a000000/a005100/a005191/GISTEMP_Curves_Spanish_degC_2160p60.mp4.hwshow",
+   "filename": "GISTEMP_Curves_Spanish_degC_2160p60.mp4.hwshow",
+   "media_type": "HyperwallShow",
+   "width": 0,
+   "height": 0,
+   "alt_text": ""
+  }
+ ],
+ "text_links": [
+  "https://data.giss.nasa.gov/gistemp/tabledata_v4/GLB.Ts+dSST.csv",
+  "https://svs.gsfc.nasa.gov/Seasonal cycle of temperature variation in the earth's surface"
+ ],
+ "frame_folders": {
+  "https://svs.gsfc.nasa.gov/vis/a000000/a005100/a005191/frames/3840x2160_16x9_60p/En_C/": {
+   "url": "https://svs.gsfc.nasa.gov/vis/a000000/a005100/a005191/frames/3840x2160_16x9_60p/En_C/",
+   "frame_count": 1800,
+   "bytes_approx": 11253338048,
+   "first": "GISTEMP_Curves_English_degC.00002.exr",
+   "last": "GISTEMP_Curves_English_degC.01801.exr",
+   "subfolders": {}
+  }
+ },
+ "api_url": "https://svs.gsfc.nasa.gov/api/5191",
+ "fetched_utc": "2026-10-29T07:42:00Z"
+}

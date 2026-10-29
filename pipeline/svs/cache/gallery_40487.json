@@ -1,0 +1,221 @@
+{
+ "id": 40487,
+ "url": "http://svs.gsfc.nasa.gov/gallery/nasaand-hurricanes/",
+ "page_type": "Gallery",
+ "title": "NASA and Hurricanes",
+ "description": "Hurricanes are getting stronger due to climate change warming the air and oceans. NASA atmospheric scientist Mara Fuentes says NASA sees deep into hurricanes to better their power, track storms through the night, and precisely map flooding in real time. NASA shares this information with partners like NOAA for weather forecasts and FEME to support emergency responders. Before, during, and after a hurricane, NASA data is put to use by decision makers to make critical decisions.",
+ "release_date": "2023-06-08T00:00:00-04:00",
+ "update_date": "2023-10-10T00:00:00-04:00",
+ "main_image": {
+  "id": 372179,
+  "url": "http://svs.gsfc.nasa.gov/vis/a000000/a004900/a004983/CO2Volumetric_9600x3240_30fps.02582_searchweb.png",
+  "filename": "CO2Volumetric_9600x3240_30fps.02582_searchweb.png",
+  "media_type": "Image",
+  "alt_text": "Data visualization in wide aspect ratio and 9600x3240 resolution,  featuring volumetric carbon dioxide on a global scale for the period June 1, 2020 - July 31, 2021. This set of frames can be shown on 5x3 hyperwalls and wide aspect ratio displays. Lower resolution movies are provided for preview.",
+  "width": 180,
+  "height": 320,
+  "pixels": 57600
+ },
+ "media_groups": [
+  {
+   "id": 372458,
+   "url": "http://svs.gsfc.nasa.gov/gallery/nasaand-hurricanes/#media_group_372458",
+   "widget": "Basic text (large)",
+   "title": "Overview",
+   "caption": "",
+   "description": "Hurricanes are getting stronger due to climate change warming the air and oceans. NASA atmospheric scientist Mara Fuentes says NASA sees deep into hurricanes to better their power, track storms through the night, and precisely map flooding in real time. NASA shares this information with partners like NOAA for weather forecasts and FEME to support emergency responders. Before, during, and after a hurricane, NASA data is put to use by decision makers to make critical decisions.",
+   "items": [],
+   "extra_data": {}
+  },
+  {
+   "id": 371635,
+   "url": "http://svs.gsfc.nasa.gov/gallery/nasaand-hurricanes/#media_group_371635",
+   "widget": "Card gallery",
+   "title": "Video",
+   "caption": "",
+   "description": "",
+   "items": [
+    {
+     "id": 412596,
+     "type": "details_page",
+     "extra_data": null,
+     "instance": {
+      "id": 14369,
+      "url": "http://svs.gsfc.nasa.gov/14369/",
+      "page_type": "Produced Video",
+      "title": "Leveraging NASA Research to Safeguard the U.S. East Coast from Hurricanes",
+      "description": "16x9 optimized for YouTube Music: Downloading Landscapes by Andrew Michael Britton & David Stephen Goldsmith and Swift Response by Miguel D' Oliveira This video can be freely shared and downloaded. While the video in its entirety can be shared without permission, some individual imagery provided by Pond5.com and NOAA is obtained through permission and may not be excised or remixed in other products. For more information on NASA’s media guidelines, visit https://www.nasa.gov/multimedia/guidelines/index.htmlComplete transcript available. || EIC_Hurricanes_16x9_FINAL.00030_print.jpg (1024x576) [84.1 KB] || EIC_Hurricanes_16x9_FINAL.00030_searchweb.png (320x180) [26.5 KB] || EIC_Hurricanes_16x9_FINAL.00030_thm.png (80x40) [2.5 KB] || EIC_l_Hurricanes_16x9.en_US.srt [2.8 KB] || EIC_Hurricanes_16x9_FINAL.webm (3840x2160) [45.0 MB] || EIC_Hurricanes_16x9_FINAL.mp4 (3840x2160) [550.7 MB] || ",
+      "release_date": "2023-06-21T08:00:00-04:00",
+      "update_date": "2025-01-06T01:35:27.914399-05:00",
+      "main_image": {
+       "id": 855990,
+       "url": "http://svs.gsfc.nasa.gov/vis/a010000/a014300/a014369/EIC_Hurricanes_16x9_FINAL.00030_print.jpg",
+       "filename": "EIC_Hurricanes_16x9_FINAL.00030_print.jpg",
+       "media_type": "Image",
+       "alt_text": "16x9 optimized for YouTube Music: Downloading Landscapes by Andrew Michael Britton & David Stephen Goldsmith and Swift Response by Miguel D' Oliveira This video can be freely shared and downloaded. While the video in its entirety can be shared without permission, some individual imagery provided by Pond5.com and NOAA is obtained through permission and may not be excised or remixed in other products. For more information on NASA’s media guidelines, visit https://www.nasa.gov/multimedia/guidelines/index.htmlComplete transcript available.",
+       "width": 1024,
+       "height": 576,
+       "pixels": 589824
+      }
+     }
+    }
+   ],
+   "extra_data": {}
+  },
+  {
+   "id": 371636,
+   "url": "http://svs.gsfc.nasa.gov/gallery/nasaand-hurricanes/#media_group_371636",
+   "widget": "Card gallery",
+   "title": "Featured Visualizations",
+   "caption": "",
+   "description": "",
+   "items": [
+    {
+     "id": 412597,
+     "type": "details_page",
+     "extra_data": null,
+     "instance": {
+      "id": 4983,
+      "url": "http://svs.gsfc.nasa.gov/4983/",
+      "page_type": "Visualization",
+      "title": "Global Carbon Dioxide 2020-2021 for Hyperwalls",
+      "description": "This webpage provides a wide aspect ratio version of: Global Carbon Dioxide 2020-2021, released on November 2, 2021. This version has been created for wide aspect ratio display systems with resolution up to 9600x3240. It is recommended to use content from this version for display systems with 16:9 aspect ratio. || ",
+      "release_date": "2022-04-11T12:00:00-04:00",
+      "update_date": "2022-08-12T19:31:38-04:00",
+      "main_image": {
+       "id": 372178,
+       "url": "http://svs.gsfc.nasa.gov/vis/a000000/a004900/a004983/CO2Volumetric_9600x3240_30fps.02582_print.jpg",
+       "filename": "CO2Volumetric_9600x3240_30fps.02582_print.jpg",
+       "media_type": "Image",
+       "alt_text": "Data visualization in wide aspect ratio and 9600x3240 resolution,  featuring volumetric carbon dioxide on a global scale for the period June 1, 2020 - July 31, 2021. This set of frames can be shown on 5x3 hyperwalls and wide aspect ratio displays. Lower resolution movies are provided for preview.",
+       "width": 1024,
+       "height": 345,
+       "pixels": 353280
+      }
+     }
+    },
+    {
+     "id": 412598,
+     "type": "details_page",
+     "extra_data": null,
+     "instance": {
+      "id": 12772,
+      "url": "http://svs.gsfc.nasa.gov/12772/",
+      "page_type": "Produced Video",
+      "title": "2017 Hurricanes and Aerosols Simulation",
+      "description": "Tracking aerosols over land and water from August 1 to November 1, 2017.  Hurricanes and tropical storms are obvious from the large amounts of sea salt particles caught up in their swirling winds. The dust blowing off the Sahara, however, gets caught by water droplets and is rained out of the storm system.  Smoke from the massive fires in the Pacific Northwest region of North America are blown across the Atlantic to the UK and Europe.  This visualization is a result of combining NASA satellite data with sophisticated mathematical models that describe the underlying physical processes.Music: Elapsing Time by Christian Telford [ASCAP], Robert Anthony Navarro [ASCAP]Complete transcript available.Watch this video on the NASA Goddard YouTube channel. || 12772_hurricanes_and_aerosols_1080p_youtube_1080.00001_print.jpg (1024x576) [161.7 KB] || 12772_hurricanes_and_aerosols_1080p_youtube_1080.00001_searchweb.png (180x320) [108.8 KB] || 12772_hurricanes_and_aerosols_1080p_youtube_1080.00001_thm.png (80x40) [7.5 KB] || 12772_hurricanes_and_aerosols_appletv.m4v (1280x720) [78.1 MB] || 12772_hurricanes_and_aerosols_twitter_720.mp4 (1280x720) [34.1 MB] || 12772_hurricanes_and_aerosols.webm (960x540) [65.0 MB] || 12772_hurricanes_and_aerosols_appletv_subtitles.m4v (1280x720) [78.1 MB] || 12772_hurricanes_and_aerosols_1080p_large.mp4 (1920x1080) [163.1 MB] || 12772_hurricanes_and_aerosols_facebook_720.mp4 (1280x720) [184.9 MB] || 12772_hurricanes_and_aerosols_youtube_1080.mp4 (1920x1080) [247.2 MB] || 12772_hurricanes_and_aerosols_youtube_720.mp4 (1280x720) [247.9 MB] || 12772_hurricanes_aerosols_captions.en_US.srt [3.1 KB] || 12772_hurricanes_aerosols_captions.en_US.vtt [3.1 KB] || 12772_hurricanes_and_aerosols_UHD.mp4 (3840x2160) [739.9 MB] || 12772_hurricanes_and_aerosols_1080p-prores.mov (1920x1080) [4.3 GB] || 12772_hurricanes_and_aerosols_UHD_4444.mov (3840x2160) [40.1 GB] || ",
+      "release_date": "2021-05-05T10:25:00-04:00",
+      "update_date": "2025-03-02T23:42:53.438902-05:00",
+      "main_image": {
+       "id": 409572,
+       "url": "http://svs.gsfc.nasa.gov/vis/a010000/a012700/a012772/12772_hurricanes_and_aerosols_1080p_youtube_1080.00001_print.jpg",
+       "filename": "12772_hurricanes_and_aerosols_1080p_youtube_1080.00001_print.jpg",
+       "media_type": "Image",
+       "alt_text": "Tracking aerosols over land and water from August 1 to November 1, 2017.  Hurricanes and tropical storms are obvious from the large amounts of sea salt particles caught up in their swirling winds. The dust blowing off the Sahara, however, gets caught by water droplets and is rained out of the storm system.  Smoke from the massive fires in the Pacific Northwest region of North America are blown across the Atlantic to the UK and Europe.  This visualization is a result of combining NASA satellite data with sophisticated mathematical models that describe the underlying physical processes.Music: Elapsing Time by Christian Telford [ASCAP], Robert Anthony Navarro [ASCAP]Complete transcript available.Watch this video on the NASA Goddard YouTube channel.",
+       "width": 1024,
+       "height": 576,
+       "pixels": 589824
+      }
+     }
+    },
+    {
+     "id": 412599,
+     "type": "details_page",
+     "extra_data": null,
+     "instance": {
+      "id": 4685,
+      "url": "http://svs.gsfc.nasa.gov/4685/",
+      "page_type": "Visualization",
+      "title": "Inside Hurricane Maria in 360°",
+      "description": "Tour Hurricane Maria in a whole new way!  Late on September 17, 2017 (10:08 p.m. EDT) Category 1 Hurricane Maria was strengthening in the Atlantic Ocean when the Global Precipitation Measurement (GPM) mission's Core Observatory flew over it.  The Dual Frequency Precipitation Radar, measuring in a narrow band over the storm center, shows 3-D estimates of rain, with snow at higher altitudes.  The tall \"hot towers\" characteristic of deepening hurricanes are actually topped by snow! Surface rainfall rates estimated by the GPM Microwave Imager paint the surface over a wider swath.  During the tour, you'll see the radar-observed rain intensities displayed three different ways in various parts of the storm.  Then, for the first time you'll see estimates of the precipitation particle sizes, which the GPM DPR is uniquely capable of showing, and which provide important insights into storm processes.GPM is a joint mission between NASA and the Japanese space agency JAXA. || ",
+      "release_date": "2018-10-04T09:55:00-04:00",
+      "update_date": "2025-01-05T23:43:58.707625-05:00",
+      "main_image": {
+       "id": 400488,
+       "url": "http://svs.gsfc.nasa.gov/vis/a000000/a004600/a004685/maria360.112_4k.7300_print.jpg",
+       "filename": "maria360.112_4k.7300_print.jpg",
+       "media_type": "Image",
+       "alt_text": "Visualization of Hurricane Maria.  These are full 360 degree frames.  These fames appear warped because they include the entire 360 degree view.This video is also available on our YouTube channel.",
+       "width": 1024,
+       "height": 512,
+       "pixels": 524288
+      }
+     }
+    },
+    {
+     "id": 412600,
+     "type": "details_page",
+     "extra_data": null,
+     "instance": {
+      "id": 5067,
+      "url": "http://svs.gsfc.nasa.gov/5067/",
+      "page_type": "Visualization",
+      "title": "Earth Observing Fleet - Now",
+      "description": "Visualizations depicting a near-real-time view of NASA fleet of Earth-orbiting satellites.",
+      "release_date": "2023-01-30T00:00:00-05:00",
+      "update_date": "2026-10-28T22:33:54.877217-04:00",
+      "main_image": {
+       "id": 552411,
+       "url": "http://svs.gsfc.nasa.gov/vis/a000000/a005000/a005067/fleet_now_print.jpg",
+       "filename": "fleet_now_print.jpg",
+       "media_type": "Image",
+       "alt_text": "These visualizations show the current orbits of NASA's fleet of Earth observing spacecraft.  Satellite orbits are generated using today's two-line element sets (TLEs).  The still image at the top of the page is updated every 10 minutes.  The video is updated once per day.  \r\n\r\nSpacecraft included:\r\n• Aqua\r\n• Aura\r\n• CALIPSO: Cloud-Aerosol Lidar and Infrared Pathfinder Satellite Observation\r\n• CYGNSS-1: Cyclone Global Navigation Satellite System 1\r\n• CYGNSS-2: Cyclone Global Navigation Satellite System 2\r\n• CYGNSS-3: Cyclone Global Navigation Satellite System 3\r\n• CYGNSS-4: Cyclone Global Navigation Satellite System 4\r\n• CYNGSS-5: Cyclone Global Navigation Satellite System 5\r\n• CYGNSS-7: Cyclone Global Navigation Satellite System 7\r\n• CYGNSS-8: Cyclone Global Navigation Satellite System 8\r\n• Cloudsat\r\n• GPM: Global Precipitation Measurement\r\n• GRACE-FO-1: Gravity Recovery and Climate Experiment Follow On-1\r\n• GRACE-FO-2: Gravity Recovery and Climate Experiment Follow On-2\r\n• ICESat-2\r\n• ISS: International Space Station\r\n• Landsat 8\r\n• Landsat 9\r\n• OCO-2: Orbiting Carbon Observatory-2\r\n• SMAP: Soil Moisture Passive Active\r\n• Suomi NPP: Suomi National Polar-orbiting Partnership\r\n• Sentinel-6 Michael Freilich\r\n• SWOT\r\n• Terra\r\n\r\nThe clouds used in this version are from a high resolution GEOS model run at 10 minute time steps interpolated down to the per-frame level. The timeframe for this model does not match the date in this fleet visualization, so the clouds shown do not represent actual conditions for today.",
+       "width": 1024,
+       "height": 576,
+       "pixels": 589824
+      }
+     }
+    },
+    {
+     "id": 412601,
+     "type": "details_page",
+     "extra_data": null,
+     "instance": {
+      "id": 5097,
+      "url": "http://svs.gsfc.nasa.gov/5097/",
+      "page_type": "Visualization",
+      "title": "2022 Hurricane Season",
+      "description": "2022 Atlantic hurricane season. || hurr2022_v6.8800_print.jpg (1024x1024) [452.1 KB] || hurr2022_v6.8800_searchweb.png (320x180) [126.2 KB] || hurr2022_v6.8800_thm.png (80x40) [8.2 KB] || 2160x2160_1x1_30p (2160x2160) [0 Item(s)] || hurr2022_v6_2160p30.webm (2160x2160) [107.7 MB] || hurr2022_v6_2160p30.mp4 (2160x2160) [1.4 GB] || ",
+      "release_date": "2023-04-19T00:00:00-04:00",
+      "update_date": "2025-01-21T00:14:10.866987-05:00",
+      "main_image": {
+       "id": 854813,
+       "url": "http://svs.gsfc.nasa.gov/vis/a000000/a005000/a005097/hurr2022_v6.8800_print.jpg",
+       "filename": "hurr2022_v6.8800_print.jpg",
+       "media_type": "Image",
+       "alt_text": "2022 Atlantic hurricane season.",
+       "width": 1024,
+       "height": 1024,
+       "pixels": 1048576
+      }
+     }
+    },
+    {
+     "id": 412602,
+     "type": "details_page",
+     "extra_data": null,
+     "instance": {
+      "id": 5058,
+      "url": "http://svs.gsfc.nasa.gov/5058/",
+      "page_type": "Visualization",
+      "title": "Florida Nighttime Lights Before and After Hurricane Ian",
+      "description": "Difference in nighttime light energy levels and coverage before and after Hurricane Ian. The nighttime light data were generated from NASA’s Black Marble and depicts the levels on August 30th, 2022 (before Hurricane Ian) and on September 30th, 2022 (after Hurricane Ian). || black_marble_slide_line4.00001_print.jpg (1024x576) [106.1 KB] || black_marble_slide_line4.00001_searchweb.png (320x180) [46.0 KB] || black_marble_slide_line4.00001_thm.png (80x40) [3.7 KB] || black_marble_slide_line4.mp4 (3840x2160) [22.1 MB] || ",
+      "release_date": "2023-06-16T10:00:00-04:00",
+      "update_date": "2024-07-26T23:23:10.760991-04:00",
+      "main_image": {
+       "id": 855886,
+       "url": "http://svs.gsfc.nasa.gov/vis/a000000/a005000/a005058/black_marble_slide_line4.00001_print.jpg",
+       "filename": "black_marble_slide_line4.00001_print.jpg",
+       "media_type": "Image",
+       "alt_text": "Difference in nighttime light energy levels and coverage before and after Hurricane Ian. The nighttime light data were generated from NASA’s Black Marble and depicts the levels on August 30th, 2022 (before Hurricane Ian) and on September 30th, 2022 (after Hurricane Ian). ",
+       "width": 1024,
+       "height": 576,
+       "pixels": 589824
+      }
+     }
+    }
+   ],
+   "extra_data": {}
+  }
+ ]
+}

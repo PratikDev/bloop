@@ -1,0 +1,258 @@
+{
+ "id": 40473,
+ "url": "http://svs.gsfc.nasa.gov/gallery/climate-vital-signs-dashboard/",
+ "page_type": "Gallery",
+ "title": "Climate Vital Signs Dashboard",
+ "description": "NASA monitors the health of our planet to benefit human kind. Our missions track key climate indicators and we share these with the world.\n\n\n\n\n\n\n",
+ "release_date": "2023-06-07T00:00:00-04:00",
+ "update_date": "2024-11-21T00:00:00-05:00",
+ "main_image": {
+  "id": 551997,
+  "url": "http://svs.gsfc.nasa.gov/vis/a000000/a005000/a005057/GISTEMP_Spiral_60sec_C.01400_searchweb.png",
+  "filename": "GISTEMP_Spiral_60sec_C.01400_searchweb.png",
+  "media_type": "Image",
+  "alt_text": "The NASA climate spiral 1880-2022. This version is in Celsius; see below for an alternate version in Fahrenheit. Both a 30 fps, 60 second duration video and 60 fps, 30 second duration video are available.",
+  "width": 180,
+  "height": 320,
+  "pixels": 57600
+ },
+ "media_groups": [
+  {
+   "id": 371620,
+   "url": "http://svs.gsfc.nasa.gov/gallery/climate-vital-signs-dashboard/#media_group_371620",
+   "widget": "Basic text (large)",
+   "title": "Overview",
+   "caption": "",
+   "description": "NASA monitors the health of our planet to benefit human kind. Our missions track key climate indicators and we share these with the world.<br><br>\n<img src=\"/images/gallery/ClimateVitalSignsDashboard/Hyperwall_D003_Stage1.png\" class=\"w-100\">\n<br><br>\n<img src=\"/images/gallery/ClimateVitalSignsDashboard/Hyperwall_D003_Stage2.png\" class=\"w-100\">\n<br><br>\n<img src=\"/images/gallery/ClimateVitalSignsDashboard/Hyperwall_D003_Stage3.png\" class=\"w-100\">\n<br><br>\n<img src=\"/images/gallery/ClimateVitalSignsDashboard/Hyperwall_D003_Stage4.png\" class=\"w-100\">",
+   "items": [],
+   "extra_data": {}
+  },
+  {
+   "id": 371621,
+   "url": "http://svs.gsfc.nasa.gov/gallery/climate-vital-signs-dashboard/#media_group_371621",
+   "widget": "Card gallery",
+   "title": "Visualizations",
+   "caption": "",
+   "description": "",
+   "items": [
+    {
+     "id": 412547,
+     "type": "details_page",
+     "extra_data": null,
+     "instance": {
+      "id": 5099,
+      "url": "http://svs.gsfc.nasa.gov/5099/",
+      "page_type": "Visualization",
+      "title": "Daily Polar Sea Ice, Two Year History",
+      "description": "Polar daily sea ice, two years' history, with dates || polar_sea_ice_sxs_w_date.2023172_print.jpg (1024x512) [109.3 KB] || polar_sea_ice_sxs_w_date.2023172_searchweb.png (320x180) [76.3 KB] || polar_sea_ice_sxs_w_date.2023172_thm.png (80x40) [6.7 KB] || polar_sea_ice_sxs_w_date_2048p30_h265.mp4 (4096x2048) [39.5 MB] || polar_sea_ice_sxs_w_date_2048p30_h265.webm (4096x2048) [6.2 MB] || w_dates (4320x2160) [0 Item(s)] ||",
+      "release_date": "2023-05-01T00:00:00-04:00",
+      "update_date": "2026-10-24T19:30:15.256576-04:00",
+      "main_image": {
+       "id": 856371,
+       "url": "http://svs.gsfc.nasa.gov/vis/a000000/a005000/a005099/polar_sea_ice_sxs_w_date.2023172_print.jpg",
+       "filename": "polar_sea_ice_sxs_w_date.2023172_print.jpg",
+       "media_type": "Image",
+       "alt_text": "Polar daily sea ice, two years' history, with dates",
+       "width": 1024,
+       "height": 512,
+       "pixels": 524288
+      }
+     }
+    },
+    {
+     "id": 412550,
+     "type": "details_page",
+     "extra_data": null,
+     "instance": {
+      "id": 5111,
+      "url": "http://svs.gsfc.nasa.gov/5111/",
+      "page_type": "Visualization",
+      "title": "Increase in Ocean Heat since 1957 Map - Spilhaus Projection",
+      "description": "A graph of changes in ocean heat content since 1957 overlaying a Spilhaus projection map highlighting the world’s oceans. || oceans_spilhaus_map2160.png (2160x2160) [2.2 MB] || oceans_spilhaus_map2160_print.jpg (1024x1024) [151.3 KB] || oceans_spilhaus_map2160_searchweb.png (320x180) [62.9 KB] || oceans_spilhaus_map2160_thm.png (80x40) [5.4 KB] || ",
+      "release_date": "2023-06-16T10:00:00-04:00",
+      "update_date": "2023-09-21T22:44:17.325970-04:00",
+      "main_image": {
+       "id": 855778,
+       "url": "http://svs.gsfc.nasa.gov/vis/a000000/a005100/a005111/oceans_spilhaus_map2160.png",
+       "filename": "oceans_spilhaus_map2160.png",
+       "media_type": "Image",
+       "alt_text": "A graph of changes in ocean heat content since 1957 overlaying a Spilhaus projection map highlighting the world’s oceans. ",
+       "width": 2160,
+       "height": 2160,
+       "pixels": 4665600
+      }
+     }
+    },
+    {
+     "id": 412551,
+     "type": "details_page",
+     "extra_data": null,
+     "instance": {
+      "id": 5119,
+      "url": "http://svs.gsfc.nasa.gov/5119/",
+      "page_type": "Visualization",
+      "title": "OCO-2 and Keeling Curve: Trends in global atmospheric Carbon Dioxide (CO₂)",
+      "description": "OCO-2 and Keeling Curve trends in global atmospheric carbon dioxide. || KeelingCurve_OCO2_1920x1080p30.00370_print.jpg (1024x576) [49.6 KB] || KeelingCurve_OCO2_1920x1080p30.00370.png (1920x1080) [357.7 KB] || KeelingCurve_OCO2_1920x1080p30.00370_searchweb.png (320x180) [16.8 KB] || KeelingCurve_OCO2_1920x1080p30.00370_thm.png (80x40) [2.1 KB] || 1920x1080_16x9_30p (1920x1080) [0 Item(s)] || OCO2_KeelingCurve_1920x1080p30.mp4 (1920x1080) [5.3 MB] || KeelingCurve_OCO2_1920x1080p30.00370.exr (1920x1080) [2.3 MB] || ",
+      "release_date": "2023-06-20T22:00:00-04:00",
+      "update_date": "2025-06-23T00:15:56.562963-04:00",
+      "main_image": {
+       "id": 856233,
+       "url": "http://svs.gsfc.nasa.gov/vis/a000000/a005100/a005119/KeelingCurve_OCO2_1920x1080p30.00370.png",
+       "filename": "KeelingCurve_OCO2_1920x1080p30.00370.png",
+       "media_type": "Image",
+       "alt_text": "OCO-2 and Keeling Curve trends in global atmospheric carbon dioxide.",
+       "width": 1920,
+       "height": 1080,
+       "pixels": 2073600
+      }
+     }
+    },
+    {
+     "id": 443906,
+     "type": "details_page",
+     "extra_data": null,
+     "instance": {
+      "id": 5190,
+      "url": "http://svs.gsfc.nasa.gov/5190/",
+      "page_type": "Visualization",
+      "title": "NASA Climate Spiral 1880-Present",
+      "description": "The NASA climate spiral visualization of the GISTEMP global temperature record.",
+      "release_date": "2023-11-15T00:00:00-05:00",
+      "update_date": "2026-10-21T16:19:25.821974-04:00",
+      "main_image": {
+       "id": 1097202,
+       "url": "http://svs.gsfc.nasa.gov/vis/a000000/a005100/a005190/GISTEMP_Spiral_English_degC_2160p60.01402_print.jpg",
+       "filename": "GISTEMP_Spiral_English_degC_2160p60.01402_print.jpg",
+       "media_type": "Image",
+       "alt_text": "The NASA climate spiral visualization with labels in English and Celsius.",
+       "width": 1080,
+       "height": 1080,
+       "pixels": 1166400
+      }
+     }
+    },
+    {
+     "id": 443907,
+     "type": "details_page",
+     "extra_data": null,
+     "instance": {
+      "id": 5207,
+      "url": "http://svs.gsfc.nasa.gov/5207/",
+      "page_type": "Visualization",
+      "title": "Global Temperature Anomalies from 1880 to 2023",
+      "description": "This color-coded map in Robinson projection displays a progression of changing global surface temperature anomalies. Normal temperatures are shown in white. Higher than normal temperatures are shown in red and lower than normal temperatures are shown in blue. Normal temperatures are calculated over the 30 year baseline period 1951-1980. The maps are averages over a running 24 month window. The final frame represents  global temperature anomalies in 2023. || 2023GISTEMP_Map.00899_print.jpg (1024x576) [138.7 KB] || 2023GISTEMP_Map.00899_searchweb.png (320x180) [66.6 KB] || 2023GISTEMP_Map.00899_thm.png (80x40) [6.4 KB] || 2023GISTEMP_Map.00899_web.png (320x180) [65.9 KB] || 2023GISTEMP_Map_HD.mp4 (1920x1080) [57.2 MB] || 3840x2160_16x9_30p (3840x2160) [0 Item(s)] || 2023GISTEMP_Map.mp4 (3840x2160) [114.3 MB] || earth_observations_5x3.hwshow || ",
+      "release_date": "2024-01-12T11:00:00-05:00",
+      "update_date": "2025-01-08T13:56:34-05:00",
+      "main_image": {
+       "id": 1088347,
+       "url": "http://svs.gsfc.nasa.gov/vis/a000000/a005200/a005207/2023GISTEMP_Map.00899_print.jpg",
+       "filename": "2023GISTEMP_Map.00899_print.jpg",
+       "media_type": "Image",
+       "alt_text": "This color-coded map in Robinson projection displays a progression of changing global surface temperature anomalies. Normal temperatures are shown in white. Higher than normal temperatures are shown in red and lower than normal temperatures are shown in blue. Normal temperatures are calculated over the 30 year baseline period 1951-1980. The maps are averages over a running 24 month window. The final frame represents  global temperature anomalies in 2023.",
+       "width": 1024,
+       "height": 576,
+       "pixels": 589824
+      }
+     }
+    },
+    {
+     "id": 443908,
+     "type": "details_page",
+     "extra_data": null,
+     "instance": {
+      "id": 5191,
+      "url": "http://svs.gsfc.nasa.gov/5191/",
+      "page_type": "Visualization",
+      "title": "Global Temperature Graph 1880-2024",
+      "description": "The seasonal cycle of average temperature variation on the earth's surface.",
+      "release_date": "2023-11-16T00:00:00-05:00",
+      "update_date": "2025-06-22T20:07:53.052254-04:00",
+      "main_image": {
+       "id": 1069938,
+       "url": "http://svs.gsfc.nasa.gov/vis/a000000/a005100/a005191/GISTEMP_Curves_English_degC_2160p60.01750_print.jpg",
+       "filename": "GISTEMP_Curves_English_degC_2160p60.01750_print.jpg",
+       "media_type": "Image",
+       "alt_text": "The seasonal cycle of temperature variation on the earth's surface. This version is labeled in English and Celsius.",
+       "width": 1024,
+       "height": 576,
+       "pixels": 589824
+      }
+     }
+    },
+    {
+     "id": 443909,
+     "type": "details_page",
+     "extra_data": null,
+     "instance": {
+      "id": 5209,
+      "url": "http://svs.gsfc.nasa.gov/5209/",
+      "page_type": "Visualization",
+      "title": "Zonal Climate Anomalies 1880-2023",
+      "description": "A visualization of zonal temperature anomalies. The latitude zones are 90N-64N, 64N-44N, 44N-24N, 24N-EQU, EQU-24S, 24S-44S, 44S-64S, 64S-90S. The anomalies are calculated relative to a baseline period of 1951-1980. This version is in Celsius, an alternate version in Fahrenheit is also available. || GISTEMP_Zonal_1880-2023_C.00840_print.jpg (1024x576) [43.1 KB] || GISTEMP_Zonal_1880-2023_C.00840_searchweb.png (320x180) [18.0 KB] || GISTEMP_Zonal_1880-2023_C.00840_thm.png (80x40) [2.5 KB] || GISTEMP_Zonal_1880-2023_C.mp4 (3840x2160) [20.2 MB] || degC (3840x2160) [0 Item(s)] || GISTEMP_Zonal_1880-2023_C.mp4.hwshow || ",
+      "release_date": "2024-01-12T11:00:00-05:00",
+      "update_date": "2024-12-16T14:32:44-05:00",
+      "main_image": {
+       "id": 1088478,
+       "url": "http://svs.gsfc.nasa.gov/vis/a000000/a005200/a005209/GISTEMP_Zonal_1880-2023_C.00899_print.jpg",
+       "filename": "GISTEMP_Zonal_1880-2023_C.00899_print.jpg",
+       "media_type": "Image",
+       "alt_text": "A visualization of zonal temperature anomalies. The latitude zones are 90N-64N, 64N-44N, 44N-24N, 24N-EQU, EQU-24S, 24S-44S, 44S-64S, 64S-90S. The anomalies are calculated relative to a baseline period of 1951-1980. This version is in Celsius, an alternate version in Fahrenheit is also available.",
+       "width": 1024,
+       "height": 576,
+       "pixels": 589824
+      }
+     }
+    },
+    {
+     "id": 443910,
+     "type": "details_page",
+     "extra_data": null,
+     "instance": {
+      "id": 5382,
+      "url": "http://svs.gsfc.nasa.gov/5382/",
+      "page_type": "Visualization",
+      "title": "Arctic Sea Ice Minimum 2024",
+      "description": "Animation of Arctic sea ice maximum extent, March 14 2024, to its minimum, September 11, 2024 || sea_ice_2024_min_2160p60.2608_print.jpg (1024x576) [152.6 KB] || sea_ice_2024_min_2160p60.2608_searchweb.png (320x180) [74.6 KB] || sea_ice_2024_min_2160p60.2608_thm.png (80x40) [6.0 KB] || sea_ice_2024_min_1080p60.mp4 (1920x1080) [38.2 MB] || sea_ice_min_2024 [0 Item(s)] || sea_ice_2024_min_2160p60.mp4 (3840x2160) [106.6 MB] || antarctic_arctic_seaice_comp_5x3.hwshow || ",
+      "release_date": "2024-09-24T13:00:00-04:00",
+      "update_date": "2025-06-23T00:16:20.996433-04:00",
+      "main_image": {
+       "id": 1098548,
+       "url": "http://svs.gsfc.nasa.gov/vis/a000000/a005300/a005382/sea_ice_2024_min_2160p60.2608_print.jpg",
+       "filename": "sea_ice_2024_min_2160p60.2608_print.jpg",
+       "media_type": "Image",
+       "alt_text": "Animation of Arctic sea ice maximum extent, March 14 2024, to its minimum, September 11, 2024",
+       "width": 1024,
+       "height": 576,
+       "pixels": 589824
+      }
+     }
+    },
+    {
+     "id": 443911,
+     "type": "details_page",
+     "extra_data": null,
+     "instance": {
+      "id": 5235,
+      "url": "http://svs.gsfc.nasa.gov/5235/",
+      "page_type": "Visualization",
+      "title": "Sea Level Through a Porthole (2023)",
+      "description": "As the planet warms and polar ice melts, our global average sea level is rising. Although exact ocean heights vary due to local geography, climate over time, and dynamic fluid interactions with gravity and planetary rotation, scientists observe sea level trends by comparing measurements against a 20 year spatial and temporal mean reference. These visualizations use the visual metaphor of a submerged porthole window to observe how far our oceans rose between 1993 and 2023. || ",
+      "release_date": "2024-03-21T12:00:00-04:00",
+      "update_date": "2025-03-21T13:59:52.409818-04:00",
+      "main_image": {
+       "id": 1089959,
+       "url": "http://svs.gsfc.nasa.gov/vis/a000000/a005200/a005235/seaLevelWaveTank_noWW_3-5-2024a_wavetank.01500_print.jpg",
+       "filename": "seaLevelWaveTank_noWW_3-5-2024a_wavetank.01500_print.jpg",
+       "media_type": "Image",
+       "alt_text": "This visualization is the same as above, but without the circular window.",
+       "width": 1024,
+       "height": 1024,
+       "pixels": 1048576
+      }
+     }
+    }
+   ],
+   "extra_data": {}
+  }
+ ]
+}

@@ -1,0 +1,155 @@
+{
+ "id": 5315,
+ "title": "Daily Experimental Fire Weather Forecast",
+ "url": "https://svs.gsfc.nasa.gov/5315/",
+ "page_type": "Visualization",
+ "release_date": "2024-06-20T00:00:00-04:00",
+ "update_date": "2026-10-29T02:17:52.053698-04:00",
+ "description": "Summary",
+ "full_text": "Summary\n\nThis visualization shows the daily one-day forecast of the Fire Weather Index (FWI), a system for tracking how weather influences the chance of a wildfire starting and spreading. Fire Weather categories are similar to those for the <a href=\"https://gwis.jrc.ec.europa.eu/apps/gwis_current_situation/index.html\">Global Wildfire Information System</a>. More information can be found at the <a href=\"https://data.giss.nasa.gov/impacts/gfwed/\">NASA Goddard Institute for Space Studies</a>, where the data are produced using weather data from the NASA Global Modeling and Assimilation Office. This visualization has been prepared for use within the Earth Information Center (EIC), and is not meant for operational use.\n\nDaily experimental fire weather forecast for the current day. For this visualization, we are using the following ranges: Very Low: <10.0; Low: 10.0-20.0; Moderate: 20.0-40.0; High: 40.0-50.0; Very High: 50.0-70.0; Extreme: >70.0",
+ "credits_by_role": {
+  "Visualizer": [
+   "Trent L. Schindler (USRA)"
+  ],
+  "Scientist": [
+   "Robert Field (Columbia University)"
+  ]
+ },
+ "keywords": [
+  "Climate Indicators",
+  "Earth Science",
+  "Eic (earth information center) display",
+  "Environmental Governance/management",
+  "Fire Management",
+  "Fire Weather Index",
+  "Fire Weather Indices",
+  "Fires",
+  "Human Dimensions",
+  "Human geography",
+  "Natural Disaster",
+  "Natural hazards"
+ ],
+ "datasets": [
+  {
+   "name": "Fire Weather Index",
+   "common_name": "GlobalFWI",
+   "platform": "GEOS-5 model",
+   "sensor": null,
+   "type": "Model",
+   "organizations": [
+    "NCCS"
+   ],
+   "description": "",
+   "credit": "",
+   "url": "https://portal.nccs.nasa.gov/",
+   "date_range": null
+  }
+ ],
+ "missions": [],
+ "related": [
+  {
+   "id": 5668,
+   "title": "Unprecedented Wildfires in the Pacific Northwest Engulf the Region in Smoke",
+   "url": "https://svs.gsfc.nasa.gov/5668/"
+  },
+  {
+   "id": 5666,
+   "title": "Smoke from Record-Breaking Wildfires in Spain and France",
+   "url": "https://svs.gsfc.nasa.gov/5666/"
+  },
+  {
+   "id": 5665,
+   "title": "Long-range Transport of 2026 Canadian Wildfire Smoke into the United States (July 14-20, 2026)",
+   "url": "https://svs.gsfc.nasa.gov/5665/"
+  },
+  {
+   "id": 5664,
+   "title": "Long-range Transport of 2026 Canadian Wildfire Smoke into the United States (July 14-17, 2026)",
+   "url": "https://svs.gsfc.nasa.gov/5664/"
+  },
+  {
+   "id": 5639,
+   "title": "Daily Visualizations of the Largest Wildfires in the United States: 2026",
+   "url": "https://svs.gsfc.nasa.gov/5639/"
+  },
+  {
+   "id": 5624,
+   "title": "Global Smoke Forecast Visualization (Daily Updated)",
+   "url": "https://svs.gsfc.nasa.gov/5624/"
+  },
+  {
+   "id": 5631,
+   "title": "Long-range Transport of 2023 Canadian Wildfire Smoke into the Northeastern United States",
+   "url": "https://svs.gsfc.nasa.gov/5631/"
+  },
+  {
+   "id": 5557,
+   "title": "Daily Visualizations of the Largest Wildfires in the United States: 2025",
+   "url": "https://svs.gsfc.nasa.gov/5557/"
+  }
+ ],
+ "alternate_versions": [],
+ "newer_versions": [],
+ "older_versions": [],
+ "media": [
+  {
+   "group": 1,
+   "group_title": "",
+   "widget": "Single image",
+   "caption": "",
+   "group_text": "Daily experimental fire weather forecast for the current day. For this visualization, we are using the following ranges: Very Low: <10.0; Low: 10.0-20.0; Moderate: 20.0-40.0; High: 40.0-50.0; Very High: 50.0-70.0; Extreme: >70.0",
+   "url": "https://svs.gsfc.nasa.gov/vis/a000000/a005300/a005315/FWI_forecast_latest.png",
+   "filename": "FWI_forecast_latest.png",
+   "media_type": "Image",
+   "width": 2160,
+   "height": 1080,
+   "alt_text": "Daily experimental fire weather forecast for the current day. For this visualization, we are using the following ranges: Very Low: 70.0"
+  },
+  {
+   "group": 1,
+   "group_title": "",
+   "widget": "Single image",
+   "caption": "",
+   "group_text": "Daily experimental fire weather forecast for the current day. For this visualization, we are using the following ranges: Very Low: <10.0; Low: 10.0-20.0; Moderate: 20.0-40.0; High: 40.0-50.0; Very High: 50.0-70.0; Extreme: >70.0",
+   "url": "https://svs.gsfc.nasa.gov/vis/a000000/a005300/a005315/FWI_forecast_latest_print.jpg",
+   "filename": "FWI_forecast_latest_print.jpg",
+   "media_type": "Image",
+   "width": 1024,
+   "height": 512,
+   "alt_text": "Daily experimental fire weather forecast for the current day. For this visualization, we are using the following ranges: Very Low: 70.0"
+  },
+  {
+   "group": 1,
+   "group_title": "",
+   "widget": "Single image",
+   "caption": "",
+   "group_text": "Daily experimental fire weather forecast for the current day. For this visualization, we are using the following ranges: Very Low: <10.0; Low: 10.0-20.0; Moderate: 20.0-40.0; High: 40.0-50.0; Very High: 50.0-70.0; Extreme: >70.0",
+   "url": "https://svs.gsfc.nasa.gov/vis/a000000/a005300/a005315/FWI_forecast_latest_thm.png",
+   "filename": "FWI_forecast_latest_thm.png",
+   "media_type": "Image",
+   "width": 80,
+   "height": 40,
+   "alt_text": "Daily experimental fire weather forecast for the current day. For this visualization, we are using the following ranges: Very Low: 70.0"
+  },
+  {
+   "group": 1,
+   "group_title": "",
+   "widget": "Single image",
+   "caption": "",
+   "group_text": "Daily experimental fire weather forecast for the current day. For this visualization, we are using the following ranges: Very Low: <10.0; Low: 10.0-20.0; Moderate: 20.0-40.0; High: 40.0-50.0; Very High: 50.0-70.0; Extreme: >70.0",
+   "url": "https://svs.gsfc.nasa.gov/vis/a000000/a005300/a005315/FWI_forecast_latest_searchweb.png",
+   "filename": "FWI_forecast_latest_searchweb.png",
+   "media_type": "Image",
+   "width": 180,
+   "height": 320,
+   "alt_text": "Climate change continues to cause longer fire seasons and more severe wildfires. NASA's Earth observing satellites and its robust network of interagency partners work together to help communities manage the impacts of fire, and reduce risks before, during and after fire events."
+  }
+ ],
+ "text_links": [
+  "https://gwis.jrc.ec.europa.eu/apps/gwis_current_situation/index.html",
+  "https://data.giss.nasa.gov/impacts/gfwed/"
+ ],
+ "frame_folders": {},
+ "api_url": "https://svs.gsfc.nasa.gov/api/5315",
+ "fetched_utc": "2026-10-29T07:42:14Z"
+}

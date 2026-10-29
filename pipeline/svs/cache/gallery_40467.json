@@ -1,0 +1,679 @@
+{
+ "id": 40467,
+ "url": "http://svs.gsfc.nasa.gov/gallery/earth-information-center/",
+ "page_type": "Gallery",
+ "title": "Earth Information Center (EIC)",
+ "description": "For more than 50 years, NASA satellites have provided data on Earth's land, water, air, temperature, and climate. The Earth Information Center (EIC) allows visitors to see how our planet is changing in nine key areas: sea level change, air quality, biodiversity, wildfires, greenhouse gases, energy, disasters, water resources, and agriculture. This information supports decision makers in developing the tools they need to mitigate, adapt, and respond to our changing planet.\n\nDrawing from insight provided by NASA centers from coast to coast, and in close coordination with other government agencies, industry partners and communities, the Earth Information Center delivers critical data directly into the hands of people in ways that they can immediately use. \n\nThrough the Earth Information Center discover how NASA sees the unseen and consider why this information matters to us all.\n\nThis gallery consists of content used in the hyperwall display in the Earth Information Center at NASA Headquarters.",
+ "release_date": "2023-06-07T00:00:00-04:00",
+ "update_date": "2025-07-30T00:00:00-04:00",
+ "main_image": {
+  "id": 858326,
+  "url": "http://svs.gsfc.nasa.gov/vis/a000000/a005100/a005148/MC02_stage3_GMAO_near_surface_wind_2048x1024_en.00001_searchweb.png",
+  "filename": "MC02_stage3_GMAO_near_surface_wind_2048x1024_en.00001_searchweb.png",
+  "media_type": "Image",
+  "alt_text": "NASA satellites provide data on Earth's land, ecosystems, water, air temperature, and climate - and have done so for more than 50 years. Earth information from space supports decision makers, partners, and people in developing the tools they need to mitigate, adapth, and respond to our changing planet.\n\nThe visualizations featured on this dashboard show the latest imagery available.",
+  "width": 180,
+  "height": 320,
+  "pixels": 57600
+ },
+ "media_groups": [
+  {
+   "id": 371615,
+   "url": "http://svs.gsfc.nasa.gov/gallery/earth-information-center/#media_group_371615",
+   "widget": "Basic text (large)",
+   "title": "Overview",
+   "caption": "",
+   "description": "For more than 50 years, NASA satellites have provided data on Earth's land, water, air, temperature, and climate. The <a href=\"https://science.nasa.gov/earth-science/earth-information-center\">Earth Information Center (EIC) </a>allows visitors to see how our planet is changing in nine key areas: sea level change, air quality, biodiversity, wildfires, greenhouse gases, energy, disasters, water resources, and agriculture. This information supports decision makers in developing the tools they need to mitigate, adapt, and respond to our changing planet.\n\n<p>Drawing from insight provided by NASA centers from coast to coast, and in close coordination with other government agencies, industry partners and communities, the Earth Information Center delivers critical data directly into the hands of people in ways that they can immediately use. \n\n<p><p>Through the Earth Information Center discover how NASA sees the unseen and consider why this information matters to us all.\n\n<p>This gallery consists of content used in the hyperwall display in the Earth Information Center at NASA Headquarters.",
+   "items": [],
+   "extra_data": {}
+  },
+  {
+   "id": 371616,
+   "url": "http://svs.gsfc.nasa.gov/gallery/earth-information-center/#media_group_371616",
+   "widget": "Card gallery",
+   "title": "EIC Dashboards",
+   "caption": "",
+   "description": "",
+   "items": [
+    {
+     "id": 412531,
+     "type": "gallery_page",
+     "extra_data": null,
+     "instance": {
+      "id": 40509,
+      "url": "http://svs.gsfc.nasa.gov/gallery/earth-now-dashboard/",
+      "page_type": "Gallery",
+      "title": "Earth Now Dashboard",
+      "description": "NASA satellites provide data on Earth's land, ecosystems, water, air temperature, and climate - and have done so for more than 50 years. Earth information from space supports decision makers, partners, and people in developing the tools they need to mitigate, adapth, and respond to our changing planet.\n\nThe visualizations featured on this dashboard show the latest imagery available.\n\n\n\n\n\n\n\n",
+      "release_date": "2023-10-16T00:00:00-04:00",
+      "update_date": "2023-10-25T00:00:00-04:00",
+      "main_image": {
+       "id": 858326,
+       "url": "http://svs.gsfc.nasa.gov/vis/a000000/a005100/a005148/MC02_stage3_GMAO_near_surface_wind_2048x1024_en.00001_searchweb.png",
+       "filename": "MC02_stage3_GMAO_near_surface_wind_2048x1024_en.00001_searchweb.png",
+       "media_type": "Image",
+       "alt_text": "NASA satellites provide data on Earth's land, ecosystems, water, air temperature, and climate - and have done so for more than 50 years. Earth information from space supports decision makers, partners, and people in developing the tools they need to mitigate, adapth, and respond to our changing planet.\n\nThe visualizations featured on this dashboard show the latest imagery available.",
+       "width": 180,
+       "height": 320,
+       "pixels": 57600
+      }
+     }
+    },
+    {
+     "id": 412532,
+     "type": "gallery_page",
+     "extra_data": null,
+     "instance": {
+      "id": 40473,
+      "url": "http://svs.gsfc.nasa.gov/gallery/climate-vital-signs-dashboard/",
+      "page_type": "Gallery",
+      "title": "Climate Vital Signs Dashboard",
+      "description": "NASA monitors the health of our planet to benefit human kind. Our missions track key climate indicators and we share these with the world.\n\n\n\n\n\n\n",
+      "release_date": "2023-06-07T00:00:00-04:00",
+      "update_date": "2024-11-21T00:00:00-05:00",
+      "main_image": {
+       "id": 551997,
+       "url": "http://svs.gsfc.nasa.gov/vis/a000000/a005000/a005057/GISTEMP_Spiral_60sec_C.01400_searchweb.png",
+       "filename": "GISTEMP_Spiral_60sec_C.01400_searchweb.png",
+       "media_type": "Image",
+       "alt_text": "The NASA climate spiral 1880-2022. This version is in Celsius; see below for an alternate version in Fahrenheit. Both a 30 fps, 60 second duration video and 60 fps, 30 second duration video are available.",
+       "width": 180,
+       "height": 320,
+       "pixels": 57600
+      }
+     }
+    },
+    {
+     "id": 412533,
+     "type": "gallery_page",
+     "extra_data": null,
+     "instance": {
+      "id": 40477,
+      "url": "http://svs.gsfc.nasa.gov/gallery/greenhouse-gases-dashboard/",
+      "page_type": "Gallery",
+      "title": "Greenhouse Gases Dashboard",
+      "description": "NASA and its partner agencies track greenhouse gases for space, air, and ground. our scientists model the flow of these gases around our planet.\n\n\n\n\n\n\n\n",
+      "release_date": "2023-06-07T00:00:00-04:00",
+      "update_date": "2023-10-25T00:00:00-04:00",
+      "main_image": {
+       "id": 372179,
+       "url": "http://svs.gsfc.nasa.gov/vis/a000000/a004900/a004983/CO2Volumetric_9600x3240_30fps.02582_searchweb.png",
+       "filename": "CO2Volumetric_9600x3240_30fps.02582_searchweb.png",
+       "media_type": "Image",
+       "alt_text": "Data visualization in wide aspect ratio and 9600x3240 resolution,  featuring volumetric carbon dioxide on a global scale for the period June 1, 2020 - July 31, 2021. This set of frames can be shown on 5x3 hyperwalls and wide aspect ratio displays. Lower resolution movies are provided for preview.",
+       "width": 180,
+       "height": 320,
+       "pixels": 57600
+      }
+     }
+    },
+    {
+     "id": 412534,
+     "type": "gallery_page",
+     "extra_data": null,
+     "instance": {
+      "id": 40479,
+      "url": "http://svs.gsfc.nasa.gov/gallery/carbon-dioxide-sources-sinks/",
+      "page_type": "Gallery",
+      "title": "Carbon Dioxide Sources and Sinks",
+      "description": "NASA models the flow of carbon dioxide; its emission, its transport around the globe, and its absorption by the ocean and biosphere.\n\n",
+      "release_date": "2023-06-07T00:00:00-04:00",
+      "update_date": "2023-06-30T00:00:00-04:00",
+      "main_image": {
+       "id": 855679,
+       "url": "http://svs.gsfc.nasa.gov/vis/a000000/a005100/a005110/JanToDec2021_TaggedCO2_4-20-2023a_co2_foursources_sphere_americas_decal.00001_searchweb.png",
+       "filename": "JanToDec2021_TaggedCO2_4-20-2023a_co2_foursources_sphere_americas_decal.00001_searchweb.png",
+       "media_type": "Image",
+       "alt_text": "Carbon dioxide (CO2) is the most prevalent greenhouse gas driving global climate change. However, its increase in the atmosphere would be even more rapid without land and ocean carbon sinks, which collectively absorb about half of human emissions every year.  Advanced computer modeling techniques in NASA's Global Modeling and Assimilation Office allow us to disentangle the influences of sources and sinks and to better understand where carbon is coming from and going to.",
+       "width": 180,
+       "height": 320,
+       "pixels": 57600
+      }
+     }
+    },
+    {
+     "id": 444712,
+     "type": "gallery_page",
+     "extra_data": null,
+     "instance": {
+      "id": 40529,
+      "url": "http://svs.gsfc.nasa.gov/gallery/air-quality-dashboard/",
+      "page_type": "Gallery",
+      "title": "Air Quality Dashboard",
+      "description": "NASA's fleet of Earth observing satellites monitor our planet's oceans, biosphere, and atmosphere. Instruments onboard satellites observe air pollutants around the world. The data collected are used by air quality experts and researchers studying the impact of air pollution on human health.\n\n\n\n\n\n\n\n",
+      "release_date": "2024-12-04T00:00:00-05:00",
+      "update_date": "2024-12-04T00:00:00-05:00",
+      "main_image": {
+       "id": 859884,
+       "url": "http://svs.gsfc.nasa.gov/vis/a000000/a005100/a005175/tempo_no2_north-america.02402_searchweb.png",
+       "filename": "tempo_no2_north-america.02402_searchweb.png",
+       "media_type": "Image",
+       "alt_text": "In this visualization, high levels of nitrogen dioxide can be seen over multiple urban areas across the U.S., Canada, Mexico and the Caribbean. As the day progresses, the morning pollution often dissipates. Later in the afternoon, it will rise again as the cities enter their second rush hour of the day. Because TEMPO uses visible sunlight to make measurements, it cannot see pollution below clouds or at night. Cloudy areas appear as missing data in the visualization. This visualization shows data from August 28-31, 2023.",
+       "width": 180,
+       "height": 320,
+       "pixels": 57600
+      }
+     }
+    },
+    {
+     "id": 444722,
+     "type": "gallery_page",
+     "extra_data": null,
+     "instance": {
+      "id": 40531,
+      "url": "http://svs.gsfc.nasa.gov/gallery/wildland-fires/",
+      "page_type": "Gallery",
+      "title": "Wildland Fires Dashboard",
+      "description": "Climate change continues to cause longer fire seasons and more severe wildfires. NASA's Earth observing satellites and its robust network of interagency partners work together to help communities manage the impacts of fire, and reduce risks before, during and after fire events.\n\n\n\n\n",
+      "release_date": "2024-12-04T00:00:00-05:00",
+      "update_date": "2025-01-06T00:00:00-05:00",
+      "main_image": {
+       "id": 1095003,
+       "url": "http://svs.gsfc.nasa.gov/vis/a000000/a005300/a005315/FWI_forecast_latest_searchweb.png",
+       "filename": "FWI_forecast_latest_searchweb.png",
+       "media_type": "Image",
+       "alt_text": "Climate change continues to cause longer fire seasons and more severe wildfires. NASA's Earth observing satellites and its robust network of interagency partners work together to help communities manage the impacts of fire, and reduce risks before, during and after fire events.",
+       "width": 180,
+       "height": 320,
+       "pixels": 57600
+      }
+     }
+    }
+   ],
+   "extra_data": {}
+  },
+  {
+   "id": 371617,
+   "url": "http://svs.gsfc.nasa.gov/gallery/earth-information-center/#media_group_371617",
+   "widget": "Card gallery",
+   "title": "EIC Videos",
+   "caption": "",
+   "description": "Videos produced for NASA's Earth Information Center.",
+   "items": [
+    {
+     "id": 412536,
+     "type": "gallery_page",
+     "extra_data": null,
+     "instance": {
+      "id": 40487,
+      "url": "http://svs.gsfc.nasa.gov/gallery/nasaand-hurricanes/",
+      "page_type": "Gallery",
+      "title": "NASA and Hurricanes",
+      "description": "Hurricanes are getting stronger due to climate change warming the air and oceans. NASA atmospheric scientist Mara Fuentes says NASA sees deep into hurricanes to better their power, track storms through the night, and precisely map flooding in real time. NASA shares this information with partners like NOAA for weather forecasts and FEME to support emergency responders. Before, during, and after a hurricane, NASA data is put to use by decision makers to make critical decisions.",
+      "release_date": "2023-06-08T00:00:00-04:00",
+      "update_date": "2023-10-10T00:00:00-04:00",
+      "main_image": {
+       "id": 372179,
+       "url": "http://svs.gsfc.nasa.gov/vis/a000000/a004900/a004983/CO2Volumetric_9600x3240_30fps.02582_searchweb.png",
+       "filename": "CO2Volumetric_9600x3240_30fps.02582_searchweb.png",
+       "media_type": "Image",
+       "alt_text": "Data visualization in wide aspect ratio and 9600x3240 resolution,  featuring volumetric carbon dioxide on a global scale for the period June 1, 2020 - July 31, 2021. This set of frames can be shown on 5x3 hyperwalls and wide aspect ratio displays. Lower resolution movies are provided for preview.",
+       "width": 180,
+       "height": 320,
+       "pixels": 57600
+      }
+     }
+    },
+    {
+     "id": 412537,
+     "type": "gallery_page",
+     "extra_data": null,
+     "instance": {
+      "id": 40484,
+      "url": "http://svs.gsfc.nasa.gov/gallery/nasaand-agriculture/",
+      "page_type": "Gallery",
+      "title": "NASA and Agriculture Video",
+      "description": "The farmers responsible for the food that reaches your plate need a lot of a very precious and limited resource, water. NASA works with farmers like Dwane Roth of Kansas to help them track their water use. Roth says that farmers like him are seeing more frequent, hotter days with less rain. “We need to grow more with less and get as much out of each drop of water we can,” he says. NASA helps to promote the use of Earth observations to strengthen food security. One solution is OpenET, a system that puts near-real-time water data into the hands of farmers in the United States.",
+      "release_date": "2023-06-08T00:00:00-04:00",
+      "update_date": "2023-06-20T00:00:00-04:00",
+      "main_image": {
+       "id": 855995,
+       "url": "http://svs.gsfc.nasa.gov/vis/a010000/a014300/a014367/0613_Ag_Water__Main_Screen__FInal_Export.00001_searchweb.png",
+       "filename": "0613_Ag_Water__Main_Screen__FInal_Export.00001_searchweb.png",
+       "media_type": "Image",
+       "alt_text": "Complete transcript available. Music credit: “The Grand Journey” from Universal Production Music This video can be freely shared and downloaded. While the video in its entirety can be shared without permission, some individual imagery provided by Pond5.com is obtained through permission and may not be excised or remixed in other products. For more information on NASA’s media guidelines, visit https://www.nasa.gov/multimedia/guidelines/index.html",
+       "width": 180,
+       "height": 320,
+       "pixels": 57600
+      }
+     }
+    },
+    {
+     "id": 443860,
+     "type": "details_page",
+     "extra_data": null,
+     "instance": {
+      "id": 14700,
+      "url": "http://svs.gsfc.nasa.gov/14700/",
+      "page_type": "Produced Video",
+      "title": "NASA + The Smithsonian: Biodiversity",
+      "description": "Biodiverse ecosystems need protection. Through fieldwork, coordination with local partners, and satellite observations, NASA and the Smithsonian are working hard to protect them. Using NASA Earth science satellite and other data, the Goodall Institute puts imagery and data into the hands of local communities to drive conservation efforts. The Scimitar-horned oryx went from extinct in the wild to endangered in the wild thanks to the Smithsonian’s work with partners to re-introduce the species.",
+      "release_date": "2024-10-08T10:00:00-04:00",
+      "update_date": "2025-06-16T09:11:07.773462-04:00",
+      "main_image": {
+       "id": 1102583,
+       "url": "http://svs.gsfc.nasa.gov/vis/a010000/a014700/a014700/Screenshot_2024-10-03_at_11.46.44_AM.png",
+       "filename": "Screenshot_2024-10-03_at_11.46.44_AM.png",
+       "media_type": "Image",
+       "alt_text": "Complete transcript available.Full 8K resolution. Optimized for Earth Information Center display.Music Credit: “Lion Track,” “Atmospheres Instrumental,” and “Fast Progress Instrumental” from Universal Production Music.This video can be freely shared and downloaded. While the video in its entirety can be shared without permission, some individual imagery provided by Sahara Conservation and Pond5 is obtained through permission and may not be excised or remixed in other products. For more information on NASA’s media guidelines, visit https://www.nasa.gov/multimedia/guidelines/index.html",
+       "width": 1908,
+       "height": 532,
+       "pixels": 1015056
+      }
+     }
+    },
+    {
+     "id": 443861,
+     "type": "details_page",
+     "extra_data": null,
+     "instance": {
+      "id": 14606,
+      "url": "http://svs.gsfc.nasa.gov/14606/",
+      "page_type": "Produced Video",
+      "title": "NASA and Fire",
+      "description": "Wildland fires, which are natural and essential for many ecosystems, have increased in frequency and size due to longer fire seasons, climate change, and the expanding interface between communities and wild vegetation. Using fire strategically—through prescribed burns and natural ignitions—can mitigate future severe fires that might burn more intensely under hotter, drier conditions.",
+      "release_date": "2024-07-29T15:00:00-04:00",
+      "update_date": "2025-09-15T17:43:50.308847-04:00",
+      "main_image": {
+       "id": 1158279,
+       "url": "http://svs.gsfc.nasa.gov/vis/a010000/a014600/a014606/EIC_NASAandFire_Main_Image_4K.jpg",
+       "filename": "EIC_NASAandFire_Main_Image_4K.jpg",
+       "media_type": "Image",
+       "alt_text": "Full 8K resolution. Optimized for Earth Information Center display.\r\n\r\nMusic credit: \"Magical Moments by Liam Joseph Hennessy [ PRS ]\" and “Strategy Meeting by Brice Davoli [ SACEM ]”  from Universal Production MusicThis video can be freely shared and downloaded at https://svs.gsfc.nasa.gov/14606. While the video in its entirety can be shared without permission, the music and some individual imagery may have been obtained through permission and may not be excised or remixed in other products. Specific details on such imagery may be found here: https://svs.gsfc.nasa.gov/14606. For more information on NASA’s media guidelines, visit https://nasa.gov/multimedia/guidelines.",
+       "width": 3840,
+       "height": 1080,
+       "pixels": 4147200
+      }
+     }
+    },
+    {
+     "id": 443862,
+     "type": "details_page",
+     "extra_data": null,
+     "instance": {
+      "id": 14696,
+      "url": "http://svs.gsfc.nasa.gov/14696/",
+      "page_type": "Produced Video",
+      "title": "NASA + Smithsonian and Greenhouse Gases",
+      "description": "Full 8K resolution. Optimized for Earth Information Center display at the National Museum of Natural History (Smithsonian).Universal Production Music France: \"Human Endeavor\" by Oliver Grim, Koka Media; \"Accuracy\" by Laurent Levesque.Universal Production Music: \"Feelings of Pride\" by Kathryn Louise Maclennan, Label-Aurora Production Music.This video can be freely shared and downloaded. While the video in its entirety can be shared without permission, some individual imagery provided by Pond5, Shutterstock and Smithsonian is obtained through permission and may not be excised or remixed in other products. For more information on NASA’s media guidelines, visit https://www.nasa.gov/multimedia/guidelines/index.htmlComplete transcript available.Watch this video on the NASA Scientific Visualization Studio YouTube channel. || Smithsonian_GHG.png (3825x1076) [2.8 MB] || Smithsonian_GHG_searchweb.png (320x180) [63.7 KB] || Smithsonian_GHG_thm.png (80x40) [6.2 KB] || GHG_Smithsonian.en_US.srt [5.8 KB] || GHG_Smithsonian.en_US.vtt [5.5 KB] || Smithsonian_GHG_v5_small.mp4 (7680x2160) [472.3 MB] || Smithsonian_GHG_v5_medium.mp4 (7680x2160) [859.9 MB] || Smithsonian_GHG_v5_h.264.mp4 (7680x2160) [4.5 GB] || ",
+      "release_date": "2024-10-08T00:00:00-04:00",
+      "update_date": "2024-10-08T17:35:56-04:00",
+      "main_image": {
+       "id": 1100888,
+       "url": "http://svs.gsfc.nasa.gov/vis/a010000/a014600/a014696/Smithsonian_GHG_searchweb.png",
+       "filename": "Smithsonian_GHG_searchweb.png",
+       "media_type": "Image",
+       "alt_text": "Full 8K resolution. Optimized for Earth Information Center display at the National Museum of Natural History (Smithsonian).\rUniversal Production Music France: \"Human Endeavor\" by Oliver Grim, Koka Media; \"Accuracy\" by Laurent Levesque.Universal Production Music: \"Feelings of Pride\" by Kathryn Louise Maclennan, Label-Aurora Production Music.\rThis video can be freely shared and downloaded. While the video in its entirety can be shared without permission, some individual imagery provided by Pond5, Shutterstock and Smithsonian is obtained through permission and may not be excised or remixed in other products. For more information on NASA’s media guidelines, visit https://www.nasa.gov/multimedia/guidelines/index.html\rComplete transcript available.Watch this video on the NASA Scientific Visualization Studio YouTube channel.",
+       "width": 320,
+       "height": 180,
+       "pixels": 57600
+      }
+     }
+    },
+    {
+     "id": 443863,
+     "type": "details_page",
+     "extra_data": null,
+     "instance": {
+      "id": 14568,
+      "url": "http://svs.gsfc.nasa.gov/14568/",
+      "page_type": "Produced Video",
+      "title": "Tracking the Greenhouse Gas Methane, Earth Information Center Videos",
+      "description": "Full 8K resolution. Optimized for Earth Information Center display.Universal Production Music: \"Passing By\" by Miguel D'Oliveira, \"Simple Story\" by Fred Dubois, and \"Whispers of Hope\" by Sam Connelly, This video can be freely shared and downloaded. While the video in its entirety can be shared without permission, some individual imagery provided by Pond5 and The Raleigh Drone Company is obtained through permission and may not be excised or remixed in other products. For more information on NASA’s media guidelines, visit https://www.nasa.gov/multimedia/guidelines/index.html || GHGMain.png (7680x2160) [5.4 MB] || GHGMain_print.jpg (1024x288) [68.0 KB] || GHGMain_searchweb.png (320x180) [64.0 KB] || GHGMain_thm.png (80x40) [6.8 KB] || GHG.en_US.srt [4.0 KB] || GHG.en_US.vtt [3.8 KB] || GHG_Main_7680x2160.mp4 (7680x2160) [586.6 MB] || GHG_Main.mp4 (7680x2160) [1.1 GB] || GHG_Main_h.264.mov (7680x2160) [1.1 GB] || ",
+      "release_date": "2024-04-18T00:00:00-04:00",
+      "update_date": "2024-11-17T23:29:39.213467-05:00",
+      "main_image": {
+       "id": 1091163,
+       "url": "http://svs.gsfc.nasa.gov/vis/a010000/a014500/a014568/GHGMain_print.jpg",
+       "filename": "GHGMain_print.jpg",
+       "media_type": "Image",
+       "alt_text": "Full 8K resolution. Optimized for Earth Information Center display.Universal Production Music: \"Passing By\" by Miguel D'Oliveira, \"Simple Story\" by Fred Dubois, and \"Whispers of Hope\" by Sam Connelly, This video can be freely shared and downloaded. While the video in its entirety can be shared without permission, some individual imagery provided by Pond5 and The Raleigh Drone Company is obtained through permission and may not be excised or remixed in other products. For more information on NASA’s media guidelines, visit https://www.nasa.gov/multimedia/guidelines/index.html",
+       "width": 1024,
+       "height": 288,
+       "pixels": 294912
+      }
+     }
+    },
+    {
+     "id": 443864,
+     "type": "details_page",
+     "extra_data": null,
+     "instance": {
+      "id": 14507,
+      "url": "http://svs.gsfc.nasa.gov/14507/",
+      "page_type": "Produced Video",
+      "title": "NASA Joins the Jane Goodall Institute to Conserve Chimpanzee Habitat, Earth Information Center Videos",
+      "description": "After years of forest loss, chimpanzee habitats are recovering. This is, in part, due to a collaboration between NASA and the Jane Goodall Institute (JGI). Using NASA Earth science satellite and other data, the Goodall Institute puts data into the hands of local communities to drive conservation across Africa’s equatorial forest belt.",
+      "release_date": "2024-04-18T08:40:00-04:00",
+      "update_date": "2025-09-16T09:59:40.488223-04:00",
+      "main_image": {
+       "id": 1091072,
+       "url": "http://svs.gsfc.nasa.gov/vis/a010000/a014500/a014507/JGI_NASA_chmpanzees_final_web.00030_print.jpg",
+       "filename": "JGI_NASA_chmpanzees_final_web.00030_print.jpg",
+       "media_type": "Image",
+       "alt_text": "Full 8K resolution. Optimized for Earth Information Center display.This video can be freely shared and downloaded. While the video in its entirety can be shared without permission, some individual imagery provided by the Jane Goodall Institute (JGI) is obtained through permission and may not be excised or remixed in other products. For more information on NASA’s media guidelines, visit https://www.nasa.gov/multimedia/guidelines/index.htmlComplete transcript available.",
+       "width": 1024,
+       "height": 288,
+       "pixels": 294912
+      }
+     }
+    },
+    {
+     "id": 445987,
+     "type": "details_page",
+     "extra_data": null,
+     "instance": {
+      "id": 14713,
+      "url": "http://svs.gsfc.nasa.gov/14713/",
+      "page_type": "Produced Video",
+      "title": "Building Coastal Resilience with NASA Data",
+      "description": "The city of Mobile, AL is working with NASA’s Sea Level Change Team to plan for future infrastructure projects and to protect Mobile’s coastal resources. As sea levels change globally, coastal cities feel the effects of more frequent and more severe storms and flooding. NASA’s sea level change data helps Mobile and other coastal communities plan for a more resilient future.",
+      "release_date": "2025-01-07T00:30:59-05:00",
+      "update_date": "2025-09-15T21:55:55.202941-04:00",
+      "main_image": {
+       "id": 1139025,
+       "url": "http://svs.gsfc.nasa.gov/vis/a010000/a014700/a014713/EIC_SeaLevelRise_2560x720.png",
+       "filename": "EIC_SeaLevelRise_2560x720.png",
+       "media_type": "Image",
+       "alt_text": "",
+       "width": 2560,
+       "height": 720,
+       "pixels": 1843200
+      }
+     }
+    }
+   ],
+   "extra_data": {}
+  },
+  {
+   "id": 371618,
+   "url": "http://svs.gsfc.nasa.gov/gallery/earth-information-center/#media_group_371618",
+   "widget": "Card gallery",
+   "title": "EIC Beauty Pieces",
+   "caption": "",
+   "description": "",
+   "items": [
+    {
+     "id": 412538,
+     "type": "media_group",
+     "extra_data": null,
+     "title": "Global Sea Surface Currents and Temperature",
+     "caption": "This visualization shows sea surface current flows. The flows are colored by corresponding sea surface temperature data. This visualization is rendered for display on very high resolution devices like hyperwalls or for print media.<p><p>This visualization was produced using model output from the joint MIT/JPL project entitled <a href=\"http://ecco2.org/\">Estimating the Circulation and Climate of the Ocean, Phase II (ECCO2)</a>. ECCO2 uses the MIT general circulation model (MITgcm) to synthesize satellite and in-situ data of the global ocean and sea-ice at resolutions that begin to resolve ocean eddies and other narrow current systems, which transport heat and carbon in the oceans. The ECCO2 model simulates ocean flows at all depths, but only surface flows are used in this visualization.",
+     "instance": {
+      "id": 479017,
+      "url": "http://svs.gsfc.nasa.gov/vis/a000000/a003900/a003912/flat_global_ecco2_2028x1024.25000_searchweb.png",
+      "filename": "flat_global_ecco2_2028x1024.25000_searchweb.png",
+      "media_type": "Image",
+      "alt_text": "This visualization shows sea surface current flows. The flows are colored by corresponding sea surface temperature data. This visualization is rendered for display on very high resolution devices like hyperwalls or for print media.This visualization was produced using model output from the joint MIT/JPL project entitled Estimating the Circulation and Climate of the Ocean, Phase II (ECCO2). ECCO2 uses the MIT general circulation model (MITgcm) to synthesize satellite and in-situ data of the global ocean and sea-ice at resolutions that begin to resolve ocean eddies and other narrow current systems, which transport heat and carbon in the oceans. The ECCO2 model simulates ocean flows at all depths, but only surface flows are used in this visualization.",
+      "width": 180,
+      "height": 320,
+      "pixels": 57600
+     }
+    },
+    {
+     "id": 412539,
+     "type": "details_page",
+     "extra_data": null,
+     "instance": {
+      "id": 4950,
+      "url": "http://svs.gsfc.nasa.gov/4950/",
+      "page_type": "Visualization",
+      "title": "GEDI Forest Height",
+      "description": "This visualization depicts a global view of forest height data collected by the GEDI instrument aboard the International Space Station.  Brown and dark green represent shorter vegetation.  Bright green and white represent taller vegetation.  This visualization uses data collected between April 2019 and April 2020. Height is exaggerated to depict variation at this scale.Coming soon to our YouTube channel. || GEDI_global_w_colorbar_0900_print.jpg (1024x576) [83.4 KB] || GEDI_global_w_colorbar_0900_searchweb.png (320x180) [42.8 KB] || GEDI_global_w_colorbar_0900_thm.png (80x40) [4.0 KB] || GEDI_global_w_colorbar_1080p60.mp4 (1920x1080) [17.7 MB] || GEDI_global_w_colorbar_1080p60.webm (1920x1080) [6.0 MB] || GEDI_global_w_colorbar (3840x2160) [0 Item(s)] || GEDI_global_w_colorbar_2160p30.mp4 (3840x2160) [61.5 MB] || GEDI_global_w_colorbar_2160p60.mp4 (3840x2160) [65.5 MB] || captions_silent.31845.en_US.srt [43 bytes] || ",
+      "release_date": "2021-10-29T10:00:00-04:00",
+      "update_date": "2025-04-01T13:54:15.020681-04:00",
+      "main_image": {
+       "id": 375814,
+       "url": "http://svs.gsfc.nasa.gov/vis/a000000/a004900/a004950/GEDI_global.0900_print.jpg",
+       "filename": "GEDI_global.0900_print.jpg",
+       "media_type": "Image",
+       "alt_text": "This visualization depicts a global view of forest height data collected by the GEDI instrument aboard the International Space Station.  Brown and dark green represent shorter vegetation.  Bright green and white represent taller vegetation.  This visualization uses data collected between April 2018 and April 2019. Height is exaggerated to depict variation at this scale. This version has no on screen color bar.",
+       "width": 1024,
+       "height": 576,
+       "pixels": 589824
+      }
+     }
+    },
+    {
+     "id": 412540,
+     "type": "details_page",
+     "extra_data": null,
+     "instance": {
+      "id": 4993,
+      "url": "http://svs.gsfc.nasa.gov/4993/",
+      "page_type": "Visualization",
+      "title": "Spread of the Dixie Fire - 2021",
+      "description": "This visualization shows the spread of the Dixie fire between July 14 and October 22, 2021, updated every 12 hours based on new satellite active fire detections. The yellow outlines track the position of the active fire lines for the last 60 hours, with the latest location of the fire front in the brightest shade of yellow. The red points show the location of active fire detections, while the grey region shows the estimated total area burned. The graph shows the cumulative burned area in square kilometers.Coming soon to our YouTube channel. || Dixie_fire_2021.7135_print.jpg (1024x576) [369.5 KB] || Dixie_fire_2021.7135_searchweb.png (320x180) [139.8 KB] || Dixie_fire_2021.7135_thm.png (80x40) [8.3 KB] || Dixie_fire_2021_p30_1080p30.mp4 (1920x1080) [172.9 MB] || Dixie_fire_2021_1080p60.mp4 (1920x1080) [190.8 MB] || 3840x2160_16x9_60p (3840x2160) [0 Item(s)] || captions_silent.32827.en_US.srt [43 bytes] || Dixie_fire_2021_p30_2160p30.mp4 (3840x2160) [477.6 MB] || Dixie_fire_2021_2160p60.mp4 (3840x2160) [513.8 MB] || Dixie_fire_2021_p30_1080p30.mp4.hwshow || Dixie_fire_animation_only_2021_1080p60.hwshow || ",
+      "release_date": "2022-06-01T09:00:00-04:00",
+      "update_date": "2025-06-23T00:13:43.248481-04:00",
+      "main_image": {
+       "id": 371837,
+       "url": "http://svs.gsfc.nasa.gov/vis/a000000/a004900/a004993/Dixie_fire_2021.7135_print.jpg",
+       "filename": "Dixie_fire_2021.7135_print.jpg",
+       "media_type": "Image",
+       "alt_text": "This image shows the spread of the Dixie fire between July 14 and October 22, 2021, with the fire line for each 12-hour step in time shown in a different color.",
+       "width": 1024,
+       "height": 576,
+       "pixels": 589824
+      }
+     }
+    },
+    {
+     "id": 412541,
+     "type": "details_page",
+     "extra_data": null,
+     "instance": {
+      "id": 4960,
+      "url": "http://svs.gsfc.nasa.gov/4960/",
+      "page_type": "Visualization",
+      "title": "A 3D View of an Atmospheric River from an Earth System Model",
+      "description": "Narrated atmospheric rivers movie. || atmos_rivers_narrated_4k.00090_print.jpg (1024x576) [88.5 KB] || atmos_rivers_narrated_4k.00090_print_searchweb.png (320x180) [46.0 KB] || atmos_rivers_narrated_HD.webm (1920x1080) [68.6 MB] || atmos_rivers_narrated_HD.mp4 (1920x1080) [410.9 MB] || atmos_river_narrated_4k.en_US.srt [6.3 KB] || atmos_river_narrated_4k.en_US.vtt [6.3 KB] || atmos_rivers_4k.en_US.vtt [6.3 KB] || atmos_rivers_narrated_4k.mp4 (3840x2160) [646.9 MB] ||",
+      "release_date": "2022-01-25T14:00:00-05:00",
+      "update_date": "2025-04-23T17:09:14.695315-04:00",
+      "main_image": {
+       "id": 374448,
+       "url": "http://svs.gsfc.nasa.gov/vis/a000000/a004900/a004960/atmos_rivers_narrated_4k.00090_print.jpg",
+       "filename": "atmos_rivers_narrated_4k.00090_print.jpg",
+       "media_type": "Image",
+       "alt_text": "Narrated atmospheric rivers movieComing soon to our YouTube channel.",
+       "width": 1024,
+       "height": 576,
+       "pixels": 589824
+      }
+     }
+    },
+    {
+     "id": 443865,
+     "type": "details_page",
+     "extra_data": null,
+     "instance": {
+      "id": 5011,
+      "url": "http://svs.gsfc.nasa.gov/5011/",
+      "page_type": "Visualization",
+      "title": "Lightning Events Detected from the International Space Station (ISS) 2017-2023",
+      "description": "Lightning events detected by the LIS sensor on the ISS between January 2017 and July 2023 using a 10-day roving window. Data is from the quality controlled science dataset. Available resolution in the download menu are 1920x1080, 3840x2160 (4k), and 7680x2160 (created for EIC display). || iss_lightning_preview.jpg (1024x576) [260.7 KB] || iss_lightning_preview_searchweb.png (320x180) [59.3 KB] || iss_lightning_preview_thm.png (80x40) [4.9 KB] || iss_lightning_sphere_07312023.mp4 (1920x1080) [127.0 MB] || iss_lightning_sphere_07312023_60p4k.mp4 (3840x2160) [414.2 MB] || iss_lightning_eic_display_2160p30_h2652.mp4 (7680x2160) [579.9 MB] || iss_lightning_sphere_07312023.mp4.hwshow || ",
+      "release_date": "2023-10-19T00:00:00-04:00",
+      "update_date": "2025-03-28T00:14:18.798297-04:00",
+      "main_image": {
+       "id": 859220,
+       "url": "http://svs.gsfc.nasa.gov/vis/a000000/a005000/a005011/iss_lightning_preview.jpg",
+       "filename": "iss_lightning_preview.jpg",
+       "media_type": "Image",
+       "alt_text": "Lightning events detected by the LIS sensor on the ISS between January 2017 and July 2023 using a 10-day roving window. Data is from the quality controlled science dataset. Available resolution in the download menu are 1920x1080, 3840x2160 (4k), and 7680x2160 (created for EIC display).",
+       "width": 1024,
+       "height": 576,
+       "pixels": 589824
+      }
+     }
+    },
+    {
+     "id": 443866,
+     "type": "details_page",
+     "extra_data": null,
+     "instance": {
+      "id": 5313,
+      "url": "http://svs.gsfc.nasa.gov/5313/",
+      "page_type": "Visualization",
+      "title": "Change in Night Lights between 2012 and 2023 - EIC Version",
+      "description": "This global, flat map view of night lights data begins with a time series depicting annual averages from 2012 to 2023. The lights then fade away to reveal night lights change between 2012 and 2023, with regions of more light depicted in purple and regions with less light depicted in orange. The sequence then repeats with pop-out, zoomed-in views of India, Ukraine, Western Europe, and the Eastern Mediterranean region. || nightlights_flat_series_and_change_wZooms_13_EIC.02599_print.jpg (1024x288) [62.0 KB] || nightlights_flat_series_and_change_wZooms_13_EIC.02599_searchweb.png (320x180) [49.9 KB] || nightlights_flat_series_and_change_wZooms_13_EIC.02599_thm.png (80x40) [4.6 KB] || nightlights_2012-2023_change_flat_eic [0 Item(s)] || nightlights_flat_series_and_change_wZooms_13_EIC_2160p30_h265.mp4 (7680x2160) [32.7 MB] || nightlights_flat_series_and_change_wZooms_13_EIC_prores.mov (7680x2160) [4.0 GB] || ",
+      "release_date": "2024-06-14T00:00:00-04:00",
+      "update_date": "2024-06-14T15:53:06.224162-04:00",
+      "main_image": {
+       "id": 1093572,
+       "url": "http://svs.gsfc.nasa.gov/vis/a000000/a005300/a005313/nightlights_flat_series_and_change_wZooms_13_EIC.02599_print.jpg",
+       "filename": "nightlights_flat_series_and_change_wZooms_13_EIC.02599_print.jpg",
+       "media_type": "Image",
+       "alt_text": "This global, flat map view of night lights data begins with a time series depicting annual averages from 2012 to 2023. The lights then fade away to reveal night lights change between 2012 and 2023, with regions of more light depicted in purple and regions with less light depicted in orange. The sequence then repeats with pop-out, zoomed-in views of India, Ukraine, Western Europe, and the Eastern Mediterranean region.",
+       "width": 1024,
+       "height": 288,
+       "pixels": 294912
+      }
+     }
+    },
+    {
+     "id": 443867,
+     "type": "details_page",
+     "extra_data": null,
+     "instance": {
+      "id": 5196,
+      "url": "http://svs.gsfc.nasa.gov/5196/",
+      "page_type": "Visualization",
+      "title": "DYAMOND Global Carbon Dioxide",
+      "description": "Global CO2 ppm for January-March of 2020. This camera move orbits the Earth from a distance. || dyamondPointCloud_12-1-2023b_dyamond_co2_anim_globe_orbit_3x3Hyperwall.00200_print.jpg (1024x576) [46.2 KB] || dyamondPointCloud_12-1-2023b_dyamond_co2_anim_globe_orbit_3x3Hyperwall.00200_searchweb.png (320x180) [31.3 KB] || dyamondPointCloud_12-1-2023b_dyamond_co2_anim_globe_orbit_3x3Hyperwall.00200_web.png (320x180) [31.3 KB] || dyamondPointCloud_12-1-2023b_dyamond_co2_anim_globe_orbit_3x3Hyperwall.00200_thm.png (80x40) [3.0 KB] || dyamondPointCloud_12-1-2023b_dyamond_co2_anim_globe_orbit_1080p30_h265.mp4 (1920x1080) [6.9 MB] || dyamondPointCloud_12-1-2023b_dyamond_co2_anim_globe_orbit_3x3Hyperwall (5760x3240) [0 Item(s)] || dyamondPointCloud_12-1-2023b_dyamond_co2_anim_globe_orbit_2160p30.mp4 (3840x2160) [68.4 MB] || ",
+      "release_date": "2024-07-22T09:00:00-04:00",
+      "update_date": "2025-06-23T00:16:15.106632-04:00",
+      "main_image": {
+       "id": 1087887,
+       "url": "http://svs.gsfc.nasa.gov/vis/a000000/a005100/a005196/dyamondPointCloud_12-1-2023b_dyamond_co2_anim_globe_orbit_3x3Hyperwall.00200_print.jpg",
+       "filename": "dyamondPointCloud_12-1-2023b_dyamond_co2_anim_globe_orbit_3x3Hyperwall.00200_print.jpg",
+       "media_type": "Image",
+       "alt_text": "Global CO2 ppm for January-March of 2020. This camera move orbits the Earth from a distance.",
+       "width": 1024,
+       "height": 576,
+       "pixels": 589824
+      }
+     }
+    },
+    {
+     "id": 490327,
+     "type": "details_page",
+     "extra_data": null,
+     "instance": {
+      "id": 5425,
+      "url": "http://svs.gsfc.nasa.gov/5425/",
+      "page_type": "Visualization",
+      "title": "Perpetual Ocean 2: Western Boundary Currents",
+      "description": "This is the 'beauty shot version' of Perpetual Ocean 2: Western Boundary Currents.  The visualization starts with a rotating globe showing ocean currents.  The camera then zooms into the Kuroshio current, moves over the Indian Ocean to the Agulhas Current, then over to the Gulf Stream. The flows from the surface down to 600 meters deep are all white.   Flows below 600 meters depth use the blue-cyan-white color table below.",
+      "release_date": "2025-02-27T09:45:00-05:00",
+      "update_date": "2025-05-20T13:45:29.041835-04:00",
+      "main_image": {
+       "id": 1139048,
+       "url": "http://svs.gsfc.nasa.gov/vis/a000000/a005400/a005425/perpetual_ocean2_CLOSE_093_4k_clean_noDate.00000_print.jpg",
+       "filename": "perpetual_ocean2_CLOSE_093_4k_clean_noDate.00000_print.jpg",
+       "media_type": "Image",
+       "alt_text": "This is the 'beauty shot version' of Perpetual Ocean 2: Western Boundary Currents.  The visualization starts with a rotating globe showing ocean currents.  The camera then zooms into the Kuroshio current, moves over the Indian Ocean to the Agulhas Current, then over to the Gulf Stream.The colors used to color the flow in this version where chosen to provide a pleasing look.  The flows from the surface down to 600 meters deep are all white.   Flows below 600 meters depth use the blue-cyan-white color table below.",
+       "width": 1024,
+       "height": 576,
+       "pixels": 589824
+      }
+     }
+    },
+    {
+     "id": 490328,
+     "type": "details_page",
+     "extra_data": null,
+     "instance": {
+      "id": 5533,
+      "url": "http://svs.gsfc.nasa.gov/5533/",
+      "page_type": "Visualization",
+      "title": "Air Quality Model Runs",
+      "description": "NASA utilizes satellite instruments and models to monitor sources of air pollutants and their movement through the atmosphere. This visualization shows concentrations of air pollutants, such as Particulate Matter (PM2.5, fine particles smaller than 2.5 micrometers), Ozone (O~3~), Carbon Monoxide (CO), and Nitrogen Oxides (NO~x~) as they are tracked from NASA's Goddard Earth Observing System Composition Forecasting (GEOS-CF) system.",
+      "release_date": "2025-05-05T12:30:00-04:00",
+      "update_date": "2026-01-28T17:21:23.820283-05:00",
+      "main_image": {
+       "id": 1154743,
+       "url": "http://svs.gsfc.nasa.gov/vis/a000000/a005500/a005533/AirQuality_Sphere_1920x1080_0000.png",
+       "filename": "AirQuality_Sphere_1920x1080_0000.png",
+       "media_type": "Image",
+       "alt_text": "",
+       "width": 1920,
+       "height": 1080,
+       "pixels": 2073600
+      }
+     }
+    }
+   ],
+   "extra_data": {}
+  },
+  {
+   "id": 371619,
+   "url": "http://svs.gsfc.nasa.gov/gallery/earth-information-center/#media_group_371619",
+   "widget": "Card gallery",
+   "title": "Media Resources",
+   "caption": "",
+   "description": "",
+   "items": [
+    {
+     "id": 412542,
+     "type": "details_page",
+     "extra_data": null,
+     "instance": {
+      "id": 14371,
+      "url": "http://svs.gsfc.nasa.gov/14371/",
+      "page_type": "B-Roll",
+      "title": "Earth Information Center Media B-Roll",
+      "description": "The Earth Information Center is a physical and virtual space that showcases NASA Earth information and how our partners and everyday people use Earth observations to solve our planet’s most pressing issues.  It provides a view of our home planet down to local neighborhoods, from outer space. It shows how our planet is changing and provides easy-to-use information and resources we need to mitigate, adapt, and respond to climate change.  The Earth Information Center at NASA’s headquarters building is a physical space that includes various parts: an Earth Pulse sculpture of lights showing NASA Earth data, a Hyperwall that showcases awe-inspiring visualizations and stories told by people using NASA Earth data, the Space for Earth immersive experience surrounding you with science, and an Eyes on Earth interactive kiosk.Images of the June 21, 2023 ribbon cutting ceremony can be found on the NASA Flickr account || ",
+      "release_date": "2023-06-21T09:00:00-04:00",
+      "update_date": "2023-06-19T10:49:47.823790-04:00",
+      "main_image": {
+       "id": 856095,
+       "url": "http://svs.gsfc.nasa.gov/vis/a010000/a014300/a014371/Thumbnail2-3_print.jpg",
+       "filename": "Thumbnail2-3_print.jpg",
+       "media_type": "Image",
+       "alt_text": "Earth Information Center media resource reel (10Mbps). Audio. TRT 13:06Includes footage of NASA worm logo exterior, Eyes on Earth display, hyperwall, Earth Pulse, and the immersive experience room.",
+       "width": 1024,
+       "height": 544,
+       "pixels": 557056
+      }
+     }
+    }
+   ],
+   "extra_data": {}
+  },
+  {
+   "id": 372474,
+   "url": "http://svs.gsfc.nasa.gov/gallery/earth-information-center/#media_group_372474",
+   "widget": "Card gallery",
+   "title": "Daily Visualizations",
+   "caption": "",
+   "description": "",
+   "items": [
+    {
+     "id": 412543,
+     "type": "gallery_page",
+     "extra_data": null,
+     "instance": {
+      "id": 40512,
+      "url": "http://svs.gsfc.nasa.gov/gallery/daily-visualizations/",
+      "page_type": "Gallery",
+      "title": "Daily Visualizations",
+      "description": "This gallery brings together the data visualizations that are updated daily for NASA's Earth Information Center (EIC).",
+      "release_date": "2023-10-16T00:00:00-04:00",
+      "update_date": "2026-08-10T00:00:00-04:00",
+      "main_image": {
+       "id": 375209,
+       "url": "http://svs.gsfc.nasa.gov/vis/a000000/a004200/a004285/imergert_1080p_30_searchweb.png",
+       "filename": "imergert_1080p_30_searchweb.png",
+       "media_type": "Image",
+       "alt_text": "This gallery brings together the data visualizations that are updated daily for NASA's Earth Information Center (EIC).",
+       "width": 180,
+       "height": 320,
+       "pixels": 57600
+      }
+     }
+    }
+   ],
+   "extra_data": {}
+  }
+ ]
+}

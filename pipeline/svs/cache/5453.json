@@ -1,0 +1,120 @@
+{
+ "id": 5453,
+ "title": "Annual Wildfire Burned Area in the United States",
+ "url": "https://svs.gsfc.nasa.gov/5453/",
+ "page_type": "Visualization",
+ "release_date": "2025-01-03T11:00:00-05:00",
+ "update_date": "2026-07-30T11:50:08.459002-04:00",
+ "description": "A graph of annual wildfire burned area in the United States between the years 1983 and 2024.",
+ "full_text": "A graph of annual wildfire burned area in the United States between the years 1983 and 2024.\n\nA graph of annual wildfire burned area in the United States between the years 1983 and 2025.\n\nAnnual wildfire burned area in the United States between the years 1983 and 2025. The data comes from the National Interagency Fire Center. The extent of area burned by wildfires each year appears to have increased since the 1980s. According to National Interagency Fire Center data, of the 10 years with the largest acreage burned, all have occurred since 2004, including the peak years in 2015 and 2020.\n\nAn animated graph of annual wildfire burned area in the United States between the years 1983 and 2025.",
+ "credits_by_role": {
+  "Visualizer": [
+   "Mark SubbaRao (NASA/GSFC)"
+  ],
+  "Technical support": [
+   "Laurence Schuler (ADNET Systems, Inc.)",
+   "Ian Jones (ADNET Systems, Inc.)"
+  ],
+  "Producer": [
+   "Grace Weikert (eMITS)"
+  ]
+ },
+ "keywords": [
+  "Earth Information Center",
+  "Earth Science",
+  "Human Dimensions",
+  "Hyperwall",
+  "Natural hazards",
+  "Wildfires"
+ ],
+ "datasets": [
+  {
+   "name": "United States Total Wildland Fires and Acres",
+   "common_name": "Wildfire Burned Area",
+   "platform": null,
+   "sensor": null,
+   "type": "Observed Data",
+   "organizations": [],
+   "description": "The National Interagency Coordination Center at NIFC compiles annual wildland fire statistics for federal and state agencies. This information is provided through Situation Reports, which have been in use for several decades. Prior to 1983, the federal wildland fire agencies did not track official wildfire data using current reporting processes. As a result, there is no official data prior to 1983 posted on this site.",
+   "credit": "The National Interagency Coordination Center at the National Interagency Fire Center",
+   "url": "https://www.nifc.gov/fire-information/statistics/wildfires",
+   "date_range": null
+  }
+ ],
+ "missions": [],
+ "related": [],
+ "alternate_versions": [],
+ "newer_versions": [],
+ "older_versions": [],
+ "media": [
+  {
+   "group": 0,
+   "group_title": "",
+   "widget": "Single image",
+   "caption": "",
+   "group_text": "A graph of annual wildfire burned area in the United States between the years 1983 and 2025.",
+   "url": "https://svs.gsfc.nasa.gov/vis/a000000/a005400/a005453/fireIncrease.jpg",
+   "filename": "fireIncrease.jpg",
+   "media_type": "Image",
+   "width": 2048,
+   "height": 1024,
+   "alt_text": "A graph of annual wildfire burned area in the United States between the years 1983 and 2025."
+  },
+  {
+   "group": 0,
+   "group_title": "",
+   "widget": "Single image",
+   "caption": "",
+   "group_text": "A graph of annual wildfire burned area in the United States between the years 1983 and 2025.",
+   "url": "https://svs.gsfc.nasa.gov/vis/a000000/a005400/a005453/fireIncrease.png",
+   "filename": "fireIncrease.png",
+   "media_type": "Image",
+   "width": 2048,
+   "height": 1024,
+   "alt_text": "A graph of annual wildfire burned area in the United States between the years 1983 and 2025."
+  },
+  {
+   "group": 2,
+   "group_title": "",
+   "widget": "Video player",
+   "caption": "",
+   "group_text": "An animated graph of annual wildfire burned area in the United States between the years 1983 and 2025.",
+   "url": "https://svs.gsfc.nasa.gov/vis/a000000/a005400/a005453/fireIncrease.mp4",
+   "filename": "fireIncrease.mp4",
+   "media_type": "Movie",
+   "width": 3840,
+   "height": 2160,
+   "alt_text": "An animated graph of annual wildfire burned area in the United States between the years 1983 and 2024."
+  },
+  {
+   "group": 2,
+   "group_title": "",
+   "widget": "Video player",
+   "caption": "",
+   "group_text": "An animated graph of annual wildfire burned area in the United States between the years 1983 and 2025.",
+   "url": "https://svs.gsfc.nasa.gov/vis/a000000/a005400/a005453/fireIncrease.mp4.hwshow/svs/db/vis/a000000/a005400/a005453/fireIncrease.mp4.hwshow",
+   "filename": "fireIncrease.mp4.hwshow",
+   "media_type": "HyperwallShow",
+   "width": 0,
+   "height": 0,
+   "alt_text": "An animated graph of annual wildfire burned area in the United States between the years 1983 and 2024."
+  },
+  {
+   "group": 2,
+   "group_title": "",
+   "widget": "Video player",
+   "caption": "",
+   "group_text": "An animated graph of annual wildfire burned area in the United States between the years 1983 and 2025.",
+   "url": "https://svs.gsfc.nasa.gov/vis/a000000/a005400/a005453/fireIncrease_wide.png",
+   "filename": "fireIncrease_wide.png",
+   "media_type": "Image",
+   "width": 3840,
+   "height": 2160,
+   "alt_text": "An animated graph of annual wildfire burned area in the United States between the years 1983 and 2024."
+  }
+ ],
+ "text_links": [],
+ "frame_folders": {},
+ "api_url": "https://svs.gsfc.nasa.gov/api/5453",
+ "fetched_utc": "2026-10-29T07:42:23Z"
+}

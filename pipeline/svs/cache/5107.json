@@ -1,0 +1,166 @@
+{
+ "id": 5107,
+ "title": "Air Quality Monitoring Stations in Washington D.C.",
+ "url": "https://svs.gsfc.nasa.gov/5107/",
+ "page_type": "Visualization",
+ "release_date": "2023-06-16T10:00:00-04:00",
+ "update_date": "2023-06-15T19:10:20.396681-04:00",
+ "description": "All air quality monitoring stations that measure particulate matter 2.5 (PM2.5) located in Washington D.C. The government operated stations are circled in white. Click the download dropdown for more versions. || dc_air_stations_full_preview.png (1920x1080) [1.1 MB] || dc_air_stations_4320.png (4320x2160) [2.0 MB] || dc_stations_basemap_4320.png (4320x2160) [1.9 MB] || dc_air_stations_full_4320.png (4320x2160) [2.0 MB] || dc_air_stations_full_preview_searchweb.png (320x180) [44.6 KB] || dc_air_stations_full_preview_thm.png (80x40) [3.8 KB] || ",
+ "full_text": "All air quality monitoring stations that measure particulate matter 2.5 (PM2.5) located in Washington D.C. The government operated stations are circled in white. Click the download dropdown for more versions. || dc_air_stations_full_preview.png (1920x1080) [1.1 MB] || dc_air_stations_4320.png (4320x2160) [2.0 MB] || dc_stations_basemap_4320.png (4320x2160) [1.9 MB] || dc_air_stations_full_4320.png (4320x2160) [2.0 MB] || dc_air_stations_full_preview_searchweb.png (320x180) [44.6 KB] || dc_air_stations_full_preview_thm.png (80x40) [3.8 KB] ||\n\nAll air quality monitoring stations that measure particulate matter 2.5 (PM2.5) located in Washington D.C. The government operated stations are circled in white. Click the download dropdown for more versions.\n\nWashington D.C. contains numerous air quality monitoring stations that help get a representative view of the air residents are breathing. Information on the air monitoring stations such as location and data measured were sourced from OpenAQ.\r<br>\r<br>The District Department of Energy and Environment (DDOE) operates five of these stations and their locations are based on population density and distribution as well as historical concentrations of pollutants. The monitoring station data are crucial for complying with the EPA’s national ambient air quality standards. Some of the measurements include PM2.5, nitrogen dioxide, ozone, carbon monoxide, and sulfur dioxide.",
+ "credits_by_role": {
+  "Visualizer": [
+   "Michala Garrison (SSAI)"
+  ],
+  "Technical support": [
+   "Laurence Schuler (ADNET Systems, Inc.)",
+   "Ian Jones (ADNET Systems, Inc.)"
+  ],
+  "Producer": [
+   "Katie Jepson (KBR Wyle Services, LLC)"
+  ]
+ },
+ "keywords": [
+  "aerosols",
+  "air quality",
+  "Atmosphere",
+  "Earth Information Center",
+  "Earth Science",
+  "Particulate Matter",
+  "Pollution"
+ ],
+ "datasets": [
+  {
+   "name": "PM 2.5",
+   "common_name": "OpenAQ",
+   "platform": null,
+   "sensor": null,
+   "type": "Other",
+   "organizations": [
+    "OpenAQ"
+   ],
+   "description": "OpenAQ is a nonprofit organization providing universal access to air quality data to empower a global community of changemakers to solve air inequality—the unequal access to clean air.",
+   "credit": "",
+   "url": "https://openaq.org",
+   "date_range": null
+  },
+  {
+   "name": "Open Data DC catalog",
+   "common_name": "Open Data DC",
+   "platform": null,
+   "sensor": null,
+   "type": "Other",
+   "organizations": [
+    "Government of the District of Columbia"
+   ],
+   "description": "Catalog of government operational data available to the public.",
+   "credit": "",
+   "url": "https://opendata.dc.gov/",
+   "date_range": null
+  }
+ ],
+ "missions": [],
+ "related": [
+  {
+   "id": 14386,
+   "title": "Take Flight with NASA's STAQS Campaign",
+   "url": "https://svs.gsfc.nasa.gov/14386/"
+  },
+  {
+   "id": 5104,
+   "title": "Two Decades of Changes in Nitrogen Dioxide and Fine Particulate Pollution in the U.S.",
+   "url": "https://svs.gsfc.nasa.gov/5104/"
+  },
+  {
+   "id": 5070,
+   "title": "Nitrogen Dioxide Over the United States, 2005-2022",
+   "url": "https://svs.gsfc.nasa.gov/5070/"
+  }
+ ],
+ "alternate_versions": [],
+ "newer_versions": [],
+ "older_versions": [],
+ "media": [
+  {
+   "group": 0,
+   "group_title": "",
+   "widget": "Single image",
+   "caption": "",
+   "group_text": "All air quality monitoring stations that measure particulate matter 2.5 (PM2.5) located in Washington D.C. The government operated stations are circled in white. Click the download dropdown for more versions.",
+   "url": "https://svs.gsfc.nasa.gov/vis/a000000/a005100/a005107/dc_air_stations_full_preview.png",
+   "filename": "dc_air_stations_full_preview.png",
+   "media_type": "Image",
+   "width": 1920,
+   "height": 1080,
+   "alt_text": "All air quality monitoring stations that measure particulate matter 2.5 (PM2.5) located in Washington D.C. The government operated stations are circled in white. Click the download dropdown for more versions."
+  },
+  {
+   "group": 0,
+   "group_title": "",
+   "widget": "Single image",
+   "caption": "",
+   "group_text": "All air quality monitoring stations that measure particulate matter 2.5 (PM2.5) located in Washington D.C. The government operated stations are circled in white. Click the download dropdown for more versions.",
+   "url": "https://svs.gsfc.nasa.gov/vis/a000000/a005100/a005107/dc_air_stations_4320.png",
+   "filename": "dc_air_stations_4320.png",
+   "media_type": "Image",
+   "width": 4320,
+   "height": 2160,
+   "alt_text": "All air quality monitoring stations that measure particulate matter 2.5 (PM2.5) located in Washington D.C. The government operated stations are circled in white. Click the download dropdown for more versions."
+  },
+  {
+   "group": 0,
+   "group_title": "",
+   "widget": "Single image",
+   "caption": "",
+   "group_text": "All air quality monitoring stations that measure particulate matter 2.5 (PM2.5) located in Washington D.C. The government operated stations are circled in white. Click the download dropdown for more versions.",
+   "url": "https://svs.gsfc.nasa.gov/vis/a000000/a005100/a005107/dc_stations_basemap_4320.png",
+   "filename": "dc_stations_basemap_4320.png",
+   "media_type": "Image",
+   "width": 4320,
+   "height": 2160,
+   "alt_text": "All air quality monitoring stations that measure particulate matter 2.5 (PM2.5) located in Washington D.C. The government operated stations are circled in white. Click the download dropdown for more versions."
+  },
+  {
+   "group": 0,
+   "group_title": "",
+   "widget": "Single image",
+   "caption": "",
+   "group_text": "All air quality monitoring stations that measure particulate matter 2.5 (PM2.5) located in Washington D.C. The government operated stations are circled in white. Click the download dropdown for more versions.",
+   "url": "https://svs.gsfc.nasa.gov/vis/a000000/a005100/a005107/dc_air_stations_full_4320.png",
+   "filename": "dc_air_stations_full_4320.png",
+   "media_type": "Image",
+   "width": 4320,
+   "height": 2160,
+   "alt_text": "All air quality monitoring stations that measure particulate matter 2.5 (PM2.5) located in Washington D.C. The government operated stations are circled in white. Click the download dropdown for more versions."
+  },
+  {
+   "group": 0,
+   "group_title": "",
+   "widget": "Single image",
+   "caption": "",
+   "group_text": "All air quality monitoring stations that measure particulate matter 2.5 (PM2.5) located in Washington D.C. The government operated stations are circled in white. Click the download dropdown for more versions.",
+   "url": "https://svs.gsfc.nasa.gov/vis/a000000/a005100/a005107/dc_air_stations_full_preview_searchweb.png",
+   "filename": "dc_air_stations_full_preview_searchweb.png",
+   "media_type": "Image",
+   "width": 320,
+   "height": 180,
+   "alt_text": "All air quality monitoring stations that measure particulate matter 2.5 (PM2.5) located in Washington D.C. The government operated stations are circled in white. Click the download dropdown for more versions."
+  },
+  {
+   "group": 0,
+   "group_title": "",
+   "widget": "Single image",
+   "caption": "",
+   "group_text": "All air quality monitoring stations that measure particulate matter 2.5 (PM2.5) located in Washington D.C. The government operated stations are circled in white. Click the download dropdown for more versions.",
+   "url": "https://svs.gsfc.nasa.gov/vis/a000000/a005100/a005107/dc_air_stations_full_preview_thm.png",
+   "filename": "dc_air_stations_full_preview_thm.png",
+   "media_type": "Image",
+   "width": 80,
+   "height": 40,
+   "alt_text": "All air quality monitoring stations that measure particulate matter 2.5 (PM2.5) located in Washington D.C. The government operated stations are circled in white. Click the download dropdown for more versions."
+  }
+ ],
+ "text_links": [],
+ "frame_folders": {},
+ "api_url": "https://svs.gsfc.nasa.gov/api/5107",
+ "fetched_utc": "2026-10-29T07:40:01Z"
+}

@@ -1,0 +1,343 @@
+{
+ "id": 5175,
+ "title": "TEMPO - Nitrogen Dioxide Air Pollution Over North America - Additional Views",
+ "url": "https://svs.gsfc.nasa.gov/5175/",
+ "page_type": "Visualization",
+ "release_date": "2023-10-12T00:00:00-04:00",
+ "update_date": "2025-04-08T16:15:13.071308-04:00",
+ "description": "In this visualization, high levels of nitrogen dioxide can be seen over multiple urban areas across the U.S., Canada, Mexico and the Caribbean. As the day progresses, the morning pollution often dissipates. Later in the afternoon, it will rise again as the cities enter their second rush hour of the day. Because TEMPO uses visible sunlight to make measurements, it cannot see pollution below clouds or at night. Cloudy areas appear as missing data in the visualization. This visualization shows data from August 28-31, 2023. || tempo_no2_north-america.02402_print.jpg (1024x576) [170.3 KB] || tempo_no2_north-america.02402_searchweb.png (180x320) [67.8 KB] || tempo_no2_north-america.02402_thm.png (80x40) [5.6 KB] || tempo_no2_north-america_1080p60.mp4 (1920x1080) [23.3 MB] || tempo_no2_north-america (3840x2160) [0 Item(s)] || tempo_no2_north-america_2160p60.mp4 (3840x2160) [84.5 MB] || tempo_no2_north-america_2160p30.mp4 (3840x2160) [84.8 MB] || tempo_no2_north-america.mov (3840x2160) [5.6 GB] || a005175_tempo_no2_north-america_2160p30.hwshow [60 bytes] || ",
+ "full_text": "In this visualization, high levels of nitrogen dioxide can be seen over multiple urban areas across the U.S., Canada, Mexico and the Caribbean. As the day progresses, the morning pollution often dissipates. Later in the afternoon, it will rise again as the cities enter their second rush hour of the day. Because TEMPO uses visible sunlight to make measurements, it cannot see pollution below clouds or at night. Cloudy areas appear as missing data in the visualization. This visualization shows data from August 28-31, 2023. || tempo_no2_north-america.02402_print.jpg (1024x576) [170.3 KB] || tempo_no2_north-america.02402_searchweb.png (180x320) [67.8 KB] || tempo_no2_north-america.02402_thm.png (80x40) [5.6 KB] || tempo_no2_north-america_1080p60.mp4 (1920x1080) [23.3 MB] || tempo_no2_north-america (3840x2160) [0 Item(s)] || tempo_no2_north-america_2160p60.mp4 (3840x2160) [84.5 MB] || tempo_no2_north-america_2160p30.mp4 (3840x2160) [84.8 MB] || tempo_no2_north-america.mov (3840x2160) [5.6 GB] || a005175_tempo_no2_north-america_2160p30.hwshow [60 bytes] ||\n\nIn this visualization, high levels of nitrogen dioxide can be seen over multiple urban areas across the U.S., Canada, Mexico and the Caribbean. As the day progresses, the morning pollution often dissipates. Later in the afternoon, it will rise again as the cities enter their second rush hour of the day. Because TEMPO uses visible sunlight to make measurements, it cannot see pollution below clouds or at night. Cloudy areas appear as missing data in the visualization. This visualization shows data from August 28-31, 2023.\n\nThe Tropospheric Emissions: Monitoring of Pollution (TEMPO) instrument measures sunlight reflected and scattered off the Earth’s surface, clouds and the atmosphere. Gases in the atmosphere absorb the sunlight, and the resulting spectra are then used to determine the amounts of several gases in the Earth’s atmosphere, including nitrogen dioxide. The amount of nitrogen dioxide is provided as a “column density”, defined as the total number of nitrogen dioxide molecules in a column of air above a square centimeter on the Earth’s surface. The tropospheric column density is the amount of nitrogen dioxide in the lower part of the atmosphere, from the surface to about 10 km in altitude. In polluted regions, most of that nitrogen dioxide is located near the ground.<br><br>Because TEMPO is in a geostationary orbit, the instrument can continuously observe North American pollution during daylight hours.  The instrument makes more frequent but only partial scans when part of the continent is dark, focusing on just the East (sunrise) or West (sunset).<br><br>In North America, nitrogen dioxide is primarily produced from burning fossil fuels for transportation, power generation and industrial activity, as well as from wildfires. Nitrogen dioxide plays an important role in the formation of ground-level ozone and particulate matter pollution, and is itself a toxic gas. These pollutants are harmful to both human and ecosystem health.<br><br>TEMPO is a collaboration between the Smithsonian Astrophysical Observatory at the Center for Astrophysics | Harvard & Smithsonian, and the NASA Langley Research Center. More information about the TEMPO mission can be found at: <a href=\"https://tempo.si.edu\" target=\"_blank\">https://tempo.si.edu.</a>\n\nThis visualization shows TEMPO nitrogen dioxide data over the Chicago/Toronto region on August 31, 2023.\n\nThis visualization shows TEMPO nitrogen dioxide data over El Paso on August 31, 2023.",
+ "credits_by_role": {
+  "Visualizer": [
+   "Kel Elkins (USRA)",
+   "Trent L. Schindler (USRA)",
+   "Cindy Starr (Global Science and Technology, Inc.)"
+  ],
+  "Technical support": [
+   "Laurence Schuler (ADNET Systems, Inc.)",
+   "Ian Jones (ADNET Systems, Inc.)"
+  ],
+  "Scientist": [
+   "Caroline Nowlan (Center for Astrophysics | Harvard & Smithsonian)",
+   "Xiong Liu (Center for Astrophysics | Harvard & Smithsonian)"
+  ],
+  "Producer": [
+   "Katie Jepson (KBR Wyle Services, LLC)"
+  ]
+ },
+ "keywords": [
+  "Hyperwall",
+  "Pollution"
+ ],
+ "datasets": [],
+ "missions": [],
+ "related": [
+  {
+   "id": 5303,
+   "title": "NASA’s TEMPO Instrument Air Quality Data Now Publicly Available",
+   "url": "https://svs.gsfc.nasa.gov/5303/"
+  }
+ ],
+ "alternate_versions": [],
+ "newer_versions": [],
+ "older_versions": [
+  {
+   "id": 5142,
+   "title": "TEMPO - Nitrogen Dioxide Air Pollution Over North America",
+   "url": "https://svs.gsfc.nasa.gov/5142/"
+  }
+ ],
+ "media": [
+  {
+   "group": 0,
+   "group_title": "",
+   "widget": "Video player",
+   "caption": "",
+   "group_text": "In this visualization, high levels of nitrogen dioxide can be seen over multiple urban areas across the U.S., Canada, Mexico and the Caribbean. As the day progresses, the morning pollution often dissipates. Later in the afternoon, it will rise again as the cities enter their second rush hour of the day. Because TEMPO uses visible sunlight to make measurements, it cannot see pollution below clouds or at night. Cloudy areas appear as missing data in the visualization. This visualization shows data from August 28-31, 2023.",
+   "url": "https://svs.gsfc.nasa.gov/vis/a000000/a005100/a005175/tempo_no2_north-america.02402_print.jpg",
+   "filename": "tempo_no2_north-america.02402_print.jpg",
+   "media_type": "Image",
+   "width": 1024,
+   "height": 576,
+   "alt_text": "In this visualization, high levels of nitrogen dioxide can be seen over multiple urban areas across the U.S., Canada, Mexico and the Caribbean. As the day progresses, the morning pollution often dissipates. Later in the afternoon, it will rise again as the cities enter their second rush hour of the day. Because TEMPO uses visible sunlight to make measurements, it cannot see pollution below clouds or at night. Cloudy areas appear as missing data in the visualization. This visualization shows data from August 28-31, 2023."
+  },
+  {
+   "group": 0,
+   "group_title": "",
+   "widget": "Video player",
+   "caption": "",
+   "group_text": "In this visualization, high levels of nitrogen dioxide can be seen over multiple urban areas across the U.S., Canada, Mexico and the Caribbean. As the day progresses, the morning pollution often dissipates. Later in the afternoon, it will rise again as the cities enter their second rush hour of the day. Because TEMPO uses visible sunlight to make measurements, it cannot see pollution below clouds or at night. Cloudy areas appear as missing data in the visualization. This visualization shows data from August 28-31, 2023.",
+   "url": "https://svs.gsfc.nasa.gov/vis/a000000/a005100/a005175/tempo_no2_north-america.02402_searchweb.png",
+   "filename": "tempo_no2_north-america.02402_searchweb.png",
+   "media_type": "Image",
+   "width": 180,
+   "height": 320,
+   "alt_text": "In this visualization, high levels of nitrogen dioxide can be seen over multiple urban areas across the U.S., Canada, Mexico and the Caribbean. As the day progresses, the morning pollution often dissipates. Later in the afternoon, it will rise again as the cities enter their second rush hour of the day. Because TEMPO uses visible sunlight to make measurements, it cannot see pollution below clouds or at night. Cloudy areas appear as missing data in the visualization. This visualization shows data from August 28-31, 2023."
+  },
+  {
+   "group": 0,
+   "group_title": "",
+   "widget": "Video player",
+   "caption": "",
+   "group_text": "In this visualization, high levels of nitrogen dioxide can be seen over multiple urban areas across the U.S., Canada, Mexico and the Caribbean. As the day progresses, the morning pollution often dissipates. Later in the afternoon, it will rise again as the cities enter their second rush hour of the day. Because TEMPO uses visible sunlight to make measurements, it cannot see pollution below clouds or at night. Cloudy areas appear as missing data in the visualization. This visualization shows data from August 28-31, 2023.",
+   "url": "https://svs.gsfc.nasa.gov/vis/a000000/a005100/a005175/tempo_no2_north-america.02402_thm.png",
+   "filename": "tempo_no2_north-america.02402_thm.png",
+   "media_type": "Image",
+   "width": 80,
+   "height": 40,
+   "alt_text": "In this visualization, high levels of nitrogen dioxide can be seen over multiple urban areas across the U.S., Canada, Mexico and the Caribbean. As the day progresses, the morning pollution often dissipates. Later in the afternoon, it will rise again as the cities enter their second rush hour of the day. Because TEMPO uses visible sunlight to make measurements, it cannot see pollution below clouds or at night. Cloudy areas appear as missing data in the visualization. This visualization shows data from August 28-31, 2023."
+  },
+  {
+   "group": 0,
+   "group_title": "",
+   "widget": "Video player",
+   "caption": "",
+   "group_text": "In this visualization, high levels of nitrogen dioxide can be seen over multiple urban areas across the U.S., Canada, Mexico and the Caribbean. As the day progresses, the morning pollution often dissipates. Later in the afternoon, it will rise again as the cities enter their second rush hour of the day. Because TEMPO uses visible sunlight to make measurements, it cannot see pollution below clouds or at night. Cloudy areas appear as missing data in the visualization. This visualization shows data from August 28-31, 2023.",
+   "url": "https://svs.gsfc.nasa.gov/vis/a000000/a005100/a005175/tempo_no2_north-america_1080p60.mp4",
+   "filename": "tempo_no2_north-america_1080p60.mp4",
+   "media_type": "Movie",
+   "width": 1920,
+   "height": 1080,
+   "alt_text": "In this visualization, high levels of nitrogen dioxide can be seen over multiple urban areas across the U.S., Canada, Mexico and the Caribbean. As the day progresses, the morning pollution often dissipates. Later in the afternoon, it will rise again as the cities enter their second rush hour of the day. Because TEMPO uses visible sunlight to make measurements, it cannot see pollution below clouds or at night. Cloudy areas appear as missing data in the visualization. This visualization shows data from August 28-31, 2023."
+  },
+  {
+   "group": 0,
+   "group_title": "",
+   "widget": "Video player",
+   "caption": "",
+   "group_text": "In this visualization, high levels of nitrogen dioxide can be seen over multiple urban areas across the U.S., Canada, Mexico and the Caribbean. As the day progresses, the morning pollution often dissipates. Later in the afternoon, it will rise again as the cities enter their second rush hour of the day. Because TEMPO uses visible sunlight to make measurements, it cannot see pollution below clouds or at night. Cloudy areas appear as missing data in the visualization. This visualization shows data from August 28-31, 2023.",
+   "url": "https://svs.gsfc.nasa.gov/vis/a000000/a005100/a005175/frames/3840x2160_16x9_60p/tempo_no2_north-america/",
+   "filename": "tempo_no2_north-america",
+   "media_type": "Frames",
+   "width": 3840,
+   "height": 2160,
+   "alt_text": "In this visualization, high levels of nitrogen dioxide can be seen over multiple urban areas across the U.S., Canada, Mexico and the Caribbean. As the day progresses, the morning pollution often dissipates. Later in the afternoon, it will rise again as the cities enter their second rush hour of the day. Because TEMPO uses visible sunlight to make measurements, it cannot see pollution below clouds or at night. Cloudy areas appear as missing data in the visualization. This visualization shows data from August 28-31, 2023."
+  },
+  {
+   "group": 0,
+   "group_title": "",
+   "widget": "Video player",
+   "caption": "",
+   "group_text": "In this visualization, high levels of nitrogen dioxide can be seen over multiple urban areas across the U.S., Canada, Mexico and the Caribbean. As the day progresses, the morning pollution often dissipates. Later in the afternoon, it will rise again as the cities enter their second rush hour of the day. Because TEMPO uses visible sunlight to make measurements, it cannot see pollution below clouds or at night. Cloudy areas appear as missing data in the visualization. This visualization shows data from August 28-31, 2023.",
+   "url": "https://svs.gsfc.nasa.gov/vis/a000000/a005100/a005175/tempo_no2_north-america_2160p60.mp4",
+   "filename": "tempo_no2_north-america_2160p60.mp4",
+   "media_type": "Movie",
+   "width": 3840,
+   "height": 2160,
+   "alt_text": "In this visualization, high levels of nitrogen dioxide can be seen over multiple urban areas across the U.S., Canada, Mexico and the Caribbean. As the day progresses, the morning pollution often dissipates. Later in the afternoon, it will rise again as the cities enter their second rush hour of the day. Because TEMPO uses visible sunlight to make measurements, it cannot see pollution below clouds or at night. Cloudy areas appear as missing data in the visualization. This visualization shows data from August 28-31, 2023."
+  },
+  {
+   "group": 0,
+   "group_title": "",
+   "widget": "Video player",
+   "caption": "",
+   "group_text": "In this visualization, high levels of nitrogen dioxide can be seen over multiple urban areas across the U.S., Canada, Mexico and the Caribbean. As the day progresses, the morning pollution often dissipates. Later in the afternoon, it will rise again as the cities enter their second rush hour of the day. Because TEMPO uses visible sunlight to make measurements, it cannot see pollution below clouds or at night. Cloudy areas appear as missing data in the visualization. This visualization shows data from August 28-31, 2023.",
+   "url": "https://svs.gsfc.nasa.gov/vis/a000000/a005100/a005175/tempo_no2_north-america_2160p30.mp4",
+   "filename": "tempo_no2_north-america_2160p30.mp4",
+   "media_type": "Movie",
+   "width": 3840,
+   "height": 2160,
+   "alt_text": "In this visualization, high levels of nitrogen dioxide can be seen over multiple urban areas across the U.S., Canada, Mexico and the Caribbean. As the day progresses, the morning pollution often dissipates. Later in the afternoon, it will rise again as the cities enter their second rush hour of the day. Because TEMPO uses visible sunlight to make measurements, it cannot see pollution below clouds or at night. Cloudy areas appear as missing data in the visualization. This visualization shows data from August 28-31, 2023."
+  },
+  {
+   "group": 0,
+   "group_title": "",
+   "widget": "Video player",
+   "caption": "",
+   "group_text": "In this visualization, high levels of nitrogen dioxide can be seen over multiple urban areas across the U.S., Canada, Mexico and the Caribbean. As the day progresses, the morning pollution often dissipates. Later in the afternoon, it will rise again as the cities enter their second rush hour of the day. Because TEMPO uses visible sunlight to make measurements, it cannot see pollution below clouds or at night. Cloudy areas appear as missing data in the visualization. This visualization shows data from August 28-31, 2023.",
+   "url": "https://svs.gsfc.nasa.gov/vis/a000000/a005100/a005175/tempo_no2_north-america.mov",
+   "filename": "tempo_no2_north-america.mov",
+   "media_type": "Movie",
+   "width": 3840,
+   "height": 2160,
+   "alt_text": "In this visualization, high levels of nitrogen dioxide can be seen over multiple urban areas across the U.S., Canada, Mexico and the Caribbean. As the day progresses, the morning pollution often dissipates. Later in the afternoon, it will rise again as the cities enter their second rush hour of the day. Because TEMPO uses visible sunlight to make measurements, it cannot see pollution below clouds or at night. Cloudy areas appear as missing data in the visualization. This visualization shows data from August 28-31, 2023."
+  },
+  {
+   "group": 2,
+   "group_title": "",
+   "widget": "Video player",
+   "caption": "",
+   "group_text": "This visualization shows TEMPO nitrogen dioxide data over the Chicago/Toronto region on August 31, 2023.   ",
+   "url": "https://svs.gsfc.nasa.gov/vis/a000000/a005100/a005175/tempo_no2_chicago-toronto.03000_print.jpg",
+   "filename": "tempo_no2_chicago-toronto.03000_print.jpg",
+   "media_type": "Image",
+   "width": 1024,
+   "height": 576,
+   "alt_text": "This visualization shows TEMPO nitrogen dioxide data over the Chicago/Toronto region on August 31, 2023.   "
+  },
+  {
+   "group": 2,
+   "group_title": "",
+   "widget": "Video player",
+   "caption": "",
+   "group_text": "This visualization shows TEMPO nitrogen dioxide data over the Chicago/Toronto region on August 31, 2023.   ",
+   "url": "https://svs.gsfc.nasa.gov/vis/a000000/a005100/a005175/tempo_no2_chicago-toronto_1080p60.mp4",
+   "filename": "tempo_no2_chicago-toronto_1080p60.mp4",
+   "media_type": "Movie",
+   "width": 1920,
+   "height": 1080,
+   "alt_text": "This visualization shows TEMPO nitrogen dioxide data over the Chicago/Toronto region on August 31, 2023.   "
+  },
+  {
+   "group": 2,
+   "group_title": "",
+   "widget": "Video player",
+   "caption": "",
+   "group_text": "This visualization shows TEMPO nitrogen dioxide data over the Chicago/Toronto region on August 31, 2023.   ",
+   "url": "https://svs.gsfc.nasa.gov/vis/a000000/a005100/a005175/frames/3840x2160_16x9_60p/tempo_no2_chicago-toronto/",
+   "filename": "tempo_no2_chicago-toronto",
+   "media_type": "Frames",
+   "width": 3840,
+   "height": 2160,
+   "alt_text": "This visualization shows TEMPO nitrogen dioxide data over the Chicago/Toronto region on August 31, 2023.   "
+  },
+  {
+   "group": 2,
+   "group_title": "",
+   "widget": "Video player",
+   "caption": "",
+   "group_text": "This visualization shows TEMPO nitrogen dioxide data over the Chicago/Toronto region on August 31, 2023.   ",
+   "url": "https://svs.gsfc.nasa.gov/vis/a000000/a005100/a005175/tempo_no2_chicago-toronto_2160p30.mp4",
+   "filename": "tempo_no2_chicago-toronto_2160p30.mp4",
+   "media_type": "Movie",
+   "width": 3840,
+   "height": 2160,
+   "alt_text": "This visualization shows TEMPO nitrogen dioxide data over the Chicago/Toronto region on August 31, 2023.   "
+  },
+  {
+   "group": 2,
+   "group_title": "",
+   "widget": "Video player",
+   "caption": "",
+   "group_text": "This visualization shows TEMPO nitrogen dioxide data over the Chicago/Toronto region on August 31, 2023.   ",
+   "url": "https://svs.gsfc.nasa.gov/vis/a000000/a005100/a005175/tempo_no2_chicago-toronto_2160p60.mp4",
+   "filename": "tempo_no2_chicago-toronto_2160p60.mp4",
+   "media_type": "Movie",
+   "width": 3840,
+   "height": 2160,
+   "alt_text": "This visualization shows TEMPO nitrogen dioxide data over the Chicago/Toronto region on August 31, 2023.   "
+  },
+  {
+   "group": 2,
+   "group_title": "",
+   "widget": "Video player",
+   "caption": "",
+   "group_text": "This visualization shows TEMPO nitrogen dioxide data over the Chicago/Toronto region on August 31, 2023.   ",
+   "url": "https://svs.gsfc.nasa.gov/vis/a000000/a005100/a005175/tempo_no2_chicago-toronto.mov",
+   "filename": "tempo_no2_chicago-toronto.mov",
+   "media_type": "Movie",
+   "width": 3840,
+   "height": 2160,
+   "alt_text": "This visualization shows TEMPO nitrogen dioxide data over the Chicago/Toronto region on August 31, 2023.   "
+  },
+  {
+   "group": 3,
+   "group_title": "",
+   "widget": "Video player",
+   "caption": "",
+   "group_text": "This visualization shows TEMPO nitrogen dioxide data over El Paso on August 31, 2023.   ",
+   "url": "https://svs.gsfc.nasa.gov/vis/a000000/a005100/a005175/tempo_no2_el-paso.04300_print.jpg",
+   "filename": "tempo_no2_el-paso.04300_print.jpg",
+   "media_type": "Image",
+   "width": 1024,
+   "height": 576,
+   "alt_text": "This visualization shows TEMPO nitrogen dioxide data over El Paso on August 31, 2023.   "
+  },
+  {
+   "group": 3,
+   "group_title": "",
+   "widget": "Video player",
+   "caption": "",
+   "group_text": "This visualization shows TEMPO nitrogen dioxide data over El Paso on August 31, 2023.   ",
+   "url": "https://svs.gsfc.nasa.gov/vis/a000000/a005100/a005175/tempo_no2_el-paso_1080p60.mp4",
+   "filename": "tempo_no2_el-paso_1080p60.mp4",
+   "media_type": "Movie",
+   "width": 1920,
+   "height": 1080,
+   "alt_text": "This visualization shows TEMPO nitrogen dioxide data over El Paso on August 31, 2023.   "
+  },
+  {
+   "group": 3,
+   "group_title": "",
+   "widget": "Video player",
+   "caption": "",
+   "group_text": "This visualization shows TEMPO nitrogen dioxide data over El Paso on August 31, 2023.   ",
+   "url": "https://svs.gsfc.nasa.gov/vis/a000000/a005100/a005175/frames/3840x2160_16x9_60p/tempo_no2_el-paso/",
+   "filename": "tempo_no2_el-paso",
+   "media_type": "Frames",
+   "width": 3840,
+   "height": 2160,
+   "alt_text": "This visualization shows TEMPO nitrogen dioxide data over El Paso on August 31, 2023.   "
+  },
+  {
+   "group": 3,
+   "group_title": "",
+   "widget": "Video player",
+   "caption": "",
+   "group_text": "This visualization shows TEMPO nitrogen dioxide data over El Paso on August 31, 2023.   ",
+   "url": "https://svs.gsfc.nasa.gov/vis/a000000/a005100/a005175/tempo_no2_el-paso_2160p60.mp4",
+   "filename": "tempo_no2_el-paso_2160p60.mp4",
+   "media_type": "Movie",
+   "width": 3840,
+   "height": 2160,
+   "alt_text": "This visualization shows TEMPO nitrogen dioxide data over El Paso on August 31, 2023.   "
+  },
+  {
+   "group": 3,
+   "group_title": "",
+   "widget": "Video player",
+   "caption": "",
+   "group_text": "This visualization shows TEMPO nitrogen dioxide data over El Paso on August 31, 2023.   ",
+   "url": "https://svs.gsfc.nasa.gov/vis/a000000/a005100/a005175/tempo_no2_el-paso_2160p30.mp4",
+   "filename": "tempo_no2_el-paso_2160p30.mp4",
+   "media_type": "Movie",
+   "width": 3840,
+   "height": 2160,
+   "alt_text": "This visualization shows TEMPO nitrogen dioxide data over El Paso on August 31, 2023.   "
+  },
+  {
+   "group": 3,
+   "group_title": "",
+   "widget": "Video player",
+   "caption": "",
+   "group_text": "This visualization shows TEMPO nitrogen dioxide data over El Paso on August 31, 2023.   ",
+   "url": "https://svs.gsfc.nasa.gov/vis/a000000/a005100/a005175/tempo_no2_el-paso.mov",
+   "filename": "tempo_no2_el-paso.mov",
+   "media_type": "Movie",
+   "width": 3840,
+   "height": 2160,
+   "alt_text": "This visualization shows TEMPO nitrogen dioxide data over El Paso on August 31, 2023.   "
+  }
+ ],
+ "text_links": [
+  "https://tempo.si.edu"
+ ],
+ "frame_folders": {
+  "https://svs.gsfc.nasa.gov/vis/a000000/a005100/a005175/frames/3840x2160_16x9_60p/tempo_no2_north-america/": {
+   "url": "https://svs.gsfc.nasa.gov/vis/a000000/a005100/a005175/frames/3840x2160_16x9_60p/tempo_no2_north-america/",
+   "frame_count": 2500,
+   "bytes_approx": 27553499960,
+   "first": "tempo_no2_north-america.00001.exr",
+   "last": "tempo_no2_north-america.02500.exr",
+   "subfolders": {}
+  },
+  "https://svs.gsfc.nasa.gov/vis/a000000/a005100/a005175/frames/3840x2160_16x9_60p/tempo_no2_chicago-toronto/": {
+   "url": "https://svs.gsfc.nasa.gov/vis/a000000/a005100/a005175/frames/3840x2160_16x9_60p/tempo_no2_chicago-toronto/",
+   "frame_count": 1201,
+   "bytes_approx": 21251200000,
+   "first": "tempo_no2_chicago-toronto.03000.exr",
+   "last": "tempo_no2_chicago-toronto.04200.exr",
+   "subfolders": {}
+  },
+  "https://svs.gsfc.nasa.gov/vis/a000000/a005100/a005175/frames/3840x2160_16x9_60p/tempo_no2_el-paso/": {
+   "url": "https://svs.gsfc.nasa.gov/vis/a000000/a005100/a005175/frames/3840x2160_16x9_60p/tempo_no2_el-paso/",
+   "frame_count": 1201,
+   "bytes_approx": 16990200000,
+   "first": "tempo_no2_el-paso.04300.exr",
+   "last": "tempo_no2_el-paso.05500.exr",
+   "subfolders": {}
+  }
+ },
+ "api_url": "https://svs.gsfc.nasa.gov/api/5175",
+ "fetched_utc": "2026-10-29T07:41:43Z"
+}

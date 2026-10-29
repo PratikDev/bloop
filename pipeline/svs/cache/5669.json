@@ -1,0 +1,212 @@
+{
+ "id": 5669,
+ "title": "GEOS Aerosols (2025)",
+ "url": "https://svs.gsfc.nasa.gov/5669/",
+ "page_type": "Visualization",
+ "release_date": "2026-08-10T15:15:00-04:00",
+ "update_date": "2026-08-10T17:08:45.208253-04:00",
+ "description": "Aerosols are tiny solid or liquid particles that float in the atmosphere and can travel long distances, affecting air quality and visibility far from their sources. This visualization still, captured for August 19, 2025 (20:00 UTC), is based on NASA's Goddard Earth Observing System (GEOS) model. The GEOS model delivers realistic, high-resolution weather and aerosol data that enable customized environmental prediction and advances in AI research.",
+ "full_text": "Aerosols are tiny solid or liquid particles that float in the atmosphere and can travel long distances, affecting air quality and visibility far from their sources. This visualization still, captured for August 19, 2025 (20:00 UTC), is based on NASA's Goddard Earth Observing System (GEOS) model. The GEOS model delivers realistic, high-resolution weather and aerosol data that enable customized environmental prediction and advances in AI research.\n\nVisualization still image showing aerosols as modeled by NASA's Goddard Earth Observing System (GEOS) on August 19, 2025 (20:00 UTC).\r\n\r\nAerosols are tiny solid or liquid particles suspended in the atmosphere that can travel vast distances, affecting air quality and visibility far from their original sources. This visualization is based on the GEOS model, which provides realistic, high-resolution weather and aerosol data that enables customized environmental prediction and advances in AI research.\n\nNASA uses satellites, ground measurements, and powerful computer models to track tiny particles floating in our air called aerosols. These small solid or liquid particles can travel thousands of miles, affecting the air we breathe and how far we can see, even far from where they originated.\r\n\r\nThis visualization still, shows how these particles travel through Earth's atmosphere on August 19, 2025 (20:00 UTC) . Different colors represent different types of aerosols: sea salt (blue), dust (pink/magenta), smoke from fires (orange/red), and sulfates from pollution and volcanoes (green).\r\n\r\nThis visualization still image highlights several atmopsheric phenomena:\r\n\r\n**Hurricane Erin**: As the first Atlantic hurricane of the 2025 season, Erin is visible in the Atlantic Ocean pulling in dust from Africa. The storm's powerful winds churn up ocean water, creating sea salt particles visible as blue spirals. Although it steered clear of making a direct landfall, the hurricane delivered heavy rain and tropical storm conditions to coastal areas of Puerto Rico, the Turks and Caicos Islands, the Bahamas, and the U.S. Atlantic coast.\r\n\r\n**Saharan Dust Journey**: Desert dust from the Sahara travels all the way across the Atlantic Ocean, creating hazy skies in the Caribbean and affecting air quality as it reaches the United States.\r\n\r\n**Volcanic Plumes**: Hawaii's Kilauea Volcano released a narrow stream of sulfate particles moving westward, while Italy's Mount Etna created similar streams over southern Europe.\r\n\r\n**Wildfire Smoke:**\r\n\r\n* In southern Africa, seasonal agricultural burning created smoke that drifted over the Atlantic Ocean\r\n* Wildfires raged across multiple regions in Spain \r\n\r\nThe swirling blue patterns over oceans show sea salt kicked up by strong winds.\r\n\r\nThis visualization still image highlights how our atmosphere connects distant parts of the world. What happens in one region—whether natural events or human activities—can affect weather patterns and air quality thousands of miles away. By tracking these movements, NASA helps communities prepare for changes in air quality and visibility while advancing our understanding of Earth's complex atmospheric system.\r\n\r\nThe visualization was developed using NASA’s Goddard Earth Observing System (GEOS), a complex modeling and data assimilation system that creates global analyses of the Earth System. GEOS integrates satellite observations, in situ measurements, and approximately one million weather observations collected hourly to inform its models. Through the GEOS Forward Processing (FP) product, the system generates both analyses and forecasts in near real-time. Images for this visualization were created by NASA’s Global Modeling and Assimilation Office (GMAO).\n\nVisualization still image (14:11 aspect ratio) showing aerosols as modeled by NASA's Goddard Earth Observing System (GEOS) on August 19, 2025 (20:00 UTC).\r\n\r\nAerosols are tiny solid or liquid particles suspended in the atmosphere that can travel vast distances, affecting air quality and visibility far from their original sources. This visualization is based on the GEOS model, which provides realistic, high-resolution weather and aerosol data that enables customized environmental prediction and advances in AI research.\r\n\r\n*Note: A print-quality version (300 dpi) is available in this content block under \"Download\"*\n\nColorbar for the aerosols visualization.",
+ "credits_by_role": {
+  "Data visualizer": [
+   "Joseph V. Ardizzone (NASA/GSFC)",
+   "Helen-Nicole Kostis (Science and Technology Corporation)"
+  ],
+  "Scientist": [
+   "Lesley Ott (NASA/GSFC)"
+  ]
+ },
+ "keywords": [
+  "Aerosol Optical Depth/Thickness",
+  "GEOS",
+  "Models"
+ ],
+ "datasets": [
+  {
+   "name": "GEOS Forward Processing 2Km Replay",
+   "common_name": "GEOS-FP 2Km Replay",
+   "platform": null,
+   "sensor": null,
+   "type": "Model",
+   "organizations": [],
+   "description": "",
+   "credit": "",
+   "url": "",
+   "date_range": "August 19, 2025"
+  }
+ ],
+ "missions": [],
+ "related": [
+  {
+   "id": 14899,
+   "title": "Inside the Visualization: Aerosols",
+   "url": "https://svs.gsfc.nasa.gov/14899/"
+  },
+  {
+   "id": 5572,
+   "title": "GEOS Aerosols",
+   "url": "https://svs.gsfc.nasa.gov/5572/"
+  },
+  {
+   "id": 5552,
+   "title": "Science On A Sphere: Aerosols in the Air",
+   "url": "https://svs.gsfc.nasa.gov/5552/"
+  },
+  {
+   "id": 5533,
+   "title": "Air Quality Model Runs",
+   "url": "https://svs.gsfc.nasa.gov/5533/"
+  },
+  {
+   "id": 5518,
+   "title": "Science On A Sphere: Air Quality Model Runs",
+   "url": "https://svs.gsfc.nasa.gov/5518/"
+  },
+  {
+   "id": 5147,
+   "title": "GEOS-FP Near-Surface Temperature",
+   "url": "https://svs.gsfc.nasa.gov/5147/"
+  },
+  {
+   "id": 5148,
+   "title": "GEOS-FP Near-Surface Wind Speed",
+   "url": "https://svs.gsfc.nasa.gov/5148/"
+  },
+  {
+   "id": 5149,
+   "title": "GEOS-FP Precipitation and Clouds",
+   "url": "https://svs.gsfc.nasa.gov/5149/"
+  },
+  {
+   "id": 5150,
+   "title": "GEOS-FP Near-Surface Humidity",
+   "url": "https://svs.gsfc.nasa.gov/5150/"
+  },
+  {
+   "id": 5151,
+   "title": "Particulate Matter (PM) 2.5",
+   "url": "https://svs.gsfc.nasa.gov/5151/"
+  },
+  {
+   "id": 5152,
+   "title": "Near surface Ozone (O3)",
+   "url": "https://svs.gsfc.nasa.gov/5152/"
+  },
+  {
+   "id": 5153,
+   "title": "Carbon Monoxide (CO)",
+   "url": "https://svs.gsfc.nasa.gov/5153/"
+  },
+  {
+   "id": 5154,
+   "title": "Nitrogen Oxides (NOx)",
+   "url": "https://svs.gsfc.nasa.gov/5154/"
+  }
+ ],
+ "alternate_versions": [
+  {
+   "id": 5552,
+   "title": "Science On A Sphere: Aerosols in the Air",
+   "url": "https://svs.gsfc.nasa.gov/5552/"
+  }
+ ],
+ "newer_versions": [],
+ "older_versions": [],
+ "media": [
+  {
+   "group": 0,
+   "group_title": "",
+   "widget": "Single image",
+   "caption": "Visualization still image showing aerosols as modeled by NASA's Goddard Earth Observing System (GEOS) on August 19, 2025 (20:00 UTC).\r\n\r\nAerosols are tiny solid or liquid particles suspended in the atmosphere that can travel vast distances, affecting air quality and visibility far from their original sources. This visualization is based on the GEOS model, which provides realistic, high-resolution weather and aerosol data that enables customized environmental prediction and advances in AI research.",
+   "group_text": "",
+   "url": "https://svs.gsfc.nasa.gov/vis/a000000/a005600/a005669/Aerosols_2025-08-19T20_00_00_1920x1080.png",
+   "filename": "Aerosols_2025-08-19T20_00_00_1920x1080.png",
+   "media_type": "Image",
+   "width": 1920,
+   "height": 1080,
+   "alt_text": ""
+  },
+  {
+   "group": 0,
+   "group_title": "",
+   "widget": "Single image",
+   "caption": "Visualization still image showing aerosols as modeled by NASA's Goddard Earth Observing System (GEOS) on August 19, 2025 (20:00 UTC).\r\n\r\nAerosols are tiny solid or liquid particles suspended in the atmosphere that can travel vast distances, affecting air quality and visibility far from their original sources. This visualization is based on the GEOS model, which provides realistic, high-resolution weather and aerosol data that enables customized environmental prediction and advances in AI research.",
+   "group_text": "",
+   "url": "https://svs.gsfc.nasa.gov/vis/a000000/a005600/a005669/Aerosols_2025-08-19T20_00_00_3840x2160.png",
+   "filename": "Aerosols_2025-08-19T20_00_00_3840x2160.png",
+   "media_type": "Image",
+   "width": 3840,
+   "height": 2160,
+   "alt_text": ""
+  },
+  {
+   "group": 0,
+   "group_title": "",
+   "widget": "Single image",
+   "caption": "Visualization still image showing aerosols as modeled by NASA's Goddard Earth Observing System (GEOS) on August 19, 2025 (20:00 UTC).\r\n\r\nAerosols are tiny solid or liquid particles suspended in the atmosphere that can travel vast distances, affecting air quality and visibility far from their original sources. This visualization is based on the GEOS model, which provides realistic, high-resolution weather and aerosol data that enables customized environmental prediction and advances in AI research.",
+   "group_text": "",
+   "url": "https://svs.gsfc.nasa.gov/vis/a000000/a005600/a005669/Aerosols_2025-08-19T20_00_00_5760x3240.png",
+   "filename": "Aerosols_2025-08-19T20_00_00_5760x3240.png",
+   "media_type": "Image",
+   "width": 5760,
+   "height": 3240,
+   "alt_text": ""
+  },
+  {
+   "group": 0,
+   "group_title": "",
+   "widget": "Single image",
+   "caption": "Visualization still image showing aerosols as modeled by NASA's Goddard Earth Observing System (GEOS) on August 19, 2025 (20:00 UTC).\r\n\r\nAerosols are tiny solid or liquid particles suspended in the atmosphere that can travel vast distances, affecting air quality and visibility far from their original sources. This visualization is based on the GEOS model, which provides realistic, high-resolution weather and aerosol data that enables customized environmental prediction and advances in AI research.",
+   "group_text": "",
+   "url": "https://svs.gsfc.nasa.gov/vis/a000000/a005600/a005669/Aerosols_2025-08-19T20_00_00_7680x4320.png",
+   "filename": "Aerosols_2025-08-19T20_00_00_7680x4320.png",
+   "media_type": "Image",
+   "width": 7680,
+   "height": 4320,
+   "alt_text": ""
+  },
+  {
+   "group": 2,
+   "group_title": "Print-Quality Version (14:11 Aspect Ratio)",
+   "widget": "Single image",
+   "caption": "Visualization still image (14:11 aspect ratio) showing aerosols as modeled by NASA's Goddard Earth Observing System (GEOS) on August 19, 2025 (20:00 UTC).\r\n\r\nAerosols are tiny solid or liquid particles suspended in the atmosphere that can travel vast distances, affecting air quality and visibility far from their original sources. This visualization is based on the GEOS model, which provides realistic, high-resolution weather and aerosol data that enables customized environmental prediction and advances in AI research.\r\n\r\n*Note: A print-quality version (300 dpi) is available in this content block under \"Download\"*",
+   "group_text": "",
+   "url": "https://svs.gsfc.nasa.gov/vis/a000000/a005600/a005669/Aerosols_2025-08-19T20_00_00_1500x1179_72dpi.png",
+   "filename": "Aerosols_2025-08-19T20_00_00_1500x1179_72dpi.png",
+   "media_type": "Image",
+   "width": 1500,
+   "height": 1179,
+   "alt_text": ""
+  },
+  {
+   "group": 2,
+   "group_title": "Print-Quality Version (14:11 Aspect Ratio)",
+   "widget": "Single image",
+   "caption": "Visualization still image (14:11 aspect ratio) showing aerosols as modeled by NASA's Goddard Earth Observing System (GEOS) on August 19, 2025 (20:00 UTC).\r\n\r\nAerosols are tiny solid or liquid particles suspended in the atmosphere that can travel vast distances, affecting air quality and visibility far from their original sources. This visualization is based on the GEOS model, which provides realistic, high-resolution weather and aerosol data that enables customized environmental prediction and advances in AI research.\r\n\r\n*Note: A print-quality version (300 dpi) is available in this content block under \"Download\"*",
+   "group_text": "",
+   "url": "https://svs.gsfc.nasa.gov/vis/a000000/a005600/a005669/Aerosols_2025-08-19T20_00_00_4200x3300_300dpi.png",
+   "filename": "Aerosols_2025-08-19T20_00_00_4200x3300_300dpi.png",
+   "media_type": "Image",
+   "width": 4200,
+   "height": 3300,
+   "alt_text": ""
+  },
+  {
+   "group": 3,
+   "group_title": "",
+   "widget": "Single image",
+   "caption": "Colorbar for the aerosols visualization.",
+   "group_text": "",
+   "url": "https://svs.gsfc.nasa.gov/vis/a000000/a005600/a005669/Aerosols_cbar.png",
+   "filename": "Aerosols_cbar.png",
+   "media_type": "Image",
+   "width": 1500,
+   "height": 300,
+   "alt_text": ""
+  }
+ ],
+ "text_links": [],
+ "frame_folders": {},
+ "api_url": "https://svs.gsfc.nasa.gov/api/5669",
+ "fetched_utc": "2026-10-29T06:16:40Z"
+}

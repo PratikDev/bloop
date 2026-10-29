@@ -1,0 +1,238 @@
+{
+ "id": 40531,
+ "url": "http://svs.gsfc.nasa.gov/gallery/wildland-fires/",
+ "page_type": "Gallery",
+ "title": "Wildland Fires Dashboard",
+ "description": "Climate change continues to cause longer fire seasons and more severe wildfires. NASA's Earth observing satellites and its robust network of interagency partners work together to help communities manage the impacts of fire, and reduce risks before, during and after fire events.\n\n\n\n\n",
+ "release_date": "2024-12-04T00:00:00-05:00",
+ "update_date": "2025-01-06T00:00:00-05:00",
+ "main_image": {
+  "id": 1095003,
+  "url": "http://svs.gsfc.nasa.gov/vis/a000000/a005300/a005315/FWI_forecast_latest_searchweb.png",
+  "filename": "FWI_forecast_latest_searchweb.png",
+  "media_type": "Image",
+  "alt_text": "Climate change continues to cause longer fire seasons and more severe wildfires. NASA's Earth observing satellites and its robust network of interagency partners work together to help communities manage the impacts of fire, and reduce risks before, during and after fire events.",
+  "width": 180,
+  "height": 320,
+  "pixels": 57600
+ },
+ "media_groups": [
+  {
+   "id": 376716,
+   "url": "http://svs.gsfc.nasa.gov/gallery/wildland-fires/#media_group_376716",
+   "widget": "Basic text (large)",
+   "title": "Overview",
+   "caption": "",
+   "description": "Climate change continues to cause longer fire seasons and more severe wildfires. NASA's Earth observing satellites and its robust network of interagency partners work together to help communities manage the impacts of fire, and reduce risks before, during and after fire events.\n<br><br>\n<img src=\"/images/gallery/WildlandFires/Hyperwall_D009_Stage1.png\" class=\"w-100\">\n<br><br>\n<img src=\"/images/gallery/WildlandFires/Hyperwall_D009_Stage2.png\" class=\"w-100\">\n<br><br>",
+   "items": [],
+   "extra_data": {}
+  },
+  {
+   "id": 376717,
+   "url": "http://svs.gsfc.nasa.gov/gallery/wildland-fires/#media_group_376717",
+   "widget": "Card gallery",
+   "title": "Wildland Fires: Global View",
+   "caption": "",
+   "description": "",
+   "items": [
+    {
+     "id": 444714,
+     "type": "link",
+     "extra_data": null,
+     "title": "Worldview Active Fires from VIIRS",
+     "caption": null,
+     "instance": {
+      "id": 1139893,
+      "url": "http://svs.gsfc.nasa.gov/images/gallery/WildlandFires/Worldview_VIIRSFires.png",
+      "filename": "Worldview_VIIRSFires.png",
+      "media_type": "Image",
+      "alt_text": "",
+      "width": 658,
+      "height": 1346,
+      "pixels": 885668
+     }
+    },
+    {
+     "id": 444715,
+     "type": "link",
+     "extra_data": null,
+     "title": "NASA FIRMS Global Active Fires",
+     "caption": null,
+     "instance": {
+      "id": 1139894,
+      "url": "http://svs.gsfc.nasa.gov/images/gallery/WildlandFires/NASAFIRMS_GlobalActiveFires.png",
+      "filename": "NASAFIRMS_GlobalActiveFires.png",
+      "media_type": "Image",
+      "alt_text": "",
+      "width": 1163,
+      "height": 2431,
+      "pixels": 2827253
+     }
+    },
+    {
+     "id": 444716,
+     "type": "link",
+     "extra_data": null,
+     "title": "Experimental Smoke Forecast by NOAA",
+     "caption": null,
+     "instance": {
+      "id": 1139895,
+      "url": "http://svs.gsfc.nasa.gov/images/gallery/WildlandFires/ExperimentalSmokeForecast_NOOA.png",
+      "filename": "ExperimentalSmokeForecast_NOOA.png",
+      "media_type": "Image",
+      "alt_text": "",
+      "width": 1243,
+      "height": 2487,
+      "pixels": 3091341
+     }
+    },
+    {
+     "id": 444717,
+     "type": "details_page",
+     "extra_data": null,
+     "instance": {
+      "id": 5315,
+      "url": "http://svs.gsfc.nasa.gov/5315/",
+      "page_type": "Visualization",
+      "title": "Daily Experimental Fire Weather Forecast",
+      "description": "Summary",
+      "release_date": "2024-06-20T00:00:00-04:00",
+      "update_date": "2026-10-29T02:17:52.053698-04:00",
+      "main_image": {
+       "id": 1094993,
+       "url": "http://svs.gsfc.nasa.gov/vis/a000000/a005300/a005315/FWI_forecast_latest.png",
+       "filename": "FWI_forecast_latest.png",
+       "media_type": "Image",
+       "alt_text": "Daily experimental fire weather forecast for the current day. For this visualization, we are using the following ranges: Very Low: 70.0",
+       "width": 2160,
+       "height": 1080,
+       "pixels": 2332800
+      }
+     }
+    }
+   ],
+   "extra_data": {}
+  },
+  {
+   "id": 376718,
+   "url": "http://svs.gsfc.nasa.gov/gallery/wildland-fires/#media_group_376718",
+   "widget": "Card gallery",
+   "title": "Wildland Fires: US and Canada",
+   "caption": "",
+   "description": "",
+   "items": [
+    {
+     "id": 444718,
+     "type": "link",
+     "extra_data": null,
+     "title": "Worldview Active Fires from VIIRS",
+     "caption": null,
+     "instance": {
+      "id": 1139893,
+      "url": "http://svs.gsfc.nasa.gov/images/gallery/WildlandFires/Worldview_VIIRSFires.png",
+      "filename": "Worldview_VIIRSFires.png",
+      "media_type": "Image",
+      "alt_text": "",
+      "width": 658,
+      "height": 1346,
+      "pixels": 885668
+     }
+    },
+    {
+     "id": 444719,
+     "type": "link",
+     "extra_data": null,
+     "title": "NASA Firms: US/Canada Active Fires",
+     "caption": null,
+     "instance": {
+      "id": 1139896,
+      "url": "http://svs.gsfc.nasa.gov/images/gallery/WildlandFires/FIRMS_USCanada.png",
+      "filename": "FIRMS_USCanada.png",
+      "media_type": "Image",
+      "alt_text": "",
+      "width": 1165,
+      "height": 2432,
+      "pixels": 2833280
+     }
+    },
+    {
+     "id": 444720,
+     "type": "link",
+     "extra_data": null,
+     "title": "NASA FIRMS: Red Flags abd Fire Weather for US",
+     "caption": null,
+     "instance": {
+      "id": 1139897,
+      "url": "http://svs.gsfc.nasa.gov/images/gallery/WildlandFires/RedFlags_Warnings.png",
+      "filename": "RedFlags_Warnings.png",
+      "media_type": "Image",
+      "alt_text": "",
+      "width": 658,
+      "height": 1346,
+      "pixels": 885668
+     }
+    },
+    {
+     "id": 445982,
+     "type": "details_page",
+     "extra_data": null,
+     "instance": {
+      "id": 5453,
+      "url": "http://svs.gsfc.nasa.gov/5453/",
+      "page_type": "Visualization",
+      "title": "Annual Wildfire Burned Area in the United States",
+      "description": "A graph of annual wildfire burned area in the United States between the years 1983 and 2024.",
+      "release_date": "2025-01-03T11:00:00-05:00",
+      "update_date": "2026-07-30T11:50:08.459002-04:00",
+      "main_image": {
+       "id": 1140540,
+       "url": "http://svs.gsfc.nasa.gov/vis/a000000/a005400/a005453/fireIncrease.png",
+       "filename": "fireIncrease.png",
+       "media_type": "Image",
+       "alt_text": "A graph of annual wildfire burned area in the United States between the years 1983 and 2025.",
+       "width": 2048,
+       "height": 1024,
+       "pixels": 2097152
+      }
+     }
+    }
+   ],
+   "extra_data": {}
+  },
+  {
+   "id": 376719,
+   "url": "http://svs.gsfc.nasa.gov/gallery/wildland-fires/#media_group_376719",
+   "widget": "Card gallery",
+   "title": "Side Circles",
+   "caption": "",
+   "description": "",
+   "items": [
+    {
+     "id": 444721,
+     "type": "details_page",
+     "extra_data": null,
+     "instance": {
+      "id": 5113,
+      "url": "http://svs.gsfc.nasa.gov/5113/",
+      "page_type": "Visualization",
+      "title": "Active Fires As Observed by VIIRS, 2024-Present",
+      "description": "This animated visualization uses a moving five-day window of VIIRS measurments of fire radiative power (FRP), to present a view of fire intensities around the globe. || fires_frp_VIIRS.892_print.jpg (1024x512) [71.9 KB] || fires_frp_VIIRS.892_searchweb.png (320x180) [37.8 KB] || fires_frp_VIIRS.892_web.png (320x160) [33.5 KB] || fires_frp_VIIRS.892_thm.png (80x40) [4.3 KB] || fires_frp_VIIRS_2048p30.mp4 (4096x2048) [46.5 MB] || EIC (4096x2048) [824 Item(s)] || VIIRS_fires_latest.exr [7.0 MB] || ",
+      "release_date": "2024-03-01T14:00:00-05:00",
+      "update_date": "2026-10-24T19:30:10.364230-04:00",
+      "main_image": {
+       "id": 856615,
+       "url": "http://svs.gsfc.nasa.gov/vis/a000000/a005100/a005113/fires_frp_VIIRS.001_print.jpg",
+       "filename": "fires_frp_VIIRS.001_print.jpg",
+       "media_type": "Image",
+       "alt_text": "This animated visualization uses a moving five-day window of VIIRS measurments of fire radiative power (FRP), to present a view of fire intensities around the globe.",
+       "width": 1024,
+       "height": 512,
+       "pixels": 524288
+      }
+     }
+    }
+   ],
+   "extra_data": {}
+  }
+ ]
+}

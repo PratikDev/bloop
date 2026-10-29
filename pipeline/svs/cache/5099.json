@@ -1,0 +1,232 @@
+{
+ "id": 5099,
+ "title": "Daily Polar Sea Ice, Two Year History",
+ "url": "https://svs.gsfc.nasa.gov/5099/",
+ "page_type": "Visualization",
+ "release_date": "2023-05-01T00:00:00-04:00",
+ "update_date": "2026-10-24T19:30:15.256576-04:00",
+ "description": "Polar daily sea ice, two years' history, with dates || polar_sea_ice_sxs_w_date.2023172_print.jpg (1024x512) [109.3 KB] || polar_sea_ice_sxs_w_date.2023172_searchweb.png (320x180) [76.3 KB] || polar_sea_ice_sxs_w_date.2023172_thm.png (80x40) [6.7 KB] || polar_sea_ice_sxs_w_date_2048p30_h265.mp4 (4096x2048) [39.5 MB] || polar_sea_ice_sxs_w_date_2048p30_h265.webm (4096x2048) [6.2 MB] || w_dates (4320x2160) [0 Item(s)] ||",
+ "full_text": "Polar daily sea ice, two years' history, with dates || polar_sea_ice_sxs_w_date.2023172_print.jpg (1024x512) [109.3 KB] || polar_sea_ice_sxs_w_date.2023172_searchweb.png (320x180) [76.3 KB] || polar_sea_ice_sxs_w_date.2023172_thm.png (80x40) [6.7 KB] || polar_sea_ice_sxs_w_date_2048p30_h265.mp4 (4096x2048) [39.5 MB] || polar_sea_ice_sxs_w_date_2048p30_h265.webm (4096x2048) [6.2 MB] || w_dates (4320x2160) [0 Item(s)] ||\n\nPolar daily sea ice, two years' history, with dates\n\nThis visualization shows the daily Arctic and Antarctic sea ice and seasonal land cover change over a two-year history from the present, with a single frame rendered for each day (available from the drop-down of each image window), and an animation created from these frames, <br><br>The Japan Aerospace Exploration Agency (JAXA) provides many water-related products derived from data acquired by the Advanced Microwave Scanning Radiometer 2 (AMSR2) instrument aboard the Global Change Observation Mission 1st-Water \"SHIZUKU\" (GCOM-W1) satellite. Two JAXA datasets are used in this animation: the 10-km daily sea ice concentration and the 10 km daily 89 GHz Brightness Temperature.<br><br>In this visualization sea ice changes from day to day, with the amount of ice shown being determined by the AMSR2 sea ice concentration data. A running 3-day minimum is used, with a minimum threshhold concentration of 15%. The blueish white color of the sea ice is derived from a 3-day running minimum of the AMSR2 89 GHz brightness temperature. Over the terrain, monthly data from the seasonal Blue Marble Next Generation fades slowly from month to month.<br><br>The numerical portion of the frame filename begins with the four-digit year, followed by the three-digit day of the year for that frame.\n\nPolar daily sea ice, two years' history, no dates",
+ "credits_by_role": {
+  "Visualizer": [
+   "Trent L. Schindler (USRA)",
+   "Cindy Starr (Global Science and Technology, Inc.)"
+  ]
+ },
+ "keywords": [
+  "Cryology",
+  "Cryosphere",
+  "Earth Information Center",
+  "Earth Science",
+  "Hyperwall",
+  "Ice",
+  "Ice Depth/Thickness",
+  "Ice Extent",
+  "JAXA",
+  "Ocean",
+  "Oceans",
+  "Physical oceanography",
+  "Polar Ice",
+  "Sea Ice"
+ ],
+ "datasets": [
+  {
+   "name": "Blue Marble: Next Generation",
+   "common_name": "BMNG",
+   "platform": "Terra and Aqua",
+   "sensor": "MODIS",
+   "type": "Other",
+   "organizations": [],
+   "description": "",
+   "credit": "The Blue Marble data is courtesy of Reto Stockli (NASA/GSFC).",
+   "url": "http://earthobservatory.nasa.gov/Newsroom/BlueMarble/",
+   "date_range": null
+  },
+  {
+   "name": "10 km Daily Sea Ice Concentration",
+   "common_name": "",
+   "platform": "SHIZUKU (GCOM-W1)",
+   "sensor": "AMSR2",
+   "type": "Observed Data",
+   "organizations": [
+    "Japan Aerospace Exploration Agency"
+   ],
+   "description": "",
+   "credit": "AMSR2 data courtesy of the Japan Aerospace Exploration Agency (JAXA).",
+   "url": "",
+   "date_range": null
+  },
+  {
+   "name": "10 km Daily 89 GHz Brightness Temperature",
+   "common_name": "",
+   "platform": "SHIZUKU (GCOM-W1)",
+   "sensor": "AMSR2",
+   "type": "Observed Data",
+   "organizations": [
+    "Japan Aerospace Exploration Agency"
+   ],
+   "description": "",
+   "credit": "AMSR2 data courtesy of the Japan Aerospace Exploration Agency (JAXA).",
+   "url": "",
+   "date_range": null
+  }
+ ],
+ "missions": [],
+ "related": [],
+ "alternate_versions": [],
+ "newer_versions": [],
+ "older_versions": [],
+ "media": [
+  {
+   "group": 0,
+   "group_title": "",
+   "widget": "Video player",
+   "caption": "",
+   "group_text": "Polar daily sea ice, two years' history, with dates",
+   "url": "https://svs.gsfc.nasa.gov/vis/a000000/a005000/a005099/polar_sea_ice_sxs_w_date.2023172_print.jpg",
+   "filename": "polar_sea_ice_sxs_w_date.2023172_print.jpg",
+   "media_type": "Image",
+   "width": 1024,
+   "height": 512,
+   "alt_text": "Polar daily sea ice, two years' history, with dates"
+  },
+  {
+   "group": 0,
+   "group_title": "",
+   "widget": "Video player",
+   "caption": "",
+   "group_text": "Polar daily sea ice, two years' history, with dates",
+   "url": "https://svs.gsfc.nasa.gov/vis/a000000/a005000/a005099/polar_sea_ice_sxs_w_date.2023172_searchweb.png",
+   "filename": "polar_sea_ice_sxs_w_date.2023172_searchweb.png",
+   "media_type": "Image",
+   "width": 320,
+   "height": 180,
+   "alt_text": "Polar daily sea ice, two years' history, with dates"
+  },
+  {
+   "group": 0,
+   "group_title": "",
+   "widget": "Video player",
+   "caption": "",
+   "group_text": "Polar daily sea ice, two years' history, with dates",
+   "url": "https://svs.gsfc.nasa.gov/vis/a000000/a005000/a005099/polar_sea_ice_sxs_w_date.2023172_thm.png",
+   "filename": "polar_sea_ice_sxs_w_date.2023172_thm.png",
+   "media_type": "Image",
+   "width": 80,
+   "height": 40,
+   "alt_text": "Polar daily sea ice, two years' history, with dates"
+  },
+  {
+   "group": 0,
+   "group_title": "",
+   "widget": "Video player",
+   "caption": "",
+   "group_text": "Polar daily sea ice, two years' history, with dates",
+   "url": "https://svs.gsfc.nasa.gov/vis/a000000/a005000/a005099/polar_sea_ice_sxs_w_date_2048p30_h265.mp4",
+   "filename": "polar_sea_ice_sxs_w_date_2048p30_h265.mp4",
+   "media_type": "Movie",
+   "width": 4096,
+   "height": 2048,
+   "alt_text": "Polar daily sea ice, two years' history, with dates"
+  },
+  {
+   "group": 0,
+   "group_title": "",
+   "widget": "Video player",
+   "caption": "",
+   "group_text": "Polar daily sea ice, two years' history, with dates",
+   "url": "https://svs.gsfc.nasa.gov/vis/a000000/a005000/a005099/polar_sea_ice_sxs_w_date_2048p30_h265.webm",
+   "filename": "polar_sea_ice_sxs_w_date_2048p30_h265.webm",
+   "media_type": "Movie",
+   "width": 4096,
+   "height": 2048,
+   "alt_text": "Polar daily sea ice, two years' history, with dates"
+  },
+  {
+   "group": 0,
+   "group_title": "",
+   "widget": "Video player",
+   "caption": "",
+   "group_text": "Polar daily sea ice, two years' history, with dates",
+   "url": "https://svs.gsfc.nasa.gov/vis/a000000/a005000/a005099/frames/4320x2160_2x1_30p/sxs/w_dates/",
+   "filename": "w_dates",
+   "media_type": "Frames",
+   "width": 4320,
+   "height": 2160,
+   "alt_text": "Polar daily sea ice, two years' history, with dates"
+  },
+  {
+   "group": 2,
+   "group_title": "",
+   "widget": "Video player",
+   "caption": "",
+   "group_text": "Polar daily sea ice, two years' history, no dates",
+   "url": "https://svs.gsfc.nasa.gov/vis/a000000/a005000/a005099/polar_sea_ice_sxs_no_date.2023172_print.jpg",
+   "filename": "polar_sea_ice_sxs_no_date.2023172_print.jpg",
+   "media_type": "Image",
+   "width": 1024,
+   "height": 512,
+   "alt_text": "Polar daily sea ice, two years' history, no dates"
+  },
+  {
+   "group": 2,
+   "group_title": "",
+   "widget": "Video player",
+   "caption": "",
+   "group_text": "Polar daily sea ice, two years' history, no dates",
+   "url": "https://svs.gsfc.nasa.gov/vis/a000000/a005000/a005099/polar_sea_ice_sxs_no_date_2048p30_h265.mp4",
+   "filename": "polar_sea_ice_sxs_no_date_2048p30_h265.mp4",
+   "media_type": "Movie",
+   "width": 4096,
+   "height": 2048,
+   "alt_text": "Polar daily sea ice, two years' history, no dates"
+  },
+  {
+   "group": 2,
+   "group_title": "",
+   "widget": "Video player",
+   "caption": "",
+   "group_text": "Polar daily sea ice, two years' history, no dates",
+   "url": "https://svs.gsfc.nasa.gov/vis/a000000/a005000/a005099/polar_sea_ice_sxs_no_date_2048p30_h265.webm",
+   "filename": "polar_sea_ice_sxs_no_date_2048p30_h265.webm",
+   "media_type": "Movie",
+   "width": 4096,
+   "height": 2048,
+   "alt_text": "Polar daily sea ice, two years' history, no dates"
+  },
+  {
+   "group": 2,
+   "group_title": "",
+   "widget": "Video player",
+   "caption": "",
+   "group_text": "Polar daily sea ice, two years' history, no dates",
+   "url": "https://svs.gsfc.nasa.gov/vis/a000000/a005000/a005099/frames/4320x2160_2x1_30p/sxs/no_dates/",
+   "filename": "no_dates",
+   "media_type": "Frames",
+   "width": 4320,
+   "height": 2160,
+   "alt_text": "Polar daily sea ice, two years' history, no dates"
+  }
+ ],
+ "text_links": [],
+ "frame_folders": {
+  "https://svs.gsfc.nasa.gov/vis/a000000/a005000/a005099/frames/4320x2160_2x1_30p/sxs/w_dates/": {
+   "url": "https://svs.gsfc.nasa.gov/vis/a000000/a005000/a005099/frames/4320x2160_2x1_30p/sxs/w_dates/",
+   "frame_count": 730,
+   "bytes_approx": null,
+   "first": "polar_sea_ice_sxs_w_date.2024298.exr",
+   "last": "polar_sea_ice_sxs_w_date.2026298.exr",
+   "subfolders": {}
+  },
+  "https://svs.gsfc.nasa.gov/vis/a000000/a005000/a005099/frames/4320x2160_2x1_30p/sxs/no_dates/": {
+   "url": "https://svs.gsfc.nasa.gov/vis/a000000/a005000/a005099/frames/4320x2160_2x1_30p/sxs/no_dates/",
+   "frame_count": 730,
+   "bytes_approx": null,
+   "first": "polar_sea_ice_sxs_no_date.2024298.exr",
+   "last": "polar_sea_ice_sxs_no_date.2026298.exr",
+   "subfolders": {}
+  }
+ },
+ "api_url": "https://svs.gsfc.nasa.gov/api/5099",
+ "fetched_utc": "2026-10-29T07:39:55Z"
+}

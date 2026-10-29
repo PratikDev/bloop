@@ -1,0 +1,174 @@
+{
+ "id": 5119,
+ "title": "OCO-2 and Keeling Curve: Trends in global atmospheric Carbon Dioxide (CO₂)",
+ "url": "https://svs.gsfc.nasa.gov/5119/",
+ "page_type": "Visualization",
+ "release_date": "2023-06-20T22:00:00-04:00",
+ "update_date": "2025-06-23T00:15:56.562963-04:00",
+ "description": "OCO-2 and Keeling Curve trends in global atmospheric carbon dioxide. || KeelingCurve_OCO2_1920x1080p30.00370_print.jpg (1024x576) [49.6 KB] || KeelingCurve_OCO2_1920x1080p30.00370.png (1920x1080) [357.7 KB] || KeelingCurve_OCO2_1920x1080p30.00370_searchweb.png (320x180) [16.8 KB] || KeelingCurve_OCO2_1920x1080p30.00370_thm.png (80x40) [2.1 KB] || 1920x1080_16x9_30p (1920x1080) [0 Item(s)] || OCO2_KeelingCurve_1920x1080p30.mp4 (1920x1080) [5.3 MB] || KeelingCurve_OCO2_1920x1080p30.00370.exr (1920x1080) [2.3 MB] || ",
+ "full_text": "OCO-2 and Keeling Curve trends in global atmospheric carbon dioxide. || KeelingCurve_OCO2_1920x1080p30.00370_print.jpg (1024x576) [49.6 KB] || KeelingCurve_OCO2_1920x1080p30.00370.png (1920x1080) [357.7 KB] || KeelingCurve_OCO2_1920x1080p30.00370_searchweb.png (320x180) [16.8 KB] || KeelingCurve_OCO2_1920x1080p30.00370_thm.png (80x40) [2.1 KB] || 1920x1080_16x9_30p (1920x1080) [0 Item(s)] || OCO2_KeelingCurve_1920x1080p30.mp4 (1920x1080) [5.3 MB] || KeelingCurve_OCO2_1920x1080p30.00370.exr (1920x1080) [2.3 MB] ||\n\nOCO-2 and Keeling Curve trends in global atmospheric carbon dioxide.",
+ "credits_by_role": {
+  "Visualizer": [
+   "Helen-Nicole Kostis (USRA)",
+   "AJ Christensen (SSAI)"
+  ],
+  "Technical support": [
+   "Laurence Schuler (ADNET Systems, Inc.)",
+   "Ian Jones (ADNET Systems, Inc.)"
+  ]
+ },
+ "keywords": [
+  "Hyperwall"
+ ],
+ "datasets": [],
+ "missions": [],
+ "related": [
+  {
+   "id": 5273,
+   "title": "Atmospheric Carbon Dioxide Tagged by Source for Science-on-a-Sphere",
+   "url": "https://svs.gsfc.nasa.gov/5273/"
+  },
+  {
+   "id": 5118,
+   "title": "Trends in atmospheric Methane (CH₄)",
+   "url": "https://svs.gsfc.nasa.gov/5118/"
+  },
+  {
+   "id": 5116,
+   "title": "Global Atmospheric Methane (CH₄)",
+   "url": "https://svs.gsfc.nasa.gov/5116/"
+  },
+  {
+   "id": 5115,
+   "title": "Global Atmospheric Carbon Dioxide (CO₂)",
+   "url": "https://svs.gsfc.nasa.gov/5115/"
+  },
+  {
+   "id": 5110,
+   "title": "Atmospheric Carbon Dioxide Tagged by Source",
+   "url": "https://svs.gsfc.nasa.gov/5110/"
+  }
+ ],
+ "alternate_versions": [],
+ "newer_versions": [],
+ "older_versions": [],
+ "media": [
+  {
+   "group": 0,
+   "group_title": "",
+   "widget": "Video player",
+   "caption": "",
+   "group_text": "OCO-2 and Keeling Curve trends in global atmospheric carbon dioxide.",
+   "url": "https://svs.gsfc.nasa.gov/vis/a000000/a005100/a005119/KeelingCurve_OCO2_1920x1080p30.00370_print.jpg",
+   "filename": "KeelingCurve_OCO2_1920x1080p30.00370_print.jpg",
+   "media_type": "Image",
+   "width": 1024,
+   "height": 576,
+   "alt_text": "OCO-2 and Keeling Curve trends in global atmospheric carbon dioxide."
+  },
+  {
+   "group": 0,
+   "group_title": "",
+   "widget": "Video player",
+   "caption": "",
+   "group_text": "OCO-2 and Keeling Curve trends in global atmospheric carbon dioxide.",
+   "url": "https://svs.gsfc.nasa.gov/vis/a000000/a005100/a005119/KeelingCurve_OCO2_1920x1080p30.00370.png",
+   "filename": "KeelingCurve_OCO2_1920x1080p30.00370.png",
+   "media_type": "Image",
+   "width": 1920,
+   "height": 1080,
+   "alt_text": "OCO-2 and Keeling Curve trends in global atmospheric carbon dioxide."
+  },
+  {
+   "group": 0,
+   "group_title": "",
+   "widget": "Video player",
+   "caption": "",
+   "group_text": "OCO-2 and Keeling Curve trends in global atmospheric carbon dioxide.",
+   "url": "https://svs.gsfc.nasa.gov/vis/a000000/a005100/a005119/KeelingCurve_OCO2_1920x1080p30.00370_searchweb.png",
+   "filename": "KeelingCurve_OCO2_1920x1080p30.00370_searchweb.png",
+   "media_type": "Image",
+   "width": 320,
+   "height": 180,
+   "alt_text": "OCO-2 and Keeling Curve trends in global atmospheric carbon dioxide."
+  },
+  {
+   "group": 0,
+   "group_title": "",
+   "widget": "Video player",
+   "caption": "",
+   "group_text": "OCO-2 and Keeling Curve trends in global atmospheric carbon dioxide.",
+   "url": "https://svs.gsfc.nasa.gov/vis/a000000/a005100/a005119/KeelingCurve_OCO2_1920x1080p30.00370_thm.png",
+   "filename": "KeelingCurve_OCO2_1920x1080p30.00370_thm.png",
+   "media_type": "Image",
+   "width": 80,
+   "height": 40,
+   "alt_text": "OCO-2 and Keeling Curve trends in global atmospheric carbon dioxide."
+  },
+  {
+   "group": 0,
+   "group_title": "",
+   "widget": "Video player",
+   "caption": "",
+   "group_text": "OCO-2 and Keeling Curve trends in global atmospheric carbon dioxide.",
+   "url": "https://svs.gsfc.nasa.gov/vis/a000000/a005100/a005119/frames/1920x1080_16x9_30p/",
+   "filename": "1920x1080_16x9_30p",
+   "media_type": "Frames",
+   "width": 1920,
+   "height": 1080,
+   "alt_text": "OCO-2 and Keeling Curve trends in global atmospheric carbon dioxide."
+  },
+  {
+   "group": 0,
+   "group_title": "",
+   "widget": "Video player",
+   "caption": "",
+   "group_text": "OCO-2 and Keeling Curve trends in global atmospheric carbon dioxide.",
+   "url": "https://svs.gsfc.nasa.gov/vis/a000000/a005100/a005119/OCO2_KeelingCurve_1920x1080p30.mp4",
+   "filename": "OCO2_KeelingCurve_1920x1080p30.mp4",
+   "media_type": "Movie",
+   "width": 1920,
+   "height": 1080,
+   "alt_text": "OCO-2 and Keeling Curve trends in global atmospheric carbon dioxide."
+  },
+  {
+   "group": 0,
+   "group_title": "",
+   "widget": "Video player",
+   "caption": "",
+   "group_text": "OCO-2 and Keeling Curve trends in global atmospheric carbon dioxide.",
+   "url": "https://svs.gsfc.nasa.gov/vis/a000000/a005100/a005119/KeelingCurve_OCO2_1920x1080p30.00370.exr",
+   "filename": "KeelingCurve_OCO2_1920x1080p30.00370.exr",
+   "media_type": "Image",
+   "width": 1920,
+   "height": 1080,
+   "alt_text": "OCO-2 and Keeling Curve trends in global atmospheric carbon dioxide."
+  },
+  {
+   "group": 0,
+   "group_title": "",
+   "widget": "Video player",
+   "caption": "",
+   "group_text": "OCO-2 and Keeling Curve trends in global atmospheric carbon dioxide.",
+   "url": "https://svs.gsfc.nasa.gov/vis/a000000/a005100/a005119/OCO2_KeelingCurve_1920x1080p30.mp4.hwshow",
+   "filename": "OCO2_KeelingCurve_1920x1080p30.mp4.hwshow",
+   "media_type": "HyperwallShow",
+   "width": 0,
+   "height": 0,
+   "alt_text": ""
+  }
+ ],
+ "text_links": [],
+ "frame_folders": {
+  "https://svs.gsfc.nasa.gov/vis/a000000/a005100/a005119/frames/1920x1080_16x9_30p/": {
+   "url": "https://svs.gsfc.nasa.gov/vis/a000000/a005100/a005119/frames/1920x1080_16x9_30p/",
+   "frame_count": 900,
+   "bytes_approx": 2030400000,
+   "first": "KeelingCurve_OCO2_1920x1080p30.00001.exr",
+   "last": "KeelingCurve_OCO2_1920x1080p30.00900.exr",
+   "subfolders": {}
+  }
+ },
+ "api_url": "https://svs.gsfc.nasa.gov/api/5119",
+ "fetched_utc": "2026-10-29T07:41:14Z"
+}

@@ -1,0 +1,349 @@
+{
+ "id": 5097,
+ "title": "2022 Hurricane Season",
+ "url": "https://svs.gsfc.nasa.gov/5097/",
+ "page_type": "Visualization",
+ "release_date": "2023-04-19T00:00:00-04:00",
+ "update_date": "2025-01-21T00:14:10.866987-05:00",
+ "description": "2022 Atlantic hurricane season. || hurr2022_v6.8800_print.jpg (1024x1024) [452.1 KB] || hurr2022_v6.8800_searchweb.png (320x180) [126.2 KB] || hurr2022_v6.8800_thm.png (80x40) [8.2 KB] || 2160x2160_1x1_30p (2160x2160) [0 Item(s)] || hurr2022_v6_2160p30.webm (2160x2160) [107.7 MB] || hurr2022_v6_2160p30.mp4 (2160x2160) [1.4 GB] || ",
+ "full_text": "2022 Atlantic hurricane season. || hurr2022_v6.8800_print.jpg (1024x1024) [452.1 KB] || hurr2022_v6.8800_searchweb.png (320x180) [126.2 KB] || hurr2022_v6.8800_thm.png (80x40) [8.2 KB] || 2160x2160_1x1_30p (2160x2160) [0 Item(s)] || hurr2022_v6_2160p30.webm (2160x2160) [107.7 MB] || hurr2022_v6_2160p30.mp4 (2160x2160) [1.4 GB] ||\n\n2022 Atlantic hurricane season.\n\nThis visualization shows the hurricanes and tropical storms of 2022 as seen by NASA’s Integrated Multi-satellitE Retrievals for GPM (IMERG) - a data product combining precipitation observations from infrared and microwave satellite sensors united by the GPM Core Observatory. IMERG provides near real-time half-hourly precipitation estimates at ~10km resolution for the entire globe, helping researchers better understand Earth’s water cycle and extreme weather events, with applications for disaster management, tracking disease, resource management, energy production and food security. IMERG rain rates (in mm/hr) are laid under infrared cloud data from the NOAA Climate Prediction Center (CPC) Cloud Composite dataset together with storm tracks from the NOAA National Hurricane Center (NHC) Automated Tropical Cyclone Forecasting (ATCF) model. Sea surface temperatures (SST) are also shown over the oceans, derived from the NASA Multi-sensor Ultra-high Resolution (MUR) dataset, which combines data from multiple geostationary and orbiting satellites. Sea surface temperatures play an important role in hurricane formation and development, with warmer temperatures linked to more intense storms.\n\n2022 Hurricane Season zoomed in to focus more on the Atlantic.\n\nColor bar for frozen precipitation rates (ie, snow rates). Shades of cyan represent low amounts of frozen precipitation, whereas shades of purple represent high amounts of precipitation.\n\nColor bar for liquid precipitation rates (ie, rain rates). Shades of green represent low amounts of liquid precipitation, whereas shades of red represent high amounts of precipitation.\n\nSea Surface Temperature (SST) colorbar focusing primarily on temperatures between 20 degrees Celsius to 30 Celsius. Hurricanes tend to form over the warm tropical oceans where the SST is warmer than ~26.5 C (~80 F) depicted in colors from yellow to red.",
+ "credits_by_role": {
+  "Data visualizer": [
+   "Alex Kekesi (Global Science and Technology, Inc.)",
+   "Greg Shirah (NASA/GSFC)"
+  ],
+  "Data provider": [
+   "Lori Perkins (NASA/GSFC)"
+  ],
+  "Technical support": [
+   "Laurence Schuler (ADNET Systems, Inc.)",
+   "Ian Jones (ADNET Systems, Inc.)"
+  ]
+ },
+ "keywords": [
+  "Atmosphere",
+  "Atmospheric Phenomena",
+  "Atmospheric science",
+  "Clouds",
+  "Earth Science",
+  "GOES",
+  "HDTV",
+  "Hurricanes",
+  "Hyperwall",
+  "Natural hazards",
+  "Ocean Temperature",
+  "Oceans",
+  "Physical oceanography",
+  "sea surface temperature"
+ ],
+ "datasets": [
+  {
+   "name": "CPC (Climate Prediction Center) Cloud Composite",
+   "common_name": "",
+   "platform": null,
+   "sensor": null,
+   "type": "Data Compilation",
+   "organizations": [
+    "Climate Prediction Center (CPC)"
+   ],
+   "description": "Global cloud cover from multiple satellites",
+   "credit": "",
+   "url": "",
+   "date_range": "6/1/2022 - 11/15/2022"
+  },
+  {
+   "name": "Multi-scale Ultra-high Resolution (MUR) Sea Surface Temperature (SST) Analysis",
+   "common_name": "MUR SST",
+   "platform": null,
+   "sensor": null,
+   "type": "Analysis",
+   "organizations": [
+    "JPL PO DAAC"
+   ],
+   "description": "",
+   "credit": "",
+   "url": "",
+   "date_range": "6/1/2022 - 11/15/2022"
+  },
+  {
+   "name": "",
+   "common_name": "IMERG",
+   "platform": null,
+   "sensor": null,
+   "type": "Data Compilation",
+   "organizations": [
+    "NASA/GSFC"
+   ],
+   "description": "",
+   "credit": "",
+   "url": "http://pmm.nasa.gov/sites/default/files/document_files/IMERG_ATBD_V4.4.pdf",
+   "date_range": "6/1/2022- 11/15/2022"
+  },
+  {
+   "name": "Automated Tropical Cyclone Forecast (ATCF) - Best Track",
+   "common_name": "Hurricane Tracks",
+   "platform": null,
+   "sensor": null,
+   "type": "Event List",
+   "organizations": [
+    "NOAA"
+   ],
+   "description": "",
+   "credit": "NOAA",
+   "url": "https://ftp.nhc.noaa.gov/atcf/",
+   "date_range": "6/1/2022 - 11/15/2022"
+  }
+ ],
+ "missions": [],
+ "related": [
+  {
+   "id": 5050,
+   "title": "Nicole Brings Heavy Rain to Florida and part of the Southeast",
+   "url": "https://svs.gsfc.nasa.gov/5050/"
+  },
+  {
+   "id": 5037,
+   "title": "Hurricane Ian Forms South of Cuba",
+   "url": "https://svs.gsfc.nasa.gov/5037/"
+  },
+  {
+   "id": 5035,
+   "title": "Fiona Becomes a Major Hurricane in the Atlantic",
+   "url": "https://svs.gsfc.nasa.gov/5035/"
+  }
+ ],
+ "alternate_versions": [],
+ "newer_versions": [],
+ "older_versions": [],
+ "media": [
+  {
+   "group": 0,
+   "group_title": "",
+   "widget": "Video player",
+   "caption": "",
+   "group_text": "2022 Atlantic hurricane season.",
+   "url": "https://svs.gsfc.nasa.gov/vis/a000000/a005000/a005097/hurr2022_v6.8800_print.jpg",
+   "filename": "hurr2022_v6.8800_print.jpg",
+   "media_type": "Image",
+   "width": 1024,
+   "height": 1024,
+   "alt_text": "2022 Atlantic hurricane season."
+  },
+  {
+   "group": 0,
+   "group_title": "",
+   "widget": "Video player",
+   "caption": "",
+   "group_text": "2022 Atlantic hurricane season.",
+   "url": "https://svs.gsfc.nasa.gov/vis/a000000/a005000/a005097/hurr2022_v6.8800_searchweb.png",
+   "filename": "hurr2022_v6.8800_searchweb.png",
+   "media_type": "Image",
+   "width": 320,
+   "height": 180,
+   "alt_text": "2022 Atlantic hurricane season."
+  },
+  {
+   "group": 0,
+   "group_title": "",
+   "widget": "Video player",
+   "caption": "",
+   "group_text": "2022 Atlantic hurricane season.",
+   "url": "https://svs.gsfc.nasa.gov/vis/a000000/a005000/a005097/hurr2022_v6.8800_thm.png",
+   "filename": "hurr2022_v6.8800_thm.png",
+   "media_type": "Image",
+   "width": 80,
+   "height": 40,
+   "alt_text": "2022 Atlantic hurricane season."
+  },
+  {
+   "group": 0,
+   "group_title": "",
+   "widget": "Video player",
+   "caption": "",
+   "group_text": "2022 Atlantic hurricane season.",
+   "url": "https://svs.gsfc.nasa.gov/vis/a000000/a005000/a005097/frames/2160x2160_1x1_30p/",
+   "filename": "2160x2160_1x1_30p",
+   "media_type": "Frames",
+   "width": 2160,
+   "height": 2160,
+   "alt_text": "2022 Atlantic hurricane season."
+  },
+  {
+   "group": 0,
+   "group_title": "",
+   "widget": "Video player",
+   "caption": "",
+   "group_text": "2022 Atlantic hurricane season.",
+   "url": "https://svs.gsfc.nasa.gov/vis/a000000/a005000/a005097/hurr2022_v6_2160p30.webm",
+   "filename": "hurr2022_v6_2160p30.webm",
+   "media_type": "Movie",
+   "width": 2160,
+   "height": 2160,
+   "alt_text": "2022 Atlantic hurricane season."
+  },
+  {
+   "group": 0,
+   "group_title": "",
+   "widget": "Video player",
+   "caption": "",
+   "group_text": "2022 Atlantic hurricane season.",
+   "url": "https://svs.gsfc.nasa.gov/vis/a000000/a005000/a005097/hurr2022_v6_2160p30.mp4",
+   "filename": "hurr2022_v6_2160p30.mp4",
+   "media_type": "Movie",
+   "width": 2160,
+   "height": 2160,
+   "alt_text": "2022 Atlantic hurricane season."
+  },
+  {
+   "group": 2,
+   "group_title": "",
+   "widget": "Video player",
+   "caption": "",
+   "group_text": "2022 Hurricane Season zoomed in to focus more on the Atlantic.",
+   "url": "https://svs.gsfc.nasa.gov/vis/a000000/a005000/a005097/hurr2022_v6_4hw.8800_print.jpg",
+   "filename": "hurr2022_v6_4hw.8800_print.jpg",
+   "media_type": "Image",
+   "width": 1024,
+   "height": 576,
+   "alt_text": "2022 Hurricane Season zoomed in to focus more on the Atlantic."
+  },
+  {
+   "group": 2,
+   "group_title": "",
+   "widget": "Video player",
+   "caption": "",
+   "group_text": "2022 Hurricane Season zoomed in to focus more on the Atlantic.",
+   "url": "https://svs.gsfc.nasa.gov/vis/a000000/a005000/a005097/frames/3840x2160_16x9_30p/",
+   "filename": "3840x2160_16x9_30p",
+   "media_type": "Frames",
+   "width": 3840,
+   "height": 2160,
+   "alt_text": "2022 Hurricane Season zoomed in to focus more on the Atlantic."
+  },
+  {
+   "group": 2,
+   "group_title": "",
+   "widget": "Video player",
+   "caption": "",
+   "group_text": "2022 Hurricane Season zoomed in to focus more on the Atlantic.",
+   "url": "https://svs.gsfc.nasa.gov/vis/a000000/a005000/a005097/hurr2022_v6_4hw_2160p30.webm",
+   "filename": "hurr2022_v6_4hw_2160p30.webm",
+   "media_type": "Movie",
+   "width": 3840,
+   "height": 2160,
+   "alt_text": "2022 Hurricane Season zoomed in to focus more on the Atlantic."
+  },
+  {
+   "group": 2,
+   "group_title": "",
+   "widget": "Video player",
+   "caption": "",
+   "group_text": "2022 Hurricane Season zoomed in to focus more on the Atlantic.",
+   "url": "https://svs.gsfc.nasa.gov/vis/a000000/a005000/a005097/hurr2022_v6_4hw_2160p30.mp4",
+   "filename": "hurr2022_v6_4hw_2160p30.mp4",
+   "media_type": "Movie",
+   "width": 3840,
+   "height": 2160,
+   "alt_text": "2022 Hurricane Season zoomed in to focus more on the Atlantic."
+  },
+  {
+   "group": 3,
+   "group_title": "",
+   "widget": "Single image",
+   "caption": "",
+   "group_text": "Color bar for frozen precipitation rates (ie, snow rates). Shades of cyan represent low amounts of frozen precipitation, whereas shades of purple represent high amounts of precipitation.",
+   "url": "https://svs.gsfc.nasa.gov/vis/a000000/a005000/a005097/snowbarwhite_print.jpg",
+   "filename": "snowbarwhite_print.jpg",
+   "media_type": "Image",
+   "width": 1024,
+   "height": 209,
+   "alt_text": "Color bar for frozen precipitation rates (ie, snow rates). Shades of cyan represent low amounts of frozen precipitation, whereas shades of purple represent high amounts of precipitation."
+  },
+  {
+   "group": 3,
+   "group_title": "",
+   "widget": "Single image",
+   "caption": "",
+   "group_text": "Color bar for frozen precipitation rates (ie, snow rates). Shades of cyan represent low amounts of frozen precipitation, whereas shades of purple represent high amounts of precipitation.",
+   "url": "https://svs.gsfc.nasa.gov/vis/a000000/a005000/a005097/snowbarwhite.png",
+   "filename": "snowbarwhite.png",
+   "media_type": "Image",
+   "width": 440,
+   "height": 90,
+   "alt_text": "Color bar for frozen precipitation rates (ie, snow rates). Shades of cyan represent low amounts of frozen precipitation, whereas shades of purple represent high amounts of precipitation."
+  },
+  {
+   "group": 4,
+   "group_title": "",
+   "widget": "Single image",
+   "caption": "",
+   "group_text": "Color bar for liquid precipitation rates (ie, rain rates). Shades of green represent low amounts of liquid precipitation, whereas shades of red represent high amounts of precipitation.",
+   "url": "https://svs.gsfc.nasa.gov/vis/a000000/a005000/a005097/rainbarwhite_2_print.jpg",
+   "filename": "rainbarwhite_2_print.jpg",
+   "media_type": "Image",
+   "width": 1024,
+   "height": 209,
+   "alt_text": "Color bar for liquid precipitation rates (ie, rain rates). Shades of green represent low amounts of liquid precipitation, whereas shades of red represent high amounts of precipitation."
+  },
+  {
+   "group": 4,
+   "group_title": "",
+   "widget": "Single image",
+   "caption": "",
+   "group_text": "Color bar for liquid precipitation rates (ie, rain rates). Shades of green represent low amounts of liquid precipitation, whereas shades of red represent high amounts of precipitation.",
+   "url": "https://svs.gsfc.nasa.gov/vis/a000000/a005000/a005097/rainbarwhite_2.png",
+   "filename": "rainbarwhite_2.png",
+   "media_type": "Image",
+   "width": 440,
+   "height": 90,
+   "alt_text": "Color bar for liquid precipitation rates (ie, rain rates). Shades of green represent low amounts of liquid precipitation, whereas shades of red represent high amounts of precipitation."
+  },
+  {
+   "group": 5,
+   "group_title": "",
+   "widget": "Single image",
+   "caption": "",
+   "group_text": "Sea Surface Temperature (SST) colorbar focusing primarily on temperatures between 20 degrees Celsius to 30 Celsius. Hurricanes tend to form over the warm tropical oceans where the SST is warmer than ~26.5 C (~80 F) depicted in colors from yellow to red.",
+   "url": "https://svs.gsfc.nasa.gov/vis/a000000/a005000/a005097/sst_colorbar_print.jpg",
+   "filename": "sst_colorbar_print.jpg",
+   "media_type": "Image",
+   "width": 677,
+   "height": 166,
+   "alt_text": "Sea Surface Temperature (SST) colorbar focusing primarily on temperatures between 20 degrees Celsius to 30 Celsius. Hurricanes tend to form over the warm tropical oceans where the SST is warmer than ~26.5 C (~80 F) depicted in colors from yellow to red."
+  },
+  {
+   "group": 5,
+   "group_title": "",
+   "widget": "Single image",
+   "caption": "",
+   "group_text": "Sea Surface Temperature (SST) colorbar focusing primarily on temperatures between 20 degrees Celsius to 30 Celsius. Hurricanes tend to form over the warm tropical oceans where the SST is warmer than ~26.5 C (~80 F) depicted in colors from yellow to red.",
+   "url": "https://svs.gsfc.nasa.gov/vis/a000000/a005000/a005097/sst_colorbar.png",
+   "filename": "sst_colorbar.png",
+   "media_type": "Image",
+   "width": 1274,
+   "height": 311,
+   "alt_text": "Sea Surface Temperature (SST) colorbar focusing primarily on temperatures between 20 degrees Celsius to 30 Celsius. Hurricanes tend to form over the warm tropical oceans where the SST is warmer than ~26.5 C (~80 F) depicted in colors from yellow to red."
+  }
+ ],
+ "text_links": [],
+ "frame_folders": {
+  "https://svs.gsfc.nasa.gov/vis/a000000/a005000/a005097/frames/2160x2160_1x1_30p/": {
+   "url": "https://svs.gsfc.nasa.gov/vis/a000000/a005000/a005097/frames/2160x2160_1x1_30p/",
+   "frame_count": 8001,
+   "bytes_approx": 111891900000,
+   "first": "hurr2022_v6.1000.exr",
+   "last": "hurr2022_v6.9000.exr",
+   "subfolders": {}
+  },
+  "https://svs.gsfc.nasa.gov/vis/a000000/a005000/a005097/frames/3840x2160_16x9_30p/": {
+   "url": "https://svs.gsfc.nasa.gov/vis/a000000/a005000/a005097/frames/3840x2160_16x9_30p/",
+   "frame_count": 8001,
+   "bytes_approx": 209693100000,
+   "first": "hurr2022_v6_4hw.1000.exr",
+   "last": "hurr2022_v6_4hw.9000.exr",
+   "subfolders": {}
+  }
+ },
+ "api_url": "https://svs.gsfc.nasa.gov/api/5097",
+ "fetched_utc": "2026-10-29T07:39:28Z"
+}

@@ -1,0 +1,114 @@
+{
+ "id": 40479,
+ "url": "http://svs.gsfc.nasa.gov/gallery/carbon-dioxide-sources-sinks/",
+ "page_type": "Gallery",
+ "title": "Carbon Dioxide Sources and Sinks",
+ "description": "NASA models the flow of carbon dioxide; its emission, its transport around the globe, and its absorption by the ocean and biosphere.\n\n",
+ "release_date": "2023-06-07T00:00:00-04:00",
+ "update_date": "2023-06-30T00:00:00-04:00",
+ "main_image": {
+  "id": 855679,
+  "url": "http://svs.gsfc.nasa.gov/vis/a000000/a005100/a005110/JanToDec2021_TaggedCO2_4-20-2023a_co2_foursources_sphere_americas_decal.00001_searchweb.png",
+  "filename": "JanToDec2021_TaggedCO2_4-20-2023a_co2_foursources_sphere_americas_decal.00001_searchweb.png",
+  "media_type": "Image",
+  "alt_text": "Carbon dioxide (CO2) is the most prevalent greenhouse gas driving global climate change. However, its increase in the atmosphere would be even more rapid without land and ocean carbon sinks, which collectively absorb about half of human emissions every year.  Advanced computer modeling techniques in NASA's Global Modeling and Assimilation Office allow us to disentangle the influences of sources and sinks and to better understand where carbon is coming from and going to.",
+  "width": 180,
+  "height": 320,
+  "pixels": 57600
+ },
+ "media_groups": [
+  {
+   "id": 371626,
+   "url": "http://svs.gsfc.nasa.gov/gallery/carbon-dioxide-sources-sinks/#media_group_371626",
+   "widget": "Basic text (large)",
+   "title": "Overview",
+   "caption": "",
+   "description": "NASA models the flow of carbon dioxide; its emission, its transport around the globe, and its absorption by the ocean and biosphere.\n<br><br>\n<img src=\"/images/gallery/CarbonDioxideSourcesSinks/Hyperwall_D005.png\" class=\"w-100\">",
+   "items": [],
+   "extra_data": {}
+  },
+  {
+   "id": 371627,
+   "url": "http://svs.gsfc.nasa.gov/gallery/carbon-dioxide-sources-sinks/#media_group_371627",
+   "widget": "Card gallery",
+   "title": "Visualizations",
+   "caption": "",
+   "description": "",
+   "items": [
+    {
+     "id": 412568,
+     "type": "details_page",
+     "extra_data": null,
+     "instance": {
+      "id": 5110,
+      "url": "http://svs.gsfc.nasa.gov/5110/",
+      "page_type": "Visualization",
+      "title": "Atmospheric Carbon Dioxide Tagged by Source",
+      "description": "Carbon dioxide (CO2) is the most prevalent greenhouse gas driving global climate change. However, its increase in the atmosphere would be even more rapid without land and ocean carbon sinks, which collectively absorb about half of human emissions every year.  Advanced computer modeling techniques in NASA's Global Modeling and Assimilation Office allow us to disentangle the influences of sources and sinks and to better understand where carbon is coming from and going to. ||",
+      "release_date": "2023-06-16T10:00:00-04:00",
+      "update_date": "2026-01-05T15:47:43.308683-05:00",
+      "main_image": {
+       "id": 859342,
+       "url": "http://svs.gsfc.nasa.gov/vis/a000000/a005100/a005110/CO2explainer_1080p30.00740_print.jpg",
+       "filename": "CO2explainer_1080p30.00740_print.jpg",
+       "media_type": "Image",
+       "alt_text": "This visualization shows the CO2 being added to Earth's atmosphere over the course of the year 2021, split into four major contributors: fossil fuels in orange, burning biomass in red, land ecosystems in green, and the ocean in blue. The dots on the surface also show how atmospheric carbon dioxide is also being absorbed by land ecosystems in green and the ocean in blue. Though the land and oceans are each carbon sinks in a global sense, individual locations can be sources at different times.This annotated version highlights key CO2 sources and sinks and their seasonal patterns.",
+       "width": 1024,
+       "height": 576,
+       "pixels": 589824
+      }
+     }
+    },
+    {
+     "id": 412569,
+     "type": "details_page",
+     "extra_data": null,
+     "instance": {
+      "id": 5081,
+      "url": "http://svs.gsfc.nasa.gov/5081/",
+      "page_type": "Visualization",
+      "title": "National Carbon Dioxide (CO₂) budgets inferred from atmospheric observations",
+      "description": "National yearly carbon dioxide (CO₂) budgets for over 100 countries around the world for the period 2015-2020. || NationalCO2Budgets_Light_1080x1920_30fps_358.png (1080x1920) [1.4 MB] || NationalCO2Budgets_Light_1080x1920.mp4 (1080x1920) [12.3 MB] || NationalCarbonDioxideBudget_Light (1080x1920) [0 Item(s)] || NationalCO2Budgets_Light_1080x1920.webm (1080x1920) [1.4 MB] || ",
+      "release_date": "2023-03-07T00:00:00-05:00",
+      "update_date": "2024-02-21T11:24:37-05:00",
+      "main_image": {
+       "id": 765152,
+       "url": "http://svs.gsfc.nasa.gov/vis/a000000/a005000/a005081/NetCarbonEmissions_Light_1920x1080_30fps_360.png",
+       "filename": "NetCarbonEmissions_Light_1920x1080_30fps_360.png",
+       "media_type": "Image",
+       "alt_text": "This visualization shows yearly net surface emissions and removals by more than 100 countries from 2015 to 2020. . Countries with emissions, seen here in red, appear to pop from the page, compared to countries with removals, seen in green. ",
+       "width": 1920,
+       "height": 1080,
+       "pixels": 2073600
+      }
+     }
+    },
+    {
+     "id": 412570,
+     "type": "details_page",
+     "extra_data": null,
+     "instance": {
+      "id": 5121,
+      "url": "http://svs.gsfc.nasa.gov/5121/",
+      "page_type": "Visualization",
+      "title": "ODIAC: a map of human made carbon dioxide emissions",
+      "description": "ODIAC (Open-source Data Inventory for Anthropogenic CO2) map for December 2021. || odiac_2023_2160p60.00001_print.jpg (1024x1024) [310.4 KB] || odiac_2023_2160p60.00001_searchweb.png (320x180) [64.3 KB] || odiac_2023_2160p60.00001_thm.png (80x40) [5.2 KB] || 2160x2160_1x1_60p (2160x2160) [0 Item(s)] || odiac_2023_2160p60.mp4 (2160x2160) [126.7 MB] ||",
+      "release_date": "2023-06-30T00:00:00-04:00",
+      "update_date": "2025-05-29T14:20:05.512646-04:00",
+      "main_image": {
+       "id": 856383,
+       "url": "http://svs.gsfc.nasa.gov/vis/a000000/a005100/a005121/odiac_2023_2160p60.00001_print.jpg",
+       "filename": "odiac_2023_2160p60.00001_print.jpg",
+       "media_type": "Image",
+       "alt_text": "ODIAC (Open-source Data Inventory for Anthropogenic CO2) map for December 2021.",
+       "width": 1024,
+       "height": 1024,
+       "pixels": 1048576
+      }
+     }
+    }
+   ],
+   "extra_data": {}
+  }
+ ]
+}

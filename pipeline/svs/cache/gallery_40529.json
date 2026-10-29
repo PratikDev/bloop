@@ -1,0 +1,362 @@
+{
+ "id": 40529,
+ "url": "http://svs.gsfc.nasa.gov/gallery/air-quality-dashboard/",
+ "page_type": "Gallery",
+ "title": "Air Quality Dashboard",
+ "description": "NASA's fleet of Earth observing satellites monitor our planet's oceans, biosphere, and atmosphere. Instruments onboard satellites observe air pollutants around the world. The data collected are used by air quality experts and researchers studying the impact of air pollution on human health.\n\n\n\n\n\n\n\n",
+ "release_date": "2024-12-04T00:00:00-05:00",
+ "update_date": "2024-12-04T00:00:00-05:00",
+ "main_image": {
+  "id": 859884,
+  "url": "http://svs.gsfc.nasa.gov/vis/a000000/a005100/a005175/tempo_no2_north-america.02402_searchweb.png",
+  "filename": "tempo_no2_north-america.02402_searchweb.png",
+  "media_type": "Image",
+  "alt_text": "In this visualization, high levels of nitrogen dioxide can be seen over multiple urban areas across the U.S., Canada, Mexico and the Caribbean. As the day progresses, the morning pollution often dissipates. Later in the afternoon, it will rise again as the cities enter their second rush hour of the day. Because TEMPO uses visible sunlight to make measurements, it cannot see pollution below clouds or at night. Cloudy areas appear as missing data in the visualization. This visualization shows data from August 28-31, 2023.",
+  "width": 180,
+  "height": 320,
+  "pixels": 57600
+ },
+ "media_groups": [
+  {
+   "id": 376706,
+   "url": "http://svs.gsfc.nasa.gov/gallery/air-quality-dashboard/#media_group_376706",
+   "widget": "Basic text (large)",
+   "title": "Overview",
+   "caption": "",
+   "description": "NASA's fleet of Earth observing satellites monitor our planet's oceans, biosphere, and atmosphere. Instruments onboard satellites observe air pollutants around the world. The data collected are used by air quality experts and researchers studying the impact of air pollution on human health.\n\n<br><br>\n<img src=\"/images/gallery/AirQualityDashboard2/Hyperwall_D007_Stage1.png\" class=\"w-100\">\n<br><br>\n<img src=\"/images/gallery/AirQualityDashboard2/Hyperwall_D007_Stage2.png\" class=\"w-100\">\n<br><br>\n<img src=\"/images/gallery/AirQualityDashboard2/Hyperwall_D007_Stage3.png\" class=\"w-100\">\n<br><br>",
+   "items": [],
+   "extra_data": {}
+  },
+  {
+   "id": 376707,
+   "url": "http://svs.gsfc.nasa.gov/gallery/air-quality-dashboard/#media_group_376707",
+   "widget": "Card gallery",
+   "title": "Worldview Satellite Observations",
+   "caption": "",
+   "description": "The first cycle of the Earth Now dashboard shows a set of near real-time satellite observations, provided by NASA's Worldview team. These satellite data products are generally captured within the previous three hours and are created in an expedited manner to support forecasting and monitoring of natural hazards and disasters, to assess air quality and support agricultural needs, to facilitate improved weather prediction, and to help ensure homeland security. While the displayed NASA satellite missions were originally designed for scientific research, they have been adapted to also support time sensitive applications through NASA’s Land, Atmosphere Near real-time Capability (LANCE).",
+   "items": [
+    {
+     "id": 444753,
+     "type": "link",
+     "extra_data": null,
+     "title": "Active fires detected by Suomin NPP satellite",
+     "caption": null,
+     "instance": {
+      "id": 1139914,
+      "url": "http://svs.gsfc.nasa.gov/images/gallery/AirQualityDashboard2/ActiveFires_SuomiNPP.png",
+      "filename": "ActiveFires_SuomiNPP.png",
+      "media_type": "Image",
+      "alt_text": "",
+      "width": 1432,
+      "height": 2716,
+      "pixels": 3889312
+     }
+    },
+    {
+     "id": 444754,
+     "type": "link",
+     "extra_data": null,
+     "title": "Carbon Monoxide (CO) by Aqua Satellite",
+     "caption": null,
+     "instance": {
+      "id": 1139915,
+      "url": "http://svs.gsfc.nasa.gov/images/gallery/AirQualityDashboard2/CarbonMonoxide_Aqua.png",
+      "filename": "CarbonMonoxide_Aqua.png",
+      "media_type": "Image",
+      "alt_text": "",
+      "width": 1432,
+      "height": 2716,
+      "pixels": 3889312
+     }
+    },
+    {
+     "id": 444755,
+     "type": "link",
+     "extra_data": null,
+     "title": "Nitrogen Dioxide (NO2) by Aura satellite",
+     "caption": null,
+     "instance": {
+      "id": 1139916,
+      "url": "http://svs.gsfc.nasa.gov/images/gallery/AirQualityDashboard2/NitrogenDioxideAura.png",
+      "filename": "NitrogenDioxideAura.png",
+      "media_type": "Image",
+      "alt_text": "",
+      "width": 1432,
+      "height": 2716,
+      "pixels": 3889312
+     }
+    },
+    {
+     "id": 444756,
+     "type": "link",
+     "extra_data": null,
+     "title": "Aerosol Optical Depth (AOD) by Suomi NPP",
+     "caption": null,
+     "instance": {
+      "id": 1139917,
+      "url": "http://svs.gsfc.nasa.gov/images/gallery/AirQualityDashboard2/AerosolOpticalDepth_Suomi.png",
+      "filename": "AerosolOpticalDepth_Suomi.png",
+      "media_type": "Image",
+      "alt_text": "",
+      "width": 1432,
+      "height": 2716,
+      "pixels": 3889312
+     }
+    }
+   ],
+   "extra_data": {}
+  },
+  {
+   "id": 376708,
+   "url": "http://svs.gsfc.nasa.gov/gallery/air-quality-dashboard/#media_group_376708",
+   "widget": "Card gallery",
+   "title": "Models: Air Quality",
+   "caption": "",
+   "description": "Predictions of air pollution are created using complex models that combine information about weather and the emissions, transformation, and transport of chemical species and particles. The Goddard Earth Observing System Composition Forecasting (GEOS-CF) system is a research model maintained by NASA’s Global Modeling and Assimilation Office to help scientists understand the causes and impact of air pollution. It is one of the highest resolution and most detailed models of its kind in the world, made possible through ongoing collaborations between NASA and university scientists. GEOS-CF tracks the concentrations of hundreds of gas phase chemical species and dozens of types of particles characterized by their composition and size. It is used by a wide variety of stakeholders around the world to develop new methods for improving local predictions, understanding the impact of pollution on human health, and improving the quality of NASA satellite datasets.",
+   "items": [
+    {
+     "id": 444647,
+     "type": "details_page",
+     "extra_data": null,
+     "instance": {
+      "id": 5151,
+      "url": "http://svs.gsfc.nasa.gov/5151/",
+      "page_type": "Visualization",
+      "title": "Particulate Matter (PM) 2.5",
+      "description": "Near surface concentration of fine particular matter (PM2.5) estimated from NASA’s aerosol and weather fields produced by NASA’s GEOS-CF model.",
+      "release_date": "2023-09-26T17:00:00-04:00",
+      "update_date": "2026-10-29T02:17:42.960329-04:00",
+      "main_image": {
+       "id": 858344,
+       "url": "http://svs.gsfc.nasa.gov/vis/a000000/a005100/a005151/MC01_stage4_GMAO_pm25_2048x1024_en.00001_print.jpg",
+       "filename": "MC01_stage4_GMAO_pm25_2048x1024_en.00001_print.jpg",
+       "media_type": "Image",
+       "alt_text": "Near surface concentration of fine particular matter (PM2.5) estimated from NASA’s aerosol and weather fields produced by NASA’s GEOS-CF model.",
+       "width": 1024,
+       "height": 512,
+       "pixels": 524288
+      }
+     }
+    },
+    {
+     "id": 444648,
+     "type": "details_page",
+     "extra_data": null,
+     "instance": {
+      "id": 5152,
+      "url": "http://svs.gsfc.nasa.gov/5152/",
+      "page_type": "Visualization",
+      "title": "Near surface Ozone (O3)",
+      "description": "Near surface concentration of ozone (O3) estimated by NASA’s GEOS-CF model.",
+      "release_date": "2023-09-26T17:00:00-04:00",
+      "update_date": "2026-10-29T02:17:48.063240-04:00",
+      "main_image": {
+       "id": 858348,
+       "url": "http://svs.gsfc.nasa.gov/vis/a000000/a005100/a005152/MC02_stage4_GMAO_O3_2048x1024_en.00001_print.jpg",
+       "filename": "MC02_stage4_GMAO_O3_2048x1024_en.00001_print.jpg",
+       "media_type": "Image",
+       "alt_text": "Near surface concentration of ozone (O3) estimated by NASA’s GEOS-CF model.",
+       "width": 1024,
+       "height": 512,
+       "pixels": 524288
+      }
+     }
+    },
+    {
+     "id": 444649,
+     "type": "details_page",
+     "extra_data": null,
+     "instance": {
+      "id": 5153,
+      "url": "http://svs.gsfc.nasa.gov/5153/",
+      "page_type": "Visualization",
+      "title": "Carbon Monoxide (CO)",
+      "description": "Near surface concentration of carbon monoxide (CO) estimated by NASA’s GEOS-CF model.",
+      "release_date": "2023-09-26T17:00:00-04:00",
+      "update_date": "2026-10-29T02:17:53.626920-04:00",
+      "main_image": {
+       "id": 858352,
+       "url": "http://svs.gsfc.nasa.gov/vis/a000000/a005100/a005153/MC03_stage4_GMAO_CO_2048x1024_en.00001_print.jpg",
+       "filename": "MC03_stage4_GMAO_CO_2048x1024_en.00001_print.jpg",
+       "media_type": "Image",
+       "alt_text": "Near surface concentration of carbon monoxide (CO) estimated by NASA’s GEOS-CF model.",
+       "width": 1024,
+       "height": 512,
+       "pixels": 524288
+      }
+     }
+    },
+    {
+     "id": 444650,
+     "type": "details_page",
+     "extra_data": null,
+     "instance": {
+      "id": 5154,
+      "url": "http://svs.gsfc.nasa.gov/5154/",
+      "page_type": "Visualization",
+      "title": "Nitrogen Oxides (NOx)",
+      "description": "Near surface concentration of Nitrogen Oxides (NOx) estimated from concentrations of nitrogen oxide and nitrogen dioxide produced by  NASA’s GEOS-CF model.",
+      "release_date": "2023-09-26T17:00:00-04:00",
+      "update_date": "2026-10-29T02:20:14.080620-04:00",
+      "main_image": {
+       "id": 858357,
+       "url": "http://svs.gsfc.nasa.gov/vis/a000000/a005100/a005154/MC04_stage4_GMAO_NO2_2048x1024_en.00001_print.jpg",
+       "filename": "MC04_stage4_GMAO_NO2_2048x1024_en.00001_print.jpg",
+       "media_type": "Image",
+       "alt_text": "Near surface concentration of Nitrogen Oxides (NOx) estimated from concentrations of nitrogen oxide and nitrogen dioxide produced by NASA’s GEOS-CF model.",
+       "width": 1024,
+       "height": 512,
+       "pixels": 524288
+      }
+     }
+    }
+   ],
+   "extra_data": {}
+  },
+  {
+   "id": 376709,
+   "url": "http://svs.gsfc.nasa.gov/gallery/air-quality-dashboard/#media_group_376709",
+   "widget": "Card gallery",
+   "title": "Revolutionizing our understanding with NASA's TEMPO mission",
+   "caption": "",
+   "description": "NASA’s TEMPO, or Tropospheric Emissions: Monitoring of Pollution, is the first space-based instrument designed to continuously measure air quality above North America with the resolution of a few square miles. TEMPO uses visible sunlight to take hourly scans of North America's atmosphere and can not see pollution below clouds or at night",
+   "items": [
+    {
+     "id": 444651,
+     "type": "details_page",
+     "extra_data": null,
+     "instance": {
+      "id": 5175,
+      "url": "http://svs.gsfc.nasa.gov/5175/",
+      "page_type": "Visualization",
+      "title": "TEMPO - Nitrogen Dioxide Air Pollution Over North America - Additional Views",
+      "description": "In this visualization, high levels of nitrogen dioxide can be seen over multiple urban areas across the U.S., Canada, Mexico and the Caribbean. As the day progresses, the morning pollution often dissipates. Later in the afternoon, it will rise again as the cities enter their second rush hour of the day. Because TEMPO uses visible sunlight to make measurements, it cannot see pollution below clouds or at night. Cloudy areas appear as missing data in the visualization. This visualization shows data from August 28-31, 2023. || tempo_no2_north-america.02402_print.jpg (1024x576) [170.3 KB] || tempo_no2_north-america.02402_searchweb.png (180x320) [67.8 KB] || tempo_no2_north-america.02402_thm.png (80x40) [5.6 KB] || tempo_no2_north-america_1080p60.mp4 (1920x1080) [23.3 MB] || tempo_no2_north-america (3840x2160) [0 Item(s)] || tempo_no2_north-america_2160p60.mp4 (3840x2160) [84.5 MB] || tempo_no2_north-america_2160p30.mp4 (3840x2160) [84.8 MB] || tempo_no2_north-america.mov (3840x2160) [5.6 GB] || a005175_tempo_no2_north-america_2160p30.hwshow [60 bytes] || ",
+      "release_date": "2023-10-12T00:00:00-04:00",
+      "update_date": "2025-04-08T16:15:13.071308-04:00",
+      "main_image": {
+       "id": 859883,
+       "url": "http://svs.gsfc.nasa.gov/vis/a000000/a005100/a005175/tempo_no2_north-america.02402_print.jpg",
+       "filename": "tempo_no2_north-america.02402_print.jpg",
+       "media_type": "Image",
+       "alt_text": "In this visualization, high levels of nitrogen dioxide can be seen over multiple urban areas across the U.S., Canada, Mexico and the Caribbean. As the day progresses, the morning pollution often dissipates. Later in the afternoon, it will rise again as the cities enter their second rush hour of the day. Because TEMPO uses visible sunlight to make measurements, it cannot see pollution below clouds or at night. Cloudy areas appear as missing data in the visualization. This visualization shows data from August 28-31, 2023.",
+       "width": 1024,
+       "height": 576,
+       "pixels": 589824
+      }
+     }
+    },
+    {
+     "id": 444652,
+     "type": "details_page",
+     "extra_data": null,
+     "instance": {
+      "id": 4810,
+      "url": "http://svs.gsfc.nasa.gov/4810/",
+      "page_type": "Visualization",
+      "title": "Reductions in Pollution Associated with Decreased Fossil Fuel Use Resulting from COVID-19 Mitigation",
+      "description": "Over the past several weeks, the United States has seen significant reductions in air pollution over its major metropolitan areas. Similar reductions in air pollution have been observed in other regions of the world. || Tropospheric NO2 Column, Animated GIF || cropped_NO2_2019_2020.gif (848x862) [54.4 MB] || cropped_NO2_2019_2020_print.jpg (1024x1040) [318.2 KB] || cropped_NO2_2019_2020_searchweb.png (320x180) [102.2 KB] || ",
+      "release_date": "2020-04-24T00:00:00-04:00",
+      "update_date": "2025-01-19T22:42:34.297178-05:00",
+      "main_image": {
+       "id": 385773,
+       "url": "http://svs.gsfc.nasa.gov/vis/a000000/a004800/a004810/2020_NO2_print_print.jpg",
+       "filename": "2020_NO2_print_print.jpg",
+       "media_type": "Image",
+       "alt_text": "Tropospheric NO2 Column, March 2020, Northeast USA, No Labels",
+       "width": 1024,
+       "height": 576,
+       "pixels": 589824
+      }
+     }
+    },
+    {
+     "id": 444653,
+     "type": "details_page",
+     "extra_data": null,
+     "instance": {
+      "id": 5107,
+      "url": "http://svs.gsfc.nasa.gov/5107/",
+      "page_type": "Visualization",
+      "title": "Air Quality Monitoring Stations in Washington D.C.",
+      "description": "All air quality monitoring stations that measure particulate matter 2.5 (PM2.5) located in Washington D.C. The government operated stations are circled in white. Click the download dropdown for more versions. || dc_air_stations_full_preview.png (1920x1080) [1.1 MB] || dc_air_stations_4320.png (4320x2160) [2.0 MB] || dc_stations_basemap_4320.png (4320x2160) [1.9 MB] || dc_air_stations_full_4320.png (4320x2160) [2.0 MB] || dc_air_stations_full_preview_searchweb.png (320x180) [44.6 KB] || dc_air_stations_full_preview_thm.png (80x40) [3.8 KB] || ",
+      "release_date": "2023-06-16T10:00:00-04:00",
+      "update_date": "2023-06-15T19:10:20.396681-04:00",
+      "main_image": {
+       "id": 856042,
+       "url": "http://svs.gsfc.nasa.gov/vis/a000000/a005100/a005107/dc_air_stations_full_preview.png",
+       "filename": "dc_air_stations_full_preview.png",
+       "media_type": "Image",
+       "alt_text": "All air quality monitoring stations that measure particulate matter 2.5 (PM2.5) located in Washington D.C. The government operated stations are circled in white. Click the download dropdown for more versions.",
+       "width": 1920,
+       "height": 1080,
+       "pixels": 2073600
+      }
+     }
+    },
+    {
+     "id": 444758,
+     "type": "link",
+     "extra_data": null,
+     "title": "Air Quality Index for DC",
+     "caption": null,
+     "instance": {
+      "id": 1,
+      "url": "http://svs.gsfc.nasa.gov/images/no_preview_web_black.png",
+      "filename": "no_preview_web_black.png",
+      "media_type": "Image",
+      "alt_text": "Current Airborne Fleet",
+      "width": 320,
+      "height": 180,
+      "pixels": 57600
+     }
+    }
+   ],
+   "extra_data": {}
+  },
+  {
+   "id": 376710,
+   "url": "http://svs.gsfc.nasa.gov/gallery/air-quality-dashboard/#media_group_376710",
+   "widget": "Card gallery",
+   "title": "Side Circles",
+   "caption": "",
+   "description": "",
+   "items": [
+    {
+     "id": 444759,
+     "type": "link",
+     "extra_data": null,
+     "title": "Eyes on Earth: Aqua satellite",
+     "caption": null,
+     "instance": {
+      "id": 1139918,
+      "url": "http://svs.gsfc.nasa.gov/images/gallery/AirQualityDashboard2/EyesOnEarth_Aqua.png",
+      "filename": "EyesOnEarth_Aqua.png",
+      "media_type": "Image",
+      "alt_text": "",
+      "width": 2152,
+      "height": 2158,
+      "pixels": 4644016
+     }
+    },
+    {
+     "id": 444760,
+     "type": "link",
+     "extra_data": null,
+     "title": "Eyes on Earth: Aura Satellte",
+     "caption": null,
+     "instance": {
+      "id": 1139919,
+      "url": "http://svs.gsfc.nasa.gov/images/gallery/AirQualityDashboard2/EyesOnEarth_Aura.png",
+      "filename": "EyesOnEarth_Aura.png",
+      "media_type": "Image",
+      "alt_text": "",
+      "width": 2152,
+      "height": 2158,
+      "pixels": 4644016
+     }
+    }
+   ],
+   "extra_data": {}
+  }
+ ]
+}

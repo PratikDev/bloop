@@ -1,0 +1,298 @@
+{
+ "id": 5067,
+ "title": "Earth Observing Fleet - Now",
+ "url": "https://svs.gsfc.nasa.gov/5067/",
+ "page_type": "Visualization",
+ "release_date": "2023-01-30T00:00:00-05:00",
+ "update_date": "2026-10-28T22:33:54.877217-04:00",
+ "description": "Visualizations depicting a near-real-time view of NASA fleet of Earth-orbiting satellites.",
+ "full_text": "Visualizations depicting a near-real-time view of NASA fleet of Earth-orbiting satellites.\n\nAn interactive view of NASA's fleet of Earth observing satellites\n\nA current view of NASA's Earth observing fleet. This image is updated every 10 minutes. Time shown in UTC.\n\nAn animated view of NASA's Earth observing fleet, as it looks today. This 30 second visualization is updated once per day.  Time shown in UTC.\n\n<br>These visualizations show the current orbits of NASA's fleet of Earth observing spacecraft.  Satellite orbits are generated using today's two-line element sets (TLEs).  The videos on this page are updated once per day.  <br><br><b>Spacecraft included:</b><br>• Aqua<br>• Aura<br>• CYGNSS-1: Cyclone Global Navigation Satellite System 1<br>• CYGNSS-2: Cyclone Global Navigation Satellite System 2<br>• CYGNSS-3: Cyclone Global Navigation Satellite System 3<br>• CYGNSS-4: Cyclone Global Navigation Satellite System 4<br>• CYNGSS-5: Cyclone Global Navigation Satellite System 5<br>• CYGNSS-7: Cyclone Global Navigation Satellite System 7<br>• CYGNSS-8: Cyclone Global Navigation Satellite System 8<br>• GPM: Global Precipitation Measurement<br>• GRACE-FO-1: Gravity Recovery and Climate Experiment Follow On-1<br>• GRACE-FO-2: Gravity Recovery and Climate Experiment Follow On-2<br>• ICESat-2<br>• ISS: International Space Station<br>• Landsat 8<br>• Landsat 9<br>• NISAR<br>• OCO-2: Orbiting Carbon Observatory-2<br>• PACE: Plankton, Aerosol, Cloud, ocean Ecosystem<br>• SMAP: Soil Moisture Passive Active<br>• Suomi NPP: Suomi National Polar-orbiting Partnership<br>• Sentinel-6 Michael Freilich<br>• Sentinel-6B<br>• SWOT<br>• Terra<br>• TROPICS-01 (Pathfinder)<br>• TROPICS-03<br>• TROPICS-05<br>• TROPICS-06<br>• TROPICS-07<br><br>The clouds used in this version are from a high resolution GEOS model run at 10 minute time steps interpolated down to the per-frame level. The timeframe for this model does not match the date in this fleet visualization, so the clouds shown do not represent actual conditions for today.\n\nAn animated view of NASA's Earth observing fleet, as it looks today. This 30 second visualization is updated once per day.  Time shown in UTC.  This version has no star background.\n\nAn animated view of NASA's Earth observing fleet, as it looks today. This 30 second visualization is updated once per day. Time shown in UTC. This version is a square aspect ratio (2160x2160) with no star background.",
+ "credits_by_role": {
+  "Visualizer": [
+   "Kel Elkins (USRA)",
+   "Greg Shirah (NASA/GSFC)"
+  ]
+ },
+ "keywords": [
+  "Earth Information Center",
+  "Fleet",
+  "Hyperwall",
+  "Interactive",
+  "Orbits",
+  "Solar System"
+ ],
+ "datasets": [
+  {
+   "name": "CelesTrak Spacecraft Orbit Ephemeris",
+   "common_name": "",
+   "platform": null,
+   "sensor": null,
+   "type": "Ephemeris",
+   "organizations": [],
+   "description": "",
+   "credit": "",
+   "url": "http://celestrak.com",
+   "date_range": null
+  }
+ ],
+ "missions": [],
+ "related": [
+  {
+   "id": 14508,
+   "title": "Global Pulse Check! NASA’s New Earth Satellite, PACE, Launching Next Week to Capture Earth Like Never Before!",
+   "url": "https://svs.gsfc.nasa.gov/14508/"
+  },
+  {
+   "id": 14448,
+   "title": "2023 Global Temperature Update Live Shots",
+   "url": "https://svs.gsfc.nasa.gov/14448/"
+  },
+  {
+   "id": 5061,
+   "title": "Earth Observing Fleet (January 2023)",
+   "url": "https://svs.gsfc.nasa.gov/5061/"
+  }
+ ],
+ "alternate_versions": [],
+ "newer_versions": [],
+ "older_versions": [],
+ "media": [
+  {
+   "group": 1,
+   "group_title": "",
+   "widget": "Single image",
+   "caption": "",
+   "group_text": "A current view of NASA's Earth observing fleet. This image is updated every 10 minutes. Time shown in UTC.",
+   "url": "https://svs.gsfc.nasa.gov/vis/a000000/a005000/a005067/fleet_now_print.jpg",
+   "filename": "fleet_now_print.jpg",
+   "media_type": "Image",
+   "width": 1024,
+   "height": 576,
+   "alt_text": "These visualizations show the current orbits of NASA's fleet of Earth observing spacecraft.  Satellite orbits are generated using today's two-line element sets (TLEs).  The still image at the top of the page is updated every 10 minutes.  The video is updated once per day.  \r\n\r\nSpacecraft included:\r\n• Aqua\r\n• Aura\r\n• CALIPSO: Cloud-Aerosol Lidar and Infrared Pathfinder Satellite Observation\r\n• CYGNSS-1: Cyclone Global Navigation Satellite System 1\r\n• CYGNSS-2: Cyclone Global Navigation Satellite System 2\r\n• CYGNSS-3: Cyclone Global Navigation Satellite System 3\r\n• CYGNSS-4: Cyclone Global Navigation Satellite System 4\r\n• CYNGSS-5: Cyclone Global Navigation Satellite System 5\r\n• CYGNSS-7: Cyclone Global Navigation Satellite System 7\r\n• CYGNSS-8: Cyclone Global Navigation Satellite System 8\r\n• Cloudsat\r\n• GPM: Global Precipitation Measurement\r\n• GRACE-FO-1: Gravity Recovery and Climate Experiment Follow On-1\r\n• GRACE-FO-2: Gravity Recovery and Climate Experiment Follow On-2\r\n• ICESat-2\r\n• ISS: International Space Station\r\n• Landsat 8\r\n• Landsat 9\r\n• OCO-2: Orbiting Carbon Observatory-2\r\n• SMAP: Soil Moisture Passive Active\r\n• Suomi NPP: Suomi National Polar-orbiting Partnership\r\n• Sentinel-6 Michael Freilich\r\n• SWOT\r\n• Terra\r\n\r\nThe clouds used in this version are from a high resolution GEOS model run at 10 minute time steps interpolated down to the per-frame level. The timeframe for this model does not match the date in this fleet visualization, so the clouds shown do not represent actual conditions for today."
+  },
+  {
+   "group": 1,
+   "group_title": "",
+   "widget": "Single image",
+   "caption": "",
+   "group_text": "A current view of NASA's Earth observing fleet. This image is updated every 10 minutes. Time shown in UTC.",
+   "url": "https://svs.gsfc.nasa.gov/vis/a000000/a005000/a005067/fleet_now_searchweb.png",
+   "filename": "fleet_now_searchweb.png",
+   "media_type": "Image",
+   "width": 180,
+   "height": 320,
+   "alt_text": "\nThese visualizations show the current orbits of NASA's fleet of Earth observing spacecraft.  Satellite orbits are generated using today's two-line element sets (TLEs).  The still image at the top of the page is updated every 10 minutes.  The video is updated once per day.  \n\nSpacecraft included:\n• Aqua\n• Aura\n• CALIPSO: Cloud-Aerosol Lidar and Infrared Pathfinder Satellite Observation\n• CYGNSS-1: Cyclone Global Navigation Satellite System 1\n• CYGNSS-2: Cyclone Global Navigation Satellite System 2\n• CYGNSS-3: Cyclone Global Navigation Satellite System 3\n• CYGNSS-4: Cyclone Global Navigation Satellite System 4\n• CYNGSS-5: Cyclone Global Navigation Satellite System 5\n• CYGNSS-7: Cyclone Global Navigation Satellite System 7\n• CYGNSS-8: Cyclone Global Navigation Satellite System 8\n• Cloudsat\n• GPM: Global Precipitation Measurement\n• GRACE-FO-1: Gravity Recovery and Climate Experiment Follow On-1\n• GRACE-FO-2: Gravity Recovery and Climate Experiment Follow On-2\n• ICESat-2\n• ISS: International Space Station\n• Landsat 8\n• Landsat 9\n• OCO-2: Orbiting Carbon Observatory-2\n• SMAP: Soil Moisture Passive Active\n• Suomi NPP: Suomi National Polar-orbiting Partnership\n• Sentinel-6 Michael Freilich\n• SWOT\n• Terra\n\nThe clouds used in this version are from a high resolution GEOS model run at 10 minute time steps interpolated down to the per-frame level. The timeframe for this model does not match the date in this fleet visualization, so the clouds shown do not represent actual conditions for today."
+  },
+  {
+   "group": 1,
+   "group_title": "",
+   "widget": "Single image",
+   "caption": "",
+   "group_text": "A current view of NASA's Earth observing fleet. This image is updated every 10 minutes. Time shown in UTC.",
+   "url": "https://svs.gsfc.nasa.gov/vis/a000000/a005000/a005067/fleet_now_thm.png",
+   "filename": "fleet_now_thm.png",
+   "media_type": "Image",
+   "width": 80,
+   "height": 40,
+   "alt_text": "These visualizations show the current orbits of NASA's fleet of Earth observing spacecraft.  Satellite orbits are generated using today's two-line element sets (TLEs).  The still image at the top of the page is updated every 10 minutes.  The video is updated once per day.  \r\n\r\nSpacecraft included:\r\n• Aqua\r\n• Aura\r\n• CALIPSO: Cloud-Aerosol Lidar and Infrared Pathfinder Satellite Observation\r\n• CYGNSS-1: Cyclone Global Navigation Satellite System 1\r\n• CYGNSS-2: Cyclone Global Navigation Satellite System 2\r\n• CYGNSS-3: Cyclone Global Navigation Satellite System 3\r\n• CYGNSS-4: Cyclone Global Navigation Satellite System 4\r\n• CYNGSS-5: Cyclone Global Navigation Satellite System 5\r\n• CYGNSS-7: Cyclone Global Navigation Satellite System 7\r\n• CYGNSS-8: Cyclone Global Navigation Satellite System 8\r\n• Cloudsat\r\n• GPM: Global Precipitation Measurement\r\n• GRACE-FO-1: Gravity Recovery and Climate Experiment Follow On-1\r\n• GRACE-FO-2: Gravity Recovery and Climate Experiment Follow On-2\r\n• ICESat-2\r\n• ISS: International Space Station\r\n• Landsat 8\r\n• Landsat 9\r\n• OCO-2: Orbiting Carbon Observatory-2\r\n• SMAP: Soil Moisture Passive Active\r\n• Suomi NPP: Suomi National Polar-orbiting Partnership\r\n• Sentinel-6 Michael Freilich\r\n• SWOT\r\n• Terra\r\n\r\nThe clouds used in this version are from a high resolution GEOS model run at 10 minute time steps interpolated down to the per-frame level. The timeframe for this model does not match the date in this fleet visualization, so the clouds shown do not represent actual conditions for today."
+  },
+  {
+   "group": 1,
+   "group_title": "",
+   "widget": "Single image",
+   "caption": "",
+   "group_text": "A current view of NASA's Earth observing fleet. This image is updated every 10 minutes. Time shown in UTC.",
+   "url": "https://svs.gsfc.nasa.gov/vis/a000000/a005000/a005067/fleet_now.tif",
+   "filename": "fleet_now.tif",
+   "media_type": "Image",
+   "width": 3840,
+   "height": 2160,
+   "alt_text": "These visualizations show the current orbits of NASA's fleet of Earth observing spacecraft.  Satellite orbits are generated using today's two-line element sets (TLEs).  The still image at the top of the page is updated every 10 minutes.  The video is updated once per day.  \r\n\r\nSpacecraft included:\r\n• Aqua\r\n• Aura\r\n• CALIPSO: Cloud-Aerosol Lidar and Infrared Pathfinder Satellite Observation\r\n• CYGNSS-1: Cyclone Global Navigation Satellite System 1\r\n• CYGNSS-2: Cyclone Global Navigation Satellite System 2\r\n• CYGNSS-3: Cyclone Global Navigation Satellite System 3\r\n• CYGNSS-4: Cyclone Global Navigation Satellite System 4\r\n• CYNGSS-5: Cyclone Global Navigation Satellite System 5\r\n• CYGNSS-7: Cyclone Global Navigation Satellite System 7\r\n• CYGNSS-8: Cyclone Global Navigation Satellite System 8\r\n• Cloudsat\r\n• GPM: Global Precipitation Measurement\r\n• GRACE-FO-1: Gravity Recovery and Climate Experiment Follow On-1\r\n• GRACE-FO-2: Gravity Recovery and Climate Experiment Follow On-2\r\n• ICESat-2\r\n• ISS: International Space Station\r\n• Landsat 8\r\n• Landsat 9\r\n• OCO-2: Orbiting Carbon Observatory-2\r\n• SMAP: Soil Moisture Passive Active\r\n• Suomi NPP: Suomi National Polar-orbiting Partnership\r\n• Sentinel-6 Michael Freilich\r\n• SWOT\r\n• Terra\r\n\r\nThe clouds used in this version are from a high resolution GEOS model run at 10 minute time steps interpolated down to the per-frame level. The timeframe for this model does not match the date in this fleet visualization, so the clouds shown do not represent actual conditions for today."
+  },
+  {
+   "group": 1,
+   "group_title": "",
+   "widget": "Single image",
+   "caption": "",
+   "group_text": "A current view of NASA's Earth observing fleet. This image is updated every 10 minutes. Time shown in UTC.",
+   "url": "https://svs.gsfc.nasa.gov/vis/a000000/a005000/a005067/fleet_now_hw.tif",
+   "filename": "fleet_now_hw.tif",
+   "media_type": "Image",
+   "width": 9600,
+   "height": 3240,
+   "alt_text": "These visualizations show the current orbits of NASA's fleet of Earth observing spacecraft.  Satellite orbits are generated using today's two-line element sets (TLEs).  The still image at the top of the page is updated every 10 minutes.  The video is updated once per day.  \r\n\r\nSpacecraft included:\r\n• Aqua\r\n• Aura\r\n• CALIPSO: Cloud-Aerosol Lidar and Infrared Pathfinder Satellite Observation\r\n• CYGNSS-1: Cyclone Global Navigation Satellite System 1\r\n• CYGNSS-2: Cyclone Global Navigation Satellite System 2\r\n• CYGNSS-3: Cyclone Global Navigation Satellite System 3\r\n• CYGNSS-4: Cyclone Global Navigation Satellite System 4\r\n• CYNGSS-5: Cyclone Global Navigation Satellite System 5\r\n• CYGNSS-7: Cyclone Global Navigation Satellite System 7\r\n• CYGNSS-8: Cyclone Global Navigation Satellite System 8\r\n• Cloudsat\r\n• GPM: Global Precipitation Measurement\r\n• GRACE-FO-1: Gravity Recovery and Climate Experiment Follow On-1\r\n• GRACE-FO-2: Gravity Recovery and Climate Experiment Follow On-2\r\n• ICESat-2\r\n• ISS: International Space Station\r\n• Landsat 8\r\n• Landsat 9\r\n• OCO-2: Orbiting Carbon Observatory-2\r\n• SMAP: Soil Moisture Passive Active\r\n• Suomi NPP: Suomi National Polar-orbiting Partnership\r\n• Sentinel-6 Michael Freilich\r\n• SWOT\r\n• Terra\r\n\r\nThe clouds used in this version are from a high resolution GEOS model run at 10 minute time steps interpolated down to the per-frame level. The timeframe for this model does not match the date in this fleet visualization, so the clouds shown do not represent actual conditions for today."
+  },
+  {
+   "group": 2,
+   "group_title": "",
+   "widget": "Video player",
+   "caption": "",
+   "group_text": "An animated view of NASA's Earth observing fleet, as it looks today. This 30 second visualization is updated once per day.  Time shown in UTC.",
+   "url": "https://svs.gsfc.nasa.gov/vis/a000000/a005000/a005067/fleet_today_30sec.00000_print.jpg",
+   "filename": "fleet_today_30sec.00000_print.jpg",
+   "media_type": "Image",
+   "width": 1024,
+   "height": 576,
+   "alt_text": "An animated view of NASA's Earth observing fleet, as it looks today. This 30 second visualization is updated once per day.  Time shown in UTC."
+  },
+  {
+   "group": 2,
+   "group_title": "",
+   "widget": "Video player",
+   "caption": "",
+   "group_text": "An animated view of NASA's Earth observing fleet, as it looks today. This 30 second visualization is updated once per day.  Time shown in UTC.",
+   "url": "https://svs.gsfc.nasa.gov/vis/a000000/a005000/a005067/fleet_today_30sec.00000_web.png",
+   "filename": "fleet_today_30sec.00000_web.png",
+   "media_type": "Image",
+   "width": 320,
+   "height": 180,
+   "alt_text": "An animated view of NASA's Earth observing fleet, as it looks today. This 30 second visualization is updated once per day.  Time shown in UTC."
+  },
+  {
+   "group": 2,
+   "group_title": "",
+   "widget": "Video player",
+   "caption": "",
+   "group_text": "An animated view of NASA's Earth observing fleet, as it looks today. This 30 second visualization is updated once per day.  Time shown in UTC.",
+   "url": "https://svs.gsfc.nasa.gov/vis/a000000/a005000/a005067/fleet_today_30sec.mp4",
+   "filename": "fleet_today_30sec.mp4",
+   "media_type": "Movie",
+   "width": 3840,
+   "height": 2160,
+   "alt_text": "An animated view of NASA's Earth observing fleet, as it looks today. This 30 second visualization is updated once per day.  Time shown in UTC."
+  },
+  {
+   "group": 2,
+   "group_title": "",
+   "widget": "Video player",
+   "caption": "",
+   "group_text": "An animated view of NASA's Earth observing fleet, as it looks today. This 30 second visualization is updated once per day.  Time shown in UTC.",
+   "url": "https://svs.gsfc.nasa.gov/vis/a000000/a005000/a005067/frames/3840x2160_16x9_60p/fleet_today_30sec/",
+   "filename": "fleet_today_30sec",
+   "media_type": "Frames",
+   "width": 3840,
+   "height": 2160,
+   "alt_text": "An animated view of NASA's Earth observing fleet, as it looks today. This 30 second visualization is updated once per day.  Time shown in UTC."
+  },
+  {
+   "group": 4,
+   "group_title": "",
+   "widget": "Video player",
+   "caption": "",
+   "group_text": "An animated view of NASA's Earth observing fleet, as it looks today. This 30 second visualization is updated once per day.  Time shown in UTC.  This version has no star background. ",
+   "url": "https://svs.gsfc.nasa.gov/vis/a000000/a005000/a005067/fleet_today_30sec_nostars.00000_print.jpg",
+   "filename": "fleet_today_30sec_nostars.00000_print.jpg",
+   "media_type": "Image",
+   "width": 1024,
+   "height": 576,
+   "alt_text": "An animated view of NASA's Earth observing fleet, as it looks today. This 30 second visualization is updated once per day.  Time shown in UTC.  This version has no star background. "
+  },
+  {
+   "group": 4,
+   "group_title": "",
+   "widget": "Video player",
+   "caption": "",
+   "group_text": "An animated view of NASA's Earth observing fleet, as it looks today. This 30 second visualization is updated once per day.  Time shown in UTC.  This version has no star background. ",
+   "url": "https://svs.gsfc.nasa.gov/vis/a000000/a005000/a005067/fleet_today_30sec_nostars.mp4",
+   "filename": "fleet_today_30sec_nostars.mp4",
+   "media_type": "Movie",
+   "width": 3840,
+   "height": 2160,
+   "alt_text": "An animated view of NASA's Earth observing fleet, as it looks today. This 30 second visualization is updated once per day.  Time shown in UTC.  This version has no star background. "
+  },
+  {
+   "group": 4,
+   "group_title": "",
+   "widget": "Video player",
+   "caption": "",
+   "group_text": "An animated view of NASA's Earth observing fleet, as it looks today. This 30 second visualization is updated once per day.  Time shown in UTC.  This version has no star background. ",
+   "url": "https://svs.gsfc.nasa.gov/vis/a000000/a005000/a005067/frames/3840x2160_16x9_60p/fleet_today_30sec_nostars/",
+   "filename": "fleet_today_30sec_nostars",
+   "media_type": "Frames",
+   "width": 3840,
+   "height": 2160,
+   "alt_text": "An animated view of NASA's Earth observing fleet, as it looks today. This 30 second visualization is updated once per day.  Time shown in UTC.  This version has no star background. "
+  },
+  {
+   "group": 4,
+   "group_title": "",
+   "widget": "Video player",
+   "caption": "",
+   "group_text": "An animated view of NASA's Earth observing fleet, as it looks today. This 30 second visualization is updated once per day.  Time shown in UTC.  This version has no star background. ",
+   "url": "https://svs.gsfc.nasa.gov/vis/a000000/a005000/a005067/fleet_today_30sec_nostars.mp4.hwshow",
+   "filename": "fleet_today_30sec_nostars.mp4.hwshow",
+   "media_type": "HyperwallShow",
+   "width": 0,
+   "height": 0,
+   "alt_text": ""
+  },
+  {
+   "group": 5,
+   "group_title": "",
+   "widget": "Video player",
+   "caption": "",
+   "group_text": "An animated view of NASA's Earth observing fleet, as it looks today. This 30 second visualization is updated once per day. Time shown in UTC. This version is a square aspect ratio (2160x2160) with no star background. ",
+   "url": "https://svs.gsfc.nasa.gov/vis/a000000/a005000/a005067/fleet_today_30sec_nostars_sq.00000_print.jpg",
+   "filename": "fleet_today_30sec_nostars_sq.00000_print.jpg",
+   "media_type": "Image",
+   "width": 1024,
+   "height": 1024,
+   "alt_text": "An animated view of NASA's Earth observing fleet, as it looks today. This 30 second visualization is updated once per day. Time shown in UTC. This version is a square aspect ratio (2160x2160) with no star background. "
+  },
+  {
+   "group": 5,
+   "group_title": "",
+   "widget": "Video player",
+   "caption": "",
+   "group_text": "An animated view of NASA's Earth observing fleet, as it looks today. This 30 second visualization is updated once per day. Time shown in UTC. This version is a square aspect ratio (2160x2160) with no star background. ",
+   "url": "https://svs.gsfc.nasa.gov/vis/a000000/a005000/a005067/fleet_today_30sec_nostars_sq.mp4",
+   "filename": "fleet_today_30sec_nostars_sq.mp4",
+   "media_type": "Movie",
+   "width": 3840,
+   "height": 2160,
+   "alt_text": "An animated view of NASA's Earth observing fleet, as it looks today. This 30 second visualization is updated once per day. Time shown in UTC. This version is a square aspect ratio (2160x2160) with no star background. "
+  },
+  {
+   "group": 5,
+   "group_title": "",
+   "widget": "Video player",
+   "caption": "",
+   "group_text": "An animated view of NASA's Earth observing fleet, as it looks today. This 30 second visualization is updated once per day. Time shown in UTC. This version is a square aspect ratio (2160x2160) with no star background. ",
+   "url": "https://svs.gsfc.nasa.gov/vis/a000000/a005000/a005067/frames/2160x2160_1x1_60p/fleet_today_30sec_nostars_sq/",
+   "filename": "fleet_today_30sec_nostars_sq",
+   "media_type": "Frames",
+   "width": 2160,
+   "height": 2160,
+   "alt_text": "An animated view of NASA's Earth observing fleet, as it looks today. This 30 second visualization is updated once per day. Time shown in UTC. This version is a square aspect ratio (2160x2160) with no star background. "
+  }
+ ],
+ "text_links": [],
+ "frame_folders": {
+  "https://svs.gsfc.nasa.gov/vis/a000000/a005000/a005067/frames/3840x2160_16x9_60p/fleet_today_30sec/": {
+   "url": "https://svs.gsfc.nasa.gov/vis/a000000/a005000/a005067/frames/3840x2160_16x9_60p/fleet_today_30sec/",
+   "frame_count": 1801,
+   "bytes_approx": 68742300000,
+   "first": "fleet_today_30sec.00000.exr",
+   "last": "fleet_today_30sec.01800.exr",
+   "subfolders": {}
+  },
+  "https://svs.gsfc.nasa.gov/vis/a000000/a005000/a005067/frames/3840x2160_16x9_60p/fleet_today_30sec_nostars/": {
+   "url": "https://svs.gsfc.nasa.gov/vis/a000000/a005000/a005067/frames/3840x2160_16x9_60p/fleet_today_30sec_nostars/",
+   "frame_count": 1801,
+   "bytes_approx": 13219900000,
+   "first": "fleet_today_30sec_nostars.00000.exr",
+   "last": "fleet_today_30sec_nostars.01800.exr",
+   "subfolders": {}
+  },
+  "https://svs.gsfc.nasa.gov/vis/a000000/a005000/a005067/frames/2160x2160_1x1_60p/fleet_today_30sec_nostars_sq/": {
+   "url": "https://svs.gsfc.nasa.gov/vis/a000000/a005000/a005067/frames/2160x2160_1x1_60p/fleet_today_30sec_nostars_sq/",
+   "frame_count": 1801,
+   "bytes_approx": 10624100000,
+   "first": "fleet_today_30sec_nostars_sq.00000.exr",
+   "last": "fleet_today_30sec_nostars_sq.01800.exr",
+   "subfolders": {}
+  }
+ },
+ "api_url": "https://svs.gsfc.nasa.gov/api/5067",
+ "fetched_utc": "2026-10-29T07:39:00Z"
+}

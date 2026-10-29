@@ -1,0 +1,97 @@
+{
+ "id": 5584,
+ "title": "Daily Global Landslide Exposure Map",
+ "url": "https://svs.gsfc.nasa.gov/5584/",
+ "page_type": "Visualization",
+ "release_date": "2025-09-30T16:40:00-04:00",
+ "update_date": "2026-01-07T16:31:09.214597-05:00",
+ "description": "This daily map shows results from the Landslide Hazard Assessment for Situational Awareness (LHASA) model, helping users identify areas where landslides may occur.",
+ "full_text": "This daily map shows results from the Landslide Hazard Assessment for Situational Awareness (LHASA) model, helping users identify areas where landslides may occur.\n\nDaily global landslide exposure assessment from the LHASA (Landslide Hazard Assessment for Situational Awareness) model. Color-coded hazard levels range from red (very high risk) to yellow (low risk), helping users identify areas where landslides may occur.\n\nLandslides are a widespread and often underestimated natural hazard, causing thousands of deaths and significant economic damage each year. They routinely block roads, destroy infrastructure, and disrupt communities worldwide. While intense or prolonged rainfall is the most common landslide trigger, earthquakes and human activities can also cause them.\r\nThe global Landslide Hazard Assessment for Situational Awareness (LHASA) model provides users with a comprehensive view of landslide hazard in near real-time. Using machine learning, LHASA combines rainfall data from the Global Precipitation Measurement (GPM) satellite with antecedent soil moisture from the Soil Moisture Active Passive (SMAP) satellite to identify areas currently at risk from landslides. The model shows where and when landslides are most probable, then calculates the exposed population and road length within each administrative district, helping users understand both the hazard and potential impacts on communities and infrastructure.\n\nTo learn more please visit: [https://landslides.nasa.gov/](https://landslides.nasa.gov/)",
+ "credits_by_role": {
+  "Scientist": [
+   "Thomas A. Stanley (University of Maryland Baltimore County)"
+  ],
+  "Visualizer": [
+   "Zoey N. Armstrong (Navteca, LLC.)",
+   "Helen-Nicole Kostis (USRA)"
+  ],
+  "Support": [
+   "Ella Kaplan (Global Science and Technology, Inc.)",
+   "Laurence Schuler (ADNET Systems, Inc.)",
+   "Ian Jones (ADNET Systems, Inc.)"
+  ]
+ },
+ "keywords": [
+  "Earth",
+  "Earth Information Center",
+  "Global Landslide Catalog",
+  "Landslides"
+ ],
+ "datasets": [
+  {
+   "name": "Global Landslide Hazard Assessment for Situational Awareness (LHASA)",
+   "common_name": "Global Landslide Model",
+   "platform": null,
+   "sensor": null,
+   "type": "Model",
+   "organizations": [
+    "GPM"
+   ],
+   "description": "<a href=\"https://pmm.nasa.gov/applications/global-landslide-model\">https://pmm.nasa.gov/applications/global-landslide-model</a>The global Landslide Hazard Assessment for Situational Awareness (LHASA) model is developed to provide situational awareness of landslide hazards for a wide range of users. Precipitation is",
+   "credit": "",
+   "url": "",
+   "date_range": ""
+  }
+ ],
+ "missions": [
+  "Global Precipitation Measurement (GPM)",
+  "Soil Moisture Active Passive (SMAP)"
+ ],
+ "related": [],
+ "alternate_versions": [],
+ "newer_versions": [],
+ "older_versions": [],
+ "media": [
+  {
+   "group": 0,
+   "group_title": "",
+   "widget": "Single image",
+   "caption": "Daily global landslide exposure assessment from the LHASA (Landslide Hazard Assessment for Situational Awareness) model. Color-coded hazard levels range from red (very high risk) to yellow (low risk), helping users identify areas where landslides may occur.",
+   "group_text": "",
+   "url": "https://svs.gsfc.nasa.gov/vis/a000000/a005500/a005584/landslides_daily.png",
+   "filename": "landslides_daily.png",
+   "media_type": "Image",
+   "width": 2048,
+   "height": 1024,
+   "alt_text": "Global landslide risk assessment map with color-coded hazard levels ranging from red (very high risk) to yellow (low risk). Red areas indicate the highest landslide risk, orange shows elevated risk, and yellow represents low risk areas."
+  },
+  {
+   "group": 0,
+   "group_title": "",
+   "widget": "Single image",
+   "caption": "Daily global landslide exposure assessment from the LHASA (Landslide Hazard Assessment for Situational Awareness) model. Color-coded hazard levels range from red (very high risk) to yellow (low risk), helping users identify areas where landslides may occur.",
+   "group_text": "",
+   "url": "https://svs.gsfc.nasa.gov/vis/a000000/a005500/a005584/frames/archive/",
+   "filename": "archive",
+   "media_type": "Frames",
+   "width": 2048,
+   "height": 1024,
+   "alt_text": "Global landslide risk assessment map with color-coded hazard levels ranging from red (very high risk) to yellow (low risk). Red areas indicate the highest landslide risk, orange shows elevated risk, and yellow represents low risk areas."
+  }
+ ],
+ "text_links": [
+  "https://landslides.nasa.gov/"
+ ],
+ "frame_folders": {
+  "https://svs.gsfc.nasa.gov/vis/a000000/a005500/a005584/frames/archive/": {
+   "url": "https://svs.gsfc.nasa.gov/vis/a000000/a005500/a005584/frames/archive/",
+   "frame_count": 235,
+   "bytes_approx": 102422400,
+   "first": "landslides.01_01_2026.png",
+   "last": "landslides.12_29_2025.png",
+   "subfolders": {}
+  }
+ },
+ "api_url": "https://svs.gsfc.nasa.gov/api/5584",
+ "fetched_utc": "2026-10-29T07:42:34Z"
+}

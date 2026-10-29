@@ -1,0 +1,594 @@
+{
+ "id": 40512,
+ "url": "http://svs.gsfc.nasa.gov/gallery/daily-visualizations/",
+ "page_type": "Gallery",
+ "title": "Daily Visualizations",
+ "description": "This gallery brings together the data visualizations that are updated daily for NASA's Earth Information Center (EIC).",
+ "release_date": "2023-10-16T00:00:00-04:00",
+ "update_date": "2026-08-10T00:00:00-04:00",
+ "main_image": {
+  "id": 375209,
+  "url": "http://svs.gsfc.nasa.gov/vis/a000000/a004200/a004285/imergert_1080p_30_searchweb.png",
+  "filename": "imergert_1080p_30_searchweb.png",
+  "media_type": "Image",
+  "alt_text": "This gallery brings together the data visualizations that are updated daily for NASA's Earth Information Center (EIC).",
+  "width": 180,
+  "height": 320,
+  "pixels": 57600
+ },
+ "media_groups": [
+  {
+   "id": 372481,
+   "url": "http://svs.gsfc.nasa.gov/gallery/daily-visualizations/#media_group_372481",
+   "widget": "Basic text (large)",
+   "title": "Overview",
+   "caption": "",
+   "description": "This gallery brings together the data visualizations that are updated daily for NASA's Earth Information Center (EIC).",
+   "items": [],
+   "extra_data": {}
+  },
+  {
+   "id": 372482,
+   "url": "http://svs.gsfc.nasa.gov/gallery/daily-visualizations/#media_group_372482",
+   "widget": "Tile gallery",
+   "title": "Visualizations",
+   "caption": "",
+   "description": "",
+   "items": [
+    {
+     "id": 414757,
+     "type": "details_page",
+     "extra_data": null,
+     "instance": {
+      "id": 4285,
+      "url": "http://svs.gsfc.nasa.gov/4285/",
+      "page_type": "Visualization",
+      "title": "Near Real-Time Global Precipitation from the Global Precipitation Measurement Constellation",
+      "description": "An animation of the most currently available global precipitation data from IMERG.",
+      "release_date": "2015-03-31T12:00:00-04:00",
+      "update_date": "2026-10-29T03:20:37.826053-04:00",
+      "main_image": {
+       "id": 375203,
+       "url": "http://svs.gsfc.nasa.gov/vis/a000000/a004200/a004285/imergert_1080p_30_print.jpg",
+       "filename": "imergert_1080p_30_print.jpg",
+       "media_type": "Image",
+       "alt_text": "The Global Precipitation Measurement (GPM) mission produces NASA's most comprehensive global rain and snowfall product to date, called the Integrated Multi-satellite Retrievals for GPM (IMERG). It is computed using data from the GPM constellation of satellites — a network of international satellites that currently includes the GPM Core Observatory, GCOM-W1, NOAA-18, NOAA-19, DMSP F-16, DMSP F-17, DMSP F-18, Metop-A, and Metop-B. The global IMERG dataset provides precipitation rates for the entire world every 30 minutes. Although the process to create the combined dataset is intensive, the GPM team creates a preliminary, near-real-time dataset of precipitation within several hours of data acquisition. This visualization shows the most currently available precipitation data from IMERG, depicting how rain and snowstorms move around the planet. As scientists work to understand all the elements of Earth's climate and weather systems, and how they could change in the future, GPM provides a major step forward in providing comprehensive and consistent measurements of precipitation for scientists and a wide variety of user communities.",
+       "width": 576,
+       "height": 1024,
+       "pixels": 589824
+      }
+     }
+    },
+    {
+     "id": 413151,
+     "type": "details_page",
+     "extra_data": null,
+     "instance": {
+      "id": 5067,
+      "url": "http://svs.gsfc.nasa.gov/5067/",
+      "page_type": "Visualization",
+      "title": "Earth Observing Fleet - Now",
+      "description": "Visualizations depicting a near-real-time view of NASA fleet of Earth-orbiting satellites.",
+      "release_date": "2023-01-30T00:00:00-05:00",
+      "update_date": "2026-10-28T22:33:54.877217-04:00",
+      "main_image": {
+       "id": 552411,
+       "url": "http://svs.gsfc.nasa.gov/vis/a000000/a005000/a005067/fleet_now_print.jpg",
+       "filename": "fleet_now_print.jpg",
+       "media_type": "Image",
+       "alt_text": "These visualizations show the current orbits of NASA's fleet of Earth observing spacecraft.  Satellite orbits are generated using today's two-line element sets (TLEs).  The still image at the top of the page is updated every 10 minutes.  The video is updated once per day.  \r\n\r\nSpacecraft included:\r\n• Aqua\r\n• Aura\r\n• CALIPSO: Cloud-Aerosol Lidar and Infrared Pathfinder Satellite Observation\r\n• CYGNSS-1: Cyclone Global Navigation Satellite System 1\r\n• CYGNSS-2: Cyclone Global Navigation Satellite System 2\r\n• CYGNSS-3: Cyclone Global Navigation Satellite System 3\r\n• CYGNSS-4: Cyclone Global Navigation Satellite System 4\r\n• CYNGSS-5: Cyclone Global Navigation Satellite System 5\r\n• CYGNSS-7: Cyclone Global Navigation Satellite System 7\r\n• CYGNSS-8: Cyclone Global Navigation Satellite System 8\r\n• Cloudsat\r\n• GPM: Global Precipitation Measurement\r\n• GRACE-FO-1: Gravity Recovery and Climate Experiment Follow On-1\r\n• GRACE-FO-2: Gravity Recovery and Climate Experiment Follow On-2\r\n• ICESat-2\r\n• ISS: International Space Station\r\n• Landsat 8\r\n• Landsat 9\r\n• OCO-2: Orbiting Carbon Observatory-2\r\n• SMAP: Soil Moisture Passive Active\r\n• Suomi NPP: Suomi National Polar-orbiting Partnership\r\n• Sentinel-6 Michael Freilich\r\n• SWOT\r\n• Terra\r\n\r\nThe clouds used in this version are from a high resolution GEOS model run at 10 minute time steps interpolated down to the per-frame level. The timeframe for this model does not match the date in this fleet visualization, so the clouds shown do not represent actual conditions for today.",
+       "width": 1024,
+       "height": 576,
+       "pixels": 589824
+      }
+     }
+    },
+    {
+     "id": 413153,
+     "type": "details_page",
+     "extra_data": null,
+     "instance": {
+      "id": 5113,
+      "url": "http://svs.gsfc.nasa.gov/5113/",
+      "page_type": "Visualization",
+      "title": "Active Fires As Observed by VIIRS, 2024-Present",
+      "description": "This animated visualization uses a moving five-day window of VIIRS measurments of fire radiative power (FRP), to present a view of fire intensities around the globe. || fires_frp_VIIRS.892_print.jpg (1024x512) [71.9 KB] || fires_frp_VIIRS.892_searchweb.png (320x180) [37.8 KB] || fires_frp_VIIRS.892_web.png (320x160) [33.5 KB] || fires_frp_VIIRS.892_thm.png (80x40) [4.3 KB] || fires_frp_VIIRS_2048p30.mp4 (4096x2048) [46.5 MB] || EIC (4096x2048) [824 Item(s)] || VIIRS_fires_latest.exr [7.0 MB] || ",
+      "release_date": "2024-03-01T14:00:00-05:00",
+      "update_date": "2026-10-24T19:30:10.364230-04:00",
+      "main_image": {
+       "id": 856615,
+       "url": "http://svs.gsfc.nasa.gov/vis/a000000/a005100/a005113/fires_frp_VIIRS.001_print.jpg",
+       "filename": "fires_frp_VIIRS.001_print.jpg",
+       "media_type": "Image",
+       "alt_text": "This animated visualization uses a moving five-day window of VIIRS measurments of fire radiative power (FRP), to present a view of fire intensities around the globe.",
+       "width": 1024,
+       "height": 512,
+       "pixels": 524288
+      }
+     }
+    },
+    {
+     "id": 413154,
+     "type": "details_page",
+     "extra_data": null,
+     "instance": {
+      "id": 5101,
+      "url": "http://svs.gsfc.nasa.gov/5101/",
+      "page_type": "Visualization",
+      "title": "Sea Surface Temperature (SST) - Near Real Time",
+      "description": "An equirectangular view of sea surface temperature (SST) data for the past two and half years, updated daily to include the latest available data. || sst_mur_print.jpg (1024x512) [142.4 KB] || sst_mur_searchweb.png (320x180) [78.8 KB] || sst_mur_thm.png (80x40) [6.5 KB] || sst_mur (4096x2048) [0 Item(s)] || sst_30_sec_4096x2048_2x1_30p.mp4 (4096x2048) [78.0 MB] || slide-01.hwshow [504 bytes] ||",
+      "release_date": "2023-05-08T00:00:00-04:00",
+      "update_date": "2026-10-26T14:29:47.801071-04:00",
+      "main_image": {
+       "id": 855015,
+       "url": "http://svs.gsfc.nasa.gov/vis/a000000/a005100/a005101/sst_mur_print.jpg",
+       "filename": "sst_mur_print.jpg",
+       "media_type": "Image",
+       "alt_text": "An equirectangular view of sea surface temperature (SST) data for the past two and half years, updated daily to include the latest available data.  ",
+       "width": 1024,
+       "height": 512,
+       "pixels": 524288
+      }
+     }
+    },
+    {
+     "id": 413155,
+     "type": "details_page",
+     "extra_data": null,
+     "instance": {
+      "id": 5120,
+      "url": "http://svs.gsfc.nasa.gov/5120/",
+      "page_type": "Visualization",
+      "title": "NOAA GOES-East and NOAA GOES-West True Color Imagery Over Past 5 Days",
+      "description": "A true color view of the Earth from GOES-16 (GOES-East) over the past 5 days. || PR_WorldView_geostationary_east_2160x2160_en.00001_print.jpg (1024x1024) [306.7 KB] || PR_WorldView_geostationary_east_2160x2160_en.00001_searchweb.png (320x180) [105.7 KB] || PR_WorldView_geostationary_east_2160x2160_en.00001_thm.png (80x40) [7.5 KB] || east (2160x2160) [0 Item(s)] || PR_WorldView_geostationary_east_2160x2160_en.mp4 (2160x2160) [1.1 GB] ||",
+      "release_date": "2023-06-26T09:00:00-04:00",
+      "update_date": "2026-10-28T23:35:52.632370-04:00",
+      "main_image": {
+       "id": 856333,
+       "url": "http://svs.gsfc.nasa.gov/vis/a000000/a005100/a005120/PR_WorldView_geostationary_east_2160x2160_en.00001_print.jpg",
+       "filename": "PR_WorldView_geostationary_east_2160x2160_en.00001_print.jpg",
+       "media_type": "Image",
+       "alt_text": "A true color view of the Earth from GOES-16 (GOES-East) over the past 5 days.",
+       "width": 1024,
+       "height": 1024,
+       "pixels": 1048576
+      }
+     }
+    },
+    {
+     "id": 413156,
+     "type": "details_page",
+     "extra_data": null,
+     "instance": {
+      "id": 4897,
+      "url": "http://svs.gsfc.nasa.gov/4897/",
+      "page_type": "Visualization",
+      "title": "Seasonal Global Precipitation Variation from the Global Precipitation Measurement Constellation",
+      "description": "An animation of the most recent variation in global precipitation data from IMERG.",
+      "release_date": "2021-04-12T08:00:00-04:00",
+      "update_date": "2026-10-29T01:04:48.605538-04:00",
+      "main_image": {
+       "id": 378441,
+       "url": "http://svs.gsfc.nasa.gov/vis/a000000/a004800/a004897/imergvar_composite_1080p15.00001_print.jpg",
+       "filename": "imergvar_composite_1080p15.00001_print.jpg",
+       "media_type": "Image",
+       "alt_text": "An animation of the most recent variation in global precipitation data from IMERG.",
+       "width": 1024,
+       "height": 576,
+       "pixels": 589824
+      }
+     }
+    },
+    {
+     "id": 413157,
+     "type": "details_page",
+     "extra_data": null,
+     "instance": {
+      "id": 5046,
+      "url": "http://svs.gsfc.nasa.gov/5046/",
+      "page_type": "Visualization",
+      "title": "Daily Arctic Sea Ice, By Year",
+      "description": "Summary",
+      "release_date": "2022-11-28T00:00:00-05:00",
+      "update_date": "2026-04-23T00:14:38.772322-04:00",
+      "main_image": {
+       "id": 552191,
+       "url": "http://svs.gsfc.nasa.gov/vis/a000000/a005000/a005046/arctic_sea_ice_w_dates.2022001_print.jpg",
+       "filename": "arctic_sea_ice_w_dates.2022001_print.jpg",
+       "media_type": "Image",
+       "alt_text": "2022 Arctic daily sea ice with date",
+       "width": 1024,
+       "height": 576,
+       "pixels": 589824
+      }
+     }
+    },
+    {
+     "id": 413158,
+     "type": "details_page",
+     "extra_data": null,
+     "instance": {
+      "id": 5064,
+      "url": "http://svs.gsfc.nasa.gov/5064/",
+      "page_type": "Visualization",
+      "title": "Daily Antarctic Sea Ice, By Year",
+      "description": "Summary",
+      "release_date": "2023-01-17T00:00:00-05:00",
+      "update_date": "2026-01-09T17:07:21.950561-05:00",
+      "main_image": {
+       "id": 765125,
+       "url": "http://svs.gsfc.nasa.gov/vis/a000000/a005000/a005064/antarctic_sea_ice_w_dates.2022001_print.jpg",
+       "filename": "antarctic_sea_ice_w_dates.2022001_print.jpg",
+       "media_type": "Image",
+       "alt_text": "2022 Antarctic daily sea ice with date",
+       "width": 1024,
+       "height": 576,
+       "pixels": 589824
+      }
+     }
+    },
+    {
+     "id": 413159,
+     "type": "details_page",
+     "extra_data": null,
+     "instance": {
+      "id": 5099,
+      "url": "http://svs.gsfc.nasa.gov/5099/",
+      "page_type": "Visualization",
+      "title": "Daily Polar Sea Ice, Two Year History",
+      "description": "Polar daily sea ice, two years' history, with dates || polar_sea_ice_sxs_w_date.2023172_print.jpg (1024x512) [109.3 KB] || polar_sea_ice_sxs_w_date.2023172_searchweb.png (320x180) [76.3 KB] || polar_sea_ice_sxs_w_date.2023172_thm.png (80x40) [6.7 KB] || polar_sea_ice_sxs_w_date_2048p30_h265.mp4 (4096x2048) [39.5 MB] || polar_sea_ice_sxs_w_date_2048p30_h265.webm (4096x2048) [6.2 MB] || w_dates (4320x2160) [0 Item(s)] ||",
+      "release_date": "2023-05-01T00:00:00-04:00",
+      "update_date": "2026-10-24T19:30:15.256576-04:00",
+      "main_image": {
+       "id": 856371,
+       "url": "http://svs.gsfc.nasa.gov/vis/a000000/a005000/a005099/polar_sea_ice_sxs_w_date.2023172_print.jpg",
+       "filename": "polar_sea_ice_sxs_w_date.2023172_print.jpg",
+       "media_type": "Image",
+       "alt_text": "Polar daily sea ice, two years' history, with dates",
+       "width": 1024,
+       "height": 512,
+       "pixels": 524288
+      }
+     }
+    },
+    {
+     "id": 413160,
+     "type": "details_page",
+     "extra_data": null,
+     "instance": {
+      "id": 5072,
+      "url": "http://svs.gsfc.nasa.gov/5072/",
+      "page_type": "Visualization",
+      "title": "Atlantic Hurricane Wind Speed Plots",
+      "description": "Atlantic Hurricane season plot of time vs. wind speed.  This version shows:May through Decembereach year separately || atlantic_may_to_dec.years_001_print.jpg (1024x576) [52.2 KB] || atlantic_may_to_dec.years_001_searchweb.png (320x180) [17.2 KB] || atlantic_may_to_dec.years_001.mp4 (3840x2160) [18.9 MB] || atlantic_may_to_dec.years_001 (3840x2160) [0 Item(s)] || atlantic_may_to_dec.years_001.webm (3840x2160) [4.4 MB] ||",
+      "release_date": "2023-07-10T15:00:00-04:00",
+      "update_date": "2026-10-16T16:08:45.605180-04:00",
+      "main_image": {
+       "id": 764822,
+       "url": "http://svs.gsfc.nasa.gov/vis/a000000/a005000/a005072/atlantic_jan_to_dec.years_001_print.jpg",
+       "filename": "atlantic_jan_to_dec.years_001_print.jpg",
+       "media_type": "Image",
+       "alt_text": "Atlantic Hurricane season plot of time vs. wind speed.  This version shows:   •  January through December   • each year separately",
+       "width": 1024,
+       "height": 576,
+       "pixels": 589824
+      }
+     }
+    },
+    {
+     "id": 413161,
+     "type": "details_page",
+     "extra_data": null,
+     "instance": {
+      "id": 5153,
+      "url": "http://svs.gsfc.nasa.gov/5153/",
+      "page_type": "Visualization",
+      "title": "Carbon Monoxide (CO)",
+      "description": "Near surface concentration of carbon monoxide (CO) estimated by NASA’s GEOS-CF model.",
+      "release_date": "2023-09-26T17:00:00-04:00",
+      "update_date": "2026-10-29T02:17:53.626920-04:00",
+      "main_image": {
+       "id": 858352,
+       "url": "http://svs.gsfc.nasa.gov/vis/a000000/a005100/a005153/MC03_stage4_GMAO_CO_2048x1024_en.00001_print.jpg",
+       "filename": "MC03_stage4_GMAO_CO_2048x1024_en.00001_print.jpg",
+       "media_type": "Image",
+       "alt_text": "Near surface concentration of carbon monoxide (CO) estimated by NASA’s GEOS-CF model.",
+       "width": 1024,
+       "height": 512,
+       "pixels": 524288
+      }
+     }
+    },
+    {
+     "id": 413162,
+     "type": "details_page",
+     "extra_data": null,
+     "instance": {
+      "id": 5154,
+      "url": "http://svs.gsfc.nasa.gov/5154/",
+      "page_type": "Visualization",
+      "title": "Nitrogen Oxides (NOx)",
+      "description": "Near surface concentration of Nitrogen Oxides (NOx) estimated from concentrations of nitrogen oxide and nitrogen dioxide produced by  NASA’s GEOS-CF model.",
+      "release_date": "2023-09-26T17:00:00-04:00",
+      "update_date": "2026-10-29T02:20:14.080620-04:00",
+      "main_image": {
+       "id": 858357,
+       "url": "http://svs.gsfc.nasa.gov/vis/a000000/a005100/a005154/MC04_stage4_GMAO_NO2_2048x1024_en.00001_print.jpg",
+       "filename": "MC04_stage4_GMAO_NO2_2048x1024_en.00001_print.jpg",
+       "media_type": "Image",
+       "alt_text": "Near surface concentration of Nitrogen Oxides (NOx) estimated from concentrations of nitrogen oxide and nitrogen dioxide produced by NASA’s GEOS-CF model.",
+       "width": 1024,
+       "height": 512,
+       "pixels": 524288
+      }
+     }
+    },
+    {
+     "id": 413163,
+     "type": "details_page",
+     "extra_data": null,
+     "instance": {
+      "id": 5152,
+      "url": "http://svs.gsfc.nasa.gov/5152/",
+      "page_type": "Visualization",
+      "title": "Near surface Ozone (O3)",
+      "description": "Near surface concentration of ozone (O3) estimated by NASA’s GEOS-CF model.",
+      "release_date": "2023-09-26T17:00:00-04:00",
+      "update_date": "2026-10-29T02:17:48.063240-04:00",
+      "main_image": {
+       "id": 858348,
+       "url": "http://svs.gsfc.nasa.gov/vis/a000000/a005100/a005152/MC02_stage4_GMAO_O3_2048x1024_en.00001_print.jpg",
+       "filename": "MC02_stage4_GMAO_O3_2048x1024_en.00001_print.jpg",
+       "media_type": "Image",
+       "alt_text": "Near surface concentration of ozone (O3) estimated by NASA’s GEOS-CF model.",
+       "width": 1024,
+       "height": 512,
+       "pixels": 524288
+      }
+     }
+    },
+    {
+     "id": 413164,
+     "type": "details_page",
+     "extra_data": null,
+     "instance": {
+      "id": 5151,
+      "url": "http://svs.gsfc.nasa.gov/5151/",
+      "page_type": "Visualization",
+      "title": "Particulate Matter (PM) 2.5",
+      "description": "Near surface concentration of fine particular matter (PM2.5) estimated from NASA’s aerosol and weather fields produced by NASA’s GEOS-CF model.",
+      "release_date": "2023-09-26T17:00:00-04:00",
+      "update_date": "2026-10-29T02:17:42.960329-04:00",
+      "main_image": {
+       "id": 858344,
+       "url": "http://svs.gsfc.nasa.gov/vis/a000000/a005100/a005151/MC01_stage4_GMAO_pm25_2048x1024_en.00001_print.jpg",
+       "filename": "MC01_stage4_GMAO_pm25_2048x1024_en.00001_print.jpg",
+       "media_type": "Image",
+       "alt_text": "Near surface concentration of fine particular matter (PM2.5) estimated from NASA’s aerosol and weather fields produced by NASA’s GEOS-CF model.",
+       "width": 1024,
+       "height": 512,
+       "pixels": 524288
+      }
+     }
+    },
+    {
+     "id": 413165,
+     "type": "details_page",
+     "extra_data": null,
+     "instance": {
+      "id": 5150,
+      "url": "http://svs.gsfc.nasa.gov/5150/",
+      "page_type": "Visualization",
+      "title": "GEOS-FP Near-Surface Humidity",
+      "description": "Near-surface Humidity, also known as specific humidity (Q2M) from NASA’s GEOS-FP system. GEOS-FP combines millions of weather observations with a predictive model to create a global best estimate of weather conditions that are used to begin a forecast.",
+      "release_date": "2023-09-26T17:00:00-04:00",
+      "update_date": "2026-10-29T02:17:37.697667-04:00",
+      "main_image": {
+       "id": 1202189,
+       "url": "http://svs.gsfc.nasa.gov/vis/a000000/a005100/a005150/MC04_stage3_GMAO_near_surface_humidity_2048x1024.png",
+       "filename": "MC04_stage3_GMAO_near_surface_humidity_2048x1024.png",
+       "media_type": "Image",
+       "alt_text": "",
+       "width": 2048,
+       "height": 1024,
+       "pixels": 2097152
+      }
+     }
+    },
+    {
+     "id": 413166,
+     "type": "details_page",
+     "extra_data": null,
+     "instance": {
+      "id": 5149,
+      "url": "http://svs.gsfc.nasa.gov/5149/",
+      "page_type": "Visualization",
+      "title": "GEOS-FP Precipitation and Clouds",
+      "description": "Precipitation and clouds are calculated using fields from NASA’s GEOS-FP system. GEOS-FP combines millions of weather observations with a predictive model to create a global best estimate of weather conditions, which can be used to estimate the formation of clouds along with rain and snowfall.",
+      "release_date": "2023-09-26T17:00:00-04:00",
+      "update_date": "2026-10-29T02:32:15.913492-04:00",
+      "main_image": {
+       "id": 858332,
+       "url": "http://svs.gsfc.nasa.gov/vis/a000000/a005100/a005149/MC03_stage3_GMAO_precipitation_2048x1024_en.00001_print.jpg",
+       "filename": "MC03_stage3_GMAO_precipitation_2048x1024_en.00001_print.jpg",
+       "media_type": "Image",
+       "alt_text": "Precipitation and clouds are calculated using fields from NASA’s GEOS-FP system. GEOS-FP combines millions of weather observations with a predictive model to create a global best estimate of weather conditions, which can be used to estimate the formation of clouds along with rain and snowfall.",
+       "width": 1024,
+       "height": 512,
+       "pixels": 524288
+      }
+     }
+    },
+    {
+     "id": 413167,
+     "type": "details_page",
+     "extra_data": null,
+     "instance": {
+      "id": 5148,
+      "url": "http://svs.gsfc.nasa.gov/5148/",
+      "page_type": "Visualization",
+      "title": "GEOS-FP Near-Surface Wind Speed",
+      "description": "Near-surface wind speed is calculated by sampling 3-D atmospheric fields from NASA’s GEOS-FP system 10 meters above Earth’s surface. GEOS-FP combines millions of weather observations with a predictive model to create a global best estimate of weather conditions that are used to begin a forecast.",
+      "release_date": "2023-09-26T17:00:00-04:00",
+      "update_date": "2026-10-29T02:31:30.439637-04:00",
+      "main_image": {
+       "id": 858325,
+       "url": "http://svs.gsfc.nasa.gov/vis/a000000/a005100/a005148/MC02_stage3_GMAO_near_surface_wind_2048x1024_en.00001_print.jpg",
+       "filename": "MC02_stage3_GMAO_near_surface_wind_2048x1024_en.00001_print.jpg",
+       "media_type": "Image",
+       "alt_text": "Near-surface wind speed is calculated by sampling 3-D atmospheric fields from NASA’s GEOS-FP system 10 meters above Earth’s surface. GEOS-FP combines millions of weather observations with a predictive model to create a global best estimate of weather conditions that are used to begin a forecast.",
+       "width": 1024,
+       "height": 512,
+       "pixels": 524288
+      }
+     }
+    },
+    {
+     "id": 413168,
+     "type": "details_page",
+     "extra_data": null,
+     "instance": {
+      "id": 5147,
+      "url": "http://svs.gsfc.nasa.gov/5147/",
+      "page_type": "Visualization",
+      "title": "GEOS-FP Near-Surface Temperature",
+      "description": "Near-surface temperature is calculated by sampling 3-D atmospheric fields from NASA’s GEOS-FP system 3 meters above Earth’s surface. GEOS-FP combines millions of weather observations with a predictive model to create a global best estimate of weather conditions that are used to begin a forecast.",
+      "release_date": "2023-09-26T17:00:00-04:00",
+      "update_date": "2026-10-29T02:30:44.934420-04:00",
+      "main_image": {
+       "id": 858328,
+       "url": "http://svs.gsfc.nasa.gov/vis/a000000/a005100/a005147/MC01_stage3_GMAO_near_surface_temperature_2048x1024_en.00001_print.jpg",
+       "filename": "MC01_stage3_GMAO_near_surface_temperature_2048x1024_en.00001_print.jpg",
+       "media_type": "Image",
+       "alt_text": "Near surface temperature is calculated by sampling 3-D atmospheric fields from NASA’s GEOS-FP system 3 meters above Earth’s surface. GEOS-FP combines millions of weather observations with a predictive model to create a global best estimate of weather conditions that are used to begin a forecast.",
+       "width": 1024,
+       "height": 512,
+       "pixels": 524288
+      }
+     }
+    },
+    {
+     "id": 488067,
+     "type": "details_page",
+     "extra_data": null,
+     "instance": {
+      "id": 5176,
+      "url": "http://svs.gsfc.nasa.gov/5176/",
+      "page_type": "Visualization",
+      "title": "Sea Surface Temperature (SST) Anomaly - Near Real Time",
+      "description": "An equirectangular view of sea surface temperature (SST) anomaly data for the past two and half years, updated daily to include the latest available data. || sst_mur_anomaly_print.jpg (1024x512) [246.1 KB] || sst_mur_anomaly_searchweb.png (320x180) [101.7 KB] || sst_mur_anomaly_20231014_thm.png (80x40) [7.4 KB] || sst_mur_anomaly (4096x2048) [0 Item(s)] || sst_anomaly_30_sec_4096x2048_2x1_30p.mp4 (4096x2048) [338.0 MB] ||",
+      "release_date": "2023-10-16T00:00:00-04:00",
+      "update_date": "2026-10-24T19:30:16.572743-04:00",
+      "main_image": {
+       "id": 859956,
+       "url": "http://svs.gsfc.nasa.gov/vis/a000000/a005100/a005176/sst_mur_anomaly_print.jpg",
+       "filename": "sst_mur_anomaly_print.jpg",
+       "media_type": "Image",
+       "alt_text": "An equirectangular view of sea surface temperature (SST) anomaly data for the past two and half years, updated daily to include the latest available data.",
+       "width": 1024,
+       "height": 512,
+       "pixels": 524288
+      }
+     }
+    },
+    {
+     "id": 488068,
+     "type": "details_page",
+     "extra_data": null,
+     "instance": {
+      "id": 5315,
+      "url": "http://svs.gsfc.nasa.gov/5315/",
+      "page_type": "Visualization",
+      "title": "Daily Experimental Fire Weather Forecast",
+      "description": "Summary",
+      "release_date": "2024-06-20T00:00:00-04:00",
+      "update_date": "2026-10-29T02:17:52.053698-04:00",
+      "main_image": {
+       "id": 1094993,
+       "url": "http://svs.gsfc.nasa.gov/vis/a000000/a005300/a005315/FWI_forecast_latest.png",
+       "filename": "FWI_forecast_latest.png",
+       "media_type": "Image",
+       "alt_text": "Daily experimental fire weather forecast for the current day. For this visualization, we are using the following ranges: Very Low: 70.0",
+       "width": 2160,
+       "height": 1080,
+       "pixels": 2332800
+      }
+     }
+    },
+    {
+     "id": 503470,
+     "type": "details_page",
+     "extra_data": null,
+     "instance": {
+      "id": 5584,
+      "url": "http://svs.gsfc.nasa.gov/5584/",
+      "page_type": "Visualization",
+      "title": "Daily Global Landslide Exposure Map",
+      "description": "This daily map shows results from the Landslide Hazard Assessment for Situational Awareness (LHASA) model, helping users identify areas where landslides may occur.",
+      "release_date": "2025-09-30T16:40:00-04:00",
+      "update_date": "2026-01-07T16:31:09.214597-05:00",
+      "main_image": {
+       "id": 1158687,
+       "url": "http://svs.gsfc.nasa.gov/vis/a000000/a005500/a005584/landslides_daily.png",
+       "filename": "landslides_daily.png",
+       "media_type": "Image",
+       "alt_text": "Global landslide risk assessment map with color-coded hazard levels ranging from red (very high risk) to yellow (low risk). Red areas indicate the highest landslide risk, orange shows elevated risk, and yellow represents low risk areas.",
+       "width": 2048,
+       "height": 1024,
+       "pixels": 2097152
+      }
+     }
+    },
+    {
+     "id": 503813,
+     "type": "details_page",
+     "extra_data": null,
+     "instance": {
+      "id": 5544,
+      "url": "http://svs.gsfc.nasa.gov/5544/",
+      "page_type": "Visualization",
+      "title": "Near Real-Time Normalized Difference Vegetation Index (NDVI)",
+      "description": "NRT NDVI",
+      "release_date": "2025-09-22T18:59:59-04:00",
+      "update_date": "2026-10-28T06:06:37.805502-04:00",
+      "main_image": {
+       "id": 1155429,
+       "url": "http://svs.gsfc.nasa.gov/vis/a000000/a005500/a005544/nrtndvi_equi_print.jpg",
+       "filename": "nrtndvi_equi_print.jpg",
+       "media_type": "Image",
+       "alt_text": "",
+       "width": 1024,
+       "height": 512,
+       "pixels": 524288
+      }
+     }
+    },
+    {
+     "id": 523430,
+     "type": "details_page",
+     "extra_data": null,
+     "instance": {
+      "id": 5577,
+      "url": "http://svs.gsfc.nasa.gov/5577/",
+      "page_type": "Animation",
+      "title": "SDO Sun This Week",
+      "description": "This visualization shows SDO AIA-304 imagery from the past 7 days with a color table and image processing applied. Archive folders are provided in the Download menu.",
+      "release_date": "2025-11-20T09:00:00-05:00",
+      "update_date": "2026-08-28T13:17:24.723400-04:00",
+      "main_image": {
+       "id": 1159777,
+       "url": "http://svs.gsfc.nasa.gov/vis/a000000/a005500/a005577/2025_11_11__10_04_09_342__SDO_AIA_AIA_171_thumb.jpg",
+       "filename": "2025_11_11__10_04_09_342__SDO_AIA_AIA_171_thumb.jpg",
+       "media_type": "Image",
+       "alt_text": "Video of the Sun from the SDO telescope.",
+       "width": 1080,
+       "height": 1080,
+       "pixels": 1166400
+      }
+     }
+    }
+   ],
+   "extra_data": {}
+  }
+ ]
+}

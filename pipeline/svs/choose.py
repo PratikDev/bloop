@@ -11,7 +11,7 @@ A record with no 2:1 frame set also looks at its alternate versions (5533 → 55
 import re
 from .config import DOCS_OFFICIAL
 
-BAR_RX = re.compile(r"colou?rbar|cbar|legend|_bar[\W_]|_key[\W_]", re.I)
+BAR_RX = re.compile(r"colou?rbar|cbar|legend|_bar[\W_]|_key[\W_]|(?:rain|snow)bar", re.I)
 DIRTY_RX = re.compile(r"label|colou?rbar|_comp\b|comp[._]|with_", re.I)
 MAX_W = 4096
 

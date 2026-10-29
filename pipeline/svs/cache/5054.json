@@ -1,0 +1,365 @@
+{
+ "id": 5054,
+ "title": "Methane Emissions from Wetlands",
+ "url": "https://svs.gsfc.nasa.gov/5054/",
+ "page_type": "Visualization",
+ "release_date": "2022-12-14T13:00:00-05:00",
+ "update_date": "2025-01-06T00:29:57.154157-05:00",
+ "description": "Methane is an important greenhouse gas that’s contributed to around one third of global warming. About a third of total methane emissions comes from wetlands. Wetland habitats are filled with things like waterlogged soils and permafrost, which is what makes them sizable carbon sinks. But as a warming climate causes wetland soils to warm or flood, carbon is released into the atmosphere as methane. || wetlands.jpg (875x488) [108.8 KB] || MethaneWetalndsFinal.mp4 (1920x1080) [74.1 MB] || MethaneWetalndsFinal.webm (1920x1080) [14.8 MB] || Sound_otter_ai.en_US.srt [2.5 KB] || Sound_otter_ai.en_US.vtt [2.5 KB] || MethaneWetalndsFinal.mp4.hwshow [408 bytes] || ",
+ "full_text": "Methane is an important greenhouse gas that’s contributed to around one third of global warming. About a third of total methane emissions comes from wetlands. Wetland habitats are filled with things like waterlogged soils and permafrost, which is what makes them sizable carbon sinks. But as a warming climate causes wetland soils to warm or flood, carbon is released into the atmosphere as methane. || wetlands.jpg (875x488) [108.8 KB] || MethaneWetalndsFinal.mp4 (1920x1080) [74.1 MB] || MethaneWetalndsFinal.webm (1920x1080) [14.8 MB] || Sound_otter_ai.en_US.srt [2.5 KB] || Sound_otter_ai.en_US.vtt [2.5 KB] || MethaneWetalndsFinal.mp4.hwshow [408 bytes] ||\n\nMethane is an important greenhouse gas that’s contributed to around one third of global warming. About a third of total methane emissions comes from wetlands. Wetland habitats are filled with things like waterlogged soils and permafrost, which is what makes them sizable carbon sinks. But as a warming climate causes wetland soils to warm or flood, carbon is released into the atmosphere as methane.\n\n<br>Methane is an important greenhouse gas that contributes substantially to global warming. On a molecule by molecule basis, methane is much more efficient at trapping heat than carbon dioxide, the main driver of warming. Though human activities, including agriculture, oil and natural gas production and use, and waste disposal, collectively contribute the majority of methane to the atmosphere, about a third of total methane emissions comes from wetlands. Wetland habitats are filled with things like waterlogged soils and permafrost, which makes them sizable carbon sinks. However, as the climate changes, these carbon-rich soils are vulnerable to flooding and to rising temperatures, which can release more carbon to the atmosphere in the form or methane. Understanding methane emissions from natural sources like wetlands is critically important to scientists and policymakers who are working to ensure that changes in natural systems don’t counteract progress in combatting climate change made by reducing emissions from human activities.\r<br>\r<br>This animation shows estimates of wetland methane emissions produced by the Lund–Potsdam–Jena Dynamic Global Vegetation Model (LPJ-DGVM) Wald Schnee und Landscaft version (LPJ-wsl). LPJ-wsl is a prognostic model, meaning that it can be used to simulate future changes in wetland emissions and independently verified with remote sensing data products. The model includes a complex, topography dependent model of near surface hydrology, and a permafrost and dynamic snow model, allowing it to produce realistic distributions of inundated area. Highlighted areas show concentrated methane sources from tropical and high latitude ecosystems. The LPJ-wsl model is regularly used in conjunction with NASA’s GEOS model to simulate the impact of wetlands and other methane sources on atmospheric methane concentrations, compare against satellite and airborne data, and to improve understanding and prediction of wetland emissions.\n\nMethane emissions from wetlands for the years 1980-2021with significant wetlands highlighted.\n\nMethane emissions from wetlands for the years 1980-2021.\n\nMethane emissions from wetlands for the years 1980-2021. This version excludes title, date labels, and colorbar.\n\nMethane emissions from wetlands for the years 1980-2021 mapped to a sphere.\n\nMethane emissions from wetlands for the years 1980-2021 mapped to a sphere with dates and colorbar.",
+ "credits_by_role": {
+  "Visualizer": [
+   "Mark SubbaRao (NASA/GSFC)"
+  ],
+  "Producer": [
+   "Kathleen Gaeta (Advocates in Manpower Management, Inc.)"
+  ],
+  "Scientist": [
+   "Lesley Ott (NASA/GSFC)",
+   "Benjamin Poulter (NASA/GSFC)"
+  ],
+  "Technical support": [
+   "Laurence Schuler (ADNET Systems, Inc.)",
+   "Ian Jones (ADNET Systems, Inc.)"
+  ],
+  "Web developer": [
+   "Ella Kaplan (Global Science and Technology, Inc.)"
+  ]
+ },
+ "keywords": [
+  "Biosphere",
+  "Climate Change",
+  "Earth Science",
+  "Greenhouse Gases",
+  "Hyperwall",
+  "Methane",
+  "wetlands"
+ ],
+ "datasets": [],
+ "missions": [],
+ "related": [
+  {
+   "id": 5118,
+   "title": "Trends in atmospheric Methane (CH₄)",
+   "url": "https://svs.gsfc.nasa.gov/5118/"
+  },
+  {
+   "id": 5116,
+   "title": "Global Atmospheric Methane (CH₄)",
+   "url": "https://svs.gsfc.nasa.gov/5116/"
+  },
+  {
+   "id": 14257,
+   "title": "Methane Emissions from Wetlands",
+   "url": "https://svs.gsfc.nasa.gov/14257/"
+  }
+ ],
+ "alternate_versions": [],
+ "newer_versions": [],
+ "older_versions": [],
+ "media": [
+  {
+   "group": 0,
+   "group_title": "",
+   "widget": "Video player",
+   "caption": "",
+   "group_text": "Methane is an important greenhouse gas that’s contributed to around one third of global warming. About a third of total methane emissions comes from wetlands. Wetland habitats are filled with things like waterlogged soils and permafrost, which is what makes them sizable carbon sinks. But as a warming climate causes wetland soils to warm or flood, carbon is released into the atmosphere as methane.",
+   "url": "https://svs.gsfc.nasa.gov/vis/a000000/a005000/a005054/wetlands.jpg",
+   "filename": "wetlands.jpg",
+   "media_type": "Image",
+   "width": 875,
+   "height": 488,
+   "alt_text": "Methane is an important greenhouse gas that’s contributed to around one third of global warming. About a third of total methane emissions comes from wetlands. Wetland habitats are filled with things like waterlogged soils and permafrost, which is what makes them sizable carbon sinks. But as a warming climate causes wetland soils to warm or flood, carbon is released into the atmosphere as methane."
+  },
+  {
+   "group": 0,
+   "group_title": "",
+   "widget": "Video player",
+   "caption": "",
+   "group_text": "Methane is an important greenhouse gas that’s contributed to around one third of global warming. About a third of total methane emissions comes from wetlands. Wetland habitats are filled with things like waterlogged soils and permafrost, which is what makes them sizable carbon sinks. But as a warming climate causes wetland soils to warm or flood, carbon is released into the atmosphere as methane.",
+   "url": "https://svs.gsfc.nasa.gov/vis/a000000/a005000/a005054/MethaneWetalndsFinal.mp4",
+   "filename": "MethaneWetalndsFinal.mp4",
+   "media_type": "Movie",
+   "width": 1920,
+   "height": 1080,
+   "alt_text": "Methane is an important greenhouse gas that’s contributed to around one third of global warming. About a third of total methane emissions comes from wetlands. Wetland habitats are filled with things like waterlogged soils and permafrost, which is what makes them sizable carbon sinks. But as a warming climate causes wetland soils to warm or flood, carbon is released into the atmosphere as methane."
+  },
+  {
+   "group": 0,
+   "group_title": "",
+   "widget": "Video player",
+   "caption": "",
+   "group_text": "Methane is an important greenhouse gas that’s contributed to around one third of global warming. About a third of total methane emissions comes from wetlands. Wetland habitats are filled with things like waterlogged soils and permafrost, which is what makes them sizable carbon sinks. But as a warming climate causes wetland soils to warm or flood, carbon is released into the atmosphere as methane.",
+   "url": "https://svs.gsfc.nasa.gov/vis/a000000/a005000/a005054/MethaneWetalndsFinal.webm",
+   "filename": "MethaneWetalndsFinal.webm",
+   "media_type": "Movie",
+   "width": 1920,
+   "height": 1080,
+   "alt_text": "Methane is an important greenhouse gas that’s contributed to around one third of global warming. About a third of total methane emissions comes from wetlands. Wetland habitats are filled with things like waterlogged soils and permafrost, which is what makes them sizable carbon sinks. But as a warming climate causes wetland soils to warm or flood, carbon is released into the atmosphere as methane."
+  },
+  {
+   "group": 0,
+   "group_title": "",
+   "widget": "Video player",
+   "caption": "",
+   "group_text": "Methane is an important greenhouse gas that’s contributed to around one third of global warming. About a third of total methane emissions comes from wetlands. Wetland habitats are filled with things like waterlogged soils and permafrost, which is what makes them sizable carbon sinks. But as a warming climate causes wetland soils to warm or flood, carbon is released into the atmosphere as methane.",
+   "url": "https://svs.gsfc.nasa.gov/vis/a000000/a005000/a005054/Sound_otter_ai.en_US.srt",
+   "filename": "Sound_otter_ai.en_US.srt",
+   "media_type": "Captions",
+   "width": 0,
+   "height": 0,
+   "alt_text": "Methane is an important greenhouse gas that’s contributed to around one third of global warming. About a third of total methane emissions comes from wetlands. Wetland habitats are filled with things like waterlogged soils and permafrost, which is what makes them sizable carbon sinks. But as a warming climate causes wetland soils to warm or flood, carbon is released into the atmosphere as methane."
+  },
+  {
+   "group": 0,
+   "group_title": "",
+   "widget": "Video player",
+   "caption": "",
+   "group_text": "Methane is an important greenhouse gas that’s contributed to around one third of global warming. About a third of total methane emissions comes from wetlands. Wetland habitats are filled with things like waterlogged soils and permafrost, which is what makes them sizable carbon sinks. But as a warming climate causes wetland soils to warm or flood, carbon is released into the atmosphere as methane.",
+   "url": "https://svs.gsfc.nasa.gov/vis/a000000/a005000/a005054/Sound_otter_ai.en_US.vtt",
+   "filename": "Sound_otter_ai.en_US.vtt",
+   "media_type": "Captions",
+   "width": 0,
+   "height": 0,
+   "alt_text": "Methane is an important greenhouse gas that’s contributed to around one third of global warming. About a third of total methane emissions comes from wetlands. Wetland habitats are filled with things like waterlogged soils and permafrost, which is what makes them sizable carbon sinks. But as a warming climate causes wetland soils to warm or flood, carbon is released into the atmosphere as methane."
+  },
+  {
+   "group": 0,
+   "group_title": "",
+   "widget": "Video player",
+   "caption": "",
+   "group_text": "Methane is an important greenhouse gas that’s contributed to around one third of global warming. About a third of total methane emissions comes from wetlands. Wetland habitats are filled with things like waterlogged soils and permafrost, which is what makes them sizable carbon sinks. But as a warming climate causes wetland soils to warm or flood, carbon is released into the atmosphere as methane.",
+   "url": "https://svs.gsfc.nasa.gov/vis/a000000/a005000/a005054/MethaneWetalndsFinal.mp4.hwshow",
+   "filename": "MethaneWetalndsFinal.mp4.hwshow",
+   "media_type": "HyperwallShow",
+   "width": 0,
+   "height": 0,
+   "alt_text": ""
+  },
+  {
+   "group": 2,
+   "group_title": "",
+   "widget": "Video player",
+   "caption": "",
+   "group_text": "Methane emissions from wetlands for the years 1980-2021with significant wetlands highlighted.",
+   "url": "https://svs.gsfc.nasa.gov/vis/a000000/a005000/a005054/ch4_wetlands.01500_print.jpg",
+   "filename": "ch4_wetlands.01500_print.jpg",
+   "media_type": "Image",
+   "width": 1024,
+   "height": 576,
+   "alt_text": "Methane emissions from wetlands for the years 1980-2021with significant wetlands highlighted."
+  },
+  {
+   "group": 2,
+   "group_title": "",
+   "widget": "Video player",
+   "caption": "",
+   "group_text": "Methane emissions from wetlands for the years 1980-2021with significant wetlands highlighted.",
+   "url": "https://svs.gsfc.nasa.gov/vis/a000000/a005000/a005054/ch4_wetlands.01500_searchweb.png",
+   "filename": "ch4_wetlands.01500_searchweb.png",
+   "media_type": "Image",
+   "width": 180,
+   "height": 320,
+   "alt_text": "Methane emissions from wetlands for the years 1980-2021with significant wetlands highlighted."
+  },
+  {
+   "group": 2,
+   "group_title": "",
+   "widget": "Video player",
+   "caption": "",
+   "group_text": "Methane emissions from wetlands for the years 1980-2021with significant wetlands highlighted.",
+   "url": "https://svs.gsfc.nasa.gov/vis/a000000/a005000/a005054/ch4_wetlands.01500_thm.png",
+   "filename": "ch4_wetlands.01500_thm.png",
+   "media_type": "Image",
+   "width": 80,
+   "height": 40,
+   "alt_text": "Methane emissions from wetlands for the years 1980-2021with significant wetlands highlighted."
+  },
+  {
+   "group": 2,
+   "group_title": "",
+   "widget": "Video player",
+   "caption": "",
+   "group_text": "Methane emissions from wetlands for the years 1980-2021with significant wetlands highlighted.",
+   "url": "https://svs.gsfc.nasa.gov/vis/a000000/a005000/a005054/ch4_wetlands.webm",
+   "filename": "ch4_wetlands.webm",
+   "media_type": "Movie",
+   "width": 3840,
+   "height": 2160,
+   "alt_text": "Methane emissions from wetlands for the years 1980-2021with significant wetlands highlighted."
+  },
+  {
+   "group": 2,
+   "group_title": "",
+   "widget": "Video player",
+   "caption": "",
+   "group_text": "Methane emissions from wetlands for the years 1980-2021with significant wetlands highlighted.",
+   "url": "https://svs.gsfc.nasa.gov/vis/a000000/a005000/a005054/ch4_wetlands.mp4",
+   "filename": "ch4_wetlands.mp4",
+   "media_type": "Movie",
+   "width": 3840,
+   "height": 2160,
+   "alt_text": "Methane emissions from wetlands for the years 1980-2021with significant wetlands highlighted."
+  },
+  {
+   "group": 3,
+   "group_title": "",
+   "widget": "Video player",
+   "caption": "",
+   "group_text": "Methane emissions from wetlands for the years 1980-2021.",
+   "url": "https://svs.gsfc.nasa.gov/vis/a000000/a005000/a005054/ch4_wetlands_nolabels.00001_print.jpg",
+   "filename": "ch4_wetlands_nolabels.00001_print.jpg",
+   "media_type": "Image",
+   "width": 1024,
+   "height": 576,
+   "alt_text": "Methane emissions from wetlands for the years 1980-2021."
+  },
+  {
+   "group": 3,
+   "group_title": "",
+   "widget": "Video player",
+   "caption": "",
+   "group_text": "Methane emissions from wetlands for the years 1980-2021.",
+   "url": "https://svs.gsfc.nasa.gov/vis/a000000/a005000/a005054/ch4_wetlands_nolabels.webm",
+   "filename": "ch4_wetlands_nolabels.webm",
+   "media_type": "Movie",
+   "width": 3840,
+   "height": 2160,
+   "alt_text": "Methane emissions from wetlands for the years 1980-2021."
+  },
+  {
+   "group": 3,
+   "group_title": "",
+   "widget": "Video player",
+   "caption": "",
+   "group_text": "Methane emissions from wetlands for the years 1980-2021.",
+   "url": "https://svs.gsfc.nasa.gov/vis/a000000/a005000/a005054/ch4_wetlands_nolabels.mp4",
+   "filename": "ch4_wetlands_nolabels.mp4",
+   "media_type": "Movie",
+   "width": 3840,
+   "height": 2160,
+   "alt_text": "Methane emissions from wetlands for the years 1980-2021."
+  },
+  {
+   "group": 4,
+   "group_title": "",
+   "widget": "Video player",
+   "caption": "",
+   "group_text": "Methane emissions from wetlands for the years 1980-2021. This version excludes title, date labels, and colorbar.",
+   "url": "https://svs.gsfc.nasa.gov/vis/a000000/a005000/a005054/ch4_wetlands_maponly.00001_print.jpg",
+   "filename": "ch4_wetlands_maponly.00001_print.jpg",
+   "media_type": "Image",
+   "width": 1024,
+   "height": 576,
+   "alt_text": "Methane emissions from wetlands for the years 1980-2021. This version excludes title, date labels, and colorbar."
+  },
+  {
+   "group": 4,
+   "group_title": "",
+   "widget": "Video player",
+   "caption": "",
+   "group_text": "Methane emissions from wetlands for the years 1980-2021. This version excludes title, date labels, and colorbar.",
+   "url": "https://svs.gsfc.nasa.gov/vis/a000000/a005000/a005054/ch4_wetlands_maponly.webm",
+   "filename": "ch4_wetlands_maponly.webm",
+   "media_type": "Movie",
+   "width": 3840,
+   "height": 2160,
+   "alt_text": "Methane emissions from wetlands for the years 1980-2021. This version excludes title, date labels, and colorbar."
+  },
+  {
+   "group": 4,
+   "group_title": "",
+   "widget": "Video player",
+   "caption": "",
+   "group_text": "Methane emissions from wetlands for the years 1980-2021. This version excludes title, date labels, and colorbar.",
+   "url": "https://svs.gsfc.nasa.gov/vis/a000000/a005000/a005054/ch4_wetlands_maponly.mp4",
+   "filename": "ch4_wetlands_maponly.mp4",
+   "media_type": "Movie",
+   "width": 3840,
+   "height": 2160,
+   "alt_text": "Methane emissions from wetlands for the years 1980-2021. This version excludes title, date labels, and colorbar."
+  },
+  {
+   "group": 5,
+   "group_title": "",
+   "widget": "Video player",
+   "caption": "",
+   "group_text": "Methane emissions from wetlands for the years 1980-2021 mapped to a sphere.",
+   "url": "https://svs.gsfc.nasa.gov/vis/a000000/a005000/a005054/CH4sphere.00001_print.jpg",
+   "filename": "CH4sphere.00001_print.jpg",
+   "media_type": "Image",
+   "width": 1024,
+   "height": 1024,
+   "alt_text": "Methane emissions from wetlands for the years 1980-2021 mapped to a sphere."
+  },
+  {
+   "group": 5,
+   "group_title": "",
+   "widget": "Video player",
+   "caption": "",
+   "group_text": "Methane emissions from wetlands for the years 1980-2021 mapped to a sphere.",
+   "url": "https://svs.gsfc.nasa.gov/vis/a000000/a005000/a005054/CH4sphere.mp4",
+   "filename": "CH4sphere.mp4",
+   "media_type": "Movie",
+   "width": 2160,
+   "height": 2160,
+   "alt_text": "Methane emissions from wetlands for the years 1980-2021 mapped to a sphere."
+  },
+  {
+   "group": 5,
+   "group_title": "",
+   "widget": "Video player",
+   "caption": "",
+   "group_text": "Methane emissions from wetlands for the years 1980-2021 mapped to a sphere.",
+   "url": "https://svs.gsfc.nasa.gov/vis/a000000/a005000/a005054/CH4sphere.webm",
+   "filename": "CH4sphere.webm",
+   "media_type": "Movie",
+   "width": 2160,
+   "height": 2160,
+   "alt_text": "Methane emissions from wetlands for the years 1980-2021 mapped to a sphere."
+  },
+  {
+   "group": 6,
+   "group_title": "",
+   "widget": "Video player",
+   "caption": "",
+   "group_text": "Methane emissions from wetlands for the years 1980-2021 mapped to a sphere with dates and colorbar.",
+   "url": "https://svs.gsfc.nasa.gov/vis/a000000/a005000/a005054/CH4vert2.00001_print.jpg",
+   "filename": "CH4vert2.00001_print.jpg",
+   "media_type": "Image",
+   "width": 1024,
+   "height": 1820,
+   "alt_text": "Methane emissions from wetlands for the years 1980-2021 mapped to a sphere with dates and colorbar."
+  },
+  {
+   "group": 6,
+   "group_title": "",
+   "widget": "Video player",
+   "caption": "",
+   "group_text": "Methane emissions from wetlands for the years 1980-2021 mapped to a sphere with dates and colorbar.",
+   "url": "https://svs.gsfc.nasa.gov/vis/a000000/a005000/a005054/CH4vert2.mp4",
+   "filename": "CH4vert2.mp4",
+   "media_type": "Movie",
+   "width": 1080,
+   "height": 1920,
+   "alt_text": "Methane emissions from wetlands for the years 1980-2021 mapped to a sphere with dates and colorbar."
+  },
+  {
+   "group": 6,
+   "group_title": "",
+   "widget": "Video player",
+   "caption": "",
+   "group_text": "Methane emissions from wetlands for the years 1980-2021 mapped to a sphere with dates and colorbar.",
+   "url": "https://svs.gsfc.nasa.gov/vis/a000000/a005000/a005054/CH4vert2.webm",
+   "filename": "CH4vert2.webm",
+   "media_type": "Movie",
+   "width": 1080,
+   "height": 1920,
+   "alt_text": "Methane emissions from wetlands for the years 1980-2021 mapped to a sphere with dates and colorbar."
+  }
+ ],
+ "text_links": [],
+ "frame_folders": {},
+ "api_url": "https://svs.gsfc.nasa.gov/api/5054",
+ "fetched_utc": "2026-10-29T07:38:41Z"
+}

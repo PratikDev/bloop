@@ -1,0 +1,191 @@
+{
+ "id": 5149,
+ "title": "GEOS-FP Precipitation and Clouds",
+ "url": "https://svs.gsfc.nasa.gov/5149/",
+ "page_type": "Visualization",
+ "release_date": "2023-09-26T17:00:00-04:00",
+ "update_date": "2026-10-29T02:32:15.913492-04:00",
+ "description": "Precipitation and clouds are calculated using fields from NASA’s GEOS-FP system. GEOS-FP combines millions of weather observations with a predictive model to create a global best estimate of weather conditions, which can be used to estimate the formation of clouds along with rain and snowfall.",
+ "full_text": "Precipitation and clouds are calculated using fields from NASA’s GEOS-FP system. GEOS-FP combines millions of weather observations with a predictive model to create a global best estimate of weather conditions, which can be used to estimate the formation of clouds along with rain and snowfall.\n\nWeather models begin their forecasts by integrating observations from ground stations, aircraft, balloons, and a growing constellation of Earth observing satellites to estimate the most realistic atmospheric state. The Goddard Earth Observing System Forward Processing (GEOS-FP) system is a research model maintained by NASA’s Global Modeling and Assimilation Office to demonstrate innovative new ways to use satellite data to improve predictions of weather, air quality, and greenhouse gases and to help NASA collect new observations of our home planet. These models use complex equations to track the formation of clouds and estimate the amount of rainfall they will produce. <br>\r<br>This animation overlays total precipitation, including both rain and snow, atop simulated cloud fields shaded by their optical thickness. Precipitation patterns are shifting as a result of climate change because warmer temperatures allow the atmosphere to evaporate and store more water vapor. In the northeastern U.S., communities have experienced a higher percentage of total rain falling during severe storms, which is concerning because it can raise the risk of hazards like flash floods and result in a smaller percentage of rain replenishing ground water supplies. Scientists are also tracking changes in the frequency and impact of atmospheric rivers in the western U.S. In addition to producing precipitation, clouds play a critical role in climate. Depending on their elevation, thickness, and the presence of aerosol particles, clouds can either reflect sunlight (cooling the planet) or trap heat emitted from Earth’s surface (heating the planet). The degree to which cloud properties may change in coming decades is one of the largest sources of uncertainty in climate projections. NASA is working to find new ways to measure the properties of clouds and precipitation to help improve the ability to predict both short term changes in weather and long term changes in climate.\n\nPrecipitation colorbar with semi-transparent background, optimized for Earth Information Center content.\n\nPrecipitation colorbar.\n\nSee [https://gmao.gsfc.nasa.gov/weather-analysis-prediction/](https://gmao.gsfc.nasa.gov/weather-analysis-prediction/)",
+ "credits_by_role": {
+  "Visualizer": [
+   "Joseph V. Ardizzone (NASA/GSFC)"
+  ]
+ },
+ "keywords": [
+  "Earth Information Center",
+  "GMAO",
+  "Hyperwall",
+  "Weather and Atmospheric Dynamics"
+ ],
+ "datasets": [
+  {
+   "name": "GEOS-FP",
+   "common_name": "",
+   "platform": null,
+   "sensor": null,
+   "type": "Model",
+   "organizations": [
+    "NASA GMAO"
+   ],
+   "description": "Documentation: Lucchesi, R., 2018: File Specification for GEOS FP. GMAO Office Note No. 4 (Version 1.2), 61 pp, available from [https://gmao.gsfc.nasa.gov/pubs/docs/Lucchesi1203.pdf](https://gmao.gsfc.nasa.gov/pubs/docs/Lucchesi1203.pdf)",
+   "credit": "",
+   "url": "https://fluid.nccs.nasa.gov/weather/",
+   "date_range": null
+  }
+ ],
+ "missions": [],
+ "related": [
+  {
+   "id": 5669,
+   "title": "GEOS Aerosols (2025)",
+   "url": "https://svs.gsfc.nasa.gov/5669/"
+  },
+  {
+   "id": 5147,
+   "title": "GEOS-FP Near-Surface Temperature",
+   "url": "https://svs.gsfc.nasa.gov/5147/"
+  },
+  {
+   "id": 5148,
+   "title": "GEOS-FP Near-Surface Wind Speed",
+   "url": "https://svs.gsfc.nasa.gov/5148/"
+  },
+  {
+   "id": 5150,
+   "title": "GEOS-FP Near-Surface Humidity",
+   "url": "https://svs.gsfc.nasa.gov/5150/"
+  },
+  {
+   "id": 5151,
+   "title": "Particulate Matter (PM) 2.5",
+   "url": "https://svs.gsfc.nasa.gov/5151/"
+  },
+  {
+   "id": 5152,
+   "title": "Near surface Ozone (O3)",
+   "url": "https://svs.gsfc.nasa.gov/5152/"
+  },
+  {
+   "id": 5153,
+   "title": "Carbon Monoxide (CO)",
+   "url": "https://svs.gsfc.nasa.gov/5153/"
+  },
+  {
+   "id": 5154,
+   "title": "Nitrogen Oxides (NOx)",
+   "url": "https://svs.gsfc.nasa.gov/5154/"
+  }
+ ],
+ "alternate_versions": [],
+ "newer_versions": [],
+ "older_versions": [],
+ "media": [
+  {
+   "group": 0,
+   "group_title": "",
+   "widget": "Video player",
+   "caption": "",
+   "group_text": "Precipitation and clouds are calculated using fields from NASA’s GEOS-FP system. GEOS-FP combines millions of weather observations with a predictive model to create a global best estimate of weather conditions, which can be used to estimate the formation of clouds along with rain and snowfall.",
+   "url": "https://svs.gsfc.nasa.gov/vis/a000000/a005100/a005149/MC03_stage3_GMAO_precipitation_2048x1024_en.00001_print.jpg",
+   "filename": "MC03_stage3_GMAO_precipitation_2048x1024_en.00001_print.jpg",
+   "media_type": "Image",
+   "width": 1024,
+   "height": 512,
+   "alt_text": "Precipitation and clouds are calculated using fields from NASA’s GEOS-FP system. GEOS-FP combines millions of weather observations with a predictive model to create a global best estimate of weather conditions, which can be used to estimate the formation of clouds along with rain and snowfall."
+  },
+  {
+   "group": 0,
+   "group_title": "",
+   "widget": "Video player",
+   "caption": "",
+   "group_text": "Precipitation and clouds are calculated using fields from NASA’s GEOS-FP system. GEOS-FP combines millions of weather observations with a predictive model to create a global best estimate of weather conditions, which can be used to estimate the formation of clouds along with rain and snowfall.",
+   "url": "https://svs.gsfc.nasa.gov/vis/a000000/a005100/a005149/MC03_stage3_GMAO_precipitation_2048x1024_en.00001_searchweb.png",
+   "filename": "MC03_stage3_GMAO_precipitation_2048x1024_en.00001_searchweb.png",
+   "media_type": "Image",
+   "width": 320,
+   "height": 180,
+   "alt_text": "Precipitation and clouds are calculated using fields from NASA’s GEOS-FP system. GEOS-FP combines millions of weather observations with a predictive model to create a global best estimate of weather conditions, which can be used to estimate the formation of clouds along with rain and snowfall."
+  },
+  {
+   "group": 0,
+   "group_title": "",
+   "widget": "Video player",
+   "caption": "",
+   "group_text": "Precipitation and clouds are calculated using fields from NASA’s GEOS-FP system. GEOS-FP combines millions of weather observations with a predictive model to create a global best estimate of weather conditions, which can be used to estimate the formation of clouds along with rain and snowfall.",
+   "url": "https://svs.gsfc.nasa.gov/vis/a000000/a005100/a005149/MC03_stage3_GMAO_precipitation_2048x1024_en.00001_thm.png",
+   "filename": "MC03_stage3_GMAO_precipitation_2048x1024_en.00001_thm.png",
+   "media_type": "Image",
+   "width": 80,
+   "height": 40,
+   "alt_text": "Precipitation and clouds are calculated using fields from NASA’s GEOS-FP system. GEOS-FP combines millions of weather observations with a predictive model to create a global best estimate of weather conditions, which can be used to estimate the formation of clouds along with rain and snowfall."
+  },
+  {
+   "group": 0,
+   "group_title": "",
+   "widget": "Video player",
+   "caption": "",
+   "group_text": "Precipitation and clouds are calculated using fields from NASA’s GEOS-FP system. GEOS-FP combines millions of weather observations with a predictive model to create a global best estimate of weather conditions, which can be used to estimate the formation of clouds along with rain and snowfall.",
+   "url": "https://svs.gsfc.nasa.gov/vis/a000000/a005100/a005149/MC03_stage3_GMAO_precipitation_2048x1024_en.mp4",
+   "filename": "MC03_stage3_GMAO_precipitation_2048x1024_en.mp4",
+   "media_type": "Movie",
+   "width": 2048,
+   "height": 1024,
+   "alt_text": "Precipitation and clouds are calculated using fields from NASA’s GEOS-FP system. GEOS-FP combines millions of weather observations with a predictive model to create a global best estimate of weather conditions, which can be used to estimate the formation of clouds along with rain and snowfall."
+  },
+  {
+   "group": 0,
+   "group_title": "",
+   "widget": "Video player",
+   "caption": "",
+   "group_text": "Precipitation and clouds are calculated using fields from NASA’s GEOS-FP system. GEOS-FP combines millions of weather observations with a predictive model to create a global best estimate of weather conditions, which can be used to estimate the formation of clouds along with rain and snowfall.",
+   "url": "https://svs.gsfc.nasa.gov/vis/a000000/a005100/a005149/frames/2048x1024_2x1_12p/MC03_stage3_GMAO_precipitation_2048x1024_en-hwtool/",
+   "filename": "MC03_stage3_GMAO_precipitation_2048x1024_en-hwtool",
+   "media_type": "Frames",
+   "width": 2048,
+   "height": 1024,
+   "alt_text": "Precipitation and clouds are calculated using fields from NASA’s GEOS-FP system. GEOS-FP combines millions of weather observations with a predictive model to create a global best estimate of weather conditions, which can be used to estimate the formation of clouds along with rain and snowfall."
+  },
+  {
+   "group": 2,
+   "group_title": "",
+   "widget": "Single image",
+   "caption": "Precipitation colorbar with semi-transparent background, optimized for Earth Information Center content.",
+   "group_text": "",
+   "url": "https://svs.gsfc.nasa.gov/vis/a000000/a005100/a005149/Precipitation_colorbar.png",
+   "filename": "Precipitation_colorbar.png",
+   "media_type": "Image",
+   "width": 528,
+   "height": 165,
+   "alt_text": ""
+  },
+  {
+   "group": 3,
+   "group_title": "",
+   "widget": "Single image",
+   "caption": "Precipitation colorbar.",
+   "group_text": "",
+   "url": "https://svs.gsfc.nasa.gov/vis/a000000/a005100/a005149/Precipitation_colorbar_plain.png",
+   "filename": "Precipitation_colorbar_plain.png",
+   "media_type": "Image",
+   "width": 528,
+   "height": 165,
+   "alt_text": ""
+  }
+ ],
+ "text_links": [
+  "https://gmao.gsfc.nasa.gov/weather-analysis-prediction/"
+ ],
+ "frame_folders": {
+  "https://svs.gsfc.nasa.gov/vis/a000000/a005100/a005149/frames/2048x1024_2x1_12p/MC03_stage3_GMAO_precipitation_2048x1024_en-hwtool/": {
+   "url": "https://svs.gsfc.nasa.gov/vis/a000000/a005100/a005149/frames/2048x1024_2x1_12p/MC03_stage3_GMAO_precipitation_2048x1024_en-hwtool/",
+   "frame_count": 372,
+   "bytes_approx": 2232000000,
+   "first": "00000001.png",
+   "last": "00000372.png",
+   "subfolders": {}
+  }
+ },
+ "api_url": "https://svs.gsfc.nasa.gov/api/5149",
+ "fetched_utc": "2026-10-29T07:41:25Z"
+}
