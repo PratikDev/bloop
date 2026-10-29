@@ -472,6 +472,306 @@
       "note": "The book's pitch rule over the key's own range."
     },
     {
+      "id": "eic5149",
+      "label": {
+        "en": "Precipitation (model)",
+        "bn": "TODO: eic_5149"
+      },
+      "group": "context",
+      "source": {
+        "dataset": "EIC frame SVS 5149",
+        "svsId": 5149,
+        "product": "eic_5149"
+      },
+      "status": "context",
+      "mapping": {
+        "kind": "continuous",
+        "input": {
+          "unit": "mm",
+          "min": -0.07933202159819346,
+          "max": 19.933416039542966,
+          "scale": "linear"
+        },
+        "output": {
+          "param": "frequency",
+          "unit": "Hz",
+          "min": 220,
+          "max": 880,
+          "scale": "exponential"
+        }
+      },
+      "silence": "No value at this point (an overlay box or a colour off the key).",
+      "sound": {
+        "timbre": "Warm sine with a soft attack and a smooth glide",
+        "attackMs": 20,
+        "releaseMs": 80,
+        "glideMs": 30,
+        "maxGain": 0.2,
+        "family": "model"
+      },
+      "pan": "longitude",
+      "legend": [],
+      "designChoice": true,
+      "note": "The book's pitch rule over the key's own range."
+    },
+    {
+      "id": "eic5150",
+      "label": {
+        "en": "Near-surface humidity (model)",
+        "bn": "TODO: eic_5150"
+      },
+      "group": "context",
+      "source": {
+        "dataset": "EIC frame SVS 5150",
+        "svsId": 5150,
+        "product": "eic_5150"
+      },
+      "status": "context",
+      "mapping": {
+        "kind": "continuous",
+        "input": {
+          "unit": "g/kg",
+          "min": -0.02741180803060678,
+          "max": 21.905138068363655,
+          "scale": "linear"
+        },
+        "output": {
+          "param": "frequency",
+          "unit": "Hz",
+          "min": 220,
+          "max": 880,
+          "scale": "exponential"
+        }
+      },
+      "silence": "No value at this point (an overlay box or a colour off the key).",
+      "sound": {
+        "timbre": "Warm sine with a soft attack and a smooth glide",
+        "attackMs": 20,
+        "releaseMs": 80,
+        "glideMs": 30,
+        "maxGain": 0.2,
+        "family": "model"
+      },
+      "pan": "longitude",
+      "legend": [],
+      "designChoice": true,
+      "note": "The book's pitch rule over the key's own range."
+    },
+    {
+      "id": "eic5151",
+      "label": {
+        "en": "PM2.5 (GEOS-CF) (model)",
+        "bn": "TODO: eic_5151"
+      },
+      "group": "context",
+      "source": {
+        "dataset": "EIC frame SVS 5151",
+        "svsId": 5151,
+        "product": "eic_5151"
+      },
+      "status": "context",
+      "mapping": {
+        "kind": "continuous",
+        "input": {
+          "unit": "µg/m³",
+          "min": 0.43866307967956447,
+          "max": 399.00876043021196,
+          "scale": "log"
+        },
+        "output": {
+          "param": "frequency",
+          "unit": "Hz",
+          "min": 220,
+          "max": 880,
+          "scale": "exponential"
+        }
+      },
+      "silence": "No value at this point (an overlay box or a colour off the key).",
+      "sound": {
+        "timbre": "Warm sine with a soft attack and a smooth glide",
+        "attackMs": 20,
+        "releaseMs": 80,
+        "glideMs": 30,
+        "maxGain": 0.2,
+        "family": "model"
+      },
+      "pan": "longitude",
+      "legend": [],
+      "designChoice": true,
+      "note": "The book's pitch rule over the key's own range."
+    },
+    {
+      "id": "eic5152",
+      "label": {
+        "en": "Near-surface ozone (GEOS-CF) (model)",
+        "bn": "TODO: eic_5152"
+      },
+      "group": "context",
+      "source": {
+        "dataset": "EIC frame SVS 5152",
+        "svsId": 5152,
+        "product": "eic_5152"
+      },
+      "status": "context",
+      "mapping": {
+        "kind": "continuous",
+        "input": {
+          "unit": "ppbv",
+          "min": 5.4509107050115295,
+          "max": 59.79463946424896,
+          "scale": "linear"
+        },
+        "output": {
+          "param": "frequency",
+          "unit": "Hz",
+          "min": 220,
+          "max": 880,
+          "scale": "exponential"
+        }
+      },
+      "silence": "No value at this point (an overlay box or a colour off the key).",
+      "sound": {
+        "timbre": "Warm sine with a soft attack and a smooth glide",
+        "attackMs": 20,
+        "releaseMs": 80,
+        "glideMs": 30,
+        "maxGain": 0.2,
+        "family": "model"
+      },
+      "pan": "longitude",
+      "legend": [],
+      "designChoice": true,
+      "note": "The book's pitch rule over the key's own range."
+    },
+    {
+      "id": "eic5153",
+      "label": {
+        "en": "Carbon monoxide (GEOS-CF) (model)",
+        "bn": "TODO: eic_5153"
+      },
+      "group": "context",
+      "source": {
+        "dataset": "EIC frame SVS 5153",
+        "svsId": 5153,
+        "product": "eic_5153"
+      },
+      "status": "context",
+      "mapping": {
+        "kind": "continuous",
+        "input": {
+          "unit": "ppbv",
+          "min": 42.682837192208744,
+          "max": 495.2127659574468,
+          "scale": "linear"
+        },
+        "output": {
+          "param": "frequency",
+          "unit": "Hz",
+          "min": 220,
+          "max": 880,
+          "scale": "exponential"
+        }
+      },
+      "silence": "No value at this point (an overlay box or a colour off the key).",
+      "sound": {
+        "timbre": "Warm sine with a soft attack and a smooth glide",
+        "attackMs": 20,
+        "releaseMs": 80,
+        "glideMs": 30,
+        "maxGain": 0.2,
+        "family": "model"
+      },
+      "pan": "longitude",
+      "legend": [],
+      "designChoice": true,
+      "note": "The book's pitch rule over the key's own range."
+    },
+    {
+      "id": "eic5154",
+      "label": {
+        "en": "Nitrogen oxides (GEOS-CF) (model)",
+        "bn": "TODO: eic_5154"
+      },
+      "group": "context",
+      "source": {
+        "dataset": "EIC frame SVS 5154",
+        "svsId": 5154,
+        "product": "eic_5154"
+      },
+      "status": "context",
+      "mapping": {
+        "kind": "continuous",
+        "input": {
+          "unit": "ppbv",
+          "min": 0.001089449128508998,
+          "max": 20.242286651103317,
+          "scale": "log"
+        },
+        "output": {
+          "param": "frequency",
+          "unit": "Hz",
+          "min": 220,
+          "max": 880,
+          "scale": "exponential"
+        }
+      },
+      "silence": "No value at this point (an overlay box or a colour off the key).",
+      "sound": {
+        "timbre": "Warm sine with a soft attack and a smooth glide",
+        "attackMs": 20,
+        "releaseMs": 80,
+        "glideMs": 30,
+        "maxGain": 0.2,
+        "family": "model"
+      },
+      "pan": "longitude",
+      "legend": [],
+      "designChoice": true,
+      "note": "The book's pitch rule over the key's own range."
+    },
+    {
+      "id": "eic5544",
+      "label": {
+        "en": "NDVI, near real time (relative)",
+        "bn": "TODO: eic_5544"
+      },
+      "group": "context",
+      "source": {
+        "dataset": "EIC frame SVS 5544",
+        "svsId": 5544,
+        "product": "eic_5544"
+      },
+      "status": "context",
+      "mapping": {
+        "kind": "continuous",
+        "input": {
+          "unit": "relative",
+          "min": 0.0,
+          "max": 1.0,
+          "scale": "linear"
+        },
+        "output": {
+          "param": "frequency",
+          "unit": "Hz",
+          "min": 220,
+          "max": 880,
+          "scale": "exponential"
+        }
+      },
+      "silence": "No value at this point (an overlay box or a colour off the key).",
+      "sound": {
+        "timbre": "Warm sine with a soft attack and a smooth glide",
+        "attackMs": 20,
+        "releaseMs": 80,
+        "glideMs": 30,
+        "maxGain": 0.2
+      },
+      "pan": "longitude",
+      "legend": [],
+      "designChoice": true,
+      "note": "The book's pitch rule over the key's own range."
+    },
+    {
       "id": "co2Ppm",
       "label": {
         "en": "CO₂ nature run (model, relative)",

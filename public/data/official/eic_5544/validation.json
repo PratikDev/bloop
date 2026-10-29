@@ -1,0 +1,20 @@
+{
+ "record": "eic_5544",
+ "checks": [
+  {
+   "record": "eic_5544",
+   "id": "a_no_validation_source",
+   "title": "NDVI, near real time: no validation source found",
+   "kind": "none",
+   "source": null,
+   "metrics": {
+    "reason": "the key's labels are words (Low, High): no values to compare"
+   },
+   "threshold": null,
+   "pass": null,
+   "note": "the key's labels are words (Low, High): no values to compare",
+   "run_utc": "2026-10-29T13:58:06Z"
+  }
+ ],
+ "updated_utc": "2026-10-29T13:58:06Z"
+}

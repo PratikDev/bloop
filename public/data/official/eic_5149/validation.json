@@ -1,0 +1,29 @@
+{
+ "record": "eic_5149",
+ "checks": [
+  {
+   "record": "eic_5149",
+   "id": "a_same_model",
+   "title": "Precipitation: frame vs GEOS-FP tavg1_2d_flx_Nx prectot at 2026-10-20 22:30:00 UTC",
+   "kind": "value",
+   "source": "GEOS-FP tavg1_2d_flx_Nx (NCCS OPeNDAP)",
+   "metrics": {
+    "spearman": -0.04251065663046117,
+    "n": 5538,
+    "median_rel_error": 21.568593582627102,
+    "median_abs": 0.6403192933648825,
+    "bias": 0.8088813627827596,
+    "frame_time_utc": "2026-10-22T22:00Z",
+    "georef_spearman_shift_lon": {
+     "-1.0": -0.04077957742426591,
+     "1.0": -0.049599688261553095
+    }
+   },
+   "threshold": "Spearman ≥ 0.9 and median relative error ≤ 15 % (provisional)",
+   "pass": false,
+   "note": "Same model: this tests the decoding. Unit conversion stated in the item table.",
+   "run_utc": "2026-10-29T13:28:35Z"
+  }
+ ],
+ "updated_utc": "2026-10-29T13:28:35Z"
+}

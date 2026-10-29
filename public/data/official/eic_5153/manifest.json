@@ -1,0 +1,349 @@
+{
+ "record": "eic_5153",
+ "app_title": "Carbon monoxide (GEOS-CF) (EIC, model)",
+ "svs_ids": [
+  5153
+ ],
+ "title": "Carbon Monoxide (CO)",
+ "svs_pages": [
+  "https://svs.gsfc.nasa.gov/5153/"
+ ],
+ "description": "Near surface concentration of carbon monoxide (CO) estimated by NASA’s GEOS-CF model.",
+ "release_date": "2023-09-26T17:00:00-04:00",
+ "period": {
+  "start": "2026-10-20T22:00:00Z",
+  "end": "2026-10-20T22:00:00Z",
+  "label": "20 Oct 2026 – 20 Oct 2026"
+ },
+ "badge": "model",
+ "credits_by_role": {
+  "Visualizer": [
+   "Joseph V. Ardizzone (NASA/GSFC)"
+  ]
+ },
+ "datasets": [
+  {
+   "name": "GEOS-CF",
+   "common_name": "",
+   "platform": null,
+   "sensor": null,
+   "type": "Other",
+   "organizations": [
+    "NASA GMAO"
+   ],
+   "description": "Knowland, K.E., C.A. Keller, and R. Lucchesi, 2022: File Specification for GEOS-CF Products. GMAO Office Note No. 17 (Version 1.3), 54 pp, available from [https://gmao.gsfc.nasa.gov/pubs/docs/Knowland1446.pdf](https://gmao.gsfc.nasa.gov/pubs/docs/Knowland1446.pdf)",
+   "credit": "",
+   "url": "https://portal.nccs.nasa.gov/datashare/gmao/geos-cf/v2/",
+   "date_range": null
+  }
+ ],
+ "credit_line": "Visualization: NASA's Scientific Visualization Studio (SVS 5153) for the NASA Earth Information Center.",
+ "disclosure": "One frame of a rolling EIC layer, read back through its key.",
+ "licence": "SVS: \"All of our content is in the public domain (unless otherwise noted), meaning that it is free to download, use, and redistribute for whatever purposes you see fit.\" (https://svs.gsfc.nasa.gov/help/, read 29 Oct 2026)",
+ "frame_times": {
+  "method": "ocr",
+  "approximate": false,
+  "count": 1,
+  "source": "date box OCR: 20 Oct 2026 18 : 00 : 00 EDT"
+ },
+ "georef": {
+  "projection": "equirectangular",
+  "bounds": [
+   -180,
+   -90,
+   180,
+   90
+  ],
+  "pass_at": 0.9,
+  "shifts_deg": [
+   1.0
+  ],
+  "iou": {},
+  "pass": true,
+  "best_is_assumed": true
+ },
+ "colorbar": {
+  "geometry": {
+   "x0": 71,
+   "x1": 463,
+   "band": [
+    41,
+    75
+   ],
+   "vertical": false,
+   "outline_rgb": [
+    255.0,
+    255.0,
+    255.0
+   ],
+   "image_size": [
+    125,
+    528
+   ]
+  },
+  "ticks": [
+   {
+    "px": -5.5,
+    "value": 40.0,
+    "text": "40",
+    "engine": "glyph",
+    "label_px": -5.5
+   },
+   {
+    "px": 117.5041095890411,
+    "value": 100.0,
+    "text": "100",
+    "engine": "glyph",
+    "label_px": 119.0,
+    "tick_mark": true
+   },
+   {
+    "px": 208.5,
+    "value": 130.0,
+    "text": "130",
+    "engine": "glyph",
+    "label_px": 212.0,
+    "tick_mark": true
+   },
+   {
+    "px": 299.5,
+    "value": 200.0,
+    "text": "200",
+    "engine": "glyph",
+    "label_px": 301.5,
+    "tick_mark": true
+   },
+   {
+    "px": 393.5,
+    "value": 500.0,
+    "text": "500",
+    "engine": "glyph",
+    "label_px": 393.5
+   }
+  ],
+  "scale": "piecewise",
+  "fit": {
+   "segments": 4,
+   "segment_interp": "linear",
+   "rejected": {
+    "linear": {
+     "a": 1.5038665718740662,
+     "b": 0.7174445896535802,
+     "fit": "weighted 1/tolerance",
+     "max_resid_px": 301.3217891904739,
+     "resid_px": [
+      59.16,
+      19.78,
+      -29.4,
+      -22.83,
+      301.32
+     ],
+     "ok": false
+    },
+    "log": {
+     "a": 1.7277076543011516,
+     "b": 0.0019804784348603035,
+     "fit": "weighted 1/tolerance",
+     "max_resid_px": 96.91803886310768,
+     "resid_px": [
+      -57.94,
+      19.98,
+      -13.48,
+      -10.01,
+      96.92
+     ],
+     "ok": false
+    }
+   }
+  },
+  "notes": [
+   "2 label(s) not on a tick mark (40, 500): label-centre position, ±5 px."
+  ],
+  "n_samples": 393,
+  "value_range": [
+   42.682837192208744,
+   495.2127659574468
+  ],
+  "opacity_varies": false
+ },
+ "colorbar_file": "CO_colorbar.png",
+ "decode": {
+  "mode": "exact",
+  "exact_share": 0.913817639868508,
+  "decoded_share": 0.8812136650085449,
+  "base_map_share": null,
+  "matcher": "rgb-nearest",
+  "max_dist": 12.0
+ },
+ "frame": "00000201.png",
+ "frame_set": "https://svs.gsfc.nasa.gov/vis/a000000/a005100/a005153/frames/2048x1024_2x1_12p/MC03_stage4_GMAO_CO_2048x1024_en-hwtool/",
+ "layers": [
+  {
+   "id": "value",
+   "unit": "ppbv",
+   "encoding": "linear",
+   "scale": 0.006628867655157099,
+   "offset": 54.420249938964844,
+   "nodata": 65535,
+   "below": 65534,
+   "grid": {
+    "width": 720,
+    "height": 360,
+    "bounds": [
+     -180,
+     -90,
+     180,
+     90
+    ],
+    "row0": "north",
+    "col0": "west",
+    "byte_order": "little"
+   },
+   "times": [
+    "2026-10-20T22:00:00Z"
+   ],
+   "chunks": [
+    {
+     "file": "value_000.u16.gz",
+     "t0": 0,
+     "t1": 1,
+     "bytes": 247966
+    }
+   ],
+   "quantisation_step": 0.006628867655157099,
+   "coverage": 0.8856327160493828,
+   "value_range": [
+    54.420249938964844,
+    488.829833984375
+   ],
+   "label": "Carbon monoxide (GEOS-CF) (model)",
+   "aggregation": "mean of decoded pixels per 0.5° cell",
+   "display": {
+    "colours": [
+     "#fffef2",
+     "#fffbc3",
+     "#fff496",
+     "#ffe176",
+     "#ffce58",
+     "#ffbc40",
+     "#ffac39",
+     "#ff9731",
+     "#ff862a",
+     "#ff7222",
+     "#fe601b",
+     "#fb5619",
+     "#f74c18",
+     "#f44316",
+     "#f13815",
+     "#ec2e13",
+     "#e92511",
+     "#e61b10",
+     "#e2110e",
+     "#da100e",
+     "#d20f0e",
+     "#c90d0e",
+     "#c10c0f",
+     "#ba0b0f",
+     "#b2090f",
+     "#aa080f",
+     "#a2070f",
+     "#9a060f",
+     "#910410",
+     "#890310",
+     "#820210",
+     "#7a0010"
+    ],
+    "values": [
+     42.682837192208744,
+     48.85100246696434,
+     55.01916774171993,
+     61.187333016475534,
+     67.35549829123113,
+     73.52366356598671,
+     79.69182884074232,
+     85.8599941154979,
+     92.0281593902535,
+     98.19632466500909,
+     102.94985958391385,
+     107.11878234511133,
+     111.28770510630879,
+     115.45662786750626,
+     119.62555062870373,
+     123.7944733899012,
+     127.96339615109868,
+     134.97518610421835,
+     144.70223325062034,
+     154.42928039702232,
+     164.1563275434243,
+     173.88337468982633,
+     183.61042183622828,
+     193.33746898263024,
+     212.7144818119424,
+     253.0713795470144,
+     293.4282772820864,
+     333.7851750171584,
+     374.1420727522306,
+     414.4989704873026,
+     454.8558682223746,
+     495.2127659574468
+    ],
+    "scale": "linear"
+   },
+   "time_labels": [
+    "20 Oct 2026 22:00 UTC"
+   ],
+   "status": "no check",
+   "statement": "GEOS-CF v1's public archive ends 2 Jan 2026; the frame is from Oct 2026",
+   "status_check": "a_no_validation_source"
+  }
+ ],
+ "voices": {
+  "value": "eic5153"
+ },
+ "play": [
+  {
+   "id": "value",
+   "label": "Carbon monoxide (GEOS-CF): higher pitch = higher value",
+   "view": "global",
+   "map": "value",
+   "start": {
+    "lat": 23.81,
+    "lon": 90.41
+   },
+   "steps_per_second": 1,
+   "channels": [
+    {
+     "voice": "eic5153",
+     "layers": [
+      "value"
+     ],
+     "combine": "value"
+    }
+   ]
+  }
+ ],
+ "validation": [
+  {
+   "id": "a_no_validation_source",
+   "title": "Carbon monoxide (GEOS-CF): no validation source found",
+   "kind": "none",
+   "pass": null,
+   "threshold": null
+  }
+ ],
+ "size": {
+  "choice": {
+   "cell_deg": 0.5
+  },
+  "tried": [],
+  "bytes": 256126,
+  "budget": 25000000
+ },
+ "asset_checksums": {
+  "file": "checksums.tsv.gz",
+  "rows": 2,
+  "sha256_of_list": "fa0f9a99a52a7e409d5e28e3d9cc33ef78db03be073bd0dedce753d2a29e75b8"
+ },
+ "code_commit": "7ace93c0df254924bb7e1645f3d067833ddccef2-dirty",
+ "generated_utc": "2026-10-29T13:54:23Z"
+}

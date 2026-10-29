@@ -1,0 +1,384 @@
+{
+ "record": "eic_5149",
+ "app_title": "Precipitation (EIC, model)",
+ "svs_ids": [
+  5149
+ ],
+ "title": "GEOS-FP Precipitation and Clouds",
+ "svs_pages": [
+  "https://svs.gsfc.nasa.gov/5149/"
+ ],
+ "description": "Precipitation and clouds are calculated using fields from NASA’s GEOS-FP system. GEOS-FP combines millions of weather observations with a predictive model to create a global best estimate of weather conditions, which can be used to estimate the formation of clouds along with rain and snowfall.",
+ "release_date": "2023-09-26T17:00:00-04:00",
+ "period": {
+  "start": "2026-10-22T22:00:00Z",
+  "end": "2026-10-22T22:00:00Z",
+  "label": "22 Oct 2026 – 22 Oct 2026"
+ },
+ "badge": "model",
+ "credits_by_role": {
+  "Visualizer": [
+   "Joseph V. Ardizzone (NASA/GSFC)"
+  ]
+ },
+ "datasets": [
+  {
+   "name": "GEOS-FP",
+   "common_name": "",
+   "platform": null,
+   "sensor": null,
+   "type": "Model",
+   "organizations": [
+    "NASA GMAO"
+   ],
+   "description": "Documentation: Lucchesi, R., 2018: File Specification for GEOS FP. GMAO Office Note No. 4 (Version 1.2), 61 pp, available from [https://gmao.gsfc.nasa.gov/pubs/docs/Lucchesi1203.pdf](https://gmao.gsfc.nasa.gov/pubs/docs/Lucchesi1203.pdf)",
+   "credit": "",
+   "url": "https://fluid.nccs.nasa.gov/weather/",
+   "date_range": null
+  }
+ ],
+ "credit_line": "Visualization: NASA's Scientific Visualization Studio (SVS 5149) for the NASA Earth Information Center.",
+ "disclosure": "One frame of a rolling EIC layer, read back through its key.",
+ "licence": "SVS: \"All of our content is in the public domain (unless otherwise noted), meaning that it is free to download, use, and redistribute for whatever purposes you see fit.\" (https://svs.gsfc.nasa.gov/help/, read 29 Oct 2026)",
+ "frame_times": {
+  "method": "ocr",
+  "approximate": false,
+  "count": 1,
+  "source": "date box OCR: 22 Oct 2026 18 : 00 : 00 EDT"
+ },
+ "georef": {
+  "projection": "equirectangular",
+  "bounds": [
+   -180,
+   -90,
+   180,
+   90
+  ],
+  "pass_at": 0.9,
+  "shifts_deg": [
+   1.0
+  ],
+  "iou": {},
+  "pass": true,
+  "best_is_assumed": false
+ },
+ "colorbar": {
+  "geometry": {
+   "x0": 73,
+   "x1": 462,
+   "band": [
+    77,
+    112
+   ],
+   "vertical": false,
+   "outline_rgb": [
+    255.0,
+    255.0,
+    255.0
+   ],
+   "image_size": [
+    165,
+    528
+   ]
+  },
+  "ticks": [
+   {
+    "px": -1.5,
+    "value": 0.0,
+    "text": "0",
+    "engine": "glyph",
+    "label_px": -1.5
+   },
+   {
+    "px": 40.51656626506024,
+    "value": 2.0,
+    "text": "2",
+    "engine": "glyph",
+    "label_px": 40.5,
+    "tick_mark": true
+   },
+   {
+    "px": 79.49324324324324,
+    "value": 4.0,
+    "text": "4",
+    "engine": "glyph",
+    "label_px": 78.5,
+    "tick_mark": true
+   },
+   {
+    "px": 118.49653579676675,
+    "value": 6.0,
+    "text": "6",
+    "engine": "glyph",
+    "label_px": 118.5,
+    "tick_mark": true
+   },
+   {
+    "px": 156.49919224555734,
+    "value": 8.0,
+    "text": "8",
+    "engine": "glyph",
+    "label_px": 157.5,
+    "tick_mark": true
+   },
+   {
+    "px": 196.5002587545282,
+    "value": 10.0,
+    "text": "10",
+    "engine": "glyph",
+    "label_px": 196.0,
+    "tick_mark": true
+   },
+   {
+    "px": 234.50112866817156,
+    "value": 12.0,
+    "text": "12",
+    "engine": "glyph",
+    "label_px": 235.0,
+    "tick_mark": true
+   },
+   {
+    "px": 273.4987012987013,
+    "value": 14.0,
+    "text": "14",
+    "engine": "glyph",
+    "label_px": 275.0,
+    "tick_mark": true
+   },
+   {
+    "px": 312.5048192771084,
+    "value": 16.0,
+    "text": "16",
+    "engine": "glyph",
+    "label_px": 313.0,
+    "tick_mark": true
+   },
+   {
+    "px": 351.5079787234043,
+    "value": 18.0,
+    "text": "18",
+    "engine": "glyph",
+    "label_px": 352.0,
+    "tick_mark": true
+   },
+   {
+    "px": 390.5,
+    "value": 20.0,
+    "text": "20",
+    "engine": "glyph",
+    "label_px": 390.5
+   }
+  ],
+  "scale": "linear",
+  "fit": {
+   "a": -0.07933202159819346,
+   "b": 0.05144665311347342,
+   "fit": "weighted 1/tolerance",
+   "max_resid_px": 3.0420249286812613,
+   "resid_px": [
+    3.04,
+    -0.1,
+    -0.2,
+    -0.33,
+    0.54,
+    -0.58,
+    0.29,
+    0.17,
+    0.04,
+    -0.09,
+    -0.21
+   ],
+   "ok": true
+  },
+  "notes": [
+   "2 label(s) not on a tick mark (0, 20): label-centre position, ±5 px."
+  ],
+  "n_samples": 390,
+  "value_range": [
+   -0.07933202159819346,
+   19.933416039542966
+  ],
+  "opacity_varies": false,
+  "px_per_unit": 19.437610407704227
+ },
+ "colorbar_file": "Precipitation_colorbar.png",
+ "decode": {
+  "mode": "chroma",
+  "exact_share": 0.030369230464729634,
+  "decoded_share": 0.03911924362182617,
+  "base_map_share": 0.20054115850643417,
+  "matcher": "rgb-nearest",
+  "max_dist": 12.0
+ },
+ "frame": "00000201.png",
+ "frame_set": "https://svs.gsfc.nasa.gov/vis/a000000/a005100/a005149/frames/2048x1024_2x1_12p/MC03_stage3_GMAO_precipitation_2048x1024_en-hwtool/",
+ "layers": [
+  {
+   "id": "value",
+   "unit": "mm",
+   "encoding": "linear",
+   "scale": 0.0051446653113473425,
+   "offset": -0.0596887543797493,
+   "nodata": 65535,
+   "below": 65534,
+   "grid": {
+    "width": 720,
+    "height": 360,
+    "bounds": [
+     -180,
+     -90,
+     180,
+     90
+    ],
+    "row0": "north",
+    "col0": "west",
+    "byte_order": "little"
+   },
+   "times": [
+    "2026-10-22T22:00:00Z"
+   ],
+   "chunks": [
+    {
+     "file": "value_000.u16.gz",
+     "t0": 0,
+     "t1": 1,
+     "bytes": 15615
+    }
+   ],
+   "quantisation_step": 0.0051446653113473425,
+   "coverage": 0.02136574074074074,
+   "value_range": [
+    -0.0596887543797493,
+    17.54671287536621
+   ],
+   "label": "Precipitation (model)",
+   "aggregation": "mean of decoded pixels per 0.5° cell",
+   "display": {
+    "colours": [
+     "#211f20",
+     "#19aa1a",
+     "#1561b0",
+     "#159bfa",
+     "#00bcee",
+     "#0edfeb",
+     "#7080d3",
+     "#8c50da",
+     "#912dec",
+     "#8d13b8",
+     "#8b0082",
+     "#8b004a",
+     "#8b000f",
+     "#a00000",
+     "#ba0000",
+     "#cf0300",
+     "#d91700",
+     "#e42d00",
+     "#ee4200",
+     "#f35200",
+     "#f76100",
+     "#fd7700",
+     "#fa8000",
+     "#ef8100",
+     "#e38300",
+     "#d68400",
+     "#ce8700",
+     "#d89700",
+     "#e3a800",
+     "#edba00",
+     "#f6c800",
+     "#e7c401"
+    ],
+    "values": [
+     -0.07933202159819346,
+     0.5662404965031343,
+     1.2118130146044621,
+     1.85738553270579,
+     2.5029580508071176,
+     3.1485305689084453,
+     3.7941030870097734,
+     4.439675605111101,
+     5.085248123212429,
+     5.730820641313756,
+     6.376393159415084,
+     7.021965677516412,
+     7.66753819561774,
+     8.313110713719066,
+     8.958683231820395,
+     9.604255749921721,
+     10.24982826802305,
+     10.895400786124378,
+     11.540973304225705,
+     12.186545822327034,
+     12.83211834042836,
+     13.477690858529687,
+     14.123263376631016,
+     14.768835894732344,
+     15.414408412833673,
+     16.059980930935,
+     16.705553449036326,
+     17.351125967137655,
+     17.996698485238984,
+     18.642271003340312,
+     19.287843521441637,
+     19.933416039542966
+    ],
+    "scale": "linear"
+   },
+   "time_labels": [
+    "22 Oct 2026 22:00 UTC"
+   ],
+   "status": "pattern only",
+   "statement": "pattern only (values not verified)",
+   "status_check": "a_same_model"
+  }
+ ],
+ "voices": {
+  "value": "eic5149"
+ },
+ "play": [
+  {
+   "id": "value",
+   "label": "Precipitation: higher pitch = higher value",
+   "view": "global",
+   "map": "value",
+   "start": {
+    "lat": 23.81,
+    "lon": 90.41
+   },
+   "steps_per_second": 1,
+   "channels": [
+    {
+     "voice": "eic5149",
+     "layers": [
+      "value"
+     ],
+     "combine": "value"
+    }
+   ]
+  }
+ ],
+ "validation": [
+  {
+   "id": "a_same_model",
+   "title": "Precipitation: frame vs GEOS-FP tavg1_2d_flx_Nx prectot at 2026-10-20 22:30:00 UTC",
+   "kind": "value",
+   "pass": false,
+   "threshold": "Spearman ≥ 0.9 and median relative error ≤ 15 % (provisional)"
+  }
+ ],
+ "size": {
+  "choice": {
+   "cell_deg": 0.5
+  },
+  "tried": [],
+  "bytes": 24970,
+  "budget": 25000000
+ },
+ "asset_checksums": {
+  "file": "checksums.tsv.gz",
+  "rows": 2,
+  "sha256_of_list": "ce0575ffdf006587802f155692c289c38cb898cff508c66356b287f00285b52e"
+ },
+ "code_commit": "7ace93c0df254924bb7e1645f3d067833ddccef2-dirty",
+ "generated_utc": "2026-10-29T13:28:36Z"
+}

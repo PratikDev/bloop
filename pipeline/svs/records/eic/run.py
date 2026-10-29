@@ -1,5 +1,6 @@
 """Decode, validate and export one EIC class-A item → public/data/official/eic_<id>/. Fixed before any model field was read:
-  frame    — FRAME_INDEX of the rolling frame set (Earth Now) or the latest dated frame (NDVI, date in its file name);
+  frame    — FRAME_INDEX of the rolling frame set (Earth Now; of the 2:1 movie when there is no frame set) or the latest
+             dated frame (NDVI, date in its file name);
              date from the burned-in date box by the date OCR (time zone word → UTC);
   overlays — the logo box (top-left) and date box (bottom-left) are masked;
   colorbar — svs/colorbar.py on the key composited on black (labels below the strip), the labelled-strip reader as fallback,
@@ -110,9 +111,15 @@ def run(sid):
     rec = svs_api.fetch_record(sid)
     fetch = Fetcher(root / "manifest.jsonl", tries=30)
     cb, bar, relative = read_key(rec, root, fetch)
-    f, fs = pick_frame(rec)
-    p = root / "frames" / f["name"]; fetch.get(f["url"], p, expect_bytes=20_000_000)
-    rgb = frames.read_rgba(p)[..., :3]
+    try:
+        f, fs = pick_frame(rec)
+        p = root / "frames" / f["name"]; fetch.get(f["url"], p, expect_bytes=20_000_000)
+        rgb = frames.read_rgba(p)[..., :3]
+    except IndexError:                                         # no flat frame set: the 2:1 movie, frame FRAME_INDEX
+        mv = next(m for m in rec["media"] if m["media_type"] == "Movie" and m["height"] and abs(m["width"] / m["height"] - 2) < 0.01)
+        p = root / "movie" / mv["url"].rsplit("/", 1)[1]; fetch.get(mv["url"], p, expect_bytes=100_000_000)
+        rgb = next(frames.movie_frames(p, start=FRAME_INDEX, count=1))[1]
+        f, fs = {"name": f"{p.name}#frame{FRAME_INDEX}"}, {"url": mv["url"]}
     if rgb.shape[1] > 4096: rgb = cv2.resize(rgb, (4096, 2048), interpolation=cv2.INTER_AREA)
     when, how = frame_time(f["name"], rgb)
     H, W = rgb.shape[:2]

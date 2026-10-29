@@ -64,6 +64,76 @@
    "manifest": "eic_5148/manifest.json"
   },
   {
+   "record": "eic_5149",
+   "title": "Precipitation (EIC, model)",
+   "svs_ids": [
+    5149
+   ],
+   "badge": "model",
+   "period": "22 Oct 2026 – 22 Oct 2026",
+   "manifest": "eic_5149/manifest.json"
+  },
+  {
+   "record": "eic_5150",
+   "title": "Near-surface humidity (EIC, model)",
+   "svs_ids": [
+    5150
+   ],
+   "badge": "model",
+   "period": "22 Oct 2026 – 22 Oct 2026",
+   "manifest": "eic_5150/manifest.json"
+  },
+  {
+   "record": "eic_5151",
+   "title": "PM2.5 (GEOS-CF) (EIC, model)",
+   "svs_ids": [
+    5151
+   ],
+   "badge": "model",
+   "period": "21 Oct 2026 – 21 Oct 2026",
+   "manifest": "eic_5151/manifest.json"
+  },
+  {
+   "record": "eic_5152",
+   "title": "Near-surface ozone (GEOS-CF) (EIC, model)",
+   "svs_ids": [
+    5152
+   ],
+   "badge": "model",
+   "period": "20 Oct 2026 – 20 Oct 2026",
+   "manifest": "eic_5152/manifest.json"
+  },
+  {
+   "record": "eic_5153",
+   "title": "Carbon monoxide (GEOS-CF) (EIC, model)",
+   "svs_ids": [
+    5153
+   ],
+   "badge": "model",
+   "period": "20 Oct 2026 – 20 Oct 2026",
+   "manifest": "eic_5153/manifest.json"
+  },
+  {
+   "record": "eic_5154",
+   "title": "Nitrogen oxides (GEOS-CF) (EIC, model)",
+   "svs_ids": [
+    5154
+   ],
+   "badge": "model",
+   "period": "20 Oct 2026 – 20 Oct 2026",
+   "manifest": "eic_5154/manifest.json"
+  },
+  {
+   "record": "eic_5544",
+   "title": "NDVI, near real time (EIC, observation)",
+   "svs_ids": [
+    5544
+   ],
+   "badge": "observation",
+   "period": "14 Jul 2024 – 14 Jul 2024",
+   "manifest": "eic_5544/manifest.json"
+  },
+  {
    "record": "forest_4950",
    "title": "Forest height (observation, GEDI)",
    "svs_ids": [
