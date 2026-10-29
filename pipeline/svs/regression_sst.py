@@ -65,7 +65,9 @@ def main():
     lines += ["", f"Frame-wide |old − new| where both decode: median {out['frame_wide_abs_diff_C']['median']:.4f} °C, 99th percentile "
               f"{out['frame_wide_abs_diff_C']['p99']:.4f} °C, max {out['frame_wide_abs_diff_C']['max']:.3f} °C.",
               f"`Inverter(method=\"rgb-nearest\")` reproduces `convert_sst.invert_sst` exactly: {reproduces}.", "",
-              f"**Verdict:** {out['verdict']}."]
+              f"**Verdict:** {out['verdict']}.", "",
+             "Note: the 0.31 °C figure is SVS 5101's (SST frame vs MUR). SVS 5176's −0.31 °C is a different number: its offset vs "
+             "NOAA Coral Reef Watch."]
     DOCS_OFFICIAL.mkdir(parents=True, exist_ok=True)
     (DOCS_OFFICIAL / "INVERSION_REGRESSION.md").write_text("\n".join(lines) + "\n", encoding="utf-8")
     (DOCS_OFFICIAL / "inversion_regression.json").write_text(json.dumps(out, indent=1), encoding="utf-8")

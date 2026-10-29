@@ -67,6 +67,7 @@ Tiers: **V2** = in the 240-s Video 2 (**due 13 Nov, 6:30 PM**; feature freeze Mo
 | Earlier claim | Where it appeared | Current truth | Source |
 |---|---|---|---|
 | SST truth number "median error 0.85 °C" | Team build plan §4/§7/§16, v1 blueprint §0/§10/§15/§25, data contract | **0.31 °C** median (60 points), 0.32 °C on a newer frame, after the colour scale was recalibrated | [TR]; video review |
+| "0.31 °C median vs MUR" credited to SVS 5176 | Official-resources task prompt (28 Oct 2026) | **The 0.31 °C is SVS 5101** (SST frame vs MUR). 5176's similar number is a different one: its **−0.31 °C offset** vs NOAA Coral Reef Watch | 29 Oct 2026 check |
 | "D2 rain test not yet run" | v1 blueprint §0, §10 | **Passed:** rain/no-rain 100%, median abs log10 error 0.103 (≈ within 27%), IMERG Late matched best, rain/snow phase 100% | [TR] team build plan §4 |
 | "5176 may not be an anomaly product" | Team build plan §19 | It **is** the MUR SST anomaly (−4…+4 °C). It agrees with NOAA Coral Reef Watch in sign at **91%** of 1,101 points, Spearman 0.79, offset −0.31 °C, all 9 colorbar ticks calibrated | [R2][R3] |
 | "Invert 5151 PM2.5 frames for the haze voice" | Ideas B7, E5; catalogue P1 | **Dropped.** Only 1% of pixels match the colour scale, and the frames are **137 days stale**. Use GEOS-CF / CAMS / ground values for sound; show the frame as a picture only, labelled | [R2][R3] |

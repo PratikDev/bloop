@@ -70,5 +70,5 @@
   "max": 2.037809371948242
  },
  "verdict": "lab-curve WORSE on the median: rgb-nearest (old lookup) stays the default",
- "run_utc": "2026-10-28T18:52:33Z"
+ "run_utc": "2026-10-29T06:12:23Z"
 }
