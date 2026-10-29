@@ -98,7 +98,11 @@ def fetch_record(sid, refresh=False, list_frames=True):
         folders = {}
         for m in rec["media"]:
             if m["media_type"] == "Frames" and m["url"] not in folders:
-                folders[m["url"]] = folder_summary(list_folder(m["url"]))
+                try:
+                    folders[m["url"]] = folder_summary(list_folder(m["url"]))
+                except RuntimeError as e:                      # a listing SVS will not serve is recorded, not fatal
+                    folders[m["url"]] = {"url": m["url"], "frame_count": 0, "bytes_approx": None, "first": None, "last": None,
+                                         "subfolders": {}, "listing_error": str(e)}
         rec["frame_folders"] = folders
     rec["api_url"] = f"{SVS}/api/{sid}"
     rec["fetched_utc"] = now_utc()

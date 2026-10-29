@@ -120,6 +120,11 @@ _ALL = [
             disclosure="Temperature read from the streak colours of a model. The currents you hear are NASA OSCAR surface "
                        "currents for the same days; how the drawn streaks move is visual texture, not water speed.",
             period_keys=("period.start", "period.end"), time_key="period.end"),
+    Product("lights_5313", "Night lights 2012→2023 (observation)", ("official/lights_5313/manifest.json",), "static", "frame-paired",
+            (D.SVS5313, D.VNP46A4), credit=SVS_CREDIT.format(id="5313, 5276, 5475") + " Data: NASA Black Marble (S-NPP VIIRS).",
+            disclosure="Direction of change read from the change map's colours (relative: lights out … new lights); the annual "
+                       "brightness is the picture's own, not radiance.",
+            period_keys=("period.start", "period.end"), time_key="period.end"),
     Product("oscar_3912", "NASA OSCAR surface currents (2007–08)", ("official/currents_3912/manifest.json",), "static", "context",
             (D.OSCAR,), credit="NASA OSCAR L4 surface currents, final v2.0 (ESR, PO.DAAC); full citation in the record's voice sources.",
             disclosure="Satellite-derived surface currents for the same days as the 3912 record, averaged to its cells and steps.",

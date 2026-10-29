@@ -36,7 +36,7 @@ function Player({ record }: { record: string }) {
   const text = `${readingText(t, state.lang, first?.reading ?? null, map?.layer)}${mapStatement ? ` (${mapStatement})` : ""}`;
   const place = t("place.latlon", rec.needle);
   const times = map?.layer.times ?? [];
-  const timeText = times[rec.step] ? formatUtc(times[rec.step], state.lang) : "";
+  const timeText = map?.layer.time_labels?.[rec.step] ?? (times[rec.step] ? formatUtc(times[rec.step], state.lang) : "");
   return (
     <div className="grid gap-6 lg:grid-cols-[minmax(0,1fr)_24rem]">
       <div className="space-y-3">

@@ -343,6 +343,103 @@
       "legend": [],
       "designChoice": true,
       "note": "Surface current speed from NASA OSCAR for the record's days (team decision A3: the frames' motion is not a data claim); range = the record's 1st–99th percentile."
+    },
+    {
+      "group": "context",
+      "source": {
+        "dataset": "NASA Black Marble (S-NPP VIIRS), via EIC frames SVS 5313 / 5276 / 5475",
+        "svsId": 5313,
+        "product": "lights_5313"
+      },
+      "status": "context",
+      "pan": "longitude",
+      "designChoice": true,
+      "sound": {
+        "timbre": "Warm sine with a soft attack and a smooth glide",
+        "attackMs": 20,
+        "releaseMs": 80,
+        "glideMs": 30,
+        "maxGain": 0.2
+      },
+      "id": "lightsChange",
+      "label": {
+        "en": "Night lights change (relative)",
+        "bn": "TODO: night lights change"
+      },
+      "mapping": {
+        "kind": "continuous",
+        "input": {
+          "unit": "relative",
+          "min": -1.0,
+          "max": 1.0,
+          "scale": "linear"
+        },
+        "output": {
+          "param": "frequency",
+          "unit": "Hz",
+          "min": 220,
+          "max": 880,
+          "scale": "exponential"
+        }
+      },
+      "silence": "No light at this point in either year, or too dim to read its colour.",
+      "legend": [
+        {
+          "value": -1.0,
+          "label": "lights out"
+        },
+        {
+          "value": 0.0,
+          "label": "no change"
+        },
+        {
+          "value": 1.0,
+          "label": "new lights"
+        }
+      ],
+      "note": "Higher = new lights, lower = lights out (the colorbar's words; no numbers)."
+    },
+    {
+      "group": "context",
+      "source": {
+        "dataset": "NASA Black Marble (S-NPP VIIRS), via EIC frames SVS 5313 / 5276 / 5475",
+        "svsId": 5313,
+        "product": "lights_5313"
+      },
+      "status": "context",
+      "pan": "longitude",
+      "designChoice": true,
+      "sound": {
+        "timbre": "Warm sine with a soft attack and a smooth glide",
+        "attackMs": 20,
+        "releaseMs": 80,
+        "glideMs": 30,
+        "maxGain": 0.2
+      },
+      "id": "lightsBrightness",
+      "label": {
+        "en": "Night lights, annual (relative)",
+        "bn": "TODO: night lights"
+      },
+      "mapping": {
+        "kind": "continuous",
+        "input": {
+          "unit": "relative",
+          "min": 0,
+          "max": 0.731,
+          "scale": "linear"
+        },
+        "output": {
+          "param": "frequency",
+          "unit": "Hz",
+          "min": 220,
+          "max": 880,
+          "scale": "exponential"
+        }
+      },
+      "silence": "No light at this point this year.",
+      "legend": [],
+      "note": "The picture's own brightness (no colorbar), not radiance; range = the record's 99th percentile."
     }
   ]
 }

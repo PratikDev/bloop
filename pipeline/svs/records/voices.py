@@ -53,6 +53,26 @@ def oscar_voice(rng, src):
             "designChoice": True, "note": "Surface current speed from NASA OSCAR for the record's days (team decision A3: the frames' "
                                           "motion is not a data claim); range = the record's 1st–99th percentile."}
 
+TONE = {"param": "frequency", "unit": "Hz", "min": 220, "max": 880, "scale": "exponential"}
+
+def lights_voices(m):
+    """Change: −1 … +1 → 220 … 880 Hz (no change = the middle, 440 Hz); brightness: 0 … its 99th percentile → the same tone."""
+    src = {"dataset": "NASA Black Marble (S-NPP VIIRS), via EIC frames SVS 5313 / 5276 / 5475", "svsId": 5313, "product": m["record"]}
+    base = {"group": "context", "source": src, "status": "context", "pan": "longitude", "designChoice": True,
+            "sound": {"timbre": "Warm sine with a soft attack and a smooth glide", "attackMs": 20, "releaseMs": 80, "glideMs": 30, "maxGain": 0.2}}
+    change = next(l for l in m["layers"] if l["id"] == "change")
+    lo, hi = change["display"]["values"][0], change["display"]["values"][-1]
+    return [{**base, "id": "lightsChange", "label": {"en": "Night lights change (relative)", "bn": "TODO: night lights change"},
+             "mapping": {"kind": "continuous", "input": {"unit": "relative", "min": lo, "max": hi, "scale": "linear"}, "output": TONE},
+             "silence": "No light at this point in either year, or too dim to read its colour.",
+             "legend": [{"value": lo, "label": "lights out"}, {"value": (lo + hi) / 2, "label": "no change"}, {"value": hi, "label": "new lights"}],
+             "note": "Higher = new lights, lower = lights out (the colorbar's words; no numbers)."},
+            {**base, "id": "lightsBrightness", "label": {"en": "Night lights, annual (relative)", "bn": "TODO: night lights"},
+             "mapping": {"kind": "continuous", "input": {"unit": "relative", "min": 0, "max": round(m["brightness_range"][1], 3), "scale": "linear"},
+                         "output": TONE},
+             "silence": "No light at this point this year.", "legend": [],
+             "note": "The picture's own brightness (no colorbar), not radiance; range = the record's 99th percentile."}]
+
 def main():
     voices = []
     air = PUBLIC_OFFICIAL / "air_5533" / "manifest.json"
@@ -66,6 +86,8 @@ def main():
         voices.append(drift_voice(m["drift_speed_range_km_day"], m["record"]))
         if "oscarCurrent" in m.get("voice_sources", {}):
             voices.append(oscar_voice(m["oscar_speed_range_m_s"], m["voice_sources"]["oscarCurrent"]))
+    lights = PUBLIC_OFFICIAL / "lights_5313" / "manifest.json"
+    if lights.exists(): voices += lights_voices(json.loads(lights.read_text(encoding="utf-8")))
     OUT.write_text(json.dumps({"generated_by": "pipeline/svs/records/voices.py", "voices": voices}, indent=2, ensure_ascii=False) + "\n",
                    encoding="utf-8")
     print(f"wrote {OUT.name}: {[v['id'] for v in voices]}")

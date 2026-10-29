@@ -30,6 +30,7 @@ SVS5113 = Dataset("svs5113", "EIC frame: SVS 5113 VIIRS active fires", "NASA", "
 # Official Challenge #14 resources (pipeline/svs): archive animations of models
 SVS5533 = Dataset("svs5533", "EIC frames: SVS 5533 / 5518 Air Quality Model Runs", "NASA", "model", ("geoscf",))
 SVS3912 = Dataset("svs3912", "EIC frames: SVS 3912 Global Sea Surface Currents and Temperature", "NASA", "model", ("ecco2",))
+SVS5313 = Dataset("svs5313", "EIC frames: SVS 5313 / 5276 / 5475 Change in Night Lights 2012–2023", "NASA", "measurement", ("vnp46a4",))
 
 # NASA source files and services
 MUR = Dataset("mur", "MUR SST v4.1 (NASA/JPL PO.DAAC)", "NASA", "measurement")
@@ -48,6 +49,7 @@ MODIS_NDVI = Dataset("mod13q1", "MODIS MOD13Q1 NDVI (ORNL DAAC)", "NASA", "measu
 GLOBE = Dataset("globe", "NASA GLOBE Program cloud observations", "ground", "measurement")
 GEOSCF = Dataset("geoscf", "NASA GEOS-CF composition model (GMAO)", "NASA", "model")
 ECCO2 = Dataset("ecco2", "ECCO2 ocean model (MIT/JPL)", "NASA", "model")
+VNP46A4 = Dataset("vnp46a4", "Black Marble VNP46A4 v2 annual night lights, S-NPP VIIRS (NASA LAADS)", "NASA", "measurement")
 OSCAR = Dataset("oscar", "OSCAR L4 surface currents, final v2.0 (ESR, NASA PO.DAAC)", "NASA", "measurement")
 
 # Partner / other agencies

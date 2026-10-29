@@ -1,0 +1,432 @@
+{
+ "record": "lights_5313",
+ "app_title": "Night lights 2012→2023 (observation)",
+ "svs_ids": [
+  5313,
+  5276,
+  5475
+ ],
+ "title": "Change in Night Lights between 2012 and 2023 - EIC Version",
+ "svs_pages": [
+  "https://svs.gsfc.nasa.gov/5313/",
+  "https://svs.gsfc.nasa.gov/5276/",
+  "https://svs.gsfc.nasa.gov/5475/"
+ ],
+ "description": "This global, flat map view of night lights data begins with a time series depicting annual averages from 2012 to 2023. The lights then fade away to reveal night lights change between 2012 and 2023, with regions of more light depicted in purple and regions with less light depicted in orange. The sequence then repeats with pop-out, zoomed-in views of India, Ukraine, Western Europe, and the Eastern Mediterranean region. || nightlights_flat_series_and_change_wZooms_13_EIC.02599_print.jpg (1024x288) [62.0 KB] || nightlights_flat_series_and_change_wZooms_13_EIC.02599_searchweb.png (320x180) [49.9 KB] || nightlights_flat_series_and_change_wZooms_13_EIC.02599_thm.png (80x40) [4.6 KB] || nightlights_2012-2023_change_flat_eic [0 Item(s)] || nightlights_flat_series_and_change_wZooms_13_EIC_2160p30_h265.mp4 (7680x2160) [32.7 MB] || nightlights_flat_series_and_change_wZooms_13_EIC_prores.mov (7680x2160) [4.0 GB] || ",
+ "release_date": "2024-06-14T00:00:00-04:00",
+ "period": {
+  "start": "2012-01-01T00:00:00Z",
+  "end": "2023-12-31T00:00:00Z",
+  "label": "1 Jan 2012 – 31 Dec 2023"
+ },
+ "badge": "observation",
+ "credits_by_role": {
+  "Visualizer": [
+   "Kel Elkins (USRA)"
+  ],
+  "Scientist": [
+   "Zhuosen Wang (University of Maryland)",
+   "Miguel Román (Leidos)",
+   "Ranjay Shrestha (SSAI)",
+   "Srija Chakraborty (USRA)",
+   "Virginia Kalb (NASA)"
+  ]
+ },
+ "datasets": [
+  {
+   "name": "Black Marble: Next Generation",
+   "common_name": "Black Marble",
+   "platform": "Suomi NPP",
+   "sensor": "VIIRS",
+   "type": "Other",
+   "organizations": [
+    "NASA/NOAA"
+   ],
+   "description": "Earth at night imagery",
+   "credit": "NASA Earth Observatory images by Joshua Stevens, using Suomi NPP VIIRS data from Miguel Román, NASA GSFC.",
+   "url": "https://visibleearth.nasa.gov/images/144898/earth-at-night-black-marble-2016-color-maps/144947l",
+   "date_range": null
+  }
+ ],
+ "credit_line": "Visualization: NASA's Scientific Visualization Studio (SVS 5313, 5276, 5475) for the NASA Earth Information Center. Data: NASA Black Marble (S-NPP VIIRS).",
+ "disclosure": "Direction of change read from the change map's colours (relative: lights out … new lights); the annual brightness is the picture's own, not radiance.",
+ "licence": "SVS: \"All of our content is in the public domain (unless otherwise noted), meaning that it is free to download, use, and redistribute for whatever purposes you see fit.\" (https://svs.gsfc.nasa.gov/help/, read 29 Oct 2026)",
+ "frame_times": {
+  "method": "date-list",
+  "approximate": false,
+  "count": 13,
+  "source": "the frame and file names (annual composites; the change map's own title years)"
+ },
+ "georef": {
+  "projection": "equirectangular",
+  "bounds": [
+   -180,
+   -90,
+   180,
+   90
+  ],
+  "pass_at": 0.9,
+  "shifts_deg": [
+   0.5,
+   1.0
+  ],
+  "iou": {
+   "5475 frame 1259": 0.9278
+  },
+  "pass": true,
+  "best_is_assumed": true,
+  "still_alignment": {
+   "grid_deg": 0.5,
+   "peak_shift_cells": [
+    0,
+    0
+   ],
+   "r_at_peak": 0.7426838536047837,
+   "r_at_zero": 0.7426838536047837,
+   "pass": true
+  }
+ },
+ "colorbar": {
+  "geometry": {
+   "x0": 337,
+   "x1": 3406,
+   "band": [
+    994,
+    1184
+   ],
+   "vertical": false,
+   "outline_rgb": null,
+   "image_size": [
+    2160,
+    3840
+   ],
+   "white_point_rel": 0.4965786901270772
+  },
+  "ticks": [],
+  "scale": "stated-range",
+  "fit": {
+   "a": -1.0,
+   "b": 0.0006516780710329097
+  },
+  "notes": [
+   "Labels are words ('lights out', 'no change', 'new lights'), no numbers: read as relative change, −1 (lights out) … +1 (new lights), linear between the strip ends. The white point (no change) sits at 0.497 of the strip."
+  ],
+  "n_samples": 3070,
+  "value_range": [
+   -1.0,
+   1.0
+  ],
+  "opacity_varies": false
+ },
+ "decode": {
+  "matcher": "rgb-nearest",
+  "mode": "chroma",
+  "max_dist": 148.40805053710938,
+  "min_k": 0.1,
+  "noise_floor_k": 0.0,
+  "lit_threshold_k": 1.0,
+  "lit_pixels": 0.0708251651716821,
+  "decoded_of_lit": 0.06506613941813995,
+  "strong_cells": 23770
+ },
+ "layers": [
+  {
+   "id": "change",
+   "unit": "relative (−1 … +1)",
+   "encoding": "linear",
+   "scale": 6.514657980456027e-05,
+   "offset": -0.4343434274196625,
+   "nodata": 65535,
+   "below": 65534,
+   "grid": {
+    "width": 3600,
+    "height": 1800,
+    "bounds": [
+     -180,
+     -90,
+     180,
+     90
+    ],
+    "row0": "north",
+    "col0": "west",
+    "byte_order": "little"
+   },
+   "times": [
+    "2023-01-01T00:00:00Z"
+   ],
+   "chunks": [
+    {
+     "file": "change_000.u16.gz",
+     "t0": 0,
+     "t1": 1,
+     "bytes": 221655
+    }
+   ],
+   "quantisation_step": 6.514657980456027e-05,
+   "coverage": 0.012497685185185185,
+   "value_range": [
+    -0.4343434274196625,
+    0.8338220715522766
+   ],
+   "label": "Change in night lights 2012→2023 (relative: lights out … new lights)",
+   "aggregation": "brightness-weighted mean of the decoded pixels in 1×1 0.1° cells",
+   "time_labels": [
+    "2012→2023"
+   ],
+   "display": {
+    "colours": [
+     "#d06422",
+     "#ce6323",
+     "#cb6223",
+     "#c86124",
+     "#c45f24",
+     "#c15e24",
+     "#be5c26",
+     "#b95a28",
+     "#b65b2e",
+     "#b96842",
+     "#bf7c5e",
+     "#c99580",
+     "#d4b0a4",
+     "#e2cbc5",
+     "#efe3e2",
+     "#fbf7f7",
+     "#fbf8f8",
+     "#ede3e6",
+     "#dbc9d0",
+     "#c6a8b7",
+     "#ae89a2",
+     "#97698f",
+     "#825081",
+     "#723c79",
+     "#6a377c",
+     "#663581",
+     "#633485",
+     "#60328b",
+     "#5d318f",
+     "#5a3093",
+     "#572f96",
+     "#552f99"
+    ],
+    "values": [
+     -1.0,
+     -0.935483870967742,
+     -0.8709677419354839,
+     -0.8064516129032258,
+     -0.7419354838709677,
+     -0.6774193548387097,
+     -0.6129032258064516,
+     -0.5483870967741935,
+     -0.4838709677419355,
+     -0.4193548387096774,
+     -0.3548387096774194,
+     -0.29032258064516125,
+     -0.22580645161290325,
+     -0.16129032258064513,
+     -0.09677419354838712,
+     -0.032258064516129004,
+     0.032258064516129004,
+     0.09677419354838701,
+     0.16129032258064524,
+     0.22580645161290325,
+     0.29032258064516125,
+     0.35483870967741926,
+     0.4193548387096775,
+     0.4838709677419355,
+     0.5483870967741935,
+     0.6129032258064515,
+     0.6774193548387097,
+     0.7419354838709677,
+     0.8064516129032258,
+     0.8709677419354838,
+     0.935483870967742,
+     1.0
+    ],
+    "scale": "linear"
+   },
+   "status": "relative",
+   "statement": "relative change; its direction matches VNP46A4 in 91% of cells",
+   "status_check": "a_direction_vnp46a4"
+  },
+  {
+   "id": "brightness",
+   "unit": "relative brightness (0–1)",
+   "encoding": "linear",
+   "scale": 0.001,
+   "offset": 0.0,
+   "nodata": 65535,
+   "below": 65534,
+   "grid": {
+    "width": 3600,
+    "height": 1800,
+    "bounds": [
+     -180,
+     -90,
+     180,
+     90
+    ],
+    "row0": "north",
+    "col0": "west",
+    "byte_order": "little"
+   },
+   "times": [
+    "2012-01-01T00:00:00Z",
+    "2013-01-01T00:00:00Z",
+    "2014-01-01T00:00:00Z",
+    "2015-01-01T00:00:00Z",
+    "2016-01-01T00:00:00Z",
+    "2017-01-01T00:00:00Z",
+    "2018-01-01T00:00:00Z",
+    "2019-01-01T00:00:00Z",
+    "2020-01-01T00:00:00Z",
+    "2021-01-01T00:00:00Z",
+    "2022-01-01T00:00:00Z",
+    "2023-01-01T00:00:00Z"
+   ],
+   "chunks": [
+    {
+     "file": "brightness_000.u16.gz",
+     "t0": 0,
+     "t1": 12,
+     "bytes": 6323521
+    }
+   ],
+   "quantisation_step": 0.001,
+   "coverage": 1.0,
+   "value_range": [
+    0.0,
+    1.0
+   ],
+   "label": "Night lights, annual (the picture's own brightness, not radiance)",
+   "aggregation": "mean of 1×1 0.1° cells",
+   "time_labels": [
+    "2012",
+    "2013",
+    "2014",
+    "2015",
+    "2016",
+    "2017",
+    "2018",
+    "2019",
+    "2020",
+    "2021",
+    "2022",
+    "2023"
+   ],
+   "status": "relative",
+   "statement": "the picture's brightness, not radiance (rank vs VNP46A4: ρ 0.74 in 2012, 0.69 in 2023)",
+   "status_check": "c_annual_brightness"
+  }
+ ],
+ "voices": {
+  "change": "lightsChange",
+  "brightness": "lightsBrightness"
+ },
+ "play": [
+  {
+   "id": "change",
+   "label": "Change 2012→2023: higher = new lights, lower = lights out",
+   "view": "global",
+   "map": "change",
+   "start": {
+    "lat": 23.81,
+    "lon": 90.41
+   },
+   "steps_per_second": 1,
+   "channels": [
+    {
+     "voice": "lightsChange",
+     "layers": [
+      "change"
+     ],
+     "combine": "value"
+    }
+   ]
+  },
+  {
+   "id": "annual",
+   "label": "Night lights, one year per second",
+   "view": "global",
+   "map": "brightness",
+   "start": {
+    "lat": 23.81,
+    "lon": 90.41
+   },
+   "steps_per_second": 1,
+   "channels": [
+    {
+     "voice": "lightsBrightness",
+     "layers": [
+      "brightness"
+     ],
+     "combine": "value"
+    }
+   ]
+  }
+ ],
+ "brightness_range": [
+  0.0,
+  0.731364905834198
+ ],
+ "strong_change": 0.5,
+ "validation": [
+  {
+   "id": "a_direction_vnp46a4",
+   "title": "Direction of change (frame |change| ≥ 0.2) vs VNP46A4 2012→2023",
+   "kind": "value",
+   "pass": true,
+   "threshold": "sign agreement ≥ 70 % (provisional)"
+  },
+  {
+   "id": "a2_direction_strong",
+   "title": "Direction of strong change (|change| ≥ 0.5) vs VNP46A4",
+   "kind": "value",
+   "pass": true,
+   "threshold": "sign agreement ≥ 70 % (provisional)"
+  },
+  {
+   "id": "b_rank_change",
+   "title": "Rank of the frame's change vs the VIIRS log ratio (lit decoded cells)",
+   "kind": "value",
+   "pass": null,
+   "threshold": null
+  },
+  {
+   "id": "c_annual_brightness",
+   "title": "Annual frames: brightness vs VNP46A4 radiance, same year (lit cells)",
+   "kind": "value",
+   "pass": null,
+   "threshold": null
+  },
+  {
+   "id": "d_bangladesh_sites",
+   "title": "Bangladesh: Dhaka, Chattogram and the Padma Bridge (3×3 cells, 0.3°)",
+   "kind": "context",
+   "pass": null,
+   "threshold": null
+  }
+ ],
+ "size": {
+  "choice": {
+   "cell_deg": 0.1
+  },
+  "tried": [
+   {
+    "option": [
+     1,
+     1
+    ],
+    "estimated_bytes": 6545176
+   }
+  ],
+  "bytes": 6563224,
+  "budget": 25000000
+ },
+ "asset_checksums": {
+  "file": "checksums.tsv.gz",
+  "rows": 17,
+  "sha256_of_list": "0ab860c65c5aaadf1637b6c866463c4468892e8c30f202cea219c6735b4ab80e"
+ },
+ "code_commit": "6f7acfaca68bcde125d34cfec90690c12dd60460-dirty",
+ "generated_utc": "2026-10-29T07:38:01Z"
+}
