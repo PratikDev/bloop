@@ -120,6 +120,11 @@ _ALL = [
             disclosure="Temperature read from the streak colours of a model. The currents you hear are NASA OSCAR surface "
                        "currents for the same days; how the drawn streaks move is visual texture, not water speed.",
             period_keys=("period.start", "period.end"), time_key="period.end"),
+    Product("co2_5196", "CO₂ nature run (model, Jan–Mar 2020)", ("official/co2_5196/manifest.json",), "static", "frame-paired",
+            (D.SVS5196, D.DYAMOND), credit=SVS_CREDIT.format(id="5196, 5436") + " Data: NASA GEOS–MITgcm DYAMOND nature run (GMAO).",
+            disclosure="Relative ppm read from the volume render's colours with its colour and opacity transfer functions; a model "
+                       "nature run, averaged along the view.",
+            period_keys=("period.start", "period.end"), time_key="period.end"),
     Product("forest_4950", "Forest height (observation, GEDI)", ("official/forest_4950/manifest.json",), "static", "frame-paired",
             (D.SVS4950, D.GEDI), credit=SVS_CREDIT.format(id=4950) + " Data: NASA GEDI (University of Maryland, ORNL DAAC).",
             disclosure="Heights read from a lit 3D globe render with its colorbar; no map position, and the values are not "

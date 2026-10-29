@@ -1,0 +1,95 @@
+{
+ "record": "co2_5196",
+ "checks": [
+  {
+   "record": "co2_5196",
+   "id": "a_synthetic_round_trip",
+   "title": "Synthetic render with the same transfer functions, decoded by the record's code",
+   "kind": "value",
+   "source": "the record's own colorbar (colour + opacity)",
+   "metrics": {
+    "n": 11786,
+    "median_abs_ppm": 0.048867592994071174,
+    "p99_abs_ppm": 0.44437856454561825,
+    "max_abs_ppm": 0.5987168722592173,
+    "max_pct_of_range": 0.7487073312124131,
+    "range_ppm": 79.96674365264863,
+    "uncertain_spans_ppm": [
+     [
+      379.9833779684147,
+      408.0243844051716
+     ],
+     [
+      421.2136324920256,
+      427.4203374740746
+     ]
+    ],
+    "whole_range": {
+     "n": 19346,
+     "median_abs_ppm": 0.13843194643683887,
+     "p99_abs_ppm": 26.96429569208324,
+     "max_abs_ppm": 27.764230807465196,
+     "max_pct_of_range": 34.71972164837001
+    }
+   },
+   "threshold": "every value within 1 % of the range (provisional)",
+   "pass": true,
+   "note": "Tests the decoding of a single colour per pixel; a volume render averages a column, which this cannot test.",
+   "run_utc": "2026-10-29T12:05:03Z"
+  },
+  {
+   "record": "co2_5196",
+   "id": "b_mauna_loa_context",
+   "title": "Context: NOAA GML Mauna Loa monthly CO2 vs the frames at Mauna Loa's cell",
+   "kind": "context",
+   "source": "NOAA GML co2_mm_mlo.txt",
+   "metrics": {
+    "2020-01": {
+     "noaa_mlo_ppm": 413.59,
+     "frame_ppm_mean": null,
+     "frames": 4
+    },
+    "2020-02": {
+     "noaa_mlo_ppm": 414.32,
+     "frame_ppm_mean": null,
+     "frames": 7
+    },
+    "2020-03": {
+     "noaa_mlo_ppm": 414.72,
+     "frame_ppm_mean": null,
+     "frames": 1
+    }
+   },
+   "threshold": null,
+   "pass": null,
+   "note": "What the real atmosphere measured at one station then; the frames are a model nature run averaged along the view.",
+   "run_utc": "2026-10-29T12:05:05Z"
+  },
+  {
+   "record": "co2_5196",
+   "id": "c_georef_surface",
+   "title": "Surface layer vs Natural Earth land (same SOS projection as the CO2 layer)",
+   "kind": "context",
+   "source": "Natural Earth 1:50m land",
+   "metrics": {
+    "iou": 0.7601824633082801,
+    "best_is_assumed": true,
+    "shifted": {
+     "lon+0.5": 0.754022573966473,
+     "lon-0.5": 0.7474804344353937,
+     "lat+0.5": 0.7241656259107988,
+     "lat-0.5": 0.7463804107911701,
+     "lon+1.0": 0.740517252806978,
+     "lon-1.0": 0.7331055659552896,
+     "lat+1.0": 0.6916339176179486,
+     "lat-1.0": 0.7162910421849832
+    }
+   },
+   "threshold": null,
+   "pass": null,
+   "note": "Winter snow and sea ice are white like land, which lowers the IoU; the assumed bounds score best of all shifts.",
+   "run_utc": "2026-10-29T12:05:05Z"
+  }
+ ],
+ "updated_utc": "2026-10-29T12:05:05Z"
+}

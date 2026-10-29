@@ -345,6 +345,49 @@
       "note": "Surface current speed from NASA OSCAR for the record's days (team decision A3: the frames' motion is not a data claim); range = the record's 1st–99th percentile."
     },
     {
+      "id": "co2Ppm",
+      "label": {
+        "en": "CO₂ nature run (model, relative)",
+        "bn": "TODO: CO2"
+      },
+      "group": "context",
+      "source": {
+        "dataset": "NASA GEOS–MITgcm DYAMOND nature run, via EIC frames SVS 5196 / 5436",
+        "svsId": 5196,
+        "product": "co2_5196"
+      },
+      "status": "context",
+      "mapping": {
+        "kind": "continuous",
+        "input": {
+          "unit": "ppm",
+          "min": 408,
+          "max": 460,
+          "scale": "linear"
+        },
+        "output": {
+          "param": "frequency",
+          "unit": "Hz",
+          "min": 220,
+          "max": 880,
+          "scale": "exponential"
+        }
+      },
+      "silence": "No CO2 drawn along this view (transparent there).",
+      "sound": {
+        "timbre": "Warm sine with a soft attack and a smooth glide",
+        "attackMs": 20,
+        "releaseMs": 80,
+        "glideMs": 30,
+        "maxGain": 0.2,
+        "family": "model"
+      },
+      "pan": "longitude",
+      "legend": [],
+      "designChoice": true,
+      "note": "Model nature run; relative values. Range = the colorbar's invertible part (above its white end)."
+    },
+    {
       "id": "forestHeight",
       "label": {
         "en": "Forest height (observation, pattern only)",

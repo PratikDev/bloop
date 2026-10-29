@@ -220,3 +220,37 @@ def _geometric(v):
 
 def lab_curve(cb):
     return colour.rgb_to_lab(cb.rgb)
+
+def read_labelled_strip(rgba, min_alpha=200):
+    """Colorbars drawn on transparency with an outline, end arrows and white labels below (5425, 5436): the strip is the
+    largest opaque coloured region; its colours are the median of its middle third of rows per column; the labels are read
+    by OCR in the band below it and fitted by a straight line (value vs column; misreads dropped as in _calibrate)."""
+    import cv2
+    a = rgba.astype(np.float64)
+    rgb = a[..., :3] * a[..., 3:4] / 255
+    col = (a[..., 3] >= min_alpha) & (rgb.min(-1) < 230) & (rgb.max(-1) > 12)
+    n, lab, st, _ = cv2.connectedComponentsWithStats(col.astype(np.uint8), connectivity=4)
+    i = 1 + int(np.argmax(st[1:, 4]))
+    x, y, w, h = st[i, :4]
+    rows = [r for r in range(y, y + h) if (lab[r, x:x + w] == i).mean() > 0.7]      # the end arrows narrow the edge rows
+    top, bot = min(rows), max(rows)
+    inner = slice(top + (bot - top) // 3, bot - (bot - top) // 3 + 1)
+    cols = [c for c in range(x, x + w) if (lab[inner, c] == i).all()]
+    x0, x1 = min(cols), max(cols)
+    strip = np.median(rgb[inner, x0:x1 + 1], axis=0)
+    ink = rgb.max(-1) / 255
+    r = bot + 1                                         # below the outline and the arrows' lower edges: the first empty rows
+    while r < ink.shape[0] - 3 and ink[r:r + 3, x:x + w].max() > 0.5: r += 1
+    band = ink[r:r + 2 * (bot - top)]
+    labels = [l for l in ocr.read_labels(band) if l["value"] is not None]
+    ticks = [{"px": float(l["x"] - x0), "value": float(l["value"]), "text": l["text"], "engine": l["engine"]} for l in labels]
+    cb = Colorbar(rgb=strip, alpha=np.ones(len(strip)), geometry={"x0": int(x0), "x1": int(x1), "band": [int(top), int(bot)],
+                                                                   "vertical": False, "image_size": list(rgba.shape[:2])}, ticks=ticks)
+    if not np.all(np.diff([t["value"] for t in ticks]) > 0):
+        ticks = _drop_misreads(cb, ticks) or []
+    if len(ticks) < 2: raise RuntimeError(f"colorbar: OCR read {[l['text'] for l in labels]} under the strip")
+    px, v = np.array([t["px"] for t in ticks]), np.array([t["value"] for t in ticks])
+    b, c = np.polyfit(px, v, 1)
+    cb.ticks, cb.scale = ticks, "linear"
+    cb.fit = {"a": float(c), "b": float(b), "fit": "labels below the strip", "max_resid_value": float(np.abs(v - (c + b * px)).max())}
+    return cb

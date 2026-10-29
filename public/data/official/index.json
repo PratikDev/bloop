@@ -23,6 +23,17 @@
    "manifest": "air_5533/manifest.json"
   },
   {
+   "record": "co2_5196",
+   "title": "CO₂ nature run (model, Jan–Mar 2020)",
+   "svs_ids": [
+    5196,
+    5436
+   ],
+   "badge": "model",
+   "period": "14 Jan 2020 – 3 Mar 2020",
+   "manifest": "co2_5196/manifest.json"
+  },
+  {
    "record": "currents_3912",
    "title": "Currents & SST (model, 2007–08)",
    "svs_ids": [

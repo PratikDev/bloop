@@ -95,6 +95,18 @@ def aerosol_voices(m):
                     "designChoice": True, "note": "Relative density (the key has no values); range = the record's 99th percentile."})
     return out
 
+def co2_voice(m):
+    lo, hi = m["ppm_range"]
+    return {"id": "co2Ppm", "label": {"en": "CO₂ nature run (model, relative)", "bn": "TODO: CO2"}, "group": "context",
+            "source": {"dataset": "NASA GEOS–MITgcm DYAMOND nature run, via EIC frames SVS 5196 / 5436", "svsId": 5196, "product": m["record"]},
+            "status": "context",
+            "mapping": {"kind": "continuous", "input": {"unit": "ppm", "min": round(lo), "max": round(hi), "scale": "linear"}, "output": TONE},
+            "silence": "No CO2 drawn along this view (transparent there).",
+            "sound": {"timbre": "Warm sine with a soft attack and a smooth glide", "attackMs": 20, "releaseMs": 80, "glideMs": 30, "maxGain": 0.2,
+                      "family": "model"},
+            "pan": "longitude", "legend": [], "designChoice": True,
+            "note": "Model nature run; relative values. Range = the colorbar's invertible part (above its white end)."}
+
 def forest_voice(m):
     lo, hi = m["colorbar"]["value_range"]
     return {"id": "forestHeight", "label": {"en": "Forest height (observation, pattern only)", "bn": "TODO: forest height"}, "group": "context",
@@ -128,6 +140,8 @@ def main():
         voices.append(drift_voice(m["drift_speed_range_km_day"], m["record"]))
         if "oscarCurrent" in m.get("voice_sources", {}):
             voices.append(oscar_voice(m["oscar_speed_range_m_s"], m["voice_sources"]["oscarCurrent"]))
+    co2 = PUBLIC_OFFICIAL / "co2_5196" / "manifest.json"
+    if co2.exists(): voices.append(co2_voice(json.loads(co2.read_text(encoding="utf-8"))))
     forest = PUBLIC_OFFICIAL / "forest_4950" / "manifest.json"
     if forest.exists(): voices.append(forest_voice(json.loads(forest.read_text(encoding="utf-8"))))
     aerosols = PUBLIC_OFFICIAL / "aerosols_5669" / "manifest.json"
