@@ -13,6 +13,7 @@ from . import ocr
 
 MONTHS = ("January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December")
 MONTH_WORDS = {w: i + 1 for i, m in enumerate(MONTHS) for w in (m, m[:3], m.upper(), m[:3].upper())}
+TZ_HOURS = {"UTC": 0, "GMT": 0, "EDT": -4, "EST": -5, "CDT": -5, "CST": -6, "MDT": -6, "MST": -7, "PDT": -7, "PST": -8}   # offsets from UTC
 WORD_GAP, NUMBER_GAP = 0.3, 0.6                 # token split / digit-run merge, in digit heights (Arial: space ≈ 0.39)
 MAX_DISTANCE = 0.5                              # neither reading closer than this → '?' (real reads: ≤ 0.32; a wrong month: 0.70)
 PATTERNS = [                                    # (regex over the token string, field order)
@@ -67,6 +68,15 @@ def tokens(ink):
         if c["x0"] - max(r["x1"] for r in runs[-1]) > WORD_GAP * H: runs.append([c])
         else: runs[-1].append(c)
     small = lambda c: c["y1"] - c["y0"] <= 0.35 * H
+    split = []                                   # '6:00:00' is one run: cut it at marks low in the line (colons, commas)
+    top = min(c["y0"] for c in comps if not small(c))   # the line's cap top (marks are measured against the whole line)
+    for run in runs:
+        sep = lambda c: small(c) and (c["y0"] + c["y1"]) / 2 > top + 0.2 * H        # an i-dot sits at the top and stays
+        for c in run:
+            if split and split[-1][0] is run and sep(split[-1][1][-1]) == sep(c): split[-1][1].append(c)
+            else: split.append((run, [c]))
+    split = [g for _, g in split]
+    runs = [r for r in split if r]
     out = []
     for run in runs:
         tail = []
@@ -75,17 +85,17 @@ def tokens(ink):
         if all(map(small, run)):
             out.append(("punct", _punctuation(run, H), 0.0, x0, x1)); continue
         patch = _patch(ink, run)
-        month = min(MONTH_WORDS, key=lambda w: word_distance(patch, H, w))
+        month = min([*MONTH_WORDS, *TZ_HOURS], key=lambda w: word_distance(patch, H, w))
         dm = word_distance(patch, H, month)
         text, val, _ = ocr.read_label(run, ink)
         dn = word_distance(patch, H, text) if re.fullmatch(r"\d+", text) else 9.0
         if min(dm, dn) > MAX_DISTANCE: out.append(("unknown", "?", min(dm, dn), x0, x1))
-        else: out.append(("num", text, dn, x0, x1) if dn <= dm else ("word", month, dm, x0, x1))
+        else: out.append(("num", text, dn, x0, x1) if dn <= dm else ("tz" if month in TZ_HOURS else "word", month, dm, x0, x1))
         if tail: out.append(("punct", _punctuation(tail, H), 0.0, tail[0]["x0"], tail[-1]["x1"]))
     merged = [out[0]]                            # '1' '1' with a wide side bearing → '11'
     for t in out[1:]:
         p = merged[-1]
-        if t[0] == p[0] == "num" and t[3] - p[4] <= NUMBER_GAP * H:
+        if t[0] == p[0] == "num" and t[3] - p[4] <= NUMBER_GAP * H and len(p[1]) + len(t[1]) <= 4 and len(p[1]) < 4:   # a year never absorbs the hour
             merged[-1] = ("num", p[1] + t[1], max(p[2], t[2]), p[3], t[4])
         else: merged.append(t)
     return merged
@@ -93,7 +103,8 @@ def tokens(ink):
 def read_date(ink):
     """→ {'text', 'datetime' (UTC, or None), 'distance' (worst token match), 'engine': 'glyph-date'}."""
     toks = tokens(ink)
-    text = " ".join(t[1] for t in toks)
+    tz = next((t[1] for t in toks if t[0] == "tz"), None)
+    text = " ".join(t[1] for t in toks if t[0] != "tz")
     when = None
     for rx, _ in PATTERNS:
         m = re.search(rx, text)
@@ -103,8 +114,9 @@ def read_date(ink):
         if not month: continue
         try:
             when = dt.datetime(int(g["year"]), month, int(g.get("day") or 1), int(g.get("hh") or 0), int(g.get("mm") or 0),
-                               tzinfo=dt.timezone.utc)
+                               tzinfo=dt.timezone.utc) - dt.timedelta(hours=TZ_HOURS.get(tz, 0))
             break
         except ValueError:
             continue
-    return {"text": text, "datetime": when, "distance": max((t[2] for t in toks), default=None), "engine": "glyph-date"}
+    return {"text": text + (f" {tz}" if tz else ""), "datetime": when, "timezone": tz, "distance": max((t[2] for t in toks), default=None),
+            "engine": "glyph-date"}
