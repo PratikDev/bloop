@@ -1,0 +1,929 @@
+{
+ "record": "currents_3912",
+ "app_title": "Currents & SST (model, 2007–08)",
+ "svs_ids": [
+  3912
+ ],
+ "title": "Global Sea Surface Currents and Temperature",
+ "svs_pages": [
+  "https://svs.gsfc.nasa.gov/3912/"
+ ],
+ "description": "This visualization shows sea surface current flows. The flows are colored by corresponding sea surface temperature data. This visualization is rendered for display on very high resolution devices like hyperwalls or for print media.This visualization was produced using model output from the joint MIT/JPL project entitled Estimating the Circulation and Climate of the Ocean, Phase II (ECCO2). ECCO2 uses the MIT general circulation model (MITgcm) to synthesize satellite and in-situ data of the global ocean and sea-ice at resolutions that begin to resolve ocean eddies and other narrow current systems, which transport heat and carbon in the oceans. The ECCO2 model simulates ocean flows at all depths, but only surface flows are used in this visualization. || ",
+ "release_date": "2012-03-16T10:00:00-04:00",
+ "period": {
+  "start": "2007-03-25T12:00:00Z",
+  "end": "2008-03-03T12:00:00Z",
+  "label": "25 Mar 2007 – 3 Mar 2008"
+ },
+ "badge": "model",
+ "credits_by_role": {
+  "Animator": [
+   "Greg Shirah (NASA/GSFC)",
+   "Horace Mitchell (NASA/GSFC)",
+   "Eric Sokolowsky (Global Science and Technology, Inc.)"
+  ],
+  "Project support": [
+   "Eric Sokolowsky (Global Science and Technology, Inc.)"
+  ],
+  "Producer": [
+   "Michael Starobin (HTSI)"
+  ],
+  "Scientist": [
+   "Hong Zhang (UCLA)",
+   "Dimitris Menemenlis (NASA/JPL CalTech)"
+  ]
+ },
+ "datasets": [
+  {
+   "name": "GTOPO30 Topography and Bathymetry",
+   "common_name": "",
+   "platform": null,
+   "sensor": null,
+   "type": "Data Compilation",
+   "organizations": [
+    "USGS"
+   ],
+   "description": "",
+   "credit": "",
+   "url": "",
+   "date_range": "3-2007 through 2-2008"
+  },
+  {
+   "name": "ECCO2 High Resolution Ocean and Sea Ice Model",
+   "common_name": "ECCO2",
+   "platform": null,
+   "sensor": null,
+   "type": "Model",
+   "organizations": [
+    "NASA/JPL"
+   ],
+   "description": "",
+   "credit": "",
+   "url": "",
+   "date_range": null
+  }
+ ],
+ "credit_line": "Visualization: NASA's Scientific Visualization Studio (SVS 3912) for the NASA Earth Information Center. Data: ECCO2 ocean model (MIT/JPL).",
+ "disclosure": "Temperature read from the streak colours; motion from how the drawn streaks move (pattern drift, not water speed). A model, not measurements.",
+ "licence": "SVS: \"All of our content is in the public domain (unless otherwise noted), meaning that it is free to download, use, and redistribute for whatever purposes you see fit.\" (https://svs.gsfc.nasa.gov/help/, read 29 Oct 2026)",
+ "frame_times": {
+  "method": "date-list",
+  "approximate": false,
+  "source": "flat_ecco2_dates.txt (SVS)",
+  "subsample_every": 6,
+  "subsample_hours": 24.766666666666666,
+  "count": 334
+ },
+ "georef": {
+  "projection": "equirectangular",
+  "bounds": [
+   -180,
+   -90,
+   180,
+   90
+  ],
+  "pass_at": 0.9,
+  "shifts_deg": [
+   0.5,
+   1.0
+  ],
+  "iou": {
+   "23000": 0.9383,
+   "27008": 0.9371
+  },
+  "pass": true,
+  "best_is_assumed": true
+ },
+ "colorbar": {
+  "geometry": {
+   "x0": 14,
+   "x1": 291,
+   "band": [
+    28,
+    67
+   ],
+   "vertical": false,
+   "outline_rgb": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "image_size": [
+    95,
+    310
+   ]
+  },
+  "ticks": [
+   {
+    "px": -1.5,
+    "value": 0.0,
+    "text": "0",
+    "engine": "glyph",
+    "label_px": -1.5
+   },
+   {
+    "px": 86.0,
+    "value": 10.0,
+    "text": "10",
+    "engine": "glyph",
+    "label_px": 86.0
+   },
+   {
+    "px": 173.5,
+    "value": 20.0,
+    "text": "20",
+    "engine": "glyph",
+    "label_px": 173.5
+   },
+   {
+    "px": 277.5,
+    "value": 32.0,
+    "text": "32",
+    "engine": "glyph",
+    "label_px": 277.5
+   }
+  ],
+  "scale": "linear",
+  "fit": {
+   "a": 0.14867742863106206,
+   "b": 0.11466907616335342,
+   "fit": "weighted 1/tolerance",
+   "max_resid_px": 0.3816385763022871,
+   "resid_px": [
+    0.2,
+    -0.09,
+    -0.38,
+    0.27
+   ],
+   "ok": true,
+   "stated_range": [
+    0.0,
+    32.0
+   ],
+   "strip_ends": [
+    0.14867742863106206,
+    31.912011525879958
+   ]
+  },
+  "notes": [],
+  "n_samples": 278,
+  "value_range": [
+   0.14867742863106206,
+   31.912011525879958
+  ],
+  "opacity_varies": true,
+  "px_per_unit": 8.72074698304394
+ },
+ "decode": {
+  "matcher": "rgb-nearest",
+  "mode": "hue",
+  "max_dist": 10.0,
+  "min_k": 0.1,
+  "coverage_median": 0.48234205012404796,
+  "coverage_range": [
+   0.4636282539355159,
+   0.5011003700621389
+  ],
+  "uncertain_values": [],
+  "farneback": {
+   "pyr_scale": 0.5,
+   "levels": 5,
+   "winsize": 15,
+   "iterations": 5,
+   "poly_n": 7,
+   "poly_sigma": 1.5,
+   "flags": 0
+  }
+ },
+ "layers": [
+  {
+   "id": "sst",
+   "unit": "°C",
+   "encoding": "linear",
+   "scale": 0.011466907616335342,
+   "offset": 1.0770823955535889,
+   "nodata": 65535,
+   "below": 65534,
+   "grid": {
+    "width": 360,
+    "height": 180,
+    "bounds": [
+     -180,
+     -90,
+     180,
+     90
+    ],
+    "row0": "north",
+    "col0": "west",
+    "byte_order": "little"
+   },
+   "times": [
+    "2007-03-25T12:00:00Z",
+    "2007-03-29T15:04:00Z",
+    "2007-04-02T18:08:00Z",
+    "2007-04-06T21:12:00Z",
+    "2007-04-11T00:17:00Z",
+    "2007-04-15T03:21:00Z",
+    "2007-04-19T06:25:00Z",
+    "2007-04-23T09:30:00Z",
+    "2007-04-27T12:34:00Z",
+    "2007-05-01T15:38:00Z",
+    "2007-05-05T18:43:00Z",
+    "2007-05-09T21:47:00Z",
+    "2007-05-14T00:51:00Z",
+    "2007-05-18T03:56:00Z",
+    "2007-05-22T07:00:00Z",
+    "2007-05-26T10:04:00Z",
+    "2007-05-30T13:09:00Z",
+    "2007-06-03T16:13:00Z",
+    "2007-06-07T19:17:00Z",
+    "2007-06-11T22:22:00Z",
+    "2007-06-16T01:26:00Z",
+    "2007-06-20T04:30:00Z",
+    "2007-06-24T07:35:00Z",
+    "2007-06-28T10:39:00Z",
+    "2007-07-02T13:43:00Z",
+    "2007-07-06T16:48:00Z",
+    "2007-07-10T19:52:00Z",
+    "2007-07-14T22:56:00Z",
+    "2007-07-19T02:00:00Z",
+    "2007-07-23T05:05:00Z",
+    "2007-07-27T08:09:00Z",
+    "2007-07-31T11:13:00Z",
+    "2007-08-04T14:18:00Z",
+    "2007-08-08T17:22:00Z",
+    "2007-08-12T20:26:00Z",
+    "2007-08-16T23:31:00Z",
+    "2007-08-21T02:35:00Z",
+    "2007-08-25T05:39:00Z",
+    "2007-08-29T08:44:00Z",
+    "2007-09-02T11:48:00Z",
+    "2007-09-06T14:52:00Z",
+    "2007-09-10T17:57:00Z",
+    "2007-09-14T21:01:00Z",
+    "2007-09-19T00:05:00Z",
+    "2007-09-23T03:10:00Z",
+    "2007-09-27T06:14:00Z",
+    "2007-10-01T09:18:00Z",
+    "2007-10-05T12:23:00Z",
+    "2007-10-09T15:27:00Z",
+    "2007-10-13T18:31:00Z",
+    "2007-10-17T21:36:00Z",
+    "2007-10-22T00:40:00Z",
+    "2007-10-26T03:44:00Z",
+    "2007-10-30T06:48:00Z",
+    "2007-11-03T09:53:00Z",
+    "2007-11-07T12:57:00Z",
+    "2007-11-11T16:01:00Z",
+    "2007-11-15T19:06:00Z",
+    "2007-11-19T22:10:00Z",
+    "2007-11-24T01:14:00Z",
+    "2007-11-28T04:19:00Z",
+    "2007-12-02T07:23:00Z",
+    "2007-12-06T10:27:00Z",
+    "2007-12-10T13:32:00Z",
+    "2007-12-14T16:36:00Z",
+    "2007-12-18T19:40:00Z",
+    "2007-12-22T22:45:00Z",
+    "2007-12-27T01:49:00Z",
+    "2007-12-31T04:53:00Z",
+    "2008-01-04T07:58:00Z",
+    "2008-01-08T11:02:00Z",
+    "2008-01-12T14:06:00Z",
+    "2008-01-16T17:11:00Z",
+    "2008-01-20T20:15:00Z",
+    "2008-01-24T23:19:00Z",
+    "2008-01-29T02:24:00Z",
+    "2008-02-02T05:28:00Z",
+    "2008-02-06T08:32:00Z",
+    "2008-02-10T11:36:00Z",
+    "2008-02-14T14:41:00Z",
+    "2008-02-18T17:45:00Z",
+    "2008-02-22T20:49:00Z",
+    "2008-02-26T23:54:00Z"
+   ],
+   "chunks": [
+    {
+     "file": "sst_000.u16.gz",
+     "t0": 0,
+     "t1": 32,
+     "bytes": 1789595
+    },
+    {
+     "file": "sst_001.u16.gz",
+     "t0": 32,
+     "t1": 64,
+     "bytes": 1799242
+    },
+    {
+     "file": "sst_002.u16.gz",
+     "t0": 64,
+     "t1": 83,
+     "bytes": 1084999
+    }
+   ],
+   "quantisation_step": 0.011466907616335342,
+   "coverage": 0.6372694481630224,
+   "value_range": [
+    1.0770823955535889,
+    30.76531982421875
+   ],
+   "label": "Sea surface temperature (model, read from the frame colours)",
+   "aggregation": "mean of 2×2 0.5° cells and 4 daily frames",
+   "display": {
+    "colours": [
+     "#203796",
+     "#336cf0",
+     "#327de3",
+     "#328cd7",
+     "#329bcb",
+     "#32aabf",
+     "#33b8b3",
+     "#34c6a6",
+     "#35d39c",
+     "#37e090",
+     "#38eb84",
+     "#3af678",
+     "#3bff6e",
+     "#3dff62",
+     "#40ff58",
+     "#48ff4c",
+     "#59ff41",
+     "#70ff37",
+     "#8bff2e",
+     "#a8ff28",
+     "#c5ff23",
+     "#deff22",
+     "#f3ff21",
+     "#fbfb21",
+     "#fae620",
+     "#facc1e",
+     "#f9ae1c",
+     "#f88c1b",
+     "#f7691a",
+     "#f74019",
+     "#f70718",
+     "#e60016"
+    ],
+    "values": [
+     0.14867742863106206,
+     1.1733011091874783,
+     2.1979247897438943,
+     3.22254847030031,
+     4.247172150856727,
+     5.271795831413143,
+     6.2964195119695585,
+     7.321043192525975,
+     8.345666873082392,
+     9.370290553638807,
+     10.394914234195223,
+     11.41953791475164,
+     12.444161595308055,
+     13.468785275864471,
+     14.493408956420888,
+     15.518032636977303,
+     16.54265631753372,
+     17.567279998090132,
+     18.59190367864655,
+     19.616527359202966,
+     20.641151039759382,
+     21.6657747203158,
+     22.690398400872215,
+     23.715022081428632,
+     24.739645761985045,
+     25.764269442541462,
+     26.78889312309788,
+     27.813516803654295,
+     28.83814048421071,
+     29.862764164767125,
+     30.88738784532354,
+     31.912011525879958
+    ],
+    "scale": "linear"
+   },
+   "status": "verified",
+   "status_check": "a_sst_mur"
+  },
+  {
+   "id": "drift_u",
+   "unit": "km/day",
+   "encoding": "linear",
+   "scale": 0.01,
+   "offset": -54.54108142852783,
+   "nodata": 65535,
+   "below": 65534,
+   "grid": {
+    "width": 360,
+    "height": 180,
+    "bounds": [
+     -180,
+     -90,
+     180,
+     90
+    ],
+    "row0": "north",
+    "col0": "west",
+    "byte_order": "little"
+   },
+   "times": [
+    "2007-03-25T12:00:00Z",
+    "2007-03-29T15:04:00Z",
+    "2007-04-02T18:08:00Z",
+    "2007-04-06T21:12:00Z",
+    "2007-04-11T00:17:00Z",
+    "2007-04-15T03:21:00Z",
+    "2007-04-19T06:25:00Z",
+    "2007-04-23T09:30:00Z",
+    "2007-04-27T12:34:00Z",
+    "2007-05-01T15:38:00Z",
+    "2007-05-05T18:43:00Z",
+    "2007-05-09T21:47:00Z",
+    "2007-05-14T00:51:00Z",
+    "2007-05-18T03:56:00Z",
+    "2007-05-22T07:00:00Z",
+    "2007-05-26T10:04:00Z",
+    "2007-05-30T13:09:00Z",
+    "2007-06-03T16:13:00Z",
+    "2007-06-07T19:17:00Z",
+    "2007-06-11T22:22:00Z",
+    "2007-06-16T01:26:00Z",
+    "2007-06-20T04:30:00Z",
+    "2007-06-24T07:35:00Z",
+    "2007-06-28T10:39:00Z",
+    "2007-07-02T13:43:00Z",
+    "2007-07-06T16:48:00Z",
+    "2007-07-10T19:52:00Z",
+    "2007-07-14T22:56:00Z",
+    "2007-07-19T02:00:00Z",
+    "2007-07-23T05:05:00Z",
+    "2007-07-27T08:09:00Z",
+    "2007-07-31T11:13:00Z",
+    "2007-08-04T14:18:00Z",
+    "2007-08-08T17:22:00Z",
+    "2007-08-12T20:26:00Z",
+    "2007-08-16T23:31:00Z",
+    "2007-08-21T02:35:00Z",
+    "2007-08-25T05:39:00Z",
+    "2007-08-29T08:44:00Z",
+    "2007-09-02T11:48:00Z",
+    "2007-09-06T14:52:00Z",
+    "2007-09-10T17:57:00Z",
+    "2007-09-14T21:01:00Z",
+    "2007-09-19T00:05:00Z",
+    "2007-09-23T03:10:00Z",
+    "2007-09-27T06:14:00Z",
+    "2007-10-01T09:18:00Z",
+    "2007-10-05T12:23:00Z",
+    "2007-10-09T15:27:00Z",
+    "2007-10-13T18:31:00Z",
+    "2007-10-17T21:36:00Z",
+    "2007-10-22T00:40:00Z",
+    "2007-10-26T03:44:00Z",
+    "2007-10-30T06:48:00Z",
+    "2007-11-03T09:53:00Z",
+    "2007-11-07T12:57:00Z",
+    "2007-11-11T16:01:00Z",
+    "2007-11-15T19:06:00Z",
+    "2007-11-19T22:10:00Z",
+    "2007-11-24T01:14:00Z",
+    "2007-11-28T04:19:00Z",
+    "2007-12-02T07:23:00Z",
+    "2007-12-06T10:27:00Z",
+    "2007-12-10T13:32:00Z",
+    "2007-12-14T16:36:00Z",
+    "2007-12-18T19:40:00Z",
+    "2007-12-22T22:45:00Z",
+    "2007-12-27T01:49:00Z",
+    "2007-12-31T04:53:00Z",
+    "2008-01-04T07:58:00Z",
+    "2008-01-08T11:02:00Z",
+    "2008-01-12T14:06:00Z",
+    "2008-01-16T17:11:00Z",
+    "2008-01-20T20:15:00Z",
+    "2008-01-24T23:19:00Z",
+    "2008-01-29T02:24:00Z",
+    "2008-02-02T05:28:00Z",
+    "2008-02-06T08:32:00Z",
+    "2008-02-10T11:36:00Z",
+    "2008-02-14T14:41:00Z",
+    "2008-02-18T17:45:00Z",
+    "2008-02-22T20:49:00Z",
+    "2008-02-26T23:54:00Z"
+   ],
+   "chunks": [
+    {
+     "file": "drift_u_000.u16.gz",
+     "t0": 0,
+     "t1": 32,
+     "bytes": 2165313
+    },
+    {
+     "file": "drift_u_001.u16.gz",
+     "t0": 32,
+     "t1": 64,
+     "bytes": 2178297
+    },
+    {
+     "file": "drift_u_002.u16.gz",
+     "t0": 64,
+     "t1": 83,
+     "bytes": 1292291
+    }
+   ],
+   "quantisation_step": 0.01,
+   "coverage": 0.6969844191581139,
+   "value_range": [
+    -54.54108142852783,
+    40.54942035675049
+   ],
+   "label": "Pattern drift, eastward (how fast the drawn eddies and meanders move; not water speed)",
+   "aggregation": "mean of 2×2 0.5° cells and 4 daily frames",
+   "status": "pattern only (values not verified)",
+   "status_check": "b_direction_oscar"
+  },
+  {
+   "id": "drift_v",
+   "unit": "km/day",
+   "encoding": "linear",
+   "scale": 0.01,
+   "offset": -22.545385360717773,
+   "nodata": 65535,
+   "below": 65534,
+   "grid": {
+    "width": 360,
+    "height": 180,
+    "bounds": [
+     -180,
+     -90,
+     180,
+     90
+    ],
+    "row0": "north",
+    "col0": "west",
+    "byte_order": "little"
+   },
+   "times": [
+    "2007-03-25T12:00:00Z",
+    "2007-03-29T15:04:00Z",
+    "2007-04-02T18:08:00Z",
+    "2007-04-06T21:12:00Z",
+    "2007-04-11T00:17:00Z",
+    "2007-04-15T03:21:00Z",
+    "2007-04-19T06:25:00Z",
+    "2007-04-23T09:30:00Z",
+    "2007-04-27T12:34:00Z",
+    "2007-05-01T15:38:00Z",
+    "2007-05-05T18:43:00Z",
+    "2007-05-09T21:47:00Z",
+    "2007-05-14T00:51:00Z",
+    "2007-05-18T03:56:00Z",
+    "2007-05-22T07:00:00Z",
+    "2007-05-26T10:04:00Z",
+    "2007-05-30T13:09:00Z",
+    "2007-06-03T16:13:00Z",
+    "2007-06-07T19:17:00Z",
+    "2007-06-11T22:22:00Z",
+    "2007-06-16T01:26:00Z",
+    "2007-06-20T04:30:00Z",
+    "2007-06-24T07:35:00Z",
+    "2007-06-28T10:39:00Z",
+    "2007-07-02T13:43:00Z",
+    "2007-07-06T16:48:00Z",
+    "2007-07-10T19:52:00Z",
+    "2007-07-14T22:56:00Z",
+    "2007-07-19T02:00:00Z",
+    "2007-07-23T05:05:00Z",
+    "2007-07-27T08:09:00Z",
+    "2007-07-31T11:13:00Z",
+    "2007-08-04T14:18:00Z",
+    "2007-08-08T17:22:00Z",
+    "2007-08-12T20:26:00Z",
+    "2007-08-16T23:31:00Z",
+    "2007-08-21T02:35:00Z",
+    "2007-08-25T05:39:00Z",
+    "2007-08-29T08:44:00Z",
+    "2007-09-02T11:48:00Z",
+    "2007-09-06T14:52:00Z",
+    "2007-09-10T17:57:00Z",
+    "2007-09-14T21:01:00Z",
+    "2007-09-19T00:05:00Z",
+    "2007-09-23T03:10:00Z",
+    "2007-09-27T06:14:00Z",
+    "2007-10-01T09:18:00Z",
+    "2007-10-05T12:23:00Z",
+    "2007-10-09T15:27:00Z",
+    "2007-10-13T18:31:00Z",
+    "2007-10-17T21:36:00Z",
+    "2007-10-22T00:40:00Z",
+    "2007-10-26T03:44:00Z",
+    "2007-10-30T06:48:00Z",
+    "2007-11-03T09:53:00Z",
+    "2007-11-07T12:57:00Z",
+    "2007-11-11T16:01:00Z",
+    "2007-11-15T19:06:00Z",
+    "2007-11-19T22:10:00Z",
+    "2007-11-24T01:14:00Z",
+    "2007-11-28T04:19:00Z",
+    "2007-12-02T07:23:00Z",
+    "2007-12-06T10:27:00Z",
+    "2007-12-10T13:32:00Z",
+    "2007-12-14T16:36:00Z",
+    "2007-12-18T19:40:00Z",
+    "2007-12-22T22:45:00Z",
+    "2007-12-27T01:49:00Z",
+    "2007-12-31T04:53:00Z",
+    "2008-01-04T07:58:00Z",
+    "2008-01-08T11:02:00Z",
+    "2008-01-12T14:06:00Z",
+    "2008-01-16T17:11:00Z",
+    "2008-01-20T20:15:00Z",
+    "2008-01-24T23:19:00Z",
+    "2008-01-29T02:24:00Z",
+    "2008-02-02T05:28:00Z",
+    "2008-02-06T08:32:00Z",
+    "2008-02-10T11:36:00Z",
+    "2008-02-14T14:41:00Z",
+    "2008-02-18T17:45:00Z",
+    "2008-02-22T20:49:00Z",
+    "2008-02-26T23:54:00Z"
+   ],
+   "chunks": [
+    {
+     "file": "drift_v_000.u16.gz",
+     "t0": 0,
+     "t1": 32,
+     "bytes": 2200126
+    },
+    {
+     "file": "drift_v_001.u16.gz",
+     "t0": 32,
+     "t1": 64,
+     "bytes": 2209874
+    },
+    {
+     "file": "drift_v_002.u16.gz",
+     "t0": 64,
+     "t1": 83,
+     "bytes": 1311128
+    }
+   ],
+   "quantisation_step": 0.01,
+   "coverage": 0.6969844191581139,
+   "value_range": [
+    -22.545385360717773,
+    19.796030521392822
+   ],
+   "label": "Pattern drift, northward (how fast the drawn eddies and meanders move; not water speed)",
+   "aggregation": "mean of 2×2 0.5° cells and 4 daily frames",
+   "status": "pattern only (values not verified)",
+   "status_check": "b_direction_oscar"
+  },
+  {
+   "id": "axis",
+   "unit": "degrees from north (0–180)",
+   "encoding": "linear",
+   "scale": 0.1,
+   "offset": 0.050761471036821604,
+   "nodata": 65535,
+   "below": 65534,
+   "grid": {
+    "width": 360,
+    "height": 180,
+    "bounds": [
+     -180,
+     -90,
+     180,
+     90
+    ],
+    "row0": "north",
+    "col0": "west",
+    "byte_order": "little"
+   },
+   "times": [
+    "2007-03-25T12:00:00Z",
+    "2007-03-29T15:04:00Z",
+    "2007-04-02T18:08:00Z",
+    "2007-04-06T21:12:00Z",
+    "2007-04-11T00:17:00Z",
+    "2007-04-15T03:21:00Z",
+    "2007-04-19T06:25:00Z",
+    "2007-04-23T09:30:00Z",
+    "2007-04-27T12:34:00Z",
+    "2007-05-01T15:38:00Z",
+    "2007-05-05T18:43:00Z",
+    "2007-05-09T21:47:00Z",
+    "2007-05-14T00:51:00Z",
+    "2007-05-18T03:56:00Z",
+    "2007-05-22T07:00:00Z",
+    "2007-05-26T10:04:00Z",
+    "2007-05-30T13:09:00Z",
+    "2007-06-03T16:13:00Z",
+    "2007-06-07T19:17:00Z",
+    "2007-06-11T22:22:00Z",
+    "2007-06-16T01:26:00Z",
+    "2007-06-20T04:30:00Z",
+    "2007-06-24T07:35:00Z",
+    "2007-06-28T10:39:00Z",
+    "2007-07-02T13:43:00Z",
+    "2007-07-06T16:48:00Z",
+    "2007-07-10T19:52:00Z",
+    "2007-07-14T22:56:00Z",
+    "2007-07-19T02:00:00Z",
+    "2007-07-23T05:05:00Z",
+    "2007-07-27T08:09:00Z",
+    "2007-07-31T11:13:00Z",
+    "2007-08-04T14:18:00Z",
+    "2007-08-08T17:22:00Z",
+    "2007-08-12T20:26:00Z",
+    "2007-08-16T23:31:00Z",
+    "2007-08-21T02:35:00Z",
+    "2007-08-25T05:39:00Z",
+    "2007-08-29T08:44:00Z",
+    "2007-09-02T11:48:00Z",
+    "2007-09-06T14:52:00Z",
+    "2007-09-10T17:57:00Z",
+    "2007-09-14T21:01:00Z",
+    "2007-09-19T00:05:00Z",
+    "2007-09-23T03:10:00Z",
+    "2007-09-27T06:14:00Z",
+    "2007-10-01T09:18:00Z",
+    "2007-10-05T12:23:00Z",
+    "2007-10-09T15:27:00Z",
+    "2007-10-13T18:31:00Z",
+    "2007-10-17T21:36:00Z",
+    "2007-10-22T00:40:00Z",
+    "2007-10-26T03:44:00Z",
+    "2007-10-30T06:48:00Z",
+    "2007-11-03T09:53:00Z",
+    "2007-11-07T12:57:00Z",
+    "2007-11-11T16:01:00Z",
+    "2007-11-15T19:06:00Z",
+    "2007-11-19T22:10:00Z",
+    "2007-11-24T01:14:00Z",
+    "2007-11-28T04:19:00Z",
+    "2007-12-02T07:23:00Z",
+    "2007-12-06T10:27:00Z",
+    "2007-12-10T13:32:00Z",
+    "2007-12-14T16:36:00Z",
+    "2007-12-18T19:40:00Z",
+    "2007-12-22T22:45:00Z",
+    "2007-12-27T01:49:00Z",
+    "2007-12-31T04:53:00Z",
+    "2008-01-04T07:58:00Z",
+    "2008-01-08T11:02:00Z",
+    "2008-01-12T14:06:00Z",
+    "2008-01-16T17:11:00Z",
+    "2008-01-20T20:15:00Z",
+    "2008-01-24T23:19:00Z",
+    "2008-01-29T02:24:00Z",
+    "2008-02-02T05:28:00Z",
+    "2008-02-06T08:32:00Z",
+    "2008-02-10T11:36:00Z",
+    "2008-02-14T14:41:00Z",
+    "2008-02-18T17:45:00Z",
+    "2008-02-22T20:49:00Z",
+    "2008-02-26T23:54:00Z"
+   ],
+   "chunks": [
+    {
+     "file": "axis_000.u16.gz",
+     "t0": 0,
+     "t1": 32,
+     "bytes": 2338518
+    },
+    {
+     "file": "axis_001.u16.gz",
+     "t0": 32,
+     "t1": 64,
+     "bytes": 2336842
+    },
+    {
+     "file": "axis_002.u16.gz",
+     "t0": 64,
+     "t1": 83,
+     "bytes": 1388029
+    }
+   ],
+   "quantisation_step": 0.1,
+   "coverage": 0.6971775992860331,
+   "value_range": [
+    0.050761471036821604,
+    179.96585845947266
+   ],
+   "label": "Current axis from the drawn streaks (direction modulo 180°)",
+   "aggregation": "mean of 2×2 0.5° cells and 4 daily frames",
+   "status": "pattern only (values not verified)",
+   "status_check": "b_direction_oscar"
+  }
+ ],
+ "voices": {
+  "sst": "ocean",
+  "drift_speed": "currentDrift"
+ },
+ "play": [
+  {
+   "id": "sst_drift",
+   "label": "Sea surface temperature, with the drift as clicks",
+   "view": "global",
+   "map": "sst",
+   "start": {
+    "lat": 18.75,
+    "lon": 89.0
+   },
+   "steps_per_second": 3,
+   "channels": [
+    {
+     "voice": "ocean",
+     "layers": [
+      "sst"
+     ],
+     "combine": "value"
+    },
+    {
+     "voice": "currentDrift",
+     "layers": [
+      "drift_u",
+      "drift_v"
+     ],
+     "combine": "magnitude"
+    }
+   ]
+  }
+ ],
+ "drift_speed_range_km_day": [
+  0.03301134131018409,
+  14.453328674365828
+ ],
+ "confidence": {
+  "sst_min_cell_coverage": 0.2,
+  "streak_coverage_median": 0.48234205012404796
+ },
+ "validation": [
+  {
+   "id": "a_sst_mur",
+   "title": "ECCO2 SST (decoded from frames) vs MUR25 SST, same dates",
+   "kind": "model-vs-obs",
+   "pass": true,
+   "threshold": "Spearman ≥ 0.9 (provisional)"
+  },
+  {
+   "id": "b_direction_oscar",
+   "title": "Flow direction vs OSCAR, strong-current cells",
+   "kind": "model-vs-obs",
+   "pass": false,
+   "threshold": "median ≤ 45° (provisional; directions)"
+  },
+  {
+   "id": "c_eicc_reversal",
+   "title": "Bay of Bengal: East India Coastal Current seasonal reversal",
+   "kind": "model-vs-obs",
+   "pass": true,
+   "threshold": "poleward ≥2 of Mar–May and equatorward ≥2 of Oct–Dec"
+  }
+ ],
+ "size": {
+  "choice": {
+   "cell_deg": 1.0,
+   "days": 4
+  },
+  "tried": [
+   {
+    "option": [
+     2,
+     1
+    ],
+    "estimated_bytes": 89618819
+   },
+   {
+    "option": [
+     2,
+     2
+    ],
+    "estimated_bytes": 44678945
+   },
+   {
+    "option": [
+     2,
+     3
+    ],
+    "estimated_bytes": 29615366
+   },
+   {
+    "option": [
+     2,
+     4
+    ],
+    "estimated_bytes": 22094254
+   }
+  ],
+  "bytes": 22138513,
+  "budget": 25000000
+ },
+ "asset_checksums": {
+  "file": "checksums.tsv.gz",
+  "rows": 335,
+  "sha256_of_list": "b4812787e38ca1f4c0439ea1b7710ffbc59f2bea83ae2791c57b563cbab343ca"
+ },
+ "code_commit": "f1cb099134d83e06d332d2dbaebb9b024ca82a1b-dirty",
+ "generated_utc": "2026-10-29T00:00:49Z"
+}

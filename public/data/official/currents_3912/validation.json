@@ -1,0 +1,233 @@
+{
+ "record": "currents_3912",
+ "checks": [
+  {
+   "record": "currents_3912",
+   "id": "a_sst_mur",
+   "title": "ECCO2 SST (decoded from frames) vs MUR25 SST, same dates",
+   "kind": "model-vs-obs",
+   "source": "MUR25-JPL-L4-GLOB-v04.2 (PO.DAAC)",
+   "metrics": {
+    "spearman": 0.9935924786797061,
+    "n_cells": 6330856,
+    "dates": 48,
+    "median_abs_C": 0.7638664245605469,
+    "bias_C": 0.41710067041863574,
+    "per_basin": {
+     "Arctic (>66°N)": {
+      "n": 466621,
+      "median_abs": 3.754072666168213,
+      "median_rel": 2.1018792417812144,
+      "bias": 2.948784433712563,
+      "median_bias": 3.7522976398468018,
+      "spearman": 0.4971722286073692
+     },
+     "Southern Ocean (<50°S)": {
+      "n": 1016628,
+      "median_abs": 2.0900775529444218,
+      "median_rel": 1.9005522312826337,
+      "bias": 1.9559411766943673,
+      "median_bias": 2.0820724330842495,
+      "spearman": 0.9261865799072729
+     },
+     "North Atlantic": {
+      "n": 765996,
+      "median_abs": 0.6407690048217773,
+      "median_rel": 0.029847066485270215,
+      "bias": -0.17617360949358996,
+      "median_bias": -0.03473663330078125,
+      "spearman": 0.9876973082231904
+     },
+     "South Atlantic": {
+      "n": 547396,
+      "median_abs": 0.7555809020996094,
+      "median_rel": 0.03952500151990509,
+      "bias": -0.2691242158306659,
+      "median_bias": 0.012770652770996094,
+      "spearman": 0.9915458077279832
+     },
+     "Indian": {
+      "n": 947345,
+      "median_abs": 0.5726442337036133,
+      "median_rel": 0.0247296489498561,
+      "bias": -0.17890421795094677,
+      "median_bias": -0.057281494140625,
+      "spearman": 0.9860265985185883
+     },
+     "North Pacific": {
+      "n": 1306701,
+      "median_abs": 0.5406589508056641,
+      "median_rel": 0.02350674625002535,
+      "bias": 0.07665445206679233,
+      "median_bias": 0.0646514892578125,
+      "spearman": 0.9864163014682662
+     },
+     "South Pacific": {
+      "n": 1280169,
+      "median_abs": 0.5391483306884766,
+      "median_rel": 0.024303112488811417,
+      "bias": -0.2907738425855361,
+      "median_bias": -0.18541717529296875,
+      "spearman": 0.9944798038346395
+     },
+     "Bay of Bengal": {
+      "n": 38295,
+      "median_abs": 0.3808097839355469,
+      "median_rel": 0.013347698115507166,
+      "bias": -0.2222927703140205,
+      "median_bias": -0.26012420654296875,
+      "spearman": 0.8188415981321723
+     }
+    }
+   },
+   "threshold": "Spearman ≥ 0.9 (provisional)",
+   "pass": true,
+   "note": "Model vs observation: differences include real ECCO2–MUR differences.",
+   "run_utc": "2026-10-28T23:54:48Z"
+  },
+  {
+   "record": "currents_3912",
+   "id": "b_direction_oscar",
+   "title": "Flow direction vs OSCAR, strong-current cells",
+   "kind": "model-vs-obs",
+   "source": "OSCAR_L4_OC_FINAL_V2.0 (PO.DAAC)",
+   "metrics": {
+    "median_deg_drift": 73.31510925292969,
+    "median_deg_axis": 38.9703426361084,
+    "median_deg_combined": 72.51483154296875,
+    "chance_deg_direction": 90.0,
+    "chance_deg_axis": 45.0,
+    "regions": {
+     "Gulf Stream": {
+      "n_cells": 18944,
+      "median_deg_drift": 78.00934791564941,
+      "median_deg_axis": 42.30778408050537,
+      "median_deg_combined": 77.56294631958008,
+      "drift_speed_vs_oscar_spearman": 0.031227378290056305,
+      "median_drift_speed_m_s": 0.03057616576552391,
+      "median_oscar_speed_m_s": 0.46945035457611084
+     },
+     "Kuroshio": {
+      "n_cells": 20240,
+      "median_deg_drift": 78.44153785705566,
+      "median_deg_axis": 40.07904052734375,
+      "median_deg_combined": 78.75807285308838,
+      "drift_speed_vs_oscar_spearman": 0.001518373187150314,
+      "median_drift_speed_m_s": 0.03432825952768326,
+      "median_oscar_speed_m_s": 0.46858978271484375
+     },
+     "Agulhas": {
+      "n_cells": 21576,
+      "median_deg_drift": 66.83000373840332,
+      "median_deg_axis": 36.49383544921875,
+      "median_deg_combined": 65.85884094238281,
+      "drift_speed_vs_oscar_spearman": 0.0649307463580565,
+      "median_drift_speed_m_s": 0.038806673139333725,
+      "median_oscar_speed_m_s": 0.5274532437324524
+     },
+     "Bay of Bengal (EICC)": {
+      "n_cells": 6489,
+      "median_deg_drift": 62.886474609375,
+      "median_deg_axis": 33.53179931640625,
+      "median_deg_combined": 58.353519439697266,
+      "drift_speed_vs_oscar_spearman": 0.005072281153011848,
+      "median_drift_speed_m_s": 0.04507191479206085,
+      "median_oscar_speed_m_s": 0.35500505566596985
+     }
+    }
+   },
+   "threshold": "median ≤ 45° (provisional; directions)",
+   "pass": false,
+   "note": "Pattern drift = optical flow of the drawn streaks (eddies/meanders moving), not water speed. Axis = streak orientation (direction modulo 180°). Combined = axis signed by the drift.",
+   "run_utc": "2026-10-28T23:54:54Z"
+  },
+  {
+   "record": "currents_3912",
+   "id": "c_eicc_reversal",
+   "title": "Bay of Bengal: East India Coastal Current seasonal reversal",
+   "kind": "model-vs-obs",
+   "source": "frames (and OSCAR for context)",
+   "metrics": {
+    "coastal_cells": 90,
+    "axis_deg": 30.0,
+    "monthly_along_shore": {
+     "2007-03": {
+      "drift": 2.1489926962176873,
+      "combined": 0.5274458730152839,
+      "oscar": 0.28641269737162095
+     },
+     "2007-04": {
+      "drift": 1.5098902866223871,
+      "combined": 0.34198488138652167,
+      "oscar": 0.18645157970446385
+     },
+     "2007-05": {
+      "drift": -1.0343156008897645,
+      "combined": -0.1803370325125681,
+      "oscar": -0.045278104241692284
+     },
+     "2007-06": {
+      "drift": -0.16784719456703404,
+      "combined": -0.00833646617118893,
+      "oscar": 0.04613583122063331
+     },
+     "2007-07": {
+      "drift": -1.4782851115217257,
+      "combined": -0.31402844039783034,
+      "oscar": -0.01660765748526523
+     },
+     "2007-08": {
+      "drift": -1.9025945241486077,
+      "combined": -0.36275504824976007,
+      "oscar": -0.08653830396245585
+     },
+     "2007-09": {
+      "drift": -0.8765152821831077,
+      "combined": -0.2847725009056894,
+      "oscar": -0.02319953167608907
+     },
+     "2007-10": {
+      "drift": -2.8823951543070803,
+      "combined": -0.4504331301117192,
+      "oscar": -0.3245367186686142
+     },
+     "2007-11": {
+      "drift": -5.156882053060324,
+      "combined": -0.6974286118511596,
+      "oscar": -0.4438894356604489
+     },
+     "2007-12": {
+      "drift": -2.0993793996743486,
+      "combined": -0.4167910446751218,
+      "oscar": -0.29748558730540103
+     },
+     "2008-01": {
+      "drift": -3.071532847587714,
+      "combined": -0.5732423579673196,
+      "oscar": -0.1028939795294969
+     },
+     "2008-02": {
+      "drift": 0.6869097661656173,
+      "combined": 0.09181213690601384,
+      "oscar": 0.09908836532592662
+     },
+     "2008-03": {
+      "drift": -0.5523101522360083,
+      "combined": -0.004818436880922813,
+      "oscar": null
+     }
+    },
+    "shown": {
+     "combined": true,
+     "drift": true,
+     "oscar": true
+    }
+   },
+   "threshold": "poleward ≥2 of Mar–May and equatorward ≥2 of Oct–Dec",
+   "pass": true,
+   "note": "Along-shore component towards N30°E (positive = poleward). Combined = unit vectors (no speed); drift in km/day; OSCAR in m/s.",
+   "run_utc": "2026-10-28T23:55:18Z"
+  }
+ ],
+ "updated_utc": "2026-10-28T23:55:18Z"
+}
