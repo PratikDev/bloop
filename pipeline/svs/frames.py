@@ -3,10 +3,12 @@ frame → time mapping. Time methods, in order of preference (the method is alwa
   a "date-list"  — the SVS per-frame date list (e.g. 3912's flat_ecco2_dates.txt);
   b "ocr"        — a burned-in date label read by OCR (svs/ocr.py), checked by eye on 10 random frames;
   c "linear"     — the stated period ÷ frame count, labelled approximate."""
-import datetime as dt, io, json, re, shutil, struct, subprocess, zlib
+import datetime as dt, io, json, re, shutil, struct, subprocess, threading, zlib
 from pathlib import Path
 import numpy as np
 from PIL import Image, ImageFile
+
+_TRUNCATED = threading.Lock()        # Pillow's LOAD_TRUNCATED_IMAGES is process-wide: one decode at a time
 
 PNG_SIG = b"\x89PNG\r\n\x1a\n"
 CHANNELS = {0: 1, 2: 3, 3: 1, 4: 2, 6: 4}       # PNG colour type → samples per pixel
@@ -38,13 +40,14 @@ def png_top_rows(data):
     """Decode a PNG prefix → (RGBA array of the complete top rows, n_rows). Pillow decodes what is there; the rows
     beyond the prefix are discarded, never guessed."""
     n = png_rows_available(data)
-    prev = ImageFile.LOAD_TRUNCATED_IMAGES
-    ImageFile.LOAD_TRUNCATED_IMAGES = True
-    try:
-        im = Image.open(io.BytesIO(data)); im.load()
-        arr = np.asarray(im.convert("RGBA"))
-    finally:
-        ImageFile.LOAD_TRUNCATED_IMAGES = prev
+    with _TRUNCATED:
+        prev = ImageFile.LOAD_TRUNCATED_IMAGES
+        ImageFile.LOAD_TRUNCATED_IMAGES = True
+        try:
+            im = Image.open(io.BytesIO(data)); im.load()
+            arr = np.asarray(im.convert("RGBA"))
+        finally:
+            ImageFile.LOAD_TRUNCATED_IMAGES = prev
     return arr[:n].copy(), n
 
 def times_linear(start, end, n):
