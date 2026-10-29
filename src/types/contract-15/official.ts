@@ -35,7 +35,16 @@ export interface OfficialLayer {
   offset: number;
   nodata: 65535;
   below: 65534;
-  grid: { width: number; height: number; bounds: [number, number, number, number]; row0: "north"; col0: "west"; byte_order: "little" };
+  grid: {
+    width: number;
+    height: number;
+    bounds: [number, number, number, number];
+    row0: "north";
+    col0: "west";
+    byte_order: "little";
+    /** "frame": no georeference; bounds are the picture's own frame (x −180…180 across, y up), not degrees. */
+    space?: "frame";
+  };
   times: string[]; // ISO 8601 UTC, one per time step
   time_labels?: string[]; // shown instead of the time when a step is a period (an annual composite, a change between years)
   chunks: OfficialChunk[];

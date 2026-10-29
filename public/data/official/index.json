@@ -33,6 +33,16 @@
    "manifest": "currents_3912/manifest.json"
   },
   {
+   "record": "forest_4950",
+   "title": "Forest height (observation, GEDI)",
+   "svs_ids": [
+    4950
+   ],
+   "badge": "observation",
+   "period": "18 Apr 2019 – 30 Apr 2020",
+   "manifest": "forest_4950/manifest.json"
+  },
+  {
    "record": "lightning_5011",
    "title": "Lightning from the ISS (observation, 2017–23)",
    "svs_ids": [

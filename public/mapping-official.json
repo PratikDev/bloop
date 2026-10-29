@@ -345,6 +345,48 @@
       "note": "Surface current speed from NASA OSCAR for the record's days (team decision A3: the frames' motion is not a data claim); range = the record's 1st–99th percentile."
     },
     {
+      "id": "forestHeight",
+      "label": {
+        "en": "Forest height (observation, pattern only)",
+        "bn": "TODO: forest height"
+      },
+      "group": "context",
+      "source": {
+        "dataset": "NASA GEDI, via EIC frames SVS 4950",
+        "svsId": 4950,
+        "product": "forest_4950"
+      },
+      "status": "context",
+      "mapping": {
+        "kind": "continuous",
+        "input": {
+          "unit": "m",
+          "min": 0,
+          "max": 54,
+          "scale": "linear"
+        },
+        "output": {
+          "param": "frequency",
+          "unit": "Hz",
+          "min": 220,
+          "max": 880,
+          "scale": "exponential"
+        }
+      },
+      "silence": "Ocean, space, or a pixel whose colour is not on the colorbar.",
+      "sound": {
+        "timbre": "Warm sine with a soft attack and a smooth glide",
+        "attackMs": 20,
+        "releaseMs": 80,
+        "glideMs": 30,
+        "maxGain": 0.2
+      },
+      "pan": "longitude",
+      "legend": [],
+      "designChoice": true,
+      "note": "The book's pitch rule; range = the colorbar's own ends. Pattern only: values not verified."
+    },
+    {
       "id": "aerosolSeaSalt",
       "label": {
         "en": "Aerosols: sea salt (model, relative)",

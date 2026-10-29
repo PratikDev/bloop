@@ -120,6 +120,11 @@ _ALL = [
             disclosure="Temperature read from the streak colours of a model. The currents you hear are NASA OSCAR surface "
                        "currents for the same days; how the drawn streaks move is visual texture, not water speed.",
             period_keys=("period.start", "period.end"), time_key="period.end"),
+    Product("forest_4950", "Forest height (observation, GEDI)", ("official/forest_4950/manifest.json",), "static", "frame-paired",
+            (D.SVS4950, D.GEDI), credit=SVS_CREDIT.format(id=4950) + " Data: NASA GEDI (University of Maryland, ORNL DAAC).",
+            disclosure="Heights read from a lit 3D globe render with its colorbar; no map position, and the values are not "
+                       "verified (pattern only).",
+            period_keys=("period.start", "period.end"), time_key="period.end"),
     Product("aerosols_5669", "Aerosols by type (model, 19 Aug 2025)", ("official/aerosols_5669/manifest.json",), "static", "frame-paired",
             (D.SVS5669, D.GEOSFP), credit=SVS_CREDIT.format(id="5669, 5572") + " Data: NASA GEOS-FP (GMAO), model output.",
             disclosure="Aerosol type read from the picture's colours against its key; the key has no values, so density is "

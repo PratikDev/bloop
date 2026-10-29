@@ -95,6 +95,16 @@ def aerosol_voices(m):
                     "designChoice": True, "note": "Relative density (the key has no values); range = the record's 99th percentile."})
     return out
 
+def forest_voice(m):
+    lo, hi = m["colorbar"]["value_range"]
+    return {"id": "forestHeight", "label": {"en": "Forest height (observation, pattern only)", "bn": "TODO: forest height"}, "group": "context",
+            "source": {"dataset": "NASA GEDI, via EIC frames SVS 4950", "svsId": 4950, "product": m["record"]}, "status": "context",
+            "mapping": {"kind": "continuous", "input": {"unit": "m", "min": max(0, round(lo)), "max": round(hi), "scale": "linear"}, "output": TONE},
+            "silence": "Ocean, space, or a pixel whose colour is not on the colorbar.",
+            "sound": {"timbre": "Warm sine with a soft attack and a smooth glide", "attackMs": 20, "releaseMs": 80, "glideMs": 30, "maxGain": 0.2},
+            "pan": "longitude", "legend": [], "designChoice": True,
+            "note": "The book's pitch rule; range = the colorbar's own ends. Pattern only: values not verified."}
+
 def lightning_voice(m):
     return {"id": "lightningClicks", "label": {"en": "Lightning flashes (observation)", "bn": "TODO: lightning"}, "group": "context",
             "source": {"dataset": "NASA ISS LIS, via EIC frames SVS 5011 (marks counted once each)", "svsId": 5011, "product": m["record"]},
@@ -118,6 +128,8 @@ def main():
         voices.append(drift_voice(m["drift_speed_range_km_day"], m["record"]))
         if "oscarCurrent" in m.get("voice_sources", {}):
             voices.append(oscar_voice(m["oscar_speed_range_m_s"], m["voice_sources"]["oscarCurrent"]))
+    forest = PUBLIC_OFFICIAL / "forest_4950" / "manifest.json"
+    if forest.exists(): voices.append(forest_voice(json.loads(forest.read_text(encoding="utf-8"))))
     aerosols = PUBLIC_OFFICIAL / "aerosols_5669" / "manifest.json"
     if aerosols.exists(): voices += aerosol_voices(json.loads(aerosols.read_text(encoding="utf-8")))
     lightning = PUBLIC_OFFICIAL / "lightning_5011" / "manifest.json"

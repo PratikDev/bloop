@@ -23,6 +23,13 @@ function readingText(t: BoundT, lang: Lang, r: OfficialReading | null, layer: Of
   return t(key, { value, unit: layer?.unit ?? "" });
 }
 
+/** A frame-space layer (no georeference): the needle as a share of the picture's width and height. */
+function framePlace(t: BoundT, lang: Lang, at: { lat: number; lon: number }, layer: OfficialLayer): string {
+  const [west, south, east, north] = layer.grid.bounds;
+  const pct = (v: number, lo: number, hi: number) => formatFixed((100 * (v - lo)) / (hi - lo), lang, 0);
+  return t("official.framePos", { x: pct(at.lon, west, east), y: pct(at.lat, south, north) });
+}
+
 function Player({ record }: { record: string }) {
   const { state } = useAppState();
   const t = useT();
@@ -34,7 +41,7 @@ function Player({ record }: { record: string }) {
   const statementOf = (ids: string[]) => ids.map((id) => rec.manifest?.layers.find((l) => l.id === id)?.statement).find(Boolean);
   const mapStatement = statementOf([rec.option.channels[0]?.layers[0] ?? rec.option.map]);
   const text = `${readingText(t, state.lang, first?.reading ?? null, map?.layer)}${mapStatement ? ` (${mapStatement})` : ""}`;
-  const place = t("place.latlon", rec.needle);
+  const place = map?.layer.grid.space === "frame" ? framePlace(t, state.lang, rec.needle, map.layer) : t("place.latlon", rec.needle);
   const times = map?.layer.times ?? [];
   const timeText = map?.layer.time_labels?.[rec.step] ?? (times[rec.step] ? formatUtc(times[rec.step], state.lang) : "");
   return (

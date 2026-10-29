@@ -130,6 +130,9 @@ def _calibrate(cb, rgba, stated_range, n_min):
         if near: t["px"] = min(near, key=lambda m: abs(m - t["px"])); t["tick_mark"] = True
     cb.ticks = ticks
     if len(ticks) < n_min or not np.all(np.diff([t["value"] for t in ticks]) > 0):
+        kept = _drop_misreads(cb, ticks)
+        if kept: ticks = cb.ticks = kept
+    if len(ticks) < n_min or not np.all(np.diff([t["value"] for t in ticks]) > 0):
         if not stated_range:
             raise RuntimeError(f"colorbar: OCR read {[t['text'] for t in ticks]} and no stated range exists")
         lo, hi = stated_range
@@ -164,6 +167,23 @@ def _calibrate(cb, rgba, stated_range, n_min):
         lo, hi = cb.value_at(np.array([0.0, cb.n - 1.0]))
         cb.fit["stated_range"] = list(stated_range)
         cb.fit["strip_ends"] = [float(lo), float(hi)]
+
+def _drop_misreads(cb, ticks):
+    """Labels that are not increasing: keep the largest set lying on one straight line (value vs position, within the
+    label tolerance), if it has ≥ 3 labels and at least half of them; the others are reported as OCR misreads."""
+    pts = [t for t in ticks if t["value"] is not None]
+    best = []
+    for i in range(len(pts)):
+        for j in range(i + 1, len(pts)):
+            dp = pts[j]["px"] - pts[i]["px"]
+            if dp == 0 or pts[j]["value"] == pts[i]["value"]: continue
+            slope = (pts[j]["value"] - pts[i]["value"]) / dp
+            inl = [t for t in pts if abs((t["value"] - pts[i]["value"]) / slope - (t["px"] - pts[i]["px"])) <= TOL_LABEL_PX]
+            if len(inl) > len(best) and slope > 0: best = inl
+    if len(best) < 3 or len(best) < len(pts) / 2: return None
+    cb.notes.append(f"OCR read {[t['text'] for t in ticks]}; {[t['text'] for t in pts if t not in best]} disagree with the line through "
+                    f"the other {len(best)} labels and are dropped as misreads.")
+    return best
 
 def _tick_marks(rgba, cb):
     """Tick marks drawn inside the strip's edge rows (narrow spikes against the strip colour), in strip px."""

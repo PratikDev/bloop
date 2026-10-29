@@ -1,0 +1,26 @@
+{
+ "record": "forest_4950",
+ "checks": [
+  {
+   "record": "forest_4950",
+   "id": "a_height_hist_gedi_l3",
+   "title": "Decoded heights vs GEDI L3 canopy height (histograms, 1 m bins)",
+   "kind": "value",
+   "source": "GEDI L3 Gridded Land Surface Metrics V2, GEDI03 rh100 mean 2019108–2020287 (ORNL DAAC)",
+   "metrics": {
+    "ks": 0.7254453480463161,
+    "median_decoded_m": 31.229929229130203,
+    "median_l3_m": 5.697886818098938,
+    "median_difference_m": 25.532042411031263,
+    "decoded_pixels": 685401,
+    "l3_cells": 81518752,
+    "decoded_share_of_globe_land": 0.1182006241812703
+   },
+   "threshold": null,
+   "pass": null,
+   "note": "Same mission (GEDI); globe view, so no per-pixel comparison. The lit 3D render decodes mostly where columns face the light, which favours tall canopy.",
+   "run_utc": "2026-10-29T11:50:51Z"
+  }
+ ],
+ "updated_utc": "2026-10-29T11:50:51Z"
+}

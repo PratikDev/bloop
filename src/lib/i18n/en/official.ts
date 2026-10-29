@@ -24,6 +24,7 @@ export const officialEn = {
   "official.below": (p: { value: string; unit: string }) => `below ${p.value} ${p.unit} (colorbar minimum)`,
   "official.atLimit": (p: { value: string; unit: string }) => `≤ ${p.value} ${p.unit} (colorbar limit)`,
   "official.noValue": "No value here",
+  "official.framePos": (p: { x: string; y: string }) => `picture position ${p.x}% across, ${p.y}% up (no map position)`,
   "official.map": (p: { layer: string; time: string; reading: string }) => `${p.layer}, ${p.time}. Under the needle: ${p.reading}. Arrow keys move the needle.`,
   "official.provenance": "Where this comes from",
   "official.svs": (p: { id: number }) => `SVS ${p.id}`,
