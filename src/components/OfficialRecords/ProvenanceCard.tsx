@@ -1,5 +1,6 @@
 "use client";
 
+import { Fragment } from "react";
 import { formatFixed, type MessageKey } from "@/lib/i18n";
 import type { OfficialManifest, OfficialValidationFile } from "@/types/data-contract";
 import { useAppState, useT } from "../AppState/use-app-state";
@@ -56,6 +57,12 @@ export function ProvenanceCard({ manifest, validation }: { manifest: OfficialMan
         </dd>
         <dt className="text-haze">{t("official.licence")}</dt>
         <dd>{manifest.licence}</dd>
+        {Object.entries(manifest.voice_sources ?? {}).map(([voice, s]) => (
+          <Fragment key={voice}>
+            <dt className="text-haze">{t("official.voiceSource", s)}</dt>
+            <dd>{s.citation.text}</dd>
+          </Fragment>
+        ))}
       </dl>
       <p className="text-haze">{manifest.disclosure}</p>
       <div className="space-y-1">
@@ -65,6 +72,7 @@ export function ProvenanceCard({ manifest, validation }: { manifest: OfficialMan
             <li key={c.id}>
               {c.title}: {t(RESULT_KEYS[c.pass === null ? "none" : c.pass ? "pass" : "miss"])}
               {c.threshold && <span className="text-haze"> ({c.threshold})</span>}
+              {c.decision && <span className="block text-haze">{c.decision.statement}</span>}
             </li>
           ))}
         </ul>

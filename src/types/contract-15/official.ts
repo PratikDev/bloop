@@ -5,6 +5,15 @@
 // 65534 = below the colorbar's range (censored: under below_range_bound, not unknown).
 
 export type OfficialBadge = "model" | "reanalysis" | "observation";
+export type OfficialStatus =
+  | "verified"
+  | "values with stated error"
+  | "relative"
+  | "pattern only"
+  | "visual texture"
+  | "insufficient data"
+  | "observation"
+  | "no check";
 export type FrameTimeMethod = "date-list" | "ocr" | "linear";
 
 export interface OfficialIndex {
@@ -34,11 +43,15 @@ export interface OfficialLayer {
   label: string;
   aggregation: string;
   quantisation_step: number;
-  /** From the check that covers the layer: "verified" (passed), "pattern only (values not verified)" (missed), "no check". */
-  status: "verified" | "pattern only (values not verified)" | "no check";
+  /** From the check that covers the layer, or the team's decision on it (pipeline/svs/records/decisions.py). */
+  status: OfficialStatus;
+  /** What the record says next to a value when it isn't simply verified (filled from the check's metrics). */
+  statement: string | null;
   status_check: string | null;
-  /** Layers with an opacity-decoded colorbar: values under this were censored ("below range"). */
+  /** Censored cells (65534) read as this bound: under it ("below", opacity-decoded colorbars) or at or under it
+   * ("at_or_below", pixels at the colorbar's own bottom). */
   below_range_bound?: number;
+  below_kind?: "below" | "at_or_below";
   /** How to draw it: colours sampled along the SVS colorbar at `values`, interpolated on `scale`. Absent = not drawn. */
   display?: { colours: string[]; values: number[]; scale: "linear" | "log" };
 }
@@ -61,12 +74,22 @@ export interface OfficialPlayOption {
   channels: OfficialChannel[];
 }
 
+/** A voice that plays a reference dataset instead of the frames (e.g. NASA OSCAR currents); citation copied from CMR. */
+export interface OfficialVoiceSource {
+  label: string;
+  badge: OfficialBadge;
+  period: string;
+  days: number;
+  citation: { concept_id: string; short_name: string; doi: string | null; text: string };
+}
+
 export interface OfficialCheckSummary {
   id: string;
   title: string;
   kind: "value" | "model-vs-obs" | "context" | "none";
   pass: boolean | null;
   threshold: string | null;
+  decision?: { on: string; status: OfficialStatus; statement: string; table: string };
 }
 
 export interface OfficialManifest {
@@ -94,6 +117,7 @@ export interface OfficialManifest {
   layers: OfficialLayer[];
   /** Layer id (or a derived quantity) → mapping.json voice id. */
   voices: Record<string, string>;
+  voice_sources?: Record<string, OfficialVoiceSource>;
   play: OfficialPlayOption[];
   disclosure: string;
   validation: OfficialCheckSummary[];

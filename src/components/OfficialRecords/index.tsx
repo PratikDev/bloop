@@ -5,6 +5,7 @@ import { ruleText, voiceSpec } from "@/lib/audio/mapping";
 import { loadOfficialIndex, type OfficialReading } from "@/lib/data";
 import { formatFixed, formatUtc, type BoundT, type Lang } from "@/lib/i18n";
 import { useLoaded } from "@/hooks/use-loaded";
+import type { OfficialLayer } from "@/types/data-contract";
 import { useAppState, useT } from "../AppState/use-app-state";
 import { ChoiceGroup } from "../ChoiceGroup";
 import { StatusBadge } from "../StatusBadge";
@@ -14,12 +15,12 @@ import { RecordMap } from "./RecordMap";
 import { useOfficialRecord } from "./use-official-record";
 
 const SIGNIFICANT = 3;
-const PATTERN_ONLY = "pattern only (values not verified)";
 
-function readingText(t: BoundT, lang: Lang, r: OfficialReading | null, unit: string): string {
+function readingText(t: BoundT, lang: Lang, r: OfficialReading | null, layer: OfficialLayer | undefined): string {
   if (!r) return t("official.noValue");
   const value = formatFixed(r.value, lang, Math.max(0, SIGNIFICANT - 1 - Math.floor(Math.log10(Math.abs(r.value) || 1))));
-  return t(r.below ? "official.below" : "official.value", { value, unit });
+  const key = !r.below ? "official.value" : layer?.below_kind === "at_or_below" ? "official.atLimit" : "official.below";
+  return t(key, { value, unit: layer?.unit ?? "" });
 }
 
 function Player({ record }: { record: string }) {
@@ -30,10 +31,9 @@ function Player({ record }: { record: string }) {
   if (!rec.manifest || !rec.option) return <StatusBadge kind="loading">{t("official.loading")}</StatusBadge>;
   const map = rec.grids[rec.option.map];
   const first = rec.readings[0];
-  const unit = map?.layer.unit ?? "";
-  const patternOnly = (ids: string[]) => ids.some((id) => rec.manifest?.layers.find((l) => l.id === id)?.status === PATTERN_ONLY);
-  const verified = !patternOnly([rec.option.map]);
-  const text = `${readingText(t, state.lang, first?.reading ?? null, unit)}${verified ? "" : `, ${t("official.patternOnly")}`}`;
+  const statementOf = (ids: string[]) => ids.map((id) => rec.manifest?.layers.find((l) => l.id === id)?.statement).find(Boolean);
+  const mapStatement = statementOf([rec.option.channels[0]?.layers[0] ?? rec.option.map]);
+  const text = `${readingText(t, state.lang, first?.reading ?? null, map?.layer)}${mapStatement ? ` (${mapStatement})` : ""}`;
   const place = t("place.latlon", rec.needle);
   const times = map?.layer.times ?? [];
   const timeText = times[rec.step] ? formatUtc(times[rec.step], state.lang) : "";
@@ -53,7 +53,7 @@ function Player({ record }: { record: string }) {
           {rec.option.channels.map((c) => (
             <li key={c.voice}>
               {ruleText(voiceSpec(c.voice))}
-              {patternOnly(c.layers) && ` (${t("official.patternOnly")})`}
+              {statementOf(c.layers) && ` (${statementOf(c.layers)})`}
             </li>
           ))}
         </ul>
