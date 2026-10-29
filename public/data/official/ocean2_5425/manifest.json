@@ -11,9 +11,9 @@
  "description": "This is the 'beauty shot version' of Perpetual Ocean 2: Western Boundary Currents.  The visualization starts with a rotating globe showing ocean currents.  The camera then zooms into the Kuroshio current, moves over the Indian Ocean to the Agulhas Current, then over to the Gulf Stream. The flows from the surface down to 600 meters deep are all white.   Flows below 600 meters depth use the blue-cyan-white color table below.",
  "release_date": "2025-02-27T09:45:00-05:00",
  "period": {
-  "start": "2022-08-17T00:00:00Z",
+  "start": "2022-01-25T00:00:00Z",
   "end": "2023-06-24T00:00:00Z",
-  "label": "17 Aug 2022 – 24 Jun 2023"
+  "label": "25 Jan 2022 – 24 Jun 2023"
  },
  "badge": "model",
  "credits_by_role": {
@@ -251,6 +251,246 @@
   ]
  },
  "layers": [
+  {
+   "id": "temperature_kuroshio",
+   "unit": "°C",
+   "encoding": "linear",
+   "scale": 0.0017973600875669624,
+   "offset": -1.3010294437408447,
+   "nodata": 65535,
+   "below": 65534,
+   "grid": {
+    "width": 480,
+    "height": 270,
+    "bounds": [
+     -180,
+     -101.25,
+     180,
+     101.25
+    ],
+    "row0": "north",
+    "col0": "west",
+    "byte_order": "little",
+    "space": "frame"
+   },
+   "times": [
+    "2022-01-25T00:00:00Z"
+   ],
+   "chunks": [
+    {
+     "file": "temperature_kuroshio_000.u16.gz",
+     "t0": 0,
+     "t1": 1,
+     "bytes": 53703
+    }
+   ],
+   "quantisation_step": 0.0017973600875669624,
+   "coverage": 0.16327932098765433,
+   "value_range": [
+    -1.3010294437408447,
+    25.00513458251953
+   ],
+   "label": "Kuroshio: temperature (model, the picture's own view)",
+   "aggregation": "mean of decoded pixels per picture cell",
+   "time_labels": [
+    "2022-01-25 (frame 6650)"
+   ],
+   "view": "Kuroshio",
+   "display": {
+    "colours": [
+     "#032333",
+     "#032333",
+     "#042437",
+     "#062b4a",
+     "#0b305f",
+     "#153376",
+     "#26338f",
+     "#3a339e",
+     "#4c379f",
+     "#5b3d9b",
+     "#684396",
+     "#744992",
+     "#814f8f",
+     "#8e548c",
+     "#9b5889",
+     "#a95d85",
+     "#b7617f",
+     "#c56578",
+     "#d36a6f",
+     "#df7064",
+     "#ea7858",
+     "#f3824d",
+     "#f88e44",
+     "#fb9b3e",
+     "#fcaa3c",
+     "#fbb93d",
+     "#f9c842",
+     "#f6d848",
+     "#f1e750",
+     "#eaf759",
+     "#e8fb5b",
+     "#e8fb5b"
+    ],
+    "values": [
+     -1.631743688495241,
+     -0.7208879796024352,
+     0.18996772929037054,
+     1.100823438183176,
+     2.011679147075982,
+     2.9225348559687876,
+     3.833390564861593,
+     4.744246273754399,
+     5.655101982647205,
+     6.56595769154001,
+     7.476813400432816,
+     8.387669109325623,
+     9.298524818218427,
+     10.209380527111234,
+     11.12023623600404,
+     12.031091944896845,
+     12.94194765378965,
+     13.852803362682456,
+     14.763659071575262,
+     15.67451478046807,
+     16.585370489360873,
+     17.49622619825368,
+     18.407081907146488,
+     19.317937616039295,
+     20.228793324932095,
+     21.139649033824902,
+     22.05050474271771,
+     22.961360451610513,
+     23.87221616050332,
+     24.783071869396128,
+     25.693927578288932,
+     26.604783287181736
+    ],
+    "scale": "linear"
+   },
+   "status": "no check",
+   "status_check": "a_temperature",
+   "statement": "regional check only: median frame − truth -5.29 °C"
+  },
+  {
+   "id": "salinity_kuroshio",
+   "unit": "PSU",
+   "encoding": "linear",
+   "scale": 0.00021577297163600387,
+   "offset": 32.96989822387695,
+   "nodata": 65535,
+   "below": 65534,
+   "grid": {
+    "width": 480,
+    "height": 270,
+    "bounds": [
+     -180,
+     -101.25,
+     180,
+     101.25
+    ],
+    "row0": "north",
+    "col0": "west",
+    "byte_order": "little",
+    "space": "frame"
+   },
+   "times": [
+    "2022-01-25T00:00:00Z"
+   ],
+   "chunks": [
+    {
+     "file": "salinity_kuroshio_000.u16.gz",
+     "t0": 0,
+     "t1": 1,
+     "bytes": 79561
+    }
+   ],
+   "quantisation_step": 0.00021577297163600387,
+   "coverage": 0.2896141975308642,
+   "value_range": [
+    32.96989822387695,
+    35.019309997558594
+   ],
+   "label": "Kuroshio: salinity (model, the picture's own view)",
+   "aggregation": "mean of decoded pixels per picture cell",
+   "time_labels": [
+    "2022-01-25 (frame 6650)"
+   ],
+   "view": "Kuroshio",
+   "display": {
+    "colours": [
+     "#00a59b",
+     "#00a59b",
+     "#00a59b",
+     "#00a69d",
+     "#00a79f",
+     "#00a8a0",
+     "#00a8a2",
+     "#00a9a5",
+     "#15a9a6",
+     "#32a9a7",
+     "#4eaaa9",
+     "#68aaaa",
+     "#79aaab",
+     "#89aaac",
+     "#96aaae",
+     "#a1aaaf",
+     "#aaabb1",
+     "#b3aaac",
+     "#bca9a4",
+     "#c6a592",
+     "#d1a17d",
+     "#d99e5b",
+     "#e29a38",
+     "#e99517",
+     "#f08c00",
+     "#f77700",
+     "#fc5a00",
+     "#fe3500",
+     "#ff1900",
+     "#ff0400",
+     "#ff0000",
+     "#ff0000"
+    ],
+    "values": [
+     32.80375472672645,
+     32.91310290041683,
+     33.0224510741072,
+     33.13179924779758,
+     33.24114742148795,
+     33.35049559517833,
+     33.4598437688687,
+     33.56919194255908,
+     33.67854011624945,
+     33.78788828993983,
+     33.8972364636302,
+     34.00658463732058,
+     34.11593281101095,
+     34.22528098470133,
+     34.3346291583917,
+     34.44397733208208,
+     34.55332550577245,
+     34.66267367946283,
+     34.7720218531532,
+     34.88137002684358,
+     34.99071820053395,
+     35.100066374224326,
+     35.2094145479147,
+     35.318762721605076,
+     35.42811089529545,
+     35.537459068985825,
+     35.646807242676196,
+     35.756155416366575,
+     35.865503590056946,
+     35.974851763747324,
+     36.0841999374377,
+     36.193548111128074
+    ],
+    "scale": "linear"
+   },
+   "status": "no check",
+   "status_check": "a_salinity",
+   "statement": "regional check only: median frame − truth -0.67 PSU"
+  },
   {
    "id": "temperature_agulhas",
    "unit": "°C",
@@ -742,6 +982,33 @@
  },
  "play": [
   {
+   "id": "kuroshio",
+   "label": "Kuroshio: temperature → pitch, salinity on the second voice",
+   "view": "global",
+   "map": "temperature_kuroshio",
+   "start": {
+    "lat": -0.375,
+    "lon": 0.3750000000000284
+   },
+   "steps_per_second": 1,
+   "channels": [
+    {
+     "voice": "ocean2Temperature",
+     "layers": [
+      "temperature_kuroshio"
+     ],
+     "combine": "value"
+    },
+    {
+     "voice": "ocean2Salinity",
+     "layers": [
+      "salinity_kuroshio"
+     ],
+     "combine": "value"
+    }
+   ]
+  },
+  {
    "id": "agulhas",
    "label": "Agulhas: temperature → pitch, salinity on the second voice",
    "view": "global",
@@ -837,7 +1104,7 @@
    ]
   },
   "tried": [],
-  "bytes": 625221,
+  "bytes": 763912,
   "budget": 25000000
  },
  "asset_checksums": {
@@ -845,6 +1112,6 @@
   "rows": 175,
   "sha256_of_list": "7cbd7a74c3473899368ece995be0a2c6c6a7d2b3c872a04986d48034f1cb5e30"
  },
- "code_commit": "ddefb3437f6e79f40fecbeadd0df705f65e78444-dirty",
- "generated_utc": "2026-10-29T15:37:31Z"
+ "code_commit": "cf98f0c6d4d20a5800e0e70a1375c7d33935153c",
+ "generated_utc": "2026-10-29T15:45:37Z"
 }
