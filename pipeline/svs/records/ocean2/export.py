@@ -40,8 +40,14 @@ def main():
             lay["grid"]["space"] = "frame"
             lay.update(status="no check", status_check=f"a_{k}", statement=f"regional check only: median frame − truth {check['median_difference']:+.2f} {UNITS[k]}")
             layers.append(lay); ids[k] = lid
+        first = np.load(ROOT / "rows" / f"{rows[0]['frame']}_temperature.npy")
+        yy, xx = np.nonzero(np.isfinite(first))                    # start on the decoded cell nearest the picture's centre
+        k = int(np.argmin(np.hypot(yy - first.shape[0] / 2, xx - first.shape[1] / 2))) if len(yy) else None
+        start = (0.0, 0.0) if k is None else (BOUNDS[3] - (yy[k] + 0.5) / first.shape[0] * (BOUNDS[3] - BOUNDS[1]),
+                                              BOUNDS[0] + (xx[k] + 0.5) / first.shape[1] * (BOUNDS[2] - BOUNDS[0]))
         options.append(common.option(view.lower().replace(" ", "_"), f"{view}: temperature → pitch, salinity on the second voice",
-                                     ids["temperature"], [("ocean2Temperature", [ids["temperature"]]), ("ocean2Salinity", [ids["salinity"]])], (0.0, 0.0), 1))
+                                     ids["temperature"], [("ocean2Temperature", [ids["temperature"]]), ("ocean2Salinity", [ids["salinity"]])],
+                                     tuple(float(v) for v in start), 1))
     prov = common.provenance(RECORD, [SID], "model", (min(times_all), max(times_all)))
     man = {"record": RECORD, "app_title": "Perpetual Ocean 2: western boundary currents (model, 2021–23)", **prov,
            "frame_times": {"method": "ocr", "approximate": False, "count": sum(len(r) for r in dec["views"].values()),

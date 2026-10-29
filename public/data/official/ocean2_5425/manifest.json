@@ -747,8 +747,8 @@
    "view": "global",
    "map": "temperature_agulhas",
    "start": {
-    "lat": 0.0,
-    "lon": 0.0
+    "lat": -4.874999999999986,
+    "lon": 5.625
    },
    "steps_per_second": 1,
    "channels": [
@@ -774,8 +774,8 @@
    "view": "global",
    "map": "temperature_gulf_stream",
    "start": {
-    "lat": 0.0,
-    "lon": 0.0
+    "lat": -0.375,
+    "lon": 0.3750000000000284
    },
    "steps_per_second": 1,
    "channels": [
@@ -837,7 +837,7 @@
    ]
   },
   "tried": [],
-  "bytes": 625186,
+  "bytes": 625221,
   "budget": 25000000
  },
  "asset_checksums": {
@@ -845,6 +845,6 @@
   "rows": 175,
   "sha256_of_list": "7cbd7a74c3473899368ece995be0a2c6c6a7d2b3c872a04986d48034f1cb5e30"
  },
- "code_commit": "072c90698fd51c2be81f0f42989186d2175694d7-dirty",
- "generated_utc": "2026-10-29T15:28:31Z"
+ "code_commit": "ddefb3437f6e79f40fecbeadd0df705f65e78444-dirty",
+ "generated_utc": "2026-10-29T15:37:31Z"
 }
