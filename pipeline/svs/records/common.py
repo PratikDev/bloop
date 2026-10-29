@@ -72,6 +72,13 @@ def display(cb, n=32):
     logv = bool(np.all(vals > 0) and cb.scale in ("log", "piecewise") and cb.fit.get("segment_interp", "log") == "log")
     return {"colours": ["#%02x%02x%02x" % tuple(c) for c in rgb], "values": [float(v) for v in vals], "scale": "log" if logv else "linear"}
 
+def ramp_display(lo, hi, end_rgb=(255, 255, 255), n=32, start_rgb=(20, 20, 24)):
+    """How the app draws a layer that has no colorbar (counts, brightness, relative values): a plain ramp from dark to
+    end_rgb over [lo, hi], linear. A drawing choice, not data."""
+    t = np.linspace(0, 1, n)[:, None]
+    rgb = (np.array(start_rgb) * (1 - t) + np.array(end_rgb) * t).round().astype(int)
+    return {"colours": ["#%02x%02x%02x" % tuple(c) for c in rgb], "values": [float(v) for v in np.linspace(lo, hi, n)], "scale": "linear", "ramp": True}
+
 def option(oid, label, map_layer, channels, start, steps_per_second, view="global"):
     """One playable selection for the app: the map layer, its voices (a channel with two layers plays their magnitude),
     the needle's start point and the playback rate (time steps per second; a design choice, stated)."""

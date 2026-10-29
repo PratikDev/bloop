@@ -31,7 +31,8 @@ def main():
     layer = export.layer(RECORD, "flashes", red, t_out, (-180, -90, 180, 90), "flashes per cell", step=1.0,
                          label=f"Lightning flashes detected from the ISS ({WINDOW_DAYS * tf}-day windows, {GRID_DEG * f:g}° cells)",
                          aggregation=f"sum of the new marks in {f}×{f} 1° cells over {tf} window(s)",
-                         time_labels=[f"{t:%d %b %Y} (approx.)" for t in t_out])
+                         time_labels=[f"{t:%d %b %Y} (approx.)" for t in t_out],
+                         display=common.ramp_display(0, float(np.percentile(red[red > 0], 99)), (255, 230, 60)))
     val = json.loads((PUBLIC_OFFICIAL / RECORD / "validation.json").read_text(encoding="utf-8"))
     common.layer_status([layer], val["checks"], {"flashes": "a_region_counts_isslis"})
     bd = in_box(c["lat"], c["lon"], regions()["Bangladesh"])

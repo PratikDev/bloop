@@ -27,7 +27,8 @@ def main():
         layers.append(export.layer(RECORD, t.replace(" ", "_"), np.where(d > 0, d, np.nan)[None], [WHEN], (-180, -90, 180, 90),
                                    "relative density (0–1)", step=STEP, label=f"Aerosols: {t} (model, relative)",
                                    aggregation="share of the 1° cell's pixels of this type × their mean relative density",
-                                   key_rgb=dec["keys"][t]["rgb"]))
+                                   key_rgb=dec["keys"][t]["rgb"], display=common.ramp_display(0, float(np.nanpercentile(np.where(d > 0, d, np.nan), 99)),
+                                                                                               tuple(dec["keys"][t]["rgb"]))))
     val = json.loads((PUBLIC_OFFICIAL / RECORD / "validation.json").read_text(encoding="utf-8"))
     per = next(c for c in val["checks"] if c["id"] == "a_type_merra2")["metrics"]["per_type"]
     common.layer_status(layers, val["checks"], {l["id"]: "a_type_merra2" for l in layers})
