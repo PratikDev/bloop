@@ -1,0 +1,357 @@
+{
+ "record": "eic_5147",
+ "app_title": "Near-surface temperature (EIC, model)",
+ "svs_ids": [
+  5147
+ ],
+ "title": "GEOS-FP Near-Surface Temperature",
+ "svs_pages": [
+  "https://svs.gsfc.nasa.gov/5147/"
+ ],
+ "description": "Near-surface temperature is calculated by sampling 3-D atmospheric fields from NASA’s GEOS-FP system 3 meters above Earth’s surface. GEOS-FP combines millions of weather observations with a predictive model to create a global best estimate of weather conditions that are used to begin a forecast.",
+ "release_date": "2023-09-26T17:00:00-04:00",
+ "period": {
+  "start": "2026-10-22T22:00:00Z",
+  "end": "2026-10-22T22:00:00Z",
+  "label": "22 Oct 2026 – 22 Oct 2026"
+ },
+ "badge": "model",
+ "credits_by_role": {
+  "Visualizer": [
+   "Joseph V. Ardizzone (NASA/GSFC)"
+  ]
+ },
+ "datasets": [
+  {
+   "name": "GEOS-FP",
+   "common_name": "",
+   "platform": null,
+   "sensor": null,
+   "type": "Model",
+   "organizations": [
+    "NASA GMAO"
+   ],
+   "description": "Documentation: Lucchesi, R., 2018: File Specification for GEOS FP. GMAO Office Note No. 4 (Version 1.2), 61 pp, available from [https://gmao.gsfc.nasa.gov/pubs/docs/Lucchesi1203.pdf](https://gmao.gsfc.nasa.gov/pubs/docs/Lucchesi1203.pdf)",
+   "credit": "",
+   "url": "https://fluid.nccs.nasa.gov/weather/",
+   "date_range": null
+  }
+ ],
+ "credit_line": "Visualization: NASA's Scientific Visualization Studio (SVS 5147) for the NASA Earth Information Center.",
+ "disclosure": "One frame of a rolling EIC layer, read back through its key.",
+ "licence": "SVS: \"All of our content is in the public domain (unless otherwise noted), meaning that it is free to download, use, and redistribute for whatever purposes you see fit.\" (https://svs.gsfc.nasa.gov/help/, read 29 Oct 2026)",
+ "frame_times": {
+  "method": "ocr",
+  "approximate": false,
+  "count": 1,
+  "source": "date box OCR: 22 Oct 2026 18 : 00 : 00 - EDT"
+ },
+ "georef": {
+  "projection": "equirectangular",
+  "bounds": [
+   -180,
+   -90,
+   180,
+   90
+  ],
+  "pass_at": 0.9,
+  "shifts_deg": [
+   1.0
+  ],
+  "iou": {},
+  "pass": true,
+  "best_is_assumed": true
+ },
+ "colorbar": {
+  "geometry": {
+   "x0": 73,
+   "x1": 462,
+   "band": [
+    77,
+    112
+   ],
+   "vertical": false,
+   "outline_rgb": [
+    255.0,
+    255.0,
+    255.0
+   ],
+   "image_size": [
+    165,
+    528
+   ]
+  },
+  "ticks": [
+   {
+    "px": -0.5,
+    "value": -40.0,
+    "text": "-40",
+    "engine": "glyph",
+    "label_px": -0.5
+   },
+   {
+    "px": 97.55049261083744,
+    "value": -20.0,
+    "text": "-20",
+    "engine": "glyph",
+    "label_px": 99.5,
+    "tick_mark": true
+   },
+   {
+    "px": 145.50876970005083,
+    "value": -10.0,
+    "text": "-10",
+    "engine": "glyph",
+    "label_px": 147.0,
+    "tick_mark": true
+   },
+   {
+    "px": 195.5022615906521,
+    "value": 0.0,
+    "text": "0",
+    "engine": "glyph",
+    "label_px": 196.5,
+    "tick_mark": true
+   },
+   {
+    "px": 243.51497192763568,
+    "value": 10.0,
+    "text": "10",
+    "engine": "glyph",
+    "label_px": 244.0,
+    "tick_mark": true
+   },
+   {
+    "px": 292.5,
+    "value": 20.0,
+    "text": "20",
+    "engine": "glyph",
+    "label_px": 293.5,
+    "tick_mark": true
+   },
+   {
+    "px": 341.5,
+    "value": 30.0,
+    "text": "30",
+    "engine": "glyph",
+    "label_px": 342.5,
+    "tick_mark": true
+   },
+   {
+    "px": 390.5,
+    "value": 40.0,
+    "text": "40",
+    "engine": "glyph",
+    "label_px": 390.5
+   }
+  ],
+  "scale": "linear",
+  "fit": {
+   "a": -39.921541230256445,
+   "b": 0.20479569150081536,
+   "fit": "weighted 1/tolerance",
+   "max_resid_px": 0.595579522243806,
+   "resid_px": [
+    0.12,
+    -0.28,
+    0.6,
+    -0.57,
+    0.25,
+    0.09,
+    -0.08,
+    -0.25
+   ],
+   "ok": true
+  },
+  "notes": [
+   "OCR read ['-40', '-10', '-20', '-10', '0', '10', '20', '30', '40']; ['-10'] disagree with the line through the other 8 labels and are dropped as misreads.",
+   "2 label(s) not on a tick mark (-40, 40): label-centre position, ±5 px."
+  ],
+  "n_samples": 390,
+  "value_range": [
+   -39.921541230256445,
+   39.74398276356073
+  ],
+  "opacity_varies": false,
+  "px_per_unit": 4.882915224786449
+ },
+ "colorbar_file": "NearSurfaceTemperature_colorbar.png",
+ "decode": {
+  "mode": "exact",
+  "exact_share": 0.9105313282514014,
+  "decoded_share": 0.9105313282514014,
+  "matcher": "rgb-nearest",
+  "max_dist": 12.0
+ },
+ "frame": "00000201.png",
+ "frame_set": "https://svs.gsfc.nasa.gov/vis/a000000/a005100/a005147/frames/2048x1024_2x1_12p/MC01_stage3_GMAO_near_surface_temperature_2048x1024_en-hwtool/",
+ "layers": [
+  {
+   "id": "value",
+   "unit": "°C",
+   "encoding": "linear",
+   "scale": 0.020479569150081537,
+   "offset": -39.91914367675781,
+   "nodata": 65535,
+   "below": 65534,
+   "grid": {
+    "width": 720,
+    "height": 360,
+    "bounds": [
+     -180,
+     -90,
+     180,
+     90
+    ],
+    "row0": "north",
+    "col0": "west",
+    "byte_order": "little"
+   },
+   "times": [
+    "2026-10-22T22:00:00Z"
+   ],
+   "chunks": [
+    {
+     "file": "value_000.u16.gz",
+     "t0": 0,
+     "t1": 1,
+     "bytes": 286744
+    }
+   ],
+   "quantisation_step": 0.020479569150081537,
+   "coverage": 0.9018557098765432,
+   "value_range": [
+    -39.91914367675781,
+    39.74398422241211
+   ],
+   "label": "Near-surface temperature (model)",
+   "aggregation": "mean of decoded pixels per 0.5° cell",
+   "display": {
+    "colours": [
+     "#2b335a",
+     "#495188",
+     "#7687bd",
+     "#8fa5cf",
+     "#adc9e3",
+     "#d2e5ee",
+     "#e8e4ea",
+     "#c397be",
+     "#aa549b",
+     "#7e2880",
+     "#592183",
+     "#381c85",
+     "#0d1a89",
+     "#072bd0",
+     "#204ae6",
+     "#4e90e8",
+     "#7bd4ea",
+     "#91eeca",
+     "#a5ec99",
+     "#c9ed5d",
+     "#e9eb4d",
+     "#e1ba3c",
+     "#db9032",
+     "#d14e22",
+     "#c7361c",
+     "#972612",
+     "#6e190a",
+     "#511006",
+     "#410b03",
+     "#330905",
+     "#4d433e",
+     "#777976"
+    ],
+    "values": [
+     -39.921541230256445,
+     -37.35168561755266,
+     -34.781830004848885,
+     -32.2119743921451,
+     -29.642118779441326,
+     -27.072263166737542,
+     -24.502407554033766,
+     -21.932551941329983,
+     -19.362696328626203,
+     -16.792840715922424,
+     -14.222985103218644,
+     -11.653129490514868,
+     -9.083273877811084,
+     -6.513418265107305,
+     -3.9435626524035214,
+     -1.3737070396997453,
+     1.196148573004038,
+     3.766004185707814,
+     6.335859798411597,
+     8.905715411115374,
+     11.475571023819157,
+     14.045426636522933,
+     16.61528224922671,
+     19.185137861930492,
+     21.754993474634276,
+     24.32484908733806,
+     26.894704700041835,
+     29.46456031274561,
+     32.0344159254494,
+     34.60427153815318,
+     37.174127150856954,
+     39.74398276356073
+    ],
+    "scale": "linear"
+   },
+   "time_labels": [
+    "22 Oct 2026 22:00 UTC"
+   ],
+   "status": "verified",
+   "statement": null,
+   "status_check": "a_same_model"
+  }
+ ],
+ "voices": {
+  "value": "eic5147"
+ },
+ "play": [
+  {
+   "id": "value",
+   "label": "Near-surface temperature: higher pitch = higher value",
+   "view": "global",
+   "map": "value",
+   "start": {
+    "lat": 23.81,
+    "lon": 90.41
+   },
+   "steps_per_second": 1,
+   "channels": [
+    {
+     "voice": "eic5147",
+     "layers": [
+      "value"
+     ],
+     "combine": "value"
+    }
+   ]
+  }
+ ],
+ "validation": [
+  {
+   "id": "a_same_model",
+   "title": "Near-surface temperature: frame vs GEOS-FP tavg1_2d_slv_Nx t2m at 2026-10-20 22:30:00 UTC",
+   "kind": "value",
+   "pass": true,
+   "threshold": "Spearman ≥ 0.9 and median relative error ≤ 15 % (provisional)"
+  }
+ ],
+ "size": {
+  "choice": {
+   "cell_deg": 0.5
+  },
+  "tried": [],
+  "bytes": 295841,
+  "budget": 25000000
+ },
+ "asset_checksums": {
+  "file": "checksums.tsv.gz",
+  "rows": 3,
+  "sha256_of_list": "4cbb9a03c59710edcd372b3c1c67c371c1f75c47d23abd0978937e681f2928ee"
+ },
+ "code_commit": "e9fb028eb1bee5876953fae7581019f60b108277-dirty",
+ "generated_utc": "2026-10-29T12:45:35Z"
+}

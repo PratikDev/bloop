@@ -345,6 +345,92 @@
       "note": "Surface current speed from NASA OSCAR for the record's days (team decision A3: the frames' motion is not a data claim); range = the record's 1st–99th percentile."
     },
     {
+      "id": "eic5147",
+      "label": {
+        "en": "Near-surface temperature (model)",
+        "bn": "TODO: eic_5147"
+      },
+      "group": "context",
+      "source": {
+        "dataset": "EIC frame SVS 5147",
+        "svsId": 5147,
+        "product": "eic_5147"
+      },
+      "status": "context",
+      "mapping": {
+        "kind": "continuous",
+        "input": {
+          "unit": "°C",
+          "min": -39.921541230256445,
+          "max": 39.74398276356073,
+          "scale": "linear"
+        },
+        "output": {
+          "param": "frequency",
+          "unit": "Hz",
+          "min": 220,
+          "max": 880,
+          "scale": "exponential"
+        }
+      },
+      "silence": "No value at this point (an overlay box or a colour off the key).",
+      "sound": {
+        "timbre": "Warm sine with a soft attack and a smooth glide",
+        "attackMs": 20,
+        "releaseMs": 80,
+        "glideMs": 30,
+        "maxGain": 0.2,
+        "family": "model"
+      },
+      "pan": "longitude",
+      "legend": [],
+      "designChoice": true,
+      "note": "The book's pitch rule over the key's own range."
+    },
+    {
+      "id": "eic5148",
+      "label": {
+        "en": "Near-surface wind speed (model)",
+        "bn": "TODO: eic_5148"
+      },
+      "group": "context",
+      "source": {
+        "dataset": "EIC frame SVS 5148",
+        "svsId": 5148,
+        "product": "eic_5148"
+      },
+      "status": "context",
+      "mapping": {
+        "kind": "continuous",
+        "input": {
+          "unit": "m/s",
+          "min": 3.566463928911029,
+          "max": 40.078830534369494,
+          "scale": "linear"
+        },
+        "output": {
+          "param": "frequency",
+          "unit": "Hz",
+          "min": 220,
+          "max": 880,
+          "scale": "exponential"
+        }
+      },
+      "silence": "No value at this point (an overlay box or a colour off the key).",
+      "sound": {
+        "timbre": "Warm sine with a soft attack and a smooth glide",
+        "attackMs": 20,
+        "releaseMs": 80,
+        "glideMs": 30,
+        "maxGain": 0.2,
+        "family": "model"
+      },
+      "pan": "longitude",
+      "legend": [],
+      "designChoice": true,
+      "note": "The book's pitch rule over the key's own range."
+    },
+    {
       "id": "co2Ppm",
       "label": {
         "en": "CO₂ nature run (model, relative)",

@@ -1,0 +1,30 @@
+{
+ "record": "live_sst_anom",
+ "checks": [
+  {
+   "record": "live_sst_anom",
+   "id": "a_C5176",
+   "title": "SVS 5176 live frame: acceptance test C5176",
+   "kind": "value",
+   "source": "noaacrwsstanomalyDaily",
+   "metrics": {
+    "test": "C5176",
+    "status": "WARN",
+    "against": "noaacrwsstanomalyDaily",
+    "against_time": "2026-10-26T12:00:00Z",
+    "n_points": 1500,
+    "n_abs_ge_0_5": 1096,
+    "sign_agreement": 0.8987226277372263,
+    "spearman": 0.7868213156385638,
+    "median_offset_C": -0.270897269180754,
+    "median_abs_offset_C": 0.45915474642392756,
+    "ticks_found": 9
+   },
+   "threshold": "status WARN (the product's own thresholds)",
+   "pass": false,
+   "note": "",
+   "run_utc": "2026-10-29T12:47:05Z"
+  }
+ ],
+ "updated_utc": "2026-10-29T12:47:05Z"
+}

@@ -1,5 +1,5 @@
 {
-  "generated_utc": "2026-10-29T12:31:41Z",
+  "generated_utc": "2026-10-29T13:24:02Z",
   "products": {
     "sst": {
       "product": "sst",
@@ -32,7 +32,7 @@
       "limit_days": 2,
       "status": "stale",
       "source_time_utc": "2026-10-27T00:00:00Z",
-      "age_days": 2.52,
+      "age_days": 2.56,
       "period": null,
       "credit": "Visualization: NASA's Scientific Visualization Studio (SVS 5101), NASA Earth Information Center. Data: MUR SST, NASA/JPL PO.DAAC.",
       "bytes": 1255488
@@ -69,7 +69,7 @@
       "limit_days": 2,
       "status": "ok",
       "source_time_utc": "2026-10-28T08:30:00Z",
-      "age_days": 1.17,
+      "age_days": 1.2,
       "period": null,
       "credit": "Visualization: NASA's Scientific Visualization Studio (SVS 4285), NASA Earth Information Center. Data: GPM IMERG (NASA/JAXA), GES DISC.",
       "bytes": 5726289
@@ -96,7 +96,7 @@
       "limit_days": 2,
       "status": "ok",
       "source_time_utc": "2026-10-28T08:30:00Z",
-      "age_days": 1.17,
+      "age_days": 1.2,
       "period": null,
       "credit": "Visualization: NASA's Scientific Visualization Studio (SVS 4285), NASA Earth Information Center. Data: GPM IMERG (NASA/JAXA), GES DISC.",
       "bytes": 8516
@@ -323,7 +323,7 @@
       "limit_days": 4,
       "status": "ok",
       "source_time_utc": "2026-10-27T00:00:00Z",
-      "age_days": 2.52,
+      "age_days": 2.56,
       "period": null,
       "credit": "Data: MUR SST (NASA/JPL PO.DAAC). Visualization: NASA's Scientific Visualization Studio (SVS 5101) for the NASA Earth Information Center.",
       "bytes": 8957
@@ -357,7 +357,7 @@
       "limit_days": 3,
       "status": "ok",
       "source_time_utc": "2026-10-28T08:30:00Z",
-      "age_days": 1.17,
+      "age_days": 1.2,
       "period": null,
       "credit": "Data: GPM IMERG (NASA/JAXA, GES DISC). Visualization: NASA's Scientific Visualization Studio (SVS 4285) for the NASA Earth Information Center.",
       "bytes": 42093
@@ -400,7 +400,7 @@
       "limit_days": 4,
       "status": "ok",
       "source_time_utc": "2026-10-27T00:00:00Z",
-      "age_days": 2.52,
+      "age_days": 2.56,
       "period": null,
       "credit": "Data: MUR SST (NASA/JPL PO.DAAC); GIBS (NASA EOSDIS). Visualization: NASA's Scientific Visualization Studio (SVS 5101) for the NASA Earth Information Center.",
       "bytes": 16081
@@ -443,7 +443,7 @@
       "limit_days": 5,
       "status": "ok",
       "source_time_utc": "2026-10-25T00:00:00Z",
-      "age_days": 4.52,
+      "age_days": 4.56,
       "period": null,
       "credit": "Visualization: NASA's Scientific Visualization Studio (SVS 5176) for the NASA Earth Information Center. Data: MUR SST (NASA/JPL PO.DAAC). Check: NOAA Coral Reef Watch.",
       "bytes": 1502708
@@ -469,7 +469,7 @@
       "limit_days": 3,
       "status": "ok",
       "source_time_utc": "2026-10-27T09:00:00Z",
-      "age_days": 2.15,
+      "age_days": 2.18,
       "period": null,
       "credit": "Data: MUR SST v4.1, dt_1km_data (NASA/JPL PO.DAAC).",
       "bytes": 525751
@@ -495,7 +495,7 @@
       "limit_days": 2,
       "status": "ok",
       "source_time_utc": "2026-10-28T06:11:01Z",
-      "age_days": 1.26,
+      "age_days": 1.3,
       "period": null,
       "credit": "Visualization: NASA's Scientific Visualization Studio (SVS 5315) for the NASA Earth Information Center. Data: NASA GISS GlobalFWI (experimental).",
       "bytes": 526786
@@ -520,7 +520,7 @@
       "limit_days": 2,
       "status": "ok",
       "source_time_utc": "2026-10-28T06:11:01Z",
-      "age_days": 1.26,
+      "age_days": 1.3,
       "period": null,
       "credit": "Visualization: NASA's Scientific Visualization Studio (SVS 5315) for the NASA Earth Information Center.",
       "bytes": 1228
@@ -548,7 +548,7 @@
       "limit_days": 3,
       "status": "ok",
       "source_time_utc": "2026-10-28T10:29:02Z",
-      "age_days": 1.09,
+      "age_days": 1.12,
       "period": null,
       "credit": "Visualization: NASA's Scientific Visualization Studio (SVS 5113) for the NASA Earth Information Center. Data: VIIRS active fires (NASA FIRMS, LANCE/ESDIS).",
       "bytes": 117881
@@ -587,7 +587,7 @@
       "limit_days": 2,
       "status": "ok",
       "source_time_utc": "2026-10-28T14:02:38Z",
-      "age_days": 0.94,
+      "age_days": 0.97,
       "period": null,
       "credit": "NASA FIRMS (LANCE/ESDIS): VIIRS NOAA-21 and NOAA-20, MODIS.",
       "bytes": 20382
@@ -613,7 +613,7 @@
       "limit_days": 2,
       "status": "ok",
       "source_time_utc": "2026-10-28T04:00:55Z",
-      "age_days": 1.35,
+      "age_days": 1.39,
       "period": null,
       "credit": "Visualization: NASA's Scientific Visualization Studio (SVS 5584) for the NASA Earth Information Center. Data: NASA LHASA.",
       "bytes": 526228
@@ -638,7 +638,7 @@
       "limit_days": 14,
       "status": "ok",
       "source_time_utc": "2026-10-19T00:00:00Z",
-      "age_days": 10.52,
+      "age_days": 10.56,
       "period": null,
       "credit": "NASA Black Marble VJ146A2 (NOAA-20 VIIRS), NASA LAADS DAAC.",
       "bytes": 4356
@@ -672,7 +672,7 @@
       "limit_days": null,
       "status": "baseline",
       "source_time_utc": "2024-09-14T00:00:00Z",
-      "age_days": 775.52,
+      "age_days": 775.56,
       "period": [
         "2024-07-01T00:00:00Z",
         "2024-09-14T00:00:00Z"
@@ -716,13 +716,81 @@
       "limit_days": null,
       "status": "baseline",
       "source_time_utc": "2008-03-03T12:00:00Z",
-      "age_days": 6814.02,
+      "age_days": 6814.06,
       "period": [
         "2007-03-25T12:00:00Z",
         "2008-03-03T12:00:00Z"
       ],
       "credit": "Visualization: NASA's Scientific Visualization Studio (SVS 3912) for the NASA Earth Information Center. Data: ECCO2 ocean model (MIT/JPL). Currents voice: NASA OSCAR surface currents (ESR, PO.DAAC).",
       "bytes": 26599
+    },
+    "ocean2_5425": {
+      "product": "ocean2_5425",
+      "title": "Perpetual Ocean 2 (model, 2021–23)",
+      "outputs": [
+        "official/ocean2_5425/manifest.json"
+      ],
+      "cadence": "static",
+      "pairing": "frame-paired",
+      "datasets": [
+        {
+          "id": "svs5425",
+          "name": "EIC frames: SVS 5425 Perpetual Ocean 2 (ECCO)",
+          "agency": "NASA",
+          "kind": "model",
+          "shares_inputs_with": [
+            "ecco"
+          ]
+        },
+        {
+          "id": "ecco",
+          "name": "ECCO ocean state estimate (NASA/JPL)",
+          "agency": "NASA",
+          "kind": "model",
+          "shares_inputs_with": []
+        }
+      ],
+      "limit_days": null,
+      "status": "missing",
+      "source_time_utc": null,
+      "age_days": null,
+      "period": null,
+      "credit": "Visualization: NASA's Scientific Visualization Studio (SVS 5425) for the NASA Earth Information Center. Data: ECCO ocean state estimate (NASA/JPL).",
+      "bytes": 0
+    },
+    "river_4960": {
+      "product": "river_4960",
+      "title": "Atmospheric river (reanalysis, Dec 2010)",
+      "outputs": [
+        "official/river_4960/manifest.json"
+      ],
+      "cadence": "static",
+      "pairing": "frame-paired",
+      "datasets": [
+        {
+          "id": "svs4960",
+          "name": "EIC frames: SVS 4960 A 3D View of an Atmospheric River (MERRA-2)",
+          "agency": "NASA",
+          "kind": "model",
+          "shares_inputs_with": [
+            "merra2"
+          ]
+        },
+        {
+          "id": "merra2",
+          "name": "NASA MERRA-2 reanalysis (GMAO, GES DISC)",
+          "agency": "NASA",
+          "kind": "model",
+          "shares_inputs_with": []
+        }
+      ],
+      "limit_days": null,
+      "status": "missing",
+      "source_time_utc": null,
+      "age_days": null,
+      "period": null,
+      "credit": "Visualization: NASA's Scientific Visualization Studio (SVS 4960) for the NASA Earth Information Center. Data: NASA MERRA-2 reanalysis (GMAO).",
+      "bytes": 0
     },
     "sonification_13786": {
       "product": "sonification_13786",
@@ -744,7 +812,7 @@
       "limit_days": null,
       "status": "baseline",
       "source_time_utc": "2020-12-23T09:00:00Z",
-      "age_days": 2136.15,
+      "age_days": 2136.18,
       "period": [
         "2020-12-23T09:00:00Z",
         "2020-12-23T09:00:00Z"
@@ -781,7 +849,7 @@
       "limit_days": null,
       "status": "baseline",
       "source_time_utc": "2020-03-03T00:00:00Z",
-      "age_days": 2431.52,
+      "age_days": 2431.56,
       "period": [
         "2020-01-14T00:00:00Z",
         "2020-03-03T00:00:00Z"
@@ -818,7 +886,7 @@
       "limit_days": null,
       "status": "baseline",
       "source_time_utc": "2020-04-30T00:00:00Z",
-      "age_days": 2373.52,
+      "age_days": 2373.56,
       "period": [
         "2019-04-18T00:00:00Z",
         "2020-04-30T00:00:00Z"
@@ -855,13 +923,13 @@
       "limit_days": null,
       "status": "baseline",
       "source_time_utc": "2025-08-19T20:00:00Z",
-      "age_days": 435.69,
+      "age_days": 435.73,
       "period": [
         "2025-08-19T20:00:00Z",
         "2025-08-19T20:00:00Z"
       ],
       "credit": "Visualization: NASA's Scientific Visualization Studio (SVS 5669, 5572) for the NASA Earth Information Center. Data: NASA GEOS-FP (GMAO), model output.",
-      "bytes": 11396
+      "bytes": 17367
     },
     "lightning_5011": {
       "product": "lightning_5011",
@@ -892,13 +960,13 @@
       "limit_days": null,
       "status": "baseline",
       "source_time_utc": "2023-07-31T00:00:00Z",
-      "age_days": 1186.52,
+      "age_days": 1186.56,
       "period": [
         "2017-03-01T00:00:00Z",
         "2023-07-31T00:00:00Z"
       ],
       "credit": "Visualization: NASA's Scientific Visualization Studio (SVS 5011) for the NASA Earth Information Center. Data: NASA ISS LIS (GHRC DAAC).",
-      "bytes": 24887
+      "bytes": 26333
     },
     "lights_5313": {
       "product": "lights_5313",
@@ -929,7 +997,7 @@
       "limit_days": null,
       "status": "baseline",
       "source_time_utc": "2023-12-31T00:00:00Z",
-      "age_days": 1033.52,
+      "age_days": 1033.56,
       "period": [
         "2012-01-01T00:00:00Z",
         "2023-12-31T00:00:00Z"
@@ -957,13 +1025,285 @@
       "limit_days": null,
       "status": "baseline",
       "source_time_utc": "2008-03-03T12:00:00Z",
-      "age_days": 6814.02,
+      "age_days": 6814.06,
       "period": [
         "2007-03-25T12:00:00Z",
         "2008-03-03T12:00:00Z"
       ],
       "credit": "NASA OSCAR L4 surface currents, final v2.0 (ESR, PO.DAAC); full citation in the record's voice sources.",
       "bytes": 26599
+    },
+    "eic_5147": {
+      "product": "eic_5147",
+      "title": "Near-surface temperature (EIC)",
+      "outputs": [
+        "official/eic_5147/manifest.json"
+      ],
+      "cadence": "static",
+      "pairing": "frame-paired",
+      "datasets": [
+        {
+          "id": "eic_earthnow",
+          "name": "EIC frames: SVS Earth Now dashboard (GEOS-FP / GEOS-CF) and NRT NDVI",
+          "agency": "NASA",
+          "kind": "model",
+          "shares_inputs_with": [
+            "geosfp"
+          ]
+        }
+      ],
+      "limit_days": null,
+      "status": "baseline",
+      "source_time_utc": "2026-10-22T22:00:00Z",
+      "age_days": 6.64,
+      "period": [
+        "2026-10-22T22:00:00Z",
+        "2026-10-22T22:00:00Z"
+      ],
+      "credit": "Visualization: NASA's Scientific Visualization Studio (SVS 5147) for the NASA Earth Information Center.",
+      "bytes": 8248
+    },
+    "eic_5148": {
+      "product": "eic_5148",
+      "title": "Near-surface wind speed (EIC)",
+      "outputs": [
+        "official/eic_5148/manifest.json"
+      ],
+      "cadence": "static",
+      "pairing": "frame-paired",
+      "datasets": [
+        {
+          "id": "eic_earthnow",
+          "name": "EIC frames: SVS Earth Now dashboard (GEOS-FP / GEOS-CF) and NRT NDVI",
+          "agency": "NASA",
+          "kind": "model",
+          "shares_inputs_with": [
+            "geosfp"
+          ]
+        }
+      ],
+      "limit_days": null,
+      "status": "baseline",
+      "source_time_utc": "2026-10-22T22:00:00Z",
+      "age_days": 6.64,
+      "period": [
+        "2026-10-22T22:00:00Z",
+        "2026-10-22T22:00:00Z"
+      ],
+      "credit": "Visualization: NASA's Scientific Visualization Studio (SVS 5148) for the NASA Earth Information Center.",
+      "bytes": 8173
+    },
+    "eic_5149": {
+      "product": "eic_5149",
+      "title": "Precipitation (EIC)",
+      "outputs": [
+        "official/eic_5149/manifest.json"
+      ],
+      "cadence": "static",
+      "pairing": "frame-paired",
+      "datasets": [
+        {
+          "id": "eic_earthnow",
+          "name": "EIC frames: SVS Earth Now dashboard (GEOS-FP / GEOS-CF) and NRT NDVI",
+          "agency": "NASA",
+          "kind": "model",
+          "shares_inputs_with": [
+            "geosfp"
+          ]
+        }
+      ],
+      "limit_days": null,
+      "status": "missing",
+      "source_time_utc": null,
+      "age_days": null,
+      "period": null,
+      "credit": "Visualization: NASA's Scientific Visualization Studio (SVS 5149) for the NASA Earth Information Center.",
+      "bytes": 0
+    },
+    "eic_5150": {
+      "product": "eic_5150",
+      "title": "Near-surface humidity (EIC)",
+      "outputs": [
+        "official/eic_5150/manifest.json"
+      ],
+      "cadence": "static",
+      "pairing": "frame-paired",
+      "datasets": [
+        {
+          "id": "eic_earthnow",
+          "name": "EIC frames: SVS Earth Now dashboard (GEOS-FP / GEOS-CF) and NRT NDVI",
+          "agency": "NASA",
+          "kind": "model",
+          "shares_inputs_with": [
+            "geosfp"
+          ]
+        }
+      ],
+      "limit_days": null,
+      "status": "missing",
+      "source_time_utc": null,
+      "age_days": null,
+      "period": null,
+      "credit": "Visualization: NASA's Scientific Visualization Studio (SVS 5150) for the NASA Earth Information Center.",
+      "bytes": 0
+    },
+    "eic_5151": {
+      "product": "eic_5151",
+      "title": "PM2.5 (GEOS-CF) (EIC)",
+      "outputs": [
+        "official/eic_5151/manifest.json"
+      ],
+      "cadence": "static",
+      "pairing": "frame-paired",
+      "datasets": [
+        {
+          "id": "eic_earthnow",
+          "name": "EIC frames: SVS Earth Now dashboard (GEOS-FP / GEOS-CF) and NRT NDVI",
+          "agency": "NASA",
+          "kind": "model",
+          "shares_inputs_with": [
+            "geosfp"
+          ]
+        }
+      ],
+      "limit_days": null,
+      "status": "missing",
+      "source_time_utc": null,
+      "age_days": null,
+      "period": null,
+      "credit": "Visualization: NASA's Scientific Visualization Studio (SVS 5151) for the NASA Earth Information Center.",
+      "bytes": 0
+    },
+    "eic_5152": {
+      "product": "eic_5152",
+      "title": "Near-surface ozone (GEOS-CF) (EIC)",
+      "outputs": [
+        "official/eic_5152/manifest.json"
+      ],
+      "cadence": "static",
+      "pairing": "frame-paired",
+      "datasets": [
+        {
+          "id": "eic_earthnow",
+          "name": "EIC frames: SVS Earth Now dashboard (GEOS-FP / GEOS-CF) and NRT NDVI",
+          "agency": "NASA",
+          "kind": "model",
+          "shares_inputs_with": [
+            "geosfp"
+          ]
+        }
+      ],
+      "limit_days": null,
+      "status": "missing",
+      "source_time_utc": null,
+      "age_days": null,
+      "period": null,
+      "credit": "Visualization: NASA's Scientific Visualization Studio (SVS 5152) for the NASA Earth Information Center.",
+      "bytes": 0
+    },
+    "eic_5153": {
+      "product": "eic_5153",
+      "title": "Carbon monoxide (GEOS-CF) (EIC)",
+      "outputs": [
+        "official/eic_5153/manifest.json"
+      ],
+      "cadence": "static",
+      "pairing": "frame-paired",
+      "datasets": [
+        {
+          "id": "eic_earthnow",
+          "name": "EIC frames: SVS Earth Now dashboard (GEOS-FP / GEOS-CF) and NRT NDVI",
+          "agency": "NASA",
+          "kind": "model",
+          "shares_inputs_with": [
+            "geosfp"
+          ]
+        }
+      ],
+      "limit_days": null,
+      "status": "missing",
+      "source_time_utc": null,
+      "age_days": null,
+      "period": null,
+      "credit": "Visualization: NASA's Scientific Visualization Studio (SVS 5153) for the NASA Earth Information Center.",
+      "bytes": 0
+    },
+    "eic_5154": {
+      "product": "eic_5154",
+      "title": "Nitrogen oxides (GEOS-CF) (EIC)",
+      "outputs": [
+        "official/eic_5154/manifest.json"
+      ],
+      "cadence": "static",
+      "pairing": "frame-paired",
+      "datasets": [
+        {
+          "id": "eic_earthnow",
+          "name": "EIC frames: SVS Earth Now dashboard (GEOS-FP / GEOS-CF) and NRT NDVI",
+          "agency": "NASA",
+          "kind": "model",
+          "shares_inputs_with": [
+            "geosfp"
+          ]
+        }
+      ],
+      "limit_days": null,
+      "status": "missing",
+      "source_time_utc": null,
+      "age_days": null,
+      "period": null,
+      "credit": "Visualization: NASA's Scientific Visualization Studio (SVS 5154) for the NASA Earth Information Center.",
+      "bytes": 0
+    },
+    "eic_5544": {
+      "product": "eic_5544",
+      "title": "NDVI, near real time (EIC)",
+      "outputs": [
+        "official/eic_5544/manifest.json"
+      ],
+      "cadence": "static",
+      "pairing": "frame-paired",
+      "datasets": [
+        {
+          "id": "eic_ndvi",
+          "name": "EIC frames: SVS 5544 near-real-time NDVI (S-NPP VIIRS)",
+          "agency": "NASA",
+          "kind": "measurement",
+          "shares_inputs_with": []
+        }
+      ],
+      "limit_days": null,
+      "status": "missing",
+      "source_time_utc": null,
+      "age_days": null,
+      "period": null,
+      "credit": "Visualization: NASA's Scientific Visualization Studio (SVS 5544) for the NASA Earth Information Center.",
+      "bytes": 0
+    },
+    "patterns_eic": {
+      "product": "patterns_eic",
+      "title": "EIC patterns (pattern, not values)",
+      "outputs": [
+        "official/patterns_eic/manifest.json"
+      ],
+      "cadence": "static",
+      "pairing": "context",
+      "datasets": [
+        {
+          "id": "eic_patterns",
+          "name": "EIC Content Database preview images (class B: pattern, not values)",
+          "agency": "NASA",
+          "kind": "measurement",
+          "shares_inputs_with": []
+        }
+      ],
+      "limit_days": null,
+      "status": "missing",
+      "source_time_utc": null,
+      "age_days": null,
+      "period": null,
+      "credit": "Visualizations: NASA's Scientific Visualization Studio for the NASA Earth Information Center.",
+      "bytes": 0
     }
   }
 }

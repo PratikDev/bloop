@@ -1,0 +1,29 @@
+{
+ "record": "eic_5147",
+ "checks": [
+  {
+   "record": "eic_5147",
+   "id": "a_same_model",
+   "title": "Near-surface temperature: frame vs GEOS-FP tavg1_2d_slv_Nx t2m at 2026-10-20 22:30:00 UTC",
+   "kind": "value",
+   "source": "GEOS-FP tavg1_2d_slv_Nx (NCCS OPeNDAP)",
+   "metrics": {
+    "spearman": 0.9783399795716166,
+    "n": 233761,
+    "median_rel_error": 0.0953646921426935,
+    "median_abs": 1.0601459503174055,
+    "bias": 0.4611536289287486,
+    "frame_time_utc": "2026-10-22T22:00Z",
+    "georef_spearman_shift_lon": {
+     "-1.0": 0.9754101390588525,
+     "1.0": 0.9756646734888474
+    }
+   },
+   "threshold": "Spearman ≥ 0.9 and median relative error ≤ 15 % (provisional)",
+   "pass": true,
+   "note": "Same model: this tests the decoding. Unit conversion stated in the item table.",
+   "run_utc": "2026-10-29T12:45:35Z"
+  }
+ ],
+ "updated_utc": "2026-10-29T12:45:35Z"
+}

@@ -95,6 +95,50 @@ def aerosol_voices(m):
                     "designChoice": True, "note": "Relative density (the key has no values); range = the record's 99th percentile."})
     return out
 
+def ocean2_voices(m):
+    out = []
+    for k, vid, output in (("temperature", "ocean2Temperature", TONE),
+                           ("salinity", "ocean2Salinity", {"param": "cutoff", "unit": "Hz", "min": 800, "max": 8000, "scale": "exponential"})):
+        lo, hi = m["ranges"][k]
+        out.append({"id": vid, "label": {"en": f"Perpetual Ocean 2 {k} (model)", "bn": f"TODO: {k}"}, "group": "context",
+                    "source": {"dataset": "ECCO model, via EIC frames SVS 5425", "svsId": 5425, "product": m["record"]}, "status": "context",
+                    "mapping": {"kind": "continuous", "input": {"unit": "°C" if k == "temperature" else "PSU", "min": round(lo, 2), "max": round(hi, 2),
+                                                                "scale": "linear"}, "output": output},
+                    "silence": "Land, or no colour of the key at this point.",
+                    "sound": {"timbre": "Warm sine" if k == "temperature" else "Soft filtered noise", "attackMs": 20, "releaseMs": 80, "maxGain": 0.15,
+                              "family": "model"},
+                    "pan": "longitude", "legend": [], "designChoice": True, "note": "Temperature → pitch; salinity on the second voice slot."})
+    return out
+
+def pattern_voice(m):
+    return {"id": "patternScan", "label": {"en": "Picture brightness (pattern, not values)", "bn": "TODO: pattern"}, "group": "context",
+            "source": {"dataset": "EIC preview images (class B)", "product": m["record"]}, "status": "context",
+            "mapping": {"kind": "continuous", "input": {"unit": "relative", "min": 0, "max": 1, "scale": "linear"}, "output": TONE},
+            "silence": "A black part of the picture.",
+            "sound": {"timbre": "Warm sine with a soft attack and a smooth glide", "attackMs": 20, "releaseMs": 80, "glideMs": 30, "maxGain": 0.15},
+            "pan": "longitude", "legend": [], "designChoice": True, "note": "Brighter = higher. Pattern, not values."}
+
+def river_voice(m):
+    return {"id": "riverTransport", "label": {"en": "Atmospheric river transport (reanalysis, relative)", "bn": "TODO: river"}, "group": "context",
+            "source": {"dataset": "NASA MERRA-2, via EIC frames SVS 4960", "svsId": 4960, "product": m["record"]}, "status": "context",
+            "mapping": {"kind": "continuous", "input": {"unit": "relative", "min": 0, "max": 1, "scale": "linear"}, "output": TONE},
+            "silence": "No blue shading at this point.",
+            "sound": {"timbre": "Warm sine with a soft attack and a smooth glide", "attackMs": 20, "releaseMs": 80, "glideMs": 30, "maxGain": 0.2,
+                      "family": "model"},
+            "pan": "longitude", "legend": [], "designChoice": True, "note": "Relative (no colorbar): the blue shading's strength."}
+
+def eic_voice(m):
+    l = m["layers"][0]; lo, hi = m["colorbar"]["value_range"]
+    log = l.get("display", {}).get("scale") == "log" and lo > 0
+    model = m["badge"] == "model"
+    return {"id": m["voices"]["value"], "label": {"en": l["label"], "bn": f"TODO: {m['record']}"}, "group": "context",
+            "source": {"dataset": f"EIC frame SVS {m['svs_ids'][0]}", "svsId": m["svs_ids"][0], "product": m["record"]}, "status": "context",
+            "mapping": {"kind": "continuous", "input": {"unit": l["unit"], "min": lo, "max": hi, "scale": "log" if log else "linear"}, "output": TONE},
+            "silence": "No value at this point (an overlay box or a colour off the key).",
+            "sound": {"timbre": "Warm sine with a soft attack and a smooth glide", "attackMs": 20, "releaseMs": 80, "glideMs": 30, "maxGain": 0.2,
+                      **({"family": "model"} if model else {})},
+            "pan": "longitude", "legend": [], "designChoice": True, "note": "The book's pitch rule over the key's own range."}
+
 def co2_voice(m):
     lo, hi = m["ppm_range"]
     return {"id": "co2Ppm", "label": {"en": "CO₂ nature run (model, relative)", "bn": "TODO: CO2"}, "group": "context",
@@ -140,6 +184,13 @@ def main():
         voices.append(drift_voice(m["drift_speed_range_km_day"], m["record"]))
         if "oscarCurrent" in m.get("voice_sources", {}):
             voices.append(oscar_voice(m["oscar_speed_range_m_s"], m["voice_sources"]["oscarCurrent"]))
+    ocean2 = PUBLIC_OFFICIAL / "ocean2_5425" / "manifest.json"
+    if ocean2.exists(): voices += ocean2_voices(json.loads(ocean2.read_text(encoding="utf-8")))
+    patterns = PUBLIC_OFFICIAL / "patterns_eic" / "manifest.json"
+    if patterns.exists(): voices.append(pattern_voice(json.loads(patterns.read_text(encoding="utf-8"))))
+    river = PUBLIC_OFFICIAL / "river_4960" / "manifest.json"
+    if river.exists(): voices.append(river_voice(json.loads(river.read_text(encoding="utf-8"))))
+    for eic in sorted(PUBLIC_OFFICIAL.glob("eic_*/manifest.json")): voices.append(eic_voice(json.loads(eic.read_text(encoding="utf-8"))))
     co2 = PUBLIC_OFFICIAL / "co2_5196" / "manifest.json"
     if co2.exists(): voices.append(co2_voice(json.loads(co2.read_text(encoding="utf-8"))))
     forest = PUBLIC_OFFICIAL / "forest_4950" / "manifest.json"

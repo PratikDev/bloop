@@ -1,0 +1,29 @@
+{
+ "record": "live_rain",
+ "checks": [
+  {
+   "record": "live_rain",
+   "id": "a_D2",
+   "title": "SVS 4285 live frame: acceptance test D2",
+   "kind": "value",
+   "source": "IMERG Late",
+   "metrics": {
+    "metric": "median_abs_log10_error",
+    "value": 0.103,
+    "approx_percent": 27,
+    "bias_log10": -0.103,
+    "n_points": 150,
+    "agreement": 1.0,
+    "phase_agreement": 1.0,
+    "matched_run": "IMERG Late",
+    "frames_tested": 1,
+    "test": "D2"
+   },
+   "threshold": null,
+   "pass": null,
+   "note": "",
+   "run_utc": "2026-10-29T12:47:05Z"
+  }
+ ],
+ "updated_utc": "2026-10-29T12:47:05Z"
+}

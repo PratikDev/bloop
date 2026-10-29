@@ -30,6 +30,12 @@ SVS5113 = Dataset("svs5113", "EIC frame: SVS 5113 VIIRS active fires", "NASA", "
 # Official Challenge #14 resources (pipeline/svs): archive animations of models
 SVS5533 = Dataset("svs5533", "EIC frames: SVS 5533 / 5518 Air Quality Model Runs", "NASA", "model", ("geoscf",))
 SVS3912 = Dataset("svs3912", "EIC frames: SVS 3912 Global Sea Surface Currents and Temperature", "NASA", "model", ("ecco2",))
+EIC_EARTHNOW = Dataset("eic_earthnow", "EIC frames: SVS Earth Now dashboard (GEOS-FP / GEOS-CF) and NRT NDVI", "NASA", "model", ("geosfp",))
+EIC_NDVI = Dataset("eic_ndvi", "EIC frames: SVS 5544 near-real-time NDVI (S-NPP VIIRS)", "NASA", "measurement")
+SVS4960 = Dataset("svs4960", "EIC frames: SVS 4960 A 3D View of an Atmospheric River (MERRA-2)", "NASA", "model", ("merra2",))
+EIC_PATTERNS = Dataset("eic_patterns", "EIC Content Database preview images (class B: pattern, not values)", "NASA", "measurement")
+SVS5425 = Dataset("svs5425", "EIC frames: SVS 5425 Perpetual Ocean 2 (ECCO)", "NASA", "model", ("ecco",))
+ECCO = Dataset("ecco", "ECCO ocean state estimate (NASA/JPL)", "NASA", "model")
 SVS13786 = Dataset("svs13786", "SVS 13786 Data Sonification: Caldwell 73 (SYSTEM Sounds; Hubble image)", "NASA", "measurement")
 SVS5196 = Dataset("svs5196", "EIC frames: SVS 5196 / 5436 DYAMOND Global Carbon Dioxide", "NASA", "model", ("dyamond",))
 SVS4950 = Dataset("svs4950", "EIC frames: SVS 4950 GEDI Forest Height", "NASA", "measurement", ("gedi",))

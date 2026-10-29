@@ -120,6 +120,14 @@ _ALL = [
             disclosure="Temperature read from the streak colours of a model. The currents you hear are NASA OSCAR surface "
                        "currents for the same days; how the drawn streaks move is visual texture, not water speed.",
             period_keys=("period.start", "period.end"), time_key="period.end"),
+    Product("ocean2_5425", "Perpetual Ocean 2 (model, 2021–23)", ("official/ocean2_5425/manifest.json",), "static", "frame-paired",
+            (D.SVS5425, D.ECCO), credit=SVS_CREDIT.format(id=5425) + " Data: ECCO ocean state estimate (NASA/JPL).",
+            disclosure="Temperature and salinity read from camera views of a model (no map position): regional checks only.",
+            period_keys=("period.start", "period.end"), time_key="period.end"),
+    Product("river_4960", "Atmospheric river (reanalysis, Dec 2010)", ("official/river_4960/manifest.json",), "static", "frame-paired",
+            (D.SVS4960, D.MERRA2), credit=SVS_CREDIT.format(id=4960) + " Data: NASA MERRA-2 reanalysis (GMAO).",
+            disclosure="Relative vapour transport read from the blue shading of a 3D view (no colorbar, no map position).",
+            period_keys=("period.start", "period.end"), time_key="period.end"),
     Product("sonification_13786", "Caldwell 73 sonification (method evidence)", ("official/sonification_13786/manifest.json",), "static",
             "context", (D.SVS13786,), credit="Credit: SYSTEM Sounds (M. Russo, A. Santaguida) and NASA (SVS 13786).",
             disclosure="A sonification of a Hubble image, measured as evidence for the radial-sweep method; not Earth data.",
@@ -155,6 +163,19 @@ _ALL = [
             period_keys=("period.start", "period.end"), time_key="period.end"),
 ]
 
+def _eic_products():
+    """One product per EIC class-A record (pipeline/svs/records/eic): one table, no per-item code."""
+    from svs.records.eic import ITEMS
+    return [Product(f"eic_{sid}", f"{name} (EIC)", (f"official/eic_{sid}/manifest.json",), "static", "frame-paired",
+                    (D.EIC_EARTHNOW,) if sid != 5544 else (D.EIC_NDVI,), credit=SVS_CREDIT.format(id=sid),
+                    disclosure="One frame of a rolling EIC layer, read back through its key.",
+                    period_keys=("period.start", "period.end"), time_key="period.end") for sid, (name, *_rest) in ITEMS.items()]
+
+_ALL += _eic_products()
+_ALL.append(Product("patterns_eic", "EIC patterns (pattern, not values)", ("official/patterns_eic/manifest.json",), "static", "context",
+                    (D.EIC_PATTERNS,), credit="Visualizations: NASA's Scientific Visualization Studio for the NASA Earth Information Center.",
+                    disclosure="Brightness of preview images with no numeric key or map position: pattern, not values.",
+                    period_keys=("period.start", "period.end"), time_key="period.end"))
 PRODUCTS = {p.id: p for p in _ALL}
 assert len(PRODUCTS) == len(_ALL), "duplicate product id"
 

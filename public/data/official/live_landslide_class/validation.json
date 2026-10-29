@@ -1,0 +1,22 @@
+{
+ "record": "live_landslide_class",
+ "checks": [
+  {
+   "record": "live_landslide_class",
+   "id": "a_C5584",
+   "title": "SVS 5584 live frame: acceptance test C5584",
+   "kind": "value",
+   "source": null,
+   "metrics": {
+    "test": "C5584",
+    "status": "PASS",
+    "age_days": 0.42
+   },
+   "threshold": "status PASS (the product's own thresholds)",
+   "pass": true,
+   "note": "",
+   "run_utc": "2026-10-29T12:47:05Z"
+  }
+ ],
+ "updated_utc": "2026-10-29T12:47:05Z"
+}

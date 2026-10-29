@@ -44,6 +44,26 @@
    "manifest": "currents_3912/manifest.json"
   },
   {
+   "record": "eic_5147",
+   "title": "Near-surface temperature (EIC, model)",
+   "svs_ids": [
+    5147
+   ],
+   "badge": "model",
+   "period": "22 Oct 2026 – 22 Oct 2026",
+   "manifest": "eic_5147/manifest.json"
+  },
+  {
+   "record": "eic_5148",
+   "title": "Near-surface wind speed (EIC, model)",
+   "svs_ids": [
+    5148
+   ],
+   "badge": "model",
+   "period": "22 Oct 2026 – 22 Oct 2026",
+   "manifest": "eic_5148/manifest.json"
+  },
+  {
    "record": "forest_4950",
    "title": "Forest height (observation, GEDI)",
    "svs_ids": [
@@ -74,6 +94,58 @@
    "badge": "observation",
    "period": "1 Jan 2012 – 31 Dec 2023",
    "manifest": "lights_5313/manifest.json"
+  },
+  {
+   "record": "patterns_eic",
+   "title": "EIC patterns (pattern, not values)",
+   "svs_ids": [
+    4170,
+    4685,
+    4810,
+    4889,
+    4897,
+    4968,
+    4983,
+    4993,
+    5041,
+    5046,
+    5047,
+    5054,
+    5058,
+    5064,
+    5067,
+    5072,
+    5081,
+    5087,
+    5097,
+    5098,
+    5099,
+    5107,
+    5110,
+    5111,
+    5115,
+    5116,
+    5117,
+    5118,
+    5119,
+    5120,
+    5121,
+    5126,
+    5175,
+    5190,
+    5191,
+    5207,
+    5209,
+    5235,
+    5382,
+    5425,
+    5453,
+    30521,
+    31196
+   ],
+   "badge": "observation",
+   "period": "29 Oct 2026 – 29 Oct 2026",
+   "manifest": "patterns_eic/manifest.json"
   }
  ]
 }
