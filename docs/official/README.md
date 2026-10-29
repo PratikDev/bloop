@@ -29,6 +29,13 @@ Every official SVS resource becomes a **record**: acquired by rule, decoded into
 | `invert.py`, `opacity.py` | colour → value: exact, chroma, hue (grey-floor renders) and opacity-ramp modes; residual = confidence |
 | `flow.py`, `blobs.py`, `segment.py` | optical flow + streak axis; LoG events; hue classes with a confusion check |
 | `export.py`, `validate.py`, `regrid.py` | the contract writer and size budget; shared statistics and the validation table; regridding |
+| `ocr_dates.py`, `ocr_dates_check.py` | burned-in dates (month names, time zones) by the glyph OCR, and its 20-frame check |
+| `cmr.py`, `places.py` | collection citations from CMR; geocoded named places (OSM, cached) |
+| `eic.py`, `resources.py`, `watch.py`, `report.py` | the EIC inventory; the official list; the weekly watch; the final-report tables |
+| `label_aerosols.py` | the 5669 hand-labelling page (`python -m svs.label_aerosols`) |
+
+Extra libraries (librosa, imagecodecs) live outside the repo in `../tools/pylib` (see `docs/data-integration-plan.md` §14);
+ffmpeg in `../tools/ffmpeg/`.
 
 Tests: `python -m unittest discover -s svs/tests -t .` (from `pipeline/`).
 
@@ -44,3 +51,6 @@ python -m svs.records.voices             # public/mapping-official.json
 python -m svs.records.doc <record>       # docs/official/<id>.md
 python build_freshness.py --only=<record>
 ```
+
+EIC class-A items: `python -m svs.records.eic.run <id> …`; class B: `python -m svs.records.eic.patterns`; live layers:
+`python -m svs.records.live`. Completeness: `python -m unittest svs.tests.test_completeness`.
