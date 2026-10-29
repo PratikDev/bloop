@@ -106,6 +106,7 @@ def write_index():
     rows = []
     for m in sorted(PUBLIC_OFFICIAL.glob("*/manifest.json")):
         d = json.loads(m.read_text(encoding="utf-8"))
+        if not d.get("play"): continue                    # method evidence (13786): no layers to play, not in the list
         rows.append({"record": d["record"], "title": d["app_title"], "svs_ids": d["svs_ids"], "badge": d["badge"],
                      "period": d["period"]["label"], "manifest": f"{d['record']}/manifest.json"})
     (PUBLIC_OFFICIAL / "index.json").write_text(json.dumps({"records": rows}, indent=1, ensure_ascii=False), encoding="utf-8")

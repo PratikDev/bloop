@@ -120,6 +120,10 @@ _ALL = [
             disclosure="Temperature read from the streak colours of a model. The currents you hear are NASA OSCAR surface "
                        "currents for the same days; how the drawn streaks move is visual texture, not water speed.",
             period_keys=("period.start", "period.end"), time_key="period.end"),
+    Product("sonification_13786", "Caldwell 73 sonification (method evidence)", ("official/sonification_13786/manifest.json",), "static",
+            "context", (D.SVS13786,), credit="Credit: SYSTEM Sounds (M. Russo, A. Santaguida) and NASA (SVS 13786).",
+            disclosure="A sonification of a Hubble image, measured as evidence for the radial-sweep method; not Earth data.",
+            period_keys=("period.start", "period.end"), time_key="period.end"),
     Product("co2_5196", "CO₂ nature run (model, Jan–Mar 2020)", ("official/co2_5196/manifest.json",), "static", "frame-paired",
             (D.SVS5196, D.DYAMOND), credit=SVS_CREDIT.format(id="5196, 5436") + " Data: NASA GEOS–MITgcm DYAMOND nature run (GMAO).",
             disclosure="Relative ppm read from the volume render's colours with its colour and opacity transfer functions; a model "

@@ -30,6 +30,7 @@ SVS5113 = Dataset("svs5113", "EIC frame: SVS 5113 VIIRS active fires", "NASA", "
 # Official Challenge #14 resources (pipeline/svs): archive animations of models
 SVS5533 = Dataset("svs5533", "EIC frames: SVS 5533 / 5518 Air Quality Model Runs", "NASA", "model", ("geoscf",))
 SVS3912 = Dataset("svs3912", "EIC frames: SVS 3912 Global Sea Surface Currents and Temperature", "NASA", "model", ("ecco2",))
+SVS13786 = Dataset("svs13786", "SVS 13786 Data Sonification: Caldwell 73 (SYSTEM Sounds; Hubble image)", "NASA", "measurement")
 SVS5196 = Dataset("svs5196", "EIC frames: SVS 5196 / 5436 DYAMOND Global Carbon Dioxide", "NASA", "model", ("dyamond",))
 SVS4950 = Dataset("svs4950", "EIC frames: SVS 4950 GEDI Forest Height", "NASA", "measurement", ("gedi",))
 SVS5669 = Dataset("svs5669", "EIC frames: SVS 5669 / 5572 GEOS Aerosols (GEOS-FP)", "NASA", "model", ("geosfp",))

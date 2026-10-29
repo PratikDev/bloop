@@ -1,0 +1,30 @@
+{
+ "source": "SVS 13786 Caldwell 73, measured by pipeline/svs/records/sonification/caldwell.py",
+ "centre_px": [
+  958.87663892342,
+  958.7823168971222
+ ],
+ "angular_speed_deg_s": -12.01669919468,
+ "radius_unit": "fraction of the frame's half-diagonal",
+ "curves": {
+  "single_star_pYIN": {
+   "semitones_re_A440_per_radius": -0.3079193898842346,
+   "semitones_at_centre": -28.38142501974681,
+   "radius_unit": "fraction of the frame's half-diagonal"
+  },
+  "onset": {
+   "semitones_re_A440_per_radius": 6.670855192673044,
+   "semitones_at_centre": -15.550826518703282
+  },
+  "ring": {
+   "semitones_re_A440_per_radius": -11.96490384784592,
+   "semitones_at_centre": -5.771055059459904
+  }
+ },
+ "spearman": {
+  "single_star_pYIN": -0.13943865245081877,
+  "onset": 0.04438140411402702,
+  "ring": -0.08384112266590062
+ },
+ "verdict": "the stated radius \u2192 pitch mapping is not recovered by these measurements (no curve is supported)"
+}
