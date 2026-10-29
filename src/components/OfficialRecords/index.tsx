@@ -14,6 +14,7 @@ import { RecordMap } from "./RecordMap";
 import { useOfficialRecord } from "./use-official-record";
 
 const SIGNIFICANT = 3;
+const PATTERN_ONLY = "pattern only (values not verified)";
 
 function readingText(t: BoundT, lang: Lang, r: OfficialReading | null, unit: string): string {
   if (!r) return t("official.noValue");
@@ -30,7 +31,9 @@ function Player({ record }: { record: string }) {
   const map = rec.grids[rec.option.map];
   const first = rec.readings[0];
   const unit = map?.layer.unit ?? "";
-  const text = readingText(t, state.lang, first?.reading ?? null, unit);
+  const patternOnly = (ids: string[]) => ids.some((id) => rec.manifest?.layers.find((l) => l.id === id)?.status === PATTERN_ONLY);
+  const verified = !patternOnly([rec.option.map]);
+  const text = `${readingText(t, state.lang, first?.reading ?? null, unit)}${verified ? "" : `, ${t("official.patternOnly")}`}`;
   const place = t("place.latlon", rec.needle);
   const times = map?.layer.times ?? [];
   const timeText = times[rec.step] ? formatUtc(times[rec.step], state.lang) : "";
@@ -48,7 +51,10 @@ function Player({ record }: { record: string }) {
         </p>
         <ul className="space-y-1 text-small text-haze">
           {rec.option.channels.map((c) => (
-            <li key={c.voice}>{ruleText(voiceSpec(c.voice))}</li>
+            <li key={c.voice}>
+              {ruleText(voiceSpec(c.voice))}
+              {patternOnly(c.layers) && ` (${t("official.patternOnly")})`}
+            </li>
           ))}
         </ul>
         <RecordControls rec={rec} timeText={timeText} readingText={`${place}: ${text}`} />

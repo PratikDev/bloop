@@ -34,6 +34,9 @@ export interface OfficialLayer {
   label: string;
   aggregation: string;
   quantisation_step: number;
+  /** From the check that covers the layer: "verified" (passed), "pattern only (values not verified)" (missed), "no check". */
+  status: "verified" | "pattern only (values not verified)" | "no check";
+  status_check: string | null;
   /** Layers with an opacity-decoded colorbar: values under this were censored ("below range"). */
   below_range_bound?: number;
   /** How to draw it: colours sampled along the SVS colorbar at `values`, interpolated on `scale`. Absent = not drawn. */

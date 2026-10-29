@@ -1,5 +1,5 @@
 {
-  "generated_utc": "2026-10-28T14:17:08Z",
+  "generated_utc": "2026-10-29T00:03:54Z",
   "products": {
     "sst": {
       "product": "sst",
@@ -642,6 +642,80 @@
       "period": null,
       "credit": "NASA Black Marble VJ146A2 (NOAA-20 VIIRS), NASA LAADS DAAC.",
       "bytes": 4356
+    },
+    "air_5533": {
+      "product": "air_5533",
+      "title": "Air (model, Jul–Sep 2024)",
+      "outputs": [
+        "official/air_5533/manifest.json"
+      ],
+      "cadence": "static",
+      "pairing": "frame-paired",
+      "datasets": [
+        {
+          "id": "svs5533",
+          "name": "EIC frames: SVS 5533 / 5518 Air Quality Model Runs",
+          "agency": "NASA",
+          "kind": "model",
+          "shares_inputs_with": [
+            "geoscf"
+          ]
+        },
+        {
+          "id": "geoscf",
+          "name": "NASA GEOS-CF composition model (GMAO)",
+          "agency": "NASA",
+          "kind": "model",
+          "shares_inputs_with": []
+        }
+      ],
+      "limit_days": null,
+      "status": "baseline",
+      "source_time_utc": "2024-09-14T00:00:00Z",
+      "age_days": 775.0,
+      "period": [
+        "2024-07-01T00:00:00Z",
+        "2024-09-14T00:00:00Z"
+      ],
+      "credit": "Visualization: NASA's Scientific Visualization Studio (SVS 5533, 5518) for the NASA Earth Information Center. Data: NASA GEOS-CF (GMAO), model output.",
+      "bytes": 255197
+    },
+    "currents_3912": {
+      "product": "currents_3912",
+      "title": "Currents & SST (model, 2007–08)",
+      "outputs": [
+        "official/currents_3912/manifest.json"
+      ],
+      "cadence": "static",
+      "pairing": "frame-paired",
+      "datasets": [
+        {
+          "id": "svs3912",
+          "name": "EIC frames: SVS 3912 Global Sea Surface Currents and Temperature",
+          "agency": "NASA",
+          "kind": "model",
+          "shares_inputs_with": [
+            "ecco2"
+          ]
+        },
+        {
+          "id": "ecco2",
+          "name": "ECCO2 ocean model (MIT/JPL)",
+          "agency": "NASA",
+          "kind": "model",
+          "shares_inputs_with": []
+        }
+      ],
+      "limit_days": null,
+      "status": "baseline",
+      "source_time_utc": "2008-03-03T12:00:00Z",
+      "age_days": 6813.5,
+      "period": [
+        "2007-03-25T12:00:00Z",
+        "2008-03-03T12:00:00Z"
+      ],
+      "credit": "Visualization: NASA's Scientific Visualization Studio (SVS 3912) for the NASA Earth Information Center. Data: ECCO2 ocean model (MIT/JPL).",
+      "bytes": 22744
     }
   }
 }

@@ -1,0 +1,25 @@
+{
+ "records": [
+  {
+   "record": "air_5533",
+   "title": "Air (model, Jul–Sep 2024)",
+   "svs_ids": [
+    5533,
+    5518
+   ],
+   "badge": "model",
+   "period": "1 Jul 2024 – 14 Sep 2024",
+   "manifest": "air_5533/manifest.json"
+  },
+  {
+   "record": "currents_3912",
+   "title": "Currents & SST (model, 2007–08)",
+   "svs_ids": [
+    3912
+   ],
+   "badge": "model",
+   "period": "25 Mar 2007 – 3 Mar 2008",
+   "manifest": "currents_3912/manifest.json"
+  }
+ ]
+}
