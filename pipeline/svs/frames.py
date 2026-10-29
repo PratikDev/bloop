@@ -84,7 +84,14 @@ def frame_number(name):
     return int(nums[-1]) if nums else None
 
 def ffmpeg_tools():
-    return shutil.which("ffmpeg"), shutil.which("ffprobe")
+    """ffmpeg and ffprobe from PATH, else from a static build unpacked under <repo>/../tools/ffmpeg/ (outside the repo)."""
+    from .config import REPO
+    found = [shutil.which("ffmpeg"), shutil.which("ffprobe")]
+    for i, name in enumerate(("ffmpeg", "ffprobe")):
+        if not found[i]:
+            hits = sorted((REPO.parent / "tools" / "ffmpeg").glob(f"*/bin/{name}*"))
+            found[i] = str(hits[-1]) if hits else None
+    return tuple(found)
 
 def probe_movie(path):
     """Native frame rate and frame count (ffprobe counts packets; no decoding)."""
@@ -97,12 +104,33 @@ def probe_movie(path):
     num, den = map(int, s["r_frame_rate"].split("/"))
     return {"fps": num / den, "frames": int(s["nb_read_packets"]), "width": s["width"], "height": s["height"]}
 
+def movie_frames(path, every=1, start=0, count=None, size=None):
+    """Stream decoded frames (uint8 RGB arrays) from a movie without writing them to disk: frame numbers start, start +
+    every, … (count of them, or to the end), optionally scaled to size=(W, H). Yields (frame_number, rgb)."""
+    ffmpeg, _ = ffmpeg_tools()
+    if not ffmpeg: raise RuntimeError("ffmpeg not installed")
+    info = probe_movie(path)
+    W, H = size or (info["width"], info["height"])
+    vf = f"select='gte(n\,{start})*not(mod(n-{start}\,{every}))'" + (f",scale={W}:{H}:flags=area" if size else "")
+    cmd = [ffmpeg, "-v", "error", "-i", str(path), "-vf", vf, "-fps_mode", "passthrough"]
+    if count: cmd += ["-frames:v", str(count)]
+    proc = subprocess.Popen(cmd + ["-f", "rawvideo", "-pix_fmt", "rgb24", "-"], stdout=subprocess.PIPE)
+    n, k = W * H * 3, 0
+    try:
+        while True:
+            buf = proc.stdout.read(n)
+            if len(buf) < n: break
+            yield start + k * every, np.frombuffer(buf, np.uint8).reshape(H, W, 3)
+            k += 1
+    finally:
+        proc.stdout.close(); proc.wait()
+
 def extract_movie(path, out_dir: Path, start=0, count=None):
     """Frames at the native rate as lossless PNG (frame_%06d.png, numbered from `start`)."""
     ffmpeg, _ = ffmpeg_tools()
     if not ffmpeg: raise RuntimeError("ffmpeg not installed")
     out_dir.mkdir(parents=True, exist_ok=True)
-    cmd = [ffmpeg, "-v", "error", "-i", str(path), "-vsync", "0", "-start_number", str(start)]
+    cmd = [ffmpeg, "-v", "error", "-i", str(path), "-fps_mode", "passthrough", "-start_number", str(start)]   # -vsync is gone in ffmpeg 7+
     if count: cmd += ["-frames:v", str(count)]
     subprocess.run(cmd + [str(out_dir / "frame_%06d.png")], check=True)
     return sorted(out_dir.glob("frame_*.png"))

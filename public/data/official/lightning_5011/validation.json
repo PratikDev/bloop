@@ -1,0 +1,555 @@
+{
+ "record": "lightning_5011",
+ "checks": [
+  {
+   "record": "lightning_5011",
+   "id": "a_region_counts_isslis",
+   "title": "Flash counts per region and 10-day window vs ISS LIS",
+   "kind": "value",
+   "source": "ISS LIS V3 science flashes (isslis_v3_fin, GHRC DAAC)",
+   "metrics": {
+    "per_region": {
+     "Bangladesh": {
+      "spearman": 0.5858420071418652,
+      "n_windows": 12
+     },
+     "Congo basin": {
+      "spearman": 0.3426573426573427,
+      "n_windows": 12
+     },
+     "Lake Maracaibo": {
+      "spearman": -0.20282916674539916,
+      "n_windows": 12
+     },
+     "Himalayan foothills": {
+      "spearman": 0.3649122807017544,
+      "n_windows": 12
+     }
+    },
+    "windows": [
+     {
+      "window": "2017-03-01",
+      "Bangladesh": {
+       "frames": 3.0,
+       "lis": 30
+      },
+      "Congo basin": {
+       "frames": 117.0,
+       "lis": 2261
+      },
+      "Lake Maracaibo": {
+       "frames": 1.0,
+       "lis": 7
+      },
+      "Himalayan foothills": {
+       "frames": 44.0,
+       "lis": 83
+      }
+     },
+     {
+      "window": "2017-09-29",
+      "Bangladesh": {
+       "frames": 4.0,
+       "lis": 188
+      },
+      "Congo basin": {
+       "frames": 67.0,
+       "lis": 1404
+      },
+      "Lake Maracaibo": {
+       "frames": 2.0,
+       "lis": 90
+      },
+      "Himalayan foothills": {
+       "frames": 3.0,
+       "lis": 15
+      }
+     },
+     {
+      "window": "2018-04-29",
+      "Bangladesh": {
+       "frames": 7.0,
+       "lis": 1944
+      },
+      "Congo basin": {
+       "frames": 72.0,
+       "lis": 1400
+      },
+      "Lake Maracaibo": {
+       "frames": 1.0,
+       "lis": 74
+      },
+      "Himalayan foothills": {
+       "frames": 29.0,
+       "lis": 634
+      }
+     },
+     {
+      "window": "2018-11-27",
+      "Bangladesh": {
+       "frames": 0.0,
+       "lis": 0
+      },
+      "Congo basin": {
+       "frames": 26.0,
+       "lis": 1320
+      },
+      "Lake Maracaibo": {
+       "frames": 0.0,
+       "lis": 1
+      },
+      "Himalayan foothills": {
+       "frames": 2.0,
+       "lis": 0
+      }
+     },
+     {
+      "window": "2019-06-27",
+      "Bangladesh": {
+       "frames": 0.0,
+       "lis": 144
+      },
+      "Congo basin": {
+       "frames": 31.0,
+       "lis": 730
+      },
+      "Lake Maracaibo": {
+       "frames": 2.0,
+       "lis": 1
+      },
+      "Himalayan foothills": {
+       "frames": 28.0,
+       "lis": 563
+      }
+     },
+     {
+      "window": "2020-01-25",
+      "Bangladesh": {
+       "frames": 1.0,
+       "lis": 6
+      },
+      "Congo basin": {
+       "frames": 44.0,
+       "lis": 867
+      },
+      "Lake Maracaibo": {
+       "frames": 0.0,
+       "lis": 3
+      },
+      "Himalayan foothills": {
+       "frames": 10.0,
+       "lis": 28
+      }
+     },
+     {
+      "window": "2020-08-24",
+      "Bangladesh": {
+       "frames": 10.0,
+       "lis": 69
+      },
+      "Congo basin": {
+       "frames": 35.0,
+       "lis": 1456
+      },
+      "Lake Maracaibo": {
+       "frames": 2.0,
+       "lis": 18
+      },
+      "Himalayan foothills": {
+       "frames": 19.0,
+       "lis": 101
+      }
+     },
+     {
+      "window": "2021-03-24",
+      "Bangladesh": {
+       "frames": 4.0,
+       "lis": 102
+      },
+      "Congo basin": {
+       "frames": 81.0,
+       "lis": 1305
+      },
+      "Lake Maracaibo": {
+       "frames": 0.0,
+       "lis": 16
+      },
+      "Himalayan foothills": {
+       "frames": 16.0,
+       "lis": 23
+      }
+     },
+     {
+      "window": "2021-10-22",
+      "Bangladesh": {
+       "frames": 0.0,
+       "lis": 25
+      },
+      "Congo basin": {
+       "frames": 82.0,
+       "lis": 1933
+      },
+      "Lake Maracaibo": {
+       "frames": 0.0,
+       "lis": 73
+      },
+      "Himalayan foothills": {
+       "frames": 0.0,
+       "lis": 496
+      }
+     },
+     {
+      "window": "2022-05-22",
+      "Bangladesh": {
+       "frames": 6.0,
+       "lis": 185
+      },
+      "Congo basin": {
+       "frames": 59.0,
+       "lis": 828
+      },
+      "Lake Maracaibo": {
+       "frames": 1.0,
+       "lis": 150
+      },
+      "Himalayan foothills": {
+       "frames": 26.0,
+       "lis": 509
+      }
+     },
+     {
+      "window": "2022-12-20",
+      "Bangladesh": {
+       "frames": 0.0,
+       "lis": 0
+      },
+      "Congo basin": {
+       "frames": 42.0,
+       "lis": 599
+      },
+      "Lake Maracaibo": {
+       "frames": 3.0,
+       "lis": 0
+      },
+      "Himalayan foothills": {
+       "frames": 4.0,
+       "lis": 0
+      }
+     },
+     {
+      "window": "2023-07-21",
+      "Bangladesh": {
+       "frames": 0.0,
+       "lis": 77
+      },
+      "Congo basin": {
+       "frames": 12.0,
+       "lis": 1750
+      },
+      "Lake Maracaibo": {
+       "frames": 0.0,
+       "lis": 186
+      },
+      "Himalayan foothills": {
+       "frames": 3.0,
+       "lis": 804
+      }
+     }
+    ]
+   },
+   "threshold": "Spearman ≥ 0.6 per region (provisional)",
+   "pass": false,
+   "note": "Frame dates come from the seasonal-anchor model (approximate); a window is the frames dated inside it.",
+   "run_utc": "2026-10-29T11:30:00Z"
+  },
+  {
+   "record": "lightning_5011",
+   "id": "b_spatial_isslis",
+   "title": "1° cell counts per window vs ISS LIS (|lat| ≤ 50°)",
+   "kind": "value",
+   "source": "ISS LIS V3 science flashes (isslis_v3_fin, GHRC DAAC)",
+   "metrics": {
+    "median_spearman": 0.1663196331532303,
+    "per_window": [
+     {
+      "window": "2017-03-01",
+      "spearman": 0.7268064035212591,
+      "n_cells": 36000
+     },
+     {
+      "window": "2017-09-29",
+      "spearman": 0.1904099145036336,
+      "n_cells": 36000
+     },
+     {
+      "window": "2018-04-29",
+      "spearman": 0.14717309017153207,
+      "n_cells": 36000
+     },
+     {
+      "window": "2018-11-27",
+      "spearman": 0.18123120310687832,
+      "n_cells": 36000
+     },
+     {
+      "window": "2019-06-27",
+      "spearman": 0.1645200200821333,
+      "n_cells": 36000
+     },
+     {
+      "window": "2020-01-25",
+      "spearman": 0.1560997612254821,
+      "n_cells": 36000
+     },
+     {
+      "window": "2020-08-24",
+      "spearman": 0.16449633344490433,
+      "n_cells": 36000
+     },
+     {
+      "window": "2021-03-24",
+      "spearman": 0.14818641621896114,
+      "n_cells": 36000
+     },
+     {
+      "window": "2021-10-22",
+      "spearman": 0.1900120246868697,
+      "n_cells": 36000
+     },
+     {
+      "window": "2022-05-22",
+      "spearman": 0.16811924622432733,
+      "n_cells": 36000
+     },
+     {
+      "window": "2022-12-20",
+      "spearman": 0.2294374774585595,
+      "n_cells": 36000
+     },
+     {
+      "window": "2023-07-21",
+      "spearman": 0.15068085472206882,
+      "n_cells": 36000
+     }
+    ]
+   },
+   "threshold": null,
+   "pass": null,
+   "note": "",
+   "run_utc": "2026-10-29T11:30:00Z"
+  },
+  {
+   "record": "lightning_5011",
+   "id": "c_pattern_hrfc",
+   "title": "All frame flashes per 1° cell vs LIS/OTD HRFC flash rate (1995–2014)",
+   "kind": "context",
+   "source": "LIS/OTD 0.5° HRFC V2.3.2015 (GHRC DAAC)",
+   "metrics": {
+    "spearman": 0.8660251629854712,
+    "n_cells": 33276
+   },
+   "threshold": null,
+   "pass": null,
+   "note": "Different years and sensors (TRMM LIS + OTD): a check of the global pattern, not of values.",
+   "run_utc": "2026-10-29T11:30:00Z"
+  },
+  {
+   "record": "lightning_5011",
+   "id": "d_bangladesh_seasons",
+   "title": "Bangladesh: pre-monsoon (Mar–May) vs monsoon (Jun–Sep) flashes",
+   "kind": "context",
+   "source": "frames (all years) and ISS LIS (validation windows)",
+   "metrics": {
+    "frames_by_year": {
+     "2017": {
+      "pre_monsoon": 70.0,
+      "monsoon": 114.0
+     },
+     "2018": {
+      "pre_monsoon": 97.0,
+      "monsoon": 86.0
+     },
+     "2019": {
+      "pre_monsoon": 84.0,
+      "monsoon": 82.0
+     },
+     "2020": {
+      "pre_monsoon": 79.0,
+      "monsoon": 94.0
+     },
+     "2021": {
+      "pre_monsoon": 74.0,
+      "monsoon": 96.0
+     },
+     "2022": {
+      "pre_monsoon": 97.0,
+      "monsoon": 95.0
+     },
+     "2023": {
+      "pre_monsoon": 78.0,
+      "monsoon": 30.0
+     }
+    },
+    "validation_windows": {
+     "2017-03-01": {
+      "season": "pre_monsoon",
+      "frames": 3.0,
+      "lis": 30
+     },
+     "2017-09-29": {
+      "season": "monsoon",
+      "frames": 4.0,
+      "lis": 188
+     },
+     "2018-04-29": {
+      "season": "pre_monsoon",
+      "frames": 7.0,
+      "lis": 1944
+     },
+     "2018-11-27": {
+      "season": "other",
+      "frames": 0.0,
+      "lis": 0
+     },
+     "2019-06-27": {
+      "season": "monsoon",
+      "frames": 0.0,
+      "lis": 144
+     },
+     "2020-01-25": {
+      "season": "other",
+      "frames": 1.0,
+      "lis": 6
+     },
+     "2020-08-24": {
+      "season": "monsoon",
+      "frames": 10.0,
+      "lis": 69
+     },
+     "2021-03-24": {
+      "season": "pre_monsoon",
+      "frames": 4.0,
+      "lis": 102
+     },
+     "2021-10-22": {
+      "season": "other",
+      "frames": 0.0,
+      "lis": 25
+     },
+     "2022-05-22": {
+      "season": "pre_monsoon",
+      "frames": 6.0,
+      "lis": 185
+     },
+     "2022-12-20": {
+      "season": "other",
+      "frames": 0.0,
+      "lis": 0
+     },
+     "2023-07-21": {
+      "season": "monsoon",
+      "frames": 0.0,
+      "lis": 77
+     }
+    }
+   },
+   "threshold": null,
+   "pass": null,
+   "note": "",
+   "run_utc": "2026-10-29T11:30:00Z"
+  },
+  {
+   "record": "lightning_5011",
+   "id": "e_frame_times",
+   "title": "Frame times: seasonal anchors and the mark lifetime",
+   "kind": "context",
+   "source": "frames + HRMC",
+   "metrics": {
+    "anchors": [
+     {
+      "frame": 440.0,
+      "date": "2017-03-01",
+      "why": "first active frame = period start"
+     },
+     {
+      "frame": 1010.0,
+      "date": "2017-07-10",
+      "why": "northern lightning season (HRMC peak day)"
+     },
+     {
+      "frame": 1360.0,
+      "date": "2018-01-08",
+      "why": "southern lightning season (HRMC trough day)"
+     },
+     {
+      "frame": 1750.0,
+      "date": "2018-07-10",
+      "why": "northern lightning season (HRMC peak day)"
+     },
+     {
+      "frame": 2070.0,
+      "date": "2019-01-08",
+      "why": "southern lightning season (HRMC trough day)"
+     },
+     {
+      "frame": 2480.0,
+      "date": "2019-07-10",
+      "why": "northern lightning season (HRMC peak day)"
+     },
+     {
+      "frame": 2820.0,
+      "date": "2020-01-08",
+      "why": "southern lightning season (HRMC trough day)"
+     },
+     {
+      "frame": 3160.0,
+      "date": "2020-07-09",
+      "why": "northern lightning season (HRMC peak day)"
+     },
+     {
+      "frame": 3460.0,
+      "date": "2021-01-08",
+      "why": "southern lightning season (HRMC trough day)"
+     },
+     {
+      "frame": 3830.0,
+      "date": "2021-07-10",
+      "why": "northern lightning season (HRMC peak day)"
+     },
+     {
+      "frame": 4130.0,
+      "date": "2022-01-08",
+      "why": "southern lightning season (HRMC trough day)"
+     },
+     {
+      "frame": 4580.0,
+      "date": "2022-07-10",
+      "why": "northern lightning season (HRMC peak day)"
+     },
+     {
+      "frame": 5090.0,
+      "date": "2023-01-08",
+      "why": "southern lightning season (HRMC trough day)"
+     },
+     {
+      "frame": 5930.0,
+      "date": "2023-07-31",
+      "why": "last active frame = period end"
+     }
+    ],
+    "days_per_frame_range": [
+     0.23017655004063273,
+     0.61125
+    ],
+    "lifetime_frames_median": 55.0,
+    "lifetime_days_at_model_rate": 29.542279411764703,
+    "stated_window_days": 10
+   },
+   "threshold": null,
+   "pass": null,
+   "note": "The movie has no date; times are approximate. A drawn mark lasts lifetime_frames; at the model's rate that is the window the picture shows, compared with the SVS text's 10 days.",
+   "run_utc": "2026-10-29T11:30:00Z"
+  }
+ ],
+ "updated_utc": "2026-10-29T11:30:00Z"
+}

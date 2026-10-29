@@ -55,11 +55,18 @@ class Fetcher:
         if (url, None) in self.done and dest.exists(): return self.done[(url, None)]
         disk.wait_for_room(expect_bytes)
         part = dest.with_suffix(dest.suffix + ".part"); dest.parent.mkdir(parents=True, exist_ok=True)
-        have = part.stat().st_size if part.exists() else 0
-        r = self._request(url, headers={"Range": f"bytes={have}-"} if have else None)
-        mode = "ab" if have and r.status_code == 206 else "wb"
-        with open(part, mode) as f:
-            for chunk in r.iter_content(1 << 20): f.write(chunk)
+        for k in range(self.tries):                     # a stream that breaks mid-body resumes from the .part
+            have = part.stat().st_size if part.exists() else 0
+            r = self._request(url, headers={"Range": f"bytes={have}-"} if have else None)
+            mode = "ab" if have and r.status_code == 206 else "wb"
+            try:
+                with open(part, mode) as f:
+                    for chunk in r.iter_content(1 << 20): f.write(chunk)
+                break
+            except requests.RequestException as e:
+                last = e; time.sleep(min(60, 3 * 2 ** k))
+        else:
+            raise RuntimeError(f"GET broke {self.tries} times mid-stream: {url} ({last})")
         part.replace(dest)
         disk.record()
         return self._log({"url": url, "path": dest.relative_to(DATA_RAW).as_posix(), "bytes": dest.stat().st_size,
