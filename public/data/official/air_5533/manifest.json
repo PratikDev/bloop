@@ -764,6 +764,7 @@
    },
    "aggregation": "mean of the 3-hourly frames over 2 day(s), 1.0° cells",
    "status": "verified",
+   "statement": null,
    "status_check": "a_co_geoscf"
   },
   {
@@ -2734,6 +2735,7 @@
    "aggregation": "native frame pixels (≈0.18°), every hourly frame",
    "missing_hours": [],
    "status": "verified",
+   "statement": null,
    "status_check": "a_co_geoscf"
   },
   {
@@ -2892,7 +2894,8 @@
    },
    "aggregation": "mean of the 3-hourly frames over 2 day(s), 1.0° cells",
    "below_range_bound": 0.0010890229622637305,
-   "status": "pattern only (values not verified)",
+   "status": "values with stated error",
+   "statement": "values; median error 16.7% vs GEOS-CF v1",
    "status_check": "a_nox_geoscf"
   },
   {
@@ -4863,7 +4866,8 @@
    "aggregation": "native frame pixels (≈0.18°), every hourly frame",
    "missing_hours": [],
    "below_range_bound": 0.0010890229622637305,
-   "status": "pattern only (values not verified)",
+   "status": "values with stated error",
+   "statement": "values; median error 16.7% vs GEOS-CF v1",
    "status_check": "a_nox_geoscf"
   },
   {
@@ -5023,6 +5027,7 @@
    "aggregation": "mean of the 3-hourly frames over 2 day(s), 1.0° cells",
    "below_range_bound": 19.52454302471148,
    "status": "verified",
+   "statement": null,
    "status_check": "a_o3_geoscf"
   },
   {
@@ -6994,6 +6999,7 @@
    "missing_hours": [],
    "below_range_bound": 19.52454302471148,
    "status": "verified",
+   "statement": null,
    "status_check": "a_o3_geoscf"
   },
   {
@@ -7151,7 +7157,8 @@
     "scale": "log"
    },
    "aggregation": "mean of the 3-hourly frames over 2 day(s), 1.0° cells",
-   "status": "pattern only (values not verified)",
+   "status": "relative",
+   "statement": "relative PM2.5: pattern and timing verified (ρ 0.997), absolute scale not verified (frame ≈ 0.31 × GEOS-CF v1)",
    "status_check": "a_pm25_geoscf"
   },
   {
@@ -9121,7 +9128,8 @@
    },
    "aggregation": "native frame pixels (≈0.18°), every hourly frame",
    "missing_hours": [],
-   "status": "pattern only (values not verified)",
+   "status": "relative",
+   "statement": "relative PM2.5: pattern and timing verified (ρ 0.997), absolute scale not verified (frame ≈ 0.31 × GEOS-CF v1)",
    "status_check": "a_pm25_geoscf"
   }
  ],
@@ -9299,7 +9307,13 @@
    "title": "pm25: frames vs GEOS-CF v1 at the same hours",
    "kind": "value",
    "pass": false,
-   "threshold": "Spearman ≥ 0.9 and median relative error ≤ 15 % (provisional)"
+   "threshold": "Spearman ≥ 0.9 and median relative error ≤ 15 % (provisional)",
+   "decision": {
+    "on": "2026-10-29",
+    "status": "relative",
+    "statement": "relative PM2.5: pattern and timing verified (ρ 0.997), absolute scale not verified (frame ≈ 0.31 × GEOS-CF v1)",
+    "table": "threshold missed; shipped as relative values (team decision 29 Oct 2026)"
+   }
   },
   {
    "id": "a_co_geoscf",
@@ -9313,7 +9327,13 @@
    "title": "nox: frames vs GEOS-CF v1 at the same hours",
    "kind": "value",
    "pass": false,
-   "threshold": "Spearman ≥ 0.9 and median relative error ≤ 15 % (provisional)"
+   "threshold": "Spearman ≥ 0.9 and median relative error ≤ 15 % (provisional)",
+   "decision": {
+    "on": "2026-10-29",
+    "status": "values with stated error",
+    "statement": "values; median error 16.7% vs GEOS-CF v1",
+    "table": "threshold missed; accepted explicitly by the team on 29 Oct 2026"
+   }
   },
   {
    "id": "a_o3_geoscf",
@@ -9327,7 +9347,20 @@
    "title": "PM2.5 at Dhaka ground stations vs the frames (weekly)",
    "kind": "model-vs-obs",
    "pass": null,
-   "threshold": null
+   "threshold": null,
+   "decision": {
+    "on": "2026-10-29",
+    "status": "insufficient data",
+    "statement": "insufficient ground data (1 of 27 sensors had data)",
+    "table": "insufficient ground data; not reported as a correlation"
+   }
+  },
+  {
+   "id": "a2_pm25_variable_search",
+   "title": "PM2.5 vs every PM2.5-type GEOS-CF v1 variable (same hours and cells)",
+   "kind": "value",
+   "pass": false,
+   "threshold": "≈1× (median ratio 0.85–1.15) and median relative error ≤ 15 %"
   }
  ],
  "size": {
@@ -9352,7 +9385,7 @@
     "estimated_bytes": 18248513
    }
   ],
-  "bytes": 18373389,
+  "bytes": 18378308,
   "budget": 25000000
  },
  "geoscf_v2_replay_start": "2025-08-04",
@@ -9361,6 +9394,6 @@
   "rows": 8165,
   "sha256_of_list": "3b40178668d135469e74980f652539f741346cf306fd0e00f34e1da1a7415dde"
  },
- "code_commit": "f1cb099134d83e06d332d2dbaebb9b024ca82a1b-dirty",
- "generated_utc": "2026-10-29T00:03:52Z"
+ "code_commit": "c438f418277886e425ce45a94c15208d92d9de6d-dirty",
+ "generated_utc": "2026-10-29T07:20:30Z"
 }

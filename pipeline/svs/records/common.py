@@ -81,13 +81,23 @@ def option(oid, label, map_layer, channels, start, steps_per_second, view="globa
 
 PATTERN_ONLY = "pattern only (values not verified)"
 
+def validation_summary(checks):
+    """The manifest's short form of validation.json (the app's provenance card)."""
+    return [{**{k: c[k] for k in ("id", "title", "kind", "pass", "threshold")}, **({"decision": c["decision"]} if c.get("decision") else {})}
+            for c in checks]
+
 def layer_status(layers, checks, check_of):
-    """Each layer's status from the check that covers it (check_of: layer id → check id): 'verified' when that check
-    passed, PATTERN_ONLY when it missed (the owner decides later whether it ships at all), 'no check' otherwise."""
+    """Each layer's status from the check that covers it (check_of: layer id → check id): a team decision on that check
+    wins (records/decisions.py, with its statement); else 'verified' when it passed, 'pattern only' when it missed,
+    'no check' otherwise."""
     by_id = {c["id"]: c for c in checks}
     for l in layers:
         c = by_id.get(check_of.get(l["id"], ""))
-        l["status"] = "no check" if c is None or c["pass"] is None else ("verified" if c["pass"] else PATTERN_ONLY)
+        if c and c.get("decision"):
+            l["status"], l["statement"] = c["decision"]["status"], c["decision"]["statement"]
+        else:
+            l["status"] = "no check" if c is None or c["pass"] is None else ("verified" if c["pass"] else "pattern only")
+            l["statement"] = None if l["status"] in ("verified", "no check") else PATTERN_ONLY
         l["status_check"] = c["id"] if c else None
     return layers
 

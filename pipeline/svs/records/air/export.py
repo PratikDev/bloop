@@ -74,7 +74,7 @@ def main():
            "play": [common.option(f"{sp}_{view}", LABELS[sp], f"{sp}_{view}", [(VOICES[sp], [f"{sp}_{view}"])], BD_POINTS["Dhaka"],
                                   PLAY_STEPS_PER_SECOND[view], view="global" if view == "global" else "box")
                     for sp in sps for view in ("global", "bd")],
-           "validation": [{k: c[k] for k in ("id", "title", "kind", "pass", "threshold")} for c in val["checks"]],
+           "validation": common.validation_summary(val["checks"]),
            "size": {"choice": {"cell_deg": 0.5 * f, "days": tf, "box_bytes": fixed}, "tried": tried},
            "geoscf_v2_replay_start": json.loads((raw_dir(ALT, "truth") / "geoscf.json").read_text())["v2_replay_start"],
            "asset_checksums": common.checksums(RECORD, ROOT / "manifest.jsonl")}

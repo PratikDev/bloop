@@ -11,6 +11,7 @@ import datetime as dt, json
 import numpy as np
 from core.log import say
 from svs import frames, georef, validate as V
+from svs.records import decisions
 from svs.config import raw_dir
 from . import ALT, PERIOD
 from .truth import OUT as TRUTH, RADIUS_M
@@ -108,7 +109,16 @@ def main():
                                        "sensors_listed": len(json.loads((TRUTH / "openaq_dhaka.json").read_text(encoding="utf-8"))["sensors"])},
                               note="Model vs ground, no threshold. Only the stations listed had any hours in 1 Jul – 14 Sep 2024."))
         say(f"(b) ground: {[(k, round(v['weekly_spearman'], 3), round(v['weekly_bias_median'], 1)) for k, v in g.items()]}")
-    V.save(RECORD, checks)
+    search = TRUTH / "pm25_search.json"
+    flags = ()
+    if search.exists():                                   # team decision A1: every PM2.5-type GEOS-CF v1 variable (pm25_search.py)
+        res = json.loads(search.read_text(encoding="utf-8"))
+        flags = ("pm25_match",) if res["match"] else ()
+        checks.append(V.check(RECORD, "a2_pm25_variable_search", "PM2.5 vs every PM2.5-type GEOS-CF v1 variable (same hours and cells)",
+                              source="GEOS-CF v1 chm_tavg / chm_inst (NCCS OPeNDAP)", threshold=res["rule"], passed=bool(res["match"]),
+                              metrics={"match": res["match"] or "none", "candidates": res["candidates"]},
+                              note="A match would replace a_pm25_geoscf's reference; none is at ~1×, so PM2.5 ships as relative values."))
+    V.save(RECORD, [decisions.apply(RECORD, c, flags) for c in checks])
 
 if __name__ == "__main__":
     main()

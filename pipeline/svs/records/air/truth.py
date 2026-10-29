@@ -22,9 +22,20 @@ T0 = dt.datetime(2024, 7, 1, 0, 30)
 DHAKA, RADIUS_M = (23.81, 90.41), 25000
 OUT = raw_dir(ALT, "truth")
 
-def read_centres(var, t, tries=5):
-    """One hour of a surface field at the 1° cell centres; works with or without a 'lev' dimension."""
-    idx = (t, 0) if "lev" in var.dimensions else (t,)
+def open_dataset(url, tries=6):
+    """An OPeNDAP dataset, retrying the server's transient I/O failures on open."""
+    import netCDF4
+    for attempt in range(tries):
+        try:
+            return netCDF4.Dataset(url)
+        except OSError as e:
+            say(f"retry open {url.rsplit('/', 1)[-1]} ({e.__class__.__name__})"); time.sleep(20 * (attempt + 1))
+    raise RuntimeError(f"cannot open {url}")
+
+def read_centres(var, t, lev=0, tries=5):
+    """One hour of a field at the 1° cell centres, at level index lev (the surface of a single-level field: 0); works
+    with or without a 'lev' dimension."""
+    idx = (t, lev) if "lev" in var.dimensions else (t,)
     for attempt in range(tries):
         try:
             return np.ma.filled(var[idx + (slice(2, None, 4), slice(2, None, 4))].astype(np.float64), np.nan)

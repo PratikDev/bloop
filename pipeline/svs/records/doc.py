@@ -43,10 +43,14 @@ def render(record):
     for c in checks:
         res = "no threshold" if c["pass"] is None else ("PASS" if c["pass"] else "MISS (provisional threshold)")
         L += [f"### {c['id']}: {c['title']}", "", f"Kind: {c['kind']} · Source: {c['source']} · Threshold: {c['threshold'] or 'none'} · **{res}**", ""]
+        if c.get("decision"):
+            d = c["decision"]
+            L += [f"**Team decision ({d['on']}):** shipped as *{d['status']}*: {d['statement']}. {d['table'][0].upper() + d['table'][1:]}.", ""]
         L += metric_lines(c["metrics"]) + ([f"", f"_{c['note']}_"] if c.get("note") else []) + [""]
     L += ["## Known limits", ""] + [f"- {s.format(**slots)}" for s in text.LIMITS]
     L += ["", "## Credits and licence", ""] + [f"- {role}: {'; '.join(p)}" for role, p in m["credits_by_role"].items()]
-    L += [f"- {m['credit_line']}", f"- {m['licence']}", "", f"Code commit: `{m['code_commit']}`. Asset checksums: `{m['asset_checksums']['file']}` "
+    L += [f"- {m['credit_line']}"] + [f"- {s['label']} ({s['badge']}, {s['period']}): {s['citation']['text']}" for s in m.get("voice_sources", {}).values()]
+    L += [f"- {m['licence']}", "", f"Code commit: `{m['code_commit']}`. Asset checksums: `{m['asset_checksums']['file']}` "
           f"({m['asset_checksums']['rows']:,} rows, SHA-256 of the list {m['asset_checksums']['sha256_of_list'][:16]}…)."]
     path = DOCS_OFFICIAL / f"{m['svs_ids'][0]}.md"
     path.write_text("\n".join(L) + "\n", encoding="utf-8")

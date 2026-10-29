@@ -1,4 +1,5 @@
 """Method and limit sentences for docs/official/5533.md; every number is a slot filled from the record's files."""
+import math
 
 METHOD = [
     "Assets by rule (`docs/official/5533_assets.md`): 5533 has no flat 2:1 frame set, so the 2048×1024 species layers of its "
@@ -28,7 +29,14 @@ LIMITS = [
     "of pixels; below range {below_o3} and {below_nox}.",
     "The CO and NOx colorbars are not uniform scales (CO: evenly spaced ticks labelled {co_labels}; NOx: labels not on the tick "
     "marks), so values between labels are interpolated ({co_interp} for CO, {nox_interp} for NOx).",
-    "Ground comparison: of the {ground_all} PM2.5 sensors within {radius_km} km of Dhaka, {ground_n} had data in the period.",
+    "Ground comparison: of the {ground_all} PM2.5 sensors within {radius_km} km of Dhaka, {ground_n} had data in the period: "
+    "insufficient ground data, not a correlation result (team decision, 29 Oct 2026).",
+    "PM2.5 ships as relative values (team decision, 29 Oct 2026): of the {pm25_n} PM2.5-type GEOS-CF v1 variables and sums tried, "
+    "none matches the frames at ~1× with median error ≤ 15 %. The field that tracks the frames best is `{pm25_best}` (Spearman "
+    "{pm25_rho}), at frame ≈ {pm25_ratio} × the model (median error {pm25_err}); the ratio nearest 1 is `{pm25_near}` "
+    "({pm25_near_ratio}×, Spearman {pm25_near_rho}). Pattern and timing are verified; the colorbar is not rescaled.",
+    "NOx ships as values with a stated error: median error {nox_err} against GEOS-CF v1 misses the provisional 15 %; accepted "
+    "explicitly by the team on 29 Oct 2026.",
 ]
 
 def slots(m, checks):
@@ -52,4 +60,13 @@ def slots(m, checks):
             "cell_deg": m["size"]["choice"]["cell_deg"], "days": m["size"]["choice"]["days"],
             "cover_o3": pct(sp["o3"]["coverage"]["decoded_median"]), "cover_nox": pct(sp["nox"]["coverage"]["decoded_median"]),
             "below_o3": pct(sp["o3"]["coverage"]["below_range_median"]), "below_nox": pct(sp["nox"]["coverage"]["below_range_median"]),
-            "ground_n": g.get("stations_with_data", "none")}
+            "ground_n": g.get("stations_with_data", "none"), **_search(checks)}
+
+def _search(checks):
+    cands = checks["a2_pm25_variable_search"]["metrics"]["candidates"]
+    best = max(cands, key=lambda k: cands[k]["spearman"])
+    near = min(cands, key=lambda k: abs(math.log(cands[k]["median_ratio"])))
+    b, n = cands[best], cands[near]
+    return {"pm25_n": len(cands), "pm25_best": best, "pm25_ratio": f"{b['median_ratio']:.3f}", "pm25_err": f"{b['median_rel_error']:.1%}",
+            "pm25_rho": f"{b['spearman']:.3f}", "pm25_near": near, "pm25_near_ratio": f"{n['median_ratio']:.3f}",
+            "pm25_near_rho": f"{n['spearman']:.3f}", "nox_err": f"{checks['a_nox_geoscf']['metrics']['median_rel_error']:.1%}"}

@@ -78,6 +78,7 @@ def _table(record, checks):
     rows = [r for r in rows if not r.startswith(f"| {record} |")]
     for c in checks:
         res = "no threshold" if c["pass"] is None else ("PASS" if c["pass"] else "MISS")
+        if c.get("decision"): res = f"{res}: {c['decision']['table']}"
         rows.append(f"| {record} | {c['id']}: {c['title']} | {c['kind']} | {c['source'] or ''} | {_fmt(c['metrics'])} | "
                     f"{c['threshold'] or ''} | {res} |")
     DOCS_OFFICIAL.mkdir(parents=True, exist_ok=True)

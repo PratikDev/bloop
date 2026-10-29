@@ -35,7 +35,13 @@
    "threshold": "Spearman ≥ 0.9 and median relative error ≤ 15 % (provisional)",
    "pass": false,
    "note": "Same model, so this tests the decoding. SVS links the GEOS-CF v2 datashare, but no public v2 archive covers Jul–Sep 2024; v1 is the only one that does.",
-   "run_utc": "2026-10-28T23:52:13Z"
+   "run_utc": "2026-10-29T07:18:19Z",
+   "decision": {
+    "on": "2026-10-29",
+    "status": "relative",
+    "statement": "relative PM2.5: pattern and timing verified (ρ 0.997), absolute scale not verified (frame ≈ 0.31 × GEOS-CF v1)",
+    "table": "threshold missed; shipped as relative values (team decision 29 Oct 2026)"
+   }
   },
   {
    "record": "air_5533",
@@ -58,7 +64,7 @@
    "threshold": "Spearman ≥ 0.9 and median relative error ≤ 15 % (provisional)",
    "pass": true,
    "note": "Same model, so this tests the decoding. SVS links the GEOS-CF v2 datashare, but no public v2 archive covers Jul–Sep 2024; v1 is the only one that does.",
-   "run_utc": "2026-10-28T23:52:19Z"
+   "run_utc": "2026-10-29T07:18:24Z"
   },
   {
    "record": "air_5533",
@@ -84,7 +90,13 @@
    "threshold": "Spearman ≥ 0.9 and median relative error ≤ 15 % (provisional)",
    "pass": false,
    "note": "Same model, so this tests the decoding. SVS links the GEOS-CF v2 datashare, but no public v2 archive covers Jul–Sep 2024; v1 is the only one that does.",
-   "run_utc": "2026-10-28T23:52:27Z"
+   "run_utc": "2026-10-29T07:18:31Z",
+   "decision": {
+    "on": "2026-10-29",
+    "status": "values with stated error",
+    "statement": "values; median error 16.7% vs GEOS-CF v1",
+    "table": "threshold missed; accepted explicitly by the team on 29 Oct 2026"
+   }
   },
   {
    "record": "air_5533",
@@ -119,7 +131,7 @@
    "threshold": "Spearman ≥ 0.9 and median relative error ≤ 15 % (provisional)",
    "pass": true,
    "note": "Same model, so this tests the decoding. SVS links the GEOS-CF v2 datashare, but no public v2 archive covers Jul–Sep 2024; v1 is the only one that does.",
-   "run_utc": "2026-10-28T23:52:52Z"
+   "run_utc": "2026-10-29T07:18:51Z"
   },
   {
    "record": "air_5533",
@@ -206,8 +218,96 @@
    "threshold": null,
    "pass": null,
    "note": "Model vs ground, no threshold. Only the stations listed had any hours in 1 Jul – 14 Sep 2024.",
-   "run_utc": "2026-10-28T23:54:02Z"
+   "run_utc": "2026-10-29T07:19:49Z",
+   "decision": {
+    "on": "2026-10-29",
+    "status": "insufficient data",
+    "statement": "insufficient ground data (1 of 27 sensors had data)",
+    "table": "insufficient ground data; not reported as a correlation"
+   }
+  },
+  {
+   "record": "air_5533",
+   "id": "a2_pm25_variable_search",
+   "title": "PM2.5 vs every PM2.5-type GEOS-CF v1 variable (same hours and cells)",
+   "kind": "value",
+   "source": "GEOS-CF v1 chm_tavg / chm_inst (NCCS OPeNDAP)",
+   "metrics": {
+    "match": "none",
+    "candidates": {
+     "chm_tavg pm25_rh35_gcc": {
+      "n": 1594252,
+      "median_ratio": 0.31315481662750244,
+      "median_rel_error": 0.6962369680404663,
+      "spearman": 0.9967567200332887
+     },
+     "chm_tavg pm25_rh35_gocar": {
+      "n": 1594252,
+      "median_ratio": 0.10197287797927856,
+      "median_rel_error": 0.9074742794036865,
+      "spearman": 0.6895599950926324
+     },
+     "chm_inst pm25_rh35_gcc (surface)": {
+      "n": 1594252,
+      "median_ratio": 0.31303662061691284,
+      "median_rel_error": 0.6966577768325806,
+      "spearman": 0.9972137892279156
+     },
+     "chm_tavg pm25bc_rh35_gcc": {
+      "n": 1594252,
+      "median_ratio": 88.06163024902344,
+      "median_rel_error": 87.06163024902344,
+      "spearman": 0.8288674221857678
+     },
+     "chm_tavg pm25du_rh35_gcc": {
+      "n": 1594252,
+      "median_ratio": 16.005861282348633,
+      "median_rel_error": 15.005861282348633,
+      "spearman": 0.7324555710427648
+     },
+     "chm_tavg pm25ni_rh35_gcc": {
+      "n": 1594252,
+      "median_ratio": 6.5920329093933105,
+      "median_rel_error": 5.5920329093933105,
+      "spearman": 0.8462266438068301
+     },
+     "chm_tavg pm25oc_rh35_gcc": {
+      "n": 1594252,
+      "median_ratio": 4.6180596351623535,
+      "median_rel_error": 3.6180596351623535,
+      "spearman": 0.8114460118906757
+     },
+     "chm_tavg pm25soa_rh35_gc": {
+      "n": 1594252,
+      "median_ratio": 6.371967315673828,
+      "median_rel_error": 5.37196683883667,
+      "spearman": 0.8217797687213223
+     },
+     "chm_tavg pm25ss_rh35_gcc": {
+      "n": 1594252,
+      "median_ratio": 2.1944797039031982,
+      "median_rel_error": 1.1944797039031982,
+      "spearman": 0.16620747691651885
+     },
+     "chm_tavg pm25su_rh35_gcc": {
+      "n": 1594252,
+      "median_ratio": 1.7541964054107666,
+      "median_rel_error": 0.7639901638031006,
+      "spearman": 0.8397908672287232
+     },
+     "sum of the 7 components (bc+du+ni+oc+soa+ss+su)": {
+      "n": 1594252,
+      "median_ratio": 0.37697362899780273,
+      "median_rel_error": 0.6642220616340637,
+      "spearman": 0.9893445825393998
+     }
+    }
+   },
+   "threshold": "≈1× (median ratio 0.85–1.15) and median relative error ≤ 15 %",
+   "pass": false,
+   "note": "A match would replace a_pm25_geoscf's reference; none is at ~1×, so PM2.5 ships as relative values.",
+   "run_utc": "2026-10-29T07:19:49Z"
   }
  ],
- "updated_utc": "2026-10-28T23:54:02Z"
+ "updated_utc": "2026-10-29T07:19:49Z"
 }
