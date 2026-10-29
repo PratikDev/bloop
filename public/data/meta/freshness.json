@@ -1,5 +1,5 @@
 {
-  "generated_utc": "2026-10-29T07:41:58Z",
+  "generated_utc": "2026-10-29T11:30:44Z",
   "products": {
     "sst": {
       "product": "sst",
@@ -32,7 +32,7 @@
       "limit_days": 2,
       "status": "stale",
       "source_time_utc": "2026-10-27T00:00:00Z",
-      "age_days": 2.32,
+      "age_days": 2.48,
       "period": null,
       "credit": "Visualization: NASA's Scientific Visualization Studio (SVS 5101), NASA Earth Information Center. Data: MUR SST, NASA/JPL PO.DAAC.",
       "bytes": 1255488
@@ -69,7 +69,7 @@
       "limit_days": 2,
       "status": "ok",
       "source_time_utc": "2026-10-28T08:30:00Z",
-      "age_days": 0.97,
+      "age_days": 1.13,
       "period": null,
       "credit": "Visualization: NASA's Scientific Visualization Studio (SVS 4285), NASA Earth Information Center. Data: GPM IMERG (NASA/JAXA), GES DISC.",
       "bytes": 5726289
@@ -96,7 +96,7 @@
       "limit_days": 2,
       "status": "ok",
       "source_time_utc": "2026-10-28T08:30:00Z",
-      "age_days": 0.97,
+      "age_days": 1.13,
       "period": null,
       "credit": "Visualization: NASA's Scientific Visualization Studio (SVS 4285), NASA Earth Information Center. Data: GPM IMERG (NASA/JAXA), GES DISC.",
       "bytes": 8516
@@ -323,7 +323,7 @@
       "limit_days": 4,
       "status": "ok",
       "source_time_utc": "2026-10-27T00:00:00Z",
-      "age_days": 2.32,
+      "age_days": 2.48,
       "period": null,
       "credit": "Data: MUR SST (NASA/JPL PO.DAAC). Visualization: NASA's Scientific Visualization Studio (SVS 5101) for the NASA Earth Information Center.",
       "bytes": 8957
@@ -357,7 +357,7 @@
       "limit_days": 3,
       "status": "ok",
       "source_time_utc": "2026-10-28T08:30:00Z",
-      "age_days": 0.97,
+      "age_days": 1.13,
       "period": null,
       "credit": "Data: GPM IMERG (NASA/JAXA, GES DISC). Visualization: NASA's Scientific Visualization Studio (SVS 4285) for the NASA Earth Information Center.",
       "bytes": 42093
@@ -400,7 +400,7 @@
       "limit_days": 4,
       "status": "ok",
       "source_time_utc": "2026-10-27T00:00:00Z",
-      "age_days": 2.32,
+      "age_days": 2.48,
       "period": null,
       "credit": "Data: MUR SST (NASA/JPL PO.DAAC); GIBS (NASA EOSDIS). Visualization: NASA's Scientific Visualization Studio (SVS 5101) for the NASA Earth Information Center.",
       "bytes": 16081
@@ -443,7 +443,7 @@
       "limit_days": 5,
       "status": "ok",
       "source_time_utc": "2026-10-25T00:00:00Z",
-      "age_days": 4.32,
+      "age_days": 4.48,
       "period": null,
       "credit": "Visualization: NASA's Scientific Visualization Studio (SVS 5176) for the NASA Earth Information Center. Data: MUR SST (NASA/JPL PO.DAAC). Check: NOAA Coral Reef Watch.",
       "bytes": 1502708
@@ -469,7 +469,7 @@
       "limit_days": 3,
       "status": "ok",
       "source_time_utc": "2026-10-27T09:00:00Z",
-      "age_days": 1.95,
+      "age_days": 2.1,
       "period": null,
       "credit": "Data: MUR SST v4.1, dt_1km_data (NASA/JPL PO.DAAC).",
       "bytes": 525751
@@ -495,7 +495,7 @@
       "limit_days": 2,
       "status": "ok",
       "source_time_utc": "2026-10-28T06:11:01Z",
-      "age_days": 1.06,
+      "age_days": 1.22,
       "period": null,
       "credit": "Visualization: NASA's Scientific Visualization Studio (SVS 5315) for the NASA Earth Information Center. Data: NASA GISS GlobalFWI (experimental).",
       "bytes": 526786
@@ -520,7 +520,7 @@
       "limit_days": 2,
       "status": "ok",
       "source_time_utc": "2026-10-28T06:11:01Z",
-      "age_days": 1.06,
+      "age_days": 1.22,
       "period": null,
       "credit": "Visualization: NASA's Scientific Visualization Studio (SVS 5315) for the NASA Earth Information Center.",
       "bytes": 1228
@@ -548,7 +548,7 @@
       "limit_days": 3,
       "status": "ok",
       "source_time_utc": "2026-10-28T10:29:02Z",
-      "age_days": 0.88,
+      "age_days": 1.04,
       "period": null,
       "credit": "Visualization: NASA's Scientific Visualization Studio (SVS 5113) for the NASA Earth Information Center. Data: VIIRS active fires (NASA FIRMS, LANCE/ESDIS).",
       "bytes": 117881
@@ -587,7 +587,7 @@
       "limit_days": 2,
       "status": "ok",
       "source_time_utc": "2026-10-28T14:02:38Z",
-      "age_days": 0.74,
+      "age_days": 0.89,
       "period": null,
       "credit": "NASA FIRMS (LANCE/ESDIS): VIIRS NOAA-21 and NOAA-20, MODIS.",
       "bytes": 20382
@@ -613,7 +613,7 @@
       "limit_days": 2,
       "status": "ok",
       "source_time_utc": "2026-10-28T04:00:55Z",
-      "age_days": 1.15,
+      "age_days": 1.31,
       "period": null,
       "credit": "Visualization: NASA's Scientific Visualization Studio (SVS 5584) for the NASA Earth Information Center. Data: NASA LHASA.",
       "bytes": 526228
@@ -638,7 +638,7 @@
       "limit_days": 14,
       "status": "ok",
       "source_time_utc": "2026-10-19T00:00:00Z",
-      "age_days": 10.32,
+      "age_days": 10.48,
       "period": null,
       "credit": "NASA Black Marble VJ146A2 (NOAA-20 VIIRS), NASA LAADS DAAC.",
       "bytes": 4356
@@ -672,7 +672,7 @@
       "limit_days": null,
       "status": "baseline",
       "source_time_utc": "2024-09-14T00:00:00Z",
-      "age_days": 775.32,
+      "age_days": 775.48,
       "period": [
         "2024-07-01T00:00:00Z",
         "2024-09-14T00:00:00Z"
@@ -716,13 +716,87 @@
       "limit_days": null,
       "status": "baseline",
       "source_time_utc": "2008-03-03T12:00:00Z",
-      "age_days": 6813.82,
+      "age_days": 6813.98,
       "period": [
         "2007-03-25T12:00:00Z",
         "2008-03-03T12:00:00Z"
       ],
       "credit": "Visualization: NASA's Scientific Visualization Studio (SVS 3912) for the NASA Earth Information Center. Data: ECCO2 ocean model (MIT/JPL). Currents voice: NASA OSCAR surface currents (ESR, PO.DAAC).",
       "bytes": 26599
+    },
+    "aerosols_5669": {
+      "product": "aerosols_5669",
+      "title": "Aerosols by type (model, 19 Aug 2025)",
+      "outputs": [
+        "official/aerosols_5669/manifest.json"
+      ],
+      "cadence": "static",
+      "pairing": "frame-paired",
+      "datasets": [
+        {
+          "id": "svs5669",
+          "name": "EIC frames: SVS 5669 / 5572 GEOS Aerosols (GEOS-FP)",
+          "agency": "NASA",
+          "kind": "model",
+          "shares_inputs_with": [
+            "geosfp"
+          ]
+        },
+        {
+          "id": "geosfp",
+          "name": "NASA GEOS-FP forward-processing model (GMAO)",
+          "agency": "NASA",
+          "kind": "model",
+          "shares_inputs_with": []
+        }
+      ],
+      "limit_days": null,
+      "status": "baseline",
+      "source_time_utc": "2025-08-19T20:00:00Z",
+      "age_days": 435.65,
+      "period": [
+        "2025-08-19T20:00:00Z",
+        "2025-08-19T20:00:00Z"
+      ],
+      "credit": "Visualization: NASA's Scientific Visualization Studio (SVS 5669, 5572) for the NASA Earth Information Center. Data: NASA GEOS-FP (GMAO), model output.",
+      "bytes": 11396
+    },
+    "lightning_5011": {
+      "product": "lightning_5011",
+      "title": "Lightning from the ISS (observation, 2017–23)",
+      "outputs": [
+        "official/lightning_5011/manifest.json"
+      ],
+      "cadence": "static",
+      "pairing": "frame-paired",
+      "datasets": [
+        {
+          "id": "svs5011",
+          "name": "EIC frames: SVS 5011 Lightning Events Detected from the ISS 2017–2023",
+          "agency": "NASA",
+          "kind": "measurement",
+          "shares_inputs_with": [
+            "isslis"
+          ]
+        },
+        {
+          "id": "isslis",
+          "name": "ISS LIS quality-controlled science data V3 (NASA GHRC DAAC)",
+          "agency": "NASA",
+          "kind": "measurement",
+          "shares_inputs_with": []
+        }
+      ],
+      "limit_days": null,
+      "status": "baseline",
+      "source_time_utc": "2023-07-31T00:00:00Z",
+      "age_days": 1186.48,
+      "period": [
+        "2017-03-01T00:00:00Z",
+        "2023-07-31T00:00:00Z"
+      ],
+      "credit": "Visualization: NASA's Scientific Visualization Studio (SVS 5011) for the NASA Earth Information Center. Data: NASA ISS LIS (GHRC DAAC).",
+      "bytes": 24887
     },
     "lights_5313": {
       "product": "lights_5313",
@@ -753,7 +827,7 @@
       "limit_days": null,
       "status": "baseline",
       "source_time_utc": "2023-12-31T00:00:00Z",
-      "age_days": 1033.32,
+      "age_days": 1033.48,
       "period": [
         "2012-01-01T00:00:00Z",
         "2023-12-31T00:00:00Z"
@@ -781,7 +855,7 @@
       "limit_days": null,
       "status": "baseline",
       "source_time_utc": "2008-03-03T12:00:00Z",
-      "age_days": 6813.82,
+      "age_days": 6813.98,
       "period": [
         "2007-03-25T12:00:00Z",
         "2008-03-03T12:00:00Z"

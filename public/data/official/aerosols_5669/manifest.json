@@ -1,0 +1,515 @@
+{
+ "record": "aerosols_5669",
+ "app_title": "Aerosols by type (model, 19 Aug 2025)",
+ "svs_ids": [
+  5669,
+  5572
+ ],
+ "title": "GEOS Aerosols (2025)",
+ "svs_pages": [
+  "https://svs.gsfc.nasa.gov/5669/",
+  "https://svs.gsfc.nasa.gov/5572/"
+ ],
+ "description": "Aerosols are tiny solid or liquid particles that float in the atmosphere and can travel long distances, affecting air quality and visibility far from their sources. This visualization still, captured for August 19, 2025 (20:00 UTC), is based on NASA's Goddard Earth Observing System (GEOS) model. The GEOS model delivers realistic, high-resolution weather and aerosol data that enable customized environmental prediction and advances in AI research.",
+ "release_date": "2026-08-10T15:15:00-04:00",
+ "period": {
+  "start": "2025-08-19T20:00:00Z",
+  "end": "2025-08-19T20:00:00Z",
+  "label": "19 Aug 2025 – 19 Aug 2025"
+ },
+ "badge": "model",
+ "credits_by_role": {
+  "Data visualizer": [
+   "Joseph V. Ardizzone (NASA/GSFC)",
+   "Helen-Nicole Kostis (Science and Technology Corporation)",
+   "Helen-Nicole Kostis (USRA)"
+  ],
+  "Scientist": [
+   "Lesley Ott (NASA/GSFC)"
+  ],
+  "Technical support": [
+   "Laurence Schuler (ADNET Systems, Inc.)",
+   "Ian Jones (ADNET Systems, Inc.)",
+   "Ella Kaplan (Global Science and Technology, Inc.)"
+  ]
+ },
+ "datasets": [
+  {
+   "name": "GEOS Forward Processing 2Km Replay",
+   "common_name": "GEOS-FP 2Km Replay",
+   "platform": null,
+   "sensor": null,
+   "type": "Model",
+   "organizations": [],
+   "description": "",
+   "credit": "",
+   "url": "",
+   "date_range": "August 19, 2025"
+  }
+ ],
+ "credit_line": "Visualization: NASA's Scientific Visualization Studio (SVS 5669, 5572) for the NASA Earth Information Center. Data: NASA GEOS-FP (GMAO), model output.",
+ "disclosure": "Aerosol type read from the picture's colours against its key; the key has no values, so density is relative. A model, not measurements.",
+ "licence": "SVS: \"All of our content is in the public domain (unless otherwise noted), meaning that it is free to download, use, and redistribute for whatever purposes you see fit.\" (https://svs.gsfc.nasa.gov/help/, read 29 Oct 2026)",
+ "frame_times": {
+  "method": "date-list",
+  "approximate": false,
+  "count": 1,
+  "source": "the still's file name and SVS text (2025-08-19T20:00 UTC)"
+ },
+ "georef": {
+  "projection": "equirectangular stretched to 16:9",
+  "bounds": [
+   -180,
+   -90,
+   180,
+   90
+  ],
+  "pass_at": 0.9,
+  "shifts_deg": [
+   1.0,
+   2.0
+  ],
+  "iou": {
+   "bare-land precision": 0.9163
+  },
+  "pass": true,
+  "best_is_assumed": true
+ },
+ "decode": {
+  "keys": {
+   "smoke": {
+    "rgb": [
+     210,
+     94,
+     69
+    ],
+    "hue": 39.289405822753906,
+    "words": [
+     "orange",
+     "red"
+    ]
+   },
+   "dust": {
+    "rgb": [
+     193,
+     154,
+     220
+    ],
+    "hue": 313.9583740234375,
+    "words": [
+     "pink",
+     "magenta"
+    ]
+   },
+   "sea salt": {
+    "rgb": [
+     133,
+     170,
+     169
+    ],
+    "hue": 197.1027374267578,
+    "words": [
+     "blue"
+    ]
+   },
+   "sulfate": {
+    "rgb": [
+     83,
+     220,
+     52
+    ],
+    "hue": 135.0,
+    "words": [
+     "green"
+    ]
+   }
+  },
+  "floor": {
+   "chroma_p99": 18.867961883544922,
+   "light_p99": 37.64706039428711,
+   "light_median": 8.235294342041016
+  },
+  "shares": {
+   "smoke": 0.011162139515817902,
+   "dust": 0.025795566888503086,
+   "sea salt": 0.015204415027006172,
+   "sulfate": 0.20049397786458334
+  },
+  "none_share": 0.7473439007040895,
+  "size": [
+   7680,
+   4320
+  ]
+ },
+ "layers": [
+  {
+   "id": "sea_salt",
+   "unit": "relative density (0–1)",
+   "encoding": "linear",
+   "scale": 0.0005,
+   "offset": 0.00010572471364866942,
+   "nodata": 65535,
+   "below": 65534,
+   "grid": {
+    "width": 360,
+    "height": 180,
+    "bounds": [
+     -180,
+     -90,
+     180,
+     90
+    ],
+    "row0": "north",
+    "col0": "west",
+    "byte_order": "little"
+   },
+   "times": [
+    "2025-08-19T20:00:00Z"
+   ],
+   "chunks": [
+    {
+     "file": "sea_salt_000.u16.gz",
+     "t0": 0,
+     "t1": 1,
+     "bytes": 13680
+    }
+   ],
+   "quantisation_step": 0.0005,
+   "coverage": 0.12518518518518518,
+   "value_range": [
+    0.00010572471364866942,
+    0.6774811744689941
+   ],
+   "label": "Aerosols: sea salt (model, relative)",
+   "aggregation": "share of the 1° cell's pixels of this type × their mean relative density",
+   "key_rgb": [
+    133,
+    170,
+    169
+   ],
+   "status": "pattern only",
+   "statement": "relative: where the GEOS picture shows sea salt; rank vs MERRA-2 ρ 0.41",
+   "status_check": "a_type_merra2"
+  },
+  {
+   "id": "dust",
+   "unit": "relative density (0–1)",
+   "encoding": "linear",
+   "scale": 0.0005,
+   "offset": 4.451566928764805e-05,
+   "nodata": 65535,
+   "below": 65534,
+   "grid": {
+    "width": 360,
+    "height": 180,
+    "bounds": [
+     -180,
+     -90,
+     180,
+     90
+    ],
+    "row0": "north",
+    "col0": "west",
+    "byte_order": "little"
+   },
+   "times": [
+    "2025-08-19T20:00:00Z"
+   ],
+   "chunks": [
+    {
+     "file": "dust_000.u16.gz",
+     "t0": 0,
+     "t1": 1,
+     "bytes": 10184
+    }
+   ],
+   "quantisation_step": 0.0005,
+   "coverage": 0.10535493827160494,
+   "value_range": [
+    4.451566928764805e-05,
+    0.8205126523971558
+   ],
+   "label": "Aerosols: dust (model, relative)",
+   "aggregation": "share of the 1° cell's pixels of this type × their mean relative density",
+   "key_rgb": [
+    193,
+    154,
+    220
+   ],
+   "status": "pattern only",
+   "statement": "relative: where the GEOS picture shows dust; rank vs MERRA-2 ρ 0.13",
+   "status_check": "a_type_merra2"
+  },
+  {
+   "id": "smoke",
+   "unit": "relative density (0–1)",
+   "encoding": "linear",
+   "scale": 0.0005,
+   "offset": 3.3386750146746635e-05,
+   "nodata": 65535,
+   "below": 65534,
+   "grid": {
+    "width": 360,
+    "height": 180,
+    "bounds": [
+     -180,
+     -90,
+     180,
+     90
+    ],
+    "row0": "north",
+    "col0": "west",
+    "byte_order": "little"
+   },
+   "times": [
+    "2025-08-19T20:00:00Z"
+   ],
+   "chunks": [
+    {
+     "file": "smoke_000.u16.gz",
+     "t0": 0,
+     "t1": 1,
+     "bytes": 4404
+    }
+   ],
+   "quantisation_step": 0.0005,
+   "coverage": 0.035617283950617286,
+   "value_range": [
+    3.3386750146746635e-05,
+    0.701082706451416
+   ],
+   "label": "Aerosols: smoke (model, relative)",
+   "aggregation": "share of the 1° cell's pixels of this type × their mean relative density",
+   "key_rgb": [
+    210,
+    94,
+    69
+   ],
+   "status": "pattern only",
+   "statement": "relative: where the GEOS picture shows smoke; rank vs MERRA-2 ρ 0.28",
+   "status_check": "a_type_merra2"
+  },
+  {
+   "id": "sulfate",
+   "unit": "relative density (0–1)",
+   "encoding": "linear",
+   "scale": 0.0005,
+   "offset": 8.346689355676062e-06,
+   "nodata": 65535,
+   "below": 65534,
+   "grid": {
+    "width": 360,
+    "height": 180,
+    "bounds": [
+     -180,
+     -90,
+     180,
+     90
+    ],
+    "row0": "north",
+    "col0": "west",
+    "byte_order": "little"
+   },
+   "times": [
+    "2025-08-19T20:00:00Z"
+   ],
+   "chunks": [
+    {
+     "file": "sulfate_000.u16.gz",
+     "t0": 0,
+     "t1": 1,
+     "bytes": 41061
+    }
+   ],
+   "quantisation_step": 0.0005,
+   "coverage": 0.4363888888888889,
+   "value_range": [
+    8.346689355676062e-06,
+    0.8513620495796204
+   ],
+   "label": "Aerosols: sulfate (model, relative)",
+   "aggregation": "share of the 1° cell's pixels of this type × their mean relative density",
+   "key_rgb": [
+    83,
+    220,
+    52
+   ],
+   "status": "pattern only",
+   "statement": "relative: where the GEOS picture shows sulfate; rank vs MERRA-2 ρ 0.69",
+   "status_check": "a_type_merra2"
+  }
+ ],
+ "voices": {
+  "sea_salt": "aerosolSeaSalt",
+  "dust": "aerosolDust",
+  "smoke": "aerosolSmoke",
+  "sulfate": "aerosolSulfate"
+ },
+ "play": [
+  {
+   "id": "all",
+   "label": "All four aerosol types together",
+   "view": "global",
+   "map": "sulfate",
+   "start": {
+    "lat": 23.81,
+    "lon": 90.41
+   },
+   "steps_per_second": 1,
+   "channels": [
+    {
+     "voice": "aerosolSeaSalt",
+     "layers": [
+      "sea_salt"
+     ],
+     "combine": "value"
+    },
+    {
+     "voice": "aerosolDust",
+     "layers": [
+      "dust"
+     ],
+     "combine": "value"
+    },
+    {
+     "voice": "aerosolSmoke",
+     "layers": [
+      "smoke"
+     ],
+     "combine": "value"
+    },
+    {
+     "voice": "aerosolSulfate",
+     "layers": [
+      "sulfate"
+     ],
+     "combine": "value"
+    }
+   ]
+  },
+  {
+   "id": "solo_sea_salt",
+   "label": "Sea salt alone",
+   "view": "global",
+   "map": "sea_salt",
+   "start": {
+    "lat": 23.81,
+    "lon": 90.41
+   },
+   "steps_per_second": 1,
+   "channels": [
+    {
+     "voice": "aerosolSeaSalt",
+     "layers": [
+      "sea_salt"
+     ],
+     "combine": "value"
+    }
+   ]
+  },
+  {
+   "id": "solo_dust",
+   "label": "Dust alone",
+   "view": "global",
+   "map": "dust",
+   "start": {
+    "lat": 23.81,
+    "lon": 90.41
+   },
+   "steps_per_second": 1,
+   "channels": [
+    {
+     "voice": "aerosolDust",
+     "layers": [
+      "dust"
+     ],
+     "combine": "value"
+    }
+   ]
+  },
+  {
+   "id": "solo_smoke",
+   "label": "Smoke alone",
+   "view": "global",
+   "map": "smoke",
+   "start": {
+    "lat": 23.81,
+    "lon": 90.41
+   },
+   "steps_per_second": 1,
+   "channels": [
+    {
+     "voice": "aerosolSmoke",
+     "layers": [
+      "smoke"
+     ],
+     "combine": "value"
+    }
+   ]
+  },
+  {
+   "id": "solo_sulfate",
+   "label": "Sulfate alone",
+   "view": "global",
+   "map": "sulfate",
+   "start": {
+    "lat": 23.81,
+    "lon": 90.41
+   },
+   "steps_per_second": 1,
+   "channels": [
+    {
+     "voice": "aerosolSulfate",
+     "layers": [
+      "sulfate"
+     ],
+     "combine": "value"
+    }
+   ]
+  }
+ ],
+ "density_range": {
+  "sea_salt": 0.45798102021217346,
+  "dust": 0.7246092557907104,
+  "smoke": 0.5352291464805603,
+  "sulfate": 0.5838879942893982
+ },
+ "validation": [
+  {
+   "id": "a_type_merra2",
+   "title": "Aerosol type density per 1° cell vs MERRA-2 species AOD (19 Aug 2025 20:00 UTC)",
+   "kind": "model-vs-obs",
+   "pass": false,
+   "threshold": "Spearman ≥ 0.6 per type (provisional)"
+  },
+  {
+   "id": "b_dominant_type_merra2",
+   "title": "Dominant type per cell, frame vs MERRA-2 (cells where one species is ≥ 50 % of AOD)",
+   "kind": "model-vs-obs",
+   "pass": null,
+   "threshold": null
+  },
+  {
+   "id": "c_hand_labels",
+   "title": "Hand-label confusion check (pixels labelled by a person, five classes)",
+   "kind": "value",
+   "pass": null,
+   "threshold": "≥ 200 labels per class before it runs"
+  }
+ ],
+ "size": {
+  "choice": {
+   "cell_deg": 1.0
+  },
+  "tried": [],
+  "bytes": 82841,
+  "budget": 25000000
+ },
+ "asset_checksums": {
+  "file": "checksums.tsv.gz",
+  "rows": 3,
+  "sha256_of_list": "49996a2bb05d32ecfcdf12b3cebb141ea04b619de0fc86448986f9d219a4a23f"
+ },
+ "code_commit": "bd65322b7fb6c6274152c0e361458e252791ceb3-dirty",
+ "generated_utc": "2026-10-29T11:30:30Z"
+}

@@ -73,6 +73,38 @@ def lights_voices(m):
              "silence": "No light at this point this year.", "legend": [],
              "note": "The picture's own brightness (no colorbar), not radiance; range = the record's 99th percentile."}]
 
+AEROSOL_SOUND = {   # one instrument per type (timbre = category); the app has tone, haze and clicks, so smoke and sulfate are tones an octave apart
+    "aerosolSeaSalt": ({"param": "cutoff", "unit": "Hz", "min": 800, "max": 8000, "scale": "exponential"}, "Soft noise, opening with more sea salt"),
+    "aerosolDust": (CLICKS, "Dry clicks, faster with more dust"),
+    "aerosolSmoke": ({"param": "frequency", "unit": "Hz", "min": 110, "max": 220, "scale": "exponential"}, "Low sine, higher with more smoke"),
+    "aerosolSulfate": ({"param": "frequency", "unit": "Hz", "min": 440, "max": 880, "scale": "exponential"}, "High sine, higher with more sulfate"),
+}
+
+def aerosol_voices(m):
+    out = []
+    for layer, vid in m["voices"].items():
+        l = next(x for x in m["layers"] if x["id"] == layer)
+        output, timbre = AEROSOL_SOUND[vid]
+        out.append({"id": vid, "label": {"en": l["label"], "bn": f"TODO: {layer}"}, "group": "context",
+                    "source": {"dataset": "NASA GEOS-FP model, via EIC still SVS 5669 (type read from the key colours)", "svsId": 5669, "product": m["record"]},
+                    "status": "context",
+                    "mapping": {"kind": "continuous", "input": {"unit": "relative", "min": 0, "max": round(m["density_range"][layer], 4), "scale": "linear"},
+                                "output": output},
+                    "silence": f"No {layer.replace('_', ' ')} drawn in this cell.",
+                    "sound": {"timbre": timbre, "attackMs": 20, "releaseMs": 80, "maxGain": 0.15, "family": "model"}, "pan": "longitude", "legend": [],
+                    "designChoice": True, "note": "Relative density (the key has no values); range = the record's 99th percentile."})
+    return out
+
+def lightning_voice(m):
+    return {"id": "lightningClicks", "label": {"en": "Lightning flashes (observation)", "bn": "TODO: lightning"}, "group": "context",
+            "source": {"dataset": "NASA ISS LIS, via EIC frames SVS 5011 (marks counted once each)", "svsId": 5011, "product": m["record"]},
+            "status": "context",
+            "mapping": {"kind": "continuous", "input": {"unit": "flashes per cell", "min": 0, "max": round(m["flash_range"][1]), "scale": "linear"},
+                        "output": CLICKS},
+            "silence": "No flash in this cell in this window.",
+            "sound": {"timbre": "Plain click train", "attackMs": 1, "releaseMs": 20, "maxGain": 0.15}, "pan": "longitude", "legend": [],
+            "designChoice": True, "note": "More flashes, faster clicks (the rhythm = counts slot); range = the record's 99th percentile."}
+
 def main():
     voices = []
     air = PUBLIC_OFFICIAL / "air_5533" / "manifest.json"
@@ -86,6 +118,10 @@ def main():
         voices.append(drift_voice(m["drift_speed_range_km_day"], m["record"]))
         if "oscarCurrent" in m.get("voice_sources", {}):
             voices.append(oscar_voice(m["oscar_speed_range_m_s"], m["voice_sources"]["oscarCurrent"]))
+    aerosols = PUBLIC_OFFICIAL / "aerosols_5669" / "manifest.json"
+    if aerosols.exists(): voices += aerosol_voices(json.loads(aerosols.read_text(encoding="utf-8")))
+    lightning = PUBLIC_OFFICIAL / "lightning_5011" / "manifest.json"
+    if lightning.exists(): voices.append(lightning_voice(json.loads(lightning.read_text(encoding="utf-8"))))
     lights = PUBLIC_OFFICIAL / "lights_5313" / "manifest.json"
     if lights.exists(): voices += lights_voices(json.loads(lights.read_text(encoding="utf-8")))
     OUT.write_text(json.dumps({"generated_by": "pipeline/svs/records/voices.py", "voices": voices}, indent=2, ensure_ascii=False) + "\n",

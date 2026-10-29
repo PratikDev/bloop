@@ -50,7 +50,9 @@ def _templates(h):
         for ch in DIGITS:
             im = Image.new("L", (6 * h + 8, 4 * h + 8)); ImageDraw.Draw(im).text((h, h), ch, fill=255, font=f)
             a = np.asarray(im, np.float32) / 255
-            y0, y1, x0, x1 = _ink_bbox(a)
+            box = _ink_bbox(a)
+            if box is None: continue                     # too small to render at this height
+            y0, y1, x0, x1 = box
             out.append((ch, a[y0:y1, x0:x1]))
     return out
 
@@ -63,6 +65,7 @@ def _match_digit(patch):
         d += 0.05 * max(0, abs(w - t.shape[1]) - 1)          # ±1 px width is quantisation, not shape
         scores[ch] = min(scores.get(ch, 9.0), d)
     ranked = sorted(scores.items(), key=lambda kv: kv[1])
+    if len(ranked) < 2: return "?", 0.0                # glyph too small for any template
     return ranked[0][0], ranked[1][1] - ranked[0][1]
 
 def text_mask(gray):

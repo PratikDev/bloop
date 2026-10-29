@@ -345,6 +345,215 @@
       "note": "Surface current speed from NASA OSCAR for the record's days (team decision A3: the frames' motion is not a data claim); range = the record's 1st–99th percentile."
     },
     {
+      "id": "aerosolSeaSalt",
+      "label": {
+        "en": "Aerosols: sea salt (model, relative)",
+        "bn": "TODO: sea_salt"
+      },
+      "group": "context",
+      "source": {
+        "dataset": "NASA GEOS-FP model, via EIC still SVS 5669 (type read from the key colours)",
+        "svsId": 5669,
+        "product": "aerosols_5669"
+      },
+      "status": "context",
+      "mapping": {
+        "kind": "continuous",
+        "input": {
+          "unit": "relative",
+          "min": 0,
+          "max": 0.458,
+          "scale": "linear"
+        },
+        "output": {
+          "param": "cutoff",
+          "unit": "Hz",
+          "min": 800,
+          "max": 8000,
+          "scale": "exponential"
+        }
+      },
+      "silence": "No sea salt drawn in this cell.",
+      "sound": {
+        "timbre": "Soft noise, opening with more sea salt",
+        "attackMs": 20,
+        "releaseMs": 80,
+        "maxGain": 0.15,
+        "family": "model"
+      },
+      "pan": "longitude",
+      "legend": [],
+      "designChoice": true,
+      "note": "Relative density (the key has no values); range = the record's 99th percentile."
+    },
+    {
+      "id": "aerosolDust",
+      "label": {
+        "en": "Aerosols: dust (model, relative)",
+        "bn": "TODO: dust"
+      },
+      "group": "context",
+      "source": {
+        "dataset": "NASA GEOS-FP model, via EIC still SVS 5669 (type read from the key colours)",
+        "svsId": 5669,
+        "product": "aerosols_5669"
+      },
+      "status": "context",
+      "mapping": {
+        "kind": "continuous",
+        "input": {
+          "unit": "relative",
+          "min": 0,
+          "max": 0.7246,
+          "scale": "linear"
+        },
+        "output": {
+          "param": "clicksPerSecond",
+          "unit": "clicks/s",
+          "min": 1,
+          "max": 12,
+          "scale": "linear"
+        }
+      },
+      "silence": "No dust drawn in this cell.",
+      "sound": {
+        "timbre": "Dry clicks, faster with more dust",
+        "attackMs": 20,
+        "releaseMs": 80,
+        "maxGain": 0.15,
+        "family": "model"
+      },
+      "pan": "longitude",
+      "legend": [],
+      "designChoice": true,
+      "note": "Relative density (the key has no values); range = the record's 99th percentile."
+    },
+    {
+      "id": "aerosolSmoke",
+      "label": {
+        "en": "Aerosols: smoke (model, relative)",
+        "bn": "TODO: smoke"
+      },
+      "group": "context",
+      "source": {
+        "dataset": "NASA GEOS-FP model, via EIC still SVS 5669 (type read from the key colours)",
+        "svsId": 5669,
+        "product": "aerosols_5669"
+      },
+      "status": "context",
+      "mapping": {
+        "kind": "continuous",
+        "input": {
+          "unit": "relative",
+          "min": 0,
+          "max": 0.5352,
+          "scale": "linear"
+        },
+        "output": {
+          "param": "frequency",
+          "unit": "Hz",
+          "min": 110,
+          "max": 220,
+          "scale": "exponential"
+        }
+      },
+      "silence": "No smoke drawn in this cell.",
+      "sound": {
+        "timbre": "Low sine, higher with more smoke",
+        "attackMs": 20,
+        "releaseMs": 80,
+        "maxGain": 0.15,
+        "family": "model"
+      },
+      "pan": "longitude",
+      "legend": [],
+      "designChoice": true,
+      "note": "Relative density (the key has no values); range = the record's 99th percentile."
+    },
+    {
+      "id": "aerosolSulfate",
+      "label": {
+        "en": "Aerosols: sulfate (model, relative)",
+        "bn": "TODO: sulfate"
+      },
+      "group": "context",
+      "source": {
+        "dataset": "NASA GEOS-FP model, via EIC still SVS 5669 (type read from the key colours)",
+        "svsId": 5669,
+        "product": "aerosols_5669"
+      },
+      "status": "context",
+      "mapping": {
+        "kind": "continuous",
+        "input": {
+          "unit": "relative",
+          "min": 0,
+          "max": 0.5839,
+          "scale": "linear"
+        },
+        "output": {
+          "param": "frequency",
+          "unit": "Hz",
+          "min": 440,
+          "max": 880,
+          "scale": "exponential"
+        }
+      },
+      "silence": "No sulfate drawn in this cell.",
+      "sound": {
+        "timbre": "High sine, higher with more sulfate",
+        "attackMs": 20,
+        "releaseMs": 80,
+        "maxGain": 0.15,
+        "family": "model"
+      },
+      "pan": "longitude",
+      "legend": [],
+      "designChoice": true,
+      "note": "Relative density (the key has no values); range = the record's 99th percentile."
+    },
+    {
+      "id": "lightningClicks",
+      "label": {
+        "en": "Lightning flashes (observation)",
+        "bn": "TODO: lightning"
+      },
+      "group": "context",
+      "source": {
+        "dataset": "NASA ISS LIS, via EIC frames SVS 5011 (marks counted once each)",
+        "svsId": 5011,
+        "product": "lightning_5011"
+      },
+      "status": "context",
+      "mapping": {
+        "kind": "continuous",
+        "input": {
+          "unit": "flashes per cell",
+          "min": 0,
+          "max": 5,
+          "scale": "linear"
+        },
+        "output": {
+          "param": "clicksPerSecond",
+          "unit": "clicks/s",
+          "min": 1,
+          "max": 12,
+          "scale": "linear"
+        }
+      },
+      "silence": "No flash in this cell in this window.",
+      "sound": {
+        "timbre": "Plain click train",
+        "attackMs": 1,
+        "releaseMs": 20,
+        "maxGain": 0.15
+      },
+      "pan": "longitude",
+      "legend": [],
+      "designChoice": true,
+      "note": "More flashes, faster clicks (the rhythm = counts slot); range = the record's 99th percentile."
+    },
+    {
       "group": "context",
       "source": {
         "dataset": "NASA Black Marble (S-NPP VIIRS), via EIC frames SVS 5313 / 5276 / 5475",

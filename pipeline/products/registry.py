@@ -120,6 +120,16 @@ _ALL = [
             disclosure="Temperature read from the streak colours of a model. The currents you hear are NASA OSCAR surface "
                        "currents for the same days; how the drawn streaks move is visual texture, not water speed.",
             period_keys=("period.start", "period.end"), time_key="period.end"),
+    Product("aerosols_5669", "Aerosols by type (model, 19 Aug 2025)", ("official/aerosols_5669/manifest.json",), "static", "frame-paired",
+            (D.SVS5669, D.GEOSFP), credit=SVS_CREDIT.format(id="5669, 5572") + " Data: NASA GEOS-FP (GMAO), model output.",
+            disclosure="Aerosol type read from the picture's colours against its key; the key has no values, so density is "
+                       "relative. A model, not measurements.",
+            period_keys=("period.start", "period.end"), time_key="period.end"),
+    Product("lightning_5011", "Lightning from the ISS (observation, 2017–23)", ("official/lightning_5011/manifest.json",), "static",
+            "frame-paired", (D.SVS5011, D.ISSLIS), credit=SVS_CREDIT.format(id=5011) + " Data: NASA ISS LIS (GHRC DAAC).",
+            disclosure="Flashes counted from the drawn marks, once each when they appear; the movie carries no dates, so the "
+                       "times come from its seasons (approximate).",
+            period_keys=("period.start", "period.end"), time_key="period.end"),
     Product("lights_5313", "Night lights 2012→2023 (observation)", ("official/lights_5313/manifest.json",), "static", "frame-paired",
             (D.SVS5313, D.VNP46A4), credit=SVS_CREDIT.format(id="5313, 5276, 5475") + " Data: NASA Black Marble (S-NPP VIIRS).",
             disclosure="Direction of change read from the change map's colours (relative: lights out … new lights); the annual "

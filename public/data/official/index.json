@@ -1,6 +1,17 @@
 {
  "records": [
   {
+   "record": "aerosols_5669",
+   "title": "Aerosols by type (model, 19 Aug 2025)",
+   "svs_ids": [
+    5669,
+    5572
+   ],
+   "badge": "model",
+   "period": "19 Aug 2025 – 19 Aug 2025",
+   "manifest": "aerosols_5669/manifest.json"
+  },
+  {
    "record": "air_5533",
    "title": "Air (model, Jul–Sep 2024)",
    "svs_ids": [
@@ -20,6 +31,16 @@
    "badge": "model",
    "period": "25 Mar 2007 – 3 Mar 2008",
    "manifest": "currents_3912/manifest.json"
+  },
+  {
+   "record": "lightning_5011",
+   "title": "Lightning from the ISS (observation, 2017–23)",
+   "svs_ids": [
+    5011
+   ],
+   "badge": "observation",
+   "period": "1 Mar 2017 – 31 Jul 2023",
+   "manifest": "lightning_5011/manifest.json"
   },
   {
    "record": "lights_5313",

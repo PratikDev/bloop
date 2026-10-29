@@ -1,0 +1,79 @@
+{
+ "record": "aerosols_5669",
+ "checks": [
+  {
+   "record": "aerosols_5669",
+   "id": "a_type_merra2",
+   "title": "Aerosol type density per 1° cell vs MERRA-2 species AOD (19 Aug 2025 20:00 UTC)",
+   "kind": "model-vs-obs",
+   "source": "MERRA-2 M2T1NXAER (GES DISC), hours 19 and 20 averaged; a different model in the GEOS family",
+   "metrics": {
+    "per_type": {
+     "sea salt": {
+      "spearman": 0.4129353627791643,
+      "n_cells": 64800,
+      "frame_cells_with_type": 8112
+     },
+     "dust": {
+      "spearman": 0.1287159289613405,
+      "n_cells": 64800,
+      "frame_cells_with_type": 6827
+     },
+     "smoke": {
+      "spearman": 0.2778574162975161,
+      "n_cells": 64800,
+      "frame_cells_with_type": 2308
+     },
+     "sulfate": {
+      "spearman": 0.6868844223168985,
+      "n_cells": 64800,
+      "frame_cells_with_type": 28278
+     }
+    },
+    "species": {
+     "sea salt": "SSEXTTAU",
+     "dust": "DUEXTTAU",
+     "sulfate": "SUEXTTAU",
+     "smoke": "BCEXTTAU+OCEXTTAU"
+    }
+   },
+   "threshold": "Spearman ≥ 0.6 per type (provisional)",
+   "pass": false,
+   "note": "Different model (MERRA-2 vs GEOS-FP) and no values in the key: a check of where each type is, not how much.",
+   "run_utc": "2026-10-29T11:29:44Z"
+  },
+  {
+   "record": "aerosols_5669",
+   "id": "b_dominant_type_merra2",
+   "title": "Dominant type per cell, frame vs MERRA-2 (cells where one species is ≥ 50 % of AOD)",
+   "kind": "model-vs-obs",
+   "source": "MERRA-2 M2T1NXAER (GES DISC), hours 19 and 20 averaged; a different model in the GEOS family",
+   "metrics": {
+    "agreement": 0.5623836896737108,
+    "n_cells": 24181,
+    "chance": 0.25
+   },
+   "threshold": null,
+   "pass": null,
+   "note": "",
+   "run_utc": "2026-10-29T11:29:44Z"
+  },
+  {
+   "record": "aerosols_5669",
+   "id": "c_hand_labels",
+   "title": "Hand-label confusion check (pixels labelled by a person, five classes)",
+   "kind": "value",
+   "source": "pipeline/svs/fixtures/5669_labels.json",
+   "metrics": {
+    "labels": 0,
+    "per_class": {},
+    "status": "pending labels"
+   },
+   "threshold": "≥ 200 labels per class before it runs",
+   "pass": null,
+   "note": "Pending labels: the labelling page is python -m svs.label_aerosols.",
+   "run_utc": "2026-10-29T11:29:44Z"
+  }
+ ],
+ "updated_utc": "2026-10-29T11:29:44Z"
+}
