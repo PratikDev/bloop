@@ -345,6 +345,47 @@
       "note": "Surface current speed from NASA OSCAR for the record's days (team decision A3: the frames' motion is not a data claim); range = the record's 1st–99th percentile."
     },
     {
+      "id": "patternScan",
+      "label": {
+        "en": "Picture brightness (pattern, not values)",
+        "bn": "TODO: pattern"
+      },
+      "group": "context",
+      "source": {
+        "dataset": "EIC preview images (class B)",
+        "product": "patterns_eic"
+      },
+      "status": "context",
+      "mapping": {
+        "kind": "continuous",
+        "input": {
+          "unit": "relative",
+          "min": 0,
+          "max": 1,
+          "scale": "linear"
+        },
+        "output": {
+          "param": "frequency",
+          "unit": "Hz",
+          "min": 220,
+          "max": 880,
+          "scale": "exponential"
+        }
+      },
+      "silence": "A black part of the picture.",
+      "sound": {
+        "timbre": "Warm sine with a soft attack and a smooth glide",
+        "attackMs": 20,
+        "releaseMs": 80,
+        "glideMs": 30,
+        "maxGain": 0.15
+      },
+      "pan": "longitude",
+      "legend": [],
+      "designChoice": true,
+      "note": "Brighter = higher. Pattern, not values."
+    },
+    {
       "id": "eic5147",
       "label": {
         "en": "Near-surface temperature (model)",

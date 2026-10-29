@@ -24,7 +24,7 @@ def still_of(rec):
 
 def main():
     inv = json.loads((CACHE / "eic_inventory.json").read_text(encoding="utf-8"))["items"]
-    covered = set(eic.records_built()) | set(eic.decoded_by())
+    covered = {k for k, v in eic.records_built().items() if not v.startswith(RECORD)} | set(eic.decoded_by())   # not this record itself
     items = [r for r in inv if r["class"] == "B" and r["id"] not in covered]
     for p in (PUBLIC_OFFICIAL / RECORD).glob("*.u16.gz"): p.unlink()
     layers, options, checks, ids, now = [], [], [], [], dt.datetime.now(dt.timezone.utc)

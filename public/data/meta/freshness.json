@@ -1,5 +1,5 @@
 {
-  "generated_utc": "2026-10-29T13:24:02Z",
+  "generated_utc": "2026-10-29T13:25:16Z",
   "products": {
     "sst": {
       "product": "sst",
@@ -69,7 +69,7 @@
       "limit_days": 2,
       "status": "ok",
       "source_time_utc": "2026-10-28T08:30:00Z",
-      "age_days": 1.2,
+      "age_days": 1.21,
       "period": null,
       "credit": "Visualization: NASA's Scientific Visualization Studio (SVS 4285), NASA Earth Information Center. Data: GPM IMERG (NASA/JAXA), GES DISC.",
       "bytes": 5726289
@@ -96,7 +96,7 @@
       "limit_days": 2,
       "status": "ok",
       "source_time_utc": "2026-10-28T08:30:00Z",
-      "age_days": 1.2,
+      "age_days": 1.21,
       "period": null,
       "credit": "Visualization: NASA's Scientific Visualization Studio (SVS 4285), NASA Earth Information Center. Data: GPM IMERG (NASA/JAXA), GES DISC.",
       "bytes": 8516
@@ -357,7 +357,7 @@
       "limit_days": 3,
       "status": "ok",
       "source_time_utc": "2026-10-28T08:30:00Z",
-      "age_days": 1.2,
+      "age_days": 1.21,
       "period": null,
       "credit": "Data: GPM IMERG (NASA/JAXA, GES DISC). Visualization: NASA's Scientific Visualization Studio (SVS 4285) for the NASA Earth Information Center.",
       "bytes": 42093
@@ -1298,12 +1298,15 @@
         }
       ],
       "limit_days": null,
-      "status": "missing",
-      "source_time_utc": null,
-      "age_days": null,
-      "period": null,
+      "status": "baseline",
+      "source_time_utc": "2026-10-29T13:25:02Z",
+      "age_days": 0.0,
+      "period": [
+        "2026-10-29T13:25:02Z",
+        "2026-10-29T13:25:02Z"
+      ],
       "credit": "Visualizations: NASA's Scientific Visualization Studio for the NASA Earth Information Center.",
-      "bytes": 0
+      "bytes": 140927
     }
   }
 }
