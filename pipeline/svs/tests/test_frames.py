@@ -28,6 +28,8 @@ class Times(unittest.TestCase):
     def test_frame_number(self):
         self.assertEqual(frames.frame_number("flat_global_ecco2_2028x1024.23004.tif"), 23004)
         self.assertEqual(frames.frame_number("AirQuality_O3_Layer_2048x1024_0017.png"), 17)
+        self.assertEqual(frames.frame_number("nightlights_2012-2024_KSC_SOS_04_plus2_1259_2k.png"), 1259)
+        self.assertEqual(frames.frame_number("AirQuality_PM2.5_Layer_2048x1024_0000.png"), 0)
 
 if __name__ == "__main__":
     unittest.main()

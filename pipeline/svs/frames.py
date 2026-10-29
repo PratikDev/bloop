@@ -14,8 +14,19 @@ PNG_SIG = b"\x89PNG\r\n\x1a\n"
 CHANNELS = {0: 1, 2: 3, 3: 1, 4: 2, 6: 4}       # PNG colour type → samples per pixel
 
 def read_rgba(path):
-    """Any frame file → uint8 RGBA array (TIF/PNG/JPG via Pillow)."""
+    """Any frame file → uint8 RGBA array (TIF/PNG/JPG via Pillow; EXR via OpenCV, linear light encoded as sRGB)."""
+    if str(path).lower().endswith(".exr"): return _read_exr(path)
     return np.asarray(Image.open(path).convert("RGBA"))
+
+def _read_exr(path):
+    import cv2                                              # EXR enabled in svs/__init__.py
+    from convert_sst import srgb_encode
+    a = cv2.imread(str(path), cv2.IMREAD_UNCHANGED)
+    if a is None: raise ValueError(f"cannot decode {path}")
+    a = a[..., None] if a.ndim == 2 else a
+    rgb = srgb_encode(a[..., [2, 1, 0]] if a.shape[2] >= 3 else np.repeat(a[..., :1], 3, -1))
+    alpha = np.clip(a[..., 3:4], 0, 1) if a.shape[2] == 4 else np.ones(a.shape[:2] + (1,))
+    return np.round(np.concatenate([rgb, alpha], -1) * 255).astype(np.uint8)
 
 def png_header(data):
     if data[:8] != PNG_SIG: raise ValueError("not a PNG")
@@ -66,9 +77,11 @@ def times_from_list(text):
     return out
 
 def frame_number(name):
-    """Trailing frame number of a frame file name ('..._0123.png', '...23000.tif')."""
-    m = re.search(r"(\d+)\.(?:png|tif|tiff|jpg|exr)$", name, re.I)
-    return int(m.group(1)) if m else None
+    """Frame number of a frame file name: the last number that is not part of a size token ('_0123.png',
+    '.23000.tif', '_0000_2k.png', '_2048x1024_0007.png')."""
+    stem = re.sub(r"\.(?:png|tif|tiff|jpg|jpeg|exr)$", "", name, flags=re.I)
+    nums = re.findall(r"(?<![\dx])(\d+)(?![\dkKx])", stem)
+    return int(nums[-1]) if nums else None
 
 def ffmpeg_tools():
     return shutil.which("ffmpeg"), shutil.which("ffprobe")
