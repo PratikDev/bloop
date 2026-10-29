@@ -1,0 +1,60 @@
+{
+ "record": "river_4960",
+ "checks": [
+  {
+   "record": "river_4960",
+   "id": "a_landfall_timing_merra2",
+   "title": "Landfall timing: most river–land contact in the frames vs strongest coastal IVT in MERRA-2",
+   "kind": "value",
+   "source": "MERRA-2 M2T1NXINT UFLXQV/VFLXQV (GES DISC)",
+   "metrics": {
+    "frame_peak_utc": "2010-12-12T23:31Z",
+    "merra2_peak_utc": "2010-10-09T21:00Z",
+    "difference_hours": 1538.5166666666667,
+    "merra2_peak_ivt": 1392.755126953125,
+    "frames": 24,
+    "days": 75,
+    "box": [
+     -130,
+     30,
+     -112,
+     50
+    ]
+   },
+   "threshold": null,
+   "pass": null,
+   "note": "The narrated movie revisits times between scenes; frames are dated by their own date layer.",
+   "run_utc": "2026-10-29T14:21:51Z"
+  },
+  {
+   "record": "river_4960",
+   "id": "b_contact_rank_merra2",
+   "title": "River–land contact per frame vs coastal IVT at the frame's hour (Spearman)",
+   "kind": "value",
+   "source": "MERRA-2 M2T1NXINT",
+   "metrics": {
+    "spearman": -0.024374334343133033,
+    "n": 24
+   },
+   "threshold": null,
+   "pass": null,
+   "note": "",
+   "run_utc": "2026-10-29T14:21:51Z"
+  },
+  {
+   "record": "river_4960",
+   "id": "c_landfall_latitude",
+   "title": "Landfall latitude",
+   "kind": "none",
+   "source": null,
+   "metrics": {
+    "reason": "no georeference (perspective 3D views)"
+   },
+   "threshold": null,
+   "pass": null,
+   "note": "Not measurable from these frames.",
+   "run_utc": "2026-10-29T14:21:51Z"
+  }
+ ],
+ "updated_utc": "2026-10-29T14:21:51Z"
+}

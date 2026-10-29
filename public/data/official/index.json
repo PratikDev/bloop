@@ -215,6 +215,16 @@
    "badge": "observation",
    "period": "29 Oct 2026 – 29 Oct 2026",
    "manifest": "patterns_eic/manifest.json"
+  },
+  {
+   "record": "river_4960",
+   "title": "Atmospheric river (reanalysis, Dec 2010)",
+   "svs_ids": [
+    4960
+   ],
+   "badge": "reanalysis",
+   "period": "1 Oct 2010 – 14 Dec 2010",
+   "manifest": "river_4960/manifest.json"
   }
  ]
 }

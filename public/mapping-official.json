@@ -386,6 +386,49 @@
       "note": "Brighter = higher. Pattern, not values."
     },
     {
+      "id": "riverTransport",
+      "label": {
+        "en": "Atmospheric river transport (reanalysis, relative)",
+        "bn": "TODO: river"
+      },
+      "group": "context",
+      "source": {
+        "dataset": "NASA MERRA-2, via EIC frames SVS 4960",
+        "svsId": 4960,
+        "product": "river_4960"
+      },
+      "status": "context",
+      "mapping": {
+        "kind": "continuous",
+        "input": {
+          "unit": "relative",
+          "min": 0,
+          "max": 1,
+          "scale": "linear"
+        },
+        "output": {
+          "param": "frequency",
+          "unit": "Hz",
+          "min": 220,
+          "max": 880,
+          "scale": "exponential"
+        }
+      },
+      "silence": "No blue shading at this point.",
+      "sound": {
+        "timbre": "Warm sine with a soft attack and a smooth glide",
+        "attackMs": 20,
+        "releaseMs": 80,
+        "glideMs": 30,
+        "maxGain": 0.2,
+        "family": "model"
+      },
+      "pan": "longitude",
+      "legend": [],
+      "designChoice": true,
+      "note": "Relative (no colorbar): the blue shading's strength."
+    },
+    {
       "id": "eic5147",
       "label": {
         "en": "Near-surface temperature (model)",
