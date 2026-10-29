@@ -13,7 +13,8 @@ class Completeness(unittest.TestCase):
     def test_every_official_and_class_a_item_is_covered(self):
         from products.registry import PRODUCTS
         table = (DOCS_OFFICIAL / "VALIDATION_TABLE.md").read_text(encoding="utf-8")
-        recs, live = records(), decoded_by()
+        recs = records()
+        live = {k: v for k, v in decoded_by().items() if not PRODUCTS[v].outputs[0].startswith("official/")}
         missing = []
         for sid in sorted(set(official_ids()) | set(eic_class_a())):
             if not (DOCS_OFFICIAL / f"{sid}.md").exists(): missing.append((sid, "docs/official/<id>.md")); continue
