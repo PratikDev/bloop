@@ -166,6 +166,16 @@
    "manifest": "lights_5313/manifest.json"
   },
   {
+   "record": "ocean2_5425",
+   "title": "Perpetual Ocean 2: western boundary currents (model, 2021–23)",
+   "svs_ids": [
+    5425
+   ],
+   "badge": "model",
+   "period": "17 Aug 2022 – 24 Jun 2023",
+   "manifest": "ocean2_5425/manifest.json"
+  },
+  {
    "record": "patterns_eic",
    "title": "EIC patterns (pattern, not values)",
    "svs_ids": [

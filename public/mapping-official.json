@@ -345,6 +345,90 @@
       "note": "Surface current speed from NASA OSCAR for the record's days (team decision A3: the frames' motion is not a data claim); range = the record's 1st–99th percentile."
     },
     {
+      "id": "ocean2Temperature",
+      "label": {
+        "en": "Perpetual Ocean 2 temperature (model)",
+        "bn": "TODO: temperature"
+      },
+      "group": "context",
+      "source": {
+        "dataset": "ECCO model, via EIC frames SVS 5425",
+        "svsId": 5425,
+        "product": "ocean2_5425"
+      },
+      "status": "context",
+      "mapping": {
+        "kind": "continuous",
+        "input": {
+          "unit": "°C",
+          "min": -1.63,
+          "max": 26.6,
+          "scale": "linear"
+        },
+        "output": {
+          "param": "frequency",
+          "unit": "Hz",
+          "min": 220,
+          "max": 880,
+          "scale": "exponential"
+        }
+      },
+      "silence": "Land, or no colour of the key at this point.",
+      "sound": {
+        "timbre": "Warm sine",
+        "attackMs": 20,
+        "releaseMs": 80,
+        "maxGain": 0.15,
+        "family": "model"
+      },
+      "pan": "longitude",
+      "legend": [],
+      "designChoice": true,
+      "note": "Temperature → pitch; salinity on the second voice slot."
+    },
+    {
+      "id": "ocean2Salinity",
+      "label": {
+        "en": "Perpetual Ocean 2 salinity (model)",
+        "bn": "TODO: salinity"
+      },
+      "group": "context",
+      "source": {
+        "dataset": "ECCO model, via EIC frames SVS 5425",
+        "svsId": 5425,
+        "product": "ocean2_5425"
+      },
+      "status": "context",
+      "mapping": {
+        "kind": "continuous",
+        "input": {
+          "unit": "PSU",
+          "min": 32.8,
+          "max": 36.19,
+          "scale": "linear"
+        },
+        "output": {
+          "param": "cutoff",
+          "unit": "Hz",
+          "min": 800,
+          "max": 8000,
+          "scale": "exponential"
+        }
+      },
+      "silence": "Land, or no colour of the key at this point.",
+      "sound": {
+        "timbre": "Soft filtered noise",
+        "attackMs": 20,
+        "releaseMs": 80,
+        "maxGain": 0.15,
+        "family": "model"
+      },
+      "pan": "longitude",
+      "legend": [],
+      "designChoice": true,
+      "note": "Temperature → pitch; salinity on the second voice slot."
+    },
+    {
       "id": "patternScan",
       "label": {
         "en": "Picture brightness (pattern, not values)",
