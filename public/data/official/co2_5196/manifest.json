@@ -407,6 +407,20 @@
    "kind": "context",
    "pass": null,
    "threshold": null
+  },
+  {
+   "id": "d_gradient_oco2",
+   "title": "Latitude-band gradient (10° bands, 60° S – 60° N) vs OCO-2 Lite V11.2r, Jan–Mar 2020",
+   "kind": "context",
+   "pass": null,
+   "threshold": null
+  },
+  {
+   "id": "d_gradient_ghg",
+   "title": "Latitude-band gradient (10° bands, 60° S – 60° N) vs US GHG Center oco2geos-co2-daygrid-v10r, Jan–Mar 2020",
+   "kind": "context",
+   "pass": null,
+   "threshold": null
   }
  ],
  "size": {
@@ -415,7 +429,7 @@
    "frames": 12
   },
   "tried": [],
-  "bytes": 1058494,
+  "bytes": 1061544,
   "budget": 25000000
  },
  "asset_checksums": {
@@ -423,6 +437,6 @@
   "rows": 15,
   "sha256_of_list": "97cf0bb1111bdeea9781dacaa34982cc491512e756b7b57703253a0d580246e6"
  },
- "code_commit": "5d56c77bd4ac6164fd9fa2fbe247796c1ad48324-dirty",
- "generated_utc": "2026-10-29T12:06:02Z"
+ "code_commit": "5e77339f053350d8c3190d6743ecf10f08f9627e-dirty",
+ "generated_utc": "2026-10-30T11:27:31Z"
 }

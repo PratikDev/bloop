@@ -1,0 +1,346 @@
+{
+ "DataLanguage": "English",
+ "CollectionCitations": [
+  {
+   "Creator": "OCO-2/OCO-3 Science Team, Vivienne Payne, Abhishek Chatterjee",
+   "DataPresentationForm": "Digital Science Data",
+   "OnlineResource": {
+    "Linkage": "https://disc.gsfc.nasa.gov/datacollection/OCO2_L2_Lite_FP_11.2r.html"
+   },
+   "Publisher": "Goddard Earth Sciences Data and Information Services Center (GES DISC)",
+   "Title": "OCO-2 Level 2 bias-corrected XCO2 and other select fields from the full-physics retrieval aggregated as daily files, Retrospective processing V11.2r",
+   "SeriesName": "OCO2_L2_Lite_FP",
+   "ReleaseDate": "2024-04-01T00:00:00.000Z",
+   "Version": "11.2r",
+   "ReleasePlace": "Greenbelt, MD, USA"
+  }
+ ],
+ "SpatialExtent": {
+  "GranuleSpatialRepresentation": "CARTESIAN",
+  "HorizontalSpatialDomain": {
+   "Geometry": {
+    "CoordinateSystem": "CARTESIAN",
+    "BoundingRectangles": [
+     {
+      "WestBoundingCoordinate": -180,
+      "NorthBoundingCoordinate": 90,
+      "EastBoundingCoordinate": 180,
+      "SouthBoundingCoordinate": -90
+     }
+    ]
+   }
+  }
+ },
+ "CollectionProgress": "ACTIVE",
+ "StandardProduct": false,
+ "ScienceKeywords": [
+  {
+   "Category": "EARTH SCIENCE",
+   "Topic": "ATMOSPHERE",
+   "Term": "ATMOSPHERIC CHEMISTRY",
+   "VariableLevel1": "CARBON AND HYDROCARBON COMPOUNDS",
+   "VariableLevel2": "ATMOSPHERIC CARBON DIOXIDE"
+  }
+ ],
+ "TemporalExtents": [
+  {
+   "RangeDateTimes": [
+    {
+     "BeginningDateTime": "2014-06-01T00:00:00.000Z"
+    }
+   ],
+   "EndsAtPresentFlag": true
+  }
+ ],
+ "ProcessingLevel": {
+  "Id": "2"
+ },
+ "DOI": {
+  "DOI": "10.5067/70K2B2W8MNGY"
+ },
+ "ShortName": "OCO2_L2_Lite_FP",
+ "EntryTitle": "OCO-2 Level 2 bias-corrected XCO2 and other select fields from the full-physics retrieval aggregated as daily files, Retrospective processing V11.2r (OCO2_L2_Lite_FP) ",
+ "Quality": {
+  "Summary": "Biases in OCO-2 data are still studied. The project recommends using the Lite products."
+ },
+ "ISOTopicCategories": [
+  "CLIMATOLOGY/METEOROLOGY/ATMOSPHERE"
+ ],
+ "DirectDistributionInformation": {
+  "Region": "us-west-2",
+  "S3CredentialsAPIEndpoint": "https://data.gesdisc.earthdata.nasa.gov/s3credentials",
+  "S3CredentialsAPIDocumentationURL": "https://data.gesdisc.earthdata.nasa.gov/s3credentialsREADME",
+  "S3BucketAndObjectPrefixNames": [
+   "s3://gesdisc-cumulus-prod-protected/OCO2_DATA/OCO2_L2_Lite_FP.11.2r/"
+  ]
+ },
+ "AccessConstraints": {
+  "Description": "None currently"
+ },
+ "RelatedUrls": [
+  {
+   "Description": "OCO-2 L2 Lite CO2 Column-Averaged Dry Air Mole Fraction (dry-air ppm). Disclaimer: The symbol size does not reflect the true footprint and swath width of the instrument.",
+   "URL": "https://docserver.gesdisc.eosdis.nasa.gov/public/project/OCO/OCO_L2_Lite_FP_v11r_220331_final.png",
+   "URLContentType": "VisualizationURL",
+   "Type": "GET RELATED VISUALIZATION"
+  },
+  {
+   "Description": "Access the dataset landing page from the GES DISC website.",
+   "URL": "https://disc.gsfc.nasa.gov/datacollection/OCO2_L2_Lite_FP_11.2r.html",
+   "Type": "DATA SET LANDING PAGE",
+   "URLContentType": "CollectionURL"
+  },
+  {
+   "Description": "Access the data via HTTP",
+   "URL": "https://cmr.earthdata.nasa.gov/virtual-directory/collections/C2912085112-GES_DISC",
+   "Subtype": "DATA TREE",
+   "Type": "GET DATA",
+   "URLContentType": "DistributionURL"
+  },
+  {
+   "Description": "Access the data via the OPeNDAP protocol.",
+   "URL": "https://cmr.earthdata.nasa.gov/virtual-directory/collections/C2912085112-GES_DISC",
+   "Subtype": "OPENDAP DATA",
+   "Type": "USE SERVICE API",
+   "URLContentType": "DistributionURL"
+  },
+  {
+   "Description": "OCO-2 Project Home Page",
+   "URL": "https://oco.caltech.edu/science",
+   "Type": "PROJECT HOME PAGE",
+   "URLContentType": "CollectionURL"
+  },
+  {
+   "Description": "Earthdata Search allows users to search, discover, visualize, refine, and access NASA Earth Observation data.",
+   "URL": "https://search.earthdata.nasa.gov/search/granules?p=C2912085112-GES_DISC",
+   "Subtype": "Earthdata Search",
+   "Type": "GET DATA",
+   "URLContentType": "DistributionURL"
+  },
+  {
+   "Description": "README document",
+   "URL": "https://docserver.gesdisc.eosdis.nasa.gov/public/project/OCO/README.OCO2.pdf",
+   "Subtype": "READ-ME",
+   "Type": "VIEW RELATED INFORMATION",
+   "URLContentType": "PublicationURL"
+  },
+  {
+   "Description": "User's Guide",
+   "URL": "https://docserver.gesdisc.eosdis.nasa.gov/public/project/OCO/OCO2_V11.2_OCO3_V11_L2_Data_Users_Guide_250304.pdf",
+   "Subtype": "USER'S GUIDE",
+   "Type": "VIEW RELATED INFORMATION",
+   "URLContentType": "PublicationURL"
+  },
+  {
+   "URL": "https://docserver.gesdisc.eosdis.nasa.gov/public/project/OCO/OCO_L2_ATBD.pdf",
+   "Description": "Algorithm Theoretical Basis Document",
+   "Subtype": "ALGORITHM THEORETICAL BASIS DOCUMENT (ATBD)",
+   "Type": "VIEW RELATED INFORMATION",
+   "URLContentType": "PublicationURL"
+  },
+  {
+   "Description": "This software (NASA NTR-49044) retrieves a set of atmospheric/surface/instrument parameters from a simultaneous fit to spectra from multiple absorption bands. The software uses an iterative, non-linear retrieval technique (optimal estimation). After the retrieval process has converged, the software performs an error analysis. The products of the software include all quantities needed to understand the information content of the measurement, its uncertainty, and its dependence on interfering atmospheric properties.\n\nJet Propulsion Laboratory, California Institute of Technology.\nCopyright 2016 California Institute of Technology.\nU.S. Government sponsorship acknowledged.",
+   "URL": "https://github.com/nasa/RtRetrievalFramework",
+   "Type": "DOWNLOAD SOFTWARE",
+   "URLContentType": "DistributionURL"
+  },
+  {
+   "Description": "Publications from the Science Team",
+   "URL": "https://ocov2.jpl.nasa.gov/science/publications/",
+   "Subtype": "GENERAL DOCUMENTATION",
+   "Type": "VIEW RELATED INFORMATION",
+   "URLContentType": "PublicationURL"
+  },
+  {
+   "Description": "OCO-2 Data Gaps",
+   "URL": "https://docserver.gesdisc.eosdis.nasa.gov/public/project/OCO/OCO_Known_Data_Issues.pdf",
+   "Subtype": "GENERAL DOCUMENTATION",
+   "Type": "VIEW RELATED INFORMATION",
+   "URLContentType": "PublicationURL"
+  },
+  {
+   "Description": "OCO Documentation",
+   "URL": "https://docserver.gesdisc.eosdis.nasa.gov/public/project/OCO/OCO-2-3_Documents.pdf",
+   "Subtype": "GENERAL DOCUMENTATION",
+   "Type": "VIEW RELATED INFORMATION",
+   "URLContentType": "PublicationURL"
+  },
+  {
+   "URL": "https://worldview.earthdata.nasa.gov/?l=Reference_Labels_15m(hidden),Reference_Features_15m(hidden),Coastlines_15m,OCO-2_Carbon_Dioxide_Global_Mean_Difference,OCO-2_Carbon_Dioxide_Total_Column_Average,OCI_PACE_True_Color(hidden),VIIRS_NOAA21_CorrectedReflectance_TrueColor(hidden),VIIRS_NOAA20_CorrectedReflectance_TrueColor(hidden),VIIRS_SNPP_CorrectedReflectance_TrueColor(hidden),MODIS_Aqua_CorrectedReflectance_TrueColor(hidden),MODIS_Terra_CorrectedReflectance_TrueColor&lg=true&t=2026-03-12-T14%3A51%3A57Z",
+   "Description": "Variable layers in Worldview for the dataset: Carbon Dioxide (Total Column Average), Carbon Dioxide (Difference from Global Mean) ",
+   "Subtype": "WORLDVIEW",
+   "Type": "GET RELATED VISUALIZATION",
+   "URLContentType": "VisualizationURL"
+  },
+  {
+   "URL": "https://worldview.earthdata.nasa.gov/?l=Reference_Labels_15m(hidden),Reference_Features_15m(hidden),Coastlines_15m,OCO-2_Water_Vapor_Total_Column_Average,OCI_PACE_True_Color(hidden),VIIRS_NOAA21_CorrectedReflectance_TrueColor(hidden),VIIRS_NOAA20_CorrectedReflectance_TrueColor(hidden),VIIRS_SNPP_CorrectedReflectance_TrueColor(hidden),MODIS_Aqua_CorrectedReflectance_TrueColor(hidden),MODIS_Terra_CorrectedReflectance_TrueColor&lg=true&t=2026-03-12-T14%3A51%3A57Z",
+   "Description": "Water Vapor (Total Column Average)",
+   "Subtype": "WORLDVIEW",
+   "Type": "GET RELATED VISUALIZATION",
+   "URLContentType": "VisualizationURL"
+  }
+ ],
+ "DataDates": [
+  {
+   "Date": "2022-05-01T00:00:00.000Z",
+   "Type": "CREATE"
+  },
+  {
+   "Date": "2022-05-01T00:00:00.000Z",
+   "Type": "UPDATE"
+  }
+ ],
+ "Abstract": "Version 11.2r is the current version of the data set. \n\nThe OCO-2 Lite files contain bias-corrected XCO2 along with other select fields aggregated as daily files.\n\nThe Orbiting Carbon Observatory is the first NASA mission designed to collect space-based measurements of atmospheric carbon dioxide with the precision, resolution, and coverage needed to characterize the processes controlling its buildup in the atmosphere. The OCO-2 project uses the LEOStar-2 spacecraft that carries a single instrument. It incorporates three high-resolution spectrometers that make coincident measurements of reflected sunlight in the near-infrared CO2 near 1.61 and 2.06 micrometers and in molecular oxygen (O2) A-Band at 0.76 micrometers.",
+ "LocationKeywords": [
+  {
+   "Category": "GEOGRAPHIC REGION",
+   "Type": "GLOBAL"
+  }
+ ],
+ "MetadataDates": [
+  {
+   "Date": "2022-05-05T00:00:00.000Z",
+   "Type": "CREATE"
+  },
+  {
+   "Date": "2022-12-30T00:00:00.000Z",
+   "Type": "REVIEW"
+  },
+  {
+   "Date": "2022-05-05T00:00:00.000Z",
+   "Type": "UPDATE"
+  }
+ ],
+ "Version": "11.2r",
+ "Projects": [
+  {
+   "ShortName": "OCO-2",
+   "LongName": "Orbiting Carbon Observatory-2"
+  }
+ ],
+ "UseConstraints": {
+  "Description": "The Earth Observing System Data and Information System (EOSDIS) data use and citation guidance for NASA data can be accessed at https://earthdata.nasa.gov/engage/open-data-services-software-policies/data-use-guidance. For information on how to properly cite and acknowledge data from the NASA GES DISC, refer to https://disc.gsfc.nasa.gov/data-guidelines."
+ },
+ "ContactPersons": [
+  {
+   "Roles": [
+    "Metadata Author"
+   ],
+   "FirstName": "KRISTAN",
+   "LastName": "MORGAN",
+   "ContactInformation": {
+    "Addresses": [
+     {
+      "StreetAddresses": [
+       "Distributed Active Archive Center Terrestrial Information Systems Laboratory",
+       "Code 610.2",
+       "NASA Goddard Space Flight Center"
+      ],
+      "City": "Greenbelt",
+      "StateProvince": "MD",
+      "PostalCode": "20771",
+      "Country": "USA"
+     }
+    ],
+    "ContactMechanisms": [
+     {
+      "Type": "Telephone",
+      "Value": "301-614-6513"
+     },
+     {
+      "Type": "Fax",
+      "Value": "301-614-5224"
+     },
+     {
+      "Type": "Email",
+      "Value": "kristan.l.morgan@nasa.gov"
+     }
+    ]
+   }
+  }
+ ],
+ "DataCenters": [
+  {
+   "Roles": [
+    "ARCHIVER"
+   ],
+   "ShortName": "NASA/GSFC/SED/ESD/TISL/GESDISC",
+   "LongName": "Goddard Earth Sciences Data and Information Services Center (formerly Goddard DAAC), Terrestrial Information Systems Laboratory, Earth Sciences Division, Science and Exploration Directorate, Goddard Space Flight Center, NASA",
+   "ContactInformation": {
+    "RelatedUrls": [
+     {
+      "URLContentType": "DataCenterURL",
+      "Type": "HOME PAGE",
+      "URL": "https://disc.gsfc.nasa.gov/",
+      "Description": "NASA GES DISC Website"
+     }
+    ]
+   },
+   "ContactGroups": [
+    {
+     "Roles": [
+      "Data Center Contact"
+     ],
+     "GroupName": "GES DISC HELP DESK SUPPORT GROUP",
+     "ContactInformation": {
+      "Addresses": [
+       {
+        "StreetAddresses": [
+         "Goddard Earth Sciences Data and Information Services Center",
+         "Code 610.2",
+         "NASA Goddard Space Flight Center"
+        ],
+        "City": "Greenbelt",
+        "StateProvince": "MD",
+        "PostalCode": "20771",
+        "Country": "USA"
+       }
+      ],
+      "ContactMechanisms": [
+       {
+        "Type": "Telephone",
+        "Value": "301-614-5224"
+       },
+       {
+        "Type": "Fax",
+        "Value": "301-614-5224"
+       },
+       {
+        "Type": "Email",
+        "Value": "gsfc-dl-help-disc@mail.nasa.gov"
+       }
+      ]
+     }
+    }
+   ]
+  }
+ ],
+ "Platforms": [
+  {
+   "Type": "Earth Observation Satellites",
+   "ShortName": "OCO-2",
+   "LongName": "Orbiting Carbon Observatory-2",
+   "Instruments": [
+    {
+     "ShortName": "OCO-2",
+     "LongName": "Orbiting Carbon Observatory - 2"
+    }
+   ]
+  }
+ ],
+ "MetadataSpecification": {
+  "URL": "https://cdn.earthdata.nasa.gov/umm/collection/v1.18.6",
+  "Name": "UMM-C",
+  "Version": "1.18.6"
+ },
+ "ArchiveAndDistributionInformation": {
+  "FileArchiveInformation": [
+   {
+    "AverageFileSize": 57,
+    "AverageFileSizeUnit": "MB",
+    "Format": "NetCDF",
+    "FormatType": "Native"
+   }
+  ]
+ }
+}

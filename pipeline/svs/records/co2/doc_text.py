@@ -14,6 +14,10 @@ METHOD = [
 ]
 
 LIMITS = [
+    "The decoded values do not reproduce the observed latitude gradient (check d, added 30 Oct): band means correlate "
+    "{g_rho_oco2} with OCO-2 Lite and {g_rho_ghg} with the GHG Center grid, and the north-minus-south difference is {g_ns_frame} ppm "
+    "in the frames against {g_ns_oco2} ppm in OCO-2 (same sign on {g_sign} of dates). Opacity-weighting along the view and the "
+    "white end (≤ {white_top} ppm, not invertible) bias band means toward the coloured plumes; values stay relative.",
     "Relative values from a model nature run; not measurements.",
     "Not invertible: {spans} ppm (the colorbar's white end, and a fold). Cells in the white end are stored as ≤ {white_top} ppm.",
     "Opacity below about 420 ppm is read from a checkerboard with cell-to-cell shading, so it is uncertain; it weights the "
@@ -22,7 +26,10 @@ LIMITS = [
 
 def slots(m, checks):
     a = checks["a_synthetic_round_trip"]["metrics"]
+    go, gg = checks["d_gradient_oco2"]["metrics"], checks["d_gradient_ghg"]["metrics"]
     return {"frames": m["frame_times"]["count"], "total": m["frame_times"]["of"], "ticks": ", ".join(t["text"] for t in m["colorbar"]["ticks"]),
             "plume": f"{m['decode']['plume_ppm']:.1f}", "iou": f"{next(iter(m['georef']['iou'].values())):.3f}",
             "best": "lower" if m["georef"]["best_is_assumed"] else "higher at least once",
-            "spans": ", ".join(f"{s[0]:.0f}–{s[1]:.0f}" for s in a["uncertain_spans_ppm"]), "white_top": f"{a['uncertain_spans_ppm'][0][1]:.0f}"}
+            "spans": ", ".join(f"{s[0]:.0f}–{s[1]:.0f}" for s in a["uncertain_spans_ppm"]), "white_top": f"{a['uncertain_spans_ppm'][0][1]:.0f}",
+            "g_rho_oco2": f"{go['spearman_band_means']:.2f}", "g_rho_ghg": f"{gg['spearman_band_means']:.2f}",
+            "g_ns_frame": f"{go['ns_frame_median']:+.1f}", "g_ns_oco2": f"{go['ns_source_median']:+.1f}", "g_sign": f"{go['ns_sign_agreement']:.0%}"}

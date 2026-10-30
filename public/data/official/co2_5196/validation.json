@@ -35,7 +35,7 @@
    "threshold": "every value within 1 % of the range (provisional)",
    "pass": true,
    "note": "Tests the decoding of a single colour per pixel; a volume render averages a column, which this cannot test.",
-   "run_utc": "2026-10-29T12:05:03Z"
+   "run_utc": "2026-10-30T11:27:09Z"
   },
   {
    "record": "co2_5196",
@@ -63,7 +63,7 @@
    "threshold": null,
    "pass": null,
    "note": "What the real atmosphere measured at one station then; the frames are a model nature run averaged along the view.",
-   "run_utc": "2026-10-29T12:05:05Z"
+   "run_utc": "2026-10-30T11:27:11Z"
   },
   {
    "record": "co2_5196",
@@ -88,8 +88,146 @@
    "threshold": null,
    "pass": null,
    "note": "Winter snow and sea ice are white like land, which lowers the IoU; the assumed bounds score best of all shifts.",
-   "run_utc": "2026-10-29T12:05:05Z"
+   "run_utc": "2026-10-30T11:27:11Z"
+  },
+  {
+   "record": "co2_5196",
+   "id": "d_gradient_oco2",
+   "title": "Latitude-band gradient (10° bands, 60° S – 60° N) vs OCO-2 Lite V11.2r, Jan–Mar 2020",
+   "kind": "context",
+   "source": "OCO-2 Lite V11.2r (C2912085112-GES_DISC), xco2_quality_flag 0",
+   "metrics": {
+    "spearman_band_means": -0.40997154857065427,
+    "n": 121,
+    "ns_frame_median": -4.885606583514459,
+    "ns_source_median": 4.686604817708314,
+    "ns_sign_agreement": 0.18181818181818182,
+    "rung": "independent satellite",
+    "bands": [
+     [
+      -60,
+      -50
+     ],
+     [
+      -50,
+      -40
+     ],
+     [
+      -40,
+      -30
+     ],
+     [
+      -30,
+      -20
+     ],
+     [
+      -20,
+      -10
+     ],
+     [
+      -10,
+      0
+     ],
+     [
+      0,
+      10
+     ],
+     [
+      10,
+      20
+     ],
+     [
+      20,
+      30
+     ],
+     [
+      30,
+      40
+     ],
+     [
+      40,
+      50
+     ],
+     [
+      50,
+      60
+     ]
+    ]
+   },
+   "threshold": null,
+   "pass": null,
+   "note": "Relative values (opacity-weighted along the view, white end excluded): band shape and the north-minus-south sign, not levels. DYAMOND runs free, so weather cannot match; bands can.",
+   "run_utc": "2026-10-30T11:27:11Z"
+  },
+  {
+   "record": "co2_5196",
+   "id": "d_gradient_ghg",
+   "title": "Latitude-band gradient (10° bands, 60° S – 60° N) vs US GHG Center oco2geos-co2-daygrid-v10r, Jan–Mar 2020",
+   "kind": "context",
+   "source": "US GHG Center oco2geos-co2-daygrid-v10r (CC0-1.0)",
+   "metrics": {
+    "spearman_band_means": -0.4126520325797143,
+    "n": 132,
+    "ns_frame_median": -4.885606583514459,
+    "ns_source_median": 4.758274095266813,
+    "ns_sign_agreement": 0.16666666666666666,
+    "rung": "different model assimilating OCO-2",
+    "bands": [
+     [
+      -60,
+      -50
+     ],
+     [
+      -50,
+      -40
+     ],
+     [
+      -40,
+      -30
+     ],
+     [
+      -30,
+      -20
+     ],
+     [
+      -20,
+      -10
+     ],
+     [
+      -10,
+      0
+     ],
+     [
+      0,
+      10
+     ],
+     [
+      10,
+      20
+     ],
+     [
+      20,
+      30
+     ],
+     [
+      30,
+      40
+     ],
+     [
+      40,
+      50
+     ],
+     [
+      50,
+      60
+     ]
+    ]
+   },
+   "threshold": null,
+   "pass": null,
+   "note": "Relative values (opacity-weighted along the view, white end excluded): band shape and the north-minus-south sign, not levels. DYAMOND runs free, so weather cannot match; bands can.",
+   "run_utc": "2026-10-30T11:27:11Z"
   }
  ],
- "updated_utc": "2026-10-29T12:05:05Z"
+ "updated_utc": "2026-10-30T11:27:11Z"
 }

@@ -6,7 +6,9 @@
     white end and a fold), with the whole-range numbers reported too;
 (b) context, not pixel truth: NOAA GML Mauna Loa monthly mean CO2 for the months of the frames, next to the frames'
     opacity-weighted ppm in Mauna Loa's cell ("what the real atmosphere measured at one station then");
-(c) georeference of the surface layer (decode.json).
+(c) georeference of the surface layer (decode.json);
+(d) added 30 Oct (report correction 2): the latitude-band gradient against OCO-2 Lite V11.2r and the GHG Center daily XCO2
+    grid (gradient.py; rules fixed there before reading). Independent satellite (OCO-2) and a model that assimilates it.
 Usage (from pipeline/): python -m svs.records.co2.validate"""
 import datetime as dt, json
 import numpy as np
@@ -77,6 +79,15 @@ def main():
               V.check(RECORD, "c_georef_surface", "Surface layer vs Natural Earth land (same SOS projection as the CO2 layer)", kind="context",
                       source="Natural Earth 1:50m land", passed=None, metrics={k: dec["georef"][k] for k in ("iou", "best_is_assumed", "shifted")},
                       note="Winter snow and sea ice are white like land, which lowers the IoU; the assumed bounds score best of all shifts.")]
+    gp = ROOT / "gradient.json"
+    if gp.exists():
+        gr = json.loads(gp.read_text(encoding="utf-8"))
+        for k, src, rung in (("oco2", "OCO-2 Lite V11.2r (C2912085112-GES_DISC), xco2_quality_flag 0", "independent satellite"),
+                             ("ghg", "US GHG Center oco2geos-co2-daygrid-v10r (CC0-1.0)", "different model assimilating OCO-2")):
+            checks.append(V.check(RECORD, f"d_gradient_{k}", f"Latitude-band gradient (10° bands, 60° S – 60° N) vs {src.split(' (')[0]}, Jan–Mar 2020",
+                                  kind="context", source=src, passed=None, metrics={**gr[k], "rung": rung, "bands": gr["bands"]},
+                                  note="Relative values (opacity-weighted along the view, white end excluded): band shape and the "
+                                       "north-minus-south sign, not levels. DYAMOND runs free, so weather cannot match; bands can."))
     V.save(RECORD, checks)
     say(f"(a) {s}; (b) {checks[1]['metrics']}")
 
