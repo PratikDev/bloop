@@ -24,7 +24,7 @@ from svs.config import raw_dir
 from . import MOVIE, SID
 
 ROOT = raw_dir(SID)
-STAR_MIN, SAT_MIN, SR, RING_MIN = 120, 0.35, 22050, 60
+STAR_MIN, SAT_MIN, SR, RING_MIN, RING_PEAK_PX = 120, 0.35, 22050, 60, 8
 
 def movie():
     return ROOT / "movie" / MOVIE.rsplit("/", 1)[1]
@@ -61,7 +61,18 @@ def stars(path, centre, scale):
     c = centre * scale
     r = np.hypot(xs - c[0], ys - c[1]); a = np.degrees(np.arctan2(ys - c[1], xs - c[0]))
     rmax = np.hypot(*img.shape[:2]) / 2
-    return {"x": xs, "y": ys, "r": r / rmax, "angle": a, "cls": cls, "brightness": v[ys, xs]}
+    area, flux = blobs(v, xs, ys)
+    return {"x": xs, "y": ys, "r": r / rmax, "angle": a, "cls": cls, "brightness": v[ys, xs], "area": area, "flux": flux}
+
+def blobs(v, xs, ys):
+    """Size of each star in the median frame (second reading of 'the radius of the stars', added 30 Oct): the connected
+    region of pixels ≥ STAR_MIN around its peak — area (px) and flux (sum of brightness above the frame's median). Stars
+    sharing a region (the crowded core) share its numbers."""
+    n, lab, st, _ = cv2.connectedComponentsWithStats((v >= STAR_MIN).astype(np.uint8), connectivity=8)
+    above = np.clip(v - np.median(v), 0, None)
+    flux_by = np.bincount(lab.ravel(), weights=above.ravel(), minlength=n)
+    k = lab[ys, xs]
+    return st[k, cv2.CC_STAT_AREA].astype(float), flux_by[k]
 
 def audio(path, fps, n_frames):
     import librosa
@@ -123,7 +134,8 @@ def rings(path, med_rgb, centre_px, line_angle):
             if prev is not None and prev[int(cy), int(cx)]: continue
             hue = float(np.median(hsv[lab == i][:, 0]) * 2)
             cls = "red/orange" if (hue < 50 or hue >= 330) else "blue" if 180 <= hue < 280 else "other"
-            out.append({"frame": int(k), "r": float(np.hypot(cx - centre_px[0], cy - centre_px[1]) / (np.hypot(*m.shape) / 2)), "cls": cls})
+            out.append({"frame": int(k), "r": float(np.hypot(cx - centre_px[0], cy - centre_px[1]) / (np.hypot(*m.shape) / 2)), "cls": cls,
+                        "x": float(cx), "y": float(cy)})
         prev = cv2.dilate(m, np.ones((9, 9), np.uint8)) > 0
     return out
 
@@ -146,7 +158,8 @@ def main():
         hit = (np.sign(rel) == np.sign(d)) & (np.abs(rel) <= abs(d)) & coloured
         if hit.sum() == 1 and np.isfinite(f0[k]):
             i = int(np.nonzero(hit)[0][0])
-            rows.append({"frame": k, "r": float(st["r"][i]), "cls": str(st["cls"][i]), "f0": float(f0[k]), "centroid": float(cent[k])})
+            rows.append({"frame": k, "r": float(st["r"][i]), "cls": str(st["cls"][i]), "f0": float(f0[k]), "centroid": float(cent[k]),
+                         "area": float(st["area"][i]), "flux": float(st["flux"][i])})
     r = np.array([x["r"] for x in rows]); f = np.array([x["f0"] for x in rows])
     from scipy import stats
     rho = float(stats.spearmanr(r, f).statistic) if len(r) >= 8 else None
@@ -172,7 +185,8 @@ def main():
             hit = np.nonzero((np.sign(rel) == np.sign(d)) & (np.abs(rel) <= abs(d)) & coloured)[0]
             for i in hit:
                 if best is None or st["brightness"][i] > st["brightness"][best]: best = i
-        if best is not None: pairs.append({"t": nt["t"], "f0": nt["f0"], "r": float(st["r"][best]), "cls": str(st["cls"][best])})
+        if best is not None: pairs.append({"t": nt["t"], "f0": nt["f0"], "r": float(st["r"][best]), "cls": str(st["cls"][best]),
+                                           "area": float(st["area"][best]), "flux": float(st["flux"][best])})
     pr, pf = np.array([x["r"] for x in pairs]), np.array([x["f0"] for x in pairs])
     out["onsets"] = {"notes": len(notes), "paired": len(pairs),
                      "spearman_f0_radius": float(stats.spearmanr(pr, pf).statistic) if len(pr) >= 8 else None,
@@ -197,9 +211,20 @@ def main():
                            if len(rr) >= 3 else None,
                     "by_class": {c: int(sum(1 for x in rp if x["cls"] == c)) for c in ("red/orange", "blue", "other")}, "pairs": rp,
                     "note": "Added after the first two analyses: the movie circles each star as it plays; these are its own markers."}
+    for x in rp:                                                   # the circled star: the detected peak nearest the ring's centre
+        j = int(np.argmin(np.hypot(st["x"] - x["x"], st["y"] - x["y"])))
+        x.update(area=float(st["area"][j]), flux=float(st["flux"][j]), peak_px=float(np.hypot(st["x"][j] - x["x"], st["y"][j] - x["y"])))
+    rp_near = [x for x in rp if x["peak_px"] <= RING_PEAK_PX]
+    rho_of = lambda xs, k: (float(stats.spearmanr([x[k] for x in xs], [x["f0"] for x in xs]).statistic), len(xs)) if len(xs) >= 8 else (None, len(xs))
+    out["size_test"] = {name: {"area": dict(zip(("spearman", "n"), rho_of(xs, "area"))), "flux": dict(zip(("spearman", "n"), rho_of(xs, "flux"))),
+                               "radius": dict(zip(("spearman", "n"), rho_of(xs, "r")))}
+                        for name, xs in (("single_star", rows), ("onset", pairs), ("ring", rp_near))}
+    out["size_test"]["note"] = ("Second reading of 'the radius of the stars' (star size), added 30 Oct after the report suggested it; the page's "
+                                "next words ('so stars farther from the center are higher pitched') describe distance from the centre.")
     (ROOT / "analysis.json").write_text(json.dumps(out, indent=1), encoding="utf-8")
     say(f"13786: centre {out['centre_px']}, {speed:.1f}°/s; {len(rows)} single-star crossings; Spearman f0~radius {rho}; fit {out['fit']}; {by}; "
         f"rings {out['rings']['rings']}, paired {out['rings']['paired']}, Spearman {out['rings']['spearman_f0_radius']}, fit {out['rings']['fit']}, {out['rings']['by_class']}; "
+        f"size test {out['size_test']}; "
         f"onsets {out['onsets']['notes']}, paired {out['onsets']['paired']}, Spearman {out['onsets']['spearman_f0_radius']}, fit {out['onsets']['fit']}, {out['onsets']['by_class']}")
 
 if __name__ == "__main__":

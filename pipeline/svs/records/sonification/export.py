@@ -25,6 +25,10 @@ def main():
               V.check(RECORD, "c_ring_pairing", "Pitch of each onset vs the radius of the star the movie circles as it plays",
                       kind="value", source=sources, passed=None,
                       metrics={k: a["rings"][k] for k in ("rings", "paired", "spearman_f0_radius", "fit", "by_class")}, note=a["rings"]["note"])]
+    st = a["size_test"]
+    checks.append(V.check(RECORD, "d_size_area_flux", "Pitch vs star SIZE (blob area and flux in the median frame), all three pairings",
+                          kind="value", source=sources, passed=None,
+                          metrics={k: st[k] for k in ("single_star", "onset", "ring")}, note=st["note"]))
     V.save(RECORD, checks)
     fit = {"source": "SVS 13786 Caldwell 73, measured by pipeline/svs/records/sonification/caldwell.py", "centre_px": a["centre_px"],
            "angular_speed_deg_s": a["angular_speed_deg_s"], "radius_unit": a["fit"]["radius_unit"],

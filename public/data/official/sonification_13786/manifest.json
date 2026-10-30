@@ -87,12 +87,19 @@
    "kind": "value",
    "pass": null,
    "threshold": null
+  },
+  {
+   "id": "d_size_area_flux",
+   "title": "Pitch vs star SIZE (blob area and flux in the median frame), all three pairings",
+   "kind": "value",
+   "pass": null,
+   "threshold": null
   }
  ],
  "size": {
   "choice": {},
   "tried": [],
-  "bytes": 7192,
+  "bytes": 8802,
   "budget": 25000000
  },
  "asset_checksums": {
@@ -100,6 +107,6 @@
   "rows": 1,
   "sha256_of_list": "9b6ba0a4af094bfeaba501b2079bbe2ccf5bc09687caf131b039e89f54f799d8"
  },
- "code_commit": "3f0625073842d77289920060eb231ea87561a596-dirty",
- "generated_utc": "2026-10-29T12:31:28Z"
+ "code_commit": "b2727c5f73634eb004c1a452804f2b38a8fabe56-dirty",
+ "generated_utc": "2026-10-30T10:45:54Z"
 }
