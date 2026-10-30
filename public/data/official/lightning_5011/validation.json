@@ -31,236 +31,332 @@
       "window": "2017-03-01",
       "Bangladesh": {
        "frames": 3.0,
-       "lis": 30
+       "lis": 30,
+       "view_h": 16.969922230123647,
+       "lis_rate_per_h": 1.7678336761465179
       },
       "Congo basin": {
        "frames": 117.0,
-       "lis": 2261
+       "lis": 2261,
+       "view_h": 123.67784440486588,
+       "lis_rate_per_h": 18.281366487909494
       },
       "Lake Maracaibo": {
        "frames": 1.0,
-       "lis": 7
+       "lis": 7,
+       "view_h": 3.291477777020385,
+       "lis_rate_per_h": 2.126704317699134
       },
       "Himalayan foothills": {
        "frames": 44.0,
-       "lis": 83
+       "lis": 83,
+       "view_h": 94.07948890666167,
+       "lis_rate_per_h": 0.8822326839205741
       }
      },
      {
       "window": "2017-09-29",
       "Bangladesh": {
        "frames": 4.0,
-       "lis": 188
+       "lis": 188,
+       "view_h": 19.726288874085164,
+       "lis_rate_per_h": 9.530429225690774
       },
       "Congo basin": {
        "frames": 67.0,
-       "lis": 1404
+       "lis": 1404,
+       "view_h": 132.5109889297808,
+       "lis_rate_per_h": 10.595347686552975
       },
       "Lake Maracaibo": {
        "frames": 2.0,
-       "lis": 90
+       "lis": 90,
+       "view_h": 3.246799997492797,
+       "lis_rate_per_h": 27.719600859153218
       },
       "Himalayan foothills": {
        "frames": 3.0,
-       "lis": 15
+       "lis": 15,
+       "view_h": 99.45593333328142,
+       "lis_rate_per_h": 0.15082056441755273
       }
      },
      {
       "window": "2018-04-29",
       "Bangladesh": {
        "frames": 7.0,
-       "lis": 1944
+       "lis": 1944,
+       "view_h": 19.36812220654554,
+       "lis_rate_per_h": 100.37111389884853
       },
       "Congo basin": {
        "frames": 72.0,
-       "lis": 1400
+       "lis": 1400,
+       "view_h": 124.24658892669818,
+       "lis_rate_per_h": 11.267914975323457
       },
       "Lake Maracaibo": {
        "frames": 1.0,
-       "lis": 74
+       "lis": 74,
+       "view_h": 3.342366664318575,
+       "lis_rate_per_h": 22.14000061393227
       },
       "Himalayan foothills": {
        "frames": 29.0,
-       "lis": 634
+       "lis": 634,
+       "view_h": 96.83953337871986,
+       "lis_rate_per_h": 6.546913000092163
       }
      },
      {
       "window": "2018-11-27",
       "Bangladesh": {
        "frames": 0.0,
-       "lis": 0
+       "lis": 0,
+       "view_h": 19.93501113520935,
+       "lis_rate_per_h": 0.0
       },
       "Congo basin": {
        "frames": 26.0,
-       "lis": 1320
+       "lis": 1320,
+       "view_h": 126.16062227503915,
+       "lis_rate_per_h": 10.462852641312326
       },
       "Lake Maracaibo": {
        "frames": 0.0,
-       "lis": 1
+       "lis": 1,
+       "view_h": 3.046544447394295,
+       "lis_rate_per_h": 0.3282407387344368
       },
       "Himalayan foothills": {
        "frames": 2.0,
-       "lis": 0
+       "lis": 0,
+       "view_h": 100.65636667178737,
+       "lis_rate_per_h": 0.0
       }
      },
      {
       "window": "2019-06-27",
       "Bangladesh": {
        "frames": 0.0,
-       "lis": 144
+       "lis": 144,
+       "view_h": 19.095244455598294,
+       "lis_rate_per_h": 7.541144620318409
       },
       "Congo basin": {
        "frames": 31.0,
-       "lis": 730
+       "lis": 730,
+       "view_h": 135.01365557338423,
+       "lis_rate_per_h": 5.406860490516989
       },
       "Lake Maracaibo": {
        "frames": 2.0,
-       "lis": 1
+       "lis": 1,
+       "view_h": 3.6741222293074762,
+       "lis_rate_per_h": 0.2721738520355342
       },
       "Himalayan foothills": {
        "frames": 28.0,
-       "lis": 563
+       "lis": 563,
+       "view_h": 97.8992333313947,
+       "lis_rate_per_h": 5.750811123251719
       }
      },
      {
       "window": "2020-01-25",
       "Bangladesh": {
        "frames": 1.0,
-       "lis": 6
+       "lis": 6,
+       "view_h": 22.60215556586989,
+       "lis_rate_per_h": 0.2654614062147341
       },
       "Congo basin": {
        "frames": 44.0,
-       "lis": 867
+       "lis": 867,
+       "view_h": 141.4631777430326,
+       "lis_rate_per_h": 6.128803366589875
       },
       "Lake Maracaibo": {
        "frames": 0.0,
-       "lis": 3
+       "lis": 3,
+       "view_h": 2.8730444613202577,
+       "lis_rate_per_h": 1.044188504699089
       },
       "Himalayan foothills": {
        "frames": 10.0,
-       "lis": 28
+       "lis": 28,
+       "view_h": 97.58025560075417,
+       "lis_rate_per_h": 0.2869432942926581
       }
      },
      {
       "window": "2020-08-24",
       "Bangladesh": {
        "frames": 10.0,
-       "lis": 69
+       "lis": 69,
+       "view_h": 20.76343335689563,
+       "lis_rate_per_h": 3.323149828546289
       },
       "Congo basin": {
        "frames": 35.0,
-       "lis": 1456
+       "lis": 1456,
+       "view_h": 146.9802555940321,
+       "lis_rate_per_h": 9.906092448373172
       },
       "Lake Maracaibo": {
        "frames": 2.0,
-       "lis": 18
+       "lis": 18,
+       "view_h": 2.1492222211137415,
+       "lis_rate_per_h": 8.375122787755414
       },
       "Himalayan foothills": {
        "frames": 19.0,
-       "lis": 101
+       "lis": 101,
+       "view_h": 101.94551111024907,
+       "lis_rate_per_h": 0.9907253286588896
       }
      },
      {
       "window": "2021-03-24",
       "Bangladesh": {
        "frames": 4.0,
-       "lis": 102
+       "lis": 102,
+       "view_h": 22.59917776344551,
+       "lis_rate_per_h": 4.51343854487425
       },
       "Congo basin": {
        "frames": 81.0,
-       "lis": 1305
+       "lis": 1305,
+       "view_h": 140.787122179276,
+       "lis_rate_per_h": 9.26931369715928
       },
       "Lake Maracaibo": {
        "frames": 0.0,
-       "lis": 16
+       "lis": 16,
+       "view_h": 3.0516555553923053,
+       "lis_rate_per_h": 5.243055682260025
       },
       "Himalayan foothills": {
        "frames": 16.0,
-       "lis": 23
+       "lis": 23,
+       "view_h": 103.84434450546694,
+       "lis_rate_per_h": 0.22148534048273716
       }
      },
      {
       "window": "2021-10-22",
       "Bangladesh": {
        "frames": 0.0,
-       "lis": 25
+       "lis": 25,
+       "view_h": 24.138033343383835,
+       "lis_rate_per_h": 1.0357098958458613
       },
       "Congo basin": {
        "frames": 82.0,
-       "lis": 1933
+       "lis": 1933,
+       "view_h": 138.28782225544876,
+       "lis_rate_per_h": 13.978092708910504
       },
       "Lake Maracaibo": {
        "frames": 0.0,
-       "lis": 73
+       "lis": 73,
+       "view_h": 4.899444446216027,
+       "lis_rate_per_h": 14.899648480835388
       },
       "Himalayan foothills": {
        "frames": 0.0,
-       "lis": 496
+       "lis": 496,
+       "view_h": 115.56818886547453,
+       "lis_rate_per_h": 4.291838479681997
       }
      },
      {
       "window": "2022-05-22",
       "Bangladesh": {
        "frames": 6.0,
-       "lis": 185
+       "lis": 185,
+       "view_h": 20.647844469485182,
+       "lis_rate_per_h": 8.959773029741958
       },
       "Congo basin": {
        "frames": 59.0,
-       "lis": 828
+       "lis": 828,
+       "view_h": 149.53332213279066,
+       "lis_rate_per_h": 5.537227342977828
       },
       "Lake Maracaibo": {
        "frames": 1.0,
-       "lis": 150
+       "lis": 150,
+       "view_h": 4.022022222508159,
+       "lis_rate_per_h": 37.29467210811656
       },
       "Himalayan foothills": {
        "frames": 26.0,
-       "lis": 509
+       "lis": 509,
+       "view_h": 109.8370111852429,
+       "lis_rate_per_h": 4.634139207789974
       }
      },
      {
       "window": "2022-12-20",
       "Bangladesh": {
        "frames": 0.0,
-       "lis": 0
+       "lis": 0,
+       "view_h": 20.68221108439689,
+       "lis_rate_per_h": 0.0
       },
       "Congo basin": {
        "frames": 42.0,
-       "lis": 599
+       "lis": 599,
+       "view_h": 121.51586667633718,
+       "lis_rate_per_h": 4.929397422605417
       },
       "Lake Maracaibo": {
        "frames": 3.0,
-       "lis": 0
+       "lis": 0,
+       "view_h": 3.8072555604349407,
+       "lis_rate_per_h": 0.0
       },
       "Himalayan foothills": {
        "frames": 4.0,
-       "lis": 0
+       "lis": 0,
+       "view_h": 107.37391108548475,
+       "lis_rate_per_h": 0.0
       }
      },
      {
       "window": "2023-07-21",
       "Bangladesh": {
        "frames": 0.0,
-       "lis": 77
+       "lis": 77,
+       "view_h": 21.23995554547136,
+       "lis_rate_per_h": 3.6252429923949356
       },
       "Congo basin": {
        "frames": 12.0,
-       "lis": 1750
+       "lis": 1750,
+       "view_h": 142.6735000027737,
+       "lis_rate_per_h": 12.2657676440683
       },
       "Lake Maracaibo": {
        "frames": 0.0,
-       "lis": 186
+       "lis": 186,
+       "view_h": 3.7534555662361284,
+       "lis_rate_per_h": 49.55433645549084
       },
       "Himalayan foothills": {
        "frames": 3.0,
-       "lis": 804
+       "lis": 804,
+       "view_h": 104.16293332971425,
+       "lis_rate_per_h": 7.718676637638865
       }
      }
     ]
    },
    "threshold": "Spearman ≥ 0.6 per region (provisional)",
    "pass": false,
-   "note": "Frame dates come from the seasonal-anchor model (approximate); a window is the frames dated inside it.",
-   "run_utc": "2026-10-29T11:30:00Z"
+   "note": "Frame dates come from the seasonal-anchor model (approximate); a window is the frames dated inside it. The SVS page lists ISS LIS Science Data V1; this uses V3 (isslis_v3_fin, DOI 10.5067/LIS/ISSLIS/DATA114), Mar 2017 – 31 Jul 2023.",
+   "run_utc": "2026-10-30T11:13:01Z"
   },
   {
    "record": "lightning_5011",
@@ -336,7 +432,7 @@
    "threshold": null,
    "pass": null,
    "note": "",
-   "run_utc": "2026-10-29T11:30:00Z"
+   "run_utc": "2026-10-30T11:13:01Z"
   },
   {
    "record": "lightning_5011",
@@ -351,7 +447,7 @@
    "threshold": null,
    "pass": null,
    "note": "Different years and sensors (TRMM LIS + OTD): a check of the global pattern, not of values.",
-   "run_utc": "2026-10-29T11:30:00Z"
+   "run_utc": "2026-10-30T11:13:01Z"
   },
   {
    "record": "lightning_5011",
@@ -456,7 +552,7 @@
    "threshold": null,
    "pass": null,
    "note": "",
-   "run_utc": "2026-10-29T11:30:00Z"
+   "run_utc": "2026-10-30T11:13:01Z"
   },
   {
    "record": "lightning_5011",
@@ -548,8 +644,205 @@
    "threshold": null,
    "pass": null,
    "note": "The movie has no date; times are approximate. A drawn mark lasts lifetime_frames; at the model's rate that is the window the picture shows, compared with the SVS text's 10 days.",
-   "run_utc": "2026-10-29T11:30:00Z"
+   "run_utc": "2026-10-30T11:13:01Z"
+  },
+  {
+   "record": "lightning_5011",
+   "id": "a2_region_rates_isslis",
+   "title": "Frame flash counts per region vs ISS LIS flash RATE (per hour of view time)",
+   "kind": "value",
+   "source": "ISS LIS V3 science flashes (isslis_v3_fin, GHRC DAAC)",
+   "metrics": {
+    "per_region": {
+     "Bangladesh": {
+      "spearman": 0.5858420071418652,
+      "n_windows": 12
+     },
+     "Congo basin": {
+      "spearman": 0.39860139860139865,
+      "n_windows": 12
+     },
+     "Lake Maracaibo": {
+      "spearman": -0.2282437110416744,
+      "n_windows": 12
+     },
+     "Himalayan foothills": {
+      "spearman": 0.3649122807017544,
+      "n_windows": 12
+     }
+    }
+   },
+   "threshold": "Spearman ≥ 0.6 per region (provisional, as (a))",
+   "pass": false,
+   "note": "Rates remove the ISS's uneven revisit, which counts do not.",
+   "run_utc": "2026-10-30T11:13:01Z"
+  },
+  {
+   "record": "lightning_5011",
+   "id": "b2_spatial_rates_isslis",
+   "title": "1° cell counts vs ISS LIS cell rates (≥ 60 s of view)",
+   "kind": "value",
+   "source": "ISS LIS V3 science flashes (isslis_v3_fin, GHRC DAAC)",
+   "metrics": {
+    "median_spearman": 0.16685020021256325,
+    "per_window": [
+     {
+      "window": "2017-03-01",
+      "spearman": 0.7269391372006534,
+      "n_cells": 36000
+     },
+     {
+      "window": "2017-09-29",
+      "spearman": 0.19133336715484303,
+      "n_cells": 36000
+     },
+     {
+      "window": "2018-04-29",
+      "spearman": 0.14695430394220813,
+      "n_cells": 36000
+     },
+     {
+      "window": "2018-11-27",
+      "spearman": 0.18158548291388243,
+      "n_cells": 36000
+     },
+     {
+      "window": "2019-06-27",
+      "spearman": 0.1639074005659878,
+      "n_cells": 36000
+     },
+     {
+      "window": "2020-01-25",
+      "spearman": 0.1561631366526456,
+      "n_cells": 36000
+     },
+     {
+      "window": "2020-08-24",
+      "spearman": 0.16499904489998912,
+      "n_cells": 36000
+     },
+     {
+      "window": "2021-03-24",
+      "spearman": 0.14861957517009122,
+      "n_cells": 36000
+     },
+     {
+      "window": "2021-10-22",
+      "spearman": 0.1905614613402322,
+      "n_cells": 36000
+     },
+     {
+      "window": "2022-05-22",
+      "spearman": 0.16870135552513735,
+      "n_cells": 36000
+     },
+     {
+      "window": "2022-12-20",
+      "spearman": 0.2296453530002405,
+      "n_cells": 36000
+     },
+     {
+      "window": "2023-07-21",
+      "spearman": 0.1500059451868583,
+      "n_cells": 36000
+     }
+    ]
+   },
+   "threshold": null,
+   "pass": null,
+   "note": "",
+   "run_utc": "2026-10-30T11:13:01Z"
+  },
+  {
+   "record": "lightning_5011",
+   "id": "f_gap_60_90E",
+   "title": "Does the QC ISS LIS record share the 60–90°E gap of the NRT plots?",
+   "kind": "context",
+   "source": "ISS LIS V3 science flashes (isslis_v3_fin, GHRC DAAC)",
+   "metrics": {
+    "median_view_ratio": 1.0028373698379278,
+    "rule": "shares the gap if < 0.5",
+    "shares_gap": false,
+    "per_window": [
+     {
+      "window": "2017-03-01",
+      "view_ratio": 0.9928810611816787,
+      "flash_ratio": 0.1988687109258708,
+      "view_h_60_90E": 2702.254744715053
+     },
+     {
+      "window": "2017-09-29",
+      "view_ratio": 1.000186153548029,
+      "flash_ratio": 0.8535378525482434,
+      "view_h_60_90E": 2908.6848557582603
+     },
+     {
+      "window": "2018-04-29",
+      "view_ratio": 1.0022236111985583,
+      "flash_ratio": 0.8432219069939558,
+      "view_h_60_90E": 2832.012089129763
+     },
+     {
+      "window": "2018-11-27",
+      "view_ratio": 1.0050086360493766,
+      "flash_ratio": 0.089157952669235,
+      "view_h_60_90E": 2941.5186891340218
+     },
+     {
+      "window": "2019-06-27",
+      "view_ratio": 1.006986821301816,
+      "flash_ratio": 1.055659121171771,
+      "view_h_60_90E": 3096.4103224370815
+     },
+     {
+      "window": "2020-01-25",
+      "view_ratio": 1.0069619291466974,
+      "flash_ratio": 0.16419213973799127,
+      "view_h_60_90E": 3060.1384337101317
+     },
+     {
+      "window": "2020-08-24",
+      "view_ratio": 1.0000475106117996,
+      "flash_ratio": 0.5339389351501388,
+      "view_h_60_90E": 3096.297555781299
+     },
+     {
+      "window": "2021-03-24",
+      "view_ratio": 0.989206991506119,
+      "flash_ratio": 0.8767873440827503,
+      "view_h_60_90E": 3042.8277448219515
+     },
+     {
+      "window": "2021-10-22",
+      "view_ratio": 1.0130831880632174,
+      "flash_ratio": 0.8036558462023322,
+      "view_h_60_90E": 3407.9933448954794
+     },
+     {
+      "window": "2022-05-22",
+      "view_ratio": 1.00824302960403,
+      "flash_ratio": 0.8921095008051529,
+      "view_h_60_90E": 3337.94830056467
+     },
+     {
+      "window": "2022-12-20",
+      "view_ratio": 1.001225845128298,
+      "flash_ratio": 0.2419672131147541,
+      "view_h_60_90E": 2940.7484001797
+     },
+     {
+      "window": "2023-07-21",
+      "view_ratio": 1.0034511284772976,
+      "flash_ratio": 0.9033135905234513,
+      "view_h_60_90E": 3033.1854778768434
+     }
+    ]
+   },
+   "threshold": null,
+   "pass": null,
+   "note": "View seconds and flashes in 60–90°E over the mean of the neighbouring 30° bands (|lat| ≤ 50°).",
+   "run_utc": "2026-10-30T11:13:01Z"
   }
  ],
- "updated_utc": "2026-10-29T11:30:00Z"
+ "updated_utc": "2026-10-30T11:13:01Z"
 }

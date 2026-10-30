@@ -908,6 +908,27 @@
    "kind": "context",
    "pass": null,
    "threshold": null
+  },
+  {
+   "id": "a2_region_rates_isslis",
+   "title": "Frame flash counts per region vs ISS LIS flash RATE (per hour of view time)",
+   "kind": "value",
+   "pass": false,
+   "threshold": "Spearman ≥ 0.6 per region (provisional, as (a))"
+  },
+  {
+   "id": "b2_spatial_rates_isslis",
+   "title": "1° cell counts vs ISS LIS cell rates (≥ 60 s of view)",
+   "kind": "value",
+   "pass": null,
+   "threshold": null
+  },
+  {
+   "id": "f_gap_60_90E",
+   "title": "Does the QC ISS LIS record share the 60–90°E gap of the NRT plots?",
+   "kind": "context",
+   "pass": null,
+   "threshold": null
   }
  ],
  "size": {
@@ -924,7 +945,7 @@
     "estimated_bytes": 461641
    }
   ],
-  "bytes": 509497,
+  "bytes": 519489,
   "budget": 25000000
  },
  "asset_checksums": {
@@ -932,6 +953,6 @@
   "rows": 1,
   "sha256_of_list": "992c6d96b5dc425a856c8846de972ef939e448f71798d57faef3189511b3de19"
  },
- "code_commit": "ce12e06a6d3a9a4df5a18583c910db333ff3ef35-dirty",
- "generated_utc": "2026-10-29T13:15:58Z"
+ "code_commit": "550e6c8b62e54b8414e64b6ee9ac2bf550599560-dirty",
+ "generated_utc": "2026-10-30T11:13:36Z"
 }
