@@ -2,7 +2,7 @@
 mapping from every SVS ID to the record that covers it (public/data/official/*/manifest.json svs_ids). Used by the
 completeness test and the weekly watch."""
 import json, re
-from .config import CACHE, LINKS_DOC, PUBLIC_OFFICIAL
+from .config import CACHE, LINKS_DOC, PUBLIC_OFFICIAL, PUBLIC_RELATED, REPO
 
 def official_rows():
     """[(svs_id or 'EIC-DB', title, link)] from the table under '## Official resources'."""
@@ -22,12 +22,19 @@ def eic_class_a():
     return [r["id"] for r in inv["items"] if r["class"] == "A"]
 
 def records():
-    """{svs_id: manifest} for every official record (a record lists every SVS ID it is built from)."""
+    """{svs_id: manifest} for every official record, then every related record (a record lists every SVS ID it is built
+    from). A related ID moved into the official table on the day is covered by its related record: promotion is one line."""
     out = {}
-    for p in sorted(PUBLIC_OFFICIAL.glob("*/manifest.json")):
+    for p in [*sorted(PUBLIC_OFFICIAL.glob("*/manifest.json")), *sorted(PUBLIC_RELATED.glob("rel_*/manifest.json"))]:
         m = json.loads(p.read_text(encoding="utf-8"))
         for sid in m["svs_ids"]: out.setdefault(sid, m)
     return out
+
+def doc_for(sid):
+    """docs/official/<id>.md, or docs/related/<id>.md for an item onboarded as related."""
+    for d in (REPO / "docs" / "official", REPO / "docs" / "related"):
+        if (d / f"{sid}.md").exists(): return d / f"{sid}.md"
+    return None
 
 SVS_ID_RX = re.compile(r"svs\.gsfc\.nasa\.gov/(?:(\d{4,5})(?=[/\"'\s?#]|$)|vis/a\d{6}/a\d{6}/a0*(\d+)/)")
 

@@ -179,10 +179,11 @@ def _related_products():
     from pathlib import Path
     path = Path(__file__).resolve().parents[1] / "svs" / "cache" / "related_records.json"
     rows = json.loads(path.read_text(encoding="utf-8")) if path.exists() else []
-    return [Product(r["record"], f"{r['title']} (related)", (f"related/{r['record']}/manifest.json",), "static", "frame-paired",
-                    (D.RELATED_OBS if r["badge"] == "observation" else D.RELATED_MODEL,), credit=SVS_CREDIT.format(id=r["svs_id"]),
-                    disclosure=f"A related NASA visualization read back through its key ({r['status']}).",
-                    period_keys=("period.start", "period.end"), time_key="period.end") for r in rows]
+    return [Product(r["record"], f"{r['title']} (related)", (f"related/{r['record']}/manifest.json",), r.get("cadence", "static"), "frame-paired",
+                    (D.RELATED_OBS if r["badge"] == "observation" else D.RELATED_MODEL,), credit=r.get("credit") or SVS_CREDIT.format(id=r["svs_id"]),
+                    disclosure=r.get("disclosure") or f"A related NASA visualization read back through its key ({r['status']}).",
+                    module=r.get("module"), limit_days=r.get("limit_days"),
+                    period_keys=None if r.get("limit_days") else ("period.start", "period.end"), time_key="period.end") for r in rows]
 
 _ALL += _related_products()
 _ALL.append(Product("patterns_eic", "EIC patterns (pattern, not values)", ("official/patterns_eic/manifest.json",), "static", "context",

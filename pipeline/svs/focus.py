@@ -6,9 +6,10 @@ import re
 FOCUS = (("wildfires", r"wildfire|\bfire|burn(ed)? area|smoke"),
          ("air quality", r"air quality|pollut|PM ?2\.5|nitrogen dioxide|\bNO2\b|\bNOx\b|ozone|TEMPO|aerosol|carbon monoxide"),
          ("greenhouse gases", r"carbon dioxide|\bCO2\b|CO₂|methane|\bCH4\b|nitrous|\bN2O\b|greenhouse|ODIAC|OCO-?[23]|carbon (flux|budget)"),
+         ("other", r"temperature anomal|climate spiral|climate anomal|temperature graph"),     # climate vital signs: not one of the nine
          ("sea level", r"sea level|GMSL|altimet|SWOT|porthole"),
-         ("energy", r"night ?lights?|Black Marble|power (outage|loss)|electric"),
          ("disasters", r"hurricane|cyclone|typhoon|flood|landslide|disaster|tornado|outage|earthquake|tsunami|lightning|derecho"),
+         ("energy", r"night ?lights?|Black Marble|power (outage|loss)|electricity"),
          ("water resources", r"precipitation|\brain|snow|IMERG|GPM\b|atmospheric river|water vapo|groundwater|GRACE|soil moisture|drought|"
                              r"water (cycle|storage)|basin|river|salinity|ocean|current|sea surface|SST"),
          ("agriculture", r"crop|agricultur|farm|irrigat|cropland|NDVI|vegetation index"),
@@ -26,10 +27,15 @@ def words(rec):
     return " ".join([rec.get("title") or "", " ".join(map(str, rec.get("keywords") or [])),
                      " ".join(d.get("name") or "" for d in rec.get("datasets") or [])])
 
+def first(table, rec, default):
+    """The title decides when it names a theme; keywords and dataset names only when it does not (they are noisier)."""
+    for text in (rec.get("title") or "", words(rec)):
+        hit = next((k for k, rx in table if re.search(rx, text, re.I)), None)
+        if hit: return hit
+    return default
+
 def focus(rec):
-    t = words(rec)
-    return next((name for name, rx in FOCUS if re.search(rx, t, re.I)), "other")
+    return first(FOCUS, rec, "other")
 
 def official(rec):
-    t = words(rec)
-    return next((sid for sid, rx in OFFICIAL if re.search(rx, t, re.I)), None)
+    return first(OFFICIAL, rec, None)
