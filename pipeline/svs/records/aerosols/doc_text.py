@@ -12,6 +12,10 @@ METHOD = [
 ]
 
 LIMITS = [
+    "Same model first (added 30 Oct, report correction 8): against GEOS-FP tavg3_2d_aer_Nx — the model the frames were made "
+    "from — the type pattern agrees no better than against MERRA-2 (Spearman per type, GEOS-FP / MERRA-2: {same_vs_family}). "
+    "5572's label-free 2:1 frames (4 frames, Aug–Sep 2024) against GEOS-FP at their own times: {twin}. The weak dust and smoke "
+    "agreement is not a model mismatch: hue alone does not separate the types where they mix.",
     "The key has no numbers: density is relative, and the record never states an optical depth.",
     "Colours mix where types overlap and where a faint tint sits on the dark ocean; the hue rule assigns each pixel one type. "
     "The hand-label confusion check measures that error once {labels_needed} labels per class exist ({labels_now}).",
@@ -22,7 +26,11 @@ LIMITS = [
 def slots(m, checks):
     d = m["decode"]
     lab = checks.get("c_hand_labels", {}).get("metrics", {})
-    return {"size": "×".join(map(str, d["size"])), "keys": "; ".join(f"{t} {tuple(k['rgb'])}" for t, k in d["keys"].items()),
+    fp, mr = checks["a0_type_geosfp"]["metrics"]["per_type"], checks["a_type_merra2"]["metrics"]["per_type"]
+    tw = checks["a3_5572_type_geosfp"]["metrics"]["pooled"]
+    same_vs_family = "; ".join(f"{t} {fp[t]['spearman']:.2f} / {mr[t]['spearman']:.2f}" for t in fp)
+    twin = "; ".join(f"{t} {v['spearman']:.2f}" for t, v in tw.items())
+    return {"same_vs_family": same_vs_family, "twin": twin, "size": "×".join(map(str, d["size"])), "keys": "; ".join(f"{t} {tuple(k['rgb'])}" for t, k in d["keys"].items()),
             "precision": f"{next(iter(m['georef']['iou'].values())):.1%}", "best": "lower" if m["georef"]["best_is_assumed"] else "higher at least once",
             "c_floor": f"{d['floor']['chroma_p99']:.1f}", "l_floor": f"{d['floor']['light_p99']:.1f}",
             "shares": ", ".join(f"{t} {v:.1%}" for t, v in d["shares"].items()) + f", none {d['none_share']:.1%}",

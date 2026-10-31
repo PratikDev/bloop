@@ -783,6 +783,27 @@
    "kind": "value",
    "pass": null,
    "threshold": "≥ 200 labels per class before it runs"
+  },
+  {
+   "id": "a0_type_geosfp",
+   "title": "Aerosol type density per 1° cell vs GEOS-FP (same model) species AOD (19 Aug 2025 20:00 UTC)",
+   "kind": "model-vs-obs",
+   "pass": false,
+   "threshold": "Spearman ≥ 0.6 per type (provisional)"
+  },
+  {
+   "id": "b0_dominant_type_geosfp",
+   "title": "Dominant type per cell, frame vs GEOS-FP (same model) (cells where one species is ≥ 50 % of AOD)",
+   "kind": "model-vs-obs",
+   "pass": null,
+   "threshold": null
+  },
+  {
+   "id": "a3_5572_type_geosfp",
+   "title": "5572 label-free 2:1 frames: type density vs GEOS-FP species AOD at each frame's time, pooled",
+   "kind": "model-vs-obs",
+   "pass": false,
+   "threshold": "Spearman ≥ 0.6 per type (provisional)"
   }
  ],
  "size": {
@@ -790,7 +811,7 @@
    "cell_deg": 1.0
   },
   "tried": [],
-  "bytes": 88524,
+  "bytes": 94112,
   "budget": 25000000
  },
  "asset_checksums": {
@@ -798,6 +819,6 @@
   "rows": 3,
   "sha256_of_list": "49996a2bb05d32ecfcdf12b3cebb141ea04b619de0fc86448986f9d219a4a23f"
  },
- "code_commit": "ce12e06a6d3a9a4df5a18583c910db333ff3ef35-dirty",
- "generated_utc": "2026-10-29T13:16:02Z"
+ "code_commit": "04b71b4947bc82779cdafda6bc12bb3f50174dda-dirty",
+ "generated_utc": "2026-10-31T14:57:00Z"
 }

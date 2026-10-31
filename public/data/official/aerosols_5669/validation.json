@@ -39,8 +39,8 @@
    },
    "threshold": "Spearman ≥ 0.6 per type (provisional)",
    "pass": false,
-   "note": "Different model (MERRA-2 vs GEOS-FP) and no values in the key: a check of where each type is, not how much.",
-   "run_utc": "2026-10-29T11:29:44Z"
+   "note": "Same family, not the same model (MERRA-2 vs GEOS-FP); no values in the key: where each type is, not how much.",
+   "run_utc": "2026-10-31T14:56:27Z"
   },
   {
    "record": "aerosols_5669",
@@ -56,7 +56,7 @@
    "threshold": null,
    "pass": null,
    "note": "",
-   "run_utc": "2026-10-29T11:29:44Z"
+   "run_utc": "2026-10-31T14:56:27Z"
   },
   {
    "record": "aerosols_5669",
@@ -72,8 +72,190 @@
    "threshold": "≥ 200 labels per class before it runs",
    "pass": null,
    "note": "Pending labels: the labelling page is python -m svs.label_aerosols.",
-   "run_utc": "2026-10-29T11:29:44Z"
+   "run_utc": "2026-10-31T14:56:27Z"
+  },
+  {
+   "record": "aerosols_5669",
+   "id": "a0_type_geosfp",
+   "title": "Aerosol type density per 1° cell vs GEOS-FP (same model) species AOD (19 Aug 2025 20:00 UTC)",
+   "kind": "model-vs-obs",
+   "source": "GEOS-FP tavg3_2d_aer_Nx (NCCS archive), the 18:00–21:00 UTC mean of 19 Aug 2025; the same model",
+   "metrics": {
+    "per_type": {
+     "sea salt": {
+      "spearman": 0.44589168426656434,
+      "n_cells": 64800,
+      "frame_cells_with_type": 8112
+     },
+     "dust": {
+      "spearman": 0.15374812202196267,
+      "n_cells": 64800,
+      "frame_cells_with_type": 6827
+     },
+     "smoke": {
+      "spearman": 0.28131097018426504,
+      "n_cells": 64800,
+      "frame_cells_with_type": 2308
+     },
+     "sulfate": {
+      "spearman": 0.6760592054547686,
+      "n_cells": 64800,
+      "frame_cells_with_type": 28278
+     }
+    },
+    "species": {
+     "sea salt": "SSEXTTAU",
+     "dust": "DUEXTTAU",
+     "sulfate": "SUEXTTAU",
+     "smoke": "BCEXTTAU+OCEXTTAU"
+    },
+    "rung": "GEOS-FP (same model)"
+   },
+   "threshold": "Spearman ≥ 0.6 per type (provisional)",
+   "pass": false,
+   "note": "No values in the key: a check of where each type is, not how much.",
+   "run_utc": "2026-10-31T14:56:27Z"
+  },
+  {
+   "record": "aerosols_5669",
+   "id": "b0_dominant_type_geosfp",
+   "title": "Dominant type per cell, frame vs GEOS-FP (same model) (cells where one species is ≥ 50 % of AOD)",
+   "kind": "model-vs-obs",
+   "source": "GEOS-FP tavg3_2d_aer_Nx (NCCS archive), the 18:00–21:00 UTC mean of 19 Aug 2025; the same model",
+   "metrics": {
+    "agreement": 0.4251430103682517,
+    "n_cells": 22376,
+    "chance": 0.25,
+    "rung": "GEOS-FP (same model)"
+   },
+   "threshold": null,
+   "pass": null,
+   "note": "",
+   "run_utc": "2026-10-31T14:56:27Z"
+  },
+  {
+   "record": "aerosols_5669",
+   "id": "a3_5572_type_geosfp",
+   "title": "5572 label-free 2:1 frames: type density vs GEOS-FP species AOD at each frame's time, pooled",
+   "kind": "model-vs-obs",
+   "source": "GEOS-FP tavg3_2d_aer_Nx (NCCS archive); the same model",
+   "metrics": {
+    "pooled": {
+     "sea salt": {
+      "spearman": 0.536590942664051,
+      "n": 259200
+     },
+     "dust": {
+      "spearman": 0.16801554974803046,
+      "n": 259200
+     },
+     "smoke": {
+      "spearman": 0.3524444543244135,
+      "n": 259200
+     },
+     "sulfate": {
+      "spearman": 0.6489842675739537,
+      "n": 259200
+     }
+    },
+    "frames": [
+     {
+      "frame": 27,
+      "time": "2024-08-01T13:30Z",
+      "georef_precision": 0.9071695374431423,
+      "georef_best_is_assumed": true,
+      "sea salt": {
+       "spearman": 0.5528533999074582,
+       "n": 64800
+      },
+      "dust": {
+       "spearman": 0.16240493471632392,
+       "n": 64800
+      },
+      "smoke": {
+       "spearman": 0.3289790667013134,
+       "n": 64800
+      },
+      "sulfate": {
+       "spearman": 0.6678036002526507,
+       "n": 64800
+      }
+     },
+     {
+      "frame": 747,
+      "time": "2024-08-16T13:30Z",
+      "georef_precision": 0.8880475605847097,
+      "georef_best_is_assumed": true,
+      "sea salt": {
+       "spearman": 0.5545122424690349,
+       "n": 64800
+      },
+      "dust": {
+       "spearman": 0.10067258858133536,
+       "n": 64800
+      },
+      "smoke": {
+       "spearman": 0.41511818588116645,
+       "n": 64800
+      },
+      "sulfate": {
+       "spearman": 0.6873907938258895,
+       "n": 64800
+      }
+     },
+     {
+      "frame": 1467,
+      "time": "2024-08-31T13:30Z",
+      "georef_precision": 0.8824429102496018,
+      "georef_best_is_assumed": true,
+      "sea salt": {
+       "spearman": 0.5283606800588728,
+       "n": 64800
+      },
+      "dust": {
+       "spearman": 0.19862006176625566,
+       "n": 64800
+      },
+      "smoke": {
+       "spearman": 0.3223529310059506,
+       "n": 64800
+      },
+      "sulfate": {
+       "spearman": 0.6576611882554727,
+       "n": 64800
+      }
+     },
+     {
+      "frame": 2187,
+      "time": "2024-09-15T13:30Z",
+      "georef_precision": 0.8592249450687864,
+      "georef_best_is_assumed": true,
+      "sea salt": {
+       "spearman": 0.5207548958661459,
+       "n": 64800
+      },
+      "dust": {
+       "spearman": 0.23330813796414204,
+       "n": 64800
+      },
+      "smoke": {
+       "spearman": 0.33267101843612346,
+       "n": 64800
+      },
+      "sulfate": {
+       "spearman": 0.6314497946645402,
+       "n": 64800
+      }
+     }
+    ],
+    "key_max_rgb_difference_vs_5669": 0.0,
+    "rung": "GEOS-FP (same model)"
+   },
+   "threshold": "Spearman ≥ 0.6 per type (provisional)",
+   "pass": false,
+   "note": "frame k = 2024-08-01T00:00Z + k × 30 min (assumed linear)",
+   "run_utc": "2026-10-31T14:56:27Z"
   }
  ],
- "updated_utc": "2026-10-29T11:29:44Z"
+ "updated_utc": "2026-10-31T14:56:27Z"
 }
