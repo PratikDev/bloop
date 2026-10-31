@@ -1,0 +1,20 @@
+{
+ "record": "rel_4353",
+ "checks": [
+  {
+   "record": "rel_4353",
+   "id": "a_no_validation_source",
+   "title": "Aquarius Sea Surface Salinity 2011-2015: no validation source",
+   "kind": "none",
+   "source": null,
+   "metrics": {
+    "reason": "SMAP SSS 8-day (GIBS): no date covered ([])"
+   },
+   "threshold": null,
+   "pass": null,
+   "note": "SMAP SSS 8-day (GIBS): no date covered ([])",
+   "run_utc": "2026-10-31T17:57:43Z"
+  }
+ ],
+ "updated_utc": "2026-10-31T17:57:43Z"
+}

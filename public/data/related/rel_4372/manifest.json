@@ -1,0 +1,568 @@
+{
+ "record": "rel_4372",
+ "app_title": "IMERG Global Precipitation Rates (New Colorbar) (observation)",
+ "svs_ids": [
+  4372
+ ],
+ "title": "IMERG Global Precipitation Rates (New Colorbar)",
+ "svs_pages": [
+  "https://svs.gsfc.nasa.gov/4372/"
+ ],
+ "description": "This movie shows IMERG liquid and frozen precipitation for the period June, 2015, through September, 2015.This video is also available on our YouTube channel. || imerge.20447_print.jpg (1024x576) [178.9 KB] || imerge.20447_searchweb.png (320x180) [83.1 KB] || imerge.20447_thm.png (80x40) [7.0 KB] || flatcomposite (1920x1080) [0 Item(s)] || imerg_1080p30.webm (1920x1080) [23.8 MB] || imerg_1080p30.mp4 (1920x1080) [290.2 MB] || numbers_with_alpha (3600x1800) [0 Item(s)] || numbers_with_earth (3600x1800) [0 Item(s)] || dates_with_alpha (3600x1800) [0 Item(s)] || dates_with_earth (3600x1800) [0 Item(s)] || imerg_4372.pptx [292.4 MB] || imerg_4372.key [295.0 MB] || imerg_1080p30.mp4.hwshow || ",
+ "release_date": "2015-10-02T00:00:00-04:00",
+ "period": {
+  "start": "2015-10-02T04:00:00Z",
+  "end": "2015-10-02T04:00:00Z",
+  "label": "2 Oct 2015 – 2 Oct 2015"
+ },
+ "badge": "observation",
+ "credits_by_role": {
+  "Animator": [
+   "Horace Mitchell (NASA/GSFC)",
+   "Alex Kekesi (Global Science and Technology, Inc.)"
+  ],
+  "Scientist": [
+   "George Huffman (NASA/GSFC)",
+   "Gail Skofronick Jackson (NASA/GSFC)",
+   "Dalia B Kirschbaum (NASA/GSFC)"
+  ],
+  "Producer": [
+   "Ryan Fitzgibbons (USRA)",
+   "Rani Gran (NASA/GSFC)"
+  ]
+ },
+ "datasets": [
+  {
+   "name": "",
+   "common_name": "IMERG",
+   "platform": null,
+   "sensor": null,
+   "type": "Data Compilation",
+   "organizations": [
+    "NASA/GSFC"
+   ],
+   "description": "",
+   "credit": "",
+   "url": "http://pmm.nasa.gov/sites/default/files/document_files/IMERG_ATBD_V4.4.pdf",
+   "date_range": "5/31/2015 23:30 - 9/30/2014 23:30Z"
+  }
+ ],
+ "credit_line": "Visualization: NASA's Scientific Visualization Studio (SVS 4372) for the NASA Earth Information Center.",
+ "disclosure": "A related NASA visualization read back through its key (relative).",
+ "licence": "SVS: \"All of our content is in the public domain (unless otherwise noted), meaning that it is free to download, use, and redistribute for whatever purposes you see fit.\" (https://svs.gsfc.nasa.gov/help/, read 29 Oct 2026)",
+ "focus": "water resources",
+ "related_to": [
+  4960
+ ],
+ "frame_times": {
+  "method": "linear",
+  "approximate": true,
+  "count": 3,
+  "source": "undated"
+ },
+ "georef": {
+  "projection": "equirectangular (2:1)",
+  "bounds": [
+   -180,
+   -90,
+   180,
+   90
+  ],
+  "pass_at": 0.9,
+  "shifts_deg": [],
+  "iou": {
+   "land": 0.02526575559788277
+  },
+  "pass": false,
+  "best_is_assumed": false
+ },
+ "colorbar": {
+  "geometry": {
+   "x0": 23,
+   "x1": 416,
+   "band": [
+    29,
+    44
+   ],
+   "vertical": false,
+   "outline_rgb": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "image_size": [
+    90,
+    440
+   ]
+  },
+  "ticks": [],
+  "scale": "stated-range",
+  "fit": {
+   "a": 0.0,
+   "b": 0.002544529262086514
+  },
+  "notes": [
+   "OCR read []: too few increasing labels; the SVS text's range 0.0–1.0 is used, linear between the strip ends."
+  ],
+  "n_samples": 394,
+  "value_range": [
+   0.0,
+   1.0
+  ],
+  "opacity_varies": false
+ },
+ "colorbar_source": "page colorbar rainbarblack3.png (word labels: relative 0–1)",
+ "asset": {
+  "kind": "frames",
+  "owner": 4372,
+  "what": "numbers_with_alpha"
+ },
+ "twins": [
+  {
+   "id": 5650,
+   "title": "Near Real-Time Global Precipitation from the Global Precipitation Measurement Constellation",
+   "reason": "related; 2 title words shared",
+   "flat_sets": [
+    {
+     "layer": "annotated_flat",
+     "size": "2048×1024",
+     "frames": 900,
+     "url": "https://svs.gsfc.nasa.gov/vis/a000000/a005600/a005650/frames/2048x1024_2x1_30p/annotated_flat/"
+    },
+    {
+     "layer": "annotated_robinson",
+     "size": "2048×1024",
+     "frames": 900,
+     "url": "https://svs.gsfc.nasa.gov/vis/a000000/a005600/a005650/frames/2048x1024_2x1_30p/annotated_robinson/"
+    },
+    {
+     "layer": "composite",
+     "size": "2048×1024",
+     "frames": 914,
+     "url": "https://svs.gsfc.nasa.gov/vis/a000000/a005600/a005650/frames/2048x1024_2x1_30p/composite/"
+    },
+    {
+     "layer": "robinson",
+     "size": "2048×1024",
+     "frames": 1074,
+     "url": "https://svs.gsfc.nasa.gov/vis/a000000/a005600/a005650/frames/2048x1024_2x1_30p/robinson/"
+    },
+    {
+     "layer": "robinson",
+     "size": "3600×1800",
+     "frames": 4340,
+     "url": "https://svs.gsfc.nasa.gov/vis/a000000/a005600/a005650/frames/3600x1800_2x1_30p/robinson/"
+    }
+   ],
+   "flat_movies": [
+    {
+     "file": "annotated_flat_2048x1024.mp4",
+     "size": "2048×1024",
+     "url": "https://svs.gsfc.nasa.gov/vis/a000000/a005600/a005650/annotated_flat_2048x1024.mp4"
+    },
+    {
+     "file": "annotated_robinson_2048x1024.mp4",
+     "size": "2048×1024",
+     "url": "https://svs.gsfc.nasa.gov/vis/a000000/a005600/a005650/annotated_robinson_2048x1024.mp4"
+    },
+    {
+     "file": "flat_alpha_3600x1800.mp4",
+     "size": "3600×1800",
+     "url": "https://svs.gsfc.nasa.gov/vis/a000000/a005600/a005650/flat_alpha_3600x1800.mp4"
+    },
+    {
+     "file": "composite_3600x1800.mp4",
+     "size": "3600×1800",
+     "url": "https://svs.gsfc.nasa.gov/vis/a000000/a005600/a005650/composite_3600x1800.mp4"
+    },
+    {
+     "file": "robinson_3600x1800.mp4",
+     "size": "3600×1800",
+     "url": "https://svs.gsfc.nasa.gov/vis/a000000/a005600/a005650/robinson_3600x1800.mp4"
+    }
+   ],
+   "colorbars": [
+    "rainbarwhite2.png",
+    "rainbarblack2.png",
+    "snowbarwhite2.png",
+    "snowbarblack2.png"
+   ],
+   "colorbar_inherited": false
+  },
+  {
+   "id": 4382,
+   "title": "IMERG Precipitation and MERRA Winds",
+   "reason": "related; 2 title words shared",
+   "flat_sets": [
+    {
+     "layer": "winds_precip_earth",
+     "size": "3600×1800",
+     "frames": 1488,
+     "url": "https://svs.gsfc.nasa.gov/vis/a000000/a004300/a004382/frames/3600x1800_2x1_30p/winds_precip_earth/"
+    },
+    {
+     "layer": "winds_alpha",
+     "size": "3600×1800",
+     "frames": 1488,
+     "url": "https://svs.gsfc.nasa.gov/vis/a000000/a004300/a004382/frames/3600x1800_2x1_30p/winds_alpha/"
+    },
+    {
+     "layer": "winds_earth",
+     "size": "3600×1800",
+     "frames": 1488,
+     "url": "https://svs.gsfc.nasa.gov/vis/a000000/a004300/a004382/frames/3600x1800_2x1_30p/winds_earth/"
+    }
+   ],
+   "flat_movies": [],
+   "colorbars": [
+    "rainbarblack3.png",
+    "snowbarblack2.png"
+   ],
+   "colorbar_inherited": false
+  },
+  {
+   "id": 4369,
+   "title": "Painting the World with Water (New Colorbar)",
+   "reason": "related; 2 title words shared",
+   "flat_sets": [
+    {
+     "layer": "flatcomposite",
+     "size": "3600×1800",
+     "frames": 8000,
+     "url": "https://svs.gsfc.nasa.gov/vis/a000000/a004300/a004369/frames/3600x1800_2x1_30p/flatcomposite/"
+    },
+    {
+     "layer": "flatalpha",
+     "size": "3600×1800",
+     "frames": 8000,
+     "url": "https://svs.gsfc.nasa.gov/vis/a000000/a004300/a004369/frames/3600x1800_2x1_30p/flatalpha/"
+    }
+   ],
+   "flat_movies": [],
+   "colorbars": [
+    "rainbarblack2.png",
+    "rainbarwhite2.png",
+    "snowbarblack2.png",
+    "snowbarwhite2.png"
+   ],
+   "colorbar_inherited": false
+  },
+  {
+   "id": 4285,
+   "title": "Near Real-Time Global Precipitation from the Global Precipitation Measurement Constellation",
+   "reason": "related; 2 title words shared",
+   "flat_sets": [
+    {
+     "layer": "flatalpha",
+     "size": "3600×1800",
+     "frames": 346,
+     "url": "https://svs.gsfc.nasa.gov/vis/a000000/a004200/a004285/frames/3600x1800_2x1_30p/flatalpha/"
+    },
+    {
+     "layer": "flatcomposite",
+     "size": "3600×1800",
+     "frames": 346,
+     "url": "https://svs.gsfc.nasa.gov/vis/a000000/a004200/a004285/frames/3600x1800_2x1_30p/flatcomposite/"
+    }
+   ],
+   "flat_movies": [],
+   "colorbars": [
+    "snowbarwhite2.png",
+    "snowbarblack2.png",
+    "rainbarwhite2.png",
+    "rainbarblack2.png"
+   ],
+   "colorbar_inherited": false
+  },
+  {
+   "id": 4257,
+   "title": "IMERG Global Precipitation Rates",
+   "reason": "related; 4 title words shared",
+   "flat_sets": [
+    {
+     "layer": "numbers_with_alpha",
+     "size": "3600×1800",
+     "frames": 8782,
+     "url": "https://svs.gsfc.nasa.gov/vis/a000000/a004200/a004257/frames/3600x1800_2x1_30p/numbers_with_alpha/"
+    }
+   ],
+   "flat_movies": [],
+   "colorbars": [
+    "rainbarblack2.png",
+    "snowbarblack2.png"
+   ],
+   "colorbar_inherited": false
+  },
+  {
+   "id": 5478,
+   "title": "Science On a Sphere: IMERG Daily Precipitation Climatology (2001 - 2022)",
+   "reason": "search; 2 title words shared",
+   "flat_sets": [
+    {
+     "layer": "4096x2048_2x1_30p",
+     "size": "4096×2048",
+     "frames": 1000,
+     "url": "https://svs.gsfc.nasa.gov/vis/a000000/a005400/a005478/frames/4096x2048_2x1_30p/"
+    },
+    {
+     "layer": "2048x1024_2x1_30p",
+     "size": "2048×1024",
+     "frames": 1000,
+     "url": "https://svs.gsfc.nasa.gov/vis/a000000/a005400/a005478/frames/2048x1024_2x1_30p/"
+    }
+   ],
+   "flat_movies": [
+    {
+     "file": "IMERGdaily30_raw_v07.00416.edgefix_2048p30.mp4",
+     "size": "4096×2048",
+     "url": "https://svs.gsfc.nasa.gov/vis/a000000/a005400/a005478/IMERGdaily30_raw_v07.00416.edgefix_2048p30.mp4"
+    },
+    {
+     "file": "IMERGdaily30_2048x102430p_sos.mp4",
+     "size": "2048×1024",
+     "url": "https://svs.gsfc.nasa.gov/vis/a000000/a005400/a005478/IMERGdaily30_2048x102430p_sos.mp4"
+    },
+    {
+     "file": "IMERGdaily30_4096x204830p_sos.mp4",
+     "size": "4096×2048",
+     "url": "https://svs.gsfc.nasa.gov/vis/a000000/a005400/a005478/IMERGdaily30_4096x204830p_sos.mp4"
+    },
+    {
+     "file": "IMERGdaily30_raw_v07.00416.edgefix_2048p30.mp4",
+     "size": "4096×2048",
+     "url": "https://svs.gsfc.nasa.gov/vis/a000000/a005400/a005478/IMERGdaily30_raw_v07.00416.edgefix_2048p30.mp4"
+    }
+   ],
+   "colorbars": [
+    "IMERGclim_cbaronly.png"
+   ],
+   "colorbar_inherited": false
+  },
+  {
+   "id": 5254,
+   "title": "IMERG Daily Precipitation Climatology (2001 - 2022)",
+   "reason": "search; 2 title words shared",
+   "flat_sets": [
+    {
+     "layer": "raw",
+     "size": "4096×2048",
+     "frames": 1000,
+     "url": "https://svs.gsfc.nasa.gov/vis/a000000/a005200/a005254/frames/4096x2048_2x1_30p/raw/"
+    }
+   ],
+   "flat_movies": [
+    {
+     "file": "IMERGdaily30_raw_v07.00416.edgefix_2048p30.mp4",
+     "size": "4096×2048",
+     "url": "https://svs.gsfc.nasa.gov/vis/a000000/a005200/a005254/IMERGdaily30_raw_v07.00416.edgefix_2048p30.mp4"
+    },
+    {
+     "file": "IMERGdaily30_raw_v07.00416.edgefix_2048p30.mp4",
+     "size": "4096×2048",
+     "url": "https://svs.gsfc.nasa.gov/vis/a000000/a005200/a005254/IMERGdaily30_raw_v07.00416.edgefix_2048p30.mp4"
+    },
+    {
+     "file": "IMERGdaily30_raw_v05_2024-03-27_1635_2048p30.webm",
+     "size": "4096×2048",
+     "url": "https://svs.gsfc.nasa.gov/vis/a000000/a005200/a005254/IMERGdaily30_raw_v05_2024-03-27_1635_2048p30.webm"
+    }
+   ],
+   "colorbars": [
+    "IMERGclim_cbaronly.png",
+    "IMERGclim_cbaronly_print.jpg"
+   ],
+   "colorbar_inherited": false
+  }
+ ],
+ "decode": {
+  "mode": "exact",
+  "decoded_share": 0.04985087448559671
+ },
+ "layers": [
+  {
+   "id": "value",
+   "unit": "relative (0–1)",
+   "encoding": "linear",
+   "scale": 0.0002538071065989848,
+   "offset": 0.04325699806213379,
+   "nodata": 65535,
+   "below": 65534,
+   "grid": {
+    "width": 360,
+    "height": 180,
+    "bounds": [
+     -180,
+     -90,
+     180,
+     90
+    ],
+    "row0": "north",
+    "col0": "west",
+    "byte_order": "little"
+   },
+   "times": [
+    "2015-10-02T04:00:00Z",
+    "2015-10-02T04:00:00Z",
+    "2015-10-02T04:00:00Z"
+   ],
+   "chunks": [
+    {
+     "file": "value_000.u16.gz",
+     "t0": 0,
+     "t1": 3,
+     "bytes": 20826
+    }
+   ],
+   "quantisation_step": 0.0002538071065989848,
+   "coverage": 0.04233024691358025,
+   "value_range": [
+    0.04325699806213379,
+    0.9669209718704224
+   ],
+   "label": "IMERG Global Precipitation Rates (New Colorbar) (relative)",
+   "aggregation": "mean of decoded pixels per cell",
+   "time_labels": [
+    "undated",
+    "undated",
+    "undated"
+   ],
+   "display": {
+    "colours": [
+     "#000000",
+     "#3a3d48",
+     "#008114",
+     "#008114",
+     "#008114",
+     "#008b52",
+     "#008b52",
+     "#00a939",
+     "#00b330",
+     "#00b330",
+     "#60d300",
+     "#60d300",
+     "#60d300",
+     "#b4e700",
+     "#b4e700",
+     "#b4e700",
+     "#fffb00",
+     "#fffb00",
+     "#fffb00",
+     "#ffc400",
+     "#ffc400",
+     "#ffc400",
+     "#ff9300",
+     "#ff9300",
+     "#ff6d00",
+     "#ff0000",
+     "#ff0000",
+     "#c80000",
+     "#c80000",
+     "#c80000",
+     "#910000",
+     "#000000"
+    ],
+    "values": [
+     0.0,
+     0.03225806451612904,
+     0.06451612903225808,
+     0.09677419354838711,
+     0.12903225806451615,
+     0.16129032258064518,
+     0.19354838709677422,
+     0.22580645161290328,
+     0.2580645161290323,
+     0.2903225806451613,
+     0.32258064516129037,
+     0.35483870967741943,
+     0.38709677419354843,
+     0.4193548387096775,
+     0.45161290322580655,
+     0.4838709677419355,
+     0.5161290322580646,
+     0.5483870967741936,
+     0.5806451612903226,
+     0.6129032258064516,
+     0.6451612903225807,
+     0.6774193548387097,
+     0.7096774193548389,
+     0.7419354838709677,
+     0.7741935483870969,
+     0.8064516129032259,
+     0.838709677419355,
+     0.870967741935484,
+     0.9032258064516131,
+     0.935483870967742,
+     0.967741935483871,
+     1.0
+    ],
+    "scale": "linear"
+   },
+   "status": "relative",
+   "status_check": "a_no_validation_source",
+   "statement": "relative"
+  }
+ ],
+ "voices": {
+  "value": "rel4372"
+ },
+ "play": [
+  {
+   "id": "value",
+   "label": "IMERG Global Precipitation Rates (New Colorbar): higher pitch = higher value",
+   "view": "global",
+   "map": "value",
+   "start": {
+    "lat": 3.5,
+    "lon": -6.5
+   },
+   "steps_per_second": 1,
+   "channels": [
+    {
+     "voice": "rel4372",
+     "layers": [
+      "value"
+     ],
+     "combine": "value"
+    }
+   ]
+  }
+ ],
+ "validation": [
+  {
+   "id": "a_no_validation_source",
+   "title": "IMERG Global Precipitation Rates (New Colorbar): no validation source",
+   "kind": "none",
+   "pass": null,
+   "threshold": null
+  }
+ ],
+ "size": {
+  "choice": {
+   "frames": 3
+  },
+  "tried": [],
+  "bytes": 36603,
+  "budget": 25000000
+ },
+ "onboarding": {
+  "timings_s": {
+   "api": 19.0,
+   "twins": 2.4,
+   "asset choice": 0.0,
+   "frames": 13.7,
+   "frame times": 0.1,
+   "georef": 4.4,
+   "colorbar": 7.2,
+   "inversion": 4.0,
+   "validation": 0.0
+  },
+  "status": "relative"
+ },
+ "asset_checksums": {
+  "file": "checksums.tsv.gz",
+  "rows": 5,
+  "sha256_of_list": "6d2cc25d9831a393500249aaabe3129b2f04248b280ea6d0c804c5b490b806a4"
+ },
+ "code_commit": "a8f0638dc9adb81b18f259cf0813046acd882fa1-dirty",
+ "generated_utc": "2026-10-31T17:02:50Z"
+}

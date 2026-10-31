@@ -1,0 +1,145 @@
+{
+ "id": 3144,
+ "title": "Global Lightning Flash Rate Density (WMS)",
+ "url": "https://svs.gsfc.nasa.gov/3144/",
+ "page_type": "Visualization",
+ "release_date": "2005-04-14T12:00:00-04:00",
+ "update_date": "2023-05-03T13:56:14.432914-04:00",
+ "description": "Lightning is a brief but intense electrical discharge between positive and negative regions of a thunderstorm.The Lightning Imaging Sensor (LIS) on the Tropical Rainfall Measuring Mission (TRMM) satellite was designed to study the distribution and variability of total lightning on a global basis. The Optical Transient Detector (OTD) was an earlier lightning detector flying aboard the Microlab-1 spacecraft. The data shown here are compiled from LIS (1998-2002) and OTD (1995-1999) observations. Because each satellite saw only a part of the Earth at any one time, these data use complex algorithms to estimate total flash rate density (number of flashes per square kilometer per year) based on the flashes observed and the amount of time the satellite views each area. || ",
+ "full_text": "Lightning is a brief but intense electrical discharge between positive and negative regions of a thunderstorm.The Lightning Imaging Sensor (LIS) on the Tropical Rainfall Measuring Mission (TRMM) satellite was designed to study the distribution and variability of total lightning on a global basis. The Optical Transient Detector (OTD) was an earlier lightning detector flying aboard the Microlab-1 spacecraft. The data shown here are compiled from LIS (1998-2002) and OTD (1995-1999) observations. Because each satellite saw only a part of the Earth at any one time, these data use complex algorithms to estimate total flash rate density (number of flashes per square kilometer per year) based on the flashes observed and the amount of time the satellite views each area. ||\n\nLightning is a brief but intense electrical discharge between positive and negative regions of a thunderstorm.The Lightning Imaging Sensor (LIS) on the Tropical Rainfall Measuring Mission (TRMM) satellite was designed to study the distribution and variability of total lightning on a global basis. The Optical Transient Detector (OTD) was an earlier lightning detector flying aboard the Microlab-1 spacecraft. The data shown here are compiled from LIS (1998-2002) and OTD (1995-1999) observations. Because each satellite saw only a part of the Earth at any one time, these data use complex algorithms to estimate total flash rate density (number of flashes per square kilometer per year) based on the flashes observed and the amount of time the satellite views each area.\n\nThis image shows the global lightning flash\nrate density for the entire observing period. The data pixels\nare 0.5deg on a side (720x360 pixels globally). This single\nimage is equivalent to the final frame of animation #3143, but\nat a spatial resolution that is 5 times\nbetter.<br><br>This <a href='/vis/a000000/a003100/a003144/wms_product_description_3144_21247.html'>product is available through our Web Map Service</a>.\n\nThis color scale for the lighting flash rate density image ranges from deep blue (less than 10 flashes per square kilometer per year) through deep red (more than 100 flashes per square\nkilometer per year).",
+ "credits_by_role": {
+  "Animator": [
+   "Jeff de La Beaujardiere (NASA)"
+  ],
+  "Scientist": [
+   "Jeff Halverson (JCET UMBC)"
+  ]
+ },
+ "keywords": [
+  "Atmosphere",
+  "Atmospheric Electricity",
+  "Atmospheric Phenomena",
+  "Atmospheric science",
+  "Earth Science",
+  "global",
+  "Lightning",
+  "Location"
+ ],
+ "datasets": [
+  {
+   "name": "Lightning",
+   "common_name": "",
+   "platform": "Microlab-1",
+   "sensor": "OTD",
+   "type": "Other",
+   "organizations": [],
+   "description": "",
+   "credit": "",
+   "url": "",
+   "date_range": "1995/04 - 1999"
+  },
+  {
+   "name": "Lightning",
+   "common_name": "",
+   "platform": "TRMM",
+   "sensor": "LIS",
+   "type": "Other",
+   "organizations": [],
+   "description": "",
+   "credit": "",
+   "url": "",
+   "date_range": "1998 - 2002/12"
+  }
+ ],
+ "missions": [
+  "Tropical Rainfall Measuring Mission (TRMM)"
+ ],
+ "related": [],
+ "alternate_versions": [],
+ "newer_versions": [],
+ "older_versions": [],
+ "media": [
+  {
+   "group": 1,
+   "group_title": "",
+   "widget": "Single image",
+   "caption": "",
+   "group_text": "This image shows the global lightning flash\nrate density for the entire observing period. The data pixels\nare 0.5deg on a side (720x360 pixels globally). This single\nimage is equivalent to the final frame of animation #3143, but\nat a spatial resolution that is 5 times\nbetter.<br><br>This <a href='/vis/a000000/a003100/a003144/wms_product_description_3144_21247.html'>product is available through our Web Map Service</a>.",
+   "url": "https://svs.gsfc.nasa.gov/vis/a000000/a003100/a003144/lightning.png",
+   "filename": "lightning.png",
+   "media_type": "Image",
+   "width": 720,
+   "height": 360,
+   "alt_text": "This image shows the global lightning flash\nrate density for the entire observing period. The data pixels\nare 0.5deg on a side (720x360 pixels globally). This single\nimage is equivalent to the final frame of animation #3143, but\nat a spatial resolution that is 5 times\nbetter.This product is available through our Web Map Service."
+  },
+  {
+   "group": 1,
+   "group_title": "",
+   "widget": "Single image",
+   "caption": "",
+   "group_text": "This image shows the global lightning flash\nrate density for the entire observing period. The data pixels\nare 0.5deg on a side (720x360 pixels globally). This single\nimage is equivalent to the final frame of animation #3143, but\nat a spatial resolution that is 5 times\nbetter.<br><br>This <a href='/vis/a000000/a003100/a003144/wms_product_description_3144_21247.html'>product is available through our Web Map Service</a>.",
+   "url": "https://svs.gsfc.nasa.gov/vis/a000000/a003100/a003144/web.jpg",
+   "filename": "web.jpg",
+   "media_type": "Image",
+   "width": 320,
+   "height": 160,
+   "alt_text": "This image shows the global lightning flash\nrate density for the entire observing period. The data pixels\nare 0.5deg on a side (720x360 pixels globally). This single\nimage is equivalent to the final frame of animation #3143, but\nat a spatial resolution that is 5 times\nbetter.This product is available through our Web Map Service."
+  },
+  {
+   "group": 1,
+   "group_title": "",
+   "widget": "Single image",
+   "caption": "",
+   "group_text": "This image shows the global lightning flash\nrate density for the entire observing period. The data pixels\nare 0.5deg on a side (720x360 pixels globally). This single\nimage is equivalent to the final frame of animation #3143, but\nat a spatial resolution that is 5 times\nbetter.<br><br>This <a href='/vis/a000000/a003100/a003144/wms_product_description_3144_21247.html'>product is available through our Web Map Service</a>.",
+   "url": "https://svs.gsfc.nasa.gov/vis/a000000/a003100/a003144/thm.png",
+   "filename": "thm.png",
+   "media_type": "Image",
+   "width": 80,
+   "height": 40,
+   "alt_text": "This image shows the global lightning flash\nrate density for the entire observing period. The data pixels\nare 0.5deg on a side (720x360 pixels globally). This single\nimage is equivalent to the final frame of animation #3143, but\nat a spatial resolution that is 5 times\nbetter.This product is available through our Web Map Service."
+  },
+  {
+   "group": 1,
+   "group_title": "",
+   "widget": "Single image",
+   "caption": "",
+   "group_text": "This image shows the global lightning flash\nrate density for the entire observing period. The data pixels\nare 0.5deg on a side (720x360 pixels globally). This single\nimage is equivalent to the final frame of animation #3143, but\nat a spatial resolution that is 5 times\nbetter.<br><br>This <a href='/vis/a000000/a003100/a003144/wms_product_description_3144_21247.html'>product is available through our Web Map Service</a>.",
+   "url": "https://svs.gsfc.nasa.gov/vis/a000000/a003100/a003144/gal.png",
+   "filename": "gal.png",
+   "media_type": "Image",
+   "width": 160,
+   "height": 80,
+   "alt_text": "This image shows the global lightning flash\nrate density for the entire observing period. The data pixels\nare 0.5deg on a side (720x360 pixels globally). This single\nimage is equivalent to the final frame of animation #3143, but\nat a spatial resolution that is 5 times\nbetter.This product is available through our Web Map Service."
+  },
+  {
+   "group": 1,
+   "group_title": "",
+   "widget": "Single image",
+   "caption": "",
+   "group_text": "This image shows the global lightning flash\nrate density for the entire observing period. The data pixels\nare 0.5deg on a side (720x360 pixels globally). This single\nimage is equivalent to the final frame of animation #3143, but\nat a spatial resolution that is 5 times\nbetter.<br><br>This <a href='/vis/a000000/a003100/a003144/wms_product_description_3144_21247.html'>product is available through our Web Map Service</a>.",
+   "url": "https://svs.gsfc.nasa.gov/vis/a000000/a003100/a003144/web_searchweb.jpg",
+   "filename": "web_searchweb.jpg",
+   "media_type": "Image",
+   "width": 320,
+   "height": 180,
+   "alt_text": "This image shows the global lightning flash\nrate density for the entire observing period. The data pixels\nare 0.5deg on a side (720x360 pixels globally). This single\nimage is equivalent to the final frame of animation #3143, but\nat a spatial resolution that is 5 times\nbetter.This product is available through our Web Map Service."
+  },
+  {
+   "group": 2,
+   "group_title": "",
+   "widget": "Single image",
+   "caption": "",
+   "group_text": "This color scale for the lighting flash rate density image ranges from deep blue (less than 10 flashes per square kilometer per year) through deep red (more than 100 flashes per square\nkilometer per year).",
+   "url": "https://svs.gsfc.nasa.gov/vis/a000000/a003100/a003144/lightdens_bar.png",
+   "filename": "lightdens_bar.png",
+   "media_type": "Image",
+   "width": 320,
+   "height": 90,
+   "alt_text": "This color scale for the lighting flash rate density image ranges from deep blue (less than 10 flashes per square kilometer per year) through deep red (more than 100 flashes per square\nkilometer per year)."
+  }
+ ],
+ "text_links": [],
+ "frame_folders": {},
+ "api_url": "https://svs.gsfc.nasa.gov/api/3144",
+ "fetched_utc": "2026-10-31T18:00:55Z"
+}

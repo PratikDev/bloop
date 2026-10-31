@@ -1,0 +1,530 @@
+{
+ "record": "rel_3913",
+ "app_title": "Gulf Stream Sea Surface Currents and Temperatures (model)",
+ "svs_ids": [
+  3913
+ ],
+ "title": "Gulf Stream Sea Surface Currents and Temperatures",
+ "svs_pages": [
+  "https://svs.gsfc.nasa.gov/3913/"
+ ],
+ "description": "This visualization shows the Gulf Stream stretching from the Gulf of Mexico all the way over towards Western Europe. This visualization was designed for a very wide, high resolution display (e.g., a 5x3 hyperwall display).This visualization was produced using model output from the joint MIT/JPL project entitled Estimating the Circulation and Climate of the Ocean, Phase II (ECCO2). ECCO2 uses the MIT general circulation model (MITgcm) to synthesize satellite and in-situ data of the global ocean and sea-ice at resolutions that begin to resolve ocean eddies and other narrow current systems, which transport heat and carbon in the oceans. The ECCO2 model simulates ocean flows at all depths, but only surface flows are used in this visualization. There are 2 versions provided: one with the flows colored with gray, the other with flows colored using sea surface temperature data. The sea surface temperature data is also from the ECCO2 model. The dark patterns under the ocean represent the undersea bathymetry. Topographic land exaggeration is 20x and bathymetric exaggeration is 40x. || ",
+ "release_date": "2012-02-15T00:00:00-05:00",
+ "period": {
+  "start": "2012-02-15T05:00:00Z",
+  "end": "2012-02-15T05:00:00Z",
+  "label": "15 Feb 2012 – 15 Feb 2012"
+ },
+ "badge": "model",
+ "credits_by_role": {
+  "Animator": [
+   "Greg Shirah (NASA/GSFC)",
+   "Horace Mitchell (NASA/GSFC)"
+  ],
+  "Scientist": [
+   "Hong Zhang (UCLA)",
+   "Dimitris Menemenlis (NASA/JPL CalTech)"
+  ]
+ },
+ "datasets": [
+  {
+   "name": "GTOPO30 Topography and Bathymetry",
+   "common_name": "",
+   "platform": null,
+   "sensor": null,
+   "type": "Data Compilation",
+   "organizations": [
+    "USGS"
+   ],
+   "description": "",
+   "credit": "",
+   "url": "",
+   "date_range": null
+  },
+  {
+   "name": "Tycho 2 Catalogue",
+   "common_name": "Tycho Catalogue",
+   "platform": "Hipparcos",
+   "sensor": "Telescope",
+   "type": "Database",
+   "organizations": [],
+   "description": "",
+   "credit": "",
+   "url": "http://archive.eso.org/ASTROM/",
+   "date_range": null
+  },
+  {
+   "name": "ECCO2 High Resolution Ocean and Sea Ice Model",
+   "common_name": "ECCO2",
+   "platform": null,
+   "sensor": null,
+   "type": "Model",
+   "organizations": [
+    "NASA/JPL"
+   ],
+   "description": "",
+   "credit": "",
+   "url": "",
+   "date_range": null
+  }
+ ],
+ "credit_line": "Visualization: NASA's Scientific Visualization Studio (SVS 3913) for the NASA Earth Information Center.",
+ "disclosure": "A related NASA visualization read back through its key (pattern only).",
+ "licence": "SVS: \"All of our content is in the public domain (unless otherwise noted), meaning that it is free to download, use, and redistribute for whatever purposes you see fit.\" (https://svs.gsfc.nasa.gov/help/, read 29 Oct 2026)",
+ "focus": "water resources",
+ "related_to": [
+  3912
+ ],
+ "frame_times": {
+  "method": "date-list",
+  "approximate": false,
+  "count": 3,
+  "source": "date file flat_ecco2_dates.txt"
+ },
+ "georef": {
+  "projection": "equirectangular (2:1)",
+  "bounds": [
+   -180,
+   -90,
+   180,
+   90
+  ],
+  "pass_at": 0.9,
+  "shifts_deg": [],
+  "iou": {
+   "land": 0.9108772563560448
+  },
+  "pass": true,
+  "best_is_assumed": true
+ },
+ "colorbar": {
+  "geometry": {
+   "x0": 12,
+   "x1": 307,
+   "band": [
+    28,
+    45
+   ],
+   "vertical": false,
+   "outline_rgb": null,
+   "image_size": [
+    90,
+    320
+   ]
+  },
+  "ticks": [
+   {
+    "px": 19.0,
+    "value": 9.0,
+    "text": "9",
+    "engine": "glyph",
+    "label_px": 20.5,
+    "tick_mark": true
+   },
+   {
+    "px": 115.0,
+    "value": 13.0,
+    "text": "13",
+    "engine": "glyph",
+    "label_px": 115.0
+   },
+   {
+    "px": 147.5,
+    "value": 17.0,
+    "text": "17",
+    "engine": "glyph",
+    "label_px": 147.5
+   },
+   {
+    "px": 178.0,
+    "value": 21.0,
+    "text": "21",
+    "engine": "glyph",
+    "label_px": 177.5,
+    "tick_mark": true
+   },
+   {
+    "px": 267.0,
+    "value": 33.0,
+    "text": "33",
+    "engine": "glyph",
+    "label_px": 268.0,
+    "tick_mark": true
+   }
+  ],
+  "scale": "piecewise",
+  "fit": {
+   "segments": 4,
+   "segment_interp": "linear",
+   "rejected": {
+    "linear": {
+     "a": 6.1252487735592345,
+     "b": 0.0947894568573835,
+     "fit": "weighted 1/tolerance",
+     "max_resid_px": 42.473461138360065,
+     "resid_px": [
+      11.33,
+      -42.47,
+      -32.77,
+      -21.08,
+      16.52
+     ],
+     "ok": false
+    },
+    "log": {
+     "a": 0.909082817213031,
+     "b": 0.002286773011936129,
+     "fit": "weighted 1/tolerance",
+     "max_resid_px": 25.415011011365067,
+     "resid_px": [
+      0.75,
+      -25.42,
+      -6.97,
+      2.66,
+      -0.5
+     ],
+     "ok": false
+    }
+   }
+  },
+  "notes": [
+   "2 label(s) not on a tick mark (13, 17): label-centre position, ±5 px."
+  ],
+  "n_samples": 296,
+  "value_range": [
+   8.208333333333334,
+   36.7752808988764
+  ],
+  "opacity_varies": false
+ },
+ "colorbar_source": "page colorbar sstcolorbararrows.png",
+ "asset": {
+  "kind": "frames",
+  "owner": 3912,
+  "what": "orig"
+ },
+ "twins": [
+  {
+   "id": 3912,
+   "title": "Global Sea Surface Currents and Temperature",
+   "reason": "search; 3 title words shared",
+   "flat_sets": [
+    {
+     "layer": "orig",
+     "size": "2048×1024",
+     "frames": 2001,
+     "url": "https://svs.gsfc.nasa.gov/vis/a000000/a003900/a003912/frames/2048x1024_1x1_30p/orig/"
+    },
+    {
+     "layer": "with_colorbar",
+     "size": "2048×1024",
+     "frames": 2001,
+     "url": "https://svs.gsfc.nasa.gov/vis/a000000/a003900/a003912/frames/2048x1024_1x1_30p/with_colorbar/"
+    },
+    {
+     "layer": "6840x3420_1x1_30p",
+     "size": "6840×3420",
+     "frames": 2001,
+     "url": "https://svs.gsfc.nasa.gov/vis/a000000/a003900/a003912/frames/6840x3420_1x1_30p/"
+    }
+   ],
+   "flat_movies": [
+    {
+     "file": "ecco2_sst_flow.mp4",
+     "size": "2048×1024",
+     "url": "https://svs.gsfc.nasa.gov/vis/a000000/a003900/a003912/ecco2_sst_flow.mp4"
+    },
+    {
+     "file": "flat_global_ecco2_2028x1024_comp_p30.mp4",
+     "size": "2048×1024",
+     "url": "https://svs.gsfc.nasa.gov/vis/a000000/a003900/a003912/flat_global_ecco2_2028x1024_comp_p30.mp4"
+    },
+    {
+     "file": "ecco2_sst_flow.m4v",
+     "size": "640×320",
+     "url": "https://svs.gsfc.nasa.gov/vis/a000000/a003900/a003912/ecco2_sst_flow.m4v"
+    }
+   ],
+   "colorbars": [
+    "sst_ecco2_cbar.png"
+   ],
+   "colorbar_inherited": false
+  },
+  {
+   "id": 3908,
+   "title": "ECCO2 Sea Surface Temperature and Flows",
+   "reason": "search; 2 title words shared",
+   "flat_sets": [
+    {
+     "layer": "Composite",
+     "size": "2048×1024",
+     "frames": 1600,
+     "url": "https://svs.gsfc.nasa.gov/vis/a000000/a003900/a003908/frames/2048x1024_2x1_30p/Composite/"
+    },
+    {
+     "layer": "Ocean_Surface_Currents",
+     "size": "2048×1024",
+     "frames": 1600,
+     "url": "https://svs.gsfc.nasa.gov/vis/a000000/a003900/a003908/frames/2048x1024_2x1_30p/Ocean_Surface_Currents/"
+    },
+    {
+     "layer": "Sea_Surface_Temperatures",
+     "size": "2048×1024",
+     "frames": 2136,
+     "url": "https://svs.gsfc.nasa.gov/vis/a000000/a003900/a003908/frames/2048x1024_2x1_30p/Sea_Surface_Temperatures/"
+    }
+   ],
+   "flat_movies": [
+    {
+     "file": "loop_ecco2_2048x1024.mp4",
+     "size": "2048×1024",
+     "url": "https://svs.gsfc.nasa.gov/vis/a000000/a003900/a003908/loop_ecco2_2048x1024.mp4"
+    },
+    {
+     "file": "loop_ecco2_2048x1024.mov",
+     "size": "2048×1024",
+     "url": "https://svs.gsfc.nasa.gov/vis/a000000/a003900/a003908/loop_ecco2_2048x1024.mov"
+    },
+    {
+     "file": "loop_ecco2.m4v",
+     "size": "640×320",
+     "url": "https://svs.gsfc.nasa.gov/vis/a000000/a003900/a003908/loop_ecco2.m4v"
+    },
+    {
+     "file": "ecco2_v01.mp4",
+     "size": "2048×1024",
+     "url": "https://svs.gsfc.nasa.gov/vis/a000000/a003900/a003908/ecco2_v01.mp4"
+    },
+    {
+     "file": "ecco2sst.mp4",
+     "size": "2048×1024",
+     "url": "https://svs.gsfc.nasa.gov/vis/a000000/a003900/a003908/ecco2sst.mp4"
+    }
+   ],
+   "colorbars": [
+    "sstcolorbararrows.png"
+   ],
+   "colorbar_inherited": true
+  },
+  {
+   "id": 3821,
+   "title": "Flat Map Ocean Current Flows with Sea Surface Temperatures (SST)",
+   "reason": "search; 3 title words shared",
+   "flat_sets": [
+    {
+     "layer": "4096x2048_2x1_30p",
+     "size": "4096×2048",
+     "frames": 1486,
+     "url": "https://svs.gsfc.nasa.gov/vis/a000000/a003800/a003821/frames/4096x2048_2x1_30p/"
+    }
+   ],
+   "flat_movies": [
+    {
+     "file": "flow_flat_sst_2048x1024.mp4",
+     "size": "2048×1024",
+     "url": "https://svs.gsfc.nasa.gov/vis/a000000/a003800/a003821/flow_flat_sst_2048x1024.mp4"
+    },
+    {
+     "file": "flow_flat_sst_1024x512.mp4",
+     "size": "1024×512",
+     "url": "https://svs.gsfc.nasa.gov/vis/a000000/a003800/a003821/flow_flat_sst_1024x512.mp4"
+    }
+   ],
+   "colorbars": [
+    "ecco2-sst-colorbar.png"
+   ],
+   "colorbar_inherited": false
+  }
+ ],
+ "decode": {
+  "mode": "chroma",
+  "decoded_share": 0.09624401728312175
+ },
+ "layers": [
+  {
+   "id": "value",
+   "unit": "colorbar units",
+   "encoding": "linear",
+   "scale": 0.0003778223257725652,
+   "offset": 8.375,
+   "nodata": 65535,
+   "below": 65534,
+   "grid": {
+    "width": 360,
+    "height": 180,
+    "bounds": [
+     -180,
+     -90,
+     180,
+     90
+    ],
+    "row0": "north",
+    "col0": "west",
+    "byte_order": "little"
+   },
+   "times": [
+    "2012-02-15T05:00:00Z",
+    "2012-02-15T05:00:00Z",
+    "2012-02-15T05:00:00Z"
+   ],
+   "chunks": [
+    {
+     "file": "value_000.u16.gz",
+     "t0": 0,
+     "t1": 3,
+     "bytes": 33466
+    }
+   ],
+   "quantisation_step": 0.0003778223257725652,
+   "coverage": 0.06549897119341563,
+   "value_range": [
+    8.375,
+    33.134830474853516
+   ],
+   "label": "Gulf Stream Sea Surface Currents and Temperatures (pattern only)",
+   "aggregation": "mean of decoded pixels per cell",
+   "time_labels": [
+    "undated",
+    "undated",
+    "undated"
+   ],
+   "display": {
+    "colours": [
+     "#000000",
+     "#00245b",
+     "#080808",
+     "#00235d",
+     "#00215d",
+     "#001f5e",
+     "#001e5f",
+     "#001c5f",
+     "#001b5f",
+     "#001e5e",
+     "#00235d",
+     "#17375a",
+     "#61704f",
+     "#9d9d45",
+     "#9d9d47",
+     "#9d9d4a",
+     "#9d9500",
+     "#9d7b00",
+     "#9d6800",
+     "#9d5800",
+     "#9d4b00",
+     "#9d4000",
+     "#9d3e00",
+     "#9d4000",
+     "#9d4100",
+     "#9d4100",
+     "#9d4100",
+     "#9d4500",
+     "#9d2700",
+     "#080808",
+     "#9d0000",
+     "#000000"
+    ],
+    "values": [
+     8.208333333333334,
+     8.60483870967742,
+     9.001344086021506,
+     9.397849462365592,
+     9.794354838709678,
+     10.190860215053764,
+     10.58736559139785,
+     10.983870967741936,
+     11.38037634408602,
+     11.776881720430108,
+     12.173387096774192,
+     12.56989247311828,
+     12.966397849462364,
+     14.071960297766749,
+     15.243176178660049,
+     16.41439205955335,
+     17.624008461131677,
+     18.872025383395027,
+     20.12004230565838,
+     21.37839797027909,
+     22.661471547662195,
+     23.944545125045302,
+     25.227618702428416,
+     26.510692279811526,
+     27.793765857194636,
+     29.076839434577742,
+     30.359913011960856,
+     31.642986589343963,
+     32.92606016672707,
+     34.20913374411018,
+     35.4922073214933,
+     36.7752808988764
+    ],
+    "scale": "linear"
+   },
+   "status": "pattern only",
+   "status_check": "a_no_validation_source",
+   "statement": "pattern only"
+  }
+ ],
+ "voices": {
+  "value": "rel3913"
+ },
+ "play": [
+  {
+   "id": "value",
+   "label": "Gulf Stream Sea Surface Currents and Temperatures: higher pitch = higher value",
+   "view": "global",
+   "map": "value",
+   "start": {
+    "lat": -0.5,
+    "lon": 0.5
+   },
+   "steps_per_second": 1,
+   "channels": [
+    {
+     "voice": "rel3913",
+     "layers": [
+      "value"
+     ],
+     "combine": "value"
+    }
+   ]
+  }
+ ],
+ "validation": [
+  {
+   "id": "a_no_validation_source",
+   "title": "Gulf Stream Sea Surface Currents and Temperatures: no validation source",
+   "kind": "none",
+   "pass": null,
+   "threshold": null
+  }
+ ],
+ "size": {
+  "choice": {
+   "frames": 3
+  },
+  "tried": [],
+  "bytes": 62664,
+  "budget": 25000000
+ },
+ "onboarding": {
+  "timings_s": {
+   "api": 22.7,
+   "twins": 5.3,
+   "asset choice": 0.0,
+   "frames": 26.7,
+   "frame times": 6.7,
+   "georef": 3.7,
+   "colorbar": 5.7,
+   "inversion": 11.7,
+   "validation": 0.0
+  },
+  "status": "pattern only"
+ },
+ "asset_checksums": {
+  "file": "checksums.tsv.gz",
+  "rows": 354,
+  "sha256_of_list": "5945f29e1e46deea7ba4dc38cb24bb06d03ac8e9aa88e78c3bdb4f609cb10604"
+ },
+ "code_commit": "2e85a9e4e031918d5d5c2278a792e69e89bfde23-dirty",
+ "generated_utc": "2026-10-31T15:17:39Z"
+}

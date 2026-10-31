@@ -1,0 +1,325 @@
+{
+ "record": "rel_4332",
+ "app_title": "Aquarius Sea Surface Temperature 2011 - 2015 (observation)",
+ "svs_ids": [
+  4332
+ ],
+ "title": "Aquarius Sea Surface Temperature 2011 - 2015",
+ "svs_pages": [
+  "https://svs.gsfc.nasa.gov/4332/"
+ ],
+ "description": "Aquarius is an international effort to measure sea surface salinity and learn about the interaction between ocean circulation, the water cycle and climate. Besides salinity, Aquarius also measures sea surface temperature because salinity and  temperature determines seawater density and buoyancy. Sea-surface density drives formation of ocean water masses and three-dimensional ocean circulation. Thus better understanding of ocean salinity  and temperature improves understanding of the ocean's capacity to store and transport heat. The animation shows the changes of sea surface temporature from September 7, 2011 to May 20, 2015. || ",
+ "release_date": "2015-09-23T00:00:00-04:00",
+ "period": {
+  "start": "2015-09-23T04:00:00Z",
+  "end": "2015-09-23T04:00:00Z",
+  "label": "23 Sep 2015 – 23 Sep 2015"
+ },
+ "badge": "observation",
+ "credits_by_role": {
+  "Animator": [
+   "Cheng Zhang (USRA)",
+   "Horace Mitchell (NASA/GSFC)"
+  ],
+  "Scientist": [
+   "Gene Feldman (NASA/GSFC)"
+  ]
+ },
+ "datasets": [
+  {
+   "name": "Sea Surface Salinity",
+   "common_name": "SSS",
+   "platform": "Aquarius",
+   "sensor": "Microwave Radiometer",
+   "type": "Observed Data",
+   "organizations": [
+    "NASA"
+   ],
+   "description": "",
+   "credit": "",
+   "url": "",
+   "date_range": null
+  }
+ ],
+ "credit_line": "Visualization: NASA's Scientific Visualization Studio (SVS 4332) for the NASA Earth Information Center.",
+ "disclosure": "A related NASA visualization read back through its key (pattern only).",
+ "licence": "SVS: \"All of our content is in the public domain (unless otherwise noted), meaning that it is free to download, use, and redistribute for whatever purposes you see fit.\" (https://svs.gsfc.nasa.gov/help/, read 29 Oct 2026)",
+ "focus": "water resources",
+ "related_to": [
+  3912
+ ],
+ "frame_times": {
+  "method": "linear",
+  "approximate": true,
+  "count": 3,
+  "source": "undated"
+ },
+ "georef": {
+  "projection": "none (not a flat 2:1 map)",
+  "bounds": [
+   -180,
+   -101.25,
+   180,
+   101.25
+  ],
+  "pass_at": 0.9,
+  "shifts_deg": [],
+  "iou": {},
+  "pass": false,
+  "best_is_assumed": false
+ },
+ "colorbar": {
+  "geometry": {
+   "x0": 120,
+   "x1": 2039,
+   "band": [
+    0,
+    111
+   ],
+   "vertical": true,
+   "outline_rgb": null,
+   "image_size": [
+    2160,
+    576
+   ]
+  },
+  "ticks": [
+   {
+    "px": 235.0,
+    "value": 1.0,
+    "text": "1994^0",
+    "engine": "glyph",
+    "label_px": 235.0
+   },
+   {
+    "px": 1884.0,
+    "value": 4.0,
+    "text": "4",
+    "engine": "glyph",
+    "label_px": 1884.0
+   }
+  ],
+  "scale": "linear",
+  "fit": {
+   "a": 0.5724681625227409,
+   "b": 0.0018192844147968464,
+   "fit": "weighted 1/tolerance",
+   "max_resid_px": 2.441010356809178e-13,
+   "resid_px": [
+    0.0,
+    0.0
+   ],
+   "ok": true
+  },
+  "notes": [
+   "Only two labels: scale chosen from the label values (≥ 2 decades → log), not from spacing.",
+   "2 label(s) not on a tick mark (1994^0, 4): label-centre position, ±5 px."
+  ],
+  "n_samples": 1920,
+  "value_range": [
+   0.5724681625227409,
+   4.063674954517889
+  ],
+  "opacity_varies": false,
+  "px_per_unit": 549.6666666666667
+ },
+ "colorbar_source": "in-frame bar (frame, right strip)",
+ "asset": {
+  "kind": "frames",
+  "owner": 4332,
+  "what": "flatmap_4k"
+ },
+ "twins": [],
+ "decode": {
+  "mode": "exact",
+  "decoded_share": 0.799638872813786
+ },
+ "layers": [
+  {
+   "id": "value",
+   "unit": "colorbar units",
+   "encoding": "linear",
+   "scale": 0.00018192844147968463,
+   "offset": 0.5970346927642822,
+   "nodata": 65535,
+   "below": 65534,
+   "grid": {
+    "width": 160,
+    "height": 90,
+    "bounds": [
+     -180,
+     -101.25,
+     180,
+     101.25
+    ],
+    "row0": "north",
+    "col0": "west",
+    "byte_order": "little",
+    "space": "frame"
+   },
+   "times": [
+    "2015-09-23T04:00:00Z",
+    "2015-09-23T04:00:00Z",
+    "2015-09-23T04:00:00Z"
+   ],
+   "chunks": [
+    {
+     "file": "value_000.u16.gz",
+     "t0": 0,
+     "t1": 3,
+     "bytes": 65921
+    }
+   ],
+   "quantisation_step": 0.00018192844147968463,
+   "coverage": 0.8227083333333334,
+   "value_range": [
+    0.5970346927642822,
+    3.9128670692443848
+   ],
+   "label": "Aquarius Sea Surface Temperature 2011 - 2015 (pattern only)",
+   "aggregation": "mean of decoded pixels per cell",
+   "time_labels": [
+    "undated",
+    "undated",
+    "undated"
+   ],
+   "display": {
+    "colours": [
+     "#706f70",
+     "#747374",
+     "#727273",
+     "#f2f2f2",
+     "#f2f2f2",
+     "#f0f0f1",
+     "#0d375a",
+     "#087596",
+     "#07dbcd",
+     "#08864b",
+     "#43ab08",
+     "#767663",
+     "#707070",
+     "#707071",
+     "#717171",
+     "#717171",
+     "#a70f10",
+     "#8f0c0d",
+     "#a00d0d",
+     "#a20d0d",
+     "#a60e0e",
+     "#a50e0e",
+     "#b41617",
+     "#3ca608",
+     "#08d16d",
+     "#08e1ce",
+     "#108b8c",
+     "#6f6e6f",
+     "#6e6e6e",
+     "#727272",
+     "#f0eff0",
+     "#f2f2f2"
+    ],
+    "values": [
+     0.5724681625227409,
+     0.6850877364580683,
+     0.7977073103933956,
+     0.910326884328723,
+     1.0229464582640504,
+     1.1355660321993777,
+     1.248185606134705,
+     1.3608051800700325,
+     1.47342475400536,
+     1.5860443279406873,
+     1.6986639018760146,
+     1.8112834758113419,
+     1.9239030497466691,
+     2.0365226236819964,
+     2.149142197617324,
+     2.2617617715526515,
+     2.3743813454879787,
+     2.4870009194233065,
+     2.5996204933586333,
+     2.712240067293961,
+     2.824859641229288,
+     2.9374792151646156,
+     3.050098789099943,
+     3.16271836303527,
+     3.2753379369705975,
+     3.3879575109059252,
+     3.500577084841252,
+     3.61319665877658,
+     3.725816232711907,
+     3.8384358066472344,
+     3.951055380582562,
+     4.063674954517889
+    ],
+    "scale": "linear"
+   },
+   "status": "pattern only",
+   "status_check": "a_no_validation_source",
+   "statement": "pattern only"
+  }
+ ],
+ "voices": {
+  "value": "rel4332"
+ },
+ "play": [
+  {
+   "id": "value",
+   "label": "Aquarius Sea Surface Temperature 2011 - 2015: higher pitch = higher value",
+   "view": "global",
+   "map": "value",
+   "start": {
+    "lat": -1.0,
+    "lon": 1.125
+   },
+   "steps_per_second": 1,
+   "channels": [
+    {
+     "voice": "rel4332",
+     "layers": [
+      "value"
+     ],
+     "combine": "value"
+    }
+   ]
+  }
+ ],
+ "validation": [
+  {
+   "id": "a_no_validation_source",
+   "title": "Aquarius Sea Surface Temperature 2011 - 2015: no validation source",
+   "kind": "none",
+   "pass": null,
+   "threshold": null
+  }
+ ],
+ "size": {
+  "choice": {
+   "frames": 3
+  },
+  "tried": [],
+  "bytes": 74052,
+  "budget": 25000000
+ },
+ "onboarding": {
+  "timings_s": {
+   "api": 17.5,
+   "twins": 0.7,
+   "asset choice": 0.0,
+   "frames": 26.0,
+   "frame times": 6.3,
+   "georef": 0.1,
+   "colorbar": 33.5,
+   "inversion": 63.2,
+   "validation": 0.0
+  },
+  "status": "pattern only"
+ },
+ "asset_checksums": {
+  "file": "checksums.tsv.gz",
+  "rows": 4,
+  "sha256_of_list": "1f630e8523bb186708e4ec6f065f3e936cfb4271f3d1fcb829ceddb4a5d0a9fa"
+ },
+ "code_commit": "a8f0638dc9adb81b18f259cf0813046acd882fa1-dirty",
+ "generated_utc": "2026-10-31T18:00:17Z"
+}

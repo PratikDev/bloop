@@ -1,0 +1,479 @@
+[
+ {
+  "record": "rel_30919",
+  "svs_id": 30919,
+  "title": "A Changing Earth at Night",
+  "badge": "observation",
+  "focus": "energy",
+  "related_to": [
+   5313
+  ],
+  "status": "pattern only"
+ },
+ {
+  "record": "rel_3143",
+  "svs_id": 3143,
+  "title": "Global Lightning Accumulation (WMS)",
+  "badge": "observation",
+  "focus": "disasters",
+  "related_to": [
+   5011
+  ],
+  "status": "relative"
+ },
+ {
+  "record": "rel_3144",
+  "svs_id": 3144,
+  "title": "Global Lightning Flash Rate Density (WMS)",
+  "badge": "observation",
+  "focus": "disasters",
+  "related_to": [
+   5011
+  ],
+  "status": "relative"
+ },
+ {
+  "record": "rel_3821",
+  "svs_id": 3821,
+  "title": "Flat Map Ocean Current Flows with Sea Surface Temperatures (SST)",
+  "badge": "model",
+  "focus": "water resources",
+  "related_to": [
+   3912
+  ],
+  "status": "relative"
+ },
+ {
+  "record": "rel_3913",
+  "svs_id": 3913,
+  "title": "Gulf Stream Sea Surface Currents and Temperatures",
+  "badge": "model",
+  "focus": "water resources",
+  "related_to": [
+   3912
+  ],
+  "status": "pattern only"
+ },
+ {
+  "record": "rel_4332",
+  "svs_id": 4332,
+  "title": "Aquarius Sea Surface Temperature 2011 - 2015",
+  "badge": "observation",
+  "focus": "water resources",
+  "related_to": [
+   3912
+  ],
+  "status": "pattern only"
+ },
+ {
+  "record": "rel_4345",
+  "svs_id": 4345,
+  "title": "22-year Sea Level Rise - TOPEX/JASON",
+  "badge": "observation",
+  "focus": "sea level",
+  "related_to": [
+   3912
+  ],
+  "status": "pattern only"
+ },
+ {
+  "record": "rel_4353",
+  "svs_id": 4353,
+  "title": "Aquarius Sea Surface Salinity 2011-2015",
+  "badge": "observation",
+  "focus": "water resources",
+  "related_to": [
+   5425
+  ],
+  "status": "pattern only"
+ },
+ {
+  "record": "rel_4372",
+  "svs_id": 4372,
+  "title": "IMERG Global Precipitation Rates (New Colorbar)",
+  "badge": "observation",
+  "focus": "water resources",
+  "related_to": [
+   4960
+  ],
+  "status": "relative"
+ },
+ {
+  "record": "rel_4417",
+  "svs_id": 4417,
+  "title": "2014 - 2015 Atmospheric River",
+  "badge": "reanalysis",
+  "focus": "water resources",
+  "related_to": [
+   4960
+  ],
+  "status": "pattern only"
+ },
+ {
+  "record": "rel_4445",
+  "svs_id": 4445,
+  "title": "El Niño - Atmospheric River in January 2016",
+  "badge": "observation",
+  "focus": "water resources",
+  "related_to": [
+   4960
+  ],
+  "status": "relative"
+ },
+ {
+  "record": "rel_4658",
+  "svs_id": 4658,
+  "title": "NASA's Black Marble night lights used to examine disaster recovery in Puerto Rico",
+  "badge": "observation",
+  "focus": "disasters",
+  "related_to": [
+   5313
+  ],
+  "status": "pattern only"
+ },
+ {
+  "record": "rel_4764",
+  "svs_id": 4764,
+  "title": "Simulation of Surface Ozone",
+  "badge": "model",
+  "focus": "air quality",
+  "related_to": [
+   5533
+  ],
+  "status": "relative"
+ },
+ {
+  "record": "rel_4810",
+  "svs_id": 4810,
+  "title": "Reductions in Pollution Associated with Decreased Fossil Fuel Use Resulting from COVID-19 Mitigation",
+  "badge": "observation",
+  "focus": "air quality",
+  "related_to": [
+   5533
+  ],
+  "status": "pattern only"
+ },
+ {
+  "record": "rel_4889",
+  "svs_id": 4889,
+  "title": "Variability of Water Storage in Global Hydrological Basins",
+  "badge": "observation",
+  "focus": "water resources",
+  "related_to": [],
+  "status": "relative"
+ },
+ {
+  "record": "rel_4993",
+  "svs_id": 4993,
+  "title": "Spread of the Dixie Fire - 2021",
+  "badge": "observation",
+  "focus": "wildfires",
+  "related_to": [
+   4993
+  ],
+  "status": "pattern only"
+ },
+ {
+  "record": "rel_5070",
+  "svs_id": 5070,
+  "title": "Nitrogen Dioxide Over the United States, 2005-2022",
+  "badge": "observation",
+  "focus": "air quality",
+  "related_to": [
+   5533
+  ],
+  "status": "pattern only"
+ },
+ {
+  "record": "rel_5098",
+  "svs_id": 5098,
+  "title": "Relative Wetness Root Zone Versus Groundwater Comparison",
+  "badge": "observation",
+  "focus": "water resources",
+  "related_to": [],
+  "status": "pattern only"
+ },
+ {
+  "record": "rel_5104",
+  "svs_id": 5104,
+  "title": "Two Decades of Changes in Nitrogen Dioxide and Fine Particulate Pollution in the U.S.",
+  "badge": "observation",
+  "focus": "air quality",
+  "related_to": [
+   5533
+  ],
+  "status": "pattern only"
+ },
+ {
+  "record": "rel_5110",
+  "svs_id": 5110,
+  "title": "Atmospheric Carbon Dioxide Tagged by Source",
+  "badge": "model",
+  "focus": "greenhouse gases",
+  "related_to": [
+   5196
+  ],
+  "status": "pattern only"
+ },
+ {
+  "record": "rel_5111",
+  "svs_id": 5111,
+  "title": "Increase in Ocean Heat since 1957 Map - Spilhaus Projection",
+  "badge": "observation",
+  "focus": "water resources",
+  "related_to": [
+   3912
+  ],
+  "status": "observation"
+ },
+ {
+  "record": "rel_5119",
+  "svs_id": 5119,
+  "title": "OCO-2 and Keeling Curve: Trends in global atmospheric Carbon Dioxide (CO₂)",
+  "badge": "observation",
+  "focus": "greenhouse gases",
+  "related_to": [
+   5196
+  ],
+  "status": "observation"
+ },
+ {
+  "record": "rel_5126",
+  "svs_id": 5126,
+  "title": "NOAA Annual Greenhouse Gas Index",
+  "badge": "observation",
+  "focus": "greenhouse gases",
+  "related_to": [
+   5196
+  ],
+  "status": "observation"
+ },
+ {
+  "record": "rel_5142",
+  "svs_id": 5142,
+  "title": "TEMPO - Nitrogen Dioxide Air Pollution Over North America",
+  "badge": "observation",
+  "focus": "air quality",
+  "related_to": [
+   5533
+  ],
+  "status": "pattern only"
+ },
+ {
+  "record": "rel_5190",
+  "svs_id": 5190,
+  "title": "NASA Climate Spiral 1880-Present",
+  "badge": "observation",
+  "focus": "other",
+  "related_to": [],
+  "status": "observation"
+ },
+ {
+  "record": "rel_5191",
+  "svs_id": 5191,
+  "title": "Global Temperature Graph 1880-2024",
+  "badge": "observation",
+  "focus": "other",
+  "related_to": [],
+  "status": "observation"
+ },
+ {
+  "record": "rel_5207",
+  "svs_id": 5207,
+  "title": "Global Temperature Anomalies from 1880 to 2023",
+  "badge": "observation",
+  "focus": "sea level",
+  "related_to": [
+   3912
+  ],
+  "status": "observation"
+ },
+ {
+  "record": "rel_5209",
+  "svs_id": 5209,
+  "title": "Zonal Climate Anomalies 1880-2023",
+  "badge": "observation",
+  "focus": "other",
+  "related_to": [],
+  "status": "observation"
+ },
+ {
+  "record": "rel_5221",
+  "svs_id": 5221,
+  "title": "Global Mean Sea Level 1993-2023",
+  "badge": "observation",
+  "focus": "sea level",
+  "related_to": [
+   3912
+  ],
+  "status": "observation"
+ },
+ {
+  "record": "rel_5235",
+  "svs_id": 5235,
+  "title": "Sea Level Through a Porthole (2023)",
+  "badge": "observation",
+  "focus": "sea level",
+  "related_to": [],
+  "status": "observation"
+ },
+ {
+  "record": "rel_5303",
+  "svs_id": 5303,
+  "title": "NASA’s TEMPO Instrument Air Quality Data Now Publicly Available",
+  "badge": "observation",
+  "focus": "air quality",
+  "related_to": [
+   5533
+  ],
+  "status": "pattern only"
+ },
+ {
+  "record": "rel_5453",
+  "svs_id": 5453,
+  "title": "Annual Wildfire Burned Area in the United States",
+  "badge": "observation",
+  "focus": "wildfires",
+  "related_to": [
+   4993
+  ],
+  "status": "pattern only"
+ },
+ {
+  "record": "rel_5468",
+  "svs_id": 5468,
+  "title": "2024 Atlantic Hurricane Season",
+  "badge": "model",
+  "focus": "disasters",
+  "related_to": [
+   3912
+  ],
+  "status": "pattern only"
+ },
+ {
+  "record": "rel_5477",
+  "svs_id": 5477,
+  "title": "SOS - Day/Night cycle with Blue Marble and Black Marble Nightlights",
+  "badge": "observation",
+  "focus": "energy",
+  "related_to": [
+   5313
+  ],
+  "status": "pattern only"
+ },
+ {
+  "record": "rel_5516",
+  "svs_id": 5516,
+  "title": "Global Mean Sea Level 1993-2024",
+  "badge": "observation",
+  "focus": "sea level",
+  "related_to": [
+   3912
+  ],
+  "status": "observation"
+ },
+ {
+  "record": "rel_5557",
+  "svs_id": 5557,
+  "title": "Daily Visualizations of the Largest Wildfires in the United States: 2025",
+  "badge": "model",
+  "focus": "wildfires",
+  "related_to": [
+   4993
+  ],
+  "status": "pattern only"
+ },
+ {
+  "record": "rel_5597",
+  "svs_id": 5597,
+  "title": "Los Angeles Palisades and Eaton Wildfires: 2025 Year in Review",
+  "badge": "model",
+  "focus": "wildfires",
+  "related_to": [
+   4993
+  ],
+  "status": "pattern only"
+ },
+ {
+  "record": "rel_5601",
+  "svs_id": 5601,
+  "title": "Wyoming Red Canyon wildfire: 2025 Year in Review",
+  "badge": "model",
+  "focus": "wildfires",
+  "related_to": [
+   4993
+  ],
+  "status": "pattern only"
+ },
+ {
+  "record": "rel_5611",
+  "svs_id": 5611,
+  "title": "Global Mean Sea Level 1993-2025",
+  "badge": "observation",
+  "focus": "sea level",
+  "related_to": [
+   3912
+  ],
+  "status": "observation"
+ },
+ {
+  "record": "rel_5624",
+  "svs_id": 5624,
+  "title": "Global Smoke Forecast Visualization (Daily Updated)",
+  "badge": "model",
+  "focus": "wildfires",
+  "related_to": [
+   5669
+  ],
+  "status": "pattern only",
+  "cadence": "daily",
+  "module": "svs.onboard.daily",
+  "limit_days": 2.0
+ },
+ {
+  "record": "rel_5639",
+  "svs_id": 5639,
+  "title": "Daily Visualizations of the Largest Wildfires in the United States: 2026",
+  "badge": "model",
+  "focus": "wildfires",
+  "related_to": [
+   4993
+  ],
+  "status": "pattern only"
+ },
+ {
+  "record": "rel_5650",
+  "svs_id": 5650,
+  "title": "Near Real-Time Global Precipitation from the Global Precipitation Measurement Constellation",
+  "badge": "observation",
+  "focus": "water resources",
+  "related_to": [
+   4960
+  ],
+  "status": "relative"
+ },
+ {
+  "record": "rel_gibs",
+  "svs_id": 0,
+  "title": "Any GIBS layer (Worldview), decoded from its colormap",
+  "badge": "observation",
+  "focus": "other",
+  "related_to": [],
+  "status": "verified",
+  "credit": "Imagery: NASA Global Imagery Browse Services (GIBS), part of NASA's Earth Science Data and Information System.",
+  "disclosure": "Values read exactly from each layer's published colormap; one date per layer."
+ },
+ {
+  "record": "rel_oisst",
+  "svs_id": 0,
+  "title": "NOAA OISST via ERDDAP (second-agency pipeline test)",
+  "badge": "observation",
+  "focus": "water resources",
+  "related_to": [
+   3912
+  ],
+  "status": "relative",
+  "credit": "Data: NOAA NCEI OISST v2.1 (Huang et al. 2021), served by NOAA CoastWatch ERDDAP.",
+  "disclosure": "A second agency's rendered map read back by Bloop's colour inversion, checked against that agency's own numbers."
+ }
+]

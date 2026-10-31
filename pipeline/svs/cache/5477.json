@@ -1,0 +1,224 @@
+{
+ "id": 5477,
+ "title": "SOS - Day/Night cycle with Blue Marble and Black Marble Nightlights",
+ "url": "https://svs.gsfc.nasa.gov/5477/",
+ "page_type": "Visualization",
+ "release_date": "2025-05-16T13:00:00-04:00",
+ "update_date": "2025-05-16T14:08:34.396288-04:00",
+ "description": "This animation shows daylight and nighttime cycles of Earth over a three-day period in 2024 as the planet spins on it’s axis.",
+ "full_text": "This animation shows daylight and nighttime cycles of Earth over a three-day period in 2024 as the planet spins on it’s axis.\n\nThis visualization shows the day/night cycle of Earth.\n\nThis animation shows daylight and nighttime cycles of Earth over a three-day period in 2024 as the planet spun on its axis.\n\nStill image of day/night view of Earth",
+ "credits_by_role": {
+  "Visualizer": [
+   "Kel Elkins (USRA)"
+  ],
+  "Scientist": [
+   "Zhuosen Wang (University of Maryland)",
+   "Miguel Román (Leidos)",
+   "Ranjay Shrestha (SSAI)",
+   "Srija Chakraborty (USRA)",
+   "Virginia Kalb (NASA)"
+  ]
+ },
+ "keywords": [
+  "Black Marble",
+  "Earth",
+  "Night",
+  "Night lights",
+  "Science On a Sphere",
+  "VIIRS"
+ ],
+ "datasets": [
+  {
+   "name": "Black Marble: Next Generation",
+   "common_name": "Black Marble",
+   "platform": "Suomi NPP",
+   "sensor": "VIIRS",
+   "type": "Other",
+   "organizations": [
+    "NASA/NOAA"
+   ],
+   "description": "Earth at night imagery",
+   "credit": "NASA Earth Observatory images by Joshua Stevens, using Suomi NPP VIIRS data from Miguel Román, NASA GSFC.",
+   "url": "https://visibleearth.nasa.gov/images/144898/earth-at-night-black-marble-2016-color-maps/144947l",
+   "date_range": null
+  }
+ ],
+ "missions": [],
+ "related": [
+  {
+   "id": 5634,
+   "title": "Global Nighttime Lights Change (2014–2022)",
+   "url": "https://svs.gsfc.nasa.gov/5634/"
+  }
+ ],
+ "alternate_versions": [
+  {
+   "id": 5313,
+   "title": "Change in Night Lights between 2012 and 2023 - EIC Version",
+   "url": "https://svs.gsfc.nasa.gov/5313/"
+  }
+ ],
+ "newer_versions": [],
+ "older_versions": [],
+ "media": [
+  {
+   "group": 0,
+   "group_title": "",
+   "widget": "Video player",
+   "caption": "",
+   "group_text": "This visualization shows the day/night cycle of Earth.",
+   "url": "https://svs.gsfc.nasa.gov/vis/a000000/a005400/a005477/nightlights_day-night_ksc_4096x2048_30p_h264.mp4",
+   "filename": "nightlights_day-night_ksc_4096x2048_30p_h264.mp4",
+   "media_type": "Movie",
+   "width": 4096,
+   "height": 2048,
+   "alt_text": "Daylight and nighttime cycles of Earth over a three-day period, played on an interactive 3D globe."
+  },
+  {
+   "group": 0,
+   "group_title": "",
+   "widget": "Video player",
+   "caption": "",
+   "group_text": "This visualization shows the day/night cycle of Earth.",
+   "url": "https://svs.gsfc.nasa.gov/vis/a000000/a005400/a005477/frames/4096x2048_2x1_30p/nightlights_day-night_ksc_sos_01_exr/",
+   "filename": "nightlights_day-night_ksc_sos_01_exr",
+   "media_type": "Frames",
+   "width": 4096,
+   "height": 2048,
+   "alt_text": "This visualization shows the day/night cycle of Earth over a three-day period in 2024 as the planet spins on it’s axis."
+  },
+  {
+   "group": 0,
+   "group_title": "",
+   "widget": "Video player",
+   "caption": "",
+   "group_text": "This visualization shows the day/night cycle of Earth.",
+   "url": "https://svs.gsfc.nasa.gov/vis/a000000/a005400/a005477/nightlights_day-night_ksc_sos_01.00001.png",
+   "filename": "nightlights_day-night_ksc_sos_01.00001.png",
+   "media_type": "Image",
+   "width": 4096,
+   "height": 2048,
+   "alt_text": "This visualization shows the day/night cycle of Earth over a three-day period in 2024 as the planet spins on it’s axis."
+  },
+  {
+   "group": 2,
+   "group_title": "Day/Night Cycle Science On a Sphere Content",
+   "widget": "Globe Viewer",
+   "caption": "",
+   "group_text": "This animation shows daylight and nighttime cycles of Earth over a three-day period in 2024 as the planet spun on its axis.",
+   "url": "https://svs.gsfc.nasa.gov/vis/a000000/a005400/a005477/nightlights_day-night_ksc_4096x2048_30p_h264.mp4",
+   "filename": "nightlights_day-night_ksc_4096x2048_30p_h264.mp4",
+   "media_type": "Movie",
+   "width": 4096,
+   "height": 2048,
+   "alt_text": "Daylight and nighttime cycles of Earth over a three-day period, played on an interactive 3D globe."
+  },
+  {
+   "group": 2,
+   "group_title": "Day/Night Cycle Science On a Sphere Content",
+   "widget": "Globe Viewer",
+   "caption": "",
+   "group_text": "This animation shows daylight and nighttime cycles of Earth over a three-day period in 2024 as the planet spun on its axis.",
+   "url": "https://svs.gsfc.nasa.gov/vis/a000000/a005400/a005477/nightlights_day-night_ksc_4096x2048_30p_sos.mp4",
+   "filename": "nightlights_day-night_ksc_4096x2048_30p_sos.mp4",
+   "media_type": "Movie",
+   "width": 4096,
+   "height": 2048,
+   "alt_text": "Daylight and nighttime cycles of Earth over a three-day period, played on an interactive 3D globe."
+  },
+  {
+   "group": 2,
+   "group_title": "Day/Night Cycle Science On a Sphere Content",
+   "widget": "Globe Viewer",
+   "caption": "",
+   "group_text": "This animation shows daylight and nighttime cycles of Earth over a three-day period in 2024 as the planet spun on its axis.",
+   "url": "https://svs.gsfc.nasa.gov/vis/a000000/a005400/a005477/nightlights_day-night_ksc_2048x1024_30p_sos.mp4",
+   "filename": "nightlights_day-night_ksc_2048x1024_30p_sos.mp4",
+   "media_type": "Movie",
+   "width": 2048,
+   "height": 1024,
+   "alt_text": "Daylight and nighttime cycles of Earth over a three-day period, played on an interactive 3D globe."
+  },
+  {
+   "group": 2,
+   "group_title": "Day/Night Cycle Science On a Sphere Content",
+   "widget": "Globe Viewer",
+   "caption": "",
+   "group_text": "This animation shows daylight and nighttime cycles of Earth over a three-day period in 2024 as the planet spun on its axis.",
+   "url": "https://svs.gsfc.nasa.gov/vis/a000000/a005400/a005477/frames/4096x2048_2x1_30p/nightlights_day-night_ksc_sos_01/",
+   "filename": "nightlights_day-night_ksc_sos_01",
+   "media_type": "Frames",
+   "width": 4096,
+   "height": 2048,
+   "alt_text": "Daylight and nighttime cycles of Earth over a three-day period, played on an interactive 3D globe."
+  },
+  {
+   "group": 2,
+   "group_title": "Day/Night Cycle Science On a Sphere Content",
+   "widget": "Globe Viewer",
+   "caption": "",
+   "group_text": "This animation shows daylight and nighttime cycles of Earth over a three-day period in 2024 as the planet spun on its axis.",
+   "url": "https://svs.gsfc.nasa.gov/vis/a000000/a005400/a005477/frames/2048x1024_2x1_30p/nightlights_day-night_ksc_sos_01/",
+   "filename": "nightlights_day-night_ksc_sos_01",
+   "media_type": "Frames",
+   "width": 2048,
+   "height": 1024,
+   "alt_text": "Daylight and nighttime cycles of Earth over a three-day period, played on an interactive 3D globe."
+  },
+  {
+   "group": 3,
+   "group_title": "",
+   "widget": "Single image",
+   "caption": "",
+   "group_text": "Still image of day/night view of Earth",
+   "url": "https://svs.gsfc.nasa.gov/vis/a000000/a005400/a005477/day-night_KSC_SOS_stills.00297.png",
+   "filename": "day-night_KSC_SOS_stills.00297.png",
+   "media_type": "Image",
+   "width": 3840,
+   "height": 2160,
+   "alt_text": "Still image of day/night view of Earth"
+  },
+  {
+   "group": 4,
+   "group_title": "",
+   "widget": "Single image",
+   "caption": "",
+   "group_text": "Still image of day/night view of Earth",
+   "url": "https://svs.gsfc.nasa.gov/vis/a000000/a005400/a005477/day-night_KSC_SOS_stills.00718.png",
+   "filename": "day-night_KSC_SOS_stills.00718.png",
+   "media_type": "Image",
+   "width": 3840,
+   "height": 2160,
+   "alt_text": "This visualization shows the day/night cycle of Earth over a three-day period in 2024 as the planet spins on it’s axis."
+  }
+ ],
+ "text_links": [],
+ "frame_folders": {
+  "https://svs.gsfc.nasa.gov/vis/a000000/a005400/a005477/frames/4096x2048_2x1_30p/nightlights_day-night_ksc_sos_01_exr/": {
+   "url": "https://svs.gsfc.nasa.gov/vis/a000000/a005400/a005477/frames/4096x2048_2x1_30p/nightlights_day-night_ksc_sos_01_exr/",
+   "frame_count": 1800,
+   "bytes_approx": 47558200000,
+   "first": "nightlights_day-night_ksc_sos_01.00001.exr",
+   "last": "nightlights_day-night_ksc_sos_01.01800.exr",
+   "subfolders": {}
+  },
+  "https://svs.gsfc.nasa.gov/vis/a000000/a005400/a005477/frames/4096x2048_2x1_30p/nightlights_day-night_ksc_sos_01/": {
+   "url": "https://svs.gsfc.nasa.gov/vis/a000000/a005400/a005477/frames/4096x2048_2x1_30p/nightlights_day-night_ksc_sos_01/",
+   "frame_count": 1800,
+   "bytes_approx": 15005700000,
+   "first": "nightlights_day-night_ksc_sos_01.00001.png",
+   "last": "nightlights_day-night_ksc_sos_01.01800.png",
+   "subfolders": {}
+  },
+  "https://svs.gsfc.nasa.gov/vis/a000000/a005400/a005477/frames/2048x1024_2x1_30p/nightlights_day-night_ksc_sos_01/": {
+   "url": "https://svs.gsfc.nasa.gov/vis/a000000/a005400/a005477/frames/2048x1024_2x1_30p/nightlights_day-night_ksc_sos_01/",
+   "frame_count": 1800,
+   "bytes_approx": 17465200000,
+   "first": "nightlights_day-night_ksc_sos_01.00001_2k.png",
+   "last": "nightlights_day-night_ksc_sos_01.01800_2k.png",
+   "subfolders": {}
+  }
+ },
+ "api_url": "https://svs.gsfc.nasa.gov/api/5477",
+ "fetched_utc": "2026-10-31T17:34:56Z"
+}

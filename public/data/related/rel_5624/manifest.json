@@ -1,0 +1,362 @@
+{
+ "record": "rel_5624",
+ "app_title": "Global Smoke Forecast Visualization (Daily Updated) (model)",
+ "svs_ids": [
+  5624
+ ],
+ "title": "Global Smoke Forecast Visualization (Daily Updated)",
+ "svs_pages": [
+  "https://svs.gsfc.nasa.gov/5624/"
+ ],
+ "description": "This daily global wildfire smoke visualization uses NASA's GEOS-FP model to show smoke transport patterns from yesterday through four days ahead. The visualization shows wildfire smoke intensity based on brown carbon aerosol optical depth, using a 0-1 scale with colors ranging from light brown/red to dark brown. Wildfire smoke contains dangerous PM2.5 particles and can travel thousands of miles, making tracking essential for understanding air quality impacts.",
+ "release_date": "2026-05-29T18:59:59-04:00",
+ "period": {
+  "start": "2026-10-28T20:00:00Z",
+  "end": "2026-11-01T08:00:00Z",
+  "label": "28 Oct 2026 – 1 Nov 2026"
+ },
+ "badge": "model",
+ "credits_by_role": {
+  "Visualizer": [
+   "Joseph V. Ardizzone (NASA/GSFC)",
+   "Helen-Nicole Kostis (Science and Technology Corporation)"
+  ],
+  "Scientist": [
+   "Allison Collow (University of Maryland Baltimore County)"
+  ],
+  "Support": [
+   "Ella Kaplan (ADNET Systems, Inc.)",
+   "Ian Jones (ADNET Systems, Inc.)",
+   "Laurence Schuler (ADNET Systems, Inc.)",
+   "Eric Sokolowsky (ADNET Systems, Inc.)"
+  ]
+ },
+ "datasets": [
+  {
+   "name": "GEOS-FP",
+   "common_name": "",
+   "platform": null,
+   "sensor": null,
+   "type": "Model",
+   "organizations": [
+    "NASA GMAO"
+   ],
+   "description": "Documentation: Lucchesi, R., 2018: File Specification for GEOS FP. GMAO Office Note No. 4 (Version 1.2), 61 pp, available from [https://gmao.gsfc.nasa.gov/pubs/docs/Lucchesi1203.pdf](https://gmao.gsfc.nasa.gov/pubs/docs/Lucchesi1203.pdf)",
+   "credit": "",
+   "url": "https://fluid.nccs.nasa.gov/weather/",
+   "date_range": ""
+  }
+ ],
+ "credit_line": "Visualization: NASA's Scientific Visualization Studio (SVS 5624) for the NASA Earth Information Center.",
+ "disclosure": "A related NASA visualization read back through its key (pattern only).",
+ "licence": "SVS: \"All of our content is in the public domain (unless otherwise noted), meaning that it is free to download, use, and redistribute for whatever purposes you see fit.\" (https://svs.gsfc.nasa.gov/help/, read 29 Oct 2026)",
+ "focus": "wildfires",
+ "related_to": [
+  5669
+ ],
+ "frame_times": {
+  "method": "ocr",
+  "approximate": false,
+  "count": 3,
+  "source": "date box OCR: 01 Nov 2026 08 : 00 : 00 ? - - - -; date box OCR: 28 Oct 2026 20 : 00 : 00 ? - - - -; date box OCR: 80 Oct 2026 12 : 00 : 00 ? - - - -; 1 out-of-order date(s) replaced by interpolation"
+ },
+ "georef": {
+  "projection": "equirectangular (2:1)",
+  "bounds": [
+   -180,
+   -90,
+   180,
+   90
+  ],
+  "pass_at": 0.9,
+  "shifts_deg": [],
+  "iou": {
+   "land": 0.6782909326105704
+  },
+  "pass": false,
+  "best_is_assumed": false
+ },
+ "colorbar": {
+  "geometry": {
+   "x0": 75,
+   "x1": 464,
+   "band": [
+    77,
+    112
+   ],
+   "vertical": false,
+   "outline_rgb": [
+    255.0,
+    255.0,
+    255.0
+   ],
+   "image_size": [
+    165,
+    530
+   ]
+  },
+  "ticks": [
+   {
+    "px": 0.5,
+    "value": 0.0,
+    "text": "0",
+    "engine": "glyph",
+    "label_px": 0.5
+   },
+   {
+    "px": 78.50413223140495,
+    "value": 0.2,
+    "text": "0.2",
+    "engine": "glyph",
+    "label_px": 79.0,
+    "tick_mark": true
+   },
+   {
+    "px": 194.5,
+    "value": 0.5,
+    "text": "0.5",
+    "engine": "glyph",
+    "label_px": 195.0,
+    "tick_mark": true
+   },
+   {
+    "px": 310.5018867924528,
+    "value": 0.8,
+    "text": "0.8",
+    "engine": "glyph",
+    "label_px": 312.0,
+    "tick_mark": true
+   },
+   {
+    "px": 389.5,
+    "value": 1.0,
+    "text": "1",
+    "engine": "glyph",
+    "label_px": 389.5
+   }
+  ],
+  "scale": "linear",
+  "fit": {
+   "a": -0.0024892072807094047,
+   "b": 0.002583091062828843,
+   "fit": "weighted 1/tolerance",
+   "max_resid_px": 1.4032651590514562,
+   "resid_px": [
+    0.46,
+    -0.11,
+    0.03,
+    0.17,
+    -1.4
+   ],
+   "ok": true
+  },
+  "notes": [
+   "2 label(s) not on a tick mark (0, 1): label-centre position, ±5 px."
+  ],
+  "n_samples": 390,
+  "value_range": [
+   -0.0024892072807094047,
+   1.0023332161597105
+  ],
+  "opacity_varies": false,
+  "px_per_unit": 387.1330803587162
+ },
+ "colorbar_source": "page colorbar WildfireSmokeIntensity_colorbar_withbox.png",
+ "asset": {
+  "kind": "movie",
+  "owner": 5624,
+  "what": "GMAO_global_smoke_forecast_4096x2048.mp4"
+ },
+ "twins": [],
+ "decode": {
+  "mode": "chroma",
+  "decoded_share": 0.12990009784698486
+ },
+ "layers": [
+  {
+   "id": "value",
+   "unit": "colorbar units",
+   "encoding": "linear",
+   "scale": 0.00025830910628288426,
+   "offset": 0.05169219523668289,
+   "nodata": 65535,
+   "below": 65534,
+   "grid": {
+    "width": 360,
+    "height": 180,
+    "bounds": [
+     -180,
+     -90,
+     180,
+     90
+    ],
+    "row0": "north",
+    "col0": "west",
+    "byte_order": "little"
+   },
+   "times": [
+    "2026-10-28T20:00:00Z",
+    "2026-10-30T14:00:00Z",
+    "2026-11-01T08:00:00Z"
+   ],
+   "chunks": [
+    {
+     "file": "value_000.u16.gz",
+     "t0": 0,
+     "t1": 3,
+     "bytes": 44953
+    }
+   ],
+   "quantisation_step": 0.00025830910628288426,
+   "coverage": 0.12960905349794238,
+   "value_range": [
+    0.05169219523668289,
+    0.8567051291465759
+   ],
+   "label": "Global Smoke Forecast Visualization (Daily Updated) (pattern only)",
+   "aggregation": "mean of decoded pixels per cell",
+   "time_labels": [
+    "28 Oct 2026",
+    "30 Oct 2026",
+    "01 Nov 2026"
+   ],
+   "display": {
+    "colours": [
+     "#211f20",
+     "#343332",
+     "#9f9d99",
+     "#bebcb3",
+     "#bfbaab",
+     "#bfb7a3",
+     "#c0b299",
+     "#c1ad8e",
+     "#c2a785",
+     "#c49f7d",
+     "#c49675",
+     "#c58e6d",
+     "#c68866",
+     "#c78460",
+     "#c87e58",
+     "#c87a52",
+     "#c4744d",
+     "#be6e49",
+     "#b76844",
+     "#b0603e",
+     "#a95939",
+     "#a35334",
+     "#9c4c2f",
+     "#96462a",
+     "#904025",
+     "#893920",
+     "#83331b",
+     "#7b2b16",
+     "#742410",
+     "#62261c",
+     "#4d2b2c",
+     "#32303d"
+    ],
+    "values": [
+     -0.0024892072807094047,
+     0.029924419281884784,
+     0.06233804584447897,
+     0.09475167240707316,
+     0.12716529896966736,
+     0.15957892553226155,
+     0.19199255209485575,
+     0.22440617865744994,
+     0.2568198052200441,
+     0.28923343178263833,
+     0.3216470583452325,
+     0.35406068490782666,
+     0.3864743114704209,
+     0.41888793803301505,
+     0.4513015645956093,
+     0.48371519115820344,
+     0.5161288177207976,
+     0.5485424442833918,
+     0.580956070845986,
+     0.6133696974085802,
+     0.6457833239711743,
+     0.6781969505337685,
+     0.7106105770963627,
+     0.7430242036589569,
+     0.7754378302215511,
+     0.8078514567841454,
+     0.8402650833467394,
+     0.8726787099093337,
+     0.9050923364719279,
+     0.9375059630345222,
+     0.9699195895971162,
+     1.0023332161597105
+    ],
+    "scale": "linear"
+   },
+   "status": "pattern only",
+   "status_check": "a_auto_source",
+   "statement": "pattern only: ρ -0.34 vs GEOS-FP brown-carbon AOD (OPeNDAP)"
+  }
+ ],
+ "voices": {
+  "value": "rel5624"
+ },
+ "play": [
+  {
+   "id": "value",
+   "label": "Global Smoke Forecast Visualization (Daily Updated): higher pitch = higher value",
+   "view": "global",
+   "map": "value",
+   "start": {
+    "lat": -5.5,
+    "lon": -1.5
+   },
+   "steps_per_second": 1,
+   "channels": [
+    {
+     "voice": "rel5624",
+     "layers": [
+      "value"
+     ],
+     "combine": "value"
+    }
+   ]
+  }
+ ],
+ "validation": [
+  {
+   "id": "a_auto_source",
+   "title": "Global Smoke Forecast Visualization (Daily Updated): decoded values vs GEOS-FP brown-carbon AOD (OPeNDAP)",
+   "kind": "value",
+   "pass": false,
+   "threshold": "Spearman ≥ 0.9 and median relative error ≤ 15 % → verified; ρ ≥ 0.9 → values with stated error; ρ ≥ 0.6 → relative (provisional, onboarding defaults)"
+  }
+ ],
+ "size": {
+  "choice": {
+   "frames": 3
+  },
+  "tried": [],
+  "bytes": 55460,
+  "budget": 25000000
+ },
+ "onboarding": {
+  "timings_s": {
+   "api": 5.7,
+   "twins": 0.7,
+   "asset choice": 0.0,
+   "frames": 16.0,
+   "frame times": 4.4,
+   "georef": 4.7,
+   "colorbar": 0.9,
+   "inversion": 29.7,
+   "validation": 18.6
+  },
+  "status": "pattern only"
+ },
+ "asset_checksums": {
+  "file": "checksums.tsv.gz",
+  "rows": 2,
+  "sha256_of_list": "0c1e201d5ccb8424580bdcf765aa3832de106461f72a54f23ed07b5e2fc3165a"
+ },
+ "code_commit": "a8f0638dc9adb81b18f259cf0813046acd882fa1-dirty",
+ "generated_utc": "2026-10-31T18:02:31Z"
+}

@@ -1,0 +1,23 @@
+{
+ "record": "rel_5191",
+ "checks": [
+  {
+   "record": "rel_5191",
+   "id": "a_source_series",
+   "title": "Global Temperature Graph 1880-2024: values are the cited source's series (not decoded from the graph)",
+   "kind": "context",
+   "source": "NASA GISS GISTEMP v4 (public domain)",
+   "metrics": {
+    "points": 146,
+    "first": "1880-07-01",
+    "last": "2025-07-01",
+    "url": "https://data.giss.nasa.gov/gistemp/tabledata_v4/GLB.Ts+dSST.csv"
+   },
+   "threshold": null,
+   "pass": null,
+   "note": "A graph or spiral is drawn from these numbers; the record plays the numbers, not the picture.",
+   "run_utc": "2026-10-31T15:08:12Z"
+  }
+ ],
+ "updated_utc": "2026-10-31T15:08:12Z"
+}

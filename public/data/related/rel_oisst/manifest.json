@@ -1,0 +1,321 @@
+{
+ "record": "rel_oisst",
+ "app_title": "Sea surface temperature (NOAA OISST via ERDDAP, observation)",
+ "svs_ids": [],
+ "svs_pages": [],
+ "title": "NOAA OISST v2.1 rendered by ERDDAP",
+ "description": "A second agency's rendered map read back by Bloop's colour inversion, checked against that agency's own numbers.",
+ "release_date": null,
+ "period": {
+  "start": "2026-10-29T12:00:00Z",
+  "end": "2026-10-29T12:00:00Z",
+  "label": "29 Oct 2026 – 29 Oct 2026"
+ },
+ "badge": "observation",
+ "credits_by_role": {
+  "Data": [
+   "NOAA NCEI"
+  ],
+  "Server": [
+   "NOAA CoastWatch ERDDAP"
+  ]
+ },
+ "datasets": [],
+ "credit_line": "Data: NOAA NCEI OISST v2.1 (Huang et al. 2021), served by NOAA CoastWatch ERDDAP.",
+ "disclosure": "A second agency's rendered map read back by Bloop's colour inversion, checked against that agency's own numbers.",
+ "licence": "The data may be used and redistributed for free but is not intended\nfor legal use, since it may contain inaccuracies. Neither the data\nContributor, ERD, NOAA, nor the United States Government, nor any\nof their employees or contractors, makes any warranty, express or\nimplied, including warranties of ",
+ "focus": "water resources",
+ "related_to": [
+  3912
+ ],
+ "frame_times": {
+  "method": "date-list",
+  "approximate": false,
+  "count": 1,
+  "source": "the dataset's own time"
+ },
+ "georef": {
+  "projection": "equirectangular (ERDDAP griddap)",
+  "bounds": [
+   -180,
+   -90,
+   180,
+   90
+  ],
+  "pass_at": 1.0,
+  "shifts_deg": [],
+  "iou": {},
+  "pass": true,
+  "best_is_assumed": true
+ },
+ "colorbar": {
+  "geometry": {
+   "x0": 15,
+   "x1": 344,
+   "band": [
+    14,
+    28
+   ],
+   "vertical": false,
+   "outline_rgb": [
+    255.0,
+    255.0,
+    204.0
+   ],
+   "image_size": [
+    101,
+    360
+   ]
+  },
+  "ticks": [
+   {
+    "px": 127.5,
+    "value": 1.0,
+    "text": "1",
+    "engine": "glyph",
+    "label_px": 127.5
+   },
+   {
+    "px": 132.5,
+    "value": 117.0,
+    "text": "117^1",
+    "engine": "glyph",
+    "label_px": 132.5
+   },
+   {
+    "px": 213.0,
+    "value": 37.0,
+    "text": "37^1",
+    "engine": "glyph",
+    "label_px": 213.0
+   },
+   {
+    "px": 253.5,
+    "value": 4111.0,
+    "text": "4111",
+    "engine": "glyph",
+    "label_px": 253.5
+   },
+   {
+    "px": 260.5,
+    "value": 17.0,
+    "text": "17",
+    "engine": "glyph",
+    "label_px": 260.5
+   },
+   {
+    "px": 282.5,
+    "value": 3.1887148041182676e+66,
+    "text": "1111177^11",
+    "engine": "glyph",
+    "label_px": 282.5
+   },
+   {
+    "px": 291.5,
+    "value": 1.0,
+    "text": "1",
+    "engine": "glyph",
+    "label_px": 291.5
+   },
+   {
+    "px": 295.0,
+    "value": 52.0,
+    "text": "52",
+    "engine": "glyph",
+    "label_px": 295.0
+   },
+   {
+    "px": 305.0,
+    "value": 6.118597093190972e+33,
+    "text": "1179^11",
+    "engine": "glyph",
+    "label_px": 305.0
+   },
+   {
+    "px": 310.5,
+    "value": 17.0,
+    "text": "17",
+    "engine": "glyph",
+    "label_px": 310.5
+   }
+  ],
+  "scale": "stated-range",
+  "fit": {
+   "a": -2.0,
+   "b": 0.1094224924012158
+  },
+  "notes": [
+   "OCR read ['1', '117^1', '37^1', '4111', '17', '1111177^11', '1', '52', '1179^11', '17']: too few increasing labels; the SVS text's range -2.0–34.0 is used, linear between the strip ends."
+  ],
+  "n_samples": 330,
+  "value_range": [
+   -2.0,
+   34.0
+  ],
+  "opacity_varies": false
+ },
+ "layers": [
+  {
+   "id": "sst",
+   "unit": "°C",
+   "encoding": "linear",
+   "scale": 0.01,
+   "offset": 1.0638296604156494,
+   "nodata": 65535,
+   "below": 65534,
+   "grid": {
+    "width": 360,
+    "height": 180,
+    "bounds": [
+     -180,
+     -90,
+     180,
+     90
+    ],
+    "row0": "north",
+    "col0": "west",
+    "byte_order": "little"
+   },
+   "times": [
+    "2026-10-29T12:00:00Z"
+   ],
+   "chunks": [
+    {
+     "file": "sst_000.u16.gz",
+     "t0": 0,
+     "t1": 1,
+     "bytes": 56123
+    }
+   ],
+   "quantisation_step": 0.01,
+   "coverage": 0.6660802469135803,
+   "value_range": [
+    1.0638296604156494,
+    31.16869354248047
+   ],
+   "label": "Sea surface temperature (NOAA OISST, read back from ERDDAP's map)",
+   "aggregation": "mean of decoded 0.25° pixels per 1° cell",
+   "time_labels": [
+    "29 Oct 2026"
+   ],
+   "display": {
+    "colours": [
+     "#ffffcc",
+     "#ffffcc",
+     "#ffffcc",
+     "#930093",
+     "#b600b6",
+     "#d800d8",
+     "#d600f2",
+     "#9d00f6",
+     "#6300fb",
+     "#3112ff",
+     "#2049ff",
+     "#0e7fff",
+     "#00b2f1",
+     "#00cdc4",
+     "#00e798",
+     "#07ff69",
+     "#2bff45",
+     "#50ff20",
+     "#79fd00",
+     "#a6f200",
+     "#d2e700",
+     "#ffda00",
+     "#ffb900",
+     "#ff9800",
+     "#fe7300",
+     "#fa4e00",
+     "#f52900",
+     "#f00300",
+     "#cd0000",
+     "#a90000",
+     "#850000",
+     "#ffffcc"
+    ],
+    "values": [
+     -2.0,
+     -0.8387096774193548,
+     0.3225806451612905,
+     1.4838709677419355,
+     2.645161290322581,
+     3.806451612903226,
+     4.967741935483871,
+     6.129032258064516,
+     7.290322580645162,
+     8.451612903225806,
+     9.612903225806452,
+     10.774193548387098,
+     11.935483870967742,
+     13.096774193548388,
+     14.258064516129032,
+     15.419354838709676,
+     16.580645161290324,
+     17.74193548387097,
+     18.903225806451612,
+     20.06451612903226,
+     21.225806451612904,
+     22.387096774193548,
+     23.548387096774196,
+     24.70967741935484,
+     25.870967741935484,
+     27.032258064516128,
+     28.193548387096776,
+     29.35483870967742,
+     30.516129032258064,
+     31.67741935483871,
+     32.83870967741935,
+     34.0
+    ],
+    "scale": "linear"
+   },
+   "status": "relative",
+   "status_check": "a_erddap_numbers",
+   "statement": "ρ 0.999, Δ +1.27 °C"
+  }
+ ],
+ "voices": {
+  "sst": "relOisst"
+ },
+ "play": [
+  {
+   "id": "sst",
+   "label": "Sea surface temperature (OISST via ERDDAP): higher pitch = warmer",
+   "view": "global",
+   "map": "sst",
+   "start": {
+    "lat": 21.0,
+    "lon": 89.5
+   },
+   "steps_per_second": 1,
+   "channels": [
+    {
+     "voice": "relOisst",
+     "layers": [
+      "sst"
+     ],
+     "combine": "value"
+    }
+   ]
+  }
+ ],
+ "validation": [
+  {
+   "id": "a_erddap_numbers",
+   "title": "ERDDAP-rendered OISST read back by Bloop vs ERDDAP's own numbers, same day, 1° cells",
+   "kind": "value",
+   "pass": false,
+   "threshold": "Spearman ≥ 0.99 and |median difference| ≤ 0.2 °C (provisional)"
+  }
+ ],
+ "size": {
+  "choice": {
+   "cell_deg": 1.0
+  },
+  "tried": [],
+  "bytes": 63430,
+  "budget": 25000000
+ },
+ "code_commit": "2e85a9e4e031918d5d5c2278a792e69e89bfde23-dirty",
+ "generated_utc": "2026-10-31T15:20:01Z"
+}

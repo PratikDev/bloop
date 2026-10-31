@@ -1,0 +1,347 @@
+{
+ "record": "rel_5104",
+ "app_title": "Two Decades of Changes in Nitrogen Dioxide and Fine Particulate Pollution in the U.S. (observation)",
+ "svs_ids": [
+  5104
+ ],
+ "title": "Two Decades of Changes in Nitrogen Dioxide and Fine Particulate Pollution in the U.S.",
+ "svs_pages": [
+  "https://svs.gsfc.nasa.gov/5104/"
+ ],
+ "description": "A data visualization of particulate matter 2.5 (PM2.5) data for the Washington DC region spanning 2000-2018 (annual averages). Higher values are represented with dark red and lower values are represented with bright yellow.  This view uses the hybrid PM 2.5 color bar with a range of 5 to 20. || pm25_dc_annual.2018_print.jpg (1024x576) [216.4 KB] || pm25_dc_annual.2018_searchweb.png (320x180) [75.7 KB] || pm25_dc_annual.2018_thm.png (80x40) [6.2 KB] || pm25_dc_annual (3840x2160) [0 Item(s)] || pm25_dc_annual_2160p1.mp4 (3840x2160) [30.8 MB] || pm25_dc_annual_2160p60_prores.mov (3840x2160) [41.0 MB] || pm25_dc_annual_2160p1.webm (3840x2160) [1.9 MB] || ",
+ "release_date": "2023-05-23T00:00:00-04:00",
+ "period": {
+  "start": "2023-05-23T04:00:00Z",
+  "end": "2023-05-23T04:00:00Z",
+  "label": "23 May 2023 – 23 May 2023"
+ },
+ "badge": "observation",
+ "credits_by_role": {
+  "Visualizer": [
+   "Kel Elkins (USRA)"
+  ],
+  "Producer": [
+   "Katie Jepson (KBR Wyle Services, LLC)"
+  ],
+  "Scientist": [
+   "Susan Anenberg (The George Washington University)"
+  ],
+  "Writer": [
+   "Jenny Marder Fadoul (Telophase)"
+  ]
+ },
+ "datasets": [
+  {
+   "name": "V4.NA.03",
+   "common_name": "Surface PM2.5",
+   "platform": null,
+   "sensor": "MODIS, MISR, and SeaWIFS",
+   "type": "Data Compilation",
+   "organizations": [
+    "Washington University in St. Louis"
+   ],
+   "description": "",
+   "credit": "",
+   "url": "https://sites.wustl.edu/acag/datasets/surface-pm2-5/#V4.NA.03",
+   "date_range": null
+  },
+  {
+   "name": "Surface-level nitrogen dioxide",
+   "common_name": "Surface NO2",
+   "platform": null,
+   "sensor": null,
+   "type": "Model",
+   "organizations": [
+    "Goddard Earth Sciences Data and Information Services Center (GES DISC)"
+   ],
+   "description": "",
+   "credit": "",
+   "url": "https://acdisc.gesdisc.eosdis.nasa.gov/data/HAQAST/SFC_NITROGEN_DIOXIDE_CONC.1/",
+   "date_range": null
+  }
+ ],
+ "credit_line": "Visualization: NASA's Scientific Visualization Studio (SVS 5104) for the NASA Earth Information Center.",
+ "disclosure": "A related NASA visualization read back through its key (pattern only).",
+ "licence": "SVS: \"All of our content is in the public domain (unless otherwise noted), meaning that it is free to download, use, and redistribute for whatever purposes you see fit.\" (https://svs.gsfc.nasa.gov/help/, read 29 Oct 2026)",
+ "focus": "air quality",
+ "related_to": [
+  5533
+ ],
+ "frame_times": {
+  "method": "linear",
+  "approximate": true,
+  "count": 3,
+  "source": "undated"
+ },
+ "georef": {
+  "projection": "none (not a flat 2:1 map)",
+  "bounds": [
+   -180,
+   -101.25,
+   180,
+   101.25
+  ],
+  "pass_at": 0.9,
+  "shifts_deg": [],
+  "iou": {},
+  "pass": false,
+  "best_is_assumed": false
+ },
+ "colorbar": {
+  "geometry": {
+   "x0": 489,
+   "x1": 3292,
+   "band": [
+    987,
+    1172
+   ],
+   "vertical": false,
+   "image_size": [
+    2160,
+    3840
+   ]
+  },
+  "ticks": [
+   {
+    "px": -51.5,
+    "value": 5.0,
+    "text": "5",
+    "engine": "glyph"
+   },
+   {
+    "px": 937.5,
+    "value": 10.0,
+    "text": "10",
+    "engine": "glyph"
+   },
+   {
+    "px": 1926.5,
+    "value": 15.0,
+    "text": "15",
+    "engine": "glyph"
+   },
+   {
+    "px": 2915.5,
+    "value": 20.0,
+    "text": "20",
+    "engine": "glyph"
+   }
+  ],
+  "scale": "linear",
+  "fit": {
+   "a": 5.260364004044485,
+   "b": 0.005055611729019215,
+   "fit": "labels below the strip",
+   "max_resid_value": 7.105427357601002e-15
+  },
+  "notes": [
+   "OCR read ['5', '10', '41091413^21', '15', '20']; ['41091413^21'] disagree with the line through the other 4 labels and are dropped as misreads."
+  ],
+  "n_samples": 2804,
+  "value_range": [
+   5.260364004044485,
+   19.431243680485345
+  ],
+  "opacity_varies": false,
+  "px_per_unit": 197.79999999999987
+ },
+ "colorbar_source": "page colorbar colorbar_pm25_close_5-20_02.tif",
+ "asset": {
+  "kind": "frames",
+  "owner": 5104,
+  "what": "pm25_dc_annual"
+ },
+ "twins": [],
+ "decode": {
+  "mode": "exact",
+  "decoded_share": 0.9090177308384774
+ },
+ "layers": [
+  {
+   "id": "value",
+   "unit": "colorbar units",
+   "encoding": "linear",
+   "scale": 0.0005055611729019215,
+   "offset": 6.864222526550293,
+   "nodata": 65535,
+   "below": 65534,
+   "grid": {
+    "width": 160,
+    "height": 90,
+    "bounds": [
+     -180,
+     -101.25,
+     180,
+     101.25
+    ],
+    "row0": "north",
+    "col0": "west",
+    "byte_order": "little",
+    "space": "frame"
+   },
+   "times": [
+    "2023-05-23T04:00:00Z",
+    "2023-05-23T04:00:00Z",
+    "2023-05-23T04:00:00Z"
+   ],
+   "chunks": [
+    {
+     "file": "value_000.u16.gz",
+     "t0": 0,
+     "t1": 3,
+     "bytes": 66861
+    }
+   ],
+   "quantisation_step": 0.0005055611729019215,
+   "coverage": 0.975,
+   "value_range": [
+    6.864222526550293,
+    16.22456169128418
+   ],
+   "label": "Two Decades of Changes in Nitrogen Dioxide and Fine Particulate Pollution in the U.S. (pattern only)",
+   "aggregation": "mean of decoded pixels per cell",
+   "time_labels": [
+    "undated",
+    "undated",
+    "undated"
+   ],
+   "display": {
+    "colours": [
+     "#fff2e5",
+     "#ffe2c5",
+     "#ffd5a7",
+     "#ffc78b",
+     "#ffb76a",
+     "#ffaa4d",
+     "#ff9b32",
+     "#ff8c12",
+     "#ff7d00",
+     "#ff6d00",
+     "#f75f00",
+     "#ed5200",
+     "#e14300",
+     "#d63400",
+     "#cd2700",
+     "#c01700",
+     "#b40800",
+     "#a90000",
+     "#9d0000",
+     "#920000",
+     "#870000",
+     "#7d0000",
+     "#720000",
+     "#660000",
+     "#5b0000",
+     "#4f0000",
+     "#440000",
+     "#380000",
+     "#2e0000",
+     "#230000",
+     "#180000",
+     "#0d0000"
+    ],
+    "values": [
+     5.260364004044485,
+     5.717489154897415,
+     6.174614305750347,
+     6.6317394566032775,
+     7.088864607456209,
+     7.5459897583091395,
+     8.00311490916207,
+     8.460240060015002,
+     8.917365210867931,
+     9.374490361720863,
+     9.831615512573794,
+     10.288740663426726,
+     10.745865814279655,
+     11.202990965132587,
+     11.660116115985518,
+     12.117241266838448,
+     12.57436641769138,
+     13.031491568544311,
+     13.48861671939724,
+     13.945741870250172,
+     14.402867021103104,
+     14.859992171956034,
+     15.317117322808965,
+     15.774242473661895,
+     16.231367624514824,
+     16.688492775367756,
+     17.145617926220687,
+     17.60274307707362,
+     18.05986822792655,
+     18.516993378779482,
+     18.974118529632413,
+     19.431243680485345
+    ],
+    "scale": "linear"
+   },
+   "status": "pattern only",
+   "status_check": "a_no_validation_source",
+   "statement": "pattern only"
+  }
+ ],
+ "voices": {
+  "value": "rel5104"
+ },
+ "play": [
+  {
+   "id": "value",
+   "label": "Two Decades of Changes in Nitrogen Dioxide and Fine Particulate Pollution in the U.S.: higher pitch = higher value",
+   "view": "global",
+   "map": "value",
+   "start": {
+    "lat": -1.0,
+    "lon": 1.125
+   },
+   "steps_per_second": 1,
+   "channels": [
+    {
+     "voice": "rel5104",
+     "layers": [
+      "value"
+     ],
+     "combine": "value"
+    }
+   ]
+  }
+ ],
+ "validation": [
+  {
+   "id": "a_no_validation_source",
+   "title": "Two Decades of Changes in Nitrogen Dioxide and Fine Particulate Pollution in the U.S.: no validation source",
+   "kind": "none",
+   "pass": null,
+   "threshold": null
+  }
+ ],
+ "size": {
+  "choice": {
+   "frames": 3
+  },
+  "tried": [],
+  "bytes": 75972,
+  "budget": 25000000
+ },
+ "onboarding": {
+  "timings_s": {
+   "api": 10.3,
+   "twins": 0.8,
+   "asset choice": 0.0,
+   "frames": 102.1,
+   "frame times": 37.8,
+   "georef": 0.1,
+   "colorbar": 221.5,
+   "inversion": 11.1,
+   "validation": 0.0
+  },
+  "status": "pattern only"
+ },
+ "asset_checksums": {
+  "file": "checksums.tsv.gz",
+  "rows": 6,
+  "sha256_of_list": "661e9b40e4d31d0d681da63687ce0e12da5514e67b2b454cd7c40535e0431b2f"
+ },
+ "code_commit": "a8f0638dc9adb81b18f259cf0813046acd882fa1-dirty",
+ "generated_utc": "2026-10-31T17:50:33Z"
+}

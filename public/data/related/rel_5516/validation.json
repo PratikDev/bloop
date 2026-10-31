@@ -1,0 +1,23 @@
+{
+ "record": "rel_5516",
+ "checks": [
+  {
+   "record": "rel_5516",
+   "id": "a_source_series",
+   "title": "Global Mean Sea Level 1993-2024: values are the cited source's series (not decoded from the graph)",
+   "kind": "context",
+   "source": "Willis, Hamlington and Fournier, GMSL Trajectory and Extrapolation (Zenodo 7702315, CC BY 4.0), NASA GSFC TPJAOS",
+   "metrics": {
+    "points": 1104,
+    "first": "1993-01-05",
+    "last": "2022-12-26",
+    "url": "https://zenodo.org/api/records/7702315/files/GMSL_NASA_Trajectory_Extrapolation_2022_V101.txt/content"
+   },
+   "threshold": null,
+   "pass": null,
+   "note": "A graph or spiral is drawn from these numbers; the record plays the numbers, not the picture.",
+   "run_utc": "2026-10-31T15:07:17Z"
+  }
+ ],
+ "updated_utc": "2026-10-31T15:07:17Z"
+}

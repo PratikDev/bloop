@@ -1,0 +1,467 @@
+{
+ "id": 5075,
+ "title": "Near Real-Time Global Biosphere",
+ "url": "https://svs.gsfc.nasa.gov/5075/",
+ "page_type": "Visualization",
+ "release_date": "2023-02-13T00:00:00-05:00",
+ "update_date": "9999-12-30T18:59:59-05:00",
+ "description": "The latest 2.5 years of Biosphere data with date annotations. || nrtbio_print.jpg (1024x512) [205.4 KB] || nrtbio_searchweb.png (320x160) [88.7 KB] || nrtbio_thm.png (80x40) [7.2 KB] || Plate_Carree_with_Dates (4096x2048) [0 Item(s)] || nrtbio_annot_plate_2048p30.mp4 (4096x2048) [113.2 MB] || slide-01.hwshow ||",
+ "full_text": "The latest 2.5 years of Biosphere data with date annotations. || nrtbio_print.jpg (1024x512) [205.4 KB] || nrtbio_searchweb.png (320x160) [88.7 KB] || nrtbio_thm.png (80x40) [7.2 KB] || Plate_Carree_with_Dates (4096x2048) [0 Item(s)] || nrtbio_annot_plate_2048p30.mp4 (4096x2048) [113.2 MB] || slide-01.hwshow ||\n\nThe latest 2.5 years of Biosphere data with date annotations.\n\nConstantly updated data visualization of the Earth's Biosphere<br><br>By monitoring the color of reflected light via satellite, scientists can determine how successfully plant life is photosynthesizing. A measurement of photosynthesis is essentially a measurement of successful growth, and growth means successful use of ambient carbon. This data visualization represents five years' worth of data taken primarily by Suomi NPP/VIIRS satellite sensors, showing the abundance of life both on land and in the sea. In the ocean, dark blue represents warmer areas where there is little life due to lack of nutrients, where yellow and orange represent cooler nutrient-rich areas. The nutrient-rich areas include coastal regions where cold water rises from the sea floor bringing nutrients along and areas at the mouths of rivers where the rivers have brought nutrients into the ocean from the land. On land, green represents areas of abundant plant life, such as forests and grasslands, while tan and white represent areas where plant life is sparse or non-existent, such as the deserts in Africa and the Middle East and snow-cover and ice at the poles.\n\nNear real-time biosphere in Robinson projection.\n\nNear real-time Biosphere in Plate Carree projection.\n\nColorbar for the Normalized Difference Vegetation Index (NDVI) land cover data. Shades of brown depict little to no vegetation (for example, the Sahara Desert), whereas deep green are large amounts of vegetation (for example, the South American Rainforest).<p>\n\nColorbar representing the Ocean's chlorophyll. Blues down to violet are areas with little to no chlorophyll. Green to yellow indicate high chlorophyll concentrations or other color dissolved organic materials.<p>\n\nColorbar representing the Ocean's chlorophyll using actual data values . Blues down to violet are areas with little to no chlorophyll. Green to yellow indicate high chlorophyll concentrations or other color dissolved organic materials.",
+ "credits_by_role": {
+  "Data visualizer": [
+   "Alex Kekesi (Global Science and Technology, Inc.)",
+   "Horace Mitchell (NASA/GSFC)",
+   "Greg Shirah (NASA/GSFC)"
+  ],
+  "Scientist": [
+   "Jeremy Werdell (NASA/GSFC)",
+   "Sean W. Bailey (NASA/GSFC)",
+   "Compton Tucker (NASA/GSFC)"
+  ],
+  "Technical support": [
+   "Laurence Schuler (ADNET Systems, Inc.)",
+   "Ian Jones (ADNET Systems, Inc.)"
+  ]
+ },
+ "keywords": [
+  "Biological oceanography",
+  "Biosphere",
+  "Carbon Cycle and Ecosystems",
+  "Cryology",
+  "Cryosphere",
+  "Earth Information Center",
+  "Earth Science",
+  "Ecological Dynamics",
+  "Ecology",
+  "For Educators",
+  "HDTV",
+  "Hydrosphere",
+  "Hyperwall",
+  "Microbiota Taxonomy",
+  "ocean color",
+  "Ocean Optics",
+  "Oceans",
+  "photosynthesis",
+  "Physical oceanography",
+  "Phytoplankton",
+  "Plant Growth",
+  "Producer",
+  "Sea Ice",
+  "Sea Ice Concentration",
+  "SeaWiFS",
+  "Snow Cover",
+  "Snow/Ice",
+  "SOS",
+  "Terrestrial Hydrosphere"
+ ],
+ "datasets": [
+  {
+   "name": "Comiso's Daily Sea Ice Concentration",
+   "common_name": "",
+   "platform": null,
+   "sensor": null,
+   "type": "Data Compilation",
+   "organizations": [
+    "NASA/GSFC"
+   ],
+   "description": "",
+   "credit": "",
+   "url": "",
+   "date_range": "3/2017 - 12/2018"
+  },
+  {
+   "name": "IMS Daily Northern Hemisphere Snow and Ice Analysis - 24 km Resolution",
+   "common_name": "IMS Daily Northern Hemisphere Snow and Ice Analysis",
+   "platform": "Interactive Multisensor Snow and Ice Mapping System (IMS)",
+   "sensor": null,
+   "type": "Analysis",
+   "organizations": [
+    "NOAA"
+   ],
+   "description": "",
+   "credit": "",
+   "url": "http://nsidc.org/data/docs/noaa/g02156_ims_snow_ice_analysis/",
+   "date_range": "2017 - present"
+  },
+  {
+   "name": "10 km Daily Sea Ice Concentration",
+   "common_name": "",
+   "platform": "SHIZUKU (GCOM-W1)",
+   "sensor": "AMSR2",
+   "type": "Observed Data",
+   "organizations": [
+    "Japan Aerospace Exploration Agency"
+   ],
+   "description": "",
+   "credit": "AMSR2 data courtesy of the Japan Aerospace Exploration Agency (JAXA).",
+   "url": "",
+   "date_range": "1/2019 - present"
+  },
+  {
+   "name": "Chlorophyll Concentration",
+   "common_name": "Chlorophyll",
+   "platform": "Suomi NPP",
+   "sensor": "VIIRS",
+   "type": "Observed Data",
+   "organizations": [],
+   "description": "",
+   "credit": "",
+   "url": "",
+   "date_range": "3/2017 - present"
+  },
+  {
+   "name": "NDVI",
+   "common_name": "Normalized Difference Vegetation Index",
+   "platform": "Suomi NPP",
+   "sensor": "VIIRS",
+   "type": "Analysis",
+   "organizations": [],
+   "description": "",
+   "credit": "",
+   "url": "",
+   "date_range": "3/2017 - present"
+  }
+ ],
+ "missions": [],
+ "related": [
+  {
+   "id": 14508,
+   "title": "Global Pulse Check! NASA’s New Earth Satellite, PACE, Launching Next Week to Capture Earth Like Never Before!",
+   "url": "https://svs.gsfc.nasa.gov/14508/"
+  }
+ ],
+ "alternate_versions": [],
+ "newer_versions": [],
+ "older_versions": [
+  {
+   "id": 4813,
+   "title": "Earth Day 2020: Biosphere",
+   "url": "https://svs.gsfc.nasa.gov/4813/"
+  },
+  {
+   "id": 4597,
+   "title": "Earth: Our Living Planet (Updated)",
+   "url": "https://svs.gsfc.nasa.gov/4597/"
+  },
+  {
+   "id": 4596,
+   "title": "20 Years of Global Biosphere (updated)",
+   "url": "https://svs.gsfc.nasa.gov/4596/"
+  }
+ ],
+ "media": [
+  {
+   "group": 0,
+   "group_title": "",
+   "widget": "Video player",
+   "caption": "",
+   "group_text": "The latest 2.5 years of Biosphere data with date annotations.",
+   "url": "https://svs.gsfc.nasa.gov/vis/a000000/a005000/a005075/nrtbio_print.jpg",
+   "filename": "nrtbio_print.jpg",
+   "media_type": "Image",
+   "width": 1024,
+   "height": 512,
+   "alt_text": "The latest 2.5 years of Biosphere data with date annotations."
+  },
+  {
+   "group": 0,
+   "group_title": "",
+   "widget": "Video player",
+   "caption": "",
+   "group_text": "The latest 2.5 years of Biosphere data with date annotations.",
+   "url": "https://svs.gsfc.nasa.gov/vis/a000000/a005000/a005075/nrtbio_searchweb.png",
+   "filename": "nrtbio_searchweb.png",
+   "media_type": "Image",
+   "width": 320,
+   "height": 160,
+   "alt_text": "The latest 2.5 years of Biosphere data with date annotations."
+  },
+  {
+   "group": 0,
+   "group_title": "",
+   "widget": "Video player",
+   "caption": "",
+   "group_text": "The latest 2.5 years of Biosphere data with date annotations.",
+   "url": "https://svs.gsfc.nasa.gov/vis/a000000/a005000/a005075/nrtbio_thm.png",
+   "filename": "nrtbio_thm.png",
+   "media_type": "Image",
+   "width": 80,
+   "height": 40,
+   "alt_text": "The latest 2.5 years of Biosphere data with date annotations."
+  },
+  {
+   "group": 0,
+   "group_title": "",
+   "widget": "Video player",
+   "caption": "",
+   "group_text": "The latest 2.5 years of Biosphere data with date annotations.",
+   "url": "https://svs.gsfc.nasa.gov/vis/a000000/a005000/a005075/frames/4096x2048_2x1_30p/Plate_Carree_with_Dates/",
+   "filename": "Plate_Carree_with_Dates",
+   "media_type": "Frames",
+   "width": 4096,
+   "height": 2048,
+   "alt_text": "The latest 2.5 years of Biosphere data with date annotations."
+  },
+  {
+   "group": 0,
+   "group_title": "",
+   "widget": "Video player",
+   "caption": "",
+   "group_text": "The latest 2.5 years of Biosphere data with date annotations.",
+   "url": "https://svs.gsfc.nasa.gov/vis/a000000/a005000/a005075/nrtbio_annot_plate_2048p30.mp4",
+   "filename": "nrtbio_annot_plate_2048p30.mp4",
+   "media_type": "Movie",
+   "width": 4096,
+   "height": 2048,
+   "alt_text": "The latest 2.5 years of Biosphere data with date annotations."
+  },
+  {
+   "group": 0,
+   "group_title": "",
+   "widget": "Video player",
+   "caption": "",
+   "group_text": "The latest 2.5 years of Biosphere data with date annotations.",
+   "url": "https://svs.gsfc.nasa.gov/vis/a000000/a005000/a005075/nrtbio_annot_plate_2048p30.mp4.hwshow/svs/db/hyperwall/data/events/2023/2023-sc/putman/slide-01.hwshow",
+   "filename": "slide-01.hwshow",
+   "media_type": "HyperwallShow",
+   "width": 0,
+   "height": 0,
+   "alt_text": ""
+  },
+  {
+   "group": 2,
+   "group_title": "",
+   "widget": "Video player",
+   "caption": "",
+   "group_text": "Near real-time biosphere in Robinson projection.",
+   "url": "https://svs.gsfc.nasa.gov/vis/a000000/a005000/a005075/nrtbio_robinson_print.jpg",
+   "filename": "nrtbio_robinson_print.jpg",
+   "media_type": "Image",
+   "width": 1024,
+   "height": 512,
+   "alt_text": "Near real-time biosphere in Robinson projection."
+  },
+  {
+   "group": 2,
+   "group_title": "",
+   "widget": "Video player",
+   "caption": "",
+   "group_text": "Near real-time biosphere in Robinson projection.",
+   "url": "https://svs.gsfc.nasa.gov/vis/a000000/a005000/a005075/frames/4096x2048_2x1_30p/Robinson_with_Dates/",
+   "filename": "Robinson_with_Dates",
+   "media_type": "Frames",
+   "width": 4096,
+   "height": 2048,
+   "alt_text": "Near real-time biosphere in Robinson projection."
+  },
+  {
+   "group": 2,
+   "group_title": "",
+   "widget": "Video player",
+   "caption": "",
+   "group_text": "Near real-time biosphere in Robinson projection.",
+   "url": "https://svs.gsfc.nasa.gov/vis/a000000/a005000/a005075/frames/4096x2048_2x1_30p/Robinson/",
+   "filename": "Robinson",
+   "media_type": "Frames",
+   "width": 4096,
+   "height": 2048,
+   "alt_text": "Near real-time biosphere in Robinson projection."
+  },
+  {
+   "group": 2,
+   "group_title": "",
+   "widget": "Video player",
+   "caption": "",
+   "group_text": "Near real-time biosphere in Robinson projection.",
+   "url": "https://svs.gsfc.nasa.gov/vis/a000000/a005000/a005075/frames/8000x4000_2x1_30p/Robinson/",
+   "filename": "Robinson",
+   "media_type": "Frames",
+   "width": 8000,
+   "height": 4000,
+   "alt_text": "Near real-time biosphere in Robinson projection."
+  },
+  {
+   "group": 2,
+   "group_title": "",
+   "widget": "Video player",
+   "caption": "",
+   "group_text": "Near real-time biosphere in Robinson projection.",
+   "url": "https://svs.gsfc.nasa.gov/vis/a000000/a005000/a005075/nrtbio_annot_robinson_2048p30.mp4",
+   "filename": "nrtbio_annot_robinson_2048p30.mp4",
+   "media_type": "Movie",
+   "width": 4096,
+   "height": 2048,
+   "alt_text": "Near real-time biosphere in Robinson projection."
+  },
+  {
+   "group": 3,
+   "group_title": "",
+   "widget": "Single image",
+   "caption": "",
+   "group_text": "Near real-time Biosphere in Plate Carree projection.",
+   "url": "https://svs.gsfc.nasa.gov/vis/a000000/a005000/a005075/nrtbio_plate_print.jpg",
+   "filename": "nrtbio_plate_print.jpg",
+   "media_type": "Image",
+   "width": 1024,
+   "height": 512,
+   "alt_text": "Near real-time Biosphere in Plate Carree projection."
+  },
+  {
+   "group": 3,
+   "group_title": "",
+   "widget": "Single image",
+   "caption": "",
+   "group_text": "Near real-time Biosphere in Plate Carree projection.",
+   "url": "https://svs.gsfc.nasa.gov/vis/a000000/a005000/a005075/frames/8000x4000_2x1_30p/Plate_Carree/",
+   "filename": "Plate_Carree",
+   "media_type": "Frames",
+   "width": 8000,
+   "height": 4000,
+   "alt_text": "Near real-time Biosphere in Plate Carree projection."
+  },
+  {
+   "group": 3,
+   "group_title": "",
+   "widget": "Single image",
+   "caption": "",
+   "group_text": "Near real-time Biosphere in Plate Carree projection.",
+   "url": "https://svs.gsfc.nasa.gov/vis/a000000/a005000/a005075/frames/4096x2048_2x1_30p/Plate_Carree/",
+   "filename": "Plate_Carree",
+   "media_type": "Frames",
+   "width": 4096,
+   "height": 2048,
+   "alt_text": "Near real-time Biosphere in Plate Carree projection."
+  },
+  {
+   "group": 4,
+   "group_title": "",
+   "widget": "Single image",
+   "caption": "",
+   "group_text": "Colorbar for the Normalized Difference Vegetation Index (NDVI) land cover data. Shades of brown depict little to no vegetation (for example, the Sahara Desert), whereas deep green are large amounts of vegetation (for example, the South American Rainforest).<p>",
+   "url": "https://svs.gsfc.nasa.gov/vis/a000000/a005000/a005075/ndvi_colorbar_print.jpg",
+   "filename": "ndvi_colorbar_print.jpg",
+   "media_type": "Image",
+   "width": 1024,
+   "height": 256,
+   "alt_text": "Colorbar for the Normalized Difference Vegetation Index (NDVI) land cover data. Shades of brown depict little to no vegetation (for example, the Sahara Desert), whereas deep green are large amounts of vegetation (for example, the South American Rainforest)."
+  },
+  {
+   "group": 4,
+   "group_title": "",
+   "widget": "Single image",
+   "caption": "",
+   "group_text": "Colorbar for the Normalized Difference Vegetation Index (NDVI) land cover data. Shades of brown depict little to no vegetation (for example, the Sahara Desert), whereas deep green are large amounts of vegetation (for example, the South American Rainforest).<p>",
+   "url": "https://svs.gsfc.nasa.gov/vis/a000000/a005000/a005075/ndvi_colorbar.tif",
+   "filename": "ndvi_colorbar.tif",
+   "media_type": "Image",
+   "width": 1000,
+   "height": 250,
+   "alt_text": "Colorbar for the Normalized Difference Vegetation Index (NDVI) land cover data. Shades of brown depict little to no vegetation (for example, the Sahara Desert), whereas deep green are large amounts of vegetation (for example, the South American Rainforest)."
+  },
+  {
+   "group": 5,
+   "group_title": "",
+   "widget": "Single image",
+   "caption": "",
+   "group_text": "Colorbar representing the Ocean's chlorophyll. Blues down to violet are areas with little to no chlorophyll. Green to yellow indicate high chlorophyll concentrations or other color dissolved organic materials.<p>",
+   "url": "https://svs.gsfc.nasa.gov/vis/a000000/a005000/a005075/newbio_chloro_gen_colorbar_print.jpg",
+   "filename": "newbio_chloro_gen_colorbar_print.jpg",
+   "media_type": "Image",
+   "width": 1024,
+   "height": 256,
+   "alt_text": "Colorbar representing the Ocean's chlorophyll. Blues down to violet are areas with little to no chlorophyll. Green to yellow indicate high chlorophyll concentrations or other color dissolved organic materials."
+  },
+  {
+   "group": 5,
+   "group_title": "",
+   "widget": "Single image",
+   "caption": "",
+   "group_text": "Colorbar representing the Ocean's chlorophyll. Blues down to violet are areas with little to no chlorophyll. Green to yellow indicate high chlorophyll concentrations or other color dissolved organic materials.<p>",
+   "url": "https://svs.gsfc.nasa.gov/vis/a000000/a005000/a005075/newbio_chloro_gen_colorbar.tif",
+   "filename": "newbio_chloro_gen_colorbar.tif",
+   "media_type": "Image",
+   "width": 1000,
+   "height": 250,
+   "alt_text": "Colorbar representing the Ocean's chlorophyll. Blues down to violet are areas with little to no chlorophyll. Green to yellow indicate high chlorophyll concentrations or other color dissolved organic materials."
+  },
+  {
+   "group": 6,
+   "group_title": "",
+   "widget": "Single image",
+   "caption": "",
+   "group_text": "Colorbar representing the Ocean's chlorophyll using actual data values . Blues down to violet are areas with little to no chlorophyll. Green to yellow indicate high chlorophyll concentrations or other color dissolved organic materials.",
+   "url": "https://svs.gsfc.nasa.gov/vis/a000000/a005000/a005075/newbio_chloro_sci_colorbar_print.jpg",
+   "filename": "newbio_chloro_sci_colorbar_print.jpg",
+   "media_type": "Image",
+   "width": 1024,
+   "height": 256,
+   "alt_text": "Colorbar representing the Ocean's chlorophyll using actual data values . Blues down to violet are areas with little to no chlorophyll. Green to yellow indicate high chlorophyll concentrations or other color dissolved organic materials."
+  },
+  {
+   "group": 6,
+   "group_title": "",
+   "widget": "Single image",
+   "caption": "",
+   "group_text": "Colorbar representing the Ocean's chlorophyll using actual data values . Blues down to violet are areas with little to no chlorophyll. Green to yellow indicate high chlorophyll concentrations or other color dissolved organic materials.",
+   "url": "https://svs.gsfc.nasa.gov/vis/a000000/a005000/a005075/newbio_chloro_sci_colorbar.tif",
+   "filename": "newbio_chloro_sci_colorbar.tif",
+   "media_type": "Image",
+   "width": 1000,
+   "height": 250,
+   "alt_text": "Colorbar representing the Ocean's chlorophyll using actual data values . Blues down to violet are areas with little to no chlorophyll. Green to yellow indicate high chlorophyll concentrations or other color dissolved organic materials."
+  }
+ ],
+ "text_links": [],
+ "frame_folders": {
+  "https://svs.gsfc.nasa.gov/vis/a000000/a005000/a005075/frames/4096x2048_2x1_30p/Plate_Carree_with_Dates/": {
+   "url": "https://svs.gsfc.nasa.gov/vis/a000000/a005000/a005075/frames/4096x2048_2x1_30p/Plate_Carree_with_Dates/",
+   "frame_count": 899,
+   "bytes_approx": null,
+   "first": "newbio2k_20220903.annotated.tif",
+   "last": "newbio2k_20250217.annotated.tif",
+   "subfolders": {}
+  },
+  "https://svs.gsfc.nasa.gov/vis/a000000/a005000/a005075/frames/4096x2048_2x1_30p/Robinson_with_Dates/": {
+   "url": "https://svs.gsfc.nasa.gov/vis/a000000/a005000/a005075/frames/4096x2048_2x1_30p/Robinson_with_Dates/",
+   "frame_count": 899,
+   "bytes_approx": null,
+   "first": "newbio2k_20220903.rob.annotated.tif",
+   "last": "newbio2k_20250217.rob.annotated.tif",
+   "subfolders": {}
+  },
+  "https://svs.gsfc.nasa.gov/vis/a000000/a005000/a005075/frames/4096x2048_2x1_30p/Robinson/": {
+   "url": "https://svs.gsfc.nasa.gov/vis/a000000/a005000/a005075/frames/4096x2048_2x1_30p/Robinson/",
+   "frame_count": 899,
+   "bytes_approx": null,
+   "first": "newbio2k_20220903.rob.tif",
+   "last": "newbio2k_20250217.rob.tif",
+   "subfolders": {}
+  },
+  "https://svs.gsfc.nasa.gov/vis/a000000/a005000/a005075/frames/8000x4000_2x1_30p/Robinson/": {
+   "url": "https://svs.gsfc.nasa.gov/vis/a000000/a005000/a005075/frames/8000x4000_2x1_30p/Robinson/",
+   "frame_count": 10018,
+   "bytes_approx": null,
+   "first": "newbio8k_19970915.rob.tif",
+   "last": "newbio8k_20250217.rob.tif",
+   "subfolders": {}
+  },
+  "https://svs.gsfc.nasa.gov/vis/a000000/a005000/a005075/frames/8000x4000_2x1_30p/Plate_Carree/": {
+   "url": "https://svs.gsfc.nasa.gov/vis/a000000/a005000/a005075/frames/8000x4000_2x1_30p/Plate_Carree/",
+   "frame_count": 10018,
+   "bytes_approx": null,
+   "first": "newbio8k_19970915.tif",
+   "last": "newbio8k_20250217.tif",
+   "subfolders": {}
+  },
+  "https://svs.gsfc.nasa.gov/vis/a000000/a005000/a005075/frames/4096x2048_2x1_30p/Plate_Carree/": {
+   "url": "https://svs.gsfc.nasa.gov/vis/a000000/a005000/a005075/frames/4096x2048_2x1_30p/Plate_Carree/",
+   "frame_count": 899,
+   "bytes_approx": null,
+   "first": "newbio2k_20220903.tif",
+   "last": "newbio2k_20250217.tif",
+   "subfolders": {}
+  }
+ },
+ "api_url": "https://svs.gsfc.nasa.gov/api/5075",
+ "fetched_utc": "2026-10-31T17:23:06Z"
+}

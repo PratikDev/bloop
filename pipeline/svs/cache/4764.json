@@ -1,0 +1,203 @@
+{
+ "id": 4764,
+ "title": "Simulation of Surface Ozone",
+ "url": "https://svs.gsfc.nasa.gov/4764/",
+ "page_type": "Visualization",
+ "release_date": "2019-11-07T00:00:00-05:00",
+ "update_date": "2025-03-02T22:54:08.348770-05:00",
+ "description": "Global surface ozone from a GEOS model run || ozone_only_4k.00000_print.jpg (1024x576) [65.8 KB] || ozone_only_4k.00000_searchweb.png (320x180) [58.9 KB] || ozone_only_4k.00000_thm.png (80x40) [5.1 KB] || ozone_only_1080p30.mp4 (1920x1080) [24.5 MB] || ozone_only_1080p30.webm (1920x1080) [7.2 MB] || ozone_only_2160p30.mp4 (3840x2160) [70.8 MB] || ozone_only (3840x2160) [0 Item(s)] || ozone_only (5760x3240) [0 Item(s)] || ozone_only_1080p30.mp4.hwshow [208 bytes] || ",
+ "full_text": "Global surface ozone from a GEOS model run || ozone_only_4k.00000_print.jpg (1024x576) [65.8 KB] || ozone_only_4k.00000_searchweb.png (320x180) [58.9 KB] || ozone_only_4k.00000_thm.png (80x40) [5.1 KB] || ozone_only_1080p30.mp4 (1920x1080) [24.5 MB] || ozone_only_1080p30.webm (1920x1080) [7.2 MB] || ozone_only_2160p30.mp4 (3840x2160) [70.8 MB] || ozone_only (3840x2160) [0 Item(s)] || ozone_only (5760x3240) [0 Item(s)] || ozone_only_1080p30.mp4.hwshow [208 bytes] ||\n\nGlobal surface ozone from a GEOS model run\n\nOzone (O3) is a highly reactive gas that is photochemically produced in the atmosphere. In the stratosphere, it absorbs ultraviolet radiation and protects life on Earth. Close to the surface, however, ozone is a potent pollutant that is harmful to both humans and the environment. This animation shows the amount (concentration) of ozone in the atmosphere at the surface of Earth, as represented by the GEOS composition forecast system (GEOS-CF) for the time period July 22 – August 10 2018.  High concentrations of ozone are depicted in white while low concentrations are shown in dark blue. As shown in the simulation, surface ozone exhibits a strong change through the day (diurnal cycle). It is formed in the daytime, under the influence of sunlight, through chemical reactions of nitrogen oxides and volatile organic compounds. The highest concentrations are found in the afternoon in the vicinity of urban areas, a consequence of human activities releasing nitrogen oxides and other pollutants, and in other polluted regions, such as around wildfires.\n\nColor bar for ozone (range is 0 to 100 parts per billion).  Black and darker blues are lower and lighter blues and white are higher.",
+ "credits_by_role": {
+  "Visualizer": [
+   "Greg Shirah (NASA/GSFC)",
+   "Trent L. Schindler (USRA)"
+  ],
+  "Scientist": [
+   "Christoph A. Keller (USRA)",
+   "K. Emma Knowland (USRA)",
+   "Steven Pawson (NASA/GSFC)"
+  ]
+ },
+ "keywords": [
+  "Atmosphere",
+  "Atmospheric Chemistry",
+  "Atmospheric science",
+  "Chemistry",
+  "Earth Science",
+  "Hyperwall"
+ ],
+ "datasets": [
+  {
+   "name": "GEOS Atmospheric Model",
+   "common_name": "",
+   "platform": null,
+   "sensor": null,
+   "type": "Model",
+   "organizations": [
+    "NASA GMAO"
+   ],
+   "description": "",
+   "credit": "",
+   "url": "",
+   "date_range": "07/22/2018 through 09/03/2018"
+  }
+ ],
+ "missions": [],
+ "related": [],
+ "alternate_versions": [],
+ "newer_versions": [],
+ "older_versions": [],
+ "media": [
+  {
+   "group": 0,
+   "group_title": "",
+   "widget": "Video player",
+   "caption": "",
+   "group_text": "Global surface ozone from a GEOS model run",
+   "url": "https://svs.gsfc.nasa.gov/vis/a000000/a004700/a004764/ozone_only_4k.00000_print.jpg",
+   "filename": "ozone_only_4k.00000_print.jpg",
+   "media_type": "Image",
+   "width": 1024,
+   "height": 576,
+   "alt_text": "Global surface ozone from a GEOS model run"
+  },
+  {
+   "group": 0,
+   "group_title": "",
+   "widget": "Video player",
+   "caption": "",
+   "group_text": "Global surface ozone from a GEOS model run",
+   "url": "https://svs.gsfc.nasa.gov/vis/a000000/a004700/a004764/ozone_only_4k.00000_searchweb.png",
+   "filename": "ozone_only_4k.00000_searchweb.png",
+   "media_type": "Image",
+   "width": 320,
+   "height": 180,
+   "alt_text": "Global surface ozone from a GEOS model run"
+  },
+  {
+   "group": 0,
+   "group_title": "",
+   "widget": "Video player",
+   "caption": "",
+   "group_text": "Global surface ozone from a GEOS model run",
+   "url": "https://svs.gsfc.nasa.gov/vis/a000000/a004700/a004764/ozone_only_4k.00000_thm.png",
+   "filename": "ozone_only_4k.00000_thm.png",
+   "media_type": "Image",
+   "width": 80,
+   "height": 40,
+   "alt_text": "Global surface ozone from a GEOS model run"
+  },
+  {
+   "group": 0,
+   "group_title": "",
+   "widget": "Video player",
+   "caption": "",
+   "group_text": "Global surface ozone from a GEOS model run",
+   "url": "https://svs.gsfc.nasa.gov/vis/a000000/a004700/a004764/ozone_only_1080p30.mp4",
+   "filename": "ozone_only_1080p30.mp4",
+   "media_type": "Movie",
+   "width": 1920,
+   "height": 1080,
+   "alt_text": "Global surface ozone from a GEOS model run"
+  },
+  {
+   "group": 0,
+   "group_title": "",
+   "widget": "Video player",
+   "caption": "",
+   "group_text": "Global surface ozone from a GEOS model run",
+   "url": "https://svs.gsfc.nasa.gov/vis/a000000/a004700/a004764/ozone_only_1080p30.webm",
+   "filename": "ozone_only_1080p30.webm",
+   "media_type": "Movie",
+   "width": 1920,
+   "height": 1080,
+   "alt_text": "Global surface ozone from a GEOS model run"
+  },
+  {
+   "group": 0,
+   "group_title": "",
+   "widget": "Video player",
+   "caption": "",
+   "group_text": "Global surface ozone from a GEOS model run",
+   "url": "https://svs.gsfc.nasa.gov/vis/a000000/a004700/a004764/ozone_only_2160p30.mp4",
+   "filename": "ozone_only_2160p30.mp4",
+   "media_type": "Movie",
+   "width": 3840,
+   "height": 2160,
+   "alt_text": "Global surface ozone from a GEOS model run"
+  },
+  {
+   "group": 0,
+   "group_title": "",
+   "widget": "Video player",
+   "caption": "",
+   "group_text": "Global surface ozone from a GEOS model run",
+   "url": "https://svs.gsfc.nasa.gov/vis/a000000/a004700/a004764/frames/3840x2160_16x9_30p/ozone_only/",
+   "filename": "ozone_only",
+   "media_type": "Frames",
+   "width": 3840,
+   "height": 2160,
+   "alt_text": "Global surface ozone from a GEOS model run"
+  },
+  {
+   "group": 0,
+   "group_title": "",
+   "widget": "Video player",
+   "caption": "",
+   "group_text": "Global surface ozone from a GEOS model run",
+   "url": "https://svs.gsfc.nasa.gov/vis/a000000/a004700/a004764/frames/5760x3240_16x9_30p/ozone_only/",
+   "filename": "ozone_only",
+   "media_type": "Frames",
+   "width": 5760,
+   "height": 3240,
+   "alt_text": "Global surface ozone from a GEOS model run"
+  },
+  {
+   "group": 0,
+   "group_title": "",
+   "widget": "Video player",
+   "caption": "",
+   "group_text": "Global surface ozone from a GEOS model run",
+   "url": "https://svs.gsfc.nasa.gov/vis/a000000/a004700/a004764/ozone_only_1080p30.mp4.hwshow",
+   "filename": "ozone_only_1080p30.mp4.hwshow",
+   "media_type": "HyperwallShow",
+   "width": 0,
+   "height": 0,
+   "alt_text": ""
+  },
+  {
+   "group": 2,
+   "group_title": "",
+   "widget": "Single image",
+   "caption": "",
+   "group_text": "Color bar for ozone (range is 0 to 100 parts per billion).  Black and darker blues are lower and lighter blues and white are higher.",
+   "url": "https://svs.gsfc.nasa.gov/vis/a000000/a004700/a004764/ozone_only_cbar.png",
+   "filename": "ozone_only_cbar.png",
+   "media_type": "Image",
+   "width": 780,
+   "height": 122,
+   "alt_text": "Color bar for ozone (range is 0 to 100 parts per billion).  Black and darker blues are lower and lighter blues and white are higher."
+  }
+ ],
+ "text_links": [],
+ "frame_folders": {
+  "https://svs.gsfc.nasa.gov/vis/a000000/a004700/a004764/frames/3840x2160_16x9_30p/ozone_only/": {
+   "url": "https://svs.gsfc.nasa.gov/vis/a000000/a004700/a004764/frames/3840x2160_16x9_30p/ozone_only/",
+   "frame_count": 1801,
+   "bytes_approx": 3365100000,
+   "first": "ozone_only_4k.00000.png",
+   "last": "ozone_only_4k.01800.png",
+   "subfolders": {}
+  },
+  "https://svs.gsfc.nasa.gov/vis/a000000/a004700/a004764/frames/5760x3240_16x9_30p/ozone_only/": {
+   "url": "https://svs.gsfc.nasa.gov/vis/a000000/a004700/a004764/frames/5760x3240_16x9_30p/ozone_only/",
+   "frame_count": 1801,
+   "bytes_approx": 4142300000,
+   "first": "gmao_chem_3x3_ozone_only_09.00000.png",
+   "last": "gmao_chem_3x3_ozone_only_09.01800.png",
+   "subfolders": {}
+  }
+ },
+ "api_url": "https://svs.gsfc.nasa.gov/api/4764",
+ "fetched_utc": "2026-10-31T17:53:07Z"
+}

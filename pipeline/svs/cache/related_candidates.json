@@ -1,5 +1,5 @@
 {
- "checked": "2026-10-31",
+ "checked": "2026-11-01",
  "svs": [
   {
    "id": 175,
@@ -739,7 +739,7 @@
     "Lightning",
     "Lightning"
    ],
-   "focus": "energy",
+   "focus": "disasters",
    "official": "5011",
    "plan": "2.3 lightning",
    "in_app": null,
@@ -776,7 +776,7 @@
     "Lightning",
     "Lightning"
    ],
-   "focus": "energy",
+   "focus": "disasters",
    "official": "5011",
    "plan": "2.3 lightning",
    "in_app": null,
@@ -1189,7 +1189,7 @@
    "datasets": [
     "GISTEMP"
    ],
-   "focus": "sea level",
+   "focus": "other",
    "official": "4950",
    "plan": null,
    "in_app": null,
@@ -1362,7 +1362,7 @@
     ""
    ],
    "focus": "wildfires",
-   "official": "5669",
+   "official": "4993",
    "plan": null,
    "in_app": null,
    "in_eic_inventory": false,
@@ -1465,7 +1465,7 @@
     "Groundwater Resources of the World",
     "GEOS-5 Atmospheric Model on the Cubed-Sphere"
    ],
-   "focus": "air quality",
+   "focus": "water resources",
    "official": "5669",
    "plan": null,
    "in_app": null,
@@ -1617,7 +1617,7 @@
     "Bathymetry"
    ],
    "focus": "water resources",
-   "official": "5425",
+   "official": "3912",
    "plan": null,
    "in_app": null,
    "in_eic_inventory": false,
@@ -2032,7 +2032,7 @@
     "3B4XRT",
     "GPCP Combined Precipitation Data Set"
    ],
-   "focus": "disasters",
+   "focus": "water resources",
    "official": "4960",
    "plan": null,
    "in_app": null,
@@ -2646,7 +2646,7 @@
     "Pixel Reliability (value=2)"
    ],
    "focus": "wildfires",
-   "official": "4950",
+   "official": "4993",
    "plan": null,
    "in_app": null,
    "in_eic_inventory": false,
@@ -2706,7 +2706,7 @@
     "Normalized Difference Vegetation Index (NDVI)"
    ],
    "focus": "wildfires",
-   "official": "4950",
+   "official": "4993",
    "plan": null,
    "in_app": null,
    "in_eic_inventory": false,
@@ -2802,7 +2802,7 @@
    "datasets": [
     "GISTEMP"
    ],
-   "focus": "sea level",
+   "focus": "other",
    "official": "4950",
    "plan": null,
    "in_app": null,
@@ -3439,7 +3439,7 @@
     "",
     "Blue Marble Land Cover"
    ],
-   "focus": "water resources",
+   "focus": "biodiversity",
    "official": "4950",
    "plan": null,
    "in_app": null,
@@ -3956,7 +3956,7 @@
    "datasets": [
     "GISTEMP"
    ],
-   "focus": "sea level",
+   "focus": "other",
    "official": "4950",
    "plan": null,
    "in_app": null,
@@ -4623,7 +4623,7 @@
    "datasets": [
     "GISTEMP"
    ],
-   "focus": "sea level",
+   "focus": "other",
    "official": "4950",
    "plan": null,
    "in_app": null,
@@ -4721,7 +4721,7 @@
    "datasets": [
     "3B4XRT"
    ],
-   "focus": "disasters",
+   "focus": "water resources",
    "official": "4960",
    "plan": null,
    "in_app": null,
@@ -6108,7 +6108,7 @@
    "datasets": [
     "GISTEMP"
    ],
-   "focus": "sea level",
+   "focus": "other",
    "official": "4950",
    "plan": null,
    "in_app": null,
@@ -6293,7 +6293,7 @@
     "Surface Precipitation",
     "Ku"
    ],
-   "focus": "disasters",
+   "focus": "water resources",
    "official": "4960",
    "plan": null,
    "in_app": null,
@@ -7911,7 +7911,7 @@
    "datasets": [
     ""
    ],
-   "focus": "disasters",
+   "focus": "water resources",
    "official": "4960",
    "plan": null,
    "in_app": null,
@@ -8437,7 +8437,7 @@
    "datasets": [
     ""
    ],
-   "focus": "disasters",
+   "focus": "water resources",
    "official": "4960",
    "plan": null,
    "in_app": null,
@@ -8541,7 +8541,7 @@
    "datasets": [
     ""
    ],
-   "focus": "disasters",
+   "focus": "water resources",
    "official": "4960",
    "plan": null,
    "in_app": null,
@@ -9484,7 +9484,7 @@
     "Sea Surface Salinity"
    ],
    "focus": "water resources",
-   "official": "5425",
+   "official": "3912",
    "plan": "2.4 ocean",
    "in_app": null,
    "in_eic_inventory": false,
@@ -10237,7 +10237,7 @@
     "Sea Surface Salinity"
    ],
    "focus": "water resources",
-   "official": "5425",
+   "official": "3912",
    "plan": null,
    "in_app": null,
    "in_eic_inventory": false,
@@ -11929,7 +11929,7 @@
    "datasets": [
     "GISTEMP"
    ],
-   "focus": "sea level",
+   "focus": "other",
    "official": "4950",
    "plan": null,
    "in_app": null,
@@ -12173,7 +12173,7 @@
    "datasets": [
     "North Alabama Lightning Mapping Array"
    ],
-   "focus": "energy",
+   "focus": "disasters",
    "official": "5011",
    "plan": null,
    "in_app": null,
@@ -13310,7 +13310,7 @@
    "datasets": [
     ""
    ],
-   "focus": "disasters",
+   "focus": "water resources",
    "official": "4960",
    "plan": null,
    "in_app": null,
@@ -15588,7 +15588,7 @@
     "",
     "GMAO MERRA Volumetric Ocean Currents"
    ],
-   "focus": "water resources",
+   "focus": "other",
    "official": "3912",
    "plan": null,
    "in_app": null,
@@ -15681,7 +15681,7 @@
    "datasets": [
     "GISTEMP"
    ],
-   "focus": "sea level",
+   "focus": "other",
    "official": "4950",
    "plan": null,
    "in_app": null,
@@ -15980,7 +15980,7 @@
     "Surface Precipitation",
     "Ku"
    ],
-   "focus": "disasters",
+   "focus": "water resources",
    "official": "4960",
    "plan": null,
    "in_app": null,
@@ -17515,8 +17515,8 @@
     "Surface Soil Moisture corrected with SMOS imagery and assimilated by the Ensemble Kalman Filter",
     "Winds"
    ],
-   "focus": "disasters",
-   "official": "4960",
+   "focus": "water resources",
+   "official": "3912",
    "plan": null,
    "in_app": null,
    "in_eic_inventory": false,
@@ -18034,7 +18034,7 @@
     "NDVI",
     "NDVI"
    ],
-   "focus": "water resources",
+   "focus": "biodiversity",
    "official": "4950",
    "plan": null,
    "in_app": null,
@@ -18551,7 +18551,7 @@
    "datasets": [
     "GISTEMP"
    ],
-   "focus": "sea level",
+   "focus": "other",
    "official": "3912",
    "plan": null,
    "in_app": null,
@@ -18928,7 +18928,7 @@
    "datasets": [
     "GISTEMP"
    ],
-   "focus": "sea level",
+   "focus": "other",
    "official": "3912",
    "plan": null,
    "in_app": null,
@@ -19731,7 +19731,7 @@
    "datasets": [
     ""
    ],
-   "focus": "energy",
+   "focus": "disasters",
    "official": "5313",
    "plan": "2.9 agriculture, water, biodiversity, disasters",
    "in_app": null,
@@ -19916,7 +19916,7 @@
     "Ku",
     ""
    ],
-   "focus": "disasters",
+   "focus": "water resources",
    "official": "4960",
    "plan": null,
    "in_app": null,
@@ -20123,7 +20123,7 @@
     "Ku",
     ""
    ],
-   "focus": "disasters",
+   "focus": "water resources",
    "official": "4960",
    "plan": null,
    "in_app": null,
@@ -20451,7 +20451,7 @@
     "True Color",
     "Band Combination 2,3,4"
    ],
-   "focus": "disasters",
+   "focus": "water resources",
    "official": "4960",
    "plan": null,
    "in_app": null,
@@ -20924,8 +20924,8 @@
    "datasets": [
     "Oceanic Nino Index (3 month running means of Extended Reconstructed Sea Surface Temperature (ERSST) v5 anomalies"
    ],
-   "focus": "water resources",
-   "official": "4960",
+   "focus": "other",
+   "official": "3912",
    "plan": null,
    "in_app": null,
    "in_eic_inventory": false,
@@ -21037,7 +21037,7 @@
     "MOD11C3 V006: MODIS/Terra Land Surface Temperature and Emissivity Monthly L3 Global 0.05Deg CMG V006",
     "Disease Reports"
    ],
-   "focus": "water resources",
+   "focus": "other",
    "official": "4960",
    "plan": null,
    "in_app": null,
@@ -21156,7 +21156,7 @@
     "Oceanic Nino Index (3 month running means of Extended Reconstructed Sea Surface Temperature (ERSST) v5 anomalies",
     "MOD11C3 V006: MODIS/Terra Land Surface Temperature and Emissivity Monthly L3 Global 0.05Deg CMG V006"
    ],
-   "focus": "water resources",
+   "focus": "other",
    "official": "4960",
    "plan": null,
    "in_app": null,
@@ -21888,7 +21888,7 @@
     "Disease Outbreak Data from the World Organisation for Animal Health/Organisation mondiale de la santé animale (OIE)",
     "NASA/Terra/MODIS/Global Monthly Normalized Difference Vegetation Index (NDVI)"
    ],
-   "focus": "water resources",
+   "focus": "agriculture",
    "official": "4950",
    "plan": null,
    "in_app": null,
@@ -22118,7 +22118,7 @@
     "Fire Pixels"
    ],
    "focus": "wildfires",
-   "official": "5533",
+   "official": "4993",
    "plan": null,
    "in_app": null,
    "in_eic_inventory": false,
@@ -22572,7 +22572,7 @@
     "Disease Outbreak Data from the World Organisation for Animal Health/Organisation mondiale de la santé animale (OIE)",
     "NASA/Terra/MODIS/Global Monthly Normalized Difference Vegetation Index (NDVI)"
    ],
-   "focus": "water resources",
+   "focus": "agriculture",
    "official": "4950",
    "plan": null,
    "in_app": null,
@@ -23447,8 +23447,8 @@
     "Disease Outbreak Data from the Program for Monitoring Emerging Diseases (ProMED)",
     "Disease Outbreak Data from Pan-American Health Organization (PAHO)"
    ],
-   "focus": "water resources",
-   "official": "4960",
+   "focus": "other",
+   "official": "3912",
    "plan": null,
    "in_app": null,
    "in_eic_inventory": false,
@@ -23739,8 +23739,8 @@
     "Disease Outbreak Data from the Program for Monitoring Emerging Diseases (ProMED)",
     "Disease Outbreak Data from Pan-American Health Organization (PAHO)"
    ],
-   "focus": "water resources",
-   "official": "4960",
+   "focus": "other",
+   "official": "3912",
    "plan": null,
    "in_app": null,
    "in_eic_inventory": false,
@@ -23910,7 +23910,7 @@
     "Disease Outbreak Data from the World Organisation for Animal Health/Organisation mondiale de la santé animale (OIE)",
     "NASA/Terra/MODIS/Global Monthly Normalized Difference Vegetation Index (NDVI)"
    ],
-   "focus": "water resources",
+   "focus": "agriculture",
    "official": "4950",
    "plan": null,
    "in_app": null,
@@ -24385,8 +24385,8 @@
     "Disease Outbreak Data from the Program for Monitoring Emerging Diseases (ProMED)",
     "Disease Outbreak Data from Pan-American Health Organization (PAHO)"
    ],
-   "focus": "water resources",
-   "official": "4960",
+   "focus": "other",
+   "official": "3912",
    "plan": null,
    "in_app": null,
    "in_eic_inventory": false,
@@ -24558,7 +24558,7 @@
    "datasets": [
     "GMAO GEOS Atmospheric Methane"
    ],
-   "focus": "air quality",
+   "focus": "greenhouse gases",
    "official": "5196",
    "plan": null,
    "in_app": null,
@@ -24720,7 +24720,7 @@
    "datasets": [
     "GMAO GEOS Atmospheric Methane"
    ],
-   "focus": "air quality",
+   "focus": "greenhouse gases",
    "official": "5196",
    "plan": null,
    "in_app": null,
@@ -24798,7 +24798,7 @@
    "datasets": [
     "GMAO GEOS Atmospheric Methane"
    ],
-   "focus": "air quality",
+   "focus": "greenhouse gases",
    "official": "5196",
    "plan": null,
    "in_app": null,
@@ -25291,7 +25291,7 @@
     "",
     ""
    ],
-   "focus": "disasters",
+   "focus": "water resources",
    "official": "4960",
    "plan": null,
    "in_app": null,
@@ -25670,7 +25670,7 @@
     "NDVI",
     "NDVI"
    ],
-   "focus": "water resources",
+   "focus": "biodiversity",
    "official": "4950",
    "plan": null,
    "in_app": null,
@@ -26702,7 +26702,7 @@
     ""
    ],
    "focus": "greenhouse gases",
-   "official": "5196",
+   "official": "5669",
    "plan": null,
    "in_app": null,
    "in_eic_inventory": false,
@@ -26833,7 +26833,7 @@
     "",
     ""
    ],
-   "focus": "disasters",
+   "focus": "water resources",
    "official": "4960",
    "plan": null,
    "in_app": null,
@@ -27235,7 +27235,7 @@
     "",
     ""
    ],
-   "focus": "disasters",
+   "focus": "water resources",
    "official": "4960",
    "plan": null,
    "in_app": null,
@@ -27369,7 +27369,7 @@
     "",
     ""
    ],
-   "focus": "disasters",
+   "focus": "water resources",
    "official": "4960",
    "plan": null,
    "in_app": null,
@@ -27739,7 +27739,7 @@
     "Blue Marble: Next Generation",
     "Coastline - Northwest Hawaiian Islands (NWHI)"
    ],
-   "focus": "sea level",
+   "focus": "water resources",
    "official": "3912",
    "plan": null,
    "in_app": null,
@@ -28787,7 +28787,7 @@
     "",
     ""
    ],
-   "focus": "disasters",
+   "focus": "water resources",
    "official": "4960",
    "plan": null,
    "in_app": null,
@@ -29093,8 +29093,8 @@
    "datasets": [
     "ECCO-Darwin Global Ocean Biogeochemistry Model"
    ],
-   "focus": "greenhouse gases",
-   "official": "5196",
+   "focus": "water resources",
+   "official": "3912",
    "plan": null,
    "in_app": null,
    "in_eic_inventory": false,
@@ -29248,7 +29248,7 @@
     "Ku",
     ""
    ],
-   "focus": "disasters",
+   "focus": "water resources",
    "official": "4960",
    "plan": null,
    "in_app": null,
@@ -29574,7 +29574,7 @@
    "datasets": [
     "GISTEMP"
    ],
-   "focus": "sea level",
+   "focus": "other",
    "official": "3912",
    "plan": null,
    "in_app": null,
@@ -30111,7 +30111,7 @@
     "GOME-2 Solar Induced Fluorescence at 740 nm",
     "Chemistry"
    ],
-   "focus": "air quality",
+   "focus": "greenhouse gases",
    "official": "5196",
    "plan": null,
    "in_app": null,
@@ -30276,7 +30276,7 @@
     "Atlantic Multidecadal Oscillation (AMO) Index",
     "Extended Reconstructed Sea Surface Temperature (ERSST) v5"
    ],
-   "focus": "water resources",
+   "focus": "other",
    "official": "5669",
    "plan": null,
    "in_app": null,
@@ -30489,7 +30489,7 @@
     "Fire Pixels"
    ],
    "focus": "wildfires",
-   "official": "4950",
+   "official": "4993",
    "plan": null,
    "in_app": null,
    "in_eic_inventory": false,
@@ -30555,7 +30555,7 @@
     "Fire Pixels",
     "MapBiomas"
    ],
-   "focus": "wildfires",
+   "focus": "biodiversity",
    "official": "4950",
    "plan": null,
    "in_app": null,
@@ -30650,7 +30650,7 @@
    "datasets": [
     "GISTEMP"
    ],
-   "focus": "sea level",
+   "focus": "water resources",
    "official": "3912",
    "plan": null,
    "in_app": null,
@@ -31237,7 +31237,7 @@
     "Ku",
     ""
    ],
-   "focus": "disasters",
+   "focus": "water resources",
    "official": "4960",
    "plan": null,
    "in_app": null,
@@ -31506,7 +31506,7 @@
     "Ku",
     ""
    ],
-   "focus": "disasters",
+   "focus": "water resources",
    "official": "4960",
    "plan": null,
    "in_app": null,
@@ -32322,7 +32322,7 @@
     "MiRS Imaging Products"
    ],
    "focus": "water resources",
-   "official": "13786",
+   "official": "4960",
    "plan": "2.5 rain / atmospheric river",
    "in_app": null,
    "in_eic_inventory": false,
@@ -32680,7 +32680,7 @@
     "Fire Pixels"
    ],
    "focus": "wildfires",
-   "official": "4950",
+   "official": "4993",
    "plan": null,
    "in_app": null,
    "in_eic_inventory": false,
@@ -33142,7 +33142,7 @@
    "datasets": [
     "Relative Height"
    ],
-   "focus": "agriculture",
+   "focus": "biodiversity",
    "official": "4950",
    "plan": null,
    "in_app": "product forest_4950",
@@ -33621,7 +33621,7 @@
    "datasets": [
     "GISTEMP"
    ],
-   "focus": "sea level",
+   "focus": "other",
    "official": "3912",
    "plan": null,
    "in_app": null,
@@ -33817,7 +33817,7 @@
     "GNATS Slocum Electric Glider missions",
     "GNATS ship-derived XBT temperature profiles"
    ],
-   "focus": "energy",
+   "focus": "water resources",
    "official": "5425",
    "plan": null,
    "in_app": null,
@@ -34137,7 +34137,7 @@
     "Darwin"
    ],
    "focus": "water resources",
-   "official": "5196",
+   "official": "3912",
    "plan": null,
    "in_app": null,
    "in_eic_inventory": false,
@@ -34602,7 +34602,7 @@
     "Sounder SIPS: AQUA AIRS IR-only Level 3 CLIMCAPS: Comprehensive Quality Control Gridded Monthly V2"
    ],
    "focus": "greenhouse gases",
-   "official": "13786",
+   "official": "5196",
    "plan": null,
    "in_app": null,
    "in_eic_inventory": false,
@@ -34673,7 +34673,7 @@
     "California Wildfire Spread Derived using VIIRS Observations and an Object-based Tracking System"
    ],
    "focus": "wildfires",
-   "official": "4950",
+   "official": "4993",
    "plan": null,
    "in_app": null,
    "in_eic_inventory": false,
@@ -34748,7 +34748,7 @@
     "California Wildfire Spread Derived using VIIRS Observations and an Object-based Tracking System"
    ],
    "focus": "wildfires",
-   "official": "4950",
+   "official": "4993",
    "plan": "2.2 Dixie Fire",
    "in_app": "record patterns_eic",
    "in_eic_inventory": true,
@@ -35112,7 +35112,7 @@
     "Fire Events Data Suite (FEDS) GeoPackage"
    ],
    "focus": "wildfires",
-   "official": "4950",
+   "official": "4993",
    "plan": null,
    "in_app": null,
    "in_eic_inventory": false,
@@ -35380,7 +35380,7 @@
     "Global Fire Emissions Database, Version 4.1"
    ],
    "focus": "wildfires",
-   "official": "5533",
+   "official": "4993",
    "plan": null,
    "in_app": null,
    "in_eic_inventory": false,
@@ -35966,7 +35966,7 @@
     "Sounder SIPS: AQUA AIRS IR-only Level 3 CLIMCAPS: Comprehensive Quality Control Gridded Monthly V2"
    ],
    "focus": "greenhouse gases",
-   "official": "13786",
+   "official": "5196",
    "plan": null,
    "in_app": null,
    "in_eic_inventory": false,
@@ -36076,7 +36076,7 @@
     "Sounder SIPS: AQUA AIRS IR-only Level 3 CLIMCAPS: Comprehensive Quality Control Gridded Monthly V2"
    ],
    "focus": "greenhouse gases",
-   "official": "13786",
+   "official": "5196",
    "plan": null,
    "in_app": null,
    "in_eic_inventory": false,
@@ -36858,7 +36858,7 @@
    "datasets": [
     "GMAO GEOS Atmospheric Methane"
    ],
-   "focus": "air quality",
+   "focus": "greenhouse gases",
    "official": "5196",
    "plan": null,
    "in_app": null,
@@ -37102,7 +37102,7 @@
    "datasets": [
     "GEOS-Carb CASA-GFED Monthly Fire Fuel NPP Rh NEE Fluxes"
    ],
-   "focus": "wildfires",
+   "focus": "greenhouse gases",
    "official": "5196",
    "plan": "2.6 GHG / CO2",
    "in_app": "record patterns_eic",
@@ -37234,7 +37234,7 @@
     "Ku",
     ""
    ],
-   "focus": "disasters",
+   "focus": "water resources",
    "official": "4960",
    "plan": null,
    "in_app": null,
@@ -37302,7 +37302,7 @@
     ""
    ],
    "focus": "wildfires",
-   "official": "4950",
+   "official": "4993",
    "plan": null,
    "in_app": null,
    "in_eic_inventory": false,
@@ -37372,7 +37372,7 @@
     ""
    ],
    "focus": "wildfires",
-   "official": "4950",
+   "official": "4993",
    "plan": null,
    "in_app": null,
    "in_eic_inventory": false,
@@ -37533,7 +37533,7 @@
     "Band Combination 2,3,4",
     "Black Marble: Next Generation"
    ],
-   "focus": "energy",
+   "focus": "disasters",
    "official": "5313",
    "plan": null,
    "in_app": "record patterns_eic",
@@ -37706,7 +37706,7 @@
    "datasets": [
     "GISTEMP"
    ],
-   "focus": "sea level",
+   "focus": "other",
    "official": "3912",
    "plan": null,
    "in_app": null,
@@ -38370,7 +38370,7 @@
     "10 km Daily Sea Ice Concentration",
     "Chlorophyll Concentration"
    ],
-   "focus": "water resources",
+   "focus": "biodiversity",
    "official": "4950",
    "plan": "2.9 agriculture, water, biodiversity, disasters",
    "in_app": null,
@@ -38528,7 +38528,7 @@
    "licence": "SVS-PD",
    "credit": "Visualizer: Mark SubbaRao (NASA/GSFC), Greg Shirah (NASA/GSFC); Technical support: Laurence Schuler (ADNET Systems, Inc.), Ian Jones (ADNET Systems, Inc.)",
    "datasets": [],
-   "focus": "disasters",
+   "focus": "water resources",
    "official": null,
    "plan": "2.9 agriculture, water, biodiversity, disasters",
    "in_app": "record patterns_eic",
@@ -38572,7 +38572,7 @@
     "California Wildfire Spread Derived using VIIRS Observations and an Object-based Tracking System"
    ],
    "focus": "wildfires",
-   "official": "4950",
+   "official": "4993",
    "plan": null,
    "in_app": null,
    "in_eic_inventory": false,
@@ -38777,7 +38777,7 @@
    "datasets": [
     "Relative Height"
    ],
-   "focus": "agriculture",
+   "focus": "biodiversity",
    "official": "4950",
    "plan": null,
    "in_app": null,
@@ -39474,7 +39474,7 @@
     "Open Data DC catalog"
    ],
    "focus": "air quality",
-   "official": "5669",
+   "official": "5533",
    "plan": "2.10 air quality",
    "in_app": "record patterns_eic",
    "in_eic_inventory": true,
@@ -39817,7 +39817,7 @@
     "Fire Pixels"
    ],
    "focus": "wildfires",
-   "official": "4950",
+   "official": "4993",
    "plan": null,
    "in_app": "product fires_frame",
    "in_eic_inventory": true,
@@ -43336,7 +43336,7 @@
     "Normalized Difference Vegetation Index (NDVI)"
    ],
    "focus": "water resources",
-   "official": "4950",
+   "official": "3912",
    "plan": null,
    "in_app": null,
    "in_eic_inventory": false,
@@ -43710,7 +43710,7 @@
    "datasets": [
     "GISTEMP"
    ],
-   "focus": "sea level",
+   "focus": "other",
    "official": "3912",
    "plan": "2.8 sea level / vital signs",
    "in_app": "record patterns_eic",
@@ -44107,7 +44107,7 @@
     "Simulated Aerosol Optical Depth from the CMAQ model"
    ],
    "focus": "wildfires",
-   "official": "5011",
+   "official": "4993",
    "plan": null,
    "in_app": null,
    "in_eic_inventory": false,
@@ -44441,7 +44441,7 @@
     "Sounder SIPS: AQUA AIRS IR-only Level 3 CLIMCAPS: Comprehensive Quality Control Gridded Monthly V2"
    ],
    "focus": "greenhouse gases",
-   "official": "13786",
+   "official": "5196",
    "plan": null,
    "in_app": null,
    "in_eic_inventory": false,
@@ -47013,7 +47013,7 @@
    "datasets": [
     ""
    ],
-   "focus": "disasters",
+   "focus": "water resources",
    "official": "4960",
    "plan": null,
    "in_app": null,
@@ -47720,7 +47720,7 @@
    "licence": "SVS-PD",
    "credit": "Visualizer: Mark SubbaRao (NASA/GSFC), Greg Shirah (NASA/GSFC); Technical support: Laurence Schuler (ADNET Systems, Inc.), Ian Jones (ADNET Systems, Inc.)",
    "datasets": [],
-   "focus": "disasters",
+   "focus": "water resources",
    "official": null,
    "plan": null,
    "in_app": null,
@@ -48117,7 +48117,7 @@
    "licence": "SVS-PD",
    "credit": "Visualizer: Mark SubbaRao (NASA/GSFC), Greg Shirah (NASA/GSFC); Technical support: Laurence Schuler (ADNET Systems, Inc.), Ian Jones (ADNET Systems, Inc.)",
    "datasets": [],
-   "focus": "disasters",
+   "focus": "water resources",
    "official": null,
    "plan": null,
    "in_app": null,
@@ -49559,7 +49559,7 @@
     "10 km Daily Sea Ice Concentration",
     "Chlorophyll Concentration"
    ],
-   "focus": "water resources",
+   "focus": "biodiversity",
    "official": "4950",
    "plan": null,
    "in_app": null,
@@ -51318,7 +51318,7 @@
    "datasets": [
     "Land Vegetation Indices"
    ],
-   "focus": "agriculture",
+   "focus": "biodiversity",
    "official": "4950",
    "plan": null,
    "in_app": null,
@@ -51682,7 +51682,7 @@
     "Fire Events Data Suite"
    ],
    "focus": "wildfires",
-   "official": "4950",
+   "official": "4993",
    "plan": null,
    "in_app": null,
    "in_eic_inventory": false,
@@ -51717,7 +51717,7 @@
    "licence": "SVS-PD",
    "credit": "Visualizer: Mark SubbaRao (NASA/GSFC), Greg Shirah (NASA/GSFC); Technical support: Laurence Schuler (ADNET Systems, Inc.), Ian Jones (ADNET Systems, Inc.)",
    "datasets": [],
-   "focus": "disasters",
+   "focus": "water resources",
    "official": null,
    "plan": null,
    "in_app": null,
@@ -51759,8 +51759,8 @@
    "datasets": [
     "TEMPO Level 3 Gridded"
    ],
-   "focus": "wildfires",
-   "official": "5669",
+   "focus": "air quality",
+   "official": "5533",
    "plan": null,
    "in_app": null,
    "in_eic_inventory": false,
@@ -55239,7 +55239,7 @@
    "datasets": [
     "Multi-scale Ultra-high Resolution (MUR) Sea Surface Temperature (SST) Analysis"
    ],
-   "focus": "water resources",
+   "focus": "other",
    "official": "3912",
    "plan": null,
    "in_app": null,
@@ -55374,7 +55374,7 @@
    "licence": "SVS-PD",
    "credit": "Producer: Howard Joe Witte (ADNET Systems, Inc.); Video editor: Joy Ng (USRA)",
    "datasets": [],
-   "focus": "disasters",
+   "focus": "water resources",
    "official": "5425",
    "plan": null,
    "in_app": null,
@@ -55821,7 +55821,7 @@
    "credit": "Animator: Chris Meaney (HTSI); Producer: Ryan Fitzgibbons (UMBC), Rani Gran (NASA/GSFC)",
    "datasets": [],
    "focus": "wildfires",
-   "official": "5011",
+   "official": "4993",
    "plan": null,
    "in_app": null,
    "in_eic_inventory": false,
@@ -56786,7 +56786,7 @@
    "licence": "SVS-PD",
    "credit": "Animator: Trent L. Schindler (USRA), Walt Feimer (HTSI); Video editor: Ryan Fitzgibbons (USRA)",
    "datasets": [],
-   "focus": "disasters",
+   "focus": "water resources",
    "official": "4960",
    "plan": null,
    "in_app": null,
@@ -56993,7 +56993,7 @@
    "credit": "Video editor: Matthew R. Radcliff (USRA); Interviewee: Jeffrey Masek (NASA/GSFC)",
    "datasets": [],
    "focus": "wildfires",
-   "official": "4950",
+   "official": "4993",
    "plan": null,
    "in_app": null,
    "in_eic_inventory": false,
@@ -57261,7 +57261,7 @@
    "licence": "SVS-PD",
    "credit": "Animator: Trent L. Schindler (USRA), Walt Feimer (HTSI); Video editor: Ryan Fitzgibbons (USRA)",
    "datasets": [],
-   "focus": "disasters",
+   "focus": "water resources",
    "official": "4960",
    "plan": null,
    "in_app": null,
@@ -57302,7 +57302,7 @@
    "licence": "SVS-PD",
    "credit": "Animator: Walt Feimer (HTSI), Chris Meaney (HTSI); Video editor: Ryan Fitzgibbons (USRA)",
    "datasets": [],
-   "focus": "disasters",
+   "focus": "water resources",
    "official": null,
    "plan": null,
    "in_app": null,
@@ -57474,7 +57474,7 @@
    "licence": "SVS-PD",
    "credit": "Animator: Robert Simmon (Sigma Space Corporation), Jesse Allen (Sigma Space Corporation); Video editor: Kayvon Sharghi (USRA)",
    "datasets": [],
-   "focus": "energy",
+   "focus": "other",
    "official": null,
    "plan": null,
    "in_app": null,
@@ -57517,7 +57517,7 @@
    "datasets": [
     ""
    ],
-   "focus": "disasters",
+   "focus": "water resources",
    "official": "4960",
    "plan": null,
    "in_app": null,
@@ -57800,7 +57800,7 @@
    "licence": "SVS-PD",
    "credit": "Animator: Walt Feimer (HTSI), Chris Meaney (HTSI); Video editor: Ryan Fitzgibbons (USRA)",
    "datasets": [],
-   "focus": "disasters",
+   "focus": "water resources",
    "official": "4960",
    "plan": null,
    "in_app": null,
@@ -59503,7 +59503,7 @@
     "Brightness Temperature",
     "Surface Precipitation"
    ],
-   "focus": "disasters",
+   "focus": "water resources",
    "official": "4960",
    "plan": null,
    "in_app": null,
@@ -61503,7 +61503,7 @@
    "licence": "SVS-PD",
    "credit": "Animator: Ryan Fitzgibbons (USRA); Visualizer: Alex Kekesi (Global Science and Technology, Inc.)",
    "datasets": [],
-   "focus": "disasters",
+   "focus": "water resources",
    "official": null,
    "plan": null,
    "in_app": null,
@@ -62050,7 +62050,7 @@
    "licence": "SVS-PD",
    "credit": "Producer: Ryan Fitzgibbons (USRA); Visualizer: Hal Pierce (SSAI), Kel Elkins (USRA)",
    "datasets": [],
-   "focus": "disasters",
+   "focus": "water resources",
    "official": null,
    "plan": null,
    "in_app": null,
@@ -64556,7 +64556,7 @@
    "licence": "SVS-PD",
    "credit": "Producer: Matthew R. Radcliff (USRA), LK Ward (USRA); Technical support: Aaron E. Lepsch (ADNET Systems, Inc.)",
    "datasets": [],
-   "focus": "energy",
+   "focus": "disasters",
    "official": "5313",
    "plan": "2.9 agriculture, water, biodiversity, disasters",
    "in_app": null,
@@ -64886,7 +64886,7 @@
    "credit": "Producer: Kathryn Mersmann (USRA); Videographer: Jefferson Beck (USRA)",
    "datasets": [],
    "focus": "wildfires",
-   "official": "4950",
+   "official": "4993",
    "plan": null,
    "in_app": null,
    "in_eic_inventory": false,
@@ -64967,8 +64967,8 @@
    "licence": "SVS-PD",
    "credit": "Producer: Michael Starobin (KBR Wyle Services, LLC); Videographer: Michael Starobin (KBR Wyle Services, LLC)",
    "datasets": [],
-   "focus": "air quality",
-   "official": "5669",
+   "focus": "water resources",
+   "official": "3912",
    "plan": null,
    "in_app": null,
    "in_eic_inventory": false,
@@ -66979,7 +66979,7 @@
    "licence": "SVS-PD",
    "credit": "Producer: Matthew R. Radcliff (USRA); Animator: Lisa Poje (Freelance)",
    "datasets": [],
-   "focus": "agriculture",
+   "focus": "biodiversity",
    "official": "4950",
    "plan": null,
    "in_app": null,
@@ -67257,7 +67257,7 @@
    "licence": "SVS-PD",
    "credit": "Producer: Ryan Fitzgibbons (USRA), Joy Ng (USRA); Narrator: Joy Ng (USRA)",
    "datasets": [],
-   "focus": "disasters",
+   "focus": "water resources",
    "official": "4960",
    "plan": null,
    "in_app": null,
@@ -68316,7 +68316,7 @@
    "credit": "Host: Leslie Garrison (ADNET Systems, Inc.); Talent: Amber Soja (NASA/LaRC), Doug C. Morton (NASA/GSFC)",
    "datasets": [],
    "focus": "wildfires",
-   "official": "4950",
+   "official": "4993",
    "plan": null,
    "in_app": null,
    "in_eic_inventory": false,
@@ -68626,7 +68626,7 @@
    "credit": "Data visualizer: Jackson Boon Sze Tan (USRA), Alex Kekesi (Global Science and Technology, Inc.); Producer: Joy Ng (USRA), Ryan Fitzgibbons (USRA)",
    "datasets": [],
    "focus": "water resources",
-   "official": "4950",
+   "official": "4960",
    "plan": null,
    "in_app": null,
    "in_eic_inventory": false,
@@ -69928,7 +69928,7 @@
    "licence": "SVS-PD",
    "credit": "Scientist: Faisal Hossain (University of Washington), Dalia B Kirschbaum (NASA/GSFC); Producer: Joy Ng (KBR Wyle Services, LLC)",
    "datasets": [],
-   "focus": "water resources",
+   "focus": "agriculture",
    "official": "4960",
    "plan": null,
    "in_app": null,
@@ -70256,7 +70256,7 @@
    "licence": "SVS-PD",
    "credit": "Producer: Ryan Fitzgibbons (USRA); Scientist: Dalia B Kirschbaum (NASA/GSFC)",
    "datasets": [],
-   "focus": "water resources",
+   "focus": "agriculture",
    "official": null,
    "plan": null,
    "in_app": null,
@@ -70532,7 +70532,7 @@
    "licence": "SVS-PD",
    "credit": "Producer: Matthew R. Radcliff (USRA), Harrison Bach (Intern); Technical support: Aaron E. Lepsch (ADNET Systems, Inc.)",
    "datasets": [],
-   "focus": "wildfires",
+   "focus": "biodiversity",
    "official": "4950",
    "plan": null,
    "in_app": null,
@@ -70568,7 +70568,7 @@
    "credit": "Producer: Kathleen Gaeta (GSFC Interns); Scientist: Amber Soja (NASA/LaRC)",
    "datasets": [],
    "focus": "wildfires",
-   "official": "5533",
+   "official": "4993",
    "plan": null,
    "in_app": null,
    "in_eic_inventory": false,
@@ -70901,7 +70901,7 @@
    "licence": "SVS-PD",
    "credit": "Producer: Jefferson Beck (USRA); Writer: Jenny Marder Fadoul (Telophase)",
    "datasets": [],
-   "focus": "sea level",
+   "focus": "disasters",
    "official": "3912",
    "plan": null,
    "in_app": null,
@@ -71528,7 +71528,7 @@
    "licence": "SVS-PD",
    "credit": "Producer: Kathleen Gaeta (Advocates in Manpower Management, Inc.); Writer: Sofie Bates (KBR Wyle Services, LLC)",
    "datasets": [],
-   "focus": "disasters",
+   "focus": "biodiversity",
    "official": "4950",
    "plan": null,
    "in_app": null,
@@ -72113,7 +72113,7 @@
    "licence": "SVS-PD",
    "credit": "Producer: Kathryn Mersmann (KBR Wyle Services, LLC); Writer: Ellen T. Gray (ADNET Systems, Inc.)",
    "datasets": [],
-   "focus": "greenhouse gases",
+   "focus": "agriculture",
    "official": "5196",
    "plan": null,
    "in_app": null,
@@ -72318,7 +72318,7 @@
    "licence": "SVS-PD",
    "credit": "Scientist: Tom Immel (SSL Berkeley), Brian Harding (SSL Berkeley); Animator: Ross Walter (Freelance)",
    "datasets": [],
-   "focus": "energy",
+   "focus": "other",
    "official": null,
    "plan": null,
    "in_app": null,
@@ -72660,7 +72660,7 @@
    "licence": "SVS-PD",
    "credit": "Producer: Ryan Fitzgibbons (KBR Wyle Services, LLC); Technical support: Aaron E. Lepsch (ADNET Systems, Inc.)",
    "datasets": [],
-   "focus": "disasters",
+   "focus": "water resources",
    "official": "4960",
    "plan": null,
    "in_app": null,
@@ -72940,7 +72940,7 @@
    "licence": "SVS-PD",
    "credit": "Producer: Kathleen Gaeta (Advocates in Manpower Management, Inc.); Scientist: Danielle Rappaport (Conservation 4.0), Doug C. Morton (NASA/GSFC)",
    "datasets": [],
-   "focus": "wildfires",
+   "focus": "biodiversity",
    "official": "13786",
    "plan": null,
    "in_app": null,
@@ -72977,7 +72977,7 @@
    "licence": "SVS-PD; page says: “copyrighted and used with permission”",
    "credit": "Scientist: Burcu Kosar (Catholic University of America); Producer: Joy Ng (KBR Wyle Services, LLC)",
    "datasets": [],
-   "focus": "energy",
+   "focus": "other",
    "official": null,
    "plan": null,
    "in_app": null,
@@ -74141,7 +74141,7 @@
    "licence": "SVS-PD",
    "credit": "Producer: Jefferson Beck (KBR Wyle Services, LLC); Writer: Sally Younger (NASA/JPL)",
    "datasets": [],
-   "focus": "agriculture",
+   "focus": "biodiversity",
    "official": "4950",
    "plan": null,
    "in_app": null,
@@ -74352,7 +74352,7 @@
    "licence": "SVS-PD",
    "credit": "Scientist: Matthew Rodell (NASA/GSFC); Animator: Alex Kekesi (Global Science and Technology, Inc.)",
    "datasets": [],
-   "focus": "water resources",
+   "focus": "agriculture",
    "official": null,
    "plan": null,
    "in_app": null,
@@ -74762,7 +74762,7 @@
    "licence": "SVS-PD",
    "credit": "Producer: Jefferson Beck (KBR Wyle Services, LLC); Visualizer: Cindy Starr (Global Science and Technology, Inc.), Michala Garrison (SSAI)",
    "datasets": [],
-   "focus": "agriculture",
+   "focus": "biodiversity",
    "official": "4950",
    "plan": null,
    "in_app": null,
@@ -76050,7 +76050,7 @@
    "credit": "Producer: Michelle Handleman (KBR Wyle Services, LLC), Angel Kumari (NASA/GSFC); Technical support: Aaron E. Lepsch (ADNET Systems, Inc.)",
    "datasets": [],
    "focus": "water resources",
-   "official": "13786",
+   "official": "3912",
    "plan": null,
    "in_app": null,
    "in_eic_inventory": false,
@@ -76505,7 +76505,7 @@
    "licence": "SVS-PD",
    "credit": "Producer: Ryan Fitzgibbons (eMITS); Scientist: George Huffman (NASA/GSFC)",
    "datasets": [],
-   "focus": "disasters",
+   "focus": "water resources",
    "official": "4960",
    "plan": null,
    "in_app": null,
@@ -76830,7 +76830,7 @@
    "credit": "Producer: Emme Watkins (eMITS); Writer: Emme Watkins (eMITS)",
    "datasets": [],
    "focus": "water resources",
-   "official": "4950",
+   "official": "3912",
    "plan": null,
    "in_app": null,
    "in_eic_inventory": false,
@@ -78991,7 +78991,7 @@
    "credit": "Producer: Grace Weikert (eMITS); Communications lead: Milan Loiacono (NASA/ARC)",
    "datasets": [],
    "focus": "wildfires",
-   "official": "4950",
+   "official": "4993",
    "plan": null,
    "in_app": null,
    "in_eic_inventory": false,
@@ -79035,8 +79035,8 @@
    "licence": "SVS-PD",
    "credit": "Producer: Dan Gallagher (eMITS); Scientist: Conor Nixon (NASA/GSFC), Nicholas Lombardo (Yale University)",
    "datasets": [],
-   "focus": "greenhouse gases",
-   "official": "5196",
+   "focus": "water resources",
+   "official": "4960",
    "plan": null,
    "in_app": null,
    "in_eic_inventory": false,
@@ -79148,7 +79148,7 @@
    "licence": "SVS-PD",
    "credit": "Producer: Emme Watkins (eMITS), Ryan Fitzgibbons (eMITS); Technical support: Aaron E. Lepsch (eMITS)",
    "datasets": [],
-   "focus": "agriculture",
+   "focus": "biodiversity",
    "official": "4950",
    "plan": null,
    "in_app": null,
@@ -79299,7 +79299,7 @@
    "licence": "SVS-PD",
    "credit": "Producer: Emme Watkins (eMITS); Project support: Tassia Owen (Global Science and Technology, Inc.), Christina Brooke Mitchell (eMITS)",
    "datasets": [],
-   "focus": "wildfires",
+   "focus": "energy",
    "official": "5313",
    "plan": null,
    "in_app": null,
@@ -79682,7 +79682,7 @@
    "credit": "Producer: Grace Weikert (eMITS); Editor: Grace Weikert (eMITS)",
    "datasets": [],
    "focus": "wildfires",
-   "official": "4950",
+   "official": "4993",
    "plan": null,
    "in_app": null,
    "in_eic_inventory": false,
@@ -84482,7 +84482,7 @@
    "credit": "Animator: Michael Lentz (USRA); Producer: Dan Gallagher (USRA)",
    "datasets": [],
    "focus": "greenhouse gases",
-   "official": "5196",
+   "official": "5669",
    "plan": null,
    "in_app": null,
    "in_eic_inventory": false,
@@ -87355,7 +87355,7 @@
     "AXIOM-1 Coupled Reanalysis"
    ],
    "focus": "water resources",
-   "official": "4960",
+   "official": "3912",
    "plan": null,
    "in_app": null,
    "in_eic_inventory": false,
@@ -87516,7 +87516,7 @@
     "AXIOM-1 Coupled Reanalysis"
    ],
    "focus": "water resources",
-   "official": "4960",
+   "official": "5425",
    "plan": null,
    "in_app": null,
    "in_eic_inventory": false,
@@ -87570,7 +87570,7 @@
     "AXIOM-1 Coupled Reanalysis"
    ],
    "focus": "water resources",
-   "official": "4960",
+   "official": "3912",
    "plan": null,
    "in_app": null,
    "in_eic_inventory": false,
@@ -87768,7 +87768,7 @@
    "licence": "SVS-PD",
    "credit": "Visualizer: Marit Jentoft-Nilsen (Global Science and Technology, Inc.); Writer: Heather Hanson (Global Science and Technology, Inc.)",
    "datasets": [],
-   "focus": "disasters",
+   "focus": "water resources",
    "official": "4960",
    "plan": null,
    "in_app": null,
@@ -88331,7 +88331,7 @@
    "credit": "Project support: Marit Jentoft-Nilsen (Global Science and Technology, Inc.), Mark Malanoski (Global Science and Technology, Inc.); Writer: Heather Hanson (Global Science and Technology, Inc.)",
    "datasets": [],
    "focus": "water resources",
-   "official": "4950",
+   "official": "3912",
    "plan": null,
    "in_app": null,
    "in_eic_inventory": false,
@@ -88688,7 +88688,7 @@
     "Sea Surface Temperature",
     "Daily 5-km Satellite Coral Bleaching Thermal Stress Monitoring SST Anomaly"
    ],
-   "focus": "water resources",
+   "focus": "other",
    "official": "3912",
    "plan": null,
    "in_app": null,
@@ -88728,7 +88728,7 @@
     "Maps of Sea Level Anomalies: Height - Delayed Time (Aviso+/CMEMS)",
     "Maps of Sea Level Anomalies: Height - Near-Real Time (Aviso+/CMEMS)"
    ],
-   "focus": "sea level",
+   "focus": "water resources",
    "official": "3912",
    "plan": null,
    "in_app": null,
@@ -89305,7 +89305,7 @@
    "datasets": [
     "Terrestrial Water Storage Anomaly"
    ],
-   "focus": "disasters",
+   "focus": "water resources",
    "official": null,
    "plan": null,
    "in_app": null,
@@ -89346,7 +89346,7 @@
    "datasets": [
     ""
    ],
-   "focus": "energy",
+   "focus": "disasters",
    "official": "5011",
    "plan": null,
    "in_app": null,
@@ -89962,7 +89962,7 @@
    "licence": "SVS-PD",
    "credit": "Animator: Amy Moran (Global Science and Technology, Inc.); Data visualizer: Joshua Stevens (SSAI)",
    "datasets": [],
-   "focus": "energy",
+   "focus": "disasters",
    "official": "5313",
    "plan": null,
    "in_app": null,
@@ -90593,7 +90593,7 @@
     "Soil Moisture",
     "Sea Surface Salinity"
    ],
-   "focus": "disasters",
+   "focus": "water resources",
    "official": "4960",
    "plan": null,
    "in_app": null,
@@ -90870,7 +90870,7 @@
    "licence": "SVS-PD",
    "credit": "Technical support: Amy Moran (Global Science and Technology, Inc.)",
    "datasets": [],
-   "focus": "energy",
+   "focus": "water resources",
    "official": "5313",
    "plan": null,
    "in_app": null,
@@ -91232,7 +91232,7 @@
    "licence": "SVS-PD",
    "credit": "Graphic designer: Amy Moran (Global Science and Technology, Inc.)",
    "datasets": [],
-   "focus": "energy",
+   "focus": "disasters",
    "official": "3912",
    "plan": null,
    "in_app": null,
@@ -91264,8 +91264,8 @@
    "licence": "SVS-PD",
    "credit": "Technical support: Amy Moran (Global Science and Technology, Inc.); Data visualizer: Joshua Stevens (SSAI)",
    "datasets": [],
-   "focus": "energy",
-   "official": "5313",
+   "focus": "water resources",
+   "official": "4960",
    "plan": null,
    "in_app": null,
    "in_eic_inventory": false,
@@ -91424,7 +91424,7 @@
    "licence": "SVS-PD",
    "credit": "Technical support: Mark Malanoski (Global Science and Technology, Inc.); Data visualizer: Marit Jentoft-Nilsen (Global Science and Technology, Inc.)",
    "datasets": [],
-   "focus": "energy",
+   "focus": "disasters",
    "official": "5313",
    "plan": null,
    "in_app": null,
@@ -91648,7 +91648,7 @@
    "licence": "SVS-PD",
    "credit": "Graphic designer: Kevin W. Miller (Global Science and Technology, Inc.); Data visualizer: Joshua Stevens (SSAI)",
    "datasets": [],
-   "focus": "energy",
+   "focus": "disasters",
    "official": "5313",
    "plan": null,
    "in_app": null,
@@ -91680,8 +91680,8 @@
    "licence": "SVS-PD",
    "credit": "Technical support: Amy Moran (Global Science and Technology, Inc.); Graphic designer: Kevin W. Miller (Global Science and Technology, Inc.)",
    "datasets": [],
-   "focus": "energy",
-   "official": "5313",
+   "focus": "water resources",
+   "official": "3912",
    "plan": null,
    "in_app": null,
    "in_eic_inventory": false,
@@ -92458,7 +92458,7 @@
    "licence": "SVS-PD",
    "credit": "Producer: Kathleen Gaeta (Advocates in Manpower Management, Inc.); Writer: Aries Keck (ADNET Systems, Inc.), Christopher Thorne (ADNET Systems, Inc.)",
    "datasets": [],
-   "focus": "disasters",
+   "focus": "agriculture",
    "official": null,
    "plan": null,
    "in_app": null,
@@ -92919,7 +92919,7 @@
    "licence": "SVS-PD",
    "credit": "Animator: Amy Moran (Global Science and Technology, Inc.); Data visualizer: Joshua Stevens (SSAI)",
    "datasets": [],
-   "focus": "energy",
+   "focus": "disasters",
    "official": "5313",
    "plan": null,
    "in_app": null,
@@ -93209,7 +93209,7 @@
    "datasets": [
     "Black Marble: Next Generation"
    ],
-   "focus": "energy",
+   "focus": "disasters",
    "official": "5313",
    "plan": null,
    "in_app": null,
@@ -93325,7 +93325,7 @@
     "Terrestrial Water Storage Anomaly",
     "Terrestrial Water Storage Anomaly"
    ],
-   "focus": "disasters",
+   "focus": "water resources",
    "official": null,
    "plan": null,
    "in_app": null,
@@ -93484,7 +93484,7 @@
    "credit": "Technical support: Mark Malanoski (Global Science and Technology, Inc.); Scientist: Joseph V. Ardizzone (NASA/GSFC)",
    "datasets": [],
    "focus": "wildfires",
-   "official": "5669",
+   "official": "5533",
    "plan": null,
    "in_app": null,
    "in_eic_inventory": false,
@@ -95255,7 +95255,7 @@
    "licence": "SVS-PD",
    "credit": "Technical support: Marit Jentoft-Nilsen (Global Science and Technology, Inc.)",
    "datasets": [],
-   "focus": "energy",
+   "focus": "disasters",
    "official": "5011",
    "plan": null,
    "in_app": null,

@@ -1,0 +1,378 @@
+{
+ "record": "rel_4345",
+ "app_title": "22-year Sea Level Rise - TOPEX/JASON (observation)",
+ "svs_ids": [
+  4345
+ ],
+ "title": "22-year Sea Level Rise - TOPEX/JASON",
+ "svs_pages": [
+  "https://svs.gsfc.nasa.gov/4345/"
+ ],
+ "description": "Spinning globe showing TOPEX/JASON 22-year sea level  data. Earth spins once before camera zooms into West Atlantic, East Pacific, and West Pacific regions. With colorbarThis video is also available on our YouTube channel. || SLR_WithColorBar_03659_print.jpg (1024x576) [75.0 KB] || SLR_WithColorBar_03659_searchweb.png (180x320) [52.7 KB] || SLR_WithColorBar_03659_thm.png (80x40) [4.7 KB] || SLR_WithColorBar_720p60.webm (1280x720) [6.9 MB] || SLR_3dGlobe_wColorbar (1920x1080) [256.0 KB] || SLR_WithColorBar_720p60.mp4 (1280x720) [17.5 MB] || SLR_WithColorBar_1080p60.mp4 (1920x1080) [36.6 MB] || 22_years_Sea_level_rise_4345.key [20.4 MB] || 22_years_Sea_level_rise_4345.pptx [17.9 MB] || ",
+ "release_date": "2015-08-26T09:30:00-04:00",
+ "period": {
+  "start": "2015-08-26T13:30:00Z",
+  "end": "2015-08-26T13:30:00Z",
+  "label": "26 Aug 2015 – 26 Aug 2015"
+ },
+ "badge": "observation",
+ "credits_by_role": {
+  "Visualizer": [
+   "Kel Elkins (USRA)"
+  ],
+  "Producer": [
+   "Patrick Lynch (Wyle Information Systems)"
+  ],
+  "Scientist": [
+   "Josh Willis (JPL)"
+  ]
+ },
+ "datasets": [
+  {
+   "name": "",
+   "common_name": "",
+   "platform": "TOPEX",
+   "sensor": "Poseidon",
+   "type": "Other",
+   "organizations": [],
+   "description": "",
+   "credit": "",
+   "url": "",
+   "date_range": null
+  },
+  {
+   "name": "Sea Surface Height",
+   "common_name": "",
+   "platform": "Jason-1",
+   "sensor": "Altimeter",
+   "type": "Other",
+   "organizations": [],
+   "description": "",
+   "credit": "",
+   "url": "",
+   "date_range": null
+  },
+  {
+   "name": "Sea Surface Height",
+   "common_name": "SSH",
+   "platform": "Jason-2",
+   "sensor": "CNES Poseidon-3 Altimeter",
+   "type": "Other",
+   "organizations": [],
+   "description": "",
+   "credit": "",
+   "url": "",
+   "date_range": null
+  }
+ ],
+ "credit_line": "Visualization: NASA's Scientific Visualization Studio (SVS 4345) for the NASA Earth Information Center.",
+ "disclosure": "A related NASA visualization read back through its key (pattern only).",
+ "licence": "SVS: \"All of our content is in the public domain (unless otherwise noted), meaning that it is free to download, use, and redistribute for whatever purposes you see fit.\" (https://svs.gsfc.nasa.gov/help/, read 29 Oct 2026)",
+ "focus": "sea level",
+ "related_to": [
+  3912
+ ],
+ "frame_times": {
+  "method": "linear",
+  "approximate": true,
+  "count": 3,
+  "source": "undated"
+ },
+ "georef": {
+  "projection": "none (not a flat 2:1 map)",
+  "bounds": [
+   -180,
+   -101.25,
+   180,
+   101.25
+  ],
+  "pass_at": 0.9,
+  "shifts_deg": [],
+  "iou": {},
+  "pass": false,
+  "best_is_assumed": false
+ },
+ "colorbar": {
+  "geometry": {
+   "x0": 18,
+   "x1": 63,
+   "band": [
+    2,
+    38
+   ],
+   "vertical": false,
+   "image_size": [
+    40,
+    80
+   ]
+  },
+  "ticks": [
+   {
+    "px": 30.5,
+    "value": 111111171.0,
+    "text": "111111171",
+    "engine": "glyph"
+   },
+   {
+    "px": 53.0,
+    "value": 367111111113.0,
+    "text": "367111111113",
+    "engine": "glyph"
+   }
+  ],
+  "scale": "linear",
+  "fit": {
+   "a": -497377777639.2672,
+   "b": 16311111108.533342,
+   "fit": "labels below the strip",
+   "max_resid_value": 0.000244140625
+  },
+  "notes": [],
+  "n_samples": 46,
+  "value_range": [
+   -497377777639.2672,
+   236622222244.73315
+  ],
+  "opacity_varies": false,
+  "px_per_unit": 6.13079019170459e-11
+ },
+ "colorbar_source": "page colorbar SLR_WithColorBar_03659_thm.png",
+ "asset": {
+  "kind": "frames",
+  "owner": 4345,
+  "what": "SLR_3dGlobe"
+ },
+ "twins": [
+  {
+   "id": 5304,
+   "title": "Sea Level Through a Porthole (2023) for Science-on-a-Sphere",
+   "reason": "search; 2 title words shared",
+   "flat_sets": [],
+   "flat_movies": [
+    {
+     "file": "seaLevelWaveTank_sos_5-29-2024a_1024p30.mp4",
+     "size": "2048×1024",
+     "url": "https://svs.gsfc.nasa.gov/vis/a000000/a005300/a005304/seaLevelWaveTank_sos_5-29-2024a_1024p30.mp4"
+    },
+    {
+     "file": "seaLevelWaveTank_sos_5-29-2024a_2048p30.mp4",
+     "size": "4096×2048",
+     "url": "https://svs.gsfc.nasa.gov/vis/a000000/a005300/a005304/seaLevelWaveTank_sos_5-29-2024a_2048p30.mp4"
+    },
+    {
+     "file": "seaLevelWaveTank_sos_5-29-2024a_2048p30.mp4",
+     "size": "4096×2048",
+     "url": "https://svs.gsfc.nasa.gov/vis/a000000/a005300/a005304/seaLevelWaveTank_sos_5-29-2024a_2048p30.mp4"
+    },
+    {
+     "file": "seaLevelWaveTank_sos_5-29-2024a_2048p30.mp4",
+     "size": "4096×2048",
+     "url": "https://svs.gsfc.nasa.gov/vis/a000000/a005300/a005304/seaLevelWaveTank_sos_5-29-2024a_2048p30.mp4"
+    }
+   ],
+   "colorbars": [
+    "SLR_WithColorBar_03659_print.jpg",
+    "SLR_WithColorBar_03659_searchweb.png",
+    "SLR_WithColorBar_03659_thm.png",
+    "23year_SeaSurfaceHeightChange_-7to7cm_PrintStill_wColorbar.jpg",
+    "colorbar_red2blue_large.png",
+    "colorbar_red2blue_large_print.jpg",
+    "colorbar_red2blue_inches_large.png",
+    "colorbar_red2blue_inches_large_print.jpg"
+   ],
+   "colorbar_inherited": true
+  }
+ ],
+ "decode": {
+  "mode": "chroma",
+  "decoded_share": 0.29802806712962965
+ },
+ "layers": [
+  {
+   "id": "value",
+   "unit": "colorbar units",
+   "encoding": "linear",
+   "scale": 1631111110.8533342,
+   "offset": -428055363584.0,
+   "nodata": 65535,
+   "below": 65534,
+   "grid": {
+    "width": 160,
+    "height": 90,
+    "bounds": [
+     -180,
+     -101.25,
+     180,
+     101.25
+    ],
+    "row0": "north",
+    "col0": "west",
+    "byte_order": "little",
+    "space": "frame"
+   },
+   "times": [
+    "2015-08-26T13:30:00Z",
+    "2015-08-26T13:30:00Z",
+    "2015-08-26T13:30:00Z"
+   ],
+   "chunks": [
+    {
+     "file": "value_000.u16.gz",
+     "t0": 0,
+     "t1": 3,
+     "bytes": 19137
+    }
+   ],
+   "quantisation_step": 1631111110.8533342,
+   "coverage": 0.3051388888888889,
+   "value_range": [
+    -428055363584.0,
+    236622249984.0
+   ],
+   "label": "22-year Sea Level Rise - TOPEX/JASON (pattern only)",
+   "aggregation": "mean of decoded pixels per cell",
+   "time_labels": [
+    "undated",
+    "undated",
+    "undated"
+   ],
+   "display": {
+    "colours": [
+     "#2f260b",
+     "#372e1c",
+     "#3f3725",
+     "#665820",
+     "#805d18",
+     "#8e6219",
+     "#945c16",
+     "#926028",
+     "#9e5a1b",
+     "#9d560d",
+     "#b0670e",
+     "#b2610f",
+     "#be7213",
+     "#c57b14",
+     "#cb7612",
+     "#d48c14",
+     "#db8315",
+     "#df8616",
+     "#e68515",
+     "#e98a16",
+     "#f18d17",
+     "#f89819",
+     "#fda41c",
+     "#feb623",
+     "#ffcb2e",
+     "#ffe03d",
+     "#ffef47",
+     "#fff75a",
+     "#fff272",
+     "#f8e588",
+     "#dbcd8f",
+     "#656749"
+    ],
+    "values": [
+     -497377777639.2672,
+     -473700358288.1704,
+     -450022938937.0736,
+     -426345519585.9768,
+     -402668100234.88007,
+     -378990680883.78326,
+     -355313261532.68646,
+     -331635842181.5897,
+     -307958422830.4929,
+     -284281003479.3961,
+     -260603584128.29935,
+     -236926164777.20255,
+     -213248745426.1057,
+     -189571326075.00897,
+     -165893906723.91217,
+     -142216487372.81543,
+     -118539068021.71863,
+     -94861648670.62177,
+     -71184229319.52502,
+     -47506809968.42822,
+     -23829390617.331482,
+     -151971266.23468018,
+     23525448084.86212,
+     47202867435.95892,
+     70880286787.05579,
+     94557706138.15247,
+     118235125489.24927,
+     141912544840.34607,
+     165589964191.44287,
+     189267383542.53967,
+     212944802893.63635,
+     236622222244.73315
+    ],
+    "scale": "linear"
+   },
+   "status": "pattern only",
+   "status_check": "a_no_validation_source",
+   "statement": "pattern only"
+  }
+ ],
+ "voices": {
+  "value": "rel4345"
+ },
+ "play": [
+  {
+   "id": "value",
+   "label": "22-year Sea Level Rise - TOPEX/JASON: higher pitch = higher value",
+   "view": "global",
+   "map": "value",
+   "start": {
+    "lat": -1.0,
+    "lon": 1.125
+   },
+   "steps_per_second": 1,
+   "channels": [
+    {
+     "voice": "rel4345",
+     "layers": [
+      "value"
+     ],
+     "combine": "value"
+    }
+   ]
+  }
+ ],
+ "validation": [
+  {
+   "id": "a_no_validation_source",
+   "title": "22-year Sea Level Rise - TOPEX/JASON: no validation source",
+   "kind": "none",
+   "pass": null,
+   "threshold": null
+  }
+ ],
+ "size": {
+  "choice": {
+   "frames": 3
+  },
+  "tried": [],
+  "bytes": 28987,
+  "budget": 25000000
+ },
+ "onboarding": {
+  "timings_s": {
+   "api": 22.4,
+   "twins": 1.3,
+   "asset choice": 0.0,
+   "frames": 28.6,
+   "frame times": 3.1,
+   "georef": 0.0,
+   "colorbar": 7.4,
+   "inversion": 5.1,
+   "validation": 0.0
+  },
+  "status": "pattern only"
+ },
+ "asset_checksums": {
+  "file": "checksums.tsv.gz",
+  "rows": 5,
+  "sha256_of_list": "e5fad3a7df7e63e6f878be548f167be89d8f2c656e08c55df4c8cfeeabb687aa"
+ },
+ "code_commit": "a8f0638dc9adb81b18f259cf0813046acd882fa1-dirty",
+ "generated_utc": "2026-10-31T17:17:33Z"
+}

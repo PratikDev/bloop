@@ -1,0 +1,20 @@
+{
+ "record": "rel_5098",
+ "checks": [
+  {
+   "record": "rel_5098",
+   "id": "a_no_validation_source",
+   "title": "Relative Wetness Root Zone Versus Groundwater Comparison: no validation source",
+   "kind": "none",
+   "source": null,
+   "metrics": {
+    "reason": "no validation source matches the item's words"
+   },
+   "threshold": null,
+   "pass": null,
+   "note": "no validation source matches the item's words",
+   "run_utc": "2026-10-31T17:18:44Z"
+  }
+ ],
+ "updated_utc": "2026-10-31T17:18:44Z"
+}

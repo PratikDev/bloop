@@ -1,0 +1,315 @@
+{
+ "record": "rel_5098",
+ "app_title": "Relative Wetness Root Zone Versus Groundwater Comparison (observation)",
+ "svs_ids": [
+  5098
+ ],
+ "title": "Relative Wetness Root Zone Versus Groundwater Comparison",
+ "svs_pages": [
+  "https://svs.gsfc.nasa.gov/5098/"
+ ],
+ "description": "Sample composite showing the comparison between the root zone relative wetness data to groundwater wetness data. The root zone is approximately 1 meter below the surface as opposed to groundwater which is deeper. Seeing these side-by-side allows the viewer to see that the root zone data changes much more rapidly than the deeper stored groundwater data. || root_n_grnd.4k.2676_print.jpg (1024x576) [173.0 KB] || root_n_grnd.4k.2676_searchweb.png (320x180) [73.6 KB] || root_n_grnd.4k.2676_web.png (320x180) [73.6 KB] || root_n_grnd.1080p30.mp4 (1920x1080) [50.5 MB] || root_n_grnd.1080p30.webm (1920x1080) [10.7 MB] || Sample_Composite (3840x2160) [0 Item(s)] || root_n_grnd.2160p30.mp4 (3840x2160) [118.5 MB] || ",
+ "release_date": "2023-04-24T09:00:00-04:00",
+ "period": {
+  "start": "2023-04-24T13:00:00Z",
+  "end": "2023-04-24T13:00:00Z",
+  "label": "24 Apr 2023 – 24 Apr 2023"
+ },
+ "badge": "observation",
+ "credits_by_role": {
+  "Data visualizer": [
+   "Alex Kekesi (Global Science and Technology, Inc.)"
+  ],
+  "Scientist": [
+   "Matthew Rodell (NASA/GSFC)"
+  ],
+  "Producer": [
+   "Kathleen Gaeta (Advocates in Manpower Management, Inc.)"
+  ],
+  "Data provider": [
+   "Hiroko Kato Beaudoing (University of Maryland)"
+  ]
+ },
+ "datasets": [
+  {
+   "name": "",
+   "common_name": "",
+   "platform": "Gravity Recovery and Climate Experiment (GRACE)",
+   "sensor": null,
+   "type": "Other",
+   "organizations": [],
+   "description": "",
+   "credit": "",
+   "url": "",
+   "date_range": null
+  }
+ ],
+ "credit_line": "Visualization: NASA's Scientific Visualization Studio (SVS 5098) for the NASA Earth Information Center.",
+ "disclosure": "A related NASA visualization read back through its key (pattern only).",
+ "licence": "SVS: \"All of our content is in the public domain (unless otherwise noted), meaning that it is free to download, use, and redistribute for whatever purposes you see fit.\" (https://svs.gsfc.nasa.gov/help/, read 29 Oct 2026)",
+ "focus": "water resources",
+ "related_to": [],
+ "frame_times": {
+  "method": "linear",
+  "approximate": true,
+  "count": 3,
+  "source": "undated"
+ },
+ "georef": {
+  "projection": "none (not a flat 2:1 map)",
+  "bounds": [
+   -180,
+   -101.25,
+   180,
+   101.25
+  ],
+  "pass_at": 0.9,
+  "shifts_deg": [],
+  "iou": {},
+  "pass": false,
+  "best_is_assumed": false
+ },
+ "colorbar": {
+  "geometry": {
+   "x0": 11,
+   "x1": 17,
+   "band": [
+    32,
+    428
+   ],
+   "vertical": false,
+   "image_size": [
+    452,
+    70
+   ]
+  },
+  "ticks": [
+   {
+    "px": 28.5,
+    "value": 111.0,
+    "text": "111",
+    "engine": "glyph"
+   },
+   {
+    "px": 39.5,
+    "value": 116.0,
+    "text": "116",
+    "engine": "glyph"
+   }
+  ],
+  "scale": "linear",
+  "fit": {
+   "a": 98.04545454545462,
+   "b": 0.45454545454545237,
+   "fit": "labels below the strip",
+   "max_resid_value": 1.4210854715202004e-14
+  },
+  "notes": [],
+  "n_samples": 7,
+  "value_range": [
+   98.04545454545462,
+   100.77272727272734
+  ],
+  "opacity_varies": false,
+  "px_per_unit": 2.2000000000000104
+ },
+ "colorbar_source": "page colorbar NEO_soil_moisture_pale2_cbar2.png",
+ "asset": {
+  "kind": "frames",
+  "owner": 5098,
+  "what": "Root_Zone"
+ },
+ "twins": [],
+ "decode": {
+  "mode": "chroma",
+  "decoded_share": 0.0069981352880658446
+ },
+ "layers": [
+  {
+   "id": "value",
+   "unit": "colorbar units",
+   "encoding": "linear",
+   "scale": 0.04545454545454524,
+   "offset": 98.2320556640625,
+   "nodata": 65535,
+   "below": 65534,
+   "grid": {
+    "width": 160,
+    "height": 90,
+    "bounds": [
+     -180,
+     -101.25,
+     180,
+     101.25
+    ],
+    "row0": "north",
+    "col0": "west",
+    "byte_order": "little",
+    "space": "frame"
+   },
+   "times": [
+    "2023-04-24T13:00:00Z",
+    "2023-04-24T13:00:00Z",
+    "2023-04-24T13:00:00Z"
+   ],
+   "chunks": [
+    {
+     "file": "value_000.u16.gz",
+     "t0": 0,
+     "t1": 3,
+     "bytes": 149
+    }
+   ],
+   "quantisation_step": 0.04545454545454524,
+   "coverage": 0.00018518518518518518,
+   "value_range": [
+    98.2320556640625,
+    98.4156494140625
+   ],
+   "label": "Relative Wetness Root Zone Versus Groundwater Comparison (pattern only)",
+   "aggregation": "mean of decoded pixels per cell",
+   "time_labels": [
+    "undated",
+    "undated",
+    "undated"
+   ],
+   "display": {
+    "colours": [
+     "#c1c7d5",
+     "#c3c8d7",
+     "#c4cad9",
+     "#c6ccda",
+     "#c7cddc",
+     "#c9cfde",
+     "#c9cfde",
+     "#c9cfde",
+     "#c9cfde",
+     "#c9cfde",
+     "#c9cfde",
+     "#c9cfde",
+     "#c9cfde",
+     "#c9cfde",
+     "#c9cfde",
+     "#c9cfde",
+     "#c9cfde",
+     "#c9cfde",
+     "#c9cfde",
+     "#c9cfde",
+     "#c9cfde",
+     "#c9cfde",
+     "#c9cfde",
+     "#c9cfde",
+     "#c9cfde",
+     "#c9cfde",
+     "#c9cfde",
+     "#c9cfde",
+     "#c9cfde",
+     "#c9cfde",
+     "#c9cfde",
+     "#c9cfde"
+    ],
+    "values": [
+     98.04545454545462,
+     98.13343108504407,
+     98.2214076246335,
+     98.30938416422295,
+     98.39736070381238,
+     98.48533724340183,
+     98.57331378299128,
+     98.66129032258071,
+     98.74926686217016,
+     98.8372434017596,
+     98.92521994134904,
+     99.01319648093849,
+     99.10117302052792,
+     99.18914956011737,
+     99.2771260997068,
+     99.36510263929625,
+     99.4530791788857,
+     99.54105571847514,
+     99.62903225806458,
+     99.71700879765402,
+     99.80498533724347,
+     99.89296187683291,
+     99.98093841642235,
+     100.0689149560118,
+     100.15689149560123,
+     100.24486803519068,
+     100.33284457478013,
+     100.42082111436956,
+     100.50879765395901,
+     100.59677419354844,
+     100.68475073313789,
+     100.77272727272734
+    ],
+    "scale": "linear"
+   },
+   "status": "pattern only",
+   "status_check": "a_no_validation_source",
+   "statement": "pattern only"
+  }
+ ],
+ "voices": {
+  "value": "rel5098"
+ },
+ "play": [
+  {
+   "id": "value",
+   "label": "Relative Wetness Root Zone Versus Groundwater Comparison: higher pitch = higher value",
+   "view": "global",
+   "map": "value",
+   "start": {
+    "lat": -3.0,
+    "lon": -5.625
+   },
+   "steps_per_second": 1,
+   "channels": [
+    {
+     "voice": "rel5098",
+     "layers": [
+      "value"
+     ],
+     "combine": "value"
+    }
+   ]
+  }
+ ],
+ "validation": [
+  {
+   "id": "a_no_validation_source",
+   "title": "Relative Wetness Root Zone Versus Groundwater Comparison: no validation source",
+   "kind": "none",
+   "pass": null,
+   "threshold": null
+  }
+ ],
+ "size": {
+  "choice": {
+   "frames": 3
+  },
+  "tried": [],
+  "bytes": 8319,
+  "budget": 25000000
+ },
+ "onboarding": {
+  "timings_s": {
+   "api": 10.4,
+   "twins": 0.9,
+   "asset choice": 0.0,
+   "frames": 41.2,
+   "frame times": 3.1,
+   "georef": 0.0,
+   "colorbar": 7.5,
+   "inversion": 3.5,
+   "validation": 0.0
+  },
+  "status": "pattern only"
+ },
+ "asset_checksums": {
+  "file": "checksums.tsv.gz",
+  "rows": 5,
+  "sha256_of_list": "ae03d09d99277fce7fc7b3897a34b2a4990dd190b7f2f4e4541cfeff01dd6e7f"
+ },
+ "code_commit": "a8f0638dc9adb81b18f259cf0813046acd882fa1-dirty",
+ "generated_utc": "2026-10-31T17:18:44Z"
+}

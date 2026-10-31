@@ -1,0 +1,20 @@
+{
+ "record": "rel_5601",
+ "checks": [
+  {
+   "record": "rel_5601",
+   "id": "a_no_validation_source",
+   "title": "Wyoming Red Canyon wildfire: 2025 Year in Review: no validation source",
+   "kind": "none",
+   "source": null,
+   "metrics": {
+    "reason": "no key: brightness pattern only, nothing to compare with values"
+   },
+   "threshold": null,
+   "pass": null,
+   "note": "no key: brightness pattern only, nothing to compare with values",
+   "run_utc": "2026-10-31T17:16:21Z"
+  }
+ ],
+ "updated_utc": "2026-10-31T17:16:21Z"
+}

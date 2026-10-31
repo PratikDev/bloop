@@ -1,0 +1,190 @@
+{
+ "id": 5611,
+ "title": "Global Mean Sea Level 1993-2025",
+ "url": "https://svs.gsfc.nasa.gov/5611/",
+ "page_type": "Visualization",
+ "release_date": "2026-01-30T09:00:00-05:00",
+ "update_date": "2026-01-30T11:31:51.325634-05:00",
+ "description": "This animation shows the rise in global mean sea level from 1993 to 2023 based on data from a series of five international satellites.",
+ "full_text": "This animation shows the rise in global mean sea level from 1993 to 2023 based on data from a series of five international satellites.\n\nThis animation shows the rise in global mean sea level from 1993 to 2023 based on data from a series of five international satellites. \r\n\r\nThis NASA-led analysis is based on a sea level data set featuring more than 30 years of satellite observations, starting with the U.S.-French <a href=\"https://sealevel.jpl.nasa.gov/missions/topex-poseidon/summary/\">TOPEX/Poseidon</a> mission, which launched in 1992. The [Sentinel-6 Michael Freilich mission](https://science.nasa.gov/mission/sentinel-6-michael-freilich/), which launched in November 2020, is the latest in the series of satellites that have contributed to this sea level record.\r\n\r\n[Sentinal-6B](https://science.nasa.gov/mission/sentinel-6b/) which launched in 2025 will help continue these observations into the future.\r\n\r\nThe data use to create these graphs is available [here.](https://zenodo.org/records/7702315)\r\nLearn more about sea level rise [here.](https://earth.gov/sealevel)\n\nThis animation shows the rise in global mean sea level from 1993 to 2024 based on data from a series of five international satellites.\n\nThis animation shows the rise in global mean sea level from 1993 to 2024 based on data from a series of five international satellites. This version iis in a square format.\n\nThis animation shows the rise in global mean sea level from 1993 to 2024 based on data from a series of five international satellites. This version is labeled in Spanish.\n\nThis animation shows the rise in global mean sea level from 1993 to 2024 based on data from a series of five international satellites. This version is labeled in Spanish and is in a square format.",
+ "credits_by_role": {
+  "Visualizer": [
+   "Mark SubbaRao (NASA/GSFC)"
+  ],
+  "Scientist": [
+   "Benjamin Hamlington (NASA/JPL)",
+   "Josh Willis (JPL)"
+  ]
+ },
+ "keywords": [
+  "Coastal Processes",
+  "Earth Science",
+  "Oceans",
+  "Physical oceanography",
+  "Sea Level",
+  "Sea Level Rise"
+ ],
+ "datasets": [
+  {
+   "name": "Sea Surface Height Anomaly",
+   "common_name": "SSHA",
+   "platform": "OSTM/Jason-2",
+   "sensor": "Poseidon-3",
+   "type": "Other",
+   "organizations": [
+    "NASA, NOAA, CNES, EUMETSAT"
+   ],
+   "description": "",
+   "credit": "",
+   "url": "",
+   "date_range": null
+  }
+ ],
+ "missions": [],
+ "related": [],
+ "alternate_versions": [],
+ "newer_versions": [],
+ "older_versions": [],
+ "media": [
+  {
+   "group": 1,
+   "group_title": "",
+   "widget": "Video player",
+   "caption": "",
+   "group_text": "This animation shows the rise in global mean sea level from 1993 to 2024 based on data from a series of five international satellites.",
+   "url": "https://svs.gsfc.nasa.gov/vis/a000000/a005600/a005611/seaLevelRise_2025_English.mp4",
+   "filename": "seaLevelRise_2025_English.mp4",
+   "media_type": "Movie",
+   "width": 3840,
+   "height": 2160,
+   "alt_text": ""
+  },
+  {
+   "group": 1,
+   "group_title": "",
+   "widget": "Video player",
+   "caption": "",
+   "group_text": "This animation shows the rise in global mean sea level from 1993 to 2024 based on data from a series of five international satellites.",
+   "url": "https://svs.gsfc.nasa.gov/vis/a000000/a005600/a005611/seaLevelRise_2025_English_HD.mp4",
+   "filename": "seaLevelRise_2025_English_HD.mp4",
+   "media_type": "Movie",
+   "width": 1920,
+   "height": 1080,
+   "alt_text": ""
+  },
+  {
+   "group": 1,
+   "group_title": "",
+   "widget": "Video player",
+   "caption": "",
+   "group_text": "This animation shows the rise in global mean sea level from 1993 to 2024 based on data from a series of five international satellites.",
+   "url": "https://svs.gsfc.nasa.gov/vis/a000000/a005600/a005611/seaLevelRise_2025.png",
+   "filename": "seaLevelRise_2025.png",
+   "media_type": "Image",
+   "width": 3840,
+   "height": 2160,
+   "alt_text": ""
+  },
+  {
+   "group": 1,
+   "group_title": "",
+   "widget": "Video player",
+   "caption": "",
+   "group_text": "This animation shows the rise in global mean sea level from 1993 to 2024 based on data from a series of five international satellites.",
+   "url": "https://svs.gsfc.nasa.gov/vis/a000000/a005600/a005611/seaLevelRise_2025_Waves.png",
+   "filename": "seaLevelRise_2025_Waves.png",
+   "media_type": "Image",
+   "width": 1920,
+   "height": 1080,
+   "alt_text": ""
+  },
+  {
+   "group": 2,
+   "group_title": "",
+   "widget": "Video player",
+   "caption": "",
+   "group_text": "This animation shows the rise in global mean sea level from 1993 to 2024 based on data from a series of five international satellites. This version iis in a square format.",
+   "url": "https://svs.gsfc.nasa.gov/vis/a000000/a005600/a005611/seaLevelRise_2025_Square_English.mp4",
+   "filename": "seaLevelRise_2025_Square_English.mp4",
+   "media_type": "Movie",
+   "width": 2160,
+   "height": 2160,
+   "alt_text": ""
+  },
+  {
+   "group": 2,
+   "group_title": "",
+   "widget": "Video player",
+   "caption": "",
+   "group_text": "This animation shows the rise in global mean sea level from 1993 to 2024 based on data from a series of five international satellites. This version iis in a square format.",
+   "url": "https://svs.gsfc.nasa.gov/vis/a000000/a005600/a005611/seaLevelRise_2025_Square_English_1080p30.mp4",
+   "filename": "seaLevelRise_2025_Square_English_1080p30.mp4",
+   "media_type": "Movie",
+   "width": 1080,
+   "height": 1080,
+   "alt_text": ""
+  },
+  {
+   "group": 3,
+   "group_title": "Spanish labeled content",
+   "widget": "Video player",
+   "caption": "",
+   "group_text": "This animation shows the rise in global mean sea level from 1993 to 2024 based on data from a series of five international satellites. This version is labeled in Spanish.",
+   "url": "https://svs.gsfc.nasa.gov/vis/a000000/a005600/a005611/seaLevelRise_2025_Spanish.mp4",
+   "filename": "seaLevelRise_2025_Spanish.mp4",
+   "media_type": "Movie",
+   "width": 3840,
+   "height": 2160,
+   "alt_text": ""
+  },
+  {
+   "group": 3,
+   "group_title": "Spanish labeled content",
+   "widget": "Video player",
+   "caption": "",
+   "group_text": "This animation shows the rise in global mean sea level from 1993 to 2024 based on data from a series of five international satellites. This version is labeled in Spanish.",
+   "url": "https://svs.gsfc.nasa.gov/vis/a000000/a005600/a005611/seaLevelRise_2025_Spanish_1080p30.mp4",
+   "filename": "seaLevelRise_2025_Spanish_1080p30.mp4",
+   "media_type": "Movie",
+   "width": 1920,
+   "height": 1080,
+   "alt_text": ""
+  },
+  {
+   "group": 4,
+   "group_title": "",
+   "widget": "Video player",
+   "caption": "",
+   "group_text": "This animation shows the rise in global mean sea level from 1993 to 2024 based on data from a series of five international satellites. This version is labeled in Spanish and is in a square format.",
+   "url": "https://svs.gsfc.nasa.gov/vis/a000000/a005600/a005611/seaLevelRise_2025_Square_Spanish_1080p30.mp4",
+   "filename": "seaLevelRise_2025_Square_Spanish_1080p30.mp4",
+   "media_type": "Movie",
+   "width": 1080,
+   "height": 1080,
+   "alt_text": ""
+  },
+  {
+   "group": 4,
+   "group_title": "",
+   "widget": "Video player",
+   "caption": "",
+   "group_text": "This animation shows the rise in global mean sea level from 1993 to 2024 based on data from a series of five international satellites. This version is labeled in Spanish and is in a square format.",
+   "url": "https://svs.gsfc.nasa.gov/vis/a000000/a005600/a005611/seaLevelRise_2025_Square_Spanish.mp4",
+   "filename": "seaLevelRise_2025_Square_Spanish.mp4",
+   "media_type": "Movie",
+   "width": 2160,
+   "height": 2160,
+   "alt_text": ""
+  }
+ ],
+ "text_links": [
+  "https://sealevel.jpl.nasa.gov/missions/topex-poseidon/summary/",
+  "https://science.nasa.gov/mission/sentinel-6-michael-freilich/",
+  "https://science.nasa.gov/mission/sentinel-6b/",
+  "https://zenodo.org/records/7702315",
+  "https://earth.gov/sealevel"
+ ],
+ "frame_folders": {},
+ "api_url": "https://svs.gsfc.nasa.gov/api/5611",
+ "fetched_utc": "2026-10-31T15:06:42Z"
+}

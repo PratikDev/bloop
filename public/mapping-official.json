@@ -899,6 +899,2396 @@
       "note": "The book's pitch rule over the key's own range."
     },
     {
+      "id": "rel30919",
+      "label": {
+        "en": "A Changing Earth at Night (pattern only)",
+        "bn": "TODO: rel_30919"
+      },
+      "group": "context",
+      "source": {
+        "dataset": "SVS 30919 (related visualization)",
+        "svsId": 30919,
+        "product": "rel_30919"
+      },
+      "status": "context",
+      "mapping": {
+        "kind": "continuous",
+        "input": {
+          "unit": "relative (0–1)",
+          "min": 0.10994681715965271,
+          "max": 1.0,
+          "scale": "linear"
+        },
+        "output": {
+          "param": "frequency",
+          "unit": "Hz",
+          "min": 220,
+          "max": 880,
+          "scale": "exponential"
+        }
+      },
+      "silence": "No value at this point (an overlay box or a colour off the key).",
+      "sound": {
+        "timbre": "Warm sine with a soft attack and a smooth glide",
+        "attackMs": 20,
+        "releaseMs": 80,
+        "glideMs": 30,
+        "maxGain": 0.2
+      },
+      "pan": "longitude",
+      "legend": [],
+      "designChoice": true,
+      "note": "The book's pitch rule over the key's own range."
+    },
+    {
+      "id": "rel3143",
+      "label": {
+        "en": "Global Lightning Accumulation (WMS) (relative)",
+        "bn": "TODO: rel_3143"
+      },
+      "group": "context",
+      "source": {
+        "dataset": "SVS 3143 (related visualization)",
+        "svsId": 3143,
+        "product": "rel_3143"
+      },
+      "status": "context",
+      "mapping": {
+        "kind": "continuous",
+        "input": {
+          "unit": "colorbar units",
+          "min": 8.76923076923077,
+          "max": 72.25,
+          "scale": "linear"
+        },
+        "output": {
+          "param": "frequency",
+          "unit": "Hz",
+          "min": 220,
+          "max": 880,
+          "scale": "exponential"
+        }
+      },
+      "silence": "No value at this point (an overlay box or a colour off the key).",
+      "sound": {
+        "timbre": "Warm sine with a soft attack and a smooth glide",
+        "attackMs": 20,
+        "releaseMs": 80,
+        "glideMs": 30,
+        "maxGain": 0.2
+      },
+      "pan": "longitude",
+      "legend": [],
+      "designChoice": true,
+      "note": "The book's pitch rule over the key's own range."
+    },
+    {
+      "id": "rel3144",
+      "label": {
+        "en": "Global Lightning Flash Rate Density (WMS) (relative)",
+        "bn": "TODO: rel_3144"
+      },
+      "group": "context",
+      "source": {
+        "dataset": "SVS 3144 (related visualization)",
+        "svsId": 3144,
+        "product": "rel_3144"
+      },
+      "status": "context",
+      "mapping": {
+        "kind": "continuous",
+        "input": {
+          "unit": "colorbar units",
+          "min": 8.653846153846153,
+          "max": 224.6153846153846,
+          "scale": "linear"
+        },
+        "output": {
+          "param": "frequency",
+          "unit": "Hz",
+          "min": 220,
+          "max": 880,
+          "scale": "exponential"
+        }
+      },
+      "silence": "No value at this point (an overlay box or a colour off the key).",
+      "sound": {
+        "timbre": "Warm sine with a soft attack and a smooth glide",
+        "attackMs": 20,
+        "releaseMs": 80,
+        "glideMs": 30,
+        "maxGain": 0.2
+      },
+      "pan": "longitude",
+      "legend": [],
+      "designChoice": true,
+      "note": "The book's pitch rule over the key's own range."
+    },
+    {
+      "id": "rel3821",
+      "label": {
+        "en": "Flat Map Ocean Current Flows with Sea Surface Temperatures (SST) (relative)",
+        "bn": "TODO: rel_3821"
+      },
+      "group": "context",
+      "source": {
+        "dataset": "SVS 3821 (related visualization)",
+        "svsId": 3821,
+        "product": "rel_3821"
+      },
+      "status": "context",
+      "mapping": {
+        "kind": "continuous",
+        "input": {
+          "unit": "colorbar units",
+          "min": -2.0453823077101565,
+          "max": 31.979798958739714,
+          "scale": "linear"
+        },
+        "output": {
+          "param": "frequency",
+          "unit": "Hz",
+          "min": 220,
+          "max": 880,
+          "scale": "exponential"
+        }
+      },
+      "silence": "No value at this point (an overlay box or a colour off the key).",
+      "sound": {
+        "timbre": "Warm sine with a soft attack and a smooth glide",
+        "attackMs": 20,
+        "releaseMs": 80,
+        "glideMs": 30,
+        "maxGain": 0.2,
+        "family": "model"
+      },
+      "pan": "longitude",
+      "legend": [],
+      "designChoice": true,
+      "note": "The book's pitch rule over the key's own range."
+    },
+    {
+      "id": "rel3913",
+      "label": {
+        "en": "Gulf Stream Sea Surface Currents and Temperatures (pattern only)",
+        "bn": "TODO: rel_3913"
+      },
+      "group": "context",
+      "source": {
+        "dataset": "SVS 3913 (related visualization)",
+        "svsId": 3913,
+        "product": "rel_3913"
+      },
+      "status": "context",
+      "mapping": {
+        "kind": "continuous",
+        "input": {
+          "unit": "colorbar units",
+          "min": 8.208333333333334,
+          "max": 36.7752808988764,
+          "scale": "linear"
+        },
+        "output": {
+          "param": "frequency",
+          "unit": "Hz",
+          "min": 220,
+          "max": 880,
+          "scale": "exponential"
+        }
+      },
+      "silence": "No value at this point (an overlay box or a colour off the key).",
+      "sound": {
+        "timbre": "Warm sine with a soft attack and a smooth glide",
+        "attackMs": 20,
+        "releaseMs": 80,
+        "glideMs": 30,
+        "maxGain": 0.2,
+        "family": "model"
+      },
+      "pan": "longitude",
+      "legend": [],
+      "designChoice": true,
+      "note": "The book's pitch rule over the key's own range."
+    },
+    {
+      "id": "rel4332",
+      "label": {
+        "en": "Aquarius Sea Surface Temperature 2011 - 2015 (pattern only)",
+        "bn": "TODO: rel_4332"
+      },
+      "group": "context",
+      "source": {
+        "dataset": "SVS 4332 (related visualization)",
+        "svsId": 4332,
+        "product": "rel_4332"
+      },
+      "status": "context",
+      "mapping": {
+        "kind": "continuous",
+        "input": {
+          "unit": "colorbar units",
+          "min": 0.5724681625227409,
+          "max": 4.063674954517889,
+          "scale": "linear"
+        },
+        "output": {
+          "param": "frequency",
+          "unit": "Hz",
+          "min": 220,
+          "max": 880,
+          "scale": "exponential"
+        }
+      },
+      "silence": "No value at this point (an overlay box or a colour off the key).",
+      "sound": {
+        "timbre": "Warm sine with a soft attack and a smooth glide",
+        "attackMs": 20,
+        "releaseMs": 80,
+        "glideMs": 30,
+        "maxGain": 0.2
+      },
+      "pan": "longitude",
+      "legend": [],
+      "designChoice": true,
+      "note": "The book's pitch rule over the key's own range."
+    },
+    {
+      "id": "rel4345",
+      "label": {
+        "en": "22-year Sea Level Rise - TOPEX/JASON (pattern only)",
+        "bn": "TODO: rel_4345"
+      },
+      "group": "context",
+      "source": {
+        "dataset": "SVS 4345 (related visualization)",
+        "svsId": 4345,
+        "product": "rel_4345"
+      },
+      "status": "context",
+      "mapping": {
+        "kind": "continuous",
+        "input": {
+          "unit": "colorbar units",
+          "min": -497377777639.2672,
+          "max": 236622222244.73315,
+          "scale": "linear"
+        },
+        "output": {
+          "param": "frequency",
+          "unit": "Hz",
+          "min": 220,
+          "max": 880,
+          "scale": "exponential"
+        }
+      },
+      "silence": "No value at this point (an overlay box or a colour off the key).",
+      "sound": {
+        "timbre": "Warm sine with a soft attack and a smooth glide",
+        "attackMs": 20,
+        "releaseMs": 80,
+        "glideMs": 30,
+        "maxGain": 0.2
+      },
+      "pan": "longitude",
+      "legend": [],
+      "designChoice": true,
+      "note": "The book's pitch rule over the key's own range."
+    },
+    {
+      "id": "rel4353",
+      "label": {
+        "en": "Aquarius Sea Surface Salinity 2011-2015 (pattern only)",
+        "bn": "TODO: rel_4353"
+      },
+      "group": "context",
+      "source": {
+        "dataset": "SVS 4353 (related visualization)",
+        "svsId": 4353,
+        "product": "rel_4353"
+      },
+      "status": "context",
+      "mapping": {
+        "kind": "continuous",
+        "input": {
+          "unit": "colorbar units",
+          "min": 29.37415123508794,
+          "max": 38.62567040111704,
+          "scale": "linear"
+        },
+        "output": {
+          "param": "frequency",
+          "unit": "Hz",
+          "min": 220,
+          "max": 880,
+          "scale": "exponential"
+        }
+      },
+      "silence": "No value at this point (an overlay box or a colour off the key).",
+      "sound": {
+        "timbre": "Warm sine with a soft attack and a smooth glide",
+        "attackMs": 20,
+        "releaseMs": 80,
+        "glideMs": 30,
+        "maxGain": 0.2
+      },
+      "pan": "longitude",
+      "legend": [],
+      "designChoice": true,
+      "note": "The book's pitch rule over the key's own range."
+    },
+    {
+      "id": "rel4372",
+      "label": {
+        "en": "IMERG Global Precipitation Rates (New Colorbar) (relative)",
+        "bn": "TODO: rel_4372"
+      },
+      "group": "context",
+      "source": {
+        "dataset": "SVS 4372 (related visualization)",
+        "svsId": 4372,
+        "product": "rel_4372"
+      },
+      "status": "context",
+      "mapping": {
+        "kind": "continuous",
+        "input": {
+          "unit": "relative (0–1)",
+          "min": 0.0,
+          "max": 1.0,
+          "scale": "linear"
+        },
+        "output": {
+          "param": "frequency",
+          "unit": "Hz",
+          "min": 220,
+          "max": 880,
+          "scale": "exponential"
+        }
+      },
+      "silence": "No value at this point (an overlay box or a colour off the key).",
+      "sound": {
+        "timbre": "Warm sine with a soft attack and a smooth glide",
+        "attackMs": 20,
+        "releaseMs": 80,
+        "glideMs": 30,
+        "maxGain": 0.2
+      },
+      "pan": "longitude",
+      "legend": [],
+      "designChoice": true,
+      "note": "The book's pitch rule over the key's own range."
+    },
+    {
+      "id": "rel4417",
+      "label": {
+        "en": "2014 - 2015 Atmospheric River (pattern only)",
+        "bn": "TODO: rel_4417"
+      },
+      "group": "context",
+      "source": {
+        "dataset": "SVS 4417 (related visualization)",
+        "svsId": 4417,
+        "product": "rel_4417"
+      },
+      "status": "context",
+      "mapping": {
+        "kind": "continuous",
+        "input": {
+          "unit": "relative (0–1)",
+          "min": 0.00038126364233903587,
+          "max": 1.0,
+          "scale": "linear"
+        },
+        "output": {
+          "param": "frequency",
+          "unit": "Hz",
+          "min": 220,
+          "max": 880,
+          "scale": "exponential"
+        }
+      },
+      "silence": "No value at this point (an overlay box or a colour off the key).",
+      "sound": {
+        "timbre": "Warm sine with a soft attack and a smooth glide",
+        "attackMs": 20,
+        "releaseMs": 80,
+        "glideMs": 30,
+        "maxGain": 0.2,
+        "family": "model"
+      },
+      "pan": "longitude",
+      "legend": [],
+      "designChoice": true,
+      "note": "The book's pitch rule over the key's own range."
+    },
+    {
+      "id": "rel4445",
+      "label": {
+        "en": "El Niño - Atmospheric River in January 2016 (relative)",
+        "bn": "TODO: rel_4445"
+      },
+      "group": "context",
+      "source": {
+        "dataset": "SVS 4445 (related visualization)",
+        "svsId": 4445,
+        "product": "rel_4445"
+      },
+      "status": "context",
+      "mapping": {
+        "kind": "continuous",
+        "input": {
+          "unit": "relative (0–1)",
+          "min": 0.0,
+          "max": 1.0,
+          "scale": "linear"
+        },
+        "output": {
+          "param": "frequency",
+          "unit": "Hz",
+          "min": 220,
+          "max": 880,
+          "scale": "exponential"
+        }
+      },
+      "silence": "No value at this point (an overlay box or a colour off the key).",
+      "sound": {
+        "timbre": "Warm sine with a soft attack and a smooth glide",
+        "attackMs": 20,
+        "releaseMs": 80,
+        "glideMs": 30,
+        "maxGain": 0.2
+      },
+      "pan": "longitude",
+      "legend": [],
+      "designChoice": true,
+      "note": "The book's pitch rule over the key's own range."
+    },
+    {
+      "id": "rel4658",
+      "label": {
+        "en": "NASA's Black Marble night lights used to examine disaster recovery in Puerto Rico (pattern only)",
+        "bn": "TODO: rel_4658"
+      },
+      "group": "context",
+      "source": {
+        "dataset": "SVS 4658 (related visualization)",
+        "svsId": 4658,
+        "product": "rel_4658"
+      },
+      "status": "context",
+      "mapping": {
+        "kind": "continuous",
+        "input": {
+          "unit": "colorbar units",
+          "min": -1.4849399578942555,
+          "max": 183.0155493987454,
+          "scale": "linear"
+        },
+        "output": {
+          "param": "frequency",
+          "unit": "Hz",
+          "min": 220,
+          "max": 880,
+          "scale": "exponential"
+        }
+      },
+      "silence": "No value at this point (an overlay box or a colour off the key).",
+      "sound": {
+        "timbre": "Warm sine with a soft attack and a smooth glide",
+        "attackMs": 20,
+        "releaseMs": 80,
+        "glideMs": 30,
+        "maxGain": 0.2
+      },
+      "pan": "longitude",
+      "legend": [],
+      "designChoice": true,
+      "note": "The book's pitch rule over the key's own range."
+    },
+    {
+      "id": "rel4764",
+      "label": {
+        "en": "Simulation of Surface Ozone (relative)",
+        "bn": "TODO: rel_4764"
+      },
+      "group": "context",
+      "source": {
+        "dataset": "SVS 4764 (related visualization)",
+        "svsId": 4764,
+        "product": "rel_4764"
+      },
+      "status": "context",
+      "mapping": {
+        "kind": "continuous",
+        "input": {
+          "unit": "relative (0–1)",
+          "min": 0.0,
+          "max": 1.0,
+          "scale": "linear"
+        },
+        "output": {
+          "param": "frequency",
+          "unit": "Hz",
+          "min": 220,
+          "max": 880,
+          "scale": "exponential"
+        }
+      },
+      "silence": "No value at this point (an overlay box or a colour off the key).",
+      "sound": {
+        "timbre": "Warm sine with a soft attack and a smooth glide",
+        "attackMs": 20,
+        "releaseMs": 80,
+        "glideMs": 30,
+        "maxGain": 0.2,
+        "family": "model"
+      },
+      "pan": "longitude",
+      "legend": [],
+      "designChoice": true,
+      "note": "The book's pitch rule over the key's own range."
+    },
+    {
+      "id": "rel4810",
+      "label": {
+        "en": "Reductions in Pollution Associated with Decreased Fossil Fuel Use Resulting from COVID-19 Mitigation (pattern only)",
+        "bn": "TODO: rel_4810"
+      },
+      "group": "context",
+      "source": {
+        "dataset": "SVS 4810 (related visualization)",
+        "svsId": 4810,
+        "product": "rel_4810"
+      },
+      "status": "context",
+      "mapping": {
+        "kind": "continuous",
+        "input": {
+          "unit": "colorbar units",
+          "min": 0.059860325906215706,
+          "max": 10.09644163618224,
+          "scale": "linear"
+        },
+        "output": {
+          "param": "frequency",
+          "unit": "Hz",
+          "min": 220,
+          "max": 880,
+          "scale": "exponential"
+        }
+      },
+      "silence": "No value at this point (an overlay box or a colour off the key).",
+      "sound": {
+        "timbre": "Warm sine with a soft attack and a smooth glide",
+        "attackMs": 20,
+        "releaseMs": 80,
+        "glideMs": 30,
+        "maxGain": 0.2
+      },
+      "pan": "longitude",
+      "legend": [],
+      "designChoice": true,
+      "note": "The book's pitch rule over the key's own range."
+    },
+    {
+      "id": "rel4889",
+      "label": {
+        "en": "Variability of Water Storage in Global Hydrological Basins (relative)",
+        "bn": "TODO: rel_4889"
+      },
+      "group": "context",
+      "source": {
+        "dataset": "SVS 4889 (related visualization)",
+        "svsId": 4889,
+        "product": "rel_4889"
+      },
+      "status": "context",
+      "mapping": {
+        "kind": "continuous",
+        "input": {
+          "unit": "relative (0–1)",
+          "min": 0.0,
+          "max": 0.9999999999999999,
+          "scale": "linear"
+        },
+        "output": {
+          "param": "frequency",
+          "unit": "Hz",
+          "min": 220,
+          "max": 880,
+          "scale": "exponential"
+        }
+      },
+      "silence": "No value at this point (an overlay box or a colour off the key).",
+      "sound": {
+        "timbre": "Warm sine with a soft attack and a smooth glide",
+        "attackMs": 20,
+        "releaseMs": 80,
+        "glideMs": 30,
+        "maxGain": 0.2
+      },
+      "pan": "longitude",
+      "legend": [],
+      "designChoice": true,
+      "note": "The book's pitch rule over the key's own range."
+    },
+    {
+      "id": "rel4993",
+      "label": {
+        "en": "Spread of the Dixie Fire - 2021 (pattern only)",
+        "bn": "TODO: rel_4993"
+      },
+      "group": "context",
+      "source": {
+        "dataset": "SVS 4993 (related visualization)",
+        "svsId": 4993,
+        "product": "rel_4993"
+      },
+      "status": "context",
+      "mapping": {
+        "kind": "continuous",
+        "input": {
+          "unit": "relative (0–1)",
+          "min": 0.04585376754403114,
+          "max": 1.0,
+          "scale": "linear"
+        },
+        "output": {
+          "param": "frequency",
+          "unit": "Hz",
+          "min": 220,
+          "max": 880,
+          "scale": "exponential"
+        }
+      },
+      "silence": "No value at this point (an overlay box or a colour off the key).",
+      "sound": {
+        "timbre": "Warm sine with a soft attack and a smooth glide",
+        "attackMs": 20,
+        "releaseMs": 80,
+        "glideMs": 30,
+        "maxGain": 0.2
+      },
+      "pan": "longitude",
+      "legend": [],
+      "designChoice": true,
+      "note": "The book's pitch rule over the key's own range."
+    },
+    {
+      "id": "rel5070",
+      "label": {
+        "en": "Nitrogen Dioxide Over the United States, 2005-2022 (pattern only)",
+        "bn": "TODO: rel_5070"
+      },
+      "group": "context",
+      "source": {
+        "dataset": "SVS 5070 (related visualization)",
+        "svsId": 5070,
+        "product": "rel_5070"
+      },
+      "status": "context",
+      "mapping": {
+        "kind": "continuous",
+        "input": {
+          "unit": "colorbar units",
+          "min": 0.01786511835640742,
+          "max": 10.120589548905768,
+          "scale": "linear"
+        },
+        "output": {
+          "param": "frequency",
+          "unit": "Hz",
+          "min": 220,
+          "max": 880,
+          "scale": "exponential"
+        }
+      },
+      "silence": "No value at this point (an overlay box or a colour off the key).",
+      "sound": {
+        "timbre": "Warm sine with a soft attack and a smooth glide",
+        "attackMs": 20,
+        "releaseMs": 80,
+        "glideMs": 30,
+        "maxGain": 0.2
+      },
+      "pan": "longitude",
+      "legend": [],
+      "designChoice": true,
+      "note": "The book's pitch rule over the key's own range."
+    },
+    {
+      "id": "rel5098",
+      "label": {
+        "en": "Relative Wetness Root Zone Versus Groundwater Comparison (pattern only)",
+        "bn": "TODO: rel_5098"
+      },
+      "group": "context",
+      "source": {
+        "dataset": "SVS 5098 (related visualization)",
+        "svsId": 5098,
+        "product": "rel_5098"
+      },
+      "status": "context",
+      "mapping": {
+        "kind": "continuous",
+        "input": {
+          "unit": "colorbar units",
+          "min": 98.04545454545462,
+          "max": 100.77272727272734,
+          "scale": "linear"
+        },
+        "output": {
+          "param": "frequency",
+          "unit": "Hz",
+          "min": 220,
+          "max": 880,
+          "scale": "exponential"
+        }
+      },
+      "silence": "No value at this point (an overlay box or a colour off the key).",
+      "sound": {
+        "timbre": "Warm sine with a soft attack and a smooth glide",
+        "attackMs": 20,
+        "releaseMs": 80,
+        "glideMs": 30,
+        "maxGain": 0.2
+      },
+      "pan": "longitude",
+      "legend": [],
+      "designChoice": true,
+      "note": "The book's pitch rule over the key's own range."
+    },
+    {
+      "id": "rel5104",
+      "label": {
+        "en": "Two Decades of Changes in Nitrogen Dioxide and Fine Particulate Pollution in the U.S. (pattern only)",
+        "bn": "TODO: rel_5104"
+      },
+      "group": "context",
+      "source": {
+        "dataset": "SVS 5104 (related visualization)",
+        "svsId": 5104,
+        "product": "rel_5104"
+      },
+      "status": "context",
+      "mapping": {
+        "kind": "continuous",
+        "input": {
+          "unit": "colorbar units",
+          "min": 5.260364004044485,
+          "max": 19.431243680485345,
+          "scale": "linear"
+        },
+        "output": {
+          "param": "frequency",
+          "unit": "Hz",
+          "min": 220,
+          "max": 880,
+          "scale": "exponential"
+        }
+      },
+      "silence": "No value at this point (an overlay box or a colour off the key).",
+      "sound": {
+        "timbre": "Warm sine with a soft attack and a smooth glide",
+        "attackMs": 20,
+        "releaseMs": 80,
+        "glideMs": 30,
+        "maxGain": 0.2
+      },
+      "pan": "longitude",
+      "legend": [],
+      "designChoice": true,
+      "note": "The book's pitch rule over the key's own range."
+    },
+    {
+      "id": "rel5110",
+      "label": {
+        "en": "Atmospheric Carbon Dioxide Tagged by Source (pattern only)",
+        "bn": "TODO: rel_5110"
+      },
+      "group": "context",
+      "source": {
+        "dataset": "SVS 5110 (related visualization)",
+        "svsId": 5110,
+        "product": "rel_5110"
+      },
+      "status": "context",
+      "mapping": {
+        "kind": "continuous",
+        "input": {
+          "unit": "colorbar units",
+          "min": -8072412161.823499,
+          "max": 216609726230.93143,
+          "scale": "linear"
+        },
+        "output": {
+          "param": "frequency",
+          "unit": "Hz",
+          "min": 220,
+          "max": 880,
+          "scale": "exponential"
+        }
+      },
+      "silence": "No value at this point (an overlay box or a colour off the key).",
+      "sound": {
+        "timbre": "Warm sine with a soft attack and a smooth glide",
+        "attackMs": 20,
+        "releaseMs": 80,
+        "glideMs": 30,
+        "maxGain": 0.2,
+        "family": "model"
+      },
+      "pan": "longitude",
+      "legend": [],
+      "designChoice": true,
+      "note": "The book's pitch rule over the key's own range."
+    },
+    {
+      "id": "rel5111",
+      "label": {
+        "en": "Increase in Ocean Heat since 1957 Map - Spilhaus Projection: the cited source series",
+        "bn": "TODO: rel_5111"
+      },
+      "group": "context",
+      "source": {
+        "dataset": "SVS 5111 (related visualization)",
+        "svsId": 5111,
+        "product": "rel_5111"
+      },
+      "status": "context",
+      "mapping": {
+        "kind": "continuous",
+        "input": {
+          "unit": "10²² J (0–2000 m, world)",
+          "min": -9.303,
+          "max": 29.48,
+          "scale": "linear"
+        },
+        "output": {
+          "param": "frequency",
+          "unit": "Hz",
+          "min": 220,
+          "max": 880,
+          "scale": "exponential"
+        }
+      },
+      "silence": "No value at this point (an overlay box or a colour off the key).",
+      "sound": {
+        "timbre": "Warm sine with a soft attack and a smooth glide",
+        "attackMs": 20,
+        "releaseMs": 80,
+        "glideMs": 30,
+        "maxGain": 0.2
+      },
+      "pan": "longitude",
+      "legend": [],
+      "designChoice": true,
+      "note": "The book's pitch rule over the key's own range."
+    },
+    {
+      "id": "rel5119",
+      "label": {
+        "en": "OCO-2 and Keeling Curve: Trends in global atmospheric Carbon Dioxide (CO₂): the cited source series",
+        "bn": "TODO: rel_5119"
+      },
+      "group": "context",
+      "source": {
+        "dataset": "SVS 5119 (related visualization)",
+        "svsId": 5119,
+        "product": "rel_5119"
+      },
+      "status": "context",
+      "mapping": {
+        "kind": "continuous",
+        "input": {
+          "unit": "ppm (Mauna Loa annual mean)",
+          "min": 315.98,
+          "max": 427.35,
+          "scale": "linear"
+        },
+        "output": {
+          "param": "frequency",
+          "unit": "Hz",
+          "min": 220,
+          "max": 880,
+          "scale": "exponential"
+        }
+      },
+      "silence": "No value at this point (an overlay box or a colour off the key).",
+      "sound": {
+        "timbre": "Warm sine with a soft attack and a smooth glide",
+        "attackMs": 20,
+        "releaseMs": 80,
+        "glideMs": 30,
+        "maxGain": 0.2
+      },
+      "pan": "longitude",
+      "legend": [],
+      "designChoice": true,
+      "note": "The book's pitch rule over the key's own range."
+    },
+    {
+      "id": "rel5126",
+      "label": {
+        "en": "NOAA Annual Greenhouse Gas Index: the cited source series",
+        "bn": "TODO: rel_5126"
+      },
+      "group": "context",
+      "source": {
+        "dataset": "SVS 5126 (related visualization)",
+        "svsId": 5126,
+        "product": "rel_5126"
+      },
+      "status": "context",
+      "mapping": {
+        "kind": "continuous",
+        "input": {
+          "unit": "AGGI (1990 = 1)",
+          "min": 389.0,
+          "max": 544.0,
+          "scale": "linear"
+        },
+        "output": {
+          "param": "frequency",
+          "unit": "Hz",
+          "min": 220,
+          "max": 880,
+          "scale": "exponential"
+        }
+      },
+      "silence": "No value at this point (an overlay box or a colour off the key).",
+      "sound": {
+        "timbre": "Warm sine with a soft attack and a smooth glide",
+        "attackMs": 20,
+        "releaseMs": 80,
+        "glideMs": 30,
+        "maxGain": 0.2
+      },
+      "pan": "longitude",
+      "legend": [],
+      "designChoice": true,
+      "note": "The book's pitch rule over the key's own range."
+    },
+    {
+      "id": "rel5142",
+      "label": {
+        "en": "TEMPO - Nitrogen Dioxide Air Pollution Over North America (pattern only)",
+        "bn": "TODO: rel_5142"
+      },
+      "group": "context",
+      "source": {
+        "dataset": "SVS 5142 (related visualization)",
+        "svsId": 5142,
+        "product": "rel_5142"
+      },
+      "status": "context",
+      "mapping": {
+        "kind": "continuous",
+        "input": {
+          "unit": "colorbar units",
+          "min": -10.202638158119399,
+          "max": 183.20410629320014,
+          "scale": "linear"
+        },
+        "output": {
+          "param": "frequency",
+          "unit": "Hz",
+          "min": 220,
+          "max": 880,
+          "scale": "exponential"
+        }
+      },
+      "silence": "No value at this point (an overlay box or a colour off the key).",
+      "sound": {
+        "timbre": "Warm sine with a soft attack and a smooth glide",
+        "attackMs": 20,
+        "releaseMs": 80,
+        "glideMs": 30,
+        "maxGain": 0.2
+      },
+      "pan": "longitude",
+      "legend": [],
+      "designChoice": true,
+      "note": "The book's pitch rule over the key's own range."
+    },
+    {
+      "id": "rel5190",
+      "label": {
+        "en": "NASA Climate Spiral 1880-Present: the cited source series",
+        "bn": "TODO: rel_5190"
+      },
+      "group": "context",
+      "source": {
+        "dataset": "SVS 5190 (related visualization)",
+        "svsId": 5190,
+        "product": "rel_5190"
+      },
+      "status": "context",
+      "mapping": {
+        "kind": "continuous",
+        "input": {
+          "unit": "°C anomaly (vs 1951–1980)",
+          "min": -0.81,
+          "max": 1.48,
+          "scale": "linear"
+        },
+        "output": {
+          "param": "frequency",
+          "unit": "Hz",
+          "min": 220,
+          "max": 880,
+          "scale": "exponential"
+        }
+      },
+      "silence": "No value at this point (an overlay box or a colour off the key).",
+      "sound": {
+        "timbre": "Warm sine with a soft attack and a smooth glide",
+        "attackMs": 20,
+        "releaseMs": 80,
+        "glideMs": 30,
+        "maxGain": 0.2
+      },
+      "pan": "longitude",
+      "legend": [],
+      "designChoice": true,
+      "note": "The book's pitch rule over the key's own range."
+    },
+    {
+      "id": "rel5191",
+      "label": {
+        "en": "Global Temperature Graph 1880-2024: the cited source series",
+        "bn": "TODO: rel_5191"
+      },
+      "group": "context",
+      "source": {
+        "dataset": "SVS 5191 (related visualization)",
+        "svsId": 5191,
+        "product": "rel_5191"
+      },
+      "status": "context",
+      "mapping": {
+        "kind": "continuous",
+        "input": {
+          "unit": "°C anomaly (vs 1951–1980)",
+          "min": -0.48,
+          "max": 1.28,
+          "scale": "linear"
+        },
+        "output": {
+          "param": "frequency",
+          "unit": "Hz",
+          "min": 220,
+          "max": 880,
+          "scale": "exponential"
+        }
+      },
+      "silence": "No value at this point (an overlay box or a colour off the key).",
+      "sound": {
+        "timbre": "Warm sine with a soft attack and a smooth glide",
+        "attackMs": 20,
+        "releaseMs": 80,
+        "glideMs": 30,
+        "maxGain": 0.2
+      },
+      "pan": "longitude",
+      "legend": [],
+      "designChoice": true,
+      "note": "The book's pitch rule over the key's own range."
+    },
+    {
+      "id": "rel5207",
+      "label": {
+        "en": "Global Temperature Anomalies from 1880 to 2023: the cited source series",
+        "bn": "TODO: rel_5207"
+      },
+      "group": "context",
+      "source": {
+        "dataset": "SVS 5207 (related visualization)",
+        "svsId": 5207,
+        "product": "rel_5207"
+      },
+      "status": "context",
+      "mapping": {
+        "kind": "continuous",
+        "input": {
+          "unit": "°C anomaly (vs 1951–1980)",
+          "min": -0.48,
+          "max": 1.28,
+          "scale": "linear"
+        },
+        "output": {
+          "param": "frequency",
+          "unit": "Hz",
+          "min": 220,
+          "max": 880,
+          "scale": "exponential"
+        }
+      },
+      "silence": "No value at this point (an overlay box or a colour off the key).",
+      "sound": {
+        "timbre": "Warm sine with a soft attack and a smooth glide",
+        "attackMs": 20,
+        "releaseMs": 80,
+        "glideMs": 30,
+        "maxGain": 0.2
+      },
+      "pan": "longitude",
+      "legend": [],
+      "designChoice": true,
+      "note": "The book's pitch rule over the key's own range."
+    },
+    {
+      "id": "rel5209",
+      "label": {
+        "en": "Zonal Climate Anomalies 1880-2023: the cited source series",
+        "bn": "TODO: rel_5209"
+      },
+      "group": "context",
+      "source": {
+        "dataset": "SVS 5209 (related visualization)",
+        "svsId": 5209,
+        "product": "rel_5209"
+      },
+      "status": "context",
+      "mapping": {
+        "kind": "continuous",
+        "input": {
+          "unit": "°C anomaly (vs 1951–1980), per latitude zone",
+          "min": -2.59,
+          "max": 3.24,
+          "scale": "linear"
+        },
+        "output": {
+          "param": "frequency",
+          "unit": "Hz",
+          "min": 220,
+          "max": 880,
+          "scale": "exponential"
+        }
+      },
+      "silence": "No value at this point (an overlay box or a colour off the key).",
+      "sound": {
+        "timbre": "Warm sine with a soft attack and a smooth glide",
+        "attackMs": 20,
+        "releaseMs": 80,
+        "glideMs": 30,
+        "maxGain": 0.2
+      },
+      "pan": "longitude",
+      "legend": [],
+      "designChoice": true,
+      "note": "The book's pitch rule over the key's own range."
+    },
+    {
+      "id": "rel5221",
+      "label": {
+        "en": "Global Mean Sea Level 1993-2023: the cited source series",
+        "bn": "TODO: rel_5221"
+      },
+      "group": "context",
+      "source": {
+        "dataset": "SVS 5221 (related visualization)",
+        "svsId": 5221,
+        "product": "rel_5221"
+      },
+      "status": "context",
+      "mapping": {
+        "kind": "continuous",
+        "input": {
+          "unit": "cm (GMSL variation, 60-day smoothed, GIA not applied)",
+          "min": -4.71,
+          "max": 5.6,
+          "scale": "linear"
+        },
+        "output": {
+          "param": "frequency",
+          "unit": "Hz",
+          "min": 220,
+          "max": 880,
+          "scale": "exponential"
+        }
+      },
+      "silence": "No value at this point (an overlay box or a colour off the key).",
+      "sound": {
+        "timbre": "Warm sine with a soft attack and a smooth glide",
+        "attackMs": 20,
+        "releaseMs": 80,
+        "glideMs": 30,
+        "maxGain": 0.2
+      },
+      "pan": "longitude",
+      "legend": [],
+      "designChoice": true,
+      "note": "The book's pitch rule over the key's own range."
+    },
+    {
+      "id": "rel5235",
+      "label": {
+        "en": "Sea Level Through a Porthole (2023): the cited source series",
+        "bn": "TODO: rel_5235"
+      },
+      "group": "context",
+      "source": {
+        "dataset": "SVS 5235 (related visualization)",
+        "svsId": 5235,
+        "product": "rel_5235"
+      },
+      "status": "context",
+      "mapping": {
+        "kind": "continuous",
+        "input": {
+          "unit": "cm (GMSL variation, 60-day smoothed, GIA not applied)",
+          "min": -4.71,
+          "max": 5.6,
+          "scale": "linear"
+        },
+        "output": {
+          "param": "frequency",
+          "unit": "Hz",
+          "min": 220,
+          "max": 880,
+          "scale": "exponential"
+        }
+      },
+      "silence": "No value at this point (an overlay box or a colour off the key).",
+      "sound": {
+        "timbre": "Warm sine with a soft attack and a smooth glide",
+        "attackMs": 20,
+        "releaseMs": 80,
+        "glideMs": 30,
+        "maxGain": 0.2
+      },
+      "pan": "longitude",
+      "legend": [],
+      "designChoice": true,
+      "note": "The book's pitch rule over the key's own range."
+    },
+    {
+      "id": "rel5303",
+      "label": {
+        "en": "NASA’s TEMPO Instrument Air Quality Data Now Publicly Available (pattern only)",
+        "bn": "TODO: rel_5303"
+      },
+      "group": "context",
+      "source": {
+        "dataset": "SVS 5303 (related visualization)",
+        "svsId": 5303,
+        "product": "rel_5303"
+      },
+      "status": "context",
+      "mapping": {
+        "kind": "continuous",
+        "input": {
+          "unit": "colorbar units",
+          "min": -1.7203686030377408,
+          "max": 201.47122055168467,
+          "scale": "linear"
+        },
+        "output": {
+          "param": "frequency",
+          "unit": "Hz",
+          "min": 220,
+          "max": 880,
+          "scale": "exponential"
+        }
+      },
+      "silence": "No value at this point (an overlay box or a colour off the key).",
+      "sound": {
+        "timbre": "Warm sine with a soft attack and a smooth glide",
+        "attackMs": 20,
+        "releaseMs": 80,
+        "glideMs": 30,
+        "maxGain": 0.2
+      },
+      "pan": "longitude",
+      "legend": [],
+      "designChoice": true,
+      "note": "The book's pitch rule over the key's own range."
+    },
+    {
+      "id": "rel5453",
+      "label": {
+        "en": "Annual Wildfire Burned Area in the United States (pattern only)",
+        "bn": "TODO: rel_5453"
+      },
+      "group": "context",
+      "source": {
+        "dataset": "SVS 5453 (related visualization)",
+        "svsId": 5453,
+        "product": "rel_5453"
+      },
+      "status": "context",
+      "mapping": {
+        "kind": "continuous",
+        "input": {
+          "unit": "relative (0–1)",
+          "min": 0.0,
+          "max": 1.0,
+          "scale": "linear"
+        },
+        "output": {
+          "param": "frequency",
+          "unit": "Hz",
+          "min": 220,
+          "max": 880,
+          "scale": "exponential"
+        }
+      },
+      "silence": "No value at this point (an overlay box or a colour off the key).",
+      "sound": {
+        "timbre": "Warm sine with a soft attack and a smooth glide",
+        "attackMs": 20,
+        "releaseMs": 80,
+        "glideMs": 30,
+        "maxGain": 0.2
+      },
+      "pan": "longitude",
+      "legend": [],
+      "designChoice": true,
+      "note": "The book's pitch rule over the key's own range."
+    },
+    {
+      "id": "rel5468",
+      "label": {
+        "en": "2024 Atlantic Hurricane Season (pattern only)",
+        "bn": "TODO: rel_5468"
+      },
+      "group": "context",
+      "source": {
+        "dataset": "SVS 5468 (related visualization)",
+        "svsId": 5468,
+        "product": "rel_5468"
+      },
+      "status": "context",
+      "mapping": {
+        "kind": "continuous",
+        "input": {
+          "unit": "colorbar units",
+          "min": 19.18094718700735,
+          "max": 30.818122357789314,
+          "scale": "linear"
+        },
+        "output": {
+          "param": "frequency",
+          "unit": "Hz",
+          "min": 220,
+          "max": 880,
+          "scale": "exponential"
+        }
+      },
+      "silence": "No value at this point (an overlay box or a colour off the key).",
+      "sound": {
+        "timbre": "Warm sine with a soft attack and a smooth glide",
+        "attackMs": 20,
+        "releaseMs": 80,
+        "glideMs": 30,
+        "maxGain": 0.2,
+        "family": "model"
+      },
+      "pan": "longitude",
+      "legend": [],
+      "designChoice": true,
+      "note": "The book's pitch rule over the key's own range."
+    },
+    {
+      "id": "rel5477",
+      "label": {
+        "en": "SOS - Day/Night cycle with Blue Marble and Black Marble Nightlights (pattern only)",
+        "bn": "TODO: rel_5477"
+      },
+      "group": "context",
+      "source": {
+        "dataset": "SVS 5477 (related visualization)",
+        "svsId": 5477,
+        "product": "rel_5477"
+      },
+      "status": "context",
+      "mapping": {
+        "kind": "continuous",
+        "input": {
+          "unit": "relative (0–1)",
+          "min": 0.010973222553730011,
+          "max": 1.0,
+          "scale": "linear"
+        },
+        "output": {
+          "param": "frequency",
+          "unit": "Hz",
+          "min": 220,
+          "max": 880,
+          "scale": "exponential"
+        }
+      },
+      "silence": "No value at this point (an overlay box or a colour off the key).",
+      "sound": {
+        "timbre": "Warm sine with a soft attack and a smooth glide",
+        "attackMs": 20,
+        "releaseMs": 80,
+        "glideMs": 30,
+        "maxGain": 0.2
+      },
+      "pan": "longitude",
+      "legend": [],
+      "designChoice": true,
+      "note": "The book's pitch rule over the key's own range."
+    },
+    {
+      "id": "rel5516",
+      "label": {
+        "en": "Global Mean Sea Level 1993-2024: the cited source series",
+        "bn": "TODO: rel_5516"
+      },
+      "group": "context",
+      "source": {
+        "dataset": "SVS 5516 (related visualization)",
+        "svsId": 5516,
+        "product": "rel_5516"
+      },
+      "status": "context",
+      "mapping": {
+        "kind": "continuous",
+        "input": {
+          "unit": "cm (GMSL variation, 60-day smoothed, GIA not applied)",
+          "min": -4.71,
+          "max": 5.6,
+          "scale": "linear"
+        },
+        "output": {
+          "param": "frequency",
+          "unit": "Hz",
+          "min": 220,
+          "max": 880,
+          "scale": "exponential"
+        }
+      },
+      "silence": "No value at this point (an overlay box or a colour off the key).",
+      "sound": {
+        "timbre": "Warm sine with a soft attack and a smooth glide",
+        "attackMs": 20,
+        "releaseMs": 80,
+        "glideMs": 30,
+        "maxGain": 0.2
+      },
+      "pan": "longitude",
+      "legend": [],
+      "designChoice": true,
+      "note": "The book's pitch rule over the key's own range."
+    },
+    {
+      "id": "rel5557",
+      "label": {
+        "en": "Daily Visualizations of the Largest Wildfires in the United States: 2025 (pattern only)",
+        "bn": "TODO: rel_5557"
+      },
+      "group": "context",
+      "source": {
+        "dataset": "SVS 5557 (related visualization)",
+        "svsId": 5557,
+        "product": "rel_5557"
+      },
+      "status": "context",
+      "mapping": {
+        "kind": "continuous",
+        "input": {
+          "unit": "relative (0–1)",
+          "min": 0.7358869314193726,
+          "max": 0.7386124134063721,
+          "scale": "linear"
+        },
+        "output": {
+          "param": "frequency",
+          "unit": "Hz",
+          "min": 220,
+          "max": 880,
+          "scale": "exponential"
+        }
+      },
+      "silence": "No value at this point (an overlay box or a colour off the key).",
+      "sound": {
+        "timbre": "Warm sine with a soft attack and a smooth glide",
+        "attackMs": 20,
+        "releaseMs": 80,
+        "glideMs": 30,
+        "maxGain": 0.2,
+        "family": "model"
+      },
+      "pan": "longitude",
+      "legend": [],
+      "designChoice": true,
+      "note": "The book's pitch rule over the key's own range."
+    },
+    {
+      "id": "rel5597",
+      "label": {
+        "en": "Los Angeles Palisades and Eaton Wildfires: 2025 Year in Review (pattern only)",
+        "bn": "TODO: rel_5597"
+      },
+      "group": "context",
+      "source": {
+        "dataset": "SVS 5597 (related visualization)",
+        "svsId": 5597,
+        "product": "rel_5597"
+      },
+      "status": "context",
+      "mapping": {
+        "kind": "continuous",
+        "input": {
+          "unit": "relative (0–1)",
+          "min": 0.7358869314193726,
+          "max": 0.7386124134063721,
+          "scale": "linear"
+        },
+        "output": {
+          "param": "frequency",
+          "unit": "Hz",
+          "min": 220,
+          "max": 880,
+          "scale": "exponential"
+        }
+      },
+      "silence": "No value at this point (an overlay box or a colour off the key).",
+      "sound": {
+        "timbre": "Warm sine with a soft attack and a smooth glide",
+        "attackMs": 20,
+        "releaseMs": 80,
+        "glideMs": 30,
+        "maxGain": 0.2,
+        "family": "model"
+      },
+      "pan": "longitude",
+      "legend": [],
+      "designChoice": true,
+      "note": "The book's pitch rule over the key's own range."
+    },
+    {
+      "id": "rel5601",
+      "label": {
+        "en": "Wyoming Red Canyon wildfire: 2025 Year in Review (pattern only)",
+        "bn": "TODO: rel_5601"
+      },
+      "group": "context",
+      "source": {
+        "dataset": "SVS 5601 (related visualization)",
+        "svsId": 5601,
+        "product": "rel_5601"
+      },
+      "status": "context",
+      "mapping": {
+        "kind": "continuous",
+        "input": {
+          "unit": "relative (0–1)",
+          "min": 0.004109401721507311,
+          "max": 0.9588654637336731,
+          "scale": "linear"
+        },
+        "output": {
+          "param": "frequency",
+          "unit": "Hz",
+          "min": 220,
+          "max": 880,
+          "scale": "exponential"
+        }
+      },
+      "silence": "No value at this point (an overlay box or a colour off the key).",
+      "sound": {
+        "timbre": "Warm sine with a soft attack and a smooth glide",
+        "attackMs": 20,
+        "releaseMs": 80,
+        "glideMs": 30,
+        "maxGain": 0.2,
+        "family": "model"
+      },
+      "pan": "longitude",
+      "legend": [],
+      "designChoice": true,
+      "note": "The book's pitch rule over the key's own range."
+    },
+    {
+      "id": "rel5611",
+      "label": {
+        "en": "Global Mean Sea Level 1993-2025: the cited source series",
+        "bn": "TODO: rel_5611"
+      },
+      "group": "context",
+      "source": {
+        "dataset": "SVS 5611 (related visualization)",
+        "svsId": 5611,
+        "product": "rel_5611"
+      },
+      "status": "context",
+      "mapping": {
+        "kind": "continuous",
+        "input": {
+          "unit": "cm (GMSL variation, 60-day smoothed, GIA not applied)",
+          "min": -4.71,
+          "max": 5.6,
+          "scale": "linear"
+        },
+        "output": {
+          "param": "frequency",
+          "unit": "Hz",
+          "min": 220,
+          "max": 880,
+          "scale": "exponential"
+        }
+      },
+      "silence": "No value at this point (an overlay box or a colour off the key).",
+      "sound": {
+        "timbre": "Warm sine with a soft attack and a smooth glide",
+        "attackMs": 20,
+        "releaseMs": 80,
+        "glideMs": 30,
+        "maxGain": 0.2
+      },
+      "pan": "longitude",
+      "legend": [],
+      "designChoice": true,
+      "note": "The book's pitch rule over the key's own range."
+    },
+    {
+      "id": "rel5624",
+      "label": {
+        "en": "Global Smoke Forecast Visualization (Daily Updated) (pattern only)",
+        "bn": "TODO: rel_5624"
+      },
+      "group": "context",
+      "source": {
+        "dataset": "SVS 5624 (related visualization)",
+        "svsId": 5624,
+        "product": "rel_5624"
+      },
+      "status": "context",
+      "mapping": {
+        "kind": "continuous",
+        "input": {
+          "unit": "colorbar units",
+          "min": -0.0024892072807094047,
+          "max": 1.0023332161597105,
+          "scale": "linear"
+        },
+        "output": {
+          "param": "frequency",
+          "unit": "Hz",
+          "min": 220,
+          "max": 880,
+          "scale": "exponential"
+        }
+      },
+      "silence": "No value at this point (an overlay box or a colour off the key).",
+      "sound": {
+        "timbre": "Warm sine with a soft attack and a smooth glide",
+        "attackMs": 20,
+        "releaseMs": 80,
+        "glideMs": 30,
+        "maxGain": 0.2,
+        "family": "model"
+      },
+      "pan": "longitude",
+      "legend": [],
+      "designChoice": true,
+      "note": "The book's pitch rule over the key's own range."
+    },
+    {
+      "id": "rel5639",
+      "label": {
+        "en": "Daily Visualizations of the Largest Wildfires in the United States: 2026 (pattern only)",
+        "bn": "TODO: rel_5639"
+      },
+      "group": "context",
+      "source": {
+        "dataset": "SVS 5639 (related visualization)",
+        "svsId": 5639,
+        "product": "rel_5639"
+      },
+      "status": "context",
+      "mapping": {
+        "kind": "continuous",
+        "input": {
+          "unit": "relative (0–1)",
+          "min": 0.7359943389892578,
+          "max": 0.7386124134063721,
+          "scale": "linear"
+        },
+        "output": {
+          "param": "frequency",
+          "unit": "Hz",
+          "min": 220,
+          "max": 880,
+          "scale": "exponential"
+        }
+      },
+      "silence": "No value at this point (an overlay box or a colour off the key).",
+      "sound": {
+        "timbre": "Warm sine with a soft attack and a smooth glide",
+        "attackMs": 20,
+        "releaseMs": 80,
+        "glideMs": 30,
+        "maxGain": 0.2,
+        "family": "model"
+      },
+      "pan": "longitude",
+      "legend": [],
+      "designChoice": true,
+      "note": "The book's pitch rule over the key's own range."
+    },
+    {
+      "id": "rel5650",
+      "label": {
+        "en": "Near Real-Time Global Precipitation from the Global Precipitation Measurement Constellation (relative)",
+        "bn": "TODO: rel_5650"
+      },
+      "group": "context",
+      "source": {
+        "dataset": "SVS 5650 (related visualization)",
+        "svsId": 5650,
+        "product": "rel_5650"
+      },
+      "status": "context",
+      "mapping": {
+        "kind": "continuous",
+        "input": {
+          "unit": "colorbar units",
+          "min": 0.05466666666666667,
+          "max": 63.78378378378378,
+          "scale": "linear"
+        },
+        "output": {
+          "param": "frequency",
+          "unit": "Hz",
+          "min": 220,
+          "max": 880,
+          "scale": "exponential"
+        }
+      },
+      "silence": "No value at this point (an overlay box or a colour off the key).",
+      "sound": {
+        "timbre": "Warm sine with a soft attack and a smooth glide",
+        "attackMs": 20,
+        "releaseMs": 80,
+        "glideMs": 30,
+        "maxGain": 0.2
+      },
+      "pan": "longitude",
+      "legend": [],
+      "designChoice": true,
+      "note": "The book's pitch rule over the key's own range."
+    },
+    {
+      "id": "gibs_0",
+      "label": {
+        "en": "Night lights (VIIRS NOAA-20 day/night band) — GIBS VIIRS_NOAA20_DayNightBand_At_Sensor_Radiance",
+        "bn": "TODO: rel_gibs"
+      },
+      "group": "context",
+      "source": {
+        "dataset": "NASA GIBS (Worldview)",
+        "product": "rel_gibs"
+      },
+      "status": "context",
+      "mapping": {
+        "kind": "continuous",
+        "input": {
+          "unit": "nW/(cm² sr)",
+          "min": 0.04999999701976776,
+          "max": 292986.4375,
+          "scale": "linear"
+        },
+        "output": {
+          "param": "frequency",
+          "unit": "Hz",
+          "min": 220,
+          "max": 880,
+          "scale": "exponential"
+        }
+      },
+      "silence": "No value at this point (an overlay box or a colour off the key).",
+      "sound": {
+        "timbre": "Warm sine with a soft attack and a smooth glide",
+        "attackMs": 20,
+        "releaseMs": 80,
+        "glideMs": 30,
+        "maxGain": 0.2
+      },
+      "pan": "longitude",
+      "legend": [],
+      "designChoice": true,
+      "note": "The book's pitch rule over the key's own range."
+    },
+    {
+      "id": "gibs_1",
+      "label": {
+        "en": "Rain and snow rate (IMERG) — GIBS IMERG_Precipitation_Rate",
+        "bn": "TODO: rel_gibs"
+      },
+      "group": "context",
+      "source": {
+        "dataset": "NASA GIBS (Worldview)",
+        "product": "rel_gibs"
+      },
+      "status": "context",
+      "mapping": {
+        "kind": "continuous",
+        "input": {
+          "unit": "mm/hr",
+          "min": 0.10294999182224274,
+          "max": 9.219647407531738,
+          "scale": "linear"
+        },
+        "output": {
+          "param": "frequency",
+          "unit": "Hz",
+          "min": 220,
+          "max": 880,
+          "scale": "exponential"
+        }
+      },
+      "silence": "No value at this point (an overlay box or a colour off the key).",
+      "sound": {
+        "timbre": "Warm sine with a soft attack and a smooth glide",
+        "attackMs": 20,
+        "releaseMs": 80,
+        "glideMs": 30,
+        "maxGain": 0.2
+      },
+      "pan": "longitude",
+      "legend": [],
+      "designChoice": true,
+      "note": "The book's pitch rule over the key's own range."
+    },
+    {
+      "id": "gibs_2",
+      "label": {
+        "en": "Sea surface temperature (MUR) — GIBS GHRSST_L4_MUR_Sea_Surface_Temperature",
+        "bn": "TODO: rel_gibs"
+      },
+      "group": "context",
+      "source": {
+        "dataset": "NASA GIBS (Worldview)",
+        "product": "rel_gibs"
+      },
+      "status": "context",
+      "mapping": {
+        "kind": "continuous",
+        "input": {
+          "unit": "°C",
+          "min": 0.0,
+          "max": 32.0,
+          "scale": "linear"
+        },
+        "output": {
+          "param": "frequency",
+          "unit": "Hz",
+          "min": 220,
+          "max": 880,
+          "scale": "exponential"
+        }
+      },
+      "silence": "No value at this point (an overlay box or a colour off the key).",
+      "sound": {
+        "timbre": "Warm sine with a soft attack and a smooth glide",
+        "attackMs": 20,
+        "releaseMs": 80,
+        "glideMs": 30,
+        "maxGain": 0.2
+      },
+      "pan": "longitude",
+      "legend": [],
+      "designChoice": true,
+      "note": "The book's pitch rule over the key's own range."
+    },
+    {
+      "id": "gibs_3",
+      "label": {
+        "en": "Land surface temperature, day (MODIS Terra) — GIBS MODIS_Terra_L3_Land_Surface_Temp_Daily_Day",
+        "bn": "TODO: rel_gibs"
+      },
+      "group": "context",
+      "source": {
+        "dataset": "NASA GIBS (Worldview)",
+        "product": "rel_gibs"
+      },
+      "status": "context",
+      "mapping": {
+        "kind": "continuous",
+        "input": {
+          "unit": "K",
+          "min": 216.2701416015625,
+          "max": 319.91796875,
+          "scale": "linear"
+        },
+        "output": {
+          "param": "frequency",
+          "unit": "Hz",
+          "min": 220,
+          "max": 880,
+          "scale": "exponential"
+        }
+      },
+      "silence": "No value at this point (an overlay box or a colour off the key).",
+      "sound": {
+        "timbre": "Warm sine with a soft attack and a smooth glide",
+        "attackMs": 20,
+        "releaseMs": 80,
+        "glideMs": 30,
+        "maxGain": 0.2
+      },
+      "pan": "longitude",
+      "legend": [],
+      "designChoice": true,
+      "note": "The book's pitch rule over the key's own range."
+    },
+    {
+      "id": "gibs_4",
+      "label": {
+        "en": "Sea ice concentration (MUR) — GIBS GHRSST_L4_MUR_Sea_Ice_Concentration",
+        "bn": "TODO: rel_gibs"
+      },
+      "group": "context",
+      "source": {
+        "dataset": "NASA GIBS (Worldview)",
+        "product": "rel_gibs"
+      },
+      "status": "context",
+      "mapping": {
+        "kind": "continuous",
+        "input": {
+          "unit": "%",
+          "min": 30.5,
+          "max": 100.0,
+          "scale": "linear"
+        },
+        "output": {
+          "param": "frequency",
+          "unit": "Hz",
+          "min": 220,
+          "max": 880,
+          "scale": "exponential"
+        }
+      },
+      "silence": "No value at this point (an overlay box or a colour off the key).",
+      "sound": {
+        "timbre": "Warm sine with a soft attack and a smooth glide",
+        "attackMs": 20,
+        "releaseMs": 80,
+        "glideMs": 30,
+        "maxGain": 0.2
+      },
+      "pan": "longitude",
+      "legend": [],
+      "designChoice": true,
+      "note": "The book's pitch rule over the key's own range."
+    },
+    {
+      "id": "gibs_5",
+      "label": {
+        "en": "Aerosol optical depth (MODIS combined) — GIBS MODIS_Combined_Value_Added_AOD",
+        "bn": "TODO: rel_gibs"
+      },
+      "group": "context",
+      "source": {
+        "dataset": "NASA GIBS (Worldview)",
+        "product": "rel_gibs"
+      },
+      "status": "context",
+      "mapping": {
+        "kind": "continuous",
+        "input": {
+          "unit": "index",
+          "min": 0.002499999711290002,
+          "max": 2.6887500286102295,
+          "scale": "linear"
+        },
+        "output": {
+          "param": "frequency",
+          "unit": "Hz",
+          "min": 220,
+          "max": 880,
+          "scale": "exponential"
+        }
+      },
+      "silence": "No value at this point (an overlay box or a colour off the key).",
+      "sound": {
+        "timbre": "Warm sine with a soft attack and a smooth glide",
+        "attackMs": 20,
+        "releaseMs": 80,
+        "glideMs": 30,
+        "maxGain": 0.2
+      },
+      "pan": "longitude",
+      "legend": [],
+      "designChoice": true,
+      "note": "The book's pitch rule over the key's own range."
+    },
+    {
+      "id": "gibs_6",
+      "label": {
+        "en": "Aerosol index (OMI) — GIBS OMI_Aerosol_Index",
+        "bn": "TODO: rel_gibs"
+      },
+      "group": "context",
+      "source": {
+        "dataset": "NASA GIBS (Worldview)",
+        "product": "rel_gibs"
+      },
+      "status": "context",
+      "mapping": {
+        "kind": "continuous",
+        "input": {
+          "unit": "index",
+          "min": 0.012499998323619366,
+          "max": 3.0625,
+          "scale": "linear"
+        },
+        "output": {
+          "param": "frequency",
+          "unit": "Hz",
+          "min": 220,
+          "max": 880,
+          "scale": "exponential"
+        }
+      },
+      "silence": "No value at this point (an overlay box or a colour off the key).",
+      "sound": {
+        "timbre": "Warm sine with a soft attack and a smooth glide",
+        "attackMs": 20,
+        "releaseMs": 80,
+        "glideMs": 30,
+        "maxGain": 0.2
+      },
+      "pan": "longitude",
+      "legend": [],
+      "designChoice": true,
+      "note": "The book's pitch rule over the key's own range."
+    },
+    {
+      "id": "gibs_7",
+      "label": {
+        "en": "Carbon monoxide, 500 hPa (AIRS) — GIBS AIRS_L3_Carbon_Monoxide_500hPa_Volume_Mixing_Ratio_Daily_Day",
+        "bn": "TODO: rel_gibs"
+      },
+      "group": "context",
+      "source": {
+        "dataset": "NASA GIBS (Worldview)",
+        "product": "rel_gibs"
+      },
+      "status": "context",
+      "mapping": {
+        "kind": "continuous",
+        "input": {
+          "unit": "ppbv",
+          "min": 37.275001525878906,
+          "max": 350.0,
+          "scale": "linear"
+        },
+        "output": {
+          "param": "frequency",
+          "unit": "Hz",
+          "min": 220,
+          "max": 880,
+          "scale": "exponential"
+        }
+      },
+      "silence": "No value at this point (an overlay box or a colour off the key).",
+      "sound": {
+        "timbre": "Warm sine with a soft attack and a smooth glide",
+        "attackMs": 20,
+        "releaseMs": 80,
+        "glideMs": 30,
+        "maxGain": 0.2
+      },
+      "pan": "longitude",
+      "legend": [],
+      "designChoice": true,
+      "note": "The book's pitch rule over the key's own range."
+    },
+    {
+      "id": "gibs_8",
+      "label": {
+        "en": "Tropospheric NO2 (OMI) — GIBS OMI_Nitrogen_Dioxide_Tropo_Column",
+        "bn": "TODO: rel_gibs"
+      },
+      "group": "context",
+      "source": {
+        "dataset": "NASA GIBS (Worldview)",
+        "product": "rel_gibs"
+      },
+      "status": "context",
+      "mapping": {
+        "kind": "continuous",
+        "input": {
+          "unit": "molecules/cm²",
+          "min": 0.0,
+          "max": 2.000000054512845e+16,
+          "scale": "linear"
+        },
+        "output": {
+          "param": "frequency",
+          "unit": "Hz",
+          "min": 220,
+          "max": 880,
+          "scale": "exponential"
+        }
+      },
+      "silence": "No value at this point (an overlay box or a colour off the key).",
+      "sound": {
+        "timbre": "Warm sine with a soft attack and a smooth glide",
+        "attackMs": 20,
+        "releaseMs": 80,
+        "glideMs": 30,
+        "maxGain": 0.2
+      },
+      "pan": "longitude",
+      "legend": [],
+      "designChoice": true,
+      "note": "The book's pitch rule over the key's own range."
+    },
+    {
+      "id": "gibs_9",
+      "label": {
+        "en": "Aerosol optical depth (VIIRS NOAA-20 Deep Blue) — GIBS VIIRS_NOAA20_AOD_Deep_Blue_Land_Ocean",
+        "bn": "TODO: rel_gibs"
+      },
+      "group": "context",
+      "source": {
+        "dataset": "NASA GIBS (Worldview)",
+        "product": "rel_gibs"
+      },
+      "status": "context",
+      "mapping": {
+        "kind": "continuous",
+        "input": {
+          "unit": "index",
+          "min": 0.004687499720603228,
+          "max": 3.494999885559082,
+          "scale": "linear"
+        },
+        "output": {
+          "param": "frequency",
+          "unit": "Hz",
+          "min": 220,
+          "max": 880,
+          "scale": "exponential"
+        }
+      },
+      "silence": "No value at this point (an overlay box or a colour off the key).",
+      "sound": {
+        "timbre": "Warm sine with a soft attack and a smooth glide",
+        "attackMs": 20,
+        "releaseMs": 80,
+        "glideMs": 30,
+        "maxGain": 0.2
+      },
+      "pan": "longitude",
+      "legend": [],
+      "designChoice": true,
+      "note": "The book's pitch rule over the key's own range."
+    },
+    {
+      "id": "gibs_10",
+      "label": {
+        "en": "Vegetation index, 8-day (VIIRS NOAA-20) — GIBS VIIRS_NOAA20_NDVI_8Day",
+        "bn": "TODO: rel_gibs"
+      },
+      "group": "context",
+      "source": {
+        "dataset": "NASA GIBS (Worldview)",
+        "product": "rel_gibs"
+      },
+      "status": "context",
+      "mapping": {
+        "kind": "continuous",
+        "input": {
+          "unit": "index",
+          "min": 0.002599999774247408,
+          "max": 0.975100040435791,
+          "scale": "linear"
+        },
+        "output": {
+          "param": "frequency",
+          "unit": "Hz",
+          "min": 220,
+          "max": 880,
+          "scale": "exponential"
+        }
+      },
+      "silence": "No value at this point (an overlay box or a colour off the key).",
+      "sound": {
+        "timbre": "Warm sine with a soft attack and a smooth glide",
+        "attackMs": 20,
+        "releaseMs": 80,
+        "glideMs": 30,
+        "maxGain": 0.2
+      },
+      "pan": "longitude",
+      "legend": [],
+      "designChoice": true,
+      "note": "The book's pitch rule over the key's own range."
+    },
+    {
+      "id": "gibs_11",
+      "label": {
+        "en": "Chlorophyll-a (MODIS Aqua) — GIBS MODIS_Aqua_L2_Chlorophyll_A",
+        "bn": "TODO: rel_gibs"
+      },
+      "group": "context",
+      "source": {
+        "dataset": "NASA GIBS (Worldview)",
+        "product": "rel_gibs"
+      },
+      "status": "context",
+      "mapping": {
+        "kind": "continuous",
+        "input": {
+          "unit": "mg/m³",
+          "min": 0.009999998845160007,
+          "max": 20.0,
+          "scale": "linear"
+        },
+        "output": {
+          "param": "frequency",
+          "unit": "Hz",
+          "min": 220,
+          "max": 880,
+          "scale": "exponential"
+        }
+      },
+      "silence": "No value at this point (an overlay box or a colour off the key).",
+      "sound": {
+        "timbre": "Warm sine with a soft attack and a smooth glide",
+        "attackMs": 20,
+        "releaseMs": 80,
+        "glideMs": 30,
+        "maxGain": 0.2
+      },
+      "pan": "longitude",
+      "legend": [],
+      "designChoice": true,
+      "note": "The book's pitch rule over the key's own range."
+    },
+    {
+      "id": "gibs_12",
+      "label": {
+        "en": "Sea surface salinity, 8-day (SMAP) — GIBS SMAP_L3_Sea_Surface_Salinity_CAP_8Day_RunningMean",
+        "bn": "TODO: rel_gibs"
+      },
+      "group": "context",
+      "source": {
+        "dataset": "NASA GIBS (Worldview)",
+        "product": "rel_gibs"
+      },
+      "status": "context",
+      "mapping": {
+        "kind": "continuous",
+        "input": {
+          "unit": "PSU",
+          "min": 15.0,
+          "max": 40.0,
+          "scale": "linear"
+        },
+        "output": {
+          "param": "frequency",
+          "unit": "Hz",
+          "min": 220,
+          "max": 880,
+          "scale": "exponential"
+        }
+      },
+      "silence": "No value at this point (an overlay box or a colour off the key).",
+      "sound": {
+        "timbre": "Warm sine with a soft attack and a smooth glide",
+        "attackMs": 20,
+        "releaseMs": 80,
+        "glideMs": 30,
+        "maxGain": 0.2
+      },
+      "pan": "longitude",
+      "legend": [],
+      "designChoice": true,
+      "note": "The book's pitch rule over the key's own range."
+    },
+    {
+      "id": "gibs_13",
+      "label": {
+        "en": "Lightning flash rate climatology (LIS/OTD) — GIBS LIS_High_Resolution_Full_Climatology_Combined_Flash_Rate_Climatology",
+        "bn": "TODO: rel_gibs"
+      },
+      "group": "context",
+      "source": {
+        "dataset": "NASA GIBS (Worldview)",
+        "product": "rel_gibs"
+      },
+      "status": "context",
+      "mapping": {
+        "kind": "continuous",
+        "input": {
+          "unit": "Flashes/km²/year",
+          "min": 0.5499999523162842,
+          "max": 150.0,
+          "scale": "linear"
+        },
+        "output": {
+          "param": "frequency",
+          "unit": "Hz",
+          "min": 220,
+          "max": 880,
+          "scale": "exponential"
+        }
+      },
+      "silence": "No value at this point (an overlay box or a colour off the key).",
+      "sound": {
+        "timbre": "Warm sine with a soft attack and a smooth glide",
+        "attackMs": 20,
+        "releaseMs": 80,
+        "glideMs": 30,
+        "maxGain": 0.2
+      },
+      "pan": "longitude",
+      "legend": [],
+      "designChoice": true,
+      "note": "The book's pitch rule over the key's own range."
+    },
+    {
+      "id": "relOisst",
+      "label": {
+        "en": "Sea surface temperature (NOAA OISST, read back from ERDDAP's map)",
+        "bn": "TODO: rel_oisst"
+      },
+      "group": "context",
+      "source": {
+        "dataset": "NASA GIBS (Worldview)",
+        "product": "rel_oisst"
+      },
+      "status": "context",
+      "mapping": {
+        "kind": "continuous",
+        "input": {
+          "unit": "°C",
+          "min": -2.0,
+          "max": 34.0,
+          "scale": "linear"
+        },
+        "output": {
+          "param": "frequency",
+          "unit": "Hz",
+          "min": 220,
+          "max": 880,
+          "scale": "exponential"
+        }
+      },
+      "silence": "No value at this point (an overlay box or a colour off the key).",
+      "sound": {
+        "timbre": "Warm sine with a soft attack and a smooth glide",
+        "attackMs": 20,
+        "releaseMs": 80,
+        "glideMs": 30,
+        "maxGain": 0.2
+      },
+      "pan": "longitude",
+      "legend": [],
+      "designChoice": true,
+      "note": "The book's pitch rule over the key's own range."
+    },
+    {
       "id": "co2Ppm",
       "label": {
         "en": "CO₂ nature run (model, relative)",

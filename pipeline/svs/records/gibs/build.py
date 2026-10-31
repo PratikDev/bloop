@@ -15,6 +15,7 @@ from svs.records import common
 from . import GRID_DEG, PIPELINE_TEST, PRESET, RECORD
 
 EXACT_MIN = 0.99
+DHAKA = (23.8, 90.4)
 CREDIT = "Imagery: NASA Global Imagery Browse Services (GIBS), part of NASA's Earth Science Data and Information System."
 DISCLOSURE = "Values read exactly from each layer's published colormap; one date per layer."
 
@@ -40,7 +41,15 @@ def layer_entry(layer, date=None):
                     metrics={"matched_share_of_opaque": meta["matched_share_of_opaque"], "entries": meta["entries"], "kind": meta["kind"], "date": date})
     lay.update(status="verified" if meta["kind"] == "values" and check["pass"] else "pattern only", status_check=check["id"],
                statement=None if meta["kind"] == "values" else "classes, not values")
-    return lay, check
+    return lay, check, start_near(grid, DHAKA)
+
+def start_near(grid, at):
+    """The decoded cell nearest `at` (lat, lon): the needle starts where the layer has a value, not on an empty cell."""
+    yy, xx = np.nonzero(np.isfinite(grid))
+    if not len(yy): return at
+    lat, lon = 90 - (yy + 0.5) * GRID_DEG, -180 + (xx + 0.5) * GRID_DEG
+    k = int(np.argmin(np.hypot(lat - at[0], (lon - at[1]) * np.cos(np.radians(at[0])))))
+    return float(lat[k]), float(lon[k])
 
 def pipeline_test(date):
     from svs.records.ocean2.twin5479 import surface                  # MUR25 straight from PO.DAAC, 1° cells
@@ -58,10 +67,10 @@ def pipeline_test(date):
 
 def build(layers):
     """(Re)write rel_gibs with the given {layer: date or None}."""
-    entries, checks, skipped = [], [], {}
+    entries, checks, skipped, starts = [], [], {}, {}
     for layer, date in layers.items():
         try:
-            lay, c = layer_entry(layer, date); entries.append(lay); checks.append(c)
+            lay, c, starts[layer] = layer_entry(layer, date); entries.append(lay); checks.append(c)
             say(f"GIBS {layer} {lay['times'][0][:10]}: {c['metrics']['matched_share_of_opaque']:.4f} exact")
         except Exception as e:
             skipped[layer] = f"{e.__class__.__name__}: {str(e)[:120]}"; say(f"GIBS {layer}: skipped ({skipped[layer]})")
@@ -84,7 +93,7 @@ def build(layers):
            "georef": {"projection": "equirectangular (EPSG:4326 WMTS)", "bounds": [-180, -90, 180, 90], "pass_at": 1.0, "shifts_deg": [],
                       "iou": {}, "pass": True, "best_is_assumed": True},
            "layers": entries, "voices": {l["id"]: f"gibs_{i}" for i, l in enumerate(entries)}, "skipped": skipped,
-           "play": [common.option(l["id"], l["label"].split(" — ")[0], l["id"], [(f"gibs_{i}", [l["id"]])], (23.8, 90.4), 1)
+           "play": [common.option(l["id"], l["label"].split(" — ")[0], l["id"], [(f"gibs_{i}", [l["id"]])], starts[l["id"]], 1)
                     for i, l in enumerate(entries)],
            "validation": common.validation_summary(checks), "size": {"choice": {"cell_deg": GRID_DEG}, "tried": []}}
     for p in record_dir(RECORD).glob("*.u16.gz"):

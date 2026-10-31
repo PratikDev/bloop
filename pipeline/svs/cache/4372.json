@@ -1,0 +1,326 @@
+{
+ "id": 4372,
+ "title": "IMERG Global Precipitation Rates (New Colorbar)",
+ "url": "https://svs.gsfc.nasa.gov/4372/",
+ "page_type": "Visualization",
+ "release_date": "2015-10-02T00:00:00-04:00",
+ "update_date": "2017-02-23T14:10:55-05:00",
+ "description": "This movie shows IMERG liquid and frozen precipitation for the period June, 2015, through September, 2015.This video is also available on our YouTube channel. || imerge.20447_print.jpg (1024x576) [178.9 KB] || imerge.20447_searchweb.png (320x180) [83.1 KB] || imerge.20447_thm.png (80x40) [7.0 KB] || flatcomposite (1920x1080) [0 Item(s)] || imerg_1080p30.webm (1920x1080) [23.8 MB] || imerg_1080p30.mp4 (1920x1080) [290.2 MB] || numbers_with_alpha (3600x1800) [0 Item(s)] || numbers_with_earth (3600x1800) [0 Item(s)] || dates_with_alpha (3600x1800) [0 Item(s)] || dates_with_earth (3600x1800) [0 Item(s)] || imerg_4372.pptx [292.4 MB] || imerg_4372.key [295.0 MB] || imerg_1080p30.mp4.hwshow || ",
+ "full_text": "This movie shows IMERG liquid and frozen precipitation for the period June, 2015, through September, 2015.This video is also available on our YouTube channel. || imerge.20447_print.jpg (1024x576) [178.9 KB] || imerge.20447_searchweb.png (320x180) [83.1 KB] || imerge.20447_thm.png (80x40) [7.0 KB] || flatcomposite (1920x1080) [0 Item(s)] || imerg_1080p30.webm (1920x1080) [23.8 MB] || imerg_1080p30.mp4 (1920x1080) [290.2 MB] || numbers_with_alpha (3600x1800) [0 Item(s)] || numbers_with_earth (3600x1800) [0 Item(s)] || dates_with_alpha (3600x1800) [0 Item(s)] || dates_with_earth (3600x1800) [0 Item(s)] || imerg_4372.pptx [292.4 MB] || imerg_4372.key [295.0 MB] || imerg_1080p30.mp4.hwshow ||\n\nThis movie shows IMERG liquid and frozen precipitation for the period June, 2015, through September, 2015.<br><a href='https://www.youtube.com/watch?v=pLmOWMHwG7Q'>This video is also available on our YouTube channel</a>.<br>\n\nNASA's Global Precipitation Measurement mission has produced its first global map of rainfall and snowfall. The GPM Core Observatory launched one year ago on Feb. 27, 2014 as a collaboration between NASA and the Japan Aerospace Exploration Agency and acts as the standard to unify precipitation measurements from a network of 12 satellites. The result is NASA's Integrated Multi-satellitE Retrievals for GPM data product, called IMERG, which combines data from all 12 satellites into a single, seamless map. The map covers more of the globe than any previous precipitation data set and is updated every half hour, allowing scientists to see how rain and snow storms move around nearly the entire planet. As scientists work to understand all the elements of Earth's climate and weather systems, and how they could change in the future, GPM provides a major step forward in providing the scientific community comprehensive and consistent measurements of precipitation.\n\nLiquid precipitation (rain) colorbar\n\nFrozen precipitation (snow) colorbar",
+ "credits_by_role": {
+  "Animator": [
+   "Horace Mitchell (NASA/GSFC)",
+   "Alex Kekesi (Global Science and Technology, Inc.)"
+  ],
+  "Scientist": [
+   "George Huffman (NASA/GSFC)",
+   "Gail Skofronick Jackson (NASA/GSFC)",
+   "Dalia B Kirschbaum (NASA/GSFC)"
+  ],
+  "Producer": [
+   "Ryan Fitzgibbons (USRA)",
+   "Rani Gran (NASA/GSFC)"
+  ]
+ },
+ "keywords": [
+  "Atmosphere",
+  "Atmospheric science",
+  "Climate",
+  "Earth Science",
+  "Hyperwall",
+  "precipitation",
+  "Precipitation Rate",
+  "Presentation"
+ ],
+ "datasets": [
+  {
+   "name": "",
+   "common_name": "IMERG",
+   "platform": null,
+   "sensor": null,
+   "type": "Data Compilation",
+   "organizations": [
+    "NASA/GSFC"
+   ],
+   "description": "",
+   "credit": "",
+   "url": "http://pmm.nasa.gov/sites/default/files/document_files/IMERG_ATBD_V4.4.pdf",
+   "date_range": "5/31/2015 23:30 - 9/30/2014 23:30Z"
+  }
+ ],
+ "missions": [
+  "Global Precipitation Measurement (GPM)"
+ ],
+ "related": [
+  {
+   "id": 5650,
+   "title": "Near Real-Time Global Precipitation from the Global Precipitation Measurement Constellation",
+   "url": "https://svs.gsfc.nasa.gov/5650/"
+  },
+  {
+   "id": 4382,
+   "title": "IMERG Precipitation and MERRA Winds",
+   "url": "https://svs.gsfc.nasa.gov/4382/"
+  },
+  {
+   "id": 4369,
+   "title": "Painting the World with Water (New Colorbar)",
+   "url": "https://svs.gsfc.nasa.gov/4369/"
+  },
+  {
+   "id": 4285,
+   "title": "Near Real-Time Global Precipitation from the Global Precipitation Measurement Constellation",
+   "url": "https://svs.gsfc.nasa.gov/4285/"
+  },
+  {
+   "id": 4257,
+   "title": "IMERG Global Precipitation Rates",
+   "url": "https://svs.gsfc.nasa.gov/4257/"
+  }
+ ],
+ "alternate_versions": [],
+ "newer_versions": [],
+ "older_versions": [],
+ "media": [
+  {
+   "group": 0,
+   "group_title": "",
+   "widget": "Video player",
+   "caption": "",
+   "group_text": "This movie shows IMERG liquid and frozen precipitation for the period June, 2015, through September, 2015.<br><a href='https://www.youtube.com/watch?v=pLmOWMHwG7Q'>This video is also available on our YouTube channel</a>.<br>",
+   "url": "https://svs.gsfc.nasa.gov/vis/a000000/a004300/a004372/imerge.20447_print.jpg",
+   "filename": "imerge.20447_print.jpg",
+   "media_type": "Image",
+   "width": 1024,
+   "height": 576,
+   "alt_text": "This movie shows IMERG liquid and frozen precipitation for the period June, 2015, through September, 2015.This video is also available on our YouTube channel."
+  },
+  {
+   "group": 0,
+   "group_title": "",
+   "widget": "Video player",
+   "caption": "",
+   "group_text": "This movie shows IMERG liquid and frozen precipitation for the period June, 2015, through September, 2015.<br><a href='https://www.youtube.com/watch?v=pLmOWMHwG7Q'>This video is also available on our YouTube channel</a>.<br>",
+   "url": "https://svs.gsfc.nasa.gov/vis/a000000/a004300/a004372/imerge.20447_searchweb.png",
+   "filename": "imerge.20447_searchweb.png",
+   "media_type": "Image",
+   "width": 320,
+   "height": 180,
+   "alt_text": "This movie shows IMERG liquid and frozen precipitation for the period June, 2015, through September, 2015.This video is also available on our YouTube channel."
+  },
+  {
+   "group": 0,
+   "group_title": "",
+   "widget": "Video player",
+   "caption": "",
+   "group_text": "This movie shows IMERG liquid and frozen precipitation for the period June, 2015, through September, 2015.<br><a href='https://www.youtube.com/watch?v=pLmOWMHwG7Q'>This video is also available on our YouTube channel</a>.<br>",
+   "url": "https://svs.gsfc.nasa.gov/vis/a000000/a004300/a004372/imerge.20447_thm.png",
+   "filename": "imerge.20447_thm.png",
+   "media_type": "Image",
+   "width": 80,
+   "height": 40,
+   "alt_text": "This movie shows IMERG liquid and frozen precipitation for the period June, 2015, through September, 2015.This video is also available on our YouTube channel."
+  },
+  {
+   "group": 0,
+   "group_title": "",
+   "widget": "Video player",
+   "caption": "",
+   "group_text": "This movie shows IMERG liquid and frozen precipitation for the period June, 2015, through September, 2015.<br><a href='https://www.youtube.com/watch?v=pLmOWMHwG7Q'>This video is also available on our YouTube channel</a>.<br>",
+   "url": "https://svs.gsfc.nasa.gov/vis/a000000/a004300/a004372/frames/1920x1080_16x9_30p/flatcomposite/",
+   "filename": "flatcomposite",
+   "media_type": "Frames",
+   "width": 1920,
+   "height": 1080,
+   "alt_text": "This movie shows IMERG liquid and frozen precipitation for the period June, 2015, through September, 2015.This video is also available on our YouTube channel."
+  },
+  {
+   "group": 0,
+   "group_title": "",
+   "widget": "Video player",
+   "caption": "",
+   "group_text": "This movie shows IMERG liquid and frozen precipitation for the period June, 2015, through September, 2015.<br><a href='https://www.youtube.com/watch?v=pLmOWMHwG7Q'>This video is also available on our YouTube channel</a>.<br>",
+   "url": "https://svs.gsfc.nasa.gov/vis/a000000/a004300/a004372/imerg_1080p30.webm",
+   "filename": "imerg_1080p30.webm",
+   "media_type": "Movie",
+   "width": 1920,
+   "height": 1080,
+   "alt_text": "This movie shows IMERG liquid and frozen precipitation for the period June, 2015, through September, 2015.This video is also available on our YouTube channel."
+  },
+  {
+   "group": 0,
+   "group_title": "",
+   "widget": "Video player",
+   "caption": "",
+   "group_text": "This movie shows IMERG liquid and frozen precipitation for the period June, 2015, through September, 2015.<br><a href='https://www.youtube.com/watch?v=pLmOWMHwG7Q'>This video is also available on our YouTube channel</a>.<br>",
+   "url": "https://svs.gsfc.nasa.gov/vis/a000000/a004300/a004372/imerg_1080p30.mp4",
+   "filename": "imerg_1080p30.mp4",
+   "media_type": "Movie",
+   "width": 1920,
+   "height": 1080,
+   "alt_text": "This movie shows IMERG liquid and frozen precipitation for the period June, 2015, through September, 2015.This video is also available on our YouTube channel."
+  },
+  {
+   "group": 0,
+   "group_title": "",
+   "widget": "Video player",
+   "caption": "",
+   "group_text": "This movie shows IMERG liquid and frozen precipitation for the period June, 2015, through September, 2015.<br><a href='https://www.youtube.com/watch?v=pLmOWMHwG7Q'>This video is also available on our YouTube channel</a>.<br>",
+   "url": "https://svs.gsfc.nasa.gov/vis/a000000/a004300/a004372/frames/3600x1800_2x1_30p/numbers_with_alpha/",
+   "filename": "numbers_with_alpha",
+   "media_type": "Frames",
+   "width": 3600,
+   "height": 1800,
+   "alt_text": "This movie shows IMERG liquid and frozen precipitation for the period June, 2015, through September, 2015.This video is also available on our YouTube channel."
+  },
+  {
+   "group": 0,
+   "group_title": "",
+   "widget": "Video player",
+   "caption": "",
+   "group_text": "This movie shows IMERG liquid and frozen precipitation for the period June, 2015, through September, 2015.<br><a href='https://www.youtube.com/watch?v=pLmOWMHwG7Q'>This video is also available on our YouTube channel</a>.<br>",
+   "url": "https://svs.gsfc.nasa.gov/vis/a000000/a004300/a004372/frames/3600x1800_2x1_30p/numbers_with_earth/",
+   "filename": "numbers_with_earth",
+   "media_type": "Frames",
+   "width": 3600,
+   "height": 1800,
+   "alt_text": "This movie shows IMERG liquid and frozen precipitation for the period June, 2015, through September, 2015.This video is also available on our YouTube channel."
+  },
+  {
+   "group": 0,
+   "group_title": "",
+   "widget": "Video player",
+   "caption": "",
+   "group_text": "This movie shows IMERG liquid and frozen precipitation for the period June, 2015, through September, 2015.<br><a href='https://www.youtube.com/watch?v=pLmOWMHwG7Q'>This video is also available on our YouTube channel</a>.<br>",
+   "url": "https://svs.gsfc.nasa.gov/vis/a000000/a004300/a004372/frames/3600x1800_2x1_30p/dates_with_alpha/",
+   "filename": "dates_with_alpha",
+   "media_type": "Frames",
+   "width": 3600,
+   "height": 1800,
+   "alt_text": "This movie shows IMERG liquid and frozen precipitation for the period June, 2015, through September, 2015.This video is also available on our YouTube channel."
+  },
+  {
+   "group": 0,
+   "group_title": "",
+   "widget": "Video player",
+   "caption": "",
+   "group_text": "This movie shows IMERG liquid and frozen precipitation for the period June, 2015, through September, 2015.<br><a href='https://www.youtube.com/watch?v=pLmOWMHwG7Q'>This video is also available on our YouTube channel</a>.<br>",
+   "url": "https://svs.gsfc.nasa.gov/vis/a000000/a004300/a004372/frames/3600x1800_2x1_30p/dates_with_earth/",
+   "filename": "dates_with_earth",
+   "media_type": "Frames",
+   "width": 3600,
+   "height": 1800,
+   "alt_text": "This movie shows IMERG liquid and frozen precipitation for the period June, 2015, through September, 2015.This video is also available on our YouTube channel."
+  },
+  {
+   "group": 0,
+   "group_title": "",
+   "widget": "Video player",
+   "caption": "",
+   "group_text": "This movie shows IMERG liquid and frozen precipitation for the period June, 2015, through September, 2015.<br><a href='https://www.youtube.com/watch?v=pLmOWMHwG7Q'>This video is also available on our YouTube channel</a>.<br>",
+   "url": "https://svs.gsfc.nasa.gov/vis/a000000/a004300/a004372/imerg_4372.pptx",
+   "filename": "imerg_4372.pptx",
+   "media_type": "Presentation",
+   "width": 0,
+   "height": 0,
+   "alt_text": "This movie shows IMERG liquid and frozen precipitation for the period June, 2015, through September, 2015.This video is also available on our YouTube channel."
+  },
+  {
+   "group": 0,
+   "group_title": "",
+   "widget": "Video player",
+   "caption": "",
+   "group_text": "This movie shows IMERG liquid and frozen precipitation for the period June, 2015, through September, 2015.<br><a href='https://www.youtube.com/watch?v=pLmOWMHwG7Q'>This video is also available on our YouTube channel</a>.<br>",
+   "url": "https://svs.gsfc.nasa.gov/vis/a000000/a004300/a004372/imerg_4372.key",
+   "filename": "imerg_4372.key",
+   "media_type": "Presentation",
+   "width": 0,
+   "height": 0,
+   "alt_text": "This movie shows IMERG liquid and frozen precipitation for the period June, 2015, through September, 2015.This video is also available on our YouTube channel."
+  },
+  {
+   "group": 0,
+   "group_title": "",
+   "widget": "Video player",
+   "caption": "",
+   "group_text": "This movie shows IMERG liquid and frozen precipitation for the period June, 2015, through September, 2015.<br><a href='https://www.youtube.com/watch?v=pLmOWMHwG7Q'>This video is also available on our YouTube channel</a>.<br>",
+   "url": "https://svs.gsfc.nasa.gov/vis/a000000/a004300/a004372/imerg_1080p30.mp4.hwshow",
+   "filename": "imerg_1080p30.mp4.hwshow",
+   "media_type": "HyperwallShow",
+   "width": 0,
+   "height": 0,
+   "alt_text": ""
+  },
+  {
+   "group": 2,
+   "group_title": "",
+   "widget": "Single image",
+   "caption": "",
+   "group_text": "Liquid precipitation (rain) colorbar",
+   "url": "https://svs.gsfc.nasa.gov/vis/a000000/a004300/a004372/rainbarblack3.png",
+   "filename": "rainbarblack3.png",
+   "media_type": "Image",
+   "width": 440,
+   "height": 90,
+   "alt_text": "Liquid precipitation (rain) colorbar"
+  },
+  {
+   "group": 3,
+   "group_title": "",
+   "widget": "Single image",
+   "caption": "",
+   "group_text": "Frozen precipitation (snow) colorbar",
+   "url": "https://svs.gsfc.nasa.gov/vis/a000000/a004300/a004372/snowbarblack2.png",
+   "filename": "snowbarblack2.png",
+   "media_type": "Image",
+   "width": 440,
+   "height": 90,
+   "alt_text": "Frozen precipitation (snow) colorbar"
+  }
+ ],
+ "text_links": [],
+ "frame_folders": {
+  "https://svs.gsfc.nasa.gov/vis/a000000/a004300/a004372/frames/1920x1080_16x9_30p/flatcomposite/": {
+   "url": "https://svs.gsfc.nasa.gov/vis/a000000/a004300/a004372/frames/1920x1080_16x9_30p/flatcomposite/",
+   "frame_count": 5857,
+   "bytes_approx": 9829500000,
+   "first": "imerge.20447.png",
+   "last": "imerge.26303.png",
+   "subfolders": {}
+  },
+  "https://svs.gsfc.nasa.gov/vis/a000000/a004300/a004372/frames/3600x1800_2x1_30p/numbers_with_alpha/": {
+   "url": "https://svs.gsfc.nasa.gov/vis/a000000/a004300/a004372/frames/3600x1800_2x1_30p/numbers_with_alpha/",
+   "frame_count": 5857,
+   "bytes_approx": 2446761700,
+   "first": "imerg.020447.png",
+   "last": "imerg.026303.png",
+   "subfolders": {}
+  },
+  "https://svs.gsfc.nasa.gov/vis/a000000/a004300/a004372/frames/3600x1800_2x1_30p/numbers_with_earth/": {
+   "url": "https://svs.gsfc.nasa.gov/vis/a000000/a004300/a004372/frames/3600x1800_2x1_30p/numbers_with_earth/",
+   "frame_count": 5857,
+   "bytes_approx": 27776300000,
+   "first": "imerg.020447.png",
+   "last": "imerg.026303.png",
+   "subfolders": {}
+  },
+  "https://svs.gsfc.nasa.gov/vis/a000000/a004300/a004372/frames/3600x1800_2x1_30p/dates_with_alpha/": {
+   "url": "https://svs.gsfc.nasa.gov/vis/a000000/a004300/a004372/frames/3600x1800_2x1_30p/dates_with_alpha/",
+   "frame_count": 0,
+   "bytes_approx": null,
+   "first": null,
+   "last": null,
+   "subfolders": {}
+  },
+  "https://svs.gsfc.nasa.gov/vis/a000000/a004300/a004372/frames/3600x1800_2x1_30p/dates_with_earth/": {
+   "url": "https://svs.gsfc.nasa.gov/vis/a000000/a004300/a004372/frames/3600x1800_2x1_30p/dates_with_earth/",
+   "frame_count": 0,
+   "bytes_approx": null,
+   "first": null,
+   "last": null,
+   "subfolders": {}
+  }
+ },
+ "api_url": "https://svs.gsfc.nasa.gov/api/4372",
+ "fetched_utc": "2026-10-31T17:02:18Z"
+}

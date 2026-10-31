@@ -1,0 +1,491 @@
+{
+ "id": 3827,
+ "title": "Perpetual Ocean",
+ "url": "https://svs.gsfc.nasa.gov/3827/",
+ "page_type": "Visualization",
+ "release_date": "2011-08-15T00:00:00-04:00",
+ "update_date": "2025-03-16T22:02:32.894711-04:00",
+ "description": "This visualization shows ocean surface currents around the world during the period from June 2005 through December 2007. The visualization does not include a narration or annotations; the goal was to use ocean flow data to create a simple, visceral experience.This visualization was produced using model output from the joint MIT/JPL project: Estimating the Circulation and Climate of the Ocean, Phase II or ECCO2. ECCO2 uses the MIT general circulation model (MITgcm) to synthesize satellite and in-situ data of the global ocean and sea-ice at resolutions that begin to resolve ocean eddies and other narrow current systems, which transport heat and carbon in the oceans. ECCO2 provides ocean flows at all depths, but only surface flows are used in this visualization. The dark patterns under the ocean represent the undersea bathymetry. Topographic land exaggeration is 20x and bathymetric exaggeration is 40x. This visualization was shown at the SIGGRAPH Asia 2012 Computer Animation Festival.Don't miss these related visualizations:Excerpt form Dynamic EarthGulf Stream Sea Surface Currents and TemperaturesOcean Current Flows around the Mediterranean Sea for UNESCOGlobal Sea Surface Currents and TemperatureFlat Map Ocean Current Flows with Sea Surface Temperatures (SST) || ",
+ "full_text": "This visualization shows ocean surface currents around the world during the period from June 2005 through December 2007. The visualization does not include a narration or annotations; the goal was to use ocean flow data to create a simple, visceral experience.This visualization was produced using model output from the joint MIT/JPL project: Estimating the Circulation and Climate of the Ocean, Phase II or ECCO2. ECCO2 uses the MIT general circulation model (MITgcm) to synthesize satellite and in-situ data of the global ocean and sea-ice at resolutions that begin to resolve ocean eddies and other narrow current systems, which transport heat and carbon in the oceans. ECCO2 provides ocean flows at all depths, but only surface flows are used in this visualization. The dark patterns under the ocean represent the undersea bathymetry. Topographic land exaggeration is 20x and bathymetric exaggeration is 40x. This visualization was shown at the SIGGRAPH Asia 2012 Computer Animation Festival.Don't miss these related visualizations:Excerpt form Dynamic EarthGulf Stream Sea Surface Currents and TemperaturesOcean Current Flows around the Mediterranean Sea for UNESCOGlobal Sea Surface Currents and TemperatureFlat Map Ocean Current Flows with Sea Surface Temperatures (SST) ||\n\nThis visualization shows ocean surface currents around the world during the period from June 2005 through December 2007. The visualization does not include a narration or annotations; the goal was to use ocean flow data to create a simple, visceral experience.<p><p>This visualization was produced using model output from the joint MIT/JPL project: Estimating the Circulation and Climate of the Ocean, Phase II or <a href=\"http://ecco2.org/\">ECCO2</a>. ECCO2 uses the MIT general circulation model (MITgcm) to synthesize satellite and in-situ data of the global ocean and sea-ice at resolutions that begin to resolve ocean eddies and other narrow current systems, which transport heat and carbon in the oceans. ECCO2 provides ocean flows at all depths, but only surface flows are used in this visualization. The dark patterns under the ocean represent the undersea bathymetry. Topographic land exaggeration is 20x and bathymetric exaggeration is 40x. <p><p>This visualization was shown at the SIGGRAPH Asia 2012 Computer Animation Festival.<p><hr><p><b>Don't miss these related visualizations:<p><a href=\"/11003\">Excerpt form Dynamic Earth</a><p><a href=\"/3913\">Gulf Stream Sea Surface Currents and Temperatures</a><p><a href=\"/3820\">Ocean Current Flows around the Mediterranean Sea for UNESCO</a><p><a href=\"/3912\">Global Sea Surface Currents and Temperature</a><p><a href=\"/3821\">Flat Map Ocean Current Flows with Sea Surface Temperatures (SST)</a>\n\nPerpetual Ocean is a visualization of some of the world's surface ocean currents.<p><p><br><br><a href='https://www.youtube.com/watch?v=JQaEKk569Ew'>This video is also available on our YouTube channel</a>.<br>\n\nPrint resolution still of Gulf Stream\n\nPrint resolution still of currents near Southern Africa\n\nPrint resolution still of the Kuroshio Current\n\nTwenty minute version of ocean flows at 30 frames per second.  This version does not include the 'speed ups', labels, narration, or soundtrack from Perpetual Ocean.\n\nSee [http://www.nasa.gov/topics/earth/features/perpetual-ocean.html](http://www.nasa.gov/topics/earth/features/perpetual-ocean.html)",
+ "credits_by_role": {
+  "Animator": [
+   "Greg Shirah (NASA/GSFC)",
+   "Horace Mitchell (NASA/GSFC)"
+  ],
+  "Video editor": [
+   "Victoria Weeks (HTSI)"
+  ],
+  "Scientist": [
+   "Hong Zhang (UCLA)",
+   "Dimitris Menemenlis (NASA/JPL CalTech)"
+  ]
+ },
+ "keywords": [
+  "Earth Science",
+  "Hyperwall",
+  "ocean circulation",
+  "ocean currents",
+  "Oceans",
+  "Physical oceanography"
+ ],
+ "datasets": [
+  {
+   "name": "GTOPO30 Topography and Bathymetry",
+   "common_name": "",
+   "platform": null,
+   "sensor": null,
+   "type": "Data Compilation",
+   "organizations": [
+    "USGS"
+   ],
+   "description": "",
+   "credit": "",
+   "url": "",
+   "date_range": null
+  },
+  {
+   "name": "Tycho 2 Catalogue",
+   "common_name": "Tycho Catalogue",
+   "platform": "Hipparcos",
+   "sensor": "Telescope",
+   "type": "Database",
+   "organizations": [],
+   "description": "",
+   "credit": "",
+   "url": "http://archive.eso.org/ASTROM/",
+   "date_range": null
+  },
+  {
+   "name": "ECCO2 High Resolution Ocean and Sea Ice Model",
+   "common_name": "ECCO2",
+   "platform": null,
+   "sensor": null,
+   "type": "Model",
+   "organizations": [
+    "NASA/JPL"
+   ],
+   "description": "",
+   "credit": "",
+   "url": "",
+   "date_range": "06/2006 - 12/2007"
+  }
+ ],
+ "missions": [
+  "Global Precipitation Measurement (GPM)"
+ ],
+ "related": [
+  {
+   "id": 14745,
+   "title": "An Ocean in Motion: NASA's Mesmerizing View of Earth's Underwater Highways",
+   "url": "https://svs.gsfc.nasa.gov/14745/"
+  },
+  {
+   "id": 10841,
+   "title": "Perpetual Ocean",
+   "url": "https://svs.gsfc.nasa.gov/10841/"
+  }
+ ],
+ "alternate_versions": [],
+ "newer_versions": [],
+ "older_versions": [],
+ "media": [
+  {
+   "group": 1,
+   "group_title": "",
+   "widget": "Video player",
+   "caption": "",
+   "group_text": "Perpetual Ocean is a visualization of some of the world's surface ocean currents.<p><p><br><br><a href='https://www.youtube.com/watch?v=JQaEKk569Ew'>This video is also available on our YouTube channel</a>.<br>",
+   "url": "https://svs.gsfc.nasa.gov/vis/a000000/a003800/a003827/Perpetual_Ocean_1080p30_00000.jpg",
+   "filename": "Perpetual_Ocean_1080p30_00000.jpg",
+   "media_type": "Image",
+   "width": 1920,
+   "height": 1080,
+   "alt_text": "Perpetual Ocean is a visualization of some of the world's surface ocean currents.This video is also available on our YouTube channel."
+  },
+  {
+   "group": 1,
+   "group_title": "",
+   "widget": "Video player",
+   "caption": "",
+   "group_text": "Perpetual Ocean is a visualization of some of the world's surface ocean currents.<p><p><br><br><a href='https://www.youtube.com/watch?v=JQaEKk569Ew'>This video is also available on our YouTube channel</a>.<br>",
+   "url": "https://svs.gsfc.nasa.gov/vis/a000000/a003800/a003827/perpetual_ocean_1080p30_ipad_poster_frame.jpg",
+   "filename": "perpetual_ocean_1080p30_ipad_poster_frame.jpg",
+   "media_type": "Image",
+   "width": 1024,
+   "height": 576,
+   "alt_text": "Perpetual Ocean is a visualization of some of the world's surface ocean currents.This video is also available on our YouTube channel."
+  },
+  {
+   "group": 1,
+   "group_title": "",
+   "widget": "Video player",
+   "caption": "",
+   "group_text": "Perpetual Ocean is a visualization of some of the world's surface ocean currents.<p><p><br><br><a href='https://www.youtube.com/watch?v=JQaEKk569Ew'>This video is also available on our YouTube channel</a>.<br>",
+   "url": "https://svs.gsfc.nasa.gov/vis/a000000/a003800/a003827/Perpetual_Ocean_24fps_960x540_web.png",
+   "filename": "Perpetual_Ocean_24fps_960x540_web.png",
+   "media_type": "Image",
+   "width": 320,
+   "height": 180,
+   "alt_text": "Perpetual Ocean is a visualization of some of the world's surface ocean currents.This video is also available on our YouTube channel."
+  },
+  {
+   "group": 1,
+   "group_title": "",
+   "widget": "Video player",
+   "caption": "",
+   "group_text": "Perpetual Ocean is a visualization of some of the world's surface ocean currents.<p><p><br><br><a href='https://www.youtube.com/watch?v=JQaEKk569Ew'>This video is also available on our YouTube channel</a>.<br>",
+   "url": "https://svs.gsfc.nasa.gov/vis/a000000/a003800/a003827/frames/1920x1080_16x9_30p/",
+   "filename": "1920x1080_16x9_30p",
+   "media_type": "Frames",
+   "width": 1920,
+   "height": 1080,
+   "alt_text": "Perpetual Ocean is a visualization of some of the world's surface ocean currents.This video is also available on our YouTube channel."
+  },
+  {
+   "group": 1,
+   "group_title": "",
+   "widget": "Video player",
+   "caption": "",
+   "group_text": "Perpetual Ocean is a visualization of some of the world's surface ocean currents.<p><p><br><br><a href='https://www.youtube.com/watch?v=JQaEKk569Ew'>This video is also available on our YouTube channel</a>.<br>",
+   "url": "https://svs.gsfc.nasa.gov/vis/a000000/a003800/a003827/Perpetual_Ocean_24fps_1920x1080.webmhd.webm",
+   "filename": "Perpetual_Ocean_24fps_1920x1080.webmhd.webm",
+   "media_type": "Movie",
+   "width": 960,
+   "height": 540,
+   "alt_text": "Perpetual Ocean is a visualization of some of the world's surface ocean currents.This video is also available on our YouTube channel."
+  },
+  {
+   "group": 1,
+   "group_title": "",
+   "widget": "Video player",
+   "caption": "",
+   "group_text": "Perpetual Ocean is a visualization of some of the world's surface ocean currents.<p><p><br><br><a href='https://www.youtube.com/watch?v=JQaEKk569Ew'>This video is also available on our YouTube channel</a>.<br>",
+   "url": "https://svs.gsfc.nasa.gov/vis/a000000/a003800/a003827/Perpetual_Ocean_24fps_960x540.mov",
+   "filename": "Perpetual_Ocean_24fps_960x540.mov",
+   "media_type": "Movie",
+   "width": 960,
+   "height": 540,
+   "alt_text": "Perpetual Ocean is a visualization of some of the world's surface ocean currents.This video is also available on our YouTube channel."
+  },
+  {
+   "group": 1,
+   "group_title": "",
+   "widget": "Video player",
+   "caption": "",
+   "group_text": "Perpetual Ocean is a visualization of some of the world's surface ocean currents.<p><p><br><br><a href='https://www.youtube.com/watch?v=JQaEKk569Ew'>This video is also available on our YouTube channel</a>.<br>",
+   "url": "https://svs.gsfc.nasa.gov/vis/a000000/a003800/a003827/Perpetual_Ocean_1080p30_MASTER-QuickTime_H.264_half_size_medium_quality.mov",
+   "filename": "Perpetual_Ocean_1080p30_MASTER-QuickTime_H.264_half_size_medium_quality.mov",
+   "media_type": "Movie",
+   "width": 960,
+   "height": 540,
+   "alt_text": "Perpetual Ocean is a visualization of some of the world's surface ocean currents.This video is also available on our YouTube channel."
+  },
+  {
+   "group": 1,
+   "group_title": "",
+   "widget": "Video player",
+   "caption": "",
+   "group_text": "Perpetual Ocean is a visualization of some of the world's surface ocean currents.<p><p><br><br><a href='https://www.youtube.com/watch?v=JQaEKk569Ew'>This video is also available on our YouTube channel</a>.<br>",
+   "url": "https://svs.gsfc.nasa.gov/vis/a000000/a003800/a003827/Perpetual_Ocean_1080p30_MASTER-QuickTime_H.264_full_size_med_qual.mov",
+   "filename": "Perpetual_Ocean_1080p30_MASTER-QuickTime_H.264_full_size_med_qual.mov",
+   "media_type": "Movie",
+   "width": 1920,
+   "height": 1080,
+   "alt_text": "Perpetual Ocean is a visualization of some of the world's surface ocean currents.This video is also available on our YouTube channel."
+  },
+  {
+   "group": 1,
+   "group_title": "",
+   "widget": "Video player",
+   "caption": "",
+   "group_text": "Perpetual Ocean is a visualization of some of the world's surface ocean currents.<p><p><br><br><a href='https://www.youtube.com/watch?v=JQaEKk569Ew'>This video is also available on our YouTube channel</a>.<br>",
+   "url": "https://svs.gsfc.nasa.gov/vis/a000000/a003800/a003827/perpetual_ocean_1080p30.mp4",
+   "filename": "perpetual_ocean_1080p30.mp4",
+   "media_type": "Movie",
+   "width": 1920,
+   "height": 1080,
+   "alt_text": "Perpetual Ocean is a visualization of some of the world's surface ocean currents.This video is also available on our YouTube channel."
+  },
+  {
+   "group": 1,
+   "group_title": "",
+   "widget": "Video player",
+   "caption": "",
+   "group_text": "Perpetual Ocean is a visualization of some of the world's surface ocean currents.<p><p><br><br><a href='https://www.youtube.com/watch?v=JQaEKk569Ew'>This video is also available on our YouTube channel</a>.<br>",
+   "url": "https://svs.gsfc.nasa.gov/vis/a000000/a003800/a003827/Perpetual_Ocean_24fps_1920x1080.mov",
+   "filename": "Perpetual_Ocean_24fps_1920x1080.mov",
+   "media_type": "Movie",
+   "width": 1920,
+   "height": 1080,
+   "alt_text": "Perpetual Ocean is a visualization of some of the world's surface ocean currents.This video is also available on our YouTube channel."
+  },
+  {
+   "group": 1,
+   "group_title": "",
+   "widget": "Video player",
+   "caption": "",
+   "group_text": "Perpetual Ocean is a visualization of some of the world's surface ocean currents.<p><p><br><br><a href='https://www.youtube.com/watch?v=JQaEKk569Ew'>This video is also available on our YouTube channel</a>.<br>",
+   "url": "https://svs.gsfc.nasa.gov/vis/a000000/a003800/a003827/Perpetual_Ocean_1080p30_MASTER-QuickTime_H.264-half_size.mov",
+   "filename": "Perpetual_Ocean_1080p30_MASTER-QuickTime_H.264-half_size.mov",
+   "media_type": "Movie",
+   "width": 960,
+   "height": 540,
+   "alt_text": "Perpetual Ocean is a visualization of some of the world's surface ocean currents.This video is also available on our YouTube channel."
+  },
+  {
+   "group": 1,
+   "group_title": "",
+   "widget": "Video player",
+   "caption": "",
+   "group_text": "Perpetual Ocean is a visualization of some of the world's surface ocean currents.<p><p><br><br><a href='https://www.youtube.com/watch?v=JQaEKk569Ew'>This video is also available on our YouTube channel</a>.<br>",
+   "url": "https://svs.gsfc.nasa.gov/vis/a000000/a003800/a003827/perpetual_ocean_1080p30.mov",
+   "filename": "perpetual_ocean_1080p30.mov",
+   "media_type": "Movie",
+   "width": 1920,
+   "height": 1080,
+   "alt_text": "Perpetual Ocean is a visualization of some of the world's surface ocean currents.This video is also available on our YouTube channel."
+  },
+  {
+   "group": 1,
+   "group_title": "",
+   "widget": "Video player",
+   "caption": "",
+   "group_text": "Perpetual Ocean is a visualization of some of the world's surface ocean currents.<p><p><br><br><a href='https://www.youtube.com/watch?v=JQaEKk569Ew'>This video is also available on our YouTube channel</a>.<br>",
+   "url": "https://svs.gsfc.nasa.gov/vis/a000000/a003800/a003827/perpetual_ocean_1080p30_prores.mov",
+   "filename": "perpetual_ocean_1080p30_prores.mov",
+   "media_type": "Movie",
+   "width": 1920,
+   "height": 1080,
+   "alt_text": "Perpetual Ocean is a visualization of some of the world's surface ocean currents.This video is also available on our YouTube channel."
+  },
+  {
+   "group": 1,
+   "group_title": "",
+   "widget": "Video player",
+   "caption": "",
+   "group_text": "Perpetual Ocean is a visualization of some of the world's surface ocean currents.<p><p><br><br><a href='https://www.youtube.com/watch?v=JQaEKk569Ew'>This video is also available on our YouTube channel</a>.<br>",
+   "url": "https://svs.gsfc.nasa.gov/vis/a000000/a003800/a003827/caf_0394.mov",
+   "filename": "caf_0394.mov",
+   "media_type": "Movie",
+   "width": 1920,
+   "height": 1080,
+   "alt_text": "Perpetual Ocean is a visualization of some of the world's surface ocean currents.This video is also available on our YouTube channel."
+  },
+  {
+   "group": 2,
+   "group_title": "",
+   "widget": "Single image",
+   "caption": "",
+   "group_text": "Print resolution still of Gulf Stream",
+   "url": "https://svs.gsfc.nasa.gov/vis/a000000/a003800/a003827/siggraph_currents_STILL2.15402.jpg",
+   "filename": "siggraph_currents_STILL2.15402.jpg",
+   "media_type": "Image",
+   "width": 4320,
+   "height": 7680,
+   "alt_text": "Print resolution still of Gulf Stream"
+  },
+  {
+   "group": 2,
+   "group_title": "",
+   "widget": "Single image",
+   "caption": "",
+   "group_text": "Print resolution still of Gulf Stream",
+   "url": "https://svs.gsfc.nasa.gov/vis/a000000/a003800/a003827/siggraph_currents_STILL2.15402_web.png",
+   "filename": "siggraph_currents_STILL2.15402_web.png",
+   "media_type": "Image",
+   "width": 180,
+   "height": 320,
+   "alt_text": "Print resolution still of Gulf Stream"
+  },
+  {
+   "group": 2,
+   "group_title": "",
+   "widget": "Single image",
+   "caption": "",
+   "group_text": "Print resolution still of Gulf Stream",
+   "url": "https://svs.gsfc.nasa.gov/vis/a000000/a003800/a003827/siggraph_currents_STILL2.15402_thm.png",
+   "filename": "siggraph_currents_STILL2.15402_thm.png",
+   "media_type": "Image",
+   "width": 80,
+   "height": 40,
+   "alt_text": "Print resolution still of Gulf Stream"
+  },
+  {
+   "group": 2,
+   "group_title": "",
+   "widget": "Single image",
+   "caption": "",
+   "group_text": "Print resolution still of Gulf Stream",
+   "url": "https://svs.gsfc.nasa.gov/vis/a000000/a003800/a003827/siggraph_currents_STILL2.15402.tif",
+   "filename": "siggraph_currents_STILL2.15402.tif",
+   "media_type": "Image",
+   "width": 7680,
+   "height": 4320,
+   "alt_text": "Print resolution still of Gulf Stream"
+  },
+  {
+   "group": 3,
+   "group_title": "",
+   "widget": "Single image",
+   "caption": "",
+   "group_text": "Print resolution still of currents near Southern Africa",
+   "url": "https://svs.gsfc.nasa.gov/vis/a000000/a003800/a003827/siggraph_currents_STILL2.18878.jpg",
+   "filename": "siggraph_currents_STILL2.18878.jpg",
+   "media_type": "Image",
+   "width": 7680,
+   "height": 4320,
+   "alt_text": "Print resolution still of currents near Southern Africa"
+  },
+  {
+   "group": 3,
+   "group_title": "",
+   "widget": "Single image",
+   "caption": "",
+   "group_text": "Print resolution still of currents near Southern Africa",
+   "url": "https://svs.gsfc.nasa.gov/vis/a000000/a003800/a003827/siggraph_currents_STILL2.18878_web.png",
+   "filename": "siggraph_currents_STILL2.18878_web.png",
+   "media_type": "Image",
+   "width": 320,
+   "height": 180,
+   "alt_text": "Print resolution still of currents near Southern Africa"
+  },
+  {
+   "group": 3,
+   "group_title": "",
+   "widget": "Single image",
+   "caption": "",
+   "group_text": "Print resolution still of currents near Southern Africa",
+   "url": "https://svs.gsfc.nasa.gov/vis/a000000/a003800/a003827/siggraph_currents_STILL2.18878.tif",
+   "filename": "siggraph_currents_STILL2.18878.tif",
+   "media_type": "Image",
+   "width": 7680,
+   "height": 4320,
+   "alt_text": "Print resolution still of currents near Southern Africa"
+  },
+  {
+   "group": 4,
+   "group_title": "",
+   "widget": "Single image",
+   "caption": "",
+   "group_text": "Print resolution still of the Kuroshio Current",
+   "url": "https://svs.gsfc.nasa.gov/vis/a000000/a003800/a003827/siggraph_currents_STILL2.24460.jpg",
+   "filename": "siggraph_currents_STILL2.24460.jpg",
+   "media_type": "Image",
+   "width": 7680,
+   "height": 4320,
+   "alt_text": "Print resolution still of the Kuroshio Current"
+  },
+  {
+   "group": 4,
+   "group_title": "",
+   "widget": "Single image",
+   "caption": "",
+   "group_text": "Print resolution still of the Kuroshio Current",
+   "url": "https://svs.gsfc.nasa.gov/vis/a000000/a003800/a003827/siggraph_currents_STILL2.24460_web.png",
+   "filename": "siggraph_currents_STILL2.24460_web.png",
+   "media_type": "Image",
+   "width": 320,
+   "height": 180,
+   "alt_text": "Print resolution still of the Kuroshio Current"
+  },
+  {
+   "group": 4,
+   "group_title": "",
+   "widget": "Single image",
+   "caption": "",
+   "group_text": "Print resolution still of the Kuroshio Current",
+   "url": "https://svs.gsfc.nasa.gov/vis/a000000/a003800/a003827/siggraph_currents_STILL2.24460.tif",
+   "filename": "siggraph_currents_STILL2.24460.tif",
+   "media_type": "Image",
+   "width": 7680,
+   "height": 4320,
+   "alt_text": "Print resolution still of the Kuroshio Current"
+  },
+  {
+   "group": 5,
+   "group_title": "",
+   "widget": "Video player",
+   "caption": "",
+   "group_text": "Twenty minute version of ocean flows at 30 frames per second.  This version does not include the 'speed ups', labels, narration, or soundtrack from Perpetual Ocean.",
+   "url": "https://svs.gsfc.nasa.gov/vis/a000000/a003800/a003827/s2011_09_all.1_print.jpg",
+   "filename": "s2011_09_all.1_print.jpg",
+   "media_type": "Image",
+   "width": 1920,
+   "height": 1080,
+   "alt_text": "Twenty minute version of ocean flows at 30 frames per second.  This version does not include the 'speed ups', labels, narration, or soundtrack from Perpetual Ocean."
+  },
+  {
+   "group": 5,
+   "group_title": "",
+   "widget": "Video player",
+   "caption": "",
+   "group_text": "Twenty minute version of ocean flows at 30 frames per second.  This version does not include the 'speed ups', labels, narration, or soundtrack from Perpetual Ocean.",
+   "url": "https://svs.gsfc.nasa.gov/vis/a000000/a003800/a003827/s2011_09_all_web.png",
+   "filename": "s2011_09_all_web.png",
+   "media_type": "Image",
+   "width": 320,
+   "height": 180,
+   "alt_text": "Twenty minute version of ocean flows at 30 frames per second.  This version does not include the 'speed ups', labels, narration, or soundtrack from Perpetual Ocean."
+  },
+  {
+   "group": 5,
+   "group_title": "",
+   "widget": "Video player",
+   "caption": "",
+   "group_text": "Twenty minute version of ocean flows at 30 frames per second.  This version does not include the 'speed ups', labels, narration, or soundtrack from Perpetual Ocean.",
+   "url": "https://svs.gsfc.nasa.gov/vis/a000000/a003800/a003827/s2011_09_all.webmhd.webm",
+   "filename": "s2011_09_all.webmhd.webm",
+   "media_type": "Movie",
+   "width": 960,
+   "height": 540,
+   "alt_text": "Twenty minute version of ocean flows at 30 frames per second.  This version does not include the 'speed ups', labels, narration, or soundtrack from Perpetual Ocean."
+  },
+  {
+   "group": 5,
+   "group_title": "",
+   "widget": "Video player",
+   "caption": "",
+   "group_text": "Twenty minute version of ocean flows at 30 frames per second.  This version does not include the 'speed ups', labels, narration, or soundtrack from Perpetual Ocean.",
+   "url": "https://svs.gsfc.nasa.gov/vis/a000000/a003800/a003827/s2011_09_all.m4v",
+   "filename": "s2011_09_all.m4v",
+   "media_type": "Movie",
+   "width": 640,
+   "height": 360,
+   "alt_text": "Twenty minute version of ocean flows at 30 frames per second.  This version does not include the 'speed ups', labels, narration, or soundtrack from Perpetual Ocean."
+  },
+  {
+   "group": 5,
+   "group_title": "",
+   "widget": "Video player",
+   "caption": "",
+   "group_text": "Twenty minute version of ocean flows at 30 frames per second.  This version does not include the 'speed ups', labels, narration, or soundtrack from Perpetual Ocean.",
+   "url": "https://svs.gsfc.nasa.gov/vis/a000000/a003800/a003827/s2011_09_all.mp4",
+   "filename": "s2011_09_all.mp4",
+   "media_type": "Movie",
+   "width": 1920,
+   "height": 1080,
+   "alt_text": "Twenty minute version of ocean flows at 30 frames per second.  This version does not include the 'speed ups', labels, narration, or soundtrack from Perpetual Ocean."
+  }
+ ],
+ "text_links": [
+  "https://ecco2.org/",
+  "https://svs.gsfc.nasa.gov/11003",
+  "https://svs.gsfc.nasa.gov/3913",
+  "https://svs.gsfc.nasa.gov/3820",
+  "https://svs.gsfc.nasa.gov/3912",
+  "https://svs.gsfc.nasa.gov/3821",
+  "https://www.nasa.gov/topics/earth/features/perpetual-ocean.html"
+ ],
+ "frame_folders": {
+  "https://svs.gsfc.nasa.gov/vis/a000000/a003800/a003827/frames/1920x1080_16x9_30p/": {
+   "url": "https://svs.gsfc.nasa.gov/vis/a000000/a003800/a003827/frames/1920x1080_16x9_30p/",
+   "frame_count": 5468,
+   "bytes_approx": 17970902580,
+   "first": "Perpetual_Ocean_1080p30_00000.tif",
+   "last": "Perpetual_Ocean_1080p30_05467.tif",
+   "subfolders": {}
+  }
+ },
+ "api_url": "https://svs.gsfc.nasa.gov/api/3827",
+ "fetched_utc": "2026-10-31T15:24:36Z"
+}

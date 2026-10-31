@@ -1,0 +1,276 @@
+{
+ "record": "rel_5477",
+ "app_title": "SOS - Day/Night cycle with Blue Marble and Black Marble Nightlights (observation)",
+ "svs_ids": [
+  5477
+ ],
+ "title": "SOS - Day/Night cycle with Blue Marble and Black Marble Nightlights",
+ "svs_pages": [
+  "https://svs.gsfc.nasa.gov/5477/"
+ ],
+ "description": "This animation shows daylight and nighttime cycles of Earth over a three-day period in 2024 as the planet spins on it’s axis.",
+ "release_date": "2025-05-16T13:00:00-04:00",
+ "period": {
+  "start": "6663-06-01T00:00:00Z",
+  "end": "6663-06-01T00:00:00Z",
+  "label": "1 Jun 6663 – 1 Jun 6663"
+ },
+ "badge": "observation",
+ "credits_by_role": {
+  "Visualizer": [
+   "Kel Elkins (USRA)"
+  ],
+  "Scientist": [
+   "Zhuosen Wang (University of Maryland)",
+   "Miguel Román (Leidos)",
+   "Ranjay Shrestha (SSAI)",
+   "Srija Chakraborty (USRA)",
+   "Virginia Kalb (NASA)"
+  ]
+ },
+ "datasets": [
+  {
+   "name": "Black Marble: Next Generation",
+   "common_name": "Black Marble",
+   "platform": "Suomi NPP",
+   "sensor": "VIIRS",
+   "type": "Other",
+   "organizations": [
+    "NASA/NOAA"
+   ],
+   "description": "Earth at night imagery",
+   "credit": "NASA Earth Observatory images by Joshua Stevens, using Suomi NPP VIIRS data from Miguel Román, NASA GSFC.",
+   "url": "https://visibleearth.nasa.gov/images/144898/earth-at-night-black-marble-2016-color-maps/144947l",
+   "date_range": null
+  }
+ ],
+ "credit_line": "Visualization: NASA's Scientific Visualization Studio (SVS 5477) for the NASA Earth Information Center.",
+ "disclosure": "A related NASA visualization read back through its key (pattern only).",
+ "licence": "SVS: \"All of our content is in the public domain (unless otherwise noted), meaning that it is free to download, use, and redistribute for whatever purposes you see fit.\" (https://svs.gsfc.nasa.gov/help/, read 29 Oct 2026)",
+ "focus": "energy",
+ "related_to": [
+  5313
+ ],
+ "frame_times": {
+  "method": "ocr",
+  "approximate": false,
+  "count": 3,
+  "source": "date box OCR: ? July Jun 6663366666666 63 July Jul DEC JULY July"
+ },
+ "georef": {
+  "projection": "equirectangular (2:1)",
+  "bounds": [
+   -180,
+   -90,
+   180,
+   90
+  ],
+  "pass_at": 0.9,
+  "shifts_deg": [],
+  "iou": {
+   "land": 0.8463839927774337
+  },
+  "pass": false,
+  "best_is_assumed": false
+ },
+ "colorbar": null,
+ "colorbar_source": "no colorbar found (page or frame)",
+ "asset": {
+  "kind": "frames",
+  "owner": 5477,
+  "what": "nightlights_day-night_ksc_sos_01"
+ },
+ "twins": [],
+ "decode": {
+  "mode": "brightness (no key)",
+  "decoded_share": 1.0
+ },
+ "layers": [
+  {
+   "id": "value",
+   "unit": "relative (0–1)",
+   "encoding": "linear",
+   "scale": 0.001,
+   "offset": 0.010973222553730011,
+   "nodata": 65535,
+   "below": 65534,
+   "grid": {
+    "width": 360,
+    "height": 180,
+    "bounds": [
+     -180,
+     -90,
+     180,
+     90
+    ],
+    "row0": "north",
+    "col0": "west",
+    "byte_order": "little"
+   },
+   "times": [
+    "6663-06-01T00:00:00Z",
+    "2025-05-16T17:00:00Z",
+    "2025-05-16T17:00:00Z"
+   ],
+   "chunks": [
+    {
+     "file": "value_000.u16.gz",
+     "t0": 0,
+     "t1": 3,
+     "bytes": 225807
+    }
+   ],
+   "quantisation_step": 0.001,
+   "coverage": 1.0,
+   "value_range": [
+    0.010973222553730011,
+    1.0
+   ],
+   "label": "SOS - Day/Night cycle with Blue Marble and Black Marble Nightlights (pattern only)",
+   "aggregation": "mean of decoded pixels per cell",
+   "time_labels": [
+    "01 Jun 6663",
+    "undated",
+    "undated"
+   ],
+   "display": {
+    "colours": [
+     "#141418",
+     "#1c1c1f",
+     "#232327",
+     "#2b2b2e",
+     "#323236",
+     "#3a3a3d",
+     "#414145",
+     "#49494c",
+     "#515154",
+     "#58585b",
+     "#606063",
+     "#67676a",
+     "#6f6f71",
+     "#777779",
+     "#7e7e80",
+     "#868688",
+     "#8d8d8f",
+     "#959597",
+     "#9c9c9e",
+     "#a4a4a6",
+     "#acacad",
+     "#b3b3b4",
+     "#bbbbbc",
+     "#c2c2c3",
+     "#cacacb",
+     "#d2d2d2",
+     "#d9d9da",
+     "#e1e1e1",
+     "#e8e8e9",
+     "#f0f0f0",
+     "#f7f7f8",
+     "#ffffff"
+    ],
+    "values": [
+     0.0,
+     0.03225806451612903,
+     0.06451612903225806,
+     0.0967741935483871,
+     0.12903225806451613,
+     0.16129032258064516,
+     0.1935483870967742,
+     0.22580645161290322,
+     0.25806451612903225,
+     0.29032258064516125,
+     0.3225806451612903,
+     0.3548387096774194,
+     0.3870967741935484,
+     0.4193548387096774,
+     0.45161290322580644,
+     0.4838709677419355,
+     0.5161290322580645,
+     0.5483870967741935,
+     0.5806451612903225,
+     0.6129032258064516,
+     0.6451612903225806,
+     0.6774193548387096,
+     0.7096774193548387,
+     0.7419354838709677,
+     0.7741935483870968,
+     0.8064516129032258,
+     0.8387096774193548,
+     0.8709677419354839,
+     0.9032258064516129,
+     0.9354838709677419,
+     0.967741935483871,
+     1.0
+    ],
+    "scale": "linear",
+    "ramp": true
+   },
+   "status": "pattern only",
+   "status_check": "a_no_validation_source",
+   "statement": "pattern only"
+  }
+ ],
+ "voices": {
+  "value": "rel5477"
+ },
+ "play": [
+  {
+   "id": "value",
+   "label": "SOS - Day/Night cycle with Blue Marble and Black Marble Nightlights: higher pitch = higher value",
+   "view": "global",
+   "map": "value",
+   "start": {
+    "lat": -0.5,
+    "lon": 0.5
+   },
+   "steps_per_second": 1,
+   "channels": [
+    {
+     "voice": "rel5477",
+     "layers": [
+      "value"
+     ],
+     "combine": "value"
+    }
+   ]
+  }
+ ],
+ "validation": [
+  {
+   "id": "a_no_validation_source",
+   "title": "SOS - Day/Night cycle with Blue Marble and Black Marble Nightlights: no validation source",
+   "kind": "none",
+   "pass": null,
+   "threshold": null
+  }
+ ],
+ "size": {
+  "choice": {
+   "frames": 3
+  },
+  "tried": [],
+  "bytes": 232888,
+  "budget": 25000000
+ },
+ "onboarding": {
+  "timings_s": {
+   "api": 13.6,
+   "twins": 1.2,
+   "asset choice": 0.0,
+   "frames": 36.5,
+   "frame times": 3.0,
+   "georef": 4.1,
+   "colorbar": 9.4,
+   "inversion": 0.4,
+   "validation": 0.0
+  },
+  "status": "pattern only"
+ },
+ "asset_checksums": {
+  "file": "checksums.tsv.gz",
+  "rows": 3,
+  "sha256_of_list": "f345a607e1e4a4e124f3f89fc2833025090fa19c35178b2b86e3f4f7cd7a9267"
+ },
+ "code_commit": "a8f0638dc9adb81b18f259cf0813046acd882fa1-dirty",
+ "generated_utc": "2026-10-31T17:35:51Z"
+}

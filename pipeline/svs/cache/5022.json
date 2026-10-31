@@ -1,0 +1,767 @@
+{
+ "id": 5022,
+ "title": "OCO-2 Gridded Global Carbon Dioxide (CO₂)",
+ "url": "https://svs.gsfc.nasa.gov/5022/",
+ "page_type": "Visualization",
+ "release_date": "2023-02-24T16:00:00-05:00",
+ "update_date": "2025-03-02T23:13:17.698444-05:00",
+ "description": "Data visualization of global carbon dioxide (CO₂) for the period January 2015-February 2022, showcasing data from NASA's Obriting Carbon Observatory 2 (OCO-2) Gridded/Level 3 product. || oco2_3840x2160p60.1618_print.jpg (1024x576) [112.6 KB] || oco2_3840x2160p60.1618.png (3840x2160) [6.1 MB] || oco2_3840x2160p60.1618_print_searchweb.png (320x180) [53.9 KB] || oco2_3840x2160p60.1618_print_thm.png (80x40) [4.4 KB] || Composite (3840x2160) [0 Item(s)] || Composite (3840x2160) [0 Item(s)] || oco2_3840x2160p30.mp4 (3840x2160) [46.0 MB] || oco2_3840x2160_p60.mp4 (3840x2160) [45.1 MB] || oco2_3840x2160_p60.webm (3840x2160) [13.5 MB] || ",
+ "full_text": "Data visualization of global carbon dioxide (CO₂) for the period January 2015-February 2022, showcasing data from NASA's Obriting Carbon Observatory 2 (OCO-2) Gridded/Level 3 product. || oco2_3840x2160p60.1618_print.jpg (1024x576) [112.6 KB] || oco2_3840x2160p60.1618.png (3840x2160) [6.1 MB] || oco2_3840x2160p60.1618_print_searchweb.png (320x180) [53.9 KB] || oco2_3840x2160p60.1618_print_thm.png (80x40) [4.4 KB] || Composite (3840x2160) [0 Item(s)] || Composite (3840x2160) [0 Item(s)] || oco2_3840x2160p30.mp4 (3840x2160) [46.0 MB] || oco2_3840x2160_p60.mp4 (3840x2160) [45.1 MB] || oco2_3840x2160_p60.webm (3840x2160) [13.5 MB] ||\n\nData visualization of global carbon dioxide (CO₂) for the period January 2015-February 2022, showcasing data from NASA's Obriting Carbon Observatory 2 (OCO-2) Gridded/Level 3 product.\n\nData visualization of global carbon dioxide (CO₂) for the period January 2015-February 2022 in molleweide projection, showcasing data from NASA's Obriting Carbon Observatory 2 (OCO-2) Gridded/Level 3 product.\n\n<br>NASA’s Orbiting Carbon Observatory, 2 (OCO-2) provides the most complete dataset tracking the concentration of atmospheric carbon dioxide (CO₂), the main driver of climate change. Since its launch (July 2014), OCO-2 measures sunlight reflected from Earth’s surface to infer the dry-air column-averaged CO2 mixing ratio and provides around 100,000 cloud-free observations.<br><br>However, the OCO-2 data as observed by the on-board instrument have large data gaps in coverage due to the narrow 10-km ground track and an inability to see through clouds and aerosols. To provide a gap-filled view of Earth’s carbon cycle and atmosphere NASA’s Global and Modeling Assimilation Office (GMAO) ingests OCO-2 retrievals every 6 hours with a modeling and assimilation technique and derives the Gridded Monthly OCO-2 Carbon Dioxide/OCO-2 GEOS Level 3 product.<br>\r<br>The visualizations on this page feature the Gridded Monthly OCO-2 Carbon Dioxide assimilated dataset and demonstrate the global distribution and variation of carbon dioxide in the atmosphere for the period January 2015-February 2022.  One obvious feature that we see in the data visualization is a continual increase in carbon dioxide with time, as seen in the shift in the color of the map from dark purple towards light yellow as time progresses. Another feature is the seasonal variation of carbon dioxide in the northern hemisphere, which is governed by the growth cycle of plants. This can be seen as a pulsing in the colors, with a shift towards lighter colors starting in April/May each year and a shift towards darker as the end of each growing season passes into winter. The seasonal cycle is more pronounced in the northern hemisphere than the southern hemisphere since most of the land mass is in the north.<br>\r<br>The visualization includes a data-driven spatial map of global carbon dioxide (CO₂) that is paired with a date legend (monthly timestep) and an animated colormap that includes the monthly global mean value of carbon dioxide from OCO-2. <br><hr><br>The rest of this page offers visualization assets, layers in plate carrée and mollweide projections and a custom version for Science on a Sphere displays.<br><hr><br><b>Assets for plate carrée projection</b><br>\n\nThis set of frames provides the map layer of the OCO-2 gridded global carbon dioxide visualization sequence. Frames are provided with transparency in 4K resolution.\n\nThis set of frames provides the annotation layer of the OCO-2 gridded global carbon dioxide visualization sequence. The annotation layer consists of the visualization title, the animated colorbar and the timestamp. Frames are provided with transparency in 4K resolution.\n\n<br></hr><br><hr><br><b>Assets for mollweide projection</b><br>\n\nThis set of frames provides the composition of the OCO-2 gridded global carbon dioxide visualization sequence in mollweide projection with transparency. Frames are provided in 4K resolution.\n\nThis set of frames provides the map layer of the OCO-2 gridded global carbon dioxide visualization sequence in mollweide projection. Frames are provided with transparency in 4K resolution.\n\n<br></hr><br><hr><br><b>Science on a Sphere (SOS) content</b><br>The following section contains assets designed for Science On a Sphere and related displays.<br>SOS playlist file: <a href=\"/vis/a000000/a005000/a005022/playlist.sos\">playlist.sos</a><br>SOS label file: <a href=\"/vis/a000000/a005000/a005022/labels.txt\">labels.txt</a><br>\n\nFrames and movie in 4096x2048 resolution for Science On a Sphere displays.\n\nColorbar for OCO-2 gridded global carbon dioxide (CO₂).<p>\n\nThumbnail image for Science on a Sphere (SOS).\n\n<br><hr><br><b>Colormap</b><br>The following section contains colormap information.<br>\n\nColorbar for the OCO-2 gridded global carbon dioxide (CO₂) visualization sequence. Blue/purple- to-orange/yellow colormap (low-to-high values) to show the increase and seasonality of global carbon dioxide over the years.\n\nSee [https://ocov2.jpl.nasa.gov/](https://ocov2.jpl.nasa.gov/)",
+ "credits_by_role": {
+  "Visualizer": [
+   "Helen-Nicole Kostis (USRA)"
+  ],
+  "Scientist": [
+   "Lesley Ott (NASA/GSFC)"
+  ],
+  "Technical support": [
+   "Laurence Schuler (ADNET Systems, Inc.)",
+   "Ian Jones (ADNET Systems, Inc.)",
+   "Eric Sokolowsky (Global Science and Technology, Inc.)"
+  ]
+ },
+ "keywords": [
+  "4K",
+  "Atmosphere",
+  "Atmospheric Chemistry/Carbon and Hydrocarbon Compounds",
+  "Atmospheric Composition",
+  "Atmospheric science",
+  "Carbon Cycle and Ecosystems",
+  "Carbon Dioxide",
+  "Climate",
+  "Climate Change",
+  "Climate Variability and Change",
+  "CO2",
+  "Earth Science",
+  "Environmental science",
+  "Hyperwall",
+  "Science On a Sphere"
+ ],
+ "datasets": [
+  {
+   "name": "OCO-2 GEOS Level 3 monthly, 0.5x0.625 assimilated CO2 V10r",
+   "common_name": "OCO-2 GEOS Level 3 monthly",
+   "platform": "Orbiting Carbon Observatory-2/OCO-2",
+   "sensor": null,
+   "type": "Other",
+   "organizations": [
+    "NASA"
+   ],
+   "description": "OCO-2 GEOS (Goddard Earth Observing System) Level 3 data are produced by ingesting OCO-2 L2 retrievals every 6 hours with GEOS CoDAS, a modeling and data assimilation system maintained by NASA’s Global Modeling and Assimilation Office (GMAO). GEOS CoDAS uses a high-performance computing implementation of the Gridpoint Statistical Interpolation approach for solving the state estimation problem. GSI finds the analyzed state that minimizes the three-dimensional variational (3D-Var) cost function formulation of the state estimation problem.",
+   "credit": "NASA",
+   "url": "10.5067/BGFIODET3HZ8",
+   "date_range": null
+  }
+ ],
+ "missions": [
+  "Orbiting Carbon Observatory 2 (OCO-2)"
+ ],
+ "related": [
+  {
+   "id": 5115,
+   "title": "Global Atmospheric Carbon Dioxide (CO₂)",
+   "url": "https://svs.gsfc.nasa.gov/5115/"
+  },
+  {
+   "id": 5081,
+   "title": "National Carbon Dioxide (CO₂) budgets inferred from atmospheric observations",
+   "url": "https://svs.gsfc.nasa.gov/5081/"
+  },
+  {
+   "id": 5024,
+   "title": "20 years of AIRS Global Carbon Dioxide (CO₂) measurements (2002-October 2022)",
+   "url": "https://svs.gsfc.nasa.gov/5024/"
+  },
+  {
+   "id": 5025,
+   "title": "20 years of AIRS Global Carbon Dioxide (CO₂) measurements (2002-May 2022)",
+   "url": "https://svs.gsfc.nasa.gov/5025/"
+  },
+  {
+   "id": 4990,
+   "title": "20 years of AIRS Global Carbon Dioxide (CO₂) measurements (2002- March 2022)",
+   "url": "https://svs.gsfc.nasa.gov/4990/"
+  },
+  {
+   "id": 4983,
+   "title": "Global Carbon Dioxide 2020-2021 for Hyperwalls",
+   "url": "https://svs.gsfc.nasa.gov/4983/"
+  },
+  {
+   "id": 4962,
+   "title": "Concentration Increase of Atmospheric Carbon Dioxide (CO₂)",
+   "url": "https://svs.gsfc.nasa.gov/4962/"
+  },
+  {
+   "id": 4949,
+   "title": "Global Carbon Dioxide 2020-2021",
+   "url": "https://svs.gsfc.nasa.gov/4949/"
+  }
+ ],
+ "alternate_versions": [],
+ "newer_versions": [],
+ "older_versions": [],
+ "media": [
+  {
+   "group": 0,
+   "group_title": "",
+   "widget": "Video player",
+   "caption": "",
+   "group_text": "Data visualization of global carbon dioxide (CO₂) for the period January 2015-February 2022, showcasing data from NASA's Obriting Carbon Observatory 2 (OCO-2) Gridded/Level 3 product. ",
+   "url": "https://svs.gsfc.nasa.gov/vis/a000000/a005000/a005022/oco2_3840x2160p60.1618_print.jpg",
+   "filename": "oco2_3840x2160p60.1618_print.jpg",
+   "media_type": "Image",
+   "width": 1024,
+   "height": 576,
+   "alt_text": "Data visualization of global carbon dioxide (CO₂) for the period January 2015-February 2022, showcasing data from NASA's Obriting Carbon Observatory 2 (OCO-2) Gridded/Level 3 product. "
+  },
+  {
+   "group": 0,
+   "group_title": "",
+   "widget": "Video player",
+   "caption": "",
+   "group_text": "Data visualization of global carbon dioxide (CO₂) for the period January 2015-February 2022, showcasing data from NASA's Obriting Carbon Observatory 2 (OCO-2) Gridded/Level 3 product. ",
+   "url": "https://svs.gsfc.nasa.gov/vis/a000000/a005000/a005022/oco2_3840x2160p60.1618.png",
+   "filename": "oco2_3840x2160p60.1618.png",
+   "media_type": "Image",
+   "width": 3840,
+   "height": 2160,
+   "alt_text": "Data visualization of global carbon dioxide (CO₂) for the period January 2015-February 2022, showcasing data from NASA's Obriting Carbon Observatory 2 (OCO-2) Gridded/Level 3 product. "
+  },
+  {
+   "group": 0,
+   "group_title": "",
+   "widget": "Video player",
+   "caption": "",
+   "group_text": "Data visualization of global carbon dioxide (CO₂) for the period January 2015-February 2022, showcasing data from NASA's Obriting Carbon Observatory 2 (OCO-2) Gridded/Level 3 product. ",
+   "url": "https://svs.gsfc.nasa.gov/vis/a000000/a005000/a005022/oco2_3840x2160p60.1618_print_searchweb.png",
+   "filename": "oco2_3840x2160p60.1618_print_searchweb.png",
+   "media_type": "Image",
+   "width": 320,
+   "height": 180,
+   "alt_text": "Data visualization of global carbon dioxide (CO₂) for the period January 2015-February 2022, showcasing data from NASA's Obriting Carbon Observatory 2 (OCO-2) Gridded/Level 3 product. "
+  },
+  {
+   "group": 0,
+   "group_title": "",
+   "widget": "Video player",
+   "caption": "",
+   "group_text": "Data visualization of global carbon dioxide (CO₂) for the period January 2015-February 2022, showcasing data from NASA's Obriting Carbon Observatory 2 (OCO-2) Gridded/Level 3 product. ",
+   "url": "https://svs.gsfc.nasa.gov/vis/a000000/a005000/a005022/oco2_3840x2160p60.1618_print_thm.png",
+   "filename": "oco2_3840x2160p60.1618_print_thm.png",
+   "media_type": "Image",
+   "width": 80,
+   "height": 40,
+   "alt_text": "Data visualization of global carbon dioxide (CO₂) for the period January 2015-February 2022, showcasing data from NASA's Obriting Carbon Observatory 2 (OCO-2) Gridded/Level 3 product. "
+  },
+  {
+   "group": 0,
+   "group_title": "",
+   "widget": "Video player",
+   "caption": "",
+   "group_text": "Data visualization of global carbon dioxide (CO₂) for the period January 2015-February 2022, showcasing data from NASA's Obriting Carbon Observatory 2 (OCO-2) Gridded/Level 3 product. ",
+   "url": "https://svs.gsfc.nasa.gov/vis/a000000/a005000/a005022/frames/3840x2160_16x9_60p/Composite/",
+   "filename": "Composite",
+   "media_type": "Frames",
+   "width": 3840,
+   "height": 2160,
+   "alt_text": "Data visualization of global carbon dioxide (CO₂) for the period January 2015-February 2022, showcasing data from NASA's Obriting Carbon Observatory 2 (OCO-2) Gridded/Level 3 product. "
+  },
+  {
+   "group": 0,
+   "group_title": "",
+   "widget": "Video player",
+   "caption": "",
+   "group_text": "Data visualization of global carbon dioxide (CO₂) for the period January 2015-February 2022, showcasing data from NASA's Obriting Carbon Observatory 2 (OCO-2) Gridded/Level 3 product. ",
+   "url": "https://svs.gsfc.nasa.gov/vis/a000000/a005000/a005022/frames/3840x2160_16x9_30p/Composite/",
+   "filename": "Composite",
+   "media_type": "Frames",
+   "width": 3840,
+   "height": 2160,
+   "alt_text": "Data visualization of global carbon dioxide (CO₂) for the period January 2015-February 2022, showcasing data from NASA's Obriting Carbon Observatory 2 (OCO-2) Gridded/Level 3 product. "
+  },
+  {
+   "group": 0,
+   "group_title": "",
+   "widget": "Video player",
+   "caption": "",
+   "group_text": "Data visualization of global carbon dioxide (CO₂) for the period January 2015-February 2022, showcasing data from NASA's Obriting Carbon Observatory 2 (OCO-2) Gridded/Level 3 product. ",
+   "url": "https://svs.gsfc.nasa.gov/vis/a000000/a005000/a005022/oco2_3840x2160p30.mp4",
+   "filename": "oco2_3840x2160p30.mp4",
+   "media_type": "Movie",
+   "width": 3840,
+   "height": 2160,
+   "alt_text": "Data visualization of global carbon dioxide (CO₂) for the period January 2015-February 2022, showcasing data from NASA's Obriting Carbon Observatory 2 (OCO-2) Gridded/Level 3 product. "
+  },
+  {
+   "group": 0,
+   "group_title": "",
+   "widget": "Video player",
+   "caption": "",
+   "group_text": "Data visualization of global carbon dioxide (CO₂) for the period January 2015-February 2022, showcasing data from NASA's Obriting Carbon Observatory 2 (OCO-2) Gridded/Level 3 product. ",
+   "url": "https://svs.gsfc.nasa.gov/vis/a000000/a005000/a005022/oco2_3840x2160_p60.mp4",
+   "filename": "oco2_3840x2160_p60.mp4",
+   "media_type": "Movie",
+   "width": 3840,
+   "height": 2160,
+   "alt_text": "Data visualization of global carbon dioxide (CO₂) for the period January 2015-February 2022, showcasing data from NASA's Obriting Carbon Observatory 2 (OCO-2) Gridded/Level 3 product. "
+  },
+  {
+   "group": 0,
+   "group_title": "",
+   "widget": "Video player",
+   "caption": "",
+   "group_text": "Data visualization of global carbon dioxide (CO₂) for the period January 2015-February 2022, showcasing data from NASA's Obriting Carbon Observatory 2 (OCO-2) Gridded/Level 3 product. ",
+   "url": "https://svs.gsfc.nasa.gov/vis/a000000/a005000/a005022/oco2_3840x2160_p60.webm",
+   "filename": "oco2_3840x2160_p60.webm",
+   "media_type": "Movie",
+   "width": 3840,
+   "height": 2160,
+   "alt_text": "Data visualization of global carbon dioxide (CO₂) for the period January 2015-February 2022, showcasing data from NASA's Obriting Carbon Observatory 2 (OCO-2) Gridded/Level 3 product. "
+  },
+  {
+   "group": 1,
+   "group_title": "",
+   "widget": "Video player",
+   "caption": "",
+   "group_text": "Data visualization of global carbon dioxide (CO₂) for the period January 2015-February 2022 in molleweide projection, showcasing data from NASA's Obriting Carbon Observatory 2 (OCO-2) Gridded/Level 3 product. ",
+   "url": "https://svs.gsfc.nasa.gov/vis/a000000/a005000/a005022/OCO2Mollweide_Comp_1920x1080p30.mp4",
+   "filename": "OCO2Mollweide_Comp_1920x1080p30.mp4",
+   "media_type": "Movie",
+   "width": 1920,
+   "height": 1080,
+   "alt_text": "Data visualization of global carbon dioxide (CO₂) for the period January 2015-February 2022 in molleweide projection, showcasing data from NASA's Obriting Carbon Observatory 2 (OCO-2) Gridded/Level 3 product. "
+  },
+  {
+   "group": 1,
+   "group_title": "",
+   "widget": "Video player",
+   "caption": "",
+   "group_text": "Data visualization of global carbon dioxide (CO₂) for the period January 2015-February 2022 in molleweide projection, showcasing data from NASA's Obriting Carbon Observatory 2 (OCO-2) Gridded/Level 3 product. ",
+   "url": "https://svs.gsfc.nasa.gov/vis/a000000/a005000/a005022/OCO2Mollweide_Comp_3840x2160_60fps.1618_print.jpg",
+   "filename": "OCO2Mollweide_Comp_3840x2160_60fps.1618_print.jpg",
+   "media_type": "Image",
+   "width": 1024,
+   "height": 576,
+   "alt_text": "Data visualization of global carbon dioxide (CO₂) for the period January 2015-February 2022 in molleweide projection, showcasing data from NASA's Obriting Carbon Observatory 2 (OCO-2) Gridded/Level 3 product. "
+  },
+  {
+   "group": 1,
+   "group_title": "",
+   "widget": "Video player",
+   "caption": "",
+   "group_text": "Data visualization of global carbon dioxide (CO₂) for the period January 2015-February 2022 in molleweide projection, showcasing data from NASA's Obriting Carbon Observatory 2 (OCO-2) Gridded/Level 3 product. ",
+   "url": "https://svs.gsfc.nasa.gov/vis/a000000/a005000/a005022/OCO2Mollweide_Comp_3840x2160_60fps.1618.png",
+   "filename": "OCO2Mollweide_Comp_3840x2160_60fps.1618.png",
+   "media_type": "Image",
+   "width": 3840,
+   "height": 2160,
+   "alt_text": "Data visualization of global carbon dioxide (CO₂) for the period January 2015-February 2022 in molleweide projection, showcasing data from NASA's Obriting Carbon Observatory 2 (OCO-2) Gridded/Level 3 product. "
+  },
+  {
+   "group": 1,
+   "group_title": "",
+   "widget": "Video player",
+   "caption": "",
+   "group_text": "Data visualization of global carbon dioxide (CO₂) for the period January 2015-February 2022 in molleweide projection, showcasing data from NASA's Obriting Carbon Observatory 2 (OCO-2) Gridded/Level 3 product. ",
+   "url": "https://svs.gsfc.nasa.gov/vis/a000000/a005000/a005022/OCO2Mollweide_Comp_1920x1080p30.webm",
+   "filename": "OCO2Mollweide_Comp_1920x1080p30.webm",
+   "media_type": "Movie",
+   "width": 1920,
+   "height": 1080,
+   "alt_text": "Data visualization of global carbon dioxide (CO₂) for the period January 2015-February 2022 in molleweide projection, showcasing data from NASA's Obriting Carbon Observatory 2 (OCO-2) Gridded/Level 3 product. "
+  },
+  {
+   "group": 1,
+   "group_title": "",
+   "widget": "Video player",
+   "caption": "",
+   "group_text": "Data visualization of global carbon dioxide (CO₂) for the period January 2015-February 2022 in molleweide projection, showcasing data from NASA's Obriting Carbon Observatory 2 (OCO-2) Gridded/Level 3 product. ",
+   "url": "https://svs.gsfc.nasa.gov/vis/a000000/a005000/a005022/OCO2Mollweide_Comp_3840x2160p60.mp4",
+   "filename": "OCO2Mollweide_Comp_3840x2160p60.mp4",
+   "media_type": "Movie",
+   "width": 3840,
+   "height": 2160,
+   "alt_text": "Data visualization of global carbon dioxide (CO₂) for the period January 2015-February 2022 in molleweide projection, showcasing data from NASA's Obriting Carbon Observatory 2 (OCO-2) Gridded/Level 3 product. "
+  },
+  {
+   "group": 1,
+   "group_title": "",
+   "widget": "Video player",
+   "caption": "",
+   "group_text": "Data visualization of global carbon dioxide (CO₂) for the period January 2015-February 2022 in molleweide projection, showcasing data from NASA's Obriting Carbon Observatory 2 (OCO-2) Gridded/Level 3 product. ",
+   "url": "https://svs.gsfc.nasa.gov/vis/a000000/a005000/a005022/OCO2Mollweide_Comp_3840x2160p30.mp4",
+   "filename": "OCO2Mollweide_Comp_3840x2160p30.mp4",
+   "media_type": "Movie",
+   "width": 3840,
+   "height": 2160,
+   "alt_text": "Data visualization of global carbon dioxide (CO₂) for the period January 2015-February 2022 in molleweide projection, showcasing data from NASA's Obriting Carbon Observatory 2 (OCO-2) Gridded/Level 3 product. "
+  },
+  {
+   "group": 1,
+   "group_title": "",
+   "widget": "Video player",
+   "caption": "",
+   "group_text": "Data visualization of global carbon dioxide (CO₂) for the period January 2015-February 2022 in molleweide projection, showcasing data from NASA's Obriting Carbon Observatory 2 (OCO-2) Gridded/Level 3 product. ",
+   "url": "https://svs.gsfc.nasa.gov/vis/a000000/a005000/a005022/frames/3840x2160_16x9_60p/Mollweide_Comp/",
+   "filename": "Mollweide_Comp",
+   "media_type": "Frames",
+   "width": 3840,
+   "height": 2160,
+   "alt_text": "Data visualization of global carbon dioxide (CO₂) for the period January 2015-February 2022 in molleweide projection, showcasing data from NASA's Obriting Carbon Observatory 2 (OCO-2) Gridded/Level 3 product. "
+  },
+  {
+   "group": 1,
+   "group_title": "",
+   "widget": "Video player",
+   "caption": "",
+   "group_text": "Data visualization of global carbon dioxide (CO₂) for the period January 2015-February 2022 in molleweide projection, showcasing data from NASA's Obriting Carbon Observatory 2 (OCO-2) Gridded/Level 3 product. ",
+   "url": "https://svs.gsfc.nasa.gov/vis/a000000/a005000/a005022/OCO2Mollweide_Comp_1920x1080p30.mp4.hwshow",
+   "filename": "OCO2Mollweide_Comp_1920x1080p30.mp4.hwshow",
+   "media_type": "HyperwallShow",
+   "width": 0,
+   "height": 0,
+   "alt_text": ""
+  },
+  {
+   "group": 3,
+   "group_title": "",
+   "widget": "Video player",
+   "caption": "",
+   "group_text": "This set of frames provides the map layer of the OCO-2 gridded global carbon dioxide visualization sequence. Frames are provided with transparency in 4K resolution. ",
+   "url": "https://svs.gsfc.nasa.gov/vis/a000000/a005000/a005022/oco2_datalayer_3840x2160p60.1618_print.jpg",
+   "filename": "oco2_datalayer_3840x2160p60.1618_print.jpg",
+   "media_type": "Image",
+   "width": 1024,
+   "height": 576,
+   "alt_text": "This set of frames provides the map layer of the OCO-2 gridded global carbon dioxide visualization sequence. Frames are provided with transparency in 4K resolution. "
+  },
+  {
+   "group": 3,
+   "group_title": "",
+   "widget": "Video player",
+   "caption": "",
+   "group_text": "This set of frames provides the map layer of the OCO-2 gridded global carbon dioxide visualization sequence. Frames are provided with transparency in 4K resolution. ",
+   "url": "https://svs.gsfc.nasa.gov/vis/a000000/a005000/a005022/oco2_datalayer_3840x2160p60.1618.png",
+   "filename": "oco2_datalayer_3840x2160p60.1618.png",
+   "media_type": "Image",
+   "width": 3840,
+   "height": 2160,
+   "alt_text": "This set of frames provides the map layer of the OCO-2 gridded global carbon dioxide visualization sequence. Frames are provided with transparency in 4K resolution. "
+  },
+  {
+   "group": 3,
+   "group_title": "",
+   "widget": "Video player",
+   "caption": "",
+   "group_text": "This set of frames provides the map layer of the OCO-2 gridded global carbon dioxide visualization sequence. Frames are provided with transparency in 4K resolution. ",
+   "url": "https://svs.gsfc.nasa.gov/vis/a000000/a005000/a005022/frames/3840x2160_16x9_60p/CO2_Layer/",
+   "filename": "CO2_Layer",
+   "media_type": "Frames",
+   "width": 3840,
+   "height": 2160,
+   "alt_text": "This set of frames provides the map layer of the OCO-2 gridded global carbon dioxide visualization sequence. Frames are provided with transparency in 4K resolution. "
+  },
+  {
+   "group": 3,
+   "group_title": "",
+   "widget": "Video player",
+   "caption": "",
+   "group_text": "This set of frames provides the map layer of the OCO-2 gridded global carbon dioxide visualization sequence. Frames are provided with transparency in 4K resolution. ",
+   "url": "https://svs.gsfc.nasa.gov/vis/a000000/a005000/a005022/oco2_datalayer_3840x2160p30.mp4",
+   "filename": "oco2_datalayer_3840x2160p30.mp4",
+   "media_type": "Movie",
+   "width": 3840,
+   "height": 2160,
+   "alt_text": "This set of frames provides the map layer of the OCO-2 gridded global carbon dioxide visualization sequence. Frames are provided with transparency in 4K resolution. "
+  },
+  {
+   "group": 3,
+   "group_title": "",
+   "widget": "Video player",
+   "caption": "",
+   "group_text": "This set of frames provides the map layer of the OCO-2 gridded global carbon dioxide visualization sequence. Frames are provided with transparency in 4K resolution. ",
+   "url": "https://svs.gsfc.nasa.gov/vis/a000000/a005000/a005022/oco2_datalayer_3840x2160p30.webm",
+   "filename": "oco2_datalayer_3840x2160p30.webm",
+   "media_type": "Movie",
+   "width": 3840,
+   "height": 2160,
+   "alt_text": "This set of frames provides the map layer of the OCO-2 gridded global carbon dioxide visualization sequence. Frames are provided with transparency in 4K resolution. "
+  },
+  {
+   "group": 4,
+   "group_title": "",
+   "widget": "Video player",
+   "caption": "",
+   "group_text": "This set of frames provides the annotation layer of the OCO-2 gridded global carbon dioxide visualization sequence. The annotation layer consists of the visualization title, the animated colorbar and the timestamp. Frames are provided with transparency in 4K resolution. ",
+   "url": "https://svs.gsfc.nasa.gov/vis/a000000/a005000/a005022/co2_annotations_3840x2160p60.1618_print.jpg",
+   "filename": "co2_annotations_3840x2160p60.1618_print.jpg",
+   "media_type": "Image",
+   "width": 1024,
+   "height": 576,
+   "alt_text": "This set of frames provides the annotation layer of the OCO-2 gridded global carbon dioxide visualization sequence. The annotation layer consists of the visualization title, the animated colorbar and the timestamp. Frames are provided with transparency in 4K resolution. "
+  },
+  {
+   "group": 4,
+   "group_title": "",
+   "widget": "Video player",
+   "caption": "",
+   "group_text": "This set of frames provides the annotation layer of the OCO-2 gridded global carbon dioxide visualization sequence. The annotation layer consists of the visualization title, the animated colorbar and the timestamp. Frames are provided with transparency in 4K resolution. ",
+   "url": "https://svs.gsfc.nasa.gov/vis/a000000/a005000/a005022/co2_annotations_3840x2160p60.1618.png",
+   "filename": "co2_annotations_3840x2160p60.1618.png",
+   "media_type": "Image",
+   "width": 3840,
+   "height": 2160,
+   "alt_text": "This set of frames provides the annotation layer of the OCO-2 gridded global carbon dioxide visualization sequence. The annotation layer consists of the visualization title, the animated colorbar and the timestamp. Frames are provided with transparency in 4K resolution. "
+  },
+  {
+   "group": 4,
+   "group_title": "",
+   "widget": "Video player",
+   "caption": "",
+   "group_text": "This set of frames provides the annotation layer of the OCO-2 gridded global carbon dioxide visualization sequence. The annotation layer consists of the visualization title, the animated colorbar and the timestamp. Frames are provided with transparency in 4K resolution. ",
+   "url": "https://svs.gsfc.nasa.gov/vis/a000000/a005000/a005022/frames/3840x2160_16x9_60p/Annotations_Layer/",
+   "filename": "Annotations_Layer",
+   "media_type": "Frames",
+   "width": 3840,
+   "height": 2160,
+   "alt_text": "This set of frames provides the annotation layer of the OCO-2 gridded global carbon dioxide visualization sequence. The annotation layer consists of the visualization title, the animated colorbar and the timestamp. Frames are provided with transparency in 4K resolution. "
+  },
+  {
+   "group": 4,
+   "group_title": "",
+   "widget": "Video player",
+   "caption": "",
+   "group_text": "This set of frames provides the annotation layer of the OCO-2 gridded global carbon dioxide visualization sequence. The annotation layer consists of the visualization title, the animated colorbar and the timestamp. Frames are provided with transparency in 4K resolution. ",
+   "url": "https://svs.gsfc.nasa.gov/vis/a000000/a005000/a005022/co2_annotations_3840x2160p30.mp4",
+   "filename": "co2_annotations_3840x2160p30.mp4",
+   "media_type": "Movie",
+   "width": 3840,
+   "height": 2160,
+   "alt_text": "This set of frames provides the annotation layer of the OCO-2 gridded global carbon dioxide visualization sequence. The annotation layer consists of the visualization title, the animated colorbar and the timestamp. Frames are provided with transparency in 4K resolution. "
+  },
+  {
+   "group": 4,
+   "group_title": "",
+   "widget": "Video player",
+   "caption": "",
+   "group_text": "This set of frames provides the annotation layer of the OCO-2 gridded global carbon dioxide visualization sequence. The annotation layer consists of the visualization title, the animated colorbar and the timestamp. Frames are provided with transparency in 4K resolution. ",
+   "url": "https://svs.gsfc.nasa.gov/vis/a000000/a005000/a005022/co2_annotations_3840x2160p30.webm",
+   "filename": "co2_annotations_3840x2160p30.webm",
+   "media_type": "Movie",
+   "width": 3840,
+   "height": 2160,
+   "alt_text": "This set of frames provides the annotation layer of the OCO-2 gridded global carbon dioxide visualization sequence. The annotation layer consists of the visualization title, the animated colorbar and the timestamp. Frames are provided with transparency in 4K resolution. "
+  },
+  {
+   "group": 6,
+   "group_title": "",
+   "widget": "Single image",
+   "caption": "",
+   "group_text": "This set of frames provides the composition of the OCO-2 gridded global carbon dioxide visualization sequence in mollweide projection with transparency. Frames are provided in 4K resolution. ",
+   "url": "https://svs.gsfc.nasa.gov/vis/a000000/a005000/a005022/OCO2Mollweide_3840x2160_60fps.1618_print.jpg",
+   "filename": "OCO2Mollweide_3840x2160_60fps.1618_print.jpg",
+   "media_type": "Image",
+   "width": 1024,
+   "height": 576,
+   "alt_text": "This set of frames provides the composition of the OCO-2 gridded global carbon dioxide visualization sequence in mollweide projection with transparency. Frames are provided in 4K resolution. "
+  },
+  {
+   "group": 6,
+   "group_title": "",
+   "widget": "Single image",
+   "caption": "",
+   "group_text": "This set of frames provides the composition of the OCO-2 gridded global carbon dioxide visualization sequence in mollweide projection with transparency. Frames are provided in 4K resolution. ",
+   "url": "https://svs.gsfc.nasa.gov/vis/a000000/a005000/a005022/OCO2Mollweide_3840x2160_60fps.1618.png",
+   "filename": "OCO2Mollweide_3840x2160_60fps.1618.png",
+   "media_type": "Image",
+   "width": 3840,
+   "height": 2160,
+   "alt_text": "This set of frames provides the composition of the OCO-2 gridded global carbon dioxide visualization sequence in mollweide projection with transparency. Frames are provided in 4K resolution. "
+  },
+  {
+   "group": 6,
+   "group_title": "",
+   "widget": "Single image",
+   "caption": "",
+   "group_text": "This set of frames provides the composition of the OCO-2 gridded global carbon dioxide visualization sequence in mollweide projection with transparency. Frames are provided in 4K resolution. ",
+   "url": "https://svs.gsfc.nasa.gov/vis/a000000/a005000/a005022/frames/3840x2160_16x9_60p/Mollweide/",
+   "filename": "Mollweide",
+   "media_type": "Frames",
+   "width": 3840,
+   "height": 2160,
+   "alt_text": "This set of frames provides the composition of the OCO-2 gridded global carbon dioxide visualization sequence in mollweide projection with transparency. Frames are provided in 4K resolution. "
+  },
+  {
+   "group": 7,
+   "group_title": "",
+   "widget": "Single image",
+   "caption": "",
+   "group_text": "This set of frames provides the map layer of the OCO-2 gridded global carbon dioxide visualization sequence in mollweide projection. Frames are provided with transparency in 4K resolution. ",
+   "url": "https://svs.gsfc.nasa.gov/vis/a000000/a005000/a005022/map_mollweide_3840x2160p60.1618_print.jpg",
+   "filename": "map_mollweide_3840x2160p60.1618_print.jpg",
+   "media_type": "Image",
+   "width": 1024,
+   "height": 512,
+   "alt_text": "This set of frames provides the map layer of the OCO-2 gridded global carbon dioxide visualization sequence in mollweide projection. Frames are provided with transparency in 4K resolution. "
+  },
+  {
+   "group": 7,
+   "group_title": "",
+   "widget": "Single image",
+   "caption": "",
+   "group_text": "This set of frames provides the map layer of the OCO-2 gridded global carbon dioxide visualization sequence in mollweide projection. Frames are provided with transparency in 4K resolution. ",
+   "url": "https://svs.gsfc.nasa.gov/vis/a000000/a005000/a005022/frames/3840x2160_16x9_60p/CO2_Mollweide_Layer/",
+   "filename": "CO2_Mollweide_Layer",
+   "media_type": "Frames",
+   "width": 4096,
+   "height": 2048,
+   "alt_text": "This set of frames provides the map layer of the OCO-2 gridded global carbon dioxide visualization sequence in mollweide projection. Frames are provided with transparency in 4K resolution. "
+  },
+  {
+   "group": 7,
+   "group_title": "",
+   "widget": "Single image",
+   "caption": "",
+   "group_text": "This set of frames provides the map layer of the OCO-2 gridded global carbon dioxide visualization sequence in mollweide projection. Frames are provided with transparency in 4K resolution. ",
+   "url": "https://svs.gsfc.nasa.gov/vis/a000000/a005000/a005022/map_mollweide_3840x2160p60.1618.tiff",
+   "filename": "map_mollweide_3840x2160p60.1618.tiff",
+   "media_type": "Image",
+   "width": 4096,
+   "height": 2048,
+   "alt_text": "This set of frames provides the map layer of the OCO-2 gridded global carbon dioxide visualization sequence in mollweide projection. Frames are provided with transparency in 4K resolution. "
+  },
+  {
+   "group": 9,
+   "group_title": "",
+   "widget": "Video player",
+   "caption": "",
+   "group_text": "Frames and movie in 4096x2048 resolution for Science On a Sphere displays.",
+   "url": "https://svs.gsfc.nasa.gov/vis/a000000/a005000/a005022/oco2_SOS_4096x2048p30.0808_print.jpg",
+   "filename": "oco2_SOS_4096x2048p30.0808_print.jpg",
+   "media_type": "Image",
+   "width": 1024,
+   "height": 512,
+   "alt_text": "Frames and movie in 4096x2048 resolution for Science On a Sphere displays."
+  },
+  {
+   "group": 9,
+   "group_title": "",
+   "widget": "Video player",
+   "caption": "",
+   "group_text": "Frames and movie in 4096x2048 resolution for Science On a Sphere displays.",
+   "url": "https://svs.gsfc.nasa.gov/vis/a000000/a005000/a005022/oco2_SOS_4096x2048p30.0808.png",
+   "filename": "oco2_SOS_4096x2048p30.0808.png",
+   "media_type": "Image",
+   "width": 4096,
+   "height": 2048,
+   "alt_text": "Frames and movie in 4096x2048 resolution for Science On a Sphere displays."
+  },
+  {
+   "group": 9,
+   "group_title": "",
+   "widget": "Video player",
+   "caption": "",
+   "group_text": "Frames and movie in 4096x2048 resolution for Science On a Sphere displays.",
+   "url": "https://svs.gsfc.nasa.gov/vis/a000000/a005000/a005022/frames/4096x2048_2x1_60p/exr/",
+   "filename": "exr",
+   "media_type": "Frames",
+   "width": 4096,
+   "height": 2048,
+   "alt_text": "Frames and movie in 4096x2048 resolution for Science On a Sphere displays."
+  },
+  {
+   "group": 9,
+   "group_title": "",
+   "widget": "Video player",
+   "caption": "",
+   "group_text": "Frames and movie in 4096x2048 resolution for Science On a Sphere displays.",
+   "url": "https://svs.gsfc.nasa.gov/vis/a000000/a005000/a005022/frames/4096x2048_2x1_30p/exr/",
+   "filename": "exr",
+   "media_type": "Frames",
+   "width": 4096,
+   "height": 2048,
+   "alt_text": "Frames and movie in 4096x2048 resolution for Science On a Sphere displays."
+  },
+  {
+   "group": 9,
+   "group_title": "",
+   "widget": "Video player",
+   "caption": "",
+   "group_text": "Frames and movie in 4096x2048 resolution for Science On a Sphere displays.",
+   "url": "https://svs.gsfc.nasa.gov/vis/a000000/a005000/a005022/frames/4096x2048_2x1_30p/png/",
+   "filename": "png",
+   "media_type": "Frames",
+   "width": 4096,
+   "height": 2048,
+   "alt_text": "Frames and movie in 4096x2048 resolution for Science On a Sphere displays."
+  },
+  {
+   "group": 9,
+   "group_title": "",
+   "widget": "Video player",
+   "caption": "",
+   "group_text": "Frames and movie in 4096x2048 resolution for Science On a Sphere displays.",
+   "url": "https://svs.gsfc.nasa.gov/vis/a000000/a005000/a005022/oco2_SOS_4096x2048p30.mp4",
+   "filename": "oco2_SOS_4096x2048p30.mp4",
+   "media_type": "Movie",
+   "width": 4096,
+   "height": 2048,
+   "alt_text": "Frames and movie in 4096x2048 resolution for Science On a Sphere displays."
+  },
+  {
+   "group": 9,
+   "group_title": "",
+   "widget": "Video player",
+   "caption": "",
+   "group_text": "Frames and movie in 4096x2048 resolution for Science On a Sphere displays.",
+   "url": "https://svs.gsfc.nasa.gov/vis/a000000/a005000/a005022/oco2_SOS_4096x2048p30.webm",
+   "filename": "oco2_SOS_4096x2048p30.webm",
+   "media_type": "Movie",
+   "width": 4096,
+   "height": 2048,
+   "alt_text": "Frames and movie in 4096x2048 resolution for Science On a Sphere displays."
+  },
+  {
+   "group": 10,
+   "group_title": "",
+   "widget": "Single image",
+   "caption": "",
+   "group_text": "Colorbar for OCO-2 gridded global carbon dioxide (CO₂).<p>",
+   "url": "https://svs.gsfc.nasa.gov/vis/a000000/a005000/a005022/OCO2_Colormap_1000x300.png",
+   "filename": "OCO2_Colormap_1000x300.png",
+   "media_type": "Image",
+   "width": 1000,
+   "height": 300,
+   "alt_text": "Colorbar for OCO-2 gridded global carbon dioxide (CO₂)."
+  },
+  {
+   "group": 11,
+   "group_title": "",
+   "widget": "Single image",
+   "caption": "",
+   "group_text": "Thumbnail image for Science on a Sphere (SOS).",
+   "url": "https://svs.gsfc.nasa.gov/vis/a000000/a005000/a005022/oco2_SOS_thumbnail.png",
+   "filename": "oco2_SOS_thumbnail.png",
+   "media_type": "Image",
+   "width": 800,
+   "height": 800,
+   "alt_text": "Thumbnail image for Science on a Sphere (SOS)."
+  },
+  {
+   "group": 13,
+   "group_title": "",
+   "widget": "Single image",
+   "caption": "",
+   "group_text": "Colorbar for the OCO-2 gridded global carbon dioxide (CO₂) visualization sequence. Blue/purple- to-orange/yellow colormap (low-to-high values) to show the increase and seasonality of global carbon dioxide over the years.",
+   "url": "https://svs.gsfc.nasa.gov/vis/a000000/a005000/a005022/OCO2_Colormap_5022.png",
+   "filename": "OCO2_Colormap_5022.png",
+   "media_type": "Image",
+   "width": 100,
+   "height": 1000,
+   "alt_text": "Colorbar for the OCO-2 gridded global carbon dioxide (CO₂) visualization sequence. Blue/purple- to-orange/yellow colormap (low-to-high values) to show the increase and seasonality of global carbon dioxide over the years."
+  },
+  {
+   "group": 13,
+   "group_title": "",
+   "widget": "Single image",
+   "caption": "",
+   "group_text": "Colorbar for the OCO-2 gridded global carbon dioxide (CO₂) visualization sequence. Blue/purple- to-orange/yellow colormap (low-to-high values) to show the increase and seasonality of global carbon dioxide over the years.",
+   "url": "https://svs.gsfc.nasa.gov/vis/a000000/a005000/a005022/OCO2_Colormap_5022_preview.png",
+   "filename": "OCO2_Colormap_5022_preview.png",
+   "media_type": "Image",
+   "width": 104,
+   "height": 1004,
+   "alt_text": "Colorbar for the OCO-2 gridded global carbon dioxide (CO₂) visualization sequence. Blue/purple- to-orange/yellow colormap (low-to-high values) to show the increase and seasonality of global carbon dioxide over the years."
+  }
+ ],
+ "text_links": [
+  "https://svs.gsfc.nasa.gov/vis/a000000/a005000/a005022/playlist.sos",
+  "https://svs.gsfc.nasa.gov/vis/a000000/a005000/a005022/labels.txt",
+  "https://ocov2.jpl.nasa.gov/"
+ ],
+ "frame_folders": {
+  "https://svs.gsfc.nasa.gov/vis/a000000/a005000/a005022/frames/3840x2160_16x9_60p/Composite/": {
+   "url": "https://svs.gsfc.nasa.gov/vis/a000000/a005000/a005022/frames/3840x2160_16x9_60p/Composite/",
+   "frame_count": 1618,
+   "bytes_approx": 25818599902,
+   "first": "oco2_3840x2160p60.0001.exr",
+   "last": "oco2_3840x2160p60.1618.exr",
+   "subfolders": {}
+  },
+  "https://svs.gsfc.nasa.gov/vis/a000000/a005000/a005022/frames/3840x2160_16x9_30p/Composite/": {
+   "url": "https://svs.gsfc.nasa.gov/vis/a000000/a005000/a005022/frames/3840x2160_16x9_30p/Composite/",
+   "frame_count": 809,
+   "bytes_approx": 12905099948,
+   "first": "oco2_3840x2160p30.0000.exr",
+   "last": "oco2_3840x2160p30.0808.exr",
+   "subfolders": {}
+  },
+  "https://svs.gsfc.nasa.gov/vis/a000000/a005000/a005022/frames/3840x2160_16x9_60p/Mollweide_Comp/": {
+   "url": "https://svs.gsfc.nasa.gov/vis/a000000/a005000/a005022/frames/3840x2160_16x9_60p/Mollweide_Comp/",
+   "frame_count": 1618,
+   "bytes_approx": 7259599953,
+   "first": "OCO2Mollweide_Comp_3840x2160_60fps.0001.png",
+   "last": "OCO2Mollweide_Comp_3840x2160_60fps.1618.png",
+   "subfolders": {}
+  },
+  "https://svs.gsfc.nasa.gov/vis/a000000/a005000/a005022/frames/3840x2160_16x9_60p/CO2_Layer/": {
+   "url": "https://svs.gsfc.nasa.gov/vis/a000000/a005000/a005022/frames/3840x2160_16x9_60p/CO2_Layer/",
+   "frame_count": 1618,
+   "bytes_approx": 22563800000,
+   "first": "oco2_datalayer_3840x2160p60.0001.exr",
+   "last": "oco2_datalayer_3840x2160p60.1618.exr",
+   "subfolders": {}
+  },
+  "https://svs.gsfc.nasa.gov/vis/a000000/a005000/a005022/frames/3840x2160_16x9_60p/Annotations_Layer/": {
+   "url": "https://svs.gsfc.nasa.gov/vis/a000000/a005000/a005022/frames/3840x2160_16x9_60p/Annotations_Layer/",
+   "frame_count": 1618,
+   "bytes_approx": 1055402700,
+   "first": "co2_annotations_3840x2160p60.0001.exr",
+   "last": "co2_annotations_3840x2160p60.1618.exr",
+   "subfolders": {}
+  },
+  "https://svs.gsfc.nasa.gov/vis/a000000/a005000/a005022/frames/3840x2160_16x9_60p/Mollweide/": {
+   "url": "https://svs.gsfc.nasa.gov/vis/a000000/a005000/a005022/frames/3840x2160_16x9_60p/Mollweide/",
+   "frame_count": 1618,
+   "bytes_approx": 8179199994,
+   "first": "OCO2Mollweide_3840x2160_60fps.0001.png",
+   "last": "OCO2Mollweide_3840x2160_60fps.1618.png",
+   "subfolders": {}
+  },
+  "https://svs.gsfc.nasa.gov/vis/a000000/a005000/a005022/frames/3840x2160_16x9_60p/CO2_Mollweide_Layer/": {
+   "url": "https://svs.gsfc.nasa.gov/vis/a000000/a005000/a005022/frames/3840x2160_16x9_60p/CO2_Mollweide_Layer/",
+   "frame_count": 1618,
+   "bytes_approx": 12392599955,
+   "first": "map_mollweide_3840x2160p60.0001.tiff",
+   "last": "map_mollweide_3840x2160p60.1618.tiff",
+   "subfolders": {}
+  },
+  "https://svs.gsfc.nasa.gov/vis/a000000/a005000/a005022/frames/4096x2048_2x1_60p/exr/": {
+   "url": "https://svs.gsfc.nasa.gov/vis/a000000/a005000/a005022/frames/4096x2048_2x1_60p/exr/",
+   "frame_count": 1618,
+   "bytes_approx": 25142399948,
+   "first": "oco2_SOS_4096x2048p60.0001.exr",
+   "last": "oco2_SOS_4096x2048p60.1618.exr",
+   "subfolders": {}
+  },
+  "https://svs.gsfc.nasa.gov/vis/a000000/a005000/a005022/frames/4096x2048_2x1_30p/exr/": {
+   "url": "https://svs.gsfc.nasa.gov/vis/a000000/a005000/a005022/frames/4096x2048_2x1_30p/exr/",
+   "frame_count": 809,
+   "bytes_approx": 12567099972,
+   "first": "oco2_SOS_4096x2048p30.0000.exr",
+   "last": "oco2_SOS_4096x2048p30.0808.exr",
+   "subfolders": {}
+  },
+  "https://svs.gsfc.nasa.gov/vis/a000000/a005000/a005022/frames/4096x2048_2x1_30p/png/": {
+   "url": "https://svs.gsfc.nasa.gov/vis/a000000/a005000/a005022/frames/4096x2048_2x1_30p/png/",
+   "frame_count": 809,
+   "bytes_approx": 4321899994,
+   "first": "oco2_SOS_4096x2048p30.0000.png",
+   "last": "oco2_SOS_4096x2048p30.0808.png",
+   "subfolders": {}
+  }
+ },
+ "api_url": "https://svs.gsfc.nasa.gov/api/5022",
+ "fetched_utc": "2026-10-31T17:08:23Z"
+}

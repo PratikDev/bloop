@@ -1,0 +1,36 @@
+{
+ "record": "rel_5624",
+ "checks": [
+  {
+   "record": "rel_5624",
+   "id": "a_auto_source",
+   "title": "Global Smoke Forecast Visualization (Daily Updated): decoded values vs GEOS-FP brown-carbon AOD (OPeNDAP)",
+   "kind": "value",
+   "source": "GEOS-FP brown-carbon AOD (OPeNDAP)",
+   "metrics": {
+    "rung": "same model (GEOS-FP)",
+    "unit": "AOD",
+    "spearman": -0.34278734824950724,
+    "n": 25196,
+    "median_rel_error": 34.46850737853682,
+    "bias": 0.17008378452633457,
+    "dates": [
+     {
+      "date": "2026-10-28"
+     },
+     {
+      "date": "2026-10-30"
+     },
+     {
+      "date": "2026-11-01"
+     }
+    ]
+   },
+   "threshold": "Spearman ≥ 0.9 and median relative error ≤ 15 % → verified; ρ ≥ 0.9 → values with stated error; ρ ≥ 0.6 → relative (provisional, onboarding defaults)",
+   "pass": false,
+   "note": "Rung: same model (GEOS-FP). Onboarding run, 3 frames.",
+   "run_utc": "2026-10-31T18:02:31Z"
+  }
+ ],
+ "updated_utc": "2026-10-31T21:37:13Z"
+}

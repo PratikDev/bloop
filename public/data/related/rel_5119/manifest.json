@@ -1,0 +1,377 @@
+{
+ "record": "rel_5119",
+ "app_title": "OCO-2 and Keeling Curve: Trends in global atmospheric Carbon Dioxide (CO₂) (series)",
+ "svs_ids": [
+  5119
+ ],
+ "title": "OCO-2 and Keeling Curve: Trends in global atmospheric Carbon Dioxide (CO₂)",
+ "svs_pages": [
+  "https://svs.gsfc.nasa.gov/5119/"
+ ],
+ "description": "OCO-2 and Keeling Curve trends in global atmospheric carbon dioxide. || KeelingCurve_OCO2_1920x1080p30.00370_print.jpg (1024x576) [49.6 KB] || KeelingCurve_OCO2_1920x1080p30.00370.png (1920x1080) [357.7 KB] || KeelingCurve_OCO2_1920x1080p30.00370_searchweb.png (320x180) [16.8 KB] || KeelingCurve_OCO2_1920x1080p30.00370_thm.png (80x40) [2.1 KB] || 1920x1080_16x9_30p (1920x1080) [0 Item(s)] || OCO2_KeelingCurve_1920x1080p30.mp4 (1920x1080) [5.3 MB] || KeelingCurve_OCO2_1920x1080p30.00370.exr (1920x1080) [2.3 MB] || ",
+ "release_date": "2023-06-20T22:00:00-04:00",
+ "period": {
+  "start": "1959-07-01T00:00:00Z",
+  "end": "2025-07-01T00:00:00Z",
+  "label": "1 Jul 1959 – 1 Jul 2025"
+ },
+ "badge": "observation",
+ "credits_by_role": {
+  "Visualizer": [
+   "Helen-Nicole Kostis (USRA)",
+   "AJ Christensen (SSAI)"
+  ],
+  "Technical support": [
+   "Laurence Schuler (ADNET Systems, Inc.)",
+   "Ian Jones (ADNET Systems, Inc.)"
+  ]
+ },
+ "datasets": [],
+ "credit_line": "Visualization: NASA's Scientific Visualization Studio (SVS 5119) for the NASA Earth Information Center.",
+ "disclosure": "A related NASA visualization read back through its key (observation).",
+ "licence": "SVS: \"All of our content is in the public domain (unless otherwise noted), meaning that it is free to download, use, and redistribute for whatever purposes you see fit.\" (https://svs.gsfc.nasa.gov/help/, read 29 Oct 2026)",
+ "focus": "greenhouse gases",
+ "related_to": [
+  5196
+ ],
+ "frame_times": {
+  "method": "date-list",
+  "approximate": false,
+  "count": 67,
+  "source": "the series' own dates (https://gml.noaa.gov/webdata/ccgg/trends/co2/co2_annmean_mlo.txt)"
+ },
+ "georef": {
+  "projection": "none (a time series)",
+  "bounds": [
+   -180,
+   -90,
+   180,
+   90
+  ],
+  "pass_at": 0.0,
+  "shifts_deg": [],
+  "iou": {},
+  "pass": false,
+  "best_is_assumed": false
+ },
+ "colorbar": null,
+ "series": {
+  "source": "NOAA GML Mauna Loa CO2 (Lan, Keeling; free use with credit)",
+  "url": "https://gml.noaa.gov/webdata/ccgg/trends/co2/co2_annmean_mlo.txt"
+ },
+ "layers": [
+  {
+   "id": "series",
+   "unit": "ppm (Mauna Loa annual mean)",
+   "encoding": "linear",
+   "scale": 0.014245,
+   "offset": 315.98,
+   "nodata": 65535,
+   "below": 65534,
+   "grid": {
+    "width": 1,
+    "height": 1,
+    "bounds": [
+     -180,
+     -90,
+     180,
+     90
+    ],
+    "row0": "north",
+    "col0": "west",
+    "byte_order": "little"
+   },
+   "times": [
+    "1959-07-01T00:00:00Z",
+    "1960-07-01T00:00:00Z",
+    "1961-07-01T00:00:00Z",
+    "1962-07-01T00:00:00Z",
+    "1963-07-01T00:00:00Z",
+    "1964-07-01T00:00:00Z",
+    "1965-07-01T00:00:00Z",
+    "1966-07-01T00:00:00Z",
+    "1967-07-01T00:00:00Z",
+    "1968-07-01T00:00:00Z",
+    "1969-07-01T00:00:00Z",
+    "1970-07-01T00:00:00Z",
+    "1971-07-01T00:00:00Z",
+    "1972-07-01T00:00:00Z",
+    "1973-07-01T00:00:00Z",
+    "1974-07-01T00:00:00Z",
+    "1975-07-01T00:00:00Z",
+    "1976-07-01T00:00:00Z",
+    "1977-07-01T00:00:00Z",
+    "1978-07-01T00:00:00Z",
+    "1979-07-01T00:00:00Z",
+    "1980-07-01T00:00:00Z",
+    "1981-07-01T00:00:00Z",
+    "1982-07-01T00:00:00Z",
+    "1983-07-01T00:00:00Z",
+    "1984-07-01T00:00:00Z",
+    "1985-07-01T00:00:00Z",
+    "1986-07-01T00:00:00Z",
+    "1987-07-01T00:00:00Z",
+    "1988-07-01T00:00:00Z",
+    "1989-07-01T00:00:00Z",
+    "1990-07-01T00:00:00Z",
+    "1991-07-01T00:00:00Z",
+    "1992-07-01T00:00:00Z",
+    "1993-07-01T00:00:00Z",
+    "1994-07-01T00:00:00Z",
+    "1995-07-01T00:00:00Z",
+    "1996-07-01T00:00:00Z",
+    "1997-07-01T00:00:00Z",
+    "1998-07-01T00:00:00Z",
+    "1999-07-01T00:00:00Z",
+    "2000-07-01T00:00:00Z",
+    "2001-07-01T00:00:00Z",
+    "2002-07-01T00:00:00Z",
+    "2003-07-01T00:00:00Z",
+    "2004-07-01T00:00:00Z",
+    "2005-07-01T00:00:00Z",
+    "2006-07-01T00:00:00Z",
+    "2007-07-01T00:00:00Z",
+    "2008-07-01T00:00:00Z",
+    "2009-07-01T00:00:00Z",
+    "2010-07-01T00:00:00Z",
+    "2011-07-01T00:00:00Z",
+    "2012-07-01T00:00:00Z",
+    "2013-07-01T00:00:00Z",
+    "2014-07-01T00:00:00Z",
+    "2015-07-01T00:00:00Z",
+    "2016-07-01T00:00:00Z",
+    "2017-07-01T00:00:00Z",
+    "2018-07-01T00:00:00Z",
+    "2019-07-01T00:00:00Z",
+    "2020-07-01T00:00:00Z",
+    "2021-07-01T00:00:00Z",
+    "2022-07-01T00:00:00Z",
+    "2023-07-01T00:00:00Z",
+    "2024-07-01T00:00:00Z",
+    "2025-07-01T00:00:00Z"
+   ],
+   "chunks": [
+    {
+     "file": "series_000.u16.gz",
+     "t0": 0,
+     "t1": 32,
+     "bytes": 87
+    },
+    {
+     "file": "series_001.u16.gz",
+     "t0": 32,
+     "t1": 64,
+     "bytes": 85
+    },
+    {
+     "file": "series_002.u16.gz",
+     "t0": 64,
+     "t1": 67,
+     "bytes": 26
+    }
+   ],
+   "quantisation_step": 0.014245,
+   "coverage": 1.0,
+   "value_range": [
+    315.98,
+    427.35
+   ],
+   "label": "OCO-2 and Keeling Curve: Trends in global atmospheric Carbon Dioxide (CO₂): the cited source series",
+   "aggregation": "one value per time step (the source's own numbers)",
+   "time_labels": [
+    "1959",
+    "1960",
+    "1961",
+    "1962",
+    "1963",
+    "1964",
+    "1965",
+    "1966",
+    "1967",
+    "1968",
+    "1969",
+    "1970",
+    "1971",
+    "1972",
+    "1973",
+    "1974",
+    "1975",
+    "1976",
+    "1977",
+    "1978",
+    "1979",
+    "1980",
+    "1981",
+    "1982",
+    "1983",
+    "1984",
+    "1985",
+    "1986",
+    "1987",
+    "1988",
+    "1989",
+    "1990",
+    "1991",
+    "1992",
+    "1993",
+    "1994",
+    "1995",
+    "1996",
+    "1997",
+    "1998",
+    "1999",
+    "2000",
+    "2001",
+    "2002",
+    "2003",
+    "2004",
+    "2005",
+    "2006",
+    "2007",
+    "2008",
+    "2009",
+    "2010",
+    "2011",
+    "2012",
+    "2013",
+    "2014",
+    "2015",
+    "2016",
+    "2017",
+    "2018",
+    "2019",
+    "2020",
+    "2021",
+    "2022",
+    "2023",
+    "2024",
+    "2025"
+   ],
+   "display": {
+    "colours": [
+     "#141418",
+     "#1c191a",
+     "#231f1c",
+     "#2b241e",
+     "#322a21",
+     "#3a2f23",
+     "#413525",
+     "#493a27",
+     "#514029",
+     "#58452b",
+     "#604b2d",
+     "#67502f",
+     "#6f5632",
+     "#775b34",
+     "#7e6136",
+     "#866638",
+     "#8d6c3a",
+     "#95713c",
+     "#9c773e",
+     "#a47c40",
+     "#ac8243",
+     "#b38745",
+     "#bb8d47",
+     "#c29249",
+     "#ca984b",
+     "#d29d4d",
+     "#d9a34f",
+     "#e1a851",
+     "#e8ae54",
+     "#f0b356",
+     "#f7b958",
+     "#ffbe5a"
+    ],
+    "values": [
+     315.98,
+     319.5725806451613,
+     323.1651612903226,
+     326.75774193548386,
+     330.3503225806452,
+     333.94290322580645,
+     337.53548387096777,
+     341.12806451612903,
+     344.72064516129035,
+     348.3132258064516,
+     351.90580645161293,
+     355.4983870967742,
+     359.0909677419355,
+     362.6835483870968,
+     366.2761290322581,
+     369.86870967741936,
+     373.4612903225807,
+     377.05387096774194,
+     380.64645161290326,
+     384.2390322580645,
+     387.83161290322585,
+     391.4241935483871,
+     395.01677419354843,
+     398.6093548387097,
+     402.201935483871,
+     405.7945161290323,
+     409.38709677419354,
+     412.97967741935486,
+     416.5722580645162,
+     420.16483870967744,
+     423.7574193548387,
+     427.35
+    ],
+    "scale": "linear",
+    "ramp": true
+   },
+   "series_source": "https://gml.noaa.gov/webdata/ccgg/trends/co2/co2_annmean_mlo.txt",
+   "status": "observation",
+   "status_check": "a_source_series",
+   "statement": "the source's own numbers"
+  }
+ ],
+ "voices": {
+  "series": "rel5119"
+ },
+ "play": [
+  {
+   "id": "series",
+   "label": "OCO-2 and Keeling Curve: Trends in global atmospheric Carbon Dioxide (CO₂): higher pitch = higher value, in time order",
+   "view": "global",
+   "map": "series",
+   "start": {
+    "lat": 23.8,
+    "lon": 90.4
+   },
+   "steps_per_second": 8,
+   "channels": [
+    {
+     "voice": "rel5119",
+     "layers": [
+      "series"
+     ],
+     "combine": "value"
+    }
+   ]
+  }
+ ],
+ "validation": [
+  {
+   "id": "a_source_series",
+   "title": "OCO-2 and Keeling Curve: Trends in global atmospheric Carbon Dioxide (CO₂): values are the cited source's series (not decoded from the graph)",
+   "kind": "context",
+   "pass": null,
+   "threshold": null
+  }
+ ],
+ "size": {
+  "choice": {
+   "points": 67
+  },
+  "tried": [],
+  "bytes": 9599,
+  "budget": 25000000
+ },
+ "onboarding": {
+  "status": "observation",
+  "route": "series",
+  "timings_s": {}
+ },
+ "code_commit": "a746e45419d5667864723a37cd7cfce89bcd7dc3-dirty",
+ "generated_utc": "2026-10-31T15:08:53Z"
+}

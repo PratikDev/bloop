@@ -1,0 +1,20 @@
+{
+ "record": "rel_5303",
+ "checks": [
+  {
+   "record": "rel_5303",
+   "id": "a_no_validation_source",
+   "title": "NASA’s TEMPO Instrument Air Quality Data Now Publicly Available: no validation source",
+   "kind": "none",
+   "source": null,
+   "metrics": {
+    "reason": "no georeference: spatial check not possible"
+   },
+   "threshold": null,
+   "pass": null,
+   "note": "no georeference: spatial check not possible",
+   "run_utc": "2026-10-31T17:44:05Z"
+  }
+ ],
+ "updated_utc": "2026-10-31T17:44:05Z"
+}

@@ -1,0 +1,261 @@
+{
+ "record": "rel_gibs",
+ "checks": [
+  {
+   "record": "rel_gibs",
+   "id": "a_exact_VIIRS_NOAA20_DayNightBand_At_Sensor_Radiance",
+   "title": "Night lights (VIIRS NOAA-20 day/night band): colours matched to colormap entries",
+   "kind": "value",
+   "source": "GIBS VIIRS_NOAA20_DayNightBand_At_Sensor_Radiance colormap XML",
+   "metrics": {
+    "matched_share_of_opaque": 1.0,
+    "entries": 180,
+    "kind": "values",
+    "date": "2026-10-31"
+   },
+   "threshold": "≥ 99% of opaque pixels (provisional)",
+   "pass": true,
+   "note": "",
+   "run_utc": "2026-10-31T17:02:11Z"
+  },
+  {
+   "record": "rel_gibs",
+   "id": "a_exact_IMERG_Precipitation_Rate",
+   "title": "Rain and snow rate (IMERG): colours matched to colormap entries",
+   "kind": "value",
+   "source": "GIBS IMERG_Precipitation_Rate colormap XML",
+   "metrics": {
+    "matched_share_of_opaque": 1.0,
+    "entries": 220,
+    "kind": "values",
+    "date": "2026-10-30"
+   },
+   "threshold": "≥ 99% of opaque pixels (provisional)",
+   "pass": true,
+   "note": "",
+   "run_utc": "2026-10-31T17:02:13Z"
+  },
+  {
+   "record": "rel_gibs",
+   "id": "a_exact_GHRSST_L4_MUR_Sea_Surface_Temperature",
+   "title": "Sea surface temperature (MUR): colours matched to colormap entries",
+   "kind": "value",
+   "source": "GIBS GHRSST_L4_MUR_Sea_Surface_Temperature colormap XML",
+   "metrics": {
+    "matched_share_of_opaque": 1.0,
+    "entries": 215,
+    "kind": "values",
+    "date": "2026-10-29"
+   },
+   "threshold": "≥ 99% of opaque pixels (provisional)",
+   "pass": true,
+   "note": "",
+   "run_utc": "2026-10-31T17:02:16Z"
+  },
+  {
+   "record": "rel_gibs",
+   "id": "a_exact_MODIS_Terra_L3_Land_Surface_Temp_Daily_Day",
+   "title": "Land surface temperature, day (MODIS Terra): colours matched to colormap entries",
+   "kind": "value",
+   "source": "GIBS MODIS_Terra_L3_Land_Surface_Temp_Daily_Day colormap XML",
+   "metrics": {
+    "matched_share_of_opaque": 1.0,
+    "entries": 252,
+    "kind": "values",
+    "date": "2026-10-30"
+   },
+   "threshold": "≥ 99% of opaque pixels (provisional)",
+   "pass": true,
+   "note": "",
+   "run_utc": "2026-10-31T17:02:18Z"
+  },
+  {
+   "record": "rel_gibs",
+   "id": "a_exact_GHRSST_L4_MUR_Sea_Ice_Concentration",
+   "title": "Sea ice concentration (MUR): colours matched to colormap entries",
+   "kind": "value",
+   "source": "GIBS GHRSST_L4_MUR_Sea_Ice_Concentration colormap XML",
+   "metrics": {
+    "matched_share_of_opaque": 1.0,
+    "entries": 101,
+    "kind": "values",
+    "date": "2026-10-29"
+   },
+   "threshold": "≥ 99% of opaque pixels (provisional)",
+   "pass": true,
+   "note": "",
+   "run_utc": "2026-10-31T17:02:21Z"
+  },
+  {
+   "record": "rel_gibs",
+   "id": "a_exact_MODIS_Combined_Value_Added_AOD",
+   "title": "Aerosol optical depth (MODIS combined): colours matched to colormap entries",
+   "kind": "value",
+   "source": "GIBS MODIS_Combined_Value_Added_AOD colormap XML",
+   "metrics": {
+    "matched_share_of_opaque": 1.0,
+    "entries": 152,
+    "kind": "values",
+    "date": "2026-10-30"
+   },
+   "threshold": "≥ 99% of opaque pixels (provisional)",
+   "pass": true,
+   "note": "",
+   "run_utc": "2026-10-31T17:02:23Z"
+  },
+  {
+   "record": "rel_gibs",
+   "id": "a_exact_OMI_Aerosol_Index",
+   "title": "Aerosol index (OMI): colours matched to colormap entries",
+   "kind": "value",
+   "source": "GIBS OMI_Aerosol_Index colormap XML",
+   "metrics": {
+    "matched_share_of_opaque": 1.0,
+    "entries": 202,
+    "kind": "values",
+    "date": "2026-10-31"
+   },
+   "threshold": "≥ 99% of opaque pixels (provisional)",
+   "pass": true,
+   "note": "",
+   "run_utc": "2026-10-31T17:02:25Z"
+  },
+  {
+   "record": "rel_gibs",
+   "id": "a_exact_AIRS_L3_Carbon_Monoxide_500hPa_Volume_Mixing_Ratio_Daily_Day",
+   "title": "Carbon monoxide, 500 hPa (AIRS): colours matched to colormap entries",
+   "kind": "value",
+   "source": "GIBS AIRS_L3_Carbon_Monoxide_500hPa_Volume_Mixing_Ratio_Daily_Day colormap XML",
+   "metrics": {
+    "matched_share_of_opaque": 1.0,
+    "entries": 252,
+    "kind": "values",
+    "date": "2026-10-26"
+   },
+   "threshold": "≥ 99% of opaque pixels (provisional)",
+   "pass": true,
+   "note": "",
+   "run_utc": "2026-10-31T17:02:28Z"
+  },
+  {
+   "record": "rel_gibs",
+   "id": "a_exact_OMI_Nitrogen_Dioxide_Tropo_Column",
+   "title": "Tropospheric NO2 (OMI): colours matched to colormap entries",
+   "kind": "value",
+   "source": "GIBS OMI_Nitrogen_Dioxide_Tropo_Column colormap XML",
+   "metrics": {
+    "matched_share_of_opaque": 1.0,
+    "entries": 191,
+    "kind": "values",
+    "date": "2026-10-26"
+   },
+   "threshold": "≥ 99% of opaque pixels (provisional)",
+   "pass": true,
+   "note": "",
+   "run_utc": "2026-10-31T17:02:30Z"
+  },
+  {
+   "record": "rel_gibs",
+   "id": "a_exact_VIIRS_NOAA20_AOD_Deep_Blue_Land_Ocean",
+   "title": "Aerosol optical depth (VIIRS NOAA-20 Deep Blue): colours matched to colormap entries",
+   "kind": "value",
+   "source": "GIBS VIIRS_NOAA20_AOD_Deep_Blue_Land_Ocean colormap XML",
+   "metrics": {
+    "matched_share_of_opaque": 1.0,
+    "entries": 152,
+    "kind": "values",
+    "date": "2026-10-31"
+   },
+   "threshold": "≥ 99% of opaque pixels (provisional)",
+   "pass": true,
+   "note": "",
+   "run_utc": "2026-10-31T17:02:32Z"
+  },
+  {
+   "record": "rel_gibs",
+   "id": "a_exact_VIIRS_NOAA20_NDVI_8Day",
+   "title": "Vegetation index, 8-day (VIIRS NOAA-20): colours matched to colormap entries",
+   "kind": "value",
+   "source": "GIBS VIIRS_NOAA20_NDVI_8Day colormap XML",
+   "metrics": {
+    "matched_share_of_opaque": 1.0,
+    "entries": 140,
+    "kind": "values",
+    "date": "2026-10-30"
+   },
+   "threshold": "≥ 99% of opaque pixels (provisional)",
+   "pass": true,
+   "note": "",
+   "run_utc": "2026-10-31T17:02:34Z"
+  },
+  {
+   "record": "rel_gibs",
+   "id": "a_exact_MODIS_Aqua_L2_Chlorophyll_A",
+   "title": "Chlorophyll-a (MODIS Aqua): colours matched to colormap entries",
+   "kind": "value",
+   "source": "GIBS MODIS_Aqua_L2_Chlorophyll_A colormap XML",
+   "metrics": {
+    "matched_share_of_opaque": 1.0,
+    "entries": 255,
+    "kind": "values",
+    "date": "2026-10-31"
+   },
+   "threshold": "≥ 99% of opaque pixels (provisional)",
+   "pass": true,
+   "note": "",
+   "run_utc": "2026-10-31T17:02:36Z"
+  },
+  {
+   "record": "rel_gibs",
+   "id": "a_exact_SMAP_L3_Sea_Surface_Salinity_CAP_8Day_RunningMean",
+   "title": "Sea surface salinity, 8-day (SMAP): colours matched to colormap entries",
+   "kind": "value",
+   "source": "GIBS SMAP_L3_Sea_Surface_Salinity_CAP_8Day_RunningMean colormap XML",
+   "metrics": {
+    "matched_share_of_opaque": 1.0,
+    "entries": 255,
+    "kind": "values",
+    "date": "2026-10-25"
+   },
+   "threshold": "≥ 99% of opaque pixels (provisional)",
+   "pass": true,
+   "note": "",
+   "run_utc": "2026-10-31T17:02:39Z"
+  },
+  {
+   "record": "rel_gibs",
+   "id": "a_exact_LIS_High_Resolution_Full_Climatology_Combined_Flash_Rate_Climatology",
+   "title": "Lightning flash rate climatology (LIS/OTD): colours matched to colormap entries",
+   "kind": "value",
+   "source": "GIBS LIS_High_Resolution_Full_Climatology_Combined_Flash_Rate_Climatology colormap XML",
+   "metrics": {
+    "matched_share_of_opaque": 1.0,
+    "entries": 149,
+    "kind": "values",
+    "date": "1995-05-04"
+   },
+   "threshold": "≥ 99% of opaque pixels (provisional)",
+   "pass": true,
+   "note": "",
+   "run_utc": "2026-10-31T17:02:41Z"
+  },
+  {
+   "record": "rel_gibs",
+   "id": "b_pipeline_mur",
+   "title": "Pipeline test: GIBS-decoded MUR SST vs MUR25 read directly (PO.DAAC OPeNDAP), same day, 1° cells",
+   "kind": "value",
+   "source": "MUR25-JPL-L4-GLOB-v04.2 (C2036880657-POCLOUD)",
+   "metrics": {
+    "spearman": 0.9993345512586059,
+    "n": 36361,
+    "median_diff_C": 0.014087890625003041,
+    "date": "2026-10-29"
+   },
+   "threshold": "Spearman ≥ 0.99 and |median difference| ≤ 0.2 °C (provisional)",
+   "pass": true,
+   "note": "GIBS draws MUR (0.01°) through a stepped colormap; MUR25 is the 0.25° product. Same mission family: a test of the decoder, not of MUR.",
+   "run_utc": "2026-10-31T17:02:56Z"
+  }
+ ],
+ "updated_utc": "2026-10-31T17:02:56Z"
+}

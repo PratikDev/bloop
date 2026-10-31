@@ -65,6 +65,7 @@ def write(sid, rec, d):
                       note=f"Rung: {res['rung']}. Onboarding run, {d['frames_used']} frames.")
               if res else V.check(record, "a_no_validation_source", f"{rec['title']}: no validation source", kind="none", passed=None,
                                   metrics={"reason": d["check_reason"]}, note=d["check_reason"])]
+    (record_dir(record) / "validation.json").unlink(missing_ok=True)       # an onboarding run replaces the record's checks
     V.save(record, checks)
     lay.update(status=d["status"], status_check=checks[0]["id"],
                statement=None if d["status"] == "verified" else f"{d['status']}" + (f": ρ {res['spearman']:.2f} vs {res['source']}" if res else ""))

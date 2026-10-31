@@ -1,0 +1,327 @@
+{
+ "record": "rel_4658",
+ "app_title": "NASA's Black Marble night lights used to examine disaster recovery in Puerto Rico (observation)",
+ "svs_ids": [
+  4658
+ ],
+ "title": "NASA's Black Marble night lights used to examine disaster recovery in Puerto Rico",
+ "svs_pages": [
+  "https://svs.gsfc.nasa.gov/4658/"
+ ],
+ "description": "At night, Earth is lit up in bright strings of roads dotted with pearl-like cities and towns as human-made artificial light takes center stage. During Hurricane Maria, Puerto Rico's lights went out.In the days, weeks, and months that followed, research physical scientist Miguel Román at NASA's Goddard Space Flight Center in Greenbelt, Maryland, and his colleagues combined NASA's Black Marble night lights data product from the NASA/NOAA Suomi National Polar-orbiting Partnership satellite with USGS-NASA Landsat data and Google's OpenStreetMap to develop a neighborhood-scale map of energy use in communities across Puerto Rico as the electricity grid was slowly restored. They then analyzed the relationship between restoration rates in terms of days without electricity and the remoteness of communities from major cities. || ",
+ "release_date": "2018-12-09T00:00:00-05:00",
+ "period": {
+  "start": "2018-12-09T05:00:00Z",
+  "end": "2018-12-09T05:00:00Z",
+  "label": "9 Dec 2018 – 9 Dec 2018"
+ },
+ "badge": "observation",
+ "credits_by_role": {
+  "Visualizer": [
+   "Kel Elkins (USRA)"
+  ],
+  "Scientist": [
+   "Miguel Román (NASA/GSFC)"
+  ],
+  "Producer": [
+   "Ellen T. Gray (ADNET Systems, Inc.)",
+   "Matthew R. Radcliff (USRA)"
+  ]
+ },
+ "datasets": [
+  {
+   "name": "",
+   "common_name": "VIIRS",
+   "platform": "Suomi NPP",
+   "sensor": "VIIRS",
+   "type": "Other",
+   "organizations": [],
+   "description": "",
+   "credit": "",
+   "url": "",
+   "date_range": null
+  }
+ ],
+ "credit_line": "Visualization: NASA's Scientific Visualization Studio (SVS 4658) for the NASA Earth Information Center.",
+ "disclosure": "A related NASA visualization read back through its key (pattern only).",
+ "licence": "SVS: \"All of our content is in the public domain (unless otherwise noted), meaning that it is free to download, use, and redistribute for whatever purposes you see fit.\" (https://svs.gsfc.nasa.gov/help/, read 29 Oct 2026)",
+ "focus": "disasters",
+ "related_to": [
+  5313
+ ],
+ "frame_times": {
+  "method": "linear",
+  "approximate": true,
+  "count": 3,
+  "source": "undated"
+ },
+ "georef": {
+  "projection": "none (not a flat 2:1 map)",
+  "bounds": [
+   -180,
+   -101.25,
+   180,
+   101.25
+  ],
+  "pass_at": 0.9,
+  "shifts_deg": [],
+  "iou": {},
+  "pass": false,
+  "best_is_assumed": false
+ },
+ "colorbar": {
+  "geometry": {
+   "x0": 187,
+   "x1": 3532,
+   "band": [
+    701,
+    793
+   ],
+   "vertical": false,
+   "image_size": [
+    1000,
+    3720
+   ]
+  },
+  "ticks": [
+   {
+    "px": 24.0,
+    "value": 0.0,
+    "text": "0",
+    "engine": "glyph"
+   },
+   {
+    "px": 1107.5,
+    "value": 60.0,
+    "text": "60",
+    "engine": "glyph"
+   },
+   {
+    "px": 2226.5,
+    "value": 120.0,
+    "text": "120",
+    "engine": "glyph"
+   },
+   {
+    "px": 3276.5,
+    "value": 180.0,
+    "text": "180",
+    "engine": "glyph"
+   }
+  ],
+  "scale": "linear",
+  "fit": {
+   "a": -1.4849399578942555,
+   "b": 0.055157096967605276,
+   "fit": "labels below the strip",
+   "max_resid_value": 1.3223364404788924
+  },
+  "notes": [],
+  "n_samples": 3346,
+  "value_range": [
+   -1.4849399578942555,
+   183.0155493987454
+  ],
+  "opacity_varies": false,
+  "px_per_unit": 18.130033213809593
+ },
+ "colorbar_source": "page colorbar colorbar_days_without_power.png",
+ "asset": {
+  "kind": "frames",
+  "owner": 4658,
+  "what": "bmhd_comp_with_labels"
+ },
+ "twins": [],
+ "decode": {
+  "mode": "chroma",
+  "decoded_share": 0.013071068029835391
+ },
+ "layers": [
+  {
+   "id": "value",
+   "unit": "colorbar units",
+   "encoding": "linear",
+   "scale": 0.0055157096967605275,
+   "offset": 5.046885967254639,
+   "nodata": 65535,
+   "below": 65534,
+   "grid": {
+    "width": 160,
+    "height": 90,
+    "bounds": [
+     -180,
+     -101.25,
+     180,
+     101.25
+    ],
+    "row0": "north",
+    "col0": "west",
+    "byte_order": "little",
+    "space": "frame"
+   },
+   "times": [
+    "2018-12-09T05:00:00Z",
+    "2018-12-09T05:00:00Z",
+    "2018-12-09T05:00:00Z"
+   ],
+   "chunks": [
+    {
+     "file": "value_000.u16.gz",
+     "t0": 0,
+     "t1": 3,
+     "bytes": 538
+    }
+   ],
+   "quantisation_step": 0.0055157096967605275,
+   "coverage": 0.002800925925925926,
+   "value_range": [
+    5.046885967254639,
+    182.4956817626953
+   ],
+   "label": "NASA's Black Marble night lights used to examine disaster recovery in Puerto Rico (pattern only)",
+   "aggregation": "mean of decoded pixels per cell",
+   "time_labels": [
+    "undated",
+    "undated",
+    "undated"
+   ],
+   "display": {
+    "colours": [
+     "#3d857e",
+     "#46887a",
+     "#528c74",
+     "#62926d",
+     "#739766",
+     "#869d5e",
+     "#97a456",
+     "#aaa64e",
+     "#b9a547",
+     "#c8a641",
+     "#d4a63d",
+     "#d8a33c",
+     "#d8973c",
+     "#d8863c",
+     "#d8743c",
+     "#d85e3c",
+     "#d8483f",
+     "#d73242",
+     "#d32045",
+     "#d00f4b",
+     "#cc0452",
+     "#cb0059",
+     "#c90262",
+     "#c90e70",
+     "#c91f80",
+     "#c93591",
+     "#c94ea4",
+     "#c969b6",
+     "#c985c9",
+     "#c99fdb",
+     "#c9b7ea",
+     "#c9c8f6"
+    ],
+    "values": [
+     -1.4849399578942555,
+     4.466688731029604,
+     10.418317419953464,
+     16.369946108877325,
+     22.321574797801183,
+     28.27320348672504,
+     34.224832175648906,
+     40.17646086457277,
+     46.12808955349662,
+     52.07971824242048,
+     58.03134693134434,
+     63.982975620268206,
+     69.93460430919207,
+     75.88623299811591,
+     81.83786168703979,
+     87.78949037596364,
+     93.7411190648875,
+     99.69274775381136,
+     105.64437644273522,
+     111.59600513165907,
+     117.54763382058293,
+     123.49926250950679,
+     129.45089119843067,
+     135.40251988735452,
+     141.3541485762784,
+     147.30577726520224,
+     153.25740595412609,
+     159.20903464304996,
+     165.16066333197384,
+     171.11229202089768,
+     177.06392070982153,
+     183.0155493987454
+    ],
+    "scale": "linear"
+   },
+   "status": "pattern only",
+   "status_check": "a_no_validation_source",
+   "statement": "pattern only"
+  }
+ ],
+ "voices": {
+  "value": "rel4658"
+ },
+ "play": [
+  {
+   "id": "value",
+   "label": "NASA's Black Marble night lights used to examine disaster recovery in Puerto Rico: higher pitch = higher value",
+   "view": "global",
+   "map": "value",
+   "start": {
+    "lat": -19.0,
+    "lon": 14.625
+   },
+   "steps_per_second": 1,
+   "channels": [
+    {
+     "voice": "rel4658",
+     "layers": [
+      "value"
+     ],
+     "combine": "value"
+    }
+   ]
+  }
+ ],
+ "validation": [
+  {
+   "id": "a_no_validation_source",
+   "title": "NASA's Black Marble night lights used to examine disaster recovery in Puerto Rico: no validation source",
+   "kind": "none",
+   "pass": null,
+   "threshold": null
+  }
+ ],
+ "size": {
+  "choice": {
+   "frames": 3
+  },
+  "tried": [],
+  "bytes": 9049,
+  "budget": 25000000
+ },
+ "onboarding": {
+  "timings_s": {
+   "api": 17.8,
+   "twins": 0.7,
+   "asset choice": 0.0,
+   "frames": 62.9,
+   "frame times": 3.5,
+   "georef": 0.1,
+   "colorbar": 73.2,
+   "inversion": 194.7,
+   "validation": 0.0
+  },
+  "status": "pattern only"
+ },
+ "asset_checksums": {
+  "file": "checksums.tsv.gz",
+  "rows": 5,
+  "sha256_of_list": "a166bb07254b78a5e88f0c610fa1c9e463d2aea8fa04de4c1e1fb55af203b3ae"
+ },
+ "code_commit": "a8f0638dc9adb81b18f259cf0813046acd882fa1-dirty",
+ "generated_utc": "2026-10-31T17:34:37Z"
+}

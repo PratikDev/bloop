@@ -1,0 +1,344 @@
+{
+ "record": "rel_5142",
+ "app_title": "TEMPO - Nitrogen Dioxide Air Pollution Over North America (observation)",
+ "svs_ids": [
+  5142
+ ],
+ "title": "TEMPO - Nitrogen Dioxide Air Pollution Over North America",
+ "svs_pages": [
+  "https://svs.gsfc.nasa.gov/5142/"
+ ],
+ "description": "High levels of nitrogen dioxide can be seen over multiple urban areas across the North America and the Caribbean. Detailed views of three regions show high levels of nitrogen dioxide over cities in the morning and enhanced levels of nitrogen dioxide over major highways. As the day progresses, morning pollution often dissipates then rises again as cities enter their second rush hour. Since TEMPO uses visible sunlight to make measurements, cloudy areas appear as missing data in the visualization.",
+ "release_date": "2023-08-24T10:45:00-04:00",
+ "period": {
+  "start": "2023-08-24T14:45:00Z",
+  "end": "2023-08-24T14:45:00Z",
+  "label": "24 Aug 2023 – 24 Aug 2023"
+ },
+ "badge": "observation",
+ "credits_by_role": {
+  "Visualizer": [
+   "Kel Elkins (USRA)",
+   "Trent L. Schindler (USRA)",
+   "Cindy Starr (Global Science and Technology, Inc.)"
+  ],
+  "Technical support": [
+   "Laurence Schuler (ADNET Systems, Inc.)",
+   "Ian Jones (ADNET Systems, Inc.)"
+  ],
+  "Scientist": [
+   "Caroline Nowlan (Center for Astrophysics | Harvard & Smithsonian)",
+   "Xiong Liu (Center for Astrophysics | Harvard & Smithsonian)"
+  ]
+ },
+ "datasets": [],
+ "credit_line": "Visualization: NASA's Scientific Visualization Studio (SVS 5142) for the NASA Earth Information Center.",
+ "disclosure": "A related NASA visualization read back through its key (pattern only).",
+ "licence": "SVS: \"All of our content is in the public domain (unless otherwise noted), meaning that it is free to download, use, and redistribute for whatever purposes you see fit.\" (https://svs.gsfc.nasa.gov/help/, read 29 Oct 2026)",
+ "focus": "air quality",
+ "related_to": [
+  5533
+ ],
+ "frame_times": {
+  "method": "linear",
+  "approximate": true,
+  "count": 3,
+  "source": "undated"
+ },
+ "georef": {
+  "projection": "none (not a flat 2:1 map)",
+  "bounds": [
+   -180,
+   -101.25,
+   180,
+   101.25
+  ],
+  "pass_at": 0.9,
+  "shifts_deg": [],
+  "iou": {},
+  "pass": false,
+  "best_is_assumed": false
+ },
+ "colorbar": {
+  "geometry": {
+   "x0": 91,
+   "x1": 1535,
+   "band": [
+    228,
+    313
+   ],
+   "vertical": false,
+   "outline_rgb": null,
+   "image_size": [
+    540,
+    1536
+   ]
+  },
+  "ticks": [
+   {
+    "px": 262.7318339100346,
+    "value": 25.0,
+    "text": "25",
+    "engine": "glyph",
+    "label_px": 264.0,
+    "tick_mark": true
+   },
+   {
+    "px": 449.5083833736255,
+    "value": 50.0,
+    "text": "50",
+    "engine": "glyph",
+    "label_px": 450.5,
+    "tick_mark": true
+   },
+   {
+    "px": 636.2370746268657,
+    "value": 75.0,
+    "text": "75",
+    "engine": "glyph",
+    "label_px": 637.0,
+    "tick_mark": true
+   },
+   {
+    "px": 1009.4993258729945,
+    "value": 125.0,
+    "text": "125",
+    "engine": "glyph",
+    "label_px": 1010.0,
+    "tick_mark": true
+   },
+   {
+    "px": 1196.0,
+    "value": 150.0,
+    "text": "150",
+    "engine": "glyph",
+    "label_px": 1197.0,
+    "tick_mark": true
+   }
+  ],
+  "scale": "linear",
+  "fit": {
+   "a": -10.202638158119399,
+   "b": 0.13393818867819912,
+   "fit": "weighted 1/tolerance",
+   "max_resid_px": 0.1030563982940023,
+   "resid_px": [
+    0.1,
+    -0.03,
+    -0.1,
+    -0.06,
+    0.09
+   ],
+   "ok": true
+  },
+  "notes": [
+   "OCR read ['25', '50', '75', '00', '125', '150']; ['00'] disagree with the line through the other 5 labels and are dropped as misreads."
+  ],
+  "n_samples": 1445,
+  "value_range": [
+   -10.202638158119399,
+   183.20410629320014
+  ],
+  "opacity_varies": true,
+  "px_per_unit": 7.466130532813217
+ },
+ "colorbar_source": "in-frame bar (frame, lower left)",
+ "asset": {
+  "kind": "frames",
+  "owner": 5142,
+  "what": "tempo_no2"
+ },
+ "twins": [],
+ "decode": {
+  "mode": "exact",
+  "decoded_share": 0.5821904337062757
+ },
+ "layers": [
+  {
+   "id": "value",
+   "unit": "colorbar units",
+   "encoding": "linear",
+   "scale": 0.013393818867819913,
+   "offset": -7.523876190185547,
+   "nodata": 65535,
+   "below": 65534,
+   "grid": {
+    "width": 160,
+    "height": 90,
+    "bounds": [
+     -180,
+     -101.25,
+     180,
+     101.25
+    ],
+    "row0": "north",
+    "col0": "west",
+    "byte_order": "little",
+    "space": "frame"
+   },
+   "times": [
+    "2023-08-24T14:45:00Z",
+    "2023-08-24T14:45:00Z",
+    "2023-08-24T14:45:00Z"
+   ],
+   "chunks": [
+    {
+     "file": "value_000.u16.gz",
+     "t0": 0,
+     "t1": 3,
+     "bytes": 45307
+    }
+   ],
+   "quantisation_step": 0.013393818867819913,
+   "coverage": 0.6131944444444445,
+   "value_range": [
+    -7.523876190185547,
+    179.9722900390625
+   ],
+   "label": "TEMPO - Nitrogen Dioxide Air Pollution Over North America (pattern only)",
+   "aggregation": "mean of decoded pixels per cell",
+   "time_labels": [
+    "undated",
+    "undated",
+    "undated"
+   ],
+   "display": {
+    "colours": [
+     "#000000",
+     "#67b1ff",
+     "#6eb4fb",
+     "#90c1e8",
+     "#b3cfd4",
+     "#d5dbc1",
+     "#f8e8ae",
+     "#f9ab77",
+     "#f36b5f",
+     "#ce416f",
+     "#992c7e",
+     "#862680",
+     "#782180",
+     "#6a1b7e",
+     "#5d167d",
+     "#50117b",
+     "#42116e",
+     "#351061",
+     "#281053",
+     "#1e0f48",
+     "#1a0e3f",
+     "#160c34",
+     "#120a2a",
+     "#0f0821",
+     "#0b0618",
+     "#07040e",
+     "#050308",
+     "#141417",
+     "#1a1b1d",
+     "#1c1c1e",
+     "#1c1d1f",
+     "#1e1f21"
+    ],
+    "values": [
+     -10.202638158119399,
+     -3.963710917754253,
+     2.275216322610893,
+     8.514143562976042,
+     14.753070803341185,
+     20.991998043706328,
+     27.230925284071482,
+     33.469852524436625,
+     39.70877976480177,
+     45.94770700516691,
+     52.186634245532055,
+     58.425561485897205,
+     64.66448872626236,
+     70.90341596662749,
+     77.14234320699265,
+     83.38127044735778,
+     89.62019768772294,
+     95.8591249280881,
+     102.09805216845322,
+     108.33697940881838,
+     114.57590664918351,
+     120.81483388954867,
+     127.05376112991381,
+     133.29268837027894,
+     139.5316156106441,
+     145.77054285100928,
+     152.0094700913744,
+     158.2483973317395,
+     164.48732457210468,
+     170.72625181246985,
+     176.96517905283497,
+     183.20410629320014
+    ],
+    "scale": "linear"
+   },
+   "status": "pattern only",
+   "status_check": "a_no_validation_source",
+   "statement": "pattern only"
+  }
+ ],
+ "voices": {
+  "value": "rel5142"
+ },
+ "play": [
+  {
+   "id": "value",
+   "label": "TEMPO - Nitrogen Dioxide Air Pollution Over North America: higher pitch = higher value",
+   "view": "global",
+   "map": "value",
+   "start": {
+    "lat": -65.0,
+    "lon": -66.375
+   },
+   "steps_per_second": 1,
+   "channels": [
+    {
+     "voice": "rel5142",
+     "layers": [
+      "value"
+     ],
+     "combine": "value"
+    }
+   ]
+  }
+ ],
+ "validation": [
+  {
+   "id": "a_no_validation_source",
+   "title": "TEMPO - Nitrogen Dioxide Air Pollution Over North America: no validation source",
+   "kind": "none",
+   "pass": null,
+   "threshold": null
+  }
+ ],
+ "size": {
+  "choice": {
+   "frames": 3
+  },
+  "tried": [],
+  "bytes": 53782,
+  "budget": 25000000
+ },
+ "onboarding": {
+  "timings_s": {
+   "api": 19.8,
+   "twins": 0.9,
+   "asset choice": 0.0,
+   "frames": 51.7,
+   "frame times": 49.7,
+   "georef": 0.2,
+   "colorbar": 7.1,
+   "inversion": 44.5,
+   "validation": 0.0
+  },
+  "status": "pattern only"
+ },
+ "asset_checksums": {
+  "file": "checksums.tsv.gz",
+  "rows": 3,
+  "sha256_of_list": "c3fea9d04766846666955b99be11ceb49ee39ae4936ee298afc0a977cc398258"
+ },
+ "code_commit": "a8f0638dc9adb81b18f259cf0813046acd882fa1-dirty",
+ "generated_utc": "2026-10-31T17:42:36Z"
+}

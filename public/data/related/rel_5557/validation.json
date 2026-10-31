@@ -1,0 +1,20 @@
+{
+ "record": "rel_5557",
+ "checks": [
+  {
+   "record": "rel_5557",
+   "id": "a_no_validation_source",
+   "title": "Daily Visualizations of the Largest Wildfires in the United States: 2025: no validation source",
+   "kind": "none",
+   "source": null,
+   "metrics": {
+    "reason": "no key: brightness pattern only, nothing to compare with values"
+   },
+   "threshold": null,
+   "pass": null,
+   "note": "no key: brightness pattern only, nothing to compare with values",
+   "run_utc": "2026-10-31T17:13:05Z"
+  }
+ ],
+ "updated_utc": "2026-10-31T17:13:05Z"
+}

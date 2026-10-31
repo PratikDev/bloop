@@ -1,0 +1,36 @@
+{
+ "record": "rel_3821",
+ "checks": [
+  {
+   "record": "rel_3821",
+   "id": "a_auto_source",
+   "title": "Flat Map Ocean Current Flows with Sea Surface Temperatures (SST): decoded values vs MUR SST (GIBS)",
+   "kind": "value",
+   "source": "MUR SST (GIBS)",
+   "metrics": {
+    "rung": "independent satellite analysis (GHRSST MUR)",
+    "unit": "°C",
+    "spearman": 0.7808295958626456,
+    "n": 14996,
+    "median_rel_error": 0.08390944087263949,
+    "bias": 0.07300672419001561,
+    "dates": [
+     {
+      "date": "2005-01-01"
+     },
+     {
+      "date": "2005-07-02"
+     },
+     {
+      "date": "2006-01-01"
+     }
+    ]
+   },
+   "threshold": "Spearman ≥ 0.9 and median relative error ≤ 15 % → verified; ρ ≥ 0.9 → values with stated error; ρ ≥ 0.6 → relative (provisional, onboarding defaults)",
+   "pass": false,
+   "note": "Rung: independent satellite analysis (GHRSST MUR). Onboarding run, 3 frames.",
+   "run_utc": "2026-10-31T15:24:10Z"
+  }
+ ],
+ "updated_utc": "2026-10-31T15:24:10Z"
+}

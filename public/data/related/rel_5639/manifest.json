@@ -1,0 +1,496 @@
+{
+ "record": "rel_5639",
+ "app_title": "Daily Visualizations of the Largest Wildfires in the United States: 2026 (model)",
+ "svs_ids": [
+  5639
+ ],
+ "title": "Daily Visualizations of the Largest Wildfires in the United States: 2026",
+ "svs_pages": [
+  "https://svs.gsfc.nasa.gov/5639/"
+ ],
+ "description": "Wildland fires pose significant threats to ecosystems, property, and human lives. Leveraging NASA’s satellite data, advanced models, visualization capacity and computing power, we analyze fire events, monitor how weather conditions impact fires and how regional air quality affects communities. Through this webpage we offer daily updated visualizations of the two largest active wildfires events in the continental United States throughout fire season.",
+ "release_date": "2026-06-08T22:00:00-04:00",
+ "period": {
+  "start": "2026-06-30T00:00:00Z",
+  "end": "2026-08-11T00:00:00Z",
+  "label": "30 Jun 2026 – 11 Aug 2026"
+ },
+ "badge": "model",
+ "credits_by_role": {
+  "Visualizer": [
+   "Helen-Nicole Kostis (Science and Technology Corporation)",
+   "Joseph V. Ardizzone (NASA/GSFC)",
+   "Zoey N. Armstrong (Navteca, LLC.)"
+  ],
+  "Scientist": [
+   "Lesley Ott (NASA/GSFC)",
+   "Doug Norton (NASA/HQ)",
+   "Tempest McCabe (University of Maryland)",
+   "Elijah Orland (University of Maryland Baltimore County)"
+  ],
+  "Technologist": [
+   "Zeb Becker (University of Maryland)"
+  ],
+  "EONET Team": [
+   "Paul Przyborski (SSAI)",
+   "Teddie Gelabert (SSAI)",
+   "Andi Thomas (SSAI)",
+   "Vipool Rathad (ADNET Systems Inc.)"
+  ],
+  "Support": [
+   "Ella Kaplan (ADNET Systems, Inc.)",
+   "Laurence Schuler (ADNET Systems, Inc.)",
+   "Ian Jones (ADNET Systems, Inc.)"
+  ]
+ },
+ "datasets": [
+  {
+   "name": "GEOS Atmospheric Model",
+   "common_name": "",
+   "platform": null,
+   "sensor": null,
+   "type": "Model",
+   "organizations": [
+    "NASA GMAO"
+   ],
+   "description": "",
+   "credit": "",
+   "url": "",
+   "date_range": ""
+  },
+  {
+   "name": "GEOS Forward Processing 2Km Replay",
+   "common_name": "GEOS-FP 2Km Replay",
+   "platform": null,
+   "sensor": null,
+   "type": "Model",
+   "organizations": [],
+   "description": "",
+   "credit": "",
+   "url": "",
+   "date_range": ""
+  },
+  {
+   "name": "GEOS Composition Forecast",
+   "common_name": "GEOS-CF",
+   "platform": null,
+   "sensor": null,
+   "type": "Model",
+   "organizations": [],
+   "description": "",
+   "credit": "",
+   "url": "https://gmao.gsfc.nasa.gov/gmao-products/geos-cf/",
+   "date_range": ""
+  },
+  {
+   "name": "GEOS-FP",
+   "common_name": "",
+   "platform": null,
+   "sensor": null,
+   "type": "Model",
+   "organizations": [
+    "NASA GMAO"
+   ],
+   "description": "Documentation: Lucchesi, R., 2018: File Specification for GEOS FP. GMAO Office Note No. 4 (Version 1.2), 61 pp, available from [https://gmao.gsfc.nasa.gov/pubs/docs/Lucchesi1203.pdf](https://gmao.gsfc.nasa.gov/pubs/docs/Lucchesi1203.pdf)",
+   "credit": "",
+   "url": "https://fluid.nccs.nasa.gov/weather/",
+   "date_range": ""
+  },
+  {
+   "name": "Fire Events Data Suite",
+   "common_name": "FEDS",
+   "platform": "NOAA-20 and SUOMI-NPP",
+   "sensor": "VIIRS",
+   "type": "Observed Data",
+   "organizations": [],
+   "description": "",
+   "credit": "Tempest McCabe, Douglas Morton, Melanie Follette-Cook, Elijah Orland, Zeb Becker, Yang Chen, Rebecca Scholten, Greg Corradini, Julia Signel, Alexey Shiklomanov, Kateria Sheronin, and Jim Randerson",
+   "url": "https://earth-information-system.github.io/fireatlas/docs/nrt.html",
+   "date_range": ""
+  },
+  {
+   "name": "FEDS OGC API",
+   "common_name": "",
+   "platform": null,
+   "sensor": null,
+   "type": "Data Compilation",
+   "organizations": [],
+   "description": "",
+   "credit": "",
+   "url": "https://earth-information-system.github.io/fireatlas/docs/nrt.html",
+   "date_range": ""
+  },
+  {
+   "name": "Quick Fire Emissions Dataset",
+   "common_name": "QFED",
+   "platform": "MODIS",
+   "sensor": null,
+   "type": "Other",
+   "organizations": [],
+   "description": "",
+   "credit": "",
+   "url": "https://ntrs.nasa.gov/citations/20180005253",
+   "date_range": ""
+  },
+  {
+   "name": "Earth Observatory Natural Event Tracker API",
+   "common_name": "EONET API",
+   "platform": null,
+   "sensor": null,
+   "type": "Other",
+   "organizations": [],
+   "description": "",
+   "credit": "Web Strategy and Communications Team, Earth Science Data Systems Program",
+   "url": "https://eonet.gsfc.nasa.gov/",
+   "date_range": ""
+  },
+  {
+   "name": "Integrated Reporting of Wildfire Information",
+   "common_name": "IRWIN",
+   "platform": null,
+   "sensor": null,
+   "type": "Other",
+   "organizations": [],
+   "description": "",
+   "credit": "",
+   "url": "https://www.wildfire.gov/application/irwin-integrated-reporting-wildfire-information",
+   "date_range": ""
+  }
+ ],
+ "credit_line": "Visualization: NASA's Scientific Visualization Studio (SVS 5639) for the NASA Earth Information Center.",
+ "disclosure": "A related NASA visualization read back through its key (pattern only).",
+ "licence": "SVS: \"All of our content is in the public domain (unless otherwise noted), meaning that it is free to download, use, and redistribute for whatever purposes you see fit.\" (https://svs.gsfc.nasa.gov/help/, read 29 Oct 2026)",
+ "focus": "wildfires",
+ "related_to": [
+  4993
+ ],
+ "frame_times": {
+  "method": "linear",
+  "approximate": false,
+  "count": 3,
+  "source": "file name"
+ },
+ "georef": {
+  "projection": "equirectangular (2:1)",
+  "bounds": [
+   -180,
+   -90,
+   180,
+   90
+  ],
+  "pass_at": 0.9,
+  "shifts_deg": [],
+  "iou": {
+   "land": 0.04314104778353483
+  },
+  "pass": false,
+  "best_is_assumed": false
+ },
+ "colorbar": null,
+ "colorbar_source": "no colorbar found (page or frame)",
+ "asset": {
+  "kind": "frames",
+  "owner": 5639,
+  "what": "event001_FireContext_prev_versions"
+ },
+ "twins": [
+  {
+   "id": 5665,
+   "title": "Long-range Transport of 2026 Canadian Wildfire Smoke into the United States (July 14-20, 2026)",
+   "reason": "related; 3 title words shared",
+   "flat_sets": [],
+   "flat_movies": [
+    {
+     "file": "CanadianWildfires_Perimeters_072126.mp4",
+     "size": "2048×1024",
+     "url": "https://svs.gsfc.nasa.gov/vis/a000000/a005600/a005665/CanadianWildfires_Perimeters_072126.mp4"
+    }
+   ],
+   "colorbars": [],
+   "colorbar_inherited": true
+  },
+  {
+   "id": 5631,
+   "title": "Long-range Transport of 2023 Canadian Wildfire Smoke into the Northeastern United States",
+   "reason": "related; 2 title words shared",
+   "flat_sets": [
+    {
+     "layer": "Global_Labels",
+     "size": "7680×3840",
+     "frames": 2280,
+     "url": "https://svs.gsfc.nasa.gov/vis/a000000/a005600/a005631/frames/7680x3840_2x1_30p/Global_Labels/"
+    },
+    {
+     "layer": "Global_NoLabels",
+     "size": "7680×3840",
+     "frames": 2280,
+     "url": "https://svs.gsfc.nasa.gov/vis/a000000/a005600/a005631/frames/7680x3840_2x1_30p/Global_NoLabels/"
+    }
+   ],
+   "flat_movies": [
+    {
+     "file": "CanadianWildfires2023_SmokeIntensity_Global_Labels_4096x2048.mp4",
+     "size": "4096×2048",
+     "url": "https://svs.gsfc.nasa.gov/vis/a000000/a005600/a005631/CanadianWildfires2023_SmokeIntensity_Global_Labels_4096x2048.mp4"
+    },
+    {
+     "file": "CanadianWildfires2023_SmokeIntensity_Global_Labels_7680x3840.mp4",
+     "size": "7680×3840",
+     "url": "https://svs.gsfc.nasa.gov/vis/a000000/a005600/a005631/CanadianWildfires2023_SmokeIntensity_Global_Labels_7680x3840.mp4"
+    },
+    {
+     "file": "CanadianWildfires2023_SmokeIntensity_Global_4096x2048.mp4",
+     "size": "4096×2048",
+     "url": "https://svs.gsfc.nasa.gov/vis/a000000/a005600/a005631/CanadianWildfires2023_SmokeIntensity_Global_4096x2048.mp4"
+    },
+    {
+     "file": "CanadianWildfires_SmokeIntensity_Global_7680x3840.mp4",
+     "size": "7680×3840",
+     "url": "https://svs.gsfc.nasa.gov/vis/a000000/a005600/a005631/CanadianWildfires_SmokeIntensity_Global_7680x3840.mp4"
+    }
+   ],
+   "colorbars": [
+    "CanadianWildfires2023_SmokeIntensity_colorbar.png"
+   ],
+   "colorbar_inherited": false
+  },
+  {
+   "id": 5557,
+   "title": "Daily Visualizations of the Largest Wildfires in the United States: 2025",
+   "reason": "older_versions; 6 title words shared",
+   "flat_sets": [
+    {
+     "layer": "event001_FireContext_prev_versions",
+     "size": "2048×1024",
+     "frames": 18,
+     "url": "https://svs.gsfc.nasa.gov/vis/a000000/a005500/a005557/frames/event001_FireContext_prev_versions/"
+    },
+    {
+     "layer": "event002_FireContext_prev_versions",
+     "size": "2048×1024",
+     "frames": 21,
+     "url": "https://svs.gsfc.nasa.gov/vis/a000000/a005500/a005557/frames/event002_FireContext_prev_versions/"
+    }
+   ],
+   "flat_movies": [
+    {
+     "file": "event001_BlackCarbonGEOS2km_latest.mp4",
+     "size": "4096×2048",
+     "url": "https://svs.gsfc.nasa.gov/vis/a000000/a005500/a005557/event001_BlackCarbonGEOS2km_latest.mp4"
+    },
+    {
+     "file": "event001_FirePerimeters_latest.mp4",
+     "size": "2048×1024",
+     "url": "https://svs.gsfc.nasa.gov/vis/a000000/a005500/a005557/event001_FirePerimeters_latest.mp4"
+    },
+    {
+     "file": "event002_BlackCarbonGEOS2km_latest.mp4",
+     "size": "4096×2048",
+     "url": "https://svs.gsfc.nasa.gov/vis/a000000/a005500/a005557/event002_BlackCarbonGEOS2km_latest.mp4"
+    },
+    {
+     "file": "event002_FirePerimeters_latest.mp4",
+     "size": "2048×1024",
+     "url": "https://svs.gsfc.nasa.gov/vis/a000000/a005500/a005557/event002_FirePerimeters_latest.mp4"
+    }
+   ],
+   "colorbars": [
+    "GEOS_BlackCarbon_legend.png",
+    "GEOS_BlackCarbon_legend.png"
+   ],
+   "colorbar_inherited": false
+  }
+ ],
+ "decode": {
+  "mode": "brightness (no key)",
+  "decoded_share": 1.0
+ },
+ "layers": [
+  {
+   "id": "value",
+   "unit": "relative (0–1)",
+   "encoding": "linear",
+   "scale": 0.001,
+   "offset": 0.7359943389892578,
+   "nodata": 65535,
+   "below": 65534,
+   "grid": {
+    "width": 360,
+    "height": 180,
+    "bounds": [
+     -180,
+     -90,
+     180,
+     90
+    ],
+    "row0": "north",
+    "col0": "west",
+    "byte_order": "little"
+   },
+   "times": [
+    "2026-06-30T00:00:00Z",
+    "2026-08-06T00:00:00Z",
+    "2026-08-11T00:00:00Z"
+   ],
+   "chunks": [
+    {
+     "file": "value_000.u16.gz",
+     "t0": 0,
+     "t1": 3,
+     "bytes": 6410
+    }
+   ],
+   "quantisation_step": 0.001,
+   "coverage": 0.07783436213991769,
+   "value_range": [
+    0.7359943389892578,
+    0.7386124134063721
+   ],
+   "label": "Daily Visualizations of the Largest Wildfires in the United States: 2026 (pattern only)",
+   "aggregation": "mean of decoded pixels per cell",
+   "time_labels": [
+    "30 Jun 2026",
+    "06 Aug 2026",
+    "11 Aug 2026"
+   ],
+   "display": {
+    "colours": [
+     "#141418",
+     "#1c1c1f",
+     "#232327",
+     "#2b2b2e",
+     "#323236",
+     "#3a3a3d",
+     "#414145",
+     "#49494c",
+     "#515154",
+     "#58585b",
+     "#606063",
+     "#67676a",
+     "#6f6f71",
+     "#777779",
+     "#7e7e80",
+     "#868688",
+     "#8d8d8f",
+     "#959597",
+     "#9c9c9e",
+     "#a4a4a6",
+     "#acacad",
+     "#b3b3b4",
+     "#bbbbbc",
+     "#c2c2c3",
+     "#cacacb",
+     "#d2d2d2",
+     "#d9d9da",
+     "#e1e1e1",
+     "#e8e8e9",
+     "#f0f0f0",
+     "#f7f7f8",
+     "#ffffff"
+    ],
+    "values": [
+     0.0,
+     0.03225806451612903,
+     0.06451612903225806,
+     0.0967741935483871,
+     0.12903225806451613,
+     0.16129032258064516,
+     0.1935483870967742,
+     0.22580645161290322,
+     0.25806451612903225,
+     0.29032258064516125,
+     0.3225806451612903,
+     0.3548387096774194,
+     0.3870967741935484,
+     0.4193548387096774,
+     0.45161290322580644,
+     0.4838709677419355,
+     0.5161290322580645,
+     0.5483870967741935,
+     0.5806451612903225,
+     0.6129032258064516,
+     0.6451612903225806,
+     0.6774193548387096,
+     0.7096774193548387,
+     0.7419354838709677,
+     0.7741935483870968,
+     0.8064516129032258,
+     0.8387096774193548,
+     0.8709677419354839,
+     0.9032258064516129,
+     0.9354838709677419,
+     0.967741935483871,
+     1.0
+    ],
+    "scale": "linear",
+    "ramp": true
+   },
+   "status": "pattern only",
+   "status_check": "a_no_validation_source",
+   "statement": "pattern only"
+  }
+ ],
+ "voices": {
+  "value": "rel5639"
+ },
+ "play": [
+  {
+   "id": "value",
+   "label": "Daily Visualizations of the Largest Wildfires in the United States: 2026: higher pitch = higher value",
+   "view": "global",
+   "map": "value",
+   "start": {
+    "lat": -0.5,
+    "lon": -0.5
+   },
+   "steps_per_second": 1,
+   "channels": [
+    {
+     "voice": "rel5639",
+     "layers": [
+      "value"
+     ],
+     "combine": "value"
+    }
+   ]
+  }
+ ],
+ "validation": [
+  {
+   "id": "a_no_validation_source",
+   "title": "Daily Visualizations of the Largest Wildfires in the United States: 2026: no validation source",
+   "kind": "none",
+   "pass": null,
+   "threshold": null
+  }
+ ],
+ "size": {
+  "choice": {
+   "frames": 3
+  },
+  "tried": [],
+  "bytes": 20723,
+  "budget": 25000000
+ },
+ "onboarding": {
+  "timings_s": {
+   "api": 12.8,
+   "twins": 0.7,
+   "asset choice": 0.0,
+   "frames": 8.3,
+   "frame times": 0.1,
+   "georef": 3.3,
+   "colorbar": 0.2,
+   "inversion": 0.3,
+   "validation": 0.0
+  },
+  "status": "pattern only"
+ },
+ "asset_checksums": {
+  "file": "checksums.tsv.gz",
+  "rows": 3,
+  "sha256_of_list": "2cb27038681bca699df536f4ff3b1952c67354177d9cec8a64c07a19f4ae4202"
+ },
+ "code_commit": "a8f0638dc9adb81b18f259cf0813046acd882fa1-dirty",
+ "generated_utc": "2026-10-31T17:13:35Z"
+}

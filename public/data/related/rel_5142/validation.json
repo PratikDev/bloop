@@ -1,0 +1,20 @@
+{
+ "record": "rel_5142",
+ "checks": [
+  {
+   "record": "rel_5142",
+   "id": "a_no_validation_source",
+   "title": "TEMPO - Nitrogen Dioxide Air Pollution Over North America: no validation source",
+   "kind": "none",
+   "source": null,
+   "metrics": {
+    "reason": "no georeference: spatial check not possible"
+   },
+   "threshold": null,
+   "pass": null,
+   "note": "no georeference: spatial check not possible",
+   "run_utc": "2026-10-31T17:42:36Z"
+  }
+ ],
+ "updated_utc": "2026-10-31T17:42:36Z"
+}

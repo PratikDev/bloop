@@ -1,0 +1,523 @@
+{
+ "id": 4345,
+ "title": "22-year Sea Level Rise - TOPEX/JASON",
+ "url": "https://svs.gsfc.nasa.gov/4345/",
+ "page_type": "Visualization",
+ "release_date": "2015-08-26T09:30:00-04:00",
+ "update_date": "2024-10-13T00:08:22.059840-04:00",
+ "description": "Spinning globe showing TOPEX/JASON 22-year sea level  data. Earth spins once before camera zooms into West Atlantic, East Pacific, and West Pacific regions. With colorbarThis video is also available on our YouTube channel. || SLR_WithColorBar_03659_print.jpg (1024x576) [75.0 KB] || SLR_WithColorBar_03659_searchweb.png (180x320) [52.7 KB] || SLR_WithColorBar_03659_thm.png (80x40) [4.7 KB] || SLR_WithColorBar_720p60.webm (1280x720) [6.9 MB] || SLR_3dGlobe_wColorbar (1920x1080) [256.0 KB] || SLR_WithColorBar_720p60.mp4 (1280x720) [17.5 MB] || SLR_WithColorBar_1080p60.mp4 (1920x1080) [36.6 MB] || 22_years_Sea_level_rise_4345.key [20.4 MB] || 22_years_Sea_level_rise_4345.pptx [17.9 MB] || ",
+ "full_text": "Spinning globe showing TOPEX/JASON 22-year sea level  data. Earth spins once before camera zooms into West Atlantic, East Pacific, and West Pacific regions. With colorbarThis video is also available on our YouTube channel. || SLR_WithColorBar_03659_print.jpg (1024x576) [75.0 KB] || SLR_WithColorBar_03659_searchweb.png (180x320) [52.7 KB] || SLR_WithColorBar_03659_thm.png (80x40) [4.7 KB] || SLR_WithColorBar_720p60.webm (1280x720) [6.9 MB] || SLR_3dGlobe_wColorbar (1920x1080) [256.0 KB] || SLR_WithColorBar_720p60.mp4 (1280x720) [17.5 MB] || SLR_WithColorBar_1080p60.mp4 (1920x1080) [36.6 MB] || 22_years_Sea_level_rise_4345.key [20.4 MB] || 22_years_Sea_level_rise_4345.pptx [17.9 MB] ||\n\nSpinning globe showing TOPEX/JASON 22-year sea level  data. Earth spins once before camera zooms into West Atlantic, East Pacific, and West Pacific regions. With colorbar<br><a href='https://www.youtube.com/watch?v=m1M3q6TkYUk'>This video is also available on our YouTube channel</a>.<br>\n\nThis visualization shows total sea level change between 1992 and 2014, based on data collected from the TOPEX/Poseidon, Jason-1, and Jason-2 satellites.  Blue regions are where sea level has gone down, and orange/red regions are where sea level has gone up. Since 1992, seas around the world have risen an average of nearly 3 inches.  \r<br><br />\rThe color range for this visualization is -7 cm to +7 cm (-2.76 inches to +2.76 inches), though measured data extends above and below 7cm(2.76 inches). This particular range was chosen to highlight variations in sea level change.\n\nSpinning globe showing TOPEX/JASON 22-year sea level  data. Earth spins once before camera zooms into West Atlantic, East Pacific, and West Pacific regions.\n\nTOPEX/JASON 22-year sea level  data. Flat map - print still\n\nTOPEX/JASON 22-year sea level  data. Flat map - print still. With color bar\n\nTOPEX/JASON 22-year sea level  data. 3d globe focused on the Atlantic Ocean - print still\n\nTOPEX/JASON 22-year sea level  data. 3d globe focused on the eastern portion of the Pacific Ocean - print still\n\nTOPEX/JASON 22-year sea level  data. 3d globe focused on the western portion of the Pacific Ocean - print still\n\nTOPEX/JASON 22-year sea level  data. 3d globe focused on the western portion of the Atlantic Ocean - print still\n\nred to white to blue colorbar. -3cm to 3cm\n\nred to white to blue colorbar. -2.76in to 2.76in",
+ "credits_by_role": {
+  "Visualizer": [
+   "Kel Elkins (USRA)"
+  ],
+  "Producer": [
+   "Patrick Lynch (Wyle Information Systems)"
+  ],
+  "Scientist": [
+   "Josh Willis (JPL)"
+  ]
+ },
+ "keywords": [
+  "HDTV",
+  "Hyperwall",
+  "Presentation"
+ ],
+ "datasets": [
+  {
+   "name": "",
+   "common_name": "",
+   "platform": "TOPEX",
+   "sensor": "Poseidon",
+   "type": "Other",
+   "organizations": [],
+   "description": "",
+   "credit": "",
+   "url": "",
+   "date_range": null
+  },
+  {
+   "name": "Sea Surface Height",
+   "common_name": "",
+   "platform": "Jason-1",
+   "sensor": "Altimeter",
+   "type": "Other",
+   "organizations": [],
+   "description": "",
+   "credit": "",
+   "url": "",
+   "date_range": null
+  },
+  {
+   "name": "Sea Surface Height",
+   "common_name": "SSH",
+   "platform": "Jason-2",
+   "sensor": "CNES Poseidon-3 Altimeter",
+   "type": "Other",
+   "organizations": [],
+   "description": "",
+   "credit": "",
+   "url": "",
+   "date_range": null
+  }
+ ],
+ "missions": [
+  "Jason",
+  "Ocean Surface Topography Mission/Jason 2",
+  "TOPEX/Poseidon"
+ ],
+ "related": [
+  {
+   "id": 11927,
+   "title": "Earth's Rising Seas",
+   "url": "https://svs.gsfc.nasa.gov/11927/"
+  },
+  {
+   "id": 11988,
+   "title": "Instagram: NASA Hosts TV Program On Sea Level Rise",
+   "url": "https://svs.gsfc.nasa.gov/11988/"
+  },
+  {
+   "id": 11976,
+   "title": "Sea Level Rise Live Shots",
+   "url": "https://svs.gsfc.nasa.gov/11976/"
+  }
+ ],
+ "alternate_versions": [],
+ "newer_versions": [],
+ "older_versions": [],
+ "media": [
+  {
+   "group": 0,
+   "group_title": "",
+   "widget": "Video player",
+   "caption": "",
+   "group_text": "Spinning globe showing TOPEX/JASON 22-year sea level  data. Earth spins once before camera zooms into West Atlantic, East Pacific, and West Pacific regions. With colorbar<br><a href='https://www.youtube.com/watch?v=m1M3q6TkYUk'>This video is also available on our YouTube channel</a>.<br>",
+   "url": "https://svs.gsfc.nasa.gov/vis/a000000/a004300/a004345/SLR_WithColorBar_03659_print.jpg",
+   "filename": "SLR_WithColorBar_03659_print.jpg",
+   "media_type": "Image",
+   "width": 1024,
+   "height": 576,
+   "alt_text": "Spinning globe showing TOPEX/JASON 22-year sea level  data. Earth spins once before camera zooms into West Atlantic, East Pacific, and West Pacific regions. With colorbarThis video is also available on our YouTube channel."
+  },
+  {
+   "group": 0,
+   "group_title": "",
+   "widget": "Video player",
+   "caption": "",
+   "group_text": "Spinning globe showing TOPEX/JASON 22-year sea level  data. Earth spins once before camera zooms into West Atlantic, East Pacific, and West Pacific regions. With colorbar<br><a href='https://www.youtube.com/watch?v=m1M3q6TkYUk'>This video is also available on our YouTube channel</a>.<br>",
+   "url": "https://svs.gsfc.nasa.gov/vis/a000000/a004300/a004345/SLR_WithColorBar_03659_searchweb.png",
+   "filename": "SLR_WithColorBar_03659_searchweb.png",
+   "media_type": "Image",
+   "width": 180,
+   "height": 320,
+   "alt_text": "Spinning globe showing TOPEX/JASON 22-year sea level  data. Earth spins once before camera zooms into West Atlantic, East Pacific, and West Pacific regions. With colorbarThis video is also available on our YouTube channel."
+  },
+  {
+   "group": 0,
+   "group_title": "",
+   "widget": "Video player",
+   "caption": "",
+   "group_text": "Spinning globe showing TOPEX/JASON 22-year sea level  data. Earth spins once before camera zooms into West Atlantic, East Pacific, and West Pacific regions. With colorbar<br><a href='https://www.youtube.com/watch?v=m1M3q6TkYUk'>This video is also available on our YouTube channel</a>.<br>",
+   "url": "https://svs.gsfc.nasa.gov/vis/a000000/a004300/a004345/SLR_WithColorBar_03659_thm.png",
+   "filename": "SLR_WithColorBar_03659_thm.png",
+   "media_type": "Image",
+   "width": 80,
+   "height": 40,
+   "alt_text": "Spinning globe showing TOPEX/JASON 22-year sea level  data. Earth spins once before camera zooms into West Atlantic, East Pacific, and West Pacific regions. With colorbarThis video is also available on our YouTube channel."
+  },
+  {
+   "group": 0,
+   "group_title": "",
+   "widget": "Video player",
+   "caption": "",
+   "group_text": "Spinning globe showing TOPEX/JASON 22-year sea level  data. Earth spins once before camera zooms into West Atlantic, East Pacific, and West Pacific regions. With colorbar<br><a href='https://www.youtube.com/watch?v=m1M3q6TkYUk'>This video is also available on our YouTube channel</a>.<br>",
+   "url": "https://svs.gsfc.nasa.gov/vis/a000000/a004300/a004345/SLR_WithColorBar_720p60.webm",
+   "filename": "SLR_WithColorBar_720p60.webm",
+   "media_type": "Movie",
+   "width": 1280,
+   "height": 720,
+   "alt_text": "Spinning globe showing TOPEX/JASON 22-year sea level  data. Earth spins once before camera zooms into West Atlantic, East Pacific, and West Pacific regions. With colorbarThis video is also available on our YouTube channel."
+  },
+  {
+   "group": 0,
+   "group_title": "",
+   "widget": "Video player",
+   "caption": "",
+   "group_text": "Spinning globe showing TOPEX/JASON 22-year sea level  data. Earth spins once before camera zooms into West Atlantic, East Pacific, and West Pacific regions. With colorbar<br><a href='https://www.youtube.com/watch?v=m1M3q6TkYUk'>This video is also available on our YouTube channel</a>.<br>",
+   "url": "https://svs.gsfc.nasa.gov/vis/a000000/a004300/a004345/frames/1920x1080_16x9_60p/SLR_3dGlobe_wColorbar/",
+   "filename": "SLR_3dGlobe_wColorbar",
+   "media_type": "Frames",
+   "width": 1920,
+   "height": 1080,
+   "alt_text": "Spinning globe showing TOPEX/JASON 22-year sea level  data. Earth spins once before camera zooms into West Atlantic, East Pacific, and West Pacific regions. With colorbarThis video is also available on our YouTube channel."
+  },
+  {
+   "group": 0,
+   "group_title": "",
+   "widget": "Video player",
+   "caption": "",
+   "group_text": "Spinning globe showing TOPEX/JASON 22-year sea level  data. Earth spins once before camera zooms into West Atlantic, East Pacific, and West Pacific regions. With colorbar<br><a href='https://www.youtube.com/watch?v=m1M3q6TkYUk'>This video is also available on our YouTube channel</a>.<br>",
+   "url": "https://svs.gsfc.nasa.gov/vis/a000000/a004300/a004345/SLR_WithColorBar_720p60.mp4",
+   "filename": "SLR_WithColorBar_720p60.mp4",
+   "media_type": "Movie",
+   "width": 1280,
+   "height": 720,
+   "alt_text": "Spinning globe showing TOPEX/JASON 22-year sea level  data. Earth spins once before camera zooms into West Atlantic, East Pacific, and West Pacific regions. With colorbarThis video is also available on our YouTube channel."
+  },
+  {
+   "group": 0,
+   "group_title": "",
+   "widget": "Video player",
+   "caption": "",
+   "group_text": "Spinning globe showing TOPEX/JASON 22-year sea level  data. Earth spins once before camera zooms into West Atlantic, East Pacific, and West Pacific regions. With colorbar<br><a href='https://www.youtube.com/watch?v=m1M3q6TkYUk'>This video is also available on our YouTube channel</a>.<br>",
+   "url": "https://svs.gsfc.nasa.gov/vis/a000000/a004300/a004345/SLR_WithColorBar_1080p60.mp4",
+   "filename": "SLR_WithColorBar_1080p60.mp4",
+   "media_type": "Movie",
+   "width": 1920,
+   "height": 1080,
+   "alt_text": "Spinning globe showing TOPEX/JASON 22-year sea level  data. Earth spins once before camera zooms into West Atlantic, East Pacific, and West Pacific regions. With colorbarThis video is also available on our YouTube channel."
+  },
+  {
+   "group": 0,
+   "group_title": "",
+   "widget": "Video player",
+   "caption": "",
+   "group_text": "Spinning globe showing TOPEX/JASON 22-year sea level  data. Earth spins once before camera zooms into West Atlantic, East Pacific, and West Pacific regions. With colorbar<br><a href='https://www.youtube.com/watch?v=m1M3q6TkYUk'>This video is also available on our YouTube channel</a>.<br>",
+   "url": "https://svs.gsfc.nasa.gov/vis/a000000/a004300/a004345/22_years_Sea_level_rise_4345.key",
+   "filename": "22_years_Sea_level_rise_4345.key",
+   "media_type": "Presentation",
+   "width": 0,
+   "height": 0,
+   "alt_text": "Spinning globe showing TOPEX/JASON 22-year sea level  data. Earth spins once before camera zooms into West Atlantic, East Pacific, and West Pacific regions. With colorbarThis video is also available on our YouTube channel."
+  },
+  {
+   "group": 0,
+   "group_title": "",
+   "widget": "Video player",
+   "caption": "",
+   "group_text": "Spinning globe showing TOPEX/JASON 22-year sea level  data. Earth spins once before camera zooms into West Atlantic, East Pacific, and West Pacific regions. With colorbar<br><a href='https://www.youtube.com/watch?v=m1M3q6TkYUk'>This video is also available on our YouTube channel</a>.<br>",
+   "url": "https://svs.gsfc.nasa.gov/vis/a000000/a004300/a004345/22_years_Sea_level_rise_4345.pptx",
+   "filename": "22_years_Sea_level_rise_4345.pptx",
+   "media_type": "Presentation",
+   "width": 0,
+   "height": 0,
+   "alt_text": "Spinning globe showing TOPEX/JASON 22-year sea level  data. Earth spins once before camera zooms into West Atlantic, East Pacific, and West Pacific regions. With colorbarThis video is also available on our YouTube channel."
+  },
+  {
+   "group": 2,
+   "group_title": "",
+   "widget": "Video player",
+   "caption": "",
+   "group_text": "Spinning globe showing TOPEX/JASON 22-year sea level  data. Earth spins once before camera zooms into West Atlantic, East Pacific, and West Pacific regions. ",
+   "url": "https://svs.gsfc.nasa.gov/vis/a000000/a004300/a004345/SeaLevelRise_1993-2014_-7to7cm.4700_print.jpg",
+   "filename": "SeaLevelRise_1993-2014_-7to7cm.4700_print.jpg",
+   "media_type": "Image",
+   "width": 1024,
+   "height": 576,
+   "alt_text": "Spinning globe showing TOPEX/JASON 22-year sea level  data. Earth spins once before camera zooms into West Atlantic, East Pacific, and West Pacific regions. "
+  },
+  {
+   "group": 2,
+   "group_title": "",
+   "widget": "Video player",
+   "caption": "",
+   "group_text": "Spinning globe showing TOPEX/JASON 22-year sea level  data. Earth spins once before camera zooms into West Atlantic, East Pacific, and West Pacific regions. ",
+   "url": "https://svs.gsfc.nasa.gov/vis/a000000/a004300/a004345/frames/1920x1080_16x9_60p/SLR_3dGlobe/",
+   "filename": "SLR_3dGlobe",
+   "media_type": "Frames",
+   "width": 1920,
+   "height": 1080,
+   "alt_text": "Spinning globe showing TOPEX/JASON 22-year sea level  data. Earth spins once before camera zooms into West Atlantic, East Pacific, and West Pacific regions. "
+  },
+  {
+   "group": 2,
+   "group_title": "",
+   "widget": "Video player",
+   "caption": "",
+   "group_text": "Spinning globe showing TOPEX/JASON 22-year sea level  data. Earth spins once before camera zooms into West Atlantic, East Pacific, and West Pacific regions. ",
+   "url": "https://svs.gsfc.nasa.gov/vis/a000000/a004300/a004345/SeaLevelRise_1993-2014_-7to7cm_720p60.mp4",
+   "filename": "SeaLevelRise_1993-2014_-7to7cm_720p60.mp4",
+   "media_type": "Movie",
+   "width": 1280,
+   "height": 720,
+   "alt_text": "Spinning globe showing TOPEX/JASON 22-year sea level  data. Earth spins once before camera zooms into West Atlantic, East Pacific, and West Pacific regions. "
+  },
+  {
+   "group": 2,
+   "group_title": "",
+   "widget": "Video player",
+   "caption": "",
+   "group_text": "Spinning globe showing TOPEX/JASON 22-year sea level  data. Earth spins once before camera zooms into West Atlantic, East Pacific, and West Pacific regions. ",
+   "url": "https://svs.gsfc.nasa.gov/vis/a000000/a004300/a004345/SeaLevelRise_1993-2014_-7to7cm_1080p60.mp4",
+   "filename": "SeaLevelRise_1993-2014_-7to7cm_1080p60.mp4",
+   "media_type": "Movie",
+   "width": 1920,
+   "height": 1080,
+   "alt_text": "Spinning globe showing TOPEX/JASON 22-year sea level  data. Earth spins once before camera zooms into West Atlantic, East Pacific, and West Pacific regions. "
+  },
+  {
+   "group": 2,
+   "group_title": "",
+   "widget": "Video player",
+   "caption": "",
+   "group_text": "Spinning globe showing TOPEX/JASON 22-year sea level  data. Earth spins once before camera zooms into West Atlantic, East Pacific, and West Pacific regions. ",
+   "url": "https://svs.gsfc.nasa.gov/vis/a000000/a004300/a004345/SeaLevelRise_1993-2014_-7to7cm_1080p60.webm",
+   "filename": "SeaLevelRise_1993-2014_-7to7cm_1080p60.webm",
+   "media_type": "Movie",
+   "width": 1920,
+   "height": 1080,
+   "alt_text": "Spinning globe showing TOPEX/JASON 22-year sea level  data. Earth spins once before camera zooms into West Atlantic, East Pacific, and West Pacific regions. "
+  },
+  {
+   "group": 2,
+   "group_title": "",
+   "widget": "Video player",
+   "caption": "",
+   "group_text": "Spinning globe showing TOPEX/JASON 22-year sea level  data. Earth spins once before camera zooms into West Atlantic, East Pacific, and West Pacific regions. ",
+   "url": "https://svs.gsfc.nasa.gov/vis/a000000/a004300/a004345/frames/5760x3240_16x9_30p/SeaLevelRise_1993-2014_-7to7cm_Hyperwall/",
+   "filename": "SeaLevelRise_1993-2014_-7to7cm_Hyperwall",
+   "media_type": "Frames",
+   "width": 5760,
+   "height": 3240,
+   "alt_text": "Spinning globe showing TOPEX/JASON 22-year sea level  data. Earth spins once before camera zooms into West Atlantic, East Pacific, and West Pacific regions. "
+  },
+  {
+   "group": 3,
+   "group_title": "",
+   "widget": "Single image",
+   "caption": "",
+   "group_text": "TOPEX/JASON 22-year sea level  data. Flat map - print still",
+   "url": "https://svs.gsfc.nasa.gov/vis/a000000/a004300/a004345/23year_SeaSurfaceHeightChange_-7to7cm_PrintStill.jpg",
+   "filename": "23year_SeaSurfaceHeightChange_-7to7cm_PrintStill.jpg",
+   "media_type": "Image",
+   "width": 3600,
+   "height": 2026,
+   "alt_text": "TOPEX/JASON 22-year sea level  data. Flat map - print still"
+  },
+  {
+   "group": 3,
+   "group_title": "",
+   "widget": "Single image",
+   "caption": "",
+   "group_text": "TOPEX/JASON 22-year sea level  data. Flat map - print still",
+   "url": "https://svs.gsfc.nasa.gov/vis/a000000/a004300/a004345/SeaLevelRise_1993-2014_-7to7cm_Hyperwall.tif",
+   "filename": "SeaLevelRise_1993-2014_-7to7cm_Hyperwall.tif",
+   "media_type": "Image",
+   "width": 5760,
+   "height": 3240,
+   "alt_text": "TOPEX/JASON 22-year sea level  data. Flat map - print still"
+  },
+  {
+   "group": 4,
+   "group_title": "",
+   "widget": "Single image",
+   "caption": "",
+   "group_text": "TOPEX/JASON 22-year sea level  data. Flat map - print still. With color bar",
+   "url": "https://svs.gsfc.nasa.gov/vis/a000000/a004300/a004345/23year_SeaSurfaceHeightChange_-7to7cm_PrintStill_wColorbar.jpg",
+   "filename": "23year_SeaSurfaceHeightChange_-7to7cm_PrintStill_wColorbar.jpg",
+   "media_type": "Image",
+   "width": 3600,
+   "height": 2026,
+   "alt_text": "TOPEX/JASON 22-year sea level  data. Flat map - print still. With color bar"
+  },
+  {
+   "group": 4,
+   "group_title": "",
+   "widget": "Single image",
+   "caption": "",
+   "group_text": "TOPEX/JASON 22-year sea level  data. Flat map - print still. With color bar",
+   "url": "https://svs.gsfc.nasa.gov/vis/a000000/a004300/a004345/SeaLevelRise_1993-2014_-7to7cm_Hyperwall_wCB.tif",
+   "filename": "SeaLevelRise_1993-2014_-7to7cm_Hyperwall_wCB.tif",
+   "media_type": "Image",
+   "width": 5760,
+   "height": 3240,
+   "alt_text": "TOPEX/JASON 22-year sea level  data. Flat map - print still. With color bar"
+  },
+  {
+   "group": 5,
+   "group_title": "",
+   "widget": "Single image",
+   "caption": "",
+   "group_text": "TOPEX/JASON 22-year sea level  data. 3d globe focused on the Atlantic Ocean - print still",
+   "url": "https://svs.gsfc.nasa.gov/vis/a000000/a004300/a004345/23year_SeaSurfaceHeightChange_-7to7cm_PrintStill_Atlantic_print.jpg",
+   "filename": "23year_SeaSurfaceHeightChange_-7to7cm_PrintStill_Atlantic_print.jpg",
+   "media_type": "Image",
+   "width": 1024,
+   "height": 576,
+   "alt_text": "TOPEX/JASON 22-year sea level  data. 3d globe focused on the Atlantic Ocean - print still"
+  },
+  {
+   "group": 5,
+   "group_title": "",
+   "widget": "Single image",
+   "caption": "",
+   "group_text": "TOPEX/JASON 22-year sea level  data. 3d globe focused on the Atlantic Ocean - print still",
+   "url": "https://svs.gsfc.nasa.gov/vis/a000000/a004300/a004345/23year_SeaSurfaceHeightChange_-7to7cm_PrintStill_Atlantic.jpg",
+   "filename": "23year_SeaSurfaceHeightChange_-7to7cm_PrintStill_Atlantic.jpg",
+   "media_type": "Image",
+   "width": 3600,
+   "height": 2026,
+   "alt_text": "TOPEX/JASON 22-year sea level  data. 3d globe focused on the Atlantic Ocean - print still"
+  },
+  {
+   "group": 6,
+   "group_title": "",
+   "widget": "Single image",
+   "caption": "",
+   "group_text": "TOPEX/JASON 22-year sea level  data. 3d globe focused on the eastern portion of the Pacific Ocean - print still",
+   "url": "https://svs.gsfc.nasa.gov/vis/a000000/a004300/a004345/23year_SeaSurfaceHeightChange_-7to7cm_PrintStill_EastPacific_print.jpg",
+   "filename": "23year_SeaSurfaceHeightChange_-7to7cm_PrintStill_EastPacific_print.jpg",
+   "media_type": "Image",
+   "width": 1024,
+   "height": 576,
+   "alt_text": "TOPEX/JASON 22-year sea level  data. 3d globe focused on the eastern portion of the Pacific Ocean - print still"
+  },
+  {
+   "group": 6,
+   "group_title": "",
+   "widget": "Single image",
+   "caption": "",
+   "group_text": "TOPEX/JASON 22-year sea level  data. 3d globe focused on the eastern portion of the Pacific Ocean - print still",
+   "url": "https://svs.gsfc.nasa.gov/vis/a000000/a004300/a004345/23year_SeaSurfaceHeightChange_-7to7cm_PrintStill_EastPacific.jpg",
+   "filename": "23year_SeaSurfaceHeightChange_-7to7cm_PrintStill_EastPacific.jpg",
+   "media_type": "Image",
+   "width": 3600,
+   "height": 2026,
+   "alt_text": "TOPEX/JASON 22-year sea level  data. 3d globe focused on the eastern portion of the Pacific Ocean - print still"
+  },
+  {
+   "group": 7,
+   "group_title": "",
+   "widget": "Single image",
+   "caption": "",
+   "group_text": "TOPEX/JASON 22-year sea level  data. 3d globe focused on the western portion of the Pacific Ocean - print still",
+   "url": "https://svs.gsfc.nasa.gov/vis/a000000/a004300/a004345/23year_SeaSurfaceHeightChange_-7to7cm_PrintStill_WestPacific_print.jpg",
+   "filename": "23year_SeaSurfaceHeightChange_-7to7cm_PrintStill_WestPacific_print.jpg",
+   "media_type": "Image",
+   "width": 1024,
+   "height": 576,
+   "alt_text": "TOPEX/JASON 22-year sea level  data. 3d globe focused on the western portion of the Pacific Ocean - print still"
+  },
+  {
+   "group": 7,
+   "group_title": "",
+   "widget": "Single image",
+   "caption": "",
+   "group_text": "TOPEX/JASON 22-year sea level  data. 3d globe focused on the western portion of the Pacific Ocean - print still",
+   "url": "https://svs.gsfc.nasa.gov/vis/a000000/a004300/a004345/23year_SeaSurfaceHeightChange_-7to7cm_PrintStill_WestPacific.jpg",
+   "filename": "23year_SeaSurfaceHeightChange_-7to7cm_PrintStill_WestPacific.jpg",
+   "media_type": "Image",
+   "width": 3600,
+   "height": 2026,
+   "alt_text": "TOPEX/JASON 22-year sea level  data. 3d globe focused on the western portion of the Pacific Ocean - print still"
+  },
+  {
+   "group": 8,
+   "group_title": "",
+   "widget": "Single image",
+   "caption": "",
+   "group_text": "TOPEX/JASON 22-year sea level  data. 3d globe focused on the western portion of the Atlantic Ocean - print still",
+   "url": "https://svs.gsfc.nasa.gov/vis/a000000/a004300/a004345/23year_SeaSurfaceHeightChange_-7to7cm_PrintStill_WestAtlantic_print.jpg",
+   "filename": "23year_SeaSurfaceHeightChange_-7to7cm_PrintStill_WestAtlantic_print.jpg",
+   "media_type": "Image",
+   "width": 1024,
+   "height": 576,
+   "alt_text": "TOPEX/JASON 22-year sea level  data. 3d globe focused on the western portion of the Atlantic Ocean - print still"
+  },
+  {
+   "group": 8,
+   "group_title": "",
+   "widget": "Single image",
+   "caption": "",
+   "group_text": "TOPEX/JASON 22-year sea level  data. 3d globe focused on the western portion of the Atlantic Ocean - print still",
+   "url": "https://svs.gsfc.nasa.gov/vis/a000000/a004300/a004345/23year_SeaSurfaceHeightChange_-7to7cm_PrintStill_WestAtlantic.jpg",
+   "filename": "23year_SeaSurfaceHeightChange_-7to7cm_PrintStill_WestAtlantic.jpg",
+   "media_type": "Image",
+   "width": 3600,
+   "height": 2026,
+   "alt_text": "TOPEX/JASON 22-year sea level  data. 3d globe focused on the western portion of the Atlantic Ocean - print still"
+  },
+  {
+   "group": 9,
+   "group_title": "",
+   "widget": "Single image",
+   "caption": "",
+   "group_text": "red to white to blue colorbar. -3cm to 3cm ",
+   "url": "https://svs.gsfc.nasa.gov/vis/a000000/a004300/a004345/colorbar_red2blue_large.png",
+   "filename": "colorbar_red2blue_large.png",
+   "media_type": "Image",
+   "width": 1600,
+   "height": 480,
+   "alt_text": "red to white to blue colorbar. -3cm to 3cm "
+  },
+  {
+   "group": 9,
+   "group_title": "",
+   "widget": "Single image",
+   "caption": "",
+   "group_text": "red to white to blue colorbar. -3cm to 3cm ",
+   "url": "https://svs.gsfc.nasa.gov/vis/a000000/a004300/a004345/colorbar_red2blue_large_print.jpg",
+   "filename": "colorbar_red2blue_large_print.jpg",
+   "media_type": "Image",
+   "width": 1024,
+   "height": 307,
+   "alt_text": "red to white to blue colorbar. -3cm to 3cm "
+  },
+  {
+   "group": 10,
+   "group_title": "",
+   "widget": "Single image",
+   "caption": "",
+   "group_text": "red to white to blue colorbar. -2.76in to 2.76in ",
+   "url": "https://svs.gsfc.nasa.gov/vis/a000000/a004300/a004345/colorbar_red2blue_inches_large.png",
+   "filename": "colorbar_red2blue_inches_large.png",
+   "media_type": "Image",
+   "width": 1600,
+   "height": 480,
+   "alt_text": "red to white to blue colorbar. -2.76in to 2.76in "
+  },
+  {
+   "group": 10,
+   "group_title": "",
+   "widget": "Single image",
+   "caption": "",
+   "group_text": "red to white to blue colorbar. -2.76in to 2.76in ",
+   "url": "https://svs.gsfc.nasa.gov/vis/a000000/a004300/a004345/colorbar_red2blue_inches_large_print.jpg",
+   "filename": "colorbar_red2blue_inches_large_print.jpg",
+   "media_type": "Image",
+   "width": 1024,
+   "height": 307,
+   "alt_text": "red to white to blue colorbar. -2.76in to 2.76in "
+  }
+ ],
+ "text_links": [],
+ "frame_folders": {
+  "https://svs.gsfc.nasa.gov/vis/a000000/a004300/a004345/frames/1920x1080_16x9_60p/SLR_3dGlobe_wColorbar/": {
+   "url": "https://svs.gsfc.nasa.gov/vis/a000000/a004300/a004345/frames/1920x1080_16x9_60p/SLR_3dGlobe_wColorbar/",
+   "frame_count": 3660,
+   "bytes_approx": 18300000000,
+   "first": "SLR_WithColorBar_00000.tif",
+   "last": "SLR_WithColorBar_03659.tif",
+   "subfolders": {}
+  },
+  "https://svs.gsfc.nasa.gov/vis/a000000/a004300/a004345/frames/1920x1080_16x9_60p/SLR_3dGlobe/": {
+   "url": "https://svs.gsfc.nasa.gov/vis/a000000/a004300/a004345/frames/1920x1080_16x9_60p/SLR_3dGlobe/",
+   "frame_count": 3701,
+   "bytes_approx": 3698952000,
+   "first": "SeaLevelRise_1993-2014_-7to7cm.1000.tif",
+   "last": "SeaLevelRise_1993-2014_-7to7cm.4700.tif",
+   "subfolders": {}
+  },
+  "https://svs.gsfc.nasa.gov/vis/a000000/a004300/a004345/frames/5760x3240_16x9_30p/SeaLevelRise_1993-2014_-7to7cm_Hyperwall/": {
+   "url": "https://svs.gsfc.nasa.gov/vis/a000000/a004300/a004345/frames/5760x3240_16x9_30p/SeaLevelRise_1993-2014_-7to7cm_Hyperwall/",
+   "frame_count": 1851,
+   "bytes_approx": 14986000000,
+   "first": "SeaLevelRise_1993-2014_-7to7cm_Hyperwall.0001.tif",
+   "last": "SeaLevelRise_1993-2014_-7to7cm_Hyperwall.1851.tif",
+   "subfolders": {}
+  }
+ },
+ "api_url": "https://svs.gsfc.nasa.gov/api/4345",
+ "fetched_utc": "2026-10-31T17:16:48Z"
+}
