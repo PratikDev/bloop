@@ -22,25 +22,25 @@ OBS_RX = re.compile(r"\b(satellite|MODIS|VIIRS|Landsat|GEDI|LIS|OCO|GPM|IMERG|SM
                     r"observ|measur|sensor|lidar|radar|TROPOMI|TEMPO|AIRS|CERES|ICESat|SWOT|Jason)\b", re.I)
 VIDEO_RX = re.compile(r"\b(interview|b-roll|broll|narrated|documentary|video|smithsonian|jane goodall|resilience|joins)\b", re.I)
 
-def gallery(gid):
+def gallery(gid, refresh=False):
     path = CACHE / f"gallery_{gid}.json"
-    if path.exists(): return json.loads(path.read_text(encoding="utf-8"))
+    if path.exists() and not refresh: return json.loads(path.read_text(encoding="utf-8"))
     js = json.loads(fetch.text(f"{SVS}/api/{gid}"))
     path.write_text(json.dumps(js, indent=1, ensure_ascii=False), encoding="utf-8")
     return js
 
-def crawl(gid=GALLERY, trail=(), seen=None):
+def crawl(gid=GALLERY, trail=(), seen=None, refresh=False):
     """{svs_id: {'via': [gallery path, …]}} for every details page reachable from the gallery."""
     seen = seen if seen is not None else set()
     seen.add(gid)
-    js, out = gallery(gid), {}
+    js, out = gallery(gid, refresh), {}
     here = trail + (js.get("title") or str(gid),)
     for g in js.get("media_groups", []):
         for it in g.get("items", []):
             ins = it.get("instance") or {}
             kind = it.get("type")
             if kind == "gallery_page" and ins.get("id") not in seen:
-                for k, v in crawl(ins["id"], here, seen).items(): out.setdefault(k, {"via": []})["via"] += v["via"]
+                for k, v in crawl(ins["id"], here, seen, refresh).items(): out.setdefault(k, {"via": []})["via"] += v["via"]
                 continue
             sid = ins.get("id") if kind == "details_page" else None
             if kind == "media_group":

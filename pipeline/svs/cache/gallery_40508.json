@@ -1,0 +1,66 @@
+{
+ "id": 40508,
+ "url": "http://svs.gsfc.nasa.gov/gallery/launchesand-landingsonthe-hyperwall/",
+ "page_type": "Gallery",
+ "title": "Launches and Landings on the Hyperwall",
+ "description": "Launches and Landings of missions across all 5 divisions",
+ "release_date": "2023-10-04T00:00:00-04:00",
+ "update_date": "2023-10-04T00:00:00-04:00",
+ "main_image": {
+  "id": 859592,
+  "url": "http://svs.gsfc.nasa.gov/vis/a030000/a031200/a031250/schulte-2023-egu-slide2_0015_searchweb.png",
+  "filename": "schulte-2023-egu-slide2_0015_searchweb.png",
+  "media_type": "Image",
+  "alt_text": "Views of Mission Control and on Mars during Perseverance's descent",
+  "width": 180,
+  "height": 320,
+  "pixels": 57600
+ },
+ "media_groups": [
+  {
+   "id": 372382,
+   "url": "http://svs.gsfc.nasa.gov/gallery/launchesand-landingsonthe-hyperwall/#media_group_372382",
+   "widget": "Basic text (large)",
+   "title": "Overview",
+   "caption": "",
+   "description": "Launches and Landings of missions across all 5 divisions",
+   "items": [],
+   "extra_data": {}
+  },
+  {
+   "id": 372383,
+   "url": "http://svs.gsfc.nasa.gov/gallery/launchesand-landingsonthe-hyperwall/#media_group_372383",
+   "widget": "Card gallery",
+   "title": "Planetary Science Division",
+   "caption": "",
+   "description": "",
+   "items": [
+    {
+     "id": 413141,
+     "type": "details_page",
+     "extra_data": null,
+     "instance": {
+      "id": 31250,
+      "url": "http://svs.gsfc.nasa.gov/31250/",
+      "page_type": "Hyperwall Visual",
+      "title": "Perseverance Rover's Descent and Touchdown on Mars",
+      "description": "Views of Mission Control and on Mars during Perseverance's descent || schulte-2023-egu-slide2_0015_print.jpg (1024x576) [130.5 KB] || schulte-2023-egu-slide2_0015_searchweb.png (180x320) [89.8 KB] || schulte-2023-egu-slide2_0015_thm.png (80x40) [7.2 KB] || Perseverance-landing-1080p.webm (1920x1080) [26.1 MB] || Perseverance-landing-1080p.mp4 (1920x1080) [252.7 MB] || perseverence (3840x2160) [0 Item(s)] || Perseverance-landing-2160p.mp4 (3840x2160) [253.0 MB] || perseverance-rovers-descent-and-touchdown-on-mars.hwshow [323 bytes] || perseverance-rovers-descent-and-touchdown-on-mars-1080p.hwshow [329 bytes] || ",
+      "release_date": "2023-10-04T00:00:00-04:00",
+      "update_date": "2025-01-06T03:33:12.697990-05:00",
+      "main_image": {
+       "id": 859591,
+       "url": "http://svs.gsfc.nasa.gov/vis/a030000/a031200/a031250/schulte-2023-egu-slide2_0015_print.jpg",
+       "filename": "schulte-2023-egu-slide2_0015_print.jpg",
+       "media_type": "Image",
+       "alt_text": "Views of Mission Control and on Mars during Perseverance's descent",
+       "width": 1024,
+       "height": 576,
+       "pixels": 589824
+      }
+     }
+    }
+   ],
+   "extra_data": {}
+  }
+ ]
+}

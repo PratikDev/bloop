@@ -87,9 +87,10 @@ def normalise(js):
             "newer_versions": brief(js.get("newer_versions")), "older_versions": brief(js.get("older_versions")),
             "media": media, "text_links": text_links(*texts)}
 
-def fetch_record(sid, refresh=False, list_frames=True):
-    """The cached record; refresh=True re-reads the API and re-lists every frame folder."""
-    path = CACHE / f"{sid}.json"
+def fetch_record(sid, refresh=False, list_frames=True, cache=CACHE):
+    """The cached record; refresh=True re-reads the API and re-lists every frame folder. `cache` is where the copy lives
+    (the committed cache by default; discovery keeps its hundreds of reads in data_raw/)."""
+    path = cache / f"{sid}.json"
     if path.exists() and not refresh:
         return json.loads(path.read_text(encoding="utf-8"))
     js = json.loads(fetch.text(f"{SVS}/api/{sid}"))

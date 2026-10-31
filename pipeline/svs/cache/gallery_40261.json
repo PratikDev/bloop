@@ -1,0 +1,473 @@
+{
+ "id": 40261,
+ "url": "http://svs.gsfc.nasa.gov/gallery/olympex/",
+ "page_type": "Gallery",
+ "title": "OLYMPEX",
+ "description": "The Olympic Mountain Experiment, or OLYMPEX, is a NASA-led field campaign, which will take place on the Olympic Peninsula of Washington State from November 2015 through February 2016. The goal of the campaign is to collect detailed atmospheric measurements that will be used to evaluate how well rain-observing satellites measure rainfall and snowfall from space. In particular, OLYMPEX will be assessing satellite measurements made by the Global Precipitation Measurement (GPM) mission Core Observatory, a joint mission by NASA and the Japan Aerospace Exploration Agency (JAXA), which launched in 2014.\n\n\nFor more information: http://pmm.nasa.gov/olympex",
+ "release_date": "2015-10-15T00:00:00-04:00",
+ "update_date": "2016-01-20T00:00:00-05:00",
+ "main_image": {
+  "id": 858871,
+  "url": "http://svs.gsfc.nasa.gov/images/gallery/OLYMPEXFieldCampaign/DC8.jpg",
+  "filename": "DC8.jpg",
+  "media_type": "Image",
+  "alt_text": "The Olympic Mountain Experiment, or OLYMPEX, is a NASA-led field campaign, which will take place on the Olympic Peninsula of Washington State from November 2015 through February 2016. The goal of the campaign is to collect detailed atmospheric measurements that will be used to evaluate how well rain-observing satellites measure rainfall and snowfall from space. In particular, OLYMPEX will be assessing satellite measurements made by the Global Precipitation Measurement (GPM) mission Core Observatory, a joint mission by NASA and the Japan Aerospace Exploration Agency (JAXA), which launched in 2014.\n\n\nFor more information: http://pmm.nasa.gov/olympex",
+  "width": 320,
+  "height": 1041,
+  "pixels": 333120
+ },
+ "media_groups": [
+  {
+   "id": 370976,
+   "url": "http://svs.gsfc.nasa.gov/gallery/olympex/#media_group_370976",
+   "widget": "Basic text (large)",
+   "title": "Overview",
+   "caption": "",
+   "description": "The Olympic Mountain Experiment, or OLYMPEX, is a NASA-led field campaign, which will take place on the Olympic Peninsula of Washington State from November 2015 through February 2016. The goal of the campaign is to collect detailed atmospheric measurements that will be used to evaluate how well rain-observing satellites measure rainfall and snowfall from space. In particular, OLYMPEX will be assessing satellite measurements made by the Global Precipitation Measurement (GPM) mission Core Observatory, a joint mission by NASA and the Japan Aerospace Exploration Agency (JAXA), which launched in 2014.\n<p>\n<p>\nFor more information: <a href=\"http://pmm.nasa.gov/olympex\">http://pmm.nasa.gov/olympex</a>",
+   "items": [],
+   "extra_data": {}
+  },
+  {
+   "id": 370977,
+   "url": "http://svs.gsfc.nasa.gov/gallery/olympex/#media_group_370977",
+   "widget": "Card gallery",
+   "title": "Broadcast-quality Media",
+   "caption": "",
+   "description": "",
+   "items": [
+    {
+     "id": 408193,
+     "type": "media_group",
+     "extra_data": null,
+     "title": "Flight Crew on DC-8",
+     "caption": "Footage of the research and flight crew on board the DC-8.",
+     "instance": {
+      "id": 437611,
+      "url": "http://svs.gsfc.nasa.gov/vis/a010000/a012000/a012060/Flight_crew_b-roll_2_youtube_hq_searchweb.png",
+      "filename": "Flight_crew_b-roll_2_youtube_hq_searchweb.png",
+      "media_type": "Image",
+      "alt_text": "Footage of the research and flight crew on board the DC-8.",
+      "width": 180,
+      "height": 320,
+      "pixels": 57600
+     }
+    },
+    {
+     "id": 408194,
+     "type": "details_page",
+     "extra_data": null,
+     "instance": {
+      "id": 12060,
+      "url": "http://svs.gsfc.nasa.gov/12060/",
+      "page_type": "Produced Video",
+      "title": "OLYMPEX DC-8 in Flight",
+      "description": "Footage of the DC-8 in flight.Credit: NASA Armstrong Research Flight Center/Lori Losey || YOUTUBE_HQ_OLYMPEX_DC-8_Chase_720p_youtube_hq_print.jpg (1024x576) [44.0 KB] || YOUTUBE_HQ_OLYMPEX_DC-8_Chase_720p_youtube_hq_searchweb.png (320x180) [52.9 KB] || YOUTUBE_HQ_OLYMPEX_DC-8_Chase_720p_youtube_hq_thm.png (80x40) [3.6 KB] || APPLE_TV_OLYMPEX_DC-8_Chase_720p_appletv.m4v (1280x720) [169.6 MB] || OLYMPEX_DC-8_Chase_720p.mov (1280x720) [7.3 GB] || YOUTUBE_HQ_OLYMPEX_DC-8_Chase_720p_youtube_hq.mov (1280x720) [537.4 MB] || OLYMPEX_DC-8_Chase_720p.webm (1280x720) [36.4 MB] || GSFC_20151113_OLYMPEX_m12060_DC8_Chase.en_US.srt [50 bytes] || GSFC_20151113_OLYMPEX_m12060_DC8_Chase.en_US.vtt [62 bytes] || NASA_PODCAST_OLYMPEX_DC-8_Chase_720p_ipod_sm.mp4 (320x240) [58.6 MB] || ",
+      "release_date": "2015-11-13T13:00:00-05:00",
+      "update_date": "2023-05-03T13:49:07.530012-04:00",
+      "main_image": {
+       "id": 437584,
+       "url": "http://svs.gsfc.nasa.gov/vis/a010000/a012000/a012060/YOUTUBE_HQ_OLYMPEX_DC-8_Chase_720p_youtube_hq_print.jpg",
+       "filename": "YOUTUBE_HQ_OLYMPEX_DC-8_Chase_720p_youtube_hq_print.jpg",
+       "media_type": "Image",
+       "alt_text": "Footage of the DC-8 in flight.Credit: NASA Armstrong Research Flight Center/Lori Losey",
+       "width": 1024,
+       "height": 576,
+       "pixels": 589824
+      }
+     }
+    },
+    {
+     "id": 408195,
+     "type": "details_page",
+     "extra_data": null,
+     "instance": {
+      "id": 12053,
+      "url": "http://svs.gsfc.nasa.gov/12053/",
+      "page_type": "B-Roll",
+      "title": "OLYMPEX Field Campaign B-Roll",
+      "description": "The Olympic Mountain Experiment, or OLYMPEX, is a NASA-led field campaign, which will take place on the Olympic Peninsula of Washington State from November 2015 through February 2016. The goal of the campaign is to collect detailed atmospheric measurements that will be used to evaluate how well rain-observing satellites measure rainfall and snowfall from space. In particular, OLYMPEX will be assessing satellite measurements made by the Global Precipitation Measurement (GPM) mission Core Observatory, a joint mission by NASA and the Japan Aerospace Exploration Agency (JAXA), which launched in 2014.This is a selection of b-roll that captures the scientists and instruments at work in Washington State. || ",
+      "release_date": "2015-11-11T15:00:00-05:00",
+      "update_date": "2019-07-16T12:28:20-04:00",
+      "main_image": {
+       "id": 437662,
+       "url": "http://svs.gsfc.nasa.gov/vis/a010000/a012000/a012053/YOUTUBE_HQ-OLYMPEX_B-Roll_-_D3R_youtube_hq_print.jpg",
+       "filename": "YOUTUBE_HQ-OLYMPEX_B-Roll_-_D3R_youtube_hq_print.jpg",
+       "media_type": "Image",
+       "alt_text": "B-roll of a Dual-frequency Dual-polarized Doppler Radar (D3R). The D3R is a fully polarimetric, scanning weather radar system operating at the nominal frequencies of 13.91 GHz and 35.56 GHz covering a maximum range of 30 km. The frequencies chosen allow close compatibility with the GPM Dual-frequency Precipitation Radar system, which was selected for flight on the GPM core spacecraft. This footage was captured during the NASA-led field campaign OLYMPEX.",
+       "width": 1024,
+       "height": 576,
+       "pixels": 589824
+      }
+     }
+    },
+    {
+     "id": 408196,
+     "type": "details_page",
+     "extra_data": null,
+     "instance": {
+      "id": 12037,
+      "url": "http://svs.gsfc.nasa.gov/12037/",
+      "page_type": "Produced Video",
+      "title": "Instrument Upload to OLYMPEX DC-8",
+      "description": "Dropsonde Upload || OLYMPEX_AFRC_dropsonde_print.jpg (1024x576) [125.7 KB] || OLYMPEX_AFRC_dropsonde_searchweb.png (320x180) [102.2 KB] || OLYMPEX_AFRC_dropsonde_thm.png (80x40) [7.7 KB] || Dropsond_720p.mov (1280x720) [1.5 GB] || OLYMPEX_AFRC_dropsonde.mp4 (1280x720) [70.4 MB] || Dropsond_720p.webm (1280x720) [7.2 MB] || YOUTUBE_HQ_OLYMPEX_AFRC_dropsonde_VX-211467_youtube_hq.mov (1280x720) [275.3 MB] || GSFC_20151102_OLYMPEX_m12037_Dropsond_BROLL.en_US.srt [50 bytes] || GSFC_20151102_OLYMPEX_m12037_Dropsond_BROLL.en_US.vtt [62 bytes] || ",
+      "release_date": "2015-11-02T12:00:00-05:00",
+      "update_date": "2023-05-03T13:49:09.941077-04:00",
+      "main_image": {
+       "id": 438192,
+       "url": "http://svs.gsfc.nasa.gov/vis/a010000/a012000/a012037/OLYMPEX_AFRC_dropsonde_print.jpg",
+       "filename": "OLYMPEX_AFRC_dropsonde_print.jpg",
+       "media_type": "Image",
+       "alt_text": "Dropsonde Upload",
+       "width": 1024,
+       "height": 576,
+       "pixels": 589824
+      }
+     }
+    }
+   ],
+   "extra_data": {}
+  },
+  {
+   "id": 370978,
+   "url": "http://svs.gsfc.nasa.gov/gallery/olympex/#media_group_370978",
+   "widget": "Card gallery",
+   "title": "GPM Animations",
+   "caption": "",
+   "description": "",
+   "items": [
+    {
+     "id": 408197,
+     "type": "details_page",
+     "extra_data": null,
+     "instance": {
+      "id": 11392,
+      "url": "http://svs.gsfc.nasa.gov/11392/",
+      "page_type": "Produced Video",
+      "title": "GPM Core Spacecraft Beauty Passes",
+      "description": "A variety of animated beauty passes of the Global Precipitation Measurement (GPM) Core spacecraft. || ",
+      "release_date": "2013-10-31T17:00:00-04:00",
+      "update_date": "2023-05-03T13:51:32.332494-04:00",
+      "main_image": {
+       "id": 461329,
+       "url": "http://svs.gsfc.nasa.gov/vis/a010000/a011300/a011392/GPM_Beauty_NEW_youtube_hq00127_print.jpg",
+       "filename": "GPM_Beauty_NEW_youtube_hq00127_print.jpg",
+       "media_type": "Image",
+       "alt_text": "Various beauty passes of the GPM Core spacecraft.",
+       "width": 1024,
+       "height": 576,
+       "pixels": 589824
+      }
+     }
+    },
+    {
+     "id": 408198,
+     "type": "details_page",
+     "extra_data": null,
+     "instance": {
+      "id": 3971,
+      "url": "http://svs.gsfc.nasa.gov/3971/",
+      "page_type": "Visualization",
+      "title": "Global Precipitation Measurement (GPM) Constellation",
+      "description": "Nine U.S. and international satellites will soon be united by the Global Precipitation Measurement (GPM) mission, a partnership co-led by NASA and the Japan Aerospace Exploration Agency (JAXA). NASA and JAXA will provide the GPM Core satellite to serve as a reference for precipitation measurements made by this constellation of satellites, which will be combined into a single global dataset continually refreshed every three hours. While each partner satellite has its own mission objective, they all carry a type of instrument called a radiometer that measures radiated energy from rainfall and snowfall. The GPM Core satellite carries two instruments: a state-of-the-art radiometer called the GPM Microwave Imager (GMI) and the first space-borne Dual-frequency Precipitation Radar (DPR), which sees the 3D structure of falling rain and snow. The DPR and GMI work in concert to provide a unique database that will be used to improve the accuracy and consistency of measurements from all partner satellites, which will then be combined into the uniform global precipitation dataset. In this animation the orbit paths of the partner satellites of the GPM constellation fill in blue as the instruments pass over Earth. Rainfall appears light blue for light rain, yellow for moderate, and red for heavy rain. Partner satellites are traced in green and purple, and the GPM Core is traced in red. The GPM Core observatory is currently being built and tested at NASA's Goddard Space Flight Center in Greenbelt, Md. It is scheduled to launch from Tanegashima space center in Japan in early 2014. || ",
+      "release_date": "2012-05-28T12:00:00-04:00",
+      "update_date": "2025-02-02T22:07:42.202936-05:00",
+      "main_image": {
+       "id": 475780,
+       "url": "http://svs.gsfc.nasa.gov/vis/a000000/a003900/a003971/constellation_w_clock.0001.jpg",
+       "filename": "constellation_w_clock.0001.jpg",
+       "media_type": "Image",
+       "alt_text": "GPM Constellation with clock",
+       "width": 1920,
+       "height": 1080,
+       "pixels": 2073600
+      }
+     }
+    },
+    {
+     "id": 408199,
+     "type": "details_page",
+     "extra_data": null,
+     "instance": {
+      "id": 4285,
+      "url": "http://svs.gsfc.nasa.gov/4285/",
+      "page_type": "Visualization",
+      "title": "Near Real-Time Global Precipitation from the Global Precipitation Measurement Constellation",
+      "description": "An animation of the most currently available global precipitation data from IMERG.",
+      "release_date": "2015-03-31T12:00:00-04:00",
+      "update_date": "2026-10-30T05:50:25.999383-04:00",
+      "main_image": {
+       "id": 375203,
+       "url": "http://svs.gsfc.nasa.gov/vis/a000000/a004200/a004285/imergert_1080p_30_print.jpg",
+       "filename": "imergert_1080p_30_print.jpg",
+       "media_type": "Image",
+       "alt_text": "The Global Precipitation Measurement (GPM) mission produces NASA's most comprehensive global rain and snowfall product to date, called the Integrated Multi-satellite Retrievals for GPM (IMERG). It is computed using data from the GPM constellation of satellites — a network of international satellites that currently includes the GPM Core Observatory, GCOM-W1, NOAA-18, NOAA-19, DMSP F-16, DMSP F-17, DMSP F-18, Metop-A, and Metop-B. The global IMERG dataset provides precipitation rates for the entire world every 30 minutes. Although the process to create the combined dataset is intensive, the GPM team creates a preliminary, near-real-time dataset of precipitation within several hours of data acquisition. This visualization shows the most currently available precipitation data from IMERG, depicting how rain and snowstorms move around the planet. As scientists work to understand all the elements of Earth's climate and weather systems, and how they could change in the future, GPM provides a major step forward in providing comprehensive and consistent measurements of precipitation for scientists and a wide variety of user communities.",
+       "width": 576,
+       "height": 1024,
+       "pixels": 589824
+      }
+     }
+    },
+    {
+     "id": 408200,
+     "type": "details_page",
+     "extra_data": null,
+     "instance": {
+      "id": 4334,
+      "url": "http://svs.gsfc.nasa.gov/4334/",
+      "page_type": "Visualization",
+      "title": "Atmospheric River Reaching California",
+      "description": "An atmospheric river occured between 9th and 12th of Dec. 2014 over the Pacific Ocean and Southwest US. || tm_atmosphericRiver_waterVapor_Imerg_4xSlow_0_print.jpg (1024x576) [112.1 KB] || tm_atmosphericRiver_waterVapor_Imerg_4xSlow_0_searchweb.png (320x180) [73.4 KB] || tm_atmosphericRiver_waterVapor_Imerg_4xSlow_0_thm.png (80x40) [6.1 KB] || tm_atmosphericRiver_waterVapor_Imerg_4xSlow_0_web.png (320x180) [73.4 KB] || tm_atmosphericRiver_waterVapor_Imerg_4xSlow_0.mp4 (1920x1080) [5.5 MB] || atmosphericRiverOnly (1920x1080) [32.0 KB] || tm_atmosphericRiver_waterVapor_Imerg_4xSlow_0.webm (1920x1080) [1.0 MB] || tm_atmosphericRiver_waterVapor_Imerg_4xSlow_0001_720p30.mp4 (1280x720) [3.1 MB] || tm_atomsphericRiver_waterWapor_Imerg_4xSlow_f24453.tif (5760x3240) [19.1 MB] || tm_atmosphericRiver_waterVapor_Imerg_4xSlow_0001_360p30.mp4 (640x360) [1.2 MB] || ",
+      "release_date": "2015-07-30T10:00:00-04:00",
+      "update_date": "2023-05-03T13:49:31.333684-04:00",
+      "main_image": {
+       "id": 441450,
+       "url": "http://svs.gsfc.nasa.gov/vis/a000000/a004300/a004334/tm_atmosphericRiver_waterVapor_Imerg_4xSlow_0_print.jpg",
+       "filename": "tm_atmosphericRiver_waterVapor_Imerg_4xSlow_0_print.jpg",
+       "media_type": "Image",
+       "alt_text": "An atmospheric river occured between 9th and 12th of Dec. 2014 over the Pacific Ocean and Southwest US.  ",
+       "width": 1024,
+       "height": 576,
+       "pixels": 589824
+      }
+     }
+    },
+    {
+     "id": 408201,
+     "type": "details_page",
+     "extra_data": null,
+     "instance": {
+      "id": 4337,
+      "url": "http://svs.gsfc.nasa.gov/4337/",
+      "page_type": "Visualization",
+      "title": "Rainfall Accumulation Across the United States (1/1/2015 - 7/16/2015)",
+      "description": "The accumulated precipitation product visualized here begins on January 1, 2015 and runs through July 16, 2015. This visualization shows the heavy rainfall throughout Northern Texas and across Oklahoma as well as the drought in Southern California.This video is also available on our YouTube channel. || usa_drought_accum.6400_print.jpg (1024x576) [143.8 KB] || usa_drought_accum.6400_searchweb.png (320x180) [91.0 KB] || usa_drought_accum.6400_thm.png (80x40) [7.0 KB] || usa_drought_accum.6.mp4 (1920x1080) [6.5 MB] || rainfall_only_on_land (1920x1080) [32.0 KB] || usa_drought_accum_w_cbar_comp_1080p30.mp4 (1920x1080) [7.0 MB] || rainfall_only_on_land_with_colorbar (1920x1080) [32.0 KB] || usa_drought_accum.6.webm (1920x1080) [1.5 MB] || ",
+      "release_date": "2015-07-30T17:01:00-04:00",
+      "update_date": "2023-05-03T13:49:31.036062-04:00",
+      "main_image": {
+       "id": 441353,
+       "url": "http://svs.gsfc.nasa.gov/vis/a000000/a004300/a004337/usa_drought_accum.6400_print.jpg",
+       "filename": "usa_drought_accum.6400_print.jpg",
+       "media_type": "Image",
+       "alt_text": "The accumulated precipitation product visualized here begins on January 1, 2015 and runs through July 16, 2015. This visualization shows the heavy rainfall throughout Northern Texas and across Oklahoma as well as the drought in Southern California.This video is also available on our YouTube channel.",
+       "width": 1024,
+       "height": 576,
+       "pixels": 589824
+      }
+     }
+    }
+   ],
+   "extra_data": {}
+  },
+  {
+   "id": 370979,
+   "url": "http://svs.gsfc.nasa.gov/gallery/olympex/#media_group_370979",
+   "widget": "Card gallery",
+   "title": "Edited Features",
+   "caption": "",
+   "description": "",
+   "items": [
+    {
+     "id": 408202,
+     "type": "details_page",
+     "extra_data": null,
+     "instance": {
+      "id": 12131,
+      "url": "http://svs.gsfc.nasa.gov/12131/",
+      "page_type": "Produced Video",
+      "title": "OLYMPEX Wrap Up",
+      "description": "Complete transcript available. || 12131_OLYMPEX_wrap_print.jpg (1024x576) [92.1 KB] || 12131_OLYMPEX_wrap_searchweb.png (320x180) [74.4 KB] || 12131_OLYMPEX_wrap_web.png (320x180) [74.4 KB] || 12131_OLYMPEX_wrap_thm.png (80x40) [6.1 KB] || 12131_OLYMPEX_wrap_MASTER.mov (1920x1080) [2.1 GB] || 12131_OLYMPEX_wrap_MASTER.mpeg (1280x720) [536.2 MB] || 12131_OLYMPEX_wrap_MASTER_youtube_hq.mov (1920x1080) [784.5 MB] || 12131_OLYMPEX_wrap.mp4 (1920x1080) [166.4 MB] || 12131_OLYMPEX_wrap_MASTER_appletv.m4v (1280x720) [79.0 MB] || 12131_OLYMPEX_wrap_MASTER.webm (1920x1080) [16.6 MB] || 12131_OLYMPEX_wrap_MASTER_appletv_subtitles.m4v (1280x720) [79.1 MB] || 12131_OLYMPEX_wrap.en_US.srt [3.1 KB] || 12131_OLYMPEX_wrap.en_US.vtt [3.1 KB] || 12131_OLYMPEX_wrap_MASTER_ipod_sm.mp4 (320x240) [28.3 MB] || ",
+      "release_date": "2016-01-19T15:00:00-05:00",
+      "update_date": "2023-05-03T13:48:58.429809-04:00",
+      "main_image": {
+       "id": 436087,
+       "url": "http://svs.gsfc.nasa.gov/vis/a010000/a012100/a012131/12131_OLYMPEX_wrap_print.jpg",
+       "filename": "12131_OLYMPEX_wrap_print.jpg",
+       "media_type": "Image",
+       "alt_text": "Complete transcript available.",
+       "width": 1024,
+       "height": 576,
+       "pixels": 589824
+      }
+     }
+    },
+    {
+     "id": 408203,
+     "type": "media_group",
+     "extra_data": null,
+     "title": "OLYMPEX Profiles: Joe Zagrodnik",
+     "caption": "Video profiles of researchers and scientists in the field during the OLYMPEX field campaign (2015-2016).\n\nFrom November 10 through December 21, NASA and university scientists are taking to the field to study wet winter weather near Seattle, Washington. With weather radars, weather balloons, specialized ground instruments, and NASA's DC-8 flying laboratory, the science team will be verifying rain and snowfall observations made by the Global Precipitation Measurement (GPM) satellite mission on a NASA-led field campaign, The Olympic Mountain Experiment, or OLYMPEX.\n\nThis is Rachael Kroodsma's profile on <a href=\"https://www.youtube.com/watch?v=_OKjKjxD3so\">YouTube</a>.\n\nThis is Joe Zagrodnik's profile on <a href=\"https://www.youtube.com/watch?v=c8hdFuSVgdA\">YouTube</a>.",
+     "instance": {
+      "id": 437112,
+      "url": "http://svs.gsfc.nasa.gov/vis/a010000/a012000/a012091/YOUTUBE_HQ_JoeZagrodnikProfile-1270-PR422_youtube_hq_web.png",
+      "filename": "YOUTUBE_HQ_JoeZagrodnikProfile-1270-PR422_youtube_hq_web.png",
+      "media_type": "Image",
+      "alt_text": "Video profiles of researchers and scientists in the field during the OLYMPEX field campaign (2015-2016).\n\nFrom November 10 through December 21, NASA and university scientists are taking to the field to study wet winter weather near Seattle, Washington. With weather radars, weather balloons, specialized ground instruments, and NASA's DC-8 flying laboratory, the science team will be verifying rain and snowfall observations made by the Global Precipitation Measurement (GPM) satellite mission on a NASA-led field campaign, The Olympic Mountain Experiment, or OLYMPEX.\n\nThis is Rachael Kroodsma's profile on YouTube.\n\nThis is Joe Zagrodnik's profile on YouTube.",
+      "width": 180,
+      "height": 320,
+      "pixels": 57600
+     }
+    },
+    {
+     "id": 408204,
+     "type": "media_group",
+     "extra_data": null,
+     "title": "OLYMPEX Profiles: Rachael Kroodsma",
+     "caption": "Rachael Kroodsma<p><p><p>For complete transcript, click <a href=\"/vis/a010000/a012000/a012091/script_23175_00.html\">here</a>.",
+     "instance": {
+      "id": 437104,
+      "url": "http://svs.gsfc.nasa.gov/vis/a010000/a012000/a012091/Kroodsma_Still_searchweb.png",
+      "filename": "Kroodsma_Still_searchweb.png",
+      "media_type": "Image",
+      "alt_text": "A profile video of Joe Zagrodnik.For complete transcript, click here.",
+      "width": 180,
+      "height": 320,
+      "pixels": 57600
+     }
+    },
+    {
+     "id": 408205,
+     "type": "details_page",
+     "extra_data": null,
+     "instance": {
+      "id": 12050,
+      "url": "http://svs.gsfc.nasa.gov/12050/",
+      "page_type": "Produced Video",
+      "title": "Researchers Gear Up For OLYMPEX",
+      "description": "From November 10 through December 21, NASA and university scientists are taking to the field to study wet winter weather near Seattle, Washington. With weather radars, weather balloons, specialized ground instruments, and NASA's DC-8 flying laboratory, the science team will be verifying rain and snowfall observations made by the Global Precipitation Measurement (GPM) satellite mission on a NASA-led field campaign, The Olympic Mountain Experiment, or OLYMPEX.For more information: http://www.nasa.gov/feature/goddard/nasa-heads-to-pacific-northwest-for-field-campaign-to-measure-rain-and-snowfall || ",
+      "release_date": "2015-11-10T16:00:00-05:00",
+      "update_date": "2015-11-11T15:27:02-05:00",
+      "main_image": {
+       "id": 437761,
+       "url": "http://svs.gsfc.nasa.gov/vis/a010000/a012000/a012050/YOUTUBE_HQ-OLYMPEX_Preview_final_VX-213059_youtube_hq_print.jpg",
+       "filename": "YOUTUBE_HQ-OLYMPEX_Preview_final_VX-213059_youtube_hq_print.jpg",
+       "media_type": "Image",
+       "alt_text": "This is a preview video of The Olympic Mountain Experiment, or OLYMPEX, NASA-led field campaign, which is taking place on the Olympic Peninsula of Washington State from November 2015 through February 2016. ",
+       "width": 1024,
+       "height": 576,
+       "pixels": 589824
+      }
+     }
+    }
+   ],
+   "extra_data": {}
+  },
+  {
+   "id": 370980,
+   "url": "http://svs.gsfc.nasa.gov/gallery/olympex/#media_group_370980",
+   "widget": "Card gallery",
+   "title": "More GPM Resources",
+   "caption": "",
+   "description": "",
+   "items": [
+    {
+     "id": 408206,
+     "type": "gallery_page",
+     "extra_data": null,
+     "instance": {
+      "id": 40118,
+      "url": "http://svs.gsfc.nasa.gov/gallery/gpm/",
+      "page_type": "Gallery",
+      "title": "Global Precipitation Measurement",
+      "description": "The Global Precipitation Measurement (GPM) mission is an international network of satellites that provide the next-generation global observations of rain and snow. Building upon the success of the Tropical Rainfall Measuring Mission (TRMM), the GPM concept centers on the deployment of a \"Core\" satellite carrying an advanced radar / radiometer system to measure precipitation from space and serve as a reference standard to unify precipitation measurements from a constellation of research and operational satellites. Through improved measurements of precipitation globally, the GPM mission helps to advance our understanding of Earth's water and energy cycle, improve forecasting of extreme events that cause natural hazards and disasters, and extend current capabilities in using accurate and timely information of precipitation to directly benefit society. GPM, initiated by NASA and the Japan Aerospace Exploration Agency (JAXA) as a global successor to TRMM, comprises a consortium of international space agencies, including the Centre National d'Études Spatiales (CNES), the Indian Space Research Organization (ISRO), the National Oceanic and Atmospheric Administration (NOAA), the European Organization for the Exploitation of Meteorological Satellites (EUMETSAT), and others. The GPM Core Observatory launched from Tanegashima Space Center, Japan, at 1:37 PM EST on February 27, 2014.For more information and resources please visit the Precipitation Measurement Missions web site.",
+      "release_date": "2000-01-01T00:00:00-05:00",
+      "update_date": "2026-10-08T00:00:00-04:00",
+      "main_image": {
+       "id": 466490,
+       "url": "http://svs.gsfc.nasa.gov/vis/a010000/a011200/a011253/GPM_Instrument_Animations_youtube_hq_web.png",
+       "filename": "GPM_Instrument_Animations_youtube_hq_web.png",
+       "media_type": "Image",
+       "alt_text": "Animations showing the GMI then DPR instruments on board the GPM Core Observatory.",
+       "width": 180,
+       "height": 320,
+       "pixels": 57600
+      }
+     }
+    }
+   ],
+   "extra_data": {}
+  },
+  {
+   "id": 370981,
+   "url": "http://svs.gsfc.nasa.gov/gallery/olympex/#media_group_370981",
+   "widget": "Card gallery",
+   "title": "Previous Field Campaigns",
+   "caption": "",
+   "description": "",
+   "items": [
+    {
+     "id": 408207,
+     "type": "details_page",
+     "extra_data": null,
+     "instance": {
+      "id": 10938,
+      "url": "http://svs.gsfc.nasa.gov/10938/",
+      "page_type": "Produced Video",
+      "title": "NASA Wraps Up Cold Season Campaign for GPM",
+      "description": "For six weeks in Ontario, Canada, scientists and engineers lead a field campaign to study the science and mechanics of falling snow. The datasets retrieved will be used to generate algorithms which translate what the GPM Core satellite \"sees\" into precipitation rates, including that of falling snow. Ground validation science manager Walt Petersen gives a summary of the GCPEx field campaign. Field campaigns are critical in improving satellite observations and precipitation measurements. || ",
+      "release_date": "2012-03-17T00:00:00-04:00",
+      "update_date": "2023-05-03T13:53:11.393006-04:00",
+      "main_image": {
+       "id": 477801,
+       "url": "http://svs.gsfc.nasa.gov/vis/a010000/a010900/a010938/GCPEx_wrap_appletv01752_print.jpg",
+       "filename": "GCPEx_wrap_appletv01752_print.jpg",
+       "media_type": "Image",
+       "alt_text": "Ground validation science manager Walt Petersen gives a summary of the GCPEx field campaign.For complete transcript, click here.",
+       "width": 1024,
+       "height": 576,
+       "pixels": 589824
+      }
+     }
+    },
+    {
+     "id": 408208,
+     "type": "details_page",
+     "extra_data": null,
+     "instance": {
+      "id": 3907,
+      "url": "http://svs.gsfc.nasa.gov/3907/",
+      "page_type": "Visualization",
+      "title": "NASA's DC-8 Airborne Science Laboratory Flight Path Jan 19, 2012",
+      "description": "NASA is flying an airborne science laboratory through Canadian snowstorms for six weeks in support of a difficult task of the upcoming Global Precipitation Measurement (GPM) mission: measuring snowfall from space. GPM is an international satellite mission scheduled for launch in 2014 that will provide next-generation observations of worldwide rain and snow every three hours. It is the first precipitation mission designed to detect falling snow from space.  NASA's DC-8 flying laboratory flew this flight path on Jan 19, 2012 in support of NASA's Global Precipitation Measurement Cold-season Precipitation Experiment (GCPEx) snow study.  The GCPEx field campaign will help scientists match measurements of snow in the air and on the ground. || ",
+      "release_date": "2012-01-31T12:00:00-05:00",
+      "update_date": "2023-05-03T13:53:18.134412-04:00",
+      "main_image": {
+       "id": 479371,
+       "url": "http://svs.gsfc.nasa.gov/vis/a000000/a003900/a003907/flightpathjan192012.0400.jpg",
+       "filename": "flightpathjan192012.0400.jpg",
+       "media_type": "Image",
+       "alt_text": "This animation of the flight path seen in yellow of NASA's DC-8 airborne science laboratory during the GCPEx 2012 field campaign.",
+       "width": 1920,
+       "height": 1080,
+       "pixels": 2073600
+      }
+     }
+    },
+    {
+     "id": 408209,
+     "type": "details_page",
+     "extra_data": null,
+     "instance": {
+      "id": 10890,
+      "url": "http://svs.gsfc.nasa.gov/10890/",
+      "page_type": "Produced Video",
+      "title": "NASA Airborne Cold Weather Experiment Measures Falling Snow",
+      "description": "NASA is flying an airborne science laboratory through Canadian snowstorms for six weeks in support of a difficult task of the upcoming Global Precipitation Measurement (GPM) mission: measuring snowfall from space. GPM is an international satellite mission scheduled for launch in 2014 that will provide next-generation observations of worldwide rain and snow every three hours. It is the first precipitation mission designed to detect falling snow from space. || ",
+      "release_date": "2012-01-10T12:00:00-05:00",
+      "update_date": "2023-05-03T13:53:20.417233-04:00",
+      "main_image": {
+       "id": 480052,
+       "url": "http://svs.gsfc.nasa.gov/vis/a010000/a010800/a010890/GCPEx_VF_v1_youtube_hq.01152_print.jpg",
+       "filename": "GCPEx_VF_v1_youtube_hq.01152_print.jpg",
+       "media_type": "Image",
+       "alt_text": "Video file for GCPEx field campaign.For complete transcript, click here.",
+       "width": 1024,
+       "height": 576,
+       "pixels": 589824
+      }
+     }
+    }
+   ],
+   "extra_data": {}
+  }
+ ]
+}

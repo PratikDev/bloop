@@ -1,0 +1,186 @@
+{
+ "id": 40483,
+ "url": "http://svs.gsfc.nasa.gov/gallery/air-qualityin-dc/",
+ "page_type": "Gallery",
+ "title": "Air Quality in DC",
+ "description": "NASA-supported scientist Susan Anenberg reviews air pollution data from satellites, airplanes, and ground sensors and combines it with data on race, ethnicity, poverty, and health. In doing so Anenberg unveils the both the big picture of air pollution and individual neighborhood effects. Information that lets community leaders and other decision makers to make better decisions and address long standing inequities.",
+ "release_date": "2023-06-08T00:00:00-04:00",
+ "update_date": "2023-06-08T00:00:00-04:00",
+ "main_image": {
+  "id": 475977,
+  "url": "http://svs.gsfc.nasa.gov/vis/a010000/a010900/a010977/aerosol_cover_1920x1080.jpg",
+  "filename": "aerosol_cover_1920x1080.jpg",
+  "media_type": "Image",
+  "alt_text": "NASA models and supercomputing have created a colorful new view of aerosol movement.\n",
+  "width": 1920,
+  "height": 1080,
+  "pixels": 2073600
+ },
+ "media_groups": [
+  {
+   "id": 372457,
+   "url": "http://svs.gsfc.nasa.gov/gallery/air-qualityin-dc/#media_group_372457",
+   "widget": "Basic text (large)",
+   "title": "Overview",
+   "caption": "",
+   "description": "NASA-supported scientist Susan Anenberg reviews air pollution data from satellites, airplanes, and ground sensors and combines it with data on race, ethnicity, poverty, and health. In doing so Anenberg unveils the both the big picture of air pollution and individual neighborhood effects. Information that lets community leaders and other decision makers to make better decisions and address long standing inequities.",
+   "items": [],
+   "extra_data": {}
+  },
+  {
+   "id": 371631,
+   "url": "http://svs.gsfc.nasa.gov/gallery/air-qualityin-dc/#media_group_371631",
+   "widget": "Card gallery",
+   "title": "Featured Visualizations",
+   "caption": "",
+   "description": "",
+   "items": [
+    {
+     "id": 412576,
+     "type": "details_page",
+     "extra_data": null,
+     "instance": {
+      "id": 10977,
+      "url": "http://svs.gsfc.nasa.gov/10977/",
+      "page_type": "Produced Video",
+      "title": "Paint By Particle",
+      "description": "Satellites, balloon-borne instruments and ground-based devices make 30 million observations of the atmosphere each day. Yet these measurements still give an incomplete picture of the complex interactions within the membrane surrounding Earth. Enter climate models. Through mathematical experiments, modelers can move Earth forward or backward in time to create a dynamic portrait of the planet. Researchers from NASA Goddard's Global Modeling and Assimilation Office recently ran a simulation of the atmosphere that captured how winds whip aerosols around the world. Such simulations allow scientists to better understand how these tiny particulates travel in the atmosphere and influence weather and climate. In the visualization below, covering August 2006 to April 2007, watch as dust and sea salt swirl inside cyclones, carbon bursts from fires, sulfate streams from volcanoes—and see how these aerosols paint the modeled world. || ",
+      "release_date": "2012-05-24T00:00:00-04:00",
+      "update_date": "2023-05-03T13:53:03.586761-04:00",
+      "main_image": {
+       "id": 475977,
+       "url": "http://svs.gsfc.nasa.gov/vis/a010000/a010900/a010977/aerosol_cover_1920x1080.jpg",
+       "filename": "aerosol_cover_1920x1080.jpg",
+       "media_type": "Image",
+       "alt_text": "NASA models and supercomputing have created a colorful new view of aerosol movement.\n",
+       "width": 1920,
+       "height": 1080,
+       "pixels": 2073600
+      }
+     }
+    },
+    {
+     "id": 412577,
+     "type": "details_page",
+     "extra_data": null,
+     "instance": {
+      "id": 4764,
+      "url": "http://svs.gsfc.nasa.gov/4764/",
+      "page_type": "Visualization",
+      "title": "Simulation of Surface Ozone",
+      "description": "Global surface ozone from a GEOS model run || ozone_only_4k.00000_print.jpg (1024x576) [65.8 KB] || ozone_only_4k.00000_searchweb.png (320x180) [58.9 KB] || ozone_only_4k.00000_thm.png (80x40) [5.1 KB] || ozone_only_1080p30.mp4 (1920x1080) [24.5 MB] || ozone_only_1080p30.webm (1920x1080) [7.2 MB] || ozone_only_2160p30.mp4 (3840x2160) [70.8 MB] || ozone_only (3840x2160) [0 Item(s)] || ozone_only (5760x3240) [0 Item(s)] || ozone_only_1080p30.mp4.hwshow [208 bytes] || ",
+      "release_date": "2019-11-07T00:00:00-05:00",
+      "update_date": "2025-03-02T22:54:08.348770-05:00",
+      "main_image": {
+       "id": 393040,
+       "url": "http://svs.gsfc.nasa.gov/vis/a000000/a004700/a004764/ozone_only_4k.00000_print.jpg",
+       "filename": "ozone_only_4k.00000_print.jpg",
+       "media_type": "Image",
+       "alt_text": "Global surface ozone from a GEOS model run",
+       "width": 1024,
+       "height": 576,
+       "pixels": 589824
+      }
+     }
+    },
+    {
+     "id": 412578,
+     "type": "details_page",
+     "extra_data": null,
+     "instance": {
+      "id": 5104,
+      "url": "http://svs.gsfc.nasa.gov/5104/",
+      "page_type": "Visualization",
+      "title": "Two Decades of Changes in Nitrogen Dioxide and Fine Particulate Pollution in the U.S.",
+      "description": "A data visualization of particulate matter 2.5 (PM2.5) data for the Washington DC region spanning 2000-2018 (annual averages). Higher values are represented with dark red and lower values are represented with bright yellow.  This view uses the hybrid PM 2.5 color bar with a range of 5 to 20. || pm25_dc_annual.2018_print.jpg (1024x576) [216.4 KB] || pm25_dc_annual.2018_searchweb.png (320x180) [75.7 KB] || pm25_dc_annual.2018_thm.png (80x40) [6.2 KB] || pm25_dc_annual (3840x2160) [0 Item(s)] || pm25_dc_annual_2160p1.mp4 (3840x2160) [30.8 MB] || pm25_dc_annual_2160p60_prores.mov (3840x2160) [41.0 MB] || pm25_dc_annual_2160p1.webm (3840x2160) [1.9 MB] || ",
+      "release_date": "2023-05-23T00:00:00-04:00",
+      "update_date": "2025-02-02T23:03:32.343790-05:00",
+      "main_image": {
+       "id": 855277,
+       "url": "http://svs.gsfc.nasa.gov/vis/a000000/a005100/a005104/pm25_dc_annual.2018_print.jpg",
+       "filename": "pm25_dc_annual.2018_print.jpg",
+       "media_type": "Image",
+       "alt_text": "A data visualization of particulate matter 2.5 (PM2.5) data for the Washington DC region spanning 2000-2018 (annual averages). Higher values are represented with dark red and lower values are represented with bright yellow.  This view uses the hybrid PM 2.5 color bar with a range of 5 to 20. ",
+       "width": 1024,
+       "height": 576,
+       "pixels": 589824
+      }
+     }
+    },
+    {
+     "id": 412579,
+     "type": "details_page",
+     "extra_data": null,
+     "instance": {
+      "id": 5070,
+      "url": "http://svs.gsfc.nasa.gov/5070/",
+      "page_type": "Visualization",
+      "title": "Nitrogen Dioxide Over the United States, 2005-2022",
+      "description": "NO2 over the United States as measured by OMI, with labels || NO2_US_2005-2022.399_print.jpg (1024x576) [171.6 KB] || NO2_US_2005-2022.399_searchweb.png (320x180) [80.6 KB] || NO2_US_2005-2022.399_thm.png (80x40) [5.9 KB] || w_dates (3840x2160) [0 Item(s)] || NO2_US_2005-2022_2160p30.mp4 (3840x2160) [20.0 MB] || NO2_US_2005-2022_2160p30.webm (3840x2160) [2.7 MB] || ",
+      "release_date": "2023-02-06T00:00:00-05:00",
+      "update_date": "2025-02-02T00:18:56.920071-05:00",
+      "main_image": {
+       "id": 552664,
+       "url": "http://svs.gsfc.nasa.gov/vis/a000000/a005000/a005070/NO2_US_2005-2022.399_print.jpg",
+       "filename": "NO2_US_2005-2022.399_print.jpg",
+       "media_type": "Image",
+       "alt_text": "NO2 over the United States as measured by OMI, with labels",
+       "width": 1024,
+       "height": 576,
+       "pixels": 589824
+      }
+     }
+    },
+    {
+     "id": 412580,
+     "type": "details_page",
+     "extra_data": null,
+     "instance": {
+      "id": 5107,
+      "url": "http://svs.gsfc.nasa.gov/5107/",
+      "page_type": "Visualization",
+      "title": "Air Quality Monitoring Stations in Washington D.C.",
+      "description": "All air quality monitoring stations that measure particulate matter 2.5 (PM2.5) located in Washington D.C. The government operated stations are circled in white. Click the download dropdown for more versions. || dc_air_stations_full_preview.png (1920x1080) [1.1 MB] || dc_air_stations_4320.png (4320x2160) [2.0 MB] || dc_stations_basemap_4320.png (4320x2160) [1.9 MB] || dc_air_stations_full_4320.png (4320x2160) [2.0 MB] || dc_air_stations_full_preview_searchweb.png (320x180) [44.6 KB] || dc_air_stations_full_preview_thm.png (80x40) [3.8 KB] || ",
+      "release_date": "2023-06-16T10:00:00-04:00",
+      "update_date": "2023-06-15T19:10:20.396681-04:00",
+      "main_image": {
+       "id": 856042,
+       "url": "http://svs.gsfc.nasa.gov/vis/a000000/a005100/a005107/dc_air_stations_full_preview.png",
+       "filename": "dc_air_stations_full_preview.png",
+       "media_type": "Image",
+       "alt_text": "All air quality monitoring stations that measure particulate matter 2.5 (PM2.5) located in Washington D.C. The government operated stations are circled in white. Click the download dropdown for more versions.",
+       "width": 1920,
+       "height": 1080,
+       "pixels": 2073600
+      }
+     }
+    },
+    {
+     "id": 412581,
+     "type": "details_page",
+     "extra_data": null,
+     "instance": {
+      "id": 5067,
+      "url": "http://svs.gsfc.nasa.gov/5067/",
+      "page_type": "Visualization",
+      "title": "Earth Observing Fleet - Now",
+      "description": "Visualizations depicting a near-real-time view of NASA fleet of Earth-orbiting satellites.",
+      "release_date": "2023-01-30T00:00:00-05:00",
+      "update_date": "2026-10-28T22:33:54.877217-04:00",
+      "main_image": {
+       "id": 552411,
+       "url": "http://svs.gsfc.nasa.gov/vis/a000000/a005000/a005067/fleet_now_print.jpg",
+       "filename": "fleet_now_print.jpg",
+       "media_type": "Image",
+       "alt_text": "These visualizations show the current orbits of NASA's fleet of Earth observing spacecraft.  Satellite orbits are generated using today's two-line element sets (TLEs).  The still image at the top of the page is updated every 10 minutes.  The video is updated once per day.  \r\n\r\nSpacecraft included:\r\n• Aqua\r\n• Aura\r\n• CALIPSO: Cloud-Aerosol Lidar and Infrared Pathfinder Satellite Observation\r\n• CYGNSS-1: Cyclone Global Navigation Satellite System 1\r\n• CYGNSS-2: Cyclone Global Navigation Satellite System 2\r\n• CYGNSS-3: Cyclone Global Navigation Satellite System 3\r\n• CYGNSS-4: Cyclone Global Navigation Satellite System 4\r\n• CYNGSS-5: Cyclone Global Navigation Satellite System 5\r\n• CYGNSS-7: Cyclone Global Navigation Satellite System 7\r\n• CYGNSS-8: Cyclone Global Navigation Satellite System 8\r\n• Cloudsat\r\n• GPM: Global Precipitation Measurement\r\n• GRACE-FO-1: Gravity Recovery and Climate Experiment Follow On-1\r\n• GRACE-FO-2: Gravity Recovery and Climate Experiment Follow On-2\r\n• ICESat-2\r\n• ISS: International Space Station\r\n• Landsat 8\r\n• Landsat 9\r\n• OCO-2: Orbiting Carbon Observatory-2\r\n• SMAP: Soil Moisture Passive Active\r\n• Suomi NPP: Suomi National Polar-orbiting Partnership\r\n• Sentinel-6 Michael Freilich\r\n• SWOT\r\n• Terra\r\n\r\nThe clouds used in this version are from a high resolution GEOS model run at 10 minute time steps interpolated down to the per-frame level. The timeframe for this model does not match the date in this fleet visualization, so the clouds shown do not represent actual conditions for today.",
+       "width": 1024,
+       "height": 576,
+       "pixels": 589824
+      }
+     }
+    }
+   ],
+   "extra_data": {}
+  }
+ ]
+}

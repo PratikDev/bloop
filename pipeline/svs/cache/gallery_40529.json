@@ -125,7 +125,7 @@
       "title": "Particulate Matter (PM) 2.5",
       "description": "Near surface concentration of fine particular matter (PM2.5) estimated from NASA’s aerosol and weather fields produced by NASA’s GEOS-CF model.",
       "release_date": "2023-09-26T17:00:00-04:00",
-      "update_date": "2026-10-29T02:17:42.960329-04:00",
+      "update_date": "2026-10-30T02:39:59.771239-04:00",
       "main_image": {
        "id": 858344,
        "url": "http://svs.gsfc.nasa.gov/vis/a000000/a005100/a005151/MC01_stage4_GMAO_pm25_2048x1024_en.00001_print.jpg",
@@ -149,7 +149,7 @@
       "title": "Near surface Ozone (O3)",
       "description": "Near surface concentration of ozone (O3) estimated by NASA’s GEOS-CF model.",
       "release_date": "2023-09-26T17:00:00-04:00",
-      "update_date": "2026-10-29T02:17:48.063240-04:00",
+      "update_date": "2026-10-30T02:50:30.667478-04:00",
       "main_image": {
        "id": 858348,
        "url": "http://svs.gsfc.nasa.gov/vis/a000000/a005100/a005152/MC02_stage4_GMAO_O3_2048x1024_en.00001_print.jpg",
@@ -173,7 +173,7 @@
       "title": "Carbon Monoxide (CO)",
       "description": "Near surface concentration of carbon monoxide (CO) estimated by NASA’s GEOS-CF model.",
       "release_date": "2023-09-26T17:00:00-04:00",
-      "update_date": "2026-10-29T02:17:53.626920-04:00",
+      "update_date": "2026-10-30T02:55:46.252180-04:00",
       "main_image": {
        "id": 858352,
        "url": "http://svs.gsfc.nasa.gov/vis/a000000/a005100/a005153/MC03_stage4_GMAO_CO_2048x1024_en.00001_print.jpg",
@@ -197,7 +197,7 @@
       "title": "Nitrogen Oxides (NOx)",
       "description": "Near surface concentration of Nitrogen Oxides (NOx) estimated from concentrations of nitrogen oxide and nitrogen dioxide produced by  NASA’s GEOS-CF model.",
       "release_date": "2023-09-26T17:00:00-04:00",
-      "update_date": "2026-10-29T02:20:14.080620-04:00",
+      "update_date": "2026-10-30T03:01:16.891883-04:00",
       "main_image": {
        "id": 858357,
        "url": "http://svs.gsfc.nasa.gov/vis/a000000/a005100/a005154/MC04_stage4_GMAO_NO2_2048x1024_en.00001_print.jpg",
