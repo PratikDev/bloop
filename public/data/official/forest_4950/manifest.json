@@ -55,7 +55,7 @@
   "source": "the SVS text's period (April 2019 – April 2020); the stills are views, not times"
  },
  "georef": {
-  "projection": "none (3D globe view)",
+  "projection": "none for the layer (3D globe view); a perspective globe fit per still is used for validation",
   "bounds": [
    -180,
    -101.25,
@@ -64,10 +64,16 @@
   ],
   "pass_at": 0.0,
   "shifts_deg": [],
-  "iou": {},
   "pass": false,
-  "best_is_assumed": false
+  "best_is_assumed": false,
+  "iou": {
+   "GEDI_global_w_colorbar_0230_print.tif": 0.63,
+   "GEDI_global_w_colorbar_0600_print.tif": 0.79,
+   "GEDI_global_w_colorbar_1055_print.tif": 0.952,
+   "GEDI_global_w_colorbar_1900_print.tif": 0.907
+  }
  },
+ "bar": "0–50 m",
  "colorbar": {
   "geometry": {
    "x0": 124,
@@ -296,8 +302,8 @@
     "scale": "linear"
    },
    "status": "pattern only",
-   "status_check": "a_height_hist_gedi_l3",
-   "statement": "pattern only (values not verified): decoded median 31.2 m vs GEDI L3 5.7 m, KS 0.73"
+   "status_check": "a_l2b_frame_cells",
+   "statement": "pattern only (values not verified): flat pixels vs GEDI L2B RH100 in the frame's cells: Spearman 0.10, median difference +9.4 m (105 cells)"
   }
  ],
  "voices": {
@@ -503,6 +509,27 @@
    "kind": "value",
    "pass": null,
    "threshold": null
+  },
+  {
+   "id": "a_l2b_frame_cells",
+   "title": "Flat decoded heights vs GEDI L2B RH100, gridded into the frame's cells (fitted globe view)",
+   "kind": "value",
+   "pass": false,
+   "threshold": "Spearman ≥ 0.6 and |median difference| ≤ 5 m (provisional)"
+  },
+  {
+   "id": "b_l2b_cell_distributions",
+   "title": "Distributions of the matched cell medians (decoded vs L2B): KS",
+   "kind": "context",
+   "pass": null,
+   "threshold": null
+  },
+  {
+   "id": "c_l3_superseded",
+   "title": "Superseded: all decoded pixels vs GEDI L3 rh100 mean over all land (before correction 1)",
+   "kind": "context",
+   "pass": null,
+   "threshold": null
   }
  ],
  "size": {
@@ -513,14 +540,14 @@
    ]
   },
   "tried": [],
-  "bytes": 106140,
+  "bytes": 110703,
   "budget": 25000000
  },
  "asset_checksums": {
   "file": "checksums.tsv.gz",
-  "rows": 5,
-  "sha256_of_list": "c7a12ed949147dd35283fb3da2020ecde9da5a37c2743d3ab091cd5e401476e0"
+  "rows": 8,
+  "sha256_of_list": "cb84191402285be7010db3e2397091447497a82cdfca6d3e426174d2d77a16a9"
  },
- "code_commit": "c3ae2c4a308d203ac2b0afaa0e8d9f004fde3c1c-dirty",
- "generated_utc": "2026-10-29T11:54:13Z"
+ "code_commit": "fafde1e3647bf57c996e19ddcb5cf47624a0f21d-dirty",
+ "generated_utc": "2026-10-31T14:36:18Z"
 }

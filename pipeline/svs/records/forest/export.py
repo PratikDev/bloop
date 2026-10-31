@@ -41,17 +41,21 @@ def main():
                          time_labels=[f"view {i + 1} (frame {s.split('_')[-2]})" for i, s in enumerate(STILLS)], display=common.display(cb))
     layer["grid"]["space"] = "frame"
     val = json.loads((PUBLIC_OFFICIAL / RECORD / "validation.json").read_text(encoding="utf-8"))
-    m = val["checks"][0]["metrics"]
-    layer.update(status="pattern only", status_check="a_height_hist_gedi_l3",
-                 statement=f"pattern only (values not verified): decoded median {m['median_decoded_m']:.1f} m vs GEDI L3 "
-                           f"{m['median_l3_m']:.1f} m, KS {m['ks']:.2f}")
+    a = next(c for c in val["checks"] if c["id"] == "a_l2b_frame_cells")
+    m = a["metrics"]
+    layer.update(status="verified" if a["pass"] else "pattern only", status_check="a_l2b_frame_cells",
+                 statement=("" if a["pass"] else "pattern only (values not verified): ") +
+                           f"flat pixels vs GEDI L2B RH100 in the frame's cells: Spearman {m['spearman']:.2f}, median difference "
+                           f"{m['median_diff_m']:+.1f} m ({m['cells']} cells)")
     hc = np.load(ROOT / "hist_compare.npz")
     prov = common.provenance(RECORD, [SID], "observation", PERIOD)
     man = {"record": RECORD, "app_title": "Forest height (observation, GEDI)", **prov,
            "frame_times": {"method": "date-list", "approximate": True, "count": len(STILLS),
                            "source": "the SVS text's period (April 2019 – April 2020); the stills are views, not times"},
-           "georef": {"projection": "none (3D globe view)", "bounds": list(BOUNDS), "pass_at": 0.0, "shifts_deg": [], "iou": {},
-                      "pass": False, "best_is_assumed": False},
+           "georef": {"projection": "none for the layer (3D globe view); a perspective globe fit per still is used for validation",
+                      "bounds": list(BOUNDS), "pass_at": 0.0, "shifts_deg": [], "pass": False, "best_is_assumed": False,
+                      "iou": {s: round(v["view_iou"], 3) for s, v in m["per_still"].items()}},
+           "bar": json.loads((ROOT / "bar_id.json").read_text(encoding="utf-8"))["used"],
            "colorbar": cb.summary(), "decode": {k: dec[k] for k in ("matcher", "mode", "max_dist", "min_k", "stills")},
            "layers": [layer], "voices": {"height": "forestHeight"},
            "play": [common.option("height", "Forest height: higher pitch = taller canopy (one view per second)", "height",
