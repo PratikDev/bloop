@@ -8,6 +8,7 @@ import cv2
 import numpy as np
 from PIL import Image, ImageDraw, ImageFont
 
+MAX_EXPONENT = 30                     # labels like 10^-3 … 10^1 (5154 NOx); larger powers are misreads
 FONT_DIRS = [Path(os.environ.get("WINDIR", "C:/Windows")) / "Fonts", Path("/usr/share/fonts"), Path("/Library/Fonts")]
 FONT_NAMES = ("arial.ttf", "arialbd.ttf", "Arial.ttf", "DejaVuSans.ttf", "DejaVuSans-Bold.ttf", "LiberationSans-Regular.ttf",
               "LiberationSans-Bold.ttf", "verdana.ttf", "tahoma.ttf", "segoeui.ttf", "calibri.ttf", "Helvetica.ttc")
@@ -160,7 +161,9 @@ def read_label(group, ink):
 def parse_number(text):
     m = re.fullmatch(r"(-?\d+(?:\.\d+)?)(?:\^(-?\d+))?", text)
     if not m: return None
-    return float(m.group(1)) ** float(m.group(2)) if m.group(2) else float(m.group(1))
+    if not m.group(2): return float(m.group(1))
+    if abs(float(m.group(2))) > MAX_EXPONENT: return None          # a misread run of digits, not a power label
+    return float(m.group(1)) ** float(m.group(2))
 
 def read_labels(ink):
     """All labels in a normalised ink image (text 1.0, background 0.0) → [{'text', 'value', 'x' (centre col),

@@ -12,8 +12,8 @@
  "release_date": "2025-02-27T09:45:00-05:00",
  "period": {
   "start": "2022-01-25T00:00:00Z",
-  "end": "2023-06-24T00:00:00Z",
-  "label": "25 Jan 2022 – 24 Jun 2023"
+  "end": "2023-12-25T00:00:00Z",
+  "label": "25 Jan 2022 – 25 Dec 2023"
  },
  "badge": "model",
  "credits_by_role": {
@@ -974,6 +974,264 @@
    "status": "no check",
    "status_check": "a_salinity",
    "statement": "regional check only: median frame − truth -0.67 PSU"
+  },
+  {
+   "id": "temperature_global",
+   "unit": "°C",
+   "encoding": "linear",
+   "scale": 0.0017973600875669624,
+   "offset": -0.6123837828636169,
+   "nodata": 65535,
+   "below": 65534,
+   "grid": {
+    "width": 360,
+    "height": 180,
+    "bounds": [
+     -180,
+     -90,
+     180,
+     90
+    ],
+    "row0": "north",
+    "col0": "west",
+    "byte_order": "little"
+   },
+   "times": [
+    "2022-11-12T00:00:00Z",
+    "2023-02-01T00:00:00Z",
+    "2023-04-24T00:00:00Z",
+    "2023-07-14T00:00:00Z",
+    "2023-10-04T00:00:00Z",
+    "2023-12-25T00:00:00Z"
+   ],
+   "chunks": [
+    {
+     "file": "temperature_global_000.u16.gz",
+     "t0": 0,
+     "t1": 6,
+     "bytes": 92958
+    }
+   ],
+   "quantisation_step": 0.0017973600875669624,
+   "coverage": 0.10076388888888889,
+   "value_range": [
+    -0.6123837828636169,
+    21.498281478881836
+   ],
+   "label": "World: temperature of water 600 m and deeper (model, SVS 5479 flat maps)",
+   "aggregation": "mean of decoded pixels per 1° cell",
+   "time_labels": [
+    "2022-11-12 (frame 11800)",
+    "2023-02-01 (frame 13240)",
+    "2023-04-24 (frame 14680)",
+    "2023-07-14 (frame 16120)",
+    "2023-10-04 (frame 17560)",
+    "2023-12-25 (frame 19000)"
+   ],
+   "view": "World (5479)",
+   "display": {
+    "colours": [
+     "#032333",
+     "#032333",
+     "#042437",
+     "#062b4a",
+     "#0b305f",
+     "#153376",
+     "#26338f",
+     "#3a339e",
+     "#4c379f",
+     "#5b3d9b",
+     "#684396",
+     "#744992",
+     "#814f8f",
+     "#8e548c",
+     "#9b5889",
+     "#a95d85",
+     "#b7617f",
+     "#c56578",
+     "#d36a6f",
+     "#df7064",
+     "#ea7858",
+     "#f3824d",
+     "#f88e44",
+     "#fb9b3e",
+     "#fcaa3c",
+     "#fbb93d",
+     "#f9c842",
+     "#f6d848",
+     "#f1e750",
+     "#eaf759",
+     "#e8fb5b",
+     "#e8fb5b"
+    ],
+    "values": [
+     -1.631743688495241,
+     -0.7208879796024352,
+     0.18996772929037054,
+     1.100823438183176,
+     2.011679147075982,
+     2.9225348559687876,
+     3.833390564861593,
+     4.744246273754399,
+     5.655101982647205,
+     6.56595769154001,
+     7.476813400432816,
+     8.387669109325623,
+     9.298524818218427,
+     10.209380527111234,
+     11.12023623600404,
+     12.031091944896845,
+     12.94194765378965,
+     13.852803362682456,
+     14.763659071575262,
+     15.67451478046807,
+     16.585370489360873,
+     17.49622619825368,
+     18.407081907146488,
+     19.317937616039295,
+     20.228793324932095,
+     21.139649033824902,
+     22.05050474271771,
+     22.961360451610513,
+     23.87221616050332,
+     24.783071869396128,
+     25.693927578288932,
+     26.604783287181736
+    ],
+    "scale": "linear"
+   },
+   "status": "no check",
+   "status_check": "d_depth_temperature",
+   "statement": "deep water (≥ 600 m): closest to WOA23 at 1000 m, Spearman 0.72, median difference -1.11 °C; only the pixels on 5425's bars decode"
+  },
+  {
+   "id": "salinity_global",
+   "unit": "PSU",
+   "encoding": "linear",
+   "scale": 0.00021577297163600387,
+   "offset": 34.186424255371094,
+   "nodata": 65535,
+   "below": 65534,
+   "grid": {
+    "width": 360,
+    "height": 180,
+    "bounds": [
+     -180,
+     -90,
+     180,
+     90
+    ],
+    "row0": "north",
+    "col0": "west",
+    "byte_order": "little"
+   },
+   "times": [
+    "2022-11-12T00:00:00Z",
+    "2023-02-01T00:00:00Z",
+    "2023-04-24T00:00:00Z",
+    "2023-07-14T00:00:00Z",
+    "2023-10-04T00:00:00Z",
+    "2023-12-25T00:00:00Z"
+   ],
+   "chunks": [
+    {
+     "file": "salinity_global_000.u16.gz",
+     "t0": 0,
+     "t1": 6,
+     "bytes": 31910
+    }
+   ],
+   "quantisation_step": 0.00021577297163600387,
+   "coverage": 0.028829732510288066,
+   "value_range": [
+    34.186424255371094,
+    35.95012283325195
+   ],
+   "label": "World: salinity of water 600 m and deeper (model, SVS 5479 flat maps)",
+   "aggregation": "mean of decoded pixels per 1° cell",
+   "time_labels": [
+    "2022-11-12 (frame 11800)",
+    "2023-02-01 (frame 13240)",
+    "2023-04-24 (frame 14680)",
+    "2023-07-14 (frame 16120)",
+    "2023-10-04 (frame 17560)",
+    "2023-12-25 (frame 19000)"
+   ],
+   "view": "World (5479)",
+   "display": {
+    "colours": [
+     "#00a59b",
+     "#00a59b",
+     "#00a59b",
+     "#00a69d",
+     "#00a79f",
+     "#00a8a0",
+     "#00a8a2",
+     "#00a9a5",
+     "#15a9a6",
+     "#32a9a7",
+     "#4eaaa9",
+     "#68aaaa",
+     "#79aaab",
+     "#89aaac",
+     "#96aaae",
+     "#a1aaaf",
+     "#aaabb1",
+     "#b3aaac",
+     "#bca9a4",
+     "#c6a592",
+     "#d1a17d",
+     "#d99e5b",
+     "#e29a38",
+     "#e99517",
+     "#f08c00",
+     "#f77700",
+     "#fc5a00",
+     "#fe3500",
+     "#ff1900",
+     "#ff0400",
+     "#ff0000",
+     "#ff0000"
+    ],
+    "values": [
+     32.80375472672645,
+     32.91310290041683,
+     33.0224510741072,
+     33.13179924779758,
+     33.24114742148795,
+     33.35049559517833,
+     33.4598437688687,
+     33.56919194255908,
+     33.67854011624945,
+     33.78788828993983,
+     33.8972364636302,
+     34.00658463732058,
+     34.11593281101095,
+     34.22528098470133,
+     34.3346291583917,
+     34.44397733208208,
+     34.55332550577245,
+     34.66267367946283,
+     34.7720218531532,
+     34.88137002684358,
+     34.99071820053395,
+     35.100066374224326,
+     35.2094145479147,
+     35.318762721605076,
+     35.42811089529545,
+     35.537459068985825,
+     35.646807242676196,
+     35.756155416366575,
+     35.865503590056946,
+     35.974851763747324,
+     36.0841999374377,
+     36.193548111128074
+    ],
+    "scale": "linear"
+   },
+   "status": "no check",
+   "status_check": "d_depth_salinity",
+   "statement": "deep water (≥ 600 m): closest to WOA23 at 600 m, Spearman 0.64, median difference +0.10 PSU; only the pixels on 5425's bars decode"
   }
  ],
  "voices": {
@@ -1061,6 +1319,33 @@
      "combine": "value"
     }
    ]
+  },
+  {
+   "id": "world_5479",
+   "label": "World (5479 flat maps): temperature at depth → pitch, salinity on the second voice",
+   "view": "global",
+   "map": "temperature_global",
+   "start": {
+    "lat": 23.8,
+    "lon": 90.4
+   },
+   "steps_per_second": 1,
+   "channels": [
+    {
+     "voice": "ocean2Temperature",
+     "layers": [
+      "temperature_global"
+     ],
+     "combine": "value"
+    },
+    {
+     "voice": "ocean2Salinity",
+     "layers": [
+      "salinity_global"
+     ],
+     "combine": "value"
+    }
+   ]
   }
  ],
  "ranges": {
@@ -1094,6 +1379,34 @@
    "kind": "none",
    "pass": null,
    "threshold": null
+  },
+  {
+   "id": "d_depth_temperature",
+   "title": "5479 flat maps: temperature vs surface, 600 m and 1000 m (which water the colours describe)",
+   "kind": "model-vs-obs",
+   "pass": null,
+   "threshold": null
+  },
+  {
+   "id": "d_depth_salinity",
+   "title": "5479 flat maps: salinity vs surface, 600 m and 1000 m (which water the colours describe)",
+   "kind": "model-vs-obs",
+   "pass": null,
+   "threshold": null
+  },
+  {
+   "id": "e_glorys12_depth",
+   "title": "GLORYS12 (Copernicus Marine) at the matching depth",
+   "kind": "none",
+   "pass": null,
+   "threshold": null
+  },
+  {
+   "id": "f_ecco2_same_model",
+   "title": "ECCO2 (the source model) at depth",
+   "kind": "none",
+   "pass": null,
+   "threshold": null
   }
  ],
  "size": {
@@ -1104,7 +1417,7 @@
    ]
   },
   "tried": [],
-  "bytes": 763912,
+  "bytes": 899091,
   "budget": 25000000
  },
  "asset_checksums": {
@@ -1112,6 +1425,6 @@
   "rows": 175,
   "sha256_of_list": "7cbd7a74c3473899368ece995be0a2c6c6a7d2b3c872a04986d48034f1cb5e30"
  },
- "code_commit": "cf98f0c6d4d20a5800e0e70a1375c7d33935153c",
- "generated_utc": "2026-10-29T15:45:37Z"
+ "code_commit": "a84b28beaaf7686dc08f95c66b25b07470badd50-dirty",
+ "generated_utc": "2026-10-31T15:14:41Z"
 }

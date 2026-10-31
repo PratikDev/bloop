@@ -40,6 +40,24 @@ def main():
         cmr.citation(SOURCES[src][0])
     checks.append(V.check(RECORD, "c_flow_oscar", "Flow speed vs OSCAR", kind="none", passed=None,
                           metrics={"reason": "no georeference: the picture's motion has no physical scale"}))
+    tw = raw_dir(5479) / "twin.json"
+    if tw.exists():                                                    # report correction 3: which water do the colours show?
+        t = json.loads(tw.read_text(encoding="utf-8"))
+        for k, d in t["depth"].items():
+            checks.append(V.check(RECORD, f"d_depth_{k}", f"5479 flat maps: {k} vs surface, 600 m and 1000 m (which water the colours describe)",
+                                  kind="model-vs-obs", source="MUR25 / SMAP RSS (surface); NOAA WOA23 1991–2020 annual means at 600 and 1000 m",
+                                  passed=None, metrics={"levels": d["levels"], "best": d["best"],
+                                                        "bar_match_share": [r[k]["bar_match_share_of_flow"] for r in t["frames"]]},
+                                  note="Independent observations (a climatology for depth). The page: flows above 600 m are white, "
+                                       "colours are 600 m and deeper; only the pixels on 5425's bars decode (5479 lists no bars)."))
+    checks.append(V.check(RECORD, "e_glorys12_depth", "GLORYS12 (Copernicus Marine) at the matching depth", kind="none", passed=None,
+                          metrics={"reason": "needs a Copernicus Marine account: COPERNICUSMARINE_SERVICE_USERNAME and _PASSWORD in .env.local"}))
+    checks.append(V.check(RECORD, "f_ecco2_same_model", "ECCO2 (the source model) at depth", kind="none", passed=None,
+                          metrics={"reason": "mirrors retried 31 Oct 2026: APDRC's ECCO2 path returns 404; data.nas.nasa.gov/ecco lists the "
+                                             "LLC90–LLC4320 runs only (no 2021–2023 ECCO2 output found); ECCO Drive did not respond"}))
+    for c in checks:
+        if c["id"] in ("a_temperature_mur", "a_salinity_smap"):
+            c["note"] = "Wrong depth (report correction 3): the colours show water at 600 m and deeper, so a surface comparison is kept for the record, not as evidence."
     V.save(RECORD, checks)
     say(f"5425: {[(c['id'], c['metrics'].get('spearman_all_frames'), c['metrics'].get('median_difference')) for c in checks]}")
 

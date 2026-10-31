@@ -31,7 +31,9 @@ def _rendered(word, h):
         f = ImageFont.truetype(font, ocr._size_for(font, h))
         im = Image.new("L", (len(word) * 2 * h + 4 * h, 5 * h)); ImageDraw.Draw(im).text((h, h), word, fill=255, font=f)
         a = np.asarray(im, np.float32) / 255
-        y0, y1, x0, x1 = ocr._ink_bbox(a)
+        box = ocr._ink_bbox(a)
+        if box is None: continue                         # text this small renders no ink in some fonts
+        y0, y1, x0, x1 = box
         out.append((a[y0:y1, x0:x1], (y1 - y0) / h))
     return out
 

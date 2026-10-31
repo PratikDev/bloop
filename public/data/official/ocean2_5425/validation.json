@@ -76,8 +76,8 @@
    },
    "threshold": null,
    "pass": null,
-   "note": "Regional only: the views are perspective shots, so the frame mean covers what the camera sees, the box a fixed area.",
-   "run_utc": "2026-10-29T15:27:28Z"
+   "note": "Wrong depth (report correction 3): the colours show water at 600 m and deeper, so a surface comparison is kept for the record, not as evidence.",
+   "run_utc": "2026-10-31T15:14:08Z"
   },
   {
    "record": "ocean2_5425",
@@ -155,8 +155,8 @@
    },
    "threshold": null,
    "pass": null,
-   "note": "Regional only: the views are perspective shots, so the frame mean covers what the camera sees, the box a fixed area.",
-   "run_utc": "2026-10-29T15:28:01Z"
+   "note": "Wrong depth (report correction 3): the colours show water at 600 m and deeper, so a surface comparison is kept for the record, not as evidence.",
+   "run_utc": "2026-10-31T15:14:09Z"
   },
   {
    "record": "ocean2_5425",
@@ -170,8 +170,114 @@
    "threshold": null,
    "pass": null,
    "note": "",
-   "run_utc": "2026-10-29T15:28:03Z"
+   "run_utc": "2026-10-31T15:14:09Z"
+  },
+  {
+   "record": "ocean2_5425",
+   "id": "d_depth_temperature",
+   "title": "5479 flat maps: temperature vs surface, 600 m and 1000 m (which water the colours describe)",
+   "kind": "model-vs-obs",
+   "source": "MUR25 / SMAP RSS (surface); NOAA WOA23 1991–2020 annual means at 600 and 1000 m",
+   "metrics": {
+    "levels": {
+     "surface": {
+      "spearman": 0.6809905481650522,
+      "n": 39177,
+      "median_diff": -8.021169686317435
+     },
+     "600 m": {
+      "spearman": 0.6897686604276262,
+      "n": 39076,
+      "median_diff": -2.1972575187683105
+     },
+     "1000 m": {
+      "spearman": 0.7207434413913897,
+      "n": 39054,
+      "median_diff": -1.1081395149230957
+     }
+    },
+    "best": "1000 m",
+    "bar_match_share": [
+     0.08840834375511195,
+     0.0874823984044258,
+     0.08678604850839616,
+     0.08781518560630572,
+     0.08896344834239633,
+     0.08858666136323652
+    ]
+   },
+   "threshold": null,
+   "pass": null,
+   "note": "Independent observations (a climatology for depth). The page: flows above 600 m are white, colours are 600 m and deeper; only the pixels on 5425's bars decode (5479 lists no bars).",
+   "run_utc": "2026-10-31T15:14:09Z"
+  },
+  {
+   "record": "ocean2_5425",
+   "id": "d_depth_salinity",
+   "title": "5479 flat maps: salinity vs surface, 600 m and 1000 m (which water the colours describe)",
+   "kind": "model-vs-obs",
+   "source": "MUR25 / SMAP RSS (surface); NOAA WOA23 1991–2020 annual means at 600 and 1000 m",
+   "metrics": {
+    "levels": {
+     "surface": {
+      "spearman": 0.5292768983345244,
+      "n": 10811,
+      "median_diff": 0.03409004211425781
+     },
+     "600 m": {
+      "spearman": 0.6400632356565078,
+      "n": 10830,
+      "median_diff": 0.095428466796875
+     },
+     "1000 m": {
+      "spearman": 0.5537665588159872,
+      "n": 10823,
+      "median_diff": 0.054229736328125
+     }
+    },
+    "best": "600 m",
+    "bar_match_share": [
+     0.01026509883997254,
+     0.010525729021961241,
+     0.009618272334855538,
+     0.009676222338714903,
+     0.01019295069103182,
+     0.010301374396819891
+    ]
+   },
+   "threshold": null,
+   "pass": null,
+   "note": "Independent observations (a climatology for depth). The page: flows above 600 m are white, colours are 600 m and deeper; only the pixels on 5425's bars decode (5479 lists no bars).",
+   "run_utc": "2026-10-31T15:14:09Z"
+  },
+  {
+   "record": "ocean2_5425",
+   "id": "e_glorys12_depth",
+   "title": "GLORYS12 (Copernicus Marine) at the matching depth",
+   "kind": "none",
+   "source": null,
+   "metrics": {
+    "reason": "needs a Copernicus Marine account: COPERNICUSMARINE_SERVICE_USERNAME and _PASSWORD in .env.local"
+   },
+   "threshold": null,
+   "pass": null,
+   "note": "",
+   "run_utc": "2026-10-31T15:14:09Z"
+  },
+  {
+   "record": "ocean2_5425",
+   "id": "f_ecco2_same_model",
+   "title": "ECCO2 (the source model) at depth",
+   "kind": "none",
+   "source": null,
+   "metrics": {
+    "reason": "mirrors retried 31 Oct 2026: APDRC's ECCO2 path returns 404; data.nas.nasa.gov/ecco lists the LLC90–LLC4320 runs only (no 2021–2023 ECCO2 output found); ECCO Drive did not respond"
+   },
+   "threshold": null,
+   "pass": null,
+   "note": "",
+   "run_utc": "2026-10-31T15:14:09Z"
   }
  ],
- "updated_utc": "2026-10-29T15:28:03Z"
+ "updated_utc": "2026-10-31T15:14:09Z"
 }
