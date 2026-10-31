@@ -16,8 +16,20 @@ export type OfficialStatus =
   | "no check";
 export type FrameTimeMethod = "date-list" | "ocr" | "linear";
 
+export interface OfficialIndexRow {
+  record: string;
+  title: string;
+  svs_ids: number[];
+  badge: OfficialBadge;
+  period: string;
+  manifest: string;
+  /** Related records only (public/data/related/): the EIC focus area, and the official SVS IDs it sits beside. */
+  focus?: string;
+  related_to?: number[];
+}
+
 export interface OfficialIndex {
-  records: { record: string; title: string; svs_ids: number[]; badge: OfficialBadge; period: string; manifest: string }[];
+  records: OfficialIndexRow[];
 }
 
 export interface OfficialChunk {

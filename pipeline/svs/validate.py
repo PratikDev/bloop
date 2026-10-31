@@ -5,7 +5,7 @@ import json, re
 import numpy as np
 from scipy import stats
 from common import now_utc
-from .config import DOCS_OFFICIAL, PUBLIC_OFFICIAL
+from .config import DOCS_OFFICIAL, record_dir
 
 def _pairs(a, b):
     a, b = np.asarray(a, float).ravel(), np.asarray(b, float).ravel()
@@ -56,7 +56,7 @@ def _clean(o):
 
 def save(record, checks):
     """validation.json (merged by check id) + the record's rows in VALIDATION_TABLE.md."""
-    path = PUBLIC_OFFICIAL / record / "validation.json"
+    path = record_dir(record) / "validation.json"
     path.parent.mkdir(parents=True, exist_ok=True)
     old = {c["id"]: c for c in json.loads(path.read_text(encoding="utf-8"))["checks"]} if path.exists() else {}
     old.update({c["id"]: _clean(c) for c in checks})

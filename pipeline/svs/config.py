@@ -10,6 +10,9 @@ DATA_RAW = Path(os.environ.get("BLOOP_DATA_RAW", REPO / "data_raw"))
 CACHE = PIPE / "svs" / "cache"
 FIXTURES = PIPE / "svs" / "fixtures"
 PUBLIC_OFFICIAL = REPO / "public" / "data" / "official"
+PUBLIC_RELATED = REPO / "public" / "data" / "related"
+RELATED_PREFIX = "rel_"                    # related-dataset records (docs/related/) live beside, not among, the official ones
+RELATED_BUDGET_BYTES = 150_000_000        # all of public/data/related/
 DOCS_OFFICIAL = REPO / "docs" / "official"
 LINKS_DOC = REPO / "docs" / "official_resources_links.md"
 
@@ -22,6 +25,10 @@ for d in (DATA_RAW, DATA_RAW / "_tmp", CACHE):
     d.mkdir(parents=True, exist_ok=True)
 for k in ("TMP", "TEMP", "TMPDIR"):
     os.environ[k] = str(DATA_RAW / "_tmp")
+
+def record_dir(record):
+    """Where a record's shipped files live: public/data/related/ for 'rel_' records, public/data/official/ otherwise."""
+    return (PUBLIC_RELATED if record.startswith(RELATED_PREFIX) else PUBLIC_OFFICIAL) / record
 
 def raw_dir(*parts):
     p = DATA_RAW.joinpath(*map(str, parts))

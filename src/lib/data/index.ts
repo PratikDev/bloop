@@ -27,6 +27,7 @@ export {
   loadOfficialLayer,
   loadOfficialManifest,
   loadOfficialValidation,
+  loadRelatedIndex,
   officialValueAt,
   type OfficialGrid,
   type OfficialReading,

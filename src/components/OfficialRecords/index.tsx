@@ -12,6 +12,7 @@ import { StatusBadge } from "../StatusBadge";
 import { ProvenanceCard } from "./ProvenanceCard";
 import { RecordControls } from "./RecordControls";
 import { RecordMap } from "./RecordMap";
+import { RelatedRecords } from "./RelatedRecords";
 import { useOfficialRecord } from "./use-official-record";
 
 const SIGNIFICANT = 3;
@@ -88,6 +89,7 @@ export function OfficialRecords() {
       <ChoiceGroup label={t("official.records")} value={current ?? ""} onChange={setRecord} className="flex-wrap"
         options={index.records.map((r) => ({ value: r.record, label: r.title }))} />
       {current && <Player key={current} record={current} />}
+      <RelatedRecords value={current ?? ""} onChange={setRecord} />
     </section>
   );
 }

@@ -18,6 +18,7 @@ export const DATA_PATHS = {
   ensemble: `${ROOT}/context/ensemble_bd.json`,
   global: (file: string) => `${ROOT}/global/${file}`,
   official: (file: string) => `${ROOT}/official/${file}`,
+  related: (file: string) => `${ROOT}/related/${file}`,
   sequenceIndex: `${ROOT}/sequence/index.json`,
   sequenceFile: (file: string) => `${ROOT}/sequence/${file}`,
   truthImage: (name: "sst_compare" | "rain_compare" | "crosscheck") => `${ROOT}/truth/${name}.png`,

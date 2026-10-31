@@ -11,7 +11,7 @@ import gzip, io, json, subprocess
 import numpy as np
 from common import now_utc
 from core.log import say
-from .config import PUBLIC_OFFICIAL, RECORD_BUDGET_BYTES, REPO
+from .config import RECORD_BUDGET_BYTES, REPO, record_dir
 
 NODATA, BELOW = 65535, 65534
 
@@ -58,7 +58,7 @@ def time_mean(cube, f):
 def layer(record, lid, cube, times, bounds, unit, encoding="linear", chunk_t=32, vmin=None, vmax=None, below=None, step=None, **meta):
     """Write one layer's chunks; returns its manifest entry. cube: (T, H, W) float, NaN = no data; below: bool cube of
     censored cells (written as BELOW)."""
-    out = PUBLIC_OFFICIAL / record
+    out = record_dir(record)
     out.mkdir(parents=True, exist_ok=True)
     q, scale, offset = quantise(cube, encoding, vmin, vmax, step)
     if below is not None: q[below] = BELOW
@@ -95,7 +95,7 @@ def code_commit():
         return None
 
 def write_manifest(record, manifest):
-    out = PUBLIC_OFFICIAL / record
+    out = record_dir(record)
     files = [p for p in out.glob("*") if p.name != "manifest.json"]
     manifest = {**manifest, "code_commit": code_commit(), "generated_utc": now_utc()}
     body = json.dumps(manifest, indent=1, ensure_ascii=False, allow_nan=False)
@@ -104,5 +104,5 @@ def write_manifest(record, manifest):
     if total > RECORD_BUDGET_BYTES:
         raise RuntimeError(f"{record}: {total:,} bytes > budget {RECORD_BUDGET_BYTES:,}")
     (out / "manifest.json").write_text(json.dumps(manifest, indent=1, ensure_ascii=False, allow_nan=False), encoding="utf-8")
-    say(f"wrote public/data/official/{record}/ ({total:,} bytes, {len(files) + 1} files)")
+    say(f"wrote {out.relative_to(REPO).as_posix()}/ ({total:,} bytes, {len(files) + 1} files)")
     return out / "manifest.json"

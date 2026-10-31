@@ -6,7 +6,7 @@ clicks per second, linear. Scale: the colorbar's own (linear/log); a piecewise b
 tick positions better (colorbar.fit["rejected"]).
 Usage (from pipeline/): python -m svs.records.voices"""
 import json
-from svs.config import PUBLIC_OFFICIAL, REPO
+from svs.config import PUBLIC_OFFICIAL, PUBLIC_RELATED, REPO
 
 OUT = REPO / "public" / "mapping-official.json"
 CUTOFF = {"param": "cutoff", "unit": "Hz", "min": 800, "max": 8000, "scale": "exponential", "falling": True}
@@ -127,12 +127,15 @@ def river_voice(m):
                       "family": "model"},
             "pan": "longitude", "legend": [], "designChoice": True, "note": "Relative (no colorbar): the blue shading's strength."}
 
-def eic_voice(m):
-    l = m["layers"][0]; lo, hi = m["colorbar"]["value_range"]
-    log = l.get("display", {}).get("scale") == "log" and lo > 0
-    model = m["badge"] == "model"
-    return {"id": m["voices"]["value"], "label": {"en": l["label"], "bn": f"TODO: {m['record']}"}, "group": "context",
-            "source": {"dataset": f"EIC frame SVS {m['svs_ids'][0]}", "svsId": m["svs_ids"][0], "product": m["record"]}, "status": "context",
+def key_voice(m, dataset, layer=0):
+    """One plain voice for a record read through its key (EIC class A, related records): the key's own range, or the
+    layer's decoded range when there is no key; the model family for model and reanalysis records."""
+    l = m["layers"][layer]
+    lo, hi = (m.get("colorbar") or {}).get("value_range") or l.get("value_range") or (0.0, 1.0)
+    log = (l.get("display") or {}).get("scale") == "log" and lo > 0
+    model = m["badge"] in ("model", "reanalysis")
+    return {"id": m["voices"].get(l["id"]) or m["voices"]["value"], "label": {"en": l["label"], "bn": f"TODO: {m['record']}"}, "group": "context",
+            "source": {"dataset": dataset, **({"svsId": m["svs_ids"][0]} if m["svs_ids"] else {}), "product": m["record"]}, "status": "context",
             "mapping": {"kind": "continuous", "input": {"unit": l["unit"], "min": lo, "max": hi, "scale": "log" if log else "linear"}, "output": TONE},
             "silence": "No value at this point (an overlay box or a colour off the key).",
             "sound": {"timbre": "Warm sine with a soft attack and a smooth glide", "attackMs": 20, "releaseMs": 80, "glideMs": 30, "maxGain": 0.2,
@@ -190,7 +193,12 @@ def main():
     if patterns.exists(): voices.append(pattern_voice(json.loads(patterns.read_text(encoding="utf-8"))))
     river = PUBLIC_OFFICIAL / "river_4960" / "manifest.json"
     if river.exists(): voices.append(river_voice(json.loads(river.read_text(encoding="utf-8"))))
-    for eic in sorted(PUBLIC_OFFICIAL.glob("eic_*/manifest.json")): voices.append(eic_voice(json.loads(eic.read_text(encoding="utf-8"))))
+    for eic in sorted(PUBLIC_OFFICIAL.glob("eic_*/manifest.json")):
+        m = json.loads(eic.read_text(encoding="utf-8")); voices.append(key_voice(m, f"EIC frame SVS {m['svs_ids'][0]}"))
+    for rel in sorted(PUBLIC_RELATED.glob("rel_*/manifest.json")):
+        m = json.loads(rel.read_text(encoding="utf-8"))
+        what = f"SVS {m['svs_ids'][0]} (related visualization)" if m["svs_ids"] else "NASA GIBS (Worldview)"
+        voices += [key_voice(m, what, i) for i in range(len(m["layers"]))]
     co2 = PUBLIC_OFFICIAL / "co2_5196" / "manifest.json"
     if co2.exists(): voices.append(co2_voice(json.loads(co2.read_text(encoding="utf-8"))))
     forest = PUBLIC_OFFICIAL / "forest_4950" / "manifest.json"

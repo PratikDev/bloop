@@ -60,7 +60,7 @@ def overlays(H, W):
 
 GREY = 15                                   # max − min channel: below it a pixel is the base map showing through
 
-def decode(rgb, cb, mask):
+def decode(rgb, cb, mask, grid=None, min_share=0.5):
     """Exact mode when ≥ 50 % of map pixels match the key. Otherwise the layer is drawn only where it has a value and the
     grey base map shows through elsewhere (5148's calm areas; found on its first run, so stated as such): achromatic pixels
     are masked as 'base map', and exact vs chroma mode is decided on the coloured pixels alone."""
@@ -73,11 +73,11 @@ def decode(rgb, cb, mask):
         if share < 0.5:
             v, _, _, _ = Inverter(cb, mode="chroma", method=DEFAULT).invert(rgb, MAX_DIST, min_k=0.1); mode = "chroma"
     v[mask] = np.nan
-    gw, gh = int(360 / GRID_DEG), int(180 / GRID_DEG)
+    gw, gh = grid or (int(360 / GRID_DEG), int(180 / GRID_DEG))       # 0.5° cells of a 2:1 map unless a grid is given
     ok = np.isfinite(v)
     s = cv2.resize(np.where(ok, v, 0).astype(np.float32), (gw, gh), interpolation=cv2.INTER_AREA)
     n = cv2.resize(ok.astype(np.float32), (gw, gh), interpolation=cv2.INTER_AREA)
-    return np.where(n > 0.5, s / np.maximum(n, 1e-9), np.nan), {"mode": mode, "exact_share": share, "decoded_share": float(ok.mean()),
+    return np.where(n > min_share, s / np.maximum(n, 1e-9), np.nan), {"mode": mode, "exact_share": share, "decoded_share": float(ok.mean()),
                                                                   "base_map_share": base}
 
 def model_field(spec, when):

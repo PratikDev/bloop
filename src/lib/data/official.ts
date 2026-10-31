@@ -17,17 +17,23 @@ export interface OfficialReading {
   below: boolean;
 }
 
+/** Related records (named rel_…) live in public/data/related/, the official ones in public/data/official/. */
+const RELATED_PREFIX = "rel_";
+const recordPath = (record: string, file: string) =>
+  (record.startsWith(RELATED_PREFIX) ? DATA_PATHS.related : DATA_PATHS.official)(`${record}/${file}`);
+
 export const loadOfficialIndex = () => fetchJson<OfficialIndex>(DATA_PATHS.official("index.json"));
+export const loadRelatedIndex = () => fetchJson<OfficialIndex>(DATA_PATHS.related("index.json"));
 
 export async function loadOfficialManifest(record: string): Promise<OfficialManifest> {
-  const url = DATA_PATHS.official(`${record}/manifest.json`);
+  const url = recordPath(record, "manifest.json");
   const m = await fetchJson<OfficialManifest>(url);
   requirePaths(url, m, { record: "string", layers: "array", "period.label": "string", badge: "string", svs_ids: "array" });
   return m;
 }
 
 export const loadOfficialValidation = (record: string) =>
-  fetchJson<OfficialValidationFile>(DATA_PATHS.official(`${record}/validation.json`));
+  fetchJson<OfficialValidationFile>(recordPath(record, "validation.json"));
 
 export interface OfficialGrid {
   layer: OfficialLayer;
@@ -40,7 +46,7 @@ export async function loadOfficialLayer(record: string, layer: OfficialLayer): P
   const cell = width * height;
   const steps: Uint16Array[] = [];
   for (const chunk of layer.chunks) {
-    const buffer = await gunzip(await fetchBuffer(DATA_PATHS.official(`${record}/${chunk.file}`)));
+    const buffer = await gunzip(await fetchBuffer(recordPath(record, chunk.file)));
     const codes = new Uint16Array(buffer);
     const n = chunk.t1 - chunk.t0;
     if (codes.length !== n * cell) throw new Error(`${chunk.file}: ${codes.length} values; expected ${n} × ${width} × ${height}`);

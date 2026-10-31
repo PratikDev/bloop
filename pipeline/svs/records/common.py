@@ -3,7 +3,7 @@ credits by role, licence/credit line) and the size-budget search over (space, ti
 import datetime as dt, json
 import numpy as np
 from svs import export, svs_api
-from svs.config import PUBLIC_OFFICIAL
+from svs.config import PUBLIC_OFFICIAL, record_dir
 
 LICENCE = ("SVS: \"All of our content is in the public domain (unless otherwise noted), meaning that it is free to download, "
            "use, and redistribute for whatever purposes you see fit.\" (https://svs.gsfc.nasa.gov/help/, read 29 Oct 2026)")
@@ -129,6 +129,6 @@ def checksums(record, *manifests):
             e = json.loads(line)
             rows.add(f"{e['url']}\t{e.get('range') or 'whole'}\t{e['bytes']}\t{e['sha256']}")
     body = "url\trange\tbytes\tsha256\n" + "\n".join(sorted(rows)) + "\n"
-    (PUBLIC_OFFICIAL / record).mkdir(parents=True, exist_ok=True)
-    (PUBLIC_OFFICIAL / record / "checksums.tsv.gz").write_bytes(gzip.compress(body.encode(), mtime=0))
+    record_dir(record).mkdir(parents=True, exist_ok=True)
+    (record_dir(record) / "checksums.tsv.gz").write_bytes(gzip.compress(body.encode(), mtime=0))
     return {"file": "checksums.tsv.gz", "rows": len(rows), "sha256_of_list": hashlib.sha256(body.encode()).hexdigest()}
