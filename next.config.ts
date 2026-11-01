@@ -6,6 +6,9 @@ const nextConfig: NextConfig = {
   // Without it, Next.js blocks the dev scripts and the page never becomes
   // interactive there.
   allowedDevOrigins: ["192.168.*.*"],
+
+  // Build: `next build` writes a fully static site to ./out
+  output: "export",
 };
 
 export default nextConfig;
