@@ -37,6 +37,9 @@ LIMITS = [
     "({pm25_near_ratio}×, Spearman {pm25_near_rho}). Pattern and timing are verified; the colorbar is not rescaled.",
     "NOx ships as values with a stated error: median error {nox_err} against GEOS-CF v1 misses the provisional 15 %; accepted "
     "explicitly by the team on 29 Oct 2026.",
+    "Further rungs (added 3 Nov): a different model, CAMS EAC4 at the same hours (nearest 3-hourly step; `svs/records/air/cams.py`), "
+    "Spearman / median frame÷model ratio: {cams}; an independent satellite, TROPOMI tropospheric NO2 over the Bangladesh box at "
+    "each validation day's overpass (`svs/records/air/tropomi.py`): {tropomi}. A column is not a surface value: pattern only.",
 ]
 
 def slots(m, checks):
@@ -60,7 +63,13 @@ def slots(m, checks):
             "cell_deg": m["size"]["choice"]["cell_deg"], "days": m["size"]["choice"]["days"],
             "cover_o3": pct(sp["o3"]["coverage"]["decoded_median"]), "cover_nox": pct(sp["nox"]["coverage"]["decoded_median"]),
             "below_o3": pct(sp["o3"]["coverage"]["below_range_median"]), "below_nox": pct(sp["nox"]["coverage"]["below_range_median"]),
-            "ground_n": g.get("stations_with_data", "none"), **_search(checks)}
+            "ground_n": g.get("stations_with_data", "none"), **_search(checks), **_rungs(checks)}
+
+def _rungs(checks):
+    cams = [(sp, checks[f"e_{sp}_cams"]["metrics"]) for sp in ("pm25", "co", "o3", "nox") if f"e_{sp}_cams" in checks]
+    t = checks.get("g_nox_tropomi", {}).get("metrics")
+    return {"cams": "; ".join(f"{sp.upper()} {c['spearman']:.2f} / {c['median_ratio']:.2f}×" for sp, c in cams) or "not run yet",
+            "tropomi": f"Spearman {t['spearman']:.2f} over {t['n']:,} cells on {t['days']} overpasses" if t else "not run yet"}
 
 def _search(checks):
     cands = checks["a2_pm25_variable_search"]["metrics"]["candidates"]

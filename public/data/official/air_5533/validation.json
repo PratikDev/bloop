@@ -307,7 +307,123 @@
    "pass": false,
    "note": "A match would replace a_pm25_geoscf's reference; none is at ~1×, so PM2.5 ships as relative values.",
    "run_utc": "2026-10-29T07:19:49Z"
+  },
+  {
+   "record": "air_5533",
+   "id": "e_pm25_cams",
+   "title": "PM25: frames vs CAMS EAC4 (a different model), same hours (nearest 3-hourly step)",
+   "kind": "model-vs-obs",
+   "source": "CAMS EAC4 reanalysis (ADS, CC-BY)",
+   "metrics": {
+    "spearman": 0.6912441512483619,
+    "n": 1594252,
+    "median_ratio": 0.15666025444624135,
+    "hours": 25,
+    "rung": "different model"
+   },
+   "threshold": null,
+   "pass": null,
+   "note": "Different model: agreement in pattern, not the same numbers.",
+   "run_utc": "2026-11-02T21:58:57Z"
+  },
+  {
+   "record": "air_5533",
+   "id": "e_co_cams",
+   "title": "CO: frames vs CAMS EAC4 (a different model), same hours (nearest 3-hourly step)",
+   "kind": "model-vs-obs",
+   "source": "CAMS EAC4 reanalysis (ADS, CC-BY)",
+   "metrics": {
+    "spearman": 0.8922601951400467,
+    "n": 1595179,
+    "median_ratio": 0.9311584758301082,
+    "hours": 25,
+    "rung": "different model"
+   },
+   "threshold": null,
+   "pass": null,
+   "note": "Different model: agreement in pattern, not the same numbers.",
+   "run_utc": "2026-11-02T21:59:03Z"
+  },
+  {
+   "record": "air_5533",
+   "id": "e_o3_cams",
+   "title": "O3: frames vs CAMS EAC4 (a different model), same hours (nearest 3-hourly step)",
+   "kind": "model-vs-obs",
+   "source": "CAMS EAC4 reanalysis (ADS, CC-BY)",
+   "metrics": {
+    "spearman": 0.23736409870699843,
+    "n": 1243516,
+    "median_ratio": 0.7726577410617499,
+    "hours": 25,
+    "rung": "different model"
+   },
+   "threshold": null,
+   "pass": null,
+   "note": "Different model: agreement in pattern, not the same numbers.",
+   "run_utc": "2026-11-02T21:59:09Z"
+  },
+  {
+   "record": "air_5533",
+   "id": "e_nox_cams",
+   "title": "NOX: frames vs CAMS EAC4 (a different model), same hours (nearest 3-hourly step)",
+   "kind": "model-vs-obs",
+   "source": "CAMS EAC4 reanalysis (ADS, CC-BY)",
+   "metrics": {
+    "spearman": 0.9354968045168479,
+    "n": 1455731,
+    "median_ratio": 0.6850069367967007,
+    "hours": 25,
+    "rung": "different model"
+   },
+   "threshold": null,
+   "pass": null,
+   "note": "Different model: agreement in pattern, not the same numbers.",
+   "run_utc": "2026-11-02T21:59:14Z"
+  },
+  {
+   "record": "air_5533",
+   "id": "g_nox_tropomi",
+   "title": "NOx over Bangladesh: hourly frame nearest the overpass vs TROPOMI tropospheric NO2 column (independent satellite)",
+   "kind": "model-vs-obs",
+   "source": "Sentinel-5P TROPOMI NO2 L2 v2 (KNMI/ESA via NASA GES DISC, C2089270961-GES_DISC; Copernicus Sentinel data terms)",
+   "metrics": {
+    "spearman": 0.5301867649251442,
+    "n": 9063,
+    "days": 24,
+    "overpasses": [
+     "2024-07-01 06:54",
+     "2024-07-04 07:38",
+     "2024-07-07 06:42",
+     "2024-07-10 07:25",
+     "2024-07-13 06:29",
+     "2024-07-16 07:13",
+     "2024-07-19 06:17",
+     "2024-07-22 07:00",
+     "2024-07-26 07:25",
+     "2024-07-29 06:29",
+     "2024-08-01 07:13",
+     "2024-08-04 06:17",
+     "2024-08-07 07:00",
+     "2024-08-10 07:44",
+     "2024-08-13 06:48",
+     "2024-08-16 07:31",
+     "2024-08-20 06:17",
+     "2024-08-23 07:00",
+     "2024-08-26 07:44",
+     "2024-08-29 06:47",
+     "2024-09-01 07:31",
+     "2024-09-04 06:35",
+     "2024-09-07 07:18",
+     "2024-09-10 06:23"
+    ],
+    "qa_min": 0.75,
+    "rung": "independent satellite"
+   },
+   "threshold": null,
+   "pass": null,
+   "note": "Surface NOx mixing ratio vs a tropospheric column: different quantities, so pattern agreement only; monsoon cloud removes most pixels.",
+   "run_utc": "2026-11-02T22:20:12Z"
   }
  ],
- "updated_utc": "2026-10-29T07:19:49Z"
+ "updated_utc": "2026-11-02T22:20:12Z"
 }

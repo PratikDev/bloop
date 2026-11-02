@@ -25,13 +25,16 @@ def granule(cid, day):
     if not r: raise RuntimeError(f"{cid}: no granule on {day}")
     return r[0]["title"]
 
-def dap(cid, title, ce):
-    import netCDF4
+def dap_bytes(cid, title, ce):
     url = f"https://opendap.earthdata.nasa.gov/collections/{cid}/granules/{quote(title)}.dap.nc4"
     for attempt in range(5):
         r = session().get(url, params={"dap4.ce": ce}, timeout=300)
-        if r.status_code == 200: return netCDF4.Dataset("x", memory=r.content)
+        if r.status_code == 200: return r.content
     r.raise_for_status()
+
+def dap(cid, title, ce):
+    import netCDF4
+    return netCDF4.Dataset("x", memory=dap_bytes(cid, title, ce))
 
 def box_mean(source, day, box, name):
     path = raw_dir(SID, "truth") / f"{source}_{day:%Y%m%d}_{name.replace(' ', '_')}.json"

@@ -9361,6 +9361,41 @@
    "kind": "value",
    "pass": false,
    "threshold": "≈1× (median ratio 0.85–1.15) and median relative error ≤ 15 %"
+  },
+  {
+   "id": "e_pm25_cams",
+   "title": "PM25: frames vs CAMS EAC4 (a different model), same hours (nearest 3-hourly step)",
+   "kind": "model-vs-obs",
+   "pass": null,
+   "threshold": null
+  },
+  {
+   "id": "e_co_cams",
+   "title": "CO: frames vs CAMS EAC4 (a different model), same hours (nearest 3-hourly step)",
+   "kind": "model-vs-obs",
+   "pass": null,
+   "threshold": null
+  },
+  {
+   "id": "e_o3_cams",
+   "title": "O3: frames vs CAMS EAC4 (a different model), same hours (nearest 3-hourly step)",
+   "kind": "model-vs-obs",
+   "pass": null,
+   "threshold": null
+  },
+  {
+   "id": "e_nox_cams",
+   "title": "NOX: frames vs CAMS EAC4 (a different model), same hours (nearest 3-hourly step)",
+   "kind": "model-vs-obs",
+   "pass": null,
+   "threshold": null
+  },
+  {
+   "id": "g_nox_tropomi",
+   "title": "NOx over Bangladesh: hourly frame nearest the overpass vs TROPOMI tropospheric NO2 column (independent satellite)",
+   "kind": "model-vs-obs",
+   "pass": null,
+   "threshold": null
   }
  ],
  "size": {
@@ -9385,7 +9420,7 @@
     "estimated_bytes": 18248513
    }
   ],
-  "bytes": 18378308,
+  "bytes": 18382940,
   "budget": 25000000
  },
  "geoscf_v2_replay_start": "2025-08-04",
@@ -9394,6 +9429,6 @@
   "rows": 8165,
   "sha256_of_list": "3b40178668d135469e74980f652539f741346cf306fd0e00f34e1da1a7415dde"
  },
- "code_commit": "c438f418277886e425ce45a94c15208d92d9de6d-dirty",
- "generated_utc": "2026-10-29T07:20:30Z"
+ "code_commit": "a87d4d5ac812e4ecccce8fd3c420a7619b93f79c-dirty",
+ "generated_utc": "2026-11-02T22:21:12Z"
 }
