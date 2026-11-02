@@ -578,6 +578,27 @@
    "kind": "none",
    "pass": null,
    "threshold": null
+  },
+  {
+   "id": "d_landfall_timing_era5",
+   "title": "Landfall timing: most river–land contact vs strongest coastal IVT in ERA5",
+   "kind": "value",
+   "pass": null,
+   "threshold": null
+  },
+  {
+   "id": "e_contact_rank_era5",
+   "title": "River–land contact per frame vs ERA5 coastal IVT at the frame's hour (Spearman)",
+   "kind": "value",
+   "pass": null,
+   "threshold": null
+  },
+  {
+   "id": "f_era5_vs_merra2",
+   "title": "ERA5 vs MERRA-2 hourly coastal IVT over the span (reanalysis agreement)",
+   "kind": "context",
+   "pass": null,
+   "threshold": null
   }
  ],
  "size": {
@@ -588,7 +609,7 @@
    ]
   },
   "tried": [],
-  "bytes": 2056041,
+  "bytes": 2058190,
   "budget": 25000000
  },
  "asset_checksums": {
@@ -596,6 +617,6 @@
   "rows": 68,
   "sha256_of_list": "54a1441569f18440a523634790439023f6123731abbb563dd6270735dec9298c"
  },
- "code_commit": "cd484f7edde949a84b1df5220cd2a302f771f21f-dirty",
- "generated_utc": "2026-10-29T14:22:06Z"
+ "code_commit": "e17630e03cb75346d1bc9d99679f2bfe2b558443-dirty",
+ "generated_utc": "2026-11-02T21:57:33Z"
 }

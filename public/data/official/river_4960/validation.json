@@ -54,7 +54,56 @@
    "pass": null,
    "note": "Not measurable from these frames.",
    "run_utc": "2026-10-29T14:21:51Z"
+  },
+  {
+   "record": "river_4960",
+   "id": "d_landfall_timing_era5",
+   "title": "Landfall timing: most river–land contact vs strongest coastal IVT in ERA5",
+   "kind": "value",
+   "source": "ERA5 hourly single levels (C3S, CC-BY), vertical integrals of water vapour flux",
+   "metrics": {
+    "frame_peak_utc": "2010-12-12T23:31Z",
+    "era5_peak_utc": "2010-10-09T22:00Z",
+    "difference_hours": 1537.5166666666667,
+    "era5_peak_ivt": 1420.3150634765625,
+    "rung": "second reanalysis"
+   },
+   "threshold": null,
+   "pass": null,
+   "note": "",
+   "run_utc": "2026-11-02T21:53:49Z"
+  },
+  {
+   "record": "river_4960",
+   "id": "e_contact_rank_era5",
+   "title": "River–land contact per frame vs ERA5 coastal IVT at the frame's hour (Spearman)",
+   "kind": "value",
+   "source": "ERA5 hourly single levels (C3S, CC-BY), vertical integrals of water vapour flux",
+   "metrics": {
+    "spearman": 0.054842252272049315,
+    "n": 24,
+    "rung": "second reanalysis"
+   },
+   "threshold": null,
+   "pass": null,
+   "note": "",
+   "run_utc": "2026-11-02T21:53:49Z"
+  },
+  {
+   "record": "river_4960",
+   "id": "f_era5_vs_merra2",
+   "title": "ERA5 vs MERRA-2 hourly coastal IVT over the span (reanalysis agreement)",
+   "kind": "context",
+   "source": "ERA5 hourly single levels (C3S, CC-BY), vertical integrals of water vapour flux; MERRA-2 M2T1NXINT",
+   "metrics": {
+    "spearman": 0.9650336373560611,
+    "hours": 1800
+   },
+   "threshold": null,
+   "pass": null,
+   "note": "",
+   "run_utc": "2026-11-02T21:53:49Z"
   }
  ],
- "updated_utc": "2026-10-29T14:21:51Z"
+ "updated_utc": "2026-11-02T21:53:49Z"
 }
