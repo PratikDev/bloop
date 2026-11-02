@@ -66,7 +66,7 @@ def times(rec, picked):
         out, fixed = monotonic(out)
         return out, "; ".join(sorted(h for h in how if h)) + (f"; {fixed} out-of-order date(s) replaced by interpolation" if fixed else "")
     ranges = [d.get("date_range") for d in rec.get("datasets") or [] if d.get("date_range")]
-    span = re.findall(r"(\w+ \d{1,2},? \d{4}|\d{4}-\d{2}-\d{2}|\w+ \d{4})", ranges[0]) if ranges else []
+    span = re.findall(r"(\d{1,2}/\d{1,2}/\d{4}|\w+ \d{1,2},? \d{4}|\d{4}-\d{2}-\d{2}|\w+ \d{4})", ranges[0]) if ranges else []
     parsed = [p for p in (_loose(s) for s in span) if p]
     if len(parsed) >= 2:
         a, b = parsed[0], parsed[-1]
@@ -93,7 +93,8 @@ def monotonic(ts):
 
 def _loose(s):
     s = s.strip().rstrip("Z")
-    for f in ("%Y-%m-%dT%H:%M:%S", "%Y-%m-%dT%H:%M", "%Y-%m-%d %H:%M", *DATE_FORMATS, "%B %d %Y", "%b %d %Y"):
+    for f in ("%Y-%m-%dT%H:%M:%S", "%Y-%m-%dT%H:%M", "%Y-%m-%d %H:%M", *DATE_FORMATS, "%B %d %Y", "%b %d %Y",
+              "%m/%d/%Y"):                                          # SVS dataset date ranges are US month/day/year
         try: return dt.datetime.strptime(s, f).replace(tzinfo=dt.timezone.utc)
         except ValueError: continue
     return None

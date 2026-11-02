@@ -85,6 +85,8 @@ def write(sid, rec, d):
            "validation": common.validation_summary(checks), "size": {"choice": {"frames": d["frames_used"]}, "tried": []},
            "onboarding": {"timings_s": d["timings"], "status": d["status"]},
            "asset_checksums": common.checksums(record, d["manifest_file"])}
+    if not times_ok:                                       # never show the release date as if it were the data's period
+        man["period"]["label"] = f"undated (no frame dates found; SVS release {when[0]:%d %b %Y})"
     path = export.write_manifest(record, man)
     write_doc(sid, rec, man, checks)
     rows, total = write_index()

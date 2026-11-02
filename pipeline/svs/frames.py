@@ -16,7 +16,15 @@ CHANNELS = {0: 1, 2: 3, 3: 1, 4: 2, 6: 4}       # PNG colour type → samples pe
 def read_rgba(path):
     """Any frame file → uint8 RGBA array (TIF/PNG/JPG via Pillow; EXR via OpenCV, linear light encoded as sRGB)."""
     if str(path).lower().endswith(".exr"): return _read_exr(path)
-    return np.asarray(Image.open(path).convert("RGBA"))
+    try:
+        return np.asarray(Image.open(path).convert("RGBA"))
+    except Exception:                                       # e.g. float32 RGB TIFF (4939's colorbar): Pillow cannot read it
+        import imagecodecs
+        a = imagecodecs.imread(path)
+        if a.dtype.kind == "f": a = np.clip(np.round(a * 255 if a.max() <= 1 else a), 0, 255)
+        a = np.atleast_3d(a.astype(np.uint8))
+        if a.shape[2] == 1: a = np.repeat(a, 3, axis=2)
+        return a if a.shape[2] == 4 else np.dstack([a[..., :3], np.full(a.shape[:2], 255, np.uint8)])
 
 def _read_exr(path):
     import cv2                                              # EXR enabled in svs/__init__.py

@@ -17,7 +17,8 @@ from .config import CACHE, DOCS_OFFICIAL, SVS
 GALLERY = 40467
 URL = "https://svs.gsfc.nasa.gov/gallery/earth-information-center/"
 ID_IN_URL = re.compile(r"/a\d{6}/a\d{6}/a0*(\d+)/")
-MODEL_RX = re.compile(r"\b(model|reanalysis|GEOS|MERRA|ECCO|DYAMOND|forecast|simulation|nature run|GISS|CMIP)\b", re.I)
+MODEL_RX = re.compile(r"\b(model|reanalysis|GEOS|MERRA|ECCO|DYAMOND|forecast|simulat\w*|nature run|GISS|CMIP|world avoided|"
+                      r"would have (?:happened|been))\b", re.I)
 OBS_RX = re.compile(r"\b(satellite|MODIS|VIIRS|Landsat|GEDI|LIS|OCO|GPM|IMERG|SMAP|GRACE|Terra|Aqua|Aura|Suomi|Sentinel|"
                     r"observ|measur|sensor|lidar|radar|TROPOMI|TEMPO|AIRS|CERES|ICESat|SWOT|Jason)\b", re.I)
 VIDEO_RX = re.compile(r"\b(interview|b-roll|broll|narrated|documentary|video|smithsonian|jane goodall|resilience|joins)\b", re.I)

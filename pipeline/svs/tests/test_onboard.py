@@ -3,7 +3,7 @@ import datetime as dt
 import unittest
 import numpy as np
 from svs import focus, gibs
-from svs.onboard import sources, stages
+from svs.onboard import record, sources, stages
 from svs.onboard.diff import ids
 
 U = dt.timezone.utc
@@ -18,7 +18,17 @@ class Dates(unittest.TestCase):
         self.assertEqual(fixed, 1)
         self.assertEqual(out[1], dt.datetime(2026, 10, 30, 14, tzinfo=U))
 
+    def test_us_dataset_date_range(self):
+        self.assertEqual(stages._loose("9/1/2011"), dt.datetime(2011, 9, 1, tzinfo=U))
+        self.assertEqual(stages._loose("8/11/2014").date(), dt.date(2014, 8, 11))
+
 class Routing(unittest.TestCase):
+    def test_model_badge_words(self):
+        badge = lambda title: record.badge({"title": title, "keywords": [], "datasets": [], "description": ""})
+        self.assertEqual(badge("World Avoided Ozone"), "model")
+        self.assertEqual(badge("What Would have Happened to the Ozone Layer if CFCs had not been Regulated?"), "model")
+        self.assertEqual(badge("Accumulated Precipitation from the IMERG Global Precipitation Data"), "observation")
+
     def test_sources_by_words(self):
         name = lambda w: (sources.lookup(w) or ("none",))[0]
         self.assertIn("LIS", name("Global Lightning Flash Rate (TRMM Tropical Rainfall Measuring Mission)"))
