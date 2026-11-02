@@ -1396,8 +1396,8 @@
   },
   {
    "id": "e_glorys12_depth",
-   "title": "GLORYS12 (Copernicus Marine) at the matching depth",
-   "kind": "none",
+   "title": "5479 flat frames vs GLORYS12 monthly means at 643.6 m and 1062.4 m (different ocean model)",
+   "kind": "model-vs-obs",
    "pass": null,
    "threshold": null
   },
@@ -1417,7 +1417,7 @@
    ]
   },
   "tried": [],
-  "bytes": 899091,
+  "bytes": 900074,
   "budget": 25000000
  },
  "asset_checksums": {
@@ -1425,6 +1425,6 @@
   "rows": 175,
   "sha256_of_list": "7cbd7a74c3473899368ece995be0a2c6c6a7d2b3c872a04986d48034f1cb5e30"
  },
- "code_commit": "a84b28beaaf7686dc08f95c66b25b07470badd50-dirty",
- "generated_utc": "2026-10-31T15:14:41Z"
+ "code_commit": "9be502d5b6932acc84b257765a29a88ef29e3938-dirty",
+ "generated_utc": "2026-11-02T22:16:27Z"
 }

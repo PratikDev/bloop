@@ -15,7 +15,8 @@ LIMITS = [
     "compare the wrong depth. The temperature and salinity layers carry no white flows (0 % white); the white flows are the beauty "
     "version's. 5479 lists no colorbars, and only {t_match} of its temperature flow pixels and {s_match} of salinity lie on 5425's "
     "bars, so the bars are not simply reused.",
-    "Not run: GLORYS12 at depth (needs a Copernicus Marine account) and the ECCO2 same-model check (no reachable 2021–2023 mirror). "
+    "A different ocean model at depth (added 3 Nov, `svs/records/ocean2/glorys.py`): GLORYS12 monthly means on the same 5479 "
+    "frames: {glorys}. Not run: the ECCO2 same-model check (no reachable 2021–2023 mirror). "
     "Period conflict kept: the text says 2021–2023; SVS 5505's dataset entry says 13 Nov 2022 – 25 Dec 2023; the dates layer "
     "and 5479's burned-in labels run 2021–2023.",
     "No map position (perspective camera views): regional comparisons only; flow speed cannot be scaled to m/s.",
@@ -33,6 +34,9 @@ def depth_slots(checks):
         out[f"{a}_levels"] = "; ".join(f"{n}: ρ {v['spearman']:.2f}, Δ {v['median_diff']:+.2f}" for n, v in lv.items())
         share = c.get("bar_match_share") or [0]
         out[f"{a}_match"] = f"{sum(share) / len(share):.1%}"
+    g = checks.get("e_glorys12_depth", {}).get("metrics", {}).get("per_variable")
+    out["glorys"] = "; ".join(f"{k} " + ", ".join(f"{n} ρ {v['spearman']:.2f} / Δ {v['median_diff']:+.2f}" for n, v in r["levels"].items())
+                              for k, r in g.items()) if g else "not run yet"
     return out
 
 def slots(m, checks):

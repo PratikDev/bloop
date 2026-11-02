@@ -50,8 +50,7 @@ def main():
                                                         "bar_match_share": [r[k]["bar_match_share_of_flow"] for r in t["frames"]]},
                                   note="Independent observations (a climatology for depth). The page: flows above 600 m are white, "
                                        "colours are 600 m and deeper; only the pixels on 5425's bars decode (5479 lists no bars)."))
-    checks.append(V.check(RECORD, "e_glorys12_depth", "GLORYS12 (Copernicus Marine) at the matching depth", kind="none", passed=None,
-                          metrics={"reason": "needs a Copernicus Marine account: COPERNICUSMARINE_SERVICE_USERNAME and _PASSWORD in .env.local"}))
+    checks.append(glorys_check())
     checks.append(V.check(RECORD, "f_ecco2_same_model", "ECCO2 (the source model) at depth", kind="none", passed=None,
                           metrics={"reason": "mirrors retried 31 Oct 2026: APDRC's ECCO2 path returns 404; data.nas.nasa.gov/ecco lists the "
                                              "LLC90–LLC4320 runs only (no 2021–2023 ECCO2 output found); ECCO Drive did not respond"}))
@@ -60,6 +59,18 @@ def main():
             c["note"] = "Wrong depth (report correction 3): the colours show water at 600 m and deeper, so a surface comparison is kept for the record, not as evidence."
     V.save(RECORD, checks)
     say(f"5425: {[(c['id'], c['metrics'].get('spearman_all_frames'), c['metrics'].get('median_difference')) for c in checks]}")
+
+def glorys_check():
+    """GLORYS12 at depth (glorys.py writes data_raw/5479/glorys.json; no threshold: a different model, monthly means)."""
+    path = raw_dir(5479) / "glorys.json"
+    if not path.exists():
+        return V.check(RECORD, "e_glorys12_depth", "GLORYS12 (Copernicus Marine) at the matching depth", kind="none", passed=None,
+                       metrics={"reason": "not run yet: python -m svs.records.ocean2.glorys"})
+    g = json.loads(path.read_text(encoding="utf-8"))
+    return V.check(RECORD, "e_glorys12_depth", "5479 flat frames vs GLORYS12 monthly means at 643.6 m and 1062.4 m (different ocean model)",
+                   kind="model-vs-obs", source=f"Copernicus Marine GLOBAL_MULTIYEAR_PHY_001_030 ({g['dataset']}; Copernicus Marine licence)",
+                   passed=None, metrics={"per_variable": g["results"], "frames": len(g["dates"]), "rung": "different model"},
+                   note="A different ocean model and monthly means against a snapshot: agreement in pattern, not the same numbers.")
 
 if __name__ == "__main__":
     main()

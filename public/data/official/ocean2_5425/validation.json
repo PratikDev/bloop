@@ -77,7 +77,7 @@
    "threshold": null,
    "pass": null,
    "note": "Wrong depth (report correction 3): the colours show water at 600 m and deeper, so a surface comparison is kept for the record, not as evidence.",
-   "run_utc": "2026-10-31T15:14:08Z"
+   "run_utc": "2026-11-02T22:16:19Z"
   },
   {
    "record": "ocean2_5425",
@@ -156,7 +156,7 @@
    "threshold": null,
    "pass": null,
    "note": "Wrong depth (report correction 3): the colours show water at 600 m and deeper, so a surface comparison is kept for the record, not as evidence.",
-   "run_utc": "2026-10-31T15:14:09Z"
+   "run_utc": "2026-11-02T22:16:20Z"
   },
   {
    "record": "ocean2_5425",
@@ -170,7 +170,7 @@
    "threshold": null,
    "pass": null,
    "note": "",
-   "run_utc": "2026-10-31T15:14:09Z"
+   "run_utc": "2026-11-02T22:16:20Z"
   },
   {
    "record": "ocean2_5425",
@@ -209,7 +209,7 @@
    "threshold": null,
    "pass": null,
    "note": "Independent observations (a climatology for depth). The page: flows above 600 m are white, colours are 600 m and deeper; only the pixels on 5425's bars decode (5479 lists no bars).",
-   "run_utc": "2026-10-31T15:14:09Z"
+   "run_utc": "2026-11-02T22:16:20Z"
   },
   {
    "record": "ocean2_5425",
@@ -248,21 +248,54 @@
    "threshold": null,
    "pass": null,
    "note": "Independent observations (a climatology for depth). The page: flows above 600 m are white, colours are 600 m and deeper; only the pixels on 5425's bars decode (5479 lists no bars).",
-   "run_utc": "2026-10-31T15:14:09Z"
+   "run_utc": "2026-11-02T22:16:20Z"
   },
   {
    "record": "ocean2_5425",
    "id": "e_glorys12_depth",
-   "title": "GLORYS12 (Copernicus Marine) at the matching depth",
-   "kind": "none",
-   "source": null,
+   "title": "5479 flat frames vs GLORYS12 monthly means at 643.6 m and 1062.4 m (different ocean model)",
+   "kind": "model-vs-obs",
+   "source": "Copernicus Marine GLOBAL_MULTIYEAR_PHY_001_030 (cmems_mod_glo_phy_my_0.083deg_P1M-m; Copernicus Marine licence)",
    "metrics": {
-    "reason": "needs a Copernicus Marine account: COPERNICUSMARINE_SERVICE_USERNAME and _PASSWORD in .env.local"
+    "per_variable": {
+     "temperature": {
+      "levels": {
+       "600 m": {
+        "spearman": 0.6875510187617495,
+        "n": 39177,
+        "median_diff": -2.1885701306164265
+       },
+       "1000 m": {
+        "spearman": 0.7303617692259647,
+        "n": 39177,
+        "median_diff": -1.065128743648529
+       }
+      },
+      "best": "1000 m"
+     },
+     "salinity": {
+      "levels": {
+       "600 m": {
+        "spearman": 0.6068088728598986,
+        "n": 11005,
+        "median_diff": 0.10475791536737233
+       },
+       "1000 m": {
+        "spearman": 0.533031972365449,
+        "n": 10909,
+        "median_diff": 0.05498342704959214
+       }
+      },
+      "best": "600 m"
+     }
+    },
+    "frames": 6,
+    "rung": "different model"
    },
    "threshold": null,
    "pass": null,
-   "note": "",
-   "run_utc": "2026-10-31T15:14:09Z"
+   "note": "A different ocean model and monthly means against a snapshot: agreement in pattern, not the same numbers.",
+   "run_utc": "2026-11-02T22:16:20Z"
   },
   {
    "record": "ocean2_5425",
@@ -276,8 +309,8 @@
    "threshold": null,
    "pass": null,
    "note": "",
-   "run_utc": "2026-10-31T15:14:09Z"
+   "run_utc": "2026-11-02T22:16:20Z"
   }
  ],
- "updated_utc": "2026-10-31T15:14:09Z"
+ "updated_utc": "2026-11-02T22:16:20Z"
 }
