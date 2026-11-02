@@ -1,0 +1,39 @@
+{
+ "record": "rel_4284",
+ "checks": [
+  {
+   "record": "rel_4284",
+   "id": "a_auto_source",
+   "title": "Accumulated Precipitation from the IMERG Global Precipitation Data: decoded values vs IMERG precipitation rate (GIBS)",
+   "kind": "value",
+   "source": "IMERG precipitation rate (GIBS)",
+   "metrics": {
+    "rung": "same product (IMERG)",
+    "unit": "mm/hr",
+    "spearman": 0.050661758525885364,
+    "n": 17328,
+    "median_rel_error": 107.03320975832591,
+    "bias": 69.78000176619672,
+    "dates": [
+     {
+      "date": "2014-08-04"
+     },
+     {
+      "date": "2014-08-06"
+     },
+     {
+      "date": "2014-08-08"
+     },
+     {
+      "date": "2014-08-11"
+     }
+    ]
+   },
+   "threshold": "Spearman ≥ 0.9 and median relative error ≤ 15 % → verified; ρ ≥ 0.9 → values with stated error; ρ ≥ 0.6 → relative (provisional, onboarding defaults)",
+   "pass": false,
+   "note": "Rung: same product (IMERG). Onboarding run, 4 frames.",
+   "run_utc": "2026-11-02T22:36:43Z"
+  }
+ ],
+ "updated_utc": "2026-11-02T22:36:43Z"
+}

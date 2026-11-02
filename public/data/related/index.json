@@ -71,6 +71,34 @@
    ]
   },
   {
+   "record": "rel_4272",
+   "title": "What Would have Happened to the Ozone Layer if Chlorofluorocarbons (CFCs) had not been Regulated? (UPDATED) (model)",
+   "svs_ids": [
+    4272
+   ],
+   "badge": "model",
+   "period": "undated (no frame dates found; SVS release 09 Feb 2015)",
+   "manifest": "rel_4272/manifest.json",
+   "focus": "air quality",
+   "related_to": [
+    5533
+   ]
+  },
+  {
+   "record": "rel_4284",
+   "title": "Accumulated Precipitation from the IMERG Global Precipitation Data (observation)",
+   "svs_ids": [
+    4284
+   ],
+   "badge": "observation",
+   "period": "4 Aug 2014 – 11 Aug 2014",
+   "manifest": "rel_4284/manifest.json",
+   "focus": "water resources",
+   "related_to": [
+    4960
+   ]
+  },
+  {
    "record": "rel_4332",
    "title": "Aquarius Sea Surface Temperature 2011 - 2015 (observation)",
    "svs_ids": [
@@ -209,6 +237,20 @@
    "related_to": []
   },
   {
+   "record": "rel_4939",
+   "title": "3D Water Vapor shows an Atmospheric River (observation)",
+   "svs_ids": [
+    4939
+   ],
+   "badge": "observation",
+   "period": "undated (no frame dates found; SVS release 07 Oct 2021)",
+   "manifest": "rel_4939/manifest.json",
+   "focus": "water resources",
+   "related_to": [
+    4960
+   ]
+  },
+  {
    "record": "rel_4993",
    "title": "Spread of the Dixie Fire - 2021 (observation)",
    "svs_ids": [
@@ -220,6 +262,20 @@
    "focus": "wildfires",
    "related_to": [
     4993
+   ]
+  },
+  {
+   "record": "rel_5017",
+   "title": "A Decade of Sea Surface Salinity (observation)",
+   "svs_ids": [
+    5017
+   ],
+   "badge": "observation",
+   "period": "1 Sep 2011 – 1 Sep 2021",
+   "manifest": "rel_5017/manifest.json",
+   "focus": "water resources",
+   "related_to": [
+    5425
    ]
   },
   {
@@ -569,7 +625,7 @@
     5650
    ],
    "badge": "observation",
-   "period": "12 Oct 2026 – 31 Oct 2026",
+   "period": "14 Oct 2026 – 2 Nov 2026",
    "manifest": "rel_5650/manifest.json",
    "focus": "water resources",
    "related_to": [

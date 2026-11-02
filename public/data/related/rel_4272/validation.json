@@ -1,0 +1,20 @@
+{
+ "record": "rel_4272",
+ "checks": [
+  {
+   "record": "rel_4272",
+   "id": "a_no_validation_source",
+   "title": "What Would have Happened to the Ozone Layer if Chlorofluorocarbons (CFCs) had not been Regulated? (UPDATED): no validation source",
+   "kind": "none",
+   "source": null,
+   "metrics": {
+    "reason": "no validation source matches the item's words"
+   },
+   "threshold": null,
+   "pass": null,
+   "note": "no validation source matches the item's words",
+   "run_utc": "2026-11-02T22:37:59Z"
+  }
+ ],
+ "updated_utc": "2026-11-02T22:37:59Z"
+}

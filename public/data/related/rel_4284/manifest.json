@@ -1,0 +1,398 @@
+{
+ "record": "rel_4284",
+ "app_title": "Accumulated Precipitation from the IMERG Global Precipitation Data (observation)",
+ "svs_ids": [
+  4284
+ ],
+ "title": "Accumulated Precipitation from the IMERG Global Precipitation Data",
+ "svs_pages": [
+  "https://svs.gsfc.nasa.gov/4284/"
+ ],
+ "description": "An animation showing global precipitation accumulating from 8/4/2014 through 8/10/2014.  The very large accumulation near Japan is Typhoon Halong.  This accumulation is calculated from the IMERG precipitation dataset.This video is also available on our YouTube channel. || GPM_accumulation_1080p.00336_print.jpg (1024x576) [293.6 KB] || GPM_accumulation_1080p.00336_searchweb.png (320x180) [122.4 KB] || GPM_accumulation_1080p.00336_web.png (320x180) [122.4 KB] || GPM_accumulation_1080p.00336_thm.png (80x40) [8.6 KB] || flatcomposite (1920x1080) [32.0 KB] || GPM_accumulation_1080p.mp4 (1920x1080) [13.7 MB] || GPM_accumulation_1080p.webm (1920x1080) [1.4 MB] || flatcomposite (3600x1800) [32.0 KB] || flatalpha (3600x1800) [32.0 KB] || GPM_accumulation_1080p_4284.key [17.8 MB] || GPM_accumulation_1080p_4284.pptx [15.1 MB] || ",
+ "release_date": "2015-03-31T00:00:00-04:00",
+ "period": {
+  "start": "2014-08-04T00:00:00Z",
+  "end": "2014-08-11T00:00:00Z",
+  "label": "4 Aug 2014 – 11 Aug 2014"
+ },
+ "badge": "observation",
+ "credits_by_role": {
+  "Data visualizer": [
+   "Horace Mitchell (NASA/GSFC)"
+  ],
+  "Scientist": [
+   "George Huffman (NASA/GSFC)",
+   "Gail Skofronick Jackson (NASA/GSFC)",
+   "Dalia B Kirschbaum (NASA/GSFC)"
+  ],
+  "Producer": [
+   "Ryan Fitzgibbons (USRA)"
+  ]
+ },
+ "datasets": [
+  {
+   "name": "",
+   "common_name": "IMERG",
+   "platform": null,
+   "sensor": null,
+   "type": "Data Compilation",
+   "organizations": [
+    "NASA/GSFC"
+   ],
+   "description": "",
+   "credit": "",
+   "url": "http://pmm.nasa.gov/sites/default/files/document_files/IMERG_ATBD_V4.4.pdf",
+   "date_range": "8/4/2014-8/11/2014"
+  }
+ ],
+ "credit_line": "Visualization: NASA's Scientific Visualization Studio (SVS 4284) for the NASA Earth Information Center.",
+ "disclosure": "A related NASA visualization read back through its key (pattern only).",
+ "licence": "SVS: \"All of our content is in the public domain (unless otherwise noted), meaning that it is free to download, use, and redistribute for whatever purposes you see fit.\" (https://svs.gsfc.nasa.gov/help/, read 29 Oct 2026)",
+ "focus": "water resources",
+ "related_to": [
+  4960
+ ],
+ "frame_times": {
+  "method": "linear",
+  "approximate": true,
+  "count": 4,
+  "source": "linear over the dataset's date range (8/4/2014-8/11/2014)"
+ },
+ "georef": {
+  "projection": "equirectangular (2:1)",
+  "bounds": [
+   -180,
+   -90,
+   180,
+   90
+  ],
+  "pass_at": 0.9,
+  "shifts_deg": [],
+  "iou": {
+   "land": 0.0
+  },
+  "pass": false,
+  "best_is_assumed": true
+ },
+ "colorbar": {
+  "geometry": {
+   "x0": 29,
+   "x1": 410,
+   "band": [
+    29,
+    44
+   ],
+   "vertical": false,
+   "outline_rgb": null,
+   "image_size": [
+    90,
+    440
+   ]
+  },
+  "ticks": [
+   {
+    "px": 8.0,
+    "value": 9.0,
+    "text": "9",
+    "engine": "glyph",
+    "label_px": 10.5,
+    "tick_mark": true
+   },
+   {
+    "px": 67.0,
+    "value": 190.0,
+    "text": "190",
+    "engine": "glyph",
+    "label_px": 68.0,
+    "tick_mark": true
+   },
+   {
+    "px": 124.0,
+    "value": 290.0,
+    "text": "290",
+    "engine": "glyph",
+    "label_px": 124.5,
+    "tick_mark": true
+   },
+   {
+    "px": 181.0,
+    "value": 390.0,
+    "text": "390",
+    "engine": "glyph",
+    "label_px": 181.5,
+    "tick_mark": true
+   },
+   {
+    "px": 237.0,
+    "value": 490.0,
+    "text": "490",
+    "engine": "glyph",
+    "label_px": 237.5,
+    "tick_mark": true
+   },
+   {
+    "px": 294.0,
+    "value": 590.0,
+    "text": "590",
+    "engine": "glyph",
+    "label_px": 294.5,
+    "tick_mark": true
+   },
+   {
+    "px": 351.5,
+    "value": 690.0,
+    "text": "690",
+    "engine": "glyph",
+    "label_px": 351.5
+   }
+  ],
+  "scale": "piecewise",
+  "fit": {
+   "segments": 6,
+   "segment_interp": "linear",
+   "rejected": {
+    "linear": {
+     "a": 30.191560675621655,
+     "b": 1.9490400796548655,
+     "fit": "weighted 1/tolerance",
+     "max_resid_px": 18.87281934159827,
+     "resid_px": [
+      -18.87,
+      14.99,
+      9.3,
+      3.61,
+      -1.08,
+      -6.78,
+      -12.97
+     ],
+     "ok": false
+    },
+    "log": {
+     "a": 1.5084037705583162,
+     "b": 0.005109956942458612,
+     "fit": "weighted 1/tolerance",
+     "max_resid_px": 116.44734453914232,
+     "resid_px": [
+      -116.45,
+      83.75,
+      62.69,
+      30.87,
+      -5.73,
+      -46.94,
+      -91.14
+     ],
+     "ok": false
+    }
+   }
+  },
+  "notes": [
+   "1 label(s) not on a tick mark (690): label-centre position, ±5 px."
+  ],
+  "n_samples": 382,
+  "value_range": [
+   -15.54237288135593,
+   741.304347826087
+  ],
+  "opacity_varies": false
+ },
+ "colorbar_source": "page colorbar accbarwhite2.png",
+ "asset": {
+  "kind": "frames",
+  "owner": 4284,
+  "what": "flatalpha"
+ },
+ "twins": [],
+ "decode": {
+  "mode": "exact",
+  "decoded_share": 0.21627260802469134
+ },
+ "layers": [
+  {
+   "id": "value",
+   "unit": "colorbar units",
+   "encoding": "linear",
+   "scale": 0.19812741379775994,
+   "offset": 24.3389835357666,
+   "nodata": 65535,
+   "below": 65534,
+   "grid": {
+    "width": 360,
+    "height": 180,
+    "bounds": [
+     -180,
+     -90,
+     180,
+     90
+    ],
+    "row0": "north",
+    "col0": "west",
+    "byte_order": "little"
+   },
+   "times": [
+    "2014-08-04T00:00:00Z",
+    "2014-08-06T08:00:00Z",
+    "2014-08-08T16:00:00Z",
+    "2014-08-11T00:00:00Z"
+   ],
+   "chunks": [
+    {
+     "file": "value_000.u16.gz",
+     "t0": 0,
+     "t1": 4,
+     "bytes": 95123
+    }
+   ],
+   "quantisation_step": 0.19812741379775994,
+   "coverage": 0.2259645061728395,
+   "value_range": [
+    24.3389835357666,
+    604.7772827148438
+   ],
+   "label": "Accumulated Precipitation from the IMERG Global Precipitation Data (pattern only)",
+   "aggregation": "mean of decoded pixels per cell",
+   "time_labels": [
+    "04 Aug 2014",
+    "06 Aug 2014",
+    "08 Aug 2014",
+    "11 Aug 2014"
+   ],
+   "display": {
+    "colours": [
+     "#000000",
+     "#2d86ff",
+     "#39d884",
+     "#4cca00",
+     "#ffed00",
+     "#ff9500",
+     "#ff3c00",
+     "#e90000",
+     "#a50000",
+     "#650002",
+     "#6a0053",
+     "#7100a5",
+     "#7800f7",
+     "#8e00ff",
+     "#a500ff",
+     "#bd00ff",
+     "#d300ff",
+     "#eb00ff",
+     "#ff03fb",
+     "#ff19e5",
+     "#ff2fcf",
+     "#ff44ba",
+     "#ff5aa4",
+     "#ff6f8f",
+     "#ff8589",
+     "#ff999c",
+     "#ffacaf",
+     "#ffc0c3",
+     "#ffd4d5",
+     "#ffe8e8",
+     "#fffbfb",
+     "#ffffff"
+    ],
+    "values": [
+     -15.54237288135593,
+     22.16183706943685,
+     59.86604702022964,
+     97.57025697102242,
+     135.2744669218152,
+     172.97867687260796,
+     201.82795698924733,
+     223.38992642897566,
+     244.951895868704,
+     266.5138653084324,
+     288.07583474816073,
+     309.63780418788906,
+     331.19977362761745,
+     352.7617430673458,
+     374.3237125070741,
+     395.9907834101383,
+     417.9377880184332,
+     439.8847926267281,
+     461.8317972350231,
+     483.778801843318,
+     505.4499151103565,
+     527.0118845500849,
+     548.5738539898132,
+     570.1358234295416,
+     591.6830294530155,
+     613.0575035063114,
+     634.4319775596073,
+     655.8064516129033,
+     677.1809256661992,
+     698.5553997194951,
+     719.9298737727911,
+     741.304347826087
+    ],
+    "scale": "linear"
+   },
+   "status": "pattern only",
+   "status_check": "a_auto_source",
+   "statement": "pattern only: ρ 0.05 vs IMERG precipitation rate (GIBS)"
+  }
+ ],
+ "voices": {
+  "value": "rel4284"
+ },
+ "play": [
+  {
+   "id": "value",
+   "label": "Accumulated Precipitation from the IMERG Global Precipitation Data: higher pitch = higher value",
+   "view": "global",
+   "map": "value",
+   "start": {
+    "lat": 0.0,
+    "lon": 0.0
+   },
+   "steps_per_second": 1,
+   "channels": [
+    {
+     "voice": "rel4284",
+     "layers": [
+      "value"
+     ],
+     "combine": "value"
+    }
+   ]
+  }
+ ],
+ "validation": [
+  {
+   "id": "a_auto_source",
+   "title": "Accumulated Precipitation from the IMERG Global Precipitation Data: decoded values vs IMERG precipitation rate (GIBS)",
+   "kind": "value",
+   "pass": false,
+   "threshold": "Spearman ≥ 0.9 and median relative error ≤ 15 % → verified; ρ ≥ 0.9 → values with stated error; ρ ≥ 0.6 → relative (provisional, onboarding defaults)"
+  }
+ ],
+ "size": {
+  "choice": {
+   "frames": 4
+  },
+  "tried": [],
+  "bytes": 105689,
+  "budget": 25000000
+ },
+ "onboarding": {
+  "timings_s": {
+   "api": 9.2,
+   "twins": 113.0,
+   "asset choice": 0.0,
+   "frames": 31.5,
+   "frame times": 0.2,
+   "georef": 3.5,
+   "colorbar": 1.0,
+   "inversion": 4.6,
+   "validation": 42.7
+  },
+  "status": "pattern only"
+ },
+ "asset_checksums": {
+  "file": "checksums.tsv.gz",
+  "rows": 6,
+  "sha256_of_list": "a3ffe75a4d6dd06b99779c3b8534a76e4076764b33634838a9bbba6b8507d0e8"
+ },
+ "code_commit": "b2896755d86a34028f36c97fef8b9632e9b8304b-dirty",
+ "generated_utc": "2026-11-02T22:36:43Z"
+}

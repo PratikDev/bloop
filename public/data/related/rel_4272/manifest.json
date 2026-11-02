@@ -1,0 +1,359 @@
+{
+ "record": "rel_4272",
+ "app_title": "What Would have Happened to the Ozone Layer if Chlorofluorocarbons (CFCs) had not been Regulated? (UPDATED) (model)",
+ "svs_ids": [
+  4272
+ ],
+ "title": "What Would have Happened to the Ozone Layer if Chlorofluorocarbons (CFCs) had not been Regulated? (UPDATED)",
+ "svs_pages": [
+  "https://svs.gsfc.nasa.gov/4272/"
+ ],
+ "description": "World Avoided Ozone Full AnimationThis video is also available on our YouTube channel. || world_avoided_robinson.1830_print.jpg (1024x576) [70.0 KB] || world_avoided_robinson.1830_searchweb.png (180x320) [38.8 KB] || world_avoided_robinson.1830_thm.png (80x40) [4.7 KB] || full_movie (1920x1080) [0 Item(s)] || world_avoided_robinson_1080.mp4 (1920x1080) [26.3 MB] || world_avoided_robinson_1080.webm (1920x1080) [7.2 MB] || world_avoided_robinson_4272.pptx [27.2 MB] || world_avoided_robinson_4272.key [29.8 MB] || world_avoided_robinson_1080.mp4.hwshow || ",
+ "release_date": "2015-02-09T00:00:00-05:00",
+ "period": {
+  "start": "2015-02-09T05:00:00Z",
+  "end": "2015-02-09T05:00:00Z",
+  "label": "undated (no frame dates found; SVS release 09 Feb 2015)"
+ },
+ "badge": "model",
+ "credits_by_role": {
+  "Visualizer": [
+   "Trent L. Schindler (USRA)"
+  ],
+  "Scientist": [
+   "Paul Newman (NASA/GSFC)"
+  ],
+  "Producer": [
+   "Jefferson Beck (USRA)"
+  ]
+ },
+ "datasets": [],
+ "credit_line": "Visualization: NASA's Scientific Visualization Studio (SVS 4272) for the NASA Earth Information Center.",
+ "disclosure": "A related NASA visualization read back through its key (pattern only).",
+ "licence": "SVS: \"All of our content is in the public domain (unless otherwise noted), meaning that it is free to download, use, and redistribute for whatever purposes you see fit.\" (https://svs.gsfc.nasa.gov/help/, read 29 Oct 2026)",
+ "focus": "air quality",
+ "related_to": [
+  5533
+ ],
+ "frame_times": {
+  "method": "linear",
+  "approximate": true,
+  "count": 4,
+  "source": "undated"
+ },
+ "georef": {
+  "projection": "equirectangular (2:1)",
+  "bounds": [
+   -180,
+   -90,
+   180,
+   90
+  ],
+  "pass_at": 0.9,
+  "shifts_deg": [],
+  "iou": {
+   "land": 0.34138114904072353
+  },
+  "pass": false,
+  "best_is_assumed": false
+ },
+ "colorbar": {
+  "geometry": {
+   "x0": 105,
+   "x1": 1144,
+   "band": [
+    163,
+    230
+   ],
+   "vertical": false,
+   "outline_rgb": null,
+   "image_size": [
+    400,
+    1250
+   ]
+  },
+  "ticks": [
+   {
+    "px": 69.0,
+    "value": 0.0,
+    "text": "0",
+    "engine": "glyph",
+    "label_px": 70.5,
+    "tick_mark": true
+   },
+   {
+    "px": 220.0,
+    "value": 100.0,
+    "text": "100",
+    "engine": "glyph",
+    "label_px": 221.5,
+    "tick_mark": true
+   },
+   {
+    "px": 370.0,
+    "value": 200.0,
+    "text": "200",
+    "engine": "glyph",
+    "label_px": 370.5,
+    "tick_mark": true
+   },
+   {
+    "px": 520.0,
+    "value": 300.0,
+    "text": "300",
+    "engine": "glyph",
+    "label_px": 520.5,
+    "tick_mark": true
+   },
+   {
+    "px": 669.0,
+    "value": 400.0,
+    "text": "400",
+    "engine": "glyph",
+    "label_px": 669.5,
+    "tick_mark": true
+   },
+   {
+    "px": 819.0,
+    "value": 500.0,
+    "text": "500",
+    "engine": "glyph",
+    "label_px": 819.5,
+    "tick_mark": true
+   },
+   {
+    "px": 970.0,
+    "value": 600.0,
+    "text": "600",
+    "engine": "glyph",
+    "label_px": 969.5,
+    "tick_mark": true
+   }
+  ],
+  "scale": "linear",
+  "fit": {
+   "a": -46.38000985031323,
+   "b": 0.6666648526126459,
+   "fit": "weighted 1/tolerance",
+   "max_resid_px": 0.57224489795917,
+   "resid_px": [
+    0.57,
+    -0.43,
+    -0.43,
+    -0.43,
+    0.57,
+    0.57,
+    -0.43
+   ],
+   "ok": true
+  },
+  "notes": [],
+  "n_samples": 1040,
+  "value_range": [
+   -46.38000985031323,
+   646.2847720142258
+  ],
+  "opacity_varies": false,
+  "px_per_unit": 1.5000040816326532
+ },
+ "colorbar_source": "page colorbar ozone_cbar.png",
+ "asset": {
+  "kind": "frames",
+  "owner": 4272,
+  "what": "world_expected"
+ },
+ "twins": [],
+ "decode": {
+  "mode": "exact",
+  "decoded_share": 0.72336175
+ },
+ "layers": [
+  {
+   "id": "value",
+   "unit": "colorbar units",
+   "encoding": "linear",
+   "scale": 0.06666648526126459,
+   "offset": -46.38002014160156,
+   "nodata": 65535,
+   "below": 65534,
+   "grid": {
+    "width": 360,
+    "height": 180,
+    "bounds": [
+     -180,
+     -90,
+     180,
+     90
+    ],
+    "row0": "north",
+    "col0": "west",
+    "byte_order": "little"
+   },
+   "times": [
+    "2015-02-09T05:00:00Z",
+    "2015-02-09T05:00:00Z",
+    "2015-02-09T05:00:00Z",
+    "2015-02-09T05:00:00Z"
+   ],
+   "chunks": [
+    {
+     "file": "value_000.u16.gz",
+     "t0": 0,
+     "t1": 4,
+     "bytes": 193010
+    }
+   ],
+   "quantisation_step": 0.06666648526126459,
+   "coverage": 0.7241319444444444,
+   "value_range": [
+    -46.38002014160156,
+    508.0561828613281
+   ],
+   "label": "What Would have Happened to the Ozone Layer if Chlorofluorocarbons (CFCs) had not been Regulated? (UPDATED) (pattern only)",
+   "aggregation": "mean of decoded pixels per cell",
+   "time_labels": [
+    "undated",
+    "undated",
+    "undated",
+    "undated"
+   ],
+   "display": {
+    "colours": [
+     "#000000",
+     "#000083",
+     "#080887",
+     "#0000a0",
+     "#0000c7",
+     "#0000ed",
+     "#000fff",
+     "#0035ff",
+     "#005bff",
+     "#0081ff",
+     "#00a7ff",
+     "#00ceff",
+     "#00f3ff",
+     "#16ffe7",
+     "#3bffc2",
+     "#63ff9b",
+     "#88ff75",
+     "#afff4f",
+     "#d4ff29",
+     "#fbff03",
+     "#ffdc00",
+     "#ffb700",
+     "#ff9000",
+     "#ff6b00",
+     "#ff4400",
+     "#ff1f00",
+     "#f70000",
+     "#cd0000",
+     "#a30000",
+     "#870808",
+     "#830000",
+     "#000000"
+    ],
+    "values": [
+     -46.38000985031323,
+     -24.035984628876488,
+     -1.6919594074397466,
+     20.652065813996998,
+     42.996091035433736,
+     65.34011625687047,
+     87.68414147830723,
+     110.02816669974399,
+     132.3721919211807,
+     154.71621714261744,
+     177.06024236405418,
+     199.40426758549094,
+     221.74829280692768,
+     244.09231802836445,
+     266.4363432498012,
+     288.7803684712379,
+     311.12439369267463,
+     333.4684189141114,
+     355.8124441355481,
+     378.15646935698487,
+     400.5004945784216,
+     422.8445197998584,
+     445.1885450212951,
+     467.5325702427319,
+     489.8765954641686,
+     512.2206206856054,
+     534.5646459070422,
+     556.9086711284788,
+     579.2526963499156,
+     601.5967215713524,
+     623.940746792789,
+     646.2847720142258
+    ],
+    "scale": "linear"
+   },
+   "status": "pattern only",
+   "status_check": "a_no_validation_source",
+   "statement": "pattern only"
+  }
+ ],
+ "voices": {
+  "value": "rel4272"
+ },
+ "play": [
+  {
+   "id": "value",
+   "label": "What Would have Happened to the Ozone Layer if Chlorofluorocarbons (CFCs) had not been Regulated? (UPDATED): higher pitch = higher value",
+   "view": "global",
+   "map": "value",
+   "start": {
+    "lat": -0.5,
+    "lon": 0.5
+   },
+   "steps_per_second": 1,
+   "channels": [
+    {
+     "voice": "rel4272",
+     "layers": [
+      "value"
+     ],
+     "combine": "value"
+    }
+   ]
+  }
+ ],
+ "validation": [
+  {
+   "id": "a_no_validation_source",
+   "title": "What Would have Happened to the Ozone Layer if Chlorofluorocarbons (CFCs) had not been Regulated? (UPDATED): no validation source",
+   "kind": "none",
+   "pass": null,
+   "threshold": null
+  }
+ ],
+ "size": {
+  "choice": {
+   "frames": 4
+  },
+  "tried": [],
+  "bytes": 201833,
+  "budget": 25000000
+ },
+ "onboarding": {
+  "timings_s": {
+   "api": 29.5,
+   "twins": 0.9,
+   "asset choice": 0.0,
+   "frames": 25.6,
+   "frame times": 0.1,
+   "georef": 3.4,
+   "colorbar": 3.7,
+   "inversion": 7.1,
+   "validation": 0.0
+  },
+  "status": "pattern only"
+ },
+ "asset_checksums": {
+  "file": "checksums.tsv.gz",
+  "rows": 5,
+  "sha256_of_list": "faa4c29034f18cea482fd99493c996bfc8b199c5585b3ee1a48818b10a98f0b9"
+ },
+ "code_commit": "b2896755d86a34028f36c97fef8b9632e9b8304b-dirty",
+ "generated_utc": "2026-11-02T22:37:59Z"
+}

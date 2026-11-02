@@ -1,0 +1,361 @@
+{
+ "record": "rel_4939",
+ "app_title": "3D Water Vapor shows an Atmospheric River (observation)",
+ "svs_ids": [
+  4939
+ ],
+ "title": "3D Water Vapor shows an Atmospheric River",
+ "svs_pages": [
+  "https://svs.gsfc.nasa.gov/4939/"
+ ],
+ "description": "This visualization shows the NOAA-20 satellite orbiting the Earth with a trail of 3D water vapor behind it collected between January 25 and 28, 2021.  The calculated total precipitable water (TPW) is shown in a blue to red color scale beneath the white water vapor.Coming soon to our YouTube channel. || JPSS_ATMS_water_vapor_with_TPW.3462_print.jpg (1024x576) [179.6 KB] || JPSS_ATMS_water_vapor_with_TPW_1080p30.mp4 (1920x1080) [83.0 MB] || JPSS_ATMS_water_vapor_with_TPW_1080p60.mp4 (1920x1080) [84.5 MB] || JPSS_ATMS_water_vapor_with_TPW_1080p30.webm (1920x1080) [7.7 MB] || 1920x1080_16x9_30p (1920x1080) [0 Item(s)] || 1920x1080_16x9_60p (1920x1080) [0 Item(s)] || 3840x2160_16x9_30p (3840x2160) [0 Item(s)] || 3840x2160_16x9_60p (3840x2160) [0 Item(s)] || captions_silent.31606.en_US.srt [43 bytes] || JPSS_ATMS_water_vapor_with_TPW_30p_2160p30_2.mp4 (3840x2160) [409.8 MB] || JPSS_ATMS_water_vapor_with_TPW_60p_2160p60_2.mp4 (3840x2160) [441.6 MB] || JPSS_ATMS_water_vapor_with_TPW_1080p30.mp4.hwshow [204 bytes] || ",
+ "release_date": "2021-10-07T00:00:00-04:00",
+ "period": {
+  "start": "2021-10-07T04:00:00Z",
+  "end": "2021-10-07T04:00:00Z",
+  "label": "undated (no frame dates found; SVS release 07 Oct 2021)"
+ },
+ "badge": "observation",
+ "credits_by_role": {
+  "Visualizer": [
+   "Cindy Starr (Global Science and Technology, Inc.)",
+   "Horace Mitchell (NASA/GSFC)",
+   "Greg Shirah (NASA/GSFC)",
+   "Kel Elkins (USRA)",
+   "Alex Kekesi (Global Science and Technology, Inc.)"
+  ],
+  "Producer": [
+   "Peter H. Jacobs (NASA/GSFC)",
+   "Jefferson Beck (KBR Wyle Services, LLC)",
+   "Ashley Hume (ASRC Federal System Solutions)"
+  ],
+  "Writer": [
+   "Jenny Marder Fadoul (Telophase)"
+  ],
+  "Scientist": [
+   "Edward Kim (NASA/GSFC)",
+   "Matthew Sammons (SGT)",
+   "Christopher Grassotti (NOAA)"
+  ],
+  "Data provider": [
+   "Jorel Torres (Intern)"
+  ],
+  "Technical support": [
+   "Laurence Schuler (ADNET Systems, Inc.)",
+   "Ian Jones (ADNET Systems, Inc.)"
+  ]
+ },
+ "datasets": [
+  {
+   "name": "MiRS Microwave Sounding Products",
+   "common_name": "MiRS Microwave Sounding Products",
+   "platform": "NOAA-20 and SUOMI-NPP",
+   "sensor": "ATMS",
+   "type": "Observed Data",
+   "organizations": [
+    "NOAA"
+   ],
+   "description": "",
+   "credit": "",
+   "url": "https://www.avl.class.noaa.gov/saa/products/search?sub_id=0&datatype_family=JPSS_SND&submit.x=17&submit.y=8",
+   "date_range": "2021/01/25 - 2021/01/28"
+  },
+  {
+   "name": "MiRS Imaging Products",
+   "common_name": "MiRS Imaging Products",
+   "platform": "NOAA-20 and SUOMI-NPP",
+   "sensor": "ATMS",
+   "type": "Analysis",
+   "organizations": [
+    "NOAA"
+   ],
+   "description": "",
+   "credit": "",
+   "url": "https://www.avl.class.noaa.gov/saa/products/search?datatype_family=JPSS_SND",
+   "date_range": "2021/01/25 - 2021/01/28"
+  }
+ ],
+ "credit_line": "Visualization: NASA's Scientific Visualization Studio (SVS 4939) for the NASA Earth Information Center.",
+ "disclosure": "A related NASA visualization read back through its key (pattern only).",
+ "licence": "SVS: \"All of our content is in the public domain (unless otherwise noted), meaning that it is free to download, use, and redistribute for whatever purposes you see fit.\" (https://svs.gsfc.nasa.gov/help/, read 29 Oct 2026)",
+ "focus": "water resources",
+ "related_to": [
+  4960
+ ],
+ "frame_times": {
+  "method": "linear",
+  "approximate": true,
+  "count": 4,
+  "source": "undated"
+ },
+ "georef": {
+  "projection": "none (not a flat 2:1 map)",
+  "bounds": [
+   -180,
+   -101.25,
+   180,
+   101.25
+  ],
+  "pass_at": 0.9,
+  "shifts_deg": [],
+  "iou": {},
+  "pass": false,
+  "best_is_assumed": false
+ },
+ "colorbar": {
+  "geometry": {
+   "x0": 55,
+   "x1": 975,
+   "band": [
+    263,
+    308
+   ],
+   "vertical": false,
+   "outline_rgb": null,
+   "image_size": [
+    576,
+    1024
+   ]
+  },
+  "ticks": [
+   {
+    "px": 132.0,
+    "value": 6088.0,
+    "text": "6088",
+    "engine": "glyph",
+    "label_px": 132.0
+   },
+   {
+    "px": 787.5,
+    "value": 8060.0,
+    "text": "8060",
+    "engine": "glyph",
+    "label_px": 787.5
+   }
+  ],
+  "scale": "linear",
+  "fit": {
+   "a": 5690.892448512585,
+   "b": 3.008390541571319,
+   "fit": "weighted 1/tolerance",
+   "max_resid_px": 3.0231935953963217e-13,
+   "resid_px": [
+    0.0,
+    0.0
+   ],
+   "ok": true
+  },
+  "notes": [
+   "Only two labels: scale chosen from the label values (≥ 2 decades → log), not from spacing.",
+   "2 label(s) not on a tick mark (6088, 8060): label-centre position, ±5 px."
+  ],
+  "n_samples": 921,
+  "value_range": [
+   5690.892448512585,
+   8458.611746758199
+  ],
+  "opacity_varies": false,
+  "px_per_unit": 0.33240365111561876
+ },
+ "colorbar_source": "page colorbar TPW_colorbar_print.jpg",
+ "asset": {
+  "kind": "frames",
+  "owner": 4939,
+  "what": "1920x1080_16x9_30p"
+ },
+ "twins": [],
+ "decode": {
+  "mode": "exact",
+  "decoded_share": 0.3898849826388889
+ },
+ "layers": [
+  {
+   "id": "value",
+   "unit": "colorbar units",
+   "encoding": "linear",
+   "scale": 0.3008390541571319,
+   "offset": 5690.89111328125,
+   "nodata": 65535,
+   "below": 65534,
+   "grid": {
+    "width": 160,
+    "height": 90,
+    "bounds": [
+     -180,
+     -101.25,
+     180,
+     101.25
+    ],
+    "row0": "north",
+    "col0": "west",
+    "byte_order": "little",
+    "space": "frame"
+   },
+   "times": [
+    "2021-10-07T04:00:00Z",
+    "2021-10-07T04:00:00Z",
+    "2021-10-07T04:00:00Z",
+    "2021-10-07T04:00:00Z"
+   ],
+   "chunks": [
+    {
+     "file": "value_000.u16.gz",
+     "t0": 0,
+     "t1": 4,
+     "bytes": 10545
+    }
+   ],
+   "quantisation_step": 0.3008390541571319,
+   "coverage": 0.38744791666666667,
+   "value_range": [
+    5690.89111328125,
+    8416.4970703125
+   ],
+   "label": "3D Water Vapor shows an Atmospheric River (pattern only)",
+   "aggregation": "mean of decoded pixels per cell",
+   "time_labels": [
+    "undated",
+    "undated",
+    "undated",
+    "undated"
+   ],
+   "display": {
+    "colours": [
+     "#000000",
+     "#000004",
+     "#000004",
+     "#04071a",
+     "#05172c",
+     "#0b1f3a",
+     "#0d2a4c",
+     "#13395e",
+     "#144156",
+     "#195146",
+     "#1f562f",
+     "#21631f",
+     "#245a0f",
+     "#285103",
+     "#2f3f1b",
+     "#2e382d",
+     "#34283c",
+     "#391d54",
+     "#3b1562",
+     "#400c4e",
+     "#41033e",
+     "#490d27",
+     "#4a1817",
+     "#512501",
+     "#512f0c",
+     "#563b20",
+     "#5d4833",
+     "#5c5247",
+     "#62615c",
+     "#636363",
+     "#636363",
+     "#000000"
+    ],
+    "values": [
+     5690.892448512585,
+     5780.173716197928,
+     5869.45498388327,
+     5958.736251568613,
+     6048.017519253955,
+     6137.298786939297,
+     6226.580054624639,
+     6315.861322309982,
+     6405.142589995325,
+     6494.4238576806665,
+     6583.705125366009,
+     6672.986393051351,
+     6762.267660736694,
+     6851.548928422037,
+     6940.8301961073785,
+     7030.11146379272,
+     7119.392731478063,
+     7208.673999163406,
+     7297.955266848748,
+     7387.23653453409,
+     7476.517802219432,
+     7565.799069904775,
+     7655.080337590118,
+     7744.36160527546,
+     7833.6428729608015,
+     7922.924140646144,
+     8012.205408331487,
+     8101.48667601683,
+     8190.767943702171,
+     8280.049211387513,
+     8369.330479072856,
+     8458.611746758199
+    ],
+    "scale": "linear"
+   },
+   "status": "pattern only",
+   "status_check": "a_no_validation_source",
+   "statement": "pattern only"
+  }
+ ],
+ "voices": {
+  "value": "rel4939"
+ },
+ "play": [
+  {
+   "id": "value",
+   "label": "3D Water Vapor shows an Atmospheric River: higher pitch = higher value",
+   "view": "global",
+   "map": "value",
+   "start": {
+    "lat": -1.0,
+    "lon": 1.125
+   },
+   "steps_per_second": 1,
+   "channels": [
+    {
+     "voice": "rel4939",
+     "layers": [
+      "value"
+     ],
+     "combine": "value"
+    }
+   ]
+  }
+ ],
+ "validation": [
+  {
+   "id": "a_no_validation_source",
+   "title": "3D Water Vapor shows an Atmospheric River: no validation source",
+   "kind": "none",
+   "pass": null,
+   "threshold": null
+  }
+ ],
+ "size": {
+  "choice": {
+   "frames": 4
+  },
+  "tried": [],
+  "bytes": 20372,
+  "budget": 25000000
+ },
+ "onboarding": {
+  "timings_s": {
+   "api": 21.7,
+   "twins": 0.9,
+   "asset choice": 0.0,
+   "frames": 47.1,
+   "frame times": 9.6,
+   "georef": 0.0,
+   "colorbar": 13.9,
+   "inversion": 31.0,
+   "validation": 0.0
+  },
+  "status": "pattern only"
+ },
+ "asset_checksums": {
+  "file": "checksums.tsv.gz",
+  "rows": 7,
+  "sha256_of_list": "af18c7d92d94d00e2691f98cc374302e52ff63a556d567ea9f16bf468eb44e46"
+ },
+ "code_commit": "b2896755d86a34028f36c97fef8b9632e9b8304b-dirty",
+ "generated_utc": "2026-11-02T22:43:36Z"
+}

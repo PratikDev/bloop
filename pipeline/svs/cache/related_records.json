@@ -55,6 +55,28 @@
   "status": "pattern only"
  },
  {
+  "record": "rel_4272",
+  "svs_id": 4272,
+  "title": "What Would have Happened to the Ozone Layer if Chlorofluorocarbons (CFCs) had not been Regulated? (UPDATED)",
+  "badge": "model",
+  "focus": "air quality",
+  "related_to": [
+   5533
+  ],
+  "status": "pattern only"
+ },
+ {
+  "record": "rel_4284",
+  "svs_id": 4284,
+  "title": "Accumulated Precipitation from the IMERG Global Precipitation Data",
+  "badge": "observation",
+  "focus": "water resources",
+  "related_to": [
+   4960
+  ],
+  "status": "pattern only"
+ },
+ {
   "record": "rel_4332",
   "svs_id": 4332,
   "title": "Aquarius Sea Surface Temperature 2011 - 2015",
@@ -163,6 +185,17 @@
   "status": "relative"
  },
  {
+  "record": "rel_4939",
+  "svs_id": 4939,
+  "title": "3D Water Vapor shows an Atmospheric River",
+  "badge": "observation",
+  "focus": "water resources",
+  "related_to": [
+   4960
+  ],
+  "status": "pattern only"
+ },
+ {
   "record": "rel_4993",
   "svs_id": 4993,
   "title": "Spread of the Dixie Fire - 2021",
@@ -170,6 +203,17 @@
   "focus": "wildfires",
   "related_to": [
    4993
+  ],
+  "status": "pattern only"
+ },
+ {
+  "record": "rel_5017",
+  "svs_id": 5017,
+  "title": "A Decade of Sea Surface Salinity",
+  "badge": "observation",
+  "focus": "water resources",
+  "related_to": [
+   5425
   ],
   "status": "pattern only"
  },
@@ -450,7 +494,10 @@
   "related_to": [
    4960
   ],
-  "status": "relative"
+  "status": "relative",
+  "cadence": "daily",
+  "module": "svs.onboard.daily",
+  "limit_days": 2.0
  },
  {
   "record": "rel_gibs",

@@ -56,7 +56,7 @@ The completeness test reads the `official` table below. Rows in the `related` ta
 | 4764 | Simulation of Surface Ozone | https://svs.gsfc.nasa.gov/4764 | record `rel_4764` (relative; air quality) |
 | 4810 | Reductions in Pollution Associated with Decreased Fossil Fuel Use Resulting from COVID-19 Mitigation | https://svs.gsfc.nasa.gov/4810 | record `rel_4810` (pattern only; air quality) |
 | 4889 | Variability of Water Storage in Global Hydrological Basins | https://svs.gsfc.nasa.gov/4889 | record `rel_4889` (relative; water resources) |
-| 4939 | 3D Water Vapor shows an Atmospheric River | https://svs.gsfc.nasa.gov/4939 | plan 2.5 rain / atmospheric river (not ingested) |
+| 4939 | 3D Water Vapor shows an Atmospheric River | https://svs.gsfc.nasa.gov/4939 | record `rel_4939` (pattern only; water resources) |
 | 4968 | Iowa Cropland 2001-2020 | https://svs.gsfc.nasa.gov/4968 | plan 2.9 agriculture, water, biodiversity, disasters (not ingested) |
 | 4993 | Spread of the Dixie Fire - 2021 | https://svs.gsfc.nasa.gov/4993 | record `rel_4993` (pattern only; wildfires) |
 | 5047 | Net Ecosystem Exchange of Carbon Dioxide | https://svs.gsfc.nasa.gov/5047 | plan 2.6 GHG / CO2 (not ingested) |
@@ -111,6 +111,9 @@ The completeness test reads the `official` table below. Rows in the `related` ta
 | 13999 | Sonification of the Bubble Nebula | https://svs.gsfc.nasa.gov/13999 | plan 5 sonification (not ingested) |
 | 14802 | Earth to Space: A National Symphony Orchestra Concert | https://svs.gsfc.nasa.gov/14802 | plan 5 sonification (not ingested) |
 | 30919 | A Changing Earth at Night | https://svs.gsfc.nasa.gov/30919 | record `rel_30919` (pattern only; energy) |
+| 4272 | What Would have Happened to the Ozone Layer if Chlorofluorocarbons (CFCs) had not been Regulated? (UPDATED) | https://svs.gsfc.nasa.gov/4272 | record `rel_4272` (pattern only; air quality) |
+| 4284 | Accumulated Precipitation from the IMERG Global Precipitation Data | https://svs.gsfc.nasa.gov/4284 | record `rel_4284` (pattern only; water resources) |
+| 5017 | A Decade of Sea Surface Salinity | https://svs.gsfc.nasa.gov/5017 | record `rel_5017` (pattern only; water resources) |
 
 **Already used as Bloop's live daily layer** (not part of this list): 5101 (SST NRT), 4285, 5176, 5315.
 
