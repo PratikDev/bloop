@@ -16,6 +16,11 @@ def related(sid):
 def f(x, spec=".2f"):
     return "n/a" if x is None else format(x, spec)
 
+def glorys(oc):
+    g = oc.get("e_glorys12_depth", {}).get("metrics", {}).get("per_variable")
+    if not g: return "GLORYS12 not run"
+    return "GLORYS12 at depth: " + "; ".join(f"{k} " + ", ".join(f"{lv} ρ {f(v['spearman'])}" for lv, v in r["levels"].items()) for k, r in g.items())
+
 def outcomes():
     fo, co, oc, so, li, ae, air = (checks(r) for r in ("forest_4950", "co2_5196", "ocean2_5425", "sonification_13786", "lightning_5011",
                                                         "aerosols_5669", "air_5533"))
@@ -30,7 +35,7 @@ def outcomes():
         out[2] = f"5436 in use (IoU {f(co['c_georef_surface']['metrics']['iou'], '.3f')}); band gradient vs OCO-2 ρ {f(m['spearman_band_means'])}, N–S {f(m['ns_frame_median'], '+.1f')} vs {f(m['ns_source_median'], '+.1f')} ppm"
     if "d_depth_temperature" in oc:
         t = oc["d_depth_temperature"]["metrics"]
-        out[3] = f"5479 ingested; temperature closest to WOA23 at {t['best']} (Δ {f(t['levels'][t['best']]['median_diff'], '+.1f')} °C vs {f(t['levels']['surface']['median_diff'], '+.1f')} at the surface); GLORYS12 pending an account"
+        out[3] = f"5479 ingested; temperature closest to WOA23 at {t['best']} (Δ {f(t['levels'][t['best']]['median_diff'], '+.1f')} °C vs {f(t['levels']['surface']['median_diff'], '+.1f')} at the surface); " + glorys(oc)
     if "d_size_area_flux" in so:
         m = so["d_size_area_flux"]["metrics"]
         out[4] = f"verbatim quote in 13786.md ('…stars farther from the center are higher pitched'); size test ρ area {f(m['single_star']['area']['spearman'])}, flux {f(m['single_star']['flux']['spearman'])}: no relation"
@@ -45,11 +50,15 @@ def outcomes():
     if "a0_type_geosfp" in ae:
         m = ae["a0_type_geosfp"]["metrics"]["per_type"]
         out[8] = "same model (GEOS-FP) no better than MERRA-2: " + ", ".join(f"{k} {f(v['spearman'])}" for k, v in m.items())
+        if "a4_type_cams" in ae:
+            out[8] += "; CAMS EAC4 (different model) the same: " + ", ".join(f"{k} {f(v['spearman'])}" for k, v in ae["a4_type_cams"]["metrics"]["per_type"].items())
     out[9], out[10], out[12], out[13] = related(5624), related(5650), related(4939), related(4993)
     out[11] = "NEO not used; GIBS colormap record rel_gibs (15 layers, exact decode) replaces it"
     out[14] = "confirmed: 5313 checked against VNP46A4 v2 (Collection 2), sign and rank only"
     out[15] = "no change needed: 3912 already paired by its dates file"
     out[16] = "conflict kept in 5425.md (text 2021–23; 5505 dataset 13 Nov 2022 – 25 Dec 2023; dates layer 2021–23)"
     out[17] = "the Resources tab is drawn by script; NOV13_CHECKLIST.md step 1 diffs it by paste"
-    out[18] = "TEMPO items labelled North America; P-Tree not used (no redistribution); TROPOMI/CAMS need accounts"
+    rungs = [f"CAMS NOx ρ {f(air['e_nox_cams']['metrics']['spearman'])}" if "e_nox_cams" in air else "CAMS not run",
+             f"TROPOMI NO2 ρ {f(air['g_nox_tropomi']['metrics']['spearman'])}" if "g_nox_tropomi" in air else "TROPOMI not run"]
+    out[18] = "TEMPO items labelled North America; P-Tree not used (no redistribution); 5533 " + ", ".join(rungs)
     return out

@@ -45,11 +45,11 @@ STAC = [("GHG Center (37 collections, incl. oco2geos-co2-daygrid-v10r CC0)", "gh
         ("VEDA (247 collections)", "veda", "various", "openveda.cloud STAC + raster API", "CC-BY NASA", "", "onboarding (on demand)")]
 OTHER = [("JAXA Earth API (115 COG collections: GSMaP daily, GCOM-C LST/NDVI/aerosol, GCOM-W soil moisture)", "JAXA Earth API catalog", "independent satellite (partner)", "data.earth.jaxa.jp STAC, no key", "per dataset in STAC; P-Tree not used (no redistribution)", "", "partner rain duet with IMERG over Bangladesh"),
          ("ESA CCI SST v3.0", "ESA CCI SST v3.0 (CEDA)", "independent satellite (partner)", "CEDA OPeNDAP", "CC BY 4.0", "", "3912 partner SST"),
-         ("Copernicus GLORYS12 (GLOBAL_MULTIYEAR_PHY_001_030)", "Copernicus Marine GLORYS12", "different model (at depth)", "copernicusmarine toolbox", "Copernicus Marine licence", "COPERNICUSMARINE_SERVICE_USERNAME, COPERNICUSMARINE_SERVICE_PASSWORD", "5425/5479 at ≥ 600 m (pending account)"),
-         ("Copernicus OSTIA NRT", "Copernicus Marine OSTIA NRT", "independent satellite analysis", "copernicusmarine toolbox", "Copernicus Marine licence", "COPERNICUSMARINE_SERVICE_USERNAME, COPERNICUSMARINE_SERVICE_PASSWORD", "live SST (pending account)"),
-         ("CAMS EAC4 reanalysis", "ADS CAMS EAC4", "different model", "ADS API (cdsapi)", "CC-BY (since 2 Jul 2025)", "ADSAPI_URL, ADSAPI_KEY", "5533/5572 different-model rung (pending account)"),
-         ("ERA5 single levels", "CDS ERA5 single levels", "second reanalysis", "CDS API (cdsapi)", "CC-BY", "CDSAPI_URL, CDSAPI_KEY", "4960 IVT second reanalysis (pending account)"),
-         ("Sentinel-5P TROPOMI NO2/CO/aerosol index", "Copernicus Data Space (Sentinel-5P)", "independent satellite (covers Bangladesh)", "Copernicus Data Space", "Copernicus Sentinel terms", "CDSE_USERNAME, CDSE_PASSWORD", "5533 independent rung (pending account)"),
+         ("Copernicus GLORYS12 (GLOBAL_MULTIYEAR_PHY_001_030)", "Copernicus Marine GLORYS12", "different model (at depth)", "copernicusmarine toolbox", "Copernicus Marine licence", "COPERNICUSMARINE_SERVICE_USERNAME, COPERNICUSMARINE_SERVICE_PASSWORD", "5425/5479 at ≥ 600 m (e_glorys12_depth)"),
+         ("Copernicus OSTIA NRT", "Copernicus Marine OSTIA NRT", "independent satellite analysis", "copernicusmarine toolbox", "Copernicus Marine licence", "COPERNICUSMARINE_SERVICE_USERNAME, COPERNICUSMARINE_SERVICE_PASSWORD", "live SST (account in place; not wired yet)"),
+         ("CAMS EAC4 reanalysis", "ADS CAMS EAC4", "different model", "ADS API (cdsapi)", "CC-BY (since 2 Jul 2025)", "ADSAPI_URL, ADSAPI_KEY", "5533 e_*_cams, 5669 a4/b4_*_cams (different-model rung)"),
+         ("ERA5 single levels", "CDS ERA5 single levels", "second reanalysis", "CDS API (cdsapi)", "CC-BY", "CDSAPI_URL, CDSAPI_KEY", "4960 d/e/f_*_era5 (second reanalysis)"),
+         ("Sentinel-5P TROPOMI NO2/CO/aerosol index", "Copernicus Data Space (Sentinel-5P)", "independent satellite (covers Bangladesh)", "NASA GES DISC cloud OPeNDAP (C2089270961-GES_DISC; same files); Copernicus Data Space login rejected 3 Nov", "Copernicus Sentinel terms", "Earthdata login; CDSE_USERNAME, CDSE_PASSWORD", "5533 g_nox_tropomi (independent satellite)"),
          ("NOAA OISST v2.1 (ERDDAP; PNG maps)", "NOAA OISST v2.1 ERDDAP", "independent analysis (second agency)", "CoastWatch ERDDAP, no key", "NOAA: free use", "", "rel_oisst pipeline test"),
          ("NOAA GDP hourly drifters (drifter_hourly_qc)", "route:gdp", "in situ (ground rung for currents)", "erddap.aoml.noaa.gov/gdp/erddap, no key", "NOAA", "", "3912 flows (in situ)"),
          ("NOAA GML Mauna Loa CO2 / AGGI", "NOAA GML Mauna Loa CO2", "ground", "gml.noaa.gov text files", "free use with credit", "", "5196 context, 5119, 5126"),
@@ -91,11 +91,12 @@ def main():
         L.append(f"| **{group}** | | | | | | |")
         for name, key, rung, access, lic, acct, used in rows:
             L.append(f"| {name} | {live(key, cat)} | {rung} | {access} | {lic} | {acct or 'none'} | {used} |")
-    L += ["", "## Accounts to add to `.env.local` (names only)", "",
+    L += ["", "## Accounts in `.env.local` (names only; all set 3 Nov 2026)", "",
           "- `COPERNICUSMARINE_SERVICE_USERNAME`, `COPERNICUSMARINE_SERVICE_PASSWORD` — Copernicus Marine (GLORYS12, OSTIA).",
           "- `CDSAPI_URL` (https://cds.climate.copernicus.eu/api), `CDSAPI_KEY` — Copernicus Climate Data Store (ERA5).",
           "- `ADSAPI_URL` (https://ads.atmosphere.copernicus.eu/api), `ADSAPI_KEY` — Atmosphere Data Store (CAMS EAC4).",
-          "- `CDSE_USERNAME`, `CDSE_PASSWORD` — Copernicus Data Space Ecosystem (Sentinel-5P TROPOMI).", "",
+          "- `CDSE_USERNAME`, `CDSE_PASSWORD` — Copernicus Data Space Ecosystem (Sentinel-5P TROPOMI). The login was rejected "
+          "(invalid_grant) on 3 Nov; TROPOMI is read from NASA GES DISC with the Earthdata login instead (the same files).", "",
           "Not used: JAXA Himawari P-Tree (no redistribution), ESA Swarm audio (no licence: link only)."]
     (REPO / "docs" / "related" / "COMPANION_SOURCES.md").write_text("\n".join(L) + "\n", encoding="utf-8")
     say(f"companions: {len(NASA) + len(STAC) + len(OTHER)} sources")
