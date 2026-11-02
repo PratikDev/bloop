@@ -255,7 +255,66 @@
    "pass": false,
    "note": "frame k = 2024-08-01T00:00Z + k × 30 min (assumed linear)",
    "run_utc": "2026-10-31T14:56:27Z"
+  },
+  {
+   "record": "aerosols_5669",
+   "id": "a4_type_cams",
+   "title": "Aerosol type density per 1° cell vs CAMS EAC4 (different model) species AOD (19 Aug 2025 20:00 UTC)",
+   "kind": "model-vs-obs",
+   "source": "CAMS EAC4 reanalysis (ADS, CC-BY), 19 Aug 2025 21:00 UTC",
+   "metrics": {
+    "per_type": {
+     "sea salt": {
+      "spearman": 0.37250379254515087,
+      "n_cells": 64800,
+      "frame_cells_with_type": 8112
+     },
+     "dust": {
+      "spearman": 0.13328456176773232,
+      "n_cells": 64800,
+      "frame_cells_with_type": 6827
+     },
+     "smoke": {
+      "spearman": 0.28011900553044056,
+      "n_cells": 64800,
+      "frame_cells_with_type": 2308
+     },
+     "sulfate": {
+      "spearman": 0.583351666298102,
+      "n_cells": 64800,
+      "frame_cells_with_type": 28278
+     }
+    },
+    "species": {
+     "sea salt": "SSEXTTAU",
+     "dust": "DUEXTTAU",
+     "sulfate": "SUEXTTAU",
+     "smoke": "BCEXTTAU+OCEXTTAU"
+    },
+    "rung": "CAMS EAC4 (different model)"
+   },
+   "threshold": "Spearman ≥ 0.6 per type (provisional)",
+   "pass": false,
+   "note": "No values in the key: a check of where each type is, not how much.",
+   "run_utc": "2026-10-31T21:46:50Z"
+  },
+  {
+   "record": "aerosols_5669",
+   "id": "b4_dominant_type_cams",
+   "title": "Dominant type per cell, frame vs CAMS EAC4 (different model) (cells where one species is ≥ 50 % of AOD)",
+   "kind": "model-vs-obs",
+   "source": "CAMS EAC4 reanalysis (ADS, CC-BY), 19 Aug 2025 21:00 UTC",
+   "metrics": {
+    "agreement": 0.2964614558817457,
+    "n_cells": 24219,
+    "chance": 0.25,
+    "rung": "CAMS EAC4 (different model)"
+   },
+   "threshold": null,
+   "pass": null,
+   "note": "",
+   "run_utc": "2026-10-31T21:46:50Z"
   }
  ],
- "updated_utc": "2026-10-31T14:56:27Z"
+ "updated_utc": "2026-10-31T21:46:50Z"
 }

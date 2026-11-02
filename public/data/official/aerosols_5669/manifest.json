@@ -804,6 +804,20 @@
    "kind": "model-vs-obs",
    "pass": false,
    "threshold": "Spearman ≥ 0.6 per type (provisional)"
+  },
+  {
+   "id": "a4_type_cams",
+   "title": "Aerosol type density per 1° cell vs CAMS EAC4 (different model) species AOD (19 Aug 2025 20:00 UTC)",
+   "kind": "model-vs-obs",
+   "pass": false,
+   "threshold": "Spearman ≥ 0.6 per type (provisional)"
+  },
+  {
+   "id": "b4_dominant_type_cams",
+   "title": "Dominant type per cell, frame vs CAMS EAC4 (different model) (cells where one species is ≥ 50 % of AOD)",
+   "kind": "model-vs-obs",
+   "pass": null,
+   "threshold": null
   }
  ],
  "size": {
@@ -811,7 +825,7 @@
    "cell_deg": 1.0
   },
   "tried": [],
-  "bytes": 94112,
+  "bytes": 96379,
   "budget": 25000000
  },
  "asset_checksums": {
@@ -819,6 +833,6 @@
   "rows": 3,
   "sha256_of_list": "49996a2bb05d32ecfcdf12b3cebb141ea04b619de0fc86448986f9d219a4a23f"
  },
- "code_commit": "04b71b4947bc82779cdafda6bc12bb3f50174dda-dirty",
- "generated_utc": "2026-10-31T14:57:00Z"
+ "code_commit": "e17630e03cb75346d1bc9d99679f2bfe2b558443-dirty",
+ "generated_utc": "2026-11-02T21:58:41Z"
 }
