@@ -93,7 +93,7 @@ Percent is rounded to a whole number first, so 25 % is band 1 and 26 % is band 2
   - Its "Hover for cell routing" checkbox (off by default) lets hovering a cell trigger "route to braille cell", after a delay (the cell turns yellow, orange, green).
   - Braille messages follow "Show messages" and "Message timeout (sec)", and pressing a routing key dismisses a message.
   - Live regions are reported in braille by default.
-  - liblouis's `bn.tbl` includes `braille-patterns.cti`, the table that maps U+2800–U+28FF to their dots. Unicode braille should therefore pass through unchanged with the Bengali table. This is **to verify** in the viewer.
+  - liblouis's `bn.tbl` includes `braille-patterns.cti`, the table that maps U+2800–U+28FF to their dots. The include is confirmed in the tables NVDA 2026.3 ships (`D:\Jukebox\tools\nvda\louis\tables\bn.tbl`, line 18). Unicode braille should therefore pass through unchanged with the Bengali table. Whether it does on screen is **to verify** in the viewer.
 - **JAWS** ([Freedom Scientific lesson](https://support.freedomscientific.com/teachers/lessons/8.6.2_Transcript-FlashMessagesOnTheFocusBrailleDisplay.htm)). Flash messages last 5 seconds by default (Settings Center → Braille → Flash messages), and a routing key clears them. That is another reason the value line is a field.
 - **VoiceOver (macOS).** The braille panel shows the VoiceOver cursor's contents as simulated dots with the text beneath ([Apple VoiceOver guide](https://support.apple.com/guide/voiceover/welcome/mac)).
 - **TalkBack.** Android connects braille displays without BrailleBack. In an edit field, routing or arrow keys move the cursor ([Google: input text with your braille display](https://support.google.com/accessibility/android/answer/6007083)).
@@ -111,7 +111,7 @@ Percent is rounded to a whole number first, so 25 % is band 1 and 26 % is band 2
 | Unit (`bun test`) | Encoder bands at 0, 25, 26, 50, 51, 75, 76 and 100 %, missing data, wrapping, row separators, caret ↔ data mapping (with direction), the text rules, record codes, and the shared scale. **The text-rules test** (`src/a11y/strings.test.ts`) builds the value line and scale heading from every shipped official and related manifest. Each line must pass the rules, and its numbers must be the manifest's own at the stated precision. |
 | Playwright (`bun run e2e`, Chromium) | B opens the explorer with focus on the shape line. 5 caret steps move the needle 5 points (25° east), and the value line and the map's own label follow. The audio output level is above zero after the move. Width 20 wraps every line within 20 cells with the marker. R switches to words and back. An official record's explorer opens and its caret moves the needle. **4/4 pass.** |
 | axe-core 4.13 (whole page, explorer open) | **0 violations** of any impact, including `aria-braille-equivalent`. |
-| Screen-reader braille viewers | **Not run yet.** No screen reader is installed on the build machine. Starting one takes over speech and the keyboard, so it waits for the team's OK. Steps: [BRAILLE_TEST_PROTOCOL.md](BRAILLE_TEST_PROTOCOL.md). |
+| Screen-reader braille viewers | **Not run yet.** A portable NVDA 2026.3 is set up in `D:\Jukebox\tools\nvda`. It has not been started: the team runs it. Steps: [BRAILLE_TEST_PROTOCOL.md](BRAILLE_TEST_PROTOCOL.md). |
 
 Screenshots of the in-app preview (not a screen-reader viewer): [explorer, live rain through time](screens/explorer-live-preview.png), [explorer, official record 5669](screens/explorer-official-5669.png).
 

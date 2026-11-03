@@ -8,7 +8,10 @@ Install portable or trial copies on `D:` only.
 
 ### NVDA + Braille Viewer (Windows): Chrome and Firefox
 
-1. **Get NVDA.** Download the NVDA launcher from nvaccess.org. Run it and choose **Create portable copy** with the folder `D:\Jukebox\tools\nvda`, then start the portable copy.
+1. **Get NVDA.** On the build machine, a portable NVDA 2026.3 is already in `D:\Jukebox\tools\nvda`. It has not been started yet; start it with `D:\Jukebox\tools\nvda\nvda.exe`.
+   - It was created on 3 Nov 2026 with `nvda_2026.3.exe --create-portable-silent --portable-path=D:\Jukebox\tools\nvda --minimal`.
+   - The launcher's signature is valid (NV Access Limited), and its SHA-256 matches the one NV Access publishes (`a8a87cb8…799b2`).
+   - On another machine: download the launcher from nvaccess.org, run it and choose **Create portable copy**.
 2. **Open the viewer.** In the NVDA menu (NVDA+N), choose **Tools → Braille Viewer**. In the viewer, tick **Hover for cell routing**.
 3. **Check the braille settings.** Press NVDA+Ctrl+A and note **Show messages** and **Message timeout (sec)**.
 4. **Run the checks with English (UEB).** Set **Output table** to *English (unified) grade 1*, then *Unified English Braille Code grade 2*. Run checks a–g below in Chrome, then in Firefox.
