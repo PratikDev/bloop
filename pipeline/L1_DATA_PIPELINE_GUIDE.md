@@ -276,7 +276,7 @@ Wrote public/data/demo/dhaka_then_now.json
 | **D** Rain grid | The published file decodes back correctly | Paste the output |
 | **E** Metadata | Required fields + verified numbers (0.85 °C; 0.103) + a frame time | Re-run Steps 3–5 |
 | **F** Demo numbers | +1.37 °C; 15.10/13.71; 14.79/13.03; GRACE values | Re-run Steps 7–8 |
-| **G** Files | Exact sizes; all files present; total < 60 MB | Re-run the missing step |
+| **G** Files and size budgets | Exact sizes; all files present. Three budgets, each protecting something different: **live daily data < 60 MB** (`latest/`, `sequence/`, `truth/`, `meta/`, `archive/`, `context/`, `demo/`: what a refresh rewrites, what the page loads at start, and what every daily commit adds to git history); **each official/related record ≤ 25 MB** (`svs/config.py` `RECORD_BUDGET_BYTES`: one record loads when it is chosen, so any single choice stays quick); **all of `public/data` < 150 MB** (a backstop for the repository and the deployed site). `global/` keeps its own build-time cap (`build_global.py` S5, < 25 MB) | Re-run the missing step; for a budget, find what grew (the check names the folder or the record) |
 
 **Done when:** `0 failed`.
 - [ ] Step 9 done

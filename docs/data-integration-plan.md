@@ -262,7 +262,7 @@ A product past `limit_days` plays the "recorded" texture (guardrail 16).
 | `context/` | 1.2 MB | ~2.5 MB (≈40 new small JSONs; per-row sizes below) |
 | `truth/`, `meta/`, `live/` | 0.2 MB | ~0.4 MB |
 | `audio/` | — | ~0.5 MB (quake WAV ~0.3 MB, IMERG audification ~0.2 MB) |
-| **Total** | **32.9 MB** | **≈ 40 MB** (< 60 MB budget; spotcheck enforces it) |
+| **Total** | **32.9 MB** | **≈ 40 MB** (the live daily data must stay < 60 MB; spotcheck G enforces it, with ≤ 25 MB per official/related record and a 150 MB backstop for all of `public/data`) |
 
 **Repo growth (a risk, not a budget breach).** Daily commits rewrite ~15–20 MB of binaries (rain grids, sequence, SST, the new grids), so git history grows about 0.5 GB a month. It's fine through the hackathon. After that, move the sequence to a data branch or Git LFS (roadmap).
 
