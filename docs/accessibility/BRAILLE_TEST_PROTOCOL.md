@@ -56,6 +56,23 @@ Set the explorer width to the participant's display width.
 
 ## Results
 
+**Rows marked "not a screen-reader viewer test" were run without NVDA.** They are either:
+
+- **liblouis:** the lines translated with NVDA 2026.3's own liblouis 3.39.0, table list and mode, by `tests/braille/louis_check.py`; or
+- **Playwright:** the page driven in a browser, by `e2e/braille-protocol.e2e.ts`.
+
+They show what NVDA *should* put on a display. Only a run in the Braille Viewer (or on a display) shows what it does.
+
+Lines checked: three live records (SST along the latitude, rain through time, SST 3×3) and three official records (5669 aerosols, pattern only; 5533 air, verified CO; 5011 lightning, pattern only), plus the map's label.
+
 | Date | Tester | Screen reader / version | Browser | Table | Check or task | Result | Screenshot | Notes |
 |---|---|---|---|---|---|---|---|---|
+| 2026-11-04 | Claude Code (Playwright; **not a screen-reader viewer test**) | none | Chromium 1194, Firefox 1495 | n/a | a: what the page exposes | PASS | — | Identical in both browsers. Map: `application`, name "Both. 30.2 °C; Dry at 21.5° N, 89.8° E.", roledescription "sound map", brailleroledescription "map". Shape line: `textbox` "Shape line", aria-readonly, roledescription "braille shape", brailleroledescription "shape". Value line: read-only `textbox` "Value line". Record card: pressed `button` "Aerosols by type (model, 19 Aug 2025)", braillelabel "5669 Aerosols type model". |
+| 2026-11-04 | Claude Code (Playwright; **not a screen-reader viewer test**) | none | Chromium, Firefox | n/a | b–g, browser side | PASS | — | b: B puts focus on the shape line. c: Shift+Tab reaches the value line. d: → moves the needle 89.8E → 92.5E. e: R gives "Sea surface temperature … at 21.5N 92.5E, 1 Nov 00:00 UTC, observation, stale", then R returns. f: width 20 gives 4 lines (20, 20, 20, 15), width 40 gives 2 lines (40, 33), each full line ending in ⣿. g: Space on the map puts "Sound paused" in the live region. |
+| 2026-11-04 | Claude Code (liblouis; **not a screen-reader viewer test**) | none (NVDA 2026.3's liblouis 3.39.0) | lines from Chromium and Firefox | UEB grade 1 | b: Unicode braille passes through | PASS | — | 483/483 cells unchanged in 6 shape lines; every run one-to-one (no cell inserted or dropped). |
+| 2026-11-04 | Claude Code (liblouis; **not a screen-reader viewer test**) | as above | as above | UEB grade 2 | b | PASS | — | 483/483 cells, one-to-one. |
+| 2026-11-04 | Claude Code (liblouis; **not a screen-reader viewer test**) | as above | as above | Bengali (`bn.tbl`) | b | PASS | — | 483/483 cells, one-to-one. |
+| 2026-11-04 | Claude Code (liblouis; **not a screen-reader viewer test**) | as above | as above | UEB grade 1 | c: numbers, decimals, units, N/E, times | PASS (reads as written) | — | Numeric indicator ⠼ before each number. Decimal point ⠲ (256): 30.2 → ⠼⠉⠚⠲⠃. 21.5N → ⠼⠃⠁⠲⠑⠠⠝ (a capital sign ends the number, so N/E read as letters). 10:30 → ⠼⠁⠚⠒⠼⠉⠚ (the indicator repeats after the colon). -5 → ⠤⠼⠑. mm/h → ⠍⠍⠸⠌⠓. ° → ⠘⠚ (UEB degree sign). "deg C" → ⠙⠑⠛⠀⠠⠉. Every token back-translates to itself. |
+| 2026-11-04 | Claude Code (liblouis; **not a screen-reader viewer test**) | as above | as above | UEB grade 2 | c | PASS (reads as written) | — | As grade 1, except SST → ⠠⠠⠎⠌ (the "st" contraction) and "deg C" → ⠙⠑⠛⠀⠰⠠⠉ (a grade 1 indicator before the lone C, which would otherwise be "can"). Every token back-translates to itself. |
+| 2026-11-04 | Claude Code (liblouis; **not a screen-reader viewer test**) | as above | as above | Bengali (`bn.tbl`) | c | **PROBLEM** | — | Whole numbers read as Bangla digits (287 → ২৮৭). But: **(1) a decimal or time loses its number:** the decimal point is ⠨ (46), and the digits after it, or after a colon, get no numeric indicator, so they back-translate as letters (30.2 → ৩০.ব; 0.458 → ০.দএহ; 10:30 → ১০ঞচজ; (0-1) → (০-অ)). **(2) Latin text reads as Bangla letters:** SST → সসত, 21.5N → ২১.এন, 89.8E → ৮৯.হএ, deg C → দএগ চ, mm/h → মম/হ. ° → ⠰⠙⠛. The Bengali table is not usable for today's English value lines. |
 | | | | | | | | | |

@@ -16,6 +16,10 @@ export default defineConfig({
     launchOptions: { args: ["--autoplay-policy=no-user-gesture-required"] },
     screenshot: "only-on-failure",
   },
-  projects: [{ name: "chromium", use: { ...devices["Desktop Chrome"] } }],
+  projects: [
+    { name: "chromium", use: { ...devices["Desktop Chrome"] } },
+    // Firefox runs the braille protocol only (the screen-reader protocol tests Chrome and Firefox).
+    { name: "firefox", use: { ...devices["Desktop Firefox"], launchOptions: {} }, testMatch: "**/braille-protocol.e2e.ts" },
+  ],
   webServer: { command: "bun run dev", url: "http://localhost:3000", reuseExistingServer: true, timeout: 180_000 },
 });
