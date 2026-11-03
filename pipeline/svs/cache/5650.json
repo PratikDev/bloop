@@ -427,60 +427,60 @@
   "https://svs.gsfc.nasa.gov/vis/a000000/a005600/a005650/frames/2048x1024_2x1_30p/annotated_flat/": {
    "url": "https://svs.gsfc.nasa.gov/vis/a000000/a005600/a005650/frames/2048x1024_2x1_30p/annotated_flat/",
    "frame_count": 900,
-   "bytes_approx": 2331500000,
-   "first": "imergert_composite.2026-10-14T23:00:00Z_2048x1024.annotated.png",
-   "last": "imergert_composite.2026-11-02T16:30:00Z_2048x1024.annotated.png",
+   "bytes_approx": 2330600000,
+   "first": "imergert_composite.2026-10-15T16:00:00Z_2048x1024.annotated.png",
+   "last": "imergert_composite.2026-11-03T09:30:00Z_2048x1024.annotated.png",
    "subfolders": {}
   },
   "https://svs.gsfc.nasa.gov/vis/a000000/a005600/a005650/frames/2048x1024_2x1_30p/annotated_robinson/": {
    "url": "https://svs.gsfc.nasa.gov/vis/a000000/a005600/a005650/frames/2048x1024_2x1_30p/annotated_robinson/",
    "frame_count": 900,
-   "bytes_approx": 2172400000,
-   "first": "imergert_composite.2026-10-14T23:00:00Z.rob_2048x1024.annotated.png",
-   "last": "imergert_composite.2026-11-02T16:30:00Z.rob_2048x1024.annotated.png",
+   "bytes_approx": 2170800000,
+   "first": "imergert_composite.2026-10-15T16:00:00Z.rob_2048x1024.annotated.png",
+   "last": "imergert_composite.2026-11-03T09:30:00Z.rob_2048x1024.annotated.png",
    "subfolders": {}
   },
   "https://svs.gsfc.nasa.gov/vis/a000000/a005600/a005650/frames/3600x1800_2x1_30p/flat_alpha/": {
    "url": "https://svs.gsfc.nasa.gov/vis/a000000/a005600/a005650/frames/3600x1800_2x1_30p/flat_alpha/",
    "frame_count": 900,
-   "bytes_approx": 557273900,
-   "first": "imergert_alpha.2026-10-14T23:00:00Z.png",
-   "last": "imergert_alpha.2026-11-02T16:30:00Z.png",
+   "bytes_approx": 554303200,
+   "first": "imergert_alpha.2026-10-15T16:00:00Z.png",
+   "last": "imergert_alpha.2026-11-03T09:30:00Z.png",
    "subfolders": {}
   },
   "https://svs.gsfc.nasa.gov/vis/a000000/a005600/a005650/frames/2048x1024_2x1_30p/composite/": {
    "url": "https://svs.gsfc.nasa.gov/vis/a000000/a005600/a005650/frames/2048x1024_2x1_30p/composite/",
    "frame_count": 899,
-   "bytes_approx": 2062400000,
-   "first": "imergert_composite.2026-10-14T23:30:00Z_2048x1024.png",
-   "last": "imergert_composite.2026-11-02T16:30:00Z_2048x1024.png",
+   "bytes_approx": 2061500000,
+   "first": "imergert_composite.2026-10-15T16:30:00Z_2048x1024.png",
+   "last": "imergert_composite.2026-11-03T09:30:00Z_2048x1024.png",
    "subfolders": {}
   },
   "https://svs.gsfc.nasa.gov/vis/a000000/a005600/a005650/frames/3600x1800_2x1_30p/composite/": {
    "url": "https://svs.gsfc.nasa.gov/vis/a000000/a005600/a005650/frames/3600x1800_2x1_30p/composite/",
    "frame_count": 900,
-   "bytes_approx": 4361500000,
-   "first": "imergert_composite.2026-10-14T23:00:00Z.png",
-   "last": "imergert_composite.2026-11-02T16:30:00Z.png",
+   "bytes_approx": 4360700000,
+   "first": "imergert_composite.2026-10-15T16:00:00Z.png",
+   "last": "imergert_composite.2026-11-03T09:30:00Z.png",
    "subfolders": {}
   },
   "https://svs.gsfc.nasa.gov/vis/a000000/a005600/a005650/frames/2048x1024_2x1_30p/robinson/": {
    "url": "https://svs.gsfc.nasa.gov/vis/a000000/a005600/a005650/frames/2048x1024_2x1_30p/robinson/",
    "frame_count": 899,
-   "bytes_approx": 1912800000,
-   "first": "imergert_composite.2026-10-14T23:30:00Z.rob_2048x1024.png",
-   "last": "imergert_composite.2026-11-02T16:30:00Z.rob_2048x1024.png",
+   "bytes_approx": 1910900000,
+   "first": "imergert_composite.2026-10-15T16:30:00Z.rob_2048x1024.png",
+   "last": "imergert_composite.2026-11-03T09:30:00Z.rob_2048x1024.png",
    "subfolders": {}
   },
   "https://svs.gsfc.nasa.gov/vis/a000000/a005600/a005650/frames/3600x1800_2x1_30p/robinson/": {
    "url": "https://svs.gsfc.nasa.gov/vis/a000000/a005600/a005650/frames/3600x1800_2x1_30p/robinson/",
-   "frame_count": 4508,
-   "bytes_approx": 18940499949,
+   "frame_count": 4542,
+   "bytes_approx": 19084399960,
    "first": "imergert_composite.2026-07-31T19:00:00Z.rob.png",
-   "last": "imergert_composite.2026-11-02T16:30:00Z.rob.png",
+   "last": "imergert_composite.2026-11-03T09:30:00Z.rob.png",
    "subfolders": {}
   }
  },
  "api_url": "https://svs.gsfc.nasa.gov/api/5650",
- "fetched_utc": "2026-11-02T22:38:20Z"
+ "fetched_utc": "2026-11-03T15:42:36Z"
 }
