@@ -4,7 +4,9 @@ import { Fragment } from "react";
 import { formatFixed, type MessageKey } from "@/lib/i18n";
 import type { OfficialManifest, OfficialValidationFile } from "@/types/data-contract";
 import { useAppState, useT } from "../AppState/use-app-state";
+import { BrailleTextView } from "../BrailleTextView";
 import { ProductBadges } from "../SourceBadges/ProductBadges";
+import { linerNotes } from "./liner-notes";
 
 const RESULT_KEYS = { pass: "official.check.pass", miss: "official.check.miss", none: "official.check.none" } as const satisfies Record<string, MessageKey>;
 const BYTES_PER_MB = 1e6;
@@ -82,6 +84,7 @@ export function ProvenanceCard({ manifest, validation }: { manifest: OfficialMan
         <p className="mt-1">{manifest.description}</p>
       </details>
       <p className="text-small text-haze">{t("official.size", { mb: manifest.size.bytes / BYTES_PER_MB })}</p>
+      <BrailleTextView lines={linerNotes(t, manifest, validation)} filename={`${manifest.record}-liner-notes.txt`} />
     </section>
   );
 }
