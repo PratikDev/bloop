@@ -46,8 +46,8 @@ export const turntableEn = {
   "turntable.sleeve.flip": (p: { record: string; back: boolean }) => (p.back ? `Show the ${p.record} cover` : `Show the ${p.record} details`),
   "turntable.sleeve.playing": "Playing",
 
-  // Record labels: every value comes from sst.json / rain.json; "—" when a field is missing.
-  "turntable.missing": "—",
+  // Record labels: every value comes from sst.json / rain.json; "none" when a field is missing.
+  "turntable.missing": "none",
   "turntable.frameTime": (p: { datetime: string }) => `Frame: ${p.datetime} UTC`,
   "turntable.error": (p: { text: string }) => `Measured error: ${p.text}`,
   "turntable.error.rain": (p: { percent: number }) => `typically within ~${formatInteger(p.percent, "en")}% (pending team approval)`,

@@ -17,7 +17,7 @@ export const contextEn = {
   "thenNow.split": "Then left, now right",
   "thenNow.stop": "Stop",
   "thenNow.soundOff": "Sound is off. Turn sound on to hear this comparison.",
-  "thenNow.loading": "Loading the comparison…",
+  "thenNow.loading": "Loading the comparison",
   "thenNow.error": "Couldn't load the comparison data. Reload the page to try again.",
   "thenNow.then": (p: { label: string }) => `Then, ${p.label}`,
   "thenNow.now": (p: { label: string }) => `Now, ${p.label}`,
@@ -60,6 +60,6 @@ export const contextEn = {
   "history.cell": (p: { lat: number; lon: number }) => `Grid cell centred at ${n1(p.lat)}° N, ${n1(p.lon)}° E`,
   "history.summary": (p: { metric: string; place: string; from: string; to: string }) =>
     `${p.metric} for ${p.place}, monthly from ${p.from} to ${p.to}.`,
-  "history.loading": "Loading the records…",
+  "history.loading": "Loading the records",
   "history.error": "Couldn't load the records. Reload the page to try again.",
 };

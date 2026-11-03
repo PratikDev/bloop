@@ -14,7 +14,7 @@ export const appEn = {
   "start.button": "Start listening",
   "start.silent": "Explore without sound",
   "start.silentHint": "Values appear as text and captions. You can turn sound on at any time.",
-  "start.loading": "Loading today's ocean frame…",
+  "start.loading": "Loading today's ocean frame",
   "start.skipIntro": "Skip intro",
 
   "mode.label": "Mode",
@@ -48,7 +48,7 @@ export const appEn = {
   "badge.interimEngineHint": "A simple stand-in engine. The team's full sound engine replaces it soon.",
   "badge.pending": "Pending team approval",
   "badge.comingOctober": "Coming in October",
-  "badge.loadingRain": "Loading rain…",
+  "badge.loadingRain": "Loading rain",
 
   "map.roleDescription": "sound map",
   "map.instructions": "Arrow keys move 1 degree, Shift with arrows moves 10. Enter speaks the value. H lists all keys.",
@@ -111,7 +111,7 @@ export const appEn = {
   "sweep.needsRain": "The sweep starts once rain has loaded.",
   "timelapse.play": "Play storm time-lapse",
   "timelapse.stop": "Stop time-lapse",
-  "timelapse.loadingStart": "Loading the time-lapse frames…",
+  "timelapse.loadingStart": "Loading the time-lapse frames",
   "timelapse.loading": (p: { loaded: number; total: number }) => `Loading the time-lapse: ${p.loaded} of ${p.total} files`,
   "timelapse.error": "Couldn't load the time-lapse frames. Reload the page to try again.",
   "timelapse.announceStart": (p: { count: number; from: string; to: string }) =>

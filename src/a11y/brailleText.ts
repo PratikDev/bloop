@@ -122,3 +122,32 @@ export function frontLoad(parts: readonly (string | null | undefined | false)[])
 export function abbrev(word: string): string {
   return word in ABBREV ? ABBREV[word as AbbrevKey] : clean(word);
 }
+
+/** Plain lines wrapped at `width` cells for a braille note-taker: cleaned, word-wrapped, over-long words split. */
+export function wrapText(lines: readonly string[], width: number): string[] {
+  const out: string[] = [];
+  for (const raw of lines) {
+    const words = clean(raw).split(" ").filter(Boolean);
+    if (!words.length) {
+      out.push("");
+      continue;
+    }
+    let line = "";
+    for (let word of words) {
+      while ([...word].length > width) {
+        if (line) out.push(line);
+        line = "";
+        out.push([...word].slice(0, width).join(""));
+        word = [...word].slice(width).join("");
+      }
+      if (!line) line = word;
+      else if ([...line].length + 1 + [...word].length <= width) line += ` ${word}`;
+      else {
+        out.push(line);
+        line = word;
+      }
+    }
+    if (line) out.push(line);
+  }
+  return out;
+}

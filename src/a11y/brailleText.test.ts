@@ -1,5 +1,5 @@
 import { describe, expect, test } from "bun:test";
-import { abbrev, braillePlace, brailleNumber, brailleTime, brailleUnit, clean, decimalsFor, frontLoad, latinDigits, violations } from "./brailleText";
+import { abbrev, braillePlace, brailleNumber, brailleTime, brailleUnit, clean, decimalsFor, frontLoad, latinDigits, violations, wrapText } from "./brailleText";
 import { parseRecordCode } from "./recordCode";
 
 describe("clean", () => {
@@ -50,5 +50,14 @@ describe("record codes and digits", () => {
     expect(parseRecordCode("7")).toBeNull();
     expect(parseRecordCode("BB7")).toBeNull();
     expect(latinDigits("১২.৪")).toBe("12.4");
+  });
+});
+
+describe("wrapText", () => {
+  test("wraps at the width, splits over-long words, keeps blank lines", () => {
+    expect(wrapText(["Rain 12.4 mm/h at 21.5N 89.8E, obs"], 14)).toEqual(["Rain 12.4 mm/h", "at 21.5N", "89.8E, obs"]);
+    expect(wrapText(["abcdefghij"], 4)).toEqual(["abcd", "efgh", "ij"]);
+    expect(wrapText(["a", "", "b"], 20)).toEqual(["a", "", "b"]);
+    for (const l of wrapText(["x ".repeat(100)], 20)) expect([...l].length).toBeLessThanOrEqual(20);
   });
 });
