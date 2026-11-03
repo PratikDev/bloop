@@ -14,6 +14,8 @@ const eslintConfig = defineConfig([
     "next-env.d.ts",
     // three's Basis transcoder, copied verbatim by scripts/build-earth-textures.mjs.
     "public/basis/**",
+    // Raw downloads and scratch (Playwright's transform cache lives in data_raw/_tmp): never source.
+    "data_raw/**",
   ]),
 ]);
 
