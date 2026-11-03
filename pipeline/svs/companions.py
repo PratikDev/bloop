@@ -49,7 +49,7 @@ OTHER = [("JAXA Earth API (115 COG collections: GSMaP daily, GCOM-C LST/NDVI/aer
          ("Copernicus OSTIA NRT", "Copernicus Marine OSTIA NRT", "independent satellite analysis", "copernicusmarine toolbox", "Copernicus Marine licence", "COPERNICUSMARINE_SERVICE_USERNAME, COPERNICUSMARINE_SERVICE_PASSWORD", "live SST (account in place; not wired yet)"),
          ("CAMS EAC4 reanalysis", "ADS CAMS EAC4", "different model", "ADS API (cdsapi)", "CC-BY (since 2 Jul 2025)", "ADSAPI_URL, ADSAPI_KEY", "5533 e_*_cams, 5669 a4/b4_*_cams (different-model rung)"),
          ("ERA5 single levels", "CDS ERA5 single levels", "second reanalysis", "CDS API (cdsapi)", "CC-BY", "CDSAPI_URL, CDSAPI_KEY", "4960 d/e/f_*_era5 (second reanalysis)"),
-         ("Sentinel-5P TROPOMI NO2/CO/aerosol index", "Copernicus Data Space (Sentinel-5P)", "independent satellite (covers Bangladesh)", "NASA GES DISC cloud OPeNDAP (C2089270961-GES_DISC; same files); Copernicus Data Space login rejected 3 Nov", "Copernicus Sentinel terms", "Earthdata login; CDSE_USERNAME, CDSE_PASSWORD", "5533 g_nox_tropomi (independent satellite)"),
+         ("Sentinel-5P TROPOMI NO2/CO/aerosol index", "Copernicus Data Space (Sentinel-5P)", "independent satellite (covers Bangladesh)", "NASA GES DISC cloud OPeNDAP (C2089270961-GES_DISC; same files); Copernicus Data Space optional (svs/cdse.py: a failed login is one warning and a skip)", "Copernicus Sentinel terms", "Earthdata login; CDSE_USERNAME, CDSE_PASSWORD", "5533 g_nox_tropomi (independent satellite)"),
          ("NOAA OISST v2.1 (ERDDAP; PNG maps)", "NOAA OISST v2.1 ERDDAP", "independent analysis (second agency)", "CoastWatch ERDDAP, no key", "NOAA: free use", "", "rel_oisst pipeline test"),
          ("NOAA GDP hourly drifters (drifter_hourly_qc)", "route:gdp", "in situ (ground rung for currents)", "erddap.aoml.noaa.gov/gdp/erddap, no key", "NOAA", "", "3912 flows (in situ)"),
          ("NOAA GML Mauna Loa CO2 / AGGI", "NOAA GML Mauna Loa CO2", "ground", "gml.noaa.gov text files", "free use with credit", "", "5196 context, 5119, 5126"),
@@ -95,8 +95,9 @@ def main():
           "- `COPERNICUSMARINE_SERVICE_USERNAME`, `COPERNICUSMARINE_SERVICE_PASSWORD` — Copernicus Marine (GLORYS12, OSTIA).",
           "- `CDSAPI_URL` (https://cds.climate.copernicus.eu/api), `CDSAPI_KEY` — Copernicus Climate Data Store (ERA5).",
           "- `ADSAPI_URL` (https://ads.atmosphere.copernicus.eu/api), `ADSAPI_KEY` — Atmosphere Data Store (CAMS EAC4).",
-          "- `CDSE_USERNAME`, `CDSE_PASSWORD` — Copernicus Data Space Ecosystem (Sentinel-5P TROPOMI). The login was rejected "
-          "(invalid_grant) on 3 Nov; TROPOMI is read from NASA GES DISC with the Earthdata login instead (the same files).", "",
+          "- `CDSE_USERNAME`, `CDSE_PASSWORD` — Copernicus Data Space Ecosystem (Sentinel-5P TROPOMI). Optional: the login works "
+          "since 3 Nov, and if it fails svs/cdse.py logs one warning and skips; TROPOMI is read from NASA GES DISC with the "
+          "Earthdata login (the same files), so nothing depends on it.", "",
           "Not used: JAXA Himawari P-Tree (no redistribution), ESA Swarm audio (no licence: link only)."]
     (REPO / "docs" / "related" / "COMPANION_SOURCES.md").write_text("\n".join(L) + "\n", encoding="utf-8")
     say(f"companions: {len(NASA) + len(STAC) + len(OTHER)} sources")
