@@ -6,6 +6,7 @@ import type { CaptionParams } from "@/lib/audio-adapter/types";
 import { BANGLA_SPEECH_READY, bn } from "./bn";
 import { appEn } from "./en/app";
 import { badgesEn } from "./en/badges";
+import { brailleEn } from "./en/braille";
 import { captionsEn } from "./en/captions";
 import { contextEn } from "./en/context";
 import { dataEn } from "./en/data";
@@ -29,6 +30,7 @@ export const en = {
   ...badgesEn,
   ...dataEn,
   ...officialEn,
+  ...brailleEn,
 };
 
 export type Messages = typeof en;

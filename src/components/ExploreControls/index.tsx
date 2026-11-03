@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useId, useRef, type ReactNode } from "react";
+import { brailleRole } from "@/a11y/aria";
 import { readingText } from "@/lib/reading";
 import { useAnnounce } from "../Announcer/use-announcer";
 import { useAppState, useT } from "../AppState/use-app-state";
@@ -58,6 +59,7 @@ export function ExploreControls({ children }: { children: ReactNode }) {
       role="application"
       tabIndex={0}
       aria-roledescription={t("map.roleDescription")}
+      {...brailleRole(t("braille.bl.map"))}
       aria-label={label}
       aria-describedby={instructionsId}
       onKeyDown={story ? undefined : onKeyDown}

@@ -36,6 +36,8 @@ export const helpEn = {
   "october.duets": "NASA vs JAXA (GSMaP) and NASA vs UK Met Office (OSTIA) duets",
   "october.tracks": "More EIC tracks: fires, air quality, wind",
   "october.kiosk": "Kiosk and hyperwall mode",
+  "key.b.action": "Braille data explorer: feel the data as braille cells; its caret is the needle",
+  "key.r.action": "In the braille explorer: review the value in words",
   "key.h.action": "Open this help",
   "key.esc": "Esc",
   "key.esc.action": "Stop all sound and close panels",

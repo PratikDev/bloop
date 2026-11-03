@@ -1,6 +1,9 @@
 "use client";
 
-import { useState } from "react";
+import { useCallback, useRef, useState, type KeyboardEvent } from "react";
+import { brailleLabel } from "@/a11y/aria";
+import { isLetter, isTypingTarget } from "@/a11y/keys";
+import { Button } from "@/components/ui/button";
 import { ruleText, voiceSpec } from "@/lib/audio/mapping";
 import { loadOfficialIndex, type OfficialReading } from "@/lib/data";
 import { formatFixed, formatUtc, type BoundT, type Lang } from "@/lib/i18n";
@@ -12,6 +15,8 @@ import { StatusBadge } from "../StatusBadge";
 import { ProvenanceCard } from "./ProvenanceCard";
 import { RecordControls } from "./RecordControls";
 import { RecordMap } from "./RecordMap";
+import { recordBrailleLabel } from "./braille-label";
+import { OfficialBrailleExplorer } from "./OfficialBrailleExplorer";
 import { RelatedRecords } from "./RelatedRecords";
 import { useOfficialRecord } from "./use-official-record";
 
@@ -35,6 +40,18 @@ function Player({ record }: { record: string }) {
   const { state } = useAppState();
   const t = useT();
   const rec = useOfficialRecord(record, state.soundOn);
+  const [brailleOpen, setBrailleOpen] = useState(false);
+  const brailleButton = useRef<HTMLButtonElement>(null);
+  const closeBraille = useCallback(() => {
+    setBrailleOpen(false);
+    brailleButton.current?.focus();
+  }, []);
+  // B opens the explorer while the record has focus (never while typing in a field).
+  const onKeyDown = (e: KeyboardEvent<HTMLElement>) => {
+    if (!isLetter(e, "b") || isTypingTarget(e.target)) return;
+    e.preventDefault();
+    setBrailleOpen((o) => !o);
+  };
   if (rec.error) return <StatusBadge kind="error">{t("official.error")}</StatusBadge>;
   if (!rec.manifest || !rec.option) return <StatusBadge kind="loading">{t("official.loading")}</StatusBadge>;
   const map = rec.grids[rec.option.map];
@@ -46,7 +63,7 @@ function Player({ record }: { record: string }) {
   const times = map?.layer.times ?? [];
   const timeText = map?.layer.time_labels?.[rec.step] ?? (times[rec.step] ? formatUtc(times[rec.step], state.lang) : "");
   return (
-    <div className="grid gap-6 lg:grid-cols-[minmax(0,1fr)_24rem]">
+    <div className="grid gap-6 lg:grid-cols-[minmax(0,1fr)_24rem]" onKeyDown={onKeyDown}>
       <div className="space-y-3">
         {map && rec.ready ? (
           <RecordMap grid={map} step={rec.step} needle={rec.needle} onMove={rec.moveNeedle}
@@ -66,6 +83,11 @@ function Player({ record }: { record: string }) {
           ))}
         </ul>
         <RecordControls rec={rec} timeText={timeText} readingText={`${place}: ${text}`} />
+        <Button ref={brailleButton} variant="outline" className="h-11" disabled={!rec.ready} aria-expanded={brailleOpen}
+          onClick={() => setBrailleOpen((o) => !o)} {...brailleLabel(t("braille.bl.braille"))}>
+          {t("braille.open")}
+        </Button>
+        {brailleOpen && <OfficialBrailleExplorer rec={rec} onClose={closeBraille} />}
       </div>
       <ProvenanceCard manifest={rec.manifest} validation={rec.validation} />
     </div>
@@ -87,7 +109,7 @@ export function OfficialRecords() {
         <p className="text-haze">{t("official.intro")}</p>
       </div>
       <ChoiceGroup label={t("official.records")} value={current ?? ""} onChange={setRecord} className="flex-wrap"
-        options={index.records.map((r) => ({ value: r.record, label: r.title }))} />
+        options={index.records.map((r) => ({ value: r.record, label: r.title, brailleLabel: recordBrailleLabel(r) }))} />
       {current && <Player key={current} record={current} />}
       <RelatedRecords value={current ?? ""} onChange={setRecord} />
     </section>

@@ -25,6 +25,8 @@ const KEYS: KeyRow[] = [
   { key: "P", action: "key.p.action" },
   { key: "X", action: "key.x.action" },
   { key: "U", action: "key.u.action" },
+  { key: "B", action: "key.b.action" },
+  { key: "R", action: "key.r.action" },
   { key: "H, ?", action: "key.h.action" },
   { key: "key.esc", action: "key.esc.action" },
 ];

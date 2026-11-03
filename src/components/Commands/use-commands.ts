@@ -66,6 +66,8 @@ export interface Commands {
   xray(): void;
   openPanel(panel: PanelTab): void;
   openHelp(): void;
+  /** B: opens or closes the Braille Data Explorer (`open` forces one). */
+  toggleBraille(open?: boolean): void;
   stopAll(): void;
   sweepRef: RefObject<SweepVisual | null>;
 }

@@ -68,6 +68,8 @@ export function letterAction(c: Commands, key: string): (() => void) | null {
     case "h":
     case "?":
       return c.openHelp;
+    case "b":
+      return c.toggleBraille;
     default:
       return null;
   }

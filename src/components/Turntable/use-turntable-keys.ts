@@ -62,6 +62,13 @@ function turntableAction(a: TurntableKeyActions, e: KeyboardEvent<HTMLElement>):
     case "r":
     case "R":
       return () => a.stepRecord(e.shiftKey ? -1 : 1);
+    case "b":
+    case "B":
+      // The Braille Data Explorer reads Explore's cursor: B opens it there.
+      return () => {
+        a.commands.setMode("explore");
+        a.commands.toggleBraille(true);
+      };
     case "[":
       return () => a.changeSpeed(-1);
     case "]":

@@ -1,11 +1,12 @@
 "use client";
 
 import { Box, Lock, Play, RotateCcw, Volume2 } from "lucide-react";
+import { brailleLabel } from "@/a11y/aria";
 import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import type { TrackMode } from "@/lib/audio-adapter/types";
 import { cn } from "@/lib/utils";
-import { useAppState } from "../AppState/use-app-state";
+import { useAppState, useT } from "../AppState/use-app-state";
 import { useLiveData } from "../LiveData/use-live-data";
 import { useTT } from "./i18n";
 import { FrameFacts } from "./FrameFacts";
@@ -16,6 +17,7 @@ function Sleeve({ track, cover, now, onSelect }: { track: TrackMode; cover: stri
   const { state } = useAppState();
   const { fields } = useLiveData();
   const { tt } = useTT();
+  const t = useT();
   const [back, setBack] = useState(false);
   const playing = state.track === track;
   const name = tt(RECORD_LABELS[track]);
@@ -29,6 +31,7 @@ function Sleeve({ track, cover, now, onSelect }: { track: TrackMode; cover: stri
             onClick={() => onSelect(track)}
             aria-pressed={playing}
             aria-label={tt("turntable.sleeve.play", { record: name })}
+            {...brailleLabel(t("braille.bl.record", { record: name, playing }))}
             inert={back}
             className="absolute inset-0 overflow-hidden rounded-lg border-2 border-haze bg-night text-left backface-hidden aria-pressed:border-shapla"
           >
@@ -61,6 +64,7 @@ function Sleeve({ track, cover, now, onSelect }: { track: TrackMode; cover: stri
         variant="ghost"
         aria-expanded={back}
         aria-label={tt("turntable.sleeve.flip", { record: name, back })}
+        {...brailleLabel(t("braille.bl.flip", { record: name, back }))}
         onClick={() => setBack((b) => !b)}
         className="mt-1 h-11 w-full gap-2 text-body"
       >
@@ -74,6 +78,7 @@ function Sleeve({ track, cover, now, onSelect }: { track: TrackMode; cover: stri
 /** A scene's sleeve: a still from its own render; choosing it drops the needle into the scene. */
 function SceneSleeve({ id, onScene }: { id: SceneId; onScene: (id: SceneId) => void }) {
   const { tt } = useTT();
+  const t = useT();
   const name = tt(SCENE_SLEEVES[id]);
   return (
     <li className="w-44 shrink-0 snap-start">
@@ -81,6 +86,7 @@ function SceneSleeve({ id, onScene }: { id: SceneId; onScene: (id: SceneId) => v
         type="button"
         onClick={() => onScene(id)}
         aria-label={tt("scenes.open", { scene: name })}
+        {...brailleLabel(t("braille.bl.scene", { scene: name }))}
         className="relative block h-32 w-full overflow-hidden rounded-lg border-2 border-haze bg-night text-left hover:border-amber focus-visible:border-amber"
       >
         {/* eslint-disable-next-line @next/next/no-img-element */}

@@ -1,12 +1,15 @@
 "use client";
 
 import { cn } from "@/lib/utils";
+import { brailleLabel } from "@/a11y/aria";
 import { ToggleGroup, ToggleGroupItem } from "@/components/ui/toggle-group";
 
 export interface Choice<T extends string> {
   value: T;
   label: string;
   lang?: string; // for an option written in another language (e.g. "বাংলা")
+  /** A short braille form (aria-braillelabel); the label stays the accessible name. */
+  brailleLabel?: string;
 }
 
 /** Pick exactly one: a toggle group that can't be emptied. */
@@ -42,6 +45,7 @@ export function ChoiceGroup<T extends string>({
           key={o.value}
           value={o.value}
           lang={o.lang}
+          {...brailleLabel(o.brailleLabel)}
           className={cn("h-11 min-w-11 px-3 text-body md:h-9 aria-pressed:bg-tide aria-pressed:text-moon", itemClassName)}
         >
           {o.label}

@@ -31,6 +31,8 @@ export interface AppState {
   /** Turntable only: the side column folded to a button, so the globe gets the space. */
   panelCollapsed: boolean;
   helpOpen: boolean;
+  /** The Braille Data Explorer (B) is open. */
+  brailleOpen: boolean;
 }
 
 export type AppAction =
@@ -51,7 +53,8 @@ export type AppAction =
   | { type: "setPanel"; panel: PanelTab; open?: boolean }
   | { type: "setPanelOpen"; open: boolean }
   | { type: "setPanelCollapsed"; collapsed: boolean }
-  | { type: "setHelpOpen"; open: boolean };
+  | { type: "setHelpOpen"; open: boolean }
+  | { type: "setBrailleOpen"; open: boolean };
 
 const FULL_MIX: VoiceMix = { volume: 1, muted: false };
 
@@ -75,6 +78,7 @@ export const initialState: AppState = {
   panelOpen: false,
   panelCollapsed: true,
   helpOpen: false,
+  brailleOpen: false,
 };
 
 /** Whether live sound may play at all: past Start, sound on and playing, intro over. */
@@ -135,5 +139,7 @@ export function reducer(state: AppState, action: AppAction): AppState {
       return { ...state, panelCollapsed: action.collapsed };
     case "setHelpOpen":
       return { ...state, helpOpen: action.open };
+    case "setBrailleOpen":
+      return { ...state, brailleOpen: action.open };
   }
 }

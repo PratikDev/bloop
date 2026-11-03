@@ -116,13 +116,25 @@ export function layout(shape: Cells, width: number, heading = "", multiline = tr
   };
 }
 
-/** The data point nearest a caret offset (ahead wins a tie): a caret on the heading, a marker or a break lands on a real point. */
-export function nearestPoint(shape: ShapeLayout, offset: number, length: number): number | null {
-  for (let d = 0; d <= length; d++) {
-    const ahead = shape.pointAt(offset + d);
-    if (ahead !== null) return ahead;
-    const behind = shape.pointAt(offset - d);
-    if (behind !== null) return behind;
-  }
-  return null;
+/**
+ * The data point for a caret offset. On a heading, marker or break, the caret keeps going the way it was
+ * moving ("forward" or "back") to the next real point, and turns round only at the end of the text; with
+ * no direction (a click or a routing key), the nearest point wins, the one ahead on a tie.
+ */
+export function nearestPoint(shape: ShapeLayout, offset: number, length: number, direction?: "forward" | "back"): number | null {
+  const here = shape.pointAt(offset);
+  if (here !== null) return here;
+  const scan = (step: 1 | -1) => {
+    for (let o = offset + step; o >= 0 && o < length; o += step) {
+      const p = shape.pointAt(o);
+      if (p !== null) return { p, d: Math.abs(o - offset) };
+    }
+    return null;
+  };
+  const ahead = scan(1);
+  const behind = scan(-1);
+  if (direction === "forward") return (ahead ?? behind)?.p ?? null;
+  if (direction === "back") return (behind ?? ahead)?.p ?? null;
+  if (ahead && behind) return ahead.d <= behind.d ? ahead.p : behind.p;
+  return (ahead ?? behind)?.p ?? null;
 }

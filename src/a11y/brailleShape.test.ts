@@ -75,8 +75,11 @@ describe("layout", () => {
     for (const p of [0, 1, 18, 19, 20, 37, 38, 44]) expect(l.pointAt(l.offsetOf(p))).toBe(p);
     expect(l.pointAt(0)).toBeNull(); // the heading
     expect(l.pointAt(l.offsetOf(18) + 1)).toBeNull(); // the marker after point 18
-    expect(nearestPoint(l, l.offsetOf(18) + 1, l.text.length)).toBe(18);
-    expect(nearestPoint(l, 0, l.text.length)).toBe(0);
+    const marker = l.offsetOf(18) + 1;
+    expect(nearestPoint(l, marker, l.text.length)).toBe(18); // nearest
+    expect(nearestPoint(l, marker + 1, l.text.length, "forward")).toBe(19); // the line break, moving right
+    expect(nearestPoint(l, marker + 1, l.text.length, "back")).toBe(18); // the line break, moving left
+    expect(nearestPoint(l, 0, l.text.length, "back")).toBe(0); // the heading: turns round at the start
   });
 
   test("single-line fields join the lines with a space", () => {

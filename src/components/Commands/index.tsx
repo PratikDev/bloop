@@ -153,6 +153,9 @@ export function CommandsProvider({ children }: { children: ReactNode }) {
       openHelp() {
         dispatch({ type: "setHelpOpen", open: true });
       },
+      toggleBraille(open) {
+        dispatch({ type: "setBrailleOpen", open: open ?? !state.brailleOpen });
+      },
       stopAll() {
         sayCount.current++;
         audio.stopAll();

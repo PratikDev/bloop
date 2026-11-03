@@ -33,13 +33,16 @@ export interface OfficialRecordState {
   steps: number;
   playing: boolean;
   setPlaying(on: boolean): void;
+  /** Sound at the needle without time running (the Braille Data Explorer: the caret is the needle). */
+  listening: boolean;
+  setListening(on: boolean): void;
   needle: LatLon;
   moveNeedle(to: LatLon): void;
   readings: ChannelReading[];
 }
 
 /** The reading a channel plays: one layer's value, or the magnitude of two (u, v); null where any part has no data. */
-function channelReading(grids: Record<string, OfficialGrid>, layers: string[], combine: "value" | "magnitude", step: number, at: LatLon) {
+export function channelReading(grids: Record<string, OfficialGrid>, layers: string[], combine: "value" | "magnitude", step: number, at: LatLon) {
   const parts = layers.map((id) => (grids[id] ? officialValueAt(grids[id], step, at.lat, at.lon) : null));
   if (parts.some((p) => p === null)) return null;
   const values = parts as OfficialReading[];
@@ -56,6 +59,7 @@ export function useOfficialRecord(record: string, soundOn: boolean): OfficialRec
   const [cache, setCache] = useState<Record<string, OfficialGrid>>({});
   const [step, setStep] = useState(0);
   const [playing, setPlaying] = useState(false);
+  const [listening, setListening] = useState(false);
   const [needle, setNeedle] = useState<LatLon | null>(null);
 
   // The caller keys the player by record, so a new record starts from fresh state.
@@ -110,10 +114,11 @@ export function useOfficialRecord(record: string, soundOn: boolean): OfficialRec
     [option, ready, cache, step, at],
   );
 
-  // Sound follows the readings while playing; a below-range reading plays at its bound (the rule's bottom), no data is silence.
+  // Sound follows the readings while playing (or listening); a below-range reading plays at its bound (the rule's bottom), no data is silence.
+  const sounding = (playing || listening) && soundOn;
   useEffect(() => {
-    for (const r of readings) audio.setRecordVoice(r.voice, playing && soundOn ? (r.reading?.value ?? null) : null, at.lon);
-  }, [readings, playing, soundOn, at.lon]);
+    for (const r of readings) audio.setRecordVoice(r.voice, sounding ? (r.reading?.value ?? null) : null, at.lon);
+  }, [readings, sounding, at.lon]);
   useEffect(() => () => audio.silenceRecord(), [record]);
 
   const setOption = useCallback(
@@ -126,5 +131,5 @@ export function useOfficialRecord(record: string, soundOn: boolean): OfficialRec
   );
   const moveNeedle = useCallback((to: LatLon) => setNeedle({ lat: clampLat(to.lat), lon: wrapLon(to.lon) }), []);
 
-  return { manifest, validation, error, option, setOption, grids: cache, ready, step, setStep, steps, playing, setPlaying, needle: at, moveNeedle, readings };
+  return { manifest, validation, error, option, setOption, grids: cache, ready, step, setStep, steps, playing, setPlaying, listening, setListening, needle: at, moveNeedle, readings };
 }

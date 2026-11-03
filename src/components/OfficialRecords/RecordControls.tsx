@@ -1,6 +1,7 @@
 "use client";
 
 import { Button } from "@/components/ui/button";
+import { brailleLabel } from "@/a11y/aria";
 import { audio } from "@/lib/audio-adapter";
 import type { OfficialPlayOption } from "@/types/data-contract";
 import { useAppState, useT } from "../AppState/use-app-state";
@@ -39,10 +40,11 @@ export function RecordControls({ rec, timeText, readingText }: { rec: OfficialRe
           options={views.map((v) => ({ value: v, label: t(VIEW_KEYS[v]) }))} />
       )}
       <div className="flex flex-wrap items-center gap-2">
-        <Button onClick={toggle} disabled={!rec.ready} className="h-11 min-w-24">
+        <Button onClick={toggle} disabled={!rec.ready} className="h-11 min-w-24" {...brailleLabel(t(rec.playing ? "braille.bl.pause" : "braille.bl.play"))}>
           {t(rec.playing ? "official.pause" : "official.play")}
         </Button>
-        <Button variant="outline" className="h-11" disabled={!rec.ready} onClick={() => audio.speak(readingText, state.lang)}>
+        <Button variant="outline" className="h-11" disabled={!rec.ready} onClick={() => audio.speak(readingText, state.lang)}
+          {...brailleLabel(t("braille.bl.speak"))}>
           {t("official.speak")}
         </Button>
       </div>

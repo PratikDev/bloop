@@ -7,6 +7,7 @@ import type { OfficialIndexRow } from "@/types/data-contract";
 import { useT } from "../AppState/use-app-state";
 import { ChoiceGroup } from "../ChoiceGroup";
 import { StatusBadge } from "../StatusBadge";
+import { recordBrailleLabel } from "./braille-label";
 
 /** The EIC focus areas in display order; a record's `focus` names one of them (pipeline/svs/focus.py). */
 const FOCUS: readonly { id: string; key: MessageKey }[] = [
@@ -43,7 +44,7 @@ export function RelatedRecords({ value, onChange }: { value: string; onChange: (
           <div key={f.id} className="space-y-1">
             <p className="text-haze">{t(f.key)}</p>
             <ChoiceGroup label={t(f.key)} value={value} onChange={onChange} className="flex-wrap"
-              options={rows.map((r) => ({ value: r.record, label: label(r) }))} />
+              options={rows.map((r) => ({ value: r.record, label: label(r), brailleLabel: recordBrailleLabel(r) }))} />
           </div>
         );
       })}
