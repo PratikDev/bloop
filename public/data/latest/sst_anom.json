@@ -30,7 +30,7 @@
   "credit": "Visualization: NASA's Scientific Visualization Studio (SVS 5176) for the NASA Earth Information Center. Data: MUR SST (NASA/JPL PO.DAAC). Check: NOAA Coral Reef Watch.",
   "disclosure": "Anomaly = difference from MUR's own climatology. NOAA Coral Reef Watch uses a different baseline, so an offset is expected.",
   "source_time_utc": "2026-10-25T00:00:00Z",
-  "generated_utc": "2026-10-28T13:51:50Z",
+  "generated_utc": "2026-11-03T15:34:36Z",
   "svs_id": 5176,
   "svs_page": "https://svs.gsfc.nasa.gov/5176/",
   "frame_time_utc": "2026-10-25T00:00:00Z",
@@ -90,13 +90,13 @@
     "test": "C5176",
     "status": "WARN",
     "against": "noaacrwsstanomalyDaily",
-    "against_time": "2026-10-26T12:00:00Z",
+    "against_time": "2026-11-01T12:00:00Z",
     "n_points": 1500,
-    "n_abs_ge_0_5": 1096,
-    "sign_agreement": 0.8987226277372263,
-    "spearman": 0.7868213156385638,
-    "median_offset_C": -0.270897269180754,
-    "median_abs_offset_C": 0.45915474642392756,
+    "n_abs_ge_0_5": 1091,
+    "sign_agreement": 0.8725939505041247,
+    "spearman": 0.702859892040968,
+    "median_offset_C": -0.28193107932379724,
+    "median_abs_offset_C": 0.5169245773732118,
     "ticks_found": 9
   }
 }

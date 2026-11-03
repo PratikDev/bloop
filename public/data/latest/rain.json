@@ -2,9 +2,9 @@
   "product": "rain",
   "svs_id": 4285,
   "svs_page": "https://svs.gsfc.nasa.gov/4285/",
-  "frame_time_utc": "2026-10-28T08:30:00Z",
+  "frame_time_utc": "2026-11-03T10:30:00Z",
   "frame_time_meaning": "start of the 30-minute period",
-  "source_file": "rain_imergert_alpha.2026-10-28T08_30_00Z.png",
+  "source_file": "rain_imergert_alpha.2026-11-03T10_30_00Z.png",
   "source_dataset": "GPM IMERG half-hourly V07 (NASA/JAXA, GES DISC): newest frames match the Early run; older frames matched the Late run",
   "units": "mm/h",
   "value_range": [
@@ -25,7 +25,7 @@
     "test": "D2"
   },
   "credit": "Visualization: NASA's Scientific Visualization Studio (SVS 4285), NASA Earth Information Center. Data: GPM IMERG (NASA/JAXA), GES DISC.",
-  "generated_utc": "2026-10-28T13:27:21Z",
+  "generated_utc": "2026-11-03T15:23:38Z",
   "colorbar_variant": "black",
   "grid": {
     "width": 1800,
@@ -44,15 +44,15 @@
     "aggregation": "max of 2x2 source pixels"
   },
   "latest_check": {
-    "frame": "latest frame",
-    "frame_time_utc": "2026-10-28T08:30:00Z",
+    "frame": "time-lapse frame imergert_alpha.2026-11-03T00_00_00Z.png",
+    "frame_time_utc": "2026-11-03T00:00:00Z",
     "imerg_run": "Early",
-    "file": "3B-HHR-E.MS.MRG.3IMERG.20261028-S083000-E085959.0510.V07C.HDF5",
+    "file": "3B-HHR-E.MS.MRG.3IMERG.20261103-S000000-E002959.0000.V07C.HDF5",
     "agreement": 1.0,
-    "median_abs_log10": 0.09846558537248694,
-    "median_log10_bias": -0.09653288938773669,
+    "median_abs_log10": 0.10109539979907645,
+    "median_log10_bias": -0.10109539979907645,
     "n_both_rain": 150,
     "pass": true,
-    "checked_utc": "2026-10-28T13:43:57Z"
+    "checked_utc": "2026-11-03T15:32:11Z"
   }
 }
