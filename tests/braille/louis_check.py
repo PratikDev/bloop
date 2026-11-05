@@ -13,7 +13,8 @@ os.add_dll_directory(NVDA)
 sys.path.insert(0, os.path.join(NVDA, "library.zip"))
 import louis  # noqa: E402  (NVDA's own wrapper, loading NVDA's liblouis.dll)
 
-TABLES = {"UEB grade 1": "en-ueb-g1.ctb", "UEB grade 2": "en-ueb-g2.ctb", "Bengali": "bn.tbl"}
+# NVDA registers the Bengali table as be-in-g1.utb ("Bengali grade 1"); bn.tbl wraps the same file and gives the same cells.
+TABLES = {"UEB grade 1": "en-ueb-g1.ctb", "UEB grade 2": "en-ueb-g2.ctb", "Bengali": "be-in-g1.utb"}
 TABLE_DIR = os.path.join(NVDA, "louis", "tables")
 BRAILLE = re.compile(r"[\u2800-\u28ff]")
 TOKENS = re.compile(r"\d{1,2}:\d{2}|-?\d+(?:\.\d+)?[NSEW]?|deg C|°C|mm/h|ppbv|\(0-1\)|°|[A-Z]{2,}")
