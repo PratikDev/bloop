@@ -3,8 +3,10 @@
 // the explorer shows is the point the needle plays.
 
 import { continuousRule, normalise } from "@/lib/audio/mapping";
+import { BN, bnCompose, bnUnit } from "./brailleBangla";
+import type { BrailleReading } from "./brailleLines";
 import type { LatLon } from "@/lib/data";
-import { brailleNumber, brailleUnit, clean, type DegreeStyle } from "./brailleText";
+import { brailleNumber, brailleUnit, clean, frontLoad, type DegreeStyle } from "./brailleText";
 import { encodeLine, encodeRows, type Cells } from "./brailleShape";
 
 /** What the shape line runs along: time at the needle, the needle's latitude west to east, or the 3×3 around it. */
@@ -48,11 +50,6 @@ export interface ShapeChannel {
   label: string;
 }
 
-/** The text settings a source needs to write its lines. */
-export interface LineSettings {
-  degree: DegreeStyle;
-}
-
 export interface BrailleSource {
   key: string;
   channels: readonly ShapeChannel[];
@@ -61,10 +58,8 @@ export interface BrailleSource {
   scale(channel: string): ShapeScale;
   /** null while the mode's data loads. */
   view(channel: string, mode: ShapeMode): ShapeView | null;
-  /** Short, front-loaded: "Rain 12 mm/h 21.5N 89.8E 14:30 obs live" (a relative or pattern-only record says so first). */
-  valueLine(channel: string, mode: ShapeMode, s: LineSettings): string;
-  /** The same value in words (literary braille), for review. */
-  reviewLine(channel: string, mode: ShapeMode, s: LineSettings): string;
+  /** What the needle is on now: brailleLines.ts draws the value and review lines from it, for either table. */
+  reading(channel: string, mode: ShapeMode): BrailleReading;
   /** True when the values are relative or a pattern only: the shape line is then a "relative shape". */
   relative: boolean;
   /** Moves the needle (and, in time mode, the frame) to a point; the sound follows. */
@@ -110,6 +105,13 @@ export function scaleNumber(v: number): string {
 export function scaleHeading(scale: ShapeScale, degree: DegreeStyle, prefix: string): string {
   const log = scale.scale === "log" ? " log" : "";
   return clean(`${prefix} ${scaleNumber(scale.min)} to ${scaleNumber(scale.max)} ${brailleUnit(scale.unit, degree)}${log}:`);
+}
+
+/** The heading line for the Bengali table: "স্কেল -৫ থেকে ৩৫ ডিগ্রি সেলসিয়াস" (Bangla words and digits only). */
+export function bnScaleHeading(scale: ShapeScale, relative: boolean): string {
+  const end = (v: number) => scaleNumber(v).replace(/([0-9])\.([0-9])/gu, "$1 দশমিক $2");
+  // No closing colon: the Bengali table ends a number at a colon, so the heading avoids one altogether.
+  return bnCompose(frontLoad([relative ? BN.relativeScale : BN.scale, end(scale.min), BN.to, end(scale.max), bnUnit(scale.unit), scale.scale === "log" && BN.log]));
 }
 
 /** The index of the point nearest a needle position (time: the current step). */

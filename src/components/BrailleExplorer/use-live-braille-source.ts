@@ -2,11 +2,10 @@
 
 import { useCallback, useMemo, useRef, useState } from "react";
 import { voiceScale, nearestIndex, type BrailleSource, type ShapeMode, type ShapePoint, type ShapeScale } from "@/a11y/brailleSource";
-import { abbrev, braillePlace, brailleNumber, brailleTime, brailleUnit, clean, frontLoad, type DegreeStyle } from "@/a11y/brailleText";
+import type { BrailleReading } from "@/a11y/brailleLines";
 import { useFreshness } from "@/hooks/use-freshness";
 import { audio } from "@/lib/audio-adapter";
 import { clampLat, livenessAt, loadSequence, valueAt, valueInFrame, wrapLon, type LatLon, type LiveFields, type Sequence } from "@/lib/data";
-import type { BoundT } from "@/lib/i18n";
 import type { RainValue } from "@/types/data-contract";
 import { liveSoundOn } from "../AppState/reducer";
 import { useAppState, useT } from "../AppState/use-app-state";
@@ -39,19 +38,6 @@ function rainNumber(r: RainValue): number | null {
 
 function valueOf(fields: LiveFields, channel: LiveChannel, at: LatLon): number | null {
   return channel === "ocean" ? valueAt(fields, "ocean", at.lat, at.lon).valueC : rainNumber(valueAt(fields, "rain", at.lat, at.lon));
-}
-
-/** A value as the value line writes it: "28.4 deg C", "12 mm/h", "dry", "no data". */
-function valueText(t: BoundT, channel: LiveChannel, v: number | null, degree: DegreeStyle, frozen: boolean): string {
-  if (v === null) return t("braille.noData");
-  if (channel === "ocean") return `${brailleNumber(v, 1)} ${brailleUnit("°C", degree)}`;
-  if (v === 0) return t("braille.dry");
-  return `${brailleNumber(v, v >= 10 ? 0 : 1)} mm/h${frozen ? ` ${t("braille.snow")}` : ""}`;
-}
-
-/** The same value in words, for review. */
-function valueWords(t: BoundT, channel: LiveChannel, v: number | null, degree: DegreeStyle, frozen: boolean): string {
-  return valueText(t, channel, v, degree, frozen).replace("mm/h", t("braille.words.mmh")).replace(/deg C|°C/u, t("braille.words.degC"));
 }
 
 /**
@@ -138,18 +124,16 @@ export function useLiveBrailleSource(): BrailleSource | null {
         if (!points) return null;
         return { mode: m, points, columns: m === "grid" ? 3 : undefined, current: nearestIndex(points, cursor, shownFrame, m) };
       },
-      valueLine(c, m, s) {
+      reading(c, m): BrailleReading {
         const ch = c as LiveChannel;
         const v = shown(ch, m);
-        return frontLoad([label(ch), valueText(t, ch, v.value, s.degree, v.frozen), braillePlace(cursor.lat, cursor.lon),
-          brailleTime(v.time, timeMode(c, m)), abbrev("observation"), status(ch)]);
-      },
-      reviewLine(c, m, s) {
-        const ch = c as LiveChannel;
-        const v = shown(ch, m);
-        return clean(t("braille.reviewLine", { name: t(ch === "ocean" ? "braille.name.ocean" : "braille.name.rain"),
-          value: valueWords(t, ch, v.value, s.degree, v.frozen), place: braillePlace(cursor.lat, cursor.lon),
-          time: brailleTime(v.time, true), badge: t("braille.words.observation"), status: status(ch) }));
+        return {
+          short: label(ch), long: t(ch === "ocean" ? "braille.name.ocean" : "braille.name.rain"), layer: ch,
+          kind: v.value === null ? "nodata" : ch === "rain" && v.value === 0 ? "dry" : "value", value: v.value,
+          decimals: ch === "ocean" ? 1 : v.value !== null && v.value >= 10 ? 0 : 1, below: false, snow: v.frozen,
+          unit: ch === "ocean" ? "°C" : "mm/h", place: cursor, time: { iso: v.time || null, label: null },
+          badge: "observation", status: status(ch), relative: false,
+        };
       },
       go(c, m, p) {
         if (timeMode(c, m) && seq) {

@@ -2,13 +2,14 @@
 
 import { useCallback, useEffect, useRef, useState, type KeyboardEvent } from "react";
 import { layout, nearestPoint } from "@/a11y/brailleShape";
-import { cellsOf, scaleHeading, SHAPE_MODE_LABELS, type BrailleSource, type ShapeMode } from "@/a11y/brailleSource";
+import { bnScaleHeading, cellsOf, scaleHeading, SHAPE_MODE_LABELS, type BrailleSource, type ShapeMode } from "@/a11y/brailleSource";
+import { readingLine, type BrailleLang } from "@/a11y/brailleLines";
 import { useBrailleSettings } from "@/hooks/use-braille-settings";
 import { audio } from "@/lib/audio-adapter";
 import { isLetter, isTypingTarget } from "@/a11y/keys";
 import { pushEscapeHandler } from "@/lib/escape";
 import { useAnnounce } from "../Announcer/use-announcer";
-import { useT } from "../AppState/use-app-state";
+import { useAppState, useT } from "../AppState/use-app-state";
 
 export type ShapeField = HTMLTextAreaElement | HTMLInputElement;
 
@@ -30,6 +31,9 @@ function outputLevel(): number {
  */
 export function useBrailleExplorer(source: BrailleSource, onClose: () => void) {
   const t = useT();
+  const { state } = useAppState();
+  // বাংলা mode writes the braille lines for the Bengali table (brailleBangla.ts); English mode for UEB.
+  const lang: BrailleLang = state.lang === "bn" ? "bn" : "en";
   const announce = useAnnounce();
   const [settings, updateSettings] = useBrailleSettings();
   const [channel, setChannel] = useState(source.channels[0]?.id ?? "");
@@ -43,11 +47,11 @@ export function useBrailleExplorer(source: BrailleSource, onClose: () => void) {
   const mode = chosenMode && modes.includes(chosenMode) ? chosenMode : modes[0];
   const scale = source.scale(channel);
   const view = source.view(channel, mode);
-  const heading = scaleHeading(scale, settings.degree, t(source.relative ? "braille.relativeScale" : "braille.scale"));
+  const heading = lang === "bn" ? bnScaleHeading(scale, source.relative)
+    : scaleHeading(scale, settings.degree, t(source.relative ? "braille.relativeScale" : "braille.scale"));
   // Rebuilt each render: a few hundred cells at most.
   const shape = view ? layout(cellsOf(view, scale), settings.width, heading, settings.field === "textarea") : null;
-  const line = { degree: settings.degree };
-  const valueLine = review ? source.reviewLine(channel, mode, line) : source.valueLine(channel, mode, line);
+  const valueLine = readingLine(t, source.reading(channel, mode), lang, settings.degree, review);
 
   const { prepare } = source;
   useEffect(() => prepare?.(channel, mode), [prepare, channel, mode]);
@@ -102,6 +106,13 @@ export function useBrailleExplorer(source: BrailleSource, onClose: () => void) {
     if (e.key === "Backspace" || e.key === "Delete" || e.key === "Enter") e.preventDefault();
   }, []);
 
+  // The value line: no text selected on focus (NVDA would mark every cell with dots 7-8) and the caret at the start,
+  // so a 40-cell display shows the front of the line; the caret then moves with arrows, Home and End.
+  const onValueFocus = useCallback((e: { currentTarget: HTMLInputElement }) => {
+    const el = e.currentTarget;
+    requestAnimationFrame(() => el.setSelectionRange(0, 0));
+  }, []);
+
   const toggleReview = useCallback(() => {
     setReview((r) => {
       announce(t(r ? "braille.reviewOff" : "braille.reviewOn"));
@@ -141,7 +152,9 @@ export function useBrailleExplorer(source: BrailleSource, onClose: () => void) {
     toggleReview,
     level,
     setField,
+    lang,
     onCaret,
+    onValueFocus,
     blockEdit,
     blockEditKeys,
     onKeyDown,

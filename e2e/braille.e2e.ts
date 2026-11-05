@@ -85,3 +85,44 @@ test("axe: no serious violations with the explorer open", async ({ page }) => {
   expect(result.violations.filter((v) => v.id === "aria-braille-equivalent")).toEqual([]);
   expect(serious).toEqual([]);
 });
+
+test("value line: no selection on focus, caret at 0, Home/End/arrows move it, typing changes nothing", async ({ page }) => {
+  await start(page);
+  await page.keyboard.press("b");
+  await page.keyboard.press("Shift+Tab");
+  const value = page.getByTestId("braille-value");
+  await expect(value).toBeFocused();
+  await expect(value).toHaveAttribute("aria-readonly", "true");
+  const caret = () => value.evaluate((el: HTMLInputElement) => [el.selectionStart, el.selectionEnd]);
+  await expect.poll(caret).toEqual([0, 0]);
+  const text = await value.inputValue();
+  expect([...text].length).toBeLessThanOrEqual(40);
+  await page.keyboard.press("End");
+  await expect.poll(caret).toEqual([text.length, text.length]);
+  await page.keyboard.press("Home");
+  await expect.poll(caret).toEqual([0, 0]);
+  await page.keyboard.press("ArrowRight");
+  await page.keyboard.press("ArrowRight");
+  await expect.poll(caret).toEqual([2, 2]);
+  for (const k of ["x", "Backspace", "Delete", "Enter", "Space"]) await page.keyboard.press(k);
+  await page.keyboard.insertText("typed");
+  await expect(value).toHaveValue(text);
+});
+
+test("বাংলা mode: the braille lines are written for the Bengali table (no Latin, no colon, decimals as দশমিক)", async ({ page }) => {
+  await start(page);
+  await page.getByRole("button", { name: "বাংলা" }).click();
+  await page.locator("#sound-map").focus();
+  await page.keyboard.press("b");
+  const value = page.getByTestId("braille-value");
+  await expect(value).toHaveValue(/^সমুদ্রপৃষ্ঠের তাপমাত্রা /u);
+  const line = await value.inputValue();
+  expect(line).not.toMatch(/[A-Za-z:]/u);
+  expect(line).not.toMatch(/[0-9]\.[0-9]/u);
+  expect(line).not.toMatch(/[০-৯়]/u); // Western digits (bn.tbl's number sign) and composed য়
+  expect(line).toMatch(/ দশমিক /u);
+  await expect(value).toHaveAttribute("lang", "bn");
+  const heading = (await page.getByTestId("braille-shape").inputValue()).split("\n")[0];
+  expect(heading).toMatch(/^স্কেল /u);
+  expect(heading).not.toMatch(/[A-Za-z:]/u);
+});

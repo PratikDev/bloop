@@ -2,16 +2,14 @@
 
 import { useMemo } from "react";
 import { nearestIndex, voiceScale, type BrailleSource, type ShapeMode, type ShapePoint, type ShapeScale } from "@/a11y/brailleSource";
-import { abbrev, clean, frontLoad } from "@/a11y/brailleText";
+import { clean } from "@/a11y/brailleText";
 import type { LatLon } from "@/lib/data";
 import type { OfficialChannel, OfficialLayer } from "@/types/data-contract";
-import { GRID_SPAN, PATH_MAX, RELATIVE, placeText, readingText, timeText } from "./braille-lines";
-import { useT } from "../AppState/use-app-state";
+import { GRID_SPAN, PATH_MAX, RELATIVE, officialReading } from "./braille-lines";
 import { channelReading, type OfficialRecordState } from "./use-official-record";
 
 /** An official or related record as a braille source: its play option's voices at the record's needle. */
 export function useOfficialBrailleSource(rec: OfficialRecordState): BrailleSource | null {
-  const t = useT();
   const { manifest, option, grids, ready, step, steps, needle, moveNeedle, setStep } = rec;
 
   return useMemo<BrailleSource | null>(() => {
@@ -20,7 +18,6 @@ export function useOfficialBrailleSource(rec: OfficialRecordState): BrailleSourc
     const layerOf = (voice: string): OfficialLayer => grids[channelOf(voice).layers[0]]?.layer ?? grids[option.map].layer;
     const status = layerOf(option.channels[0]?.voice ?? "").status;
     const relative = RELATIVE.includes(status);
-    const svs = manifest.svs_ids[0];
     const read = (voice: string, s: number, at: LatLon) => {
       const c = channelOf(voice);
       return channelReading(grids, c.layers, c.combine, s, at);
@@ -48,11 +45,6 @@ export function useOfficialBrailleSource(rec: OfficialRecordState): BrailleSourc
       const [min, max] = layer.value_range ?? [0, 1];
       return { min, max: max > min ? max : min + 1, scale: layer.encoding === "log10" ? "log" : "linear", unit: layer.unit };
     };
-    const head = (voice: string) => {
-      const layer = layerOf(voice);
-      return { layer, r: read(voice, step, needle), name: `${svs} ${clean(layer.id.replace(/_/gu, " "))}` };
-    };
-
     return {
       key: `official-${manifest.record}-${option.id}`,
       channels: option.channels.map((c) => ({ id: c.voice, label: clean(layerOf(c.voice).label) })),
@@ -66,21 +58,13 @@ export function useOfficialBrailleSource(rec: OfficialRecordState): BrailleSourc
         const points = pointsFor(voice, mode);
         return { mode, points, columns: mode === "grid" ? 3 : undefined, current: nearestIndex(points, needle, step, mode) };
       },
-      valueLine(voice, _mode, s) {
-        const { layer, r, name } = head(voice);
-        return frontLoad([relative && abbrev(layer.status), name, readingText(t, layer, r, s.degree), placeText(t, layer, needle),
-          timeText(layer, step), abbrev(manifest.badge), !relative && abbrev(layer.status)]);
-      },
-      reviewLine(voice, _mode, s) {
-        const { layer, r } = head(voice);
-        const time = timeText(layer, step);
-        return clean(t("braille.reviewLine", { name: `SVS ${svs} ${layer.label}`, value: readingText(t, layer, r, s.degree),
-          place: `${placeText(t, layer, needle)}${time ? `, ${time}` : ""}`, time: "", badge: manifest.badge, status: layer.status }));
+      reading(voice) {
+        return officialReading(manifest, layerOf(voice), read(voice, step, needle), needle, step);
       },
       go(_voice, mode, p) {
         if (mode === "time") setStep(p.step);
         else moveNeedle(p.at);
       },
     };
-  }, [manifest, option, grids, ready, step, steps, needle, moveNeedle, setStep, t]);
+  }, [manifest, option, grids, ready, step, steps, needle, moveNeedle, setStep]);
 }

@@ -151,3 +151,26 @@ export function wrapText(lines: readonly string[], width: number): string[] {
   }
   return out;
 }
+
+/** Long names a short line abbreviates (part of the one abbreviation set; BRAILLE.md lists it). */
+export const NAME_ABBREV: Record<string, string> = {
+  "sea surface temperature": "SST",
+  "sea surface salinity": "SSS",
+  "land surface temperature": "LST",
+  "aerosol optical depth": "AOD",
+  "carbon monoxide": "CO",
+  "tropospheric no2": "NO2",
+  "vegetation index": "NDVI",
+  "lightning flash rate": "flash rate",
+  "lightning flash rate climatology": "flash rate",
+  "sea ice concentration": "sea ice",
+  "night lights": "night lights",
+  "rain and snow rate": "rain rate",
+  "chlorophyll a": "chl a",
+};
+
+/** A name as a short line writes it: its abbreviation, or the name itself. */
+export function shortNameOf(name: string): string {
+  const key = clean(name).toLowerCase();
+  return NAME_ABBREV[key] ?? clean(name);
+}

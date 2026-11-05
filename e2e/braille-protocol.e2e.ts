@@ -131,3 +131,37 @@ test("protocol a–g, browser side; lines saved for liblouis", async ({ page, br
   mkdirSync(dir, { recursive: true });
   writeFileSync(join(dir, `braille-lines-${browserName}.json`), JSON.stringify(out, null, 1), "utf8");
 });
+
+test("বাংলা mode: the same records' lines saved for the Bengali-table liblouis check", async ({ page, browserName }) => {
+  const out: Record<string, unknown> = { browser: browserName, lang: "bn", date: new Date().toISOString() };
+  await start(page);
+  await page.getByRole("button", { name: "বাংলা" }).click();
+  await page.locator("#sound-map").focus();
+  await page.keyboard.press("b");
+  await expect(page.getByTestId("braille-shape")).toBeFocused();
+  const live: Record<string, unknown> = {};
+  for (const [name, voice, mode] of [["SST along the latitude", "SST", "Along the latitude"], ["Rain through time", "Rain", "Through time"],
+    ["SST 3 by 3", "SST", "3 by 3 around the needle"]] as const) {
+    await chooseVoiceAndMode(page, voice, mode);
+    await expect(page.getByTestId("braille-shape")).toHaveValue(/^(স্কেল|আপেক্ষিক)/u);
+    live[name] = await lines(page);
+  }
+  out.live = live;
+  await page.keyboard.press("Escape");
+  await page.getByRole("tab", { name: /Official|অফিশিয়াল/u }).click();
+  const official: Record<string, unknown> = {};
+  for (const o of OFFICIAL) {
+    await page.getByRole("button", { name: o.title, exact: true }).first().click();
+    const open = page.getByRole("button", { name: /Braille explorer/u }).last();
+    await expect(open).toBeEnabled({ timeout: 60_000 });
+    await open.click();
+    await expect(page.getByTestId("braille-value")).toHaveValue(/\S/u);
+    official[o.record] = await lines(page);
+    await page.getByRole("button", { name: /Close braille explorer/u }).click();
+  }
+  out.official = official;
+  out.map = { snapshot: (await page.locator("body").ariaSnapshot()).split("\n")[0] };
+  const dir = join(process.cwd(), "data_raw", "_tmp");
+  mkdirSync(dir, { recursive: true });
+  writeFileSync(join(dir, `braille-lines-${browserName}-bn.json`), JSON.stringify(out, null, 1), "utf8");
+});

@@ -6,10 +6,12 @@
 import { describe, expect, test } from "bun:test";
 import { readdirSync, readFileSync, existsSync } from "node:fs";
 import { join } from "node:path";
-import { scaleHeading, voiceScale } from "@/a11y/brailleSource";
-import { STATUS_BUDGET, brailleNumber, frontLoad, violations } from "@/a11y/brailleText";
+import { bnScaleHeading, scaleHeading, voiceScale } from "@/a11y/brailleSource";
+import { STATUS_BUDGET, brailleNumber, violations } from "@/a11y/brailleText";
 import { recordBrailleLabel } from "@/components/OfficialRecords/braille-label";
-import { placeText, readingText, timeText } from "@/components/OfficialRecords/braille-lines";
+import { decimalsOf, officialReading } from "@/components/OfficialRecords/braille-lines";
+import { banglaLine, uebLine } from "@/a11y/brailleLines";
+import { bnNumber, bnTableSafe } from "@/a11y/brailleBangla";
 import { bindT, en } from "@/lib/i18n";
 import type { OfficialIndex, OfficialManifest } from "@/types/data-contract";
 
@@ -64,14 +66,20 @@ describe("value lines from every shipped manifest", () => {
   test("there are records to check", () => expect(all.length).toBeGreaterThan(40));
 
   test("value line and scale heading pass the rules; numbers trace to the manifest", () => {
+    const over: string[] = [];
     for (const m of all) {
       for (const layer of m.layers) {
         const [lo] = layer.value_range ?? [0];
-        const line = frontLoad([`${m.svs_ids[0]} ${layer.id.replace(/_/gu, " ")}`, readingText(t, layer, { value: lo, below: false }, "word"),
-          placeText(t, layer, { lat: 21.5, lon: 89.8 }), timeText(layer, 0), m.badge, layer.status]);
+        const r = officialReading(m, layer, { value: lo, below: false }, { lat: 21.5, lon: 89.8 }, 0);
+        const line = uebLine(t, r, "word");
         expect([m.record, layer.id, violations(line)]).toEqual([m.record, layer.id, []]);
         // The value shown is the manifest's own number at the stated precision.
-        expect(line).toContain(readingText(t, layer, { value: lo, below: false }, "word").split(" ")[0]);
+        expect(line).toContain(brailleNumber(lo, decimalsOf(layer, lo)));
+        if ([...line].length > STATUS_BUDGET) over.push(`${m.record}/${layer.id}: ${line}`);
+        // The Bengali-table line: Bangla only (no Latin, no colon, no dot between digits), the same number.
+        const bn = banglaLine(r);
+        expect([m.record, layer.id, bnTableSafe(bn), bn]).toEqual([m.record, layer.id, true, bn]);
+        expect(bn).toContain(bnNumber(lo, decimalsOf(layer, lo)));
       }
       for (const option of m.play) {
         for (const c of option.channels) {
@@ -81,9 +89,13 @@ describe("value lines from every shipped manifest", () => {
           const heading = scaleHeading({ ...s, unit: layer.unit }, "word", "Scale");
           expect([m.record, c.voice, violations(heading)]).toEqual([m.record, c.voice, []]);
           expect(heading.startsWith("Scale ")).toBe(true);
+          const bnHeading = bnScaleHeading({ ...s, unit: layer.unit }, false);
+          expect([m.record, c.voice, bnTableSafe(bnHeading), bnHeading]).toEqual([m.record, c.voice, true, bnHeading]);
         }
       }
     }
+    // The core reading fits one 40-cell line (only optional parts drop): any line over 40 is listed here.
+    expect(over).toEqual([]);
   });
 
   test("record cards' braille labels fit 40 cells", () => {

@@ -26,18 +26,18 @@ const FIELD = "w-full rounded-md border border-line bg-night px-3 py-2 text-body
  */
 export function BrailleExplorer({ source, onClose, className }: { source: BrailleSource; onClose: () => void; className?: string }) {
   const t = useT();
-  const { settings, updateSettings, channel, setChannel, modes, mode, chooseMode, shape, valueLine, review, toggleReview, level, setField, onCaret, blockEdit, blockEditKeys, onKeyDown } =
-    useBrailleExplorer(source, onClose);
+  const { settings, updateSettings, channel, setChannel, modes, mode, chooseMode, shape, valueLine, review, toggleReview, level, setField, lang,
+    onCaret, onValueFocus, blockEdit, blockEditKeys, onKeyDown } = useBrailleExplorer(source, onClose);
   const headingId = useId();
   const helpId = useId();
   const valueId = useId();
   const shapeId = useId();
   const lines = shape ? shape.text.split("\n").length : 1;
-  const shapeProps = {
-    id: shapeId,
+  // Both lines are real text fields, so the caret moves with arrows, Home, End and routing keys (a read-only
+  // field's caret doesn't, in Chromium), marked aria-readonly with every edit blocked.
+  const readOnlyField = {
     "aria-readonly": true,
     inputMode: "none" as const,
-    value: shape?.text ?? t("braille.loading"),
     onChange: () => {},
     onBeforeInput: blockEdit,
     onPaste: blockEdit,
@@ -45,6 +45,12 @@ export function BrailleExplorer({ source, onClose, className }: { source: Braill
     onDrop: blockEdit,
     onKeyDown: blockEditKeys,
     spellCheck: false,
+    lang: lang === "bn" ? "bn" : undefined,
+  };
+  const shapeProps = {
+    ...readOnlyField,
+    id: shapeId,
+    value: shape?.text ?? t("braille.loading"),
     "aria-describedby": helpId,
     "aria-roledescription": t("braille.shapeRole"),
     ...brailleRole(t("braille.bl.shape")),
@@ -78,7 +84,7 @@ export function BrailleExplorer({ source, onClose, className }: { source: Braill
         <label htmlFor={valueId} className="text-small text-haze">
           {t("braille.valueLine")}
         </label>
-        <input id={valueId} readOnly value={valueLine} data-testid="braille-value" className={FIELD} />
+        <input {...readOnlyField} id={valueId} value={valueLine} onFocus={onValueFocus} data-testid="braille-value" className={FIELD} />
       </div>
 
       <div className="space-y-1">

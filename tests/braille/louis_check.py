@@ -4,7 +4,8 @@ Translates the value and shape lines Playwright saved (data_raw/_tmp/braille-lin
 mode |= dotsIO (braille/regions/base.pyc, louisHelper.pyc), keeping the low 8 bits of each cell as its dots.
   b) every Unicode braille cell (U+2800–U+28FF) in a line must come out as the same dots, one cell for one cell;
   c) numbers, decimal points, units, N/E and times: their cells and what the table back-translates them to.
-Usage (from the repo root): python tests/braille/louis_check.py [chromium|firefox]  (NVDA folder: $BLOOP_NVDA)
+Usage (from the repo root): python tests/braille/louis_check.py [chromium|firefox] [bn]  (NVDA folder: $BLOOP_NVDA);
+"bn" checks the বাংলা-mode lines with the Bengali table
 Writes data_raw/_tmp/louis-check.json and prints a summary."""
 import json, os, re, sys
 NVDA = os.environ.get("BLOOP_NVDA", r"D:\Jukebox\tools\nvda")
@@ -72,5 +73,35 @@ def main():
         print(f"\n== {name}: check b: {cells - changed}/{cells} braille cells unchanged in {len(t['b'])} shape lines; runs one-to-one: {runs}")
         for tok, x in t["c"].items(): print(f"   {tok!r:>10} -> {x['cells']}  dots {x['dots']}  back: {x['back']!r}")
 
-if __name__ == "__main__":
+if __name__ == "__main__" and not (len(sys.argv) > 2 and sys.argv[2] == "bn"):
     main()
+
+
+def bangla(browser):
+    """Check c for বাংলা mode: the Bengali-table lines (data_raw/_tmp/braille-lines-<browser>-bn.json) through bn.tbl,
+    forward and back: does every number come back as the same digits, and does the whole line come back unchanged?"""
+    data = json.load(open(os.path.join("data_raw", "_tmp", f"braille-lines-{browser}-bn.json"), encoding="utf-8"))
+    items = {f"live: {k}": v for k, v in data["live"].items()} | {f"official: {k}": v for k, v in data["official"].items()}
+    out = {"liblouis": louis.version(), "browser": browser, "table": "bn.tbl", "lines": {}}
+    for label, v in items.items():
+        for kind, text in (("value", v["value"]), ("heading", v["shape"].splitlines()[0])):
+            cells = translate("Bengali", text)[0]
+            backed = back("Bengali", cells)
+            # Each number, alone and in its place in the line: it must read back as the same Bangla numerals.
+            nums = sorted(set(re.findall(r"-?[0-9০-৯]+", text)))
+            bn = lambda n: n.translate(str.maketrans("0123456789", "০১২৩৪৫৬৭৮৯"))
+            num_back = {n: back("Bengali", translate("Bengali", n)[0]) for n in nums}
+            in_line = [n for n in nums if bn(n) not in backed]
+            out["lines"][f"{label} / {kind}"] = {"text": text, "cells": cells, "back": backed, "round_trip": backed == text,
+                                                 "numbers": num_back, "numbers_ok": all(bn(a) == b for a, b in num_back.items()) and not in_line,
+                                                 "numbers_wrong_in_line": in_line}
+    json.dump(out, open(os.path.join("data_raw", "_tmp", f"louis-check-bn-{browser}.json"), "w", encoding="utf-8"), ensure_ascii=False, indent=1)
+    print("liblouis", out["liblouis"], "| Bengali table | বাংলা-mode lines from", browser)
+    for k, x in out["lines"].items():
+        print(f"\n== {k}: round trip {'same' if x['round_trip'] else 'DIFFERS'}; numbers {'all same' if x['numbers_ok'] else 'DIFFER'}")
+        print("   text :", x["text"]); print("   back :", x["back"])
+        if not x["numbers_ok"]:
+            print("   numbers alone:", {a: b for a, b in x["numbers"].items() if a.translate(str.maketrans("0123456789", "০১২৩৪৫৬৭৮৯")) != b}, "| wrong in the line:", x["numbers_wrong_in_line"])
+
+if __name__ == "__main__" and len(sys.argv) > 2 and sys.argv[2] == "bn":
+    bangla(sys.argv[1])
