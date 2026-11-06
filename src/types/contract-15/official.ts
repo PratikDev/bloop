@@ -121,7 +121,8 @@ export interface OfficialManifest {
   title: string;
   svs_pages: string[];
   description: string;
-  release_date: string;
+  /** null for a record with no SVS page of its own (the GIBS layers, NOAA OISST). */
+  release_date: string | null;
   period: { start: string; end: string; label: string };
   badge: OfficialBadge;
   credits_by_role: Record<string, string[]>;
