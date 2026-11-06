@@ -674,7 +674,7 @@ Every rule below is shown to users in the Mapping panel. Mappings marked **(desi
 | Truth panel (rain) | "Checked against NASA IMERG (Late run): typically within ~27% (150 rain points, one frame); agreed on where it was raining at every sampled point." |
 | Frame label | "EIC frame: [product], [date time UTC]. Sound generated live from this frame." |
 | Heat comparison | "Dhaka, April–May: +1.37 °C (NASA GISTEMP, 1981–1990 vs 2016–2025, 10 years each)." |
-| Rain comparison | "Dhaka, June–September: not wetter. GPCP −9% (1981–1990 vs 2016–2025); rain gauges (GPCC) −12% (1981–1990 vs 2010–2019)." |
+| Rain comparison | "Dhaka, June–September: no wetter in these records. GPCP −9% (1981–1990 vs 2016–2025); rain gauges (GPCC) −12% (1981–1990 vs 2010–2019)." |
 | Water comparison | "Water storage (GRACE): Bangladesh +0.83 → −5.82 cm; NW India +8.71 → −53.63 cm (2003–06 vs 2021–24). Silence = no satellite measurements (Jul 2017–May 2018)." |
 | Fires | "Example years, same sensor (MODIS): CHT Mar–Apr 4,954 (2003) vs 4,033 (2023)." |
 | GLOBE (teaser) | "Citizen observers vs satellite: two perspectives, not right vs wrong." |

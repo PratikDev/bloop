@@ -1,27 +1,26 @@
 // English UI strings: shell, controls, map, readout, help.
 
+import { CREDIT_NAMES } from "../credits";
 import { formatDegrees, formatRainRate, formatTemperature } from "../format";
 import { PLACE_NAMES_EN } from "./places";
+import { APP_NAME } from "../brand";
 
 const deg = (v: number) => formatDegrees(v, "en");
 
 export const appEn = {
-  "app.title": "Earth Information Jukebox",
-  "app.skipToMap": "Skip to the sound map",
+  "app.title": APP_NAME,
 
-  "start.lead": "Hear NASA's view of today's ocean and rain as live sound.",
+  "start.lead": "Hear NASA's view of the latest ocean and rain as live sound.",
   "start.hint": "Headphones help: west sounds left, east sounds right.",
   "start.button": "Start listening",
   "start.silent": "Explore without sound",
   "start.silentHint": "Values appear as text and captions. You can turn sound on at any time.",
-  "start.loading": "Loading today's ocean frame",
+  "start.loading": "Loading the latest ocean frame",
   "start.skipIntro": "Skip intro",
 
-  "mode.label": "Mode",
   "mode.explore": "Explore",
-  "mode.story": "Story",
+  "mode.story": "Tour",
   "mode.thenNow": "Then vs Now",
-  "mode.notReady": "Not ready yet",
 
   "track.label": "What you hear",
   "track.ocean": "Ocean",
@@ -39,14 +38,10 @@ export const appEn = {
   "lang.en": "English",
   "lang.bn": "বাংলা",
 
-  "motif.play": "Play the Jukebox motif",
+  "motif.play": `Play the ${APP_NAME} motif`,
   "help.open": "Help",
   "help.keys": "Keys",
-  "panels.open": "Panels",
 
-  "badge.interimEngine": "Interim sound engine",
-  "badge.interimEngineHint": "A simple stand-in engine. The team's full sound engine replaces it soon.",
-  "badge.pending": "Pending team approval",
   "badge.comingOctober": "Coming in October",
   "badge.loadingRain": "Loading rain",
 
@@ -113,6 +108,7 @@ export const appEn = {
   "timelapse.stop": "Stop time-lapse",
   "timelapse.loadingStart": "Loading the time-lapse frames",
   "timelapse.loading": (p: { loaded: number; total: number }) => `Loading the time-lapse: ${p.loaded} of ${p.total} files`,
+  "timelapse.loadingShort": (p: { percent: number }) => `Loading ${p.percent}%`,
   "timelapse.error": "Couldn't load the time-lapse frames. Reload the page to try again.",
   "timelapse.announceStart": (p: { count: number; from: string; to: string }) =>
     `Storm time-lapse: ${p.count} rain frames, ${p.from} to ${p.to} UTC. The cursor follows the heaviest rain near Bangladesh.`,
@@ -135,12 +131,15 @@ export const appEn = {
   "announce.started": "Sound started. The cursor is over the Bay of Bengal. Arrow keys move it.",
 
   // Team plan §15 wording, split into what the app uses and what only our tests used
-  // (contract-proposals E3). Dataset names stay in English.
-  "credits.visualizations": "Visualizations: NASA's Scientific Visualization Studio (SVS 5101, 4285) for the NASA Earth Information Center.",
-  "credits.data":
-    "Data in this app: MUR SST (NASA/JPL PO.DAAC); GPM IMERG (NASA/JAXA, GES DISC); GRACE/GRACE-FO JPL mascons RL06.3Mv04 (NASA/JPL PO.DAAC); NASA GISTEMP v4; GPCP v2.3 and GPCC Full Data v2020 (via NOAA PSL).",
-  "credits.testing": "Also used in our testing: NASA FIRMS; MODIS MOD13Q1 via ORNL DAAC; NASA GLOBE Program.",
+  // (contract-proposals E3). FIRMS, MODIS and GLOBE moved into the app on 28 Sep (fires,
+  // vegetation, the GLOBE teaser); POWER is shown only as the record we dropped. Dataset names stay in English.
+  "credits.visualizations": `Visualizations: ${CREDIT_NAMES.svs} for the ${CREDIT_NAMES.eic}.`,
+  "credits.data": `Data in this app: ${CREDIT_NAMES.data}.`,
+  "credits.testing": `Also used in our testing: ${CREDIT_NAMES.power} (dropped: it disagreed with independent records).`,
 
-  "error.ocean": "Couldn't load today's ocean frame. Check the connection and reload the page.",
-  "error.rain": "Couldn't load today's rain frame. Ocean sound still works; reload the page to try again.",
+  "error.ocean": "Couldn't load the latest ocean frame. Check the connection and reload the page.",
+  "error.rain": "Couldn't load the latest rain frame. Ocean sound still works; reload the page to try again.",
+
+  // English prose from a data file (L1's JSON, L2's mapping.json), shown as the file gives it.
+  "data.text": (p: { text: string }) => p.text,
 };

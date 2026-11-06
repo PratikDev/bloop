@@ -5,6 +5,7 @@
 import { expect, test, type Page } from "@playwright/test";
 import { mkdirSync, writeFileSync } from "node:fs";
 import { join } from "node:path";
+import { navTo, open } from "./lib/app";
 
 const CONTINUES = "⣿";
 const OFFICIAL = [
@@ -13,11 +14,9 @@ const OFFICIAL = [
   { record: "lightning_5011", title: "Lightning from the ISS (observation, 2017–23)" },
 ];
 
+/** Past Start and the intro (lib/app.ts), on Listen's map with focus on it. */
 async function start(page: Page) {
-  await page.goto("/");
-  await page.getByRole("button", { name: "Start listening" }).click();
-  const skip = page.getByRole("button", { name: "Skip intro" });
-  if (await skip.isVisible().catch(() => false)) await skip.click();
+  await open(page);
   await page.locator("#sound-map").focus();
 }
 
@@ -112,7 +111,7 @@ test("protocol a–g, browser side; lines saved for liblouis", async ({ page, br
   out.g = { liveRegion: (await page.getByTestId("live-region").textContent())?.trim() };
 
   // Official records: a record card (check a), then its explorer's lines.
-  await page.getByRole("tab", { name: "Official" }).click();
+  await navTo(page, "Official records");
   const official: Record<string, unknown> = {};
   for (const [i, o] of OFFICIAL.entries()) {
     const card = page.getByRole("group", { name: "Records", exact: true }).getByRole("button", { name: o.title, exact: true });
@@ -148,7 +147,7 @@ test("বাংলা mode: the same records' lines saved for the Bengali-table 
   }
   out.live = live;
   await page.keyboard.press("Escape");
-  await page.getByRole("tab", { name: /Official|অফিশিয়াল/u }).click();
+  await navTo(page, "Official records");
   const official: Record<string, unknown> = {};
   for (const o of OFFICIAL) {
     await page.getByRole("button", { name: o.title, exact: true }).first().click();

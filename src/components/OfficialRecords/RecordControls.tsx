@@ -2,7 +2,7 @@
 
 import { Button } from "@/components/ui/button";
 import { brailleLabel } from "@/a11y/aria";
-import { audio } from "@/lib/audio-adapter";
+import { audio } from "@/lib/audio-jukebox";
 import type { OfficialPlayOption } from "@/types/data-contract";
 import { useAppState, useT } from "../AppState/use-app-state";
 import { ChoiceGroup } from "../ChoiceGroup";

@@ -51,23 +51,25 @@ export function Readout({ className }: { className?: string }) {
   const fallback = track === "rain" ? rainText(t, r.rain, r.rainLoaded) : t("reading.oceanNone");
 
   return (
-    <div className={cn("space-y-1", className)}>
-      <div aria-hidden="true" className="space-y-1">
-        <p key={main?.figure ?? fallback} className="duration-100 animate-in fade-in">
+    <div data-slot="readout" className={cn("space-y-2", className)}>
+      {/* From 1024 px off the map: one line under it, or a column beside it when the screen is wide (Listen). */}
+      <div aria-hidden="true" className="space-y-1.5 lg:flex lg:flex-wrap lg:items-baseline lg:gap-x-6 lg:space-y-0 lg:listen-wide:block lg:listen-wide:space-y-1.5">
+        <p key={main?.figure ?? fallback} className="duration-150 animate-in fade-in slide-in-from-bottom-1">
           {main ? (
-            <span className="readout-figure text-readout-mobile md:text-readout">
+            <span className="readout-figure text-readout-mobile md:text-readout lg:text-readout-strip lg:listen-wide:text-readout-mobile 2xl:listen-wide:text-readout">
               <Figure text={main.figure} lang={state.lang} />
-              <span className="text-lead font-medium text-haze">{" " + t(main.unit)}</span>
+              <span className="font-sans text-lead text-haze">{" " + t(main.unit)}</span>
             </span>
           ) : (
-            <span className="text-title font-medium">{fallback}</span>
+            <span className="font-serif text-title">{fallback}</span>
           )}
         </p>
-        {track === "both" && <p className="text-lead font-medium">{rainText(t, r.rain, r.rainLoaded)}</p>}
-        <p className="text-lead font-medium">{t("place.latlon", cursor)}</p>
-        {timelapse && <p className="text-small text-haze">{t("timelapse.frame", { index: timelapse.index + 1, total: timelapse.total })}</p>}
+        {track === "both" && <p className="text-lead">{rainText(t, r.rain, r.rainLoaded)}</p>}
+        <p className="font-mono text-body tracking-tight text-moon">{t("place.latlon", cursor)}</p>
+        {timelapse && <p className="font-mono text-small text-shapla">{t("timelapse.frame", { index: timelapse.index + 1, total: timelapse.total })}</p>}
       </div>
-      <FrameLabel className="max-w-md pt-1" />
+      {/* From 1024 px the frame times sit in the page head, above the map. */}
+      <FrameLabel className="max-w-md border-t border-glass-edge pt-2 lg:hidden" />
     </div>
   );
 }

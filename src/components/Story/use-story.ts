@@ -3,14 +3,16 @@
 import { createContext, useContext } from "react";
 import type { TrackMode } from "@/lib/audio-adapter/types";
 import type { LatLon } from "@/lib/data";
+import type { TimeLapseFrame } from "../TimeLapse/use-time-lapse";
 
 export type StoryStepId = "hum" | "sweep" | "storm" | "whisper" | "xray" | "truth";
 export type StoryStatus = "idle" | "playing" | "finished";
 
-/** Where Story Mode points the map: today's frames at this point, on this track. */
+/** Where Story Mode points the map: the latest frames at this point, on this track, or one time-lapse frame held on screen. */
 export interface StoryFocus {
   point: LatLon;
   track: TrackMode;
+  frame?: TimeLapseFrame;
 }
 
 /** The line being narrated, and the dataset it names (the satellite whisper). */

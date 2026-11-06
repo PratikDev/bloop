@@ -2,20 +2,33 @@
 
 import { useEffect, useState } from "react";
 
+export type LoadStatus = "loading" | "ready" | "error";
+
+export interface Loaded<T> {
+  value: T | null;
+  status: LoadStatus;
+  /** status === "error": the caller shows its own message, never a guess. */
+  error: boolean;
+}
+
 /**
- * A file loaded once when the component mounts. `loader` must be stable (a module-level
- * function). error = true if it failed: the caller shows its own message, never a guess.
+ * Runs `load` once `enabled` is true and keeps its result. `load` must be a
+ * stable function (defined outside the component). A result that arrives after
+ * unmount is dropped.
  */
-export function useLoaded<T>(loader: () => Promise<T>): { value: T | null; error: boolean } {
-  const [state, setState] = useState<{ value: T | null; error: boolean }>({ value: null, error: false });
+export function useLoaded<T>(load: () => Promise<T>, enabled = true): Loaded<T> {
+  const [result, setResult] = useState<{ value: T | null; status: LoadStatus }>({ value: null, status: "loading" });
+
   useEffect(() => {
+    if (!enabled) return;
     let cancelled = false;
-    loader()
-      .then((value) => !cancelled && setState({ value, error: false }))
-      .catch(() => !cancelled && setState({ value: null, error: true }));
+    load()
+      .then((value) => !cancelled && setResult({ value, status: "ready" }))
+      .catch(() => !cancelled && setResult({ value: null, status: "error" }));
     return () => {
       cancelled = true;
     };
-  }, [loader]);
-  return state;
+  }, [load, enabled]);
+
+  return { ...result, error: result.status === "error" };
 }

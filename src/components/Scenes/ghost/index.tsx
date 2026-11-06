@@ -1,8 +1,8 @@
 "use client";
 
 import { useMemo, useRef, useState, type KeyboardEvent } from "react";
-import { audio } from "@/lib/audio-adapter";
-import type { CompareSide, ContextVoice, PlayerHandle } from "@/lib/audio-adapter/types";
+import { audio } from "@/lib/audio-jukebox";
+import type { CompareSide, ContextVoice, PlayerHandle } from "@/lib/audio-jukebox/types";
 import { cellCentre } from "@/lib/data/global";
 import { formatDegrees, formatFixed, formatSigned, type Lang } from "@/lib/i18n";
 import type { GlobalLayerName } from "@/types/data-contract";

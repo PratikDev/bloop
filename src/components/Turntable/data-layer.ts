@@ -3,7 +3,7 @@
 // realistic continents show through), and the rain frame (already transparent
 // where dry). Same equirectangular layout as every grid, so it stays aligned.
 
-import type { TrackMode } from "@/lib/audio-adapter/types";
+import type { TrackMode } from "@/lib/audio-jukebox/types";
 import type { Palette } from "@/lib/css-tokens";
 import type { SstField } from "@/lib/data";
 import type { Reading } from "@/lib/reading";

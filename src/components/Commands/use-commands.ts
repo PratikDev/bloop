@@ -18,9 +18,11 @@ export const SETTING_LABELS = {
 } as const satisfies Record<SettingKey, string>;
 
 export const MODE_LABELS = {
+  home: "nav.home",
   explore: "mode.explore",
   story: "mode.story",
   thenNow: "mode.thenNow",
+  how: "nav.how",
   turntable: "mode.turntable",
   official: "mode.official",
 } as const satisfies Record<Mode, string>;
@@ -40,8 +42,12 @@ export type Line = (t: BoundT, lang: Lang) => string;
 export interface Commands {
   start(): Promise<void>;
   startSilent(): void;
+  /** Forgets the sound choice (Home's reset): stops all sound, the Start buttons come back. */
+  resetStart(): void;
   enableSound(): Promise<void>;
   moveCursor(dLat: number, dLon: number): void;
+  /** Puts the cursor at an exact place (Go to). */
+  setCursor(cursor: LatLon): void;
   setTrack(track: TrackMode): void;
   setMode(mode: Mode): void;
   setLang(lang: Lang): void;

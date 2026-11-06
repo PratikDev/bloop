@@ -4,15 +4,14 @@
 import { expect, test, type Page } from "@playwright/test";
 import { readFileSync } from "node:fs";
 import { join } from "node:path";
+import { navTo, open } from "./lib/app";
 
 const AXE = readFileSync(join(process.cwd(), "node_modules", "axe-core", "axe.min.js"), "utf8");
 const CONTINUES = "\u28FF";
 
+/** Past Start and the intro (lib/app.ts), on Listen's map with focus on it. */
 async function start(page: Page) {
-  await page.goto("/");
-  await page.getByRole("button", { name: "Start listening" }).click();
-  const skip = page.getByRole("button", { name: "Skip intro" });
-  if (await skip.isVisible().catch(() => false)) await skip.click();
+  await open(page);
   await page.locator("#sound-map").focus();
 }
 
@@ -59,7 +58,7 @@ test("width 20 wraps with the continuation marker; R reviews in words", async ({
 
 test("an official record: B on the record opens its explorer", async ({ page }) => {
   await start(page);
-  await page.getByRole("tab", { name: "Official" }).click();
+  await navTo(page, "Official records");
   const open = page.getByRole("button", { name: "Braille explorer" }).last();
   await expect(open).toBeEnabled({ timeout: 60_000 });
   await open.click();
@@ -78,8 +77,24 @@ test("axe: no serious violations with the explorer open", async ({ page }) => {
   await page.addScriptTag({ content: AXE });
   const result = await page.evaluate(async () => {
     const axe = (window as unknown as { axe: { run: (c: unknown, o: unknown) => Promise<{ violations: { id: string; impact: string; nodes: { target: string[] }[] }[] }> } }).axe;
-    return axe.run(document, { resultTypes: ["violations"] });
+    // A chosen option (main's ChoiceGroup) is ink on a gliding pill drawn behind it as its own layer, which axe can't
+    // see (it measures the ink against the group's dark background, 1.05:1). Those are measured below instead.
+    return axe.run({ exclude: [['[data-slot="toggle-group-item"][aria-pressed="true"]']] }, { resultTypes: ["violations"] });
   });
+  // The chosen options' real contrast: their text colour against the pill's colour (WCAG 2 relative luminance).
+  const chosen = await page.locator('[data-slot="toggle-group-item"][aria-pressed="true"]').evaluateAll((items) => {
+    const lum = (rgb: string) => {
+      const [r, g, b] = (rgb.match(/[\d.]+/gu) ?? []).slice(0, 3).map((v) => Number(v) / 255).map((c) => (c <= 0.03928 ? c / 12.92 : ((c + 0.055) / 1.055) ** 2.4));
+      return 0.2126 * r + 0.7152 * g + 0.0722 * b;
+    };
+    return items.map((item) => {
+      const pill = item.querySelector("span[aria-hidden='true']");
+      const [fg, bg] = [lum(getComputedStyle(item).color), lum(pill ? getComputedStyle(pill).backgroundColor : "rgb(0,0,0)")];
+      return (Math.max(fg, bg) + 0.05) / (Math.min(fg, bg) + 0.05);
+    });
+  });
+  expect(chosen.length).toBeGreaterThan(0);
+  for (const ratio of chosen) expect(ratio).toBeGreaterThanOrEqual(4.5);
   const serious = result.violations.filter((v) => v.impact === "serious" || v.impact === "critical");
   console.log(JSON.stringify(result.violations.map((v) => ({ id: v.id, impact: v.impact, n: v.nodes.length, at: v.nodes.slice(0, 3).map((n) => n.target.join(" ")) })), null, 1));
   expect(result.violations.filter((v) => v.id === "aria-braille-equivalent")).toEqual([]);

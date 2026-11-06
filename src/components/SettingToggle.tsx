@@ -4,7 +4,7 @@ import { useAppState, useT } from "./AppState/use-app-state";
 import { SETTING_LABELS, useCommands, type SettingKey } from "./Commands/use-commands";
 import { OnOffToggle } from "./OnOffToggle";
 
-/** An on/off app setting. */
+/** An on/off setting: a pressed-state button, its state drawn as a small switch (shape, not colour alone). */
 export function SettingToggle({ setting, className }: { setting: SettingKey; className?: string }) {
   const { state } = useAppState();
   const commands = useCommands();

@@ -9,11 +9,12 @@ import { hearLine } from "@/lib/what-you-hear";
 import { useAppState, useT } from "./AppState/use-app-state";
 import { useLiveData } from "./LiveData/use-live-data";
 import { SourceBadges } from "./SourceBadges";
-import { useTimeLapse } from "./TimeLapse/use-time-lapse";
+import { useShownPoint } from "./TimeLapse/use-shown-point";
 
 /**
  * Plan §16 frame label for every frame on screen. The frame time is always
- * visible; during the time-lapse it is the time of the frame being shown.
+ * visible; during the time-lapse (or while the tour holds one of its frames)
+ * it is the time of the frame being shown. Only the frames of the track shown.
  * Each frame carries its source and data-age badges (meta/freshness.json).
  */
 export function FrameLabel({ className }: { className?: string }) {
@@ -22,12 +23,12 @@ export function FrameLabel({ className }: { className?: string }) {
   const t = useT();
   const freshness = useFreshness();
   const [now] = useState(Date.now);
-  const { current } = useTimeLapse();
-  const frames = current
-    ? [{ product: t("frame.product.rain"), time: current.timeUtc, voice: "rain" as const }]
+  const { track, timelapse } = useShownPoint();
+  const frames = timelapse
+    ? [{ product: t("frame.product.rain"), time: timelapse.timeUtc, voice: "rain" as const }]
     : [
-        state.track !== "rain" && sst ? { product: t("frame.product.ocean"), time: sst.meta.frame_time_utc, voice: "ocean" as const } : null,
-        state.track !== "ocean" && rain ? { product: t("frame.product.rain"), time: rain.meta.frame_time_utc, voice: "rain" as const } : null,
+        track !== "rain" && sst ? { product: t("frame.product.ocean"), time: sst.meta.frame_time_utc, voice: "ocean" as const } : null,
+        track !== "ocean" && rain ? { product: t("frame.product.rain"), time: rain.meta.frame_time_utc, voice: "rain" as const } : null,
       ].filter((f) => f !== null);
 
   return (

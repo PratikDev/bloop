@@ -107,7 +107,7 @@ try:
         check(f"F demo {name}", abs(got - want) <= tol, f"got {got} expected {want}")
     # captions must equal TEAM_BUILD_PLAN Section 16 word for word (true minus sign U+2212)
     SEC16 = {"heat": "Dhaka, April–May: +1.37 °C (NASA GISTEMP, 1981–1990 vs 2016–2025, 10 years each).",
-             "rain": "Dhaka, June–September: not wetter. GPCP \u22129% (1981–1990 vs 2016–2025); rain gauges (GPCC) \u221212% (1981–1990 vs 2010–2019).",
+             "rain": "Dhaka, June–September: no wetter in these records. GPCP \u22129% (1981–1990 vs 2016–2025); rain gauges (GPCC) \u221212% (1981–1990 vs 2010–2019).",
              "water": "Water storage (GRACE): Bangladesh +0.83 → \u22125.82 cm; NW India +8.71 → \u221253.63 cm (2003–06 vs 2021–24). "
                       "Silence = no satellite measurements (Jul 2017–May 2018)."}
     for k, want in SEC16.items():

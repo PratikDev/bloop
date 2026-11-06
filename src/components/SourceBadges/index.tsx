@@ -60,7 +60,8 @@ export function SourceBadges({ entry, now, tr, lang, className }: { entry: Fresh
           {tr("badge.partly")}
         </Badge>
       )}
-      <Badge variant="outline" className={cn("text-haze", recorded && "border-dotted text-moon")}>
+      {/* The age line can be long ("Recorded (… days old): older than its freshness limit"): it wraps on a phone. */}
+      <Badge variant="outline" className={cn("h-auto max-w-full shrink whitespace-normal text-haze", recorded && "border-dotted text-moon")}>
         {ageText(entry, now, tr, lang)}
       </Badge>
     </span>

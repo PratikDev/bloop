@@ -242,7 +242,7 @@
           ],
           "same_record_as": null
         },
-        "caption": "Dhaka, June–September: not wetter. GPCP −9% (1981–1990 vs 2016–2025); rain gauges (GPCC) −12% (1981–1990 vs 2010–2019)."
+        "caption": "Dhaka, June–September: no wetter in these records. GPCP −9% (1981–1990 vs 2016–2025); rain gauges (GPCC) −12% (1981–1990 vs 2010–2019)."
       }
     },
     {
@@ -480,7 +480,7 @@
           "shares_cell_with": [],
           "same_record_as": null
         },
-        "caption": "Chattogram, June–September: not wetter. GPCP −6% (1981–1990 vs 2016–2025); rain gauges (GPCC) 0% (1981–1990 vs 2010–2019)."
+        "caption": "Chattogram, June–September: no wetter in these records. GPCP −6% (1981–1990 vs 2016–2025); rain gauges (GPCC) 0% (1981–1990 vs 2010–2019)."
       }
     },
     {
@@ -716,7 +716,7 @@
           "shares_cell_with": [],
           "same_record_as": null
         },
-        "caption": "Rajshahi, June–September: not wetter. GPCP −8% (1981–1990 vs 2016–2025); rain gauges (GPCC) −13% (1981–1990 vs 2010–2019)."
+        "caption": "Rajshahi, June–September: no wetter in these records. GPCP −8% (1981–1990 vs 2016–2025); rain gauges (GPCC) −13% (1981–1990 vs 2010–2019)."
       }
     },
     {
@@ -956,7 +956,7 @@
           ],
           "same_record_as": "Dhaka"
         },
-        "caption": "Sylhet, June–September: not wetter. GPCP −9% (1981–1990 vs 2016–2025); rain gauges (GPCC) −12% (1981–1990 vs 2010–2019). Same GPCP and GPCC grid cells as Dhaka: this is the same record."
+        "caption": "Sylhet, June–September: no wetter in these records. GPCP −9% (1981–1990 vs 2016–2025); rain gauges (GPCC) −12% (1981–1990 vs 2010–2019). Same GPCP and GPCC grid cells as Dhaka: this is the same record."
       }
     }
   ],

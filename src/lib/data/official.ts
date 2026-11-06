@@ -4,7 +4,8 @@
 // range (the value is then the layer's below_range_bound, an upper limit).
 
 import type { OfficialIndex, OfficialLayer, OfficialManifest, OfficialValidationFile } from "@/types/data-contract";
-import { fetchBuffer, fetchJson, gunzip } from "./fetch";
+import { fetchBuffer, fetchJson } from "./fetch";
+import { gunzip } from "./gunzip";
 import { DATA_PATHS } from "./paths";
 import { requirePaths } from "./validate";
 

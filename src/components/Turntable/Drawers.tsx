@@ -9,7 +9,7 @@ import { cn } from "@/lib/utils";
 import { ChoiceGroup } from "../ChoiceGroup";
 import { Mixer } from "../Mixer";
 import { OnOffToggle } from "../OnOffToggle";
-import { PanelTabs } from "../panels/SidePanel";
+import { PanelTabs } from "../panels/PanelTabs";
 import { SettingToggle } from "../SettingToggle";
 import { useTT, type TT } from "./i18n";
 import { TIERS, type Tier } from "./quality";

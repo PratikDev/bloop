@@ -12,7 +12,8 @@ from .app import BROWSERS, results as app_results
 RAW = REPO / "data_raw" / "_tmp"
 OUT = REPO / "docs" / "FEATURES_WORKING.md"
 GROUPS = {"data": "Data and records", "sound": "Sound and mapping", "visuals": "3D and visuals", "jukebox": "Jukebox / turntable UI",
-          "a11y": "Accessibility", "truth": "Truth and provenance panels", "forms": "Deliverable forms", "tools": "Tools"}
+          "a11y": "Accessibility", "truth": "Truth and provenance panels", "pages": "Pages (main's redesign)", "forms": "Deliverable forms",
+          "tools": "Tools"}
 RANK = {"BROKEN": 0, "PARTIAL": 1, "WORKING": 2}
 
 # Named in docs or briefs, not in src/ (the help dialog's "Not built yet" list, and the accessibility brief of 6 Nov 2026).
@@ -40,18 +41,19 @@ NOT_BUILT = [
 
 # Ten to show in Video 2, with the exact click path (used only when the feature is WORKING).
 VIDEO = [
-    ("live-ocean", "Start listening → Skip intro → click the map → press 1 → Shift+Right a few times → Enter"),
-    ("unison", "Explore → click the map → press U (or Truth panel → Hear the nearest checked point)"),
-    ("truth-panel", "Explore → About this sound → Truth (MUR 0.30 °C, IMERG check, three readings)"),
-    ("braille", "Explore → click the map → press B → Down into the shape line → Right arrow"),
-    ("turntable", "Turntable tab → wait for the globe → Details of the value under the needle"),
+    ("live-ocean", "Home → Start listening → Skip intro → (Listen) click the map → press 1 → Shift+Right a few times → Enter"),
+    ("unison", "Listen → click the map → press U (or About this sound → Checks → Hear the nearest checked point)"),
+    ("truth-panel", "Listen → dock: About this sound → Checks (MUR check, unison, three-way, IMERG check, GLOBE teaser)"),
+    ("braille", "Listen → click the map → press B (or dock: Braille explorer) → Down into the shape line → Right arrow"),
+    ("turntable", "Header: Turntable → wait for the globe → Details of the value under the needle"),
     ("turntable-search", "Turntable → Search places → type Dhaka → Enter"),
-    ("official-play", "Official tab → Near-surface temperature (EIC, model) → Play → click the map"),
-    ("record-provenance", "Official tab → any record → Where this comes from (credits, licence, checks)"),
-    ("then-now", "Then vs Now tab (or T on the map) → Play this part → Monsoon rain → Play this part"),
+    ("official-play", "Header: Official records → Near-surface temperature (EIC, model) → Play → click the map"),
+    ("record-provenance", "Official records → any record → Where this comes from (credits, licence, checks)"),
+    ("then-now", "Header: Then vs Now (or T on the map) → Play this part → Monsoon rain → Play this part"),
+    ("month-by-month", "Then vs Now → Month by month → a place → the chart's arrow keys"),
     ("scene-tunnel", "Turntable → Records → Open the Dhaka time tunnel scene → arrows → Esc"),
-    ("bangla", "Top bar → Language → বাংলা"),
-    ("sweep", "Explore → click the map → press S"),
+    ("bangla", "Header → বাংলা"),
+    ("sweep", "Listen → click the map → press S"),
 ]
 
 def _load(mode):

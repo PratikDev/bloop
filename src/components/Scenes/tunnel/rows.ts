@@ -3,7 +3,7 @@
 // windows are built (checked: all 20 demo years match) — and its twelve GPCP
 // months (null where GPCP has no month: before 1979 and after the file ends).
 
-import type { TunnelYear } from "@/lib/audio-adapter/types";
+import type { TunnelYear } from "@/lib/audio-jukebox/types";
 import type { DemoWindow, GistempCellSeries, RainCellSeries } from "@/types/data-contract";
 
 const pad = (m: number) => String(m).padStart(2, "0");

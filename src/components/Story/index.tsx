@@ -3,6 +3,7 @@
 import { useCallback, useEffect, useMemo, useRef, useState, type ReactNode } from "react";
 import { isAbort } from "@/lib/abortable";
 import { audio } from "@/lib/audio-adapter";
+import { MEDIA } from "@/lib/breakpoints";
 import { bindT } from "@/lib/i18n";
 import { useAppState } from "../AppState/use-app-state";
 import { useCommands } from "../Commands/use-commands";
@@ -12,8 +13,8 @@ import { runStory } from "./script";
 import { StoryContext, type StoryFocus, type StoryLine, type StoryStatus, type StoryStepId, type StoryValue } from "./use-story";
 
 /**
- * Story Mode (plan C3): a scripted tour that starts when the Story tab is
- * chosen. Esc, Stop or another mode ends it at once.
+ * Story Mode (plan C3): a scripted tour on the Listen page ("Take the tour").
+ * Esc, Stop or leaving the tour ends it at once.
  */
 export function StoryProvider({ children }: { children: ReactNode }) {
   const { state, dispatch } = useAppState();
@@ -52,7 +53,7 @@ export function StoryProvider({ children }: { children: ReactNode }) {
     audio.silenceLive();
     runStory({
       signal: ctrl.signal,
-      t: bindT(s.lang),
+      t: () => bindT(latest.current.state.lang),
       soundOn: s.soundOn,
       fields: () => latest.current.fields ?? f,
       enterStep(id, at) {
@@ -60,13 +61,16 @@ export function StoryProvider({ children }: { children: ReactNode }) {
         setFocus(at);
       },
       say(line, source) {
-        // On screen in the chosen language (Bangla subtitles); speech may be English (plan §17).
-        setLine({ text: line(bindT(s.lang), s.lang), source: source?.full ?? null });
+        // On screen in the chosen language, read when the line starts (the language can change mid-tour); speech may be English (plan §17).
+        const lang = latest.current.state.lang;
+        setLine({ text: line(bindT(lang), lang), source: source?.full ?? null });
         return latest.current.commands.say(line, source);
       },
       startSweep: () => latest.current.commands.startSweep(),
-      playStorm: () => latest.current.timeLapse.start(),
-      openTruth: () => dispatch({ type: "setPanel", panel: "truth", open: true }),
+      playStorm: (framesAroundPeak) => latest.current.timeLapse.start({ framesAroundPeak }),
+      // From 1024 px the checks open in the Inspector drawer beside the map. Narrower, they would
+      // open as a sheet over the tour and its Stop button; the narrated line already says them.
+      openTruth: () => window.matchMedia(MEDIA.mapOverlay).matches && dispatch({ type: "setPanel", panel: "truth", open: true }),
     })
       .then(() => {
         if (ctrl.signal.aborted) return;
@@ -84,8 +88,9 @@ export function StoryProvider({ children }: { children: ReactNode }) {
       });
   }, [dispatch]);
 
-  // Choosing the Story tab starts the tour; leaving it stops everything it started.
-  const inStory = state.mode === "story" && fields !== null;
+  // Opening the tour (/listen?tour=1) starts it, once Start and the opening are over;
+  // leaving it stops everything it started.
+  const inStory = state.mode === "story" && state.started && state.introDone && fields !== null;
   useEffect(() => {
     if (!inStory) return;
     play();

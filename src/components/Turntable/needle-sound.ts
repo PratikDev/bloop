@@ -8,7 +8,7 @@
 
 import type { LatLon, LiveFields } from "@/lib/data";
 import { readAt, type Reading } from "@/lib/reading";
-import { playReading } from "../Commands/use-sound-sync";
+import { NEEDLE_ENGINE, playReading } from "../Commands/use-sound-sync";
 
 export const CONTROL_HZ = 30;
 const CONTROL_MS = 1000 / CONTROL_HZ;
@@ -39,7 +39,7 @@ export function createNeedleSound(onSend?: (sent: SentReading) => void): NeedleS
       const key = `${reading.ocean.valueC}|${reading.rain.mmPerHour}|${reading.rain.phase}|${Math.round(at.lon)}`;
       if (key === lastKey) return;
       lastKey = key;
-      playReading(reading, at.lon);
+      playReading(reading, at.lon, NEEDLE_ENGINE);
       onSend?.({ time: now, at: { ...at }, reading });
     },
     reset() {

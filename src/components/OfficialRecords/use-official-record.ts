@@ -1,7 +1,7 @@
 "use client";
 
 import { useCallback, useEffect, useMemo, useState } from "react";
-import { audio } from "@/lib/audio-adapter";
+import { audio } from "@/lib/audio-jukebox";
 import {
   clampLat,
   loadOfficialLayer,

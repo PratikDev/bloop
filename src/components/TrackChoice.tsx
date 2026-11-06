@@ -6,7 +6,7 @@ import { ChoiceGroup } from "./ChoiceGroup";
 import { useCommands } from "./Commands/use-commands";
 
 /** Ocean / Rain / Both (keys 1, 2, 3). */
-export function TrackChoice({ className, itemClassName }: { className?: string; itemClassName?: string }) {
+export function TrackChoice({ className, itemClassName, showLabel }: { className?: string; itemClassName?: string; showLabel?: boolean }) {
   const { state } = useAppState();
   const commands = useCommands();
   const t = useT();
@@ -22,6 +22,7 @@ export function TrackChoice({ className, itemClassName }: { className?: string; 
       ]}
       className={className}
       itemClassName={itemClassName}
+      showLabel={showLabel}
     />
   );
 }

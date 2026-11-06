@@ -15,7 +15,7 @@ const TOKENS = [
   "studio-bottom",
   "studio-glow",
   "anodised",
-  "glass",
+  "deck-glass",
   "vinyl",
   "metal",
   "label",

@@ -3,7 +3,7 @@
 // sound. When the needle reaches it, the existing "ping" earcon plays (caption:
 // "Ping: the extreme value in view") and a sparkle shows.
 
-import type { TrackMode } from "@/lib/audio-adapter/types";
+import type { TrackMode } from "@/lib/audio-jukebox/types";
 import { cellIndex, wrapLon, type GridSize } from "@/lib/data/grid";
 import { valueAt, type LiveFields } from "@/lib/data";
 

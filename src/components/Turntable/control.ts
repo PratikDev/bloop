@@ -4,8 +4,8 @@
 // extreme ping fires when the needle reaches the groove's extreme cell.
 // Nothing here knows the rotation speed.
 
-import { audio } from "@/lib/audio-adapter";
-import type { TrackMode } from "@/lib/audio-adapter/types";
+import { audio } from "@/lib/audio-jukebox";
+import type { TrackMode } from "@/lib/audio-jukebox/types";
 import { mapVoice } from "@/lib/audio/mapping";
 import type { LatLon, LiveFields } from "@/lib/data";
 import { readAt, type Reading } from "@/lib/reading";

@@ -1,7 +1,7 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import type { TunnelYear } from "@/lib/audio-adapter/types";
+import type { TunnelYear } from "@/lib/audio-jukebox/types";
 import { loadDemo, loadGistemp, loadGpcp } from "@/lib/data";
 import type { DhakaThenNowDemo, GistempContextFile, RainContextFile } from "@/types/data-contract";
 import { tunnelYears } from "./rows";

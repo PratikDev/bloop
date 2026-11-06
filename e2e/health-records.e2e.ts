@@ -6,7 +6,7 @@
 // Also the live layer (SST, rain): the value line changes as the needle moves and the level is above zero.
 // Results: data_raw/_tmp/health/app-<browser>/<record>.json, one test per record (read back into docs/HEALTH.md).
 import { expect, test, type Page } from "@playwright/test";
-import { AUDIBLE, heard, level, open, SETTLE_MS, start } from "./lib/app";
+import { AUDIBLE, heard, level, open, SETTLE_MS, start, navTo } from "./lib/app";
 import { existsSync, mkdirSync, readFileSync, writeFileSync } from "node:fs";
 import { join } from "node:path";
 
@@ -167,7 +167,7 @@ it("live layer: SST and rain move with the needle and sound", async ({ app, brow
 for (const [id, p] of Object.entries(plan)) {
   it(`record ${id} opens, starts on a value, plays at three points, labels as its manifest`, async ({ app, browserName }) => {
     await run(app, browserName, [id], async (errors) => {
-      await app.page.getByRole("tab", { name: "Official" }).click();
+      await navTo(app.page, "Official records");
       return { [id]: await checkRecord(app.page, p, errors) };
     });
   });

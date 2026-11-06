@@ -1,8 +1,8 @@
 "use client";
 
 import { useEffect, useRef } from "react";
-import { audio } from "@/lib/audio-adapter";
-import type { TrackMode } from "@/lib/audio-adapter/types";
+import { audio } from "@/lib/audio-jukebox";
+import type { TrackMode } from "@/lib/audio-jukebox/types";
 import { useAppState } from "../AppState/use-app-state";
 
 /** The live voices a scene plays, whatever the Turntable's record; the record's own mode comes back on exit. */

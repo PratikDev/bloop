@@ -94,7 +94,7 @@ export function createDeck(palette: Palette): Deck {
   const materials = {
     anodised: physical({ color: new Color(palette.anodised), metalness: 1, roughness: 0.5, anisotropy: 0.4 }),
     glass: physical({
-      color: new Color(palette.glass),
+      color: new Color(palette["deck-glass"]),
       metalness: 0,
       roughness: 0.12,
       clearcoat: 0.6,

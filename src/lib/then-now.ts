@@ -2,13 +2,17 @@
 // Every number comes from the JSON; nothing here computes a new statistic.
 
 import { voiceSpec } from "@/lib/audio/mapping";
+import type { BoundT } from "@/lib/i18n";
 import type { ThenNowInput, WindowSeries } from "@/lib/audio-adapter/types";
-import type { DemoWindow, DhakaThenNowDemo, GraceContextFile } from "@/types/data-contract";
+import type { CityThenNow, DemoWindow, DhakaThenNowDemo, GraceContextFile } from "@/types/data-contract";
 
 export type YearlyPart = "heat" | "monsoon";
 
-/** mapping.json's own label for the heat voice's 0 °C point ("0 °C (the 1951–1980 normal)"). */
-export const heatNormalLabel = (): string | undefined => voiceSpec("heat").legend.find((p) => p.value === 0)?.label;
+/** mapping.json's own label for the heat voice's 0 °C point ("0 °C (the 1951–1980 normal)"), in the page's language. */
+export function heatNormalLabel(t: BoundT): string | undefined {
+  const label = voiceSpec("heat").legend.find((p) => p.value === 0)?.label;
+  return label === undefined ? undefined : t("data.text", { text: label });
+}
 
 /** "1981–1990" from a window's first and last year. */
 export const windowLabel = (w: DemoWindow) => `${w.window[0]}–${w.window[1]}`;
@@ -20,6 +24,15 @@ const monthRange = (s: string): [string, string] => {
   const [a, b] = s.split("..");
   return [a, b];
 };
+
+/**
+ * A city's comparison in the Dhaka demo's shape: its own heat and rain, the
+ * national water record (contract §13: water is national only). Everything
+ * that reads a demo, including buildThenNowInput, then works for any city.
+ */
+export function cityDemo(demo: DhakaThenNowDemo, city: CityThenNow): DhakaThenNowDemo {
+  return { ...demo, heat: city.heat, rain: city.rain };
+}
 
 export function buildThenNowInput(demo: DhakaThenNowDemo, grace: GraceContextFile): ThenNowInput {
   const bd = grace.boxes.Bangladesh;

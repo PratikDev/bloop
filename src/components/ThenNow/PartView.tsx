@@ -6,7 +6,6 @@ import type { DhakaThenNowDemo, GraceContextFile } from "@/types/data-contract";
 import { useAppState, useT } from "../AppState/use-app-state";
 import { HistoryChart, type ChartSpan } from "../charts/HistoryChart";
 import { YearlyChart } from "../charts/YearlyChart";
-import { StatusBadge } from "../StatusBadge";
 import type { Part } from "./use-then-now-player";
 
 function YearlyView({ part, demo, index, splitIndex }: { part: YearlyPart; demo: DhakaThenNowDemo; index: number | null; splitIndex: number | null }) {
@@ -22,7 +21,7 @@ function YearlyView({ part, demo, index, splitIndex }: { part: YearlyPart; demo:
       pair={pair}
       labels={{ then: t("thenNow.then", { label: windowLabel(pair.A) }), now: t("thenNow.now", { label: windowLabel(pair.B) }) }}
       unit={unit}
-      zeroLine={part === "heat" ? heatNormalLabel() : undefined}
+      zeroLine={part === "heat" ? heatNormalLabel(t) : undefined}
       playheadYears={playheadYears}
       summary={t("thenNow.summary.yearly", {
         part: t(part === "heat" ? "thenNow.part.heat" : "thenNow.part.monsoon"),
@@ -64,25 +63,26 @@ function WaterView({ grace, index }: { grace: GraceContextFile; index: number | 
           from: formatMonth(bd.months[0], state.lang),
           to: formatMonth(bd.months[bd.months.length - 1], state.lang),
         })}
-        heightClass="h-64"
       />
       <p className="text-small text-haze">{t("thenNow.water.shading")}</p>
     </>
   );
 }
 
-/** One part: chart with playhead, then its caption exactly as the JSON gives it. */
+/** A finding's headline: its caption. */
+export function Headline({ caption }: { caption: string }) {
+  return <p className="font-serif text-lead leading-snug text-moon md:text-title lg:short:text-lead">{caption}</p>;
+}
+
+/** One sounded part: its caption as the headline, then the chart with its playhead. */
 export function PartView({ part, demo, grace, index, splitIndex }: { part: Part; demo: DhakaThenNowDemo; grace: GraceContextFile; index: number | null; splitIndex: number | null }) {
   const t = useT();
   const caption = part === "heat" ? demo.heat.caption : part === "monsoon" ? demo.rain.caption : demo.water.caption;
   return (
-    <div className="space-y-4">
+    <>
+      {/* The caption exactly as the JSON gives it (translated in Bangla). */}
+      <Headline caption={t("data.text", { text: caption })} />
       {part === "water" ? <WaterView grace={grace} index={index} /> : <YearlyView part={part} demo={demo} index={index} splitIndex={splitIndex} />}
-      <div className="space-y-2">
-        <p className="font-serif text-lead text-moon">{caption}</p>
-        <StatusBadge kind="pending">{t("badge.pending")}</StatusBadge>
-        <p className="text-small text-haze">{t("disclosure.pending")}</p>
-      </div>
-    </div>
+    </>
   );
 }

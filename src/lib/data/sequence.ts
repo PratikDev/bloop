@@ -4,8 +4,9 @@
 //   1..127 liquid, 128..254 frozen: mm/h = 10^(−1 + (code − base) / 126 × log10(500))
 
 import type { RainPhase, SequenceFrameRef, SequenceIndex } from "@/types/data-contract";
-import { fetchBuffer, fetchJson, gunzip } from "./fetch";
+import { fetchBuffer, fetchJson } from "./fetch";
 import { cellIndex, readUint8, type GridSize } from "./grid";
+import { gunzip } from "./gunzip";
 import { DATA_PATHS } from "./paths";
 import { requirePaths } from "./validate";
 
@@ -34,10 +35,20 @@ export function decodeSequenceCode(code: number): { mmPerHour: number | null; ph
   return { mmPerHour: Math.pow(10, -1 + (step / 126) * LOG_SPAN), phase: frozen ? "frozen" : "liquid" };
 }
 
+/** The frame list (index.json) on its own: a few KB, so it can be read before the frames load. */
+export async function loadSequenceIndex(): Promise<SequenceIndex> {
+  const index = await fetchJson<SequenceIndex>(DATA_PATHS.sequenceIndex);
+  requirePaths("sequence/index.json", index, { frames: "array", "grid.width": "number", "grid.height": "number", step_minutes: "number", credit: "string" });
+  return index;
+}
+
+/** Hours covered by the newest `count` frames (each frame is one step long). */
+export function spanHours(index: SequenceIndex, count: number): number {
+  return (Math.min(count, index.frames.length) * index.step_minutes) / 60;
+}
 /** Loads the index and every frame's grid, reporting progress (frames loaded, total). */
 export async function loadSequence(onProgress?: (loaded: number, total: number) => void): Promise<Sequence> {
-  const index = await fetchJson<SequenceIndex>(DATA_PATHS.sequenceIndex);
-  requirePaths("sequence/index.json", index, { frames: "array", "grid.width": "number", "grid.height": "number", credit: "string" });
+  const index = await loadSequenceIndex();
   const size = { width: index.grid.width, height: index.grid.height };
   let loaded = 0;
   const frames = await Promise.all(

@@ -1,8 +1,8 @@
 "use client";
 
 import { useCallback, useEffect, useMemo, useRef, useState } from "react";
-import { audio } from "@/lib/audio-adapter";
-import type { PlayerHandle, TunnelYear } from "@/lib/audio-adapter/types";
+import { audio } from "@/lib/audio-jukebox";
+import type { PlayerHandle, TunnelYear } from "@/lib/audio-jukebox/types";
 import type { Rgb } from "../colormaps";
 import { createFrameBus } from "../frame-bus";
 import type { SceneBuildHost, SceneHandle } from "../types";

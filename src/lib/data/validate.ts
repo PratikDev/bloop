@@ -13,7 +13,7 @@ type Json = Record<string, unknown>;
 const isObject = (v: unknown): v is Json => typeof v === "object" && v !== null && !Array.isArray(v);
 
 /** Walks a dotted path ("heat.A.values") and checks it exists with the right kind. */
-export function requirePaths(file: string, root: unknown, paths: Record<string, "array" | "number" | "string" | "object">): void {
+export function requirePaths(file: string, root: unknown, paths: Record<string, "array" | "number" | "string" | "object" | "boolean">): void {
   for (const [path, kind] of Object.entries(paths)) {
     let node: unknown = root;
     for (const key of path.split(".")) node = isObject(node) ? node[key] : undefined;

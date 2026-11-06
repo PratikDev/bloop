@@ -1,7 +1,7 @@
 "use client";
 
 import { useEffect } from "react";
-import { audio } from "@/lib/audio-adapter";
+import { audio } from "@/lib/audio-jukebox";
 import { voiceSpec } from "@/lib/audio/mapping";
 import { livenessAt } from "@/lib/data";
 import { useFreshness } from "./use-freshness";

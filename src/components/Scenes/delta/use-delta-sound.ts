@@ -1,8 +1,8 @@
 "use client";
 
 import { useEffect, useRef, useState } from "react";
-import { audio } from "@/lib/audio-adapter";
-import type { PlayerHandle, RainPhase } from "@/lib/audio-adapter/types";
+import { audio } from "@/lib/audio-jukebox";
+import type { PlayerHandle, RainPhase } from "@/lib/audio-jukebox/types";
 import type { LatLon } from "@/lib/data";
 import type { GraceBoxName, GraceContextFile } from "@/types/data-contract";
 import { useSceneTrack } from "../use-scene-track";

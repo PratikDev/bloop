@@ -76,3 +76,11 @@ export async function open(page: Page) {
   if (await skip.waitFor({ state: "visible", timeout: 5000 }).then(() => true, () => false)) await skip.click();
   await skip.waitFor({ state: "hidden", timeout: 10_000 }).catch(() => undefined);
 }
+
+/** The header's pages (main's router): a click on the dial's link, as a user moves between pages (the app's state stays). */
+export type PageName = "Listen" | "Then vs Now" | "How we know" | "Official records" | "Turntable";
+
+export async function navTo(page: Page, name: PageName) {
+  await page.getByRole("banner").getByRole("link", { name: new RegExp(`${name}$`, "u") }).first().click();
+  await page.waitForURL(/./u);
+}

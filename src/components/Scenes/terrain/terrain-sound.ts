@@ -5,7 +5,7 @@
 // §15: with "vs normal" on (N), the normal tone plays the SVS 5176 anomaly instead of the
 // temperature; with it off, the ocean voice's echo follows MUR's hours since a look (clarity).
 
-import { audio } from "@/lib/audio-adapter";
+import { audio } from "@/lib/audio-jukebox";
 import { anomalyAt, clarityAt, decodeSequenceCode, type Clarity, type Sequence, type SequenceFrame, type SstAnomalyField, type SstDtField, type SstField } from "@/lib/data";
 import { cellIndex } from "@/lib/data/grid";
 import { decodeSst } from "@/lib/data/latest";

@@ -4,18 +4,17 @@ For L2 and L1: what the interface expects from you, how to swap in L2's real sou
 
 ---
 
-## 1. Swapping in L2's sound engine
+## 1. L2's sound engine in the UI
 
-Components never import a sound engine directly. They use `audio` from `src/lib/audio-adapter/index.ts`. Switching engines is **one file**:
+**Done on `L2-L3-merge` (28 Sep).** Components never import a sound engine directly. They use `audio` from `src/lib/audio-adapter/index.ts`, which now wraps L2's engine:
 
 ```ts
 // src/lib/audio-adapter/index.ts
 import * as l2 from "@/lib/audio";          // L2's index.ts
 export const audio: AudioEngine = withFallbacks(l2);
-export const IS_INTERIM_ENGINE = false;     // removes the "Interim sound engine" badge
 ```
 
-Then run `bun run lint` and `bun run build`.
+L3's interim engine (the rest of `src/lib/audio-adapter/`), the `IS_INTERIM_ENGINE` flag and the "Interim sound engine" badge (and its two strings) are deleted. The adapter keeps only `index.ts`, `types.ts` and `fallbacks.ts`.
 
 ### Why this can't break silently
 - **Source of truth:** L2's API names and shapes in `docs/L2/BUILD_PLAN.md` §2 (and §8). **`L2AudioApi`** (in `src/lib/audio-adapter/types.ts`) mirrors exactly the part of that API the UI calls, including `playSeries` (B6, accepted by L2 on 28 Sep). If L2's exports differ in any name or argument shape, `withFallbacks(l2)` **fails the type check**, so `bun run build` fails before anything ships. L2 has already checked that `withFallbacks(l2)` type-checks against its branch.
@@ -42,20 +41,23 @@ Then run `bun run lint` and `bun run build`.
    - **Any new key needs a heads-up in both directions** before it's sent or expected.
 3. **`PlayerHandle.done` resolves** when the player finishes **or** is stopped. The UI uses it to release the view.
 4. **Stopping early silences everything the player owns**, including sounds already scheduled ahead (for example monsoon drops), and `stopAll()` resolves every open `done`.
-5. **Mute all and solo apply to every voice**, including Then vs Now and History (the interim engine routes them through the mixer).
+5. **Mute all and solo apply to every voice**, including Then vs Now and History.
 6. **No clicks when sound comes back:** after a fade, the output ramps back up rather than jumping; a sequence started during a fade waits for it.
 7. **`ensureAudio()` is only called inside a user gesture** (Start, "Turn sound on").
 
 ### Shared helpers L2 uses
 L2's audio test page reuses `buildThenNowInput` (`src/lib/then-now.ts`) and `loadDemo`, `loadGrace` (`src/lib/data/context.ts`). L3 gives L2 a heads-up before changing their names or shapes.
 
-### Checklist when the real engine lands
-- [ ] `bun run build` passes with the one-file swap above.
-- [ ] Run the app. The badge is gone, and Start → opening → explore sounds as before.
-- [ ] Then vs Now: the playhead follows the sound for all three parts, and Stop is silent (including monsoon).
-- [ ] History: "Play the 2010s" moves the playhead.
-- [ ] Mute all (M on the map), then Then vs Now: silent.
-- [ ] Esc stops everything, from every mode.
+### Checklist for the joined app
+- [x] `bun x tsc --noEmit`, `bun run lint`, `bun test` (92 pass) and `bun run build` pass on `L2-L3-merge`.
+- [x] **One copy of the peak rule:** the time-lapse uses `import { peakFrame } from "@/lib/audio"` (never `@/lib/audio/storm-maths`), and L3's `peakIndex()` is deleted. Before the join, both picked frame 2 (21.6 mm/h) on the real storm and agreed on all 1,176 runs of consecutive frames within the 48, including an all-dry storm (-1: no marker, no peak caption).
+- [x] Start → opening → explore: no badge; the opening plays (peak 0.136) and the ocean sounds over the Bay (0.194); silent on dry land.
+- [x] Then vs Now: the playhead follows heat, split and water; Stop is silent within 0.25 s, including monsoon (0.000); GRACE gaps are silent with their captions.
+- [x] History: "Play the 2010s" moves the playhead; changing decade mid-play stops it.
+- [x] Mute all, then Then vs Now: silent (0.000). Solo Ocean: silent; solo off: heard again.
+- [x] Esc stops everything: explore, legend, time-lapse, Story (also during loading); "All sound stopped" / "Story stopped. Back to Explore."
+- [x] Storm time-lapse: 48 frames, peak caption "22 mm/h" on frame 3, "Time-lapse finished" at the end; the sound-off version still plays. Rain at the heaviest cell: 38.75 drops per second (rule 38.68), longest gap 33.6 ms. Story Mode: 87.8 s with the headless voice (target 60 to 90 s).
+- [ ] **Listen by a person, with L2** (the ticks above are signal checks, 28 Sep, headless Edge, `C:\Users\User\nasa-l3-qa`). L2's engine is about 45% louder than the interim one was (Story ocean 0.194 vs 0.133, sweep 0.262 vs 0.178, whisper 0.308 vs 0.204; no clipping): for L2's mix pass.
 
 ---
 

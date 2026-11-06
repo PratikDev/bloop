@@ -2,8 +2,14 @@ import { TRACK_VOICES, type LiveVoiceId, type TrackMode } from "@/lib/audio-adap
 import { clampLat, START_CURSOR, wrapLon, type LatLon } from "@/lib/data";
 import type { Lang } from "@/lib/i18n";
 
-export type Mode = "explore" | "story" | "thenNow" | "turntable" | "official";
+/** What the current page is doing; set from the URL only (src/router/modes.ts). */
+export type Mode = "home" | "explore" | "story" | "thenNow" | "how" | "turntable" | "official";
+/** The Listen page's Inspector tabs; the Turntable's "How we know" drawer adds History (Month by month). */
 export type PanelTab = "truth" | "mapping" | "provenance" | "history";
+
+/** Settings remembered on this device (src/components/AppState/prefs.ts). */
+export type PrefKey = "lang" | "describe" | "captions" | "builtInVoice" | "started";
+export type Prefs = Partial<Pick<AppState, PrefKey>>;
 
 export interface VoiceMix {
   volume: number; // 0..1
@@ -27,9 +33,7 @@ export interface AppState {
   solo: LiveVoiceId | null;
   mix: Record<LiveVoiceId, VoiceMix>;
   panel: PanelTab;
-  panelOpen: boolean; // the sheet on narrow screens
-  /** Turntable only: the side column folded to a button, so the globe gets the space. */
-  panelCollapsed: boolean;
+  panelOpen: boolean; // the Listen page's Inspector (the sheet on narrow screens)
   helpOpen: boolean;
   /** The Braille Data Explorer (B) is open. */
   brailleOpen: boolean;
@@ -38,6 +42,7 @@ export interface AppState {
 export type AppAction =
   | { type: "start" }
   | { type: "startSilent" }
+  | { type: "resetStart" }
   | { type: "enableSound" }
   | { type: "introDone" }
   | { type: "setPlaying"; playing: boolean }
@@ -52,7 +57,6 @@ export type AppAction =
   | { type: "setVoiceMix"; voice: LiveVoiceId; mix: Partial<VoiceMix> }
   | { type: "setPanel"; panel: PanelTab; open?: boolean }
   | { type: "setPanelOpen"; open: boolean }
-  | { type: "setPanelCollapsed"; collapsed: boolean }
   | { type: "setHelpOpen"; open: boolean }
   | { type: "setBrailleOpen"; open: boolean };
 
@@ -74,12 +78,17 @@ export const initialState: AppState = {
   allMuted: false,
   solo: null,
   mix: { ocean: FULL_MIX, rain: FULL_MIX, snow: FULL_MIX },
-  panel: "truth",
+  panel: "provenance",
   panelOpen: false,
-  panelCollapsed: true,
   helpOpen: false,
   brailleOpen: false,
 };
+
+/** Pages where the live sound of the cursor plays: the map, How we know beside it (Hear the legend over it, as before),
+ *  and the Turntable's needle (on its own engine: src/lib/audio-engines.ts). */
+export function isLiveMode(mode: Mode): boolean {
+  return mode === "explore" || mode === "how" || mode === "turntable";
+}
 
 /** Whether live sound may play at all: past Start, sound on and playing, intro over. */
 export function liveSoundOn(state: AppState): boolean {
@@ -88,7 +97,7 @@ export function liveSoundOn(state: AppState): boolean {
 
 /** Whether a live voice is sounding right now (for rings and captions). */
 export function isVoiceAudible(state: AppState, voice: LiveVoiceId): boolean {
-  if (!liveSoundOn(state) || state.allMuted || state.mode !== "explore") return false;
+  if (!liveSoundOn(state) || state.allMuted || !isLiveMode(state.mode)) return false;
   if (state.mix[voice].muted || state.mix[voice].volume === 0) return false;
   if (state.solo !== null && state.solo !== voice) return false;
   return TRACK_VOICES[state.track].includes(voice);
@@ -101,6 +110,9 @@ export function reducer(state: AppState, action: AppAction): AppState {
     case "startSilent":
       // Straight to the map: no opening (it is a sound piece), captions carry the values.
       return { ...state, started: true, soundOn: false, playing: false, introDone: true, captions: true };
+    case "resetStart":
+      // Forget the sound choice: back to the first visit (the Start buttons, then the opening).
+      return { ...state, started: false, soundOn: false, playing: false, introDone: false };
     case "enableSound":
       return { ...state, soundOn: true, playing: true };
     case "introDone":
@@ -135,8 +147,6 @@ export function reducer(state: AppState, action: AppAction): AppState {
       return { ...state, panel: action.panel, panelOpen: action.open ?? state.panelOpen };
     case "setPanelOpen":
       return { ...state, panelOpen: action.open };
-    case "setPanelCollapsed":
-      return { ...state, panelCollapsed: action.collapsed };
     case "setHelpOpen":
       return { ...state, helpOpen: action.open };
     case "setBrailleOpen":

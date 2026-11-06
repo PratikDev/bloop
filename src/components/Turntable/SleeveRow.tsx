@@ -4,7 +4,7 @@ import { Box, Lock, Play, RotateCcw, Volume2 } from "lucide-react";
 import { brailleLabel } from "@/a11y/aria";
 import { useState } from "react";
 import { Button } from "@/components/ui/button";
-import type { TrackMode } from "@/lib/audio-adapter/types";
+import type { TrackMode } from "@/lib/audio-jukebox/types";
 import { cn } from "@/lib/utils";
 import { useAppState, useT } from "../AppState/use-app-state";
 import { useLiveData } from "../LiveData/use-live-data";

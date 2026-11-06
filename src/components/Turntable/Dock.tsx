@@ -17,7 +17,7 @@ import {
 import { useState, type Ref } from "react";
 import { Button } from "@/components/ui/button";
 import { Popover, PopoverContent, PopoverTrigger } from "@/components/ui/popover";
-import type { TrackMode } from "@/lib/audio-adapter/types";
+import type { TrackMode } from "@/lib/audio-jukebox/types";
 import { useAppState, useT } from "../AppState/use-app-state";
 import { DockButton, DockDivider, SpeedStepper } from "./DockButton";
 import { useTT } from "./i18n";

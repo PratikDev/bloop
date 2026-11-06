@@ -1,18 +1,23 @@
 "use client";
 
 import { useMemo, useRef, type ReactNode } from "react";
+import { useNavigate } from "@tanstack/react-router";
+import { locationForMode } from "@/router/modes";
 import { sleep } from "@/lib/abortable";
 import { audio } from "@/lib/audio-adapter";
+import { audio as jukebox } from "@/lib/audio-jukebox";
+import { ensureAudioAll, stopAllEngines } from "@/lib/audio-engines";
 import { bandMeans, loadSstPairs, nearestPair, SWEEP_CENTER, sweepPath, type LatLon } from "@/lib/data";
 import { roundKm } from "@/lib/geo/spherical";
-import { bindT, speechLang } from "@/lib/i18n";
+import { bindT } from "@/lib/i18n";
 import { spokenReading, readAt } from "@/lib/reading";
+import { speechLangFor } from "@/lib/speech-lang";
 import { postCaption } from "@/lib/ui-captions";
 import { whisperSource, type WhisperSource } from "@/lib/whisper";
 import { useAnnounce } from "../Announcer/use-announcer";
 import { useAppState } from "../AppState/use-app-state";
 import { useLiveData } from "../LiveData/use-live-data";
-import { CommandsContext, MODE_LABELS, SETTING_LABELS, type Line, type Commands, type SweepVisual } from "./use-commands";
+import { CommandsContext, SETTING_LABELS, type Line, type Commands, type SweepVisual } from "./use-commands";
 import { useSoundSync } from "./use-sound-sync";
 
 // Shortest time a said line stays before the next one (about fast reading speed).
@@ -25,6 +30,7 @@ export function CommandsProvider({ children }: { children: ReactNode }) {
   const sweepRef = useRef<SweepVisual | null>(null);
   // Counts say() calls and stops, so a whisper never follows a cancelled value.
   const sayCount = useRef(0);
+  const navigate = useNavigate();
   useSoundSync(state, fields);
 
   const commands = useMemo<Commands>(() => {
@@ -33,7 +39,7 @@ export function CommandsProvider({ children }: { children: ReactNode }) {
       t(track === "ocean" ? "track.oceanLong" : track === "rain" ? "track.rainLong" : "track.both");
 
     const enableSound = async () => {
-      await audio.ensureAudio(); // inside the click/keydown gesture
+      await ensureAudioAll(); // inside the click/keydown gesture: one gesture unlocks both engines
       dispatch({ type: "enableSound" });
       announce(t("sound.resumed"));
     };
@@ -41,6 +47,15 @@ export function CommandsProvider({ children }: { children: ReactNode }) {
 
     // "~" is read aloud as "about".
     const sayable = (text: string, tl: typeof t) => text.replaceAll("~", tl("speak.approx"));
+
+    // Speech may be in another language than the screen (plan §17). `id` is the
+    // say() it belongs to: a later say() or Esc while voices load cancels it.
+    const speakLine = async (line: Line, id: number) => {
+      const sl = await speechLangFor(state.lang);
+      if (id !== sayCount.current) return;
+      const ts = bindT(sl);
+      await audio.speak(sayable(line(ts, sl), ts), sl);
+    };
 
     const say = async (line: Line, source?: WhisperSource | null) => {
       const id = ++sayCount.current;
@@ -50,12 +65,8 @@ export function CommandsProvider({ children }: { children: ReactNode }) {
       // With sound off, nothing is spoken aloud.
       if (!voiced) announce(sayable(source ? t("whisper.announce", { text: shown, source: source.caption }) : shown, t));
       else postCaption("caption.speech", { text: shown });
-      // Speech may be in another language than the screen (plan §17).
-      const sl = speechLang(state.lang);
-      const ts = bindT(sl);
-      // Wait at least a short reading time: speech that can't start (no voice
-      // for this language) resolves at once.
-      await Promise.all([voiced ? audio.speak(sayable(line(ts, sl), ts), sl) : null, sleep(shown.length * MIN_MS_PER_CHAR)]);
+      // Wait at least a short reading time: speech that can't start resolves at once.
+      await Promise.all([voiced ? speakLine(line, id) : null, sleep(shown.length * MIN_MS_PER_CHAR)]);
       if (source && state.soundOn && id === sayCount.current) audio.playEarcon("whisper", { params: { source: source.caption } });
     };
 
@@ -74,23 +85,30 @@ export function CommandsProvider({ children }: { children: ReactNode }) {
 
     return {
       async start() {
-        await audio.ensureAudio(); // inside the click/keydown gesture
+        await ensureAudioAll(); // inside the click/keydown gesture: one gesture unlocks both engines
         dispatch({ type: "start" }); // the Opening plays next, then sets introDone
       },
       startSilent() {
         dispatch({ type: "startSilent" }); // no AudioContext is created
       },
+      resetStart() {
+        stopAllEngines();
+        dispatch({ type: "resetStart" });
+      },
       enableSound,
       moveCursor(dLat, dLon) {
         dispatch({ type: "moveCursor", dLat, dLon });
+      },
+      setCursor(cursor) {
+        dispatch({ type: "setCursor", cursor });
       },
       setTrack(track) {
         dispatch({ type: "setTrack", track });
         announce(t("announce.track", { track: trackName(track) }));
       },
+      // The URL is the mode's one source: this navigates, and use-route-sync copies it into the state.
       setMode(mode) {
-        dispatch({ type: "setMode", mode });
-        announce(t("announce.mode", { mode: t(MODE_LABELS[mode]) }));
+        void navigate(locationForMode(mode));
       },
       setLang(lang) {
         dispatch({ type: "setLang", lang });
@@ -104,6 +122,10 @@ export function CommandsProvider({ children }: { children: ReactNode }) {
           void enableSound();
           return;
         }
+        // Every tap is a user gesture: wake audio a phone suspended (a call, a
+        // locked screen), even if the button still said "Pause". If the browser
+        // refuses, the next tap tries again.
+        void ensureAudioAll().catch(() => {});
         dispatch({ type: "setPlaying", playing: !state.playing });
         announce(t(state.playing ? "sound.paused" : "sound.resumed"));
       },
@@ -140,7 +162,9 @@ export function CommandsProvider({ children }: { children: ReactNode }) {
             if (!near) return;
             const { pair, km } = near;
             await say((tl) => tl("unison.say", { km: roundKm(km), place: tl("place.spoken", pair), frame: pair.frame, file: pair.file }));
-            audio.playUnison({ frameC: pair.frame, fileC: pair.file });
+            // Unison plays on the Jukebox engine: the map's live voices (L2) step aside for it (src/lib/audio-engines.ts).
+            audio.silenceLive();
+            jukebox.playUnison({ frameC: pair.frame, fileC: pair.file });
           })
           .catch(() => announce(t("unison.loading")));
       },
@@ -158,19 +182,19 @@ export function CommandsProvider({ children }: { children: ReactNode }) {
       },
       stopAll() {
         sayCount.current++;
-        audio.stopAll();
+        stopAllEngines();
         sweepRef.current = null;
         dispatch({ type: "introDone" }); // Esc also skips the opening
         dispatch({ type: "setPlaying", playing: false });
         dispatch({ type: "setHelpOpen", open: false });
         dispatch({ type: "setPanelOpen", open: false });
-        // Ending a story or leaving the turntable: back to Explore, with one combined message.
-        if (state.mode === "story" || state.mode === "turntable") dispatch({ type: "setMode", mode: "explore" });
+        // Ending a story or leaving the turntable: back to Explore (Listen), with one combined message.
+        if (state.mode === "story" || state.mode === "turntable") void navigate(locationForMode("explore"));
         announce(t(state.mode === "story" ? "story.stopped" : state.mode === "turntable" ? "turntable.stopped" : "sound.stopped"));
       },
       sweepRef,
     };
-  }, [state, dispatch, fields, sst, announce]);
+  }, [state, dispatch, fields, sst, announce, navigate]);
 
   return <CommandsContext.Provider value={commands}>{children}</CommandsContext.Provider>;
 }

@@ -10,9 +10,6 @@ import { numParam } from "./captions";
 const c2 = (v: number) => formatFixed(v, "en", 2);
 
 export const dataEn = {
-  "truth.ocean.sentence": (p: { median: number; n: number }) =>
-    `Checked against NASA MUR SST: median error ${c2(p.median)} °C (${formatInteger(p.n, "en")} ocean points).`,
-  "truth.ocean.frameOf": (p: { date: string }) => `On the latest EIC frame, against MUR for ${p.date}.`,
   "truth.anomaly.heading": "Ocean temperature vs normal",
   "truth.anomaly.error": "Couldn't load the anomaly check. Reload the page to try again.",
   "truth.anomaly.sentence": (p: { signPct: number; n: number; offset: number }) =>

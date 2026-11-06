@@ -1,7 +1,7 @@
 "use client";
 
 import { useState, type Dispatch, type RefObject, type SetStateAction } from "react";
-import type { TrackMode } from "@/lib/audio-adapter/types";
+import type { TrackMode } from "@/lib/audio-jukebox/types";
 import type { LatLon } from "@/lib/data";
 import { bindT, formatUtc, type Lang } from "@/lib/i18n";
 import type { SearchEntry, ZoomLevel } from "@/lib/geo/search";

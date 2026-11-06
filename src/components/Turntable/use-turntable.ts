@@ -2,8 +2,8 @@
 
 import { useCallback, useEffect, useRef, useState, type Dispatch, type RefObject } from "react";
 import { Vector2 } from "three";
-import { audio } from "@/lib/audio-adapter";
-import type { TrackMode } from "@/lib/audio-adapter/types";
+import { audio } from "@/lib/audio-jukebox";
+import type { TrackMode } from "@/lib/audio-jukebox/types";
 import { wrapLon, type LatLon, type LiveFields } from "@/lib/data";
 import type { ZoomLevel } from "@/lib/geo/search";
 import type { AppAction } from "../AppState/reducer";

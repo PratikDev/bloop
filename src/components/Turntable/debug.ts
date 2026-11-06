@@ -1,7 +1,7 @@
 // ?debug=1 only. Checks that the 3D needle reads what the flat map reads, and
 // exposes window.__turntable for the verification script (docs/turntable.md).
 
-import { audio } from "@/lib/audio-adapter";
+import { audio } from "@/lib/audio-jukebox";
 import { mapVoice } from "@/lib/audio/mapping";
 import type { LatLon, LiveFields } from "@/lib/data";
 import { cellIndex, wrapLon } from "@/lib/data/grid";

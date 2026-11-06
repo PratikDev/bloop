@@ -1,6 +1,6 @@
 "use client";
 
-import { useCallback, useRef, useState, type KeyboardEvent } from "react";
+import { useCallback, useEffect, useRef, useState, type KeyboardEvent } from "react";
 import { brailleLabel } from "@/a11y/aria";
 import { isLetter, isTypingTarget } from "@/a11y/keys";
 import { Button } from "@/components/ui/button";
@@ -41,6 +41,13 @@ function Player({ record }: { record: string }) {
   const { state } = useAppState();
   const t = useT();
   const rec = useOfficialRecord(record, state.soundOn);
+  const { setPlaying, setListening } = rec;
+  // Stop (Esc, the dock) turns the app's sound off: the record stops with it, on both engines (src/lib/audio-engines.ts).
+  useEffect(() => {
+    if (state.playing) return;
+    setPlaying(false);
+    setListening(false);
+  }, [state.playing, setPlaying, setListening]);
   const [brailleOpen, setBrailleOpen] = useState(false);
   const brailleButton = useRef<HTMLButtonElement>(null);
   const closeBraille = useCallback(() => {

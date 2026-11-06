@@ -6,12 +6,11 @@ Writes docs/HEALTH.md and public/data/meta/health.json. --offline skips every ne
 replaces the full report). --strict exits 1 on any
 failure (default: 0, so a morning run never blocks on a source being down). --rerender rewrites both reports from the
 saved health.json with the current link rules (no network, no browser)."""
-import contextlib, datetime as dt, json, os, shutil, subprocess, sys, time
-import requests
+import contextlib, datetime as dt, json, os, shutil, subprocess, sys, threading, time
 from concurrent.futures import ThreadPoolExecutor
 from dataclasses import asdict
 from svs.config import DATA_RAW, REPO
-from . import archive, files, freshness, inventory, labels, links, report, values
+from . import archive, files, freshness, inventory, labels, links, report, static_server, values
 from .app import APP, BROWSERS, results as app_results
 from .result import res
 
@@ -24,25 +23,19 @@ def say(msg):
 
 @contextlib.contextmanager
 def production_server():
-    """A production build of the app served on PROD_PORT for the browser checks (the dev server compiles each page on
-    demand, which made the checks three times slower); stopped afterwards. Falls back to the dev server if the build fails."""
-    bun, bunx = shutil.which("bun") or "bun", shutil.which("bunx") or "bunx"        # bun.cmd / bunx.cmd shims on Windows
-    say("production build for the app checks")
+    """The production build of the app (next build: a static export in ./out, output: "export") served on PROD_PORT for
+    the browser checks, the way a static host serves it (health/static_server.py); stopped afterwards. Falls back to
+    the dev server if the build fails."""
+    bun = shutil.which("bun") or "bun"                    # bun.cmd shim on Windows
+    say("production build for the app checks (static export)")
     if subprocess.run([bun, "run", "build"], cwd=REPO, stdout=subprocess.DEVNULL, stderr=subprocess.STDOUT).returncode:
         say("build failed: the app checks use the dev server"); yield "http://localhost:3000"; return
-    url = f"http://localhost:{PROD_PORT}"
-    srv = subprocess.Popen([bunx, "next", "start", "-p", str(PROD_PORT)], cwd=REPO, stdout=subprocess.DEVNULL, stderr=subprocess.STDOUT)
+    srv = static_server.server(REPO / "out", PROD_PORT)
+    threading.Thread(target=srv.serve_forever, daemon=True).start()
     try:
-        for _ in range(120):
-            try:
-                if requests.get(url, timeout=5).ok: break
-            except requests.RequestException: time.sleep(1)
-        yield url
-    finally:                                             # on Windows bunx.cmd is a shim: stop the server's whole tree
-        if os.name == "nt": subprocess.run(["taskkill", "/PID", str(srv.pid), "/T", "/F"], stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL)
-        else: srv.terminate()
-        try: srv.wait(20)
-        except subprocess.TimeoutExpired: srv.kill()
+        yield f"http://localhost:{PROD_PORT}"
+    finally:
+        srv.shutdown(); srv.server_close()
 
 def app_checks(plan):
     """Runs the Playwright spec (it reads PLAN, writes app-<browser>.json); → {record: {browser: result}}."""

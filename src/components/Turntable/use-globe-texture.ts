@@ -1,7 +1,7 @@
 "use client";
 
 import { useEffect, useMemo, useRef, useState } from "react";
-import type { TrackMode } from "@/lib/audio-adapter/types";
+import type { TrackMode } from "@/lib/audio-jukebox/types";
 import { readPalette } from "@/lib/css-tokens";
 import type { LatLon, SstField } from "@/lib/data";
 import type { Reading } from "@/lib/reading";

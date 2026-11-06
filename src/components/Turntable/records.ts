@@ -2,7 +2,7 @@
 // choosing a record is choosing a track: the mixer, frame labels and readout
 // follow exactly as they do on the flat map.
 
-import type { TrackMode, VoiceId } from "@/lib/audio-adapter/types";
+import type { TrackMode, VoiceId } from "@/lib/audio-jukebox/types";
 import type { LiveFields } from "@/lib/data";
 import { voiceSpec } from "@/lib/audio/mapping";
 import type { BoundT, MessageKey } from "@/lib/i18n";
@@ -116,7 +116,7 @@ export function recordFrames(track: TrackMode, fields: LiveFields | null): Recor
 export function measuredError(t: BoundT, frame: RecordFrame): string {
   if (frame.product === "ocean") {
     const truth = oceanTruth(frame.meta);
-    return truth ? t("turntable.error.ocean", truth) : t("truth.ocean.updating");
+    return truth ? t("turntable.error.ocean", { median: truth.median, n: truth.points }) : t("truth.ocean.updating");
   }
   const percent = rainTruth(frame.meta).percent;
   return Number.isFinite(percent) ? t("turntable.error.rain", { percent }) : t("turntable.missing");

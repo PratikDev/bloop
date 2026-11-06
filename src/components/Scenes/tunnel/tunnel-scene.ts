@@ -17,7 +17,7 @@ import {
   Vector3,
   type PerspectiveCamera,
 } from "three";
-import type { TunnelYear } from "@/lib/audio-adapter/types";
+import type { TunnelYear } from "@/lib/audio-jukebox/types";
 import type { Palette } from "@/lib/css-tokens";
 import { onOverlay } from "../../Turntable/scene/layers";
 import { createStudio } from "../../Turntable/scene/studio";
