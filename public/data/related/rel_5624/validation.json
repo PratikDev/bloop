@@ -10,27 +10,28 @@
    "metrics": {
     "rung": "same model (GEOS-FP)",
     "unit": "AOD",
-    "spearman": -0.369463965901842,
-    "n": 24239,
-    "median_rel_error": 33.61483425423697,
-    "bias": 0.17966525594221322,
+    "spearman": -0.38208311818721735,
+    "n": 16172,
+    "median_rel_error": 37.50513461985258,
+    "bias": 0.17915850928070406,
     "dates": [
      {
-      "date": "2026-10-01"
+      "date": "2026-11-03"
      },
      {
-      "date": "2026-11-02"
+      "date": "2026-11-05"
      },
      {
-      "date": "2026-11-04"
+      "date": "2026-11-07",
+      "error": "AttributeError: 'NoneType' object has no attribute 'reshape'"
      }
     ]
    },
    "threshold": "Spearman ≥ 0.9 and median relative error ≤ 15 % → verified; ρ ≥ 0.9 → values with stated error; ρ ≥ 0.6 → relative (provisional, onboarding defaults)",
    "pass": false,
    "note": "Rung: same model (GEOS-FP). Onboarding run, 3 frames.",
-   "run_utc": "2026-11-03T15:41:54Z"
+   "run_utc": "2026-11-06T18:33:40Z"
   }
  ],
- "updated_utc": "2026-11-03T15:41:54Z"
+ "updated_utc": "2026-11-06T18:33:40Z"
 }

@@ -11,9 +11,9 @@
  "description": "This daily global wildfire smoke visualization uses NASA's GEOS-FP model to show smoke transport patterns from yesterday through four days ahead. The visualization shows wildfire smoke intensity based on brown carbon aerosol optical depth, using a 0-1 scale with colors ranging from light brown/red to dark brown. Wildfire smoke contains dangerous PM2.5 particles and can travel thousands of miles, making tracking essential for understanding air quality impacts.",
  "release_date": "2026-05-29T18:59:59-04:00",
  "period": {
-  "start": "2026-10-01T00:00:00Z",
-  "end": "2026-11-04T08:00:00Z",
-  "label": "1 Oct 2026 – 4 Nov 2026"
+  "start": "2026-11-03T14:00:00Z",
+  "end": "2026-11-07T08:00:00Z",
+  "label": "3 Nov 2026 – 7 Nov 2026"
  },
  "badge": "model",
  "credits_by_role": {
@@ -56,9 +56,9 @@
  ],
  "frame_times": {
   "method": "ocr",
-  "approximate": false,
+  "approximate": true,
   "count": 3,
-  "source": "date box OCR: 02 Nov 2026 11 : 00 : 00 ? - - - -; date box OCR: 04 Nov 2026 08 : 00 : 00 ? - - - -; date box OCR: 81 Oct 2026 20 : 00 : 00 ? - - - -"
+  "source": "date box OCR: 08 Nov 2026 19 : 00 : 00 ? - - -; date box OCR: 05 Nov 2026 11 : 00 : 00 ? - - -; date box OCR: 07 Nov 2026 08 : 00 : 00 ? - - -; 1 out-of-order date(s) dropped as misreads; 1 date(s) estimated from the dated frames' spacing"
  },
  "georef": {
   "projection": "equirectangular (2:1)",
@@ -71,7 +71,7 @@
   "pass_at": 0.9,
   "shifts_deg": [],
   "iou": {
-   "land": 0.6680823470970335
+   "land": 0.6722608679079872
   },
   "pass": false,
   "best_is_assumed": false
@@ -170,7 +170,7 @@
  "twins": [],
  "decode": {
   "mode": "chroma",
-  "decoded_share": 0.1246950626373291
+  "decoded_share": 0.12333377202351888
  },
  "layers": [
   {
@@ -178,7 +178,7 @@
    "unit": "colorbar units",
    "encoding": "linear",
    "scale": 0.00025830910628288426,
-   "offset": 0.05361734330654144,
+   "offset": 0.02434558980166912,
    "nodata": 65535,
    "below": 65534,
    "grid": {
@@ -195,30 +195,30 @@
     "byte_order": "little"
    },
    "times": [
-    "2026-10-01T00:00:00Z",
-    "2026-11-02T11:00:00Z",
-    "2026-11-04T08:00:00Z"
+    "2026-11-03T14:00:00Z",
+    "2026-11-05T11:00:00Z",
+    "2026-11-07T08:00:00Z"
    ],
    "chunks": [
     {
      "file": "value_000.u16.gz",
      "t0": 0,
      "t1": 3,
-     "bytes": 43219
+     "bytes": 42659
     }
    ],
    "quantisation_step": 0.00025830910628288426,
-   "coverage": 0.12468621399176955,
+   "coverage": 0.12328703703703704,
    "value_range": [
-    0.05361734330654144,
-    0.5776549577713013
+    0.02434558980166912,
+    0.666845977306366
    ],
    "label": "Global Smoke Forecast Visualization (Daily Updated) (pattern only)",
    "aggregation": "mean of decoded pixels per cell",
    "time_labels": [
-    "01 Oct 2026",
-    "02 Nov 2026",
-    "04 Nov 2026"
+    "03 Nov 2026",
+    "05 Nov 2026",
+    "07 Nov 2026"
    ],
    "display": {
     "colours": [
@@ -293,7 +293,7 @@
    },
    "status": "pattern only",
    "status_check": "a_auto_source",
-   "statement": "pattern only: ρ -0.37 vs GEOS-FP brown-carbon AOD (OPeNDAP)"
+   "statement": "pattern only: ρ -0.38 vs GEOS-FP brown-carbon AOD (OPeNDAP)"
   }
  ],
  "voices": {
@@ -306,8 +306,8 @@
    "view": "global",
    "map": "value",
    "start": {
-    "lat": -4.5,
-    "lon": 0.5
+    "lat": 6.5,
+    "lon": -2.5
    },
    "steps_per_second": 1,
    "channels": [
@@ -335,28 +335,28 @@
    "frames": 3
   },
   "tried": [],
-  "bytes": 52983,
+  "bytes": 52641,
   "budget": 25000000
  },
  "onboarding": {
   "timings_s": {
-   "api": 7.0,
-   "twins": 1.0,
+   "api": 23.7,
+   "twins": 0.8,
    "asset choice": 0.0,
-   "frames": 33.3,
-   "frame times": 4.2,
-   "georef": 4.7,
-   "colorbar": 0.9,
-   "inversion": 26.6,
-   "validation": 150.7
+   "frames": 42.3,
+   "frame times": 3.2,
+   "georef": 3.7,
+   "colorbar": 0.8,
+   "inversion": 24.0,
+   "validation": 62.7
   },
   "status": "pattern only"
  },
  "asset_checksums": {
   "file": "checksums.tsv.gz",
-  "rows": 3,
-  "sha256_of_list": "63d3562e6c443f9c25242a3b2429fdeca17957326717278c4342f6e900ecf437"
+  "rows": 4,
+  "sha256_of_list": "15ee12f4b0ae1fe0bc0feeeab6ade79377b711694bfa00d3c4e3fde3d3008322"
  },
- "code_commit": "6c0051326206e5a740395c66b40928e4148ed462-dirty",
- "generated_utc": "2026-11-03T15:41:54Z"
+ "code_commit": "4e3e9b7fb7bf2e761d8e943f6eff8613de2f1376-dirty",
+ "generated_utc": "2026-11-06T18:33:41Z"
 }
