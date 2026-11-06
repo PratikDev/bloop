@@ -2,7 +2,8 @@
 Steps 1–3 of the record audit without refreshing anything: inventory and completeness, per-record checks (files,
 values, labels, links), freshness against each source, S-NPP status, archive drift; with --app, the browser checks
 (e2e/health-records.e2e.ts, Chromium and Firefox) read the plan this writes and their results are merged.
-Writes docs/HEALTH.md and public/data/meta/health.json. --offline skips every network check. --strict exits 1 on any
+Writes docs/HEALTH.md and public/data/meta/health.json. --offline skips every network check and only prints (it never
+replaces the full report). --strict exits 1 on any
 failure (default: 0, so a morning run never blocks on a source being down). --rerender rewrites both reports from the
 saved health.json with the current link rules (no network, no browser)."""
 import contextlib, datetime as dt, json, os, shutil, subprocess, sys, time
@@ -117,8 +118,14 @@ def main(argv):
            "archive": net.get("archive") or [], "links": net.get("links") or {},
            "app": {"summary": f"{sum(1 for v in app.values() if all(x.get('ok') for x in v.values()))} of {len(app)} records pass in "
                               f"{', '.join(BROWSERS)}" if app else None}}
-    report.write(doc)
     failed = sum(1 for r in rows if any(c["ok"] is False for c in r["checks"])) + len(gaps)
+    if offline:                                          # a partial run never replaces the full report
+        for r in rows:
+            for c in r["checks"]:
+                if c["ok"] is False: say(f"FAIL {r['id']}: {c['check']}: {c['note'][:160]}")
+        say(f"offline checks in {doc['seconds']} s; {failed} records with a failure (reports not written)")
+        return 1 if "--strict" in argv and failed else 0
+    report.write(doc)
     say(f"wrote docs/HEALTH.md and public/data/meta/health.json in {doc['seconds']} s; {failed} records with a failure")
     return 1 if "--strict" in argv and failed else 0
 
