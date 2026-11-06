@@ -32,6 +32,15 @@ function contextGain(): number {
   return 1;
 }
 
+// Sounds that follow whether a voice is audible without sitting on its bus (the recorded texture) re-check on every
+// change: without this, Mute all left the stale-data hiss playing until the cursor moved (found by the feature check).
+const mixListeners: (() => void)[] = [];
+
+/** Calls `fn` after every mixer change (mute, solo, volume, track mode). */
+export function onMixChange(fn: () => void): void {
+  mixListeners.push(fn);
+}
+
 /** Pushes the current mixer state to the voice buses. */
 export function applyMix(): void {
   const graph = getGraph();
@@ -39,6 +48,7 @@ export function applyMix(): void {
   for (const id of LIVE_VOICES) glideTo(graph.ctx, graph.voiceBus[id].gain, voiceGain(id), MIX_GLIDE_SEC);
   glideTo(graph.ctx, graph.context.gain, contextGain(), MIX_GLIDE_SEC);
   glideTo(graph.ctx, graph.extras.gain, contextGain(), MIX_GLIDE_SEC);
+  for (const fn of mixListeners) fn();
 }
 
 function isLive(id: VoiceId): id is LiveVoiceId {

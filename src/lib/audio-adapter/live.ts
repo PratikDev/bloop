@@ -6,7 +6,7 @@ import type { Clarity } from "@/lib/data";
 import { playEarconAt } from "./earcons";
 import { emitCaption } from "./events";
 import type { Graph } from "./graph";
-import { mixer } from "./mixer";
+import { mixer, onMixChange } from "./mixer";
 import { createRecordedTexture, type RecordedTexture, type RecordedTrack } from "./recorded";
 import type { LiveVoiceId, RainPhase } from "./types";
 import { createClarityEcho, type ClarityEcho } from "./voices/clarity";
@@ -46,6 +46,7 @@ export function initLive(g: Graph): void {
     clarity: createClarityEcho(g, g.voiceBus.ocean),
   };
   recorded = createRecordedTexture(g);
+  onMixChange(updateRecorded);
 }
 
 /** The recorded texture follows each live track: stale data and that track sounding now. */
