@@ -22,3 +22,10 @@ ITEMS = {
     5154: ("Nitrogen oxides (GEOS-CF)", "ppbv", ("chm_tavg_1hr_glo_L1440x721_slv", ("no", "no2"), "sum", AUTO, 0.0, CF2), None),
     5544: ("NDVI, near real time", "relative", None, "the key's labels are words (Low, High): no values to compare"),
 }
+
+# Per-item decode settings (default: run.MAX_DIST and no fill colour). The NDVI (measured on its 13 Jun 2026 frame): the
+# ocean is one flat blue not on the key (62 % of the frame), masked as no data so it does not push the decode into chroma
+# mode (which lost every forest); its darkest greens are drawn darker than the key's darkest colour (eastern US 13,49,14
+# vs the key's end 2,69,28: 25 apart), so it matches within 30. Snow (255,255,255) and ice (255,235,231) stay > 45 from
+# the key and read as no value.
+DECODE = {5544: {"max_dist": 30.0, "fill_rgb": ((8, 123, 176),)}}

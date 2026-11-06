@@ -25,7 +25,7 @@ from svs.playable import BELOW, codes
 from svs.records import common
 from svs.validate import _clean
 from core.places import CITY_CELLS
-from . import AUTO, FP, FRAME_INDEX, GRID_DEG, ITEMS
+from . import AUTO, DECODE, FP, FRAME_INDEX, GRID_DEG, ITEMS
 
 MAX_DIST, GOOD = 12.0, (0.9, 0.15)
 
@@ -42,11 +42,13 @@ def read_key(rec, root, fetch):
         except RuntimeError: pass
     return colorbar.read(comp(rgba), stated_range=(0.0, 1.0)), bars[0], True
 
-def pick_frame(rec):
+def pick_frame(rec, latest):
+    """FRAME_INDEX of a rolling set (about two weeks old, so the model archive has the hour); the newest frame when the
+    item has no model check (`latest`: the NDVI, whose 900 dated frames run to the latest SVS update)."""
     sets = [s for s in __import__("svs.choose", fromlist=["frame_sets"]).frame_sets(rec) if abs(s["width"] / max(1, s["height"]) - 2) < 0.01]
     s = sorted(sets, key=lambda f: (f["width"] > 4096, "date" not in f["layer"].lower() and "w_dates" not in f["url"], f["width"]))[0]
     files = sorted(svs_api.list_folder(s["url"])["files"], key=lambda f: f["name"])
-    return (files[min(FRAME_INDEX, len(files) - 1)] if len(files) >= 300 else files[-1]), s
+    return (files[min(FRAME_INDEX, len(files) - 1)] if len(files) >= 300 and not latest else files[-1]), s
 
 def frame_time(name, rgb):
     m = re.search(r"(20\d{2})(\d{2})(\d{2})", name)
@@ -56,25 +58,30 @@ def frame_time(name, rgb):
     r = ocr_dates.read_date(np.where(box > 0.6, box, 0))
     return r["datetime"], f"date box OCR: {r['text']}"
 
-def overlays(H, W):
+def overlays(H, W, dated_set=False):
+    """Earth Now frames: the logo box (top-left) and date box (bottom-left). A `_w_dates` frame set (the NDVI): only its
+    date box, bottom-left over Antarctica (measured on the 13 Jun 2026 frame: 16.6 % of the width, from 90.6 % of the height)."""
     m = np.zeros((H, W), bool)
+    if dated_set: m[int(0.90 * H):, :int(0.17 * W)] = True; return m
     m[:int(0.075 * H), :int(0.175 * W)] = True; m[int(0.91 * H):, :int(0.25 * W)] = True
     return m
 
 GREY = 15                                   # max − min channel: below it a pixel is the base map showing through
 
-def decode(rgb, cb, mask, grid=None, min_share=0.5):
+def decode(rgb, cb, mask, grid=None, min_share=0.5, max_dist=MAX_DIST, fill_rgb=()):
     """Exact mode when ≥ 50 % of map pixels match the key. Otherwise the layer is drawn only where it has a value and the
     grey base map shows through elsewhere (5148's calm areas; found on its first run, so stated as such): achromatic pixels
-    are masked as 'base map', and exact vs chroma mode is decided on the coloured pixels alone."""
-    v, _, _, _ = Inverter(cb, mode="exact", method=DEFAULT).invert(rgb, MAX_DIST)
+    are masked as 'base map', and exact vs chroma mode is decided on the coloured pixels alone. `fill_rgb`: flat colours
+    that mean no data (the NDVI's ocean), masked before the mode is decided."""
+    for c in fill_rgb: mask = mask | np.all(rgb == np.asarray(c, rgb.dtype), -1)
+    v, _, _, _ = Inverter(cb, mode="exact", method=DEFAULT).invert(rgb, max_dist)
     share = float(np.isfinite(v)[~mask].mean()); mode, base = "exact", None
     if share < 0.5:
         f = rgb.astype(np.int16); grey = (f.max(-1) - f.min(-1)) < GREY
         base = float(grey[~mask].mean()); mask = mask | grey
         share = float(np.isfinite(v)[~mask].mean())
         if share < 0.5:
-            v, _, _, _ = Inverter(cb, mode="chroma", method=DEFAULT).invert(rgb, MAX_DIST, min_k=0.1); mode = "chroma"
+            v, _, _, _ = Inverter(cb, mode="chroma", method=DEFAULT).invert(rgb, max_dist, min_k=0.1); mode = "chroma"
     v[mask] = np.nan
     gw, gh = grid or (int(360 / GRID_DEG), int(180 / GRID_DEG))       # 0.5° cells of a 2:1 map unless a grid is given
     ok = np.isfinite(v)
@@ -117,7 +124,7 @@ def run(sid):
     fetch = Fetcher(root / "manifest.jsonl", tries=30)
     cb, bar, relative = read_key(rec, root, fetch)
     try:
-        f, fs = pick_frame(rec)
+        f, fs = pick_frame(rec, latest=spec is None)
         p = root / "frames" / f["name"]; fetch.get(f["url"], p, expect_bytes=20_000_000)
         rgb = frames.read_rgba(p)[..., :3]
     except IndexError:                                         # no flat frame set: the 2:1 movie, frame FRAME_INDEX
@@ -128,7 +135,8 @@ def run(sid):
     if rgb.shape[1] > 4096: rgb = cv2.resize(rgb, (4096, 2048), interpolation=cv2.INTER_AREA)
     when, how = frame_time(f["name"], rgb)
     H, W = rgb.shape[:2]
-    grid, dmeta = decode(rgb, cb, overlays(H, W) if "w_dates" not in fs["url"] else np.zeros((H, W), bool))
+    opts = {"max_dist": MAX_DIST, "fill_rgb": (), **DECODE.get(sid, {})}
+    grid, dmeta = decode(rgb, cb, overlays(H, W, dated_set="w_dates" in fs["url"]), **opts)
     p.unlink()
     checks = model_checks(record, sid, grid, when)
     (PUBLIC_OFFICIAL / record / "validation.json").unlink(missing_ok=True)   # a run replaces the record's checks
@@ -144,7 +152,7 @@ def run(sid):
     man = {"record": record, "app_title": f"{name} (EIC, {badge})", **prov,
            "frame_times": {"method": "ocr" if "OCR" in how else "date-list", "approximate": False, "count": 1, "source": how},
            "georef": georef_summary(checks),
-           "colorbar": cb.summary(), "colorbar_file": bar["filename"], "decode": {**dmeta, "matcher": DEFAULT, "max_dist": MAX_DIST},
+           "colorbar": cb.summary(), "colorbar_file": bar["filename"], "decode": {**dmeta, "matcher": DEFAULT, "max_dist": opts["max_dist"], "fill_rgb": [list(c) for c in opts["fill_rgb"]]},
            "frame": f["name"], "frame_set": fs["url"], "layers": [lay], "voices": {"value": f"eic{sid}"},
            "play": [common.option("value", f"{name}: higher pitch = higher value", "value", [(f"eic{sid}", ["value"])], CITY_CELLS["Dhaka"], 1)],
            "validation": common.validation_summary(checks), "size": {"choice": {"cell_deg": GRID_DEG}, "tried": []},

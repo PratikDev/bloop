@@ -11,9 +11,9 @@
  "description": "NRT NDVI",
  "release_date": "2025-09-22T18:59:59-04:00",
  "period": {
-  "start": "2024-07-14T00:00:00Z",
-  "end": "2024-07-14T00:00:00Z",
-  "label": "14 Jul 2024 – 14 Jul 2024"
+  "start": "2026-06-13T00:00:00Z",
+  "end": "2026-06-13T00:00:00Z",
+  "label": "13 Jun 2026 – 13 Jun 2026"
  },
  "badge": "observation",
  "credits_by_role": {
@@ -99,14 +99,21 @@
  },
  "colorbar_file": "NDVI_colorbar.png",
  "decode": {
-  "mode": "chroma",
-  "exact_share": 0.06301686692133529,
-  "decoded_share": 0.10923945903778076,
-  "base_map_share": 0.023895621299743652,
+  "mode": "exact",
+  "exact_share": 0.7960576644606993,
+  "decoded_share": 0.2906475067138672,
+  "base_map_share": null,
   "matcher": "rgb-nearest",
-  "max_dist": 12.0
+  "max_dist": 30.0,
+  "fill_rgb": [
+   [
+    8,
+    123,
+    176
+   ]
+  ]
  },
- "frame": "SNPP_VIIRS.20240714.ndvi_w_snow.oceanblue.annotated.png",
+ "frame": "SNPP_VIIRS.20260613.ndvi_w_snow.oceanblue.annotated.png",
  "frame_set": "https://svs.gsfc.nasa.gov/vis/a000000/a005500/a005544/frames/4096x2048_2x1_30p/equirectangular_w_dates/",
  "layers": [
   {
@@ -114,7 +121,7 @@
    "unit": "relative",
    "encoding": "linear",
    "scale": 0.00014326647564469916,
-   "offset": 0.0019032744457945228,
+   "offset": 0.0071267844177782536,
    "nodata": 65535,
    "below": 65534,
    "grid": {
@@ -131,21 +138,21 @@
     "byte_order": "little"
    },
    "times": [
-    "2024-07-14T00:00:00Z"
+    "2026-06-13T00:00:00Z"
    ],
    "chunks": [
     {
      "file": "value_000.u16.gz",
      "t0": 0,
      "t1": 1,
-     "bytes": 13410
+     "bytes": 107458
     }
    ],
    "quantisation_step": 0.00014326647564469916,
-   "coverage": 0.10385030864197531,
+   "coverage": 0.29748070987654324,
    "value_range": [
-    0.0019032744457945228,
-    0.48873868584632874
+    0.0071267844177782536,
+    1.0
    ],
    "label": "NDVI, near real time (relative)",
    "aggregation": "mean of decoded pixels per 0.5° cell",
@@ -221,7 +228,7 @@
     "scale": "linear"
    },
    "time_labels": [
-    "14 Jul 2024 00:00 UTC"
+    "13 Jun 2026 00:00 UTC"
    ],
    "status": "relative",
    "statement": "relative values (the key has words, not numbers)",
@@ -238,8 +245,8 @@
    "view": "global",
    "map": "value",
    "start": {
-    "lat": 24.75,
-    "lon": 91.25
+    "lat": 23.81,
+    "lon": 90.41
    },
    "steps_per_second": 1,
    "channels": [
@@ -267,19 +274,14 @@
    "cell_deg": 0.5
   },
   "tried": [],
-  "bytes": 20166,
+  "bytes": 114237,
   "budget": 25000000
  },
  "asset_checksums": {
   "file": "checksums.tsv.gz",
-  "rows": 3,
-  "sha256_of_list": "d0c8770e3d2e5cc71c6596b968f9b33e41ece250a660796b059652c79ea3f0e1"
+  "rows": 4,
+  "sha256_of_list": "f47b612010a05d4045c16f2909eaecad00c54503226ec6bedbb26cb4225efa51"
  },
- "code_commit": "1f635c66c9008a792ebfb96e6541a75f7e90489c-dirty",
- "generated_utc": "2026-11-06T07:16:37Z",
- "playable": {
-  "moved_starts": [
-   "value"
-  ]
- }
+ "code_commit": "0ffd40d25961a366a887035a713d69de06146d52-dirty",
+ "generated_utc": "2026-11-06T19:59:25Z"
 }
