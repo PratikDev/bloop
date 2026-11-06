@@ -175,12 +175,13 @@
     4445
    ],
    "badge": "observation",
-   "period": "18 Apr 2016 – 18 Apr 2016",
+   "period": "undated (no frame dates found; SVS release 18 Apr 2016)",
    "manifest": "rel_4445/manifest.json",
    "focus": "water resources",
    "related_to": [
     4960
-   ]
+   ],
+   "hidden": "too sparse to play: values in 0.03–0.4 % of cells per step, none at every step (re-decoded 7 Nov 2026)"
   },
   {
    "record": "rel_4658",
@@ -189,12 +190,13 @@
     4658
    ],
    "badge": "observation",
-   "period": "9 Dec 2018 – 9 Dec 2018",
+   "period": "undated (no frame dates found; SVS release 09 Dec 2018)",
    "manifest": "rel_4658/manifest.json",
    "focus": "disasters",
    "related_to": [
     5313
-   ]
+   ],
+   "hidden": "too sparse to play: values in 0.3–0.9 % of cells per step, none at every step (re-decoded 7 Nov 2026)"
   },
   {
    "record": "rel_4764",
@@ -248,7 +250,8 @@
    "focus": "water resources",
    "related_to": [
     4960
-   ]
+   ],
+   "hidden": "too sparse to play: 99 % of cells on the first frame, 0.1–0.6 % on the last two (the 3D camera leaves the map), none at every step (re-decoded 7 Nov 2026)"
   },
   {
    "record": "rel_4993",

@@ -46,6 +46,10 @@ def markdown(doc):
         L.append(f"| {r['id']} | {CATEGORIES[r['category']]} | {_cell(r['status'])} | {_cell(r.get('last_data_utc'))} | "
                  f"{_cell(r.get('source_latest_utc'))} | {_cell(r.get('lag_days'))} | {_cell(r.get('app_plays'))} | "
                  f"{passed} passed, {len(failed)} failed | {_cell(notes)} |")
+    hid = doc.get("hidden") or []
+    L += ["", "## Hidden from the Related shelf", "", "Kept off the shelf by a feature flag (pipeline/svs/onboard HIDDEN; the app lists them "
+          "only with NEXT_PUBLIC_SHOW_HIDDEN_RELATED=1), so the app check does not play them. Their files stay in public/data/related/.", ""]
+    L += ["| Record | Title | Why |", "|---|---|---|"] + [f"| {h['record']} | {_cell(h['title'])} | {_cell(h['reason'])} |" for h in hid] if hid else ["None."]
     L += ["", "## Freshness (records that can update)", "",
           "| Record | Shipped (UTC) | Source latest (UTC) | Age (d) | Lag (d) | Limit (d) | Behind limit | Source asked |", "|---|---|---|---|---|---|---|---|"]
     for f in doc["freshness"]:

@@ -1,7 +1,7 @@
-"""The report never prints a local path, and never mangles a URL while looking for one."""
+"""The report never prints a local path, and never mangles a URL while looking for one; it lists the hidden records."""
 import json
 import unittest
-from health.report import LOCAL, _scrub_all
+from health.report import LOCAL, _scrub_all, markdown
 
 
 class Scrub(unittest.TestCase):
@@ -19,6 +19,21 @@ class Scrub(unittest.TestCase):
         self.assertEqual(out["links"], doc["links"])
         self.assertEqual(out["note"], "file <local path> missing")
         json.loads(json.dumps(out))
+
+
+class Hidden(unittest.TestCase):
+    DOC = {"generated_utc": "2026-11-07T00:00Z", "records": [], "freshness": [], "links": {}}
+
+    def test_hidden_records_listed_with_reason(self):
+        md = markdown({**self.DOC, "hidden": [{"record": "rel_1", "title": "A | B", "reason": "too sparse to play"}]})
+        self.assertIn("| rel_1 | A / B | too sparse to play |", hidden_section(md))
+
+    def test_none_hidden(self):
+        self.assertIn("None.", hidden_section(markdown(self.DOC)))
+
+
+def hidden_section(md):
+    return md.split("## Hidden from the Related shelf")[1].split("\n## ")[0]
 
 
 if __name__ == "__main__":

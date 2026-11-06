@@ -26,6 +26,8 @@ export interface OfficialIndexRow {
   /** Related records only (public/data/related/): the EIC focus area, and the official SVS IDs it sits beside. */
   focus?: string;
   related_to?: number[];
+  /** Related records only: why the record is kept off the Related shelf (pipeline/svs/onboard HIDDEN); listed in docs/HEALTH.md. */
+  hidden?: string;
 }
 
 export interface OfficialIndex {

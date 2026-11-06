@@ -35,7 +35,15 @@ const recordPath = (record: string, file: string) =>
   (record.startsWith(RELATED_PREFIX) ? DATA_PATHS.related : DATA_PATHS.official)(`${record}/${file}`);
 
 export const loadOfficialIndex = () => fetchJson<OfficialIndex>(DATA_PATHS.official("index.json"));
-export const loadRelatedIndex = () => fetchJson<OfficialIndex>(DATA_PATHS.related("index.json"));
+/** Feature flag: NEXT_PUBLIC_SHOW_HIDDEN_RELATED=1 also lists the related records the pipeline marks `hidden` (too sparse
+ *  to play: a needle reads "no value" as they play). Off by default. */
+export const SHOW_HIDDEN_RELATED = process.env.NEXT_PUBLIC_SHOW_HIDDEN_RELATED === "1";
+
+/** The related records the app lists: every row, or (by default) those not marked hidden. */
+export const listedRelated = (index: OfficialIndex, showHidden = SHOW_HIDDEN_RELATED): OfficialIndex =>
+  showHidden ? index : { records: index.records.filter((r) => !r.hidden) };
+
+export const loadRelatedIndex = async () => listedRelated(await fetchJson<OfficialIndex>(DATA_PATHS.related("index.json")));
 
 export async function loadOfficialManifest(record: string): Promise<OfficialManifest> {
   const url = recordPath(record, "manifest.json");

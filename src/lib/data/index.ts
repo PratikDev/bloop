@@ -27,6 +27,7 @@ export {
   loadOfficialLayer,
   loadOfficialManifest,
   loadOfficialValidation,
+  listedRelated,
   loadRelatedIndex,
   officialValueAt,
   PATTERN_LEVELS,

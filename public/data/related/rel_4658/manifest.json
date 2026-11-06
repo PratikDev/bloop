@@ -13,7 +13,7 @@
  "period": {
   "start": "2018-12-09T05:00:00Z",
   "end": "2018-12-09T05:00:00Z",
-  "label": "9 Dec 2018 – 9 Dec 2018"
+  "label": "undated (no frame dates found; SVS release 09 Dec 2018)"
  },
  "badge": "observation",
  "credits_by_role": {
@@ -52,7 +52,7 @@
  "frame_times": {
   "method": "linear",
   "approximate": true,
-  "count": 3,
+  "count": 4,
   "source": "undated"
  },
  "georef": {
@@ -134,7 +134,7 @@
  "twins": [],
  "decode": {
   "mode": "chroma",
-  "decoded_share": 0.013071068029835391
+  "decoded_share": 0.031238184799382715
  },
  "layers": [
   {
@@ -162,18 +162,19 @@
    "times": [
     "2018-12-09T05:00:00Z",
     "2018-12-09T05:00:00Z",
+    "2018-12-09T05:00:00Z",
     "2018-12-09T05:00:00Z"
    ],
    "chunks": [
     {
      "file": "value_000.u16.gz",
      "t0": 0,
-     "t1": 3,
-     "bytes": 538
+     "t1": 4,
+     "bytes": 1417
     }
    ],
    "quantisation_step": 0.0055157096967605275,
-   "coverage": 0.002800925925925926,
+   "coverage": 0.006024305555555555,
    "value_range": [
     5.046885967254639,
     182.4956817626953
@@ -181,6 +182,7 @@
    "label": "NASA's Black Marble night lights used to examine disaster recovery in Puerto Rico (pattern only)",
    "aggregation": "mean of decoded pixels per cell",
    "time_labels": [
+    "undated",
     "undated",
     "undated",
     "undated"
@@ -297,33 +299,33 @@
  ],
  "size": {
   "choice": {
-   "frames": 3
+   "frames": 4
   },
   "tried": [],
-  "bytes": 9144,
+  "bytes": 10145,
   "budget": 25000000
  },
  "onboarding": {
   "timings_s": {
-   "api": 17.8,
-   "twins": 0.7,
+   "api": 33.9,
+   "twins": 1.0,
    "asset choice": 0.0,
-   "frames": 62.9,
-   "frame times": 3.5,
+   "frames": 83.8,
+   "frame times": 13.0,
    "georef": 0.1,
-   "colorbar": 73.2,
-   "inversion": 194.7,
+   "colorbar": 47.2,
+   "inversion": 250.1,
    "validation": 0.0
   },
   "status": "pattern only"
  },
  "asset_checksums": {
   "file": "checksums.tsv.gz",
-  "rows": 5,
-  "sha256_of_list": "a166bb07254b78a5e88f0c610fa1c9e463d2aea8fa04de4c1e1fb55af203b3ae"
+  "rows": 7,
+  "sha256_of_list": "1e67dbcff68d4383e15a0967116089fa339e079f983085251de190f24c558f4a"
  },
- "code_commit": "a8f0638dc9adb81b18f259cf0813046acd882fa1-dirty",
- "generated_utc": "2026-10-31T17:34:37Z",
+ "code_commit": "dc9dd8e7cc40c87e26c3db4101ce1e122fde8be2-dirty",
+ "generated_utc": "2026-11-06T20:09:59Z",
  "playable": {
   "moved_starts": [
    "value"

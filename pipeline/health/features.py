@@ -77,7 +77,9 @@ def _records(tab):
     ids = [k for k, p in plan.items() if p["tab"] == tab]
     good = [k for k in ids if len(res) == len(BROWSERS) and all(res[b].get(k, {}).get("ok") for b in res)]
     bad = [f"{k} ({'; '.join(res[b][k]['note'][:60] for b in res if k in res[b] and not res[b][k]['ok'])})" for k in ids if k not in good]
-    return len(good), len(ids), bad
+    idx = json.loads((REPO / "public" / "data" / tab / "index.json").read_text(encoding="utf-8"))["records"]
+    hidden = [r["record"] for r in idx if r.get("hidden")]
+    return len(good), len(ids), bad, hidden
 
 def build():
     shown, hidden = _load("3d"), _load("no3d")
@@ -94,12 +96,13 @@ def build():
                      "sr": sr, "hidden3d": h3, "evidence": f"`{any_r['test']}` ({date}; " + " · ".join(
                          f"{b}: {r['evidence'][:90]}" for b, r in by.items() if r["status"] == "WORKING")[:240] + ")"})
     for tab, label in (("official", "Every official record opens, starts on a value and plays"), ("related", "Every related record opens, starts on a value and plays")):
-        good, total, bad = _records(tab)
+        good, total, bad, hidden = _records(tab)
         if total:
+            shelf = f"{len(hidden)} hidden from the shelf as too sparse to play ({', '.join(hidden)}; docs/HEALTH.md)" if hidden else ""
             rows.append({"id": f"records-{tab}", "group": "data", "name": label, "where": "Official tab · each record", "what": "Opened, played at three needle points, labels as its manifest",
-                         "status": "WORKING" if good == total else ("PARTIAL" if good else "BROKEN"), "note": "; ".join(bad[:4]),
+                         "status": "WORKING" if good == total else ("PARTIAL" if good else "BROKEN"), "note": "; ".join(bad[:4] + ([shelf] if shelf else [])),
                          "keyboard": "no", "sr": "yes", "hidden3d": "not checked",
-                         "evidence": f"`e2e/health-records.e2e.ts` (npm run health): {good} of {total} in both browsers"})
+                         "evidence": f"`e2e/health-records.e2e.ts` (npm run health): {good} of {total} listed in both browsers"})
     health = json.loads((REPO / "public" / "data" / "meta" / "health.json").read_text(encoding="utf-8"))
     rows.append({"id": "tool-health", "group": "tools", "name": "npm run health", "where": "terminal", "what": "Inventory, files, values, labels, links, freshness, archive drift and the app check; writes docs/HEALTH.md",
                  "status": "WORKING" if health["seconds"] < 900 else "PARTIAL", "note": "" if health["seconds"] < 900 else f"took {health['seconds'] / 60:.1f} min (limit 15)",

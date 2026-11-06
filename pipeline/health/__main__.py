@@ -82,8 +82,10 @@ def main(argv):
         vr, p = values.check(r)
         checks += vr + labels.check(r)
         rows.append({**{k: v for k, v in asdict(r).items() if k != "notes"}, "notes": list(r.notes), "checks": checks})
+    hidden = []                                           # kept off the Related shelf (svs/onboard HIDDEN): listed, not played
     for idx in ("official", "related"):                   # every playable record the app lists, by its index title
         for row in json.loads((inventory.DATA / idx / "index.json").read_text(encoding="utf-8"))["records"]:
+            if row.get("hidden"): hidden.append({"record": row["record"], "title": row["title"], "reason": row["hidden"]}); continue
             plan[row["record"]] = {**values.plan_for(f"{idx}/{row['manifest']}"), "title": row["title"], "tab": idx}
     say(f"files, values, labels: {sum(len(r['checks']) for r in rows)} checks; app plan {len(plan)} records")
     net, app = {}, {}
@@ -113,9 +115,11 @@ def main(argv):
                 row["checks"].append(res(f"app ({b}): plays, labels, no console errors", v.get("ok"), v.get("note", "")))
         elif key in plan:
             row["app_plays"] = "not run"
+        elif any(h["record"] == r.id for h in hidden):
+            row["app_plays"] = "hidden from the shelf"
     doc = {"generated_utc": dt.datetime.now(dt.timezone.utc).strftime("%Y-%m-%dT%H:%MZ"), "seconds": round(time.time() - t0),
            "completeness": gaps, "records": rows, "freshness": net.get("freshness") or [], "snpp": net.get("snpp"),
-           "archive": net.get("archive") or [], "links": net.get("links") or {},
+           "archive": net.get("archive") or [], "links": net.get("links") or {}, "hidden": hidden,
            "app": {"summary": f"{sum(1 for v in app.values() if all(x.get('ok') for x in v.values()))} of {len(app)} records pass in "
                               f"{', '.join(BROWSERS)}" if app else None}}
     failed = sum(1 for r in rows if any(c["ok"] is False for c in r["checks"])) + len(gaps)

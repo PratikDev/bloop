@@ -9,7 +9,7 @@ from .. import export, focus, validate as V
 from ..config import CACHE, PUBLIC_RELATED, RELATED_BUDGET_BYTES, REPO, record_dir
 from ..eic import MODEL_RX
 from ..records import common
-from . import LIVE
+from . import HIDDEN, LIVE
 
 REGISTRY = CACHE / "related_records.json"
 DOCS = REPO / "docs" / "related"
@@ -31,7 +31,8 @@ def write_index():
         d = json.loads(m.read_text(encoding="utf-8"))
         if not d.get("play"): continue
         rows.append({"record": d["record"], "title": d["app_title"], "svs_ids": d["svs_ids"], "badge": d["badge"], "period": d["period"]["label"],
-                     "manifest": f"{d['record']}/manifest.json", "focus": d["focus"], "related_to": d["related_to"]})
+                     "manifest": f"{d['record']}/manifest.json", "focus": d["focus"], "related_to": d["related_to"],
+                     **({"hidden": HIDDEN[d["record"]]} if d["record"] in HIDDEN else {})})
     total = sum(p.stat().st_size for p in PUBLIC_RELATED.rglob("*") if p.is_file())
     if total > RELATED_BUDGET_BYTES: raise RuntimeError(f"public/data/related/ is {total:,} bytes > {RELATED_BUDGET_BYTES:,}")
     (PUBLIC_RELATED / "index.json").write_text(json.dumps({"records": rows}, indent=1, ensure_ascii=False), encoding="utf-8")
