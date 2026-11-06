@@ -54,6 +54,9 @@ export function ThenNow({
   const part: ViewPart = player.soundingPart ?? chosen;
   const field = isFieldPart(part);
   const cities = ready?.cities?.cities ?? [];
+  // The cell this part plays from; the sharer's caption already names its reference city, the reference's doesn't.
+  const cell = part === "heat" ? city?.heat : part === "monsoon" ? city?.rain.gpcp : null;
+  const sharedWith = cell && cell.same_record_as === null ? cell.shares_cell_with : [];
 
   const choosePart = (next: ViewPart) => {
     if (isFieldPart(next)) player.stop(); // a record without sound: nothing else keeps playing under it
@@ -118,6 +121,9 @@ export function ThenNow({
                       splitIndex={player.splitIndex}
                     />
                     {part === "water" &&  <p className="text-small text-haze">{t("thenNow.waterNational")}</p>}
+                    {sharedWith.length > 0 && (
+                      <p className="text-small text-moon">{t("history.sharedCell", { places: sharedWith.map((c) => t(`place.${c}`)).join(", ") })}</p>
+                    )}
                     <p className="text-small text-haze">{t("thenNow.contextNote")}</p>
                   </>
                 }
