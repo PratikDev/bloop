@@ -64,8 +64,9 @@
    ],
    "description": "The Quality Controlled Lightning Imaging Sensor (LIS) on International Space Station (ISS) Science Data dataset was collected by the LIS instrument mounted on the ISS and are used to detect the distribution and variability of total lightning occurring in the Earth’s tropical and subtropical regions.",
    "credit": "",
-   "url": "https://ghrcdrive.nsstc.nasa.gov/pub/lis/iss/data/science/final/nc/",
-   "date_range": null
+   "url": null,
+   "date_range": null,
+   "link": "link unavailable (the ISS LIS Science Data V1 folder does not connect and V1 is no longer in NASA CMR (only V2 and V3), so no DOI to give)"
   },
   {
    "name": "Land Cover Climate Modeling Grid (CMG)",

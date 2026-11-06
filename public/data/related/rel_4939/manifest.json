@@ -57,7 +57,7 @@
    ],
    "description": "",
    "credit": "",
-   "url": "https://www.avl.class.noaa.gov/saa/products/search?sub_id=0&datatype_family=JPSS_SND&submit.x=17&submit.y=8",
+   "url": "https://www.class.noaa.gov/",
    "date_range": "2021/01/25 - 2021/01/28"
   },
   {
@@ -71,7 +71,7 @@
    ],
    "description": "",
    "credit": "",
-   "url": "https://www.avl.class.noaa.gov/saa/products/search?datatype_family=JPSS_SND",
+   "url": "https://www.class.noaa.gov/",
    "date_range": "2021/01/25 - 2021/01/28"
   }
  ],

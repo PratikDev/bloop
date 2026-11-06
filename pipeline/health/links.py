@@ -1,10 +1,15 @@
 """Links: every SVS, CMR, DOI and source link in a record's doc (docs/official/<id>.md, docs/related/<id>.md) and in its
 manifest (what the liner notes show) resolves: HTTP 200–399 after redirects. Each unique URL is requested once per run
-(HEAD, then GET when a server refuses HEAD), in parallel."""
+(HEAD, then GET when a server refuses or drops HEAD), in parallel."""
 import json, re
 from concurrent.futures import ThreadPoolExecutor
 import requests
+import urllib3.util.connection
 from svs.config import REPO, UA
+
+# IPv4 only (for this process): a host with an IPv6 address this machine cannot route to (www.ncei.noaa.gov on 7 Nov 2026)
+# made requests hang until the run's limit, while curl fell back to IPv4 and got 200. Every public server here has IPv4.
+urllib3.util.connection.HAS_IPV6 = False
 from .files import manifest
 from .result import res
 
@@ -30,8 +35,9 @@ def urls_for(rec):
 def _probe(url):
     s = requests.Session(); s.headers.update(UA)
     try:
-        r = s.head(url, allow_redirects=True, timeout=TIMEOUT)
-        if r.status_code in (403, 405, 400, 404, 501) or r.status_code >= 500:
+        try: r = s.head(url, allow_redirects=True, timeout=TIMEOUT)
+        except requests.ConnectionError: r = None             # some servers close the connection on HEAD and answer GET (NCEI)
+        if r is None or r.status_code in (403, 405, 400, 404, 501) or r.status_code >= 500:
             r = s.get(url, allow_redirects=True, timeout=TIMEOUT, stream=True); r.close()
         return r.status_code
     except requests.RequestException as e:

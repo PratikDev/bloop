@@ -6,6 +6,7 @@ from urllib.parse import urljoin, urlparse
 from common import now_utc
 from .config import CACHE, SVS
 from . import fetch
+from .dataset_links import fix_record
 
 SIZE_RX = re.compile(r"([\d.]+)\s*(?:&nbsp;|\xa0|\s)?\s*(bytes|B|KB|MB|GB)\b")
 UNITS = {"bytes": 1, "B": 1, "KB": 1e3, "MB": 1e6, "GB": 1e9}
@@ -89,10 +90,11 @@ def normalise(js):
 
 def fetch_record(sid, refresh=False, list_frames=True, cache=CACHE):
     """The cached record; refresh=True re-reads the API and re-lists every frame folder. `cache` is where the copy lives
-    (the committed cache by default; discovery keeps its hundreds of reads in data_raw/)."""
+    (the committed cache by default; discovery keeps its hundreds of reads in data_raw/). The cache keeps what SVS
+    publishes; the record returned has its datasets' dead links fixed (dataset_links)."""
     path = cache / f"{sid}.json"
     if path.exists() and not refresh:
-        return json.loads(path.read_text(encoding="utf-8"))
+        return fix_record(json.loads(path.read_text(encoding="utf-8")))
     js = json.loads(fetch.text(f"{SVS}/api/{sid}"))
     rec = normalise(js)
     if list_frames:
@@ -108,4 +110,4 @@ def fetch_record(sid, refresh=False, list_frames=True, cache=CACHE):
     rec["api_url"] = f"{SVS}/api/{sid}"
     rec["fetched_utc"] = now_utc()
     path.write_text(json.dumps(rec, indent=1, ensure_ascii=False), encoding="utf-8")
-    return rec
+    return fix_record(rec)
