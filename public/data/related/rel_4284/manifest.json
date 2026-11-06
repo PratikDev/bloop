@@ -55,7 +55,7 @@
  "frame_times": {
   "method": "linear",
   "approximate": true,
-  "count": 4,
+  "count": 3,
   "source": "linear over the dataset's date range (8/4/2014-8/11/2014)"
  },
  "georef": {
@@ -229,7 +229,6 @@
     "byte_order": "little"
    },
    "times": [
-    "2014-08-04T00:00:00Z",
     "2014-08-06T08:00:00Z",
     "2014-08-08T16:00:00Z",
     "2014-08-11T00:00:00Z"
@@ -238,12 +237,12 @@
     {
      "file": "value_000.u16.gz",
      "t0": 0,
-     "t1": 4,
-     "bytes": 95123
+     "t1": 3,
+     "bytes": 94603
     }
    ],
    "quantisation_step": 0.19812741379775994,
-   "coverage": 0.2259645061728395,
+   "coverage": 0.30128600823045265,
    "value_range": [
     24.3389835357666,
     604.7772827148438
@@ -251,7 +250,6 @@
    "label": "Accumulated Precipitation from the IMERG Global Precipitation Data (pattern only)",
    "aggregation": "mean of decoded pixels per cell",
    "time_labels": [
-    "04 Aug 2014",
     "06 Aug 2014",
     "08 Aug 2014",
     "11 Aug 2014"
@@ -342,8 +340,8 @@
    "view": "global",
    "map": "value",
    "start": {
-    "lat": 0.0,
-    "lon": 0.0
+    "lat": 4.5,
+    "lon": 4.5
    },
    "steps_per_second": 1,
    "channels": [
@@ -371,7 +369,7 @@
    "frames": 4
   },
   "tried": [],
-  "bytes": 105689,
+  "bytes": 105255,
   "budget": 25000000
  },
  "onboarding": {
@@ -394,5 +392,13 @@
   "sha256_of_list": "a3ffe75a4d6dd06b99779c3b8534a76e4076764b33634838a9bbba6b8507d0e8"
  },
  "code_commit": "b2896755d86a34028f36c97fef8b9632e9b8304b-dirty",
- "generated_utc": "2026-11-02T22:36:43Z"
+ "generated_utc": "2026-11-02T22:36:43Z",
+ "playable": {
+  "dropped_empty_steps": [
+   0
+  ],
+  "moved_starts": [
+   "value"
+  ]
+ }
 }

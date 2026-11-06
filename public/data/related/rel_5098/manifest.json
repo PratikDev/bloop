@@ -52,7 +52,7 @@
  "frame_times": {
   "method": "linear",
   "approximate": true,
-  "count": 3,
+  "count": 1,
   "source": "undated"
  },
  "georef": {
@@ -148,20 +148,18 @@
     "space": "frame"
    },
    "times": [
-    "2023-04-24T13:00:00Z",
-    "2023-04-24T13:00:00Z",
     "2023-04-24T13:00:00Z"
    ],
    "chunks": [
     {
      "file": "value_000.u16.gz",
      "t0": 0,
-     "t1": 3,
-     "bytes": 149
+     "t1": 1,
+     "bytes": 94
     }
    ],
    "quantisation_step": 0.04545454545454524,
-   "coverage": 0.00018518518518518518,
+   "coverage": 0.0005555555555555556,
    "value_range": [
     98.2320556640625,
     98.4156494140625
@@ -169,8 +167,6 @@
    "label": "Relative Wetness Root Zone Versus Groundwater Comparison (pattern only)",
    "aggregation": "mean of decoded pixels per cell",
    "time_labels": [
-    "undated",
-    "undated",
     "undated"
    ],
    "display": {
@@ -288,7 +284,7 @@
    "frames": 3
   },
   "tried": [],
-  "bytes": 8319,
+  "bytes": 8276,
   "budget": 25000000
  },
  "onboarding": {
@@ -311,5 +307,11 @@
   "sha256_of_list": "ae03d09d99277fce7fc7b3897a34b2a4990dd190b7f2f4e4541cfeff01dd6e7f"
  },
  "code_commit": "a8f0638dc9adb81b18f259cf0813046acd882fa1-dirty",
- "generated_utc": "2026-10-31T17:18:44Z"
+ "generated_utc": "2026-10-31T17:18:44Z",
+ "playable": {
+  "dropped_empty_steps": [
+   1,
+   2
+  ]
+ }
 }

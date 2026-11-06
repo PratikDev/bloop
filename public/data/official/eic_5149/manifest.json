@@ -342,8 +342,8 @@
    "view": "global",
    "map": "value",
    "start": {
-    "lat": 23.81,
-    "lon": 90.41
+    "lat": 18.25,
+    "lon": 89.25
    },
    "steps_per_second": 1,
    "channels": [
@@ -371,7 +371,7 @@
    "cell_deg": 0.5
   },
   "tried": [],
-  "bytes": 24970,
+  "bytes": 25064,
   "budget": 25000000
  },
  "asset_checksums": {
@@ -380,5 +380,10 @@
   "sha256_of_list": "ce0575ffdf006587802f155692c289c38cb898cff508c66356b287f00285b52e"
  },
  "code_commit": "7ace93c0df254924bb7e1645f3d067833ddccef2-dirty",
- "generated_utc": "2026-10-29T13:28:36Z"
+ "generated_utc": "2026-10-29T13:28:36Z",
+ "playable": {
+  "moved_starts": [
+   "value"
+  ]
+ }
 }

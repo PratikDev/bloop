@@ -94,15 +94,21 @@ def code_commit():
     except Exception:
         return None
 
-def write_manifest(record, manifest):
-    out = record_dir(record)
-    files = [p for p in out.glob("*") if p.name != "manifest.json"]
-    manifest = {**manifest, "code_commit": code_commit(), "generated_utc": now_utc()}
+def write_size(record, manifest):
+    """manifest['size'] = the record's files plus this manifest; raises over the budget. → total bytes."""
+    files = [p for p in record_dir(record).glob("*") if p.name != "manifest.json"]
     body = json.dumps(manifest, indent=1, ensure_ascii=False, allow_nan=False)
     total = sum(p.stat().st_size for p in files) + len(body.encode())
     manifest["size"] = {**manifest.get("size", {}), "bytes": total, "budget": RECORD_BUDGET_BYTES}
     if total > RECORD_BUDGET_BYTES:
         raise RuntimeError(f"{record}: {total:,} bytes > budget {RECORD_BUDGET_BYTES:,}")
+    return total
+
+def write_manifest(record, manifest):
+    from .playable import fix                           # no silent steps, no needle starting on an empty cell
+    out = record_dir(record)
+    manifest = fix(record, {**manifest, "code_commit": code_commit(), "generated_utc": now_utc()})
+    total = write_size(record, manifest)
     (out / "manifest.json").write_text(json.dumps(manifest, indent=1, ensure_ascii=False, allow_nan=False), encoding="utf-8")
-    say(f"wrote {out.relative_to(REPO).as_posix()}/ ({total:,} bytes, {len(files) + 1} files)")
+    say(f"wrote {out.relative_to(REPO).as_posix()}/ ({total:,} bytes, {len(list(out.glob('*')))} files)")
     return out / "manifest.json"

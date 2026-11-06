@@ -56,7 +56,7 @@
  "frame_times": {
   "method": "linear",
   "approximate": true,
-  "count": 3,
+  "count": 1,
   "source": "undated"
  },
  "georef": {
@@ -194,20 +194,18 @@
     "space": "frame"
    },
    "times": [
-    "2024-05-30T18:00:00Z",
-    "2024-05-30T18:00:00Z",
     "2024-05-30T18:00:00Z"
    ],
    "chunks": [
     {
      "file": "value_000.u16.gz",
      "t0": 0,
-     "t1": 3,
-     "bytes": 142
+     "t1": 1,
+     "bytes": 86
     }
    ],
    "quantisation_step": 0.03596311312472963,
-   "coverage": 0.0001388888888888889,
+   "coverage": 0.0004166666666666667,
    "value_range": [
     44.50901794433594,
     53.939456939697266
@@ -215,8 +213,6 @@
    "label": "NASA’s TEMPO Instrument Air Quality Data Now Publicly Available (pattern only)",
    "aggregation": "mean of decoded pixels per cell",
    "time_labels": [
-    "undated",
-    "undated",
     "undated"
    ],
    "display": {
@@ -305,8 +301,8 @@
    "view": "global",
    "map": "value",
    "start": {
-    "lat": 0.0,
-    "lon": 0.0
+    "lat": -21.375,
+    "lon": 75.375
    },
    "steps_per_second": 1,
    "channels": [
@@ -357,5 +353,14 @@
   "sha256_of_list": "b28db044087e5264f371ff58ba716d310b35a56a68f4268598817d4c86bddf12"
  },
  "code_commit": "a8f0638dc9adb81b18f259cf0813046acd882fa1-dirty",
- "generated_utc": "2026-10-31T17:44:05Z"
+ "generated_utc": "2026-10-31T17:44:05Z",
+ "playable": {
+  "dropped_empty_steps": [
+   0,
+   2
+  ],
+  "moved_starts": [
+   "value"
+  ]
+ }
 }

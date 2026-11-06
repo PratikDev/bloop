@@ -59,7 +59,7 @@
  "frame_times": {
   "method": "linear",
   "approximate": true,
-  "count": 3,
+  "count": 1,
   "source": "undated"
  },
  "georef": {
@@ -464,20 +464,18 @@
     "byte_order": "little"
    },
    "times": [
-    "2023-06-16T14:00:00Z",
-    "2023-06-16T14:00:00Z",
     "2023-06-16T14:00:00Z"
    ],
    "chunks": [
     {
      "file": "value_000.u16.gz",
      "t0": 0,
-     "t1": 3,
-     "bytes": 494
+     "t1": 1,
+     "bytes": 243
     }
    ],
    "quantisation_step": 134540202.6303922,
-   "coverage": 9.77366255144033e-05,
+   "coverage": 0.0002932098765432099,
    "value_range": [
     40362061824.0,
     85868462080.0
@@ -485,8 +483,6 @@
    "label": "Atmospheric Carbon Dioxide Tagged by Source (pattern only)",
    "aggregation": "mean of decoded pixels per cell",
    "time_labels": [
-    "undated",
-    "undated",
     "undated"
    ],
    "display": {
@@ -604,7 +600,7 @@
    "frames": 3
   },
   "tried": [],
-  "bytes": 21297,
+  "bytes": 21062,
   "budget": 25000000
  },
  "onboarding": {
@@ -627,5 +623,11 @@
   "sha256_of_list": "51e81768a14a7e3df50c2a64e64a81c5a20e2847065153c305a8618ea02bd2aa"
  },
  "code_commit": "a8f0638dc9adb81b18f259cf0813046acd882fa1-dirty",
- "generated_utc": "2026-10-31T17:12:17Z"
+ "generated_utc": "2026-10-31T17:12:17Z",
+ "playable": {
+  "dropped_empty_steps": [
+   1,
+   2
+  ]
+ }
 }
