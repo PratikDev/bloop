@@ -11,7 +11,8 @@ import { STATUS_BUDGET, brailleNumber, violations } from "@/a11y/brailleText";
 import { recordBrailleLabel } from "@/components/OfficialRecords/braille-label";
 import { decimalsOf, officialReading } from "@/components/OfficialRecords/braille-lines";
 import { banglaLine, uebLine } from "@/a11y/brailleLines";
-import { bnNumber, bnTableSafe } from "@/a11y/brailleBangla";
+import { BN, bnNumber, bnTableSafe } from "@/a11y/brailleBangla";
+import { PATTERN_ONLY } from "@/lib/data/official";
 import { bindT, en } from "@/lib/i18n";
 import type { OfficialIndex, OfficialManifest } from "@/types/data-contract";
 
@@ -73,13 +74,17 @@ describe("value lines from every shipped manifest", () => {
         const r = officialReading(m, layer, { value: lo, below: false }, { lat: 21.5, lon: 89.8 }, 0);
         const line = uebLine(t, r, "word");
         expect([m.record, layer.id, violations(line)]).toEqual([m.record, layer.id, []]);
-        // The value shown is the manifest's own number at the stated precision.
-        expect(line).toContain(brailleNumber(lo, decimalsOf(layer, lo)));
+        // The value shown is the manifest's own number at the stated precision; a pattern-only layer shows a level, no number.
+        if (layer.status === PATTERN_ONLY) {
+          expect(line).toContain(t("level.veryLow"));
+          expect(line).not.toContain(brailleNumber(lo, decimalsOf(layer, lo)));
+        } else expect(line).toContain(brailleNumber(lo, decimalsOf(layer, lo)));
         if ([...line].length > STATUS_BUDGET) over.push(`${m.record}/${layer.id}: ${line}`);
         // The Bengali-table line: Bangla only (no Latin, no colon, no dot between digits), the same number.
         const bn = banglaLine(r);
         expect([m.record, layer.id, bnTableSafe(bn), bn]).toEqual([m.record, layer.id, true, bn]);
-        expect(bn).toContain(bnNumber(lo, decimalsOf(layer, lo)));
+        if (layer.status === PATTERN_ONLY) expect(bn).toContain(BN.level.veryLow);
+        else expect(bn).toContain(bnNumber(lo, decimalsOf(layer, lo)));
       }
       for (const option of m.play) {
         for (const c of option.channels) {

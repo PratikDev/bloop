@@ -29,6 +29,10 @@ export {
   loadOfficialValidation,
   loadRelatedIndex,
   officialValueAt,
+  PATTERN_LEVELS,
+  PATTERN_ONLY,
+  patternLevel,
   type OfficialGrid,
   type OfficialReading,
+  type PatternLevel,
 } from "./official";

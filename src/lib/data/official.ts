@@ -11,6 +11,18 @@ import { requirePaths } from "./validate";
 export const OFFICIAL_NODATA = 65535;
 export const OFFICIAL_BELOW = 65534;
 
+/** A "pattern only" value is never shown as a number: only where it sits in the layer's own range, in five levels. */
+export const PATTERN_LEVELS = ["veryLow", "low", "middle", "high", "veryHigh"] as const;
+export type PatternLevel = (typeof PATTERN_LEVELS)[number];
+export const PATTERN_ONLY = "pattern only";
+
+export function patternLevel(layer: OfficialLayer, value: number): PatternLevel {
+  const [lo, hi] = layer.value_range ?? [value, value];
+  const f = layer.encoding === "log10" && lo > 0 && value > 0 ? (x: number) => Math.log10(x) : (x: number) => x;
+  const share = f(hi) > f(lo) ? (f(value) - f(lo)) / (f(hi) - f(lo)) : 0.5;
+  return PATTERN_LEVELS[Math.min(PATTERN_LEVELS.length - 1, Math.max(0, Math.floor(share * PATTERN_LEVELS.length)))];
+}
+
 export interface OfficialReading {
   value: number;
   /** true: censored, the real value is under `value` (the layer's below_range_bound). */

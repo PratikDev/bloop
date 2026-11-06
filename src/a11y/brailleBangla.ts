@@ -52,6 +52,8 @@ export const BN = {
   south: "দক্ষিণ", // DRAFT
   west: "পশ্চিম", // DRAFT
   noData: "তথ্য নেই", // DRAFT
+  /** Pattern-only levels (src/lib/data/official.ts PATTERN_LEVELS). */
+  level: { veryLow: "খুব কম", low: "কম", middle: "মাঝারি", high: "বেশি", veryHigh: "খুব বেশি" }, // DRAFT
   dry: "শুকনো", // DRAFT
   snow: "তুষার", // DRAFT
   orLess: "বা কম", // DRAFT: "at or below" after the value

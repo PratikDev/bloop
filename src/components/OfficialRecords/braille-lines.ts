@@ -4,7 +4,7 @@
 
 import type { BrailleReading } from "@/a11y/brailleLines";
 import { clean, decimalsFor, shortNameOf } from "@/a11y/brailleText";
-import type { LatLon, OfficialReading } from "@/lib/data";
+import { PATTERN_ONLY, patternLevel, type LatLon, type OfficialReading } from "@/lib/data";
 import type { OfficialLayer, OfficialManifest, OfficialStatus } from "@/types/data-contract";
 
 /** Statuses whose values are not to be read as measurements: the value line says so first. */
@@ -45,8 +45,9 @@ export function officialReading(manifest: OfficialManifest, layer: OfficialLayer
     layer: layer.id,
     svs,
     tag: svs !== undefined && short !== String(svs) ? String(svs) : undefined,
-    kind: r ? "value" : "nodata",
-    value: r?.value ?? null,
+    kind: !r ? "nodata" : layer.status === PATTERN_ONLY ? "pattern" : "value",
+    value: r && layer.status !== PATTERN_ONLY ? r.value : null,
+    level: r && layer.status === PATTERN_ONLY ? patternLevel(layer, r.value) : undefined,
     decimals: r ? decimalsOf(layer, r.value) : 0,
     below: r?.below ?? false,
     snow: false,

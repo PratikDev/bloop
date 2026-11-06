@@ -4,6 +4,7 @@
 //  - Bengali table (বাংলা mode): Bangla words, digits, দশমিক and no colon (brailleBangla.ts).
 // A source fills a BrailleReading; it never writes a line itself, so every record reads the same way.
 
+import type { PatternLevel } from "@/lib/data/official";
 import type { BoundT } from "@/lib/i18n";
 import { BN, BN_STATUS, bnCompose, bnLayer, bnNumber, bnPlace, bnTime, bnUnit } from "./brailleBangla";
 import { STATUS_BUDGET, abbrev, braillePlace, brailleNumber, brailleTime, brailleUnit, clean, frontLoad, type DegreeStyle } from "./brailleText";
@@ -19,7 +20,9 @@ export interface BrailleReading {
   svs?: number;
   /** Added to the short line after the time, when it fits (the SVS ID when the short name isn't it). */
   tag?: string;
-  kind: "value" | "dry" | "nodata";
+  /** "pattern": a pattern-only layer, read as a level of its own range (value is then null: never a number). */
+  kind: "value" | "dry" | "nodata" | "pattern";
+  level?: PatternLevel;
   value: number | null;
   /** The record's stated precision. */
   decimals: number;
@@ -67,6 +70,7 @@ function shortUnit(unit: string, degree: DegreeStyle, layer: string): string {
 }
 
 function valueShort(t: BoundT, r: BrailleReading, degree: DegreeStyle, withUnit = true): string {
+  if (r.kind === "pattern" && r.level) return t(`level.${r.level}`);
   if (r.kind === "nodata" || r.value === null) return t("braille.noData");
   if (r.kind === "dry") return t("braille.dry");
   const unit = withUnit ? shortUnit(r.unit, degree, r.layer) : "";
@@ -102,7 +106,7 @@ export function uebLine(t: BoundT, r: BrailleReading, degree: DegreeStyle): stri
 
 /** The review line (R) for UEB: the whole reading in words. */
 export function uebReview(t: BoundT, r: BrailleReading, degree: DegreeStyle): string {
-  const value = r.kind === "nodata" || r.value === null ? t("braille.noData") : r.kind === "dry" ? t("braille.dry")
+  const value = r.kind === "pattern" && r.level ? t(`level.${r.level}`) : r.kind === "nodata" || r.value === null ? t("braille.noData") : r.kind === "dry" ? t("braille.dry")
     : `${brailleNumber(r.value, r.decimals)} ${brailleUnit(r.unit, degree)}`.trim()
         .replace("mm/h", t("braille.words.mmh")).replace(/deg C|°C/u, t("braille.words.degC"));
   const shown = r.below ? t("braille.atOrBelow", { value }) : `${value}${r.snow ? ` ${t("braille.snow")}` : ""}`;
@@ -117,6 +121,7 @@ function bnName(r: BrailleReading): string {
 }
 
 function bnValue(r: BrailleReading): string {
+  if (r.kind === "pattern" && r.level) return BN.level[r.level];
   if (r.kind === "nodata" || r.value === null) return BN.noData;
   if (r.kind === "dry") return BN.dry;
   return frontLoad([bnNumber(r.value, r.decimals), bnUnit(r.unit), r.below && BN.orLess, r.snow && BN.snow]);
