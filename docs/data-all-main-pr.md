@@ -71,5 +71,3 @@ git push -u origin data-cron        # then open the PR against main
 ## Not in this PR
 
 The app work on `feat/data-all`: badges, the Truth panel showing 0.29 °C, proof in unison (U), the normal tone and the Sound terrain update. It sits on top of `feat/3d-scenes-1`, which isn't on `main` yet, and comes with the full data-integration PR later.
-
-🤖 Generated with [Claude Code](https://claude.com/claude-code)

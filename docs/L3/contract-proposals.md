@@ -83,7 +83,7 @@ Checked on 28 Sep in L2's review of PR #4: L3 and `L2-audio-engine` merge cleanl
 | `src/components/ui/`: `dialog`, `sheet`, `slider`, `tabs`, `toggle`, `toggle-group`, `tooltip`, `chart` | L3 | Added and re-themed by L3 (no shadows, no black backdrop, no blur, labelled slider thumb). L2 reuses them rather than adding its own. |
 | `src/components/ui/`: `badge`, `card`, `label`, `select`, `switch` | L2 | Added on L2's branch. **L3 won't add these**; L3 reuses L2's once they're in `main`. |
 | `src/lib/then-now.ts` (`buildThenNowInput`), `src/lib/data/context.ts` (`loadDemo`, `loadGrace`) | L3 | **L2's audio test page reuses these.** L3 gives L2 a heads-up before changing their names or shapes. |
-| `.claude/launch.json`, `src/lib/audio/**` (other than `mapping.ts`), `docs/L2/**` | L2 | L3 doesn't touch them |
+| the dev-server launch config, `src/lib/audio/**` (other than `mapping.ts`), `docs/L2/**` | L2 | L3 doesn't touch them |
 
 - **Sweep centre is now Chattogram** (22.36° N, 91.78° E): a team decision on 27 Sep. L2's plan has been updated to match. Then vs Now stays Dhaka, because its data and §16 wording are Dhaka's.
 

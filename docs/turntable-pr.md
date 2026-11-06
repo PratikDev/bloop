@@ -40,5 +40,3 @@ Prototype for feel; no new data, no pipeline change, no mapping change.
 ## Known limitations
 
 See `docs/turntable.md`: grid-cell-edge rounding in the debug camera pick, drop-timer restarts while turning over changing rain (existing voice behaviour), Esc message replaced by Explore's reading announcement, English-only strings, not yet tested on phones or with a screen reader.
-
-🤖 Generated with [Claude Code](https://claude.com/claude-code)

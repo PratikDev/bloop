@@ -111,7 +111,7 @@ A draft liblouis issue for the three table problems: [liblouis-issue-draft-bn.md
 **The words: who chose them.**
 
 - **Team** (4 Nov 2026): সমুদ্রপৃষ্ঠের তাপমাত্রা, উত্তর, পূর্ব, দশমিক, ডিগ্রি সেলসিয়াস, মিমি প্রতি ঘণ্টা, টা, মিনিট.
-- **Draft**, chosen by Claude Code, to be **reviewed by a Bangla speaker** before any claim of Bangla braille:
+- **Draft**, chosen by the build team without a Bangla speaker, to be **reviewed by a Bangla speaker** before any claim of Bangla braille:
   - **Compass, places and values:** দক্ষিণ, পশ্চিম; তথ্য নেই (no data), শুকনো (dry), তুষার (snow), বা কম (at or below); ইউটিসি; month names.
   - **Badges and statuses:** পর্যবেক্ষণ (observation), মডেল, পুনর্বিশ্লেষণ (reanalysis); সরাসরি (live), পুরোনো (stale); যাচাই করা (verified), আপেক্ষিক (relative), শুধু ধরন (pattern only), শুধু ছবি (visual texture), ত্রুটিসহ মান (values with stated error), যাচাই হয়নি (no check).
   - **Scale and frame words:** স্কেল, আপেক্ষিক আকার, থেকে, লগ, রেকর্ড, বাম থেকে / নিচ থেকে … শতাংশ (frame position), আনুমানিক (approx.).

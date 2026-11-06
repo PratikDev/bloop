@@ -35,5 +35,3 @@ Rebuilds the Turntable's presentation. The globe is now a realistic NASA Blue Ma
 ## Known limitations
 
 Bangla strings are drafts for a translator; Natural Earth river naming in Bangladesh (Padma/Jamuna appear as Ganges/Brahmaputra, Meghna unnamed); the SWOT reach isn't chosen yet; coastline vs data mask disagree on 27% of coastal cells (1.7% globally), and the grid decides; not yet tested on a real phone or by screen-reader users.
-
-🤖 Generated with [Claude Code](https://claude.com/claude-code)

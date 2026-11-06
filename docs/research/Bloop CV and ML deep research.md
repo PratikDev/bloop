@@ -24,7 +24,7 @@ The evidence labels come straight from the research notes, and none has been upg
 The researchers also ran their own **synthetic experiments** in this session. These used made-up fields, standard matplotlib colormaps and generated particle renders, not NASA frames:
 
 - The colour and inversion experiments are labelled **[V-test]** (scripts `inv_test.py` and `inv_test2.py`).
-- The frame and flow experiments are labelled **[EXP]** (scripts `vfrt_*.py`, all saved in `/home/claude/research_notes/Bloop CV and ML deep research/`).
+- The frame and flow experiments are labelled **[EXP]** (scripts `vfrt_*.py`, all saved in the research notes folder).
 - The shape experiment was labelled [V] in its notes because the researcher ran the code. It appears here as **[V, own synthetic run]**. Its script sat in a session scratchpad that may not persist, but its core code is reproduced in the notes.
 
 All of these are sanity checks and upper bounds, not published results. Treat them as strong hints about real SVS frames, not proof. Index IDs (CV-x, ML-x, DP §x, DD §x, OR, GAP) refer to `BLOOP_IDEA_INDEX_post_statement.md`. The challenge text is quoted from the official statement (local copy at `/mnt/user-data/uploads/attachment.txt`).
