@@ -25,14 +25,16 @@ describe("one scale for every comparison (guardrail 2)", () => {
   });
 });
 
-describe("official records (§15)", () => {
-  const index: { records: { manifest: string }[] } = pub("official/index.json");
-  test("every voice a record plays is in the mapping (a missing one would stop the Official tab)", () => {
-    for (const r of index.records) {
-      const m: { play: { channels: { voice: string }[] }[] } = pub(`official/${r.manifest}`);
-      for (const o of m.play) for (const c of o.channels) expect(() => voiceSpec(c.voice), `${r.manifest}: ${c.voice}`).not.toThrow();
-    }
-  });
+describe("official and related records (§15)", () => {
+  for (const shelf of ["official", "related"] as const) {
+    const index: { records: { manifest: string }[] } = pub(`${shelf}/index.json`);
+    test(`every voice a ${shelf} record plays is in the mapping (a missing one would stop the Official tab)`, () => {
+      for (const r of index.records) {
+        const m: { play: { channels: { voice: string }[] }[] } = pub(`${shelf}/${r.manifest}`);
+        for (const o of m.play) for (const c of o.channels) expect(() => voiceSpec(c.voice), `${r.manifest}: ${c.voice}`).not.toThrow();
+      }
+    });
+  }
 });
 
 describe("badges and freshness (guardrails 15, 16)", () => {

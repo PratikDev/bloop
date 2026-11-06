@@ -1111,6 +1111,91 @@
       "note": "The book's pitch rule over the key's own range."
     },
     {
+      "id": "rel4272",
+      "label": {
+        "en": "What Would have Happened to the Ozone Layer if Chlorofluorocarbons (CFCs) had not been Regulated? (UPDATED) (pattern only)",
+        "bn": "TODO: rel_4272"
+      },
+      "group": "context",
+      "source": {
+        "dataset": "SVS 4272 (related visualization)",
+        "svsId": 4272,
+        "product": "rel_4272"
+      },
+      "status": "context",
+      "mapping": {
+        "kind": "continuous",
+        "input": {
+          "unit": "colorbar units",
+          "min": -46.38000985031323,
+          "max": 646.2847720142258,
+          "scale": "linear"
+        },
+        "output": {
+          "param": "frequency",
+          "unit": "Hz",
+          "min": 220,
+          "max": 880,
+          "scale": "exponential"
+        }
+      },
+      "silence": "No value at this point (an overlay box or a colour off the key).",
+      "sound": {
+        "timbre": "Warm sine with a soft attack and a smooth glide",
+        "attackMs": 20,
+        "releaseMs": 80,
+        "glideMs": 30,
+        "maxGain": 0.2,
+        "family": "model"
+      },
+      "pan": "longitude",
+      "legend": [],
+      "designChoice": true,
+      "note": "The book's pitch rule over the key's own range."
+    },
+    {
+      "id": "rel4284",
+      "label": {
+        "en": "Accumulated Precipitation from the IMERG Global Precipitation Data (pattern only)",
+        "bn": "TODO: rel_4284"
+      },
+      "group": "context",
+      "source": {
+        "dataset": "SVS 4284 (related visualization)",
+        "svsId": 4284,
+        "product": "rel_4284"
+      },
+      "status": "context",
+      "mapping": {
+        "kind": "continuous",
+        "input": {
+          "unit": "colorbar units",
+          "min": -15.54237288135593,
+          "max": 741.304347826087,
+          "scale": "linear"
+        },
+        "output": {
+          "param": "frequency",
+          "unit": "Hz",
+          "min": 220,
+          "max": 880,
+          "scale": "exponential"
+        }
+      },
+      "silence": "No value at this point (an overlay box or a colour off the key).",
+      "sound": {
+        "timbre": "Warm sine with a soft attack and a smooth glide",
+        "attackMs": 20,
+        "releaseMs": 80,
+        "glideMs": 30,
+        "maxGain": 0.2
+      },
+      "pan": "longitude",
+      "legend": [],
+      "designChoice": true,
+      "note": "The book's pitch rule over the key's own range."
+    },
+    {
       "id": "rel4332",
       "label": {
         "en": "Aquarius Sea Surface Temperature 2011 - 2015 (pattern only)",
@@ -1533,6 +1618,48 @@
       "note": "The book's pitch rule over the key's own range."
     },
     {
+      "id": "rel4939",
+      "label": {
+        "en": "3D Water Vapor shows an Atmospheric River (pattern only)",
+        "bn": "TODO: rel_4939"
+      },
+      "group": "context",
+      "source": {
+        "dataset": "SVS 4939 (related visualization)",
+        "svsId": 4939,
+        "product": "rel_4939"
+      },
+      "status": "context",
+      "mapping": {
+        "kind": "continuous",
+        "input": {
+          "unit": "colorbar units",
+          "min": 5690.892448512585,
+          "max": 8458.611746758199,
+          "scale": "linear"
+        },
+        "output": {
+          "param": "frequency",
+          "unit": "Hz",
+          "min": 220,
+          "max": 880,
+          "scale": "exponential"
+        }
+      },
+      "silence": "No value at this point (an overlay box or a colour off the key).",
+      "sound": {
+        "timbre": "Warm sine with a soft attack and a smooth glide",
+        "attackMs": 20,
+        "releaseMs": 80,
+        "glideMs": 30,
+        "maxGain": 0.2
+      },
+      "pan": "longitude",
+      "legend": [],
+      "designChoice": true,
+      "note": "The book's pitch rule over the key's own range."
+    },
+    {
       "id": "rel4993",
       "label": {
         "en": "Spread of the Dixie Fire - 2021 (pattern only)",
@@ -1551,6 +1678,48 @@
           "unit": "relative (0–1)",
           "min": 0.04585376754403114,
           "max": 1.0,
+          "scale": "linear"
+        },
+        "output": {
+          "param": "frequency",
+          "unit": "Hz",
+          "min": 220,
+          "max": 880,
+          "scale": "exponential"
+        }
+      },
+      "silence": "No value at this point (an overlay box or a colour off the key).",
+      "sound": {
+        "timbre": "Warm sine with a soft attack and a smooth glide",
+        "attackMs": 20,
+        "releaseMs": 80,
+        "glideMs": 30,
+        "maxGain": 0.2
+      },
+      "pan": "longitude",
+      "legend": [],
+      "designChoice": true,
+      "note": "The book's pitch rule over the key's own range."
+    },
+    {
+      "id": "rel5017",
+      "label": {
+        "en": "A Decade of Sea Surface Salinity (pattern only)",
+        "bn": "TODO: rel_5017"
+      },
+      "group": "context",
+      "source": {
+        "dataset": "SVS 5017 (related visualization)",
+        "svsId": 5017,
+        "product": "rel_5017"
+      },
+      "status": "context",
+      "mapping": {
+        "kind": "continuous",
+        "input": {
+          "unit": "colorbar units",
+          "min": 29.37415123508794,
+          "max": 38.62567040111704,
           "scale": "linear"
         },
         "output": {
