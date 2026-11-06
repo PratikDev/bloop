@@ -117,7 +117,7 @@ export function ThenNow({
                       index={player.soundingPart === part ? player.index : null}
                       splitIndex={player.splitIndex}
                     />
-                    {part === "water" && !isDhaka && <p className="text-small text-haze">{t("thenNow.waterNational")}</p>}
+                    {part === "water" &&  <p className="text-small text-haze">{t("thenNow.waterNational")}</p>}
                     <p className="text-small text-haze">{t("thenNow.contextNote")}</p>
                   </>
                 }
