@@ -11,9 +11,9 @@
  "description": "Near surface concentration of carbon monoxide (CO) estimated by NASA’s GEOS-CF model.",
  "release_date": "2023-09-26T17:00:00-04:00",
  "period": {
-  "start": "2026-10-20T22:00:00Z",
-  "end": "2026-10-20T22:00:00Z",
-  "label": "20 Oct 2026 – 20 Oct 2026"
+  "start": "2026-10-28T22:00:00Z",
+  "end": "2026-10-28T22:00:00Z",
+  "label": "28 Oct 2026 – 28 Oct 2026"
  },
  "badge": "model",
  "credits_by_role": {
@@ -44,7 +44,7 @@
   "method": "ocr",
   "approximate": false,
   "count": 1,
-  "source": "date box OCR: 20 Oct 2026 18 : 00 : 00 EDT"
+  "source": "date box OCR: 28 Oct 2026 18 : 00 : 00 EDT"
  },
  "georef": {
   "projection": "equirectangular",
@@ -169,8 +169,8 @@
  "colorbar_file": "CO_colorbar.png",
  "decode": {
   "mode": "exact",
-  "exact_share": 0.913817639868508,
-  "decoded_share": 0.8812136650085449,
+  "exact_share": 0.913566444216764,
+  "decoded_share": 0.8809714317321777,
   "base_map_share": null,
   "matcher": "rgb-nearest",
   "max_dist": 12.0
@@ -182,8 +182,8 @@
    "id": "value",
    "unit": "ppbv",
    "encoding": "linear",
-   "scale": 0.006628867655157099,
-   "offset": 54.420249938964844,
+   "scale": 0.006642469370881578,
+   "offset": 53.52882766723633,
    "nodata": 65535,
    "below": 65534,
    "grid": {
@@ -200,21 +200,21 @@
     "byte_order": "little"
    },
    "times": [
-    "2026-10-20T22:00:00Z"
+    "2026-10-28T22:00:00Z"
    ],
    "chunks": [
     {
      "file": "value_000.u16.gz",
      "t0": 0,
      "t1": 1,
-     "bytes": 247966
+     "bytes": 258911
     }
    ],
-   "quantisation_step": 0.006628867655157099,
-   "coverage": 0.8856327160493828,
+   "quantisation_step": 0.006642469370881578,
+   "coverage": 0.8862654320987654,
    "value_range": [
-    54.420249938964844,
-    488.829833984375
+    53.52882766723633,
+    488.82977294921875
    ],
    "label": "Carbon monoxide (GEOS-CF) (model)",
    "aggregation": "mean of decoded pixels per 0.5° cell",
@@ -290,11 +290,11 @@
     "scale": "linear"
    },
    "time_labels": [
-    "20 Oct 2026 22:00 UTC"
+    "28 Oct 2026 22:00 UTC"
    ],
-   "status": "no check",
-   "statement": "GEOS-CF v1's public archive ends 2 Jan 2026; the frame is from Oct 2026",
-   "status_check": "a_no_validation_source"
+   "status": "verified",
+   "statement": null,
+   "status_check": "a_same_model"
   }
  ],
  "voices": {
@@ -324,11 +324,11 @@
  ],
  "validation": [
   {
-   "id": "a_no_validation_source",
-   "title": "Carbon monoxide (GEOS-CF): no validation source found",
-   "kind": "none",
-   "pass": null,
-   "threshold": null
+   "id": "a_same_model",
+   "title": "Carbon monoxide (GEOS-CF): frame vs GEOS-CF v2 analysis chm_tavg_1hr_glo_L1440x721_slv co at 2026-10-28 22:30:00 UTC",
+   "kind": "value",
+   "pass": true,
+   "threshold": "Spearman ≥ 0.9 and median relative error ≤ 15 % (provisional)"
   }
  ],
  "size": {
@@ -336,14 +336,14 @@
    "cell_deg": 0.5
   },
   "tried": [],
-  "bytes": 256126,
+  "bytes": 267617,
   "budget": 25000000
  },
  "asset_checksums": {
   "file": "checksums.tsv.gz",
-  "rows": 2,
-  "sha256_of_list": "fa0f9a99a52a7e409d5e28e3d9cc33ef78db03be073bd0dedce753d2a29e75b8"
+  "rows": 3,
+  "sha256_of_list": "6a305adb38238f206c1683fb312f701f3388fc0d1bdbdfcb20d3ff47e8309e84"
  },
- "code_commit": "7ace93c0df254924bb7e1645f3d067833ddccef2-dirty",
- "generated_utc": "2026-10-29T13:54:23Z"
+ "code_commit": "0220d44fae471638787a046ba95322810b8907ac-dirty",
+ "generated_utc": "2026-11-06T14:11:29Z"
 }

@@ -11,9 +11,9 @@
  "description": "Precipitation and clouds are calculated using fields from NASA’s GEOS-FP system. GEOS-FP combines millions of weather observations with a predictive model to create a global best estimate of weather conditions, which can be used to estimate the formation of clouds along with rain and snowfall.",
  "release_date": "2023-09-26T17:00:00-04:00",
  "period": {
-  "start": "2026-10-22T22:00:00Z",
-  "end": "2026-10-22T22:00:00Z",
-  "label": "22 Oct 2026 – 22 Oct 2026"
+  "start": "2026-10-28T22:00:00Z",
+  "end": "2026-10-28T22:00:00Z",
+  "label": "28 Oct 2026 – 28 Oct 2026"
  },
  "badge": "model",
  "credits_by_role": {
@@ -44,7 +44,7 @@
   "method": "ocr",
   "approximate": false,
   "count": 1,
-  "source": "date box OCR: 22 Oct 2026 18 : 00 : 00 EDT"
+  "source": "date box OCR: 28 Oct 2026 18 : 00 : 00 EDT"
  },
  "georef": {
   "projection": "equirectangular",
@@ -204,9 +204,9 @@
  "colorbar_file": "Precipitation_colorbar.png",
  "decode": {
   "mode": "chroma",
-  "exact_share": 0.030369230464729634,
-  "decoded_share": 0.03911924362182617,
-  "base_map_share": 0.20054115850643417,
+  "exact_share": 0.026999190623590543,
+  "decoded_share": 0.03566598892211914,
+  "base_map_share": 0.1996698853994011,
   "matcher": "rgb-nearest",
   "max_dist": 12.0
  },
@@ -218,7 +218,7 @@
    "unit": "mm",
    "encoding": "linear",
    "scale": 0.0051446653113473425,
-   "offset": -0.0596887543797493,
+   "offset": -0.07933202385902405,
    "nodata": 65535,
    "below": 65534,
    "grid": {
@@ -235,21 +235,21 @@
     "byte_order": "little"
    },
    "times": [
-    "2026-10-22T22:00:00Z"
+    "2026-10-28T22:00:00Z"
    ],
    "chunks": [
     {
      "file": "value_000.u16.gz",
      "t0": 0,
      "t1": 1,
-     "bytes": 15615
+     "bytes": 14144
     }
    ],
    "quantisation_step": 0.0051446653113473425,
-   "coverage": 0.02136574074074074,
+   "coverage": 0.0190625,
    "value_range": [
-    -0.0596887543797493,
-    17.54671287536621
+    -0.07933202385902405,
+    18.39155387878418
    ],
    "label": "Precipitation (model)",
    "aggregation": "mean of decoded pixels per 0.5° cell",
@@ -325,7 +325,7 @@
     "scale": "linear"
    },
    "time_labels": [
-    "22 Oct 2026 22:00 UTC"
+    "28 Oct 2026 22:00 UTC"
    ],
    "status": "pattern only",
    "statement": "pattern only (values not verified)",
@@ -342,8 +342,8 @@
    "view": "global",
    "map": "value",
    "start": {
-    "lat": 18.25,
-    "lon": 89.25
+    "lat": 24.75,
+    "lon": 89.75
    },
    "steps_per_second": 1,
    "channels": [
@@ -360,7 +360,7 @@
  "validation": [
   {
    "id": "a_same_model",
-   "title": "Precipitation: frame vs GEOS-FP tavg1_2d_flx_Nx prectot at 2026-10-20 22:30:00 UTC",
+   "title": "Precipitation: frame vs GEOS-FP tavg1_2d_flx_Nx prectot at 2026-10-28 22:30:00 UTC",
    "kind": "value",
    "pass": false,
    "threshold": "Spearman ≥ 0.9 and median relative error ≤ 15 % (provisional)"
@@ -371,16 +371,16 @@
    "cell_deg": 0.5
   },
   "tried": [],
-  "bytes": 25064,
+  "bytes": 23621,
   "budget": 25000000
  },
  "asset_checksums": {
   "file": "checksums.tsv.gz",
-  "rows": 2,
-  "sha256_of_list": "ce0575ffdf006587802f155692c289c38cb898cff508c66356b287f00285b52e"
+  "rows": 3,
+  "sha256_of_list": "ee3b666dda396e778eabce1d57634ae864e2d6e6bdb89a197bf9c569c687cdf6"
  },
- "code_commit": "7ace93c0df254924bb7e1645f3d067833ddccef2-dirty",
- "generated_utc": "2026-10-29T13:28:36Z",
+ "code_commit": "89d9b8068e678d3974c18af9a8b5984e9934c0ab-dirty",
+ "generated_utc": "2026-11-06T14:13:29Z",
  "playable": {
   "moved_starts": [
    "value"

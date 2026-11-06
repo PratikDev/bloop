@@ -11,9 +11,9 @@
  "description": "Near-surface temperature is calculated by sampling 3-D atmospheric fields from NASA’s GEOS-FP system 3 meters above Earth’s surface. GEOS-FP combines millions of weather observations with a predictive model to create a global best estimate of weather conditions that are used to begin a forecast.",
  "release_date": "2023-09-26T17:00:00-04:00",
  "period": {
-  "start": "2026-10-22T22:00:00Z",
-  "end": "2026-10-22T22:00:00Z",
-  "label": "22 Oct 2026 – 22 Oct 2026"
+  "start": "2026-10-28T22:00:00Z",
+  "end": "2026-10-28T22:00:00Z",
+  "label": "28 Oct 2026 – 28 Oct 2026"
  },
  "badge": "model",
  "credits_by_role": {
@@ -44,7 +44,7 @@
   "method": "ocr",
   "approximate": false,
   "count": 1,
-  "source": "date box OCR: 22 Oct 2026 18 : 00 : 00 - EDT"
+  "source": "date box OCR: 28 Oct 2026 18 : 00 : 00 EDT"
  },
  "georef": {
   "projection": "equirectangular",
@@ -178,8 +178,9 @@
  "colorbar_file": "NearSurfaceTemperature_colorbar.png",
  "decode": {
   "mode": "exact",
-  "exact_share": 0.9105313282514014,
-  "decoded_share": 0.9105313282514014,
+  "exact_share": 0.9195273961493883,
+  "decoded_share": 0.8867197036743164,
+  "base_map_share": null,
   "matcher": "rgb-nearest",
   "max_dist": 12.0
  },
@@ -191,7 +192,7 @@
    "unit": "°C",
    "encoding": "linear",
    "scale": 0.020479569150081537,
-   "offset": -39.91914367675781,
+   "offset": -39.921546936035156,
    "nodata": 65535,
    "below": 65534,
    "grid": {
@@ -208,21 +209,21 @@
     "byte_order": "little"
    },
    "times": [
-    "2026-10-22T22:00:00Z"
+    "2026-10-28T22:00:00Z"
    ],
    "chunks": [
     {
      "file": "value_000.u16.gz",
      "t0": 0,
      "t1": 1,
-     "bytes": 286744
+     "bytes": 289583
     }
    ],
    "quantisation_step": 0.020479569150081537,
-   "coverage": 0.9018557098765432,
+   "coverage": 0.9106481481481481,
    "value_range": [
-    -39.91914367675781,
-    39.74398422241211
+    -39.921546936035156,
+    39.10236358642578
    ],
    "label": "Near-surface temperature (model)",
    "aggregation": "mean of decoded pixels per 0.5° cell",
@@ -298,7 +299,7 @@
     "scale": "linear"
    },
    "time_labels": [
-    "22 Oct 2026 22:00 UTC"
+    "28 Oct 2026 22:00 UTC"
    ],
    "status": "verified",
    "statement": null,
@@ -333,7 +334,7 @@
  "validation": [
   {
    "id": "a_same_model",
-   "title": "Near-surface temperature: frame vs GEOS-FP tavg1_2d_slv_Nx t2m at 2026-10-20 22:30:00 UTC",
+   "title": "Near-surface temperature: frame vs GEOS-FP tavg1_2d_slv_Nx t2m at 2026-10-28 22:30:00 UTC",
    "kind": "value",
    "pass": true,
    "threshold": "Spearman ≥ 0.9 and median relative error ≤ 15 % (provisional)"
@@ -344,14 +345,14 @@
    "cell_deg": 0.5
   },
   "tried": [],
-  "bytes": 295841,
+  "bytes": 298790,
   "budget": 25000000
  },
  "asset_checksums": {
   "file": "checksums.tsv.gz",
-  "rows": 3,
-  "sha256_of_list": "4cbb9a03c59710edcd372b3c1c67c371c1f75c47d23abd0978937e681f2928ee"
+  "rows": 4,
+  "sha256_of_list": "841c27ecfe0622e8411d3d5eb23b87768cd68f6839b42d2753be17e5f3a3b951"
  },
- "code_commit": "e9fb028eb1bee5876953fae7581019f60b108277-dirty",
- "generated_utc": "2026-10-29T12:45:35Z"
+ "code_commit": "89d9b8068e678d3974c18af9a8b5984e9934c0ab-dirty",
+ "generated_utc": "2026-11-06T14:12:38Z"
 }

@@ -11,9 +11,9 @@
  "description": "Near surface concentration of ozone (O3) estimated by NASA’s GEOS-CF model.",
  "release_date": "2023-09-26T17:00:00-04:00",
  "period": {
-  "start": "2026-10-20T22:00:00Z",
-  "end": "2026-10-20T22:00:00Z",
-  "label": "20 Oct 2026 – 20 Oct 2026"
+  "start": "2026-10-28T22:00:00Z",
+  "end": "2026-10-28T22:00:00Z",
+  "label": "28 Oct 2026 – 28 Oct 2026"
  },
  "badge": "model",
  "credits_by_role": {
@@ -44,7 +44,7 @@
   "method": "ocr",
   "approximate": false,
   "count": 1,
-  "source": "date box OCR: 20 Oct 2026 18 : 00 : 00 EDT"
+  "source": "date box OCR: 28 Oct 2026 18 : 00 : 00 EDT"
  },
  "georef": {
   "projection": "equirectangular",
@@ -140,9 +140,9 @@
  "colorbar_file": "O3_colorbar.png",
  "decode": {
   "mode": "exact",
-  "exact_share": 0.5405357855535325,
-  "decoded_share": 0.43657588958740234,
-  "base_map_share": 0.16244446993761644,
+  "exact_share": 0.5386786567653524,
+  "decoded_share": 0.4026923179626465,
+  "base_map_share": 0.22478549473675882,
   "matcher": "rgb-nearest",
   "max_dist": 12.0
  },
@@ -154,7 +154,7 @@
    "unit": "ppbv",
    "encoding": "linear",
    "scale": 0.013934289425445496,
-   "offset": 23.28780174255371,
+   "offset": 21.98699188232422,
    "nodata": 65535,
    "below": 65534,
    "grid": {
@@ -171,20 +171,20 @@
     "byte_order": "little"
    },
    "times": [
-    "2026-10-20T22:00:00Z"
+    "2026-10-28T22:00:00Z"
    ],
    "chunks": [
     {
      "file": "value_000.u16.gz",
      "t0": 0,
      "t1": 1,
-     "bytes": 159109
+     "bytes": 154682
     }
    ],
    "quantisation_step": 0.013934289425445496,
-   "coverage": 0.4367438271604938,
+   "coverage": 0.40368055555555554,
    "value_range": [
-    23.28780174255371,
+    21.98699188232422,
     59.376617431640625
    ],
    "label": "Near-surface ozone (GEOS-CF) (model)",
@@ -261,11 +261,11 @@
     "scale": "linear"
    },
    "time_labels": [
-    "20 Oct 2026 22:00 UTC"
+    "28 Oct 2026 22:00 UTC"
    ],
-   "status": "no check",
-   "statement": "GEOS-CF v1's public archive ends 2 Jan 2026; the frame is from Oct 2026",
-   "status_check": "a_no_validation_source"
+   "status": "pattern only",
+   "statement": "pattern only (values not verified)",
+   "status_check": "a_same_model"
   }
  ],
  "voices": {
@@ -278,8 +278,8 @@
    "view": "global",
    "map": "value",
    "start": {
-    "lat": 23.81,
-    "lon": 90.41
+    "lat": 24.25,
+    "lon": 90.25
    },
    "steps_per_second": 1,
    "channels": [
@@ -295,11 +295,11 @@
  ],
  "validation": [
   {
-   "id": "a_no_validation_source",
-   "title": "Near-surface ozone (GEOS-CF): no validation source found",
-   "kind": "none",
-   "pass": null,
-   "threshold": null
+   "id": "a_same_model",
+   "title": "Near-surface ozone (GEOS-CF): frame vs GEOS-CF v2 analysis chm_tavg_1hr_glo_L1440x721_slv o3 at 2026-10-28 22:30:00 UTC",
+   "kind": "value",
+   "pass": false,
+   "threshold": "Spearman ≥ 0.9 and median relative error ≤ 15 % (provisional)"
   }
  ],
  "size": {
@@ -307,14 +307,19 @@
    "cell_deg": 0.5
   },
   "tried": [],
-  "bytes": 166771,
+  "bytes": 162978,
   "budget": 25000000
  },
  "asset_checksums": {
   "file": "checksums.tsv.gz",
-  "rows": 2,
-  "sha256_of_list": "cdacad6f18e6e39a0a2c15b136a8110cda54866a61863225ba9183ceca1f26fc"
+  "rows": 3,
+  "sha256_of_list": "7312755165e1b66cefcf27aa208a7c94182ec850f8de32df4e0fdde00adde163"
  },
- "code_commit": "7ace93c0df254924bb7e1645f3d067833ddccef2-dirty",
- "generated_utc": "2026-10-29T13:51:59Z"
+ "code_commit": "65405281e6df7801cd75a6db04f5ebcec70af3a9-dirty",
+ "generated_utc": "2026-11-06T14:10:13Z",
+ "playable": {
+  "moved_starts": [
+   "value"
+  ]
+ }
 }

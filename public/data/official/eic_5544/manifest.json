@@ -267,16 +267,16 @@
    "cell_deg": 0.5
   },
   "tried": [],
-  "bytes": 20164,
+  "bytes": 20166,
   "budget": 25000000
  },
  "asset_checksums": {
   "file": "checksums.tsv.gz",
-  "rows": 2,
-  "sha256_of_list": "a69a1ac8e2a99e1879f30b60cdb93d699a50f370a97c8d2e9a7f88b0637ade8c"
+  "rows": 3,
+  "sha256_of_list": "d0c8770e3d2e5cc71c6596b968f9b33e41ece250a660796b059652c79ea3f0e1"
  },
- "code_commit": "7ace93c0df254924bb7e1645f3d067833ddccef2-dirty",
- "generated_utc": "2026-10-29T13:58:07Z",
+ "code_commit": "1f635c66c9008a792ebfb96e6541a75f7e90489c-dirty",
+ "generated_utc": "2026-11-06T07:16:37Z",
  "playable": {
   "moved_starts": [
    "value"

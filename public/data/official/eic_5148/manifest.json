@@ -11,9 +11,9 @@
  "description": "Near-surface wind speed is calculated by sampling 3-D atmospheric fields from NASA’s GEOS-FP system 10 meters above Earth’s surface. GEOS-FP combines millions of weather observations with a predictive model to create a global best estimate of weather conditions that are used to begin a forecast.",
  "release_date": "2023-09-26T17:00:00-04:00",
  "period": {
-  "start": "2026-10-22T22:00:00Z",
-  "end": "2026-10-22T22:00:00Z",
-  "label": "22 Oct 2026 – 22 Oct 2026"
+  "start": "2026-10-28T22:00:00Z",
+  "end": "2026-10-28T22:00:00Z",
+  "label": "28 Oct 2026 – 28 Oct 2026"
  },
  "badge": "model",
  "credits_by_role": {
@@ -44,7 +44,7 @@
   "method": "ocr",
   "approximate": false,
   "count": 1,
-  "source": "date box OCR: 22 Oct 2026 18 : 00 : 00 - EDT"
+  "source": "date box OCR: 28 Oct 2026 18 : 00 : 00 EDT"
  },
  "georef": {
   "projection": "equirectangular",
@@ -60,7 +60,7 @@
   ],
   "iou": {},
   "pass": true,
-  "best_is_assumed": true
+  "best_is_assumed": false
  },
  "colorbar": {
   "geometry": {
@@ -178,9 +178,9 @@
  "colorbar_file": "NearSurfaceWindSpeed_colorbar.png",
  "decode": {
   "mode": "chroma",
-  "exact_share": 0.4066880110162162,
-  "decoded_share": 0.433103084564209,
-  "base_map_share": 0.23441548551965855,
+  "exact_share": 0.4457560698450154,
+  "decoded_share": 0.43239307403564453,
+  "base_map_share": 0.27243651870517543,
   "matcher": "rgb-nearest",
   "max_dist": 12.0
  },
@@ -192,7 +192,7 @@
    "unit": "m/s",
    "encoding": "linear",
    "scale": 0.010285173691678444,
-   "offset": 3.5664632320404053,
+   "offset": 3.5664634704589844,
    "nodata": 65535,
    "below": 65534,
    "grid": {
@@ -209,21 +209,21 @@
     "byte_order": "little"
    },
    "times": [
-    "2026-10-22T22:00:00Z"
+    "2026-10-28T22:00:00Z"
    ],
    "chunks": [
     {
      "file": "value_000.u16.gz",
      "t0": 0,
      "t1": 1,
-     "bytes": 192743
+     "bytes": 187437
     }
    ],
    "quantisation_step": 0.010285173691678444,
-   "coverage": 0.4478780864197531,
+   "coverage": 0.448329475308642,
    "value_range": [
-    3.5664632320404053,
-    38.6389045715332
+    3.5664634704589844,
+    38.63890838623047
    ],
    "label": "Near-surface wind speed (model)",
    "aggregation": "mean of decoded pixels per 0.5° cell",
@@ -299,7 +299,7 @@
     "scale": "linear"
    },
    "time_labels": [
-    "22 Oct 2026 22:00 UTC"
+    "28 Oct 2026 22:00 UTC"
    ],
    "status": "pattern only",
    "statement": "pattern only (values not verified)",
@@ -316,8 +316,8 @@
    "view": "global",
    "map": "value",
    "start": {
-    "lat": 28.25,
-    "lon": 90.25
+    "lat": 21.25,
+    "lon": 88.75
    },
    "steps_per_second": 1,
    "channels": [
@@ -334,7 +334,7 @@
  "validation": [
   {
    "id": "a_same_model",
-   "title": "Near-surface wind speed: frame vs GEOS-FP tavg1_2d_slv_Nx u2m/v2m at 2026-10-20 22:30:00 UTC",
+   "title": "Near-surface wind speed: frame vs GEOS-FP tavg1_2d_slv_Nx u2m/v2m at 2026-10-28 22:30:00 UTC",
    "kind": "value",
    "pass": false,
    "threshold": "Spearman ≥ 0.9 and median relative error ≤ 15 % (provisional)"
@@ -345,16 +345,16 @@
    "cell_deg": 0.5
   },
   "tried": [],
-  "bytes": 201816,
+  "bytes": 196551,
   "budget": 25000000
  },
  "asset_checksums": {
   "file": "checksums.tsv.gz",
-  "rows": 2,
-  "sha256_of_list": "ee336716ed0757ff5a396906be4364df94d03a6b823100b81a858410e6895550"
+  "rows": 3,
+  "sha256_of_list": "15cc7ecc17fbe91c1da209df5fdd30a4f8b897ef374043b0913ff58b612d390b"
  },
- "code_commit": "e9fb028eb1bee5876953fae7581019f60b108277-dirty",
- "generated_utc": "2026-10-29T13:10:19Z",
+ "code_commit": "89d9b8068e678d3974c18af9a8b5984e9934c0ab-dirty",
+ "generated_utc": "2026-11-06T14:13:07Z",
  "playable": {
   "moved_starts": [
    "value"

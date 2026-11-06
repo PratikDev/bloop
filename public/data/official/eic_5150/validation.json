@@ -4,26 +4,26 @@
   {
    "record": "eic_5150",
    "id": "a_same_model",
-   "title": "Near-surface humidity: frame vs GEOS-FP tavg1_2d_slv_Nx qv2m at 2026-10-20 22:30:00 UTC",
+   "title": "Near-surface humidity: frame vs GEOS-FP tavg1_2d_slv_Nx qv2m at 2026-10-29 22:30:00 UTC",
    "kind": "value",
    "source": "GEOS-FP tavg1_2d_slv_Nx (NCCS OPeNDAP)",
    "metrics": {
-    "spearman": 0.9762145042690751,
-    "n": 236634,
-    "median_rel_error": 0.13679534904068713,
-    "median_abs": 0.6391566731035709,
-    "bias": -0.17390241828241057,
-    "frame_time_utc": "2026-10-22T22:00Z",
+    "spearman": 0.9940199910664104,
+    "n": 236610,
+    "median_rel_error": 0.0686571013496919,
+    "median_abs": 0.33703464388808424,
+    "bias": -0.20450106571514934,
+    "frame_time_utc": "2026-10-29T22:00Z",
     "georef_spearman_shift_lon": {
-     "-1.0": 0.97464415436408,
-     "1.0": 0.9742082637445281
+     "-1.0": 0.9913811405289579,
+     "1.0": 0.9922085419107853
     }
    },
    "threshold": "Spearman ≥ 0.9 and median relative error ≤ 15 % (provisional)",
    "pass": true,
    "note": "Same model: this tests the decoding. Unit conversion stated in the item table.",
-   "run_utc": "2026-10-29T13:44:27Z"
+   "run_utc": "2026-11-06T14:14:31Z"
   }
  ],
- "updated_utc": "2026-10-29T13:44:27Z"
+ "updated_utc": "2026-11-06T14:14:31Z"
 }

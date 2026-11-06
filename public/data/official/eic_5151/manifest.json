@@ -11,9 +11,9 @@
  "description": "Near surface concentration of fine particular matter (PM2.5) estimated from NASA’s aerosol and weather fields produced by NASA’s GEOS-CF model.",
  "release_date": "2023-09-26T17:00:00-04:00",
  "period": {
-  "start": "2026-10-21T22:00:00Z",
-  "end": "2026-10-21T22:00:00Z",
-  "label": "21 Oct 2026 – 21 Oct 2026"
+  "start": "2026-10-28T22:00:00Z",
+  "end": "2026-10-28T22:00:00Z",
+  "label": "28 Oct 2026 – 28 Oct 2026"
  },
  "badge": "model",
  "credits_by_role": {
@@ -44,7 +44,7 @@
   "method": "ocr",
   "approximate": false,
   "count": 1,
-  "source": "date box OCR: 21 Oct 2026 18 : 00 : 00 EDT"
+  "source": "date box OCR: 28 Oct 2026 18 : 00 : 00 EDT"
  },
  "georef": {
   "projection": "equirectangular",
@@ -159,8 +159,8 @@
  "colorbar_file": "PM2.5_colorbar.png",
  "decode": {
   "mode": "exact",
-  "exact_share": 0.9295406086450863,
-  "decoded_share": 0.8963756561279297,
+  "exact_share": 0.9293447947118371,
+  "decoded_share": 0.8961868286132812,
   "base_map_share": null,
   "matcher": "rgb-nearest",
   "max_dist": 12.0
@@ -172,8 +172,8 @@
    "id": "value",
    "unit": "µg/m³",
    "encoding": "linear",
-   "scale": 0.004374267366152099,
-   "offset": 0.4455373287200928,
+   "scale": 0.004305110997239639,
+   "offset": 0.4464337229728699,
    "nodata": 65535,
    "below": 65534,
    "grid": {
@@ -190,21 +190,21 @@
     "byte_order": "little"
    },
    "times": [
-    "2026-10-21T22:00:00Z"
+    "2026-10-28T22:00:00Z"
    ],
    "chunks": [
     {
      "file": "value_000.u16.gz",
      "t0": 0,
      "t1": 1,
-     "bytes": 233487
+     "bytes": 239324
     }
    ],
-   "quantisation_step": 0.004374267366152099,
-   "coverage": 0.8998263888888889,
+   "quantisation_step": 0.004305110997239639,
+   "coverage": 0.8998804012345679,
    "value_range": [
-    0.4455373287200928,
-    287.1044006347656
+    0.4464337229728699,
+    282.5732727050781
    ],
    "label": "PM2.5 (GEOS-CF) (model)",
    "aggregation": "mean of decoded pixels per 0.5° cell",
@@ -280,11 +280,11 @@
     "scale": "log"
    },
    "time_labels": [
-    "21 Oct 2026 22:00 UTC"
+    "28 Oct 2026 22:00 UTC"
    ],
-   "status": "no check",
-   "statement": "GEOS-CF v1's public archive ends 2 Jan 2026; the frame is from Oct 2026",
-   "status_check": "a_no_validation_source"
+   "status": "pattern only",
+   "statement": "pattern only (values not verified)",
+   "status_check": "a_same_model"
   }
  ],
  "voices": {
@@ -314,11 +314,11 @@
  ],
  "validation": [
   {
-   "id": "a_no_validation_source",
-   "title": "PM2.5 (GEOS-CF): no validation source found",
-   "kind": "none",
-   "pass": null,
-   "threshold": null
+   "id": "a_same_model",
+   "title": "PM2.5 (GEOS-CF): frame vs GEOS-CF v2 analysis chm_tavg_1hr_glo_L1440x721_slv pm25_rh35 at 2026-10-28 22:30:00 UTC",
+   "kind": "value",
+   "pass": false,
+   "threshold": "Spearman ≥ 0.9 and median relative error ≤ 15 % (provisional)"
   }
  ],
  "size": {
@@ -326,14 +326,14 @@
    "cell_deg": 0.5
   },
   "tried": [],
-  "bytes": 241495,
+  "bytes": 247929,
   "budget": 25000000
  },
  "asset_checksums": {
   "file": "checksums.tsv.gz",
-  "rows": 2,
-  "sha256_of_list": "7e77bc0afe69f2765d85bd5f34ca6419c8b764e907b32e6e0c5cd36a5eac1de7"
+  "rows": 3,
+  "sha256_of_list": "cbf4cc60f2a3dfb6d01c95151a50dbd6d2e320a3e5ac9088023185289b0092a5"
  },
- "code_commit": "7ace93c0df254924bb7e1645f3d067833ddccef2-dirty",
- "generated_utc": "2026-10-29T13:47:57Z"
+ "code_commit": "65405281e6df7801cd75a6db04f5ebcec70af3a9-dirty",
+ "generated_utc": "2026-11-06T14:10:04Z"
 }

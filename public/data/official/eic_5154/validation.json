@@ -3,18 +3,27 @@
  "checks": [
   {
    "record": "eic_5154",
-   "id": "a_no_validation_source",
-   "title": "Nitrogen oxides (GEOS-CF): no validation source found",
-   "kind": "none",
-   "source": null,
+   "id": "a_same_model",
+   "title": "Nitrogen oxides (GEOS-CF): frame vs GEOS-CF v2 analysis chm_tavg_1hr_glo_L1440x721_slv no/no2 at 2026-10-28 22:30:00 UTC",
+   "kind": "value",
+   "source": "GEOS-CF v2 analysis chm_tavg_1hr_glo_L1440x721_slv (NCCS OPeNDAP)",
    "metrics": {
-    "reason": "GEOS-CF v1's public archive ends 2 Jan 2026; the frame is from Oct 2026"
+    "spearman": 0.9588583095553781,
+    "n": 189769,
+    "median_rel_error": 0.3030882655957339,
+    "median_abs": 0.008203008125415516,
+    "bias": 0.09983813771723517,
+    "frame_time_utc": "2026-10-28T22:00Z",
+    "georef_spearman_shift_lon": {
+     "-1.0": 0.9398823796049595,
+     "1.0": 0.9438261594649335
+    }
    },
-   "threshold": null,
-   "pass": null,
-   "note": "GEOS-CF v1's public archive ends 2 Jan 2026; the frame is from Oct 2026",
-   "run_utc": "2026-10-29T13:55:58Z"
+   "threshold": "Spearman ≥ 0.9 and median relative error ≤ 15 % (provisional)",
+   "pass": false,
+   "note": "Same model: this tests the decoding. Unit conversion stated in the item table.",
+   "run_utc": "2026-11-06T14:11:50Z"
   }
  ],
- "updated_utc": "2026-10-29T13:55:58Z"
+ "updated_utc": "2026-11-06T14:11:50Z"
 }

@@ -4,26 +4,26 @@
   {
    "record": "eic_5148",
    "id": "a_same_model",
-   "title": "Near-surface wind speed: frame vs GEOS-FP tavg1_2d_slv_Nx u2m/v2m at 2026-10-20 22:30:00 UTC",
+   "title": "Near-surface wind speed: frame vs GEOS-FP tavg1_2d_slv_Nx u2m/v2m at 2026-10-28 22:30:00 UTC",
    "kind": "value",
    "source": "GEOS-FP tavg1_2d_slv_Nx (NCCS OPeNDAP)",
    "metrics": {
-    "spearman": 0.39261257489604334,
-    "n": 116090,
-    "median_rel_error": 0.38394828703396877,
-    "median_abs": 2.5018675190513897,
-    "bias": 2.730892527918909,
-    "frame_time_utc": "2026-10-22T22:00Z",
+    "spearman": 0.8015903442514826,
+    "n": 116207,
+    "median_rel_error": 0.22603982909989373,
+    "median_abs": 1.6007826242637542,
+    "bias": 1.9135209443060834,
+    "frame_time_utc": "2026-10-28T22:00Z",
     "georef_spearman_shift_lon": {
-     "-1.0": 0.3899470746058474,
-     "1.0": 0.38909894063181244
+     "-1.0": 0.7647958832573853,
+     "1.0": 0.8080376014499341
     }
    },
    "threshold": "Spearman ≥ 0.9 and median relative error ≤ 15 % (provisional)",
    "pass": false,
    "note": "Same model: this tests the decoding. Unit conversion stated in the item table.",
-   "run_utc": "2026-10-29T13:10:19Z"
+   "run_utc": "2026-11-06T14:13:07Z"
   }
  ],
- "updated_utc": "2026-10-29T13:10:19Z"
+ "updated_utc": "2026-11-06T14:13:07Z"
 }

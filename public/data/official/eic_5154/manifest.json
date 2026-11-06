@@ -11,9 +11,9 @@
  "description": "Near surface concentration of Nitrogen Oxides (NOx) estimated from concentrations of nitrogen oxide and nitrogen dioxide produced by  NASA’s GEOS-CF model.",
  "release_date": "2023-09-26T17:00:00-04:00",
  "period": {
-  "start": "2026-10-20T22:00:00Z",
-  "end": "2026-10-20T22:00:00Z",
-  "label": "20 Oct 2026 – 20 Oct 2026"
+  "start": "2026-10-28T22:00:00Z",
+  "end": "2026-10-28T22:00:00Z",
+  "label": "28 Oct 2026 – 28 Oct 2026"
  },
  "badge": "model",
  "credits_by_role": {
@@ -44,7 +44,7 @@
   "method": "ocr",
   "approximate": false,
   "count": 1,
-  "source": "date box OCR: 20 Oct 2026 18 : 00 : 00 EDT"
+  "source": "date box OCR: 28 Oct 2026 18 : 00 : 00 EDT"
  },
  "georef": {
   "projection": "equirectangular",
@@ -170,8 +170,8 @@
  "colorbar_file": "NOx_colorbar.png",
  "decode": {
   "mode": "exact",
-  "exact_share": 0.7263895866545882,
-  "decoded_share": 0.7004728317260742,
+  "exact_share": 0.7404273688541126,
+  "decoded_share": 0.7140097618103027,
   "base_map_share": null,
   "matcher": "rgb-nearest",
   "max_dist": 12.0
@@ -184,7 +184,7 @@
    "unit": "ppbv",
    "encoding": "linear",
    "scale": 0.0010918293132487786,
-   "offset": 0.0010894491570070386,
+   "offset": 0.001124383183196187,
    "nodata": 65535,
    "below": 65534,
    "grid": {
@@ -201,20 +201,20 @@
     "byte_order": "little"
    },
    "times": [
-    "2026-10-20T22:00:00Z"
+    "2026-10-28T22:00:00Z"
    ],
    "chunks": [
     {
      "file": "value_000.u16.gz",
      "t0": 0,
      "t1": 1,
-     "bytes": 195692
+     "bytes": 196858
     }
    ],
    "quantisation_step": 0.0010918293132487786,
-   "coverage": 0.7178703703703704,
+   "coverage": 0.732133487654321,
    "value_range": [
-    0.0010894491570070386,
+    0.001124383183196187,
     19.66795539855957
    ],
    "label": "Nitrogen oxides (GEOS-CF) (model)",
@@ -291,11 +291,11 @@
     "scale": "log"
    },
    "time_labels": [
-    "20 Oct 2026 22:00 UTC"
+    "28 Oct 2026 22:00 UTC"
    ],
-   "status": "no check",
-   "statement": "GEOS-CF v1's public archive ends 2 Jan 2026; the frame is from Oct 2026",
-   "status_check": "a_no_validation_source"
+   "status": "pattern only",
+   "statement": "pattern only (values not verified)",
+   "status_check": "a_same_model"
   }
  ],
  "voices": {
@@ -325,11 +325,11 @@
  ],
  "validation": [
   {
-   "id": "a_no_validation_source",
-   "title": "Nitrogen oxides (GEOS-CF): no validation source found",
-   "kind": "none",
-   "pass": null,
-   "threshold": null
+   "id": "a_same_model",
+   "title": "Nitrogen oxides (GEOS-CF): frame vs GEOS-CF v2 analysis chm_tavg_1hr_glo_L1440x721_slv no/no2 at 2026-10-28 22:30:00 UTC",
+   "kind": "value",
+   "pass": false,
+   "threshold": "Spearman ≥ 0.9 and median relative error ≤ 15 % (provisional)"
   }
  ],
  "size": {
@@ -337,14 +337,14 @@
    "cell_deg": 0.5
   },
   "tried": [],
-  "bytes": 204009,
+  "bytes": 205765,
   "budget": 25000000
  },
  "asset_checksums": {
   "file": "checksums.tsv.gz",
-  "rows": 2,
-  "sha256_of_list": "495c155b0b43654aaf541ce50f32d2611dfae648d84b839d95614f3ef7bda667"
+  "rows": 3,
+  "sha256_of_list": "fb355769f261a22ed4889f20d39b7df38c18c12408e72cd09c1f52f888f7c471"
  },
- "code_commit": "7ace93c0df254924bb7e1645f3d067833ddccef2-dirty",
- "generated_utc": "2026-10-29T13:55:58Z"
+ "code_commit": "0220d44fae471638787a046ba95322810b8907ac-dirty",
+ "generated_utc": "2026-11-06T14:11:51Z"
 }
