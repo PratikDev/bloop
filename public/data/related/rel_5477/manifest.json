@@ -11,9 +11,9 @@
  "description": "This animation shows daylight and nighttime cycles of Earth over a three-day period in 2024 as the planet spins on it’s axis.",
  "release_date": "2025-05-16T13:00:00-04:00",
  "period": {
-  "start": "6663-06-01T00:00:00Z",
-  "end": "6663-06-01T00:00:00Z",
-  "label": "1 Jun 6663 – 1 Jun 6663"
+  "start": "2025-05-16T17:00:00Z",
+  "end": "2025-05-16T17:00:00Z",
+  "label": "undated (no frame dates found; SVS release 16 May 2025)"
  },
  "badge": "observation",
  "credits_by_role": {
@@ -52,10 +52,10 @@
   5313
  ],
  "frame_times": {
-  "method": "ocr",
-  "approximate": false,
+  "method": "linear",
+  "approximate": true,
   "count": 3,
-  "source": "date box OCR: ? July Jun 6663366666666 63 July Jul DEC JULY July"
+  "source": "undated"
  },
  "georef": {
   "projection": "equirectangular (2:1)",
@@ -108,7 +108,7 @@
     "byte_order": "little"
    },
    "times": [
-    "6663-06-01T00:00:00Z",
+    "2025-05-16T17:00:00Z",
     "2025-05-16T17:00:00Z",
     "2025-05-16T17:00:00Z"
    ],
@@ -129,7 +129,7 @@
    "label": "SOS - Day/Night cycle with Blue Marble and Black Marble Nightlights (pattern only)",
    "aggregation": "mean of decoded pixels per cell",
    "time_labels": [
-    "01 Jun 6663",
+    "undated",
     "undated",
     "undated"
    ],
@@ -249,18 +249,18 @@
    "frames": 3
   },
   "tried": [],
-  "bytes": 232888,
+  "bytes": 232860,
   "budget": 25000000
  },
  "onboarding": {
   "timings_s": {
-   "api": 13.6,
-   "twins": 1.2,
+   "api": 46.6,
+   "twins": 18.6,
    "asset choice": 0.0,
-   "frames": 36.5,
-   "frame times": 3.0,
-   "georef": 4.1,
-   "colorbar": 9.4,
+   "frames": 48.1,
+   "frame times": 3.6,
+   "georef": 4.2,
+   "colorbar": 9.1,
    "inversion": 0.4,
    "validation": 0.0
   },
@@ -271,6 +271,6 @@
   "rows": 3,
   "sha256_of_list": "f345a607e1e4a4e124f3f89fc2833025090fa19c35178b2b86e3f4f7cd7a9267"
  },
- "code_commit": "a8f0638dc9adb81b18f259cf0813046acd882fa1-dirty",
- "generated_utc": "2026-10-31T17:35:51Z"
+ "code_commit": "6cdf76ca34125fdac42b0490386959c3f79c6556-dirty",
+ "generated_utc": "2026-11-06T06:46:46Z"
 }

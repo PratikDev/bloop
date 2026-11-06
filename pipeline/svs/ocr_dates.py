@@ -102,6 +102,12 @@ def tokens(ink):
         else: merged.append(t)
     return merged
 
+FIRST_YEAR = 1850                       # no Earth record in SVS starts earlier (the longest, GISTEMP, starts 1880)
+
+def plausible_year(year):
+    """A year OCR may return: from FIRST_YEAR to next year. Anything else is a misread (rel_5477 read 6663, rel_5601 3077)."""
+    return FIRST_YEAR <= year <= dt.datetime.now(dt.timezone.utc).year + 1
+
 def read_date(ink):
     """→ {'text', 'datetime' (UTC, or None), 'distance' (worst token match), 'engine': 'glyph-date'}."""
     toks = tokens(ink)
@@ -113,7 +119,7 @@ def read_date(ink):
         if not m: continue
         g = m.groupdict()
         month = MONTH_WORDS.get(g["mon"]) if g.get("mon") else int(g["month"])
-        if not month: continue
+        if not month or not plausible_year(int(g["year"])): continue
         try:
             when = dt.datetime(int(g["year"]), month, int(g.get("day") or 1), int(g.get("hh") or 0), int(g.get("mm") or 0),
                                tzinfo=dt.timezone.utc) - dt.timedelta(hours=TZ_HOURS.get(tz, 0))

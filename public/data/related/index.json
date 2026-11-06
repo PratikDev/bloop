@@ -513,7 +513,7 @@
     5477
    ],
    "badge": "observation",
-   "period": "1 Jun 6663 – 1 Jun 6663",
+   "period": "undated (no frame dates found; SVS release 16 May 2025)",
    "manifest": "rel_5477/manifest.json",
    "focus": "energy",
    "related_to": [
@@ -569,7 +569,7 @@
     5601
    ],
    "badge": "model",
-   "period": "4 Jul 3077 – 4 Jul 3077",
+   "period": "undated (no frame dates found; SVS release 02 Jan 2026)",
    "manifest": "rel_5601/manifest.json",
    "focus": "wildfires",
    "related_to": [

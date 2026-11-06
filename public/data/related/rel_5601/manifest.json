@@ -11,9 +11,9 @@
  "description": "Part of our 2025 Year in Review series examining major wildfire events, this analysis focuses on the August 2025 Red Canyon wildfire in Wyoming. Leveraging NASA's satellite data, advanced models, visualization capacity and computing power, we examine how weather conditions impacted this fire and how regional air quality affected surrounding communities.",
  "release_date": "2026-01-02T12:27:00-05:00",
  "period": {
-  "start": "3077-07-04T00:00:00Z",
-  "end": "3077-07-04T00:00:00Z",
-  "label": "4 Jul 3077 – 4 Jul 3077"
+  "start": "2026-01-02T17:27:00Z",
+  "end": "2026-01-02T17:27:00Z",
+  "label": "undated (no frame dates found; SVS release 02 Jan 2026)"
  },
  "badge": "model",
  "credits_by_role": {
@@ -138,10 +138,10 @@
   4993
  ],
  "frame_times": {
-  "method": "ocr",
-  "approximate": false,
+  "method": "linear",
+  "approximate": true,
   "count": 3,
-  "source": "date box OCR: . 4 Jul 3077 ? . ? . - - . ? . ? , ? ? . ? - ? . 1 ? - ? - ? , ? : ? : ? . ? - ? - ? - July . ? - ? . ? , Jul - 9 , - . Jul - - , ? . 34 - - . Jul - - 4"
+  "source": "undated"
  },
  "georef": {
   "projection": "equirectangular (2:1)",
@@ -236,8 +236,8 @@
    },
    "times": [
     "2026-01-02T17:27:00Z",
-    "3077-07-04T00:00:00Z",
-    "3077-07-04T00:00:00Z"
+    "2026-01-02T17:27:00Z",
+    "2026-01-02T17:27:00Z"
    ],
    "chunks": [
     {
@@ -257,8 +257,8 @@
    "aggregation": "mean of decoded pixels per cell",
    "time_labels": [
     "undated",
-    "04 Jul 3077",
-    "04 Jul 3077"
+    "undated",
+    "undated"
    ],
    "display": {
     "colours": [
@@ -376,19 +376,19 @@
    "frames": 3
   },
   "tried": [],
-  "bytes": 240562,
+  "bytes": 240429,
   "budget": 25000000
  },
  "onboarding": {
   "timings_s": {
-   "api": 7.0,
-   "twins": 0.7,
+   "api": 35.6,
+   "twins": 13.4,
    "asset choice": 0.0,
-   "frames": 24.8,
-   "frame times": 16.2,
-   "georef": 4.2,
-   "colorbar": 36.2,
-   "inversion": 0.4,
+   "frames": 40.0,
+   "frame times": 16.9,
+   "georef": 3.5,
+   "colorbar": 29.3,
+   "inversion": 0.3,
    "validation": 0.0
   },
   "status": "pattern only"
@@ -398,6 +398,6 @@
   "rows": 1,
   "sha256_of_list": "395b13ecce16ad18e39fcd77d5e25b3efdbf615caa289ff37189486ce088fb07"
  },
- "code_commit": "a8f0638dc9adb81b18f259cf0813046acd882fa1-dirty",
- "generated_utc": "2026-10-31T17:16:21Z"
+ "code_commit": "6cdf76ca34125fdac42b0490386959c3f79c6556-dirty",
+ "generated_utc": "2026-11-06T06:49:10Z"
 }
