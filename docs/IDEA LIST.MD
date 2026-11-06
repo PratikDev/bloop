@@ -34,7 +34,7 @@ Remix mode: expose a few mapping knobs (which dataset → pitch vs. rhythm vs. t
 • Biosphere & Biological Classification: Ecosystem dynamics, carbon cycle tracking, and habitat monitoring.
 • Solid Earth: Geodesy, earthquakes, volcanoes, and crustal motion data from projects like the Space Geodesy Project (SLR, ILRS).
 • Human Dimensions: Data assessing how human activities and infrastructure interact with or impact the global environment
-[these are from google search , not claude search ]
+[these are from google search]
 
 
 
