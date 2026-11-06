@@ -8,8 +8,12 @@ import type { Clarity } from "@/lib/data";
 import { glideTo, type Graph } from "../graph";
 
 const COMB_DELAYS_SEC = [0.0297, 0.0371]; // mutually prime, so the tail doesn't ring at one pitch
-const DAMPING_HZ = 3500;
-const MAX_FEEDBACK = 0.95;
+export const DAMPING_HZ = 3500;
+// Butterworth (Web Audio's lowpass Q is in dB): the damping filter's gain never exceeds 1, so loop gain ≤ MAX_FEEDBACK
+// at every frequency. The default Q (1 dB) peaks above 1 near the cutoff, and with feedback near 0.95 the combs grew
+// without bound in Chromium (Sound terrain: RMS 0.6 → 92 in 12 s; found by the feature check).
+export const DAMPING_Q_DB = -3.0103;
+export const MAX_FEEDBACK = 0.95;
 
 export interface ClarityEcho {
   set(c: Clarity): void;
@@ -29,7 +33,7 @@ export function createClarityEcho(graph: Graph, source: AudioNode): ClarityEcho 
   out.connect(graph.fade);
   const loops = COMB_DELAYS_SEC.map((d) => {
     const delay = new DelayNode(ctx, { delayTime: d, maxDelayTime: d });
-    const damp = new BiquadFilterNode(ctx, { type: "lowpass", frequency: DAMPING_HZ });
+    const damp = new BiquadFilterNode(ctx, { type: "lowpass", frequency: DAMPING_HZ, Q: DAMPING_Q_DB });
     const feedback = new GainNode(ctx, { gain: 0 });
     send.connect(delay).connect(damp).connect(feedback).connect(delay);
     damp.connect(out);
