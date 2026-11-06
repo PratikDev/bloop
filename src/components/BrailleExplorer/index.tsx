@@ -27,7 +27,7 @@ const FIELD = "w-full rounded-md border border-line bg-night px-3 py-2 text-body
 export function BrailleExplorer({ source, onClose, className }: { source: BrailleSource; onClose: () => void; className?: string }) {
   const t = useT();
   const { settings, updateSettings, channel, setChannel, modes, mode, chooseMode, shape, valueLine, review, toggleReview, level, setField, lang,
-    onCaret, onValueFocus, blockEdit, blockEditKeys, onKeyDown } = useBrailleExplorer(source, onClose);
+    onCaret, placeCaret, onValueFocus, blockEdit, blockEditKeys, onKeyDown } = useBrailleExplorer(source, onClose);
   const headingId = useId();
   const helpId = useId();
   const valueId = useId();
@@ -55,6 +55,7 @@ export function BrailleExplorer({ source, onClose, className }: { source: Braill
     "aria-roledescription": t("braille.shapeRole"),
     ...brailleRole(t("braille.bl.shape")),
     onSelect: onCaret,
+    onFocus: placeCaret,
     "data-testid": "braille-shape",
     className: cn(FIELD, "font-mono leading-snug tracking-normal"),
   };

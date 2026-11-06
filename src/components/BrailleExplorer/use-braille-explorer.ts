@@ -69,15 +69,19 @@ export function useBrailleExplorer(source: BrailleSource, onClose: () => void) {
     [onClose],
   );
 
-  // A needle moved elsewhere (map keys, a click) moves the caret to its cell. Keyed on the offset alone, so
-  // a re-render between a key press and its select event never snaps the caret back.
+  // The caret goes to the needle's cell: when the needle moved elsewhere (map keys, a click), keyed on the offset
+  // alone so a re-render between a key press and its select event never snaps the caret back; and on arriving at
+  // the shape line, because Chromium resets an unfocused field's caret to the start when its line is replaced
+  // (another shape mode or voice), so the first arrow jumped the needle to the far end of the line (found by the
+  // health app check). A click still places the caret where it lands: the browser sets it after the focus event.
   const target = shape && view ? shape.offsetOf(view.current) : null;
-  useEffect(() => {
+  const placeCaret = useCallback(() => {
     const el = fieldRef.current;
     if (!el || target === null || el.selectionStart === target) return;
     el.setSelectionRange(target, target);
     lastOffset.current = target;
   }, [target]);
+  useEffect(placeCaret, [placeCaret]);
 
   const onCaret = useCallback(() => {
     const el = fieldRef.current;
@@ -154,6 +158,7 @@ export function useBrailleExplorer(source: BrailleSource, onClose: () => void) {
     setField,
     lang,
     onCaret,
+    placeCaret,
     onValueFocus,
     blockEdit,
     blockEditKeys,
