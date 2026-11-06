@@ -40,6 +40,7 @@ export interface AppState {
 export type AppAction =
   | { type: "start" }
   | { type: "startSilent" }
+  | { type: "resetStart" }
   | { type: "enableSound" }
   | { type: "introDone" }
   | { type: "setPlaying"; playing: boolean }
@@ -99,6 +100,9 @@ export function reducer(state: AppState, action: AppAction): AppState {
     case "startSilent":
       // Straight to the map: no opening (it is a sound piece), captions carry the values.
       return { ...state, started: true, soundOn: false, playing: false, introDone: true, captions: true };
+    case "resetStart":
+      // Forget the sound choice: back to the first visit (the Start buttons, then the opening).
+      return { ...state, started: false, soundOn: false, playing: false, introDone: false };
     case "enableSound":
       return { ...state, soundOn: true, playing: true };
     case "introDone":

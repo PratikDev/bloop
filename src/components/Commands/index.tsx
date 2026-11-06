@@ -82,6 +82,10 @@ export function CommandsProvider({ children }: { children: ReactNode }) {
       startSilent() {
         dispatch({ type: "startSilent" }); // no AudioContext is created
       },
+      resetStart() {
+        audio.stopAll();
+        dispatch({ type: "resetStart" });
+      },
       enableSound,
       moveCursor(dLat, dLon) {
         dispatch({ type: "moveCursor", dLat, dLon });

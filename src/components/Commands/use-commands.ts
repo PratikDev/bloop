@@ -40,6 +40,8 @@ export type Line = (t: BoundT, lang: Lang) => string;
 export interface Commands {
   start(): Promise<void>;
   startSilent(): void;
+  /** Forgets the sound choice (Home's reset): stops all sound, the Start buttons come back. */
+  resetStart(): void;
   enableSound(): Promise<void>;
   moveCursor(dLat: number, dLon: number): void;
   /** Puts the cursor at an exact place (Go to). */

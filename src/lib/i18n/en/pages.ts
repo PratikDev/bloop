@@ -19,6 +19,7 @@ export const pagesEn = {
   "home.titleLead": "Listen to",
   "home.titleAccent": "Earth's latest frames.",
   "home.continue": "Continue listening",
+  "home.resetChoice": "Reset sound choice",
   "home.stations": "Three ways in",
   "home.station.listen": "Move across the latest NASA frame and hear the ocean and rain under the cursor.",
   "home.station.thenNow": "Hear how heat, monsoon rain and water underground in Bangladesh have changed.",

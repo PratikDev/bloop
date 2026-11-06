@@ -21,6 +21,7 @@ export const pagesBn: typeof pagesEn = {
   "home.titleLead": "শুনুন:",
   "home.titleAccent": "পৃথিবীর সর্বশেষ ফ্রেম।",
   "home.continue": "শোনা চালিয়ে যান",
+  "home.resetChoice": "শব্দের পছন্দ রিসেট করুন",
   "home.stations": "শুরুর তিনটি পথ",
   "home.station.listen": "নাসার সর্বশেষ ফ্রেমের ওপর ঘুরে বেড়ান, আর কার্সরের নিচের সমুদ্র ও বৃষ্টি শুনুন।",
   "home.station.thenNow": "বাংলাদেশে তাপ, বর্ষার বৃষ্টি আর ভূগর্ভস্থ পানি কীভাবে বদলেছে, শুনুন।",

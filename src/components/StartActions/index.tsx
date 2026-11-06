@@ -9,6 +9,9 @@ import { useCommands } from "../Commands/use-commands";
 import { useLiveData } from "../LiveData/use-live-data";
 import { StatusBadge } from "../StatusBadge";
 
+/** The quiet text button beside the main one (Explore without sound; Home's Reset sound choice). */
+export const QUIET_BUTTON = "h-13 rounded-full px-5 text-body text-moon underline-offset-4 hover:bg-transparent hover:underline";
+
 /**
  * Start listening and Explore without sound (Home and the start gate). Sound can
  * only start from a user gesture, so Start listening creates the AudioContext
@@ -55,7 +58,7 @@ export function StartActions({ after, autoFocus = false, className }: { after?: 
           disabled={starting}
           aria-describedby="start-silent-hint"
           onClick={startSilent}
-          className="h-13 rounded-full px-5 text-body text-moon underline-offset-4 hover:bg-transparent hover:underline"
+          className={QUIET_BUTTON}
         >
           {t("start.silent")}
         </Button>

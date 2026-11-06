@@ -3,12 +3,14 @@
 import { Link, useNavigate } from "@tanstack/react-router";
 import { ArrowRight } from "@phosphor-icons/react";
 import { motion } from "motion/react";
+import { Button } from "@/components/ui/button";
 import { RISE, STAGGER } from "@/lib/motion";
 import { PAGE_PATHS } from "@/router/modes";
 import { useAppState, useT } from "../../AppState/use-app-state";
+import { useCommands } from "../../Commands/use-commands";
 import { FrameLabel } from "../../FrameLabel";
 import { Globe } from "../../Globe";
-import { StartActions } from "../../StartActions";
+import { QUIET_BUTTON, StartActions } from "../../StartActions";
 import { Stations } from "./Stations";
 
 /**
@@ -18,6 +20,7 @@ import { Stations } from "./Stations";
 export function HomePage() {
   const { state } = useAppState();
   const t = useT();
+  const commands = useCommands();
   const navigate = useNavigate();
   const toListen = () => void navigate({ to: PAGE_PATHS.listen });
 
@@ -37,10 +40,16 @@ export function HomePage() {
           </motion.p>
           <motion.div variants={RISE}>
             {state.started ? (
-              <Link to={PAGE_PATHS.listen} className="group inline-flex h-13 items-center gap-3 rounded-full bg-shapla pr-5 pl-6 text-lead text-ink shadow-glow transition-transform duration-200 active:scale-[0.98]">
-                {t("home.continue")}
-                <ArrowRight aria-hidden="true" className="size-4 transition-transform duration-200 group-hover:translate-x-0.5" />
-              </Link>
+              <div className="flex flex-wrap items-center gap-3">
+                <Link to={PAGE_PATHS.listen} className="group inline-flex h-13 items-center gap-3 rounded-full bg-shapla pr-5 pl-6 text-lead text-ink shadow-glow transition-transform duration-200 active:scale-[0.98]">
+                  {t("home.continue")}
+                  <ArrowRight aria-hidden="true" className="size-4 transition-transform duration-200 group-hover:translate-x-0.5" />
+                </Link>
+                {/* The Start buttons come back in its place, Start listening focused. */}
+                <Button variant="ghost" onClick={commands.resetStart} className={QUIET_BUTTON}>
+                  {t("home.resetChoice")}
+                </Button>
+              </div>
             ) : (
               <StartActions autoFocus after={toListen} />
             )}
