@@ -39,8 +39,8 @@ def heat_caption(place, change, n_years, same_record_as=None):
     return text
 
 def rain_phrase(p_pct, c_pct):
-    if p_pct <= 0 and c_pct <= 0: return "not wetter."
-    if p_pct > 0 and c_pct > 0: return "wetter."
+    if p_pct <= 0 and c_pct <= 0: return "no wetter in these records."
+    if p_pct > 0 and c_pct > 0: return "wetter in these records."
     return "no clear change."                      # the two independent records disagree in direction
 
 def rain_caption(place, p_pct, c_pct, same_record_as=None):
@@ -90,7 +90,7 @@ def main():
     bd, nw = gr["Bangladesh"], gr["NW_India"]
     demo = {
         "title": "Dhaka then vs now",
-        "story": "Hotter, not wetter, and the water underground is falling.",
+        "story": "In these records: hotter, no wetter, and the water underground is falling.",
         "heat": heat, "rain": rain,
         "water": {"dataset": "GRACE/GRACE-FO JPL mascons RL06.3Mv04 CRI",
                   "Bangladesh": {k: bd[k] for k in ("mean_A", "mean_B", "trend_cm_per_yr", "window_A", "window_B")},

@@ -249,7 +249,7 @@ Copied truth/crosscheck.png
 **Expect** (these three captions are what the app and the video will show):
 ```
 Dhaka, April–May: +1.37 °C (NASA GISTEMP, 1981–1990 vs 2016–2025, 10 and 10 years).
-Dhaka, June–September: not wetter. GPCP -9% (1981–1990 vs 2016–2025); rain gauges (GPCC) -12% (1981–1990 vs 2010–2019).
+Dhaka, June–September: no wetter in these records. GPCP -9% (1981–1990 vs 2016–2025); rain gauges (GPCC) -12% (1981–1990 vs 2010–2019).
 Water storage (GRACE): Bangladesh +0.83 → -5.82 cm; NW India +8.71 → -53.63 cm (2003–06 vs 2021–24). Silence = no satellite measurements (Jul 2017–May 2018).
   GPCP means 15.10 -> 13.71; GPCC 14.79 -> 13.03; heat A -0.14 B +1.23
 Wrote public/data/demo/dhaka_then_now.json

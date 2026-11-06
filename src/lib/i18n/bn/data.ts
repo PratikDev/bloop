@@ -33,7 +33,7 @@ const EXACT: Record<string, string> = {
   "click strength": "ক্লিকের জোর",
 
   // Then vs Now (dhaka_then_now.json, firms.json).
-  "Hotter, not wetter, and the water underground is falling.": "আরও গরম, বেশি ভেজা নয়, আর ভূগর্ভস্থ পানি কমছে।",
+  "In these records: hotter, no wetter, and the water underground is falling.": "এই রেকর্ডগুলোতে: আরও গরম, বেশি ভেজা নয়, আর ভূগর্ভস্থ পানি কমছে।",
   "A popular reanalysis-based dataset disagreed with independent records at this location, so we checked before you heard it.":
     "একটি জনপ্রিয় রিঅ্যানালাইসিস-ভিত্তিক ডেটাসেট এই জায়গায় স্বাধীন রেকর্ডের সাথে মেলেনি, তাই আপনাকে শোনানোর আগে আমরা যাচাই করেছি।",
   "more erratic rain (not tested)": "বৃষ্টি আরও অনিয়মিত হয়েছে (পরীক্ষা করা হয়নি)",
@@ -145,8 +145,8 @@ interface Pattern {
 }
 
 const RAIN_PHRASE: Record<string, string> = {
-  "not wetter": "বেশি ভেজা নয়।",
-  wetter: "আরও ভেজা।",
+  "no wetter in these records": "এই রেকর্ডগুলোতে বেশি ভেজা নয়।",
+  "wetter in these records": "এই রেকর্ডগুলোতে আরও ভেজা।",
   "no clear change": "স্পষ্ট কোনো পরিবর্তন নেই।",
 };
 
@@ -160,7 +160,7 @@ const PATTERNS: Pattern[] = [
   },
   // L1's rain caption (build_demo.py rain_caption).
   {
-    re: /^(.+), June–September: (not wetter|wetter|no clear change)\. GPCP ([+−]?\d+)% \((\d+)–(\d+) vs (\d+)–(\d+)\); rain gauges \(GPCC\) ([+−]?\d+)% \((\d+)–(\d+) vs (\d+)–(\d+)\)\.(?: Same GPCP and GPCC grid cells as (.+): this is the same record\.)?$/,
+    re: /^(.+), June–September: (no wetter in these records|wetter in these records|no clear change)\. GPCP ([+−]?\d+)% \((\d+)–(\d+) vs (\d+)–(\d+)\); rain gauges \(GPCC\) ([+−]?\d+)% \((\d+)–(\d+) vs (\d+)–(\d+)\)\.(?: Same GPCP and GPCC grid cells as (.+): this is the same record\.)?$/,
     to: (m) =>
       `${placeBn(m[1])}, জুন–সেপ্টেম্বর: ${RAIN_PHRASE[m[2]]} GPCP ${d(m[3])}% (${d(m[4])}–${d(m[5])} বনাম ${d(m[6])}–${d(m[7])}); ` +
       `বৃষ্টিমাপক যন্ত্র (GPCC) ${d(m[8])}% (${d(m[9])}–${d(m[10])} বনাম ${d(m[11])}–${d(m[12])})।` +

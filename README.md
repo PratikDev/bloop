@@ -68,7 +68,7 @@ Every rule and number lives in one file, [`public/mapping.json`](public/mapping.
     <td width="50%" valign="top">
       <img src="docs/readme/thennow.gif" alt="Dhaka then vs now: a chart of pre-monsoon heat anomalies with a pink playhead moving across the years as they play" width="100%">
       <h3>🌡️ Dhaka then vs now</h3>
-      <i>Hotter, not wetter, and the water underground is falling.</i> Heat (NASA GISTEMP), monsoon rain (GPCP, cross-checked with GPCC rain gauges) and groundwater (GRACE), each with a chart whose playhead follows the sound. Play them one after the other, or "then" in your left ear and "now" in your right. Switch to <b>Chattogram, Rajshahi or Sylhet</b> (same method, labelled as not cross-checked), and see two more records: <b>fires</b> (NASA FIRMS, same-sensor example years) and <b>vegetation</b> (MODIS NDVI).
+      <i>In these records: hotter, no wetter, and the water underground is falling.</i> Heat (NASA GISTEMP), monsoon rain (GPCP, cross-checked with GPCC rain gauges) and groundwater (GRACE), each with a chart whose playhead follows the sound. Play them one after the other, or "then" in your left ear and "now" in your right. Switch to <b>Chattogram, Rajshahi or Sylhet</b> (same method, labelled as not cross-checked), and see two more records: <b>fires</b> (NASA FIRMS, same-sensor example years) and <b>vegetation</b> (MODIS NDVI).
     </td>
     <td width="50%" valign="top">
       <img src="docs/readme/story.gif" alt="Story Mode: a panel on the map lists the tour's steps and shows the line being spoken" width="100%">

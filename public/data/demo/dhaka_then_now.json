@@ -1,6 +1,6 @@
 {
   "title": "Dhaka then vs now",
-  "story": "Hotter, not wetter, and the water underground is falling.",
+  "story": "In these records: hotter, no wetter, and the water underground is falling.",
   "heat": {
     "dataset": "NASA GISTEMP v4, Dhaka cell, April-May anomaly vs 1951-1980",
     "A": {
@@ -213,7 +213,7 @@
       },
       "change_pct": -12
     },
-    "caption": "Dhaka, June–September: not wetter. GPCP −9% (1981–1990 vs 2016–2025); rain gauges (GPCC) −12% (1981–1990 vs 2010–2019)."
+    "caption": "Dhaka, June–September: no wetter in these records. GPCP −9% (1981–1990 vs 2016–2025); rain gauges (GPCC) −12% (1981–1990 vs 2010–2019)."
   },
   "water": {
     "dataset": "GRACE/GRACE-FO JPL mascons RL06.3Mv04 CRI",

@@ -604,7 +604,7 @@ export interface GlobeDuetFile {
 // Needed by: BOTH — L3 city picker in Then vs Now (captions as-is); L2 plays
 // the same heat/rain windows as the Dhaka demo. Built by the optional
 // build_cities.py, reusing build_demo.py's functions and Section 16 templates
-// (city name substituted; rain phrase "not wetter." / "wetter." / "no clear
+// (city name substituted; rain phrase "no wetter in these records." / "wetter in these records." / "no clear
 // change." from the signs of the GPCP and GPCC changes). Signed numbers use
 // "−" (U+2212); a value that rounds to zero prints unsigned ("0%", "0.00").
 // Only Dhaka is cross_checked (P1b). Cities sharing a dataset grid cell:
