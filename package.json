@@ -9,7 +9,9 @@
     "shadd": "bunx --bun shadcn@latest add",
     "lint": "eslint",
     "test": "bun test",
-    "e2e": "playwright test"
+    "e2e": "playwright test",
+    "health": "cd pipeline && python -m health --app",
+    "refresh:live": "cd pipeline && python refresh_live.py"
   },
   "dependencies": {
     "@base-ui/react": "^1.8.0",

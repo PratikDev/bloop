@@ -3,6 +3,10 @@
 // Specs are *.e2e.ts so `bun test` (unit tests) never picks them up.
 import { defineConfig, devices } from "@playwright/test";
 
+// BLOOP_URL points the checks at a server that is already running (npm run health serves a production build on
+// :3100, much faster than the dev server's on-demand compiles); otherwise the dev server, started if needed.
+const BASE = process.env.BLOOP_URL ?? "http://localhost:3000";
+
 export default defineConfig({
   testDir: "e2e",
   testMatch: "**/*.e2e.ts",
@@ -12,14 +16,16 @@ export default defineConfig({
   reporter: [["list"]],
   outputDir: "data_raw/_tmp/playwright",
   use: {
-    baseURL: "http://localhost:3000",
+    baseURL: BASE,
     launchOptions: { args: ["--autoplay-policy=no-user-gesture-required"] },
     screenshot: "only-on-failure",
   },
   projects: [
     { name: "chromium", use: { ...devices["Desktop Chrome"] } },
-    // Firefox runs the braille protocol only (the screen-reader protocol tests Chrome and Firefox).
-    { name: "firefox", use: { ...devices["Desktop Firefox"], launchOptions: {} }, testMatch: "**/braille-protocol.e2e.ts" },
+    // Firefox runs the braille protocol (the screen-reader protocol tests Chrome and Firefox), the record health check and
+    // the feature inventory.
+    { name: "firefox", use: { ...devices["Desktop Firefox"], launchOptions: { firefoxUserPrefs: { "media.autoplay.default": 0, "media.autoplay.blocking_policy": 0 } } },
+      testMatch: ["**/braille-protocol.e2e.ts", "**/health-records.e2e.ts", "**/features.e2e.ts"] },
   ],
-  webServer: { command: "bun run dev", url: "http://localhost:3000", reuseExistingServer: true, timeout: 180_000 },
+  webServer: process.env.BLOOP_URL ? undefined : { command: "bun run dev", url: BASE, reuseExistingServer: true, timeout: 180_000 },
 });

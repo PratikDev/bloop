@@ -1,5 +1,5 @@
 {
-  "generated_utc": "2026-11-06T08:03:35Z",
+  "generated_utc": "2026-11-06T14:19:39Z",
   "products": {
     "sst": {
       "product": "sst",
@@ -32,7 +32,7 @@
       "limit_days": 2,
       "status": "stale",
       "source_time_utc": "2026-11-04T00:00:00Z",
-      "age_days": 2.34,
+      "age_days": 2.6,
       "period": null,
       "credit": "Visualization: NASA's Scientific Visualization Studio (SVS 5101), NASA Earth Information Center. Data: MUR SST, NASA/JPL PO.DAAC.",
       "bytes": 1252087
@@ -69,7 +69,7 @@
       "limit_days": 2,
       "status": "ok",
       "source_time_utc": "2026-11-06T01:30:00Z",
-      "age_days": 0.27,
+      "age_days": 0.53,
       "period": null,
       "credit": "Visualization: NASA's Scientific Visualization Studio (SVS 4285), NASA Earth Information Center. Data: GPM IMERG (NASA/JAXA), GES DISC.",
       "bytes": 5715260
@@ -96,7 +96,7 @@
       "limit_days": 2,
       "status": "ok",
       "source_time_utc": "2026-11-06T02:30:00Z",
-      "age_days": 0.23,
+      "age_days": 0.49,
       "period": null,
       "credit": "Visualization: NASA's Scientific Visualization Studio (SVS 4285), NASA Earth Information Center. Data: GPM IMERG (NASA/JAXA), GES DISC.",
       "bytes": 8516
@@ -323,7 +323,7 @@
       "limit_days": 4,
       "status": "ok",
       "source_time_utc": "2026-11-04T00:00:00Z",
-      "age_days": 2.34,
+      "age_days": 2.6,
       "period": null,
       "credit": "Data: MUR SST (NASA/JPL PO.DAAC). Visualization: NASA's Scientific Visualization Studio (SVS 5101) for the NASA Earth Information Center.",
       "bytes": 8958
@@ -357,7 +357,7 @@
       "limit_days": 3,
       "status": "ok",
       "source_time_utc": "2026-11-06T01:30:00Z",
-      "age_days": 0.27,
+      "age_days": 0.53,
       "period": null,
       "credit": "Data: GPM IMERG (NASA/JAXA, GES DISC). Visualization: NASA's Scientific Visualization Studio (SVS 4285) for the NASA Earth Information Center.",
       "bytes": 42100
@@ -400,7 +400,7 @@
       "limit_days": 4,
       "status": "ok",
       "source_time_utc": "2026-11-04T00:00:00Z",
-      "age_days": 2.34,
+      "age_days": 2.6,
       "period": null,
       "credit": "Data: MUR SST (NASA/JPL PO.DAAC); GIBS (NASA EOSDIS). Visualization: NASA's Scientific Visualization Studio (SVS 5101) for the NASA Earth Information Center.",
       "bytes": 16081
@@ -443,7 +443,7 @@
       "limit_days": 5,
       "status": "ok",
       "source_time_utc": "2026-11-03T00:00:00Z",
-      "age_days": 3.34,
+      "age_days": 3.6,
       "period": null,
       "credit": "Visualization: NASA's Scientific Visualization Studio (SVS 5176) for the NASA Earth Information Center. Data: MUR SST (NASA/JPL PO.DAAC). Check: NOAA Coral Reef Watch.",
       "bytes": 1495634
@@ -469,7 +469,7 @@
       "limit_days": 3,
       "status": "ok",
       "source_time_utc": "2026-11-04T09:00:00Z",
-      "age_days": 1.96,
+      "age_days": 2.22,
       "period": null,
       "credit": "Data: MUR SST v4.1, dt_1km_data (NASA/JPL PO.DAAC).",
       "bytes": 525751
@@ -495,7 +495,7 @@
       "limit_days": 2,
       "status": "ok",
       "source_time_utc": "2026-11-06T07:10:55Z",
-      "age_days": 0.04,
+      "age_days": 0.3,
       "period": null,
       "credit": "Visualization: NASA's Scientific Visualization Studio (SVS 5315) for the NASA Earth Information Center. Data: NASA GISS GlobalFWI (experimental).",
       "bytes": 526786
@@ -520,7 +520,7 @@
       "limit_days": 2,
       "status": "ok",
       "source_time_utc": "2026-11-06T07:10:55Z",
-      "age_days": 0.04,
+      "age_days": 0.3,
       "period": null,
       "credit": "Visualization: NASA's Scientific Visualization Studio (SVS 5315) for the NASA Earth Information Center.",
       "bytes": 2058
@@ -548,7 +548,7 @@
       "limit_days": 3,
       "status": "ok",
       "source_time_utc": "2026-11-05T11:27:36Z",
-      "age_days": 0.86,
+      "age_days": 1.12,
       "period": null,
       "credit": "Visualization: NASA's Scientific Visualization Studio (SVS 5113) for the NASA Earth Information Center. Data: VIIRS active fires (NASA FIRMS, LANCE/ESDIS).",
       "bytes": 113675
@@ -587,7 +587,7 @@
       "limit_days": 2,
       "status": "ok",
       "source_time_utc": "2026-11-06T08:00:57Z",
-      "age_days": 0.0,
+      "age_days": 0.26,
       "period": null,
       "credit": "NASA FIRMS (LANCE/ESDIS): VIIRS NOAA-21 and NOAA-20, MODIS.",
       "bytes": 24916
@@ -613,7 +613,7 @@
       "limit_days": 2,
       "status": "ok",
       "source_time_utc": "2026-11-06T05:00:58Z",
-      "age_days": 0.13,
+      "age_days": 0.39,
       "period": null,
       "credit": "Visualization: NASA's Scientific Visualization Studio (SVS 5584) for the NASA Earth Information Center. Data: NASA LHASA.",
       "bytes": 526228
@@ -638,7 +638,7 @@
       "limit_days": 14,
       "status": "ok",
       "source_time_utc": "2026-10-26T00:00:00Z",
-      "age_days": 11.34,
+      "age_days": 11.6,
       "period": null,
       "credit": "NASA Black Marble VJ146A2 (NOAA-20 VIIRS), NASA LAADS DAAC.",
       "bytes": 5792
@@ -672,7 +672,7 @@
       "limit_days": null,
       "status": "baseline",
       "source_time_utc": "2024-09-14T00:00:00Z",
-      "age_days": 783.34,
+      "age_days": 783.6,
       "period": [
         "2024-07-01T00:00:00Z",
         "2024-09-14T00:00:00Z"
@@ -716,7 +716,7 @@
       "limit_days": null,
       "status": "baseline",
       "source_time_utc": "2008-03-03T12:00:00Z",
-      "age_days": 6821.84,
+      "age_days": 6822.1,
       "period": [
         "2007-03-25T12:00:00Z",
         "2008-03-03T12:00:00Z"
@@ -753,7 +753,7 @@
       "limit_days": null,
       "status": "baseline",
       "source_time_utc": "2023-12-25T00:00:00Z",
-      "age_days": 1047.34,
+      "age_days": 1047.6,
       "period": [
         "2022-01-25T00:00:00Z",
         "2023-12-25T00:00:00Z"
@@ -790,7 +790,7 @@
       "limit_days": null,
       "status": "baseline",
       "source_time_utc": "2010-12-14T00:00:00Z",
-      "age_days": 5806.34,
+      "age_days": 5806.6,
       "period": [
         "2010-10-01T00:00:00Z",
         "2010-12-14T00:00:00Z"
@@ -818,7 +818,7 @@
       "limit_days": null,
       "status": "baseline",
       "source_time_utc": "2020-12-23T09:00:00Z",
-      "age_days": 2143.96,
+      "age_days": 2144.22,
       "period": [
         "2020-12-23T09:00:00Z",
         "2020-12-23T09:00:00Z"
@@ -855,7 +855,7 @@
       "limit_days": null,
       "status": "baseline",
       "source_time_utc": "2020-03-03T00:00:00Z",
-      "age_days": 2439.34,
+      "age_days": 2439.6,
       "period": [
         "2020-01-14T00:00:00Z",
         "2020-03-03T00:00:00Z"
@@ -892,7 +892,7 @@
       "limit_days": null,
       "status": "baseline",
       "source_time_utc": "2020-04-30T00:00:00Z",
-      "age_days": 2381.34,
+      "age_days": 2381.6,
       "period": [
         "2019-04-18T00:00:00Z",
         "2020-04-30T00:00:00Z"
@@ -929,7 +929,7 @@
       "limit_days": null,
       "status": "baseline",
       "source_time_utc": "2025-08-19T20:00:00Z",
-      "age_days": 443.5,
+      "age_days": 443.76,
       "period": [
         "2025-08-19T20:00:00Z",
         "2025-08-19T20:00:00Z"
@@ -966,7 +966,7 @@
       "limit_days": null,
       "status": "baseline",
       "source_time_utc": "2023-07-31T00:00:00Z",
-      "age_days": 1194.34,
+      "age_days": 1194.6,
       "period": [
         "2017-03-01T00:00:00Z",
         "2023-07-31T00:00:00Z"
@@ -1003,7 +1003,7 @@
       "limit_days": null,
       "status": "baseline",
       "source_time_utc": "2023-12-31T00:00:00Z",
-      "age_days": 1041.34,
+      "age_days": 1041.6,
       "period": [
         "2012-01-01T00:00:00Z",
         "2023-12-31T00:00:00Z"
@@ -1031,7 +1031,7 @@
       "limit_days": null,
       "status": "baseline",
       "source_time_utc": "2008-03-03T12:00:00Z",
-      "age_days": 6821.84,
+      "age_days": 6822.1,
       "period": [
         "2007-03-25T12:00:00Z",
         "2008-03-03T12:00:00Z"
@@ -1061,13 +1061,13 @@
       "limit_days": null,
       "status": "baseline",
       "source_time_utc": "2026-10-28T22:00:00Z",
-      "age_days": 8.42,
+      "age_days": 8.68,
       "period": [
         "2026-10-28T22:00:00Z",
         "2026-10-28T22:00:00Z"
       ],
       "credit": "Visualization: NASA's Scientific Visualization Studio (SVS 5147) for the NASA Earth Information Center.",
-      "bytes": 8194
+      "bytes": 8275
     },
     "eic_5148": {
       "product": "eic_5148",
@@ -1091,13 +1091,13 @@
       "limit_days": null,
       "status": "baseline",
       "source_time_utc": "2026-10-28T22:00:00Z",
-      "age_days": 8.42,
+      "age_days": 8.68,
       "period": [
         "2026-10-28T22:00:00Z",
         "2026-10-28T22:00:00Z"
       ],
       "credit": "Visualization: NASA's Scientific Visualization Studio (SVS 5148) for the NASA Earth Information Center.",
-      "bytes": 8110
+      "bytes": 8233
     },
     "eic_5149": {
       "product": "eic_5149",
@@ -1121,13 +1121,13 @@
       "limit_days": null,
       "status": "baseline",
       "source_time_utc": "2026-10-28T22:00:00Z",
-      "age_days": 8.42,
+      "age_days": 8.68,
       "period": [
         "2026-10-28T22:00:00Z",
         "2026-10-28T22:00:00Z"
       ],
       "credit": "Visualization: NASA's Scientific Visualization Studio (SVS 5149) for the NASA Earth Information Center.",
-      "bytes": 8524
+      "bytes": 8647
     },
     "eic_5150": {
       "product": "eic_5150",
@@ -1151,13 +1151,13 @@
       "limit_days": null,
       "status": "baseline",
       "source_time_utc": "2026-10-29T22:00:00Z",
-      "age_days": 7.42,
+      "age_days": 7.68,
       "period": [
         "2026-10-29T22:00:00Z",
         "2026-10-29T22:00:00Z"
       ],
       "credit": "Visualization: NASA's Scientific Visualization Studio (SVS 5150) for the NASA Earth Information Center.",
-      "bytes": 8695
+      "bytes": 8777
     },
     "eic_5151": {
       "product": "eic_5151",
@@ -1181,13 +1181,13 @@
       "limit_days": null,
       "status": "baseline",
       "source_time_utc": "2026-10-28T22:00:00Z",
-      "age_days": 8.42,
+      "age_days": 8.68,
       "period": [
         "2026-10-28T22:00:00Z",
         "2026-10-28T22:00:00Z"
       ],
       "credit": "Visualization: NASA's Scientific Visualization Studio (SVS 5151) for the NASA Earth Information Center.",
-      "bytes": 7521
+      "bytes": 7672
     },
     "eic_5152": {
       "product": "eic_5152",
@@ -1211,13 +1211,13 @@
       "limit_days": null,
       "status": "baseline",
       "source_time_utc": "2026-10-28T22:00:00Z",
-      "age_days": 8.42,
+      "age_days": 8.68,
       "period": [
         "2026-10-28T22:00:00Z",
         "2026-10-28T22:00:00Z"
       ],
       "credit": "Visualization: NASA's Scientific Visualization Studio (SVS 5152) for the NASA Earth Information Center.",
-      "bytes": 7207
+      "bytes": 7351
     },
     "eic_5153": {
       "product": "eic_5153",
@@ -1241,13 +1241,13 @@
       "limit_days": null,
       "status": "baseline",
       "source_time_utc": "2026-10-28T22:00:00Z",
-      "age_days": 8.42,
+      "age_days": 8.68,
       "period": [
         "2026-10-28T22:00:00Z",
         "2026-10-28T22:00:00Z"
       ],
       "credit": "Visualization: NASA's Scientific Visualization Studio (SVS 5153) for the NASA Earth Information Center.",
-      "bytes": 7677
+      "bytes": 7784
     },
     "eic_5154": {
       "product": "eic_5154",
@@ -1271,13 +1271,13 @@
       "limit_days": null,
       "status": "baseline",
       "source_time_utc": "2026-10-28T22:00:00Z",
-      "age_days": 8.42,
+      "age_days": 8.68,
       "period": [
         "2026-10-28T22:00:00Z",
         "2026-10-28T22:00:00Z"
       ],
       "credit": "Visualization: NASA's Scientific Visualization Studio (SVS 5154) for the NASA Earth Information Center.",
-      "bytes": 7829
+      "bytes": 7977
     },
     "eic_5544": {
       "product": "eic_5544",
@@ -1299,7 +1299,7 @@
       "limit_days": null,
       "status": "baseline",
       "source_time_utc": "2024-07-14T00:00:00Z",
-      "age_days": 845.34,
+      "age_days": 845.6,
       "period": [
         "2024-07-14T00:00:00Z",
         "2024-07-14T00:00:00Z"
@@ -1327,7 +1327,7 @@
       "limit_days": null,
       "status": "baseline",
       "source_time_utc": "2017-12-06T05:00:00Z",
-      "age_days": 3257.13,
+      "age_days": 3257.39,
       "period": [
         "2017-12-06T05:00:00Z",
         "2017-12-06T05:00:00Z"
@@ -1355,7 +1355,7 @@
       "limit_days": null,
       "status": "baseline",
       "source_time_utc": "2005-04-14T16:00:00Z",
-      "age_days": 7875.67,
+      "age_days": 7875.93,
       "period": [
         "2005-04-14T16:00:00Z",
         "2005-04-14T16:00:00Z"
@@ -1383,7 +1383,7 @@
       "limit_days": null,
       "status": "baseline",
       "source_time_utc": "2005-04-14T16:00:00Z",
-      "age_days": 7875.67,
+      "age_days": 7875.93,
       "period": [
         "2005-04-14T16:00:00Z",
         "2005-04-14T16:00:00Z"
@@ -1411,7 +1411,7 @@
       "limit_days": null,
       "status": "baseline",
       "source_time_utc": "2006-01-01T00:00:00Z",
-      "age_days": 7614.34,
+      "age_days": 7614.6,
       "period": [
         "2005-01-01T00:00:00Z",
         "2006-01-01T00:00:00Z"
@@ -1439,7 +1439,7 @@
       "limit_days": null,
       "status": "baseline",
       "source_time_utc": "2012-02-15T05:00:00Z",
-      "age_days": 5378.13,
+      "age_days": 5378.39,
       "period": [
         "2012-02-15T05:00:00Z",
         "2012-02-15T05:00:00Z"
@@ -1467,7 +1467,7 @@
       "limit_days": null,
       "status": "baseline",
       "source_time_utc": "2015-02-09T05:00:00Z",
-      "age_days": 4288.13,
+      "age_days": 4288.39,
       "period": [
         "2015-02-09T05:00:00Z",
         "2015-02-09T05:00:00Z"
@@ -1495,7 +1495,7 @@
       "limit_days": null,
       "status": "baseline",
       "source_time_utc": "2014-08-11T00:00:00Z",
-      "age_days": 4470.34,
+      "age_days": 4470.6,
       "period": [
         "2014-08-04T00:00:00Z",
         "2014-08-11T00:00:00Z"
@@ -1523,7 +1523,7 @@
       "limit_days": null,
       "status": "baseline",
       "source_time_utc": "2015-09-23T04:00:00Z",
-      "age_days": 4062.17,
+      "age_days": 4062.43,
       "period": [
         "2015-09-23T04:00:00Z",
         "2015-09-23T04:00:00Z"
@@ -1551,7 +1551,7 @@
       "limit_days": null,
       "status": "baseline",
       "source_time_utc": "2015-08-26T13:30:00Z",
-      "age_days": 4089.77,
+      "age_days": 4090.03,
       "period": [
         "2015-08-26T13:30:00Z",
         "2015-08-26T13:30:00Z"
@@ -1579,7 +1579,7 @@
       "limit_days": null,
       "status": "baseline",
       "source_time_utc": "2015-09-10T04:00:00Z",
-      "age_days": 4075.17,
+      "age_days": 4075.43,
       "period": [
         "2015-09-10T04:00:00Z",
         "2015-09-10T04:00:00Z"
@@ -1607,7 +1607,7 @@
       "limit_days": null,
       "status": "baseline",
       "source_time_utc": "2015-10-02T04:00:00Z",
-      "age_days": 4053.17,
+      "age_days": 4053.43,
       "period": [
         "2015-10-02T04:00:00Z",
         "2015-10-02T04:00:00Z"
@@ -1635,7 +1635,7 @@
       "limit_days": null,
       "status": "baseline",
       "source_time_utc": "2016-01-11T05:00:00Z",
-      "age_days": 3952.13,
+      "age_days": 3952.39,
       "period": [
         "2016-01-11T05:00:00Z",
         "2016-01-11T05:00:00Z"
@@ -1663,7 +1663,7 @@
       "limit_days": null,
       "status": "baseline",
       "source_time_utc": "2016-04-18T04:00:00Z",
-      "age_days": 3854.17,
+      "age_days": 3854.43,
       "period": [
         "2016-04-18T04:00:00Z",
         "2016-04-18T04:00:00Z"
@@ -1691,7 +1691,7 @@
       "limit_days": null,
       "status": "baseline",
       "source_time_utc": "2018-12-09T05:00:00Z",
-      "age_days": 2889.13,
+      "age_days": 2889.39,
       "period": [
         "2018-12-09T05:00:00Z",
         "2018-12-09T05:00:00Z"
@@ -1719,7 +1719,7 @@
       "limit_days": null,
       "status": "baseline",
       "source_time_utc": "2019-11-07T05:00:00Z",
-      "age_days": 2556.13,
+      "age_days": 2556.39,
       "period": [
         "2019-11-07T05:00:00Z",
         "2019-11-07T05:00:00Z"
@@ -1747,7 +1747,7 @@
       "limit_days": null,
       "status": "baseline",
       "source_time_utc": "2020-04-24T04:00:00Z",
-      "age_days": 2387.17,
+      "age_days": 2387.43,
       "period": [
         "2020-04-24T04:00:00Z",
         "2020-04-24T04:00:00Z"
@@ -1775,7 +1775,7 @@
       "limit_days": null,
       "status": "baseline",
       "source_time_utc": "2021-03-03T19:00:00Z",
-      "age_days": 2073.54,
+      "age_days": 2073.81,
       "period": [
         "2021-03-03T19:00:00Z",
         "2021-03-03T19:00:00Z"
@@ -1803,7 +1803,7 @@
       "limit_days": null,
       "status": "baseline",
       "source_time_utc": "2021-10-07T04:00:00Z",
-      "age_days": 1856.17,
+      "age_days": 1856.43,
       "period": [
         "2021-10-07T04:00:00Z",
         "2021-10-07T04:00:00Z"
@@ -1831,7 +1831,7 @@
       "limit_days": null,
       "status": "baseline",
       "source_time_utc": "2022-06-01T13:00:00Z",
-      "age_days": 1618.79,
+      "age_days": 1619.06,
       "period": [
         "2022-06-01T13:00:00Z",
         "2022-06-01T13:00:00Z"
@@ -1859,7 +1859,7 @@
       "limit_days": null,
       "status": "baseline",
       "source_time_utc": "2021-09-01T00:00:00Z",
-      "age_days": 1892.34,
+      "age_days": 1892.6,
       "period": [
         "2011-09-01T00:00:00Z",
         "2021-09-01T00:00:00Z"
@@ -1887,7 +1887,7 @@
       "limit_days": null,
       "status": "baseline",
       "source_time_utc": "2023-02-06T05:00:00Z",
-      "age_days": 1369.13,
+      "age_days": 1369.39,
       "period": [
         "2023-02-06T05:00:00Z",
         "2023-02-06T05:00:00Z"
@@ -1915,7 +1915,7 @@
       "limit_days": null,
       "status": "baseline",
       "source_time_utc": "2023-04-24T13:00:00Z",
-      "age_days": 1291.79,
+      "age_days": 1292.06,
       "period": [
         "2023-04-24T13:00:00Z",
         "2023-04-24T13:00:00Z"
@@ -1943,7 +1943,7 @@
       "limit_days": null,
       "status": "baseline",
       "source_time_utc": "2023-05-23T04:00:00Z",
-      "age_days": 1263.17,
+      "age_days": 1263.43,
       "period": [
         "2023-05-23T04:00:00Z",
         "2023-05-23T04:00:00Z"
@@ -1971,7 +1971,7 @@
       "limit_days": null,
       "status": "baseline",
       "source_time_utc": "2023-06-16T14:00:00Z",
-      "age_days": 1238.75,
+      "age_days": 1239.01,
       "period": [
         "2023-06-16T14:00:00Z",
         "2023-06-16T14:00:00Z"
@@ -1999,7 +1999,7 @@
       "limit_days": null,
       "status": "baseline",
       "source_time_utc": "2023-07-02T12:00:00Z",
-      "age_days": 1222.84,
+      "age_days": 1223.1,
       "period": [
         "1957-07-02T12:00:00Z",
         "2023-07-02T12:00:00Z"
@@ -2027,7 +2027,7 @@
       "limit_days": null,
       "status": "baseline",
       "source_time_utc": "2025-07-01T00:00:00Z",
-      "age_days": 493.34,
+      "age_days": 493.6,
       "period": [
         "1959-07-01T00:00:00Z",
         "2025-07-01T00:00:00Z"
@@ -2055,7 +2055,7 @@
       "limit_days": null,
       "status": "baseline",
       "source_time_utc": "2025-07-01T00:00:00Z",
-      "age_days": 493.34,
+      "age_days": 493.6,
       "period": [
         "1979-07-01T00:00:00Z",
         "2025-07-01T00:00:00Z"
@@ -2083,7 +2083,7 @@
       "limit_days": null,
       "status": "baseline",
       "source_time_utc": "2023-08-24T14:45:00Z",
-      "age_days": 1169.72,
+      "age_days": 1169.98,
       "period": [
         "2023-08-24T14:45:00Z",
         "2023-08-24T14:45:00Z"
@@ -2111,7 +2111,7 @@
       "limit_days": null,
       "status": "baseline",
       "source_time_utc": "2026-09-15T00:00:00Z",
-      "age_days": 52.34,
+      "age_days": 52.6,
       "period": [
         "1880-01-15T00:00:00Z",
         "2026-09-15T00:00:00Z"
@@ -2139,7 +2139,7 @@
       "limit_days": null,
       "status": "baseline",
       "source_time_utc": "2025-07-01T00:00:00Z",
-      "age_days": 493.34,
+      "age_days": 493.6,
       "period": [
         "1880-07-01T00:00:00Z",
         "2025-07-01T00:00:00Z"
@@ -2167,7 +2167,7 @@
       "limit_days": null,
       "status": "baseline",
       "source_time_utc": "2025-07-01T00:00:00Z",
-      "age_days": 493.34,
+      "age_days": 493.6,
       "period": [
         "1880-07-01T00:00:00Z",
         "2025-07-01T00:00:00Z"
@@ -2195,7 +2195,7 @@
       "limit_days": null,
       "status": "baseline",
       "source_time_utc": "2025-07-01T00:00:00Z",
-      "age_days": 493.34,
+      "age_days": 493.6,
       "period": [
         "1880-07-01T00:00:00Z",
         "2025-07-01T00:00:00Z"
@@ -2223,7 +2223,7 @@
       "limit_days": null,
       "status": "baseline",
       "source_time_utc": "2022-12-26T01:54:46Z",
-      "age_days": 1411.26,
+      "age_days": 1411.52,
       "period": [
         "1993-01-05T04:58:03Z",
         "2022-12-26T01:54:46Z"
@@ -2251,7 +2251,7 @@
       "limit_days": null,
       "status": "baseline",
       "source_time_utc": "2022-12-26T01:54:46Z",
-      "age_days": 1411.26,
+      "age_days": 1411.52,
       "period": [
         "1993-01-05T04:58:03Z",
         "2022-12-26T01:54:46Z"
@@ -2279,7 +2279,7 @@
       "limit_days": null,
       "status": "baseline",
       "source_time_utc": "2024-05-30T18:00:00Z",
-      "age_days": 889.59,
+      "age_days": 889.85,
       "period": [
         "2024-05-30T18:00:00Z",
         "2024-05-30T18:00:00Z"
@@ -2307,7 +2307,7 @@
       "limit_days": null,
       "status": "baseline",
       "source_time_utc": "2025-01-03T16:00:00Z",
-      "age_days": 671.67,
+      "age_days": 671.93,
       "period": [
         "2025-01-03T16:00:00Z",
         "2025-01-03T16:00:00Z"
@@ -2335,7 +2335,7 @@
       "limit_days": null,
       "status": "baseline",
       "source_time_utc": "2025-01-10T16:49:00Z",
-      "age_days": 664.64,
+      "age_days": 664.9,
       "period": [
         "2025-01-10T16:49:00Z",
         "2025-01-10T16:49:00Z"
@@ -2363,7 +2363,7 @@
       "limit_days": null,
       "status": "baseline",
       "source_time_utc": "2025-05-16T17:00:00Z",
-      "age_days": 538.63,
+      "age_days": 538.89,
       "period": [
         "2025-05-16T17:00:00Z",
         "2025-05-16T17:00:00Z"
@@ -2391,7 +2391,7 @@
       "limit_days": null,
       "status": "baseline",
       "source_time_utc": "2022-12-26T01:54:46Z",
-      "age_days": 1411.26,
+      "age_days": 1411.52,
       "period": [
         "1993-01-05T04:58:03Z",
         "2022-12-26T01:54:46Z"
@@ -2419,7 +2419,7 @@
       "limit_days": null,
       "status": "baseline",
       "source_time_utc": "2025-09-26T00:00:00Z",
-      "age_days": 406.34,
+      "age_days": 406.6,
       "period": [
         "2025-09-16T00:00:00Z",
         "2025-09-26T00:00:00Z"
@@ -2447,7 +2447,7 @@
       "limit_days": null,
       "status": "baseline",
       "source_time_utc": "2025-09-26T00:00:00Z",
-      "age_days": 406.34,
+      "age_days": 406.6,
       "period": [
         "2025-09-16T00:00:00Z",
         "2025-09-26T00:00:00Z"
@@ -2475,7 +2475,7 @@
       "limit_days": null,
       "status": "baseline",
       "source_time_utc": "2026-01-02T17:27:00Z",
-      "age_days": 307.61,
+      "age_days": 307.87,
       "period": [
         "2026-01-02T17:27:00Z",
         "2026-01-02T17:27:00Z"
@@ -2503,7 +2503,7 @@
       "limit_days": null,
       "status": "baseline",
       "source_time_utc": "2022-12-26T01:54:46Z",
-      "age_days": 1411.26,
+      "age_days": 1411.52,
       "period": [
         "1993-01-05T04:58:03Z",
         "2022-12-26T01:54:46Z"
@@ -2529,12 +2529,12 @@
         }
       ],
       "limit_days": 2.0,
-      "status": "ok",
-      "source_time_utc": "2026-11-08T19:00:00Z",
-      "age_days": -2.46,
+      "status": "stale",
+      "source_time_utc": "2026-11-04T08:00:00Z",
+      "age_days": 2.26,
       "period": null,
       "credit": "Visualization: NASA's Scientific Visualization Studio (SVS 5624) for the NASA Earth Information Center.",
-      "bytes": 8637
+      "bytes": 8830
     },
     "rel_5639": {
       "product": "rel_5639",
@@ -2556,7 +2556,7 @@
       "limit_days": null,
       "status": "baseline",
       "source_time_utc": "2026-08-11T00:00:00Z",
-      "age_days": 87.34,
+      "age_days": 87.6,
       "period": [
         "2026-06-30T00:00:00Z",
         "2026-08-11T00:00:00Z"
@@ -2584,7 +2584,7 @@
       "limit_days": 2.0,
       "status": "ok",
       "source_time_utc": "2026-11-06T02:30:00Z",
-      "age_days": 0.23,
+      "age_days": 0.49,
       "period": null,
       "credit": "Visualization: NASA's Scientific Visualization Studio (SVS 5650) for the NASA Earth Information Center.",
       "bytes": 12834
@@ -2609,7 +2609,7 @@
       "limit_days": null,
       "status": "baseline",
       "source_time_utc": "2026-10-31T00:00:00Z",
-      "age_days": 6.34,
+      "age_days": 6.6,
       "period": [
         "1995-05-04T00:00:00Z",
         "2026-10-31T00:00:00Z"
@@ -2637,7 +2637,7 @@
       "limit_days": null,
       "status": "baseline",
       "source_time_utc": "2026-10-29T12:00:00Z",
-      "age_days": 7.84,
+      "age_days": 8.1,
       "period": [
         "2026-10-29T12:00:00Z",
         "2026-10-29T12:00:00Z"
@@ -2665,7 +2665,7 @@
       "limit_days": null,
       "status": "baseline",
       "source_time_utc": "2026-10-29T13:25:02Z",
-      "age_days": 7.78,
+      "age_days": 8.04,
       "period": [
         "2026-10-29T13:25:02Z",
         "2026-10-29T13:25:02Z"
