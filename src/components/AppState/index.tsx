@@ -13,7 +13,11 @@ const REDUCED_MOTION_QUERY = "(prefers-reduced-motion: reduce)";
  * settings are read here too, before the first paint.
  */
 export function AppStateProvider({ initialMode, children }: { initialMode: Mode; children: ReactNode }) {
-  const [state, dispatch] = useReducer(reducer, initialMode, (mode) => ({ ...initialState, ...readPrefs(), mode }));
+  const [state, dispatch] = useReducer(reducer, initialMode, (mode) => {
+    const restored = { ...initialState, ...readPrefs(), mode };
+    // A return visit skips the Start gate and the opening; sound stays off until a click turns it on (browsers block audio before one).
+    return restored.started ? { ...restored, introDone: true } : restored;
+  });
 
   // The OS setting is the default; the in-app toggle can override it.
   useEffect(() => {
@@ -25,8 +29,8 @@ export function AppStateProvider({ initialMode, children }: { initialMode: Mode;
   }, []);
 
   // Settings remembered on this device.
-  const { lang, describe, captions, builtInVoice } = state;
-  useEffect(() => writePrefs({ lang, describe, captions, builtInVoice }), [lang, describe, captions, builtInVoice]);
+  const { lang, describe, captions, builtInVoice, started } = state;
+  useEffect(() => writePrefs({ lang, describe, captions, builtInVoice, started }), [lang, describe, captions, builtInVoice, started]);
 
   // Language and reduced motion live on <html> so CSS and screen readers see them.
   useEffect(() => {

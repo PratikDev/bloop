@@ -8,7 +8,7 @@ export type Mode = "home" | "explore" | "story" | "thenNow" | "how";
 export type PanelTab = "truth" | "mapping" | "provenance";
 
 /** Settings remembered on this device (src/components/AppState/prefs.ts). */
-export type PrefKey = "lang" | "describe" | "captions" | "builtInVoice";
+export type PrefKey = "lang" | "describe" | "captions" | "builtInVoice" | "started";
 export type Prefs = Partial<Pick<AppState, PrefKey>>;
 
 export interface VoiceMix {
