@@ -14,9 +14,25 @@ class Dates(unittest.TestCase):
         self.assertEqual([d[i].date() for i in (1, 2, 3, 4)], [dt.date(2020, 1, 14), dt.date(2021, 3, 4), dt.date(2016, 2, 15), dt.date(2019, 3, 1)])
 
     def test_out_of_order_date_is_interpolated(self):
-        out, fixed = stages.monotonic([dt.datetime(2026, 10, 28, 20, tzinfo=U), dt.datetime(2026, 10, 1, tzinfo=U), dt.datetime(2026, 11, 1, 8, tzinfo=U)])
-        self.assertEqual(fixed, 1)
+        out, fixed, est = stages.monotonic([dt.datetime(2026, 10, 28, 20, tzinfo=U), dt.datetime(2026, 10, 1, tzinfo=U), dt.datetime(2026, 11, 1, 8, tzinfo=U)])
+        self.assertEqual((fixed, est), (1, 0))
         self.assertEqual(out[1], dt.datetime(2026, 10, 30, 14, tzinfo=U))
+
+    def test_misread_first_frame_is_dropped_not_the_dates_after_it(self):
+        # SVS 5624, 6 Nov 2026: the first frame's '03 Nov 19:00' read as 08 Nov; the right dates after it were dropped
+        out, fixed, est = stages.monotonic([dt.datetime(2026, 11, 8, 19, tzinfo=U), dt.datetime(2026, 11, 5, 11, tzinfo=U),
+                                            dt.datetime(2026, 11, 7, 8, tzinfo=U)])
+        self.assertEqual((fixed, est), (1, 1))
+        self.assertEqual(out[1:], [dt.datetime(2026, 11, 5, 11, tzinfo=U), dt.datetime(2026, 11, 7, 8, tzinfo=U)])
+        self.assertEqual(out[0], dt.datetime(2026, 11, 3, 14, tzinfo=U))       # one frame spacing (45 h) before 5 Nov 11:00
+        self.assertEqual(out, sorted(out))
+
+    def test_undated_frames_inside_and_beyond(self):
+        d = lambda day: dt.datetime(2026, 1, day, tzinfo=U)
+        out, fixed, est = stages.monotonic([None, d(3), None, d(7), None])
+        self.assertEqual(out, [d(1), d(3), d(5), d(7), d(9)])
+        self.assertEqual((fixed, est), (0, 2))
+        self.assertEqual(stages.monotonic([None, d(3), None]), ([None, d(3), None], 0, 0))   # one date: nothing to space by
 
     def test_us_dataset_date_range(self):
         self.assertEqual(stages._loose("9/1/2011"), dt.datetime(2011, 9, 1, tzinfo=U))

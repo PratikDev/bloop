@@ -53,7 +53,7 @@ def times(rec, picked):
             if d: return [d.get(i + 1) or d.get(i) for _, _, i, _ in picked], f"date file {url.rsplit('/', 1)[1]}"
         except Exception:
             continue
-    out, how = [], set()
+    out, how = [], []                                        # how: in frame order, so the manifest says which frame read what
     for rgba, name, _, _ in picked:
         t, h = corner_date(rgba[..., :3])
         if not t:
@@ -61,10 +61,11 @@ def times(rec, picked):
             if m:
                 try: t, h = dt.datetime(int(m[1]), int(m[2]), int(m[3]), int(m[4] or 0), int(m[5] or 0), tzinfo=dt.timezone.utc), "file name"
                 except ValueError: pass
-        out.append(t); how.add(h)
+        out.append(t); how.append(h)
     if any(out):
-        out, fixed = monotonic(out)
-        return out, "; ".join(sorted(h for h in how if h)) + (f"; {fixed} out-of-order date(s) replaced by interpolation" if fixed else "")
+        out, fixed, estimated = monotonic(out)
+        return out, "; ".join(h for h in dict.fromkeys(how) if h) + (f"; {fixed} out-of-order date(s) dropped as misreads" if fixed else "") + \
+            (f"; {estimated} date(s) estimated from the dated frames' spacing" if estimated else "")
     ranges = [d.get("date_range") for d in rec.get("datasets") or [] if d.get("date_range")]
     span = re.findall(r"(\d{1,2}/\d{1,2}/\d{4}|\w+ \d{1,2},? \d{4}|\d{4}-\d{2}-\d{2}|\w+ \d{4})", ranges[0]) if ranges else []
     parsed = [p for p in (_loose(s) for s in span) if p]
@@ -73,23 +74,35 @@ def times(rec, picked):
         return [a + (b - a) * (i / max(1, n - 1)) for _, _, i, n in picked], f"linear over the dataset's date range ({ranges[0]})"
     return [None] * len(picked), "undated"
 
+def _ordered_run(ts):
+    """Indices of the longest non-decreasing run of the dates read (fewest dates dropped; the earliest run on a tie)."""
+    idx = [i for i, t in enumerate(ts) if t is not None]
+    best = {}                                                # index → the longest run ending there
+    for n, i in enumerate(idx):
+        best[i] = max((best[j] for j in idx[:n] if ts[j] <= ts[i]), key=len, default=[]) + [i]
+    return set(max(best.values(), key=len, default=[]))
+
 def monotonic(ts):
-    """Frames are picked in sequence order, so their dates cannot go backwards: a date earlier than the one before it or
-    later than the one after it is a misread (e.g. '80 Oct' read as 1 Oct); it is dropped and interpolated between its
-    neighbours when both exist. Returns (dates, how many were replaced)."""
-    out, fixed = list(ts), 0
-    for i, t in enumerate(out):
-        if t is None: continue
-        prev = next((x for x in reversed(out[:i]) if x is not None), None)
-        nxt = next((x for x in out[i + 1:] if x is not None), None)
-        if (prev and t < prev) or (nxt and prev and t > nxt and nxt >= prev):
-            out[i] = None; fixed += 1
+    """Frames are picked in sequence order, so their dates cannot go backwards. The longest run of dates in order is kept;
+    a date outside it is a misread (e.g. '31 Oct' read as 1 Oct, or the first frame's '03 Nov' read as 08 Nov, which an
+    earlier neighbour-only rule kept while dropping the two right dates after it: SVS 5624, 6 Nov 2026) and is dropped.
+    A frame without a date is interpolated between its dated neighbours; one before the first or after the last dated
+    frame is estimated from the spacing of the two nearest dated frames (approximate). Returns (dates, how many were
+    dropped as misreads, how many were estimated beyond the dated frames)."""
+    keep = _ordered_run(ts)
+    out = [t if i in keep else None for i, t in enumerate(ts)]
+    fixed = sum(1 for i, t in enumerate(ts) if t is not None and i not in keep)
+    dated = sorted(keep)
+    estimated = 0
     for i, t in enumerate(out):
         if t is not None: continue
-        j = next((k for k in range(i - 1, -1, -1) if out[k] is not None), None)
-        k = next((k for k in range(i + 1, len(out)) if out[k] is not None), None)
+        j = next((k for k in reversed(dated) if k < i), None)
+        k = next((k for k in dated if k > i), None)
         if j is not None and k is not None: out[i] = out[j] + (out[k] - out[j]) * ((i - j) / (k - j))
-    return out, fixed
+        elif len(dated) >= 2:                                 # beyond the dated frames: their own spacing per frame
+            a, b = (dated[0], dated[1]) if k is not None else (dated[-2], dated[-1])
+            out[i] = ts[a] + (ts[b] - ts[a]) * ((i - a) / (b - a)); estimated += 1
+    return out, fixed, estimated
 
 def _loose(s):
     s = s.strip().rstrip("Z")
