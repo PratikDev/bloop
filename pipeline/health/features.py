@@ -7,10 +7,10 @@ Usage (from pipeline/): python -m health.features"""
 import json
 from collections import Counter
 from svs.config import REPO
+from .app import BROWSERS, results as app_results
 
 RAW = REPO / "data_raw" / "_tmp"
 OUT = REPO / "docs" / "FEATURES_WORKING.md"
-BROWSERS = ("chromium", "firefox")
 GROUPS = {"data": "Data and records", "sound": "Sound and mapping", "visuals": "3D and visuals", "jukebox": "Jukebox / turntable UI",
           "a11y": "Accessibility", "truth": "Truth and provenance panels", "forms": "Deliverable forms", "tools": "Tools"}
 RANK = {"BROKEN": 0, "PARTIAL": 1, "WORKING": 2}
@@ -71,7 +71,8 @@ def _combined(by_browser):
 
 def _records(tab):
     """Every official/related record from the record health check: (opened and played in both browsers, total)."""
-    res = {b: json.loads((RAW / "health" / f"app-{b}.json").read_text(encoding="utf-8")) for b in BROWSERS if (RAW / "health" / f"app-{b}.json").exists()}
+    by_record = app_results()
+    res = {b: {k: v[b] for k, v in by_record.items() if b in v} for b in BROWSERS if any(b in v for v in by_record.values())}
     plan = json.loads((RAW / "health" / "plan.json").read_text(encoding="utf-8")) if (RAW / "health" / "plan.json").exists() else {}
     ids = [k for k, p in plan.items() if p["tab"] == tab]
     good = [k for k in ids if len(res) == len(BROWSERS) and all(res[b].get(k, {}).get("ok") for b in res)]

@@ -11,11 +11,10 @@ from concurrent.futures import ThreadPoolExecutor
 from dataclasses import asdict
 from svs.config import DATA_RAW, REPO
 from . import archive, files, freshness, inventory, labels, links, report, values
+from .app import APP, BROWSERS, results as app_results
 from .result import res
 
 PLAN = DATA_RAW / "_tmp" / "health" / "plan.json"
-APP = DATA_RAW / "_tmp" / "health"
-BROWSERS = ("chromium", "firefox")
 PROD_PORT = 3100
 WORKERS = 6                                          # browser pages at once (one record each)
 
@@ -55,11 +54,7 @@ def app_checks(plan):
     with production_server() as url:
         say(f"app checks on {url}: " + " ".join(cmd[1:]))
         subprocess.run(cmd, cwd=REPO, env={**os.environ, "BLOOP_URL": url})
-    out = {}
-    for b in BROWSERS:                                   # one file per record per browser (a test per record)
-        for p in sorted((APP / f"app-{b}").glob("*.json")):
-            out.setdefault(p.stem, {})[b] = json.loads(p.read_text(encoding="utf-8"))
-    return out
+    return app_results()
 
 def rerender():
     """docs/HEALTH.md and health.json again from the saved run: each record's link check redone from the stored statuses."""

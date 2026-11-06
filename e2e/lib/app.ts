@@ -71,6 +71,8 @@ export async function start(page: Page, opts: { hide3d?: boolean } = {}) {
 export async function open(page: Page) {
   await page.goto("/");
   await page.getByRole("button", { name: "Start listening" }).click();
+  // The intro can appear a moment after Start: wait for it (it plays its own sound and takes the keys), then skip it.
   const skip = page.getByRole("button", { name: "Skip intro" });
-  if (await skip.isVisible().catch(() => false)) await skip.click();
+  if (await skip.waitFor({ state: "visible", timeout: 5000 }).then(() => true, () => false)) await skip.click();
+  await skip.waitFor({ state: "hidden", timeout: 10_000 }).catch(() => undefined);
 }
