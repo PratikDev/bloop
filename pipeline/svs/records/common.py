@@ -8,6 +8,19 @@ from svs.config import PUBLIC_OFFICIAL, record_dir
 LICENCE = ("SVS: \"All of our content is in the public domain (unless otherwise noted), meaning that it is free to download, "
            "use, and redistribute for whatever purposes you see fit.\" (https://svs.gsfc.nasa.gov/help/, read 29 Oct 2026)")
 
+def hour_index(tv, when):
+    """(index, the axis's own datetime there) of `when` (naive UTC) on an OPeNDAP time variable. The axis is decoded with
+    num2date and compared as datetimes: netCDF4.date2num on a Python datetime is 2 days off on GrADS 'days since 1-1-1'
+    axes (found 6 Nov 2026: it paired 28 Oct frames with 26 Oct model hours)."""
+    import netCDF4
+    t = np.asarray(tv[:], np.float64)
+    times = netCDF4.num2date(t, tv.units, getattr(tv, "calendar", "standard"))
+    when_c = type(times[0])(when.year, when.month, when.day, when.hour, when.minute)   # in the axis's own calendar
+    gap = np.array([abs((x - when_c).total_seconds()) for x in times])
+    i = int(np.argmin(gap))
+    g = times[i]
+    return i, dt.datetime(g.year, g.month, g.day, g.hour, g.minute)
+
 def period_label(a: dt.datetime, b: dt.datetime):
     """'25 Mar 2007 – 3 Mar 2008' (en dash, day without a leading zero)."""
     fmt = lambda t: f"{t.day} {t:%b %Y}"

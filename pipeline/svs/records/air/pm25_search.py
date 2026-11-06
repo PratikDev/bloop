@@ -27,12 +27,10 @@ OUT = raw_dir(ALT, "truth", "pm25_search")
 def start_index(ds, coll):
     """Index of the frame-0 pairing in a collection's own time axis: the hourly mean starting at 2024-07-01T00:00 for
     tavg collections (time stamp 00:30), the instant 2024-07-01T00:00 for inst collections."""
-    import datetime as dt, netCDF4
-    tv = ds.variables["time"]
+    import datetime as dt
+    from svs.records.common import hour_index
     want = dt.datetime(2024, 7, 1, 0, 30 if "tavg" in coll else 0)
-    t = np.asarray(tv[:], np.float64)                     # whole axis (~0.5 MB): served steps are not uniform
-    i = int(np.argmin(np.abs(t - netCDF4.date2num(want, tv.units, getattr(tv, "calendar", "standard")))))
-    got = netCDF4.num2date(t[i], tv.units, getattr(tv, "calendar", "standard"))
+    i, got = hour_index(ds.variables["time"], want)       # whole axis decoded: served steps are not uniform
     if (got.year, got.month, got.day, got.hour, got.minute) != (want.year, want.month, want.day, want.hour, want.minute):
         raise RuntimeError(f"{coll}: {want} not on the time axis (nearest {got} at {i})")
     return i

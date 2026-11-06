@@ -6,10 +6,12 @@
   colorbar — svs/colorbar.py on the key composited on black (labels below the strip), the labelled-strip reader as fallback,
              or a relative 0–1 scale when the key's labels are words;
   values   — exact mode when ≥ 50 % of map pixels lie within MAX_DIST of the strip, chroma mode otherwise; 0.5° cell means;
-  check    — GEOS-FP (same model) at the hour containing the frame time: Spearman and median relative error on 0.5° cells
+  check    — the same model at the hour containing the frame time (GEOS-FP for 5147–5150, GEOS-CF v2 analysis for
+             5151–5154; the hour found by common.hour_index): Spearman and median relative error on 0.5° cells
              (provisional: Spearman ≥ 0.9 and median relative error ≤ 15 %, as for 5533); the field's correlation at ±1°
              shifts is the georeference check (peak at zero).
-Usage (from pipeline/): python -m svs.records.eic.run <svs id> [<svs id> …]"""
+Usage (from pipeline/): python -m svs.records.eic.run [--revalidate] <svs id> [<svs id> …]
+  --revalidate: re-run only the check on the grid already shipped (no SVS download)."""
 import datetime as dt, json, re, sys
 import cv2
 import numpy as np
@@ -19,10 +21,11 @@ from svs.config import PUBLIC_OFFICIAL, raw_dir
 from svs.export import layer as export_layer, write_manifest
 from svs.fetch import Fetcher
 from svs.invert import DEFAULT, Inverter
+from svs.playable import BELOW, codes
 from svs.records import common
 from svs.validate import _clean
 from core.places import CITY_CELLS
-from . import FP, FRAME_INDEX, GRID_DEG, ITEMS
+from . import AUTO, FP, FRAME_INDEX, GRID_DEG, ITEMS
 
 MAX_DIST, GOOD = 12.0, (0.9, 0.15)
 
@@ -80,22 +83,24 @@ def decode(rgb, cb, mask, grid=None, min_share=0.5):
     return np.where(n > min_share, s / np.maximum(n, 1e-9), np.nan), {"mode": mode, "exact_share": share, "decoded_share": float(ok.mean()),
                                                                   "base_map_share": base}
 
+MATCH = dt.timedelta(hours=1)            # the model hour must be the frame's hour: a nearer-than-nothing hour is no check
+
 def model_field(spec, when):
-    import netCDF4
+    """The model field at the hour containing `when`, on 0.5° cells; None when the archive has no hour within MATCH."""
     from svs.records.air.truth import open_dataset
-    coll, vars_, combine, scale, offset = spec
-    ds = open_dataset(FP + coll)
-    tv = ds["time"]; t = np.asarray(tv[:], float)
-    target = netCDF4.date2num(when.replace(tzinfo=None) + dt.timedelta(minutes=30), tv.units)
-    i = int(np.argmin(np.abs(t - target)))
-    got = netCDF4.num2date(t[i], tv.units)
+    coll, vars_, combine, scale, offset, *base = spec
+    ds = open_dataset((base[0] if base else FP) + coll)
+    target = when.replace(tzinfo=None) + dt.timedelta(minutes=30)
+    i, got = common.hour_index(ds["time"], target)
+    if abs(got - target) > MATCH: return None, str(got)
     def read(v):
         for attempt in range(6):
-            try: return np.ma.filled(ds[v][i].astype(np.float64), np.nan)
+            try: return np.squeeze(np.ma.filled(ds[v][i].astype(np.float64), np.nan))      # v2 fields carry a single level
             except (OSError, RuntimeError): __import__("time").sleep(20 * (attempt + 1))   # the server's transient I/O failures
-        raise RuntimeError(f"GEOS-FP {coll} {v}[{i}]: no data after retries")
+        raise RuntimeError(f"model {coll} {v}[{i}]: no data after retries")
     f = [read(v) for v in vars_]
-    a = np.hypot(*f) if combine == "magnitude" else f[0]
+    a = np.hypot(*f) if combine == "magnitude" else np.sum(f, axis=0) if combine == "sum" else f[0]
+    if scale == AUTO: scale = 1e9 if np.nanmax(a) < 1e-3 else 1.0
     a = a * scale + offset
     lat = np.asarray(ds["lat"][:]); lon = np.asarray(ds["lon"][:])
     gh, gw = int(180 / GRID_DEG), int(360 / GRID_DEG)
@@ -125,36 +130,20 @@ def run(sid):
     H, W = rgb.shape[:2]
     grid, dmeta = decode(rgb, cb, overlays(H, W) if "w_dates" not in fs["url"] else np.zeros((H, W), bool))
     p.unlink()
-    checks = []
-    if spec and when:
-        model, model_time = model_field(spec, when)
-        rho, n = V.spearman(grid, model)
-        err = V.errors(grid, model)
-        shifts = {d: V.spearman(np.roll(grid, int(d / GRID_DEG), 1), model)[0] for d in (-1.0, 1.0)}
-        checks.append(V.check(record, "a_same_model", f"{name}: frame vs GEOS-FP {spec[0]} {'/'.join(spec[1])} at {model_time} UTC",
-                              source=f"GEOS-FP {spec[0]} (NCCS OPeNDAP)", threshold="Spearman ≥ 0.9 and median relative error ≤ 15 % (provisional)",
-                              passed=bool(rho >= GOOD[0] and err["median_rel"] <= GOOD[1]),
-                              metrics={"spearman": rho, "n": n, "median_rel_error": err["median_rel"], "median_abs": err["median_abs"],
-                                       "bias": err["bias"], "frame_time_utc": when.strftime("%Y-%m-%dT%H:%MZ"), "georef_spearman_shift_lon": shifts},
-                              note="Same model: this tests the decoding. Unit conversion stated in the item table."))
-    else:
-        checks.append(V.check(record, "a_no_validation_source", f"{name}: no validation source found", kind="none", passed=None,
-                              metrics={"reason": why or "no frame time"}, note=why or ""))
+    checks = model_checks(record, sid, grid, when)
+    (PUBLIC_OFFICIAL / record / "validation.json").unlink(missing_ok=True)   # a run replaces the record's checks
     V.save(record, checks)
     for q in (PUBLIC_OFFICIAL / record).glob("*.u16.gz"): q.unlink()
     lay = export_layer(record, "value", grid[None], [when or dt.datetime.now(dt.timezone.utc)], (-180, -90, 180, 90), unit,
                        step=common.colorbar_step(cb.summary()), label=f"{name} ({'relative' if relative else 'model'})",
                        aggregation="mean of decoded pixels per 0.5° cell", display=common.display(cb),
                        time_labels=[when.strftime("%d %b %Y %H:%M UTC") if when else "undated"])
-    common.layer_status([lay], checks, {"value": checks[0]["id"]})
-    if relative or not spec: lay["status"], lay["statement"] = ("relative", "relative values (the key has words, not numbers)") if relative else ("no check", why)
+    set_status(lay, checks, sid, relative)
     badge = "observation" if sid == 5544 else "model"
     prov = common.provenance(record, [sid], badge, (when, when) if when else (dt.datetime.now(dt.timezone.utc),) * 2)
     man = {"record": record, "app_title": f"{name} (EIC, {badge})", **prov,
            "frame_times": {"method": "ocr" if "OCR" in how else "date-list", "approximate": False, "count": 1, "source": how},
-           "georef": {"projection": "equirectangular", "bounds": [-180, -90, 180, 90], "pass_at": georef.IOU_PASS, "shifts_deg": [1.0], "iou": {},
-                      "pass": True, "best_is_assumed": bool(checks[0]["metrics"].get("georef_spearman_shift_lon") is None or
-                                                            max(checks[0]["metrics"]["georef_spearman_shift_lon"].values()) <= checks[0]["metrics"]["spearman"])},
+           "georef": georef_summary(checks),
            "colorbar": cb.summary(), "colorbar_file": bar["filename"], "decode": {**dmeta, "matcher": DEFAULT, "max_dist": MAX_DIST},
            "frame": f["name"], "frame_set": fs["url"], "layers": [lay], "voices": {"value": f"eic{sid}"},
            "play": [common.option("value", f"{name}: higher pitch = higher value", "value", [(f"eic{sid}", ["value"])], CITY_CELLS["Dhaka"], 1)],
@@ -164,5 +153,61 @@ def run(sid):
     common.write_index()
     say(f"eic {sid}: {how}; {dmeta}; {checks[0]['id']} {checks[0]['metrics'] if checks[0]['kind'] != 'none' else why}")
 
+def set_status(lay, checks, sid, relative):
+    _, _, spec, why = ITEMS[sid]
+    common.layer_status([lay], checks, {"value": checks[0]["id"]})
+    if relative or not spec: lay["status"], lay["statement"] = ("relative", "relative values (the key has words, not numbers)") if relative else ("no check", why)
+
+def georef_summary(checks):
+    shifts = checks[0]["metrics"].get("georef_spearman_shift_lon")
+    return {"projection": "equirectangular", "bounds": [-180, -90, 180, 90], "pass_at": georef.IOU_PASS, "shifts_deg": [1.0], "iou": {},
+            "pass": True, "best_is_assumed": bool(shifts is None or max(shifts.values()) <= checks[0]["metrics"]["spearman"])}
+
+def model_checks(record, sid, grid, when):
+    """The record's truth check: the decoded 0.5° grid against the model at the frame's hour (or why there is none)."""
+    name, _, spec, why = ITEMS[sid]
+    checks = []
+    model, model_time = model_field(spec, when) if spec and when else (None, None)
+    if model is not None:
+        model_name = "GEOS-CF v2 analysis" if len(spec) > 5 else "GEOS-FP"
+        rho, n = V.spearman(grid, model)
+        err = V.errors(grid, model)
+        shifts = {d: V.spearman(np.roll(grid, int(d / GRID_DEG), 1), model)[0] for d in (-1.0, 1.0)}
+        checks.append(V.check(record, "a_same_model", f"{name}: frame vs {model_name} {spec[0]} {'/'.join(spec[1])} at {model_time} UTC",
+                              source=f"{model_name} {spec[0]} (NCCS OPeNDAP)", threshold="Spearman ≥ 0.9 and median relative error ≤ 15 % (provisional)",
+                              passed=bool(rho >= GOOD[0] and err["median_rel"] <= GOOD[1]),
+                              metrics={"spearman": rho, "n": n, "median_rel_error": err["median_rel"], "median_abs": err["median_abs"],
+                                       "bias": err["bias"], "frame_time_utc": when.strftime("%Y-%m-%dT%H:%MZ"), "georef_spearman_shift_lon": shifts},
+                              note="Same model: this tests the decoding. Unit conversion stated in the item table."))
+    else:
+        why = why or (f"the model archive has no hour within 1 h of the frame (nearest {model_time} UTC)" if spec and when else "no frame time")
+        checks.append(V.check(record, "a_no_validation_source", f"{name}: no validation source found", kind="none", passed=None,
+                              metrics={"reason": why}, note=why))
+    return checks
+
+def revalidate(sid):
+    """Re-run the truth check on the grid the record already ships (no SVS download; values and frame unchanged): the
+    0.5° cells decoded from its value layer, against the model at its frame time. Rewrites validation.json, the layer's
+    status and the manifest's validation summary."""
+    record = f"eic_{sid}"
+    man = json.loads((PUBLIC_OFFICIAL / record / "manifest.json").read_text(encoding="utf-8"))
+    lay = man["layers"][0]
+    q = codes(record, lay)[0]
+    grid = np.where(q >= BELOW, np.nan, q.astype(np.float64) * lay["scale"] + lay["offset"])
+    if lay["encoding"] == "log10": grid = 10 ** grid
+    when = dt.datetime.fromisoformat(man["period"]["start"].replace("Z", "+00:00"))
+    checks = model_checks(record, sid, grid, when)
+    (PUBLIC_OFFICIAL / record / "validation.json").unlink(missing_ok=True)
+    V.save(record, checks)
+    set_status(lay, checks, sid, lay["status"] == "relative")
+    man["validation"] = common.validation_summary(checks)
+    man["georef"] = georef_summary(checks)
+    write_manifest(record, _clean(man))
+    common.write_index()
+    c = checks[0]
+    say(f"eic {sid} (revalidated, frame {man['period']['start']}): {c['id']} pass={c['pass']} "
+        f"{ {k: c['metrics'].get(k) for k in ('spearman', 'median_rel_error', 'reason') if c['metrics'].get(k) is not None} }")
+
 if __name__ == "__main__":
-    for a in sys.argv[1:]: run(int(a))
+    args = sys.argv[1:]
+    for a in (x for x in args if x != "--revalidate"): (revalidate if "--revalidate" in args else run)(int(a))
