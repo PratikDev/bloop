@@ -184,7 +184,7 @@ export function CommandsProvider({ children }: { children: ReactNode }) {
       toggleBraille(open) {
         dispatch({ type: "setBrailleOpen", open: open ?? !state.brailleOpen });
       },
-      stopAll() {
+      stopAll({ leave = true } = {}) {
         sayCount.current++;
         stopAllEngines();
         sweepRef.current = null;
@@ -192,9 +192,11 @@ export function CommandsProvider({ children }: { children: ReactNode }) {
         dispatch({ type: "setPlaying", playing: false });
         dispatch({ type: "setHelpOpen", open: false });
         dispatch({ type: "setPanelOpen", open: false });
-        // Ending a story or leaving the turntable: back to Explore (Listen), with one combined message.
-        if (state.mode === "story" || state.mode === "turntable") void navigate(locationForMode("explore"));
-        announce(t(state.mode === "story" ? "story.stopped" : state.mode === "turntable" ? "turntable.stopped" : "sound.stopped"));
+        // Ending a story or leaving the turntable: back to Explore (Listen), with one combined message. Not when the Esc
+        // only closed an overlay on top of it (mentor item 4).
+        const leaving = leave && (state.mode === "story" || state.mode === "turntable");
+        if (leaving) void navigate(locationForMode("explore"));
+        announce(t(!leaving ? "sound.stopped" : state.mode === "story" ? "story.stopped" : "turntable.stopped"));
       },
       sweepRef,
     };

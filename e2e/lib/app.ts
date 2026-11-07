@@ -62,9 +62,14 @@ export async function heard(page: Page, ms = 4000): Promise<number> {
 
 /** Opens the app past the start overlay and the intro, with the audio tap (and, when asked, the 3D hidden). */
 export async function start(page: Page, opts: { hide3d?: boolean } = {}) {
+  await tapAudio(page, opts);
+  await open(page);
+}
+
+/** The audio tap (and, when asked, the 3D hidden) on every page this one loads, without starting the app. */
+export async function tapAudio(page: Page, opts: { hide3d?: boolean } = {}) {
   await page.addInitScript(TAP);
   if (opts.hide3d) await page.addInitScript(HIDE_3D);
-  await open(page);
 }
 
 /** Loads the app again on a page that already has the init scripts (a fresh start after a failed check). */

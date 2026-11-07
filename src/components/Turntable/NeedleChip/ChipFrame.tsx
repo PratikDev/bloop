@@ -56,6 +56,15 @@ export function ChipFrame({ subscribe, details, reserved, bottomReserve = BOTTOM
   const crossRef = useRef<SVGSVGElement>(null);
   const boxRef = useRef<HTMLDivElement | null>(null);
   const size = useRef({ w: 0, h: 0 });
+  // The card holds still while it is open or the pointer or focus is on it: the needle drifts across the screen
+  // (~20 px/s), and a button that moves can't be hit on the first click (mentor item 4). It re-anchors once closed and
+  // left, or when the stage changes size. The crosshair always follows the needle.
+  const openRef = useRef(details.open);
+  const engaged = useRef(false);
+  const placedFor = useRef<{ width: number; height: number } | null>(null);
+  useEffect(() => {
+    openRef.current = details.open;
+  }, [details.open]);
 
   // The box's size from a ResizeObserver: never read in the frame loop (that forces a layout).
   const observe = useCallback((box: HTMLDivElement | null) => {
@@ -81,8 +90,12 @@ export function ChipFrame({ subscribe, details, reserved, bottomReserve = BOTTOM
         const { w, h } = size.current;
         if (!box || w === 0) {
           if (reserved) reserved.current = [];
+          placedFor.current = null;
           return;
         }
+        const placed = placedFor.current;
+        if ((openRef.current || engaged.current) && placed && placed.width === f.width && placed.height === f.height) return;
+        placedFor.current = { width: f.width, height: f.height };
         // Left of the needle by preference (the tonearm comes in from the right); flips when there's no room.
         const narrow = f.width < NARROW_PX;
         const left = f.needle.x - GAP_PX - w >= EDGE_PX;
@@ -108,15 +121,26 @@ export function ChipFrame({ subscribe, details, reserved, bottomReserve = BOTTOM
         <div
           ref={observe}
           data-provenance-group=""
-          className="absolute top-0 left-0 z-10 max-w-[min(22rem,calc(100%-1.5rem))]"
+          // Open, the card keeps one width: sized to its text, it widened and narrowed as the needle's place changed,
+          // and its Pin and Close buttons moved under the pointer (mentor item 4).
+          className={cn("absolute top-0 left-0 z-10 max-w-[min(22rem,calc(100%-1.5rem))]", details.open && "w-[min(22rem,calc(100%-1.5rem))]")}
           onPointerEnter={() => {
+            engaged.current = true;
             details.show();
             details.hold(true);
           }}
-          onPointerLeave={() => details.hold(false)}
-          onFocus={() => details.hold(true)}
+          onPointerLeave={() => {
+            engaged.current = false;
+            details.hold(false);
+          }}
+          onFocus={() => {
+            engaged.current = true;
+            details.hold(true);
+          }}
           onBlur={(e) => {
-            if (!e.currentTarget.contains(e.relatedTarget)) details.hold(false);
+            if (e.currentTarget.contains(e.relatedTarget)) return;
+            engaged.current = false;
+            details.hold(false);
           }}
         >
           <button

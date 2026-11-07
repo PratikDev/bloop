@@ -1,13 +1,15 @@
 "use client";
 
 import { useEffect } from "react";
-import { consumeEscape } from "@/lib/escape";
+import { consumeEscape, escClosesOverlay } from "@/lib/escape";
 import type { Commands } from "../Commands/use-commands";
 
 /**
  * Esc stops all sound and closes panels from anywhere on the page (plan §9.3).
  * `alsoStop` covers things that run without sound (the silent time-lapse).
  * Capture phase: an open sheet or dialog would otherwise take the first Esc.
+ * An Esc pressed inside an overlay closes only that overlay: it stops the sound
+ * but doesn't leave the page (the Turntable, a story) under it.
  */
 export function useGlobalEscape(commands: Commands, alsoStop: () => void): void {
   useEffect(() => {
@@ -18,7 +20,7 @@ export function useGlobalEscape(commands: Commands, alsoStop: () => void): void 
         e.preventDefault();
         return;
       }
-      commands.stopAll();
+      commands.stopAll({ leave: !escClosesOverlay(e.target instanceof Element ? e.target : null) });
       alsoStop();
     };
     window.addEventListener("keydown", onKey, true);

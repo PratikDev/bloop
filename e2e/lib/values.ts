@@ -39,3 +39,40 @@ export async function unexplainedValues(root: Locator): Promise<Unexplained[]> {
 
 /** The page's own content: <main>, and any open dialog or sheet. */
 export const content = (page: Page) => page.locator('main, [role="dialog"]');
+
+/** A view a visitor can reach: a page, and what to do there to show more numbers (a track, a sheet). */
+export interface ValueView {
+  name: string;
+  url: string;
+  then?: (page: Page) => Promise<void>;
+}
+
+/** Listen's track, chosen as a listener does (the track isn't in the URL). */
+export const track = (name: "Ocean" | "Rain" | "Both") => async (page: Page) => {
+  await page.getByRole("button", { name, exact: true }).first().click();
+};
+
+/** Every view a visitor can reach, each with the sheet that shows more numbers. */
+export const VALUE_VIEWS: ValueView[] = [
+  { name: "home", url: "/" },
+  { name: "listen ocean", url: "/listen", then: track("Ocean") },
+  { name: "listen rain", url: "/listen", then: track("Rain") },
+  { name: "listen both", url: "/listen", then: track("Both") },
+  ...["Dhaka", "Chattogram", "Rajshahi", "Sylhet"].flatMap((city) =>
+    ["heat", "monsoon", "water"].flatMap((part) => [
+      { name: `then-now ${city} ${part}`, url: `/then-now?city=${city}&part=${part}` },
+      {
+        name: `then-now ${city} ${part} details`,
+        url: `/then-now?city=${city}&part=${part}`,
+        then: async (p: Page) => {
+          await p.getByRole("button", { name: /^Details/u }).first().click();
+        },
+      },
+    ]),
+  ),
+  { name: "then-now monthly", url: "/then-now?city=Dhaka&part=heat&view=monthly" },
+  { name: "how", url: "/how" },
+  { name: "official", url: "/official" },
+  { name: "turntable", url: "/turntable" },
+  { name: "team", url: "/team" },
+];

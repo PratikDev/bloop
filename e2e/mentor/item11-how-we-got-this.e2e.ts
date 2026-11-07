@@ -3,7 +3,7 @@
 // on the shipped data); it is a real button opening a titled dialog that gives focus back; axe finds nothing serious.
 import { expect, test, type Page } from "@playwright/test";
 import { axeSerious } from "../lib/axe";
-import { content, unexplainedValues } from "../lib/values";
+import { VALUE_VIEWS, content, track, unexplainedValues } from "../lib/values";
 import { bindT, formatInteger } from "../../src/lib/i18n";
 import { longLine, partStats } from "../../src/lib/then-now-stats";
 import type { RainMetadata, SstMetadata } from "../../src/types/data-contract";
@@ -16,36 +16,6 @@ const stats = shipped<ThenNowStatsFile>("thenvsnow/stats.json");
 const panel = (page: Page) => page.getByTestId("how-we-got-this");
 const field = (page: Page, name: string) => panel(page).locator(`[data-field="${name}"]`);
 const visibleButtons = (page: Page) => page.locator("[data-how-we-got-this]:visible");
-/** Listen's track, chosen as a listener does (the track isn't in the URL). */
-const track = (name: "Ocean" | "Rain" | "Both") => async (page: Page) => {
-  await page.getByRole("button", { name, exact: true }).first().click();
-};
-
-/** Every view a visitor can reach, each with the sheet that shows more numbers. */
-export const VALUE_VIEWS: { name: string; url: string; then?: (page: Page) => Promise<void> }[] = [
-  { name: "home", url: "/" },
-  { name: "listen ocean", url: "/listen", then: track("Ocean") },
-  { name: "listen rain", url: "/listen", then: track("Rain") },
-  { name: "listen both", url: "/listen", then: track("Both") },
-  ...["Dhaka", "Chattogram", "Rajshahi", "Sylhet"].flatMap((city) =>
-    ["heat", "monsoon", "water"].flatMap((part) => [
-      { name: `then-now ${city} ${part}`, url: `/then-now?city=${city}&part=${part}` },
-      {
-        name: `then-now ${city} ${part} details`,
-        url: `/then-now?city=${city}&part=${part}`,
-        then: async (p: Page) => {
-          await p.getByRole("button", { name: /^Details/u }).first().click();
-        },
-      },
-    ]),
-  ),
-  { name: "then-now monthly", url: "/then-now?city=Dhaka&part=heat&view=monthly" },
-  { name: "how", url: "/how" },
-  { name: "official", url: "/official" },
-  { name: "turntable", url: "/turntable" },
-  { name: "team", url: "/team" },
-];
-
 test("no value is shown without a working How we got this in its group", async ({ page }) => {
   test.setTimeout(900_000);
   const found: Record<string, unknown[]> = {};

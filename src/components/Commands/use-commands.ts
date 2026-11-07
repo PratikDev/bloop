@@ -75,7 +75,8 @@ export interface Commands {
   openHelp(): void;
   /** B: opens or closes the Braille Data Explorer (`open` forces one). */
   toggleBraille(open?: boolean): void;
-  stopAll(): void;
+  /** Esc: stops every sound and closes the panels; `leave` (default) also ends a story or leaves the turntable. */
+  stopAll(opts?: { leave?: boolean }): void;
   sweepRef: RefObject<SweepVisual | null>;
 }
 
