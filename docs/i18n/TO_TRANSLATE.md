@@ -499,7 +499,7 @@ The Mapping panel builds each rule sentence from its parts (`src/lib/i18n/bn/rul
 | `clarity` | parameter: reverbSec; unit: hours since a 1 km infrared look | How recently measured 0 to 48 hours since a 1 km infrared look → echo length 0.1 to 2.4 s (linear). |
 | `unison` | a rule shared with another voice (sameAs) | Proof in unison: two tones in one ear, both by the Ocean temperature rule (Ocean temperature −5 to 35 °C → pitch 220 to 880 Hz (exponential: equal steps in value sound like equal musical steps).) Beats per second = the difference between the two pitches in Hz. |
 
-## Draft Bangla, needs review (165)
+## Draft Bangla, needs review (173)
 
 Drafted for the mentor fixes (`docs/MENTOR_FIXES.md`); **draft, needs review** by a Bangla speaker. Listed in `src/lib/i18n/bn/drafts.ts`: remove an entry there once it is checked.
 
@@ -519,6 +519,14 @@ Drafted for the mentor fixes (`docs/MENTOR_FIXES.md`); **draft, needs review** b
 | `credits.power` | NASA POWER was checked and dropped: it disagreed with independent records. | NASA POWER যাচাই করে বাদ দেওয়া হয়েছে: স্বাধীন রেকর্ডের সাথে মেলেনি। |
 | `credits.loading` | Loading the credits | ক্রেডিট লোড হচ্ছে |
 | `credits.error` | The credits could not load. Reload the page to try again. | ক্রেডিট লোড করা যায়নি। আবার চেষ্টা করতে পাতাটি রিলোড করুন। |
+| `nav.team` | Team | দল |
+| `team.title` | Team and about | দল ও পরিচিতি |
+| `team.lead` | Who made this app, for which challenge, and the NASA data it plays. | এই অ্যাপ কারা বানিয়েছে, কোন চ্যালেঞ্জের জন্য, আর এটি নাসার কোন ডেটা বাজায়। |
+| `team.members` | Team members | দলের সদস্য |
+| `team.challenge` | Challenge | চ্যালেঞ্জ |
+| `team.localEvent` | ``Local event: ${p.place}`` | ``\u09B8\u09CD\u09A5\u09BE\u09A8\u09C0\u09AF\u09BC \u0986\u09AF\u09BC\u09CB\u099C\u09A8: ${p.place}`` |
+| `team.madeWith` | Made with NASA data | নাসার ডেটা দিয়ে তৈরি |
+| `team.licence` | ``Code licence: ${p.licence}.`` | ``\u0995\u09CB\u09A1\u09C7\u09B0 \u09B2\u09BE\u0987\u09B8\u09C7\u09A8\u09CD\u09B8: ${p.licence}\u0964`` |
 | `hwgt.button` | How we got this | কীভাবে পেলাম |
 | `hwgt.name` | ``How we got this: ${p.subject}`` | ``\u0995\u09C0\u09AD\u09BE\u09AC\u09C7 \u09AA\u09C7\u09B2\u09BE\u09AE: ${p.subject}`` |
 | `hwgt.intro` | Where these numbers come from, how they are computed, and how well they are checked. | এই সংখ্যাগুলো কোথা থেকে এসেছে, কীভাবে হিসাব করা হয়েছে, আর কতটা যাচাই করা হয়েছে। |

@@ -1,11 +1,14 @@
 "use client";
 
-import { Keyboard, Scroll } from "@phosphor-icons/react";
+import { Keyboard, Scroll, UsersThree } from "@phosphor-icons/react";
+import { Link } from "@tanstack/react-router";
 import { motion } from "motion/react";
-import { Button } from "@/components/ui/button";
+import { Button, buttonVariants } from "@/components/ui/button";
 import { useLoaded } from "@/hooks/use-loaded";
 import { loadGlobeDuet } from "@/lib/data";
 import { RISE, STAGGER } from "@/lib/motion";
+import { cn } from "@/lib/utils";
+import { PAGE_PATHS } from "@/router/modes";
 import { oceanTruth, rainTruth } from "@/lib/truth";
 import { useT } from "../../AppState/use-app-state";
 import { useCommands } from "../../Commands/use-commands";
@@ -91,6 +94,10 @@ export function HowPage() {
         <InfoSheet title={t("how.credits")} triggerClassName={FOOT_LINK} trigger={<><Scroll aria-hidden="true" className="size-4.5" />{t("how.credits")}</>}>
           <DataCredits />
         </InfoSheet>
+        <Link to={PAGE_PATHS.team} className={cn(buttonVariants({ variant: "ghost" }), FOOT_LINK)}>
+          <UsersThree aria-hidden="true" className="size-4.5" />
+          {t("team.title")}
+        </Link>
         <Button variant="ghost" onClick={commands.openHelp} className={FOOT_LINK}>
           <Keyboard aria-hidden="true" className="size-4.5" />
           {t("how.keys")}

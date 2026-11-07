@@ -35,7 +35,7 @@ async function read(list: Locator): Promise<Shown> {
   });
 }
 
-/** Where the credits are shown, each opened as a visitor would. Team joins this list with mentor item 7. */
+/** Where the credits are shown, each opened as a visitor would. */
 export const PLACES: { name: string; url: string; open: (page: Page) => Promise<Locator> }[] = [
   {
     name: "How we know",
@@ -61,6 +61,7 @@ export const PLACES: { name: string; url: string; open: (page: Page) => Promise<
       return page.getByRole("dialog").getByTestId("data-credits");
     },
   },
+  { name: "Team", url: "/team", open: async (page) => page.locator("main").getByTestId("data-credits") },
 ];
 
 test("the credits list is the registry's, the same everywhere it is shown", async ({ page }) => {

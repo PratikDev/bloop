@@ -62,6 +62,12 @@ export function HomePage() {
         </div>
       </section>
       <Stations />
+      <footer className="flex flex-wrap items-center gap-x-4 gap-y-1 px-4 pb-4 text-small text-haze md:px-8 lg:px-12">
+        <Link to={PAGE_PATHS.team} className="underline underline-offset-2 hover:text-moon">
+          {t("team.title")}
+        </Link>
+        <span>{t("credits.visualizations")}</span>
+      </footer>
     </div>
   );
 }

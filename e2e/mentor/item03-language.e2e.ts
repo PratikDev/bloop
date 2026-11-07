@@ -3,7 +3,7 @@
 import { expect, test, type Page } from "@playwright/test";
 import { openAt, shot } from "./lib";
 
-const ROUTES = ["/", "/listen", "/then-now", "/then-now?view=monthly", "/how", "/official", "/turntable"];
+const ROUTES = ["/", "/listen", "/then-now", "/then-now?view=monthly", "/how", "/official", "/turntable", "/team"];
 const BANGLA = /[ঀ-৿]/u;
 
 /** Records <html lang> at the moment <body> is created (before anything is painted), on every load of the page. */

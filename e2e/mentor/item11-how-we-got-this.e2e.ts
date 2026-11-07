@@ -21,7 +21,7 @@ const track = (name: "Ocean" | "Rain" | "Both") => async (page: Page) => {
   await page.getByRole("button", { name, exact: true }).first().click();
 };
 
-/** Every view a visitor can reach, each with the sheet that shows more numbers. Team joins with mentor item 7. */
+/** Every view a visitor can reach, each with the sheet that shows more numbers. */
 export const VALUE_VIEWS: { name: string; url: string; then?: (page: Page) => Promise<void> }[] = [
   { name: "home", url: "/" },
   { name: "listen ocean", url: "/listen", then: track("Ocean") },
@@ -43,6 +43,7 @@ export const VALUE_VIEWS: { name: string; url: string; then?: (page: Page) => Pr
   { name: "how", url: "/how" },
   { name: "official", url: "/official" },
   { name: "turntable", url: "/turntable" },
+  { name: "team", url: "/team" },
 ];
 
 test("no value is shown without a working How we got this in its group", async ({ page }) => {

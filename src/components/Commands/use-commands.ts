@@ -25,6 +25,7 @@ export const MODE_LABELS = {
   how: "nav.how",
   turntable: "mode.turntable",
   official: "mode.official",
+  team: "nav.team",
 } as const satisfies Record<Mode, string>;
 
 /** The sweep currently playing, for the map's sweep ring. */

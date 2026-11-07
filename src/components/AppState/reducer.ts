@@ -3,7 +3,7 @@ import { clampLat, START_CURSOR, wrapLon, type LatLon } from "@/lib/data";
 import type { Lang } from "@/lib/i18n";
 
 /** What the current page is doing; set from the URL only (src/router/modes.ts). */
-export type Mode = "home" | "explore" | "story" | "thenNow" | "how" | "turntable" | "official";
+export type Mode = "home" | "explore" | "story" | "thenNow" | "how" | "turntable" | "official" | "team";
 /** The Listen page's Inspector tabs; the Turntable's "How we know" drawer adds History (Month by month). */
 export type PanelTab = "truth" | "mapping" | "provenance" | "history";
 

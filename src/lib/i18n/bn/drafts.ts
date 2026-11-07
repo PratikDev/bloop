@@ -21,6 +21,15 @@ export const DRAFT_KEYS: readonly MessageKey[] = [
   "credits.power",
   "credits.loading",
   "credits.error",
+  // item 7 (en/team.ts)
+  "nav.team",
+  "team.title",
+  "team.lead",
+  "team.members",
+  "team.challenge",
+  "team.localEvent",
+  "team.madeWith",
+  "team.licence",
   // item 11 (en/provenance.ts)
   "hwgt.button",
   "hwgt.name",

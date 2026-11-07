@@ -5,7 +5,7 @@ import { ListenPage } from "@/components/pages/Listen";
 import { NotFoundPage } from "@/components/pages/NotFound";
 import { listenSearch, thenNowSearch } from "./search";
 
-// Six places and a 404 (docs/L3/REDESIGN.md §2; Official and Turntable joined from bloop-dev). Then vs Now, How we
+// Seven places and a 404 (docs/L3/REDESIGN.md §2; Official and Turntable joined from bloop-dev). Then vs Now, How we
 // know, Official and Turntable load their code (the chart library, three.js) only when opened.
 
 const rootRoute = createRootRoute({ component: AppShell, notFoundComponent: NotFoundPage });
@@ -39,4 +39,10 @@ const turntableRoute = createRoute({
   component: lazyRouteComponent(() => import("@/components/pages/TurntablePage"), "TurntablePage"),
 });
 
-export const routeTree = rootRoute.addChildren([homeRoute, listenRoute, thenNowRoute, howRoute, officialRoute, turntableRoute]);
+const teamRoute = createRoute({
+  getParentRoute: () => rootRoute,
+  path: "team",
+  component: lazyRouteComponent(() => import("@/components/pages/Team"), "TeamPage"),
+});
+
+export const routeTree = rootRoute.addChildren([homeRoute, listenRoute, thenNowRoute, howRoute, officialRoute, turntableRoute, teamRoute]);

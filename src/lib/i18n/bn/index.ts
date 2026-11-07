@@ -9,6 +9,7 @@ import { captionsBn } from "./captions";
 import { contextBn } from "./context";
 import { creditsBn } from "./credits";
 import { provenanceBn } from "./provenance";
+import { teamBn } from "./team";
 import { helpBn } from "./help";
 import { pagesBn } from "./pages";
 import { panelsBn } from "./panels";
@@ -17,7 +18,7 @@ import { howBn } from "./how";
 import { statsBn } from "./stats";
 import { storyBn } from "./story";
 
-export const bn: Partial<Messages> = { ...appBn, ...helpBn, ...captionsBn, ...panelsBn, ...contextBn, ...storyBn, ...pagesBn, ...statsBn, ...framesBn, ...howBn, ...creditsBn, ...provenanceBn };
+export const bn: Partial<Messages> = { ...appBn, ...helpBn, ...captionsBn, ...panelsBn, ...contextBn, ...storyBn, ...pagesBn, ...statsBn, ...framesBn, ...howBn, ...creditsBn, ...provenanceBn, ...teamBn };
 
 /**
  * Spoken lines (Enter, the tour, Describe) are translated, so speech follows
