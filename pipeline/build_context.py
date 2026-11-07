@@ -37,15 +37,23 @@ def gpcp():
             "caveat": "Before 1988 GPCP uses a coarser estimate; cells are ~275 km wide.",
             "credit": "GPCP v2.3 (Adler et al.); data provided by NOAA PSL", "cells": out}
 
+GPCC_FILE = CTX / "gpcc_full_v2020_2.5.nc"
+
 def gpcc():
-    ds = xr.open_dataset(CTX / "gpcc_full_v2020_2.5.nc")
+    ds = xr.open_dataset(GPCC_FILE)
     out = {}
     for name, (la, lo) in CELLS.items():
         s, glat, glon = nearest_series(ds["precip"], la, lo)
         ser = s.to_series(); ser.index = pd.to_datetime(ser.index); ser = ser / ser.index.days_in_month
         out[name] = {"lat": glat, "lon": glon, "months": [f"{t:%Y-%m}" for t in ser.index],
                      "mm_per_day": [None if pd.isna(v) else round(float(v), 3) for v in ser.values]}
-    return {"dataset": "GPCC Full Data v2020 (rain gauges), 2.5 deg, to 2019", "units": "mm/day",
+    # Product, version and coverage read from the file itself (name: gpcc_full_v<version>_<res>.nc; time axis): never typed.
+    version, res = re.match(r"gpcc_full_v(\d{4})_([\d.]+)\.nc$", GPCC_FILE.name).groups()
+    t = pd.to_datetime(ds["time"].values)
+    first, last = t.min(), t.max()
+    return {"dataset": f"GPCC Full Data v{version} (rain gauges), {res} deg, to {last:%Y}", "units": "mm/day",
+            "product": f"GPCC Full Data Monthly V{version}", "resolution_deg": float(res),
+            "first_month": f"{first:%Y-%m}", "last_month": f"{last:%Y-%m}", "last_month_text": f"{last:%B %Y}",
             "credit": "GPCC, Deutscher Wetterdienst; data provided by NOAA PSL", "cells": out}
 
 def grace():

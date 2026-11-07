@@ -3,9 +3,12 @@
 // when the file and the code disagree, so a new string is never left untranslated without being listed.
 
 import { APP_VOICES, ruleText } from "@/lib/audio/mapping";
+import { bn } from "./bn";
+import { templateBangla } from "./bn/data";
+import { DRAFT_DATA_TEMPLATES, DRAFT_KEYS } from "./bn/drafts";
 import { missingRuleWords } from "./bn/rules";
 import { untranslatedSentences } from "./data-sentences";
-import { UNTRANSLATED_KEYS, type MessageKey } from "./index";
+import { en, UNTRANSLATED_KEYS, type MessageKey } from "./index";
 import { appEn } from "./en/app";
 import { badgesEn } from "./en/badges";
 import { brailleEn } from "./en/braille";
@@ -73,6 +76,19 @@ export function toTranslateMarkdown(): string {
       "| Voice | Words needed | English rule |",
       "|---|---|---|",
       ...rules.map((v) => `| \`${v.id}\` | ${tableCell(missingRuleWords(v).join("; "))} | ${tableCell(ruleText(v))} |`),
+      "",
+    );
+  }
+  if (DRAFT_KEYS.length || DRAFT_DATA_TEMPLATES.length) {
+    L.push(
+      `## Draft Bangla, needs review (${DRAFT_KEYS.length + DRAFT_DATA_TEMPLATES.length})`,
+      "",
+      "Drafted for the mentor fixes (`docs/MENTOR_FIXES.md`); **draft, needs review** by a Bangla speaker. Listed in `src/lib/i18n/bn/drafts.ts`: remove an entry there once it is checked.",
+      "",
+      "| Key or data template | English | Draft Bangla |",
+      "|---|---|---|",
+      ...DRAFT_KEYS.map((k) => `| \`${k}\` | ${englishText(en[k])} | ${englishText(bn[k])} |`),
+      ...DRAFT_DATA_TEMPLATES.map((s) => `| data template | ${tableCell(s)} | ${tableCell(templateBangla(s) ?? "")} |`),
       "",
     );
   }

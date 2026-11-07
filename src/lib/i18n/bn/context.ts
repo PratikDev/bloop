@@ -82,6 +82,8 @@ export const contextBn: Translated<typeof contextEn> = {
   "disclosure.spread": (p: { value: number; unit: string }) => `বছর-থেকে-বছর ব্যবধান ${n2(p.value)} ${p.unit}`,
   "disclosure.change": (p: { value: string }) => `পরিবর্তন: ${p.value}`,
   "disclosure.crossCheck": "যাচাই, বৃষ্টিমাপক যন্ত্র (GPCC, বাজানো হয় না)",
+  "disclosure.whyYears": "কেন এই বছরগুলো",
+  "disclosure.extra": "অতিরিক্ত, GPCC-এর সাথে তুলনীয় নয়",
   "disclosure.box": (p: { name: string; a: number; b: number; windowA: string; windowB: string; trend: number }) =>
     `${p.name}: ${n2(p.a)} সেমি (${p.windowA}) → ${n2(p.b)} সেমি (${p.windowB}); প্রবণতা বছরে ${n2(p.trend)} সেমি`,
   "disclosure.gapNote": "ফাঁক",

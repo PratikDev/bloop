@@ -121,6 +121,11 @@ export function ThenNow({
                       splitIndex={player.splitIndex}
                     />
                     {part === "water" &&  <p className="text-small text-haze">{t("thenNow.waterNational")}</p>}
+                    {part === "monsoon" && (
+                      <p className="text-small text-haze" data-testid="rain-window-note">
+                        {t("data.text", { text: view.demo.rain.gpcc_end_note })}
+                      </p>
+                    )}
                     {sharedWith.length > 0 && (
                       <p className="text-small text-moon">{t("history.sharedCell", { places: sharedWith.map((c) => t(`place.${c}`)).join(", ") })}</p>
                     )}

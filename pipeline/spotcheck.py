@@ -98,16 +98,31 @@ for prod in ("sst", "rain"):
 try:
     d = json.load(open(PUBLIC / "demo" / "dhaka_then_now.json"))
     exp = [("heat change", d["heat"]["change_C"], 1.37, 0.01),
-           ("GPCP A", d["rain"]["gpcp"]["A"]["mean"], 15.10, 0.01), ("GPCP B", d["rain"]["gpcp"]["B"]["mean"], 13.71, 0.01),
-           ("GPCC A", d["rain"]["gpcc"]["A"]["mean"], 14.79, 0.01), ("GPCC B", d["rain"]["gpcc"]["B"]["mean"], 13.03, 0.01),
+           ("GPCP A", d["rain"]["gpcp"]["A"]["mean"], 15.10, 0.01), ("GPCC A", d["rain"]["gpcc"]["A"]["mean"], 14.79, 0.01),
+           ("GPCC B", d["rain"]["gpcc"]["B"]["mean"], 13.03, 0.01),
            ("GRACE BD A", d["water"]["Bangladesh"]["mean_A"], 0.83, 0.01), ("GRACE BD B", d["water"]["Bangladesh"]["mean_B"], -5.82, 0.01),
            ("GRACE NWI A", d["water"]["NW_India"]["mean_A"], 8.71, 0.01), ("GRACE NWI B", d["water"]["NW_India"]["mean_B"], -53.63, 0.01),
            ("GRACE NWI trend", d["water"]["NW_India"]["trend_cm_per_yr"], -3.25, 0.01)]
     for name, got, want, tol in exp:
         check(f"F demo {name}", abs(got - want) <= tol, f"got {got} expected {want}")
+    # Mentor item 9: GPCP and GPCC share one baseline and one recent decade, and the recent decade ends in GPCC's last year.
+    gw, cw = d["rain"]["gpcp"], d["rain"]["gpcc"]
+    gpcc_end = int(json.load(open(PUBLIC / "context" / "gpcc_bd.json"))["last_month"][:4])
+    same = gw["A"]["window"] == cw["A"]["window"] and gw["B"]["window"] == cw["B"]["window"]
+    check("F demo rain windows identical (GPCP = GPCC) and end in GPCC's last year", same and cw["B"]["window"][1] == gpcc_end,
+          f"GPCP {gw['A']['window']} vs {gw['B']['window']}; GPCC {cw['A']['window']} vs {cw['B']['window']}; GPCC ends {gpcc_end}")
+    # GPCP's recent mean recomputed here from the context file (independent of build_demo's window code).
+    gcell = json.load(open(PUBLIC / "context" / "gpcp_bd.json"))["cells"]["Dhaka"]
+    b0, b1 = gw["B"]["window"]
+    yrs = {}
+    for m, v in zip(gcell["months"], gcell["mm_per_day"]):
+        y, mo = int(m[:4]), int(m[5:7])
+        if b0 <= y <= b1 and 6 <= mo <= 9 and v is not None: yrs.setdefault(y, []).append(v)
+    want_b = sum(sum(v) / len(v) for v in yrs.values()) / len(yrs)
+    check("F demo GPCP B (recomputed from gpcp_bd.json)", abs(gw["B"]["mean"] - want_b) <= 0.01, f"got {gw['B']['mean']} expected {want_b:.3f}")
     # captions must equal TEAM_BUILD_PLAN Section 16 word for word (true minus sign U+2212)
     SEC16 = {"heat": "Dhaka, April–May: +1.37 °C (NASA GISTEMP, 1981–1990 vs 2016–2025, 10 years each).",
-             "rain": "Dhaka, June–September: no wetter in these records. GPCP \u22129% (1981–1990 vs 2016–2025); rain gauges (GPCC) \u221212% (1981–1990 vs 2010–2019).",
+             "rain": "Dhaka, June–September: no wetter in these records. GPCP \u221210% (1981–1990 vs 2010–2019); rain gauges (GPCC) \u221212% (1981–1990 vs 2010–2019).",
              "water": "Water storage (GRACE): Bangladesh +0.83 → \u22125.82 cm; NW India +8.71 → \u221253.63 cm (2003–06 vs 2021–24). "
                       "Silence = no satellite measurements (Jul 2017–May 2018)."}
     for k, want in SEC16.items():

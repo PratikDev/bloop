@@ -259,6 +259,15 @@ export interface RainContextFile {
   cells: Record<ClimateCellName, RainCellSeries>;
 }
 
+/** gpcc_bd.json: the product and its coverage, read from the NetCDF by build_context.py (mentor item 9). */
+export interface GpccContextFile extends RainContextFile {
+  product: string; // "GPCC Full Data Monthly V2020"
+  resolution_deg: number;
+  first_month: string; // "1891-01"
+  last_month: string; // "2019-12"
+  last_month_text: string; // "December 2019"
+}
+
 // ---------------------------------------------------------------------------
 // 5. GRACE water storage (context/grace.json)
 // Needed by: BOTH — L3 chart + gap caption; L2 bass voice (null = silence).
@@ -393,10 +402,17 @@ export interface RainSeriesDemo {
   change_pct: number;
 }
 
+/** GPCP's own newer decade (WIN_B): an extra, labelled "GPCP only", never shown beside GPCC as comparable. */
+export interface RainNewerDemo extends RainSeriesDemo {
+  label: string; // "GPCP only, newer decade; GPCC data ends in 2019"
+}
+
 export interface RainDemo {
-  gpcp: RainSeriesDemo;
+  gpcp: RainSeriesDemo; // same A and B windows as gpcc (mentor item 9)
   gpcc: RainSeriesDemo;
   caption: string;
+  gpcc_end_note: string; // why GPCC stops where it does (version and last month from gpcc_bd.json)
+  gpcp_newer: RainNewerDemo;
 }
 
 export interface WaterBoxDemo {

@@ -1,6 +1,11 @@
 {
   "dataset": "GPCC Full Data v2020 (rain gauges), 2.5 deg, to 2019",
   "units": "mm/day",
+  "product": "GPCC Full Data Monthly V2020",
+  "resolution_deg": 2.5,
+  "first_month": "1891-01",
+  "last_month": "2019-12",
+  "last_month_text": "December 2019",
   "credit": "GPCC, Deutscher Wetterdienst; data provided by NOAA PSL",
   "cells": {
     "Dhaka": {
