@@ -38,15 +38,16 @@ export const PAGES: Feature[] = [
       await expect(page).toHaveURL(/\/listen/u);
       return { evidence: "Tab to Turntable in the header → Enter → /turntable; Listen link → /listen" };
     } },
-  { id: "then-now", group: "data", name: "Then vs Now: four cities, heat, monsoon rain, water, fires, vegetation", where: "Then vs Now · Compare decades (key T)", keyboard: true,
-    what: "Plays 1981–1990 against 2016–2025 for one part, with a chart, its caption and the honesty notes",
+  { id: "then-now", group: "data", name: "Then vs Now: four cities, heat, monsoon rain, water (fires and vegetation hidden, mentor item 5)", where: "Then vs Now · Compare decades (key T)", keyboard: true,
+    what: "Plays the two decades for one part, with a chart, its caption, its statistics and the honesty notes",
     control: (page) => page.getByRole("button", { name: "Play this part" }),
     async run(page) {
       await onMap(page); await page.keyboard.press("t");
       await expect(page).toHaveURL(/\/then-now/u);
       await expect(title(page)).toHaveText(/Then vs Now/u);
       const parts = await page.getByRole("tablist", { name: "Part" }).getByRole("tab").allInnerTexts();
-      for (const p of ["Heat", "Monsoon rain", "Water underground", "Fires", "Vegetation"]) if (!parts.some((x) => x.trim().startsWith(p))) throw new Error(`no ${p} part (${parts.join(", ")})`);
+      for (const p of ["Heat", "Monsoon rain", "Water underground"]) if (!parts.some((x) => x.trim().startsWith(p))) throw new Error(`no ${p} part (${parts.join(", ")})`);
+      for (const p of ["Fires", "Vegetation"]) if (parts.some((x) => x.trim().startsWith(p))) throw new Error(`hidden part ${p} shows (${parts.join(", ")})`);
       await page.getByRole("button", { name: "Play this part" }).click();
       const s = await sounds(page, "heat part");
       return { evidence: `parts: ${parts.join(", ")}; ${s.evidence}` };

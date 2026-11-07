@@ -6,6 +6,9 @@ import type { MessageKey } from "../index";
 
 /** UI keys whose Bangla is a draft. */
 export const DRAFT_KEYS: readonly MessageKey[] = [
+  // item 5
+  "credits.testing",
+  "field.soundOctober",
   // item 9
   "disclosure.whyYears",
   "disclosure.extra",

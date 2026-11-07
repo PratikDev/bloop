@@ -49,7 +49,7 @@ export const contextEn = {
   "thenNow.moreTitle": "More records, then vs now",
   "thenNow.part.fires": "Fires",
   "thenNow.part.vegetation": "Vegetation",
-  "field.soundOctober": "No sound for this record yet: coming in October",
+  "field.soundOctober": "No sound for this record",
   "field.place": "Place",
   "field.sources": "Where these numbers come from",
   "field.rule": "Rule",

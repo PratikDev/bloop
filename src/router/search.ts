@@ -33,15 +33,14 @@ export interface ThenNowSearch {
 }
 
 export function thenNowSearch(raw: Raw): ThenNowSearch {
-  const search: ThenNowSearch = {};
-  const view = oneOf(THEN_NOW_VIEWS, raw.view);
-  const city = oneOf(PLACES, raw.city);
-  const part = oneOf(VIEW_PARTS, raw.part);
-  const record = oneOf(HISTORY_METRICS, raw.record);
-  if (view) search.view = view;
-  if (city) search.city = city;
-  if (part) search.part = part;
-  if (typeof raw.place === "string" && raw.place.length > 0 && raw.place.length < 80) search.place = raw.place;
-  if (record) search.record = record;
-  return search;
+  // Every key is returned, undefined when the URL's value isn't allowed: the router merges the root's raw search
+  // under this one, so a key left out would let the raw value (e.g. a hidden part, ?part=fires) through.
+  const place = typeof raw.place === "string" && raw.place.length > 0 && raw.place.length < 80 ? raw.place : undefined;
+  return {
+    view: oneOf(THEN_NOW_VIEWS, raw.view),
+    city: oneOf(PLACES, raw.city),
+    part: oneOf(VIEW_PARTS, raw.part),
+    place,
+    record: oneOf(HISTORY_METRICS, raw.record),
+  };
 }

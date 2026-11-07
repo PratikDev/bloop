@@ -130,12 +130,12 @@ export const appEn = {
   "announce.toggle": (p: { name: string; on: boolean }) => `${p.name} ${p.on ? "on" : "off"}.`,
   "announce.started": "Sound started. The cursor is over the Bay of Bengal. Arrow keys move it.",
 
-  // Team plan §15 wording, split into what the app uses and what only our tests used
-  // (contract-proposals E3). FIRMS, MODIS and GLOBE moved into the app on 28 Sep (fires,
-  // vegetation, the GLOBE teaser); POWER is shown only as the record we dropped. Dataset names stay in English.
+  // Team plan §15 wording, split into what plays in the app and what only our checks used (mentor item 5:
+  // src/lib/i18n/credits.ts says where each data credit plays). POWER is shown as the record we dropped.
+  // Dataset names stay in English.
   "credits.visualizations": `Visualizations: ${CREDIT_NAMES.svs} for the ${CREDIT_NAMES.eic}.`,
   "credits.data": `Data in this app: ${CREDIT_NAMES.data}.`,
-  "credits.testing": `Also used in our testing: ${CREDIT_NAMES.power} (dropped: it disagreed with independent records).`,
+  "credits.testing": `Used in our testing (not playable): ${CREDIT_NAMES.testing}; ${CREDIT_NAMES.power} (dropped: it disagreed with independent records).`,
 
   "error.ocean": "Couldn't load the latest ocean frame. Check the connection and reload the page.",
   "error.rain": "Couldn't load the latest rain frame. Ocean sound still works; reload the page to try again.",

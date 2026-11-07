@@ -131,7 +131,7 @@ export const appBn: Translated<typeof appEn> = {
   // Plan §15: only the words around the names are translated.
   "credits.visualizations": `ভিজ্যুয়ালাইজেশন: ${CREDIT_NAMES.svs}, ${CREDIT_NAMES.eic}-এর জন্য।`,
   "credits.data": `এই অ্যাপের ডেটা: ${CREDIT_NAMES.data}।`,
-  "credits.testing": `আমাদের পরীক্ষায় আরও ব্যবহৃত: ${CREDIT_NAMES.power} (বাদ দেওয়া হয়েছে: স্বাধীন রেকর্ডের সাথে মেলেনি)।`,
+  "credits.testing": `আমাদের পরীক্ষায় ব্যবহৃত (বাজানো যায় না): ${CREDIT_NAMES.testing}; ${CREDIT_NAMES.power} (বাদ দেওয়া হয়েছে: স্বাধীন রেকর্ডের সাথে মেলেনি)।`,
 
   "error.ocean": "সর্বশেষ সমুদ্রের ফ্রেম লোড করা যায়নি। সংযোগ দেখে পাতাটি রিলোড করুন।",
   "error.rain": "সর্বশেষ বৃষ্টির ফ্রেম লোড করা যায়নি। সমুদ্রের শব্দ চলবে; আবার চেষ্টা করতে পাতাটি রিলোড করুন।",
