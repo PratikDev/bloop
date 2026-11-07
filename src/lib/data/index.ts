@@ -10,7 +10,7 @@ export { DataShapeError } from "./validate";
 export { decodeSequenceCode, loadSequence, loadSequenceIndex, spanHours, valueInFrame, type Sequence, type SequenceFrame } from "./sequence";
 export { followStorm, windowStart } from "./storm";
 export { layerSeries, loadGlobalLayer, loadGlobalManifest, loadGlobalPlaces, type GlobalLayer } from "./global";
-export { ageDaysAt, creditLines, isModel, livenessAt, loadFreshness, type Liveness } from "./freshness";
+export { ageDaysAt, isModel, livenessAt, loadFreshness, type Liveness } from "./freshness";
 export {
   anomalyAt,
   clarityAt,

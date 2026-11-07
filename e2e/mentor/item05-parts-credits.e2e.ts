@@ -1,9 +1,9 @@
 // Mentor item 5: every Then vs Now part that shows is one that plays (audio level from the app's own tap), the
-// unfinished parts are hidden, and the credits list as "Data in this app" only what plays.
+// unfinished parts are hidden. The credits list (data that plays, and the testing-only sources) is checked on every
+// page that shows it by item05b-credits.e2e.ts.
 import { expect, test } from "@playwright/test";
 import { AUDIBLE, heard } from "../lib/app";
-import { DATA_CREDITS, TESTING_CREDITS } from "../../src/lib/i18n/credits";
-import { openAt, sheet, shot } from "./lib";
+import { openAt, shot } from "./lib";
 
 test("every visible Then vs Now part plays at a valid city; no hidden part shows", async ({ page }) => {
   await openAt(page, "/then-now?city=Dhaka&part=heat");
@@ -26,17 +26,4 @@ test("a URL naming a hidden part opens a sounded part instead", async ({ page })
   await openAt(page, "/then-now?part=fires");
   await expect(page.getByRole("tab", { selected: true })).toHaveText("Heat");
   await expect(page.getByRole("button", { name: "Play this part" })).toBeVisible();
-});
-
-test("How we know credits: data that plays, and a separate testing line", async ({ page }) => {
-  await openAt(page, "/how");
-  await page.getByRole("button", { name: "Credits" }).first().click();
-  const credits = page.getByRole("dialog").getByText(/Data in this app:/u).first();
-  await expect(credits).toBeVisible();
-  for (const c of DATA_CREDITS) await expect(credits).toContainText(c.name);
-  const text = (await credits.textContent()) ?? "";
-  const data = text.slice(0, text.indexOf("Used in our testing (not playable):"));
-  for (const name of TESTING_CREDITS) expect(data).not.toContain(name.split(" (")[0]);
-  await expect(credits).toContainText("Used in our testing (not playable):");
-  await shot(page, "item05", "credits", sheet(page));
 });

@@ -9,7 +9,7 @@ import { RISE, STAGGER } from "@/lib/motion";
 import { oceanTruth, rainTruth } from "@/lib/truth";
 import { useT } from "../../AppState/use-app-state";
 import { useCommands } from "../../Commands/use-commands";
-import { Credits } from "../../Credits";
+import { DataCredits } from "../../DataCredits";
 import { FrameLabel } from "../../FrameLabel";
 import { InfoSheet } from "../../InfoSheet";
 import { GlobeTeaser } from "../../panels/GlobeTeaser";
@@ -84,7 +84,7 @@ export function HowPage() {
 
       <motion.footer variants={RISE} initial="hidden" animate="shown" className="flex flex-wrap items-center gap-2">
         <InfoSheet title={t("how.credits")} triggerClassName={FOOT_LINK} trigger={<><Scroll aria-hidden="true" className="size-4.5" />{t("how.credits")}</>}>
-          <Credits t={t} className="text-body text-moon" />
+          <DataCredits />
         </InfoSheet>
         <Button variant="ghost" onClick={commands.openHelp} className={FOOT_LINK}>
           <Keyboard aria-hidden="true" className="size-4.5" />

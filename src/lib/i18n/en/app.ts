@@ -130,12 +130,8 @@ export const appEn = {
   "start.tapToStart": "Tap to start sound",
   "announce.started": "Sound started. The cursor is over the Bay of Bengal. Arrow keys move it.",
 
-  // Team plan §15 wording, split into what plays in the app and what only our checks used (mentor item 5:
-  // src/lib/i18n/credits.ts says where each data credit plays). POWER is shown as the record we dropped.
-  // Dataset names stay in English.
+  // Team plan §15 wording. The full credits list is built from the record registry (src/lib/credits, en/credits.ts).
   "credits.visualizations": `Visualizations: ${CREDIT_NAMES.svs} for the ${CREDIT_NAMES.eic}.`,
-  "credits.data": `Data in this app: ${CREDIT_NAMES.data}.`,
-  "credits.testing": `Used in our testing (not playable): ${CREDIT_NAMES.testing}; ${CREDIT_NAMES.power} (dropped: it disagreed with independent records).`,
 
   "error.ocean": "Couldn't load the latest ocean frame. Check the connection and reload the page.",
   "error.rain": "Couldn't load the latest rain frame. Ocean sound still works; reload the page to try again.",

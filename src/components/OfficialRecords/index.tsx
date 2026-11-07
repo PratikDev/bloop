@@ -11,6 +11,8 @@ import { useLoaded } from "@/hooks/use-loaded";
 import type { OfficialLayer } from "@/types/data-contract";
 import { useAppState, useT } from "../AppState/use-app-state";
 import { ChoiceGroup } from "../ChoiceGroup";
+import { DataCredits } from "../DataCredits";
+import { InfoSheet } from "../InfoSheet";
 import { StatusBadge } from "../StatusBadge";
 import { ProvenanceCard } from "./ProvenanceCard";
 import { RecordControls } from "./RecordControls";
@@ -120,6 +122,9 @@ export function OfficialRecords() {
         options={index.records.map((r) => ({ value: r.record, label: r.title, brailleLabel: recordBrailleLabel(r) }))} />
       {current && <Player key={current} record={current} />}
       <RelatedRecords value={current ?? ""} onChange={setRecord} />
+      <InfoSheet title={t("official.credits")} trigger={t("official.credits")} triggerClassName="h-11 rounded-full px-4 text-body text-haze ring-1 ring-glass-edge">
+        <DataCredits />
+      </InfoSheet>
     </section>
   );
 }

@@ -10,6 +10,7 @@ import { badgesEn } from "./en/badges";
 import { brailleEn } from "./en/braille";
 import { captionsEn } from "./en/captions";
 import { contextEn } from "./en/context";
+import { creditsEn } from "./en/credits";
 import { dataEn } from "./en/data";
 import { helpEn } from "./en/help";
 import { officialEn } from "./en/official";
@@ -40,6 +41,7 @@ export const en = {
   ...statsEn,
   ...framesEn,
   ...howEn,
+  ...creditsEn,
 };
 
 export type Messages = typeof en;

@@ -6,8 +6,21 @@ import type { MessageKey } from "../index";
 
 /** UI keys whose Bangla is a draft. */
 export const DRAFT_KEYS: readonly MessageKey[] = [
-  // item 5
-  "credits.testing",
+  // item 5 and its credits follow-up (en/credits.ts)
+  "credits.heading.data",
+  "credits.heading.testing",
+  "credits.testing.note",
+  "credits.group.observations",
+  "credits.group.models",
+  "credits.group.svs",
+  "credits.group.count",
+  "credits.plays",
+  "credits.page.braille",
+  "credits.link",
+  "credits.noLink",
+  "credits.power",
+  "credits.loading",
+  "credits.error",
   "field.noSound",
   // item 6 (the X-ray strings, reworded)
   "xray.unavailable",
