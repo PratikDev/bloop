@@ -5,7 +5,7 @@ export { DATA_PATHS } from "./paths";
 export { START_CURSOR, SWEEP_CENTER, type LatLon } from "./places";
 export { bandMeans, openingPath, pointAt, sweepPath } from "./summaries";
 export { valueAt, type LiveFields } from "./value-at";
-export { loadCities, loadDemo, loadEnsemble, loadFirms, loadGistemp, loadGlobeDuet, loadGpcp, loadGrace, loadNdvi, NDVI_POINTS } from "./context";
+export { loadCities, loadDemo, loadEnsemble, loadFirms, loadGistemp, loadGlobeDuet, loadGpcp, loadGrace, loadNdvi, loadThenNowStats, NDVI_POINTS } from "./context";
 export { DataShapeError } from "./validate";
 export { decodeSequenceCode, loadSequence, loadSequenceIndex, spanHours, valueInFrame, type Sequence, type SequenceFrame } from "./sequence";
 export { followStorm, windowStart } from "./storm";

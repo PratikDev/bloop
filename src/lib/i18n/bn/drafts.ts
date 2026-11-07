@@ -5,7 +5,47 @@
 import type { MessageKey } from "../index";
 
 /** UI keys whose Bangla is a draft. */
-export const DRAFT_KEYS: readonly MessageKey[] = ["disclosure.whyYears", "disclosure.extra"];
+export const DRAFT_KEYS: readonly MessageKey[] = [
+  // item 9
+  "disclosure.whyYears",
+  "disclosure.extra",
+  // item 10 (en/stats.ts, and the stats caption)
+  "stats.title",
+  "stats.item",
+  "stats.line",
+  "stats.head.noWetter",
+  "stats.head.noClear",
+  "stats.head.mixed",
+  "stats.result.clear",
+  "stats.result.unclear",
+  "stats.result.mixed",
+  "stats.unit.cmPerYear",
+  "stats.label.trend",
+  "stats.unit.short.cmPerYear",
+  "stats.unit.perDecade",
+  "stats.short.heat",
+  "stats.short.monsoon",
+  "stats.short.water",
+  "stats.short.clear",
+  "stats.short.unclear",
+  "announce.thenNow.stat",
+  "stats.row.result",
+  "stats.row.tests",
+  "stats.tests",
+  "stats.row.method",
+  "stats.method.decades",
+  "stats.method.trend",
+  "stats.row.trend",
+  "stats.trend",
+  "stats.row.alsoChecked",
+  "stats.totals",
+  "stats.totals.jjas",
+  "stats.totals.annual",
+  "stats.row.windows",
+  "stats.row.measurement",
+  "stats.grace",
+  "caption.thenNow.stats",
+];
 
 /** Data-file sentences (bn/data.ts templates) whose Bangla is a draft: the English template, numbers as "#". */
 export const DRAFT_DATA_TEMPLATES: readonly string[] = [

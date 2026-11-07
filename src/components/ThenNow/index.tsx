@@ -1,9 +1,10 @@
 "use client";
 
-import { useMemo } from "react";
+import { useCallback, useMemo } from "react";
 import { SpeakerSimpleSlash } from "@phosphor-icons/react";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { buildThenNowInput, cityDemo } from "@/lib/then-now";
+import { statTexts } from "@/lib/then-now-stats";
 import type { ClimateCellName } from "@/types/data-contract";
 import { useT } from "../AppState/use-app-state";
 import { ChoiceGroup } from "../ChoiceGroup";
@@ -15,8 +16,9 @@ import { PartLayout } from "./Layout";
 import { isFieldPart, VIEW_PARTS, type ViewPart } from "./parts";
 import { PartView } from "./PartView";
 import { PlayControls } from "./PlayControls";
+import { StatsDetails, StatsLine } from "./StatsDetails";
 import { useThenNowData } from "./use-then-now-data";
-import { useThenNowPlayer } from "./use-then-now-player";
+import { useThenNowPlayer, type Part } from "./use-then-now-player";
 
 export const DEFAULT_CITY: ClimateCellName = "Dhaka";
 
@@ -49,7 +51,9 @@ export function ThenNow({
     const demo = city ? cityDemo(ready.demo, city) : ready.demo;
     return { demo, input: buildThenNowInput(demo, ready.grace) };
   }, [ready, city]);
-  const player = useThenNowPlayer(view?.input ?? null, view?.demo ?? null);
+  const stats = ready?.stats ?? null;
+  const statLines = useCallback((p: Part) => (stats ? statTexts(stats, cityName, p) : null), [stats, cityName]);
+  const player = useThenNowPlayer(view?.input ?? null, view?.demo ?? null, statLines);
   // While "Play heat, rain and water" runs, the view follows the part that is sounding.
   const part: ViewPart = player.soundingPart ?? chosen;
   const field = isFieldPart(part);
@@ -121,6 +125,7 @@ export function ThenNow({
                       splitIndex={player.splitIndex}
                     />
                     {part === "water" &&  <p className="text-small text-haze">{t("thenNow.waterNational")}</p>}
+                    {ready.stats && <StatsLine stats={ready.stats} city={cityName} part={part} />}
                     {part === "monsoon" && (
                       <p className="text-small text-haze" data-testid="rain-window-note">
                         {t("data.text", { text: view.demo.rain.gpcc_end_note })}
@@ -138,6 +143,7 @@ export function ThenNow({
                 details={
                   <>
                     <Disclosure part={part} demo={view.demo} grace={ready.grace} />
+                    {ready.stats && <StatsDetails stats={ready.stats} city={cityName} part={part} />}
                     <HonestyFolds demo={view.demo} isDhaka={isDhaka} />
                   </>
                 }

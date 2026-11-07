@@ -500,7 +500,7 @@ The Mapping panel builds each rule sentence from its parts (`src/lib/i18n/bn/rul
 | `clarity` | parameter: reverbSec; unit: hours since a 1 km infrared look | How recently measured 0 to 48 hours since a 1 km infrared look → echo length 0.1 to 2.4 s (linear). |
 | `unison` | a rule shared with another voice (sameAs) | Proof in unison: two tones in one ear, both by the Ocean temperature rule (Ocean temperature −5 to 35 °C → pitch 220 to 880 Hz (exponential: equal steps in value sound like equal musical steps).) Beats per second = the difference between the two pitches in Hz. |
 
-## Draft Bangla, needs review (4)
+## Draft Bangla, needs review (39)
 
 Drafted for the mentor fixes (`docs/MENTOR_FIXES.md`); **draft, needs review** by a Bangla speaker. Listed in `src/lib/i18n/bn/drafts.ts`: remove an entry there once it is checked.
 
@@ -508,6 +508,41 @@ Drafted for the mentor fixes (`docs/MENTOR_FIXES.md`); **draft, needs review** b
 |---|---|---|
 | `disclosure.whyYears` | Why these years | কেন এই বছরগুলো |
 | `disclosure.extra` | Extra, not compared with GPCC | অতিরিক্ত, GPCC-এর সাথে তুলনীয় নয় |
+| `stats.title` | Uncertainty and significance | অনিশ্চয়তা ও তাৎপর্য |
+| `stats.item` | ``${p.label ? `${p.label} ` : ""}${p.value} (95% CI ${p.lo} to ${p.hi})`` | ``${p.label ? `${p.label} ` : ""}${p.value} (\u09EF\u09EB% CI ${p.lo} \u09A5\u09C7\u0995\u09C7 ${p.hi})`` |
+| `stats.line` | ``${p.head ? `${p.head} ` : ""}${p.items}. ${p.result}`` | ``${p.head ? `${p.head} ` : ""}${p.items}\u0964 ${p.result}`` |
+| `stats.head.noWetter` | No wetter in these records: | এই রেকর্ডগুলোতে বেশি ভেজা নয়: |
+| `stats.head.noClear` | No clear change in these records: | এই রেকর্ডগুলোতে স্পষ্ট পরিবর্তন নেই: |
+| `stats.head.mixed` | Mixed result: | মিশ্র ফল: |
+| `stats.result.clear` | A clear change: larger than year-to-year variation. | স্পষ্ট পরিবর্তন: বছর-থেকে-বছরের ওঠানামার চেয়ে বড়। |
+| `stats.result.unclear` | Not a clear change: year-to-year variation is larger. | স্পষ্ট পরিবর্তন নয়: বছর-থেকে-বছরের ওঠানামা বেশি। |
+| `stats.result.mixed` | Only some of these records show a clear change. | এই রেকর্ডগুলোর কয়েকটিতেই কেবল স্পষ্ট পরিবর্তন দেখা যায়। |
+| `stats.unit.cmPerYear` | cm per year | সেমি প্রতি বছর |
+| `stats.label.trend` | Trend | প্রবণতা |
+| `stats.unit.short.cmPerYear` | cm/yr | সেমি/বছর |
+| `stats.unit.perDecade` | °C per decade | °সে প্রতি দশক |
+| `stats.short.heat` | Heat | তাপ |
+| `stats.short.monsoon` | Rain | বৃষ্টি |
+| `stats.short.water` | Water | পানি |
+| `stats.short.clear` | clear | স্পষ্ট |
+| `stats.short.unclear` | not clear | স্পষ্ট নয় |
+| `announce.thenNow.stat` | ``${p.part} ${p.value} CI ${p.lo} to ${p.hi} ${p.verdict}`` | ``${p.part} ${p.value} CI ${p.lo} \u09A5\u09C7\u0995\u09C7 ${p.hi} ${p.verdict}`` |
+| `stats.row.result` | Result | ফল |
+| `stats.row.tests` | Tests | পরীক্ষা |
+| `stats.tests` | ``Welch's t-test p = ${p.welch}; Mann\u2013Whitney U p = ${p.mw} (${p.a} and ${p.b} years)`` | ``Welch t-\u09AA\u09B0\u09C0\u0995\u09CD\u09B7\u09BE p = ${p.welch}; Mann\u2013Whitney U p = ${p.mw} (${p.a} \u0993 ${p.b} \u09AC\u099B\u09B0)`` |
+| `stats.row.method` | Method | পদ্ধতি |
+| `stats.method.decades` | ``Decade mean of the yearly values; change = recent \u2212 baseline. The 95% range comes from ${p.draws} bootstrap resamples of the years. A change is called clear only if both tests give p < 0.05 and the range excludes 0.`` | ``\u09AC\u09BE\u09B0\u09CD\u09B7\u09BF\u0995 \u09AE\u09BE\u09A8\u0997\u09C1\u09B2\u09CB\u09B0 \u09A6\u09B6\u0995-\u0997\u09A1\u09BC; \u09AA\u09B0\u09BF\u09AC\u09B0\u09CD\u09A4\u09A8 = \u09B8\u09BE\u09AE\u09CD\u09AA\u09CD\u09B0\u09A4\u09BF\u0995 \u2212 \u09AD\u09BF\u09A4\u09CD\u09A4\u09BF\u0964 \u09EF\u09EB% \u09AA\u09B0\u09BF\u09B8\u09B0 \u098F\u09B8\u09C7\u099B\u09C7 \u09AC\u099B\u09B0\u0997\u09C1\u09B2\u09CB\u09B0 ${p.draws}\u099F\u09BF \u09AC\u09C1\u099F\u09B8\u09CD\u099F\u09CD\u09B0\u09CD\u09AF\u09BE\u09AA \u09AA\u09C1\u09A8\u09B0\u09CD\u09A8\u09AE\u09C1\u09A8\u09BE \u09A5\u09C7\u0995\u09C7\u0964 \u09A6\u09C1\u099F\u09BF \u09AA\u09B0\u09C0\u0995\u09CD\u09B7\u09BE\u09A4\u09C7\u0987 p < \u09E6.\u09E6\u09EB \u09B9\u09B2\u09C7 \u098F\u09AC\u0982 \u09AA\u09B0\u09BF\u09B8\u09B0\u09C7 \u09E6 \u09A8\u09BE \u09A5\u09BE\u0995\u09B2\u09C7\u0987 \u0995\u09C7\u09AC\u09B2 \u09AA\u09B0\u09BF\u09AC\u09B0\u09CD\u09A4\u09A8\u0995\u09C7 \u09B8\u09CD\u09AA\u09B7\u09CD\u099F \u09AC\u09B2\u09BE \u09B9\u09AF\u09BC\u0964`` |
+| `stats.method.trend` | Monthly values minus each calendar month's mean; Mann–Kendall test, corrected for autocorrelation; Sen's slope with its 95% range. | মাসিক মান থেকে প্রতিটি পঞ্জিকা-মাসের গড় বাদ; স্বতঃসম্পর্কের জন্য সংশোধিত Mann–Kendall পরীক্ষা; ৯৫% পরিসরসহ Sen-এর ঢাল। |
+| `stats.row.trend` | Full-record trend | পুরো রেকর্ডের প্রবণতা |
+| `stats.trend` | ``${p.test}, ${p.from}\u2013${p.to}: Sen's slope ${p.slope} ${p.unit} (95% CI ${p.lo} to ${p.hi}), p = ${p.p}`` | ``${p.test}, ${p.from}\u2013${p.to}: Sen-\u098F\u09B0 \u09A2\u09BE\u09B2 ${p.slope} ${p.unit} (\u09EF\u09EB% CI ${p.lo} \u09A5\u09C7\u0995\u09C7 ${p.hi}), p = ${p.p}`` |
+| `stats.row.alsoChecked` | Also checked | আরও যাচাই |
+| `stats.totals` | ``${p.which}: ${p.value}; p = ${p.welch} and ${p.mw}`` | ``${p.which}: ${p.value}; p = ${p.welch} \u0993 ${p.mw}`` |
+| `stats.totals.jjas` | June–September totals | জুন–সেপ্টেম্বরের মোট |
+| `stats.totals.annual` | Annual totals | বার্ষিক মোট |
+| `stats.row.windows` | Window means | সময়সীমার গড় |
+| `stats.row.measurement` | Measurement error | পরিমাপের ত্রুটি |
+| `stats.grace` | ``GRACE's own 1-sigma for this box: median ${p.median} cm a month (${p.min} to ${p.max})`` | ``\u098F\u0987 \u09AC\u0995\u09CD\u09B8\u09C7 GRACE-\u098F\u09B0 \u09A8\u09BF\u099C\u09B8\u09CD\u09AC \u09E7-\u09B8\u09BF\u0997\u09AE\u09BE: \u09AE\u09A7\u09CD\u09AF\u09AE\u09BE \u09AE\u09BE\u09B8\u09C7 ${p.median} \u09B8\u09C7\u09AE\u09BF (${p.min} \u09A5\u09C7\u0995\u09C7 ${p.max})`` |
+| `caption.thenNow.stats` | `strParam(p, "en")` | `strParam(p, "bn")` |
 | data template | GPCC stops at # because the gauge version we use (GPCC Full Data Monthly V#) ends in December #, so both rain records compare #–# with #–#. | GPCC {0} সালে থামে, কারণ আমাদের ব্যবহৃত বৃষ্টিমাপক সংস্করণ (GPCC Full Data Monthly V{1}) ডিসেম্বর {2}-এ শেষ; তাই দুটি বৃষ্টির রেকর্ডই {3}–{4}-কে {5}–{6}-এর সাথে তুলনা করে। |
 | data template | GPCP only, newer decade; GPCC data ends in # | শুধু GPCP, নতুন দশক; GPCC ডেটা {0} সালে শেষ |
 

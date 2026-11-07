@@ -285,11 +285,15 @@ export interface GraceBoxSeries {
   mean_B: number;
   window_A: string; // "2003-01..2006-12"
   window_B: string; // "2021-01..2024-12"
+  uncertainty_1sigma_cm: { median: number; min: number; max: number }; // the product's own 1-sigma, box-averaged, over all months
 }
 
 export interface GraceContextFile {
   dataset: string;
   units: "cm";
+  native_resolution: string; // from the file's metadata: "3-degree equal-area mascons"
+  mascon_deg: number | null; // 3
+  uncertainty_note: string;
   gap_note: string;
   credit: string;
   boxes: Record<GraceBoxName, GraceBoxSeries>;

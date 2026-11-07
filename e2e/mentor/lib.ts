@@ -10,9 +10,15 @@ const ROOT = path.resolve(__dirname, "../..");
 /** A shipped data file (public/data/<rel>), as the app fetches it. */
 export const shipped = <T,>(rel: string): T => JSON.parse(readFileSync(path.join(ROOT, "public/data", rel), "utf8")) as T;
 
-/** Opens the app past the start gate and the intro, with the audio tap and the 3D hidden, then goes to `url`. */
+const started = new WeakSet<Page>();
+
+/** Opens the app past the start gate and the intro (first call per page: the gate shows only on a first visit), with
+ * the audio tap and the 3D hidden, then goes to `url`. */
 export async function openAt(page: Page, url: string) {
-  await start(page, { hide3d: true });
+  if (!started.has(page)) {
+    await start(page, { hide3d: true });
+    started.add(page);
+  }
   await page.goto(url);
   await settle(page);
 }

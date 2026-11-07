@@ -59,13 +59,17 @@ def gpcc():
 def grace():
     f = sorted(CTX.glob("GRCTellus*.nc"))
     if not f: raise SystemExit("GRACE file missing in inputs/context/")
-    ds = xr.open_dataset(f[0], engine="h5netcdf"); lwe = ds["lwe_thickness"]
+    ds = xr.open_dataset(f[0], engine="h5netcdf"); lwe = ds["lwe_thickness"]; unc = ds["uncertainty"]
     out = {}
     for name, (x0, y0, x1, y1) in BOXES.items():
         if lwe["lon"].values.max() > 180: x0, x1 = x0 % 360, x1 % 360
         box = lwe.sel(lat=slice(y0, y1), lon=slice(x0, x1))
         s = box.weighted(np.cos(np.deg2rad(box["lat"]))).mean(("lat", "lon")).to_series()
         s.index = pd.to_datetime(s.index)
+        # The product's own 1-sigma (per 3-degree mascon), averaged over the box like the values: an upper bound on the
+        # box mean's error, since it treats the mascons' errors as fully correlated (mentor item 10).
+        ub = unc.sel(lat=slice(y0, y1), lon=slice(x0, x1))
+        u = ub.weighted(np.cos(np.deg2rad(ub["lat"]))).mean(("lat", "lon")).to_series(); u.index = s.index
         yrs = (s.index - s.index[0]).days / 365.25
         trend = float(np.polyfit(yrs, s.values, 1)[0])
         mean_a = float(s["2003-01":"2006-12"].mean()); mean_b = float(s["2021-01":"2024-12"].mean())
@@ -75,8 +79,15 @@ def grace():
         out[name] = {"box_lon_lat": [x0, y0, x1, y1], "months": [str(p) for p in full],
                      "cm": [None if pd.isna(v) else round(float(v), 3) for v in filled.values],
                      "missing_months": int(filled.isna().sum()), "trend_cm_per_yr": round(trend, 3),
-                     "mean_A": round(mean_a, 3), "mean_B": round(mean_b, 3), "window_A": "2003-01..2006-12", "window_B": "2021-01..2024-12"}
+                     "mean_A": round(mean_a, 3), "mean_B": round(mean_b, 3), "window_A": "2003-01..2006-12", "window_B": "2021-01..2024-12",
+                     "uncertainty_1sigma_cm": {"median": round(float(u.median()), 3), "min": round(float(u.min()), 3),
+                                               "max": round(float(u.max()), 3)}}
+    res = ds.attrs.get("geospatial_lat_resolution", "")
+    native = re.search(r"native resolution of the data is (.+)$", res)
     return {"dataset": "GRACE/GRACE-FO JPL mascons RL06.3Mv04 CRI (lwe_thickness, anomalies vs 2004-2009)", "units": "cm",
+            "native_resolution": native.group(1).strip() if native else res,
+            "mascon_deg": float(re.search(r"(\d+(?:\.\d+)?)-degree", res).group(1)) if "-degree" in res else None,
+            "uncertainty_note": unc.attrs.get("comment", ""),
             "gap_note": "No satellite measurements Jul 2017 - May 2018 (between GRACE and GRACE-FO).",
             "credit": "GRACE/GRACE-FO JPL RL06.3Mv04 CRI mascons, NASA/JPL PO.DAAC", "boxes": out}
 

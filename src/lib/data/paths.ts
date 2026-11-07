@@ -14,6 +14,7 @@ export const DATA_PATHS = {
   rainPhaseGrid: (phaseFile: string) => `${ROOT}/latest/${phaseFile}`,
   demo: `${ROOT}/demo/dhaka_then_now.json`,
   cities: `${ROOT}/demo/cities_then_now.json`,
+  thenNowStats: `${ROOT}/thenvsnow/stats.json`,
   grace: `${ROOT}/context/grace.json`,
   gistemp: `${ROOT}/context/gistemp_bd.json`,
   gpcp: `${ROOT}/context/gpcp_bd.json`,

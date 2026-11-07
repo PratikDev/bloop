@@ -41,6 +41,7 @@ export const captionsBn: Translated<typeof captionsEn> = {
   "caption.thenNow.caption": (p: CaptionParams) => translateData(strParam(p, "text")),
   "caption.thenNow.window": (p: CaptionParams) => `বাজছে ${label(p, "label")}`,
   "caption.thenNow.end": "আগে বনাম এখন শেষ",
+  "caption.thenNow.stats": (p: CaptionParams) => strParam(p, "bn"),
   "caption.water.gap": (p: CaptionParams) => {
     const from = month(p, "from");
     const to = month(p, "to");
