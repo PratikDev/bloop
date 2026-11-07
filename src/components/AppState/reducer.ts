@@ -8,7 +8,10 @@ export type Mode = "home" | "explore" | "story" | "thenNow" | "how" | "turntable
 export type PanelTab = "truth" | "mapping" | "provenance" | "history";
 
 /** Settings remembered on this device (src/components/AppState/prefs.ts). */
-export type PrefKey = "lang" | "describe" | "captions" | "builtInVoice" | "started";
+export type PrefKey = "lang" | "describe" | "captions" | "builtInVoice" | "started" | "soundChoice";
+
+/** What the visitor chose at Start (mentor item 2): remembered, so a return visit knows; null before any choice. */
+export type SoundChoice = "sound" | "silent";
 export type Prefs = Partial<Pick<AppState, PrefKey>>;
 
 export interface VoiceMix {
@@ -18,6 +21,7 @@ export interface VoiceMix {
 
 export interface AppState {
   started: boolean; // past the Start overlay (with or without sound)
+  soundChoice: SoundChoice | null;
   soundOn: boolean; // false after "Explore without sound", until the user turns it on
   introDone: boolean; // the opening has finished or been skipped
   playing: boolean; // live sound on (Space toggles)
@@ -64,6 +68,7 @@ const FULL_MIX: VoiceMix = { volume: 1, muted: false };
 
 export const initialState: AppState = {
   started: false,
+  soundChoice: null,
   soundOn: false,
   introDone: false,
   playing: false,
@@ -106,13 +111,13 @@ export function isVoiceAudible(state: AppState, voice: LiveVoiceId): boolean {
 export function reducer(state: AppState, action: AppAction): AppState {
   switch (action.type) {
     case "start":
-      return { ...state, started: true, soundOn: true, playing: true };
+      return { ...state, started: true, soundChoice: "sound", soundOn: true, playing: true };
     case "startSilent":
       // Straight to the map: no opening (it is a sound piece), captions carry the values.
-      return { ...state, started: true, soundOn: false, playing: false, introDone: true, captions: true };
+      return { ...state, started: true, soundChoice: "silent", soundOn: false, playing: false, introDone: true, captions: true };
     case "resetStart":
       // Forget the sound choice: back to the first visit (the Start buttons, then the opening).
-      return { ...state, started: false, soundOn: false, playing: false, introDone: false };
+      return { ...state, started: false, soundChoice: null, soundOn: false, playing: false, introDone: false };
     case "enableSound":
       return { ...state, soundOn: true, playing: true };
     case "introDone":

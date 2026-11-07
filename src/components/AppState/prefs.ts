@@ -1,10 +1,11 @@
 import { LANGS } from "@/lib/i18n";
-import type { PrefKey, Prefs } from "./reducer";
+import type { PrefKey, Prefs, SoundChoice } from "./reducer";
 
 // Per-device conveniences only: nothing here is needed for the app to work,
 // and a blocked or empty storage just means the defaults.
 const STORAGE_KEY = "jukebox.prefs.v1";
 const FLAGS = ["describe", "captions", "builtInVoice", "started"] as const satisfies readonly PrefKey[];
+const SOUND_CHOICES: readonly SoundChoice[] = ["sound", "silent"];
 
 export function readPrefs(): Prefs {
   try {
@@ -15,6 +16,10 @@ export function readPrefs(): Prefs {
     const lang = LANGS.find((l) => l === saved.lang);
     if (lang) prefs.lang = lang;
     for (const flag of FLAGS) if (typeof saved[flag] === "boolean") prefs[flag] = saved[flag];
+    const choice = SOUND_CHOICES.find((c) => c === saved.soundChoice);
+    if (choice) prefs.soundChoice = choice;
+    // A choice only counts with the Start it belongs to (an old file has started without a choice: that still works).
+    if (!prefs.started) delete prefs.soundChoice;
     return prefs;
   } catch {
     return {};

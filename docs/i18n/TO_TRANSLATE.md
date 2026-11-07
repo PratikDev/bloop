@@ -500,7 +500,7 @@ The Mapping panel builds each rule sentence from its parts (`src/lib/i18n/bn/rul
 | `clarity` | parameter: reverbSec; unit: hours since a 1 km infrared look | How recently measured 0 to 48 hours since a 1 km infrared look → echo length 0.1 to 2.4 s (linear). |
 | `unison` | a rule shared with another voice (sameAs) | Proof in unison: two tones in one ear, both by the Ocean temperature rule (Ocean temperature −5 to 35 °C → pitch 220 to 880 Hz (exponential: equal steps in value sound like equal musical steps).) Beats per second = the difference between the two pitches in Hz. |
 
-## Draft Bangla, needs review (88)
+## Draft Bangla, needs review (89)
 
 Drafted for the mentor fixes (`docs/MENTOR_FIXES.md`); **draft, needs review** by a Bangla speaker. Listed in `src/lib/i18n/bn/drafts.ts`: remove an entry there once it is checked.
 
@@ -511,6 +511,7 @@ Drafted for the mentor fixes (`docs/MENTOR_FIXES.md`); **draft, needs review** b
 | `xray.unavailable` | X-ray isn't in this version: it needs NASA's colorbar data, which isn't published yet. | এক্স-রে এই সংস্করণে নেই: এর জন্য নাসার কালারবার ডেটা দরকার, যা এখনো প্রকাশিত হয়নি। |
 | `key.x.action` | X-ray: how a colour becomes a number and a sound (not in this version) | এক্স-রে: একটি রং কীভাবে সংখ্যা ও শব্দ হয় (এই সংস্করণে নেই) |
 | `story.xraySkipped` | X-ray isn't in this version: it waits for NASA's colorbar data. | এক্স-রে এই সংস্করণে নেই: এটি নাসার কালারবার ডেটার অপেক্ষায়। |
+| `start.tapToStart` | Tap to start sound | শব্দ শুরু করতে ট্যাপ করুন |
 | `disclosure.whyYears` | Why these years | কেন এই বছরগুলো |
 | `disclosure.extra` | Extra, not compared with GPCC | অতিরিক্ত, GPCC-এর সাথে তুলনীয় নয় |
 | `stats.title` | Uncertainty and significance | অনিশ্চয়তা ও তাৎপর্য |

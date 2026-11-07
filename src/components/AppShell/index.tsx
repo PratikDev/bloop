@@ -18,6 +18,7 @@ import { StoryProvider } from "../Story";
 import { TimeLapseProvider } from "../TimeLapse";
 import { useTimeLapse } from "../TimeLapse/use-time-lapse";
 import { StartGate } from "./StartGate";
+import { TapToStart } from "./TapToStart";
 import { useGlobalEscape } from "./use-global-escape";
 import { useRouteSync, useUrlMode } from "./use-route-sync";
 
@@ -54,6 +55,7 @@ function Shell() {
         <Dock />
       </div>
       {gated && <StartGate />}
+      <TapToStart />
       <Opening />
       <HelpDialog />
     </MotionConfig>

@@ -29,8 +29,11 @@ export function AppStateProvider({ initialMode, children }: { initialMode: Mode;
   }, []);
 
   // Settings remembered on this device.
-  const { lang, describe, captions, builtInVoice, started } = state;
-  useEffect(() => writePrefs({ lang, describe, captions, builtInVoice, started }), [lang, describe, captions, builtInVoice, started]);
+  const { lang, describe, captions, builtInVoice, started, soundChoice } = state;
+  useEffect(
+    () => writePrefs({ lang, describe, captions, builtInVoice, started, soundChoice }),
+    [lang, describe, captions, builtInVoice, started, soundChoice],
+  );
 
   // Language and reduced motion live on <html> so CSS and screen readers see them.
   useEffect(() => {

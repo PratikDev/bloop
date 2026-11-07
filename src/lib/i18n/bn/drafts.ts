@@ -13,6 +13,8 @@ export const DRAFT_KEYS: readonly MessageKey[] = [
   "xray.unavailable",
   "key.x.action",
   "story.xraySkipped",
+  // item 2
+  "start.tapToStart",
   // item 9
   "disclosure.whyYears",
   "disclosure.extra",
