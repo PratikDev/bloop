@@ -45,6 +45,20 @@ export const DRAFT_KEYS: readonly MessageKey[] = [
   "stats.row.measurement",
   "stats.grace",
   "caption.thenNow.stats",
+  // item 1 (en/frames.ts, and the gap caption)
+  "frameGap.long",
+  "frameGap.days",
+  "frameGap.hours",
+  "frameGap.same",
+  "frameGap.label",
+  "frameGap.short",
+  "frameGap.short.rain",
+  "frameGap.short.ocean",
+  "frameGap.short.d",
+  "frameGap.short.h",
+  "frameGap.short.same",
+  "announce.trackBoth",
+  "caption.frameGap",
 ];
 
 /** Data-file sentences (bn/data.ts templates) whose Bangla is a draft: the English template, numbers as "#". */

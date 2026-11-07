@@ -9,9 +9,11 @@ import { audio as jukebox } from "@/lib/audio-jukebox";
 import { ensureAudioAll, stopAllEngines } from "@/lib/audio-engines";
 import { bandMeans, loadSstPairs, nearestPair, SWEEP_CENTER, sweepPath, type LatLon } from "@/lib/data";
 import { roundKm } from "@/lib/geo/spherical";
+import { gapTexts } from "@/lib/frame-gap";
 import { bindT } from "@/lib/i18n";
 import { spokenReading, readAt } from "@/lib/reading";
 import { speechLangFor } from "@/lib/speech-lang";
+import { liveGap, trackStatus } from "@/lib/track-status";
 import { postCaption } from "@/lib/ui-captions";
 import { whisperSource, type WhisperSource } from "@/lib/whisper";
 import { useAnnounce } from "../Announcer/use-announcer";
@@ -35,8 +37,6 @@ export function CommandsProvider({ children }: { children: ReactNode }) {
 
   const commands = useMemo<Commands>(() => {
     const t = bindT(state.lang);
-    const trackName = (track: typeof state.track) =>
-      t(track === "ocean" ? "track.oceanLong" : track === "rain" ? "track.rainLong" : "track.both");
 
     const enableSound = async () => {
       await ensureAudioAll(); // inside the click/keydown gesture: one gesture unlocks both engines
@@ -104,7 +104,11 @@ export function CommandsProvider({ children }: { children: ReactNode }) {
       },
       setTrack(track) {
         dispatch({ type: "setTrack", track });
-        announce(t("announce.track", { track: trackName(track) }));
+        // Off the map the status is the last word; on it, the reading that follows leads with the same status.
+        announce(trackStatus(t, track, fields));
+        // Both: the two frames are from different moments; the caption says how far apart (mentor item 1).
+        const gap = liveGap(track, fields);
+        if (gap) postCaption("caption.frameGap", gapTexts(gap));
       },
       // The URL is the mode's one source: this navigates, and use-route-sync copies it into the state.
       setMode(mode) {

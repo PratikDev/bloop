@@ -500,7 +500,7 @@ The Mapping panel builds each rule sentence from its parts (`src/lib/i18n/bn/rul
 | `clarity` | parameter: reverbSec; unit: hours since a 1 km infrared look | How recently measured 0 to 48 hours since a 1 km infrared look → echo length 0.1 to 2.4 s (linear). |
 | `unison` | a rule shared with another voice (sameAs) | Proof in unison: two tones in one ear, both by the Ocean temperature rule (Ocean temperature −5 to 35 °C → pitch 220 to 880 Hz (exponential: equal steps in value sound like equal musical steps).) Beats per second = the difference between the two pitches in Hz. |
 
-## Draft Bangla, needs review (39)
+## Draft Bangla, needs review (52)
 
 Drafted for the mentor fixes (`docs/MENTOR_FIXES.md`); **draft, needs review** by a Bangla speaker. Listed in `src/lib/i18n/bn/drafts.ts`: remove an entry there once it is checked.
 
@@ -543,6 +543,19 @@ Drafted for the mentor fixes (`docs/MENTOR_FIXES.md`); **draft, needs review** b
 | `stats.row.measurement` | Measurement error | পরিমাপের ত্রুটি |
 | `stats.grace` | ``GRACE's own 1-sigma for this box: median ${p.median} cm a month (${p.min} to ${p.max})`` | ``\u098F\u0987 \u09AC\u0995\u09CD\u09B8\u09C7 GRACE-\u098F\u09B0 \u09A8\u09BF\u099C\u09B8\u09CD\u09AC \u09E7-\u09B8\u09BF\u0997\u09AE\u09BE: \u09AE\u09A7\u09CD\u09AF\u09AE\u09BE \u09AE\u09BE\u09B8\u09C7 ${p.median} \u09B8\u09C7\u09AE\u09BF (${p.min} \u09A5\u09C7\u0995\u09C7 ${p.max})`` |
 | `caption.thenNow.stats` | `strParam(p, "en")` | `strParam(p, "bn")` |
+| `frameGap.long` | ``Ocean frame: ${p.ocean} UTC \xB7 Rain frame: ${p.rain} UTC (${p.apart})`` | ``\u09B8\u09AE\u09C1\u09A6\u09CD\u09B0\u09C7\u09B0 \u09AB\u09CD\u09B0\u09C7\u09AE: ${p.ocean} UTC \xB7 \u09AC\u09C3\u09B7\u09CD\u099F\u09BF\u09B0 \u09AB\u09CD\u09B0\u09C7\u09AE: ${p.rain} UTC (${p.apart})`` |
+| `frameGap.days` | ``${p.n} ${p.count === 1 ? "day" : "days"} apart`` | ``${p.n} \u09A6\u09BF\u09A8\u09C7\u09B0 \u09AC\u09CD\u09AF\u09AC\u09A7\u09BE\u09A8`` |
+| `frameGap.hours` | ``${p.n} ${p.count === 1 ? "hour" : "hours"} apart`` | ``${p.n} \u0998\u09A3\u09CD\u099F\u09BE\u09B0 \u09AC\u09CD\u09AF\u09AC\u09A7\u09BE\u09A8`` |
+| `frameGap.same` | the same hour | একই ঘণ্টা |
+| `frameGap.label` | The two frames are not from the same moment | দুটি ফ্রেম একই সময়ের নয় |
+| `frameGap.short` | ``${p.which} ${p.n}${p.unit} newer`` | ``${p.which} ${p.n}${p.unit} \u09A8\u09A4\u09C1\u09A8`` |
+| `frameGap.short.rain` | rain | বৃষ্টি |
+| `frameGap.short.ocean` | ocean | সমুদ্র |
+| `frameGap.short.d` | d | দি |
+| `frameGap.short.h` | h | ঘ |
+| `frameGap.short.same` | same hour | একই ঘণ্টা |
+| `announce.trackBoth` | ``Now hearing: Both. Frames ${p.gap}.`` | ``\u098F\u0996\u09A8 \u09B6\u09C1\u09A8\u099B\u09C7\u09A8: \u09A6\u09C1\u099F\u09CB\u0987\u0964 \u09AB\u09CD\u09B0\u09C7\u09AE ${p.gap}\u0964`` |
+| `caption.frameGap` | `strParam(p, "en")` | `strParam(p, "bn")` |
 | data template | GPCC stops at # because the gauge version we use (GPCC Full Data Monthly V#) ends in December #, so both rain records compare #–# with #–#. | GPCC {0} সালে থামে, কারণ আমাদের ব্যবহৃত বৃষ্টিমাপক সংস্করণ (GPCC Full Data Monthly V{1}) ডিসেম্বর {2}-এ শেষ; তাই দুটি বৃষ্টির রেকর্ডই {3}–{4}-কে {5}–{6}-এর সাথে তুলনা করে। |
 | data template | GPCP only, newer decade; GPCC data ends in # | শুধু GPCP, নতুন দশক; GPCC ডেটা {0} সালে শেষ |
 

@@ -3,6 +3,7 @@
 import { useState } from "react";
 import { rainText } from "@/lib/reading";
 import { useAppState, useT } from "../../AppState/use-app-state";
+import { FrameGapNote } from "../../FrameGapNote";
 import { useLiveData } from "../../LiveData/use-live-data";
 import { Figure, hero } from "../../Readout";
 import { useShownPoint } from "../../TimeLapse/use-shown-point";
@@ -82,6 +83,8 @@ export function NeedleChip({ subscribe, place, details, reserved }: Props) {
           <En active={bn}>{rainText(t, r.rain, r.rainLoaded)}</En>
         </p>
       )}
+      {/* The Both record mixes two frames from different moments: say how far apart (mentor item 1). */}
+      {track === "both" && <FrameGapNote />}
       {place && <p className="text-body font-medium text-moon">{place}</p>}
       <p className="text-body text-haze">
         <En active={bn}>{t("place.latlon", cursor)}</En>

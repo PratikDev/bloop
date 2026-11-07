@@ -3,9 +3,11 @@
 import { useEffect, useId, useRef, type ReactNode } from "react";
 import { brailleRole } from "@/a11y/aria";
 import { readingText } from "@/lib/reading";
+import { trackName, trackStatus } from "@/lib/track-status";
 import { useAnnounce } from "../Announcer/use-announcer";
 import { useAppState, useT } from "../AppState/use-app-state";
 import { useCommands } from "../Commands/use-commands";
+import { useLiveData } from "../LiveData/use-live-data";
 import { useShownPoint } from "../TimeLapse/use-shown-point";
 import { useMapKeys } from "./use-map-keys";
 
@@ -28,9 +30,10 @@ export function ExploreControls({ children }: { children: ReactNode }) {
   const regionRef = useRef<HTMLDivElement>(null);
 
   const { reading, cursor, track, timelapse } = useShownPoint();
-  const trackName = t(track === "ocean" ? "track.oceanLong" : track === "rain" ? "track.rainLong" : "track.both");
+  const { fields } = useLiveData();
+  const trackLabel = trackName(t, track);
   const label = reading
-    ? t("map.alt", { track: trackName, reading: readingText(t, reading, track), place: t("place.latlon", cursor) })
+    ? t("map.alt", { track: trackLabel, reading: readingText(t, reading, track), place: t("place.latlon", cursor) })
     : t("start.loading");
 
   // Focus the map when the intro ends, so the keys work at once.
@@ -46,10 +49,17 @@ export function ExploreControls({ children }: { children: ReactNode }) {
   // Nor right after the story ends: its own "Story stopped" message stays the last word.
   const settled = reading && !timelapse && !story ? `${readingText(t, reading, track)}. ${t("place.latlon", cursor)}` : null;
   const wasStory = useRef(story);
+  const lastTrack = useRef(track);
   useEffect(() => {
     const leftStory = wasStory.current && !story;
     wasStory.current = story;
-    if (state.introDone && settled && !leftStory) announce(settled);
+    // After a track change the reading replaces the track's own status in the (debounced) live region, so it leads
+    // with it: "Now hearing: Both. Frames rain 2d newer. 29.8 °C; …" (mentor item 1).
+    const changed = lastTrack.current !== track;
+    lastTrack.current = track;
+    if (state.introDone && settled && !leftStory) announce(changed ? `${trackStatus(t, track, fields)} ${settled}` : settled);
+    // t and fields follow the language and the data, which change the settled text anyway.
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [settled, state.introDone, story, announce]);
 
   return (

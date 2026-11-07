@@ -7,6 +7,7 @@ import { cn } from "@/lib/utils";
 import { formatUtc } from "@/lib/i18n";
 import { hearLine } from "@/lib/what-you-hear";
 import { useAppState, useT } from "./AppState/use-app-state";
+import { FrameGapNote } from "./FrameGapNote";
 import { useLiveData } from "./LiveData/use-live-data";
 import { SourceBadges } from "./SourceBadges";
 import { useShownPoint } from "./TimeLapse/use-shown-point";
@@ -43,6 +44,7 @@ export function FrameLabel({ className }: { className?: string }) {
           </div>
         );
       })}
+      {frames.length === 2 && <FrameGapNote />}
     </div>
   );
 }

@@ -42,6 +42,8 @@ export const captionsEn = {
   "caption.thenNow.end": "Then vs Now finished",
   // The part's statistics (stats.json), passed in both languages by the Then vs Now player (mentor item 10).
   "caption.thenNow.stats": (p: CaptionParams) => strParam(p, "en"),
+  // Both mode's frame gap (mentor item 1), passed in both languages when Both starts.
+  "caption.frameGap": (p: CaptionParams) => strParam(p, "en"),
   "caption.water.gap": (p: CaptionParams) => {
     const from = formatMonth(strParam(p, "from"), "en");
     const to = formatMonth(strParam(p, "to"), "en");

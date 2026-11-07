@@ -40,3 +40,16 @@ export async function shot(page: Page, item: string, name: string, target?: Loca
   if (target) await target.screenshot({ path: file, timeout: 8000 }).catch(() => page.screenshot({ path: file }));
   else await page.screenshot({ path: file });
 }
+
+/** Starts logging every message the polite live region shows (a later message replaces an earlier one). */
+export async function logLiveRegion(page: Page) {
+  await page.evaluate(() => {
+    const w = window as unknown as { __liveLog: string[] };
+    w.__liveLog = [];
+    const el = document.querySelector('[data-testid="live-region"]');
+    if (!el) return;
+    new MutationObserver(() => w.__liveLog.push(el.textContent ?? "")).observe(el, { childList: true, characterData: true, subtree: true });
+  });
+}
+
+export const liveLog = (page: Page) => page.evaluate(() => (window as unknown as { __liveLog?: string[] }).__liveLog ?? []);
