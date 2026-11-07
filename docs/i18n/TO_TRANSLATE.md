@@ -500,7 +500,7 @@ The Mapping panel builds each rule sentence from its parts (`src/lib/i18n/bn/rul
 | `clarity` | parameter: reverbSec; unit: hours since a 1 km infrared look | How recently measured 0 to 48 hours since a 1 km infrared look → echo length 0.1 to 2.4 s (linear). |
 | `unison` | a rule shared with another voice (sameAs) | Proof in unison: two tones in one ear, both by the Ocean temperature rule (Ocean temperature −5 to 35 °C → pitch 220 to 880 Hz (exponential: equal steps in value sound like equal musical steps).) Beats per second = the difference between the two pitches in Hz. |
 
-## Draft Bangla, needs review (85)
+## Draft Bangla, needs review (88)
 
 Drafted for the mentor fixes (`docs/MENTOR_FIXES.md`); **draft, needs review** by a Bangla speaker. Listed in `src/lib/i18n/bn/drafts.ts`: remove an entry there once it is checked.
 
@@ -561,6 +561,9 @@ Drafted for the mentor fixes (`docs/MENTOR_FIXES.md`); **draft, needs review** b
 | `frameGap.short.same` | same hour | একই ঘণ্টা |
 | `announce.trackBoth` | ``Now hearing: Both. Frames ${p.gap}.`` | ``\u098F\u0996\u09A8 \u09B6\u09C1\u09A8\u099B\u09C7\u09A8: \u09A6\u09C1\u099F\u09CB\u0987\u0964 \u09AB\u09CD\u09B0\u09C7\u09AE ${p.gap}\u0964`` |
 | `caption.frameGap` | `strParam(p, "en")` | `strParam(p, "bn")` |
+| `water.bangladeshWide` | ``Underground water (GRACE) is Bangladesh-wide${p.deg === null ? "" : ` (mascon about ${formatInteger(p.deg, "en")}\xB0)`}, not city-specific: the same for every city.`` | ``\u09AD\u09C2\u0997\u09B0\u09CD\u09AD\u09B8\u09CD\u09A5 \u09AA\u09BE\u09A8\u09BF (GRACE) \u09B8\u09BE\u09B0\u09BE \u09AC\u09BE\u0982\u09B2\u09BE\u09A6\u09C7\u09B6\u09C7\u09B0${p.deg === null ? "" : ` (\u09AE\u09CD\u09AF\u09BE\u09B8\u0995\u09A8 \u09AA\u09CD\u09B0\u09BE\u09AF\u09BC ${formatInteger(p.deg, "bn")}\xB0)`}, \u0995\u09CB\u09A8\u09CB \u09B6\u09B9\u09B0\u09C7\u09B0 \u09A8\u09BF\u099C\u09B8\u09CD\u09AC \u09A8\u09AF\u09BC: \u09AA\u09CD\u09B0\u09A4\u09BF\u099F\u09BF \u09B6\u09B9\u09B0\u09C7\u09B0 \u099C\u09A8\u09CD\u09AF \u098F\u0995\u0987\u0964`` |
+| `history.region` | Bangladesh box (GRACE) | বাংলাদেশ বক্স (GRACE) |
+| `caption.note` | `strParam(p, "en")` | `strParam(p, "bn")` |
 | `how.notAvailable` | not available | পাওয়া যায়নি |
 | `how.viewTable` | View as table | সারণি হিসেবে দেখুন |
 | `how.hideTable` | Hide table | সারণি লুকান |

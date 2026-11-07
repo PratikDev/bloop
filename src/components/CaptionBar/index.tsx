@@ -26,7 +26,7 @@ export function CaptionBar({ className, fade = false }: { className?: string; /*
     : caption && captionText(state.lang, caption.key, caption.params);
   return (
     // Up to two lines rather than cut off: long captions stay readable.
-    <p key={fade ? text || "" : undefined} aria-hidden="true" className={cn("line-clamp-2 min-h-8 font-serif text-lead text-moon", fade && "caption-fade", className)}>
+    <p key={fade ? text || "" : undefined} aria-hidden="true" data-testid="caption-bar" className={cn("line-clamp-2 min-h-8 font-serif text-lead text-moon", fade && "caption-fade", className)}>
       {text || " "}
     </p>
   );

@@ -6,6 +6,7 @@ import { useNarratedPlayer, type NarratedStep } from "@/hooks/use-narrated-playe
 import { audio } from "@/lib/audio-adapter";
 import type { ThenNowInput, ThenNowPart } from "@/lib/audio-adapter/types";
 import { windowLabel, type YearlyPart } from "@/lib/then-now";
+import type { BiText } from "@/lib/bi-text";
 import type { StatTexts } from "@/lib/then-now-stats";
 import { postCaption } from "@/lib/ui-captions";
 import type { DhakaThenNowDemo } from "@/types/data-contract";
@@ -38,7 +39,7 @@ const statCaption = (s: StatTexts) => ({ en: s.en, bn: s.bn });
  * With Describe on, each part's description is said before it plays, never
  * over it ("Play all" then plays the parts one by one, each after its own).
  */
-export function useThenNowPlayer(input: ThenNowInput | null, demo: DhakaThenNowDemo | null, stats: StatLines) {
+export function useThenNowPlayer(input: ThenNowInput | null, demo: DhakaThenNowDemo | null, stats: StatLines, notes: (part: Part) => BiText[]) {
   const player = useNarratedPlayer<Part>();
   const { state } = useAppState();
   const announce = useAnnounce();
@@ -55,7 +56,7 @@ export function useThenNowPlayer(input: ThenNowInput | null, demo: DhakaThenNowD
   // Describe says the statistics right after the caption (mentor item 10).
   const statLines = (part: Part) => {
     const s = stats(part);
-    return s ? [captionLine("caption.thenNow.stats", statCaption(s))] : [];
+    return [...(s ? [captionLine("caption.thenNow.stats", statCaption(s))] : []), ...notes(part).map((n) => captionLine("caption.note", { ...n }))];
   };
 
   const headPart = player.active && thenNowHead ? (PART_OF_PLAYER[thenNowHead.player] ?? null) : null;
@@ -67,9 +68,10 @@ export function useThenNowPlayer(input: ThenNowInput | null, demo: DhakaThenNowD
   useEffect(() => {
     if (!soundingPart || narrating) return;
     const s = stats(soundingPart);
-    if (!s) return;
-    postCaption("caption.thenNow.stats", statCaption(s));
-    announce(state.lang === "bn" ? s.shortBn : s.shortEn);
+    // One caption: the bar shows only the latest, so the statistics and the notes go together.
+    const lines = [...(s ? [statCaption(s)] : []), ...notes(soundingPart)];
+    if (lines.length) postCaption("caption.note", { en: lines.map((l) => l.en).join(" "), bn: lines.map((l) => l.bn).join(" ") });
+    if (s) announce(state.lang === "bn" ? s.shortBn : s.shortEn);
     // Only when the sounding part changes: a language switch mid-part does not repeat it.
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [soundingPart]);

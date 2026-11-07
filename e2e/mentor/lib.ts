@@ -53,3 +53,24 @@ export async function logLiveRegion(page: Page) {
 }
 
 export const liveLog = (page: Page) => page.evaluate(() => (window as unknown as { __liveLog?: string[] }).__liveLog ?? []);
+
+/** Starts logging every caption the caption bar shows (each new caption replaces the last). */
+export async function logCaptions(page: Page) {
+  await page.evaluate(() => {
+    const w = window as unknown as { __capLog: string[] };
+    w.__capLog = [];
+    const seen = new WeakSet<Element>();
+    const watch = () => {
+      for (const el of document.querySelectorAll('[data-testid="caption-bar"]')) {
+        w.__capLog.push(el.textContent ?? "");
+        if (seen.has(el)) continue;
+        seen.add(el);
+        new MutationObserver(() => w.__capLog.push(el.textContent ?? "")).observe(el, { childList: true, characterData: true, subtree: true });
+      }
+    };
+    watch();
+    new MutationObserver(watch).observe(document.body, { childList: true, subtree: true });
+  });
+}
+
+export const captionLog = (page: Page) => page.evaluate(() => (window as unknown as { __capLog?: string[] }).__capLog ?? []);

@@ -4,6 +4,7 @@ import { useCallback, useMemo } from "react";
 import { SpeakerSimpleSlash } from "@phosphor-icons/react";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { buildThenNowInput, cityDemo } from "@/lib/then-now";
+import { bi, type BiText } from "@/lib/bi-text";
 import { statTexts } from "@/lib/then-now-stats";
 import type { ClimateCellName } from "@/types/data-contract";
 import { useT } from "../AppState/use-app-state";
@@ -17,6 +18,7 @@ import { isFieldPart, VIEW_PARTS, type ViewPart } from "./parts";
 import { PartView } from "./PartView";
 import { PlayControls } from "./PlayControls";
 import { StatsDetails, StatsLine } from "./StatsDetails";
+import { WaterNote } from "../WaterNote";
 import { useThenNowData } from "./use-then-now-data";
 import { useThenNowPlayer, type Part } from "./use-then-now-player";
 
@@ -51,16 +53,34 @@ export function ThenNow({
     const demo = city ? cityDemo(ready.demo, city) : ready.demo;
     return { demo, input: buildThenNowInput(demo, ready.grace) };
   }, [ready, city]);
+  // The cell a part plays from; the sharer's caption already names its reference city, the reference's doesn't.
+  const sharedFor = useCallback(
+    (p: ViewPart): ClimateCellName[] => {
+      const cell = p === "heat" ? city?.heat : p === "monsoon" ? city?.rain.gpcp : null;
+      return cell && cell.same_record_as === null ? cell.shares_cell_with : [];
+    },
+    [city],
+  );
   const stats = ready?.stats ?? null;
   const statLines = useCallback((p: Part) => (stats ? statTexts(stats, cityName, p) : null), [stats, cityName]);
-  const player = useThenNowPlayer(view?.input ?? null, view?.demo ?? null, statLines);
+  // Captions and Describe carry the same notes as the screen (mentor item 12): Bangladesh-wide water, shared cells.
+  const deg = ready?.grace.mascon_deg ?? null;
+  const noteLines = useCallback(
+    (p: Part): BiText[] => {
+      const shared = sharedFor(p);
+      return [
+        ...(p === "water" ? [bi((tl) => tl("water.bangladeshWide", { deg }))] : []),
+        ...(shared.length ? [bi((tl) => tl("history.sharedCell", { places: shared.map((c) => tl(`place.${c}`)).join(", ") }))] : []),
+      ];
+    },
+    [sharedFor, deg],
+  );
+  const player = useThenNowPlayer(view?.input ?? null, view?.demo ?? null, statLines, noteLines);
   // While "Play heat, rain and water" runs, the view follows the part that is sounding.
   const part: ViewPart = player.soundingPart ?? chosen;
   const field = isFieldPart(part);
+  const sharedWith = sharedFor(part);
   const cities = ready?.cities?.cities ?? [];
-  // The cell this part plays from; the sharer's caption already names its reference city, the reference's doesn't.
-  const cell = part === "heat" ? city?.heat : part === "monsoon" ? city?.rain.gpcp : null;
-  const sharedWith = cell && cell.same_record_as === null ? cell.shares_cell_with : [];
 
   const choosePart = (next: ViewPart) => {
     if (isFieldPart(next)) player.stop(); // a record without sound: nothing else keeps playing under it
@@ -123,16 +143,22 @@ export function ThenNow({
                       grace={ready.grace}
                       index={player.soundingPart === part ? player.index : null}
                       splitIndex={player.splitIndex}
+                      notes={
+                        <>
+                          {part === "water" && <WaterNote grace={ready.grace} />}
+                          {sharedWith.length > 0 && (
+                            <p data-testid="shared-cell-note" className="text-small text-moon">
+                              {t("history.sharedCell", { places: sharedWith.map((c) => t(`place.${c}`)).join(", ") })}
+                            </p>
+                          )}
+                        </>
+                      }
                     />
-                    {part === "water" &&  <p className="text-small text-haze">{t("thenNow.waterNational")}</p>}
                     {ready.stats && <StatsLine stats={ready.stats} city={cityName} part={part} />}
                     {part === "monsoon" && (
                       <p className="text-small text-haze" data-testid="rain-window-note">
                         {t("data.text", { text: view.demo.rain.gpcc_end_note })}
                       </p>
-                    )}
-                    {sharedWith.length > 0 && (
-                      <p className="text-small text-moon">{t("history.sharedCell", { places: sharedWith.map((c) => t(`place.${c}`)).join(", ") })}</p>
                     )}
                     <p className="text-small text-haze">{t("thenNow.contextNote")}</p>
                   </>

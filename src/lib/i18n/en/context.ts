@@ -12,7 +12,6 @@ export const contextEn = {
   "thenNow.city": "City",
   // L1's label for cities other than Dhaka (docs/L1/DATA_HANDOFF.md §5).
   "thenNow.computed": "Computed, same method as Dhaka. Only Dhaka's records were cross-checked against independent records.",
-  "thenNow.waterNational": "Water underground is one national record (the Bangladesh box), the same for every city.",
   "thenNow.crosscheckAlt":
     "Two charts for Dhaka. Top: June to September rain since the 1890s from rain gauges (GPCC), GPCP and NASA POWER; POWER reads far below the other two. Bottom: April to May daily maximum temperature from NASA POWER and a weather station; POWER runs well above the station.",
   "thenNow.powerTitle": "Why we don't use NASA POWER here",
@@ -109,8 +108,8 @@ export const contextEn = {
   "history.sharedRegion": (p: { places: string }) => `In this dataset, this is the same GRACE region as ${p.places}: one record, not separate places.`,
   "history.cell": (p: { lat: number; lon: number }) =>
     `Grid cell centred at ${n1(Math.abs(p.lat))}° ${p.lat >= 0 ? "N" : "S"}, ${n1(Math.abs(p.lon))}° ${p.lon >= 0 ? "E" : "W"}`,
+  "history.region": "Bangladesh box (GRACE)",
   "history.neighbour": "(the nearest land cell; the place's own cell is sea)",
-  "history.nationalBox": "Bangladesh national box (GRACE): one record for the whole country, the same for every city.",
   // From L1's confidence.json method: GPCP against independent rain gauges (GPCC), annual means 1981–2019.
   "history.confidence.high": "Rain confidence: high (GPCP agrees closely with independent rain gauges here)",
   "history.confidence.medium": "Rain confidence: medium (GPCP roughly agrees with independent rain gauges here)",

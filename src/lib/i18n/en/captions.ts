@@ -44,6 +44,7 @@ export const captionsEn = {
   "caption.thenNow.stats": (p: CaptionParams) => strParam(p, "en"),
   // Both mode's frame gap (mentor item 1), passed in both languages when Both starts.
   "caption.frameGap": (p: CaptionParams) => strParam(p, "en"),
+  "caption.note": (p: CaptionParams) => strParam(p, "en"),
   "caption.water.gap": (p: CaptionParams) => {
     const from = formatMonth(strParam(p, "from"), "en");
     const to = formatMonth(strParam(p, "to"), "en");

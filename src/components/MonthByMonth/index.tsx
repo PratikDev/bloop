@@ -1,5 +1,6 @@
 "use client";
 
+import { bi } from "@/lib/bi-text";
 import { useState } from "react";
 import { Play } from "@phosphor-icons/react";
 import { Button } from "@/components/ui/button";
@@ -7,7 +8,7 @@ import { useLoaded } from "@/hooks/use-loaded";
 import { usePlayhead } from "@/hooks/use-playhead";
 import { loadGlobalLayer } from "@/lib/data";
 import { decadeRange, fullDecades, HISTORY_METRICS, HISTORY_VOICE, isBangladesh, placeSeries, type HistoryMetric } from "@/lib/history";
-import { formatFixed, formatMonth, formatSigned } from "@/lib/i18n";
+import { formatFixed, formatMonth, formatSigned, type BoundT } from "@/lib/i18n";
 import { heatNormalLabel, missingRuns } from "@/lib/then-now";
 import type { GlobalLayerName } from "@/types/data-contract";
 import { useAppState, useT } from "../AppState/use-app-state";
@@ -15,7 +16,7 @@ import { HistoryChart, type ChartSpan, type ScrubMotion } from "../charts/Histor
 import { ChoiceGroup } from "../ChoiceGroup";
 import { StatusBadge } from "../StatusBadge";
 import { PlacePicker } from "./PlacePicker";
-import { RecordNotes } from "./RecordNotes";
+import { RecordNotes, SameRecordNote, sameRecordLine } from "./RecordNotes";
 import { useHistoryData } from "./use-history-data";
 import { HISTORY_PLAYER, useHistoryPlayers } from "./use-history-players";
 
@@ -69,7 +70,8 @@ export function MonthByMonth({
   if (data.status === "loading") return <StatusBadge kind="loading">{t("history.loading")}</StatusBadge>;
   if (data.status === "error") return <StatusBadge kind="error">{t("history.error")}</StatusBadge>;
 
-  const name = (p: string) => (isBangladesh(p) ? t(`place.${p}`) : t("data.text", { text: p }));
+  const nameIn = (tl: BoundT) => (p: string) => (isBangladesh(p) ? tl(`place.${p}`) : tl("data.text", { text: p }));
+  const name = nameIn(t);
   const series = placeSeries(metric, place, data, { places: data.world?.places.places ?? [], layer: layer.value });
   const pickers = (
     <div className="space-y-3">
@@ -117,7 +119,11 @@ export function MonthByMonth({
 
   const play = () =>
     decade !== undefined &&
-    players.playDecade({ label: `${name(place)}, ${t("history.decadeLabel", { decade })}`, values: series.values.slice(start, end), voice }, start);
+    players.playDecade(
+      { label: `${name(place)}, ${t("history.decadeLabel", { decade })}`, values: series.values.slice(start, end), voice },
+      start,
+      sameRecordLine(t, series, name, data.grace.mascon_deg) === null ? null : bi((tl) => sameRecordLine(tl, series, nameIn(tl), data.grace.mascon_deg) ?? ""),
+    );
 
   return (
     <div className="grid items-start gap-4 lg:grid-cols-[20rem_minmax(0,1fr)]">
@@ -147,6 +153,7 @@ export function MonthByMonth({
         <p aria-hidden="true" className="min-h-8 font-serif text-title text-moon tabular-nums">
           {players.monthIndex !== null ? monthText(players.monthIndex) : name(place)}
         </p>
+        <SameRecordNote series={series} name={name} grace={data.grace} />
         <HistoryChart
           rows={series.months.map((month, i) => ({ i, month, value: series.values[i] }))}
           series={[{ key: "value", label: `${name(place)}: ${series.dataset}`, tone: "now" }]}
@@ -162,7 +169,7 @@ export function MonthByMonth({
             to: formatMonth(series.months[series.months.length - 1], state.lang),
           })}
         />
-        <RecordNotes series={series} name={name} world={world && data.world ? { disclosure: t("data.text", { text: data.world.manifest.disclosure }) } : null} />
+        <RecordNotes series={series} world={world && data.world ? { disclosure: t("data.text", { text: data.world.manifest.disclosure }) } : null} />
       </div>
     </div>
   );

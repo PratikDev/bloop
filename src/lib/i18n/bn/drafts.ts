@@ -66,6 +66,10 @@ export const DRAFT_KEYS: readonly MessageKey[] = [
   "frameGap.short.same",
   "announce.trackBoth",
   "caption.frameGap",
+  // item 12
+  "water.bangladeshWide",
+  "history.region",
+  "caption.note",
   // item 6 (en/how.ts)
   "how.notAvailable",
   "how.viewTable",

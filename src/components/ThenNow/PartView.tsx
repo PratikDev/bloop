@@ -2,6 +2,7 @@
 
 import { formatMonth } from "@/lib/i18n";
 import { heatNormalLabel, missingRuns, waterRows, windowLabel, yearlyWindows, yearRows, type YearlyPart } from "@/lib/then-now";
+import type { ReactNode } from "react";
 import type { DhakaThenNowDemo, GraceContextFile } from "@/types/data-contract";
 import { useAppState, useT } from "../AppState/use-app-state";
 import { HistoryChart, type ChartSpan } from "../charts/HistoryChart";
@@ -74,14 +75,15 @@ export function Headline({ caption }: { caption: string }) {
   return <p className="font-serif text-lead leading-snug text-moon md:text-title lg:short:text-lead">{caption}</p>;
 }
 
-/** One sounded part: its caption as the headline, then the chart with its playhead. */
-export function PartView({ part, demo, grace, index, splitIndex }: { part: Part; demo: DhakaThenNowDemo; grace: GraceContextFile; index: number | null; splitIndex: number | null }) {
+/** One sounded part: its caption as the headline, its notes (on screen without scrolling), then the chart with its playhead. */
+export function PartView({ part, demo, grace, index, splitIndex, notes }: { part: Part; demo: DhakaThenNowDemo; grace: GraceContextFile; index: number | null; splitIndex: number | null; notes?: ReactNode }) {
   const t = useT();
   const caption = part === "heat" ? demo.heat.caption : part === "monsoon" ? demo.rain.caption : demo.water.caption;
   return (
     <>
       {/* The caption exactly as the JSON gives it (translated in Bangla). */}
       <Headline caption={t("data.text", { text: caption })} />
+      {notes}
       {part === "water" ? <WaterView grace={grace} index={index} /> : <YearlyView part={part} demo={demo} index={index} splitIndex={splitIndex} />}
     </>
   );

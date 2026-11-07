@@ -17,7 +17,6 @@ export const contextBn: Translated<typeof contextEn> = {
   "thenNow.title": (p: { city: string }) => `${p.city}: আগে বনাম এখন`,
   "thenNow.city": "শহর",
   "thenNow.computed": "ঢাকার একই পদ্ধতিতে হিসাব করা। শুধু ঢাকার রেকর্ড স্বাধীন রেকর্ডের সাথে মিলিয়ে দেখা হয়েছে।",
-  "thenNow.waterNational": "ভূগর্ভস্থ পানি একটি জাতীয় রেকর্ড (বাংলাদেশ বক্স), প্রতিটি শহরের জন্য একই।",
   "thenNow.crosscheckAlt":
     "ঢাকার দুটি চার্ট। ওপরে: ১৮৯০-এর দশক থেকে জুন–সেপ্টেম্বরের বৃষ্টি, বৃষ্টিমাপক যন্ত্র (GPCC), GPCP ও NASA POWER থেকে; POWER অন্য দুটির চেয়ে অনেক কম দেখায়। নিচে: এপ্রিল–মে-র দৈনিক সর্বোচ্চ তাপমাত্রা, NASA POWER ও একটি আবহাওয়া কেন্দ্র থেকে; POWER কেন্দ্রের চেয়ে বেশ বেশি দেখায়।",
   "thenNow.powerTitle": "এখানে কেন আমরা NASA POWER ব্যবহার করি না",
@@ -109,8 +108,8 @@ export const contextBn: Translated<typeof contextEn> = {
   "history.sharedRegion": (p: { places: string }) => `এই ডেটাসেটে এটি আর ${p.places} একই GRACE অঞ্চলে: একটিই রেকর্ড, আলাদা স্থান নয়।`,
   "history.cell": (p: { lat: number; lon: number }) =>
     `গ্রিড সেলের কেন্দ্র ${n1(Math.abs(p.lat))}° ${p.lat >= 0 ? "উত্তর" : "দক্ষিণ"}, ${n1(Math.abs(p.lon))}° ${p.lon >= 0 ? "পূর্ব" : "পশ্চিম"}`,
+  "history.region": "বাংলাদেশ বক্স (GRACE)",
   "history.neighbour": "(সবচেয়ে কাছের স্থলভাগের সেল; স্থানটির নিজের সেলটি সমুদ্রে)",
-  "history.nationalBox": "বাংলাদেশ জাতীয় বক্স (GRACE): পুরো দেশের জন্য একটি রেকর্ড, প্রতিটি শহরের জন্য একই।",
   "history.confidence.high": "বৃষ্টির নির্ভরযোগ্যতা: উচ্চ (এখানে GPCP স্বাধীন বৃষ্টিমাপক যন্ত্রের সাথে খুব মেলে)",
   "history.confidence.medium": "বৃষ্টির নির্ভরযোগ্যতা: মাঝারি (এখানে GPCP স্বাধীন বৃষ্টিমাপক যন্ত্রের সাথে মোটামুটি মেলে)",
   "history.confidence.low": "বৃষ্টির নির্ভরযোগ্যতা: কম (এখানে GPCP আর স্বাধীন বৃষ্টিমাপক যন্ত্র মেলে না)",
