@@ -15,6 +15,7 @@ export const DATA_PATHS = {
   demo: `${ROOT}/demo/dhaka_then_now.json`,
   cities: `${ROOT}/demo/cities_then_now.json`,
   thenNowStats: `${ROOT}/thenvsnow/stats.json`,
+  truthStats: `${ROOT}/truth/stats.json`,
   grace: `${ROOT}/context/grace.json`,
   gistemp: `${ROOT}/context/gistemp_bd.json`,
   gpcp: `${ROOT}/context/gpcp_bd.json`,

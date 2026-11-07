@@ -21,7 +21,7 @@ export {
   type SstAnomalyField,
   type SstDtField,
 } from "./ocean-extra";
-export { loadSstPairs, loadThreeWay, nearestPair } from "./truth-pairs";
+export { loadRainPairs, loadSstPairs, loadThreeWay, loadTruthStats, nearestPair } from "./truth-pairs";
 export {
   decodeCode,
   loadOfficialIndex,

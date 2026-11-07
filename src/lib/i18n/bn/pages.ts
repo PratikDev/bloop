@@ -76,7 +76,6 @@ export const pagesBn: Translated<typeof pagesEn> = {
   "how.globe.value": (p: { percent: number }) => `${int(p.percent)}%`,
   "how.open": "পুরো যাচাই পড়ুন",
   "how.openRules": "সব নিয়ম দেখুন",
-  "how.openGlobe": "টিজার পড়ুন",
   "how.credits": "কৃতজ্ঞতা",
   "how.keys": "কী ও প্রবেশযোগ্যতা",
 

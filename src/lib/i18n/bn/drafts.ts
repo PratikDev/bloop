@@ -8,7 +8,11 @@ import type { MessageKey } from "../index";
 export const DRAFT_KEYS: readonly MessageKey[] = [
   // item 5
   "credits.testing",
-  "field.soundOctober",
+  "field.noSound",
+  // item 6 (the X-ray strings, reworded)
+  "xray.unavailable",
+  "key.x.action",
+  "story.xraySkipped",
   // item 9
   "disclosure.whyYears",
   "disclosure.extra",
@@ -62,6 +66,35 @@ export const DRAFT_KEYS: readonly MessageKey[] = [
   "frameGap.short.same",
   "announce.trackBoth",
   "caption.frameGap",
+  // item 6 (en/how.ts)
+  "how.notAvailable",
+  "how.viewTable",
+  "how.hideTable",
+  "how.oneToOne",
+  "how.col.lat",
+  "how.col.lon",
+  "how.col.date",
+  "how.col.frameC",
+  "how.col.murC",
+  "how.col.frameMmh",
+  "how.col.imergMmh",
+  "how.col.groundPct",
+  "how.col.satellitePct",
+  "how.col.sound",
+  "how.col.rule",
+  "how.ocean.numbers",
+  "how.ocean.explain",
+  "how.ocean.alt",
+  "how.rain.numbers",
+  "how.rain.explain",
+  "how.rain.alt",
+  "how.rules.numbers",
+  "how.rules.explain",
+  "how.globe.numbers",
+  "how.globe.explain",
+  "how.globe.alt",
+  "how.openGlobe",
+  "badge.skipped",
 ];
 
 /** Data-file sentences (bn/data.ts templates) whose Bangla is a draft: the English template, numbers as "#". */

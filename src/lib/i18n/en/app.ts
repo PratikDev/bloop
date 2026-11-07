@@ -42,7 +42,6 @@ export const appEn = {
   "help.open": "Help",
   "help.keys": "Keys",
 
-  "badge.comingOctober": "Coming in October",
   "badge.loadingRain": "Loading rain",
 
   "map.roleDescription": "sound map",
@@ -123,7 +122,7 @@ export const appEn = {
   "whisper.kind.sst": "sea surface temperature",
   "whisper.kind.rain": "rain",
   "whisper.announce": (p: { text: string; source: string }) => `${p.text} Source: ${p.source}.`,
-  "xray.unavailable": "X-ray is coming in October: it needs NASA's colorbar data, which isn't published yet.",
+  "xray.unavailable": "X-ray isn't in this version: it needs NASA's colorbar data, which isn't published yet.",
 
   "announce.track": (p: { track: string }) => `Now hearing: ${p.track}.`,
   "announce.mode": (p: { mode: string }) => `${p.mode} mode.`,

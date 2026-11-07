@@ -18,6 +18,7 @@ import { panelsEn } from "./en/panels";
 import { storyEn } from "./en/story";
 import { scenesEn } from "./en/scenes";
 import { framesEn } from "./en/frames";
+import { howEn } from "./en/how";
 import { statsEn } from "./en/stats";
 import { turntableEn } from "./en/turntable";
 import type { Lang } from "./types";
@@ -38,6 +39,7 @@ export const en = {
   ...brailleEn,
   ...statsEn,
   ...framesEn,
+  ...howEn,
 };
 
 export type Messages = typeof en;

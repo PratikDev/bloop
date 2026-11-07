@@ -21,6 +21,7 @@ import { pagesEn } from "./en/pages";
 import { panelsEn } from "./en/panels";
 import { scenesEn } from "./en/scenes";
 import { framesEn } from "./en/frames";
+import { howEn } from "./en/how";
 import { statsEn } from "./en/stats";
 import { storyEn } from "./en/story";
 import { turntableEn } from "./en/turntable";
@@ -41,6 +42,7 @@ const GROUPS: Record<string, Record<string, unknown>> = {
   "en/braille.ts": brailleEn,
   "en/stats.ts": statsEn,
   "en/frames.ts": framesEn,
+  "en/how.ts": howEn,
 };
 
 /** One table cell: whitespace folded, bars escaped (the data test looks sentences up in this form). */

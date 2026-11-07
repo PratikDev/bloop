@@ -35,7 +35,7 @@ export function OceanTruth({ showHeading = true }: { showHeading?: boolean }) {
   const { sst } = useLiveData();
   return (
     <TruthSection heading="truth.ocean.heading" product="sst" showHeading={showHeading}>
-      {/* The ocean plot (truth/sst_compare.png) waits until L1 redraws it with the recalibrated scale. */}
+      {/* The ocean plot is drawn from truth/sst_pairs.json on the How we know card (mentor item 6). */}
       {sst && <OceanCheck meta={sst.meta} />}
     </TruthSection>
   );

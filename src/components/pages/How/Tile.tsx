@@ -15,6 +15,7 @@ export function Tile({
   figure,
   figureLabel,
   note,
+  face,
   open,
   children,
 }: {
@@ -22,8 +23,10 @@ export function Tile({
   /** Left out while the data loads, or when the file has no number to show. */
   figure?: string;
   figureLabel: string;
-  /** A status line under the number (e.g. "Coming in October"). */
+  /** A status line under the number (e.g. the rain frame still loading). */
   note?: ReactNode;
+  /** The evidence on the card itself (mentor item 6): plot or table, key numbers, a plain explanation. */
+  face?: ReactNode;
   /** The button text that opens the full content. */
   open: string;
   children: ReactNode;
@@ -35,6 +38,7 @@ export function Tile({
       {figure !== undefined && <p className="font-serif text-headline leading-none tabular-nums text-moon">{figure}</p>}
       <p className="text-body text-haze">{figureLabel}</p>
       {note}
+      {face}
       <div className="mt-auto pt-2">
         <InfoSheet
           title={title}

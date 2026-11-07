@@ -22,7 +22,7 @@ function StepDot({ index, current }: { index: number; current: number }) {
 
 function SkippedBadge({ id }: { id: StoryStepId }) {
   const t = useT();
-  return SKIPPED_STEPS.has(id) ? <StatusBadge kind="october">{t("badge.comingOctober")}</StatusBadge> : null;
+  return SKIPPED_STEPS.has(id) ? <StatusBadge kind="note">{t("badge.skipped")}</StatusBadge> : null;
 }
 
 /**

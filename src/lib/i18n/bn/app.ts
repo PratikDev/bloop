@@ -48,7 +48,6 @@ export const appBn: Translated<typeof appEn> = {
   "help.open": "সাহায্য",
   "help.keys": "কীবোর্ড",
 
-  "badge.comingOctober": "অক্টোবরে আসছে",
   "badge.loadingRain": "বৃষ্টি লোড হচ্ছে",
 
   "map.roleDescription": "শব্দ-মানচিত্র",
@@ -121,7 +120,7 @@ export const appBn: Translated<typeof appEn> = {
   "whisper.kind.sst": "সমুদ্রপৃষ্ঠের তাপমাত্রা",
   "whisper.kind.rain": "বৃষ্টি",
   "whisper.announce": (p: { text: string; source: string }) => `${p.text} উৎস: ${p.source}।`,
-  "xray.unavailable": "এক্স-রে অক্টোবরে আসছে: এর জন্য নাসার কালারবার ডেটা লাগবে, যা এখনো প্রকাশিত হয়নি।",
+  "xray.unavailable": "এক্স-রে এই সংস্করণে নেই: এর জন্য নাসার কালারবার ডেটা দরকার, যা এখনো প্রকাশিত হয়নি।",
 
   "announce.track": (p: { track: string }) => `এখন শুনছেন: ${p.track}।`,
   "announce.mode": (p: { mode: string }) => `${p.mode} মোড।`,

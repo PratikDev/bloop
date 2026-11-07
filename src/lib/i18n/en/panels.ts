@@ -40,7 +40,6 @@ export const panelsEn = {
     `The check above, plotted (IMERG ${p.run} run, ${formatInteger(p.points, "en")} points).`,
 
   // GLOBE duet teaser (contract §12; plan §16 "GLOBE (teaser)" wording is the heading line).
-  "globe.teaser": "Teaser: coming in October",
   "globe.plan": "Citizen observers vs satellite: two perspectives, not right vs wrong.",
   "globe.featured": (p: { date: string; lat: number; lon: number; ground: number; satellite: number; reports: number }) =>
     `A typical day: on ${p.date} near ${formatFixed(p.lat, "en", 2)}° N, ${formatFixed(p.lon, "en", 2)}° E, observers on the ground ` +

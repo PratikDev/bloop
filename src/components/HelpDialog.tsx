@@ -3,7 +3,6 @@
 import { Dialog, DialogContent, DialogDescription, DialogHeader, DialogTitle } from "@/components/ui/dialog";
 import type { MessageKey } from "@/lib/i18n";
 import { useAppState, useT } from "./AppState/use-app-state";
-import { ComingInOctober } from "./ComingInOctober";
 import { SettingToggle } from "./SettingToggle";
 import { isTurntableKey, ttFor } from "./Turntable/i18n";
 import type { TurntableKey } from "./Turntable/strings-bn";
@@ -121,7 +120,6 @@ export function HelpDialog() {
           <SettingToggle setting="describe" />
         </div>
 
-        <ComingInOctober />
         {/* "More below": fades the content at the bottom edge while scrolling; at the end it sits under the last row. */}
         <div aria-hidden="true" className="pointer-events-none sticky bottom-0 -mt-4 h-8 bg-linear-to-t from-popover to-transparent" />
       </DialogContent>

@@ -16,7 +16,7 @@ LIVE = ("sst", "rain", "sequence")
 TRUTH = ("sst_pairs", "rain_pairs", "threeway")
 # History files the app reads (src/lib/data/paths.ts) that no registry product owns; global/manifest.json lists its layers.
 HISTORY_FILES = ("context/ensemble_bd.json", "context/globe_duet.json", "demo/dhaka_then_now.json", "demo/cities_then_now.json",
-                 "thenvsnow/stats.json",
+                 "thenvsnow/stats.json", "truth/stats.json",
                  "global/manifest.json")
 NOT_RECORDS = ("meta/freshness.json", "meta/health.json", "official/index.json", "related/index.json")
 

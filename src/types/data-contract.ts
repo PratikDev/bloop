@@ -572,7 +572,7 @@ export interface EnsembleFile {
 // ---------------------------------------------------------------------------
 // 12. GLOBE duet teaser (context/globe_duet.json) — OPTIONAL, additive
 // Needed by: L3 (teaser card: time, place, both values, `disclosure`,
-// label "Teaser: coming in October"); L2 (two tones, ground left / satellite right).
+// label removed for the mentor fixes); L2 (two tones, ground left / satellite right).
 // Built from file 8 (build_globe_duet.py): only observations inside
 // Bangladesh's national outline; reports on the same date within 1 km are
 // merged. `featured` = the place-day with the median difference (typical case).
