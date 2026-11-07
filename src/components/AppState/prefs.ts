@@ -1,15 +1,15 @@
-import { LANGS } from "@/lib/i18n";
+import { LANGS } from "@/lib/i18n/types";
 import type { PrefKey, Prefs, SoundChoice } from "./reducer";
 
 // Per-device conveniences only: nothing here is needed for the app to work,
 // and a blocked or empty storage just means the defaults.
-const STORAGE_KEY = "jukebox.prefs.v1";
+export const PREFS_STORAGE_KEY = "jukebox.prefs.v1";
 const FLAGS = ["describe", "captions", "builtInVoice", "started"] as const satisfies readonly PrefKey[];
 const SOUND_CHOICES: readonly SoundChoice[] = ["sound", "silent"];
 
 export function readPrefs(): Prefs {
   try {
-    const raw: unknown = JSON.parse(localStorage.getItem(STORAGE_KEY) ?? "{}");
+    const raw: unknown = JSON.parse(localStorage.getItem(PREFS_STORAGE_KEY) ?? "{}");
     if (typeof raw !== "object" || raw === null) return {};
     const saved = raw as Record<string, unknown>;
     const prefs: Prefs = {};
@@ -28,7 +28,7 @@ export function readPrefs(): Prefs {
 
 export function writePrefs(prefs: Required<Prefs>): void {
   try {
-    localStorage.setItem(STORAGE_KEY, JSON.stringify(prefs));
+    localStorage.setItem(PREFS_STORAGE_KEY, JSON.stringify(prefs));
   } catch {
     // Storage blocked (private window, site data off): the settings just aren't remembered.
   }

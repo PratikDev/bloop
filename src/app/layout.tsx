@@ -1,5 +1,6 @@
 import type { Metadata, Viewport } from "next";
 import { Anek_Bangla, Geist, Geist_Mono, Instrument_Serif, Tiro_Bangla } from "next/font/google";
+import { LANG_SCRIPT } from "@/components/AppState/lang-script";
 import { TooltipProvider } from "@/components/ui/tooltip";
 import { appEn } from "@/lib/i18n/en/app";
 import "./globals.css";
@@ -27,7 +28,12 @@ const FONT_VARIABLES = [geist, geistMono, instrument, anek, tiro].map((f) => f.v
 
 export default function RootLayout({ children }: LayoutProps<"/">) {
   return (
-    <html lang="en" className={`${FONT_VARIABLES} h-full`}>
+    // The inline script sets lang from the saved language before the body is parsed (mentor item 3), so the attribute
+    // can differ from this HTML's "en" by the time React hydrates: that one difference is expected.
+    <html lang="en" className={`${FONT_VARIABLES} h-full`} suppressHydrationWarning>
+      <head>
+        <script dangerouslySetInnerHTML={{ __html: LANG_SCRIPT }} />
+      </head>
       <body className="min-h-full">
         <TooltipProvider>{children}</TooltipProvider>
       </body>
