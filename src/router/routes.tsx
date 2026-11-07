@@ -45,4 +45,11 @@ const teamRoute = createRoute({
   component: lazyRouteComponent(() => import("@/components/pages/Team"), "TeamPage"),
 });
 
-export const routeTree = rootRoute.addChildren([homeRoute, listenRoute, thenNowRoute, howRoute, officialRoute, turntableRoute, teamRoute]);
+// The listener test (mentor item 8): no link to it anywhere, noindex (src/app/[[...path]]/page.tsx).
+const listenTestRoute = createRoute({
+  getParentRoute: () => rootRoute,
+  path: "listen-test",
+  component: lazyRouteComponent(() => import("@/components/pages/ListenTest"), "ListenTestPage"),
+});
+
+export const routeTree = rootRoute.addChildren([homeRoute, listenRoute, thenNowRoute, howRoute, officialRoute, turntableRoute, teamRoute, listenTestRoute]);

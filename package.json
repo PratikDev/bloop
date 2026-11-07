@@ -13,6 +13,7 @@
     "health": "cd pipeline && python -m health --app",
     "refresh:live": "cd pipeline && python refresh_live.py",
     "check:team": "bun scripts/check-team.ts",
+    "listen-test:summary": "bun scripts/listen-test-summary.ts",
     "i18n:todo": "UPDATE_TO_TRANSLATE=1 bun test src/lib/i18n/i18n.test.ts"
   },
   "dependencies": {

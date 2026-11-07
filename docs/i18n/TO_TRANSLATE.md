@@ -499,7 +499,7 @@ The Mapping panel builds each rule sentence from its parts (`src/lib/i18n/bn/rul
 | `clarity` | parameter: reverbSec; unit: hours since a 1 km infrared look | How recently measured 0 to 48 hours since a 1 km infrared look → echo length 0.1 to 2.4 s (linear). |
 | `unison` | a rule shared with another voice (sameAs) | Proof in unison: two tones in one ear, both by the Ocean temperature rule (Ocean temperature −5 to 35 °C → pitch 220 to 880 Hz (exponential: equal steps in value sound like equal musical steps).) Beats per second = the difference between the two pitches in Hz. |
 
-## Draft Bangla, needs review (173)
+## Draft Bangla, needs review (209)
 
 Drafted for the mentor fixes (`docs/MENTOR_FIXES.md`); **draft, needs review** by a Bangla speaker. Listed in `src/lib/i18n/bn/drafts.ts`: remove an entry there once it is checked.
 
@@ -527,6 +527,42 @@ Drafted for the mentor fixes (`docs/MENTOR_FIXES.md`); **draft, needs review** b
 | `team.localEvent` | ``Local event: ${p.place}`` | ``\u09B8\u09CD\u09A5\u09BE\u09A8\u09C0\u09AF\u09BC \u0986\u09AF\u09BC\u09CB\u099C\u09A8: ${p.place}`` |
 | `team.madeWith` | Made with NASA data | নাসার ডেটা দিয়ে তৈরি |
 | `team.licence` | ``Code licence: ${p.licence}.`` | ``\u0995\u09CB\u09A1\u09C7\u09B0 \u09B2\u09BE\u0987\u09B8\u09C7\u09A8\u09CD\u09B8: ${p.licence}\u0964`` |
+| `lt.title` | Quick listening test | ছোট শোনার পরীক্ষা |
+| `lt.consent.heading` | Before we start | শুরুর আগে |
+| `lt.consent.body` | This is a short, anonymous listening test. We don't ask your name, nothing is uploaded, and no sound is recorded. Your answers stay on this device until the facilitator saves them. You can stop at any time. | এটি একটি ছোট, নামহীন শোনার পরীক্ষা। আমরা আপনার নাম চাই না, কিছুই আপলোড হয় না, আর কোনো শব্দ রেকর্ড করা হয় না। পরিচালক সংরক্ষণ না করা পর্যন্ত আপনার উত্তর এই ডিভাইসেই থাকে। আপনি যেকোনো সময় থামতে পারেন। |
+| `lt.consent.agree` | I understand. Continue | বুঝেছি। চালিয়ে যান |
+| `lt.age.question` | Are you 18 or older? | আপনার বয়স কি ১৮ বা তার বেশি? |
+| `lt.yes` | Yes | হ্যাঁ |
+| `lt.no` | No | না |
+| `lt.ended` | Thank you. This test is only for adults, so it ends here. | ধন্যবাদ। এই পরীক্ষা শুধু প্রাপ্তবয়স্কদের জন্য, তাই এখানেই শেষ। |
+| `lt.stop` | Stop the test | পরীক্ষা থামান |
+| `lt.stopped` | The test has stopped. Nothing was saved. | পরীক্ষা থেমে গেছে। কিছুই সংরক্ষণ করা হয়নি। |
+| `lt.intro.heading` | How to listen | কীভাবে শুনবেন |
+| `lt.intro.body` | Use headphones. Each task plays a short sound, and you can play it again. A higher pitch means a larger value: warmer water, or a hotter year. More drops mean heavier rain. | হেডফোন ব্যবহার করুন। প্রতিটি কাজে একটি ছোট শব্দ বাজে, আর আপনি আবার বাজাতে পারেন। উঁচু সুর মানে বড় মান: উষ্ণ পানি, বা গরম বছর। বেশি ফোঁটা মানে ভারী বৃষ্টি। |
+| `lt.intro.reference` | Play the reference tone | তুলনার সুর বাজান |
+| `lt.intro.scale` | Play low to high | নিচু থেকে উঁচু বাজান |
+| `lt.intro.start` | Start the tasks | কাজগুলো শুরু করুন |
+| `lt.task.count` | ``Task ${p.n} of ${p.total}`` | ``${p.total}\u099F\u09BF\u09B0 \u09AE\u09A7\u09CD\u09AF\u09C7 ${p.n} \u09A8\u09AE\u09CD\u09AC\u09B0 \u0995\u09BE\u099C`` |
+| `lt.play` | Play the sound | শব্দ বাজান |
+| `lt.soundOn` | Turn sound on | শব্দ চালু করুন |
+| `lt.q.ocean` | You hear the reference tone, then an ocean. Is this ocean warmer or colder than the reference? | আপনি প্রথমে তুলনার সুর, তারপর একটি সমুদ্র শুনবেন। এই সমুদ্র কি তুলনার চেয়ে উষ্ণ, না শীতল? |
+| `lt.q.rain` | ``You hear the rain at ${p.a}, then at ${p.b}. Which city is rainier right now?`` | ``\u0986\u09AA\u09A8\u09BF \u09AA\u09CD\u09B0\u09A5\u09AE\u09C7 ${p.a}, \u09A4\u09BE\u09B0\u09AA\u09B0 ${p.b}-\u098F\u09B0 \u09AC\u09C3\u09B7\u09CD\u099F\u09BF \u09B6\u09C1\u09A8\u09AC\u09C7\u09A8\u0964 \u098F\u0996\u09A8 \u0995\u09CB\u09A8 \u09B6\u09B9\u09B0\u09C7 \u09AC\u09C7\u09B6\u09BF \u09AC\u09C3\u09B7\u09CD\u099F\u09BF?`` |
+| `lt.q.unison` | Each duet is one point read from NASA's picture, then the same point in NASA's own file. Which duet disagrees more? | প্রতিটি যুগল সুর হলো নাসার ছবি থেকে পড়া একটি বিন্দু, তারপর নাসার নিজের ফাইলে একই বিন্দু। কোন যুগলে অমিল বেশি? |
+| `lt.q.both` | Both plays the ocean and the rain together at one point. Do you hear rain with the ocean tone? | দুটোই মোডে একটি বিন্দুতে সমুদ্র ও বৃষ্টি একসাথে বাজে। সমুদ্রের সুরের সাথে কি বৃষ্টি শুনছেন? |
+| `lt.q.heat` | ``You hear ${p.place}'s April and May heat, ${p.a} and then ${p.b}. Which decade is hotter?`` | ``\u0986\u09AA\u09A8\u09BF ${p.place}-\u098F\u09B0 \u098F\u09AA\u09CD\u09B0\u09BF\u09B2-\u09AE\u09C7 \u09AE\u09BE\u09B8\u09C7\u09B0 \u0997\u09B0\u09AE \u09B6\u09C1\u09A8\u09AC\u09C7\u09A8, \u09AA\u09CD\u09B0\u09A5\u09AE\u09C7 ${p.a}, \u09A4\u09BE\u09B0\u09AA\u09B0 ${p.b}\u0964 \u0995\u09CB\u09A8 \u09A6\u09B6\u0995 \u09AC\u09C7\u09B6\u09BF \u0997\u09B0\u09AE?`` |
+| `lt.opt.warmer` | Warmer | উষ্ণ |
+| `lt.opt.colder` | Colder | শীতল |
+| `lt.opt.first` | The first | প্রথমটি |
+| `lt.opt.second` | The second | দ্বিতীয়টি |
+| `lt.opt.yes` | Yes | হ্যাঁ |
+| `lt.opt.no` | No | না |
+| `lt.comment.label` | Any comment? (optional; please don't write your name) | কোনো মন্তব্য? (ঐচ্ছিক; অনুগ্রহ করে নিজের নাম লিখবেন না) |
+| `lt.comment.next` | Finish | শেষ করুন |
+| `lt.done.heading` | Thank you | ধন্যবাদ |
+| `lt.done.body` | That's the end of the test. The facilitator saves your answers with the button below. | পরীক্ষা শেষ। পরিচালক নিচের বোতাম দিয়ে আপনার উত্তর সংরক্ষণ করবেন। |
+| `lt.export` | Export results | ফলাফল এক্সপোর্ট করুন |
+| `lt.loading` | Loading the test | পরীক্ষা লোড হচ্ছে |
+| `lt.error` | The data the test needs could not load. Reload the page to try again. | পরীক্ষার জন্য দরকারি ডেটা লোড করা যায়নি। আবার চেষ্টা করতে পাতাটি রিলোড করুন। |
 | `hwgt.button` | How we got this | কীভাবে পেলাম |
 | `hwgt.name` | ``How we got this: ${p.subject}`` | ``\u0995\u09C0\u09AD\u09BE\u09AC\u09C7 \u09AA\u09C7\u09B2\u09BE\u09AE: ${p.subject}`` |
 | `hwgt.intro` | Where these numbers come from, how they are computed, and how well they are checked. | এই সংখ্যাগুলো কোথা থেকে এসেছে, কীভাবে হিসাব করা হয়েছে, আর কতটা যাচাই করা হয়েছে। |

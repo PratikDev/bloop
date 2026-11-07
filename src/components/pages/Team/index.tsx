@@ -1,14 +1,12 @@
 "use client";
 
 import teamJson from "../../../../content/team.json";
-import { PLACES } from "@/lib/history";
+import { placeLabel } from "@/lib/history";
 import { parseTeam, shownTeam } from "@/lib/team";
-import type { ClimateCellName } from "@/types/data-contract";
 import { useT } from "../../AppState/use-app-state";
 import { DataCredits } from "../../DataCredits";
 
 const TEAM = shownTeam(parseTeam(teamJson));
-const isPlace = (name: string): name is ClimateCellName => (PLACES as readonly string[]).includes(name);
 
 const SECTION = "surface-plate space-y-3 rounded-plate p-5 md:p-6";
 
@@ -44,7 +42,7 @@ export function TeamPage() {
       <section aria-labelledby="team-challenge" className={SECTION}>
         <h2 id="team-challenge" className="text-lead font-medium text-moon">{t("team.challenge")}</h2>
         {TEAM.challenge && <p lang="en" className="text-body text-moon">{TEAM.challenge}</p>}
-        {TEAM.localEvent && <p className="text-body text-haze">{t("team.localEvent", { place: isPlace(TEAM.localEvent) ? t(`place.${TEAM.localEvent}`) : TEAM.localEvent })}</p>}
+        {TEAM.localEvent && <p className="text-body text-haze">{t("team.localEvent", { place: placeLabel(t, TEAM.localEvent) })}</p>}
       </section>
 
       <section aria-labelledby="team-data" className={SECTION}>
