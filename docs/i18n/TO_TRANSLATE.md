@@ -499,7 +499,7 @@ The Mapping panel builds each rule sentence from its parts (`src/lib/i18n/bn/rul
 | `clarity` | parameter: reverbSec; unit: hours since a 1 km infrared look | How recently measured 0 to 48 hours since a 1 km infrared look → echo length 0.1 to 2.4 s (linear). |
 | `unison` | a rule shared with another voice (sameAs) | Proof in unison: two tones in one ear, both by the Ocean temperature rule (Ocean temperature −5 to 35 °C → pitch 220 to 880 Hz (exponential: equal steps in value sound like equal musical steps).) Beats per second = the difference between the two pitches in Hz. |
 
-## Draft Bangla, needs review (102)
+## Draft Bangla, needs review (165)
 
 Drafted for the mentor fixes (`docs/MENTOR_FIXES.md`); **draft, needs review** by a Bangla speaker. Listed in `src/lib/i18n/bn/drafts.ts`: remove an entry there once it is checked.
 
@@ -519,6 +519,69 @@ Drafted for the mentor fixes (`docs/MENTOR_FIXES.md`); **draft, needs review** b
 | `credits.power` | NASA POWER was checked and dropped: it disagreed with independent records. | NASA POWER যাচাই করে বাদ দেওয়া হয়েছে: স্বাধীন রেকর্ডের সাথে মেলেনি। |
 | `credits.loading` | Loading the credits | ক্রেডিট লোড হচ্ছে |
 | `credits.error` | The credits could not load. Reload the page to try again. | ক্রেডিট লোড করা যায়নি। আবার চেষ্টা করতে পাতাটি রিলোড করুন। |
+| `hwgt.button` | How we got this | কীভাবে পেলাম |
+| `hwgt.name` | ``How we got this: ${p.subject}`` | ``\u0995\u09C0\u09AD\u09BE\u09AC\u09C7 \u09AA\u09C7\u09B2\u09BE\u09AE: ${p.subject}`` |
+| `hwgt.intro` | Where these numbers come from, how they are computed, and how well they are checked. | এই সংখ্যাগুলো কোথা থেকে এসেছে, কীভাবে হিসাব করা হয়েছে, আর কতটা যাচাই করা হয়েছে। |
+| `hwgt.na` | not available | পাওয়া যায়নি |
+| `hwgt.field.dataset` | Source dataset | উৎস ডেটাসেট |
+| `hwgt.field.version` | Version | সংস্করণ |
+| `hwgt.field.link` | Dataset link | ডেটাসেটের লিংক |
+| `hwgt.field.window` | Time window | সময়কাল |
+| `hwgt.field.cell` | Grid cell | গ্রিড সেল |
+| `hwgt.field.place` | Place | স্থান |
+| `hwgt.field.method` | How it is computed | কীভাবে হিসাব করা হয় |
+| `hwgt.field.uncertainty` | Uncertainty | অনিশ্চয়তা |
+| `hwgt.field.n` | n | n |
+| `hwgt.field.status` | Validation | যাচাই |
+| `hwgt.field.scripts` | Script | স্ক্রিপ্ট |
+| `hwgt.field.validation` | Validation row | যাচাইয়ের সারি |
+| `hwgt.status.verified` | verified | যাচাই করা |
+| `hwgt.status.stated` | values with stated error | উল্লিখিত ত্রুটিসহ মান |
+| `hwgt.status.relative` | relative | আপেক্ষিক |
+| `hwgt.status.pattern` | pattern only | শুধু নকশা |
+| `hwgt.status.texture` | visual texture | দৃশ্যমান বুনট |
+| `hwgt.status.insufficient` | insufficient data | যথেষ্ট ডেটা নেই |
+| `hwgt.status.observation` | observation | পর্যবেক্ষণ |
+| `hwgt.status.noCheck` | no check | যাচাই নেই |
+| `hwgt.status.file` | read from the data file itself (no picture to decode, so no decoding check) | সরাসরি ডেটা ফাইল থেকে পড়া (ছবি থেকে পড়া নয়, তাই পড়ার যাচাই লাগে না) |
+| `hwgt.patternOnly` | ``No number is shown: ${p.why}`` | ``\u0995\u09CB\u09A8\u09CB \u09B8\u0982\u0996\u09CD\u09AF\u09BE \u09A6\u09C7\u0996\u09BE\u09A8\u09CB \u09B9\u09AF\u09BC \u09A8\u09BE: ${p.why}`` |
+| `hwgt.subject.ocean` | ocean temperature at the cursor | কার্সরের জায়গায় সমুদ্রের তাপমাত্রা |
+| `hwgt.subject.rain` | rain rate at the cursor | কার্সরের জায়গায় বৃষ্টির হার |
+| `hwgt.subject.gap` | time between the ocean and rain frames | সমুদ্র ও বৃষ্টির ফ্রেমের মধ্যে সময়ের ব্যবধান |
+| `hwgt.subject.part` | ``${p.city} ${p.part}`` | ``${p.city}: ${p.part}`` |
+| `hwgt.subject.record` | `p.record` | `p.record` |
+| `hwgt.cell.frame` | ``about ${p.deg} degrees (a ${p.width} by ${p.height} grid; ${p.aggregation})`` | ``\u09AA\u09CD\u09B0\u09BE\u09AF\u09BC ${p.deg} \u09A1\u09BF\u0997\u09CD\u09B0\u09BF (${p.width} \u09AC\u09BE\u0987 ${p.height} \u0997\u09CD\u09B0\u09BF\u09A1; ${p.aggregation})`` |
+| `hwgt.cell.centre` | ``the cell centred at ${p.lat}, ${p.lon}`` | ``${p.lat}, ${p.lon} \u0995\u09C7\u09A8\u09CD\u09A6\u09CD\u09B0\u09C7\u09B0 \u09B8\u09C7\u09B2`` |
+| `hwgt.cell.shared` | ``${p.cell}, shared with ${p.cities}`` | ``${p.cell}, ${p.cities}-\u098F\u09B0 \u09B8\u09BE\u09A5\u09C7 \u098F\u0995\u0987`` |
+| `hwgt.unc.globe` | ``Median difference ${p.median} percentage points between the ground report and the satellite.`` | ``\u09AE\u09BE\u099F\u09BF\u09B0 \u09AA\u09CD\u09B0\u09A4\u09BF\u09AC\u09C7\u09A6\u09A8 \u0993 \u09B8\u09CD\u09AF\u09BE\u099F\u09C7\u09B2\u09BE\u0987\u099F\u09C7\u09B0 \u09AE\u09A7\u09CD\u09AF\u09C7 \u09AE\u09A7\u09CD\u09AF\u0995 \u09AA\u09BE\u09B0\u09CD\u09A5\u0995\u09CD\u09AF ${p.median} \u09B6\u09A4\u09BE\u0982\u09B6 \u09AC\u09BF\u09A8\u09CD\u09A6\u09C1\u0964`` |
+| `hwgt.cell.box` | ``${p.box}, from mascons about ${p.deg} degrees across`` | ``${p.box}, \u09AA\u09CD\u09B0\u09BE\u09AF\u09BC ${p.deg} \u09A1\u09BF\u0997\u09CD\u09B0\u09BF \u099A\u0993\u09A1\u09BC\u09BE \u09AE\u09CD\u09AF\u09BE\u09B8\u0995\u09A8 \u09A5\u09C7\u0995\u09C7`` |
+| `hwgt.cell.frameSpace` | the picture's own frame (no map position) | ছবির নিজের ফ্রেম (মানচিত্রে অবস্থান নেই) |
+| `hwgt.place.cursor` | ``the cursor, ${p.place}`` | ``\u0995\u09BE\u09B0\u09CD\u09B8\u09B0, ${p.place}`` |
+| `hwgt.place.checked` | ``${p.n} checked points`` | ``${p.n}\u099F\u09BF \u09AF\u09BE\u099A\u09BE\u0987 \u0995\u09B0\u09BE \u09AC\u09BF\u09A8\u09CD\u09A6\u09C1`` |
+| `hwgt.window.frame` | ``the frame of ${p.time}`` | ``${p.time}-\u098F\u09B0 \u09AB\u09CD\u09B0\u09C7\u09AE`` |
+| `hwgt.window.rainFrame` | ``the frame of ${p.time} (${p.meaning})`` | ``${p.time}-\u098F\u09B0 \u09AB\u09CD\u09B0\u09C7\u09AE (${p.meaning})`` |
+| `hwgt.window.two` | ``${p.a} and ${p.b}`` | ``${p.a} \u098F\u09AC\u0982 ${p.b}`` |
+| `hwgt.method.frame` | ``The value is read from the SVS animation's colours using its colour bar, then ${p.aggregation}.`` | ``\u09AE\u09BE\u09A8\u099F\u09BF SVS \u0985\u09CD\u09AF\u09BE\u09A8\u09BF\u09AE\u09C7\u09B6\u09A8\u09C7\u09B0 \u09B0\u0982 \u09A5\u09C7\u0995\u09C7 \u09A4\u09BE\u09B0 \u0995\u09BE\u09B2\u09BE\u09B0 \u09AC\u09BE\u09B0 \u09A6\u09BF\u09AF\u09BC\u09C7 \u09AA\u09A1\u09BC\u09BE, \u09A4\u09BE\u09B0\u09AA\u09B0 ${p.aggregation}\u0964`` |
+| `hwgt.method.rainFrame` | ``The value is read from the SVS animation's colours using its colour bar (${p.formula}), then ${p.aggregation}.`` | ``\u09AE\u09BE\u09A8\u099F\u09BF SVS \u0985\u09CD\u09AF\u09BE\u09A8\u09BF\u09AE\u09C7\u09B6\u09A8\u09C7\u09B0 \u09B0\u0982 \u09A5\u09C7\u0995\u09C7 \u09A4\u09BE\u09B0 \u0995\u09BE\u09B2\u09BE\u09B0 \u09AC\u09BE\u09B0 \u09A6\u09BF\u09AF\u09BC\u09C7 \u09AA\u09A1\u09BC\u09BE (${p.formula}), \u09A4\u09BE\u09B0\u09AA\u09B0 ${p.aggregation}\u0964`` |
+| `hwgt.method.gap` | The difference between the two frames' times, as each frame's metadata gives them. | দুই ফ্রেমের সময়ের পার্থক্য, যেমন প্রতিটি ফ্রেমের মেটাডেটায় দেওয়া আছে। |
+| `hwgt.method.decade` | ``Decade mean of ${p.season} in each window; change = recent minus baseline.`` | ``\u09AA\u09CD\u09B0\u09A4\u09BF\u099F\u09BF \u09B8\u09AE\u09AF\u09BC\u0995\u09BE\u09B2\u09C7 ${p.season}-\u098F\u09B0 \u09A6\u09B6\u0995\u09C7\u09B0 \u0997\u09A1\u09BC; \u09AA\u09B0\u09BF\u09AC\u09B0\u09CD\u09A4\u09A8 = \u09B8\u09BE\u09AE\u09CD\u09AA\u09CD\u09B0\u09A4\u09BF\u0995 \u09AC\u09BF\u09AF\u09BC\u09CB\u0997 \u09AD\u09BF\u09A4\u09CD\u09A4\u09BF\u0964`` |
+| `hwgt.method.rainPct` | ``Decade mean of the ${p.season} rain rate in each window; change = recent mean divided by the baseline mean, minus 1, as a percent.`` | ``\u09AA\u09CD\u09B0\u09A4\u09BF\u099F\u09BF \u09B8\u09AE\u09AF\u09BC\u0995\u09BE\u09B2\u09C7 ${p.season}-\u098F\u09B0 \u09AC\u09C3\u09B7\u09CD\u099F\u09BF\u09B0 \u09B9\u09BE\u09B0\u09C7\u09B0 \u09A6\u09B6\u0995\u09C7\u09B0 \u0997\u09A1\u09BC; \u09AA\u09B0\u09BF\u09AC\u09B0\u09CD\u09A4\u09A8 = \u09B8\u09BE\u09AE\u09CD\u09AA\u09CD\u09B0\u09A4\u09BF\u0995 \u0997\u09A1\u09BC \u09AD\u09BE\u0997 \u09AD\u09BF\u09A4\u09CD\u09A4\u09BF \u0997\u09A1\u09BC, \u09AC\u09BF\u09AF\u09BC\u09CB\u0997 \u09E7, \u09B6\u09A4\u09BE\u0982\u09B6\u09C7\u0964`` |
+| `hwgt.method.trend` | ``Slope of the monthly series with each calendar month's mean removed (Sen's slope); significance by ${p.test}.`` | ``\u09AA\u09CD\u09B0\u09A4\u09BF \u0995\u09CD\u09AF\u09BE\u09B2\u09C7\u09A8\u09CD\u09A1\u09BE\u09B0 \u09AE\u09BE\u09B8\u09C7\u09B0 \u0997\u09A1\u09BC \u09AC\u09BE\u09A6 \u09A6\u09BF\u09AF\u09BC\u09C7 \u09AE\u09BE\u09B8\u09BF\u0995 \u09A7\u09BE\u09B0\u09BE\u09B0 \u09A2\u09BE\u09B2 (\u09B8\u09C7\u09A8\u09C7\u09B0 \u09A2\u09BE\u09B2); \u09A4\u09BE\u09CE\u09AA\u09B0\u09CD\u09AF ${p.test} \u09A6\u09BF\u09AF\u09BC\u09C7\u0964`` |
+| `hwgt.method.pairs` | At each checked point, the value read from the frame is compared with NASA's file at the same place and time; the error is their difference. | প্রতিটি যাচাই বিন্দুতে ফ্রেম থেকে পড়া মান একই জায়গা ও সময়ে নাসার ফাইলের মানের সাথে মেলানো হয়; ত্রুটি হলো দুটির পার্থক্য। |
+| `hwgt.method.rules` | A count of the sounds in mapping.json that play in the app, each with its written rule. | অ্যাপে বাজে এমন mapping.json-এর শব্দের সংখ্যা, প্রতিটির লিখিত নিয়মসহ। |
+| `hwgt.method.official` | ``The value is read from the SVS animation's colours using its colour bar, then ${p.aggregation}.`` | ``\u09AE\u09BE\u09A8\u099F\u09BF SVS \u0985\u09CD\u09AF\u09BE\u09A8\u09BF\u09AE\u09C7\u09B6\u09A8\u09C7\u09B0 \u09B0\u0982 \u09A5\u09C7\u0995\u09C7 \u09A4\u09BE\u09B0 \u0995\u09BE\u09B2\u09BE\u09B0 \u09AC\u09BE\u09B0 \u09A6\u09BF\u09AF\u09BC\u09C7 \u09AA\u09A1\u09BC\u09BE, \u09A4\u09BE\u09B0\u09AA\u09B0 ${p.aggregation}\u0964`` |
+| `hwgt.method.log` | The colour bar is logarithmic, so values are read on a log scale. | কালার বারটি লগারিদমিক, তাই মান লগ স্কেলে পড়া হয়। |
+| `hwgt.unc.sst` | ``Median error ${p.median} degrees C against NASA's MUR file; 90% of points within ${p.p90} degrees C; bias ${p.bias} degrees C.`` | ``\u09A8\u09BE\u09B8\u09BE\u09B0 MUR \u09AB\u09BE\u0987\u09B2\u09C7\u09B0 \u09A4\u09C1\u09B2\u09A8\u09BE\u09AF\u09BC \u09AE\u09A7\u09CD\u09AF\u0995 \u09A4\u09CD\u09B0\u09C1\u099F\u09BF ${p.median} \u09A1\u09BF\u0997\u09CD\u09B0\u09BF \u09B8\u09C7.; \u09EF\u09E6% \u09AC\u09BF\u09A8\u09CD\u09A6\u09C1 ${p.p90} \u09A1\u09BF\u0997\u09CD\u09B0\u09BF \u09B8\u09C7.-\u098F\u09B0 \u09AE\u09A7\u09CD\u09AF\u09C7; \u099D\u09CB\u0981\u0995 ${p.bias} \u09A1\u09BF\u0997\u09CD\u09B0\u09BF \u09B8\u09C7.\u0964`` |
+| `hwgt.unc.rain` | ``Median error about ${p.percent}% against NASA's IMERG file; rain or no rain agrees at ${p.agree}% of points.`` | ``\u09A8\u09BE\u09B8\u09BE\u09B0 IMERG \u09AB\u09BE\u0987\u09B2\u09C7\u09B0 \u09A4\u09C1\u09B2\u09A8\u09BE\u09AF\u09BC \u09AE\u09A7\u09CD\u09AF\u0995 \u09A4\u09CD\u09B0\u09C1\u099F\u09BF \u09AA\u09CD\u09B0\u09BE\u09AF\u09BC ${p.percent}%; \u09AC\u09C3\u09B7\u09CD\u099F\u09BF \u09B9\u09AF\u09BC\u09C7\u099B\u09C7 \u0995\u09BF \u09A8\u09BE, \u09A4\u09BE ${p.agree}% \u09AC\u09BF\u09A8\u09CD\u09A6\u09C1\u09A4\u09C7 \u09AE\u09C7\u09B2\u09C7\u0964`` |
+| `hwgt.unc.rho` | ``Rank correlation (Spearman rho) ${p.rho}.`` | ``\u09B0\u200D\u09CD\u09AF\u09BE\u0982\u0995 \u09B8\u09B9\u09B8\u09AE\u09CD\u09AA\u09B0\u09CD\u0995 (\u09B8\u09CD\u09AA\u09BF\u09AF\u09BC\u09BE\u09B0\u09AE\u09CD\u09AF\u09BE\u09A8 \u09B0\u09CB) ${p.rho}\u0964`` |
+| `hwgt.unc.gap` | Exact: both times come from the frames' own metadata. | হুবহু: দুটি সময়ই ফ্রেমের নিজস্ব মেটাডেটা থেকে। |
+| `hwgt.method.monthly` | Monthly values as the data file gives them; the chosen decade plays month by month. | ডেটা ফাইলে যেমন আছে তেমন মাসিক মান; বেছে নেওয়া দশকটি মাসে মাসে বাজে। |
+| `hwgt.unc.sigma` | ``GRACE's own 1-sigma: median ${p.median} cm (from ${p.min} to ${p.max} cm).`` | ``GRACE-\u098F\u09B0 \u09A8\u09BF\u099C\u09B8\u09CD\u09AC \u09E7-\u09B8\u09BF\u0997\u09AE\u09BE: \u09AE\u09A7\u09CD\u09AF\u0995 ${p.median} \u09B8\u09C7\u09AE\u09BF (${p.min} \u09A5\u09C7\u0995\u09C7 ${p.max} \u09B8\u09C7\u09AE\u09BF)\u0964`` |
+| `hwgt.n.points` | ``${p.n} points`` | ``${p.n}\u099F\u09BF \u09AC\u09BF\u09A8\u09CD\u09A6\u09C1`` |
+| `hwgt.n.years` | ``${p.a} years and ${p.b} years`` | ``${p.a} \u09AC\u099B\u09B0 \u098F\u09AC\u0982 ${p.b} \u09AC\u099B\u09B0`` |
+| `hwgt.n.months` | ``${p.n} months`` | ``${p.n} \u09AE\u09BE\u09B8`` |
+| `hwgt.n.voices` | ``${p.n} sounds`` | ``${p.n}\u099F\u09BF \u09B6\u09AC\u09CD\u09A6`` |
+| `hwgt.n.placeDays` | ``${p.n} place-days`` | ``${p.n}\u099F\u09BF \u09B8\u09CD\u09A5\u09BE\u09A8-\u09A6\u09BF\u09A8`` |
 | `field.noSound` | No sound for this record | এই রেকর্ডের কোনো শব্দ নেই |
 | `xray.unavailable` | X-ray isn't in this version: it needs NASA's colorbar data, which isn't published yet. | এক্স-রে এই সংস্করণে নেই: এর জন্য নাসার কালারবার ডেটা দরকার, যা এখনো প্রকাশিত হয়নি। |
 | `key.x.action` | X-ray: how a colour becomes a number and a sound (not in this version) | এক্স-রে: একটি রং কীভাবে সংখ্যা ও শব্দ হয় (এই সংস্করণে নেই) |

@@ -14,6 +14,8 @@ import { recordFrames } from "../records";
 import type { Turntable } from "../use-turntable";
 import { ChipFrame } from "./ChipFrame";
 import type { Details } from "./use-details";
+import { useLiveProvenance } from "@/hooks/use-live-provenance";
+import { HowWeGotThis } from "../../HowWeGotThis";
 
 interface Props {
   subscribe: Turntable["subscribe"];
@@ -36,6 +38,7 @@ export function NeedleChip({ subscribe, place, details, reserved }: Props) {
   const { tt, lang } = useTT();
   const { reading: r, cursor, track } = useShownPoint();
   const [now] = useState(Date.now);
+  const facts = useLiveProvenance(track, t("place.latlon", cursor));
 
   const main = r ? hero(r, track, state.lang) : null;
   const bn = lang === "bn";
@@ -94,6 +97,7 @@ export function NeedleChip({ subscribe, place, details, reserved }: Props) {
           <FrameFacts key={f.product} frame={f} now={now} tt={tt} />
         ))}
       </div>
+      <HowWeGotThis facts={facts} />
     </ChipFrame>
   );
 }

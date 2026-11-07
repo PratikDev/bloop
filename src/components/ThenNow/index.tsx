@@ -19,6 +19,8 @@ import { PartView } from "./PartView";
 import { PlayControls } from "./PlayControls";
 import { StatsDetails, StatsLine } from "./StatsDetails";
 import { WaterNote } from "../WaterNote";
+import { HowWeGotThis, ProvenanceGroup } from "../HowWeGotThis";
+import { usePartProvenance } from "./use-part-provenance";
 import { useThenNowData } from "./use-then-now-data";
 import { useThenNowPlayer, type Part } from "./use-then-now-player";
 
@@ -81,6 +83,7 @@ export function ThenNow({
   const field = isFieldPart(part);
   const sharedWith = sharedFor(part);
   const cities = ready?.cities?.cities ?? [];
+  const facts = usePartProvenance(ready && view ? { cityName, city, demo: view.demo, grace: ready.grace, stats: ready.stats } : null, part);
 
   const choosePart = (next: ViewPart) => {
     if (isFieldPart(next)) player.stop(); // a record without sound: nothing else keeps playing under it
@@ -136,7 +139,8 @@ export function ThenNow({
             ) : (
               <PartLayout
                 finding={
-                  <>
+                  <ProvenanceGroup className="flex flex-col gap-3">
+                    <HowWeGotThis facts={facts} className="self-start" />
                     <PartView
                       part={part}
                       demo={view.demo}
@@ -161,17 +165,18 @@ export function ThenNow({
                       </p>
                     )}
                     <p className="text-small text-haze">{t("thenNow.contextNote")}</p>
-                  </>
+                  </ProvenanceGroup>
                 }
                 sideTitle={t("thenNow.listen")}
                 side={<PlayControls part={part} player={player} />}
                 detailsTitle={t("disclosure.title")}
                 details={
-                  <>
+                  <ProvenanceGroup className="space-y-4">
+                    <HowWeGotThis facts={facts} />
                     <Disclosure part={part} demo={view.demo} grace={ready.grace} />
                     {ready.stats && <StatsDetails stats={ready.stats} city={cityName} part={part} />}
                     <HonestyFolds demo={view.demo} isDhaka={isDhaka} />
-                  </>
+                  </ProvenanceGroup>
                 }
               />
             )}

@@ -19,6 +19,7 @@ import { StatusBadge } from "../../StatusBadge";
 import { useLiveData } from "../../LiveData/use-live-data";
 import { GlobeFace, OceanFace, RainFace, RulesFace } from "./cards";
 import { Tile } from "./Tile";
+import { useHowProvenance } from "./use-how-provenance";
 
 const FOOT_LINK = "h-11 gap-2 rounded-full px-4 text-body text-haze ring-1 ring-glass-edge hover:bg-tide hover:text-moon";
 
@@ -35,6 +36,7 @@ export function HowPage() {
   const rainCheck = rain ? rainTruth(rain.meta) : null;
   const { value: duet } = useLoaded(loadGlobeDuet);
   const globe = duet?.status === "ok" ? duet.summary.share_within_25_points : undefined;
+  const facts = useHowProvenance(duet);
 
   return (
     <section aria-labelledby="how-title" className="mx-auto flex h-full min-h-0 w-full max-w-7xl flex-col gap-5 overflow-y-auto px-4 pt-3 pb-4 md:px-8">
@@ -55,6 +57,7 @@ export function HowPage() {
           figureLabel={ocean ? t("how.ocean.figure") : t("truth.ocean.updating")}
           face={<OceanFace />}
           open={t("how.open")}
+          facts={facts.ocean}
         >
           <OceanTruth showHeading={false} />
         </Tile>
@@ -65,10 +68,11 @@ export function HowPage() {
           note={rainStatus === "loading" ? <StatusBadge kind="loading">{t("badge.loadingRain")}</StatusBadge> : undefined}
           face={<RainFace />}
           open={t("how.open")}
+          facts={facts.rain}
         >
           <RainTruth showHeading={false} />
         </Tile>
-        <Tile title={t("how.rules.title")} figure={t("how.rules.value", { count: PLAYED_VOICES.length })} figureLabel={t("how.rules.figure")} face={<RulesFace />} open={t("how.openRules")}>
+        <Tile title={t("how.rules.title")} figure={t("how.rules.value", { count: PLAYED_VOICES.length })} figureLabel={t("how.rules.figure")} face={<RulesFace />} open={t("how.openRules")} facts={facts.rules}>
           <MappingPanel scope="all" />
         </Tile>
         <Tile
@@ -77,6 +81,7 @@ export function HowPage() {
           figureLabel={t("how.globe.figure")}
           face={<GlobeFace />}
           open={t("how.openGlobe")}
+          facts={facts.globe}
         >
           <GlobeTeaser />
         </Tile>

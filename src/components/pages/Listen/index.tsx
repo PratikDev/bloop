@@ -56,7 +56,7 @@ export function ListenPage() {
               </h1>
               <FrameLabel className="hidden lg:block lg:listen-wide:hidden" />
               {/* Both mode: how far apart the two frames are, in the header (the frame label above carries it from 1024 px). */}
-              {state.track === "both" && !story && <FrameGapNote className="lg:hidden lg:listen-wide:block" />}
+              {state.track === "both" && !story && <FrameGapNote explained className="lg:hidden lg:listen-wide:block" />}
             </div>
             {!story && <TrackChoice className="shrink-0 lg:listen-wide:hidden" />}
           </header>

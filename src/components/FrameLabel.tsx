@@ -2,12 +2,14 @@
 
 import { useState } from "react";
 import { useFreshness } from "@/hooks/use-freshness";
+import { useLiveProvenance } from "@/hooks/use-live-provenance";
 import { voiceSpec } from "@/lib/audio/mapping";
 import { cn } from "@/lib/utils";
 import { formatUtc } from "@/lib/i18n";
 import { hearLine } from "@/lib/what-you-hear";
 import { useAppState, useT } from "./AppState/use-app-state";
 import { FrameGapNote } from "./FrameGapNote";
+import { HowWeGotThis } from "./HowWeGotThis";
 import { useLiveData } from "./LiveData/use-live-data";
 import { SourceBadges } from "./SourceBadges";
 import { useShownPoint } from "./TimeLapse/use-shown-point";
@@ -25,6 +27,7 @@ export function FrameLabel({ className }: { className?: string }) {
   const freshness = useFreshness();
   const [now] = useState(Date.now);
   const { track, timelapse } = useShownPoint();
+  const facts = useLiveProvenance(timelapse ? "rain" : track, null);
   const frames = timelapse
     ? [{ product: t("frame.product.rain"), time: timelapse.timeUtc, voice: "rain" as const }]
     : [
@@ -33,7 +36,7 @@ export function FrameLabel({ className }: { className?: string }) {
       ].filter((f) => f !== null);
 
   return (
-    <div className={cn("space-y-1 text-small text-haze", className)}>
+    <div data-provenance-group="" className={cn("space-y-1 text-small text-haze", className)}>
       {frames.map((f) => {
         const product = voiceSpec(f.voice).source.product;
         return (
@@ -45,6 +48,7 @@ export function FrameLabel({ className }: { className?: string }) {
         );
       })}
       {frames.length === 2 && <FrameGapNote />}
+      <HowWeGotThis facts={facts} />
     </div>
   );
 }

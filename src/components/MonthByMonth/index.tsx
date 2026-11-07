@@ -17,6 +17,7 @@ import { ChoiceGroup } from "../ChoiceGroup";
 import { StatusBadge } from "../StatusBadge";
 import { PlacePicker } from "./PlacePicker";
 import { RecordNotes, SameRecordNote, sameRecordLine } from "./RecordNotes";
+import { MonthlyProvenance } from "./MonthlyProvenance";
 import { useHistoryData } from "./use-history-data";
 import { HISTORY_PLAYER, useHistoryPlayers } from "./use-history-players";
 
@@ -148,7 +149,7 @@ export function MonthByMonth({
         {!state.soundOn && <p className="text-small text-haze">{t("thenNow.soundOff")}</p>}
       </div>
 
-      <div className="surface-plate space-y-3 rounded-plate p-4 md:p-5">
+      <div data-provenance-group="" className="surface-plate space-y-3 rounded-plate p-4 md:p-5">
         {/* The picked month on screen (its engine caption is left out); the slider announces it to screen readers. */}
         <p aria-hidden="true" className="min-h-8 font-serif text-title text-moon tabular-nums">
           {players.monthIndex !== null ? monthText(players.monthIndex) : name(place)}
@@ -170,6 +171,7 @@ export function MonthByMonth({
           })}
         />
         <RecordNotes series={series} world={world && data.world ? { disclosure: t("data.text", { text: data.world.manifest.disclosure }) } : null} />
+        <MonthlyProvenance metric={metric} placeName={name(place)} world={world} series={series} grace={data.grace} />
       </div>
     </div>
   );

@@ -107,6 +107,7 @@ export function ChipFrame({ subscribe, details, reserved, bottomReserve = BOTTOM
       {chip !== null && (
         <div
           ref={observe}
+          data-provenance-group=""
           className="absolute top-0 left-0 z-10 max-w-[min(22rem,calc(100%-1.5rem))]"
           onPointerEnter={() => {
             details.show();

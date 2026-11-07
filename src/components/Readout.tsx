@@ -7,6 +7,8 @@ import { rainText, type Reading } from "@/lib/reading";
 import { useAppState, useT } from "./AppState/use-app-state";
 import { FrameLabel } from "./FrameLabel";
 import { useShownPoint } from "./TimeLapse/use-shown-point";
+import { HowWeGotThis } from "./HowWeGotThis";
+import { useLiveProvenance } from "@/hooks/use-live-provenance";
 
 const BENGALI_DIGIT = /[০-৯]/;
 
@@ -45,13 +47,14 @@ export function Readout({ className }: { className?: string }) {
   const { state } = useAppState();
   const t = useT();
   const { reading: r, cursor, track, timelapse } = useShownPoint();
+  const facts = useLiveProvenance(track, t("place.latlon", cursor));
   if (!r) return null;
 
   const main = hero(r, track, state.lang);
   const fallback = track === "rain" ? rainText(t, r.rain, r.rainLoaded) : t("reading.oceanNone");
 
   return (
-    <div data-slot="readout" className={cn("space-y-2", className)}>
+    <div data-slot="readout" data-provenance-group="" className={cn("space-y-2", className)}>
       {/* From 1024 px off the map: one line under it, or a column beside it when the screen is wide (Listen). */}
       <div aria-hidden="true" className="space-y-1.5 lg:flex lg:flex-wrap lg:items-baseline lg:gap-x-6 lg:space-y-0 lg:listen-wide:block lg:listen-wide:space-y-1.5">
         <p key={main?.figure ?? fallback} className="duration-150 animate-in fade-in slide-in-from-bottom-1">
@@ -68,6 +71,7 @@ export function Readout({ className }: { className?: string }) {
         <p className="font-mono text-body tracking-tight text-moon">{t("place.latlon", cursor)}</p>
         {timelapse && <p className="font-mono text-small text-shapla">{t("timelapse.frame", { index: timelapse.index + 1, total: timelapse.total })}</p>}
       </div>
+      <HowWeGotThis facts={facts} />
       {/* From 1024 px the frame times sit in the page head, above the map. */}
       <FrameLabel className="max-w-md border-t border-glass-edge pt-2 lg:hidden" />
     </div>

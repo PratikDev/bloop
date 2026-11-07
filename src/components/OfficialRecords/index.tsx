@@ -16,6 +16,7 @@ import { InfoSheet } from "../InfoSheet";
 import { StatusBadge } from "../StatusBadge";
 import { ProvenanceCard } from "./ProvenanceCard";
 import { RecordControls } from "./RecordControls";
+import { RecordProvenance } from "./RecordProvenance";
 import { RecordMap } from "./RecordMap";
 import { recordBrailleLabel } from "./braille-label";
 import { OfficialBrailleExplorer } from "./OfficialBrailleExplorer";
@@ -73,7 +74,7 @@ function Player({ record }: { record: string }) {
   const times = map?.layer.times ?? [];
   const timeText = map?.layer.time_labels?.[rec.step] ?? (times[rec.step] ? formatUtc(times[rec.step], state.lang) : "");
   return (
-    <div className="grid gap-6 lg:grid-cols-[minmax(0,1fr)_24rem]" onKeyDown={onKeyDown}>
+    <div data-provenance-group="" className="grid gap-6 lg:grid-cols-[minmax(0,1fr)_24rem]" onKeyDown={onKeyDown}>
       <div className="space-y-3">
         {map && rec.ready ? (
           <RecordMap grid={map} step={rec.step} needle={rec.needle} onMove={rec.moveNeedle}
@@ -92,6 +93,7 @@ function Player({ record }: { record: string }) {
             </li>
           ))}
         </ul>
+        <RecordProvenance manifest={rec.manifest} validation={rec.validation} option={rec.option} place={place} />
         <RecordControls rec={rec} timeText={timeText} readingText={`${place}: ${text}`} />
         <Button ref={brailleButton} variant="outline" className="h-11" disabled={!rec.ready} aria-expanded={brailleOpen}
           onClick={() => setBrailleOpen((o) => !o)} {...brailleLabel(t("braille.bl.braille"))}>
