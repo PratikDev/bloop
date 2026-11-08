@@ -27,7 +27,9 @@ export function OneToOneChart({ points, xLabel, yLabel, lineLabel, log = false }
   return (
     <div className="space-y-1">
       <ChartContainer config={config} className="aspect-square h-44 w-full max-w-56">
-        <ScatterChart margin={{ top: 6, right: 8, bottom: 18, left: 0 }}>
+        {/* No keyboard layer: the figure names the plot (alt text) and its numbers are a real table beside it; Recharts'
+            own focusable surface sat inside the figure's aria-hidden picture (axe: aria-hidden-focus). */}
+        <ScatterChart accessibilityLayer={false} margin={{ top: 6, right: 8, bottom: 18, left: 0 }}>
           <CartesianGrid stroke="var(--line)" strokeOpacity={0.4} />
           <XAxis type="number" dataKey="x" domain={domain} scale={scale} {...AXIS} tickFormatter={axis.value} label={{ value: xLabel, position: "insideBottom", offset: -12, fill: "var(--haze)", fontSize: 12 }} />
           <YAxis type="number" dataKey="y" domain={domain} scale={scale} {...AXIS} tickFormatter={axis.value} width={36} />

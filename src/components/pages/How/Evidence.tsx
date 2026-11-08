@@ -30,7 +30,8 @@ export function Evidence({ alt, table, children }: { alt: string; table: Evidenc
           {t(open ? "how.hideTable" : "how.viewTable")}
         </Button>
       )}
-      <div id={id} hidden={!open} className="max-h-56 overflow-auto rounded-lg border border-tide">
+      {/* It scrolls, so the keyboard can reach it (axe: scrollable-region-focusable); named by the table's caption. */}
+      <div id={id} hidden={!open} tabIndex={0} role="region" aria-label={table.caption} className="max-h-56 overflow-auto rounded-lg border border-tide">
         <table className="w-full text-left text-small tabular-nums" data-testid="evidence-table">
           <caption className="sr-only">{table.caption}</caption>
           <thead className="sticky top-0 bg-popover text-haze">

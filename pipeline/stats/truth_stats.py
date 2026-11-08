@@ -3,7 +3,7 @@ pipeline already ships. VALIDATION_TABLE.md has the median errors but no rho, so
 Writes public/data/truth/stats.json. Run: cd pipeline && python -m stats.truth_stats"""
 import json
 from scipy import stats as st
-from common import PUBLIC, now_utc, write_json
+from common import PUBLIC, inherited_credit, now_utc, write_json
 
 OUT = PUBLIC / "truth" / "stats.json"
 
@@ -24,6 +24,7 @@ def main():
         "title": "How we know: rank correlation of each check's pairs",
         "disclosure": "Spearman's rho between the value read from the frame (or the ground report) and the comparison source, "
                       "computed by the Bloop pipeline from the shipped pair files.",
+        "credit": inherited_credit(sst, rain, globe),
         "sst": {"source": "truth/sst_pairs.json", "frame_time_utc": sst["frame_time_utc"],
                 **rho([p["frame"] for p in sst["pairs"]], [p["file"] for p in sst["pairs"]])},
         "rain": {"source": "truth/rain_pairs.json", "frame_time_utc": rain["frame_time_utc"], "pairs_used": "both rain (kind = rain)",

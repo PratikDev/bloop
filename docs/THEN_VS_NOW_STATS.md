@@ -70,7 +70,7 @@ python -m unittest stats.tests.test_methods tests.test_build_demo
 ### Every number
 
 <!-- stats:begin -->
-Generated 2026-11-07T06:54:55Z by `pipeline/stats/then_vs_now_stats.py` (10000 bootstrap draws, seed 20261102). Means are in the record's unit: °C anomaly (heat), mm/day (rain, as the app shows), mm (totals), cm (water).
+Generated 2026-11-08T00:19:32Z by `pipeline/stats/then_vs_now_stats.py` (10000 bootstrap draws, seed 20261102). Means are in the record's unit: °C anomaly (heat), mm/day (rain, as the app shows), mm (totals), cm (water).
 
 ### Decade vs decade, what the app shows
 

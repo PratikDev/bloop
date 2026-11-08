@@ -32,6 +32,10 @@ const SWEEP: SweepPage[] = [
   { url: "/team" },
 ];
 const OUT = join(process.cwd(), "data_raw", "_tmp", "first-click");
+/** Requests cut short by something other than the app: a click that navigates away aborts the page's pending loads
+ *  (Chromium net::ERR_ABORTED; Firefox NS_BINDING_ABORTED, status 2152398850), and Windows aborts requests, even to
+ *  localhost, when the machine's network changes (Wi-Fi, VPN). */
+const NOT_ERRORS = ["net::ERR_ABORTED", "status=2152398850", "net::ERR_NETWORK_CHANGED"];
 // Each test opens its own app: they can run side by side (--workers).
 test.describe.configure({ mode: "parallel" });
 const turntableApp = (page: Page) => page.getByRole("application", { name: /Turntable Earth/u });
@@ -81,9 +85,8 @@ for (const p of SWEEP) {
     const errors: string[] = [];
     let last = "(loading)";
     page.on("pageerror", (e) => errors.push(`after ${last}: ${e.message.slice(0, 300)}`));
-    // Not counted: Windows aborting requests when the machine's network changes (Wi-Fi, VPN), even to localhost.
     page.on("console", (m) => {
-      if (m.type() === "error" && !m.text().includes("net::ERR_NETWORK_CHANGED")) errors.push(`after ${last}: console: ${m.text().slice(0, 300)}`);
+      if (m.type() === "error" && !NOT_ERRORS.some((n) => m.text().includes(n))) errors.push(`after ${last}: console: ${m.text().slice(0, 300)}`);
     });
     if (p.firstVisit) {
       await tapAudio(page);

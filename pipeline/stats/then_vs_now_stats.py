@@ -7,7 +7,7 @@ Run: cd pipeline && python -m stats.then_vs_now_stats"""
 import calendar
 import json
 from collections import defaultdict
-from common import PUBLIC, now_utc, write_json
+from common import PUBLIC, inherited_credit, now_utc, write_json
 from stats import doc
 from stats.methods import ALPHA, DRAWS, SEED, clear_change, compare, mann_kendall
 
@@ -137,6 +137,7 @@ def main():
         "title": "Then vs Now: uncertainty and significance",
         "disclosure": "Statistics computed by the Bloop pipeline from the yearly values the app plays (GISTEMP, GPCP, GPCC, GRACE); "
                       "method and every number in docs/THEN_VS_NOW_STATS.md.",
+        "credit": inherited_credit(cities, gis, gp, gc, grace),
         "method": {"alpha": ALPHA, "ci": "95% bootstrap percentile interval: years resampled with replacement within each window",
                    "bootstrap_draws": DRAWS, "seed": SEED, "tests": "Welch's t-test and Mann-Whitney U, two-sided",
                    "trend": "Mann-Kendall (Hamed-Rao 1998 variance correction when ranks show significant autocorrelation); "

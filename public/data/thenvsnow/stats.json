@@ -1,6 +1,7 @@
 {
   "title": "Then vs Now: uncertainty and significance",
   "disclosure": "Statistics computed by the Bloop pipeline from the yearly values the app plays (GISTEMP, GPCP, GPCC, GRACE); method and every number in docs/THEN_VS_NOW_STATS.md.",
+  "credit": "NASA GISTEMP v4, Dhaka cell, April-May anomaly vs 1951-1980; GPCP v2.3, Dhaka cell, June-September; GPCC gauges v2020, Dhaka cell, June-September; NASA GISTEMP v4, Chattogram cell, April-May anomaly vs 1951-1980; GPCP v2.3, Chattogram cell, June-September; GPCC gauges v2020, Chattogram cell, June-September; NASA GISTEMP v4, Rajshahi cell, April-May anomaly vs 1951-1980; GPCP v2.3, Rajshahi cell, June-September; GPCC gauges v2020, Rajshahi cell, June-September; NASA GISTEMP v4, Sylhet cell, April-May anomaly vs 1951-1980; GPCP v2.3, Sylhet cell, June-September; GPCC gauges v2020, Sylhet cell, June-September; NASA GISTEMP v4 (250 km smoothing), anomalies vs 1951-1980; GISTEMP Team, NASA Goddard Institute for Space Studies; GPCP v2.3 monthly (satellite + gauge), 2.5 deg; GPCP v2.3 (Adler et al.); data provided by NOAA PSL; GPCC Full Data v2020 (rain gauges), 2.5 deg, to 2019; GPCC, Deutscher Wetterdienst; data provided by NOAA PSL; GRACE/GRACE-FO JPL mascons RL06.3Mv04 CRI (lwe_thickness, anomalies vs 2004-2009); GRACE/GRACE-FO JPL RL06.3Mv04 CRI mascons, NASA/JPL PO.DAAC",
   "method": {
     "alpha": 0.05,
     "ci": "95% bootstrap percentile interval: years resampled with replacement within each window",
@@ -1396,5 +1397,5 @@
       "uncertainty_note": "1-sigma uncertainty: not for each 0.5 degree grid cell, but for each 3-degree mascon estimate"
     }
   },
-  "generated_utc": "2026-11-07T06:54:55Z"
+  "generated_utc": "2026-11-08T00:19:32Z"
 }
