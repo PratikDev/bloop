@@ -224,6 +224,20 @@ export const DRAFT_KEYS: readonly MessageKey[] = [
   "how.globe.alt",
   "how.openGlobe",
   "badge.skipped",
+  // accessibility core, step 1 (en/access.ts)
+  "access.speech",
+  "access.speech.screenReader",
+  "access.speech.voice",
+  "access.speech.off",
+  "access.speech.note",
+  "access.verbosity",
+  "access.verbosity.brief",
+  "access.verbosity.standard",
+  "access.verbosity.detailed",
+  "access.channels",
+  "access.channels.both",
+  "access.channels.text",
+  "access.channels.sound",
 ];
 
 /** Data-file sentences (bn/data.ts templates) whose Bangla is a draft: the English template, numbers as "#". */

@@ -1,7 +1,7 @@
 "use client";
 
 import { useEffect, useMemo, useReducer, type ReactNode } from "react";
-import { readPrefs, writePrefs } from "./prefs";
+import { readPrefs, pickPrefs, writePrefs } from "./prefs";
 import { initialState, reducer, type Mode } from "./reducer";
 import { AppStateContext } from "./use-app-state";
 
@@ -29,11 +29,8 @@ export function AppStateProvider({ initialMode, children }: { initialMode: Mode;
   }, []);
 
   // Settings remembered on this device.
-  const { lang, describe, captions, builtInVoice, started, soundChoice } = state;
-  useEffect(
-    () => writePrefs({ lang, describe, captions, builtInVoice, started, soundChoice }),
-    [lang, describe, captions, builtInVoice, started, soundChoice],
-  );
+  const saved = JSON.stringify(pickPrefs(state));
+  useEffect(() => writePrefs(JSON.parse(saved) as ReturnType<typeof pickPrefs>), [saved]);
 
   // Language and reduced motion live on <html> so CSS and screen readers see them.
   useEffect(() => {

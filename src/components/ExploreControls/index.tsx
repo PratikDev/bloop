@@ -5,6 +5,7 @@ import { brailleRole } from "@/a11y/aria";
 import { readingText } from "@/lib/reading";
 import { trackName, trackStatus } from "@/lib/track-status";
 import { useAnnounce } from "../Announcer/use-announcer";
+import { stepText } from "../AppState/access";
 import { useAppState, useT } from "../AppState/use-app-state";
 import { useCommands } from "../Commands/use-commands";
 import { useLiveData } from "../LiveData/use-live-data";
@@ -57,10 +58,12 @@ export function ExploreControls({ children }: { children: ReactNode }) {
     // with it: "Now hearing: Both. Frames rain 2d newer. 29.8 °C; …" (mentor item 1).
     const changed = lastTrack.current !== track;
     lastTrack.current = track;
-    if (state.introDone && settled && !leftStory) announce(changed ? `${trackStatus(t, track, fields)} ${settled}` : settled);
+    // Sound-only steps (accessibility core) leave the status region to the sound; a track change still says so.
+    const text = stepText(state) ? settled : null;
+    if (state.introDone && settled && !leftStory && (text || changed)) announce(changed ? `${trackStatus(t, track, fields)} ${text ?? ""}`.trim() : settled);
     // t and fields follow the language and the data, which change the settled text anyway.
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [settled, state.introDone, story, announce]);
+  }, [settled, state.introDone, state.channels, story, announce]);
 
   return (
     <div

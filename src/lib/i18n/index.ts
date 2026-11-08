@@ -14,6 +14,7 @@ import { creditsEn } from "./en/credits";
 import { provenanceEn } from "./en/provenance";
 import { teamEn } from "./en/team";
 import { listenTestEn } from "./en/listen-test";
+import { accessEn } from "./en/access";
 import { dataEn } from "./en/data";
 import { helpEn } from "./en/help";
 import { officialEn } from "./en/official";
@@ -48,6 +49,7 @@ export const en = {
   ...provenanceEn,
   ...teamEn,
   ...listenTestEn,
+  ...accessEn,
 };
 
 export type Messages = typeof en;

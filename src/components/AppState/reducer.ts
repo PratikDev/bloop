@@ -1,6 +1,7 @@
 import { TRACK_VOICES, type LiveVoiceId, type TrackMode } from "@/lib/audio-adapter/types";
 import { clampLat, START_CURSOR, wrapLon, type LatLon } from "@/lib/data";
 import type { Lang } from "@/lib/i18n";
+import { ACCESS_DEFAULTS, type AccessChoices, type AccessKey } from "./access";
 
 /** What the current page is doing; set from the URL only (src/router/modes.ts). */
 export type Mode = "home" | "explore" | "story" | "thenNow" | "how" | "turntable" | "official" | "team";
@@ -8,7 +9,7 @@ export type Mode = "home" | "explore" | "story" | "thenNow" | "how" | "turntable
 export type PanelTab = "truth" | "mapping" | "provenance" | "history";
 
 /** Settings remembered on this device (src/components/AppState/prefs.ts). */
-export type PrefKey = "lang" | "describe" | "captions" | "builtInVoice" | "started" | "soundChoice";
+export type PrefKey = "lang" | "describe" | "captions" | "builtInVoice" | "started" | "soundChoice" | AccessKey;
 
 /** What the visitor chose at Start (mentor item 2): remembered, so a return visit knows; null before any choice. */
 export type SoundChoice = "sound" | "silent";
@@ -19,7 +20,7 @@ export interface VoiceMix {
   muted: boolean;
 }
 
-export interface AppState {
+export interface AppState extends AccessChoices {
   started: boolean; // past the Start overlay (with or without sound)
   soundChoice: SoundChoice | null;
   soundOn: boolean; // false after "Explore without sound", until the user turns it on
@@ -62,7 +63,8 @@ export type AppAction =
   | { type: "setPanel"; panel: PanelTab; open?: boolean }
   | { type: "setPanelOpen"; open: boolean }
   | { type: "setHelpOpen"; open: boolean }
-  | { type: "setBrailleOpen"; open: boolean };
+  | { type: "setBrailleOpen"; open: boolean }
+  | { type: "setAccess"; patch: Partial<AccessChoices> };
 
 const FULL_MIX: VoiceMix = { volume: 1, muted: false };
 
@@ -87,6 +89,7 @@ export const initialState: AppState = {
   panelOpen: false,
   helpOpen: false,
   brailleOpen: false,
+  ...ACCESS_DEFAULTS,
 };
 
 /** Pages where the live sound of the cursor plays: the map, How we know beside it (Hear the legend over it, as before),
@@ -156,5 +159,7 @@ export function reducer(state: AppState, action: AppAction): AppState {
       return { ...state, helpOpen: action.open };
     case "setBrailleOpen":
       return { ...state, brailleOpen: action.open };
+    case "setAccess":
+      return { ...state, ...action.patch };
   }
 }

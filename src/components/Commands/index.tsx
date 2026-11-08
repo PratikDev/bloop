@@ -7,6 +7,7 @@ import { sleep } from "@/lib/abortable";
 import { audio } from "@/lib/audio-adapter";
 import { audio as jukebox } from "@/lib/audio-jukebox";
 import { ensureAudioAll, stopAllEngines } from "@/lib/audio-engines";
+import { speechOut } from "../AppState/access";
 import { bandMeans, loadSstPairs, nearestPair, SWEEP_CENTER, sweepPath, type LatLon } from "@/lib/data";
 import { roundKm } from "@/lib/geo/spherical";
 import { gapTexts } from "@/lib/frame-gap";
@@ -59,12 +60,13 @@ export function CommandsProvider({ children }: { children: ReactNode }) {
 
     const say = async (line: Line, source?: WhisperSource | null) => {
       const id = ++sayCount.current;
-      const voiced = state.builtInVoice && state.soundOn;
+      const out = speechOut(state);
+      const voiced = out === "voice" && state.soundOn;
       const shown = line(t, state.lang);
-      // Two voices never talk at once: built-in speech OR the live region.
-      // With sound off, nothing is spoken aloud.
-      if (!voiced) announce(sayable(source ? t("whisper.announce", { text: shown, source: source.caption }) : shown, t));
-      else postCaption("caption.speech", { text: shown });
+      // Two voices never talk at once: built-in speech OR the status region (OR, with speech off, neither: the caption
+      // still shows it). With sound off, nothing is spoken aloud.
+      if (voiced || out === "off") postCaption("caption.speech", { text: shown });
+      else announce(sayable(source ? t("whisper.announce", { text: shown, source: source.caption }) : shown, t));
       // Wait at least a short reading time: speech that can't start resolves at once.
       await Promise.all([voiced ? speakLine(line, id) : null, sleep(shown.length * MIN_MS_PER_CHAR)]);
       if (source && state.soundOn && id === sayCount.current) audio.playEarcon("whisper", { params: { source: source.caption } });

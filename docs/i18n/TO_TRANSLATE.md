@@ -499,7 +499,7 @@ The Mapping panel builds each rule sentence from its parts (`src/lib/i18n/bn/rul
 | `clarity` | parameter: reverbSec; unit: hours since a 1 km infrared look | How recently measured 0 to 48 hours since a 1 km infrared look → echo length 0.1 to 2.4 s (linear). |
 | `unison` | a rule shared with another voice (sameAs) | Proof in unison: two tones in one ear, both by the Ocean temperature rule (Ocean temperature −5 to 35 °C → pitch 220 to 880 Hz (exponential: equal steps in value sound like equal musical steps).) Beats per second = the difference between the two pitches in Hz. |
 
-## Draft Bangla, needs review (209)
+## Draft Bangla, needs review (222)
 
 Drafted for the mentor fixes (`docs/MENTOR_FIXES.md`); **draft, needs review** by a Bangla speaker. Listed in `src/lib/i18n/bn/drafts.ts`: remove an entry there once it is checked.
 
@@ -712,6 +712,19 @@ Drafted for the mentor fixes (`docs/MENTOR_FIXES.md`); **draft, needs review** b
 | `how.globe.alt` | ``Scatter plot of ${p.n} place-days: cloud cover a ground observer reported against the satellite's. The dots spread widely around the 1:1 line (\u03C1 = ${p.rho}).`` | ``${p.n}\u099F\u09BF \u09B8\u09CD\u09A5\u09BE\u09A8-\u09A6\u09BF\u09A8\u09C7\u09B0 \u09AC\u09BF\u0995\u09CD\u09B7\u09C7\u09AA-\u099A\u09BF\u09A4\u09CD\u09B0: \u09AE\u09BE\u099F\u09BF\u09B0 \u09AA\u09B0\u09CD\u09AF\u09AC\u09C7\u0995\u09CD\u09B7\u0995\u09C7\u09B0 \u099C\u09BE\u09A8\u09BE\u09A8\u09CB \u09AE\u09C7\u0998 \u09AC\u09A8\u09BE\u09AE \u09B8\u09CD\u09AF\u09BE\u099F\u09C7\u09B2\u09BE\u0987\u099F\u09C7\u09B0 \u09AE\u09BE\u09AA\u09BE \u09AE\u09C7\u0998\u0964 \u09AC\u09BF\u09A8\u09CD\u09A6\u09C1\u0997\u09C1\u09B2\u09CB \u09E7:\u09E7 \u09B0\u09C7\u0996\u09BE\u09B0 \u099A\u09BE\u09B0\u09AA\u09BE\u09B6\u09C7 \u099B\u09A1\u09BC\u09BE\u09A8\u09CB (\u03C1 = ${p.rho})\u0964`` |
 | `how.openGlobe` | Read the full comparison | পুরো তুলনা পড়ুন |
 | `badge.skipped` | Skipped in this version | এই সংস্করণে বাদ |
+| `access.speech` | Speech | কথা |
+| `access.speech.screenReader` | My screen reader | আমার স্ক্রিন রিডার |
+| `access.speech.voice` | Bloop's voice | ব্লুপের কণ্ঠ |
+| `access.speech.off` | Off | বন্ধ |
+| `access.speech.note` | My screen reader: Bloop sends its words to your screen reader. Bloop's voice: Bloop speaks them itself. Never both. | আমার স্ক্রিন রিডার: ব্লুপ তার কথা আপনার স্ক্রিন রিডারে পাঠায়। ব্লুপের কণ্ঠ: ব্লুপ নিজেই বলে। কখনো দুটো একসাথে নয়। |
+| `access.verbosity` | Detail | বিস্তারিত |
+| `access.verbosity.brief` | Brief | সংক্ষেপে |
+| `access.verbosity.standard` | Standard | সাধারণ |
+| `access.verbosity.detailed` | Detailed | বিস্তারিত |
+| `access.channels` | Each step | প্রতিটি ধাপে |
+| `access.channels.both` | Text and sound | লেখা ও শব্দ |
+| `access.channels.text` | Text only | শুধু লেখা |
+| `access.channels.sound` | Sound only | শুধু শব্দ |
 | data template | GPCC stops at # because the gauge version we use (GPCC Full Data Monthly V#) ends in December #, so both rain records compare #–# with #–#. | GPCC {0} সালে থামে, কারণ আমাদের ব্যবহৃত বৃষ্টিমাপক সংস্করণ (GPCC Full Data Monthly V{1}) ডিসেম্বর {2}-এ শেষ; তাই দুটি বৃষ্টির রেকর্ডই {3}–{4}-কে {5}–{6}-এর সাথে তুলনা করে। |
 | data template | GPCP only, newer decade; GPCC data ends in # | শুধু GPCP, নতুন দশক; GPCC ডেটা {0} সালে শেষ |
 
