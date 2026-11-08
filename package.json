@@ -4,7 +4,7 @@
   "private": true,
   "scripts": {
     "dev": "next dev",
-    "build": "bun scripts/check-team.ts && next build",
+    "build": "bun scripts/check-team.ts && bun test src/lib/describe && next build",
     "start": "python pipeline/health/static_server.py out 3000",
     "shadd": "bunx --bun shadcn@latest add",
     "lint": "eslint",

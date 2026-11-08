@@ -7,7 +7,7 @@ import { ACCESS_DEFAULTS, type AccessChoices, type AccessKey } from "./access";
 /** What the current page is doing; set from the URL only (src/router/modes.ts). */
 export type Mode = "home" | "explore" | "story" | "thenNow" | "how" | "turntable" | "official" | "team";
 /** The Listen page's Inspector tabs; the Turntable's "How we know" drawer adds History (Month by month). */
-export type PanelTab = "truth" | "mapping" | "provenance" | "history";
+export type PanelTab = "describe" | "truth" | "mapping" | "provenance" | "history";
 
 /** Settings remembered on this device (src/components/AppState/prefs.ts). */
 export type PrefKey = "lang" | "describe" | "captions" | "builtInVoice" | "hide3d" | "started" | "soundChoice" | AccessKey;

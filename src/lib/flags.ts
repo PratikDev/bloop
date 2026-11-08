@@ -18,6 +18,10 @@ export const FLAGS = {
   // Ready on 8 Nov 2026: e2e/a11y/speech-choices.e2e.ts 10/10 and the whole suite 250/250 with it on.
   speechChoices: flag(process.env.NEXT_PUBLIC_A11Y_SPEECH, true),
   /** Step 2: the map widget's keys (+/−, J then 1–9, ., PageUp/PageDown, D, Shift+D), hide 3D, help while focused. */
+  /** Step 3: layered descriptions (EN + BN templates, pattern rules, digit provenance); D says one; a Description tab. */
+  // Ready on 8 Nov 2026: descriptions.e2e.ts 20/20, the a11y + features + health checks 292/292 with it on (Chromium +
+  // Firefox); the digit-provenance test runs in every build.
+  describe: flag(process.env.NEXT_PUBLIC_A11Y_DESCRIBE, true),
   // Ready on 8 Nov 2026: e2e/a11y/map-keys.e2e.ts 26/26 and the whole suite 406/406 with it on (Chromium + Firefox).
   mapKeys: flag(process.env.NEXT_PUBLIC_A11Y_MAP_KEYS, true),
 } as const;

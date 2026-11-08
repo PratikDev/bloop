@@ -15,18 +15,23 @@ import { useAppState, useT } from "../../AppState/use-app-state";
 import { MappingPanel } from "../../panels/MappingPanel";
 import { ProvenancePanel } from "../../panels/ProvenancePanel";
 import { TruthPanel } from "../../panels/TruthPanel";
+import { DescriptionPanel } from "../../Describe";
+import { FLAGS } from "@/lib/flags";
 
 /** The Inspector's tabs (the Turntable's drawer adds History; the Inspector shows Provenance in its place). */
 type InspectorTab = Exclude<PanelTab, "history">;
-const inspectorTab = (panel: PanelTab): InspectorTab => (panel === "history" ? "provenance" : panel);
+const inspectorTab = (panel: PanelTab): InspectorTab => (panel === "history" || (panel === "describe" && !FLAGS.describe) ? "provenance" : panel);
 
-const TABS: { tab: InspectorTab; label: "panel.provenance" | "panel.mapping" | "panel.truth" }[] = [
+const TABS: { tab: InspectorTab; label: "panel.describe" | "panel.provenance" | "panel.mapping" | "panel.truth" }[] = [
+  // Accessibility core, step 3: the needle's description, as text.
+  ...(FLAGS.describe ? [{ tab: "describe" as const, label: "panel.describe" as const }] : []),
   { tab: "provenance", label: "panel.provenance" },
   { tab: "mapping", label: "panel.mapping" },
   { tab: "truth", label: "panel.truth" },
 ];
 
 const PANELS: Record<InspectorTab, ReactNode> = {
+  describe: <DescriptionPanel />,
   provenance: <ProvenancePanel />,
   mapping: <MappingPanel />,
   truth: <TruthPanel />,

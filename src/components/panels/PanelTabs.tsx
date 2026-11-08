@@ -9,8 +9,12 @@ import { DEFAULT_PLACE, MonthByMonth } from "../MonthByMonth";
 import { MappingPanel } from "./MappingPanel";
 import { ProvenancePanel } from "./ProvenancePanel";
 import { TruthPanel } from "./TruthPanel";
+import { DescriptionPanel } from "../Describe";
+import { FLAGS } from "@/lib/flags";
 
-const TABS: { tab: PanelTab; label: "panel.truth" | "panel.mapping" | "panel.provenance" | "panel.history" }[] = [
+const TABS: { tab: PanelTab; label: "panel.describe" | "panel.truth" | "panel.mapping" | "panel.provenance" | "panel.history" }[] = [
+  // Accessibility core, step 3: the needle's description, as text (the needle drives the app's cursor).
+  ...(FLAGS.describe ? [{ tab: "describe" as const, label: "panel.describe" as const }] : []),
   { tab: "truth", label: "panel.truth" },
   { tab: "mapping", label: "panel.mapping" },
   { tab: "provenance", label: "panel.provenance" },
@@ -29,7 +33,7 @@ export function PanelTabs() {
   const { state, dispatch } = useAppState();
   const t = useT();
   return (
-    <Tabs value={state.panel} onValueChange={(panel: PanelTab) => dispatch({ type: "setPanel", panel })} className="gap-4">
+    <Tabs value={state.panel === "describe" && !FLAGS.describe ? "provenance" : state.panel} onValueChange={(panel: PanelTab) => dispatch({ type: "setPanel", panel })} className="gap-4">
       <TabsList aria-label={t("panel.label")} className="w-full bg-night group-data-horizontal/tabs:h-11">
         {TABS.map(({ tab, label }) => (
           <TabsTrigger key={tab} value={tab} className="h-full px-2 text-body data-active:bg-tide">
@@ -37,6 +41,11 @@ export function PanelTabs() {
           </TabsTrigger>
         ))}
       </TabsList>
+      {FLAGS.describe && (
+        <TabsContent value="describe">
+          <DescriptionPanel />
+        </TabsContent>
+      )}
       <TabsContent value="truth">
         <TruthPanel />
       </TabsContent>

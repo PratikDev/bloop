@@ -36,7 +36,7 @@ export const accessEn = {
   "region.north": "north",
   "region.northEast": "north-east",
 
-  "frames.held": (p: { index: number; total: number; timeUtc: string }) => `Rain frame ${p.index} of ${p.total}, ${formatUtc(p.timeUtc, "en")}.`,
+  "frames.held": (p: { index: number; total: number; timeUtc: string }) => `Rain frame ${p.index} of ${p.total}, ${formatUtc(p.timeUtc, "en")} UTC.`,
   "frames.live": "Latest frames.",
   "frames.newest": "Already the latest frames.",
   "frames.oldest": "This is the oldest rain frame.",

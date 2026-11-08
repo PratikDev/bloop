@@ -1,6 +1,7 @@
 // The map widget's keyboard navigation (accessibility core, step 2; docs/accessibility/CORE_PLAN.md): cell size (+/−),
 // the iSonic-style 3×3 region jump (J, then 1–9), and the trail "." walks back along. Pure, so it is unit-tested.
 import { clampLat, wrapLon, type LatLon } from "@/lib/data";
+import type { MessageKey } from "@/lib/i18n";
 
 /** Step sizes the arrow keys move by, in degrees (+ and − walk this list). 1° is the app's original step. */
 export const CELL_SIZES = [0.25, 0.5, 1, 2, 5] as const;
@@ -42,6 +43,19 @@ export const REGION_NAMES = [
   "northEast",
 ] as const;
 export type RegionName = (typeof REGION_NAMES)[number];
+
+/** Each region's name as said ("north-west"), for the map keys and the descriptions. */
+export const REGION_LABEL = {
+  southWest: "region.southWest",
+  south: "region.south",
+  southEast: "region.southEast",
+  west: "region.west",
+  centre: "region.centre",
+  east: "region.east",
+  northWest: "region.northWest",
+  north: "region.north",
+  northEast: "region.northEast",
+} as const satisfies Record<RegionName, MessageKey>;
 
 /** The region a number 1–9 picks inside `view`, or null for any other key. */
 export function regionOf(view: Bounds, key: string): { name: RegionName; bounds: Bounds } | null {

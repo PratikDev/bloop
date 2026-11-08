@@ -7,7 +7,7 @@ export { bandMeans, openingPath, pointAt, sweepPath } from "./summaries";
 export { valueAt, type LiveFields } from "./value-at";
 export { loadCities, loadDemo, loadEnsemble, loadFirms, loadGistemp, loadGlobeDuet, loadGpcp, loadGrace, loadNdvi, loadThenNowStats, NDVI_POINTS } from "./context";
 export { DataShapeError } from "./validate";
-export { decodeSequenceCode, loadSequence, loadSequenceIndex, spanHours, valueInFrame, type Sequence, type SequenceFrame } from "./sequence";
+export { decodeSequenceCode, loadSequence, loadSequenceFrame, loadSequenceIndex, rainChangeAt, spanHours, valueInFrame, type Sequence, type SequenceFrame } from "./sequence";
 export { followStorm, windowStart } from "./storm";
 export { layerSeries, loadGlobalLayer, loadGlobalManifest, loadGlobalPlaces, type GlobalLayer } from "./global";
 export { ageDaysAt, isModel, livenessAt, loadFreshness, type Liveness } from "./freshness";

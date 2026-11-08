@@ -15,6 +15,7 @@ import { provenanceEn } from "./en/provenance";
 import { teamEn } from "./en/team";
 import { listenTestEn } from "./en/listen-test";
 import { accessEn } from "./en/access";
+import { describeEn } from "./en/describe";
 import { dataEn } from "./en/data";
 import { helpEn } from "./en/help";
 import { officialEn } from "./en/official";
@@ -50,6 +51,7 @@ export const en = {
   ...teamEn,
   ...listenTestEn,
   ...accessEn,
+  ...describeEn,
 };
 
 export type Messages = typeof en;

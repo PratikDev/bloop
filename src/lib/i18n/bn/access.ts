@@ -38,7 +38,7 @@ export const accessBn: Partial<Messages> = {
   "region.north": "উত্তর",
   "region.northEast": "উত্তর-পূর্ব",
 
-  "frames.held": (p: { index: number; total: number; timeUtc: string }) => `বৃষ্টির ফ্রেম ${int(p.index)} / ${int(p.total)}, ${formatUtc(p.timeUtc, "bn")}।`,
+  "frames.held": (p: { index: number; total: number; timeUtc: string }) => `বৃষ্টির ফ্রেম ${int(p.index)} / ${int(p.total)}, ${formatUtc(p.timeUtc, "bn")} UTC।`,
   "frames.live": "সর্বশেষ ফ্রেম।",
   "frames.newest": "এটিই সর্বশেষ ফ্রেম।",
   "frames.oldest": "এটিই বৃষ্টির সবচেয়ে পুরোনো ফ্রেম।",

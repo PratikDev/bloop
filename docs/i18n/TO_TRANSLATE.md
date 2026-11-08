@@ -499,7 +499,7 @@ The Mapping panel builds each rule sentence from its parts (`src/lib/i18n/bn/rul
 | `clarity` | parameter: reverbSec; unit: hours since a 1 km infrared look | How recently measured 0 to 48 hours since a 1 km infrared look → echo length 0.1 to 2.4 s (linear). |
 | `unison` | a rule shared with another voice (sameAs) | Proof in unison: two tones in one ear, both by the Ocean temperature rule (Ocean temperature −5 to 35 °C → pitch 220 to 880 Hz (exponential: equal steps in value sound like equal musical steps).) Beats per second = the difference between the two pitches in Hz. |
 
-## Draft Bangla, needs review (252)
+## Draft Bangla, needs review (284)
 
 Drafted for the mentor fixes (`docs/MENTOR_FIXES.md`); **draft, needs review** by a Bangla speaker. Listed in `src/lib/i18n/bn/drafts.ts`: remove an entry there once it is checked.
 
@@ -742,7 +742,7 @@ Drafted for the mentor fixes (`docs/MENTOR_FIXES.md`); **draft, needs review** b
 | `region.northWest` | north-west | উত্তর-পশ্চিম |
 | `region.north` | north | উত্তর |
 | `region.northEast` | north-east | উত্তর-পূর্ব |
-| `frames.held` | ``Rain frame ${p.index} of ${p.total}, ${formatUtc(p.timeUtc, "en")}.`` | ``\u09AC\u09C3\u09B7\u09CD\u099F\u09BF\u09B0 \u09AB\u09CD\u09B0\u09C7\u09AE ${int(p.index)} / ${int(p.total)}, ${formatUtc(p.timeUtc, "bn")}\u0964`` |
+| `frames.held` | ``Rain frame ${p.index} of ${p.total}, ${formatUtc(p.timeUtc, "en")} UTC.`` | ``\u09AC\u09C3\u09B7\u09CD\u099F\u09BF\u09B0 \u09AB\u09CD\u09B0\u09C7\u09AE ${int(p.index)} / ${int(p.total)}, ${formatUtc(p.timeUtc, "bn")} UTC\u0964`` |
 | `frames.live` | Latest frames. | সর্বশেষ ফ্রেম। |
 | `frames.newest` | Already the latest frames. | এটিই সর্বশেষ ফ্রেম। |
 | `frames.oldest` | This is the oldest rain frame. | এটিই বৃষ্টির সবচেয়ে পুরোনো ফ্রেম। |
@@ -755,6 +755,38 @@ Drafted for the mentor fixes (`docs/MENTOR_FIXES.md`); **draft, needs review** b
 | `key.d.here.action` | Describe here, once | এখানকার বর্ণনা, একবার |
 | `key.shiftD.action` | Describe mode on or off | বর্ণনা মোড চালু বা বন্ধ |
 | `help.browseNote` | With NVDA or JAWS these keys reach the map in focus mode, which starts by itself when the map has focus. Numpad plus and minus belong to JAWS: use the + and − keys on the main keyboard. | NVDA বা JAWS-এ এই কী-গুলো ফোকাস মোডে মানচিত্রে পৌঁছায়; মানচিত্রে ফোকাস এলে ফোকাস মোড নিজেই চালু হয়। নামপ্যাডের প্লাস ও মাইনাস JAWS-এর: মূল কীবোর্ডের + ও − ব্যবহার করুন। |
+| `describe.lat` | ``${formatDegrees(p.lat, "en")} degrees ${p.lat >= 0 ? "north" : "south"}`` | ``${formatDegrees(p.lat, "bn")} \u09A1\u09BF\u0997\u09CD\u09B0\u09BF ${p.lat >= 0 ? "\u0989\u09A4\u09CD\u09A4\u09B0" : "\u09A6\u0995\u09CD\u09B7\u09BF\u09A3"}`` |
+| `describe.ocean.what` | ``Ocean surface temperature, ${p.time} UTC.`` | ``\u09B8\u09AE\u09C1\u09A6\u09CD\u09B0\u09AA\u09C3\u09B7\u09CD\u09A0\u09C7\u09B0 \u09A4\u09BE\u09AA\u09AE\u09BE\u09A4\u09CD\u09B0\u09BE, ${p.time} UTC\u0964`` |
+| `describe.ocean.here` | ``Here, ${p.where}: ${p.value} degrees Celsius.`` | ``\u098F\u0996\u09BE\u09A8\u09C7, ${p.where}: ${p.value} \u09A1\u09BF\u0997\u09CD\u09B0\u09BF \u09B8\u09C7\u09B2\u09B8\u09BF\u09AF\u09BC\u09BE\u09B8\u0964`` |
+| `describe.ocean.hereNone` | ``Here, ${p.where}: no ocean data. This is land or a gap in the data.`` | ``\u098F\u0996\u09BE\u09A8\u09C7, ${p.where}: \u09B8\u09AE\u09C1\u09A6\u09CD\u09B0\u09C7\u09B0 \u09A4\u09A5\u09CD\u09AF \u09A8\u09C7\u0987\u0964 \u098F\u099F\u09BF \u09B8\u09CD\u09A5\u09B2, \u09AC\u09BE \u09A4\u09A5\u09CD\u09AF\u09C7 \u09AB\u09BE\u0981\u0995\u0964`` |
+| `describe.ocean.range` | ``Across the map, the coldest is ${p.min} degrees, near ${p.minWhere}. The warmest is ${p.max} degrees, near ${p.maxWhere}.`` | ``\u09AA\u09C1\u09B0\u09CB \u09AE\u09BE\u09A8\u099A\u09BF\u09A4\u09CD\u09B0\u09C7 \u09B8\u09AC\u099A\u09C7\u09AF\u09BC\u09C7 \u09A0\u09BE\u09A8\u09CD\u09A1\u09BE ${p.min} \u09A1\u09BF\u0997\u09CD\u09B0\u09BF, \u099C\u09BE\u09AF\u09BC\u0997\u09BE: ${p.minWhere}\u0964 \u09B8\u09AC\u099A\u09C7\u09AF\u09BC\u09C7 \u0989\u09B7\u09CD\u09A3 ${p.max} \u09A1\u09BF\u0997\u09CD\u09B0\u09BF, \u099C\u09BE\u09AF\u09BC\u0997\u09BE: ${p.maxWhere}\u0964`` |
+| `describe.ocean.bandEquator` | The warmest water lies in a band near the equator. | সবচেয়ে উষ্ণ পানি বিষুবরেখার কাছের একটি বলয়ে। |
+| `describe.ocean.band` | ``The warmest water lies in a band around ${p.lat}.`` | ``\u09B8\u09AC\u099A\u09C7\u09AF\u09BC\u09C7 \u0989\u09B7\u09CD\u09A3 \u09AA\u09BE\u09A8\u09BF ${p.lat}-\u098F\u09B0 \u0986\u09B6\u09C7\u09AA\u09BE\u09B6\u09C7\u09B0 \u098F\u0995\u099F\u09BF \u09AC\u09B2\u09AF\u09BC\u09C7\u0964`` |
+| `describe.ocean.toward` | ``Around here, the water is warmer to the ${p.dir}.`` | ``\u098F\u0996\u09BE\u09A8\u0995\u09BE\u09B0 \u099A\u09BE\u09B0\u09AA\u09BE\u09B6\u09C7, ${p.dir} \u09A6\u09BF\u0995\u09C7 \u09AA\u09BE\u09A8\u09BF \u09AC\u09C7\u09B6\u09BF \u0989\u09B7\u09CD\u09A3\u0964`` |
+| `describe.ocean.warmestHere` | Around here, the water is warmest right here. | এখানকার চারপাশে, ঠিক এখানেই পানি সবচেয়ে উষ্ণ। |
+| `describe.ocean.even` | Around here, the water is about the same temperature all round. | এখানকার চারপাশে পানির তাপমাত্রা প্রায় একই। |
+| `describe.rain.what` | ``Rain and snow, ${p.time} UTC.`` | ``\u09AC\u09C3\u09B7\u09CD\u099F\u09BF \u0993 \u09A4\u09C1\u09B7\u09BE\u09B0, ${p.time} UTC\u0964`` |
+| `describe.rain.dry` | ``Here, ${p.where}: dry.`` | ``\u098F\u0996\u09BE\u09A8\u09C7, ${p.where}: \u09B6\u09C1\u0995\u09A8\u09CB\u0964`` |
+| `describe.rain.here` | ``Here, ${p.where}: ${p.value} millimetres an hour of ${p.frozen ? "snow" : "rain"}.`` | ``\u098F\u0996\u09BE\u09A8\u09C7, ${p.where}: \u0998\u09A3\u09CD\u099F\u09BE\u09AF\u09BC ${p.value} \u09AE\u09BF\u09B2\u09BF\u09AE\u09BF\u099F\u09BE\u09B0 ${p.frozen ? "\u09A4\u09C1\u09B7\u09BE\u09B0" : "\u09AC\u09C3\u09B7\u09CD\u099F\u09BF"}\u0964`` |
+| `describe.rain.hereNone` | ``Here, ${p.where}: no rain data.`` | ``\u098F\u0996\u09BE\u09A8\u09C7, ${p.where}: \u09AC\u09C3\u09B7\u09CD\u099F\u09BF\u09B0 \u09A4\u09A5\u09CD\u09AF \u09A8\u09C7\u0987\u0964`` |
+| `describe.rain.max` | ``The heaviest on the map is ${p.max} millimetres an hour, near ${p.maxWhere}.`` | ``\u09AE\u09BE\u09A8\u099A\u09BF\u09A4\u09CD\u09B0\u09C7 \u09B8\u09AC\u099A\u09C7\u09AF\u09BC\u09C7 \u09AD\u09BE\u09B0\u09C0 \u09AC\u09C3\u09B7\u09CD\u099F\u09BF \u0998\u09A3\u09CD\u099F\u09BE\u09AF\u09BC ${p.max} \u09AE\u09BF\u09B2\u09BF\u09AE\u09BF\u099F\u09BE\u09B0, \u099C\u09BE\u09AF\u09BC\u0997\u09BE: ${p.maxWhere}\u0964`` |
+| `describe.rain.allDry` | The whole map is dry. | পুরো মানচিত্র শুকনো। |
+| `describe.rain.toward` | ``Around here, the rain is heaviest to the ${p.dir}.`` | ``\u098F\u0996\u09BE\u09A8\u0995\u09BE\u09B0 \u099A\u09BE\u09B0\u09AA\u09BE\u09B6\u09C7, ${p.dir} \u09A6\u09BF\u0995\u09C7 \u09AC\u09C3\u09B7\u09CD\u099F\u09BF \u09B8\u09AC\u099A\u09C7\u09AF\u09BC\u09C7 \u09AC\u09C7\u09B6\u09BF\u0964`` |
+| `describe.rain.heaviestHere` | Around here, the rain is heaviest right here. | এখানকার চারপাশে, ঠিক এখানেই বৃষ্টি সবচেয়ে বেশি। |
+| `describe.rain.spread` | Around here, the rain is spread out. | এখানকার চারপাশে বৃষ্টি ছড়িয়ে আছে। |
+| `describe.rain.even` | Around here, it is dry all round. | এখানকার চারপাশে সব শুকনো। |
+| `describe.rain.same` | ``The same as ${p.minutes} minutes earlier.`` | ``${p.minutes} \u09AE\u09BF\u09A8\u09BF\u099F \u0986\u0997\u09C7\u09B0 \u09AE\u09A4\u09CB\u0987\u0964`` |
+| `describe.rain.started` | ``It started in the last ${p.minutes} minutes.`` | ``\u0997\u09A4 ${p.minutes} \u09AE\u09BF\u09A8\u09BF\u099F\u09C7\u09B0 \u09AE\u09A7\u09CD\u09AF\u09C7 \u09B6\u09C1\u09B0\u09C1 \u09B9\u09AF\u09BC\u09C7\u099B\u09C7\u0964`` |
+| `describe.rain.stopped` | ``It stopped in the last ${p.minutes} minutes.`` | ``\u0997\u09A4 ${p.minutes} \u09AE\u09BF\u09A8\u09BF\u099F\u09C7\u09B0 \u09AE\u09A7\u09CD\u09AF\u09C7 \u09A5\u09C7\u09AE\u09C7\u099B\u09C7\u0964`` |
+| `describe.rain.up` | ``Heavier than ${p.minutes} minutes earlier, when it was ${p.before} millimetres an hour.`` | ``${p.minutes} \u09AE\u09BF\u09A8\u09BF\u099F \u0986\u0997\u09C7\u09B0 \u099A\u09C7\u09AF\u09BC\u09C7 \u09AD\u09BE\u09B0\u09C0; \u09A4\u0996\u09A8 \u099B\u09BF\u09B2 \u0998\u09A3\u09CD\u099F\u09BE\u09AF\u09BC ${p.before} \u09AE\u09BF\u09B2\u09BF\u09AE\u09BF\u099F\u09BE\u09B0\u0964`` |
+| `describe.rain.down` | ``Lighter than ${p.minutes} minutes earlier, when it was ${p.before} millimetres an hour.`` | ``${p.minutes} \u09AE\u09BF\u09A8\u09BF\u099F \u0986\u0997\u09C7\u09B0 \u099A\u09C7\u09AF\u09BC\u09C7 \u09B9\u09BE\u09B2\u0995\u09BE; \u09A4\u0996\u09A8 \u099B\u09BF\u09B2 \u0998\u09A3\u09CD\u099F\u09BE\u09AF\u09BC ${p.before} \u09AE\u09BF\u09B2\u09BF\u09AE\u09BF\u099F\u09BE\u09B0\u0964`` |
+| `describe.meaning` | What this means | এর মানে কী |
+| `describe.loading` | Describing the needle's place. | কার্সরের জায়গার বর্ণনা তৈরি হচ্ছে। |
+| `describe.say` | Say it | বলুন |
+| `describe.note` | D on the map says this. The detail follows Settings → Detail. | মানচিত্রে D চাপলে এটি বলা হয়। কতটা বিস্তারিত, তা সেটিংস → বিস্তারিত থেকে ঠিক হয়। |
+| `panel.describe` | Description | বর্ণনা |
+| `describe.meaning.ocean` | Warm sea water gives heat and moisture to the air above it. That is the fuel for cyclones and for the monsoon rain over the Bay of Bengal. Where the sea is warmer than usual, storms can grow stronger. | উষ্ণ সমুদ্রের পানি ওপরের বাতাসকে তাপ আর জলীয় বাষ্প দেয়। বঙ্গোপসাগরে ঘূর্ণিঝড় আর বর্ষার বৃষ্টির জ্বালানি এটাই। সমুদ্র স্বাভাবিকের চেয়ে উষ্ণ হলে ঝড় আরও শক্তিশালী হতে পারে। |
+| `describe.meaning.rain` | This is rain and snow falling now, measured from space by NASA's IMERG about every half hour. Heavy rain upstream can bring floods downstream days later. Long dry spells matter for farms and drinking water. | এটি এখন পড়তে থাকা বৃষ্টি ও তুষার, মহাকাশ থেকে নাসার IMERG প্রায় প্রতি আধা ঘণ্টায় মাপে। উজানে ভারী বৃষ্টি কয়েক দিন পরে ভাটিতে বন্যা আনতে পারে। দীর্ঘ শুকনো সময় খেত আর খাবার পানির জন্য গুরুত্বপূর্ণ। |
 | data template | GPCC stops at # because the gauge version we use (GPCC Full Data Monthly V#) ends in December #, so both rain records compare #–# with #–#. | GPCC {0} সালে থামে, কারণ আমাদের ব্যবহৃত বৃষ্টিমাপক সংস্করণ (GPCC Full Data Monthly V{1}) ডিসেম্বর {2}-এ শেষ; তাই দুটি বৃষ্টির রেকর্ডই {3}–{4}-কে {5}–{6}-এর সাথে তুলনা করে। |
 | data template | GPCP only, newer decade; GPCC data ends in # | শুধু GPCP, নতুন দশক; GPCC ডেটা {0} সালে শেষ |
 

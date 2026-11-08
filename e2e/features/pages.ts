@@ -45,6 +45,8 @@ export const PAGES: Feature[] = [
       await onMap(page); await page.keyboard.press("t");
       await expect(page).toHaveURL(/\/then-now/u);
       await expect(title(page)).toHaveText(/Then vs Now/u);
+      // The page fades in after the URL changes: read the parts once they are there, not mid-transition.
+      await expect(page.getByRole("tablist", { name: "Part" }).getByRole("tab").first()).toBeVisible();
       const parts = await page.getByRole("tablist", { name: "Part" }).getByRole("tab").allInnerTexts();
       for (const p of ["Heat", "Monsoon rain", "Water underground"]) if (!parts.some((x) => x.trim().startsWith(p))) throw new Error(`no ${p} part (${parts.join(", ")})`);
       for (const p of ["Fires", "Vegetation"]) if (parts.some((x) => x.trim().startsWith(p))) throw new Error(`hidden part ${p} shows (${parts.join(", ")})`);

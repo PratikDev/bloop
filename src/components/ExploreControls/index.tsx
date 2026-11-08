@@ -3,6 +3,7 @@
 import { useEffect, useId, useRef, type ReactNode } from "react";
 import { brailleRole } from "@/a11y/aria";
 import { FLAGS } from "@/lib/flags";
+import { loadGeo } from "@/lib/geo/load";
 import { readingText } from "@/lib/reading";
 import { trackName, trackStatus } from "@/lib/track-status";
 import { useAnnounce } from "../Announcer/use-announcer";
@@ -14,6 +15,8 @@ import { useShownPoint } from "../TimeLapse/use-shown-point";
 import { useMapKeys } from "./use-map-keys";
 
 export const MAP_REGION_ID = "sound-map";
+
+const preloadGeo = () => void loadGeo().catch(() => undefined);
 
 /**
  * The focusable sound map: role="application" so screen readers pass arrow
@@ -92,6 +95,9 @@ export function ExploreControls({ children }: { children: ReactNode }) {
       aria-describedby={instructionsId}
       onKeyDown={story ? undefined : onKeyDown}
       onBlur={disarm}
+      // Layered descriptions name places (step 3): the place names start loading when the map is first used, so the
+      // first D doesn't wait for them (cached; loaded once per page).
+      onFocus={FLAGS.describe ? preloadGeo : undefined}
       className="group relative"
     >
       <p id={instructionsId} className="sr-only">

@@ -98,8 +98,13 @@ for (const hide3d of [false, true]) {
     test("D says the value here once; Shift+D turns Describe mode on", async ({ page }) => {
       await fresh(page, hide3d);
       await map(page).focus();
-      const here = await press(page, "d");
-      expect(here.join(" ")).toMatch(/21\.5 degrees north, 89\.8 degrees east/u);
+      // D may first load the place names (step 3's description): wait for what it says.
+      const before = (await liveLog(page)).length;
+      await page.keyboard.press("d");
+      await expect.poll(async () => (await liveLog(page)).slice(before).join(" "), { timeout: 10_000 }).toMatch(/degrees/u);
+      const here = (await liveLog(page)).slice(before);
+      // The value here (step 2), or with layered descriptions on (step 3) the description of this place.
+      expect(here.join(" ")).toMatch(/21\.5 degrees north, 89\.8 degrees east|^Ocean surface temperature, .*: \d+\.\d degrees Celsius\./u);
       expect(await press(page, "Shift+D")).toContain("Describe on.");
     });
 

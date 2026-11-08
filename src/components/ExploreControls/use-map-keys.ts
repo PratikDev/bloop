@@ -1,15 +1,15 @@
 "use client";
 
 import { useCallback, useRef, useState, type KeyboardEvent } from "react";
-import { centreOf, regionOf, WHOLE_MAP, type Bounds, type RegionName } from "@/a11y/mapNav";
+import { centreOf, REGION_LABEL, regionOf, WHOLE_MAP, type Bounds } from "@/a11y/mapNav";
 import type { TrackMode } from "@/lib/audio-adapter/types";
 import { FLAGS } from "@/lib/flags";
-import type { MessageKey } from "@/lib/i18n";
 import { spokenReading } from "@/lib/reading";
 import { useAnnounce } from "../Announcer/use-announcer";
 import { useT } from "../AppState/use-app-state";
 import type { Commands } from "../Commands/use-commands";
 import type { ShownPoint } from "../TimeLapse/use-shown-point";
+import { useDescribeHere } from "../Describe/use-describe-here";
 import { useTimeLapse } from "../TimeLapse/use-time-lapse";
 
 export const STEP_DEG = 1;
@@ -35,18 +35,6 @@ export const SHRINK_KEYS = new Set(["-", "_", "−"]);
 /** A modifier pressed on its own (Shift on the way to +) is not a key of its own. */
 const MODIFIERS = new Set(["Shift", "Control", "Alt", "Meta", "CapsLock"]);
 
-export const REGION_LABEL = {
-  southWest: "region.southWest",
-  south: "region.south",
-  southEast: "region.southEast",
-  west: "region.west",
-  centre: "region.centre",
-  east: "region.east",
-  northWest: "region.northWest",
-  north: "region.north",
-  northEast: "region.northEast",
-} as const satisfies Record<RegionName, MessageKey>;
-
 /** Text the next settled announcement leads with (a region's name), with a count so the same text counts again. */
 export interface Lead {
   text: string;
@@ -69,6 +57,7 @@ export interface MapKeys {
  */
 export function useMapKeys(commands: Commands, shown: ShownPoint, stepDeg: number): MapKeys {
   const { stepFrame } = useTimeLapse();
+  const describeHere = useDescribeHere();
   const announce = useAnnounce();
   const t = useT();
   // The J region mode's current view; null when it is off.
@@ -120,8 +109,10 @@ export function useMapKeys(commands: Commands, shown: ShownPoint, stepDeg: numbe
       case "PageDown":
         return () => void stepFrame(-1);
       case "Enter":
-      case "d":
         return speakHere;
+      case "d":
+        // Step 3: the layered description; without it (or before the frames load), the value here.
+        return FLAGS.describe && describeHere ? describeHere : speakHere;
       case "D":
         return () => commands.toggleSetting("describe");
       default:
