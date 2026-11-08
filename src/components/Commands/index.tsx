@@ -11,6 +11,7 @@ import { speechOut } from "../AppState/access";
 import { bandMeans, loadSstPairs, nearestPair, SWEEP_CENTER, sweepPath, type LatLon } from "@/lib/data";
 import { roundKm } from "@/lib/geo/spherical";
 import { gapTexts } from "@/lib/frame-gap";
+import { nextCellSize } from "@/a11y/mapNav";
 import { bindT } from "@/lib/i18n";
 import { spokenReading, readAt } from "@/lib/reading";
 import { speechLangFor } from "@/lib/speech-lang";
@@ -101,8 +102,17 @@ export function CommandsProvider({ children }: { children: ReactNode }) {
       moveCursor(dLat, dLon) {
         dispatch({ type: "moveCursor", dLat, dLon });
       },
-      setCursor(cursor) {
-        dispatch({ type: "setCursor", cursor });
+      setCursor(cursor, { remember = false } = {}) {
+        dispatch({ type: "setCursor", cursor, remember });
+      },
+      changeStep(dir) {
+        const stepDeg = nextCellSize(state.stepDeg, dir);
+        dispatch({ type: "setStepDeg", stepDeg });
+        announce(t("map.cell", { deg: stepDeg }));
+      },
+      goBack() {
+        if (state.trail.length === 0) announce(t("map.back.none"));
+        else dispatch({ type: "cursorBack" });
       },
       setTrack(track) {
         dispatch({ type: "setTrack", track });

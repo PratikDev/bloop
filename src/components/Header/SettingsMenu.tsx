@@ -30,6 +30,7 @@ export function SettingsMenu() {
           </>
         )}
         <SettingToggle setting="reduceMotion" />
+        {FLAGS.mapKeys && <SettingToggle setting="hide3d" />}
       </PopoverContent>
     </Popover>
   );

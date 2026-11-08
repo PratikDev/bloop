@@ -1,4 +1,5 @@
 import { TRACK_VOICES, type LiveVoiceId, type TrackMode } from "@/lib/audio-adapter/types";
+import { DEFAULT_CELL, remember } from "@/a11y/mapNav";
 import { clampLat, START_CURSOR, wrapLon, type LatLon } from "@/lib/data";
 import type { Lang } from "@/lib/i18n";
 import { ACCESS_DEFAULTS, type AccessChoices, type AccessKey } from "./access";
@@ -9,7 +10,7 @@ export type Mode = "home" | "explore" | "story" | "thenNow" | "how" | "turntable
 export type PanelTab = "truth" | "mapping" | "provenance" | "history";
 
 /** Settings remembered on this device (src/components/AppState/prefs.ts). */
-export type PrefKey = "lang" | "describe" | "captions" | "builtInVoice" | "started" | "soundChoice" | AccessKey;
+export type PrefKey = "lang" | "describe" | "captions" | "builtInVoice" | "hide3d" | "started" | "soundChoice" | AccessKey;
 
 /** What the visitor chose at Start (mentor item 2): remembered, so a return visit knows; null before any choice. */
 export type SoundChoice = "sound" | "silent";
@@ -42,7 +43,18 @@ export interface AppState extends AccessChoices {
   helpOpen: boolean;
   /** The Braille Data Explorer (B) is open. */
   brailleOpen: boolean;
+  /** Degrees an arrow key moves the needle (+ and − on the map; src/a11y/mapNav.ts). */
+  stepDeg: number;
+  /** Earlier places of the needle, oldest first ("." goes back; arrow steps, jumps and Go to add to it). */
+  trail: LatLon[];
+  /** The storm time-lapse frame PageUp/PageDown hold on the map (index into its frames); null = the live frame. */
+  heldFrame: number | null;
+  /** The 3D views are hidden (Settings); every task still works from the HTML around them. */
+  hide3d: boolean;
 }
+
+/** The on/off settings (Settings, Help and the keys toggle them). */
+export type ToggleKey = "describe" | "captions" | "reduceMotion" | "builtInVoice" | "allMuted" | "hide3d";
 
 export type AppAction =
   | { type: "start" }
@@ -52,11 +64,14 @@ export type AppAction =
   | { type: "introDone" }
   | { type: "setPlaying"; playing: boolean }
   | { type: "moveCursor"; dLat: number; dLon: number }
-  | { type: "setCursor"; cursor: LatLon }
+  | { type: "setCursor"; cursor: LatLon; remember?: boolean }
+  | { type: "cursorBack" }
+  | { type: "setStepDeg"; stepDeg: number }
+  | { type: "holdFrame"; index: number | null }
   | { type: "setTrack"; track: TrackMode }
   | { type: "setMode"; mode: Mode }
   | { type: "setLang"; lang: Lang }
-  | { type: "toggle"; key: "describe" | "captions" | "reduceMotion" | "builtInVoice" | "allMuted" }
+  | { type: "toggle"; key: ToggleKey }
   | { type: "setReduceMotion"; on: boolean }
   | { type: "setSolo"; solo: LiveVoiceId | null }
   | { type: "setVoiceMix"; voice: LiveVoiceId; mix: Partial<VoiceMix> }
@@ -89,6 +104,10 @@ export const initialState: AppState = {
   panelOpen: false,
   helpOpen: false,
   brailleOpen: false,
+  stepDeg: DEFAULT_CELL,
+  trail: [],
+  heldFrame: null,
+  hide3d: false,
   ...ACCESS_DEFAULTS,
 };
 
@@ -130,17 +149,31 @@ export function reducer(state: AppState, action: AppAction): AppState {
     case "moveCursor":
       return {
         ...state,
+        trail: remember(state.trail, state.cursor),
         cursor: {
           lat: clampLat(state.cursor.lat + action.dLat),
           lon: wrapLon(state.cursor.lon + action.dLon),
         },
       };
     case "setCursor":
-      return { ...state, cursor: { lat: clampLat(action.cursor.lat), lon: wrapLon(action.cursor.lon) } };
+      return {
+        ...state,
+        trail: action.remember ? remember(state.trail, state.cursor) : state.trail,
+        cursor: { lat: clampLat(action.cursor.lat), lon: wrapLon(action.cursor.lon) },
+      };
+    case "cursorBack": {
+      const back = state.trail[state.trail.length - 1];
+      return back ? { ...state, cursor: back, trail: state.trail.slice(0, -1) } : state;
+    }
+    case "setStepDeg":
+      return { ...state, stepDeg: action.stepDeg };
+    case "holdFrame":
+      return { ...state, heldFrame: action.index };
     case "setTrack":
       return { ...state, track: action.track };
     case "setMode":
-      return { ...state, mode: action.mode };
+      // A held time-lapse frame belongs to the map it was held on.
+      return { ...state, mode: action.mode, heldFrame: action.mode === state.mode ? state.heldFrame : null };
     case "setLang":
       return { ...state, lang: action.lang };
     case "toggle":

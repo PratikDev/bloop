@@ -5,12 +5,17 @@ import { usePlayhead } from "@/hooks/use-playhead";
 import { peakFrame } from "@/lib/audio";
 import { audio } from "@/lib/audio-adapter";
 import type { PlayerHandle, SweepPoint } from "@/lib/audio-adapter/types";
-import { DATA_PATHS, followStorm, loadSequence, windowStart, type Sequence } from "@/lib/data";
+import { frameAfter } from "@/a11y/mapNav";
+import { DATA_PATHS, followStorm, loadSequence, valueInFrame, windowStart, type Sequence } from "@/lib/data";
 import { formatUtc } from "@/lib/i18n";
 import { loadImage } from "@/lib/load-image";
+import { readingFromPoint } from "@/lib/reading";
 import { useAnnounce } from "../Announcer/use-announcer";
+import { stepSound } from "../AppState/access";
+import { liveSoundOn } from "../AppState/reducer";
 import { useAppState, useT } from "../AppState/use-app-state";
-import { TimeLapseContext, type TimeLapseRun, type TimeLapseStatus, type TimeLapseValue } from "./use-time-lapse";
+import { playReading } from "../Commands/use-sound-sync";
+import { TimeLapseContext, type TimeLapseFrame, type TimeLapseRun, type TimeLapseStatus, type TimeLapseValue } from "./use-time-lapse";
 
 // Player name agreed with L2 (contract-proposals B5): step index = frame index.
 const PLAYER = "timelapse";
@@ -31,7 +36,7 @@ interface Loaded {
  * time-lapse still works for people who can't use sound.
  */
 export function TimeLapseProvider({ children }: { children: ReactNode }) {
-  const { state } = useAppState();
+  const { state, dispatch } = useAppState();
   const announce = useAnnounce();
   const t = useT();
   const [status, setStatus] = useState<TimeLapseStatus>("idle");
@@ -73,6 +78,7 @@ export function TimeLapseProvider({ children }: { children: ReactNode }) {
 
   const start = useCallback(async (options?: { framesAroundPeak?: number }): Promise<TimeLapseRun> => {
     if (status === "loading" || status === "playing") return NOT_RUN;
+    dispatch({ type: "holdFrame", index: null }); // the run shows its own frames
     setStatus("loading");
     const id = runId.current;
     let loaded = data;
@@ -107,7 +113,7 @@ export function TimeLapseProvider({ children }: { children: ReactNode }) {
     );
     setWithSound(state.soundOn);
     const p = peakFrame(path);
-    const peak = p === -1 ? null : { index: p, total: frames.length, timeUtc: frames[p].ref.time_utc, point: path[p], image: loaded.images[first + p] ?? null };
+    const peak = p === -1 ? null : { index: p, total: frames.length, timeUtc: frames[p].ref.time_utc, point: path[p], image: loaded.images[first + p] ?? null, held: false };
     const ended = new Promise<boolean>((resolve) => {
       settle.current = resolve;
     });
@@ -123,7 +129,32 @@ export function TimeLapseProvider({ children }: { children: ReactNode }) {
     }
     // "last" is where the storm is at the newest frame, even when a window ending earlier was played.
     return { finished: await ended, peak, last: loaded.path[loaded.path.length - 1] ?? null };
-  }, [status, data, load, announce, t, state.lang, state.soundOn, finish]);
+  }, [status, data, load, announce, t, state.lang, state.soundOn, finish, dispatch]);
+
+  // PageUp/PageDown on the map (step 2): hold a newer or older frame at the needle, loading the frames the first time.
+  const stepFrame = useCallback(
+    async (dir: 1 | -1) => {
+      if (status === "loading" || status === "playing") return;
+      let loaded = data;
+      if (!loaded) {
+        setStatus("loading");
+        announce(t("timelapse.loadingStart"));
+        try {
+          loaded = await load();
+        } catch {
+          setStatus("error");
+          return;
+        }
+        setData(loaded);
+        setProgress(null);
+        setStatus("idle");
+      }
+      const next = frameAfter(state.heldFrame, dir, loaded.seq.frames.length);
+      if (next === "edge") announce(t(dir === 1 ? "frames.newest" : "frames.oldest"));
+      else dispatch({ type: "holdFrame", index: next });
+    },
+    [status, data, load, announce, t, state.heldFrame, dispatch],
+  );
 
   const stop = useCallback(() => {
     runId.current++;
@@ -153,7 +184,25 @@ export function TimeLapseProvider({ children }: { children: ReactNode }) {
   // Leaving a mode stops the time-lapse (Story Mode starts its own).
   useEffect(() => () => stop(), [state.mode, stop]);
 
+  // A held frame, at the needle: what the map, readout and status region show while it is held.
+  const { heldFrame, cursor } = state;
+  const held = useMemo<TimeLapseFrame | null>(() => {
+    const frame = heldFrame === null || !data ? null : data.seq.frames[heldFrame];
+    if (!data || !frame || heldFrame === null) return null;
+    const v = valueInFrame(data.seq, frame, cursor.lat, cursor.lon);
+    const point = { lat: cursor.lat, lon: cursor.lon, valueC: null, mmPerHour: v.mmPerHour, phase: v.phase };
+    return { index: heldFrame, total: data.seq.frames.length, timeUtc: frame.ref.time_utc, point, image: data.images[heldFrame] ?? null, held: true };
+  }, [heldFrame, cursor, data]);
+
+  // Its sound: the live voices play the held frame's rain (the ocean is silent: these are rain frames). The map's own
+  // sound sync stands aside while a frame is held (Commands/use-sound-sync.ts).
+  const live = liveSoundOn(state) && stepSound(state) && state.mode === "explore";
+  useEffect(() => {
+    if (held && live) playReading(readingFromPoint(held.point), held.point.lon);
+  }, [held, live]);
+
   const value = useMemo<TimeLapseValue>(() => {
+    if (held && status !== "playing") return { status, progress, current: held, start, stop, stepFrame };
     const index = status !== "playing" || !data ? null : withSound ? (head?.index ?? 0) : visualIndex;
     const at = index === null ? -1 : played.first + index; // position in the loaded frames
     const current =
@@ -165,9 +214,10 @@ export function TimeLapseProvider({ children }: { children: ReactNode }) {
             timeUtc: data.seq.frames[at].ref.time_utc,
             point: data.path[at],
             image: data.images[at] ?? null,
+            held: false,
           };
-    return { status, progress, current, start, stop };
-  }, [status, progress, data, withSound, head, visualIndex, played, start, stop]);
+    return { status, progress, current, start, stop, stepFrame };
+  }, [status, progress, data, withSound, head, visualIndex, played, start, stop, stepFrame, held]);
 
   return <TimeLapseContext.Provider value={value}>{children}</TimeLapseContext.Provider>;
 }

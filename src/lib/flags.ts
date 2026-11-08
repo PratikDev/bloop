@@ -17,4 +17,6 @@ export const FLAGS = {
   /** Accessibility core, step 1: speech mode, verbosity, text/sound/both (docs/accessibility/CORE_PLAN.md). */
   // Ready on 8 Nov 2026: e2e/a11y/speech-choices.e2e.ts 10/10 and the whole suite 250/250 with it on.
   speechChoices: flag(process.env.NEXT_PUBLIC_A11Y_SPEECH, true),
+  /** Step 2: the map widget's keys (+/−, J then 1–9, ., PageUp/PageDown, D, Shift+D), hide 3D, help while focused. */
+  mapKeys: flag(process.env.NEXT_PUBLIC_A11Y_MAP_KEYS, false),
 } as const;

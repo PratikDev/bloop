@@ -32,7 +32,7 @@ export function GoToMenu() {
   const hintId = `${id}-hint`;
   const errorId = `${id}-error`;
   const form = useGoToForm(state.lang, (place) => {
-    commands.setCursor(place);
+    commands.setCursor(place, { remember: true });
     went.current = true;
     setOpen(false);
   });

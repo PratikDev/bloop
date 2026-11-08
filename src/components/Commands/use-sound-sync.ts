@@ -49,10 +49,11 @@ export function useSoundSync(state: AppState, fields: LiveFields | null): void {
       engine.silenceLive();
       return;
     }
-    // The turntable feeds the voices from its needle, at its own control rate.
-    if (mode === "turntable") return;
+    // The turntable feeds the voices from its needle, at its own control rate; a held time-lapse frame plays its own
+    // value (TimeLapse/index.tsx).
+    if (mode === "turntable" || state.heldFrame !== null) return;
     playReading(readAt(fields, cursor), cursor.lon, engine);
-    // stepSound reads only the channels choice, listed here.
+    // stepSound reads only the channels choice, listed here (with the held frame).
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [started, soundOn, playing, introDone, cursor, fields, mode, state.channels]);
+  }, [started, soundOn, playing, introDone, cursor, fields, mode, state.channels, state.heldFrame]);
 }

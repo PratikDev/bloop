@@ -1,6 +1,7 @@
 "use client";
 
 import { Dialog, DialogContent, DialogDescription, DialogHeader, DialogTitle } from "@/components/ui/dialog";
+import { FLAGS } from "@/lib/flags";
 import type { MessageKey } from "@/lib/i18n";
 import { useAppState, useT } from "./AppState/use-app-state";
 import { SettingToggle } from "./SettingToggle";
@@ -29,6 +30,21 @@ const KEYS: KeyRow[] = [
   { key: "H, ?", action: "key.h.action" },
   { key: "key.esc", action: "key.esc.action" },
 ];
+
+/** The map widget's keys with the accessibility core's step 2 (docs/accessibility/CORE_PLAN.md): D describes here,
+ *  Shift+D keeps Describe mode, and + / −, J then 1–9, "." and Page Up / Page Down join after the arrows. */
+const CORE_KEYS: KeyRow[] = KEYS.flatMap((row): KeyRow[] => {
+  if (row.key === "key.arrows")
+    return [
+      row,
+      { key: "+ / −", action: "key.cell.action" },
+      { key: "key.regions", action: "key.regions.action" },
+      { key: ".", action: "key.back.action" },
+      { key: "key.frames", action: "key.frames.action" },
+    ];
+  if (row.key === "D") return [{ key: "D", action: "key.d.here.action" }, { key: "Shift+D", action: "key.shiftD.action" }];
+  return [row];
+});
 
 /** Turntable keys that differ from the map's; the other letters work there too. */
 const TURNTABLE_KEYS: { key: string | TurntableKey; action: TurntableKey }[] = [
@@ -101,9 +117,10 @@ export function HelpDialog() {
         <DialogHeader>
           <DialogTitle className="pr-10 font-serif text-headline">{t("help.title")}</DialogTitle>
           <DialogDescription className="text-body text-haze">{t("help.focusNote")}</DialogDescription>
+          {FLAGS.mapKeys && <p className="text-body text-haze">{t("help.browseNote")}</p>}
         </DialogHeader>
 
-        <KeyTable rows={KEYS} />
+        <KeyTable rows={FLAGS.mapKeys ? CORE_KEYS : KEYS} />
         <KeyTable
           rows={TURNTABLE_KEYS}
           caption={tr("help.turntable")}
@@ -118,6 +135,7 @@ export function HelpDialog() {
           <SettingToggle setting="reduceMotion" />
           <SettingToggle setting="captions" />
           <SettingToggle setting="describe" />
+          {FLAGS.mapKeys && <SettingToggle setting="hide3d" />}
         </div>
 
         {/* "More below": fades the content at the bottom edge while scrolling; at the end it sits under the last row. */}

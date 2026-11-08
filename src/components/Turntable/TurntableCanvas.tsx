@@ -5,6 +5,8 @@ import { Canvas, useFrame, useThree } from "@react-three/fiber";
 import { useEffect, useRef } from "react";
 import { PerspectiveCamera } from "three";
 import { readPalette } from "@/lib/css-tokens";
+import { cn } from "@/lib/utils";
+import { Hidden3DNote, useHide3d } from "../Hidden3D";
 import { CAMERA, GL_OPTIONS, noPointerEvents, STUDIO_ENV_INTENSITY, STUDIO_HDRI } from "./canvas-config";
 import { resolveTier, type Tier } from "./quality";
 import { createTurntableScene, type TurntableScene } from "./scene";
@@ -23,22 +25,27 @@ interface Props {
  * R3F's advance → this component's frame callback → the post chain.
  */
 export function TurntableCanvas({ dataCanvas, tier, label, onReady }: Props) {
+  // Hide 3D views (Settings): the scene keeps running (the needle reads its value from it); only the drawing goes.
+  const hidden = useHide3d();
   return (
-    <Canvas
-      frameloop="never"
-      flat
-      dpr={[1, 2]}
-      gl={GL_OPTIONS}
-      camera={CAMERA}
-      events={noPointerEvents}
-      role="img"
-      aria-label={label}
-      className="absolute inset-0"
-    >
-      <Environment files={STUDIO_HDRI} environmentIntensity={STUDIO_ENV_INTENSITY} />
-      <ContactShadows position={[0.35, -1.545, 0.1]} scale={[6.6, 5.6]} far={1.4} blur={2.8} opacity={0.7} resolution={512} />
-      <SceneBridge dataCanvas={dataCanvas} tier={tier} onReady={onReady} />
-    </Canvas>
+    <>
+      <Canvas
+        frameloop="never"
+        flat
+        dpr={[1, 2]}
+        gl={GL_OPTIONS}
+        camera={CAMERA}
+        events={noPointerEvents}
+        role="img"
+        aria-label={label}
+        className={cn("absolute inset-0", hidden && "invisible")}
+      >
+        <Environment files={STUDIO_HDRI} environmentIntensity={STUDIO_ENV_INTENSITY} />
+        <ContactShadows position={[0.35, -1.545, 0.1]} scale={[6.6, 5.6]} far={1.4} blur={2.8} opacity={0.7} resolution={512} />
+        <SceneBridge dataCanvas={dataCanvas} tier={tier} onReady={onReady} />
+      </Canvas>
+      {hidden && <Hidden3DNote />}
+    </>
   );
 }
 

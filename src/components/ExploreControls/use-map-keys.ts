@@ -1,8 +1,16 @@
 "use client";
 
-import type { KeyboardEvent } from "react";
+import { useCallback, useRef, useState, type KeyboardEvent } from "react";
+import { centreOf, regionOf, WHOLE_MAP, type Bounds, type RegionName } from "@/a11y/mapNav";
 import type { TrackMode } from "@/lib/audio-adapter/types";
+import { FLAGS } from "@/lib/flags";
+import type { MessageKey } from "@/lib/i18n";
+import { spokenReading } from "@/lib/reading";
+import { useAnnounce } from "../Announcer/use-announcer";
+import { useT } from "../AppState/use-app-state";
 import type { Commands } from "../Commands/use-commands";
+import type { ShownPoint } from "../TimeLapse/use-shown-point";
+import { useTimeLapse } from "../TimeLapse/use-time-lapse";
 
 export const STEP_DEG = 1;
 export const BIG_STEP_DEG = 10;
@@ -15,19 +23,120 @@ export const ARROWS: Record<string, [number, number]> = {
   ArrowRight: [0, 1],
 };
 
-export const TRACK_KEYS: Record<string, TrackMode> = { "1": "ocean", "2": "rain", "3": "both" };
+export const TRACK_KEYS: Record<string, TrackMode> = {
+  "1": "ocean",
+  "2": "rain",
+  "3": "both",
+};
+
+/** + and − on the main keyboard (= and _ are the same keys unshifted/shifted); the numpad's, if a screen reader lets them through. */
+export const GROW_KEYS = new Set(["+", "="]);
+export const SHRINK_KEYS = new Set(["-", "_", "−"]);
+/** A modifier pressed on its own (Shift on the way to +) is not a key of its own. */
+const MODIFIERS = new Set(["Shift", "Control", "Alt", "Meta", "CapsLock"]);
+
+export const REGION_LABEL = {
+  southWest: "region.southWest",
+  south: "region.south",
+  southEast: "region.southEast",
+  west: "region.west",
+  centre: "region.centre",
+  east: "region.east",
+  northWest: "region.northWest",
+  north: "region.north",
+  northEast: "region.northEast",
+} as const satisfies Record<RegionName, MessageKey>;
+
+/** Text the next settled announcement leads with (a region's name), with a count so the same text counts again. */
+export interface Lead {
+  text: string;
+  n: number;
+}
+
+export interface MapKeys {
+  onKeyDown(e: KeyboardEvent<HTMLElement>): void;
+  /** Ends the J region mode (the map lost focus). */
+  disarm(): void;
+  lead: Lead | null;
+}
 
 /**
- * Keys that only work while the map region has focus (plan §9.3), so single
- * letters never clash with screen reader navigation (WCAG 2.1.4).
- * Esc is handled globally, not here. G is reserved for the game.
+ * Keys that only work while the map region has focus (plan §9.3), so single letters never clash with screen reader
+ * navigation (WCAG 2.1.4; the NVDA/JAWS check is in docs/accessibility/CORE_PLAN.md). Esc is handled globally, not
+ * here. G is reserved for the game. With FLAGS.mapKeys (accessibility core, step 2): + and − set the step, J then 1–9
+ * jumps by region, "." goes back, PageUp/PageDown hold a newer/older rain frame, D describes here and Shift+D toggles
+ * Describe mode.
  */
-export function useMapKeys(commands: Commands) {
-  return (e: KeyboardEvent<HTMLElement>) => {
-    if (e.altKey || e.ctrlKey || e.metaKey) return;
+export function useMapKeys(commands: Commands, shown: ShownPoint, stepDeg: number): MapKeys {
+  const { stepFrame } = useTimeLapse();
+  const announce = useAnnounce();
+  const t = useT();
+  // The J region mode's current view; null when it is off.
+  const regions = useRef<Bounds | null>(null);
+  const [lead, setLead] = useState<Lead | null>(null);
+  const disarm = useCallback(() => {
+    regions.current = null;
+  }, []);
+
+  const held = shown.timelapse?.held ? shown.timelapse : null;
+  // Enter and D: the value here, in the frame on screen (a held frame says which one first).
+  const speakHere = () => {
+    if (!held || !shown.reading) return commands.speakCurrent();
+    const { reading, cursor } = shown;
+    void commands.say(
+      (tl) =>
+        `${tl("frames.held", { index: held.index + 1, total: held.total, timeUtc: held.timeUtc })} ${spokenReading(tl, reading, "rain", cursor)}`,
+    );
+  };
+
+  const coreAction = (e: KeyboardEvent<HTMLElement>): (() => void) | null => {
+    const view = regions.current;
+    const region = view ? regionOf(view, e.key) : null;
+    if (region) {
+      return () => {
+        regions.current = region.bounds;
+        const n = Number(e.key);
+        setLead((l) => ({
+          text: t("map.region", { n, name: t(REGION_LABEL[region.name]) }),
+          n: (l?.n ?? 0) + 1,
+        }));
+        commands.setCursor(centreOf(region.bounds), { remember: true });
+      };
+    }
+    regions.current = null; // any other key ends the region mode
+    if (e.key === "j" || e.key === "J") {
+      return () => {
+        regions.current = WHOLE_MAP;
+        announce(t("map.regions"));
+      };
+    }
+    if (GROW_KEYS.has(e.key)) return () => commands.changeStep(1);
+    if (SHRINK_KEYS.has(e.key)) return () => commands.changeStep(-1);
+    switch (e.key) {
+      case ".":
+        return commands.goBack;
+      case "PageUp":
+        return () => void stepFrame(1);
+      case "PageDown":
+        return () => void stepFrame(-1);
+      case "Enter":
+      case "d":
+        return speakHere;
+      case "D":
+        return () => commands.toggleSetting("describe");
+      default:
+        return null;
+    }
+  };
+
+  const onKeyDown = (e: KeyboardEvent<HTMLElement>) => {
+    if (e.altKey || e.ctrlKey || e.metaKey || MODIFIERS.has(e.key)) return;
+    const core = FLAGS.mapKeys ? coreAction(e) : null;
     const arrow = ARROWS[e.key];
-    if (arrow) {
-      const step = e.shiftKey ? BIG_STEP_DEG : STEP_DEG;
+    if (core) {
+      core();
+    } else if (arrow) {
+      const step = e.shiftKey ? BIG_STEP_DEG : FLAGS.mapKeys ? stepDeg : STEP_DEG;
       commands.moveCursor(arrow[0] * step, arrow[1] * step);
     } else if (TRACK_KEYS[e.key]) {
       commands.setTrack(TRACK_KEYS[e.key]);
@@ -38,6 +147,8 @@ export function useMapKeys(commands: Commands) {
     }
     e.preventDefault();
   };
+
+  return { onKeyDown, disarm, lead };
 }
 
 /** The map's letter keys (also used by the turntable for the keys it doesn't redefine). */

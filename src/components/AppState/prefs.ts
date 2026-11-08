@@ -5,10 +5,10 @@ import type { AppState, PrefKey, Prefs, SoundChoice } from "./reducer";
 // Per-device conveniences only: nothing here is needed for the app to work,
 // and a blocked or empty storage just means the defaults.
 export const PREFS_STORAGE_KEY = "jukebox.prefs.v1";
-const FLAGS = ["describe", "captions", "builtInVoice", "started"] as const satisfies readonly PrefKey[];
+const FLAGS = ["describe", "captions", "builtInVoice", "hide3d", "started"] as const satisfies readonly PrefKey[];
 const SOUND_CHOICES: readonly SoundChoice[] = ["sound", "silent"];
 /** Every setting remembered on this device. */
-export const PREF_KEYS = ["lang", "describe", "captions", "builtInVoice", "started", "soundChoice", "speechMode", "verbosity", "channels"] as const satisfies readonly PrefKey[];
+export const PREF_KEYS = ["lang", "describe", "captions", "builtInVoice", "hide3d", "started", "soundChoice", "speechMode", "verbosity", "channels"] as const satisfies readonly PrefKey[];
 
 /** The remembered settings out of the app state. */
 export function pickPrefs(state: Pick<AppState, PrefKey>): Required<Prefs> {

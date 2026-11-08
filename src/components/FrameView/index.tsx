@@ -62,10 +62,11 @@ export function FrameView({ className, revealClassName }: { className?: string; 
   }, [shown, state]);
   useOverlayLoop(overlayRef, size, overlayInputs, sweepRef);
 
-  const moveTo = (e: PointerEvent<HTMLDivElement>) => {
+  // A click (or a drag's start) is a place "." can come back to; the drag's own steps are not.
+  const moveTo = (e: PointerEvent<HTMLDivElement>, remember = false) => {
     if (state.mode === "story") return; // the story moves the cursor
     const rect = e.currentTarget.getBoundingClientRect();
-    dispatch({ type: "setCursor", cursor: toLatLon(e.clientX - rect.left, e.clientY - rect.top, rect.width, rect.height) });
+    dispatch({ type: "setCursor", cursor: toLatLon(e.clientX - rect.left, e.clientY - rect.top, rect.width, rect.height), remember });
   };
 
   return (
@@ -74,7 +75,7 @@ export function FrameView({ className, revealClassName }: { className?: string; 
       className={cn("relative aspect-[2/1] w-full touch-none select-none", className)}
       onPointerDown={(e) => {
         e.currentTarget.setPointerCapture(e.pointerId);
-        moveTo(e);
+        moveTo(e, true);
       }}
       onPointerMove={(e) => {
         if (e.currentTarget.hasPointerCapture(e.pointerId)) moveTo(e);

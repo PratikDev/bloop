@@ -1,4 +1,6 @@
-// English strings for the accessibility core (docs/accessibility/CORE_PLAN.md): speech mode, verbosity, channels.
+// English strings for the accessibility core (docs/accessibility/CORE_PLAN.md): speech mode, verbosity, channels (step 1);
+// the map widget's keys, hide 3D and help while focused (step 2).
+import { formatAxis, formatUtc } from "../format";
 
 export const accessEn = {
   "access.speech": "Speech",
@@ -14,4 +16,39 @@ export const accessEn = {
   "access.channels.both": "Text and sound",
   "access.channels.text": "Text only",
   "access.channels.sound": "Sound only",
+
+  "access.hide3d": "Hide 3D views",
+  "access.hide3d.note": "3D view hidden (Settings). The needle, its value and every key still work.",
+
+  "map.instructions.core": "Arrow keys move the needle; plus and minus change the step. Enter speaks the value, D describes here. H lists all keys.",
+  "map.focusHint": "H: all keys. Esc: stop.",
+  "map.cell": (p: { deg: number }) => `Step ${formatAxis(p.deg, "en")} degrees.`,
+  "map.regions": "Regions: press 1 to 9. 7, 8, 9 are the north row; 1, 2, 3 the south row. J again starts from the whole map.",
+  "map.region": (p: { n: number; name: string }) => `Region ${p.n}, ${p.name}.`,
+  "map.back.none": "No earlier place to go back to.",
+  "region.southWest": "south-west",
+  "region.south": "south",
+  "region.southEast": "south-east",
+  "region.west": "west",
+  "region.centre": "centre",
+  "region.east": "east",
+  "region.northWest": "north-west",
+  "region.north": "north",
+  "region.northEast": "north-east",
+
+  "frames.held": (p: { index: number; total: number; timeUtc: string }) => `Rain frame ${p.index} of ${p.total}, ${formatUtc(p.timeUtc, "en")}.`,
+  "frames.live": "Latest frames.",
+  "frames.newest": "Already the latest frames.",
+  "frames.oldest": "This is the oldest rain frame.",
+
+  "key.cell.action": "Smaller or larger steps for the arrow keys (five sizes; the new size is said)",
+  "key.regions": "J, then 1 – 9",
+  "key.regions.action": "Jump to one of nine regions of the map (7 8 9 = north row); another number narrows it further",
+  "key.back.action": "Back to the previous place",
+  "key.frames": "Page Up / Page Down",
+  "key.frames.action": "Newer or older rain frame (the storm time-lapse) at the needle",
+  "key.d.here.action": "Describe here, once",
+  "key.shiftD.action": "Describe mode on or off",
+  "help.browseNote":
+    "With NVDA or JAWS these keys reach the map in focus mode, which starts by itself when the map has focus. Numpad plus and minus belong to JAWS: use the + and − keys on the main keyboard.",
 };

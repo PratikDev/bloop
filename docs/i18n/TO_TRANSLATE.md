@@ -499,7 +499,7 @@ The Mapping panel builds each rule sentence from its parts (`src/lib/i18n/bn/rul
 | `clarity` | parameter: reverbSec; unit: hours since a 1 km infrared look | How recently measured 0 to 48 hours since a 1 km infrared look → echo length 0.1 to 2.4 s (linear). |
 | `unison` | a rule shared with another voice (sameAs) | Proof in unison: two tones in one ear, both by the Ocean temperature rule (Ocean temperature −5 to 35 °C → pitch 220 to 880 Hz (exponential: equal steps in value sound like equal musical steps).) Beats per second = the difference between the two pitches in Hz. |
 
-## Draft Bangla, needs review (222)
+## Draft Bangla, needs review (252)
 
 Drafted for the mentor fixes (`docs/MENTOR_FIXES.md`); **draft, needs review** by a Bangla speaker. Listed in `src/lib/i18n/bn/drafts.ts`: remove an entry there once it is checked.
 
@@ -725,6 +725,36 @@ Drafted for the mentor fixes (`docs/MENTOR_FIXES.md`); **draft, needs review** b
 | `access.channels.both` | Text and sound | লেখা ও শব্দ |
 | `access.channels.text` | Text only | শুধু লেখা |
 | `access.channels.sound` | Sound only | শুধু শব্দ |
+| `access.hide3d` | Hide 3D views | ৩ডি দৃশ্য লুকান |
+| `access.hide3d.note` | 3D view hidden (Settings). The needle, its value and every key still work. | ৩ডি দৃশ্য লুকানো (সেটিংস)। সুই, তার মান ও সব কী আগের মতোই কাজ করে। |
+| `map.instructions.core` | Arrow keys move the needle; plus and minus change the step. Enter speaks the value, D describes here. H lists all keys. | তীর-কী দিয়ে কার্সর সরান; প্লাস ও মাইনাস দিয়ে ধাপ বদলান। Enter চাপলে মান, D চাপলে এখানকার বর্ণনা। H চাপলে সব কী-র তালিকা। |
+| `map.focusHint` | H: all keys. Esc: stop. | H: সব কী। Esc: থামান। |
+| `map.cell` | ``Step ${formatAxis(p.deg, "en")} degrees.`` | ``\u09A7\u09BE\u09AA ${formatAxis(p.deg, "bn")} \u09A1\u09BF\u0997\u09CD\u09B0\u09BF\u0964`` |
+| `map.regions` | Regions: press 1 to 9. 7, 8, 9 are the north row; 1, 2, 3 the south row. J again starts from the whole map. | অঞ্চল: ১ থেকে ৯ চাপুন। ৭, ৮, ৯ উত্তরের সারি; ১, ২, ৩ দক্ষিণের সারি। আবার J চাপলে পুরো মানচিত্র থেকে শুরু। |
+| `map.region` | ``Region ${p.n}, ${p.name}.`` | ``\u0985\u099E\u09CD\u099A\u09B2 ${int(p.n)}, ${p.name}\u0964`` |
+| `map.back.none` | No earlier place to go back to. | ফিরে যাওয়ার আগের কোনো জায়গা নেই। |
+| `region.southWest` | south-west | দক্ষিণ-পশ্চিম |
+| `region.south` | south | দক্ষিণ |
+| `region.southEast` | south-east | দক্ষিণ-পূর্ব |
+| `region.west` | west | পশ্চিম |
+| `region.centre` | centre | মাঝখান |
+| `region.east` | east | পূর্ব |
+| `region.northWest` | north-west | উত্তর-পশ্চিম |
+| `region.north` | north | উত্তর |
+| `region.northEast` | north-east | উত্তর-পূর্ব |
+| `frames.held` | ``Rain frame ${p.index} of ${p.total}, ${formatUtc(p.timeUtc, "en")}.`` | ``\u09AC\u09C3\u09B7\u09CD\u099F\u09BF\u09B0 \u09AB\u09CD\u09B0\u09C7\u09AE ${int(p.index)} / ${int(p.total)}, ${formatUtc(p.timeUtc, "bn")}\u0964`` |
+| `frames.live` | Latest frames. | সর্বশেষ ফ্রেম। |
+| `frames.newest` | Already the latest frames. | এটিই সর্বশেষ ফ্রেম। |
+| `frames.oldest` | This is the oldest rain frame. | এটিই বৃষ্টির সবচেয়ে পুরোনো ফ্রেম। |
+| `key.cell.action` | Smaller or larger steps for the arrow keys (five sizes; the new size is said) | তীর-কীর ধাপ ছোট বা বড় করুন (পাঁচটি মাপ; নতুন মাপ বলা হয়) |
+| `key.regions` | J, then 1 – 9 | J, তারপর ১ – ৯ |
+| `key.regions.action` | Jump to one of nine regions of the map (7 8 9 = north row); another number narrows it further | মানচিত্রের নয়টি অঞ্চলের একটিতে যান (৭ ৮ ৯ = উত্তরের সারি); আরেকটি সংখ্যা চাপলে আরও ছোট অঞ্চল |
+| `key.back.action` | Back to the previous place | আগের জায়গায় ফিরুন |
+| `key.frames` | Page Up / Page Down | Page Up / Page Down |
+| `key.frames.action` | Newer or older rain frame (the storm time-lapse) at the needle | কার্সরের জায়গায় নতুন বা পুরোনো বৃষ্টির ফ্রেম (ঝড়ের টাইম-ল্যাপস) |
+| `key.d.here.action` | Describe here, once | এখানকার বর্ণনা, একবার |
+| `key.shiftD.action` | Describe mode on or off | বর্ণনা মোড চালু বা বন্ধ |
+| `help.browseNote` | With NVDA or JAWS these keys reach the map in focus mode, which starts by itself when the map has focus. Numpad plus and minus belong to JAWS: use the + and − keys on the main keyboard. | NVDA বা JAWS-এ এই কী-গুলো ফোকাস মোডে মানচিত্রে পৌঁছায়; মানচিত্রে ফোকাস এলে ফোকাস মোড নিজেই চালু হয়। নামপ্যাডের প্লাস ও মাইনাস JAWS-এর: মূল কীবোর্ডের + ও − ব্যবহার করুন। |
 | data template | GPCC stops at # because the gauge version we use (GPCC Full Data Monthly V#) ends in December #, so both rain records compare #–# with #–#. | GPCC {0} সালে থামে, কারণ আমাদের ব্যবহৃত বৃষ্টিমাপক সংস্করণ (GPCC Full Data Monthly V{1}) ডিসেম্বর {2}-এ শেষ; তাই দুটি বৃষ্টির রেকর্ডই {3}–{4}-কে {5}–{6}-এর সাথে তুলনা করে। |
 | data template | GPCP only, newer decade; GPCC data ends in # | শুধু GPCP, নতুন দশক; GPCC ডেটা {0} সালে শেষ |
 

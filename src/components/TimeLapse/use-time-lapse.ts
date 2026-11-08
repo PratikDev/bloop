@@ -12,6 +12,8 @@ export interface TimeLapseFrame {
   timeUtc: string; // this frame's own time (index.json)
   point: SweepPoint; // where the cursor is (the heaviest rain nearby) and its value
   image: HTMLImageElement | null;
+  /** Held by PageUp/PageDown (step 2): `point` is the needle's own place in that frame, not the storm's. */
+  held: boolean;
 }
 
 /** How a run ended, and its heaviest frame (for Story Mode's narration). */
@@ -32,6 +34,8 @@ export interface TimeLapseValue {
    */
   start(options?: { framesAroundPeak?: number }): Promise<TimeLapseRun>;
   stop(): void;
+  /** PageUp (+1, newer) / PageDown (−1, older) on the map: holds a frame at the needle (loading them the first time). */
+  stepFrame(dir: 1 | -1): Promise<void>;
 }
 
 export const TimeLapseContext = createContext<TimeLapseValue | null>(null);

@@ -22,9 +22,36 @@ mode, Android vibration), TalkBack and the mobile Playwright runs are **not buil
 |---|---|---|
 | 1–9 jump to a 3×3 region | 1/2/3 choose Ocean/Rain/Both | keep 1–3; region jump is **J then 1–9** (J is free) |
 | D describe here | D toggles continuous Describe | **D** describes here once; continuous Describe moves to **Shift+D** |
-| T time step | T opens Then vs Now | keep T; time step is **PageUp / PageDown** |
+| T time step | T opens Then vs Now | keep T; time step is **PageUp / PageDown** (Listen: steps through the storm time-lapse's half-hourly rain frames at the needle; PageUp newer) |
+| 1–9 layout | iSonic used the numpad | the number row, in numpad layout (7 8 9 = north row, 1 2 3 = south row); each further number narrows the view inside the last region, J again starts from the whole map |
+| D on the Turntable | Shift+D focuses the dock there | the Turntable keeps D = Describe on/off and Shift+D = dock; describe-here is on the map |
 | L Context Lens | L plays the legend | keep L; the lens is **Z**, resized with **[ / ]** on the map (they only mean speed on the Turntable) |
 | Alt+L low-vision preset | free | Alt+L (checked against NVDA/JAWS/browser defaults before use) |
+
+## Screen-reader key check (before binding, step 2)
+
+Sources: NVDA 2026.3's own key list (`D:\Jukebox\tools\nvda\documentation\en\keyCommands.html`, user guide "Single
+Letter Navigation") and Freedom Scientific's JAWS keystrokes PDF
+(`freedomscientific.com/Content/Documents/Manuals/JAWS/Keystrokes.pdf`, pages 3–5 and 13).
+
+**Why the map's keys reach it at all.** The map is one `role="application"` widget. NVDA switches to focus mode when it
+gets focus ("almost all keys are passed to the control"); JAWS's auto forms mode does the same. Browse-mode quick keys
+only act in browse mode / the virtual cursor, so they never fire while the map has focus. If a user forces browse mode
+on the map (NVDA+Space, or JAWS with forms mode off), every single-letter key below goes to the screen reader instead,
+as the existing S, M, D, C, T, L, P, X, U, H, B already do. Help says so.
+
+| Key | NVDA browse mode | JAWS virtual cursor | Always taken (any mode) | Decision |
+|---|---|---|---|---|
+| `+` / `=` (main keys) | none | none | no | **bind**: cell size up |
+| `-` (main keys) | none | dash = next separator | no | **bind**: cell size down (passes in forms mode) |
+| numpad `+` / `−` | numpad + = say all with review (NumLock off) | NumPad Plus = PC cursor / exit forms mode; NumPad Minus = JAWS cursor | **yes, JAWS** | accepted only if they arrive; never the documented key |
+| numpad 1–9 | review cursor (NumLock off) | — | yes, NVDA desktop layout | **not used**; the 3×3 jump is J then the number row |
+| `J` | none | J = jump to line | no | **bind**: regions prefix |
+| `1`–`9` (number row) | headings 1–9 | headings 1–6 | no | keep 1–3 tracks; 1–9 only after J |
+| `.` | none (comma is "past end of container") | Shift+period = next element; plain period free | no | **bind**: back to the previous place |
+| PageUp / PageDown | none | change voice rate during Say All only | no | **bind**: time step |
+| `D` / Shift+`D` | landmark next / previous | D = next different element | no | **bind** (passes in focus/forms mode) |
+| `H` | heading | heading | no | already bound (help, map focus only) |
 
 ## Order (one commit each, each with its tests)
 

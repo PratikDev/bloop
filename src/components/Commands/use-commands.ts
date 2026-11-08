@@ -5,9 +5,9 @@ import type { PlayerHandle, SweepPoint, TrackMode } from "@/lib/audio-adapter/ty
 import type { LatLon } from "@/lib/data";
 import type { BoundT, Lang } from "@/lib/i18n";
 import type { WhisperSource } from "@/lib/whisper";
-import type { Mode, PanelTab } from "../AppState/reducer";
+import type { Mode, PanelTab, ToggleKey } from "../AppState/reducer";
 
-export type SettingKey = "describe" | "captions" | "reduceMotion" | "builtInVoice" | "allMuted";
+export type SettingKey = ToggleKey;
 
 export const SETTING_LABELS = {
   describe: "settings.describe",
@@ -15,6 +15,7 @@ export const SETTING_LABELS = {
   reduceMotion: "settings.reduceMotion",
   builtInVoice: "settings.builtInVoice",
   allMuted: "sound.muteAll",
+  hide3d: "access.hide3d",
 } as const satisfies Record<SettingKey, string>;
 
 export const MODE_LABELS = {
@@ -47,8 +48,12 @@ export interface Commands {
   resetStart(): void;
   enableSound(): Promise<void>;
   moveCursor(dLat: number, dLon: number): void;
-  /** Puts the cursor at an exact place (Go to). */
-  setCursor(cursor: LatLon): void;
+  /** Puts the cursor at an exact place (Go to); `remember` lets "." come back to where it was. */
+  setCursor(cursor: LatLon, opts?: { remember?: boolean }): void;
+  /** + (1) / − (−1): the next step size for the arrow keys (src/a11y/mapNav.ts), announced. */
+  changeStep(dir: 1 | -1): void;
+  /** ".": back to the needle's previous place, or says there is none. */
+  goBack(): void;
   setTrack(track: TrackMode): void;
   setMode(mode: Mode): void;
   setLang(lang: Lang): void;
