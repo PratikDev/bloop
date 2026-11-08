@@ -114,13 +114,14 @@ export const LISTEN: Feature[] = [
       await expect.poll(() => live(page)).toMatch(/°C|mm\/h|Dry/u);
       return { evidence: `live region: "${(await live(page)).replace(/\s+/gu, " ").slice(0, 100)}"` };
     } },
-  { id: "describe", group: "a11y", name: "Describe mode", where: "Header · Settings · Describe · key D", keyboard: true,
+  { id: "describe", group: "a11y", name: "Describe mode", where: "Header · Settings · Describe · Shift+D", keyboard: true,
     what: "Turns spoken descriptions on or off", control: (page) => settings(page),
     async run(page) {
-      await onMap(page); await page.keyboard.press("d");
+      // Shift+D: Describe mode (accessibility core step 2 gave plain D to "describe here"; Shift+D toggled it before too).
+      await onMap(page); await page.keyboard.press("Shift+D");
       await settings(page).click();
       await pressed(page.getByRole("button", { name: "Describe" }));
-      return { evidence: "D → Settings shows Describe pressed" };
+      return { evidence: "Shift+D → Settings shows Describe pressed" };
     } },
   { id: "captions", group: "a11y", name: "Captions", where: "Listen · key C", keyboard: true, what: "Shows sound captions as text",
     async run(page) {
