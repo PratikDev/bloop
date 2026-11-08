@@ -1,6 +1,7 @@
 // PURE. The credits from the record registry (meta/freshness.json: every product and the datasets it reads), the
-// Official and Related indexes (the records Official records plays) and the pages' voices (surfaces.ts). A source is
-// "Data in this app" when a record that plays somewhere uses it; every other registry source is "Used in our testing".
+// Official and Related indexes (the records Official records plays) and the pages' voices and shown numbers
+// (surfaces.ts). A source is "Data in this app" when a record that plays somewhere, or whose numbers a page shows, uses
+// it; every other registry source is "Used in our testing".
 
 import type { DatasetRef, FreshnessEntry, FreshnessFile, OfficialIndex, OfficialIndexRow } from "@/types/data-contract";
 import { SURFACES, voiceProduct } from "./surfaces";
@@ -46,12 +47,12 @@ function officialRows(inputs: CreditInputs): { row: OfficialIndexRow; output: st
   ];
 }
 
-/** Product id → the pages it plays on. */
+/** Product id → the pages it plays on or shows numbers on. */
 export function playedProducts(inputs: CreditInputs): Plays {
   const plays: Plays = new Map();
   for (const s of SURFACES) {
     for (const v of s.voices) add(plays, voiceProduct(v), s.page);
-    for (const p of s.products ?? []) add(plays, p, s.page);
+    for (const p of [...(s.products ?? []), ...(s.shows ?? [])]) add(plays, p, s.page);
   }
   const outputs = new Set(officialRows(inputs).map((r) => r.output));
   for (const e of Object.values(inputs.freshness.products)) {

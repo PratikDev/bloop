@@ -6,7 +6,7 @@ import type { Translated } from "../types";
 export const creditsBn: Translated<typeof creditsEn> = {
   "credits.heading.data": "এই অ্যাপের ডেটা",
   "credits.heading.testing": "আমাদের পরীক্ষায় ব্যবহৃত (বাজানো যায় না)",
-  "credits.testing.note": "আমাদের পাইপলাইন এগুলো তৈরি ও যাচাই করেছে; অ্যাপে এগুলোর কোনোটিই বাজে না।",
+  "credits.testing.note": "আমাদের পাইপলাইন এগুলো তৈরি ও যাচাই করেছে; অ্যাপ এগুলো বাজায় না, এগুলোর সংখ্যাও দেখায় না।",
   "credits.group.observations": "পর্যবেক্ষণ",
   "credits.group.models": "মডেল ও রিঅ্যানালাইসিস",
   "credits.group.svs": "নাসার ভিজ্যুয়ালাইজেশন (SVS)",

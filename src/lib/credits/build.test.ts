@@ -22,7 +22,8 @@ const dataIds = new Set(data.map((e) => e.id));
 const testingIds = new Set(credits.testing.map((e) => e.id));
 const recordsOf = (entries: CreditEntry[]) => new Set(entries.flatMap((e) => e.records));
 
-/** Every product that plays, independently of build.ts: the pages' voices, and every listed record's manifest. */
+/** Every product the app uses, independently of build.ts: the pages' voices and shown numbers, and every listed
+ *  record's manifest. A source counts if the app plays it or shows a number from it. */
 function playingProducts(): Set<string> {
   const out = new Set<string>();
   for (const s of SURFACES) {
@@ -30,7 +31,7 @@ function playingProducts(): Set<string> {
       const p = voiceProduct(v);
       if (p) out.add(p);
     }
-    for (const p of s.products ?? []) out.add(p);
+    for (const p of [...(s.products ?? []), ...(s.shows ?? [])]) out.add(p);
   }
   const manifests = new Set([
     ...official.records.map((r) => `official/${r.manifest}`),
@@ -60,6 +61,17 @@ describe("credits from the registry", () => {
         expect([pid, d.id, dataIds.has(d.id)]).toEqual([pid, d.id, true]);
       }
     }
+  });
+
+  test("a source whose number is shown counts even when no voice plays it: GPCC on Then vs Now, GLOBE on How we know", () => {
+    const entry = (id: string) => data.find((e) => e.id === id);
+    expect(entry("gpcc")?.pages).toContain("thenNow");
+    expect(entry("globe")?.pages).toContain("how");
+    expect(testingIds.has("gpcc")).toBe(false);
+    expect(testingIds.has("globe")).toBe(false);
+    // Every shown product is a live registry record, and none of them plays a Then vs Now or How voice of its own.
+    for (const s of SURFACES) for (const p of s.shows ?? []) expect([p, freshness.products[p]?.status !== "missing"]).toEqual([p, true]);
+    expect(SURFACES.find((s) => s.page === "thenNow")?.voices.map(voiceProduct)).not.toContain("gpcc_bd");
   });
 
   test("every listed Official and Related record with an SVS page is credited to SVS with its IDs", () => {

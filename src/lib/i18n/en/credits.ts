@@ -4,7 +4,7 @@
 export const creditsEn = {
   "credits.heading.data": "Data in this app",
   "credits.heading.testing": "Used in our testing (not playable)",
-  "credits.testing.note": "Built and checked by our pipeline; nothing in the app plays them.",
+  "credits.testing.note": "Built and checked by our pipeline; the app neither plays them nor shows their numbers.",
   "credits.group.observations": "Observations",
   "credits.group.models": "Models and reanalyses",
   "credits.group.svs": "NASA visualizations (SVS)",
