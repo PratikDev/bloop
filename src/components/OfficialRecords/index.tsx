@@ -5,8 +5,8 @@ import { brailleLabel } from "@/a11y/aria";
 import { isLetter, isTypingTarget } from "@/a11y/keys";
 import { Button } from "@/components/ui/button";
 import { ruleText, voiceSpec } from "@/lib/audio/mapping";
-import { loadOfficialIndex, PATTERN_ONLY, patternLevel, type OfficialReading } from "@/lib/data";
-import { formatFixed, formatUtc, type BoundT, type Lang } from "@/lib/i18n";
+import { loadOfficialIndex, OFFICIAL_DIGITS, PATTERN_ONLY, patternLevel, type OfficialReading } from "@/lib/data";
+import { formatFixed, formatSignificant, formatUtc, type BoundT, type Lang } from "@/lib/i18n";
 import { useLoaded } from "@/hooks/use-loaded";
 import type { OfficialLayer } from "@/types/data-contract";
 import { useAppState, useT } from "../AppState/use-app-state";
@@ -23,12 +23,11 @@ import { OfficialBrailleExplorer } from "./OfficialBrailleExplorer";
 import { RelatedRecords } from "./RelatedRecords";
 import { useOfficialRecord } from "./use-official-record";
 
-const SIGNIFICANT = 3;
 
 function readingText(t: BoundT, lang: Lang, r: OfficialReading | null, layer: OfficialLayer | undefined): string {
   if (!r) return t("official.noValue");
   if (layer?.status === PATTERN_ONLY) return t("official.pattern", { level: t(`level.${patternLevel(layer, r.value)}`) });
-  const value = formatFixed(r.value, lang, Math.max(0, SIGNIFICANT - 1 - Math.floor(Math.log10(Math.abs(r.value) || 1))));
+  const value = formatSignificant(r.value, lang, OFFICIAL_DIGITS);
   const key = !r.below ? "official.value" : layer?.below_kind === "at_or_below" ? "official.atLimit" : "official.below";
   return t(key, { value, unit: layer?.unit ?? "" });
 }

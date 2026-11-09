@@ -3,6 +3,7 @@
 import { useEffect, useRef } from "react";
 import { useRouter, useRouterState } from "@tanstack/react-router";
 import { modeFromLocation } from "@/router/modes";
+import { TRANSCRIPT_PATH } from "@/lib/transcript";
 import { useAnnounce } from "../Announcer/use-announcer";
 import type { Mode } from "../AppState/reducer";
 import { useAppState, useT } from "../AppState/use-app-state";
@@ -50,7 +51,8 @@ export function useRouteSync(): void {
   }, [mode, state.mode, dispatch, announce, t]);
 
   const page = NAV_ITEMS.find((item) => item.to === pathname);
-  const title = page ? `${t(page.label)} · ${t("app.title")}` : t("app.title");
+  const label = page ? t(page.label) : pathname === TRANSCRIPT_PATH ? t("transcript.choose") : null;
+  const title = label ? `${label} · ${t("app.title")}` : t("app.title");
   useEffect(() => {
     document.title = title;
   }, [title]);

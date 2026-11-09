@@ -499,7 +499,7 @@ The Mapping panel builds each rule sentence from its parts (`src/lib/i18n/bn/rul
 | `clarity` | parameter: reverbSec; unit: hours since a 1 km infrared look | How recently measured 0 to 48 hours since a 1 km infrared look → echo length 0.1 to 2.4 s (linear). |
 | `unison` | a rule shared with another voice (sameAs) | Proof in unison: two tones in one ear, both by the Ocean temperature rule (Ocean temperature −5 to 35 °C → pitch 220 to 880 Hz (exponential: equal steps in value sound like equal musical steps).) Beats per second = the difference between the two pitches in Hz. |
 
-## Draft Bangla, needs review (374)
+## Draft Bangla, needs review (455)
 
 Drafted for the mentor fixes (`docs/MENTOR_FIXES.md`); **draft, needs review** by a Bangla speaker. Listed in `src/lib/i18n/bn/drafts.ts`: remove an entry there once it is checked.
 
@@ -877,6 +877,87 @@ Drafted for the mentor fixes (`docs/MENTOR_FIXES.md`); **draft, needs review** b
 | `log.sources` | Sources: | উৎস: |
 | `log.download` | Save as text (.txt) | টেক্সট হিসেবে সংরক্ষণ (.txt) |
 | `log.width` | ``Lines are ${p.width} characters wide, as set for the braille explorer.`` | ``\u09AA\u09CD\u09B0\u09A4\u09BF\u099F\u09BF \u09B2\u09BE\u0987\u09A8 ${p.width} \u0985\u0995\u09CD\u09B7\u09B0 \u099A\u0993\u09A1\u09BC\u09BE, \u09AC\u09CD\u09B0\u09C7\u0987\u09B2 \u098F\u0995\u09CD\u09B8\u09AA\u09CD\u09B2\u09CB\u09B0\u09BE\u09B0\u09C7\u09B0 \u09AE\u09BE\u09AA \u0985\u09A8\u09C1\u09AF\u09BE\u09AF\u09BC\u09C0\u0964`` |
+| `tt.what.sweep` | sweep | সুইপ |
+| `tt.what.timelapse` | storm time-lapse | ঝড়ের টাইম-ল্যাপস |
+| `tt.kind.metadata` | metadata | মেটাডেটা |
+| `tt.kind.chapters` | chapters | অধ্যায় |
+| `tt.kind.captions` | captions | ক্যাপশন |
+| `tt.file.note` | ``Bloop ${p.what}, ${p.kind} track. Written from the same steps the sound plays.`` | ``\u09AC\u09CD\u09B2\u09C1\u09AA ${p.what}, ${p.kind} \u099F\u09CD\u09B0\u09CD\u09AF\u09BE\u0995\u0964 \u09B6\u09AC\u09CD\u09A6 \u09AF\u09C7 \u09A7\u09BE\u09AA\u0997\u09C1\u09B2\u09CB \u09AC\u09BE\u099C\u09BE\u09AF\u09BC, \u09B8\u09C7\u0997\u09C1\u09B2\u09CB \u09A5\u09C7\u0995\u09C7\u0987 \u09B2\u09C7\u0996\u09BE\u0964`` |
+| `tt.note.land` | land or no ocean data | স্থল, বা সমুদ্রের তথ্য নেই |
+| `tt.note.nodata` | no rain data | বৃষ্টির তথ্য নেই |
+| `tt.note.dry` | dry | শুকনো |
+| `tt.note.rain` | ``rain, ${p.value} millimetres an hour`` | ``\u09AC\u09C3\u09B7\u09CD\u099F\u09BF, \u0998\u09A3\u09CD\u099F\u09BE\u09AF\u09BC ${p.value} \u09AE\u09BF\u09B2\u09BF\u09AE\u09BF\u099F\u09BE\u09B0`` |
+| `tt.note.snow` | ``snow, ${p.value} millimetres an hour`` | ``\u09A4\u09C1\u09B7\u09BE\u09B0, \u0998\u09A3\u09CD\u099F\u09BE\u09AF\u09BC ${p.value} \u09AE\u09BF\u09B2\u09BF\u09AE\u09BF\u099F\u09BE\u09B0`` |
+| `tt.chapter.ring` | ``Ring ${p.n} of ${p.total}: ${p.deg} degrees out from ${p.place}`` | ``${p.total}\u099F\u09BF\u09B0 \u09AE\u09A7\u09CD\u09AF\u09C7 ${p.n} \u09A8\u09AE\u09CD\u09AC\u09B0 \u09AC\u09C3\u09A4\u09CD\u09A4: ${p.place} \u09A5\u09C7\u0995\u09C7 ${p.deg} \u09A1\u09BF\u0997\u09CD\u09B0\u09BF \u09A6\u09C2\u09B0\u09C7`` |
+| `tt.chapter.region` | ``${p.region}, from ${p.time}`` | ``${p.region}, ${p.time} \u09A5\u09C7\u0995\u09C7`` |
+| `tt.cap.sweepBegin` | ``[tones begin: the sweep moves outward from ${p.place}]`` | ``[\u09B8\u09C1\u09B0 \u09B6\u09C1\u09B0\u09C1: \u09B8\u09C1\u0987\u09AA ${p.place} \u09A5\u09C7\u0995\u09C7 \u09AC\u09BE\u0987\u09B0\u09C7\u09B0 \u09A6\u09BF\u0995\u09C7 \u09AF\u09BE\u099A\u09CD\u099B\u09C7]`` |
+| `tt.cap.sweepEnd` | [tones stop: the sweep is finished] | [সুর থামে: সুইপ শেষ] |
+| `tt.cap.warmest` | ``[highest tone: the warmest water in the sweep, ${p.value} degrees Celsius, ${p.place}]`` | ``[\u09B8\u09AC\u099A\u09C7\u09AF\u09BC\u09C7 \u0989\u0981\u099A\u09C1 \u09B8\u09C1\u09B0: \u09B8\u09C1\u0987\u09AA\u09C7\u09B0 \u09B8\u09AC\u099A\u09C7\u09AF\u09BC\u09C7 \u0989\u09B7\u09CD\u09A3 \u09AA\u09BE\u09A8\u09BF, ${p.value} \u09A1\u09BF\u0997\u09CD\u09B0\u09BF \u09B8\u09C7\u09B2\u09B8\u09BF\u09AF\u09BC\u09BE\u09B8, ${p.place}]`` |
+| `tt.cap.coolest` | ``[lowest tone: the coolest water in the sweep, ${p.value} degrees Celsius, ${p.place}]`` | ``[\u09B8\u09AC\u099A\u09C7\u09AF\u09BC\u09C7 \u09A8\u09BF\u099A\u09C1 \u09B8\u09C1\u09B0: \u09B8\u09C1\u0987\u09AA\u09C7\u09B0 \u09B8\u09AC\u099A\u09C7\u09AF\u09BC\u09C7 \u09A0\u09BE\u09A8\u09CD\u09A1\u09BE \u09AA\u09BE\u09A8\u09BF, ${p.value} \u09A1\u09BF\u0997\u09CD\u09B0\u09BF \u09B8\u09C7\u09B2\u09B8\u09BF\u09AF\u09BC\u09BE\u09B8, ${p.place}]`` |
+| `tt.cap.land` | ``[soft tick, then silence: no ocean data, ${p.place}]`` | ``[\u09AE\u09C3\u09A6\u09C1 \u099F\u09BF\u0995, \u09A4\u09BE\u09B0\u09AA\u09B0 \u09A8\u09C0\u09B0\u09AC\u09A4\u09BE: \u09B8\u09AE\u09C1\u09A6\u09CD\u09B0\u09C7\u09B0 \u09A4\u09A5\u09CD\u09AF \u09A8\u09C7\u0987, ${p.place}]`` |
+| `tt.cap.wettest` | ``[densest drops: the heaviest rain in the sweep, ${p.value} millimetres an hour, ${p.place}]`` | ``[\u09B8\u09AC\u099A\u09C7\u09AF\u09BC\u09C7 \u0998\u09A8 \u09AB\u09CB\u0981\u099F\u09BE: \u09B8\u09C1\u0987\u09AA\u09C7\u09B0 \u09B8\u09AC\u099A\u09C7\u09AF\u09BC\u09C7 \u09AD\u09BE\u09B0\u09C0 \u09AC\u09C3\u09B7\u09CD\u099F\u09BF, \u0998\u09A3\u09CD\u099F\u09BE\u09AF\u09BC ${p.value} \u09AE\u09BF\u09B2\u09BF\u09AE\u09BF\u099F\u09BE\u09B0, ${p.place}]`` |
+| `tt.cap.snowiest` | ``[busiest bells: the heaviest snow in the sweep, ${p.value} millimetres an hour, ${p.place}]`` | ``[\u09B8\u09AC\u099A\u09C7\u09AF\u09BC\u09C7 \u09AC\u09CD\u09AF\u09B8\u09CD\u09A4 \u0998\u09A3\u09CD\u099F\u09BE\u09A7\u09CD\u09AC\u09A8\u09BF: \u09B8\u09C1\u0987\u09AA\u09C7\u09B0 \u09B8\u09AC\u099A\u09C7\u09AF\u09BC\u09C7 \u09AD\u09BE\u09B0\u09C0 \u09A4\u09C1\u09B7\u09BE\u09B0, \u0998\u09A3\u09CD\u099F\u09BE\u09AF\u09BC ${p.value} \u09AE\u09BF\u09B2\u09BF\u09AE\u09BF\u099F\u09BE\u09B0, ${p.place}]`` |
+| `tt.cap.lapseBegin` | ``[the time-lapse begins: ${p.count} rain frames, half an hour apart]`` | ``[\u099F\u09BE\u0987\u09AE-\u09B2\u09CD\u09AF\u09BE\u09AA\u09B8 \u09B6\u09C1\u09B0\u09C1: \u09AC\u09C3\u09B7\u09CD\u099F\u09BF\u09B0 ${p.count}\u099F\u09BF \u099B\u09AC\u09BF, \u0986\u09A7 \u0998\u09A3\u09CD\u099F\u09BE \u09AA\u09B0 \u09AA\u09B0]`` |
+| `tt.cap.lapseEnd` | [drops stop: the time-lapse is finished] | [ফোঁটা থামে: টাইম-ল্যাপস শেষ] |
+| `tt.cap.dropsBegin` | ``[drops begin: rain, ${p.place}]`` | ``[\u09AB\u09CB\u0981\u099F\u09BE \u09B6\u09C1\u09B0\u09C1: \u09AC\u09C3\u09B7\u09CD\u099F\u09BF, ${p.place}]`` |
+| `tt.cap.bellsBegin` | ``[bells begin: snow, ${p.place}]`` | ``[\u0998\u09A3\u09CD\u099F\u09BE\u09A7\u09CD\u09AC\u09A8\u09BF \u09B6\u09C1\u09B0\u09C1: \u09A4\u09C1\u09B7\u09BE\u09B0, ${p.place}]`` |
+| `tt.cap.dropsStop` | ``[drops stop: dry, ${p.place}]`` | ``[\u09AB\u09CB\u0981\u099F\u09BE \u09A5\u09BE\u09AE\u09C7: \u09B6\u09C1\u0995\u09A8\u09CB, ${p.place}]`` |
+| `tt.cap.lapseNodata` | ``[soft tick, then silence: no rain data, ${p.place}]`` | ``[\u09AE\u09C3\u09A6\u09C1 \u099F\u09BF\u0995, \u09A4\u09BE\u09B0\u09AA\u09B0 \u09A8\u09C0\u09B0\u09AC\u09A4\u09BE: \u09AC\u09C3\u09B7\u09CD\u099F\u09BF\u09B0 \u09A4\u09A5\u09CD\u09AF \u09A8\u09C7\u0987, ${p.place}]`` |
+| `tt.cap.lapsePeak` | ``[densest drops: the heaviest rain in the time-lapse, ${p.value} millimetres an hour, ${p.place}, ${p.time}]`` | ``[\u09B8\u09AC\u099A\u09C7\u09AF\u09BC\u09C7 \u0998\u09A8 \u09AB\u09CB\u0981\u099F\u09BE: \u099F\u09BE\u0987\u09AE-\u09B2\u09CD\u09AF\u09BE\u09AA\u09B8\u09C7\u09B0 \u09B8\u09AC\u099A\u09C7\u09AF\u09BC\u09C7 \u09AD\u09BE\u09B0\u09C0 \u09AC\u09C3\u09B7\u09CD\u099F\u09BF, \u0998\u09A3\u09CD\u099F\u09BE\u09AF\u09BC ${p.value} \u09AE\u09BF\u09B2\u09BF\u09AE\u09BF\u099F\u09BE\u09B0, ${p.place}, ${p.time}]`` |
+| `tt.cap.lapsePeakSnow` | ``[busiest bells: the heaviest snow in the time-lapse, ${p.value} millimetres an hour, ${p.place}, ${p.time}]`` | ``[\u09B8\u09AC\u099A\u09C7\u09AF\u09BC\u09C7 \u09AC\u09CD\u09AF\u09B8\u09CD\u09A4 \u0998\u09A3\u09CD\u099F\u09BE\u09A7\u09CD\u09AC\u09A8\u09BF: \u099F\u09BE\u0987\u09AE-\u09B2\u09CD\u09AF\u09BE\u09AA\u09B8\u09C7\u09B0 \u09B8\u09AC\u099A\u09C7\u09AF\u09BC\u09C7 \u09AD\u09BE\u09B0\u09C0 \u09A4\u09C1\u09B7\u09BE\u09B0, \u0998\u09A3\u09CD\u099F\u09BE\u09AF\u09BC ${p.value} \u09AE\u09BF\u09B2\u09BF\u09AE\u09BF\u099F\u09BE\u09B0, ${p.place}, ${p.time}]`` |
+| `tt.nowPlaying` | ``Now playing: ${p.place}. ${p.value}`` | ``\u098F\u0996\u09A8 \u09AC\u09BE\u099C\u099B\u09C7: ${p.place}\u0964 ${p.value}`` |
+| `tt.nowPlayingAt` | ``Now playing: ${p.time}, ${p.place}. ${p.value}`` | ``\u098F\u0996\u09A8 \u09AC\u09BE\u099C\u099B\u09C7: ${p.time}, ${p.place}\u0964 ${p.value}`` |
+| `tt.value.temp` | ``${p.value} degrees Celsius`` | ``${p.value} \u09A1\u09BF\u0997\u09CD\u09B0\u09BF \u09B8\u09C7\u09B2\u09B8\u09BF\u09AF\u09BC\u09BE\u09B8`` |
+| `tt.value.rain` | ``${p.value} millimetres an hour`` | ``\u0998\u09A3\u09CD\u099F\u09BE\u09AF\u09BC ${p.value} \u09AE\u09BF\u09B2\u09BF\u09AE\u09BF\u099F\u09BE\u09B0`` |
+| `caption.cue` | `strParam(p, "en")` | `strParam(p, "bn")` |
+| `caption.sonar.ping` | Sonar ping | সোনার পিং |
+| `sound.toneUp` | tone rising ↑ warmer | সুর উঠছে ↑ বেশি উষ্ণ |
+| `sound.toneDown` | tone falling ↓ cooler | সুর নামছে ↓ বেশি ঠান্ডা |
+| `sound.dropsUp` | rain thickening ↑ | বৃষ্টি ঘন হচ্ছে ↑ |
+| `sound.dropsDown` | rain easing ↓ | বৃষ্টি কমছে ↓ |
+| `sound.pingNearer` | ping quickening ↑ nearer | পিং দ্রুত হচ্ছে ↑ কাছে |
+| `sound.pingFarther` | ping slowing ↓ farther | পিং ধীর হচ্ছে ↓ দূরে |
+| `sound.pingSame` | ping steady | পিং একই রকম |
+| `sound.beatsDiffer` | beats = the two values differ | বিট = দুটি মান আলাদা |
+| `sound.beatsDisagree` | beats = the two sources disagree | বিট = দুটি উৎস মেলে না |
+| `transcript.linkFor` | ``Transcript: ${p.record}`` | ``\u09B2\u09BF\u0996\u09BF\u09A4 \u09B0\u09C2\u09AA: ${p.record}`` |
+| `transcript.title` | ``Transcript: ${p.record}`` | ``\u09B2\u09BF\u0996\u09BF\u09A4 \u09B0\u09C2\u09AA: ${p.record}`` |
+| `transcript.lead` | A text version of this record's sound. It tells the same story: how the sound is made, what it covers, the pattern, the moments to listen for, and how far to trust it. | এই রেকর্ডের শব্দের লেখা রূপ। একই গল্প বলে: শব্দ কীভাবে তৈরি, কী জুড়ে আছে, ধরনটি কী, কোন মুহূর্তগুলো শুনবেন, আর কতটা ভরসা করা যায়। |
+| `transcript.mapping` | How the sound is made | শব্দ কীভাবে তৈরি |
+| `transcript.range` | What it covers | কী জুড়ে আছে |
+| `transcript.pattern` | The pattern | ধরন |
+| `transcript.meaning` | What this means | এর মানে কী |
+| `transcript.moments` | Moments to listen for | যে মুহূর্তগুলো শুনবেন |
+| `transcript.momentsLead` | ``From the ${p.what}'s caption track; times from its start.`` | ``${p.what}-\u098F\u09B0 \u0995\u09CD\u09AF\u09BE\u09AA\u09B6\u09A8 \u099F\u09CD\u09B0\u09CD\u09AF\u09BE\u0995 \u09A5\u09C7\u0995\u09C7; \u09B8\u09AE\u09AF\u09BC \u09B6\u09C1\u09B0\u09C1 \u09A5\u09C7\u0995\u09C7 \u0997\u09CB\u09A8\u09BE\u0964`` |
+| `transcript.momentsNone` | No moments to list: the record could not load. | তালিকা দেওয়ার মতো মুহূর্ত নেই: রেকর্ডটি লোড হয়নি। |
+| `transcript.trust` | How we got this, and how far to trust it | আমরা এটি কীভাবে পেলাম, আর কতটা ভরসা করা যায় |
+| `transcript.svs` | NASA's description | নাসার বর্ণনা |
+| `transcript.svsCredit` | ``From NASA's Scientific Visualization Studio, SVS ${p.ids}.`` | ``\u09A8\u09BE\u09B8\u09BE\u09B0 \u09B8\u09BE\u09AF\u09BC\u09C7\u09A8\u09CD\u099F\u09BF\u09AB\u09BF\u0995 \u09AD\u09BF\u099C\u09CD\u09AF\u09C1\u09AF\u09BC\u09BE\u09B2\u09BE\u0987\u099C\u09C7\u09B6\u09A8 \u09B8\u09CD\u099F\u09C1\u09A1\u09BF\u0993 \u09A5\u09C7\u0995\u09C7, SVS ${p.ids}\u0964`` |
+| `transcript.noSvs` | ``This record has no Scientific Visualization Studio page: Bloop draws it from the data file itself (${p.dataset}).`` | ``\u098F\u0987 \u09B0\u09C7\u0995\u09B0\u09CD\u09A1\u09C7\u09B0 \u0995\u09CB\u09A8\u09CB \u09B8\u09BE\u09AF\u09BC\u09C7\u09A8\u09CD\u099F\u09BF\u09AB\u09BF\u0995 \u09AD\u09BF\u099C\u09CD\u09AF\u09C1\u09AF\u09BC\u09BE\u09B2\u09BE\u0987\u099C\u09C7\u09B6\u09A8 \u09B8\u09CD\u099F\u09C1\u09A1\u09BF\u0993 \u09AA\u09BE\u09A4\u09BE \u09A8\u09C7\u0987: \u09AC\u09CD\u09B2\u09C1\u09AA \u09B8\u09B0\u09BE\u09B8\u09B0\u09BF \u09A1\u09C7\u099F\u09BE \u09AB\u09BE\u0987\u09B2 \u09A5\u09C7\u0995\u09C7 \u098F\u099F\u09BF \u0986\u0981\u0995\u09C7 (${p.dataset})\u0964`` |
+| `transcript.files` | Timed text files | সময়-বাঁধা লেখার ফাইল |
+| `transcript.filesLead` | ``The ${p.what}'s WebVTT tracks, written from the same steps the sound plays: the captions describe each sound, the chapters mark where it is, and the metadata gives every step's place and value.`` | ``${p.what}-\u098F\u09B0 WebVTT \u099F\u09CD\u09B0\u09CD\u09AF\u09BE\u0995, \u09B6\u09AC\u09CD\u09A6 \u09AF\u09C7 \u09A7\u09BE\u09AA\u0997\u09C1\u09B2\u09CB \u09AC\u09BE\u099C\u09BE\u09AF\u09BC \u09B8\u09C7\u0997\u09C1\u09B2\u09CB \u09A5\u09C7\u0995\u09C7\u0987 \u09B2\u09C7\u0996\u09BE: \u0995\u09CD\u09AF\u09BE\u09AA\u09B6\u09A8 \u09AA\u09CD\u09B0\u09A4\u09BF\u099F\u09BF \u09B6\u09AC\u09CD\u09A6 \u09AC\u09B0\u09CD\u09A3\u09A8\u09BE \u0995\u09B0\u09C7, \u0985\u09A7\u09CD\u09AF\u09BE\u09AF\u09BC \u099C\u09BE\u09A8\u09BE\u09AF\u09BC \u0995\u09CB\u09A5\u09BE\u09AF\u09BC \u0986\u099B\u09C7, \u0986\u09B0 \u09AE\u09C7\u099F\u09BE\u09A1\u09C7\u099F\u09BE \u09AA\u09CD\u09B0\u09A4\u09BF\u099F\u09BF \u09A7\u09BE\u09AA\u09C7\u09B0 \u099C\u09BE\u09AF\u09BC\u0997\u09BE \u0993 \u09AE\u09BE\u09A8 \u09A6\u09C7\u09AF\u09BC\u0964`` |
+| `transcript.download` | ``Download the ${p.kind} (.vtt)`` | ``${p.kind} \u09A1\u09BE\u0989\u09A8\u09B2\u09CB\u09A1 \u0995\u09B0\u09C1\u09A8 (.vtt)`` |
+| `transcript.loading` | Loading the record. | রেকর্ডটি লোড হচ্ছে। |
+| `transcript.error` | This record could not load. | এই রেকর্ডটি লোড হয়নি। |
+| `transcript.choose` | Transcripts | লিখিত রূপগুলো |
+| `transcript.layerRange` | ``${p.label}: from ${p.min} to ${p.max} ${p.unit}.`` | ``${p.label}: ${p.min} \u09A5\u09C7\u0995\u09C7 ${p.max} ${p.unit}\u0964`` |
+| `transcript.layerPattern` | ``${p.label}: shown as a pattern only, from very low to very high; no value is read from it.`` | ``${p.label}: \u09B6\u09C1\u09A7\u09C1 \u09A7\u09B0\u09A8 \u09B9\u09BF\u09B8\u09C7\u09AC\u09C7 \u09A6\u09C7\u0996\u09BE\u09A8\u09CB, \u0996\u09C1\u09AC \u0995\u09AE \u09A5\u09C7\u0995\u09C7 \u0996\u09C1\u09AC \u09AC\u09C7\u09B6\u09BF; \u098F\u0996\u09BE\u09A8 \u09A5\u09C7\u0995\u09C7 \u0995\u09CB\u09A8\u09CB \u09AE\u09BE\u09A8 \u09AA\u09A1\u09BC\u09BE \u09B9\u09AF\u09BC \u09A8\u09BE\u0964`` |
+| `transcript.highest` | ``Highest ${p.label}: ${p.value} ${p.unit}, ${p.place}, ${p.time}.`` | ``\u09B8\u09B0\u09CD\u09AC\u09CB\u099A\u09CD\u099A ${p.label}: ${p.value} ${p.unit}, ${p.place}, ${p.time}\u0964`` |
+| `transcript.lowest` | ``Lowest ${p.label}: ${p.value} ${p.unit}, ${p.place}, ${p.time}.`` | ``\u09B8\u09B0\u09CD\u09AC\u09A8\u09BF\u09AE\u09CD\u09A8 ${p.label}: ${p.value} ${p.unit}, ${p.place}, ${p.time}\u0964`` |
+| `transcript.at` | ``${p.time}: ${p.text}`` | ``${p.time}: ${p.text}`` |
+| `alt.save` | Save its description (.txt) | এর বর্ণনা সংরক্ষণ করুন (.txt) |
+| `alt.saved` | ``Saved ${p.file}`` | ``${p.file} \u09B8\u0982\u09B0\u0995\u09CD\u09B7\u09BF\u09A4 \u09B9\u09AF\u09BC\u09C7\u099B\u09C7`` |
+| `alt.heading.alt` | Alt text | বিকল্প লেখা |
+| `alt.heading.extended` | Extended description | বিস্তারিত বর্ণনা |
+| `alt.tactile` | ``Tactile disc, ${p.size} millimetres across: ${p.label}.`` | ``\u09B8\u09CD\u09AA\u09B0\u09CD\u09B6\u09AF\u09CB\u0997\u09CD\u09AF \u099A\u09BE\u0995\u09A4\u09BF, \u0986\u09A1\u09BC\u09BE\u0986\u09A1\u09BC\u09BF ${p.size} \u09AE\u09BF\u09B2\u09BF\u09AE\u09BF\u099F\u09BE\u09B0: ${p.label}\u0964`` |
+| `alt.tactileOne` | One raised ring runs once around the disc, clockwise from the top. | একটি উঁচু বৃত্ত চাকতির চারদিকে একবার ঘুরেছে, ওপর থেকে ঘড়ির কাঁটার দিকে। |
+| `alt.tactileMany` | ``${p.n} raised rings run once around the disc, clockwise from the top; from the centre out: ${p.names}.`` | ``${p.n}\u099F\u09BF \u0989\u0981\u099A\u09C1 \u09AC\u09C3\u09A4\u09CD\u09A4 \u099A\u09BE\u0995\u09A4\u09BF\u09B0 \u099A\u09BE\u09B0\u09A6\u09BF\u0995\u09C7 \u098F\u0995\u09AC\u09BE\u09B0 \u0998\u09C1\u09B0\u09C7\u099B\u09C7, \u0993\u09AA\u09B0 \u09A5\u09C7\u0995\u09C7 \u0998\u09A1\u09BC\u09BF\u09B0 \u0995\u09BE\u0981\u099F\u09BE\u09B0 \u09A6\u09BF\u0995\u09C7; \u09AE\u09BE\u099D\u0996\u09BE\u09A8 \u09A5\u09C7\u0995\u09C7 \u09AC\u09BE\u0987\u09B0\u09C7: ${p.names}\u0964`` |
+| `alt.tactileSpan` | ``${p.first} is at the top; ${p.last} is just before it.`` | ``\u0993\u09AA\u09B0\u09C7 ${p.first}; \u09A0\u09BF\u0995 \u09A4\u09BE\u09B0 \u0986\u0997\u09C7 ${p.last}\u0964`` |
+| `alt.tactileHeight` | ``A ring is ${p.low} millimetres high at ${p.min} ${p.unit} and ${p.high} millimetres high at ${p.max} ${p.unit}.`` | ``${p.min} ${p.unit}-\u098F \u09AC\u09C3\u09A4\u09CD\u09A4 ${p.low} \u09AE\u09BF\u09B2\u09BF\u09AE\u09BF\u099F\u09BE\u09B0 \u0989\u0981\u099A\u09C1, \u0986\u09B0 ${p.max} ${p.unit}-\u098F ${p.high} \u09AE\u09BF\u09B2\u09BF\u09AE\u09BF\u099F\u09BE\u09B0\u0964`` |
+| `alt.tactileTicks` | Raised ticks outside the rings mark every ten years. Where a step has no value, the disc stays flat. The label is embossed above the centre hole. | বৃত্তের বাইরে উঁচু দাগ প্রতি দশ বছর চিহ্নিত করে। যে ধাপের মান নেই, সেখানে চাকতি সমতল। লেবেলটি মাঝের ছিদ্রের ওপরে উঁচু করে লেখা। |
+| `alt.tactileExtreme` | ``${p.which}, ${p.ring}: ${p.step}, ${p.value} ${p.unit}.`` | ``${p.which}, ${p.ring}: ${p.step}, ${p.value} ${p.unit}\u0964`` |
+| `alt.highest` | Highest | সর্বোচ্চ |
+| `alt.lowest` | Lowest | সর্বনিম্ন |
 | data template | GPCC stops at # because the gauge version we use (GPCC Full Data Monthly V#) ends in December #, so both rain records compare #–# with #–#. | GPCC {0} সালে থামে, কারণ আমাদের ব্যবহৃত বৃষ্টিমাপক সংস্করণ (GPCC Full Data Monthly V{1}) ডিসেম্বর {2}-এ শেষ; তাই দুটি বৃষ্টির রেকর্ডই {3}–{4}-কে {5}–{6}-এর সাথে তুলনা করে। |
 | data template | GPCP only, newer decade; GPCC data ends in # | শুধু GPCP, নতুন দশক; GPCC ডেটা {0} সালে শেষ |
 

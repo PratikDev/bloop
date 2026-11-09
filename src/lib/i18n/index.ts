@@ -19,6 +19,7 @@ import { describeEn } from "./en/describe";
 import { placesTableEn } from "./en/places-table";
 import { tuningEn } from "./en/tuning";
 import { expeditionEn } from "./en/expedition";
+import { timedTextEn } from "./en/timed-text";
 import { dataEn } from "./en/data";
 import { helpEn } from "./en/help";
 import { officialEn } from "./en/official";
@@ -58,6 +59,7 @@ export const en = {
   ...placesTableEn,
   ...tuningEn,
   ...expeditionEn,
+  ...timedTextEn,
 };
 
 export type Messages = typeof en;

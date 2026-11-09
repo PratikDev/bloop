@@ -3,7 +3,7 @@ import { AppShell } from "@/components/AppShell";
 import { HomePage } from "@/components/pages/Home";
 import { ListenPage } from "@/components/pages/Listen";
 import { NotFoundPage } from "@/components/pages/NotFound";
-import { listenSearch, thenNowSearch } from "./search";
+import { listenSearch, thenNowSearch, transcriptSearch } from "./search";
 
 // Seven places and a 404 (docs/L3/REDESIGN.md §2; Official and Turntable joined from bloop-dev). Then vs Now, How we
 // know, Official and Turntable load their code (the chart library, three.js) only when opened.
@@ -52,4 +52,12 @@ const listenTestRoute = createRoute({
   component: lazyRouteComponent(() => import("@/components/pages/ListenTest"), "ListenTestPage"),
 });
 
-export const routeTree = rootRoute.addChildren([homeRoute, listenRoute, thenNowRoute, howRoute, officialRoute, turntableRoute, teamRoute, listenTestRoute]);
+// A transcript per record (accessibility core, step 7): linked from Listen, each Official record and How we know.
+const transcriptRoute = createRoute({
+  getParentRoute: () => rootRoute,
+  path: "transcript",
+  validateSearch: transcriptSearch,
+  component: lazyRouteComponent(() => import("@/components/pages/Transcript"), "TranscriptPage"),
+});
+
+export const routeTree = rootRoute.addChildren([homeRoute, listenRoute, thenNowRoute, howRoute, officialRoute, turntableRoute, teamRoute, listenTestRoute, transcriptRoute]);

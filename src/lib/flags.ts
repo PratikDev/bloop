@@ -30,6 +30,9 @@ export const FLAGS = {
   /** Step 6: Compare two dates (beating tones, exact difference), the sonar (N), the expedition log (.txt). */
   // Ready on 9 Nov 2026: expedition.e2e.ts 12/12, the a11y + features + health checks 340/340 with it on (Chromium +
   // Firefox).
+  /** Step 7: timed text tracks (WebVTT) for the sweep and the time-lapse, sound captions, a transcript page per record,
+   *  alt text with exports. */
+  timedText: flag(process.env.NEXT_PUBLIC_A11Y_TIMED_TEXT, false),
   expedition: flag(process.env.NEXT_PUBLIC_A11Y_EXPEDITION, true),
   tuning: flag(process.env.NEXT_PUBLIC_A11Y_TUNING, true),
   tablePlaces: flag(process.env.NEXT_PUBLIC_A11Y_TABLE_PLACES, true),

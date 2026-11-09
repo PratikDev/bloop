@@ -8,13 +8,14 @@ import { audio } from "@/lib/audio-adapter";
 import { audio as jukebox } from "@/lib/audio-jukebox";
 import { ensureAudioAll, stopAllEngines } from "@/lib/audio-engines";
 import { speechOut } from "../AppState/access";
-import { bandMeans, loadSstPairs, nearestPair, SWEEP_CENTER, sweepPath, type LatLon } from "@/lib/data";
+import { bandMeans, loadSstPairs, nearestPair, SWEEP_CENTER, SWEEP_STEP_MS, sweepPath, type LatLon } from "@/lib/data";
 import { roundKm } from "@/lib/geo/spherical";
 import { gapTexts } from "@/lib/frame-gap";
 import { nextCellSize } from "@/a11y/mapNav";
 import { bindT } from "@/lib/i18n";
 import { spokenReading, readAt } from "@/lib/reading";
 import { speechLangFor } from "@/lib/speech-lang";
+import { FLAGS } from "@/lib/flags";
 import { liveGap, trackStatus } from "@/lib/track-status";
 import { postCaption } from "@/lib/ui-captions";
 import { whisperSource, type WhisperSource } from "@/lib/whisper";
@@ -23,6 +24,7 @@ import { useAppState } from "../AppState/use-app-state";
 import { useLiveData } from "../LiveData/use-live-data";
 import { CommandsContext, SETTING_LABELS, type Line, type Commands, type SweepVisual } from "./use-commands";
 import { useSoundSync } from "./use-sound-sync";
+import { followSweep } from "../TimedText/follow";
 
 // Shortest time a said line stays before the next one (about fast reading speed).
 const MIN_MS_PER_CHAR = 40;
@@ -88,7 +90,9 @@ export function CommandsProvider({ children }: { children: ReactNode }) {
       if (!fields) return null;
       const path = sweepPath(fields, SWEEP_CENTER);
       sweepRef.current = { ...path, center: SWEEP_CENTER };
-      return audio.playSweep(path.points);
+      const handle = audio.playSweep(path.points, { stepMs: SWEEP_STEP_MS });
+      if (FLAGS.timedText) followSweep({ ...path, center: SWEEP_CENTER, track: state.track });
+      return handle;
     };
 
     return {

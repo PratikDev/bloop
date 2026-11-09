@@ -3,8 +3,10 @@
 import { SpeakerHigh } from "@phosphor-icons/react";
 import { Button } from "@/components/ui/button";
 import { describeRecord } from "@/lib/describe/compose";
+import { LIVE_TITLE } from "@/lib/transcript";
 import { useAppState, useT } from "../AppState/use-app-state";
 import { Fold } from "../ThenNow/Layout";
+import { TranscriptLink } from "../TranscriptLink";
 import { useDescribeHere } from "./use-describe-here";
 import { useDescription } from "./use-description";
 
@@ -27,6 +29,7 @@ export function DescriptionPanel() {
         records.map(({ record, d }) => (
           <section key={record} className="space-y-2">
             <p>{d.data.join(" ")}</p>
+            <TranscriptLink record={record} label={t(LIVE_TITLE[record])} />
             {d.meaning && (
               <Fold title={t("describe.meaning")}>
                 <p>{d.meaning}</p>

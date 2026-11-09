@@ -3,6 +3,7 @@
 // `bun run i18n:todo`); move an entry out of here once Samonwita has checked it.
 
 import type { MessageKey } from "../index";
+import { timedTextBn } from "./timed-text";
 
 /** UI keys whose Bangla is a draft. */
 export const DRAFT_KEYS: readonly MessageKey[] = [
@@ -395,6 +396,8 @@ export const DRAFT_KEYS: readonly MessageKey[] = [
   "log.sources",
   "log.download",
   "log.width",
+  // accessibility core 7 (en/timed-text.ts): every key
+  ...(Object.keys(timedTextBn) as MessageKey[]),
 ];
 
 /** Data-file sentences (bn/data.ts templates) whose Bangla is a draft: the English template, numbers as "#". */

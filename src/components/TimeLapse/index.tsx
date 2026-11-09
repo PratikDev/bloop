@@ -6,7 +6,8 @@ import { peakFrame } from "@/lib/audio";
 import { audio } from "@/lib/audio-adapter";
 import type { PlayerHandle, SweepPoint } from "@/lib/audio-adapter/types";
 import { frameAfter } from "@/a11y/mapNav";
-import { DATA_PATHS, followStorm, loadSequence, valueInFrame, windowStart, type Sequence } from "@/lib/data";
+import { DATA_PATHS, followStorm, loadSequence, TIMELAPSE_FPS, valueInFrame, windowStart, type Sequence } from "@/lib/data";
+import { FLAGS } from "@/lib/flags";
 import { formatUtc } from "@/lib/i18n";
 import { loadImage } from "@/lib/load-image";
 import { readingFromPoint } from "@/lib/reading";
@@ -15,12 +16,13 @@ import { stepSound } from "../AppState/access";
 import { liveSoundOn } from "../AppState/reducer";
 import { useAppState, useT } from "../AppState/use-app-state";
 import { playReading } from "../Commands/use-sound-sync";
+import { followTimelapse } from "../TimedText/follow";
 import { TimeLapseContext, type TimeLapseFrame, type TimeLapseRun, type TimeLapseStatus, type TimeLapseValue } from "./use-time-lapse";
 
 // Player name agreed with L2 (contract-proposals B5): step index = frame index.
 const PLAYER = "timelapse";
-// Frame rate of the plan's C4 ("about 2 frames/s"); also used by the silent visual clock.
-const FPS = 2;
+// Frame rate of the plan's C4 ("about 2 frames/s"); also used by the silent visual clock and the timed text.
+const FPS = TIMELAPSE_FPS;
 const NOT_RUN: TimeLapseRun = { finished: false, peak: null, last: null };
 
 interface Loaded {
@@ -120,6 +122,7 @@ export function TimeLapseProvider({ children }: { children: ReactNode }) {
     if (state.soundOn) {
       const h = audio.playTimelapse(path, { fps: FPS });
       handle.current = h;
+      if (FLAGS.timedText) followTimelapse({ frames: path, times: frames.map((f) => f.ref.time_utc) });
       // stop() clears the handle first, so only a natural end gets here.
       void h.done.then(() => {
         if (handle.current === h) finish(true);

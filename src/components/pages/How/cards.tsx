@@ -9,6 +9,8 @@ import { OneToOneChart } from "../../charts/OneToOneChart";
 import { useLiveData } from "../../LiveData/use-live-data";
 import { PLAYED_VOICES } from "../../panels/MappingPanel";
 import { Evidence } from "./Evidence";
+import { TranscriptLink } from "../../TranscriptLink";
+import { LIVE_TITLE, type LiveTranscript } from "@/lib/transcript";
 
 // The face of each How we know card (mentor item 6): the evidence plot (or table) with its alt text and table, the
 // key numbers and two or three plain sentences. The numbers: sst.json / rain.json `verified` (the rows of
@@ -16,7 +18,8 @@ import { Evidence } from "./Evidence";
 
 const f = (lang: Lang, v: number, d: number) => formatFixed(v, lang, d);
 
-function Face({ numbers, explain, children }: { numbers: string; explain: string; children: React.ReactNode }) {
+function Face({ numbers, explain, transcript, children }: { numbers: string; explain: string; transcript?: LiveTranscript; children: React.ReactNode }) {
+  const t = useT();
   return (
     <div className="space-y-2">
       <p className="text-small text-moon" data-testid="card-numbers">
@@ -26,6 +29,7 @@ function Face({ numbers, explain, children }: { numbers: string; explain: string
       <p className="text-small text-haze" data-testid="card-explain">
         {explain}
       </p>
+      {transcript && <TranscriptLink record={transcript} label={t(LIVE_TITLE[transcript])} />}
     </div>
   );
 }
@@ -58,6 +62,7 @@ export function OceanFace() {
         source: sourceName(pairs.datasets, "mur"),
       })}
       explain={t("how.ocean.explain", { n })}
+      transcript="ocean"
     >
       <Evidence
         alt={t("how.ocean.alt", { n, rho, median: f(lang, pairs.check.median_abs, 2) })}
@@ -91,6 +96,7 @@ export function RainFace() {
         source: sourceName(pairs.datasets, "imerg"),
       })}
       explain={t("how.rain.explain")}
+      transcript="rain"
     >
       <Evidence
         alt={t("how.rain.alt", { n: formatInteger(wet.length, lang), rho })}

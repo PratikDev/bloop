@@ -11,6 +11,8 @@ import { requirePaths } from "./validate";
 
 export const OFFICIAL_NODATA = 65535;
 export const OFFICIAL_BELOW = 65534;
+/** Significant figures an Official value is shown with (the record page, its transcript). */
+export const OFFICIAL_DIGITS = 3;
 
 /** A "pattern only" value is never shown as a number: only where it sits in the layer's own range, in five levels. */
 export const PATTERN_LEVELS = ["veryLow", "low", "middle", "high", "veryHigh"] as const;

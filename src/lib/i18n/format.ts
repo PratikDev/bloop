@@ -25,6 +25,11 @@ export function formatSignedUpTo(value: number, lang: Lang, decimals: number): s
   return fmt(value, lang, { maximumFractionDigits: decimals, signDisplay: "exceptZero" });
 }
 
+/** `digits` significant figures, never rounding the whole part away (3: 488.8 → "489", 0.01234 → "0.0123"). */
+export function formatSignificant(value: number, lang: Lang, digits: number): string {
+  return formatFixed(value, lang, Math.max(0, digits - 1 - Math.floor(Math.log10(Math.abs(value) || 1))));
+}
+
 export function formatInteger(value: number, lang: Lang): string {
   return fmt(value, lang, { maximumFractionDigits: 0 });
 }

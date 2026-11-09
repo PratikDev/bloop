@@ -7,7 +7,10 @@ import { liveRainFrame, sstGrid } from "@/lib/describe/facts";
 import type { Extreme, ValueGrid } from "@/lib/describe/stats";
 import { loadGeo } from "@/lib/geo/load";
 import { oceanText, rainText } from "@/lib/reading";
+import { FLAGS } from "@/lib/flags";
 import { arrived, closeness, pingIntervalMs, sonarTarget } from "@/lib/sonar";
+import { sonarTrend } from "@/lib/sound-captions";
+import { postCaption } from "@/lib/ui-captions";
 import { useAnnounce } from "../Announcer/use-announcer";
 import { useAppState, useT } from "../AppState/use-app-state";
 import { useCommands } from "../Commands/use-commands";
@@ -43,11 +46,15 @@ export function useSonar(): () => void {
   useEffect(() => {
     if (!state.sonar) return;
     let id: ReturnType<typeof setTimeout>;
+    let last: number | null = null;
     const ping = () => {
       const h = hunt.current;
       if (!h) return;
       const c = closeness(cursor.current, h.target);
       if (state.soundOn) audio.playSonarPing(c, cursor.current.lon);
+      // The ping's sound caption (step 7): quickening and nearer, or slowing and farther.
+      if (state.soundOn && FLAGS.timedText) postCaption("caption.sonar.ping", { trend: sonarTrend(last, c) });
+      last = c;
       id = setTimeout(ping, pingIntervalMs(c));
     };
     ping();

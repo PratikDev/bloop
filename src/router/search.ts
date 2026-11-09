@@ -1,6 +1,7 @@
 import type { ViewPart } from "@/components/ThenNow/parts";
 import { VIEW_PARTS } from "@/components/ThenNow/parts";
 import { HISTORY_METRICS, PLACES, type HistoryMetric } from "@/lib/history";
+import { RECORD_ID } from "@/lib/transcript";
 import type { ClimateCellName } from "@/types/data-contract";
 
 // Each page's URL state, checked on the way in: an unknown value is dropped
@@ -43,4 +44,13 @@ export function thenNowSearch(raw: Raw): ThenNowSearch {
     place,
     record: oneOf(HISTORY_METRICS, raw.record),
   };
+}
+
+export interface TranscriptSearch {
+  /** The record whose transcript is shown (Listen's ocean or rain, or an Official record's id); none lists them all. */
+  record?: string;
+}
+
+export function transcriptSearch(raw: Raw): TranscriptSearch {
+  return { record: typeof raw.record === "string" && RECORD_ID.test(raw.record) ? raw.record : undefined };
 }

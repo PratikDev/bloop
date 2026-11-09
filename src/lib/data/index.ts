@@ -2,7 +2,7 @@ export { DataLoadError, fetchBuffer, fetchJson } from "./fetch";
 export { wrapLon, clampLat } from "./grid";
 export { loadRain, loadSst, type RainField, type SstField } from "./latest";
 export { DATA_PATHS } from "./paths";
-export { START_CURSOR, SWEEP_CENTER, type LatLon } from "./places";
+export { START_CURSOR, SWEEP_CENTER, SWEEP_STEP_MS, TIMELAPSE_FPS, type LatLon } from "./places";
 export { bandMeans, openingPath, pointAt, sweepPath } from "./summaries";
 export { valueAt, type LiveFields } from "./value-at";
 export { loadCities, loadDemo, loadEnsemble, loadFirms, loadGistemp, loadGlobeDuet, loadGpcp, loadGrace, loadNdvi, loadThenNowStats, NDVI_POINTS } from "./context";
@@ -31,6 +31,7 @@ export {
   listedRelated,
   loadRelatedIndex,
   officialValueAt,
+  OFFICIAL_DIGITS,
   PATTERN_LEVELS,
   PATTERN_ONLY,
   patternLevel,

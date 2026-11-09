@@ -20,6 +20,12 @@ export interface RainChange {
 /** A computed place's name ("Bay of Bengal, 140 km south of Khulna"), or null where the gazetteer has none yet. */
 export type PlaceName = (at: LatLon) => string | null;
 
+/** A spot's full line and its region (district, country or sea), in one language (src/components/Describe/place-namer.ts). */
+export interface PlaceNamers {
+  name: PlaceName;
+  region: PlaceName;
+}
+
 export interface Spot extends LatLon {
   place: string | null;
 }
