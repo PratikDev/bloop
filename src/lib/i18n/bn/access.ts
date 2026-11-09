@@ -18,6 +18,10 @@ export const accessBn: Partial<Messages> = {
   "access.channels.both": "লেখা ও শব্দ",
   "access.channels.text": "শুধু লেখা",
   "access.channels.sound": "শুধু শব্দ",
+  "access.braille": "ব্রেইল ডিসপ্লে",
+  "access.braille.full": "পুরো লাইন",
+  "access.braille.short": "ছোট লাইন",
+  "access.braille.note": "ছোট লাইন: বর্ণনা, তুলনা, সোনারের খোঁজ বা উৎসের লাইন একটি ছোট লাইনে পাঠানো হয়। পুরো লেখা বর্ণনা ট্যাবে আর লগে থাকে, আর শব্দ চালু থাকলে ক্যাপশন বারেও।",
 
   "access.hide3d": "৩ডি দৃশ্য লুকান",
   "access.hide3d.note": "৩ডি দৃশ্য লুকানো (সেটিংস)। সুই, তার মান ও সব কী আগের মতোই কাজ করে।",

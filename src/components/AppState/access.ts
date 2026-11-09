@@ -14,10 +14,16 @@ export type Verbosity = (typeof VERBOSITIES)[number];
 export const CHANNELS = ["both", "text", "sound"] as const;
 export type Channels = (typeof CHANNELS)[number];
 
+/** What a braille display gets from the status region (plan item 12): the full lines, or each new description and
+ *  stat line's short form (one 40-cell line; src/a11y/shortForms.ts). The full line stays in the app either way (caption bar with sound on, Description tab, log). */
+export const BRAILLE_LINES = ["full", "short"] as const;
+export type BrailleLines = (typeof BRAILLE_LINES)[number];
+
 export interface AccessChoices {
   speechMode: SpeechMode;
   verbosity: Verbosity;
   channels: Channels;
+  brailleLines: BrailleLines;
 }
 export type AccessKey = keyof AccessChoices;
 
@@ -26,9 +32,10 @@ export const ACCESS_VALUES: { [K in AccessKey]: readonly AccessChoices[K][] } = 
   speechMode: SPEECH_MODES,
   verbosity: VERBOSITIES,
   channels: CHANNELS,
+  brailleLines: BRAILLE_LINES,
 };
 
-export const ACCESS_DEFAULTS: AccessChoices = { speechMode: "screenReader", verbosity: "standard", channels: "both" };
+export const ACCESS_DEFAULTS: AccessChoices = { speechMode: "screenReader", verbosity: "standard", channels: "both", brailleLines: "full" };
 
 interface Routing extends AccessChoices {
   builtInVoice: boolean;

@@ -6,6 +6,7 @@ import type { LatLon } from "@/lib/data";
 import type { BoundT, Lang } from "@/lib/i18n";
 import type { WhisperSource } from "@/lib/whisper";
 import type { Mode, PanelTab, ToggleKey } from "../AppState/reducer";
+import type { DegreeStyle } from "@/a11y/brailleText";
 
 export type SettingKey = ToggleKey;
 
@@ -39,6 +40,8 @@ export interface SweepVisual {
 
 /** A line to say, built for a language: once for the screen, once for speech. */
 export type Line = (t: BoundT, lang: Lang) => string;
+/** A line's braille short form (plan item 12), in the reader's degree style. */
+export type ShortLine = (t: BoundT, lang: Lang, degree: DegreeStyle) => string;
 
 /** Every user action, shared by keyboard shortcuts and on-screen controls. */
 export interface Commands {
@@ -70,7 +73,7 @@ export interface Commands {
    * sound on, the satellite whisper with `source`'s caption. Resolves when it has been
    * said; a later say() or Esc cancels a pending whisper.
    */
-  say(line: Line, source?: WhisperSource | null): Promise<void>;
+  say(line: Line, source?: WhisperSource | null, short?: ShortLine): Promise<void>;
   playSweep(): void;
   /** Starts the sweep from Chattogram with its map ring; null if there's nothing to play. */
   startSweep(): PlayerHandle | null;

@@ -11,6 +11,8 @@ import { FLAGS } from "@/lib/flags";
 import { arrived, closeness, pingIntervalMs, sonarTarget } from "@/lib/sonar";
 import { sonarTrend } from "@/lib/sound-captions";
 import { postCaption } from "@/lib/ui-captions";
+import { sonarShort } from "@/a11y/shortForms";
+import { useShortLines } from "@/hooks/use-short-lines";
 import { useAnnounce } from "../Announcer/use-announcer";
 import { useAppState, useT } from "../AppState/use-app-state";
 import { useCommands } from "../Commands/use-commands";
@@ -33,6 +35,7 @@ export function useSonar(): () => void {
   const { state, dispatch } = useAppState();
   const commands = useCommands();
   const announce = useAnnounce();
+  const shortLines = useShortLines();
   const t = useT();
   const { fields } = useLiveData();
   const hunt = useRef<Hunt | null>(null);
@@ -76,7 +79,9 @@ export function useSonar(): () => void {
       .catch(() => t("place.spoken", h.target))
       .then((place) => {
         const text = t("sonar.arrived", { what, value, place });
-        announce(text);
+        // Short lines (plan item 12): the status region gets the short form; the log keeps the full line.
+        const time = (h.kind === "ocean" ? fields?.sst.meta.frame_time_utc : fields?.rain?.meta.frame_time_utc) ?? "";
+        announce(shortLines.on ? sonarShort(t, state.lang, shortLines.degree, { record: h.kind, value: h.target.value, frozen: false, at: h.target, timeUtc: time }) : text);
         commands.note(text, [h.kind === "ocean" ? (fields?.sst.meta.source_dataset ?? "") : (fields?.rain?.meta.source_dataset ?? "")].filter(Boolean));
       });
     // The target, kind and language are fixed while it runs.

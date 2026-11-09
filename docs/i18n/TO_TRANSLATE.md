@@ -499,7 +499,7 @@ The Mapping panel builds each rule sentence from its parts (`src/lib/i18n/bn/rul
 | `clarity` | parameter: reverbSec; unit: hours since a 1 km infrared look | How recently measured 0 to 48 hours since a 1 km infrared look → echo length 0.1 to 2.4 s (linear). |
 | `unison` | a rule shared with another voice (sameAs) | Proof in unison: two tones in one ear, both by the Ocean temperature rule (Ocean temperature −5 to 35 °C → pitch 220 to 880 Hz (exponential: equal steps in value sound like equal musical steps).) Beats per second = the difference between the two pitches in Hz. |
 
-## Draft Bangla, needs review (551)
+## Draft Bangla, needs review (555)
 
 Drafted for the mentor fixes (`docs/MENTOR_FIXES.md`); **draft, needs review** by a Bangla speaker. Listed in `src/lib/i18n/bn/drafts.ts`: remove an entry there once it is checked.
 
@@ -717,6 +717,10 @@ Drafted for the mentor fixes (`docs/MENTOR_FIXES.md`); **draft, needs review** b
 | `access.speech.voice` | Bloop's voice | ব্লুপের কণ্ঠ |
 | `access.speech.off` | Off | বন্ধ |
 | `access.speech.note` | My screen reader: Bloop sends its words to your screen reader. Bloop's voice: Bloop speaks them itself. Never both. | আমার স্ক্রিন রিডার: ব্লুপ তার কথা আপনার স্ক্রিন রিডারে পাঠায়। ব্লুপের কণ্ঠ: ব্লুপ নিজেই বলে। কখনো দুটো একসাথে নয়। |
+| `access.braille` | Braille display | ব্রেইল ডিসপ্লে |
+| `access.braille.full` | Full lines | পুরো লাইন |
+| `access.braille.short` | Short lines | ছোট লাইন |
+| `access.braille.note` | Short lines: a description, comparison, sonar find or source line is sent as one short line (40 cells in English). The full text stays in the Description tab and the log, and in the caption bar while the sound is on. | ছোট লাইন: বর্ণনা, তুলনা, সোনারের খোঁজ বা উৎসের লাইন একটি ছোট লাইনে পাঠানো হয়। পুরো লেখা বর্ণনা ট্যাবে আর লগে থাকে, আর শব্দ চালু থাকলে ক্যাপশন বারেও। |
 | `access.verbosity` | Detail | বিস্তারিত |
 | `access.verbosity.brief` | Brief | সংক্ষেপে |
 | `access.verbosity.standard` | Standard | সাধারণ |

@@ -16,6 +16,10 @@ export const accessEn = {
   "access.channels.both": "Text and sound",
   "access.channels.text": "Text only",
   "access.channels.sound": "Sound only",
+  "access.braille": "Braille display",
+  "access.braille.full": "Full lines",
+  "access.braille.short": "Short lines",
+  "access.braille.note": "Short lines: a description, comparison, sonar find or source line is sent as one short line (40 cells in English). The full text stays in the Description tab and the log, and in the caption bar while the sound is on.",
 
   "access.hide3d": "Hide 3D views",
   "access.hide3d.note": "3D view hidden (Settings). The needle, its value and every key still work.",

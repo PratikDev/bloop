@@ -8,7 +8,7 @@ export const PREFS_STORAGE_KEY = "jukebox.prefs.v1";
 const FLAGS = ["describe", "captions", "builtInVoice", "hide3d", "tuned", "started"] as const satisfies readonly PrefKey[];
 const SOUND_CHOICES: readonly SoundChoice[] = ["sound", "silent"];
 /** Every setting remembered on this device. */
-export const PREF_KEYS = ["lang", "describe", "captions", "builtInVoice", "hide3d", "tuned", "started", "soundChoice", "speechMode", "verbosity", "channels"] as const satisfies readonly PrefKey[];
+export const PREF_KEYS = ["lang", "describe", "captions", "builtInVoice", "hide3d", "tuned", "started", "soundChoice", "speechMode", "verbosity", "channels", "brailleLines"] as const satisfies readonly PrefKey[];
 
 /** The remembered settings out of the app state. */
 export function pickPrefs(state: Pick<AppState, PrefKey>): Required<Prefs> {

@@ -1,7 +1,7 @@
 "use client";
 
 import type { MessageKey } from "@/lib/i18n";
-import { CHANNELS, SPEECH_MODES, VERBOSITIES, type AccessChoices, type Channels, type SpeechMode, type Verbosity } from "../AppState/access";
+import { BRAILLE_LINES, CHANNELS, SPEECH_MODES, VERBOSITIES, type AccessChoices, type BrailleLines, type Channels, type SpeechMode, type Verbosity } from "../AppState/access";
 import { useAppState, useT } from "../AppState/use-app-state";
 import { ChoiceGroup } from "../ChoiceGroup";
 
@@ -21,8 +21,13 @@ const CHANNELS_LABEL = {
   text: "access.channels.text",
   sound: "access.channels.sound",
 } as const satisfies Record<Channels, MessageKey>;
+const BRAILLE_LABEL = {
+  full: "access.braille.full",
+  short: "access.braille.short",
+} as const satisfies Record<BrailleLines, MessageKey>;
 
-/** Speech (screen reader / Bloop's voice / off), detail and what each step sends (accessibility core, step 1). */
+/** Speech (screen reader / Bloop's voice / off), detail, what each step sends (step 1), and what a braille display
+ *  gets: full lines or short ones (plan item 12). */
 export function AccessSettings() {
   const { state, dispatch } = useAppState();
   const t = useT();
@@ -52,6 +57,14 @@ export function AccessSettings() {
         value={state.channels}
         onChange={(channels) => set({ channels })}
       />
+      <ChoiceGroup
+        {...common}
+        label={t("access.braille")}
+        options={BRAILLE_LINES.map((value) => ({ value, label: t(BRAILLE_LABEL[value]) }))}
+        value={state.brailleLines}
+        onChange={(brailleLines) => set({ brailleLines })}
+      />
+      <p className="px-1 text-small text-haze">{t("access.braille.note")}</p>
     </div>
   );
 }

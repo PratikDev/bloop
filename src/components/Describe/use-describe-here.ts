@@ -1,5 +1,7 @@
 "use client";
 
+import { describeShort } from "@/a11y/shortForms";
+import type { DegreeStyle } from "@/a11y/brailleText";
 import { describeRecord, spokenDescription } from "@/lib/describe/compose";
 import { bindT, type BoundT, type Lang } from "@/lib/i18n";
 import type { Verbosity } from "../AppState/access";
@@ -22,6 +24,11 @@ export function spokenFor(facts: FactsFor, verbosity: Verbosity, t: BoundT, lang
     .join(" ");
 }
 
+/** The description's braille short form (plan item 12): each record's value at the needle, as one line. */
+export function shortFor(facts: FactsFor, t: BoundT, lang: Lang, degree: DegreeStyle): string {
+  return describeShort(t, lang, degree, facts(lang).map((f) => ({ record: f.record, value: f.value, frozen: f.frozen, at: f.here, timeUtc: f.timeUtc })));
+}
+
 /**
  * D ("describe here", spec 3.2): says the description of the needle once, at the chosen detail, through the speech
  * mode (the status region or Bloop's voice, never both). Never continuous: Describe mode (Shift+D) keeps that job.
@@ -34,7 +41,7 @@ export function useDescribeHere(): (() => void) | null {
   if (!input) return null;
   return () => {
     void describeNow(input).then((facts) => {
-      void commands.say((t, lang) => spokenFor(facts, state.verbosity, t, lang));
+      void commands.say((t, lang) => spokenFor(facts, state.verbosity, t, lang), null, (t, lang, degree) => shortFor(facts, t, lang, degree));
       commands.note(spokenFor(facts, state.verbosity, bindT(state.lang), state.lang), sourcesOf(input));
     });
   };

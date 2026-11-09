@@ -27,6 +27,8 @@ This page says what exists, how to use it (English, then Bangla), the keys, the 
 | Sonar | N on the map | Finds the warmest (or wettest) spot near the needle; the ping rises and quickens as you near it; arriving says the value and the place. |
 | Expedition log | Log (dock) | This session's places, values, comparisons and sources, wrapped to the braille width; saved as `.txt`. |
 | Braille Data Explorer | B | The data as a line of braille cells on the sound's own scale; its caret is the needle. See BRAILLE.md. |
+| Braille on Then vs Now | B, or Braille explorer beside the play controls | The selected part's series for the selected city on the sound's shared scale, one cell per year (the years between the two decades blank; water: GRACE's months, Bangladesh-wide). The caret is the year and plays it; R reads the value with the change between the decades and its 95% interval from the statistics file (a single year has no interval of its own, so none is invented). |
+| Short lines for a braille display | Settings → Braille display | Full lines (default) or Short lines: each description (D), Compare result, sonar find and provenance line reaches the status region as one front-loaded line of at most 40 cells in English (the Bengali table spells words out, so its line has the table's rules but no cell budget). The full text stays in the Description tab and the log, and in the caption bar while the sound is on. Then vs Now's statistics always send their short form. |
 
 ### Rich descriptive text with the audio
 

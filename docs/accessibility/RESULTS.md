@@ -60,6 +60,24 @@ same build (`--last-failed`).
 
 Earlier full runs: 250/250 (step 1), 406/406 (step 2, the whole suite), 292/292 (step 3), 312/312 (step 4), 328/328 (step 5), 340/340 (step 6).
 
+## After step 9: items 11 and 12, the dock at laptop widths, and Ask Bloop on (9 Nov 2026)
+
+One build with every flag on (Ask Bloop included, `NEXT_PUBLIC_ASK_BLOOP=1`); the regression plus
+`e2e/braille.e2e.ts` and `e2e/ask-bloop.e2e.ts`, Chromium + Firefox: **458/458**. First pass 454; the 4 failures were
+the new Then vs Now braille tests (they clicked while the page was still settling after navigation, and read the
+window label's year instead of the point's); fixed in the tests and passed on the same build. The Short lines test
+was left out of that run by a slip in the commit-split script; run on its own on the same build: 2/2.
+
+| What | File | Result |
+|---|---|---|
+| Plan item 11: Braille Data Explorer on Then vs Now | `e2e/braille.e2e.ts` (Then vs Now tests) | 10/10 |
+| Plan item 12: short forms, Settings → Braille display | `e2e/a11y/speech-choices.e2e.ts`; unit `src/a11y/shortForms.test.ts` | 12/12; 13/13 |
+| The dock at 1280, 1366 and 1600 px | `e2e/a11y/dock-fit.e2e.ts` | 6/6 |
+| Low vision (unchanged by the above) | `e2e/a11y/low-vision.e2e.ts` | 52/52 |
+| Ask Bloop | `e2e/ask-bloop.e2e.ts` | 16/16 |
+
+Unit tests (`bun test`): 458/458.
+
 ## Problems found and fixed in step 8's checks
 
 - The sticky sound dock covered buttons when a low-vision layout scrolled: Listen's one-screen layout stayed on and

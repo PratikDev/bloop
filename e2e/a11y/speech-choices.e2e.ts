@@ -119,3 +119,22 @@ test("Bangla: the choices are in Bangla", async ({ page }) => {
   for (const name of ["কথা", "বিস্তারিত", "প্রতিটি ধাপে"]) await expect(page.getByRole("group", { name })).toBeVisible();
   await expect(page.getByRole("group", { name: "কথা" }).getByRole("button", { name: "আমার স্ক্রিন রিডার" })).toBeVisible();
 });
+
+test("Braille display, Short lines (plan item 12): D sends one line of at most 40 cells; the caption keeps the full text", async ({ page }) => {
+  await fresh(page);
+  await choose(page, "Braille display", "Short lines");
+  // The caption bar shows spoken lines while the sound is on (with it off, it shows the reading).
+  const on = page.getByRole("button", { name: "Turn sound on" });
+  if (await on.isVisible()) await on.click();
+  await map(page).focus();
+  await settle(page, 600);
+  const got = await during(page, () => page.keyboard.press("d"));
+  expect(got.live.length).toBe(1);
+  expect([...got.live[0]].length).toBeLessThanOrEqual(40);
+  expect(got.live[0]).toMatch(/^(SST|Rain) /u);
+  await expect.poll(async () => (await page.getByTestId("caption-bar").first().textContent()) ?? "").toContain("Across the map");
+  await choose(page, "Braille display", "Full lines");
+  await map(page).focus();
+  const full = await during(page, () => page.keyboard.press("d"));
+  expect(full.live.join(" ")).toContain("Across the map");
+});

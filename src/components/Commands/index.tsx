@@ -22,8 +22,9 @@ import { whisperSource, type WhisperSource } from "@/lib/whisper";
 import { useAnnounce } from "../Announcer/use-announcer";
 import { useAppState } from "../AppState/use-app-state";
 import { useLiveData } from "../LiveData/use-live-data";
-import { CommandsContext, SETTING_LABELS, type Line, type Commands, type SweepVisual } from "./use-commands";
+import { CommandsContext, SETTING_LABELS, type Line, type Commands, type ShortLine, type SweepVisual } from "./use-commands";
 import { useSoundSync } from "./use-sound-sync";
+import { useShortLines } from "@/hooks/use-short-lines";
 import { followSweep } from "../TimedText/follow";
 
 // Shortest time a said line stays before the next one (about fast reading speed).
@@ -33,6 +34,7 @@ export function CommandsProvider({ children }: { children: ReactNode }) {
   const { state, dispatch } = useAppState();
   const { fields, sst } = useLiveData();
   const announce = useAnnounce();
+  const shortLines = useShortLines();
   const sweepRef = useRef<SweepVisual | null>(null);
   // Counts say() calls and stops, so a whisper never follows a cancelled value.
   const sayCount = useRef(0);
@@ -61,15 +63,18 @@ export function CommandsProvider({ children }: { children: ReactNode }) {
       await audio.speak(sayable(line(ts, sl), ts), sl);
     };
 
-    const say = async (line: Line, source?: WhisperSource | null) => {
+    const say = async (line: Line, source?: WhisperSource | null, short?: ShortLine) => {
       const id = ++sayCount.current;
       const out = speechOut(state);
       const voiced = out === "voice" && state.soundOn;
       const shown = line(t, state.lang);
       // Two voices never talk at once: built-in speech OR the status region (OR, with speech off, neither: the caption
-      // still shows it). With sound off, nothing is spoken aloud.
-      if (voiced || out === "off") postCaption("caption.speech", { text: shown });
-      else announce(sayable(source ? t("whisper.announce", { text: shown, source: source.caption }) : shown, t));
+      // still shows it). With sound off, nothing is spoken aloud. "Short lines" (plan item 12): the status region gets
+      // the short form and the caption shows the full line.
+      const brief = short && shortLines.on && !voiced && out !== "off" ? short(t, state.lang, shortLines.degree) : null;
+      if (voiced || out === "off" || brief) postCaption("caption.speech", { text: shown });
+      if (brief) announce(sayable(brief, t));
+      else if (!voiced && out !== "off") announce(sayable(source ? t("whisper.announce", { text: shown, source: source.caption }) : shown, t));
       // Wait at least a short reading time: speech that can't start resolves at once.
       await Promise.all([voiced ? speakLine(line, id) : null, sleep(shown.length * MIN_MS_PER_CHAR)]);
       if (source && state.soundOn && id === sayCount.current) audio.playEarcon("whisper", { params: { source: source.caption } });
@@ -223,7 +228,7 @@ export function CommandsProvider({ children }: { children: ReactNode }) {
       },
       sweepRef,
     };
-  }, [state, dispatch, fields, sst, announce, navigate]);
+  }, [state, dispatch, fields, sst, announce, navigate, shortLines]);
 
   return <CommandsContext.Provider value={commands}>{children}</CommandsContext.Provider>;
 }

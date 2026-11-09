@@ -8,6 +8,7 @@ import { loadGlobalLayer, type GlobalLayer } from "@/lib/data";
 import { formatFixed, formatMonth, type BoundT, type Lang } from "@/lib/i18n";
 import { useAppState, useT } from "../../AppState/use-app-state";
 import { useCommands } from "../../Commands/use-commands";
+import { compareShort } from "@/a11y/shortForms";
 
 /** Decimals as the files store them (scale 100 → two, scale 10 → one). */
 const DECIMALS: Record<CompareLayer, number> = { heat: 2, rain: 2, water: 1 };
@@ -63,7 +64,7 @@ export function useCompare(open: boolean) {
     if (layer.status !== "ready" || !months) return;
     const result = compareAt(layer.layer, name, state.cursor, months.a, months.b);
     void commands
-      .say((t, lang) => compareText(result, t, lang))
+      .say((t, lang) => compareText(result, t, lang), null, (_t, lang, degree) => compareShort(lang, degree, result))
       .then(() => {
         if (!state.soundOn || result.a.value === null || result.b.value === null) return;
         // The live voices step aside, as for proof in unison (src/lib/audio-engines.ts).
