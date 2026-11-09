@@ -7,8 +7,6 @@ import {
   Gauge,
   Layers,
   LocateFixed,
-  Pause,
-  Play,
   RotateCw,
   Route,
   ScanEye,
@@ -22,7 +20,8 @@ import type { ReactNode, Ref } from "react";
 import { Button } from "@/components/ui/button";
 import { Popover, PopoverTrigger } from "@/components/ui/popover";
 import type { TrackMode } from "@/lib/audio-jukebox/types";
-import { useAppState, useT } from "../AppState/use-app-state";
+import { useT } from "../AppState/use-app-state";
+import { MiniPlayer } from "../Dock/MiniPlayer";
 import { MixerContent, useMixerLimited } from "../Dock/MixerMenu";
 import type { DockAction, DockView } from "./dock-actions";
 import { DockButton, SpeedStepper } from "./DockButton";
@@ -40,7 +39,6 @@ export interface DockProps {
   cameraMode: CameraMode;
   covers: Partial<Record<TrackMode, string>>;
   bookmarks: readonly string[];
-  onPlay(): void;
   onToggleRotation(): void;
   onSpeed(step: 1 | -1): void;
   onSearch(): void;
@@ -54,20 +52,20 @@ export interface DockProps {
   onSettings(): void;
   onSources(): void;
   onHelp(): void;
-  /** The sound caption, on its own row at the top of the bar. */
+  /** The sound caption, above the needle sliders. */
   caption: ReactNode;
+  /** The credits link, at the end of the keys. */
+  credits: ReactNode;
 }
 
-/** The Turntable's bar: Play, four labelled keys, and More for everything else. Every action comes from one list. */
+/** The Turntable's bar: the shared mini player with four labelled keys and More. Every action comes from one list. */
 export function Dock({ ref, ...p }: DockProps) {
-  const { state } = useAppState();
   const t = useT();
   const { tt } = useTT();
   const mixerLimited = useMixerLimited();
   const explore = p.cameraMode === "explore";
 
   const actions: DockAction[] = [
-    { id: "play", place: "key", primary: true, icon: state.playing ? Pause : Play, label: t(!state.soundOn ? "sound.turnOn" : state.playing ? "sound.pause" : "sound.play"), pressed: state.playing, onClick: p.onPlay },
     { id: "turn", place: "key", icon: p.rotating ? Square : RotateCw, label: tt(p.rotating ? "turntable.stopTurning" : "turntable.turn"), keys: "Space", pressed: p.rotating, onClick: p.onToggleRotation },
     { id: "search", place: "key", icon: Search, label: tt("turntable.search.label"), short: tt("turntable.search.short"), keys: "/", onClick: p.onSearch },
     { id: "where", place: "key", icon: LocateFixed, label: tt("turntable.where.button"), keys: "L", onClick: p.onWhereAmI },
@@ -118,21 +116,30 @@ export function Dock({ ref, ...p }: DockProps) {
   };
 
   return (
-    <div ref={ref} role="group" aria-label={tt("turntable.dock")} className="on-space flex flex-wrap items-center justify-center gap-2 rounded-sheet p-2">
-      <div className="basis-full empty:hidden">{p.caption}</div>
-      {actions
-        .filter((a) => a.place === "key")
-        .map((a) =>
-          a.popover ? (
-            <Popover key={a.id}>
-              <DockButton icon={a.icon} label={a.label} short={a.short} wrap={(b) => <PopoverTrigger render={b} />} />
-              {a.popover}
-            </Popover>
-          ) : (
-            <DockButton key={a.id} icon={a.icon} label={a.label} short={a.short} keys={a.keys} pressed={a.pressed} primary={a.primary} onClick={a.onClick} />
-          ),
-        )}
-      <DockMore actions={actions.filter((a) => a.place === "more")} view={view} />
+    <div ref={ref} role="group" aria-label={tt("turntable.dock")}>
+      <MiniPlayer
+        caption={p.caption}
+        onTrack={p.onRecord}
+        fullWidthKeys
+        keys={
+          <>
+            {actions
+              .filter((a) => a.place === "key")
+              .map((a) =>
+                a.popover ? (
+                  <Popover key={a.id}>
+                    <DockButton icon={a.icon} label={a.label} short={a.short} wrap={(b) => <PopoverTrigger render={b} />} />
+                    {a.popover}
+                  </Popover>
+                ) : (
+                  <DockButton key={a.id} icon={a.icon} label={a.label} short={a.short} keys={a.keys} pressed={a.pressed} onClick={a.onClick} />
+                ),
+              )}
+            <DockMore actions={actions.filter((a) => a.place === "more")} view={view} />
+            {p.credits}
+          </>
+        }
+      />
     </div>
   );
 }

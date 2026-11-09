@@ -3,7 +3,7 @@ import { AppShell } from "@/components/AppShell";
 import { HomePage } from "@/components/pages/Home";
 import { ListenPage } from "@/components/pages/Listen";
 import { NotFoundPage } from "@/components/pages/NotFound";
-import { listenSearch, thenNowSearch } from "./search";
+import { listenSearch, officialSearch, thenNowSearch } from "./search";
 
 // Six places and a 404 (docs/L3/REDESIGN.md §2; Official and Turntable joined from bloop-dev). Then vs Now, How we
 // know, Official and Turntable load their code (the chart library, three.js) only when opened.
@@ -30,6 +30,7 @@ const howRoute = createRoute({
 const officialRoute = createRoute({
   getParentRoute: () => rootRoute,
   path: "official",
+  validateSearch: officialSearch,
   component: lazyRouteComponent(() => import("@/components/pages/Official"), "OfficialPage"),
 });
 

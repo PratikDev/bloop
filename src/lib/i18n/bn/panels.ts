@@ -11,7 +11,7 @@ const int = (v: number) => formatInteger(v, "bn");
 const n2 = (v: number) => formatFixed(v, "bn", 2);
 
 export const panelsBn: Translated<typeof panelsEn> = {
-  "panel.label": "এই শব্দ সম্পর্কে",
+  "panel.label": "উৎস ও যাচাই",
   "panel.truth": "যাচাই",
   "panel.mapping": "যা শুনছেন",
   "panel.provenance": "কোথা থেকে",

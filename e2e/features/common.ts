@@ -21,8 +21,17 @@ export const live = async (page: Page) =>
 export const tab = (page: Page, n: string) => page.getByRole("tab", { name: n, exact: true });
 export const pressed = (l: Locator) => expect(l).toHaveAttribute("aria-pressed", "true");
 export const onMap = async (page: Page) => { await map(page).focus(); };
-/** The dock (main's sound bar, on every page after Start but Home and the Turntable). */
-export const dock = (page: Page) => page.getByRole("region", { name: "Sound" });
+/** The player (the bar on every page after Start but Home; the Turntable has its own copy). */
+export const dock = (page: Page) => page.getByRole("region", { name: "Player" });
+
+/** Opens a record group in the rack beside the map, if it is closed. */
+export async function openGroup(page: Page, name: RegExp) {
+  const group = page.getByRole("complementary", { name: "Records" }).getByRole("button", { name });
+  if ((await group.getAttribute("aria-expanded")) !== "true") await group.click();
+}
+
+/** A record's strip in the rack beside the map (its name starts with the code). */
+export const strip = (page: Page, code: string) => page.getByRole("complementary", { name: "Records" }).getByRole("button", { name: new RegExp(`^${code},`, "u") });
 
 /** The accessible name a screen reader announces for the feature's control. A modal drawer the check opened hides the
  *  rest of the page from the accessibility tree, so the control can't be found until it is closed (Esc closes the top
@@ -48,9 +57,9 @@ export async function stops(page: Page, what: string): Promise<Outcome> {
   return { evidence: `${what}: output level ${l.toExponential(1)} after the key` };
 }
 
-/** Listen's Inspector ("About this sound", the dock) on one of its tabs: Checks, What you hear, Where it's from. */
+/** Listen's Inspector ("Sources and checks", under the readout) on one of its tabs: Checks, What you hear, Where it's from. */
 export async function inspector(page: Page, tabName: "Checks" | "What you hear" | "Where it's from"): Promise<Locator> {
-  await dock(page).getByRole("button", { name: "About this sound" }).click();
+  await page.getByRole("button", { name: "Sources and checks" }).click();
   await tab(page, tabName).click();
   const panel = page.getByRole("tabpanel", { name: tabName });
   await expect(panel).toBeVisible();

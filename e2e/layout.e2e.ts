@@ -11,6 +11,7 @@ const VIEWPORTS = [
   { width: 390, height: 844 },
 ];
 
+// Official follows How we know, which links to it (it isn't in the header).
 const PATHS = ["/", "/listen", "/then-now", "/how", "/official", "/turntable"];
 
 const SETTLE_MS = 1500;
@@ -87,7 +88,8 @@ function findOverlaps(maxOverlap: number): Finding {
 
 /** A click on the header's link, as a user moves between pages (phones show shorter labels, so by address). */
 async function go(page: Page, path: string) {
-  await page.getByRole("banner").locator(`a[href="${path}"]`).first().click();
+  if (path === "/official") await page.getByRole("main").getByRole("link", { name: "All official records" }).click();
+  else await page.getByRole("banner").locator(`a[href="${path}"]`).first().click();
   await page.waitForTimeout(SETTLE_MS);
 }
 

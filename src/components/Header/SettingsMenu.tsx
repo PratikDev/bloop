@@ -7,6 +7,7 @@ import { Popover, PopoverContent, PopoverTitle, PopoverTrigger } from "@/compone
 import { useAppState, useT } from "../AppState/use-app-state";
 import { useCommands } from "../Commands/use-commands";
 import { SettingToggle } from "../SettingToggle";
+import { HEADER_KEY } from "./header-key";
 
 const MENU_ACTION = "h-11 w-full justify-start gap-2 rounded-lg px-3 text-body font-normal hover:bg-tide/60";
 
@@ -22,7 +23,7 @@ export function SettingsMenu() {
   };
   return (
     <Popover open={open} onOpenChange={setOpen}>
-      <PopoverTrigger render={<Button variant="ghost" size="icon-lg" aria-label={t("settings.open")} className="size-11 text-haze hover:text-moon" />}>
+      <PopoverTrigger render={<Button variant="ghost" size="icon-lg" aria-label={t("settings.open")} className={HEADER_KEY} />}>
         <GearSix aria-hidden="true" className="size-5" />
       </PopoverTrigger>
       <PopoverContent align="end" sideOffset={8} className="surface-glass w-72 gap-2 rounded-plate p-3 text-body">

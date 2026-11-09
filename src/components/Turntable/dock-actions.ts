@@ -14,8 +14,6 @@ export interface DockAction {
   short?: string;
   keys?: string;
   pressed?: boolean;
-  /** The bar's one coral action. */
-  primary?: boolean;
   /** On the bar itself, or inside More. */
   place: "key" | "more";
   onClick?: () => void;

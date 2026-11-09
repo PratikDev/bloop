@@ -1,37 +1,13 @@
 "use client";
 
-import { normalise, voiceSpec } from "@/lib/audio/mapping";
+import { frameScale, scaleShare as share, type FrameScale as Scale } from "@/lib/frame-scale";
 import { formatInteger, formatRainRate } from "@/lib/i18n";
 import { cn } from "@/lib/utils";
 import { useAppState, useT } from "../AppState/use-app-state";
 import { useLiveData } from "../LiveData/use-live-data";
 import { useShownPoint } from "../TimeLapse/use-shown-point";
 import { useTT } from "./i18n";
-import { recordFrames, type RecordFrame } from "./records";
-
-interface Scale {
-  title: "turntable.legend.ocean" | "turntable.legend.rain";
-  min: number;
-  max: number;
-  log: boolean;
-  unit: "unit.celsius" | "unit.mmPerHour";
-  ticks: number[];
-  value: number | null;
-  /** The tube's fill. */
-  fill: "bg-bubble" | "bg-dial";
-}
-
-/** The frame's own range (value_range in its JSON), ticks at mapping.json's legend values. */
-function scaleFor(frame: RecordFrame, value: number | null): Scale {
-  const [min, max] = frame.meta.value_range;
-  const voice = frame.product === "ocean" ? "ocean" : "rain";
-  const ticks = voiceSpec(voice).legend.map((p) => p.value).filter((v) => v >= min && v <= max);
-  return frame.product === "ocean"
-    ? { title: "turntable.legend.ocean", min, max, log: false, unit: "unit.celsius", ticks, value, fill: "bg-bubble" }
-    : { title: "turntable.legend.rain", min, max, log: true, unit: "unit.mmPerHour", ticks, value: value && value > 0 ? value : null, fill: "bg-dial" };
-}
-
-const share = (s: Scale, v: number) => normalise(v, { min: s.min, max: s.max, scale: s.log ? "log" : "linear" }) ?? 0;
+import { recordFrames } from "./records";
 
 /**
  * A horizontal tube per frame, filled to the value under the needle on the frame's own range, with
@@ -45,7 +21,7 @@ export function LegendBar({ className }: { className?: string }) {
   const { reading, track } = useShownPoint();
   if (!reading) return null;
   const fmt = (s: Scale, v: number) => (s.log ? formatRainRate(v, state.lang) : formatInteger(v, state.lang));
-  const scales = recordFrames(track, fields).map((f) => scaleFor(f, f.product === "ocean" ? reading.ocean.valueC : reading.rain.mmPerHour));
+  const scales = recordFrames(track, fields).map((f) => frameScale(f, f.product === "ocean" ? reading.ocean.valueC : reading.rain.mmPerHour));
 
   return (
     <div aria-hidden="true" className={cn("on-space space-y-2 rounded-plate px-4 py-2", className)}>

@@ -45,3 +45,14 @@ export function thenNowSearch(raw: Raw): ThenNowSearch {
   if (record) search.record = record;
   return search;
 }
+
+export interface OfficialSearch {
+  /** Which record is open. Checked against the record list by the page, once the list has loaded. */
+  record?: string;
+}
+
+const RECORD_ID = /^[a-z0-9_]{1,80}$/u;
+
+export function officialSearch(raw: Raw): OfficialSearch {
+  return typeof raw.record === "string" && RECORD_ID.test(raw.record) ? { record: raw.record } : {};
+}

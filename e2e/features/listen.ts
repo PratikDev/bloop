@@ -1,6 +1,6 @@
 // Feature checks on the Listen page (the live map), its dock, the Inspector and the header's settings.
 import { expect } from "@playwright/test";
-import { dock, inspector, live, map, name, onMap, pressed, sounds, stops, type Feature } from "./common";
+import { dock, inspector, live, map, name, onMap, openGroup, pressed, sounds, stops, strip, type Feature } from "./common";
 
 const mixerButton = (page: Parameters<Feature["run"]>[0]) => dock(page).getByRole("button", { name: /^Mixer/u });
 const settings = (page: Parameters<Feature["run"]>[0]) => page.getByRole("banner").getByRole("button", { name: "Settings" });
@@ -25,30 +25,31 @@ export const LISTEN: Feature[] = [
       await expect.poll(() => name(map(page))).toMatch(/Rain|Dry|mm\/h/u);
       return { evidence: `map reads "${await name(map(page))}"` };
     } },
-  { id: "freshness-badges", group: "data", name: "Freshness and source badges", where: "Listen · frame label beside the map", keyboard: false,
+  { id: "freshness-badges", group: "data", name: "Freshness and source badges", where: "Listen · Sources and checks", keyboard: false,
     what: "Says how old each frame is, and when it is older than its freshness limit",
     async run(page) {
+      await page.getByRole("button", { name: "Sources and checks" }).click();
       const t = await page.locator("main").innerText();
       const m = t.match(/Latest available: [^\n]+|Recorded \([^)]+\)[^\n]*/gu) ?? [];
       if (!m.length) throw new Error("no freshness wording");
       return { evidence: m.slice(0, 3).join(" | ") };
     } },
   // ---- sound ----
-  { id: "sweep", group: "sound", name: "Sweep from Chattogram", where: "Listen · key S or the dock's Sweep", keyboard: true,
-    what: "Plays the values outward from Chattogram", control: (page) => dock(page).getByRole("button", { name: "Play sweep" }),
+  { id: "sweep", group: "sound", name: "Sweep from Chattogram", where: "Listen · key S or record D3", keyboard: true,
+    what: "Plays the values outward from Chattogram", control: (page) => strip(page, "D3"),
     async run(page) { await onMap(page); await page.keyboard.press("s"); return sounds(page, "sweep"); } },
-  { id: "timelapse", group: "sound", name: "Storm time-lapse", where: "Dock · Storm (Play storm time-lapse)", keyboard: false,
-    what: "Plays the 48 half-hour rain frames in order, with its loading percentage", control: (page) => dock(page).getByRole("button", { name: /storm time-lapse/u }),
-    async run(page) { await dock(page).getByRole("button", { name: /storm time-lapse/u }).click(); return sounds(page, "time-lapse"); } },
-  { id: "voices", group: "sound", name: "Choose the voice: ocean, rain or both", where: "Listen · What you hear · keys 1 2 3", keyboard: true,
-    what: "Switches which data voice plays", control: (page) => page.getByRole("group", { name: "What you hear" }).first(),
+  { id: "timelapse", group: "sound", name: "Storm time-lapse", where: "Rack · D2 Storm time-lapse", keyboard: false,
+    what: "Plays the 48 half-hour rain frames in order, with its loading percentage", control: (page) => strip(page, "D2"),
+    async run(page) { await openGroup(page, /Guided/u); await strip(page, "D2").click(); return sounds(page, "time-lapse"); } },
+  { id: "voices", group: "sound", name: "Choose the voice: ocean, rain or both", where: "Listen · records A1 A2 A3 · keys 1 2 3", keyboard: true,
+    what: "Switches which data voice plays", control: (page) => strip(page, "A1"),
     async run(page) {
-      const group = page.getByRole("group", { name: "What you hear" }).first();
       await onMap(page); await page.keyboard.press("1");
-      await pressed(group.getByRole("button", { name: "Ocean" }));
-      await page.keyboard.press("3");
-      await pressed(group.getByRole("button", { name: "Both" }));
-      return { evidence: "1 → Ocean pressed; 3 → Both pressed" };
+      await openGroup(page, /Live frames/u);
+      await pressed(strip(page, "A1"));
+      await onMap(page); await page.keyboard.press("3");
+      await pressed(strip(page, "A3"));
+      return { evidence: "1 → A1 pressed; 3 → A3 pressed" };
     } },
   { id: "mixer", group: "sound", name: "Mixer (volume, mute, solo per voice)", where: "Dock · Mixer", keyboard: false,
     what: "Sets each voice's volume, mutes or solos it", control: mixerButton,
@@ -78,19 +79,20 @@ export const LISTEN: Feature[] = [
     async run(page) { await sounds(page, "before muting"); await onMap(page); await page.keyboard.press("m"); return stops(page, "M"); } },
   { id: "esc", group: "sound", name: "Esc stops all sound (both engines)", where: "Anywhere · Esc", keyboard: true, what: "Stops all sound and closes panels",
     async run(page) { await sounds(page, "before Esc"); await onMap(page); await page.keyboard.press("Escape"); return stops(page, "Esc"); } },
-  { id: "mapping-panel", group: "sound", name: "Mapping panel (What you hear)", where: "Dock · About this sound · What you hear", keyboard: false,
-    what: "States each data-to-sound rule (range, scale, what higher means)", control: (page) => dock(page).getByRole("button", { name: "About this sound" }),
+  { id: "mapping-panel", group: "sound", name: "Mapping panel (What you hear)", where: "Sources and checks · What you hear", keyboard: false,
+    what: "States each data-to-sound rule (range, scale, what higher means)", control: (page) => page.getByRole("button", { name: "Sources and checks" }),
     async run(page) {
       const t = await (await inspector(page, "What you hear")).innerText();
       if (!/Hz|semitone|pitch/iu.test(t)) throw new Error("no rule wording");
       return { evidence: t.replace(/\s+/gu, " ").slice(0, 120) };
     } },
   // ---- the tour ----
-  { id: "story", group: "jukebox", name: "The tour (Story)", where: "Dock · Take the tour", keyboard: false,
+  { id: "story", group: "jukebox", name: "The tour (Story)", where: "Rack · D1 The tour", keyboard: false,
     what: "Plays ocean hum, sweep, time-lapse, satellite whisper and how we know, in order, in under 90 s",
     control: (page) => page.getByRole("region", { name: "The tour" }),
     async run(page) {
-      await dock(page).getByRole("button", { name: "Take the tour" }).click();
+      await openGroup(page, /Guided/u);
+      await strip(page, "D1").click();
       const region = page.getByRole("region", { name: "The tour" });
       await expect(region).toBeVisible();
       const items = await region.getByRole("listitem").count();
@@ -155,7 +157,7 @@ export const LISTEN: Feature[] = [
         limit: "the Official records, Turntable, scenes, braille and badge strings show in English until translated (docs/i18n/TO_TRANSLATE.md)" };
     } },
   // ---- truth ----
-  { id: "truth-panel", group: "truth", name: "Truth panel (Checks)", where: "Dock · About this sound · Checks", keyboard: false,
+  { id: "truth-panel", group: "truth", name: "Truth panel (Checks)", where: "Sources and checks · Checks", keyboard: false,
     what: "How each live value was checked against NASA's source data, with the error, unison, three-way and anomaly checks, and the GLOBE teaser",
     async run(page) {
       const panel = await inspector(page, "Checks");
@@ -165,7 +167,7 @@ export const LISTEN: Feature[] = [
       if (!m) throw new Error("no MUR check sentence");
       return { evidence: `${m[0].slice(0, 120)}; GLOBE teaser shown` };
     } },
-  { id: "provenance-key", group: "truth", name: "Where this value comes from", where: "Listen · key P · About this sound · Where it's from", keyboard: true,
+  { id: "provenance-key", group: "truth", name: "Where this value comes from", where: "Listen · key P · Sources and checks · Where it's from", keyboard: true,
     what: "Opens the provenance of the value under the cursor",
     async run(page) {
       await onMap(page); await page.keyboard.press("p");

@@ -5,7 +5,7 @@
 import { expect, test, type Page } from "@playwright/test";
 import { mkdirSync, writeFileSync } from "node:fs";
 import { join } from "node:path";
-import { navTo, open } from "./lib/app";
+import { navTo, officialStrip, open } from "./lib/app";
 
 const CONTINUES = "⣿";
 const OFFICIAL = [
@@ -114,7 +114,7 @@ test("protocol a–g, browser side; lines saved for liblouis", async ({ page, br
   await navTo(page, "Official records");
   const official: Record<string, unknown> = {};
   for (const [i, o] of OFFICIAL.entries()) {
-    const card = page.getByRole("group", { name: "Records", exact: true }).getByRole("button", { name: o.title, exact: true });
+    const card = officialStrip(page, o.title);
     await card.click();
     if (i === 0) out.recordCard = await exposed(page, `[aria-braillelabel][aria-pressed="true"]`);
     const open = page.getByRole("button", { name: "Braille explorer" }).last();
@@ -150,7 +150,7 @@ test("বাংলা mode: the same records' lines saved for the Bengali-table 
   await navTo(page, "Official records");
   const official: Record<string, unknown> = {};
   for (const o of OFFICIAL) {
-    await page.getByRole("button", { name: o.title, exact: true }).first().click();
+    await officialStrip(page, o.title).first().click();
     const open = page.getByRole("button", { name: /Braille explorer/u }).last();
     await expect(open).toBeEnabled({ timeout: 60_000 });
     await open.click();

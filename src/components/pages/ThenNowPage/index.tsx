@@ -7,8 +7,9 @@ import type { ThenNowSearch, ThenNowView } from "@/router/search";
 import type { ClimateCellName } from "@/types/data-contract";
 import { useT } from "../../AppState/use-app-state";
 import { ChoiceGroup } from "../../ChoiceGroup";
-import { FrameLabel } from "../../FrameLabel";
+import { Cabinet } from "../../Cabinet";
 import { DEFAULT_PLACE, MonthByMonth } from "../../MonthByMonth";
+import { useRecords } from "../../Records/use-records";
 import { DEFAULT_CITY, ThenNow } from "../../ThenNow";
 import type { ViewPart } from "../../ThenNow/parts";
 
@@ -23,6 +24,7 @@ export function ThenNowPage() {
   const t = useT();
   const search = route.useSearch();
   const navigate = route.useNavigate();
+  const { current } = useRecords();
   const view: ThenNowView = search.view ?? "compare";
   // In-page choices replace the entry (Back leaves the page, not each tab); the view switch pushes one.
   const set = (next: Partial<ThenNowSearch>, replace = true) => void navigate({ search: (prev) => ({ ...prev, ...next }), replace });
@@ -46,12 +48,12 @@ export function ThenNowPage() {
               { value: "monthly", label: t("thenNow.view.monthly") },
             ]}
           />
-          <FrameLabel className="text-small md:text-right" />
         </div>
       </header>
 
       <AnimatePresence mode="wait" initial={false}>
         <motion.div key={view} initial={{ opacity: 0, y: 10 }} animate={{ opacity: 1, y: 0 }} exit={{ opacity: 0, y: -6 }} transition={{ duration: 0.22 }}>
+          <Cabinet code={current?.code} title={current?.title(t)}>
           {view === "compare" ? (
             <ThenNow
               cityName={search.city ?? DEFAULT_CITY}
@@ -67,6 +69,7 @@ export function ThenNowPage() {
               onMetric={(record: HistoryMetric) => set({ record })}
             />
           )}
+          </Cabinet>
         </motion.div>
       </AnimatePresence>
     </section>

@@ -2,7 +2,7 @@
 // Then vs Now and Month by month, How we know, Go to, the 404 page, the dev harness hidden in production, phone width
 // and the rain grid loading after Start.
 import { expect, type Page } from "@playwright/test";
-import { AUDIBLE, heard, level, navTo } from "../lib/app";
+import { AUDIBLE, heard, level, navTo, officialStrip } from "../lib/app";
 import { dock, map, name, onMap, sounds, tab, type Feature } from "./common";
 
 const title = (page: Page) => page.getByRole("heading", { level: 1 }).first();
@@ -17,7 +17,6 @@ export const PAGES: Feature[] = [
       await expect(title(page)).toHaveText(/Hear Earth's ocean and rain/u);
       const caption = page.getByText(/^NASA EIC frame: ocean temperature, /u);
       await expect(caption).toBeVisible();
-      await expect(page.getByRole("main").locator("canvas")).toHaveCount(1);
       await expect(page.getByRole("link", { name: "Continue listening" })).toBeVisible();
       await expect(page.getByRole("link", { name: "Take the 90-second tour" })).toBeVisible();
       return { evidence: `Home: ${await caption.innerText()}` };
@@ -33,7 +32,7 @@ export const PAGES: Feature[] = [
       await expect(page.getByRole("button", { name: "Start listening" })).toBeVisible();
       return { evidence: "reload → Reset sound choice offered; → Start listening again" };
     } },
-  { id: "mode-tabs", group: "jukebox", name: "Page navigation (header dial)", where: "Header · Listen, Then vs Now, How we know, Official records, Turntable", keyboard: true,
+  { id: "mode-tabs", group: "jukebox", name: "Page navigation (header dial)", where: "Header · Listen, Then vs Now, How we know, Turntable", keyboard: true,
     what: "Moves between the app's pages; the URL drives the page", control: (page) => page.getByRole("banner").getByRole("navigation"),
     async run(page) {
       const link = page.getByRole("banner").getByRole("link", { name: /Turntable$/u }).first();
@@ -138,7 +137,7 @@ export const PAGES: Feature[] = [
     async run(page) {
       await heard(page);                                                     // Listen: the L2 live voices
       await navTo(page, "Official records");
-      await page.getByRole("button", { name: "Near-surface temperature (EIC, model)", exact: true }).click();
+      await officialStrip(page, "Near-surface temperature (EIC, model)").click();
       await page.locator('section[aria-labelledby="official-heading"]').getByRole("button", { name: "Play", exact: true }).click();
       const playing = await heard(page);
       if (playing <= AUDIBLE) throw new Error(`the record is silent (${playing.toExponential(1)})`);

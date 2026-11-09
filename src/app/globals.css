@@ -226,6 +226,8 @@
   --text-body--line-height: 1.55;
   --text-lead: 1.25rem;
   --text-lead--line-height: 1.4;
+  --text-strip: 1.0625rem; /* record titles (font-strip): never smaller than this */
+  --text-strip--line-height: 1.2;
   --text-title: 1.375rem;
   --text-title--line-height: 1.2;
   --text-headline: clamp(1.75rem, 1.1rem + 1.6vw, 2.75rem);
@@ -324,6 +326,60 @@
   }
   @media (prefers-reduced-motion: reduce) {
     transition: none;
+  }
+}
+
+/* The jukebox's arched crown: coral, navy outline, open at the bottom where it meets the body. */
+@utility crown {
+  background: var(--coral);
+  color: var(--navy);
+  border: var(--outline-panel) solid var(--navy);
+  border-bottom: 0;
+  border-radius: 999px 999px 0 0;
+}
+
+/* The jukebox's body: the one loud panel on a page. */
+@utility cabinet-body {
+  background: var(--paper);
+  border: var(--outline-panel) solid var(--navy);
+  border-radius: var(--radius-sheet);
+  box-shadow: var(--shadow-cabinet) var(--shadow-cabinet) 0 var(--navy);
+}
+
+/* The needle's sliders: a native range, a 44 px target, a paper knob; --fill is how far along the bubble fill runs. */
+@utility needle-range {
+  appearance: none;
+  width: 100%;
+  height: 2.75rem;
+  background: transparent;
+  cursor: pointer;
+  &::-webkit-slider-runnable-track {
+    height: 0.75rem;
+    border: 2px solid var(--navy);
+    border-radius: 999px;
+    background: linear-gradient(to right, var(--bubble) var(--fill, 0%), var(--paper) var(--fill, 0%));
+  }
+  &::-moz-range-track {
+    height: 0.5rem;
+    border: 2px solid var(--navy);
+    border-radius: 999px;
+    background: linear-gradient(to right, var(--bubble) var(--fill, 0%), var(--paper) var(--fill, 0%));
+  }
+  &::-webkit-slider-thumb {
+    appearance: none;
+    width: 1.5rem;
+    height: 1.5rem;
+    margin-top: -0.5rem;
+    border: var(--outline) solid var(--navy);
+    border-radius: 50%;
+    background: var(--paper);
+  }
+  &::-moz-range-thumb {
+    width: 1.25rem;
+    height: 1.25rem;
+    border: var(--outline) solid var(--navy);
+    border-radius: 50%;
+    background: var(--paper);
   }
 }
 

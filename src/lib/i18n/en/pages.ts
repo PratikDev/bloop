@@ -28,18 +28,11 @@ export const pagesEn = {
   "opening.escHint": "or press Esc",
 
   "listen.title": "Latest ocean and rain, as sound",
-  "listen.panel": "Under the cursor",
   "listen.hint": "Tap or drag on the map, or use the arrow keys, to hear another place.",
   "listen.hintDismiss": "Got it",
-  "tour.start": "Take the tour",
   // Dock labels under the icons below 1024 px; the full names show from 1024 px.
-  "dock.short.sweep": "Sweep",
-  "dock.short.timelapse": "Storm",
   "dock.label.timelapse": "Storm time-lapse",
-  "dock.short.stop": "Stop",
-  "dock.short.tour": "Tour",
   "dock.short.mixer": "Mixer",
-  "dock.short.inspector": "About",
   "dock.short.goto": "Go to",
   // Go to: type an exact place for the cursor.
   "goto.open": "Go to a latitude and longitude",
@@ -50,9 +43,9 @@ export const pagesEn = {
   "goto.submit": "Go",
   "goto.badLat": "Latitude is a number from -90 to 90 (or add N or S).",
   "goto.badLon": "Longitude is a number from -180 to 180 (or add E or W).",
-  "dock.label": "Sound",
+  "dock.label": "Player",
   "mixer.limited": "Mixer: some sound is muted or soloed",
-  "inspector.open": "About this sound",
+  "inspector.open": "Sources and checks",
   "inspector.close": "Close",
 
   "thenNow.pageLead": "Decades of NASA and partner records for Bangladesh and the world, as sound.",

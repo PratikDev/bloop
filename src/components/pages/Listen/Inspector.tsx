@@ -12,6 +12,7 @@ import { FROM_LEFT, FROM_RIGHT } from "@/lib/motion";
 import { cn } from "@/lib/utils";
 import type { PanelTab } from "../../AppState/reducer";
 import { useAppState, useT } from "../../AppState/use-app-state";
+import { FrameLabel } from "../../FrameLabel";
 import { MappingPanel } from "../../panels/MappingPanel";
 import { ProvenancePanel } from "../../panels/ProvenancePanel";
 import { TruthPanel } from "../../panels/TruthPanel";
@@ -36,6 +37,8 @@ function InspectorTabs() {
   const { state, dispatch } = useAppState();
   const t = useT();
   return (
+    <div className="space-y-4">
+    <FrameLabel />
     <Tabs value={inspectorTab(state.panel)} onValueChange={(panel: InspectorTab) => dispatch({ type: "setPanel", panel })} className="gap-5">
       <TabsList variant="line" aria-label={t("panel.label")} className="w-full justify-start gap-0 group-data-horizontal/tabs:h-11">
         {TABS.map(({ tab, label }) => (
@@ -50,11 +53,12 @@ function InspectorTabs() {
         </TabsContent>
       ))}
     </Tabs>
+    </div>
   );
 }
 
 /**
- * About this sound (P opens it at "Where it's from"): where the value comes
+ * Sources and checks (P opens it at "Where it's from"): where the value comes
  * from, what you hear, and how it was checked. From 1024 px a drawer over the
  * map's right edge that leaves the map usable (move the cursor, the facts
  * follow); during the tour, over its left edge, since the tour points at

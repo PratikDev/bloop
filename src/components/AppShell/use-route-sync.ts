@@ -7,7 +7,7 @@ import { useAnnounce } from "../Announcer/use-announcer";
 import type { Mode } from "../AppState/reducer";
 import { useAppState, useT } from "../AppState/use-app-state";
 import { MODE_LABELS } from "../Commands/use-commands";
-import { NAV_ITEMS } from "../Header/nav-items";
+import { TITLED_PAGES } from "../Header/nav-items";
 
 const FOCUS_TRIES = 60; // frames: a page whose code is still loading gets about a second
 
@@ -50,7 +50,7 @@ export function useRouteSync(): void {
     if (mode === "story") announce(t("announce.mode", { mode: t(MODE_LABELS.story) }));
   }, [mode, state.mode, dispatch, announce, t]);
 
-  const page = NAV_ITEMS.find((item) => item.to === pathname);
+  const page = TITLED_PAGES.find((item) => item.to === pathname);
   const title = page ? `${t(page.label)} · ${t("app.title")}` : t("app.title");
   useEffect(() => {
     document.title = title;

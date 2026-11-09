@@ -144,10 +144,10 @@ export function CommandsProvider({ children }: { children: ReactNode }) {
         startSweep();
       },
       startSweep,
-      playLegend() {
+      playLegend(track = state.track) {
         if (!state.soundOn) return soundOffHint();
-        if (state.track === "both") audio.playWarmup();
-        else audio.playLegend(state.track);
+        if (track === "both") audio.playWarmup();
+        else audio.playLegend(track);
       },
       playMotif() {
         if (!state.soundOn) return soundOffHint();

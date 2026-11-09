@@ -22,7 +22,6 @@ export const appEn = {
   "mode.story": "Tour",
   "mode.thenNow": "Then vs Now",
 
-  "track.label": "What you hear",
   "track.ocean": "Ocean",
   "track.rain": "Rain",
   "track.both": "Both",
@@ -106,10 +105,7 @@ export const appEn = {
   "mixer.volume": (p: { voice: string }) => `${p.voice} volume`,
   "mixer.mute": (p: { voice: string }) => `Mute ${p.voice}`,
   "mixer.solo": (p: { voice: string }) => `Solo ${p.voice}`,
-  "sweep.play": "Play sweep",
   "sweep.needsRain": "The sweep starts once rain has loaded.",
-  "timelapse.play": "Play storm time-lapse",
-  "timelapse.stop": "Stop time-lapse",
   "timelapse.loadingStart": "Loading the time-lapse frames",
   "timelapse.loading": (p: { loaded: number; total: number }) => `Loading the time-lapse: ${p.loaded} of ${p.total} files`,
   "timelapse.loadingShort": (p: { percent: number }) => `Loading ${p.percent}%`,

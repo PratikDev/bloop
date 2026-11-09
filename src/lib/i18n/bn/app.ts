@@ -28,7 +28,6 @@ export const appBn: Translated<typeof appEn> = {
   "mode.story": "ট্যুর",
   "mode.thenNow": "আগে বনাম এখন",
 
-  "track.label": "যা শুনছেন",
   "track.ocean": "সমুদ্র",
   "track.rain": "বৃষ্টি",
   "track.both": "দুটোই",
@@ -104,10 +103,7 @@ export const appBn: Translated<typeof appEn> = {
   "mixer.volume": (p: { voice: string }) => `${p.voice}: ভলিউম`,
   "mixer.mute": (p: { voice: string }) => `${p.voice}: মিউট`,
   "mixer.solo": (p: { voice: string }) => `${p.voice}: সোলো`,
-  "sweep.play": "সুইপ বাজান",
   "sweep.needsRain": "বৃষ্টির তথ্য লোড হলে সুইপ শুরু হবে।",
-  "timelapse.play": "ঝড়ের টাইম-ল্যাপস বাজান",
-  "timelapse.stop": "টাইম-ল্যাপস থামান",
   "timelapse.loadingStart": "টাইম-ল্যাপসের ফ্রেম লোড হচ্ছে",
   "timelapse.loading": (p: { loaded: number; total: number }) => `টাইম-ল্যাপস লোড হচ্ছে: ${int(p.total)}টির মধ্যে ${int(p.loaded)}টি ফাইল`,
   "timelapse.loadingShort": (p: { percent: number }) => `লোড হচ্ছে ${int(p.percent)}%`,

@@ -5,7 +5,7 @@ import type { VoiceSpec } from "@/types/data-contract";
 import { formatFixed, formatInteger } from "../format";
 
 export const panelsEn = {
-  "panel.label": "About this sound",
+  "panel.label": "Sources and checks",
   // The Listen page's Inspector tabs.
   "panel.history": "Month by month",
   "panel.truth": "Checks",

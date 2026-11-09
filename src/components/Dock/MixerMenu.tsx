@@ -38,11 +38,12 @@ export function MixerMenu() {
             icon={
               <span className="relative">
                 <SlidersHorizontal aria-hidden="true" />
-                {limited && <span aria-hidden="true" className="absolute -top-0.5 -right-1 size-2 rounded-full bg-shapla ring-2 ring-dusk" />}
+                {limited && <span aria-hidden="true" className="absolute -top-0.5 -right-1 size-2 rounded-full bg-shapla ring-2 ring-moon" />}
               </span>
             }
             full={limited ? t("mixer.limited") : t("mixer.label")}
             short={t("dock.short.mixer")}
+            className="bg-moon text-ink hover:bg-moon hover:text-ink aria-expanded:bg-moon aria-expanded:text-ink"
           />
         }
       />

@@ -10,9 +10,10 @@ import { contextBn } from "./context";
 import { helpBn } from "./help";
 import { pagesBn } from "./pages";
 import { panelsBn } from "./panels";
+import { recordsBn } from "./records";
 import { storyBn } from "./story";
 
-export const bn: Partial<Messages> = { ...appBn, ...helpBn, ...captionsBn, ...panelsBn, ...contextBn, ...storyBn, ...pagesBn };
+export const bn: Partial<Messages> = { ...appBn, ...helpBn, ...captionsBn, ...panelsBn, ...contextBn, ...storyBn, ...pagesBn, ...recordsBn };
 
 /**
  * Spoken lines (Enter, the tour, Describe) are translated, so speech follows

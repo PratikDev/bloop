@@ -15,6 +15,7 @@ import { helpEn } from "./en/help";
 import { officialEn } from "./en/official";
 import { pagesEn } from "./en/pages";
 import { panelsEn } from "./en/panels";
+import { recordsEn } from "./en/records";
 import { storyEn } from "./en/story";
 import { scenesEn } from "./en/scenes";
 import { turntableEn } from "./en/turntable";
@@ -28,6 +29,7 @@ export const en = {
   ...contextEn,
   ...storyEn,
   ...pagesEn,
+  ...recordsEn,
   ...turntableEn,
   ...scenesEn,
   ...badgesEn,

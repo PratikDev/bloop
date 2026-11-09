@@ -5,11 +5,11 @@ import { ArrowRight } from "@phosphor-icons/react";
 import { formatUtcDate } from "@/lib/i18n";
 import { locationForMode, PAGE_PATHS } from "@/router/modes";
 import { useAppState, useT } from "../../AppState/use-app-state";
-import { Globe } from "../../Globe";
+import { JukeboxArt } from "../../JukeboxArt";
 import { useLiveData } from "../../LiveData/use-live-data";
 import { PAPER_KEY, StartActions, StartHint } from "../../StartActions";
 
-/** Home has one job: say what this is, then start listening. Today's real ocean frame turns beside it as a globe. */
+/** Home has one job: say what this is, then start listening. The closed jukebox stands beside it. */
 export function HomePage() {
   const { state } = useAppState();
   const { sst } = useLiveData();
@@ -44,7 +44,7 @@ export function HomePage() {
       </div>
 
       <div className="mx-auto flex w-full max-w-md min-w-0 flex-col items-center gap-3 lg:max-w-none lg:flex-1 lg:basis-80">
-        <Globe className="w-full max-w-136" />
+        <JukeboxArt marquee={t("app.title")} className="w-full max-w-[min(28rem,54dvh)]" />
         {sst && <p className="text-center text-small text-haze">{t("home.frameCaption", { date: formatUtcDate(sst.meta.frame_time_utc, state.lang) })}</p>}
       </div>
     </section>

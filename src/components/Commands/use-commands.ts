@@ -66,7 +66,8 @@ export interface Commands {
   playSweep(): void;
   /** Starts the sweep from Chattogram with its map ring; null if there's nothing to play. */
   startSweep(): PlayerHandle | null;
-  playLegend(): void;
+  /** The reference sounds for a track (the current one by default); "both" is the full warm-up. */
+  playLegend(track?: TrackMode): void;
   playMotif(): void;
   /** U: proof in unison (C1) at the checked point nearest the cursor (or the turntable's needle). */
   playUnison(): void;

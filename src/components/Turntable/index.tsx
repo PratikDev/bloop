@@ -205,7 +205,6 @@ export function Turntable() {
               touring={actions.touring}
               cameraMode={tt.cameraMode}
               covers={tt.texture.covers}
-              onPlay={commands.togglePlaying}
               onToggleRotation={actions.toggleRotation}
               onSpeed={actions.changeSpeed}
               onSearch={actions.focusSearch}
@@ -218,13 +217,13 @@ export function Turntable() {
               onSettings={() => setDrawer("settings")}
               onHelp={commands.openHelp}
               onSources={() => setDrawer("sources")}
+              credits={<CreditsLink className="key ml-auto hidden h-11 rounded-lg bg-paper px-4 text-body text-moon hover:bg-paper lg:inline-flex" />}
               bookmarks={geo?.gazetteer.bookmarks.slice(0, MAX_BOOKMARKS).map((b) => b.name) ?? []}
               onBookmark={actions.bookmark}
-              caption={<CaptionBar soundOnly className="mx-auto min-h-0 w-fit max-w-full text-center text-body sm:text-lead" />}
+              caption={<CaptionBar soundOnly className="min-h-0 w-fit max-w-full text-body sm:text-lead" />}
             />
           </div>
         </div>
-        <CreditsLink className="key absolute right-6 bottom-6 hidden h-11 rounded-lg bg-paper px-4 text-body text-moon hover:bg-paper lg:inline-flex" />
         <Drawers
           open={drawer}
           onClose={() => setDrawer(null)}

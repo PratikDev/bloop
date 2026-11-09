@@ -1,6 +1,7 @@
 "use client";
 
 import { useCallback, useEffect, useRef, useState, type KeyboardEvent } from "react";
+import { getRouteApi } from "@tanstack/react-router";
 import { brailleLabel } from "@/a11y/aria";
 import { isLetter, isTypingTarget } from "@/a11y/keys";
 import { Button } from "@/components/ui/button";
@@ -8,9 +9,11 @@ import { ruleText, voiceSpec } from "@/lib/audio/mapping";
 import { loadOfficialIndex, PATTERN_ONLY, patternLevel, type OfficialReading } from "@/lib/data";
 import { formatFixed, formatUtc, type BoundT, type Lang } from "@/lib/i18n";
 import { useLoaded } from "@/hooks/use-loaded";
-import type { OfficialLayer } from "@/types/data-contract";
+import type { OfficialBadge, OfficialLayer } from "@/types/data-contract";
 import { useAppState, useT } from "../AppState/use-app-state";
-import { ChoiceGroup } from "../ChoiceGroup";
+import { Cabinet } from "../Cabinet";
+import { RecordStrip } from "../Rack/RecordStrip";
+import { useRecords } from "../Records/use-records";
 import { StatusBadge } from "../StatusBadge";
 import { ProvenanceCard } from "./ProvenanceCard";
 import { RecordControls } from "./RecordControls";
@@ -71,7 +74,7 @@ function Player({ record }: { record: string }) {
   const times = map?.layer.times ?? [];
   const timeText = map?.layer.time_labels?.[rec.step] ?? (times[rec.step] ? formatUtc(times[rec.step], state.lang) : "");
   return (
-    <div className="grid gap-6 lg:grid-cols-[minmax(0,1fr)_24rem]" onKeyDown={onKeyDown}>
+    <div className="grid gap-6 2xl:grid-cols-[minmax(0,1fr)_24rem]" onKeyDown={onKeyDown}>
       <div className="space-y-3">
         {map && rec.ready ? (
           <RecordMap grid={map} step={rec.step} needle={rec.needle} onMove={rec.moveNeedle}
@@ -102,24 +105,61 @@ function Player({ record }: { record: string }) {
   );
 }
 
-/** The Official mode: every Challenge #14 resource decoded into data, one plain voice each, with its provenance. */
+// In code order: the list runs model, observation, reanalysis.
+const KIND_ORDER: readonly OfficialBadge[] = ["model", "observation", "reanalysis"];
+const route = getRouteApi("/official");
+
+/** The Official mode: every Challenge #14 resource decoded into data, one plain voice each, with its provenance. Picked from a rack of coded strips. */
 export function OfficialRecords() {
   const t = useT();
+  const { records, current: crown } = useRecords();
   const { value: index, error } = useLoaded(loadOfficialIndex);
-  const [record, setRecord] = useState<string | null>(null);
+  const { record: wanted } = route.useSearch();
+  const navigate = route.useNavigate();
+  // A related record has no URL of its own: it stays open until the record in the URL changes.
+  const [related, setRelated] = useState<{ id: string; forRecord: string | undefined } | null>(null);
   if (error) return <StatusBadge kind="error">{t("official.error")}</StatusBadge>;
   if (!index) return <StatusBadge kind="loading">{t("official.loading")}</StatusBadge>;
-  const current = record ?? index.records[0]?.record;
+  const selected = index.records.find((r) => r.record === wanted)?.record ?? index.records[0]?.record;
+  const current = related && related.forRecord === selected ? related.id : selected;
+  const select = (id: string) => {
+    setRelated(null);
+    void navigate({ search: { record: id }, replace: true });
+  };
+  const stripOf = (id: string) => records.find((r) => r.action.kind === "official" && r.action.record === id);
   return (
-    <section className="space-y-4 bg-night px-4 py-4" aria-labelledby="official-heading">
+    <section className="space-y-4" aria-labelledby="official-heading">
       <div className="space-y-1">
         <h2 id="official-heading" className="text-lead font-medium">{t("official.heading")}</h2>
         <p className="text-haze">{t("official.intro")}</p>
       </div>
-      <ChoiceGroup label={t("official.records")} value={current ?? ""} onChange={setRecord} className="flex-wrap"
-        options={index.records.map((r) => ({ value: r.record, label: r.title, brailleLabel: recordBrailleLabel(r) }))} />
-      {current && <Player key={current} record={current} />}
-      <RelatedRecords value={current ?? ""} onChange={setRecord} />
+      <Cabinet code={crown?.code} title={crown?.title(t)}>
+        <div className="grid gap-6 lg:grid-cols-[20rem_minmax(0,1fr)]">
+          <div aria-label={t("official.records")} role="group" className="space-y-4 pr-1 lg:max-h-[75dvh] lg:overflow-y-auto">
+            {KIND_ORDER.map((kind) => {
+              const rows = index.records.filter((r) => r.badge === kind);
+              if (rows.length === 0) return null;
+              return (
+                <div key={kind} className="space-y-2.5">
+                  <h3 className="font-wide text-body">{t(`records.kind.${kind}`)}</h3>
+                  <ul className="space-y-2.5 pr-1 pb-1">
+                    {rows.map((row) => {
+                      const record = stripOf(row.record);
+                      return record && (
+                        <li key={row.record}>
+                          <RecordStrip record={record} chosen={row.record === current} braille={recordBrailleLabel(row)} onClick={() => select(row.record)} />
+                        </li>
+                      );
+                    })}
+                  </ul>
+                </div>
+              );
+            })}
+          </div>
+          <div className="min-w-0">{current && <Player key={current} record={current} />}</div>
+        </div>
+      </Cabinet>
+      <RelatedRecords value={current ?? ""} onChange={(id) => setRelated({ id, forRecord: selected })} />
     </section>
   );
 }
