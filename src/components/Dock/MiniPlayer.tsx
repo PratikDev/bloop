@@ -36,7 +36,7 @@ export function MiniPlayer({
   const listen = explore || state.mode === "story";
   const needle = explore || state.mode === "turntable";
   return (
-    <div className={cn("surface-glass flex flex-wrap items-center gap-x-4 gap-y-2 rounded-sheet p-2", className)}>
+    <div data-tt-occluder className={cn("surface-glass flex flex-wrap items-center gap-x-4 gap-y-2 rounded-sheet p-2", className)}>
       {!listen && <Sleeve />}
       <Transport onTrack={onTrack} />
       {/* On phones the transport and keys share the top row, and the caption and sliders take the full width below. */}

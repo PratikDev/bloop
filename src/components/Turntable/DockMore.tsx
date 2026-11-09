@@ -23,7 +23,7 @@ export function DockMore({ actions, view: renderView }: { actions: readonly Dock
   return (
     <Popover open={open} onOpenChange={change}>
       <DockButton icon={Ellipsis} label={tt("turntable.more")} wrap={(b) => <PopoverTrigger render={b} />} />
-      <PopoverContent side="top" aria-label={tt("turntable.more")} className={cn("tt-warm on-space gap-2 rounded-sheet p-3 text-body", "max-h-(--available-height) overflow-y-auto", view && WIDE_VIEWS.has(view) ? "popover-fit w-184" : "w-72")}>
+      <PopoverContent data-tt-occluder side="top" aria-label={tt("turntable.more")} className={cn("tt-warm on-space gap-2 rounded-sheet p-3 text-body", "max-h-(--available-height) overflow-y-auto", view && WIDE_VIEWS.has(view) ? "popover-fit w-184" : "w-72")}>
         {view ? (
           <>
             <DockButton icon={ArrowLeft} label={tt("turntable.more.back")} autoFocus onClick={() => setView(null)} className="w-fit" />

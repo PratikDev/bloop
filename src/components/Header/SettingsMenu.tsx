@@ -26,7 +26,7 @@ export function SettingsMenu() {
       <PopoverTrigger render={<Button variant="ghost" size="icon-lg" aria-label={t("settings.open")} className={HEADER_KEY} />}>
         <GearSix aria-hidden="true" className="size-5" />
       </PopoverTrigger>
-      <PopoverContent align="end" sideOffset={8} className="surface-glass w-72 gap-2 rounded-plate p-3 text-body">
+      <PopoverContent data-tt-occluder align="end" sideOffset={8} className="surface-glass w-72 gap-2 rounded-plate p-3 text-body">
         <PopoverTitle className="eyebrow px-1 pb-1">{t("settings.open")}</PopoverTitle>
         <SettingToggle setting="describe" />
         <SettingToggle setting="captions" />

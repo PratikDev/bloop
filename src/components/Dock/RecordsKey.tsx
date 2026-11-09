@@ -17,7 +17,7 @@ export function RecordsKey() {
   return (
     <Sheet open={open} onOpenChange={setOpen}>
       <SheetTrigger render={<DockAction icon={<Disc aria-hidden="true" />} full={t("records.label")} short={t("records.label")} />} />
-      <SheetContent closeLabel={t("inspector.close")} side={phone ? "bottom" : "right"} className={phone ? "max-h-[85dvh] overflow-y-auto rounded-t-sheet bg-dusk p-4 pt-14" : "w-full overflow-y-auto rounded-l-sheet bg-dusk p-4 pt-14 sm:max-w-md"}>
+      <SheetContent data-tt-occluder closeLabel={t("inspector.close")} side={phone ? "bottom" : "right"} className={phone ? "max-h-[85dvh] overflow-y-auto rounded-t-sheet bg-dusk p-4 pt-14" : "w-full overflow-y-auto rounded-l-sheet bg-dusk p-4 pt-14 sm:max-w-md"}>
         <SheetTitle className="sr-only">{t("records.label")}</SheetTitle>
         <Rack onPicked={() => setOpen(false)} />
       </SheetContent>

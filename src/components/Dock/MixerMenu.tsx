@@ -17,7 +17,7 @@ export function useMixerLimited(): boolean {
 export function MixerContent() {
   const t = useT();
   return (
-    <PopoverContent side="top" align="end" sideOffset={12} className="surface-glass w-[min(22rem,calc(100vw-1.5rem))] gap-3 rounded-plate p-4 text-body">
+    <PopoverContent data-tt-occluder side="top" align="end" sideOffset={12} className="surface-glass w-[min(22rem,calc(100vw-1.5rem))] gap-3 rounded-plate p-4 text-body">
       <PopoverTitle className="eyebrow">{t("mixer.label")}</PopoverTitle>
       <Mixer />
       <div className="stitch-x opacity-60" aria-hidden="true" />
