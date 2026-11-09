@@ -5,6 +5,7 @@ import type { TrackMode } from "@/lib/audio-adapter/types";
 import { cn } from "@/lib/utils";
 import { useAppState } from "../AppState/use-app-state";
 import { CaptionBar } from "../CaptionBar";
+import { PlayerSheet } from "../Player";
 import { useTimeLapse } from "../TimeLapse/use-time-lapse";
 import { FrameProgress } from "./FrameProgress";
 import { GoToMenu } from "./GoToMenu";
@@ -38,6 +39,7 @@ export function MiniPlayer({
   const needle = explore || state.mode === "turntable";
   return (
     <div data-tt-occluder className={cn("surface-glass flex flex-wrap items-center gap-x-4 gap-y-2 rounded-sheet p-2", className)}>
+      <PlayerSheet />
       {!listen && <Sleeve />}
       <Transport onTrack={onTrack} />
       <PlayerKey className={listen ? undefined : "md:hidden"} />

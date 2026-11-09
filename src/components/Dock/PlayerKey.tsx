@@ -3,7 +3,7 @@
 import { Button } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
 import { useT } from "../AppState/use-app-state";
-import { PlayerSheet } from "../Player";
+import { openPlayerSheet } from "../Player/player-sheet-store";
 import { useRecords } from "../Records/use-records";
 import { VinylMark } from "../VinylMark";
 
@@ -13,8 +13,14 @@ export function PlayerKey({ className }: { className?: string }) {
   const t = useT();
   if (!current) return null;
   return (
-    <PlayerSheet trigger={<Button variant="ghost" aria-label={t("player.open", { record: `${current.code} ${current.title(t)}` })} className={cn("key size-11 shrink-0 rounded-lg bg-paper p-0 hover:bg-paper", className)} />}>
+    <Button
+      variant="ghost"
+      aria-haspopup="dialog"
+      aria-label={t("player.open", { record: `${current.code} ${current.title(t)}` })}
+      onClick={(e) => openPlayerSheet(e.currentTarget)}
+      className={cn("key size-11 shrink-0 rounded-lg bg-paper p-0 hover:bg-paper", className)}
+    >
       <VinylMark className="size-7" />
-    </PlayerSheet>
+    </Button>
   );
 }
