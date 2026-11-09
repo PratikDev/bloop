@@ -9,6 +9,7 @@ import { useTimeLapse } from "../TimeLapse/use-time-lapse";
 import { FrameProgress } from "./FrameProgress";
 import { GoToMenu } from "./GoToMenu";
 import { NeedleSliders } from "./NeedleSliders";
+import { PlayerKey } from "./PlayerKey";
 import { Sleeve } from "./Sleeve";
 import { Transport } from "./Transport";
 
@@ -39,6 +40,7 @@ export function MiniPlayer({
     <div data-tt-occluder className={cn("surface-glass flex flex-wrap items-center gap-x-4 gap-y-2 rounded-sheet p-2", className)}>
       {!listen && <Sleeve />}
       <Transport onTrack={onTrack} />
+      <PlayerKey className={listen ? undefined : "md:hidden"} />
       {/* On phones the transport and keys share the top row, and the caption and sliders take the full width below. */}
       <div className="order-last flex w-full min-w-0 flex-col justify-center gap-1 md:order-none md:w-auto md:flex-[1_1_18rem]">
         {caption ?? <CaptionBar className="min-h-0 text-body" />}
