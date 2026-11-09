@@ -88,6 +88,11 @@ export function neighbour(records: readonly JukeboxRecord[], record: JukeboxReco
   return group[group.indexOf(record) + step] ?? null;
 }
 
+/** The next records after this one, in registry order, across groups. */
+export function upNext(records: readonly JukeboxRecord[], record: JukeboxRecord, count = 3): JukeboxRecord[] {
+  return records.slice(records.indexOf(record) + 1, records.indexOf(record) + 1 + count);
+}
+
 export interface NowPlaying {
   mode: Mode;
   track: TrackMode;

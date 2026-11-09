@@ -42,6 +42,8 @@ export const recordsEn = {
   "player.nowPlaying": "Now playing",
   "player.previous": "Previous record",
   "player.next": "Next record",
+  "player.upNext": "Up next",
+  "player.open": (p: { record: string }) => `Now playing: ${p.record}. Open the player`,
 
   "needle.group": "Move the needle",
   "needle.westEast": "West to east",

@@ -44,6 +44,8 @@ export const recordsBn: Translated<typeof recordsEn> = {
   "player.nowPlaying": "এখন বাজছে",
   "player.previous": "আগের রেকর্ড",
   "player.next": "পরের রেকর্ড",
+  "player.upNext": "এরপর",
+  "player.open": (p: { record: string }) => `এখন বাজছে: ${p.record}। প্লেয়ার খুলুন`,
 
   "needle.group": "সুই সরান",
   "needle.westEast": "পশ্চিম থেকে পূর্ব",
