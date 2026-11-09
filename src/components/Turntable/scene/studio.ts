@@ -15,6 +15,7 @@ import {
   SphereGeometry,
 } from "three";
 import type { Palette } from "@/lib/css-tokens";
+import { seededRandom } from "@/lib/seeded-random";
 import { onOverlay } from "./layers";
 
 const SKY_RADIUS = 60;
@@ -31,22 +32,13 @@ export interface Studio {
   dispose(): void;
 }
 
-/** A deterministic pseudo-random sequence, so the sky is the same every visit. */
-function seeded(seed: number) {
-  let s = seed >>> 0;
-  return () => {
-    s = (s * 1664525 + 1013904223) >>> 0;
-    return s / 4294967296;
-  };
-}
-
 export function createStudio(palette: Palette, options: { exact?: boolean } = {}): Studio {
   const skyGeometry = new SphereGeometry(SKY_RADIUS, 32, 16);
   const skyMaterial = new MeshBasicMaterial({ color: new Color(palette.space), side: BackSide, toneMapped: false, depthWrite: false });
   const sky = new Mesh(skyGeometry, skyMaterial);
   sky.renderOrder = -2;
 
-  const random = seeded(20260925);
+  const random = seededRandom(20260925);
   const paper = new Color(palette.star);
   const warm = new Color(palette["star-warm"]);
   const positions = new Float32Array(STAR_COUNT * 3);

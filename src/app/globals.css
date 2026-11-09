@@ -769,3 +769,31 @@ html[data-arrow-held] .odometer-roll,
 [data-still] .odometer-roll {
   animation-duration: 0s;
 }
+
+/* ---- Starfield: at most 15% of stars twinkle, in steps; the one ambient motion. ---- */
+.star-twinkle {
+  animation: star-twinkle var(--twinkle-duration) steps(4, end) var(--twinkle-delay) infinite;
+}
+@keyframes star-twinkle {
+  0%,
+  100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.35;
+  }
+}
+[data-still] .star-twinkle,
+html[data-reduce-motion="true"] .star-twinkle {
+  animation: none;
+}
+@media (prefers-reduced-motion: reduce) {
+  .star-twinkle {
+    animation: none;
+  }
+}
+@media (forced-colors: active) {
+  .starfield {
+    display: none;
+  }
+}
