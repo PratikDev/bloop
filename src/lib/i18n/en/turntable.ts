@@ -91,7 +91,6 @@ export const turntableEn = {
   "turntable.details.close": "Close details",
   "turntable.layers.note": "Clouds, borders and names are decoration. The data layer, values and sound don't change.",
   "turntable.layers.decoration": "Background and map layers",
-  "turntable.layers.clouds": "Clouds",
   "turntable.layers.labels": "Place names",
   "turntable.layers.borders": "Borders",
   "turntable.layers.districts": "Districts",
@@ -138,12 +137,10 @@ export const turntableEn = {
   "turntable.myLocation.denied": "Location wasn't shared. Nothing was stored.",
   "turntable.myLocation.unsupported": "This browser can't share a location.",
   "turntable.idleHint": "Press / to search a place",
-  "turntable.background": "Background: Blue Marble composite, not today's clouds",
   "turntable.credits":
-    "Background: NASA Earth Observatory, Blue Marble Next Generation, September (Reto Stöckli) · " +
-    "Night: NASA Earth Observatory, Black Marble 2016 (Joshua Stevens; Suomi NPP VIIRS data, Miguel Román, NASA GSFC) · " +
-    "Topography: NASA Earth Observatory (Jesse Allen), GEBCO data from the British Oceanographic Data Centre · Clouds: NASA Visible Earth · " +
-    "Studio light: Poly Haven studio_small_09 (CC0) · Atmosphere: Bruneton precomputed scattering via takram three-atmosphere (MIT) · " +
+    "3D scenes: NASA Earth Observatory, Blue Marble Next Generation, September (Reto Stöckli) · " +
+    "Topography: NASA Earth Observatory (Jesse Allen), GEBCO data from the British Oceanographic Data Centre · " +
+    "Studio light: Poly Haven studio_small_09 (CC0) · " +
     "Borders, places, rivers, seas: Natural Earth (public domain) · Districts: geoBoundaries (CC BY 3.0 IGO; source BBS, OCHA ROAP) · " +
     "Data frames: NASA SVS 5101 / 4285 for the NASA Earth Information Center",
   "turntable.inset": "World map: the dot is the needle",

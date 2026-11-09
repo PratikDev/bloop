@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import { rainText } from "@/lib/reading";
+import { cn } from "@/lib/utils";
 import { useAppState, useT } from "../../AppState/use-app-state";
 import { useLiveData } from "../../LiveData/use-live-data";
 import { Figure, hero } from "../../Readout";
@@ -49,7 +50,8 @@ export function NeedleChip({ subscribe, place, details, reserved }: Props) {
       chip={
         r && (
           <>
-            <span className="readout-figure text-title whitespace-nowrap text-moon">
+            {/* A number stays on one line; the "no data" sentence may wrap on a phone. */}
+            <span className={cn("readout-figure text-title text-moon", main && "whitespace-nowrap")}>
               {main ? (
                 <>
                   <Figure text={main.figure} lang={state.lang} /> {t(main.unit)}

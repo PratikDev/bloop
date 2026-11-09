@@ -66,7 +66,7 @@
   --deck-glass: #0e0c0d; /* the turntable deck's smoked glass (Turntable/scene/deck.ts) */
   --vinyl: #0d0c0e;
   --metal: #d9d6dc;
-  --label: #f1ebe0;
+  --label: #fff8e6;
   --label-ink: #1a1512;
   --amber: #f2a541;
   --atmosphere: #7fb2ff;
@@ -87,7 +87,7 @@
   --tt-glass-edge: #14213d;
   --tt-glass-shadow: #7db8f0;
   --label-shadow: transparent;
-  --geo-border: #f3f0fa;
+  --geo-border: #14213d;
   --geo-district: #d6d0ee;
   --geo-river: #b4b1ff;
   --geo-graticule: #c5bfe2;
@@ -822,6 +822,17 @@ html:lang(bn) .odometer-cell {
     transform: translateY(-50%);
   }
 }
+/* ---- Toon turntable (Turntable/scene/deck.ts). ---- */
+:root {
+  --deck-top: #ff6b4a;
+  --deck-side: #e0533a;
+  --platter: #14213d;
+  --groove: #3c4a66;
+  --arm: #fff8e6;
+  --arm-edge: #14213d;
+  --stylus: #ff6b4a;
+}
+
 html[data-arrow-held] .odometer-roll,
 [data-still] .odometer-roll {
   animation-duration: 0s;

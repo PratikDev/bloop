@@ -12,7 +12,7 @@ import type { Geo } from "./use-geo";
 import { toLatLon, toXY } from "@/lib/geo";
 import { readAt, type Reading } from "@/lib/reading";
 import type { SentReading } from "./needle-sound";
-import type { CameraMode, SceneInfo, SceneLook } from "./scene";
+import type { CameraMode } from "./scene";
 import { SPEEDS, type Turntable } from "./use-turntable";
 
 /** A flat-map size for the 2D pick (FrameView maps pixels the same way at any size). */
@@ -141,9 +141,6 @@ export interface DebugApi {
   moveTo(lat: number, lon: number): void;
   /** Look-dev: camera mode and (optionally) distance in globe radii, applied at once. */
   setView(mode: CameraMode, distance?: number): void;
-  /** Look-dev: the design knobs of the Earth shader and the post chain. */
-  setLook(look: SceneLook): void;
-  info(): SceneInfo | null;
   checkPick(lat: number, lon: number): PickCheck | null;
   setRotating(on: boolean): void;
   setSpeed(multiplier: number): number;
@@ -160,6 +157,8 @@ export interface DebugApi {
   searchAndFly(query: string): Promise<{ entry: SearchEntry; needle: LatLon } | null>;
   /** Label anchors on screen, raycast back to the globe: how far each lands from its own coordinates (degrees). */
   labelCheck(): { key: string; lat: number; lon: number; picked: LatLon | null; errorDeg: number | null }[];
+  /** The globe point under a screen position (for the data-pixel check). */
+  pickAt(x: number, y: number): LatLon | null;
   particlesSpawned(): number;
   distance(): number;
 }
@@ -195,6 +194,7 @@ export function createDebugApi(
         return { key, lat: a.lat, lon: a.lon, picked, errorDeg };
       });
     },
+    pickAt: (x, y) => tt().pickAt(x, y),
     particlesSpawned: () => tt().particlesSpawned.current,
     distance: () => tt().distance(),
     needle: () => tt().needle(),
@@ -207,8 +207,6 @@ export function createDebugApi(
       tt().setCameraMode(mode);
       if (distance !== undefined) tt().sceneRef.current?.rig.setDistance(distance, true);
     },
-    setLook: (look) => tt().sceneRef.current?.setLook(look),
-    info: () => tt().sceneRef.current?.info() ?? null,
     checkPick(lat, lon) {
       const f = fields();
       return f && checkPick(tt(), f, { lat, lon });

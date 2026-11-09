@@ -54,7 +54,6 @@ export function useGhostScene(o: {
       orbitRef.current = orbit;
       const size = { width: 1, height: 1 };
       return {
-        globe: scene.globe,
         update(dt) {
           const l = live.current;
           // West to east, like the Earth: the longitude in view falls.

@@ -13,5 +13,3 @@ export const SCENE_SLEEVES = {
   tunnel: "scenes.tunnel.sleeve",
 } as const satisfies Record<SceneId, TurntableKey>;
 
-/** Sleeve art: a still from the scene's own render (captured from the production build). */
-export const sceneCover = (id: SceneId) => `/textures/scenes/cover-${id}.webp`;

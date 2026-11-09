@@ -90,14 +90,12 @@ export const TURNTABLE: Feature[] = [
       return { evidence: `Settings opens the "${(await drawer.innerText()).split("\n")[0]}" drawer` };
     } },
   { id: "turntable-sources", group: "truth", name: "Sources and checks on the Turntable (Month by month)", where: "Turntable · More · Sources and checks", keyboard: false,
-    what: "The Truth, Mapping, Provenance and History panels, and the note on the Blue Marble background",
+    what: "The Truth, Mapping, Provenance and History panels",
     control: (page) => page.getByRole("group", { name: "Turntable controls" }).getByRole("button", { name: "More", exact: true }),
     async run(page) {
       await turntable(page);
       await openMore(page);
       await page.getByRole("button", { name: "Sources and checks", exact: true }).click();
-      await tab(page, "Where it's from").click();
-      await expect(page.getByRole("tabpanel", { name: "Where it's from" })).toContainText("Background: Blue Marble composite, not today's clouds");
       await tab(page, "Month by month").click();
       const p = page.getByRole("tabpanel", { name: "Month by month" });
       await expect(p).toBeVisible({ timeout: 30_000 });

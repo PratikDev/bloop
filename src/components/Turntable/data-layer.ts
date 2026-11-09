@@ -5,7 +5,6 @@
 
 import type { TrackMode } from "@/lib/audio-jukebox/types";
 import type { Palette } from "@/lib/css-tokens";
-import type { SstField } from "@/lib/data";
 import type { Reading } from "@/lib/reading";
 import { drawBase, type BaseImages } from "../FrameView/base-layer";
 
@@ -44,21 +43,6 @@ export function drawCover(canvas: HTMLCanvasElement, track: TrackMode, images: B
   const h = ((COVER.latFrom - COVER.latTo) / 180) * full.height;
   canvas.width = canvas.height = COVER.size;
   ctx.drawImage(full, x, y, w, h, 0, 0, COVER.size, COVER.size);
-}
-
-/**
- * The SST grid's ocean mask for the glint (255 = the grid has a value), rows
- * flipped for a three.js DataTexture (whose first row is the south edge).
- */
-export function oceanMask(sst: SstField): Uint8Array {
-  const { width, height, nodata } = sst.meta.grid;
-  const mask = new Uint8Array(width * height);
-  for (let row = 0; row < height; row++) {
-    const src = row * width;
-    const dst = (height - 1 - row) * width;
-    for (let col = 0; col < width; col++) mask[dst + col] = sst.codes[src + col] === nodata ? 0 : 255;
-  }
-  return mask;
 }
 
 export type Pixel = [number, number, number];

@@ -1,6 +1,6 @@
 "use client";
 
-import { Box, Lock, Play, RotateCcw, Volume2 } from "lucide-react";
+import { Box, Clock, Ghost, Lock, Mountain, Play, RotateCcw, Volume2, Waves, type LucideIcon } from "lucide-react";
 import { brailleLabel } from "@/a11y/aria";
 import { useState } from "react";
 import { Button } from "@/components/ui/button";
@@ -11,7 +11,15 @@ import { useLiveData } from "../LiveData/use-live-data";
 import { useTT } from "./i18n";
 import { FrameFacts } from "./FrameFacts";
 import { COMING_RECORDS, LIVE_RECORDS, RECORD_LABELS, recordFrames } from "./records";
-import { SCENE_IDS, SCENE_SLEEVES, sceneCover, type SceneId } from "../Scenes/registry";
+import { SCENE_IDS, SCENE_SLEEVES, type SceneId } from "../Scenes/registry";
+
+/** Each scene's sleeve: flat line art on one palette fill. */
+const SCENE_ART: Record<SceneId, { icon: LucideIcon; fill: string }> = {
+  ghost: { icon: Ghost, fill: "bg-dial" },
+  delta: { icon: Waves, fill: "bg-sea-deep" },
+  terrain: { icon: Mountain, fill: "bg-bubble" },
+  tunnel: { icon: Clock, fill: "bg-shapla" },
+};
 
 function Sleeve({ track, cover, now, onSelect }: { track: TrackMode; cover: string | undefined; now: number; onSelect: (t: TrackMode) => void }) {
   const { state } = useAppState();
@@ -75,11 +83,12 @@ function Sleeve({ track, cover, now, onSelect }: { track: TrackMode; cover: stri
   );
 }
 
-/** A scene's sleeve: a still from its own render; choosing it drops the needle into the scene. */
+/** A scene's sleeve; choosing it drops the needle into the scene. */
 function SceneSleeve({ id, onScene }: { id: SceneId; onScene: (id: SceneId) => void }) {
   const { tt } = useTT();
   const t = useT();
   const name = tt(SCENE_SLEEVES[id]);
+  const { icon: Icon, fill } = SCENE_ART[id];
   return (
     <li className="w-44 shrink-0 snap-start p-1">
       <button
@@ -89,8 +98,9 @@ function SceneSleeve({ id, onScene }: { id: SceneId; onScene: (id: SceneId) => v
         {...brailleLabel(t("braille.bl.scene", { scene: name }))}
         className="key flex aspect-square w-full flex-col overflow-hidden rounded-lg bg-paper text-left"
       >
-        {/* eslint-disable-next-line @next/next/no-img-element */}
-        <img src={sceneCover(id)} alt="" className="min-h-0 w-full flex-1 object-cover" />
+        <span aria-hidden="true" className={cn("flex min-h-0 w-full flex-1 items-center justify-center", fill)}>
+          <Icon className="size-16 text-moon" strokeWidth={1.5} />
+        </span>
         <span className="flex items-center justify-between gap-2 border-t-2 border-line px-3 py-2">
           <span className="font-strip text-lead text-moon">{name}</span>
           <Box aria-hidden="true" className="size-4 shrink-0 text-moon" />

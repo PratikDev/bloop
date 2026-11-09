@@ -40,9 +40,8 @@ export function Drawer({ open, onClose, title, description, children }: { open: 
 
 type Update = (next: Partial<TurntableSettings>) => void;
 
-const LAYER_KEYS = ["clouds", "labels", "borders", "districts", "rivers", "graticule"] as const;
+const LAYER_KEYS = ["labels", "borders", "districts", "rivers", "graticule"] as const;
 const LAYER_LABELS = {
-  clouds: "turntable.layers.clouds",
   labels: "turntable.layers.labels",
   borders: "turntable.layers.borders",
   districts: "turntable.layers.districts",
@@ -151,7 +150,7 @@ export function Drawers({ open, onClose, settings, update, onMyLocation, onFlatM
         <SettingsBody settings={settings} update={update} onMyLocation={onMyLocation} onFlatMap={onFlatMap} />
       </Drawer>
       <Drawer open={open === "sources"} onClose={onClose} title={tt("turntable.sources")}>
-        <PanelTabs provenanceNote={tt("turntable.background")} />
+        <PanelTabs />
       </Drawer>
     </>
   );

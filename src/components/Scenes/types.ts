@@ -1,7 +1,7 @@
 // What every scene shares: the props the Turntable hands it, and the handle
 // its three.js builder returns to the shared canvas.
 
-import type { Object3D, PerspectiveCamera, Scene, WebGLRenderer } from "three";
+import type { PerspectiveCamera, Scene, WebGLRenderer } from "three";
 import type { Palette } from "@/lib/css-tokens";
 import type { Tier } from "../Turntable/quality";
 import type { Geo } from "../Turntable/use-geo";
@@ -24,8 +24,6 @@ export interface SceneBuildHost {
 }
 
 export interface SceneHandle {
-  /** A globe at radius 1: turns the aerial-perspective pass on (Ghost Earths). */
-  globe?: Object3D;
   /** Advance by dt seconds, before the frame is drawn. */
   update(dt: number): void;
   /** Size in CSS pixels. */

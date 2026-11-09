@@ -3,7 +3,6 @@
 // at exactly the voice's drops per second, and a sparkle on the extreme cell.
 
 import {
-  AdditiveBlending,
   BufferAttribute,
   BufferGeometry,
   CanvasTexture,
@@ -41,7 +40,7 @@ export type ParticleKind = "rain" | "snow";
 
 export interface Effects {
   group: Group;
-  /** The needle's latitude, drawn as a glowing ring that doesn't turn. */
+  /** The needle's latitude, drawn as a flat ring that doesn't turn. */
   setGroove(lat: number): void;
   /** Where the needle touches (world space) and the surface normal there. */
   setNeedle(point: Vector3, normal: Vector3): void;
@@ -64,24 +63,21 @@ function dotTexture(): CanvasTexture {
   c.width = c.height = 64;
   const ctx = c.getContext("2d");
   if (ctx) {
-    const g = ctx.createRadialGradient(32, 32, 0, 32, 32, 32);
-    g.addColorStop(0, "rgba(255,255,255,1)");
-    g.addColorStop(0.4, "rgba(255,255,255,0.6)");
-    g.addColorStop(1, "rgba(255,255,255,0)");
-    ctx.fillStyle = g;
-    ctx.fillRect(0, 0, 64, 64);
+    ctx.fillStyle = "#ffffff";
+    ctx.beginPath();
+    ctx.arc(32, 32, 30, 0, Math.PI * 2);
+    ctx.fill();
   }
   return new CanvasTexture(c);
 }
 
-/** `onRippleColor` hears every ripple colour change (the stylus glows with it). */
-export function createEffects(palette: Palette, onRippleColor?: (rgb: [number, number, number] | null) => void): Effects {
+export function createEffects(palette: Palette): Effects {
   const group = new Group();
-  const glow = new Color(palette.shapla);
+  const accent = new Color(palette.shapla);
   const dot = dotTexture();
 
   // A one-pixel line, so the groove stays thin at any zoom.
-  const grooveMaterial = new LineBasicMaterial({ color: glow, transparent: true, opacity: 0.9, depthWrite: false });
+  const grooveMaterial = new LineBasicMaterial({ color: accent, transparent: true, opacity: 0.9, depthWrite: false });
   let grooveLat = Number.NaN;
   const groove = new LineSegments(new BufferGeometry(), grooveMaterial);
   groove.renderOrder = 4;
@@ -104,7 +100,7 @@ export function createEffects(palette: Palette, onRippleColor?: (rgb: [number, n
   const sparklePositions = new Float32Array(SPARKLE_POINTS * 3);
   const sparkleGeometry = new BufferGeometry();
   sparkleGeometry.setAttribute("position", new BufferAttribute(sparklePositions, 3));
-  const sparkleMaterial = new PointsMaterial({ map: dot, size: SPARKLE_PX, sizeAttenuation: false, color: glow, transparent: true, opacity: 0, blending: AdditiveBlending, depthWrite: false });
+  const sparkleMaterial = new PointsMaterial({ map: dot, size: SPARKLE_PX, sizeAttenuation: false, color: accent, transparent: true, opacity: 0, depthWrite: false });
   const sparkles = new Points(sparkleGeometry, sparkleMaterial);
   sparkles.frustumCulled = false;
 
@@ -153,7 +149,6 @@ export function createEffects(palette: Palette, onRippleColor?: (rgb: [number, n
     setRippleColor(rgb) {
       ripple.visible = rgb !== null;
       if (rgb) rippleMaterial.color.setRGB(rgb[0] / 255, rgb[1] / 255, rgb[2] / 255, SRGBColorSpace);
-      onRippleColor?.(rgb);
     },
     setParticles(perSecond, k) {
       rate = Math.max(0, perSecond);

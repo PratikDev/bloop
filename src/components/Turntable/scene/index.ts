@@ -1,5 +1,5 @@
-// The Turntable Earth scene: realistic globe + data frame + overlays on a PBR
-// turntable in a warm studio. The globe spins about its polar axis; the needle
+// The Turntable Earth scene: flat globe + data frame + overlays on a cel-shaded
+// turntable in space. The globe spins about its polar axis; the needle
 // stays at one azimuth, so the longitude under it is set by the spin and its
 // latitude is the groove. Every position goes through latLonToSphere.
 // React Three Fiber owns the renderer, camera and scene (TurntableCanvas.tsx);
@@ -22,16 +22,15 @@ import {
 import type { Palette } from "@/lib/css-tokens";
 import type { LatLon } from "@/lib/data";
 import { latLonToSphere, sphereHitToLatLon } from "@/lib/sphere";
-import type { Tier } from "../quality";
+import { NARROW_STAGE_PX } from "../canvas-config";
 import type { LayerToggles } from "../settings";
-import { createEarthTextureLoader, type EarthTextureLoader } from "../textures";
 import { createCameraRig, type CameraRig } from "./camera";
 import { ARM_REST, createDeck, type Deck } from "./deck";
-import { createEarth, EARTH_RADIUS, type Earth, type EarthLook } from "./earth";
+import { createEarth, EARTH_RADIUS, type Earth } from "./earth";
 import { createEffects, type Effects } from "./effects";
 import { createOverlays, type Overlays } from "./overlays";
 import { asOccluder } from "./layers";
-import { createPost, type Post, type PostLook } from "./post";
+import { createPost } from "./post";
 import { createStudio, type Studio } from "./studio";
 
 /** Where the needle sits, as an azimuth on the unturned globe (front right, so the camera sees it). */
@@ -43,26 +42,16 @@ const ARM_HIDDEN_ABOVE = 0.55;
 const RECORD_LIFT = 0.7;
 /** Camera height above the surface in the Jukebox view (globe radii), the reference for effect sizes. */
 const JUKEBOX_HEIGHT = 4.2;
-/** The depth of field focuses a little in front of the globe's centre (its near face). */
-const FOCUS_IN_FRONT = 0.6;
+/** three's light units: at pi a surface facing the light shows its exact colour. */
+const FULL_LIGHT = Math.PI;
+/** On a phone the whole view moves down by this share of its height, so the top row's chip clears the globe. */
+const NARROW_VIEW_SHIFT = 0.085;
 
 /** A globe point projected to CSS pixels; `facing` > 0 when it is on the side facing the camera. */
 export interface ScreenPoint {
   x: number;
   y: number;
   facing: number;
-}
-
-/** The design knobs (look-dev and Settings), never data. */
-export interface SceneLook {
-  earth?: Partial<EarthLook>;
-  post?: Partial<PostLook>;
-}
-
-export interface SceneInfo {
-  tier: Tier;
-  atmosphere: boolean;
-  surface: ReturnType<Earth["textureInfo"]>;
 }
 
 /** What R3F hands the scene. */
@@ -81,8 +70,6 @@ export interface TurntableScene {
   deck: Deck;
   studio: Studio;
   rig: CameraRig;
-  textures: EarthTextureLoader;
-  maxTextureSize: number;
   /** Turns the globe so `lon` is under the needle, needle on `lat`, lifted by `lift`, parked by `park` (0..1). */
   setPose(lat: number, lon: number, lift: number, park: number): void;
   /** What the needle reads: the globe point under its tip, back through sphereHitToLatLon. */
@@ -97,13 +84,8 @@ export interface TurntableScene {
   /** The globe point straight below the camera (the centre of what's in view). */
   viewCenter(): LatLon;
   setRecordLift(t: number): void;
-  /** Sun direction in the globe's frame (null = always day): the Earth's shading and the atmosphere. */
+  /** Sun direction in the globe's frame (null = always day): the land's two light steps. */
   setSun(dir: Vector3 | null): void;
-  setLook(look: SceneLook): void;
-  /** What is rendering now (debug and verification). */
-  info(): SceneInfo;
-  /** Rebuilds the post chain for a quality tier (textures are loaded separately). */
-  setTier(tier: Tier): void;
   /** Size in CSS pixels (R3F sizes the canvas; this keeps projection and the post chain in step). */
   resize(width: number, height: number): void;
   /** Advance camera and effects by dt seconds; returns the number of particles spawned. */
@@ -115,23 +97,21 @@ export interface TurntableScene {
   dispose(): void;
 }
 
-export function createTurntableScene(host: SceneHost, dataCanvas: HTMLCanvasElement, palette: Palette, tier: Tier): TurntableScene {
+export function createTurntableScene(host: SceneHost, dataCanvas: HTMLCanvasElement, palette: Palette): TurntableScene {
   const { renderer, scene, camera } = host;
-  // three logs every shader compiler note; Windows' D3D compiler adds harmless precision notes on
-  // three's own PBR shaders. Checked in development, quiet in production builds.
+  // three logs every shader compiler note. Checked in development, quiet in production builds.
   renderer.debug.checkShaderErrors = process.env.NODE_ENV !== "production";
 
-  const key = new DirectionalLight(new Color(palette["sun-glint"]), 0.7);
+  const key = new DirectionalLight(new Color(1, 1, 1), FULL_LIGHT);
   key.position.set(3, 5, 4);
   const rig = createCameraRig(camera);
   const anisotropy = Math.min(MAX_ANISOTROPY, renderer.capabilities.getMaxAnisotropy());
   const earth = createEarth(palette, dataCanvas, anisotropy);
   const overlays = createOverlays(palette);
   const deck = createDeck(palette);
-  const effects = createEffects(palette, deck.setStylusColor);
+  const effects = createEffects(palette);
   const studio = createStudio(palette, { exact: true });
   studio.setStars(1);
-  const textures = createEarthTextureLoader(renderer);
   const globe = new Group();
   globe.add(earth.surface, overlays.group);
   const root = new Group();
@@ -140,11 +120,7 @@ export function createTurntableScene(host: SceneHost, dataCanvas: HTMLCanvasElem
   asOccluder(deck.group);
   scene.add(root);
 
-  let currentTier = tier;
-  let post: Post = createPost(renderer, scene, camera, tier);
-  post.setGlobe(globe);
-  let sun: Vector3 | null = null;
-  let postLook: Partial<PostLook> = {};
+  const post = createPost(renderer, scene, camera);
 
   const globeSphere = new Sphere(new Vector3(), EARTH_RADIUS);
   const raycaster = new Raycaster();
@@ -153,7 +129,6 @@ export function createTurntableScene(host: SceneHost, dataCanvas: HTMLCanvasElem
   const local = new Vector3();
   const world = new Vector3();
   const toCamera = new Vector3();
-  const cameraLocal = new Vector3();
   let width = 1;
   let height = 1;
 
@@ -171,8 +146,6 @@ export function createTurntableScene(host: SceneHost, dataCanvas: HTMLCanvasElem
     deck,
     studio,
     rig,
-    textures,
-    maxTextureSize: renderer.capabilities.maxTextureSize,
     setPose(lat, lon, lift, park) {
       const spin = (NEEDLE_AZIMUTH_DEG - lon) * RAD;
       globe.rotation.y = spin;
@@ -215,43 +188,21 @@ export function createTurntableScene(host: SceneHost, dataCanvas: HTMLCanvasElem
       deck.record.rotation.z = t * 0.25;
     },
     setSun(dir) {
-      sun = dir;
       earth.setSun(dir);
-      post.setSun(dir);
-    },
-    setLook(look) {
-      if (look.earth) earth.setLook(look.earth);
-      if (look.post) {
-        postLook = { ...postLook, ...look.post };
-        post.setLook(postLook);
-      }
-    },
-    info: () => ({ tier: currentTier, atmosphere: post.atmosphereReady(), surface: earth.textureInfo() }),
-    setTier(t) {
-      currentTier = t;
-      post.dispose();
-      post = createPost(renderer, scene, camera, t);
-      post.setGlobe(globe);
-      post.setSun(sun);
-      post.setLook(postLook);
-      post.setSize(width, height);
     },
     resize(w, h) {
       width = w;
       height = h;
       if (h > 0) rig.setAspect(w / h);
+      if (w < NARROW_STAGE_PX) camera.setViewOffset(w, h, 0, -h * NARROW_VIEW_SHIFT, w, h);
+      else camera.clearViewOffset();
       post.setSize(w, h);
     },
     update(dt, { instant, layers }) {
       rig.update(dt, needleNormal, instant);
-      cameraLocal.copy(camera.position);
-      earth.setCameraLocal(globe.worldToLocal(cameraLocal));
       const blend = rig.blend();
       overlays.setVisibility({ distance: blend > 0.5 ? rig.distance() : Infinity, ...layers });
       deck.arm.visible = blend < ARM_HIDDEN_ABOVE;
-      // Decoration steps aside in the close-up: clouds fade out, the stars come in.
-      earth.setClouds(layers.clouds ? 1 - blend : 0);
-      post.setViewBlend(blend, camera.position.length() - FOCUS_IN_FRONT);
       // The camera's height above the surface, relative to the Jukebox view: effects keep their screen size.
       const zoom = Math.min(1, Math.max(0.03, (camera.position.length() - EARTH_RADIUS) / JUKEBOX_HEIGHT));
       return effects.update(dt, zoom);
@@ -265,13 +216,11 @@ export function createTurntableScene(host: SceneHost, dataCanvas: HTMLCanvasElem
     dispose() {
       scene.remove(root);
       post.dispose();
-      textures.dispose();
       earth.dispose();
       overlays.dispose();
       effects.dispose();
       deck.dispose();
       studio.dispose();
-      deck.releaseSharedTextures();
     },
   };
 }

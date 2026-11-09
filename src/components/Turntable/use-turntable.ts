@@ -49,7 +49,7 @@ interface Options {
   start: LatLon;
   dispatch: Dispatch<AppAction>;
   onSend?: (sent: SentReading) => void;
-  scene: Omit<SceneSettings, "sst">;
+  scene: SceneSettings;
 }
 
 /** What the HTML overlays need each frame. */
@@ -341,7 +341,7 @@ export function useTurntable(o: Options): Turntable {
     };
   }, [hostRef, scene, paused, applyPose, syncCursor, startDrop, labelRecord]);
 
-  useSceneAssets(scene, { ...o.scene, sst: o.fields?.sst ?? null });
+  useSceneAssets(scene, o.scene);
 
   // R3F sizes the canvas and the post chain; the overlays project with the same size.
   useEffect(() => {

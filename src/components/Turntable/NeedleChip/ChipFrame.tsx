@@ -4,6 +4,7 @@ import { Pin, PinOff, X } from "lucide-react";
 import { useCallback, useEffect, useRef, type ReactNode } from "react";
 import { Button } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
+import { NARROW_STAGE_PX } from "../canvas-config";
 import { useTT } from "../i18n";
 import type { Rect } from "../LabelLayer";
 import type { Details } from "./use-details";
@@ -15,9 +16,8 @@ const EDGE_PX = 24;
 const BOTTOM_RESERVE_PX = 230;
 const MIN_CARD_PX = 160;
 const MAX_CHIP_PX = 352;
-/** Narrower than this, the chip sits under the top row instead of beside the needle (there's no room beside it). */
-const NARROW_PX = 640;
-const NARROW_TOP_PX = 96;
+/** On a phone the chip shares the top row with the Search key, clear of the globe (the deck moves down for it). */
+const NARROW_SEARCH_RESERVE_PX = 128;
 
 /** Where the needle is on screen this frame (the Turntable's FrameInfo satisfies it). */
 export interface ChipFrameInfo {
@@ -48,7 +48,7 @@ export interface ChipFrameProps {
 /**
  * The needle chip's frame, shared by the Turntable and its scenes: a crosshair
  * on the needle, a pill beside it (left by preference, flipping when there's no
- * room, under the top row on phones) and a details card that opens on hover,
+ * room, in the top row on phones) and a details card that opens on hover,
  * focus, I or Enter and closes itself unless pinned or focused.
  */
 export function ChipFrame({ subscribe, details, reserved, bottomReserve = BOTTOM_RESERVE_PX, label, chip, headline, children }: ChipFrameProps) {
@@ -85,15 +85,15 @@ export function ChipFrame({ subscribe, details, reserved, bottomReserve = BOTTOM
           return;
         }
         // Left of the needle by preference (the tonearm comes in from the right); flips when there's no room.
-        const narrow = f.width < NARROW_PX;
+        const narrow = f.width < NARROW_STAGE_PX;
         const left = f.needle.x - GAP_PX - w >= EDGE_PX;
         const x = narrow ? EDGE_PX : left ? f.needle.x - GAP_PX - w : Math.min(f.width - w - EDGE_PX, f.needle.x + GAP_PX);
         // The chip's middle lines up with the needle; the card grows downward from there,
         // scrolling inside rather than running under the caption, legend and dock.
-        const y = narrow ? NARROW_TOP_PX : Math.min(f.height - chipPx - bottomReserve, Math.max(EDGE_PX, f.needle.y - chipPx / 2));
+        const y = narrow ? EDGE_PX : Math.min(f.height - chipPx - bottomReserve, Math.max(EDGE_PX, f.needle.y - chipPx / 2));
         box.style.transform = `translate(${Math.round(x)}px, ${Math.round(y)}px)`;
         box.style.setProperty("--card-max", `${Math.max(MIN_CARD_PX, Math.round(f.height - bottomReserve - y - chipPx - 8))}px`);
-        box.style.maxWidth = `${Math.min(MAX_CHIP_PX, f.width - 2 * EDGE_PX)}px`;
+        box.style.maxWidth = `${Math.min(MAX_CHIP_PX, f.width - 2 * EDGE_PX - (narrow ? NARROW_SEARCH_RESERVE_PX : 0))}px`;
         box.dataset.side = left ? "left" : "right";
         if (reserved) reserved.current = [{ x, y, w, h }];
       }),

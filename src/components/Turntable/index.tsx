@@ -91,8 +91,6 @@ export function Turntable() {
         }
       : undefined,
     scene: {
-      quality: settings.quality,
-      frameTime,
       sunTime: settings.sunAtFrameTime ? frameTime : null,
       dataOpacity: settings.dataOpacity,
       geo,

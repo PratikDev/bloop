@@ -9,7 +9,6 @@ export interface TurntableSettings {
   sunAtFrameTime: boolean;
   /** Rendering tier (null = automatic). */
   quality: Tier | null;
-  clouds: boolean;
   labels: boolean;
   borders: boolean;
   districts: boolean;
@@ -18,13 +17,12 @@ export interface TurntableSettings {
 }
 
 /** The layers the scene draws or hides. */
-export type LayerToggles = Pick<TurntableSettings, "clouds" | "borders" | "districts" | "rivers" | "graticule">;
+export type LayerToggles = Pick<TurntableSettings, "borders" | "districts" | "rivers" | "graticule">;
 
 export const DEFAULT_SETTINGS: TurntableSettings = {
-  dataOpacity: 0.85,
+  dataOpacity: 1,
   sunAtFrameTime: true,
   quality: null,
-  clouds: true,
   labels: true,
   borders: true,
   districts: true,
@@ -32,11 +30,10 @@ export const DEFAULT_SETTINGS: TurntableSettings = {
   graticule: false,
 };
 
-/** Opacity steps for the O key (default 85%, as the data layer starts). */
+/** Opacity steps for the O key (the data layer starts at 100%, so its colours are exact). */
 export const OPACITY_STEPS = [0, 0.25, 0.5, 0.85, 1] as const;
 
 export const layerToggles = (s: TurntableSettings): LayerToggles => ({
-  clouds: s.clouds,
   borders: s.borders,
   districts: s.districts,
   rivers: s.rivers,
