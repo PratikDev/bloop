@@ -20,10 +20,10 @@ export const STAGGER: Variants = {
   shown: { transition: { staggerChildren: 0.07, delayChildren: 0.05 } },
 };
 
-/** One child of STAGGER: rises 14 px out of a slight blur. */
+/** One child of STAGGER: rises 14 px and fades in. */
 export const RISE: Variants = {
-  hidden: { opacity: 0, y: 14, filter: "blur(4px)" },
-  shown: { opacity: 1, y: 0, filter: "blur(0px)", transition: { duration: 0.5, ease: EASE_OUT_SOFT } },
+  hidden: { opacity: 0, y: 14 },
+  shown: { opacity: 1, y: 0, transition: { duration: 0.5, ease: EASE_OUT_SOFT } },
 };
 
 /** Panels over the map: slide in from their edge. */

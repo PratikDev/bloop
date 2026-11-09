@@ -41,7 +41,7 @@ function Shell() {
     <MotionConfig reducedMotion={state.reduceMotion ? "always" : "never"}>
       <a
         href={`#${CONTENT_ID}`}
-        className="fixed top-2 left-2 z-(--layer-start) -translate-y-20 rounded-lg bg-shapla px-4 py-2 text-body text-ink focus-visible:translate-y-0"
+        className="fixed top-2 left-2 z-(--layer-start) -translate-y-20 key rounded-lg bg-shapla px-4 py-2 text-body text-moon focus-visible:translate-y-0"
       >
         {t("app.skipToContent")}
       </a>

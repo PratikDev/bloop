@@ -72,9 +72,9 @@ export function ThenNow({
       <div className="flex flex-wrap items-end justify-between gap-x-6 gap-y-3">
         <div className="max-w-2xl space-y-1">
           {/* The headline and the chosen city already say which city; the heading keeps the page's outline for screen readers. */}
-          <h2 className={field ? "font-serif text-title" : "sr-only"}>{field ? t("thenNow.moreTitle") : t("thenNow.title", { city: t(`place.${cityName}`) })}</h2>
+          <h2 className={field ? "font-wide text-title" : "sr-only"}>{field ? t("thenNow.moreTitle") : t("thenNow.title", { city: t(`place.${cityName}`) })}</h2>
           {/* Dhaka's story line is its cross-checked claim; other cities are computed with the same method. */}
-          {!field && ready && view && <p className="font-serif text-lead text-moon">{isDhaka ? t("data.text", { text: view.demo.story }) : t("thenNow.computed")}</p>}
+          {!field && ready && view && <p className="text-lead text-moon">{isDhaka ? t("data.text", { text: view.demo.story }) : t("thenNow.computed")}</p>}
         </div>
         {!field && cities.length > 1 && (
           <ChoiceGroup<ClimateCellName>

@@ -21,12 +21,12 @@ export function Stations() {
               <span aria-hidden="true" className="stitch-x absolute inset-x-4 top-0 opacity-70 transition-opacity group-hover:opacity-100" />
               <span className="flex items-baseline justify-between gap-3">
                 <span className="flex items-baseline gap-3">
-                  <span aria-hidden="true" className="font-mono text-small text-shapla tabular-nums">
+                  <span aria-hidden="true" className="font-mono text-small text-moon tabular-nums">
                     {formatIndex(i + 1, state.lang)}
                   </span>
-                  <span className="font-serif text-title">{t(item.label)}</span>
+                  <span className="font-wide text-title">{t(item.label)}</span>
                 </span>
-                <ArrowUpRight aria-hidden="true" className="size-5 text-haze transition-transform duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 group-hover:text-shapla" />
+                <ArrowUpRight aria-hidden="true" className="size-5 text-haze transition-transform duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 group-hover:text-moon" />
               </span>
               <span className="text-small text-haze md:text-body">{t(item.blurb)}</span>
             </Link>

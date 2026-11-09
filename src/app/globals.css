@@ -7,32 +7,54 @@
 /* Listen from 1024 px: the stage (a container named listen) is wider than 2:1, so there is room beside the map. */
 @custom-variant listen-wide (@container listen (min-aspect-ratio: 2 / 1));
 
-/* "Signals over the Bay" (docs/L3/REDESIGN.md §1), on the "Night over the Bay"
-   palette (docs/L3/design-plan.md §2). Every chrome colour sits in the hue range
-   NASA's colormaps don't use (255°–330°), so nothing in the interface can be
-   mistaken for data. */
+/* "Daylight jukebox": soft neo-brutalism. Flat fills, navy outlines, hard offset
+   shadows, no blur and no glow. The theme colours chrome only: NASA frame pixels
+   and data colour scales are never tinted by it. Space (the night sky) appears
+   only inside windows that show Earth as a planet. */
 
 :root {
-  color-scheme: dark;
+  color-scheme: light;
 
-  /* Palette (hue ≈ 258°) */
-  --night: #120c20;
-  --dusk: #1a132c;
-  --tide: #2a1e46;
-  --land: #241a3a;
-  --line: #7664a0;
-  --moon: #efeaf8;
-  --haze: #ada0cd;
-  --shapla: #ff9bd4;
-  --ink: #0b0716;
-  --void: #06040c; /* the intro's darkness: deeper than any page, so it never reads as one */
-  --scrim: rgb(18 12 32 / 0.84);
+  /* Palette. Text pairs that pass 4.5:1: navy on sea/paper/coral/bubble/dial/sea-deep,
+     navy-soft on sea/paper, paper on navy/space. Never coral text; never paper on coral/bubble/dial. */
+  --sea: #cfe9df;
+  --sea-deep: #a9d3c5;
+  --paper: #fff8e6;
+  --navy: #14213d;
+  --navy-soft: #3c4a66;
+  --bubble: #ffb238;
+  --coral: #ff6b4a;
+  --dial: #7db8f0;
+  --space: #0b1530;
+  --star: #fff8e6;
+  --star-warm: #ffb238;
+  --shadow-on-space: #7db8f0;
 
-  /* Surfaces: glass over the map, and the glow of "listening now" */
-  --glass: rgb(26 19 44 / 0.72);
-  --glass-edge: rgb(239 234 248 / 0.08);
-  --glow: rgb(255 155 212 / 0.28);
-  --shadow-tint: rgb(6 3 14 / 0.55);
+  /* The original token names, pointed at the palette (hex, not var(): css-tokens.ts reads raw values for canvas code). */
+  --night: #cfe9df;
+  --dusk: #fff8e6;
+  --tide: #a9d3c5;
+  --land: #a9d3c5;
+  --line: #14213d;
+  --moon: #14213d;
+  --haze: #3c4a66;
+  --shapla: #ff6b4a;
+  --ink: #fff8e6;
+  --void: #0b1530;
+  --scrim: rgb(20 33 61 / 0.55);
+
+  /* Surfaces are opaque now: no glass, no glow. */
+  --glass: #fff8e6;
+  --glass-edge: #14213d;
+  --glow: transparent;
+  --shadow-tint: #14213d;
+
+  /* Shape: outlines, hard shadows (no blur). */
+  --outline: 2.5px;
+  --outline-panel: 3px;
+  --shadow-key: 4px;
+  --shadow-panel: 6px;
+  --shadow-cabinet: 8px;
 
   /* Turntable Earth: the 3D studio and the map overlays. Chrome only, never
      data: the warm tones stay in the backdrop and the turntable, away from the
@@ -74,7 +96,7 @@
      apart too (hollow vs filled). The playhead is --shapla, as it listens. */
   --chart-then: var(--haze);
   --chart-now: var(--moon);
-  --chart-grid: var(--tide);
+  --chart-grid: #a9d3c5;
 
   /* shadcn variables, mapped onto the palette */
   --background: var(--night);
@@ -104,10 +126,10 @@
   --sidebar-border: var(--line);
   --sidebar-ring: var(--shapla);
 
-  /* Radius hierarchy: controls 8 px; plates 14 px; sheets and dialogs 20 px on their map edge */
-  --radius: 8px;
+  /* Radius hierarchy: keys and strips 10 px; tiles 14 px; panels and sheets 22 px; pills and tubes fully round */
+  --radius: 10px;
   --radius-plate-value: 14px;
-  --radius-sheet-value: 20px;
+  --radius-sheet-value: 22px;
 
   /* Motion: exits fast, entrances a little slower, movement longest */
   --ease-out-soft: cubic-bezier(0.22, 1, 0.36, 1);
@@ -139,10 +161,21 @@
   --color-glass: var(--glass);
   --color-glass-edge: var(--glass-edge);
   --color-glow: var(--glow);
+  --color-sea: var(--sea);
+  --color-sea-deep: var(--sea-deep);
+  --color-paper: var(--paper);
+  --color-navy: var(--navy);
+  --color-navy-soft: var(--navy-soft);
+  --color-bubble: var(--bubble);
+  --color-coral: var(--coral);
+  --color-dial: var(--dial);
+  --color-space: var(--space);
+  --color-star: var(--star);
+  --color-star-warm: var(--star-warm);
+  --color-shadow-on-space: var(--shadow-on-space);
   --color-studio-bottom: var(--studio-bottom);
   --color-amber: var(--amber);
   --color-tt-black: var(--tt-black);
-  --font-display: var(--font-anek), system-ui, sans-serif;
   --color-chart-then: var(--chart-then);
   --color-chart-now: var(--chart-now);
   --color-chart-grid: var(--chart-grid);
@@ -174,16 +207,18 @@
   --color-sidebar-border: var(--sidebar-border);
   --color-sidebar-ring: var(--sidebar-ring);
 
-  /* Type: Geist for the interface, Instrument Serif for display and narration,
-     Geist Mono for coordinates, times and units. Bengali text falls through
-     each stack to its Bangla partner (Anek Bangla, Tiro Bangla). */
-  --font-sans: var(--font-geist), var(--font-anek), system-ui, sans-serif;
-  --font-serif: var(--font-instrument), var(--font-tiro), Georgia, serif;
-  --font-heading: var(--font-geist), var(--font-anek), system-ui, sans-serif;
-  --font-mono: var(--font-geist-mono), var(--font-anek), ui-monospace, monospace;
+  /* Type: Archivo (Latin) and Anek Bangla (Bengali) only, upright only: weight and width do the
+     work (font-wide for display, font-strip for record titles). There is no serif family: its
+     utility is deliberately undefined. The mono name stays so components don't change; numbers use tabular-nums. */
+  --font-sans: var(--font-archivo), var(--font-anek), system-ui, sans-serif;
+  --font-heading: var(--font-archivo), var(--font-anek), system-ui, sans-serif;
+  --font-display: var(--font-archivo), var(--font-anek), system-ui, sans-serif;
+  --font-mono: var(--font-archivo), var(--font-anek), ui-monospace, monospace; /* numbers use tabular-nums */
 
-  /* Scale, ratio 1.25 from 16 px (design-plan §3.2), plus two display steps */
-  --text-small: 0.8rem;
+  /* Scale, ratio 1.25 from 16 px, plus two display steps. Nothing is smaller than 14 px. */
+  --tracking-sea: 0.04em; /* Turntable sea labels: spaced, so they differ from country names while staying upright */
+
+  --text-small: 0.875rem;
   --text-small--line-height: 1.45;
   --text-body: 1rem;
   --text-body--line-height: 1.55;
@@ -214,8 +249,8 @@
   --radius-plate: var(--radius-plate-value);
   --radius-sheet: var(--radius-sheet-value);
 
-  --shadow-float: 0 18px 48px -18px var(--shadow-tint), 0 2px 6px -2px var(--shadow-tint);
-  --shadow-glow: 0 0 14px 1px var(--glow);
+  --shadow-float: var(--shadow-key) var(--shadow-key) 0 var(--navy);
+  --shadow-glow: none;
 
   --ease-out-soft: var(--ease-out-soft);
 
@@ -224,20 +259,88 @@
   --animate-breathe: breathe 6s ease-in-out infinite;
 }
 
-/* The readout value: the display serif, tabular digits (the 200% zoom test, design-plan §3.3). */
+/* The readout value: wide display weight, tabular digits (the 200% zoom test). */
 @utility readout-figure {
-  font-family: var(--font-serif);
-  font-weight: 400;
+  font-family: var(--font-display);
+  font-weight: 900;
+  font-stretch: 118%;
+  font-variation-settings: "wdth" 118;
   font-variant-numeric: tabular-nums;
-  letter-spacing: -0.02em;
 }
 
-/* Turntable globe labels: a dark halo keeps light text readable on any imagery. */
+/* Labels over imagery sit on a paper pill instead of a soft halo. */
 @utility label-halo {
-  text-shadow:
-    0 0 2px var(--ink),
-    0 0 4px var(--ink),
-    0 1px 6px var(--ink);
+  background: var(--paper);
+  color: var(--navy);
+  border: 2px solid var(--navy);
+  border-radius: 999px;
+  padding: 0 0.4em;
+}
+
+/* Display headings: Archivo at its widest. */
+@utility font-wide {
+  font-family: var(--font-display);
+  font-weight: 900;
+  font-stretch: 125%;
+  font-variation-settings: "wdth" 125;
+}
+
+/* Record titles on strips (≥ 17 px only, never body text): Archivo condensed. */
+@utility font-strip {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-stretch: 82%;
+  font-variation-settings: "wdth" 82;
+}
+
+/* Something you can press: navy outline and a hard shadow that it sinks into when pressed. */
+@utility key {
+  border: var(--outline) solid var(--navy);
+  box-shadow: var(--shadow-key) var(--shadow-key) 0 var(--key-shadow, var(--navy));
+  transition:
+    transform 80ms ease-out,
+    box-shadow 80ms ease-out;
+  &:hover:not(:disabled, [aria-disabled="true"]) {
+    transform: translate(-1px, -1px);
+    box-shadow: 5px 5px 0 var(--key-shadow, var(--navy));
+  }
+  &:active:not(:disabled, [aria-disabled="true"]) {
+    transform: translate(var(--shadow-key), var(--shadow-key));
+    box-shadow: none;
+  }
+  @media (prefers-reduced-motion: reduce) {
+    transition: none;
+  }
+}
+
+/* The night sky (the intro, and the windows that show Earth as a planet). Text inside is paper only;
+   a light "moon" button inverts to a paper key with navy text and a light shadow. */
+@utility night-sky {
+  background: var(--space);
+  color: var(--star);
+  --moon: var(--star);
+  --haze: var(--star);
+  --line: var(--star);
+  --ink: var(--navy);
+  --foreground: var(--star);
+  --muted-foreground: var(--star);
+  --key-shadow: var(--shadow-on-space);
+}
+
+/* A top-level panel. */
+@utility slab {
+  background: var(--paper);
+  border: var(--outline-panel) solid var(--navy);
+  border-radius: var(--radius-sheet);
+  box-shadow: var(--shadow-panel) var(--shadow-panel) 0 var(--navy);
+}
+
+/* A panel sitting on the night sky: its shadow is light so it still reads. */
+@utility on-space {
+  background: var(--paper);
+  color: var(--navy);
+  border: var(--outline) solid var(--navy);
+  box-shadow: var(--shadow-panel) var(--shadow-panel) 0 var(--shadow-on-space);
 }
 
 /* "No value here": a hatch, so it reads as empty without relying on colour. */
@@ -258,12 +361,11 @@
   text-wrap: balance;
 }
 
-/* Small labels above values: mono, spaced, quiet. */
+/* Small labels above values: sentence case, semibold, quiet. */
 @utility eyebrow {
-  font-family: var(--font-mono);
-  font-size: 0.72rem;
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
+  font-family: var(--font-sans);
+  font-weight: 600;
+  font-size: 0.9375rem;
   color: var(--haze);
 }
 
@@ -280,17 +382,18 @@
   border: 1.5px dashed var(--line);
 }
 
-/* Glass over the map: blur, a 1 px lit edge, a tinted shadow. */
+/* A panel over the map: opaque paper, navy outline, hard shadow. */
 @utility surface-glass {
-  background: var(--glass);
-  backdrop-filter: blur(14px) saturate(1.2);
-  box-shadow: inset 0 0 0 1px var(--glass-edge), var(--shadow-float);
+  background: var(--paper);
+  border: var(--outline) solid var(--navy);
+  box-shadow: var(--shadow-panel) var(--shadow-panel) 0 var(--navy);
 }
 
-/* A quiet raised surface (no blur), for plates away from the map. */
+/* The same, a step lower (4 px shadow), for plates away from the map. */
 @utility surface-plate {
-  background: var(--dusk);
-  box-shadow: inset 0 0 0 1px var(--glass-edge);
+  background: var(--paper);
+  border: var(--outline) solid var(--navy);
+  box-shadow: var(--shadow-key) var(--shadow-key) 0 var(--navy);
 }
 
 @layer base {
@@ -305,21 +408,9 @@
   html:lang(bn) body {
     line-height: 1.6;
   }
+  /* A flat sea-glass ground: no gradients, no grain. */
   body {
     @apply bg-background;
-    background-image: radial-gradient(120% 80% at 80% -10%, var(--tide) 0%, transparent 55%),
-      radial-gradient(90% 70% at -10% 110%, var(--land) 0%, transparent 60%);
-    background-attachment: fixed;
-  }
-  /* Film grain over everything: breaks the flat digital dark. Decorative and click-through. */
-  body::after {
-    content: "";
-    position: fixed;
-    inset: 0;
-    z-index: var(--layer-grain);
-    pointer-events: none;
-    opacity: 0.06;
-    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
   }
   h1,
   h2,
@@ -331,12 +422,16 @@
   }
 }
 
-/* Focus: one ring for everything, 2 px shapla with a 2 px gap (§2.3).
-   Unlayered on purpose, so component utilities can't override it. */
+/* Focus: one ring for everything, 3 px navy with a 3 px gap. The gap puts the ring on the
+   surface around the control, so it stays navy beside navy fills too; inside the night sky
+   it turns paper. Never removed. Unlayered on purpose, so component utilities can't override it. */
 :focus-visible {
-  outline: 2px solid var(--shapla);
-  outline-offset: 2px;
-  box-shadow: none;
+  outline: 3px solid var(--navy);
+  outline-offset: 3px;
+}
+.night-sky :focus-visible,
+.bg-space :focus-visible {
+  outline-color: var(--paper);
 }
 
 /* The map is full bleed, so its ring sits inside the edge. */
@@ -392,12 +487,10 @@
   from {
     opacity: 0;
     transform: translateY(14px);
-    filter: blur(4px);
   }
   to {
     opacity: 1;
     transform: none;
-    filter: none;
   }
 }
 
@@ -407,14 +500,12 @@
   to {
     opacity: 0;
     transform: translateY(-10px) scale(0.99);
-    filter: blur(6px);
   }
 }
 @keyframes retune-in {
   from {
     opacity: 0;
     transform: translateY(16px) scale(1.01);
-    filter: blur(6px);
   }
 }
 ::view-transition-old(root) {
@@ -444,11 +535,6 @@ html:lang(bn) .eyebrow,
 html:lang(bn) .display-tight,
 html:lang(bn) .readout-figure {
   letter-spacing: normal;
-}
-
-/* The mono eyebrow's size is too small for Bengali glyphs. */
-html:lang(bn) .eyebrow {
-  font-size: 0.8rem;
 }
 
 /* Turntable v3: the warm palette, re-pointing the app's tokens (and the shadcn
@@ -483,36 +569,36 @@ html:lang(bn) .eyebrow {
   color: var(--moon);
 }
 
+/* Turntable panels: opaque, outlined, hard shadow (no blur). Phase 6 moves them onto the daylight palette. */
 @utility glass-chip {
-  background: var(--tt-glass);
-  border: 1px solid var(--tt-glass-edge);
-  box-shadow: 0 6px 20px var(--tt-glass-shadow);
-  backdrop-filter: blur(14px) saturate(1.1);
+  background: var(--tt-glass-strong);
+  border: var(--outline) solid var(--tt-line);
+  box-shadow: var(--shadow-key) var(--shadow-key) 0 var(--tt-glass-shadow);
 }
 
 @utility glass-card {
   background: var(--tt-glass-strong);
-  border: 1px solid var(--tt-glass-edge);
-  box-shadow: 0 12px 32px var(--tt-glass-shadow);
-  backdrop-filter: blur(18px) saturate(1.1);
+  border: var(--outline) solid var(--tt-line);
+  box-shadow: var(--shadow-panel) var(--shadow-panel) 0 var(--tt-glass-shadow);
 }
 
 @utility glass-dock {
-  background: var(--tt-glass);
-  border: 1px solid var(--tt-glass-edge);
-  box-shadow: 0 10px 30px var(--tt-glass-shadow);
-  backdrop-filter: blur(16px) saturate(1.15);
+  background: var(--tt-glass-strong);
+  border: var(--outline) solid var(--tt-line);
+  box-shadow: var(--shadow-panel) var(--shadow-panel) 0 var(--tt-glass-shadow);
 }
 
-/* Place names on the globe: sentence case, light, small, a soft shadow (no outline). */
+/* Place names on the globe: sentence case, small, a hard 1 px shadow for legibility on any imagery. */
 @utility globe-label {
   font-size: 0.875rem;
   font-weight: 300;
   letter-spacing: 0.01em;
   color: var(--tt-text);
   text-shadow:
-    0 1px 2px var(--label-shadow),
-    0 0 8px var(--label-shadow);
+    1px 1px 0 var(--label-shadow),
+    -1px -1px 0 var(--label-shadow),
+    1px -1px 0 var(--label-shadow),
+    -1px 1px 0 var(--label-shadow);
   transition: opacity 0.25s ease-out;
 }
 

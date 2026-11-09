@@ -24,10 +24,10 @@ export function SoundButton() {
       aria-label={label}
       className={cn(
         "group relative h-12 shrink-0 gap-2 rounded-full pr-4 pl-1.5 text-body transition-transform duration-200 active:scale-[0.97]",
-        state.soundOn ? "bg-tide hover:bg-tide/80" : "bg-shapla text-ink shadow-glow hover:bg-shapla",
+        state.soundOn ? "bg-tide hover:bg-tide/80" : "bg-shapla text-moon hover:bg-shapla",
       )}
     >
-      <span className={cn("grid size-9 place-items-center rounded-full", state.soundOn ? "bg-shapla text-ink" : "bg-ink/10")}>
+      <span className={cn("grid size-9 place-items-center rounded-full", state.soundOn ? "bg-shapla text-moon" : "bg-moon/10")}>
         <Icon aria-hidden="true" weight="fill" className="size-4.5" />
       </span>
       <span aria-hidden="true" className="hidden sm:inline">

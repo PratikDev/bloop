@@ -32,7 +32,7 @@ export function Tile({
     <motion.article variants={RISE} className="surface-plate group relative flex min-h-0 flex-col gap-2 overflow-hidden rounded-plate p-5 md:p-6">
       <span aria-hidden="true" className="stitch-x absolute inset-x-5 top-0 opacity-60" />
       <h2 className="eyebrow">{title}</h2>
-      {figure !== undefined && <p className="font-serif text-headline leading-none tabular-nums text-moon">{figure}</p>}
+      {figure !== undefined && <p className="readout-figure text-headline leading-none text-moon">{figure}</p>}
       <p className="text-body text-haze">{figureLabel}</p>
       {note}
       <div className="mt-auto pt-2">

@@ -19,8 +19,7 @@ export const pagesEn = {
   "nav.turntable": "Turntable",
 
   "home.eyebrow": "NASA Earth Information Center · latest frames",
-  "home.titleLead": "Listen to",
-  "home.titleAccent": "Earth's latest frames.",
+  "home.title": "Listen to Earth's latest frames.",
   "home.continue": "Continue listening",
   "home.resetChoice": "Reset sound choice",
   "home.stations": "Five ways in",

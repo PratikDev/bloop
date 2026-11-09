@@ -58,7 +58,7 @@ export function FirstHint() {
           exit={{ opacity: 0, y: -8 }}
           className="surface-glass absolute inset-x-2 bottom-2 z-(--layer-map-plates) flex items-center gap-3 rounded-2xl py-1.5 pr-1.5 pl-3 text-small text-moon lg:inset-x-auto lg:top-3 lg:right-3 lg:bottom-auto lg:max-w-sm lg:rounded-2xl lg:pl-4"
         >
-          <HandTap aria-hidden="true" className="size-5 shrink-0 text-shapla" />
+          <HandTap aria-hidden="true" className="size-5 shrink-0 text-moon" />
           <span>{t("listen.hint")}</span>
           <Button variant="ghost" tabIndex={-1} onClick={dismiss} className="h-9 shrink-0 rounded-full px-3 text-small hover:bg-tide pointer-coarse:h-11">
             {t("listen.hintDismiss")}

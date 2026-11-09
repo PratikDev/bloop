@@ -25,7 +25,7 @@ export function HonestyFolds({ demo, isDhaka }: { demo: DhakaThenNowDemo; isDhak
             width={1080}
             height={830}
             loading="lazy"
-            className="w-full max-w-2xl rounded-lg bg-moon"
+            className="w-full max-w-2xl rounded-lg bg-paper"
           />
         </Fold>
       )}

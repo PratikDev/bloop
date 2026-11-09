@@ -9,7 +9,7 @@ import { useDescribe } from "./use-describe";
 import { useLatestCaption } from "./use-latest-caption";
 
 /**
- * A caption for every sound event (plan §9.4), in Tiro Bangla. Visual only:
+ * A caption for every sound event (plan §9.4). Visual only:
  * the live region already speaks values, so this never talks over it.
  * With sound off, it shows the reading being shown (the cursor, or the
  * time-lapse frame) instead.
@@ -26,7 +26,7 @@ export function CaptionBar({ className, fade = false }: { className?: string; /*
     : caption && captionText(state.lang, caption.key, caption.params);
   return (
     // Up to two lines rather than cut off: long captions stay readable.
-    <p key={fade ? text || "" : undefined} aria-hidden="true" className={cn("line-clamp-2 min-h-8 font-serif text-lead text-moon", fade && "caption-fade", className)}>
+    <p key={fade ? text || "" : undefined} aria-hidden="true" className={cn("line-clamp-2 min-h-8 text-lead text-moon", fade && "caption-fade", className)}>
       {text || " "}
     </p>
   );

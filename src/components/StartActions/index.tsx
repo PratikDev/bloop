@@ -45,9 +45,9 @@ export function StartActions({ after, autoFocus = false, className }: { after?: 
           autoFocus={autoFocus}
           disabled={starting}
           onClick={() => void start()}
-          className="group h-13 gap-3 rounded-full bg-shapla pr-5 pl-3 text-lead text-ink shadow-glow transition-transform duration-200 hover:bg-shapla hover:brightness-105 active:scale-[0.98]"
+          className="group h-13 gap-3 key rounded-full bg-shapla pr-5 pl-3 text-lead text-moon hover:bg-shapla"
         >
-          <span className="grid size-8 place-items-center rounded-full bg-ink/10">
+          <span className="grid size-8 place-items-center rounded-full bg-moon/10">
             <Headphones aria-hidden="true" weight="fill" className="size-4.5" />
           </span>
           {t("start.button")}

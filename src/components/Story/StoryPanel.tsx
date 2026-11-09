@@ -87,7 +87,7 @@ export function StoryPanel({ className }: { className?: string }) {
               transition={{ duration: 0.25 }}
               className="space-y-1"
             >
-              <p className="font-serif text-lead leading-snug text-moon lg:short:text-body">{story.line.text}</p>
+              <p className="text-lead leading-snug text-moon lg:short:text-body">{story.line.text}</p>
               {story.line.source && <p className="text-small text-haze">{t("story.source", { source: story.line.source })}</p>}
             </motion.div>
           )}
@@ -95,7 +95,7 @@ export function StoryPanel({ className }: { className?: string }) {
       </div>
       <div className="flex flex-wrap gap-2">
         {story.status === "finished" && (
-          <Button onClick={story.replay} className="h-11 gap-2 rounded-full bg-moon px-4 text-body text-ink hover:bg-moon/90">
+          <Button onClick={story.replay} className="h-11 gap-2 key rounded-full bg-moon px-4 text-body text-ink hover:bg-moon">
             <ArrowCounterClockwise aria-hidden="true" className="size-4" />
             {t("story.replay")}
           </Button>

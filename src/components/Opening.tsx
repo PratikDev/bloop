@@ -83,8 +83,8 @@ export function Opening() {
     });
   }, [active, skip]);
 
-  // Its own stage, unlike any page: near-black, a breathing glow, a big signal
-  // ring, no header or dock. It fades away as the map opens from the equator.
+  // Its own stage, unlike any page: the night sky, a big signal ring, no header
+  // or dock. It fades away as the map opens from the equator.
   return (
     <AnimatePresence>
       {active && (
@@ -96,12 +96,8 @@ export function Opening() {
           animate={{ opacity: 1 }}
           // Click-through while it fades, so the map is usable the moment the intro ends.
           exit={{ opacity: 0, pointerEvents: "none", transition: { duration: 0.8, ease: EASE_OUT_SOFT } }}
-          className="fixed inset-0 z-(--layer-opening) grid grid-rows-[auto_1fr_auto] overflow-hidden bg-void px-5 py-6 md:px-10 md:py-8"
+          className="fixed inset-0 z-(--layer-opening) grid grid-rows-[auto_1fr_auto] overflow-hidden night-sky px-5 py-6 md:px-10 md:py-8"
         >
-          <div aria-hidden="true" className="pointer-events-none absolute top-1/2 left-1/2 size-[min(120vw,70rem)] -translate-x-1/2 -translate-y-1/2">
-            <div className="size-full animate-breathe rounded-full bg-radial from-tide from-0% via-land/35 via-35% to-transparent to-70%" />
-          </div>
-
           <p className="eyebrow relative flex items-center gap-2">
             <span aria-hidden="true" className="size-1.5 animate-pulse rounded-full bg-shapla" />
             {t("opening.label")}
@@ -112,11 +108,11 @@ export function Opening() {
             <AnimatePresence mode="wait">
               <motion.p
                 key={line}
-                initial={{ opacity: 0, y: 12, filter: "blur(6px)" }}
-                animate={{ opacity: 1, y: 0, filter: "blur(0px)" }}
-                exit={{ opacity: 0, y: -8, filter: "blur(6px)" }}
+                initial={{ opacity: 0, y: 12 }}
+                animate={{ opacity: 1, y: 0 }}
+                exit={{ opacity: 0, y: -8 }}
                 transition={{ duration: 0.7, ease: EASE_OUT_SOFT }}
-                className="display-tight min-h-20 max-w-3xl text-center font-serif text-display text-moon italic"
+                className="display-tight min-h-20 max-w-3xl text-center font-wide text-display text-moon"
               >
                 {line}
               </motion.p>
@@ -129,7 +125,7 @@ export function Opening() {
             <Button
               autoFocus
               onClick={skip}
-              className="group h-12 gap-2 rounded-full bg-moon px-6 text-body text-ink hover:bg-moon/90 active:scale-[0.98]"
+              className="group h-12 gap-2 key rounded-full bg-moon px-6 text-body text-ink hover:bg-moon"
             >
               {t("start.skipIntro")}
               <ArrowRight aria-hidden="true" className="size-4 transition-transform duration-200 group-hover:translate-x-0.5" />

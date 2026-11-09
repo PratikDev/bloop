@@ -35,7 +35,7 @@ export function InfoSheet({
         side={phone ? "bottom" : "right"}
         className={phone ? "max-h-[85dvh] overflow-y-auto rounded-t-sheet bg-dusk p-5 pt-6" : "w-full overflow-y-auto rounded-l-sheet bg-dusk p-6 sm:max-w-xl"}
       >
-        <SheetTitle className="pr-12 font-serif text-title">{title}</SheetTitle>
+        <SheetTitle className="pr-12 font-wide text-title">{title}</SheetTitle>
         <div className="space-y-4 text-body">{children}</div>
       </SheetContent>
     </Sheet>

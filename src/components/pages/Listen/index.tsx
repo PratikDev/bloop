@@ -50,7 +50,7 @@ export function ListenPage() {
         >
           <header className="flex flex-wrap items-end justify-between gap-x-6 gap-y-3 px-4 pt-3 pb-3 lg:col-start-[-2] lg:h-(--listen-head) lg:w-(--listen-map) lg:flex-nowrap lg:px-1 lg:pt-0 lg:pb-2 lg:listen-wide:col-start-1">
             <div className="min-w-0 space-y-1">
-              <h1 id="listen-title" data-page-title tabIndex={-1} className="font-serif text-title leading-tight md:text-headline lg:truncate lg:text-title">
+              <h1 id="listen-title" data-page-title tabIndex={-1} className="font-wide text-title leading-tight md:text-headline lg:truncate lg:text-title">
                 {t("listen.title")}
               </h1>
               <FrameLabel compact className="hidden lg:block lg:listen-wide:hidden" />

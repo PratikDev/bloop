@@ -19,8 +19,7 @@ export const pagesBn: Translated<typeof pagesEn> = {
 
   "home.eyebrow": "নাসা আর্থ ইনফরমেশন সেন্টার · সর্বশেষ ফ্রেম",
   // The headline is "{lead} {accent}", the accent in colour.
-  "home.titleLead": "শুনুন:",
-  "home.titleAccent": "পৃথিবীর সর্বশেষ ফ্রেম।",
+  "home.title": "শুনুন: পৃথিবীর সর্বশেষ ফ্রেম।",
   "home.continue": "শোনা চালিয়ে যান",
   "home.resetChoice": "শব্দের পছন্দ রিসেট করুন",
   "home.station.listen": "নাসার সর্বশেষ ফ্রেমের ওপর ঘুরে বেড়ান, আর কার্সরের নিচের সমুদ্র ও বৃষ্টি শুনুন।",

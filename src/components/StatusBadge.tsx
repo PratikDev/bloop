@@ -14,7 +14,7 @@ export function StatusBadge({ kind, children, className }: { kind: BadgeKind; ch
   const glyph = GLYPHS[kind];
   return (
     <span
-      className={cn("inline-flex items-center gap-1.5 rounded-sm bg-scrim px-2 py-0.5 text-small text-moon", className)}
+      className={cn("inline-flex items-center gap-1.5 rounded-full border-2 border-line bg-paper px-2 py-0.5 text-small text-moon", className)}
     >
       {glyph && (
         <svg viewBox="0 0 12 12" className="size-3 shrink-0" aria-hidden="true">

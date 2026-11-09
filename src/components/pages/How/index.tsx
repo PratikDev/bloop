@@ -40,7 +40,7 @@ export function HowPage() {
     <section aria-labelledby="how-title" className="mx-auto flex h-full min-h-0 w-full max-w-7xl flex-col gap-5 overflow-y-auto px-4 pt-3 pb-4 md:px-8">
       <header className="flex flex-wrap items-end justify-between gap-x-8 gap-y-2">
         <div className="space-y-1">
-          <h1 id="how-title" data-page-title tabIndex={-1} className="display-tight font-serif text-headline">
+          <h1 id="how-title" data-page-title tabIndex={-1} className="display-tight font-wide text-headline">
             {t("nav.how")}
           </h1>
           <p className="max-w-2xl text-body text-haze">{t("how.lead")}</p>

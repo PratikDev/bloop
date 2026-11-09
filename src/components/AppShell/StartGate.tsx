@@ -14,7 +14,7 @@ import { StartActions } from "../StartActions";
 export function StartGate() {
   const t = useT();
   return (
-    <div role="dialog" aria-modal="true" aria-labelledby="start-gate-title" className="fixed inset-0 z-(--layer-start) grid place-items-center bg-night/80 px-4 backdrop-blur-md">
+    <div role="dialog" aria-modal="true" aria-labelledby="start-gate-title" className="fixed inset-0 z-(--layer-start) grid place-items-center bg-scrim px-4">
       <motion.div variants={STAGGER} initial="hidden" animate="shown" className="surface-glass w-full max-w-xl space-y-6 rounded-sheet p-6 md:p-10">
         <motion.div variants={RISE} className="flex items-center justify-between">
           <SignalMark className="size-10" />
@@ -22,7 +22,7 @@ export function StartGate() {
           <LanguageChoice />
         </motion.div>
         <motion.div variants={RISE} className="space-y-3">
-          <h1 id="start-gate-title" translate="no" className="display-tight font-serif text-headline">
+          <h1 id="start-gate-title" translate="no" className="display-tight font-wide text-headline">
             {t("app.title")}
           </h1>
           <p className="text-lead text-moon">{t("start.lead")}</p>

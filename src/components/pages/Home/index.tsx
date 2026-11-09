@@ -32,8 +32,8 @@ export function HomePage() {
             <span aria-hidden="true" className="size-1.5 animate-pulse rounded-full bg-shapla" />
             {t("home.eyebrow")}
           </motion.p>
-          <motion.h1 variants={RISE} id="home-title" data-page-title tabIndex={-1} className="display-tight font-serif text-display">
-            {t("home.titleLead")} <em className="text-shapla">{t("home.titleAccent")}</em>
+          <motion.h1 variants={RISE} id="home-title" data-page-title tabIndex={-1} className="display-tight font-wide text-display text-moon">
+            {t("home.title")}
           </motion.h1>
           <motion.p variants={RISE} className="max-w-lg text-lead text-moon/90">
             {t("start.lead")}
@@ -41,7 +41,7 @@ export function HomePage() {
           <motion.div variants={RISE}>
             {state.started ? (
               <div className="flex flex-wrap items-center gap-3">
-                <Link to={PAGE_PATHS.listen} className="group inline-flex h-13 items-center gap-3 rounded-full bg-shapla pr-5 pl-6 text-lead text-ink shadow-glow transition-transform duration-200 active:scale-[0.98]">
+                <Link to={PAGE_PATHS.listen} className="group inline-flex h-13 items-center gap-3 key rounded-full bg-shapla pr-5 pl-6 text-lead text-moon">
                   {t("home.continue")}
                   <ArrowRight aria-hidden="true" className="size-4 transition-transform duration-200 group-hover:translate-x-0.5" />
                 </Link>

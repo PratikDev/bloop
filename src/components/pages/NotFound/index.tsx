@@ -16,14 +16,14 @@ export function NotFoundPage() {
       <motion.div variants={RISE}>
         <SignalMark live={false} className="size-12 opacity-70" />
       </motion.div>
-      <motion.h1 variants={RISE} id="not-found-title" data-page-title tabIndex={-1} className="display-tight font-serif text-headline">
+      <motion.h1 variants={RISE} id="not-found-title" data-page-title tabIndex={-1} className="display-tight font-wide text-headline">
         {t("notFound.title")}
       </motion.h1>
       <motion.p variants={RISE} className="max-w-md text-lead text-haze">
         {t("notFound.text")}
       </motion.p>
       <motion.div variants={RISE}>
-        <Link to={PAGE_PATHS.listen} className="group inline-flex h-12 items-center gap-3 rounded-full bg-moon px-5 text-body text-ink">
+        <Link to={PAGE_PATHS.listen} className="group inline-flex h-12 items-center gap-3 key rounded-full bg-moon px-5 text-body text-ink">
           {t("notFound.back")}
           <ArrowRight aria-hidden="true" className="size-4 transition-transform duration-200 group-hover:translate-x-0.5" />
         </Link>

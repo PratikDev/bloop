@@ -16,7 +16,7 @@ export function PlayControls({ part, player }: { part: Part; player: ReturnType<
   const t = useT();
   return (
     <div className="space-y-1.5">
-      <Button disabled={!state.soundOn} onClick={() => player.playPart(part)} className={`${ACTION} bg-shapla text-ink hover:bg-shapla/90`}>
+      <Button disabled={!state.soundOn} onClick={() => player.playPart(part)} className={`${ACTION} key bg-shapla text-moon hover:bg-shapla`}>
         <Play aria-hidden="true" weight="fill" />
         {t("thenNow.play")}
       </Button>

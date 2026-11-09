@@ -71,7 +71,7 @@ function WaterView({ grace, index }: { grace: GraceContextFile; index: number | 
 
 /** A finding's headline: its caption. */
 export function Headline({ caption }: { caption: string }) {
-  return <p className="font-serif text-lead leading-snug text-moon md:text-title lg:short:text-lead">{caption}</p>;
+  return <p className="text-lead leading-snug text-moon md:text-title lg:short:text-lead">{caption}</p>;
 }
 
 /** One sounded part: its caption as the headline, then the chart with its playhead. */

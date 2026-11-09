@@ -61,12 +61,12 @@ export function Readout({ className }: { className?: string }) {
               <span className="font-sans text-lead text-haze">{" " + t(main.unit)}</span>
             </span>
           ) : (
-            <span className="font-serif text-title">{fallback}</span>
+            <span className="text-title">{fallback}</span>
           )}
         </p>
         {track === "both" && <p className="text-lead">{rainText(t, r.rain, r.rainLoaded)}</p>}
         <p className="font-mono text-body tracking-tight text-moon">{t("place.latlon", cursor)}</p>
-        {timelapse && <p className="font-mono text-small text-shapla">{t("timelapse.frame", { index: timelapse.index + 1, total: timelapse.total })}</p>}
+        {timelapse && <p className="font-mono text-small text-moon">{t("timelapse.frame", { index: timelapse.index + 1, total: timelapse.total })}</p>}
       </div>
       {/* From 1024 px the frame times sit in the page head, above the map. */}
       <FrameLabel className="max-w-md border-t border-glass-edge pt-2 lg:hidden" />

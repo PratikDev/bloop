@@ -6,7 +6,7 @@ export function SignalMark({ className, live = true }: { className?: string; liv
     <span aria-hidden="true" className={cn("relative inline-grid place-items-center", className)}>
       {live && <span className="absolute inset-[22%] animate-signal-pulse rounded-full border border-shapla" />}
       <span className="absolute inset-[18%] rounded-full border border-line" />
-      <span className="size-[30%] rounded-full bg-shapla shadow-glow" />
+      <span className="size-[30%] rounded-full bg-shapla" />
     </span>
   );
 }

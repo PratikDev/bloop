@@ -52,7 +52,7 @@ export function ChoiceGroup<T extends string>({
       }}
       spacing={1}
       orientation={vertical ? "vertical" : "horizontal"}
-      className={cn("rounded-3xl bg-ink/45 p-1 ring-1 ring-glass-edge", vertical ? "w-full" : "flex-wrap", className)}
+      className={cn("rounded-3xl border-2 border-line bg-paper p-1", vertical ? "w-full" : "flex-wrap", className)}
     >
       {options.map((o) => {
         const chosen = o.value === value;
