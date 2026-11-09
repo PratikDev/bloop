@@ -17,6 +17,7 @@ export const PAGES: Feature[] = [
       await expect(title(page)).toHaveText(/Hear Earth's ocean and rain/u);
       const caption = page.getByText(/^NASA EIC frame: ocean temperature, /u);
       await expect(caption).toBeVisible();
+      await expect(page.getByRole("main").locator("canvas")).toHaveCount(1);
       await expect(page.getByRole("link", { name: "Continue listening" })).toBeVisible();
       await expect(page.getByRole("link", { name: "Take the 90-second tour" })).toBeVisible();
       return { evidence: `Home: ${await caption.innerText()}` };

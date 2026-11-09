@@ -142,4 +142,8 @@ export const appEn = {
 
   // English prose from a data file (L1's JSON, L2's mapping.json), shown as the file gives it.
   "data.text": (p: { text: string }) => p.text,
+
+  // Space windows: their "Pause motion" key and the sentence that says what each globe shows.
+  "motion.pause": "Pause motion",
+  "globe.home": "Globe showing today's ocean temperature frame.",
 };

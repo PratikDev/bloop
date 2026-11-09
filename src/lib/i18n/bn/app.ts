@@ -136,4 +136,7 @@ export const appBn: Translated<typeof appEn> = {
   "error.rain": "সর্বশেষ বৃষ্টির ফ্রেম লোড করা যায়নি। সমুদ্রের শব্দ চলবে; আবার চেষ্টা করতে পাতাটি রিলোড করুন।",
 
   "data.text": (p: { text: string }) => translateData(p.text),
+
+  "motion.pause": "গতি থামান",
+  "globe.home": "গ্লোবে আজকের সমুদ্রের তাপমাত্রার ফ্রেম।",
 };

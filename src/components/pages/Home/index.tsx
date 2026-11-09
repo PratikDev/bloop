@@ -1,9 +1,14 @@
 "use client";
 
-import { useState } from "react";
+import { useMemo, useRef, useState } from "react";
 import { Link, useNavigate } from "@tanstack/react-router";
 import { ArrowRight } from "@phosphor-icons/react";
 import type { LatLon } from "@/lib/data";
+import { Globe } from "../../Globe";
+import { useFrameImages } from "../../FrameView/use-frame-images";
+import { SpaceWindow } from "../../SpaceWindow";
+import { PauseMotionKey } from "../../SpaceWindow/PauseMotionKey";
+import { usePauseMotion } from "../../SpaceWindow/use-pause-motion";
 import { formatUtcDate } from "@/lib/i18n";
 import { locationForMode, PAGE_PATHS } from "@/router/modes";
 import { useAppState, useT } from "../../AppState/use-app-state";
@@ -16,12 +21,16 @@ import { PAPER_KEY, StartActions, StartHint } from "../../StartActions";
 /** Home has one job: say what this is, then start listening. The closed jukebox stands beside it. */
 export function HomePage() {
   const { state } = useAppState();
-  const { sst } = useLiveData();
+  const { sst, fields } = useLiveData();
+  const { sst: sstImage } = useFrameImages();
+  const images = useMemo(() => (sstImage ? [sstImage] : []), [sstImage]);
+  const pause = usePauseMotion();
+  const drift = useRef<HTMLDivElement>(null);
   const t = useT();
   const navigate = useNavigate();
   const toListen = () => void navigate({ to: PAGE_PATHS.listen });
   // The point the globe faces (the Globe reports it once it is mounted in the window); null drains the amber tube.
-  const [facing] = useState<LatLon | null>(null);
+  const [facing, setFacing] = useState<LatLon | null>(null);
   // While the intro plays, its wordmark follows the sound instead: only one at a time.
   const opening = state.started && !state.introDone;
   const toTour = () => void navigate(locationForMode("story"));
@@ -52,8 +61,16 @@ export function HomePage() {
       </div>
 
       <div className="mx-auto flex w-full max-w-md min-w-0 flex-col items-center gap-3 lg:max-w-none lg:flex-1 lg:basis-80">
-        <JukeboxArt marquee={t("app.title")} reactive={!opening} tube={<DataTube facing={facing} />} className="w-full max-w-[min(28rem,54dvh)]" />
-        {sst && <p className="text-center text-small text-haze">{t("home.frameCaption", { date: formatUtcDate(sst.meta.frame_time_utc, state.lang) })}</p>}
+        <JukeboxArt marquee={t("app.title")} reactive={!opening} tube={<DataTube facing={facing} paused={pause.paused} />} className="w-full max-w-[min(28rem,54dvh)]" window={
+          <SpaceWindow density="sparse" still={pause.paused} driftRef={drift} className="size-full rounded-full border-0">
+            <Globe images={images} autoTurn paused={pause.paused} driftRef={drift} onViewChange={setFacing} dataKey={fields} />
+          </SpaceWindow>
+        } />
+        <p className="sr-only">{t("globe.home")}</p>
+        <div className="flex flex-wrap items-center justify-center gap-3">
+          {sst && <p className="text-center text-small text-haze">{t("home.frameCaption", { date: formatUtcDate(sst.meta.frame_time_utc, state.lang) })}</p>}
+          <PauseMotionKey pause={pause} />
+        </div>
       </div>
     </section>
   );
