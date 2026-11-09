@@ -7,7 +7,7 @@ import type { BoundT, Lang } from "@/lib/i18n";
 import type { WhisperSource } from "@/lib/whisper";
 import type { Mode, PanelTab } from "../AppState/reducer";
 
-export type SettingKey = "describe" | "captions" | "reduceMotion" | "builtInVoice" | "soundWords" | "allMuted";
+export type SettingKey = "describe" | "captions" | "reduceMotion" | "builtInVoice" | "soundWords" | "comfortableText" | "allMuted";
 
 export const SETTING_LABELS = {
   describe: "settings.describe",
@@ -15,6 +15,7 @@ export const SETTING_LABELS = {
   reduceMotion: "settings.reduceMotion",
   builtInVoice: "settings.builtInVoice",
   soundWords: "settings.soundWords",
+  comfortableText: "settings.comfortableText",
   allMuted: "sound.muteAll",
 } as const satisfies Record<SettingKey, string>;
 

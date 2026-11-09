@@ -1,5 +1,6 @@
 import { abbrev, clean } from "@/a11y/brailleText";
 import type { BoundT } from "@/lib/i18n";
+import { collapseRange, plainStatement } from "@/lib/official-text";
 import type { OfficialManifest, OfficialValidationFile } from "@/types/data-contract";
 
 const RESULT = { pass: "official.check.pass", miss: "official.check.miss", none: "official.check.none" } as const;
@@ -9,8 +10,8 @@ export function linerNotes(t: BoundT, manifest: OfficialManifest, validation: Of
   const checks = validation?.checks ?? manifest.validation;
   return [
     clean(`SVS ${manifest.svs_ids.join(", ")}: ${manifest.app_title}`),
-    clean(`${t("official.period")}: ${manifest.period.label}. ${abbrev(manifest.badge)}.`),
-    ...manifest.layers.map((l) => clean(`${l.label}: ${l.status}${l.statement ? `. ${l.statement}` : ""}`)),
+    clean(`${t("official.period")}: ${collapseRange(manifest.period.label)}. ${abbrev(manifest.badge)}.`),
+    ...manifest.layers.map((l) => clean(`${l.label}: ${l.status}${l.statement ? `. ${plainStatement(l.statement)}` : ""}`)),
     "",
     clean(`${t("official.checks")}:`),
     ...checks.map((c) => clean(`${c.title}: ${t(RESULT[c.pass === null ? "none" : c.pass ? "pass" : "miss"])}${c.decision ? `. ${c.decision.statement}` : ""}`)),

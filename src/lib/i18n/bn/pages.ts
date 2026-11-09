@@ -61,7 +61,7 @@ export const pagesBn: Translated<typeof pagesEn> = {
   "how.rules.figure": "শব্দ, প্রতিটি একটি লিখিত নিয়ম মেনে চলে",
   "how.rules.value": (p: { count: number }) => int(p.count),
   "how.globe.title": "মাটি বনাম স্যাটেলাইট",
-  "how.globe.figure": "স্থান-দিনে দুটি মান একে অপরের ২৫ পয়েন্টের মধ্যে",
+  "how.globe.figure": "বাংলাদেশের স্থান-দিনের এই অংশে মাটির পর্যবেক্ষক ও স্যাটেলাইটের মেঘের হিসাব ২৫ পয়েন্টের মধ্যে মেলে",
   "how.globe.value": (p: { percent: number }) => `${int(p.percent)}%`,
   "how.open": "পুরো যাচাই পড়ুন",
   "how.openRules": "সব নিয়ম দেখুন",

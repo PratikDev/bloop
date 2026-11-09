@@ -33,6 +33,7 @@ export function DataTube({ facing, paused = false }: { facing: LatLon | null; pa
   return (
     <div style={place} className="absolute overflow-hidden rounded-full bg-paper">
       <div
+        data-tube-fill
         style={{ "--level": level } as CSSProperties}
         className="absolute inset-0 origin-bottom scale-y-(--level) bg-bubble transition-[scale] duration-(--duration-flip) ease-out motion-reduce:transition-none"
       />

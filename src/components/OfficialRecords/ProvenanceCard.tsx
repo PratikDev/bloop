@@ -2,6 +2,7 @@
 
 import { Fragment } from "react";
 import { formatFixed, type MessageKey } from "@/lib/i18n";
+import { collapseRange } from "@/lib/official-text";
 import type { OfficialManifest, OfficialValidationFile } from "@/types/data-contract";
 import { useAppState, useT } from "../AppState/use-app-state";
 import { BrailleTextView } from "../BrailleTextView";
@@ -25,19 +26,22 @@ export function ProvenanceCard({ manifest, validation }: { manifest: OfficialMan
       <ProductBadges product={manifest.record} />
       <dl className="grid grid-cols-[auto_1fr] gap-x-3 gap-y-1">
         <dt className="text-haze">{t("provenance.visualization")}</dt>
-        <dd className="flex flex-wrap gap-x-2">
+        <dd>
           {manifest.svs_ids.map((id, i) => (
-            <a key={id} href={manifest.svs_pages[i]} target="_blank" rel="noreferrer" className="underline underline-offset-2">
-              {t("official.svs", { id })}
-            </a>
+            <Fragment key={id}>
+              {i > 0 && ", "}
+              <a href={manifest.svs_pages[i]} target="_blank" rel="noreferrer" className="underline underline-offset-2">
+                {t("official.svs", { id })}
+              </a>
+            </Fragment>
           ))}
-          <span>{manifest.title}</span>
+          {`, ${manifest.title}`}
         </dd>
         <dt className="text-haze">{t("official.period")}</dt>
-        <dd>{manifest.period.label}</dd>
+        <dd>{collapseRange(manifest.period.label)}</dd>
         <dt className="text-haze">{t("official.frameTime")}</dt>
         <dd>
-          {t("official.frameTime.method", { method: manifest.frame_times.method, count: manifest.frame_times.count })}
+          {t("official.frameTime.count", { count: manifest.frame_times.count })}
           {manifest.frame_times.approximate && ` (${t("official.approximate")})`}
         </dd>
         <dt className="text-haze">{t("official.georef")}</dt>
@@ -61,7 +65,7 @@ export function ProvenanceCard({ manifest, validation }: { manifest: OfficialMan
         <dd>{manifest.licence}</dd>
         {Object.entries(manifest.voice_sources ?? {}).map(([voice, s]) => (
           <Fragment key={voice}>
-            <dt className="text-haze">{t("official.voiceSource", s)}</dt>
+            <dt className="text-haze">{t("official.voiceSource", { ...s, period: collapseRange(s.period) })}</dt>
             <dd>{s.citation.text}</dd>
           </Fragment>
         ))}

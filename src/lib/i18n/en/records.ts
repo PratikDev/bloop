@@ -7,6 +7,22 @@ const latWord = (lat: number) => (lat < 0 ? "south" : "north");
 const withPlace = (text: string, place?: string | null) => (place ? `${text}, ${place}` : text);
 
 export const recordsEn = {
+  "settings.comfortableText": "Comfortable text",
+  "app.noscript": "Bloop needs JavaScript to play sound from NASA's frames.",
+  "app.noscriptReadme": "Read about the project on GitHub",
+  "thenNow.moreTab": "More records",
+  "thenNow.moreWays": "More ways to listen",
+  "table.title": "The numbers behind this chart",
+  "table.caption": (p: { part: string }) => `${p.part}: the values drawn in the chart`,
+  "table.year": "Year",
+  "table.month": "Month",
+  "table.period": "Period",
+  "table.value": "Value",
+  "table.missing": "no data",
+  "error.frameImage": "The map picture didn't load. Sound and readings still work; reload the page to try again.",
+  "turntable.noWebgl": "This device can't show the 3D turntable. The flat map plays the same sound.",
+  "turntable.noWebglLink": "Open the flat map",
+
   "records.label": "Records",
   "records.heading": "Pick a record",
   "records.group.A": "Live frames",

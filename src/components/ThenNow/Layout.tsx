@@ -13,9 +13,9 @@ import { InfoSheet } from "../InfoSheet";
 export function PartLayout({ finding, side, sideTitle, details, detailsTitle }: { finding: ReactNode; side: ReactNode; sideTitle: string; details: ReactNode; detailsTitle: string }) {
   return (
     <div className="grid items-start gap-4 lg:grid-cols-[minmax(0,1fr)_18rem]">
-      <div className="surface-plate space-y-3 rounded-plate p-4 md:p-5 lg:short:space-y-2 lg:short:p-4">{finding}</div>
-      {/* Narrow screens: how to listen comes first (this is a sound app); wide screens: beside the finding. */}
-      <aside aria-label={sideTitle} className="surface-plate -order-1 space-y-3 rounded-plate p-4 lg:order-0 lg:short:space-y-2">
+      <div className="min-w-0 space-y-3 lg:short:space-y-2">{finding}</div>
+      {/* Narrow screens: below the chart it plays; wide screens: beside it. */}
+      <aside aria-label={sideTitle} className="space-y-3 lg:short:space-y-2">
         <h3 className="eyebrow lg:short:sr-only">{sideTitle}</h3>
         {side}
         <div aria-hidden="true" className="stitch-x opacity-50" />

@@ -3,24 +3,32 @@
 import { useMemo } from "react";
 import { SpeakerSimpleSlash } from "@phosphor-icons/react";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
+import { useAnnounceError } from "@/hooks/use-announce-error";
 import { buildThenNowInput, cityDemo, waterBeat, yearlyBeat, yearlyWindows } from "@/lib/then-now";
 import type { ClimateCellName } from "@/types/data-contract";
 import { useT } from "../AppState/use-app-state";
 import { ChoiceGroup } from "../ChoiceGroup";
 import { StatusBadge } from "../StatusBadge";
 import { Disclosure } from "./Disclosure";
-import { FieldPartView } from "./FieldPartView";
+import { FieldPartView, type FieldPart } from "./FieldPartView";
 import { HonestyFolds } from "./HonestyNote";
 import { PartLayout } from "./Layout";
 import { MotionStage } from "./MotionStage";
 import { usePauseMotion } from "../SpaceWindow/use-pause-motion";
-import { isFieldPart, VIEW_PARTS, type ViewPart } from "./parts";
+import { isFieldPart, type ViewPart } from "./parts";
+import { PartTable } from "./PartTable";
 import { PartView } from "./PartView";
 import { PlayControls } from "./PlayControls";
 import { useThenNowData } from "./use-then-now-data";
 import { useThenNowPlayer } from "./use-then-now-player";
 
 export const DEFAULT_CITY: ClimateCellName = "Dhaka";
+
+const SOUNDED_TABS = ["heat", "monsoon", "water"] as const;
+const FIELD_PARTS: readonly FieldPart[] = ["fires", "vegetation"];
+/** The tab that holds the records without sound yet. */
+const MORE_TAB = "more";
+type PartTab = (typeof SOUNDED_TABS)[number] | typeof MORE_TAB;
 
 /**
  * Then vs Now, compare decades (plan §11.5, the killer demo): the city and a
@@ -43,6 +51,7 @@ export function ThenNow({
   const t = useT();
   const data = useThenNowData();
   const ready = data.status === "ready" ? data : null;
+  useAnnounceError(data.status === "error" ? t("thenNow.error") : null);
   const city = ready?.cities?.cities.find((c) => c.name === cityName) ?? null;
   const isDhaka = cityName === DEFAULT_CITY;
   // The chosen city in the demo's shape: its heat and rain, the national water record.
@@ -63,6 +72,8 @@ export function ThenNow({
   const sounding = player.soundingPart === part ? player.index : null;
   const beat = !view || !ready || isFieldPart(part) ? null : part === "water" ? waterBeat(ready.grace, sounding) : yearlyBeat(part, yearlyWindows(view.demo, part), sounding, player.splitIndex);
 
+  const tab: PartTab = isFieldPart(part) ? MORE_TAB : part;
+  const chooseTab = (next: PartTab) => choosePart(next === MORE_TAB ? (isFieldPart(chosen) ? chosen : "fires") : next);
   const choosePart = (next: ViewPart) => {
     if (isFieldPart(next)) player.stop(); // a record without sound: nothing else keeps playing under it
     onPart(next);
@@ -95,29 +106,39 @@ export function ThenNow({
       {data.status === "error" && <StatusBadge kind="error">{t("thenNow.error")}</StatusBadge>}
 
       {ready && view && (
-        <Tabs value={part} onValueChange={(next: ViewPart) => choosePart(next)} className="gap-4 lg:short:gap-3">
-          {/* Wraps on narrow screens, so no record hides off the edge. */}
-          <TabsList variant="line" aria-label={t("thenNow.parts")} className="w-full flex-wrap justify-start gap-x-1 gap-y-0 border-b border-glass-edge group-data-horizontal/tabs:h-auto">
-            {VIEW_PARTS.map((p) => (
+        <Tabs value={tab} onValueChange={(next: PartTab) => chooseTab(next)} className="gap-4 lg:short:gap-3">
+          {/* One row: on phones it scrolls inside itself, so no tab is orphaned on a line of its own. */}
+          <TabsList variant="line" aria-label={t("thenNow.parts")} className="w-full flex-nowrap justify-start gap-x-1 gap-y-0 overflow-x-auto border-b border-glass-edge group-data-horizontal/tabs:h-auto">
+            {SOUNDED_TABS.map((p) => (
               <TabsTrigger key={p} value={p} className="h-11 flex-none px-3 text-body data-active:text-moon">
                 {t(`thenNow.part.${p}`)}
-                {isFieldPart(p) && (
-                  <>
-                    <SpeakerSimpleSlash aria-hidden="true" className="size-3.5 text-haze" />
-                    <span className="sr-only">{t("thenNow.noSound")}</span>
-                  </>
-                )}
               </TabsTrigger>
             ))}
+            <TabsTrigger value={MORE_TAB} className="h-11 flex-none px-3 text-body data-active:text-moon">
+              {t("thenNow.moreTab")}
+              <SpeakerSimpleSlash aria-hidden="true" className="size-3.5 text-haze" />
+              <span className="sr-only">{t("thenNow.noSound")}</span>
+            </TabsTrigger>
           </TabsList>
 
-          <TabsContent value={part}>
+          <TabsContent value={tab}>
             {isFieldPart(part) ? (
-              <FieldPartView part={part} />
+              <div className="space-y-4">
+                <ChoiceGroup<FieldPart>
+                  label={t("thenNow.moreTab")}
+                  value={part}
+                  onChange={choosePart}
+                  options={FIELD_PARTS.map((p) => ({ value: p, label: t(`thenNow.part.${p}`) }))}
+                />
+                <FieldPartView part={part} />
+              </div>
             ) : (
               <PartLayout
                 finding={
                   <>
+                    {sharedWith.length > 0 && (
+                      <p className="text-small text-moon">{t("history.sharedCell", { places: sharedWith.map((c) => t(`place.${c}`)).join(", ") })}</p>
+                    )}
                     <div className="grid gap-4 lg:grid-cols-[minmax(0,1fr)_13rem]">
                       <div className="min-w-0 space-y-3">
                         <PartView part={part} demo={view.demo} grace={ready.grace} index={sounding} splitIndex={player.splitIndex} motionPaused={pause.paused} />
@@ -125,9 +146,6 @@ export function ThenNow({
                       <MotionStage city={cityName} beat={beat} beatIndex={sounding ?? player.splitIndex} pause={pause} className="-order-1 mx-auto aspect-square w-full max-w-56 lg:order-none lg:aspect-auto lg:max-w-none" />
                     </div>
                     {part === "water" &&  <p className="text-small text-haze">{t("thenNow.waterNational")}</p>}
-                    {sharedWith.length > 0 && (
-                      <p className="text-small text-moon">{t("history.sharedCell", { places: sharedWith.map((c) => t(`place.${c}`)).join(", ") })}</p>
-                    )}
                     <p className="text-small text-haze">{t("thenNow.contextNote")}</p>
                   </>
                 }
@@ -137,6 +155,7 @@ export function ThenNow({
                 details={
                   <>
                     <Disclosure part={part} demo={view.demo} grace={ready.grace} />
+                    <PartTable part={part} demo={view.demo} grace={ready.grace} />
                     <HonestyFolds demo={view.demo} isDhaka={isDhaka} />
                   </>
                 }

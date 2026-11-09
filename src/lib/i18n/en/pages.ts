@@ -63,7 +63,7 @@ export const pagesEn = {
   "how.rules.figure": "sounds, each following a written rule",
   "how.rules.value": (p: { count: number }) => formatInteger(p.count, "en"),
   "how.globe.title": "Ground vs satellite",
-  "how.globe.figure": "of place-days within 25 points of each other",
+  "how.globe.figure": "of place-days in Bangladesh where ground observers and the satellite agree on cloud cover within 25 points",
   "how.globe.value": (p: { percent: number }) => `${formatInteger(p.percent, "en")}%`,
   "how.open": "Read the full check",
   "how.openRules": "See every rule",

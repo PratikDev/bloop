@@ -51,7 +51,7 @@ function VoiceRule({ v }: { v: VoiceSpec }) {
       {v.designChoice && <p className="text-small text-moon">{t("mapping.designChoice")}</p>}
       {isLegendVoice(v.id) && (
         <div className="flex flex-wrap items-center gap-x-4 gap-y-1 pt-1">
-          <Button variant="secondary" onClick={() => isLegendVoice(v.id) && audio.playLegend(v.id)} className="h-10 gap-2 pointer-coarse:h-11">
+          <Button data-needs-sound variant="secondary" onClick={() => isLegendVoice(v.id) && audio.playLegend(v.id)} className="h-10 gap-2 pointer-coarse:h-11">
             <SpeakerHigh aria-hidden="true" className="size-4.5" />
             {t("mapping.hearLegend")}
           </Button>

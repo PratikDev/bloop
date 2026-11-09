@@ -1,11 +1,12 @@
 "use client";
 
-import { useEffect } from "react";
+import { useEffect, useState, type MouseEvent } from "react";
 import { Outlet } from "@tanstack/react-router";
 import { MotionConfig } from "motion/react";
 import { startEngineHandOff } from "@/lib/audio-engines";
 import { AnnouncerProvider } from "../Announcer";
 import { AppStateProvider } from "../AppState";
+import type { Mode } from "../AppState/reducer";
 import { useAppState } from "../AppState/use-app-state";
 import { CommandsProvider } from "../Commands";
 import { useCommands } from "../Commands/use-commands";
@@ -25,6 +26,7 @@ import { useGlobalEscape } from "./use-global-escape";
 import { useRouteSync, useUrlMode } from "./use-route-sync";
 
 const CONTENT_ID = "content";
+const GATE_FREE: readonly Mode[] = ["home", "how", "official"];
 
 function Shell() {
   const { state } = useAppState();
@@ -34,8 +36,16 @@ function Shell() {
   useRouteSync();
   // The two sound engines never play at once unless a page asks (src/lib/audio-engines.ts).
   useEffect(() => startEngineHandOff(), []);
-  // Home is the start screen itself; any other page opened before Start waits behind the gate.
-  const gated = !state.started && state.mode !== "home";
+  // Home is the start screen; How we know and Official records can be read without it. The gate appears there only when
+  // something asks for sound (a control marked data-needs-sound). Any other page opened before Start waits behind it.
+  const [soundAsked, setSoundAsked] = useState(false);
+  const gated = !state.started && (soundAsked || !GATE_FREE.includes(state.mode));
+  const askForSound = (e: MouseEvent<HTMLElement>) => {
+    if (state.started || !(e.target instanceof Element) || !e.target.closest("[data-needs-sound]")) return;
+    e.preventDefault();
+    e.stopPropagation();
+    setSoundAsked(true);
+  };
   // While the intro plays, Skip intro is the only thing that can take focus (as before the redesign).
   const opening = state.started && !state.introDone;
 
@@ -45,7 +55,7 @@ function Shell() {
       {/* The frame is one screen tall: header and dock stay put, and a page taller than the space between them scrolls in main. */}
       <div inert={gated || opening} className="grid h-dvh grid-cols-[minmax(0,1fr)] grid-rows-[auto_minmax(0,1fr)_auto]">
         <Header />
-        <main id={CONTENT_ID} tabIndex={-1} className="min-h-0 overflow-y-auto outline-none">
+        <main id={CONTENT_ID} tabIndex={-1} onClickCapture={askForSound} className="min-h-0 overflow-y-auto outline-none">
           <Outlet />
         </main>
         <Dock />

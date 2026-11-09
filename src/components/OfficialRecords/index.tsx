@@ -8,6 +8,8 @@ import { Button } from "@/components/ui/button";
 import { ruleText, voiceSpec } from "@/lib/audio/mapping";
 import { loadOfficialIndex, PATTERN_ONLY, patternLevel, type OfficialReading } from "@/lib/data";
 import { formatFixed, formatUtc, type BoundT, type Lang } from "@/lib/i18n";
+import { plainStatement } from "@/lib/official-text";
+import { useAnnounceError } from "@/hooks/use-announce-error";
 import { useLoaded } from "@/hooks/use-loaded";
 import type { OfficialBadge, OfficialLayer } from "@/types/data-contract";
 import { useAppState, useT } from "../AppState/use-app-state";
@@ -67,7 +69,10 @@ function Player({ record }: { record: string }) {
   if (!rec.manifest || !rec.option) return <StatusBadge kind="loading">{t("official.loading")}</StatusBadge>;
   const map = rec.grids[rec.option.map];
   const first = rec.readings[0];
-  const statementOf = (ids: string[]) => ids.map((id) => rec.manifest?.layers.find((l) => l.id === id)?.statement).find(Boolean);
+  const statementOf = (ids: string[]) => {
+    const found = ids.map((id) => rec.manifest?.layers.find((l) => l.id === id)?.statement).find(Boolean);
+    return found ? plainStatement(found) : undefined;
+  };
   const mapStatement = statementOf([rec.option.channels[0]?.layers[0] ?? rec.option.map]);
   const text = `${readingText(t, state.lang, first?.reading ?? null, map?.layer)}${mapStatement ? ` (${mapStatement})` : ""}`;
   const place = map?.layer.grid.space === "frame" ? framePlace(t, state.lang, rec.needle, map.layer) : t("place.latlon", rec.needle);
@@ -118,6 +123,7 @@ export function OfficialRecords() {
   const navigate = route.useNavigate();
   // A related record has no URL of its own: it stays open until the record in the URL changes.
   const [related, setRelated] = useState<{ id: string; forRecord: string | undefined } | null>(null);
+  useAnnounceError(error ? t("official.error") : null);
   if (error) return <StatusBadge kind="error">{t("official.error")}</StatusBadge>;
   if (!index) return <StatusBadge kind="loading">{t("official.loading")}</StatusBadge>;
   const selected = index.records.find((r) => r.record === wanted)?.record ?? index.records[0]?.record;

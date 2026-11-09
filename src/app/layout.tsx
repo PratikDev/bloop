@@ -2,6 +2,7 @@ import type { Metadata, Viewport } from "next";
 import { Anek_Bangla, Archivo } from "next/font/google";
 import { TooltipProvider } from "@/components/ui/tooltip";
 import { appEn } from "@/lib/i18n/en/app";
+import { recordsEn } from "@/lib/i18n/en/records";
 import "./globals.css";
 
 // Archivo for the interface, with its width axis (wide display, condensed strip titles).
@@ -37,6 +38,16 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
   return (
     <html lang="en" className={`${FONT_VARIABLES} h-full`}>
       <body className="min-h-full">
+        <noscript>
+          <div className="mx-auto max-w-xl space-y-3 p-8 text-body text-moon">
+            <p className="font-wide text-title">{appEn["app.title"]}</p>
+            <p>{recordsEn["app.noscript"]}</p>
+            <p>{DESCRIPTION}</p>
+            <a href="https://github.com/PratikDev/bloop#readme" className="underline underline-offset-4">
+              {recordsEn["app.noscriptReadme"]}
+            </a>
+          </div>
+        </noscript>
         <TooltipProvider>{children}</TooltipProvider>
       </body>
     </html>

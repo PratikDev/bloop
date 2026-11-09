@@ -2,6 +2,7 @@
 
 import { useEffect, useRef, type KeyboardEvent, type PointerEvent } from "react";
 import type { LatLon, OfficialGrid } from "@/lib/data";
+import { CoastLines } from "./CoastLines";
 import { stepImage } from "./colours";
 
 const KEY_STEP_CELLS = 1;
@@ -51,6 +52,7 @@ export function RecordMap({ grid, step, needle, onMove, label }: { grid: Officia
         onKeyDown={key}
         className="absolute inset-0 size-full [image-rendering:pixelated] focus-visible:outline-2 focus-visible:outline-moon"
       />
+      {grid.layer.grid.space !== "frame" && <CoastLines bounds={bounds} />}
       <span
         aria-hidden="true"
         className="pointer-events-none absolute size-3 -translate-x-1/2 -translate-y-1/2 rounded-full border-2 border-moon bg-night/40"

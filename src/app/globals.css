@@ -879,3 +879,43 @@ html[data-reduce-motion="true"] .star-twinkle {
     display: none;
   }
 }
+
+/* ---- Comfortable text (Settings): larger, normal-width type for low-vision users. ---- */
+html[data-text="comfortable"] {
+  font-size: 112.5%;
+  letter-spacing: 0.01em;
+}
+html[data-text="comfortable"] .font-strip,
+html[data-text="comfortable"] .font-wide,
+html[data-text="comfortable"] .font-wide-display {
+  font-stretch: 100%;
+  font-variation-settings: "wdth" 100;
+}
+
+/* ---- Forced colours (Windows High Contrast): the system's colours carry every state. ---- */
+@media (forced-colors: active) {
+  .key,
+  .slab,
+  .crown,
+  .cabinet-body,
+  .surface-glass,
+  .surface-plate,
+  .on-space,
+  .comic-box {
+    border-color: CanvasText;
+  }
+  [aria-pressed="true"],
+  [aria-current="page"] {
+    border-color: Highlight;
+    outline: 2px solid Highlight;
+  }
+  :focus-visible {
+    outline-color: Highlight;
+  }
+  [data-tube-fill] {
+    background: Highlight;
+  }
+  .starfield {
+    display: none;
+  }
+}

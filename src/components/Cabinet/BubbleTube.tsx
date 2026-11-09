@@ -35,6 +35,7 @@ export function BubbleTube({ voice, className }: { voice: "ocean" | "rain"; clas
   return (
     <div role="img" aria-label={label()} className={cn("relative h-5 overflow-hidden rounded-full border-(length:--outline) border-navy bg-paper lg:h-auto lg:w-8.5", !heard && "invisible", className)}>
       <div
+        data-tube-fill
         style={{ "--level": level } as CSSProperties}
         className={cn(
           "absolute inset-0 origin-left scale-x-(--level) transition-[scale] duration-(--duration-flip) ease-out motion-reduce:transition-none lg:origin-bottom lg:scale-x-100 lg:scale-y-(--level)",

@@ -54,7 +54,7 @@ export const PAGES: Feature[] = [
       const partTabs = page.getByRole("tablist", { name: "Part" }).getByRole("tab");
       await expect(partTabs.first()).toBeVisible(); // the tabs come with the page's data, a moment after its title
       const parts = await partTabs.allInnerTexts();
-      for (const p of ["Heat", "Monsoon rain", "Water underground", "Fires", "Vegetation"]) if (!parts.some((x) => x.trim().startsWith(p))) throw new Error(`no ${p} part (${parts.join(", ")})`);
+      for (const p of ["Heat", "Monsoon rain", "Water underground", "More records"]) if (!parts.some((x) => x.trim().startsWith(p))) throw new Error(`no ${p} part (${parts.join(", ")})`);
       await page.getByRole("button", { name: "Play this part" }).click();
       const s = await sounds(page, "heat part");
       return { evidence: `parts: ${parts.join(", ")}; ${s.evidence}` };

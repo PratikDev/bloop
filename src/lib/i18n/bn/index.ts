@@ -10,10 +10,11 @@ import { contextBn } from "./context";
 import { helpBn } from "./help";
 import { pagesBn } from "./pages";
 import { panelsBn } from "./panels";
-import { recordsBn } from "./records";
+import { finalPassBn, recordsBn } from "./records";
+import { badgesBnDraft } from "@/components/SourceBadges/strings-bn";
 import { storyBn } from "./story";
 
-export const bn: Partial<Messages> = { ...appBn, ...helpBn, ...captionsBn, ...panelsBn, ...contextBn, ...storyBn, ...pagesBn, ...recordsBn };
+export const bn: Partial<Messages> = { ...appBn, ...helpBn, ...captionsBn, ...panelsBn, ...contextBn, ...storyBn, ...pagesBn, ...recordsBn, ...finalPassBn, ...badgesBnDraft };
 
 /**
  * Spoken lines (Enter, the tour, Describe) are translated, so speech follows

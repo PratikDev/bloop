@@ -1,7 +1,8 @@
 // Bangla strings for the record rack, the mini player, the needle sliders and the cabinet (src/lib/i18n/en/records.ts). Drafts, for review.
 
 import type { recordsEn } from "../en/records";
-import { formatFixed, formatInteger } from "../format";
+import { formatFixed, formatInteger, formatRainRate } from "../format";
+import type { Messages } from "../index";
 import type { Translated } from "../types";
 
 const lonWord = (lon: number) => (lon < 0 ? "পশ্চিম" : "পূর্ব");
@@ -9,6 +10,22 @@ const latWord = (lat: number) => (lat < 0 ? "দক্ষিণ" : "উত্ত
 const withPlace = (text: string, place?: string | null) => (place ? `${text}, ${place}` : text);
 
 export const recordsBn: Translated<typeof recordsEn> = {
+  "settings.comfortableText": "আরামদায়ক লেখা",
+  "app.noscript": "নাসার ফ্রেম থেকে শব্দ বাজাতে Bloop-এর জাভাস্ক্রিপ্ট দরকার।",
+  "app.noscriptReadme": "গিটহাবে প্রকল্পটি সম্পর্কে পড়ুন",
+  "thenNow.moreTab": "আরও রেকর্ড",
+  "thenNow.moreWays": "শোনার আরও উপায়",
+  "table.title": "এই চার্টের সংখ্যাগুলো",
+  "table.caption": (p: { part: string }) => `${p.part}: চার্টে আঁকা মানগুলো`,
+  "table.year": "বছর",
+  "table.month": "মাস",
+  "table.period": "সময়কাল",
+  "table.value": "মান",
+  "table.missing": "তথ্য নেই",
+  "error.frameImage": "মানচিত্রের ছবি লোড হয়নি। শব্দ ও মান ঠিক আছে; আবার চেষ্টা করতে পাতাটি রিলোড করুন।",
+  "turntable.noWebgl": "এই ডিভাইসে ৩ডি টার্নটেবিল দেখানো যাচ্ছে না। সমতল মানচিত্রে একই শব্দ বাজে।",
+  "turntable.noWebglLink": "সমতল মানচিত্র খুলুন",
+
   "records.label": "রেকর্ড",
   "records.heading": "একটি রেকর্ড বাছুন",
   "records.group.A": "সরাসরি ফ্রেম",
@@ -67,4 +84,15 @@ export const recordsBn: Translated<typeof recordsEn> = {
   "tube.rain": (p: { value: string; min: string; max: string }) => `বৃষ্টির মাত্রা: ${p.value} মিমি/ঘণ্টা, এই ফ্রেমের ${p.min} থেকে ${p.max} মিমি/ঘণ্টা লগ স্কেলে`,
   "tube.ocean.none": "সমুদ্রের মাত্রা: এখানে কোনো মান নেই",
   "tube.rain.none": "বৃষ্টির মাত্রা: শুকনো বা এখানে কোনো মান নেই",
+};
+
+/** Keys that live in other English files, translated in the final pass. Drafts, for review. */
+export const finalPassBn: Partial<Messages> = {
+  "nav.official": "অফিশিয়াল রেকর্ড",
+  "nav.officialShort": "অফিশিয়াল",
+  "nav.turntable": "টার্নটেবিল",
+  "hear.ocean": (p: { degreesPerSemitone: number; median: number | null }) =>
+    `বেশি উঁচু = বেশি উষ্ণ · প্রতি সেমিটোনে প্রায় ${formatFixed(p.degreesPerSemitone, "bn", 1)} °সে` + (p.median === null ? "" : ` · MUR যাচাই ${formatFixed(p.median, "bn", 2)} °সে`),
+  "hear.rain": (p: { min: number; max: number; percent: number | null }) =>
+    `বেশি ফোঁটা = বেশি ভারী বৃষ্টি (${formatRainRate(p.min, "bn")}–${formatRainRate(p.max, "bn")} মিমি/ঘণ্টা, লগারিদমিক)` + (p.percent === null ? "" : ` · IMERG যাচাই ~${formatInteger(p.percent, "bn")}%`),
 };

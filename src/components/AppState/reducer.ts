@@ -8,7 +8,7 @@ export type Mode = "home" | "explore" | "story" | "thenNow" | "how" | "turntable
 export type PanelTab = "truth" | "mapping" | "provenance" | "history";
 
 /** Settings remembered on this device (src/components/AppState/prefs.ts). */
-export type PrefKey = "lang" | "describe" | "captions" | "builtInVoice" | "soundWords" | "started" | "timeLapseGlobe";
+export type PrefKey = "lang" | "describe" | "captions" | "builtInVoice" | "soundWords" | "comfortableText" | "started" | "timeLapseGlobe";
 export type Prefs = Partial<Pick<AppState, PrefKey>>;
 
 export interface VoiceMix {
@@ -33,6 +33,8 @@ export interface AppState {
   soundWords: boolean;
   /** The storm time-lapse shows on a globe (or the flat map). */
   timeLapseGlobe: boolean;
+  /** Larger, normal-width text for low-vision users. */
+  comfortableText: boolean;
   allMuted: boolean;
   solo: LiveVoiceId | null;
   mix: Record<LiveVoiceId, VoiceMix>;
@@ -55,7 +57,7 @@ export type AppAction =
   | { type: "setTrack"; track: TrackMode }
   | { type: "setMode"; mode: Mode }
   | { type: "setLang"; lang: Lang }
-  | { type: "toggle"; key: "describe" | "captions" | "reduceMotion" | "builtInVoice" | "soundWords" | "allMuted" | "timeLapseGlobe" }
+  | { type: "toggle"; key: "describe" | "captions" | "reduceMotion" | "builtInVoice" | "soundWords" | "comfortableText" | "allMuted" | "timeLapseGlobe" }
   | { type: "setReduceMotion"; on: boolean }
   | { type: "setSolo"; solo: LiveVoiceId | null }
   | { type: "setVoiceMix"; voice: LiveVoiceId; mix: Partial<VoiceMix> }
@@ -81,6 +83,7 @@ export const initialState: AppState = {
   builtInVoice: true,
   soundWords: true,
   timeLapseGlobe: true,
+  comfortableText: false,
   allMuted: false,
   solo: null,
   mix: { ocean: FULL_MIX, rain: FULL_MIX, snow: FULL_MIX },
