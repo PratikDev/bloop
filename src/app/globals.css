@@ -727,3 +727,45 @@ html[data-reduce-motion="true"] .animate-scene-in {
 html[data-reduce-motion="true"] .caption-fade {
   animation: none !important;
 }
+
+/* ---- Motion tokens (mirrored in src/lib/motion.ts). --ease-mechanical is in :root above. ---- */
+:root {
+  --duration-press: 80ms;
+  --duration-flip: 280ms;
+  --duration-land: 360ms;
+  --duration-scene: 600ms;
+  --ease-settle: cubic-bezier(0.34, 1.4, 0.64, 1); /* landing only */
+}
+
+/* ---- Odometer: each changed digit rolls up 160 ms; a cut when motion is reduced or an arrow key is held. ---- */
+.odometer-cell {
+  display: inline-block;
+  height: 1.15em;
+  line-height: 1.15;
+  overflow: clip;
+  font-variant-numeric: tabular-nums;
+}
+html:lang(bn) .odometer-cell {
+  width: 0.76em;
+  text-align: center;
+}
+.odometer-roll {
+  display: flex;
+  flex-direction: column;
+  animation: odometer-roll 160ms var(--ease-mechanical) both;
+}
+.odometer-roll > span {
+  height: 1.15em;
+}
+@keyframes odometer-roll {
+  from {
+    transform: translateY(0);
+  }
+  to {
+    transform: translateY(-50%);
+  }
+}
+html[data-arrow-held] .odometer-roll,
+[data-still] .odometer-roll {
+  animation-duration: 0s;
+}
