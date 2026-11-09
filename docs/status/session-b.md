@@ -6,3 +6,4 @@
 - Then vs Now motion stage, stripes, playhead, 16 px clear | 5827f64 | 2026-11-10 00:51 | next: phase 4 player sheet
 - B done: phases 4, 5, 6 and motion items 9, 10, 11, 13 merged | final commit 1a1b1ad | 2026-11-10 00:55 | next: Session A's phase 8
 - player sheet: single open function | 30a300e | 2026-11-10 01:03 | next: Home globe mount when Session A reports the new window
+- Home: Pause key adds no height | 12014a5 | 2026-11-10 01:09 | next: Home globe mount when Session A reports the new window
