@@ -2,3 +2,4 @@
 - Starfield, SpaceWindow | db4aef9 | 2026-11-09 22:04 | next: phase 6 toon Turntable
 - phase 6 toon Turntable, globe never covered, swatch, needle motion, sound rings | 24716a5 | 2026-11-10 00:33 | next: phase 5 Globe, Then vs Now stage, time-lapse stage, intro
 - Globe extension, Home globe mount | 70c9e1c | 2026-11-10 00:39 | next: time-lapse stage, intro, Then vs Now stage
+- time-lapse globe stage, intro stars | f0f0074 | 2026-11-10 00:43 | next: Then vs Now motion stage, then phase 4 player sheet
