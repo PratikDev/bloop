@@ -6,20 +6,22 @@
 //   C. D speaks the description, once.
 // Page setup (opening a page, saving a setting, putting focus on a control) goes through Playwright; every key a user
 // would press goes through the OS. Run with the site served on BLOOP_URL and nothing else using the keyboard:
-//   bun tests/nvda/run.ts
+//   node --experimental-strip-types tests/nvda/run.ts   (Node, not Bun: Bun cannot launch a headed browser on Windows)
 // It never touches NVDA's own config (D:\Jukebox\tools\nvda\userConfig): its config lives in data_raw/_tmp.
 import { chromium, firefox, type Browser, type Page } from "@playwright/test";
 import { execFileSync, spawn } from "node:child_process";
 import { mkdirSync, readFileSync, rmSync, writeFileSync, existsSync } from "node:fs";
 import * as path from "node:path";
 
-const ROOT = path.resolve(import.meta.dir, "../..");
+const ROOT = path.resolve(import.meta.dirname, "../..");
 const URL = process.env.BLOOP_URL ?? "http://localhost:3210";
 const NVDA = "D:\\Jukebox\\tools\\nvda\\nvda.exe";
 const RUN = path.join(ROOT, "data_raw/_tmp/nvda-run3");
 const CONFIG = path.join(RUN, "config");
 const LOG = path.join(RUN, "nvda.log");
 const KEYS = path.join(ROOT, "tests/nvda/keys.ps1");
+// Keys go only to the test browser (keys.ps1 checks the foreground window before each one and stops the run if it can't).
+const BROWSERS = process.env.PLAYWRIGHT_BROWSERS_PATH ?? "D:\\Jukebox\\tools\\ms-playwright";
 const FIREFOX_PREFS = { "media.autoplay.default": 0, "media.autoplay.blocking_policy": 0 };
 const PREFS_KEY = "jukebox.prefs.v1";
 
@@ -50,7 +52,7 @@ function writeConfig() {
 }
 
 function press(...keys: string[]) {
-  execFileSync("powershell", ["-NoProfile", "-ExecutionPolicy", "Bypass", "-File", KEYS, "-Keys", keys.join(",")], { stdio: "inherit" });
+  execFileSync("powershell", ["-NoProfile", "-ExecutionPolicy", "Bypass", "-File", KEYS, "-Keys", keys.join(","), "-Owner", BROWSERS], { stdio: "inherit" });
 }
 
 let offset = 0;
@@ -85,6 +87,9 @@ function timesSpoken(spoken: string[], text: string): number {
   const whole = spoken.filter((u) => u.includes(t)).length;
   return whole || (norm(spoken.join(" ")).includes(t) ? 1 : 0);
 }
+
+/** A step's coordinates ("21.5° N, 90.8° E"), the part every wording of its reading shares (status region, map label). */
+const placeOf = (text: string) => text.match(/\d+\.\d° [NS], \d+\.\d° [EW]/u)?.[0] ?? text;
 
 interface Check {
   browser: string;
@@ -156,8 +161,10 @@ async function runBrowser(name: "chromium" | "firefox", checks: Check[]) {
     }
     const b = spokenSinceMark();
     const said = await liveLog(page);
+    // Once in any wording: the status region's text, and nothing else naming the same place (such as the map's label).
     const counts = said.map((s) => timesSpoken(b, s));
-    add("B Each map step is spoken exactly once, 3D hidden", said.length >= 3 && counts.every((c) => c === 1), `status texts ${said.length}; times spoken ${JSON.stringify(counts)}`, b);
+    const places = said.map((s) => b.filter((u) => u.includes(placeOf(s))).length);
+    add("B Each map step is spoken exactly once, 3D hidden", said.length >= 3 && counts.every((c) => c === 1) && places.every((c) => c === 1), `status texts ${said.length}; times spoken ${JSON.stringify(counts)}; utterances naming the place ${JSON.stringify(places)}`, b);
 
     // C. D speaks the description (once).
     await logLiveRegion(page);

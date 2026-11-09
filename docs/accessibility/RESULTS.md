@@ -94,7 +94,30 @@ Unit tests (`bun test`): 458/458.
 
 ## NVDA (log method)
 
-Not run yet: it needs the PC to be left alone for about ten minutes (`tests/nvda/run.ts`, `tests/nvda/keys.ps1`).
+Run on 10 Nov 2026: portable NVDA 2026.3, a throw-away config (synth "silence", speech logged), the production build
+(shipped flags: low vision and timed text on, Ask Bloop off), Chromium and Firefox driven with real OS keys
+(`node --experimental-strip-types tests/nvda/run.ts`).
+
+| Check | Chromium | Firefox |
+|---|---|---|
+| A1 Track 0 is spoken when it opens ("Track 0: Tuning, heading level 2", then its instructions) | pass | pass |
+| A2 Skip is remembered: after a reload the panel is gone and Track 0 isn't spoken | pass | pass |
+| B Each map step is spoken exactly once, 3D hidden | **fail** | **fail** |
+| C D speaks the description once | pass | pass |
+
+**B: each step is spoken twice.** The status region's text is spoken once ("30.3 °C; Dry. 21.5° N, 90.8° E"), but
+NVDA first reads the map's own name, which changes with every step because it carries the reading ("Both. 30.3 °C;
+Dry at 21.5° N, 90.8° E."). NVDA speaks a name change on the focused item, so all three steps were heard twice in both
+browsers. The first version of check B counted only the status region's exact words and passed; it now also counts
+every utterance naming the step's place (1 expected, 2 found). The cause is in the app (`ExploreControls`: the map's
+`aria-label` is the live reading); not fixed yet, as the fix trades against the braille line (the label is what a
+braille display shows on the map, and NVDA ignores `aria-braillelabel`).
+
+Problems in the method, found and fixed before the run counted: Bun can't launch a headed browser on Windows (the
+script runs under Node); `keys.ps1` built a 32-byte `INPUT` where 64-bit Windows needs 40, so Windows refused every
+key without an error (it now exits with an error if a key is refused, releases every key it pressed, and splits
+`a,Right` lists); and it now sends a key only while the test browser is in front (else it brings it forward, or stops
+with nothing sent), so no key can reach another program.
 
 ## Not tested
 
