@@ -4,34 +4,31 @@ Written 2026-11-09 from git, the files and test output. Anything that could not 
 
 The plan is [`docs/BLOOP_FINAL_PASS.md`](BLOOP_FINAL_PASS.md). Section numbers below (§5.3 and so on) refer to it.
 
-**Start here:** the working code is on `home-fix`, in `C:\Users\User\bloop-home`. It is ahead of `final-pass`, which holds only the first three commits and this document. Read AGENTS.md first. Never add Claude as an author or co-author on any commit or PR.
+**Start here:** `final-pass` holds everything; new sessions branch from it. Read AGENTS.md first. Never add Claude as an author or co-author on any commit or PR.
 
 ## 1. Branches and commits
 
-`git log --oneline main..final-pass`:
+`final-pass` now includes `home-fix`, through merge commit `0ade6e4`.
+
+`git log --oneline main..final-pass`, newest first:
 
 | Commit | What it did |
 |---|---|
-| `11a096b` | Sound words for real sounds, caption boxes, Then vs Now comic panels (made by session `bloop-8c`) |
-| `2f51179` | Phase 2: daylight palette, soft neo-brutalist surfaces, Archivo and Anek Bangla only |
-| `c947be7` | Phase 1: judging blockers (Listen head, Esc, 404, stale copy, link previews) |
-
-(`final-pass` also has the commit that adds this file on top of those three.)
-
-`home-fix` holds those three plus these, and is **not yet merged into `final-pass`**:
-
-| Commit | What it did |
-|---|---|
+| (the commit updating this file) | This document, after the merge |
+| `0ade6e4` | Merge of `home-fix` into `final-pass` (merge commit, no conflicts) |
+| `75e285b` | This document and `docs/BLOOP_FINAL_PASS.md` |
 | `b484a9d` | Turntable §1–§6: paper panels on space, labelled controls, Sources and checks in More, flat starfield, no bloom or vignette |
 | `f2894ff` | Turntable §6 items 1–4: sound caption in the bar, whole globe labels only, How we know button removed |
 | `e23d700` | Shared animation ticker, four loops moved onto it |
 | `9ec62e6` | Then vs Now tab contrast |
 | `593bd8c` | `.gitattributes`: LF line endings |
 | `bb16210` | Home fix: wide-type scale, pages grow instead of overlap, Home trimmed, overlap test |
+| `11a096b` | Sound words for real sounds, caption boxes, Then vs Now comic panels (made by session `bloop-8c`) |
+| `2f51179` | Phase 2: daylight palette, soft neo-brutalist surfaces, Archivo and Anek Bangla only |
+| `c947be7` | Phase 1: judging blockers (Listen head, Esc, 404, stale copy, link previews) |
 
 - **`main`** points to `d7c3495` (Merge pull request #20). Untouched.
 - **Pushed:** `origin/home-fix` is at `b484a9d`. `final-pass` has **not** been pushed (no `origin/final-pass`).
-- **Next merge:** `home-fix` into `final-pass`. It will not fast-forward, because `final-pass` has this document on top.
 
 ## 2. Worktrees
 
@@ -39,12 +36,14 @@ The plan is [`docs/BLOOP_FINAL_PASS.md`](BLOOP_FINAL_PASS.md). Section numbers b
 
 | Path | Branch | For |
 |---|---|---|
-| `C:/Users/User/bloop` | `final-pass` | The original folder. Session `bloop-8c` worked here. Its `.next/` and `out/` are older builds |
-| `C:/Users/User/bloop-home` | `home-fix` | All current work. Has its own `node_modules`, `.next/` and `out/` |
+| `C:/Users/User/bloop` | `final-pass` | The original folder. Holds everything, and has a build of the merged code in `out/` |
+| `C:/Users/User/bloop-home` | `home-fix` | Where the Home and Turntable work was done. Has its own `node_modules`, `.next/` and `out/` |
 
-Neither can be removed yet. `bloop-home` can go once `home-fix` is merged into `final-pass`.
+`bloop-home` can be removed now: every commit on `home-fix` is on `final-pass` and pushed to `origin/home-fix`. `bloop` is the main checkout and stays.
 
 ## 3. Done, per item
+
+Every item in this section is now on `final-pass`, through merge `0ade6e4`.
 
 ### Phase 1: `c947be7`
 Applied by hand from Appendix A (the patch file was not in the repo).
@@ -95,6 +94,8 @@ axe on `/then-now`: clean at `d7c3495`, 4 serious at `2f51179` and at `11a096b`,
 ## 4. Not done
 
 Detail for each phase is in `docs/BLOOP_FINAL_PASS.md`.
+
+On a 390 px phone the Turntable readout chip covers the top of the globe.
 
 ### Phase 3: nothing built (§5)
 `src/lib/records.ts` does not exist. Still to do: records registry; header pills and vinyl logo, with Official records leaving the nav; Listen cabinet, crown and tubes; one-line readout; rack with code entry; mini player; Liner notes ("Sources and checks") on Listen; Turntable using the shared mini player.
@@ -174,13 +175,13 @@ Listening pass, two user tests, Bangla review, 30-second video (due 14 Nov), dat
 
 ## 5. Test state
 
-**Gate** (run in `bloop-home`):
+**Gate:**
 
 ```sh
 bunx next typegen && bunx tsc --noEmit && bun run lint && bun test && bun run build
 ```
 
-Passes at `b484a9d`: 204 unit tests, 0 failures.
+Passes on `final-pass` at merge `0ade6e4`: 204 unit tests, 0 failures. The results below were taken on the `home-fix` commits named; the merge added only this document and the plan on top of `b484a9d`.
 
 **E2E, production build:**
 
@@ -209,7 +210,7 @@ BLOOP_URL=http://localhost:3101 PLAYWRIGHT_BROWSERS_PATH='D:\Jukebox\tools\ms-pl
 
 - **Ports:** production 3101, dev 3100. **Never 3000.** An old `next dev` from the `bloop` folder answered on `localhost:3000` during this session and showed an old build. Temporary comparison servers used 3102–3106.
 - **`BLOOP_URL`** points Playwright at a running server. Without it, the config starts `bun run dev` on 3000, so always set it.
-- **Serve production:** `bun run build && python pipeline/health/static_server.py out 3101` in `bloop-home`.
+- **Serve production:** `bun run build && python pipeline/health/static_server.py out 3101`, from the worktree you are testing.
 - **Playwright 1.56.1 browsers:**
   - Pinned builds are on `D:\Jukebox\tools\ms-playwright` (`chromium-1194`, `chromium_headless_shell-1194`, `firefox-1495`, all complete). Set `PLAYWRIGHT_BROWSERS_PATH` to that.
   - `%LOCALAPPDATA%\ms-playwright` has only `chromium-1234` and `chromium-1248`. The partial `chromium-1194` and `__dirlock` there were deleted.
@@ -219,7 +220,7 @@ BLOOP_URL=http://localhost:3101 PLAYWRIGHT_BROWSERS_PATH='D:\Jukebox\tools\ms-pl
   - `core.autocrlf=true` on this machine.
   - Git Bash rewrites leading `/` arguments into Windows paths; use `MSYS_NO_PATHCONV=1`.
   - Heredocs through the Bash tool mangled backslashes; write scripts to files.
-- **Paths:** repo `C:\Users\User\bloop`, worktree `C:\Users\User\bloop-home`, global instructions `C:\Users\User\.claude\CLAUDE.md`.
+- **Paths:** repo `C:\Users\User\bloop`, global instructions `C:\Users\User\.claude\CLAUDE.md`.
 
 ## 7. Decisions made in chat
 
@@ -230,13 +231,13 @@ BLOOP_URL=http://localhost:3101 PLAYWRIGHT_BROWSERS_PATH='D:\Jukebox\tools\ms-pl
 - Merge only into `final-pass`; `main` stays untouched until phase 8 passes and Pratik approves.
 - Sound words pending Pratik's review: snow → "ting" / টুংটাং proposed; হু হু; the settings label ধ্বন্যাত্মক শব্দ.
 
-Also from chat: never add Claude as an author or co-author; every commit goes to `home-fix` and is pushed there.
+Also from chat: never add Claude as an author or co-author. `home-fix` was the working branch until it was merged; new sessions branch from `final-pass`, which is not pushed.
 
 Note: the code still has snow as "hush" / ফিসফিস (`src/lib/sound-words.ts`). The proposal above is not applied.
 
 ## 8. Strings awaiting Pratik's Bangla review
 
-All drafts. Taken from `git diff main` on the Bangla files, on `home-fix`.
+All drafts. Taken from `git diff main` on the Bangla files.
 
 | Key | English | Bangla |
 |---|---|---|
@@ -277,9 +278,9 @@ The `turntable.*` keys in `docs/i18n/TO_TRANSLATE.md` still show in English in B
 
 | Item | State | Safe to delete? |
 |---|---|---|
-| `C:\Users\User\bloop-backup-20261109-1848` | The pre-worktree backup: `tracked.patch`, untracked copies, `my-hunks.md` | Yes. All of it is committed on `home-fix` or in `11a096b` |
+| `C:\Users\User\bloop-backup-20261109-1848` | The pre-worktree backup: `tracked.patch`, untracked copies, `my-hunks.md` | Yes. All of it is committed on `final-pass` |
 | Stash entries | None | Nothing to do |
 | Temporary worktrees | `bloop-axe-base` already removed | Nothing to do |
-| `C:\Users\User\bloop-home` | Current work | No, not until `home-fix` is merged |
+| `C:\Users\User\bloop-home` | Worktree for `home-fix`, now merged | Yes, with `git worktree remove`. The `home-fix` branch is also on `origin` |
 | Session scratchpad builds (`out-baseline`, `out-phase1`, `out-2f51179`, `out-11a096b`, `out-f2894ff`) and screenshots under `%TEMP%\claude\…\scratchpad` | Comparison copies and final screenshots | Yes, once the screenshots are no longer needed |
 | `C:\Users\User\AppData\Local\ms-playwright\chromium-1234`, `chromium-1248` and their headless shells | Older browsers, not used by Playwright 1.56.1 | Yes, unless another project needs them. **Unverified** whether one does |
