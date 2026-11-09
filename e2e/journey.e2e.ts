@@ -1,6 +1,6 @@
 // The jukebox journey from Home into Listen: it never gets in the way of the sound, and it is gone in about a second.
 import { expect, test } from "@playwright/test";
-import { AUDIBLE, heard, start } from "./lib/app";
+import { AUDIBLE, heard, start, startToJourney } from "./lib/app";
 
 const OVERLAY = "[data-jukebox-journey]";
 const AFTER_MS = 1500;
@@ -14,7 +14,7 @@ test("Start listening reaches Listen with sound and no overlay", async ({ page }
 });
 
 test("Esc in the middle of the journey ends it and keeps the sound", async ({ page }) => {
-  await start(page);
+  await startToJourney(page, OVERLAY);
   await page.keyboard.press("Escape");
   await page.waitForTimeout(AFTER_MS);
   await expect(page.locator(OVERLAY)).toHaveCount(0);

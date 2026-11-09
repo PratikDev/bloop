@@ -67,6 +67,15 @@ export async function start(page: Page, opts: { hide3d?: boolean } = {}) {
   await open(page);
 }
 
+/** Start listening and Skip intro, stopping the moment the journey into Listen is on screen. */
+export async function startToJourney(page: Page, overlay: string) {
+  await page.addInitScript(TAP);
+  await page.goto("/");
+  await page.getByRole("button", { name: "Start listening" }).click();
+  await page.getByRole("button", { name: "Skip intro" }).click();
+  await page.locator(overlay).waitFor({ state: "attached", timeout: 10_000 });
+}
+
 /** Loads the app again on a page that already has the init scripts (a fresh start after a failed check). */
 export async function open(page: Page) {
   await page.goto("/");
