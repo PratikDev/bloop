@@ -67,9 +67,10 @@ export function HomePage() {
           </SpaceWindow>
         } />
         <p className="sr-only">{t("globe.home")}</p>
-        <div className="flex flex-wrap items-center justify-center gap-3">
+        {/* From lg the key sits in the column's corner beside the jukebox, so it adds no height to the one-screen page. */}
+        <div className="relative flex w-full flex-wrap items-center justify-center gap-3">
           {sst && <p className="text-center text-small text-haze">{t("home.frameCaption", { date: formatUtcDate(sst.meta.frame_time_utc, state.lang) })}</p>}
-          <PauseMotionKey pause={pause} />
+          <PauseMotionKey pause={pause} className="lg:absolute lg:right-0 lg:bottom-0" />
         </div>
       </div>
     </section>
