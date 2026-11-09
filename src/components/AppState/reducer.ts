@@ -3,9 +3,9 @@ import { clampLat, START_CURSOR, wrapLon, type LatLon } from "@/lib/data";
 import type { Lang } from "@/lib/i18n";
 
 /** What the current page is doing; set from the URL only (src/router/modes.ts). */
-export type Mode = "home" | "explore" | "story" | "thenNow" | "how";
-/** The Listen page's Inspector tabs. */
-export type PanelTab = "truth" | "mapping" | "provenance";
+export type Mode = "home" | "explore" | "story" | "thenNow" | "how" | "turntable" | "official";
+/** The Listen page's Inspector tabs; the Turntable's "How we know" drawer adds History (Month by month). */
+export type PanelTab = "truth" | "mapping" | "provenance" | "history";
 
 /** Settings remembered on this device (src/components/AppState/prefs.ts). */
 export type PrefKey = "lang" | "describe" | "captions" | "builtInVoice" | "started";
@@ -33,8 +33,10 @@ export interface AppState {
   solo: LiveVoiceId | null;
   mix: Record<LiveVoiceId, VoiceMix>;
   panel: PanelTab;
-  panelOpen: boolean; // the Listen page's Inspector
+  panelOpen: boolean; // the Listen page's Inspector (the sheet on narrow screens)
   helpOpen: boolean;
+  /** The Braille Data Explorer (B) is open. */
+  brailleOpen: boolean;
 }
 
 export type AppAction =
@@ -55,7 +57,8 @@ export type AppAction =
   | { type: "setVoiceMix"; voice: LiveVoiceId; mix: Partial<VoiceMix> }
   | { type: "setPanel"; panel: PanelTab; open?: boolean }
   | { type: "setPanelOpen"; open: boolean }
-  | { type: "setHelpOpen"; open: boolean };
+  | { type: "setHelpOpen"; open: boolean }
+  | { type: "setBrailleOpen"; open: boolean };
 
 const FULL_MIX: VoiceMix = { volume: 1, muted: false };
 
@@ -78,16 +81,23 @@ export const initialState: AppState = {
   panel: "provenance",
   panelOpen: false,
   helpOpen: false,
+  brailleOpen: false,
 };
 
-/** Pages where the live sound of the cursor plays: the map, and How we know beside it (Hear the legend over it, as before). */
+/** Pages where the live sound of the cursor plays: the map, How we know beside it (Hear the legend over it, as before),
+ *  and the Turntable's needle (on its own engine: src/lib/audio-engines.ts). */
 export function isLiveMode(mode: Mode): boolean {
-  return mode === "explore" || mode === "how";
+  return mode === "explore" || mode === "how" || mode === "turntable";
+}
+
+/** Whether live sound may play at all: past Start, sound on and playing, intro over. */
+export function liveSoundOn(state: AppState): boolean {
+  return state.started && state.soundOn && state.playing && state.introDone;
 }
 
 /** Whether a live voice is sounding right now (for rings and captions). */
 export function isVoiceAudible(state: AppState, voice: LiveVoiceId): boolean {
-  if (!state.started || !state.soundOn || !state.playing || !state.introDone || state.allMuted || !isLiveMode(state.mode)) return false;
+  if (!liveSoundOn(state) || state.allMuted || !isLiveMode(state.mode)) return false;
   if (state.mix[voice].muted || state.mix[voice].volume === 0) return false;
   if (state.solo !== null && state.solo !== voice) return false;
   return TRACK_VOICES[state.track].includes(voice);
@@ -139,5 +149,7 @@ export function reducer(state: AppState, action: AppAction): AppState {
       return { ...state, panelOpen: action.open };
     case "setHelpOpen":
       return { ...state, helpOpen: action.open };
+    case "setBrailleOpen":
+      return { ...state, brailleOpen: action.open };
   }
 }

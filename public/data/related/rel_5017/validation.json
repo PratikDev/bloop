@@ -1,0 +1,39 @@
+{
+ "record": "rel_5017",
+ "checks": [
+  {
+   "record": "rel_5017",
+   "id": "a_auto_source",
+   "title": "A Decade of Sea Surface Salinity: decoded values vs SMAP SSS 8-day (GIBS)",
+   "kind": "value",
+   "source": "SMAP SSS 8-day (GIBS)",
+   "metrics": {
+    "rung": "independent satellite",
+    "unit": "PSU",
+    "spearman": 0.434680809523404,
+    "n": 1347,
+    "median_rel_error": 0.02481780056677264,
+    "bias": -0.5466055746156371,
+    "dates": [
+     {
+      "date": "2011-09-01"
+     },
+     {
+      "date": "2015-01-01"
+     },
+     {
+      "date": "2018-05-02"
+     },
+     {
+      "date": "2021-09-01"
+     }
+    ]
+   },
+   "threshold": "Spearman ≥ 0.9 and median relative error ≤ 15 % → verified; ρ ≥ 0.9 → values with stated error; ρ ≥ 0.6 → relative (provisional, onboarding defaults)",
+   "pass": false,
+   "note": "Rung: independent satellite. Onboarding run, 4 frames.",
+   "run_utc": "2026-11-02T22:33:13Z"
+  }
+ ],
+ "updated_utc": "2026-11-02T22:33:13Z"
+}

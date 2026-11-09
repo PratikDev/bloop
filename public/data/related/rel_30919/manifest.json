@@ -1,0 +1,293 @@
+{
+ "record": "rel_30919",
+ "app_title": "A Changing Earth at Night (observation)",
+ "svs_ids": [
+  30919
+ ],
+ "title": "A Changing Earth at Night",
+ "svs_pages": [
+  "https://svs.gsfc.nasa.gov/30919/"
+ ],
+ "description": "Changes in lights from 2012 to 2016 || BlackMarble20162012diff500m_cb_print.jpg (1024x574) [96.1 KB] || BlackMarble20162012diff500m_cb_searchweb.png (180x320) [32.4 KB] || BlackMarble20162012diff500m_cb_thm.png (80x40) [4.4 KB] || BlackMarble20162012diff500m_cb.tif (4104x2304) [3.6 MB] || BlackMarble20162012diff500m.tif (4104x2052) [3.5 MB] || BlackMarble20162012diff500m_huge.tif (86400x43200) [868.6 MB] || a-changing-earth-at-night.hwshow [223 bytes] || ",
+ "release_date": "2017-12-06T00:00:00-05:00",
+ "period": {
+  "start": "2017-12-06T05:00:00Z",
+  "end": "2017-12-06T05:00:00Z",
+  "label": "6 Dec 2017 – 6 Dec 2017"
+ },
+ "badge": "observation",
+ "credits_by_role": {
+  "Animator": [
+   "Amy Moran (Global Science and Technology, Inc.)"
+  ],
+  "Writer": [
+   "Heather Hanson (Global Science and Technology, Inc.)"
+  ],
+  "Data visualizer": [
+   "Joshua Stevens (SSAI)"
+  ],
+  "Scientist": [
+   "Miguel Román (NASA/GSFC)"
+  ]
+ },
+ "datasets": [
+  {
+   "name": "",
+   "common_name": "VIIRS",
+   "platform": "Suomi NPP",
+   "sensor": "VIIRS",
+   "type": "Other",
+   "organizations": [],
+   "description": "",
+   "credit": "",
+   "url": "",
+   "date_range": null
+  }
+ ],
+ "credit_line": "Visualization: NASA's Scientific Visualization Studio (SVS 30919) for the NASA Earth Information Center.",
+ "disclosure": "A related NASA visualization read back through its key (pattern only).",
+ "licence": "SVS: \"All of our content is in the public domain (unless otherwise noted), meaning that it is free to download, use, and redistribute for whatever purposes you see fit.\" (https://svs.gsfc.nasa.gov/help/, read 29 Oct 2026)",
+ "focus": "energy",
+ "related_to": [
+  5313
+ ],
+ "frame_times": {
+  "method": "linear",
+  "approximate": true,
+  "count": 3,
+  "source": "undated"
+ },
+ "georef": {
+  "projection": "equirectangular (2:1)",
+  "bounds": [
+   -180,
+   -90,
+   180,
+   90
+  ],
+  "pass_at": 0.9,
+  "shifts_deg": [],
+  "iou": {
+   "land": 0.37941973963221337
+  },
+  "pass": false,
+  "best_is_assumed": false
+ },
+ "colorbar": null,
+ "colorbar_source": "no colorbar found (page or frame)",
+ "asset": {
+  "kind": "frames",
+  "owner": 30028,
+  "what": "split-750m"
+ },
+ "twins": [
+  {
+   "id": 30028,
+   "title": "Earth at Night 2012",
+   "reason": "related; 3 title words shared",
+   "flat_sets": [
+    {
+     "layer": "split-750m",
+     "size": "6750×3375",
+     "frames": 64,
+     "url": "https://svs.gsfc.nasa.gov/vis/a030000/a030000/a030028/frames/6750x3375_2x1_30p/split-750m/"
+    }
+   ],
+   "flat_movies": [],
+   "colorbars": [],
+   "colorbar_inherited": true
+  }
+ ],
+ "decode": {
+  "mode": "brightness (no key)",
+  "decoded_share": 1.0
+ },
+ "layers": [
+  {
+   "id": "value",
+   "unit": "relative (0–1)",
+   "encoding": "linear",
+   "scale": 0.001,
+   "offset": 0.10994681715965271,
+   "nodata": 65535,
+   "below": 65534,
+   "grid": {
+    "width": 360,
+    "height": 180,
+    "bounds": [
+     -180,
+     -90,
+     180,
+     90
+    ],
+    "row0": "north",
+    "col0": "west",
+    "byte_order": "little"
+   },
+   "times": [
+    "2017-12-06T05:00:00Z",
+    "2017-12-06T05:00:00Z",
+    "2017-12-06T05:00:00Z"
+   ],
+   "chunks": [
+    {
+     "file": "value_000.u16.gz",
+     "t0": 0,
+     "t1": 3,
+     "bytes": 49862
+    }
+   ],
+   "quantisation_step": 0.001,
+   "coverage": 1.0,
+   "value_range": [
+    0.10994681715965271,
+    1.0
+   ],
+   "label": "A Changing Earth at Night (pattern only)",
+   "aggregation": "mean of decoded pixels per cell",
+   "time_labels": [
+    "undated",
+    "undated",
+    "undated"
+   ],
+   "display": {
+    "colours": [
+     "#141418",
+     "#1c1c1f",
+     "#232327",
+     "#2b2b2e",
+     "#323236",
+     "#3a3a3d",
+     "#414145",
+     "#49494c",
+     "#515154",
+     "#58585b",
+     "#606063",
+     "#67676a",
+     "#6f6f71",
+     "#777779",
+     "#7e7e80",
+     "#868688",
+     "#8d8d8f",
+     "#959597",
+     "#9c9c9e",
+     "#a4a4a6",
+     "#acacad",
+     "#b3b3b4",
+     "#bbbbbc",
+     "#c2c2c3",
+     "#cacacb",
+     "#d2d2d2",
+     "#d9d9da",
+     "#e1e1e1",
+     "#e8e8e9",
+     "#f0f0f0",
+     "#f7f7f8",
+     "#ffffff"
+    ],
+    "values": [
+     0.0,
+     0.03225806451612903,
+     0.06451612903225806,
+     0.0967741935483871,
+     0.12903225806451613,
+     0.16129032258064516,
+     0.1935483870967742,
+     0.22580645161290322,
+     0.25806451612903225,
+     0.29032258064516125,
+     0.3225806451612903,
+     0.3548387096774194,
+     0.3870967741935484,
+     0.4193548387096774,
+     0.45161290322580644,
+     0.4838709677419355,
+     0.5161290322580645,
+     0.5483870967741935,
+     0.5806451612903225,
+     0.6129032258064516,
+     0.6451612903225806,
+     0.6774193548387096,
+     0.7096774193548387,
+     0.7419354838709677,
+     0.7741935483870968,
+     0.8064516129032258,
+     0.8387096774193548,
+     0.8709677419354839,
+     0.9032258064516129,
+     0.9354838709677419,
+     0.967741935483871,
+     1.0
+    ],
+    "scale": "linear",
+    "ramp": true
+   },
+   "status": "pattern only",
+   "status_check": "a_no_validation_source",
+   "statement": "pattern only"
+  }
+ ],
+ "voices": {
+  "value": "rel30919"
+ },
+ "play": [
+  {
+   "id": "value",
+   "label": "A Changing Earth at Night: higher pitch = higher value",
+   "view": "global",
+   "map": "value",
+   "start": {
+    "lat": -0.5,
+    "lon": 0.5
+   },
+   "steps_per_second": 1,
+   "channels": [
+    {
+     "voice": "rel30919",
+     "layers": [
+      "value"
+     ],
+     "combine": "value"
+    }
+   ]
+  }
+ ],
+ "validation": [
+  {
+   "id": "a_no_validation_source",
+   "title": "A Changing Earth at Night: no validation source",
+   "kind": "none",
+   "pass": null,
+   "threshold": null
+  }
+ ],
+ "size": {
+  "choice": {
+   "frames": 3
+  },
+  "tried": [],
+  "bytes": 57114,
+  "budget": 25000000
+ },
+ "onboarding": {
+  "timings_s": {
+   "api": 6.6,
+   "twins": 1.7,
+   "asset choice": 0.0,
+   "frames": 21.2,
+   "frame times": 14.8,
+   "georef": 4.4,
+   "colorbar": 169.2,
+   "inversion": 4.5,
+   "validation": 0.0
+  },
+  "status": "pattern only"
+ },
+ "asset_checksums": {
+  "file": "checksums.tsv.gz",
+  "rows": 3,
+  "sha256_of_list": "26b1fc460e9b2d6f539ede1cc21e502fe37959308478b981f3394e575ccfa337"
+ },
+ "code_commit": "a8f0638dc9adb81b18f259cf0813046acd882fa1-dirty",
+ "generated_utc": "2026-10-31T17:39:37Z"
+}

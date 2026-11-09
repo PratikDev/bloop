@@ -46,7 +46,6 @@ export async function loadSequenceIndex(): Promise<SequenceIndex> {
 export function spanHours(index: SequenceIndex, count: number): number {
   return (Math.min(count, index.frames.length) * index.step_minutes) / 60;
 }
-
 /** Loads the index and every frame's grid, reporting progress (frames loaded, total). */
 export async function loadSequence(onProgress?: (loaded: number, total: number) => void): Promise<Sequence> {
   const index = await loadSequenceIndex();

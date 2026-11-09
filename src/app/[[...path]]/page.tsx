@@ -2,11 +2,11 @@ import type { Metadata } from "next";
 import { ClientRouter } from "@/router/ClientRouter";
 
 // Every app URL lands here; TanStack Router picks the view in the browser
-// (src/router/). The four pages are prerendered; any other path still renders
+// (src/router/). The six pages are prerendered; any other path still renders
 // (TanStack shows the "no signal" page for it).
 
 /** Titles for the first load and for link previews; the app keeps them in step with the language after that. */
-const TITLES: Record<string, string> = { listen: "Listen", "then-now": "Then vs Now", how: "How we know" };
+const TITLES: Record<string, string> = { listen: "Listen", "then-now": "Then vs Now", how: "How we know", official: "Official records", turntable: "Turntable" };
 
 export function generateStaticParams() {
   return [{ path: [] }, ...Object.keys(TITLES).map((page) => ({ path: [page] }))];

@@ -100,7 +100,7 @@ Status key: **Complete** = works and was tested in a browser. **Pending** = not 
 
 ## 4. Commits
 
-All L3 commits, oldest first. None has a Claude co-author line.
+All L3 commits, oldest first. None has a co-author line.
 
 | Hash | Message | Pushed to `L3-interface` | Also in `main` |
 |---|---|---|---|

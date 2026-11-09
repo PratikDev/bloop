@@ -10,14 +10,15 @@ import { MixerMenu } from "./MixerMenu";
 import { SoundButton } from "./SoundButton";
 
 /**
- * The sound dock, on every page after Start (not on Home): the main sound
+ * The sound dock, on every page after Start (not on Home or the Turntable): the main sound
  * button, what is playing now (caption and live waveform), and on Listen its
  * actions. It keeps its own view-transition name, so it stays put between pages.
  */
 export function Dock() {
   const { state } = useAppState();
   const t = useT();
-  const shown = state.started && state.mode !== "home";
+  // Home is the start screen; the Turntable brings its own dock and captions.
+  const shown = state.started && state.mode !== "home" && state.mode !== "turntable";
   const listen = state.mode === "explore" || state.mode === "story";
 
   return (

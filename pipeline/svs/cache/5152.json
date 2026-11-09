@@ -1,0 +1,219 @@
+{
+ "id": 5152,
+ "title": "Near surface Ozone (O3)",
+ "url": "https://svs.gsfc.nasa.gov/5152/",
+ "page_type": "Visualization",
+ "release_date": "2023-09-26T17:00:00-04:00",
+ "update_date": "2026-10-29T02:17:48.063240-04:00",
+ "description": "Near surface concentration of ozone (O3) estimated by NASA’s GEOS-CF model.",
+ "full_text": "Near surface concentration of ozone (O3) estimated by NASA’s GEOS-CF model.\n\nNear surface concentration of ozone (O~3~) estimated by NASA’s GEOS-CF model.\n\nPredictions of air pollution are created using complex models that combine information about weather and the emissions, transformation, and transport of chemical species and particles. The Goddard Earth Observing System Composition Forecasting (GEOS-CF) system is a research model maintained by NASA’s Global Modeling and Assimilation Office to help scientists understand the causes and impact of air pollution. It is one of the highest resolution and most detailed models of its kind in the world, made possible through ongoing collaborations between NASA and university scientists. GEOS-CF tracks the concentrations of hundreds of gas phase chemical species and dozens of types of particles characterized by their composition and size. It is used by a wide variety of stakeholders around the world to develop new methods for improving local predictions, understanding the impact of pollution on human health, and improving the quality of NASA satellite datasets.<br>\r<br>Ozone, a molecule comprised of three oxygen atoms, is critically important to Earth’s atmosphere. Many miles above the surface, it absorbs harmful ultraviolet radiation, helping make the planet habitable for humans. However, at the nose level it is known for its harmful human health effects, contributing to chest pain and congestion and worsening conditions liken asthma and bronchitis. It can also damage plants and is estimated to result in millions of dollars in crop losses every year. Estimating near surface ozone concentrations is extremely complex because ozone is not directly emitted, but forms as a byproduct of nitrogen oxides and volatile organic compounds in the presence of sunlight. Ozone concentrations vary substantially during day and night, peaking mid-day after morning rush hour peaks in precursor concentrations. Concentrations drop after sunset as ozone is lost through a series of chemical reactions, but are replenished in polluted regions the following day.\n\nOzone (O~3~) concentration colorbar with semi-transparent background, optimized for Earth Information Center content.\n\nOzone (O~3~) concentration colorbar.\n\nSee [https://gmao.gsfc.nasa.gov/gmao-products/geos-cf/](https://gmao.gsfc.nasa.gov/gmao-products/geos-cf/)",
+ "credits_by_role": {
+  "Visualizer": [
+   "Joseph V. Ardizzone (NASA/GSFC)"
+  ]
+ },
+ "keywords": [
+  "Atmospheric Composition",
+  "Earth Information Center",
+  "GMAO",
+  "Hyperwall"
+ ],
+ "datasets": [
+  {
+   "name": "GEOS-CF",
+   "common_name": "",
+   "platform": null,
+   "sensor": null,
+   "type": "Other",
+   "organizations": [
+    "NASA GMAO"
+   ],
+   "description": "Knowland, K.E., C.A. Keller, and R. Lucchesi, 2022: File Specification for GEOS-CF Products. GMAO Office Note No. 17 (Version 1.3), 54 pp, available from [https://gmao.gsfc.nasa.gov/pubs/docs/Knowland1446.pdf](https://gmao.gsfc.nasa.gov/pubs/docs/Knowland1446.pdf)",
+   "credit": "",
+   "url": "https://portal.nccs.nasa.gov/datashare/gmao/geos-cf/v2/",
+   "date_range": null
+  }
+ ],
+ "missions": [],
+ "related": [
+  {
+   "id": 5669,
+   "title": "GEOS Aerosols (2025)",
+   "url": "https://svs.gsfc.nasa.gov/5669/"
+  },
+  {
+   "id": 5572,
+   "title": "GEOS Aerosols",
+   "url": "https://svs.gsfc.nasa.gov/5572/"
+  },
+  {
+   "id": 5552,
+   "title": "Science On A Sphere: Aerosols in the Air",
+   "url": "https://svs.gsfc.nasa.gov/5552/"
+  },
+  {
+   "id": 5533,
+   "title": "Air Quality Model Runs",
+   "url": "https://svs.gsfc.nasa.gov/5533/"
+  },
+  {
+   "id": 5147,
+   "title": "GEOS-FP Near-Surface Temperature",
+   "url": "https://svs.gsfc.nasa.gov/5147/"
+  },
+  {
+   "id": 5148,
+   "title": "GEOS-FP Near-Surface Wind Speed",
+   "url": "https://svs.gsfc.nasa.gov/5148/"
+  },
+  {
+   "id": 5149,
+   "title": "GEOS-FP Precipitation and Clouds",
+   "url": "https://svs.gsfc.nasa.gov/5149/"
+  },
+  {
+   "id": 5150,
+   "title": "GEOS-FP Near-Surface Humidity",
+   "url": "https://svs.gsfc.nasa.gov/5150/"
+  },
+  {
+   "id": 5151,
+   "title": "Particulate Matter (PM) 2.5",
+   "url": "https://svs.gsfc.nasa.gov/5151/"
+  },
+  {
+   "id": 5153,
+   "title": "Carbon Monoxide (CO)",
+   "url": "https://svs.gsfc.nasa.gov/5153/"
+  },
+  {
+   "id": 5154,
+   "title": "Nitrogen Oxides (NOx)",
+   "url": "https://svs.gsfc.nasa.gov/5154/"
+  }
+ ],
+ "alternate_versions": [],
+ "newer_versions": [],
+ "older_versions": [],
+ "media": [
+  {
+   "group": 0,
+   "group_title": "",
+   "widget": "Video player",
+   "caption": "",
+   "group_text": "Near surface concentration of ozone (O~3~) estimated by NASA’s GEOS-CF model.",
+   "url": "https://svs.gsfc.nasa.gov/vis/a000000/a005100/a005152/MC02_stage4_GMAO_O3_2048x1024_en.00001_print.jpg",
+   "filename": "MC02_stage4_GMAO_O3_2048x1024_en.00001_print.jpg",
+   "media_type": "Image",
+   "width": 1024,
+   "height": 512,
+   "alt_text": "Near surface concentration of ozone (O3) estimated by NASA’s GEOS-CF model."
+  },
+  {
+   "group": 0,
+   "group_title": "",
+   "widget": "Video player",
+   "caption": "",
+   "group_text": "Near surface concentration of ozone (O~3~) estimated by NASA’s GEOS-CF model.",
+   "url": "https://svs.gsfc.nasa.gov/vis/a000000/a005100/a005152/Ozone_GMAO.png",
+   "filename": "Ozone_GMAO.png",
+   "media_type": "Image",
+   "width": 560,
+   "height": 227,
+   "alt_text": "Near surface concentration of ozone (O3) estimated by NASA’s GEOS-CF model."
+  },
+  {
+   "group": 0,
+   "group_title": "",
+   "widget": "Video player",
+   "caption": "",
+   "group_text": "Near surface concentration of ozone (O~3~) estimated by NASA’s GEOS-CF model.",
+   "url": "https://svs.gsfc.nasa.gov/vis/a000000/a005100/a005152/MC02_stage4_GMAO_O3_2048x1024_en.00001_searchweb.png",
+   "filename": "MC02_stage4_GMAO_O3_2048x1024_en.00001_searchweb.png",
+   "media_type": "Image",
+   "width": 320,
+   "height": 180,
+   "alt_text": "Near surface concentration of ozone (O3) estimated by NASA’s GEOS-CF model."
+  },
+  {
+   "group": 0,
+   "group_title": "",
+   "widget": "Video player",
+   "caption": "",
+   "group_text": "Near surface concentration of ozone (O~3~) estimated by NASA’s GEOS-CF model.",
+   "url": "https://svs.gsfc.nasa.gov/vis/a000000/a005100/a005152/MC02_stage4_GMAO_O3_2048x1024_en.00001_thm.png",
+   "filename": "MC02_stage4_GMAO_O3_2048x1024_en.00001_thm.png",
+   "media_type": "Image",
+   "width": 80,
+   "height": 40,
+   "alt_text": "Near surface concentration of ozone (O3) estimated by NASA’s GEOS-CF model."
+  },
+  {
+   "group": 0,
+   "group_title": "",
+   "widget": "Video player",
+   "caption": "",
+   "group_text": "Near surface concentration of ozone (O~3~) estimated by NASA’s GEOS-CF model.",
+   "url": "https://svs.gsfc.nasa.gov/vis/a000000/a005100/a005152/MC02_stage4_GMAO_O3_2048x1024_en.mp4",
+   "filename": "MC02_stage4_GMAO_O3_2048x1024_en.mp4",
+   "media_type": "Movie",
+   "width": 2048,
+   "height": 1024,
+   "alt_text": "Near surface concentration of ozone (O3) estimated by NASA’s GEOS-CF model."
+  },
+  {
+   "group": 0,
+   "group_title": "",
+   "widget": "Video player",
+   "caption": "",
+   "group_text": "Near surface concentration of ozone (O~3~) estimated by NASA’s GEOS-CF model.",
+   "url": "https://svs.gsfc.nasa.gov/vis/a000000/a005100/a005152/frames/2048x1024_2x1_12p/MC02_stage4_GMAO_O3_2048x1024_en-hwtool/",
+   "filename": "MC02_stage4_GMAO_O3_2048x1024_en-hwtool",
+   "media_type": "Frames",
+   "width": 2048,
+   "height": 1024,
+   "alt_text": "Near surface concentration of ozone (O3) estimated by NASA’s GEOS-CF model."
+  },
+  {
+   "group": 2,
+   "group_title": "",
+   "widget": "Single image",
+   "caption": "Ozone (O~3~) concentration colorbar with semi-transparent background, optimized for Earth Information Center content.",
+   "group_text": "",
+   "url": "https://svs.gsfc.nasa.gov/vis/a000000/a005100/a005152/O3_colorbar.png",
+   "filename": "O3_colorbar.png",
+   "media_type": "Image",
+   "width": 528,
+   "height": 125,
+   "alt_text": ""
+  },
+  {
+   "group": 3,
+   "group_title": "",
+   "widget": "Single image",
+   "caption": "Ozone (O~3~) concentration colorbar.",
+   "group_text": "",
+   "url": "https://svs.gsfc.nasa.gov/vis/a000000/a005100/a005152/O3_colorbar_plain.png",
+   "filename": "O3_colorbar_plain.png",
+   "media_type": "Image",
+   "width": 528,
+   "height": 125,
+   "alt_text": ""
+  }
+ ],
+ "text_links": [
+  "https://gmao.gsfc.nasa.gov/gmao-products/geos-cf/"
+ ],
+ "frame_folders": {
+  "https://svs.gsfc.nasa.gov/vis/a000000/a005100/a005152/frames/2048x1024_2x1_12p/MC02_stage4_GMAO_O3_2048x1024_en-hwtool/": {
+   "url": "https://svs.gsfc.nasa.gov/vis/a000000/a005100/a005152/frames/2048x1024_2x1_12p/MC02_stage4_GMAO_O3_2048x1024_en-hwtool/",
+   "frame_count": 372,
+   "bytes_approx": 2232000000,
+   "first": "00000001.png",
+   "last": "00000372.png",
+   "subfolders": {}
+  }
+ },
+ "api_url": "https://svs.gsfc.nasa.gov/api/5152",
+ "fetched_utc": "2026-10-29T07:41:30Z"
+}

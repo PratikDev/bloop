@@ -5,11 +5,12 @@ import type { VoiceSpec } from "@/types/data-contract";
 import type { panelsEn } from "../en/panels";
 import { formatFixed, formatInteger, localDigits } from "../format";
 import { ruleTextBn, voiceLabelBn } from "./rules";
+import type { Translated } from "../types";
 
 const int = (v: number) => formatInteger(v, "bn");
 const n2 = (v: number) => formatFixed(v, "bn", 2);
 
-export const panelsBn: typeof panelsEn = {
+export const panelsBn: Translated<typeof panelsEn> = {
   "panel.label": "এই শব্দ সম্পর্কে",
   "panel.truth": "যাচাই",
   "panel.mapping": "যা শুনছেন",

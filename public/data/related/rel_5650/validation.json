@@ -1,0 +1,36 @@
+{
+ "record": "rel_5650",
+ "checks": [
+  {
+   "record": "rel_5650",
+   "id": "a_auto_source",
+   "title": "Near Real-Time Global Precipitation from the Global Precipitation Measurement Constellation: decoded values vs IMERG precipitation rate (GIBS)",
+   "kind": "value",
+   "source": "IMERG precipitation rate (GIBS)",
+   "metrics": {
+    "rung": "same product (IMERG)",
+    "unit": "mm/hr",
+    "spearman": 0.8528085464514747,
+    "n": 5562,
+    "median_rel_error": 0.7169176788918735,
+    "bias": -1.5546560345424547,
+    "dates": [
+     {
+      "date": "2026-10-18"
+     },
+     {
+      "date": "2026-10-27"
+     },
+     {
+      "date": "2026-11-06"
+     }
+    ]
+   },
+   "threshold": "Spearman ≥ 0.9 and median relative error ≤ 15 % → verified; ρ ≥ 0.9 → values with stated error; ρ ≥ 0.6 → relative (provisional, onboarding defaults)",
+   "pass": false,
+   "note": "Rung: same product (IMERG). Onboarding run, 3 frames.",
+   "run_utc": "2026-11-06T08:03:34Z"
+  }
+ ],
+ "updated_utc": "2026-11-06T08:03:34Z"
+}

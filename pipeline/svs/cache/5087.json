@@ -1,0 +1,119 @@
+{
+ "id": 5087,
+ "title": "Water Cycle Extremes: Droughts and Pluvials",
+ "url": "https://svs.gsfc.nasa.gov/5087/",
+ "page_type": "Visualization",
+ "release_date": "2023-03-13T12:00:00-04:00",
+ "update_date": "2024-10-16T16:01:25.175630-04:00",
+ "description": "This visualization shows extremes of the water cycle — droughts and pluvials — over a twenty-year period (2002-2021) based on observations from the GRACE and GRACE-FO satellites. Dry events are shown as red spheres and wet events as blue spheres, with earlier years being shown as lighter shades and later years as darker shades. The volume of the sphere is proportional to the intensity of the event, a quantity measured in cubic kilometer months.",
+ "full_text": "This visualization shows extremes of the water cycle — droughts and pluvials — over a twenty-year period (2002-2021) based on observations from the GRACE and GRACE-FO satellites. Dry events are shown as red spheres and wet events as blue spheres, with earlier years being shown as lighter shades and later years as darker shades. The volume of the sphere is proportional to the intensity of the event, a quantity measured in cubic kilometer months.\n\nThis visualization shows extremes of the water cycle — droughts and pluvials — over a twenty-year period (2002-2021) based on observations from the GRACE and GRACE-FO satellites. Dry events are shown as red spheres and wet events as blue spheres, with earlier years being shown as lighter shades and later years as darker shades. The volume of the sphere is proportional to the intensity of the event, a quantity measured in cubic kilometer months. A total of 1,056 extreme wet and dry events appear over the course of the visualization. The plots at the bottom of the figure show that the total intensity of extreme events increased as global temperatures increased. The most intense event was a 2019 pluvial (excessive, persistent rain) in central Africa.\n\nIn a study of 20 years of data from the NASA/German GRACE and GRACE-FO satellites, two NASA scientists confirmed that major droughts and pluvials — periods of excessive precipitation and water storage on the landscape — have been occurring more often. They also found that the worldwide intensity of these extreme wet and dry events – a metric that combines extent, duration, and severity — is closely linked to global warming. Floods and droughts account for more than 20% of the economic losses caused by extreme weather events in the U.S. each year, ranked second after hurricanes among major disasters. The economic impacts are similar around the world, though the human toll tends to be most devastating in poor and developing nations.\r<br><br>From 2015-2021 — seven of the warmest years in the modern record — the frequency of extreme wet and dry events was four per year, compared with three per year in the previous 13 years. This makes sense, say the authors, because warmer air causes more moisture to evaporate from Earth's surface during dry events; warm air can also hold more moisture to fuel severe snow- and rainfall events.<br>\n\nThis is a version of the droughts and pluvial visualization in vertical format. This visualization shows extremes of the water cycle — droughts and pluvials — over a twenty-year period (2002-2021) based on observations from the GRACE and GRACE-FO satellites. Dry events are shown as red spheres and wet events as blue spheres, with earlier years being shown as lighter shades and later years as darker shades. The volume of the sphere is proportional to the intensity of the event, a quantity measured in cubic kilometer months. A total of 1,056 extreme wet and dry events appear over the course of the visualization. The plots at the bottom of the figure show that the total intensity of extreme events increased as global temperatures increased. The most intense event was a 2019 pluvial (excessive, persistent rain) in central Africa.\n\nA version of the visualization morphing between a graph and map view. This visualization shows extremes of the water cycle — droughts and pluvials — over a twenty-year period (2002-2021) based on observations from the GRACE and GRACE-FO satellites. Dry events are shown as red spheres and wet events as blue spheres, with earlier years being shown as lighter shades and later years as darker shades. The volume of the sphere is proportional to the intensity of the event, a quantity measured in cubic kilometer months. A total of 1,056 extreme wet and dry events appear over the course of the visualization. The plots at the bottom of the figure show that the total intensity of extreme events increased as global temperatures increased. The most intense event was a 2019 pluvial (excessive, persistent rain) in central Africa.",
+ "credits_by_role": {
+  "Visualizer": [
+   "Mark SubbaRao (NASA/GSFC)",
+   "Greg Shirah (NASA/GSFC)"
+  ],
+  "Technical support": [
+   "Laurence Schuler (ADNET Systems, Inc.)",
+   "Ian Jones (ADNET Systems, Inc.)"
+  ],
+  "Scientist": [
+   "Matthew Rodell (NASA/GSFC)",
+   "Bailing Li (University of Maryland College Park)"
+  ],
+  "Writer": [
+   "Kathryn Cawdrey (ASRC Federal System Solutions)",
+   "Mike Carlowicz (SSAI)"
+  ]
+ },
+ "keywords": [
+  "Climate Indicators",
+  "Drought Indices",
+  "Earth Science",
+  "floods",
+  "Grace",
+  "GRACE-FO",
+  "Hydrology",
+  "Hydrosphere",
+  "Hyperwall",
+  "Natural hazards",
+  "surface water",
+  "Water Cycle"
+ ],
+ "datasets": [],
+ "missions": [],
+ "related": [],
+ "alternate_versions": [],
+ "newer_versions": [],
+ "older_versions": [],
+ "media": [
+  {
+   "group": 0,
+   "group_title": "",
+   "widget": "Video player",
+   "caption": "",
+   "group_text": "This visualization shows extremes of the water cycle — droughts and pluvials — over a twenty-year period (2002-2021) based on observations from the GRACE and GRACE-FO satellites. Dry events are shown as red spheres and wet events as blue spheres, with earlier years being shown as lighter shades and later years as darker shades. The volume of the sphere is proportional to the intensity of the event, a quantity measured in cubic kilometer months. A total of 1,056 extreme wet and dry events appear over the course of the visualization. The plots at the bottom of the figure show that the total intensity of extreme events increased as global temperatures increased. The most intense event was a 2019 pluvial (excessive, persistent rain) in central Africa.",
+   "url": "https://svs.gsfc.nasa.gov/vis/a000000/a005000/a005087/WaterExtremes.mp4",
+   "filename": "WaterExtremes.mp4",
+   "media_type": "Movie",
+   "width": 3840,
+   "height": 2160,
+   "alt_text": "This visualization shows extremes of the water cycle — droughts and pluvials — over a twenty-year period (2002-2021) based on observations from the GRACE and GRACE-FO satellites. Dry events are shown as red spheres and wet events as blue spheres, with earlier years being shown as lighter shades and later years as darker shades. The volume of the sphere is proportional to the intensity of the event, a quantity measured in cubic kilometer months. A total of 1,056 extreme wet and dry events appear over the course of the visualization. The plots at the bottom of the figure show that the total intensity of extreme events increased as global temperatures increased. The most intense event was a 2019 pluvial (excessive, persistent rain) in central Africa."
+  },
+  {
+   "group": 2,
+   "group_title": "",
+   "widget": "Video player",
+   "caption": "This is a version of the droughts and pluvial visualization in vertical format. This visualization shows extremes of the water cycle — droughts and pluvials — over a twenty-year period (2002-2021) based on observations from the GRACE and GRACE-FO satellites. Dry events are shown as red spheres and wet events as blue spheres, with earlier years being shown as lighter shades and later years as darker shades. The volume of the sphere is proportional to the intensity of the event, a quantity measured in cubic kilometer months. A total of 1,056 extreme wet and dry events appear over the course of the visualization. The plots at the bottom of the figure show that the total intensity of extreme events increased as global temperatures increased. The most intense event was a 2019 pluvial (excessive, persistent rain) in central Africa.",
+   "group_text": "",
+   "url": "https://svs.gsfc.nasa.gov/vis/a000000/a005000/a005087/WaterExtremes_vert_3840p30.mp4",
+   "filename": "WaterExtremes_vert_3840p30.mp4",
+   "media_type": "Movie",
+   "width": 2160,
+   "height": 3840,
+   "alt_text": "This is a version of the previous visualization in vertical format. This visualization shows extremes of the water cycle — droughts and pluvials — over a twenty-year period (2002-2021) based on observations from the GRACE and GRACE-FO satellites. Dry events are shown as red spheres and wet events as blue spheres, with earlier years being shown as lighter shades and later years as darker shades. The volume of the sphere is proportional to the intensity of the event, a quantity measured in cubic kilometer months. A total of 1,056 extreme wet and dry events appear over the course of the visualization. The plots at the bottom of the figure show that the total intensity of extreme events increased as global temperatures increased. The most intense event was a 2019 pluvial (excessive, persistent rain) in central Africa."
+  },
+  {
+   "group": 2,
+   "group_title": "",
+   "widget": "Video player",
+   "caption": "This is a version of the droughts and pluvial visualization in vertical format. This visualization shows extremes of the water cycle — droughts and pluvials — over a twenty-year period (2002-2021) based on observations from the GRACE and GRACE-FO satellites. Dry events are shown as red spheres and wet events as blue spheres, with earlier years being shown as lighter shades and later years as darker shades. The volume of the sphere is proportional to the intensity of the event, a quantity measured in cubic kilometer months. A total of 1,056 extreme wet and dry events appear over the course of the visualization. The plots at the bottom of the figure show that the total intensity of extreme events increased as global temperatures increased. The most intense event was a 2019 pluvial (excessive, persistent rain) in central Africa.",
+   "group_text": "",
+   "url": "https://svs.gsfc.nasa.gov/vis/a000000/a005000/a005087/WaterExtremes_vert_1920p30.mp4",
+   "filename": "WaterExtremes_vert_1920p30.mp4",
+   "media_type": "Movie",
+   "width": 1080,
+   "height": 1920,
+   "alt_text": "This is a version of the previous visualization in vertical format. This visualization shows extremes of the water cycle — droughts and pluvials — over a twenty-year period (2002-2021) based on observations from the GRACE and GRACE-FO satellites. Dry events are shown as red spheres and wet events as blue spheres, with earlier years being shown as lighter shades and later years as darker shades. The volume of the sphere is proportional to the intensity of the event, a quantity measured in cubic kilometer months. A total of 1,056 extreme wet and dry events appear over the course of the visualization. The plots at the bottom of the figure show that the total intensity of extreme events increased as global temperatures increased. The most intense event was a 2019 pluvial (excessive, persistent rain) in central Africa."
+  },
+  {
+   "group": 3,
+   "group_title": "",
+   "widget": "Video player",
+   "caption": "",
+   "group_text": "A version of the visualization morphing between a graph and map view. This visualization shows extremes of the water cycle — droughts and pluvials — over a twenty-year period (2002-2021) based on observations from the GRACE and GRACE-FO satellites. Dry events are shown as red spheres and wet events as blue spheres, with earlier years being shown as lighter shades and later years as darker shades. The volume of the sphere is proportional to the intensity of the event, a quantity measured in cubic kilometer months. A total of 1,056 extreme wet and dry events appear over the course of the visualization. The plots at the bottom of the figure show that the total intensity of extreme events increased as global temperatures increased. The most intense event was a 2019 pluvial (excessive, persistent rain) in central Africa.",
+   "url": "https://svs.gsfc.nasa.gov/vis/a000000/a005000/a005087/water_extremes_morph_2160p30.00001_print.jpg",
+   "filename": "water_extremes_morph_2160p30.00001_print.jpg",
+   "media_type": "Image",
+   "width": 1024,
+   "height": 576,
+   "alt_text": "A version of the visualization morphing between a graph and map view. This visualization shows extremes of the water cycle — droughts and pluvials — over a twenty-year period (2002-2021) based on observations from the GRACE and GRACE-FO satellites. Dry events are shown as red spheres and wet events as blue spheres, with earlier years being shown as lighter shades and later years as darker shades. The volume of the sphere is proportional to the intensity of the event, a quantity measured in cubic kilometer months. A total of 1,056 extreme wet and dry events appear over the course of the visualization. The plots at the bottom of the figure show that the total intensity of extreme events increased as global temperatures increased. The most intense event was a 2019 pluvial (excessive, persistent rain) in central Africa."
+  },
+  {
+   "group": 3,
+   "group_title": "",
+   "widget": "Video player",
+   "caption": "",
+   "group_text": "A version of the visualization morphing between a graph and map view. This visualization shows extremes of the water cycle — droughts and pluvials — over a twenty-year period (2002-2021) based on observations from the GRACE and GRACE-FO satellites. Dry events are shown as red spheres and wet events as blue spheres, with earlier years being shown as lighter shades and later years as darker shades. The volume of the sphere is proportional to the intensity of the event, a quantity measured in cubic kilometer months. A total of 1,056 extreme wet and dry events appear over the course of the visualization. The plots at the bottom of the figure show that the total intensity of extreme events increased as global temperatures increased. The most intense event was a 2019 pluvial (excessive, persistent rain) in central Africa.",
+   "url": "https://svs.gsfc.nasa.gov/vis/a000000/a005000/a005087/water_extremes_morph_2160p30.mp4",
+   "filename": "water_extremes_morph_2160p30.mp4",
+   "media_type": "Movie",
+   "width": 3840,
+   "height": 2160,
+   "alt_text": "A version of the visualization morphing between a graph and map view. This visualization shows extremes of the water cycle — droughts and pluvials — over a twenty-year period (2002-2021) based on observations from the GRACE and GRACE-FO satellites. Dry events are shown as red spheres and wet events as blue spheres, with earlier years being shown as lighter shades and later years as darker shades. The volume of the sphere is proportional to the intensity of the event, a quantity measured in cubic kilometer months. A total of 1,056 extreme wet and dry events appear over the course of the visualization. The plots at the bottom of the figure show that the total intensity of extreme events increased as global temperatures increased. The most intense event was a 2019 pluvial (excessive, persistent rain) in central Africa."
+  }
+ ],
+ "text_links": [],
+ "frame_folders": {},
+ "api_url": "https://svs.gsfc.nasa.gov/api/5087",
+ "fetched_utc": "2026-10-29T07:39:07Z"
+}

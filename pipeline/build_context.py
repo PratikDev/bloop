@@ -74,8 +74,12 @@ def grace():
 
 def firms():
     d = json.load(open(CTX / "firms_cases.json"))
-    return {"dataset": "NASA FIRMS active fires (MODIS_SP standard; VIIRS_SNPP_SP)", "rule": "Compare MODIS with MODIS only; single years are example years.",
-            "credit": "NASA FIRMS (LANCE/ESDIS)", "cases": d}
+    out = {"dataset": "NASA FIRMS active fires (MODIS_SP standard; VIIRS_SNPP_SP)", "rule": "Compare MODIS with MODIS only; single years are example years.",
+           "credit": "NASA FIRMS (LANCE/ESDIS)", "cases": d}
+    prev = PUBLIC / "context" / "firms.json"            # the additive `daily` block is products/fire/firms_daily.py's: keep it
+    if prev.exists() and "daily" in (old := json.load(open(prev))):
+        out["daily"] = old["daily"]
+    return out
 
 def ndvi():
     return {"dataset": "MODIS MOD13Q1 250 m 16-day NDVI (ORNL DAAC web service)", "caveat": "Single 250 m pixels.",

@@ -1,0 +1,251 @@
+{
+ "id": 5235,
+ "title": "Sea Level Through a Porthole (2023)",
+ "url": "https://svs.gsfc.nasa.gov/5235/",
+ "page_type": "Visualization",
+ "release_date": "2024-03-21T12:00:00-04:00",
+ "update_date": "2025-03-21T13:59:52.409818-04:00",
+ "description": "As the planet warms and polar ice melts, our global average sea level is rising. Although exact ocean heights vary due to local geography, climate over time, and dynamic fluid interactions with gravity and planetary rotation, scientists observe sea level trends by comparing measurements against a 20 year spatial and temporal mean reference. These visualizations use the visual metaphor of a submerged porthole window to observe how far our oceans rose between 1993 and 2023. || ",
+ "full_text": "As the planet warms and polar ice melts, our global average sea level is rising. Although exact ocean heights vary due to local geography, climate over time, and dynamic fluid interactions with gravity and planetary rotation, scientists observe sea level trends by comparing measurements against a 20 year spatial and temporal mean reference. These visualizations use the visual metaphor of a submerged porthole window to observe how far our oceans rose between 1993 and 2023. ||\n\nAs the planet warms and polar ice melts, our global average sea level is rising. Although exact ocean heights vary due to local geography, climate over time, and dynamic fluid interactions with gravity and planetary rotation, scientists observe sea level trends by comparing measurements against a 20 year spatial and temporal mean reference. These visualizations use the visual metaphor of a submerged porthole window to observe how far our oceans rose between 1993 and 2023.\n\nThis visualization watches the global mean sea level change through a circular window. The blue mark on the ruler shows the exact measurements of the Integrated Multi-Mission Ocean Altimeter Data for Climate Research. The level of the animated water changes more smoothly, driven by a 60-day floating average of the same data.<p><p>When played on a 4K 85\" display, the measurement markings in the video are accurate to the real world.\n\nThis visualization is the same as above, but without the circular window.",
+ "credits_by_role": {
+  "Visualizer": [
+   "AJ Christensen (SSAI)"
+  ],
+  "Technical support": [
+   "Laurence Schuler (ADNET Systems, Inc.)",
+   "Ian Jones (ADNET Systems, Inc.)"
+  ]
+ },
+ "keywords": [
+  "Earth Information Center",
+  "Hyperwall"
+ ],
+ "datasets": [
+  {
+   "name": "Global Mean Sea Level",
+   "common_name": "GMSL",
+   "platform": "Integrated Multi-Mission Ocean Altimeters",
+   "sensor": "TOPEX/Poseidon, Jason-1, OSTM/Jason-2, and Jason-3",
+   "type": "Data Compilation",
+   "organizations": [
+    "NASA Sea Level Change Program"
+   ],
+   "description": "This data contains Global Mean Sea Level (GMSL) variations computed at the NASA Goddard Space Flight Center under the auspices of the NASA Sea Level Change program. The GMSL was generated using the Integrated Multi-Mission Ocean Altimeter Data for Climate Research (http://podaac.jpl.nasa.gov/dataset/MERGED_TP_J1_OSTM_OST_ALL_V51). It combines Sea Surface Heights from the TOPEX/Poseidon, Jason-1, OSTM/Jason-2, Jason-3, and Sentinel-6 Michael Freilich missions to a common terrestrial reference frame with all inter-mission biases, range and geophysical corrections applied and placed onto a georeferenced orbit.  This creates a consistent data record throughout time, regardless of the instrument used.  Note, the most recent estimates of GMSL (post March 28, 2022) derived from the Sentinel-6 Michael Freilich mission are preliminary as validation and reprocessing procedures for Sentinel-6 are ongoing.",
+   "credit": "GSFC. 2021. Global Mean Sea Level Trend from Integrated Multi-Mission Ocean Altimeters TOPEX/Poseidon, Jason-1, OSTM/Jason-2, and Jason-3 Version 5.1. Ver. 5.1 PO.DAAC, CA, USA. Dataset accessed [YYYY-MM-DD] at https://doi.org/10.5067/GMSLM-TJ151.",
+   "url": "http://podaac.jpl.nasa.gov/dataset/MERGED_TP_J1_OSTM_OST_ALL_V51",
+   "date_range": null
+  }
+ ],
+ "missions": [],
+ "related": [
+  {
+   "id": 5111,
+   "title": "Increase in Ocean Heat since 1957 Map - Spilhaus Projection",
+   "url": "https://svs.gsfc.nasa.gov/5111/"
+  },
+  {
+   "id": 4853,
+   "title": "27-year Sea Level Rise - TOPEX/JASON",
+   "url": "https://svs.gsfc.nasa.gov/4853/"
+  },
+  {
+   "id": 4821,
+   "title": "Barotropic Global Ocean Tides",
+   "url": "https://svs.gsfc.nasa.gov/4821/"
+  }
+ ],
+ "alternate_versions": [
+  {
+   "id": 5304,
+   "title": "Sea Level Through a Porthole (2023) for Science-on-a-Sphere",
+   "url": "https://svs.gsfc.nasa.gov/5304/"
+  }
+ ],
+ "newer_versions": [],
+ "older_versions": [
+  {
+   "id": 5114,
+   "title": "Sea Level Through a Porthole",
+   "url": "https://svs.gsfc.nasa.gov/5114/"
+  }
+ ],
+ "media": [
+  {
+   "group": 1,
+   "group_title": "",
+   "widget": "Video player",
+   "caption": "",
+   "group_text": "This visualization watches the global mean sea level change through a circular window. The blue mark on the ruler shows the exact measurements of the Integrated Multi-Mission Ocean Altimeter Data for Climate Research. The level of the animated water changes more smoothly, driven by a 60-day floating average of the same data.<p><p>When played on a 4K 85\" display, the measurement markings in the video are accurate to the real world.",
+   "url": "https://svs.gsfc.nasa.gov/vis/a000000/a005200/a005235/seaLevelWaveTankComp_noWW_3-5-5-2024a.01500_print.jpg",
+   "filename": "seaLevelWaveTankComp_noWW_3-5-5-2024a.01500_print.jpg",
+   "media_type": "Image",
+   "width": 1024,
+   "height": 1024,
+   "alt_text": "This visualization watches the global mean sea level change through a circular window. The blue mark on the ruler shows the exact measurements of the Integrated Multi-Mission Ocean Altimeter Data for Climate Research. The level of the animated water changes more smoothly, driven by a 60-day floating average of the same data.When played on a 4K 85\" display, the measurement markings in the video are accurate to the real world."
+  },
+  {
+   "group": 1,
+   "group_title": "",
+   "widget": "Video player",
+   "caption": "",
+   "group_text": "This visualization watches the global mean sea level change through a circular window. The blue mark on the ruler shows the exact measurements of the Integrated Multi-Mission Ocean Altimeter Data for Climate Research. The level of the animated water changes more smoothly, driven by a 60-day floating average of the same data.<p><p>When played on a 4K 85\" display, the measurement markings in the video are accurate to the real world.",
+   "url": "https://svs.gsfc.nasa.gov/vis/a000000/a005200/a005235/seaLevelWaveTankComp_noWW_3-5-5-2024a.01500_searchweb.png",
+   "filename": "seaLevelWaveTankComp_noWW_3-5-5-2024a.01500_searchweb.png",
+   "media_type": "Image",
+   "width": 320,
+   "height": 180,
+   "alt_text": "This visualization watches the global mean sea level change through a circular window. The blue mark on the ruler shows the exact measurements of the Integrated Multi-Mission Ocean Altimeter Data for Climate Research. The level of the animated water changes more smoothly, driven by a 60-day floating average of the same data.When played on a 4K 85\" display, the measurement markings in the video are accurate to the real world."
+  },
+  {
+   "group": 1,
+   "group_title": "",
+   "widget": "Video player",
+   "caption": "",
+   "group_text": "This visualization watches the global mean sea level change through a circular window. The blue mark on the ruler shows the exact measurements of the Integrated Multi-Mission Ocean Altimeter Data for Climate Research. The level of the animated water changes more smoothly, driven by a 60-day floating average of the same data.<p><p>When played on a 4K 85\" display, the measurement markings in the video are accurate to the real world.",
+   "url": "https://svs.gsfc.nasa.gov/vis/a000000/a005200/a005235/seaLevelWaveTankComp_noWW_3-5-5-2024a.01500_web.png",
+   "filename": "seaLevelWaveTankComp_noWW_3-5-5-2024a.01500_web.png",
+   "media_type": "Image",
+   "width": 320,
+   "height": 320,
+   "alt_text": "This visualization watches the global mean sea level change through a circular window. The blue mark on the ruler shows the exact measurements of the Integrated Multi-Mission Ocean Altimeter Data for Climate Research. The level of the animated water changes more smoothly, driven by a 60-day floating average of the same data.When played on a 4K 85\" display, the measurement markings in the video are accurate to the real world."
+  },
+  {
+   "group": 1,
+   "group_title": "",
+   "widget": "Video player",
+   "caption": "",
+   "group_text": "This visualization watches the global mean sea level change through a circular window. The blue mark on the ruler shows the exact measurements of the Integrated Multi-Mission Ocean Altimeter Data for Climate Research. The level of the animated water changes more smoothly, driven by a 60-day floating average of the same data.<p><p>When played on a 4K 85\" display, the measurement markings in the video are accurate to the real world.",
+   "url": "https://svs.gsfc.nasa.gov/vis/a000000/a005200/a005235/seaLevelWaveTankComp_noWW_3-5-5-2024a.01500_thm.png",
+   "filename": "seaLevelWaveTankComp_noWW_3-5-5-2024a.01500_thm.png",
+   "media_type": "Image",
+   "width": 80,
+   "height": 40,
+   "alt_text": "This visualization watches the global mean sea level change through a circular window. The blue mark on the ruler shows the exact measurements of the Integrated Multi-Mission Ocean Altimeter Data for Climate Research. The level of the animated water changes more smoothly, driven by a 60-day floating average of the same data.When played on a 4K 85\" display, the measurement markings in the video are accurate to the real world."
+  },
+  {
+   "group": 1,
+   "group_title": "",
+   "widget": "Video player",
+   "caption": "",
+   "group_text": "This visualization watches the global mean sea level change through a circular window. The blue mark on the ruler shows the exact measurements of the Integrated Multi-Mission Ocean Altimeter Data for Climate Research. The level of the animated water changes more smoothly, driven by a 60-day floating average of the same data.<p><p>When played on a 4K 85\" display, the measurement markings in the video are accurate to the real world.",
+   "url": "https://svs.gsfc.nasa.gov/vis/a000000/a005200/a005235/frames/2160x2160_1x1_30p/seaLevelWaveTankComp_noWW_3-5-2024a/",
+   "filename": "seaLevelWaveTankComp_noWW_3-5-2024a",
+   "media_type": "Frames",
+   "width": 2160,
+   "height": 2160,
+   "alt_text": "This visualization watches the global mean sea level change through a circular window. The blue mark on the ruler shows the exact measurements of the Integrated Multi-Mission Ocean Altimeter Data for Climate Research. The level of the animated water changes more smoothly, driven by a 60-day floating average of the same data.When played on a 4K 85\" display, the measurement markings in the video are accurate to the real world."
+  },
+  {
+   "group": 1,
+   "group_title": "",
+   "widget": "Video player",
+   "caption": "",
+   "group_text": "This visualization watches the global mean sea level change through a circular window. The blue mark on the ruler shows the exact measurements of the Integrated Multi-Mission Ocean Altimeter Data for Climate Research. The level of the animated water changes more smoothly, driven by a 60-day floating average of the same data.<p><p>When played on a 4K 85\" display, the measurement markings in the video are accurate to the real world.",
+   "url": "https://svs.gsfc.nasa.gov/vis/a000000/a005200/a005235/seaLevelWaveTankComp_noWW_3-5-5-2024a_2160p30.mp4",
+   "filename": "seaLevelWaveTankComp_noWW_3-5-5-2024a_2160p30.mp4",
+   "media_type": "Movie",
+   "width": 2160,
+   "height": 2160,
+   "alt_text": "This visualization watches the global mean sea level change through a circular window. The blue mark on the ruler shows the exact measurements of the Integrated Multi-Mission Ocean Altimeter Data for Climate Research. The level of the animated water changes more smoothly, driven by a 60-day floating average of the same data.When played on a 4K 85\" display, the measurement markings in the video are accurate to the real world."
+  },
+  {
+   "group": 2,
+   "group_title": "",
+   "widget": "Video player",
+   "caption": "",
+   "group_text": "This visualization is the same as above, but without the circular window.",
+   "url": "https://svs.gsfc.nasa.gov/vis/a000000/a005200/a005235/seaLevelWaveTank_noWW_3-5-2024a_wavetank.01500_print.jpg",
+   "filename": "seaLevelWaveTank_noWW_3-5-2024a_wavetank.01500_print.jpg",
+   "media_type": "Image",
+   "width": 1024,
+   "height": 1024,
+   "alt_text": "This visualization is the same as above, but without the circular window."
+  },
+  {
+   "group": 2,
+   "group_title": "",
+   "widget": "Video player",
+   "caption": "",
+   "group_text": "This visualization is the same as above, but without the circular window.",
+   "url": "https://svs.gsfc.nasa.gov/vis/a000000/a005200/a005235/seaLevelWaveTank_noWW_3-5-2024a_wavetank.01500_searchweb.png",
+   "filename": "seaLevelWaveTank_noWW_3-5-2024a_wavetank.01500_searchweb.png",
+   "media_type": "Image",
+   "width": 320,
+   "height": 180,
+   "alt_text": "This visualization is the same as above, but without the circular window."
+  },
+  {
+   "group": 2,
+   "group_title": "",
+   "widget": "Video player",
+   "caption": "",
+   "group_text": "This visualization is the same as above, but without the circular window.",
+   "url": "https://svs.gsfc.nasa.gov/vis/a000000/a005200/a005235/seaLevelWaveTank_noWW_3-5-2024a_wavetank.01500_web.png",
+   "filename": "seaLevelWaveTank_noWW_3-5-2024a_wavetank.01500_web.png",
+   "media_type": "Image",
+   "width": 320,
+   "height": 320,
+   "alt_text": "This visualization is the same as above, but without the circular window."
+  },
+  {
+   "group": 2,
+   "group_title": "",
+   "widget": "Video player",
+   "caption": "",
+   "group_text": "This visualization is the same as above, but without the circular window.",
+   "url": "https://svs.gsfc.nasa.gov/vis/a000000/a005200/a005235/seaLevelWaveTank_noWW_3-5-2024a_wavetank.01500_thm.png",
+   "filename": "seaLevelWaveTank_noWW_3-5-2024a_wavetank.01500_thm.png",
+   "media_type": "Image",
+   "width": 80,
+   "height": 40,
+   "alt_text": "This visualization is the same as above, but without the circular window."
+  },
+  {
+   "group": 2,
+   "group_title": "",
+   "widget": "Video player",
+   "caption": "",
+   "group_text": "This visualization is the same as above, but without the circular window.",
+   "url": "https://svs.gsfc.nasa.gov/vis/a000000/a005200/a005235/frames/2160x2160_1x1_30p/seaLevelWaveTank_noWW_3-5-2024a_wavetank/",
+   "filename": "seaLevelWaveTank_noWW_3-5-2024a_wavetank",
+   "media_type": "Frames",
+   "width": 2160,
+   "height": 2160,
+   "alt_text": "This visualization is the same as above, but without the circular window."
+  },
+  {
+   "group": 2,
+   "group_title": "",
+   "widget": "Video player",
+   "caption": "",
+   "group_text": "This visualization is the same as above, but without the circular window.",
+   "url": "https://svs.gsfc.nasa.gov/vis/a000000/a005200/a005235/seaLevelWaveTank_noWW_3-5-2024a_wavetank.mp4",
+   "filename": "seaLevelWaveTank_noWW_3-5-2024a_wavetank.mp4",
+   "media_type": "Movie",
+   "width": 2160,
+   "height": 2160,
+   "alt_text": "This visualization is the same as above, but without the circular window."
+  }
+ ],
+ "text_links": [],
+ "frame_folders": {
+  "https://svs.gsfc.nasa.gov/vis/a000000/a005200/a005235/frames/2160x2160_1x1_30p/seaLevelWaveTankComp_noWW_3-5-2024a/": {
+   "url": "https://svs.gsfc.nasa.gov/vis/a000000/a005200/a005235/frames/2160x2160_1x1_30p/seaLevelWaveTankComp_noWW_3-5-2024a/",
+   "frame_count": 1500,
+   "bytes_approx": 14860000000,
+   "first": "seaLevelWaveTankComp_noWW_3-5-5-2024a.00001.exr",
+   "last": "seaLevelWaveTankComp_noWW_3-5-5-2024a.01500.exr",
+   "subfolders": {}
+  },
+  "https://svs.gsfc.nasa.gov/vis/a000000/a005200/a005235/frames/2160x2160_1x1_30p/seaLevelWaveTank_noWW_3-5-2024a_wavetank/": {
+   "url": "https://svs.gsfc.nasa.gov/vis/a000000/a005200/a005235/frames/2160x2160_1x1_30p/seaLevelWaveTank_noWW_3-5-2024a_wavetank/",
+   "frame_count": 1500,
+   "bytes_approx": 17977800000,
+   "first": "seaLevelWaveTank_noWW_3-5-2024a_wavetank.00001.exr",
+   "last": "seaLevelWaveTank_noWW_3-5-2024a_wavetank.01500.exr",
+   "subfolders": {}
+  }
+ },
+ "api_url": "https://svs.gsfc.nasa.gov/api/5235",
+ "fetched_utc": "2026-10-31T15:07:32Z"
+}

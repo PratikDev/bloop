@@ -1,0 +1,23 @@
+{
+ "record": "rel_5119",
+ "checks": [
+  {
+   "record": "rel_5119",
+   "id": "a_source_series",
+   "title": "OCO-2 and Keeling Curve: Trends in global atmospheric Carbon Dioxide (CO₂): values are the cited source's series (not decoded from the graph)",
+   "kind": "context",
+   "source": "NOAA GML Mauna Loa CO2 (Lan, Keeling; free use with credit)",
+   "metrics": {
+    "points": 67,
+    "first": "1959-07-01",
+    "last": "2025-07-01",
+    "url": "https://gml.noaa.gov/webdata/ccgg/trends/co2/co2_annmean_mlo.txt"
+   },
+   "threshold": null,
+   "pass": null,
+   "note": "A graph or spiral is drawn from these numbers; the record plays the numbers, not the picture.",
+   "run_utc": "2026-10-31T15:08:53Z"
+  }
+ ],
+ "updated_utc": "2026-10-31T15:08:53Z"
+}

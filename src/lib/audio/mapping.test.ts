@@ -25,11 +25,11 @@ const runtime = (id: string) => voiceSpec(id).mapping as RuntimeRangeMapping;
 const copy = () => JSON.parse(JSON.stringify(raw));
 
 describe("validateMapping", () => {
-  test("accepts the real mapping.json with all 13 entries", () => {
+  test("accepts the real mapping.json with all 17 entries", () => {
     const spec = validateMapping(copy());
     expect(spec.voices.map((v) => v.id)).toEqual([
-      "ocean", "rain", "snow", "heat", "heatDeviation", "monsoon", "water",
-      "fires", "vegetation", "nodata", "whisper", "ping", "motif",
+      "ocean", "rain", "snow", "normalTone", "clarity", "unison", "heat", "heatDeviation", "monsoon", "water",
+      "fires", "vegetation", "nodata", "recorded", "whisper", "ping", "motif",
     ]);
   });
 
@@ -156,7 +156,7 @@ describe("monsoon: mm/day → drops per step", () => {
   });
 });
 
-describe("runtime-range rules (water, fires)", () => {
+describe("runtime-range rules (fires; water is a fixed range since build book A3/D1)", () => {
   test("p5–p95 of 1..100 with linear interpolation, nulls ignored", () => {
     const series: (number | null)[] = Array.from({ length: 100 }, (_, i) => i + 1);
     series.splice(10, 0, null, null);
@@ -166,16 +166,15 @@ describe("runtime-range rules (water, fires)", () => {
   });
 
   test("empty or all-null series has no range", () => {
-    expect(runtimeRange([null, null], runtime("water").input)).toBeNull();
+    expect(runtimeRange([null, null], runtime("fires").input)).toBeNull();
   });
 
-  test("water: range ends map to 80 and 320 Hz; null month is silence", () => {
-    const m = runtime("water");
-    const range = { min: -10, max: 10 };
-    expect(mapRuntime(-10, m, range)).toBeCloseTo(80, 6);
-    expect(mapRuntime(10, m, range)).toBeCloseTo(320, 6);
-    expect(mapRuntime(0, m, range)).toBeCloseTo(160, 6);
-    expect(mapRuntime(null, m, range)).toBeNull();
+  test("water: the fixed range's ends map to 80 and 320 Hz; null month is silence", () => {
+    const m = continuous("water");
+    expect(mapContinuous(m.input.min, m)).toBeCloseTo(80, 6);
+    expect(mapContinuous(m.input.max, m)).toBeCloseTo(320, 6);
+    expect(mapContinuous((m.input.min + m.input.max) / 2, m)).toBeCloseTo(160, 6);
+    expect(mapContinuous(null, m)).toBeNull();
   });
 
   test("fires: log1p, zero-to-max → click strength 0..1", () => {
@@ -190,7 +189,7 @@ describe("runtime-range rules (water, fires)", () => {
 });
 
 describe("inverseContinuous (harness presets: drops/s → mm/h)", () => {
-  test("round-trips every continuous voice", () => {
+  test("round-trips every continuous voice (the app's and the official records', falling rules too)", () => {
     for (const v of MAPPING.voices) {
       if (v.mapping?.kind !== "continuous" || v.mapping.output.round) continue;
       const m = v.mapping;
@@ -198,7 +197,8 @@ describe("inverseContinuous (harness presets: drops/s → mm/h)", () => {
         const x = m.input.scale === "log"
           ? Math.pow(10, Math.log10(m.input.min) + (Math.log10(m.input.max) - Math.log10(m.input.min)) * t)
           : m.input.min + (m.input.max - m.input.min) * t;
-        expect(inverseContinuous(mapContinuous(x, m)!, m)).toBeCloseTo(x, 6);
+        // Relative precision: the official records' rules run to thousands (ppbv, m), where 1e-6 absolute is below float.
+        expect(Math.abs(inverseContinuous(mapContinuous(x, m)!, m) - x)).toBeLessThanOrEqual(1e-9 * Math.max(1, Math.abs(x)));
       }
     }
   });
@@ -260,7 +260,9 @@ describe("rule text for the Mapping panel", () => {
     expect(ruleText(voiceSpec("rain"))).toContain("logarithmic");
     expect(ruleText(voiceSpec("heatDeviation"))).toContain("below 0.5: close to normal");
     expect(ruleText(voiceSpec("heatDeviation"))).toContain("1.5 or more: very unusual");
-    expect(ruleText(voiceSpec("water"))).toContain("5th to the 95th percentile");
+    // Water: one fixed range for every series (team decision, build book A3/D1); fires keep a runtime range.
+    expect(ruleText(voiceSpec("water"))).toContain("−70 to 35 cm");
+    expect(ruleText(voiceSpec("fires"))).toContain("in the series being played");
   });
 
   test("earcons have no rule parts and fall back to their silence text", () => {

@@ -1,0 +1,364 @@
+{
+ "id": 5072,
+ "title": "Atlantic Hurricane Wind Speed Plots",
+ "url": "https://svs.gsfc.nasa.gov/5072/",
+ "page_type": "Visualization",
+ "release_date": "2023-07-10T15:00:00-04:00",
+ "update_date": "2026-10-16T16:08:45.605180-04:00",
+ "description": "Atlantic Hurricane season plot of time vs. wind speed.  This version shows:May through Decembereach year separately || atlantic_may_to_dec.years_001_print.jpg (1024x576) [52.2 KB] || atlantic_may_to_dec.years_001_searchweb.png (320x180) [17.2 KB] || atlantic_may_to_dec.years_001.mp4 (3840x2160) [18.9 MB] || atlantic_may_to_dec.years_001 (3840x2160) [0 Item(s)] || atlantic_may_to_dec.years_001.webm (3840x2160) [4.4 MB] ||",
+ "full_text": "Atlantic Hurricane season plot of time vs. wind speed.  This version shows:May through Decembereach year separately || atlantic_may_to_dec.years_001_print.jpg (1024x576) [52.2 KB] || atlantic_may_to_dec.years_001_searchweb.png (320x180) [17.2 KB] || atlantic_may_to_dec.years_001.mp4 (3840x2160) [18.9 MB] || atlantic_may_to_dec.years_001 (3840x2160) [0 Item(s)] || atlantic_may_to_dec.years_001.webm (3840x2160) [4.4 MB] ||\n\nAtlantic Hurricane season plot of time vs. wind speed.  This version shows:<ul><li>May through December</li><li>each year separately</li></ul>\n\nThese simple visualizations are plots of time vs. wind speed for each tropical storm/hurricane of Atlantic Hurricane seasons from 1950 to the present. Horizontal lines indicate wind speed category thresholds. A line plot for each storm shows the storm's name and a marker at the peak wind speed.<p><br><br>Most named storms during the Atlantic hurricane season happen between June and November.  However, occasionally, storms develop outside of those ranges.<br><br>Four versions of the plots are inluded:<br>   1. May to December showig only the current year<br>   2. May to December showing the current year and strong storms from previous years (ghosted out)<br>   3. January to December showig only the current year<br>   4. January to December showing the current year and strong storms from previous years (ghosted out)<br>     <br><b>The plot for the current year automatically updates every 2 hours during hurricane season.</b>\n\nAtlantic Hurricane season plot of time vs. wind speed.  This version shows:<p>   • May through December<p>   • current year and previous years\n\nAtlantic Hurricane season plot of time vs. wind speed.  This version shows:<p>   • January through December<p>   • current year and previous years\n\nAtlantic Hurricane season plot of time vs. wind speed.  This version shows:<p>   •  January through December<p>   • each year separately",
+ "credits_by_role": {
+  "Visualizer": [
+   "Greg Shirah (NASA/GSFC)"
+  ]
+ },
+ "keywords": [
+  "Atmosphere",
+  "Atmospheric Phenomena",
+  "Atmospheric science",
+  "Earth Science",
+  "Hurricanes",
+  "Hyperwall",
+  "Natural hazards"
+ ],
+ "datasets": [
+  {
+   "name": "HURDAT2",
+   "common_name": "",
+   "platform": null,
+   "sensor": null,
+   "type": "Other",
+   "organizations": [
+    "NOAA / NHC"
+   ],
+   "description": "",
+   "credit": "",
+   "url": "",
+   "date_range": null
+  },
+  {
+   "name": "Automated Tropical Cyclone Forecast (ATCF) - Best Track",
+   "common_name": "Hurricane Tracks",
+   "platform": null,
+   "sensor": null,
+   "type": "Event List",
+   "organizations": [
+    "NOAA"
+   ],
+   "description": "",
+   "credit": "NOAA",
+   "url": "https://ftp.nhc.noaa.gov/atcf/",
+   "date_range": null
+  }
+ ],
+ "missions": [],
+ "related": [],
+ "alternate_versions": [],
+ "newer_versions": [],
+ "older_versions": [
+  {
+   "id": 3361,
+   "title": "Atlantic Hurricane/Storm Summary",
+   "url": "https://svs.gsfc.nasa.gov/3361/"
+  }
+ ],
+ "media": [
+  {
+   "group": 0,
+   "group_title": "",
+   "widget": "Video player",
+   "caption": "",
+   "group_text": "Atlantic Hurricane season plot of time vs. wind speed.  This version shows:<ul><li>May through December</li><li>each year separately</li></ul>",
+   "url": "https://svs.gsfc.nasa.gov/vis/a000000/a005000/a005072/atlantic_may_to_dec_singleYear_print.jpg",
+   "filename": "atlantic_may_to_dec_singleYear_print.jpg",
+   "media_type": "Image",
+   "width": 1024,
+   "height": 576,
+   "alt_text": "Atlantic Hurricane season plot of time vs. wind speed.  This version shows:May through Decembereach year separately"
+  },
+  {
+   "group": 0,
+   "group_title": "",
+   "widget": "Video player",
+   "caption": "",
+   "group_text": "Atlantic Hurricane season plot of time vs. wind speed.  This version shows:<ul><li>May through December</li><li>each year separately</li></ul>",
+   "url": "https://svs.gsfc.nasa.gov/vis/a000000/a005000/a005072/atlantic_may_to_dec_singleYear_searchweb.png",
+   "filename": "atlantic_may_to_dec_singleYear_searchweb.png",
+   "media_type": "Image",
+   "width": 320,
+   "height": 180,
+   "alt_text": "Atlantic Hurricane season plot of time vs. wind speed.  This version shows:May through Decembereach year separately"
+  },
+  {
+   "group": 0,
+   "group_title": "",
+   "widget": "Video player",
+   "caption": "",
+   "group_text": "Atlantic Hurricane season plot of time vs. wind speed.  This version shows:<ul><li>May through December</li><li>each year separately</li></ul>",
+   "url": "https://svs.gsfc.nasa.gov/vis/a000000/a005000/a005072/atlantic_jan_to_dec_singleYear.mp4",
+   "filename": "atlantic_jan_to_dec_singleYear.mp4",
+   "media_type": "Movie",
+   "width": 3840,
+   "height": 2160,
+   "alt_text": "Atlantic Hurricane season plot of time vs. wind speed.  This version shows:   •  January through December   • each year separately"
+  },
+  {
+   "group": 0,
+   "group_title": "",
+   "widget": "Video player",
+   "caption": "",
+   "group_text": "Atlantic Hurricane season plot of time vs. wind speed.  This version shows:<ul><li>May through December</li><li>each year separately</li></ul>",
+   "url": "https://svs.gsfc.nasa.gov/vis/a000000/a005000/a005072/frames/3840x2160_16x9_30p/atlantic_may_to_dec_singleYear/",
+   "filename": "atlantic_may_to_dec_singleYear",
+   "media_type": "Frames",
+   "width": 3840,
+   "height": 2160,
+   "alt_text": "Atlantic Hurricane season plot of time vs. wind speed.  This version shows:May through Decembereach year separately"
+  },
+  {
+   "group": 0,
+   "group_title": "",
+   "widget": "Video player",
+   "caption": "",
+   "group_text": "Atlantic Hurricane season plot of time vs. wind speed.  This version shows:<ul><li>May through December</li><li>each year separately</li></ul>",
+   "url": "https://svs.gsfc.nasa.gov/vis/a000000/a005000/a005072/atlantic_may_to_dec_singleYear_thm.png",
+   "filename": "atlantic_may_to_dec_singleYear_thm.png",
+   "media_type": "Image",
+   "width": 80,
+   "height": 40,
+   "alt_text": "Atlantic Hurricane season plot of time vs. wind speed.  This version shows:May through Decembereach year separately"
+  },
+  {
+   "group": 2,
+   "group_title": "",
+   "widget": "Video player",
+   "caption": "",
+   "group_text": "Atlantic Hurricane season plot of time vs. wind speed.  This version shows:<p>   • May through December<p>   • current year and previous years",
+   "url": "https://svs.gsfc.nasa.gov/vis/a000000/a005000/a005072/atlantic_may_to_dec_multiYear_print.jpg",
+   "filename": "atlantic_may_to_dec_multiYear_print.jpg",
+   "media_type": "Image",
+   "width": 1024,
+   "height": 576,
+   "alt_text": "Atlantic Hurricane season plot of time vs. wind speed.  This version shows:   • May through December   • current year and previous years"
+  },
+  {
+   "group": 2,
+   "group_title": "",
+   "widget": "Video player",
+   "caption": "",
+   "group_text": "Atlantic Hurricane season plot of time vs. wind speed.  This version shows:<p>   • May through December<p>   • current year and previous years",
+   "url": "https://svs.gsfc.nasa.gov/vis/a000000/a005000/a005072/atlantic_may_to_dec_multiYear_searchweb.png",
+   "filename": "atlantic_may_to_dec_multiYear_searchweb.png",
+   "media_type": "Image",
+   "width": 320,
+   "height": 180,
+   "alt_text": "Atlantic Hurricane season plot of time vs. wind speed.  This version shows:   • May through December   • current year and previous years"
+  },
+  {
+   "group": 2,
+   "group_title": "",
+   "widget": "Video player",
+   "caption": "",
+   "group_text": "Atlantic Hurricane season plot of time vs. wind speed.  This version shows:<p>   • May through December<p>   • current year and previous years",
+   "url": "https://svs.gsfc.nasa.gov/vis/a000000/a005000/a005072/atlantic_may_to_dec_multiYear_thm.png",
+   "filename": "atlantic_may_to_dec_multiYear_thm.png",
+   "media_type": "Image",
+   "width": 80,
+   "height": 40,
+   "alt_text": "Atlantic Hurricane season plot of time vs. wind speed.  This version shows:   • May through December   • current year and previous years"
+  },
+  {
+   "group": 2,
+   "group_title": "",
+   "widget": "Video player",
+   "caption": "",
+   "group_text": "Atlantic Hurricane season plot of time vs. wind speed.  This version shows:<p>   • May through December<p>   • current year and previous years",
+   "url": "https://svs.gsfc.nasa.gov/vis/a000000/a005000/a005072/atlantic_may_to_dec_multiYear.mp4",
+   "filename": "atlantic_may_to_dec_multiYear.mp4",
+   "media_type": "Movie",
+   "width": 3840,
+   "height": 2160,
+   "alt_text": "Atlantic Hurricane season plot of time vs. wind speed.  This version shows:   • May through December   • current year and previous years"
+  },
+  {
+   "group": 2,
+   "group_title": "",
+   "widget": "Video player",
+   "caption": "",
+   "group_text": "Atlantic Hurricane season plot of time vs. wind speed.  This version shows:<p>   • May through December<p>   • current year and previous years",
+   "url": "https://svs.gsfc.nasa.gov/vis/a000000/a005000/a005072/frames/3840x2160_16x9_30p/atlantic_may_to_dec_multiYear/",
+   "filename": "atlantic_may_to_dec_multiYear",
+   "media_type": "Frames",
+   "width": 3840,
+   "height": 2160,
+   "alt_text": "Atlantic Hurricane season plot of time vs. wind speed.  This version shows:   • May through December   • current year and previous years"
+  },
+  {
+   "group": 3,
+   "group_title": "",
+   "widget": "Video player",
+   "caption": "",
+   "group_text": "Atlantic Hurricane season plot of time vs. wind speed.  This version shows:<p>   • January through December<p>   • current year and previous years",
+   "url": "https://svs.gsfc.nasa.gov/vis/a000000/a005000/a005072/atlantic_jan_to_dec_multiYear_print.jpg",
+   "filename": "atlantic_jan_to_dec_multiYear_print.jpg",
+   "media_type": "Image",
+   "width": 1024,
+   "height": 576,
+   "alt_text": "Atlantic Hurricane season plot of time vs. wind speed.  This version shows:   • January through December   • current year and previous years"
+  },
+  {
+   "group": 3,
+   "group_title": "",
+   "widget": "Video player",
+   "caption": "",
+   "group_text": "Atlantic Hurricane season plot of time vs. wind speed.  This version shows:<p>   • January through December<p>   • current year and previous years",
+   "url": "https://svs.gsfc.nasa.gov/vis/a000000/a005000/a005072/atlantic_jan_to_dec_multiYear_searchweb.png",
+   "filename": "atlantic_jan_to_dec_multiYear_searchweb.png",
+   "media_type": "Image",
+   "width": 320,
+   "height": 180,
+   "alt_text": "Atlantic Hurricane season plot of time vs. wind speed.  This version shows:   • January through December   • current year and previous years"
+  },
+  {
+   "group": 3,
+   "group_title": "",
+   "widget": "Video player",
+   "caption": "",
+   "group_text": "Atlantic Hurricane season plot of time vs. wind speed.  This version shows:<p>   • January through December<p>   • current year and previous years",
+   "url": "https://svs.gsfc.nasa.gov/vis/a000000/a005000/a005072/atlantic_jan_to_dec_multiYear.mp4",
+   "filename": "atlantic_jan_to_dec_multiYear.mp4",
+   "media_type": "Movie",
+   "width": 3840,
+   "height": 2160,
+   "alt_text": "Atlantic Hurricane season plot of time vs. wind speed.  This version shows:   • January through December   • current year and previous years"
+  },
+  {
+   "group": 3,
+   "group_title": "",
+   "widget": "Video player",
+   "caption": "",
+   "group_text": "Atlantic Hurricane season plot of time vs. wind speed.  This version shows:<p>   • January through December<p>   • current year and previous years",
+   "url": "https://svs.gsfc.nasa.gov/vis/a000000/a005000/a005072/frames/3840x2160_16x9_30p/atlantic_jan_to_dec_multiYear/",
+   "filename": "atlantic_jan_to_dec_multiYear",
+   "media_type": "Frames",
+   "width": 3840,
+   "height": 2160,
+   "alt_text": "Atlantic Hurricane season plot of time vs. wind speed.  This version shows:   • January through December   • current year and previous years"
+  },
+  {
+   "group": 3,
+   "group_title": "",
+   "widget": "Video player",
+   "caption": "",
+   "group_text": "Atlantic Hurricane season plot of time vs. wind speed.  This version shows:<p>   • January through December<p>   • current year and previous years",
+   "url": "https://svs.gsfc.nasa.gov/vis/a000000/a005000/a005072/atlantic_jan_to_dec_multiYear_thm.png",
+   "filename": "atlantic_jan_to_dec_multiYear_thm.png",
+   "media_type": "Image",
+   "width": 80,
+   "height": 40,
+   "alt_text": "Atlantic Hurricane season plot of time vs. wind speed.  This version shows:   • January through December   • current year and previous years"
+  },
+  {
+   "group": 4,
+   "group_title": "",
+   "widget": "Video player",
+   "caption": "",
+   "group_text": "Atlantic Hurricane season plot of time vs. wind speed.  This version shows:<p>   •  January through December<p>   • each year separately",
+   "url": "https://svs.gsfc.nasa.gov/vis/a000000/a005000/a005072/atlantic_jan_to_dec_singleYear_print.jpg",
+   "filename": "atlantic_jan_to_dec_singleYear_print.jpg",
+   "media_type": "Image",
+   "width": 1024,
+   "height": 576,
+   "alt_text": "Atlantic Hurricane season plot of time vs. wind speed.  This version shows:   •  January through December   • each year separately"
+  },
+  {
+   "group": 4,
+   "group_title": "",
+   "widget": "Video player",
+   "caption": "",
+   "group_text": "Atlantic Hurricane season plot of time vs. wind speed.  This version shows:<p>   •  January through December<p>   • each year separately",
+   "url": "https://svs.gsfc.nasa.gov/vis/a000000/a005000/a005072/atlantic_jan_to_dec_singleYear_searchweb.png",
+   "filename": "atlantic_jan_to_dec_singleYear_searchweb.png",
+   "media_type": "Image",
+   "width": 320,
+   "height": 180,
+   "alt_text": "Atlantic Hurricane season plot of time vs. wind speed.  This version shows:   •  January through December   • each year separately"
+  },
+  {
+   "group": 4,
+   "group_title": "",
+   "widget": "Video player",
+   "caption": "",
+   "group_text": "Atlantic Hurricane season plot of time vs. wind speed.  This version shows:<p>   •  January through December<p>   • each year separately",
+   "url": "https://svs.gsfc.nasa.gov/vis/a000000/a005000/a005072/atlantic_jan_to_dec_singleYear.mp4",
+   "filename": "atlantic_jan_to_dec_singleYear.mp4",
+   "media_type": "Movie",
+   "width": 3840,
+   "height": 2160,
+   "alt_text": "Atlantic Hurricane season plot of time vs. wind speed.  This version shows:   •  January through December   • each year separately"
+  },
+  {
+   "group": 4,
+   "group_title": "",
+   "widget": "Video player",
+   "caption": "",
+   "group_text": "Atlantic Hurricane season plot of time vs. wind speed.  This version shows:<p>   •  January through December<p>   • each year separately",
+   "url": "https://svs.gsfc.nasa.gov/vis/a000000/a005000/a005072/frames/3840x2160_16x9_30p/atlantic_jan_to_dec_singleYear/",
+   "filename": "atlantic_jan_to_dec_singleYear",
+   "media_type": "Frames",
+   "width": 3840,
+   "height": 2160,
+   "alt_text": "Atlantic Hurricane season plot of time vs. wind speed.  This version shows:   •  January through December   • each year separately"
+  },
+  {
+   "group": 4,
+   "group_title": "",
+   "widget": "Video player",
+   "caption": "",
+   "group_text": "Atlantic Hurricane season plot of time vs. wind speed.  This version shows:<p>   •  January through December<p>   • each year separately",
+   "url": "https://svs.gsfc.nasa.gov/vis/a000000/a005000/a005072/atlantic_jan_to_dec_singleYear_thm.png",
+   "filename": "atlantic_jan_to_dec_singleYear_thm.png",
+   "media_type": "Image",
+   "width": 80,
+   "height": 40,
+   "alt_text": "Atlantic Hurricane season plot of time vs. wind speed.  This version shows:   •  January through December   • each year separately"
+  }
+ ],
+ "text_links": [],
+ "frame_folders": {
+  "https://svs.gsfc.nasa.gov/vis/a000000/a005000/a005072/frames/3840x2160_16x9_30p/atlantic_may_to_dec_singleYear/": {
+   "url": "https://svs.gsfc.nasa.gov/vis/a000000/a005000/a005072/frames/3840x2160_16x9_30p/atlantic_may_to_dec_singleYear/",
+   "frame_count": 77,
+   "bytes_approx": 25151099,
+   "first": "atlantic_may_to_dec_singleYear_1950_12.png",
+   "last": "atlantic_may_to_dec_singleYear_2026_12.png",
+   "subfolders": {}
+  },
+  "https://svs.gsfc.nasa.gov/vis/a000000/a005000/a005072/frames/3840x2160_16x9_30p/atlantic_may_to_dec_multiYear/": {
+   "url": "https://svs.gsfc.nasa.gov/vis/a000000/a005000/a005072/frames/3840x2160_16x9_30p/atlantic_may_to_dec_multiYear/",
+   "frame_count": 77,
+   "bytes_approx": 70585000,
+   "first": "atlantic_may_to_dec_multiYear_1950_12.png",
+   "last": "atlantic_may_to_dec_multiYear_2026_12.png",
+   "subfolders": {}
+  },
+  "https://svs.gsfc.nasa.gov/vis/a000000/a005000/a005072/frames/3840x2160_16x9_30p/atlantic_jan_to_dec_multiYear/": {
+   "url": "https://svs.gsfc.nasa.gov/vis/a000000/a005000/a005072/frames/3840x2160_16x9_30p/atlantic_jan_to_dec_multiYear/",
+   "frame_count": 77,
+   "bytes_approx": 57519100,
+   "first": "atlantic_jan_to_dec_multiYear_1950_12.png",
+   "last": "atlantic_jan_to_dec_multiYear_2026_12.png",
+   "subfolders": {}
+  },
+  "https://svs.gsfc.nasa.gov/vis/a000000/a005000/a005072/frames/3840x2160_16x9_30p/atlantic_jan_to_dec_singleYear/": {
+   "url": "https://svs.gsfc.nasa.gov/vis/a000000/a005000/a005072/frames/3840x2160_16x9_30p/atlantic_jan_to_dec_singleYear/",
+   "frame_count": 77,
+   "bytes_approx": 24627000,
+   "first": "atlantic_jan_to_dec_singleYear_1950_12.png",
+   "last": "atlantic_jan_to_dec_singleYear_2026_12.png",
+   "subfolders": {}
+  }
+ },
+ "api_url": "https://svs.gsfc.nasa.gov/api/5072",
+ "fetched_utc": "2026-10-29T07:39:03Z"
+}

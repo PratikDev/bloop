@@ -1,0 +1,403 @@
+{
+ "record": "rel_5601",
+ "app_title": "Wyoming Red Canyon wildfire: 2025 Year in Review (model)",
+ "svs_ids": [
+  5601
+ ],
+ "title": "Wyoming Red Canyon wildfire: 2025 Year in Review",
+ "svs_pages": [
+  "https://svs.gsfc.nasa.gov/5601/"
+ ],
+ "description": "Part of our 2025 Year in Review series examining major wildfire events, this analysis focuses on the August 2025 Red Canyon wildfire in Wyoming. Leveraging NASA's satellite data, advanced models, visualization capacity and computing power, we examine how weather conditions impacted this fire and how regional air quality affected surrounding communities.",
+ "release_date": "2026-01-02T12:27:00-05:00",
+ "period": {
+  "start": "2026-01-02T17:27:00Z",
+  "end": "2026-01-02T17:27:00Z",
+  "label": "undated (no frame dates found; SVS release 02 Jan 2026)"
+ },
+ "badge": "model",
+ "credits_by_role": {
+  "Visualizer": [
+   "Zoey N. Armstrong (Navteca, LLC.)",
+   "Joseph V. Ardizzone (NASA/GSFC)",
+   "Helen-Nicole Kostis (Science and Technology Corporation)"
+  ],
+  "Support": [
+   "Ella Kaplan (Global Science and Technology, Inc.)",
+   "Laurence Schuler (ADNET Systems, Inc.)",
+   "Ian Jones (ADNET Systems, Inc.)"
+  ]
+ },
+ "datasets": [
+  {
+   "name": "GEOS Atmospheric Model",
+   "common_name": "",
+   "platform": null,
+   "sensor": null,
+   "type": "Model",
+   "organizations": [
+    "NASA GMAO"
+   ],
+   "description": "",
+   "credit": "",
+   "url": "",
+   "date_range": ""
+  },
+  {
+   "name": "GEOS Forward Processing 2Km Replay",
+   "common_name": "GEOS-FP 2Km Replay",
+   "platform": null,
+   "sensor": null,
+   "type": "Model",
+   "organizations": [],
+   "description": "",
+   "credit": "",
+   "url": "",
+   "date_range": ""
+  },
+  {
+   "name": "GEOS-FP",
+   "common_name": "",
+   "platform": null,
+   "sensor": null,
+   "type": "Model",
+   "organizations": [
+    "NASA GMAO"
+   ],
+   "description": "Documentation: Lucchesi, R., 2018: File Specification for GEOS FP. GMAO Office Note No. 4 (Version 1.2), 61 pp, available from [https://gmao.gsfc.nasa.gov/pubs/docs/Lucchesi1203.pdf](https://gmao.gsfc.nasa.gov/pubs/docs/Lucchesi1203.pdf)",
+   "credit": "",
+   "url": "https://fluid.nccs.nasa.gov/weather/",
+   "date_range": ""
+  },
+  {
+   "name": "GEOS Composition Forecast",
+   "common_name": "GEOS-CF",
+   "platform": null,
+   "sensor": null,
+   "type": "Model",
+   "organizations": [],
+   "description": "",
+   "credit": "",
+   "url": "https://gmao.gsfc.nasa.gov/gmao-products/geos-cf/",
+   "date_range": ""
+  },
+  {
+   "name": "Fire Events Data Suite",
+   "common_name": "FEDS",
+   "platform": "NOAA-20 and SUOMI-NPP",
+   "sensor": "VIIRS",
+   "type": "Observed Data",
+   "organizations": [],
+   "description": "",
+   "credit": "Tempest McCabe, Douglas Morton, Melanie Follette-Cook, Elijah Orland, Zeb Becker, Yang Chen, Rebecca Scholten, Greg Corradini, Julia Signel, Alexey Shiklomanov, Kateria Sheronin, and Jim Randerson",
+   "url": "https://earth-information-system.github.io/fireatlas/docs/nrt.html",
+   "date_range": ""
+  },
+  {
+   "name": "FEDS OGC API",
+   "common_name": "",
+   "platform": null,
+   "sensor": null,
+   "type": "Data Compilation",
+   "organizations": [],
+   "description": "",
+   "credit": "",
+   "url": "https://earth-information-system.github.io/fireatlas/docs/nrt.html",
+   "date_range": ""
+  },
+  {
+   "name": "Quick Fire Emissions Dataset",
+   "common_name": "QFED",
+   "platform": "MODIS",
+   "sensor": null,
+   "type": "Other",
+   "organizations": [],
+   "description": "",
+   "credit": "",
+   "url": "https://ntrs.nasa.gov/citations/20180005253",
+   "date_range": ""
+  },
+  {
+   "name": "Integrated Reporting of Wildfire Information",
+   "common_name": "IRWIN",
+   "platform": null,
+   "sensor": null,
+   "type": "Other",
+   "organizations": [],
+   "description": "",
+   "credit": "",
+   "url": "https://www.wildfire.gov/application/irwin-integrated-reporting-wildfire-information",
+   "date_range": ""
+  }
+ ],
+ "credit_line": "Visualization: NASA's Scientific Visualization Studio (SVS 5601) for the NASA Earth Information Center.",
+ "disclosure": "A related NASA visualization read back through its key (pattern only).",
+ "licence": "SVS: \"All of our content is in the public domain (unless otherwise noted), meaning that it is free to download, use, and redistribute for whatever purposes you see fit.\" (https://svs.gsfc.nasa.gov/help/, read 29 Oct 2026)",
+ "focus": "wildfires",
+ "related_to": [
+  4993
+ ],
+ "frame_times": {
+  "method": "linear",
+  "approximate": true,
+  "count": 3,
+  "source": "undated"
+ },
+ "georef": {
+  "projection": "equirectangular (2:1)",
+  "bounds": [
+   -180,
+   -90,
+   180,
+   90
+  ],
+  "pass_at": 0.9,
+  "shifts_deg": [],
+  "iou": {
+   "land": 0.3508470706950565
+  },
+  "pass": false,
+  "best_is_assumed": false
+ },
+ "colorbar": null,
+ "colorbar_source": "no colorbar found (page or frame)",
+ "asset": {
+  "kind": "movie",
+  "owner": 5601,
+  "what": "RedCanyon.FirePerimeters.mp4"
+ },
+ "twins": [
+  {
+   "id": 5598,
+   "title": "Grand Canyon Dragon Bravo Megafire: 2025 Year in Review",
+   "reason": "related; 4 title words shared",
+   "flat_sets": [],
+   "flat_movies": [
+    {
+     "file": "DragonBravo.FirePerimeters.mp4",
+     "size": "2048×1024",
+     "url": "https://svs.gsfc.nasa.gov/vis/a000000/a005500/a005598/DragonBravo.FirePerimeters.mp4"
+    },
+    {
+     "file": "event001-Dragon_Bravo_Wildfire_Coconino_County_Arizona-BlackCarbonGEOS2km-20250731.mp4",
+     "size": "4096×2048",
+     "url": "https://svs.gsfc.nasa.gov/vis/a000000/a005500/a005598/event001-Dragon_Bravo_Wildfire_Coconino_County_Arizona-BlackCarbonGEOS2km-20250731.mp4"
+    }
+   ],
+   "colorbars": [],
+   "colorbar_inherited": true
+  },
+  {
+   "id": 5597,
+   "title": "Los Angeles Palisades and Eaton Wildfires: 2025 Year in Review",
+   "reason": "related; 3 title words shared",
+   "flat_sets": [],
+   "flat_movies": [
+    {
+     "file": "Palisades_Eaton.FirePerimeters.mp4",
+     "size": "2048×1024",
+     "url": "https://svs.gsfc.nasa.gov/vis/a000000/a005500/a005597/Palisades_Eaton.FirePerimeters.mp4"
+    },
+    {
+     "file": "event001-Palisades_Wildfire_Los_Angeles_California-BlackCarbonGEOS2km-20250120.mp4",
+     "size": "4096×2048",
+     "url": "https://svs.gsfc.nasa.gov/vis/a000000/a005500/a005597/event001-Palisades_Wildfire_Los_Angeles_California-BlackCarbonGEOS2km-20250120.mp4"
+    }
+   ],
+   "colorbars": [],
+   "colorbar_inherited": true
+  }
+ ],
+ "decode": {
+  "mode": "brightness (no key)",
+  "decoded_share": 1.0
+ },
+ "layers": [
+  {
+   "id": "value",
+   "unit": "relative (0–1)",
+   "encoding": "linear",
+   "scale": 0.001,
+   "offset": 0.004109401721507311,
+   "nodata": 65535,
+   "below": 65534,
+   "grid": {
+    "width": 360,
+    "height": 180,
+    "bounds": [
+     -180,
+     -90,
+     180,
+     90
+    ],
+    "row0": "north",
+    "col0": "west",
+    "byte_order": "little"
+   },
+   "times": [
+    "2026-01-02T17:27:00Z",
+    "2026-01-02T17:27:00Z",
+    "2026-01-02T17:27:00Z"
+   ],
+   "chunks": [
+    {
+     "file": "value_000.u16.gz",
+     "t0": 0,
+     "t1": 3,
+     "bytes": 229631
+    }
+   ],
+   "quantisation_step": 0.001,
+   "coverage": 1.0,
+   "value_range": [
+    0.004109401721507311,
+    0.9588654637336731
+   ],
+   "label": "Wyoming Red Canyon wildfire: 2025 Year in Review (pattern only)",
+   "aggregation": "mean of decoded pixels per cell",
+   "time_labels": [
+    "undated",
+    "undated",
+    "undated"
+   ],
+   "display": {
+    "colours": [
+     "#141418",
+     "#1c1c1f",
+     "#232327",
+     "#2b2b2e",
+     "#323236",
+     "#3a3a3d",
+     "#414145",
+     "#49494c",
+     "#515154",
+     "#58585b",
+     "#606063",
+     "#67676a",
+     "#6f6f71",
+     "#777779",
+     "#7e7e80",
+     "#868688",
+     "#8d8d8f",
+     "#959597",
+     "#9c9c9e",
+     "#a4a4a6",
+     "#acacad",
+     "#b3b3b4",
+     "#bbbbbc",
+     "#c2c2c3",
+     "#cacacb",
+     "#d2d2d2",
+     "#d9d9da",
+     "#e1e1e1",
+     "#e8e8e9",
+     "#f0f0f0",
+     "#f7f7f8",
+     "#ffffff"
+    ],
+    "values": [
+     0.0,
+     0.03225806451612903,
+     0.06451612903225806,
+     0.0967741935483871,
+     0.12903225806451613,
+     0.16129032258064516,
+     0.1935483870967742,
+     0.22580645161290322,
+     0.25806451612903225,
+     0.29032258064516125,
+     0.3225806451612903,
+     0.3548387096774194,
+     0.3870967741935484,
+     0.4193548387096774,
+     0.45161290322580644,
+     0.4838709677419355,
+     0.5161290322580645,
+     0.5483870967741935,
+     0.5806451612903225,
+     0.6129032258064516,
+     0.6451612903225806,
+     0.6774193548387096,
+     0.7096774193548387,
+     0.7419354838709677,
+     0.7741935483870968,
+     0.8064516129032258,
+     0.8387096774193548,
+     0.8709677419354839,
+     0.9032258064516129,
+     0.9354838709677419,
+     0.967741935483871,
+     1.0
+    ],
+    "scale": "linear",
+    "ramp": true
+   },
+   "status": "pattern only",
+   "status_check": "a_no_validation_source",
+   "statement": "pattern only"
+  }
+ ],
+ "voices": {
+  "value": "rel5601"
+ },
+ "play": [
+  {
+   "id": "value",
+   "label": "Wyoming Red Canyon wildfire: 2025 Year in Review: higher pitch = higher value",
+   "view": "global",
+   "map": "value",
+   "start": {
+    "lat": -0.5,
+    "lon": 0.5
+   },
+   "steps_per_second": 1,
+   "channels": [
+    {
+     "voice": "rel5601",
+     "layers": [
+      "value"
+     ],
+     "combine": "value"
+    }
+   ]
+  }
+ ],
+ "validation": [
+  {
+   "id": "a_no_validation_source",
+   "title": "Wyoming Red Canyon wildfire: 2025 Year in Review: no validation source",
+   "kind": "none",
+   "pass": null,
+   "threshold": null
+  }
+ ],
+ "size": {
+  "choice": {
+   "frames": 3
+  },
+  "tried": [],
+  "bytes": 240429,
+  "budget": 25000000
+ },
+ "onboarding": {
+  "timings_s": {
+   "api": 35.6,
+   "twins": 13.4,
+   "asset choice": 0.0,
+   "frames": 40.0,
+   "frame times": 16.9,
+   "georef": 3.5,
+   "colorbar": 29.3,
+   "inversion": 0.3,
+   "validation": 0.0
+  },
+  "status": "pattern only"
+ },
+ "asset_checksums": {
+  "file": "checksums.tsv.gz",
+  "rows": 1,
+  "sha256_of_list": "395b13ecce16ad18e39fcd77d5e25b3efdbf615caa289ff37189486ce088fb07"
+ },
+ "code_commit": "6cdf76ca34125fdac42b0490386959c3f79c6556-dirty",
+ "generated_utc": "2026-11-06T06:49:10Z"
+}

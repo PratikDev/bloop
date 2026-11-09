@@ -1,0 +1,325 @@
+{
+ "record": "eic_5152",
+ "app_title": "Near-surface ozone (GEOS-CF) (EIC, model)",
+ "svs_ids": [
+  5152
+ ],
+ "title": "Near surface Ozone (O3)",
+ "svs_pages": [
+  "https://svs.gsfc.nasa.gov/5152/"
+ ],
+ "description": "Near surface concentration of ozone (O3) estimated by NASA’s GEOS-CF model.",
+ "release_date": "2023-09-26T17:00:00-04:00",
+ "period": {
+  "start": "2026-10-28T22:00:00Z",
+  "end": "2026-10-28T22:00:00Z",
+  "label": "28 Oct 2026 – 28 Oct 2026"
+ },
+ "badge": "model",
+ "credits_by_role": {
+  "Visualizer": [
+   "Joseph V. Ardizzone (NASA/GSFC)"
+  ]
+ },
+ "datasets": [
+  {
+   "name": "GEOS-CF",
+   "common_name": "",
+   "platform": null,
+   "sensor": null,
+   "type": "Other",
+   "organizations": [
+    "NASA GMAO"
+   ],
+   "description": "Knowland, K.E., C.A. Keller, and R. Lucchesi, 2022: File Specification for GEOS-CF Products. GMAO Office Note No. 17 (Version 1.3), 54 pp, available from [https://gmao.gsfc.nasa.gov/pubs/docs/Knowland1446.pdf](https://gmao.gsfc.nasa.gov/pubs/docs/Knowland1446.pdf)",
+   "credit": "",
+   "url": "https://portal.nccs.nasa.gov/datashare/gmao/geos-cf/v2/",
+   "date_range": null
+  }
+ ],
+ "credit_line": "Visualization: NASA's Scientific Visualization Studio (SVS 5152) for the NASA Earth Information Center.",
+ "disclosure": "One frame of a rolling EIC layer, read back through its key.",
+ "licence": "SVS: \"All of our content is in the public domain (unless otherwise noted), meaning that it is free to download, use, and redistribute for whatever purposes you see fit.\" (https://svs.gsfc.nasa.gov/help/, read 29 Oct 2026)",
+ "frame_times": {
+  "method": "ocr",
+  "approximate": false,
+  "count": 1,
+  "source": "date box OCR: 28 Oct 2026 18 : 00 : 00 EDT"
+ },
+ "georef": {
+  "projection": "equirectangular",
+  "bounds": [
+   -180,
+   -90,
+   180,
+   90
+  ],
+  "pass_at": 0.9,
+  "shifts_deg": [
+   1.0
+  ],
+  "iou": {},
+  "pass": true,
+  "best_is_assumed": true
+ },
+ "colorbar": {
+  "geometry": {
+   "x0": 72,
+   "x1": 462,
+   "band": [
+    41,
+    76
+   ],
+   "vertical": false,
+   "outline_rgb": [
+    255.0,
+    255.0,
+    255.0
+   ],
+   "image_size": [
+    125,
+    528
+   ]
+  },
+  "ticks": [
+   {
+    "px": -1.5,
+    "value": 5.0,
+    "text": "5",
+    "engine": "glyph",
+    "label_px": -1.5
+   },
+   {
+    "px": 104.5,
+    "value": 20.0,
+    "text": "20",
+    "engine": "glyph",
+    "label_px": 104.5
+   },
+   {
+    "px": 247.50645161290322,
+    "value": 40.0,
+    "text": "40",
+    "engine": "glyph",
+    "label_px": 245.5,
+    "tick_mark": true
+   },
+   {
+    "px": 394.5,
+    "value": 60.0,
+    "text": "60",
+    "engine": "glyph",
+    "label_px": 394.5
+   }
+  ],
+  "scale": "linear",
+  "fit": {
+   "a": 5.4509107050115295,
+   "b": 0.13934289425445495,
+   "fit": "weighted 1/tolerance",
+   "max_resid_px": 3.0262216860802025,
+   "resid_px": [
+    -1.74,
+    -0.09,
+    0.44,
+    -3.03
+   ],
+   "ok": true
+  },
+  "notes": [
+   "3 label(s) not on a tick mark (5, 20, 60): label-centre position, ±5 px."
+  ],
+  "n_samples": 391,
+  "value_range": [
+   5.4509107050115295,
+   59.79463946424896
+  ],
+  "opacity_varies": false,
+  "px_per_unit": 7.176541045386165
+ },
+ "colorbar_file": "O3_colorbar.png",
+ "decode": {
+  "mode": "exact",
+  "exact_share": 0.5386786567653524,
+  "decoded_share": 0.4026923179626465,
+  "base_map_share": 0.22478549473675882,
+  "matcher": "rgb-nearest",
+  "max_dist": 12.0
+ },
+ "frame": "00000201.png",
+ "frame_set": "https://svs.gsfc.nasa.gov/vis/a000000/a005100/a005152/frames/2048x1024_2x1_12p/MC02_stage4_GMAO_O3_2048x1024_en-hwtool/",
+ "layers": [
+  {
+   "id": "value",
+   "unit": "ppbv",
+   "encoding": "linear",
+   "scale": 0.013934289425445496,
+   "offset": 21.98699188232422,
+   "nodata": 65535,
+   "below": 65534,
+   "grid": {
+    "width": 720,
+    "height": 360,
+    "bounds": [
+     -180,
+     -90,
+     180,
+     90
+    ],
+    "row0": "north",
+    "col0": "west",
+    "byte_order": "little"
+   },
+   "times": [
+    "2026-10-28T22:00:00Z"
+   ],
+   "chunks": [
+    {
+     "file": "value_000.u16.gz",
+     "t0": 0,
+     "t1": 1,
+     "bytes": 154682
+    }
+   ],
+   "quantisation_step": 0.013934289425445496,
+   "coverage": 0.40368055555555554,
+   "value_range": [
+    21.98699188232422,
+    59.376617431640625
+   ],
+   "label": "Near-surface ozone (GEOS-CF) (model)",
+   "aggregation": "mean of decoded pixels per 0.5° cell",
+   "display": {
+    "colours": [
+     "#fefeff",
+     "#fefefe",
+     "#fefefe",
+     "#fdfefe",
+     "#fdfdfd",
+     "#fbfcfd",
+     "#fbfbfc",
+     "#f9fafc",
+     "#f5f5fa",
+     "#eeeef9",
+     "#e6e3f6",
+     "#dcd8f3",
+     "#cec8f0",
+     "#c3bbee",
+     "#b4a8e9",
+     "#a396e6",
+     "#9886e2",
+     "#937fdf",
+     "#8d75dc",
+     "#886eda",
+     "#8165d6",
+     "#7c5ed4",
+     "#7654d1",
+     "#714dce",
+     "#6a46cc",
+     "#6440ca",
+     "#5e3bc8",
+     "#5835c6",
+     "#522fc5",
+     "#4b29c3",
+     "#4624c1",
+     "#4120c0"
+    ],
+    "values": [
+     5.4509107050115295,
+     7.203934213374027,
+     8.956957721736526,
+     10.709981230099022,
+     12.463004738461521,
+     14.216028246824017,
+     15.969051755186516,
+     17.722075263549012,
+     19.47509877191151,
+     21.228122280274007,
+     22.981145788636507,
+     24.734169296999003,
+     26.487192805361502,
+     28.240216313723998,
+     29.993239822086498,
+     31.746263330448993,
+     33.49928683881149,
+     35.25231034717399,
+     37.005333855536485,
+     38.75835736389899,
+     40.51138087226148,
+     42.264404380623986,
+     44.017427888986475,
+     45.77045139734897,
+     47.523474905711474,
+     49.27649841407397,
+     51.029521922436466,
+     52.78254543079897,
+     54.535568939161465,
+     56.28859244752396,
+     58.041615955886456,
+     59.79463946424896
+    ],
+    "scale": "linear"
+   },
+   "time_labels": [
+    "28 Oct 2026 22:00 UTC"
+   ],
+   "status": "pattern only",
+   "statement": "pattern only (values not verified)",
+   "status_check": "a_same_model"
+  }
+ ],
+ "voices": {
+  "value": "eic5152"
+ },
+ "play": [
+  {
+   "id": "value",
+   "label": "Near-surface ozone (GEOS-CF): higher pitch = higher value",
+   "view": "global",
+   "map": "value",
+   "start": {
+    "lat": 24.25,
+    "lon": 90.25
+   },
+   "steps_per_second": 1,
+   "channels": [
+    {
+     "voice": "eic5152",
+     "layers": [
+      "value"
+     ],
+     "combine": "value"
+    }
+   ]
+  }
+ ],
+ "validation": [
+  {
+   "id": "a_same_model",
+   "title": "Near-surface ozone (GEOS-CF): frame vs GEOS-CF v2 analysis chm_tavg_1hr_glo_L1440x721_slv o3 at 2026-10-28 22:30:00 UTC",
+   "kind": "value",
+   "pass": false,
+   "threshold": "Spearman ≥ 0.9 and median relative error ≤ 15 % (provisional)"
+  }
+ ],
+ "size": {
+  "choice": {
+   "cell_deg": 0.5
+  },
+  "tried": [],
+  "bytes": 162978,
+  "budget": 25000000
+ },
+ "asset_checksums": {
+  "file": "checksums.tsv.gz",
+  "rows": 3,
+  "sha256_of_list": "7312755165e1b66cefcf27aa208a7c94182ec850f8de32df4e0fdde00adde163"
+ },
+ "code_commit": "65405281e6df7801cd75a6db04f5ebcec70af3a9-dirty",
+ "generated_utc": "2026-11-06T14:10:13Z",
+ "playable": {
+  "moved_starts": [
+   "value"
+  ]
+ }
+}

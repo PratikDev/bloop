@@ -1,0 +1,20 @@
+{
+ "record": "rel_3913",
+ "checks": [
+  {
+   "record": "rel_3913",
+   "id": "a_no_validation_source",
+   "title": "Gulf Stream Sea Surface Currents and Temperatures: no validation source",
+   "kind": "none",
+   "source": null,
+   "metrics": {
+    "reason": "MUR sea-ice concentration (GIBS): no date covered ([])"
+   },
+   "threshold": null,
+   "pass": null,
+   "note": "MUR sea-ice concentration (GIBS): no date covered ([])",
+   "run_utc": "2026-10-31T15:17:39Z"
+  }
+ ],
+ "updated_utc": "2026-10-31T15:17:39Z"
+}

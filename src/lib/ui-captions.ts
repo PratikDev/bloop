@@ -3,7 +3,7 @@
 // engine's playSeries doesn't caption. Same shape as the engine's captions.
 // onCaption() is the one place the caption bar and Describe mode listen to both.
 
-import { audio } from "@/lib/audio-adapter";
+import { onAnyAudioEvent } from "@/lib/audio-engines";
 import type { CaptionParams } from "@/lib/audio-adapter/types";
 
 export interface CaptionEvent {
@@ -55,9 +55,9 @@ export function isDescribeHeld(): boolean {
   return describeHolds > 0;
 }
 
-/** Every caption, from the sound engine and from the UI. */
+/** Every caption, from both sound engines and from the UI. */
 export function onCaption(cb: Listener): () => void {
-  const offEngine = audio.onAudioEvent((e) => {
+  const offEngine = onAnyAudioEvent((e) => {
     if (e.kind !== "caption") return;
     if (e.key === SIDE_CAPTION && quietLabel !== null && e.params.label === quietLabel) return;
     cb({ key: e.key, params: e.params });

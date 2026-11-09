@@ -1,0 +1,20 @@
+{
+ "record": "rel_5468",
+ "checks": [
+  {
+   "record": "rel_5468",
+   "id": "a_no_validation_source",
+   "title": "2024 Atlantic Hurricane Season: no validation source",
+   "kind": "none",
+   "source": null,
+   "metrics": {
+    "reason": "no georeference: spatial check not possible"
+   },
+   "threshold": null,
+   "pass": null,
+   "note": "no georeference: spatial check not possible",
+   "run_utc": "2026-10-31T17:28:38Z"
+  }
+ ],
+ "updated_utc": "2026-10-31T17:28:38Z"
+}

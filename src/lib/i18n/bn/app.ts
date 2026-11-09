@@ -6,13 +6,14 @@ import { formatDegrees, formatInteger, formatRainRate, formatTemperature } from 
 import { translateData } from "./data";
 import { PLACE_NAMES_BN, PLACES_BN } from "./places";
 import { APP_NAME } from "../brand";
+import type { Translated } from "../types";
 
 const deg = (v: number) => formatDegrees(v, "bn");
 const int = (v: number) => formatInteger(v, "bn");
 const ns = (lat: number) => (lat >= 0 ? "উত্তর" : "দক্ষিণ");
 const ew = (lon: number) => (lon >= 0 ? "পূর্ব" : "পশ্চিম");
 
-export const appBn: typeof appEn = {
+export const appBn: Translated<typeof appEn> = {
   "app.title": APP_NAME,
 
   "start.lead": "নাসার চোখে সর্বশেষ সমুদ্র আর বৃষ্টি, শুনুন জীবন্ত শব্দে।",
@@ -20,7 +21,7 @@ export const appBn: typeof appEn = {
   "start.button": "শোনা শুরু করুন",
   "start.silent": "শব্দ ছাড়া ঘুরে দেখুন",
   "start.silentHint": "মানগুলো লেখা আর ক্যাপশনে দেখাবে। যেকোনো সময় শব্দ চালু করতে পারবেন।",
-  "start.loading": "সর্বশেষ সমুদ্রের ফ্রেম লোড হচ্ছে…",
+  "start.loading": "সর্বশেষ সমুদ্রের ফ্রেম লোড হচ্ছে",
   "start.skipIntro": "ভূমিকা বাদ দিন",
 
   "mode.explore": "ঘুরে দেখা",
@@ -48,7 +49,7 @@ export const appBn: typeof appEn = {
   "help.keys": "কীবোর্ড",
 
   "badge.comingOctober": "অক্টোবরে আসছে",
-  "badge.loadingRain": "বৃষ্টি লোড হচ্ছে…",
+  "badge.loadingRain": "বৃষ্টি লোড হচ্ছে",
 
   "map.roleDescription": "শব্দ-মানচিত্র",
   "map.instructions": "তীর-কী চাপলে কার্সর ১ ডিগ্রি সরে, Shift সহ চাপলে ১০ ডিগ্রি। Enter চাপলে মান শোনা যায়। H চাপলে সব কী-র তালিকা।",
@@ -104,7 +105,7 @@ export const appBn: typeof appEn = {
   "sweep.needsRain": "বৃষ্টির তথ্য লোড হলে সুইপ শুরু হবে।",
   "timelapse.play": "ঝড়ের টাইম-ল্যাপস বাজান",
   "timelapse.stop": "টাইম-ল্যাপস থামান",
-  "timelapse.loadingStart": "টাইম-ল্যাপসের ফ্রেম লোড হচ্ছে…",
+  "timelapse.loadingStart": "টাইম-ল্যাপসের ফ্রেম লোড হচ্ছে",
   "timelapse.loading": (p: { loaded: number; total: number }) => `টাইম-ল্যাপস লোড হচ্ছে: ${int(p.total)}টির মধ্যে ${int(p.loaded)}টি ফাইল`,
   "timelapse.loadingShort": (p: { percent: number }) => `লোড হচ্ছে ${int(p.percent)}%`,
   "timelapse.error": "টাইম-ল্যাপসের ফ্রেম লোড করা যায়নি। আবার চেষ্টা করতে পাতাটি রিলোড করুন।",

@@ -1,0 +1,17 @@
+{
+  "generated_utc": "2026-10-27T10:05:31.763Z",
+  "note": "Orientation overlays only. No value or sound in the app comes from these files.",
+  "natural_earth": {
+    "version": "5.1.2",
+    "commit": "ca96624a56bd078437bca8184e78163e5039ad19",
+    "licence": "Public domain",
+    "credit": "Natural Earth"
+  },
+  "geoboundaries": {
+    "url": "https://github.com/wmgeolab/geoBoundaries/raw/9469f09/releaseData/gbOpen/BGD/ADM2/geoBoundaries-BGD-ADM2_simplified.geojson",
+    "licence": "CC BY 3.0 IGO",
+    "source": "Bangladesh Bureau of Statistics (BBS), OCHA ROAP",
+    "credit": "geoBoundaries"
+  },
+  "tools": "mapshaper (simplify, clip, inner label points)"
+}

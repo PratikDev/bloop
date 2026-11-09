@@ -1,0 +1,414 @@
+{
+ "record": "rel_3821",
+ "app_title": "Flat Map Ocean Current Flows with Sea Surface Temperatures (SST) (model)",
+ "svs_ids": [
+  3821
+ ],
+ "title": "Flat Map Ocean Current Flows with Sea Surface Temperatures (SST)",
+ "svs_pages": [
+  "https://svs.gsfc.nasa.gov/3821/"
+ ],
+ "description": "This visualization shows ocean current flows on a flat map of the world. This simple flat map (cylindrical equidistant projection) is designed to be easily wrapped to a sphere. The flows are colored by sea surface temperatures with blues being cooler waters and yellows/reds warmer waters. The time period for this visualization is 10 January 2005 through 2006. For each second the passes in the visualization, about 2.5 days pass.This visualization was produced using model output from the joint MIT/JPL project: Estimating the Circulation and Climate of the Ocean, Phase II or ECCO2.. ECCO2 uses the MIT general circulation model (MITgcm) to synthesize satellite and in-situ data of the global ocean and sea-ice at resolutions that begin to resolve ocean eddies and other narrow current systems, which transport heat and carbon in the oceans.This visualization was created in support of the 2011 UNESCO conference in Paris, France. || ",
+ "release_date": "2011-02-10T00:00:00-05:00",
+ "period": {
+  "start": "2005-01-01T00:00:00Z",
+  "end": "2006-01-01T00:00:00Z",
+  "label": "1 Jan 2005 – 1 Jan 2006"
+ },
+ "badge": "model",
+ "credits_by_role": {
+  "Animator": [
+   "Greg Shirah (NASA/GSFC)",
+   "Horace Mitchell (NASA/GSFC)"
+  ],
+  "Scientist": [
+   "Dimitris Menemenlis (NASA/JPL CalTech)",
+   "Hong Zhang (UCLA)"
+  ],
+  "Project support": [
+   "Eric Sokolowsky (Global Science and Technology, Inc.)"
+  ]
+ },
+ "datasets": [
+  {
+   "name": "ECCO2 High Resolution Ocean and Sea Ice Model",
+   "common_name": "ECCO2",
+   "platform": null,
+   "sensor": null,
+   "type": "Model",
+   "organizations": [
+    "NASA/JPL"
+   ],
+   "description": "",
+   "credit": "",
+   "url": "",
+   "date_range": "10 Jan 2005 00:00Z to 01 Jan 2006 18:00Z"
+  }
+ ],
+ "credit_line": "Visualization: NASA's Scientific Visualization Studio (SVS 3821) for the NASA Earth Information Center.",
+ "disclosure": "A related NASA visualization read back through its key (relative).",
+ "licence": "SVS: \"All of our content is in the public domain (unless otherwise noted), meaning that it is free to download, use, and redistribute for whatever purposes you see fit.\" (https://svs.gsfc.nasa.gov/help/, read 29 Oct 2026)",
+ "focus": "water resources",
+ "related_to": [
+  3912
+ ],
+ "frame_times": {
+  "method": "linear",
+  "approximate": true,
+  "count": 3,
+  "source": "linear over the dataset's date range (10 Jan 2005 00:00Z to 01 Jan 2006 18:00Z)"
+ },
+ "georef": {
+  "projection": "equirectangular (2:1)",
+  "bounds": [
+   -180,
+   -90,
+   180,
+   90
+  ],
+  "pass_at": 0.9,
+  "shifts_deg": [],
+  "iou": {
+   "land": 0.38240784927558363
+  },
+  "pass": false,
+  "best_is_assumed": false
+ },
+ "colorbar": {
+  "geometry": {
+   "x0": 15,
+   "x1": 304,
+   "band": [
+    29,
+    44
+   ],
+   "vertical": false,
+   "outline_rgb": null,
+   "image_size": [
+    90,
+    320
+   ]
+  },
+  "ticks": [
+   {
+    "px": 60.0,
+    "value": 5.0,
+    "text": "5",
+    "engine": "glyph",
+    "label_px": 61.0,
+    "tick_mark": true
+   },
+   {
+    "px": 102.0,
+    "value": 10.0,
+    "text": "10",
+    "engine": "glyph",
+    "label_px": 103.0,
+    "tick_mark": true
+   },
+   {
+    "px": 145.0,
+    "value": 15.0,
+    "text": "15",
+    "engine": "glyph",
+    "label_px": 146.0,
+    "tick_mark": true
+   },
+   {
+    "px": 187.0,
+    "value": 20.0,
+    "text": "20",
+    "engine": "glyph",
+    "label_px": 187.5,
+    "tick_mark": true
+   },
+   {
+    "px": 230.0,
+    "value": 25.0,
+    "text": "25",
+    "engine": "glyph",
+    "label_px": 230.5,
+    "tick_mark": true
+   },
+   {
+    "px": 272.07677784770294,
+    "value": 30.0,
+    "text": "30",
+    "engine": "glyph",
+    "label_px": 273.0,
+    "tick_mark": true
+   }
+  ],
+  "scale": "linear",
+  "fit": {
+   "a": -2.0453823077101565,
+   "b": 0.11773419123339056,
+   "fit": "weighted 1/tolerance",
+   "max_resid_px": 0.30997623988406886,
+   "resid_px": [
+    -0.16,
+    0.31,
+    -0.22,
+    0.25,
+    -0.28,
+    0.11
+   ],
+   "ok": true
+  },
+  "notes": [
+   "OCR read ['9', '5', '10', '15', '20', '25', '30']; ['9'] disagree with the line through the other 6 labels and are dropped as misreads."
+  ],
+  "n_samples": 290,
+  "value_range": [
+   -2.0453823077101565,
+   31.979798958739714
+  ],
+  "opacity_varies": false,
+  "px_per_unit": 8.493709342408854
+ },
+ "colorbar_source": "page colorbar ecco2-sst-colorbar.png",
+ "asset": {
+  "kind": "frames",
+  "owner": 3821,
+  "what": "4096x2048_2x1_30p"
+ },
+ "twins": [
+  {
+   "id": 3912,
+   "title": "Global Sea Surface Currents and Temperature",
+   "reason": "search; 2 title words shared",
+   "flat_sets": [
+    {
+     "layer": "orig",
+     "size": "2048×1024",
+     "frames": 2001,
+     "url": "https://svs.gsfc.nasa.gov/vis/a000000/a003900/a003912/frames/2048x1024_1x1_30p/orig/"
+    },
+    {
+     "layer": "with_colorbar",
+     "size": "2048×1024",
+     "frames": 2001,
+     "url": "https://svs.gsfc.nasa.gov/vis/a000000/a003900/a003912/frames/2048x1024_1x1_30p/with_colorbar/"
+    },
+    {
+     "layer": "6840x3420_1x1_30p",
+     "size": "6840×3420",
+     "frames": 2001,
+     "url": "https://svs.gsfc.nasa.gov/vis/a000000/a003900/a003912/frames/6840x3420_1x1_30p/"
+    }
+   ],
+   "flat_movies": [
+    {
+     "file": "ecco2_sst_flow.mp4",
+     "size": "2048×1024",
+     "url": "https://svs.gsfc.nasa.gov/vis/a000000/a003900/a003912/ecco2_sst_flow.mp4"
+    },
+    {
+     "file": "flat_global_ecco2_2028x1024_comp_p30.mp4",
+     "size": "2048×1024",
+     "url": "https://svs.gsfc.nasa.gov/vis/a000000/a003900/a003912/flat_global_ecco2_2028x1024_comp_p30.mp4"
+    },
+    {
+     "file": "ecco2_sst_flow.m4v",
+     "size": "640×320",
+     "url": "https://svs.gsfc.nasa.gov/vis/a000000/a003900/a003912/ecco2_sst_flow.m4v"
+    }
+   ],
+   "colorbars": [
+    "sst_ecco2_cbar.png"
+   ],
+   "colorbar_inherited": false
+  }
+ ],
+ "decode": {
+  "mode": "chroma",
+  "decoded_share": 0.1290454864501953
+ },
+ "layers": [
+  {
+   "id": "value",
+   "unit": "colorbar units",
+   "encoding": "linear",
+   "scale": 0.011773419123339056,
+   "offset": 12.383291244506836,
+   "nodata": 65535,
+   "below": 65534,
+   "grid": {
+    "width": 360,
+    "height": 180,
+    "bounds": [
+     -180,
+     -90,
+     180,
+     90
+    ],
+    "row0": "north",
+    "col0": "west",
+    "byte_order": "little"
+   },
+   "times": [
+    "2005-01-01T00:00:00Z",
+    "2005-07-02T09:03:01Z",
+    "2006-01-01T00:00:00Z"
+   ],
+   "chunks": [
+    {
+     "file": "value_000.u16.gz",
+     "t0": 0,
+     "t1": 3,
+     "bytes": 41795
+    }
+   ],
+   "quantisation_step": 0.011773419123339056,
+   "coverage": 0.09689300411522633,
+   "value_range": [
+    12.383291244506836,
+    28.06114387512207
+   ],
+   "label": "Flat Map Ocean Current Flows with Sea Surface Temperatures (SST) (relative)",
+   "aggregation": "mean of decoded pixels per cell",
+   "time_labels": [
+    "01 Jan 2005",
+    "02 Jul 2005",
+    "01 Jan 2006"
+   ],
+   "display": {
+    "colours": [
+     "#000000",
+     "#3003fd",
+     "#795cfe",
+     "#3218fd",
+     "#3563fd",
+     "#3a97fd",
+     "#40c5fd",
+     "#47e9fe",
+     "#4bfffc",
+     "#4bfff0",
+     "#4cffe0",
+     "#78ffda",
+     "#59ffbc",
+     "#64ffa9",
+     "#71ff98",
+     "#7fff86",
+     "#8fff7a",
+     "#a1ff6f",
+     "#b5ff65",
+     "#cbff5d",
+     "#e6ff7c",
+     "#efff4e",
+     "#faff47",
+     "#fbed3f",
+     "#f9cd37",
+     "#f8a930",
+     "#f88128",
+     "#f75622",
+     "#f7221e",
+     "#fa5c6a",
+     "#f70217",
+     "#000000"
+    ],
+    "values": [
+     -2.0453823077101565,
+     -0.9477958152440316,
+     0.14979067722209338,
+     1.2473771696882183,
+     2.3449636621543433,
+     3.4425501546204678,
+     4.540136647086593,
+     5.637723139552717,
+     6.7353096320188435,
+     7.832896124484968,
+     8.930482616951092,
+     10.028069109417217,
+     11.125655601883343,
+     12.223242094349466,
+     13.32082858681559,
+     14.418415079281719,
+     15.516001571747843,
+     16.613588064213964,
+     17.711174556680092,
+     18.808761049146216,
+     19.90634754161234,
+     21.00393403407847,
+     22.10152052654459,
+     23.199107019010714,
+     24.296693511476843,
+     25.394280003942967,
+     26.491866496409088,
+     27.589452988875212,
+     28.687039481341337,
+     29.78462597380747,
+     30.882212466273593,
+     31.979798958739714
+    ],
+    "scale": "linear"
+   },
+   "status": "relative",
+   "status_check": "a_auto_source",
+   "statement": "relative: ρ 0.78 vs MUR SST (GIBS)"
+  }
+ ],
+ "voices": {
+  "value": "rel3821"
+ },
+ "play": [
+  {
+   "id": "value",
+   "label": "Flat Map Ocean Current Flows with Sea Surface Temperatures (SST): higher pitch = higher value",
+   "view": "global",
+   "map": "value",
+   "start": {
+    "lat": 9.5,
+    "lon": -2.5
+   },
+   "steps_per_second": 1,
+   "channels": [
+    {
+     "voice": "rel3821",
+     "layers": [
+      "value"
+     ],
+     "combine": "value"
+    }
+   ]
+  }
+ ],
+ "validation": [
+  {
+   "id": "a_auto_source",
+   "title": "Flat Map Ocean Current Flows with Sea Surface Temperatures (SST): decoded values vs MUR SST (GIBS)",
+   "kind": "value",
+   "pass": false,
+   "threshold": "Spearman ≥ 0.9 and median relative error ≤ 15 % → verified; ρ ≥ 0.9 → values with stated error; ρ ≥ 0.6 → relative (provisional, onboarding defaults)"
+  }
+ ],
+ "size": {
+  "choice": {
+   "frames": 3
+  },
+  "tried": [],
+  "bytes": 53211,
+  "budget": 25000000
+ },
+ "onboarding": {
+  "timings_s": {
+   "api": 12.5,
+   "twins": 1.8,
+   "asset choice": 0.0,
+   "frames": 21.0,
+   "frame times": 19.8,
+   "georef": 4.4,
+   "colorbar": 6.2,
+   "inversion": 39.8,
+   "validation": 28.9
+  },
+  "status": "relative"
+ },
+ "asset_checksums": {
+  "file": "checksums.tsv.gz",
+  "rows": 4,
+  "sha256_of_list": "637f3132f1f07b8fc9ded01aae54af9c0224d073ad3385b549013b8f700763ad"
+ },
+ "code_commit": "8b05d7649dce967ef7108fea92b3d906b0d854ae-dirty",
+ "generated_utc": "2026-10-31T15:24:10Z"
+}

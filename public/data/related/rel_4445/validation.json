@@ -1,0 +1,20 @@
+{
+ "record": "rel_4445",
+ "checks": [
+  {
+   "record": "rel_4445",
+   "id": "a_no_validation_source",
+   "title": "El Niño - Atmospheric River in January 2016: no validation source",
+   "kind": "none",
+   "source": null,
+   "metrics": {
+    "reason": "no validation source matches the item's words"
+   },
+   "threshold": null,
+   "pass": null,
+   "note": "no validation source matches the item's words",
+   "run_utc": "2026-11-06T20:02:44Z"
+  }
+ ],
+ "updated_utc": "2026-11-06T20:02:44Z"
+}

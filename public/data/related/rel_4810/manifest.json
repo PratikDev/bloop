@@ -1,0 +1,344 @@
+{
+ "record": "rel_4810",
+ "app_title": "Reductions in Pollution Associated with Decreased Fossil Fuel Use Resulting from COVID-19 Mitigation (observation)",
+ "svs_ids": [
+  4810
+ ],
+ "title": "Reductions in Pollution Associated with Decreased Fossil Fuel Use Resulting from COVID-19 Mitigation",
+ "svs_pages": [
+  "https://svs.gsfc.nasa.gov/4810/"
+ ],
+ "description": "Over the past several weeks, the United States has seen significant reductions in air pollution over its major metropolitan areas. Similar reductions in air pollution have been observed in other regions of the world. || Tropospheric NO2 Column, Animated GIF || cropped_NO2_2019_2020.gif (848x862) [54.4 MB] || cropped_NO2_2019_2020_print.jpg (1024x1040) [318.2 KB] || cropped_NO2_2019_2020_searchweb.png (320x180) [102.2 KB] || ",
+ "release_date": "2020-04-24T00:00:00-04:00",
+ "period": {
+  "start": "2020-04-24T04:00:00Z",
+  "end": "2020-04-24T04:00:00Z",
+  "label": "24 Apr 2020 – 24 Apr 2020"
+ },
+ "badge": "observation",
+ "credits_by_role": {
+  "Visualizer": [
+   "Trent L. Schindler (USRA)"
+  ],
+  "Scientist": [
+   "Bryan Duncan (NASA/GSFC)",
+   "Joanna Joiner (NASA/GSFC)",
+   "Lok Lamsal (USRA)"
+  ],
+  "Writer": [
+   "Bryan Duncan (NASA/GSFC)"
+  ],
+  "Technical support": [
+   "Ian Jones (ADNET Systems, Inc.)",
+   "Laurence Schuler (ADNET Systems, Inc.)"
+  ]
+ },
+ "datasets": [
+  {
+   "name": "",
+   "common_name": "",
+   "platform": "Aura",
+   "sensor": "OMI",
+   "type": "Other",
+   "organizations": [],
+   "description": "",
+   "credit": "",
+   "url": "",
+   "date_range": null
+  },
+  {
+   "name": "Ozone",
+   "common_name": "",
+   "platform": "Aura",
+   "sensor": "OMI",
+   "type": "Other",
+   "organizations": [],
+   "description": "",
+   "credit": "",
+   "url": "",
+   "date_range": null
+  },
+  {
+   "name": "Blue Marble: Next Generation",
+   "common_name": "BMNG",
+   "platform": "Terra and Aqua",
+   "sensor": "MODIS",
+   "type": "Other",
+   "organizations": [],
+   "description": "",
+   "credit": "The Blue Marble data is courtesy of Reto Stockli (NASA/GSFC).",
+   "url": "http://earthobservatory.nasa.gov/Newsroom/BlueMarble/",
+   "date_range": null
+  }
+ ],
+ "credit_line": "Visualization: NASA's Scientific Visualization Studio (SVS 4810) for the NASA Earth Information Center.",
+ "disclosure": "A related NASA visualization read back through its key (pattern only).",
+ "licence": "SVS: \"All of our content is in the public domain (unless otherwise noted), meaning that it is free to download, use, and redistribute for whatever purposes you see fit.\" (https://svs.gsfc.nasa.gov/help/, read 29 Oct 2026)",
+ "focus": "air quality",
+ "related_to": [
+  5533
+ ],
+ "frame_times": {
+  "method": "linear",
+  "approximate": true,
+  "count": 3,
+  "source": "undated"
+ },
+ "georef": {
+  "projection": "none (not a flat 2:1 map)",
+  "bounds": [
+   -180,
+   -101.25,
+   180,
+   101.25
+  ],
+  "pass_at": 0.9,
+  "shifts_deg": [],
+  "iou": {},
+  "pass": false,
+  "best_is_assumed": false
+ },
+ "colorbar": {
+  "geometry": {
+   "x0": 248,
+   "x1": 1757,
+   "band": [
+    177,
+    268
+   ],
+   "vertical": false,
+   "image_size": [
+    500,
+    2000
+   ]
+  },
+  "ticks": [
+   {
+    "px": -9.0,
+    "value": 0.0,
+    "text": "0.0",
+    "engine": "glyph"
+   },
+   {
+    "px": 1494.5,
+    "value": 10.0,
+    "text": "10.0",
+    "engine": "glyph"
+   }
+  ],
+  "scale": "linear",
+  "fit": {
+   "a": 0.059860325906215706,
+   "b": 0.006651147322913203,
+   "fit": "labels below the strip",
+   "max_resid_value": 3.1225022567582528e-15
+  },
+  "notes": [],
+  "n_samples": 1510,
+  "value_range": [
+   0.059860325906215706,
+   10.09644163618224
+  ],
+  "opacity_varies": false,
+  "px_per_unit": 150.35
+ },
+ "colorbar_source": "page colorbar cbar_NO2_2019_white_text.png",
+ "asset": {
+  "kind": "movie",
+  "owner": 4810,
+  "what": "march_yearly_NO2.mp4"
+ },
+ "twins": [],
+ "decode": {
+  "mode": "chroma",
+  "decoded_share": 0.3461789480452675
+ },
+ "layers": [
+  {
+   "id": "value",
+   "unit": "colorbar units",
+   "encoding": "linear",
+   "scale": 0.0006651147322913203,
+   "offset": 0.11689391732215881,
+   "nodata": 65535,
+   "below": 65534,
+   "grid": {
+    "width": 160,
+    "height": 90,
+    "bounds": [
+     -180,
+     -101.25,
+     180,
+     101.25
+    ],
+    "row0": "north",
+    "col0": "west",
+    "byte_order": "little",
+    "space": "frame"
+   },
+   "times": [
+    "2020-04-24T04:00:00Z",
+    "2020-04-24T04:00:00Z",
+    "2020-04-24T04:00:00Z"
+   ],
+   "chunks": [
+    {
+     "file": "value_000.u16.gz",
+     "t0": 0,
+     "t1": 3,
+     "bytes": 28480
+    }
+   ],
+   "quantisation_step": 0.0006651147322913203,
+   "coverage": 0.35180555555555554,
+   "value_range": [
+    0.11689391732215881,
+    8.096108436584473
+   ],
+   "label": "Reductions in Pollution Associated with Decreased Fossil Fuel Use Resulting from COVID-19 Mitigation (pattern only)",
+   "aggregation": "mean of decoded pixels per cell",
+   "time_labels": [
+    "undated",
+    "undated",
+    "undated"
+   ],
+   "display": {
+    "colours": [
+     "#b6e2ff",
+     "#76b7f6",
+     "#84bdee",
+     "#92c2e6",
+     "#a1c8de",
+     "#afcdd5",
+     "#bed3ce",
+     "#cdd8c5",
+     "#dbddbd",
+     "#e9e3b5",
+     "#f8e8ad",
+     "#fcd59a",
+     "#fab680",
+     "#f99a6f",
+     "#f87f62",
+     "#f1675f",
+     "#e25266",
+     "#d2436d",
+     "#bd3a76",
+     "#a8327c",
+     "#91297f",
+     "#7a2180",
+     "#671a7e",
+     "#55137c",
+     "#43116d",
+     "#2f105b",
+     "#1e1049",
+     "#190d3c",
+     "#140b30",
+     "#0f0821",
+     "#0a0615",
+     "#e1e1e2"
+    ],
+    "values": [
+     0.059860325906215706,
+     0.3836210133344745,
+     0.7073817007627333,
+     1.0311423881909922,
+     1.354903075619251,
+     1.6786637630475099,
+     2.0024244504757687,
+     2.3261851379040275,
+     2.6499458253322863,
+     2.973706512760545,
+     3.297467200188804,
+     3.621227887617063,
+     3.9449885750453215,
+     4.26874926247358,
+     4.592509949901839,
+     4.916270637330098,
+     5.240031324758356,
+     5.563792012186615,
+     5.887552699614874,
+     6.211313387043132,
+     6.5350740744713915,
+     6.858834761899651,
+     7.18259544932791,
+     7.506356136756169,
+     7.830116824184427,
+     8.153877511612686,
+     8.477638199040946,
+     8.801398886469205,
+     9.125159573897463,
+     9.448920261325723,
+     9.772680948753981,
+     10.09644163618224
+    ],
+    "scale": "linear"
+   },
+   "status": "pattern only",
+   "status_check": "a_no_validation_source",
+   "statement": "pattern only"
+  }
+ ],
+ "voices": {
+  "value": "rel4810"
+ },
+ "play": [
+  {
+   "id": "value",
+   "label": "Reductions in Pollution Associated with Decreased Fossil Fuel Use Resulting from COVID-19 Mitigation: higher pitch = higher value",
+   "view": "global",
+   "map": "value",
+   "start": {
+    "lat": -1.0,
+    "lon": 1.125
+   },
+   "steps_per_second": 1,
+   "channels": [
+    {
+     "voice": "rel4810",
+     "layers": [
+      "value"
+     ],
+     "combine": "value"
+    }
+   ]
+  }
+ ],
+ "validation": [
+  {
+   "id": "a_no_validation_source",
+   "title": "Reductions in Pollution Associated with Decreased Fossil Fuel Use Resulting from COVID-19 Mitigation: no validation source",
+   "kind": "none",
+   "pass": null,
+   "threshold": null
+  }
+ ],
+ "size": {
+  "choice": {
+   "frames": 3
+  },
+  "tried": [],
+  "bytes": 37089,
+  "budget": 25000000
+ },
+ "onboarding": {
+  "timings_s": {
+   "api": 8.0,
+   "twins": 0.7,
+   "asset choice": 0.0,
+   "frames": 28.5,
+   "frame times": 1.0,
+   "georef": 0.0,
+   "colorbar": 14.5,
+   "inversion": 37.3,
+   "validation": 0.0
+  },
+  "status": "pattern only"
+ },
+ "asset_checksums": {
+  "file": "checksums.tsv.gz",
+  "rows": 3,
+  "sha256_of_list": "74662a1fbcf8db8c98c8c7a398eed2ce3d4480fb6a240986b9539de2fac1fa14"
+ },
+ "code_commit": "a8f0638dc9adb81b18f259cf0813046acd882fa1-dirty",
+ "generated_utc": "2026-10-31T17:58:05Z"
+}

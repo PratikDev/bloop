@@ -1,0 +1,23 @@
+{
+ "record": "rel_5209",
+ "checks": [
+  {
+   "record": "rel_5209",
+   "id": "a_source_series",
+   "title": "Zonal Climate Anomalies 1880-2023: values are the cited source's series (not decoded from the graph)",
+   "kind": "context",
+   "source": "NASA GISS GISTEMP v4 (public domain)",
+   "metrics": {
+    "points": 146,
+    "first": "1880-07-01",
+    "last": "2025-07-01",
+    "url": "https://data.giss.nasa.gov/gistemp/tabledata_v4/ZonAnn.Ts+dSST.csv"
+   },
+   "threshold": null,
+   "pass": null,
+   "note": "A graph or spiral is drawn from these numbers; the record plays the numbers, not the picture.",
+   "run_utc": "2026-10-31T15:06:13Z"
+  }
+ ],
+ "updated_utc": "2026-10-31T15:06:13Z"
+}

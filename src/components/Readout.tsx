@@ -11,7 +11,7 @@ import { useShownPoint } from "./TimeLapse/use-shown-point";
 const BENGALI_DIGIT = /[০-৯]/;
 
 /** Bengali digits aren't tabular in Anek Bangla, so each gets a fixed cell (design-plan §3.1). */
-function Figure({ text, lang }: { text: string; lang: Lang }) {
+export function Figure({ text, lang }: { text: string; lang: Lang }) {
   if (lang !== "bn") return <>{text}</>;
   return (
     <>
@@ -28,7 +28,8 @@ function Figure({ text, lang }: { text: string; lang: Lang }) {
   );
 }
 
-function hero(r: Reading, track: string, lang: Lang): { figure: string; unit: "unit.celsius" | "unit.mmPerHour" } | null {
+/** The reading's headline figure for a track (ocean °C, or rain mm/h on the Rain track); null = none. */
+export function hero(r: Reading, track: string, lang: Lang): { figure: string; unit: "unit.celsius" | "unit.mmPerHour" } | null {
   if (track !== "rain") {
     return r.ocean.valueC === null ? null : { figure: formatTemperature(r.ocean.valueC, lang), unit: "unit.celsius" };
   }

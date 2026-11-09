@@ -1,0 +1,29 @@
+{
+ "record": "eic_5151",
+ "checks": [
+  {
+   "record": "eic_5151",
+   "id": "a_same_model",
+   "title": "PM2.5 (GEOS-CF): frame vs GEOS-CF v2 analysis chm_tavg_1hr_glo_L1440x721_slv pm25_rh35 at 2026-10-28 22:30:00 UTC",
+   "kind": "value",
+   "source": "GEOS-CF v2 analysis chm_tavg_1hr_glo_L1440x721_slv (NCCS OPeNDAP)",
+   "metrics": {
+    "spearman": 0.9453533871281639,
+    "n": 233249,
+    "median_rel_error": 0.7029449715823085,
+    "median_abs": 1.85194142217895,
+    "bias": -4.601785279025558,
+    "frame_time_utc": "2026-10-28T22:00Z",
+    "georef_spearman_shift_lon": {
+     "-1.0": 0.9300162754859705,
+     "1.0": 0.9445940221791647
+    }
+   },
+   "threshold": "Spearman ≥ 0.9 and median relative error ≤ 15 % (provisional)",
+   "pass": false,
+   "note": "Same model: this tests the decoding. Unit conversion stated in the item table.",
+   "run_utc": "2026-11-06T14:10:04Z"
+  }
+ ],
+ "updated_utc": "2026-11-06T14:10:04Z"
+}

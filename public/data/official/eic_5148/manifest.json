@@ -1,0 +1,363 @@
+{
+ "record": "eic_5148",
+ "app_title": "Near-surface wind speed (EIC, model)",
+ "svs_ids": [
+  5148
+ ],
+ "title": "GEOS-FP Near-Surface Wind Speed",
+ "svs_pages": [
+  "https://svs.gsfc.nasa.gov/5148/"
+ ],
+ "description": "Near-surface wind speed is calculated by sampling 3-D atmospheric fields from NASA’s GEOS-FP system 10 meters above Earth’s surface. GEOS-FP combines millions of weather observations with a predictive model to create a global best estimate of weather conditions that are used to begin a forecast.",
+ "release_date": "2023-09-26T17:00:00-04:00",
+ "period": {
+  "start": "2026-10-28T22:00:00Z",
+  "end": "2026-10-28T22:00:00Z",
+  "label": "28 Oct 2026 – 28 Oct 2026"
+ },
+ "badge": "model",
+ "credits_by_role": {
+  "Visualizer": [
+   "Joseph V. Ardizzone (NASA/GSFC)"
+  ]
+ },
+ "datasets": [
+  {
+   "name": "GEOS-FP",
+   "common_name": "",
+   "platform": null,
+   "sensor": null,
+   "type": "Model",
+   "organizations": [
+    "NASA GMAO"
+   ],
+   "description": "Documentation: Lucchesi, R., 2018: File Specification for GEOS FP. GMAO Office Note No. 4 (Version 1.2), 61 pp, available from [https://gmao.gsfc.nasa.gov/pubs/docs/Lucchesi1203.pdf](https://gmao.gsfc.nasa.gov/pubs/docs/Lucchesi1203.pdf)",
+   "credit": "",
+   "url": "https://fluid.nccs.nasa.gov/weather/",
+   "date_range": null
+  }
+ ],
+ "credit_line": "Visualization: NASA's Scientific Visualization Studio (SVS 5148) for the NASA Earth Information Center.",
+ "disclosure": "One frame of a rolling EIC layer, read back through its key.",
+ "licence": "SVS: \"All of our content is in the public domain (unless otherwise noted), meaning that it is free to download, use, and redistribute for whatever purposes you see fit.\" (https://svs.gsfc.nasa.gov/help/, read 29 Oct 2026)",
+ "frame_times": {
+  "method": "ocr",
+  "approximate": false,
+  "count": 1,
+  "source": "date box OCR: 28 Oct 2026 18 : 00 : 00 EDT"
+ },
+ "georef": {
+  "projection": "equirectangular",
+  "bounds": [
+   -180,
+   -90,
+   180,
+   90
+  ],
+  "pass_at": 0.9,
+  "shifts_deg": [
+   1.0
+  ],
+  "iou": {},
+  "pass": true,
+  "best_is_assumed": false
+ },
+ "colorbar": {
+  "geometry": {
+   "x0": 107,
+   "x1": 462,
+   "band": [
+    77,
+    112
+   ],
+   "vertical": false,
+   "outline_rgb": [
+    255.0,
+    255.0,
+    255.0
+   ],
+   "image_size": [
+    165,
+    528
+   ]
+  },
+  "ticks": [
+   {
+    "px": 13.69047619047619,
+    "value": 5.0,
+    "text": "5",
+    "engine": "glyph",
+    "label_px": 14.5,
+    "tick_mark": true
+   },
+   {
+    "px": 62.56104651162791,
+    "value": 10.0,
+    "text": "10",
+    "engine": "glyph",
+    "label_px": 64.0,
+    "tick_mark": true
+   },
+   {
+    "px": 111.49792531120332,
+    "value": 15.0,
+    "text": "15",
+    "engine": "glyph",
+    "label_px": 112.0,
+    "tick_mark": true
+   },
+   {
+    "px": 159.5006147037128,
+    "value": 20.0,
+    "text": "20",
+    "engine": "glyph",
+    "label_px": 161.5,
+    "tick_mark": true
+   },
+   {
+    "px": 209.49915110356537,
+    "value": 25.0,
+    "text": "25",
+    "engine": "glyph",
+    "label_px": 210.5,
+    "tick_mark": true
+   },
+   {
+    "px": 255.9990162321692,
+    "value": 30.0,
+    "text": "30",
+    "engine": "glyph",
+    "label_px": 257.5,
+    "tick_mark": true
+   },
+   {
+    "px": 305.5,
+    "value": 35.0,
+    "text": "35",
+    "engine": "glyph",
+    "label_px": 307.5,
+    "tick_mark": true
+   },
+   {
+    "px": 356.5,
+    "value": 40.0,
+    "text": "40",
+    "engine": "glyph",
+    "label_px": 356.5
+   }
+  ],
+  "scale": "linear",
+  "fit": {
+   "a": 3.566463928911029,
+   "b": 0.10285173691678443,
+   "fit": "weighted 1/tolerance",
+   "max_resid_px": 2.266448255835253,
+   "resid_px": [
+    0.25,
+    -0.01,
+    -0.33,
+    0.28,
+    -1.11,
+    1.01,
+    0.12,
+    -2.27
+   ],
+   "ok": true
+  },
+  "notes": [
+   "1 label(s) not on a tick mark (40): label-centre position, ±5 px."
+  ],
+  "n_samples": 356,
+  "value_range": [
+   3.566463928911029,
+   40.078830534369494
+  ],
+  "opacity_varies": false,
+  "px_per_unit": 9.722733227238377
+ },
+ "colorbar_file": "NearSurfaceWindSpeed_colorbar.png",
+ "decode": {
+  "mode": "chroma",
+  "exact_share": 0.4457560698450154,
+  "decoded_share": 0.43239307403564453,
+  "base_map_share": 0.27243651870517543,
+  "matcher": "rgb-nearest",
+  "max_dist": 12.0
+ },
+ "frame": "00000201.png",
+ "frame_set": "https://svs.gsfc.nasa.gov/vis/a000000/a005100/a005148/frames/2048x1024_2x1_12p/MC02_stage3_GMAO_near_surface_wind_2048x1024_en-hwtool/",
+ "layers": [
+  {
+   "id": "value",
+   "unit": "m/s",
+   "encoding": "linear",
+   "scale": 0.010285173691678444,
+   "offset": 3.5664634704589844,
+   "nodata": 65535,
+   "below": 65534,
+   "grid": {
+    "width": 720,
+    "height": 360,
+    "bounds": [
+     -180,
+     -90,
+     180,
+     90
+    ],
+    "row0": "north",
+    "col0": "west",
+    "byte_order": "little"
+   },
+   "times": [
+    "2026-10-28T22:00:00Z"
+   ],
+   "chunks": [
+    {
+     "file": "value_000.u16.gz",
+     "t0": 0,
+     "t1": 1,
+     "bytes": 187437
+    }
+   ],
+   "quantisation_step": 0.010285173691678444,
+   "coverage": 0.448329475308642,
+   "value_range": [
+    3.5664634704589844,
+    38.63890838623047
+   ],
+   "label": "Near-surface wind speed (model)",
+   "aggregation": "mean of decoded pixels per 0.5° cell",
+   "display": {
+    "colours": [
+     "#e4d1e3",
+     "#9a7fb9",
+     "#33379c",
+     "#163dde",
+     "#3c74e8",
+     "#73c9ea",
+     "#8eedcd",
+     "#a0eca6",
+     "#c4ed64",
+     "#e0eb50",
+     "#e7d644",
+     "#dfab38",
+     "#db9031",
+     "#d56727",
+     "#ce4420",
+     "#c9391d",
+     "#ac2c17",
+     "#962612",
+     "#83200e",
+     "#681709",
+     "#5c1307",
+     "#501005",
+     "#470c04",
+     "#410b03",
+     "#390803",
+     "#330702",
+     "#340f0b",
+     "#44322d",
+     "#4e4742",
+     "#5b5854",
+     "#6c6c69",
+     "#727471"
+    ],
+    "values": [
+     3.566463928911029,
+     4.744282206506464,
+     5.9221004841018985,
+     7.0999187616973325,
+     8.277737039292766,
+     9.455555316888201,
+     10.633373594483636,
+     11.81119187207907,
+     12.989010149674504,
+     14.16682842726994,
+     15.344646704865374,
+     16.52246498246081,
+     17.700283260056242,
+     18.87810153765168,
+     20.055919815247112,
+     21.23373809284255,
+     22.41155637043798,
+     23.589374648033417,
+     24.76719292562885,
+     25.945011203224286,
+     27.12282948081972,
+     28.300647758415156,
+     29.47846603601059,
+     30.656284313606022,
+     31.834102591201457,
+     33.01192086879689,
+     34.18973914639233,
+     35.36755742398776,
+     36.54537570158319,
+     37.723193979178625,
+     38.90101225677407,
+     40.078830534369494
+    ],
+    "scale": "linear"
+   },
+   "time_labels": [
+    "28 Oct 2026 22:00 UTC"
+   ],
+   "status": "pattern only",
+   "statement": "pattern only (values not verified)",
+   "status_check": "a_same_model"
+  }
+ ],
+ "voices": {
+  "value": "eic5148"
+ },
+ "play": [
+  {
+   "id": "value",
+   "label": "Near-surface wind speed: higher pitch = higher value",
+   "view": "global",
+   "map": "value",
+   "start": {
+    "lat": 21.25,
+    "lon": 88.75
+   },
+   "steps_per_second": 1,
+   "channels": [
+    {
+     "voice": "eic5148",
+     "layers": [
+      "value"
+     ],
+     "combine": "value"
+    }
+   ]
+  }
+ ],
+ "validation": [
+  {
+   "id": "a_same_model",
+   "title": "Near-surface wind speed: frame vs GEOS-FP tavg1_2d_slv_Nx u2m/v2m at 2026-10-28 22:30:00 UTC",
+   "kind": "value",
+   "pass": false,
+   "threshold": "Spearman ≥ 0.9 and median relative error ≤ 15 % (provisional)"
+  }
+ ],
+ "size": {
+  "choice": {
+   "cell_deg": 0.5
+  },
+  "tried": [],
+  "bytes": 196551,
+  "budget": 25000000
+ },
+ "asset_checksums": {
+  "file": "checksums.tsv.gz",
+  "rows": 3,
+  "sha256_of_list": "15cc7ecc17fbe91c1da209df5fdd30a4f8b897ef374043b0913ff58b612d390b"
+ },
+ "code_commit": "89d9b8068e678d3974c18af9a8b5984e9934c0ab-dirty",
+ "generated_utc": "2026-11-06T14:13:07Z",
+ "playable": {
+  "moved_starts": [
+   "value"
+  ]
+ }
+}

@@ -1,0 +1,529 @@
+{
+ "id": 5436,
+ "title": "DYAMOND Global Carbon Dioxide for Science On A Sphere",
+ "url": "https://svs.gsfc.nasa.gov/5436/",
+ "page_type": "Visualization",
+ "release_date": "2025-07-04T00:00:00-04:00",
+ "update_date": "2025-07-03T16:54:15.483411-04:00",
+ "description": "This is the Science-on-a-Sphere version of svs.gsfc.nasa.gov/5196.SOS label file: dyamond_timestamps.txt ||",
+ "full_text": "This is the Science-on-a-Sphere version of svs.gsfc.nasa.gov/5196.SOS label file: dyamond_timestamps.txt ||\n\nThis is the Science-on-a-Sphere version of <a href=\"svs.gsfc.nasa.gov/5196\">svs.gsfc.nasa.gov/5196</a>.\n\nGlobal CO2 ppm for January-March of 2020.\n\nThis map shows concentrations of carbon dioxide  (CO2) as wind and air masses moved the gas through Earth’s atmosphere in the winter of 2020. The majority of emissions over China, the United States, and South Asia came from power plants, industrial facilities, cars, and trucks. Over Africa and South America, emissions largely stemmed from fires related to farm and land management and from deforestation, with some contributions from fossil fuel burning. This visualization was created using a high-resolution weather model powered by supercomputers. It pulls together billions of data points from real-world ground observations and satellite instruments.\n\nGlobal CO2 ppm for January-March of 2020. These frames are provided as a layer for video producers and only shows the CO2 volume, with no background.\n\nEarth's surface for January-March of 2020, interpolated from the monthly Blue Marble data. These frames are provided as a layer for video producers and only shows the surface of the Earth, intended as a background for the CO2 volume.\n\nColor bar showing the range, color, and opacity transfer functions for the above visualizations.\n\nThis is for creating a thumbnail.",
+ "credits_by_role": {
+  "Visualizer": [
+   "AJ Christensen (SSAI)",
+   "Greg Shirah (NASA/GSFC)",
+   "Helen-Nicole Kostis (USRA)",
+   "Mark SubbaRao (NASA/GSFC)"
+  ],
+  "Technical support": [
+   "Laurence Schuler (ADNET Systems, Inc.)",
+   "Ian Jones (ADNET Systems, Inc.)"
+  ],
+  "Scientist": [
+   "Lesley Ott (NASA/GSFC)",
+   "Brad Weir (Morgan State University)",
+   "William Putman (NASA/GSFC)",
+   "Tomohiro Oda (USRA/EfSI)"
+  ]
+ },
+ "keywords": [
+  "Carbon Dioxide",
+  "Eic (earth information center) display"
+ ],
+ "datasets": [
+  {
+   "name": "DYAMOND",
+   "common_name": "",
+   "platform": null,
+   "sensor": null,
+   "type": "Model",
+   "organizations": [
+    "NASA/JPL, NASA/GMAO"
+   ],
+   "description": "The data from the experimental coupled GEOS-MITgcm model known as DYAMOND that was run on NASA Advanced Supercomputing facility.",
+   "credit": "",
+   "url": "",
+   "date_range": null
+  }
+ ],
+ "missions": [],
+ "related": [
+  {
+   "id": 5424,
+   "title": "The Different Sources of Atmospheric Methane",
+   "url": "https://svs.gsfc.nasa.gov/5424/"
+  }
+ ],
+ "alternate_versions": [],
+ "newer_versions": [],
+ "older_versions": [],
+ "media": [
+  {
+   "group": 1,
+   "group_title": "",
+   "widget": "Video player",
+   "caption": "",
+   "group_text": "Global CO2 ppm for January-March of 2020.",
+   "url": "https://svs.gsfc.nasa.gov/vis/a000000/a005400/a005436/soscomp_1-29-2025a.00200_print.jpg",
+   "filename": "soscomp_1-29-2025a.00200_print.jpg",
+   "media_type": "Image",
+   "width": 1024,
+   "height": 512,
+   "alt_text": "Global CO2 ppm for January-March of 2020."
+  },
+  {
+   "group": 1,
+   "group_title": "",
+   "widget": "Video player",
+   "caption": "",
+   "group_text": "Global CO2 ppm for January-March of 2020.",
+   "url": "https://svs.gsfc.nasa.gov/vis/a000000/a005400/a005436/soscomp_1-29-2025a.00200_searchweb.png",
+   "filename": "soscomp_1-29-2025a.00200_searchweb.png",
+   "media_type": "Image",
+   "width": 320,
+   "height": 180,
+   "alt_text": "Global CO2 ppm for January-March of 2020."
+  },
+  {
+   "group": 1,
+   "group_title": "",
+   "widget": "Video player",
+   "caption": "",
+   "group_text": "Global CO2 ppm for January-March of 2020.",
+   "url": "https://svs.gsfc.nasa.gov/vis/a000000/a005400/a005436/soscomp_1-29-2025a.00200_web.png",
+   "filename": "soscomp_1-29-2025a.00200_web.png",
+   "media_type": "Image",
+   "width": 320,
+   "height": 160,
+   "alt_text": "Global CO2 ppm for January-March of 2020."
+  },
+  {
+   "group": 1,
+   "group_title": "",
+   "widget": "Video player",
+   "caption": "",
+   "group_text": "Global CO2 ppm for January-March of 2020.",
+   "url": "https://svs.gsfc.nasa.gov/vis/a000000/a005400/a005436/soscomp_1-29-2025a.00200_thm.png",
+   "filename": "soscomp_1-29-2025a.00200_thm.png",
+   "media_type": "Image",
+   "width": 80,
+   "height": 40,
+   "alt_text": "Global CO2 ppm for January-March of 2020."
+  },
+  {
+   "group": 1,
+   "group_title": "",
+   "widget": "Video player",
+   "caption": "",
+   "group_text": "Global CO2 ppm for January-March of 2020.",
+   "url": "https://svs.gsfc.nasa.gov/vis/a000000/a005400/a005436/soscomp_1-29-2025a_1024p30.mp4",
+   "filename": "soscomp_1-29-2025a_1024p30.mp4",
+   "media_type": "Movie",
+   "width": 2048,
+   "height": 1024,
+   "alt_text": "Global CO2 ppm for January-March of 2020."
+  },
+  {
+   "group": 1,
+   "group_title": "",
+   "widget": "Video player",
+   "caption": "",
+   "group_text": "Global CO2 ppm for January-March of 2020.",
+   "url": "https://svs.gsfc.nasa.gov/vis/a000000/a005400/a005436/frames/8192x4096_2x1_30p/soscomp_1-29-2025a/",
+   "filename": "soscomp_1-29-2025a",
+   "media_type": "Frames",
+   "width": 8192,
+   "height": 4096,
+   "alt_text": "Global CO2 ppm for January-March of 2020."
+  },
+  {
+   "group": 1,
+   "group_title": "",
+   "widget": "Video player",
+   "caption": "",
+   "group_text": "Global CO2 ppm for January-March of 2020.",
+   "url": "https://svs.gsfc.nasa.gov/vis/a000000/a005400/a005436/soscomp_1-29-2025a_2048p30.mp4",
+   "filename": "soscomp_1-29-2025a_2048p30.mp4",
+   "media_type": "Movie",
+   "width": 4096,
+   "height": 2048,
+   "alt_text": "Global CO2 ppm for January-March of 2020."
+  },
+  {
+   "group": 1,
+   "group_title": "",
+   "widget": "Video player",
+   "caption": "",
+   "group_text": "Global CO2 ppm for January-March of 2020.",
+   "url": "https://svs.gsfc.nasa.gov/vis/a000000/a005400/a005436/frames/8192x4096_2x1_30p/soscomp_1-29-2025a_pngs/",
+   "filename": "soscomp_1-29-2025a_pngs",
+   "media_type": "Frames",
+   "width": 8192,
+   "height": 4096,
+   "alt_text": "Global CO2 ppm for January-March of 2020."
+  },
+  {
+   "group": 1,
+   "group_title": "",
+   "widget": "Video player",
+   "caption": "",
+   "group_text": "Global CO2 ppm for January-March of 2020.",
+   "url": "https://svs.gsfc.nasa.gov/vis/a000000/a005400/a005436/soscomp_1-29-2025a_4096p30_h265.mp4",
+   "filename": "soscomp_1-29-2025a_4096p30_h265.mp4",
+   "media_type": "Movie",
+   "width": 8192,
+   "height": 4096,
+   "alt_text": "Global CO2 ppm for January-March of 2020."
+  },
+  {
+   "group": 2,
+   "group_title": "",
+   "widget": "Globe Viewer",
+   "caption": "",
+   "group_text": "This map shows concentrations of carbon dioxide  (CO2) as wind and air masses moved the gas through Earth’s atmosphere in the winter of 2020. The majority of emissions over China, the United States, and South Asia came from power plants, industrial facilities, cars, and trucks. Over Africa and South America, emissions largely stemmed from fires related to farm and land management and from deforestation, with some contributions from fossil fuel burning. This visualization was created using a high-resolution weather model powered by supercomputers. It pulls together billions of data points from real-world ground observations and satellite instruments.",
+   "url": "https://svs.gsfc.nasa.gov/vis/a000000/a005400/a005436/dyamond_soscomp_1-15-2025a_2048p30.mp4",
+   "filename": "dyamond_soscomp_1-15-2025a_2048p30.mp4",
+   "media_type": "Movie",
+   "width": 4096,
+   "height": 2048,
+   "alt_text": "Global CO2 ppm for January-March of 2020."
+  },
+  {
+   "group": 2,
+   "group_title": "",
+   "widget": "Globe Viewer",
+   "caption": "",
+   "group_text": "This map shows concentrations of carbon dioxide  (CO2) as wind and air masses moved the gas through Earth’s atmosphere in the winter of 2020. The majority of emissions over China, the United States, and South Asia came from power plants, industrial facilities, cars, and trucks. Over Africa and South America, emissions largely stemmed from fires related to farm and land management and from deforestation, with some contributions from fossil fuel burning. This visualization was created using a high-resolution weather model powered by supercomputers. It pulls together billions of data points from real-world ground observations and satellite instruments.",
+   "url": "https://svs.gsfc.nasa.gov/vis/a000000/a005400/a005436/frames/8192x4096_2x1_30p/",
+   "filename": "8192x4096_2x1_30p",
+   "media_type": "Frames",
+   "width": 0,
+   "height": 0,
+   "alt_text": ""
+  },
+  {
+   "group": 3,
+   "group_title": "",
+   "widget": "Video player",
+   "caption": "",
+   "group_text": "Global CO2 ppm for January-March of 2020. These frames are provided as a layer for video producers and only shows the CO2 volume, with no background.",
+   "url": "https://svs.gsfc.nasa.gov/vis/a000000/a005400/a005436/dyamondPointCloud_10-8-2024a_dyamond_co2_sos_volume_8k.00001_print.jpg",
+   "filename": "dyamondPointCloud_10-8-2024a_dyamond_co2_sos_volume_8k.00001_print.jpg",
+   "media_type": "Image",
+   "width": 1024,
+   "height": 512,
+   "alt_text": "Global CO2 ppm for January-March of 2020. These frames are provided as a layer for video producers and only shows the CO2 volume, with no background."
+  },
+  {
+   "group": 3,
+   "group_title": "",
+   "widget": "Video player",
+   "caption": "",
+   "group_text": "Global CO2 ppm for January-March of 2020. These frames are provided as a layer for video producers and only shows the CO2 volume, with no background.",
+   "url": "https://svs.gsfc.nasa.gov/vis/a000000/a005400/a005436/dyamondPointCloud_10-8-2024a_dyamond_co2_sos_volume_8k.00001_searchweb.png",
+   "filename": "dyamondPointCloud_10-8-2024a_dyamond_co2_sos_volume_8k.00001_searchweb.png",
+   "media_type": "Image",
+   "width": 320,
+   "height": 180,
+   "alt_text": "Global CO2 ppm for January-March of 2020. These frames are provided as a layer for video producers and only shows the CO2 volume, with no background."
+  },
+  {
+   "group": 3,
+   "group_title": "",
+   "widget": "Video player",
+   "caption": "",
+   "group_text": "Global CO2 ppm for January-March of 2020. These frames are provided as a layer for video producers and only shows the CO2 volume, with no background.",
+   "url": "https://svs.gsfc.nasa.gov/vis/a000000/a005400/a005436/dyamondPointCloud_10-8-2024a_dyamond_co2_sos_volume_8k.00001_web.png",
+   "filename": "dyamondPointCloud_10-8-2024a_dyamond_co2_sos_volume_8k.00001_web.png",
+   "media_type": "Image",
+   "width": 320,
+   "height": 160,
+   "alt_text": "Global CO2 ppm for January-March of 2020. These frames are provided as a layer for video producers and only shows the CO2 volume, with no background."
+  },
+  {
+   "group": 3,
+   "group_title": "",
+   "widget": "Video player",
+   "caption": "",
+   "group_text": "Global CO2 ppm for January-March of 2020. These frames are provided as a layer for video producers and only shows the CO2 volume, with no background.",
+   "url": "https://svs.gsfc.nasa.gov/vis/a000000/a005400/a005436/dyamondPointCloud_10-8-2024a_dyamond_co2_sos_volume_8k.00001_thm.png",
+   "filename": "dyamondPointCloud_10-8-2024a_dyamond_co2_sos_volume_8k.00001_thm.png",
+   "media_type": "Image",
+   "width": 80,
+   "height": 40,
+   "alt_text": "Global CO2 ppm for January-March of 2020. These frames are provided as a layer for video producers and only shows the CO2 volume, with no background."
+  },
+  {
+   "group": 3,
+   "group_title": "",
+   "widget": "Video player",
+   "caption": "",
+   "group_text": "Global CO2 ppm for January-March of 2020. These frames are provided as a layer for video producers and only shows the CO2 volume, with no background.",
+   "url": "https://svs.gsfc.nasa.gov/vis/a000000/a005400/a005436/dyamondPointCloud_10-8-2024a_dyamond_co2_sos_volume_8k_1024p30.mp4",
+   "filename": "dyamondPointCloud_10-8-2024a_dyamond_co2_sos_volume_8k_1024p30.mp4",
+   "media_type": "Movie",
+   "width": 2048,
+   "height": 1024,
+   "alt_text": "Global CO2 ppm for January-March of 2020. These frames are provided as a layer for video producers and only shows the CO2 volume, with no background."
+  },
+  {
+   "group": 3,
+   "group_title": "",
+   "widget": "Video player",
+   "caption": "",
+   "group_text": "Global CO2 ppm for January-March of 2020. These frames are provided as a layer for video producers and only shows the CO2 volume, with no background.",
+   "url": "https://svs.gsfc.nasa.gov/vis/a000000/a005400/a005436/frames/8192x4096_2x1_30p/dyamondPointCloud_10-8-2024a_dyamond_co2_sos_volume_8k/",
+   "filename": "dyamondPointCloud_10-8-2024a_dyamond_co2_sos_volume_8k",
+   "media_type": "Frames",
+   "width": 8192,
+   "height": 4096,
+   "alt_text": "Global CO2 ppm for January-March of 2020. These frames are provided as a layer for video producers and only shows the CO2 volume, with no background."
+  },
+  {
+   "group": 4,
+   "group_title": "",
+   "widget": "Video player",
+   "caption": "",
+   "group_text": "Earth's surface for January-March of 2020, interpolated from the monthly Blue Marble data. These frames are provided as a layer for video producers and only shows the surface of the Earth, intended as a background for the CO2 volume.",
+   "url": "https://svs.gsfc.nasa.gov/vis/a000000/a005400/a005436/dyamondPointCloud_1-29-2025a_dyamond_co2_sos_surface_8k.00001_print.jpg",
+   "filename": "dyamondPointCloud_1-29-2025a_dyamond_co2_sos_surface_8k.00001_print.jpg",
+   "media_type": "Image",
+   "width": 1024,
+   "height": 512,
+   "alt_text": "Earth's surface for January-March of 2020, interpolated from the monthly Blue Marble data. These frames are provided as a layer for video producers and only shows the surface of the Earth, intended as a background for the CO2 volume."
+  },
+  {
+   "group": 4,
+   "group_title": "",
+   "widget": "Video player",
+   "caption": "",
+   "group_text": "Earth's surface for January-March of 2020, interpolated from the monthly Blue Marble data. These frames are provided as a layer for video producers and only shows the surface of the Earth, intended as a background for the CO2 volume.",
+   "url": "https://svs.gsfc.nasa.gov/vis/a000000/a005400/a005436/dyamondPointCloud_1-29-2025a_dyamond_co2_sos_surface_8k.00001_searchweb.png",
+   "filename": "dyamondPointCloud_1-29-2025a_dyamond_co2_sos_surface_8k.00001_searchweb.png",
+   "media_type": "Image",
+   "width": 320,
+   "height": 180,
+   "alt_text": "Earth's surface for January-March of 2020, interpolated from the monthly Blue Marble data. These frames are provided as a layer for video producers and only shows the surface of the Earth, intended as a background for the CO2 volume."
+  },
+  {
+   "group": 4,
+   "group_title": "",
+   "widget": "Video player",
+   "caption": "",
+   "group_text": "Earth's surface for January-March of 2020, interpolated from the monthly Blue Marble data. These frames are provided as a layer for video producers and only shows the surface of the Earth, intended as a background for the CO2 volume.",
+   "url": "https://svs.gsfc.nasa.gov/vis/a000000/a005400/a005436/dyamondPointCloud_1-29-2025a_dyamond_co2_sos_surface_8k.00001_web.png",
+   "filename": "dyamondPointCloud_1-29-2025a_dyamond_co2_sos_surface_8k.00001_web.png",
+   "media_type": "Image",
+   "width": 320,
+   "height": 160,
+   "alt_text": "Earth's surface for January-March of 2020, interpolated from the monthly Blue Marble data. These frames are provided as a layer for video producers and only shows the surface of the Earth, intended as a background for the CO2 volume."
+  },
+  {
+   "group": 4,
+   "group_title": "",
+   "widget": "Video player",
+   "caption": "",
+   "group_text": "Earth's surface for January-March of 2020, interpolated from the monthly Blue Marble data. These frames are provided as a layer for video producers and only shows the surface of the Earth, intended as a background for the CO2 volume.",
+   "url": "https://svs.gsfc.nasa.gov/vis/a000000/a005400/a005436/dyamondPointCloud_1-29-2025a_dyamond_co2_sos_surface_8k.00001_thm.png",
+   "filename": "dyamondPointCloud_1-29-2025a_dyamond_co2_sos_surface_8k.00001_thm.png",
+   "media_type": "Image",
+   "width": 80,
+   "height": 40,
+   "alt_text": "Earth's surface for January-March of 2020, interpolated from the monthly Blue Marble data. These frames are provided as a layer for video producers and only shows the surface of the Earth, intended as a background for the CO2 volume."
+  },
+  {
+   "group": 4,
+   "group_title": "",
+   "widget": "Video player",
+   "caption": "",
+   "group_text": "Earth's surface for January-March of 2020, interpolated from the monthly Blue Marble data. These frames are provided as a layer for video producers and only shows the surface of the Earth, intended as a background for the CO2 volume.",
+   "url": "https://svs.gsfc.nasa.gov/vis/a000000/a005400/a005436/dyamondPointCloud_1-29-2025a_dyamond_co2_sos_surface_8k_1024p30.mp4",
+   "filename": "dyamondPointCloud_1-29-2025a_dyamond_co2_sos_surface_8k_1024p30.mp4",
+   "media_type": "Movie",
+   "width": 2048,
+   "height": 1024,
+   "alt_text": "Earth's surface for January-March of 2020, interpolated from the monthly Blue Marble data. These frames are provided as a layer for video producers and only shows the surface of the Earth, intended as a background for the CO2 volume."
+  },
+  {
+   "group": 4,
+   "group_title": "",
+   "widget": "Video player",
+   "caption": "",
+   "group_text": "Earth's surface for January-March of 2020, interpolated from the monthly Blue Marble data. These frames are provided as a layer for video producers and only shows the surface of the Earth, intended as a background for the CO2 volume.",
+   "url": "https://svs.gsfc.nasa.gov/vis/a000000/a005400/a005436/dyamondPointCloud_1-29-2025a_dyamond_co2_sos_surface_8k_2048p30.mp4",
+   "filename": "dyamondPointCloud_1-29-2025a_dyamond_co2_sos_surface_8k_2048p30.mp4",
+   "media_type": "Movie",
+   "width": 4096,
+   "height": 2048,
+   "alt_text": "Earth's surface for January-March of 2020, interpolated from the monthly Blue Marble data. These frames are provided as a layer for video producers and only shows the surface of the Earth, intended as a background for the CO2 volume."
+  },
+  {
+   "group": 4,
+   "group_title": "",
+   "widget": "Video player",
+   "caption": "",
+   "group_text": "Earth's surface for January-March of 2020, interpolated from the monthly Blue Marble data. These frames are provided as a layer for video producers and only shows the surface of the Earth, intended as a background for the CO2 volume.",
+   "url": "https://svs.gsfc.nasa.gov/vis/a000000/a005400/a005436/frames/8192x4096_2x1_30p/dyamondPointCloud_1-29-2025a_dyamond_co2_sos_surface_8k/",
+   "filename": "dyamondPointCloud_1-29-2025a_dyamond_co2_sos_surface_8k",
+   "media_type": "Frames",
+   "width": 8192,
+   "height": 4096,
+   "alt_text": "Earth's surface for January-March of 2020, interpolated from the monthly Blue Marble data. These frames are provided as a layer for video producers and only shows the surface of the Earth, intended as a background for the CO2 volume."
+  },
+  {
+   "group": 4,
+   "group_title": "",
+   "widget": "Video player",
+   "caption": "",
+   "group_text": "Earth's surface for January-March of 2020, interpolated from the monthly Blue Marble data. These frames are provided as a layer for video producers and only shows the surface of the Earth, intended as a background for the CO2 volume.",
+   "url": "https://svs.gsfc.nasa.gov/vis/a000000/a005400/a005436/dyamondPointCloud_1-29-2025a_dyamond_co2_sos_surface_8k_4096p30_h265.mp4",
+   "filename": "dyamondPointCloud_1-29-2025a_dyamond_co2_sos_surface_8k_4096p30_h265.mp4",
+   "media_type": "Movie",
+   "width": 8192,
+   "height": 4096,
+   "alt_text": "Earth's surface for January-March of 2020, interpolated from the monthly Blue Marble data. These frames are provided as a layer for video producers and only shows the surface of the Earth, intended as a background for the CO2 volume."
+  },
+  {
+   "group": 5,
+   "group_title": "",
+   "widget": "Single image",
+   "caption": "",
+   "group_text": "Color bar showing the range, color, and opacity transfer functions for the above visualizations.",
+   "url": "https://svs.gsfc.nasa.gov/vis/a000000/a005400/a005436/dyamondCbar_6-27-2024a.png",
+   "filename": "dyamondCbar_6-27-2024a.png",
+   "media_type": "Image",
+   "width": 1920,
+   "height": 1080,
+   "alt_text": "Color bar showing the range, color, and opacity transfer functions for the above visualizations."
+  },
+  {
+   "group": 5,
+   "group_title": "",
+   "widget": "Single image",
+   "caption": "",
+   "group_text": "Color bar showing the range, color, and opacity transfer functions for the above visualizations.",
+   "url": "https://svs.gsfc.nasa.gov/vis/a000000/a005400/a005436/dyamondCbar_6-27-2024a_print.jpg",
+   "filename": "dyamondCbar_6-27-2024a_print.jpg",
+   "media_type": "Image",
+   "width": 1024,
+   "height": 576,
+   "alt_text": "Color bar showing the range, color, and opacity transfer functions for the above visualizations."
+  },
+  {
+   "group": 6,
+   "group_title": "Hidden",
+   "widget": "Globe Viewer",
+   "caption": "This is for creating a thumbnail.",
+   "group_text": "",
+   "url": "https://svs.gsfc.nasa.gov/vis/a000000/a005400/a005436/soscomp_1-29-2025a_2048p30.mp4",
+   "filename": "soscomp_1-29-2025a_2048p30.mp4",
+   "media_type": "Movie",
+   "width": 4096,
+   "height": 2048,
+   "alt_text": "Global CO2 ppm for January-March of 2020."
+  }
+ ],
+ "text_links": [
+  "https://svs.gsfc.nasa.gov/svs.gsfc.nasa.gov/5196"
+ ],
+ "frame_folders": {
+  "https://svs.gsfc.nasa.gov/vis/a000000/a005400/a005436/frames/8192x4096_2x1_30p/soscomp_1-29-2025a/": {
+   "url": "https://svs.gsfc.nasa.gov/vis/a000000/a005400/a005436/frames/8192x4096_2x1_30p/soscomp_1-29-2025a/",
+   "frame_count": 1176,
+   "bytes_approx": 215004200000,
+   "first": "soscomp_1-29-2025a.00001.exr",
+   "last": "soscomp_1-29-2025a.01176.exr",
+   "subfolders": {}
+  },
+  "https://svs.gsfc.nasa.gov/vis/a000000/a005400/a005436/frames/8192x4096_2x1_30p/soscomp_1-29-2025a_pngs/": {
+   "url": "https://svs.gsfc.nasa.gov/vis/a000000/a005400/a005436/frames/8192x4096_2x1_30p/soscomp_1-29-2025a_pngs/",
+   "frame_count": 1176,
+   "bytes_approx": 21931400000,
+   "first": "soscomp_1-29-2025a.00001.png",
+   "last": "soscomp_1-29-2025a.01176.png",
+   "subfolders": {}
+  },
+  "https://svs.gsfc.nasa.gov/vis/a000000/a005400/a005436/frames/8192x4096_2x1_30p/": {
+   "url": "https://svs.gsfc.nasa.gov/vis/a000000/a005400/a005436/frames/8192x4096_2x1_30p/",
+   "frame_count": 0,
+   "bytes_approx": null,
+   "first": null,
+   "last": null,
+   "subfolders": {
+    "dyamondPointCloud_1-29-2025a_dyamond_co2_sos_surface_8k": {
+     "url": "https://svs.gsfc.nasa.gov/vis/a000000/a005400/a005436/frames/8192x4096_2x1_30p/dyamondPointCloud_1-29-2025a_dyamond_co2_sos_surface_8k/",
+     "frame_count": 1176,
+     "bytes_approx": 60270600000,
+     "first": "dyamondPointCloud_1-29-2025a_dyamond_co2_sos_surface_8k.00001.exr",
+     "last": "dyamondPointCloud_1-29-2025a_dyamond_co2_sos_surface_8k.01176.exr",
+     "subfolders": {}
+    },
+    "dyamondPointCloud_10-8-2024a_dyamond_co2_sos_surface_8k": {
+     "url": "https://svs.gsfc.nasa.gov/vis/a000000/a005400/a005436/frames/8192x4096_2x1_30p/dyamondPointCloud_10-8-2024a_dyamond_co2_sos_surface_8k/",
+     "frame_count": 1176,
+     "bytes_approx": 60376300000,
+     "first": "dyamondPointCloud_10-8-2024a_dyamond_co2_sos_surface_8k.00001.exr",
+     "last": "dyamondPointCloud_10-8-2024a_dyamond_co2_sos_surface_8k.01176.exr",
+     "subfolders": {}
+    },
+    "dyamondPointCloud_10-8-2024a_dyamond_co2_sos_volume_8k": {
+     "url": "https://svs.gsfc.nasa.gov/vis/a000000/a005400/a005436/frames/8192x4096_2x1_30p/dyamondPointCloud_10-8-2024a_dyamond_co2_sos_volume_8k/",
+     "frame_count": 1176,
+     "bytes_approx": 49233999997,
+     "first": "dyamondPointCloud_10-8-2024a_dyamond_co2_sos_volume_8k.00001.exr",
+     "last": "dyamondPointCloud_10-8-2024a_dyamond_co2_sos_volume_8k.01176.exr",
+     "subfolders": {}
+    },
+    "soscomp_1-15-2025a": {
+     "url": "https://svs.gsfc.nasa.gov/vis/a000000/a005400/a005436/frames/8192x4096_2x1_30p/soscomp_1-15-2025a/",
+     "frame_count": 1176,
+     "bytes_approx": 214770500000,
+     "first": "soscomp_1-15-2025a.00001.exr",
+     "last": "soscomp_1-15-2025a.01176.exr",
+     "subfolders": {}
+    },
+    "soscomp_1-29-2025a": {
+     "url": "https://svs.gsfc.nasa.gov/vis/a000000/a005400/a005436/frames/8192x4096_2x1_30p/soscomp_1-29-2025a/",
+     "frame_count": 1176,
+     "bytes_approx": 215004200000,
+     "first": "soscomp_1-29-2025a.00001.exr",
+     "last": "soscomp_1-29-2025a.01176.exr",
+     "subfolders": {}
+    },
+    "soscomp_1-29-2025a_4k_pngs": {
+     "url": "https://svs.gsfc.nasa.gov/vis/a000000/a005400/a005436/frames/8192x4096_2x1_30p/soscomp_1-29-2025a_4k_pngs/",
+     "frame_count": 1176,
+     "bytes_approx": 6388700000,
+     "first": "soscomp_1-29-2025a.00001.png",
+     "last": "soscomp_1-29-2025a.01176.png",
+     "subfolders": {}
+    },
+    "soscomp_1-29-2025a_pngs": {
+     "url": "https://svs.gsfc.nasa.gov/vis/a000000/a005400/a005436/frames/8192x4096_2x1_30p/soscomp_1-29-2025a_pngs/",
+     "frame_count": 1176,
+     "bytes_approx": 21931400000,
+     "first": "soscomp_1-29-2025a.00001.png",
+     "last": "soscomp_1-29-2025a.01176.png",
+     "subfolders": {}
+    }
+   }
+  },
+  "https://svs.gsfc.nasa.gov/vis/a000000/a005400/a005436/frames/8192x4096_2x1_30p/dyamondPointCloud_10-8-2024a_dyamond_co2_sos_volume_8k/": {
+   "url": "https://svs.gsfc.nasa.gov/vis/a000000/a005400/a005436/frames/8192x4096_2x1_30p/dyamondPointCloud_10-8-2024a_dyamond_co2_sos_volume_8k/",
+   "frame_count": 1176,
+   "bytes_approx": 49233999997,
+   "first": "dyamondPointCloud_10-8-2024a_dyamond_co2_sos_volume_8k.00001.exr",
+   "last": "dyamondPointCloud_10-8-2024a_dyamond_co2_sos_volume_8k.01176.exr",
+   "subfolders": {}
+  },
+  "https://svs.gsfc.nasa.gov/vis/a000000/a005400/a005436/frames/8192x4096_2x1_30p/dyamondPointCloud_1-29-2025a_dyamond_co2_sos_surface_8k/": {
+   "url": "https://svs.gsfc.nasa.gov/vis/a000000/a005400/a005436/frames/8192x4096_2x1_30p/dyamondPointCloud_1-29-2025a_dyamond_co2_sos_surface_8k/",
+   "frame_count": 1176,
+   "bytes_approx": 60270600000,
+   "first": "dyamondPointCloud_1-29-2025a_dyamond_co2_sos_surface_8k.00001.exr",
+   "last": "dyamondPointCloud_1-29-2025a_dyamond_co2_sos_surface_8k.01176.exr",
+   "subfolders": {}
+  }
+ },
+ "api_url": "https://svs.gsfc.nasa.gov/api/5436",
+ "fetched_utc": "2026-10-29T06:18:49Z"
+}

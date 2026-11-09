@@ -1,0 +1,400 @@
+{
+ "id": 40484,
+ "url": "http://svs.gsfc.nasa.gov/gallery/nasaand-agriculture/",
+ "page_type": "Gallery",
+ "title": "NASA and Agriculture Video",
+ "description": "The farmers responsible for the food that reaches your plate need a lot of a very precious and limited resource, water. NASA works with farmers like Dwane Roth of Kansas to help them track their water use. Roth says that farmers like him are seeing more frequent, hotter days with less rain. “We need to grow more with less and get as much out of each drop of water we can,” he says. NASA helps to promote the use of Earth observations to strengthen food security. One solution is OpenET, a system that puts near-real-time water data into the hands of farmers in the United States.",
+ "release_date": "2023-06-08T00:00:00-04:00",
+ "update_date": "2023-06-20T00:00:00-04:00",
+ "main_image": {
+  "id": 855995,
+  "url": "http://svs.gsfc.nasa.gov/vis/a010000/a014300/a014367/0613_Ag_Water__Main_Screen__FInal_Export.00001_searchweb.png",
+  "filename": "0613_Ag_Water__Main_Screen__FInal_Export.00001_searchweb.png",
+  "media_type": "Image",
+  "alt_text": "Complete transcript available. Music credit: “The Grand Journey” from Universal Production Music This video can be freely shared and downloaded. While the video in its entirety can be shared without permission, some individual imagery provided by Pond5.com is obtained through permission and may not be excised or remixed in other products. For more information on NASA’s media guidelines, visit https://www.nasa.gov/multimedia/guidelines/index.html",
+  "width": 180,
+  "height": 320,
+  "pixels": 57600
+ },
+ "media_groups": [
+  {
+   "id": 372459,
+   "url": "http://svs.gsfc.nasa.gov/gallery/nasaand-agriculture/#media_group_372459",
+   "widget": "Basic text (large)",
+   "title": "Overview",
+   "caption": "",
+   "description": "The farmers responsible for the food that reaches your plate need a lot of a very precious and limited resource, water. NASA works with farmers like Dwane Roth of Kansas to help them track their water use. Roth says that farmers like him are seeing more frequent, hotter days with less rain. “We need to grow more with less and get as much out of each drop of water we can,” he says. NASA helps to promote the use of Earth observations to strengthen food security. One solution is OpenET, a system that puts near-real-time water data into the hands of farmers in the United States.",
+   "items": [],
+   "extra_data": {}
+  },
+  {
+   "id": 371632,
+   "url": "http://svs.gsfc.nasa.gov/gallery/nasaand-agriculture/#media_group_371632",
+   "widget": "Card gallery",
+   "title": "Video",
+   "caption": "",
+   "description": "",
+   "items": [
+    {
+     "id": 412582,
+     "type": "details_page",
+     "extra_data": null,
+     "instance": {
+      "id": 14367,
+      "url": "http://svs.gsfc.nasa.gov/14367/",
+      "page_type": "Produced Video",
+      "title": "NASA and Agriculture",
+      "description": "Feeding a Hungry World The farmers responsible for the food that reaches your plate need a lot of a very precious and limited resource, water. NASA works with farmers like Dwane Roth of Kansas to help them track their water use. Roth says that farmers like him are seeing more frequent, hotter days with less rain. “We need to grow more with less and get as much out of each drop of water we can,” he says. NASA helps to promote the use of Earth observations to strengthen food security.",
+      "release_date": "2023-06-15T16:00:00-04:00",
+      "update_date": "2025-05-29T11:20:21.421872-04:00",
+      "main_image": {
+       "id": 855994,
+       "url": "http://svs.gsfc.nasa.gov/vis/a010000/a014300/a014367/0613_Ag_Water__Main_Screen__FInal_Export.00001_print.jpg",
+       "filename": "0613_Ag_Water__Main_Screen__FInal_Export.00001_print.jpg",
+       "media_type": "Image",
+       "alt_text": "Complete transcript available. Music credit: “The Grand Journey” from Universal Production Music This video can be freely shared and downloaded. While the video in its entirety can be shared without permission, some individual imagery provided by Pond5.com is obtained through permission and may not be excised or remixed in other products. For more information on NASA’s media guidelines, visit https://www.nasa.gov/multimedia/guidelines/index.html",
+       "width": 1024,
+       "height": 288,
+       "pixels": 294912
+      }
+     }
+    }
+   ],
+   "extra_data": {}
+  },
+  {
+   "id": 371633,
+   "url": "http://svs.gsfc.nasa.gov/gallery/nasaand-agriculture/#media_group_371633",
+   "widget": "Tile gallery",
+   "title": "Featured Visualizations",
+   "caption": "",
+   "description": "",
+   "items": [
+    {
+     "id": 412583,
+     "type": "details_page",
+     "extra_data": null,
+     "instance": {
+      "id": 10480,
+      "url": "http://svs.gsfc.nasa.gov/10480/",
+      "page_type": "Produced Video",
+      "title": "GRACE Beauty Pass Animations",
+      "description": "GRACE, Gravity Recovery And Climate Experiment - twin satellites launched in March 2002, are making detailed measurements of Earth's gravity field which will lead to discoveries about gravity and Earth's natural systems. These discoveries could have far-reaching benefits to society and the world's population. || ",
+      "release_date": "2009-08-14T00:00:00-04:00",
+      "update_date": "2023-05-03T13:54:40.366533-04:00",
+      "main_image": {
+       "id": 496721,
+       "url": "http://svs.gsfc.nasa.gov/vis/a010000/a010400/a010480/10480_GRACE_Beauty_Pass_1_H264_720p.00077_print.jpg",
+       "filename": "10480_GRACE_Beauty_Pass_1_H264_720p.00077_print.jpg",
+       "media_type": "Image",
+       "alt_text": "The primary goal of the GRACE mission is to accurately map variations in the Earth's gravity field over its 5-year lifetime. ",
+       "width": 1024,
+       "height": 576,
+       "pixels": 589824
+      }
+     }
+    },
+    {
+     "id": 412584,
+     "type": "details_page",
+     "extra_data": null,
+     "instance": {
+      "id": 13417,
+      "url": "http://svs.gsfc.nasa.gov/13417/",
+      "page_type": "Produced Video",
+      "title": "Landsat Croplands Data Overview",
+      "description": "The U.S. Department of Agriculture tracks how many acres and the annual yield for every crop produced. One method used to estimate crop acreage and yield is remote-sensing data from the NASA-USGS Landsat satellite program. The program started in 1997,with North Dakota, and by 2008 covered the entire lower 48 states and the District of Columbia. Music: \"Downloading Landscapes\" by Andrew Michael Britton [PRS] and David Stephen Goldsmith [PRS]. Published by Atmosphere Music Ltd [PRS].Complete transcript available.Watch this video on the NASA Goddard YouTube channel. || 13417_Landsat_Croplands_print.jpg (1920x1080) [940.0 KB] || 13417_Landsat_Croplands_print_searchweb.png (180x320) [52.1 KB] || 13417_Landsat_Croplands_print_thm.png (80x40) [4.6 KB] || 13417_Landsat_Croplands.webm (1920x1080) [19.7 MB] || 13417_Landsat_Croplands.mp4 (1920x1080) [292.2 MB] || 13417_Landsat_Croplands-captions.en_US.srt [3.0 KB] || 13417_Landsat_Croplands-captions.en_US.vtt [3.0 KB] || 13417_Landsat_Croplands.mov (1920x1080) [4.8 GB] || 13417_Landsat_Croplands.mp4.hwshow [423 bytes] || ",
+      "release_date": "2019-11-27T12:00:00-05:00",
+      "update_date": "2025-03-16T23:21:08.148457-04:00",
+      "main_image": {
+       "id": 391566,
+       "url": "http://svs.gsfc.nasa.gov/vis/a010000/a013400/a013417/13417_Landsat_Croplands_print.jpg",
+       "filename": "13417_Landsat_Croplands_print.jpg",
+       "media_type": "Image",
+       "alt_text": "The U.S. Department of Agriculture tracks how many acres and the annual yield for every crop produced. One method used to estimate crop acreage and yield is remote-sensing data from the NASA-USGS Landsat satellite program. The program started in 1997,with North Dakota, and by 2008 covered the entire lower 48 states and the District of Columbia. Music: \"Downloading Landscapes\" by Andrew Michael Britton [PRS] and David Stephen Goldsmith [PRS]. Published by Atmosphere Music Ltd [PRS].Complete transcript available.Watch this video on the NASA Goddard YouTube channel.",
+       "width": 1920,
+       "height": 1080,
+       "pixels": 2073600
+      }
+     }
+    },
+    {
+     "id": 412585,
+     "type": "details_page",
+     "extra_data": null,
+     "instance": {
+      "id": 12647,
+      "url": "http://svs.gsfc.nasa.gov/12647/",
+      "page_type": "Produced Video",
+      "title": "Trading Water",
+      "description": "Crops sold in the international market trade away they water they're grown with. || usa_west.1974_1024x576.jpg (1024x576) [83.6 KB] || usa_west.1974_thm.png (80x40) [5.6 KB] || usa_west.1974_searchweb.png (320x180) [66.6 KB] || usa_west.1974.tif (1920x1080) [4.0 MB] || ",
+      "release_date": "2017-06-26T12:00:00-04:00",
+      "update_date": "2023-05-03T13:47:34.884537-04:00",
+      "main_image": {
+       "id": 413270,
+       "url": "http://svs.gsfc.nasa.gov/vis/a010000/a012600/a012647/usa_west.1974_1024x576.jpg",
+       "filename": "usa_west.1974_1024x576.jpg",
+       "media_type": "Image",
+       "alt_text": "Crops sold in the international market trade away they water they're grown with. ",
+       "width": 1024,
+       "height": 576,
+       "pixels": 589824
+      }
+     }
+    },
+    {
+     "id": 412586,
+     "type": "details_page",
+     "extra_data": null,
+     "instance": {
+      "id": 20322,
+      "url": "http://svs.gsfc.nasa.gov/20322/",
+      "page_type": "Animation",
+      "title": "Landsat Lightpath Animations",
+      "description": "For nearly half a century, the Landsat mission has shaped our understanding of Earth. Since the launch of the first Landsat satellite in 1972, the mission has gathered and archived more than 8 million images of our home planet’s terrain, including crop fields and sprawling cities, forests and shrinking glaciers. These data-rich images are free and publicly available, leading to scientific discoveries and informed resource management.Landsat 9 will carry two instruments that largely replicate the instruments on Landsat 8: the Operational Land Imager 2 (OLI-2) and the Thermal Infrared Sensor 2 (TIRS-2). OLI-2 and TIRS-2 are optical sensors that detect 11 wavelengths of visible, near infrared, shortwave infrared, and thermal infrared light as it is reflected or emitted from the planet’s surface. Data from these instruments are processed and stored at the USGS Earth Resources Observation and Science (EROS) Center in Sioux Falls, South Dakota—where decades worth of data from all of the Landsat satellites are stored and made available for free to the public.The Landsat mission, a partnership between NASA and the U.S. Geological Survey (USGS), has provided the longest continuous record of Earth’s land surfaces from space. The consistency of Landsat’s land-cover data from sensor to sensor and year to year makes it possible to trace land-cover changes from 1972 to the present, and it will continue into the future with Landsat 9. With better technology than ever before, Landsat 9 will enhance and extend the data record to the 50-year mark and beyond. || ",
+      "release_date": "2021-01-12T20:00:00-05:00",
+      "update_date": "2023-05-03T13:44:23.608479-04:00",
+      "main_image": {
+       "id": 383102,
+       "url": "http://svs.gsfc.nasa.gov/vis/a020000/a020300/a020322/L9_OLI_data_1080_30fps_ProRes.00406_print.jpg",
+       "filename": "L9_OLI_data_1080_30fps_ProRes.00406_print.jpg",
+       "media_type": "Image",
+       "alt_text": "Data collection of the OLI-2 instrument aboard Landsat 9. OLI-2 will have a 98-foot (30-meter) spatial resolution across most of its spectral bands, meaning each pixel represents an area about the size of a baseball infield. Altogether, the sensors cover a swath 115 miles (185 kilometers) wide. This combination of a wide swath and moderate resolution allows OLI-2 to cover large areas, while still providing fine enough resolution to distinguish individual agricultural fields, forest plots or housing developments—important information for urban planners, land resource managers and commodity analysts.Light from the sun reflects off Earth's surface and into OLI-2's telescope. In the example in this animation, OLI-2 is colecting data south of Fort Worth, Texas, on July 17, 2020.",
+       "width": 1024,
+       "height": 576,
+       "pixels": 589824
+      }
+     }
+    },
+    {
+     "id": 412587,
+     "type": "details_page",
+     "extra_data": null,
+     "instance": {
+      "id": 30521,
+      "url": "http://svs.gsfc.nasa.gov/30521/",
+      "page_type": "Hyperwall Visual",
+      "title": "California Drought",
+      "description": "The NASA Gravity Recovery and Climate Experiment (GRACE) mission, launched in 2002, maps changes in Earth's gravity field resulting from the movement of water over the planet.  As water moves around the globe — for example, due to flooding in some regions and drought in others —  GRACE acts like a 'scale in the sky,' mapping the regions of Earth that are gaining or losing water each month.   The GRACE mission has been particularly successful in monitoring the melting of the Greenland and Antartic ice sheets, and in mapping changing freshwater storage on land.  This animation shows how the total amount of water (all of the snow, surface water, soil moisture and groundwater) varies in space and time, with the passage of dry seasons and wet seasons as well as with flooding, drought and transport due to water management  Blue colors represent wetter than average conditions (relative to the 2002-2013 time period) and the red colors represent drier than average conditions.  The graph at the left shows the monthly changes for the average of map region outlined in yellow. The yellow line in the graph at the left shows interannual variations.The Sacramento and San Joaquiin River basins are outlined in yellow and the rivers and their tributaries are shown by the blue lines.  The basins include California's Central Valley, the most productive agricultural region in the United States.  Ongoing drought in California has drained the state of nearly 15 cubic kilometers (12 miillion acre feet; 4 trillion gallons) of water in each of the last 3 years.  Much of the loss is a result of groundwater depletion. Limited rainfall and snowmelt throughout the state has forced agriculture and cities to rely more heavily on groundwater reserves, resulting in rapid depletion of the aquifer beneath the Central Valley. At least 50% of the annual water loss is due to the removal of groundwater. || ",
+      "release_date": "2014-10-01T23:00:00-04:00",
+      "update_date": "2024-10-13T23:38:45.811659-04:00",
+      "main_image": {
+       "id": 430603,
+       "url": "http://svs.gsfc.nasa.gov/vis/a030000/a030500/a030521/grace_ca_drought_v4_0128_print.jpg",
+       "filename": "grace_ca_drought_v4_0128_print.jpg",
+       "media_type": "Image",
+       "alt_text": "GRACE gravity data reveals water deficit in California.",
+       "width": 1024,
+       "height": 574,
+       "pixels": 587776
+      }
+     }
+    },
+    {
+     "id": 412588,
+     "type": "details_page",
+     "extra_data": null,
+     "instance": {
+      "id": 5098,
+      "url": "http://svs.gsfc.nasa.gov/5098/",
+      "page_type": "Visualization",
+      "title": "Relative Wetness Root Zone Versus Groundwater Comparison",
+      "description": "Sample composite showing the comparison between the root zone relative wetness data to groundwater wetness data. The root zone is approximately 1 meter below the surface as opposed to groundwater which is deeper. Seeing these side-by-side allows the viewer to see that the root zone data changes much more rapidly than the deeper stored groundwater data. || root_n_grnd.4k.2676_print.jpg (1024x576) [173.0 KB] || root_n_grnd.4k.2676_searchweb.png (320x180) [73.6 KB] || root_n_grnd.4k.2676_web.png (320x180) [73.6 KB] || root_n_grnd.1080p30.mp4 (1920x1080) [50.5 MB] || root_n_grnd.1080p30.webm (1920x1080) [10.7 MB] || Sample_Composite (3840x2160) [0 Item(s)] || root_n_grnd.2160p30.mp4 (3840x2160) [118.5 MB] || ",
+      "release_date": "2023-04-24T09:00:00-04:00",
+      "update_date": "2025-03-10T00:13:30.539592-04:00",
+      "main_image": {
+       "id": 855241,
+       "url": "http://svs.gsfc.nasa.gov/vis/a000000/a005000/a005098/root_n_grnd.4k.2676_print.jpg",
+       "filename": "root_n_grnd.4k.2676_print.jpg",
+       "media_type": "Image",
+       "alt_text": "Sample composite showing the comparison between the root zone relative wetness data to groundwater wetness data. The root zone is approximately 1 meter below the surface as opposed to groundwater which is deeper. Seeing these side-by-side allows the viewer to see that the root zone data changes much more rapidly than the deeper stored groundwater data.",
+       "width": 1024,
+       "height": 576,
+       "pixels": 589824
+      }
+     }
+    },
+    {
+     "id": 412589,
+     "type": "details_page",
+     "extra_data": null,
+     "instance": {
+      "id": 4968,
+      "url": "http://svs.gsfc.nasa.gov/4968/",
+      "page_type": "Visualization",
+      "title": "Iowa Cropland 2001-2020",
+      "description": "Modeled Iowa corn (yellow) and soybean (green) yields from 2001-2020. || IowaCrops_2022-02-17_1606.01240_print.jpg (1024x576) [479.4 KB] || IowaCrops_2022-02-17_1606.01240_searchweb.png (320x180) [124.0 KB] || IowaCrops_2022-02-17_1606.01240_web.png (320x180) [124.0 KB] || IowaCrops_2022-02-17_1606.01240_thm.png (80x40) [7.7 KB] || IowaCrops_2022-02-17_1606_1080p30.webm (1920x1080) [12.7 MB] || IowaCrops_2022-02-17_1606_1080p30.mp4 (1920x1080) [267.3 MB] || main (3840x2160) [0 Item(s)] || IowaCrops_2022-02-17_1606.mp4 (3840x2160) [491.4 MB] || IowaCrops_2022-02-17_1606_1080p30.mp4.hwshow [199 bytes] || ",
+      "release_date": "2022-03-09T09:00:00-05:00",
+      "update_date": "2025-03-10T00:11:27.037402-04:00",
+      "main_image": {
+       "id": 372850,
+       "url": "http://svs.gsfc.nasa.gov/vis/a000000/a004900/a004968/IowaCrops_2022-02-17_1606.01240_print.jpg",
+       "filename": "IowaCrops_2022-02-17_1606.01240_print.jpg",
+       "media_type": "Image",
+       "alt_text": "Modeled Iowa corn (yellow) and soybean (green) yields from 2001-2020.",
+       "width": 1024,
+       "height": 576,
+       "pixels": 589824
+      }
+     }
+    },
+    {
+     "id": 412590,
+     "type": "details_page",
+     "extra_data": null,
+     "instance": {
+      "id": 5087,
+      "url": "http://svs.gsfc.nasa.gov/5087/",
+      "page_type": "Visualization",
+      "title": "Water Cycle Extremes: Droughts and Pluvials",
+      "description": "This visualization shows extremes of the water cycle — droughts and pluvials — over a twenty-year period (2002-2021) based on observations from the GRACE and GRACE-FO satellites. Dry events are shown as red spheres and wet events as blue spheres, with earlier years being shown as lighter shades and later years as darker shades. The volume of the sphere is proportional to the intensity of the event, a quantity measured in cubic kilometer months.",
+      "release_date": "2023-03-13T12:00:00-04:00",
+      "update_date": "2024-10-16T16:01:25.175630-04:00",
+      "main_image": {
+       "id": 765278,
+       "url": "http://svs.gsfc.nasa.gov/vis/a000000/a005000/a005087/WaterExtremes.00899_print.jpg",
+       "filename": "WaterExtremes.00899_print.jpg",
+       "media_type": "Image",
+       "alt_text": "This visualization shows extremes of the water cycle — droughts and pluvials — over a twenty-year period (2002-2021) based on observations from the GRACE and GRACE-FO satellites. Dry events are shown as red spheres and wet events as blue spheres, with earlier years being shown as lighter shades and later years as darker shades. The volume of the sphere is proportional to the intensity of the event, a quantity measured in cubic kilometer months. A total of 1,056 extreme wet and dry events appear over the course of the visualization. The plots at the bottom of the figure show that the total intensity of extreme events increased as global temperatures increased. The most intense event was a 2019 pluvial (excessive, persistent rain) in central Africa.",
+       "width": 1024,
+       "height": 576,
+       "pixels": 589824
+      }
+     }
+    },
+    {
+     "id": 412591,
+     "type": "details_page",
+     "extra_data": null,
+     "instance": {
+      "id": 10721,
+      "url": "http://svs.gsfc.nasa.gov/10721/",
+      "page_type": "Produced Video",
+      "title": "Las Vegas, 1972-2021",
+      "description": "Timelapse animation of Lake Mead and the city of Las Vegas, Nevada, from 1972-2021, as captured by Landsat sensors. The images are false-color, showing healthy vegetation in red. || Las_Vegas-wide-2021_print.jpg (1024x576) [226.8 KB] || Las_Vegas-wide-2021_searchweb.png (320x180) [119.1 KB] || Las_Vegas-wide-2021_thm.png (80x40) [7.7 KB] || Las_Vegas_1972-2021-tw.mp4 (1920x1080) [64.7 MB] || Las_Vegas-wide-2021.tif (1920x1080) [7.9 MB] || Las_Vegas_1972-2021-tw.webm (1920x1080) [8.0 MB] || Las_Vegas_1972-2021-yt.mp4 (1920x1080) [129.5 MB] || Las_Vegas_1972-2021.mov (1920x1080) [2.3 GB] || ",
+      "release_date": "2012-03-05T17:00:00-05:00",
+      "update_date": "2023-05-03T13:53:14.202937-04:00",
+      "main_image": {
+       "id": 377885,
+       "url": "http://svs.gsfc.nasa.gov/vis/a010000/a010700/a010721/Las_Vegas-wide-2021_print.jpg",
+       "filename": "Las_Vegas-wide-2021_print.jpg",
+       "media_type": "Image",
+       "alt_text": "Timelapse animation of Lake Mead and the city of Las Vegas, Nevada, from 1972-2021, as captured by Landsat sensors. The images are false-color, showing healthy vegetation in red.",
+       "width": 1024,
+       "height": 576,
+       "pixels": 589824
+      }
+     }
+    },
+    {
+     "id": 412592,
+     "type": "details_page",
+     "extra_data": null,
+     "instance": {
+      "id": 31196,
+      "url": "http://svs.gsfc.nasa.gov/31196/",
+      "page_type": "Hyperwall Visual",
+      "title": "50 years of Landsat: Denver",
+      "description": "Since 1972, Landsat satellites have observed our planet’s forests, deserts, cities, farms, and badlands. The Mile High City rose up on the hopes of gold miners, who founded the city in 1858 after the discovery of gold in the waters at the confluence of the South Platte River and Cherry Creek. Denver, Colorado, quickly became a hub for the mining towns to the west and the agricultural interests on the plains to the east. Unhindered by any major body of water or topographic feature to the north, south, or east, the city has expanded in all directions. These red-NIR-green combination false color images show the city of Denver between 1972 or 1972 and 2022, using sensors aboard Landsat satellites that have been collecting data in different ranges of frequencies along the electromagnetic spectrum for nearly 50 years. || ",
+      "release_date": "2022-10-20T00:00:00-04:00",
+      "update_date": "2025-04-16T00:36:22.132103-04:00",
+      "main_image": {
+       "id": 368773,
+       "url": "http://svs.gsfc.nasa.gov/vis/a030000/a031100/a031196/denver_landsat_v1_2022_print.jpg",
+       "filename": "denver_landsat_v1_2022_print.jpg",
+       "media_type": "Image",
+       "alt_text": "Timeseries animation of Denver between 1973 and 2022. 1973 was the first year with non-cloudy Landsat images.",
+       "width": 1024,
+       "height": 576,
+       "pixels": 589824
+      }
+     }
+    },
+    {
+     "id": 412593,
+     "type": "details_page",
+     "extra_data": null,
+     "instance": {
+      "id": 4170,
+      "url": "http://svs.gsfc.nasa.gov/4170/",
+      "page_type": "Visualization",
+      "title": "GPM Constellation Covers the Earth",
+      "description": "This page contains a series of test animations for the GPM \"Second Light\" release.  Each animation test is rendered in three ways: on a flat map, on a globe, and on a rotating globe.  The newest tests are always at the top of the page. || ",
+      "release_date": "2014-07-01T00:00:00-04:00",
+      "update_date": "2025-01-05T22:29:00.926971-05:00",
+      "main_image": {
+       "id": 455267,
+       "url": "http://svs.gsfc.nasa.gov/vis/a000000/a004100/a004170/allswaths3_fade.png",
+       "filename": "allswaths3_fade.png",
+       "media_type": "Image",
+       "alt_text": "Accumulating swaths from the GPM Constellation, shown on a flat map.  Swaths are brightest with current data, then fade to a dimmer representation.",
+       "width": 1920,
+       "height": 1080,
+       "pixels": 2073600
+      }
+     }
+    },
+    {
+     "id": 412594,
+     "type": "details_page",
+     "extra_data": null,
+     "instance": {
+      "id": 4889,
+      "url": "http://svs.gsfc.nasa.gov/4889/",
+      "page_type": "Visualization",
+      "title": "Variability of Water Storage in Global Hydrological Basins",
+      "description": "Variability of Water Level || figure_2.00001_print.jpg (1024x576) [92.0 KB] || figure_2.00001_searchweb.png (320x180) [46.0 KB] || figure_2.00001_thm.png (80x40) [4.7 KB] || figure_2.mp4 (1920x1080) [82.9 MB] || figure_2.webm (1920x1080) [5.1 MB] || figure_2.mp4.hwshow [174 bytes] || ",
+      "release_date": "2021-03-03T14:00:00-05:00",
+      "update_date": "2025-01-06T00:18:46.960639-05:00",
+      "main_image": {
+       "id": 379640,
+       "url": "http://svs.gsfc.nasa.gov/vis/a000000/a004800/a004889/figure_2.00001_print.jpg",
+       "filename": "figure_2.00001_print.jpg",
+       "media_type": "Image",
+       "alt_text": "Variability of Water Level",
+       "width": 1024,
+       "height": 576,
+       "pixels": 589824
+      }
+     }
+    }
+   ],
+   "extra_data": {}
+  },
+  {
+   "id": 371634,
+   "url": "http://svs.gsfc.nasa.gov/gallery/nasaand-agriculture/#media_group_371634",
+   "widget": "Card gallery",
+   "title": "Featured Videos",
+   "caption": "",
+   "description": "",
+   "items": [
+    {
+     "id": 412595,
+     "type": "details_page",
+     "extra_data": null,
+     "instance": {
+      "id": 13543,
+      "url": "http://svs.gsfc.nasa.gov/13543/",
+      "page_type": "Produced Video",
+      "title": "Landsat: Farming Data From Space",
+      "description": "Landsat satellites have been gathering data for 48 years, equipping scientists and farmers to answer big questions about how to improve agriculture around the world. From tracking crop production, assessing crop health, and monitoring water use, Landsat data provides tangible benefits to the USA and the world. Landsat satellites are built and lauched by NASA, and operated by USGS. Complete transcript available.Music: \"Lines of Enquiry\" by Theo Golding [PRS], published by Atmosphere Music [PRS]Watch this video on the NASA Goddard YouTube channel. || LandsatAg-Thumbnail.png (1920x1080) [4.0 MB] || LandsatAg-Thumbnail_print.jpg (1024x576) [166.3 KB] || LandsatAg-Thumbnail_searchweb.png (320x180) [109.3 KB] || LandsatAg-Thumbnail_thm.png (80x40) [6.6 KB] || LandsatAg-FINAL.mov (1920x1080) [3.2 GB] || LandsatAg-FINAL_youtube_1080.mp4 (1920x1080) [148.1 MB] || LandsatAg-FINAL_facebook_720.mp4 (1280x720) [110.9 MB] || LandsatAg-FINAL_twitter_720.mp4 (1280x720) [20.1 MB] || LandsatAg-FINAL.webm (960x540) [39.3 MB] || LandsatAg-FINAL-captions.en_US.srt [1.8 KB] || LandsatAg-FINAL-captions.en_US.vtt [1.8 KB] || ",
+      "release_date": "2020-02-12T10:00:00-05:00",
+      "update_date": "2023-05-03T13:45:10.472233-04:00",
+      "main_image": {
+       "id": 387130,
+       "url": "http://svs.gsfc.nasa.gov/vis/a010000/a013500/a013543/LandsatAg-Thumbnail.png",
+       "filename": "LandsatAg-Thumbnail.png",
+       "media_type": "Image",
+       "alt_text": "Landsat satellites have been gathering data for 48 years, equipping scientists and farmers to answer big questions about how to improve agriculture around the world. From tracking crop production, assessing crop health, and monitoring water use, Landsat data provides tangible benefits to the USA and the world. Landsat satellites are built and lauched by NASA, and operated by USGS. Complete transcript available.Music: \"Lines of Enquiry\" by Theo Golding [PRS], published by Atmosphere Music [PRS]Watch this video on the NASA Goddard YouTube channel.",
+       "width": 1920,
+       "height": 1080,
+       "pixels": 2073600
+      }
+     }
+    }
+   ],
+   "extra_data": {}
+  }
+ ]
+}

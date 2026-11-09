@@ -1,0 +1,642 @@
+{
+ "id": 5557,
+ "title": "Daily Visualizations of the Largest Wildfires in the United States: 2025",
+ "url": "https://svs.gsfc.nasa.gov/5557/",
+ "page_type": "Visualization",
+ "release_date": "2025-09-08T16:30:00-04:00",
+ "update_date": "2026-03-12T15:19:14.483700-04:00",
+ "description": "Wildland fires pose significant threats to ecosystems, property, and human lives. Leveraging NASA’s satellite data, advanced models, visualization capacity and computing power, we analyze fire events, monitor how weather conditions impact fires and how regional air quality affects communities. Through this webpage we offer daily updated visualizations of the two largest active wildfires events in the continental United States throughout fire season.",
+ "full_text": "Wildland fires pose significant threats to ecosystems, property, and human lives. Leveraging NASA’s satellite data, advanced models, visualization capacity and computing power, we analyze fire events, monitor how weather conditions impact fires and how regional air quality affects communities. Through this webpage we offer daily updated visualizations of the two largest active wildfires events in the continental United States throughout fire season.\n\nWildland fires pose significant threats to ecosystems, property, and human lives. Leveraging NASA’s satellite data, advanced models, visualization capacity and computing power, we analyze fire events, monitor how weather conditions impact fires and how regional air quality affects communities.\r\n\r\n***What this Webpage Offers***\r\n\r\nThrough this webpage we share daily updated visualizations of the two largest active wildfires events (labeled as Event 1 and Event 2 in this webpage) in the continental United States throughout fire season. Each event has a collection of five media assets. For each event these data-driven assets are:\r\n* Fire Information (format: still image)\r\n* GEOS Black Carbon (format: movie, duration: 30secs)\r\n* GEOS Fire Monitor: Regional Air Quality (format: movie, duration: 30secs)\r\n* GEOS Fire Monitor: Regional Weather (format: movie, duration: 30secs)\r\n* Progression of Fire (format: movie, duration: 30secs)\r\n\r\nOur media collections are designed to be modular and serve multiple purposes. They work together as a comprehensive display on Hyperwall systems (32:9 aspect ratio, 7680x2160 resolution) at Earth Information Center ([earth.gov](https://earth.gov/)) exhibits, or as smaller collections, or each visual asset can be used independently. All assets are freely and openly available for public use, allowing for flexible implementation across different platforms, display sizes and production needs. \r\n\r\nThe daily assets for each event are archived and available for download below:\n\nStill image with information about the fire event, such as the name, location, affected area and status of fire.\n\nVisualization of Black Carbon from NASA’s Goddard Earth Observing System (GEOS) model.\n\nLegend overlay for the GEOS Black Carbon visualization.\n\nVisualization of regional air quality indicators from NASA’s Goddard Earth Observing System (GEOS) model.\n\nVisualization of regional weather indicators from NASA’s Goddard Earth Observing System (GEOS) model.\n\nVisualization showing the progression of fire using fire perimeters data from the Near Real Time Fire Event Data Suite (FEDS) OGC Application Programming Interface (API).\n\n***Process Overview***\r\n\r\nOur data-driven workflow creates comprehensive wildfire visualizations through these steps:\r\n**Fire Identification: **We query the [Earth Observatory Natural Event Tracker (EONET) API ](https://eonet.gsfc.nasa.gov/docs/v3)to identify the two largest active fires, gathering essential data like fire name, affected area and precise location. The EONET API filters fire events from the [Integrated Reporting of Wildland Fire Information (IRWIN)](https://www.wildfire.gov/application/irwin-integrated-reporting-wildfire-information) database, which is an “end-to-end” data management and reporting capability by the [Wildland Fire Information Portal ](https://www.wildfire.gov/)\r\n**Fire Progression:** Through the [Fire Events Data Suite (FEDS) OGC API](https://earth-information-system.github.io/fireatlas/docs/nrt.html), we access fire perimeter data from the previous two weeks to create visualizations showing how each fire has evolved over time.\r\n**Regional Analysis of fire events:** Leveraging NASA’s Goddard Earth Observing System (GEOS) model, we target the precise locations of the two largest active fire events and generate visualizations on NASA’s Discover supercomputer that illustrate:\r\n* Black carbon dispersal from the fire.\r\n* Regional meteorological conditions affecting fire behavior.\r\n* Regional air quality indicators for surrounding communities.\r\n\r\n***Acknowledgements & Additional Information***\r\nThis visualization capacity was developed collaboratively by the Scientific Visualization Studio and NASA’s Global Modeling Assimilation Office (GMAO) with contributions, support and scientific guidance from multiple teams across NASA. To learn more about the contributing teams and technologies behind this resource, please see below:\r\n\r\n*Goddard Earth Observing System (GEOS)*\r\nNASA’s [GEOS](https://gmao.gsfc.nasa.gov/geos-systems/) is a complex modeling and data assimilation system that creates global analyses of the Earth System. GEOS integrates satellite observations, in situ measurements, and approximately one million weather observations collected hourly to inform its models. GEOS data products are created by [NASA’s Global Modeling and Assimilation Office (GMAO)](https://gmao.gsfc.nasa.gov/). \r\nThe GEOS visualizations provided in this webpage incorporate data from the following products:\r\n* GEOS-FP: Regional weather analysis for 2-meter Temperature (T2m), 10-meter Wind Speed (W10m), Relative Humidity (RH), Soil Moisture (SM), and regional air quality analysis for Particulate Matter 2.5 (PM~2.5~) concentrations.\r\n* GEOS-CF: Regional air quality concentrations for Nitrogen Dioxide (NO~2~), Carbon Monoxide (CO), and Ozone (O~3~).\r\n* GEOS-FP 2KM Replay: Black carbon dispersal from the fire.\r\n\r\n*Fire Events Data Suite (FEDS) OGC API*\r\nThe [Fire Events Data Suite (FEDS)](https://earth-information-system.github.io/fireatlas/docs/) algorithm tracks the growth and intensity of individual fires every 12 hours using active fire detections from the Visible Infrared Imaging Radiometer Suite (VIIRS) sensors onboard the Suomi National Polar-Orbiting Partnership (Suomi NPP) and NOAA-20 satellites. FEDS provides a spatially explicit estimate of a fire’s perimeter, the actively burning portion of the perimeter, and bulk statistics associated with each time step. FEDS fire tracking information is publicly available in near real-time for the contiguous United States, Canada, and Alaska. Near real time data are available through the [OGC Application Programming Interface (API)](https://earth-information-system.github.io/fireatlas/docs/nrt.html).\r\n\r\n*Earth Observatory Natural Event Tracker (EONET)*\r\nThe open-source [EONET Application Programmer Interface (API)](https://eonet.gsfc.nasa.gov/docs/v3) is built to provide a curated reference of continuously updated, near real-time, natural event metadata. The metadata data are accessible via web services that link natural events to thematically-related image sources. EONET is managed and maintained by the Web Strategy and Communications Team, Earth Science Data Systems Program.\r\n\r\nSpecial thanks for the support and scientific guidance from the NASA Fires Program, NASA FIRMS, the U.S. Forest Service, Lesley Ott (NASA GMAO), Doug Morton (NASA), and Robert Field (NASA GISS).\n\nView of the Earth Information Center Wildland Fires Data Dashboard showing the layout and presentation of data visualization assets offered in this page. This still image features visualization assets from the Red Canyon wildfire in Hot Springs, Wyoming, as of August 21, 2025.",
+ "credits_by_role": {
+  "Visualizer": [
+   "Helen-Nicole Kostis (USRA)",
+   "Joseph V. Ardizzone (NASA/GSFC)",
+   "Zoey N. Armstrong (Navteca, LLC.)"
+  ],
+  "Scientist": [
+   "Lesley Ott (NASA/GSFC)",
+   "Doug C. Morton (NASA/GSFC)",
+   "Tempest McCabe (University of Maryland)",
+   "Elijah Orland (University of Maryland Baltimore County)"
+  ],
+  "Technologist": [
+   "Zeb Becker (University of Maryland)"
+  ],
+  "EONET Team": [
+   "Paul Przyborski (SSAI)",
+   "Teddie Gelabert (SSAI)",
+   "Andi Thomas (SSAI)",
+   "Vipool Rathad (ADNET Systems Inc.)"
+  ],
+  "Support": [
+   "Alex Gurvich (NASA/GSFC)",
+   "Ella Kaplan (Global Science and Technology, Inc.)",
+   "Laurence Schuler (ADNET Systems, Inc.)",
+   "Ian Jones (ADNET Systems, Inc.)"
+  ]
+ },
+ "keywords": [
+  "Earth Information Center",
+  "GEOS",
+  "Wildfires"
+ ],
+ "datasets": [
+  {
+   "name": "GEOS Atmospheric Model",
+   "common_name": "",
+   "platform": null,
+   "sensor": null,
+   "type": "Model",
+   "organizations": [
+    "NASA GMAO"
+   ],
+   "description": "",
+   "credit": "",
+   "url": "",
+   "date_range": ""
+  },
+  {
+   "name": "GEOS Forward Processing 2Km Replay",
+   "common_name": "GEOS-FP 2Km Replay",
+   "platform": null,
+   "sensor": null,
+   "type": "Model",
+   "organizations": [],
+   "description": "",
+   "credit": "",
+   "url": "",
+   "date_range": ""
+  },
+  {
+   "name": "GEOS Composition Forecast",
+   "common_name": "GEOS-CF",
+   "platform": null,
+   "sensor": null,
+   "type": "Model",
+   "organizations": [],
+   "description": "",
+   "credit": "",
+   "url": "https://gmao.gsfc.nasa.gov/gmao-products/geos-cf/",
+   "date_range": ""
+  },
+  {
+   "name": "GEOS-FP",
+   "common_name": "",
+   "platform": null,
+   "sensor": null,
+   "type": "Model",
+   "organizations": [
+    "NASA GMAO"
+   ],
+   "description": "Documentation: Lucchesi, R., 2018: File Specification for GEOS FP. GMAO Office Note No. 4 (Version 1.2), 61 pp, available from [https://gmao.gsfc.nasa.gov/pubs/docs/Lucchesi1203.pdf](https://gmao.gsfc.nasa.gov/pubs/docs/Lucchesi1203.pdf)",
+   "credit": "",
+   "url": "https://fluid.nccs.nasa.gov/weather/",
+   "date_range": ""
+  },
+  {
+   "name": "Fire Events Data Suite",
+   "common_name": "FEDS",
+   "platform": "NOAA-20 and SUOMI-NPP",
+   "sensor": "VIIRS",
+   "type": "Observed Data",
+   "organizations": [],
+   "description": "",
+   "credit": "Tempest McCabe, Douglas Morton, Melanie Follette-Cook, Elijah Orland, Zeb Becker, Yang Chen, Rebecca Scholten, Greg Corradini, Julia Signel, Alexey Shiklomanov, Kateria Sheronin, and Jim Randerson",
+   "url": "https://earth-information-system.github.io/fireatlas/docs/nrt.html",
+   "date_range": ""
+  },
+  {
+   "name": "FEDS OGC API",
+   "common_name": "",
+   "platform": null,
+   "sensor": null,
+   "type": "Data Compilation",
+   "organizations": [],
+   "description": "",
+   "credit": "",
+   "url": "https://earth-information-system.github.io/fireatlas/docs/nrt.html",
+   "date_range": ""
+  },
+  {
+   "name": "Quick Fire Emissions Dataset",
+   "common_name": "QFED",
+   "platform": "MODIS",
+   "sensor": null,
+   "type": "Other",
+   "organizations": [],
+   "description": "",
+   "credit": "",
+   "url": "https://ntrs.nasa.gov/citations/20180005253",
+   "date_range": ""
+  },
+  {
+   "name": "Earth Observatory Natural Event Tracker API",
+   "common_name": "EONET API",
+   "platform": null,
+   "sensor": null,
+   "type": "Other",
+   "organizations": [],
+   "description": "",
+   "credit": "Web Strategy and Communications Team, Earth Science Data Systems Program",
+   "url": "https://eonet.gsfc.nasa.gov/",
+   "date_range": ""
+  },
+  {
+   "name": "Integrated Reporting of Wildfire Information",
+   "common_name": "IRWIN",
+   "platform": null,
+   "sensor": null,
+   "type": "Other",
+   "organizations": [],
+   "description": "",
+   "credit": "",
+   "url": "https://www.wildfire.gov/application/irwin-integrated-reporting-wildfire-information",
+   "date_range": ""
+  }
+ ],
+ "missions": [],
+ "related": [
+  {
+   "id": 5668,
+   "title": "Unprecedented Wildfires in the Pacific Northwest Engulf the Region in Smoke",
+   "url": "https://svs.gsfc.nasa.gov/5668/"
+  },
+  {
+   "id": 5666,
+   "title": "Smoke from Record-Breaking Wildfires in Spain and France",
+   "url": "https://svs.gsfc.nasa.gov/5666/"
+  },
+  {
+   "id": 5665,
+   "title": "Long-range Transport of 2026 Canadian Wildfire Smoke into the United States (July 14-20, 2026)",
+   "url": "https://svs.gsfc.nasa.gov/5665/"
+  },
+  {
+   "id": 5664,
+   "title": "Long-range Transport of 2026 Canadian Wildfire Smoke into the United States (July 14-17, 2026)",
+   "url": "https://svs.gsfc.nasa.gov/5664/"
+  },
+  {
+   "id": 5624,
+   "title": "Global Smoke Forecast Visualization (Daily Updated)",
+   "url": "https://svs.gsfc.nasa.gov/5624/"
+  },
+  {
+   "id": 5631,
+   "title": "Long-range Transport of 2023 Canadian Wildfire Smoke into the Northeastern United States",
+   "url": "https://svs.gsfc.nasa.gov/5631/"
+  },
+  {
+   "id": 5601,
+   "title": "Wyoming Red Canyon wildfire: 2025 Year in Review",
+   "url": "https://svs.gsfc.nasa.gov/5601/"
+  },
+  {
+   "id": 5598,
+   "title": "Grand Canyon Dragon Bravo Megafire: 2025 Year in Review",
+   "url": "https://svs.gsfc.nasa.gov/5598/"
+  },
+  {
+   "id": 5597,
+   "title": "Los Angeles Palisades and Eaton Wildfires: 2025 Year in Review",
+   "url": "https://svs.gsfc.nasa.gov/5597/"
+  },
+  {
+   "id": 14894,
+   "title": "NASA Flew Over a Fire — to Better Understand Future Ones",
+   "url": "https://svs.gsfc.nasa.gov/14894/"
+  },
+  {
+   "id": 5568,
+   "title": "Overview Maps of 2025 Los Angeles Fires",
+   "url": "https://svs.gsfc.nasa.gov/5568/"
+  },
+  {
+   "id": 5558,
+   "title": "Spread of the Palisades and Eaton Fires - January 2025",
+   "url": "https://svs.gsfc.nasa.gov/5558/"
+  },
+  {
+   "id": 5315,
+   "title": "Daily Experimental Fire Weather Forecast",
+   "url": "https://svs.gsfc.nasa.gov/5315/"
+  }
+ ],
+ "alternate_versions": [],
+ "newer_versions": [
+  {
+   "id": 5639,
+   "title": "Daily Visualizations of the Largest Wildfires in the United States: 2026",
+   "url": "https://svs.gsfc.nasa.gov/5639/"
+  }
+ ],
+ "older_versions": [],
+ "media": [
+  {
+   "group": 1,
+   "group_title": "Event 1 - Fire Information",
+   "widget": "Single image",
+   "caption": "Still image with information about the fire event, such as the name, location, affected area and status of fire.",
+   "group_text": "",
+   "url": "https://svs.gsfc.nasa.gov/vis/a000000/a005500/a005557/event001_FireContext_latest.png",
+   "filename": "event001_FireContext_latest.png",
+   "media_type": "Image",
+   "width": 2048,
+   "height": 1024,
+   "alt_text": "Image of a text-based fire event summary showing information including: fire name, geographic location, affected area measurement in square kilometers, and current fire status indicator."
+  },
+  {
+   "group": 1,
+   "group_title": "Event 1 - Fire Information",
+   "widget": "Single image",
+   "caption": "Still image with information about the fire event, such as the name, location, affected area and status of fire.",
+   "group_text": "",
+   "url": "https://svs.gsfc.nasa.gov/vis/a000000/a005500/a005557/frames/event001_FireContext_prev_versions/",
+   "filename": "event001_FireContext_prev_versions",
+   "media_type": "Frames",
+   "width": 2048,
+   "height": 1024,
+   "alt_text": "Image of a text-based fire event summary showing information including: fire name, geographic location, affected area measurement in square kilometers, and current fire status indicator."
+  },
+  {
+   "group": 2,
+   "group_title": "Event 1 - GEOS Black Carbon",
+   "widget": "Video player",
+   "caption": "Visualization of Black Carbon from NASA’s Goddard Earth Observing System (GEOS) model.",
+   "group_text": "",
+   "url": "https://svs.gsfc.nasa.gov/vis/a000000/a005500/a005557/event001_BlackCarbonGEOS2km_latest.mp4",
+   "filename": "event001_BlackCarbonGEOS2km_latest.mp4",
+   "media_type": "Movie",
+   "width": 4096,
+   "height": 2048,
+   "alt_text": "30-second data animation showing black carbon dispersal in fire-affected area over a two-week period. Dispersals appear as yellow-to-red streaks against a map of the area with location names. The visualization includes a timecode in the lower left corner and a color scale (ranging from black through dark red to yellow) in the top left, indicating emission intensity levels."
+  },
+  {
+   "group": 2,
+   "group_title": "Event 1 - GEOS Black Carbon",
+   "widget": "Video player",
+   "caption": "Visualization of Black Carbon from NASA’s Goddard Earth Observing System (GEOS) model.",
+   "group_text": "",
+   "url": "https://svs.gsfc.nasa.gov/vis/a000000/a005500/a005557/frames/event001_BlackCarbonGEOS2km_prev_versions/",
+   "filename": "event001_BlackCarbonGEOS2km_prev_versions",
+   "media_type": "Frames",
+   "width": 0,
+   "height": 0,
+   "alt_text": "30-second data animation showing black carbon dispersal in fire-affected area over a two-week period. Dispersals appear as yellow-to-red streaks against a map of the area with location names. The visualization includes a timecode in the lower left corner and a color scale (ranging from black through dark red to yellow) in the top left, indicating emission intensity levels."
+  },
+  {
+   "group": 3,
+   "group_title": "",
+   "widget": "Single image",
+   "caption": "Legend overlay for the GEOS Black Carbon visualization.",
+   "group_text": "",
+   "url": "https://svs.gsfc.nasa.gov/vis/a000000/a005500/a005557/GEOS_BlackCarbon_legend.png",
+   "filename": "GEOS_BlackCarbon_legend.png",
+   "media_type": "Image",
+   "width": 600,
+   "height": 200,
+   "alt_text": "Static legend overlay for black carbon GEOS visualization, positioned in the bottom right corner of the display. Legend includes two fire indicators: a fire icon marking the reported fire location and yellow triangular symbol marking active fires detected by satellite data."
+  },
+  {
+   "group": 4,
+   "group_title": "Event 1 - GEOS Fire Monitor: Regional Air Quality",
+   "widget": "Video player",
+   "caption": "Visualization of regional air quality indicators from NASA’s Goddard Earth Observing System (GEOS) model.",
+   "group_text": "",
+   "url": "https://svs.gsfc.nasa.gov/vis/a000000/a005500/a005557/event001_FireMonitorGEOSAQ_latest.mp4",
+   "filename": "event001_FireMonitorGEOSAQ_latest.mp4",
+   "media_type": "Movie",
+   "width": 1700,
+   "height": 800,
+   "alt_text": "30-second animated horizontal bar chart showing regional air quality indicators (carbon monoxide, ozone, nitrogen dioxide, particulate matter 2.5) for the fire-affected area. Red bars change length over time to display varying conditions from low to moderate to high."
+  },
+  {
+   "group": 4,
+   "group_title": "Event 1 - GEOS Fire Monitor: Regional Air Quality",
+   "widget": "Video player",
+   "caption": "Visualization of regional air quality indicators from NASA’s Goddard Earth Observing System (GEOS) model.",
+   "group_text": "",
+   "url": "https://svs.gsfc.nasa.gov/vis/a000000/a005500/a005557/frames/event001_FireMonitorGEOSAQ_prev_versions/",
+   "filename": "event001_FireMonitorGEOSAQ_prev_versions",
+   "media_type": "Frames",
+   "width": 0,
+   "height": 0,
+   "alt_text": "30-second animated horizontal bar chart showing regional air quality indicators (carbon monoxide, ozone, nitrogen dioxide, particulate matter 2.5) for the fire-affected area. Red bars change length over time to display varying conditions from low to moderate to high."
+  },
+  {
+   "group": 5,
+   "group_title": "Event 1 - GEOS Fire Monitor: Regional Weather",
+   "widget": "Video player",
+   "caption": "Visualization of regional weather indicators from NASA’s Goddard Earth Observing System (GEOS) model.",
+   "group_text": "",
+   "url": "https://svs.gsfc.nasa.gov/vis/a000000/a005500/a005557/event001_FireMonitorGEOSWX_latest.mp4",
+   "filename": "event001_FireMonitorGEOSWX_latest.mp4",
+   "media_type": "Movie",
+   "width": 1700,
+   "height": 800,
+   "alt_text": "30-second animated horizontal bar chart showing regional weather indicators (temperature, wind speed, relative humidity, and soil moisture) for the fire-affected area. Red bars change length over time to display varying conditions from low to moderate to high."
+  },
+  {
+   "group": 5,
+   "group_title": "Event 1 - GEOS Fire Monitor: Regional Weather",
+   "widget": "Video player",
+   "caption": "Visualization of regional weather indicators from NASA’s Goddard Earth Observing System (GEOS) model.",
+   "group_text": "",
+   "url": "https://svs.gsfc.nasa.gov/vis/a000000/a005500/a005557/frames/event001_FireMonitorGEOSWX_prev_versions/",
+   "filename": "event001_FireMonitorGEOSWX_prev_versions",
+   "media_type": "Frames",
+   "width": 0,
+   "height": 0,
+   "alt_text": "30-second animated horizontal bar chart showing regional weather indicators (temperature, wind speed, relative humidity, and soil moisture) for the fire-affected area. Red bars change length over time to display varying conditions from low to moderate to high."
+  },
+  {
+   "group": 6,
+   "group_title": "Event 1 - Progression of Fire",
+   "widget": "Video player",
+   "caption": "Visualization showing the progression of fire using fire perimeters data from the Near Real Time Fire Event Data Suite (FEDS) OGC Application Programming Interface (API).",
+   "group_text": "",
+   "url": "https://svs.gsfc.nasa.gov/vis/a000000/a005500/a005557/event001_FirePerimeters_latest.mp4",
+   "filename": "event001_FirePerimeters_latest.mp4",
+   "media_type": "Movie",
+   "width": 2048,
+   "height": 1024,
+   "alt_text": "30-second animation showing the evolution of fire perimeters over a two-week period in the fire-affected area. The fire perimeters have an orange-brown outline. The visualization displays how fire boundaries expand and change over time, with the total affected area in square kilometers and miles shown at the end."
+  },
+  {
+   "group": 6,
+   "group_title": "Event 1 - Progression of Fire",
+   "widget": "Video player",
+   "caption": "Visualization showing the progression of fire using fire perimeters data from the Near Real Time Fire Event Data Suite (FEDS) OGC Application Programming Interface (API).",
+   "group_text": "",
+   "url": "https://svs.gsfc.nasa.gov/vis/a000000/a005500/a005557/frames/event001_FirePerimeters_prev_versions/",
+   "filename": "event001_FirePerimeters_prev_versions",
+   "media_type": "Frames",
+   "width": 0,
+   "height": 0,
+   "alt_text": "30-second animation showing the evolution of fire perimeters over a two-week period in the fire-affected area. The fire perimeters have an orange-brown outline. The visualization displays how fire boundaries expand and change over time, with the total affected area in square kilometers and miles shown at the end."
+  },
+  {
+   "group": 7,
+   "group_title": "Event 2 - Fire Information",
+   "widget": "Single image",
+   "caption": "Still image with information about the fire event, such as the name, location, affected area and status of fire.",
+   "group_text": "",
+   "url": "https://svs.gsfc.nasa.gov/vis/a000000/a005500/a005557/event002_FireContext_latest.png",
+   "filename": "event002_FireContext_latest.png",
+   "media_type": "Image",
+   "width": 2048,
+   "height": 1024,
+   "alt_text": "Image of a text-based fire event summary showing information including: fire name, geographic location, affected area measurement in square kilometers, and current fire status indicator."
+  },
+  {
+   "group": 7,
+   "group_title": "Event 2 - Fire Information",
+   "widget": "Single image",
+   "caption": "Still image with information about the fire event, such as the name, location, affected area and status of fire.",
+   "group_text": "",
+   "url": "https://svs.gsfc.nasa.gov/vis/a000000/a005500/a005557/frames/event002_FireContext_prev_versions/",
+   "filename": "event002_FireContext_prev_versions",
+   "media_type": "Frames",
+   "width": 2048,
+   "height": 1024,
+   "alt_text": "Image of a text-based fire event summary showing information including: fire name, geographic location, affected area measurement in square kilometers, and current fire status indicator."
+  },
+  {
+   "group": 8,
+   "group_title": "Event 2 - GEOS Black Carbon",
+   "widget": "Video player",
+   "caption": "Visualization of Black Carbon from NASA’s Goddard Earth Observing System (GEOS) model.",
+   "group_text": "",
+   "url": "https://svs.gsfc.nasa.gov/vis/a000000/a005500/a005557/event002_BlackCarbonGEOS2km_latest.mp4",
+   "filename": "event002_BlackCarbonGEOS2km_latest.mp4",
+   "media_type": "Movie",
+   "width": 4096,
+   "height": 2048,
+   "alt_text": "30-second data animation showing black carbon dispersal in fire-affected area over a two-week period. Dispersals appear as yellow-to-red streaks against a map of the area with location names. The visualization includes a timecode in the lower left corner and a color scale (ranging from black through dark red to yellow) in the top left, indicating emission intensity levels."
+  },
+  {
+   "group": 8,
+   "group_title": "Event 2 - GEOS Black Carbon",
+   "widget": "Video player",
+   "caption": "Visualization of Black Carbon from NASA’s Goddard Earth Observing System (GEOS) model.",
+   "group_text": "",
+   "url": "https://svs.gsfc.nasa.gov/vis/a000000/a005500/a005557/frames/event002_BlackCarbonGEOS2km_prev_versions/",
+   "filename": "event002_BlackCarbonGEOS2km_prev_versions",
+   "media_type": "Frames",
+   "width": 0,
+   "height": 0,
+   "alt_text": "30-second data animation showing black carbon dispersal in fire-affected area over a two-week period. Dispersals appear as yellow-to-red streaks against a map of the area with location names. The visualization includes a timecode in the lower left corner and a color scale (ranging from black through dark red to yellow) in the top left, indicating emission intensity levels."
+  },
+  {
+   "group": 9,
+   "group_title": "",
+   "widget": "Single image",
+   "caption": "Legend overlay for the GEOS Black Carbon visualization.",
+   "group_text": "",
+   "url": "https://svs.gsfc.nasa.gov/vis/a000000/a005500/a005557/GEOS_BlackCarbon_legend.png",
+   "filename": "GEOS_BlackCarbon_legend.png",
+   "media_type": "Image",
+   "width": 600,
+   "height": 200,
+   "alt_text": "Static legend overlay for black carbon GEOS visualization, positioned in the bottom right corner of the display. Legend includes two fire indicators: a fire icon marking the reported fire location and yellow triangular symbol marking active fires detected by satellite data."
+  },
+  {
+   "group": 10,
+   "group_title": "Event 2 - GEOS Fire Monitor: Regional Air Quality",
+   "widget": "Video player",
+   "caption": "Visualization of regional air quality indicators from NASA’s Goddard Earth Observing System (GEOS) model.",
+   "group_text": "",
+   "url": "https://svs.gsfc.nasa.gov/vis/a000000/a005500/a005557/event002_FireMonitorGEOSAQ_latest.mp4",
+   "filename": "event002_FireMonitorGEOSAQ_latest.mp4",
+   "media_type": "Movie",
+   "width": 1700,
+   "height": 800,
+   "alt_text": "30-second animated horizontal bar chart showing regional air quality indicators (carbon monoxide, ozone, nitrogen dioxide, particulate matter 2.5) for the fire-affected area. Red bars change length over time to display varying conditions from low to moderate to high."
+  },
+  {
+   "group": 10,
+   "group_title": "Event 2 - GEOS Fire Monitor: Regional Air Quality",
+   "widget": "Video player",
+   "caption": "Visualization of regional air quality indicators from NASA’s Goddard Earth Observing System (GEOS) model.",
+   "group_text": "",
+   "url": "https://svs.gsfc.nasa.gov/vis/a000000/a005500/a005557/frames/event002_FireMonitorGEOSAQ_prev_versions/",
+   "filename": "event002_FireMonitorGEOSAQ_prev_versions",
+   "media_type": "Frames",
+   "width": 0,
+   "height": 0,
+   "alt_text": "30-second animated horizontal bar chart showing regional air quality indicators (carbon monoxide, ozone, nitrogen dioxide, particulate matter 2.5) for the fire-affected area. Red bars change length over time to display varying conditions from low to moderate to high."
+  },
+  {
+   "group": 11,
+   "group_title": "Event 2 - GEOS Fire Monitor: Regional Weather",
+   "widget": "Video player",
+   "caption": "Visualization of regional weather indicators from NASA’s Goddard Earth Observing System (GEOS) model.",
+   "group_text": "",
+   "url": "https://svs.gsfc.nasa.gov/vis/a000000/a005500/a005557/event002_FireMonitorGEOSWX_latest.mp4",
+   "filename": "event002_FireMonitorGEOSWX_latest.mp4",
+   "media_type": "Movie",
+   "width": 1700,
+   "height": 800,
+   "alt_text": "30-second animated horizontal bar chart showing regional weather indicators (temperature, wind speed, relative humidity, and soil moisture) for the fire-affected area. Red bars change length over time to display varying conditions from low to moderate to high."
+  },
+  {
+   "group": 11,
+   "group_title": "Event 2 - GEOS Fire Monitor: Regional Weather",
+   "widget": "Video player",
+   "caption": "Visualization of regional weather indicators from NASA’s Goddard Earth Observing System (GEOS) model.",
+   "group_text": "",
+   "url": "https://svs.gsfc.nasa.gov/vis/a000000/a005500/a005557/frames/event002_FireMonitorGEOSWX_prev_versions/",
+   "filename": "event002_FireMonitorGEOSWX_prev_versions",
+   "media_type": "Frames",
+   "width": 0,
+   "height": 0,
+   "alt_text": "30-second animated horizontal bar chart showing regional weather indicators (temperature, wind speed, relative humidity, and soil moisture) for the fire-affected area. Red bars change length over time to display varying conditions from low to moderate to high."
+  },
+  {
+   "group": 12,
+   "group_title": "Event 2 - Progression of Fire",
+   "widget": "Video player",
+   "caption": "Visualization showing the progression of fire using fire perimeters data from the Near Real Time Fire Event Data Suite (FEDS) OGC Application Programming Interface (API).",
+   "group_text": "",
+   "url": "https://svs.gsfc.nasa.gov/vis/a000000/a005500/a005557/event002_FirePerimeters_latest.mp4",
+   "filename": "event002_FirePerimeters_latest.mp4",
+   "media_type": "Movie",
+   "width": 2048,
+   "height": 1024,
+   "alt_text": "30-second animation showing the evolution of fire perimeters over a two-week period in the fire-affected area. The fire perimeters have an orange-brown outline. The visualization displays how fire boundaries expand and change over time, with the total affected area in square kilometers and miles shown at the end."
+  },
+  {
+   "group": 12,
+   "group_title": "Event 2 - Progression of Fire",
+   "widget": "Video player",
+   "caption": "Visualization showing the progression of fire using fire perimeters data from the Near Real Time Fire Event Data Suite (FEDS) OGC Application Programming Interface (API).",
+   "group_text": "",
+   "url": "https://svs.gsfc.nasa.gov/vis/a000000/a005500/a005557/frames/event002_FirePerimeters_prev_versions/",
+   "filename": "event002_FirePerimeters_prev_versions",
+   "media_type": "Frames",
+   "width": 0,
+   "height": 0,
+   "alt_text": "30-second animation showing the evolution of fire perimeters over a two-week period in the fire-affected area. The fire perimeters have an orange-brown outline. The visualization displays how fire boundaries expand and change over time, with the total affected area in square kilometers and miles shown at the end."
+  },
+  {
+   "group": 14,
+   "group_title": "",
+   "widget": "Single image",
+   "caption": "View of the Earth Information Center Wildland Fires Data Dashboard showing the layout and presentation of data visualization assets offered in this page. This still image features visualization assets from the Red Canyon wildfire in Hot Springs, Wyoming, as of August 21, 2025.",
+   "group_text": "",
+   "url": "https://svs.gsfc.nasa.gov/vis/a000000/a005500/a005557/EICWildlandFires_Dashboard_Stage3_View_small.png",
+   "filename": "EICWildlandFires_Dashboard_Stage3_View_small.png",
+   "media_type": "Image",
+   "width": 2000,
+   "height": 563,
+   "alt_text": ""
+  },
+  {
+   "group": 14,
+   "group_title": "",
+   "widget": "Single image",
+   "caption": "View of the Earth Information Center Wildland Fires Data Dashboard showing the layout and presentation of data visualization assets offered in this page. This still image features visualization assets from the Red Canyon wildfire in Hot Springs, Wyoming, as of August 21, 2025.",
+   "group_text": "",
+   "url": "https://svs.gsfc.nasa.gov/vis/a000000/a005500/a005557/EICWildlandFires_Dashboard_Stage3_View.png",
+   "filename": "EICWildlandFires_Dashboard_Stage3_View.png",
+   "media_type": "Image",
+   "width": 7680,
+   "height": 2160,
+   "alt_text": ""
+  }
+ ],
+ "text_links": [
+  "https://earth.gov/",
+  "https://eonet.gsfc.nasa.gov/docs/v3",
+  "https://www.wildfire.gov/application/irwin-integrated-reporting-wildfire-information",
+  "https://www.wildfire.gov/",
+  "https://earth-information-system.github.io/fireatlas/docs/nrt.html",
+  "https://gmao.gsfc.nasa.gov/geos-systems/",
+  "https://gmao.gsfc.nasa.gov/",
+  "https://earth-information-system.github.io/fireatlas/docs/"
+ ],
+ "frame_folders": {
+  "https://svs.gsfc.nasa.gov/vis/a000000/a005500/a005557/frames/event001_FireContext_prev_versions/": {
+   "url": "https://svs.gsfc.nasa.gov/vis/a000000/a005500/a005557/frames/event001_FireContext_prev_versions/",
+   "frame_count": 18,
+   "bytes_approx": 1678000,
+   "first": "event001.BLACK_ROCK_Wildfire_Wasco_Oregon.FireContext.20250916.png",
+   "last": "event001.Salmon_Forks_Wildfire_Flathead_Montana.FireContext.20250926.png",
+   "subfolders": {}
+  },
+  "https://svs.gsfc.nasa.gov/vis/a000000/a005500/a005557/frames/event001_BlackCarbonGEOS2km_prev_versions/": {
+   "url": "https://svs.gsfc.nasa.gov/vis/a000000/a005500/a005557/frames/event001_BlackCarbonGEOS2km_prev_versions/",
+   "frame_count": 0,
+   "bytes_approx": null,
+   "first": null,
+   "last": null,
+   "subfolders": {}
+  },
+  "https://svs.gsfc.nasa.gov/vis/a000000/a005500/a005557/frames/event001_FireMonitorGEOSAQ_prev_versions/": {
+   "url": "https://svs.gsfc.nasa.gov/vis/a000000/a005500/a005557/frames/event001_FireMonitorGEOSAQ_prev_versions/",
+   "frame_count": 0,
+   "bytes_approx": null,
+   "first": null,
+   "last": null,
+   "subfolders": {}
+  },
+  "https://svs.gsfc.nasa.gov/vis/a000000/a005500/a005557/frames/event001_FireMonitorGEOSWX_prev_versions/": {
+   "url": "https://svs.gsfc.nasa.gov/vis/a000000/a005500/a005557/frames/event001_FireMonitorGEOSWX_prev_versions/",
+   "frame_count": 0,
+   "bytes_approx": null,
+   "first": null,
+   "last": null,
+   "subfolders": {}
+  },
+  "https://svs.gsfc.nasa.gov/vis/a000000/a005500/a005557/frames/event001_FirePerimeters_prev_versions/": {
+   "url": "https://svs.gsfc.nasa.gov/vis/a000000/a005500/a005557/frames/event001_FirePerimeters_prev_versions/",
+   "frame_count": 0,
+   "bytes_approx": null,
+   "first": null,
+   "last": null,
+   "subfolders": {}
+  },
+  "https://svs.gsfc.nasa.gov/vis/a000000/a005500/a005557/frames/event002_FireContext_prev_versions/": {
+   "url": "https://svs.gsfc.nasa.gov/vis/a000000/a005500/a005557/frames/event002_FireContext_prev_versions/",
+   "frame_count": 21,
+   "bytes_approx": 1992200,
+   "first": "event002.Cottonwood_Peak_Wildfire_Elko_Nevada.FireContext.20250818.png",
+   "last": "event002.RED_CANYON_Wildfire_Hot_Springs_Wyoming.FireContext.20250817.png",
+   "subfolders": {}
+  },
+  "https://svs.gsfc.nasa.gov/vis/a000000/a005500/a005557/frames/event002_BlackCarbonGEOS2km_prev_versions/": {
+   "url": "https://svs.gsfc.nasa.gov/vis/a000000/a005500/a005557/frames/event002_BlackCarbonGEOS2km_prev_versions/",
+   "frame_count": 0,
+   "bytes_approx": null,
+   "first": null,
+   "last": null,
+   "subfolders": {}
+  },
+  "https://svs.gsfc.nasa.gov/vis/a000000/a005500/a005557/frames/event002_FireMonitorGEOSAQ_prev_versions/": {
+   "url": "https://svs.gsfc.nasa.gov/vis/a000000/a005500/a005557/frames/event002_FireMonitorGEOSAQ_prev_versions/",
+   "frame_count": 0,
+   "bytes_approx": null,
+   "first": null,
+   "last": null,
+   "subfolders": {}
+  },
+  "https://svs.gsfc.nasa.gov/vis/a000000/a005500/a005557/frames/event002_FireMonitorGEOSWX_prev_versions/": {
+   "url": "https://svs.gsfc.nasa.gov/vis/a000000/a005500/a005557/frames/event002_FireMonitorGEOSWX_prev_versions/",
+   "frame_count": 0,
+   "bytes_approx": null,
+   "first": null,
+   "last": null,
+   "subfolders": {}
+  },
+  "https://svs.gsfc.nasa.gov/vis/a000000/a005500/a005557/frames/event002_FirePerimeters_prev_versions/": {
+   "url": "https://svs.gsfc.nasa.gov/vis/a000000/a005500/a005557/frames/event002_FirePerimeters_prev_versions/",
+   "frame_count": 0,
+   "bytes_approx": null,
+   "first": null,
+   "last": null,
+   "subfolders": {}
+  }
+ },
+ "api_url": "https://svs.gsfc.nasa.gov/api/5557",
+ "fetched_utc": "2026-10-31T17:12:40Z"
+}

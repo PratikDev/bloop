@@ -1,8 +1,8 @@
 // PURE: the value → sound maths of the Then vs Now voices (heat, monsoon,
 // water), built on mapping.ts so every number comes from mapping.json.
 
-import type { BandsMapping, RuntimeRangeMapping } from "@/types/data-contract";
-import { bandFor, mapRuntime, mapVoice, runtimeRange, voiceSpec } from "./mapping";
+import type { BandsMapping } from "@/types/data-contract";
+import { bandFor, continuousRule, mapContinuous, mapVoice, voiceSpec, withInputRange } from "./mapping";
 
 export interface HeatTone {
   freq: number; // Hz, heat rule
@@ -38,14 +38,20 @@ export function stepDropTimes(n: number, stepSec: number, start: number, random:
   return Array.from({ length: n }, (_, i) => start + slot * (i + 0.5 + (random() - 0.5) * 0.6));
 }
 
-/** The water rule's input range over the series being played (5th–95th percentile, nulls ignored). */
-export function waterRange(series: readonly (number | null)[]) {
-  return runtimeRange(series, (voiceSpec("water").mapping as RuntimeRangeMapping).input);
+/**
+ * The water rule's input range: one fixed range for every series (mapping.json, team decision build book A3/D1),
+ * so Bangladesh and any other region are heard on the same scale. `series` is the one being played; the range
+ * doesn't depend on it (a player prepares it the same way for any series).
+ */
+export function waterRange(series: readonly (number | null)[]): { min: number; max: number } {
+  void series;
+  const { min, max } = continuousRule("water").input;
+  return { min, max };
 }
 
-/** GRACE cm → bass Hz within a range from waterRange(); null (no measurement) → null. */
+/** GRACE cm → bass Hz on the water rule over `range` (from waterRange()); null (no measurement) → null. */
 export function waterFreq(cm: number | null, range: { min: number; max: number }): number | null {
-  return mapRuntime(cm, voiceSpec("water").mapping as RuntimeRangeMapping, range);
+  return mapContinuous(cm, withInputRange(continuousRule("water"), range));
 }
 
 /** Runs of missing values as [first index, last index] (each gets one gap caption). */

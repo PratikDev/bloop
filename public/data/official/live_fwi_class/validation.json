@@ -1,0 +1,22 @@
+{
+ "record": "live_fwi_class",
+ "checks": [
+  {
+   "record": "live_fwi_class",
+   "id": "a_C5315",
+   "title": "SVS 5315 live frame: acceptance test C5315",
+   "kind": "value",
+   "source": null,
+   "metrics": {
+    "test": "C5315",
+    "status": "PASS",
+    "decoded_share": 0.9297673134365823
+   },
+   "threshold": "status PASS (the product's own thresholds)",
+   "pass": true,
+   "note": "",
+   "run_utc": "2026-10-29T12:47:05Z"
+  }
+ ],
+ "updated_utc": "2026-10-29T12:47:05Z"
+}

@@ -2,6 +2,7 @@
 // numbers in mapping.json so the text can never disagree with the sound.
 
 import type { VoiceMapping, VoiceSpec } from "@/types/data-contract";
+import { voiceSpec } from "./mapping-spec";
 
 /** Formats a number for display: true minus sign, no trailing zeros. */
 export function formatNumber(n: number): string {
@@ -14,6 +15,9 @@ const PARAM_WORDS: Record<string, string> = {
   dropsPerSecond: "density",
   dropsPerStep: "density",
   gain: "strength",
+  reverbSec: "echo length",
+  cutoff: "low-pass cutoff (brightness)",
+  clicksPerSecond: "clicks per second",
 };
 
 /**
@@ -33,12 +37,15 @@ export interface RuleParts {
   outputMin?: string;
   outputMax?: string;
   outputScale?: "linear" | "exponential";
+  outputFalling?: boolean;
   bands?: { upTo: string | null; label: string }[];
+  sameAs?: string; // the voice whose rule is used
 }
 
 export function ruleParts(voice: VoiceSpec): RuleParts | null {
   const m = voice.mapping;
   if (!m) return null;
+  if (m.kind === "sameAs") return { kind: m.kind, inputUnit: m.input.unit, sameAs: m.voice };
   if (m.kind === "bands") {
     return {
       kind: m.kind,
@@ -53,6 +60,7 @@ export function ruleParts(voice: VoiceSpec): RuleParts | null {
     outputMin: formatNumber(m.output.min),
     outputMax: formatNumber(m.output.max),
     outputScale: m.output.scale,
+    outputFalling: m.kind === "continuous" && m.output.falling === true,
   };
   if (m.kind === "continuous") {
     return {
@@ -79,6 +87,11 @@ export function ruleText(voice: VoiceSpec): string {
   if (!p) return voice.silence;
   const name = voice.label.en;
 
+  if (p.kind === "sameAs" && p.sameAs) {
+    const other = voiceSpec(p.sameAs);
+    return `${name}: two tones in one ear, both by the ${other.label.en} rule (${ruleText(other)}) Beats per second = the difference between the two pitches in Hz.`;
+  }
+
   if (p.kind === "bands") {
     const what = p.inputTransform === "abs" ? `How far from normal (either direction, ${p.inputUnit})` : name;
     const parts: string[] = [];
@@ -92,7 +105,8 @@ export function ruleText(voice: VoiceSpec): string {
     return `${what} → consonant to dissonant. ${parts.join("; ")}.`;
   }
 
-  const target = `${PARAM_WORDS[p.param ?? ""] ?? p.param} ${p.outputMin} to ${p.outputMax} ${p.outputUnit}`;
+  const [from, to] = p.outputFalling ? [p.outputMax, p.outputMin] : [p.outputMin, p.outputMax];
+  const target = `${PARAM_WORDS[p.param ?? ""] ?? p.param} ${from} to ${to} ${p.outputUnit}`;
   const outScale =
     p.outputScale === "exponential"
       ? "exponential: equal steps in value sound like equal musical steps"

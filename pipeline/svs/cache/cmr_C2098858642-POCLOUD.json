@@ -1,0 +1,1055 @@
+{
+ "DataLanguage": "eng",
+ "AncillaryKeywords": [
+  "oscar",
+  "currents",
+  "ocean currents",
+  "sea surface currents"
+ ],
+ "CollectionCitations": [
+  {
+   "Version": "2.0",
+   "Title": "Ocean Surface Current Analyses Real-time (OSCAR) Surface Currents - Final 0.25 Degree (Version 2.0)",
+   "Creator": "ESR; Dohan, Kathleen",
+   "ReleaseDate": "2022-01-27T00:00:00.000Z",
+   "ReleasePlace": "CA, USA",
+   "Publisher": "PO.DAAC",
+   "SeriesName": "Ocean Surface Current Analyses Real-time (OSCAR)"
+  }
+ ],
+ "AdditionalAttributes": [
+  {
+   "Name": "Series Name",
+   "Description": "Dataset citation series name",
+   "Value": "Ocean Surface Current Analyses Real-time (OSCAR)",
+   "DataType": "STRING"
+  }
+ ],
+ "SpatialExtent": {
+  "HorizontalSpatialDomain": {
+   "Geometry": {
+    "BoundingRectangles": [
+     {
+      "NorthBoundingCoordinate": 89.75,
+      "WestBoundingCoordinate": -180,
+      "EastBoundingCoordinate": 180,
+      "SouthBoundingCoordinate": -89.75
+     }
+    ],
+    "CoordinateSystem": "CARTESIAN"
+   },
+   "ResolutionAndCoordinateSystem": {
+    "HorizontalDataResolution": {
+     "GenericResolutions": [
+      {
+       "XDimension": 0.25,
+       "YDimension": 0.25,
+       "Unit": "Decimal Degrees"
+      }
+     ]
+    },
+    "Description": "Projection Type: Cylindrical Lat-Lon, Projection Detail: Geolocation information included for each pixel"
+   }
+  },
+  "SpatialCoverageType": "HORIZONTAL",
+  "GranuleSpatialRepresentation": "CARTESIAN"
+ },
+ "CollectionProgress": "COMPLETE",
+ "StandardProduct": false,
+ "ScienceKeywords": [
+  {
+   "Category": "EARTH SCIENCE",
+   "Topic": "OCEANS",
+   "Term": "OCEAN CIRCULATION",
+   "VariableLevel1": "OCEAN CURRENTS"
+  }
+ ],
+ "TemporalExtents": [
+  {
+   "RangeDateTimes": [
+    {
+     "BeginningDateTime": "1993-01-01T00:00:00.000Z",
+     "EndingDateTime": "2026-01-17T00:00:00.000Z"
+    }
+   ],
+   "EndsAtPresentFlag": false
+  }
+ ],
+ "ProcessingLevel": {
+  "Id": "4"
+ },
+ "DOI": {
+  "DOI": "10.5067/OSCAR-25F20",
+  "Authority": "https://doi.org"
+ },
+ "ShortName": "OSCAR_L4_OC_FINAL_V2.0",
+ "EntryTitle": "Ocean Surface Current Analyses Real-time (OSCAR) Surface Currents - Final 0.25 Degree (Version 2.0)",
+ "PublicationReferences": [
+  {
+   "Title": "Diagnostic model and analysis of the surface currents in the tropical Pacific Ocean",
+   "Publisher": "American Meteorological Society",
+   "DOI": {
+    "DOI": "10.1175/1520-0485(2002)032%3C2938:DMAAOT%3E2.0.CO;2",
+    "Authority": "https://doi.org/"
+   },
+   "Author": "Bonjean, F., and G. S. E. Lagerloef",
+   "PublicationDate": "2002-10-01T00:00:00.000Z",
+   "Series": "J. Phys. Oceanogr.",
+   "Volume": "32",
+   "Pages": "2938–2954"
+  }
+ ],
+ "DirectDistributionInformation": {
+  "S3BucketAndObjectPrefixNames": [
+   "podaac-ops-cumulus-protected/OSCAR_L4_OC_FINAL_V2/",
+   "podaac-ops-cumulus-public/OSCAR_L4_OC_FINAL_V2/"
+  ],
+  "Region": "us-west-2",
+  "S3CredentialsAPIEndpoint": "https://archive.podaac.earthdata.nasa.gov/s3credentials",
+  "S3CredentialsAPIDocumentationURL": "https://archive.podaac.earthdata.nasa.gov/s3credentialsREADME"
+ },
+ "MetadataLanguage": "eng",
+ "RelatedUrls": [
+  {
+   "Type": "VIEW RELATED INFORMATION",
+   "Description": "Data Use and Citation Guidelines",
+   "URLContentType": "PublicationURL",
+   "Subtype": "DATA CITATION GUIDELINES",
+   "URL": "https://podaac.jpl.nasa.gov/CitingPODAAC"
+  },
+  {
+   "Description": "Browse Granule Listing",
+   "URLContentType": "DistributionURL",
+   "Type": "GET DATA",
+   "Subtype": "DATA TREE",
+   "URL": "https://cmr.earthdata.nasa.gov/virtual-directory/collections/C2098858642-POCLOUD",
+   "GetData": {
+    "Format": "Not provided",
+    "MimeType": "text/html",
+    "Size": 0,
+    "Unit": "MB"
+   }
+  },
+  {
+   "Description": "Search Granules",
+   "URLContentType": "DistributionURL",
+   "Type": "GET DATA",
+   "Subtype": "Earthdata Search",
+   "URL": "https://search.earthdata.nasa.gov/search/granules?p=C2098858642-POCLOUD",
+   "GetData": {
+    "Format": "Not provided",
+    "MimeType": "text/html",
+    "Size": 0,
+    "Unit": "MB"
+   }
+  },
+  {
+   "Description": "Generic Data Readers",
+   "URLContentType": "PublicationURL",
+   "Type": "VIEW RELATED INFORMATION",
+   "Subtype": "DATA RECIPE",
+   "URL": "https://github.com/podaac/data-readers"
+  },
+  {
+   "Description": "User Guide",
+   "URLContentType": "PublicationURL",
+   "Type": "VIEW RELATED INFORMATION",
+   "Subtype": "USER'S GUIDE",
+   "URL": "https://archive.podaac.earthdata.nasa.gov/podaac-ops-cumulus-docs/oscar/open/L4/oscar_v2.0/docs/oscarv2guide.pdf"
+  },
+  {
+   "Type": "GET RELATED VISUALIZATION",
+   "Description": "Thumbnail",
+   "URLContentType": "VisualizationURL",
+   "URL": "https://podaac.jpl.nasa.gov/Podaac/thumbnails/OSCAR_L4_OC_FINAL_V2.0.png"
+  },
+  {
+   "URLContentType": "DistributionURL",
+   "Type": "GET DATA",
+   "Subtype": "Data Access Tool",
+   "URL": "https://github.com/podaac/data-subscriber",
+   "Description": "This dataset can be downloaded using the podaac-data-subscriber (the recommended tool for bulk downloading PO.DAAC data). It is a Python package for downloading one or many files using the command line interface. The URL redirects to the data-subscriber home page with instructions for utilizing the tool"
+  },
+  {
+   "URLContentType": "DistributionURL",
+   "Type": "USE SERVICE API",
+   "Subtype": "OPENDAP DATA",
+   "URL": "https://opendap.earthdata.nasa.gov",
+   "Description": "This dataset can be accessed with the Open-source Project for a Network Data Access Protocol (OPeNDAP) API framework. This service enables variable and dimensional subsetting. The URL redirects to a page with information about utilizing the service."
+  },
+  {
+   "URLContentType": "DistributionURL",
+   "Type": "GOTO WEB TOOL",
+   "Subtype": "SUBSETTER",
+   "URL": "https://harmony.earthdata.nasa.gov/",
+   "Description": "This dataset can be accessed with the Harmony subsetter service to subset and regrid data on-the-fly. Several subsetting options are available such as spatial, variable, temporal, and vertical level. The URL redirects to a general page with information about utilizing the service. An example query:  https://harmony.earthdata.nasa.gov/C3378626164-POCLOUD/ogc-api-coverages/1.0.0/collections/all/coverage/rangeset?subset=lat(minLat:maxLat)&subset=lon(minLon:maxLon)&subset=time(startTime:stopTime)&format=application%2Fx-netcdf4"
+  },
+  {
+   "URLContentType": "VisualizationURL",
+   "Type": "GET RELATED VISUALIZATION",
+   "Subtype": "WORLDVIEW",
+   "URL": "https://www.earthdata.nasa.gov/data/tools/worldview",
+   "Description": "The Worldview tool from NASA's Earth Observing System Data and Information System (EOSDIS) provides the capability to interactively browse and visualize satellite imagery layers and then download the underlying data. Many of the layers are updated within three hours of observation. This link redirects to the Worldview home page - from there, users can launch the tool and search for this dataset."
+  }
+ ],
+ "DataDates": [
+  {
+   "Type": "CREATE",
+   "Date": "2021-07-27T00:00:00.000Z"
+  }
+ ],
+ "Abstract": "Ocean Surface Current Analyses Real-time (OSCAR) is a global surface current database and NASA funded research project. OSCAR ocean mixed layer velocities are calculated from satellite-sensed sea surface height gradients, ocean vector winds, and sea surface temperature gradients using a simplified physical model for geostrophy, Ekman, and thermal wind dynamics. Daily averaged surface currents are provided on a global 0.25 x 0.25 degree grid as an average over an assumed well-mixed top 30 m of the ocean from 1993 to present day.  OSCAR currents are provided at three quality levels: final, interim and nrt with a respective latency of each of approximately 1 year, 1 month, and 2 days. OSCAR is generated by Earth & Space Research (ESR) https://www.esr.org/research/oscar/.  More details on the source datasets, file structure, and methodology can be found in oscarv2guide.pdf.",
+ "LocationKeywords": [
+  {
+   "Category": "GEOGRAPHIC REGION",
+   "Type": "GLOBAL OCEAN"
+  }
+ ],
+ "MetadataDates": [
+  {
+   "Type": "CREATE",
+   "Date": "2021-08-03T23:14:00.000Z"
+  },
+  {
+   "Type": "UPDATE",
+   "Date": "2024-03-11T15:53:00.000Z"
+  }
+ ],
+ "Version": "2.0",
+ "Projects": [
+  {
+   "ShortName": "OSCAR",
+   "LongName": "Ocean Surface Current Analyses-Real time"
+  }
+ ],
+ "DataCenters": [
+  {
+   "Roles": [
+    "ARCHIVER",
+    "DISTRIBUTOR"
+   ],
+   "ShortName": "NASA/JPL/PODAAC",
+   "LongName": "Physical Oceanography Distributed Active Archive Center, Jet Propulsion Laboratory, NASA",
+   "ContactInformation": {
+    "RelatedUrls": [
+     {
+      "URLContentType": "DataCenterURL",
+      "Type": "HOME PAGE",
+      "URL": "https://www.earthdata.nasa.gov/centers/po-daac",
+      "Description": "Physical Oceanography Distributed Active Archive Center Page"
+     }
+    ]
+   },
+   "ContactGroups": [
+    {
+     "Roles": [
+      "Data Center Contact"
+     ],
+     "GroupName": "Help Desk",
+     "ContactInformation": {
+      "RelatedUrls": [
+       {
+        "URLContentType": "DataContactURL",
+        "Type": "HOME PAGE",
+        "URL": "https://www.earthdata.nasa.gov/centers/po-daac",
+        "Description": "Physical Oceanography Distributed Active Archive Center Page"
+       }
+      ]
+     }
+    }
+   ]
+  },
+  {
+   "Roles": [
+    "ORIGINATOR",
+    "PROCESSOR"
+   ],
+   "ShortName": "ESR",
+   "LongName": "Earth and Space Research",
+   "ContactInformation": {
+    "RelatedUrls": [
+     {
+      "URLContentType": "DataCenterURL",
+      "Type": "HOME PAGE",
+      "URL": "http://WWW.ESR.ORG/ptm_index.html"
+     }
+    ]
+   }
+  }
+ ],
+ "TemporalKeywords": [
+  "Daily - < Weekly"
+ ],
+ "Platforms": [
+  {
+   "Characteristics": [
+    {
+     "Description": "Nominal period of a spacecraft’s single revolution on an orbital plane.",
+     "Value": "102.0",
+     "DataType": "FLOAT",
+     "Unit": "Minutes",
+     "Name": "OrbitPeriod"
+    },
+    {
+     "Description": "Spacecraft angular distance from orbital plane relative to the Equator.",
+     "Value": "99.0",
+     "DataType": "FLOAT",
+     "Unit": "Degrees",
+     "Name": "InclinationAngle"
+    }
+   ],
+   "Instruments": [
+    {
+     "Characteristics": [
+      {
+       "Description": "Spacecraft angular distance from orbital plane relative to the Equator.",
+       "Value": "2400.0",
+       "DataType": "FLOAT",
+       "Unit": "Kilometers",
+       "Name": "SwathWidth"
+      }
+     ],
+     "LongName": "Advanced Very High Resolution Radiometer-2",
+     "ShortName": "AVHRR-2"
+    }
+   ],
+   "Type": "Earth Observation Satellites",
+   "LongName": "National Oceanic & Atmospheric Administration-14",
+   "ShortName": "NOAA-14"
+  },
+  {
+   "Characteristics": [
+    {
+     "Description": "Nominal period of a spacecraft’s single revolution on an orbital plane.",
+     "Value": "112.43",
+     "DataType": "FLOAT",
+     "Unit": "Minutes",
+     "Name": "OrbitPeriod"
+    },
+    {
+     "Description": "Spacecraft angular distance from orbital plane relative to the Equator.",
+     "Value": "66.04",
+     "DataType": "FLOAT",
+     "Unit": "Degrees",
+     "Name": "InclinationAngle"
+    }
+   ],
+   "Instruments": [
+    {
+     "Characteristics": [
+      {
+       "Description": "Spacecraft angular distance from orbital plane relative to the Equator.",
+       "Value": "22.9",
+       "DataType": "FLOAT",
+       "Unit": "Kilometers",
+       "Name": "SwathWidth"
+      }
+     ],
+     "LongName": "JASON-1 MICROWAVE RADIOMETER",
+     "ShortName": "JASON-1 Microwave Radiometer"
+    },
+    {
+     "LongName": "JASON-1 RADAR ALTIMETER",
+     "ShortName": "POSEIDON-2"
+    }
+   ],
+   "Type": "Earth Observation Satellites",
+   "ShortName": "JASON-1"
+  },
+  {
+   "Characteristics": [
+    {
+     "Description": "Nominal period of a spacecraft’s single revolution on an orbital plane.",
+     "Value": "112.43",
+     "DataType": "FLOAT",
+     "Unit": "Minutes",
+     "Name": "OrbitPeriod"
+    },
+    {
+     "Description": "Spacecraft angular distance from orbital plane relative to the Equator.",
+     "Value": "66.04",
+     "DataType": "FLOAT",
+     "Unit": "Degrees",
+     "Name": "InclinationAngle"
+    }
+   ],
+   "Instruments": [
+    {
+     "Characteristics": [
+      {
+       "Description": "Spacecraft angular distance from orbital plane relative to the Equator.",
+       "Value": "5.0",
+       "DataType": "FLOAT",
+       "Unit": "Kilometers",
+       "Name": "SwathWidth"
+      }
+     ],
+     "LongName": "TOPEX Radar Altimeter",
+     "ShortName": "ALT (TOPEX)"
+    },
+    {
+     "Characteristics": [
+      {
+       "Description": "Spacecraft angular distance from orbital plane relative to the Equator.",
+       "Value": "5.0",
+       "DataType": "FLOAT",
+       "Unit": "Kilometers",
+       "Name": "SwathWidth"
+      }
+     ],
+     "LongName": "TOPEX MICROWAVE RADIOMETER",
+     "ShortName": "TMR"
+    },
+    {
+     "Characteristics": [
+      {
+       "Description": "Spacecraft angular distance from orbital plane relative to the Equator.",
+       "Value": "5.0",
+       "DataType": "FLOAT",
+       "Unit": "Kilometers",
+       "Name": "SwathWidth"
+      }
+     ],
+     "LongName": "POSEIDON Solid State Radar Altimeter",
+     "ShortName": "SSALT"
+    }
+   ],
+   "Type": "Earth Observation Satellites",
+   "LongName": "Ocean Topography Experiment",
+   "ShortName": "TOPEX/POSEIDON"
+  },
+  {
+   "Characteristics": [
+    {
+     "Description": "Nominal period of a spacecraft’s single revolution on an orbital plane.",
+     "Value": "101.2",
+     "DataType": "FLOAT",
+     "Unit": "Minutes",
+     "Name": "OrbitPeriod"
+    },
+    {
+     "Description": "Spacecraft angular distance from orbital plane relative to the Equator.",
+     "Value": "98.7",
+     "DataType": "FLOAT",
+     "Unit": "Degrees",
+     "Name": "InclinationAngle"
+    }
+   ],
+   "Instruments": [
+    {
+     "Characteristics": [
+      {
+       "Description": "Spacecraft angular distance from orbital plane relative to the Equator.",
+       "Value": "2400.0",
+       "DataType": "FLOAT",
+       "Unit": "Kilometers",
+       "Name": "SwathWidth"
+      }
+     ],
+     "LongName": "Advanced Very High Resolution Radiometer-3",
+     "ShortName": "AVHRR-3"
+    }
+   ],
+   "Type": "Earth Observation Satellites",
+   "LongName": "National Oceanic & Atmospheric Administration-17",
+   "ShortName": "NOAA-17"
+  },
+  {
+   "Characteristics": [
+    {
+     "Description": "Nominal period of a spacecraft’s single revolution on an orbital plane.",
+     "Value": "-1.0",
+     "DataType": "FLOAT",
+     "Unit": "Minutes",
+     "Name": "OrbitPeriod"
+    },
+    {
+     "Description": "Spacecraft angular distance from orbital plane relative to the Equator.",
+     "Value": "89.0",
+     "DataType": "FLOAT",
+     "Unit": "Degrees",
+     "Name": "InclinationAngle"
+    }
+   ],
+   "Instruments": [
+    {
+     "Characteristics": [
+      {
+       "Description": "Spacecraft angular distance from orbital plane relative to the Equator.",
+       "Value": "-1.0",
+       "DataType": "FLOAT",
+       "Unit": "Kilometers",
+       "Name": "SwathWidth"
+      }
+     ],
+     "LongName": "GRACE-FO SuperSTAR Accelerometer",
+     "ShortName": "GRACE-FO ACC"
+    },
+    {
+     "Characteristics": [
+      {
+       "Description": "Spacecraft angular distance from orbital plane relative to the Equator.",
+       "Value": "-1.0",
+       "DataType": "FLOAT",
+       "Unit": "Kilometers",
+       "Name": "SwathWidth"
+      }
+     ],
+     "LongName": "K-Band Ranging System",
+     "ShortName": "KBR"
+    },
+    {
+     "LongName": "Star Camera Assembly",
+     "ShortName": "GRACE SCA"
+    }
+   ],
+   "Type": "Earth Observation Satellites",
+   "LongName": "Gravity Recovery and Climate Experiment",
+   "ShortName": "GRACE"
+  },
+  {
+   "Characteristics": [
+    {
+     "Description": "Nominal period of a spacecraft’s single revolution on an orbital plane.",
+     "Value": "112.43",
+     "DataType": "FLOAT",
+     "Unit": "Minutes",
+     "Name": "OrbitPeriod"
+    },
+    {
+     "Description": "Spacecraft angular distance from orbital plane relative to the Equator.",
+     "Value": "66.04",
+     "DataType": "FLOAT",
+     "Unit": "Degrees",
+     "Name": "InclinationAngle"
+    }
+   ],
+   "Instruments": [
+    {
+     "LongName": "Advanced Microwave Radiometer",
+     "ShortName": "AMR"
+    },
+    {
+     "Characteristics": [
+      {
+       "Description": "Spacecraft angular distance from orbital plane relative to the Equator.",
+       "Value": "5.1",
+       "DataType": "FLOAT",
+       "Unit": "Kilometers",
+       "Name": "SwathWidth"
+      }
+     ],
+     "LongName": "JASON-2 RADAR ALTIMETER",
+     "ShortName": "POSEIDON-3"
+    }
+   ],
+   "Type": "Earth Observation Satellites",
+   "LongName": "Joint Altimetry Satellite Oceanography Network - 2",
+   "ShortName": "OSTM/JASON-2"
+  },
+  {
+   "Characteristics": [
+    {
+     "Description": "Nominal period of a spacecraft’s single revolution on an orbital plane.",
+     "Value": "102.0",
+     "DataType": "FLOAT",
+     "Unit": "Minutes",
+     "Name": "OrbitPeriod"
+    },
+    {
+     "Description": "Spacecraft angular distance from orbital plane relative to the Equator.",
+     "Value": "98.8",
+     "DataType": "FLOAT",
+     "Unit": "Degrees",
+     "Name": "InclinationAngle"
+    }
+   ],
+   "Instruments": [
+    {
+     "Characteristics": [
+      {
+       "Description": "Spacecraft angular distance from orbital plane relative to the Equator.",
+       "Value": "1394.0",
+       "DataType": "FLOAT",
+       "Unit": "Kilometers",
+       "Name": "SwathWidth"
+      }
+     ],
+     "LongName": "Special Sensor Microwave/Imager",
+     "ShortName": "SSM/I"
+    }
+   ],
+   "Type": "Earth Observation Satellites",
+   "LongName": "Defense Meteorological Satellite Program-F10",
+   "ShortName": "DMSP 5D-2/F10"
+  },
+  {
+   "Characteristics": [
+    {
+     "Description": "Nominal period of a spacecraft’s single revolution on an orbital plane.",
+     "Value": "102.0",
+     "DataType": "FLOAT",
+     "Unit": "Minutes",
+     "Name": "OrbitPeriod"
+    },
+    {
+     "Description": "Spacecraft angular distance from orbital plane relative to the Equator.",
+     "Value": "98.8",
+     "DataType": "FLOAT",
+     "Unit": "Degrees",
+     "Name": "InclinationAngle"
+    }
+   ],
+   "Instruments": [
+    {
+     "Characteristics": [
+      {
+       "Description": "Spacecraft angular distance from orbital plane relative to the Equator.",
+       "Value": "1394.0",
+       "DataType": "FLOAT",
+       "Unit": "Kilometers",
+       "Name": "SwathWidth"
+      }
+     ],
+     "LongName": "Special Sensor Microwave/Imager",
+     "ShortName": "SSM/I"
+    }
+   ],
+   "Type": "Earth Observation Satellites",
+   "LongName": "Defense Meteorological Satellite Program-F11",
+   "ShortName": "DMSP 5D-2/F11"
+  },
+  {
+   "Characteristics": [
+    {
+     "Description": "Nominal period of a spacecraft’s single revolution on an orbital plane.",
+     "Value": "100.3",
+     "DataType": "FLOAT",
+     "Unit": "Minutes",
+     "Name": "OrbitPeriod"
+    },
+    {
+     "Description": "Spacecraft angular distance from orbital plane relative to the Equator.",
+     "Value": "98.5",
+     "DataType": "FLOAT",
+     "Unit": "Degrees",
+     "Name": "InclinationAngle"
+    }
+   ],
+   "Instruments": [
+    {
+     "LongName": "ERS Radar Altimeter",
+     "ShortName": "RA"
+    }
+   ],
+   "Type": "Earth Observation Satellites",
+   "LongName": "European Remote Sensing Satellite-2",
+   "ShortName": "ERS-2"
+  },
+  {
+   "Characteristics": [
+    {
+     "Description": "Nominal period of a spacecraft’s single revolution on an orbital plane.",
+     "Value": "33220.0",
+     "DataType": "FLOAT",
+     "Unit": "Minutes",
+     "Name": "OrbitPeriod"
+    },
+    {
+     "Description": "Spacecraft angular distance from orbital plane relative to the Equator.",
+     "Value": "108.0",
+     "DataType": "FLOAT",
+     "Unit": "Degrees",
+     "Name": "InclinationAngle"
+    }
+   ],
+   "Instruments": [
+    {
+     "LongName": "GEOSAT Follow-On Radar Altimeter",
+     "ShortName": "GFO-RA"
+    }
+   ],
+   "Type": "Earth Observation Satellites",
+   "LongName": "GEOSAT FOLLOW-ON-1",
+   "ShortName": "GFO-1"
+  },
+  {
+   "Characteristics": [
+    {
+     "Description": "Nominal period of a spacecraft’s single revolution on an orbital plane.",
+     "Value": "102.1",
+     "DataType": "FLOAT",
+     "Unit": "Minutes",
+     "Name": "OrbitPeriod"
+    },
+    {
+     "Description": "Spacecraft angular distance from orbital plane relative to the Equator.",
+     "Value": "99.0",
+     "DataType": "FLOAT",
+     "Unit": "Degrees",
+     "Name": "InclinationAngle"
+    }
+   ],
+   "Instruments": [
+    {
+     "Characteristics": [
+      {
+       "Description": "Spacecraft angular distance from orbital plane relative to the Equator.",
+       "Value": "2400.0",
+       "DataType": "FLOAT",
+       "Unit": "Kilometers",
+       "Name": "SwathWidth"
+      }
+     ],
+     "LongName": "Advanced Very High Resolution Radiometer-3",
+     "ShortName": "AVHRR-3"
+    }
+   ],
+   "Type": "Earth Observation Satellites",
+   "LongName": "National Oceanic & Atmospheric Administration-16",
+   "ShortName": "NOAA-16"
+  },
+  {
+   "Characteristics": [
+    {
+     "Description": "Nominal period of a spacecraft’s single revolution on an orbital plane.",
+     "Value": "102.12",
+     "DataType": "FLOAT",
+     "Unit": "Minutes",
+     "Name": "OrbitPeriod"
+    },
+    {
+     "Description": "Spacecraft angular distance from orbital plane relative to the Equator.",
+     "Value": "98.74",
+     "DataType": "FLOAT",
+     "Unit": "Degrees",
+     "Name": "InclinationAngle"
+    }
+   ],
+   "Instruments": [
+    {
+     "Characteristics": [
+      {
+       "Description": "Spacecraft angular distance from orbital plane relative to the Equator.",
+       "Value": "2400.0",
+       "DataType": "FLOAT",
+       "Unit": "Kilometers",
+       "Name": "SwathWidth"
+      }
+     ],
+     "LongName": "Advanced Very High Resolution Radiometer-3",
+     "ShortName": "AVHRR-3"
+    }
+   ],
+   "Type": "Earth Observation Satellites",
+   "LongName": "National Oceanic & Atmospheric Administration-19",
+   "ShortName": "NOAA-19"
+  },
+  {
+   "Characteristics": [
+    {
+     "Description": "Nominal period of a spacecraft’s single revolution on an orbital plane.",
+     "Value": "100.59",
+     "DataType": "FLOAT",
+     "Unit": "Minutes",
+     "Name": "OrbitPeriod"
+    },
+    {
+     "Description": "Spacecraft angular distance from orbital plane relative to the Equator.",
+     "Value": "98.55",
+     "DataType": "FLOAT",
+     "Unit": "Degrees",
+     "Name": "InclinationAngle"
+    }
+   ],
+   "Instruments": [
+    {
+     "Characteristics": [
+      {
+       "Description": "Spacecraft angular distance from orbital plane relative to the Equator.",
+       "Value": "5.0",
+       "DataType": "FLOAT",
+       "Unit": "Kilometers",
+       "Name": "SwathWidth"
+      }
+     ],
+     "LongName": "Radar Altimeter-2",
+     "ShortName": "RA-2"
+    }
+   ],
+   "Type": "Earth Observation Satellites",
+   "LongName": "Environmental Satellite",
+   "ShortName": "ENVISAT"
+  },
+  {
+   "Characteristics": [
+    {
+     "Description": "Nominal period of a spacecraft’s single revolution on an orbital plane.",
+     "Value": "100.93",
+     "DataType": "FLOAT",
+     "Unit": "Minutes",
+     "Name": "OrbitPeriod"
+    },
+    {
+     "Description": "Spacecraft angular distance from orbital plane relative to the Equator.",
+     "Value": "98.6",
+     "DataType": "FLOAT",
+     "Unit": "Degrees",
+     "Name": "InclinationAngle"
+    }
+   ],
+   "Instruments": [
+    {
+     "Characteristics": [
+      {
+       "Description": "Spacecraft angular distance from orbital plane relative to the Equator.",
+       "Value": "1800.0",
+       "DataType": "FLOAT",
+       "Unit": "Kilometers",
+       "Name": "SwathWidth"
+      }
+     ],
+     "LongName": "SeaWinds Scatterometer",
+     "ShortName": "SEAWINDS"
+    }
+   ],
+   "Type": "Earth Observation Satellites",
+   "LongName": "QUIKSCAT",
+   "ShortName": "QUIKSCAT"
+  },
+  {
+   "Characteristics": [
+    {
+     "Description": "Nominal period of a spacecraft’s single revolution on an orbital plane.",
+     "Value": "102.0",
+     "DataType": "FLOAT",
+     "Unit": "Minutes",
+     "Name": "OrbitPeriod"
+    },
+    {
+     "Description": "Spacecraft angular distance from orbital plane relative to the Equator.",
+     "Value": "98.8",
+     "DataType": "FLOAT",
+     "Unit": "Degrees",
+     "Name": "InclinationAngle"
+    }
+   ],
+   "Instruments": [
+    {
+     "Characteristics": [
+      {
+       "Description": "Spacecraft angular distance from orbital plane relative to the Equator.",
+       "Value": "1394.0",
+       "DataType": "FLOAT",
+       "Unit": "Kilometers",
+       "Name": "SwathWidth"
+      }
+     ],
+     "LongName": "Special Sensor Microwave/Imager",
+     "ShortName": "SSM/I"
+    }
+   ],
+   "Type": "Earth Observation Satellites",
+   "LongName": "Defense Meteorological Satellite Program-F14",
+   "ShortName": "DMSP 5D-2/F14"
+  },
+  {
+   "Characteristics": [
+    {
+     "Description": "Nominal period of a spacecraft’s single revolution on an orbital plane.",
+     "Value": "100.3",
+     "DataType": "FLOAT",
+     "Unit": "Minutes",
+     "Name": "OrbitPeriod"
+    },
+    {
+     "Description": "Spacecraft angular distance from orbital plane relative to the Equator.",
+     "Value": "98.5",
+     "DataType": "FLOAT",
+     "Unit": "Degrees",
+     "Name": "InclinationAngle"
+    }
+   ],
+   "Instruments": [
+    {
+     "Characteristics": [
+      {
+       "Description": "Spacecraft angular distance from orbital plane relative to the Equator.",
+       "Value": "143.0",
+       "DataType": "FLOAT",
+       "Unit": "Kilometers",
+       "Name": "SwathWidth"
+      }
+     ],
+     "LongName": "ERS Radar Altimeter",
+     "ShortName": "RA"
+    }
+   ],
+   "Type": "Earth Observation Satellites",
+   "LongName": "European Remote Sensing Satellite-1",
+   "ShortName": "ERS-1"
+  },
+  {
+   "Characteristics": [
+    {
+     "Description": "Nominal period of a spacecraft’s single revolution on an orbital plane.",
+     "Value": "102.0",
+     "DataType": "FLOAT",
+     "Unit": "Minutes",
+     "Name": "OrbitPeriod"
+    },
+    {
+     "Description": "Spacecraft angular distance from orbital plane relative to the Equator.",
+     "Value": "98.8",
+     "DataType": "FLOAT",
+     "Unit": "Degrees",
+     "Name": "InclinationAngle"
+    }
+   ],
+   "Instruments": [
+    {
+     "Characteristics": [
+      {
+       "Description": "Spacecraft angular distance from orbital plane relative to the Equator.",
+       "Value": "1394.0",
+       "DataType": "FLOAT",
+       "Unit": "Kilometers",
+       "Name": "SwathWidth"
+      }
+     ],
+     "LongName": "Special Sensor Microwave/Imager",
+     "ShortName": "SSM/I"
+    }
+   ],
+   "Type": "Earth Observation Satellites",
+   "LongName": "Defense Meteorological Satellite Program-F13",
+   "ShortName": "DMSP 5D-2/F13"
+  },
+  {
+   "Characteristics": [
+    {
+     "Description": "Nominal period of a spacecraft’s single revolution on an orbital plane.",
+     "Value": "102.0",
+     "DataType": "FLOAT",
+     "Unit": "Minutes",
+     "Name": "OrbitPeriod"
+    },
+    {
+     "Description": "Spacecraft angular distance from orbital plane relative to the Equator.",
+     "Value": "99.0",
+     "DataType": "FLOAT",
+     "Unit": "Degrees",
+     "Name": "InclinationAngle"
+    }
+   ],
+   "Instruments": [
+    {
+     "Characteristics": [
+      {
+       "Description": "Spacecraft angular distance from orbital plane relative to the Equator.",
+       "Value": "2400.0",
+       "DataType": "FLOAT",
+       "Unit": "Kilometers",
+       "Name": "SwathWidth"
+      }
+     ],
+     "LongName": "Advanced Very High Resolution Radiometer-3",
+     "ShortName": "AVHRR-3"
+    }
+   ],
+   "Type": "Earth Observation Satellites",
+   "LongName": "Joint Polar Satellite System - 1",
+   "ShortName": "NOAA-20"
+  },
+  {
+   "Characteristics": [
+    {
+     "Description": "Nominal period of a spacecraft’s single revolution on an orbital plane.",
+     "Value": "101.3",
+     "DataType": "FLOAT",
+     "Unit": "Minutes",
+     "Name": "OrbitPeriod"
+    },
+    {
+     "Description": "Spacecraft angular distance from orbital plane relative to the Equator.",
+     "Value": "98.7",
+     "DataType": "FLOAT",
+     "Unit": "Degrees",
+     "Name": "InclinationAngle"
+    }
+   ],
+   "Instruments": [
+    {
+     "Characteristics": [
+      {
+       "Description": "Spacecraft angular distance from orbital plane relative to the Equator.",
+       "Value": "2400.0",
+       "DataType": "FLOAT",
+       "Unit": "Kilometers",
+       "Name": "SwathWidth"
+      }
+     ],
+     "LongName": "Advanced Very High Resolution Radiometer-3",
+     "ShortName": "AVHRR-3"
+    }
+   ],
+   "Type": "Earth Observation Satellites",
+   "LongName": "Meteorological Operational Satellite - A",
+   "ShortName": "METOP-A"
+  },
+  {
+   "Characteristics": [
+    {
+     "Description": "Nominal period of a spacecraft’s single revolution on an orbital plane.",
+     "Value": "112.0",
+     "DataType": "FLOAT",
+     "Unit": "Minutes",
+     "Name": "OrbitPeriod"
+    },
+    {
+     "Description": "Spacecraft angular distance from orbital plane relative to the Equator.",
+     "Value": "66.05",
+     "DataType": "FLOAT",
+     "Unit": "Degrees",
+     "Name": "InclinationAngle"
+    }
+   ],
+   "Instruments": [
+    {
+     "Characteristics": [
+      {
+       "Description": "Spacecraft angular distance from orbital plane relative to the Equator.",
+       "Value": "5.1",
+       "DataType": "FLOAT",
+       "Unit": "Kilometers",
+       "Name": "SwathWidth"
+      }
+     ],
+     "LongName": "Poseidon-3B Altimeter",
+     "ShortName": "POSEIDON-3B"
+    }
+   ],
+   "Type": "Earth Observation Satellites",
+   "LongName": "Joint Altimetry Satellite Oceanography Network - 3",
+   "ShortName": "JASON-3"
+  }
+ ],
+ "MetadataSpecification": {
+  "URL": "https://cdn.earthdata.nasa.gov/umm/collection/v1.18.6",
+  "Name": "UMM-C",
+  "Version": "1.18.6"
+ },
+ "ArchiveAndDistributionInformation": {
+  "FileArchiveInformation": [
+   {
+    "Format": "netCDF-4",
+    "FormatType": "Native"
+   }
+  ],
+  "FileDistributionInformation": [
+   {
+    "Format": "netCDF-4"
+   }
+  ]
+ }
+}

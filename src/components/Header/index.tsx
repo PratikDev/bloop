@@ -10,7 +10,7 @@ import { SettingsMenu } from "./SettingsMenu";
 import { TuningDial } from "./TuningDial";
 
 /**
- * One slim bar on every page: the name, the tuning dial (the three pages),
+ * One slim bar on every page: the name, the tuning dial (the pages),
  * then language, settings and help. Below 1024 px the dial gets its own row.
  * It keeps its own view-transition name, so it stays still while pages retune.
  */

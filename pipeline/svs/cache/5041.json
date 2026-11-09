@@ -1,0 +1,179 @@
+{
+ "id": 5041,
+ "title": "Methane Emissions in the United States",
+ "url": "https://svs.gsfc.nasa.gov/5041/",
+ "page_type": "Visualization",
+ "release_date": "2022-12-01T00:00:00-05:00",
+ "update_date": "2024-11-19T00:21:33.616388-05:00",
+ "description": "2012 methane emissions across the United States. || ch4_epa_sq_2022-11-14_1335.00100_print.jpg (1024x1024) [191.2 KB] || ch4_epa_sq_2022-11-14_1335.00100_searchweb.png (180x320) [57.3 KB] || ch4_epa_sq_2022-11-14_1335.00100_thm.png (80x40) [4.5 KB] || ch4_epa_sq_2022-11-14_1335.mp4 (2160x2160) [23.8 MB] || ch4_epa_sq_2022-11-14_1335.webm (2160x2160) [5.0 MB] || ",
+ "full_text": "2012 methane emissions across the United States. || ch4_epa_sq_2022-11-14_1335.00100_print.jpg (1024x1024) [191.2 KB] || ch4_epa_sq_2022-11-14_1335.00100_searchweb.png (180x320) [57.3 KB] || ch4_epa_sq_2022-11-14_1335.00100_thm.png (80x40) [4.5 KB] || ch4_epa_sq_2022-11-14_1335.mp4 (2160x2160) [23.8 MB] || ch4_epa_sq_2022-11-14_1335.webm (2160x2160) [5.0 MB] ||\n\n2012 methane emissions across the United States.\n\n<br>Methane is the second most important greenhouse gas contributing to climate change. While emissions are substantially lower than for carbon dioxide, the biggest driver of climate change, methane is more efficient at trapping heat on a molecule by molecule basis. As a result, understanding the sources of methane and how they can be reduced, quickly, is a major effort of policymakers and environmental managers around the world.\r<br>\r<br>This visualization presents gridded methane emissions across the United States for the year 2012. The gridded methane inventory is designed to be consistent with EPA’s 2016 Inventory of <a href=\"https://www.epa.gov/ghgemissions/us-greenhouse-gas-inventory-report-1990-2014\">U.S. Greenhouse Gas Emissions and Sinks </a> for the year 2012, which presents national totals for different source types. Gridded estimates with 0.1 degree spatial resolution are produced using a wide range of databases at the state, county, local, and point source level to allocate the spatial and temporal distribution of emissions for individual source types. Gridded inventories, developed with support from NASA’s Carbon Monitoring System, help researchers use satellite, airborne, and in situ observations to independently evaluate EPA inventories and provide recommendations on refinements that may be needed. Additional detail and dataset access are available at the <a href=\"https://www.epa.gov/ghgemissions/gridded-2012-methane-emissions\">EPA website</a>.\r<br>\r<br>The gridded inventory presents totals for different major methane source types. Agriculture emissions in this visualization include manure management, enteric fermentation, rice cultivation, and field burning. Waste emissions include landfills, wastewater treatment, and composting. Natural Gas emissions include emissions from production, processing, and transmission. Coal emissions include both active and abandoned coal mines.\n\nChart showing the percentages of 2012 methane emissions by sector.\n\nColor map of the 2012 US methane emissions visualization.",
+ "credits_by_role": {
+  "Visualizer": [
+   "Mark SubbaRao (NASA/GSFC)"
+  ],
+  "Scientist": [
+   "Lesley Ott (NASA/GSFC)"
+  ],
+  "Technical support": [
+   "Laurence Schuler (ADNET Systems, Inc.)",
+   "Ian Jones (ADNET Systems, Inc.)"
+  ],
+  "Web administrator": [
+   "Ella Kaplan (Global Science and Technology, Inc.)"
+  ]
+ },
+ "keywords": [
+  "Climate Change",
+  "EPA",
+  "Greenhouse Gases",
+  "Hyperwall",
+  "Methane"
+ ],
+ "datasets": [
+  {
+   "name": "Gridded 2012 U.S. Methane Emissions",
+   "common_name": "Gridded 2012 U.S. Methane Emissions",
+   "platform": null,
+   "sensor": null,
+   "type": "Data Compilation",
+   "organizations": [
+    "EPA"
+   ],
+   "description": "A gridded inventory of US anthropogenic methane emissions with 0.1° × 0.1° spatial resolution, monthly temporal resolution, and detailed scale-dependent error characterization. The inventory is designed to be consistent with the 2016 US Environmental Protection Agency (EPA) Inventory of US Greenhouse Gas Emissions and Sinks (GHGI) for 2012.",
+   "credit": "Maasakkers et. al. 2016",
+   "url": "https://www.epa.gov/ghgemissions/gridded-2012-methane-emissions",
+   "date_range": null
+  }
+ ],
+ "missions": [],
+ "related": [
+  {
+   "id": 5389,
+   "title": "Tracking methane with EMIT and AVIRIS-3",
+   "url": "https://svs.gsfc.nasa.gov/5389/"
+  },
+  {
+   "id": 5272,
+   "title": "Methane plumes detected by EMIT Space Mission",
+   "url": "https://svs.gsfc.nasa.gov/5272/"
+  },
+  {
+   "id": 5118,
+   "title": "Trends in atmospheric Methane (CH₄)",
+   "url": "https://svs.gsfc.nasa.gov/5118/"
+  },
+  {
+   "id": 5116,
+   "title": "Global Atmospheric Methane (CH₄)",
+   "url": "https://svs.gsfc.nasa.gov/5116/"
+  },
+  {
+   "id": 14257,
+   "title": "Methane Emissions from Wetlands",
+   "url": "https://svs.gsfc.nasa.gov/14257/"
+  }
+ ],
+ "alternate_versions": [],
+ "newer_versions": [],
+ "older_versions": [],
+ "media": [
+  {
+   "group": 0,
+   "group_title": "",
+   "widget": "Video player",
+   "caption": "",
+   "group_text": "2012 methane emissions across the United States.",
+   "url": "https://svs.gsfc.nasa.gov/vis/a000000/a005000/a005041/ch4_epa_sq_2022-11-14_1335.00100_print.jpg",
+   "filename": "ch4_epa_sq_2022-11-14_1335.00100_print.jpg",
+   "media_type": "Image",
+   "width": 1024,
+   "height": 1024,
+   "alt_text": "2012 methane emissions across the United States."
+  },
+  {
+   "group": 0,
+   "group_title": "",
+   "widget": "Video player",
+   "caption": "",
+   "group_text": "2012 methane emissions across the United States.",
+   "url": "https://svs.gsfc.nasa.gov/vis/a000000/a005000/a005041/ch4_epa_sq_2022-11-14_1335.00100_searchweb.png",
+   "filename": "ch4_epa_sq_2022-11-14_1335.00100_searchweb.png",
+   "media_type": "Image",
+   "width": 180,
+   "height": 320,
+   "alt_text": "\nMethane is the second most important greenhouse gas contributing to climate change. While emissions are substantially lower than for carbon dioxide, the biggest driver of climate change, methane is more efficient at trapping heat on a molecule by molecule basis. As a result, understanding the sources of methane and how they can be reduced, quickly, is a major effort of policymakers and environmental managers around the world.\r\n\r\nThis visualization presents gridded methane emissions across the United States for the year 2012. The gridded methane inventory is designed to be consistent with EPA’s 2016 Inventory of U.S. Greenhouse Gas Emissions and Sinks  for the year 2012, which presents national totals for different source types. Gridded estimates with 0.1 degree spatial resolution are produced using a wide range of databases at the state, county, local, and point source level to allocate the spatial and temporal distribution of emissions for individual source types. Gridded inventories, developed with support from NASA’s Carbon Monitoring System, help researchers use satellite, airborne, and in situ observations to independently evaluate EPA inventories and provide recommendations on refinements that may be needed. Additional detail and dataset access are available at the EPA website.\r\n\r\nThe gridded inventory presents totals for different major methane source types. Agriculture emissions in this visualization include manure management, enteric fermentation, rice cultivation, and field burning. Waste emissions include landfills, wastewater treatment, and composting. Natural Gas emissions include emissions from production, processing, and transmission. Coal emissions include both active and abandoned coal mines."
+  },
+  {
+   "group": 0,
+   "group_title": "",
+   "widget": "Video player",
+   "caption": "",
+   "group_text": "2012 methane emissions across the United States.",
+   "url": "https://svs.gsfc.nasa.gov/vis/a000000/a005000/a005041/ch4_epa_sq_2022-11-14_1335.00100_thm.png",
+   "filename": "ch4_epa_sq_2022-11-14_1335.00100_thm.png",
+   "media_type": "Image",
+   "width": 80,
+   "height": 40,
+   "alt_text": "2012 methane emissions across the United States."
+  },
+  {
+   "group": 0,
+   "group_title": "",
+   "widget": "Video player",
+   "caption": "",
+   "group_text": "2012 methane emissions across the United States.",
+   "url": "https://svs.gsfc.nasa.gov/vis/a000000/a005000/a005041/ch4_epa_sq_2022-11-14_1335.mp4",
+   "filename": "ch4_epa_sq_2022-11-14_1335.mp4",
+   "media_type": "Movie",
+   "width": 2160,
+   "height": 2160,
+   "alt_text": "2012 methane emissions across the United States."
+  },
+  {
+   "group": 0,
+   "group_title": "",
+   "widget": "Video player",
+   "caption": "",
+   "group_text": "2012 methane emissions across the United States.",
+   "url": "https://svs.gsfc.nasa.gov/vis/a000000/a005000/a005041/ch4_epa_sq_2022-11-14_1335.webm",
+   "filename": "ch4_epa_sq_2022-11-14_1335.webm",
+   "media_type": "Movie",
+   "width": 2160,
+   "height": 2160,
+   "alt_text": "2012 methane emissions across the United States."
+  },
+  {
+   "group": 2,
+   "group_title": "",
+   "widget": "Single image",
+   "caption": "",
+   "group_text": "Chart showing the percentages of 2012 methane emissions by sector.",
+   "url": "https://svs.gsfc.nasa.gov/vis/a000000/a005000/a005041/donut.png",
+   "filename": "donut.png",
+   "media_type": "Image",
+   "width": 1920,
+   "height": 1080,
+   "alt_text": "Chart showing the percentages of 2012 methane emissions by sector."
+  },
+  {
+   "group": 3,
+   "group_title": "",
+   "widget": "Single image",
+   "caption": "",
+   "group_text": "Color map of the 2012 US methane emissions visualization.",
+   "url": "https://svs.gsfc.nasa.gov/vis/a000000/a005000/a005041/legend.png",
+   "filename": "legend.png",
+   "media_type": "Image",
+   "width": 1920,
+   "height": 1080,
+   "alt_text": "Color map of the 2012 US methane emissions visualization."
+  }
+ ],
+ "text_links": [
+  "https://www.epa.gov/ghgemissions/us-greenhouse-gas-inventory-report-1990-2014",
+  "https://www.epa.gov/ghgemissions/gridded-2012-methane-emissions"
+ ],
+ "frame_folders": {},
+ "api_url": "https://svs.gsfc.nasa.gov/api/5041",
+ "fetched_utc": "2026-10-29T07:37:57Z"
+}

@@ -1,0 +1,366 @@
+{
+ "record": "rel_5303",
+ "app_title": "NASA’s TEMPO Instrument Air Quality Data Now Publicly Available (observation)",
+ "svs_ids": [
+  5303
+ ],
+ "title": "NASA’s TEMPO Instrument Air Quality Data Now Publicly Available",
+ "svs_pages": [
+  "https://svs.gsfc.nasa.gov/5303/"
+ ],
+ "description": "The TEMPO instrument measured elevated levels of nitrogen dioxide (NO2) from a number of different areas and emission sources throughout the daytime on March 28, 2024. Yellow, red, purple, and black clusters represent increased levels of pollutants from TEMPO’s data and show drift over time. || TEMPO_3_28_2024_CONUS.0500_print.jpg (1024x576) [289.5 KB] || TEMPO_3_28_2024_CONUS.0500_searchweb.png (320x180) [103.2 KB] || TEMPO_3_28_2024_CONUS.0500_thm.png (80x40) [6.9 KB] || TEMPO_3_28_2024_CONUS [0 Item(s)] || TEMPO_3_28_2024_CONUS_1080p30.mp4 (1920x1080) [29.3 MB] || TEMPO_3_28_2024_CONUS (3840x2160) [1000 Item(s)] || TEMPO_3_28_2024_CONUS_2160p30.mp4 (3840x2160) [111.7 MB] || TEMPO_3_28_2024_CONUS_1080p30.mp4.hwshow || ",
+ "release_date": "2024-05-30T14:00:00-04:00",
+ "period": {
+  "start": "2024-05-30T18:00:00Z",
+  "end": "2024-05-30T18:00:00Z",
+  "label": "30 May 2024 – 30 May 2024"
+ },
+ "badge": "observation",
+ "credits_by_role": {
+  "Visualizer": [
+   "Trent L. Schindler (USRA)",
+   "Kel Elkins (USRA)",
+   "Cindy Starr (Global Science and Technology, Inc.)"
+  ],
+  "Technical support": [
+   "Laurence Schuler (ADNET Systems, Inc.)",
+   "Ian Jones (ADNET Systems, Inc.)"
+  ],
+  "Scientist": [
+   "Caroline Nowlan (Center for Astrophysics | Harvard & Smithsonian)",
+   "Xiong Liu (Center for Astrophysics | Harvard & Smithsonian)",
+   "Aaron Naeger (NASA/MSFC)"
+  ]
+ },
+ "datasets": [
+  {
+   "name": "Nitrogen Dioxide",
+   "common_name": "",
+   "platform": null,
+   "sensor": "TEMPO",
+   "type": "Observed Data",
+   "organizations": [],
+   "description": "",
+   "credit": "Data provided by the Smithsonian Astrophysical Observatory at the Center for Astrophysics | Harvard & Smithsonian.",
+   "url": "https://www.cfa.harvard.edu/facilities-technology/telescopes-instruments/tempo",
+   "date_range": "3/28/2024"
+  }
+ ],
+ "credit_line": "Visualization: NASA's Scientific Visualization Studio (SVS 5303) for the NASA Earth Information Center.",
+ "disclosure": "A related NASA visualization read back through its key (pattern only).",
+ "licence": "SVS: \"All of our content is in the public domain (unless otherwise noted), meaning that it is free to download, use, and redistribute for whatever purposes you see fit.\" (https://svs.gsfc.nasa.gov/help/, read 29 Oct 2026)",
+ "focus": "air quality",
+ "related_to": [
+  5533
+ ],
+ "frame_times": {
+  "method": "linear",
+  "approximate": true,
+  "count": 1,
+  "source": "undated"
+ },
+ "georef": {
+  "projection": "none (not a flat 2:1 map)",
+  "bounds": [
+   -180,
+   -101.25,
+   180,
+   101.25
+  ],
+  "pass_at": 0.9,
+  "shifts_deg": [],
+  "iou": {},
+  "pass": false,
+  "best_is_assumed": false
+ },
+ "colorbar": {
+  "geometry": {
+   "x0": 83,
+   "x1": 648,
+   "band": [
+    157,
+    157
+   ],
+   "vertical": false,
+   "outline_rgb": null,
+   "image_size": [
+    270,
+    768
+   ]
+  },
+  "ticks": [
+   {
+    "px": 4.5,
+    "value": 0.0,
+    "text": "0",
+    "engine": "glyph",
+    "label_px": 4.5
+   },
+   {
+    "px": 74.5,
+    "value": 25.0,
+    "text": "25",
+    "engine": "glyph",
+    "label_px": 74.5
+   },
+   {
+    "px": 144.0,
+    "value": 50.0,
+    "text": "50",
+    "engine": "glyph",
+    "label_px": 144.0
+   },
+   {
+    "px": 213.5,
+    "value": 75.0,
+    "text": "75",
+    "engine": "glyph",
+    "label_px": 213.5
+   },
+   {
+    "px": 352.0,
+    "value": 125.0,
+    "text": "125",
+    "engine": "glyph",
+    "label_px": 352.0
+   },
+   {
+    "px": 561.0,
+    "value": 200.0,
+    "text": "200",
+    "engine": "glyph",
+    "label_px": 561.0
+   }
+  ],
+  "scale": "linear",
+  "fit": {
+   "a": -1.7203686030377408,
+   "b": 0.3596311312472963,
+   "fit": "weighted 1/tolerance",
+   "max_resid_px": 0.3620665528533287,
+   "resid_px": [
+    0.28,
+    -0.2,
+    -0.18,
+    -0.17,
+    0.36,
+    -0.09
+   ],
+   "ok": true
+  },
+  "notes": [
+   "OCR read ['0', '25', '50', '75', '40', '125', '40', '95^7', '200']; ['40', '40', '95^7'] disagree with the line through the other 6 labels and are dropped as misreads."
+  ],
+  "n_samples": 566,
+  "value_range": [
+   -1.7203686030377408,
+   201.47122055168467
+  ],
+  "opacity_varies": false,
+  "px_per_unit": 2.780626906607708
+ },
+ "colorbar_source": "in-frame bar (frame, lower left)",
+ "asset": {
+  "kind": "frames",
+  "owner": 5303,
+  "what": "TEMPO_3_28_2024_CONUS"
+ },
+ "twins": [],
+ "decode": {
+  "mode": "chroma",
+  "decoded_share": 0.010710680298353911
+ },
+ "layers": [
+  {
+   "id": "value",
+   "unit": "colorbar units",
+   "encoding": "linear",
+   "scale": 0.03596311312472963,
+   "offset": 44.50901794433594,
+   "nodata": 65535,
+   "below": 65534,
+   "grid": {
+    "width": 160,
+    "height": 90,
+    "bounds": [
+     -180,
+     -101.25,
+     180,
+     101.25
+    ],
+    "row0": "north",
+    "col0": "west",
+    "byte_order": "little",
+    "space": "frame"
+   },
+   "times": [
+    "2024-05-30T18:00:00Z"
+   ],
+   "chunks": [
+    {
+     "file": "value_000.u16.gz",
+     "t0": 0,
+     "t1": 1,
+     "bytes": 86
+    }
+   ],
+   "quantisation_step": 0.03596311312472963,
+   "coverage": 0.0004166666666666667,
+   "value_range": [
+    44.50901794433594,
+    53.939456939697266
+   ],
+   "label": "NASA’s TEMPO Instrument Air Quality Data Now Publicly Available (pattern only)",
+   "aggregation": "mean of decoded pixels per cell",
+   "time_labels": [
+    "undated"
+   ],
+   "display": {
+    "colours": [
+     "#464646",
+     "#a8bedd",
+     "#aacad8",
+     "#b2d7d1",
+     "#d5ebde",
+     "#d3e9cd",
+     "#e6f0c9",
+     "#f5f8cd",
+     "#fcfcd7",
+     "#fff8d6",
+     "#feefc8",
+     "#fee4bb",
+     "#fed6b3",
+     "#fec8ad",
+     "#fdbbac",
+     "#f6b3af",
+     "#edaeb3",
+     "#e3a9b4",
+     "#d8a7b7",
+     "#cea7ba",
+     "#c3a6bc",
+     "#b9a4bb",
+     "#b2a3ba",
+     "#aea3ba",
+     "#a8a2b4",
+     "#a6a3b0",
+     "#a5a4ac",
+     "#aaa9ae",
+     "#a2a2a5",
+     "#a3a2a4",
+     "#a2a2a2",
+     "#362f43"
+    ],
+    "values": [
+     -1.7203686030377408,
+     4.834198789050079,
+     11.388766181137898,
+     17.94333357322572,
+     24.497900965313537,
+     31.052468357401352,
+     37.60703574948918,
+     44.161603141577,
+     50.716170533664815,
+     57.270737925752634,
+     63.825305317840446,
+     70.37987270992828,
+     76.9344401020161,
+     83.48900749410392,
+     90.04357488619173,
+     96.59814227827955,
+     103.15270967036737,
+     109.7072770624552,
+     116.26184445454301,
+     122.81641184663084,
+     129.37097923871863,
+     135.92554663080648,
+     142.4801140228943,
+     149.03468141498212,
+     155.58924880706994,
+     162.14381619915775,
+     168.69838359124557,
+     175.2529509833334,
+     181.8075183754212,
+     188.36208576750906,
+     194.91665315959685,
+     201.47122055168467
+    ],
+    "scale": "linear"
+   },
+   "status": "pattern only",
+   "status_check": "a_no_validation_source",
+   "statement": "pattern only"
+  }
+ ],
+ "voices": {
+  "value": "rel5303"
+ },
+ "play": [
+  {
+   "id": "value",
+   "label": "NASA’s TEMPO Instrument Air Quality Data Now Publicly Available: higher pitch = higher value",
+   "view": "global",
+   "map": "value",
+   "start": {
+    "lat": -21.375,
+    "lon": 75.375
+   },
+   "steps_per_second": 1,
+   "channels": [
+    {
+     "voice": "rel5303",
+     "layers": [
+      "value"
+     ],
+     "combine": "value"
+    }
+   ]
+  }
+ ],
+ "validation": [
+  {
+   "id": "a_no_validation_source",
+   "title": "NASA’s TEMPO Instrument Air Quality Data Now Publicly Available: no validation source",
+   "kind": "none",
+   "pass": null,
+   "threshold": null
+  }
+ ],
+ "size": {
+  "choice": {
+   "frames": 3
+  },
+  "tried": [],
+  "bytes": 9303,
+  "budget": 25000000
+ },
+ "onboarding": {
+  "timings_s": {
+   "api": 14.1,
+   "twins": 2.1,
+   "asset choice": 0.0,
+   "frames": 26.0,
+   "frame times": 15.6,
+   "georef": 0.0,
+   "colorbar": 0.1,
+   "inversion": 24.6,
+   "validation": 0.0
+  },
+  "status": "pattern only"
+ },
+ "asset_checksums": {
+  "file": "checksums.tsv.gz",
+  "rows": 3,
+  "sha256_of_list": "b28db044087e5264f371ff58ba716d310b35a56a68f4268598817d4c86bddf12"
+ },
+ "code_commit": "a8f0638dc9adb81b18f259cf0813046acd882fa1-dirty",
+ "generated_utc": "2026-10-31T17:44:05Z",
+ "playable": {
+  "dropped_empty_steps": [
+   0,
+   2
+  ],
+  "moved_starts": [
+   "value"
+  ]
+ }
+}

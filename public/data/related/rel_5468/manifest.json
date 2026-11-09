@@ -1,0 +1,449 @@
+{
+ "record": "rel_5468",
+ "app_title": "2024 Atlantic Hurricane Season (model)",
+ "svs_ids": [
+  5468
+ ],
+ "title": "2024 Atlantic Hurricane Season",
+ "svs_pages": [
+  "https://svs.gsfc.nasa.gov/5468/"
+ ],
+ "description": "SST, IMERG, CPC, and Hurricane tracks for the entire 2024 Hurricane Season. Also providing separate visualizations of just SST with tracks, IMERG with tracks, and CPC with tracks.",
+ "release_date": "2025-02-11T18:59:59-05:00",
+ "period": {
+  "start": "2025-01-10T16:49:00Z",
+  "end": "2025-01-10T16:49:00Z",
+  "label": "10 Jan 2025 – 10 Jan 2025"
+ },
+ "badge": "model",
+ "credits_by_role": {
+  "Data visualizer": [
+   "Alex Kekesi (Global Science and Technology, Inc.)",
+   "Greg Shirah (NASA/GSFC)",
+   "Kel Elkins (USRA)"
+  ],
+  "Technical support": [
+   "Laurence Schuler (ADNET Systems, Inc.)",
+   "Ian Jones (ADNET Systems, Inc.)"
+  ]
+ },
+ "datasets": [
+  {
+   "name": "CPC (Climate Prediction Center) Cloud Composite",
+   "common_name": "",
+   "platform": null,
+   "sensor": null,
+   "type": "Data Compilation",
+   "organizations": [
+    "Climate Prediction Center (CPC)"
+   ],
+   "description": "Global cloud cover from multiple satellites",
+   "credit": "",
+   "url": "",
+   "date_range": "6/15/2024 - 11/25/2024"
+  },
+  {
+   "name": "Multi-scale Ultra-high Resolution (MUR) Sea Surface Temperature (SST) Analysis",
+   "common_name": "MUR SST",
+   "platform": null,
+   "sensor": null,
+   "type": "Analysis",
+   "organizations": [
+    "JPL PO DAAC"
+   ],
+   "description": "",
+   "credit": "",
+   "url": "",
+   "date_range": "6/15/2024 - 11/25/2024"
+  },
+  {
+   "name": "",
+   "common_name": "IMERG",
+   "platform": null,
+   "sensor": null,
+   "type": "Data Compilation",
+   "organizations": [
+    "NASA/GSFC"
+   ],
+   "description": "",
+   "credit": "",
+   "url": "http://pmm.nasa.gov/sites/default/files/document_files/IMERG_ATBD_V4.4.pdf",
+   "date_range": "6/15/2024 - 11/25/2024"
+  },
+  {
+   "name": "Automated Tropical Cyclone Forecast (ATCF) - Best Track",
+   "common_name": "Hurricane Tracks",
+   "platform": null,
+   "sensor": null,
+   "type": "Event List",
+   "organizations": [
+    "NOAA"
+   ],
+   "description": "",
+   "credit": "NOAA",
+   "url": "https://ftp.nhc.noaa.gov/atcf/",
+   "date_range": "6/15/2024 - 11/25/2024"
+  }
+ ],
+ "credit_line": "Visualization: NASA's Scientific Visualization Studio (SVS 5468) for the NASA Earth Information Center.",
+ "disclosure": "A related NASA visualization read back through its key (pattern only).",
+ "licence": "SVS: \"All of our content is in the public domain (unless otherwise noted), meaning that it is free to download, use, and redistribute for whatever purposes you see fit.\" (https://svs.gsfc.nasa.gov/help/, read 29 Oct 2026)",
+ "focus": "disasters",
+ "related_to": [
+  3912
+ ],
+ "frame_times": {
+  "method": "linear",
+  "approximate": false,
+  "count": 3,
+  "source": "file name"
+ },
+ "georef": {
+  "projection": "none (not a flat 2:1 map)",
+  "bounds": [
+   -180,
+   -101.25,
+   180,
+   101.25
+  ],
+  "pass_at": 0.9,
+  "shifts_deg": [],
+  "iou": {},
+  "pass": false,
+  "best_is_assumed": false
+ },
+ "colorbar": {
+  "geometry": {
+   "x0": 21,
+   "x1": 656,
+   "band": [
+    68,
+    99
+   ],
+   "vertical": false,
+   "outline_rgb": null,
+   "image_size": [
+    166,
+    677
+   ]
+  },
+  "ticks": [
+   {
+    "px": 45.0,
+    "value": 20.0,
+    "text": "20",
+    "engine": "glyph",
+    "label_px": 45.5,
+    "tick_mark": true
+   },
+   {
+    "px": 99.0,
+    "value": 21.0,
+    "text": "21",
+    "engine": "glyph",
+    "label_px": 100.0,
+    "tick_mark": true
+   },
+   {
+    "px": 153.7962710322874,
+    "value": 22.0,
+    "text": "22",
+    "engine": "glyph",
+    "label_px": 154.5,
+    "tick_mark": true
+   },
+   {
+    "px": 208.15824400204187,
+    "value": 23.0,
+    "text": "23",
+    "engine": "glyph",
+    "label_px": 209.5,
+    "tick_mark": true
+   },
+   {
+    "px": 263.0,
+    "value": 24.0,
+    "text": "24",
+    "engine": "glyph",
+    "label_px": 264.0,
+    "tick_mark": true
+   },
+   {
+    "px": 317.48979591836735,
+    "value": 25.0,
+    "text": "25",
+    "engine": "glyph",
+    "label_px": 318.5,
+    "tick_mark": true
+   },
+   {
+    "px": 372.0,
+    "value": 26.0,
+    "text": "26",
+    "engine": "glyph",
+    "label_px": 373.0,
+    "tick_mark": true
+   },
+   {
+    "px": 426.9933749025721,
+    "value": 27.0,
+    "text": "27",
+    "engine": "glyph",
+    "label_px": 427.5,
+    "tick_mark": true
+   },
+   {
+    "px": 481.34155844155845,
+    "value": 28.0,
+    "text": "28",
+    "engine": "glyph",
+    "label_px": 482.5,
+    "tick_mark": true
+   },
+   {
+    "px": 536.0,
+    "value": 29.0,
+    "text": "29",
+    "engine": "glyph",
+    "label_px": 537.0,
+    "tick_mark": true
+   },
+   {
+    "px": 590.0,
+    "value": 30.0,
+    "text": "30",
+    "engine": "glyph",
+    "label_px": 591.5,
+    "tick_mark": true
+   }
+  ],
+  "scale": "linear",
+  "fit": {
+   "a": 19.18094718700735,
+   "b": 0.01832626011146766,
+   "fit": "weighted 1/tolerance",
+   "max_resid_px": 0.35792066612793116,
+   "resid_px": [
+    -0.31,
+    0.26,
+    0.03,
+    0.23,
+    -0.04,
+    0.04,
+    0.09,
+    -0.33,
+    -0.12,
+    -0.21,
+    0.36
+   ],
+   "ok": true
+  },
+  "notes": [],
+  "n_samples": 636,
+  "value_range": [
+   19.18094718700735,
+   30.818122357789314
+  ],
+  "opacity_varies": false,
+  "px_per_unit": 54.56650696419233
+ },
+ "colorbar_source": "page colorbar sst_colorbar_print.jpg",
+ "asset": {
+  "kind": "frames",
+  "owner": 5468,
+  "what": "Only_Sea_Surface_Temperature"
+ },
+ "twins": [],
+ "decode": {
+  "mode": "chroma",
+  "decoded_share": 0.3532058175797325
+ },
+ "layers": [
+  {
+   "id": "value",
+   "unit": "colorbar units",
+   "encoding": "linear",
+   "scale": 0.0018326260111467658,
+   "offset": 23.19880485534668,
+   "nodata": 65535,
+   "below": 65534,
+   "grid": {
+    "width": 160,
+    "height": 90,
+    "bounds": [
+     -180,
+     -101.25,
+     180,
+     101.25
+    ],
+    "row0": "north",
+    "col0": "west",
+    "byte_order": "little",
+    "space": "frame"
+   },
+   "times": [
+    "2025-01-10T16:49:00Z",
+    "2025-01-10T16:49:00Z",
+    "2025-01-10T16:49:00Z"
+   ],
+   "chunks": [
+    {
+     "file": "value_000.u16.gz",
+     "t0": 0,
+     "t1": 3,
+     "bytes": 22712
+    }
+   ],
+   "quantisation_step": 0.0018326260111467658,
+   "coverage": 0.3555324074074074,
+   "value_range": [
+    23.19880485534668,
+    30.46994400024414
+   ],
+   "label": "2024 Atlantic Hurricane Season (pattern only)",
+   "aggregation": "mean of decoded pixels per cell",
+   "time_labels": [
+    "10 Jan 2025",
+    "10 Jan 2025",
+    "10 Jan 2025"
+   ],
+   "display": {
+    "colours": [
+     "#3f3f3f",
+     "#030e35",
+     "#000b31",
+     "#01125a",
+     "#00198d",
+     "#0024bf",
+     "#012cec",
+     "#0037fe",
+     "#0044fd",
+     "#0055fe",
+     "#0062ff",
+     "#056ff6",
+     "#1679cb",
+     "#2a8396",
+     "#438d5d",
+     "#5d9728",
+     "#789f01",
+     "#98a800",
+     "#c0b302",
+     "#e6ba01",
+     "#feb500",
+     "#fea503",
+     "#fe8700",
+     "#f66c01",
+     "#e64d01",
+     "#d23700",
+     "#b22800",
+     "#901800",
+     "#6b0c02",
+     "#4f0101",
+     "#510404",
+     "#404040"
+    ],
+    "values": [
+     19.18094718700735,
+     19.55633993445193,
+     19.93173268189651,
+     20.30712542934109,
+     20.68251817678567,
+     21.05791092423025,
+     21.433303671674828,
+     21.808696419119407,
+     22.184089166563986,
+     22.55948191400857,
+     22.934874661453147,
+     23.310267408897726,
+     23.685660156342305,
+     24.061052903786884,
+     24.436445651231463,
+     24.811838398676045,
+     25.187231146120624,
+     25.562623893565203,
+     25.93801664100978,
+     26.31340938845436,
+     26.68880213589894,
+     27.06419488334352,
+     27.439587630788097,
+     27.81498037823268,
+     28.190373125677258,
+     28.56576587312184,
+     28.94115862056642,
+     29.316551368010998,
+     29.691944115455577,
+     30.067336862900156,
+     30.442729610344735,
+     30.818122357789314
+    ],
+    "scale": "linear"
+   },
+   "status": "pattern only",
+   "status_check": "a_no_validation_source",
+   "statement": "pattern only"
+  }
+ ],
+ "voices": {
+  "value": "rel5468"
+ },
+ "play": [
+  {
+   "id": "value",
+   "label": "2024 Atlantic Hurricane Season: higher pitch = higher value",
+   "view": "global",
+   "map": "value",
+   "start": {
+    "lat": -1.0,
+    "lon": 1.125
+   },
+   "steps_per_second": 1,
+   "channels": [
+    {
+     "voice": "rel5468",
+     "layers": [
+      "value"
+     ],
+     "combine": "value"
+    }
+   ]
+  }
+ ],
+ "validation": [
+  {
+   "id": "a_no_validation_source",
+   "title": "2024 Atlantic Hurricane Season: no validation source",
+   "kind": "none",
+   "pass": null,
+   "threshold": null
+  }
+ ],
+ "size": {
+  "choice": {
+   "frames": 3
+  },
+  "tried": [],
+  "bytes": 32780,
+  "budget": 25000000
+ },
+ "onboarding": {
+  "timings_s": {
+   "api": 24.9,
+   "twins": 3.5,
+   "asset choice": 0.0,
+   "frames": 57.4,
+   "frame times": 36.5,
+   "georef": 0.1,
+   "colorbar": 7.0,
+   "inversion": 105.7,
+   "validation": 0.0
+  },
+  "status": "pattern only"
+ },
+ "asset_checksums": {
+  "file": "checksums.tsv.gz",
+  "rows": 4,
+  "sha256_of_list": "7428770995f42272aab7e0253f47d87a0c6287776ec8dff255a0fdeac7148205"
+ },
+ "code_commit": "a8f0638dc9adb81b18f259cf0813046acd882fa1-dirty",
+ "generated_utc": "2026-10-31T17:28:39Z"
+}

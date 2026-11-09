@@ -8,13 +8,14 @@ import { formatInteger, formatMonth, formatRainRate, formatTemperature, localDig
 import { translateData } from "./data";
 import { PLACE_NAMES_BN } from "./places";
 import { APP_NAME } from "../brand";
+import type { Translated } from "../types";
 
 const TRACK_NAMES: Record<string, string> = { ocean: "সমুদ্র", rain: "বৃষ্টি", snow: "তুষার" };
 const TRACK_OF: Record<string, string> = { ocean: "সমুদ্রের", rain: "বৃষ্টির", snow: "তুষারের" };
 const label = (p: CaptionParams, key: string) => localDigits(strParam(p, key), "bn");
 const month = (p: CaptionParams, key: string) => formatMonth(strParam(p, key), "bn");
 
-export const captionsBn: typeof captionsEn = {
+export const captionsBn: Translated<typeof captionsEn> = {
   "caption.value": (p: CaptionParams) => {
     const v = numParam(p, "value") ?? 0;
     if (strParam(p, "track") === "ocean") return `সুর: ${formatTemperature(v, "bn")} °সে সমুদ্র`;

@@ -1,0 +1,661 @@
+{
+ "records": [
+  {
+   "record": "rel_30919",
+   "title": "A Changing Earth at Night (observation)",
+   "svs_ids": [
+    30919
+   ],
+   "badge": "observation",
+   "period": "6 Dec 2017 – 6 Dec 2017",
+   "manifest": "rel_30919/manifest.json",
+   "focus": "energy",
+   "related_to": [
+    5313
+   ]
+  },
+  {
+   "record": "rel_3143",
+   "title": "Global Lightning Accumulation (WMS) (observation)",
+   "svs_ids": [
+    3143
+   ],
+   "badge": "observation",
+   "period": "14 Apr 2005 – 14 Apr 2005",
+   "manifest": "rel_3143/manifest.json",
+   "focus": "disasters",
+   "related_to": [
+    5011
+   ]
+  },
+  {
+   "record": "rel_3144",
+   "title": "Global Lightning Flash Rate Density (WMS) (observation)",
+   "svs_ids": [
+    3144
+   ],
+   "badge": "observation",
+   "period": "14 Apr 2005 – 14 Apr 2005",
+   "manifest": "rel_3144/manifest.json",
+   "focus": "disasters",
+   "related_to": [
+    5011
+   ]
+  },
+  {
+   "record": "rel_3821",
+   "title": "Flat Map Ocean Current Flows with Sea Surface Temperatures (SST) (model)",
+   "svs_ids": [
+    3821
+   ],
+   "badge": "model",
+   "period": "1 Jan 2005 – 1 Jan 2006",
+   "manifest": "rel_3821/manifest.json",
+   "focus": "water resources",
+   "related_to": [
+    3912
+   ]
+  },
+  {
+   "record": "rel_3913",
+   "title": "Gulf Stream Sea Surface Currents and Temperatures (model)",
+   "svs_ids": [
+    3913
+   ],
+   "badge": "model",
+   "period": "15 Feb 2012 – 15 Feb 2012",
+   "manifest": "rel_3913/manifest.json",
+   "focus": "water resources",
+   "related_to": [
+    3912
+   ]
+  },
+  {
+   "record": "rel_4272",
+   "title": "What Would have Happened to the Ozone Layer if Chlorofluorocarbons (CFCs) had not been Regulated? (UPDATED) (model)",
+   "svs_ids": [
+    4272
+   ],
+   "badge": "model",
+   "period": "undated (no frame dates found; SVS release 09 Feb 2015)",
+   "manifest": "rel_4272/manifest.json",
+   "focus": "air quality",
+   "related_to": [
+    5533
+   ]
+  },
+  {
+   "record": "rel_4284",
+   "title": "Accumulated Precipitation from the IMERG Global Precipitation Data (observation)",
+   "svs_ids": [
+    4284
+   ],
+   "badge": "observation",
+   "period": "4 Aug 2014 – 11 Aug 2014",
+   "manifest": "rel_4284/manifest.json",
+   "focus": "water resources",
+   "related_to": [
+    4960
+   ]
+  },
+  {
+   "record": "rel_4332",
+   "title": "Aquarius Sea Surface Temperature 2011 - 2015 (observation)",
+   "svs_ids": [
+    4332
+   ],
+   "badge": "observation",
+   "period": "23 Sep 2015 – 23 Sep 2015",
+   "manifest": "rel_4332/manifest.json",
+   "focus": "water resources",
+   "related_to": [
+    3912
+   ]
+  },
+  {
+   "record": "rel_4345",
+   "title": "22-year Sea Level Rise - TOPEX/JASON (observation)",
+   "svs_ids": [
+    4345
+   ],
+   "badge": "observation",
+   "period": "26 Aug 2015 – 26 Aug 2015",
+   "manifest": "rel_4345/manifest.json",
+   "focus": "sea level",
+   "related_to": [
+    3912
+   ]
+  },
+  {
+   "record": "rel_4353",
+   "title": "Aquarius Sea Surface Salinity 2011-2015 (observation)",
+   "svs_ids": [
+    4353
+   ],
+   "badge": "observation",
+   "period": "10 Sep 2015 – 10 Sep 2015",
+   "manifest": "rel_4353/manifest.json",
+   "focus": "water resources",
+   "related_to": [
+    5425
+   ]
+  },
+  {
+   "record": "rel_4372",
+   "title": "IMERG Global Precipitation Rates (New Colorbar) (observation)",
+   "svs_ids": [
+    4372
+   ],
+   "badge": "observation",
+   "period": "2 Oct 2015 – 2 Oct 2015",
+   "manifest": "rel_4372/manifest.json",
+   "focus": "water resources",
+   "related_to": [
+    4960
+   ]
+  },
+  {
+   "record": "rel_4417",
+   "title": "2014 - 2015 Atmospheric River (reanalysis)",
+   "svs_ids": [
+    4417
+   ],
+   "badge": "reanalysis",
+   "period": "11 Jan 2016 – 11 Jan 2016",
+   "manifest": "rel_4417/manifest.json",
+   "focus": "water resources",
+   "related_to": [
+    4960
+   ]
+  },
+  {
+   "record": "rel_4445",
+   "title": "El Niño - Atmospheric River in January 2016 (observation)",
+   "svs_ids": [
+    4445
+   ],
+   "badge": "observation",
+   "period": "undated (no frame dates found; SVS release 18 Apr 2016)",
+   "manifest": "rel_4445/manifest.json",
+   "focus": "water resources",
+   "related_to": [
+    4960
+   ],
+   "hidden": "too sparse to play: values in 0.03–0.4 % of cells per step, none at every step (re-decoded 7 Nov 2026)"
+  },
+  {
+   "record": "rel_4658",
+   "title": "NASA's Black Marble night lights used to examine disaster recovery in Puerto Rico (observation)",
+   "svs_ids": [
+    4658
+   ],
+   "badge": "observation",
+   "period": "undated (no frame dates found; SVS release 09 Dec 2018)",
+   "manifest": "rel_4658/manifest.json",
+   "focus": "disasters",
+   "related_to": [
+    5313
+   ],
+   "hidden": "too sparse to play: values in 0.3–0.9 % of cells per step, none at every step (re-decoded 7 Nov 2026)"
+  },
+  {
+   "record": "rel_4764",
+   "title": "Simulation of Surface Ozone (model)",
+   "svs_ids": [
+    4764
+   ],
+   "badge": "model",
+   "period": "7 Nov 2019 – 7 Nov 2019",
+   "manifest": "rel_4764/manifest.json",
+   "focus": "air quality",
+   "related_to": [
+    5533
+   ]
+  },
+  {
+   "record": "rel_4810",
+   "title": "Reductions in Pollution Associated with Decreased Fossil Fuel Use Resulting from COVID-19 Mitigation (observation)",
+   "svs_ids": [
+    4810
+   ],
+   "badge": "observation",
+   "period": "24 Apr 2020 – 24 Apr 2020",
+   "manifest": "rel_4810/manifest.json",
+   "focus": "air quality",
+   "related_to": [
+    5533
+   ]
+  },
+  {
+   "record": "rel_4889",
+   "title": "Variability of Water Storage in Global Hydrological Basins (observation)",
+   "svs_ids": [
+    4889
+   ],
+   "badge": "observation",
+   "period": "3 Mar 2021 – 3 Mar 2021",
+   "manifest": "rel_4889/manifest.json",
+   "focus": "water resources",
+   "related_to": []
+  },
+  {
+   "record": "rel_4939",
+   "title": "3D Water Vapor shows an Atmospheric River (observation)",
+   "svs_ids": [
+    4939
+   ],
+   "badge": "observation",
+   "period": "undated (no frame dates found; SVS release 07 Oct 2021)",
+   "manifest": "rel_4939/manifest.json",
+   "focus": "water resources",
+   "related_to": [
+    4960
+   ],
+   "hidden": "too sparse to play: 99 % of cells on the first frame, 0.1–0.6 % on the last two (the 3D camera leaves the map), none at every step (re-decoded 7 Nov 2026)"
+  },
+  {
+   "record": "rel_4993",
+   "title": "Spread of the Dixie Fire - 2021 (observation)",
+   "svs_ids": [
+    4993
+   ],
+   "badge": "observation",
+   "period": "1 Jun 2022 – 1 Jun 2022",
+   "manifest": "rel_4993/manifest.json",
+   "focus": "wildfires",
+   "related_to": [
+    4993
+   ]
+  },
+  {
+   "record": "rel_5017",
+   "title": "A Decade of Sea Surface Salinity (observation)",
+   "svs_ids": [
+    5017
+   ],
+   "badge": "observation",
+   "period": "1 Sep 2011 – 1 Sep 2021",
+   "manifest": "rel_5017/manifest.json",
+   "focus": "water resources",
+   "related_to": [
+    5425
+   ]
+  },
+  {
+   "record": "rel_5070",
+   "title": "Nitrogen Dioxide Over the United States, 2005-2022 (observation)",
+   "svs_ids": [
+    5070
+   ],
+   "badge": "observation",
+   "period": "6 Feb 2023 – 6 Feb 2023",
+   "manifest": "rel_5070/manifest.json",
+   "focus": "air quality",
+   "related_to": [
+    5533
+   ]
+  },
+  {
+   "record": "rel_5098",
+   "title": "Relative Wetness Root Zone Versus Groundwater Comparison (observation)",
+   "svs_ids": [
+    5098
+   ],
+   "badge": "observation",
+   "period": "24 Apr 2023 – 24 Apr 2023",
+   "manifest": "rel_5098/manifest.json",
+   "focus": "water resources",
+   "related_to": []
+  },
+  {
+   "record": "rel_5104",
+   "title": "Two Decades of Changes in Nitrogen Dioxide and Fine Particulate Pollution in the U.S. (observation)",
+   "svs_ids": [
+    5104
+   ],
+   "badge": "observation",
+   "period": "23 May 2023 – 23 May 2023",
+   "manifest": "rel_5104/manifest.json",
+   "focus": "air quality",
+   "related_to": [
+    5533
+   ]
+  },
+  {
+   "record": "rel_5110",
+   "title": "Atmospheric Carbon Dioxide Tagged by Source (model)",
+   "svs_ids": [
+    5110
+   ],
+   "badge": "model",
+   "period": "16 Jun 2023 – 16 Jun 2023",
+   "manifest": "rel_5110/manifest.json",
+   "focus": "greenhouse gases",
+   "related_to": [
+    5196
+   ]
+  },
+  {
+   "record": "rel_5111",
+   "title": "Increase in Ocean Heat since 1957 Map - Spilhaus Projection (series)",
+   "svs_ids": [
+    5111
+   ],
+   "badge": "observation",
+   "period": "2 Jul 1957 – 2 Jul 2023",
+   "manifest": "rel_5111/manifest.json",
+   "focus": "water resources",
+   "related_to": [
+    3912
+   ]
+  },
+  {
+   "record": "rel_5119",
+   "title": "OCO-2 and Keeling Curve: Trends in global atmospheric Carbon Dioxide (CO₂) (series)",
+   "svs_ids": [
+    5119
+   ],
+   "badge": "observation",
+   "period": "1 Jul 1959 – 1 Jul 2025",
+   "manifest": "rel_5119/manifest.json",
+   "focus": "greenhouse gases",
+   "related_to": [
+    5196
+   ]
+  },
+  {
+   "record": "rel_5126",
+   "title": "NOAA Annual Greenhouse Gas Index (series)",
+   "svs_ids": [
+    5126
+   ],
+   "badge": "observation",
+   "period": "1 Jul 1979 – 1 Jul 2025",
+   "manifest": "rel_5126/manifest.json",
+   "focus": "greenhouse gases",
+   "related_to": [
+    5196
+   ]
+  },
+  {
+   "record": "rel_5142",
+   "title": "TEMPO - Nitrogen Dioxide Air Pollution Over North America (observation)",
+   "svs_ids": [
+    5142
+   ],
+   "badge": "observation",
+   "period": "24 Aug 2023 – 24 Aug 2023",
+   "manifest": "rel_5142/manifest.json",
+   "focus": "air quality",
+   "related_to": [
+    5533
+   ]
+  },
+  {
+   "record": "rel_5190",
+   "title": "NASA Climate Spiral 1880-Present (series)",
+   "svs_ids": [
+    5190
+   ],
+   "badge": "observation",
+   "period": "15 Jan 1880 – 15 Sep 2026",
+   "manifest": "rel_5190/manifest.json",
+   "focus": "other",
+   "related_to": []
+  },
+  {
+   "record": "rel_5191",
+   "title": "Global Temperature Graph 1880-2024 (series)",
+   "svs_ids": [
+    5191
+   ],
+   "badge": "observation",
+   "period": "1 Jul 1880 – 1 Jul 2025",
+   "manifest": "rel_5191/manifest.json",
+   "focus": "other",
+   "related_to": []
+  },
+  {
+   "record": "rel_5207",
+   "title": "Global Temperature Anomalies from 1880 to 2023 (series)",
+   "svs_ids": [
+    5207
+   ],
+   "badge": "observation",
+   "period": "1 Jul 1880 – 1 Jul 2025",
+   "manifest": "rel_5207/manifest.json",
+   "focus": "sea level",
+   "related_to": [
+    3912
+   ]
+  },
+  {
+   "record": "rel_5209",
+   "title": "Zonal Climate Anomalies 1880-2023 (series)",
+   "svs_ids": [
+    5209
+   ],
+   "badge": "observation",
+   "period": "1 Jul 1880 – 1 Jul 2025",
+   "manifest": "rel_5209/manifest.json",
+   "focus": "other",
+   "related_to": []
+  },
+  {
+   "record": "rel_5221",
+   "title": "Global Mean Sea Level 1993-2023 (series)",
+   "svs_ids": [
+    5221
+   ],
+   "badge": "observation",
+   "period": "5 Jan 1993 – 26 Dec 2022",
+   "manifest": "rel_5221/manifest.json",
+   "focus": "sea level",
+   "related_to": [
+    3912
+   ]
+  },
+  {
+   "record": "rel_5235",
+   "title": "Sea Level Through a Porthole (2023) (series)",
+   "svs_ids": [
+    5235
+   ],
+   "badge": "observation",
+   "period": "5 Jan 1993 – 26 Dec 2022",
+   "manifest": "rel_5235/manifest.json",
+   "focus": "sea level",
+   "related_to": []
+  },
+  {
+   "record": "rel_5303",
+   "title": "NASA’s TEMPO Instrument Air Quality Data Now Publicly Available (observation)",
+   "svs_ids": [
+    5303
+   ],
+   "badge": "observation",
+   "period": "30 May 2024 – 30 May 2024",
+   "manifest": "rel_5303/manifest.json",
+   "focus": "air quality",
+   "related_to": [
+    5533
+   ]
+  },
+  {
+   "record": "rel_5453",
+   "title": "Annual Wildfire Burned Area in the United States (observation)",
+   "svs_ids": [
+    5453
+   ],
+   "badge": "observation",
+   "period": "3 Jan 2025 – 3 Jan 2025",
+   "manifest": "rel_5453/manifest.json",
+   "focus": "wildfires",
+   "related_to": [
+    4993
+   ]
+  },
+  {
+   "record": "rel_5468",
+   "title": "2024 Atlantic Hurricane Season (model)",
+   "svs_ids": [
+    5468
+   ],
+   "badge": "model",
+   "period": "10 Jan 2025 – 10 Jan 2025",
+   "manifest": "rel_5468/manifest.json",
+   "focus": "disasters",
+   "related_to": [
+    3912
+   ]
+  },
+  {
+   "record": "rel_5477",
+   "title": "SOS - Day/Night cycle with Blue Marble and Black Marble Nightlights (observation)",
+   "svs_ids": [
+    5477
+   ],
+   "badge": "observation",
+   "period": "undated (no frame dates found; SVS release 16 May 2025)",
+   "manifest": "rel_5477/manifest.json",
+   "focus": "energy",
+   "related_to": [
+    5313
+   ]
+  },
+  {
+   "record": "rel_5516",
+   "title": "Global Mean Sea Level 1993-2024 (series)",
+   "svs_ids": [
+    5516
+   ],
+   "badge": "observation",
+   "period": "5 Jan 1993 – 26 Dec 2022",
+   "manifest": "rel_5516/manifest.json",
+   "focus": "sea level",
+   "related_to": [
+    3912
+   ]
+  },
+  {
+   "record": "rel_5557",
+   "title": "Daily Visualizations of the Largest Wildfires in the United States: 2025 (model)",
+   "svs_ids": [
+    5557
+   ],
+   "badge": "model",
+   "period": "16 Sep 2025 – 26 Sep 2025",
+   "manifest": "rel_5557/manifest.json",
+   "focus": "wildfires",
+   "related_to": [
+    4993
+   ]
+  },
+  {
+   "record": "rel_5597",
+   "title": "Los Angeles Palisades and Eaton Wildfires: 2025 Year in Review (model)",
+   "svs_ids": [
+    5597
+   ],
+   "badge": "model",
+   "period": "16 Sep 2025 – 26 Sep 2025",
+   "manifest": "rel_5597/manifest.json",
+   "focus": "wildfires",
+   "related_to": [
+    4993
+   ]
+  },
+  {
+   "record": "rel_5601",
+   "title": "Wyoming Red Canyon wildfire: 2025 Year in Review (model)",
+   "svs_ids": [
+    5601
+   ],
+   "badge": "model",
+   "period": "undated (no frame dates found; SVS release 02 Jan 2026)",
+   "manifest": "rel_5601/manifest.json",
+   "focus": "wildfires",
+   "related_to": [
+    4993
+   ]
+  },
+  {
+   "record": "rel_5611",
+   "title": "Global Mean Sea Level 1993-2025 (series)",
+   "svs_ids": [
+    5611
+   ],
+   "badge": "observation",
+   "period": "5 Jan 1993 – 26 Dec 2022",
+   "manifest": "rel_5611/manifest.json",
+   "focus": "sea level",
+   "related_to": [
+    3912
+   ]
+  },
+  {
+   "record": "rel_5624",
+   "title": "Global Smoke Forecast Visualization (Daily Updated) (model)",
+   "svs_ids": [
+    5624
+   ],
+   "badge": "model",
+   "period": "3 Nov 2026 – 7 Nov 2026",
+   "manifest": "rel_5624/manifest.json",
+   "focus": "wildfires",
+   "related_to": [
+    5669
+   ]
+  },
+  {
+   "record": "rel_5639",
+   "title": "Daily Visualizations of the Largest Wildfires in the United States: 2026 (model)",
+   "svs_ids": [
+    5639
+   ],
+   "badge": "model",
+   "period": "30 Jun 2026 – 11 Aug 2026",
+   "manifest": "rel_5639/manifest.json",
+   "focus": "wildfires",
+   "related_to": [
+    4993
+   ]
+  },
+  {
+   "record": "rel_5650",
+   "title": "Near Real-Time Global Precipitation from the Global Precipitation Measurement Constellation (observation)",
+   "svs_ids": [
+    5650
+   ],
+   "badge": "observation",
+   "period": "18 Oct 2026 – 6 Nov 2026",
+   "manifest": "rel_5650/manifest.json",
+   "focus": "water resources",
+   "related_to": [
+    4960
+   ]
+  },
+  {
+   "record": "rel_gibs",
+   "title": "Any GIBS layer (Worldview, decoded exactly)",
+   "svs_ids": [],
+   "badge": "observation",
+   "period": "4 May 1995 – 31 Oct 2026",
+   "manifest": "rel_gibs/manifest.json",
+   "focus": "other",
+   "related_to": []
+  },
+  {
+   "record": "rel_oisst",
+   "title": "Sea surface temperature (NOAA OISST via ERDDAP, observation)",
+   "svs_ids": [],
+   "badge": "observation",
+   "period": "29 Oct 2026 – 29 Oct 2026",
+   "manifest": "rel_oisst/manifest.json",
+   "focus": "water resources",
+   "related_to": [
+    3912
+   ]
+  }
+ ]
+}

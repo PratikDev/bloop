@@ -1,7 +1,7 @@
 // PURE: checks the shape and sanity of a mapping file (public/mapping.json).
 // A bad file fails loudly at start-up with a clear message.
 
-import type { MappingSpec, VoiceMapping } from "@/types/data-contract";
+import type { MappingSpec, VoiceMapping, VoiceSpec } from "@/types/data-contract";
 
 export class MappingError extends Error {
   constructor(message: string) {
@@ -10,7 +10,7 @@ export class MappingError extends Error {
   }
 }
 
-function fail(message: string): never {
+export function fail(message: string): never {
   throw new MappingError(message);
 }
 
@@ -35,7 +35,7 @@ function oneOf<T extends string>(v: unknown, options: readonly T[], where: strin
   return v as T;
 }
 
-function checkRange(min: number, max: number, where: string) {
+export function checkRange(min: number, max: number, where: string) {
   if (min >= max) fail(`${where}: min (${min}) must be less than max (${max})`);
 }
 
@@ -52,12 +52,14 @@ function checkOutput(o: unknown, where: string) {
 function checkMapping(m: unknown, where: string) {
   if (m === null) return;
   if (!isObject(m)) fail(`${where} must be an object or null`);
-  const kind = oneOf(m.kind, ["continuous", "bands", "runtimeRange"] as const, `${where}.kind`);
+  const kind = oneOf(m.kind, ["continuous", "bands", "runtimeRange", "sameAs"] as const, `${where}.kind`);
   const input = m.input;
   if (!isObject(input)) fail(`${where}.input is missing`);
   str(input.unit, `${where}.input.unit`);
 
-  if (kind === "continuous") {
+  if (kind === "sameAs") {
+    str(m.voice, `${where}.voice`); // the referenced voice is checked once every voice is read
+  } else if (kind === "continuous") {
     const min = num(input.min, `${where}.input.min`);
     const max = num(input.max, `${where}.input.max`);
     checkRange(min, max, `${where}.input`);
@@ -65,10 +67,12 @@ function checkMapping(m: unknown, where: string) {
     if (scale === "log" && min <= 0) fail(`${where}.input: log scale needs min > 0`);
     oneOf(
       (m.output as Record<string, unknown> | undefined)?.param,
-      ["frequency", "dropsPerSecond", "dropsPerStep", "gain"] as const,
+      ["frequency", "dropsPerSecond", "dropsPerStep", "gain", "reverbSec", "cutoff", "clicksPerSecond"] as const,
       `${where}.output.param`,
     );
     checkOutput(m.output, `${where}.output`);
+    const falling = (m.output as Record<string, unknown>).falling;
+    if (falling !== undefined && typeof falling !== "boolean") fail(`${where}.output.falling must be true or false`);
   } else if (kind === "runtimeRange") {
     oneOf(input.range, ["p5-p95", "zero-to-max"] as const, `${where}.input.range`);
     oneOf(input.transform, ["none", "log1p"] as const, `${where}.input.transform`);
@@ -172,6 +176,14 @@ export function validateMapping(input: unknown): MappingSpec {
       }
     });
   });
+
+  // A sameAs rule must point at another voice that has a continuous rule (one rule, two uses: no copied numbers).
+  for (const v of voices as VoiceSpec[]) {
+    const m = v.mapping;
+    if (m?.kind !== "sameAs") continue;
+    const target = (voices as VoiceSpec[]).find((x) => x.id === m.voice && x.id !== v.id);
+    if (target?.mapping?.kind !== "continuous") fail(`voice "${v.id}".mapping.voice must name a voice with a continuous rule`);
+  }
 
   return input as unknown as MappingSpec;
 }

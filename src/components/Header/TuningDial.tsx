@@ -17,13 +17,14 @@ export function TuningDial({ className }: { className?: string }) {
   const t = useT();
   const pathname = useRouterState({ select: (s) => s.location.pathname });
   return (
-    <nav aria-label={t("nav.label")} className={cn("relative", className)}>
+    <nav aria-label={t("nav.label")} className={cn("relative min-w-0", className)}>
       <span aria-hidden="true" className="stitch-x absolute inset-x-2 bottom-0 opacity-60" />
-      <ul className="flex items-stretch">
+      {/* Five pages on a 320 px phone: the dial scrolls sideways inside itself, never the page. */}
+      <ul className="flex items-stretch overflow-x-auto [scrollbar-width:none]">
         {NAV_ITEMS.map((item, i) => {
           const active = pathname === item.to;
           return (
-            <li key={item.to} className="relative flex-1 lg:flex-none">
+            <li key={item.to} className="relative flex-1 shrink-0 lg:flex-none">
               <Link
                 to={item.to}
                 aria-current={active ? "page" : undefined}

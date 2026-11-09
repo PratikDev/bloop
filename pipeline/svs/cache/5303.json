@@ -1,0 +1,322 @@
+{
+ "id": 5303,
+ "title": "NASA’s TEMPO Instrument Air Quality Data Now Publicly Available",
+ "url": "https://svs.gsfc.nasa.gov/5303/",
+ "page_type": "Visualization",
+ "release_date": "2024-05-30T14:00:00-04:00",
+ "update_date": "2025-04-21T16:46:05.669668-04:00",
+ "description": "The TEMPO instrument measured elevated levels of nitrogen dioxide (NO2) from a number of different areas and emission sources throughout the daytime on March 28, 2024. Yellow, red, purple, and black clusters represent increased levels of pollutants from TEMPO’s data and show drift over time. || TEMPO_3_28_2024_CONUS.0500_print.jpg (1024x576) [289.5 KB] || TEMPO_3_28_2024_CONUS.0500_searchweb.png (320x180) [103.2 KB] || TEMPO_3_28_2024_CONUS.0500_thm.png (80x40) [6.9 KB] || TEMPO_3_28_2024_CONUS [0 Item(s)] || TEMPO_3_28_2024_CONUS_1080p30.mp4 (1920x1080) [29.3 MB] || TEMPO_3_28_2024_CONUS (3840x2160) [1000 Item(s)] || TEMPO_3_28_2024_CONUS_2160p30.mp4 (3840x2160) [111.7 MB] || TEMPO_3_28_2024_CONUS_1080p30.mp4.hwshow || ",
+ "full_text": "The TEMPO instrument measured elevated levels of nitrogen dioxide (NO2) from a number of different areas and emission sources throughout the daytime on March 28, 2024. Yellow, red, purple, and black clusters represent increased levels of pollutants from TEMPO’s data and show drift over time. || TEMPO_3_28_2024_CONUS.0500_print.jpg (1024x576) [289.5 KB] || TEMPO_3_28_2024_CONUS.0500_searchweb.png (320x180) [103.2 KB] || TEMPO_3_28_2024_CONUS.0500_thm.png (80x40) [6.9 KB] || TEMPO_3_28_2024_CONUS [0 Item(s)] || TEMPO_3_28_2024_CONUS_1080p30.mp4 (1920x1080) [29.3 MB] || TEMPO_3_28_2024_CONUS (3840x2160) [1000 Item(s)] || TEMPO_3_28_2024_CONUS_2160p30.mp4 (3840x2160) [111.7 MB] || TEMPO_3_28_2024_CONUS_1080p30.mp4.hwshow ||\n\nThe TEMPO instrument measured elevated levels of nitrogen dioxide (NO2) from a number of different areas and emission sources throughout the daytime on March 28, 2024. Yellow, red, purple, and black clusters represent increased levels of pollutants from TEMPO’s data and show drift over time.\n\nAir pollution data on a neighborhood scale are now available in near real-time from NASA's Atmospheric Science Data Center (ASDC) at Langley Research Center in Hampton, Virginia. The data come from NASA’s TEMPO instrument (Tropospheric Emissions: Monitoring of Pollution), which gathers hourly daytime scans of the atmosphere over North America from the Atlantic Ocean to the Pacific Coast and from roughly Mexico City to central Canada. The instrument is an advanced spectrometer that detects pollution by observing how sunlight is absorbed and scattered by gases and particles in the troposphere, the lowest layer of Earth’s atmosphere.\r<br>Measurements by TEMPO include air pollutants such as nitrogen dioxide, formaldehyde, and ground-level ozone. \r<br>Determining sources of air pollution can be difficult as smoke from wildfires or pollutants from industry and traffic congestion drift on winds. TEMPO should make it easier to trace the origin of some pollutants.\r<br>TEMPO was built by BAE Systems, Inc., Space & Mission Systems (formerly Ball Aerospace) and flies aboard the Intelsat 40e satellite built by Maxar Technologies. The TEMPO Ground System, including the Instrument Operations Center and the Science Data Processing Center, are operated by the Smithsonian Astrophysical Organization (SAO), part of the Center for Astrophysics | Harvard & Smithsonian in Cambridge, Massachusetts.\n\nNO2 levels are elevated along major traffic corridors including I-35 in Texas and I-10 in Arizona with the highest levels between 9:00 a.m. and 12:00 p.m. Elevated NO2 levels are shown across cities including Houston, Dallas, San Antonio, El Paso, and Memphis, with the highest levels persisting across Houston from morning to evening.\n\nHigh NO2 levels associated with prescribed burns are seen popping up across East Texas, Oklahoma, Louisiana, Arkansas, and Mississippi, beginning around 1:00 p.m. and extending into the evening.\n\nTEMPO observes the northerly transport of NO2 from the   Permian basin, a large oil and natural gas producing area spanning parts of West Texas and southeastern New Mexico, with the highest levels measured during the morning over the basin.  NO2 plumes from coal-fired power plants are visible in the rural areas far west and northwest of Houston and far east of Dallas between 8:00 a.m. and 2:00 p.m.",
+ "credits_by_role": {
+  "Visualizer": [
+   "Trent L. Schindler (USRA)",
+   "Kel Elkins (USRA)",
+   "Cindy Starr (Global Science and Technology, Inc.)"
+  ],
+  "Technical support": [
+   "Laurence Schuler (ADNET Systems, Inc.)",
+   "Ian Jones (ADNET Systems, Inc.)"
+  ],
+  "Scientist": [
+   "Caroline Nowlan (Center for Astrophysics | Harvard & Smithsonian)",
+   "Xiong Liu (Center for Astrophysics | Harvard & Smithsonian)",
+   "Aaron Naeger (NASA/MSFC)"
+  ]
+ },
+ "keywords": [
+  "Pollution"
+ ],
+ "datasets": [
+  {
+   "name": "Nitrogen Dioxide",
+   "common_name": "",
+   "platform": null,
+   "sensor": "TEMPO",
+   "type": "Observed Data",
+   "organizations": [],
+   "description": "",
+   "credit": "Data provided by the Smithsonian Astrophysical Observatory at the Center for Astrophysics | Harvard & Smithsonian.",
+   "url": "https://tempo.si.edu/",
+   "date_range": "3/28/2024"
+  }
+ ],
+ "missions": [],
+ "related": [
+  {
+   "id": 5175,
+   "title": "TEMPO - Nitrogen Dioxide Air Pollution Over North America - Additional Views",
+   "url": "https://svs.gsfc.nasa.gov/5175/"
+  }
+ ],
+ "alternate_versions": [],
+ "newer_versions": [],
+ "older_versions": [],
+ "media": [
+  {
+   "group": 0,
+   "group_title": "",
+   "widget": "Video player",
+   "caption": "",
+   "group_text": "The TEMPO instrument measured elevated levels of nitrogen dioxide (NO2) from a number of different areas and emission sources throughout the daytime on March 28, 2024. Yellow, red, purple, and black clusters represent increased levels of pollutants from TEMPO’s data and show drift over time.",
+   "url": "https://svs.gsfc.nasa.gov/vis/a000000/a005300/a005303/TEMPO_3_28_2024_CONUS.0500_print.jpg",
+   "filename": "TEMPO_3_28_2024_CONUS.0500_print.jpg",
+   "media_type": "Image",
+   "width": 1024,
+   "height": 576,
+   "alt_text": "The TEMPO instrument measured elevated levels of nitrogen dioxide (NO2) from a number of different areas and emission sources throughout the daytime on March 28, 2024. Yellow, red, purple, and black clusters represent increased levels of pollutants from TEMPO’s data and show drift over time."
+  },
+  {
+   "group": 0,
+   "group_title": "",
+   "widget": "Video player",
+   "caption": "",
+   "group_text": "The TEMPO instrument measured elevated levels of nitrogen dioxide (NO2) from a number of different areas and emission sources throughout the daytime on March 28, 2024. Yellow, red, purple, and black clusters represent increased levels of pollutants from TEMPO’s data and show drift over time.",
+   "url": "https://svs.gsfc.nasa.gov/vis/a000000/a005300/a005303/TEMPO_3_28_2024_CONUS.0500_searchweb.png",
+   "filename": "TEMPO_3_28_2024_CONUS.0500_searchweb.png",
+   "media_type": "Image",
+   "width": 320,
+   "height": 180,
+   "alt_text": "The TEMPO instrument measured elevated levels of nitrogen dioxide (NO2) from a number of different areas and emission sources throughout the daytime on March 28, 2024. Yellow, red, purple, and black clusters represent increased levels of pollutants from TEMPO’s data and show drift over time."
+  },
+  {
+   "group": 0,
+   "group_title": "",
+   "widget": "Video player",
+   "caption": "",
+   "group_text": "The TEMPO instrument measured elevated levels of nitrogen dioxide (NO2) from a number of different areas and emission sources throughout the daytime on March 28, 2024. Yellow, red, purple, and black clusters represent increased levels of pollutants from TEMPO’s data and show drift over time.",
+   "url": "https://svs.gsfc.nasa.gov/vis/a000000/a005300/a005303/TEMPO_3_28_2024_CONUS.0500_thm.png",
+   "filename": "TEMPO_3_28_2024_CONUS.0500_thm.png",
+   "media_type": "Image",
+   "width": 80,
+   "height": 40,
+   "alt_text": "The TEMPO instrument measured elevated levels of nitrogen dioxide (NO2) from a number of different areas and emission sources throughout the daytime on March 28, 2024. Yellow, red, purple, and black clusters represent increased levels of pollutants from TEMPO’s data and show drift over time."
+  },
+  {
+   "group": 0,
+   "group_title": "",
+   "widget": "Video player",
+   "caption": "",
+   "group_text": "The TEMPO instrument measured elevated levels of nitrogen dioxide (NO2) from a number of different areas and emission sources throughout the daytime on March 28, 2024. Yellow, red, purple, and black clusters represent increased levels of pollutants from TEMPO’s data and show drift over time.",
+   "url": "https://svs.gsfc.nasa.gov/vis/a000000/a005300/a005303/frames/1920x1080_16x9_30p/TEMPO_3_28_2024_CONUS/",
+   "filename": "TEMPO_3_28_2024_CONUS",
+   "media_type": "Frames",
+   "width": 1920,
+   "height": 1080,
+   "alt_text": "The TEMPO instrument measured elevated levels of nitrogen dioxide (NO2) from a number of different areas and emission sources throughout the daytime on March 28, 2024. Yellow, red, purple, and black clusters represent increased levels of pollutants from TEMPO’s data and show drift over time."
+  },
+  {
+   "group": 0,
+   "group_title": "",
+   "widget": "Video player",
+   "caption": "",
+   "group_text": "The TEMPO instrument measured elevated levels of nitrogen dioxide (NO2) from a number of different areas and emission sources throughout the daytime on March 28, 2024. Yellow, red, purple, and black clusters represent increased levels of pollutants from TEMPO’s data and show drift over time.",
+   "url": "https://svs.gsfc.nasa.gov/vis/a000000/a005300/a005303/TEMPO_3_28_2024_CONUS_1080p30.mp4",
+   "filename": "TEMPO_3_28_2024_CONUS_1080p30.mp4",
+   "media_type": "Movie",
+   "width": 1920,
+   "height": 1080,
+   "alt_text": "The TEMPO instrument measured elevated levels of nitrogen dioxide (NO2) from a number of different areas and emission sources throughout the daytime on March 28, 2024. Yellow, red, purple, and black clusters represent increased levels of pollutants from TEMPO’s data and show drift over time."
+  },
+  {
+   "group": 0,
+   "group_title": "",
+   "widget": "Video player",
+   "caption": "",
+   "group_text": "The TEMPO instrument measured elevated levels of nitrogen dioxide (NO2) from a number of different areas and emission sources throughout the daytime on March 28, 2024. Yellow, red, purple, and black clusters represent increased levels of pollutants from TEMPO’s data and show drift over time.",
+   "url": "https://svs.gsfc.nasa.gov/vis/a000000/a005300/a005303/frames/3840x2160_16x9_30p/TEMPO_3_28_2024_CONUS/",
+   "filename": "TEMPO_3_28_2024_CONUS",
+   "media_type": "Frames",
+   "width": 3840,
+   "height": 2160,
+   "alt_text": "The TEMPO instrument measured elevated levels of nitrogen dioxide (NO2) from a number of different areas and emission sources throughout the daytime on March 28, 2024. Yellow, red, purple, and black clusters represent increased levels of pollutants from TEMPO’s data and show drift over time."
+  },
+  {
+   "group": 0,
+   "group_title": "",
+   "widget": "Video player",
+   "caption": "",
+   "group_text": "The TEMPO instrument measured elevated levels of nitrogen dioxide (NO2) from a number of different areas and emission sources throughout the daytime on March 28, 2024. Yellow, red, purple, and black clusters represent increased levels of pollutants from TEMPO’s data and show drift over time.",
+   "url": "https://svs.gsfc.nasa.gov/vis/a000000/a005300/a005303/TEMPO_3_28_2024_CONUS_2160p30.mp4",
+   "filename": "TEMPO_3_28_2024_CONUS_2160p30.mp4",
+   "media_type": "Movie",
+   "width": 3840,
+   "height": 2160,
+   "alt_text": "The TEMPO instrument measured elevated levels of nitrogen dioxide (NO2) from a number of different areas and emission sources throughout the daytime on March 28, 2024. Yellow, red, purple, and black clusters represent increased levels of pollutants from TEMPO’s data and show drift over time."
+  },
+  {
+   "group": 0,
+   "group_title": "",
+   "widget": "Video player",
+   "caption": "",
+   "group_text": "The TEMPO instrument measured elevated levels of nitrogen dioxide (NO2) from a number of different areas and emission sources throughout the daytime on March 28, 2024. Yellow, red, purple, and black clusters represent increased levels of pollutants from TEMPO’s data and show drift over time.",
+   "url": "https://svs.gsfc.nasa.gov/vis/a000000/a005300/a005303/TEMPO_3_28_2024_CONUS_1080p30.hwshow/svs/db/vis/a000000/a005300/a005303/TEMPO_3_28_2024_CONUS_1080p30.mp4.hwshow",
+   "filename": "TEMPO_3_28_2024_CONUS_1080p30.mp4.hwshow",
+   "media_type": "HyperwallShow",
+   "width": 0,
+   "height": 0,
+   "alt_text": ""
+  },
+  {
+   "group": 2,
+   "group_title": "",
+   "widget": "Video player",
+   "caption": "",
+   "group_text": "NO2 levels are elevated along major traffic corridors including I-35 in Texas and I-10 in Arizona with the highest levels between 9:00 a.m. and 12:00 p.m. Elevated NO2 levels are shown across cities including Houston, Dallas, San Antonio, El Paso, and Memphis, with the highest levels persisting across Houston from morning to evening. ",
+   "url": "https://svs.gsfc.nasa.gov/vis/a000000/a005300/a005303/TEMPO_3_28_2024_TEXAS.0500_print.jpg",
+   "filename": "TEMPO_3_28_2024_TEXAS.0500_print.jpg",
+   "media_type": "Image",
+   "width": 1024,
+   "height": 576,
+   "alt_text": "NO2 levels are elevated along major traffic corridors including I-35 in Texas and I-10 in Arizona with the highest levels between 9:00 a.m. and 12:00 p.m. Elevated NO2 levels are shown across cities including Houston, Dallas, San Antonio, El Paso, and Memphis, with the highest levels persisting across Houston from morning to evening. "
+  },
+  {
+   "group": 2,
+   "group_title": "",
+   "widget": "Video player",
+   "caption": "",
+   "group_text": "NO2 levels are elevated along major traffic corridors including I-35 in Texas and I-10 in Arizona with the highest levels between 9:00 a.m. and 12:00 p.m. Elevated NO2 levels are shown across cities including Houston, Dallas, San Antonio, El Paso, and Memphis, with the highest levels persisting across Houston from morning to evening. ",
+   "url": "https://svs.gsfc.nasa.gov/vis/a000000/a005300/a005303/frames/1920x1080_16x9_30p/TEMPO_3_28_2024_TEXAS/",
+   "filename": "TEMPO_3_28_2024_TEXAS",
+   "media_type": "Frames",
+   "width": 1920,
+   "height": 1080,
+   "alt_text": "NO2 levels are elevated along major traffic corridors including I-35 in Texas and I-10 in Arizona with the highest levels between 9:00 a.m. and 12:00 p.m. Elevated NO2 levels are shown across cities including Houston, Dallas, San Antonio, El Paso, and Memphis, with the highest levels persisting across Houston from morning to evening. "
+  },
+  {
+   "group": 2,
+   "group_title": "",
+   "widget": "Video player",
+   "caption": "",
+   "group_text": "NO2 levels are elevated along major traffic corridors including I-35 in Texas and I-10 in Arizona with the highest levels between 9:00 a.m. and 12:00 p.m. Elevated NO2 levels are shown across cities including Houston, Dallas, San Antonio, El Paso, and Memphis, with the highest levels persisting across Houston from morning to evening. ",
+   "url": "https://svs.gsfc.nasa.gov/vis/a000000/a005300/a005303/TEMPO_3_28_2024_TEXAS_1080p30.mp4",
+   "filename": "TEMPO_3_28_2024_TEXAS_1080p30.mp4",
+   "media_type": "Movie",
+   "width": 1920,
+   "height": 1080,
+   "alt_text": "NO2 levels are elevated along major traffic corridors including I-35 in Texas and I-10 in Arizona with the highest levels between 9:00 a.m. and 12:00 p.m. Elevated NO2 levels are shown across cities including Houston, Dallas, San Antonio, El Paso, and Memphis, with the highest levels persisting across Houston from morning to evening. "
+  },
+  {
+   "group": 3,
+   "group_title": "",
+   "widget": "Video player",
+   "caption": "",
+   "group_text": "High NO2 levels associated with prescribed burns are seen popping up across East Texas, Oklahoma, Louisiana, Arkansas, and Mississippi, beginning around 1:00 p.m. and extending into the evening. ",
+   "url": "https://svs.gsfc.nasa.gov/vis/a000000/a005300/a005303/TEMPO_3_28_2024_EAST_TEXAS.0500_print.jpg",
+   "filename": "TEMPO_3_28_2024_EAST_TEXAS.0500_print.jpg",
+   "media_type": "Image",
+   "width": 1024,
+   "height": 576,
+   "alt_text": "High NO2 levels associated with prescribed burns are seen popping up across East Texas, Oklahoma, Louisiana, Arkansas, and Mississippi, beginning around 1:00 p.m. and extending into the evening. "
+  },
+  {
+   "group": 3,
+   "group_title": "",
+   "widget": "Video player",
+   "caption": "",
+   "group_text": "High NO2 levels associated with prescribed burns are seen popping up across East Texas, Oklahoma, Louisiana, Arkansas, and Mississippi, beginning around 1:00 p.m. and extending into the evening. ",
+   "url": "https://svs.gsfc.nasa.gov/vis/a000000/a005300/a005303/frames/1920x1080_16x9_30p/TEMPO_3_28_2024_EAST_TEXAS/",
+   "filename": "TEMPO_3_28_2024_EAST_TEXAS",
+   "media_type": "Frames",
+   "width": 1920,
+   "height": 1080,
+   "alt_text": "High NO2 levels associated with prescribed burns are seen popping up across East Texas, Oklahoma, Louisiana, Arkansas, and Mississippi, beginning around 1:00 p.m. and extending into the evening. "
+  },
+  {
+   "group": 3,
+   "group_title": "",
+   "widget": "Video player",
+   "caption": "",
+   "group_text": "High NO2 levels associated with prescribed burns are seen popping up across East Texas, Oklahoma, Louisiana, Arkansas, and Mississippi, beginning around 1:00 p.m. and extending into the evening. ",
+   "url": "https://svs.gsfc.nasa.gov/vis/a000000/a005300/a005303/TEMPO_3_28_2024_EAST_TEXAS_1080p30.mp4",
+   "filename": "TEMPO_3_28_2024_EAST_TEXAS_1080p30.mp4",
+   "media_type": "Movie",
+   "width": 1920,
+   "height": 1080,
+   "alt_text": "High NO2 levels associated with prescribed burns are seen popping up across East Texas, Oklahoma, Louisiana, Arkansas, and Mississippi, beginning around 1:00 p.m. and extending into the evening. "
+  },
+  {
+   "group": 4,
+   "group_title": "",
+   "widget": "Video player",
+   "caption": "",
+   "group_text": "TEMPO observes the northerly transport of NO2 from the   Permian basin, a large oil and natural gas producing area spanning parts of West Texas and southeastern New Mexico, with the highest levels measured during the morning over the basin.  NO2 plumes from coal-fired power plants are visible in the rural areas far west and northwest of Houston and far east of Dallas between 8:00 a.m. and 2:00 p.m.",
+   "url": "https://svs.gsfc.nasa.gov/vis/a000000/a005300/a005303/TEMPO_3_28_2024_PERMIAN_BASIN.0500_print.jpg",
+   "filename": "TEMPO_3_28_2024_PERMIAN_BASIN.0500_print.jpg",
+   "media_type": "Image",
+   "width": 1024,
+   "height": 576,
+   "alt_text": "TEMPO observes the northerly transport of NO2 from the   Permian basin, a large oil and natural gas producing area spanning parts of West Texas and southeastern New Mexico, with the highest levels measured during the morning over the basin.  NO2 plumes from coal-fired power plants are visible in the rural areas far west and northwest of Houston and far east of Dallas between 8:00 a.m. and 2:00 p.m."
+  },
+  {
+   "group": 4,
+   "group_title": "",
+   "widget": "Video player",
+   "caption": "",
+   "group_text": "TEMPO observes the northerly transport of NO2 from the   Permian basin, a large oil and natural gas producing area spanning parts of West Texas and southeastern New Mexico, with the highest levels measured during the morning over the basin.  NO2 plumes from coal-fired power plants are visible in the rural areas far west and northwest of Houston and far east of Dallas between 8:00 a.m. and 2:00 p.m.",
+   "url": "https://svs.gsfc.nasa.gov/vis/a000000/a005300/a005303/frames/1920x1080_16x9_30p/TEMPO_3_28_2024_PERMIAN_BASIN/",
+   "filename": "TEMPO_3_28_2024_PERMIAN_BASIN",
+   "media_type": "Frames",
+   "width": 1920,
+   "height": 1080,
+   "alt_text": "TEMPO observes the northerly transport of NO2 from the   Permian basin, a large oil and natural gas producing area spanning parts of West Texas and southeastern New Mexico, with the highest levels measured during the morning over the basin.  NO2 plumes from coal-fired power plants are visible in the rural areas far west and northwest of Houston and far east of Dallas between 8:00 a.m. and 2:00 p.m."
+  },
+  {
+   "group": 4,
+   "group_title": "",
+   "widget": "Video player",
+   "caption": "",
+   "group_text": "TEMPO observes the northerly transport of NO2 from the   Permian basin, a large oil and natural gas producing area spanning parts of West Texas and southeastern New Mexico, with the highest levels measured during the morning over the basin.  NO2 plumes from coal-fired power plants are visible in the rural areas far west and northwest of Houston and far east of Dallas between 8:00 a.m. and 2:00 p.m.",
+   "url": "https://svs.gsfc.nasa.gov/vis/a000000/a005300/a005303/TEMPO_3_28_2024_PERMIAN_BASIN_1080p30.mp4",
+   "filename": "TEMPO_3_28_2024_PERMIAN_BASIN_1080p30.mp4",
+   "media_type": "Movie",
+   "width": 1920,
+   "height": 1080,
+   "alt_text": "TEMPO observes the northerly transport of NO2 from the   Permian basin, a large oil and natural gas producing area spanning parts of West Texas and southeastern New Mexico, with the highest levels measured during the morning over the basin.  NO2 plumes from coal-fired power plants are visible in the rural areas far west and northwest of Houston and far east of Dallas between 8:00 a.m. and 2:00 p.m."
+  }
+ ],
+ "text_links": [],
+ "frame_folders": {
+  "https://svs.gsfc.nasa.gov/vis/a000000/a005300/a005303/frames/1920x1080_16x9_30p/TEMPO_3_28_2024_CONUS/": {
+   "url": "https://svs.gsfc.nasa.gov/vis/a000000/a005300/a005303/frames/1920x1080_16x9_30p/TEMPO_3_28_2024_CONUS/",
+   "frame_count": 1000,
+   "bytes_approx": 5735899977,
+   "first": "TEMPO_3_28_2024_CONUS.0001.exr",
+   "last": "TEMPO_3_28_2024_CONUS.1000.exr",
+   "subfolders": {}
+  },
+  "https://svs.gsfc.nasa.gov/vis/a000000/a005300/a005303/frames/3840x2160_16x9_30p/TEMPO_3_28_2024_CONUS/": {
+   "url": "https://svs.gsfc.nasa.gov/vis/a000000/a005300/a005303/frames/3840x2160_16x9_30p/TEMPO_3_28_2024_CONUS/",
+   "frame_count": 1000,
+   "bytes_approx": 21610400000,
+   "first": "TEMPO_3_28_2024_CONUS_4K.0001.exr",
+   "last": "TEMPO_3_28_2024_CONUS_4K.1000.exr",
+   "subfolders": {}
+  },
+  "https://svs.gsfc.nasa.gov/vis/a000000/a005300/a005303/frames/1920x1080_16x9_30p/TEMPO_3_28_2024_TEXAS/": {
+   "url": "https://svs.gsfc.nasa.gov/vis/a000000/a005300/a005303/frames/1920x1080_16x9_30p/TEMPO_3_28_2024_TEXAS/",
+   "frame_count": 1000,
+   "bytes_approx": 6537400000,
+   "first": "TEMPO_3_28_2024_TEXAS.0001.exr",
+   "last": "TEMPO_3_28_2024_TEXAS.1000.exr",
+   "subfolders": {}
+  },
+  "https://svs.gsfc.nasa.gov/vis/a000000/a005300/a005303/frames/1920x1080_16x9_30p/TEMPO_3_28_2024_EAST_TEXAS/": {
+   "url": "https://svs.gsfc.nasa.gov/vis/a000000/a005300/a005303/frames/1920x1080_16x9_30p/TEMPO_3_28_2024_EAST_TEXAS/",
+   "frame_count": 1000,
+   "bytes_approx": 4993300000,
+   "first": "TEMPO_3_28_2024_EAST_TEXAS.0001.exr",
+   "last": "TEMPO_3_28_2024_EAST_TEXAS.1000.exr",
+   "subfolders": {}
+  },
+  "https://svs.gsfc.nasa.gov/vis/a000000/a005300/a005303/frames/1920x1080_16x9_30p/TEMPO_3_28_2024_PERMIAN_BASIN/": {
+   "url": "https://svs.gsfc.nasa.gov/vis/a000000/a005300/a005303/frames/1920x1080_16x9_30p/TEMPO_3_28_2024_PERMIAN_BASIN/",
+   "frame_count": 1000,
+   "bytes_approx": 4779900000,
+   "first": "TEMPO_3_28_2024_PERMIAN_BASIN.0001.exr",
+   "last": "TEMPO_3_28_2024_PERMIAN_BASIN.1000.exr",
+   "subfolders": {}
+  }
+ },
+ "api_url": "https://svs.gsfc.nasa.gov/api/5303",
+ "fetched_utc": "2026-10-31T17:42:56Z"
+}

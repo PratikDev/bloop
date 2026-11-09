@@ -1,14 +1,15 @@
 "use client";
 
-import { Broadcast, Compass, Info, Keyboard } from "@phosphor-icons/react";
+import { Broadcast, Compass, GridFour, Info, Keyboard } from "@phosphor-icons/react";
 import { useAppState, useT } from "../AppState/use-app-state";
+import { BRAILLE_EXPLORER_ID } from "../BrailleExplorer";
 import { useCommands } from "../Commands/use-commands";
 import { TimeLapseButton } from "../TimeLapse/TimeLapseButton";
 import { DOCK_BUTTON } from "./dock-button";
 import { DockAction } from "./DockAction";
 import { GoToMenu } from "./GoToMenu";
 
-/** The Listen page's actions: go to a place, sweep, storm time-lapse, the tour, the Inspector, the keys (the mixer is on every page, in the dock). */
+/** The Listen page's actions: go to a place, sweep, storm time-lapse, the tour, the braille explorer, the Inspector, the keys (the mixer is on every page, in the dock). */
 export function ListenActions() {
   const { state } = useAppState();
   const commands = useCommands();
@@ -23,6 +24,14 @@ export function ListenActions() {
           <DockAction icon={<Broadcast aria-hidden="true" />} full={t("sweep.play")} label={t("dock.short.sweep")} short={t("dock.short.sweep")} onClick={commands.playSweep} />
           <TimeLapseButton className={DOCK_BUTTON} />
           <DockAction icon={<Compass aria-hidden="true" />} full={t("tour.start")} label={t("dock.short.tour")} short={t("dock.short.tour")} onClick={() => commands.setMode("story")} />
+          <DockAction
+            icon={<GridFour aria-hidden="true" />}
+            full={t("braille.open")}
+            short={t("braille.bl.braille")}
+            aria-expanded={state.brailleOpen}
+            aria-controls={state.brailleOpen ? BRAILLE_EXPLORER_ID : undefined}
+            onClick={() => commands.toggleBraille()}
+          />
         </>
       )}
       <DockAction

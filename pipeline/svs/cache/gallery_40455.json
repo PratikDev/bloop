@@ -1,0 +1,2180 @@
+{
+ "id": 40455,
+ "url": "http://svs.gsfc.nasa.gov/gallery/spacecraft-animations/",
+ "page_type": "Gallery",
+ "title": "Satellite Animations",
+ "description": "A collection of spacecraft beauty pass animations for current missions.",
+ "release_date": "2023-01-24T00:00:00-05:00",
+ "update_date": "2025-02-12T00:00:00-05:00",
+ "main_image": {
+  "id": 369462,
+  "url": "http://svs.gsfc.nasa.gov/vis/a020000/a020300/a020371/BurstCube_360Y_30fps_4444ProRes.00001_searchweb.png",
+  "filename": "BurstCube_360Y_30fps_4444ProRes.00001_searchweb.png",
+  "media_type": "Image",
+  "alt_text": "A collection of spacecraft beauty pass animations for current missions.",
+  "width": 180,
+  "height": 320,
+  "pixels": 57600
+ },
+ "media_groups": [
+  {
+   "id": 371565,
+   "url": "http://svs.gsfc.nasa.gov/gallery/spacecraft-animations/#media_group_371565",
+   "widget": "Basic text (large)",
+   "title": "Overview",
+   "caption": "",
+   "description": "A collection of spacecraft beauty pass animations for current missions.",
+   "items": [],
+   "extra_data": {}
+  },
+  {
+   "id": 371566,
+   "url": "http://svs.gsfc.nasa.gov/gallery/spacecraft-animations/#media_group_371566",
+   "widget": "Tile gallery",
+   "title": "Astrophysics Missions",
+   "caption": "",
+   "description": "",
+   "items": [
+    {
+     "id": 453021,
+     "type": "details_page",
+     "extra_data": null,
+     "instance": {
+      "id": 14573,
+      "url": "http://svs.gsfc.nasa.gov/14573/",
+      "page_type": "Produced Video",
+      "title": "Nancy Grace Roman Space Telescope Reaction Wheel and Thruster Animations",
+      "description": "Beauty pass of Roman, coming over the top of the solar panels.Credit: NASA's Goddard Space Flight Center/CI Lab || RST_Beauty_S1_4K_60_ProRes.00458_print.jpg (1024x576) [164.9 KB] || RST_Beauty_S1_1080.mp4 [19.0 MB] || RST_Beauty_S1_4K_60.mp4 [92.2 MB] || RST_Beauty_S1_4K_60_ProRes.webm [10.4 MB] || RST_Beauty_S1_4K_60_ProRes.mov [2.0 GB] || ",
+      "release_date": "2024-04-25T10:00:00-04:00",
+      "update_date": "2024-04-25T10:23:01.889132-04:00",
+      "main_image": {
+       "id": 1091588,
+       "url": "http://svs.gsfc.nasa.gov/vis/a010000/a014500/a014573/RST_ThrusterPush_shot_4k_60_ProRes.00325_print.jpg",
+       "filename": "RST_ThrusterPush_shot_4k_60_ProRes.00325_print.jpg",
+       "media_type": "Image",
+       "alt_text": "Roman flys past the camera and fires the Delta-V thrusters.Credit: NASA's Goddard Space Flight Center/CI Lab",
+       "width": 1024,
+       "height": 576,
+       "pixels": 589824
+      }
+     }
+    },
+    {
+     "id": 412280,
+     "type": "details_page",
+     "extra_data": null,
+     "instance": {
+      "id": 20371,
+      "url": "http://svs.gsfc.nasa.gov/20371/",
+      "page_type": "Animation",
+      "title": "BurstCube Animations",
+      "description": "BurstCube is a mission under development at NASA’s Goddard Space Flight Center in Greenbelt, Maryland. This CubeSat will detect short gamma-ray bursts, which are important sources for gravitational wave discoveries and multimessenger astronomy. The satellite is expected to launch in 2023. || ",
+      "release_date": "2022-10-28T14:00:00-04:00",
+      "update_date": "2023-05-03T11:43:54.376872-04:00",
+      "main_image": {
+       "id": 369461,
+       "url": "http://svs.gsfc.nasa.gov/vis/a020000/a020300/a020371/BurstCube_360Y_30fps_4444ProRes.00001_print.jpg",
+       "filename": "BurstCube_360Y_30fps_4444ProRes.00001_print.jpg",
+       "media_type": "Image",
+       "alt_text": "This animation rotates BustCube to reveal the spacecraft’s narrowest sides, as well as both sides of the solar panels. The panels will be folded down and latched until the satellite leaves the International Space Station, after which they will deploy. Look for the side displaying the BurstCube logo. Credit: NASA's Goddard Space Flight Center Conceptual Image Lab\r",
+       "width": 1024,
+       "height": 1280,
+       "pixels": 1310720
+      }
+     }
+    },
+    {
+     "id": 412281,
+     "type": "details_page",
+     "extra_data": null,
+     "instance": {
+      "id": 13816,
+      "url": "http://svs.gsfc.nasa.gov/13816/",
+      "page_type": "Produced Video",
+      "title": "Fermi Gamma-ray Space Telescope Spacecraft Animation",
+      "description": "NASA’s Fermi Gamma-ray Space Telescope, illustrated here, scans the entire sky every three hours as it orbits Earth.Credit: NASA's Goddard Space Flight Center/Chris Smith (USRA/GESTAR) || Fermi_01_Still_print.jpg (1024x604) [53.5 KB] || Fermi_01_Still.png (3584x2114) [3.3 MB] || Fermi_01_Still_searchweb.png (320x180) [38.2 KB] || Fermi_01_Still_thm.png (80x40) [7.0 KB] || fermi_01_comp_060519_1080.mp4 (1920x1080) [29.5 MB] || fermi_01_comp_060519_1080.webm (1920x1080) [2.1 MB] || fermi_01_comp_060519_ProRes_1920x1080_24.mov (1920x1080) [201.2 MB] || ",
+      "release_date": "2021-02-19T00:00:00-05:00",
+      "update_date": "2023-05-03T13:44:20.401503-04:00",
+      "main_image": {
+       "id": 395561,
+       "url": "http://svs.gsfc.nasa.gov/vis/a010000/a013800/a013816/Fermi_01_Still_print.jpg",
+       "filename": "Fermi_01_Still_print.jpg",
+       "media_type": "Image",
+       "alt_text": "NASA’s Fermi Gamma-ray Space Telescope, illustrated here, scans the entire sky every three hours as it orbits Earth.Credit: NASA's Goddard Space Flight Center/Chris Smith (USRA/GESTAR)",
+       "width": 1024,
+       "height": 604,
+       "pixels": 618496
+      }
+     }
+    },
+    {
+     "id": 453020,
+     "type": "details_page",
+     "extra_data": null,
+     "instance": {
+      "id": 14594,
+      "url": "http://svs.gsfc.nasa.gov/14594/",
+      "page_type": "Animation",
+      "title": "Habitable Worlds Observatory Beauty Pass Animations and Stills",
+      "description": "Artist's concept of one design for the proposed Habitable Worlds Observatory.  Still image includes option with transparent background. || S8.jpg (3840x2160) [685.1 KB] || S8_alpha_00000.png (3840x2160) [1.5 MB] || S8.png (3840x2160) [4.9 MB] || S8_searchweb.png (320x180) [67.8 KB] || S8_thm.png (80x40) [4.4 KB] || AC1_BeautyPass_4K_V2.mp4 [68.5 MB] || AC1_BeautyPass_4K_V2.mov [1.0 GB] || ",
+      "release_date": "2024-05-17T00:00:00-04:00",
+      "update_date": "2024-05-21T16:01:22.039190-04:00",
+      "main_image": {
+       "id": 1092377,
+       "url": "http://svs.gsfc.nasa.gov/vis/a010000/a014500/a014594/S8.jpg",
+       "filename": "S8.jpg",
+       "media_type": "Image",
+       "alt_text": "Artist's concept of one design for the proposed Habitable Worlds Observatory.  Still image includes option with transparent background.",
+       "width": 3840,
+       "height": 2160,
+       "pixels": 8294400
+      }
+     }
+    },
+    {
+     "id": 412282,
+     "type": "details_page",
+     "extra_data": null,
+     "instance": {
+      "id": 20314,
+      "url": "http://svs.gsfc.nasa.gov/20314/",
+      "page_type": "Animation",
+      "title": "Hubble Space Telescope's 30th Anniversary Beauty Passes",
+      "description": "HST in orbit without background stars. || HST_BP1_UHD_ProRes.00566_print.jpg (1024x576) [131.1 KB] || HST_BP1_UHD_ProRes.mov (3840x2160) [2.2 GB] || Two new animations commisioned for Hubble Space Telescope's 30th Anniversary showing the observatory in orbit around the Earth. || ",
+      "release_date": "2020-04-17T12:00:00-04:00",
+      "update_date": "2023-05-03T13:45:03.501535-04:00",
+      "main_image": {
+       "id": 386166,
+       "url": "http://svs.gsfc.nasa.gov/vis/a020000/a020300/a020314/HST_BP_Two_00811_print.jpg",
+       "filename": "HST_BP_Two_00811_print.jpg",
+       "media_type": "Image",
+       "alt_text": "HST in orbit shot 2.",
+       "width": 1024,
+       "height": 576,
+       "pixels": 589824
+      }
+     }
+    },
+    {
+     "id": 412283,
+     "type": "details_page",
+     "extra_data": null,
+     "instance": {
+      "id": 13621,
+      "url": "http://svs.gsfc.nasa.gov/13621/",
+      "page_type": "Produced Video",
+      "title": "Nancy Grace Roman Spacecraft Beauty Pass Animations and Stills",
+      "description": "\"Beauty pass\" animation of the Roman Space Telescope spacecraft || Roman_Space_Telescope_Animation1_Still.jpg (1920x1080) [201.9 KB] || Roman_Space_Telescope_Animation1_Still_print.jpg (1024x576) [55.1 KB] || Roman_Space_Telescope_Animation1_Still_searchweb.png (320x180) [38.7 KB] || Roman_Space_Telescope_Animation1_Still_thm.png (80x40) [3.7 KB] || Roman_Space_Telescope_Beauty1_1080.mp4 (1920x1080) [45.4 MB] || Roman_Space_Telescope_Beauty1_1080.webm (1920x1080) [2.1 MB] || Roman_Space_Telescope_Beauty1_ProRes_1920x1080.mov (1920x1080) [508.6 MB] || ",
+      "release_date": "2020-05-20T11:00:00-04:00",
+      "update_date": "2020-05-20T12:11:37-04:00",
+      "main_image": {
+       "id": 385010,
+       "url": "http://svs.gsfc.nasa.gov/vis/a010000/a013600/a013621/Roman_Space_Telescope_Animation1_Still.jpg",
+       "filename": "Roman_Space_Telescope_Animation1_Still.jpg",
+       "media_type": "Image",
+       "alt_text": "\"Beauty pass\" animation of the Roman Space Telescope spacecraft",
+       "width": 1920,
+       "height": 1080,
+       "pixels": 2073600
+      }
+     }
+    },
+    {
+     "id": 412284,
+     "type": "details_page",
+     "extra_data": null,
+     "instance": {
+      "id": 20266,
+      "url": "http://svs.gsfc.nasa.gov/20266/",
+      "page_type": "Animation",
+      "title": "NICER Payload Animations",
+      "description": "Animated video and stills of the Neutron star Interior Composition Explorer (NICER) payload. || ",
+      "release_date": "2017-04-26T00:00:00-04:00",
+      "update_date": "2025-01-06T01:42:07.746116-05:00",
+      "main_image": {
+       "id": 414765,
+       "url": "http://svs.gsfc.nasa.gov/vis/a020000/a020200/a020266/NICER_ISS_00001_print.jpg",
+       "filename": "NICER_ISS_00001_print.jpg",
+       "media_type": "Image",
+       "alt_text": "Wide angle view and zoom in of the NICER payload onboard the International Space Station.",
+       "width": 1024,
+       "height": 576,
+       "pixels": 589824
+      }
+     }
+    },
+    {
+     "id": 453022,
+     "type": "details_page",
+     "extra_data": null,
+     "instance": {
+      "id": 14747,
+      "url": "http://svs.gsfc.nasa.gov/14747/",
+      "page_type": "Produced Video",
+      "title": "Pandora Spacecraft Animations",
+      "description": "Animated beauty pass of an artist's concept of the Pandora spacecraft, viewed without thermal blankets, set in a neutral gray volume. Credit: NASA's Goddard Space Flight Center/Conceptual Image LabAlt text: Pandora spacecraft animation no. 1Image description: An artist’s concept of NASA’s exoplanet explorer, Pandora, floats in a light gray background. The body of the small satellite looks like a black box with metal hardware. A long metallic cylinder extends upward from the body with multiple thin rings that slightly protrude from the surface and a flat metal rectangle on one side. On the underside of the body is a shiny dark circle. Pandora’s three solar panels extend from one side of the spacecraft’s body. The visible side is gray and laced with white wires, and the panels are connected with small silver fasteners. || Pandora_Beauty_S1_Still.jpg (3840x2160) [1.0 MB] || Pandora_Beauty_S1_Still_searchweb.png (320x180) [37.2 KB] || Pandora_Beauty_S1_Still_thm.png [4.0 KB] || Pandora_Beauty_S1_1080.mp4 (1920x1080) [14.7 MB] || Pandora_Beauty_S1_4k.mp4 (3840x2160) [36.6 MB] || Pandora_Beauty_S1_ProRes_3840x2160_30.mov (3840x2160) [1.1 GB] || ",
+      "release_date": "2025-01-16T10:15:00-05:00",
+      "update_date": "2026-02-25T13:55:54-05:00",
+      "main_image": {
+       "id": 1140763,
+       "url": "http://svs.gsfc.nasa.gov/vis/a010000/a014700/a014747/Pandora_Beauty_S1_Still_searchweb.png",
+       "filename": "Pandora_Beauty_S1_Still_searchweb.png",
+       "media_type": "Image",
+       "alt_text": "Animated beauty pass of an artist's concept of the Pandora spacecraft, viewed without thermal blankets, set in a neutral gray volume. Credit: NASA's Goddard Space Flight Center/Conceptual Image LabAlt text: Pandora spacecraft animation no. 1Image description: An artist’s concept of NASA’s exoplanet explorer, Pandora, floats in a light gray background. The body of the small satellite looks like a black box with metal hardware. A long metallic cylinder extends upward from the body with multiple thin rings that slightly protrude from the surface and a flat metal rectangle on one side. On the underside of the body is a shiny dark circle. Pandora’s three solar panels extend from one side of the spacecraft’s body. The visible side is gray and laced with white wires, and the panels are connected with small silver fasteners.",
+       "width": 320,
+       "height": 180,
+       "pixels": 57600
+      }
+     }
+    },
+    {
+     "id": 412285,
+     "type": "details_page",
+     "extra_data": null,
+     "instance": {
+      "id": 20272,
+      "url": "http://svs.gsfc.nasa.gov/20272/",
+      "page_type": "Animation",
+      "title": "TESS Spacecraft Animations",
+      "description": "Beauty Pass of TESS spacecraft || Beauty_One_00687_print.jpg (1024x576) [54.5 KB] || Beauty_One_00687_searchweb.png (180x320) [51.6 KB] || Beauty_One_00687_thm.png (80x40) [4.6 KB] || Tess_B_one_h264.webm (1920x1080) [1.8 MB] || Tess_B_one_h264.mov (1920x1080) [298.0 MB] || B1 (3840x2160) [0 Item(s)] || Beauty_One_2160p60.mp4 (3840x2160) [24.4 MB] || Tess_B_one_ProRes.mov (3840x2160) [2.0 GB] || ",
+      "release_date": "2018-01-08T10:00:00-05:00",
+      "update_date": "2024-12-29T23:27:18.420501-05:00",
+      "main_image": {
+       "id": 408182,
+       "url": "http://svs.gsfc.nasa.gov/vis/a020000/a020200/a020272/Beauty_One_00687_print.jpg",
+       "filename": "Beauty_One_00687_print.jpg",
+       "media_type": "Image",
+       "alt_text": "Beauty Pass of TESS spacecraft",
+       "width": 1024,
+       "height": 576,
+       "pixels": 589824
+      }
+     }
+    },
+    {
+     "id": 412286,
+     "type": "details_page",
+     "extra_data": null,
+     "instance": {
+      "id": 13926,
+      "url": "http://svs.gsfc.nasa.gov/13926/",
+      "page_type": "Animation",
+      "title": "Swift Spacecraft Animation",
+      "description": "NASA’s Neil Gehrels Swift Observatory, shown in this illustration, launched into Earth orbit in November 2004. The satellite investigates gamma-ray bursts, the most energetic explosions in the universe. Swift observes the sky in visible, ultraviolet, X-ray, and gamma-ray light. Its name reflects its ability to rapidly follow up on interesting objects in the sky. Swift also studies supernova explosions, star-shredding black holes in other galaxies, comets, stellar remnants called neutron stars, and other cosmic phenomena. In 2018, NASA renamed Swift in honor of the late Neil Gehrels, who helped develop the mission and served as its principal investigator for 13 years.Credit: NASA’s Goddard Space Flight Center/Chris Smith (KBRwyle) || swift_spacecraft_update_still.jpg (1920x1080) [769.2 KB] || swift_spacecraft_update_still_print.jpg (1024x576) [328.5 KB] || swift_spacecraft_update_still_searchweb.png (320x180) [94.8 KB] || swift_spacecraft_update_still_web.png (320x180) [94.8 KB] || swift_spacecraft_update_still_thm.png (80x40) [6.5 KB] || swift_spacecraft_update_HQ.mp4 (1920x1080) [47.7 MB] || swift_spacecraft_update_LQ.mp4 (1920x1080) [24.7 MB] || swift_spacecraft_update_HQ.webm (1920x1080) [2.2 MB] || swift_spacecraft_update_prores.mov (1920x1080) [255.2 MB] || 13926_swift_spacecraft_update_HQ.hwshow [72 bytes] || ",
+      "release_date": "2021-09-08T15:00:00-04:00",
+      "update_date": "2021-09-08T15:37:07-04:00",
+      "main_image": {
+       "id": 377107,
+       "url": "http://svs.gsfc.nasa.gov/vis/a010000/a013900/a013926/swift_spacecraft_update_still.jpg",
+       "filename": "swift_spacecraft_update_still.jpg",
+       "media_type": "Image",
+       "alt_text": "NASA’s Neil Gehrels Swift Observatory, shown in this illustration, launched into Earth orbit in November 2004. The satellite investigates gamma-ray bursts, the most energetic explosions in the universe. Swift observes the sky in visible, ultraviolet, X-ray, and gamma-ray light. Its name reflects its ability to rapidly follow up on interesting objects in the sky. Swift also studies supernova explosions, star-shredding black holes in other galaxies, comets, stellar remnants called neutron stars, and other cosmic phenomena. In 2018, NASA renamed Swift in honor of the late Neil Gehrels, who helped develop the mission and served as its principal investigator for 13 years.Credit: NASA’s Goddard Space Flight Center/Chris Smith (KBRwyle)",
+       "width": 1920,
+       "height": 1080,
+       "pixels": 2073600
+      }
+     }
+    },
+    {
+     "id": 412287,
+     "type": "details_page",
+     "extra_data": null,
+     "instance": {
+      "id": 13550,
+      "url": "http://svs.gsfc.nasa.gov/13550/",
+      "page_type": "Produced Video",
+      "title": "Webb Telescope Animation - Webb Eclipses Sun",
+      "description": "Animation of the Webb Telescope eclipsing the sun as seen from the camera point of view. || WEBB_Eclipse_4k_60fps_ProRes.00340_print.jpg (1024x576) [45.1 KB] || WEBB_Eclipse_4k_60fps_ProRes.00340_searchweb.png (320x180) [57.7 KB] || WEBB_Eclipse_4k_60fps_ProRes.00340_web.png (320x180) [57.7 KB] || WEBB_Eclipse_4k_60fps_ProRes.00340_thm.png (80x40) [4.1 KB] || WEBB_Eclipse_4k_60fps_ProRes_1.mp4 (2720x1530) [30.2 MB] || WEBB_Eclipse_4k_60fps_ProRes.mp4 (2720x1530) [118.4 MB] || WEBB_Eclipse_4k_60fps_ProRes.webm (2720x1530) [3.9 MB] || ",
+      "release_date": "2020-02-11T20:00:00-05:00",
+      "update_date": "2023-05-03T13:45:12.066712-04:00",
+      "main_image": {
+       "id": 387089,
+       "url": "http://svs.gsfc.nasa.gov/vis/a010000/a013500/a013550/WEBB_Eclipse_4k_60fps_ProRes.00340_print.jpg",
+       "filename": "WEBB_Eclipse_4k_60fps_ProRes.00340_print.jpg",
+       "media_type": "Image",
+       "alt_text": "Animation of the Webb Telescope eclipsing the sun as seen from the camera point of view.",
+       "width": 1024,
+       "height": 576,
+       "pixels": 589824
+      }
+     }
+    },
+    {
+     "id": 412288,
+     "type": "details_page",
+     "extra_data": null,
+     "instance": {
+      "id": 20374,
+      "url": "http://svs.gsfc.nasa.gov/20374/",
+      "page_type": "Animation",
+      "title": "XRISM Beauty Shots",
+      "description": "XRISM turntable animations, available both as 4K/30 and 60 fps movies and as frames. The exposed tank behind the truss structure on the side opposite the solar panels houses the Resolve instrument.Credit: NASA's Goddard Space Flight Center Conceptual Image Lab || XRISM_360_4k_30fps_4444ProRes.00001_print.jpg (1024x576) [56.9 KB] || XRISM_360_4k_30fps_4444ProRes.00001_searchweb.png (180x320) [21.2 KB] || XRISM_360_4k_30fps_4444ProRes.00001_thm.png (80x40) [2.3 KB] || XRISM_360_4k_30fps_h264.mov (1920x1080) [25.3 MB] || XRISM_360_4k_60fps_h264.mov (1920x1080) [112.2 MB] || XRISM_360_4k_30fps (3840x2160) [0 Item(s)] || XRISM_360_4k_60fps (3840x2160) [0 Item(s)] || XRISM_360_4k_30fps_4444ProRes.webm [0 bytes] || XRISM_360_4k_30fps_h264.mp4 (3840x2160) [24.7 MB] || XRISM_360_4k_60fps_h264.mp4 (3840x2160) [73.8 MB] || XRISM_360_4k_30fps_4444ProRes.mov (3840x2160) [1.7 GB] || XRISM_360_4k_60fps_4444ProRes.mov (3840x2160) [10.0 GB] || ",
+      "release_date": "2022-12-12T00:00:00-05:00",
+      "update_date": "2023-05-03T11:43:49.072206-04:00",
+      "main_image": {
+       "id": 368685,
+       "url": "http://svs.gsfc.nasa.gov/vis/a020000/a020300/a020374/XRISM_360_4k_30fps_4444ProRes.00001_print.jpg",
+       "filename": "XRISM_360_4k_30fps_4444ProRes.00001_print.jpg",
+       "media_type": "Image",
+       "alt_text": "XRISM turntable animations, available both as 4K/30 and 60 fps movies and as frames. The exposed tank behind the truss structure on the side opposite the solar panels houses the Resolve instrument.Credit: NASA's Goddard Space Flight Center Conceptual Image Lab",
+       "width": 1024,
+       "height": 576,
+       "pixels": 589824
+      }
+     }
+    }
+   ],
+   "extra_data": {}
+  },
+  {
+   "id": 371567,
+   "url": "http://svs.gsfc.nasa.gov/gallery/spacecraft-animations/#media_group_371567",
+   "widget": "Tile gallery",
+   "title": "Heliophysics Missions",
+   "caption": "",
+   "description": "",
+   "items": [
+    {
+     "id": 412289,
+     "type": "details_page",
+     "extra_data": null,
+     "instance": {
+      "id": 20158,
+      "url": "http://svs.gsfc.nasa.gov/20158/",
+      "page_type": "Animation",
+      "title": "ACE HD",
+      "description": "The ACE spacecraft withstanding a solar wind shockwave || ",
+      "release_date": "2008-07-28T00:00:00-04:00",
+      "update_date": "2023-05-03T13:55:13.903829-04:00",
+      "main_image": {
+       "id": 503748,
+       "url": "http://svs.gsfc.nasa.gov/vis/a020000/a020100/a020158/ACEshockwave00052_print.jpg",
+       "filename": "ACEshockwave00052_print.jpg",
+       "media_type": "Image",
+       "alt_text": "Ace Spacecraft",
+       "width": 1024,
+       "height": 768,
+       "pixels": 786432
+      }
+     }
+    },
+    {
+     "id": 412290,
+     "type": "details_page",
+     "extra_data": null,
+     "instance": {
+      "id": 20275,
+      "url": "http://svs.gsfc.nasa.gov/20275/",
+      "page_type": "Animation",
+      "title": "GOLD on SES-14 Animation",
+      "description": "Animation depicting GOLD on the SES-14 satellite in transit to geostationary orbit. Credit: NASA GSFC/CIL/Chris Meaney || GOLD-comp2_00502_print.jpg (1024x576) [143.6 KB] || GOLD-comp2_00502_searchweb.png (320x180) [84.3 KB] || GOLD-comp2_00502_thm.png (80x40) [5.8 KB] || GOLDv3_1080p60.mp4 (1920x1080) [9.9 MB] || Goldv3-Prores.webm (1920x1080) [1.3 MB] || Goldv3-Prores.mov (1920x1080) [342.1 MB] || Goldv3-h264.mov (1920x1080) [573.1 MB] || 1920x1080_16x9_60p (3840x2160) [0 Item(s)] || ",
+      "release_date": "2018-01-24T13:00:00-05:00",
+      "update_date": "2023-05-03T13:47:01.349486-04:00",
+      "main_image": {
+       "id": 407480,
+       "url": "http://svs.gsfc.nasa.gov/vis/a020000/a020200/a020275/GOLD-comp2_00502_print.jpg",
+       "filename": "GOLD-comp2_00502_print.jpg",
+       "media_type": "Image",
+       "alt_text": "The Global-scale Observations of the Limb and Disk, or GOLD, mission is designed to explore the nearest reaches of space. Capturing never-before-seen images of Earth’s upper atmosphere, GOLD explores in unprecedented detail our space environment — which is home to astronauts, radio signals used to guide airplanes and ships, as well as satellites that provide communications and GPS systems. The more we know about the fundamental physics of this region of space, the more we can protect our assets there.\n\nGathering observations from geostationary orbit above the Western Hemisphere, GOLD measures the temperature and composition of neutral gases in Earth’s thermosphere. This part of the atmosphere co-mingles with the ionosphere, which is made up of charged particles. Both the Sun from above and terrestrial weather from below can change the types, numbers, and characteristics of the particles found here — and GOLD helps track those changes.\n\nActivity in this region is responsible for a variety of key space weather events. GOLD scientists are particularly interested in the cause of dense, unpredictable bubbles of charged gas that appear over the equator and tropics, sometimes causing communication problems. As we discover the very nature of the Sun-Earth interaction in this region, the mission could ultimately lead to ways to improve forecasts of such space weather and mitigate its effects.\nDownload the GOLD beauty pass: https://svs.gsfc.nasa.gov/20275\nDownload other GOLD resources: https://svs.gsfc.nasa.gov/GOLDresources",
+       "width": 576,
+       "height": 1024,
+       "pixels": 589824
+      }
+     }
+    },
+    {
+     "id": 412291,
+     "type": "details_page",
+     "extra_data": null,
+     "instance": {
+      "id": 20131,
+      "url": "http://svs.gsfc.nasa.gov/20131/",
+      "page_type": "Animation",
+      "title": "Interstellar Boundary Explorer (IBEX)",
+      "description": "These animations show IBEX and it's two imagers specialized to detect neutral atoms from the solar system's outer boundaries and galactic medium. || ",
+      "release_date": "2007-12-10T00:00:00-05:00",
+      "update_date": "2026-03-03T15:11:30-05:00",
+      "main_image": {
+       "id": 506615,
+       "url": "http://svs.gsfc.nasa.gov/vis/a020000/a020100/a020131/IBEXA090000952_print.jpg",
+       "filename": "IBEXA090000952_print.jpg",
+       "media_type": "Image",
+       "alt_text": "IBEX Beauty pass one",
+       "width": 1024,
+       "height": 576,
+       "pixels": 589824
+      }
+     }
+    },
+    {
+     "id": 412292,
+     "type": "details_page",
+     "extra_data": null,
+     "instance": {
+      "id": 20265,
+      "url": "http://svs.gsfc.nasa.gov/20265/",
+      "page_type": "Animation",
+      "title": "ICON Beauty Pass",
+      "description": "Beauty pass showing ICON observing the ionosphere. Credit: NASA/GSFC/CIL || AirGlow_final_ProRes.00001_print.jpg (1024x576) [87.7 KB] || AirGlow_final_ProRes.00001_web.png (320x180) [74.1 KB] || AirGlow_final_ProRes.00001_searchweb.png (180x320) [74.1 KB] || AirGlow_final_ProRes.00001_thm.png (80x40) [6.0 KB] || AirGlow_final_H264.mov (1920x1080) [19.5 MB] || 1920x1080_16x9_60p (1920x1080) [0 Item(s)] || AirGlow_final_ProRes.webm (1920x1080) [1.0 MB] || AirGlow_final_ProRes.mov (1920x1080) [304.3 MB] || ",
+      "release_date": "2017-04-03T13:00:00-04:00",
+      "update_date": "2023-05-03T13:47:47.482345-04:00",
+      "main_image": {
+       "id": 415357,
+       "url": "http://svs.gsfc.nasa.gov/vis/a020000/a020200/a020265/AirGlow_final_ProRes.00001_print.jpg",
+       "filename": "AirGlow_final_ProRes.00001_print.jpg",
+       "media_type": "Image",
+       "alt_text": "Beauty pass showing ICON observing the ionosphere. Credit: NASA/GSFC/CIL",
+       "width": 1024,
+       "height": 576,
+       "pixels": 589824
+      }
+     }
+    },
+    {
+     "id": 412293,
+     "type": "details_page",
+     "extra_data": null,
+     "instance": {
+      "id": 11089,
+      "url": "http://svs.gsfc.nasa.gov/11089/",
+      "page_type": "Produced Video",
+      "title": "IRIS Launch, Deploy and Beauty Passes",
+      "description": "Understanding the interface between the photosphere and corona remains a fundamental challenge in solar and heliospheric science. The Interface Region Imaging Spectrograph (IRIS) mission opens a window of discovery into this crucial region by tracing the flow of energy and plasma through the chromosphere and transition region into the corona using spectrometry and imaging. IRIS is designed to provide significant new information to increase our understanding of energy transport into the corona and solar wind and provide an archetype for all stellar atmospheres. The unique instrument capabilities, coupled with state of the art 3-D modeling, will fill a large gap in our knowledge of this dynamic region of the solar atmosphere. The mission will extend the scientific output of existing heliophysics spacecraft that follow the effects of energy release processes from the sun to Earth.IRIS will provide key insights into all these processes, and thereby advance our understanding of the solar drivers of space weather from the corona to the far heliosphere, by combining high-resolution imaging and spectroscopy for the entire chromosphere and adjacent regions. IRIS will resolve in space, time, and wavelength the dynamic geometry from the chromosphere to the low-temperature corona to shed much-needed light on the physics of this magnetic interface region. || ",
+      "release_date": "2012-10-18T14:00:00-04:00",
+      "update_date": "2023-05-03T13:52:41.777285-04:00",
+      "main_image": {
+       "id": 473000,
+       "url": "http://svs.gsfc.nasa.gov/vis/a010000/a011000/a011089/IRISDeployAnimation_05189.jpg",
+       "filename": "IRISDeployAnimation_05189.jpg",
+       "media_type": "Image",
+       "alt_text": "A video showing the deployment of the Pegasus Rocket with the observatory from the Orbital L1011.The rocket is dropped from the L1011 and is in unpowered, guided flight for 5 secThe first stage lights and burns for 72 sec, then coasts for 17 sec. The rocket is at 71km prior to lighting of the second stage.The second stage lights and burns for 73 sec, then coasts for 37 sec. The fairing separates at 131 sec. The rocket is at 600km prior to the firing of the third stageThird stage burns for 69 sec placing the observatory in orbit at approximately 660km.Once the payload is at 660km, the third stage and payload separate, at 786 seconds and the third stage carries out maneuvers to clear the observatory orbit.The observatory then deploys the solar arrays, acquires the sun, and begins a 30 day on-orbit checkout and commissioning phase. After a 21 day outgassing and checkout period, the front door is opened and checkout of the optical systems started.Credit: NASA/Goddard Space Flight Center/Conceptural Image Lab",
+       "width": 1280,
+       "height": 720,
+       "pixels": 921600
+      }
+     }
+    },
+    {
+     "id": 412294,
+     "type": "details_page",
+     "extra_data": null,
+     "instance": {
+      "id": 12729,
+      "url": "http://svs.gsfc.nasa.gov/12729/",
+      "page_type": "Produced Video",
+      "title": "Parker Solar Probe Animations",
+      "description": "Animated Sequence Of Parker Solar ProbeCredit: NASA/JHUAPL || ParkerSolarProbe-AnimatedSequence.00001_print.jpg (1024x576) [41.9 KB] || ParkerSolarProbe-AnimatedSequence.00001_searchweb.png (180x320) [37.2 KB] || ParkerSolarProbe-AnimatedSequence.00001_web.png (320x180) [37.2 KB] || ParkerSolarProbe-AnimatedSequence.00001_thm.png (80x40) [3.2 KB] || ParkerAnimatedSeq.mov (1920x1080) [2.9 GB] || ParkerAnimatedSeq.mp4 (1920x1080) [343.1 MB] || ParkerAnimatedSeq.webm (1920x1080) [21.1 MB] || ",
+      "release_date": "2017-09-22T19:00:00-04:00",
+      "update_date": "2023-05-03T13:47:20.601190-04:00",
+      "main_image": {
+       "id": 410823,
+       "url": "http://svs.gsfc.nasa.gov/vis/a010000/a012700/a012729/ParkerSolarProbe-AnimatedSequence.00001_print.jpg",
+       "filename": "ParkerSolarProbe-AnimatedSequence.00001_print.jpg",
+       "media_type": "Image",
+       "alt_text": "Animated Sequence Of Parker Solar ProbeCredit: NASA/JHUAPL",
+       "width": 1024,
+       "height": 576,
+       "pixels": 589824
+      }
+     }
+    },
+    {
+     "id": 453023,
+     "type": "details_page",
+     "extra_data": null,
+     "instance": {
+      "id": 14771,
+      "url": "http://svs.gsfc.nasa.gov/14771/",
+      "page_type": "Produced Video",
+      "title": "PUNCH Instruments",
+      "description": "NASA’s Polarimeter to Unify the Corona and Heliosphere, or PUNCH mission, is a constellation of four small satellites in low Earth orbit that will make global, 3D observations of the Sun's corona to better understand how the mass and energy there becomes the solar wind that fills the solar system. By imaging the Sun’s corona and the solar wind together, scientists hope to better understand the entire inner heliosphere – Sun, solar wind, and Earth – as a single connected system.Three of the PUNCH satellites will carry a Wide Field Imager (WFI), and the fourth will carry the Narrow Field Imager (NFI).The Narrow Field Imager (NFI)The Narrow Field Image (NFI) is a coronagraph, a type of device that blocks out the bright light from the Sun to better see details in the Sun's outer atmosphere, or corona. The coronagraph will have a similar field of view as the SOHO (Solar and Heliospheric Observatory) Large Angle and Spectrometric Coronagraph (LASCO) C3 field, from 6 to 32 solar radii on the sky, and it will view the corona in both polarized and unpolarized light.Wide Field Imager (WFI)The Wide Field Imager (WFI) is a heliospheric imager, a device that provides views from 18 to 180 solar radii (45 degrees) away from the Sun in the sky. Heliospheric imagers use an artificial “horizon” and deep baffles to view the very faint outermost portion of the solar corona and the solar wind itself. The instrument reduces direct sunlight by over 16 orders of magnitude, which is like the ratio between the mass of a human and the mass of a cold virus. The wide-field imaging optics are based on the design of the famous Nagler eyepieces, which are known among observational astronomers for their clarity, low distortion, wide field, and achromatic focus. Three of the PUNCH spacecraft will carry a WFI instrument. || ",
+      "release_date": "2025-01-24T14:00:00-05:00",
+      "update_date": "2025-02-11T10:08:04.490942-05:00",
+      "main_image": {
+       "id": 1141548,
+       "url": "http://svs.gsfc.nasa.gov/vis/a010000/a014700/a014771/NFI_LEO_Animation.00001_print.jpg",
+       "filename": "NFI_LEO_Animation.00001_print.jpg",
+       "media_type": "Image",
+       "alt_text": "Animation depicting the PUNCH Narrow Field Imager, or NFI instrument, from low Earth orbit. The NFI is designed to capture high-resolution images of the Sun's corona.Credit: NASA’s Conceptual Image Lab/Kim Dongjae, Walt Feimer",
+       "width": 1024,
+       "height": 576,
+       "pixels": 589824
+      }
+     }
+    },
+    {
+     "id": 412295,
+     "type": "details_page",
+     "extra_data": null,
+     "instance": {
+      "id": 20210,
+      "url": "http://svs.gsfc.nasa.gov/20210/",
+      "page_type": "Animation",
+      "title": "MMS Spacecraft Animation",
+      "description": "The Magnetospheric Multiscale (MMS) mission is a Solar Terrestrial Probes mission comprising four identically instrumented spacecraft that will use Earth’s magnetosphere as a laboratory to study the microphysics of three fundamental plasma processes: magnetic reconnection, energetic particle acceleration, and turbulence. These processes occur in all astrophysical plasma systems but can be studied in situ only in our solar system and most efficiently only in Earth’s magnetosphere, where they control the dynamics of the geospace environment and play an important role in the processes known as “space weather.”Learn more about MMS at www.nasa.gov/mms || ",
+      "release_date": "2014-03-14T10:30:00-04:00",
+      "update_date": "2025-01-13T00:18:48.835899-05:00",
+      "main_image": {
+       "id": 457344,
+       "url": "http://svs.gsfc.nasa.gov/vis/a020000/a020200/a020210/MMS_Solo00600.jpg",
+       "filename": "MMS_Solo00600.jpg",
+       "media_type": "Image",
+       "alt_text": "MMS beauty pass showing 4 observatories on the dayside.",
+       "width": 1920,
+       "height": 1080,
+       "pixels": 2073600
+      }
+     }
+    },
+    {
+     "id": 412296,
+     "type": "details_page",
+     "extra_data": null,
+     "instance": {
+      "id": 10937,
+      "url": "http://svs.gsfc.nasa.gov/10937/",
+      "page_type": "Produced Video",
+      "title": "RBSP Animation",
+      "description": "Animations of the Radiation Belt Storm Probe spacecraft. || ",
+      "release_date": "2012-03-16T15:00:00-04:00",
+      "update_date": "2023-05-03T13:53:11.478163-04:00",
+      "main_image": {
+       "id": 477766,
+       "url": "http://svs.gsfc.nasa.gov/vis/a010000/a010900/a010937/10937_RBSP_Beauty_H264_1280x720_3000002_print.jpg",
+       "filename": "10937_RBSP_Beauty_H264_1280x720_3000002_print.jpg",
+       "media_type": "Image",
+       "alt_text": "Beauty Pass of RBSP Animation",
+       "width": 1024,
+       "height": 576,
+       "pixels": 589824
+      }
+     }
+    },
+    {
+     "id": 412297,
+     "type": "details_page",
+     "extra_data": null,
+     "instance": {
+      "id": 10538,
+      "url": "http://svs.gsfc.nasa.gov/10538/",
+      "page_type": "Produced Video",
+      "title": "SDO Beauty Pass",
+      "description": "Solar Dynamic Observatory in orbit around the Earth || Solar Dynamic Observatory in orbit around the Earth || SDO_shotOne0747.00877_print.jpg (1024x576) [52.1 KB] || SDO_shotOne0747_web.png (320x180) [242.5 KB] || SDO_shotOne0747_thm.png (80x40) [14.9 KB] || bo.webmhd.webm (960x540) [10.7 MB] || 1280x720_16x9_60p (1280x720) [256.0 KB] || bo.mp4 (1280x720) [9.0 MB] || ",
+      "release_date": "2009-12-04T00:00:00-05:00",
+      "update_date": "2023-05-03T13:54:27.464842-04:00",
+      "main_image": {
+       "id": 495147,
+       "url": "http://svs.gsfc.nasa.gov/vis/a010000/a010500/a010538/SDO_shotOne0747.00877_print.jpg",
+       "filename": "SDO_shotOne0747.00877_print.jpg",
+       "media_type": "Image",
+       "alt_text": "Solar Dynamic Observatory in orbit around the Earth",
+       "width": 1024,
+       "height": 576,
+       "pixels": 589824
+      }
+     }
+    },
+    {
+     "id": 412298,
+     "type": "details_page",
+     "extra_data": null,
+     "instance": {
+      "id": 13225,
+      "url": "http://svs.gsfc.nasa.gov/13225/",
+      "page_type": "Produced Video",
+      "title": "SET Beauty Pass Animation",
+      "description": "GIF depicting the DSX spacecraft. NASA's SET mission is a payload onboard. || SETloophold.gif (1041x585) [2.1 MB] || ",
+      "release_date": "2019-06-10T10:00:00-04:00",
+      "update_date": "2023-05-03T13:45:54.973794-04:00",
+      "main_image": {
+       "id": 395445,
+       "url": "http://svs.gsfc.nasa.gov/vis/a010000/a013200/a013225/WideShot_comp1._00312_print.jpg",
+       "filename": "WideShot_comp1._00312_print.jpg",
+       "media_type": "Image",
+       "alt_text": "Beauty pass animation of the SET mission on the DSX spacecraft.",
+       "width": 1024,
+       "height": 576,
+       "pixels": 589824
+      }
+     }
+    },
+    {
+     "id": 412299,
+     "type": "details_page",
+     "extra_data": null,
+     "instance": {
+      "id": 20230,
+      "url": "http://svs.gsfc.nasa.gov/20230/",
+      "page_type": "Animation",
+      "title": "Solar and Heliospheric Observatory (SOHO)",
+      "description": "SOHO Beauty Pass || SOHO_00050_print.jpg (1024x576) [102.8 KB] || SOHO_00050_searchweb.png (320x180) [63.8 KB] || SOHO_00050_thm.png (80x40) [4.7 KB] || SOHO_prores.mov (1920x1080) [676.8 MB] || SOHO_h264.mov (1920x1080) [462.6 MB] || 1920x1080_16x9_60p (1920x1080) [64.0 KB] || SOHO_1080p60.mp4 (1920x1080) [15.9 MB] || SOHO_prores.webm (1920x1080) [2.2 MB] || ",
+      "release_date": "2015-11-30T00:00:00-05:00",
+      "update_date": "2023-05-03T13:49:05.091519-04:00",
+      "main_image": {
+       "id": 437408,
+       "url": "http://svs.gsfc.nasa.gov/vis/a020000/a020200/a020230/SOHO_00050_print.jpg",
+       "filename": "SOHO_00050_print.jpg",
+       "media_type": "Image",
+       "alt_text": "SOHO Beauty Pass",
+       "width": 1024,
+       "height": 576,
+       "pixels": 589824
+      }
+     }
+    },
+    {
+     "id": 412300,
+     "type": "details_page",
+     "extra_data": null,
+     "instance": {
+      "id": 20156,
+      "url": "http://svs.gsfc.nasa.gov/20156/",
+      "page_type": "Animation",
+      "title": "Solar - B (Hinode) Spacecraft",
+      "description": "Solar - B Spacecraft goes into orbit to begin looking at the sun. It is specifically looking at solar magnetic fields and the origins of the solar wind. || ",
+      "release_date": "2008-07-21T12:00:00-04:00",
+      "update_date": "2023-05-03T13:55:17.248957-04:00",
+      "main_image": {
+       "id": 504454,
+       "url": "http://svs.gsfc.nasa.gov/vis/a020000/a020100/a020156/solr000100002_print.jpg",
+       "filename": "solr000100002_print.jpg",
+       "media_type": "Image",
+       "alt_text": "a 360 degree tour around the Solar-B spacecraft as it hangs above the Earth",
+       "width": 1024,
+       "height": 768,
+       "pixels": 786432
+      }
+     }
+    },
+    {
+     "id": 412301,
+     "type": "details_page",
+     "extra_data": null,
+     "instance": {
+      "id": 13505,
+      "url": "http://svs.gsfc.nasa.gov/13505/",
+      "page_type": "Produced Video",
+      "title": "Solar Orbiter - ESA Animations",
+      "description": "Solar Orbiter is an European Space Agency (ESA) mission with strong NASA participation. Its mission is to perform unprecedented close-up observations of the Sun and from high-latitudes, providing the first images of the uncharted polar regions of the Sun, and investigating the Sun-Earth connection. || ",
+      "release_date": "2019-12-11T15:00:00-05:00",
+      "update_date": "2023-05-03T13:45:22.357669-04:00",
+      "main_image": {
+       "id": 388682,
+       "url": "http://svs.gsfc.nasa.gov/vis/a010000/a013500/a013505/20191129_Solo_Sequences_06.00001_print.jpg",
+       "filename": "20191129_Solo_Sequences_06.00001_print.jpg",
+       "media_type": "Image",
+       "alt_text": "Facing the Sun Part 2- Video\rDuring its closest approaches of the Sun, Solar Orbiter will be travelling fast enough to study how magnetically active regions evolve for up to four weeks at a time. Credit: ESA/ATG medialab\r",
+       "width": 1024,
+       "height": 576,
+       "pixels": 589824
+      }
+     }
+    },
+    {
+     "id": 412302,
+     "type": "details_page",
+     "extra_data": null,
+     "instance": {
+      "id": 20076,
+      "url": "http://svs.gsfc.nasa.gov/20076/",
+      "page_type": "Animation",
+      "title": "SORCE Beauty Pass",
+      "description": "A close-up view of the SORCE satellite in orbit. || A close-up view of the SORCE satellite in orbit. || sorce_pre.00002_print.jpg (1024x698) [36.1 KB] || sorce_thm.png (80x40) [3.3 KB] || sorce_pre.jpg (320x218) [4.6 KB] || sorce_pre_searchweb.jpg (320x180) [32.6 KB] || sorce.webmhd.webm (960x540) [3.3 MB] || sorce.mpg (352x240) [5.5 MB] || ",
+      "release_date": "2003-03-26T12:00:00-05:00",
+      "update_date": "2023-05-03T13:57:09.399820-04:00",
+      "main_image": {
+       "id": 523788,
+       "url": "http://svs.gsfc.nasa.gov/vis/a020000/a020000/a020076/sorce_pre.00002_print.jpg",
+       "filename": "sorce_pre.00002_print.jpg",
+       "media_type": "Image",
+       "alt_text": "A close-up view of the SORCE satellite in orbit.",
+       "width": 1024,
+       "height": 698,
+       "pixels": 714752
+      }
+     }
+    },
+    {
+     "id": 412304,
+     "type": "details_page",
+     "extra_data": null,
+     "instance": {
+      "id": 20103,
+      "url": "http://svs.gsfc.nasa.gov/20103/",
+      "page_type": "Animation",
+      "title": "STEREO Fly-by",
+      "description": "This animation shows a stereoscopic 3D fly-by of STEREO A spacecraft. || This animation shows a stereoscopic 3D fly-by of STEREO A spacecraft. || STEREO.069000652_print.jpg (1024x576) [54.0 KB] || STEREO.0690_web.png (320x180) [241.3 KB] || Stereo.webmhd.webm (960x540) [5.7 MB] || Stereo.mov (720x405) [54.2 MB] || ",
+      "release_date": "2007-04-17T12:00:00-04:00",
+      "update_date": "2023-05-03T13:55:43.257108-04:00",
+      "main_image": {
+       "id": 508872,
+       "url": "http://svs.gsfc.nasa.gov/vis/a020000/a020100/a020103/STEREOL069000652_print.jpg",
+       "filename": "STEREOL069000652_print.jpg",
+       "media_type": "Image",
+       "alt_text": "Left Camera",
+       "width": 1024,
+       "height": 576,
+       "pixels": 589824
+      }
+     }
+    },
+    {
+     "id": 412303,
+     "type": "details_page",
+     "extra_data": null,
+     "instance": {
+      "id": 20338,
+      "url": "http://svs.gsfc.nasa.gov/20338/",
+      "page_type": "Animation",
+      "title": "SunRISE Beauty Pass",
+      "description": "A coronal mass ejection (CME) erupts from the Sun and sends Type II radio bursts ahead of it. SunRISE measures the radio bursts and transmits the data to NASA’s Deep Space Network. Type II radio bursts are the earliest indicators of shocks from a solar eruption and can provide information on solar energetic particle (SEP) events. || SUNRISE-shot1_v06_4k_30fps_ProRes422.00240_print.jpg (1024x576) [172.5 KB] || SUNRISE-shot1_v06_4k_30fps_ProRes422.00240_searchweb.png (320x180) [87.2 KB] || SUNRISE-shot1_v06_4k_30fps_ProRes422.00240_thm.png (80x40) [5.9 KB] || SUNRISE-shot1_v06_4k_30fps_ProRes422.mov (3840x2160) [695.8 MB] || SUNRISE-shot1_v06_4k_30fps_h264.mp4 (3840x2160) [13.7 MB] || SUNRISE-shot1_v06_4k (3840x2160) [32.0 KB] || SUNRISE-shot1_v06_4k_30fps_ProRes422.webm (3840x2160) [5.3 MB] || ",
+      "release_date": "2020-12-08T15:00:00-05:00",
+      "update_date": "2023-08-15T16:23:32.441173-04:00",
+      "main_image": {
+       "id": 381103,
+       "url": "http://svs.gsfc.nasa.gov/vis/a020000/a020300/a020338/SUNRISE-shot1_v06_4k_30fps_ProRes422.00240_print.jpg",
+       "filename": "SUNRISE-shot1_v06_4k_30fps_ProRes422.00240_print.jpg",
+       "media_type": "Image",
+       "alt_text": "A coronal mass ejection (CME) erupts from the Sun and sends Type II radio bursts ahead of it. SunRISE measures the radio bursts and transmits the data to NASA’s Deep Space Network. Type II radio bursts are the earliest indicators of shocks from a solar eruption and can provide information on solar energetic particle (SEP) events. ",
+       "width": 1024,
+       "height": 576,
+       "pixels": 589824
+      }
+     }
+    },
+    {
+     "id": 453024,
+     "type": "media_group",
+     "extra_data": null,
+     "title": "Space Weather and NOAA's Space Weather Follow On at Langrange point 1 (SWFO-L1)",
+     "caption": "NOAA monitors space weather using satellites positioned at Lagrange Point 1 (L1), about 1.5 million kilometers from Earth. For years, satellites like DSCOVR and ACE have provided solar wind and coronal imaging, but their operational lifespans are ending. The new SWFO-L1 satellite will collect real-time data on solar wind, plasma, and magnetic fields, with a Compact Coronagraph to detect coronal mass ejections. Its L1 position ensures continuous, unobstructed solar observation.\n\nThe first video, NOAA and Impacts of Space Weather, discusses how space weather, such as solar flares and coronal mass ejections, affects Earth and our lives in turn.\n \nThe second video, Introducing SWFO-L1, explains further its objectives and instruments including the Compact Coronagraph, and its role in providing continuous solar observations to improve space weather predictions.\n \nThe 30-second trailer offers a brief overview of the video: Introducing SWFO-L1.",
+     "instance": {
+      "id": 1102707,
+      "url": "http://svs.gsfc.nasa.gov/vis/a020000/a020300/a020392/SWFO_0924_2MinVer_HD_v02.01800_searchweb.png",
+      "filename": "SWFO_0924_2MinVer_HD_v02.01800_searchweb.png",
+      "media_type": "Image",
+      "alt_text": "NOAA and Impacts of Space Weather",
+      "width": 180,
+      "height": 320,
+      "pixels": 57600
+     }
+    },
+    {
+     "id": 412305,
+     "type": "details_page",
+     "extra_data": null,
+     "instance": {
+      "id": 20087,
+      "url": "http://svs.gsfc.nasa.gov/20087/",
+      "page_type": "Animation",
+      "title": "THEMIS Beauty Pass",
+      "description": "A closer look at one of the THEMIS spacecraft. || themis.000100077_print.jpg (1023x682) [86.1 KB] || themis.0001_web.png (320x216) [104.5 KB] || a010094_seq.webmhd.webm (960x540) [4.0 MB] || 720x486_4x3_29.97p (720x486) [64.0 KB] || themis_640x480.mov (640x480) [35.5 MB] || a010094_seq.mpg (720x480) [19.9 MB] || a010094_H264_640x480.mp4 (640x480) [11.5 MB] || themis_320x240.mov (360x240) [12.2 MB] || ",
+      "release_date": "2006-08-08T00:00:00-04:00",
+      "update_date": "2023-05-03T13:55:51.223772-04:00",
+      "main_image": {
+       "id": 510372,
+       "url": "http://svs.gsfc.nasa.gov/vis/a020000/a020000/a020087/themis_web.jpg",
+       "filename": "themis_web.jpg",
+       "media_type": "Image",
+       "alt_text": "The five THEMIS spacecraft in orbit around the Earth",
+       "width": 320,
+       "height": 216,
+       "pixels": 69120
+      }
+     }
+    },
+    {
+     "id": 412306,
+     "type": "details_page",
+     "extra_data": null,
+     "instance": {
+      "id": 20042,
+      "url": "http://svs.gsfc.nasa.gov/20042/",
+      "page_type": "Animation",
+      "title": "Voyager Meets a Coronal Mass Ejection",
+      "description": "A coronal mass ejection (CME) passes the Voyager spacecraft far beyond Pluto. || The CME hits the Voyager spacecraft. || VgerLrg_pre.00127_print.jpg (1024x691) [62.8 KB] || VgerLrg_pre.jpg (320x197) [4.1 KB] || Voyager_pre.jpg (320x238) [7.5 KB] || 1280x720_16x9_60p (1280x720) [64.0 KB] || VgerLrg.webmhd.webm (960x540) [3.2 MB] || VgerHD0001.mp4 (1280x720) [6.9 MB] || VgerLrg.mpg (720x486) [2.5 MB] || 720x486_4x3_30p (720x486) [32.0 KB] || Voyager.mpg (352x240) [2.3 MB] || ",
+      "release_date": "2004-12-03T12:00:00-05:00",
+      "update_date": "2023-05-03T13:56:30.960706-04:00",
+      "main_image": {
+       "id": 517575,
+       "url": "http://svs.gsfc.nasa.gov/vis/a020000/a020000/a020042/Voyager_web.jpg",
+       "filename": "Voyager_web.jpg",
+       "media_type": "Image",
+       "alt_text": "CME passing Voyager",
+       "width": 320,
+       "height": 215,
+       "pixels": 68800
+      }
+     }
+    },
+    {
+     "id": 412307,
+     "type": "details_page",
+     "extra_data": null,
+     "instance": {
+      "id": 20130,
+      "url": "http://svs.gsfc.nasa.gov/20130/",
+      "page_type": "Animation",
+      "title": "Voyager 2",
+      "description": "This animation shows Voyager 2 on its journey to the Heliopause. || Voyager 2 animation || VgerII060000602_print.jpg (1024x576) [60.8 KB] || VgerII0600_web.png (320x180) [264.4 KB] || VgerII0600_thm.png (80x40) [16.3 KB] || 1280x720_16x9_60p (1280x720) [64.0 KB] || 20130_Voyager_2_Heliopause.mov (1280x720) [326.2 MB] || VgerII_720p.m2v (1280x720) [29.5 MB] || VgerII_720p.webmhd.webm (960x540) [5.0 MB] || a010179_VgerII_720p.mp4 (640x360) [3.4 MB] || VgerII_512x288.m1v (512x288) [6.4 MB] || ",
+      "release_date": "2007-12-10T00:00:00-05:00",
+      "update_date": "2023-05-03T13:55:31.264691-04:00",
+      "main_image": {
+       "id": 506603,
+       "url": "http://svs.gsfc.nasa.gov/vis/a020000/a020100/a020130/VgerII060000602_print.jpg",
+       "filename": "VgerII060000602_print.jpg",
+       "media_type": "Image",
+       "alt_text": "Voyager 2 animation",
+       "width": 1024,
+       "height": 576,
+       "pixels": 589824
+      }
+     }
+    }
+   ],
+   "extra_data": {}
+  },
+  {
+   "id": 371568,
+   "url": "http://svs.gsfc.nasa.gov/gallery/spacecraft-animations/#media_group_371568",
+   "widget": "Tile gallery",
+   "title": "Earth Science Missions",
+   "caption": "",
+   "description": "",
+   "items": [
+    {
+     "id": 412308,
+     "type": "link",
+     "extra_data": null,
+     "title": "Aqua",
+     "caption": null,
+     "instance": {
+      "id": 857480,
+      "url": "http://svs.gsfc.nasa.gov/images/gallery/SatelliteAnimations/2_aqua_deploy.1.jpg",
+      "filename": "2_aqua_deploy.1.jpg",
+      "media_type": "Image",
+      "alt_text": "",
+      "width": 720,
+      "height": 1280,
+      "pixels": 921600
+     }
+    },
+    {
+     "id": 453025,
+     "type": "details_page",
+     "extra_data": null,
+     "instance": {
+      "id": 20385,
+      "url": "http://svs.gsfc.nasa.gov/20385/",
+      "page_type": "Animation",
+      "title": "Atmospheric Waves Experiment (AWE) Beauty Pass",
+      "description": "AWE aboard the ISS || ISS_AWE_ProRes.00420_print.jpg (576x1024) [133.9 KB] || ISS_AWE_ProRes.00420_searchweb.png (180x320) [81.4 KB] || ISS_AWE_ProRes.00420_thm.png (80x40) [6.7 KB] || ISS_AWE_1080_h264.mov (1920x1080) [27.7 MB] || ISS_AWE_ProRes.mov (3840x2160) [1.7 GB] || ISS_AWE_h264.mov (3840x2160) [66.2 MB] || AWE_frames (3840x2160) [32.0 KB] || ISS_AWE_ProRes.webm (3840x2160) [9.6 MB] || ",
+      "release_date": "2023-10-04T15:00:00-04:00",
+      "update_date": "2023-10-04T12:10:41.299413-04:00",
+      "main_image": {
+       "id": 859587,
+       "url": "http://svs.gsfc.nasa.gov/vis/a020000/a020300/a020385/ISS_AWE_ProRes.00420_print.jpg",
+       "filename": "ISS_AWE_ProRes.00420_print.jpg",
+       "media_type": "Image",
+       "alt_text": "AWE aboard the ISS",
+       "width": 576,
+       "height": 1024,
+       "pixels": 589824
+      }
+     }
+    },
+    {
+     "id": 412309,
+     "type": "details_page",
+     "extra_data": null,
+     "instance": {
+      "id": 2948,
+      "url": "http://svs.gsfc.nasa.gov/2948/",
+      "page_type": "Visualization",
+      "title": "Simulated Aura/OMI Data Collection",
+      "description": "On June 19, 2004, NASA launches Aura, a next generation Earth-observing satellite. One of several instruments on the Aura satellite is the Ozone Monitoring Instrument (OMI). OMI is a contribution of the Netherland's Agency for Aerospace Programs (NIVR) along with the Finnish Meteorological Institute (FMI). OMI will continue the TOMS record for total ozone and other atmospheric parameters related to ozone chemistry and climate. (For more information on the Aura project, please visit http://aura.gsfc.nasa.gov/)Note: The size of the satellite model in the following animation and stills has been exaggerated for aesthetic purposes. || ",
+      "release_date": "2004-05-17T12:00:00-04:00",
+      "update_date": "2024-10-09T00:00:31.370918-04:00",
+      "main_image": {
+       "id": 519859,
+       "url": "http://svs.gsfc.nasa.gov/vis/a000000/a002900/a002948/synthomiHD.0010.jpg",
+       "filename": "synthomiHD.0010.jpg",
+       "media_type": "Image",
+       "alt_text": "Animation depicting the Aura satellite collecting (simulated) OMI data over the earth.",
+       "width": 1280,
+       "height": 720,
+       "pixels": 921600
+      }
+     }
+    },
+    {
+     "id": 412310,
+     "type": "details_page",
+     "extra_data": null,
+     "instance": {
+      "id": 12191,
+      "url": "http://svs.gsfc.nasa.gov/12191/",
+      "page_type": "Produced Video",
+      "title": "CALIPSO Spacecraft Beauty Passes",
+      "description": "A variety of animated beauty passes of the CloudSat and the Cloud-Aerosol Lidar and Infrared Pathfinder Satellite Observation (CALIPSO) spacecraft. It studies the role that clouds and aerosols play in regulating Earth's weather, climate, and air quality. || ",
+      "release_date": "2016-04-04T11:00:00-04:00",
+      "update_date": "2024-08-16T13:43:27.380539-04:00",
+      "main_image": {
+       "id": 425437,
+       "url": "http://svs.gsfc.nasa.gov/vis/a010000/a012100/a012191/YOUTUBE_HQ-12191_Calipso-Beauty-2015_Shot2_youtube_hq.00001_print.jpg",
+       "filename": "YOUTUBE_HQ-12191_Calipso-Beauty-2015_Shot2_youtube_hq.00001_print.jpg",
+       "media_type": "Image",
+       "alt_text": "A beauty pass of the CALIPSO spacecraft.",
+       "width": 1024,
+       "height": 576,
+       "pixels": 589824
+      }
+     }
+    },
+    {
+     "id": 412311,
+     "type": "details_page",
+     "extra_data": null,
+     "instance": {
+      "id": 20147,
+      "url": "http://svs.gsfc.nasa.gov/20147/",
+      "page_type": "Animation",
+      "title": "Cloudsat",
+      "description": "Cloudsat traverses the Earth || Cloudsat traversing Earth || clou000100002_print.jpg (1024x768) [72.1 KB] || clou0001_web.png (320x216) [337.2 KB] || clou0001_thm.png (80x40) [16.3 KB] || clou0001_searchweb.png (320x180) [64.5 KB] || Cloudsat_NTSC.webmhd.webm (960x540) [2.6 MB] || 720x486_4x3_30p (720x486) [16.0 KB] || Cloudsat_640x480.m1v (640x480) [8.8 MB] || Cloudsat_NTSC.m2v (720x480) [9.8 MB] || a010290_Cloudsat_NTSC.mp4 (640x480) [2.3 MB] || Cloudsat_320x240.m1v (320x240) [3.5 MB] || ",
+      "release_date": "2008-07-15T00:00:00-04:00",
+      "update_date": "2023-05-03T13:55:18.557604-04:00",
+      "main_image": {
+       "id": 504775,
+       "url": "http://svs.gsfc.nasa.gov/vis/a020000/a020100/a020147/clou000100002_print.jpg",
+       "filename": "clou000100002_print.jpg",
+       "media_type": "Image",
+       "alt_text": "Cloudsat traversing Earth",
+       "width": 1024,
+       "height": 768,
+       "pixels": 786432
+      }
+     }
+    },
+    {
+     "id": 412312,
+     "type": "details_page",
+     "extra_data": null,
+     "instance": {
+      "id": 13090,
+      "url": "http://svs.gsfc.nasa.gov/13090/",
+      "page_type": "Produced Video",
+      "title": "GEDI Media Resources",
+      "description": "The Global Ecosystem Dynamics Investigation (GEDI) uses laser pulses to give a view of the 3D structure of the Earth. GEDI’s precise measurements of the height and vertical structure of forest canopy, along with the surface elevation, will greatly advance our ability to characterize important carbon and water cycling processes, biodiversity, and habitat.  The mission is led by the University of Maryland, College Park, and the instrument was built and tested at NASA's Goddard Space Flight Center.GEDI observes nearly all tropical and temperate forests using a self-contained laser altimeter on the International Space Station. GEDI has the highest resolution and densest sampling of any lidar ever put in orbit. This has required a number of innovative technologies to be developed at NASA Goddard.GEDI has three lasers that produce 8 parallel tracks of observations. Each laser fires 242 times per second and illuminates a 25-meter footprint on the surface over which 3D structure is measured. Each footprint is separated by 60 meters along the track, with an across-track distance of about 600 m between each of the 8 tracks. GEDI is expected to produce about 10 billion cloud-free observations during its nominal 24-month mission length.With these observations, GEDI will provide answers to how deforestation has contributed to atmospheric CO2 concentrations, how much carbon forests will absorb in the future, and how habitat degradation will affect global biodiversity. This data is of immense value for forest and water resource management, carbon cycle science, and weather prediction.For more information about GEDI: https://gedi.umd.edu || ",
+      "release_date": "2018-10-09T08:00:00-04:00",
+      "update_date": "2025-05-14T00:21:55.331276-04:00",
+      "main_image": {
+       "id": 399729,
+       "url": "http://svs.gsfc.nasa.gov/vis/a010000/a013000/a013090/GEDI_beauty_waveform_still_print.jpg",
+       "filename": "GEDI_beauty_waveform_still_print.jpg",
+       "media_type": "Image",
+       "alt_text": "Animation of the Global Ecosystem Dynamics Investigation (GEDI) instrument, as installed on the ISS, showing the three lasers, which are split into 4 beams that alternate to give 8 footprints across a 4.2 km swath when they hit the ground.  The animation ends with an illustration of a laser pulse interacting with a multi-level forest canopy and the ground, culminating in an example of the waveform that is generated by the return of reflected photons to GEDI.",
+       "width": 1024,
+       "height": 576,
+       "pixels": 589824
+      }
+     }
+    },
+    {
+     "id": 412313,
+     "type": "details_page",
+     "extra_data": null,
+     "instance": {
+      "id": 10413,
+      "url": "http://svs.gsfc.nasa.gov/10413/",
+      "page_type": "Produced Video",
+      "title": "GOES Spacecraft Animations and Print Still Images",
+      "description": "GOES- O Animations || GOES Animation - Beauty Shot || goea0001.00002_print.jpg (1024x576) [53.2 KB] || goea0001_web.png (320x180) [250.9 KB] || goea0001_thm.png (80x40) [15.3 KB] || GOES-beauty_720p.webmhd.webm (960x540) [9.0 MB] || beauty (1280x720) [64.0 KB] || GOES-beauty_720p.m2v (1280x720) [53.8 MB] || a010413_GOES-beauty_720p.mp4 (640x360) [6.7 MB] || GOES-beauty_512x288.m1v (512x288) [12.0 MB] || ",
+      "release_date": "2009-03-18T00:00:00-04:00",
+      "update_date": "2023-05-03T13:54:52.600102-04:00",
+      "main_image": {
+       "id": 499360,
+       "url": "http://svs.gsfc.nasa.gov/vis/a010000/a010400/a010413/goea0001.00002_print.jpg",
+       "filename": "goea0001.00002_print.jpg",
+       "media_type": "Image",
+       "alt_text": "GOES Animation - Beauty Shot",
+       "width": 1024,
+       "height": 576,
+       "pixels": 589824
+      }
+     }
+    },
+    {
+     "id": 453169,
+     "type": "media_group",
+     "extra_data": null,
+     "title": "GOES-R Series Resource Reel",
+     "caption": "The new generation GOES-R satellites will carry significant improvements and technology innovation on board. GOES-R will be able to deliver a full globe scan in only 5 minutes, compared to the 25 minutes needed for the same task with the current GOES satellites. GOES-R's lightning mapper instrument is expected to improve warning lead time for severe storms and tornadoes by 50%. This without a doubt will help predict severe weather in advance and save more lives. This reel is a compilation of finished productions about the GOES-R mission as well as supporting materials such as animations, visualizations, and still images.\n<show group=84603 />\n<show group=84604 />\n<show group=84605 />\n<show group=59922 />\n<show group=59923 />\n<hr>Spacecraft Animations<hr>\n<show group=59911 />\n<show group=59912 />\n<show group=59913 />\n<show group=59914 />\n<show group=59915 />\n<show group=59916 />\n<show group=54040 />\n<show group=54041 />\n<show group=54043 />\n<show group=22134 />\n<show group=15274 />\n<show group=17211 />\n<show group=17224 />\n<show group=18058 />\n<show group=18095 />\n<show group=18711 />\n<show group=19387 />",
+     "instance": {
+      "id": 466320,
+      "url": "http://svs.gsfc.nasa.gov/vis/a010000/a010900/a010936/G2012-016_March_2012_Tornadoes_montage_youtube_hq_web.png",
+      "filename": "G2012-016_March_2012_Tornadoes_montage_youtube_hq_web.png",
+      "media_type": "Image",
+      "alt_text": "Tornado season began rather early in 2012. The GOES satellites send valuable data to help meteorologists stay a step ahead of severe storms. This video shows satellite imagery from the March 2-3, 2012 tornado outbreak that damaged severely Henryville, Indiana.",
+      "width": 180,
+      "height": 320,
+      "pixels": 57600
+     }
+    },
+    {
+     "id": 412314,
+     "type": "details_page",
+     "extra_data": null,
+     "instance": {
+      "id": 14073,
+      "url": "http://svs.gsfc.nasa.gov/14073/",
+      "page_type": "Produced Video",
+      "title": "GOES-T Overview and Beauty Shots",
+      "description": "GOES-T Overview and Upcoming Launch Music: \"Spacey Wave,\" by JC Lemay [SACEM]; Koka; Universal Production MusicAdditional footage provided by Lockheed Martin || GOEST_Overview_FINAL.01901_print.jpg (1024x576) [161.9 KB] || GOEST_Overview_FINAL.01901_searchweb.png (320x180) [98.2 KB] || GOEST_Overview_FINAL.01901_thm.png (80x40) [7.2 KB] || GOEST_Overview_FINAL_VX-319617_lowres.mp4 (1280x720) [50.4 MB] || GOEST_Overview_FINAL_VX-319617_lowres.webm (1280x720) [20.7 MB] || GOEST_Overview_FINAL_1080p.mp4 (1920x1080) [230.5 MB] || GOEST_Overview_FINAL_720p.mp4 (1280x720) [229.7 MB] || GOEST_Overview_FINAL.en_US.srt [3.8 KB] || GOEST_Overview_FINAL.en_US.vtt [3.6 KB] || GOEST_Overview_FINAL.mp4 (3840x2160) [915.1 MB] || GOEST_Overview_FINAL.mov (3840x2160) [15.2 GB] || ",
+      "release_date": "2022-02-03T00:00:00-05:00",
+      "update_date": "2023-05-03T13:37:09.629857-04:00",
+      "main_image": {
+       "id": 373509,
+       "url": "http://svs.gsfc.nasa.gov/vis/a010000/a014000/a014073/GOEST_Overview_FINAL.01901_print.jpg",
+       "filename": "GOEST_Overview_FINAL.01901_print.jpg",
+       "media_type": "Image",
+       "alt_text": "GOES-T Overview and Upcoming Launch Music: \"Spacey Wave,\" by JC Lemay [SACEM]; Koka; Universal Production MusicAdditional footage provided by Lockheed Martin",
+       "width": 1024,
+       "height": 576,
+       "pixels": 589824
+      }
+     }
+    },
+    {
+     "id": 412315,
+     "type": "details_page",
+     "extra_data": null,
+     "instance": {
+      "id": 11392,
+      "url": "http://svs.gsfc.nasa.gov/11392/",
+      "page_type": "Produced Video",
+      "title": "GPM Core Spacecraft Beauty Passes",
+      "description": "A variety of animated beauty passes of the Global Precipitation Measurement (GPM) Core spacecraft. || ",
+      "release_date": "2013-10-31T17:00:00-04:00",
+      "update_date": "2023-05-03T13:51:32.332494-04:00",
+      "main_image": {
+       "id": 461329,
+       "url": "http://svs.gsfc.nasa.gov/vis/a010000/a011300/a011392/GPM_Beauty_NEW_youtube_hq00127_print.jpg",
+       "filename": "GPM_Beauty_NEW_youtube_hq00127_print.jpg",
+       "media_type": "Image",
+       "alt_text": "Various beauty passes of the GPM Core spacecraft.",
+       "width": 1024,
+       "height": 576,
+       "pixels": 589824
+      }
+     }
+    },
+    {
+     "id": 412316,
+     "type": "link",
+     "extra_data": null,
+     "title": "GRACE Follow-On",
+     "caption": null,
+     "instance": {
+      "id": 857476,
+      "url": "http://svs.gsfc.nasa.gov/images/gallery/SatelliteAnimations/GRACE-FO_in_Orbit.jpeg",
+      "filename": "GRACE-FO_in_Orbit.jpeg",
+      "media_type": "Image",
+      "alt_text": "",
+      "width": 1456,
+      "height": 2048,
+      "pixels": 2981888
+     }
+    },
+    {
+     "id": 412317,
+     "type": "details_page",
+     "extra_data": null,
+     "instance": {
+      "id": 11712,
+      "url": "http://svs.gsfc.nasa.gov/11712/",
+      "page_type": "Produced Video",
+      "title": "ICESat-2 Beauty Pass",
+      "description": "Animation showing the deployment of the spacecraft and a beauty pass with the beams on. || ICESat2__deploy_beauty_youtube_hq_print.jpg (1024x576) [176.2 KB] || ICESat2__deploy_beauty_youtube_hq_searchweb.png (320x180) [90.3 KB] || ICESat2__deploy_beauty_youtube_hq_web.png (320x180) [90.3 KB] || ICESat2__deploy_beauty_youtube_hq_thm.png (80x40) [4.9 KB] || 1920x1080_16x9_30p (1920x1080) [0 Item(s)] || ICESat2__deploy_beauty_1280x720.wmv (1280x720) [31.3 MB] || ICESat2__deploy_beauty_appletv.m4v (960x540) [25.5 MB] || ICESat2__deploy_beauty_youtube_hq.mov (1920x1080) [95.5 MB] || ICESat2__deploy_beauty_prores.mov (1280x720) [454.4 MB] || ICESat2__deploy_beauty_720x480.webm (720x480) [6.2 MB] || ICESat2__deploy_beauty_720x480.wmv (720x480) [30.4 MB] || ICESat2__deploy_beauty_nasaportal.mov (640x360) [25.6 MB] || ICESat2__deploy_beauty_ipod_lg.m4v (640x360) [9.6 MB] || GSFC_20141015_ICESat2_m11712_Deploy_Beauty.en_US.vtt [64 bytes] || ICESat2__deploy_beauty_ipod_sm.mp4 (320x240) [4.8 MB] || icesat-2-beauty-pass-and-deployment.hwshow || ",
+      "release_date": "2014-10-15T11:00:00-04:00",
+      "update_date": "2025-06-23T00:16:59.755365-04:00",
+      "main_image": {
+       "id": 450439,
+       "url": "http://svs.gsfc.nasa.gov/vis/a010000/a011700/a011712/Icesat2-HQprint_print.jpg",
+       "filename": "Icesat2-HQprint_print.jpg",
+       "media_type": "Image",
+       "alt_text": "High resolution print graphic of the spacecraft above the Earth.",
+       "width": 1024,
+       "height": 576,
+       "pixels": 589824
+      }
+     }
+    },
+    {
+     "id": 412318,
+     "type": "details_page",
+     "extra_data": null,
+     "instance": {
+      "id": 13259,
+      "url": "http://svs.gsfc.nasa.gov/13259/",
+      "page_type": "Produced Video",
+      "title": "Landsat 9 Spacecraft Animations and Stills",
+      "description": "Landsat 9 is a collaboration between NASA and the U.S. Geological Survey, and will continue the Landsat program’s critical role in monitoring, understanding and managing the land resources needed to sustain human life. The mission will provide moderate-resolution (15 meter to 100 meter, depending on spectral frequency) measurements of the Earth's terrestrial and polar regions in visible, near-infrared, short wave infrared, and thermal infrared wavelengths. There are two instruments on the spacecraft, the Thermal InfraRed Sensor 2 (TIRS-2) and the Operational Land Imager 2 (OLI-2).Landsat 9 will provide continuity with the nearly 50-year long Landsat land imaging data set. In addition to widespread routine use for land use planning and monitoring on regional to local scales, support of disaster response and evaluations, and water use monitoring, Landsat measurements directly serve NASA research in the focus areas of climate, carbon cycle, ecosystems, water cycle, biogeochemistry, and Earth surface/interior.The Landsat program is the only U.S. satellite system designed and operated to repeatedly observe the global land surface at a moderate scale that shows both natural and human-induced change. || ",
+      "release_date": "2019-07-26T00:00:00-04:00",
+      "update_date": "2024-06-23T23:22:51.648131-04:00",
+      "main_image": {
+       "id": 394538,
+       "url": "http://svs.gsfc.nasa.gov/vis/a010000/a013200/a013259/Landsat9_still_SW2_print.jpg",
+       "filename": "Landsat9_still_SW2_print.jpg",
+       "media_type": "Image",
+       "alt_text": "An artist's conception of the Landsat 9 spacecraft, the ninth satellite launched in the long-running Landsat program, high above the Western US.",
+       "width": 1024,
+       "height": 576,
+       "pixels": 589824
+      }
+     }
+    },
+    {
+     "id": 412319,
+     "type": "details_page",
+     "extra_data": null,
+     "instance": {
+      "id": 20205,
+      "url": "http://svs.gsfc.nasa.gov/20205/",
+      "page_type": "Animation",
+      "title": "LDCM Deploy and Beauty Pass",
+      "description": "A shot of LDCM over Earth || baab130000077_print.jpg (1024x576) [97.8 KB] || baab1300_web.png (320x180) [79.3 KB] || baab1300_thm.png (80x40) [6.4 KB] || LDCM-Beauty (1280x720) [16.0 KB] || LDCM-Beauty1-final-END.mov (1280x720) [204.9 MB] || LDCM-Beauty1-final-END.webmhd.webm (960x540) [2.7 MB] || ",
+      "release_date": "2014-02-07T15:21:00-05:00",
+      "update_date": "2023-05-03T13:51:14.953056-04:00",
+      "main_image": {
+       "id": 458407,
+       "url": "http://svs.gsfc.nasa.gov/vis/a020000/a020200/a020205/baab130000077_print.jpg",
+       "filename": "baab130000077_print.jpg",
+       "media_type": "Image",
+       "alt_text": "A shot of LDCM over Earth",
+       "width": 1024,
+       "height": 576,
+       "pixels": 589824
+      }
+     }
+    },
+    {
+     "id": 412320,
+     "type": "details_page",
+     "extra_data": null,
+     "instance": {
+      "id": 20178,
+      "url": "http://svs.gsfc.nasa.gov/20178/",
+      "page_type": "Animation",
+      "title": "NOAA-N Prime Beauty Shot Animation",
+      "description": "An artist concept of the spacecraft. The microwave instruments on board NOAA-N Prime are so sensitive that they can see Earth's surface through clouds. NOAA-N Prime will deliver essential atmospheric and surface parameters to use in scientific forecast models. N Prime provides essential critical information for creating accurate weather forecasts 2-3 days in advance. || ",
+      "release_date": "2009-01-21T12:00:00-05:00",
+      "update_date": "2023-05-03T13:54:57.767698-04:00",
+      "main_image": {
+       "id": 500344,
+       "url": "http://svs.gsfc.nasa.gov/vis/a020000/a020100/a020178/noay000100802_print.jpg",
+       "filename": "noay000100802_print.jpg",
+       "media_type": "Image",
+       "alt_text": "Beauty pass of the NOAA-N Prime satellite.",
+       "width": 1024,
+       "height": 576,
+       "pixels": 589824
+      }
+     }
+    },
+    {
+     "id": 412321,
+     "type": "link",
+     "extra_data": null,
+     "title": "OCO-2",
+     "caption": null,
+     "instance": {
+      "id": 857477,
+      "url": "http://svs.gsfc.nasa.gov/images/gallery/SatelliteAnimations/missionsweboco_kXYY4ah.jpeg",
+      "filename": "missionsweboco_kXYY4ah.jpeg",
+      "media_type": "Image",
+      "alt_text": "",
+      "width": 2000,
+      "height": 2000,
+      "pixels": 4000000
+     }
+    },
+    {
+     "id": 412322,
+     "type": "details_page",
+     "extra_data": null,
+     "instance": {
+      "id": 12469,
+      "url": "http://svs.gsfc.nasa.gov/12469/",
+      "page_type": "Produced Video",
+      "title": "PACE Satellite Animations",
+      "description": "PACE is NASA's Plankton, Aerosol, Cloud, ocean Ecosystem mission, currently in the design phase of mission development. It is scheduled to launch in 2022, extending and improving NASA's over 20-year record of satellite observations of global ocean biology, aerosols (tiny particles suspended in the atmosphere), and clouds. PACE will advance the assessment of ocean health by measuring the distribution of phytoplankton, tiny plants and algae that sustain the marine food web. It will also continue systematic records of key atmospheric variables associated with air quality and Earth's climate. || ",
+      "release_date": "2018-12-06T00:00:00-05:00",
+      "update_date": "2023-12-18T10:46:53.220352-05:00",
+      "main_image": {
+       "id": 398747,
+       "url": "http://svs.gsfc.nasa.gov/vis/a010000/a012400/a012469/PACE_Renderman_TurntableAlpha_TW720.00001_print.jpg",
+       "filename": "PACE_Renderman_TurntableAlpha_TW720.00001_print.jpg",
+       "media_type": "Image",
+       "alt_text": "This animation shows the spacecraft rotating on an alpha channel. ",
+       "width": 1024,
+       "height": 576,
+       "pixels": 589824
+      }
+     }
+    },
+    {
+     "id": 412323,
+     "type": "link",
+     "extra_data": null,
+     "title": "Sentinel-6 Michael Freilich",
+     "caption": null,
+     "instance": {
+      "id": 857478,
+      "url": "http://svs.gsfc.nasa.gov/images/gallery/SatelliteAnimations/Image13-Sentinel6-1000.jpeg",
+      "filename": "Image13-Sentinel6-1000.jpeg",
+      "media_type": "Image",
+      "alt_text": "",
+      "width": 563,
+      "height": 1000,
+      "pixels": 563000
+     }
+    },
+    {
+     "id": 412324,
+     "type": "details_page",
+     "extra_data": null,
+     "instance": {
+      "id": 11741,
+      "url": "http://svs.gsfc.nasa.gov/11741/",
+      "page_type": "Produced Video",
+      "title": "Soil Moisture Active Passive (SMAP) Live Shot Page 1.29.15",
+      "description": "NASA scientists talk about the launch of the Soil Moisture Active Passive - or SMAP - satellite scheduled to launch on Jan 29. SMAP will take stock of the water hidden just beneath your feet, in the topsoil. Knowing how much water is in the soil, and whether it is frozen or thawed, has profound applications for society, from better forecasting of natural disasters like floods and droughts to helping prevent food shortages.How SMAP's radiometer works.How SMAP will help weather forecasts.More about SMAP.NASA TV's video file. || ",
+      "release_date": "2015-01-28T00:00:00-05:00",
+      "update_date": "2023-05-03T13:50:04.844486-04:00",
+      "main_image": {
+       "id": 446868,
+       "url": "http://svs.gsfc.nasa.gov/vis/a010000/a011700/a011741/SMAP_BEAUTY_DATA_youtube_hq_print.jpg",
+       "filename": "SMAP_BEAUTY_DATA_youtube_hq_print.jpg",
+       "media_type": "Image",
+       "alt_text": "Animation of SMAP launching and collecting data. SMAP will produce global maps of soil moisture. Animation from NASA/Jet Propulsion Laboratory",
+       "width": 1024,
+       "height": 576,
+       "pixels": 589824
+      }
+     }
+    },
+    {
+     "id": 412325,
+     "type": "link",
+     "extra_data": null,
+     "title": "SWOT",
+     "caption": null,
+     "instance": {
+      "id": 857479,
+      "url": "http://svs.gsfc.nasa.gov/images/gallery/SatelliteAnimations/missionswebswot_FZBtTh2.jpeg",
+      "filename": "missionswebswot_FZBtTh2.jpeg",
+      "media_type": "Image",
+      "alt_text": "",
+      "width": 767,
+      "height": 1023,
+      "pixels": 784641
+     }
+    },
+    {
+     "id": 412326,
+     "type": "details_page",
+     "extra_data": null,
+     "instance": {
+      "id": 10541,
+      "url": "http://svs.gsfc.nasa.gov/10541/",
+      "page_type": "Produced Video",
+      "title": "Terra Spacecraft",
+      "description": "Animations depicting the Terra Spacecraft on orbit || Terra Beauty 1 || terq001.00202_print.jpg (1024x576) [59.9 KB] || terq001_web.png (320x180) [171.5 KB] || terq001_thm.png (80x40) [15.9 KB] || Beauty1_720p.webmhd.webm (960x540) [2.1 MB] || Beauty1 (1280x720) [32.0 KB] || Beauty1_720p.m2v (1280x720) [11.4 MB] || beauty1.mp4 (1280x720) [2.2 MB] || Beauty1_512x288.m1v (512x288) [2.6 MB] || ",
+      "release_date": "2010-01-12T00:00:00-05:00",
+      "update_date": "2023-05-03T13:54:24.663134-04:00",
+      "main_image": {
+       "id": 494700,
+       "url": "http://svs.gsfc.nasa.gov/vis/a010000/a010500/a010541/terq001.00202_print.jpg",
+       "filename": "terq001.00202_print.jpg",
+       "media_type": "Image",
+       "alt_text": "Terra Beauty 1",
+       "width": 1024,
+       "height": 576,
+       "pixels": 589824
+      }
+     }
+    },
+    {
+     "id": 412327,
+     "type": "details_page",
+     "extra_data": null,
+     "instance": {
+      "id": 20345,
+      "url": "http://svs.gsfc.nasa.gov/20345/",
+      "page_type": "Animation",
+      "title": "TROPICS Mission Animations",
+      "description": "The NASA Time-Resolved Observations of Precipitation structure and storm Intensity with a Constellation of Smallsats (TROPICS) mission is a constellation of state-of-the-science observing platforms that will measure temperature and humidity soundings and precipitation with spatial resolution comparable to current operational passive microwave sounders but with unprecedented temporal resolution (median revisit time of 50 minutes).Credit: NASA's Goddard Space Flight Center Conceptual Image Lab || Tropics_Beauty_Shot_ProRes.00540_print.jpg (1024x576) [95.4 KB] || Tropics_Beauty_Shot_H264_1080.mp4 (1920x1080) [76.4 MB] || Tropics_Beauty_Shot_H264_1080.webm (1920x1080) [3.4 MB] || Tropics_Beauty_Shot_H264_4k.mp4 (3840x2160) [309.1 MB] || Tropics_Beauty_Shot_ProRes.mov (3840x2160) [3.1 GB] || 3840x2160_16x9_30p (3840x2160) [64.0 KB] || Tropics_Beauty_Shot_ProRes.webm (3840x2160) [10.3 MB] || ",
+      "release_date": "2022-03-01T00:00:00-05:00",
+      "update_date": "2023-05-03T11:44:18.928725-04:00",
+      "main_image": {
+       "id": 378242,
+       "url": "http://svs.gsfc.nasa.gov/vis/a020000/a020300/a020345/TROPICS_DataCol_4k_30fps_ProRes.00289_print.jpg",
+       "filename": "TROPICS_DataCol_4k_30fps_ProRes.00289_print.jpg",
+       "media_type": "Image",
+       "alt_text": "As a Venture Class mission, TROPICS is comprised of a constellation of 3 unit (3U) SmallSats, each hosting a 12-channel passive microwave spectrometer. TROPICS will provide imagery near 91 and 205 GHz, temperature sounding near 118 GHz, and moisture sounding near 183 GHz. Spatial resolution at nadir will be around 27 km for temperature and 17 km for moisture and precipitation with a swath width of approximately 2000 km. The primary mission objective of TROPICS is to relate temperature, humidity, and precipitation structure to the evolution of tropical cyclone intensity.Credit: NASA's Goddard Space Flight Center Conceptual Image Lab",
+       "width": 1024,
+       "height": 576,
+       "pixels": 589824
+      }
+     }
+    }
+   ],
+   "extra_data": {}
+  },
+  {
+   "id": 371569,
+   "url": "http://svs.gsfc.nasa.gov/gallery/spacecraft-animations/#media_group_371569",
+   "widget": "Tile gallery",
+   "title": "Planetary Missions",
+   "caption": "",
+   "description": "",
+   "items": [
+    {
+     "id": 412328,
+     "type": "link",
+     "extra_data": null,
+     "title": "ARTEMIS",
+     "caption": null,
+     "instance": {
+      "id": 857482,
+      "url": "http://svs.gsfc.nasa.gov/images/gallery/SatelliteAnimations/maxresdefault.jpeg",
+      "filename": "maxresdefault.jpeg",
+      "media_type": "Image",
+      "alt_text": "",
+      "width": 720,
+      "height": 1280,
+      "pixels": 921600
+     }
+    },
+    {
+     "id": 412329,
+     "type": "link",
+     "extra_data": null,
+     "title": "Cassini",
+     "caption": null,
+     "instance": {
+      "id": 857483,
+      "url": "http://svs.gsfc.nasa.gov/images/gallery/SatelliteAnimations/missionswebcassini_shJEz9d.jpeg",
+      "filename": "missionswebcassini_shJEz9d.jpeg",
+      "media_type": "Image",
+      "alt_text": "",
+      "width": 1707,
+      "height": 2560,
+      "pixels": 4369920
+     }
+    },
+    {
+     "id": 412330,
+     "type": "link",
+     "extra_data": null,
+     "title": "DART",
+     "caption": null,
+     "instance": {
+      "id": 857481,
+      "url": "http://svs.gsfc.nasa.gov/images/gallery/SatelliteAnimations/dart-zoom_bkg-nologos1_0.jpeg",
+      "filename": "dart-zoom_bkg-nologos1_0.jpeg",
+      "media_type": "Image",
+      "alt_text": "",
+      "width": 2700,
+      "height": 4800,
+      "pixels": 12960000
+     }
+    },
+    {
+     "id": 412331,
+     "type": "details_page",
+     "extra_data": null,
+     "instance": {
+      "id": 20311,
+      "url": "http://svs.gsfc.nasa.gov/20311/",
+      "page_type": "Animation",
+      "title": "Dragonfly Animation Resource Page",
+      "description": "Artist’s concept of Dragonfly at Titan, Saturn’s largest moon.Credit: NASA/Johns Hopkins APL || Dragonfly_Landed_Closeup_print.jpg (1024x713) [191.2 KB] || Dragonfly_Landed_Closeup.png (2250x1567) [5.8 MB] || Dragonfly_Landed_Closeup_searchweb.png (320x180) [89.8 KB] || Dragonfly_Landed_Closeup_web.png (320x223) [108.7 KB] || Dragonfly_Landed_Closeup_thm.png (80x40) [6.1 KB] || ",
+      "release_date": "2020-02-25T16:00:00-05:00",
+      "update_date": "2026-08-28T16:58:33-04:00",
+      "main_image": {
+       "id": 386491,
+       "url": "http://svs.gsfc.nasa.gov/vis/a020000/a020300/a020311/DF_Open_4K_Prores.00420_print.jpg",
+       "filename": "DF_Open_4K_Prores.00420_print.jpg",
+       "media_type": "Image",
+       "alt_text": "PNG pulses, GRS detects radiation",
+       "width": 1024,
+       "height": 576,
+       "pixels": 589824
+      }
+     }
+    },
+    {
+     "id": 453153,
+     "type": "media_group",
+     "extra_data": null,
+     "title": "ESCAPADE Launch Phase and Deployment",
+     "caption": "The Escape and Plasma Acceleration and Dynamics Explorers, or ESCAPADE, will use two identical spacecraft to investigate how the solar wind interacts with Mars’ magnetic environment and how this interaction drives the planet’s atmospheric escape. The first multi-spacecraft orbital science mission to the Red Planet, ESCAPADE’s twin orbiters will take simultaneous observations from different locations around Mars to reveal the planet’s real-time response to space weather and how the Martian magnetosphere changes over time.<p>ESCAPADE is the payload for the inaugural launch of Blue Origin’s New Glenn rocket, named after John Glenn, the first American astronaut to orbit Earth. New Glenn is a single-configuration, heavy-lift orbital launch vehicle capable of routinely carrying both spacecraft and people to low-Earth orbits, geostationary transfer orbits, cislunar orbits (between the Earth and Moon), and beyond via Earth-departure orbits like the one required for ESCAPADE.<p>The ESCAPADE mission is managed by the Space Sciences Laboratory at the University of California, Berkeley, with key partners Rocket Lab, NASA's Goddard Space Flight Center, Embry-Riddle Aeronautical University, Advanced Space LLC, and Blue Origin.",
+     "instance": {
+      "id": 1096959,
+      "url": "http://svs.gsfc.nasa.gov/vis/a010000/a014600/a014666/01NG_RL_HighOrbit_1080.00001_searchweb.png",
+      "filename": "01NG_RL_HighOrbit_1080.00001_searchweb.png",
+      "media_type": "Image",
+      "alt_text": "The Escape and Plasma Acceleration and Dynamics Explorers, or ESCAPADE, will use two identical spacecraft to investigate how the solar wind interacts with Mars’ magnetic environment and how this interaction drives the planet’s atmospheric escape. The first multi-spacecraft orbital science mission to the Red Planet, ESCAPADE’s twin orbiters will take simultaneous observations from different locations around Mars to reveal the planet’s real-time response to space weather and how the Martian magnetosphere changes over time. The data returned from the ESCAPADE spacecraft will provide new insight into the evolution of Mars’ climate, contributing to the body of research investigating how Mars began losing its atmosphere and water system.The ESCAPADE mission is managed by the Space Sciences Laboratory at the University of California, Berkeley, with key partners Rocket Lab, NASA's Goddard Space Flight Center, Embry-Riddle Aeronautical University, Advanced Space LLC, and Blue Origin.Read the latest news about ESCAPADE - https://science.nasa.gov/mission/escapade/",
+      "width": 180,
+      "height": 320,
+      "pixels": 57600
+     }
+    },
+    {
+     "id": 412332,
+     "type": "details_page",
+     "extra_data": null,
+     "instance": {
+      "id": 20321,
+      "url": "http://svs.gsfc.nasa.gov/20321/",
+      "page_type": "Animation",
+      "title": "Juno Interplanetary Dust: Animations",
+      "description": "Juno during its outbound cruise to Jupiter. Available with and without text. || Juno_Animation_Shot01.00090_print.jpg (1024x576) [53.0 KB] || Juno_Animation_Shot01.00090_searchweb.png (320x180) [40.0 KB] || Juno_Animation_Shot01.00090_thm.png (80x40) [2.4 KB] || Juno_Animation_Shot01.mp4 (3840x2160) [10.3 MB] || Juno_Animation_Shot01 (3840x2160) [0 Item(s)] || Juno_Animation_Shot01_Textless (3840x2160) [0 Item(s)] || Juno_Animation_Shot01.webm (3840x2160) [1.6 MB] || Juno_Animation_Shot01_.mov (3840x2160) [963.3 MB] || Juno_Animation_Shot01_Textless.mov (3840x2160) [962.7 MB] || ",
+      "release_date": "2021-03-09T14:00:00-05:00",
+      "update_date": "2023-05-03T13:44:17.919586-04:00",
+      "main_image": {
+       "id": 383646,
+       "url": "http://svs.gsfc.nasa.gov/vis/a020000/a020300/a020321/Juno_Animation_Shot01.00090_print.jpg",
+       "filename": "Juno_Animation_Shot01.00090_print.jpg",
+       "media_type": "Image",
+       "alt_text": "Juno during its outbound cruise to Jupiter. Available with and without text.",
+       "width": 1024,
+       "height": 576,
+       "pixels": 589824
+      }
+     }
+    },
+    {
+     "id": 412333,
+     "type": "details_page",
+     "extra_data": null,
+     "instance": {
+      "id": 20202,
+      "url": "http://svs.gsfc.nasa.gov/20202/",
+      "page_type": "Animation",
+      "title": "LADEE Spacecraft Animations",
+      "description": "LADEE over the lunar surface with LLCD instrument || lade084400852_print.jpg (1024x576) [66.1 KB] || lade0844_web.png (320x180) [33.9 KB] || lade0844_thm.png (80x40) [3.3 KB] || Ladee-Earthrise (1280x720) [0 Item(s)] || Ladee-Earthrise8.webmhd.webm (960x540) [8.5 MB] || Ladee-Earthrise8.mov (1280x720) [353.2 MB] || ",
+      "release_date": "2014-02-07T15:21:00-05:00",
+      "update_date": "2023-05-03T13:51:14.848498-04:00",
+      "main_image": {
+       "id": 458380,
+       "url": "http://svs.gsfc.nasa.gov/vis/a020000/a020200/a020202/lade084400852_print.jpg",
+       "filename": "lade084400852_print.jpg",
+       "media_type": "Image",
+       "alt_text": "LADEE over the lunar surface with LLCD instrument",
+       "width": 1024,
+       "height": 576,
+       "pixels": 589824
+      }
+     }
+    },
+    {
+     "id": 412334,
+     "type": "details_page",
+     "extra_data": null,
+     "instance": {
+      "id": 20369,
+      "url": "http://svs.gsfc.nasa.gov/20369/",
+      "page_type": "Animation",
+      "title": "LRO Beauty Shots",
+      "description": "LRO Beauty Shot || LRO_cam2_4k_30fps_ProRes.00450_print.jpg (1024x432) [53.8 KB] || LRO_cam2_1080p_30fps_h264.mov (1920x812) [23.6 MB] || LRO_cam2_1080pwide_30fps_h264.mov (1920x812) [22.9 MB] || LRO_cam2_4k_30fps_ProRes.mov (5120x2160) [1.3 GB] || LRO_cam2_4k_30fps_h264.mp4 (5120x2160) [24.5 MB] || LRO_cam2_wide_30fps_ProRes.mov (5120x2160) [1.8 GB] || LRO_cam2_wide_30fps_h264.mp4 (5120x2160) [24.6 MB] || LRO_cam2_4k (3840x2160) [32.0 KB] || LRO_cam2_Wide (5120x2160) [32.0 KB] || LRO_cam2_4k_30fps_ProRes.webm (3840x2160) [5.2 MB] || ",
+      "release_date": "2022-10-26T09:00:00-04:00",
+      "update_date": "2023-05-03T11:43:54.841359-04:00",
+      "main_image": {
+       "id": 370763,
+       "url": "http://svs.gsfc.nasa.gov/vis/a020000/a020300/a020369/LRO_CU_4k_30fps_ProRes.00400_print.jpg",
+       "filename": "LRO_CU_4k_30fps_ProRes.00400_print.jpg",
+       "media_type": "Image",
+       "alt_text": "LRO Beauty Shot",
+       "width": 1024,
+       "height": 576,
+       "pixels": 589824
+      }
+     }
+    },
+    {
+     "id": 412335,
+     "type": "details_page",
+     "extra_data": null,
+     "instance": {
+      "id": 20301,
+      "url": "http://svs.gsfc.nasa.gov/20301/",
+      "page_type": "Animation",
+      "title": "Lucy Mission Animations",
+      "description": "Lucy flies by its final target, the binary asteroid Patroclus/Menoetius. When it completes this flyby, Lucy will have visited an unprecedented seven asteroids. || Lucy_Flyby_main_seq_00315_print.jpg (1024x576) [85.2 KB] || Lucy_Flyby_main_seq_00315_searchweb.png (320x180) [77.9 KB] || Lucy_Flyby_main_seq_00315_thm.png (80x40) [6.1 KB] || Lucy_Flyby_main_1080_H264.mp4 (1920x1080) [45.0 MB] || Lucy_Flyby_main_1080_H264.webm (1920x1080) [2.8 MB] || Lucy_Flyby_1080_ProRes.mov (1920x1080) [282.0 MB] || Lucy_flyby_4k_prores_seq (3840x2160) [0 Item(s)] || Lucy_Flyby_main_4k_H264.mp4 (3840x2160) [27.5 MB] || Lucy_Flyby_main_4k_H264.webm (3840x2160) [5.9 MB] || Lucy_Flyby_main_4k.mov (3840x2160) [758.8 MB] || ",
+      "release_date": "2019-10-21T00:00:00-04:00",
+      "update_date": "2021-09-28T18:38:37-04:00",
+      "main_image": {
+       "id": 391707,
+       "url": "http://svs.gsfc.nasa.gov/vis/a020000/a020300/a020301/Lucy_Flyby_main_seq_00315_print.jpg",
+       "filename": "Lucy_Flyby_main_seq_00315_print.jpg",
+       "media_type": "Image",
+       "alt_text": "Lucy flies by its final target, the binary asteroid Patroclus/Menoetius. When it completes this flyby, Lucy will have visited an unprecedented seven asteroids.",
+       "width": 1024,
+       "height": 576,
+       "pixels": 589824
+      }
+     }
+    },
+    {
+     "id": 412336,
+     "type": "details_page",
+     "extra_data": null,
+     "instance": {
+      "id": 20346,
+      "url": "http://svs.gsfc.nasa.gov/20346/",
+      "page_type": "Animation",
+      "title": "Lucy Deployment Animations",
+      "description": "Animation showing Lucy spacecraft being released, deploying it's solar arrays and starting it's journey towards the trojan asteroids. || Lucy_deployment_Final_ProRes.00770_print.jpg (1024x576) [274.1 KB] || Lucy_deployment_Final_ProRes.00770_searchweb.png (320x180) [107.8 KB] || Lucy_deployment_Final_ProRes.00770_thm.png (80x40) [6.9 KB] || Lucy_deployment_Final1080.mov (1920x1080) [66.0 MB] || Lucy_deployment_Final_4K.mov (3840x2160) [156.5 MB] || Lucy_deployment_Final_ProRes.mov (3840x2160) [3.3 GB] || ",
+      "release_date": "2021-09-15T00:00:00-04:00",
+      "update_date": "2021-09-13T10:09:30-04:00",
+      "main_image": {
+       "id": 376956,
+       "url": "http://svs.gsfc.nasa.gov/vis/a020000/a020300/a020346/Lucy_deployment_Final_ProRes.00770_print.jpg",
+       "filename": "Lucy_deployment_Final_ProRes.00770_print.jpg",
+       "media_type": "Image",
+       "alt_text": " Animation showing Lucy spacecraft being released, deploying it's solar arrays and starting it's journey towards the trojan asteroids.",
+       "width": 1024,
+       "height": 576,
+       "pixels": 589824
+      }
+     }
+    },
+    {
+     "id": 412337,
+     "type": "details_page",
+     "extra_data": null,
+     "instance": {
+      "id": 20213,
+      "url": "http://svs.gsfc.nasa.gov/20213/",
+      "page_type": "Animation",
+      "title": "MAVEN Mars Orbital Insertion and Instrument Deploys",
+      "description": "These animations depict MAVEN's arrival at Mars on September 21, 2014, and the ensuing science instrument deployments. The animations begin with MAVEN's orbital insertion engine burn near the Martian north pole. The deployments include MAVEN's LPW, SWEA and APP instruments. || ",
+      "release_date": "2014-09-18T09:00:00-04:00",
+      "update_date": "2023-05-03T13:50:33.908873-04:00",
+      "main_image": {
+       "id": 451541,
+       "url": "http://svs.gsfc.nasa.gov/vis/a020000/a020200/a020213/MAVEN_MOI_BP_00740_print.jpg",
+       "filename": "MAVEN_MOI_BP_00740_print.jpg",
+       "media_type": "Image",
+       "alt_text": "Beauty pass of MAVEN at Mars",
+       "width": 1024,
+       "height": 576,
+       "pixels": 589824
+      }
+     }
+    },
+    {
+     "id": 412338,
+     "type": "details_page",
+     "extra_data": null,
+     "instance": {
+      "id": 20286,
+      "url": "http://svs.gsfc.nasa.gov/20286/",
+      "page_type": "Animation",
+      "title": "OSIRIS-REx Mission Design: Cruise and Arrival Animations",
+      "description": "After launching from Earth on September 8, 2016, OSIRIS-REx spent over two years on its outbound cruise to asteroid Bennu. The spacecraft approached the asteroid in August 2018 and captured its first images of Bennu using its long-range camera, PolyCam. OSIRIS-REx officially arrived at Bennu on December 3, 2018, and began studying the asteroid in preparation for sample collection in 2020. || ",
+      "release_date": "2018-11-30T09:00:00-05:00",
+      "update_date": "2020-12-08T18:44:06-05:00",
+      "main_image": {
+       "id": 399411,
+       "url": "http://svs.gsfc.nasa.gov/vis/a020000/a020200/a020286/StellarNav.Prores.00360_print.jpg",
+       "filename": "StellarNav.Prores.00360_print.jpg",
+       "media_type": "Image",
+       "alt_text": "Stellar Navigation",
+       "width": 1024,
+       "height": 576,
+       "pixels": 589824
+      }
+     }
+    },
+    {
+     "id": 412339,
+     "type": "details_page",
+     "extra_data": null,
+     "instance": {
+      "id": 20360,
+      "url": "http://svs.gsfc.nasa.gov/20360/",
+      "page_type": "Animation",
+      "title": "Thirty Seconds on Asteroid Bennu: Animation",
+      "description": "Data-driven animation showing how the OSIRIS-REx spacecraft impacted asteroid Bennu's surface when it touched down and collected a sample. || 20360_Orex_tag_h264_1080.00111_print.jpg (576x1024) [160.5 KB] || 20360_Orex_tag_h264_1080.00111_searchweb.png (320x180) [97.3 KB] || 20360_Orex_tag_h264_1080.00111_thm.png (80x40) [6.1 KB] || 20360_Orex_tag_h264_1080.webm (1920x1080) [13.2 MB] || 20360_Orex_tag_h264_1080.mp4 (1920x1080) [175.4 MB] || 20360_Orex_tag_h264_4K.mp4 (3840x2160) [86.5 MB] || OREx_Tag_PNG (3840x2160) [0 Item(s)] || 20360_Orex_Prores_4k.mov (3840x2160) [4.4 GB] || ",
+      "release_date": "2022-07-07T14:30:00-04:00",
+      "update_date": "2022-07-07T17:53:23-04:00",
+      "main_image": {
+       "id": 372818,
+       "url": "http://svs.gsfc.nasa.gov/vis/a020000/a020300/a020360/20360_Orex_tag_h264_1080.00111_print.jpg",
+       "filename": "20360_Orex_tag_h264_1080.00111_print.jpg",
+       "media_type": "Image",
+       "alt_text": "Data-driven animation showing how the OSIRIS-REx spacecraft impacted asteroid Bennu's surface when it touched down and collected a sample.",
+       "width": 576,
+       "height": 1024,
+       "pixels": 589824
+      }
+     }
+    },
+    {
+     "id": 412340,
+     "type": "details_page",
+     "extra_data": null,
+     "instance": {
+      "id": 20337,
+      "url": "http://svs.gsfc.nasa.gov/20337/",
+      "page_type": "Animation",
+      "title": "OSIRIS-REx Farewell to Bennu: Animation",
+      "description": "OSIRIS-REx leaving Bennu, returning to Earth. || Bennu_Departure_000_print.jpg (1024x576) [104.7 KB] || Bennu_Departure_000_searchweb.png (320x180) [69.5 KB] || Bennu_Departure_000_thm.png (80x40) [4.6 KB] || Bennu_Departure_h264_1080.mp4 (1920x1080) [40.5 MB] || Bennu_Departure_h264_1080.webm (1920x1080) [2.0 MB] || Bennu_Departure_h264_4K.mp4 (3840x2160) [21.3 MB] || Bennu_Departure_2160p30.mp4 (3840x2160) [32.8 MB] || 3840x2160_16x9_30p (3840x2160) [0 Item(s)] || Bennu_Departure_Shot_ProRes.mov (3840x2160) [1.3 GB] || ",
+      "release_date": "2021-05-10T16:00:00-04:00",
+      "update_date": "2023-05-03T13:44:08.290096-04:00",
+      "main_image": {
+       "id": 378673,
+       "url": "http://svs.gsfc.nasa.gov/vis/a020000/a020300/a020337/Bennu_Departure_000_print.jpg",
+       "filename": "Bennu_Departure_000_print.jpg",
+       "media_type": "Image",
+       "alt_text": "OSIRIS-REx leaving Bennu, returning to Earth.",
+       "width": 1024,
+       "height": 576,
+       "pixels": 589824
+      }
+     }
+    },
+    {
+     "id": 412341,
+     "type": "details_page",
+     "extra_data": null,
+     "instance": {
+      "id": 20326,
+      "url": "http://svs.gsfc.nasa.gov/20326/",
+      "page_type": "Animation",
+      "title": "OSIRIS-REx TAG Event: Real-time Animation",
+      "description": "Real-time animation of the OSIRIS-REx Touch-And-Go (TAG) Event. This animation accurately depicts the spacecraft's journey to the surface of Bennu. || OrexTagRealtimePreview2_print.jpg (1024x576) [94.4 KB] || OrexTagRealtimePreview2.png (1920x1080) [1.5 MB] || OrexTagRealtimePreview2_searchweb.png (320x180) [58.3 KB] || OrexTagRealtimePreview2_thm.png (80x40) [4.2 KB] || Orex_Tag_1080_29.97fps.webm (1920x1080) [515.7 MB] || Slew_to_TAG_Attitude (3840x2160) [0 Item(s)] || Y_Wing (3840x2160) [0 Item(s)] || Checkpoint (3840x2160) [0 Item(s)] || Matchpoint (3840x2160) [0 Item(s)] || Slew_to_Pegasus_Attitude (3840x2160) [0 Item(s)] || Orex_Tag_4K_30fps.webm (3840x2160) [893.7 MB] || Orex_Tag_4K_30fps.mp4 (3840x2160) [5.6 GB] || Orex_Tag_1080_29.97fps.mp4 (1920x1080) [9.1 GB] || Orex_Tag_4K_ProRes_30fps.mov (3840x2160) [275.1 GB] || ",
+      "release_date": "2020-10-20T00:00:00-04:00",
+      "update_date": "2023-05-03T13:44:35.372650-04:00",
+      "main_image": {
+       "id": 381899,
+       "url": "http://svs.gsfc.nasa.gov/vis/a020000/a020300/a020326/OrexTagRealtimePreview2.png",
+       "filename": "OrexTagRealtimePreview2.png",
+       "media_type": "Image",
+       "alt_text": "Real-time animation of the OSIRIS-REx Touch-And-Go (TAG) Event. This animation accurately depicts the spacecraft's journey to the surface of Bennu.",
+       "width": 1920,
+       "height": 1080,
+       "pixels": 2073600
+      }
+     }
+    }
+   ],
+   "extra_data": {}
+  },
+  {
+   "id": 371570,
+   "url": "http://svs.gsfc.nasa.gov/gallery/spacecraft-animations/#media_group_371570",
+   "widget": "Card gallery",
+   "title": "Communications Satellites",
+   "caption": "",
+   "description": "",
+   "items": [
+    {
+     "id": 412342,
+     "type": "details_page",
+     "extra_data": null,
+     "instance": {
+      "id": 20203,
+      "url": "http://svs.gsfc.nasa.gov/20203/",
+      "page_type": "Animation",
+      "title": "LCRD Instrument Animation",
+      "description": "LCRD deploys and points toward Earth || lcup102002102_print.jpg (1024x576) [186.6 KB] || lcup1020_web.png (320x180) [102.3 KB] || lcup1020_thm.png (80x40) [6.4 KB] || LCRD-uptoearth (1280x720) [64.0 KB] || LCRD-UpToEarth-final.mov (1280x720) [928.8 MB] || LCRD-UpToEarth-final.webmhd.webm (960x540) [13.3 MB] || ",
+      "release_date": "2014-02-07T15:21:35-05:00",
+      "update_date": "2023-05-03T13:51:14.530732-04:00",
+      "main_image": {
+       "id": 458401,
+       "url": "http://svs.gsfc.nasa.gov/vis/a020000/a020200/a020203/lcup102002102_print.jpg",
+       "filename": "lcup102002102_print.jpg",
+       "media_type": "Image",
+       "alt_text": "LCRD deploys and points toward Earth",
+       "width": 1024,
+       "height": 576,
+       "pixels": 589824
+      }
+     }
+    },
+    {
+     "id": 412343,
+     "type": "details_page",
+     "extra_data": null,
+     "instance": {
+      "id": 10976,
+      "url": "http://svs.gsfc.nasa.gov/10976/",
+      "page_type": "Produced Video",
+      "title": "TDRS Heart of Communication",
+      "description": "The most recent evaluations of NASA's Tracking and Data Relay Satellite (TDRS) project confirmed all systems go for TDRS-K, a third generation upgrade of the orbiting communications network. TDRS-K is scheduled for launch aboard an Atlas V rocket from Cape Canaveral, Florida during the 2012 holiday season. || ",
+      "release_date": "2012-05-21T00:00:00-04:00",
+      "update_date": "2023-05-03T13:53:04.114335-04:00",
+      "main_image": {
+       "id": 476276,
+       "url": "http://svs.gsfc.nasa.gov/vis/a010000/a010900/a010976/TDRS_Heart_of_Communication-MASTER_youtube_hq.01252_print.jpg",
+       "filename": "TDRS_Heart_of_Communication-MASTER_youtube_hq.01252_print.jpg",
+       "media_type": "Image",
+       "alt_text": "The launch of TDRS-K will begin the replenishment of the fleet through the development and deployment of the next generation spacecraft. These satellites will ensure NASA's Space Network continues to provide around-the-clock, high throughput communications services to NASA's missions and serving the scientific community and human spaceflight program for years to come. For complete transcript, click here.",
+       "width": 1024,
+       "height": 576,
+       "pixels": 589824
+      }
+     }
+    },
+    {
+     "id": 412344,
+     "type": "details_page",
+     "extra_data": null,
+     "instance": {
+      "id": 11200,
+      "url": "http://svs.gsfc.nasa.gov/11200/",
+      "page_type": "Produced Video",
+      "title": "TDRS-K Video File",
+      "description": "NASA is preparing to launch the first in a series of three third generation advanced Tracking and Data Relay Satellites, known as TDRS-K. This latest addition to the fleet of seven will augment a space communications network that provides the critical path for high data-rate communication to the International Space Station, Hubble Space Telescope, past shuttle missions and a host of other spacecraft. It has been 10 years since NASA last launched a TDRS. This launch is the beginning of a welcome replenishment to the space network, which has served numerous national and international space missions since 1983. || ",
+      "release_date": "2013-01-30T20:48:00-05:00",
+      "update_date": "2023-05-03T13:52:26.968593-04:00",
+      "main_image": {
+       "id": 468699,
+       "url": "http://svs.gsfc.nasa.gov/vis/a010000/a011200/a011200/TDRS_K_SA_Antenna_Stow_youtube_hq00127_print.jpg",
+       "filename": "TDRS_K_SA_Antenna_Stow_youtube_hq00127_print.jpg",
+       "media_type": "Image",
+       "alt_text": "TDRS-K Single Access Antenna Stow",
+       "width": 1024,
+       "height": 576,
+       "pixels": 589824
+      }
+     }
+    }
+   ],
+   "extra_data": {}
+  },
+  {
+   "id": 371571,
+   "url": "http://svs.gsfc.nasa.gov/gallery/spacecraft-animations/#media_group_371571",
+   "widget": "Tile gallery",
+   "title": "Past Missions",
+   "caption": "",
+   "description": "",
+   "items": [
+    {
+     "id": 412345,
+     "type": "details_page",
+     "extra_data": null,
+     "instance": {
+      "id": 20144,
+      "url": "http://svs.gsfc.nasa.gov/20144/",
+      "page_type": "Animation",
+      "title": "Aquarius",
+      "description": "Aquarius spacecraft in orbit around the Earth || Aquarius 2010 Beauty Shot 3 || aqub000100002_print.jpg (1024x576) [35.4 KB] || aqub0001_web.png (320x180) [223.9 KB] || aqub0001_thm.png (80x40) [15.5 KB] || Aquarius-Beauty3_720p.m2v (1280x720) [21.0 MB] || Aquarius-beauty3.mp4 (1280x720) [5.3 MB] || beauty3 (1280x720) [0 Item(s)] || Aquarius-Beauty3_720p.webmhd.webm (960x540) [2.8 MB] || Aquarius-Beauty3_512x288.m1v (512x288) [3.5 MB] || ",
+      "release_date": "2008-07-15T00:00:00-04:00",
+      "update_date": "2025-01-06T01:35:41.506290-05:00",
+      "main_image": {
+       "id": 504747,
+       "url": "http://svs.gsfc.nasa.gov/vis/a020000/a020100/a020144/able000100002_print.jpg",
+       "filename": "able000100002_print.jpg",
+       "media_type": "Image",
+       "alt_text": "Aquarius 2006 Beauty Shot 1",
+       "width": 1024,
+       "height": 768,
+       "pixels": 786432
+      }
+     }
+    },
+    {
+     "id": 412346,
+     "type": "details_page",
+     "extra_data": null,
+     "instance": {
+      "id": 20159,
+      "url": "http://svs.gsfc.nasa.gov/20159/",
+      "page_type": "Animation",
+      "title": "CHIPSat Spacecraft",
+      "description": "CHIPSat passes along the equator || Chipsat100102_print.jpg (1024x768) [128.7 KB] || Chipsat1_web.png (320x240) [140.2 KB] || Chipsat1_thm.png (80x40) [14.1 KB] || Chipsat1_searchweb.png (320x180) [73.9 KB] || Chipsat1.webmhd.webm (960x540) [3.0 MB] || Chipsat1.mov (320x240) [11.7 MB] || ",
+      "release_date": "2008-07-22T12:00:00-04:00",
+      "update_date": "2023-05-03T13:55:16.397271-04:00",
+      "main_image": {
+       "id": 504277,
+       "url": "http://svs.gsfc.nasa.gov/vis/a020000/a020100/a020159/Chipsat100102_print.jpg",
+       "filename": "Chipsat100102_print.jpg",
+       "media_type": "Image",
+       "alt_text": "CHIPSat passes along the equator",
+       "width": 1024,
+       "height": 768,
+       "pixels": 786432
+      }
+     }
+    },
+    {
+     "id": 412347,
+     "type": "details_page",
+     "extra_data": null,
+     "instance": {
+      "id": 10354,
+      "url": "http://svs.gsfc.nasa.gov/10354/",
+      "page_type": "Produced Video",
+      "title": "CNOFS beauty pass",
+      "description": "The Communication/Navigation Outage Forcasting System (C/NOFS) is designed to detect and forcast scintillations in the Earth's ionosphere which result in decreased satellite to ground communications and to alert users of impending satellite communication outages. || ",
+      "release_date": "2008-12-15T00:00:00-05:00",
+      "update_date": "2023-05-03T13:55:00.553292-04:00",
+      "main_image": {
+       "id": 500808,
+       "url": "http://svs.gsfc.nasa.gov/vis/a010000/a010300/a010354/CNOFS0001.00002_print.jpg",
+       "filename": "CNOFS0001.00002_print.jpg",
+       "media_type": "Image",
+       "alt_text": "CNOFS space craft beauty pass",
+       "width": 1024,
+       "height": 576,
+       "pixels": 589824
+      }
+     }
+    },
+    {
+     "id": 412348,
+     "type": "details_page",
+     "extra_data": null,
+     "instance": {
+      "id": 20161,
+      "url": "http://svs.gsfc.nasa.gov/20161/",
+      "page_type": "Animation",
+      "title": "EO-1 Spacecraft",
+      "description": "EO-1 Takes High Resolution images of Earth || EO-1 Overhead View || EO-1Beauty100002_print.jpg (1024x768) [76.7 KB] || EO-1Beauty1_web.png (320x240) [124.4 KB] || EO-1Beauty1_thm.png (80x40) [14.8 KB] || EO-1Beauty1_searchweb.png (320x180) [76.4 KB] || EO-1Beauty1.webmhd.webm (960x540) [738.2 KB] || EO-1Beauty1.mov (320x240) [2.3 MB] || ",
+      "release_date": "2008-07-21T12:00:00-04:00",
+      "update_date": "2023-05-03T13:55:17.454716-04:00",
+      "main_image": {
+       "id": 504508,
+       "url": "http://svs.gsfc.nasa.gov/vis/a020000/a020100/a020161/EO-1Beauty100002_print.jpg",
+       "filename": "EO-1Beauty100002_print.jpg",
+       "media_type": "Image",
+       "alt_text": "EO-1 Overhead View",
+       "width": 1024,
+       "height": 768,
+       "pixels": 786432
+      }
+     }
+    },
+    {
+     "id": 412349,
+     "type": "details_page",
+     "extra_data": null,
+     "instance": {
+      "id": 10647,
+      "url": "http://svs.gsfc.nasa.gov/10647/",
+      "page_type": "Produced Video",
+      "title": "Firefly Beauty Pass",
+      "description": "The small satellite, with a big mission, is appropriately named \"Firefly.\" Sponsored by the National Science Foundation (NSF), the pint-sized satellite will study the most powerful natural particle accelerator on Earth - lightning - when it launches from the Marshall Islands aboard an Air Force Falcon 1E rocket vehicle next year. In particular, Firefly will focus on Terrestrial Gamma-ray Flashes (TGFs), a little understood phenomenon first discovered by NASA's Compton Gamma-Ray Observatory in the early 1990s.Although no one knows why, it appears these flashes of gamma rays that were once thought to occur only far out in space near black holes or other high-energy cosmic phenomena are somehow linked to lightning.Using measurements gathered by Firefly's instruments, Goddard scientist Doug Rowland and his collaborators - Universities Space Research Association in Columbia, Md., Siena College, located near Albany, N.Y., and the Hawk Institute for Space Studies in Pocomoke City, Md. - hope to answer what causes these high-energy flashes. In particular, they want to find out if lightning triggers them or if they trigger lightning. Could they be responsible for some of the high-energy particles in the Van Allen radiation belts, which damage satellites? Firefly is expected to observe up to 50 lightning strokes per day, and about one large TGF every couple days. || ",
+      "release_date": "2010-09-17T00:00:00-04:00",
+      "update_date": "2023-05-03T13:54:04.331914-04:00",
+      "main_image": {
+       "id": 490204,
+       "url": "http://svs.gsfc.nasa.gov/vis/a010000/a010600/a010647/Firefly_Beauty_Pass.00302_print.jpg",
+       "filename": "Firefly_Beauty_Pass.00302_print.jpg",
+       "media_type": "Image",
+       "alt_text": "Firefly will pass over a large number of thunderstorms throughout its one year lifetime, and will provide the first simultaneous measurements of lightning and the gamma rays it can produce.",
+       "width": 1024,
+       "height": 768,
+       "pixels": 786432
+      }
+     }
+    },
+    {
+     "id": 412350,
+     "type": "details_page",
+     "extra_data": null,
+     "instance": {
+      "id": 20149,
+      "url": "http://svs.gsfc.nasa.gov/20149/",
+      "page_type": "Animation",
+      "title": "GOES-M",
+      "description": "Goes-M is the latest in the fleet of satellites that bring us weather information on a daily basis || Goes in geostationary orbit over the Earth || goeb000100052_print.jpg (1024x576) [58.9 KB] || goeb0001_web.png (320x180) [230.2 KB] || goeb0001_thm.png (80x40) [15.3 KB] || 1280x720_16x9_60p (1280x720) [64.0 KB] || a010292_720p.m2v (1280x720) [57.3 MB] || a010292_720p.webmhd.webm (960x540) [4.3 MB] || a010292_a010292_720p.mp4 (640x360) [3.3 MB] || a010292_512x288.m1v (512x288) [10.1 MB] || ",
+      "release_date": "2008-07-16T00:00:00-04:00",
+      "update_date": "2023-05-03T13:55:17.778610-04:00",
+      "main_image": {
+       "id": 504577,
+       "url": "http://svs.gsfc.nasa.gov/vis/a020000/a020100/a020149/goeb000100052_print.jpg",
+       "filename": "goeb000100052_print.jpg",
+       "media_type": "Image",
+       "alt_text": "Goes in geostationary orbit over the Earth",
+       "width": 1024,
+       "height": 576,
+       "pixels": 589824
+      }
+     }
+    },
+    {
+     "id": 412351,
+     "type": "details_page",
+     "extra_data": null,
+     "instance": {
+      "id": 10480,
+      "url": "http://svs.gsfc.nasa.gov/10480/",
+      "page_type": "Produced Video",
+      "title": "GRACE Beauty Pass Animations",
+      "description": "GRACE, Gravity Recovery And Climate Experiment - twin satellites launched in March 2002, are making detailed measurements of Earth's gravity field which will lead to discoveries about gravity and Earth's natural systems. These discoveries could have far-reaching benefits to society and the world's population. || ",
+      "release_date": "2009-08-14T00:00:00-04:00",
+      "update_date": "2023-05-03T13:54:40.366533-04:00",
+      "main_image": {
+       "id": 496721,
+       "url": "http://svs.gsfc.nasa.gov/vis/a010000/a010400/a010480/10480_GRACE_Beauty_Pass_1_H264_720p.00077_print.jpg",
+       "filename": "10480_GRACE_Beauty_Pass_1_H264_720p.00077_print.jpg",
+       "media_type": "Image",
+       "alt_text": "The primary goal of the GRACE mission is to accurately map variations in the Earth's gravity field over its 5-year lifetime. ",
+       "width": 1024,
+       "height": 576,
+       "pixels": 589824
+      }
+     }
+    },
+    {
+     "id": 412352,
+     "type": "details_page",
+     "extra_data": null,
+     "instance": {
+      "id": 10518,
+      "url": "http://svs.gsfc.nasa.gov/10518/",
+      "page_type": "Produced Video",
+      "title": "ICESat Spacecraft",
+      "description": "Animations of the ICESat spacecraft on orbit || ICESat's collector viewed with Earth reflecting in its lens || icec000100002_print.jpg (1024x576) [47.9 KB] || icec0001_web.png (320x180) [266.4 KB] || icec0001_thm.png (80x40) [15.5 KB] || Collector_1080i.webmhd.webm (960x540) [2.1 MB] || collector (1920x1080) [32.0 KB] || Collector_1080i.m2v (1920x1080) [47.2 MB] || Collector.mp4 (1920x1080) [7.1 MB] || Collector_512x288.m1v (512x288) [3.2 MB] || ",
+      "release_date": "2010-01-04T00:00:00-05:00",
+      "update_date": "2023-05-03T13:54:25.642041-04:00",
+      "main_image": {
+       "id": 494743,
+       "url": "http://svs.gsfc.nasa.gov/vis/a010000/a010500/a010518/icec000100002_print.jpg",
+       "filename": "icec000100002_print.jpg",
+       "media_type": "Image",
+       "alt_text": "ICESat's collector viewed with Earth reflecting in its lens",
+       "width": 1024,
+       "height": 576,
+       "pixels": 589824
+      }
+     }
+    },
+    {
+     "id": 412353,
+     "type": "details_page",
+     "extra_data": null,
+     "instance": {
+      "id": 10534,
+      "url": "http://svs.gsfc.nasa.gov/10534/",
+      "page_type": "Produced Video",
+      "title": "IXO Spacecraft",
+      "description": "Delpoy and beauty shot of the IXO spacecraft || IXO Spacecraft || ixkk0001.00002_print.jpg (1024x576) [46.0 KB] || ixkk0001_web.png (320x180) [219.0 KB] || ixkk0001_thm.png (80x40) [14.9 KB] || IXO_720p.webmhd.webm (960x540) [6.9 MB] || 1280x720_16x9_60p (1280x720) [64.0 KB] || IXO_720p.m2v (1280x720) [62.9 MB] || IXO.mp4 (1280x720) [22.6 MB] || IXO_512x288.m1v (512x288) [9.3 MB] || ",
+      "release_date": "2010-01-12T00:00:00-05:00",
+      "update_date": "2023-05-03T13:54:24.597980-04:00",
+      "main_image": {
+       "id": 494692,
+       "url": "http://svs.gsfc.nasa.gov/vis/a010000/a010500/a010534/ixkk0001.00002_print.jpg",
+       "filename": "ixkk0001.00002_print.jpg",
+       "media_type": "Image",
+       "alt_text": "IXO Spacecraft",
+       "width": 1024,
+       "height": 576,
+       "pixels": 589824
+      }
+     }
+    },
+    {
+     "id": 412354,
+     "type": "details_page",
+     "extra_data": null,
+     "instance": {
+      "id": 10519,
+      "url": "http://svs.gsfc.nasa.gov/10519/",
+      "page_type": "Produced Video",
+      "title": "Landsat 7 Spacecraft Animations",
+      "description": "The seventh satellite in the long-running Landsat program was launched on April 15, 1999 and is the most accurately calibrated Earth-observing satellite, i.e., its measurements are extremely accurate when compared to the same measurements made on the ground. Landsat 7's sensor has been called \"the most stable, best characterized Earth observation instrument ever placed in orbit.\" Landsat 7's rigorous calibration standards have made it the validation choice for many coarse-resolution sensors.Created for the 10th anniversary of the launch of Landsat 7. || ",
+      "release_date": "2010-01-04T00:00:00-05:00",
+      "update_date": "2023-05-03T13:54:25.804754-04:00",
+      "main_image": {
+       "id": 494773,
+       "url": "http://svs.gsfc.nasa.gov/vis/a010000/a010500/a010519/aall0001.00002_print.jpg",
+       "filename": "aall0001.00002_print.jpg",
+       "media_type": "Image",
+       "alt_text": "An artist's depiction of the Landsat 7 spacecraft in orbit around the Earth. Beauty Pass 1.",
+       "width": 1024,
+       "height": 576,
+       "pixels": 589824
+      }
+     }
+    },
+    {
+     "id": 412355,
+     "type": "details_page",
+     "extra_data": null,
+     "instance": {
+      "id": 20164,
+      "url": "http://svs.gsfc.nasa.gov/20164/",
+      "page_type": "Animation",
+      "title": "POLAR Spacecraft in orbit",
+      "description": "POLAR looks at the polar aurora and sun-earth connection long term effects. || Polar Spacecraft in orbit || Polar-spacecraft00002_print.jpg (1024x691) [170.0 KB] || Polar-spacecraft_web.png (320x216) [252.1 KB] || Polar-spacecraft_thm.png (80x40) [16.6 KB] || Polar-spacecraft_searchweb.png (320x180) [120.7 KB] || Polar-spacecraft.webmhd.webm (960x540) [4.0 MB] || Polar-spacecraft.mov (320x216) [32.9 MB] || ",
+      "release_date": "2008-07-22T12:00:00-04:00",
+      "update_date": "2023-05-03T13:55:16.724193-04:00",
+      "main_image": {
+       "id": 504330,
+       "url": "http://svs.gsfc.nasa.gov/vis/a020000/a020100/a020164/Polar-spacecraft00002_print.jpg",
+       "filename": "Polar-spacecraft00002_print.jpg",
+       "media_type": "Image",
+       "alt_text": "Polar Spacecraft in orbit",
+       "width": 1024,
+       "height": 691,
+       "pixels": 707584
+      }
+     }
+    },
+    {
+     "id": 412356,
+     "type": "details_page",
+     "extra_data": null,
+     "instance": {
+      "id": 20167,
+      "url": "http://svs.gsfc.nasa.gov/20167/",
+      "page_type": "Animation",
+      "title": "QuikTOMS Spacecraft",
+      "description": "QuikTOMS in orbit || QUIKToms in orbit || QuiktomsBeauty100002_print.jpg (1024x768) [144.1 KB] || QuiktomsBeauty1_web.png (320x240) [210.9 KB] || QuiktomsBeauty1_thm.png (80x40) [17.1 KB] || QuiktomsBeauty1_searchweb.png (320x180) [117.2 KB] || QuiktomsBeauty1.webmhd.webm (960x540) [3.7 MB] || QuiktomsBeauty1.mov (320x240) [8.9 MB] || ",
+      "release_date": "2008-07-22T12:00:00-04:00",
+      "update_date": "2023-05-03T13:55:16.936372-04:00",
+      "main_image": {
+       "id": 504358,
+       "url": "http://svs.gsfc.nasa.gov/vis/a020000/a020100/a020167/QuiktomsBeauty100002_print.jpg",
+       "filename": "QuiktomsBeauty100002_print.jpg",
+       "media_type": "Image",
+       "alt_text": "QUIKToms in orbit",
+       "width": 1024,
+       "height": 768,
+       "pixels": 786432
+      }
+     }
+    },
+    {
+     "id": 412357,
+     "type": "details_page",
+     "extra_data": null,
+     "instance": {
+      "id": 20163,
+      "url": "http://svs.gsfc.nasa.gov/20163/",
+      "page_type": "Animation",
+      "title": "RHESSI Spacecraft",
+      "description": "RHSSI studies the basic physics of particle acceleration and explosive energy release in solar flares || RHESSI over Earth || HESSIbeauty100002_print.jpg (1024x768) [170.3 KB] || HESSIbeauty1_web.png (320x240) [232.6 KB] || HESSIbeauty1_thm.png (80x40) [17.9 KB] || HESSIbeauty1_searchweb.png (320x180) [139.2 KB] || HESSIbeauty1.webmhd.webm (960x540) [2.2 MB] || HESSIbeauty1.mov (320x240) [7.3 MB] || ",
+      "release_date": "2008-07-22T12:00:00-04:00",
+      "update_date": "2023-05-03T13:55:16.637784-04:00",
+      "main_image": {
+       "id": 504304,
+       "url": "http://svs.gsfc.nasa.gov/vis/a020000/a020100/a020163/HESSIbeauty100002_print.jpg",
+       "filename": "HESSIbeauty100002_print.jpg",
+       "media_type": "Image",
+       "alt_text": "RHESSI over Earth",
+       "width": 1024,
+       "height": 768,
+       "pixels": 786432
+      }
+     }
+    },
+    {
+     "id": 412358,
+     "type": "details_page",
+     "extra_data": null,
+     "instance": {
+      "id": 20168,
+      "url": "http://svs.gsfc.nasa.gov/20168/",
+      "page_type": "Animation",
+      "title": "Spartan 201",
+      "description": "A shuttle payload instrument, Spartan deploys from the bay and is returned to Earth with the shuttle. || Spartan 201 || Spartan_animation_sequence00302_print.jpg (1024x768) [59.9 KB] || Spartan_animation_sequence_web.png (320x240) [87.3 KB] || Spartan_animation_sequence_thm.png (80x40) [13.9 KB] || Spartan_animation_sequence_searchweb.png (320x180) [75.9 KB] || Spartan_animation_sequence.webmhd.webm (960x540) [4.2 MB] || Spartan_animation_sequence.mov (320x240) [5.2 MB] || ",
+      "release_date": "2008-07-29T00:00:00-04:00",
+      "update_date": "2023-05-03T13:55:13.793996-04:00",
+      "main_image": {
+       "id": 503732,
+       "url": "http://svs.gsfc.nasa.gov/vis/a020000/a020100/a020168/Spartan_animation_sequence00302_print.jpg",
+       "filename": "Spartan_animation_sequence00302_print.jpg",
+       "media_type": "Image",
+       "alt_text": "Spartan 201",
+       "width": 1024,
+       "height": 768,
+       "pixels": 786432
+      }
+     }
+    },
+    {
+     "id": 412359,
+     "type": "details_page",
+     "extra_data": null,
+     "instance": {
+      "id": 10533,
+      "url": "http://svs.gsfc.nasa.gov/10533/",
+      "page_type": "Produced Video",
+      "title": "Suzaku (formerly Astro-E2) Spacecraft",
+      "description": "An animation depicting the Suzaku/Astro-E2 spacecraft on orbit. Suzaku maintains a low Earth orbit while it observes X-rays from the Universe. The satellite was developed at the Japanese Institute of Space and Astronautical Science (ISAS, which is part of the Japan Aerospace Exploration Agency, JAXA.) in collaboration with Japanese and US institutions including NASA. || ",
+      "release_date": "2010-01-12T00:00:00-05:00",
+      "update_date": "2023-05-03T13:54:24.540445-04:00",
+      "main_image": {
+       "id": 494673,
+       "url": "http://svs.gsfc.nasa.gov/vis/a010000/a010500/a010533/astr0001.00002_print.jpg",
+       "filename": "astr0001.00002_print.jpg",
+       "media_type": "Image",
+       "alt_text": "Suzaku orbiting Earth beauty pass.",
+       "width": 1024,
+       "height": 576,
+       "pixels": 589824
+      }
+     }
+    },
+    {
+     "id": 412360,
+     "type": "details_page",
+     "extra_data": null,
+     "instance": {
+      "id": 175,
+      "url": "http://svs.gsfc.nasa.gov/175/",
+      "page_type": "Visualization",
+      "title": "TRMM Data Swath Close-up View (TRMM Ride)",
+      "description": "This is one of a series of animations created for the TRMM pre-launch package. || ",
+      "release_date": "1998-01-01T12:00:00-05:00",
+      "update_date": "2023-05-03T14:00:00.750837-04:00",
+      "main_image": {
+       "id": 548911,
+       "url": "http://svs.gsfc.nasa.gov/vis/a000000/a000100/a000175/close_orbit_web.jpg",
+       "filename": "close_orbit_web.jpg",
+       "media_type": "Image",
+       "alt_text": "An image showing a sequential set of TRMM data swaths on a globe along with the TRMM satellite.",
+       "width": 320,
+       "height": 240,
+       "pixels": 76800
+      }
+     }
+    },
+    {
+     "id": 412361,
+     "type": "details_page",
+     "extra_data": null,
+     "instance": {
+      "id": 10121,
+      "url": "http://svs.gsfc.nasa.gov/10121/",
+      "page_type": "Produced Video",
+      "title": "The WMAP Spacecraft",
+      "description": "Scientists using NASA's Wilkinson Microwave Anistropy Probe (WMAP) have created the most detailed portrait of the infant Universe. By capturing the afterglow of the Big Bang, called the cosmic microwave background (CMB), we now believe the Universe to be 13.7 billion years olf. Encoded in these patterns is much-anticipated information about the fundamental properties of the early Universe. WMAP launched on June 30, 2001. || ",
+      "release_date": "2007-07-03T00:00:00-04:00",
+      "update_date": "2023-05-03T13:55:38.165685-04:00",
+      "main_image": {
+       "id": 508081,
+       "url": "http://svs.gsfc.nasa.gov/vis/a010000/a010100/a010121/WMAPspins288.jpg",
+       "filename": "WMAPspins288.jpg",
+       "media_type": "Image",
+       "alt_text": "WMAP spins like a top to capture light from every part of the sky.",
+       "width": 1280,
+       "height": 720,
+       "pixels": 921600
+      }
+     }
+    }
+   ],
+   "extra_data": {}
+  }
+ ]
+}

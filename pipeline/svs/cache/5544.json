@@ -1,0 +1,165 @@
+{
+ "id": 5544,
+ "title": "Near Real-Time Normalized Difference Vegetation Index (NDVI)",
+ "url": "https://svs.gsfc.nasa.gov/5544/",
+ "page_type": "Visualization",
+ "release_date": "2025-09-22T18:59:59-04:00",
+ "update_date": "2026-10-28T06:06:37.805502-04:00",
+ "description": "NRT NDVI",
+ "full_text": "NRT NDVI\n\nBy monitoring the color of reflected light via satellite, scientists can determine how successfully plant life is photosynthesizing. A measurement of photosynthesis is essentially a measurement of successful growth, and growth means successful use of ambient carbon. This data visualization shows the abundance of life on land from two and a half years ago to the present. Green represents areas of abundant plant life, such as forests and grasslands, while tan and white represent areas where plant life is sparse or non-existent, such as the deserts in Africa and the Middle East and snow-cover at the poles.\n\nNear reatlime NDVI (Equirectangular projection)\n\nNear reatlime NDVI (Robinson Projection)\n\nNDVI colorbar",
+ "credits_by_role": {
+  "Data visualizer": [
+   "Alex Kekesi (Global Science and Technology, Inc.)"
+  ]
+ },
+ "keywords": [],
+ "datasets": [],
+ "missions": [],
+ "related": [],
+ "alternate_versions": [],
+ "newer_versions": [],
+ "older_versions": [],
+ "media": [
+  {
+   "group": 0,
+   "group_title": "Interactive Viewer",
+   "widget": "Globe Viewer",
+   "caption": "",
+   "group_text": "",
+   "url": "https://svs.gsfc.nasa.gov/vis/a000000/a005500/a005544/nrt_ndvi_equi_2048p30.mp4",
+   "filename": "nrt_ndvi_equi_2048p30.mp4",
+   "media_type": "Movie",
+   "width": 4096,
+   "height": 2048,
+   "alt_text": ""
+  },
+  {
+   "group": 2,
+   "group_title": "NRT NDVI (Equirectangular Projection)",
+   "widget": "Video player",
+   "caption": "",
+   "group_text": "Near reatlime NDVI (Equirectangular projection)",
+   "url": "https://svs.gsfc.nasa.gov/vis/a000000/a005500/a005544/nrt_ndvi_equi_w_dates_2048p30.mp4",
+   "filename": "nrt_ndvi_equi_w_dates_2048p30.mp4",
+   "media_type": "Movie",
+   "width": 4096,
+   "height": 2048,
+   "alt_text": ""
+  },
+  {
+   "group": 2,
+   "group_title": "NRT NDVI (Equirectangular Projection)",
+   "widget": "Video player",
+   "caption": "",
+   "group_text": "Near reatlime NDVI (Equirectangular projection)",
+   "url": "https://svs.gsfc.nasa.gov/vis/a000000/a005500/a005544/frames/8640x4320_2x1_30p/equirectangular/",
+   "filename": "equirectangular",
+   "media_type": "Frames",
+   "width": 8640,
+   "height": 4320,
+   "alt_text": ""
+  },
+  {
+   "group": 2,
+   "group_title": "NRT NDVI (Equirectangular Projection)",
+   "widget": "Video player",
+   "caption": "",
+   "group_text": "Near reatlime NDVI (Equirectangular projection)",
+   "url": "https://svs.gsfc.nasa.gov/vis/a000000/a005500/a005544/frames/4096x2048_2x1_30p/equirectangular_w_dates/",
+   "filename": "equirectangular_w_dates",
+   "media_type": "Frames",
+   "width": 4096,
+   "height": 2048,
+   "alt_text": ""
+  },
+  {
+   "group": 3,
+   "group_title": "NRT NDVI (Robinson Projection)",
+   "widget": "Video player",
+   "caption": "",
+   "group_text": "Near reatlime NDVI (Robinson Projection)",
+   "url": "https://svs.gsfc.nasa.gov/vis/a000000/a005500/a005544/nrt_ndvi_rob_w_dates_2048p30.mp4",
+   "filename": "nrt_ndvi_rob_w_dates_2048p30.mp4",
+   "media_type": "Movie",
+   "width": 4096,
+   "height": 2048,
+   "alt_text": ""
+  },
+  {
+   "group": 3,
+   "group_title": "NRT NDVI (Robinson Projection)",
+   "widget": "Video player",
+   "caption": "",
+   "group_text": "Near reatlime NDVI (Robinson Projection)",
+   "url": "https://svs.gsfc.nasa.gov/vis/a000000/a005500/a005544/frames/4096x2048_2x1_30p/robinson_w_dates/",
+   "filename": "robinson_w_dates",
+   "media_type": "Frames",
+   "width": 4096,
+   "height": 2048,
+   "alt_text": ""
+  },
+  {
+   "group": 3,
+   "group_title": "NRT NDVI (Robinson Projection)",
+   "widget": "Video player",
+   "caption": "",
+   "group_text": "Near reatlime NDVI (Robinson Projection)",
+   "url": "https://svs.gsfc.nasa.gov/vis/a000000/a005500/a005544/frames/8640x4320_2x1_30p/robinson/",
+   "filename": "robinson",
+   "media_type": "Frames",
+   "width": 8640,
+   "height": 4320,
+   "alt_text": ""
+  },
+  {
+   "group": 4,
+   "group_title": "NDVI Colorbar",
+   "widget": "Single image",
+   "caption": "",
+   "group_text": "NDVI colorbar",
+   "url": "https://svs.gsfc.nasa.gov/vis/a000000/a005500/a005544/NDVI_colorbar.png",
+   "filename": "NDVI_colorbar.png",
+   "media_type": "Image",
+   "width": 1000,
+   "height": 250,
+   "alt_text": ""
+  }
+ ],
+ "text_links": [],
+ "frame_folders": {
+  "https://svs.gsfc.nasa.gov/vis/a000000/a005500/a005544/frames/8640x4320_2x1_30p/equirectangular/": {
+   "url": "https://svs.gsfc.nasa.gov/vis/a000000/a005500/a005544/frames/8640x4320_2x1_30p/equirectangular/",
+   "frame_count": 900,
+   "bytes_approx": null,
+   "first": "SNPP_VIIRS.20231227.ndvi_w_snow.oceanblue.png",
+   "last": "SNPP_VIIRS.20260613.ndvi_w_snow.oceanblue.png",
+   "subfolders": {}
+  },
+  "https://svs.gsfc.nasa.gov/vis/a000000/a005500/a005544/frames/4096x2048_2x1_30p/equirectangular_w_dates/": {
+   "url": "https://svs.gsfc.nasa.gov/vis/a000000/a005500/a005544/frames/4096x2048_2x1_30p/equirectangular_w_dates/",
+   "frame_count": 900,
+   "bytes_approx": null,
+   "first": "SNPP_VIIRS.20231227.ndvi_w_snow.oceanblue.annotated.png",
+   "last": "SNPP_VIIRS.20260613.ndvi_w_snow.oceanblue.annotated.png",
+   "subfolders": {}
+  },
+  "https://svs.gsfc.nasa.gov/vis/a000000/a005500/a005544/frames/4096x2048_2x1_30p/robinson_w_dates/": {
+   "url": "https://svs.gsfc.nasa.gov/vis/a000000/a005500/a005544/frames/4096x2048_2x1_30p/robinson_w_dates/",
+   "frame_count": 900,
+   "bytes_approx": null,
+   "first": "SNPP_VIIRS.20231227.ndvi_w_snow.oceanblue.rob.annotated.png",
+   "last": "SNPP_VIIRS.20260613.ndvi_w_snow.oceanblue.rob.annotated.png",
+   "subfolders": {}
+  },
+  "https://svs.gsfc.nasa.gov/vis/a000000/a005500/a005544/frames/8640x4320_2x1_30p/robinson/": {
+   "url": "https://svs.gsfc.nasa.gov/vis/a000000/a005500/a005544/frames/8640x4320_2x1_30p/robinson/",
+   "frame_count": 900,
+   "bytes_approx": null,
+   "first": "SNPP_VIIRS.20231227.ndvi_w_snow.oceanblue.rob.png",
+   "last": "SNPP_VIIRS.20260613.ndvi_w_snow.oceanblue.rob.png",
+   "subfolders": {}
+  }
+ },
+ "api_url": "https://svs.gsfc.nasa.gov/api/5544",
+ "fetched_utc": "2026-10-29T07:42:31Z"
+}

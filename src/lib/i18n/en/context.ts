@@ -28,7 +28,7 @@ export const contextEn = {
   "thenNow.split": "Then left, now right",
   "thenNow.stop": "Stop",
   "thenNow.soundOff": "Sound is off. Turn sound on to hear this comparison.",
-  "thenNow.loading": "Loading the comparison…",
+  "thenNow.loading": "Loading the comparison",
   "thenNow.error": "Couldn't load the comparison data. Reload the page to try again.",
   "thenNow.then": (p: { label: string }) => `Then, ${p.label}`,
   "thenNow.now": (p: { label: string }) => `Now, ${p.label}`,
@@ -69,8 +69,8 @@ export const contextEn = {
   "field.veg.point.Madhupur_forest": "Madhupur forest",
   "field.veg.point.Dhaka_city_control": "Dhaka city (control)",
   "field.veg.unit": "NDVI",
-  "field.veg.summary": (p: { place: string; then: string; now: string }) =>
-    `Vegetation index (NDVI) at ${p.place} every 16 days, ${p.then} against ${p.now}.`,
+  "field.veg.summary": (p: { place: string; then: string; now: string; dataset: string }) =>
+    `Vegetation index (NDVI) at ${p.place}, ${p.then} against ${p.now} (${p.dataset}).`,
   "field.veg.caption": (p: { place: string; then: string; thenMean: number; now: string; nowMean: number }) =>
     `${p.place}: mean NDVI ${n2(p.thenMean)} in ${p.then}, ${n2(p.nowMean)} in ${p.now} (a single 250 m pixel).`,
 
@@ -100,7 +100,7 @@ export const contextEn = {
   "history.unit.water": "cm",
   "history.group.bangladesh": "Bangladesh",
   "history.group.world": "World",
-  "history.loadingWorld": "Loading this record for the world (a few megabytes, first time only)…",
+  "history.loadingWorld": "Loading this record for the world (a few megabytes, first time only)",
   "history.noValue": (p: { month: string }) => `${p.month}: no measurement (silence)`,
   "history.sharedCell": (p: { places: string }) =>
     `In this dataset, this is the same grid cell as ${p.places}: one record, not separate places.`,
@@ -120,6 +120,6 @@ export const contextEn = {
     `${p.metric} for ${p.place}, monthly from ${p.from} to ${p.to}.`,
   "history.scrub": (p: { place: string }) => `${p.place} chart: drag along it, or use the arrow keys, to hear one month`,
   "history.monthValue": (p: { month: string; value: string; unit: string }) => `${p.month}: ${p.value} ${p.unit}`,
-  "history.loading": "Loading the records…",
+  "history.loading": "Loading the records",
   "history.error": "Couldn't load the records. Reload the page to try again.",
 };

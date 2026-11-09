@@ -5,7 +5,10 @@ import { useNavigate } from "@tanstack/react-router";
 import { locationForMode } from "@/router/modes";
 import { sleep } from "@/lib/abortable";
 import { audio } from "@/lib/audio-adapter";
-import { bandMeans, SWEEP_CENTER, sweepPath } from "@/lib/data";
+import { audio as jukebox } from "@/lib/audio-jukebox";
+import { ensureAudioAll, stopAllEngines } from "@/lib/audio-engines";
+import { bandMeans, loadSstPairs, nearestPair, SWEEP_CENTER, sweepPath, type LatLon } from "@/lib/data";
+import { roundKm } from "@/lib/geo/spherical";
 import { bindT } from "@/lib/i18n";
 import { spokenReading, readAt } from "@/lib/reading";
 import { speechLangFor } from "@/lib/speech-lang";
@@ -36,7 +39,7 @@ export function CommandsProvider({ children }: { children: ReactNode }) {
       t(track === "ocean" ? "track.oceanLong" : track === "rain" ? "track.rainLong" : "track.both");
 
     const enableSound = async () => {
-      await audio.ensureAudio(); // inside the click/keydown gesture
+      await ensureAudioAll(); // inside the click/keydown gesture: one gesture unlocks both engines
       dispatch({ type: "enableSound" });
       announce(t("sound.resumed"));
     };
@@ -67,6 +70,12 @@ export function CommandsProvider({ children }: { children: ReactNode }) {
       if (source && state.soundOn && id === sayCount.current) audio.playEarcon("whisper", { params: { source: source.caption } });
     };
 
+    const speakAt = (at: LatLon) => {
+      if (!fields) return;
+      const reading = readAt(fields, at);
+      void say((tl) => spokenReading(tl, reading, state.track, at), whisperSource(t, fields, state.track));
+    };
+
     const startSweep = () => {
       if (!fields) return null;
       const path = sweepPath(fields, SWEEP_CENTER);
@@ -76,14 +85,14 @@ export function CommandsProvider({ children }: { children: ReactNode }) {
 
     return {
       async start() {
-        await audio.ensureAudio(); // inside the click/keydown gesture
+        await ensureAudioAll(); // inside the click/keydown gesture: one gesture unlocks both engines
         dispatch({ type: "start" }); // the Opening plays next, then sets introDone
       },
       startSilent() {
         dispatch({ type: "startSilent" }); // no AudioContext is created
       },
       resetStart() {
-        audio.stopAll();
+        stopAllEngines();
         dispatch({ type: "resetStart" });
       },
       enableSound,
@@ -116,15 +125,14 @@ export function CommandsProvider({ children }: { children: ReactNode }) {
         // Every tap is a user gesture: wake audio a phone suspended (a call, a
         // locked screen), even if the button still said "Pause". If the browser
         // refuses, the next tap tries again.
-        void audio.ensureAudio().catch(() => {});
+        void ensureAudioAll().catch(() => {});
         dispatch({ type: "setPlaying", playing: !state.playing });
         announce(t(state.playing ? "sound.paused" : "sound.resumed"));
       },
       speakCurrent() {
-        if (!fields) return;
-        const reading = readAt(fields, state.cursor);
-        void say((tl) => spokenReading(tl, reading, state.track, state.cursor), whisperSource(t, fields, state.track));
+        speakAt(state.cursor);
       },
+      speakAt,
       say,
       playSweep() {
         if (!fields) return;
@@ -145,6 +153,21 @@ export function CommandsProvider({ children }: { children: ReactNode }) {
         if (!state.soundOn) return soundOffHint();
         if (sst) audio.playMotif(bandMeans(sst));
       },
+      playUnison() {
+        if (!state.soundOn) return soundOffHint();
+        const at = state.cursor;
+        loadSstPairs()
+          .then(async (file) => {
+            const near = nearestPair(file.pairs, at.lat, at.lon);
+            if (!near) return;
+            const { pair, km } = near;
+            await say((tl) => tl("unison.say", { km: roundKm(km), place: tl("place.spoken", pair), frame: pair.frame, file: pair.file }));
+            // Unison plays on the Jukebox engine: the map's live voices (L2) step aside for it (src/lib/audio-engines.ts).
+            audio.silenceLive();
+            jukebox.playUnison({ frameC: pair.frame, fileC: pair.file });
+          })
+          .catch(() => announce(t("unison.loading")));
+      },
       xray() {
         announce(t("xray.unavailable"));
       },
@@ -154,17 +177,20 @@ export function CommandsProvider({ children }: { children: ReactNode }) {
       openHelp() {
         dispatch({ type: "setHelpOpen", open: true });
       },
+      toggleBraille(open) {
+        dispatch({ type: "setBrailleOpen", open: open ?? !state.brailleOpen });
+      },
       stopAll() {
         sayCount.current++;
-        audio.stopAll();
+        stopAllEngines();
         sweepRef.current = null;
         dispatch({ type: "introDone" }); // Esc also skips the opening
         dispatch({ type: "setPlaying", playing: false });
         dispatch({ type: "setHelpOpen", open: false });
         dispatch({ type: "setPanelOpen", open: false });
-        // Ending a story: back to Explore, with one combined message.
-        if (state.mode === "story") void navigate(locationForMode("explore"));
-        announce(t(state.mode === "story" ? "story.stopped" : "sound.stopped"));
+        // Ending a story or leaving the turntable: back to Explore (Listen), with one combined message.
+        if (state.mode === "story" || state.mode === "turntable") void navigate(locationForMode("explore"));
+        announce(t(state.mode === "story" ? "story.stopped" : state.mode === "turntable" ? "turntable.stopped" : "sound.stopped"));
       },
       sweepRef,
     };

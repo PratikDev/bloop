@@ -1,0 +1,224 @@
+{
+ "id": 5475,
+ "title": "SOS - Change in Night Lights between 2012 and 2023",
+ "url": "https://svs.gsfc.nasa.gov/5475/",
+ "page_type": "Visualization",
+ "release_date": "2025-05-16T13:00:00-04:00",
+ "update_date": "2025-05-16T13:44:11.005348-04:00",
+ "description": "This animation of the Earth at night showcases NASA's Black Marble data. The animation begins by showing annual averages of nighttime lights from 2012 to 2023. The lights then fade away to reveal how night lights changed between 2012 and 2023, with regions of more light depicted in purple and regions with less light depicted in orange. ||",
+ "full_text": "This animation of the Earth at night showcases NASA's Black Marble data. The animation begins by showing annual averages of nighttime lights from 2012 to 2023. The lights then fade away to reveal how night lights changed between 2012 and 2023, with regions of more light depicted in purple and regions with less light depicted in orange. ||\n\nThis animation of the Earth at night showcases NASA's Black Marble data. The animation begins by showing annual averages of nighttime lights from 2012 to 2023. The lights then fade away to reveal how night lights changed between 2012 and 2023, with regions of more light depicted in purple and regions with less light depicted in orange.\n\nThis visualization of the Earth at night showcases NASA's Black Marble data. It begins by showing annual averages of nighttime lights from 2012 to 2023. The lights then fade away to reveal how night lights changed across those 11 years, with regions of more light depicted in purple and less light depicted in orange.\n\nStill image of 2023 night lights on a globe\n\nStill image of night lights change data (2012-2023) on a globe, with regions of more light depicted in purple and regions with less light depicted in orange.",
+ "credits_by_role": {
+  "Visualizer": [
+   "Kel Elkins (USRA)"
+  ],
+  "Scientist": [
+   "Zhuosen Wang (University of Maryland)",
+   "Miguel Román (Leidos)",
+   "Ranjay Shrestha (SSAI)",
+   "Srija Chakraborty (USRA)",
+   "Virginia Kalb (NASA)"
+  ]
+ },
+ "keywords": [
+  "Black Marble",
+  "Earth",
+  "Earth Information Center",
+  "Night",
+  "Night lights",
+  "Science On a Sphere",
+  "VIIRS"
+ ],
+ "datasets": [
+  {
+   "name": "Black Marble: Next Generation",
+   "common_name": "Black Marble",
+   "platform": "Suomi NPP",
+   "sensor": "VIIRS",
+   "type": "Other",
+   "organizations": [
+    "NASA/NOAA"
+   ],
+   "description": "Earth at night imagery",
+   "credit": "NASA Earth Observatory images by Joshua Stevens, using Suomi NPP VIIRS data from Miguel Román, NASA GSFC.",
+   "url": "https://visibleearth.nasa.gov/images/144898/earth-at-night-black-marble-2016-color-maps/144947l",
+   "date_range": null
+  }
+ ],
+ "missions": [],
+ "related": [],
+ "alternate_versions": [
+  {
+   "id": 5313,
+   "title": "Change in Night Lights between 2012 and 2023 - EIC Version",
+   "url": "https://svs.gsfc.nasa.gov/5313/"
+  }
+ ],
+ "newer_versions": [],
+ "older_versions": [],
+ "media": [
+  {
+   "group": 0,
+   "group_title": "",
+   "widget": "Video player",
+   "caption": "",
+   "group_text": "This animation of the Earth at night showcases NASA's Black Marble data. The animation begins by showing annual averages of nighttime lights from 2012 to 2023. The lights then fade away to reveal how night lights changed between 2012 and 2023, with regions of more light depicted in purple and regions with less light depicted in orange.",
+   "url": "https://svs.gsfc.nasa.gov/vis/a000000/a005400/a005475/nightlights_2012-2024_KSC_SOS_04_plus2_4096x2048_30p_h264.mp4",
+   "filename": "nightlights_2012-2024_KSC_SOS_04_plus2_4096x2048_30p_h264.mp4",
+   "media_type": "Movie",
+   "width": 4096,
+   "height": 2048,
+   "alt_text": "Flat map (equirectangular) view of NASA’s Black Marble data, showing annual averages of nighttime lights from 2012 to 2023."
+  },
+  {
+   "group": 0,
+   "group_title": "",
+   "widget": "Video player",
+   "caption": "",
+   "group_text": "This animation of the Earth at night showcases NASA's Black Marble data. The animation begins by showing annual averages of nighttime lights from 2012 to 2023. The lights then fade away to reveal how night lights changed between 2012 and 2023, with regions of more light depicted in purple and regions with less light depicted in orange.",
+   "url": "https://svs.gsfc.nasa.gov/vis/a000000/a005400/a005475/frames/4096x2048_2x1_30p/nightlights_change_2012-2024_KSC_SOS_plus2/",
+   "filename": "nightlights_change_2012-2024_KSC_SOS_plus2",
+   "media_type": "Frames",
+   "width": 4096,
+   "height": 2048,
+   "alt_text": "Flat map (equirectangular) view of NASA’s Black Marble data, showing annual averages of nighttime lights from 2012 to 2023."
+  },
+  {
+   "group": 0,
+   "group_title": "",
+   "widget": "Video player",
+   "caption": "",
+   "group_text": "This animation of the Earth at night showcases NASA's Black Marble data. The animation begins by showing annual averages of nighttime lights from 2012 to 2023. The lights then fade away to reveal how night lights changed between 2012 and 2023, with regions of more light depicted in purple and regions with less light depicted in orange.",
+   "url": "https://svs.gsfc.nasa.gov/vis/a000000/a005400/a005475/nightlights_2012-2024_KSC_SOS_04_plus2_0900_2k.png",
+   "filename": "nightlights_2012-2024_KSC_SOS_04_plus2_0900_2k.png",
+   "media_type": "Image",
+   "width": 2048,
+   "height": 1024,
+   "alt_text": "Flat map (equirectangular) view of NASA’s Black Marble data, showing annual averages of nighttime lights from 2012 to 2023."
+  },
+  {
+   "group": 1,
+   "group_title": "Science On A Sphere Content",
+   "widget": "Globe Viewer",
+   "caption": "",
+   "group_text": "This visualization of the Earth at night showcases NASA's Black Marble data. It begins by showing annual averages of nighttime lights from 2012 to 2023. The lights then fade away to reveal how night lights changed across those 11 years, with regions of more light depicted in purple and less light depicted in orange.",
+   "url": "https://svs.gsfc.nasa.gov/vis/a000000/a005400/a005475/nightlights_2012-2024_KSC_SOS_04_plus2_4096x2048_30p_h264.mp4",
+   "filename": "nightlights_2012-2024_KSC_SOS_04_plus2_4096x2048_30p_h264.mp4",
+   "media_type": "Movie",
+   "width": 4096,
+   "height": 2048,
+   "alt_text": "Flat map (equirectangular) view of NASA’s Black Marble data, showing annual averages of nighttime lights from 2012 to 2023."
+  },
+  {
+   "group": 1,
+   "group_title": "Science On A Sphere Content",
+   "widget": "Globe Viewer",
+   "caption": "",
+   "group_text": "This visualization of the Earth at night showcases NASA's Black Marble data. It begins by showing annual averages of nighttime lights from 2012 to 2023. The lights then fade away to reveal how night lights changed across those 11 years, with regions of more light depicted in purple and less light depicted in orange.",
+   "url": "https://svs.gsfc.nasa.gov/vis/a000000/a005400/a005475/nightlights_2012-2024_KSC_04_plus2_4096x2048_30p_sos.mp4",
+   "filename": "nightlights_2012-2024_KSC_04_plus2_4096x2048_30p_sos.mp4",
+   "media_type": "Movie",
+   "width": 4096,
+   "height": 2048,
+   "alt_text": "Flat map (equirectangular) view of NASA’s Black Marble data, showing annual averages of nighttime lights from 2012 to 2023."
+  },
+  {
+   "group": 1,
+   "group_title": "Science On A Sphere Content",
+   "widget": "Globe Viewer",
+   "caption": "",
+   "group_text": "This visualization of the Earth at night showcases NASA's Black Marble data. It begins by showing annual averages of nighttime lights from 2012 to 2023. The lights then fade away to reveal how night lights changed across those 11 years, with regions of more light depicted in purple and less light depicted in orange.",
+   "url": "https://svs.gsfc.nasa.gov/vis/a000000/a005400/a005475/nightlights_2012-2024_KSC_04_plus2_2048x1024_30p_sos.mp4",
+   "filename": "nightlights_2012-2024_KSC_04_plus2_2048x1024_30p_sos.mp4",
+   "media_type": "Movie",
+   "width": 2048,
+   "height": 1024,
+   "alt_text": "Flat map (equirectangular) view of NASA’s Black Marble data, showing annual averages of nighttime lights from 2012 to 2023."
+  },
+  {
+   "group": 1,
+   "group_title": "Science On A Sphere Content",
+   "widget": "Globe Viewer",
+   "caption": "",
+   "group_text": "This visualization of the Earth at night showcases NASA's Black Marble data. It begins by showing annual averages of nighttime lights from 2012 to 2023. The lights then fade away to reveal how night lights changed across those 11 years, with regions of more light depicted in purple and less light depicted in orange.",
+   "url": "https://svs.gsfc.nasa.gov/vis/a000000/a005400/a005475/frames/4096x2048_2x1_30p/nightlights_change_2012-2024_KSC_SOS_plus2/",
+   "filename": "nightlights_change_2012-2024_KSC_SOS_plus2",
+   "media_type": "Frames",
+   "width": 4096,
+   "height": 2048,
+   "alt_text": "Flat map (equirectangular) view of NASA’s Black Marble data, showing annual averages of nighttime lights from 2012 to 2023."
+  },
+  {
+   "group": 1,
+   "group_title": "Science On A Sphere Content",
+   "widget": "Globe Viewer",
+   "caption": "",
+   "group_text": "This visualization of the Earth at night showcases NASA's Black Marble data. It begins by showing annual averages of nighttime lights from 2012 to 2023. The lights then fade away to reveal how night lights changed across those 11 years, with regions of more light depicted in purple and less light depicted in orange.",
+   "url": "https://svs.gsfc.nasa.gov/vis/a000000/a005400/a005475/frames/2048x1024_2x1_30p/nightlights_change_2012-2024_KSC_SOS_plus2/",
+   "filename": "nightlights_change_2012-2024_KSC_SOS_plus2",
+   "media_type": "Frames",
+   "width": 2048,
+   "height": 1024,
+   "alt_text": "Flat map (equirectangular) view of NASA’s Black Marble data, showing annual averages of nighttime lights from 2012 to 2023."
+  },
+  {
+   "group": 2,
+   "group_title": "",
+   "widget": "Single image",
+   "caption": "",
+   "group_text": "Still image of 2023 night lights on a globe",
+   "url": "https://svs.gsfc.nasa.gov/vis/a000000/a005400/a005475/nightlights_KSC_SOS_stills.00281.png",
+   "filename": "nightlights_KSC_SOS_stills.00281.png",
+   "media_type": "Image",
+   "width": 3840,
+   "height": 2160,
+   "alt_text": "A view of NASA’s Black Marble data on a 3D Earth, showing annual the 2023 averages of nighttime lights."
+  },
+  {
+   "group": 3,
+   "group_title": "",
+   "widget": "Single image",
+   "caption": "",
+   "group_text": "Still image of 2023 night lights on a globe",
+   "url": "https://svs.gsfc.nasa.gov/vis/a000000/a005400/a005475/nightlights_KSC_SOS_stills.00793.png",
+   "filename": "nightlights_KSC_SOS_stills.00793.png",
+   "media_type": "Image",
+   "width": 3840,
+   "height": 2160,
+   "alt_text": "A view of NASA’s Black Marble data on a 3D Earth, showing annual the 2023 averages of nighttime lights."
+  },
+  {
+   "group": 4,
+   "group_title": "",
+   "widget": "Single image",
+   "caption": "",
+   "group_text": "Still image of night lights change data (2012-2023) on a globe, with regions of more light depicted in purple and regions with less light depicted in orange.",
+   "url": "https://svs.gsfc.nasa.gov/vis/a000000/a005400/a005475/nightlights_KSC_SOS_stills.00310.png",
+   "filename": "nightlights_KSC_SOS_stills.00310.png",
+   "media_type": "Image",
+   "width": 3840,
+   "height": 2160,
+   "alt_text": "A view of NASA’s Black Marble data on a 3D Earth, showing annual the change in annual average night lights between 2012 and 2023. Regions of more light depicted in purple and regions with less light depicted in orange."
+  }
+ ],
+ "text_links": [],
+ "frame_folders": {
+  "https://svs.gsfc.nasa.gov/vis/a000000/a005400/a005475/frames/4096x2048_2x1_30p/nightlights_change_2012-2024_KSC_SOS_plus2/": {
+   "url": "https://svs.gsfc.nasa.gov/vis/a000000/a005400/a005475/frames/4096x2048_2x1_30p/nightlights_change_2012-2024_KSC_SOS_plus2/",
+   "frame_count": 1260,
+   "bytes_approx": 4969400000,
+   "first": "nightlights_2012-2024_KSC_SOS_04_plus2_0000.png",
+   "last": "nightlights_2012-2024_KSC_SOS_04_plus2_1259.png",
+   "subfolders": {}
+  },
+  "https://svs.gsfc.nasa.gov/vis/a000000/a005400/a005475/frames/2048x1024_2x1_30p/nightlights_change_2012-2024_KSC_SOS_plus2/": {
+   "url": "https://svs.gsfc.nasa.gov/vis/a000000/a005400/a005475/frames/2048x1024_2x1_30p/nightlights_change_2012-2024_KSC_SOS_plus2/",
+   "frame_count": 1260,
+   "bytes_approx": 1354367200,
+   "first": "nightlights_2012-2024_KSC_SOS_04_plus2_0000_2k.png",
+   "last": "nightlights_2012-2024_KSC_SOS_04_plus2_1259_2k.png",
+   "subfolders": {}
+  }
+ },
+ "api_url": "https://svs.gsfc.nasa.gov/api/5475",
+ "fetched_utc": "2026-10-29T06:16:06Z"
+}

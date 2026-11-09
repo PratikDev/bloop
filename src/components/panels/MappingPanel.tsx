@@ -2,11 +2,12 @@
 
 import { SpeakerHigh } from "@phosphor-icons/react";
 import { Button } from "@/components/ui/button";
-import { MAPPING } from "@/lib/audio/mapping";
+import { APP_VOICES, MAPPING } from "@/lib/audio/mapping";
 import { audio } from "@/lib/audio-adapter";
 import type { LegendVoice } from "@/lib/audio-adapter/types";
 import type { VoiceSpec } from "@/types/data-contract";
 import { useT } from "../AppState/use-app-state";
+import { ProductBadges } from "../SourceBadges/ProductBadges";
 
 const LEGEND_VOICES: readonly string[] = ["ocean", "rain", "snow"] satisfies LegendVoice[];
 
@@ -19,7 +20,7 @@ const STATUS_KEY = {
 } as const;
 
 /** The voices that sound somewhere in the app; "context" ones have a written rule but no sound yet. */
-export const PLAYED_VOICES = MAPPING.voices.filter((v) => v.group !== "context");
+export const PLAYED_VOICES = APP_VOICES.filter((v) => v.group !== "context");
 
 type Group = VoiceSpec["group"];
 
@@ -39,6 +40,7 @@ function VoiceRule({ v }: { v: VoiceSpec }) {
         <h4 className="font-medium">{t("mapping.voiceLabel", { voice: v })}</h4>
         <span className="text-small text-haze">{t(STATUS_KEY[v.status])}</span>
       </div>
+      <ProductBadges product={v.source.product} />
       <p>{t("mapping.rule", { voice: v })}</p>
       <p className="text-small text-haze">{t("data.text", { text: v.sound.timbre })}</p>
       <p className="text-small text-haze">
@@ -68,7 +70,7 @@ export function MappingPanel({ scope = "live" }: { scope?: "live" | "all" }) {
       {sections.map(({ title, groups }) => (
         <section key={title} className="space-y-4">
           <h3 className="text-lead font-medium">{t(title)}</h3>
-          {MAPPING.voices
+          {APP_VOICES
             .filter((v) => groups.includes(v.group))
             .map((v) => (
               <VoiceRule key={v.id} v={v} />

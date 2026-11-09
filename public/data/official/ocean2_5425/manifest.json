@@ -1,0 +1,1435 @@
+{
+ "record": "ocean2_5425",
+ "app_title": "Perpetual Ocean 2: western boundary currents (model, 2021–23)",
+ "svs_ids": [
+  5425
+ ],
+ "title": "Perpetual Ocean 2: Western Boundary Currents",
+ "svs_pages": [
+  "https://svs.gsfc.nasa.gov/5425/"
+ ],
+ "description": "This is the 'beauty shot version' of Perpetual Ocean 2: Western Boundary Currents.  The visualization starts with a rotating globe showing ocean currents.  The camera then zooms into the Kuroshio current, moves over the Indian Ocean to the Agulhas Current, then over to the Gulf Stream. The flows from the surface down to 600 meters deep are all white.   Flows below 600 meters depth use the blue-cyan-white color table below.",
+ "release_date": "2025-02-27T09:45:00-05:00",
+ "period": {
+  "start": "2022-01-25T00:00:00Z",
+  "end": "2023-12-25T00:00:00Z",
+  "label": "25 Jan 2022 – 25 Dec 2023"
+ },
+ "badge": "model",
+ "credits_by_role": {
+  "Visualizer": [
+   "Greg Shirah (NASA/GSFC)",
+   "Horace Mitchell (NASA/GSFC)"
+  ],
+  "Technical support": [
+   "Laurence Schuler (ADNET Systems, Inc.)",
+   "Ian Jones (ADNET Systems, Inc.)"
+  ],
+  "Scientist": [
+   "Atousa Saberi (NASA/GSFC)",
+   "Josh Willis (JPL)"
+  ],
+  "Producer": [
+   "Kathleen Gaeta (Advocates in Manpower Management, Inc.)"
+  ]
+ },
+ "datasets": [
+  {
+   "name": "Blue Marble: Next Generation",
+   "common_name": "BMNG",
+   "platform": "Terra and Aqua",
+   "sensor": "MODIS",
+   "type": "Other",
+   "organizations": [],
+   "description": "",
+   "credit": "The Blue Marble data is courtesy of Reto Stockli (NASA/GSFC).",
+   "url": "http://earthobservatory.nasa.gov/Newsroom/BlueMarble/",
+   "date_range": null
+  },
+  {
+   "name": "ECCO2 High Resolution Ocean and Sea Ice Model",
+   "common_name": "ECCO2",
+   "platform": null,
+   "sensor": null,
+   "type": "Model",
+   "organizations": [
+    "NASA/JPL"
+   ],
+   "description": "",
+   "credit": "",
+   "url": "",
+   "date_range": null
+  },
+  {
+   "name": "ETOPO-30",
+   "common_name": "",
+   "platform": null,
+   "sensor": null,
+   "type": "Model",
+   "organizations": [],
+   "description": "NOAA Earth TOPOgraphy global relief model 30 arc-second resolution (ETOPO-30): The ETOPO Global Relief Model integrates topography, bathymetry, and shoreline data from regional and global datasets to enable comprehensive, high resolution renderings of geophysical characteristics of the earth’s surface. The model is designed to support tsunami forecasting, modeling, and warning, as well as ocean circulation modeling and Earth visualization.",
+   "credit": "",
+   "url": "https://www.ncei.noaa.gov/products/etopo-global-relief-model",
+   "date_range": null
+  }
+ ],
+ "credit_line": "Visualization: NASA's Scientific Visualization Studio (SVS 5425) for the NASA Earth Information Center. Data: ECCO ocean state estimate (NASA/JPL).",
+ "disclosure": "Temperature and salinity read from camera views of a model (no map position): regional checks only.",
+ "licence": "SVS: \"All of our content is in the public domain (unless otherwise noted), meaning that it is free to download, use, and redistribute for whatever purposes you see fit.\" (https://svs.gsfc.nasa.gov/help/, read 29 Oct 2026)",
+ "frame_times": {
+  "method": "ocr",
+  "approximate": false,
+  "count": 6,
+  "source": "the dates layer (built-in date OCR, 77 probes), interpolated by frame number"
+ },
+ "georef": {
+  "projection": "none (camera views)",
+  "bounds": [
+   -180,
+   -101.25,
+   180,
+   101.25
+  ],
+  "pass_at": 0.0,
+  "shifts_deg": [],
+  "iou": {},
+  "pass": false,
+  "best_is_assumed": false
+ },
+ "colorbars": {
+  "temperature": {
+   "geometry": {
+    "x0": 174,
+    "x1": 1745,
+    "band": [
+     472,
+     607
+    ],
+    "vertical": false,
+    "image_size": [
+     1080,
+     1920
+    ]
+   },
+   "ticks": [
+    {
+     "px": 90.5,
+     "value": 0.0,
+     "text": "0",
+     "engine": "glyph"
+    },
+    {
+     "px": 369.0,
+     "value": 5.0,
+     "text": "5",
+     "engine": "glyph"
+    },
+    {
+     "px": 647.5,
+     "value": 10.0,
+     "text": "10",
+     "engine": "glyph"
+    },
+    {
+     "px": 925.5,
+     "value": 15.0,
+     "text": "15",
+     "engine": "glyph"
+    },
+    {
+     "px": 1203.5,
+     "value": 20.0,
+     "text": "20",
+     "engine": "glyph"
+    },
+    {
+     "px": 1481.5,
+     "value": 25.0,
+     "text": "25",
+     "engine": "glyph"
+    }
+   ],
+   "scale": "linear",
+   "fit": {
+    "a": -1.631743688495241,
+    "b": 0.017973600875669623,
+    "fit": "labels below the strip",
+    "max_resid_value": 0.006162878500839852
+   },
+   "notes": [],
+   "n_samples": 1572,
+   "value_range": [
+    -1.631743688495241,
+    26.604783287181736
+   ],
+   "opacity_varies": false,
+   "px_per_unit": 55.63715400811381
+  },
+  "salinity": {
+   "geometry": {
+    "x0": 174,
+    "x1": 1745,
+    "band": [
+     472,
+     607
+    ],
+    "vertical": false,
+    "image_size": [
+     1080,
+     1920
+    ]
+   },
+   "ticks": [
+    {
+     "px": 91.0,
+     "value": 33.0,
+     "text": "33",
+     "engine": "glyph"
+    },
+    {
+     "px": 554.5,
+     "value": 34.0,
+     "text": "34",
+     "engine": "glyph"
+    },
+    {
+     "px": 1017.5,
+     "value": 35.0,
+     "text": "35",
+     "engine": "glyph"
+    },
+    {
+     "px": 1481.5,
+     "value": 36.0,
+     "text": "36",
+     "engine": "glyph"
+    }
+   ],
+   "scale": "linear",
+   "fit": {
+    "a": 32.80375472672645,
+    "b": 0.0021577297163600387,
+    "fit": "labels below the strip",
+    "max_resid_value": 0.0007552868772080501
+   },
+   "notes": [],
+   "n_samples": 1572,
+   "value_range": [
+    32.80375472672645,
+    36.193548111128074
+   ],
+   "opacity_varies": false,
+   "px_per_unit": 463.4500755205524
+  }
+ },
+ "holds": {
+  "Kuroshio": [
+   6250,
+   7250
+  ],
+  "Agulhas": [
+   9250,
+   10250
+  ],
+  "Gulf Stream": [
+   13250,
+   15750
+  ]
+ },
+ "view_frames": {
+  "Kuroshio": [
+   6650,
+   7250
+  ],
+  "Agulhas": [
+   9250,
+   10250
+  ],
+  "Gulf Stream": [
+   13250,
+   15750
+  ]
+ },
+ "layers": [
+  {
+   "id": "temperature_kuroshio",
+   "unit": "°C",
+   "encoding": "linear",
+   "scale": 0.0017973600875669624,
+   "offset": -1.3010294437408447,
+   "nodata": 65535,
+   "below": 65534,
+   "grid": {
+    "width": 480,
+    "height": 270,
+    "bounds": [
+     -180,
+     -101.25,
+     180,
+     101.25
+    ],
+    "row0": "north",
+    "col0": "west",
+    "byte_order": "little",
+    "space": "frame"
+   },
+   "times": [
+    "2022-01-25T00:00:00Z"
+   ],
+   "chunks": [
+    {
+     "file": "temperature_kuroshio_000.u16.gz",
+     "t0": 0,
+     "t1": 1,
+     "bytes": 53703
+    }
+   ],
+   "quantisation_step": 0.0017973600875669624,
+   "coverage": 0.16327932098765433,
+   "value_range": [
+    -1.3010294437408447,
+    25.00513458251953
+   ],
+   "label": "Kuroshio: temperature (model, the picture's own view)",
+   "aggregation": "mean of decoded pixels per picture cell",
+   "time_labels": [
+    "2022-01-25 (frame 6650)"
+   ],
+   "view": "Kuroshio",
+   "display": {
+    "colours": [
+     "#032333",
+     "#032333",
+     "#042437",
+     "#062b4a",
+     "#0b305f",
+     "#153376",
+     "#26338f",
+     "#3a339e",
+     "#4c379f",
+     "#5b3d9b",
+     "#684396",
+     "#744992",
+     "#814f8f",
+     "#8e548c",
+     "#9b5889",
+     "#a95d85",
+     "#b7617f",
+     "#c56578",
+     "#d36a6f",
+     "#df7064",
+     "#ea7858",
+     "#f3824d",
+     "#f88e44",
+     "#fb9b3e",
+     "#fcaa3c",
+     "#fbb93d",
+     "#f9c842",
+     "#f6d848",
+     "#f1e750",
+     "#eaf759",
+     "#e8fb5b",
+     "#e8fb5b"
+    ],
+    "values": [
+     -1.631743688495241,
+     -0.7208879796024352,
+     0.18996772929037054,
+     1.100823438183176,
+     2.011679147075982,
+     2.9225348559687876,
+     3.833390564861593,
+     4.744246273754399,
+     5.655101982647205,
+     6.56595769154001,
+     7.476813400432816,
+     8.387669109325623,
+     9.298524818218427,
+     10.209380527111234,
+     11.12023623600404,
+     12.031091944896845,
+     12.94194765378965,
+     13.852803362682456,
+     14.763659071575262,
+     15.67451478046807,
+     16.585370489360873,
+     17.49622619825368,
+     18.407081907146488,
+     19.317937616039295,
+     20.228793324932095,
+     21.139649033824902,
+     22.05050474271771,
+     22.961360451610513,
+     23.87221616050332,
+     24.783071869396128,
+     25.693927578288932,
+     26.604783287181736
+    ],
+    "scale": "linear"
+   },
+   "status": "no check",
+   "status_check": "a_temperature",
+   "statement": "regional check only: median frame − truth -5.29 °C"
+  },
+  {
+   "id": "salinity_kuroshio",
+   "unit": "PSU",
+   "encoding": "linear",
+   "scale": 0.00021577297163600387,
+   "offset": 32.96989822387695,
+   "nodata": 65535,
+   "below": 65534,
+   "grid": {
+    "width": 480,
+    "height": 270,
+    "bounds": [
+     -180,
+     -101.25,
+     180,
+     101.25
+    ],
+    "row0": "north",
+    "col0": "west",
+    "byte_order": "little",
+    "space": "frame"
+   },
+   "times": [
+    "2022-01-25T00:00:00Z"
+   ],
+   "chunks": [
+    {
+     "file": "salinity_kuroshio_000.u16.gz",
+     "t0": 0,
+     "t1": 1,
+     "bytes": 79561
+    }
+   ],
+   "quantisation_step": 0.00021577297163600387,
+   "coverage": 0.2896141975308642,
+   "value_range": [
+    32.96989822387695,
+    35.019309997558594
+   ],
+   "label": "Kuroshio: salinity (model, the picture's own view)",
+   "aggregation": "mean of decoded pixels per picture cell",
+   "time_labels": [
+    "2022-01-25 (frame 6650)"
+   ],
+   "view": "Kuroshio",
+   "display": {
+    "colours": [
+     "#00a59b",
+     "#00a59b",
+     "#00a59b",
+     "#00a69d",
+     "#00a79f",
+     "#00a8a0",
+     "#00a8a2",
+     "#00a9a5",
+     "#15a9a6",
+     "#32a9a7",
+     "#4eaaa9",
+     "#68aaaa",
+     "#79aaab",
+     "#89aaac",
+     "#96aaae",
+     "#a1aaaf",
+     "#aaabb1",
+     "#b3aaac",
+     "#bca9a4",
+     "#c6a592",
+     "#d1a17d",
+     "#d99e5b",
+     "#e29a38",
+     "#e99517",
+     "#f08c00",
+     "#f77700",
+     "#fc5a00",
+     "#fe3500",
+     "#ff1900",
+     "#ff0400",
+     "#ff0000",
+     "#ff0000"
+    ],
+    "values": [
+     32.80375472672645,
+     32.91310290041683,
+     33.0224510741072,
+     33.13179924779758,
+     33.24114742148795,
+     33.35049559517833,
+     33.4598437688687,
+     33.56919194255908,
+     33.67854011624945,
+     33.78788828993983,
+     33.8972364636302,
+     34.00658463732058,
+     34.11593281101095,
+     34.22528098470133,
+     34.3346291583917,
+     34.44397733208208,
+     34.55332550577245,
+     34.66267367946283,
+     34.7720218531532,
+     34.88137002684358,
+     34.99071820053395,
+     35.100066374224326,
+     35.2094145479147,
+     35.318762721605076,
+     35.42811089529545,
+     35.537459068985825,
+     35.646807242676196,
+     35.756155416366575,
+     35.865503590056946,
+     35.974851763747324,
+     36.0841999374377,
+     36.193548111128074
+    ],
+    "scale": "linear"
+   },
+   "status": "no check",
+   "status_check": "a_salinity",
+   "statement": "regional check only: median frame − truth -0.67 PSU"
+  },
+  {
+   "id": "temperature_agulhas",
+   "unit": "°C",
+   "encoding": "linear",
+   "scale": 0.0017973600875669624,
+   "offset": -0.8049580454826355,
+   "nodata": 65535,
+   "below": 65534,
+   "grid": {
+    "width": 480,
+    "height": 270,
+    "bounds": [
+     -180,
+     -101.25,
+     180,
+     101.25
+    ],
+    "row0": "north",
+    "col0": "west",
+    "byte_order": "little",
+    "space": "frame"
+   },
+   "times": [
+    "2022-08-17T00:00:00Z"
+   ],
+   "chunks": [
+    {
+     "file": "temperature_agulhas_000.u16.gz",
+     "t0": 0,
+     "t1": 1,
+     "bytes": 92911
+    }
+   ],
+   "quantisation_step": 0.0017973600875669624,
+   "coverage": 0.31319444444444444,
+   "value_range": [
+    -0.8049580454826355,
+    25.0051326751709
+   ],
+   "label": "Agulhas: temperature (model, the picture's own view)",
+   "aggregation": "mean of decoded pixels per picture cell",
+   "time_labels": [
+    "2022-08-17 (frame 10250)"
+   ],
+   "view": "Agulhas",
+   "display": {
+    "colours": [
+     "#032333",
+     "#032333",
+     "#042437",
+     "#062b4a",
+     "#0b305f",
+     "#153376",
+     "#26338f",
+     "#3a339e",
+     "#4c379f",
+     "#5b3d9b",
+     "#684396",
+     "#744992",
+     "#814f8f",
+     "#8e548c",
+     "#9b5889",
+     "#a95d85",
+     "#b7617f",
+     "#c56578",
+     "#d36a6f",
+     "#df7064",
+     "#ea7858",
+     "#f3824d",
+     "#f88e44",
+     "#fb9b3e",
+     "#fcaa3c",
+     "#fbb93d",
+     "#f9c842",
+     "#f6d848",
+     "#f1e750",
+     "#eaf759",
+     "#e8fb5b",
+     "#e8fb5b"
+    ],
+    "values": [
+     -1.631743688495241,
+     -0.7208879796024352,
+     0.18996772929037054,
+     1.100823438183176,
+     2.011679147075982,
+     2.9225348559687876,
+     3.833390564861593,
+     4.744246273754399,
+     5.655101982647205,
+     6.56595769154001,
+     7.476813400432816,
+     8.387669109325623,
+     9.298524818218427,
+     10.209380527111234,
+     11.12023623600404,
+     12.031091944896845,
+     12.94194765378965,
+     13.852803362682456,
+     14.763659071575262,
+     15.67451478046807,
+     16.585370489360873,
+     17.49622619825368,
+     18.407081907146488,
+     19.317937616039295,
+     20.228793324932095,
+     21.139649033824902,
+     22.05050474271771,
+     22.961360451610513,
+     23.87221616050332,
+     24.783071869396128,
+     25.693927578288932,
+     26.604783287181736
+    ],
+    "scale": "linear"
+   },
+   "status": "no check",
+   "status_check": "a_temperature",
+   "statement": "regional check only: median frame − truth -5.29 °C"
+  },
+  {
+   "id": "salinity_agulhas",
+   "unit": "PSU",
+   "encoding": "linear",
+   "scale": 0.00021577297163600387,
+   "offset": 33.48027801513672,
+   "nodata": 65535,
+   "below": 65534,
+   "grid": {
+    "width": 480,
+    "height": 270,
+    "bounds": [
+     -180,
+     -101.25,
+     180,
+     101.25
+    ],
+    "row0": "north",
+    "col0": "west",
+    "byte_order": "little",
+    "space": "frame"
+   },
+   "times": [
+    "2022-08-17T00:00:00Z"
+   ],
+   "chunks": [
+    {
+     "file": "salinity_agulhas_000.u16.gz",
+     "t0": 0,
+     "t1": 1,
+     "bytes": 127097
+    }
+   ],
+   "quantisation_step": 0.00021577297163600387,
+   "coverage": 0.5145216049382716,
+   "value_range": [
+    33.48027801513672,
+    35.98640823364258
+   ],
+   "label": "Agulhas: salinity (model, the picture's own view)",
+   "aggregation": "mean of decoded pixels per picture cell",
+   "time_labels": [
+    "2022-08-17 (frame 10250)"
+   ],
+   "view": "Agulhas",
+   "display": {
+    "colours": [
+     "#00a59b",
+     "#00a59b",
+     "#00a59b",
+     "#00a69d",
+     "#00a79f",
+     "#00a8a0",
+     "#00a8a2",
+     "#00a9a5",
+     "#15a9a6",
+     "#32a9a7",
+     "#4eaaa9",
+     "#68aaaa",
+     "#79aaab",
+     "#89aaac",
+     "#96aaae",
+     "#a1aaaf",
+     "#aaabb1",
+     "#b3aaac",
+     "#bca9a4",
+     "#c6a592",
+     "#d1a17d",
+     "#d99e5b",
+     "#e29a38",
+     "#e99517",
+     "#f08c00",
+     "#f77700",
+     "#fc5a00",
+     "#fe3500",
+     "#ff1900",
+     "#ff0400",
+     "#ff0000",
+     "#ff0000"
+    ],
+    "values": [
+     32.80375472672645,
+     32.91310290041683,
+     33.0224510741072,
+     33.13179924779758,
+     33.24114742148795,
+     33.35049559517833,
+     33.4598437688687,
+     33.56919194255908,
+     33.67854011624945,
+     33.78788828993983,
+     33.8972364636302,
+     34.00658463732058,
+     34.11593281101095,
+     34.22528098470133,
+     34.3346291583917,
+     34.44397733208208,
+     34.55332550577245,
+     34.66267367946283,
+     34.7720218531532,
+     34.88137002684358,
+     34.99071820053395,
+     35.100066374224326,
+     35.2094145479147,
+     35.318762721605076,
+     35.42811089529545,
+     35.537459068985825,
+     35.646807242676196,
+     35.756155416366575,
+     35.865503590056946,
+     35.974851763747324,
+     36.0841999374377,
+     36.193548111128074
+    ],
+    "scale": "linear"
+   },
+   "status": "no check",
+   "status_check": "a_salinity",
+   "statement": "regional check only: median frame − truth -0.67 PSU"
+  },
+  {
+   "id": "temperature_gulf_stream",
+   "unit": "°C",
+   "encoding": "linear",
+   "scale": 0.0017973600875669624,
+   "offset": -1.0176457166671753,
+   "nodata": 65535,
+   "below": 65534,
+   "grid": {
+    "width": 480,
+    "height": 270,
+    "bounds": [
+     -180,
+     -101.25,
+     180,
+     101.25
+    ],
+    "row0": "north",
+    "col0": "west",
+    "byte_order": "little",
+    "space": "frame"
+   },
+   "times": [
+    "2023-02-02T00:00:00Z",
+    "2023-06-24T00:00:00Z"
+   ],
+   "chunks": [
+    {
+     "file": "temperature_gulf_stream_000.u16.gz",
+     "t0": 0,
+     "t1": 2,
+     "bytes": 166216
+    }
+   ],
+   "quantisation_step": 0.0017973600875669624,
+   "coverage": 0.2581134259259259,
+   "value_range": [
+    -1.0176457166671753,
+    25.00513458251953
+   ],
+   "label": "Gulf Stream: temperature (model, the picture's own view)",
+   "aggregation": "mean of decoded pixels per picture cell",
+   "time_labels": [
+    "2023-02-02 (frame 13250)",
+    "2023-06-24 (frame 15750)"
+   ],
+   "view": "Gulf Stream",
+   "display": {
+    "colours": [
+     "#032333",
+     "#032333",
+     "#042437",
+     "#062b4a",
+     "#0b305f",
+     "#153376",
+     "#26338f",
+     "#3a339e",
+     "#4c379f",
+     "#5b3d9b",
+     "#684396",
+     "#744992",
+     "#814f8f",
+     "#8e548c",
+     "#9b5889",
+     "#a95d85",
+     "#b7617f",
+     "#c56578",
+     "#d36a6f",
+     "#df7064",
+     "#ea7858",
+     "#f3824d",
+     "#f88e44",
+     "#fb9b3e",
+     "#fcaa3c",
+     "#fbb93d",
+     "#f9c842",
+     "#f6d848",
+     "#f1e750",
+     "#eaf759",
+     "#e8fb5b",
+     "#e8fb5b"
+    ],
+    "values": [
+     -1.631743688495241,
+     -0.7208879796024352,
+     0.18996772929037054,
+     1.100823438183176,
+     2.011679147075982,
+     2.9225348559687876,
+     3.833390564861593,
+     4.744246273754399,
+     5.655101982647205,
+     6.56595769154001,
+     7.476813400432816,
+     8.387669109325623,
+     9.298524818218427,
+     10.209380527111234,
+     11.12023623600404,
+     12.031091944896845,
+     12.94194765378965,
+     13.852803362682456,
+     14.763659071575262,
+     15.67451478046807,
+     16.585370489360873,
+     17.49622619825368,
+     18.407081907146488,
+     19.317937616039295,
+     20.228793324932095,
+     21.139649033824902,
+     22.05050474271771,
+     22.961360451610513,
+     23.87221616050332,
+     24.783071869396128,
+     25.693927578288932,
+     26.604783287181736
+    ],
+    "scale": "linear"
+   },
+   "status": "no check",
+   "status_check": "a_temperature",
+   "statement": "regional check only: median frame − truth -5.29 °C"
+  },
+  {
+   "id": "salinity_gulf_stream",
+   "unit": "PSU",
+   "encoding": "linear",
+   "scale": 0.00021577297163600387,
+   "offset": 32.90252685546875,
+   "nodata": 65535,
+   "below": 65534,
+   "grid": {
+    "width": 480,
+    "height": 270,
+    "bounds": [
+     -180,
+     -101.25,
+     180,
+     101.25
+    ],
+    "row0": "north",
+    "col0": "west",
+    "byte_order": "little",
+    "space": "frame"
+   },
+   "times": [
+    "2023-02-02T00:00:00Z",
+    "2023-06-24T00:00:00Z"
+   ],
+   "chunks": [
+    {
+     "file": "salinity_gulf_stream_000.u16.gz",
+     "t0": 0,
+     "t1": 2,
+     "bytes": 206859
+    }
+   ],
+   "quantisation_step": 0.00021577297163600387,
+   "coverage": 0.3701157407407407,
+   "value_range": [
+    32.90252685546875,
+    35.99503707885742
+   ],
+   "label": "Gulf Stream: salinity (model, the picture's own view)",
+   "aggregation": "mean of decoded pixels per picture cell",
+   "time_labels": [
+    "2023-02-02 (frame 13250)",
+    "2023-06-24 (frame 15750)"
+   ],
+   "view": "Gulf Stream",
+   "display": {
+    "colours": [
+     "#00a59b",
+     "#00a59b",
+     "#00a59b",
+     "#00a69d",
+     "#00a79f",
+     "#00a8a0",
+     "#00a8a2",
+     "#00a9a5",
+     "#15a9a6",
+     "#32a9a7",
+     "#4eaaa9",
+     "#68aaaa",
+     "#79aaab",
+     "#89aaac",
+     "#96aaae",
+     "#a1aaaf",
+     "#aaabb1",
+     "#b3aaac",
+     "#bca9a4",
+     "#c6a592",
+     "#d1a17d",
+     "#d99e5b",
+     "#e29a38",
+     "#e99517",
+     "#f08c00",
+     "#f77700",
+     "#fc5a00",
+     "#fe3500",
+     "#ff1900",
+     "#ff0400",
+     "#ff0000",
+     "#ff0000"
+    ],
+    "values": [
+     32.80375472672645,
+     32.91310290041683,
+     33.0224510741072,
+     33.13179924779758,
+     33.24114742148795,
+     33.35049559517833,
+     33.4598437688687,
+     33.56919194255908,
+     33.67854011624945,
+     33.78788828993983,
+     33.8972364636302,
+     34.00658463732058,
+     34.11593281101095,
+     34.22528098470133,
+     34.3346291583917,
+     34.44397733208208,
+     34.55332550577245,
+     34.66267367946283,
+     34.7720218531532,
+     34.88137002684358,
+     34.99071820053395,
+     35.100066374224326,
+     35.2094145479147,
+     35.318762721605076,
+     35.42811089529545,
+     35.537459068985825,
+     35.646807242676196,
+     35.756155416366575,
+     35.865503590056946,
+     35.974851763747324,
+     36.0841999374377,
+     36.193548111128074
+    ],
+    "scale": "linear"
+   },
+   "status": "no check",
+   "status_check": "a_salinity",
+   "statement": "regional check only: median frame − truth -0.67 PSU"
+  },
+  {
+   "id": "temperature_global",
+   "unit": "°C",
+   "encoding": "linear",
+   "scale": 0.0017973600875669624,
+   "offset": -0.6123837828636169,
+   "nodata": 65535,
+   "below": 65534,
+   "grid": {
+    "width": 360,
+    "height": 180,
+    "bounds": [
+     -180,
+     -90,
+     180,
+     90
+    ],
+    "row0": "north",
+    "col0": "west",
+    "byte_order": "little"
+   },
+   "times": [
+    "2022-11-12T00:00:00Z",
+    "2023-02-01T00:00:00Z",
+    "2023-04-24T00:00:00Z",
+    "2023-07-14T00:00:00Z",
+    "2023-10-04T00:00:00Z",
+    "2023-12-25T00:00:00Z"
+   ],
+   "chunks": [
+    {
+     "file": "temperature_global_000.u16.gz",
+     "t0": 0,
+     "t1": 6,
+     "bytes": 92958
+    }
+   ],
+   "quantisation_step": 0.0017973600875669624,
+   "coverage": 0.10076388888888889,
+   "value_range": [
+    -0.6123837828636169,
+    21.498281478881836
+   ],
+   "label": "World: temperature of water 600 m and deeper (model, SVS 5479 flat maps)",
+   "aggregation": "mean of decoded pixels per 1° cell",
+   "time_labels": [
+    "2022-11-12 (frame 11800)",
+    "2023-02-01 (frame 13240)",
+    "2023-04-24 (frame 14680)",
+    "2023-07-14 (frame 16120)",
+    "2023-10-04 (frame 17560)",
+    "2023-12-25 (frame 19000)"
+   ],
+   "view": "World (5479)",
+   "display": {
+    "colours": [
+     "#032333",
+     "#032333",
+     "#042437",
+     "#062b4a",
+     "#0b305f",
+     "#153376",
+     "#26338f",
+     "#3a339e",
+     "#4c379f",
+     "#5b3d9b",
+     "#684396",
+     "#744992",
+     "#814f8f",
+     "#8e548c",
+     "#9b5889",
+     "#a95d85",
+     "#b7617f",
+     "#c56578",
+     "#d36a6f",
+     "#df7064",
+     "#ea7858",
+     "#f3824d",
+     "#f88e44",
+     "#fb9b3e",
+     "#fcaa3c",
+     "#fbb93d",
+     "#f9c842",
+     "#f6d848",
+     "#f1e750",
+     "#eaf759",
+     "#e8fb5b",
+     "#e8fb5b"
+    ],
+    "values": [
+     -1.631743688495241,
+     -0.7208879796024352,
+     0.18996772929037054,
+     1.100823438183176,
+     2.011679147075982,
+     2.9225348559687876,
+     3.833390564861593,
+     4.744246273754399,
+     5.655101982647205,
+     6.56595769154001,
+     7.476813400432816,
+     8.387669109325623,
+     9.298524818218427,
+     10.209380527111234,
+     11.12023623600404,
+     12.031091944896845,
+     12.94194765378965,
+     13.852803362682456,
+     14.763659071575262,
+     15.67451478046807,
+     16.585370489360873,
+     17.49622619825368,
+     18.407081907146488,
+     19.317937616039295,
+     20.228793324932095,
+     21.139649033824902,
+     22.05050474271771,
+     22.961360451610513,
+     23.87221616050332,
+     24.783071869396128,
+     25.693927578288932,
+     26.604783287181736
+    ],
+    "scale": "linear"
+   },
+   "status": "no check",
+   "status_check": "d_depth_temperature",
+   "statement": "deep water (≥ 600 m): closest to WOA23 at 1000 m, Spearman 0.72, median difference -1.11 °C; only the pixels on 5425's bars decode"
+  },
+  {
+   "id": "salinity_global",
+   "unit": "PSU",
+   "encoding": "linear",
+   "scale": 0.00021577297163600387,
+   "offset": 34.186424255371094,
+   "nodata": 65535,
+   "below": 65534,
+   "grid": {
+    "width": 360,
+    "height": 180,
+    "bounds": [
+     -180,
+     -90,
+     180,
+     90
+    ],
+    "row0": "north",
+    "col0": "west",
+    "byte_order": "little"
+   },
+   "times": [
+    "2022-11-12T00:00:00Z",
+    "2023-02-01T00:00:00Z",
+    "2023-04-24T00:00:00Z",
+    "2023-07-14T00:00:00Z",
+    "2023-10-04T00:00:00Z",
+    "2023-12-25T00:00:00Z"
+   ],
+   "chunks": [
+    {
+     "file": "salinity_global_000.u16.gz",
+     "t0": 0,
+     "t1": 6,
+     "bytes": 31910
+    }
+   ],
+   "quantisation_step": 0.00021577297163600387,
+   "coverage": 0.028829732510288066,
+   "value_range": [
+    34.186424255371094,
+    35.95012283325195
+   ],
+   "label": "World: salinity of water 600 m and deeper (model, SVS 5479 flat maps)",
+   "aggregation": "mean of decoded pixels per 1° cell",
+   "time_labels": [
+    "2022-11-12 (frame 11800)",
+    "2023-02-01 (frame 13240)",
+    "2023-04-24 (frame 14680)",
+    "2023-07-14 (frame 16120)",
+    "2023-10-04 (frame 17560)",
+    "2023-12-25 (frame 19000)"
+   ],
+   "view": "World (5479)",
+   "display": {
+    "colours": [
+     "#00a59b",
+     "#00a59b",
+     "#00a59b",
+     "#00a69d",
+     "#00a79f",
+     "#00a8a0",
+     "#00a8a2",
+     "#00a9a5",
+     "#15a9a6",
+     "#32a9a7",
+     "#4eaaa9",
+     "#68aaaa",
+     "#79aaab",
+     "#89aaac",
+     "#96aaae",
+     "#a1aaaf",
+     "#aaabb1",
+     "#b3aaac",
+     "#bca9a4",
+     "#c6a592",
+     "#d1a17d",
+     "#d99e5b",
+     "#e29a38",
+     "#e99517",
+     "#f08c00",
+     "#f77700",
+     "#fc5a00",
+     "#fe3500",
+     "#ff1900",
+     "#ff0400",
+     "#ff0000",
+     "#ff0000"
+    ],
+    "values": [
+     32.80375472672645,
+     32.91310290041683,
+     33.0224510741072,
+     33.13179924779758,
+     33.24114742148795,
+     33.35049559517833,
+     33.4598437688687,
+     33.56919194255908,
+     33.67854011624945,
+     33.78788828993983,
+     33.8972364636302,
+     34.00658463732058,
+     34.11593281101095,
+     34.22528098470133,
+     34.3346291583917,
+     34.44397733208208,
+     34.55332550577245,
+     34.66267367946283,
+     34.7720218531532,
+     34.88137002684358,
+     34.99071820053395,
+     35.100066374224326,
+     35.2094145479147,
+     35.318762721605076,
+     35.42811089529545,
+     35.537459068985825,
+     35.646807242676196,
+     35.756155416366575,
+     35.865503590056946,
+     35.974851763747324,
+     36.0841999374377,
+     36.193548111128074
+    ],
+    "scale": "linear"
+   },
+   "status": "no check",
+   "status_check": "d_depth_salinity",
+   "statement": "deep water (≥ 600 m): closest to WOA23 at 600 m, Spearman 0.64, median difference +0.10 PSU; only the pixels on 5425's bars decode"
+  }
+ ],
+ "voices": {
+  "temperature": "ocean2Temperature",
+  "salinity": "ocean2Salinity"
+ },
+ "play": [
+  {
+   "id": "kuroshio",
+   "label": "Kuroshio: temperature → pitch, salinity on the second voice",
+   "view": "global",
+   "map": "temperature_kuroshio",
+   "start": {
+    "lat": -0.375,
+    "lon": 0.3750000000000284
+   },
+   "steps_per_second": 1,
+   "channels": [
+    {
+     "voice": "ocean2Temperature",
+     "layers": [
+      "temperature_kuroshio"
+     ],
+     "combine": "value"
+    },
+    {
+     "voice": "ocean2Salinity",
+     "layers": [
+      "salinity_kuroshio"
+     ],
+     "combine": "value"
+    }
+   ]
+  },
+  {
+   "id": "agulhas",
+   "label": "Agulhas: temperature → pitch, salinity on the second voice",
+   "view": "global",
+   "map": "temperature_agulhas",
+   "start": {
+    "lat": -4.874999999999986,
+    "lon": 5.625
+   },
+   "steps_per_second": 1,
+   "channels": [
+    {
+     "voice": "ocean2Temperature",
+     "layers": [
+      "temperature_agulhas"
+     ],
+     "combine": "value"
+    },
+    {
+     "voice": "ocean2Salinity",
+     "layers": [
+      "salinity_agulhas"
+     ],
+     "combine": "value"
+    }
+   ]
+  },
+  {
+   "id": "gulf_stream",
+   "label": "Gulf Stream: temperature → pitch, salinity on the second voice",
+   "view": "global",
+   "map": "temperature_gulf_stream",
+   "start": {
+    "lat": -0.375,
+    "lon": 0.3750000000000284
+   },
+   "steps_per_second": 1,
+   "channels": [
+    {
+     "voice": "ocean2Temperature",
+     "layers": [
+      "temperature_gulf_stream"
+     ],
+     "combine": "value"
+    },
+    {
+     "voice": "ocean2Salinity",
+     "layers": [
+      "salinity_gulf_stream"
+     ],
+     "combine": "value"
+    }
+   ]
+  },
+  {
+   "id": "world_5479",
+   "label": "World (5479 flat maps): temperature at depth → pitch, salinity on the second voice",
+   "view": "global",
+   "map": "temperature_global",
+   "start": {
+    "lat": 11.5,
+    "lon": 81.5
+   },
+   "steps_per_second": 1,
+   "channels": [
+    {
+     "voice": "ocean2Temperature",
+     "layers": [
+      "temperature_global"
+     ],
+     "combine": "value"
+    },
+    {
+     "voice": "ocean2Salinity",
+     "layers": [
+      "salinity_global"
+     ],
+     "combine": "value"
+    }
+   ]
+  }
+ ],
+ "ranges": {
+  "temperature": [
+   -1.631743688495241,
+   26.604783287181736
+  ],
+  "salinity": [
+   32.80375472672645,
+   36.193548111128074
+  ]
+ },
+ "validation": [
+  {
+   "id": "a_temperature_mur",
+   "title": "Temperature: frame regional mean vs MUR box mean, same dates",
+   "kind": "model-vs-obs",
+   "pass": null,
+   "threshold": null
+  },
+  {
+   "id": "a_salinity_smap",
+   "title": "Salinity: frame regional mean vs SMAP box mean, same dates",
+   "kind": "model-vs-obs",
+   "pass": null,
+   "threshold": null
+  },
+  {
+   "id": "c_flow_oscar",
+   "title": "Flow speed vs OSCAR",
+   "kind": "none",
+   "pass": null,
+   "threshold": null
+  },
+  {
+   "id": "d_depth_temperature",
+   "title": "5479 flat maps: temperature vs surface, 600 m and 1000 m (which water the colours describe)",
+   "kind": "model-vs-obs",
+   "pass": null,
+   "threshold": null
+  },
+  {
+   "id": "d_depth_salinity",
+   "title": "5479 flat maps: salinity vs surface, 600 m and 1000 m (which water the colours describe)",
+   "kind": "model-vs-obs",
+   "pass": null,
+   "threshold": null
+  },
+  {
+   "id": "e_glorys12_depth",
+   "title": "5479 flat frames vs GLORYS12 monthly means at 643.6 m and 1062.4 m (different ocean model)",
+   "kind": "model-vs-obs",
+   "pass": null,
+   "threshold": null
+  },
+  {
+   "id": "f_ecco2_same_model",
+   "title": "ECCO2 (the source model) at depth",
+   "kind": "none",
+   "pass": null,
+   "threshold": null
+  }
+ ],
+ "size": {
+  "choice": {
+   "grid": [
+    480,
+    270
+   ]
+  },
+  "tried": [],
+  "bytes": 900174,
+  "budget": 25000000
+ },
+ "asset_checksums": {
+  "file": "checksums.tsv.gz",
+  "rows": 175,
+  "sha256_of_list": "7cbd7a74c3473899368ece995be0a2c6c6a7d2b3c872a04986d48034f1cb5e30"
+ },
+ "code_commit": "9be502d5b6932acc84b257765a29a88ef29e3938-dirty",
+ "generated_utc": "2026-11-02T22:16:27Z",
+ "playable": {
+  "moved_starts": [
+   "world_5479"
+  ]
+ }
+}

@@ -1,0 +1,30 @@
+{
+ "record": "rel_3144",
+ "checks": [
+  {
+   "record": "rel_3144",
+   "id": "a_auto_source",
+   "title": "Global Lightning Flash Rate Density (WMS): decoded values vs LIS/OTD HRFC climatology (GIBS)",
+   "kind": "value",
+   "source": "LIS/OTD HRFC climatology (GIBS)",
+   "metrics": {
+    "rung": "independent satellites, other years",
+    "unit": "flashes/km²/yr",
+    "spearman": 0.8222851129684879,
+    "n": 3726,
+    "median_rel_error": 0.1440990565596782,
+    "bias": 0.520719243084559,
+    "dates": [
+     {
+      "date": "climatology"
+     }
+    ]
+   },
+   "threshold": "Spearman ≥ 0.9 and median relative error ≤ 15 % → verified; ρ ≥ 0.9 → values with stated error; ρ ≥ 0.6 → relative (provisional, onboarding defaults)",
+   "pass": false,
+   "note": "Rung: independent satellites, other years. Onboarding run, 1 frames.",
+   "run_utc": "2026-10-31T18:01:05Z"
+  }
+ ],
+ "updated_utc": "2026-10-31T21:37:13Z"
+}

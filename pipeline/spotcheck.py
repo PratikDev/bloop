@@ -5,7 +5,7 @@ C) Rain regression: re-run on the D2 frame; compare with D2 points (median withi
 D) Rain grid: decode public rain.bin/rain_phase.bin vs 2x2 max of the pipeline's full-res result
 E) Metadata: required fields + verified numbers
 F) Demo numbers equal the tested values
-G) File sizes and presence"""
+G) File sizes and presence; size budgets: live daily data < 60 MB, each official/related record <= 25 MB, all of public/data < 150 MB"""
 import json, sys
 import pandas as pd
 from common import *
@@ -250,8 +250,30 @@ try:   # H) the compact time-lapse encoding round-trips within half a log step, 
           f"max |log10 diff| {ld.max():.4f} (limit {half:.4f}, about ±2.5%)")
 except Exception as e:
     check("H time-lapse encoding", False, str(e))
-total = sum(p.stat().st_size for p in PUBLIC.rglob("*") if p.is_file())
-check("G total public/data size < 60 MB", total < 60e6, f"{total/1e6:.1f} MB")
+# additive products (pipeline/checks/): a missing optional file only WARNs; contract or integrity problems FAIL
+from checks import run_all as product_checks
+product_checks(check)
+# G) Size budgets, each protecting something different:
+#  - live daily data < 60 MB: everything a refresh rewrites every day (latest/, sequence/, truth/, meta/, archive/,
+#    context/, demo/). It is what the page loads at start and what every daily commit adds to git history.
+#  - each official / related record <= 25 MB (svs/config.py RECORD_BUDGET_BYTES): one record is loaded only when chosen,
+#    so the cap keeps any single choice quick; export.py enforces it when writing, this re-checks what is on disk.
+#  - all of public/data < 150 MB: a backstop for the repository and the deployed site, whatever folder grows.
+#  global/ keeps its own build-time cap (build_global.py S5, < 25 MB).
+from svs.config import RECORD_BUDGET_BYTES
+RECORD_DIRS, OWN_CAP = ("official", "related"), ("official", "related", "global")
+LIVE_CAP, TOTAL_CAP = 60e6, 150e6
+size_of = lambda root: sum(f.stat().st_size for f in root.rglob("*") if f.is_file())
+live = sum(size_of(d) if d.is_dir() else d.stat().st_size for d in PUBLIC.iterdir() if d.name not in OWN_CAP)
+check("G live daily data < 60 MB (what a refresh rewrites and the page loads at start)", live < LIVE_CAP,
+      f"{live/1e6:.1f} MB in {', '.join(sorted(d.name for d in PUBLIC.iterdir() if d.is_dir() and d.name not in OWN_CAP))}")
+records = [(d, size_of(d)) for top in RECORD_DIRS for d in sorted((PUBLIC / top).iterdir()) if d.is_dir()]
+over = [f"{d.parent.name}/{d.name} {b/1e6:.1f} MB" for d, b in records if b > RECORD_BUDGET_BYTES]
+largest = max(records, key=lambda r: r[1]) if records else None
+check(f"G each official/related record <= {RECORD_BUDGET_BYTES/1e6:.0f} MB (one record loads when chosen)", not over,
+      "; ".join(over) if over else f"{len(records)} records, largest {largest[0].name} {largest[1]/1e6:.1f} MB" if largest else "no records")
+total = size_of(PUBLIC)
+check("G total public/data < 150 MB (backstop: repository and deployed site)", total < TOTAL_CAP, f"{total/1e6:.1f} MB")
 
 n_fail = sum(1 for _, ok, _ in results if not ok)
 print(f"\n{len(results) - n_fail} passed, {n_fail} failed")

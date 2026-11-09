@@ -61,6 +61,10 @@ describe("water (real GRACE Bangladesh series)", () => {
     expect(r.min).toBeLessThan(r.max);
   });
 
+  test("one fixed range for every series (build book A3/D1): the same for a full series and a short one", () => {
+    expect(waterRange(bd.cm)).toEqual(waterRange(bd.cm.slice(0, 24)));
+  });
+
   test("the bass sinks: window B's mean plays lower than window A's", () => {
     const r = waterRange(bd.cm)!;
     const window = (from: string, to: string) =>

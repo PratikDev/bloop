@@ -16,13 +16,17 @@ import { MappingPanel } from "../../panels/MappingPanel";
 import { ProvenancePanel } from "../../panels/ProvenancePanel";
 import { TruthPanel } from "../../panels/TruthPanel";
 
-const TABS: { tab: PanelTab; label: "panel.provenance" | "panel.mapping" | "panel.truth" }[] = [
+/** The Inspector's tabs (the Turntable's drawer adds History; the Inspector shows Provenance in its place). */
+type InspectorTab = Exclude<PanelTab, "history">;
+const inspectorTab = (panel: PanelTab): InspectorTab => (panel === "history" ? "provenance" : panel);
+
+const TABS: { tab: InspectorTab; label: "panel.provenance" | "panel.mapping" | "panel.truth" }[] = [
   { tab: "provenance", label: "panel.provenance" },
   { tab: "mapping", label: "panel.mapping" },
   { tab: "truth", label: "panel.truth" },
 ];
 
-const PANELS: Record<PanelTab, ReactNode> = {
+const PANELS: Record<InspectorTab, ReactNode> = {
   provenance: <ProvenancePanel />,
   mapping: <MappingPanel />,
   truth: <TruthPanel />,
@@ -32,7 +36,7 @@ function InspectorTabs() {
   const { state, dispatch } = useAppState();
   const t = useT();
   return (
-    <Tabs value={state.panel} onValueChange={(panel: PanelTab) => dispatch({ type: "setPanel", panel })} className="gap-5">
+    <Tabs value={inspectorTab(state.panel)} onValueChange={(panel: InspectorTab) => dispatch({ type: "setPanel", panel })} className="gap-5">
       <TabsList variant="line" aria-label={t("panel.label")} className="w-full justify-start gap-0 group-data-horizontal/tabs:h-11">
         {TABS.map(({ tab, label }) => (
           <TabsTrigger key={tab} value={tab} className="h-full flex-none px-3 text-body data-active:text-moon">

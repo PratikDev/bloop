@@ -101,6 +101,15 @@ Every rule and number lives in one file, [`public/mapping.json`](public/mapping.
 - **🧭 Provenance panel:** for the point on screen, its value, dataset, NASA SVS visualization and frame time.
 - **🎼 Legend and warm-up:** hear what 0, 10, 20 and 30 °C, light and heavy rain, and snow sound like before you explore.
 
+### Official records, the Turntable and braille
+
+- **🗂️ Official records:** NASA's Earth Information Center items and related SVS visualizations, each decoded back into values and played as one voice, with its period, credits, licence and the check it passed (or why it has none). Related records too sparse to play are kept off the shelf and listed in `docs/HEALTH.md`.
+- **💿 Turntable:** the live Earth on a disc; drop the needle anywhere on the globe, search a place, and open four 3D scenes (Ghost Earths, Delta, Sound terrain, the Dhaka time tunnel).
+- **⠿ Braille explorer:** <kbd>B</kbd> on Listen (or the dock's Braille) shows the data as braille cells along a line through the cursor; the caret is the needle.
+- **🔁 Proof in unison:** <kbd>U</kbd> plays the nearest checked point's frame value and file value as two tones; any difference beats.
+- **🏷️ Data-age badges:** every frame says how old its data is and where it came from (`public/data/meta/freshness.json`).
+- **🩺 Health checks:** `npm run health` checks every record's files, values, labels, links and freshness, and plays each one in Chromium and Firefox (`docs/HEALTH.md`).
+
 ## Made to be heard
 
 Accessibility is the point of the project, not an extra.
@@ -128,10 +137,14 @@ bun run dev      # open http://localhost:3000
 
 | Command | What it does |
 |---|---|
-| `bun run build` then `bun run start` | Production build and server |
+| `bun run build` then `bun run start` | Static production build in `out/`, served at http://localhost:3000 |
 | `bun run lint` | ESLint |
 | `bunx tsc --noEmit` | Type check |
 | `bun test` | Unit tests |
+| `bun run e2e` | Browser checks (Playwright, Chromium and Firefox) |
+| `npm run health` | Record health check: writes `docs/HEALTH.md` (Python and Playwright) |
+| `npm run refresh:live` | Refreshes every updating record; ships only what passes its truth check |
+| `bun run i18n:todo` | Rewrites `docs/i18n/TO_TRANSLATE.md`, the Bangla strings still to translate |
 
 The audio engine's test page (`/dev/audio`) is available in development only. For a test deployment that includes it, build with `AUDIO_HARNESS=1 bun run build`.
 
@@ -160,6 +173,8 @@ python run_all.py            # options: --no-sequence --no-context --with-global
 | `src/app/`, `src/components/` | The web app (Next.js, React, shadcn/ui) |
 | `src/lib/audio/` | The sound engine (Web Audio); its public API is `@/lib/audio` |
 | `src/lib/audio-adapter/` | The one place the UI connects to the sound engine |
+| `src/lib/audio-jukebox/` | The second engine: the Official records, the Turntable and its scenes, Unison |
+| `src/lib/audio-engines.ts` | Where the two engines meet: one AudioContext, Mute all and Stop for both |
 | `src/lib/data/` | Data loaders and the grid decoder |
 | `public/mapping.json` | Every value-to-sound rule and tuned number |
 | `public/data/` | The data files the app reads (grids, JSON) |

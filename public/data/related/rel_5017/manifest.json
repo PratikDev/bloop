@@ -1,0 +1,469 @@
+{
+ "record": "rel_5017",
+ "app_title": "A Decade of Sea Surface Salinity (observation)",
+ "svs_ids": [
+  5017
+ ],
+ "title": "A Decade of Sea Surface Salinity",
+ "svs_pages": [
+  "https://svs.gsfc.nasa.gov/5017/"
+ ],
+ "description": "This data visualization shows sea surface salinity (i.e., ocean salt concentration) over a ten year period (2011 to 2021). Warm colors (orange to yellow) are areas of high salinity/hot tropics. Cooler colors (blue to violet) are fresher waters, many of which can be seen coming from rainy/river/wetter tropics. || salinity_v48_8k.4653_print.jpg (1024x512) [132.1 KB] || salinity_v48_8k.4653_searchweb.png (180x320) [80.5 KB] || salinity_v48_8k.4653_thm.png (80x40) [6.6 KB] || salinity_v49_1000p30.mp4 (2000x1000) [56.3 MB] || 2000x1000_2x1_60p (2000x1000) [0 Item(s)] || salinity_v49_1000p30.webm (2000x1000) [14.5 MB] || salinity_v49_1000p60.mp4 (2000x1000) [31.9 MB] || 8000x4000_2x1_60p (8000x4000) [0 Item(s)] || salinity_v49_8k_2000p30_h265.mp4 (4000x2000) [88.0 MB] || ",
+ "release_date": "2022-08-26T00:00:00-04:00",
+ "period": {
+  "start": "2011-09-01T00:00:00Z",
+  "end": "2021-09-01T00:00:00Z",
+  "label": "1 Sep 2011 – 1 Sep 2021"
+ },
+ "badge": "observation",
+ "credits_by_role": {
+  "Data visualizer": [
+   "Alex Kekesi (Global Science and Technology, Inc.)",
+   "Mark SubbaRao (NASA/GSFC)"
+  ],
+  "Scientist": [
+   "Nadya Vinogradova-Shiffer (NASA/HQ)"
+  ],
+  "Data provider": [
+   "Jinbo Wang (NASA/JPL)"
+  ],
+  "Technical support": [
+   "Laurence Schuler (ADNET Systems, Inc.)",
+   "Ian Jones (ADNET Systems, Inc.)"
+  ]
+ },
+ "datasets": [
+  {
+   "name": "Comiso's Daily Sea Ice Concentration",
+   "common_name": "",
+   "platform": null,
+   "sensor": null,
+   "type": "Data Compilation",
+   "organizations": [
+    "NASA/GSFC"
+   ],
+   "description": "",
+   "credit": "",
+   "url": "",
+   "date_range": "9/1/2011 - 9/1/2021"
+  },
+  {
+   "name": "Multi-Mission Optimally Interpolated Sea Surface Salinity Global Dataset V1",
+   "common_name": "OISSS_L4_multimission_7day_v1",
+   "platform": "Data Compilation",
+   "sensor": "SMAP/SMAP L-BAND RADIOMETER, SAC-D/AQUARIUS_SCATTEROMETER, SMOS/SMAP L-BAND RADIOMETER",
+   "type": "Data Compilation",
+   "organizations": [
+    "PODAAC"
+   ],
+   "description": "",
+   "credit": "Creator: Oleg Melnichenko",
+   "url": "https://podaac.jpl.nasa.gov/dataset/OISSS_L4_multimission_7day_v1",
+   "date_range": null
+  },
+  {
+   "name": "Natural Earth River Data",
+   "common_name": "",
+   "platform": "Data Compilation",
+   "sensor": null,
+   "type": "Other",
+   "organizations": [],
+   "description": "",
+   "credit": "",
+   "url": "naturalearthdata.com",
+   "date_range": null
+  }
+ ],
+ "credit_line": "Visualization: NASA's Scientific Visualization Studio (SVS 5017) for the NASA Earth Information Center.",
+ "disclosure": "A related NASA visualization read back through its key (pattern only).",
+ "licence": "SVS: \"All of our content is in the public domain (unless otherwise noted), meaning that it is free to download, use, and redistribute for whatever purposes you see fit.\" (https://svs.gsfc.nasa.gov/help/, read 29 Oct 2026)",
+ "focus": "water resources",
+ "related_to": [
+  5425
+ ],
+ "frame_times": {
+  "method": "linear",
+  "approximate": true,
+  "count": 4,
+  "source": "linear over the dataset's date range (9/1/2011 - 9/1/2021)"
+ },
+ "georef": {
+  "projection": "equirectangular (2:1)",
+  "bounds": [
+   -180,
+   -90,
+   180,
+   90
+  ],
+  "pass_at": 0.9,
+  "shifts_deg": [],
+  "iou": {
+   "land": 0.868079715245239
+  },
+  "pass": false,
+  "best_is_assumed": false
+ },
+ "colorbar": {
+  "geometry": {
+   "x0": 75,
+   "x1": 1924,
+   "band": [
+    202,
+    299
+   ],
+   "vertical": false,
+   "outline_rgb": null,
+   "image_size": [
+    502,
+    2000
+   ]
+  },
+  "ticks": [
+   {
+    "px": 125.55164075993092,
+    "value": 30.0,
+    "text": "30",
+    "engine": "glyph",
+    "label_px": 125.5,
+    "tick_mark": true
+   },
+   {
+    "px": 324.5411992263056,
+    "value": 31.0,
+    "text": "31",
+    "engine": "glyph",
+    "label_px": 326.0,
+    "tick_mark": true
+   },
+   {
+    "px": 524.501998487631,
+    "value": 32.0,
+    "text": "32",
+    "engine": "glyph",
+    "label_px": 525.5,
+    "tick_mark": true
+   },
+   {
+    "px": 724.5393249221694,
+    "value": 33.0,
+    "text": "33",
+    "engine": "glyph",
+    "label_px": 725.5,
+    "tick_mark": true
+   },
+   {
+    "px": 924.5021492770613,
+    "value": 34.0,
+    "text": "34",
+    "engine": "glyph",
+    "label_px": 925.5,
+    "tick_mark": true
+   },
+   {
+    "px": 1124.5482446206115,
+    "value": 35.0,
+    "text": "35",
+    "engine": "glyph",
+    "label_px": 1125.5,
+    "tick_mark": true
+   },
+   {
+    "px": 1324.5010378228783,
+    "value": 36.0,
+    "text": "36",
+    "engine": "glyph",
+    "label_px": 1325.5,
+    "tick_mark": true
+   },
+   {
+    "px": 1524.5372540097828,
+    "value": 37.0,
+    "text": "37",
+    "engine": "glyph",
+    "label_px": 1525.5,
+    "tick_mark": true
+   },
+   {
+    "px": 1723.4375651720543,
+    "value": 38.0,
+    "text": "38",
+    "engine": "glyph",
+    "label_px": 1725.5,
+    "tick_mark": true
+   }
+  ],
+  "scale": "linear",
+  "fit": {
+   "a": 29.37415123508794,
+   "b": 0.005003525779355923,
+   "fit": "weighted 1/tolerance",
+   "max_resid_px": 0.516531457466876,
+   "resid_px": [
+    -0.47,
+    0.4,
+    0.3,
+    0.12,
+    0.02,
+    -0.17,
+    -0.27,
+    -0.44,
+    0.52
+   ],
+   "ok": true
+  },
+  "notes": [],
+  "n_samples": 1850,
+  "value_range": [
+   29.37415123508794,
+   38.62567040111704
+  ],
+  "opacity_varies": false,
+  "px_per_unit": 199.85906820464604
+ },
+ "colorbar_source": "page colorbar salinity_v48_colorbar2.tif",
+ "asset": {
+  "kind": "frames",
+  "owner": 5017,
+  "what": "2000x1000_2x1_60p"
+ },
+ "twins": [
+  {
+   "id": 4050,
+   "title": "Aquarius Sea Surface Salinity Flat Maps 2012",
+   "reason": "older_versions; 3 title words shared",
+   "flat_sets": [
+    {
+     "layer": "flat",
+     "size": "4096×2048",
+     "frames": 360,
+     "url": "https://svs.gsfc.nasa.gov/vis/a000000/a004000/a004050/frames/4096x2048_2x1_30p/flat/"
+    },
+    {
+     "layer": "flat_withDates",
+     "size": "4096×2048",
+     "frames": 360,
+     "url": "https://svs.gsfc.nasa.gov/vis/a000000/a004000/a004050/frames/4096x2048_2x1_30p/flat_withDates/"
+    }
+   ],
+   "flat_movies": [
+    {
+     "file": "aquarius_flat_2048x1024.mp4",
+     "size": "2048×1024",
+     "url": "https://svs.gsfc.nasa.gov/vis/a000000/a004000/a004050/aquarius_flat_2048x1024.mp4"
+    },
+    {
+     "file": "aquarius_flat_640x320.m4v",
+     "size": "640×320",
+     "url": "https://svs.gsfc.nasa.gov/vis/a000000/a004000/a004050/aquarius_flat_640x320.m4v"
+    },
+    {
+     "file": "aquarius_flat_datesAndCbar_2048x1024.mp4",
+     "size": "2048×1024",
+     "url": "https://svs.gsfc.nasa.gov/vis/a000000/a004000/a004050/aquarius_flat_datesAndCbar_2048x1024.mp4"
+    },
+    {
+     "file": "aquarius_flat_datesAndCbar_640x320.m4v",
+     "size": "640×320",
+     "url": "https://svs.gsfc.nasa.gov/vis/a000000/a004000/a004050/aquarius_flat_datesAndCbar_640x320.m4v"
+    }
+   ],
+   "colorbars": [
+    "cbar_scientists.png"
+   ],
+   "colorbar_inherited": false
+  }
+ ],
+ "decode": {
+  "mode": "chroma",
+  "decoded_share": 0.013746999999999999
+ },
+ "layers": [
+  {
+   "id": "value",
+   "unit": "colorbar units",
+   "encoding": "linear",
+   "scale": 0.0005003525779355923,
+   "offset": 29.550363540649414,
+   "nodata": 65535,
+   "below": 65534,
+   "grid": {
+    "width": 360,
+    "height": 180,
+    "bounds": [
+     -180,
+     -90,
+     180,
+     90
+    ],
+    "row0": "north",
+    "col0": "west",
+    "byte_order": "little"
+   },
+   "times": [
+    "2011-09-01T00:00:00Z",
+    "2015-01-01T00:00:00Z",
+    "2018-05-02T00:00:00Z",
+    "2021-09-01T00:00:00Z"
+   ],
+   "chunks": [
+    {
+     "file": "value_000.u16.gz",
+     "t0": 0,
+     "t1": 4,
+     "bytes": 7272
+    }
+   ],
+   "quantisation_step": 0.0005003525779355923,
+   "coverage": 0.010671296296296297,
+   "value_range": [
+    29.550363540649414,
+    34.658355712890625
+   ],
+   "label": "A Decade of Sea Surface Salinity (pattern only)",
+   "aggregation": "mean of decoded pixels per cell",
+   "time_labels": [
+    "01 Sep 2011",
+    "01 Jan 2015",
+    "02 May 2018",
+    "01 Sep 2021"
+   ],
+   "display": {
+    "colours": [
+     "#000000",
+     "#3d2ec0",
+     "#3d2ec0",
+     "#6526c5",
+     "#7d22cb",
+     "#8d1cce",
+     "#9b0dd1",
+     "#a700d3",
+     "#b200d4",
+     "#bc1fd4",
+     "#c53dd2",
+     "#cc53ce",
+     "#d465ca",
+     "#d973c5",
+     "#df7fbf",
+     "#e48ab9",
+     "#e994b4",
+     "#ed9ead",
+     "#f0a6a7",
+     "#f4afa0",
+     "#f7b79a",
+     "#f9bf93",
+     "#fbc78b",
+     "#fdcf83",
+     "#fed77a",
+     "#fede72",
+     "#fee76a",
+     "#fcee69",
+     "#faf66c",
+     "#f8fc65",
+     "#f8fc65",
+     "#000000"
+    ],
+    "values": [
+     29.37415123508794,
+     29.672587337217912,
+     29.97102343934788,
+     30.269459541477854,
+     30.567895643607823,
+     30.866331745737796,
+     31.164767847867765,
+     31.463203949997737,
+     31.761640052127706,
+     32.06007615425768,
+     32.35851225638765,
+     32.656948358517624,
+     32.95538446064759,
+     33.25382056277756,
+     33.55225666490753,
+     33.85069276703751,
+     34.14912886916748,
+     34.447564971297446,
+     34.74600107342742,
+     35.04443717555739,
+     35.34287327768736,
+     35.64130937981733,
+     35.9397454819473,
+     36.238181584077275,
+     36.536617686207244,
+     36.83505378833721,
+     37.13348989046719,
+     37.43192599259716,
+     37.73036209472713,
+     38.028798196857096,
+     38.32723429898707,
+     38.62567040111704
+    ],
+    "scale": "linear"
+   },
+   "status": "pattern only",
+   "status_check": "a_auto_source",
+   "statement": "pattern only: ρ 0.43 vs SMAP SSS 8-day (GIBS)"
+  }
+ ],
+ "voices": {
+  "value": "rel5017"
+ },
+ "play": [
+  {
+   "id": "value",
+   "label": "A Decade of Sea Surface Salinity: higher pitch = higher value",
+   "view": "global",
+   "map": "value",
+   "start": {
+    "lat": -31.5,
+    "lon": -50.5
+   },
+   "steps_per_second": 1,
+   "channels": [
+    {
+     "voice": "rel5017",
+     "layers": [
+      "value"
+     ],
+     "combine": "value"
+    }
+   ]
+  }
+ ],
+ "validation": [
+  {
+   "id": "a_auto_source",
+   "title": "A Decade of Sea Surface Salinity: decoded values vs SMAP SSS 8-day (GIBS)",
+   "kind": "value",
+   "pass": false,
+   "threshold": "Spearman ≥ 0.9 and median relative error ≤ 15 % → verified; ρ ≥ 0.9 → values with stated error; ρ ≥ 0.6 → relative (provisional, onboarding defaults)"
+  }
+ ],
+ "size": {
+  "choice": {
+   "frames": 4
+  },
+  "tried": [],
+  "bytes": 20103,
+  "budget": 25000000
+ },
+ "onboarding": {
+  "timings_s": {
+   "api": 16.9,
+   "twins": 0.7,
+   "asset choice": 0.0,
+   "frames": 35.4,
+   "frame times": 1.0,
+   "georef": 3.3,
+   "colorbar": 8.1,
+   "inversion": 44.0,
+   "validation": 37.7
+  },
+  "status": "pattern only"
+ },
+ "asset_checksums": {
+  "file": "checksums.tsv.gz",
+  "rows": 11,
+  "sha256_of_list": "6e4ac71a3c3cad99385c7b51c4f7d8b402df55fd686b666768f12d212593d4fa"
+ },
+ "code_commit": "b2896755d86a34028f36c97fef8b9632e9b8304b-dirty",
+ "generated_utc": "2026-11-02T22:33:13Z"
+}

@@ -1,0 +1,273 @@
+{
+ "record": "rel_5453",
+ "app_title": "Annual Wildfire Burned Area in the United States (observation)",
+ "svs_ids": [
+  5453
+ ],
+ "title": "Annual Wildfire Burned Area in the United States",
+ "svs_pages": [
+  "https://svs.gsfc.nasa.gov/5453/"
+ ],
+ "description": "A graph of annual wildfire burned area in the United States between the years 1983 and 2024.",
+ "release_date": "2025-01-03T11:00:00-05:00",
+ "period": {
+  "start": "2025-01-03T16:00:00Z",
+  "end": "2025-01-03T16:00:00Z",
+  "label": "3 Jan 2025 – 3 Jan 2025"
+ },
+ "badge": "observation",
+ "credits_by_role": {
+  "Visualizer": [
+   "Mark SubbaRao (NASA/GSFC)"
+  ],
+  "Technical support": [
+   "Laurence Schuler (ADNET Systems, Inc.)",
+   "Ian Jones (ADNET Systems, Inc.)"
+  ],
+  "Producer": [
+   "Grace Weikert (eMITS)"
+  ]
+ },
+ "datasets": [
+  {
+   "name": "United States Total Wildland Fires and Acres",
+   "common_name": "Wildfire Burned Area",
+   "platform": null,
+   "sensor": null,
+   "type": "Observed Data",
+   "organizations": [],
+   "description": "The National Interagency Coordination Center at NIFC compiles annual wildland fire statistics for federal and state agencies. This information is provided through Situation Reports, which have been in use for several decades. Prior to 1983, the federal wildland fire agencies did not track official wildfire data using current reporting processes. As a result, there is no official data prior to 1983 posted on this site.",
+   "credit": "The National Interagency Coordination Center at the National Interagency Fire Center",
+   "url": "https://www.nifc.gov/fire-information/statistics/wildfires",
+   "date_range": null
+  }
+ ],
+ "credit_line": "Visualization: NASA's Scientific Visualization Studio (SVS 5453) for the NASA Earth Information Center.",
+ "disclosure": "A related NASA visualization read back through its key (pattern only).",
+ "licence": "SVS: \"All of our content is in the public domain (unless otherwise noted), meaning that it is free to download, use, and redistribute for whatever purposes you see fit.\" (https://svs.gsfc.nasa.gov/help/, read 29 Oct 2026)",
+ "focus": "wildfires",
+ "related_to": [
+  4993
+ ],
+ "frame_times": {
+  "method": "linear",
+  "approximate": true,
+  "count": 3,
+  "source": "undated"
+ },
+ "georef": {
+  "projection": "none (not a flat 2:1 map)",
+  "bounds": [
+   -180,
+   -101.25,
+   180,
+   101.25
+  ],
+  "pass_at": 0.9,
+  "shifts_deg": [],
+  "iou": {},
+  "pass": false,
+  "best_is_assumed": false
+ },
+ "colorbar": null,
+ "colorbar_source": "no colorbar found (page or frame)",
+ "asset": {
+  "kind": "movie",
+  "owner": 5453,
+  "what": "fireIncrease.mp4"
+ },
+ "twins": [],
+ "decode": {
+  "mode": "brightness (no key)",
+  "decoded_share": 1.0
+ },
+ "layers": [
+  {
+   "id": "value",
+   "unit": "relative (0–1)",
+   "encoding": "linear",
+   "scale": 0.001,
+   "offset": 0.0,
+   "nodata": 65535,
+   "below": 65534,
+   "grid": {
+    "width": 160,
+    "height": 90,
+    "bounds": [
+     -180,
+     -101.25,
+     180,
+     101.25
+    ],
+    "row0": "north",
+    "col0": "west",
+    "byte_order": "little",
+    "space": "frame"
+   },
+   "times": [
+    "2025-01-03T16:00:00Z",
+    "2025-01-03T16:00:00Z",
+    "2025-01-03T16:00:00Z"
+   ],
+   "chunks": [
+    {
+     "file": "value_000.u16.gz",
+     "t0": 0,
+     "t1": 3,
+     "bytes": 7344
+    }
+   ],
+   "quantisation_step": 0.001,
+   "coverage": 1.0,
+   "value_range": [
+    0.0,
+    1.0
+   ],
+   "label": "Annual Wildfire Burned Area in the United States (pattern only)",
+   "aggregation": "mean of decoded pixels per cell",
+   "time_labels": [
+    "undated",
+    "undated",
+    "undated"
+   ],
+   "display": {
+    "colours": [
+     "#141418",
+     "#1c1c1f",
+     "#232327",
+     "#2b2b2e",
+     "#323236",
+     "#3a3a3d",
+     "#414145",
+     "#49494c",
+     "#515154",
+     "#58585b",
+     "#606063",
+     "#67676a",
+     "#6f6f71",
+     "#777779",
+     "#7e7e80",
+     "#868688",
+     "#8d8d8f",
+     "#959597",
+     "#9c9c9e",
+     "#a4a4a6",
+     "#acacad",
+     "#b3b3b4",
+     "#bbbbbc",
+     "#c2c2c3",
+     "#cacacb",
+     "#d2d2d2",
+     "#d9d9da",
+     "#e1e1e1",
+     "#e8e8e9",
+     "#f0f0f0",
+     "#f7f7f8",
+     "#ffffff"
+    ],
+    "values": [
+     0.0,
+     0.03225806451612903,
+     0.06451612903225806,
+     0.0967741935483871,
+     0.12903225806451613,
+     0.16129032258064516,
+     0.1935483870967742,
+     0.22580645161290322,
+     0.25806451612903225,
+     0.29032258064516125,
+     0.3225806451612903,
+     0.3548387096774194,
+     0.3870967741935484,
+     0.4193548387096774,
+     0.45161290322580644,
+     0.4838709677419355,
+     0.5161290322580645,
+     0.5483870967741935,
+     0.5806451612903225,
+     0.6129032258064516,
+     0.6451612903225806,
+     0.6774193548387096,
+     0.7096774193548387,
+     0.7419354838709677,
+     0.7741935483870968,
+     0.8064516129032258,
+     0.8387096774193548,
+     0.8709677419354839,
+     0.9032258064516129,
+     0.9354838709677419,
+     0.967741935483871,
+     1.0
+    ],
+    "scale": "linear",
+    "ramp": true
+   },
+   "status": "pattern only",
+   "status_check": "a_no_validation_source",
+   "statement": "pattern only"
+  }
+ ],
+ "voices": {
+  "value": "rel5453"
+ },
+ "play": [
+  {
+   "id": "value",
+   "label": "Annual Wildfire Burned Area in the United States: higher pitch = higher value",
+   "view": "global",
+   "map": "value",
+   "start": {
+    "lat": -1.0,
+    "lon": 1.125
+   },
+   "steps_per_second": 1,
+   "channels": [
+    {
+     "voice": "rel5453",
+     "layers": [
+      "value"
+     ],
+     "combine": "value"
+    }
+   ]
+  }
+ ],
+ "validation": [
+  {
+   "id": "a_no_validation_source",
+   "title": "Annual Wildfire Burned Area in the United States: no validation source",
+   "kind": "none",
+   "pass": null,
+   "threshold": null
+  }
+ ],
+ "size": {
+  "choice": {
+   "frames": 3
+  },
+  "tried": [],
+  "bytes": 14414,
+  "budget": 25000000
+ },
+ "onboarding": {
+  "timings_s": {
+   "api": 6.1,
+   "twins": 1.0,
+   "asset choice": 0.0,
+   "frames": 19.0,
+   "frame times": 0.2,
+   "georef": 0.1,
+   "colorbar": 6.1,
+   "inversion": 1.1,
+   "validation": 0.0
+  },
+  "status": "pattern only"
+ },
+ "asset_checksums": {
+  "file": "checksums.tsv.gz",
+  "rows": 2,
+  "sha256_of_list": "791725732a5f27b74c2b09704ea9e98c0a11a98dd6c48c0db43463fd6d7fe254"
+ },
+ "code_commit": "a8f0638dc9adb81b18f259cf0813046acd882fa1-dirty",
+ "generated_utc": "2026-10-31T17:14:12Z"
+}

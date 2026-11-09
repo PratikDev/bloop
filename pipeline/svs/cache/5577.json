@@ -1,0 +1,185 @@
+{
+ "id": 5577,
+ "title": "SDO Sun This Week",
+ "url": "https://svs.gsfc.nasa.gov/5577/",
+ "page_type": "Animation",
+ "release_date": "2025-11-20T09:00:00-05:00",
+ "update_date": "2026-08-28T13:17:24.723400-04:00",
+ "description": "This visualization shows SDO AIA-304 imagery from the past 7 days with a color table and image processing applied. Archive folders are provided in the Download menu.",
+ "full_text": "This visualization shows SDO AIA-304 imagery from the past 7 days with a color table and image processing applied. Archive folders are provided in the Download menu.\n\nThe Solar Dynamics Observatory, or SDO, orbits Earth in a geosynchronous path, providing a continuous view of the Sun. The instrument shown in this visualization observes ultraviolet light that is normally absorbed by Earth’s atmosphere, which is why these observations must be made from space.\r\n\r\nThese visualizations use the 171-angstrom filter of SDO’s Atmospheric Imaging Assembly, or AIA. This wavelength is particularly useful for studying the quiet corona and magnetic structures like coronal loops. You may also notice plasma eruptions, some of which are coronal mass ejections that can influence space weather. Bright flashes with X-shaped diffraction spikes are solar flares. Occasionally, a dark circle may cross the Sun’s face — an eclipse caused by Earth or the Moon.\r\n\r\nThis near-real-time visualization is updated daily.\n\nThis visualization shows SDO imagery from the past 7 days with a color table and image processing applied. \r\n\r\nTwo archive folders are provided in the Download menu. One stores the week-long videos published each day during the past week, and the other stores all videos published on Fridays since the intialization of this webpage.\n\nThis visualization shows SDO imagery from the past 24 hours with a color table and image processing applied. \r\n\r\nOne archive folder is provided in the Download menu. It stores the 24-hour videos published each day during the past week.",
+ "credits_by_role": {
+  "Visualizer": [
+   "AJ Christensen (SSAI)",
+   "Tom Bridgman (Global Science and Technology, Inc.)"
+  ],
+  "Technical support": [
+   "Kel Elkins (USRA)",
+   "Alex Gurvich (NASA/GSFC)"
+  ],
+  "Writer": [
+   "Miles S. Hatfield (Telophase)"
+  ]
+ },
+ "keywords": [
+  "Automated",
+  "CME",
+  "Coronal Mass Ejections",
+  "SDO",
+  "Solar Active Regions",
+  "Solar Cycle",
+  "Solar Dynamics Observatory",
+  "Solar Filaments",
+  "Solar Flares",
+  "Solar Imagery",
+  "Solar Maximum",
+  "Solar Minimum",
+  "Solar Prominences",
+  "Solar Prominences/solar Filaments",
+  "Solar Wind",
+  "Space Weather",
+  "Sun"
+ ],
+ "datasets": [
+  {
+   "name": "",
+   "common_name": "",
+   "platform": "SDO",
+   "sensor": null,
+   "type": "Other",
+   "organizations": [],
+   "description": "",
+   "credit": "",
+   "url": "http://sdo.gsfc.nasa.gov/",
+   "date_range": ""
+  }
+ ],
+ "missions": [
+  "SDO"
+ ],
+ "related": [],
+ "alternate_versions": [],
+ "newer_versions": [],
+ "older_versions": [],
+ "media": [
+  {
+   "group": 1,
+   "group_title": "Sun This Week",
+   "widget": "Video player",
+   "caption": "",
+   "group_text": "This visualization shows SDO imagery from the past 7 days with a color table and image processing applied. \r\n\r\nTwo archive folders are provided in the Download menu. One stores the week-long videos published each day during the past week, and the other stores all videos published on Fridays since the intialization of this webpage.",
+   "url": "https://svs.gsfc.nasa.gov/vis/a000000/a005500/a005577/STWrolling_2048p30.mp4",
+   "filename": "STWrolling_2048p30.mp4",
+   "media_type": "Movie",
+   "width": 2048,
+   "height": 2048,
+   "alt_text": "Video of the Sun from the SDO telescope."
+  },
+  {
+   "group": 1,
+   "group_title": "Sun This Week",
+   "widget": "Video player",
+   "caption": "",
+   "group_text": "This visualization shows SDO imagery from the past 7 days with a color table and image processing applied. \r\n\r\nTwo archive folders are provided in the Download menu. One stores the week-long videos published each day during the past week, and the other stores all videos published on Fridays since the intialization of this webpage.",
+   "url": "https://svs.gsfc.nasa.gov/vis/a000000/a005500/a005577/frames/archived_versions/",
+   "filename": "archived_versions",
+   "media_type": "Frames",
+   "width": 0,
+   "height": 0,
+   "alt_text": "Video of the Sun from the SDO telescope."
+  },
+  {
+   "group": 1,
+   "group_title": "Sun This Week",
+   "widget": "Video player",
+   "caption": "",
+   "group_text": "This visualization shows SDO imagery from the past 7 days with a color table and image processing applied. \r\n\r\nTwo archive folders are provided in the Download menu. One stores the week-long videos published each day during the past week, and the other stores all videos published on Fridays since the intialization of this webpage.",
+   "url": "https://svs.gsfc.nasa.gov/vis/a000000/a005500/a005577/frames/archived_friday_versions/",
+   "filename": "archived_friday_versions",
+   "media_type": "Frames",
+   "width": 0,
+   "height": 0,
+   "alt_text": "Video of the Sun from the SDO telescope."
+  },
+  {
+   "group": 1,
+   "group_title": "Sun This Week",
+   "widget": "Video player",
+   "caption": "",
+   "group_text": "This visualization shows SDO imagery from the past 7 days with a color table and image processing applied. \r\n\r\nTwo archive folders are provided in the Download menu. One stores the week-long videos published each day during the past week, and the other stores all videos published on Fridays since the intialization of this webpage.",
+   "url": "https://svs.gsfc.nasa.gov/vis/a000000/a005500/a005577/2025_11_11__10_04_09_342__SDO_AIA_AIA_171_thumb.jpg",
+   "filename": "2025_11_11__10_04_09_342__SDO_AIA_AIA_171_thumb.jpg",
+   "media_type": "Image",
+   "width": 1080,
+   "height": 1080,
+   "alt_text": "Video of the Sun from the SDO telescope."
+  },
+  {
+   "group": 2,
+   "group_title": "Sun Today",
+   "widget": "Video player",
+   "caption": "",
+   "group_text": "This visualization shows SDO imagery from the past 24 hours with a color table and image processing applied. \r\n\r\nOne archive folder is provided in the Download menu. It stores the 24-hour videos published each day during the past week.",
+   "url": "https://svs.gsfc.nasa.gov/vis/a000000/a005500/a005577/STWrolling_24hr_2048p30.mp4",
+   "filename": "STWrolling_24hr_2048p30.mp4",
+   "media_type": "Movie",
+   "width": 2048,
+   "height": 2048,
+   "alt_text": "Video of the Sun from the SDO telescope."
+  },
+  {
+   "group": 2,
+   "group_title": "Sun Today",
+   "widget": "Video player",
+   "caption": "",
+   "group_text": "This visualization shows SDO imagery from the past 24 hours with a color table and image processing applied. \r\n\r\nOne archive folder is provided in the Download menu. It stores the 24-hour videos published each day during the past week.",
+   "url": "https://svs.gsfc.nasa.gov/vis/a000000/a005500/a005577/frames/daily_archived_versions/",
+   "filename": "daily_archived_versions",
+   "media_type": "Frames",
+   "width": 0,
+   "height": 0,
+   "alt_text": "Video of the Sun from the SDO telescope."
+  },
+  {
+   "group": 2,
+   "group_title": "Sun Today",
+   "widget": "Video player",
+   "caption": "",
+   "group_text": "This visualization shows SDO imagery from the past 24 hours with a color table and image processing applied. \r\n\r\nOne archive folder is provided in the Download menu. It stores the 24-hour videos published each day during the past week.",
+   "url": "https://svs.gsfc.nasa.gov/vis/a000000/a005500/a005577/2025_11_11__10_04_09_342__SDO_AIA_AIA_171_thumb.jpg",
+   "filename": "2025_11_11__10_04_09_342__SDO_AIA_AIA_171_thumb.jpg",
+   "media_type": "Image",
+   "width": 1080,
+   "height": 1080,
+   "alt_text": "Video of the Sun from the SDO telescope."
+  }
+ ],
+ "text_links": [],
+ "frame_folders": {
+  "https://svs.gsfc.nasa.gov/vis/a000000/a005500/a005577/frames/archived_versions/": {
+   "url": "https://svs.gsfc.nasa.gov/vis/a000000/a005500/a005577/frames/archived_versions/",
+   "frame_count": 0,
+   "bytes_approx": null,
+   "first": null,
+   "last": null,
+   "subfolders": {}
+  },
+  "https://svs.gsfc.nasa.gov/vis/a000000/a005500/a005577/frames/archived_friday_versions/": {
+   "url": "https://svs.gsfc.nasa.gov/vis/a000000/a005500/a005577/frames/archived_friday_versions/",
+   "frame_count": 0,
+   "bytes_approx": null,
+   "first": null,
+   "last": null,
+   "subfolders": {}
+  },
+  "https://svs.gsfc.nasa.gov/vis/a000000/a005500/a005577/frames/daily_archived_versions/": {
+   "url": "https://svs.gsfc.nasa.gov/vis/a000000/a005500/a005577/frames/daily_archived_versions/",
+   "frame_count": 0,
+   "bytes_approx": null,
+   "first": null,
+   "last": null,
+   "subfolders": {}
+  }
+ },
+ "api_url": "https://svs.gsfc.nasa.gov/api/5577",
+ "fetched_utc": "2026-10-29T07:42:33Z"
+}

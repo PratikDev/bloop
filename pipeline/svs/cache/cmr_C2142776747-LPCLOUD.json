@@ -1,0 +1,493 @@
+{
+ "CollectionCitations": [
+  {
+   "Title": "GEDI L2B Canopy Cover and Vertical Profile Metrics Data Global Footprint Level V002",
+   "Creator": "Ralph Dubayah, Hao Tang, John Armston, Scott Luthcke, Michelle Hofton, James Blair",
+   "SeriesName": "GEDI02_B.002",
+   "ReleaseDate": "2021-04-16T00:00:00.000Z",
+   "ReleasePlace": "Sioux Falls, South Dakota, USA",
+   "Publisher": "NASA Land Processes Distributed Active Archive Center",
+   "OnlineResource": {
+    "Name": "DOI Landing Page",
+    "Linkage": "https://doi.org/10.5067/GEDI/GEDI02_B.002"
+   }
+  }
+ ],
+ "AdditionalAttributes": [
+  {
+   "Value": "10.5067/GEDI/GEDI02_B.001",
+   "Name": "identifier_product_doi",
+   "Description": "Digital object identifier that uniquely identifies this data product",
+   "DataType": "STRING"
+  },
+  {
+   "Value": "https://doi.org",
+   "Name": "identifier_product_doi_authority",
+   "Description": "URL of the digital object identifier resolving authority",
+   "DataType": "STRING"
+  },
+  {
+   "Name": "Reference_Ground_Track",
+   "Description": "GEDI reference ground track number",
+   "DataType": "INT"
+  },
+  {
+   "Name": "SEGMENT_NUMBER",
+   "Description": "The number of the segment located within the orbit",
+   "DataType": "STRING"
+  }
+ ],
+ "SpatialExtent": {
+  "HorizontalSpatialDomain": {
+   "Geometry": {
+    "BoundingRectangles": [
+     {
+      "NorthBoundingCoordinate": 54,
+      "WestBoundingCoordinate": -180,
+      "EastBoundingCoordinate": 180,
+      "SouthBoundingCoordinate": -54
+     }
+    ],
+    "CoordinateSystem": "CARTESIAN"
+   },
+   "ResolutionAndCoordinateSystem": {
+    "HorizontalDataResolution": {
+     "GenericResolutions": [
+      {
+       "XDimension": 25,
+       "YDimension": 25,
+       "Unit": "Meters"
+      }
+     ]
+    },
+    "Description": "Geographic Latitude and Longitude",
+    "GeodeticModel": {
+     "HorizontalDatumName": "WGS84/EGM96"
+    }
+   }
+  },
+  "SpatialCoverageType": "HORIZONTAL",
+  "GranuleSpatialRepresentation": "GEODETIC"
+ },
+ "CollectionProgress": "COMPLETE",
+ "StandardProduct": true,
+ "ScienceKeywords": [
+  {
+   "Category": "EARTH SCIENCE",
+   "Topic": "BIOSPHERE",
+   "Term": "VEGETATION",
+   "VariableLevel1": "CANOPY CHARACTERISTICS"
+  },
+  {
+   "Category": "EARTH SCIENCE",
+   "Topic": "BIOSPHERE",
+   "Term": "VEGETATION",
+   "VariableLevel1": "VEGETATION COVER"
+  },
+  {
+   "Category": "EARTH SCIENCE",
+   "Topic": "LAND SURFACE",
+   "Term": "TOPOGRAPHY",
+   "VariableLevel1": "TERRAIN ELEVATION",
+   "VariableLevel2": "DIGITAL ELEVATION/TERRAIN MODEL (DEM)"
+  },
+  {
+   "Category": "EARTH SCIENCE",
+   "Topic": "SPECTRAL/ENGINEERING",
+   "Term": "SENSOR CHARACTERISTICS",
+   "VariableLevel1": "VIEWING GEOMETRY"
+  },
+  {
+   "Category": "EARTH SCIENCE",
+   "Topic": "LAND SURFACE",
+   "Term": "TOPOGRAPHY",
+   "VariableLevel1": "TERRAIN ELEVATION"
+  },
+  {
+   "Category": "EARTH SCIENCE",
+   "Topic": "SPECTRAL/ENGINEERING",
+   "Term": "LIDAR"
+  },
+  {
+   "Category": "EARTH SCIENCE",
+   "Topic": "LAND SURFACE",
+   "Term": "TOPOGRAPHY"
+  },
+  {
+   "Category": "EARTH SCIENCE",
+   "Topic": "BIOSPHERE",
+   "Term": "VEGETATION",
+   "VariableLevel1": "CANOPY CHARACTERISTICS",
+   "VariableLevel2": "VEGETATION HEIGHT"
+  }
+ ],
+ "TemporalExtents": [
+  {
+   "RangeDateTimes": [
+    {
+     "BeginningDateTime": "2019-04-04T00:00:00.000Z",
+     "EndingDateTime": "2023-03-16T23:59:59.000Z"
+    },
+    {
+     "BeginningDateTime": "2024-04-26T00:00:00.000Z",
+     "EndingDateTime": "2025-07-10T23:59:59.999Z"
+    }
+   ],
+   "EndsAtPresentFlag": false,
+   "PrecisionOfSeconds": 4,
+   "TemporalResolution": {
+    "Unit": "Varies"
+   }
+  }
+ ],
+ "FileNamingConvention": {
+  "Convention": "GEDI02_B_2024333221021_O33779_03_T07960_02_004_01_V002.h5",
+  "Description": "The file name begins with the Product Short Name (GEDI02_B), followed by the Julian Date and Time of Acquisition designated as YYYYDDDHHMMSS (2024333221021), the Orbit Number starting with the letter O (O33779), the Sub-Orbit Granule Number (03), Track Number (T07960), the Positioning and Pointing Determination System type where 00 is predict, 01 rapid, 02 and higher is final (02), the Product Generation Executables Version (004), the Granule Production Version (01), the Version Number (V002), and the Data Format (h5). "
+ },
+ "ProcessingLevel": {
+  "Id": "2B",
+  "ProcessingLevelDescription": "L2B data are L2A data that have been processed to sensor units (not all instruments will have a L2B equivalent)."
+ },
+ "DOI": {
+  "DOI": "10.5067/GEDI/GEDI02_B.002",
+  "Authority": "https://doi.org"
+ },
+ "ShortName": "GEDI02_B",
+ "EntryTitle": "GEDI L2B Canopy Cover and Vertical Profile Metrics Data Global Footprint Level V002",
+ "DirectDistributionInformation": {
+  "Region": "us-west-2",
+  "S3BucketAndObjectPrefixNames": [
+   "s3://lp-prod-protected/GEDI02_B.002",
+   "s3://lp-prod-public/GEDI02_B.002"
+  ],
+  "S3CredentialsAPIEndpoint": "https://data.lpdaac.earthdatacloud.nasa.gov/s3credentials",
+  "S3CredentialsAPIDocumentationURL": "https://data.lpdaac.earthdatacloud.nasa.gov/s3credentialsREADME"
+ },
+ "AccessConstraints": {
+  "Description": "None"
+ },
+ "RelatedUrls": [
+  {
+   "Description": "Earthdata Search allows users to search, discover, visualize, refine, access, and subset NASA Earth Observation data.",
+   "URLContentType": "DistributionURL",
+   "Type": "GET DATA",
+   "Subtype": "Earthdata Search",
+   "URL": "https://search.earthdata.nasa.gov/search/granules?p=C2142776747-LPCLOUD",
+   "GetData": {
+    "Format": "HDF5",
+    "Size": 311.2,
+    "Unit": "MB"
+   }
+  },
+  {
+   "Description": "The LP DAAC website provides detailed information on discovery, distribution, access, and support of land data products.",
+   "URLContentType": "CollectionURL",
+   "Type": "PROJECT HOME PAGE",
+   "URL": "https://www.earthdata.nasa.gov/centers/lp-daac"
+  },
+  {
+   "Description": "The product page provides information on Science Data Set layers and links for user guides, ATBDs, data access, tools, customer support, etc.",
+   "URLContentType": "CollectionURL",
+   "Type": "DATA SET LANDING PAGE",
+   "URL": "https://doi.org/10.5067/GEDI/GEDI02_B.002"
+  },
+  {
+   "Description": "The data dictionary provides additional information on the Science Dataset (SDS) layers.",
+   "URLContentType": "PublicationURL",
+   "Type": "VIEW RELATED INFORMATION",
+   "Subtype": "GENERAL DOCUMENTATION",
+   "URL": "https://lpdaac.usgs.gov/documents/980/gedi_l2b_dictionary_P003_v2.html"
+  },
+  {
+   "Description": "The Waveform Processing ATBD provides physical theory and mathematical procedures for the calculations used to produce the data products.",
+   "URLContentType": "PublicationURL",
+   "Type": "VIEW RELATED INFORMATION",
+   "Subtype": "ALGORITHM THEORETICAL BASIS DOCUMENT (ATBD)",
+   "URL": "https://doi.org/10.5067/DOC/GEDI/GEDI_WF_ATBD.001"
+  },
+  {
+   "Description": "The Geolocation ATBD provides physical theory and mathematical procedures for the calculations used to produce the data products.",
+   "URLContentType": "PublicationURL",
+   "Type": "VIEW RELATED INFORMATION",
+   "Subtype": "ALGORITHM THEORETICAL BASIS DOCUMENT (ATBD)",
+   "URL": "https://doi.org/10.5067/DOC/GEDI/GEDI_WFGEO_ATBD.001"
+  },
+  {
+   "Description": "The GEDI website provides detailed information on the GEDI mission, instrument, science, applications, and data.",
+   "URLContentType": "CollectionURL",
+   "Type": "PROJECT HOME PAGE",
+   "URL": "https://gedi.umd.edu/"
+  },
+  {
+   "Description": "The technical information in the User's Guide enables users to interpret and use the data products.",
+   "URLContentType": "PublicationURL",
+   "Type": "VIEW RELATED INFORMATION",
+   "Subtype": "USER'S GUIDE",
+   "URL": "https://lpdaac.usgs.gov/documents/998/GEDI02_UserGuide_V21.pdf"
+  },
+  {
+   "Description": "GEDI L1-L2 Data Resources, Access, and Visualization Demo",
+   "URLContentType": "PublicationURL",
+   "Type": "VIEW RELATED INFORMATION",
+   "Subtype": "HOW-TO",
+   "URL": "https://lpdaac.usgs.gov/resources/e-learning/accessing-and-analyzing-gedi-lidar-data-for-vegetation-studies/"
+  },
+  {
+   "Description": "Browse image for Earthdata Search",
+   "URLContentType": "VisualizationURL",
+   "Type": "GET RELATED VISUALIZATION",
+   "URL": "https://data.lpdaac.earthdatacloud.nasa.gov/lp-prod-public/GEDI02_B.002/GEDI02_B_2023074161756_O24097_03_T04004_02_003_01_V002/GEDI02_B_2023074161756_O24097_03_T04004_02_003_01_V002.png",
+   "Subtype": "Thumbnail Image"
+  },
+  {
+   "Description": "GEDI Spatial Querying and Subsetting Quick Guide",
+   "URLContentType": "PublicationURL",
+   "Type": "VIEW RELATED INFORMATION",
+   "Subtype": "GENERAL DOCUMENTATION",
+   "URL": "https://lpdaac.usgs.gov/documents/989/GEDI_Quick_Guide_V2.pdf"
+  },
+  {
+   "Description": "The GEDI Data Resources repository provides guides, short how-tos, and tutorials to help users access and work with data from the GEDI mission.",
+   "URLContentType": "PublicationURL",
+   "Type": "VIEW RELATED INFORMATION",
+   "Subtype": "HOW-TO",
+   "URL": "https://github.com/nasa/GEDI-Data-Resources"
+  },
+  {
+   "URLContentType": "PublicationURL",
+   "Type": "VIEW RELATED INFORMATION",
+   "Subtype": "ALGORITHM THEORETICAL BASIS DOCUMENT (ATBD)",
+   "URL": "https://lpdaac.usgs.gov/documents/588/GEDI_FCCVPM_ATBD_v1.0.pdf",
+   "Description": "The Algorithm Theoretical Basis Document (ATBD) for GEDI L2B Footprint Canopy Cover and Vertical Profile Metric provides physical theory and mathematical procedures for the calculations used to produce the data products."
+  }
+ ],
+ "DataDates": [
+  {
+   "Type": "CREATE",
+   "Date": "2021-04-16T00:00:00.000Z"
+  },
+  {
+   "Type": "UPDATE",
+   "Date": "2025-07-10T00:00:00.000Z"
+  }
+ ],
+ "Abstract": "The Global Ecosystem Dynamics Investigation ([GEDI](https://gedi.umd.edu/)) mission aims to characterize ecosystem structure and dynamics to enable radically improved quantification and understanding of the Earth’s carbon cycle and biodiversity. The GEDI instrument produces high resolution laser ranging observations of the 3-dimensional structure of the Earth. GEDI is attached to the International Space Station (ISS) and collects data globally between 51.6° N and 51.6° S latitudes at the highest resolution and densest sampling of any light detection and ranging (lidar) instrument in orbit to date. Each GEDI Version 2 granule encompasses one-fourth of an ISS orbit and includes georeferenced metadata to allow for spatial querying and subsetting.\n\nThe GEDI instrument was removed from the ISS and placed into storage on March 17, 2023. No data were acquired during the hibernation period from March 17, 2023, to April 24, 2024. GEDI has since been reinstalled on the ISS and resumed operations as of April 26, 2024.\n\nThe purpose of the GEDI Level 2B Canopy Cover and Vertical Profile Metrics product (GEDI02_B) is to extract biophysical metrics from each GEDI waveform. These metrics are based on the directional gap probability profile derived from the L1B waveform. Metrics provided include canopy cover, Plant Area Index (PAI), Plant Area Volume Density (PAVD), and Foliage Height Diversity (FHD). The GEDI02_B product is provided in HDF5 format and has a spatial resolution (average footprint) of 25 meters.\n\nThe GEDI02_B data product contains 198 layers for each of the eight-beam ground transects (or laser footprints located on the land surface). Datasets provided include precise latitude, longitude, elevation, height, canopy cover, and vertical profile metrics. Additional information for the layers can be found in the GEDI Level 2B Data Dictionary.\n\nKnown Issues\n\n* Data acquisition gaps: GEDI data acquisitions were suspended on December 19, 2019 (2019 Day 353) and resumed on January 8, 2020 (2020 Day 8).\n* Incorrect Reference Ground Track (RGT) number in the filename for select GEDI files: GEDI Science Data Products for six orbits on August 7, 2020, and November 12, 2021, had the incorrect RGT number in the filename. There is no impact to the science data, but users should reference this [document](https://lpdaac.usgs.gov/documents/2236/GEDI_CORRECTED_RGT_FILENAMES.pptx) for the correct RGT numbers.\n* Known Issues: Section 8 of the User Guide provides additional information on known issues.",
+ "Purpose": "Science Research",
+ "LocationKeywords": [
+  {
+   "Category": "GEOGRAPHIC REGION",
+   "Type": "GLOBAL LAND"
+  }
+ ],
+ "MetadataDates": [
+  {
+   "Type": "CREATE",
+   "Date": "2021-10-12T21:02:00.000Z"
+  },
+  {
+   "Type": "UPDATE",
+   "Date": "2025-11-24T00:00:00.000Z"
+  }
+ ],
+ "VersionDescription": "The following changes and improvements were implemented for GEDI Version 2 data products: (1) Reduced granule size from one full ISS orbit (~7.99 GB) to four segments per orbit (~2.00 GB), (2) Modified file name to include segment number and dataset version, (3) Improved geolocation for orbital segments, (4) Added elevation from the SRTM digital elevation model for comparison, (5) Modified the method to predict an optimum algorithm setting group per laser shot, (6) Added additional land cover datasets related to phenology, urban infrastructure, and water persistence, (7) Added selected_mode_flag dataset to root beam group using selected algorithm, and (8) Removed shots when the laser is not firing.",
+ "Version": "002",
+ "Projects": [
+  {
+   "Campaigns": [
+    "GEDI"
+   ],
+   "ShortName": "GEDI",
+   "LongName": "Global Ecosystem Dynamics Investigation"
+  }
+ ],
+ "UseConstraints": {
+  "LicenseURL": {
+   "Name": "Data Use Policy",
+   "Linkage": "https://earthdata.nasa.gov/earth-observation-data/data-use-policy",
+   "Description": "License URL for data use policy",
+   "MimeType": "text/html"
+  }
+ },
+ "ContactPersons": [
+  {
+   "Roles": [
+    "Investigator"
+   ],
+   "ContactInformation": {
+    "ContactMechanisms": [
+     {
+      "Type": "Email",
+      "Value": "dubayah@umd.edu"
+     }
+    ]
+   },
+   "FirstName": "Ralph",
+   "LastName": "Dubayah",
+   "NonDataCenterAffiliation": "GEDI Science Team"
+  }
+ ],
+ "CollectionDataType": "SCIENCE_QUALITY",
+ "DataCenters": [
+  {
+   "Roles": [
+    "ARCHIVER",
+    "DISTRIBUTOR"
+   ],
+   "ContactGroups": [
+    {
+     "Roles": [
+      "User Services"
+     ],
+     "ContactInformation": {
+      "RelatedUrls": [
+       {
+        "Description": "The LP DAAC website provides detailed information on discovery, distribution, access, and support of land data products.",
+        "URLContentType": "DataContactURL",
+        "Type": "HOME PAGE",
+        "URL": "https://www.earthdata.nasa.gov/centers/lp-daac/contact"
+       }
+      ],
+      "ContactMechanisms": [
+       {
+        "Type": "Telephone",
+        "Value": "605-594-6116"
+       },
+       {
+        "Type": "U.S. toll free",
+        "Value": "866-573-3222"
+       },
+       {
+        "Type": "Email",
+        "Value": "lpdaac@usgs.gov"
+       }
+      ],
+      "Addresses": [
+       {
+        "StreetAddresses": [
+         "U.S. Geological Survey, Earth Resources Observation and Science (EROS) Center"
+        ],
+        "Country": "United States",
+        "City": "Sioux Falls",
+        "PostalCode": "57198"
+       }
+      ],
+      "ServiceHours": "M-F, 8 a.m. to 4 p.m. Central Time",
+      "ContactInstruction": "LP DAAC User Services is the point of contact for answering questions concerning data products, data access, and online applications."
+     },
+     "GroupName": "User Services"
+    }
+   ],
+   "ContactInformation": {
+    "RelatedUrls": [
+     {
+      "Description": "The LP DAAC website provides detailed information on discovery, distribution, access, and support of land data products.",
+      "URLContentType": "DataCenterURL",
+      "Type": "HOME PAGE",
+      "URL": "https://www.earthdata.nasa.gov/centers/lp-daac"
+     }
+    ],
+    "ContactMechanisms": [
+     {
+      "Type": "Telephone",
+      "Value": "605-594-6116"
+     },
+     {
+      "Type": "U.S. toll free",
+      "Value": "866-573-3222"
+     },
+     {
+      "Type": "Email",
+      "Value": "lpdaac@usgs.gov"
+     }
+    ],
+    "Addresses": [
+     {
+      "StreetAddresses": [
+       "U.S. Geological Survey, Earth Resources Observation and Science (EROS) Center"
+      ],
+      "Country": "United States",
+      "City": "Sioux Falls",
+      "StateProvince": "South Dakota",
+      "PostalCode": "57198"
+     }
+    ],
+    "ServiceHours": "M-F, 8 a.m. to 4 p.m. Central Time",
+    "ContactInstruction": "LP DAAC User Services is the point of contact for answering questions concerning data products, data access, and online applications."
+   },
+   "ShortName": "LP DAAC",
+   "LongName": "Land Processes Distributed Active Archive Center"
+  },
+  {
+   "Roles": [
+    "PROCESSOR"
+   ],
+   "ContactInformation": {
+    "RelatedUrls": [
+     {
+      "Description": "The GEDI website provides additional information about the product.",
+      "URLContentType": "DataCenterURL",
+      "Type": "HOME PAGE",
+      "URL": "https://science.nasa.gov/mission/gedi/"
+     }
+    ]
+   },
+   "ShortName": "NASA/GSFC/GEDI",
+   "LongName": "Global Ecosystem Dynamics Investigation, Goddard Space Flight Center, NASA"
+  }
+ ],
+ "TemporalKeywords": [
+  "Varies"
+ ],
+ "Platforms": [
+  {
+   "Instruments": [
+    {
+     "ComposedOf": [
+      {
+       "ShortName": "LIDAR",
+       "LongName": "Light Detection and Ranging"
+      }
+     ],
+     "ShortName": "GEDI",
+     "LongName": "Global Ecosystem Dynamics Investigation"
+    }
+   ],
+   "Type": "Space Stations/Crewed Spacecraft",
+   "ShortName": "ISS",
+   "LongName": "International Space Station"
+  }
+ ],
+ "MetadataSpecification": {
+  "URL": "https://cdn.earthdata.nasa.gov/umm/collection/v1.18.6",
+  "Name": "UMM-C",
+  "Version": "1.18.6"
+ },
+ "ArchiveAndDistributionInformation": {
+  "FileArchiveInformation": [
+   {
+    "Format": "HDF5",
+    "FormatType": "Native",
+    "FormatDescription": "Hierarchical Data Format Version 5",
+    "AverageFileSize": 311.2,
+    "AverageFileSizeUnit": "MB",
+    "TotalCollectionFileSize": 23.511015,
+    "TotalCollectionFileSizeUnit": "TB"
+   }
+  ],
+  "FileDistributionInformation": [
+   {
+    "Format": "HDF5",
+    "FormatType": "Native",
+    "FormatDescription": "Hierarchical Data Format Version 5",
+    "Media": [
+     "Earthdata Cloud",
+     "HTTPS"
+    ],
+    "AverageFileSize": 311.2,
+    "AverageFileSizeUnit": "MB",
+    "TotalCollectionFileSize": 23.511015,
+    "TotalCollectionFileSizeUnit": "TB"
+   }
+  ]
+ }
+}

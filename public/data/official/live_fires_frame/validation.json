@@ -1,0 +1,20 @@
+{
+ "record": "live_fires_frame",
+ "checks": [
+  {
+   "record": "live_fires_frame",
+   "id": "a_acceptance",
+   "title": "SVS 5113 live frame: acceptance test in the reference suite",
+   "kind": "none",
+   "source": null,
+   "metrics": {
+    "output": "latest/fires.json"
+   },
+   "threshold": null,
+   "pass": null,
+   "note": "The product's output carries no verified block; see docs/data-integration-status.md.",
+   "run_utc": "2026-10-29T12:47:05Z"
+  }
+ ],
+ "updated_utc": "2026-10-29T12:47:05Z"
+}

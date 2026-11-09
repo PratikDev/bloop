@@ -2,18 +2,19 @@
 
 import { useEffect, useRef } from "react";
 import { cn } from "@/lib/utils";
-import { audio } from "@/lib/audio-adapter";
+import { analyserFor } from "@/lib/audio-engines";
 import { readPalette } from "@/lib/css-tokens";
 import { useAppState } from "./AppState/use-app-state";
 
 const FPS = 30;
 const REDUCED_FPS = 10;
 
-/** The live output waveform (AnalyserNode, time domain). Flat when silent. */
+/** The live output waveform (AnalyserNode, time domain) of the engine the page plays on. Flat when silent. */
 export function Waveform({ className }: { className?: string }) {
   const { state } = useAppState();
   const canvasRef = useRef<HTMLCanvasElement>(null);
   const fps = state.reduceMotion ? REDUCED_FPS : FPS;
+  const { mode } = state;
 
   useEffect(() => {
     const canvas = canvasRef.current;
@@ -36,7 +37,7 @@ export function Waveform({ className }: { className?: string }) {
       ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
       ctx.clearRect(0, 0, w, h);
 
-      const analyser = audio.getAnalyser();
+      const analyser = analyserFor(mode);
       if (analyser && (!samples || samples.length !== analyser.fftSize)) samples = new Uint8Array(analyser.fftSize);
       if (analyser && samples) analyser.getByteTimeDomainData(samples);
 
@@ -55,7 +56,7 @@ export function Waveform({ className }: { className?: string }) {
     };
     raf = requestAnimationFrame(draw);
     return () => cancelAnimationFrame(raf);
-  }, [fps]);
+  }, [fps, mode]);
 
   return <canvas ref={canvasRef} aria-hidden="true" className={cn("h-8 w-32", className)} />;
 }

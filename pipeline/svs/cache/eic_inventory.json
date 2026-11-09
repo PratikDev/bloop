@@ -1,0 +1,3070 @@
+{
+ "gallery": "https://svs.gsfc.nasa.gov/gallery/earth-information-center/",
+ "api_id": 40467,
+ "items": [
+  {
+   "id": 3912,
+   "title": "Global Sea Surface Currents and Temperature",
+   "url": "https://svs.gsfc.nasa.gov/3912/",
+   "release_date": "2012-03-16T10:00:00-04:00",
+   "period": "3-2007 through 2-2008",
+   "variable": "GTOPO30 Topography and Bathymetry, ECCO2 High Resolution Ocean and Sea Ice Model",
+   "model_or_obs": "model/observation",
+   "projection": "equirectangular (2:1)",
+   "frame_sets": [
+    {
+     "layer": "orig",
+     "size": "2048×1024",
+     "frames": 2001,
+     "gb": 12.01
+    },
+    {
+     "layer": "with_colorbar",
+     "size": "2048×1024",
+     "frames": 2001,
+     "gb": 6.0
+    },
+    {
+     "layer": "6840x3420_1x1_30p",
+     "size": "6840×3420",
+     "frames": 2001,
+     "gb": 66.04
+    },
+    {
+     "layer": "6840x2304_1x1_30p",
+     "size": "6840×2304",
+     "frames": 1750,
+     "gb": 36.27
+    },
+    {
+     "layer": "pacific",
+     "size": "1920×1080",
+     "frames": 2001,
+     "gb": 4.0
+    },
+    {
+     "layer": "pacific_bare",
+     "size": "1920×1080",
+     "frames": 2001,
+     "gb": 4.0
+    }
+   ],
+   "movies": 24,
+   "colorbar": true,
+   "colorbars": [
+    "sst_ecco2_cbar.png"
+   ],
+   "cadence": "2001 frames per set (date list linked)",
+   "class": "A",
+   "reason": "already decoded into values by Bloop product `currents_3912`",
+   "page_type": "Visualization",
+   "via": [
+    "Earth Information Center (EIC) › EIC Beauty Pieces"
+   ],
+   "record": "currents_3912 (Currents & SST (model, 2007–08))"
+  },
+  {
+   "id": 4170,
+   "title": "GPM Constellation Covers the Earth",
+   "url": "https://svs.gsfc.nasa.gov/4170/",
+   "release_date": "2014-07-01T00:00:00-04:00",
+   "period": "4/1/2014-4/3/2014",
+   "variable": "Daily Rainfall, Surface Precipitation",
+   "model_or_obs": "observation",
+   "projection": "other",
+   "frame_sets": [],
+   "movies": 30,
+   "colorbar": false,
+   "colorbars": [],
+   "cadence": "still",
+   "class": "B",
+   "reason": "data picture without a colorbar: pattern, not values",
+   "page_type": "Visualization",
+   "via": [
+    "Earth Information Center (EIC) › NASA and Agriculture Video › Featured Visualizations"
+   ],
+   "record": null
+  },
+  {
+   "id": 4285,
+   "title": "Near Real-Time Global Precipitation from the Global Precipitation Measurement Constellation",
+   "url": "https://svs.gsfc.nasa.gov/4285/",
+   "release_date": "2015-03-31T12:00:00-04:00",
+   "period": null,
+   "variable": null,
+   "model_or_obs": "observation",
+   "projection": "equirectangular (2:1)",
+   "frame_sets": [
+    {
+     "layer": "flatcomposite",
+     "size": "1920×1080",
+     "frames": 342,
+     "gb": 0.0
+    },
+    {
+     "layer": "flatalpha",
+     "size": "3600×1800",
+     "frames": 342,
+     "gb": 0.0
+    },
+    {
+     "layer": "flatcomposite",
+     "size": "3600×1800",
+     "frames": 342,
+     "gb": 0.0
+    },
+    {
+     "layer": "flatdates",
+     "size": "343×63",
+     "frames": 342,
+     "gb": 0.0
+    }
+   ],
+   "movies": 2,
+   "colorbar": true,
+   "colorbars": [
+    "snowbarwhite2.png",
+    "snowbarblack2.png",
+    "rainbarwhite2.png",
+    "rainbarblack2.png"
+   ],
+   "cadence": "342 frames per set",
+   "class": "A",
+   "reason": "already decoded into values by Bloop product `rain`",
+   "page_type": "Visualization",
+   "via": [
+    "Earth Information Center (EIC) › Daily Visualizations › Visualizations"
+   ],
+   "record": "rain"
+  },
+  {
+   "id": 4685,
+   "title": "Inside Hurricane Maria in 360°",
+   "url": "https://svs.gsfc.nasa.gov/4685/",
+   "release_date": "2018-10-04T09:55:00-04:00",
+   "period": "2017-09-18T02:08:26",
+   "variable": ", Surface Precipitation, Ku",
+   "model_or_obs": "observation",
+   "projection": "equirectangular (2:1)",
+   "frame_sets": [
+    {
+     "layer": "4096x2048_2x1_29.97",
+     "size": "4096×2048",
+     "frames": 9361,
+     "gb": 147.84
+    },
+    {
+     "layer": "4096x2048_2x1_30p",
+     "size": "4096×2048",
+     "frames": 9361,
+     "gb": 129.33
+    },
+    {
+     "layer": "8192x4096_2x1_30p",
+     "size": "8192×4096",
+     "frames": 9361,
+     "gb": 444.41
+    }
+   ],
+   "movies": 12,
+   "colorbar": false,
+   "colorbars": [],
+   "cadence": "9361 frames per set",
+   "class": "B",
+   "reason": "data picture without a colorbar: pattern, not values",
+   "page_type": "Visualization",
+   "via": [
+    "Earth Information Center (EIC) › NASA and Hurricanes › Featured Visualizations"
+   ],
+   "record": null
+  },
+  {
+   "id": 4810,
+   "title": "Reductions in Pollution Associated with Decreased Fossil Fuel Use Resulting from COVID-19 Mitigation",
+   "url": "https://svs.gsfc.nasa.gov/4810/",
+   "release_date": "2020-04-24T00:00:00-04:00",
+   "period": null,
+   "variable": ", Ozone, Blue Marble: Next Generation",
+   "model_or_obs": "observation",
+   "projection": "other",
+   "frame_sets": [],
+   "movies": 2,
+   "colorbar": true,
+   "colorbars": [
+    "avg2015-2019_NO2_w_colorbar_date.jpg",
+    "avg2015-2019_NO2_print_w_colorbar_date_print.jpg",
+    "avg2015-2019_NO2_print_w_colorbar_date.jpg",
+    "avg2015-2019_NO2_print_w_colorbar_date_searchweb.png"
+   ],
+   "cadence": "still",
+   "class": "B",
+   "reason": "colorbar, but no flat map: pattern only unless a georeference can be fitted",
+   "page_type": "Visualization",
+   "via": [
+    "Earth Information Center (EIC) › Air Quality Dashboard › Revolutionizing our understanding with NASA's TEMPO mission"
+   ],
+   "record": null
+  },
+  {
+   "id": 4889,
+   "title": "Variability of Water Storage in Global Hydrological Basins",
+   "url": "https://svs.gsfc.nasa.gov/4889/",
+   "release_date": "2021-03-03T14:00:00-05:00",
+   "period": null,
+   "variable": null,
+   "model_or_obs": "unclear",
+   "projection": "other",
+   "frame_sets": [
+    {
+     "layer": "figure_2_no_cbar",
+     "size": "3840×2160",
+     "frames": 1300,
+     "gb": 41.08
+    },
+    {
+     "layer": "figure_3_no_cbar",
+     "size": "3840×2160",
+     "frames": 1300,
+     "gb": 41.08
+    }
+   ],
+   "movies": 4,
+   "colorbar": true,
+   "colorbars": [
+    "fig_2_cbar_print.jpg",
+    "fig_2_cbar.png",
+    "fig_3_cbar_print.jpg",
+    "fig_3_cbar.png"
+   ],
+   "cadence": "1300 frames per set",
+   "class": "B",
+   "reason": "colorbar, but no flat map: pattern only unless a georeference can be fitted",
+   "page_type": "Visualization",
+   "via": [
+    "Earth Information Center (EIC) › NASA and Agriculture Video › Featured Visualizations"
+   ],
+   "record": null
+  },
+  {
+   "id": 4897,
+   "title": "Seasonal Global Precipitation Variation from the Global Precipitation Measurement Constellation",
+   "url": "https://svs.gsfc.nasa.gov/4897/",
+   "release_date": "2021-04-12T08:00:00-04:00",
+   "period": null,
+   "variable": null,
+   "model_or_obs": "observation",
+   "projection": "equirectangular (2:1)",
+   "frame_sets": [
+    {
+     "layer": "flatcomposite",
+     "size": "1920×1080",
+     "frames": 847,
+     "gb": 0.0
+    },
+    {
+     "layer": "numberedcomposite",
+     "size": "1920×1080",
+     "frames": 593,
+     "gb": 0.0
+    },
+    {
+     "layer": "flatcomposite",
+     "size": "3600×1800",
+     "frames": 847,
+     "gb": 0.0
+    },
+    {
+     "layer": "flatalpha",
+     "size": "3600×1800",
+     "frames": 847,
+     "gb": 0.0
+    },
+    {
+     "layer": "flatcompwithdates",
+     "size": "3600×1800",
+     "frames": 847,
+     "gb": 0.0
+    },
+    {
+     "layer": "flatdates",
+     "size": "195×63",
+     "frames": 847,
+     "gb": 0.0
+    },
+    {
+     "layer": "Robinson",
+     "size": "3600×1800",
+     "frames": 847,
+     "gb": 0.0
+    },
+    {
+     "layer": "RobinsonWithDates",
+     "size": "3600×1800",
+     "frames": 847,
+     "gb": 0.0
+    }
+   ],
+   "movies": 2,
+   "colorbar": false,
+   "colorbars": [],
+   "cadence": "847 frames per set",
+   "class": "B",
+   "reason": "data picture without a colorbar: pattern, not values",
+   "page_type": "Visualization",
+   "via": [
+    "Earth Information Center (EIC) › Daily Visualizations › Visualizations"
+   ],
+   "record": null
+  },
+  {
+   "id": 4950,
+   "title": "GEDI Forest Height",
+   "url": "https://svs.gsfc.nasa.gov/4950/",
+   "release_date": "2021-10-29T10:00:00-04:00",
+   "period": null,
+   "variable": "Relative Height",
+   "model_or_obs": "observation",
+   "projection": "other",
+   "frame_sets": [
+    {
+     "layer": "GEDI_global_w_colorbar",
+     "size": "3840×2160",
+     "frames": 2999,
+     "gb": 95.07
+    },
+    {
+     "layer": "GEDI_CA_w_colorbar",
+     "size": "3840×2160",
+     "frames": 1401,
+     "gb": 44.41
+    },
+    {
+     "layer": "GEDI_global",
+     "size": "3840×2160",
+     "frames": 2999,
+     "gb": 189.84
+    },
+    {
+     "layer": "GEDI_CA",
+     "size": "3840×2160",
+     "frames": 1401,
+     "gb": 88.68
+    },
+    {
+     "layer": "GEDI_FL_w_colorbar",
+     "size": "3840×2160",
+     "frames": 1401,
+     "gb": 44.41
+    },
+    {
+     "layer": "GEDI_Goddard_w_colorbar",
+     "size": "3840×2160",
+     "frames": 1395,
+     "gb": 44.22
+    },
+    {
+     "layer": "GEDI_Laurentides_w_colorbar",
+     "size": "3840×2160",
+     "frames": 1396,
+     "gb": 44.25
+    },
+    {
+     "layer": "GEDI_Senegal_w_colorbar",
+     "size": "3840×2160",
+     "frames": 1346,
+     "gb": 85.2
+    },
+    {
+     "layer": "GEDI_FL",
+     "size": "3840×2160",
+     "frames": 1401,
+     "gb": 22.49
+    },
+    {
+     "layer": "GEDI_Goddard",
+     "size": "3840×2160",
+     "frames": 1395,
+     "gb": 44.85
+    },
+    {
+     "layer": "GEDI_Laurentides",
+     "size": "3840×2160",
+     "frames": 1395,
+     "gb": 48.66
+    },
+    {
+     "layer": "GEDI_Senegal",
+     "size": "3840×2160",
+     "frames": 1346,
+     "gb": 85.2
+    }
+   ],
+   "movies": 46,
+   "colorbar": true,
+   "colorbars": [
+    "GEDI_global_w_colorbar_0900_print.jpg",
+    "GEDI_global_w_colorbar_0900_searchweb.png",
+    "GEDI_global_w_colorbar_0900_thm.png",
+    "GEDI_CA_w_colorbar_0850_print.jpg"
+   ],
+   "cadence": "2999 frames per set",
+   "class": "B",
+   "reason": "colorbar, but no flat map: pattern only unless a georeference can be fitted",
+   "page_type": "Visualization",
+   "via": [
+    "Earth Information Center (EIC) › EIC Beauty Pieces"
+   ],
+   "record": null
+  },
+  {
+   "id": 4960,
+   "title": "A 3D View of an Atmospheric River from an Earth System Model",
+   "url": "https://svs.gsfc.nasa.gov/4960/",
+   "release_date": "2022-01-25T14:00:00-05:00",
+   "period": null,
+   "variable": "GTOPO30 Topography and Bathymetry, Winds, MERRA-2",
+   "model_or_obs": "model",
+   "projection": "other",
+   "frame_sets": [
+    {
+     "layer": "7680x2160_32_9_30p",
+     "size": "7680×2160",
+     "frames": 1798,
+     "gb": 32.13
+    },
+    {
+     "layer": "3840x2160_16x9_60p",
+     "size": "3840×2160",
+     "frames": 17485,
+     "gb": 427.51
+    },
+    {
+     "layer": "9600x3240_16x9_30p",
+     "size": "9600×3240",
+     "frames": 8741,
+     "gb": 573.25
+    },
+    {
+     "layer": "atmos_river_DATE_ONLY_rfm23_2021-12-10_1233",
+     "size": "1920×1080",
+     "frames": 17501,
+     "gb": 2.34
+    }
+   ],
+   "movies": 8,
+   "colorbar": true,
+   "colorbars": [
+    "atmo_rivers_cbars01.png",
+    "atmo_rivers_cbars01_print.jpg",
+    "atmo_rivers_cbars01_thm.png"
+   ],
+   "cadence": "17501 frames per set",
+   "class": "B",
+   "reason": "colorbar, but no flat map: pattern only unless a georeference can be fitted",
+   "page_type": "Visualization",
+   "via": [
+    "Earth Information Center (EIC) › EIC Beauty Pieces"
+   ],
+   "record": null
+  },
+  {
+   "id": 4968,
+   "title": "Iowa Cropland 2001-2020",
+   "url": "https://svs.gsfc.nasa.gov/4968/",
+   "release_date": "2022-03-09T09:00:00-05:00",
+   "period": null,
+   "variable": null,
+   "model_or_obs": "unclear",
+   "projection": "other",
+   "frame_sets": [
+    {
+     "layer": "main",
+     "size": "3840×2160",
+     "frames": 1350,
+     "gb": 24.64
+    },
+    {
+     "layer": "zoomOnly",
+     "size": "3840×2160",
+     "frames": 1350,
+     "gb": 23.99
+    },
+    {
+     "layer": "yearsOnly",
+     "size": "3840×2160",
+     "frames": 20,
+     "gb": 0.32
+    }
+   ],
+   "movies": 7,
+   "colorbar": false,
+   "colorbars": [],
+   "cadence": "1350 frames per set",
+   "class": "B",
+   "reason": "data picture without a colorbar: pattern, not values",
+   "page_type": "Visualization",
+   "via": [
+    "Earth Information Center (EIC) › NASA and Agriculture Video › Featured Visualizations"
+   ],
+   "record": null
+  },
+  {
+   "id": 4983,
+   "title": "Global Carbon Dioxide 2020-2021 for Hyperwalls",
+   "url": "https://svs.gsfc.nasa.gov/4983/",
+   "release_date": "2022-04-11T12:00:00-04:00",
+   "period": null,
+   "variable": "GTOPO30 Topography and Bathymetry, Blue Marble: Next Generation, 10 km Daily Sea Ice Concentration, 10 km Daily 89 GHz Brightness Temperature, GEOS Carbon Dioxi",
+   "model_or_obs": "model",
+   "projection": "other",
+   "frame_sets": [
+    {
+     "layer": "9600x3240_16x9_30p",
+     "size": "9600×3240",
+     "frames": 3376,
+     "gb": 199.77
+    },
+    {
+     "layer": "png",
+     "size": "9600×3240",
+     "frames": 3376,
+     "gb": 77.25
+    }
+   ],
+   "movies": 4,
+   "colorbar": false,
+   "colorbars": [],
+   "cadence": "3376 frames per set",
+   "class": "B",
+   "reason": "data picture without a colorbar: pattern, not values",
+   "page_type": "Visualization",
+   "via": [
+    "Earth Information Center (EIC) › NASA and Hurricanes › Featured Visualizations"
+   ],
+   "record": null
+  },
+  {
+   "id": 4993,
+   "title": "Spread of the Dixie Fire - 2021",
+   "url": "https://svs.gsfc.nasa.gov/4993/",
+   "release_date": "2022-06-01T09:00:00-04:00",
+   "period": "7/11/2021 - 7/11/2021",
+   "variable": "DEM, Band Combination 4-3-2, California Wildfire Spread Derived using VIIRS Observations and an Object-based Tracking System",
+   "model_or_obs": "observation",
+   "projection": "other",
+   "frame_sets": [
+    {
+     "layer": "3840x2160_16x9_60p",
+     "size": "3840×2160",
+     "frames": 6136,
+     "gb": 219.66
+    },
+    {
+     "layer": "3840x2160_16x9_15p",
+     "size": "3840×2160",
+     "frames": 1534,
+     "gb": 54.92
+    },
+    {
+     "layer": "3840x2160_16x9_30p",
+     "size": "3840×2160",
+     "frames": 3068,
+     "gb": 109.83
+    }
+   ],
+   "movies": 8,
+   "colorbar": false,
+   "colorbars": [],
+   "cadence": "6136 frames per set",
+   "class": "B",
+   "reason": "data picture without a colorbar: pattern, not values",
+   "page_type": "Visualization",
+   "via": [
+    "Earth Information Center (EIC) › EIC Beauty Pieces"
+   ],
+   "record": null
+  },
+  {
+   "id": 5011,
+   "title": "Lightning Events Detected from the International Space Station (ISS) 2017-2023",
+   "url": "https://svs.gsfc.nasa.gov/5011/",
+   "release_date": "2023-10-19T00:00:00-04:00",
+   "period": null,
+   "variable": "CPC (Climate Prediction Center) Cloud Composite, Gray Earth with Shaded Relief, Hypsography, and Flat Water, Quality Controlled Lightning Imaging Sensor (LIS) o",
+   "model_or_obs": "model/observation",
+   "projection": "equirectangular (2:1)",
+   "frame_sets": [],
+   "movies": 5,
+   "colorbar": false,
+   "colorbars": [],
+   "cadence": "still",
+   "class": "B",
+   "reason": "data picture without a colorbar: pattern, not values",
+   "page_type": "Visualization",
+   "via": [
+    "Earth Information Center (EIC) › EIC Beauty Pieces"
+   ],
+   "record": null
+  },
+  {
+   "id": 5041,
+   "title": "Methane Emissions in the United States",
+   "url": "https://svs.gsfc.nasa.gov/5041/",
+   "release_date": "2022-12-01T00:00:00-05:00",
+   "period": null,
+   "variable": "Gridded 2012 U.S. Methane Emissions",
+   "model_or_obs": "unclear",
+   "projection": "other",
+   "frame_sets": [],
+   "movies": 2,
+   "colorbar": true,
+   "colorbars": [
+    "legend.png"
+   ],
+   "cadence": "still",
+   "class": "B",
+   "reason": "colorbar, but no flat map: pattern only unless a georeference can be fitted",
+   "page_type": "Visualization",
+   "via": [
+    "Earth Information Center (EIC) › Greenhouse Gases Dashboard › Visualizations"
+   ],
+   "record": null
+  },
+  {
+   "id": 5046,
+   "title": "Daily Arctic Sea Ice, By Year",
+   "url": "https://svs.gsfc.nasa.gov/5046/",
+   "release_date": "2022-11-28T00:00:00-05:00",
+   "period": null,
+   "variable": "Blue Marble: Next Generation, 10 km Daily Sea Ice Concentration, 10 km Daily 89 GHz Brightness Temperature",
+   "model_or_obs": "unclear",
+   "projection": "other",
+   "frame_sets": [
+    {
+     "layer": "w_dates",
+     "size": "3840×2160",
+     "frames": 730,
+     "gb": 46.21
+    },
+    {
+     "layer": "w_dates",
+     "size": "3840×2160",
+     "frames": 366,
+     "gb": 23.06
+    },
+    {
+     "layer": "no_dates",
+     "size": "3840×2160",
+     "frames": 366,
+     "gb": 3.32
+    },
+    {
+     "layer": "w_dates",
+     "size": "3840×2160",
+     "frames": 365,
+     "gb": 23.0
+    },
+    {
+     "layer": "no_dates",
+     "size": "3840×2160",
+     "frames": 365,
+     "gb": 3.35
+    },
+    {
+     "layer": "w_dates",
+     "size": "3840×2160",
+     "frames": 365,
+     "gb": 23.0
+    },
+    {
+     "layer": "no_dates",
+     "size": "3840×2160",
+     "frames": 365,
+     "gb": 3.35
+    },
+    {
+     "layer": "w_dates",
+     "size": "3840×2160",
+     "frames": 365,
+     "gb": 23.0
+    },
+    {
+     "layer": "no_dates",
+     "size": "3840×2160",
+     "frames": 365,
+     "gb": 3.33
+    },
+    {
+     "layer": "2023",
+     "size": "1920×1080",
+     "frames": 365,
+     "gb": 0.06
+    },
+    {
+     "layer": "2022",
+     "size": "1920×1080",
+     "frames": 365,
+     "gb": 0.06
+    },
+    {
+     "layer": "2021",
+     "size": "1920×1080",
+     "frames": 365,
+     "gb": 0.06
+    }
+   ],
+   "movies": 16,
+   "colorbar": false,
+   "colorbars": [],
+   "cadence": "730 frames per set",
+   "class": "B",
+   "reason": "data picture without a colorbar: pattern, not values",
+   "page_type": "Visualization",
+   "via": [
+    "Earth Information Center (EIC) › Daily Visualizations › Visualizations"
+   ],
+   "record": null
+  },
+  {
+   "id": 5047,
+   "title": "Net Ecosystem Exchange of Carbon Dioxide",
+   "url": "https://svs.gsfc.nasa.gov/5047/",
+   "release_date": "2022-11-30T00:00:00-05:00",
+   "period": null,
+   "variable": "GEOS-Carb CASA-GFED Monthly Fire Fuel NPP Rh NEE Fluxes",
+   "model_or_obs": "model",
+   "projection": "other",
+   "frame_sets": [
+    {
+     "layer": "3840x2160_16x9_30p",
+     "size": "3840×2160",
+     "frames": 1800,
+     "gb": 4.69
+    }
+   ],
+   "movies": 2,
+   "colorbar": false,
+   "colorbars": [],
+   "cadence": "1800 frames per set",
+   "class": "B",
+   "reason": "data picture without a colorbar: pattern, not values",
+   "page_type": "Visualization",
+   "via": [
+    "Earth Information Center (EIC) › Greenhouse Gases Dashboard › Visualizations"
+   ],
+   "record": null
+  },
+  {
+   "id": 5054,
+   "title": "Methane Emissions from Wetlands",
+   "url": "https://svs.gsfc.nasa.gov/5054/",
+   "release_date": "2022-12-14T13:00:00-05:00",
+   "period": null,
+   "variable": null,
+   "model_or_obs": "unclear",
+   "projection": "other",
+   "frame_sets": [],
+   "movies": 12,
+   "colorbar": false,
+   "colorbars": [],
+   "cadence": "still",
+   "class": "B",
+   "reason": "data picture without a colorbar: pattern, not values",
+   "page_type": "Visualization",
+   "via": [
+    "Earth Information Center (EIC) › Greenhouse Gases Dashboard › Visualizations"
+   ],
+   "record": null
+  },
+  {
+   "id": 5058,
+   "title": "Florida Nighttime Lights Before and After Hurricane Ian",
+   "url": "https://svs.gsfc.nasa.gov/5058/",
+   "release_date": "2023-06-16T10:00:00-04:00",
+   "period": null,
+   "variable": ", Band Combination 2,3,4, Black Marble: Next Generation",
+   "model_or_obs": "unclear",
+   "projection": "other",
+   "frame_sets": [],
+   "movies": 2,
+   "colorbar": false,
+   "colorbars": [],
+   "cadence": "still",
+   "class": "B",
+   "reason": "data picture without a colorbar: pattern, not values",
+   "page_type": "Visualization",
+   "via": [
+    "Earth Information Center (EIC) › NASA and Hurricanes › Featured Visualizations"
+   ],
+   "record": null
+  },
+  {
+   "id": 5064,
+   "title": "Daily Antarctic Sea Ice, By Year",
+   "url": "https://svs.gsfc.nasa.gov/5064/",
+   "release_date": "2023-01-17T00:00:00-05:00",
+   "period": null,
+   "variable": "Blue Marble: Next Generation, 10 km Daily Sea Ice Concentration, 10 km Daily 89 GHz Brightness Temperature",
+   "model_or_obs": "unclear",
+   "projection": "other",
+   "frame_sets": [
+    {
+     "layer": "w_dates",
+     "size": "3840×2160",
+     "frames": 730,
+     "gb": 46.21
+    },
+    {
+     "layer": "w_dates",
+     "size": "3840×2160",
+     "frames": 366,
+     "gb": 23.06
+    },
+    {
+     "layer": "no_dates",
+     "size": "3840×2160",
+     "frames": 366,
+     "gb": 2.1
+    },
+    {
+     "layer": "w_dates",
+     "size": "3840×2160",
+     "frames": 365,
+     "gb": 23.0
+    },
+    {
+     "layer": "no_dates",
+     "size": "3840×2160",
+     "frames": 365,
+     "gb": 2.07
+    },
+    {
+     "layer": "w_dates",
+     "size": "3840×2160",
+     "frames": 365,
+     "gb": 23.0
+    },
+    {
+     "layer": "no_dates",
+     "size": "3840×2160",
+     "frames": 365,
+     "gb": 2.09
+    },
+    {
+     "layer": "w_dates",
+     "size": "3840×2160",
+     "frames": 365,
+     "gb": 23.0
+    },
+    {
+     "layer": "no_dates",
+     "size": "3840×2160",
+     "frames": 365,
+     "gb": 2.11
+    },
+    {
+     "layer": "2023",
+     "size": "1920×1080",
+     "frames": 365,
+     "gb": 0.06
+    },
+    {
+     "layer": "2022",
+     "size": "1920×1080",
+     "frames": 365,
+     "gb": 0.06
+    },
+    {
+     "layer": "2021",
+     "size": "1920×1080",
+     "frames": 365,
+     "gb": 0.06
+    }
+   ],
+   "movies": 16,
+   "colorbar": false,
+   "colorbars": [],
+   "cadence": "730 frames per set",
+   "class": "B",
+   "reason": "data picture without a colorbar: pattern, not values",
+   "page_type": "Visualization",
+   "via": [
+    "Earth Information Center (EIC) › Daily Visualizations › Visualizations"
+   ],
+   "record": null
+  },
+  {
+   "id": 5067,
+   "title": "Earth Observing Fleet - Now",
+   "url": "https://svs.gsfc.nasa.gov/5067/",
+   "release_date": "2023-01-30T00:00:00-05:00",
+   "period": null,
+   "variable": "CelesTrak Spacecraft Orbit Ephemeris",
+   "model_or_obs": "unclear",
+   "projection": "other",
+   "frame_sets": [
+    {
+     "layer": "fleet_today_30sec",
+     "size": "3840×2160",
+     "frames": 1801,
+     "gb": 68.74
+    },
+    {
+     "layer": "fleet_today_30sec_nostars",
+     "size": "3840×2160",
+     "frames": 1801,
+     "gb": 13.22
+    },
+    {
+     "layer": "fleet_today_30sec_nostars_sq",
+     "size": "2160×2160",
+     "frames": 1801,
+     "gb": 10.62
+    }
+   ],
+   "movies": 3,
+   "colorbar": false,
+   "colorbars": [],
+   "cadence": "1801 frames per set",
+   "class": "B",
+   "reason": "data picture without a colorbar: pattern, not values",
+   "page_type": "Visualization",
+   "via": [
+    "Earth Information Center (EIC) › NASA and Hurricanes › Featured Visualizations",
+    "Earth Information Center (EIC) › Daily Visualizations › Visualizations"
+   ],
+   "record": null
+  },
+  {
+   "id": 5072,
+   "title": "Atlantic Hurricane Wind Speed Plots",
+   "url": "https://svs.gsfc.nasa.gov/5072/",
+   "release_date": "2023-07-10T15:00:00-04:00",
+   "period": null,
+   "variable": "HURDAT2, Automated Tropical Cyclone Forecast (ATCF) - Best Track",
+   "model_or_obs": "model",
+   "projection": "other",
+   "frame_sets": [
+    {
+     "layer": "atlantic_may_to_dec_singleYear",
+     "size": "3840×2160",
+     "frames": 77,
+     "gb": 0.03
+    },
+    {
+     "layer": "atlantic_may_to_dec_multiYear",
+     "size": "3840×2160",
+     "frames": 77,
+     "gb": 0.07
+    },
+    {
+     "layer": "atlantic_jan_to_dec_multiYear",
+     "size": "3840×2160",
+     "frames": 77,
+     "gb": 0.06
+    },
+    {
+     "layer": "atlantic_jan_to_dec_singleYear",
+     "size": "3840×2160",
+     "frames": 77,
+     "gb": 0.02
+    }
+   ],
+   "movies": 4,
+   "colorbar": false,
+   "colorbars": [],
+   "cadence": "77 frames per set",
+   "class": "B",
+   "reason": "data picture without a colorbar: pattern, not values",
+   "page_type": "Visualization",
+   "via": [
+    "Earth Information Center (EIC) › Daily Visualizations › Visualizations"
+   ],
+   "record": null
+  },
+  {
+   "id": 5081,
+   "title": "National Carbon Dioxide (CO₂) budgets inferred from atmospheric observations",
+   "url": "https://svs.gsfc.nasa.gov/5081/",
+   "release_date": "2023-03-07T00:00:00-05:00",
+   "period": null,
+   "variable": "Pilot top-down CO2 Budget constrained by the v10 OCO-2 MIP Version 1",
+   "model_or_obs": "observation",
+   "projection": "other",
+   "frame_sets": [
+    {
+     "layer": "NationalCarbonDioxideBudget_Light",
+     "size": "1080×1920",
+     "frames": 358,
+     "gb": 0.48
+    },
+    {
+     "layer": "NationalCarbonDioxideBudget_Dark",
+     "size": "1080×1920",
+     "frames": 358,
+     "gb": 0.68
+    }
+   ],
+   "movies": 16,
+   "colorbar": false,
+   "colorbars": [],
+   "cadence": "358 frames per set",
+   "class": "B",
+   "reason": "data picture without a colorbar: pattern, not values",
+   "page_type": "Visualization",
+   "via": [
+    "Earth Information Center (EIC) › Carbon Dioxide Sources and Sinks › Visualizations"
+   ],
+   "record": null
+  },
+  {
+   "id": 5087,
+   "title": "Water Cycle Extremes: Droughts and Pluvials",
+   "url": "https://svs.gsfc.nasa.gov/5087/",
+   "release_date": "2023-03-13T12:00:00-04:00",
+   "period": null,
+   "variable": null,
+   "model_or_obs": "observation",
+   "projection": "other",
+   "frame_sets": [],
+   "movies": 4,
+   "colorbar": false,
+   "colorbars": [],
+   "cadence": "still",
+   "class": "B",
+   "reason": "data picture without a colorbar: pattern, not values",
+   "page_type": "Visualization",
+   "via": [
+    "Earth Information Center (EIC) › NASA and Agriculture Video › Featured Visualizations"
+   ],
+   "record": null
+  },
+  {
+   "id": 5097,
+   "title": "2022 Hurricane Season",
+   "url": "https://svs.gsfc.nasa.gov/5097/",
+   "release_date": "2023-04-19T00:00:00-04:00",
+   "period": "6/1/2022 - 11/15/2022",
+   "variable": "CPC (Climate Prediction Center) Cloud Composite, Multi-scale Ultra-high Resolution (MUR) Sea Surface Temperature (SST) Analysis, , Automated Tropical Cyclone Fo",
+   "model_or_obs": "model",
+   "projection": "other",
+   "frame_sets": [
+    {
+     "layer": "2160x2160_1x1_30p",
+     "size": "2160×2160",
+     "frames": 8001,
+     "gb": 111.89
+    },
+    {
+     "layer": "3840x2160_16x9_30p",
+     "size": "3840×2160",
+     "frames": 8001,
+     "gb": 209.69
+    }
+   ],
+   "movies": 4,
+   "colorbar": true,
+   "colorbars": [
+    "snowbarwhite_print.jpg",
+    "snowbarwhite.png",
+    "rainbarwhite_2_print.jpg",
+    "rainbarwhite_2.png"
+   ],
+   "cadence": "8001 frames per set",
+   "class": "B",
+   "reason": "colorbar, but no flat map: pattern only unless a georeference can be fitted",
+   "page_type": "Visualization",
+   "via": [
+    "Earth Information Center (EIC) › NASA and Hurricanes › Featured Visualizations"
+   ],
+   "record": null
+  },
+  {
+   "id": 5098,
+   "title": "Relative Wetness Root Zone Versus Groundwater Comparison",
+   "url": "https://svs.gsfc.nasa.gov/5098/",
+   "release_date": "2023-04-24T09:00:00-04:00",
+   "period": null,
+   "variable": null,
+   "model_or_obs": "unclear",
+   "projection": "other",
+   "frame_sets": [
+    {
+     "layer": "Sample_Composite",
+     "size": "3840×2160",
+     "frames": 2677,
+     "gb": 12.19
+    },
+    {
+     "layer": "Root_Zone",
+     "size": "1920×1080",
+     "frames": 2677,
+     "gb": 4.85
+    },
+    {
+     "layer": "Root_Zone",
+     "size": "3840×2160",
+     "frames": 2677,
+     "gb": 17.15
+    },
+    {
+     "layer": "Groundwater",
+     "size": "1920×1080",
+     "frames": 2677,
+     "gb": 4.72
+    },
+    {
+     "layer": "Groundwater",
+     "size": "3840×2160",
+     "frames": 2677,
+     "gb": 16.3
+    },
+    {
+     "layer": "Dates",
+     "size": "2000×500",
+     "frames": 2677,
+     "gb": 0.45
+    }
+   ],
+   "movies": 11,
+   "colorbar": true,
+   "colorbars": [
+    "NEO_soil_moisture_pale2_cbar2_print.jpg",
+    "NEO_soil_moisture_pale2_cbar2.png",
+    "NEO_soil_moisture_pale2_cbar2_thm.png",
+    "NEO_soil_moisture_pale2_cbar.png"
+   ],
+   "cadence": "2677 frames per set",
+   "class": "B",
+   "reason": "colorbar, but no flat map: pattern only unless a georeference can be fitted",
+   "page_type": "Visualization",
+   "via": [
+    "Earth Information Center (EIC) › NASA and Agriculture Video › Featured Visualizations"
+   ],
+   "record": null
+  },
+  {
+   "id": 5099,
+   "title": "Daily Polar Sea Ice, Two Year History",
+   "url": "https://svs.gsfc.nasa.gov/5099/",
+   "release_date": "2023-05-01T00:00:00-04:00",
+   "period": null,
+   "variable": "Blue Marble: Next Generation, 10 km Daily Sea Ice Concentration, 10 km Daily 89 GHz Brightness Temperature",
+   "model_or_obs": "unclear",
+   "projection": "equirectangular (2:1)",
+   "frame_sets": [
+    {
+     "layer": "w_dates",
+     "size": "4320×2160",
+     "frames": 730,
+     "gb": 0.0
+    },
+    {
+     "layer": "no_dates",
+     "size": "4320×2160",
+     "frames": 730,
+     "gb": 0.0
+    }
+   ],
+   "movies": 4,
+   "colorbar": false,
+   "colorbars": [],
+   "cadence": "730 frames per set",
+   "class": "B",
+   "reason": "data picture without a colorbar: pattern, not values",
+   "page_type": "Visualization",
+   "via": [
+    "Earth Information Center (EIC) › Climate Vital Signs Dashboard › Visualizations",
+    "Earth Information Center (EIC) › Daily Visualizations › Visualizations"
+   ],
+   "record": null
+  },
+  {
+   "id": 5101,
+   "title": "Sea Surface Temperature (SST) - Near Real Time",
+   "url": "https://svs.gsfc.nasa.gov/5101/",
+   "release_date": "2023-05-08T00:00:00-04:00",
+   "period": null,
+   "variable": "Multi-scale Ultra-high Resolution (MUR) Sea Surface Temperature (SST) Analysis",
+   "model_or_obs": "unclear",
+   "projection": "equirectangular (2:1)",
+   "frame_sets": [
+    {
+     "layer": "sst_mur",
+     "size": "4096×2048",
+     "frames": 901,
+     "gb": 15.17
+    },
+    {
+     "layer": "sst_mur_no-dates",
+     "size": "4096×2048",
+     "frames": 901,
+     "gb": 15.16
+    },
+    {
+     "layer": "sst_mur_robinson",
+     "size": "4096×2048",
+     "frames": 901,
+     "gb": 14.92
+    },
+    {
+     "layer": "sst_mur_robinson_hurricane",
+     "size": "4096×2048",
+     "frames": 901,
+     "gb": 15.32
+    }
+   ],
+   "movies": 4,
+   "colorbar": true,
+   "colorbars": [
+    "sst_mur_robinson_hurricane_most_recent_wLegend_print.jpg",
+    "sst_mur_robinson_hurricane_most_recent_wLegend.png",
+    "sst_mur_colorbar_print.jpg",
+    "sst_mur_colorbar.png"
+   ],
+   "cadence": "901 frames per set",
+   "class": "A",
+   "reason": "already decoded into values by Bloop product `sst`",
+   "page_type": "Visualization",
+   "via": [
+    "Earth Information Center (EIC) › Daily Visualizations › Visualizations"
+   ],
+   "record": "sst"
+  },
+  {
+   "id": 5107,
+   "title": "Air Quality Monitoring Stations in Washington D.C.",
+   "url": "https://svs.gsfc.nasa.gov/5107/",
+   "release_date": "2023-06-16T10:00:00-04:00",
+   "period": null,
+   "variable": "PM 2.5, Open Data DC catalog",
+   "model_or_obs": "unclear",
+   "projection": "equirectangular (2:1)",
+   "frame_sets": [],
+   "movies": 0,
+   "colorbar": false,
+   "colorbars": [],
+   "cadence": "still",
+   "class": "B",
+   "reason": "data picture without a colorbar: pattern, not values",
+   "page_type": "Visualization",
+   "via": [
+    "Earth Information Center (EIC) › Air Quality Dashboard › Revolutionizing our understanding with NASA's TEMPO mission"
+   ],
+   "record": null
+  },
+  {
+   "id": 5110,
+   "title": "Atmospheric Carbon Dioxide Tagged by Source",
+   "url": "https://svs.gsfc.nasa.gov/5110/",
+   "release_date": "2023-06-16T10:00:00-04:00",
+   "period": null,
+   "variable": "GEOS Carbon Dioxide",
+   "model_or_obs": "model",
+   "projection": "other",
+   "frame_sets": [
+    {
+     "layer": "explainer",
+     "size": "5760×3240",
+     "frames": 3600,
+     "gb": 9.86
+    },
+    {
+     "layer": "composite",
+     "size": "5760×3240",
+     "frames": 3150,
+     "gb": 15.49
+    },
+    {
+     "layer": "JanToDec2021_TaggedCO2_4-20-2023a_co2_foursources_sphere_americas_decal",
+     "size": "2160×2160",
+     "frames": 2920,
+     "gb": 31.93
+    },
+    {
+     "layer": "JanToDec2021_TaggedCO2_4-20-2023a_co2_foursources_sphere_australasia_decal",
+     "size": "2160×2160",
+     "frames": 2920,
+     "gb": 33.21
+    },
+    {
+     "layer": "JanToDec2021_TaggedCO2_4-20-2023a_co2_foursources_sphere_emea_decal",
+     "size": "2160×2160",
+     "frames": 2920,
+     "gb": 32.85
+    },
+    {
+     "layer": "JanToDec2021_TaggedCO2_6-23-2023a_co2_foursources_quality",
+     "size": "1920×1080",
+     "frames": 2920,
+     "gb": 16.37
+    },
+    {
+     "layer": "NewTaggedCO2_3-28-2023a_co2_foursources_quality",
+     "size": "1920×1080",
+     "frames": 2919,
+     "gb": 16.19
+    },
+    {
+     "layer": "JanToDec2021_TaggedCO2_6-6-2023a_diorama_legend",
+     "size": "1920×1080",
+     "frames": 2920,
+     "gb": 6.63
+    },
+    {
+     "layer": "JanToDec2021_TaggedCO2_6-23-2023b_diorama_legend_long",
+     "size": "4096×1080",
+     "frames": 2920,
+     "gb": 10.85
+    },
+    {
+     "layer": "JanToDec2021_TaggedCO2_6-9-2023a_TIMELINE_ORTHO",
+     "size": "4096×1080",
+     "frames": 2920,
+     "gb": 0.66
+    }
+   ],
+   "movies": 20,
+   "colorbar": true,
+   "colorbars": [
+    "JanToDec2021_TaggedCO2_6-6-2023a_diorama_legend.00001_print.jpg",
+    "JanToDec2021_TaggedCO2_6-6-2023a_diorama_legend.00001_web.png",
+    "JanToDec2021_TaggedCO2_6-6-2023a_diorama_legend.00001_thm.png",
+    "JanToDec2021_TaggedCO2_6-23-2023b_diorama_legend_long_1080p30_2.00001_print.jpg"
+   ],
+   "cadence": "3600 frames per set",
+   "class": "B",
+   "reason": "colorbar, but no flat map: pattern only unless a georeference can be fitted",
+   "page_type": "Visualization",
+   "via": [
+    "Earth Information Center (EIC) › Carbon Dioxide Sources and Sinks › Visualizations"
+   ],
+   "record": null
+  },
+  {
+   "id": 5111,
+   "title": "Increase in Ocean Heat since 1957 Map - Spilhaus Projection",
+   "url": "https://svs.gsfc.nasa.gov/5111/",
+   "release_date": "2023-06-16T10:00:00-04:00",
+   "period": null,
+   "variable": "Ocean Heat Content Changes since 1955",
+   "model_or_obs": "unclear",
+   "projection": "other",
+   "frame_sets": [],
+   "movies": 0,
+   "colorbar": false,
+   "colorbars": [],
+   "cadence": "still",
+   "class": "B",
+   "reason": "data picture without a colorbar: pattern, not values",
+   "page_type": "Visualization",
+   "via": [
+    "Earth Information Center (EIC) › Climate Vital Signs Dashboard › Visualizations"
+   ],
+   "record": null
+  },
+  {
+   "id": 5113,
+   "title": "Active Fires As Observed by VIIRS, 2024-Present",
+   "url": "https://svs.gsfc.nasa.gov/5113/",
+   "release_date": "2024-03-01T14:00:00-05:00",
+   "period": null,
+   "variable": "Blue Marble: Next Generation, Fire Pixels",
+   "model_or_obs": "observation",
+   "projection": "equirectangular (2:1)",
+   "frame_sets": [
+    {
+     "layer": "EIC",
+     "size": "4096×2048",
+     "frames": 900,
+     "gb": 0.0
+    },
+    {
+     "layer": "SoaS",
+     "size": "4096×2048",
+     "frames": 900,
+     "gb": 0.0
+    }
+   ],
+   "movies": 2,
+   "colorbar": false,
+   "colorbars": [],
+   "cadence": "900 frames per set",
+   "class": "A",
+   "reason": "already decoded into values by Bloop product `fires_frame`",
+   "page_type": "Visualization",
+   "via": [
+    "Earth Information Center (EIC) › Wildland Fires Dashboard › Side Circles",
+    "Earth Information Center (EIC) › Daily Visualizations › Visualizations"
+   ],
+   "record": "fires_frame"
+  },
+  {
+   "id": 5115,
+   "title": "Global Atmospheric Carbon Dioxide (CO₂)",
+   "url": "https://svs.gsfc.nasa.gov/5115/",
+   "release_date": "2023-06-20T15:00:00-04:00",
+   "period": null,
+   "variable": "GTOPO30 Topography and Bathymetry, Blue Marble: Next Generation, GEOS Carbon Dioxide",
+   "model_or_obs": "model",
+   "projection": "other",
+   "frame_sets": [
+    {
+     "layer": "VolumetricCO2_Composite",
+     "size": "1920×1920",
+     "frames": 3600,
+     "gb": 8.44
+    },
+    {
+     "layer": "VolumetricCO2_Layer_png",
+     "size": "1920×1920",
+     "frames": 3600,
+     "gb": 10.8
+    },
+    {
+     "layer": "VolumetricCO2_Layer",
+     "size": "1920×1920",
+     "frames": 3600,
+     "gb": 30.55
+    },
+    {
+     "layer": "GHGVolumetric_Composite",
+     "size": "5760×3240",
+     "frames": 3600,
+     "gb": 32.53
+    },
+    {
+     "layer": "GHGVolumetric_EICComposite",
+     "size": "5760×3240",
+     "frames": 3377,
+     "gb": 30.96
+    },
+    {
+     "layer": "CO2Volumetric_OCO2Energy_Comp",
+     "size": "5760×3240",
+     "frames": 3600,
+     "gb": 24.83
+    },
+    {
+     "layer": "4096x1080_4x1_30p",
+     "size": "4096×1080",
+     "frames": 3600,
+     "gb": 1.09
+    }
+   ],
+   "movies": 8,
+   "colorbar": false,
+   "colorbars": [],
+   "cadence": "3600 frames per set",
+   "class": "B",
+   "reason": "data picture without a colorbar: pattern, not values",
+   "page_type": "Visualization",
+   "via": [
+    "Earth Information Center (EIC) › Greenhouse Gases Dashboard › Visualizations"
+   ],
+   "record": null
+  },
+  {
+   "id": 5116,
+   "title": "Global Atmospheric Methane (CH₄)",
+   "url": "https://svs.gsfc.nasa.gov/5116/",
+   "release_date": "2023-06-20T16:00:00-04:00",
+   "period": null,
+   "variable": "GTOPO30 Topography and Bathymetry, Blue Marble: Next Generation, GMAO GEOS Atmospheric Methane",
+   "model_or_obs": "model",
+   "projection": "other",
+   "frame_sets": [
+    {
+     "layer": "VolumetricCH4_Composite",
+     "size": "1920×1920",
+     "frames": 3600,
+     "gb": 7.2
+    },
+    {
+     "layer": "GHGVolumetric_Composite",
+     "size": "5760×3240",
+     "frames": 3600,
+     "gb": 32.53
+    },
+    {
+     "layer": "GHGVolumetric_EICComposite",
+     "size": "5760×3240",
+     "frames": 3377,
+     "gb": 30.96
+    },
+    {
+     "layer": "VolumetricCH4_Layer_png",
+     "size": "1920×1920",
+     "frames": 3600,
+     "gb": 8.55
+    },
+    {
+     "layer": "VolumetricCH4_Layer",
+     "size": "1920×1920",
+     "frames": 3600,
+     "gb": 27.51
+    },
+    {
+     "layer": "4096x1080_4x1_30p",
+     "size": "4096×1080",
+     "frames": 3600,
+     "gb": 1.09
+    }
+   ],
+   "movies": 5,
+   "colorbar": false,
+   "colorbars": [],
+   "cadence": "3600 frames per set",
+   "class": "B",
+   "reason": "data picture without a colorbar: pattern, not values",
+   "page_type": "Visualization",
+   "via": [
+    "Earth Information Center (EIC) › Greenhouse Gases Dashboard › Visualizations"
+   ],
+   "record": null
+  },
+  {
+   "id": 5117,
+   "title": "Trends in atmospheric Nitrous Oxide (N₂O)",
+   "url": "https://svs.gsfc.nasa.gov/5117/",
+   "release_date": "2023-06-20T21:00:00-04:00",
+   "period": null,
+   "variable": null,
+   "model_or_obs": "unclear",
+   "projection": "other",
+   "frame_sets": [
+    {
+     "layer": "1920x1080_16x9_30p",
+     "size": "1920×1080",
+     "frames": 900,
+     "gb": 1.69
+    }
+   ],
+   "movies": 1,
+   "colorbar": false,
+   "colorbars": [],
+   "cadence": "900 frames per set",
+   "class": "B",
+   "reason": "data picture without a colorbar: pattern, not values",
+   "page_type": "Visualization",
+   "via": [
+    "Earth Information Center (EIC) › Greenhouse Gases Dashboard › Visualizations"
+   ],
+   "record": null
+  },
+  {
+   "id": 5118,
+   "title": "Trends in atmospheric Methane (CH₄)",
+   "url": "https://svs.gsfc.nasa.gov/5118/",
+   "release_date": "2023-06-20T22:00:00-04:00",
+   "period": null,
+   "variable": "GTOPO30 Topography and Bathymetry, Blue Marble: Next Generation, GMAO GEOS Atmospheric Methane",
+   "model_or_obs": "model",
+   "projection": "other",
+   "frame_sets": [
+    {
+     "layer": "1920x1080_16x9_30p",
+     "size": "1920×1080",
+     "frames": 900,
+     "gb": 1.05
+    }
+   ],
+   "movies": 1,
+   "colorbar": false,
+   "colorbars": [],
+   "cadence": "900 frames per set",
+   "class": "B",
+   "reason": "data picture without a colorbar: pattern, not values",
+   "page_type": "Visualization",
+   "via": [
+    "Earth Information Center (EIC) › Greenhouse Gases Dashboard › Visualizations"
+   ],
+   "record": null
+  },
+  {
+   "id": 5119,
+   "title": "OCO-2 and Keeling Curve: Trends in global atmospheric Carbon Dioxide (CO₂)",
+   "url": "https://svs.gsfc.nasa.gov/5119/",
+   "release_date": "2023-06-20T22:00:00-04:00",
+   "period": null,
+   "variable": null,
+   "model_or_obs": "observation",
+   "projection": "other",
+   "frame_sets": [
+    {
+     "layer": "1920x1080_16x9_30p",
+     "size": "1920×1080",
+     "frames": 900,
+     "gb": 2.03
+    }
+   ],
+   "movies": 1,
+   "colorbar": false,
+   "colorbars": [],
+   "cadence": "900 frames per set",
+   "class": "B",
+   "reason": "data picture without a colorbar: pattern, not values",
+   "page_type": "Visualization",
+   "via": [
+    "Earth Information Center (EIC) › Climate Vital Signs Dashboard › Visualizations",
+    "Earth Information Center (EIC) › Greenhouse Gases Dashboard › Visualizations"
+   ],
+   "record": null
+  },
+  {
+   "id": 5120,
+   "title": "NOAA GOES-East and NOAA GOES-West True Color Imagery Over Past 5 Days",
+   "url": "https://svs.gsfc.nasa.gov/5120/",
+   "release_date": "2023-06-26T09:00:00-04:00",
+   "period": null,
+   "variable": null,
+   "model_or_obs": "unclear",
+   "projection": "other",
+   "frame_sets": [
+    {
+     "layer": "east",
+     "size": "2160×2160",
+     "frames": 795,
+     "gb": 0.0
+    },
+    {
+     "layer": "west",
+     "size": "2160×2160",
+     "frames": 795,
+     "gb": 0.0
+    }
+   ],
+   "movies": 2,
+   "colorbar": false,
+   "colorbars": [],
+   "cadence": "795 frames per set",
+   "class": "B",
+   "reason": "data picture without a colorbar: pattern, not values",
+   "page_type": "Visualization",
+   "via": [
+    "Earth Information Center (EIC) › Earth Now Dashboard › Visualizations",
+    "Earth Information Center (EIC) › Daily Visualizations › Visualizations"
+   ],
+   "record": null
+  },
+  {
+   "id": 5121,
+   "title": "ODIAC: a map of human made carbon dioxide emissions",
+   "url": "https://svs.gsfc.nasa.gov/5121/",
+   "release_date": "2023-06-30T00:00:00-04:00",
+   "period": null,
+   "variable": "Open-source Data Inventory for Anthropogenic CO₂",
+   "model_or_obs": "unclear",
+   "projection": "equirectangular (2:1)",
+   "frame_sets": [
+    {
+     "layer": "2160x2160_1x1_60p",
+     "size": "2160×2160",
+     "frames": 1800,
+     "gb": 15.78
+    }
+   ],
+   "movies": 1,
+   "colorbar": false,
+   "colorbars": [],
+   "cadence": "1800 frames per set",
+   "class": "B",
+   "reason": "data picture without a colorbar: pattern, not values",
+   "page_type": "Visualization",
+   "via": [
+    "Earth Information Center (EIC) › Greenhouse Gases Dashboard › Visualizations",
+    "Earth Information Center (EIC) › Carbon Dioxide Sources and Sinks › Visualizations"
+   ],
+   "record": null
+  },
+  {
+   "id": 5126,
+   "title": "NOAA Annual Greenhouse Gas Index",
+   "url": "https://svs.gsfc.nasa.gov/5126/",
+   "release_date": "2023-07-07T00:00:00-04:00",
+   "period": null,
+   "variable": null,
+   "model_or_obs": "unclear",
+   "projection": "other",
+   "frame_sets": [],
+   "movies": 0,
+   "colorbar": false,
+   "colorbars": [],
+   "cadence": "still",
+   "class": "B",
+   "reason": "data picture without a colorbar: pattern, not values",
+   "page_type": "Visualization",
+   "via": [
+    "Earth Information Center (EIC) › Greenhouse Gases Dashboard › Visualizations"
+   ],
+   "record": null
+  },
+  {
+   "id": 5147,
+   "title": "GEOS-FP Near-Surface Temperature",
+   "url": "https://svs.gsfc.nasa.gov/5147/",
+   "release_date": "2023-09-26T17:00:00-04:00",
+   "period": null,
+   "variable": "GEOS-FP",
+   "model_or_obs": "model",
+   "projection": "equirectangular (2:1)",
+   "frame_sets": [
+    {
+     "layer": "MC01_stage3_GMAO_near_surface_temperature_2048x1024_en-hwtool",
+     "size": "2048×1024",
+     "frames": 372,
+     "gb": 2.23
+    }
+   ],
+   "movies": 1,
+   "colorbar": true,
+   "colorbars": [
+    "NearSurfaceTemperature_colorbar.png",
+    "NearSurfaceTemperature_colorbar_plain.png"
+   ],
+   "cadence": "372 frames per set",
+   "class": "A",
+   "reason": "colorbar and a flat 2:1 map: values recoverable",
+   "page_type": "Visualization",
+   "via": [
+    "Earth Information Center (EIC) › Earth Now Dashboard › Models: Weather",
+    "Earth Information Center (EIC) › Daily Visualizations › Visualizations"
+   ],
+   "record": null
+  },
+  {
+   "id": 5148,
+   "title": "GEOS-FP Near-Surface Wind Speed",
+   "url": "https://svs.gsfc.nasa.gov/5148/",
+   "release_date": "2023-09-26T17:00:00-04:00",
+   "period": null,
+   "variable": "GEOS-FP",
+   "model_or_obs": "model",
+   "projection": "equirectangular (2:1)",
+   "frame_sets": [
+    {
+     "layer": "MC02_stage3_GMAO_near_surface_wind_2048x1024_en-hwtool",
+     "size": "2048×1024",
+     "frames": 372,
+     "gb": 2.23
+    }
+   ],
+   "movies": 1,
+   "colorbar": true,
+   "colorbars": [
+    "NearSurfaceWindSpeed_colorbar.png",
+    "NearSurfaceWindSpeed_colorbar_plain.png"
+   ],
+   "cadence": "372 frames per set",
+   "class": "A",
+   "reason": "colorbar and a flat 2:1 map: values recoverable",
+   "page_type": "Visualization",
+   "via": [
+    "Earth Information Center (EIC) › Earth Now Dashboard › Models: Weather",
+    "Earth Information Center (EIC) › Daily Visualizations › Visualizations"
+   ],
+   "record": null
+  },
+  {
+   "id": 5149,
+   "title": "GEOS-FP Precipitation and Clouds",
+   "url": "https://svs.gsfc.nasa.gov/5149/",
+   "release_date": "2023-09-26T17:00:00-04:00",
+   "period": null,
+   "variable": "GEOS-FP",
+   "model_or_obs": "model",
+   "projection": "equirectangular (2:1)",
+   "frame_sets": [
+    {
+     "layer": "MC03_stage3_GMAO_precipitation_2048x1024_en-hwtool",
+     "size": "2048×1024",
+     "frames": 372,
+     "gb": 2.23
+    }
+   ],
+   "movies": 1,
+   "colorbar": true,
+   "colorbars": [
+    "Precipitation_colorbar.png",
+    "Precipitation_colorbar_plain.png"
+   ],
+   "cadence": "372 frames per set",
+   "class": "A",
+   "reason": "colorbar and a flat 2:1 map: values recoverable",
+   "page_type": "Visualization",
+   "via": [
+    "Earth Information Center (EIC) › Earth Now Dashboard › Models: Weather",
+    "Earth Information Center (EIC) › Daily Visualizations › Visualizations"
+   ],
+   "record": null
+  },
+  {
+   "id": 5150,
+   "title": "GEOS-FP Near-Surface Humidity",
+   "url": "https://svs.gsfc.nasa.gov/5150/",
+   "release_date": "2023-09-26T17:00:00-04:00",
+   "period": null,
+   "variable": "GEOS-FP",
+   "model_or_obs": "model",
+   "projection": "equirectangular (2:1)",
+   "frame_sets": [],
+   "movies": 1,
+   "colorbar": true,
+   "colorbars": [
+    "NearSurfaceHumidity_colorbar.png",
+    "NearSurfaceHumidity_colorbar_plain.png"
+   ],
+   "cadence": "still",
+   "class": "A",
+   "reason": "colorbar and a flat 2:1 map: values recoverable",
+   "page_type": "Visualization",
+   "via": [
+    "Earth Information Center (EIC) › Earth Now Dashboard › Models: Weather",
+    "Earth Information Center (EIC) › Daily Visualizations › Visualizations"
+   ],
+   "record": null
+  },
+  {
+   "id": 5151,
+   "title": "Particulate Matter (PM) 2.5",
+   "url": "https://svs.gsfc.nasa.gov/5151/",
+   "release_date": "2023-09-26T17:00:00-04:00",
+   "period": null,
+   "variable": "GEOS-CF",
+   "model_or_obs": "model",
+   "projection": "equirectangular (2:1)",
+   "frame_sets": [
+    {
+     "layer": "MC01_stage4_GMAO_pm25_2048x1024_en-hwtool",
+     "size": "2048×1024",
+     "frames": 372,
+     "gb": 2.23
+    }
+   ],
+   "movies": 1,
+   "colorbar": true,
+   "colorbars": [
+    "PM2.5_colorbar.png",
+    "PM2.5_colorbar_plain.png"
+   ],
+   "cadence": "372 frames per set",
+   "class": "A",
+   "reason": "colorbar and a flat 2:1 map: values recoverable",
+   "page_type": "Visualization",
+   "via": [
+    "Earth Information Center (EIC) › Earth Now Dashboard › Models: Air Quality",
+    "Earth Information Center (EIC) › Air Quality Dashboard › Models: Air Quality",
+    "Earth Information Center (EIC) › Daily Visualizations › Visualizations"
+   ],
+   "record": null
+  },
+  {
+   "id": 5152,
+   "title": "Near surface Ozone (O3)",
+   "url": "https://svs.gsfc.nasa.gov/5152/",
+   "release_date": "2023-09-26T17:00:00-04:00",
+   "period": null,
+   "variable": "GEOS-CF",
+   "model_or_obs": "model",
+   "projection": "equirectangular (2:1)",
+   "frame_sets": [
+    {
+     "layer": "MC02_stage4_GMAO_O3_2048x1024_en-hwtool",
+     "size": "2048×1024",
+     "frames": 372,
+     "gb": 2.23
+    }
+   ],
+   "movies": 1,
+   "colorbar": true,
+   "colorbars": [
+    "O3_colorbar.png",
+    "O3_colorbar_plain.png"
+   ],
+   "cadence": "372 frames per set",
+   "class": "A",
+   "reason": "colorbar and a flat 2:1 map: values recoverable",
+   "page_type": "Visualization",
+   "via": [
+    "Earth Information Center (EIC) › Earth Now Dashboard › Models: Air Quality",
+    "Earth Information Center (EIC) › Air Quality Dashboard › Models: Air Quality",
+    "Earth Information Center (EIC) › Daily Visualizations › Visualizations"
+   ],
+   "record": null
+  },
+  {
+   "id": 5153,
+   "title": "Carbon Monoxide (CO)",
+   "url": "https://svs.gsfc.nasa.gov/5153/",
+   "release_date": "2023-09-26T17:00:00-04:00",
+   "period": null,
+   "variable": "GEOS-CF",
+   "model_or_obs": "model",
+   "projection": "equirectangular (2:1)",
+   "frame_sets": [
+    {
+     "layer": "MC03_stage4_GMAO_CO_2048x1024_en-hwtool",
+     "size": "2048×1024",
+     "frames": 372,
+     "gb": 2.23
+    }
+   ],
+   "movies": 1,
+   "colorbar": true,
+   "colorbars": [
+    "CO_colorbar.png",
+    "CO_colorbar_plain.png"
+   ],
+   "cadence": "372 frames per set",
+   "class": "A",
+   "reason": "colorbar and a flat 2:1 map: values recoverable",
+   "page_type": "Visualization",
+   "via": [
+    "Earth Information Center (EIC) › Earth Now Dashboard › Models: Air Quality",
+    "Earth Information Center (EIC) › Air Quality Dashboard › Models: Air Quality",
+    "Earth Information Center (EIC) › Daily Visualizations › Visualizations"
+   ],
+   "record": null
+  },
+  {
+   "id": 5154,
+   "title": "Nitrogen Oxides (NOx)",
+   "url": "https://svs.gsfc.nasa.gov/5154/",
+   "release_date": "2023-09-26T17:00:00-04:00",
+   "period": null,
+   "variable": "GEOS-CF",
+   "model_or_obs": "model",
+   "projection": "equirectangular (2:1)",
+   "frame_sets": [
+    {
+     "layer": "MC04_stage4_GMAO_NO2_2048x1024_en-hwtool",
+     "size": "2048×1024",
+     "frames": 372,
+     "gb": 2.23
+    }
+   ],
+   "movies": 1,
+   "colorbar": true,
+   "colorbars": [
+    "NOx_colorbar.png",
+    "NOx_colorbar_plain.png"
+   ],
+   "cadence": "372 frames per set",
+   "class": "A",
+   "reason": "colorbar and a flat 2:1 map: values recoverable",
+   "page_type": "Visualization",
+   "via": [
+    "Earth Information Center (EIC) › Earth Now Dashboard › Models: Air Quality",
+    "Earth Information Center (EIC) › Air Quality Dashboard › Models: Air Quality",
+    "Earth Information Center (EIC) › Daily Visualizations › Visualizations"
+   ],
+   "record": null
+  },
+  {
+   "id": 5175,
+   "title": "TEMPO - Nitrogen Dioxide Air Pollution Over North America - Additional Views",
+   "url": "https://svs.gsfc.nasa.gov/5175/",
+   "release_date": "2023-10-12T00:00:00-04:00",
+   "period": null,
+   "variable": null,
+   "model_or_obs": "observation",
+   "projection": "other",
+   "frame_sets": [
+    {
+     "layer": "tempo_no2_north-america",
+     "size": "3840×2160",
+     "frames": 2500,
+     "gb": 27.55
+    },
+    {
+     "layer": "tempo_no2_chicago-toronto",
+     "size": "3840×2160",
+     "frames": 1201,
+     "gb": 21.25
+    },
+    {
+     "layer": "tempo_no2_el-paso",
+     "size": "3840×2160",
+     "frames": 1201,
+     "gb": 16.99
+    }
+   ],
+   "movies": 12,
+   "colorbar": false,
+   "colorbars": [],
+   "cadence": "2500 frames per set",
+   "class": "B",
+   "reason": "data picture without a colorbar: pattern, not values",
+   "page_type": "Visualization",
+   "via": [
+    "Earth Information Center (EIC) › Air Quality Dashboard › Revolutionizing our understanding with NASA's TEMPO mission"
+   ],
+   "record": null
+  },
+  {
+   "id": 5176,
+   "title": "Sea Surface Temperature (SST) Anomaly - Near Real Time",
+   "url": "https://svs.gsfc.nasa.gov/5176/",
+   "release_date": "2023-10-16T00:00:00-04:00",
+   "period": null,
+   "variable": "Multi-scale Ultra-high Resolution (MUR) Sea Surface Temperature (SST) Analysis",
+   "model_or_obs": "unclear",
+   "projection": "equirectangular (2:1)",
+   "frame_sets": [
+    {
+     "layer": "sst_mur_anomaly",
+     "size": "4096×2048",
+     "frames": 901,
+     "gb": 0.0
+    },
+    {
+     "layer": "sst_mur_anomaly_pacific",
+     "size": "4096×2048",
+     "frames": 901,
+     "gb": 18.44
+    },
+    {
+     "layer": "sst_mur_anomaly_nodates",
+     "size": "4096×2048",
+     "frames": 901,
+     "gb": 0.0
+    },
+    {
+     "layer": "sst_mur_anomaly_robinson",
+     "size": "4096×2048",
+     "frames": 901,
+     "gb": 17.76
+    }
+   ],
+   "movies": 4,
+   "colorbar": true,
+   "colorbars": [
+    "sst_mur_anomaly_auto_colorbar_01_print.jpg",
+    "sst_mur_anomaly_auto_colorbar_01.exr"
+   ],
+   "cadence": "901 frames per set",
+   "class": "A",
+   "reason": "already decoded into values by Bloop product `sst_anom`",
+   "page_type": "Visualization",
+   "via": [
+    "Earth Information Center (EIC) › Daily Visualizations › Visualizations"
+   ],
+   "record": "sst_anom"
+  },
+  {
+   "id": 5190,
+   "title": "NASA Climate Spiral 1880-Present",
+   "url": "https://svs.gsfc.nasa.gov/5190/",
+   "release_date": "2023-11-15T00:00:00-05:00",
+   "period": null,
+   "variable": "GISTEMP",
+   "model_or_obs": "model",
+   "projection": "other",
+   "frame_sets": [
+    {
+     "layer": "En_C",
+     "size": "2160×2160",
+     "frames": 1800,
+     "gb": 8.21
+    }
+   ],
+   "movies": 3,
+   "colorbar": false,
+   "colorbars": [],
+   "cadence": "1800 frames per set",
+   "class": "B",
+   "reason": "data picture without a colorbar: pattern, not values",
+   "page_type": "Visualization",
+   "via": [
+    "Earth Information Center (EIC) › Climate Vital Signs Dashboard › Visualizations"
+   ],
+   "record": null
+  },
+  {
+   "id": 5191,
+   "title": "Global Temperature Graph 1880-2024",
+   "url": "https://svs.gsfc.nasa.gov/5191/",
+   "release_date": "2023-11-16T00:00:00-05:00",
+   "period": null,
+   "variable": "GISTEMP, MERRA-2",
+   "model_or_obs": "model",
+   "projection": "other",
+   "frame_sets": [
+    {
+     "layer": "En_C",
+     "size": "3840×2160",
+     "frames": 1800,
+     "gb": 11.25
+    }
+   ],
+   "movies": 3,
+   "colorbar": false,
+   "colorbars": [],
+   "cadence": "1800 frames per set",
+   "class": "B",
+   "reason": "data picture without a colorbar: pattern, not values",
+   "page_type": "Visualization",
+   "via": [
+    "Earth Information Center (EIC) › Climate Vital Signs Dashboard › Visualizations"
+   ],
+   "record": null
+  },
+  {
+   "id": 5196,
+   "title": "DYAMOND Global Carbon Dioxide",
+   "url": "https://svs.gsfc.nasa.gov/5196/",
+   "release_date": "2024-07-22T09:00:00-04:00",
+   "period": null,
+   "variable": "DYAMOND",
+   "model_or_obs": "model",
+   "projection": "other",
+   "frame_sets": [
+    {
+     "layer": "dyamondPointCloud_12-1-2023b_dyamond_co2_anim_globe_orbit_3x3Hyperwall",
+     "size": "5760×3240",
+     "frames": 1176,
+     "gb": 28.56
+    },
+    {
+     "layer": "dyamondPointCloud_3-29-2023a_dyamond_co2_anim_globe_zoom_3x3hyperwall",
+     "size": "0×0",
+     "frames": 1176,
+     "gb": 63.57
+    },
+    {
+     "layer": "dyamondPointCloud_4-3-2023a_dyamond_co2_anim_globe_zoom_hyperwall5x3",
+     "size": "0×0",
+     "frames": 1176,
+     "gb": 72.38
+    },
+    {
+     "layer": "dyamondPointCloud_4-3-2023a_dyamond_co2_anim_globe_zoom_hyperwall5x3_pngs",
+     "size": "9600×3240",
+     "frames": 1176,
+     "gb": 20.56
+    },
+    {
+     "layer": "dyamondPointCloud_1-22-2025a_dyamond_co2_anim_globe_zoomwest_3x3hyperwall",
+     "size": "5760×3240",
+     "frames": 1176,
+     "gb": 64.44
+    },
+    {
+     "layer": "dyamondPointCloud_12-4-2023b_dyamond_co2_anim_globe_tilt_3x3Hyperwall",
+     "size": "0×0",
+     "frames": 1176,
+     "gb": 68.14
+    }
+   ],
+   "movies": 8,
+   "colorbar": true,
+   "colorbars": [
+    "dyamondCbar_6-27-2024a.png",
+    "dyamondCbar_6-27-2024a_print.jpg"
+   ],
+   "cadence": "1176 frames per set",
+   "class": "B",
+   "reason": "colorbar, but no flat map: pattern only unless a georeference can be fitted",
+   "page_type": "Visualization",
+   "via": [
+    "Earth Information Center (EIC) › EIC Beauty Pieces"
+   ],
+   "record": null
+  },
+  {
+   "id": 5207,
+   "title": "Global Temperature Anomalies from 1880 to 2023",
+   "url": "https://svs.gsfc.nasa.gov/5207/",
+   "release_date": "2024-01-12T11:00:00-05:00",
+   "period": null,
+   "variable": "GISTEMP",
+   "model_or_obs": "model",
+   "projection": "equirectangular (2:1)",
+   "frame_sets": [
+    {
+     "layer": "3840x2160_16x9_30p",
+     "size": "3840×2160",
+     "frames": 900,
+     "gb": 3.98
+    }
+   ],
+   "movies": 4,
+   "colorbar": false,
+   "colorbars": [],
+   "cadence": "900 frames per set",
+   "class": "B",
+   "reason": "data picture without a colorbar: pattern, not values",
+   "page_type": "Visualization",
+   "via": [
+    "Earth Information Center (EIC) › Climate Vital Signs Dashboard › Visualizations"
+   ],
+   "record": null
+  },
+  {
+   "id": 5209,
+   "title": "Zonal Climate Anomalies 1880-2023",
+   "url": "https://svs.gsfc.nasa.gov/5209/",
+   "release_date": "2024-01-12T11:00:00-05:00",
+   "period": null,
+   "variable": "GISTEMP",
+   "model_or_obs": "model",
+   "projection": "other",
+   "frame_sets": [
+    {
+     "layer": "degC",
+     "size": "3840×2160",
+     "frames": 900,
+     "gb": 3.92
+    }
+   ],
+   "movies": 2,
+   "colorbar": false,
+   "colorbars": [],
+   "cadence": "900 frames per set",
+   "class": "B",
+   "reason": "data picture without a colorbar: pattern, not values",
+   "page_type": "Visualization",
+   "via": [
+    "Earth Information Center (EIC) › Climate Vital Signs Dashboard › Visualizations"
+   ],
+   "record": null
+  },
+  {
+   "id": 5235,
+   "title": "Sea Level Through a Porthole (2023)",
+   "url": "https://svs.gsfc.nasa.gov/5235/",
+   "release_date": "2024-03-21T12:00:00-04:00",
+   "period": null,
+   "variable": "Global Mean Sea Level",
+   "model_or_obs": "unclear",
+   "projection": "other",
+   "frame_sets": [
+    {
+     "layer": "seaLevelWaveTankComp_noWW_3-5-2024a",
+     "size": "2160×2160",
+     "frames": 1500,
+     "gb": 14.86
+    },
+    {
+     "layer": "seaLevelWaveTank_noWW_3-5-2024a_wavetank",
+     "size": "2160×2160",
+     "frames": 1500,
+     "gb": 17.98
+    }
+   ],
+   "movies": 2,
+   "colorbar": false,
+   "colorbars": [],
+   "cadence": "1500 frames per set",
+   "class": "B",
+   "reason": "data picture without a colorbar: pattern, not values",
+   "page_type": "Visualization",
+   "via": [
+    "Earth Information Center (EIC) › Climate Vital Signs Dashboard › Visualizations"
+   ],
+   "record": null
+  },
+  {
+   "id": 5313,
+   "title": "Change in Night Lights between 2012 and 2023 - EIC Version",
+   "url": "https://svs.gsfc.nasa.gov/5313/",
+   "release_date": "2024-06-14T00:00:00-04:00",
+   "period": null,
+   "variable": "Black Marble: Next Generation",
+   "model_or_obs": "observation",
+   "projection": "other",
+   "frame_sets": [],
+   "movies": 2,
+   "colorbar": false,
+   "colorbars": [],
+   "cadence": "still",
+   "class": "A",
+   "reason": "already decoded into values by Bloop product `lights_5313`",
+   "page_type": "Visualization",
+   "via": [
+    "Earth Information Center (EIC) › EIC Beauty Pieces"
+   ],
+   "record": "lights_5313 (Night lights 2012→2023 (observation))"
+  },
+  {
+   "id": 5315,
+   "title": "Daily Experimental Fire Weather Forecast",
+   "url": "https://svs.gsfc.nasa.gov/5315/",
+   "release_date": "2024-06-20T00:00:00-04:00",
+   "period": null,
+   "variable": "Fire Weather Index",
+   "model_or_obs": "model",
+   "projection": "equirectangular (2:1)",
+   "frame_sets": [],
+   "movies": 0,
+   "colorbar": false,
+   "colorbars": [],
+   "cadence": "still",
+   "class": "A",
+   "reason": "already decoded into values by Bloop product `fwi_class`",
+   "page_type": "Visualization",
+   "via": [
+    "Earth Information Center (EIC) › Wildland Fires Dashboard › Wildland Fires: Global View",
+    "Earth Information Center (EIC) › Daily Visualizations › Visualizations"
+   ],
+   "record": "fwi_class"
+  },
+  {
+   "id": 5382,
+   "title": "Arctic Sea Ice Minimum 2024",
+   "url": "https://svs.gsfc.nasa.gov/5382/",
+   "release_date": "2024-09-24T13:00:00-04:00",
+   "period": null,
+   "variable": "Blue Marble: Next Generation, 10 km Daily Sea Ice Concentration, 10 km Daily 89 GHz Brightness Temperature",
+   "model_or_obs": "unclear",
+   "projection": "other",
+   "frame_sets": [
+    {
+     "layer": "sea_ice_min_2024",
+     "size": "3840×2160",
+     "frames": 3200,
+     "gb": 23.43
+    },
+    {
+     "layer": "sea_ice_2024_vert_60",
+     "size": "1080×1920",
+     "frames": 3200,
+     "gb": 6.31
+    }
+   ],
+   "movies": 3,
+   "colorbar": false,
+   "colorbars": [],
+   "cadence": "3200 frames per set",
+   "class": "B",
+   "reason": "data picture without a colorbar: pattern, not values",
+   "page_type": "Visualization",
+   "via": [
+    "Earth Information Center (EIC) › Climate Vital Signs Dashboard › Visualizations"
+   ],
+   "record": null
+  },
+  {
+   "id": 5425,
+   "title": "Perpetual Ocean 2: Western Boundary Currents",
+   "url": "https://svs.gsfc.nasa.gov/5425/",
+   "release_date": "2025-02-27T09:45:00-05:00",
+   "period": null,
+   "variable": "Blue Marble: Next Generation, ECCO2 High Resolution Ocean and Sea Ice Model, ETOPO-30",
+   "model_or_obs": "model",
+   "projection": "other",
+   "frame_sets": [
+    {
+     "layer": "beauty_all_depths",
+     "size": "3840×2160",
+     "frames": 19001,
+     "gb": 525.38
+    },
+    {
+     "layer": "9600x3240_16x9_30p",
+     "size": "9600×3240",
+     "frames": 9501,
+     "gb": 707.24
+    },
+    {
+     "layer": "temperature",
+     "size": "3840×2160",
+     "frames": 19001,
+     "gb": 507.5
+    },
+    {
+     "layer": "salinity",
+     "size": "3840×2160",
+     "frames": 19001,
+     "gb": 518.15
+    },
+    {
+     "layer": "beauty_600m_and_lower",
+     "size": "3840×2160",
+     "frames": 2001,
+     "gb": 70.95
+    },
+    {
+     "layer": "equator",
+     "size": "3840×2160",
+     "frames": 19001,
+     "gb": 9.78
+    },
+    {
+     "layer": "sea_ice",
+     "size": "3840×2160",
+     "frames": 19001,
+     "gb": 5.33
+    },
+    {
+     "layer": "land_only",
+     "size": "3840×2160",
+     "frames": 19001,
+     "gb": 460.55
+    },
+    {
+     "layer": "land_mask",
+     "size": "3840×2160",
+     "frames": 19001,
+     "gb": 31.32
+    },
+    {
+     "layer": "dates",
+     "size": "3840×2160",
+     "frames": 19001,
+     "gb": 3.09
+    }
+   ],
+   "movies": 20,
+   "colorbar": true,
+   "colorbars": [
+    "perpetual_ocean2_CLOSE_100_salinity_cbar.png",
+    "perpetual_ocean2_CLOSE_100_salinity_cbar_print.jpg",
+    "perpetual_ocean2_CLOSE_101_cbar_beauty.png",
+    "perpetual_ocean2_CLOSE_101_cbar_beauty_print.jpg"
+   ],
+   "cadence": "19001 frames per set",
+   "class": "B",
+   "reason": "colorbar, but no flat map: pattern only unless a georeference can be fitted",
+   "page_type": "Visualization",
+   "via": [
+    "Earth Information Center (EIC) › EIC Beauty Pieces"
+   ],
+   "record": null
+  },
+  {
+   "id": 5453,
+   "title": "Annual Wildfire Burned Area in the United States",
+   "url": "https://svs.gsfc.nasa.gov/5453/",
+   "release_date": "2025-01-03T11:00:00-05:00",
+   "period": null,
+   "variable": "United States Total Wildland Fires and Acres",
+   "model_or_obs": "unclear",
+   "projection": "equirectangular (2:1)",
+   "frame_sets": [],
+   "movies": 1,
+   "colorbar": false,
+   "colorbars": [],
+   "cadence": "still",
+   "class": "B",
+   "reason": "data picture without a colorbar: pattern, not values",
+   "page_type": "Visualization",
+   "via": [
+    "Earth Information Center (EIC) › Wildland Fires Dashboard › Wildland Fires: US and Canada"
+   ],
+   "record": null
+  },
+  {
+   "id": 5533,
+   "title": "Air Quality Model Runs",
+   "url": "https://svs.gsfc.nasa.gov/5533/",
+   "release_date": "2025-05-05T12:30:00-04:00",
+   "period": "July 1-September 14, 2024",
+   "variable": "GEOS-CF",
+   "model_or_obs": "model/observation",
+   "projection": "other",
+   "frame_sets": [
+    {
+     "layer": "AirQuality_SphereWithLabels",
+     "size": "5760×3240",
+     "frames": 1801,
+     "gb": 14.41
+    },
+    {
+     "layer": "AirQuality_MapWithLabels",
+     "size": "5760×3240",
+     "frames": 1800,
+     "gb": 20.5
+    },
+    {
+     "layer": "AirQuality_SphereWithLabels_long",
+     "size": "5760×3240",
+     "frames": 3031,
+     "gb": 20.31
+    },
+    {
+     "layer": "7680x2160_32x9_30p",
+     "size": "7680×2160",
+     "frames": 4502,
+     "gb": 37.01
+    }
+   ],
+   "movies": 5,
+   "colorbar": false,
+   "colorbars": [],
+   "cadence": "4502 frames per set",
+   "class": "A",
+   "reason": "already decoded into values by Bloop product `air_5533`",
+   "page_type": "Visualization",
+   "via": [
+    "Earth Information Center (EIC) › EIC Beauty Pieces"
+   ],
+   "record": "air_5533 (Air (model, Jul–Sep 2024))"
+  },
+  {
+   "id": 5544,
+   "title": "Near Real-Time Normalized Difference Vegetation Index (NDVI)",
+   "url": "https://svs.gsfc.nasa.gov/5544/",
+   "release_date": "2025-09-22T18:59:59-04:00",
+   "period": null,
+   "variable": null,
+   "model_or_obs": "unclear",
+   "projection": "equirectangular (2:1)",
+   "frame_sets": [
+    {
+     "layer": "equirectangular",
+     "size": "8640×4320",
+     "frames": 900,
+     "gb": 0.0
+    },
+    {
+     "layer": "equirectangular_w_dates",
+     "size": "4096×2048",
+     "frames": 900,
+     "gb": 0.0
+    },
+    {
+     "layer": "robinson_w_dates",
+     "size": "4096×2048",
+     "frames": 900,
+     "gb": 0.0
+    },
+    {
+     "layer": "robinson",
+     "size": "8640×4320",
+     "frames": 900,
+     "gb": 0.0
+    }
+   ],
+   "movies": 3,
+   "colorbar": true,
+   "colorbars": [
+    "NDVI_colorbar.png"
+   ],
+   "cadence": "900 frames per set",
+   "class": "A",
+   "reason": "colorbar and a flat 2:1 map: values recoverable",
+   "page_type": "Visualization",
+   "via": [
+    "Earth Information Center (EIC) › Daily Visualizations › Visualizations"
+   ],
+   "record": null
+  },
+  {
+   "id": 5577,
+   "title": "SDO Sun This Week",
+   "url": "https://svs.gsfc.nasa.gov/5577/",
+   "release_date": "2025-11-20T09:00:00-05:00",
+   "period": null,
+   "variable": null,
+   "model_or_obs": "unclear",
+   "projection": "other",
+   "frame_sets": [],
+   "movies": 2,
+   "colorbar": false,
+   "colorbars": [],
+   "cadence": "still",
+   "class": "C",
+   "reason": "SVS page type 'Animation': a narrated or illustrative piece, no data layer with a key",
+   "page_type": "Animation",
+   "via": [
+    "Earth Information Center (EIC) › Daily Visualizations › Visualizations"
+   ],
+   "record": null
+  },
+  {
+   "id": 5584,
+   "title": "Daily Global Landslide Exposure Map",
+   "url": "https://svs.gsfc.nasa.gov/5584/",
+   "release_date": "2025-09-30T16:40:00-04:00",
+   "period": null,
+   "variable": "Global Landslide Hazard Assessment for Situational Awareness (LHASA)",
+   "model_or_obs": "model",
+   "projection": "equirectangular (2:1)",
+   "frame_sets": [
+    {
+     "layer": "archive",
+     "size": "2048×1024",
+     "frames": 235,
+     "gb": 0.1
+    }
+   ],
+   "movies": 0,
+   "colorbar": false,
+   "colorbars": [],
+   "cadence": "235 frames per set",
+   "class": "A",
+   "reason": "already decoded into values by Bloop product `landslide_class`",
+   "page_type": "Visualization",
+   "via": [
+    "Earth Information Center (EIC) › Daily Visualizations › Visualizations"
+   ],
+   "record": "landslide_class"
+  },
+  {
+   "id": 10480,
+   "title": "GRACE Beauty Pass Animations",
+   "url": "https://svs.gsfc.nasa.gov/10480/",
+   "release_date": "2009-08-14T00:00:00-04:00",
+   "period": null,
+   "variable": null,
+   "model_or_obs": "observation",
+   "projection": "other",
+   "frame_sets": [
+    {
+     "layer": "GRACE_1",
+     "size": "1280×720",
+     "frames": 1,
+     "gb": 0.0
+    }
+   ],
+   "movies": 18,
+   "colorbar": false,
+   "colorbars": [],
+   "cadence": "1 frames per set",
+   "class": "C",
+   "reason": "SVS page type 'Produced Video': a narrated or illustrative piece, no data layer with a key",
+   "page_type": "Produced Video",
+   "via": [
+    "Earth Information Center (EIC) › NASA and Agriculture Video › Featured Visualizations"
+   ],
+   "record": null
+  },
+  {
+   "id": 10721,
+   "title": "Las Vegas, 1972-2021",
+   "url": "https://svs.gsfc.nasa.gov/10721/",
+   "release_date": "2012-03-05T17:00:00-05:00",
+   "period": null,
+   "variable": null,
+   "model_or_obs": "observation",
+   "projection": "other",
+   "frame_sets": [],
+   "movies": 4,
+   "colorbar": false,
+   "colorbars": [],
+   "cadence": "still",
+   "class": "C",
+   "reason": "SVS page type 'Produced Video': a narrated or illustrative piece, no data layer with a key",
+   "page_type": "Produced Video",
+   "via": [
+    "Earth Information Center (EIC) › NASA and Agriculture Video › Featured Visualizations"
+   ],
+   "record": null
+  },
+  {
+   "id": 12647,
+   "title": "Trading Water",
+   "url": "https://svs.gsfc.nasa.gov/12647/",
+   "release_date": "2017-06-26T12:00:00-04:00",
+   "period": null,
+   "variable": null,
+   "model_or_obs": "unclear",
+   "projection": "other",
+   "frame_sets": [],
+   "movies": 2,
+   "colorbar": false,
+   "colorbars": [],
+   "cadence": "still",
+   "class": "C",
+   "reason": "SVS page type 'Produced Video': a narrated or illustrative piece, no data layer with a key",
+   "page_type": "Produced Video",
+   "via": [
+    "Earth Information Center (EIC) › NASA and Agriculture Video › Featured Visualizations"
+   ],
+   "record": null
+  },
+  {
+   "id": 12772,
+   "title": "2017 Hurricanes and Aerosols Simulation",
+   "url": "https://svs.gsfc.nasa.gov/12772/",
+   "release_date": "2021-05-05T10:25:00-04:00",
+   "period": null,
+   "variable": null,
+   "model_or_obs": "model/observation",
+   "projection": "other",
+   "frame_sets": [],
+   "movies": 25,
+   "colorbar": true,
+   "colorbars": [
+    "12772_aerosol_colorbar_print.jpg",
+    "12772_aerosol_colorbar.png",
+    "12772_aerosol_colorbar.psd"
+   ],
+   "cadence": "still",
+   "class": "C",
+   "reason": "SVS page type 'Produced Video': a narrated or illustrative piece, no data layer with a key",
+   "page_type": "Produced Video",
+   "via": [
+    "Earth Information Center (EIC) › NASA and Hurricanes › Featured Visualizations"
+   ],
+   "record": null
+  },
+  {
+   "id": 13417,
+   "title": "Landsat Croplands Data Overview",
+   "url": "https://svs.gsfc.nasa.gov/13417/",
+   "release_date": "2019-11-27T12:00:00-05:00",
+   "period": null,
+   "variable": null,
+   "model_or_obs": "observation",
+   "projection": "other",
+   "frame_sets": [],
+   "movies": 39,
+   "colorbar": true,
+   "colorbars": [
+    "Crops-top10-legend.jpg",
+    "Crops-top10-legend.tif"
+   ],
+   "cadence": "still",
+   "class": "C",
+   "reason": "SVS page type 'Produced Video': a narrated or illustrative piece, no data layer with a key",
+   "page_type": "Produced Video",
+   "via": [
+    "Earth Information Center (EIC) › NASA and Agriculture Video › Featured Visualizations"
+   ],
+   "record": null
+  },
+  {
+   "id": 13543,
+   "title": "Landsat: Farming Data From Space",
+   "url": "https://svs.gsfc.nasa.gov/13543/",
+   "release_date": "2020-02-12T10:00:00-05:00",
+   "period": null,
+   "variable": null,
+   "model_or_obs": "observation",
+   "projection": "other",
+   "frame_sets": [],
+   "movies": 8,
+   "colorbar": false,
+   "colorbars": [],
+   "cadence": "still",
+   "class": "C",
+   "reason": "SVS page type 'Produced Video': a narrated or illustrative piece, no data layer with a key",
+   "page_type": "Produced Video",
+   "via": [
+    "Earth Information Center (EIC) › NASA and Agriculture Video › Featured Videos"
+   ],
+   "record": null
+  },
+  {
+   "id": 14367,
+   "title": "NASA and Agriculture",
+   "url": "https://svs.gsfc.nasa.gov/14367/",
+   "release_date": "2023-06-15T16:00:00-04:00",
+   "period": null,
+   "variable": null,
+   "model_or_obs": "unclear",
+   "projection": "other",
+   "frame_sets": [],
+   "movies": 8,
+   "colorbar": false,
+   "colorbars": [],
+   "cadence": "still",
+   "class": "C",
+   "reason": "SVS page type 'Produced Video': a narrated or illustrative piece, no data layer with a key",
+   "page_type": "Produced Video",
+   "via": [
+    "Earth Information Center (EIC) › NASA and Agriculture Video › Video"
+   ],
+   "record": null
+  },
+  {
+   "id": 14369,
+   "title": "Leveraging NASA Research to Safeguard the U.S. East Coast from Hurricanes",
+   "url": "https://svs.gsfc.nasa.gov/14369/",
+   "release_date": "2023-06-21T08:00:00-04:00",
+   "period": null,
+   "variable": null,
+   "model_or_obs": "unclear",
+   "projection": "other",
+   "frame_sets": [],
+   "movies": 8,
+   "colorbar": false,
+   "colorbars": [],
+   "cadence": "still",
+   "class": "C",
+   "reason": "SVS page type 'Produced Video': a narrated or illustrative piece, no data layer with a key",
+   "page_type": "Produced Video",
+   "via": [
+    "Earth Information Center (EIC) › NASA and Hurricanes › Video"
+   ],
+   "record": null
+  },
+  {
+   "id": 14371,
+   "title": "Earth Information Center Media B-Roll",
+   "url": "https://svs.gsfc.nasa.gov/14371/",
+   "release_date": "2023-06-21T09:00:00-04:00",
+   "period": null,
+   "variable": null,
+   "model_or_obs": "unclear",
+   "projection": "other",
+   "frame_sets": [],
+   "movies": 7,
+   "colorbar": false,
+   "colorbars": [],
+   "cadence": "still",
+   "class": "C",
+   "reason": "SVS page type 'B-Roll': a narrated or illustrative piece, no data layer with a key",
+   "page_type": "B-Roll",
+   "via": [
+    "Earth Information Center (EIC) › Media Resources"
+   ],
+   "record": null
+  },
+  {
+   "id": 14507,
+   "title": "NASA Joins the Jane Goodall Institute to Conserve Chimpanzee Habitat, Earth Information Center Videos",
+   "url": "https://svs.gsfc.nasa.gov/14507/",
+   "release_date": "2024-04-18T08:40:00-04:00",
+   "period": null,
+   "variable": null,
+   "model_or_obs": "observation",
+   "projection": "other",
+   "frame_sets": [],
+   "movies": 6,
+   "colorbar": false,
+   "colorbars": [],
+   "cadence": "still",
+   "class": "C",
+   "reason": "SVS page type 'Produced Video': a narrated or illustrative piece, no data layer with a key",
+   "page_type": "Produced Video",
+   "via": [
+    "Earth Information Center (EIC) › EIC Videos"
+   ],
+   "record": null
+  },
+  {
+   "id": 14568,
+   "title": "Tracking the Greenhouse Gas Methane, Earth Information Center Videos",
+   "url": "https://svs.gsfc.nasa.gov/14568/",
+   "release_date": "2024-04-18T00:00:00-04:00",
+   "period": null,
+   "variable": null,
+   "model_or_obs": "unclear",
+   "projection": "other",
+   "frame_sets": [],
+   "movies": 7,
+   "colorbar": false,
+   "colorbars": [],
+   "cadence": "still",
+   "class": "C",
+   "reason": "SVS page type 'Produced Video': a narrated or illustrative piece, no data layer with a key",
+   "page_type": "Produced Video",
+   "via": [
+    "Earth Information Center (EIC) › EIC Videos"
+   ],
+   "record": null
+  },
+  {
+   "id": 14606,
+   "title": "NASA and Fire",
+   "url": "https://svs.gsfc.nasa.gov/14606/",
+   "release_date": "2024-07-29T15:00:00-04:00",
+   "period": null,
+   "variable": null,
+   "model_or_obs": "unclear",
+   "projection": "other",
+   "frame_sets": [],
+   "movies": 6,
+   "colorbar": false,
+   "colorbars": [],
+   "cadence": "still",
+   "class": "C",
+   "reason": "SVS page type 'Produced Video': a narrated or illustrative piece, no data layer with a key",
+   "page_type": "Produced Video",
+   "via": [
+    "Earth Information Center (EIC) › EIC Videos"
+   ],
+   "record": null
+  },
+  {
+   "id": 14696,
+   "title": "NASA + Smithsonian and Greenhouse Gases",
+   "url": "https://svs.gsfc.nasa.gov/14696/",
+   "release_date": "2024-10-08T00:00:00-04:00",
+   "period": null,
+   "variable": null,
+   "model_or_obs": "unclear",
+   "projection": "other",
+   "frame_sets": [],
+   "movies": 3,
+   "colorbar": false,
+   "colorbars": [],
+   "cadence": "still",
+   "class": "C",
+   "reason": "SVS page type 'Produced Video': a narrated or illustrative piece, no data layer with a key",
+   "page_type": "Produced Video",
+   "via": [
+    "Earth Information Center (EIC) › EIC Videos"
+   ],
+   "record": null
+  },
+  {
+   "id": 14700,
+   "title": "NASA + The Smithsonian: Biodiversity",
+   "url": "https://svs.gsfc.nasa.gov/14700/",
+   "release_date": "2024-10-08T10:00:00-04:00",
+   "period": null,
+   "variable": "Arctic Animal Movement Archive (AAMA)",
+   "model_or_obs": "observation",
+   "projection": "other",
+   "frame_sets": [],
+   "movies": 2,
+   "colorbar": false,
+   "colorbars": [],
+   "cadence": "still",
+   "class": "C",
+   "reason": "SVS page type 'Produced Video': a narrated or illustrative piece, no data layer with a key",
+   "page_type": "Produced Video",
+   "via": [
+    "Earth Information Center (EIC) › EIC Videos"
+   ],
+   "record": null
+  },
+  {
+   "id": 14713,
+   "title": "Building Coastal Resilience with NASA Data",
+   "url": "https://svs.gsfc.nasa.gov/14713/",
+   "release_date": "2025-01-07T00:30:59-05:00",
+   "period": null,
+   "variable": null,
+   "model_or_obs": "unclear",
+   "projection": "other",
+   "frame_sets": [],
+   "movies": 4,
+   "colorbar": false,
+   "colorbars": [],
+   "cadence": "still",
+   "class": "C",
+   "reason": "SVS page type 'Produced Video': a narrated or illustrative piece, no data layer with a key",
+   "page_type": "Produced Video",
+   "via": [
+    "Earth Information Center (EIC) › EIC Videos"
+   ],
+   "record": null
+  },
+  {
+   "id": 20322,
+   "title": "Landsat Lightpath Animations",
+   "url": "https://svs.gsfc.nasa.gov/20322/",
+   "release_date": "2021-01-12T20:00:00-05:00",
+   "period": null,
+   "variable": null,
+   "model_or_obs": "observation",
+   "projection": "other",
+   "frame_sets": [
+    {
+     "layer": "L9_OLI_data_1080",
+     "size": "1920×1080",
+     "frames": 577,
+     "gb": 0.57
+    },
+    {
+     "layer": "3840x2160_16x9_30p",
+     "size": "3840×2160",
+     "frames": 459,
+     "gb": 1.74
+    },
+    {
+     "layer": "L9_DataTIRS_1080",
+     "size": "1920×1080",
+     "frames": 600,
+     "gb": 0.88
+    },
+    {
+     "layer": "TIRS_Final",
+     "size": "1920×1080",
+     "frames": 112,
+     "gb": 0.11
+    },
+    {
+     "layer": "L9_DataOLI_nPanel_1080",
+     "size": "1920×1080",
+     "frames": 600,
+     "gb": 0.6
+    },
+    {
+     "layer": "L9_DataOLI_Panel_1080",
+     "size": "1920×1080",
+     "frames": 600,
+     "gb": 0.25
+    },
+    {
+     "layer": "L9_DataTIRS_nPanel_1080",
+     "size": "1920×1080",
+     "frames": 600,
+     "gb": 0.6
+    },
+    {
+     "layer": "L9_DataTIRS_Panel_1080",
+     "size": "1920×1080",
+     "frames": 600,
+     "gb": 0.28
+    }
+   ],
+   "movies": 24,
+   "colorbar": false,
+   "colorbars": [],
+   "cadence": "600 frames per set",
+   "class": "C",
+   "reason": "SVS page type 'Animation': a narrated or illustrative piece, no data layer with a key",
+   "page_type": "Animation",
+   "via": [
+    "Earth Information Center (EIC) › NASA and Agriculture Video › Featured Visualizations"
+   ],
+   "record": null
+  },
+  {
+   "id": 30521,
+   "title": "California Drought",
+   "url": "https://svs.gsfc.nasa.gov/30521/",
+   "release_date": "2014-10-01T23:00:00-04:00",
+   "period": null,
+   "variable": null,
+   "model_or_obs": "observation",
+   "projection": "other",
+   "frame_sets": [],
+   "movies": 5,
+   "colorbar": false,
+   "colorbars": [],
+   "cadence": "still",
+   "class": "B",
+   "reason": "data picture without a colorbar: pattern, not values",
+   "page_type": "Hyperwall Visual",
+   "via": [
+    "Earth Information Center (EIC) › NASA and Agriculture Video › Featured Visualizations"
+   ],
+   "record": null
+  },
+  {
+   "id": 31196,
+   "title": "50 years of Landsat: Denver",
+   "url": "https://svs.gsfc.nasa.gov/31196/",
+   "release_date": "2022-10-20T00:00:00-04:00",
+   "period": null,
+   "variable": null,
+   "model_or_obs": "observation",
+   "projection": "other",
+   "frame_sets": [],
+   "movies": 6,
+   "colorbar": false,
+   "colorbars": [],
+   "cadence": "still",
+   "class": "B",
+   "reason": "data picture without a colorbar: pattern, not values",
+   "page_type": "Hyperwall Visual",
+   "via": [
+    "Earth Information Center (EIC) › NASA and Agriculture Video › Featured Visualizations"
+   ],
+   "record": null
+  }
+ ],
+ "generated_utc": "2026-10-29T07:44:40Z",
+ "counts": {
+  "A": 18,
+  "B": 47,
+  "C": 17
+ }
+}

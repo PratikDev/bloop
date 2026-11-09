@@ -1,0 +1,229 @@
+{
+ "record": "lights_5313",
+ "checks": [
+  {
+   "record": "lights_5313",
+   "id": "a_direction_vnp46a4",
+   "title": "Direction of change (frame |change| ≥ 0.2) vs VNP46A4 2012→2023",
+   "kind": "value",
+   "source": "NASA Black Marble VNP46A4 v2, AllAngle_Composite_Snow_Free, 2012 and 2023 (LAADS C3860065683-LAADS)",
+   "metrics": {
+    "n": 12213,
+    "agreement": 0.9094407598460656,
+    "frame_lights_out": {
+     "n": 3789,
+     "agreement": 0.765637371338084
+    },
+    "frame_new_lights": {
+     "n": 8424,
+     "agreement": 0.9741215574548908
+    },
+    "lit_rad": 0.5,
+    "tiles": [
+     "h18v04",
+     "h17v03",
+     "h09v05",
+     "h29v05",
+     "h22v05",
+     "h29v06",
+     "h26v06",
+     "h27v06"
+    ],
+    "per_tile": {
+     "h18v04": {
+      "n": 1967,
+      "agreement": 0.9278088459583121,
+      "frame_lights_out": {
+       "n": 1697,
+       "agreement": 0.9269298762522098
+      },
+      "frame_new_lights": {
+       "n": 270,
+       "agreement": 0.9333333333333333
+      }
+     },
+     "h17v03": {
+      "n": 956,
+      "agreement": 0.7876569037656904,
+      "frame_lights_out": {
+       "n": 919,
+       "agreement": 0.7856365614798694
+      },
+      "frame_new_lights": {
+       "n": 37,
+       "agreement": 0.8378378378378378
+      }
+     },
+     "h09v05": {
+      "n": 1912,
+      "agreement": 0.725418410041841,
+      "frame_lights_out": {
+       "n": 836,
+       "agreement": 0.5023923444976076
+      },
+      "frame_new_lights": {
+       "n": 1076,
+       "agreement": 0.8986988847583643
+      }
+     },
+     "h29v05": {
+      "n": 2787,
+      "agreement": 0.9562253318980983,
+      "frame_lights_out": {
+       "n": 106,
+       "agreement": 0.330188679245283
+      },
+      "frame_new_lights": {
+       "n": 2681,
+       "agreement": 0.9809772472957852
+      }
+     },
+     "h22v05": {
+      "n": 1911,
+      "agreement": 0.9722658294086866,
+      "frame_lights_out": {
+       "n": 175,
+       "agreement": 0.76
+      },
+      "frame_new_lights": {
+       "n": 1736,
+       "agreement": 0.993663594470046
+      }
+     },
+     "h29v06": {
+      "n": 1451,
+      "agreement": 0.9896623018607856,
+      "frame_lights_out": {
+       "n": 2,
+       "agreement": 0.0
+      },
+      "frame_new_lights": {
+       "n": 1449,
+       "agreement": 0.9910282953761215
+      }
+     },
+     "h26v06": {
+      "n": 1030,
+      "agreement": 0.9640776699029127,
+      "frame_lights_out": {
+       "n": 42,
+       "agreement": 0.2619047619047619
+      },
+      "frame_new_lights": {
+       "n": 988,
+       "agreement": 0.9939271255060729
+      }
+     },
+     "h27v06": {
+      "n": 199,
+      "agreement": 0.9547738693467337,
+      "frame_lights_out": {
+       "n": 12,
+       "agreement": 0.5833333333333334
+      },
+      "frame_new_lights": {
+       "n": 187,
+       "agreement": 0.9786096256684492
+      }
+     }
+    }
+   },
+   "threshold": "sign agreement ≥ 70 % (provisional)",
+   "pass": true,
+   "note": "Same source data (the visualization was made from Black Marble), so this tests the decoding of direction.",
+   "run_utc": "2026-10-29T07:35:15Z"
+  },
+  {
+   "record": "lights_5313",
+   "id": "a2_direction_strong",
+   "title": "Direction of strong change (|change| ≥ 0.5) vs VNP46A4",
+   "kind": "value",
+   "source": "NASA Black Marble VNP46A4 v2, AllAngle_Composite_Snow_Free, 2012 and 2023 (LAADS C3860065683-LAADS)",
+   "metrics": {
+    "n": 4577,
+    "agreement": 0.9958488092637099,
+    "frame_lights_out": {
+     "n": 0,
+     "agreement": null
+    },
+    "frame_new_lights": {
+     "n": 4577,
+     "agreement": 0.9958488092637099
+    }
+   },
+   "threshold": "sign agreement ≥ 70 % (provisional)",
+   "pass": true,
+   "note": "JPEG chroma subsampling desaturates small lights toward 'no change', so few cells reach this level.",
+   "run_utc": "2026-10-29T07:35:15Z"
+  },
+  {
+   "record": "lights_5313",
+   "id": "b_rank_change",
+   "title": "Rank of the frame's change vs the VIIRS log ratio (lit decoded cells)",
+   "kind": "value",
+   "source": "NASA Black Marble VNP46A4 v2, AllAngle_Composite_Snow_Free, 2012 and 2023 (LAADS C3860065683-LAADS)",
+   "metrics": {
+    "spearman": 0.8401184416213424,
+    "n": 14064
+   },
+   "threshold": null,
+   "pass": null,
+   "note": "No threshold: the colorbar has no numbers, so only rank and sign can be compared.",
+   "run_utc": "2026-10-29T07:35:15Z"
+  },
+  {
+   "record": "lights_5313",
+   "id": "c_annual_brightness",
+   "title": "Annual frames: brightness vs VNP46A4 radiance, same year (lit cells)",
+   "kind": "value",
+   "source": "NASA Black Marble VNP46A4 v2, AllAngle_Composite_Snow_Free, 2012 and 2023 (LAADS C3860065683-LAADS)",
+   "metrics": {
+    "spearman_2012": 0.7365430360013984,
+    "spearman_2023": 0.6939202012380469,
+    "n": 32132
+   },
+   "threshold": null,
+   "pass": null,
+   "note": "No threshold: the annual frames have no colorbar (relative brightness).",
+   "run_utc": "2026-10-29T07:35:15Z"
+  },
+  {
+   "record": "lights_5313",
+   "id": "d_bangladesh_sites",
+   "title": "Bangladesh: Dhaka, Chattogram and the Padma Bridge (3×3 cells, 0.3°)",
+   "kind": "context",
+   "source": "NASA Black Marble VNP46A4 v2, AllAngle_Composite_Snow_Free, 2012 and 2023 (LAADS C3860065683-LAADS)",
+   "metrics": {
+    "Dhaka": {
+     "tile": "h27v06",
+     "frame_change_cell": 0.568047821521759,
+     "frame_change_3x3": 0.5675212740898132,
+     "viirs_2012_3x3": 5.670958995819092,
+     "viirs_2023_3x3": 12.061155319213867,
+     "viirs_log10_ratio_3x3": 0.30867692504688016
+    },
+    "Chattogram": {
+     "tile": "h27v06",
+     "frame_change_cell": null,
+     "frame_change_3x3": 0.42437100410461426,
+     "viirs_2012_3x3": 3.6463258266448975,
+     "viirs_2023_3x3": 6.804203987121582,
+     "viirs_log10_ratio_3x3": 0.24590946655818777
+    },
+    "Padma Bridge": {
+     "tile": "h27v06",
+     "frame_change_cell": null,
+     "frame_change_3x3": null,
+     "viirs_2012_3x3": 0.31027594208717346,
+     "viirs_2023_3x3": 1.088304042816162,
+     "viirs_log10_ratio_3x3": 0.2923006968834899
+    }
+   },
+   "threshold": null,
+   "pass": null,
+   "note": "Context, no threshold. Place coordinates © OpenStreetMap contributors (ODbL), via Nominatim.",
+   "run_utc": "2026-10-29T07:35:15Z"
+  }
+ ],
+ "updated_utc": "2026-10-29T07:35:15Z"
+}

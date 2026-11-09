@@ -1,0 +1,290 @@
+{
+ "id": 4417,
+ "title": "2014 - 2015 Atmospheric River",
+ "url": "https://svs.gsfc.nasa.gov/4417/",
+ "page_type": "Visualization",
+ "release_date": "2016-01-11T00:00:00-05:00",
+ "update_date": "2025-01-05T22:59:01.217613-05:00",
+ "description": "The close-up view of the atmopheric river in Oct. 2014 - Mar. 2015. || atmosphericRiver_Oct2014_Mar2015_zoomIn_whole_1080p30_print.jpg (1024x576) [134.6 KB] || atmosphericRiver_Oct2014_Mar2015_zoomIn_whole_1080p30_searchweb.png (320x180) [83.4 KB] || atmosphericRiver_Oct2014_Mar2015_zoomIn_whole_1080p30_web.png (320x180) [83.4 KB] || atmosphericRiver_Oct2014_Mar2015_zoomIn_whole_1080p30_thm.png (80x40) [6.1 KB] || zoomIn (1920x1080) [0 Item(s)] || atmosphericRiver_Oct2014_Mar2015_zoomIn_whole_1080p30.webm (1920x1080) [22.7 MB] || atmosphericRiver_Oct2014_Mar2015_zoomIn_whole_1080p30.mp4 (1920x1080) [601.3 MB] || atmosphericRiver_Oct2014_Mar2015_zoomIn_whole_1080p30.mp4.hwshow [219 bytes] || ",
+ "full_text": "The close-up view of the atmopheric river in Oct. 2014 - Mar. 2015. || atmosphericRiver_Oct2014_Mar2015_zoomIn_whole_1080p30_print.jpg (1024x576) [134.6 KB] || atmosphericRiver_Oct2014_Mar2015_zoomIn_whole_1080p30_searchweb.png (320x180) [83.4 KB] || atmosphericRiver_Oct2014_Mar2015_zoomIn_whole_1080p30_web.png (320x180) [83.4 KB] || atmosphericRiver_Oct2014_Mar2015_zoomIn_whole_1080p30_thm.png (80x40) [6.1 KB] || zoomIn (1920x1080) [0 Item(s)] || atmosphericRiver_Oct2014_Mar2015_zoomIn_whole_1080p30.webm (1920x1080) [22.7 MB] || atmosphericRiver_Oct2014_Mar2015_zoomIn_whole_1080p30.mp4 (1920x1080) [601.3 MB] || atmosphericRiver_Oct2014_Mar2015_zoomIn_whole_1080p30.mp4.hwshow [219 bytes] ||\n\nThe close-up view of the atmopheric river in Oct. 2014 - Mar. 2015.\n\nAtmospheric rivers are short-lived, narrow streams of wind that carry water vapor from the tropical oceans to mid-latitude land areas. Shown here is an atmospheric river traveling across the Pacific between October 1, 2014 and March 31, 2015. (White colors are clouds, light blues water vapor, and green to red precipitation.)\n\nThe global view of the atmospheric river in Oct. 2014 - Mar. 2015.",
+ "credits_by_role": {
+  "Visualizer": [
+   "Cheng Zhang (USRA)"
+  ],
+  "Animator": [
+   "Horace Mitchell (NASA/GSFC)",
+   "Greg Shirah (NASA/GSFC)",
+   "Alex Kekesi (Global Science and Technology, Inc.)"
+  ],
+  "Producer": [
+   "Kayvon Sharghi (USRA)"
+  ]
+ },
+ "keywords": [
+  "Hyperwall"
+ ],
+ "datasets": [
+  {
+   "name": "MERRA",
+   "common_name": "",
+   "platform": null,
+   "sensor": null,
+   "type": "Analysis",
+   "organizations": [],
+   "description": "",
+   "credit": "",
+   "url": "",
+   "date_range": null
+  },
+  {
+   "name": "",
+   "common_name": "IMERG",
+   "platform": null,
+   "sensor": null,
+   "type": "Data Compilation",
+   "organizations": [
+    "NASA/GSFC"
+   ],
+   "description": "",
+   "credit": "",
+   "url": "http://pmm.nasa.gov/sites/default/files/document_files/IMERG_ATBD_V4.4.pdf",
+   "date_range": null
+  }
+ ],
+ "missions": [],
+ "related": [],
+ "alternate_versions": [],
+ "newer_versions": [],
+ "older_versions": [],
+ "media": [
+  {
+   "group": 0,
+   "group_title": "",
+   "widget": "Video player",
+   "caption": "",
+   "group_text": "The close-up view of the atmopheric river in Oct. 2014 - Mar. 2015. ",
+   "url": "https://svs.gsfc.nasa.gov/vis/a000000/a004400/a004417/atmosphericRiver_Oct2014_Mar2015_zoomIn_whole_1080p30_print.jpg",
+   "filename": "atmosphericRiver_Oct2014_Mar2015_zoomIn_whole_1080p30_print.jpg",
+   "media_type": "Image",
+   "width": 1024,
+   "height": 576,
+   "alt_text": "The close-up view of the atmopheric river in Oct. 2014 - Mar. 2015. "
+  },
+  {
+   "group": 0,
+   "group_title": "",
+   "widget": "Video player",
+   "caption": "",
+   "group_text": "The close-up view of the atmopheric river in Oct. 2014 - Mar. 2015. ",
+   "url": "https://svs.gsfc.nasa.gov/vis/a000000/a004400/a004417/atmosphericRiver_Oct2014_Mar2015_zoomIn_whole_1080p30_searchweb.png",
+   "filename": "atmosphericRiver_Oct2014_Mar2015_zoomIn_whole_1080p30_searchweb.png",
+   "media_type": "Image",
+   "width": 320,
+   "height": 180,
+   "alt_text": "The close-up view of the atmopheric river in Oct. 2014 - Mar. 2015. "
+  },
+  {
+   "group": 0,
+   "group_title": "",
+   "widget": "Video player",
+   "caption": "",
+   "group_text": "The close-up view of the atmopheric river in Oct. 2014 - Mar. 2015. ",
+   "url": "https://svs.gsfc.nasa.gov/vis/a000000/a004400/a004417/atmosphericRiver_Oct2014_Mar2015_zoomIn_whole_1080p30_web.png",
+   "filename": "atmosphericRiver_Oct2014_Mar2015_zoomIn_whole_1080p30_web.png",
+   "media_type": "Image",
+   "width": 320,
+   "height": 180,
+   "alt_text": "The close-up view of the atmopheric river in Oct. 2014 - Mar. 2015. "
+  },
+  {
+   "group": 0,
+   "group_title": "",
+   "widget": "Video player",
+   "caption": "",
+   "group_text": "The close-up view of the atmopheric river in Oct. 2014 - Mar. 2015. ",
+   "url": "https://svs.gsfc.nasa.gov/vis/a000000/a004400/a004417/atmosphericRiver_Oct2014_Mar2015_zoomIn_whole_1080p30_thm.png",
+   "filename": "atmosphericRiver_Oct2014_Mar2015_zoomIn_whole_1080p30_thm.png",
+   "media_type": "Image",
+   "width": 80,
+   "height": 40,
+   "alt_text": "The close-up view of the atmopheric river in Oct. 2014 - Mar. 2015. "
+  },
+  {
+   "group": 0,
+   "group_title": "",
+   "widget": "Video player",
+   "caption": "",
+   "group_text": "The close-up view of the atmopheric river in Oct. 2014 - Mar. 2015. ",
+   "url": "https://svs.gsfc.nasa.gov/vis/a000000/a004400/a004417/frames/1920x1080_16x9_30p/zoomIn/",
+   "filename": "zoomIn",
+   "media_type": "Frames",
+   "width": 1920,
+   "height": 1080,
+   "alt_text": "The close-up view of the atmopheric river in Oct. 2014 - Mar. 2015. "
+  },
+  {
+   "group": 0,
+   "group_title": "",
+   "widget": "Video player",
+   "caption": "",
+   "group_text": "The close-up view of the atmopheric river in Oct. 2014 - Mar. 2015. ",
+   "url": "https://svs.gsfc.nasa.gov/vis/a000000/a004400/a004417/atmosphericRiver_Oct2014_Mar2015_zoomIn_whole_1080p30.webm",
+   "filename": "atmosphericRiver_Oct2014_Mar2015_zoomIn_whole_1080p30.webm",
+   "media_type": "Movie",
+   "width": 1920,
+   "height": 1080,
+   "alt_text": "The close-up view of the atmopheric river in Oct. 2014 - Mar. 2015. "
+  },
+  {
+   "group": 0,
+   "group_title": "",
+   "widget": "Video player",
+   "caption": "",
+   "group_text": "The close-up view of the atmopheric river in Oct. 2014 - Mar. 2015. ",
+   "url": "https://svs.gsfc.nasa.gov/vis/a000000/a004400/a004417/atmosphericRiver_Oct2014_Mar2015_zoomIn_whole_1080p30.mp4",
+   "filename": "atmosphericRiver_Oct2014_Mar2015_zoomIn_whole_1080p30.mp4",
+   "media_type": "Movie",
+   "width": 1920,
+   "height": 1080,
+   "alt_text": "The close-up view of the atmopheric river in Oct. 2014 - Mar. 2015. "
+  },
+  {
+   "group": 0,
+   "group_title": "",
+   "widget": "Video player",
+   "caption": "",
+   "group_text": "The close-up view of the atmopheric river in Oct. 2014 - Mar. 2015. ",
+   "url": "https://svs.gsfc.nasa.gov/vis/a000000/a004400/a004417/atmosphericRiver_Oct2014_Mar2015_zoomIn_whole_1080p30.mp4.hwshow",
+   "filename": "atmosphericRiver_Oct2014_Mar2015_zoomIn_whole_1080p30.mp4.hwshow",
+   "media_type": "HyperwallShow",
+   "width": 0,
+   "height": 0,
+   "alt_text": ""
+  },
+  {
+   "group": 2,
+   "group_title": "",
+   "widget": "Video player",
+   "caption": "",
+   "group_text": "The global view of the atmospheric river in Oct. 2014 - Mar. 2015.",
+   "url": "https://svs.gsfc.nasa.gov/vis/a000000/a004400/a004417/atmosphericRiver_Oct2014_Mar2015_GlobalView_whole_1080p30_print.jpg",
+   "filename": "atmosphericRiver_Oct2014_Mar2015_GlobalView_whole_1080p30_print.jpg",
+   "media_type": "Image",
+   "width": 1024,
+   "height": 576,
+   "alt_text": "The global view of the atmospheric river in Oct. 2014 - Mar. 2015."
+  },
+  {
+   "group": 2,
+   "group_title": "",
+   "widget": "Video player",
+   "caption": "",
+   "group_text": "The global view of the atmospheric river in Oct. 2014 - Mar. 2015.",
+   "url": "https://svs.gsfc.nasa.gov/vis/a000000/a004400/a004417/atmosphericRiver_Oct2014_Mar2015_GlobalView_whole_1080p30_searchweb.png",
+   "filename": "atmosphericRiver_Oct2014_Mar2015_GlobalView_whole_1080p30_searchweb.png",
+   "media_type": "Image",
+   "width": 320,
+   "height": 180,
+   "alt_text": "The global view of the atmospheric river in Oct. 2014 - Mar. 2015."
+  },
+  {
+   "group": 2,
+   "group_title": "",
+   "widget": "Video player",
+   "caption": "",
+   "group_text": "The global view of the atmospheric river in Oct. 2014 - Mar. 2015.",
+   "url": "https://svs.gsfc.nasa.gov/vis/a000000/a004400/a004417/atmosphericRiver_Oct2014_Mar2015_GlobalView_whole_1080p30_web.png",
+   "filename": "atmosphericRiver_Oct2014_Mar2015_GlobalView_whole_1080p30_web.png",
+   "media_type": "Image",
+   "width": 320,
+   "height": 180,
+   "alt_text": "The global view of the atmospheric river in Oct. 2014 - Mar. 2015."
+  },
+  {
+   "group": 2,
+   "group_title": "",
+   "widget": "Video player",
+   "caption": "",
+   "group_text": "The global view of the atmospheric river in Oct. 2014 - Mar. 2015.",
+   "url": "https://svs.gsfc.nasa.gov/vis/a000000/a004400/a004417/atmosphericRiver_Oct2014_Mar2015_GlobalView_whole_1080p30_thm.png",
+   "filename": "atmosphericRiver_Oct2014_Mar2015_GlobalView_whole_1080p30_thm.png",
+   "media_type": "Image",
+   "width": 80,
+   "height": 40,
+   "alt_text": "The global view of the atmospheric river in Oct. 2014 - Mar. 2015."
+  },
+  {
+   "group": 2,
+   "group_title": "",
+   "widget": "Video player",
+   "caption": "",
+   "group_text": "The global view of the atmospheric river in Oct. 2014 - Mar. 2015.",
+   "url": "https://svs.gsfc.nasa.gov/vis/a000000/a004400/a004417/frames/1920x1080_16x9_30p/globalView/",
+   "filename": "globalView",
+   "media_type": "Frames",
+   "width": 1920,
+   "height": 1080,
+   "alt_text": "The global view of the atmospheric river in Oct. 2014 - Mar. 2015."
+  },
+  {
+   "group": 2,
+   "group_title": "",
+   "widget": "Video player",
+   "caption": "",
+   "group_text": "The global view of the atmospheric river in Oct. 2014 - Mar. 2015.",
+   "url": "https://svs.gsfc.nasa.gov/vis/a000000/a004400/a004417/atmosphericRiver_Oct2014_Mar2015_GlobalView_whole_1080p30.webm",
+   "filename": "atmosphericRiver_Oct2014_Mar2015_GlobalView_whole_1080p30.webm",
+   "media_type": "Movie",
+   "width": 1920,
+   "height": 1080,
+   "alt_text": "The global view of the atmospheric river in Oct. 2014 - Mar. 2015."
+  },
+  {
+   "group": 2,
+   "group_title": "",
+   "widget": "Video player",
+   "caption": "",
+   "group_text": "The global view of the atmospheric river in Oct. 2014 - Mar. 2015.",
+   "url": "https://svs.gsfc.nasa.gov/vis/a000000/a004400/a004417/atmosphericRiver_Oct2014_Mar2015_GlobalView_whole_1080p30.mp4",
+   "filename": "atmosphericRiver_Oct2014_Mar2015_GlobalView_whole_1080p30.mp4",
+   "media_type": "Movie",
+   "width": 1920,
+   "height": 1080,
+   "alt_text": "The global view of the atmospheric river in Oct. 2014 - Mar. 2015."
+  },
+  {
+   "group": 2,
+   "group_title": "",
+   "widget": "Video player",
+   "caption": "",
+   "group_text": "The global view of the atmospheric river in Oct. 2014 - Mar. 2015.",
+   "url": "https://svs.gsfc.nasa.gov/vis/a000000/a004400/a004417/atmosphericRiver_Oct2014_Mar2015_GlobalView_whole_1080p30.mp4.hwshow",
+   "filename": "atmosphericRiver_Oct2014_Mar2015_GlobalView_whole_1080p30.mp4.hwshow",
+   "media_type": "HyperwallShow",
+   "width": 0,
+   "height": 0,
+   "alt_text": ""
+  }
+ ],
+ "text_links": [],
+ "frame_folders": {
+  "https://svs.gsfc.nasa.gov/vis/a000000/a004400/a004417/frames/1920x1080_16x9_30p/zoomIn/": {
+   "url": "https://svs.gsfc.nasa.gov/vis/a000000/a004400/a004417/frames/1920x1080_16x9_30p/zoomIn/",
+   "frame_count": 4368,
+   "bytes_approx": 12391800000,
+   "first": "atmosphericRiver_Oct2014_Mar2015_zoomIn_whole_0001.tif",
+   "last": "atmosphericRiver_Oct2014_Mar2015_zoomIn_whole_4368.tif",
+   "subfolders": {}
+  },
+  "https://svs.gsfc.nasa.gov/vis/a000000/a004400/a004417/frames/1920x1080_16x9_30p/globalView/": {
+   "url": "https://svs.gsfc.nasa.gov/vis/a000000/a004400/a004417/frames/1920x1080_16x9_30p/globalView/",
+   "frame_count": 4368,
+   "bytes_approx": 5790200000,
+   "first": "atmosphericRiver_Oct2014_Mar2015_GlobalView_whole_0001.tif",
+   "last": "atmosphericRiver_Oct2014_Mar2015_GlobalView_whole_4368.tif",
+   "subfolders": {}
+  }
+ },
+ "api_url": "https://svs.gsfc.nasa.gov/api/4417",
+ "fetched_utc": "2026-10-31T17:04:25Z"
+}

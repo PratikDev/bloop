@@ -1,0 +1,232 @@
+{
+ "id": 14700,
+ "title": "NASA + The Smithsonian: Biodiversity",
+ "url": "https://svs.gsfc.nasa.gov/14700/",
+ "page_type": "Produced Video",
+ "release_date": "2024-10-08T10:00:00-04:00",
+ "update_date": "2025-06-16T09:11:07.773462-04:00",
+ "description": "Biodiverse ecosystems need protection. Through fieldwork, coordination with local partners, and satellite observations, NASA and the Smithsonian are working hard to protect them. Using NASA Earth science satellite and other data, the Goodall Institute puts imagery and data into the hands of local communities to drive conservation efforts. The Scimitar-horned oryx went from extinct in the wild to endangered in the wild thanks to the Smithsonian’s work with partners to re-introduce the species.",
+ "full_text": "Biodiverse ecosystems need protection. Through fieldwork, coordination with local partners, and satellite observations, NASA and the Smithsonian are working hard to protect them. Using NASA Earth science satellite and other data, the Goodall Institute puts imagery and data into the hands of local communities to drive conservation efforts. The Scimitar-horned oryx went from extinct in the wild to endangered in the wild thanks to the Smithsonian’s work with partners to re-introduce the species.\n\nBiodiverse ecosystems need protection. Through fieldwork, coordination with local partners, and satellite observations, NASA and the Smithsonian are working hard to protect them.<br><br>After years of forest loss, chimpanzee habitats are recovering. This is, in part, due to a collaboration between NASA and the Jane Goodall Institute (JGI). Using NASA Earth science satellite and other data, the Goodall Institute puts imagery and data into the hands of local communities to drive conservation across Africa’s equatorial forest belt.<br><br>The Scimitar-horned oryx went from extinct in the wild to endangered in the wild thanks to the Smithsonian’s work with partners to re-introduce the species to part of its original range in Chad. After successful breeding through the Smithsonian’s National Zoo and Conservation Biology Institute, scientists are now monitoring nearly every oryx via GPS-tracking collars.\n\n<p><p><p><a href=\"/vis/a010000/a014700/a014700/script_37434_00.html\">Complete transcript</a> available.</p>Full 8K resolution. Optimized for Earth Information Center display.<p><p>Music Credit: “Lion Track,” “Atmospheres Instrumental,” and “Fast Progress Instrumental” from Universal Production Music.<p>This video can be freely shared and downloaded. While the video in its entirety can be shared without permission, some individual imagery provided by Sahara Conservation and Pond5 is obtained through permission and may not be excised or remixed in other products. For more information on NASA’s media guidelines, visit https://www.nasa.gov/multimedia/guidelines/index.html",
+ "credits_by_role": {
+  "Producer": [
+   "Kathleen Gaeta Greer (NASA/GSFC/AMA)",
+   "Jefferson Beck (eMITS)"
+  ],
+  "Technical support": [
+   "Aaron E. Lepsch (ADNET Systems, Inc.)",
+   "Michael Chyatte (ADNET Systems Inc.)",
+   "Brenda Lopez-Silva (SSAI)",
+   "Laurence Schuler (ADNET Systems, Inc.)",
+   "Ian Jones (ADNET Systems, Inc.)"
+  ],
+  "Visualizer": [
+   "Cindy Starr (Global Science and Technology, Inc.)",
+   "Helen-Nicole Kostis (USRA)",
+   "Mark SubbaRao (NASA/GSFC)"
+  ],
+  "Scientist": [
+   "Katherine Mertes (Smithsonian’s National Zoo and Conservation Biology Institute)",
+   "Lilian Pintea (The Jane Goodall Institute)",
+   "Lacey Hughey (Smithsonian’s National Zoo and Conservation Biology Institute)",
+   "Jared Andrew Stabach (Smithsonian's National Zoo and Conservation Biology Institute)"
+  ],
+  "Support": [
+   "Alex Gurvich (NASA/GSFC)",
+   "Katie Jepson (eMITS)",
+   "Nicole Ramberg-Pihl (SSAI)",
+   "Eleanor Stokes (NASA)",
+   "Aries Keck (ADNET Systems, Inc.)",
+   "Christyna Solhan (Smithsonian Institution)"
+  ],
+  "Writer": [
+   "Kathleen Gaeta Greer (NASA/GSFC/AMA)",
+   "Jefferson Beck (eMITS)"
+  ],
+  "Videographer": [
+   "Sean Viljoen (Conservation Film Company)",
+   "Roshan Patel (Smithsonian Institution)"
+  ]
+ },
+ "keywords": [
+  "Earth Science Conceptual",
+  "Eic (earth information center) display",
+  "Habitat",
+  "Hyperwall"
+ ],
+ "datasets": [
+  {
+   "name": "Arctic Animal Movement Archive (AAMA)",
+   "common_name": "",
+   "platform": null,
+   "sensor": null,
+   "type": "Observed Data",
+   "organizations": [
+    "Movebank"
+   ],
+   "description": "A collection of studies that contain animal movement and other animal-borne sensor data from the Arctic and Subarctic, owned by hundreds of participating experts and organizations.",
+   "credit": "Authors of the animal movement data shown here include Tomas Aarvak, Jason Akearok, Christine Anderson, Rebecca Bentzen, Andrew Berdahl, Dominique Berteaux, Joël Bêty, Natalie Boelman, Dmitrijs Boiko, Stan Boutin, Sean Boyd, Kurt K. Burnham, David Cabot, Magda Chudzinska, Shanti Davis, Chris DeSorbo, David Douglas, Amanda Droghini, Goetz Eichhorn, Kyle Elliott, Craig Ely, Michael Exo, Steve Ferguson, Wolfgang Fiedler, Paul Flint, Steve Furguson, Stefan Garthe, Anthony Gaston, Grant Gilchrist, Petr Glazov, Larry Griffin, Autumn-Lynn Harrison, Scott Hatch, Mark Hebblewhite, Holly Hennin, Mark Hipfner, Jerry Hupp, Michael Janssen, Jim A. Johnson, Kyle Joly, Andrea Kölzsch, Thiemo Karwinkel, Roland Kays, Helmut Kruckenberg, Benjamin J. Lagassé, JF Lamarre, Richard Lanctot, Dave Latham, Christopher Latty, Jim Lawler, Don-Jean Léandri-Breton, Oliver Love, Christie Macdonald, Jesper Madsen, Mark Maftei, Mark Mallory, Pete Marra, Laura McFarlane Tranquilla, Carol McIntyre, Emily McKinnon, WA Montevecchi, Tong Mu, Eric Neilson, Pete Nye, Ruth Oliver, Allison Patterson, Wibke Peters, Aevar Petersen, Margaret Petersen, Ivan Pokrovsky, Rui Prieto, Petra Quillfeldt, Jennie Rausch, Audrey Robillard, Mike Russell, Dan Ruthrauff, Daniel Ruthrauff, Sarah Saalfeld, Joel Schmutz, Dale Seip, Mónica A. Silva, Steve Slater, Jeff Smith, Grigori Tertitski, JF Therrien, Kasper Thorup, Lee Tibbitts, Brian Uher-Koch, Rob van Bemmelen, David Ward, Martin Wikelski, and David Yurkowski.",
+   "url": "",
+   "date_range": ""
+  }
+ ],
+ "missions": [],
+ "related": [
+  {
+   "id": 15093,
+   "title": "BioSCapes: Tracking Biodiversity using NASA Satellites",
+   "url": "https://svs.gsfc.nasa.gov/15093/"
+  },
+  {
+   "id": 15108,
+   "title": "EIC: Earth Science Technology Office",
+   "url": "https://svs.gsfc.nasa.gov/15108/"
+  },
+  {
+   "id": 60003,
+   "title": "How NASA Data Stabilizes Global Markets",
+   "url": "https://svs.gsfc.nasa.gov/60003/"
+  },
+  {
+   "id": 60002,
+   "title": "NASA: Helping Communities Protect Drinking Water",
+   "url": "https://svs.gsfc.nasa.gov/60002/"
+  },
+  {
+   "id": 60001,
+   "title": "NASA Mapping Critical Minerals",
+   "url": "https://svs.gsfc.nasa.gov/60001/"
+  },
+  {
+   "id": 14713,
+   "title": "Building Coastal Resilience with NASA Data",
+   "url": "https://svs.gsfc.nasa.gov/14713/"
+  },
+  {
+   "id": 14696,
+   "title": "NASA + Smithsonian and Greenhouse Gases",
+   "url": "https://svs.gsfc.nasa.gov/14696/"
+  },
+  {
+   "id": 14689,
+   "title": "Forecasting the Future: How NASA Satellite Data Helps Trout Populations",
+   "url": "https://svs.gsfc.nasa.gov/14689/"
+  },
+  {
+   "id": 14606,
+   "title": "NASA and Fire",
+   "url": "https://svs.gsfc.nasa.gov/14606/"
+  },
+  {
+   "id": 14507,
+   "title": "NASA Joins the Jane Goodall Institute to Conserve Chimpanzee Habitat, Earth Information Center Videos",
+   "url": "https://svs.gsfc.nasa.gov/14507/"
+  },
+  {
+   "id": 5160,
+   "title": "Using NASA Data to Monitor Chimpanzee Habitat Suitability in Africa",
+   "url": "https://svs.gsfc.nasa.gov/5160/"
+  }
+ ],
+ "alternate_versions": [],
+ "newer_versions": [],
+ "older_versions": [],
+ "media": [
+  {
+   "group": 1,
+   "group_title": "",
+   "widget": "Video player",
+   "caption": "",
+   "group_text": "<p><p><p><a href=\"/vis/a010000/a014700/a014700/script_37434_00.html\">Complete transcript</a> available.</p>Full 8K resolution. Optimized for Earth Information Center display.<p><p>Music Credit: “Lion Track,” “Atmospheres Instrumental,” and “Fast Progress Instrumental” from Universal Production Music.<p>This video can be freely shared and downloaded. While the video in its entirety can be shared without permission, some individual imagery provided by Sahara Conservation and Pond5 is obtained through permission and may not be excised or remixed in other products. For more information on NASA’s media guidelines, visit https://www.nasa.gov/multimedia/guidelines/index.html",
+   "url": "https://svs.gsfc.nasa.gov/vis/a010000/a014700/a014700/Screenshot_2024-10-03_at_11.46.44_AM.png",
+   "filename": "Screenshot_2024-10-03_at_11.46.44_AM.png",
+   "media_type": "Image",
+   "width": 1908,
+   "height": 532,
+   "alt_text": "Complete transcript available.Full 8K resolution. Optimized for Earth Information Center display.Music Credit: “Lion Track,” “Atmospheres Instrumental,” and “Fast Progress Instrumental” from Universal Production Music.This video can be freely shared and downloaded. While the video in its entirety can be shared without permission, some individual imagery provided by Sahara Conservation and Pond5 is obtained through permission and may not be excised or remixed in other products. For more information on NASA’s media guidelines, visit https://www.nasa.gov/multimedia/guidelines/index.html"
+  },
+  {
+   "group": 1,
+   "group_title": "",
+   "widget": "Video player",
+   "caption": "",
+   "group_text": "<p><p><p><a href=\"/vis/a010000/a014700/a014700/script_37434_00.html\">Complete transcript</a> available.</p>Full 8K resolution. Optimized for Earth Information Center display.<p><p>Music Credit: “Lion Track,” “Atmospheres Instrumental,” and “Fast Progress Instrumental” from Universal Production Music.<p>This video can be freely shared and downloaded. While the video in its entirety can be shared without permission, some individual imagery provided by Sahara Conservation and Pond5 is obtained through permission and may not be excised or remixed in other products. For more information on NASA’s media guidelines, visit https://www.nasa.gov/multimedia/guidelines/index.html",
+   "url": "https://svs.gsfc.nasa.gov/vis/a010000/a014700/a014700/Screenshot_2024-10-03_at_11.46.44_AM_print.jpg",
+   "filename": "Screenshot_2024-10-03_at_11.46.44_AM_print.jpg",
+   "media_type": "Image",
+   "width": 1024,
+   "height": 285,
+   "alt_text": "Complete transcript available.Full 8K resolution. Optimized for Earth Information Center display.Music Credit: “Lion Track,” “Atmospheres Instrumental,” and “Fast Progress Instrumental” from Universal Production Music.This video can be freely shared and downloaded. While the video in its entirety can be shared without permission, some individual imagery provided by Sahara Conservation and Pond5 is obtained through permission and may not be excised or remixed in other products. For more information on NASA’s media guidelines, visit https://www.nasa.gov/multimedia/guidelines/index.html"
+  },
+  {
+   "group": 1,
+   "group_title": "",
+   "widget": "Video player",
+   "caption": "",
+   "group_text": "<p><p><p><a href=\"/vis/a010000/a014700/a014700/script_37434_00.html\">Complete transcript</a> available.</p>Full 8K resolution. Optimized for Earth Information Center display.<p><p>Music Credit: “Lion Track,” “Atmospheres Instrumental,” and “Fast Progress Instrumental” from Universal Production Music.<p>This video can be freely shared and downloaded. While the video in its entirety can be shared without permission, some individual imagery provided by Sahara Conservation and Pond5 is obtained through permission and may not be excised or remixed in other products. For more information on NASA’s media guidelines, visit https://www.nasa.gov/multimedia/guidelines/index.html",
+   "url": "https://svs.gsfc.nasa.gov/vis/a010000/a014700/a014700/Screenshot_2024-10-03_at_11.46.44_AM_searchweb.png",
+   "filename": "Screenshot_2024-10-03_at_11.46.44_AM_searchweb.png",
+   "media_type": "Image",
+   "width": 320,
+   "height": 180,
+   "alt_text": "Complete transcript available.Full 8K resolution. Optimized for Earth Information Center display.Music Credit: “Lion Track,” “Atmospheres Instrumental,” and “Fast Progress Instrumental” from Universal Production Music.This video can be freely shared and downloaded. While the video in its entirety can be shared without permission, some individual imagery provided by Sahara Conservation and Pond5 is obtained through permission and may not be excised or remixed in other products. For more information on NASA’s media guidelines, visit https://www.nasa.gov/multimedia/guidelines/index.html"
+  },
+  {
+   "group": 1,
+   "group_title": "",
+   "widget": "Video player",
+   "caption": "",
+   "group_text": "<p><p><p><a href=\"/vis/a010000/a014700/a014700/script_37434_00.html\">Complete transcript</a> available.</p>Full 8K resolution. Optimized for Earth Information Center display.<p><p>Music Credit: “Lion Track,” “Atmospheres Instrumental,” and “Fast Progress Instrumental” from Universal Production Music.<p>This video can be freely shared and downloaded. While the video in its entirety can be shared without permission, some individual imagery provided by Sahara Conservation and Pond5 is obtained through permission and may not be excised or remixed in other products. For more information on NASA’s media guidelines, visit https://www.nasa.gov/multimedia/guidelines/index.html",
+   "url": "https://svs.gsfc.nasa.gov/vis/a010000/a014700/a014700/Screenshot_2024-10-03_at_11.46.44_AM_web.png",
+   "filename": "Screenshot_2024-10-03_at_11.46.44_AM_web.png",
+   "media_type": "Image",
+   "width": 320,
+   "height": 89,
+   "alt_text": "Complete transcript available.Full 8K resolution. Optimized for Earth Information Center display.Music Credit: “Lion Track,” “Atmospheres Instrumental,” and “Fast Progress Instrumental” from Universal Production Music.This video can be freely shared and downloaded. While the video in its entirety can be shared without permission, some individual imagery provided by Sahara Conservation and Pond5 is obtained through permission and may not be excised or remixed in other products. For more information on NASA’s media guidelines, visit https://www.nasa.gov/multimedia/guidelines/index.html"
+  },
+  {
+   "group": 1,
+   "group_title": "",
+   "widget": "Video player",
+   "caption": "",
+   "group_text": "<p><p><p><a href=\"/vis/a010000/a014700/a014700/script_37434_00.html\">Complete transcript</a> available.</p>Full 8K resolution. Optimized for Earth Information Center display.<p><p>Music Credit: “Lion Track,” “Atmospheres Instrumental,” and “Fast Progress Instrumental” from Universal Production Music.<p>This video can be freely shared and downloaded. While the video in its entirety can be shared without permission, some individual imagery provided by Sahara Conservation and Pond5 is obtained through permission and may not be excised or remixed in other products. For more information on NASA’s media guidelines, visit https://www.nasa.gov/multimedia/guidelines/index.html",
+   "url": "https://svs.gsfc.nasa.gov/vis/a010000/a014700/a014700/Screenshot_2024-10-03_at_11.46.44_AM_thm.png",
+   "filename": "Screenshot_2024-10-03_at_11.46.44_AM_thm.png",
+   "media_type": "Image",
+   "width": 80,
+   "height": 40,
+   "alt_text": "Complete transcript available.Full 8K resolution. Optimized for Earth Information Center display.Music Credit: “Lion Track,” “Atmospheres Instrumental,” and “Fast Progress Instrumental” from Universal Production Music.This video can be freely shared and downloaded. While the video in its entirety can be shared without permission, some individual imagery provided by Sahara Conservation and Pond5 is obtained through permission and may not be excised or remixed in other products. For more information on NASA’s media guidelines, visit https://www.nasa.gov/multimedia/guidelines/index.html"
+  },
+  {
+   "group": 1,
+   "group_title": "",
+   "widget": "Video player",
+   "caption": "",
+   "group_text": "<p><p><p><a href=\"/vis/a010000/a014700/a014700/script_37434_00.html\">Complete transcript</a> available.</p>Full 8K resolution. Optimized for Earth Information Center display.<p><p>Music Credit: “Lion Track,” “Atmospheres Instrumental,” and “Fast Progress Instrumental” from Universal Production Music.<p>This video can be freely shared and downloaded. While the video in its entirety can be shared without permission, some individual imagery provided by Sahara Conservation and Pond5 is obtained through permission and may not be excised or remixed in other products. For more information on NASA’s media guidelines, visit https://www.nasa.gov/multimedia/guidelines/index.html",
+   "url": "https://svs.gsfc.nasa.gov/vis/a010000/a014700/a014700/1002.FINAL.Biodiversity.NoCaptions.webm",
+   "filename": "1002.FINAL.Biodiversity.NoCaptions.webm",
+   "media_type": "Movie",
+   "width": 7680,
+   "height": 2160,
+   "alt_text": "Complete transcript available.Full 8K resolution. Optimized for Earth Information Center display.Music Credit: “Lion Track,” “Atmospheres Instrumental,” and “Fast Progress Instrumental” from Universal Production Music.This video can be freely shared and downloaded. While the video in its entirety can be shared without permission, some individual imagery provided by Sahara Conservation and Pond5 is obtained through permission and may not be excised or remixed in other products. For more information on NASA’s media guidelines, visit https://www.nasa.gov/multimedia/guidelines/index.html"
+  },
+  {
+   "group": 1,
+   "group_title": "",
+   "widget": "Video player",
+   "caption": "",
+   "group_text": "<p><p><p><a href=\"/vis/a010000/a014700/a014700/script_37434_00.html\">Complete transcript</a> available.</p>Full 8K resolution. Optimized for Earth Information Center display.<p><p>Music Credit: “Lion Track,” “Atmospheres Instrumental,” and “Fast Progress Instrumental” from Universal Production Music.<p>This video can be freely shared and downloaded. While the video in its entirety can be shared without permission, some individual imagery provided by Sahara Conservation and Pond5 is obtained through permission and may not be excised or remixed in other products. For more information on NASA’s media guidelines, visit https://www.nasa.gov/multimedia/guidelines/index.html",
+   "url": "https://svs.gsfc.nasa.gov/vis/a010000/a014700/a014700/1002.FINAL.Biodiversity.NoCaptions.mp4",
+   "filename": "1002.FINAL.Biodiversity.NoCaptions.mp4",
+   "media_type": "Movie",
+   "width": 7680,
+   "height": 2160,
+   "alt_text": "Complete transcript available.Full 8K resolution. Optimized for Earth Information Center display.Music Credit: “Lion Track,” “Atmospheres Instrumental,” and “Fast Progress Instrumental” from Universal Production Music.This video can be freely shared and downloaded. While the video in its entirety can be shared without permission, some individual imagery provided by Sahara Conservation and Pond5 is obtained through permission and may not be excised or remixed in other products. For more information on NASA’s media guidelines, visit https://www.nasa.gov/multimedia/guidelines/index.html"
+  }
+ ],
+ "text_links": [
+  "https://svs.gsfc.nasa.gov/vis/a010000/a014700/a014700/script_37434_00.html"
+ ],
+ "frame_folders": {},
+ "api_url": "https://svs.gsfc.nasa.gov/api/14700",
+ "fetched_utc": "2026-10-29T07:42:56Z"
+}

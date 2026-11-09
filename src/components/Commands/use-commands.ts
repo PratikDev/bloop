@@ -23,6 +23,8 @@ export const MODE_LABELS = {
   story: "mode.story",
   thenNow: "mode.thenNow",
   how: "nav.how",
+  turntable: "mode.turntable",
+  official: "mode.official",
 } as const satisfies Record<Mode, string>;
 
 /** The sweep currently playing, for the map's sweep ring. */
@@ -52,6 +54,8 @@ export interface Commands {
   toggleSetting(key: SettingKey): void;
   togglePlaying(): void;
   speakCurrent(): void;
+  /** Speaks the value(s) and place at `at` (the turntable's needle). */
+  speakAt(at: LatLon): void;
   /**
    * Speaks the line (built-in voice, with a caption) or announces it (screen reader), then, with
    * sound on, the satellite whisper with `source`'s caption. Resolves when it has been
@@ -63,9 +67,13 @@ export interface Commands {
   startSweep(): PlayerHandle | null;
   playLegend(): void;
   playMotif(): void;
+  /** U: proof in unison (C1) at the checked point nearest the cursor (or the turntable's needle). */
+  playUnison(): void;
   xray(): void;
   openPanel(panel: PanelTab): void;
   openHelp(): void;
+  /** B: opens or closes the Braille Data Explorer (`open` forces one). */
+  toggleBraille(open?: boolean): void;
   stopAll(): void;
   sweepRef: RefObject<SweepVisual | null>;
 }

@@ -1,0 +1,516 @@
+{
+ "id": 5552,
+ "title": "Science On A Sphere: Aerosols in the Air",
+ "url": "https://svs.gsfc.nasa.gov/5552/",
+ "page_type": "Visualization",
+ "release_date": "2025-06-23T09:00:00-04:00",
+ "update_date": "2026-01-14T13:38:39.274274-05:00",
+ "description": "NASA merges observations, advanced models and computing power to monitor aerosols in the atmosphere. Aerosols are tiny invisible solid or liquid particles that float in the atmosphere and can travel long distances affecting air quality and visibility far from their source. These particles come from natural and human sources and include black carbon (orange/red), sea salt (cyan), dust (magenta) and sulfates (green).",
+ "full_text": "NASA merges observations, advanced models and computing power to monitor aerosols in the atmosphere. Aerosols are tiny invisible solid or liquid particles that float in the atmosphere and can travel long distances affecting air quality and visibility far from their source. These particles come from natural and human sources and include black carbon (orange/red), sea salt (cyan), dust (magenta) and sulfates (green).\n\nNASA merges satellite and ground-based observations, advanced models, and computing power to study aerosols in the atmosphere. Aerosols are tiny solid or liquid particles that float in the atmosphere and can travel long distances, affecting air quality and visibility far from their sources. These particles come from natural and human sources and include sea salt (cyan), dust (magenta), black carbon (orange/red), and sulfates (green). For instance, in South America you can see black carbon from fires burning in the Amazon rainforest, and over the Atlantic you can see Saharan dust wafting from North Africa towards the Americas. This visualization covers the period from August 1 to September 14, 2024, and is based on NASA's Goddard Earth Observing System (GEOS) model, which delivers realistic, high-resolution weather and aerosol data that enable customized environmental prediction and advances in AI research.\n\nNASA uses satellites, ground measurements, and powerful computer models to track tiny particles floating in our air called aerosols. These small solid or liquid particles can travel thousands of miles, affecting the air we breathe and how far we can see, even far from where they originated.\r\n\r\nThis visualization shows how these particles moved through Earth's atmosphere from August 1-September 14, 2024. Different colors represent different types of aerosols: sea salt (blue), dust (pink/magenta), smoke from fires (orange/red), and sulfates from pollution and volcanoes (green).\r\n\r\nThe visualization highlights several atmopsheric phenomena:\r\n\r\n**Hurricanes and Typhoons:** Hurricane Ernesto in the Atlantic Ocean pulls in dust from Africa, while Typhoon Ampil near Japan draws pollution from mainland Asia. The storms' powerful winds churn up ocean water, creating sea salt particles visible as blue spirals.\r\n\r\n**Saharan Dust Journey: ** Desert dust from the Sahara travels all the way across the Atlantic Ocean, creating hazy skies in the Caribbean and affecting air quality as far away as Texas and Florida during summer 2024.\r\n\r\n**Volcanic Plumes:** Hawaii's Kilauea Volcano released a narrow stream of sulfate particles moving westward.\r\n\r\n**Wildfire Smoke:**\r\n\r\n* In southern Africa, seasonal agricultural burning created smoke that drifted over the Atlantic Ocean\r\n\r\n* South America faced record-breaking wildfires in 2024, creating a river-like flow of smoke particles that affected major Brazilian cities\r\n\r\n* Canada experienced its second-worst wildfire season on record, with smoke traveling as far as northern Europe\r\n\r\nThe swirling blue patterns over oceans show sea salt kicked up by strong winds.\r\n\r\nThis visualization helps us understand how our atmosphere connects distant parts of the world. What happens in one region—whether natural events or human activities—can affect weather patterns and air quality thousands of miles away. By tracking these movements, NASA helps communities prepare for changes in air quality and visibility while advancing our understanding of Earth's complex atmospheric system.\r\n\r\nThe visualization was developed using NASA’s Goddard Earth Observing System (GEOS), a complex modeling and data assimilation system that creates global analyses of the Earth System. GEOS integrates satellite observations, in situ measurements, and approximately one million weather observations collected hourly to inform its models. Through the GEOS Forward Processing (FP) product, the system generates both analyses and forecasts in near real-time. Images for this visualization were created by NASA’s Global Modeling and Assimilation Office (GMAO).\n\nRepresentative still image of the aerosols visualization.\n\nNASA merges satellite and ground-based observations, advanced models, and computing power to study aerosols in the atmosphere. Aerosols are tiny solid or liquid particles that float in the atmosphere and can travel long distances, affecting air quality and visibility far from their sources. These particles come from natural and human sources and include sea salt (cyan), dust (magenta), black carbon (orange/red), and sulfates (green). For instance, in South America you can see black carbon from fires burning in the Amazon rainforest, and over the Atlantic you can see Saharan dust wafting from North Africa towards the Americas. This visualization shows Earth from space, allowing you to see how aerosols move across the globe. The visualization covers the period from August 1 to September 14, 2024, and is based on NASA's Goddard Earth Observing System (GEOS) model, which delivers realistic, high-resolution weather and aerosol data that enable customized environmental prediction and advances in AI research.\n\nVisualization showcasing aerosols by NASA's Goddard Earth Observing (GEOS) model. Labels have been skewed to ensure proper display when wrapped on a sphere.\n\nVisualization showcasing aerosols by NASA's Goddard Earth Observing (GEOS) model. This version does not include labels.\n\nThis frame set provides labels with transparency that can be overlaid for compositing purposes. Labels have been skewed to ensure proper display when wrapped on a sphere.\n\nColorbar of the aerosols visualizaton. This still image is provided with transparency for compositing purposes.\n\nVertical colorbar of the aerosols visualization. This still image is provided with transparency for compositing purposes.",
+ "credits_by_role": {
+  "Visualizer": [
+   "Joseph V. Ardizzone (NASA/GSFC)",
+   "Helen-Nicole Kostis (USRA)"
+  ],
+  "Scientist": [
+   "Lesley Ott (NASA/GSFC)"
+  ],
+  "Technical support": [
+   "Laurence Schuler (ADNET Systems, Inc.)",
+   "Ian Jones (ADNET Systems, Inc.)",
+   "Ella Kaplan (Global Science and Technology, Inc.)"
+  ]
+ },
+ "keywords": [
+  "Earth Information Center",
+  "GMAO",
+  "Science On a Sphere"
+ ],
+ "datasets": [
+  {
+   "name": "GEOS-FP",
+   "common_name": "",
+   "platform": null,
+   "sensor": null,
+   "type": "Model",
+   "organizations": [
+    "NASA GMAO"
+   ],
+   "description": "Documentation: Lucchesi, R., 2018: File Specification for GEOS FP. GMAO Office Note No. 4 (Version 1.2), 61 pp, available from [https://gmao.gsfc.nasa.gov/pubs/docs/Lucchesi1203.pdf](https://gmao.gsfc.nasa.gov/pubs/docs/Lucchesi1203.pdf)",
+   "credit": "",
+   "url": "https://fluid.nccs.nasa.gov/weather/",
+   "date_range": "August 1-September 15, 2024"
+  }
+ ],
+ "missions": [],
+ "related": [
+  {
+   "id": 5669,
+   "title": "GEOS Aerosols (2025)",
+   "url": "https://svs.gsfc.nasa.gov/5669/"
+  },
+  {
+   "id": 5518,
+   "title": "Science On A Sphere: Air Quality Model Runs",
+   "url": "https://svs.gsfc.nasa.gov/5518/"
+  },
+  {
+   "id": 5151,
+   "title": "Particulate Matter (PM) 2.5",
+   "url": "https://svs.gsfc.nasa.gov/5151/"
+  },
+  {
+   "id": 5152,
+   "title": "Near surface Ozone (O3)",
+   "url": "https://svs.gsfc.nasa.gov/5152/"
+  },
+  {
+   "id": 5153,
+   "title": "Carbon Monoxide (CO)",
+   "url": "https://svs.gsfc.nasa.gov/5153/"
+  },
+  {
+   "id": 5154,
+   "title": "Nitrogen Oxides (NOx)",
+   "url": "https://svs.gsfc.nasa.gov/5154/"
+  }
+ ],
+ "alternate_versions": [
+  {
+   "id": 5669,
+   "title": "GEOS Aerosols (2025)",
+   "url": "https://svs.gsfc.nasa.gov/5669/"
+  },
+  {
+   "id": 5572,
+   "title": "GEOS Aerosols",
+   "url": "https://svs.gsfc.nasa.gov/5572/"
+  }
+ ],
+ "newer_versions": [],
+ "older_versions": [],
+ "media": [
+  {
+   "group": 0,
+   "group_title": "Science On a Sphere Content",
+   "widget": "Globe Viewer",
+   "caption": "",
+   "group_text": "NASA merges satellite and ground-based observations, advanced models, and computing power to study aerosols in the atmosphere. Aerosols are tiny solid or liquid particles that float in the atmosphere and can travel long distances, affecting air quality and visibility far from their sources. These particles come from natural and human sources and include sea salt (cyan), dust (magenta), black carbon (orange/red), and sulfates (green). For instance, in South America you can see black carbon from fires burning in the Amazon rainforest, and over the Atlantic you can see Saharan dust wafting from North Africa towards the Americas. This visualization covers the period from August 1 to September 14, 2024, and is based on NASA's Goddard Earth Observing System (GEOS) model, which delivers realistic, high-resolution weather and aerosol data that enable customized environmental prediction and advances in AI research.",
+   "url": "https://svs.gsfc.nasa.gov/vis/a000000/a005500/a005552/Aerosol_2048x1024_30fps_h264.mp4",
+   "filename": "Aerosol_2048x1024_30fps_h264.mp4",
+   "media_type": "Movie",
+   "width": 2048,
+   "height": 1024,
+   "alt_text": ""
+  },
+  {
+   "group": 0,
+   "group_title": "Science On a Sphere Content",
+   "widget": "Globe Viewer",
+   "caption": "",
+   "group_text": "NASA merges satellite and ground-based observations, advanced models, and computing power to study aerosols in the atmosphere. Aerosols are tiny solid or liquid particles that float in the atmosphere and can travel long distances, affecting air quality and visibility far from their sources. These particles come from natural and human sources and include sea salt (cyan), dust (magenta), black carbon (orange/red), and sulfates (green). For instance, in South America you can see black carbon from fires burning in the Amazon rainforest, and over the Atlantic you can see Saharan dust wafting from North Africa towards the Americas. This visualization covers the period from August 1 to September 14, 2024, and is based on NASA's Goddard Earth Observing System (GEOS) model, which delivers realistic, high-resolution weather and aerosol data that enable customized environmental prediction and advances in AI research.",
+   "url": "https://svs.gsfc.nasa.gov/vis/a000000/a005500/a005552/Aerosols_4096x2048_30fps_h264.mp4",
+   "filename": "Aerosols_4096x2048_30fps_h264.mp4",
+   "media_type": "Movie",
+   "width": 4096,
+   "height": 2048,
+   "alt_text": ""
+  },
+  {
+   "group": 0,
+   "group_title": "Science On a Sphere Content",
+   "widget": "Globe Viewer",
+   "caption": "",
+   "group_text": "NASA merges satellite and ground-based observations, advanced models, and computing power to study aerosols in the atmosphere. Aerosols are tiny solid or liquid particles that float in the atmosphere and can travel long distances, affecting air quality and visibility far from their sources. These particles come from natural and human sources and include sea salt (cyan), dust (magenta), black carbon (orange/red), and sulfates (green). For instance, in South America you can see black carbon from fires burning in the Amazon rainforest, and over the Atlantic you can see Saharan dust wafting from North Africa towards the Americas. This visualization covers the period from August 1 to September 14, 2024, and is based on NASA's Goddard Earth Observing System (GEOS) model, which delivers realistic, high-resolution weather and aerosol data that enable customized environmental prediction and advances in AI research.",
+   "url": "https://svs.gsfc.nasa.gov/vis/a000000/a005500/a005552/Aerosols_4096x2048_30p_large_h264.mp4",
+   "filename": "Aerosols_4096x2048_30p_large_h264.mp4",
+   "media_type": "Movie",
+   "width": 4096,
+   "height": 2048,
+   "alt_text": ""
+  },
+  {
+   "group": 0,
+   "group_title": "Science On a Sphere Content",
+   "widget": "Globe Viewer",
+   "caption": "",
+   "group_text": "NASA merges satellite and ground-based observations, advanced models, and computing power to study aerosols in the atmosphere. Aerosols are tiny solid or liquid particles that float in the atmosphere and can travel long distances, affecting air quality and visibility far from their sources. These particles come from natural and human sources and include sea salt (cyan), dust (magenta), black carbon (orange/red), and sulfates (green). For instance, in South America you can see black carbon from fires burning in the Amazon rainforest, and over the Atlantic you can see Saharan dust wafting from North Africa towards the Americas. This visualization covers the period from August 1 to September 14, 2024, and is based on NASA's Goddard Earth Observing System (GEOS) model, which delivers realistic, high-resolution weather and aerosol data that enable customized environmental prediction and advances in AI research.",
+   "url": "https://svs.gsfc.nasa.gov/vis/a000000/a005500/a005552/Aerosols_2048x1024_sos.mp4",
+   "filename": "Aerosols_2048x1024_sos.mp4",
+   "media_type": "Movie",
+   "width": 2048,
+   "height": 1024,
+   "alt_text": ""
+  },
+  {
+   "group": 0,
+   "group_title": "Science On a Sphere Content",
+   "widget": "Globe Viewer",
+   "caption": "",
+   "group_text": "NASA merges satellite and ground-based observations, advanced models, and computing power to study aerosols in the atmosphere. Aerosols are tiny solid or liquid particles that float in the atmosphere and can travel long distances, affecting air quality and visibility far from their sources. These particles come from natural and human sources and include sea salt (cyan), dust (magenta), black carbon (orange/red), and sulfates (green). For instance, in South America you can see black carbon from fires burning in the Amazon rainforest, and over the Atlantic you can see Saharan dust wafting from North Africa towards the Americas. This visualization covers the period from August 1 to September 14, 2024, and is based on NASA's Goddard Earth Observing System (GEOS) model, which delivers realistic, high-resolution weather and aerosol data that enable customized environmental prediction and advances in AI research.",
+   "url": "https://svs.gsfc.nasa.gov/vis/a000000/a005500/a005552/Aerosols_4096x2048_sos.mp4",
+   "filename": "Aerosols_4096x2048_sos.mp4",
+   "media_type": "Movie",
+   "width": 4096,
+   "height": 2048,
+   "alt_text": ""
+  },
+  {
+   "group": 0,
+   "group_title": "Science On a Sphere Content",
+   "widget": "Globe Viewer",
+   "caption": "",
+   "group_text": "NASA merges satellite and ground-based observations, advanced models, and computing power to study aerosols in the atmosphere. Aerosols are tiny solid or liquid particles that float in the atmosphere and can travel long distances, affecting air quality and visibility far from their sources. These particles come from natural and human sources and include sea salt (cyan), dust (magenta), black carbon (orange/red), and sulfates (green). For instance, in South America you can see black carbon from fires burning in the Amazon rainforest, and over the Atlantic you can see Saharan dust wafting from North Africa towards the Americas. This visualization covers the period from August 1 to September 14, 2024, and is based on NASA's Goddard Earth Observing System (GEOS) model, which delivers realistic, high-resolution weather and aerosol data that enable customized environmental prediction and advances in AI research.",
+   "url": "https://svs.gsfc.nasa.gov/vis/a000000/a005500/a005552/frames/2048x1024_2x1_30p/WithLabels/",
+   "filename": "WithLabels",
+   "media_type": "Frames",
+   "width": 2048,
+   "height": 1024,
+   "alt_text": ""
+  },
+  {
+   "group": 0,
+   "group_title": "Science On a Sphere Content",
+   "widget": "Globe Viewer",
+   "caption": "",
+   "group_text": "NASA merges satellite and ground-based observations, advanced models, and computing power to study aerosols in the atmosphere. Aerosols are tiny solid or liquid particles that float in the atmosphere and can travel long distances, affecting air quality and visibility far from their sources. These particles come from natural and human sources and include sea salt (cyan), dust (magenta), black carbon (orange/red), and sulfates (green). For instance, in South America you can see black carbon from fires burning in the Amazon rainforest, and over the Atlantic you can see Saharan dust wafting from North Africa towards the Americas. This visualization covers the period from August 1 to September 14, 2024, and is based on NASA's Goddard Earth Observing System (GEOS) model, which delivers realistic, high-resolution weather and aerosol data that enable customized environmental prediction and advances in AI research.",
+   "url": "https://svs.gsfc.nasa.gov/vis/a000000/a005500/a005552/frames/4096x2048_2x1_30p/WithLabels/",
+   "filename": "WithLabels",
+   "media_type": "Frames",
+   "width": 4096,
+   "height": 2048,
+   "alt_text": ""
+  },
+  {
+   "group": 2,
+   "group_title": "",
+   "widget": "Single image",
+   "caption": "",
+   "group_text": "Representative still image of the aerosols visualization.",
+   "url": "https://svs.gsfc.nasa.gov/vis/a000000/a005500/a005552/SOS_Aerosols_1024x512.png",
+   "filename": "SOS_Aerosols_1024x512.png",
+   "media_type": "Image",
+   "width": 1024,
+   "height": 512,
+   "alt_text": "Visualization of aerosols by NASA's Goddard Earth Observing (GEOS) model."
+  },
+  {
+   "group": 2,
+   "group_title": "",
+   "widget": "Single image",
+   "caption": "",
+   "group_text": "Representative still image of the aerosols visualization.",
+   "url": "https://svs.gsfc.nasa.gov/vis/a000000/a005500/a005552/SOS_Aerosols_2048x1024.png",
+   "filename": "SOS_Aerosols_2048x1024.png",
+   "media_type": "Image",
+   "width": 2048,
+   "height": 1024,
+   "alt_text": ""
+  },
+  {
+   "group": 2,
+   "group_title": "",
+   "widget": "Single image",
+   "caption": "",
+   "group_text": "Representative still image of the aerosols visualization.",
+   "url": "https://svs.gsfc.nasa.gov/vis/a000000/a005500/a005552/SOS_Aerosols_4096x2048.png",
+   "filename": "SOS_Aerosols_4096x2048.png",
+   "media_type": "Image",
+   "width": 4096,
+   "height": 2048,
+   "alt_text": ""
+  },
+  {
+   "group": 3,
+   "group_title": "",
+   "widget": "Video player",
+   "caption": "NASA merges satellite and ground-based observations, advanced models, and computing power to study aerosols in the atmosphere. Aerosols are tiny solid or liquid particles that float in the atmosphere and can travel long distances, affecting air quality and visibility far from their sources. These particles come from natural and human sources and include sea salt (cyan), dust (magenta), black carbon (orange/red), and sulfates (green). For instance, in South America you can see black carbon from fires burning in the Amazon rainforest, and over the Atlantic you can see Saharan dust wafting from North Africa towards the Americas. This visualization shows Earth from space, allowing you to see how aerosols move across the globe. The visualization covers the period from August 1 to September 14, 2024, and is based on NASA's Goddard Earth Observing System (GEOS) model, which delivers realistic, high-resolution weather and aerosol data that enable customized environmental prediction and advances in AI research.",
+   "group_text": "",
+   "url": "https://svs.gsfc.nasa.gov/vis/a000000/a005500/a005552/Aerosols_RotatingEarth_3840x2160.mp4",
+   "filename": "Aerosols_RotatingEarth_3840x2160.mp4",
+   "media_type": "Movie",
+   "width": 3840,
+   "height": 2160,
+   "alt_text": ""
+  },
+  {
+   "group": 3,
+   "group_title": "",
+   "widget": "Video player",
+   "caption": "NASA merges satellite and ground-based observations, advanced models, and computing power to study aerosols in the atmosphere. Aerosols are tiny solid or liquid particles that float in the atmosphere and can travel long distances, affecting air quality and visibility far from their sources. These particles come from natural and human sources and include sea salt (cyan), dust (magenta), black carbon (orange/red), and sulfates (green). For instance, in South America you can see black carbon from fires burning in the Amazon rainforest, and over the Atlantic you can see Saharan dust wafting from North Africa towards the Americas. This visualization shows Earth from space, allowing you to see how aerosols move across the globe. The visualization covers the period from August 1 to September 14, 2024, and is based on NASA's Goddard Earth Observing System (GEOS) model, which delivers realistic, high-resolution weather and aerosol data that enable customized environmental prediction and advances in AI research.",
+   "group_text": "",
+   "url": "https://svs.gsfc.nasa.gov/vis/a000000/a005500/a005552/Aerosols_Earth_3840x2160.mp4",
+   "filename": "Aerosols_Earth_3840x2160.mp4",
+   "media_type": "Movie",
+   "width": 3840,
+   "height": 2160,
+   "alt_text": ""
+  },
+  {
+   "group": 3,
+   "group_title": "",
+   "widget": "Video player",
+   "caption": "NASA merges satellite and ground-based observations, advanced models, and computing power to study aerosols in the atmosphere. Aerosols are tiny solid or liquid particles that float in the atmosphere and can travel long distances, affecting air quality and visibility far from their sources. These particles come from natural and human sources and include sea salt (cyan), dust (magenta), black carbon (orange/red), and sulfates (green). For instance, in South America you can see black carbon from fires burning in the Amazon rainforest, and over the Atlantic you can see Saharan dust wafting from North Africa towards the Americas. This visualization shows Earth from space, allowing you to see how aerosols move across the globe. The visualization covers the period from August 1 to September 14, 2024, and is based on NASA's Goddard Earth Observing System (GEOS) model, which delivers realistic, high-resolution weather and aerosol data that enable customized environmental prediction and advances in AI research.",
+   "group_text": "",
+   "url": "https://svs.gsfc.nasa.gov/vis/a000000/a005500/a005552/Aerosols_RotatingEarth_3840x2160.png",
+   "filename": "Aerosols_RotatingEarth_3840x2160.png",
+   "media_type": "Image",
+   "width": 3840,
+   "height": 2160,
+   "alt_text": ""
+  },
+  {
+   "group": 4,
+   "group_title": "Aerosols in the Air (Equirectangular Projection)",
+   "widget": "Video player",
+   "caption": "",
+   "group_text": "Visualization showcasing aerosols by NASA's Goddard Earth Observing (GEOS) model. Labels have been skewed to ensure proper display when wrapped on a sphere.",
+   "url": "https://svs.gsfc.nasa.gov/vis/a000000/a005500/a005552/Aerosols_4096x2048_30fps_h264.mp4",
+   "filename": "Aerosols_4096x2048_30fps_h264.mp4",
+   "media_type": "Movie",
+   "width": 4096,
+   "height": 2048,
+   "alt_text": ""
+  },
+  {
+   "group": 4,
+   "group_title": "Aerosols in the Air (Equirectangular Projection)",
+   "widget": "Video player",
+   "caption": "",
+   "group_text": "Visualization showcasing aerosols by NASA's Goddard Earth Observing (GEOS) model. Labels have been skewed to ensure proper display when wrapped on a sphere.",
+   "url": "https://svs.gsfc.nasa.gov/vis/a000000/a005500/a005552/Aerosols_4096x2048_30p_large_h264.mp4",
+   "filename": "Aerosols_4096x2048_30p_large_h264.mp4",
+   "media_type": "Movie",
+   "width": 4096,
+   "height": 2048,
+   "alt_text": ""
+  },
+  {
+   "group": 4,
+   "group_title": "Aerosols in the Air (Equirectangular Projection)",
+   "widget": "Video player",
+   "caption": "",
+   "group_text": "Visualization showcasing aerosols by NASA's Goddard Earth Observing (GEOS) model. Labels have been skewed to ensure proper display when wrapped on a sphere.",
+   "url": "https://svs.gsfc.nasa.gov/vis/a000000/a005500/a005552/AerosolOpticalDepth_2048x1024_30fps_0000.png",
+   "filename": "AerosolOpticalDepth_2048x1024_30fps_0000.png",
+   "media_type": "Image",
+   "width": 2048,
+   "height": 1024,
+   "alt_text": ""
+  },
+  {
+   "group": 4,
+   "group_title": "Aerosols in the Air (Equirectangular Projection)",
+   "widget": "Video player",
+   "caption": "",
+   "group_text": "Visualization showcasing aerosols by NASA's Goddard Earth Observing (GEOS) model. Labels have been skewed to ensure proper display when wrapped on a sphere.",
+   "url": "https://svs.gsfc.nasa.gov/vis/a000000/a005500/a005552/AerosolOpticalDepth_4096x2048_30fps_0000.png",
+   "filename": "AerosolOpticalDepth_4096x2048_30fps_0000.png",
+   "media_type": "Image",
+   "width": 4096,
+   "height": 2048,
+   "alt_text": ""
+  },
+  {
+   "group": 4,
+   "group_title": "Aerosols in the Air (Equirectangular Projection)",
+   "widget": "Video player",
+   "caption": "",
+   "group_text": "Visualization showcasing aerosols by NASA's Goddard Earth Observing (GEOS) model. Labels have been skewed to ensure proper display when wrapped on a sphere.",
+   "url": "https://svs.gsfc.nasa.gov/vis/a000000/a005500/a005552/frames/4096x2048_2x1_30p/WithLabels/",
+   "filename": "WithLabels",
+   "media_type": "Frames",
+   "width": 4096,
+   "height": 2048,
+   "alt_text": ""
+  },
+  {
+   "group": 5,
+   "group_title": "",
+   "widget": "Video player",
+   "caption": "",
+   "group_text": "Visualization showcasing aerosols by NASA's Goddard Earth Observing (GEOS) model. This version does not include labels.",
+   "url": "https://svs.gsfc.nasa.gov/vis/a000000/a005500/a005552/Aerosols_NoLabels_2048x1024_30fps.mp4",
+   "filename": "Aerosols_NoLabels_2048x1024_30fps.mp4",
+   "media_type": "Movie",
+   "width": 2048,
+   "height": 1024,
+   "alt_text": ""
+  },
+  {
+   "group": 5,
+   "group_title": "",
+   "widget": "Video player",
+   "caption": "",
+   "group_text": "Visualization showcasing aerosols by NASA's Goddard Earth Observing (GEOS) model. This version does not include labels.",
+   "url": "https://svs.gsfc.nasa.gov/vis/a000000/a005500/a005552/Aerosols_NoLabels_4096x2048_30fps.mp4",
+   "filename": "Aerosols_NoLabels_4096x2048_30fps.mp4",
+   "media_type": "Movie",
+   "width": 4096,
+   "height": 2048,
+   "alt_text": ""
+  },
+  {
+   "group": 5,
+   "group_title": "",
+   "widget": "Video player",
+   "caption": "",
+   "group_text": "Visualization showcasing aerosols by NASA's Goddard Earth Observing (GEOS) model. This version does not include labels.",
+   "url": "https://svs.gsfc.nasa.gov/vis/a000000/a005500/a005552/frames/4096x2048_2x1_30p/NoLabels/",
+   "filename": "NoLabels",
+   "media_type": "Frames",
+   "width": 4096,
+   "height": 2048,
+   "alt_text": ""
+  },
+  {
+   "group": 5,
+   "group_title": "",
+   "widget": "Video player",
+   "caption": "",
+   "group_text": "Visualization showcasing aerosols by NASA's Goddard Earth Observing (GEOS) model. This version does not include labels.",
+   "url": "https://svs.gsfc.nasa.gov/vis/a000000/a005500/a005552/frames/2048x1024_2x1_30p/NoLabels/",
+   "filename": "NoLabels",
+   "media_type": "Frames",
+   "width": 2048,
+   "height": 1024,
+   "alt_text": ""
+  },
+  {
+   "group": 5,
+   "group_title": "",
+   "widget": "Video player",
+   "caption": "",
+   "group_text": "Visualization showcasing aerosols by NASA's Goddard Earth Observing (GEOS) model. This version does not include labels.",
+   "url": "https://svs.gsfc.nasa.gov/vis/a000000/a005500/a005552/Aerosols_NoLabels_2048x1024_30fps_0000.png",
+   "filename": "Aerosols_NoLabels_2048x1024_30fps_0000.png",
+   "media_type": "Image",
+   "width": 2048,
+   "height": 1024,
+   "alt_text": ""
+  },
+  {
+   "group": 5,
+   "group_title": "",
+   "widget": "Video player",
+   "caption": "",
+   "group_text": "Visualization showcasing aerosols by NASA's Goddard Earth Observing (GEOS) model. This version does not include labels.",
+   "url": "https://svs.gsfc.nasa.gov/vis/a000000/a005500/a005552/Aerosols_NoLabels_4096x2048_30fps_0000.png",
+   "filename": "Aerosols_NoLabels_4096x2048_30fps_0000.png",
+   "media_type": "Image",
+   "width": 4096,
+   "height": 2048,
+   "alt_text": ""
+  },
+  {
+   "group": 6,
+   "group_title": "",
+   "widget": "Single image",
+   "caption": "",
+   "group_text": "This frame set provides labels with transparency that can be overlaid for compositing purposes. Labels have been skewed to ensure proper display when wrapped on a sphere.",
+   "url": "https://svs.gsfc.nasa.gov/vis/a000000/a005500/a005552/frames/4096x2048_2x1_30p/Events_Layer/",
+   "filename": "Events_Layer",
+   "media_type": "Frames",
+   "width": 4096,
+   "height": 2048,
+   "alt_text": ""
+  },
+  {
+   "group": 6,
+   "group_title": "",
+   "widget": "Single image",
+   "caption": "",
+   "group_text": "This frame set provides labels with transparency that can be overlaid for compositing purposes. Labels have been skewed to ensure proper display when wrapped on a sphere.",
+   "url": "https://svs.gsfc.nasa.gov/vis/a000000/a005500/a005552/SOS_Events_4096x2048_0000.png",
+   "filename": "SOS_Events_4096x2048_0000.png",
+   "media_type": "Image",
+   "width": 4096,
+   "height": 2048,
+   "alt_text": "Still image pointing out aerosol events. This image is provided with transparency to add as an overlay for Science On A Sphere setups."
+  },
+  {
+   "group": 6,
+   "group_title": "",
+   "widget": "Single image",
+   "caption": "",
+   "group_text": "This frame set provides labels with transparency that can be overlaid for compositing purposes. Labels have been skewed to ensure proper display when wrapped on a sphere.",
+   "url": "https://svs.gsfc.nasa.gov/vis/a000000/a005500/a005552/SOS_Events_2048x1024_0000.png",
+   "filename": "SOS_Events_2048x1024_0000.png",
+   "media_type": "Image",
+   "width": 2048,
+   "height": 1024,
+   "alt_text": ""
+  },
+  {
+   "group": 7,
+   "group_title": "",
+   "widget": "Single image",
+   "caption": "",
+   "group_text": "Colorbar of the aerosols visualizaton. This still image is provided with transparency for compositing purposes.",
+   "url": "https://svs.gsfc.nasa.gov/vis/a000000/a005500/a005552/Aerosols_cbar.png",
+   "filename": "Aerosols_cbar.png",
+   "media_type": "Image",
+   "width": 1000,
+   "height": 300,
+   "alt_text": ""
+  },
+  {
+   "group": 8,
+   "group_title": "",
+   "widget": "Single image",
+   "caption": "",
+   "group_text": "Vertical colorbar of the aerosols visualization. This still image is provided with transparency for compositing purposes.",
+   "url": "https://svs.gsfc.nasa.gov/vis/a000000/a005500/a005552/SOS_Aerosols_cbar_640px.png",
+   "filename": "SOS_Aerosols_cbar_640px.png",
+   "media_type": "Image",
+   "width": 640,
+   "height": 800,
+   "alt_text": ""
+  }
+ ],
+ "text_links": [],
+ "frame_folders": {
+  "https://svs.gsfc.nasa.gov/vis/a000000/a005500/a005552/frames/2048x1024_2x1_30p/WithLabels/": {
+   "url": "https://svs.gsfc.nasa.gov/vis/a000000/a005500/a005552/frames/2048x1024_2x1_30p/WithLabels/",
+   "frame_count": 2206,
+   "bytes_approx": 6129200000,
+   "first": "AerosolOpticalDepth_2048x1024_30fps.0000.png",
+   "last": "AerosolOpticalDepth_2048x1024_30fps.2205.png",
+   "subfolders": {}
+  },
+  "https://svs.gsfc.nasa.gov/vis/a000000/a005500/a005552/frames/4096x2048_2x1_30p/WithLabels/": {
+   "url": "https://svs.gsfc.nasa.gov/vis/a000000/a005500/a005552/frames/4096x2048_2x1_30p/WithLabels/",
+   "frame_count": 2206,
+   "bytes_approx": 21206800000,
+   "first": "AerosolOpticalDepth_4096x2048_30fps_0000.png",
+   "last": "AerosolOpticalDepth_4096x2048_30fps_2205.png",
+   "subfolders": {}
+  },
+  "https://svs.gsfc.nasa.gov/vis/a000000/a005500/a005552/frames/4096x2048_2x1_30p/NoLabels/": {
+   "url": "https://svs.gsfc.nasa.gov/vis/a000000/a005500/a005552/frames/4096x2048_2x1_30p/NoLabels/",
+   "frame_count": 2206,
+   "bytes_approx": 21163600000,
+   "first": "Aerosols_NoLabels_4096x2048_30fps_0000.png",
+   "last": "Aerosols_NoLabels_4096x2048_30fps_2205.png",
+   "subfolders": {}
+  },
+  "https://svs.gsfc.nasa.gov/vis/a000000/a005500/a005552/frames/2048x1024_2x1_30p/NoLabels/": {
+   "url": "https://svs.gsfc.nasa.gov/vis/a000000/a005500/a005552/frames/2048x1024_2x1_30p/NoLabels/",
+   "frame_count": 2206,
+   "bytes_approx": 6113500000,
+   "first": "Aerosols_NoLabels_2048x1024_30fps_0000.png",
+   "last": "Aerosols_NoLabels_2048x1024_30fps_2205.png",
+   "subfolders": {}
+  },
+  "https://svs.gsfc.nasa.gov/vis/a000000/a005500/a005552/frames/4096x2048_2x1_30p/Events_Layer/": {
+   "url": "https://svs.gsfc.nasa.gov/vis/a000000/a005500/a005552/frames/4096x2048_2x1_30p/Events_Layer/",
+   "frame_count": 2208,
+   "bytes_approx": 380462300,
+   "first": "SOS_Events_4096x2048_0000.png",
+   "last": "SOS_Events_4096x2048_2207.png",
+   "subfolders": {}
+  }
+ },
+ "api_url": "https://svs.gsfc.nasa.gov/api/5552",
+ "fetched_utc": "2026-10-29T06:17:08Z"
+}

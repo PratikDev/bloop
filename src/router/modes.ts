@@ -2,7 +2,7 @@ import type { Mode } from "@/components/AppState/reducer";
 import type { ListenSearch } from "./search";
 
 /** The app's pages. Story is the tour on the Listen page, not a page of its own. */
-export const PAGE_PATHS = { home: "/", listen: "/listen", thenNow: "/then-now", how: "/how" } as const;
+export const PAGE_PATHS = { home: "/", listen: "/listen", thenNow: "/then-now", how: "/how", official: "/official", turntable: "/turntable" } as const;
 export type PagePath = (typeof PAGE_PATHS)[keyof typeof PAGE_PATHS];
 
 /** The URL is the one source of the mode: the reducer copies it (use-route-sync.ts). */
@@ -14,6 +14,10 @@ export function modeFromLocation(pathname: string, search: ListenSearch): Mode {
       return "thenNow";
     case PAGE_PATHS.how:
       return "how";
+    case PAGE_PATHS.official:
+      return "official";
+    case PAGE_PATHS.turntable:
+      return "turntable";
     default:
       return "home";
   }
@@ -30,6 +34,10 @@ export function locationForMode(mode: Mode): { to: PagePath; search?: ListenSear
       return { to: PAGE_PATHS.thenNow };
     case "how":
       return { to: PAGE_PATHS.how };
+    case "official":
+      return { to: PAGE_PATHS.official };
+    case "turntable":
+      return { to: PAGE_PATHS.turntable };
     case "home":
       return { to: PAGE_PATHS.home };
   }

@@ -1,0 +1,347 @@
+{
+ "id": 4332,
+ "title": "Aquarius Sea Surface Temperature 2011 - 2015",
+ "url": "https://svs.gsfc.nasa.gov/4332/",
+ "page_type": "Visualization",
+ "release_date": "2015-09-23T00:00:00-04:00",
+ "update_date": "2025-02-02T22:22:04.322831-05:00",
+ "description": "Aquarius is an international effort to measure sea surface salinity and learn about the interaction between ocean circulation, the water cycle and climate. Besides salinity, Aquarius also measures sea surface temperature because salinity and  temperature determines seawater density and buoyancy. Sea-surface density drives formation of ocean water masses and three-dimensional ocean circulation. Thus better understanding of ocean salinity  and temperature improves understanding of the ocean's capacity to store and transport heat. The animation shows the changes of sea surface temporature from September 7, 2011 to May 20, 2015. || ",
+ "full_text": "Aquarius is an international effort to measure sea surface salinity and learn about the interaction between ocean circulation, the water cycle and climate. Besides salinity, Aquarius also measures sea surface temperature because salinity and  temperature determines seawater density and buoyancy. Sea-surface density drives formation of ocean water masses and three-dimensional ocean circulation. Thus better understanding of ocean salinity  and temperature improves understanding of the ocean's capacity to store and transport heat. The animation shows the changes of sea surface temporature from September 7, 2011 to May 20, 2015. ||\n\nAquarius is an international effort to measure sea surface salinity and learn about the interaction between ocean circulation, the water cycle and climate. Besides salinity, Aquarius also measures sea surface temperature because salinity and  temperature determines seawater density and buoyancy. Sea-surface density drives formation of ocean water masses and three-dimensional ocean circulation. Thus better understanding of ocean salinity  and temperature improves understanding of the ocean's capacity to store and transport heat. The animation shows the changes of sea surface temporature from September 7, 2011 to May 20, 2015.\n\nAquarius Sea Surface Temperature Flat Map 2011 - 2015\n\nAquarius Sea Surface Temperature 2011 --2015 in Mollweide Projection\n\nAquarius color bar showing sea surface temperature from -2 to 45 celsius, going from purple to green to dark red.",
+ "credits_by_role": {
+  "Animator": [
+   "Cheng Zhang (USRA)",
+   "Horace Mitchell (NASA/GSFC)"
+  ],
+  "Scientist": [
+   "Gene Feldman (NASA/GSFC)"
+  ]
+ },
+ "keywords": [
+  "Hyperwall"
+ ],
+ "datasets": [
+  {
+   "name": "Sea Surface Salinity",
+   "common_name": "SSS",
+   "platform": "Aquarius",
+   "sensor": "Microwave Radiometer",
+   "type": "Observed Data",
+   "organizations": [
+    "NASA"
+   ],
+   "description": "",
+   "credit": "",
+   "url": "",
+   "date_range": null
+  }
+ ],
+ "missions": [],
+ "related": [],
+ "alternate_versions": [],
+ "newer_versions": [],
+ "older_versions": [],
+ "media": [
+  {
+   "group": 1,
+   "group_title": "",
+   "widget": "Video player",
+   "caption": "",
+   "group_text": "Aquarius Sea Surface Temperature Flat Map 2011 - 2015",
+   "url": "https://svs.gsfc.nasa.gov/vis/a000000/a004300/a004332/aquarius_sst_timeCbar_flatmap_1080p30_print.jpg",
+   "filename": "aquarius_sst_timeCbar_flatmap_1080p30_print.jpg",
+   "media_type": "Image",
+   "width": 1024,
+   "height": 576,
+   "alt_text": "Aquarius Sea Surface Temperature Flat Map 2011 - 2015"
+  },
+  {
+   "group": 1,
+   "group_title": "",
+   "widget": "Video player",
+   "caption": "",
+   "group_text": "Aquarius Sea Surface Temperature Flat Map 2011 - 2015",
+   "url": "https://svs.gsfc.nasa.gov/vis/a000000/a004300/a004332/aquarius_sst_timeCbar_flatmap_1080p30_searchweb.png",
+   "filename": "aquarius_sst_timeCbar_flatmap_1080p30_searchweb.png",
+   "media_type": "Image",
+   "width": 320,
+   "height": 180,
+   "alt_text": "Aquarius Sea Surface Temperature Flat Map 2011 - 2015"
+  },
+  {
+   "group": 1,
+   "group_title": "",
+   "widget": "Video player",
+   "caption": "",
+   "group_text": "Aquarius Sea Surface Temperature Flat Map 2011 - 2015",
+   "url": "https://svs.gsfc.nasa.gov/vis/a000000/a004300/a004332/aquarius_sst_timeCbar_flatmap_1080p30_web.png",
+   "filename": "aquarius_sst_timeCbar_flatmap_1080p30_web.png",
+   "media_type": "Image",
+   "width": 320,
+   "height": 180,
+   "alt_text": "Aquarius Sea Surface Temperature Flat Map 2011 - 2015"
+  },
+  {
+   "group": 1,
+   "group_title": "",
+   "widget": "Video player",
+   "caption": "",
+   "group_text": "Aquarius Sea Surface Temperature Flat Map 2011 - 2015",
+   "url": "https://svs.gsfc.nasa.gov/vis/a000000/a004300/a004332/aquarius_sst_timeCbar_flatmap_1080p30_thm.png",
+   "filename": "aquarius_sst_timeCbar_flatmap_1080p30_thm.png",
+   "media_type": "Image",
+   "width": 80,
+   "height": 40,
+   "alt_text": "Aquarius Sea Surface Temperature Flat Map 2011 - 2015"
+  },
+  {
+   "group": 1,
+   "group_title": "",
+   "widget": "Video player",
+   "caption": "",
+   "group_text": "Aquarius Sea Surface Temperature Flat Map 2011 - 2015",
+   "url": "https://svs.gsfc.nasa.gov/vis/a000000/a004300/a004332/aquarius_sst_timeCbar_flatmap_1080p30.mp4",
+   "filename": "aquarius_sst_timeCbar_flatmap_1080p30.mp4",
+   "media_type": "Movie",
+   "width": 1920,
+   "height": 1080,
+   "alt_text": "Aquarius Sea Surface Temperature Flat Map 2011 - 2015"
+  },
+  {
+   "group": 1,
+   "group_title": "",
+   "widget": "Video player",
+   "caption": "",
+   "group_text": "Aquarius Sea Surface Temperature Flat Map 2011 - 2015",
+   "url": "https://svs.gsfc.nasa.gov/vis/a000000/a004300/a004332/aquarius_sst_timeCbar_flatmap_1080p30.webm",
+   "filename": "aquarius_sst_timeCbar_flatmap_1080p30.webm",
+   "media_type": "Movie",
+   "width": 1920,
+   "height": 1080,
+   "alt_text": "Aquarius Sea Surface Temperature Flat Map 2011 - 2015"
+  },
+  {
+   "group": 1,
+   "group_title": "",
+   "widget": "Video player",
+   "caption": "",
+   "group_text": "Aquarius Sea Surface Temperature Flat Map 2011 - 2015",
+   "url": "https://svs.gsfc.nasa.gov/vis/a000000/a004300/a004332/frames/3840x2160_16x9_30p/flatmap_4k/",
+   "filename": "flatmap_4k",
+   "media_type": "Frames",
+   "width": 3840,
+   "height": 2160,
+   "alt_text": "Aquarius Sea Surface Temperature Flat Map 2011 - 2015"
+  },
+  {
+   "group": 1,
+   "group_title": "",
+   "widget": "Video player",
+   "caption": "",
+   "group_text": "Aquarius Sea Surface Temperature Flat Map 2011 - 2015",
+   "url": "https://svs.gsfc.nasa.gov/vis/a000000/a004300/a004332/frames/3840x2160_16x9_30p/flatmap_no_timeCbar_4k/",
+   "filename": "flatmap_no_timeCbar_4k",
+   "media_type": "Frames",
+   "width": 3840,
+   "height": 2160,
+   "alt_text": "Aquarius Sea Surface Temperature Flat Map 2011 - 2015"
+  },
+  {
+   "group": 1,
+   "group_title": "",
+   "widget": "Video player",
+   "caption": "",
+   "group_text": "Aquarius Sea Surface Temperature Flat Map 2011 - 2015",
+   "url": "https://svs.gsfc.nasa.gov/vis/a000000/a004300/a004332/aquarius_sst_timeCbar_flatmap_4k_2160p30.mp4",
+   "filename": "aquarius_sst_timeCbar_flatmap_4k_2160p30.mp4",
+   "media_type": "Movie",
+   "width": 3840,
+   "height": 2160,
+   "alt_text": "Aquarius Sea Surface Temperature Flat Map 2011 - 2015"
+  },
+  {
+   "group": 1,
+   "group_title": "",
+   "widget": "Video player",
+   "caption": "",
+   "group_text": "Aquarius Sea Surface Temperature Flat Map 2011 - 2015",
+   "url": "https://svs.gsfc.nasa.gov/vis/a000000/a004300/a004332/aquarius-sea-surface-temperature-flat-map-2011---2015.hwshow/svs/db/vis/a000000/a004300/a004332/aquarius_sst_timeCbar_flatmap_1080p30.mp4.hwshow",
+   "filename": "aquarius_sst_timeCbar_flatmap_1080p30.mp4.hwshow",
+   "media_type": "HyperwallShow",
+   "width": 0,
+   "height": 0,
+   "alt_text": ""
+  },
+  {
+   "group": 2,
+   "group_title": "",
+   "widget": "Video player",
+   "caption": "",
+   "group_text": "Aquarius Sea Surface Temperature 2011 --2015 in Mollweide Projection",
+   "url": "https://svs.gsfc.nasa.gov/vis/a000000/a004300/a004332/aquarius_sst_timeCbar_mollweide_HD1080p30_print.jpg",
+   "filename": "aquarius_sst_timeCbar_mollweide_HD1080p30_print.jpg",
+   "media_type": "Image",
+   "width": 1024,
+   "height": 576,
+   "alt_text": "Aquarius Sea Surface Temperature 2011 --2015 in Mollweide Projection"
+  },
+  {
+   "group": 2,
+   "group_title": "",
+   "widget": "Video player",
+   "caption": "",
+   "group_text": "Aquarius Sea Surface Temperature 2011 --2015 in Mollweide Projection",
+   "url": "https://svs.gsfc.nasa.gov/vis/a000000/a004300/a004332/aquarius_sst_timeCbar_mollweide_HD1080p30_searchweb.png",
+   "filename": "aquarius_sst_timeCbar_mollweide_HD1080p30_searchweb.png",
+   "media_type": "Image",
+   "width": 320,
+   "height": 180,
+   "alt_text": "Aquarius Sea Surface Temperature 2011 --2015 in Mollweide Projection"
+  },
+  {
+   "group": 2,
+   "group_title": "",
+   "widget": "Video player",
+   "caption": "",
+   "group_text": "Aquarius Sea Surface Temperature 2011 --2015 in Mollweide Projection",
+   "url": "https://svs.gsfc.nasa.gov/vis/a000000/a004300/a004332/aquarius_sst_timeCbar_mollweide_HD1080p30_thm.png",
+   "filename": "aquarius_sst_timeCbar_mollweide_HD1080p30_thm.png",
+   "media_type": "Image",
+   "width": 80,
+   "height": 40,
+   "alt_text": "Aquarius Sea Surface Temperature 2011 --2015 in Mollweide Projection"
+  },
+  {
+   "group": 2,
+   "group_title": "",
+   "widget": "Video player",
+   "caption": "",
+   "group_text": "Aquarius Sea Surface Temperature 2011 --2015 in Mollweide Projection",
+   "url": "https://svs.gsfc.nasa.gov/vis/a000000/a004300/a004332/aquarius_sst_timeCbar_mollweide_HD1080p30.mp4",
+   "filename": "aquarius_sst_timeCbar_mollweide_HD1080p30.mp4",
+   "media_type": "Movie",
+   "width": 1920,
+   "height": 1080,
+   "alt_text": "Aquarius Sea Surface Temperature 2011 --2015 in Mollweide Projection"
+  },
+  {
+   "group": 2,
+   "group_title": "",
+   "widget": "Video player",
+   "caption": "",
+   "group_text": "Aquarius Sea Surface Temperature 2011 --2015 in Mollweide Projection",
+   "url": "https://svs.gsfc.nasa.gov/vis/a000000/a004300/a004332/aquarius_sst_timeCbar_mollweide_HD1080p30.webm",
+   "filename": "aquarius_sst_timeCbar_mollweide_HD1080p30.webm",
+   "media_type": "Movie",
+   "width": 1920,
+   "height": 1080,
+   "alt_text": "Aquarius Sea Surface Temperature 2011 --2015 in Mollweide Projection"
+  },
+  {
+   "group": 2,
+   "group_title": "",
+   "widget": "Video player",
+   "caption": "",
+   "group_text": "Aquarius Sea Surface Temperature 2011 --2015 in Mollweide Projection",
+   "url": "https://svs.gsfc.nasa.gov/vis/a000000/a004300/a004332/frames/3840x2160_16x9_30p/mollweide_projection_4k/",
+   "filename": "mollweide_projection_4k",
+   "media_type": "Frames",
+   "width": 3840,
+   "height": 2160,
+   "alt_text": "Aquarius Sea Surface Temperature 2011 --2015 in Mollweide Projection"
+  },
+  {
+   "group": 2,
+   "group_title": "",
+   "widget": "Video player",
+   "caption": "",
+   "group_text": "Aquarius Sea Surface Temperature 2011 --2015 in Mollweide Projection",
+   "url": "https://svs.gsfc.nasa.gov/vis/a000000/a004300/a004332/aquarius_sst_timeCbar_mollweide_4k_2160p30.mp4",
+   "filename": "aquarius_sst_timeCbar_mollweide_4k_2160p30.mp4",
+   "media_type": "Movie",
+   "width": 3840,
+   "height": 2160,
+   "alt_text": "Aquarius Sea Surface Temperature 2011 --2015 in Mollweide Projection"
+  },
+  {
+   "group": 2,
+   "group_title": "",
+   "widget": "Video player",
+   "caption": "",
+   "group_text": "Aquarius Sea Surface Temperature 2011 --2015 in Mollweide Projection",
+   "url": "https://svs.gsfc.nasa.gov/vis/a000000/a004300/a004332/aquarius-sea-surface-temperature-2011---2015-in-mollweide-projection.hwshow/svs/db/vis/a000000/a004300/a004332/aquarius_sst_timeCbar_mollweide_HD1080p30.mp4.hwshow",
+   "filename": "aquarius_sst_timeCbar_mollweide_HD1080p30.mp4.hwshow",
+   "media_type": "HyperwallShow",
+   "width": 0,
+   "height": 0,
+   "alt_text": ""
+  },
+  {
+   "group": 3,
+   "group_title": "",
+   "widget": "Single image",
+   "caption": "",
+   "group_text": "Aquarius color bar showing sea surface temperature from -2 to 45 celsius, going from purple to green to dark red. ",
+   "url": "https://svs.gsfc.nasa.gov/vis/a000000/a004300/a004332/SCI_V4.0_anc_sst_colorscale2_print.jpg",
+   "filename": "SCI_V4.0_anc_sst_colorscale2_print.jpg",
+   "media_type": "Image",
+   "width": 1024,
+   "height": 207,
+   "alt_text": "Aquarius color bar showing sea surface temperature from -2 to 45 celsius, going from purple to green to dark red. "
+  },
+  {
+   "group": 3,
+   "group_title": "",
+   "widget": "Single image",
+   "caption": "",
+   "group_text": "Aquarius color bar showing sea surface temperature from -2 to 45 celsius, going from purple to green to dark red. ",
+   "url": "https://svs.gsfc.nasa.gov/vis/a000000/a004300/a004332/SCI_V4.0_anc_sst_colorscale2.png",
+   "filename": "SCI_V4.0_anc_sst_colorscale2.png",
+   "media_type": "Image",
+   "width": 612,
+   "height": 124,
+   "alt_text": "Aquarius color bar showing sea surface temperature from -2 to 45 celsius, going from purple to green to dark red. "
+  },
+  {
+   "group": 3,
+   "group_title": "",
+   "widget": "Single image",
+   "caption": "",
+   "group_text": "Aquarius color bar showing sea surface temperature from -2 to 45 celsius, going from purple to green to dark red. ",
+   "url": "https://svs.gsfc.nasa.gov/vis/a000000/a004300/a004332/SCI_V4.0_anc_sst_colorscale2.tif",
+   "filename": "SCI_V4.0_anc_sst_colorscale2.tif",
+   "media_type": "Image",
+   "width": 612,
+   "height": 124,
+   "alt_text": "Aquarius color bar showing sea surface temperature from -2 to 45 celsius, going from purple to green to dark red. "
+  }
+ ],
+ "text_links": [],
+ "frame_folders": {
+  "https://svs.gsfc.nasa.gov/vis/a000000/a004300/a004332/frames/3840x2160_16x9_30p/flatmap_4k/": {
+   "url": "https://svs.gsfc.nasa.gov/vis/a000000/a004300/a004332/frames/3840x2160_16x9_30p/flatmap_4k/",
+   "frame_count": 3087,
+   "bytes_approx": 25037599181,
+   "first": "aquarius_sst_timeCbar_flatmap_4k_0001.tif",
+   "last": "aquarius_sst_timeCbar_flatmap_4k_3087.tif",
+   "subfolders": {}
+  },
+  "https://svs.gsfc.nasa.gov/vis/a000000/a004300/a004332/frames/3840x2160_16x9_30p/flatmap_no_timeCbar_4k/": {
+   "url": "https://svs.gsfc.nasa.gov/vis/a000000/a004300/a004332/frames/3840x2160_16x9_30p/flatmap_no_timeCbar_4k/",
+   "frame_count": 3087,
+   "bytes_approx": 24738099963,
+   "first": "aquarius_sst_flatmap_4k_0001.tif",
+   "last": "aquarius_sst_flatmap_4k_3087.tif",
+   "subfolders": {}
+  },
+  "https://svs.gsfc.nasa.gov/vis/a000000/a004300/a004332/frames/3840x2160_16x9_30p/mollweide_projection_4k/": {
+   "url": "https://svs.gsfc.nasa.gov/vis/a000000/a004300/a004332/frames/3840x2160_16x9_30p/mollweide_projection_4k/",
+   "frame_count": 3087,
+   "bytes_approx": 97857900000,
+   "first": "aquarius_sst_mollweide_4k_00000.tif",
+   "last": "aquarius_sst_mollweide_4k_03086.tif",
+   "subfolders": {}
+  }
+ },
+ "api_url": "https://svs.gsfc.nasa.gov/api/4332",
+ "fetched_utc": "2026-10-31T17:58:07Z"
+}

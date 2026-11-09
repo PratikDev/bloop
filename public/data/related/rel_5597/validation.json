@@ -1,0 +1,20 @@
+{
+ "record": "rel_5597",
+ "checks": [
+  {
+   "record": "rel_5597",
+   "id": "a_no_validation_source",
+   "title": "Los Angeles Palisades and Eaton Wildfires: 2025 Year in Review: no validation source",
+   "kind": "none",
+   "source": null,
+   "metrics": {
+    "reason": "no key: brightness pattern only, nothing to compare with values"
+   },
+   "threshold": null,
+   "pass": null,
+   "note": "no key: brightness pattern only, nothing to compare with values",
+   "run_utc": "2026-10-31T17:14:47Z"
+  }
+ ],
+ "updated_utc": "2026-10-31T17:14:47Z"
+}

@@ -1,0 +1,240 @@
+{
+ "records": [
+  {
+   "record": "aerosols_5669",
+   "title": "Aerosols by type (model, 19 Aug 2025)",
+   "svs_ids": [
+    5669,
+    5572
+   ],
+   "badge": "model",
+   "period": "19 Aug 2025 – 19 Aug 2025",
+   "manifest": "aerosols_5669/manifest.json"
+  },
+  {
+   "record": "air_5533",
+   "title": "Air (model, Jul–Sep 2024)",
+   "svs_ids": [
+    5533,
+    5518
+   ],
+   "badge": "model",
+   "period": "1 Jul 2024 – 14 Sep 2024",
+   "manifest": "air_5533/manifest.json"
+  },
+  {
+   "record": "co2_5196",
+   "title": "CO₂ nature run (model, Jan–Mar 2020)",
+   "svs_ids": [
+    5196,
+    5436
+   ],
+   "badge": "model",
+   "period": "14 Jan 2020 – 3 Mar 2020",
+   "manifest": "co2_5196/manifest.json"
+  },
+  {
+   "record": "currents_3912",
+   "title": "Currents & SST (model, 2007–08)",
+   "svs_ids": [
+    3912
+   ],
+   "badge": "model",
+   "period": "25 Mar 2007 – 3 Mar 2008",
+   "manifest": "currents_3912/manifest.json"
+  },
+  {
+   "record": "eic_5147",
+   "title": "Near-surface temperature (EIC, model)",
+   "svs_ids": [
+    5147
+   ],
+   "badge": "model",
+   "period": "28 Oct 2026 – 28 Oct 2026",
+   "manifest": "eic_5147/manifest.json"
+  },
+  {
+   "record": "eic_5148",
+   "title": "Near-surface wind speed (EIC, model)",
+   "svs_ids": [
+    5148
+   ],
+   "badge": "model",
+   "period": "28 Oct 2026 – 28 Oct 2026",
+   "manifest": "eic_5148/manifest.json"
+  },
+  {
+   "record": "eic_5149",
+   "title": "Precipitation (EIC, model)",
+   "svs_ids": [
+    5149
+   ],
+   "badge": "model",
+   "period": "28 Oct 2026 – 28 Oct 2026",
+   "manifest": "eic_5149/manifest.json"
+  },
+  {
+   "record": "eic_5150",
+   "title": "Near-surface humidity (EIC, model)",
+   "svs_ids": [
+    5150
+   ],
+   "badge": "model",
+   "period": "29 Oct 2026 – 29 Oct 2026",
+   "manifest": "eic_5150/manifest.json"
+  },
+  {
+   "record": "eic_5151",
+   "title": "PM2.5 (GEOS-CF) (EIC, model)",
+   "svs_ids": [
+    5151
+   ],
+   "badge": "model",
+   "period": "28 Oct 2026 – 28 Oct 2026",
+   "manifest": "eic_5151/manifest.json"
+  },
+  {
+   "record": "eic_5152",
+   "title": "Near-surface ozone (GEOS-CF) (EIC, model)",
+   "svs_ids": [
+    5152
+   ],
+   "badge": "model",
+   "period": "28 Oct 2026 – 28 Oct 2026",
+   "manifest": "eic_5152/manifest.json"
+  },
+  {
+   "record": "eic_5153",
+   "title": "Carbon monoxide (GEOS-CF) (EIC, model)",
+   "svs_ids": [
+    5153
+   ],
+   "badge": "model",
+   "period": "28 Oct 2026 – 28 Oct 2026",
+   "manifest": "eic_5153/manifest.json"
+  },
+  {
+   "record": "eic_5154",
+   "title": "Nitrogen oxides (GEOS-CF) (EIC, model)",
+   "svs_ids": [
+    5154
+   ],
+   "badge": "model",
+   "period": "28 Oct 2026 – 28 Oct 2026",
+   "manifest": "eic_5154/manifest.json"
+  },
+  {
+   "record": "eic_5544",
+   "title": "NDVI, near real time (EIC, observation)",
+   "svs_ids": [
+    5544
+   ],
+   "badge": "observation",
+   "period": "13 Jun 2026 – 13 Jun 2026",
+   "manifest": "eic_5544/manifest.json"
+  },
+  {
+   "record": "forest_4950",
+   "title": "Forest height (observation, GEDI)",
+   "svs_ids": [
+    4950
+   ],
+   "badge": "observation",
+   "period": "18 Apr 2019 – 30 Apr 2020",
+   "manifest": "forest_4950/manifest.json"
+  },
+  {
+   "record": "lightning_5011",
+   "title": "Lightning from the ISS (observation, 2017–23)",
+   "svs_ids": [
+    5011
+   ],
+   "badge": "observation",
+   "period": "1 Mar 2017 – 31 Jul 2023",
+   "manifest": "lightning_5011/manifest.json"
+  },
+  {
+   "record": "lights_5313",
+   "title": "Night lights 2012→2023 (observation)",
+   "svs_ids": [
+    5313,
+    5276,
+    5475
+   ],
+   "badge": "observation",
+   "period": "1 Jan 2012 – 31 Dec 2023",
+   "manifest": "lights_5313/manifest.json"
+  },
+  {
+   "record": "ocean2_5425",
+   "title": "Perpetual Ocean 2: western boundary currents (model, 2021–23)",
+   "svs_ids": [
+    5425
+   ],
+   "badge": "model",
+   "period": "25 Jan 2022 – 25 Dec 2023",
+   "manifest": "ocean2_5425/manifest.json"
+  },
+  {
+   "record": "patterns_eic",
+   "title": "EIC patterns (pattern, not values)",
+   "svs_ids": [
+    4170,
+    4685,
+    4810,
+    4889,
+    4897,
+    4968,
+    4983,
+    4993,
+    5041,
+    5046,
+    5047,
+    5054,
+    5058,
+    5064,
+    5067,
+    5072,
+    5081,
+    5087,
+    5097,
+    5098,
+    5099,
+    5107,
+    5110,
+    5111,
+    5115,
+    5116,
+    5117,
+    5118,
+    5119,
+    5120,
+    5121,
+    5126,
+    5175,
+    5190,
+    5191,
+    5207,
+    5209,
+    5235,
+    5382,
+    5453,
+    30521,
+    31196
+   ],
+   "badge": "observation",
+   "period": "29 Oct 2026 – 29 Oct 2026",
+   "manifest": "patterns_eic/manifest.json"
+  },
+  {
+   "record": "river_4960",
+   "title": "Atmospheric river (reanalysis, Dec 2010)",
+   "svs_ids": [
+    4960
+   ],
+   "badge": "reanalysis",
+   "period": "1 Oct 2010 – 14 Dec 2010",
+   "manifest": "river_4960/manifest.json"
+  }
+ ]
+}

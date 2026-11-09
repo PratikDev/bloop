@@ -1,0 +1,36 @@
+# Weekly: the challenge's Resources tab and the EIC gallery tree against our official list and EIC inventory
+# (pipeline/svs/watch.py). Any difference, or a page that cannot be read, opens an issue with the report.
+# Scheduled workflows run only from the default branch (main): this file does nothing on feature branches until merged.
+name: official-resources-watch
+
+on:
+  schedule:
+    - cron: "30 4 * * 1"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  issues: write
+
+jobs:
+  watch:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+          cache: pip
+          cache-dependency-path: pipeline/requirements.txt
+      - run: pip install -r pipeline/requirements.txt
+      - name: Watch
+        working-directory: pipeline
+        run: |
+          set -o pipefail
+          python -m svs.watch | tee ../watch.md
+      - name: Open an issue
+        if: failure()
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: gh issue create --title "Official resources changed or unreadable $(date -u +%F)" --body-file watch.md

@@ -1,0 +1,289 @@
+{
+ "id": 5113,
+ "title": "Active Fires As Observed by VIIRS, 2024-Present",
+ "url": "https://svs.gsfc.nasa.gov/5113/",
+ "page_type": "Visualization",
+ "release_date": "2024-03-01T14:00:00-05:00",
+ "update_date": "2026-10-24T19:30:10.364230-04:00",
+ "description": "This animated visualization uses a moving five-day window of VIIRS measurments of fire radiative power (FRP), to present a view of fire intensities around the globe. || fires_frp_VIIRS.892_print.jpg (1024x512) [71.9 KB] || fires_frp_VIIRS.892_searchweb.png (320x180) [37.8 KB] || fires_frp_VIIRS.892_web.png (320x160) [33.5 KB] || fires_frp_VIIRS.892_thm.png (80x40) [4.3 KB] || fires_frp_VIIRS_2048p30.mp4 (4096x2048) [46.5 MB] || EIC (4096x2048) [824 Item(s)] || VIIRS_fires_latest.exr [7.0 MB] || ",
+ "full_text": "This animated visualization uses a moving five-day window of VIIRS measurments of fire radiative power (FRP), to present a view of fire intensities around the globe. || fires_frp_VIIRS.892_print.jpg (1024x512) [71.9 KB] || fires_frp_VIIRS.892_searchweb.png (320x180) [37.8 KB] || fires_frp_VIIRS.892_web.png (320x160) [33.5 KB] || fires_frp_VIIRS.892_thm.png (80x40) [4.3 KB] || fires_frp_VIIRS_2048p30.mp4 (4096x2048) [46.5 MB] || EIC (4096x2048) [824 Item(s)] || VIIRS_fires_latest.exr [7.0 MB] ||\n\nThis animated visualization uses a moving five-day window of VIIRS measurments of fire radiative power (FRP), to present a view of fire intensities around the globe.\n\nThis visualization shows active fires as observed by the Visible Infrared Imaging Radiometer Suite, or VIIRS, since the beginning of 2024. The VIIRS instrument flies on the Joint Polar Satellite System’s Suomi-NPP and NOAA-21 polar-orbiting satellites. Instruments on polar orbiting satellites typically observe a wildfire at a given location a few times a day as they orbit the Earth from pole to pole. VIIRS detects hot spots at a resolution of 375 meters per pixel, which means it can detect smaller, lower temperature fires than other fire-observing satellites. Its observations are about three times more detailed than those from the MODIS instrument, for example. VIIRS also provides nighttime fire detection capabilities through its Day-Night Band, which can measure low-intensity visible light emitted by small and fledgling fires. This visualization uses data from the Suomi-NPP and NOAA-21 VIIRS instruments, a partnership between NASA and the National Oceanic and Atmospheric Administration (NOAA), and is updated daily.\n\nEquirectangular version, suitable for mapping to a sphere. No dates or colorbar.\n\nMost recent VIIRS active fires",
+ "credits_by_role": {
+  "Visualizer": [
+   "Trent L. Schindler (USRA)"
+  ],
+  "Scientist": [
+   "Doug C. Morton (NASA/GSFC)"
+  ]
+ },
+ "keywords": [
+  "Biosphere",
+  "Earth Information Center",
+  "Earth Science",
+  "Ecological Dynamics",
+  "Fire Ecology",
+  "Fire Occurrence",
+  "Fires",
+  "Forest Fires",
+  "Human Dimensions",
+  "Human geography",
+  "Hyperwall",
+  "Natural hazards"
+ ],
+ "datasets": [
+  {
+   "name": "Blue Marble: Next Generation",
+   "common_name": "BMNG",
+   "platform": "Terra and Aqua",
+   "sensor": "MODIS",
+   "type": "Other",
+   "organizations": [],
+   "description": "",
+   "credit": "The Blue Marble data is courtesy of Reto Stockli (NASA/GSFC).",
+   "url": "http://earthobservatory.nasa.gov/Newsroom/BlueMarble/",
+   "date_range": null
+  },
+  {
+   "name": "Fire Pixels",
+   "common_name": "",
+   "platform": "Suomi NPP",
+   "sensor": "VIIRS",
+   "type": "Analysis",
+   "organizations": [
+    "NASA/GSFC"
+   ],
+   "description": "",
+   "credit": "",
+   "url": "",
+   "date_range": null
+  }
+ ],
+ "missions": [],
+ "related": [],
+ "alternate_versions": [],
+ "newer_versions": [],
+ "older_versions": [
+  {
+   "id": 4945,
+   "title": "Active Fires As Observed by VIIRS, January-September 2021",
+   "url": "https://svs.gsfc.nasa.gov/4945/"
+  }
+ ],
+ "media": [
+  {
+   "group": 0,
+   "group_title": "",
+   "widget": "Video player",
+   "caption": "",
+   "group_text": "This animated visualization uses a moving five-day window of VIIRS measurments of fire radiative power (FRP), to present a view of fire intensities around the globe.",
+   "url": "https://svs.gsfc.nasa.gov/vis/a000000/a005100/a005113/fires_frp_VIIRS.892_print.jpg",
+   "filename": "fires_frp_VIIRS.892_print.jpg",
+   "media_type": "Image",
+   "width": 1024,
+   "height": 512,
+   "alt_text": "This animated visualization uses a moving five-day window of VIIRS measurments of fire radiative power (FRP), to present a view of fire intensities around the globe."
+  },
+  {
+   "group": 0,
+   "group_title": "",
+   "widget": "Video player",
+   "caption": "",
+   "group_text": "This animated visualization uses a moving five-day window of VIIRS measurments of fire radiative power (FRP), to present a view of fire intensities around the globe.",
+   "url": "https://svs.gsfc.nasa.gov/vis/a000000/a005100/a005113/fires_frp_VIIRS.892_searchweb.png",
+   "filename": "fires_frp_VIIRS.892_searchweb.png",
+   "media_type": "Image",
+   "width": 320,
+   "height": 180,
+   "alt_text": "This animated visualization uses a moving five-day window of VIIRS measurments of fire radiative power (FRP), to present a view of fire intensities around the globe."
+  },
+  {
+   "group": 0,
+   "group_title": "",
+   "widget": "Video player",
+   "caption": "",
+   "group_text": "This animated visualization uses a moving five-day window of VIIRS measurments of fire radiative power (FRP), to present a view of fire intensities around the globe.",
+   "url": "https://svs.gsfc.nasa.gov/vis/a000000/a005100/a005113/fires_frp_VIIRS.892_web.png",
+   "filename": "fires_frp_VIIRS.892_web.png",
+   "media_type": "Image",
+   "width": 320,
+   "height": 160,
+   "alt_text": "This animated visualization uses a moving five-day window of VIIRS measurments of fire radiative power (FRP), to present a view of fire intensities around the globe."
+  },
+  {
+   "group": 0,
+   "group_title": "",
+   "widget": "Video player",
+   "caption": "",
+   "group_text": "This animated visualization uses a moving five-day window of VIIRS measurments of fire radiative power (FRP), to present a view of fire intensities around the globe.",
+   "url": "https://svs.gsfc.nasa.gov/vis/a000000/a005100/a005113/fires_frp_VIIRS.892_thm.png",
+   "filename": "fires_frp_VIIRS.892_thm.png",
+   "media_type": "Image",
+   "width": 80,
+   "height": 40,
+   "alt_text": "This animated visualization uses a moving five-day window of VIIRS measurments of fire radiative power (FRP), to present a view of fire intensities around the globe."
+  },
+  {
+   "group": 0,
+   "group_title": "",
+   "widget": "Video player",
+   "caption": "",
+   "group_text": "This animated visualization uses a moving five-day window of VIIRS measurments of fire radiative power (FRP), to present a view of fire intensities around the globe.",
+   "url": "https://svs.gsfc.nasa.gov/vis/a000000/a005100/a005113/fires_frp_VIIRS_2048p30.mp4",
+   "filename": "fires_frp_VIIRS_2048p30.mp4",
+   "media_type": "Movie",
+   "width": 4096,
+   "height": 2048,
+   "alt_text": "This animated visualization uses a moving five-day window of VIIRS measurments of fire radiative power (FRP), to present a view of fire intensities around the globe."
+  },
+  {
+   "group": 0,
+   "group_title": "",
+   "widget": "Video player",
+   "caption": "",
+   "group_text": "This animated visualization uses a moving five-day window of VIIRS measurments of fire radiative power (FRP), to present a view of fire intensities around the globe.",
+   "url": "https://svs.gsfc.nasa.gov/vis/a000000/a005100/a005113/frames/4096x2048_2x1_30p/EIC/",
+   "filename": "EIC",
+   "media_type": "Frames",
+   "width": 4096,
+   "height": 2048,
+   "alt_text": "This animated visualization uses a moving five-day window of VIIRS measurments of fire radiative power (FRP), to present a view of fire intensities around the globe."
+  },
+  {
+   "group": 0,
+   "group_title": "",
+   "widget": "Video player",
+   "caption": "",
+   "group_text": "This animated visualization uses a moving five-day window of VIIRS measurments of fire radiative power (FRP), to present a view of fire intensities around the globe.",
+   "url": "https://svs.gsfc.nasa.gov/vis/a000000/a005100/a005113/VIIRS_fires_latest.exr",
+   "filename": "VIIRS_fires_latest.exr",
+   "media_type": "Image",
+   "width": 4096,
+   "height": 2048,
+   "alt_text": "This animated visualization uses a moving five-day window of VIIRS measurments of fire radiative power (FRP), to present a view of fire intensities around the globe."
+  },
+  {
+   "group": 2,
+   "group_title": "",
+   "widget": "Video player",
+   "caption": "",
+   "group_text": "Equirectangular version, suitable for mapping to a sphere. No dates or colorbar.",
+   "url": "https://svs.gsfc.nasa.gov/vis/a000000/a005100/a005113/fires_frp_VIIRS_eq_nl.892_print.jpg",
+   "filename": "fires_frp_VIIRS_eq_nl.892_print.jpg",
+   "media_type": "Image",
+   "width": 1024,
+   "height": 512,
+   "alt_text": "Equirectangular version, suitable for mapping to a sphere. No dates or colorbar."
+  },
+  {
+   "group": 2,
+   "group_title": "",
+   "widget": "Video player",
+   "caption": "",
+   "group_text": "Equirectangular version, suitable for mapping to a sphere. No dates or colorbar.",
+   "url": "https://svs.gsfc.nasa.gov/vis/a000000/a005100/a005113/fires_frp_VIIRS_eq_nl.892_searchweb.png",
+   "filename": "fires_frp_VIIRS_eq_nl.892_searchweb.png",
+   "media_type": "Image",
+   "width": 320,
+   "height": 180,
+   "alt_text": "Equirectangular version, suitable for mapping to a sphere. No dates or colorbar."
+  },
+  {
+   "group": 2,
+   "group_title": "",
+   "widget": "Video player",
+   "caption": "",
+   "group_text": "Equirectangular version, suitable for mapping to a sphere. No dates or colorbar.",
+   "url": "https://svs.gsfc.nasa.gov/vis/a000000/a005100/a005113/fires_frp_VIIRS_eq_nl.892_thm.png",
+   "filename": "fires_frp_VIIRS_eq_nl.892_thm.png",
+   "media_type": "Image",
+   "width": 80,
+   "height": 40,
+   "alt_text": "Equirectangular version, suitable for mapping to a sphere. No dates or colorbar."
+  },
+  {
+   "group": 2,
+   "group_title": "",
+   "widget": "Video player",
+   "caption": "",
+   "group_text": "Equirectangular version, suitable for mapping to a sphere. No dates or colorbar.",
+   "url": "https://svs.gsfc.nasa.gov/vis/a000000/a005100/a005113/frames/4096x2048_2x1_30p/SoaS/",
+   "filename": "SoaS",
+   "media_type": "Frames",
+   "width": 4096,
+   "height": 2048,
+   "alt_text": "Equirectangular version, suitable for mapping to a sphere. No dates or colorbar."
+  },
+  {
+   "group": 2,
+   "group_title": "",
+   "widget": "Video player",
+   "caption": "",
+   "group_text": "Equirectangular version, suitable for mapping to a sphere. No dates or colorbar.",
+   "url": "https://svs.gsfc.nasa.gov/vis/a000000/a005100/a005113/fires_frp_VIIRS_eq_nl_2048p30.mp4",
+   "filename": "fires_frp_VIIRS_eq_nl_2048p30.mp4",
+   "media_type": "Movie",
+   "width": 4096,
+   "height": 2048,
+   "alt_text": "Equirectangular version, suitable for mapping to a sphere. No dates or colorbar."
+  },
+  {
+   "group": 2,
+   "group_title": "",
+   "widget": "Video player",
+   "caption": "",
+   "group_text": "Equirectangular version, suitable for mapping to a sphere. No dates or colorbar.",
+   "url": "https://svs.gsfc.nasa.gov/vis/a000000/a005100/a005113/fires_frp_VIIRS_eq_nl_2048p30.hwshowevents/20260227-b28/kirschbaum/fires-dashboard.hwshow/svs/db/hyperwall/data/general/masters/610_earth_science/fires-dashboard.hwshow",
+   "filename": "fires-dashboard.hwshow",
+   "media_type": "HyperwallShow",
+   "width": 0,
+   "height": 0,
+   "alt_text": ""
+  },
+  {
+   "group": 3,
+   "group_title": "",
+   "widget": "Single image",
+   "caption": "",
+   "group_text": "Most recent VIIRS active fires  ",
+   "url": "https://svs.gsfc.nasa.gov/vis/a000000/a005100/a005113/VIIRS_fires_latest.png",
+   "filename": "VIIRS_fires_latest.png",
+   "media_type": "Image",
+   "width": 4096,
+   "height": 2048,
+   "alt_text": "Most recent VIIRS active fires  "
+  },
+  {
+   "group": 3,
+   "group_title": "",
+   "widget": "Single image",
+   "caption": "",
+   "group_text": "Most recent VIIRS active fires  ",
+   "url": "https://svs.gsfc.nasa.gov/vis/a000000/a005100/a005113/VIIRS_fires_latest.hwshow",
+   "filename": "VIIRS_fires_latest.hwshow",
+   "media_type": "HyperwallShow",
+   "width": 0,
+   "height": 0,
+   "alt_text": "Most recent VIIRS active fires"
+  }
+ ],
+ "text_links": [],
+ "frame_folders": {
+  "https://svs.gsfc.nasa.gov/vis/a000000/a005100/a005113/frames/4096x2048_2x1_30p/EIC/": {
+   "url": "https://svs.gsfc.nasa.gov/vis/a000000/a005100/a005113/frames/4096x2048_2x1_30p/EIC/",
+   "frame_count": 900,
+   "bytes_approx": null,
+   "first": "fires_frp_VIIRS.001.exr",
+   "last": "fires_frp_VIIRS.900.exr",
+   "subfolders": {}
+  },
+  "https://svs.gsfc.nasa.gov/vis/a000000/a005100/a005113/frames/4096x2048_2x1_30p/SoaS/": {
+   "url": "https://svs.gsfc.nasa.gov/vis/a000000/a005100/a005113/frames/4096x2048_2x1_30p/SoaS/",
+   "frame_count": 900,
+   "bytes_approx": null,
+   "first": "fires_frp_VIIRS_eq_nl.001.exr",
+   "last": "fires_frp_VIIRS_eq_nl.900.exr",
+   "subfolders": {}
+  }
+ },
+ "api_url": "https://svs.gsfc.nasa.gov/api/5113",
+ "fetched_utc": "2026-10-29T07:40:37Z"
+}

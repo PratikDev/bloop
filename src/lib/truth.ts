@@ -12,6 +12,8 @@ export interface OceanTruth {
   points: number;
   /** A passing re-check on a later frame, if the pipeline ran one. */
   recheck: { date: string; median: number } | null;
+  /** When the newest frame was last checked (a passing or failing check), if the pipeline ran one. */
+  checkedUtc: string | null;
 }
 
 export interface RainTruth {
@@ -43,6 +45,7 @@ export function oceanTruth(meta: SstMetadata): OceanTruth | null {
     median: meta.verified.value,
     points: meta.verified.n_points,
     recheck: check?.pass ? { date: check.date, median: check.median_abs } : null,
+    checkedUtc: check?.checked_utc ?? null,
   };
 }
 

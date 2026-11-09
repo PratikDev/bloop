@@ -1,0 +1,437 @@
+{
+ "record": "rel_3144",
+ "app_title": "Global Lightning Flash Rate Density (WMS) (observation)",
+ "svs_ids": [
+  3144
+ ],
+ "title": "Global Lightning Flash Rate Density (WMS)",
+ "svs_pages": [
+  "https://svs.gsfc.nasa.gov/3144/"
+ ],
+ "description": "Lightning is a brief but intense electrical discharge between positive and negative regions of a thunderstorm.The Lightning Imaging Sensor (LIS) on the Tropical Rainfall Measuring Mission (TRMM) satellite was designed to study the distribution and variability of total lightning on a global basis. The Optical Transient Detector (OTD) was an earlier lightning detector flying aboard the Microlab-1 spacecraft. The data shown here are compiled from LIS (1998-2002) and OTD (1995-1999) observations. Because each satellite saw only a part of the Earth at any one time, these data use complex algorithms to estimate total flash rate density (number of flashes per square kilometer per year) based on the flashes observed and the amount of time the satellite views each area. || ",
+ "release_date": "2005-04-14T12:00:00-04:00",
+ "period": {
+  "start": "2005-04-14T16:00:00Z",
+  "end": "2005-04-14T16:00:00Z",
+  "label": "14 Apr 2005 – 14 Apr 2005"
+ },
+ "badge": "observation",
+ "credits_by_role": {
+  "Animator": [
+   "Jeff de La Beaujardiere (NASA)"
+  ],
+  "Scientist": [
+   "Jeff Halverson (JCET UMBC)"
+  ]
+ },
+ "datasets": [
+  {
+   "name": "Lightning",
+   "common_name": "",
+   "platform": "Microlab-1",
+   "sensor": "OTD",
+   "type": "Other",
+   "organizations": [],
+   "description": "",
+   "credit": "",
+   "url": "",
+   "date_range": "1995/04 - 1999"
+  },
+  {
+   "name": "Lightning",
+   "common_name": "",
+   "platform": "TRMM",
+   "sensor": "LIS",
+   "type": "Other",
+   "organizations": [],
+   "description": "",
+   "credit": "",
+   "url": "",
+   "date_range": "1998 - 2002/12"
+  }
+ ],
+ "credit_line": "Visualization: NASA's Scientific Visualization Studio (SVS 3144) for the NASA Earth Information Center.",
+ "disclosure": "A related NASA visualization read back through its key (relative).",
+ "licence": "SVS: \"All of our content is in the public domain (unless otherwise noted), meaning that it is free to download, use, and redistribute for whatever purposes you see fit.\" (https://svs.gsfc.nasa.gov/help/, read 29 Oct 2026)",
+ "focus": "disasters",
+ "related_to": [
+  5011
+ ],
+ "frame_times": {
+  "method": "linear",
+  "approximate": true,
+  "count": 1,
+  "source": "undated"
+ },
+ "georef": {
+  "projection": "equirectangular (2:1)",
+  "bounds": [
+   -180,
+   -90,
+   180,
+   90
+  ],
+  "pass_at": 0.9,
+  "shifts_deg": [],
+  "iou": {
+   "land": 0.4944968010831187
+  },
+  "pass": false,
+  "best_is_assumed": true
+ },
+ "colorbar": {
+  "geometry": {
+   "x0": 23,
+   "x1": 296,
+   "band": [
+    29,
+    44
+   ],
+   "vertical": false,
+   "outline_rgb": null,
+   "image_size": [
+    90,
+    320
+   ]
+  },
+  "ticks": [
+   {
+    "px": 9.0,
+    "value": 9.0,
+    "text": "9",
+    "engine": "glyph",
+    "label_px": 9.5,
+    "tick_mark": true
+   },
+   {
+    "px": 35.0,
+    "value": 10.0,
+    "text": "10",
+    "engine": "glyph",
+    "label_px": 35.0
+   },
+   {
+    "px": 60.0,
+    "value": 20.0,
+    "text": "20",
+    "engine": "glyph",
+    "label_px": 60.5,
+    "tick_mark": true
+   },
+   {
+    "px": 85.0,
+    "value": 30.0,
+    "text": "30",
+    "engine": "glyph",
+    "label_px": 86.0,
+    "tick_mark": true
+   },
+   {
+    "px": 111.0,
+    "value": 40.0,
+    "text": "40",
+    "engine": "glyph",
+    "label_px": 111.5,
+    "tick_mark": true
+   },
+   {
+    "px": 136.0,
+    "value": 50.0,
+    "text": "50",
+    "engine": "glyph",
+    "label_px": 137.0,
+    "tick_mark": true
+   },
+   {
+    "px": 162.0,
+    "value": 60.0,
+    "text": "60",
+    "engine": "glyph",
+    "label_px": 162.5,
+    "tick_mark": true
+   },
+   {
+    "px": 187.0,
+    "value": 70.0,
+    "text": "70",
+    "engine": "glyph",
+    "label_px": 187.5,
+    "tick_mark": true
+   },
+   {
+    "px": 213.0,
+    "value": 80.0,
+    "text": "80",
+    "engine": "glyph",
+    "label_px": 213.5,
+    "tick_mark": true
+   },
+   {
+    "px": 238.0,
+    "value": 90.0,
+    "text": "90",
+    "engine": "glyph",
+    "label_px": 238.5,
+    "tick_mark": true
+   },
+   {
+    "px": 264.0,
+    "value": 190.0,
+    "text": "190",
+    "engine": "glyph",
+    "label_px": 265.0,
+    "tick_mark": true
+   }
+  ],
+  "scale": "piecewise",
+  "fit": {
+   "segments": 10,
+   "segment_interp": "linear",
+   "rejected": {
+    "linear": {
+     "a": -16.13577564980675,
+     "b": 0.5467492942182681,
+     "fit": "weighted 1/tolerance",
+     "max_resid_px": 113.02065248119948,
+     "resid_px": [
+      36.97,
+      12.8,
+      6.09,
+      -0.62,
+      -8.33,
+      -15.04,
+      -22.75,
+      -29.46,
+      -37.17,
+      -43.88,
+      113.02
+     ],
+     "ok": false
+    },
+    "log": {
+     "a": 1.0237463490575163,
+     "b": 0.00446354833040126,
+     "fit": "weighted 1/tolerance",
+     "max_resid_px": 40.32006092457423,
+     "resid_px": [
+      -24.57,
+      -40.32,
+      2.12,
+      16.57,
+      18.56,
+      15.28,
+      7.01,
+      -2.99,
+      -15.99,
+      -29.53,
+      17.17
+     ],
+     "ok": false
+    }
+   }
+  },
+  "notes": [
+   "1 label(s) not on a tick mark (10): label-centre position, ±5 px."
+  ],
+  "n_samples": 274,
+  "value_range": [
+   8.653846153846153,
+   224.6153846153846
+  ],
+  "opacity_varies": false
+ },
+ "colorbar_source": "page colorbar lightdens_bar.png",
+ "asset": {
+  "kind": "still",
+  "owner": 3144,
+  "what": "lightning.png"
+ },
+ "twins": [],
+ "decode": {
+  "mode": "chroma",
+  "decoded_share": 0.06918595679012346
+ },
+ "layers": [
+  {
+   "id": "value",
+   "unit": "colorbar units",
+   "encoding": "linear",
+   "scale": 0.0012098426208221342,
+   "offset": 9.115385055541992,
+   "nodata": 65535,
+   "below": 65534,
+   "grid": {
+    "width": 360,
+    "height": 180,
+    "bounds": [
+     -180,
+     -90,
+     180,
+     90
+    ],
+    "row0": "north",
+    "col0": "west",
+    "byte_order": "little"
+   },
+   "times": [
+    "2005-04-14T16:00:00Z"
+   ],
+   "chunks": [
+    {
+     "file": "value_000.u16.gz",
+     "t0": 0,
+     "t1": 1,
+     "bytes": 8653
+    }
+   ],
+   "quantisation_step": 0.0012098426208221342,
+   "coverage": 0.057561728395061726,
+   "value_range": [
+    9.115385055541992,
+    88.4000015258789
+   ],
+   "label": "Global Lightning Flash Rate Density (WMS) (relative)",
+   "aggregation": "mean of decoded pixels per cell",
+   "time_labels": [
+    "undated"
+   ],
+   "display": {
+    "colours": [
+     "#000000",
+     "#313131",
+     "#00004f",
+     "#000063",
+     "#0000e8",
+     "#000cff",
+     "#002fff",
+     "#0053ff",
+     "#0076ff",
+     "#0098ff",
+     "#00bbff",
+     "#00deff",
+     "#03fffc",
+     "#26ffd9",
+     "#49ffb6",
+     "#6cff93",
+     "#8bff74",
+     "#aeff51",
+     "#d1ff2e",
+     "#f4ff0b",
+     "#ffe600",
+     "#ffc300",
+     "#ffa000",
+     "#ff7e00",
+     "#ff5b00",
+     "#ff3700",
+     "#ff1400",
+     "#f66363",
+     "#cb0000",
+     "#a60000",
+     "#313131",
+     "#7f0000"
+    ],
+    "values": [
+     8.653846153846153,
+     8.99255583126551,
+     9.331265508684863,
+     9.66997518610422,
+     10.09032258064516,
+     13.612903225806452,
+     17.135483870967743,
+     20.658064516129034,
+     24.18064516129032,
+     27.703225806451616,
+     31.17866004962779,
+     34.56575682382134,
+     37.95285359801489,
+     41.39354838709677,
+     44.91612903225807,
+     48.438709677419354,
+     51.88585607940447,
+     55.27295285359802,
+     58.660049627791565,
+     62.12903225806451,
+     65.65161290322581,
+     69.1741935483871,
+     72.59305210918114,
+     75.9801488833747,
+     79.36724565756825,
+     82.86451612903225,
+     86.38709677419355,
+     89.90967741935484,
+     123.00248138957821,
+     156.87344913151372,
+     190.7444168734491,
+     224.6153846153846
+    ],
+    "scale": "linear"
+   },
+   "status": "relative",
+   "status_check": "a_auto_source",
+   "statement": "relative: ρ 0.82 vs LIS/OTD HRFC climatology (GIBS)"
+  }
+ ],
+ "voices": {
+  "value": "rel3144"
+ },
+ "play": [
+  {
+   "id": "value",
+   "label": "Global Lightning Flash Rate Density (WMS): higher pitch = higher value",
+   "view": "global",
+   "map": "value",
+   "start": {
+    "lat": 4.5,
+    "lon": -1.5
+   },
+   "steps_per_second": 1,
+   "channels": [
+    {
+     "voice": "rel3144",
+     "layers": [
+      "value"
+     ],
+     "combine": "value"
+    }
+   ]
+  }
+ ],
+ "validation": [
+  {
+   "id": "a_auto_source",
+   "title": "Global Lightning Flash Rate Density (WMS): decoded values vs LIS/OTD HRFC climatology (GIBS)",
+   "kind": "value",
+   "pass": false,
+   "threshold": "Spearman ≥ 0.9 and median relative error ≤ 15 % → verified; ρ ≥ 0.9 → values with stated error; ρ ≥ 0.6 → relative (provisional, onboarding defaults)"
+  }
+ ],
+ "size": {
+  "choice": {
+   "frames": 1
+  },
+  "tried": [],
+  "bytes": 19534,
+  "budget": 25000000
+ },
+ "onboarding": {
+  "timings_s": {
+   "api": 5.1,
+   "twins": 0.7,
+   "asset choice": 0.0,
+   "frames": 0.0,
+   "frame times": 1.4,
+   "georef": 4.4,
+   "colorbar": 0.4,
+   "inversion": 2.1,
+   "validation": 1.5
+  },
+  "status": "relative"
+ },
+ "asset_checksums": {
+  "file": "checksums.tsv.gz",
+  "rows": 2,
+  "sha256_of_list": "c39cb8ca8f0cd0766a7a56c1addff37f1bb252f045d388635db473a5a730dc90"
+ },
+ "code_commit": "a8f0638dc9adb81b18f259cf0813046acd882fa1-dirty",
+ "generated_utc": "2026-10-31T18:01:05Z"
+}

@@ -1,0 +1,29 @@
+{
+ "record": "eic_5152",
+ "checks": [
+  {
+   "record": "eic_5152",
+   "id": "a_same_model",
+   "title": "Near-surface ozone (GEOS-CF): frame vs GEOS-CF v2 analysis chm_tavg_1hr_glo_L1440x721_slv o3 at 2026-10-28 22:30:00 UTC",
+   "kind": "value",
+   "source": "GEOS-CF v2 analysis chm_tavg_1hr_glo_L1440x721_slv (NCCS OPeNDAP)",
+   "metrics": {
+    "spearman": 0.886695892392656,
+    "n": 104634,
+    "median_rel_error": 0.03952542871727983,
+    "median_abs": 1.5591553205930602,
+    "bias": 1.0180476865018622,
+    "frame_time_utc": "2026-10-28T22:00Z",
+    "georef_spearman_shift_lon": {
+     "-1.0": 0.8534527814553133,
+     "1.0": 0.862683904476514
+    }
+   },
+   "threshold": "Spearman ≥ 0.9 and median relative error ≤ 15 % (provisional)",
+   "pass": false,
+   "note": "Same model: this tests the decoding. Unit conversion stated in the item table.",
+   "run_utc": "2026-11-06T14:10:13Z"
+  }
+ ],
+ "updated_utc": "2026-11-06T14:10:13Z"
+}

@@ -1,0 +1,259 @@
+{
+ "id": 5209,
+ "title": "Zonal Climate Anomalies 1880-2023",
+ "url": "https://svs.gsfc.nasa.gov/5209/",
+ "page_type": "Visualization",
+ "release_date": "2024-01-12T11:00:00-05:00",
+ "update_date": "2024-12-16T14:32:44-05:00",
+ "description": "A visualization of zonal temperature anomalies. The latitude zones are 90N-64N, 64N-44N, 44N-24N, 24N-EQU, EQU-24S, 24S-44S, 44S-64S, 64S-90S. The anomalies are calculated relative to a baseline period of 1951-1980. This version is in Celsius, an alternate version in Fahrenheit is also available. || GISTEMP_Zonal_1880-2023_C.00840_print.jpg (1024x576) [43.1 KB] || GISTEMP_Zonal_1880-2023_C.00840_searchweb.png (320x180) [18.0 KB] || GISTEMP_Zonal_1880-2023_C.00840_thm.png (80x40) [2.5 KB] || GISTEMP_Zonal_1880-2023_C.mp4 (3840x2160) [20.2 MB] || degC (3840x2160) [0 Item(s)] || GISTEMP_Zonal_1880-2023_C.mp4.hwshow || ",
+ "full_text": "A visualization of zonal temperature anomalies. The latitude zones are 90N-64N, 64N-44N, 44N-24N, 24N-EQU, EQU-24S, 24S-44S, 44S-64S, 64S-90S. The anomalies are calculated relative to a baseline period of 1951-1980. This version is in Celsius, an alternate version in Fahrenheit is also available. || GISTEMP_Zonal_1880-2023_C.00840_print.jpg (1024x576) [43.1 KB] || GISTEMP_Zonal_1880-2023_C.00840_searchweb.png (320x180) [18.0 KB] || GISTEMP_Zonal_1880-2023_C.00840_thm.png (80x40) [2.5 KB] || GISTEMP_Zonal_1880-2023_C.mp4 (3840x2160) [20.2 MB] || degC (3840x2160) [0 Item(s)] || GISTEMP_Zonal_1880-2023_C.mp4.hwshow ||\n\nA visualization of zonal temperature anomalies. The latitude zones are 90N-64N, 64N-44N, 44N-24N, 24N-EQU, EQU-24S, 24S-44S, 44S-64S, 64S-90S. The anomalies are calculated relative to a baseline period of 1951-1980. This version is in Celsius, an alternate version in Fahrenheit is also available.\n\nThe visualization presents zonal temperature anomalies between the years 1880-2023. The visualization illustrates that the Arctic is warming much faster than other regions of the Earth.<br><br>These temperatures are based on the GISS Surface Temperature Analysis (GISTEMP v4), an estimate of global surface temperature change. The latitude zones are 90N-64N, 64N-44N, 44N-24N, 24N-EQU, EQU-24S, 24S-44S, 44S-64S, 64S-90S. Anomalies are defined relative to a base period of 1951-1980. The data file used to create this visualization can be accessed here.<br><br>The Goddard Institute of Space Studies (GISS) is a NASA laboratory managed by the Earth Sciences Division of the agency’s Goddard Space Flight Center in Greenbelt, Maryland. The laboratory is affiliated with Columbia University’s Earth Institute and School of Engineering and Applied Science in New York.\n\nA visualization of zonal temperature anomalies. The latitude zones are 90N-64N, 64N-44N, 44N-24N, 24N-EQU, EQU-24S, 24S-44S, 44S-64S, 64S-90S. The anomalies are calculated relative to a baseline period of 1951-1980. This version is in Fahrenheit, an alternate version in Celsius is also available.",
+ "credits_by_role": {
+  "Visualizer": [
+   "Mark SubbaRao (NASA/GSFC)"
+  ],
+  "Technical support": [
+   "Laurence Schuler (ADNET Systems, Inc.)",
+   "Ian Jones (ADNET Systems, Inc.)"
+  ]
+ },
+ "keywords": [
+  "Climate",
+  "Climate Change",
+  "Climate Variability and Change",
+  "Hyperwall"
+ ],
+ "datasets": [
+  {
+   "name": "GISTEMP",
+   "common_name": "",
+   "platform": null,
+   "sensor": "GISS Surface Temperature Analysis (GISTEMP)",
+   "type": "Model",
+   "organizations": [
+    "NASA/GISS"
+   ],
+   "description": "The GISS Surface Temperature Analysis version 4 (GISTEMP v4) is an estimate of global surface temperature change. Graphs and tables are updated around the middle of every month using current data files from NOAA GHCN v4 (meteorological stations) and ERSST v5 (ocean areas), combined as described in our publications [Hansen et al. (2010)](https://pubs.giss.nasa.gov/abs/ha00510u.html), [Lenssen et al. (2019)](https://pubs.giss.nasa.gov/abs/le05800h.html), and [Lenssen et al. (2024)](https://pubs.giss.nasa.gov/abs/le07900t.html).",
+   "credit": "Lenssen, N., G.A. Schmidt, M. Hendrickson, P. Jacobs, M. Menne, and R. Ruedy, 2024: [A GISTEMPv4 observational uncertainty ensemble](https://pubs.giss.nasa.gov/abs/le07900t.html). J. Geophys. Res. Atmos., 129, no. 17, e2023JD040179, doi:10.1029/2023JD040179.",
+   "url": "https://data.giss.nasa.gov/gistemp/",
+   "date_range": null
+  }
+ ],
+ "missions": [],
+ "related": [
+  {
+   "id": 5603,
+   "title": "Global Temperature Anomalies from 1880 to 2025",
+   "url": "https://svs.gsfc.nasa.gov/5603/"
+  },
+  {
+   "id": 5376,
+   "title": "Record Temperature Years: 2024, 2023, and 2016",
+   "url": "https://svs.gsfc.nasa.gov/5376/"
+  },
+  {
+   "id": 5450,
+   "title": "Global Temperature Anomalies from 1880 to 2024",
+   "url": "https://svs.gsfc.nasa.gov/5450/"
+  },
+  {
+   "id": 5452,
+   "title": "Shifting Distribution of Land Temperature Anomalies, 1964-2024",
+   "url": "https://svs.gsfc.nasa.gov/5452/"
+  },
+  {
+   "id": 5383,
+   "title": "Slow Reveal Graphs: Climate Spiral",
+   "url": "https://svs.gsfc.nasa.gov/5383/"
+  },
+  {
+   "id": 5311,
+   "title": "Twelve consecutive months of global surface temperature records: June 2023 - May 2024",
+   "url": "https://svs.gsfc.nasa.gov/5311/"
+  },
+  {
+   "id": 5327,
+   "title": "Slow Reveal Graphs: Twelve consecutive months of global surface temperature records (June 2023 - May 2024)",
+   "url": "https://svs.gsfc.nasa.gov/5327/"
+  },
+  {
+   "id": 5328,
+   "title": "Twelve consecutive months of global surface temperature records: June 2023 - May 2024",
+   "url": "https://svs.gsfc.nasa.gov/5328/"
+  },
+  {
+   "id": 5207,
+   "title": "Global Temperature Anomalies from 1880 to 2023",
+   "url": "https://svs.gsfc.nasa.gov/5207/"
+  },
+  {
+   "id": 5211,
+   "title": "Shifting Distribution of Land Temperature Anomalies, 1963-2023",
+   "url": "https://svs.gsfc.nasa.gov/5211/"
+  },
+  {
+   "id": 5191,
+   "title": "Global Temperature Graph 1880-2024",
+   "url": "https://svs.gsfc.nasa.gov/5191/"
+  },
+  {
+   "id": 5161,
+   "title": "Summer 2023 Record High Global Temperatures",
+   "url": "https://svs.gsfc.nasa.gov/5161/"
+  },
+  {
+   "id": 5137,
+   "title": "July 2023 Record High Global Temperatures",
+   "url": "https://svs.gsfc.nasa.gov/5137/"
+  },
+  {
+   "id": 5065,
+   "title": "Shifting Distribution of Land Temperature Anomalies, 1962-2022",
+   "url": "https://svs.gsfc.nasa.gov/5065/"
+  },
+  {
+   "id": 5057,
+   "title": "NASA Climate Spiral 1880-2022",
+   "url": "https://svs.gsfc.nasa.gov/5057/"
+  },
+  {
+   "id": 14273,
+   "title": "A Look Back: 2022's Temperature Record",
+   "url": "https://svs.gsfc.nasa.gov/14273/"
+  },
+  {
+   "id": 5060,
+   "title": "Global Temperature Anomalies from 1880 to 2022",
+   "url": "https://svs.gsfc.nasa.gov/5060/"
+  },
+  {
+   "id": 4975,
+   "title": "GISTEMP Climate Spiral",
+   "url": "https://svs.gsfc.nasa.gov/4975/"
+  },
+  {
+   "id": 4964,
+   "title": "Global Temperature Anomalies from 1880 to 2021",
+   "url": "https://svs.gsfc.nasa.gov/4964/"
+  },
+  {
+   "id": 4891,
+   "title": "Shifting Distribution of Land Temperature Anomalies, 1951-2020",
+   "url": "https://svs.gsfc.nasa.gov/4891/"
+  }
+ ],
+ "alternate_versions": [],
+ "newer_versions": [],
+ "older_versions": [
+  {
+   "id": 5059,
+   "title": "Zonal Climate Anomalies 1880-2022",
+   "url": "https://svs.gsfc.nasa.gov/5059/"
+  }
+ ],
+ "media": [
+  {
+   "group": 0,
+   "group_title": "",
+   "widget": "Video player",
+   "caption": "",
+   "group_text": "A visualization of zonal temperature anomalies. The latitude zones are 90N-64N, 64N-44N, 44N-24N, 24N-EQU, EQU-24S, 24S-44S, 44S-64S, 64S-90S. The anomalies are calculated relative to a baseline period of 1951-1980. This version is in Celsius, an alternate version in Fahrenheit is also available.",
+   "url": "https://svs.gsfc.nasa.gov/vis/a000000/a005200/a005209/GISTEMP_Zonal_1880-2023_C.00840_print.jpg",
+   "filename": "GISTEMP_Zonal_1880-2023_C.00840_print.jpg",
+   "media_type": "Image",
+   "width": 1024,
+   "height": 576,
+   "alt_text": "A visualization of zonal temperature anomalies. The latitude zones are 90N-64N, 64N-44N, 44N-24N, 24N-EQU, EQU-24S, 24S-44S, 44S-64S, 64S-90S. The anomalies are calculated relative to a baseline period of 1951-1980. This version is in Celsius, an alternate version in Fahrenheit is also available."
+  },
+  {
+   "group": 0,
+   "group_title": "",
+   "widget": "Video player",
+   "caption": "",
+   "group_text": "A visualization of zonal temperature anomalies. The latitude zones are 90N-64N, 64N-44N, 44N-24N, 24N-EQU, EQU-24S, 24S-44S, 44S-64S, 64S-90S. The anomalies are calculated relative to a baseline period of 1951-1980. This version is in Celsius, an alternate version in Fahrenheit is also available.",
+   "url": "https://svs.gsfc.nasa.gov/vis/a000000/a005200/a005209/GISTEMP_Zonal_1880-2023_C.00840_searchweb.png",
+   "filename": "GISTEMP_Zonal_1880-2023_C.00840_searchweb.png",
+   "media_type": "Image",
+   "width": 320,
+   "height": 180,
+   "alt_text": "A visualization of zonal temperature anomalies. The latitude zones are 90N-64N, 64N-44N, 44N-24N, 24N-EQU, EQU-24S, 24S-44S, 44S-64S, 64S-90S. The anomalies are calculated relative to a baseline period of 1951-1980. This version is in Celsius, an alternate version in Fahrenheit is also available."
+  },
+  {
+   "group": 0,
+   "group_title": "",
+   "widget": "Video player",
+   "caption": "",
+   "group_text": "A visualization of zonal temperature anomalies. The latitude zones are 90N-64N, 64N-44N, 44N-24N, 24N-EQU, EQU-24S, 24S-44S, 44S-64S, 64S-90S. The anomalies are calculated relative to a baseline period of 1951-1980. This version is in Celsius, an alternate version in Fahrenheit is also available.",
+   "url": "https://svs.gsfc.nasa.gov/vis/a000000/a005200/a005209/GISTEMP_Zonal_1880-2023_C.00840_thm.png",
+   "filename": "GISTEMP_Zonal_1880-2023_C.00840_thm.png",
+   "media_type": "Image",
+   "width": 80,
+   "height": 40,
+   "alt_text": "A visualization of zonal temperature anomalies. The latitude zones are 90N-64N, 64N-44N, 44N-24N, 24N-EQU, EQU-24S, 24S-44S, 44S-64S, 64S-90S. The anomalies are calculated relative to a baseline period of 1951-1980. This version is in Celsius, an alternate version in Fahrenheit is also available."
+  },
+  {
+   "group": 0,
+   "group_title": "",
+   "widget": "Video player",
+   "caption": "",
+   "group_text": "A visualization of zonal temperature anomalies. The latitude zones are 90N-64N, 64N-44N, 44N-24N, 24N-EQU, EQU-24S, 24S-44S, 44S-64S, 64S-90S. The anomalies are calculated relative to a baseline period of 1951-1980. This version is in Celsius, an alternate version in Fahrenheit is also available.",
+   "url": "https://svs.gsfc.nasa.gov/vis/a000000/a005200/a005209/GISTEMP_Zonal_1880-2023_C.mp4",
+   "filename": "GISTEMP_Zonal_1880-2023_C.mp4",
+   "media_type": "Movie",
+   "width": 3840,
+   "height": 2160,
+   "alt_text": "A visualization of zonal temperature anomalies. The latitude zones are 90N-64N, 64N-44N, 44N-24N, 24N-EQU, EQU-24S, 24S-44S, 44S-64S, 64S-90S. The anomalies are calculated relative to a baseline period of 1951-1980. This version is in Celsius, an alternate version in Fahrenheit is also available."
+  },
+  {
+   "group": 0,
+   "group_title": "",
+   "widget": "Video player",
+   "caption": "",
+   "group_text": "A visualization of zonal temperature anomalies. The latitude zones are 90N-64N, 64N-44N, 44N-24N, 24N-EQU, EQU-24S, 24S-44S, 44S-64S, 64S-90S. The anomalies are calculated relative to a baseline period of 1951-1980. This version is in Celsius, an alternate version in Fahrenheit is also available.",
+   "url": "https://svs.gsfc.nasa.gov/vis/a000000/a005200/a005209/frames/3840x2160_16x9_60p/degC/",
+   "filename": "degC",
+   "media_type": "Frames",
+   "width": 3840,
+   "height": 2160,
+   "alt_text": "A visualization of zonal temperature anomalies. The latitude zones are 90N-64N, 64N-44N, 44N-24N, 24N-EQU, EQU-24S, 24S-44S, 44S-64S, 64S-90S. The anomalies are calculated relative to a baseline period of 1951-1980. This version is in Celsius, an alternate version in Fahrenheit is also available."
+  },
+  {
+   "group": 2,
+   "group_title": "",
+   "widget": "Video player",
+   "caption": "",
+   "group_text": "A visualization of zonal temperature anomalies. The latitude zones are 90N-64N, 64N-44N, 44N-24N, 24N-EQU, EQU-24S, 24S-44S, 44S-64S, 64S-90S. The anomalies are calculated relative to a baseline period of 1951-1980. This version is in Fahrenheit, an alternate version in Celsius is also available.",
+   "url": "https://svs.gsfc.nasa.gov/vis/a000000/a005200/a005209/GISTEMP_Zonal_1880-2023_F.00840_print.jpg",
+   "filename": "GISTEMP_Zonal_1880-2023_F.00840_print.jpg",
+   "media_type": "Image",
+   "width": 1024,
+   "height": 576,
+   "alt_text": "A visualization of zonal temperature anomalies. The latitude zones are 90N-64N, 64N-44N, 44N-24N, 24N-EQU, EQU-24S, 24S-44S, 44S-64S, 64S-90S. The anomalies are calculated relative to a baseline period of 1951-1980. This version is in Fahrenheit, an alternate version in Celsius is also available."
+  },
+  {
+   "group": 2,
+   "group_title": "",
+   "widget": "Video player",
+   "caption": "",
+   "group_text": "A visualization of zonal temperature anomalies. The latitude zones are 90N-64N, 64N-44N, 44N-24N, 24N-EQU, EQU-24S, 24S-44S, 44S-64S, 64S-90S. The anomalies are calculated relative to a baseline period of 1951-1980. This version is in Fahrenheit, an alternate version in Celsius is also available.",
+   "url": "https://svs.gsfc.nasa.gov/vis/a000000/a005200/a005209/GISTEMP_Zonal_1880-2023_F.mp4",
+   "filename": "GISTEMP_Zonal_1880-2023_F.mp4",
+   "media_type": "Movie",
+   "width": 3840,
+   "height": 2160,
+   "alt_text": "A visualization of zonal temperature anomalies. The latitude zones are 90N-64N, 64N-44N, 44N-24N, 24N-EQU, EQU-24S, 24S-44S, 44S-64S, 64S-90S. The anomalies are calculated relative to a baseline period of 1951-1980. This version is in Fahrenheit, an alternate version in Celsius is also available."
+  }
+ ],
+ "text_links": [],
+ "frame_folders": {
+  "https://svs.gsfc.nasa.gov/vis/a000000/a005200/a005209/frames/3840x2160_16x9_60p/degC/": {
+   "url": "https://svs.gsfc.nasa.gov/vis/a000000/a005200/a005209/frames/3840x2160_16x9_60p/degC/",
+   "frame_count": 900,
+   "bytes_approx": 3921899976,
+   "first": "GISTEMP_Zonal_1880-2023_C.00001.exr",
+   "last": "GISTEMP_Zonal_1880-2023_C.00900.exr",
+   "subfolders": {}
+  }
+ },
+ "api_url": "https://svs.gsfc.nasa.gov/api/5209",
+ "fetched_utc": "2026-10-31T15:06:11Z"
+}

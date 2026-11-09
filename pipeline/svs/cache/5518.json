@@ -1,0 +1,702 @@
+{
+ "id": 5518,
+ "title": "Science On A Sphere: Air Quality Model Runs",
+ "url": "https://svs.gsfc.nasa.gov/5518/",
+ "page_type": "Visualization",
+ "release_date": "2025-05-05T11:30:00-04:00",
+ "update_date": "2026-02-18T21:16:12.213175-05:00",
+ "description": "NASA utilizes satellite instruments and models to monitor sources of air pollutants and their movement through the atmosphere. This visualization shows concentrations of air pollutants, such as Particulate Matter (PM2.5, fine particles smaller than 2.5 micrometers), Ozone (O~3~), Carbon Monoxide (CO), and Nitrogen Oxides (NO~x~) as they are tracked from NASA's Goddard Earth Observing System Composition Forecasting (GEOS-CF) system.",
+ "full_text": "NASA utilizes satellite instruments and models to monitor sources of air pollutants and their movement through the atmosphere. This visualization shows concentrations of air pollutants, such as Particulate Matter (PM2.5, fine particles smaller than 2.5 micrometers), Ozone (O~3~), Carbon Monoxide (CO), and Nitrogen Oxides (NO~x~) as they are tracked from NASA's Goddard Earth Observing System Composition Forecasting (GEOS-CF) system.\n\nNASA uses satellite instruments and computer models to study sources of air pollutants and their movement through the atmosphere. This visualization shows concentrations of air pollutants such as particulate matter (PM2.5, fine particles smaller than 2.5 micrometers), ozone (O~3~), carbon monoxide (CO), and nitrogen oxides (NO~x~) as they are tracked by NASA's Goddard Earth Observing System Composition Forecasting (GEOS-CF) system. This data is used around the world to develop new methods for improving local air quality predictions, to understand the impact of pollution on human health, and to improve the quality of NASA satellite datasets.\n\nPredictions of air pollution are created using complex models that combine information about weather and the emissions, transformation, and transport of chemical species and particles. The Goddard Earth Observing System Composition Forecasting (GEOS-CF) system is a research model maintained by NASA’s Global Modeling and Assimilation Office to help scientists understand the causes and impact of air pollution. It is one of the highest resolution and most detailed models of its kind in the world, made possible through ongoing collaborations between NASA and university scientists. GEOS-CF tracks the concentrations of hundreds of gas phase chemical species and dozens of types of particles characterized by their composition and size. It is used by a wide variety of stakeholders around the world to develop new methods for improving local predictions, understanding the impact of pollution on human health, and improving the quality of NASA satellite datasets.\r\n\r\nThis webpage offers content in Equirectangural projection (2:1 Aspect ratio).\n\nVisualization showcasing the transport of Carbon Monoxide (CO), Particulate Matter (PM 2.5), Ozone (O~3~) and Nitrous Oxides (NOx) during July-August 2024, which was an active fire season in Northern America. This visualization is provided in equirectangular projection.\n\nParticulate Matter (PM 2.5) content for Science On A Sphere.\n\nColorbar for Particulate Matter (PM 2.5)\n\nCarbon Monoxide (CO) content for Science On A Sphere.\n\nColorbar for Carbon Monoxide (CO).\n\nNitrogen Oxides (NO~x~) content for Science On A Sphere.\n\nColorbar for Nitrogen Oxides (NO~X~)\n\nOzone (O~3~) content for Science On A Sphere.\n\nColorbar for Ozone (O~3~).\n\nSee [https://gmao.gsfc.nasa.gov/gmao-products/geos-cf/](https://gmao.gsfc.nasa.gov/gmao-products/geos-cf/)",
+ "credits_by_role": {
+  "Visualizer": [
+   "Helen-Nicole Kostis (USRA)",
+   "Joseph V. Ardizzone (NASA/GSFC)"
+  ],
+  "Scientist": [
+   "Lesley Ott (NASA/GSFC)"
+  ],
+  "Technical support": [
+   "Ella Kaplan (Global Science and Technology, Inc.)",
+   "Laurence Schuler (ADNET Systems, Inc.)",
+   "Ian Jones (ADNET Systems, Inc.)"
+  ]
+ },
+ "keywords": [
+  "Atmospheric Composition",
+  "Earth Information Center",
+  "GMAO",
+  "Science On a Sphere"
+ ],
+ "datasets": [
+  {
+   "name": "GEOS-CF",
+   "common_name": "",
+   "platform": null,
+   "sensor": null,
+   "type": "Other",
+   "organizations": [
+    "NASA GMAO"
+   ],
+   "description": "Knowland, K.E., C.A. Keller, and R. Lucchesi, 2022: File Specification for GEOS-CF Products. GMAO Office Note No. 17 (Version 1.3), 54 pp, available from [https://gmao.gsfc.nasa.gov/pubs/docs/Knowland1446.pdf](https://gmao.gsfc.nasa.gov/pubs/docs/Knowland1446.pdf)",
+   "credit": "",
+   "url": "https://portal.nccs.nasa.gov/datashare/gmao/geos-cf/v2/",
+   "date_range": "July 1-September 14, 2024"
+  }
+ ],
+ "missions": [],
+ "related": [
+  {
+   "id": 5669,
+   "title": "GEOS Aerosols (2025)",
+   "url": "https://svs.gsfc.nasa.gov/5669/"
+  },
+  {
+   "id": 5572,
+   "title": "GEOS Aerosols",
+   "url": "https://svs.gsfc.nasa.gov/5572/"
+  },
+  {
+   "id": 5552,
+   "title": "Science On A Sphere: Aerosols in the Air",
+   "url": "https://svs.gsfc.nasa.gov/5552/"
+  }
+ ],
+ "alternate_versions": [
+  {
+   "id": 5533,
+   "title": "Air Quality Model Runs",
+   "url": "https://svs.gsfc.nasa.gov/5533/"
+  }
+ ],
+ "newer_versions": [],
+ "older_versions": [],
+ "media": [
+  {
+   "group": 0,
+   "group_title": "GEOS Air Quality Science On a Sphere Content",
+   "widget": "Globe Viewer",
+   "caption": "",
+   "group_text": "NASA uses satellite instruments and computer models to study sources of air pollutants and their movement through the atmosphere. This visualization shows concentrations of air pollutants such as particulate matter (PM2.5, fine particles smaller than 2.5 micrometers), ozone (O~3~), carbon monoxide (CO), and nitrogen oxides (NO~x~) as they are tracked by NASA's Goddard Earth Observing System Composition Forecasting (GEOS-CF) system. This data is used around the world to develop new methods for improving local air quality predictions, to understand the impact of pollution on human health, and to improve the quality of NASA satellite datasets.",
+   "url": "https://svs.gsfc.nasa.gov/vis/a000000/a005500/a005518/AirQuality_4096x204830p_h264.mp4",
+   "filename": "AirQuality_4096x204830p_h264.mp4",
+   "media_type": "Movie",
+   "width": 4096,
+   "height": 2048,
+   "alt_text": ""
+  },
+  {
+   "group": 0,
+   "group_title": "GEOS Air Quality Science On a Sphere Content",
+   "widget": "Globe Viewer",
+   "caption": "",
+   "group_text": "NASA uses satellite instruments and computer models to study sources of air pollutants and their movement through the atmosphere. This visualization shows concentrations of air pollutants such as particulate matter (PM2.5, fine particles smaller than 2.5 micrometers), ozone (O~3~), carbon monoxide (CO), and nitrogen oxides (NO~x~) as they are tracked by NASA's Goddard Earth Observing System Composition Forecasting (GEOS-CF) system. This data is used around the world to develop new methods for improving local air quality predictions, to understand the impact of pollution on human health, and to improve the quality of NASA satellite datasets.",
+   "url": "https://svs.gsfc.nasa.gov/vis/a000000/a005500/a005518/AirQuality_small_4096x204830p_h264.mp4",
+   "filename": "AirQuality_small_4096x204830p_h264.mp4",
+   "media_type": "Movie",
+   "width": 4096,
+   "height": 2048,
+   "alt_text": ""
+  },
+  {
+   "group": 0,
+   "group_title": "GEOS Air Quality Science On a Sphere Content",
+   "widget": "Globe Viewer",
+   "caption": "",
+   "group_text": "NASA uses satellite instruments and computer models to study sources of air pollutants and their movement through the atmosphere. This visualization shows concentrations of air pollutants such as particulate matter (PM2.5, fine particles smaller than 2.5 micrometers), ozone (O~3~), carbon monoxide (CO), and nitrogen oxides (NO~x~) as they are tracked by NASA's Goddard Earth Observing System Composition Forecasting (GEOS-CF) system. This data is used around the world to develop new methods for improving local air quality predictions, to understand the impact of pollution on human health, and to improve the quality of NASA satellite datasets.",
+   "url": "https://svs.gsfc.nasa.gov/vis/a000000/a005500/a005518/AirQuality_2048x102430p_h264.mp4",
+   "filename": "AirQuality_2048x102430p_h264.mp4",
+   "media_type": "Movie",
+   "width": 2048,
+   "height": 1024,
+   "alt_text": ""
+  },
+  {
+   "group": 0,
+   "group_title": "GEOS Air Quality Science On a Sphere Content",
+   "widget": "Globe Viewer",
+   "caption": "",
+   "group_text": "NASA uses satellite instruments and computer models to study sources of air pollutants and their movement through the atmosphere. This visualization shows concentrations of air pollutants such as particulate matter (PM2.5, fine particles smaller than 2.5 micrometers), ozone (O~3~), carbon monoxide (CO), and nitrogen oxides (NO~x~) as they are tracked by NASA's Goddard Earth Observing System Composition Forecasting (GEOS-CF) system. This data is used around the world to develop new methods for improving local air quality predictions, to understand the impact of pollution on human health, and to improve the quality of NASA satellite datasets.",
+   "url": "https://svs.gsfc.nasa.gov/vis/a000000/a005500/a005518/frames/4096x2048_2x1_30p/AirQuality/",
+   "filename": "AirQuality",
+   "media_type": "Frames",
+   "width": 4096,
+   "height": 2048,
+   "alt_text": ""
+  },
+  {
+   "group": 0,
+   "group_title": "GEOS Air Quality Science On a Sphere Content",
+   "widget": "Globe Viewer",
+   "caption": "",
+   "group_text": "NASA uses satellite instruments and computer models to study sources of air pollutants and their movement through the atmosphere. This visualization shows concentrations of air pollutants such as particulate matter (PM2.5, fine particles smaller than 2.5 micrometers), ozone (O~3~), carbon monoxide (CO), and nitrogen oxides (NO~x~) as they are tracked by NASA's Goddard Earth Observing System Composition Forecasting (GEOS-CF) system. This data is used around the world to develop new methods for improving local air quality predictions, to understand the impact of pollution on human health, and to improve the quality of NASA satellite datasets.",
+   "url": "https://svs.gsfc.nasa.gov/vis/a000000/a005500/a005518/frames/2048x1024_2x1_30p/",
+   "filename": "2048x1024_2x1_30p",
+   "media_type": "Frames",
+   "width": 2048,
+   "height": 1024,
+   "alt_text": ""
+  },
+  {
+   "group": 0,
+   "group_title": "GEOS Air Quality Science On a Sphere Content",
+   "widget": "Globe Viewer",
+   "caption": "",
+   "group_text": "NASA uses satellite instruments and computer models to study sources of air pollutants and their movement through the atmosphere. This visualization shows concentrations of air pollutants such as particulate matter (PM2.5, fine particles smaller than 2.5 micrometers), ozone (O~3~), carbon monoxide (CO), and nitrogen oxides (NO~x~) as they are tracked by NASA's Goddard Earth Observing System Composition Forecasting (GEOS-CF) system. This data is used around the world to develop new methods for improving local air quality predictions, to understand the impact of pollution on human health, and to improve the quality of NASA satellite datasets.",
+   "url": "https://svs.gsfc.nasa.gov/vis/a000000/a005500/a005518/AirQuality_4096x204830p_sos.mp4",
+   "filename": "AirQuality_4096x204830p_sos.mp4",
+   "media_type": "Movie",
+   "width": 4096,
+   "height": 2048,
+   "alt_text": ""
+  },
+  {
+   "group": 0,
+   "group_title": "GEOS Air Quality Science On a Sphere Content",
+   "widget": "Globe Viewer",
+   "caption": "",
+   "group_text": "NASA uses satellite instruments and computer models to study sources of air pollutants and their movement through the atmosphere. This visualization shows concentrations of air pollutants such as particulate matter (PM2.5, fine particles smaller than 2.5 micrometers), ozone (O~3~), carbon monoxide (CO), and nitrogen oxides (NO~x~) as they are tracked by NASA's Goddard Earth Observing System Composition Forecasting (GEOS-CF) system. This data is used around the world to develop new methods for improving local air quality predictions, to understand the impact of pollution on human health, and to improve the quality of NASA satellite datasets.",
+   "url": "https://svs.gsfc.nasa.gov/vis/a000000/a005500/a005518/AirQuality_2048x102430p_sos.mp4",
+   "filename": "AirQuality_2048x102430p_sos.mp4",
+   "media_type": "Movie",
+   "width": 2048,
+   "height": 1024,
+   "alt_text": ""
+  },
+  {
+   "group": 2,
+   "group_title": "Air Quality Model Runs (Equirectangular Projection)",
+   "widget": "Video player",
+   "caption": "",
+   "group_text": "Visualization showcasing the transport of Carbon Monoxide (CO), Particulate Matter (PM 2.5), Ozone (O~3~) and Nitrous Oxides (NOx) during July-August 2024, which was an active fire season in Northern America. This visualization is provided in equirectangular projection.",
+   "url": "https://svs.gsfc.nasa.gov/vis/a000000/a005500/a005518/AirQuality_4096x204830p_h264.mp4",
+   "filename": "AirQuality_4096x204830p_h264.mp4",
+   "media_type": "Movie",
+   "width": 4096,
+   "height": 2048,
+   "alt_text": ""
+  },
+  {
+   "group": 2,
+   "group_title": "Air Quality Model Runs (Equirectangular Projection)",
+   "widget": "Video player",
+   "caption": "",
+   "group_text": "Visualization showcasing the transport of Carbon Monoxide (CO), Particulate Matter (PM 2.5), Ozone (O~3~) and Nitrous Oxides (NOx) during July-August 2024, which was an active fire season in Northern America. This visualization is provided in equirectangular projection.",
+   "url": "https://svs.gsfc.nasa.gov/vis/a000000/a005500/a005518/AirQuality_2048x1024_0000.png",
+   "filename": "AirQuality_2048x1024_0000.png",
+   "media_type": "Image",
+   "width": 2048,
+   "height": 1024,
+   "alt_text": ""
+  },
+  {
+   "group": 2,
+   "group_title": "Air Quality Model Runs (Equirectangular Projection)",
+   "widget": "Video player",
+   "caption": "",
+   "group_text": "Visualization showcasing the transport of Carbon Monoxide (CO), Particulate Matter (PM 2.5), Ozone (O~3~) and Nitrous Oxides (NOx) during July-August 2024, which was an active fire season in Northern America. This visualization is provided in equirectangular projection.",
+   "url": "https://svs.gsfc.nasa.gov/vis/a000000/a005500/a005518/AirQuality_4096x2048_0000.png",
+   "filename": "AirQuality_4096x2048_0000.png",
+   "media_type": "Image",
+   "width": 4096,
+   "height": 2048,
+   "alt_text": ""
+  },
+  {
+   "group": 2,
+   "group_title": "Air Quality Model Runs (Equirectangular Projection)",
+   "widget": "Video player",
+   "caption": "",
+   "group_text": "Visualization showcasing the transport of Carbon Monoxide (CO), Particulate Matter (PM 2.5), Ozone (O~3~) and Nitrous Oxides (NOx) during July-August 2024, which was an active fire season in Northern America. This visualization is provided in equirectangular projection.",
+   "url": "https://svs.gsfc.nasa.gov/vis/a000000/a005500/a005518/frames/4096x2048_2x1_30p/",
+   "filename": "4096x2048_2x1_30p",
+   "media_type": "Frames",
+   "width": 4096,
+   "height": 2048,
+   "alt_text": ""
+  },
+  {
+   "group": 2,
+   "group_title": "Air Quality Model Runs (Equirectangular Projection)",
+   "widget": "Video player",
+   "caption": "",
+   "group_text": "Visualization showcasing the transport of Carbon Monoxide (CO), Particulate Matter (PM 2.5), Ozone (O~3~) and Nitrous Oxides (NOx) during July-August 2024, which was an active fire season in Northern America. This visualization is provided in equirectangular projection.",
+   "url": "https://svs.gsfc.nasa.gov/vis/a000000/a005500/a005518/AirQuality_small_4096x204830p_h264.mp4",
+   "filename": "AirQuality_small_4096x204830p_h264.mp4",
+   "media_type": "Movie",
+   "width": 4096,
+   "height": 2048,
+   "alt_text": ""
+  },
+  {
+   "group": 2,
+   "group_title": "Air Quality Model Runs (Equirectangular Projection)",
+   "widget": "Video player",
+   "caption": "",
+   "group_text": "Visualization showcasing the transport of Carbon Monoxide (CO), Particulate Matter (PM 2.5), Ozone (O~3~) and Nitrous Oxides (NOx) during July-August 2024, which was an active fire season in Northern America. This visualization is provided in equirectangular projection.",
+   "url": "https://svs.gsfc.nasa.gov/vis/a000000/a005500/a005518/AirQuality_WithLabels_9600x4800.mp4",
+   "filename": "AirQuality_WithLabels_9600x4800.mp4",
+   "media_type": "Movie",
+   "width": 9600,
+   "height": 4800,
+   "alt_text": ""
+  },
+  {
+   "group": 2,
+   "group_title": "Air Quality Model Runs (Equirectangular Projection)",
+   "widget": "Video player",
+   "caption": "",
+   "group_text": "Visualization showcasing the transport of Carbon Monoxide (CO), Particulate Matter (PM 2.5), Ozone (O~3~) and Nitrous Oxides (NOx) during July-August 2024, which was an active fire season in Northern America. This visualization is provided in equirectangular projection.",
+   "url": "https://svs.gsfc.nasa.gov/vis/a000000/a005500/a005518/frames/9600x4800_2x1_30p/",
+   "filename": "9600x4800_2x1_30p",
+   "media_type": "Frames",
+   "width": 9600,
+   "height": 4800,
+   "alt_text": ""
+  },
+  {
+   "group": 4,
+   "group_title": "Particulate Matter (PM2.5)",
+   "widget": "Video player",
+   "caption": "Particulate Matter (PM 2.5) content for Science On A Sphere.",
+   "group_text": "",
+   "url": "https://svs.gsfc.nasa.gov/vis/a000000/a005500/a005518/AirQuality_PM2.5_Layer_2048x1024.mp4",
+   "filename": "AirQuality_PM2.5_Layer_2048x1024.mp4",
+   "media_type": "Movie",
+   "width": 2048,
+   "height": 1024,
+   "alt_text": ""
+  },
+  {
+   "group": 4,
+   "group_title": "Particulate Matter (PM2.5)",
+   "widget": "Video player",
+   "caption": "Particulate Matter (PM 2.5) content for Science On A Sphere.",
+   "group_text": "",
+   "url": "https://svs.gsfc.nasa.gov/vis/a000000/a005500/a005518/AirQuality_PM2.5_Layer_4096x2048.mp4",
+   "filename": "AirQuality_PM2.5_Layer_4096x2048.mp4",
+   "media_type": "Movie",
+   "width": 4096,
+   "height": 2048,
+   "alt_text": ""
+  },
+  {
+   "group": 4,
+   "group_title": "Particulate Matter (PM2.5)",
+   "widget": "Video player",
+   "caption": "Particulate Matter (PM 2.5) content for Science On A Sphere.",
+   "group_text": "",
+   "url": "https://svs.gsfc.nasa.gov/vis/a000000/a005500/a005518/frames/4096x2048_2x1_30p/PM2.5_Layer/",
+   "filename": "PM2.5_Layer",
+   "media_type": "Frames",
+   "width": 4096,
+   "height": 2048,
+   "alt_text": ""
+  },
+  {
+   "group": 4,
+   "group_title": "Particulate Matter (PM2.5)",
+   "widget": "Video player",
+   "caption": "Particulate Matter (PM 2.5) content for Science On A Sphere.",
+   "group_text": "",
+   "url": "https://svs.gsfc.nasa.gov/vis/a000000/a005500/a005518/frames/2048x1024_2x1_30p/PM2.5_Layer/",
+   "filename": "PM2.5_Layer",
+   "media_type": "Frames",
+   "width": 2048,
+   "height": 1024,
+   "alt_text": ""
+  },
+  {
+   "group": 5,
+   "group_title": "",
+   "widget": "Single image",
+   "caption": "Colorbar for Particulate Matter (PM 2.5)",
+   "group_text": "",
+   "url": "https://svs.gsfc.nasa.gov/vis/a000000/a005500/a005518/PM2.5_colorbar.png",
+   "filename": "PM2.5_colorbar.png",
+   "media_type": "Image",
+   "width": 600,
+   "height": 200,
+   "alt_text": ""
+  },
+  {
+   "group": 6,
+   "group_title": "Carbon Monoxide (CO)",
+   "widget": "Video player",
+   "caption": "Carbon Monoxide (CO) content for Science On A Sphere.",
+   "group_text": "",
+   "url": "https://svs.gsfc.nasa.gov/vis/a000000/a005500/a005518/frames/4096x2048_2x1_30p/CarbonMonoxide_Layer/",
+   "filename": "CarbonMonoxide_Layer",
+   "media_type": "Frames",
+   "width": 4096,
+   "height": 2048,
+   "alt_text": ""
+  },
+  {
+   "group": 6,
+   "group_title": "Carbon Monoxide (CO)",
+   "widget": "Video player",
+   "caption": "Carbon Monoxide (CO) content for Science On A Sphere.",
+   "group_text": "",
+   "url": "https://svs.gsfc.nasa.gov/vis/a000000/a005500/a005518/AirQuality_CarbonMonoxide_Layer_4096x2048.mp4",
+   "filename": "AirQuality_CarbonMonoxide_Layer_4096x2048.mp4",
+   "media_type": "Movie",
+   "width": 4096,
+   "height": 2048,
+   "alt_text": ""
+  },
+  {
+   "group": 6,
+   "group_title": "Carbon Monoxide (CO)",
+   "widget": "Video player",
+   "caption": "Carbon Monoxide (CO) content for Science On A Sphere.",
+   "group_text": "",
+   "url": "https://svs.gsfc.nasa.gov/vis/a000000/a005500/a005518/frames/2048x1024_2x1_30p/CarbonMonoxide_Layer/",
+   "filename": "CarbonMonoxide_Layer",
+   "media_type": "Frames",
+   "width": 2048,
+   "height": 1024,
+   "alt_text": ""
+  },
+  {
+   "group": 6,
+   "group_title": "Carbon Monoxide (CO)",
+   "widget": "Video player",
+   "caption": "Carbon Monoxide (CO) content for Science On A Sphere.",
+   "group_text": "",
+   "url": "https://svs.gsfc.nasa.gov/vis/a000000/a005500/a005518/AirQuality_CarbonMonoxide_Layer_2048x1024.mp4",
+   "filename": "AirQuality_CarbonMonoxide_Layer_2048x1024.mp4",
+   "media_type": "Movie",
+   "width": 2048,
+   "height": 1024,
+   "alt_text": ""
+  },
+  {
+   "group": 7,
+   "group_title": "",
+   "widget": "Single image",
+   "caption": "Colorbar for Carbon Monoxide (CO).",
+   "group_text": "",
+   "url": "https://svs.gsfc.nasa.gov/vis/a000000/a005500/a005518/CarbonMonoxide_colorbar.png",
+   "filename": "CarbonMonoxide_colorbar.png",
+   "media_type": "Image",
+   "width": 600,
+   "height": 200,
+   "alt_text": ""
+  },
+  {
+   "group": 8,
+   "group_title": "Nitrogen Oxides (NO~x~)",
+   "widget": "Video player",
+   "caption": "Nitrogen Oxides (NO~x~) content for Science On A Sphere.",
+   "group_text": "",
+   "url": "https://svs.gsfc.nasa.gov/vis/a000000/a005500/a005518/AirQuality_NitrogenOxides_Layer_4096x2048.mp4",
+   "filename": "AirQuality_NitrogenOxides_Layer_4096x2048.mp4",
+   "media_type": "Movie",
+   "width": 4096,
+   "height": 2048,
+   "alt_text": ""
+  },
+  {
+   "group": 8,
+   "group_title": "Nitrogen Oxides (NO~x~)",
+   "widget": "Video player",
+   "caption": "Nitrogen Oxides (NO~x~) content for Science On A Sphere.",
+   "group_text": "",
+   "url": "https://svs.gsfc.nasa.gov/vis/a000000/a005500/a005518/frames/4096x2048_2x1_30p/NitrogenOxides_Layer/",
+   "filename": "NitrogenOxides_Layer",
+   "media_type": "Frames",
+   "width": 4096,
+   "height": 2048,
+   "alt_text": ""
+  },
+  {
+   "group": 8,
+   "group_title": "Nitrogen Oxides (NO~x~)",
+   "widget": "Video player",
+   "caption": "Nitrogen Oxides (NO~x~) content for Science On A Sphere.",
+   "group_text": "",
+   "url": "https://svs.gsfc.nasa.gov/vis/a000000/a005500/a005518/AirQuality_NitrousOxides_Layer_2048x1024.mp4",
+   "filename": "AirQuality_NitrousOxides_Layer_2048x1024.mp4",
+   "media_type": "Movie",
+   "width": 2048,
+   "height": 1024,
+   "alt_text": ""
+  },
+  {
+   "group": 8,
+   "group_title": "Nitrogen Oxides (NO~x~)",
+   "widget": "Video player",
+   "caption": "Nitrogen Oxides (NO~x~) content for Science On A Sphere.",
+   "group_text": "",
+   "url": "https://svs.gsfc.nasa.gov/vis/a000000/a005500/a005518/frames/2048x1024_2x1_30p/NitrogenOxides_Layer/",
+   "filename": "NitrogenOxides_Layer",
+   "media_type": "Frames",
+   "width": 2048,
+   "height": 1024,
+   "alt_text": ""
+  },
+  {
+   "group": 9,
+   "group_title": "",
+   "widget": "Single image",
+   "caption": "Colorbar for Nitrogen Oxides (NO~X~)",
+   "group_text": "",
+   "url": "https://svs.gsfc.nasa.gov/vis/a000000/a005500/a005518/NitrogenOxides_colorbar.png",
+   "filename": "NitrogenOxides_colorbar.png",
+   "media_type": "Image",
+   "width": 600,
+   "height": 200,
+   "alt_text": ""
+  },
+  {
+   "group": 10,
+   "group_title": "Ozone (O~3~)",
+   "widget": "Video player",
+   "caption": "Ozone (O~3~) content for Science On A Sphere.",
+   "group_text": "",
+   "url": "https://svs.gsfc.nasa.gov/vis/a000000/a005500/a005518/frames/4096x2048_2x1_30p/Ozone_Layer/",
+   "filename": "Ozone_Layer",
+   "media_type": "Frames",
+   "width": 4096,
+   "height": 2048,
+   "alt_text": ""
+  },
+  {
+   "group": 10,
+   "group_title": "Ozone (O~3~)",
+   "widget": "Video player",
+   "caption": "Ozone (O~3~) content for Science On A Sphere.",
+   "group_text": "",
+   "url": "https://svs.gsfc.nasa.gov/vis/a000000/a005500/a005518/AirQuality_Ozone_Layer_4096x2048.mp4",
+   "filename": "AirQuality_Ozone_Layer_4096x2048.mp4",
+   "media_type": "Movie",
+   "width": 4096,
+   "height": 2048,
+   "alt_text": ""
+  },
+  {
+   "group": 10,
+   "group_title": "Ozone (O~3~)",
+   "widget": "Video player",
+   "caption": "Ozone (O~3~) content for Science On A Sphere.",
+   "group_text": "",
+   "url": "https://svs.gsfc.nasa.gov/vis/a000000/a005500/a005518/AirQuality_NitrousOxides_Layer_2048x1024.mp4",
+   "filename": "AirQuality_NitrousOxides_Layer_2048x1024.mp4",
+   "media_type": "Movie",
+   "width": 2048,
+   "height": 1024,
+   "alt_text": ""
+  },
+  {
+   "group": 10,
+   "group_title": "Ozone (O~3~)",
+   "widget": "Video player",
+   "caption": "Ozone (O~3~) content for Science On A Sphere.",
+   "group_text": "",
+   "url": "https://svs.gsfc.nasa.gov/vis/a000000/a005500/a005518/frames/2048x1024_2x1_30p/Ozone_Layer/",
+   "filename": "Ozone_Layer",
+   "media_type": "Frames",
+   "width": 2048,
+   "height": 1024,
+   "alt_text": ""
+  },
+  {
+   "group": 11,
+   "group_title": "",
+   "widget": "Single image",
+   "caption": "Colorbar for Ozone (O~3~).",
+   "group_text": "",
+   "url": "https://svs.gsfc.nasa.gov/vis/a000000/a005500/a005518/Ozone_colorbar.png",
+   "filename": "Ozone_colorbar.png",
+   "media_type": "Image",
+   "width": 600,
+   "height": 200,
+   "alt_text": ""
+  }
+ ],
+ "text_links": [
+  "https://gmao.gsfc.nasa.gov/gmao-products/geos-cf/"
+ ],
+ "frame_folders": {
+  "https://svs.gsfc.nasa.gov/vis/a000000/a005500/a005518/frames/4096x2048_2x1_30p/AirQuality/": {
+   "url": "https://svs.gsfc.nasa.gov/vis/a000000/a005500/a005518/frames/4096x2048_2x1_30p/AirQuality/",
+   "frame_count": 1801,
+   "bytes_approx": 8258300000,
+   "first": "AirQuality_4096x2048_0000.png",
+   "last": "AirQuality_4096x2048_1800.png",
+   "subfolders": {}
+  },
+  "https://svs.gsfc.nasa.gov/vis/a000000/a005500/a005518/frames/2048x1024_2x1_30p/": {
+   "url": "https://svs.gsfc.nasa.gov/vis/a000000/a005500/a005518/frames/2048x1024_2x1_30p/",
+   "frame_count": 0,
+   "bytes_approx": null,
+   "first": null,
+   "last": null,
+   "subfolders": {
+    "AirQuality": {
+     "url": "https://svs.gsfc.nasa.gov/vis/a000000/a005500/a005518/frames/2048x1024_2x1_30p/AirQuality/",
+     "frame_count": 1801,
+     "bytes_approx": 3460400000,
+     "first": "AirQuality_2048x1024_0000.png",
+     "last": "AirQuality_2048x1024_1800.png",
+     "subfolders": {}
+    },
+    "CarbonMonoxide_Layer": {
+     "url": "https://svs.gsfc.nasa.gov/vis/a000000/a005500/a005518/frames/2048x1024_2x1_30p/CarbonMonoxide_Layer/",
+     "frame_count": 1801,
+     "bytes_approx": 2525100000,
+     "first": "AiQuality_CO_Layer_2048x1024_0000.png",
+     "last": "AiQuality_CO_Layer_2048x1024_1800.png",
+     "subfolders": {}
+    },
+    "NitrogenOxides_Layer": {
+     "url": "https://svs.gsfc.nasa.gov/vis/a000000/a005500/a005518/frames/2048x1024_2x1_30p/NitrogenOxides_Layer/",
+     "frame_count": 1801,
+     "bytes_approx": 4276900000,
+     "first": "AirQuality_NOx_Layer_2048x1024_0000.png",
+     "last": "AirQuality_NOx_Layer_2048x1024_1800.png",
+     "subfolders": {}
+    },
+    "Ozone_Layer": {
+     "url": "https://svs.gsfc.nasa.gov/vis/a000000/a005500/a005518/frames/2048x1024_2x1_30p/Ozone_Layer/",
+     "frame_count": 1801,
+     "bytes_approx": 4160600000,
+     "first": "AirQuality_O3_Layer_2048x1024_0000.png",
+     "last": "AirQuality_O3_Layer_2048x1024_1800.png",
+     "subfolders": {}
+    },
+    "PM2.5_Layer": {
+     "url": "https://svs.gsfc.nasa.gov/vis/a000000/a005500/a005518/frames/2048x1024_2x1_30p/PM2.5_Layer/",
+     "frame_count": 1801,
+     "bytes_approx": 3665900000,
+     "first": "AirQuality_PM2.5_Layer_2048x1024_0000.png",
+     "last": "AirQuality_PM2.5_Layer_2048x1024_1800.png",
+     "subfolders": {}
+    }
+   }
+  },
+  "https://svs.gsfc.nasa.gov/vis/a000000/a005500/a005518/frames/4096x2048_2x1_30p/": {
+   "url": "https://svs.gsfc.nasa.gov/vis/a000000/a005500/a005518/frames/4096x2048_2x1_30p/",
+   "frame_count": 0,
+   "bytes_approx": null,
+   "first": null,
+   "last": null,
+   "subfolders": {
+    "AirQuality": {
+     "url": "https://svs.gsfc.nasa.gov/vis/a000000/a005500/a005518/frames/4096x2048_2x1_30p/AirQuality/",
+     "frame_count": 1801,
+     "bytes_approx": 8258300000,
+     "first": "AirQuality_4096x2048_0000.png",
+     "last": "AirQuality_4096x2048_1800.png",
+     "subfolders": {}
+    },
+    "CarbonMonoxide_Layer": {
+     "url": "https://svs.gsfc.nasa.gov/vis/a000000/a005500/a005518/frames/4096x2048_2x1_30p/CarbonMonoxide_Layer/",
+     "frame_count": 1801,
+     "bytes_approx": 5727000000,
+     "first": "AiQuality_CO_Layer_4096x2048_0000.png",
+     "last": "AiQuality_CO_Layer_4096x2048_1800.png",
+     "subfolders": {}
+    },
+    "NitrogenOxides_Layer": {
+     "url": "https://svs.gsfc.nasa.gov/vis/a000000/a005500/a005518/frames/4096x2048_2x1_30p/NitrogenOxides_Layer/",
+     "frame_count": 1801,
+     "bytes_approx": 11011800000,
+     "first": "AirQuality_NOx_Layer_4096x2048_0000.png",
+     "last": "AirQuality_NOx_Layer_4096x2048_1800.png",
+     "subfolders": {}
+    },
+    "Ozone_Layer": {
+     "url": "https://svs.gsfc.nasa.gov/vis/a000000/a005500/a005518/frames/4096x2048_2x1_30p/Ozone_Layer/",
+     "frame_count": 1801,
+     "bytes_approx": 10011100000,
+     "first": "AirQuality_O3_Layer_4096x2048_0000.png",
+     "last": "AirQuality_O3_Layer_4096x2048_1800.png",
+     "subfolders": {}
+    },
+    "PM2.5_Layer": {
+     "url": "https://svs.gsfc.nasa.gov/vis/a000000/a005500/a005518/frames/4096x2048_2x1_30p/PM2.5_Layer/",
+     "frame_count": 1801,
+     "bytes_approx": 7497099273,
+     "first": "AirQuality_PM2.5_Layer_4096x2048_0000.png",
+     "last": "AirQuality_PM2.5_Layer_4096x2048_1800.png",
+     "subfolders": {}
+    }
+   }
+  },
+  "https://svs.gsfc.nasa.gov/vis/a000000/a005500/a005518/frames/9600x4800_2x1_30p/": {
+   "url": "https://svs.gsfc.nasa.gov/vis/a000000/a005500/a005518/frames/9600x4800_2x1_30p/",
+   "frame_count": 1840,
+   "bytes_approx": 27308010500,
+   "first": "AirQuality_WithLabels_9600x4800_0000.png",
+   "last": "AirQuality_WithLabels_9600x4800_1839.png",
+   "subfolders": {}
+  },
+  "https://svs.gsfc.nasa.gov/vis/a000000/a005500/a005518/frames/4096x2048_2x1_30p/PM2.5_Layer/": {
+   "url": "https://svs.gsfc.nasa.gov/vis/a000000/a005500/a005518/frames/4096x2048_2x1_30p/PM2.5_Layer/",
+   "frame_count": 1801,
+   "bytes_approx": 7497099273,
+   "first": "AirQuality_PM2.5_Layer_4096x2048_0000.png",
+   "last": "AirQuality_PM2.5_Layer_4096x2048_1800.png",
+   "subfolders": {}
+  },
+  "https://svs.gsfc.nasa.gov/vis/a000000/a005500/a005518/frames/2048x1024_2x1_30p/PM2.5_Layer/": {
+   "url": "https://svs.gsfc.nasa.gov/vis/a000000/a005500/a005518/frames/2048x1024_2x1_30p/PM2.5_Layer/",
+   "frame_count": 1801,
+   "bytes_approx": 3665900000,
+   "first": "AirQuality_PM2.5_Layer_2048x1024_0000.png",
+   "last": "AirQuality_PM2.5_Layer_2048x1024_1800.png",
+   "subfolders": {}
+  },
+  "https://svs.gsfc.nasa.gov/vis/a000000/a005500/a005518/frames/4096x2048_2x1_30p/CarbonMonoxide_Layer/": {
+   "url": "https://svs.gsfc.nasa.gov/vis/a000000/a005500/a005518/frames/4096x2048_2x1_30p/CarbonMonoxide_Layer/",
+   "frame_count": 1801,
+   "bytes_approx": 5727000000,
+   "first": "AiQuality_CO_Layer_4096x2048_0000.png",
+   "last": "AiQuality_CO_Layer_4096x2048_1800.png",
+   "subfolders": {}
+  },
+  "https://svs.gsfc.nasa.gov/vis/a000000/a005500/a005518/frames/2048x1024_2x1_30p/CarbonMonoxide_Layer/": {
+   "url": "https://svs.gsfc.nasa.gov/vis/a000000/a005500/a005518/frames/2048x1024_2x1_30p/CarbonMonoxide_Layer/",
+   "frame_count": 1801,
+   "bytes_approx": 2525100000,
+   "first": "AiQuality_CO_Layer_2048x1024_0000.png",
+   "last": "AiQuality_CO_Layer_2048x1024_1800.png",
+   "subfolders": {}
+  },
+  "https://svs.gsfc.nasa.gov/vis/a000000/a005500/a005518/frames/4096x2048_2x1_30p/NitrogenOxides_Layer/": {
+   "url": "https://svs.gsfc.nasa.gov/vis/a000000/a005500/a005518/frames/4096x2048_2x1_30p/NitrogenOxides_Layer/",
+   "frame_count": 1801,
+   "bytes_approx": 11011800000,
+   "first": "AirQuality_NOx_Layer_4096x2048_0000.png",
+   "last": "AirQuality_NOx_Layer_4096x2048_1800.png",
+   "subfolders": {}
+  },
+  "https://svs.gsfc.nasa.gov/vis/a000000/a005500/a005518/frames/2048x1024_2x1_30p/NitrogenOxides_Layer/": {
+   "url": "https://svs.gsfc.nasa.gov/vis/a000000/a005500/a005518/frames/2048x1024_2x1_30p/NitrogenOxides_Layer/",
+   "frame_count": 1801,
+   "bytes_approx": 4276900000,
+   "first": "AirQuality_NOx_Layer_2048x1024_0000.png",
+   "last": "AirQuality_NOx_Layer_2048x1024_1800.png",
+   "subfolders": {}
+  },
+  "https://svs.gsfc.nasa.gov/vis/a000000/a005500/a005518/frames/4096x2048_2x1_30p/Ozone_Layer/": {
+   "url": "https://svs.gsfc.nasa.gov/vis/a000000/a005500/a005518/frames/4096x2048_2x1_30p/Ozone_Layer/",
+   "frame_count": 1801,
+   "bytes_approx": 10011100000,
+   "first": "AirQuality_O3_Layer_4096x2048_0000.png",
+   "last": "AirQuality_O3_Layer_4096x2048_1800.png",
+   "subfolders": {}
+  },
+  "https://svs.gsfc.nasa.gov/vis/a000000/a005500/a005518/frames/2048x1024_2x1_30p/Ozone_Layer/": {
+   "url": "https://svs.gsfc.nasa.gov/vis/a000000/a005500/a005518/frames/2048x1024_2x1_30p/Ozone_Layer/",
+   "frame_count": 1801,
+   "bytes_approx": 4160600000,
+   "first": "AirQuality_O3_Layer_2048x1024_0000.png",
+   "last": "AirQuality_O3_Layer_2048x1024_1800.png",
+   "subfolders": {}
+  }
+ },
+ "api_url": "https://svs.gsfc.nasa.gov/api/5518",
+ "fetched_utc": "2026-10-28T18:31:01Z"
+}

@@ -1,0 +1,522 @@
+{
+ "id": 5116,
+ "title": "Global Atmospheric Methane (CH₄)",
+ "url": "https://svs.gsfc.nasa.gov/5116/",
+ "page_type": "Visualization",
+ "release_date": "2023-06-20T16:00:00-04:00",
+ "update_date": "2025-03-16T23:03:25.999759-04:00",
+ "description": "Volumetric visualization of the total Methane (CH₄) on a global scale added on Earth's atmosphere over the course of the year 2021. || TotalCH4_Comp_1920x19020p30_00080.png (1920x1920) [2.5 MB] || TotalCH4_Comp_1920x19020p30_00080_print.jpg (1024x1024) [114.9 KB] || VolumetricCH4_Composite (1920x1920) [0 Item(s)] || VolumetricCH4_Composite_1920x19020p30.mp4 (1920x1920) [353.5 MB] || ",
+ "full_text": "Volumetric visualization of the total Methane (CH₄) on a global scale added on Earth's atmosphere over the course of the year 2021. || TotalCH4_Comp_1920x19020p30_00080.png (1920x1920) [2.5 MB] || TotalCH4_Comp_1920x19020p30_00080_print.jpg (1024x1024) [114.9 KB] || VolumetricCH4_Composite (1920x1920) [0 Item(s)] || VolumetricCH4_Composite_1920x19020p30.mp4 (1920x1920) [353.5 MB] ||\n\nVolumetric visualization of the total Methane (CH₄) on a global scale added on Earth's atmosphere over the course of the year 2021.\n\nMethane (CH₄) is a powerful greenhouse gas that traps heat 28 times more effectively than carbon dioxide over a 100-year timescale. Concentrations of methane have increased by more than 150% since industrial activities and intensive agriculture began. After carbon dioxide, methane is responsible for about 20% of climate change in the twentieth century. Methane is produced under conditions where little to no oxygen is available. About 30% of methane emissions are produced by wetlands, including ponds, lakes and rivers. Another 20% is produced by agriculture, due to a combination of livestock, waste management and rice cultivation. Activities related to oil, gas, and coal extraction release an additional 30%. The remainder of methane emissions come from minor sources such as wildfires, biomass burning, permafrost, termites, dams, and the ocean. Scientists around the world are working to better understand the budget of methane with the ultimate goals of reducing greenhouse gas emissions and improving prediction of environmental change. <br><br>The NASA SVS visualization presented here shows the complex patterns of methane emissions produced around the globe and throughout the year from the different sources described above. The visualization was created using output from the Global Modeling and Assimilation Office (GMAO), GEOS modeling system, developed and maintained by scientists at NASA. Wetland emissions were estimated by the LPJ-wsl model, which simulates the temperature and moisture dependent methane emission processes using a variety of satellite data to determine what parts of the globe are covered by wetlands. Other methane emission sources come from inventories of human activity.<br>\n\nVolumetric Carbon Dioxide (CO₂) and Methane (CH₄) side-by-side on a global scale added on Earth's atmosphere over the course of year 2021.\n\nThis visualization shows the total methane on a global scale added on Earth's atmosphere over the course of the year 2021.\n\nThis timeline is synchronized with the atmospheric methane visualization above to show temporal progress across the year\n\n<br><b>Data Sources:</b>\r<br><ul>\r<br><li><b>Volumetric Methane</b> extracted from NASA's Goddard Earth Observing System (GEOS) model, which is produced by the <a href=\"https://gmao.gsfc.nasa.gov/\">Global Modeling and Assimilation Office</a>. The visualization featured on this page utilizes data for the period January 1 - December 31, 2021.</li>\r<br><li><b>Blue Marble: Next Generation</b> was produced by Reto Stöckli, NASA Earth Observatory (NASA Goddard Space Flight Center). Citation: Reto Stöckli, Eric Vermote, Nazmi Saleous, Robert Simmon and David Herring. <i><a href=” https://earthobservatory.nasa.gov/ContentFeature/BlueMarble/bmng.pdf”>\r<br>The Blue Marble Next Generation – A true color earth dataset including seasonal dynamics from MODIS, </a></i> October 17, 2005. The visualization on this page utilizes monthly Blue Marble data to map the water and land bodies around the globe and show seasonal changes.</li>\r<br><li><b>Global 30 Arc-Second Elevation (GTOPO 30)</b> from U.S. Geological Survey (USGS). GTOPO30 is a global raster digital elevation model (DEM) with a horizontal grid spacing of 30 arc seconds (approximately 1 kilometer). GTOPO30 was derived from several raster and vector sources of topographic information. The data-driven visualization featured on this page utilizes the GTOPO30 model to represent the three-dimensional features of over land terrain and submarine topography world-wide. doi:<a href=\"https://doi.org/10.5066/F7DF6PQS\">10.5066/F7DF6PQS</a>.</li>\r<br></ul>",
+ "credits_by_role": {
+  "Visualizer": [
+   "Helen-Nicole Kostis (USRA)",
+   "AJ Christensen (SSAI)"
+  ],
+  "Scientist": [
+   "Lesley Ott (NASA/GSFC)",
+   "Brad Weir (Morgan State University)"
+  ],
+  "Technical support": [
+   "Laurence Schuler (ADNET Systems, Inc.)",
+   "Ian Jones (ADNET Systems, Inc.)"
+  ]
+ },
+ "keywords": [
+  "Atmospheric Composition",
+  "Atmospheric science",
+  "Carbon Cycle and Ecosystems",
+  "Earth Information Center",
+  "Earth Science",
+  "Environmental Impacts",
+  "GMAO",
+  "Greenhouse Gases",
+  "Human Dimensions",
+  "Hyperwall",
+  "Methane",
+  "Model Data",
+  "Volume"
+ ],
+ "datasets": [
+  {
+   "name": "GTOPO30 Topography and Bathymetry",
+   "common_name": "",
+   "platform": null,
+   "sensor": null,
+   "type": "Data Compilation",
+   "organizations": [
+    "USGS"
+   ],
+   "description": "",
+   "credit": "",
+   "url": "",
+   "date_range": null
+  },
+  {
+   "name": "Blue Marble: Next Generation",
+   "common_name": "BMNG",
+   "platform": "Terra and Aqua",
+   "sensor": "MODIS",
+   "type": "Other",
+   "organizations": [],
+   "description": "",
+   "credit": "The Blue Marble data is courtesy of Reto Stockli (NASA/GSFC).",
+   "url": "http://earthobservatory.nasa.gov/Newsroom/BlueMarble/",
+   "date_range": null
+  },
+  {
+   "name": "GMAO GEOS Atmospheric Methane",
+   "common_name": "GMAO GEOS Atmospheric Methane",
+   "platform": null,
+   "sensor": null,
+   "type": "Model",
+   "organizations": [
+    "GMAO"
+   ],
+   "description": "",
+   "credit": "",
+   "url": "",
+   "date_range": null
+  }
+ ],
+ "missions": [],
+ "related": [
+  {
+   "id": 5389,
+   "title": "Tracking methane with EMIT and AVIRIS-3",
+   "url": "https://svs.gsfc.nasa.gov/5389/"
+  },
+  {
+   "id": 5272,
+   "title": "Methane plumes detected by EMIT Space Mission",
+   "url": "https://svs.gsfc.nasa.gov/5272/"
+  },
+  {
+   "id": 5273,
+   "title": "Atmospheric Carbon Dioxide Tagged by Source for Science-on-a-Sphere",
+   "url": "https://svs.gsfc.nasa.gov/5273/"
+  },
+  {
+   "id": 5119,
+   "title": "OCO-2 and Keeling Curve: Trends in global atmospheric Carbon Dioxide (CO₂)",
+   "url": "https://svs.gsfc.nasa.gov/5119/"
+  },
+  {
+   "id": 5117,
+   "title": "Trends in atmospheric Nitrous Oxide (N₂O)",
+   "url": "https://svs.gsfc.nasa.gov/5117/"
+  },
+  {
+   "id": 5115,
+   "title": "Global Atmospheric Carbon Dioxide (CO₂)",
+   "url": "https://svs.gsfc.nasa.gov/5115/"
+  },
+  {
+   "id": 5110,
+   "title": "Atmospheric Carbon Dioxide Tagged by Source",
+   "url": "https://svs.gsfc.nasa.gov/5110/"
+  },
+  {
+   "id": 5054,
+   "title": "Methane Emissions from Wetlands",
+   "url": "https://svs.gsfc.nasa.gov/5054/"
+  },
+  {
+   "id": 5041,
+   "title": "Methane Emissions in the United States",
+   "url": "https://svs.gsfc.nasa.gov/5041/"
+  },
+  {
+   "id": 5007,
+   "title": "Trends in Global Atmospheric Methane (CH₄)",
+   "url": "https://svs.gsfc.nasa.gov/5007/"
+  },
+  {
+   "id": 4890,
+   "title": "GeoCarb Observes Greenhouse Gasses from Geosynchronous Orbit",
+   "url": "https://svs.gsfc.nasa.gov/4890/"
+  },
+  {
+   "id": 4789,
+   "title": "Global Atmospheric Methane",
+   "url": "https://svs.gsfc.nasa.gov/4789/"
+  },
+  {
+   "id": 13047,
+   "title": "New Arctic Lakes Could Soon Be a Major Source of Atmospheric Methane",
+   "url": "https://svs.gsfc.nasa.gov/13047/"
+  }
+ ],
+ "alternate_versions": [],
+ "newer_versions": [],
+ "older_versions": [],
+ "media": [
+  {
+   "group": 0,
+   "group_title": "",
+   "widget": "Video player",
+   "caption": "",
+   "group_text": "Volumetric visualization of the total Methane (CH₄) on a global scale added on Earth's atmosphere over the course of the year 2021.",
+   "url": "https://svs.gsfc.nasa.gov/vis/a000000/a005100/a005116/TotalCH4_Comp_1920x19020p30_00080.png",
+   "filename": "TotalCH4_Comp_1920x19020p30_00080.png",
+   "media_type": "Image",
+   "width": 1920,
+   "height": 1920,
+   "alt_text": "Volumetric visualization of the total Methane (CH₄) on a global scale added on Earth's atmosphere over the course of the year 2021."
+  },
+  {
+   "group": 0,
+   "group_title": "",
+   "widget": "Video player",
+   "caption": "",
+   "group_text": "Volumetric visualization of the total Methane (CH₄) on a global scale added on Earth's atmosphere over the course of the year 2021.",
+   "url": "https://svs.gsfc.nasa.gov/vis/a000000/a005100/a005116/TotalCH4_Comp_1920x19020p30_00080_print.jpg",
+   "filename": "TotalCH4_Comp_1920x19020p30_00080_print.jpg",
+   "media_type": "Image",
+   "width": 1024,
+   "height": 1024,
+   "alt_text": "Volumetric visualization of the total Methane (CH₄) on a global scale added on Earth's atmosphere over the course of the year 2021."
+  },
+  {
+   "group": 0,
+   "group_title": "",
+   "widget": "Video player",
+   "caption": "",
+   "group_text": "Volumetric visualization of the total Methane (CH₄) on a global scale added on Earth's atmosphere over the course of the year 2021.",
+   "url": "https://svs.gsfc.nasa.gov/vis/a000000/a005100/a005116/frames/1920x1920_1x1_30p/VolumetricCH4_Composite/",
+   "filename": "VolumetricCH4_Composite",
+   "media_type": "Frames",
+   "width": 1920,
+   "height": 1920,
+   "alt_text": "Volumetric visualization of the total Methane (CH₄) on a global scale added on Earth's atmosphere over the course of the year 2021."
+  },
+  {
+   "group": 0,
+   "group_title": "",
+   "widget": "Video player",
+   "caption": "",
+   "group_text": "Volumetric visualization of the total Methane (CH₄) on a global scale added on Earth's atmosphere over the course of the year 2021.",
+   "url": "https://svs.gsfc.nasa.gov/vis/a000000/a005100/a005116/VolumetricCH4_Composite_1920x19020p30.mp4",
+   "filename": "VolumetricCH4_Composite_1920x19020p30.mp4",
+   "media_type": "Movie",
+   "width": 1920,
+   "height": 1920,
+   "alt_text": "Volumetric visualization of the total Methane (CH₄) on a global scale added on Earth's atmosphere over the course of the year 2021."
+  },
+  {
+   "group": 2,
+   "group_title": "",
+   "widget": "Video player",
+   "caption": "",
+   "group_text": "Volumetric Carbon Dioxide (CO₂) and Methane (CH₄) side-by-side on a global scale added on Earth's atmosphere over the course of year 2021.",
+   "url": "https://svs.gsfc.nasa.gov/vis/a000000/a005100/a005115/GHG_Comp_5760x3240_00080_print.jpg",
+   "filename": "GHG_Comp_5760x3240_00080_print.jpg",
+   "media_type": "Image",
+   "width": 1024,
+   "height": 576,
+   "alt_text": "Volumetric Carbon Dioxide (CO₂) and Methane (CH₄) side-by-side on a global scale added on Earth's atmosphere over the course of year 2021."
+  },
+  {
+   "group": 2,
+   "group_title": "",
+   "widget": "Video player",
+   "caption": "",
+   "group_text": "Volumetric Carbon Dioxide (CO₂) and Methane (CH₄) side-by-side on a global scale added on Earth's atmosphere over the course of year 2021.",
+   "url": "https://svs.gsfc.nasa.gov/vis/a000000/a005100/a005115/GHG_Comp_5760x3240_00080.png",
+   "filename": "GHG_Comp_5760x3240_00080.png",
+   "media_type": "Image",
+   "width": 5760,
+   "height": 3240,
+   "alt_text": "Volumetric Carbon Dioxide (CO₂) and Methane (CH₄) side-by-side on a global scale added on Earth's atmosphere over the course of year 2021."
+  },
+  {
+   "group": 2,
+   "group_title": "",
+   "widget": "Video player",
+   "caption": "",
+   "group_text": "Volumetric Carbon Dioxide (CO₂) and Methane (CH₄) side-by-side on a global scale added on Earth's atmosphere over the course of year 2021.",
+   "url": "https://svs.gsfc.nasa.gov/vis/a000000/a005100/a005115/frames/5760x3240_16x9_30p/GHGVolumetric_Composite/",
+   "filename": "GHGVolumetric_Composite",
+   "media_type": "Frames",
+   "width": 5760,
+   "height": 3240,
+   "alt_text": "Volumetric Carbon Dioxide (CO₂) and Methane (CH₄) side-by-side on a global scale added on Earth's atmosphere over the course of year 2021."
+  },
+  {
+   "group": 2,
+   "group_title": "",
+   "widget": "Video player",
+   "caption": "",
+   "group_text": "Volumetric Carbon Dioxide (CO₂) and Methane (CH₄) side-by-side on a global scale added on Earth's atmosphere over the course of year 2021.",
+   "url": "https://svs.gsfc.nasa.gov/vis/a000000/a005100/a005115/frames/5760x3240_16x9_30p/GHGVolumetric_EICComposite/",
+   "filename": "GHGVolumetric_EICComposite",
+   "media_type": "Frames",
+   "width": 5760,
+   "height": 3240,
+   "alt_text": "Volumetric Carbon Dioxide (CO₂) and Methane (CH₄) side-by-side on a global scale added on Earth's atmosphere over the course of year 2021."
+  },
+  {
+   "group": 2,
+   "group_title": "",
+   "widget": "Video player",
+   "caption": "",
+   "group_text": "Volumetric Carbon Dioxide (CO₂) and Methane (CH₄) side-by-side on a global scale added on Earth's atmosphere over the course of year 2021.",
+   "url": "https://svs.gsfc.nasa.gov/vis/a000000/a005100/a005115/GHG_Composite_1920x1080p30.mp4",
+   "filename": "GHG_Composite_1920x1080p30.mp4",
+   "media_type": "Movie",
+   "width": 1920,
+   "height": 1080,
+   "alt_text": "Volumetric Carbon Dioxide (CO₂) and Methane (CH₄) side-by-side on a global scale added on Earth's atmosphere over the course of year 2021."
+  },
+  {
+   "group": 2,
+   "group_title": "",
+   "widget": "Video player",
+   "caption": "",
+   "group_text": "Volumetric Carbon Dioxide (CO₂) and Methane (CH₄) side-by-side on a global scale added on Earth's atmosphere over the course of year 2021.",
+   "url": "https://svs.gsfc.nasa.gov/vis/a000000/a005100/a005115/GHG_Composite_5760x3240p30.mp4",
+   "filename": "GHG_Composite_5760x3240p30.mp4",
+   "media_type": "Movie",
+   "width": 5760,
+   "height": 3240,
+   "alt_text": "Volumetric Carbon Dioxide (CO₂) and Methane (CH₄) side-by-side on a global scale added on Earth's atmosphere over the course of year 2021."
+  },
+  {
+   "group": 3,
+   "group_title": "",
+   "widget": "Video player",
+   "caption": "",
+   "group_text": "This visualization shows the total methane on a global scale added on Earth's atmosphere over the course of the year 2021.",
+   "url": "https://svs.gsfc.nasa.gov/vis/a000000/a005100/a005116/frames/1920x1920_1x1_30p/VolumetricCH4_Layer_png/",
+   "filename": "VolumetricCH4_Layer_png",
+   "media_type": "Frames",
+   "width": 1920,
+   "height": 1920,
+   "alt_text": "This visualization shows the total methane on a global scale added on Earth's atmosphere over the course of the year 2021."
+  },
+  {
+   "group": 3,
+   "group_title": "",
+   "widget": "Video player",
+   "caption": "",
+   "group_text": "This visualization shows the total methane on a global scale added on Earth's atmosphere over the course of the year 2021.",
+   "url": "https://svs.gsfc.nasa.gov/vis/a000000/a005100/a005116/TotalCH4_Volume_1920x1920.00080.png",
+   "filename": "TotalCH4_Volume_1920x1920.00080.png",
+   "media_type": "Image",
+   "width": 1920,
+   "height": 1920,
+   "alt_text": "This visualization shows the total methane on a global scale added on Earth's atmosphere over the course of the year 2021."
+  },
+  {
+   "group": 3,
+   "group_title": "",
+   "widget": "Video player",
+   "caption": "",
+   "group_text": "This visualization shows the total methane on a global scale added on Earth's atmosphere over the course of the year 2021.",
+   "url": "https://svs.gsfc.nasa.gov/vis/a000000/a005100/a005116/TotalCH4_Volume_1920x1920.00080_print.jpg",
+   "filename": "TotalCH4_Volume_1920x1920.00080_print.jpg",
+   "media_type": "Image",
+   "width": 1024,
+   "height": 1024,
+   "alt_text": "This visualization shows the total methane on a global scale added on Earth's atmosphere over the course of the year 2021."
+  },
+  {
+   "group": 3,
+   "group_title": "",
+   "widget": "Video player",
+   "caption": "",
+   "group_text": "This visualization shows the total methane on a global scale added on Earth's atmosphere over the course of the year 2021.",
+   "url": "https://svs.gsfc.nasa.gov/vis/a000000/a005100/a005116/TotalCH4_Volume_1920x1920.00080_searchweb.png",
+   "filename": "TotalCH4_Volume_1920x1920.00080_searchweb.png",
+   "media_type": "Image",
+   "width": 320,
+   "height": 180,
+   "alt_text": "This visualization shows the total methane on a global scale added on Earth's atmosphere over the course of the year 2021."
+  },
+  {
+   "group": 3,
+   "group_title": "",
+   "widget": "Video player",
+   "caption": "",
+   "group_text": "This visualization shows the total methane on a global scale added on Earth's atmosphere over the course of the year 2021.",
+   "url": "https://svs.gsfc.nasa.gov/vis/a000000/a005100/a005116/TotalCH4_Volume_1920x1920.00080_web.png",
+   "filename": "TotalCH4_Volume_1920x1920.00080_web.png",
+   "media_type": "Image",
+   "width": 320,
+   "height": 320,
+   "alt_text": "This visualization shows the total methane on a global scale added on Earth's atmosphere over the course of the year 2021."
+  },
+  {
+   "group": 3,
+   "group_title": "",
+   "widget": "Video player",
+   "caption": "",
+   "group_text": "This visualization shows the total methane on a global scale added on Earth's atmosphere over the course of the year 2021.",
+   "url": "https://svs.gsfc.nasa.gov/vis/a000000/a005100/a005116/TotalCH4_Volume_1920x1920.00080_thm.png",
+   "filename": "TotalCH4_Volume_1920x1920.00080_thm.png",
+   "media_type": "Image",
+   "width": 80,
+   "height": 40,
+   "alt_text": "This visualization shows the total methane on a global scale added on Earth's atmosphere over the course of the year 2021."
+  },
+  {
+   "group": 3,
+   "group_title": "",
+   "widget": "Video player",
+   "caption": "",
+   "group_text": "This visualization shows the total methane on a global scale added on Earth's atmosphere over the course of the year 2021.",
+   "url": "https://svs.gsfc.nasa.gov/vis/a000000/a005100/a005116/frames/1920x1920_1x1_30p/VolumetricCH4_Layer/",
+   "filename": "VolumetricCH4_Layer",
+   "media_type": "Frames",
+   "width": 1920,
+   "height": 1920,
+   "alt_text": "This visualization shows the total methane on a global scale added on Earth's atmosphere over the course of the year 2021."
+  },
+  {
+   "group": 3,
+   "group_title": "",
+   "widget": "Video player",
+   "caption": "",
+   "group_text": "This visualization shows the total methane on a global scale added on Earth's atmosphere over the course of the year 2021.",
+   "url": "https://svs.gsfc.nasa.gov/vis/a000000/a005100/a005116/TotalCH4_Volume_1920x1920.00080.exr",
+   "filename": "TotalCH4_Volume_1920x1920.00080.exr",
+   "media_type": "Image",
+   "width": 1920,
+   "height": 1920,
+   "alt_text": "This visualization shows the total methane on a global scale added on Earth's atmosphere over the course of the year 2021."
+  },
+  {
+   "group": 3,
+   "group_title": "",
+   "widget": "Video player",
+   "caption": "",
+   "group_text": "This visualization shows the total methane on a global scale added on Earth's atmosphere over the course of the year 2021.",
+   "url": "https://svs.gsfc.nasa.gov/vis/a000000/a005100/a005116/TotalCH4_Volumetric_1920x1920p30.mp4",
+   "filename": "TotalCH4_Volumetric_1920x1920p30.mp4",
+   "media_type": "Movie",
+   "width": 1920,
+   "height": 1920,
+   "alt_text": "This visualization shows the total methane on a global scale added on Earth's atmosphere over the course of the year 2021."
+  },
+  {
+   "group": 4,
+   "group_title": "",
+   "widget": "Video player",
+   "caption": "",
+   "group_text": "This timeline is synchronized with the atmospheric methane visualization above to show temporal progress across the year",
+   "url": "https://svs.gsfc.nasa.gov/vis/a000000/a005100/a005116/CH4_Timeline_4096x1080p30.03600.png",
+   "filename": "CH4_Timeline_4096x1080p30.03600.png",
+   "media_type": "Image",
+   "width": 4096,
+   "height": 1080,
+   "alt_text": "This timeline is synchronized with the atmospheric methane visualization above to show temporal progress across the year"
+  },
+  {
+   "group": 4,
+   "group_title": "",
+   "widget": "Video player",
+   "caption": "",
+   "group_text": "This timeline is synchronized with the atmospheric methane visualization above to show temporal progress across the year",
+   "url": "https://svs.gsfc.nasa.gov/vis/a000000/a005100/a005116/CH4_Timeline_4096x1080p30.03600_print.jpg",
+   "filename": "CH4_Timeline_4096x1080p30.03600_print.jpg",
+   "media_type": "Image",
+   "width": 1024,
+   "height": 270,
+   "alt_text": "This timeline is synchronized with the atmospheric methane visualization above to show temporal progress across the year"
+  },
+  {
+   "group": 4,
+   "group_title": "",
+   "widget": "Video player",
+   "caption": "",
+   "group_text": "This timeline is synchronized with the atmospheric methane visualization above to show temporal progress across the year",
+   "url": "https://svs.gsfc.nasa.gov/vis/a000000/a005100/a005116/CH4_Timeline_4096x1080p30.mp4",
+   "filename": "CH4_Timeline_4096x1080p30.mp4",
+   "media_type": "Movie",
+   "width": 4096,
+   "height": 1080,
+   "alt_text": "This timeline is synchronized with the atmospheric methane visualization above to show temporal progress across the year"
+  },
+  {
+   "group": 4,
+   "group_title": "",
+   "widget": "Video player",
+   "caption": "",
+   "group_text": "This timeline is synchronized with the atmospheric methane visualization above to show temporal progress across the year",
+   "url": "https://svs.gsfc.nasa.gov/vis/a000000/a005100/a005116/frames/4096x1080_4x1_30p/",
+   "filename": "4096x1080_4x1_30p",
+   "media_type": "Frames",
+   "width": 4096,
+   "height": 1080,
+   "alt_text": "This timeline is synchronized with the atmospheric methane visualization above to show temporal progress across the year"
+  },
+  {
+   "group": 4,
+   "group_title": "",
+   "widget": "Video player",
+   "caption": "",
+   "group_text": "This timeline is synchronized with the atmospheric methane visualization above to show temporal progress across the year",
+   "url": "https://svs.gsfc.nasa.gov/vis/a000000/a005100/a005116/CH4_Timeline_4096x1080p30.03600.exr",
+   "filename": "CH4_Timeline_4096x1080p30.03600.exr",
+   "media_type": "Image",
+   "width": 4096,
+   "height": 1080,
+   "alt_text": "This timeline is synchronized with the atmospheric methane visualization above to show temporal progress across the year"
+  }
+ ],
+ "text_links": [
+  "https://gmao.gsfc.nasa.gov/",
+  "https://doi.org/10.5066/F7DF6PQS"
+ ],
+ "frame_folders": {
+  "https://svs.gsfc.nasa.gov/vis/a000000/a005100/a005116/frames/1920x1920_1x1_30p/VolumetricCH4_Composite/": {
+   "url": "https://svs.gsfc.nasa.gov/vis/a000000/a005100/a005116/frames/1920x1920_1x1_30p/VolumetricCH4_Composite/",
+   "frame_count": 3600,
+   "bytes_approx": 7200000000,
+   "first": "TotalCH4_Comp_1920x19020p30_00000.png",
+   "last": "TotalCH4_Comp_1920x19020p30_03599.png",
+   "subfolders": {}
+  },
+  "https://svs.gsfc.nasa.gov/vis/a000000/a005100/a005115/frames/5760x3240_16x9_30p/GHGVolumetric_Composite/": {
+   "url": "https://svs.gsfc.nasa.gov/vis/a000000/a005100/a005115/frames/5760x3240_16x9_30p/GHGVolumetric_Composite/",
+   "frame_count": 3600,
+   "bytes_approx": 32528000000,
+   "first": "GHG_Comp_5760x3240_00000.png",
+   "last": "GHG_Comp_5760x3240_03599.png",
+   "subfolders": {}
+  },
+  "https://svs.gsfc.nasa.gov/vis/a000000/a005100/a005115/frames/5760x3240_16x9_30p/GHGVolumetric_EICComposite/": {
+   "url": "https://svs.gsfc.nasa.gov/vis/a000000/a005100/a005115/frames/5760x3240_16x9_30p/GHGVolumetric_EICComposite/",
+   "frame_count": 3377,
+   "bytes_approx": 30959000000,
+   "first": "GHG_EICComp_5760x3240_00000.png",
+   "last": "GHG_EICComp_5760x3240_03376.png",
+   "subfolders": {}
+  },
+  "https://svs.gsfc.nasa.gov/vis/a000000/a005100/a005116/frames/1920x1920_1x1_30p/VolumetricCH4_Layer_png/": {
+   "url": "https://svs.gsfc.nasa.gov/vis/a000000/a005100/a005116/frames/1920x1920_1x1_30p/VolumetricCH4_Layer_png/",
+   "frame_count": 3600,
+   "bytes_approx": 8547000000,
+   "first": "TotalCH4_Volume_1920x1920.00001.png",
+   "last": "TotalCH4_Volume_1920x1920.03600.png",
+   "subfolders": {}
+  },
+  "https://svs.gsfc.nasa.gov/vis/a000000/a005100/a005116/frames/1920x1920_1x1_30p/VolumetricCH4_Layer/": {
+   "url": "https://svs.gsfc.nasa.gov/vis/a000000/a005100/a005116/frames/1920x1920_1x1_30p/VolumetricCH4_Layer/",
+   "frame_count": 3600,
+   "bytes_approx": 27508000000,
+   "first": "TotalCH4_Volume_1920x1920.00001.exr",
+   "last": "TotalCH4_Volume_1920x1920.03600.exr",
+   "subfolders": {}
+  },
+  "https://svs.gsfc.nasa.gov/vis/a000000/a005100/a005116/frames/4096x1080_4x1_30p/": {
+   "url": "https://svs.gsfc.nasa.gov/vis/a000000/a005100/a005116/frames/4096x1080_4x1_30p/",
+   "frame_count": 3600,
+   "bytes_approx": 1094784000,
+   "first": "CH4_Timeline_4096x1080p30.00001.exr",
+   "last": "CH4_Timeline_4096x1080p30.03600.exr",
+   "subfolders": {}
+  }
+ },
+ "api_url": "https://svs.gsfc.nasa.gov/api/5116",
+ "fetched_utc": "2026-10-29T07:41:09Z"
+}

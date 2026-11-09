@@ -1,0 +1,394 @@
+{
+ "record": "eic_5150",
+ "app_title": "Near-surface humidity (EIC, model)",
+ "svs_ids": [
+  5150
+ ],
+ "title": "GEOS-FP Near-Surface Humidity",
+ "svs_pages": [
+  "https://svs.gsfc.nasa.gov/5150/"
+ ],
+ "description": "Near-surface Humidity, also known as specific humidity (Q2M) from NASA’s GEOS-FP system. GEOS-FP combines millions of weather observations with a predictive model to create a global best estimate of weather conditions that are used to begin a forecast.",
+ "release_date": "2023-09-26T17:00:00-04:00",
+ "period": {
+  "start": "2026-10-29T22:00:00Z",
+  "end": "2026-10-29T22:00:00Z",
+  "label": "29 Oct 2026 – 29 Oct 2026"
+ },
+ "badge": "model",
+ "credits_by_role": {
+  "Visualizer": [
+   "Joseph V. Ardizzone (NASA/GSFC)",
+   "Helen-Nicole Kostis (Science and Technology Corporation)"
+  ]
+ },
+ "datasets": [
+  {
+   "name": "GEOS-FP",
+   "common_name": "",
+   "platform": null,
+   "sensor": null,
+   "type": "Model",
+   "organizations": [
+    "NASA GMAO"
+   ],
+   "description": "Documentation: Lucchesi, R., 2018: File Specification for GEOS FP. GMAO Office Note No. 4 (Version 1.2), 61 pp, available from [https://gmao.gsfc.nasa.gov/pubs/docs/Lucchesi1203.pdf](https://gmao.gsfc.nasa.gov/pubs/docs/Lucchesi1203.pdf)",
+   "credit": "",
+   "url": "https://fluid.nccs.nasa.gov/weather/",
+   "date_range": null
+  }
+ ],
+ "credit_line": "Visualization: NASA's Scientific Visualization Studio (SVS 5150) for the NASA Earth Information Center.",
+ "disclosure": "One frame of a rolling EIC layer, read back through its key.",
+ "licence": "SVS: \"All of our content is in the public domain (unless otherwise noted), meaning that it is free to download, use, and redistribute for whatever purposes you see fit.\" (https://svs.gsfc.nasa.gov/help/, read 29 Oct 2026)",
+ "frame_times": {
+  "method": "ocr",
+  "approximate": false,
+  "count": 1,
+  "source": "date box OCR: 29 Oct 2026 18 : 00 : 00 EDT"
+ },
+ "georef": {
+  "projection": "equirectangular",
+  "bounds": [
+   -180,
+   -90,
+   180,
+   90
+  ],
+  "pass_at": 0.9,
+  "shifts_deg": [
+   1.0
+  ],
+  "iou": {},
+  "pass": true,
+  "best_is_assumed": true
+ },
+ "colorbar": {
+  "geometry": {
+   "x0": 73,
+   "x1": 462,
+   "band": [
+    77,
+    112
+   ],
+   "vertical": false,
+   "outline_rgb": [
+    255.0,
+    255.0,
+    255.0
+   ],
+   "image_size": [
+    165,
+    528
+   ]
+  },
+  "ticks": [
+   {
+    "px": -1.5,
+    "value": 0.0,
+    "text": "0",
+    "engine": "glyph",
+    "label_px": -1.5
+   },
+   {
+    "px": 35.504885993485345,
+    "value": 2.0,
+    "text": "2",
+    "engine": "glyph",
+    "label_px": 36.5,
+    "tick_mark": true
+   },
+   {
+    "px": 71.5,
+    "value": 4.0,
+    "text": "4",
+    "engine": "glyph",
+    "label_px": 71.5,
+    "tick_mark": true
+   },
+   {
+    "px": 106.5079365079365,
+    "value": 6.0,
+    "text": "6",
+    "engine": "glyph",
+    "label_px": 107.5,
+    "tick_mark": true
+   },
+   {
+    "px": 143.50617283950618,
+    "value": 8.0,
+    "text": "8",
+    "engine": "glyph",
+    "label_px": 143.5,
+    "tick_mark": true
+   },
+   {
+    "px": 178.5034965034965,
+    "value": 10.0,
+    "text": "10",
+    "engine": "glyph",
+    "label_px": 180.0,
+    "tick_mark": true
+   },
+   {
+    "px": 213.5032679738562,
+    "value": 12.0,
+    "text": "12",
+    "engine": "glyph",
+    "label_px": 214.0,
+    "tick_mark": true
+   },
+   {
+    "px": 248.5026455026455,
+    "value": 14.0,
+    "text": "14",
+    "engine": "glyph",
+    "label_px": 250.0,
+    "tick_mark": true
+   },
+   {
+    "px": 283.5021645021645,
+    "value": 16.0,
+    "text": "16",
+    "engine": "glyph",
+    "label_px": 286.0,
+    "tick_mark": true
+   },
+   {
+    "px": 319.506734006734,
+    "value": 18.0,
+    "text": "18",
+    "engine": "glyph",
+    "label_px": 321.0,
+    "tick_mark": true
+   },
+   {
+    "px": 355.5012315270936,
+    "value": 20.0,
+    "text": "20",
+    "engine": "glyph",
+    "label_px": 357.5,
+    "tick_mark": true
+   },
+   {
+    "px": 390.5,
+    "value": 22.0,
+    "text": "22",
+    "engine": "glyph",
+    "label_px": 390.5
+   }
+  ],
+  "scale": "linear",
+  "fit": {
+   "a": -0.02741180803060678,
+   "b": 0.056381876288931265,
+   "fit": "weighted 1/tolerance",
+   "max_resid_px": 1.9861811957114344,
+   "resid_px": [
+    1.99,
+    0.45,
+    -0.07,
+    0.4,
+    -1.13,
+    -0.66,
+    -0.18,
+    0.29,
+    0.76,
+    0.23,
+    -0.29,
+    0.18
+   ],
+   "ok": true
+  },
+  "notes": [
+   "2 label(s) not on a tick mark (0, 22): label-centre position, ±5 px."
+  ],
+  "n_samples": 390,
+  "value_range": [
+   -0.02741180803060678,
+   21.905138068363655
+  ],
+  "opacity_varies": false,
+  "px_per_unit": 17.736195845548995
+ },
+ "colorbar_file": "NearSurfaceHumidity_colorbar.png",
+ "decode": {
+  "mode": "exact",
+  "exact_share": 0.9418348556712858,
+  "decoded_share": 0.908231258392334,
+  "base_map_share": null,
+  "matcher": "rgb-nearest",
+  "max_dist": 12.0
+ },
+ "frame": "MC04_stage3_GMAO_near_surface_humidity_2048x1024_en.mp4#frame200",
+ "frame_set": "https://svs.gsfc.nasa.gov/vis/a000000/a005100/a005150/MC04_stage3_GMAO_near_surface_humidity_2048x1024_en.mp4",
+ "layers": [
+  {
+   "id": "value",
+   "unit": "g/kg",
+   "encoding": "linear",
+   "scale": 0.005638187628893126,
+   "offset": -0.0274118110537529,
+   "nodata": 65535,
+   "below": 65534,
+   "grid": {
+    "width": 720,
+    "height": 360,
+    "bounds": [
+     -180,
+     -90,
+     180,
+     90
+    ],
+    "row0": "north",
+    "col0": "west",
+    "byte_order": "little"
+   },
+   "times": [
+    "2026-10-29T22:00:00Z"
+   ],
+   "chunks": [
+    {
+     "file": "value_000.u16.gz",
+     "t0": 0,
+     "t1": 1,
+     "bytes": 288707
+    }
+   ],
+   "quantisation_step": 0.005638187628893126,
+   "coverage": 0.9128472222222223,
+   "value_range": [
+    -0.0274118110537529,
+    21.789823532104492
+   ],
+   "label": "Near-surface humidity (model)",
+   "aggregation": "mean of decoded pixels per 0.5° cell",
+   "display": {
+    "colours": [
+     "#b5916a",
+     "#b59167",
+     "#ba976d",
+     "#be9e73",
+     "#c3a479",
+     "#c8aa7f",
+     "#ccb085",
+     "#d1b98f",
+     "#d6c198",
+     "#dccaa2",
+     "#dbcfa8",
+     "#d8d3ad",
+     "#d4d7b1",
+     "#d1dab6",
+     "#cfdfbc",
+     "#cbe3c1",
+     "#c4e3c4",
+     "#bce0c5",
+     "#b2dbc5",
+     "#a9d7c6",
+     "#a1d4c7",
+     "#96d1c7",
+     "#8ecbc7",
+     "#88bfc2",
+     "#82b4bd",
+     "#7aa8b8",
+     "#6d99af",
+     "#5f8aa6",
+     "#537c9d",
+     "#4c7398",
+     "#466c94",
+     "#406390"
+    ],
+    "values": [
+     -0.02741180803060678,
+     0.6800898008853371,
+     1.3875914098012812,
+     2.0950930187172254,
+     2.802594627633169,
+     3.510096236549113,
+     4.217597845465058,
+     4.925099454381001,
+     5.632601063296945,
+     6.340102672212889,
+     7.047604281128833,
+     7.755105890044777,
+     8.462607498960722,
+     9.170109107876664,
+     9.877610716792608,
+     10.585112325708552,
+     11.292613934624496,
+     12.000115543540442,
+     12.707617152456384,
+     13.415118761372328,
+     14.122620370288272,
+     14.830121979204215,
+     15.53762358812016,
+     16.245125197036103,
+     16.95262680595205,
+     17.660128414867994,
+     18.367630023783935,
+     19.07513163269988,
+     19.782633241615823,
+     20.49013485053177,
+     21.19763645944771,
+     21.905138068363655
+    ],
+    "scale": "linear"
+   },
+   "time_labels": [
+    "29 Oct 2026 22:00 UTC"
+   ],
+   "status": "verified",
+   "statement": null,
+   "status_check": "a_same_model"
+  }
+ ],
+ "voices": {
+  "value": "eic5150"
+ },
+ "play": [
+  {
+   "id": "value",
+   "label": "Near-surface humidity: higher pitch = higher value",
+   "view": "global",
+   "map": "value",
+   "start": {
+    "lat": 23.81,
+    "lon": 90.41
+   },
+   "steps_per_second": 1,
+   "channels": [
+    {
+     "voice": "eic5150",
+     "layers": [
+      "value"
+     ],
+     "combine": "value"
+    }
+   ]
+  }
+ ],
+ "validation": [
+  {
+   "id": "a_same_model",
+   "title": "Near-surface humidity: frame vs GEOS-FP tavg1_2d_slv_Nx qv2m at 2026-10-29 22:30:00 UTC",
+   "kind": "value",
+   "pass": true,
+   "threshold": "Spearman ≥ 0.9 and median relative error ≤ 15 % (provisional)"
+  }
+ ],
+ "size": {
+  "choice": {
+   "cell_deg": 0.5
+  },
+  "tried": [],
+  "bytes": 298313,
+  "budget": 25000000
+ },
+ "asset_checksums": {
+  "file": "checksums.tsv.gz",
+  "rows": 3,
+  "sha256_of_list": "446a773093f12101b4ae8d5dc35db30d61979734902de30c8e3108b970131a88"
+ },
+ "code_commit": "89d9b8068e678d3974c18af9a8b5984e9934c0ab-dirty",
+ "generated_utc": "2026-11-06T14:14:31Z"
+}

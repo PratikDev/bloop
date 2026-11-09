@@ -1,0 +1,287 @@
+{
+ "record": "eic_5544",
+ "app_title": "NDVI, near real time (EIC, observation)",
+ "svs_ids": [
+  5544
+ ],
+ "title": "Near Real-Time Normalized Difference Vegetation Index (NDVI)",
+ "svs_pages": [
+  "https://svs.gsfc.nasa.gov/5544/"
+ ],
+ "description": "NRT NDVI",
+ "release_date": "2025-09-22T18:59:59-04:00",
+ "period": {
+  "start": "2026-06-13T00:00:00Z",
+  "end": "2026-06-13T00:00:00Z",
+  "label": "13 Jun 2026 – 13 Jun 2026"
+ },
+ "badge": "observation",
+ "credits_by_role": {
+  "Data visualizer": [
+   "Alex Kekesi (Global Science and Technology, Inc.)"
+  ]
+ },
+ "datasets": [],
+ "credit_line": "Visualization: NASA's Scientific Visualization Studio (SVS 5544) for the NASA Earth Information Center.",
+ "disclosure": "One frame of a rolling EIC layer, read back through its key.",
+ "licence": "SVS: \"All of our content is in the public domain (unless otherwise noted), meaning that it is free to download, use, and redistribute for whatever purposes you see fit.\" (https://svs.gsfc.nasa.gov/help/, read 29 Oct 2026)",
+ "frame_times": {
+  "method": "date-list",
+  "approximate": false,
+  "count": 1,
+  "source": "file name"
+ },
+ "georef": {
+  "projection": "equirectangular",
+  "bounds": [
+   -180,
+   -90,
+   180,
+   90
+  ],
+  "pass_at": 0.9,
+  "shifts_deg": [
+   1.0
+  ],
+  "iou": {},
+  "pass": true,
+  "best_is_assumed": true
+ },
+ "colorbar": {
+  "geometry": {
+   "x0": 101,
+   "x1": 798,
+   "band": [
+    101,
+    148
+   ],
+   "vertical": false,
+   "outline_rgb": [
+    255.0,
+    255.0,
+    255.0
+   ],
+   "image_size": [
+    250,
+    1000
+   ]
+  },
+  "ticks": [
+   {
+    "px": 16.0,
+    "value": 6097.0,
+    "text": "6097",
+    "engine": "glyph",
+    "label_px": 16.0
+   },
+   {
+    "px": 668.0,
+    "value": 100.0,
+    "text": "0100^1",
+    "engine": "glyph",
+    "label_px": 668.0
+   }
+  ],
+  "scale": "stated-range",
+  "fit": {
+   "a": 0.0,
+   "b": 0.0014347202295552368
+  },
+  "notes": [
+   "OCR read ['6097', '0100^1']: too few increasing labels; the SVS text's range 0.0–1.0 is used, linear between the strip ends."
+  ],
+  "n_samples": 698,
+  "value_range": [
+   0.0,
+   1.0
+  ],
+  "opacity_varies": false
+ },
+ "colorbar_file": "NDVI_colorbar.png",
+ "decode": {
+  "mode": "exact",
+  "exact_share": 0.7960576644606993,
+  "decoded_share": 0.2906475067138672,
+  "base_map_share": null,
+  "matcher": "rgb-nearest",
+  "max_dist": 30.0,
+  "fill_rgb": [
+   [
+    8,
+    123,
+    176
+   ]
+  ]
+ },
+ "frame": "SNPP_VIIRS.20260613.ndvi_w_snow.oceanblue.annotated.png",
+ "frame_set": "https://svs.gsfc.nasa.gov/vis/a000000/a005500/a005544/frames/4096x2048_2x1_30p/equirectangular_w_dates/",
+ "layers": [
+  {
+   "id": "value",
+   "unit": "relative",
+   "encoding": "linear",
+   "scale": 0.00014326647564469916,
+   "offset": 0.0071267844177782536,
+   "nodata": 65535,
+   "below": 65534,
+   "grid": {
+    "width": 720,
+    "height": 360,
+    "bounds": [
+     -180,
+     -90,
+     180,
+     90
+    ],
+    "row0": "north",
+    "col0": "west",
+    "byte_order": "little"
+   },
+   "times": [
+    "2026-06-13T00:00:00Z"
+   ],
+   "chunks": [
+    {
+     "file": "value_000.u16.gz",
+     "t0": 0,
+     "t1": 1,
+     "bytes": 107458
+    }
+   ],
+   "quantisation_step": 0.00014326647564469916,
+   "coverage": 0.29748070987654324,
+   "value_range": [
+    0.0071267844177782536,
+    1.0
+   ],
+   "label": "NDVI, near real time (relative)",
+   "aggregation": "mean of decoded pixels per 0.5° cell",
+   "display": {
+    "colours": [
+     "#ded2cf",
+     "#f4e0d3",
+     "#ebd6c2",
+     "#e4cdb2",
+     "#ddc6a4",
+     "#d6c097",
+     "#cebc88",
+     "#c5ba7b",
+     "#bcb86e",
+     "#b3b663",
+     "#a8b35a",
+     "#9cae55",
+     "#8ea952",
+     "#80a34f",
+     "#719d4e",
+     "#64964b",
+     "#5b8e47",
+     "#568743",
+     "#517f3f",
+     "#4e773a",
+     "#4a6f35",
+     "#446831",
+     "#3d622e",
+     "#345d2a",
+     "#295828",
+     "#1e5425",
+     "#185223",
+     "#135022",
+     "#0e4e21",
+     "#094d20",
+     "#054c1f",
+     "#02451c"
+    ],
+    "values": [
+     0.0,
+     0.03225806451612903,
+     0.06451612903225806,
+     0.09677419354838711,
+     0.12903225806451613,
+     0.16129032258064518,
+     0.19354838709677422,
+     0.22580645161290322,
+     0.25806451612903225,
+     0.2903225806451613,
+     0.32258064516129037,
+     0.3548387096774194,
+     0.38709677419354843,
+     0.4193548387096775,
+     0.45161290322580644,
+     0.4838709677419355,
+     0.5161290322580645,
+     0.5483870967741936,
+     0.5806451612903226,
+     0.6129032258064516,
+     0.6451612903225807,
+     0.6774193548387097,
+     0.7096774193548387,
+     0.7419354838709677,
+     0.7741935483870969,
+     0.8064516129032259,
+     0.838709677419355,
+     0.870967741935484,
+     0.9032258064516129,
+     0.935483870967742,
+     0.967741935483871,
+     1.0
+    ],
+    "scale": "linear"
+   },
+   "time_labels": [
+    "13 Jun 2026 00:00 UTC"
+   ],
+   "status": "relative",
+   "statement": "relative values (the key has words, not numbers)",
+   "status_check": "a_no_validation_source"
+  }
+ ],
+ "voices": {
+  "value": "eic5544"
+ },
+ "play": [
+  {
+   "id": "value",
+   "label": "NDVI, near real time: higher pitch = higher value",
+   "view": "global",
+   "map": "value",
+   "start": {
+    "lat": 23.81,
+    "lon": 90.41
+   },
+   "steps_per_second": 1,
+   "channels": [
+    {
+     "voice": "eic5544",
+     "layers": [
+      "value"
+     ],
+     "combine": "value"
+    }
+   ]
+  }
+ ],
+ "validation": [
+  {
+   "id": "a_no_validation_source",
+   "title": "NDVI, near real time: no validation source found",
+   "kind": "none",
+   "pass": null,
+   "threshold": null
+  }
+ ],
+ "size": {
+  "choice": {
+   "cell_deg": 0.5
+  },
+  "tried": [],
+  "bytes": 114237,
+  "budget": 25000000
+ },
+ "asset_checksums": {
+  "file": "checksums.tsv.gz",
+  "rows": 4,
+  "sha256_of_list": "f47b612010a05d4045c16f2909eaecad00c54503226ec6bedbb26cb4225efa51"
+ },
+ "code_commit": "0ffd40d25961a366a887035a713d69de06146d52-dirty",
+ "generated_utc": "2026-11-06T19:59:25Z"
+}

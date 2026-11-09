@@ -1,0 +1,29 @@
+{
+ "record": "eic_5153",
+ "checks": [
+  {
+   "record": "eic_5153",
+   "id": "a_same_model",
+   "title": "Carbon monoxide (GEOS-CF): frame vs GEOS-CF v2 analysis chm_tavg_1hr_glo_L1440x721_slv co at 2026-10-28 22:30:00 UTC",
+   "kind": "value",
+   "source": "GEOS-CF v2 analysis chm_tavg_1hr_glo_L1440x721_slv (NCCS OPeNDAP)",
+   "metrics": {
+    "spearman": 0.9766892747517162,
+    "n": 229720,
+    "median_rel_error": 0.08229086950611653,
+    "median_abs": 5.181597669376433,
+    "bias": 2.7769926861251606,
+    "frame_time_utc": "2026-10-28T22:00Z",
+    "georef_spearman_shift_lon": {
+     "-1.0": 0.9710012186520185,
+     "1.0": 0.9741367793052017
+    }
+   },
+   "threshold": "Spearman ≥ 0.9 and median relative error ≤ 15 % (provisional)",
+   "pass": true,
+   "note": "Same model: this tests the decoding. Unit conversion stated in the item table.",
+   "run_utc": "2026-11-06T14:11:28Z"
+  }
+ ],
+ "updated_utc": "2026-11-06T14:11:28Z"
+}

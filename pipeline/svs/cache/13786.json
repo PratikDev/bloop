@@ -1,0 +1,135 @@
+{
+ "id": 13786,
+ "title": "Data Sonification: Caldwell 73",
+ "url": "https://svs.gsfc.nasa.gov/13786/",
+ "page_type": "Produced Video",
+ "release_date": "2020-12-23T09:00:00-05:00",
+ "update_date": "2023-05-03T13:44:24.562486-04:00",
+ "description": "Located 40,000 light-years from Earth in the constellation Columba, this globular cluster is called Caldwell 73 or NGC 1851. A globular cluster is a spherical group of stars that are gravitationally bound to each other, with most of the stars concentrated at the cluster’s center.  As the radar scans around in this sonification, the radius of the stars is mapped to pitch, so stars farther from the center are higher pitched. The entire image is converted to the sound of a choir, while the orange and red stars are represented by a marimba, and the blue stars are represented by a glockenspiel.Credit: SYSTEM Sounds (M. Russo, A. Santaguida)For more information about the Hubble Space Telescope and its images, visit https://nasa.gov/hubble. || ",
+ "full_text": "Located 40,000 light-years from Earth in the constellation Columba, this globular cluster is called Caldwell 73 or NGC 1851. A globular cluster is a spherical group of stars that are gravitationally bound to each other, with most of the stars concentrated at the cluster’s center.  As the radar scans around in this sonification, the radius of the stars is mapped to pitch, so stars farther from the center are higher pitched. The entire image is converted to the sound of a choir, while the orange and red stars are represented by a marimba, and the blue stars are represented by a glockenspiel.Credit: SYSTEM Sounds (M. Russo, A. Santaguida)For more information about the Hubble Space Telescope and its images, visit https://nasa.gov/hubble. ||\n\nLocated 40,000 light-years from Earth in the constellation Columba, this globular cluster is called Caldwell 73 or NGC 1851. A globular cluster is a spherical group of stars that are gravitationally bound to each other, with most of the stars concentrated at the cluster’s center. <br> <br>As the radar scans around in this sonification, the radius of the stars is mapped to pitch, so stars farther from the center are higher pitched. The entire image is converted to the sound of a choir, while the orange and red stars are represented by a marimba, and the blue stars are represented by a glockenspiel.<br><br>Credit: SYSTEM Sounds (M. Russo, A. Santaguida)<br><br>For more information about the Hubble Space Telescope and its images, visit <a href=\"https://nasa.gov/hubble\" target=\"_blank\">https://nasa.gov/hubble</a>.<br><br>\n\n<b>Master Version</b><p>Horizontal version. This is for use on any YouTube or non-YouTube platform where you want to display the video horizontally.",
+ "credits_by_role": {
+  "Technical support": [
+   "Aaron E. Lepsch (ADNET Systems, Inc.)"
+  ]
+ },
+ "keywords": [
+  "HST",
+  "Hubble Space Telescope",
+  "Sonification"
+ ],
+ "datasets": [],
+ "missions": [
+  "Hubble"
+ ],
+ "related": [
+  {
+   "id": 13999,
+   "title": "Sonification of the Bubble Nebula",
+   "url": "https://svs.gsfc.nasa.gov/13999/"
+  },
+  {
+   "id": 13998,
+   "title": "Sonification of the Butterfly Nebula",
+   "url": "https://svs.gsfc.nasa.gov/13998/"
+  },
+  {
+   "id": 13997,
+   "title": "Sonification of NGC 2392",
+   "url": "https://svs.gsfc.nasa.gov/13997/"
+  },
+  {
+   "id": 13893,
+   "title": "Sonification of Hubble Ultra Deep Field (2014)",
+   "url": "https://svs.gsfc.nasa.gov/13893/"
+  }
+ ],
+ "alternate_versions": [],
+ "newer_versions": [],
+ "older_versions": [],
+ "media": [
+  {
+   "group": 1,
+   "group_title": "",
+   "widget": "Video player",
+   "caption": "",
+   "group_text": "<b>Master Version</b><p>Horizontal version. This is for use on any YouTube or non-YouTube platform where you want to display the video horizontally.",
+   "url": "https://svs.gsfc.nasa.gov/vis/a010000/a013700/a013786/print.jpg",
+   "filename": "print.jpg",
+   "media_type": "Image",
+   "width": 1920,
+   "height": 1080,
+   "alt_text": "Master VersionHorizontal version. This is for use on any YouTube or non-YouTube platform where you want to display the video horizontally."
+  },
+  {
+   "group": 1,
+   "group_title": "",
+   "widget": "Video player",
+   "caption": "",
+   "group_text": "<b>Master Version</b><p>Horizontal version. This is for use on any YouTube or non-YouTube platform where you want to display the video horizontally.",
+   "url": "https://svs.gsfc.nasa.gov/vis/a010000/a013700/a013786/wide.jpg",
+   "filename": "wide.jpg",
+   "media_type": "Image",
+   "width": 1920,
+   "height": 1080,
+   "alt_text": "Master VersionHorizontal version. This is for use on any YouTube or non-YouTube platform where you want to display the video horizontally."
+  },
+  {
+   "group": 1,
+   "group_title": "",
+   "widget": "Video player",
+   "caption": "",
+   "group_text": "<b>Master Version</b><p>Horizontal version. This is for use on any YouTube or non-YouTube platform where you want to display the video horizontally.",
+   "url": "https://svs.gsfc.nasa.gov/vis/a010000/a013700/a013786/SW.jpg",
+   "filename": "SW.jpg",
+   "media_type": "Image",
+   "width": 320,
+   "height": 180,
+   "alt_text": "Master VersionHorizontal version. This is for use on any YouTube or non-YouTube platform where you want to display the video horizontally."
+  },
+  {
+   "group": 1,
+   "group_title": "",
+   "widget": "Video player",
+   "caption": "",
+   "group_text": "<b>Master Version</b><p>Horizontal version. This is for use on any YouTube or non-YouTube platform where you want to display the video horizontally.",
+   "url": "https://svs.gsfc.nasa.gov/vis/a010000/a013700/a013786/Caldwell73_2K_Final.mp4",
+   "filename": "Caldwell73_2K_Final.mp4",
+   "media_type": "Movie",
+   "width": 1920,
+   "height": 1920,
+   "alt_text": "Master VersionHorizontal version. This is for use on any YouTube or non-YouTube platform where you want to display the video horizontally."
+  },
+  {
+   "group": 1,
+   "group_title": "",
+   "widget": "Video player",
+   "caption": "",
+   "group_text": "<b>Master Version</b><p>Horizontal version. This is for use on any YouTube or non-YouTube platform where you want to display the video horizontally.",
+   "url": "https://svs.gsfc.nasa.gov/vis/a010000/a013700/a013786/Caldwell73_2K_Final.webm",
+   "filename": "Caldwell73_2K_Final.webm",
+   "media_type": "Movie",
+   "width": 1920,
+   "height": 1920,
+   "alt_text": "Master VersionHorizontal version. This is for use on any YouTube or non-YouTube platform where you want to display the video horizontally."
+  },
+  {
+   "group": 1,
+   "group_title": "",
+   "widget": "Video player",
+   "caption": "",
+   "group_text": "<b>Master Version</b><p>Horizontal version. This is for use on any YouTube or non-YouTube platform where you want to display the video horizontally.",
+   "url": "https://svs.gsfc.nasa.gov/vis/a010000/a013700/a013786/CALDWELL73.en_US.SRT",
+   "filename": "CALDWELL73.en_US.SRT",
+   "media_type": "Captions",
+   "width": 0,
+   "height": 0,
+   "alt_text": "Master VersionHorizontal version. This is for use on any YouTube or non-YouTube platform where you want to display the video horizontally."
+  }
+ ],
+ "text_links": [
+  "https://nasa.gov/hubble"
+ ],
+ "frame_folders": {},
+ "api_url": "https://svs.gsfc.nasa.gov/api/13786",
+ "fetched_utc": "2026-10-29T06:18:50Z"
+}

@@ -1,0 +1,1075 @@
+{
+ "record": "currents_3912",
+ "app_title": "Currents & SST (model, 2007–08)",
+ "svs_ids": [
+  3912
+ ],
+ "title": "Global Sea Surface Currents and Temperature",
+ "svs_pages": [
+  "https://svs.gsfc.nasa.gov/3912/"
+ ],
+ "description": "This visualization shows sea surface current flows. The flows are colored by corresponding sea surface temperature data. This visualization is rendered for display on very high resolution devices like hyperwalls or for print media.This visualization was produced using model output from the joint MIT/JPL project entitled Estimating the Circulation and Climate of the Ocean, Phase II (ECCO2). ECCO2 uses the MIT general circulation model (MITgcm) to synthesize satellite and in-situ data of the global ocean and sea-ice at resolutions that begin to resolve ocean eddies and other narrow current systems, which transport heat and carbon in the oceans. The ECCO2 model simulates ocean flows at all depths, but only surface flows are used in this visualization. || ",
+ "release_date": "2012-03-16T10:00:00-04:00",
+ "period": {
+  "start": "2007-03-25T12:00:00Z",
+  "end": "2008-03-03T12:00:00Z",
+  "label": "25 Mar 2007 – 3 Mar 2008"
+ },
+ "badge": "model",
+ "credits_by_role": {
+  "Animator": [
+   "Greg Shirah (NASA/GSFC)",
+   "Horace Mitchell (NASA/GSFC)",
+   "Eric Sokolowsky (Global Science and Technology, Inc.)"
+  ],
+  "Project support": [
+   "Eric Sokolowsky (Global Science and Technology, Inc.)"
+  ],
+  "Producer": [
+   "Michael Starobin (HTSI)"
+  ],
+  "Scientist": [
+   "Hong Zhang (UCLA)",
+   "Dimitris Menemenlis (NASA/JPL CalTech)"
+  ]
+ },
+ "datasets": [
+  {
+   "name": "GTOPO30 Topography and Bathymetry",
+   "common_name": "",
+   "platform": null,
+   "sensor": null,
+   "type": "Data Compilation",
+   "organizations": [
+    "USGS"
+   ],
+   "description": "",
+   "credit": "",
+   "url": "",
+   "date_range": "3-2007 through 2-2008"
+  },
+  {
+   "name": "ECCO2 High Resolution Ocean and Sea Ice Model",
+   "common_name": "ECCO2",
+   "platform": null,
+   "sensor": null,
+   "type": "Model",
+   "organizations": [
+    "NASA/JPL"
+   ],
+   "description": "",
+   "credit": "",
+   "url": "",
+   "date_range": null
+  }
+ ],
+ "credit_line": "Visualization: NASA's Scientific Visualization Studio (SVS 3912) for the NASA Earth Information Center. Data: ECCO2 ocean model (MIT/JPL). Currents voice: NASA OSCAR surface currents (ESR, PO.DAAC).",
+ "disclosure": "Temperature read from the streak colours of a model. The currents you hear are NASA OSCAR surface currents for the same days; how the drawn streaks move is visual texture, not water speed.",
+ "licence": "SVS: \"All of our content is in the public domain (unless otherwise noted), meaning that it is free to download, use, and redistribute for whatever purposes you see fit.\" (https://svs.gsfc.nasa.gov/help/, read 29 Oct 2026)",
+ "frame_times": {
+  "method": "date-list",
+  "approximate": false,
+  "source": "flat_ecco2_dates.txt (SVS)",
+  "subsample_every": 6,
+  "subsample_hours": 24.766666666666666,
+  "count": 334
+ },
+ "georef": {
+  "projection": "equirectangular",
+  "bounds": [
+   -180,
+   -90,
+   180,
+   90
+  ],
+  "pass_at": 0.9,
+  "shifts_deg": [
+   0.5,
+   1.0
+  ],
+  "iou": {
+   "23000": 0.9383,
+   "27008": 0.9371
+  },
+  "pass": true,
+  "best_is_assumed": true
+ },
+ "colorbar": {
+  "geometry": {
+   "x0": 14,
+   "x1": 291,
+   "band": [
+    28,
+    67
+   ],
+   "vertical": false,
+   "outline_rgb": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "image_size": [
+    95,
+    310
+   ]
+  },
+  "ticks": [
+   {
+    "px": -1.5,
+    "value": 0.0,
+    "text": "0",
+    "engine": "glyph",
+    "label_px": -1.5
+   },
+   {
+    "px": 86.0,
+    "value": 10.0,
+    "text": "10",
+    "engine": "glyph",
+    "label_px": 86.0
+   },
+   {
+    "px": 173.5,
+    "value": 20.0,
+    "text": "20",
+    "engine": "glyph",
+    "label_px": 173.5
+   },
+   {
+    "px": 277.5,
+    "value": 32.0,
+    "text": "32",
+    "engine": "glyph",
+    "label_px": 277.5
+   }
+  ],
+  "scale": "linear",
+  "fit": {
+   "a": 0.14867742863106206,
+   "b": 0.11466907616335342,
+   "fit": "weighted 1/tolerance",
+   "max_resid_px": 0.3816385763022871,
+   "resid_px": [
+    0.2,
+    -0.09,
+    -0.38,
+    0.27
+   ],
+   "ok": true,
+   "stated_range": [
+    0.0,
+    32.0
+   ],
+   "strip_ends": [
+    0.14867742863106206,
+    31.912011525879958
+   ]
+  },
+  "notes": [],
+  "n_samples": 278,
+  "value_range": [
+   0.14867742863106206,
+   31.912011525879958
+  ],
+  "opacity_varies": true,
+  "px_per_unit": 8.72074698304394
+ },
+ "decode": {
+  "matcher": "rgb-nearest",
+  "mode": "hue",
+  "max_dist": 10.0,
+  "min_k": 0.1,
+  "coverage_median": 0.48234205012404796,
+  "coverage_range": [
+   0.4636282539355159,
+   0.5011003700621389
+  ],
+  "uncertain_values": [],
+  "farneback": {
+   "pyr_scale": 0.5,
+   "levels": 5,
+   "winsize": 15,
+   "iterations": 5,
+   "poly_n": 7,
+   "poly_sigma": 1.5,
+   "flags": 0
+  }
+ },
+ "layers": [
+  {
+   "id": "sst",
+   "unit": "°C",
+   "encoding": "linear",
+   "scale": 0.011466907616335342,
+   "offset": 2.089670419692993,
+   "nodata": 65535,
+   "below": 65534,
+   "grid": {
+    "width": 360,
+    "height": 180,
+    "bounds": [
+     -180,
+     -90,
+     180,
+     90
+    ],
+    "row0": "north",
+    "col0": "west",
+    "byte_order": "little"
+   },
+   "times": [
+    "2007-03-25T12:00:00Z",
+    "2007-03-30T15:50:00Z",
+    "2007-04-04T19:40:00Z",
+    "2007-04-09T23:31:00Z",
+    "2007-04-15T03:21:00Z",
+    "2007-04-20T07:12:00Z",
+    "2007-04-25T11:02:00Z",
+    "2007-04-30T14:52:00Z",
+    "2007-05-05T18:43:00Z",
+    "2007-05-10T22:33:00Z",
+    "2007-05-16T02:24:00Z",
+    "2007-05-21T06:14:00Z",
+    "2007-05-26T10:04:00Z",
+    "2007-05-31T13:55:00Z",
+    "2007-06-05T17:45:00Z",
+    "2007-06-10T21:36:00Z",
+    "2007-06-16T01:26:00Z",
+    "2007-06-21T05:16:00Z",
+    "2007-06-26T09:07:00Z",
+    "2007-07-01T12:57:00Z",
+    "2007-07-06T16:48:00Z",
+    "2007-07-11T20:38:00Z",
+    "2007-07-17T00:28:00Z",
+    "2007-07-22T04:19:00Z",
+    "2007-07-27T08:09:00Z",
+    "2007-08-01T12:00:00Z",
+    "2007-08-06T15:50:00Z",
+    "2007-08-11T19:40:00Z",
+    "2007-08-16T23:31:00Z",
+    "2007-08-22T03:21:00Z",
+    "2007-08-27T07:12:00Z",
+    "2007-09-01T11:02:00Z",
+    "2007-09-06T14:52:00Z",
+    "2007-09-11T18:43:00Z",
+    "2007-09-16T22:33:00Z",
+    "2007-09-22T02:24:00Z",
+    "2007-09-27T06:14:00Z",
+    "2007-10-02T10:04:00Z",
+    "2007-10-07T13:55:00Z",
+    "2007-10-12T17:45:00Z",
+    "2007-10-17T21:36:00Z",
+    "2007-10-23T01:26:00Z",
+    "2007-10-28T05:16:00Z",
+    "2007-11-02T09:07:00Z",
+    "2007-11-07T12:57:00Z",
+    "2007-11-12T16:48:00Z",
+    "2007-11-17T20:38:00Z",
+    "2007-11-23T00:28:00Z",
+    "2007-11-28T04:19:00Z",
+    "2007-12-03T08:09:00Z",
+    "2007-12-08T12:00:00Z",
+    "2007-12-13T15:50:00Z",
+    "2007-12-18T19:40:00Z",
+    "2007-12-23T23:31:00Z",
+    "2007-12-29T03:21:00Z",
+    "2008-01-03T07:12:00Z",
+    "2008-01-08T11:02:00Z",
+    "2008-01-13T14:52:00Z",
+    "2008-01-18T18:43:00Z",
+    "2008-01-23T22:33:00Z",
+    "2008-01-29T02:24:00Z",
+    "2008-02-03T06:14:00Z",
+    "2008-02-08T10:04:00Z",
+    "2008-02-13T13:55:00Z",
+    "2008-02-18T17:45:00Z",
+    "2008-02-23T21:36:00Z"
+   ],
+   "chunks": [
+    {
+     "file": "sst_000.u16.gz",
+     "t0": 0,
+     "t1": 32,
+     "bytes": 1642934
+    },
+    {
+     "file": "sst_001.u16.gz",
+     "t0": 32,
+     "t1": 64,
+     "bytes": 1665299
+    },
+    {
+     "file": "sst_002.u16.gz",
+     "t0": 64,
+     "t1": 66,
+     "bytes": 105730
+    }
+   ],
+   "quantisation_step": 0.011466907616335342,
+   "coverage": 0.5346137298915077,
+   "value_range": [
+    2.089670419692993,
+    30.76531982421875
+   ],
+   "label": "Sea surface temperature (model, read from the frame colours)",
+   "aggregation": "mean of 2×2 0.5° cells and 5 daily frames",
+   "display": {
+    "colours": [
+     "#203796",
+     "#336cf0",
+     "#327de3",
+     "#328cd7",
+     "#329bcb",
+     "#32aabf",
+     "#33b8b3",
+     "#34c6a6",
+     "#35d39c",
+     "#37e090",
+     "#38eb84",
+     "#3af678",
+     "#3bff6e",
+     "#3dff62",
+     "#40ff58",
+     "#48ff4c",
+     "#59ff41",
+     "#70ff37",
+     "#8bff2e",
+     "#a8ff28",
+     "#c5ff23",
+     "#deff22",
+     "#f3ff21",
+     "#fbfb21",
+     "#fae620",
+     "#facc1e",
+     "#f9ae1c",
+     "#f88c1b",
+     "#f7691a",
+     "#f74019",
+     "#f70718",
+     "#e60016"
+    ],
+    "values": [
+     0.14867742863106206,
+     1.1733011091874783,
+     2.1979247897438943,
+     3.22254847030031,
+     4.247172150856727,
+     5.271795831413143,
+     6.2964195119695585,
+     7.321043192525975,
+     8.345666873082392,
+     9.370290553638807,
+     10.394914234195223,
+     11.41953791475164,
+     12.444161595308055,
+     13.468785275864471,
+     14.493408956420888,
+     15.518032636977303,
+     16.54265631753372,
+     17.567279998090132,
+     18.59190367864655,
+     19.616527359202966,
+     20.641151039759382,
+     21.6657747203158,
+     22.690398400872215,
+     23.715022081428632,
+     24.739645761985045,
+     25.764269442541462,
+     26.78889312309788,
+     27.813516803654295,
+     28.83814048421071,
+     29.862764164767125,
+     30.88738784532354,
+     31.912011525879958
+    ],
+    "scale": "linear"
+   },
+   "below_range_bound": 0.0,
+   "below_kind": "at_or_below",
+   "limit_rule": {
+    "floor": {
+     "value_C": 1.975,
+     "bin_C": 0.05,
+     "share_within_0.1C": 0.11274597752632952
+    },
+    "cut_C": 2.0896690761633536,
+    "strip_bottom_C": 0.14867742863106206
+   },
+   "status": "verified",
+   "statement": null,
+   "status_check": "a_sst_mur"
+  },
+  {
+   "id": "oscar_u",
+   "unit": "m/s",
+   "encoding": "linear",
+   "scale": 0.001,
+   "offset": -2.9457082748413086,
+   "nodata": 65535,
+   "below": 65534,
+   "grid": {
+    "width": 360,
+    "height": 180,
+    "bounds": [
+     -180,
+     -90,
+     180,
+     90
+    ],
+    "row0": "north",
+    "col0": "west",
+    "byte_order": "little"
+   },
+   "times": [
+    "2007-03-25T12:00:00Z",
+    "2007-03-30T15:50:00Z",
+    "2007-04-04T19:40:00Z",
+    "2007-04-09T23:31:00Z",
+    "2007-04-15T03:21:00Z",
+    "2007-04-20T07:12:00Z",
+    "2007-04-25T11:02:00Z",
+    "2007-04-30T14:52:00Z",
+    "2007-05-05T18:43:00Z",
+    "2007-05-10T22:33:00Z",
+    "2007-05-16T02:24:00Z",
+    "2007-05-21T06:14:00Z",
+    "2007-05-26T10:04:00Z",
+    "2007-05-31T13:55:00Z",
+    "2007-06-05T17:45:00Z",
+    "2007-06-10T21:36:00Z",
+    "2007-06-16T01:26:00Z",
+    "2007-06-21T05:16:00Z",
+    "2007-06-26T09:07:00Z",
+    "2007-07-01T12:57:00Z",
+    "2007-07-06T16:48:00Z",
+    "2007-07-11T20:38:00Z",
+    "2007-07-17T00:28:00Z",
+    "2007-07-22T04:19:00Z",
+    "2007-07-27T08:09:00Z",
+    "2007-08-01T12:00:00Z",
+    "2007-08-06T15:50:00Z",
+    "2007-08-11T19:40:00Z",
+    "2007-08-16T23:31:00Z",
+    "2007-08-22T03:21:00Z",
+    "2007-08-27T07:12:00Z",
+    "2007-09-01T11:02:00Z",
+    "2007-09-06T14:52:00Z",
+    "2007-09-11T18:43:00Z",
+    "2007-09-16T22:33:00Z",
+    "2007-09-22T02:24:00Z",
+    "2007-09-27T06:14:00Z",
+    "2007-10-02T10:04:00Z",
+    "2007-10-07T13:55:00Z",
+    "2007-10-12T17:45:00Z",
+    "2007-10-17T21:36:00Z",
+    "2007-10-23T01:26:00Z",
+    "2007-10-28T05:16:00Z",
+    "2007-11-02T09:07:00Z",
+    "2007-11-07T12:57:00Z",
+    "2007-11-12T16:48:00Z",
+    "2007-11-17T20:38:00Z",
+    "2007-11-23T00:28:00Z",
+    "2007-11-28T04:19:00Z",
+    "2007-12-03T08:09:00Z",
+    "2007-12-08T12:00:00Z",
+    "2007-12-13T15:50:00Z",
+    "2007-12-18T19:40:00Z",
+    "2007-12-23T23:31:00Z",
+    "2007-12-29T03:21:00Z",
+    "2008-01-03T07:12:00Z",
+    "2008-01-08T11:02:00Z",
+    "2008-01-13T14:52:00Z",
+    "2008-01-18T18:43:00Z",
+    "2008-01-23T22:33:00Z",
+    "2008-01-29T02:24:00Z",
+    "2008-02-03T06:14:00Z",
+    "2008-02-08T10:04:00Z",
+    "2008-02-13T13:55:00Z",
+    "2008-02-18T17:45:00Z",
+    "2008-02-23T21:36:00Z"
+   ],
+   "chunks": [
+    {
+     "file": "oscar_u_000.u16.gz",
+     "t0": 0,
+     "t1": 32,
+     "bytes": 1734900
+    },
+    {
+     "file": "oscar_u_001.u16.gz",
+     "t0": 32,
+     "t1": 64,
+     "bytes": 1746915
+    },
+    {
+     "file": "oscar_u_002.u16.gz",
+     "t0": 64,
+     "t1": 66,
+     "bytes": 109434
+    }
+   ],
+   "quantisation_step": 0.001,
+   "coverage": 0.5569921436588103,
+   "value_range": [
+    -2.9457082748413086,
+    2.987701177597046
+   ],
+   "label": "NASA OSCAR surface currents, eastward",
+   "aggregation": "mean of 2×2 0.5° cells and 5 daily frames",
+   "status": "observation",
+   "statement": null,
+   "status_check": null
+  },
+  {
+   "id": "oscar_v",
+   "unit": "m/s",
+   "encoding": "linear",
+   "scale": 0.001,
+   "offset": -2.934483528137207,
+   "nodata": 65535,
+   "below": 65534,
+   "grid": {
+    "width": 360,
+    "height": 180,
+    "bounds": [
+     -180,
+     -90,
+     180,
+     90
+    ],
+    "row0": "north",
+    "col0": "west",
+    "byte_order": "little"
+   },
+   "times": [
+    "2007-03-25T12:00:00Z",
+    "2007-03-30T15:50:00Z",
+    "2007-04-04T19:40:00Z",
+    "2007-04-09T23:31:00Z",
+    "2007-04-15T03:21:00Z",
+    "2007-04-20T07:12:00Z",
+    "2007-04-25T11:02:00Z",
+    "2007-04-30T14:52:00Z",
+    "2007-05-05T18:43:00Z",
+    "2007-05-10T22:33:00Z",
+    "2007-05-16T02:24:00Z",
+    "2007-05-21T06:14:00Z",
+    "2007-05-26T10:04:00Z",
+    "2007-05-31T13:55:00Z",
+    "2007-06-05T17:45:00Z",
+    "2007-06-10T21:36:00Z",
+    "2007-06-16T01:26:00Z",
+    "2007-06-21T05:16:00Z",
+    "2007-06-26T09:07:00Z",
+    "2007-07-01T12:57:00Z",
+    "2007-07-06T16:48:00Z",
+    "2007-07-11T20:38:00Z",
+    "2007-07-17T00:28:00Z",
+    "2007-07-22T04:19:00Z",
+    "2007-07-27T08:09:00Z",
+    "2007-08-01T12:00:00Z",
+    "2007-08-06T15:50:00Z",
+    "2007-08-11T19:40:00Z",
+    "2007-08-16T23:31:00Z",
+    "2007-08-22T03:21:00Z",
+    "2007-08-27T07:12:00Z",
+    "2007-09-01T11:02:00Z",
+    "2007-09-06T14:52:00Z",
+    "2007-09-11T18:43:00Z",
+    "2007-09-16T22:33:00Z",
+    "2007-09-22T02:24:00Z",
+    "2007-09-27T06:14:00Z",
+    "2007-10-02T10:04:00Z",
+    "2007-10-07T13:55:00Z",
+    "2007-10-12T17:45:00Z",
+    "2007-10-17T21:36:00Z",
+    "2007-10-23T01:26:00Z",
+    "2007-10-28T05:16:00Z",
+    "2007-11-02T09:07:00Z",
+    "2007-11-07T12:57:00Z",
+    "2007-11-12T16:48:00Z",
+    "2007-11-17T20:38:00Z",
+    "2007-11-23T00:28:00Z",
+    "2007-11-28T04:19:00Z",
+    "2007-12-03T08:09:00Z",
+    "2007-12-08T12:00:00Z",
+    "2007-12-13T15:50:00Z",
+    "2007-12-18T19:40:00Z",
+    "2007-12-23T23:31:00Z",
+    "2007-12-29T03:21:00Z",
+    "2008-01-03T07:12:00Z",
+    "2008-01-08T11:02:00Z",
+    "2008-01-13T14:52:00Z",
+    "2008-01-18T18:43:00Z",
+    "2008-01-23T22:33:00Z",
+    "2008-01-29T02:24:00Z",
+    "2008-02-03T06:14:00Z",
+    "2008-02-08T10:04:00Z",
+    "2008-02-13T13:55:00Z",
+    "2008-02-18T17:45:00Z",
+    "2008-02-23T21:36:00Z"
+   ],
+   "chunks": [
+    {
+     "file": "oscar_v_000.u16.gz",
+     "t0": 0,
+     "t1": 32,
+     "bytes": 1735026
+    },
+    {
+     "file": "oscar_v_001.u16.gz",
+     "t0": 32,
+     "t1": 64,
+     "bytes": 1744720
+    },
+    {
+     "file": "oscar_v_002.u16.gz",
+     "t0": 64,
+     "t1": 66,
+     "bytes": 109342
+    }
+   ],
+   "quantisation_step": 0.001,
+   "coverage": 0.5569921436588103,
+   "value_range": [
+    -2.934483528137207,
+    2.886827230453491
+   ],
+   "label": "NASA OSCAR surface currents, northward",
+   "aggregation": "mean of 2×2 0.5° cells and 5 daily frames",
+   "status": "observation",
+   "statement": null,
+   "status_check": null
+  },
+  {
+   "id": "drift_u",
+   "unit": "km/day",
+   "encoding": "linear",
+   "scale": 0.01,
+   "offset": -53.74617462158203,
+   "nodata": 65535,
+   "below": 65534,
+   "grid": {
+    "width": 360,
+    "height": 180,
+    "bounds": [
+     -180,
+     -90,
+     180,
+     90
+    ],
+    "row0": "north",
+    "col0": "west",
+    "byte_order": "little"
+   },
+   "times": [
+    "2007-03-25T12:00:00Z",
+    "2007-03-30T15:50:00Z",
+    "2007-04-04T19:40:00Z",
+    "2007-04-09T23:31:00Z",
+    "2007-04-15T03:21:00Z",
+    "2007-04-20T07:12:00Z",
+    "2007-04-25T11:02:00Z",
+    "2007-04-30T14:52:00Z",
+    "2007-05-05T18:43:00Z",
+    "2007-05-10T22:33:00Z",
+    "2007-05-16T02:24:00Z",
+    "2007-05-21T06:14:00Z",
+    "2007-05-26T10:04:00Z",
+    "2007-05-31T13:55:00Z",
+    "2007-06-05T17:45:00Z",
+    "2007-06-10T21:36:00Z",
+    "2007-06-16T01:26:00Z",
+    "2007-06-21T05:16:00Z",
+    "2007-06-26T09:07:00Z",
+    "2007-07-01T12:57:00Z",
+    "2007-07-06T16:48:00Z",
+    "2007-07-11T20:38:00Z",
+    "2007-07-17T00:28:00Z",
+    "2007-07-22T04:19:00Z",
+    "2007-07-27T08:09:00Z",
+    "2007-08-01T12:00:00Z",
+    "2007-08-06T15:50:00Z",
+    "2007-08-11T19:40:00Z",
+    "2007-08-16T23:31:00Z",
+    "2007-08-22T03:21:00Z",
+    "2007-08-27T07:12:00Z",
+    "2007-09-01T11:02:00Z",
+    "2007-09-06T14:52:00Z",
+    "2007-09-11T18:43:00Z",
+    "2007-09-16T22:33:00Z",
+    "2007-09-22T02:24:00Z",
+    "2007-09-27T06:14:00Z",
+    "2007-10-02T10:04:00Z",
+    "2007-10-07T13:55:00Z",
+    "2007-10-12T17:45:00Z",
+    "2007-10-17T21:36:00Z",
+    "2007-10-23T01:26:00Z",
+    "2007-10-28T05:16:00Z",
+    "2007-11-02T09:07:00Z",
+    "2007-11-07T12:57:00Z",
+    "2007-11-12T16:48:00Z",
+    "2007-11-17T20:38:00Z",
+    "2007-11-23T00:28:00Z",
+    "2007-11-28T04:19:00Z",
+    "2007-12-03T08:09:00Z",
+    "2007-12-08T12:00:00Z",
+    "2007-12-13T15:50:00Z",
+    "2007-12-18T19:40:00Z",
+    "2007-12-23T23:31:00Z",
+    "2007-12-29T03:21:00Z",
+    "2008-01-03T07:12:00Z",
+    "2008-01-08T11:02:00Z",
+    "2008-01-13T14:52:00Z",
+    "2008-01-18T18:43:00Z",
+    "2008-01-23T22:33:00Z",
+    "2008-01-29T02:24:00Z",
+    "2008-02-03T06:14:00Z",
+    "2008-02-08T10:04:00Z",
+    "2008-02-13T13:55:00Z",
+    "2008-02-18T17:45:00Z",
+    "2008-02-23T21:36:00Z"
+   ],
+   "chunks": [
+    {
+     "file": "drift_u_000.u16.gz",
+     "t0": 0,
+     "t1": 32,
+     "bytes": 2160625
+    },
+    {
+     "file": "drift_u_001.u16.gz",
+     "t0": 32,
+     "t1": 64,
+     "bytes": 2171536
+    },
+    {
+     "file": "drift_u_002.u16.gz",
+     "t0": 64,
+     "t1": 66,
+     "bytes": 135454
+    }
+   ],
+   "quantisation_step": 0.01,
+   "coverage": 0.6970531705948373,
+   "value_range": [
+    -53.74617462158203,
+    39.776835632324214
+   ],
+   "label": "Drawn streak motion, eastward (pattern of the drawing, not water speed)",
+   "aggregation": "mean of 2×2 0.5° cells and 5 daily frames",
+   "status": "visual texture",
+   "statement": "pattern of the drawing, not water speed (direction vs OSCAR 72.5°)",
+   "status_check": "b_direction_oscar"
+  },
+  {
+   "id": "drift_v",
+   "unit": "km/day",
+   "encoding": "linear",
+   "scale": 0.01,
+   "offset": -18.74952392578125,
+   "nodata": 65535,
+   "below": 65534,
+   "grid": {
+    "width": 360,
+    "height": 180,
+    "bounds": [
+     -180,
+     -90,
+     180,
+     90
+    ],
+    "row0": "north",
+    "col0": "west",
+    "byte_order": "little"
+   },
+   "times": [
+    "2007-03-25T12:00:00Z",
+    "2007-03-30T15:50:00Z",
+    "2007-04-04T19:40:00Z",
+    "2007-04-09T23:31:00Z",
+    "2007-04-15T03:21:00Z",
+    "2007-04-20T07:12:00Z",
+    "2007-04-25T11:02:00Z",
+    "2007-04-30T14:52:00Z",
+    "2007-05-05T18:43:00Z",
+    "2007-05-10T22:33:00Z",
+    "2007-05-16T02:24:00Z",
+    "2007-05-21T06:14:00Z",
+    "2007-05-26T10:04:00Z",
+    "2007-05-31T13:55:00Z",
+    "2007-06-05T17:45:00Z",
+    "2007-06-10T21:36:00Z",
+    "2007-06-16T01:26:00Z",
+    "2007-06-21T05:16:00Z",
+    "2007-06-26T09:07:00Z",
+    "2007-07-01T12:57:00Z",
+    "2007-07-06T16:48:00Z",
+    "2007-07-11T20:38:00Z",
+    "2007-07-17T00:28:00Z",
+    "2007-07-22T04:19:00Z",
+    "2007-07-27T08:09:00Z",
+    "2007-08-01T12:00:00Z",
+    "2007-08-06T15:50:00Z",
+    "2007-08-11T19:40:00Z",
+    "2007-08-16T23:31:00Z",
+    "2007-08-22T03:21:00Z",
+    "2007-08-27T07:12:00Z",
+    "2007-09-01T11:02:00Z",
+    "2007-09-06T14:52:00Z",
+    "2007-09-11T18:43:00Z",
+    "2007-09-16T22:33:00Z",
+    "2007-09-22T02:24:00Z",
+    "2007-09-27T06:14:00Z",
+    "2007-10-02T10:04:00Z",
+    "2007-10-07T13:55:00Z",
+    "2007-10-12T17:45:00Z",
+    "2007-10-17T21:36:00Z",
+    "2007-10-23T01:26:00Z",
+    "2007-10-28T05:16:00Z",
+    "2007-11-02T09:07:00Z",
+    "2007-11-07T12:57:00Z",
+    "2007-11-12T16:48:00Z",
+    "2007-11-17T20:38:00Z",
+    "2007-11-23T00:28:00Z",
+    "2007-11-28T04:19:00Z",
+    "2007-12-03T08:09:00Z",
+    "2007-12-08T12:00:00Z",
+    "2007-12-13T15:50:00Z",
+    "2007-12-18T19:40:00Z",
+    "2007-12-23T23:31:00Z",
+    "2007-12-29T03:21:00Z",
+    "2008-01-03T07:12:00Z",
+    "2008-01-08T11:02:00Z",
+    "2008-01-13T14:52:00Z",
+    "2008-01-18T18:43:00Z",
+    "2008-01-23T22:33:00Z",
+    "2008-01-29T02:24:00Z",
+    "2008-02-03T06:14:00Z",
+    "2008-02-08T10:04:00Z",
+    "2008-02-13T13:55:00Z",
+    "2008-02-18T17:45:00Z",
+    "2008-02-23T21:36:00Z"
+   ],
+   "chunks": [
+    {
+     "file": "drift_v_000.u16.gz",
+     "t0": 0,
+     "t1": 32,
+     "bytes": 2192983
+    },
+    {
+     "file": "drift_v_001.u16.gz",
+     "t0": 32,
+     "t1": 64,
+     "bytes": 2204117
+    },
+    {
+     "file": "drift_v_002.u16.gz",
+     "t0": 64,
+     "t1": 66,
+     "bytes": 137618
+    }
+   ],
+   "quantisation_step": 0.01,
+   "coverage": 0.6970531705948373,
+   "value_range": [
+    -18.74952392578125,
+    18.789965057373045
+   ],
+   "label": "Drawn streak motion, northward (pattern of the drawing, not water speed)",
+   "aggregation": "mean of 2×2 0.5° cells and 5 daily frames",
+   "status": "visual texture",
+   "statement": "pattern of the drawing, not water speed (direction vs OSCAR 72.5°)",
+   "status_check": "b_direction_oscar"
+  }
+ ],
+ "voices": {
+  "sst": "ocean",
+  "oscar_speed": "oscarCurrent",
+  "drift_speed": "currentDrift"
+ },
+ "voice_sources": {
+  "oscarCurrent": {
+   "label": "NASA OSCAR surface currents",
+   "badge": "observation",
+   "period": "25 Mar 2007 – 3 Mar 2008",
+   "days": 345,
+   "citation": {
+    "concept_id": "C2098858642-POCLOUD",
+    "short_name": "OSCAR_L4_OC_FINAL_V2.0",
+    "version": "2.0",
+    "title": "Ocean Surface Current Analyses Real-time (OSCAR) Surface Currents - Final 0.25 Degree (Version 2.0)",
+    "creator": "ESR; Dohan, Kathleen",
+    "publisher": "PO.DAAC",
+    "doi": "10.5067/OSCAR-25F20",
+    "text": "ESR; Dohan, Kathleen. 2022. Ocean Surface Current Analyses Real-time (OSCAR) Surface Currents - Final 0.25 Degree (Version 2.0). Ver. 2.0. PO.DAAC, CA, USA. https://doi.org/10.5067/OSCAR-25F20."
+   }
+  }
+ },
+ "play": [
+  {
+   "id": "sst_oscar",
+   "label": "Sea surface temperature, with NASA OSCAR surface currents as clicks",
+   "view": "global",
+   "map": "sst",
+   "start": {
+    "lat": 18.75,
+    "lon": 89.0
+   },
+   "steps_per_second": 3,
+   "channels": [
+    {
+     "voice": "ocean",
+     "layers": [
+      "sst"
+     ],
+     "combine": "value"
+    },
+    {
+     "voice": "oscarCurrent",
+     "layers": [
+      "oscar_u",
+      "oscar_v"
+     ],
+     "combine": "magnitude"
+    }
+   ]
+  },
+  {
+   "id": "sst_texture",
+   "label": "Sea surface temperature, with the drawn streak motion as clicks (visual texture, not water speed)",
+   "view": "global",
+   "map": "sst",
+   "start": {
+    "lat": 18.75,
+    "lon": 89.0
+   },
+   "steps_per_second": 3,
+   "channels": [
+    {
+     "voice": "ocean",
+     "layers": [
+      "sst"
+     ],
+     "combine": "value"
+    },
+    {
+     "voice": "currentDrift",
+     "layers": [
+      "drift_u",
+      "drift_v"
+     ],
+     "combine": "magnitude"
+    }
+   ]
+  }
+ ],
+ "drift_speed_range_km_day": [
+  0.029555315537554683,
+  14.320471391126738
+ ],
+ "oscar_speed_range_m_s": [
+  0.009038393445062791,
+  0.7995216778942476
+ ],
+ "confidence": {
+  "sst_min_cell_coverage": 0.2,
+  "streak_coverage_median": 0.48234205012404796,
+  "sst_at_limit_cells": 0.057734287317620654
+ },
+ "validation": [
+  {
+   "id": "a_sst_mur",
+   "title": "ECCO2 SST (decoded from frames) vs MUR25 SST, same dates",
+   "kind": "model-vs-obs",
+   "pass": true,
+   "threshold": "Spearman ≥ 0.9 (provisional)"
+  },
+  {
+   "id": "b_direction_oscar",
+   "title": "Flow direction vs OSCAR, strong-current cells",
+   "kind": "model-vs-obs",
+   "pass": false,
+   "threshold": "median ≤ 45° (provisional; directions)",
+   "decision": {
+    "on": "2026-10-29",
+    "status": "visual texture",
+    "statement": "pattern of the drawing, not water speed (direction vs OSCAR 72.5°)",
+    "table": "threshold missed; frame motion kept only as labelled visual texture, the currents voice plays NASA OSCAR"
+   }
+  },
+  {
+   "id": "c_eicc_reversal",
+   "title": "Bay of Bengal: East India Coastal Current seasonal reversal",
+   "kind": "model-vs-obs",
+   "pass": true,
+   "threshold": "poleward ≥2 of Mar–May and equatorward ≥2 of Oct–Dec"
+  },
+  {
+   "id": "b2_direction_consecutive",
+   "title": "Flow direction vs OSCAR, 20 consecutive frames (no subsampling)",
+   "kind": "model-vs-obs",
+   "pass": false,
+   "threshold": "median ≤ 45° (provisional; directions)",
+   "decision": {
+    "on": "2026-10-29",
+    "status": "visual texture",
+    "statement": "consecutive frames vs OSCAR: 70.1° per pair, 59.5° summed (chance 90°)",
+    "table": "threshold missed (> 45°): the currents voice plays NASA OSCAR; frame flow is visual texture only"
+   }
+  }
+ ],
+ "size": {
+  "choice": {
+   "cell_deg": 1.0,
+   "days": 5
+  },
+  "tried": [
+   {
+    "option": [
+     2,
+     1
+    ],
+    "estimated_bytes": 99419404
+   },
+   {
+    "option": [
+     2,
+     2
+    ],
+    "estimated_bytes": 49633577
+   },
+   {
+    "option": [
+     2,
+     3
+    ],
+    "estimated_bytes": 32939729
+   },
+   {
+    "option": [
+     2,
+     4
+    ],
+    "estimated_bytes": 24605272
+   },
+   {
+    "option": [
+     2,
+     5
+    ],
+    "estimated_bytes": 19547754
+   }
+  ],
+  "bytes": 19650270,
+  "budget": 25000000
+ },
+ "asset_checksums": {
+  "file": "checksums.tsv.gz",
+  "rows": 351,
+  "sha256_of_list": "b7d775204cc297a075545ee3b21daa66ab9925fed7a5657041bc6708cc2bef10"
+ },
+ "code_commit": "c438f418277886e425ce45a94c15208d92d9de6d-dirty",
+ "generated_utc": "2026-10-29T07:10:16Z"
+}

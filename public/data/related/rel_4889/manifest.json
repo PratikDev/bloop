@@ -1,0 +1,303 @@
+{
+ "record": "rel_4889",
+ "app_title": "Variability of Water Storage in Global Hydrological Basins (observation)",
+ "svs_ids": [
+  4889
+ ],
+ "title": "Variability of Water Storage in Global Hydrological Basins",
+ "svs_pages": [
+  "https://svs.gsfc.nasa.gov/4889/"
+ ],
+ "description": "Variability of Water Level || figure_2.00001_print.jpg (1024x576) [92.0 KB] || figure_2.00001_searchweb.png (320x180) [46.0 KB] || figure_2.00001_thm.png (80x40) [4.7 KB] || figure_2.mp4 (1920x1080) [82.9 MB] || figure_2.webm (1920x1080) [5.1 MB] || figure_2.mp4.hwshow [174 bytes] || ",
+ "release_date": "2021-03-03T14:00:00-05:00",
+ "period": {
+  "start": "2021-03-03T19:00:00Z",
+  "end": "2021-03-03T19:00:00Z",
+  "label": "3 Mar 2021 – 3 Mar 2021"
+ },
+ "badge": "observation",
+ "credits_by_role": {
+  "Visualizer": [
+   "Trent L. Schindler (USRA)"
+  ],
+  "Scientist": [
+   "Sarah Cooley (Stanford University)"
+  ],
+  "Producer": [
+   "Ryan Fitzgibbons (USRA)"
+  ]
+ },
+ "datasets": [
+  {
+   "name": "",
+   "common_name": "",
+   "platform": "ICESat-2",
+   "sensor": "Advanced Topographic Laser Altimeter System (ATLAS)",
+   "type": "Other",
+   "organizations": [],
+   "description": "",
+   "credit": "",
+   "url": "",
+   "date_range": null
+  }
+ ],
+ "credit_line": "Visualization: NASA's Scientific Visualization Studio (SVS 4889) for the NASA Earth Information Center.",
+ "disclosure": "A related NASA visualization read back through its key (relative).",
+ "licence": "SVS: \"All of our content is in the public domain (unless otherwise noted), meaning that it is free to download, use, and redistribute for whatever purposes you see fit.\" (https://svs.gsfc.nasa.gov/help/, read 29 Oct 2026)",
+ "focus": "water resources",
+ "related_to": [],
+ "frame_times": {
+  "method": "linear",
+  "approximate": true,
+  "count": 3,
+  "source": "undated"
+ },
+ "georef": {
+  "projection": "none (not a flat 2:1 map)",
+  "bounds": [
+   -180,
+   -101.25,
+   180,
+   101.25
+  ],
+  "pass_at": 0.9,
+  "shifts_deg": [],
+  "iou": {},
+  "pass": false,
+  "best_is_assumed": false
+ },
+ "colorbar": {
+  "geometry": {
+   "x0": 25,
+   "x1": 1023,
+   "band": [
+    87,
+    87
+   ],
+   "vertical": true,
+   "outline_rgb": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "image_size": [
+    1050,
+    500
+   ]
+  },
+  "ticks": [],
+  "scale": "stated-range",
+  "fit": {
+   "a": 0.0,
+   "b": 0.001002004008016032
+  },
+  "notes": [
+   "OCR read []: too few increasing labels; the SVS text's range 0.0–1.0 is used, linear between the strip ends."
+  ],
+  "n_samples": 999,
+  "value_range": [
+   0.0,
+   0.9999999999999999
+  ],
+  "opacity_varies": false
+ },
+ "colorbar_source": "page colorbar fig_2_cbar.png (word labels: relative 0–1)",
+ "asset": {
+  "kind": "frames",
+  "owner": 4889,
+  "what": "figure_2_no_cbar"
+ },
+ "twins": [],
+ "decode": {
+  "mode": "chroma",
+  "decoded_share": 0.058598652906378605
+ },
+ "layers": [
+  {
+   "id": "value",
+   "unit": "relative (0–1)",
+   "encoding": "linear",
+   "scale": 0.00010010010010010009,
+   "offset": 0.16533078253269196,
+   "nodata": 65535,
+   "below": 65534,
+   "grid": {
+    "width": 160,
+    "height": 90,
+    "bounds": [
+     -180,
+     -101.25,
+     180,
+     101.25
+    ],
+    "row0": "north",
+    "col0": "west",
+    "byte_order": "little",
+    "space": "frame"
+   },
+   "times": [
+    "2021-03-03T19:00:00Z",
+    "2021-03-03T19:00:00Z",
+    "2021-03-03T19:00:00Z"
+   ],
+   "chunks": [
+    {
+     "file": "value_000.u16.gz",
+     "t0": 0,
+     "t1": 3,
+     "bytes": 4846
+    }
+   ],
+   "quantisation_step": 0.00010010010010010009,
+   "coverage": 0.05858796296296296,
+   "value_range": [
+    0.16533078253269196,
+    0.8588645458221436
+   ],
+   "label": "Variability of Water Storage in Global Hydrological Basins (relative)",
+   "aggregation": "mean of decoded pixels per cell",
+   "time_labels": [
+    "undated",
+    "undated",
+    "undated"
+   ],
+   "display": {
+    "colours": [
+     "#7b7b7b",
+     "#8c8c8c",
+     "#8c8c8c",
+     "#717171",
+     "#717171",
+     "#717171",
+     "#8c8c7b",
+     "#8c8c7b",
+     "#878968",
+     "#878968",
+     "#878968",
+     "#788366",
+     "#788366",
+     "#5b7668",
+     "#5b7668",
+     "#5b7668",
+     "#416a6b",
+     "#406a6b",
+     "#40696b",
+     "#2e5c6c",
+     "#2e5c6c",
+     "#214764",
+     "#214764",
+     "#214764",
+     "#1a2f58",
+     "#1a2f58",
+     "#141c4d",
+     "#141c4e",
+     "#141c4e",
+     "#07112f",
+     "#07112f",
+     "#1f2025"
+    ],
+    "values": [
+     0.0,
+     0.03225806451612903,
+     0.06451612903225806,
+     0.0967741935483871,
+     0.12903225806451613,
+     0.16129032258064516,
+     0.1935483870967742,
+     0.22580645161290322,
+     0.25806451612903225,
+     0.29032258064516125,
+     0.3225806451612903,
+     0.3548387096774193,
+     0.3870967741935484,
+     0.41935483870967744,
+     0.45161290322580644,
+     0.4838709677419355,
+     0.5161290322580645,
+     0.5483870967741936,
+     0.5806451612903225,
+     0.6129032258064516,
+     0.6451612903225806,
+     0.6774193548387096,
+     0.7096774193548386,
+     0.7419354838709677,
+     0.7741935483870968,
+     0.8064516129032258,
+     0.8387096774193549,
+     0.8709677419354839,
+     0.9032258064516129,
+     0.9354838709677419,
+     0.967741935483871,
+     0.9999999999999999
+    ],
+    "scale": "linear"
+   },
+   "status": "relative",
+   "status_check": "a_no_validation_source",
+   "statement": "relative"
+  }
+ ],
+ "voices": {
+  "value": "rel4889"
+ },
+ "play": [
+  {
+   "id": "value",
+   "label": "Variability of Water Storage in Global Hydrological Basins: higher pitch = higher value",
+   "view": "global",
+   "map": "value",
+   "start": {
+    "lat": -1.0,
+    "lon": 3.375
+   },
+   "steps_per_second": 1,
+   "channels": [
+    {
+     "voice": "rel4889",
+     "layers": [
+      "value"
+     ],
+     "combine": "value"
+    }
+   ]
+  }
+ ],
+ "validation": [
+  {
+   "id": "a_no_validation_source",
+   "title": "Variability of Water Storage in Global Hydrological Basins: no validation source",
+   "kind": "none",
+   "pass": null,
+   "threshold": null
+  }
+ ],
+ "size": {
+  "choice": {
+   "frames": 3
+  },
+  "tried": [],
+  "bytes": 12480,
+  "budget": 25000000
+ },
+ "onboarding": {
+  "timings_s": {
+   "api": 10.0,
+   "twins": 0.7,
+   "asset choice": 0.0,
+   "frames": 72.6,
+   "frame times": 0.2,
+   "georef": 0.1,
+   "colorbar": 119.4,
+   "inversion": 29.8,
+   "validation": 0.0
+  },
+  "status": "relative"
+ },
+ "asset_checksums": {
+  "file": "checksums.tsv.gz",
+  "rows": 8,
+  "sha256_of_list": "70eb0dd0cd764684ecfa68a6adeff3612585977ac0e242fcc5857a6d238a89ec"
+ },
+ "code_commit": "a8f0638dc9adb81b18f259cf0813046acd882fa1-dirty",
+ "generated_utc": "2026-10-31T17:22:41Z"
+}

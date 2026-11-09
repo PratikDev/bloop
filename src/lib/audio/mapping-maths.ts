@@ -3,7 +3,7 @@
 
 import type { BandsMapping, ContinuousMapping, MappingSpec, RuntimeRangeMapping } from "@/types/data-contract";
 import { MAPPING, voiceSpec } from "./mapping-spec";
-import { MappingError } from "./mapping-validate";
+import { checkRange, fail, MappingError } from "./mapping-validate";
 
 const clamp = (x: number, lo: number, hi: number) => Math.min(hi, Math.max(lo, x));
 
@@ -26,12 +26,12 @@ export function normalise(
   return clamp((value - input.min) / (input.max - input.min), 0, 1);
 }
 
-/** t in [0,1] → output value. */
+/** t in [0,1] → output value (falling: a higher t gives a lower output). */
 export function scaleOutput(
   t: number,
-  output: { min: number; max: number; scale: "linear" | "exponential"; round?: boolean },
+  output: { min: number; max: number; scale: "linear" | "exponential"; round?: boolean; falling?: boolean },
 ): number {
-  const tt = clamp(t, 0, 1);
+  const tt = output.falling ? 1 - clamp(t, 0, 1) : clamp(t, 0, 1);
   const y =
     output.scale === "exponential"
       ? output.min * Math.pow(output.max / output.min, tt)
@@ -45,14 +45,15 @@ export function mapContinuous(value: number | null, mapping: ContinuousMapping):
   return t === null ? null : scaleOutput(t, mapping.output);
 }
 
-/** The inverse of mapContinuous: the input value that produces `output` (clamped to the rule's range). */
+/** The inverse of mapContinuous (falling rules too): the input value that produces `output` (clamped to the rule's range). */
 export function inverseContinuous(output: number, mapping: ContinuousMapping): number {
   const { input, output: out } = mapping;
   const t =
     out.scale === "exponential"
       ? Math.log(output / out.min) / Math.log(out.max / out.min)
       : (output - out.min) / (out.max - out.min);
-  const tt = clamp(Number.isFinite(t) ? t : 0, 0, 1);
+  const position = clamp(Number.isFinite(t) ? t : 0, 0, 1);
+  const tt = out.falling ? 1 - position : position; // a falling rule: a higher output came from a lower value
   if (input.scale === "log") {
     const lo = Math.log10(input.min);
     return Math.pow(10, lo + (Math.log10(input.max) - lo) * tt);
@@ -60,11 +61,42 @@ export function inverseContinuous(output: number, mapping: ContinuousMapping): n
   return input.min + (input.max - input.min) * tt;
 }
 
+/**
+ * The same continuous rule over a narrower input range: a zoomed axis (Sound
+ * terrain plays the ocean rule over a region's own range). Output and scales
+ * stay the rule's own; mapping.json is not changed. Throws on an empty range.
+ */
+export function withInputRange(mapping: ContinuousMapping, range: { min: number; max: number }): ContinuousMapping {
+  checkRange(range.min, range.max, "zoomed axis");
+  if (mapping.input.scale === "log" && range.min <= 0) fail("zoomed axis: log scale needs min > 0");
+  return { ...mapping, input: { ...mapping.input, min: range.min, max: range.max } };
+}
+
+/** A voice's continuous rule, following a sameAs rule to the voice it names. */
+export function continuousRule(id: string, spec: MappingSpec = MAPPING): ContinuousMapping {
+  const m = voiceSpec(id, spec).mapping;
+  const rule = m?.kind === "sameAs" ? voiceSpec(m.voice, spec).mapping : m;
+  if (rule?.kind !== "continuous") throw new MappingError(`voice "${id}" has no continuous rule`);
+  return rule;
+}
+
+/** Semitones per input unit of an exponential pitch rule on a linear input (the Ocean rule: 24 over 40 °C). Null otherwise. */
+export function semitonesPerUnit(rule: ContinuousMapping): number | null {
+  if (rule.output.param !== "frequency" || rule.output.scale !== "exponential" || rule.input.scale !== "linear") return null;
+  return (12 * Math.log2(rule.output.max / rule.output.min)) / (rule.input.max - rule.input.min);
+}
+
+/** Proof in unison (C1): a checked point's two values as Hz on the unison voice's rule, and their beat rate |f1 − f2|. */
+export function unisonTones(frameC: number, fileC: number, spec: MappingSpec = MAPPING): { frameHz: number; fileHz: number; beatsPerSec: number } | null {
+  const rule = continuousRule("unison", spec);
+  const frameHz = mapContinuous(frameC, rule);
+  const fileHz = mapContinuous(fileC, rule);
+  return frameHz === null || fileHz === null ? null : { frameHz, fileHz, beatsPerSec: Math.abs(frameHz - fileHz) };
+}
+
 /** Convenience: apply a voice's continuous rule by id (e.g. mapVoice("ocean", 28.4) → Hz). */
 export function mapVoice(id: string, value: number | null, spec: MappingSpec = MAPPING): number | null {
-  const m = voiceSpec(id, spec).mapping;
-  if (m?.kind !== "continuous") throw new MappingError(`voice "${id}" has no continuous rule`);
-  return mapContinuous(value, m);
+  return mapContinuous(value, continuousRule(id, spec));
 }
 
 export interface BandResult {

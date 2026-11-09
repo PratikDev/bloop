@@ -1,0 +1,157 @@
+{
+ "id": 5150,
+ "title": "GEOS-FP Near-Surface Humidity",
+ "url": "https://svs.gsfc.nasa.gov/5150/",
+ "page_type": "Visualization",
+ "release_date": "2023-09-26T17:00:00-04:00",
+ "update_date": "2026-10-29T02:17:37.697667-04:00",
+ "description": "Near-surface Humidity, also known as specific humidity (Q2M) from NASA’s GEOS-FP system. GEOS-FP combines millions of weather observations with a predictive model to create a global best estimate of weather conditions that are used to begin a forecast.",
+ "full_text": "Near-surface Humidity, also known as specific humidity (Q2M) from NASA’s GEOS-FP system. GEOS-FP combines millions of weather observations with a predictive model to create a global best estimate of weather conditions that are used to begin a forecast.\n\nThis daily-updated visualization shows near-surface humidity data from the last two weeks through the present day. Weather models begin their forecasts by integrating observations from ground stations, aircraft, balloons, and a growing constellation of Earth observing satellites to estimate the most realistic atmospheric state. The Goddard Earth Observing System Forward Processing (GEOS-FP) system is a research model maintained by NASA’s Global Modeling and Assimilation Office to demonstrate innovative new ways to use satellite data to improve predictions of weather, air quality, and greenhouse gases and to help NASA collect new observations of our home planet. <br>\r\n<br>Near-surface humidity, also known as specific humidity (Q2M), measures the actual amount of water vapor present in the air near Earth's surface. This measurement tells us the exact mass of water vapor per unit of air mass, typically measured in grams per kilogram (g/kg). It is calculated using atmospheric temperature and pressure data and remains relatively constant even as temperature changes throughout the day. Near-surface Humidity patterns reveal how moisture moves through the atmosphere via weather systems, ocean evaporation, and land surface processes. Understanding near-surface humidity is crucial for predicting weather patterns, agricultural conditions, and air quality, as it directly influences cloud formation, precipitation development, and the transport of atmospheric pollutants.\n\nNear-Surface Humidity (Q2M) colorbar with semi-transparent background, optimized for Earth Information Center content.\n\nNear-Surface Humidity (Q2M) colorbar.\n\nSee [https://gmao.gsfc.nasa.gov/weather-analysis-prediction/](https://gmao.gsfc.nasa.gov/weather-analysis-prediction/)",
+ "credits_by_role": {
+  "Visualizer": [
+   "Joseph V. Ardizzone (NASA/GSFC)",
+   "Helen-Nicole Kostis (Science and Technology Corporation)"
+  ]
+ },
+ "keywords": [
+  "Earth Information Center",
+  "GMAO",
+  "Hyperwall",
+  "Weather and Atmospheric Dynamics"
+ ],
+ "datasets": [
+  {
+   "name": "GEOS-FP",
+   "common_name": "",
+   "platform": null,
+   "sensor": null,
+   "type": "Model",
+   "organizations": [
+    "NASA GMAO"
+   ],
+   "description": "Documentation: Lucchesi, R., 2018: File Specification for GEOS FP. GMAO Office Note No. 4 (Version 1.2), 61 pp, available from [https://gmao.gsfc.nasa.gov/pubs/docs/Lucchesi1203.pdf](https://gmao.gsfc.nasa.gov/pubs/docs/Lucchesi1203.pdf)",
+   "credit": "",
+   "url": "https://fluid.nccs.nasa.gov/weather/",
+   "date_range": null
+  }
+ ],
+ "missions": [],
+ "related": [
+  {
+   "id": 5669,
+   "title": "GEOS Aerosols (2025)",
+   "url": "https://svs.gsfc.nasa.gov/5669/"
+  },
+  {
+   "id": 5147,
+   "title": "GEOS-FP Near-Surface Temperature",
+   "url": "https://svs.gsfc.nasa.gov/5147/"
+  },
+  {
+   "id": 5148,
+   "title": "GEOS-FP Near-Surface Wind Speed",
+   "url": "https://svs.gsfc.nasa.gov/5148/"
+  },
+  {
+   "id": 5149,
+   "title": "GEOS-FP Precipitation and Clouds",
+   "url": "https://svs.gsfc.nasa.gov/5149/"
+  },
+  {
+   "id": 5151,
+   "title": "Particulate Matter (PM) 2.5",
+   "url": "https://svs.gsfc.nasa.gov/5151/"
+  },
+  {
+   "id": 5152,
+   "title": "Near surface Ozone (O3)",
+   "url": "https://svs.gsfc.nasa.gov/5152/"
+  },
+  {
+   "id": 5153,
+   "title": "Carbon Monoxide (CO)",
+   "url": "https://svs.gsfc.nasa.gov/5153/"
+  },
+  {
+   "id": 5154,
+   "title": "Nitrogen Oxides (NOx)",
+   "url": "https://svs.gsfc.nasa.gov/5154/"
+  }
+ ],
+ "alternate_versions": [],
+ "newer_versions": [],
+ "older_versions": [],
+ "media": [
+  {
+   "group": 0,
+   "group_title": "",
+   "widget": "Video player",
+   "caption": "",
+   "group_text": "Near-surface Humidity, also known as specific humidity (Q2M) from NASA’s GEOS-FP system. GEOS-FP combines millions of weather observations with a predictive model to create a global best estimate of weather conditions that are used to begin a forecast.",
+   "url": "https://svs.gsfc.nasa.gov/vis/a000000/a005100/a005150/MC04_stage3_GMAO_near_surface_humidity_1024x512.png",
+   "filename": "MC04_stage3_GMAO_near_surface_humidity_1024x512.png",
+   "media_type": "Image",
+   "width": 1024,
+   "height": 512,
+   "alt_text": "Near-surface Humidity, also known as specific humidity (Q2M) from NASA’s GEOS-FP system. GEOS-FP combines millions of weather observations with a predictive model to create a global best estimate of weather conditions that are used to begin a forecast."
+  },
+  {
+   "group": 0,
+   "group_title": "",
+   "widget": "Video player",
+   "caption": "",
+   "group_text": "Near-surface Humidity, also known as specific humidity (Q2M) from NASA’s GEOS-FP system. GEOS-FP combines millions of weather observations with a predictive model to create a global best estimate of weather conditions that are used to begin a forecast.",
+   "url": "https://svs.gsfc.nasa.gov/vis/a000000/a005100/a005150/MC04_stage3_GMAO_near_surface_humidity_512x256.png",
+   "filename": "MC04_stage3_GMAO_near_surface_humidity_512x256.png",
+   "media_type": "Image",
+   "width": 512,
+   "height": 256,
+   "alt_text": "Near-surface Humidity, also known as specific humidity (Q2M) from NASA’s GEOS-FP system. GEOS-FP combines millions of weather observations with a predictive model to create a global best estimate of weather conditions that are used to begin a forecast."
+  },
+  {
+   "group": 0,
+   "group_title": "",
+   "widget": "Video player",
+   "caption": "",
+   "group_text": "Near-surface Humidity, also known as specific humidity (Q2M) from NASA’s GEOS-FP system. GEOS-FP combines millions of weather observations with a predictive model to create a global best estimate of weather conditions that are used to begin a forecast.",
+   "url": "https://svs.gsfc.nasa.gov/vis/a000000/a005100/a005150/MC04_stage3_GMAO_near_surface_humidity_2048x1024_en.mp4",
+   "filename": "MC04_stage3_GMAO_near_surface_humidity_2048x1024_en.mp4",
+   "media_type": "Movie",
+   "width": 2048,
+   "height": 1024,
+   "alt_text": "Near-surface Humidity, also known as specific humidity (Q2M) from NASA’s GEOS-FP system. GEOS-FP combines millions of weather observations with a predictive model to create a global best estimate of weather conditions that are used to begin a forecast."
+  },
+  {
+   "group": 2,
+   "group_title": "",
+   "widget": "Single image",
+   "caption": "Near-Surface Humidity (Q2M) colorbar with semi-transparent background, optimized for Earth Information Center content.",
+   "group_text": "",
+   "url": "https://svs.gsfc.nasa.gov/vis/a000000/a005100/a005150/NearSurfaceHumidity_colorbar.png",
+   "filename": "NearSurfaceHumidity_colorbar.png",
+   "media_type": "Image",
+   "width": 528,
+   "height": 165,
+   "alt_text": ""
+  },
+  {
+   "group": 3,
+   "group_title": "",
+   "widget": "Single image",
+   "caption": "Near-Surface Humidity (Q2M) colorbar.",
+   "group_text": "",
+   "url": "https://svs.gsfc.nasa.gov/vis/a000000/a005100/a005150/NearSurfaceHumidity_colorbar_plain.png",
+   "filename": "NearSurfaceHumidity_colorbar_plain.png",
+   "media_type": "Image",
+   "width": 528,
+   "height": 165,
+   "alt_text": ""
+  }
+ ],
+ "text_links": [
+  "https://gmao.gsfc.nasa.gov/weather-analysis-prediction/"
+ ],
+ "frame_folders": {},
+ "api_url": "https://svs.gsfc.nasa.gov/api/5150",
+ "fetched_utc": "2026-10-29T07:41:26Z"
+}

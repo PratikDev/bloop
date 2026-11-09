@@ -1,0 +1,20 @@
+{
+ "record": "rel_4417",
+ "checks": [
+  {
+   "record": "rel_4417",
+   "id": "a_no_validation_source",
+   "title": "2014 - 2015 Atmospheric River: no validation source",
+   "kind": "none",
+   "source": null,
+   "metrics": {
+    "reason": "no key: brightness pattern only, nothing to compare with values"
+   },
+   "threshold": null,
+   "pass": null,
+   "note": "no key: brightness pattern only, nothing to compare with values",
+   "run_utc": "2026-10-31T17:05:15Z"
+  }
+ ],
+ "updated_utc": "2026-10-31T17:05:15Z"
+}

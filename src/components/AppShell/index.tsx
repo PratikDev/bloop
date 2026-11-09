@@ -1,7 +1,9 @@
 "use client";
 
+import { useEffect } from "react";
 import { Outlet } from "@tanstack/react-router";
 import { MotionConfig } from "motion/react";
+import { startEngineHandOff } from "@/lib/audio-engines";
 import { AnnouncerProvider } from "../Announcer";
 import { AppStateProvider } from "../AppState";
 import { useAppState, useT } from "../AppState/use-app-state";
@@ -28,6 +30,8 @@ function Shell() {
   const timeLapse = useTimeLapse();
   useGlobalEscape(commands, timeLapse.stop);
   useRouteSync();
+  // The two sound engines never play at once unless a page asks (src/lib/audio-engines.ts).
+  useEffect(() => startEngineHandOff(), []);
   // Home is the start screen itself; any other page opened before Start waits behind the gate.
   const gated = !state.started && state.mode !== "home";
   // While the intro plays, Skip intro is the only thing that can take focus (as before the redesign).

@@ -1,0 +1,425 @@
+{
+ "id": 5176,
+ "title": "Sea Surface Temperature (SST) Anomaly - Near Real Time",
+ "url": "https://svs.gsfc.nasa.gov/5176/",
+ "page_type": "Visualization",
+ "release_date": "2023-10-16T00:00:00-04:00",
+ "update_date": "2026-10-24T19:30:16.572743-04:00",
+ "description": "An equirectangular view of sea surface temperature (SST) anomaly data for the past two and half years, updated daily to include the latest available data. || sst_mur_anomaly_print.jpg (1024x512) [246.1 KB] || sst_mur_anomaly_searchweb.png (320x180) [101.7 KB] || sst_mur_anomaly_20231014_thm.png (80x40) [7.4 KB] || sst_mur_anomaly (4096x2048) [0 Item(s)] || sst_anomaly_30_sec_4096x2048_2x1_30p.mp4 (4096x2048) [338.0 MB] ||",
+ "full_text": "An equirectangular view of sea surface temperature (SST) anomaly data for the past two and half years, updated daily to include the latest available data. || sst_mur_anomaly_print.jpg (1024x512) [246.1 KB] || sst_mur_anomaly_searchweb.png (320x180) [101.7 KB] || sst_mur_anomaly_20231014_thm.png (80x40) [7.4 KB] || sst_mur_anomaly (4096x2048) [0 Item(s)] || sst_anomaly_30_sec_4096x2048_2x1_30p.mp4 (4096x2048) [338.0 MB] ||\n\nAn equirectangular view of sea surface temperature (SST) anomaly data for the past two and half years, updated daily to include the latest available data.\n\nThis visualization shows Sea Surface Temperature (SST) Anomaly data from the Jet Propulsion Laboratory (JPL) Multi-scale Ultra-high Resolution (MUR) Sea Surface Temperature Analysis. The analysis data is near-real-time (one day latency) and the visualization is updated daily to include the latest available data.  <br><br>Data available here: <a href=\"https://podaac.jpl.nasa.gov/dataset/MUR-JPL-L4-GLOB-v4.1\" target=\"_blank\">https://podaac.jpl.nasa.gov/dataset/MUR-JPL-L4-GLOB-v4.1</a>\n\nStill image of the most recent sea surface temperature (SST) anomaly data available. Equirectangular view.\n\nAn equirectangular view of sea surface temperature (SST) anomaly data for the past two and half years, updated daily to include the latest available data. This version is centered on the Pacific.\n\nStill image of the most recent sea surface temperature (SST) anomaly data available. Equirectangular view. This version is centered on the Pacific Ocean.\n\nAn equirectangular view of the most recent sea surface temperature (SST) anomaly data available (still image). This version has no datestamp.\n\nStill image of the most recent sea surface temperature (SST) anomaly data available. Equirectangular view. This version has no datestamp.\n\nA view of sea surface temperature (SST) anomaly data for the past two and half years, updated daily to include the latest available data. This version is a robinson projection.\n\nStill image of the most recent sea surface temperature (SST) anomaly data available. Robinson projection.\n\nThis is the colorbar for SeaSurface Temperature (SST) anomaly data shown above. The color shading changes from blue - white - red. And the color range is -4 to 4 with the unit of degrees Celsius.",
+ "credits_by_role": {
+  "Visualizer": [
+   "Kel Elkins (USRA)"
+  ],
+  "Technical support": [
+   "Laurence Schuler (ADNET Systems, Inc.)",
+   "Ian Jones (ADNET Systems, Inc.)"
+  ],
+  "Scientist": [
+   "Atousa Saberi (NASA/GSFC)"
+  ]
+ },
+ "keywords": [
+  "Automated",
+  "Earth Information Center",
+  "Earth Science",
+  "Eic (earth information center) display",
+  "Hyperwall",
+  "Ocean",
+  "Ocean Temperature",
+  "Oceans",
+  "Physical oceanography",
+  "Science On a Sphere",
+  "sea surface temperature"
+ ],
+ "datasets": [
+  {
+   "name": "Multi-scale Ultra-high Resolution (MUR) Sea Surface Temperature (SST) Analysis",
+   "common_name": "MUR SST",
+   "platform": null,
+   "sensor": null,
+   "type": "Analysis",
+   "organizations": [
+    "JPL PO DAAC"
+   ],
+   "description": "",
+   "credit": "",
+   "url": "",
+   "date_range": null
+  }
+ ],
+ "missions": [],
+ "related": [
+  {
+   "id": 5688,
+   "title": "El Niño 2026: Sea Surface Temperature Anomaly (2025 vs. 2026) – Updated Daily",
+   "url": "https://svs.gsfc.nasa.gov/5688/"
+  },
+  {
+   "id": 5663,
+   "title": "Sea Surface Height Anomaly (SSHA) - Updated weekly",
+   "url": "https://svs.gsfc.nasa.gov/5663/"
+  },
+  {
+   "id": 4809,
+   "title": "Earth Day 2020: Sea Surface Temperature (SST) from January 2016 through March 2020",
+   "url": "https://svs.gsfc.nasa.gov/4809/"
+  }
+ ],
+ "alternate_versions": [],
+ "newer_versions": [],
+ "older_versions": [],
+ "media": [
+  {
+   "group": 0,
+   "group_title": "",
+   "widget": "Video player",
+   "caption": "",
+   "group_text": "An equirectangular view of sea surface temperature (SST) anomaly data for the past two and half years, updated daily to include the latest available data.",
+   "url": "https://svs.gsfc.nasa.gov/vis/a000000/a005100/a005176/sst_mur_anomaly_print.jpg",
+   "filename": "sst_mur_anomaly_print.jpg",
+   "media_type": "Image",
+   "width": 1024,
+   "height": 512,
+   "alt_text": "An equirectangular view of sea surface temperature (SST) anomaly data for the past two and half years, updated daily to include the latest available data."
+  },
+  {
+   "group": 0,
+   "group_title": "",
+   "widget": "Video player",
+   "caption": "",
+   "group_text": "An equirectangular view of sea surface temperature (SST) anomaly data for the past two and half years, updated daily to include the latest available data.",
+   "url": "https://svs.gsfc.nasa.gov/vis/a000000/a005100/a005176/sst_mur_anomaly_searchweb.png",
+   "filename": "sst_mur_anomaly_searchweb.png",
+   "media_type": "Image",
+   "width": 320,
+   "height": 180,
+   "alt_text": "An equirectangular view of sea surface temperature (SST) anomaly data for the past two and half years, updated daily to include the latest available data."
+  },
+  {
+   "group": 0,
+   "group_title": "",
+   "widget": "Video player",
+   "caption": "",
+   "group_text": "An equirectangular view of sea surface temperature (SST) anomaly data for the past two and half years, updated daily to include the latest available data.",
+   "url": "https://svs.gsfc.nasa.gov/vis/a000000/a005100/a005176/sst_mur_anomaly_20231014_thm.png",
+   "filename": "sst_mur_anomaly_20231014_thm.png",
+   "media_type": "Image",
+   "width": 80,
+   "height": 40,
+   "alt_text": "An equirectangular view of sea surface temperature (SST) anomaly data for the past two and half years, updated daily to include the latest available data."
+  },
+  {
+   "group": 0,
+   "group_title": "",
+   "widget": "Video player",
+   "caption": "",
+   "group_text": "An equirectangular view of sea surface temperature (SST) anomaly data for the past two and half years, updated daily to include the latest available data.",
+   "url": "https://svs.gsfc.nasa.gov/vis/a000000/a005100/a005176/frames/4096x2048_2x1_30p/sst_mur_anomaly/",
+   "filename": "sst_mur_anomaly",
+   "media_type": "Frames",
+   "width": 4096,
+   "height": 2048,
+   "alt_text": "An equirectangular view of sea surface temperature (SST) anomaly data for the past two and half years, updated daily to include the latest available data."
+  },
+  {
+   "group": 0,
+   "group_title": "",
+   "widget": "Video player",
+   "caption": "",
+   "group_text": "An equirectangular view of sea surface temperature (SST) anomaly data for the past two and half years, updated daily to include the latest available data.",
+   "url": "https://svs.gsfc.nasa.gov/vis/a000000/a005100/a005176/sst_anomaly_30_sec_4096x2048_2x1_30p.mp4",
+   "filename": "sst_anomaly_30_sec_4096x2048_2x1_30p.mp4",
+   "media_type": "Movie",
+   "width": 4096,
+   "height": 2048,
+   "alt_text": "An equirectangular view of sea surface temperature (SST) anomaly data for the past two and half years, updated daily to include the latest available data."
+  },
+  {
+   "group": 2,
+   "group_title": "",
+   "widget": "Single image",
+   "caption": "",
+   "group_text": "Still image of the most recent sea surface temperature (SST) anomaly data available. Equirectangular view. ",
+   "url": "https://svs.gsfc.nasa.gov/vis/a000000/a005100/a005176/sst_mur_anomaly_most_recent_print.jpg",
+   "filename": "sst_mur_anomaly_most_recent_print.jpg",
+   "media_type": "Image",
+   "width": 1024,
+   "height": 512,
+   "alt_text": "Still image of the most recent sea surface temperature (SST) anomaly data available. Equirectangular view. "
+  },
+  {
+   "group": 2,
+   "group_title": "",
+   "widget": "Single image",
+   "caption": "",
+   "group_text": "Still image of the most recent sea surface temperature (SST) anomaly data available. Equirectangular view. ",
+   "url": "https://svs.gsfc.nasa.gov/vis/a000000/a005100/a005176/sst_mur_anomaly_most_recent.exr",
+   "filename": "sst_mur_anomaly_most_recent.exr",
+   "media_type": "Image",
+   "width": 4096,
+   "height": 2048,
+   "alt_text": "Still image of the most recent sea surface temperature (SST) anomaly data available. Equirectangular view. "
+  },
+  {
+   "group": 3,
+   "group_title": "",
+   "widget": "Video player",
+   "caption": "",
+   "group_text": "An equirectangular view of sea surface temperature (SST) anomaly data for the past two and half years, updated daily to include the latest available data. This version is centered on the Pacific. ",
+   "url": "https://svs.gsfc.nasa.gov/vis/a000000/a005100/a005176/sst_mur_anomaly_pacific_print.jpg",
+   "filename": "sst_mur_anomaly_pacific_print.jpg",
+   "media_type": "Image",
+   "width": 1024,
+   "height": 512,
+   "alt_text": "An equirectangular view of sea surface temperature (SST) anomaly data for the past two and half years, updated daily to include the latest available data. This version is centered on the Pacific. "
+  },
+  {
+   "group": 3,
+   "group_title": "",
+   "widget": "Video player",
+   "caption": "",
+   "group_text": "An equirectangular view of sea surface temperature (SST) anomaly data for the past two and half years, updated daily to include the latest available data. This version is centered on the Pacific. ",
+   "url": "https://svs.gsfc.nasa.gov/vis/a000000/a005100/a005176/frames/4096x2048_2x1_30p/sst_mur_anomaly_pacific/",
+   "filename": "sst_mur_anomaly_pacific",
+   "media_type": "Frames",
+   "width": 4096,
+   "height": 2048,
+   "alt_text": "An equirectangular view of sea surface temperature (SST) anomaly data for the past two and half years, updated daily to include the latest available data. This version is centered on the Pacific. "
+  },
+  {
+   "group": 3,
+   "group_title": "",
+   "widget": "Video player",
+   "caption": "",
+   "group_text": "An equirectangular view of sea surface temperature (SST) anomaly data for the past two and half years, updated daily to include the latest available data. This version is centered on the Pacific. ",
+   "url": "https://svs.gsfc.nasa.gov/vis/a000000/a005100/a005176/sst_anomaly_pacific_30_sec_4096x2048_2x1_30p.mp4",
+   "filename": "sst_anomaly_pacific_30_sec_4096x2048_2x1_30p.mp4",
+   "media_type": "Movie",
+   "width": 4096,
+   "height": 2048,
+   "alt_text": "An equirectangular view of sea surface temperature (SST) anomaly data for the past two and half years, updated daily to include the latest available data. This version is centered on the Pacific. "
+  },
+  {
+   "group": 4,
+   "group_title": "",
+   "widget": "Single image",
+   "caption": "",
+   "group_text": "Still image of the most recent sea surface temperature (SST) anomaly data available. Equirectangular view. This version is centered on the Pacific Ocean. ",
+   "url": "https://svs.gsfc.nasa.gov/vis/a000000/a005100/a005176/sst_mur_anomaly_pacific_most_recent_print.jpg",
+   "filename": "sst_mur_anomaly_pacific_most_recent_print.jpg",
+   "media_type": "Image",
+   "width": 1024,
+   "height": 512,
+   "alt_text": "Still image of the most recent sea surface temperature (SST) anomaly data available. Equirectangular view. This version is centered on the Pacific Ocean. "
+  },
+  {
+   "group": 4,
+   "group_title": "",
+   "widget": "Single image",
+   "caption": "",
+   "group_text": "Still image of the most recent sea surface temperature (SST) anomaly data available. Equirectangular view. This version is centered on the Pacific Ocean. ",
+   "url": "https://svs.gsfc.nasa.gov/vis/a000000/a005100/a005176/sst_mur_anomaly_pacific_most_recent.exr",
+   "filename": "sst_mur_anomaly_pacific_most_recent.exr",
+   "media_type": "Image",
+   "width": 4096,
+   "height": 2048,
+   "alt_text": "Still image of the most recent sea surface temperature (SST) anomaly data available. Equirectangular view. This version is centered on the Pacific Ocean. "
+  },
+  {
+   "group": 5,
+   "group_title": "",
+   "widget": "Video player",
+   "caption": "",
+   "group_text": "An equirectangular view of the most recent sea surface temperature (SST) anomaly data available (still image). This version has no datestamp.",
+   "url": "https://svs.gsfc.nasa.gov/vis/a000000/a005100/a005176/sst_mur_anomaly_nodates_print.jpg",
+   "filename": "sst_mur_anomaly_nodates_print.jpg",
+   "media_type": "Image",
+   "width": 1024,
+   "height": 512,
+   "alt_text": "An equirectangular view of the most recent sea surface temperature (SST) anomaly data available (still image). This version has no datestamp."
+  },
+  {
+   "group": 5,
+   "group_title": "",
+   "widget": "Video player",
+   "caption": "",
+   "group_text": "An equirectangular view of the most recent sea surface temperature (SST) anomaly data available (still image). This version has no datestamp.",
+   "url": "https://svs.gsfc.nasa.gov/vis/a000000/a005100/a005176/frames/4096x2048_2x1_30p/sst_mur_anomaly_nodates/",
+   "filename": "sst_mur_anomaly_nodates",
+   "media_type": "Frames",
+   "width": 4096,
+   "height": 2048,
+   "alt_text": "An equirectangular view of the most recent sea surface temperature (SST) anomaly data available (still image). This version has no datestamp."
+  },
+  {
+   "group": 5,
+   "group_title": "",
+   "widget": "Video player",
+   "caption": "",
+   "group_text": "An equirectangular view of the most recent sea surface temperature (SST) anomaly data available (still image). This version has no datestamp.",
+   "url": "https://svs.gsfc.nasa.gov/vis/a000000/a005100/a005176/sst_anomaly_nodates_30_sec_4096x2048_2x1_30p.mp4",
+   "filename": "sst_anomaly_nodates_30_sec_4096x2048_2x1_30p.mp4",
+   "media_type": "Movie",
+   "width": 4096,
+   "height": 2048,
+   "alt_text": "An equirectangular view of the most recent sea surface temperature (SST) anomaly data available (still image). This version has no datestamp."
+  },
+  {
+   "group": 6,
+   "group_title": "",
+   "widget": "Single image",
+   "caption": "",
+   "group_text": "Still image of the most recent sea surface temperature (SST) anomaly data available. Equirectangular view. This version has no datestamp.",
+   "url": "https://svs.gsfc.nasa.gov/vis/a000000/a005100/a005176/sst_mur_anomaly_nodates_most_recent_print.jpg",
+   "filename": "sst_mur_anomaly_nodates_most_recent_print.jpg",
+   "media_type": "Image",
+   "width": 1024,
+   "height": 512,
+   "alt_text": "Still image of the most recent sea surface temperature (SST) anomaly data available. Equirectangular view. This version has no datestamp."
+  },
+  {
+   "group": 6,
+   "group_title": "",
+   "widget": "Single image",
+   "caption": "",
+   "group_text": "Still image of the most recent sea surface temperature (SST) anomaly data available. Equirectangular view. This version has no datestamp.",
+   "url": "https://svs.gsfc.nasa.gov/vis/a000000/a005100/a005176/sst_mur_anomaly_nodates_most_recent.exr",
+   "filename": "sst_mur_anomaly_nodates_most_recent.exr",
+   "media_type": "Image",
+   "width": 4096,
+   "height": 2048,
+   "alt_text": "Still image of the most recent sea surface temperature (SST) anomaly data available. Equirectangular view. This version has no datestamp."
+  },
+  {
+   "group": 7,
+   "group_title": "",
+   "widget": "Video player",
+   "caption": "",
+   "group_text": "A view of sea surface temperature (SST) anomaly data for the past two and half years, updated daily to include the latest available data. This version is a robinson projection.",
+   "url": "https://svs.gsfc.nasa.gov/vis/a000000/a005100/a005176/sst_mur_anomaly_robinson_print.jpg",
+   "filename": "sst_mur_anomaly_robinson_print.jpg",
+   "media_type": "Image",
+   "width": 1024,
+   "height": 512,
+   "alt_text": "A view of sea surface temperature (SST) anomaly data for the past two and half years, updated daily to include the latest available data. This version is a robinson projection."
+  },
+  {
+   "group": 7,
+   "group_title": "",
+   "widget": "Video player",
+   "caption": "",
+   "group_text": "A view of sea surface temperature (SST) anomaly data for the past two and half years, updated daily to include the latest available data. This version is a robinson projection.",
+   "url": "https://svs.gsfc.nasa.gov/vis/a000000/a005100/a005176/frames/4096x2048_2x1_30p/sst_mur_anomaly_robinson/",
+   "filename": "sst_mur_anomaly_robinson",
+   "media_type": "Frames",
+   "width": 4096,
+   "height": 2048,
+   "alt_text": "A view of sea surface temperature (SST) anomaly data for the past two and half years, updated daily to include the latest available data. This version is a robinson projection."
+  },
+  {
+   "group": 7,
+   "group_title": "",
+   "widget": "Video player",
+   "caption": "",
+   "group_text": "A view of sea surface temperature (SST) anomaly data for the past two and half years, updated daily to include the latest available data. This version is a robinson projection.",
+   "url": "https://svs.gsfc.nasa.gov/vis/a000000/a005100/a005176/sst_anomaly_robinson_30_sec_4096x2048_2x1_30p.mp4",
+   "filename": "sst_anomaly_robinson_30_sec_4096x2048_2x1_30p.mp4",
+   "media_type": "Movie",
+   "width": 4096,
+   "height": 2048,
+   "alt_text": "A view of sea surface temperature (SST) anomaly data for the past two and half years, updated daily to include the latest available data. This version is a robinson projection."
+  },
+  {
+   "group": 8,
+   "group_title": "",
+   "widget": "Single image",
+   "caption": "",
+   "group_text": "Still image of the most recent sea surface temperature (SST) anomaly data available. Robinson projection. ",
+   "url": "https://svs.gsfc.nasa.gov/vis/a000000/a005100/a005176/sst_mur_anomaly_robinson_most_recent_print.jpg",
+   "filename": "sst_mur_anomaly_robinson_most_recent_print.jpg",
+   "media_type": "Image",
+   "width": 1024,
+   "height": 512,
+   "alt_text": "Still image of the most recent sea surface temperature (SST) anomaly data available. Robinson projection. "
+  },
+  {
+   "group": 8,
+   "group_title": "",
+   "widget": "Single image",
+   "caption": "",
+   "group_text": "Still image of the most recent sea surface temperature (SST) anomaly data available. Robinson projection. ",
+   "url": "https://svs.gsfc.nasa.gov/vis/a000000/a005100/a005176/sst_mur_anomaly_robinson_most_recent.exr",
+   "filename": "sst_mur_anomaly_robinson_most_recent.exr",
+   "media_type": "Image",
+   "width": 4096,
+   "height": 2048,
+   "alt_text": "Still image of the most recent sea surface temperature (SST) anomaly data available. Robinson projection. "
+  },
+  {
+   "group": 9,
+   "group_title": "",
+   "widget": "Single image",
+   "caption": "",
+   "group_text": "This is the colorbar for SeaSurface Temperature (SST) anomaly data shown above. The color shading changes from blue - white - red. And the color range is -4 to 4 with the unit of degrees Celsius.",
+   "url": "https://svs.gsfc.nasa.gov/vis/a000000/a005100/a005176/sst_mur_anomaly_auto_colorbar_01_print.jpg",
+   "filename": "sst_mur_anomaly_auto_colorbar_01_print.jpg",
+   "media_type": "Image",
+   "width": 1024,
+   "height": 512,
+   "alt_text": "This is the colorbar for SeaSurface Temperature (SST) anomaly data shown above. The color shading changes from blue - white - red. And the color range is -4 to 4 with the unit of degrees Celsius."
+  },
+  {
+   "group": 9,
+   "group_title": "",
+   "widget": "Single image",
+   "caption": "",
+   "group_text": "This is the colorbar for SeaSurface Temperature (SST) anomaly data shown above. The color shading changes from blue - white - red. And the color range is -4 to 4 with the unit of degrees Celsius.",
+   "url": "https://svs.gsfc.nasa.gov/vis/a000000/a005100/a005176/sst_mur_anomaly_auto_colorbar_01.exr",
+   "filename": "sst_mur_anomaly_auto_colorbar_01.exr",
+   "media_type": "Image",
+   "width": 4096,
+   "height": 2048,
+   "alt_text": "This is the colorbar for SeaSurface Temperature (SST) anomaly data shown above. The color shading changes from blue - white - red. And the color range is -4 to 4 with the unit of degrees Celsius."
+  }
+ ],
+ "text_links": [
+  "https://podaac.jpl.nasa.gov/dataset/MUR-JPL-L4-GLOB-v4.1"
+ ],
+ "frame_folders": {
+  "https://svs.gsfc.nasa.gov/vis/a000000/a005100/a005176/frames/4096x2048_2x1_30p/sst_mur_anomaly/": {
+   "url": "https://svs.gsfc.nasa.gov/vis/a000000/a005100/a005176/frames/4096x2048_2x1_30p/sst_mur_anomaly/",
+   "frame_count": 901,
+   "bytes_approx": null,
+   "first": "sst_mur_anomaly_20240508.exr",
+   "last": "sst_mur_anomaly_20261025.exr",
+   "subfolders": {}
+  },
+  "https://svs.gsfc.nasa.gov/vis/a000000/a005100/a005176/frames/4096x2048_2x1_30p/sst_mur_anomaly_pacific/": {
+   "url": "https://svs.gsfc.nasa.gov/vis/a000000/a005100/a005176/frames/4096x2048_2x1_30p/sst_mur_anomaly_pacific/",
+   "frame_count": 901,
+   "bytes_approx": 18438400000,
+   "first": "sst_mur_anomaly_pacific_20240508.exr",
+   "last": "sst_mur_anomaly_pacific_20261025.exr",
+   "subfolders": {}
+  },
+  "https://svs.gsfc.nasa.gov/vis/a000000/a005100/a005176/frames/4096x2048_2x1_30p/sst_mur_anomaly_nodates/": {
+   "url": "https://svs.gsfc.nasa.gov/vis/a000000/a005100/a005176/frames/4096x2048_2x1_30p/sst_mur_anomaly_nodates/",
+   "frame_count": 901,
+   "bytes_approx": null,
+   "first": "sst_mur_anomaly_nodates_20240508.exr",
+   "last": "sst_mur_anomaly_nodates_20261025.exr",
+   "subfolders": {}
+  },
+  "https://svs.gsfc.nasa.gov/vis/a000000/a005100/a005176/frames/4096x2048_2x1_30p/sst_mur_anomaly_robinson/": {
+   "url": "https://svs.gsfc.nasa.gov/vis/a000000/a005100/a005176/frames/4096x2048_2x1_30p/sst_mur_anomaly_robinson/",
+   "frame_count": 901,
+   "bytes_approx": 17757399999,
+   "first": "sst_mur_anomaly_robinson_20240508.exr",
+   "last": "sst_mur_anomaly_robinson_20261025.exr",
+   "subfolders": {}
+  }
+ },
+ "api_url": "https://svs.gsfc.nasa.gov/api/5176",
+ "fetched_utc": "2026-10-29T07:41:51Z"
+}

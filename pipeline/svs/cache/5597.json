@@ -1,0 +1,333 @@
+{
+ "id": 5597,
+ "title": "Los Angeles Palisades and Eaton Wildfires: 2025 Year in Review",
+ "url": "https://svs.gsfc.nasa.gov/5597/",
+ "page_type": "Visualization",
+ "release_date": "2025-12-30T17:18:00-05:00",
+ "update_date": "2025-12-30T17:03:42.488592-05:00",
+ "description": "Part of our 2025 Year in Review series examining major wildfire events, this analysis of the January 2025 Los Angeles Palisades and Eaton wildfires leverages NASA's satellite data, models, and computing power to reveal fire behavior and impacts. Five visualization assets show fire information, black carbon dispersal, air quality effects, weather conditions, and progression, demonstrating how technology helps understand wildfire dynamics.",
+ "full_text": "Part of our 2025 Year in Review series examining major wildfire events, this analysis of the January 2025 Los Angeles Palisades and Eaton wildfires leverages NASA's satellite data, models, and computing power to reveal fire behavior and impacts. Five visualization assets show fire information, black carbon dispersal, air quality effects, weather conditions, and progression, demonstrating how technology helps understand wildfire dynamics.\n\nComposite visualization of the Earth Information Center Wildland Fires data dashboard layout and its data assets for the Los Angeles Palisades and Eaton wildfires, January 2025.\n\nWildland fires pose significant threats to ecosystems, property, and human lives. Leveraging NASA's satellite data, advanced models, visualization capacity and computing power, we analyze fire events, monitor how weather conditions impact fires and how regional air quality affects communities. This analysis of the January 2025 Los Angeles Palisades and Eaton wildfires is part of our 2025 Year in Review series, where we look back at several major fire events from 2025.\r\n\r\nThis analysis follows a similar format to our [Daily Visualizations of the Largest Wildfires in the United States ](https://svs.gsfc.nasa.gov/5557/), but for this 2025 Year in Review series, we targeted specific wildfires for a specific duration. We examine each wildfire through five data-driven visualization assets:\r\n\r\n* Fire Information (format: still image)\r\n* Progression of Fire (format: movie, duration: 30secs)\r\n* GEOS Black Carbon (format: movie, duration: 30secs)\r\n* GEOS Fire Monitor: Regional Air Quality (format: movie, duration: 30secs)\r\n* GEOS Fire Monitor: Regional Weather (format: movie, duration: 30secs)\r\n\r\nThese visualizations reveal the complex dynamics of wildfire behavior and demonstrate how advanced Earth observation technology helps us understand both immediate threats and long-term environmental impacts. The January 2025 Los Angeles fires, which devastated communities and displaced thousands of residents, exemplify the critical need for comprehensive wildfire monitoring and analysis.\r\n\r\nThe visualization assets available in this webpage are designed to be modular and serve multiple purposes. They work together as a comprehensive display on Hyperwall systems (32:9 aspect ratio, 7680x2160 resolution) at Earth Information Center (earth.gov) exhibits, as shown above, or as smaller collections, or each visual asset can be used independently. All assets are freely and openly available for public use, allowing for flexible implementation across different platforms, display sizes and production needs.\n\nStill image displaying essential information about the Los Angeles wildfire event, including identification, location, impact area, and operational status.\n\nVisualization showing Los Angeles wildfire progression based on fire perimeter data from the Near Real Time Fire Event Data Suite (FEDS) OGC Application Programming Interface (API).\n\nVisualization of Black Carbon from NASA’s Goddard Earth Observing System (GEOS) model for the Los Angeles wildfire.\n\nVisualization of regional air quality indicators from NASA's Goddard Earth Observing System (GEOS) model during the Los Angeles wildfire.\n\nVisualization of regional weather indicators from NASA’s Goddard Earth Observing System (GEOS) model during the Los Angeles wildfire.",
+ "credits_by_role": {
+  "Visualizer": [
+   "Zoey N. Armstrong (Navteca, LLC.)",
+   "Joseph V. Ardizzone (NASA/GSFC)",
+   "Helen-Nicole Kostis (Science and Technology Corporation)"
+  ],
+  "Support": [
+   "Ella Kaplan (Global Science and Technology, Inc.)",
+   "Laurence Schuler (ADNET Systems, Inc.)",
+   "Ian Jones (ADNET Systems, Inc.)"
+  ]
+ },
+ "keywords": [
+  "Earth Information Center",
+  "GEOS",
+  "GMAO",
+  "Natural Disaster",
+  "Wildfires"
+ ],
+ "datasets": [
+  {
+   "name": "GEOS Atmospheric Model",
+   "common_name": "",
+   "platform": null,
+   "sensor": null,
+   "type": "Model",
+   "organizations": [
+    "NASA GMAO"
+   ],
+   "description": "",
+   "credit": "",
+   "url": "",
+   "date_range": ""
+  },
+  {
+   "name": "GEOS Forward Processing 2Km Replay",
+   "common_name": "GEOS-FP 2Km Replay",
+   "platform": null,
+   "sensor": null,
+   "type": "Model",
+   "organizations": [],
+   "description": "",
+   "credit": "",
+   "url": "",
+   "date_range": ""
+  },
+  {
+   "name": "GEOS Composition Forecast",
+   "common_name": "GEOS-CF",
+   "platform": null,
+   "sensor": null,
+   "type": "Model",
+   "organizations": [],
+   "description": "",
+   "credit": "",
+   "url": "https://gmao.gsfc.nasa.gov/gmao-products/geos-cf/",
+   "date_range": ""
+  },
+  {
+   "name": "GEOS-FP",
+   "common_name": "",
+   "platform": null,
+   "sensor": null,
+   "type": "Model",
+   "organizations": [
+    "NASA GMAO"
+   ],
+   "description": "Documentation: Lucchesi, R., 2018: File Specification for GEOS FP. GMAO Office Note No. 4 (Version 1.2), 61 pp, available from [https://gmao.gsfc.nasa.gov/pubs/docs/Lucchesi1203.pdf](https://gmao.gsfc.nasa.gov/pubs/docs/Lucchesi1203.pdf)",
+   "credit": "",
+   "url": "https://fluid.nccs.nasa.gov/weather/",
+   "date_range": ""
+  },
+  {
+   "name": "Fire Events Data Suite",
+   "common_name": "FEDS",
+   "platform": "NOAA-20 and SUOMI-NPP",
+   "sensor": "VIIRS",
+   "type": "Observed Data",
+   "organizations": [],
+   "description": "",
+   "credit": "Tempest McCabe, Douglas Morton, Melanie Follette-Cook, Elijah Orland, Zeb Becker, Yang Chen, Rebecca Scholten, Greg Corradini, Julia Signel, Alexey Shiklomanov, Kateria Sheronin, and Jim Randerson",
+   "url": "https://earth-information-system.github.io/fireatlas/docs/nrt.html",
+   "date_range": ""
+  },
+  {
+   "name": "FEDS OGC API",
+   "common_name": "",
+   "platform": null,
+   "sensor": null,
+   "type": "Data Compilation",
+   "organizations": [],
+   "description": "",
+   "credit": "",
+   "url": "https://earth-information-system.github.io/fireatlas/docs/nrt.html",
+   "date_range": ""
+  },
+  {
+   "name": "Quick Fire Emissions Dataset",
+   "common_name": "QFED",
+   "platform": "MODIS",
+   "sensor": null,
+   "type": "Other",
+   "organizations": [],
+   "description": "",
+   "credit": "",
+   "url": "https://ntrs.nasa.gov/citations/20180005253",
+   "date_range": ""
+  },
+  {
+   "name": "Integrated Reporting of Wildfire Information",
+   "common_name": "IRWIN",
+   "platform": null,
+   "sensor": null,
+   "type": "Other",
+   "organizations": [],
+   "description": "",
+   "credit": "",
+   "url": "https://www.wildfire.gov/application/irwin-integrated-reporting-wildfire-information",
+   "date_range": ""
+  }
+ ],
+ "missions": [],
+ "related": [
+  {
+   "id": 5668,
+   "title": "Unprecedented Wildfires in the Pacific Northwest Engulf the Region in Smoke",
+   "url": "https://svs.gsfc.nasa.gov/5668/"
+  },
+  {
+   "id": 5666,
+   "title": "Smoke from Record-Breaking Wildfires in Spain and France",
+   "url": "https://svs.gsfc.nasa.gov/5666/"
+  },
+  {
+   "id": 5665,
+   "title": "Long-range Transport of 2026 Canadian Wildfire Smoke into the United States (July 14-20, 2026)",
+   "url": "https://svs.gsfc.nasa.gov/5665/"
+  },
+  {
+   "id": 5664,
+   "title": "Long-range Transport of 2026 Canadian Wildfire Smoke into the United States (July 14-17, 2026)",
+   "url": "https://svs.gsfc.nasa.gov/5664/"
+  },
+  {
+   "id": 5639,
+   "title": "Daily Visualizations of the Largest Wildfires in the United States: 2026",
+   "url": "https://svs.gsfc.nasa.gov/5639/"
+  },
+  {
+   "id": 5631,
+   "title": "Long-range Transport of 2023 Canadian Wildfire Smoke into the Northeastern United States",
+   "url": "https://svs.gsfc.nasa.gov/5631/"
+  },
+  {
+   "id": 5601,
+   "title": "Wyoming Red Canyon wildfire: 2025 Year in Review",
+   "url": "https://svs.gsfc.nasa.gov/5601/"
+  },
+  {
+   "id": 5598,
+   "title": "Grand Canyon Dragon Bravo Megafire: 2025 Year in Review",
+   "url": "https://svs.gsfc.nasa.gov/5598/"
+  },
+  {
+   "id": 5557,
+   "title": "Daily Visualizations of the Largest Wildfires in the United States: 2025",
+   "url": "https://svs.gsfc.nasa.gov/5557/"
+  }
+ ],
+ "alternate_versions": [],
+ "newer_versions": [],
+ "older_versions": [],
+ "media": [
+  {
+   "group": 0,
+   "group_title": "",
+   "widget": "Video player",
+   "caption": "Composite visualization of the Earth Information Center Wildland Fires data dashboard layout and its data assets for the Los Angeles Palisades and Eaton wildfires, January 2025.",
+   "group_text": "",
+   "url": "https://svs.gsfc.nasa.gov/vis/a000000/a005500/a005597/EIC_PalisadesEaton_Wildfire_7680x2160.mp4",
+   "filename": "EIC_PalisadesEaton_Wildfire_7680x2160.mp4",
+   "media_type": "Movie",
+   "width": 7680,
+   "height": 2160,
+   "alt_text": ""
+  },
+  {
+   "group": 0,
+   "group_title": "",
+   "widget": "Video player",
+   "caption": "Composite visualization of the Earth Information Center Wildland Fires data dashboard layout and its data assets for the Los Angeles Palisades and Eaton wildfires, January 2025.",
+   "group_text": "",
+   "url": "https://svs.gsfc.nasa.gov/vis/a000000/a005500/a005597/EIC_PalisadesEaton_Wildfire_preview.png",
+   "filename": "EIC_PalisadesEaton_Wildfire_preview.png",
+   "media_type": "Image",
+   "width": 1920,
+   "height": 540,
+   "alt_text": ""
+  },
+  {
+   "group": 0,
+   "group_title": "",
+   "widget": "Video player",
+   "caption": "Composite visualization of the Earth Information Center Wildland Fires data dashboard layout and its data assets for the Los Angeles Palisades and Eaton wildfires, January 2025.",
+   "group_text": "",
+   "url": "https://svs.gsfc.nasa.gov/vis/a000000/a005500/a005597/EIC_PalisadesEaton_Wildfire_7680x2160.png",
+   "filename": "EIC_PalisadesEaton_Wildfire_7680x2160.png",
+   "media_type": "Image",
+   "width": 3840,
+   "height": 1080,
+   "alt_text": ""
+  },
+  {
+   "group": 2,
+   "group_title": "Los Angeles wildfire Information",
+   "widget": "Single image",
+   "caption": "Still image displaying essential information about the Los Angeles wildfire event, including identification, location, impact area, and operational status.",
+   "group_text": "",
+   "url": "https://svs.gsfc.nasa.gov/vis/a000000/a005500/a005597/event001.Eaton_Fire_Los_Angeles_California.FireContext.20250121.png",
+   "filename": "event001.Eaton_Fire_Los_Angeles_California.FireContext.20250121.png",
+   "media_type": "Image",
+   "width": 2048,
+   "height": 1024,
+   "alt_text": ""
+  },
+  {
+   "group": 3,
+   "group_title": "Progression of Los Angeles Palisades and Eaton wildfires",
+   "widget": "Video player",
+   "caption": "Visualization showing Los Angeles wildfire progression based on fire perimeter data from the Near Real Time Fire Event Data Suite (FEDS) OGC Application Programming Interface (API).",
+   "group_text": "",
+   "url": "https://svs.gsfc.nasa.gov/vis/a000000/a005500/a005597/Palisades_Eaton.FirePerimeters.mp4",
+   "filename": "Palisades_Eaton.FirePerimeters.mp4",
+   "media_type": "Movie",
+   "width": 2048,
+   "height": 1024,
+   "alt_text": ""
+  },
+  {
+   "group": 3,
+   "group_title": "Progression of Los Angeles Palisades and Eaton wildfires",
+   "widget": "Video player",
+   "caption": "Visualization showing Los Angeles wildfire progression based on fire perimeter data from the Near Real Time Fire Event Data Suite (FEDS) OGC Application Programming Interface (API).",
+   "group_text": "",
+   "url": "https://svs.gsfc.nasa.gov/vis/a000000/a005500/a005597/Palisades_Eaton.FirePerimeters_2048x1024.png",
+   "filename": "Palisades_Eaton.FirePerimeters_2048x1024.png",
+   "media_type": "Image",
+   "width": 1024,
+   "height": 512,
+   "alt_text": ""
+  },
+  {
+   "group": 4,
+   "group_title": "GEOS Black Carbon from Los Angeles wildfire",
+   "widget": "Video player",
+   "caption": "Visualization of Black Carbon from NASA’s Goddard Earth Observing System (GEOS) model for the Los Angeles wildfire.",
+   "group_text": "",
+   "url": "https://svs.gsfc.nasa.gov/vis/a000000/a005500/a005597/event001-Palisades_Wildfire_Los_Angeles_California-BlackCarbonGEOS2km-20250120.mp4",
+   "filename": "event001-Palisades_Wildfire_Los_Angeles_California-BlackCarbonGEOS2km-20250120.mp4",
+   "media_type": "Movie",
+   "width": 4096,
+   "height": 2048,
+   "alt_text": ""
+  },
+  {
+   "group": 4,
+   "group_title": "GEOS Black Carbon from Los Angeles wildfire",
+   "widget": "Video player",
+   "caption": "Visualization of Black Carbon from NASA’s Goddard Earth Observing System (GEOS) model for the Los Angeles wildfire.",
+   "group_text": "",
+   "url": "https://svs.gsfc.nasa.gov/vis/a000000/a005500/a005597/event001-Palisades_Wildfire_Los_Angeles_California-BlackCarbonGEOS2km-20250120_2048x1024.png",
+   "filename": "event001-Palisades_Wildfire_Los_Angeles_California-BlackCarbonGEOS2km-20250120_2048x1024.png",
+   "media_type": "Image",
+   "width": 2048,
+   "height": 1024,
+   "alt_text": ""
+  },
+  {
+   "group": 4,
+   "group_title": "GEOS Black Carbon from Los Angeles wildfire",
+   "widget": "Video player",
+   "caption": "Visualization of Black Carbon from NASA’s Goddard Earth Observing System (GEOS) model for the Los Angeles wildfire.",
+   "group_text": "",
+   "url": "https://svs.gsfc.nasa.gov/vis/a000000/a005500/a005597/event001-Palisades_Wildfire_Los_Angeles_California-BlackCarbonGEOS2km-20250120_4096x2048.png",
+   "filename": "event001-Palisades_Wildfire_Los_Angeles_California-BlackCarbonGEOS2km-20250120_4096x2048.png",
+   "media_type": "Image",
+   "width": 4096,
+   "height": 2048,
+   "alt_text": ""
+  },
+  {
+   "group": 5,
+   "group_title": "GEOS Fire Monitor: Los Angeles Air Quality",
+   "widget": "Video player",
+   "caption": "Visualization of regional air quality indicators from NASA's Goddard Earth Observing System (GEOS) model during the Los Angeles wildfire.",
+   "group_text": "",
+   "url": "https://svs.gsfc.nasa.gov/vis/a000000/a005500/a005597/event001-Palisades_Wildfire_Los_Angeles_California-FireMonitorGEOSAQ-20250120.mp4",
+   "filename": "event001-Palisades_Wildfire_Los_Angeles_California-FireMonitorGEOSAQ-20250120.mp4",
+   "media_type": "Movie",
+   "width": 1700,
+   "height": 800,
+   "alt_text": ""
+  },
+  {
+   "group": 6,
+   "group_title": "GEOS Fire Monitor: Los Angeles Weather Indicators",
+   "widget": "Video player",
+   "caption": "Visualization of regional weather indicators from NASA’s Goddard Earth Observing System (GEOS) model during the Los Angeles wildfire.",
+   "group_text": "",
+   "url": "https://svs.gsfc.nasa.gov/vis/a000000/a005500/a005597/event001.Palisades_Wildfire_Los_Angeles_California.FireMonitorGEOSWX.20250120.mp4",
+   "filename": "event001.Palisades_Wildfire_Los_Angeles_California.FireMonitorGEOSWX.20250120.mp4",
+   "media_type": "Movie",
+   "width": 1700,
+   "height": 800,
+   "alt_text": ""
+  }
+ ],
+ "text_links": [
+  "https://svs.gsfc.nasa.gov/5557/"
+ ],
+ "frame_folders": {},
+ "api_url": "https://svs.gsfc.nasa.gov/api/5597",
+ "fetched_utc": "2026-10-31T17:14:26Z"
+}

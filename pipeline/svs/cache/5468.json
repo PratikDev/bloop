@@ -1,0 +1,359 @@
+{
+ "id": 5468,
+ "title": "2024 Atlantic Hurricane Season",
+ "url": "https://svs.gsfc.nasa.gov/5468/",
+ "page_type": "Visualization",
+ "release_date": "2025-02-11T18:59:59-05:00",
+ "update_date": "2025-02-17T10:42:06.489506-05:00",
+ "description": "SST, IMERG, CPC, and Hurricane tracks for the entire 2024 Hurricane Season. Also providing separate visualizations of just SST with tracks, IMERG with tracks, and CPC with tracks.",
+ "full_text": "SST, IMERG, CPC, and Hurricane tracks for the entire 2024 Hurricane Season. Also providing separate visualizations of just SST with tracks, IMERG with tracks, and CPC with tracks.\n\nData visualization of the 2024 hurricane season where time is sped up during non-hurricane activity.\n\nThe 2024 Atlantic hurricane season was notably active, featuring 18 named storms, 11 hurricanes, and 5 major hurricanes. This level of activity aligns with pre-season forecasts that anticipated an above-normal season, largely due to exceptionally warm sea surface temperatures (SSTs) in the tropical Atlantic and Caribbean Sea.\n\nSea Surface Temperatures (SSTs) from the Multi-scale Ultra-high Resolution (MUR) analyses.\n\nSea Surface Temperature (SST) colorbar focusing primarily on temperatures between 20 degrees Celsius to 30 Celsius. Hurricanes tend to form over the warm tropical oceans where the SST is warmer than ~26.5 C (~80 F) depicted in colors from yellow to red.\n\nSea surface temperatures play a critical role in hurricane development, as warmer waters provide the energy necessary for storm formation and intensification. In 2024, SSTs in the tropical Atlantic were at near-record warm levels during the peak of the hurricane season. These anomalously high temperatures contributed to the formation of several intense storms, including Hurricane Beryl, which became the earliest forming Cat 5 on record, causing significant damage in Grenada and Jamaica, as well as hitting the U.S. Gulf Coast.\n\n2024 Hurricane Season only showing clouds and storm tracks.\n\nThe season was also marked by rapid intensification events, exemplified by Hurricane Milton, which escalated from a Category 1 to a Category 5 storm at near-record speed before impacting Florida’s Gulf Coast. Such rapid intensification is often linked to elevated SSTs, which provide the additional heat energy required for storms to strengthen quickly.\n\n2024 Hurricane Season only showing IMERG precipitation and storm tracks.\n\nLiquid precipitation rate in milimeters per hour\n\nFrozen precipitation rate in milimeters per hour\n\nThe estimated financial losses due to the 2024 hurricane season were around $200 billion, making it one of the costliest hurricane seasons on record. Notably, Hurricane Helene was the deadliest U.S. storm since Katrina in 2005, reaching as far inland as North Carolina, causing catestrophic flooding to the western portions of North Carolina.\n\nFull length data visualization of the 2024 Hurricane Season showing SSTs, IMERG precipitation, CPC clouds, and storm tracks together.\n\nIn summary, the 2024 Atlantic hurricane season was characterized by above-average activity and significant impacts, heavily influenced by unusually warm sea surface temperatures that fueled storm development and intensification.",
+ "credits_by_role": {
+  "Data visualizer": [
+   "Alex Kekesi (Global Science and Technology, Inc.)",
+   "Greg Shirah (NASA/GSFC)",
+   "Kel Elkins (USRA)"
+  ],
+  "Technical support": [
+   "Laurence Schuler (ADNET Systems, Inc.)",
+   "Ian Jones (ADNET Systems, Inc.)"
+  ]
+ },
+ "keywords": [
+  "Hurricanes"
+ ],
+ "datasets": [
+  {
+   "name": "CPC (Climate Prediction Center) Cloud Composite",
+   "common_name": "",
+   "platform": null,
+   "sensor": null,
+   "type": "Data Compilation",
+   "organizations": [
+    "Climate Prediction Center (CPC)"
+   ],
+   "description": "Global cloud cover from multiple satellites",
+   "credit": "",
+   "url": "",
+   "date_range": "6/15/2024 - 11/25/2024"
+  },
+  {
+   "name": "Multi-scale Ultra-high Resolution (MUR) Sea Surface Temperature (SST) Analysis",
+   "common_name": "MUR SST",
+   "platform": null,
+   "sensor": null,
+   "type": "Analysis",
+   "organizations": [
+    "JPL PO DAAC"
+   ],
+   "description": "",
+   "credit": "",
+   "url": "",
+   "date_range": "6/15/2024 - 11/25/2024"
+  },
+  {
+   "name": "",
+   "common_name": "IMERG",
+   "platform": null,
+   "sensor": null,
+   "type": "Data Compilation",
+   "organizations": [
+    "NASA/GSFC"
+   ],
+   "description": "",
+   "credit": "",
+   "url": "http://pmm.nasa.gov/sites/default/files/document_files/IMERG_ATBD_V4.4.pdf",
+   "date_range": "6/15/2024 - 11/25/2024"
+  },
+  {
+   "name": "Automated Tropical Cyclone Forecast (ATCF) - Best Track",
+   "common_name": "Hurricane Tracks",
+   "platform": null,
+   "sensor": null,
+   "type": "Event List",
+   "organizations": [
+    "NOAA"
+   ],
+   "description": "",
+   "credit": "NOAA",
+   "url": "https://ftp.nhc.noaa.gov/atcf/",
+   "date_range": "6/15/2024 - 11/25/2024"
+  }
+ ],
+ "missions": [],
+ "related": [
+  {
+   "id": 5401,
+   "title": "Powerful Hurricane Milton forms in the Gulf of Mexico, sweeps into Florida",
+   "url": "https://svs.gsfc.nasa.gov/5401/"
+  }
+ ],
+ "alternate_versions": [
+  {
+   "id": 5515,
+   "title": "2024 Atlantic Hurricane Season (Vertical Mode)",
+   "url": "https://svs.gsfc.nasa.gov/5515/"
+  }
+ ],
+ "newer_versions": [],
+ "older_versions": [],
+ "media": [
+  {
+   "group": 0,
+   "group_title": "",
+   "widget": "Video player",
+   "caption": "Data visualization of the 2024 hurricane season where time is sped up during non-hurricane activity.",
+   "group_text": "",
+   "url": "https://svs.gsfc.nasa.gov/vis/a000000/a005400/a005468/hurr2024_v09_sped_up.mp4",
+   "filename": "hurr2024_v09_sped_up.mp4",
+   "media_type": "Movie",
+   "width": 3840,
+   "height": 2160,
+   "alt_text": "This data animation begins on June 15th 2024 at 0:00 UTC time - as shown in the lower left corner of the screen. As time moves forward we see a stationary globe fixed over the Atlantic Ocean. The ocean is colored in blue to red where blue indicates low sea surface temperatures and red is high sea surface temperatures. Moving above the colorful oceans are blobs of greens, yellows and reds where green is low precipitation and red is high. Slightly obscuring some of these blobby structures are white clouds. There is a vertical list of storm names on the right hand side of the screen. As time moves forward a cyan colored track emerges showing the most current Atlantic storm. As the storm changes intensity a marker is dropped at the point of change. The markers are as follows: TD stand for Tropical Depression. TS stands for Tropical Storm. The numbers 1 through 5 are hurricane strengths. The corresponding named storm is also highlighted in the right-hand list as it remains active, fading back out once it has passed. The storms names are as follows: Alberto, Beryl, Chris, Debby, Ernesto, Francine, Gordon, Helene, Isaac, Joyce, Kirk, Leslie, Milton, Nadine, Oscar, Patty, Rafael, and Sara. Once Sara ends, all the storm names light up and the sea surface temperture, precipitation measurements, and clouds all fade away leaving all the tracks over a plain blue Atlantic Ocean."
+  },
+  {
+   "group": 0,
+   "group_title": "",
+   "widget": "Video player",
+   "caption": "Data visualization of the 2024 hurricane season where time is sped up during non-hurricane activity.",
+   "group_text": "",
+   "url": "https://svs.gsfc.nasa.gov/vis/a000000/a005400/a005468/hurr2024_v09_2025-01-10_1621.07100.jpg",
+   "filename": "hurr2024_v09_2025-01-10_1621.07100.jpg",
+   "media_type": "Image",
+   "width": 3840,
+   "height": 2160,
+   "alt_text": "This data animation begins on June 15th 2024 at 0:00 UTC time - as shown in the lower left corner of the screen. As time moves forward we see a stationary globe fixed over the Atlantic Ocean. The ocean is colored in blue to red where blue indicates low sea surface temperatures and red is high sea surface temperatures. Moving above the colorful oceans are blobs of greens, yellows and reds where green is low precipitation and red is high. Slightly obscuring some of these blobby structures are white clouds. There is a vertical list of storm names on the right hand side of the screen. As time moves forward a cyan colored track emerges showing the most current Atlantic storm. As the storm changes intensity a marker is dropped at the point of change. The markers are as follows: TD stand for Tropical Depression. TS stands for Tropical Storm. The numbers 1 through 5 are hurricane strengths. The corresponding named storm is also highlighted in the right-hand list as it remains active, fading back out once it has passed. The storms names are as follows: Alberto, Beryl, Chris, Debby, Ernesto, Francine, Gordon, Helene, Isaac, Joyce, Kirk, Leslie, Milton, Nadine, Oscar, Patty, Rafael, and Sara. Once Sara ends, all the storm names light up and the sea surface temperture, precipitation measurements, and clouds all fade away leaving all the tracks over a plain blue Atlantic Ocean."
+  },
+  {
+   "group": 2,
+   "group_title": "",
+   "widget": "Video player",
+   "caption": "Sea Surface Temperatures (SSTs) from the Multi-scale Ultra-high Resolution (MUR) analyses.",
+   "group_text": "",
+   "url": "https://svs.gsfc.nasa.gov/vis/a000000/a005400/a005468/hurr2024_v09_SST_2025-01-10_1649.mp4",
+   "filename": "hurr2024_v09_SST_2025-01-10_1649.mp4",
+   "media_type": "Movie",
+   "width": 3840,
+   "height": 2160,
+   "alt_text": "This data animation begins on June 15th 2024 at 0:00 UTC time - as shown in the lower left corner of the screen. As time moves forward we see a stationary globe fixed over the Atlantic Ocean. The ocean is colored in blue to red where blue indicates low sea surface temperatures and red is high sea surface temperatures. There is a vertical list of storm names on the right hand side of the screen. As time moves forward a cyan colored track emerges showing the most current Atlantic storm. As the storm changes intensity a marker is dropped at the point of change. The markers are as follows: TD stand for Tropical Depression. TS stands for Tropical Storm. The numbers 1 through 5 are hurricane strengths. The corresponding named storm is also highlighted in the right-hand list as it remains active, fading back out once it has passed. The storms names are as follows: Alberto, Beryl, Chris, Debby, Ernesto, Francine, Gordon, Helene, Isaac, Joyce, Kirk, Leslie, Milton, Nadine, Oscar, Patty, Rafael, and Sara. Once Sara ends, all the storm names light up and the sea surface temperture fades away leaving all the tracks over a plain blue Atlantic Ocean."
+  },
+  {
+   "group": 2,
+   "group_title": "",
+   "widget": "Video player",
+   "caption": "Sea Surface Temperatures (SSTs) from the Multi-scale Ultra-high Resolution (MUR) analyses.",
+   "group_text": "",
+   "url": "https://svs.gsfc.nasa.gov/vis/a000000/a005400/a005468/hurr2024_v09_SST_2025-01-10_1649.07100.jpg",
+   "filename": "hurr2024_v09_SST_2025-01-10_1649.07100.jpg",
+   "media_type": "Image",
+   "width": 3840,
+   "height": 2160,
+   "alt_text": "Still image representing the SST only version of the 2024 hurricane season. The image is of the earth positioned over the Atlantic Ocean where the waters are colors ranging from blue (low sea surface temperature) to red (high temperatures). Atop the colorful ocean are all the storm tracks for the 2024 season in cyan. To the right is a vertical list of named storms. The list is as follows: Alberto, Beryl, Chris, Debby, Ernesto, Francine, Gordon, Helene, Isaac, Joyce, Kirk, Leslie, Milton, Nadine, Oscar, Patty, Rafael, and Sara. In the lower left is a date stamp showing November 21 2024 5:50 UTC."
+  },
+  {
+   "group": 2,
+   "group_title": "",
+   "widget": "Video player",
+   "caption": "Sea Surface Temperatures (SSTs) from the Multi-scale Ultra-high Resolution (MUR) analyses.",
+   "group_text": "",
+   "url": "https://svs.gsfc.nasa.gov/vis/a000000/a005400/a005468/frames/3840x2160_16x9_30p/Only_Sea_Surface_Temperature/",
+   "filename": "Only_Sea_Surface_Temperature",
+   "media_type": "Frames",
+   "width": 3840,
+   "height": 2160,
+   "alt_text": "UHD frames that make up the SST only animation."
+  },
+  {
+   "group": 3,
+   "group_title": "",
+   "widget": "Single image",
+   "caption": "",
+   "group_text": "Sea Surface Temperature (SST) colorbar focusing primarily on temperatures between 20 degrees Celsius to 30 Celsius. Hurricanes tend to form over the warm tropical oceans where the SST is warmer than ~26.5 C (~80 F) depicted in colors from yellow to red.",
+   "url": "https://svs.gsfc.nasa.gov/vis/a000000/a005400/a005468/sst_colorbar_print.jpg",
+   "filename": "sst_colorbar_print.jpg",
+   "media_type": "Image",
+   "width": 677,
+   "height": 166,
+   "alt_text": "Sea Surface Temperature colorbar, where colors go from dark blue (20 degrees Celsius) to green (25 degrees Celsius) to deep red (30 degrees Celsius)."
+  },
+  {
+   "group": 5,
+   "group_title": "",
+   "widget": "Video player",
+   "caption": "2024 Hurricane Season only showing clouds and storm tracks.",
+   "group_text": "",
+   "url": "https://svs.gsfc.nasa.gov/vis/a000000/a005400/a005468/hurr2024_v09_CPC_2025-01-10_1702.mp4",
+   "filename": "hurr2024_v09_CPC_2025-01-10_1702.mp4",
+   "media_type": "Movie",
+   "width": 3840,
+   "height": 2160,
+   "alt_text": "This data animation begins on June 15th 2024 at 0:00 UTC time - as shown in the lower left corner of the screen. As time moves forward we see a stationary globe fixed over the Atlantic Ocean. Wispy white clouds dance over the surface. There is a vertical list of storm names on the right hand side of the screen. As time moves forward a cyan colored track emerges showing the most current Atlantic storm. As the storm changes intensity a marker is dropped at the point of change. The markers are as follows: TD stand for Tropical Depression. TS stands for Tropical Storm. The numbers 1 through 5 are hurricane strengths. The corresponding named storm is also highlighted in the right-hand list as it remains active, fading back out once it has passed. The storms names are as follows: Alberto, Beryl, Chris, Debby, Ernesto, Francine, Gordon, Helene, Isaac, Joyce, Kirk, Leslie, Milton, Nadine, Oscar, Patty, Rafael, and Sara. Once Sara ends, all the storm names light up and the clouds fade away leaving all the tracks over a plain blue Atlantic Ocean."
+  },
+  {
+   "group": 5,
+   "group_title": "",
+   "widget": "Video player",
+   "caption": "2024 Hurricane Season only showing clouds and storm tracks.",
+   "group_text": "",
+   "url": "https://svs.gsfc.nasa.gov/vis/a000000/a005400/a005468/hurr2024_v09_CPC_2025-01-10_1702.07100.jpg",
+   "filename": "hurr2024_v09_CPC_2025-01-10_1702.07100.jpg",
+   "media_type": "Image",
+   "width": 3840,
+   "height": 2160,
+   "alt_text": "Still image representing the cloud only version of the 2024 hurricane season. The image is of the earth positioned over the Atlantic Ocean with white clouds. To the right is a vertical list of named storms. The list is as follows: Alberto, Beryl, Chris, Debby, Ernesto, Francine, Gordon, Helene, Isaac, Joyce, Kirk, Leslie, Milton, Nadine, Oscar, Patty, Rafael, and Sara. In the lower left is a date stamp showing November 21 2024 5:50 UTC."
+  },
+  {
+   "group": 5,
+   "group_title": "",
+   "widget": "Video player",
+   "caption": "2024 Hurricane Season only showing clouds and storm tracks.",
+   "group_text": "",
+   "url": "https://svs.gsfc.nasa.gov/vis/a000000/a005400/a005468/frames/3840x2160_16x9_30p/Only_CPC_Clouds/",
+   "filename": "Only_CPC_Clouds",
+   "media_type": "Frames",
+   "width": 3840,
+   "height": 2160,
+   "alt_text": "Frames for the cloud only animation."
+  },
+  {
+   "group": 7,
+   "group_title": "",
+   "widget": "Video player",
+   "caption": "2024 Hurricane Season only showing IMERG precipitation and storm tracks.",
+   "group_text": "",
+   "url": "https://svs.gsfc.nasa.gov/vis/a000000/a005400/a005468/hurr2024_v09_IMERG_2025-01-10_1657.mp4",
+   "filename": "hurr2024_v09_IMERG_2025-01-10_1657.mp4",
+   "media_type": "Movie",
+   "width": 3840,
+   "height": 2160,
+   "alt_text": "This data animation begins on June 15th 2024 at 0:00 UTC time - as shown in the lower left corner of the screen. As time moves forward we see a stationary globe fixed over the Atlantic Ocean. Moving above the oceans are blobs of greens, yellows and reds where green is low precipitation and red is high. There is a vertical list of storm names on the right hand side of the screen. As time moves forward a cyan colored track emerges showing the most current Atlantic storm. As the storm changes intensity a marker is dropped at the point of change. The markers are as follows: TD stand for Tropical Depression. TS stands for Tropical Storm. The numbers 1 through 5 are hurricane strengths. The corresponding named storm is also highlighted in the right-hand list as it remains active, fading back out once it has passed. The storms names are as follows: Alberto, Beryl, Chris, Debby, Ernesto, Francine, Gordon, Helene, Isaac, Joyce, Kirk, Leslie, Milton, Nadine, Oscar, Patty, Rafael, and Sara. Once Sara ends, all the storm names light up and the precipitation measurements fade away leaving all the tracks over a plain blue Atlantic Ocean."
+  },
+  {
+   "group": 7,
+   "group_title": "",
+   "widget": "Video player",
+   "caption": "2024 Hurricane Season only showing IMERG precipitation and storm tracks.",
+   "group_text": "",
+   "url": "https://svs.gsfc.nasa.gov/vis/a000000/a005400/a005468/hurr2024_v09_IMERG_2025-01-10_1657.07100.jpg",
+   "filename": "hurr2024_v09_IMERG_2025-01-10_1657.07100.jpg",
+   "media_type": "Image",
+   "width": 3840,
+   "height": 2160,
+   "alt_text": "Still image representing the IMERG precipitation only version of the 2024 hurricane season. The image is of the earth positioned over the Atlantic Ocean with blobs of color ranging from green (low precipitation) to red (high precipitation) . Atop these are all the storm tracks for the 2024 season in cyan. To the right is a vertical list of named storms. The list is as follows: Alberto, Beryl, Chris, Debby, Ernesto, Francine, Gordon, Helene, Isaac, Joyce, Kirk, Leslie, Milton, Nadine, Oscar, Patty, Rafael, and Sara. In the lower left is a date stamp showing November 21 2024 5:50 UTC."
+  },
+  {
+   "group": 7,
+   "group_title": "",
+   "widget": "Video player",
+   "caption": "2024 Hurricane Season only showing IMERG precipitation and storm tracks.",
+   "group_text": "",
+   "url": "https://svs.gsfc.nasa.gov/vis/a000000/a005400/a005468/frames/3840x2160_16x9_30p/Only_IMERG/",
+   "filename": "Only_IMERG",
+   "media_type": "Frames",
+   "width": 3840,
+   "height": 2160,
+   "alt_text": "UHD Frames for the IMERG precipitation only animation."
+  },
+  {
+   "group": 8,
+   "group_title": "",
+   "widget": "Single image",
+   "caption": "",
+   "group_text": "Liquid precipitation rate in milimeters per hour",
+   "url": "https://svs.gsfc.nasa.gov/vis/a000000/a005400/a005468/rainbarwhite_2_print.jpg",
+   "filename": "rainbarwhite_2_print.jpg",
+   "media_type": "Image",
+   "width": 1024,
+   "height": 209,
+   "alt_text": "Discretized Liquid Precipitation colorbar, where the following colors fit within the following ranges: \r\nDark green = 0.1 to 0.2 millimeters per hour\r\nGreen = 0.2 to 0.3 millimeters per hour\r\nLight green = 0.3 to 0.5 millimeters per hour\r\nYellow = 0.5 to 1.0 millimeters per hour\r\nLight orange = 1.0 to 2.0 millimeters per hour\r\nOrange = 2.0 to 3.0 millimeters per hour\r\nOrange-Red = 3.0 to 5.0 millimeters per hour\r\nRed = 5.0 to 10 millimeters per hour\r\nDark red = 10 to 20 millimeters per hour\r\nDeep red = 20 to 50 millimeters per hour"
+  },
+  {
+   "group": 9,
+   "group_title": "",
+   "widget": "Single image",
+   "caption": "Frozen precipitation rate in milimeters per hour",
+   "group_text": "",
+   "url": "https://svs.gsfc.nasa.gov/vis/a000000/a005400/a005468/snowbarwhite_print.jpg",
+   "filename": "snowbarwhite_print.jpg",
+   "media_type": "Image",
+   "width": 1024,
+   "height": 209,
+   "alt_text": "Discretized Frozen Precipitation colorbar that ranges from 0.1 to 50 millimeters per hour and where the corresponding colors range from cyan (0.1 mm/hour) to purple (50+ mm/hour)"
+  },
+  {
+   "group": 11,
+   "group_title": "",
+   "widget": "Video player",
+   "caption": "",
+   "group_text": "Full length data visualization of the 2024 Hurricane Season showing SSTs, IMERG precipitation, CPC clouds, and storm tracks together.",
+   "url": "https://svs.gsfc.nasa.gov/vis/a000000/a005400/a005468/hurr2024_v09_2025-01-10_1621.mp4",
+   "filename": "hurr2024_v09_2025-01-10_1621.mp4",
+   "media_type": "Movie",
+   "width": 3840,
+   "height": 2160,
+   "alt_text": "This data animation begins on June 15th 2024 at 0:00 UTC time - as shown in the lower left corner of the screen. As time moves forward we see a stationary globe fixed over the Atlantic Ocean. The ocean is colored in blue to red where blue indicates low sea surface temperatures and red is high sea surface temperatures. Moving above the colorful oceans are blobs of greens, yellows and reds where green is low precipitation and red is high. Slightly obscuring some of these blobby structures are white clouds. There is a vertical list of storm names on the right hand side of the screen. As time moves forward a cyan colored track emerges showing the most current Atlantic storm. As the storm changes intensity a marker is dropped at the point of change. The markers are as follows: TD stand for Tropical Depression. TS stands for Tropical Storm. The numbers 1 through 5 are hurricane strengths. The corresponding named storm is also highlighted in the right-hand list as it remains active, fading back out once it has passed. The storms names are as follows: Alberto, Beryl, Chris, Debby, Ernesto, Francine, Gordon, Helene, Isaac, Joyce, Kirk, Leslie, Milton, Nadine, Oscar, Patty, Rafael, and Sara. Once Sara ends, all the storm names light up and the sea surface temperture, precipitation measurements, and clouds all fade away leaving all the tracks over a plain blue Atlantic Ocean."
+  },
+  {
+   "group": 11,
+   "group_title": "",
+   "widget": "Video player",
+   "caption": "",
+   "group_text": "Full length data visualization of the 2024 Hurricane Season showing SSTs, IMERG precipitation, CPC clouds, and storm tracks together.",
+   "url": "https://svs.gsfc.nasa.gov/vis/a000000/a005400/a005468/hurr2024_v09_2025-01-10_1621.07300.jpg",
+   "filename": "hurr2024_v09_2025-01-10_1621.07300.jpg",
+   "media_type": "Image",
+   "width": 3840,
+   "height": 2160,
+   "alt_text": "A still image of the Earth centered over the Atlantic Ocean showing all the named storm tracks in cyan. To the right is a vertical list of storm names. The list reads as follows: Alberto, Beryl, Chris, Debby, Ernesto, Francine, Gordon, Helene, Isaac, Joyce, Kirk, Leslie, Milton, Nadine, Oscar, Patty, Rafael, and Sara."
+  },
+  {
+   "group": 11,
+   "group_title": "",
+   "widget": "Video player",
+   "caption": "",
+   "group_text": "Full length data visualization of the 2024 Hurricane Season showing SSTs, IMERG precipitation, CPC clouds, and storm tracks together.",
+   "url": "https://svs.gsfc.nasa.gov/vis/a000000/a005400/a005468/frames/3840x2160_16x9_30p/SST_CPC_and_IMERG/",
+   "filename": "SST_CPC_and_IMERG",
+   "media_type": "Frames",
+   "width": 3840,
+   "height": 2160,
+   "alt_text": "UHD frames for the completed animation showing all the different datasets."
+  }
+ ],
+ "text_links": [],
+ "frame_folders": {
+  "https://svs.gsfc.nasa.gov/vis/a000000/a005400/a005468/frames/3840x2160_16x9_30p/Only_Sea_Surface_Temperature/": {
+   "url": "https://svs.gsfc.nasa.gov/vis/a000000/a005400/a005468/frames/3840x2160_16x9_30p/Only_Sea_Surface_Temperature/",
+   "frame_count": 7300,
+   "bytes_approx": 207034400000,
+   "first": "hurr2024_v09_SST_2025-01-10_1649.00001.png",
+   "last": "hurr2024_v09_SST_2025-01-10_1649.07300.png",
+   "subfolders": {}
+  },
+  "https://svs.gsfc.nasa.gov/vis/a000000/a005400/a005468/frames/3840x2160_16x9_30p/Only_CPC_Clouds/": {
+   "url": "https://svs.gsfc.nasa.gov/vis/a000000/a005400/a005468/frames/3840x2160_16x9_30p/Only_CPC_Clouds/",
+   "frame_count": 7300,
+   "bytes_approx": 182970900000,
+   "first": "hurr2024_v09_CPC_2025-01-10_1702.00001.exr",
+   "last": "hurr2024_v09_CPC_2025-01-10_1702.07300.exr",
+   "subfolders": {}
+  },
+  "https://svs.gsfc.nasa.gov/vis/a000000/a005400/a005468/frames/3840x2160_16x9_30p/Only_IMERG/": {
+   "url": "https://svs.gsfc.nasa.gov/vis/a000000/a005400/a005468/frames/3840x2160_16x9_30p/Only_IMERG/",
+   "frame_count": 7300,
+   "bytes_approx": 179661700000,
+   "first": "hurr2024_v09_IMERG_2025-01-10_1657.00001.exr",
+   "last": "hurr2024_v09_IMERG_2025-01-10_1657.07300.exr",
+   "subfolders": {}
+  },
+  "https://svs.gsfc.nasa.gov/vis/a000000/a005400/a005468/frames/3840x2160_16x9_30p/SST_CPC_and_IMERG/": {
+   "url": "https://svs.gsfc.nasa.gov/vis/a000000/a005400/a005468/frames/3840x2160_16x9_30p/SST_CPC_and_IMERG/",
+   "frame_count": 7300,
+   "bytes_approx": 190384300000,
+   "first": "hurr2024_v09_2025-01-10_1621.00001.exr",
+   "last": "hurr2024_v09_2025-01-10_1621.07300.exr",
+   "subfolders": {}
+  }
+ },
+ "api_url": "https://svs.gsfc.nasa.gov/api/5468",
+ "fetched_utc": "2026-10-31T17:25:08Z"
+}

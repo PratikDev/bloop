@@ -1,0 +1,305 @@
+{
+ "record": "rel_4993",
+ "app_title": "Spread of the Dixie Fire - 2021 (observation)",
+ "svs_ids": [
+  4993
+ ],
+ "title": "Spread of the Dixie Fire - 2021",
+ "svs_pages": [
+  "https://svs.gsfc.nasa.gov/4993/"
+ ],
+ "description": "This visualization shows the spread of the Dixie fire between July 14 and October 22, 2021, updated every 12 hours based on new satellite active fire detections. The yellow outlines track the position of the active fire lines for the last 60 hours, with the latest location of the fire front in the brightest shade of yellow. The red points show the location of active fire detections, while the grey region shows the estimated total area burned. The graph shows the cumulative burned area in square kilometers.Coming soon to our YouTube channel. || Dixie_fire_2021.7135_print.jpg (1024x576) [369.5 KB] || Dixie_fire_2021.7135_searchweb.png (320x180) [139.8 KB] || Dixie_fire_2021.7135_thm.png (80x40) [8.3 KB] || Dixie_fire_2021_p30_1080p30.mp4 (1920x1080) [172.9 MB] || Dixie_fire_2021_1080p60.mp4 (1920x1080) [190.8 MB] || 3840x2160_16x9_60p (3840x2160) [0 Item(s)] || captions_silent.32827.en_US.srt [43 bytes] || Dixie_fire_2021_p30_2160p30.mp4 (3840x2160) [477.6 MB] || Dixie_fire_2021_2160p60.mp4 (3840x2160) [513.8 MB] || Dixie_fire_2021_p30_1080p30.mp4.hwshow || Dixie_fire_animation_only_2021_1080p60.hwshow || ",
+ "release_date": "2022-06-01T09:00:00-04:00",
+ "period": {
+  "start": "2022-06-01T13:00:00Z",
+  "end": "2022-06-01T13:00:00Z",
+  "label": "1 Jun 2022 – 1 Jun 2022"
+ },
+ "badge": "observation",
+ "credits_by_role": {
+  "Scientist": [
+   "Doug C. Morton (NASA/GSFC)"
+  ],
+  "Visualizer": [
+   "Cindy Starr (Global Science and Technology, Inc.)",
+   "Horace Mitchell (NASA/GSFC)",
+   "Michala Garrison (SSAI)",
+   "AJ Christensen (SSAI)",
+   "Greg Shirah (NASA/GSFC)",
+   "Kel Elkins (USRA)",
+   "Alex Kekesi (Global Science and Technology, Inc.)"
+  ],
+  "Technical support": [
+   "Laurence Schuler (ADNET Systems, Inc.)",
+   "Ian Jones (ADNET Systems, Inc.)"
+  ]
+ },
+ "datasets": [
+  {
+   "name": "DEM",
+   "common_name": "",
+   "platform": "SRTM",
+   "sensor": "SIR-C",
+   "type": "Other",
+   "organizations": [],
+   "description": "",
+   "credit": "",
+   "url": "",
+   "date_range": null
+  },
+  {
+   "name": "Band Combination 4-3-2",
+   "common_name": "",
+   "platform": "Landsat-8",
+   "sensor": "OLI/TIRS",
+   "type": "Observed Data",
+   "organizations": [
+    "USGS"
+   ],
+   "description": "",
+   "credit": "",
+   "url": "",
+   "date_range": "7/11/2021 - 7/11/2021"
+  },
+  {
+   "name": "California Wildfire Spread Derived using VIIRS Observations and an Object-based Tracking System",
+   "common_name": "California Wildfire Spread Derived using VIIRS Observations and an Object-based Tracking System",
+   "platform": "Suomi-NPP",
+   "sensor": "VIIRS",
+   "type": "Other",
+   "organizations": [],
+   "description": "",
+   "credit": "Chen, Yang; Hantson, Stijn; Andela, Niels; Coffield, Shane; Graff, Casey; Morton, Douglas C.; et al. (2022): A Dataset of California Wildfire Spread Derived Using VIIRS Observations and an Object-based Tracking System. figshare. Collection. https://doi.org/10.6084/m9.figshare.c.5601537.v1",
+   "url": "https://springernature.figshare.com/collections/A_Dataset_of_California_Wildfire_Spread_Derived_Using_VIIRS_Observations_and_an_Object-based_Tracking_System/5601537/1",
+   "date_range": "07/14/2021 - 10/22/2021"
+  }
+ ],
+ "credit_line": "Visualization: NASA's Scientific Visualization Studio (SVS 4993) for the NASA Earth Information Center.",
+ "disclosure": "A related NASA visualization read back through its key (pattern only).",
+ "licence": "SVS: \"All of our content is in the public domain (unless otherwise noted), meaning that it is free to download, use, and redistribute for whatever purposes you see fit.\" (https://svs.gsfc.nasa.gov/help/, read 29 Oct 2026)",
+ "focus": "wildfires",
+ "related_to": [
+  4993
+ ],
+ "frame_times": {
+  "method": "linear",
+  "approximate": true,
+  "count": 3,
+  "source": "undated"
+ },
+ "georef": {
+  "projection": "none (not a flat 2:1 map)",
+  "bounds": [
+   -180,
+   -101.25,
+   180,
+   101.25
+  ],
+  "pass_at": 0.9,
+  "shifts_deg": [],
+  "iou": {},
+  "pass": false,
+  "best_is_assumed": false
+ },
+ "colorbar": null,
+ "colorbar_source": "no colorbar found (page or frame)",
+ "asset": {
+  "kind": "frames",
+  "owner": 4993,
+  "what": "3840x2160_16x9_60p"
+ },
+ "twins": [],
+ "decode": {
+  "mode": "brightness (no key)",
+  "decoded_share": 1.0
+ },
+ "layers": [
+  {
+   "id": "value",
+   "unit": "relative (0–1)",
+   "encoding": "linear",
+   "scale": 0.001,
+   "offset": 0.04585376754403114,
+   "nodata": 65535,
+   "below": 65534,
+   "grid": {
+    "width": 160,
+    "height": 90,
+    "bounds": [
+     -180,
+     -101.25,
+     180,
+     101.25
+    ],
+    "row0": "north",
+    "col0": "west",
+    "byte_order": "little",
+    "space": "frame"
+   },
+   "times": [
+    "2022-06-01T13:00:00Z",
+    "2022-06-01T13:00:00Z",
+    "2022-06-01T13:00:00Z"
+   ],
+   "chunks": [
+    {
+     "file": "value_000.u16.gz",
+     "t0": 0,
+     "t1": 3,
+     "bytes": 60721
+    }
+   ],
+   "quantisation_step": 0.001,
+   "coverage": 1.0,
+   "value_range": [
+    0.04585376754403114,
+    1.0
+   ],
+   "label": "Spread of the Dixie Fire - 2021 (pattern only)",
+   "aggregation": "mean of decoded pixels per cell",
+   "time_labels": [
+    "undated",
+    "undated",
+    "undated"
+   ],
+   "display": {
+    "colours": [
+     "#141418",
+     "#1c1c1f",
+     "#232327",
+     "#2b2b2e",
+     "#323236",
+     "#3a3a3d",
+     "#414145",
+     "#49494c",
+     "#515154",
+     "#58585b",
+     "#606063",
+     "#67676a",
+     "#6f6f71",
+     "#777779",
+     "#7e7e80",
+     "#868688",
+     "#8d8d8f",
+     "#959597",
+     "#9c9c9e",
+     "#a4a4a6",
+     "#acacad",
+     "#b3b3b4",
+     "#bbbbbc",
+     "#c2c2c3",
+     "#cacacb",
+     "#d2d2d2",
+     "#d9d9da",
+     "#e1e1e1",
+     "#e8e8e9",
+     "#f0f0f0",
+     "#f7f7f8",
+     "#ffffff"
+    ],
+    "values": [
+     0.0,
+     0.03225806451612903,
+     0.06451612903225806,
+     0.0967741935483871,
+     0.12903225806451613,
+     0.16129032258064516,
+     0.1935483870967742,
+     0.22580645161290322,
+     0.25806451612903225,
+     0.29032258064516125,
+     0.3225806451612903,
+     0.3548387096774194,
+     0.3870967741935484,
+     0.4193548387096774,
+     0.45161290322580644,
+     0.4838709677419355,
+     0.5161290322580645,
+     0.5483870967741935,
+     0.5806451612903225,
+     0.6129032258064516,
+     0.6451612903225806,
+     0.6774193548387096,
+     0.7096774193548387,
+     0.7419354838709677,
+     0.7741935483870968,
+     0.8064516129032258,
+     0.8387096774193548,
+     0.8709677419354839,
+     0.9032258064516129,
+     0.9354838709677419,
+     0.967741935483871,
+     1.0
+    ],
+    "scale": "linear",
+    "ramp": true
+   },
+   "status": "pattern only",
+   "status_check": "a_no_validation_source",
+   "statement": "pattern only"
+  }
+ ],
+ "voices": {
+  "value": "rel4993"
+ },
+ "play": [
+  {
+   "id": "value",
+   "label": "Spread of the Dixie Fire - 2021: higher pitch = higher value",
+   "view": "global",
+   "map": "value",
+   "start": {
+    "lat": -1.0,
+    "lon": 1.125
+   },
+   "steps_per_second": 1,
+   "channels": [
+    {
+     "voice": "rel4993",
+     "layers": [
+      "value"
+     ],
+     "combine": "value"
+    }
+   ]
+  }
+ ],
+ "validation": [
+  {
+   "id": "a_no_validation_source",
+   "title": "Spread of the Dixie Fire - 2021: no validation source",
+   "kind": "none",
+   "pass": null,
+   "threshold": null
+  }
+ ],
+ "size": {
+  "choice": {
+   "frames": 3
+  },
+  "tried": [],
+  "bytes": 69667,
+  "budget": 25000000
+ },
+ "onboarding": {
+  "timings_s": {
+   "api": 18.4,
+   "twins": 1.1,
+   "asset choice": 0.0,
+   "frames": 61.5,
+   "frame times": 65.6,
+   "georef": 0.2,
+   "colorbar": 78.7,
+   "inversion": 0.6,
+   "validation": 0.0
+  },
+  "status": "pattern only"
+ },
+ "asset_checksums": {
+  "file": "checksums.tsv.gz",
+  "rows": 4,
+  "sha256_of_list": "9e54840c016fb18400b908a583e745674a50d46cddb4f3fbf38b9266ebb15d1b"
+ },
+ "code_commit": "a8f0638dc9adb81b18f259cf0813046acd882fa1-dirty",
+ "generated_utc": "2026-10-31T17:55:24Z"
+}

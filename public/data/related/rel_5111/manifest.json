@@ -1,0 +1,392 @@
+{
+ "record": "rel_5111",
+ "app_title": "Increase in Ocean Heat since 1957 Map - Spilhaus Projection (series)",
+ "svs_ids": [
+  5111
+ ],
+ "title": "Increase in Ocean Heat since 1957 Map - Spilhaus Projection",
+ "svs_pages": [
+  "https://svs.gsfc.nasa.gov/5111/"
+ ],
+ "description": "A graph of changes in ocean heat content since 1957 overlaying a Spilhaus projection map highlighting the world’s oceans. || oceans_spilhaus_map2160.png (2160x2160) [2.2 MB] || oceans_spilhaus_map2160_print.jpg (1024x1024) [151.3 KB] || oceans_spilhaus_map2160_searchweb.png (320x180) [62.9 KB] || oceans_spilhaus_map2160_thm.png (80x40) [5.4 KB] || ",
+ "release_date": "2023-06-16T10:00:00-04:00",
+ "period": {
+  "start": "1957-07-02T12:00:00Z",
+  "end": "2023-07-02T12:00:00Z",
+  "label": "2 Jul 1957 – 2 Jul 2023"
+ },
+ "badge": "observation",
+ "credits_by_role": {
+  "Visualizer": [
+   "Michala Garrison (SSAI)",
+   "Mark SubbaRao (NASA/GSFC)"
+  ],
+  "Technical support": [
+   "Laurence Schuler (ADNET Systems, Inc.)",
+   "Ian Jones (ADNET Systems, Inc.)"
+  ]
+ },
+ "datasets": [
+  {
+   "name": "Ocean Heat Content Changes since 1955",
+   "common_name": "Ocean Heat Content",
+   "platform": null,
+   "sensor": null,
+   "type": "Other",
+   "organizations": [
+    "NOAA/NCEI"
+   ],
+   "description": "",
+   "credit": "NOAA/NCEI World Ocean Database",
+   "url": "https://www.ncei.noaa.gov/data/oceans/woa/DATA_ANALYSIS/3M_HEAT_CONTENT/DATA/basin/pentad/pent_h22-w0-2000m.dat",
+   "date_range": null
+  }
+ ],
+ "credit_line": "Visualization: NASA's Scientific Visualization Studio (SVS 5111) for the NASA Earth Information Center.",
+ "disclosure": "A related NASA visualization read back through its key (observation).",
+ "licence": "SVS: \"All of our content is in the public domain (unless otherwise noted), meaning that it is free to download, use, and redistribute for whatever purposes you see fit.\" (https://svs.gsfc.nasa.gov/help/, read 29 Oct 2026)",
+ "focus": "water resources",
+ "related_to": [
+  3912
+ ],
+ "frame_times": {
+  "method": "date-list",
+  "approximate": false,
+  "count": 67,
+  "source": "the series' own dates (https://www.ncei.noaa.gov/data/oceans/woa/DATA_ANALYSIS/3M_HEAT_CONTENT/DATA/basin/pentad/pent_h22-w0-2000m.dat)"
+ },
+ "georef": {
+  "projection": "none (a time series)",
+  "bounds": [
+   -180,
+   -90,
+   180,
+   90
+  ],
+  "pass_at": 0.0,
+  "shifts_deg": [],
+  "iou": {},
+  "pass": false,
+  "best_is_assumed": false
+ },
+ "colorbar": null,
+ "series": {
+  "source": "NOAA NCEI ocean heat content, pentadal 0–2000 m (NOAA, free use)",
+  "url": "https://www.ncei.noaa.gov/data/oceans/woa/DATA_ANALYSIS/3M_HEAT_CONTENT/DATA/basin/pentad/pent_h22-w0-2000m.dat"
+ },
+ "layers": [
+  {
+   "id": "series",
+   "unit": "10²² J (0–2000 m, world)",
+   "encoding": "linear",
+   "scale": 0.0009826666666666666,
+   "offset": -9.303,
+   "nodata": 65535,
+   "below": 65534,
+   "grid": {
+    "width": 1,
+    "height": 1,
+    "bounds": [
+     -180,
+     -90,
+     180,
+     90
+    ],
+    "row0": "north",
+    "col0": "west",
+    "byte_order": "little"
+   },
+   "times": [
+    "1957-07-02T12:00:00Z",
+    "1958-07-02T12:00:00Z",
+    "1959-07-02T12:00:00Z",
+    "1960-07-02T00:00:00Z",
+    "1961-07-02T12:00:00Z",
+    "1962-07-02T12:00:00Z",
+    "1963-07-02T12:00:00Z",
+    "1964-07-02T00:00:00Z",
+    "1965-07-02T12:00:00Z",
+    "1966-07-02T12:00:00Z",
+    "1967-07-02T12:00:00Z",
+    "1968-07-02T00:00:00Z",
+    "1969-07-02T12:00:00Z",
+    "1970-07-02T12:00:00Z",
+    "1971-07-02T12:00:00Z",
+    "1972-07-02T00:00:00Z",
+    "1973-07-02T12:00:00Z",
+    "1974-07-02T12:00:00Z",
+    "1975-07-02T12:00:00Z",
+    "1976-07-02T00:00:00Z",
+    "1977-07-02T12:00:00Z",
+    "1978-07-02T12:00:00Z",
+    "1979-07-02T12:00:00Z",
+    "1980-07-02T00:00:00Z",
+    "1981-07-02T12:00:00Z",
+    "1982-07-02T12:00:00Z",
+    "1983-07-02T12:00:00Z",
+    "1984-07-02T00:00:00Z",
+    "1985-07-02T12:00:00Z",
+    "1986-07-02T12:00:00Z",
+    "1987-07-02T12:00:00Z",
+    "1988-07-02T00:00:00Z",
+    "1989-07-02T12:00:00Z",
+    "1990-07-02T12:00:00Z",
+    "1991-07-02T12:00:00Z",
+    "1992-07-02T00:00:00Z",
+    "1993-07-02T12:00:00Z",
+    "1994-07-02T12:00:00Z",
+    "1995-07-02T12:00:00Z",
+    "1996-07-02T00:00:00Z",
+    "1997-07-02T12:00:00Z",
+    "1998-07-02T12:00:00Z",
+    "1999-07-02T12:00:00Z",
+    "2000-07-02T00:00:00Z",
+    "2001-07-02T12:00:00Z",
+    "2002-07-02T12:00:00Z",
+    "2003-07-02T12:00:00Z",
+    "2004-07-02T00:00:00Z",
+    "2005-07-02T12:00:00Z",
+    "2006-07-02T12:00:00Z",
+    "2007-07-02T12:00:00Z",
+    "2008-07-02T00:00:00Z",
+    "2009-07-02T12:00:00Z",
+    "2010-07-02T12:00:00Z",
+    "2011-07-02T12:00:00Z",
+    "2012-07-02T00:00:00Z",
+    "2013-07-02T12:00:00Z",
+    "2014-07-02T12:00:00Z",
+    "2015-07-02T12:00:00Z",
+    "2016-07-02T00:00:00Z",
+    "2017-07-02T12:00:00Z",
+    "2018-07-02T12:00:00Z",
+    "2019-07-02T12:00:00Z",
+    "2020-07-02T00:00:00Z",
+    "2021-07-02T12:00:00Z",
+    "2022-07-02T12:00:00Z",
+    "2023-07-02T12:00:00Z"
+   ],
+   "chunks": [
+    {
+     "file": "series_000.u16.gz",
+     "t0": 0,
+     "t1": 32,
+     "bytes": 85
+    },
+    {
+     "file": "series_001.u16.gz",
+     "t0": 32,
+     "t1": 64,
+     "bytes": 87
+    },
+    {
+     "file": "series_002.u16.gz",
+     "t0": 64,
+     "t1": 67,
+     "bytes": 26
+    }
+   ],
+   "quantisation_step": 0.0009826666666666666,
+   "coverage": 1.0,
+   "value_range": [
+    -9.303,
+    29.48
+   ],
+   "label": "Increase in Ocean Heat since 1957 Map - Spilhaus Projection: the cited source series",
+   "aggregation": "one value per time step (the source's own numbers)",
+   "time_labels": [
+    "Jul 1957",
+    "Jul 1958",
+    "Jul 1959",
+    "Jul 1960",
+    "Jul 1961",
+    "Jul 1962",
+    "Jul 1963",
+    "Jul 1964",
+    "Jul 1965",
+    "Jul 1966",
+    "Jul 1967",
+    "Jul 1968",
+    "Jul 1969",
+    "Jul 1970",
+    "Jul 1971",
+    "Jul 1972",
+    "Jul 1973",
+    "Jul 1974",
+    "Jul 1975",
+    "Jul 1976",
+    "Jul 1977",
+    "Jul 1978",
+    "Jul 1979",
+    "Jul 1980",
+    "Jul 1981",
+    "Jul 1982",
+    "Jul 1983",
+    "Jul 1984",
+    "Jul 1985",
+    "Jul 1986",
+    "Jul 1987",
+    "Jul 1988",
+    "Jul 1989",
+    "Jul 1990",
+    "Jul 1991",
+    "Jul 1992",
+    "Jul 1993",
+    "Jul 1994",
+    "Jul 1995",
+    "Jul 1996",
+    "Jul 1997",
+    "Jul 1998",
+    "Jul 1999",
+    "Jul 2000",
+    "Jul 2001",
+    "Jul 2002",
+    "Jul 2003",
+    "Jul 2004",
+    "Jul 2005",
+    "Jul 2006",
+    "Jul 2007",
+    "Jul 2008",
+    "Jul 2009",
+    "Jul 2010",
+    "Jul 2011",
+    "Jul 2012",
+    "Jul 2013",
+    "Jul 2014",
+    "Jul 2015",
+    "Jul 2016",
+    "Jul 2017",
+    "Jul 2018",
+    "Jul 2019",
+    "Jul 2020",
+    "Jul 2021",
+    "Jul 2022",
+    "Jul 2023"
+   ],
+   "display": {
+    "colours": [
+     "#141418",
+     "#1c191a",
+     "#231f1c",
+     "#2b241e",
+     "#322a21",
+     "#3a2f23",
+     "#413525",
+     "#493a27",
+     "#514029",
+     "#58452b",
+     "#604b2d",
+     "#67502f",
+     "#6f5632",
+     "#775b34",
+     "#7e6136",
+     "#866638",
+     "#8d6c3a",
+     "#95713c",
+     "#9c773e",
+     "#a47c40",
+     "#ac8243",
+     "#b38745",
+     "#bb8d47",
+     "#c29249",
+     "#ca984b",
+     "#d29d4d",
+     "#d9a34f",
+     "#e1a851",
+     "#e8ae54",
+     "#f0b356",
+     "#f7b958",
+     "#ffbe5a"
+    ],
+    "values": [
+     -9.303,
+     -8.051935483870968,
+     -6.800870967741936,
+     -5.549806451612904,
+     -4.298741935483871,
+     -3.047677419354839,
+     -1.7966129032258067,
+     -0.5455483870967743,
+     0.705516129032258,
+     1.9565806451612904,
+     3.2076451612903227,
+     4.458709677419355,
+     5.7097741935483874,
+     6.960838709677422,
+     8.211903225806452,
+     9.462967741935483,
+     10.714032258064517,
+     11.965096774193551,
+     13.216161290322582,
+     14.467225806451612,
+     15.718290322580646,
+     16.96935483870968,
+     18.22041935483871,
+     19.47148387096774,
+     20.722548387096776,
+     21.97361290322581,
+     23.224677419354844,
+     24.47574193548387,
+     25.726806451612905,
+     26.97787096774194,
+     28.228935483870966,
+     29.48
+    ],
+    "scale": "linear",
+    "ramp": true
+   },
+   "series_source": "https://www.ncei.noaa.gov/data/oceans/woa/DATA_ANALYSIS/3M_HEAT_CONTENT/DATA/basin/pentad/pent_h22-w0-2000m.dat",
+   "status": "observation",
+   "status_check": "a_source_series",
+   "statement": "the source's own numbers"
+  }
+ ],
+ "voices": {
+  "series": "rel5111"
+ },
+ "play": [
+  {
+   "id": "series",
+   "label": "Increase in Ocean Heat since 1957 Map - Spilhaus Projection: higher pitch = higher value, in time order",
+   "view": "global",
+   "map": "series",
+   "start": {
+    "lat": 23.8,
+    "lon": 90.4
+   },
+   "steps_per_second": 8,
+   "channels": [
+    {
+     "voice": "rel5111",
+     "layers": [
+      "series"
+     ],
+     "combine": "value"
+    }
+   ]
+  }
+ ],
+ "validation": [
+  {
+   "id": "a_source_series",
+   "title": "Increase in Ocean Heat since 1957 Map - Spilhaus Projection: values are the cited source's series (not decoded from the graph)",
+   "kind": "context",
+   "pass": null,
+   "threshold": null
+  }
+ ],
+ "size": {
+  "choice": {
+   "points": 67
+  },
+  "tried": [],
+  "bytes": 10253,
+  "budget": 25000000
+ },
+ "onboarding": {
+  "status": "observation",
+  "route": "series",
+  "timings_s": {}
+ },
+ "code_commit": "a746e45419d5667864723a37cd7cfce89bcd7dc3-dirty",
+ "generated_utc": "2026-10-31T15:08:34Z"
+}

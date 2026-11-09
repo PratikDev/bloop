@@ -3,10 +3,11 @@
 
 import type { storyEn } from "../en/story";
 import { PLACE_NAMES_BN } from "./places";
+import type { Translated } from "../types";
 
 const CENTER = PLACE_NAMES_BN.sweepCenter;
 
-export const storyBn: typeof storyEn = {
+export const storyBn: Translated<typeof storyEn> = {
   "story.heading": "ট্যুর",
   "story.step.hum": "সমুদ্রের গুঞ্জন",
   "story.step.sweep": `${CENTER} থেকে সুইপ`,

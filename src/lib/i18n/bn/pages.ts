@@ -3,10 +3,11 @@
 import type { pagesEn } from "../en/pages";
 import { formatFixed, formatInteger } from "../format";
 import { APP_NAME } from "../brand";
+import type { Translated } from "../types";
 
 const int = (v: number) => formatInteger(v, "bn");
 
-export const pagesBn: typeof pagesEn = {
+export const pagesBn: Translated<typeof pagesEn> = {
   "app.skipToContent": "মূল অংশে যান",
 
   "nav.label": "পাতা",
@@ -22,7 +23,6 @@ export const pagesBn: typeof pagesEn = {
   "home.titleAccent": "পৃথিবীর সর্বশেষ ফ্রেম।",
   "home.continue": "শোনা চালিয়ে যান",
   "home.resetChoice": "শব্দের পছন্দ রিসেট করুন",
-  "home.stations": "শুরুর তিনটি পথ",
   "home.station.listen": "নাসার সর্বশেষ ফ্রেমের ওপর ঘুরে বেড়ান, আর কার্সরের নিচের সমুদ্র ও বৃষ্টি শুনুন।",
   "home.station.thenNow": "বাংলাদেশে তাপ, বর্ষার বৃষ্টি আর ভূগর্ভস্থ পানি কীভাবে বদলেছে, শুনুন।",
   "home.station.how": "প্রতিটি মান নাসার মূল ডেটার সাথে কীভাবে মিলিয়ে দেখা হয়েছে, আর শব্দের পেছনের প্রতিটি নিয়ম।",

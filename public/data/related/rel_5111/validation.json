@@ -1,0 +1,23 @@
+{
+ "record": "rel_5111",
+ "checks": [
+  {
+   "record": "rel_5111",
+   "id": "a_source_series",
+   "title": "Increase in Ocean Heat since 1957 Map - Spilhaus Projection: values are the cited source's series (not decoded from the graph)",
+   "kind": "context",
+   "source": "NOAA NCEI ocean heat content, pentadal 0–2000 m (NOAA, free use)",
+   "metrics": {
+    "points": 67,
+    "first": "1957-07-02",
+    "last": "2023-07-02",
+    "url": "https://www.ncei.noaa.gov/data/oceans/woa/DATA_ANALYSIS/3M_HEAT_CONTENT/DATA/basin/pentad/pent_h22-w0-2000m.dat"
+   },
+   "threshold": null,
+   "pass": null,
+   "note": "A graph or spiral is drawn from these numbers; the record plays the numbers, not the picture.",
+   "run_utc": "2026-10-31T15:08:34Z"
+  }
+ ],
+ "updated_utc": "2026-10-31T15:08:34Z"
+}

@@ -25,10 +25,13 @@ export function OceanCheck({ meta }: { meta: SstMetadata }) {
     );
   }
   return (
-    <p>
-      {t("truth.ocean.sentence", truth)}
-      {truth.recheck && ` ${t("truth.ocean.recheck", { date: formatDay(truth.recheck.date, state.lang), median: truth.recheck.median })}`}
-    </p>
+    <>
+      <p>
+        {t("truth.ocean.sentence", truth)}
+        {truth.recheck && ` ${t("truth.ocean.recheck", { date: formatDay(truth.recheck.date, state.lang), median: truth.recheck.median })}`}
+      </p>
+      {truth.checkedUtc && <p className="text-small text-haze">{t("truth.checkedOn", { datetime: formatUtc(truth.checkedUtc, state.lang) })}</p>}
+    </>
   );
 }
 

@@ -1,0 +1,429 @@
+{
+ "record": "air_5533",
+ "checks": [
+  {
+   "record": "air_5533",
+   "id": "a_pm25_geoscf",
+   "title": "pm25: frames vs GEOS-CF v1 at the same hours",
+   "kind": "value",
+   "source": "GEOS-CF v1 chm_tavg_1hr_g1440x721_v1 (NASA GMAO, OPeNDAP)",
+   "metrics": {
+    "hours": 25,
+    "spearman_decoded": 0.9967567200332887,
+    "n_decoded": 1594252,
+    "spearman_with_censored": 0.9967567200332887,
+    "n_with_censored": 1594252,
+    "median_rel_error": 0.6962369335495473,
+    "median_log10_ratio": -0.504240870475769,
+    "median_frame": 0.6965080499649048,
+    "median_model": 2.3328428268432617,
+    "sensitivity_time_offset": {
+     "-1 h": {
+      "spearman_decoded": 0.9969094798969622,
+      "median_rel_error": 0.6964563739409635
+     },
+     "+1 h": {
+      "spearman_decoded": 0.993413260078149,
+      "median_rel_error": 0.693811679852061
+     }
+    },
+    "vs_gocart": {
+     "spearman_decoded": 0.6895599950926324,
+     "median_rel_error": 0.9074743210073921
+    }
+   },
+   "threshold": "Spearman ≥ 0.9 and median relative error ≤ 15 % (provisional)",
+   "pass": false,
+   "note": "Same model, so this tests the decoding. SVS links the GEOS-CF v2 datashare, but no public v2 archive covers Jul–Sep 2024; v1 is the only one that does.",
+   "run_utc": "2026-10-29T07:18:19Z",
+   "decision": {
+    "on": "2026-10-29",
+    "status": "relative",
+    "statement": "relative PM2.5: pattern and timing verified (ρ 0.997), absolute scale not verified (frame ≈ 0.31 × GEOS-CF v1)",
+    "table": "threshold missed; shipped as relative values (team decision 29 Oct 2026)"
+   }
+  },
+  {
+   "record": "air_5533",
+   "id": "a_co_geoscf",
+   "title": "co: frames vs GEOS-CF v1 at the same hours",
+   "kind": "value",
+   "source": "GEOS-CF v1 chm_tavg_1hr_g1440x721_v1 (NASA GMAO, OPeNDAP)",
+   "metrics": {
+    "hours": 25,
+    "spearman_decoded": 0.9963815455878975,
+    "n_decoded": 1595179,
+    "spearman_with_censored": 0.9963815455878975,
+    "n_with_censored": 1595179,
+    "median_rel_error": 0.054577254559543466,
+    "median_log10_ratio": 0.021670984104275703,
+    "median_frame": 68.5987319946289,
+    "median_model": 66.02030181884766,
+    "sensitivity_time_offset": {}
+   },
+   "threshold": "Spearman ≥ 0.9 and median relative error ≤ 15 % (provisional)",
+   "pass": true,
+   "note": "Same model, so this tests the decoding. SVS links the GEOS-CF v2 datashare, but no public v2 archive covers Jul–Sep 2024; v1 is the only one that does.",
+   "run_utc": "2026-10-29T07:18:24Z"
+  },
+  {
+   "record": "air_5533",
+   "id": "a_nox_geoscf",
+   "title": "nox: frames vs GEOS-CF v1 at the same hours",
+   "kind": "value",
+   "source": "GEOS-CF v1 chm_tavg_1hr_g1440x721_v1 (NASA GMAO, OPeNDAP)",
+   "metrics": {
+    "hours": 25,
+    "spearman_decoded": 0.9832514811344356,
+    "n_decoded": 1455731,
+    "spearman_with_censored": 0.9840953985733922,
+    "n_with_censored": 1618309,
+    "median_rel_error": 0.16691706704098713,
+    "median_log10_ratio": -0.0002580562140792608,
+    "median_frame": 0.013689616695046425,
+    "median_model": 0.01524196844547987,
+    "below_bound": 0.0010890229622637305,
+    "censored_cells": 162578,
+    "censored_model_also_below": 0.9249406438755551,
+    "sensitivity_time_offset": {}
+   },
+   "threshold": "Spearman ≥ 0.9 and median relative error ≤ 15 % (provisional)",
+   "pass": false,
+   "note": "Same model, so this tests the decoding. SVS links the GEOS-CF v2 datashare, but no public v2 archive covers Jul–Sep 2024; v1 is the only one that does.",
+   "run_utc": "2026-10-29T07:18:31Z",
+   "decision": {
+    "on": "2026-10-29",
+    "status": "values with stated error",
+    "statement": "values; median error 16.7% vs GEOS-CF v1",
+    "table": "threshold missed; accepted explicitly by the team on 29 Oct 2026"
+   }
+  },
+  {
+   "record": "air_5533",
+   "id": "a_o3_geoscf",
+   "title": "o3: frames vs GEOS-CF v1 at the same hours",
+   "kind": "value",
+   "source": "GEOS-CF v1 chm_tavg_1hr_g1440x721_v1 (NASA GMAO, OPeNDAP)",
+   "metrics": {
+    "hours": 25,
+    "spearman_decoded": 0.9666295050349493,
+    "n_decoded": 1243516,
+    "spearman_with_censored": 0.9679814093777902,
+    "n_with_censored": 1619592,
+    "median_rel_error": 0.03740453272241455,
+    "median_log10_ratio": 0.011543401516973972,
+    "median_frame": 30.014976501464844,
+    "median_model": 28.92920684814453,
+    "below_bound": 19.52454302471148,
+    "censored_cells": 376076,
+    "censored_model_also_below": 0.7099442665844138,
+    "sensitivity_time_offset": {
+     "-1 h": {
+      "spearman_decoded": 0.96774114213429,
+      "median_rel_error": 0.03696799019738847
+     },
+     "+1 h": {
+      "spearman_decoded": 0.9507589671483432,
+      "median_rel_error": 0.042470436082427385
+     }
+    }
+   },
+   "threshold": "Spearman ≥ 0.9 and median relative error ≤ 15 % (provisional)",
+   "pass": true,
+   "note": "Same model, so this tests the decoding. SVS links the GEOS-CF v2 datashare, but no public v2 archive covers Jul–Sep 2024; v1 is the only one that does.",
+   "run_utc": "2026-10-29T07:18:51Z"
+  },
+  {
+   "record": "air_5533",
+   "id": "b_pm25_dhaka_ground",
+   "title": "PM2.5 at Dhaka ground stations vs the frames (weekly)",
+   "kind": "model-vs-obs",
+   "source": "OpenAQ v3 (stations within 25 km of Dhaka with data in the period)",
+   "metrics": {
+    "stations": {
+     "Dhaka (sensor 24434, AirNow)": {
+      "pixel": [
+       23.818359375,
+       90.439453125
+      ],
+      "hours": 1634,
+      "weeks": 11,
+      "weekly_spearman": -0.02727272727272728,
+      "weekly_bias_median": -28.82129444290952,
+      "weekly_ratio_median": 0.19750555371185716,
+      "hourly_spearman": 0.13022184422790922,
+      "weekly": [
+       [
+        "2024-W27",
+        8.07256443138364,
+        39.41772151898734
+       ],
+       [
+        "2024-W28",
+        6.655418555420566,
+        38.96987951807229
+       ],
+       [
+        "2024-W29",
+        4.638512719245184,
+        34.535714285714285
+       ],
+       [
+        "2024-W30",
+        5.93694715617133,
+        24.10655737704918
+       ],
+       [
+        "2024-W31",
+        6.682337963219845,
+        34.6
+       ],
+       [
+        "2024-W32",
+        7.311044963789575,
+        32.43827160493827
+       ],
+       [
+        "2024-W33",
+        7.093339703431943,
+        35.91463414634146
+       ],
+       [
+        "2024-W34",
+        9.189567908373746,
+        31.975757575757576
+       ],
+       [
+        "2024-W35",
+        6.974455771622835,
+        38.44444444444444
+       ],
+       [
+        "2024-W36",
+        6.193596163427974,
+        51.08433734939759
+       ],
+       [
+        "2024-W37",
+        7.020223595698675,
+        31.683333333333334
+       ]
+      ]
+     }
+    },
+    "stations_with_data": 1,
+    "radius_m": 25000,
+    "sensors_listed": 27
+   },
+   "threshold": null,
+   "pass": null,
+   "note": "Model vs ground, no threshold. Only the stations listed had any hours in 1 Jul – 14 Sep 2024.",
+   "run_utc": "2026-10-29T07:19:49Z",
+   "decision": {
+    "on": "2026-10-29",
+    "status": "insufficient data",
+    "statement": "insufficient ground data (1 of 27 sensors had data)",
+    "table": "insufficient ground data; not reported as a correlation"
+   }
+  },
+  {
+   "record": "air_5533",
+   "id": "a2_pm25_variable_search",
+   "title": "PM2.5 vs every PM2.5-type GEOS-CF v1 variable (same hours and cells)",
+   "kind": "value",
+   "source": "GEOS-CF v1 chm_tavg / chm_inst (NCCS OPeNDAP)",
+   "metrics": {
+    "match": "none",
+    "candidates": {
+     "chm_tavg pm25_rh35_gcc": {
+      "n": 1594252,
+      "median_ratio": 0.31315481662750244,
+      "median_rel_error": 0.6962369680404663,
+      "spearman": 0.9967567200332887
+     },
+     "chm_tavg pm25_rh35_gocar": {
+      "n": 1594252,
+      "median_ratio": 0.10197287797927856,
+      "median_rel_error": 0.9074742794036865,
+      "spearman": 0.6895599950926324
+     },
+     "chm_inst pm25_rh35_gcc (surface)": {
+      "n": 1594252,
+      "median_ratio": 0.31303662061691284,
+      "median_rel_error": 0.6966577768325806,
+      "spearman": 0.9972137892279156
+     },
+     "chm_tavg pm25bc_rh35_gcc": {
+      "n": 1594252,
+      "median_ratio": 88.06163024902344,
+      "median_rel_error": 87.06163024902344,
+      "spearman": 0.8288674221857678
+     },
+     "chm_tavg pm25du_rh35_gcc": {
+      "n": 1594252,
+      "median_ratio": 16.005861282348633,
+      "median_rel_error": 15.005861282348633,
+      "spearman": 0.7324555710427648
+     },
+     "chm_tavg pm25ni_rh35_gcc": {
+      "n": 1594252,
+      "median_ratio": 6.5920329093933105,
+      "median_rel_error": 5.5920329093933105,
+      "spearman": 0.8462266438068301
+     },
+     "chm_tavg pm25oc_rh35_gcc": {
+      "n": 1594252,
+      "median_ratio": 4.6180596351623535,
+      "median_rel_error": 3.6180596351623535,
+      "spearman": 0.8114460118906757
+     },
+     "chm_tavg pm25soa_rh35_gc": {
+      "n": 1594252,
+      "median_ratio": 6.371967315673828,
+      "median_rel_error": 5.37196683883667,
+      "spearman": 0.8217797687213223
+     },
+     "chm_tavg pm25ss_rh35_gcc": {
+      "n": 1594252,
+      "median_ratio": 2.1944797039031982,
+      "median_rel_error": 1.1944797039031982,
+      "spearman": 0.16620747691651885
+     },
+     "chm_tavg pm25su_rh35_gcc": {
+      "n": 1594252,
+      "median_ratio": 1.7541964054107666,
+      "median_rel_error": 0.7639901638031006,
+      "spearman": 0.8397908672287232
+     },
+     "sum of the 7 components (bc+du+ni+oc+soa+ss+su)": {
+      "n": 1594252,
+      "median_ratio": 0.37697362899780273,
+      "median_rel_error": 0.6642220616340637,
+      "spearman": 0.9893445825393998
+     }
+    }
+   },
+   "threshold": "≈1× (median ratio 0.85–1.15) and median relative error ≤ 15 %",
+   "pass": false,
+   "note": "A match would replace a_pm25_geoscf's reference; none is at ~1×, so PM2.5 ships as relative values.",
+   "run_utc": "2026-10-29T07:19:49Z"
+  },
+  {
+   "record": "air_5533",
+   "id": "e_pm25_cams",
+   "title": "PM25: frames vs CAMS EAC4 (a different model), same hours (nearest 3-hourly step)",
+   "kind": "model-vs-obs",
+   "source": "CAMS EAC4 reanalysis (ADS, CC-BY)",
+   "metrics": {
+    "spearman": 0.6912441512483619,
+    "n": 1594252,
+    "median_ratio": 0.15666025444624135,
+    "hours": 25,
+    "rung": "different model"
+   },
+   "threshold": null,
+   "pass": null,
+   "note": "Different model: agreement in pattern, not the same numbers.",
+   "run_utc": "2026-11-02T21:58:57Z"
+  },
+  {
+   "record": "air_5533",
+   "id": "e_co_cams",
+   "title": "CO: frames vs CAMS EAC4 (a different model), same hours (nearest 3-hourly step)",
+   "kind": "model-vs-obs",
+   "source": "CAMS EAC4 reanalysis (ADS, CC-BY)",
+   "metrics": {
+    "spearman": 0.8922601951400467,
+    "n": 1595179,
+    "median_ratio": 0.9311584758301082,
+    "hours": 25,
+    "rung": "different model"
+   },
+   "threshold": null,
+   "pass": null,
+   "note": "Different model: agreement in pattern, not the same numbers.",
+   "run_utc": "2026-11-02T21:59:03Z"
+  },
+  {
+   "record": "air_5533",
+   "id": "e_o3_cams",
+   "title": "O3: frames vs CAMS EAC4 (a different model), same hours (nearest 3-hourly step)",
+   "kind": "model-vs-obs",
+   "source": "CAMS EAC4 reanalysis (ADS, CC-BY)",
+   "metrics": {
+    "spearman": 0.23736409870699843,
+    "n": 1243516,
+    "median_ratio": 0.7726577410617499,
+    "hours": 25,
+    "rung": "different model"
+   },
+   "threshold": null,
+   "pass": null,
+   "note": "Different model: agreement in pattern, not the same numbers.",
+   "run_utc": "2026-11-02T21:59:09Z"
+  },
+  {
+   "record": "air_5533",
+   "id": "e_nox_cams",
+   "title": "NOX: frames vs CAMS EAC4 (a different model), same hours (nearest 3-hourly step)",
+   "kind": "model-vs-obs",
+   "source": "CAMS EAC4 reanalysis (ADS, CC-BY)",
+   "metrics": {
+    "spearman": 0.9354968045168479,
+    "n": 1455731,
+    "median_ratio": 0.6850069367967007,
+    "hours": 25,
+    "rung": "different model"
+   },
+   "threshold": null,
+   "pass": null,
+   "note": "Different model: agreement in pattern, not the same numbers.",
+   "run_utc": "2026-11-02T21:59:14Z"
+  },
+  {
+   "record": "air_5533",
+   "id": "g_nox_tropomi",
+   "title": "NOx over Bangladesh: hourly frame nearest the overpass vs TROPOMI tropospheric NO2 column (independent satellite)",
+   "kind": "model-vs-obs",
+   "source": "Sentinel-5P TROPOMI NO2 L2 v2 (KNMI/ESA via NASA GES DISC, C2089270961-GES_DISC; Copernicus Sentinel data terms)",
+   "metrics": {
+    "spearman": 0.5301867649251442,
+    "n": 9063,
+    "days": 24,
+    "overpasses": [
+     "2024-07-01 06:54",
+     "2024-07-04 07:38",
+     "2024-07-07 06:42",
+     "2024-07-10 07:25",
+     "2024-07-13 06:29",
+     "2024-07-16 07:13",
+     "2024-07-19 06:17",
+     "2024-07-22 07:00",
+     "2024-07-26 07:25",
+     "2024-07-29 06:29",
+     "2024-08-01 07:13",
+     "2024-08-04 06:17",
+     "2024-08-07 07:00",
+     "2024-08-10 07:44",
+     "2024-08-13 06:48",
+     "2024-08-16 07:31",
+     "2024-08-20 06:17",
+     "2024-08-23 07:00",
+     "2024-08-26 07:44",
+     "2024-08-29 06:47",
+     "2024-09-01 07:31",
+     "2024-09-04 06:35",
+     "2024-09-07 07:18",
+     "2024-09-10 06:23"
+    ],
+    "qa_min": 0.75,
+    "rung": "independent satellite"
+   },
+   "threshold": null,
+   "pass": null,
+   "note": "Surface NOx mixing ratio vs a tropospheric column: different quantities, so pattern agreement only; monsoon cloud removes most pixels.",
+   "run_utc": "2026-11-02T22:20:12Z"
+  }
+ ],
+ "updated_utc": "2026-11-02T22:20:12Z"
+}

@@ -1,0 +1,442 @@
+{
+ "AncillaryKeywords": [
+  "canopy height",
+  "GEDI",
+  "Global Ecosystem Dynamics Investigation",
+  "ground elevation"
+ ],
+ "CollectionCitations": [
+  {
+   "OtherCitationDetails": "Dubayah, R.O., S.B. Luthcke, T.J. Sabaka, J.B. Nicholas, S. Preaux, and M.A. Hofton. 2021. GEDI L3 Gridded Land Surface Metrics, Version 2. ORNL DAAC, Oak Ridge, Tennessee, USA. https://doi.org/10.3334/ORNLDAAC/1952"
+  }
+ ],
+ "SpatialExtent": {
+  "HorizontalSpatialDomain": {
+   "Geometry": {
+    "BoundingRectangles": [
+     {
+      "WestBoundingCoordinate": -180.0,
+      "NorthBoundingCoordinate": 52.0,
+      "EastBoundingCoordinate": 180.0,
+      "SouthBoundingCoordinate": -52.0
+     }
+    ],
+    "CoordinateSystem": "CARTESIAN"
+   }
+  },
+  "SpatialCoverageType": "HORIZONTAL",
+  "GranuleSpatialRepresentation": "CARTESIAN"
+ },
+ "CollectionProgress": "COMPLETE",
+ "StandardProduct": true,
+ "ScienceKeywords": [
+  {
+   "Category": "EARTH SCIENCE",
+   "Topic": "SPECTRAL/ENGINEERING",
+   "Term": "LIDAR",
+   "VariableLevel1": "LIDAR WAVEFORM"
+  },
+  {
+   "Category": "EARTH SCIENCE",
+   "Topic": "BIOSPHERE",
+   "Term": "VEGETATION",
+   "VariableLevel1": "CANOPY CHARACTERISTICS"
+  },
+  {
+   "Category": "EARTH SCIENCE",
+   "Topic": "LAND SURFACE",
+   "Term": "TOPOGRAPHY",
+   "VariableLevel1": "TERRAIN ELEVATION"
+  }
+ ],
+ "TemporalExtents": [
+  {
+   "RangeDateTimes": [
+    {
+     "BeginningDateTime": "2019-04-18T00:00:00.000Z",
+     "EndingDateTime": "2025-07-09T23:59:59.999Z"
+    }
+   ],
+   "EndsAtPresentFlag": false
+  }
+ ],
+ "ProcessingLevel": {
+  "ProcessingLevelDescription": "Variables mapped on uniform space-time grid scales with completeness and consistency",
+  "Id": "3"
+ },
+ "DOI": {
+  "DOI": "10.3334/ORNLDAAC/1952",
+  "Authority": "https://doi.org"
+ },
+ "ShortName": "GEDI_L3_LandSurface_Metrics_V2_1952",
+ "EntryTitle": "GEDI L3 Gridded Land Surface Metrics, Version 2",
+ "DirectDistributionInformation": {
+  "Region": "us-west-2",
+  "S3BucketAndObjectPrefixNames": [
+   "s3://ornl-cumulus-prod-protected/gedi/GEDI_L3_LandSurface_Metrics_V2/data",
+   "s3://ornl-cumulus-prod-public/gedi/GEDI_L3_LandSurface_Metrics_V2"
+  ],
+  "S3CredentialsAPIEndpoint": "https://data.ornldaac.earthdata.nasa.gov/s3credentials",
+  "S3CredentialsAPIDocumentationURL": "https://data.ornldaac.earthdata.nasa.gov/s3credentialsREADME"
+ },
+ "RelatedUrls": [
+  {
+   "Description": "Data set Landing Page DOI URL",
+   "URLContentType": "CollectionURL",
+   "Type": "DATA SET LANDING PAGE",
+   "URL": "https://doi.org/10.3334/ORNLDAAC/1952"
+  },
+  {
+   "Description": "Browse Image",
+   "URLContentType": "VisualizationURL",
+   "Type": "GET RELATED VISUALIZATION",
+   "URL": "https://daac.ornl.gov/GEDI/guides/GEDI_L3_LandSurface_Metrics_V2_Fig1.png"
+  },
+  {
+   "Description": "GEDI Project Site",
+   "URLContentType": "CollectionURL",
+   "Type": "PROJECT HOME PAGE",
+   "URL": "https://gedi.umd.edu"
+  },
+  {
+   "Description": "GEDI L3 Gridded Land Surface Metrics, Version 2: GEDI03_elev_lowestmode_mean_2019108_2022019_002_03.png",
+   "URLContentType": "PublicationURL",
+   "Type": "VIEW RELATED INFORMATION",
+   "Subtype": "GENERAL DOCUMENTATION",
+   "URL": "https://data.ornldaac.earthdata.nasa.gov/public/gedi/GEDI_L3_LandSurface_Metrics_V2/comp/GEDI03_elev_lowestmode_mean_2019108_2022019_002_03.png"
+  },
+  {
+   "Description": "GEDI L3 Gridded Land Surface Metrics, Version 2: GEDI03_elev_lowestmode_mean_2019108_2021216_002_02.png",
+   "URLContentType": "PublicationURL",
+   "Type": "VIEW RELATED INFORMATION",
+   "Subtype": "GENERAL DOCUMENTATION",
+   "URL": "https://data.ornldaac.earthdata.nasa.gov/public/gedi/GEDI_L3_LandSurface_Metrics_V2/comp/GEDI03_elev_lowestmode_mean_2019108_2021216_002_02.png"
+  },
+  {
+   "Description": "GEDI L3 Gridded Land Surface Metrics, Version 2: GEDI03_elev_lowestmode_mean_2019108_2023081_002_05.png",
+   "URLContentType": "PublicationURL",
+   "Type": "VIEW RELATED INFORMATION",
+   "Subtype": "GENERAL DOCUMENTATION",
+   "URL": "https://data.ornldaac.earthdata.nasa.gov/public/gedi/GEDI_L3_LandSurface_Metrics_V2/comp/GEDI03_elev_lowestmode_mean_2019108_2023081_002_05.png"
+  },
+  {
+   "Description": "GEDI L3 Gridded Land Surface Metrics, Version 2: GEDI03_elev_lowestmode_stddev_2019108_2023081_002_05.png",
+   "URLContentType": "PublicationURL",
+   "Type": "VIEW RELATED INFORMATION",
+   "Subtype": "GENERAL DOCUMENTATION",
+   "URL": "https://data.ornldaac.earthdata.nasa.gov/public/gedi/GEDI_L3_LandSurface_Metrics_V2/comp/GEDI03_elev_lowestmode_stddev_2019108_2023081_002_05.png"
+  },
+  {
+   "Description": "GEDI L3 Gridded Land Surface Metrics, Version 2: GEDI03_elev_lowestmode_stddev_2019108_2025190_002_05.png",
+   "URLContentType": "PublicationURL",
+   "Type": "VIEW RELATED INFORMATION",
+   "Subtype": "GENERAL DOCUMENTATION",
+   "URL": "https://data.ornldaac.earthdata.nasa.gov/public/gedi/GEDI_L3_LandSurface_Metrics_V2/comp/GEDI03_elev_lowestmode_stddev_2019108_2025190_002_05.png"
+  },
+  {
+   "Description": "GEDI L3 Gridded Land Surface Metrics, Version 2: GEDI03_elev_lowestmode_stddev_2019108_2022019_002_03.png",
+   "URLContentType": "PublicationURL",
+   "Type": "VIEW RELATED INFORMATION",
+   "Subtype": "GENERAL DOCUMENTATION",
+   "URL": "https://data.ornldaac.earthdata.nasa.gov/public/gedi/GEDI_L3_LandSurface_Metrics_V2/comp/GEDI03_elev_lowestmode_stddev_2019108_2022019_002_03.png"
+  },
+  {
+   "Description": "GEDI L3 Gridded Land Surface Metrics, Version 2: GEDI03_elev_lowestmode_stddev_2019108_2021216_002_02.png",
+   "URLContentType": "PublicationURL",
+   "Type": "VIEW RELATED INFORMATION",
+   "Subtype": "GENERAL DOCUMENTATION",
+   "URL": "https://data.ornldaac.earthdata.nasa.gov/public/gedi/GEDI_L3_LandSurface_Metrics_V2/comp/GEDI03_elev_lowestmode_stddev_2019108_2021216_002_02.png"
+  },
+  {
+   "Description": "GEDI L3 Gridded Land Surface Metrics, Version 2: GEDI03_elev_lowestmode_stddev_2019108_2021104_002_02.png",
+   "URLContentType": "PublicationURL",
+   "Type": "VIEW RELATED INFORMATION",
+   "Subtype": "GENERAL DOCUMENTATION",
+   "URL": "https://data.ornldaac.earthdata.nasa.gov/public/gedi/GEDI_L3_LandSurface_Metrics_V2/comp/GEDI03_elev_lowestmode_stddev_2019108_2021104_002_02.png"
+  },
+  {
+   "Description": "GEDI L3 Gridded Land Surface Metrics, Version 2: GEDI03_elev_lowestmode_stddev_2019108_2020287_002_02.png",
+   "URLContentType": "PublicationURL",
+   "Type": "VIEW RELATED INFORMATION",
+   "Subtype": "GENERAL DOCUMENTATION",
+   "URL": "https://data.ornldaac.earthdata.nasa.gov/public/gedi/GEDI_L3_LandSurface_Metrics_V2/comp/GEDI03_elev_lowestmode_stddev_2019108_2020287_002_02.png"
+  },
+  {
+   "Description": "GEDI L3 Gridded Land Surface Metrics, Version 2: GEDI03_elev_lowestmode_mean_2019108_2025190_002_05.png",
+   "URLContentType": "PublicationURL",
+   "Type": "VIEW RELATED INFORMATION",
+   "Subtype": "GENERAL DOCUMENTATION",
+   "URL": "https://data.ornldaac.earthdata.nasa.gov/public/gedi/GEDI_L3_LandSurface_Metrics_V2/comp/GEDI03_elev_lowestmode_mean_2019108_2025190_002_05.png"
+  },
+  {
+   "Description": "GEDI L3 Gridded Land Surface Metrics, Version 2: GEDI03_rh100_mean_2019108_2020287_002_02.png",
+   "URLContentType": "PublicationURL",
+   "Type": "VIEW RELATED INFORMATION",
+   "Subtype": "GENERAL DOCUMENTATION",
+   "URL": "https://data.ornldaac.earthdata.nasa.gov/public/gedi/GEDI_L3_LandSurface_Metrics_V2/comp/GEDI03_rh100_mean_2019108_2020287_002_02.png"
+  },
+  {
+   "Description": "GEDI L3 Gridded Land Surface Metrics, Version 2: GEDI03_rh100_mean_2019108_2021104_002_02.png",
+   "URLContentType": "PublicationURL",
+   "Type": "VIEW RELATED INFORMATION",
+   "Subtype": "GENERAL DOCUMENTATION",
+   "URL": "https://data.ornldaac.earthdata.nasa.gov/public/gedi/GEDI_L3_LandSurface_Metrics_V2/comp/GEDI03_rh100_mean_2019108_2021104_002_02.png"
+  },
+  {
+   "Description": "GEDI L3 Gridded Land Surface Metrics, Version 2: GEDI03_rh100_mean_2019108_2021216_002_02.png",
+   "URLContentType": "PublicationURL",
+   "Type": "VIEW RELATED INFORMATION",
+   "Subtype": "GENERAL DOCUMENTATION",
+   "URL": "https://data.ornldaac.earthdata.nasa.gov/public/gedi/GEDI_L3_LandSurface_Metrics_V2/comp/GEDI03_rh100_mean_2019108_2021216_002_02.png"
+  },
+  {
+   "Description": "GEDI L3 Gridded Land Surface Metrics, Version 2: GEDI03_rh100_mean_2019108_2022019_002_03.png",
+   "URLContentType": "PublicationURL",
+   "Type": "VIEW RELATED INFORMATION",
+   "Subtype": "GENERAL DOCUMENTATION",
+   "URL": "https://data.ornldaac.earthdata.nasa.gov/public/gedi/GEDI_L3_LandSurface_Metrics_V2/comp/GEDI03_rh100_mean_2019108_2022019_002_03.png"
+  },
+  {
+   "Description": "GEDI L3 Gridded Land Surface Metrics, Version 2: GEDI03_rh100_mean_2019108_2023081_002_05.png",
+   "URLContentType": "PublicationURL",
+   "Type": "VIEW RELATED INFORMATION",
+   "Subtype": "GENERAL DOCUMENTATION",
+   "URL": "https://data.ornldaac.earthdata.nasa.gov/public/gedi/GEDI_L3_LandSurface_Metrics_V2/comp/GEDI03_rh100_mean_2019108_2023081_002_05.png"
+  },
+  {
+   "Description": "GEDI L3 Gridded Land Surface Metrics, Version 2: GEDI03_rh100_mean_2019108_2025190_002_05.png",
+   "URLContentType": "PublicationURL",
+   "Type": "VIEW RELATED INFORMATION",
+   "Subtype": "GENERAL DOCUMENTATION",
+   "URL": "https://data.ornldaac.earthdata.nasa.gov/public/gedi/GEDI_L3_LandSurface_Metrics_V2/comp/GEDI03_rh100_mean_2019108_2025190_002_05.png"
+  },
+  {
+   "Description": "GEDI L3 Gridded Land Surface Metrics, Version 2: GEDI03_rh100_stddev_2019108_2020287_002_02.png",
+   "URLContentType": "PublicationURL",
+   "Type": "VIEW RELATED INFORMATION",
+   "Subtype": "GENERAL DOCUMENTATION",
+   "URL": "https://data.ornldaac.earthdata.nasa.gov/public/gedi/GEDI_L3_LandSurface_Metrics_V2/comp/GEDI03_rh100_stddev_2019108_2020287_002_02.png"
+  },
+  {
+   "Description": "GEDI L3 Gridded Land Surface Metrics, Version 2: GEDI03_rh100_stddev_2019108_2021104_002_02.png",
+   "URLContentType": "PublicationURL",
+   "Type": "VIEW RELATED INFORMATION",
+   "Subtype": "GENERAL DOCUMENTATION",
+   "URL": "https://data.ornldaac.earthdata.nasa.gov/public/gedi/GEDI_L3_LandSurface_Metrics_V2/comp/GEDI03_rh100_stddev_2019108_2021104_002_02.png"
+  },
+  {
+   "Description": "GEDI L3 Gridded Land Surface Metrics, Version 2: GEDI03_rh100_stddev_2019108_2021216_002_02.png",
+   "URLContentType": "PublicationURL",
+   "Type": "VIEW RELATED INFORMATION",
+   "Subtype": "GENERAL DOCUMENTATION",
+   "URL": "https://data.ornldaac.earthdata.nasa.gov/public/gedi/GEDI_L3_LandSurface_Metrics_V2/comp/GEDI03_rh100_stddev_2019108_2021216_002_02.png"
+  },
+  {
+   "Description": "GEDI L3 Gridded Land Surface Metrics, Version 2: GEDI03_rh100_stddev_2019108_2022019_002_03.png",
+   "URLContentType": "PublicationURL",
+   "Type": "VIEW RELATED INFORMATION",
+   "Subtype": "GENERAL DOCUMENTATION",
+   "URL": "https://data.ornldaac.earthdata.nasa.gov/public/gedi/GEDI_L3_LandSurface_Metrics_V2/comp/GEDI03_rh100_stddev_2019108_2022019_002_03.png"
+  },
+  {
+   "Description": "ORNL DAAC Data Set Documentation",
+   "URLContentType": "PublicationURL",
+   "Type": "VIEW RELATED INFORMATION",
+   "Subtype": "USER'S GUIDE",
+   "URL": "https://data.ornldaac.earthdata.nasa.gov/public/gedi/GEDI_L3_LandSurface_Metrics_V2/comp/GEDI_ATBD_L3R01.pdf"
+  },
+  {
+   "Description": "GEDI L3 Gridded Land Surface Metrics, Version 2: GEDI_ATBD_L3R01.pdf",
+   "URLContentType": "PublicationURL",
+   "Type": "VIEW RELATED INFORMATION",
+   "Subtype": "GENERAL DOCUMENTATION",
+   "URL": "https://data.ornldaac.earthdata.nasa.gov/public/gedi/GEDI_L3_LandSurface_Metrics_V2/comp/GEDI_ATBD_L3R01.pdf"
+  },
+  {
+   "Description": "GEDI L3 Gridded Land Surface Metrics, Version 2: GEDI03_rh100_stddev_2019108_2025190_002_05.png",
+   "URLContentType": "PublicationURL",
+   "Type": "VIEW RELATED INFORMATION",
+   "Subtype": "GENERAL DOCUMENTATION",
+   "URL": "https://data.ornldaac.earthdata.nasa.gov/public/gedi/GEDI_L3_LandSurface_Metrics_V2/comp/GEDI03_rh100_stddev_2019108_2025190_002_05.png"
+  },
+  {
+   "Description": "GEDI L3 Gridded Land Surface Metrics, Version 2: GEDI03_rh100_stddev_2019108_2023081_002_05.png",
+   "URLContentType": "PublicationURL",
+   "Type": "VIEW RELATED INFORMATION",
+   "Subtype": "GENERAL DOCUMENTATION",
+   "URL": "https://data.ornldaac.earthdata.nasa.gov/public/gedi/GEDI_L3_LandSurface_Metrics_V2/comp/GEDI03_rh100_stddev_2019108_2023081_002_05.png"
+  },
+  {
+   "Description": "GEDI L3 Gridded Land Surface Metrics, Version 2: GEDI_L3_LandSurface_Metrics_V2.pdf",
+   "URLContentType": "PublicationURL",
+   "Type": "VIEW RELATED INFORMATION",
+   "Subtype": "GENERAL DOCUMENTATION",
+   "URL": "https://data.ornldaac.earthdata.nasa.gov/public/gedi/GEDI_L3_LandSurface_Metrics_V2/comp/GEDI_L3_LandSurface_Metrics_V2.pdf"
+  },
+  {
+   "Description": "GEDI L3 Gridded Land Surface Metrics, Version 2: GEDI03_elev_lowestmode_mean_2019108_2021104_002_02.png",
+   "URLContentType": "PublicationURL",
+   "Type": "VIEW RELATED INFORMATION",
+   "Subtype": "GENERAL DOCUMENTATION",
+   "URL": "https://data.ornldaac.earthdata.nasa.gov/public/gedi/GEDI_L3_LandSurface_Metrics_V2/comp/GEDI03_elev_lowestmode_mean_2019108_2021104_002_02.png"
+  },
+  {
+   "Description": "GEDI L3 Gridded Land Surface Metrics, Version 2: GEDI03_elev_lowestmode_mean_2019108_2020287_002_02.png",
+   "URLContentType": "PublicationURL",
+   "Type": "VIEW RELATED INFORMATION",
+   "Subtype": "GENERAL DOCUMENTATION",
+   "URL": "https://data.ornldaac.earthdata.nasa.gov/public/gedi/GEDI_L3_LandSurface_Metrics_V2/comp/GEDI03_elev_lowestmode_mean_2019108_2020287_002_02.png"
+  },
+  {
+   "Description": "GEDI L3 Gridded Land Surface Metrics, Version 2: GEDI03_counts_2019108_2020287_002_02.png",
+   "URLContentType": "PublicationURL",
+   "Type": "VIEW RELATED INFORMATION",
+   "Subtype": "GENERAL DOCUMENTATION",
+   "URL": "https://data.ornldaac.earthdata.nasa.gov/public/gedi/GEDI_L3_LandSurface_Metrics_V2/comp/GEDI03_counts_2019108_2020287_002_02.png"
+  },
+  {
+   "Description": "GEDI L3 Gridded Land Surface Metrics, Version 2: GEDI03_counts_2019108_2021104_002_02.png",
+   "URLContentType": "PublicationURL",
+   "Type": "VIEW RELATED INFORMATION",
+   "Subtype": "GENERAL DOCUMENTATION",
+   "URL": "https://data.ornldaac.earthdata.nasa.gov/public/gedi/GEDI_L3_LandSurface_Metrics_V2/comp/GEDI03_counts_2019108_2021104_002_02.png"
+  },
+  {
+   "Description": "GEDI L3 Gridded Land Surface Metrics, Version 2: GEDI03_counts_2019108_2021216_002_02.png",
+   "URLContentType": "PublicationURL",
+   "Type": "VIEW RELATED INFORMATION",
+   "Subtype": "GENERAL DOCUMENTATION",
+   "URL": "https://data.ornldaac.earthdata.nasa.gov/public/gedi/GEDI_L3_LandSurface_Metrics_V2/comp/GEDI03_counts_2019108_2021216_002_02.png"
+  },
+  {
+   "Description": "GEDI L3 Gridded Land Surface Metrics, Version 2: GEDI03_counts_2019108_2022019_002_03.png",
+   "URLContentType": "PublicationURL",
+   "Type": "VIEW RELATED INFORMATION",
+   "Subtype": "GENERAL DOCUMENTATION",
+   "URL": "https://data.ornldaac.earthdata.nasa.gov/public/gedi/GEDI_L3_LandSurface_Metrics_V2/comp/GEDI03_counts_2019108_2022019_002_03.png"
+  },
+  {
+   "Description": "GEDI L3 Gridded Land Surface Metrics, Version 2: GEDI03_counts_2019108_2025190_002_05.png",
+   "URLContentType": "PublicationURL",
+   "Type": "VIEW RELATED INFORMATION",
+   "Subtype": "GENERAL DOCUMENTATION",
+   "URL": "https://data.ornldaac.earthdata.nasa.gov/public/gedi/GEDI_L3_LandSurface_Metrics_V2/comp/GEDI03_counts_2019108_2025190_002_05.png"
+  },
+  {
+   "Description": "GEDI L3 Gridded Land Surface Metrics, Version 2: GEDI03_counts_2019108_2023081_002_05.png",
+   "URLContentType": "PublicationURL",
+   "Type": "VIEW RELATED INFORMATION",
+   "Subtype": "GENERAL DOCUMENTATION",
+   "URL": "https://data.ornldaac.earthdata.nasa.gov/public/gedi/GEDI_L3_LandSurface_Metrics_V2/comp/GEDI03_counts_2019108_2023081_002_05.png"
+  },
+  {
+   "Subtype": "Earthdata Search",
+   "Type": "GET DATA",
+   "URLContentType": "DistributionURL",
+   "URL": "https://search.earthdata.nasa.gov/search/granules?p=C2153683336-ORNL_CLOUD",
+   "Description": "Earthdata Search for GEDI_L3_LandSurface_Metrics_V2_1952_2 (NASA Application to search, discover, visualize, refine, and access NASA Earth Observation data)"
+  }
+ ],
+ "DataDates": [
+  {
+   "Date": "2021-11-23T12:53:25.000Z",
+   "Type": "CREATE"
+  },
+  {
+   "Date": "2026-04-22T10:30:17.000Z",
+   "Type": "UPDATE"
+  }
+ ],
+ "Abstract": "This dataset provides Global Ecosystem Dynamics Investigation (GEDI) Level 3 (L3) gridded mean canopy height, standard deviation of canopy height, mean ground elevation, standard deviation of ground elevation, and counts of laser footprints per 1-km x 1-km grid cells globally within -52 and 52 degrees latitude. These L3 gridded products were derived from Level 2 (L2) geolocated laser footprint return profile metrics from the GEDI instrument onboard the International Space Station (ISS). Canopy height is provided as the mean height (in meters) above the ground of the received waveform signal that was the first reflection off the top of the canopy (RH100). Ground elevation is provided as the mean elevation (in meters) of the center of the lowest waveform mode relative to the WGS84 reference ellipsoid. L3 gridded products can be used to characterize important carbon and water cycling processes, biodiversity, habitat and can also be of immense value for climate modeling, forest management, snow and glacier monitoring, and the generation of digital elevation models. This dataset version uses Version 2 of the input L2 data, which includes improved geolocation of the footprints as well as a modified method to predict an optimum algorithm setting group. The data are provided in cloud optimized GeoTIFF format along with companion files as PNG images and PDF documents.",
+ "LocationKeywords": [
+  {
+   "Category": "GEOGRAPHIC REGION",
+   "Type": "GLOBAL LAND"
+  }
+ ],
+ "Version": "2",
+ "Projects": [
+  {
+   "ShortName": "GEDI",
+   "LongName": "Global Ecosystem Dynamics Investigation"
+  }
+ ],
+ "UseConstraints": {
+  "LicenseURL": {
+   "Linkage": "https://science.nasa.gov/earth-science/earth-science-data/data-information-policy",
+   "Name": "Data Use Policy",
+   "Description": "License URL for data use policy",
+   "MimeType": "text/html"
+  }
+ },
+ "DataCenters": [
+  {
+   "Roles": [
+    "ARCHIVER"
+   ],
+   "ContactInformation": {
+    "ContactMechanisms": [
+     {
+      "Type": "Direct Line",
+      "Value": "(865) 241-3952"
+     },
+     {
+      "Type": "Email",
+      "Value": "uso@daac.ornl.gov"
+     }
+    ],
+    "Addresses": [
+     {
+      "StreetAddresses": [
+       "ORNL DAAC User Services Office, P.O. Box 2008, MS 6407, Oak Ridge National Laboratory"
+      ],
+      "City": "Oak Ridge",
+      "StateProvince": "Tennessee",
+      "Country": "USA",
+      "PostalCode": "37831-6407"
+     }
+    ]
+   },
+   "ShortName": "ORNL_DAAC",
+   "LongName": "THE OAK RIDGE NATIONAL LABORATORY (ORNL) DISTRIBUTED ACTIVE ARCHIVE CENTER (DAAC)"
+  }
+ ],
+ "Platforms": [
+  {
+   "ShortName": "ISS",
+   "Type": "Space Stations/Crewed Spacecraft",
+   "LongName": "International Space Station",
+   "Instruments": [
+    {
+     "ShortName": "GEDI",
+     "LongName": "Global Ecosystem Dynamics Investigation"
+    }
+   ]
+  },
+  {
+   "ShortName": "MODELS",
+   "Type": "Models",
+   "LongName": "MODELS",
+   "Instruments": [
+    {
+     "ShortName": "Computer",
+     "LongName": "Computer"
+    }
+   ]
+  }
+ ],
+ "MetadataSpecification": {
+  "URL": "https://cdn.earthdata.nasa.gov/umm/collection/v1.18.6",
+  "Name": "UMM-C",
+  "Version": "1.18.6"
+ },
+ "ArchiveAndDistributionInformation": {
+  "FileDistributionInformation": [
+   {
+    "Format": "multiple",
+    "TotalCollectionFileSize": 13.754,
+    "TotalCollectionFileSizeUnit": "GB"
+   }
+  ]
+ }
+}

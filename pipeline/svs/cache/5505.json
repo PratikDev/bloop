@@ -1,0 +1,251 @@
+{
+ "id": 5505,
+ "title": "Perpetual Ocean 2: Equirectangular",
+ "url": "https://svs.gsfc.nasa.gov/5505/",
+ "page_type": "Visualization",
+ "release_date": "2024-03-25T12:18:00-04:00",
+ "update_date": "2026-01-15T12:35:09.587058-05:00",
+ "description": "This page contains equirectangular versions of Perpetual Ocean 2's 'beauty version'.",
+ "full_text": "This page contains equirectangular versions of Perpetual Ocean 2's 'beauty version'.\n\n# To view one of 70 high resolution subset movies, go to the **[picker page](/vis/a000000/a005500/a005505/PCT_flow_map_ALL_noLabels_beauty.html)**\n\nThis is a visualization of ocean currents around the world. NASA’s ocean model, Estimating the Circulation and Climate of the Ocean (ECCO)), is used to visualize the currents. The ECCO ocean circulation model incorporates observations from spacecraft, buoys, and other in situ measurements to keep the model accurate. ECCO is a joint project between NASA/JPL and MIT. The model output used here is from ECCO-2 and covers the years 2021-2023.\r\n\r\nThis page contains equirectangular versions of Perpetual Ocean 2's beauty pass.  The beauty pass is the aesthetically pleasing version where what's driving the colors isn't as relevant.    There are 7201 images rendered at very high resolution (16,384 x 8192 pixels per frame).  These images total over 7 Terrabytes of data.   You can download individual frames, all frames, or movies of subsections of these frames (see the picker below).\r\n\r\nIn this visualization ocean currents at all depths are shown.  Those closer to the surface (above 600 meters depth) are white while those from 600 meters depth and lower are darker and darker shades of blue).\n\nThe is a sample image showing the full resolution detail available from:\r\n      • the smallest rectanglular regions available from the picker page\r\n\t\t\t• or from the high resolution source frames which are 16384 x 8192 pixels\r\n\t\t\t\r\n# To view one of 70 high resolution subset movies, go to the **[picker page](/vis/a000000/a005500/a005505/PCT_flow_map_ALL_noLabels_beauty.html)**\n\nThis is a smaller (2048x1024) and faster (10x speed) version of the global movie that can be played on an interactive globe.\n\nThis is the color bar applied to this 'beauty shot version' of the ocean currents. All currents above 600 meters depth are white. All currents at 600 meters and below use this blue-cyan-white colorbar below with value ranging from -3 to 22 celcius.\n\n**Earth Information Center Visualization for the Hyperwall (32:9 Aspect ratio, 7680x2160 pixels resolution)**\r\nThis visualization showcases the Agulhas Current as it carries warm water along the east coast of Southern Africa. Giant spinning whirlpools called Agulhas Rings break off from this current, each one larger than many cities. These massive rings transport warm water from the Indian Ocean into the Atlantic Ocean, helping move heat around our planet and affecting global weather patterns.\r\n\r\nThis visualization was created using frames from Perpetual Ocean 2's beauty pass, which is available on this webpage.",
+ "credits_by_role": {
+  "Data visualizer": [
+   "Greg Shirah (NASA/GSFC)",
+   "Horace Mitchell (NASA/GSFC)"
+  ],
+  "Scientist": [
+   "Atousa Saberi (NASA/GSFC)"
+  ]
+ },
+ "keywords": [
+  "Ocean",
+  "ocean circulation"
+ ],
+ "datasets": [
+  {
+   "name": "ECCO2 High Resolution Ocean and Sea Ice Model",
+   "common_name": "ECCO2",
+   "platform": null,
+   "sensor": null,
+   "type": "Model",
+   "organizations": [
+    "NASA/JPL"
+   ],
+   "description": "",
+   "credit": "",
+   "url": "",
+   "date_range": "13 November 2022 through 25 December 2023"
+  },
+  {
+   "name": "ETOPO-30",
+   "common_name": "",
+   "platform": null,
+   "sensor": null,
+   "type": "Model",
+   "organizations": [],
+   "description": "NOAA Earth TOPOgraphy global relief model 30 arc-second resolution (ETOPO-30): The ETOPO Global Relief Model integrates topography, bathymetry, and shoreline data from regional and global datasets to enable comprehensive, high resolution renderings of geophysical characteristics of the earth’s surface. The model is designed to support tsunami forecasting, modeling, and warning, as well as ocean circulation modeling and Earth visualization.",
+   "credit": "",
+   "url": "https://www.ncei.noaa.gov/products/etopo-global-relief-model",
+   "date_range": ""
+  }
+ ],
+ "missions": [],
+ "related": [],
+ "alternate_versions": [
+  {
+   "id": 5479,
+   "title": "Ocean Currents in equirectangular projection",
+   "url": "https://svs.gsfc.nasa.gov/5479/"
+  },
+  {
+   "id": 5529,
+   "title": "Perpetual Ocean 2: Polar Views",
+   "url": "https://svs.gsfc.nasa.gov/5529/"
+  },
+  {
+   "id": 14745,
+   "title": "An Ocean in Motion: NASA's Mesmerizing View of Earth's Underwater Highways",
+   "url": "https://svs.gsfc.nasa.gov/14745/"
+  },
+  {
+   "id": 5425,
+   "title": "Perpetual Ocean 2: Western Boundary Currents",
+   "url": "https://svs.gsfc.nasa.gov/5425/"
+  }
+ ],
+ "newer_versions": [],
+ "older_versions": [],
+ "media": [
+  {
+   "group": 0,
+   "group_title": "",
+   "widget": "Video player",
+   "caption": "",
+   "group_text": "# To view one of 70 high resolution subset movies, go to the **[picker page](/vis/a000000/a005500/a005505/PCT_flow_map_ALL_noLabels_beauty.html)**",
+   "url": "https://svs.gsfc.nasa.gov/vis/a000000/a005500/a005505/perpetual_ocean2_EQUIREC_071_final_beauty_level0_A_1.mp4",
+   "filename": "perpetual_ocean2_EQUIREC_071_final_beauty_level0_A_1.mp4",
+   "media_type": "Movie",
+   "width": 4096,
+   "height": 2048,
+   "alt_text": ""
+  },
+  {
+   "group": 0,
+   "group_title": "",
+   "widget": "Video player",
+   "caption": "",
+   "group_text": "# To view one of 70 high resolution subset movies, go to the **[picker page](/vis/a000000/a005500/a005505/PCT_flow_map_ALL_noLabels_beauty.html)**",
+   "url": "https://svs.gsfc.nasa.gov/vis/a000000/a005500/a005505/frames/16384x8192_2x1_60p/",
+   "filename": "16384x8192_2x1_60p",
+   "media_type": "Frames",
+   "width": 16384,
+   "height": 8192,
+   "alt_text": ""
+  },
+  {
+   "group": 0,
+   "group_title": "",
+   "widget": "Video player",
+   "caption": "",
+   "group_text": "# To view one of 70 high resolution subset movies, go to the **[picker page](/vis/a000000/a005500/a005505/PCT_flow_map_ALL_noLabels_beauty.html)**",
+   "url": "https://svs.gsfc.nasa.gov/vis/a000000/a005500/a005505/frames/9600x3240_16x9_60p/",
+   "filename": "9600x3240_16x9_60p",
+   "media_type": "Frames",
+   "width": 9600,
+   "height": 3240,
+   "alt_text": ""
+  },
+  {
+   "group": 2,
+   "group_title": "",
+   "widget": "Single image",
+   "caption": "",
+   "group_text": "The is a sample image showing the full resolution detail available from:\r\n      • the smallest rectanglular regions available from the picker page\r\n\t\t\t• or from the high resolution source frames which are 16384 x 8192 pixels\r\n\t\t\t\r\n# To view one of 70 high resolution subset movies, go to the **[picker page](/vis/a000000/a005500/a005505/PCT_flow_map_ALL_noLabels_beauty.html)**",
+   "url": "https://svs.gsfc.nasa.gov/vis/a000000/a005500/a005505/full_res_sample.png",
+   "filename": "full_res_sample.png",
+   "media_type": "Image",
+   "width": 1280,
+   "height": 640,
+   "alt_text": ""
+  },
+  {
+   "group": 3,
+   "group_title": "",
+   "widget": "Globe Viewer",
+   "caption": "",
+   "group_text": "This is a smaller (2048x1024) and faster (10x speed) version of the global movie that can be played on an interactive globe.",
+   "url": "https://svs.gsfc.nasa.gov/vis/a000000/a005500/a005505/fast_global_small.mp4",
+   "filename": "fast_global_small.mp4",
+   "media_type": "Movie",
+   "width": 2048,
+   "height": 1024,
+   "alt_text": ""
+  },
+  {
+   "group": 4,
+   "group_title": "",
+   "widget": "Single image",
+   "caption": "",
+   "group_text": "This is the color bar applied to this 'beauty shot version' of the ocean currents. All currents above 600 meters depth are white. All currents at 600 meters and below use this blue-cyan-white colorbar below with value ranging from -3 to 22 celcius.",
+   "url": "https://svs.gsfc.nasa.gov/vis/a000000/a005500/a005505/perpetual_ocean2_CLOSE_101_cbar_beauty.png",
+   "filename": "perpetual_ocean2_CLOSE_101_cbar_beauty.png",
+   "media_type": "Image",
+   "width": 1920,
+   "height": 1080,
+   "alt_text": ""
+  },
+  {
+   "group": 5,
+   "group_title": "",
+   "widget": "Video player",
+   "caption": "**Earth Information Center Visualization for the Hyperwall (32:9 Aspect ratio, 7680x2160 pixels resolution)**\r\nThis visualization showcases the Agulhas Current as it carries warm water along the east coast of Southern Africa. Giant spinning whirlpools called Agulhas Rings break off from this current, each one larger than many cities. These massive rings transport warm water from the Indian Ocean into the Atlantic Ocean, helping move heat around our planet and affecting global weather patterns.\r\n\r\nThis visualization was created using frames from Perpetual Ocean 2's beauty pass, which is available on this webpage.",
+   "group_text": "",
+   "url": "https://svs.gsfc.nasa.gov/vis/a000000/a005500/a005505/OceanFlows_AgulhasCurrent_3840x1080.mp4",
+   "filename": "OceanFlows_AgulhasCurrent_3840x1080.mp4",
+   "media_type": "Movie",
+   "width": 3840,
+   "height": 1080,
+   "alt_text": ""
+  },
+  {
+   "group": 5,
+   "group_title": "",
+   "widget": "Video player",
+   "caption": "**Earth Information Center Visualization for the Hyperwall (32:9 Aspect ratio, 7680x2160 pixels resolution)**\r\nThis visualization showcases the Agulhas Current as it carries warm water along the east coast of Southern Africa. Giant spinning whirlpools called Agulhas Rings break off from this current, each one larger than many cities. These massive rings transport warm water from the Indian Ocean into the Atlantic Ocean, helping move heat around our planet and affecting global weather patterns.\r\n\r\nThis visualization was created using frames from Perpetual Ocean 2's beauty pass, which is available on this webpage.",
+   "group_text": "",
+   "url": "https://svs.gsfc.nasa.gov/vis/a000000/a005500/a005505/OceanFlows_AgulhasCurrent_7680x2160.mp4",
+   "filename": "OceanFlows_AgulhasCurrent_7680x2160.mp4",
+   "media_type": "Movie",
+   "width": 7680,
+   "height": 2160,
+   "alt_text": ""
+  },
+  {
+   "group": 5,
+   "group_title": "",
+   "widget": "Video player",
+   "caption": "**Earth Information Center Visualization for the Hyperwall (32:9 Aspect ratio, 7680x2160 pixels resolution)**\r\nThis visualization showcases the Agulhas Current as it carries warm water along the east coast of Southern Africa. Giant spinning whirlpools called Agulhas Rings break off from this current, each one larger than many cities. These massive rings transport warm water from the Indian Ocean into the Atlantic Ocean, helping move heat around our planet and affecting global weather patterns.\r\n\r\nThis visualization was created using frames from Perpetual Ocean 2's beauty pass, which is available on this webpage.",
+   "group_text": "",
+   "url": "https://svs.gsfc.nasa.gov/vis/a000000/a005500/a005505/OceanFlows_3840x108030fps.png",
+   "filename": "OceanFlows_3840x108030fps.png",
+   "media_type": "Image",
+   "width": 3840,
+   "height": 1080,
+   "alt_text": ""
+  },
+  {
+   "group": 5,
+   "group_title": "",
+   "widget": "Video player",
+   "caption": "**Earth Information Center Visualization for the Hyperwall (32:9 Aspect ratio, 7680x2160 pixels resolution)**\r\nThis visualization showcases the Agulhas Current as it carries warm water along the east coast of Southern Africa. Giant spinning whirlpools called Agulhas Rings break off from this current, each one larger than many cities. These massive rings transport warm water from the Indian Ocean into the Atlantic Ocean, helping move heat around our planet and affecting global weather patterns.\r\n\r\nThis visualization was created using frames from Perpetual Ocean 2's beauty pass, which is available on this webpage.",
+   "group_text": "",
+   "url": "https://svs.gsfc.nasa.gov/vis/a000000/a005500/a005505/OceanFlows_7680x216030fps.png",
+   "filename": "OceanFlows_7680x216030fps.png",
+   "media_type": "Image",
+   "width": 7680,
+   "height": 2160,
+   "alt_text": ""
+  },
+  {
+   "group": 5,
+   "group_title": "",
+   "widget": "Video player",
+   "caption": "**Earth Information Center Visualization for the Hyperwall (32:9 Aspect ratio, 7680x2160 pixels resolution)**\r\nThis visualization showcases the Agulhas Current as it carries warm water along the east coast of Southern Africa. Giant spinning whirlpools called Agulhas Rings break off from this current, each one larger than many cities. These massive rings transport warm water from the Indian Ocean into the Atlantic Ocean, helping move heat around our planet and affecting global weather patterns.\r\n\r\nThis visualization was created using frames from Perpetual Ocean 2's beauty pass, which is available on this webpage.",
+   "group_text": "",
+   "url": "https://svs.gsfc.nasa.gov/vis/a000000/a005500/a005505/frames/7680x2160_32x1_30p/",
+   "filename": "7680x2160_32x1_30p",
+   "media_type": "Frames",
+   "width": 7680,
+   "height": 2160,
+   "alt_text": ""
+  }
+ ],
+ "text_links": [],
+ "frame_folders": {
+  "https://svs.gsfc.nasa.gov/vis/a000000/a005500/a005505/frames/16384x8192_2x1_60p/": {
+   "url": "https://svs.gsfc.nasa.gov/vis/a000000/a005500/a005505/frames/16384x8192_2x1_60p/",
+   "frame_count": 7202,
+   "bytes_approx": 3681079799989,
+   "first": "perpetual_ocean2_EQUIREC_071_FINAL14_beatuy16k.11800.exr",
+   "last": "perpetual_ocean2_EQUIREC_071_FINAL14_beatuy16k.19000.exr",
+   "subfolders": {}
+  },
+  "https://svs.gsfc.nasa.gov/vis/a000000/a005500/a005505/frames/9600x3240_16x9_60p/": {
+   "url": "https://svs.gsfc.nasa.gov/vis/a000000/a005500/a005505/frames/9600x3240_16x9_60p/",
+   "frame_count": 3601,
+   "bytes_approx": 237225599983,
+   "first": "perpetual_ocean2_EQUIREC_071_FINAL14_beauty_hw5x3.11800.png",
+   "last": "perpetual_ocean2_EQUIREC_071_FINAL14_beauty_hw5x3.19000.png",
+   "subfolders": {}
+  },
+  "https://svs.gsfc.nasa.gov/vis/a000000/a005500/a005505/frames/7680x2160_32x1_30p/": {
+   "url": "https://svs.gsfc.nasa.gov/vis/a000000/a005500/a005505/frames/7680x2160_32x1_30p/",
+   "frame_count": 2251,
+   "bytes_approx": 92632700000,
+   "first": "EIC_OceanFlows_7680x2160_30fps_0000.png",
+   "last": "EIC_OceanFlows_7680x2160_30fps_2250.png",
+   "subfolders": {}
+  }
+ },
+ "api_url": "https://svs.gsfc.nasa.gov/api/5505",
+ "fetched_utc": "2026-10-31T15:39:41Z"
+}

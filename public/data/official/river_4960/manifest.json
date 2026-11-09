@@ -1,0 +1,622 @@
+{
+ "record": "river_4960",
+ "app_title": "Atmospheric river (reanalysis, Dec 2010)",
+ "svs_ids": [
+  4960
+ ],
+ "title": "A 3D View of an Atmospheric River from an Earth System Model",
+ "svs_pages": [
+  "https://svs.gsfc.nasa.gov/4960/"
+ ],
+ "description": "Narrated atmospheric rivers movie. || atmos_rivers_narrated_4k.00090_print.jpg (1024x576) [88.5 KB] || atmos_rivers_narrated_4k.00090_print_searchweb.png (320x180) [46.0 KB] || atmos_rivers_narrated_HD.webm (1920x1080) [68.6 MB] || atmos_rivers_narrated_HD.mp4 (1920x1080) [410.9 MB] || atmos_river_narrated_4k.en_US.srt [6.3 KB] || atmos_river_narrated_4k.en_US.vtt [6.3 KB] || atmos_rivers_4k.en_US.vtt [6.3 KB] || atmos_rivers_narrated_4k.mp4 (3840x2160) [646.9 MB] ||",
+ "release_date": "2022-01-25T14:00:00-05:00",
+ "period": {
+  "start": "2010-10-01T00:00:00Z",
+  "end": "2010-12-14T00:00:00Z",
+  "label": "1 Oct 2010 – 14 Dec 2010"
+ },
+ "badge": "reanalysis",
+ "credits_by_role": {
+  "Visualizer": [
+   "Greg Shirah (NASA/GSFC)",
+   "Horace Mitchell (NASA/GSFC)",
+   "Cindy Starr (Global Science and Technology, Inc.)",
+   "Kel Elkins (USRA)"
+  ],
+  "Scientist": [
+   "Allison Collow (UMBC)",
+   "Natalie Thomas (UMBC)",
+   "Michael Bosilovich (NASA/GSFC)"
+  ],
+  "Producer": [
+   "Jefferson Beck (KBR Wyle Services, LLC)",
+   "LK Ward (KBR Wyle Services, LLC)"
+  ]
+ },
+ "datasets": [
+  {
+   "name": "GTOPO30 Topography and Bathymetry",
+   "common_name": "",
+   "platform": null,
+   "sensor": null,
+   "type": "Data Compilation",
+   "organizations": [
+    "USGS"
+   ],
+   "description": "",
+   "credit": "",
+   "url": "",
+   "date_range": null
+  },
+  {
+   "name": "Winds",
+   "common_name": "",
+   "platform": "MERRA-2",
+   "sensor": null,
+   "type": "Model",
+   "organizations": [],
+   "description": "",
+   "credit": "",
+   "url": "",
+   "date_range": null
+  },
+  {
+   "name": "MERRA-2",
+   "common_name": "MERRA-2",
+   "platform": null,
+   "sensor": null,
+   "type": "Model",
+   "organizations": [
+    "GMAO"
+   ],
+   "description": "",
+   "credit": "",
+   "url": "",
+   "date_range": null
+  }
+ ],
+ "credit_line": "Visualization: NASA's Scientific Visualization Studio (SVS 4960) for the NASA Earth Information Center. Data: NASA MERRA-2 reanalysis (GMAO).",
+ "disclosure": "Relative vapour transport read from the blue shading of a 3D view (no colorbar, no map position).",
+ "licence": "SVS: \"All of our content is in the public domain (unless otherwise noted), meaning that it is free to download, use, and redistribute for whatever purposes you see fit.\" (https://svs.gsfc.nasa.gov/help/, read 29 Oct 2026)",
+ "frame_times": {
+  "method": "ocr",
+  "approximate": false,
+  "count": 24,
+  "source": "the date-only layer (built-in date OCR)"
+ },
+ "georef": {
+  "projection": "none (3D perspective view)",
+  "bounds": [
+   -180,
+   -101.25,
+   180,
+   101.25
+  ],
+  "pass_at": 0.0,
+  "shifts_deg": [],
+  "iou": {},
+  "pass": false,
+  "best_is_assumed": false
+ },
+ "rows": [
+  {
+   "frame": 500,
+   "date_text": "Oct 01 2010 00 : 00",
+   "time": "2010-10-01T00:00Z",
+   "river_px": 100,
+   "width_px": 2.0,
+   "length_px": 50.0,
+   "contact_px": 8,
+   "mean_transport": 0.2334749847650528,
+   "otsu": 0.32941176470588235
+  },
+  {
+   "frame": 1260,
+   "date_text": "Nov 13 2010 10 : 27",
+   "time": "2010-11-13T10:27Z",
+   "river_px": 413,
+   "width_px": 2.0,
+   "length_px": 206.5,
+   "contact_px": 0,
+   "mean_transport": 0.24852004647254944,
+   "otsu": 0.25882352941176473
+  },
+  {
+   "frame": 2020,
+   "date_text": "Dec 06 2010 13 : 01",
+   "time": "2010-12-06T13:01Z",
+   "river_px": 2894,
+   "width_px": 4.0,
+   "length_px": 723.5,
+   "contact_px": 144,
+   "mean_transport": 0.20016148686408997,
+   "otsu": 0.20784313725490197
+  },
+  {
+   "frame": 2782,
+   "date_text": "Dec 12 2010 00 : 54",
+   "time": "2010-12-12T00:54Z",
+   "river_px": 301609,
+   "width_px": 4.393799781799316,
+   "length_px": 68644.22936369834,
+   "contact_px": 6351,
+   "mean_transport": 0.2789415419101715,
+   "otsu": 0.4392156862745098
+  },
+  {
+   "frame": 3542,
+   "date_text": "Dec 10 2010 12 : 18",
+   "time": "2010-12-10T12:18Z",
+   "river_px": 671688,
+   "width_px": 4.393799781799316,
+   "length_px": 152871.78145494268,
+   "contact_px": 5086,
+   "mean_transport": 0.33628323674201965,
+   "otsu": 0.4470588235294118
+  },
+  {
+   "frame": 4302,
+   "date_text": "Dec 11 2010 05 : 08",
+   "time": "2010-12-11T05:08Z",
+   "river_px": 624697,
+   "width_px": 5.599999904632568,
+   "length_px": 111553.03761402263,
+   "contact_px": 19220,
+   "mean_transport": 0.3434675931930542,
+   "otsu": 0.45098039215686275
+  },
+  {
+   "frame": 5062,
+   "date_text": "Dec 11 2010 18 : 43",
+   "time": "2010-12-11T18:43Z",
+   "river_px": 527154,
+   "width_px": 5.599999904632568,
+   "length_px": 94134.6444602463,
+   "contact_px": 4162,
+   "mean_transport": 0.3879900574684143,
+   "otsu": 0.5137254901960784
+  },
+  {
+   "frame": 5822,
+   "date_text": "Dec 11 2010 18 : 43",
+   "time": "2010-12-11T18:43Z",
+   "river_px": 330603,
+   "width_px": 4.0,
+   "length_px": 82650.75,
+   "contact_px": 2322,
+   "mean_transport": 0.41858717799186707,
+   "otsu": 0.4980392156862745
+  },
+  {
+   "frame": 6582,
+   "date_text": "Dec 11 2010 18 : 43",
+   "time": "2010-12-11T18:43Z",
+   "river_px": 697506,
+   "width_px": 6.393799781799316,
+   "length_px": 109090.99812376527,
+   "contact_px": 706,
+   "mean_transport": 0.44567811489105225,
+   "otsu": 0.5411764705882353
+  },
+  {
+   "frame": 7343,
+   "date_text": "Dec 11 2010 12 : 01",
+   "time": "2010-12-11T12:01Z",
+   "river_px": 759492,
+   "width_px": 6.393799781799316,
+   "length_px": 118785.70269935274,
+   "contact_px": 1227,
+   "mean_transport": 0.4781492352485657,
+   "otsu": 0.5490196078431373
+  },
+  {
+   "frame": 8105,
+   "date_text": "Dec 12 2010 15 : 14",
+   "time": "2010-12-12T15:14Z",
+   "river_px": 108739,
+   "width_px": 4.393799781799316,
+   "length_px": 24748.282898650883,
+   "contact_px": 1349,
+   "mean_transport": 0.3035261631011963,
+   "otsu": 0.47843137254901963
+  },
+  {
+   "frame": 8866,
+   "date_text": "Dec 13 2010 18 : 17",
+   "time": "2010-12-13T18:17Z",
+   "river_px": 316624,
+   "width_px": 4.0,
+   "length_px": 79156.0,
+   "contact_px": 12070,
+   "mean_transport": 0.23515360057353973,
+   "otsu": 0.22745098039215686
+  },
+  {
+   "frame": 9626,
+   "date_text": "Dec 11 2010 08 : 35",
+   "time": "2010-12-11T08:35Z",
+   "river_px": 414651,
+   "width_px": 7.19379997253418,
+   "length_px": 57640.051375230236,
+   "contact_px": 111,
+   "mean_transport": 0.43442100286483765,
+   "otsu": 0.5803921568627451
+  },
+  {
+   "frame": 10386,
+   "date_text": "Dec 11 2010 20 : 50",
+   "time": "2010-12-11T20:50Z",
+   "river_px": 1966572,
+   "width_px": 29.968997955322266,
+   "length_px": 65620.21202483187,
+   "contact_px": 20035,
+   "mean_transport": 0.5419130325317383,
+   "otsu": 0.5607843137254902
+  },
+  {
+   "frame": 11146,
+   "date_text": "Dec 12 2010 23 : 31",
+   "time": "2010-12-12T23:31Z",
+   "river_px": 336353,
+   "width_px": 58.393798828125,
+   "length_px": 5760.080809094368,
+   "contact_px": 44499,
+   "mean_transport": 0.33337268233299255,
+   "otsu": 0.396078431372549
+  },
+  {
+   "frame": 11907,
+   "date_text": "Dec 14 2010 00 : 00",
+   "time": "2010-12-14T00:00Z",
+   "river_px": 198058,
+   "width_px": 20.78759765625,
+   "length_px": 9527.700279519884,
+   "contact_px": 2351,
+   "mean_transport": 0.27752161026000977,
+   "otsu": 0.3568627450980392
+  },
+  {
+   "frame": 12667,
+   "date_text": "Dec 11 2010 16 : 42",
+   "time": "2010-12-11T16:42Z",
+   "river_px": 503411,
+   "width_px": 5.599999904632568,
+   "length_px": 89894.82295947114,
+   "contact_px": 381,
+   "mean_transport": 0.4619815945625305,
+   "otsu": 0.5333333333333333
+  },
+  {
+   "frame": 13427,
+   "date_text": "Dec 12 2010 13 : 08",
+   "time": "2010-12-12T13:08Z",
+   "river_px": 192668,
+   "width_px": 4.393799781799316,
+   "length_px": 43849.97259048978,
+   "contact_px": 1129,
+   "mean_transport": 0.33985963463783264,
+   "otsu": 0.4823529411764706
+  },
+  {
+   "frame": 14187,
+   "date_text": "Dec 13 2010 09 : 34",
+   "time": "2010-12-13T09:34Z",
+   "river_px": 70053,
+   "width_px": 4.393799781799316,
+   "length_px": 15943.603140540103,
+   "contact_px": 274,
+   "mean_transport": 0.25803616642951965,
+   "otsu": 0.42745098039215684
+  },
+  {
+   "frame": 14947,
+   "date_text": "Dec 14 2010 00 : 00",
+   "time": "2010-12-14T00:00Z",
+   "river_px": 121538,
+   "width_px": 4.0,
+   "length_px": 30384.5,
+   "contact_px": 4089,
+   "mean_transport": 0.2533528208732605,
+   "otsu": 0.37254901960784315
+  },
+  {
+   "frame": 15708,
+   "date_text": "Dec 11 2010 21 : 56",
+   "time": "2010-12-11T21:56Z",
+   "river_px": 142784,
+   "width_px": 4.0,
+   "length_px": 35696.0,
+   "contact_px": 3815,
+   "mean_transport": 0.2812056243419647,
+   "otsu": 0.396078431372549
+  },
+  {
+   "frame": 16469,
+   "date_text": "Dec 04 2010 04 : 36",
+   "time": "2010-12-04T04:36Z",
+   "river_px": 259890,
+   "width_px": 4.0,
+   "length_px": 64972.5,
+   "contact_px": 2906,
+   "mean_transport": 0.3468049466609955,
+   "otsu": 0.43137254901960786
+  },
+  {
+   "frame": 17235,
+   "date_text": "Dec 07 2010 14 : 21",
+   "time": "2010-12-07T14:21Z",
+   "river_px": 140761,
+   "width_px": 4.0,
+   "length_px": 35190.25,
+   "contact_px": 4365,
+   "mean_transport": 0.3081153333187103,
+   "otsu": 0.42745098039215684
+  },
+  {
+   "frame": 18000,
+   "date_text": "Dec 11 2010 00 : 00",
+   "time": "2010-12-11T00:00Z",
+   "river_px": 180746,
+   "width_px": 4.0,
+   "length_px": 45186.5,
+   "contact_px": 2755,
+   "mean_transport": 0.2988522946834564,
+   "otsu": 0.41568627450980394
+  }
+ ],
+ "layers": [
+  {
+   "id": "transport",
+   "unit": "relative (0–1)",
+   "encoding": "linear",
+   "scale": 0.001,
+   "offset": 0.0,
+   "nodata": 65535,
+   "below": 65534,
+   "grid": {
+    "width": 480,
+    "height": 270,
+    "bounds": [
+     -180,
+     -101.25,
+     180,
+     101.25
+    ],
+    "row0": "north",
+    "col0": "west",
+    "byte_order": "little",
+    "space": "frame"
+   },
+   "times": [
+    "2010-10-01T00:00:00Z",
+    "2010-11-13T10:27:00Z",
+    "2010-12-06T13:01:00Z",
+    "2010-12-12T00:54:00Z",
+    "2010-12-10T12:18:00Z",
+    "2010-12-11T05:08:00Z",
+    "2010-12-11T18:43:00Z",
+    "2010-12-11T18:43:00Z",
+    "2010-12-11T18:43:00Z",
+    "2010-12-11T12:01:00Z",
+    "2010-12-12T15:14:00Z",
+    "2010-12-13T18:17:00Z",
+    "2010-12-11T08:35:00Z",
+    "2010-12-11T20:50:00Z",
+    "2010-12-12T23:31:00Z",
+    "2010-12-14T00:00:00Z",
+    "2010-12-11T16:42:00Z",
+    "2010-12-12T13:08:00Z",
+    "2010-12-13T09:34:00Z",
+    "2010-12-14T00:00:00Z",
+    "2010-12-11T21:56:00Z",
+    "2010-12-04T04:36:00Z",
+    "2010-12-07T14:21:00Z",
+    "2010-12-11T00:00:00Z"
+   ],
+   "chunks": [
+    {
+     "file": "transport_000.u16.gz",
+     "t0": 0,
+     "t1": 24,
+     "bytes": 2036401
+    }
+   ],
+   "quantisation_step": 0.001,
+   "coverage": 1.0,
+   "value_range": [
+    0.0,
+    1.0
+   ],
+   "label": "Water vapour transport (reanalysis, relative: the picture's blue shading)",
+   "aggregation": "mean of (B − R) / 255 per picture cell",
+   "time_labels": [
+    "Oct 01 2010 00 : 00",
+    "Nov 13 2010 10 : 27",
+    "Dec 06 2010 13 : 01",
+    "Dec 12 2010 00 : 54",
+    "Dec 10 2010 12 : 18",
+    "Dec 11 2010 05 : 08",
+    "Dec 11 2010 18 : 43",
+    "Dec 11 2010 18 : 43",
+    "Dec 11 2010 18 : 43",
+    "Dec 11 2010 12 : 01",
+    "Dec 12 2010 15 : 14",
+    "Dec 13 2010 18 : 17",
+    "Dec 11 2010 08 : 35",
+    "Dec 11 2010 20 : 50",
+    "Dec 12 2010 23 : 31",
+    "Dec 14 2010 00 : 00",
+    "Dec 11 2010 16 : 42",
+    "Dec 12 2010 13 : 08",
+    "Dec 13 2010 09 : 34",
+    "Dec 14 2010 00 : 00",
+    "Dec 11 2010 21 : 56",
+    "Dec 04 2010 04 : 36",
+    "Dec 07 2010 14 : 21",
+    "Dec 11 2010 00 : 00"
+   ],
+   "display": {
+    "colours": [
+     "#141418",
+     "#15181f",
+     "#171c27",
+     "#18202e",
+     "#192336",
+     "#1a273d",
+     "#1c2b45",
+     "#1d2f4c",
+     "#1e3354",
+     "#20375b",
+     "#213b63",
+     "#223f6a",
+     "#234271",
+     "#254679",
+     "#264a80",
+     "#274e88",
+     "#29528f",
+     "#2a5697",
+     "#2b5a9e",
+     "#2d5ea6",
+     "#2e61ad",
+     "#2f65b4",
+     "#3069bc",
+     "#326dc3",
+     "#3371cb",
+     "#3475d2",
+     "#3679da",
+     "#377de1",
+     "#3880e9",
+     "#3984f0",
+     "#3b88f8",
+     "#3c8cff"
+    ],
+    "values": [
+     0.0,
+     0.03225806451612903,
+     0.06451612903225806,
+     0.0967741935483871,
+     0.12903225806451613,
+     0.16129032258064516,
+     0.1935483870967742,
+     0.22580645161290322,
+     0.25806451612903225,
+     0.29032258064516125,
+     0.3225806451612903,
+     0.3548387096774194,
+     0.3870967741935484,
+     0.4193548387096774,
+     0.45161290322580644,
+     0.4838709677419355,
+     0.5161290322580645,
+     0.5483870967741935,
+     0.5806451612903225,
+     0.6129032258064516,
+     0.6451612903225806,
+     0.6774193548387096,
+     0.7096774193548387,
+     0.7419354838709677,
+     0.7741935483870968,
+     0.8064516129032258,
+     0.8387096774193548,
+     0.8709677419354839,
+     0.9032258064516129,
+     0.9354838709677419,
+     0.967741935483871,
+     1.0
+    ],
+    "scale": "linear",
+    "ramp": true
+   },
+   "status": "relative",
+   "status_check": "a_landfall_timing_merra2",
+   "statement": "relative transport (no colorbar); landfall peak +1539 h from MERRA-2's"
+  }
+ ],
+ "voices": {
+  "transport": "riverTransport"
+ },
+ "play": [
+  {
+   "id": "transport",
+   "label": "Atmospheric river: higher pitch = stronger vapour transport (movie order)",
+   "view": "global",
+   "map": "transport",
+   "start": {
+    "lat": 0.0,
+    "lon": 0.0
+   },
+   "steps_per_second": 2,
+   "channels": [
+    {
+     "voice": "riverTransport",
+     "layers": [
+      "transport"
+     ],
+     "combine": "value"
+    }
+   ]
+  }
+ ],
+ "validation": [
+  {
+   "id": "a_landfall_timing_merra2",
+   "title": "Landfall timing: most river–land contact in the frames vs strongest coastal IVT in MERRA-2",
+   "kind": "value",
+   "pass": null,
+   "threshold": null
+  },
+  {
+   "id": "b_contact_rank_merra2",
+   "title": "River–land contact per frame vs coastal IVT at the frame's hour (Spearman)",
+   "kind": "value",
+   "pass": null,
+   "threshold": null
+  },
+  {
+   "id": "c_landfall_latitude",
+   "title": "Landfall latitude",
+   "kind": "none",
+   "pass": null,
+   "threshold": null
+  },
+  {
+   "id": "d_landfall_timing_era5",
+   "title": "Landfall timing: most river–land contact vs strongest coastal IVT in ERA5",
+   "kind": "value",
+   "pass": null,
+   "threshold": null
+  },
+  {
+   "id": "e_contact_rank_era5",
+   "title": "River–land contact per frame vs ERA5 coastal IVT at the frame's hour (Spearman)",
+   "kind": "value",
+   "pass": null,
+   "threshold": null
+  },
+  {
+   "id": "f_era5_vs_merra2",
+   "title": "ERA5 vs MERRA-2 hourly coastal IVT over the span (reanalysis agreement)",
+   "kind": "context",
+   "pass": null,
+   "threshold": null
+  }
+ ],
+ "size": {
+  "choice": {
+   "grid": [
+    480,
+    270
+   ]
+  },
+  "tried": [],
+  "bytes": 2058190,
+  "budget": 25000000
+ },
+ "asset_checksums": {
+  "file": "checksums.tsv.gz",
+  "rows": 68,
+  "sha256_of_list": "54a1441569f18440a523634790439023f6123731abbb563dd6270735dec9298c"
+ },
+ "code_commit": "e17630e03cb75346d1bc9d99679f2bfe2b558443-dirty",
+ "generated_utc": "2026-11-02T21:57:33Z"
+}

@@ -1,0 +1,276 @@
+{
+ "id": 4284,
+ "title": "Accumulated Precipitation from the IMERG Global Precipitation Data",
+ "url": "https://svs.gsfc.nasa.gov/4284/",
+ "page_type": "Visualization",
+ "release_date": "2015-03-31T00:00:00-04:00",
+ "update_date": "2024-12-15T22:20:13.201613-05:00",
+ "description": "An animation showing global precipitation accumulating from 8/4/2014 through 8/10/2014.  The very large accumulation near Japan is Typhoon Halong.  This accumulation is calculated from the IMERG precipitation dataset.This video is also available on our YouTube channel. || GPM_accumulation_1080p.00336_print.jpg (1024x576) [293.6 KB] || GPM_accumulation_1080p.00336_searchweb.png (320x180) [122.4 KB] || GPM_accumulation_1080p.00336_web.png (320x180) [122.4 KB] || GPM_accumulation_1080p.00336_thm.png (80x40) [8.6 KB] || flatcomposite (1920x1080) [32.0 KB] || GPM_accumulation_1080p.mp4 (1920x1080) [13.7 MB] || GPM_accumulation_1080p.webm (1920x1080) [1.4 MB] || flatcomposite (3600x1800) [32.0 KB] || flatalpha (3600x1800) [32.0 KB] || GPM_accumulation_1080p_4284.key [17.8 MB] || GPM_accumulation_1080p_4284.pptx [15.1 MB] || ",
+ "full_text": "An animation showing global precipitation accumulating from 8/4/2014 through 8/10/2014.  The very large accumulation near Japan is Typhoon Halong.  This accumulation is calculated from the IMERG precipitation dataset.This video is also available on our YouTube channel. || GPM_accumulation_1080p.00336_print.jpg (1024x576) [293.6 KB] || GPM_accumulation_1080p.00336_searchweb.png (320x180) [122.4 KB] || GPM_accumulation_1080p.00336_web.png (320x180) [122.4 KB] || GPM_accumulation_1080p.00336_thm.png (80x40) [8.6 KB] || flatcomposite (1920x1080) [32.0 KB] || GPM_accumulation_1080p.mp4 (1920x1080) [13.7 MB] || GPM_accumulation_1080p.webm (1920x1080) [1.4 MB] || flatcomposite (3600x1800) [32.0 KB] || flatalpha (3600x1800) [32.0 KB] || GPM_accumulation_1080p_4284.key [17.8 MB] || GPM_accumulation_1080p_4284.pptx [15.1 MB] ||\n\nAn animation showing global precipitation accumulating from 8/4/2014 through 8/10/2014.  The very large accumulation near Japan is Typhoon Halong.  This accumulation is calculated from the IMERG precipitation dataset.<br><a href='https://www.youtube.com/watch?v=QzUVm3wpuK0'>This video is also available on our YouTube channel</a>.<br>\n\nThe global IMERG precipitation dataset provides rainfall rates for the entire world every thirty minutes.  Using this dataset, it is possible to calculate the amount of accumulated rainfall for any region over a period of time.  This animation shows the accumulation of rainfall across the globe for a week in August, 2014.  In addition to the dramatic accumulation near Japan due to Typhoon Halong and the track of Hurricane Bertha off the eastern coast of the United States, it is also possible to see a rare August storm over the North Sea near Europe, the origins of Hurricane Gonzalo on the western coast of Africa, and a deep tropical depression that produced floods across northern India.\n\nThe colorbar for accumulated precipitation.",
+ "credits_by_role": {
+  "Data visualizer": [
+   "Horace Mitchell (NASA/GSFC)"
+  ],
+  "Scientist": [
+   "George Huffman (NASA/GSFC)",
+   "Gail Skofronick Jackson (NASA/GSFC)",
+   "Dalia B Kirschbaum (NASA/GSFC)"
+  ],
+  "Producer": [
+   "Ryan Fitzgibbons (USRA)"
+  ]
+ },
+ "keywords": [
+  "Atmosphere",
+  "Atmospheric science",
+  "Earth Science",
+  "Hyperwall",
+  "precipitation",
+  "Precipitation Amount",
+  "Presentation"
+ ],
+ "datasets": [
+  {
+   "name": "",
+   "common_name": "IMERG",
+   "platform": null,
+   "sensor": null,
+   "type": "Data Compilation",
+   "organizations": [
+    "NASA/GSFC"
+   ],
+   "description": "",
+   "credit": "",
+   "url": "http://pmm.nasa.gov/sites/default/files/document_files/IMERG_ATBD_V4.4.pdf",
+   "date_range": "8/4/2014-8/11/2014"
+  }
+ ],
+ "missions": [
+  "Global Precipitation Measurement (GPM)"
+ ],
+ "related": [
+  {
+   "id": 11846,
+   "title": "Painting The World With Water",
+   "url": "https://svs.gsfc.nasa.gov/11846/"
+  },
+  {
+   "id": 11860,
+   "title": "NASA On Air: NASA Landslide Catalog Now Available (4/21/2015)",
+   "url": "https://svs.gsfc.nasa.gov/11860/"
+  },
+  {
+   "id": 11826,
+   "title": "GPM April Showers Bring May Flowers Live Shots 4.1.15",
+   "url": "https://svs.gsfc.nasa.gov/11826/"
+  },
+  {
+   "id": 11829,
+   "title": "A Week in the Life of Rain",
+   "url": "https://svs.gsfc.nasa.gov/11829/"
+  }
+ ],
+ "alternate_versions": [],
+ "newer_versions": [],
+ "older_versions": [],
+ "media": [
+  {
+   "group": 0,
+   "group_title": "",
+   "widget": "Video player",
+   "caption": "",
+   "group_text": "An animation showing global precipitation accumulating from 8/4/2014 through 8/10/2014.  The very large accumulation near Japan is Typhoon Halong.  This accumulation is calculated from the IMERG precipitation dataset.<br><a href='https://www.youtube.com/watch?v=QzUVm3wpuK0'>This video is also available on our YouTube channel</a>.<br>",
+   "url": "https://svs.gsfc.nasa.gov/vis/a000000/a004200/a004284/GPM_accumulation_1080p.00336_print.jpg",
+   "filename": "GPM_accumulation_1080p.00336_print.jpg",
+   "media_type": "Image",
+   "width": 1024,
+   "height": 576,
+   "alt_text": "An animation showing global precipitation accumulating from 8/4/2014 through 8/10/2014.  The very large accumulation near Japan is Typhoon Halong.  This accumulation is calculated from the IMERG precipitation dataset.This video is also available on our YouTube channel."
+  },
+  {
+   "group": 0,
+   "group_title": "",
+   "widget": "Video player",
+   "caption": "",
+   "group_text": "An animation showing global precipitation accumulating from 8/4/2014 through 8/10/2014.  The very large accumulation near Japan is Typhoon Halong.  This accumulation is calculated from the IMERG precipitation dataset.<br><a href='https://www.youtube.com/watch?v=QzUVm3wpuK0'>This video is also available on our YouTube channel</a>.<br>",
+   "url": "https://svs.gsfc.nasa.gov/vis/a000000/a004200/a004284/GPM_accumulation_1080p.00336_searchweb.png",
+   "filename": "GPM_accumulation_1080p.00336_searchweb.png",
+   "media_type": "Image",
+   "width": 320,
+   "height": 180,
+   "alt_text": "An animation showing global precipitation accumulating from 8/4/2014 through 8/10/2014.  The very large accumulation near Japan is Typhoon Halong.  This accumulation is calculated from the IMERG precipitation dataset.This video is also available on our YouTube channel."
+  },
+  {
+   "group": 0,
+   "group_title": "",
+   "widget": "Video player",
+   "caption": "",
+   "group_text": "An animation showing global precipitation accumulating from 8/4/2014 through 8/10/2014.  The very large accumulation near Japan is Typhoon Halong.  This accumulation is calculated from the IMERG precipitation dataset.<br><a href='https://www.youtube.com/watch?v=QzUVm3wpuK0'>This video is also available on our YouTube channel</a>.<br>",
+   "url": "https://svs.gsfc.nasa.gov/vis/a000000/a004200/a004284/GPM_accumulation_1080p.00336_web.png",
+   "filename": "GPM_accumulation_1080p.00336_web.png",
+   "media_type": "Image",
+   "width": 320,
+   "height": 180,
+   "alt_text": "An animation showing global precipitation accumulating from 8/4/2014 through 8/10/2014.  The very large accumulation near Japan is Typhoon Halong.  This accumulation is calculated from the IMERG precipitation dataset.This video is also available on our YouTube channel."
+  },
+  {
+   "group": 0,
+   "group_title": "",
+   "widget": "Video player",
+   "caption": "",
+   "group_text": "An animation showing global precipitation accumulating from 8/4/2014 through 8/10/2014.  The very large accumulation near Japan is Typhoon Halong.  This accumulation is calculated from the IMERG precipitation dataset.<br><a href='https://www.youtube.com/watch?v=QzUVm3wpuK0'>This video is also available on our YouTube channel</a>.<br>",
+   "url": "https://svs.gsfc.nasa.gov/vis/a000000/a004200/a004284/GPM_accumulation_1080p.00336_thm.png",
+   "filename": "GPM_accumulation_1080p.00336_thm.png",
+   "media_type": "Image",
+   "width": 80,
+   "height": 40,
+   "alt_text": "An animation showing global precipitation accumulating from 8/4/2014 through 8/10/2014.  The very large accumulation near Japan is Typhoon Halong.  This accumulation is calculated from the IMERG precipitation dataset.This video is also available on our YouTube channel."
+  },
+  {
+   "group": 0,
+   "group_title": "",
+   "widget": "Video player",
+   "caption": "",
+   "group_text": "An animation showing global precipitation accumulating from 8/4/2014 through 8/10/2014.  The very large accumulation near Japan is Typhoon Halong.  This accumulation is calculated from the IMERG precipitation dataset.<br><a href='https://www.youtube.com/watch?v=QzUVm3wpuK0'>This video is also available on our YouTube channel</a>.<br>",
+   "url": "https://svs.gsfc.nasa.gov/vis/a000000/a004200/a004284/frames/1920x1080_16x9_30p/flatcomposite/",
+   "filename": "flatcomposite",
+   "media_type": "Frames",
+   "width": 1920,
+   "height": 1080,
+   "alt_text": "An animation showing global precipitation accumulating from 8/4/2014 through 8/10/2014.  The very large accumulation near Japan is Typhoon Halong.  This accumulation is calculated from the IMERG precipitation dataset.This video is also available on our YouTube channel."
+  },
+  {
+   "group": 0,
+   "group_title": "",
+   "widget": "Video player",
+   "caption": "",
+   "group_text": "An animation showing global precipitation accumulating from 8/4/2014 through 8/10/2014.  The very large accumulation near Japan is Typhoon Halong.  This accumulation is calculated from the IMERG precipitation dataset.<br><a href='https://www.youtube.com/watch?v=QzUVm3wpuK0'>This video is also available on our YouTube channel</a>.<br>",
+   "url": "https://svs.gsfc.nasa.gov/vis/a000000/a004200/a004284/GPM_accumulation_1080p.mp4",
+   "filename": "GPM_accumulation_1080p.mp4",
+   "media_type": "Movie",
+   "width": 1920,
+   "height": 1080,
+   "alt_text": "An animation showing global precipitation accumulating from 8/4/2014 through 8/10/2014.  The very large accumulation near Japan is Typhoon Halong.  This accumulation is calculated from the IMERG precipitation dataset.This video is also available on our YouTube channel."
+  },
+  {
+   "group": 0,
+   "group_title": "",
+   "widget": "Video player",
+   "caption": "",
+   "group_text": "An animation showing global precipitation accumulating from 8/4/2014 through 8/10/2014.  The very large accumulation near Japan is Typhoon Halong.  This accumulation is calculated from the IMERG precipitation dataset.<br><a href='https://www.youtube.com/watch?v=QzUVm3wpuK0'>This video is also available on our YouTube channel</a>.<br>",
+   "url": "https://svs.gsfc.nasa.gov/vis/a000000/a004200/a004284/GPM_accumulation_1080p.webm",
+   "filename": "GPM_accumulation_1080p.webm",
+   "media_type": "Movie",
+   "width": 1920,
+   "height": 1080,
+   "alt_text": "An animation showing global precipitation accumulating from 8/4/2014 through 8/10/2014.  The very large accumulation near Japan is Typhoon Halong.  This accumulation is calculated from the IMERG precipitation dataset.This video is also available on our YouTube channel."
+  },
+  {
+   "group": 0,
+   "group_title": "",
+   "widget": "Video player",
+   "caption": "",
+   "group_text": "An animation showing global precipitation accumulating from 8/4/2014 through 8/10/2014.  The very large accumulation near Japan is Typhoon Halong.  This accumulation is calculated from the IMERG precipitation dataset.<br><a href='https://www.youtube.com/watch?v=QzUVm3wpuK0'>This video is also available on our YouTube channel</a>.<br>",
+   "url": "https://svs.gsfc.nasa.gov/vis/a000000/a004200/a004284/frames/3600x1800_2x1_30p/flatcomposite/",
+   "filename": "flatcomposite",
+   "media_type": "Frames",
+   "width": 3600,
+   "height": 1800,
+   "alt_text": "An animation showing global precipitation accumulating from 8/4/2014 through 8/10/2014.  The very large accumulation near Japan is Typhoon Halong.  This accumulation is calculated from the IMERG precipitation dataset.This video is also available on our YouTube channel."
+  },
+  {
+   "group": 0,
+   "group_title": "",
+   "widget": "Video player",
+   "caption": "",
+   "group_text": "An animation showing global precipitation accumulating from 8/4/2014 through 8/10/2014.  The very large accumulation near Japan is Typhoon Halong.  This accumulation is calculated from the IMERG precipitation dataset.<br><a href='https://www.youtube.com/watch?v=QzUVm3wpuK0'>This video is also available on our YouTube channel</a>.<br>",
+   "url": "https://svs.gsfc.nasa.gov/vis/a000000/a004200/a004284/frames/3600x1800_2x1_30p/flatalpha/",
+   "filename": "flatalpha",
+   "media_type": "Frames",
+   "width": 3600,
+   "height": 1800,
+   "alt_text": "An animation showing global precipitation accumulating from 8/4/2014 through 8/10/2014.  The very large accumulation near Japan is Typhoon Halong.  This accumulation is calculated from the IMERG precipitation dataset.This video is also available on our YouTube channel."
+  },
+  {
+   "group": 0,
+   "group_title": "",
+   "widget": "Video player",
+   "caption": "",
+   "group_text": "An animation showing global precipitation accumulating from 8/4/2014 through 8/10/2014.  The very large accumulation near Japan is Typhoon Halong.  This accumulation is calculated from the IMERG precipitation dataset.<br><a href='https://www.youtube.com/watch?v=QzUVm3wpuK0'>This video is also available on our YouTube channel</a>.<br>",
+   "url": "https://svs.gsfc.nasa.gov/vis/a000000/a004200/a004284/GPM_accumulation_1080p_4284.key",
+   "filename": "GPM_accumulation_1080p_4284.key",
+   "media_type": "Presentation",
+   "width": 0,
+   "height": 0,
+   "alt_text": "An animation showing global precipitation accumulating from 8/4/2014 through 8/10/2014.  The very large accumulation near Japan is Typhoon Halong.  This accumulation is calculated from the IMERG precipitation dataset.This video is also available on our YouTube channel."
+  },
+  {
+   "group": 0,
+   "group_title": "",
+   "widget": "Video player",
+   "caption": "",
+   "group_text": "An animation showing global precipitation accumulating from 8/4/2014 through 8/10/2014.  The very large accumulation near Japan is Typhoon Halong.  This accumulation is calculated from the IMERG precipitation dataset.<br><a href='https://www.youtube.com/watch?v=QzUVm3wpuK0'>This video is also available on our YouTube channel</a>.<br>",
+   "url": "https://svs.gsfc.nasa.gov/vis/a000000/a004200/a004284/GPM_accumulation_1080p_4284.pptx",
+   "filename": "GPM_accumulation_1080p_4284.pptx",
+   "media_type": "Presentation",
+   "width": 0,
+   "height": 0,
+   "alt_text": "An animation showing global precipitation accumulating from 8/4/2014 through 8/10/2014.  The very large accumulation near Japan is Typhoon Halong.  This accumulation is calculated from the IMERG precipitation dataset.This video is also available on our YouTube channel."
+  },
+  {
+   "group": 2,
+   "group_title": "",
+   "widget": "Single image",
+   "caption": "",
+   "group_text": "The colorbar for accumulated precipitation.",
+   "url": "https://svs.gsfc.nasa.gov/vis/a000000/a004200/a004284/accbarblack2.png",
+   "filename": "accbarblack2.png",
+   "media_type": "Image",
+   "width": 440,
+   "height": 90,
+   "alt_text": "The colorbar for accumulated precipitation."
+  },
+  {
+   "group": 2,
+   "group_title": "",
+   "widget": "Single image",
+   "caption": "",
+   "group_text": "The colorbar for accumulated precipitation.",
+   "url": "https://svs.gsfc.nasa.gov/vis/a000000/a004200/a004284/accbarwhite2.png",
+   "filename": "accbarwhite2.png",
+   "media_type": "Image",
+   "width": 440,
+   "height": 90,
+   "alt_text": "The colorbar for accumulated precipitation."
+  }
+ ],
+ "text_links": [],
+ "frame_folders": {
+  "https://svs.gsfc.nasa.gov/vis/a000000/a004200/a004284/frames/1920x1080_16x9_30p/flatcomposite/": {
+   "url": "https://svs.gsfc.nasa.gov/vis/a000000/a004200/a004284/frames/1920x1080_16x9_30p/flatcomposite/",
+   "frame_count": 337,
+   "bytes_approx": 939200000,
+   "first": "GPM_accumulation_1080p.00000.png",
+   "last": "GPM_accumulation_1080p.00336.png",
+   "subfolders": {}
+  },
+  "https://svs.gsfc.nasa.gov/vis/a000000/a004200/a004284/frames/3600x1800_2x1_30p/flatcomposite/": {
+   "url": "https://svs.gsfc.nasa.gov/vis/a000000/a004200/a004284/frames/3600x1800_2x1_30p/flatcomposite/",
+   "frame_count": 337,
+   "bytes_approx": 1833800000,
+   "first": "GPM_accumulation.00000.png",
+   "last": "GPM_accumulation.00336.png",
+   "subfolders": {}
+  },
+  "https://svs.gsfc.nasa.gov/vis/a000000/a004200/a004284/frames/3600x1800_2x1_30p/flatalpha/": {
+   "url": "https://svs.gsfc.nasa.gov/vis/a000000/a004200/a004284/frames/3600x1800_2x1_30p/flatalpha/",
+   "frame_count": 337,
+   "bytes_approx": 622796200,
+   "first": "GPM_accumulation.00000.png",
+   "last": "GPM_accumulation.00336.png",
+   "subfolders": {}
+  }
+ },
+ "api_url": "https://svs.gsfc.nasa.gov/api/4284",
+ "fetched_utc": "2026-11-02T22:33:27Z"
+}

@@ -1,0 +1,307 @@
+{
+ "record": "rel_4764",
+ "app_title": "Simulation of Surface Ozone (model)",
+ "svs_ids": [
+  4764
+ ],
+ "title": "Simulation of Surface Ozone",
+ "svs_pages": [
+  "https://svs.gsfc.nasa.gov/4764/"
+ ],
+ "description": "Global surface ozone from a GEOS model run || ozone_only_4k.00000_print.jpg (1024x576) [65.8 KB] || ozone_only_4k.00000_searchweb.png (320x180) [58.9 KB] || ozone_only_4k.00000_thm.png (80x40) [5.1 KB] || ozone_only_1080p30.mp4 (1920x1080) [24.5 MB] || ozone_only_1080p30.webm (1920x1080) [7.2 MB] || ozone_only_2160p30.mp4 (3840x2160) [70.8 MB] || ozone_only (3840x2160) [0 Item(s)] || ozone_only (5760x3240) [0 Item(s)] || ozone_only_1080p30.mp4.hwshow [208 bytes] || ",
+ "release_date": "2019-11-07T00:00:00-05:00",
+ "period": {
+  "start": "2019-11-07T05:00:00Z",
+  "end": "2019-11-07T05:00:00Z",
+  "label": "7 Nov 2019 – 7 Nov 2019"
+ },
+ "badge": "model",
+ "credits_by_role": {
+  "Visualizer": [
+   "Greg Shirah (NASA/GSFC)",
+   "Trent L. Schindler (USRA)"
+  ],
+  "Scientist": [
+   "Christoph A. Keller (USRA)",
+   "K. Emma Knowland (USRA)",
+   "Steven Pawson (NASA/GSFC)"
+  ]
+ },
+ "datasets": [
+  {
+   "name": "GEOS Atmospheric Model",
+   "common_name": "",
+   "platform": null,
+   "sensor": null,
+   "type": "Model",
+   "organizations": [
+    "NASA GMAO"
+   ],
+   "description": "",
+   "credit": "",
+   "url": "",
+   "date_range": "07/22/2018 through 09/03/2018"
+  }
+ ],
+ "credit_line": "Visualization: NASA's Scientific Visualization Studio (SVS 4764) for the NASA Earth Information Center.",
+ "disclosure": "A related NASA visualization read back through its key (relative).",
+ "licence": "SVS: \"All of our content is in the public domain (unless otherwise noted), meaning that it is free to download, use, and redistribute for whatever purposes you see fit.\" (https://svs.gsfc.nasa.gov/help/, read 29 Oct 2026)",
+ "focus": "air quality",
+ "related_to": [
+  5533
+ ],
+ "frame_times": {
+  "method": "linear",
+  "approximate": true,
+  "count": 3,
+  "source": "undated"
+ },
+ "georef": {
+  "projection": "none (not a flat 2:1 map)",
+  "bounds": [
+   -180,
+   -101.25,
+   180,
+   101.25
+  ],
+  "pass_at": 0.9,
+  "shifts_deg": [],
+  "iou": {},
+  "pass": false,
+  "best_is_assumed": false
+ },
+ "colorbar": {
+  "geometry": {
+   "x0": 115,
+   "x1": 746,
+   "band": [
+    77,
+    121
+   ],
+   "vertical": false,
+   "outline_rgb": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "image_size": [
+    122,
+    780
+   ]
+  },
+  "ticks": [],
+  "scale": "stated-range",
+  "fit": {
+   "a": 0.0,
+   "b": 0.001584786053882726
+  },
+  "notes": [
+   "OCR read []: too few increasing labels; the SVS text's range 0.0–1.0 is used, linear between the strip ends."
+  ],
+  "n_samples": 632,
+  "value_range": [
+   0.0,
+   1.0
+  ],
+  "opacity_varies": false
+ },
+ "colorbar_source": "page colorbar ozone_only_cbar.png (word labels: relative 0–1)",
+ "asset": {
+  "kind": "frames",
+  "owner": 4764,
+  "what": "ozone_only"
+ },
+ "twins": [],
+ "decode": {
+  "mode": "exact",
+  "decoded_share": 0.9519107269161523
+ },
+ "layers": [
+  {
+   "id": "value",
+   "unit": "relative (0–1)",
+   "encoding": "linear",
+   "scale": 0.00015822784810126583,
+   "offset": 0.0,
+   "nodata": 65535,
+   "below": 65534,
+   "grid": {
+    "width": 160,
+    "height": 90,
+    "bounds": [
+     -180,
+     -101.25,
+     180,
+     101.25
+    ],
+    "row0": "north",
+    "col0": "west",
+    "byte_order": "little",
+    "space": "frame"
+   },
+   "times": [
+    "2019-11-07T05:00:00Z",
+    "2019-11-07T05:00:00Z",
+    "2019-11-07T05:00:00Z"
+   ],
+   "chunks": [
+    {
+     "file": "value_000.u16.gz",
+     "t0": 0,
+     "t1": 3,
+     "bytes": 65142
+    }
+   ],
+   "quantisation_step": 0.00015822784810126583,
+   "coverage": 0.9794675925925926,
+   "value_range": [
+    0.0,
+    0.9701531529426575
+   ],
+   "label": "Simulation of Surface Ozone (relative)",
+   "aggregation": "mean of decoded pixels per cell",
+   "time_labels": [
+    "undated",
+    "undated",
+    "undated"
+   ],
+   "display": {
+    "colours": [
+     "#00002a",
+     "#000033",
+     "#00003d",
+     "#000047",
+     "#000051",
+     "#00005a",
+     "#000064",
+     "#00006e",
+     "#000078",
+     "#000082",
+     "#000c8b",
+     "#001996",
+     "#0024a0",
+     "#002fa9",
+     "#003ab3",
+     "#0046bc",
+     "#0052c7",
+     "#005ed0",
+     "#0069da",
+     "#0075e4",
+     "#0081ee",
+     "#008cf8",
+     "#0097ff",
+     "#16a2ff",
+     "#35afff",
+     "#51bbff",
+     "#6fc6ff",
+     "#8cd2ff",
+     "#aadeff",
+     "#c7e9ff",
+     "#e3f4ff",
+     "#ffffff"
+    ],
+    "values": [
+     0.0,
+     0.03225806451612903,
+     0.06451612903225806,
+     0.0967741935483871,
+     0.12903225806451613,
+     0.16129032258064518,
+     0.1935483870967742,
+     0.22580645161290325,
+     0.25806451612903225,
+     0.2903225806451613,
+     0.32258064516129037,
+     0.3548387096774194,
+     0.3870967741935484,
+     0.41935483870967744,
+     0.4516129032258065,
+     0.4838709677419355,
+     0.5161290322580645,
+     0.5483870967741936,
+     0.5806451612903226,
+     0.6129032258064516,
+     0.6451612903225807,
+     0.6774193548387096,
+     0.7096774193548387,
+     0.7419354838709679,
+     0.7741935483870968,
+     0.8064516129032259,
+     0.8387096774193549,
+     0.870967741935484,
+     0.903225806451613,
+     0.9354838709677419,
+     0.967741935483871,
+     1.0
+    ],
+    "scale": "linear"
+   },
+   "status": "relative",
+   "status_check": "a_no_validation_source",
+   "statement": "relative"
+  }
+ ],
+ "voices": {
+  "value": "rel4764"
+ },
+ "play": [
+  {
+   "id": "value",
+   "label": "Simulation of Surface Ozone: higher pitch = higher value",
+   "view": "global",
+   "map": "value",
+   "start": {
+    "lat": -1.0,
+    "lon": 1.125
+   },
+   "steps_per_second": 1,
+   "channels": [
+    {
+     "voice": "rel4764",
+     "layers": [
+      "value"
+     ],
+     "combine": "value"
+    }
+   ]
+  }
+ ],
+ "validation": [
+  {
+   "id": "a_no_validation_source",
+   "title": "Simulation of Surface Ozone: no validation source",
+   "kind": "none",
+   "pass": null,
+   "threshold": null
+  }
+ ],
+ "size": {
+  "choice": {
+   "frames": 3
+  },
+  "tried": [],
+  "bytes": 72542,
+  "budget": 25000000
+ },
+ "onboarding": {
+  "timings_s": {
+   "api": 11.0,
+   "twins": 0.8,
+   "asset choice": 0.0,
+   "frames": 17.4,
+   "frame times": 0.2,
+   "georef": 0.1,
+   "colorbar": 174.9,
+   "inversion": 8.2,
+   "validation": 0.0
+  },
+  "status": "relative"
+ },
+ "asset_checksums": {
+  "file": "checksums.tsv.gz",
+  "rows": 4,
+  "sha256_of_list": "aef4ce98b107c9d081b31ee6e7697404216a3c73e74059022fb984521f6f517b"
+ },
+ "code_commit": "a8f0638dc9adb81b18f259cf0813046acd882fa1-dirty",
+ "generated_utc": "2026-10-31T17:56:29Z"
+}

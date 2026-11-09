@@ -1,0 +1,487 @@
+{
+ "id": 4685,
+ "title": "Inside Hurricane Maria in 360°",
+ "url": "https://svs.gsfc.nasa.gov/4685/",
+ "page_type": "Visualization",
+ "release_date": "2018-10-04T09:55:00-04:00",
+ "update_date": "2025-01-05T23:43:58.707625-05:00",
+ "description": "Tour Hurricane Maria in a whole new way!  Late on September 17, 2017 (10:08 p.m. EDT) Category 1 Hurricane Maria was strengthening in the Atlantic Ocean when the Global Precipitation Measurement (GPM) mission's Core Observatory flew over it.  The Dual Frequency Precipitation Radar, measuring in a narrow band over the storm center, shows 3-D estimates of rain, with snow at higher altitudes.  The tall \"hot towers\" characteristic of deepening hurricanes are actually topped by snow! Surface rainfall rates estimated by the GPM Microwave Imager paint the surface over a wider swath.  During the tour, you'll see the radar-observed rain intensities displayed three different ways in various parts of the storm.  Then, for the first time you'll see estimates of the precipitation particle sizes, which the GPM DPR is uniquely capable of showing, and which provide important insights into storm processes.GPM is a joint mission between NASA and the Japanese space agency JAXA. || ",
+ "full_text": "Tour Hurricane Maria in a whole new way!  Late on September 17, 2017 (10:08 p.m. EDT) Category 1 Hurricane Maria was strengthening in the Atlantic Ocean when the Global Precipitation Measurement (GPM) mission's Core Observatory flew over it.  The Dual Frequency Precipitation Radar, measuring in a narrow band over the storm center, shows 3-D estimates of rain, with snow at higher altitudes.  The tall \"hot towers\" characteristic of deepening hurricanes are actually topped by snow! Surface rainfall rates estimated by the GPM Microwave Imager paint the surface over a wider swath.  During the tour, you'll see the radar-observed rain intensities displayed three different ways in various parts of the storm.  Then, for the first time you'll see estimates of the precipitation particle sizes, which the GPM DPR is uniquely capable of showing, and which provide important insights into storm processes.GPM is a joint mission between NASA and the Japanese space agency JAXA. ||\n\n<iframe width=\"560\" height=\"315\" src=\"https://www.youtube.com/embed/QFaXJ3fd2vM\" frameborder=\"0\" allow=\"autoplay; encrypted-media\" allowfullscreen></iframe><br><br>Tour Hurricane Maria in a whole new way!  Late on September 17, 2017 (10:08 p.m. EDT) Category 1 Hurricane Maria was strengthening in the Atlantic Ocean when the Global Precipitation Measurement (GPM) mission's Core Observatory flew over it.  The Dual Frequency Precipitation Radar, measuring in a narrow band over the storm center, shows 3-D estimates of rain, with snow at higher altitudes.  The tall \"hot towers\" characteristic of deepening hurricanes are actually topped by snow! Surface rainfall rates estimated by the GPM Microwave Imager paint the surface over a wider swath.  During the tour, you'll see the radar-observed rain intensities displayed three different ways in various parts of the storm.  Then, for the first time you'll see estimates of the precipitation particle sizes, which the GPM DPR is uniquely capable of showing, and which provide important insights into storm processes.<br><br>GPM is a joint mission between NASA and the Japanese space agency JAXA.\n\nA set of smoothly animated viewing directions were chosen to show a portion of this 360 movie.\n\nExample of 360 video playback of Hurricane Maria 360.   In this example, the view is moved around looking at various locations within the scene.  You should try this on your own and choose you own views!\n\nVisualization of Hurricane Maria.  These are full 360 degree frames.  These fames appear warped because they include the entire 360 degree view.<br><a href='https://www.youtube.com/watch?v=QFaXJ3fd2vM'>This video is also available on our YouTube channel</a>.<br>",
+ "credits_by_role": {
+  "Visualizer": [
+   "Greg Shirah (NASA/GSFC)",
+   "Kel Elkins (USRA)",
+   "Alex Kekesi (Global Science and Technology, Inc.)",
+   "Horace Mitchell (NASA/GSFC)",
+   "Devika Elakara (GSFC Interns)"
+  ],
+  "Scientist": [
+   "George Huffman (NASA/GSFC)",
+   "Dalia B Kirschbaum (NASA/GSFC)",
+   "Stephen J. Munchak (University of Maryland)",
+   "Scott Braun (NASA/GSFC)"
+  ],
+  "Technical support": [
+   "Laurence Schuler (ADNET Systems, Inc.)",
+   "Ian Jones (ADNET Systems, Inc.)"
+  ],
+  "Producer": [
+   "Ryan Fitzgibbons (USRA)",
+   "Joy Ng (USRA)"
+  ],
+  "Support": [
+   "Joycelyn Thomson Jones (NASA/GSFC)",
+   "Leann Johnson (Global Science and Technology, Inc.)"
+  ]
+ },
+ "keywords": [
+  "360",
+  "Atmosphere",
+  "Atmospheric Phenomena",
+  "Atmospheric science",
+  "Earth Science",
+  "GPM",
+  "HDTV",
+  "Hurricanes",
+  "Hyperwall",
+  "Natural hazards",
+  "precipitation",
+  "Weather and Atmospheric Dynamics"
+ ],
+ "datasets": [
+  {
+   "name": "",
+   "common_name": "",
+   "platform": "GOES",
+   "sensor": null,
+   "type": "Other",
+   "organizations": [],
+   "description": "",
+   "credit": "",
+   "url": "",
+   "date_range": "2017-09-18T02:08:26"
+  },
+  {
+   "name": "Surface Precipitation",
+   "common_name": "Rain Rates",
+   "platform": "GPM",
+   "sensor": "GMI",
+   "type": "Other",
+   "organizations": [],
+   "description": "",
+   "credit": "Data provided by the joint NASA/JAXA GPM mission.",
+   "url": "",
+   "date_range": "2017-09-18T02:08:26"
+  },
+  {
+   "name": "Ku",
+   "common_name": "Volumetric Precipitation data",
+   "platform": "GPM",
+   "sensor": "DPR",
+   "type": "Observed Data",
+   "organizations": [
+    "JAXA"
+   ],
+   "description": "",
+   "credit": "Data provided by the joint NASA/JAXA GPM mission.",
+   "url": "",
+   "date_range": "2017-09-18T02:08:26"
+  },
+  {
+   "name": "",
+   "common_name": "IMERG",
+   "platform": null,
+   "sensor": null,
+   "type": "Data Compilation",
+   "organizations": [
+    "NASA/GSFC"
+   ],
+   "description": "",
+   "credit": "",
+   "url": "http://pmm.nasa.gov/sites/default/files/document_files/IMERG_ATBD_V4.4.pdf",
+   "date_range": "2017-09-18T02:08:26"
+  }
+ ],
+ "missions": [
+  "Global Precipitation Measurement (GPM)"
+ ],
+ "related": [
+  {
+   "id": 13071,
+   "title": "Why NASA Studies Hurricanes. Soundbites From Owen Kelley",
+   "url": "https://svs.gsfc.nasa.gov/13071/"
+  }
+ ],
+ "alternate_versions": [],
+ "newer_versions": [],
+ "older_versions": [],
+ "media": [
+  {
+   "group": 1,
+   "group_title": "",
+   "widget": "Video player",
+   "caption": "",
+   "group_text": "A set of smoothly animated viewing directions were chosen to show a portion of this 360 movie.",
+   "url": "https://svs.gsfc.nasa.gov/vis/a000000/a004600/a004685/full360Mariawithaudio.00001_print.jpg",
+   "filename": "full360Mariawithaudio.00001_print.jpg",
+   "media_type": "Image",
+   "width": 1024,
+   "height": 576,
+   "alt_text": "A set of smoothly animated viewing directions were chosen to show a portion of this 360 movie."
+  },
+  {
+   "group": 1,
+   "group_title": "",
+   "widget": "Video player",
+   "caption": "",
+   "group_text": "A set of smoothly animated viewing directions were chosen to show a portion of this 360 movie.",
+   "url": "https://svs.gsfc.nasa.gov/vis/a000000/a004600/a004685/full360Mariawithaudio.webm",
+   "filename": "full360Mariawithaudio.webm",
+   "media_type": "Movie",
+   "width": 1920,
+   "height": 1080,
+   "alt_text": "A set of smoothly animated viewing directions were chosen to show a portion of this 360 movie."
+  },
+  {
+   "group": 1,
+   "group_title": "",
+   "widget": "Video player",
+   "caption": "",
+   "group_text": "A set of smoothly animated viewing directions were chosen to show a portion of this 360 movie.",
+   "url": "https://svs.gsfc.nasa.gov/vis/a000000/a004600/a004685/full360Mariawithaudio.mp4",
+   "filename": "full360Mariawithaudio.mp4",
+   "media_type": "Movie",
+   "width": 1920,
+   "height": 1080,
+   "alt_text": "A set of smoothly animated viewing directions were chosen to show a portion of this 360 movie."
+  },
+  {
+   "group": 1,
+   "group_title": "",
+   "widget": "Video player",
+   "caption": "",
+   "group_text": "A set of smoothly animated viewing directions were chosen to show a portion of this 360 movie.",
+   "url": "https://svs.gsfc.nasa.gov/vis/a000000/a004600/a004685/full360Maria.en_US.srt",
+   "filename": "full360Maria.en_US.srt",
+   "media_type": "Captions",
+   "width": 0,
+   "height": 0,
+   "alt_text": "A set of smoothly animated viewing directions were chosen to show a portion of this 360 movie."
+  },
+  {
+   "group": 1,
+   "group_title": "",
+   "widget": "Video player",
+   "caption": "",
+   "group_text": "A set of smoothly animated viewing directions were chosen to show a portion of this 360 movie.",
+   "url": "https://svs.gsfc.nasa.gov/vis/a000000/a004600/a004685/full360Maria.en_US.vtt",
+   "filename": "full360Maria.en_US.vtt",
+   "media_type": "Captions",
+   "width": 0,
+   "height": 0,
+   "alt_text": "A set of smoothly animated viewing directions were chosen to show a portion of this 360 movie."
+  },
+  {
+   "group": 2,
+   "group_title": "",
+   "widget": "Video player",
+   "caption": "",
+   "group_text": "Example of 360 video playback of Hurricane Maria 360.   In this example, the view is moved around looking at various locations within the scene.  You should try this on your own and choose you own views!",
+   "url": "https://svs.gsfc.nasa.gov/vis/a000000/a004600/a004685/example_playback_hurricane_maria_360.00001_print.jpg",
+   "filename": "example_playback_hurricane_maria_360.00001_print.jpg",
+   "media_type": "Image",
+   "width": 1024,
+   "height": 576,
+   "alt_text": "Example of 360 video playback of Hurricane Maria 360.   In this example, the view is moved around looking at various locations within the scene.  You should try this on your own and choose you own views!"
+  },
+  {
+   "group": 2,
+   "group_title": "",
+   "widget": "Video player",
+   "caption": "",
+   "group_text": "Example of 360 video playback of Hurricane Maria 360.   In this example, the view is moved around looking at various locations within the scene.  You should try this on your own and choose you own views!",
+   "url": "https://svs.gsfc.nasa.gov/vis/a000000/a004600/a004685/example_playback_hurricane_maria_360_720.webm",
+   "filename": "example_playback_hurricane_maria_360_720.webm",
+   "media_type": "Movie",
+   "width": 1280,
+   "height": 720,
+   "alt_text": "Example of 360 video playback of Hurricane Maria 360.   In this example, the view is moved around looking at various locations within the scene.  You should try this on your own and choose you own views!"
+  },
+  {
+   "group": 2,
+   "group_title": "",
+   "widget": "Video player",
+   "caption": "",
+   "group_text": "Example of 360 video playback of Hurricane Maria 360.   In this example, the view is moved around looking at various locations within the scene.  You should try this on your own and choose you own views!",
+   "url": "https://svs.gsfc.nasa.gov/vis/a000000/a004600/a004685/example_playback_hurricane_maria_360.mov",
+   "filename": "example_playback_hurricane_maria_360.mov",
+   "media_type": "Movie",
+   "width": 1282,
+   "height": 718,
+   "alt_text": "Example of 360 video playback of Hurricane Maria 360.   In this example, the view is moved around looking at various locations within the scene.  You should try this on your own and choose you own views!"
+  },
+  {
+   "group": 2,
+   "group_title": "",
+   "widget": "Video player",
+   "caption": "",
+   "group_text": "Example of 360 video playback of Hurricane Maria 360.   In this example, the view is moved around looking at various locations within the scene.  You should try this on your own and choose you own views!",
+   "url": "https://svs.gsfc.nasa.gov/vis/a000000/a004600/a004685/example_playback_hurricane_maria_360_720.mp4",
+   "filename": "example_playback_hurricane_maria_360_720.mp4",
+   "media_type": "Movie",
+   "width": 1280,
+   "height": 720,
+   "alt_text": "Example of 360 video playback of Hurricane Maria 360.   In this example, the view is moved around looking at various locations within the scene.  You should try this on your own and choose you own views!"
+  },
+  {
+   "group": 2,
+   "group_title": "",
+   "widget": "Video player",
+   "caption": "",
+   "group_text": "Example of 360 video playback of Hurricane Maria 360.   In this example, the view is moved around looking at various locations within the scene.  You should try this on your own and choose you own views!",
+   "url": "https://svs.gsfc.nasa.gov/vis/a000000/a004600/a004685/example_playback_hurricane_maria_360.mp4",
+   "filename": "example_playback_hurricane_maria_360.mp4",
+   "media_type": "Movie",
+   "width": 1920,
+   "height": 1080,
+   "alt_text": "Example of 360 video playback of Hurricane Maria 360.   In this example, the view is moved around looking at various locations within the scene.  You should try this on your own and choose you own views!"
+  },
+  {
+   "group": 3,
+   "group_title": "",
+   "widget": "Video player",
+   "caption": "",
+   "group_text": "Visualization of Hurricane Maria.  These are full 360 degree frames.  These fames appear warped because they include the entire 360 degree view.<br><a href='https://www.youtube.com/watch?v=QFaXJ3fd2vM'>This video is also available on our YouTube channel</a>.<br>",
+   "url": "https://svs.gsfc.nasa.gov/vis/a000000/a004600/a004685/maria360.112_4k.7300_print.jpg",
+   "filename": "maria360.112_4k.7300_print.jpg",
+   "media_type": "Image",
+   "width": 1024,
+   "height": 512,
+   "alt_text": "Visualization of Hurricane Maria.  These are full 360 degree frames.  These fames appear warped because they include the entire 360 degree view.This video is also available on our YouTube channel."
+  },
+  {
+   "group": 3,
+   "group_title": "",
+   "widget": "Video player",
+   "caption": "",
+   "group_text": "Visualization of Hurricane Maria.  These are full 360 degree frames.  These fames appear warped because they include the entire 360 degree view.<br><a href='https://www.youtube.com/watch?v=QFaXJ3fd2vM'>This video is also available on our YouTube channel</a>.<br>",
+   "url": "https://svs.gsfc.nasa.gov/vis/a000000/a004600/a004685/maria360_eye_print.jpg",
+   "filename": "maria360_eye_print.jpg",
+   "media_type": "Image",
+   "width": 2443,
+   "height": 1461,
+   "alt_text": "Visualization of Hurricane Maria.  These are full 360 degree frames.  These fames appear warped because they include the entire 360 degree view.This video is also available on our YouTube channel."
+  },
+  {
+   "group": 3,
+   "group_title": "",
+   "widget": "Video player",
+   "caption": "",
+   "group_text": "Visualization of Hurricane Maria.  These are full 360 degree frames.  These fames appear warped because they include the entire 360 degree view.<br><a href='https://www.youtube.com/watch?v=QFaXJ3fd2vM'>This video is also available on our YouTube channel</a>.<br>",
+   "url": "https://svs.gsfc.nasa.gov/vis/a000000/a004600/a004685/maria360.112_4k.7300_searchweb.png",
+   "filename": "maria360.112_4k.7300_searchweb.png",
+   "media_type": "Image",
+   "width": 320,
+   "height": 180,
+   "alt_text": "Visualization of Hurricane Maria.  These are full 360 degree frames.  These fames appear warped because they include the entire 360 degree view.This video is also available on our YouTube channel."
+  },
+  {
+   "group": 3,
+   "group_title": "",
+   "widget": "Video player",
+   "caption": "",
+   "group_text": "Visualization of Hurricane Maria.  These are full 360 degree frames.  These fames appear warped because they include the entire 360 degree view.<br><a href='https://www.youtube.com/watch?v=QFaXJ3fd2vM'>This video is also available on our YouTube channel</a>.<br>",
+   "url": "https://svs.gsfc.nasa.gov/vis/a000000/a004600/a004685/maria360.112_4k.7300_thm.png",
+   "filename": "maria360.112_4k.7300_thm.png",
+   "media_type": "Image",
+   "width": 80,
+   "height": 40,
+   "alt_text": "Visualization of Hurricane Maria.  These are full 360 degree frames.  These fames appear warped because they include the entire 360 degree view.This video is also available on our YouTube channel."
+  },
+  {
+   "group": 3,
+   "group_title": "",
+   "widget": "Video player",
+   "caption": "",
+   "group_text": "Visualization of Hurricane Maria.  These are full 360 degree frames.  These fames appear warped because they include the entire 360 degree view.<br><a href='https://www.youtube.com/watch?v=QFaXJ3fd2vM'>This video is also available on our YouTube channel</a>.<br>",
+   "url": "https://svs.gsfc.nasa.gov/vis/a000000/a004600/a004685/frames/4096x2048_2x1_29.97/",
+   "filename": "4096x2048_2x1_29.97",
+   "media_type": "Frames",
+   "width": 4096,
+   "height": 2048,
+   "alt_text": "Visualization of Hurricane Maria.  These are full 360 degree frames.  These fames appear warped because they include the entire 360 degree view.This video is also available on our YouTube channel."
+  },
+  {
+   "group": 3,
+   "group_title": "",
+   "widget": "Video player",
+   "caption": "",
+   "group_text": "Visualization of Hurricane Maria.  These are full 360 degree frames.  These fames appear warped because they include the entire 360 degree view.<br><a href='https://www.youtube.com/watch?v=QFaXJ3fd2vM'>This video is also available on our YouTube channel</a>.<br>",
+   "url": "https://svs.gsfc.nasa.gov/vis/a000000/a004600/a004685/frames/4096x2048_2x1_30p/",
+   "filename": "4096x2048_2x1_30p",
+   "media_type": "Frames",
+   "width": 4096,
+   "height": 2048,
+   "alt_text": "Visualization of Hurricane Maria.  These are full 360 degree frames.  These fames appear warped because they include the entire 360 degree view.This video is also available on our YouTube channel."
+  },
+  {
+   "group": 3,
+   "group_title": "",
+   "widget": "Video player",
+   "caption": "",
+   "group_text": "Visualization of Hurricane Maria.  These are full 360 degree frames.  These fames appear warped because they include the entire 360 degree view.<br><a href='https://www.youtube.com/watch?v=QFaXJ3fd2vM'>This video is also available on our YouTube channel</a>.<br>",
+   "url": "https://svs.gsfc.nasa.gov/vis/a000000/a004600/a004685/frames/8192x4096_2x1_30p/",
+   "filename": "8192x4096_2x1_30p",
+   "media_type": "Frames",
+   "width": 8192,
+   "height": 4096,
+   "alt_text": "Visualization of Hurricane Maria.  These are full 360 degree frames.  These fames appear warped because they include the entire 360 degree view.This video is also available on our YouTube channel."
+  },
+  {
+   "group": 3,
+   "group_title": "",
+   "widget": "Video player",
+   "caption": "",
+   "group_text": "Visualization of Hurricane Maria.  These are full 360 degree frames.  These fames appear warped because they include the entire 360 degree view.<br><a href='https://www.youtube.com/watch?v=QFaXJ3fd2vM'>This video is also available on our YouTube channel</a>.<br>",
+   "url": "https://svs.gsfc.nasa.gov/vis/a000000/a004600/a004685/Maria360.en_US.srt",
+   "filename": "Maria360.en_US.srt",
+   "media_type": "Captions",
+   "width": 0,
+   "height": 0,
+   "alt_text": "Visualization of Hurricane Maria.  These are full 360 degree frames.  These fames appear warped because they include the entire 360 degree view.This video is also available on our YouTube channel."
+  },
+  {
+   "group": 3,
+   "group_title": "",
+   "widget": "Video player",
+   "caption": "",
+   "group_text": "Visualization of Hurricane Maria.  These are full 360 degree frames.  These fames appear warped because they include the entire 360 degree view.<br><a href='https://www.youtube.com/watch?v=QFaXJ3fd2vM'>This video is also available on our YouTube channel</a>.<br>",
+   "url": "https://svs.gsfc.nasa.gov/vis/a000000/a004600/a004685/Maria360.en_US.vtt",
+   "filename": "Maria360.en_US.vtt",
+   "media_type": "Captions",
+   "width": 0,
+   "height": 0,
+   "alt_text": "Visualization of Hurricane Maria.  These are full 360 degree frames.  These fames appear warped because they include the entire 360 degree view.This video is also available on our YouTube channel."
+  },
+  {
+   "group": 3,
+   "group_title": "",
+   "widget": "Video player",
+   "caption": "",
+   "group_text": "Visualization of Hurricane Maria.  These are full 360 degree frames.  These fames appear warped because they include the entire 360 degree view.<br><a href='https://www.youtube.com/watch?v=QFaXJ3fd2vM'>This video is also available on our YouTube channel</a>.<br>",
+   "url": "https://svs.gsfc.nasa.gov/vis/a000000/a004600/a004685/maria_360_audio.mov",
+   "filename": "maria_360_audio.mov",
+   "media_type": "Audio",
+   "width": 0,
+   "height": 0,
+   "alt_text": "Visualization of Hurricane Maria.  These are full 360 degree frames.  These fames appear warped because they include the entire 360 degree view.This video is also available on our YouTube channel."
+  },
+  {
+   "group": 3,
+   "group_title": "",
+   "widget": "Video player",
+   "caption": "",
+   "group_text": "Visualization of Hurricane Maria.  These are full 360 degree frames.  These fames appear warped because they include the entire 360 degree view.<br><a href='https://www.youtube.com/watch?v=QFaXJ3fd2vM'>This video is also available on our YouTube channel</a>.<br>",
+   "url": "https://svs.gsfc.nasa.gov/vis/a000000/a004600/a004685/maria360.112_4k_2048p30_2_injected.webm",
+   "filename": "maria360.112_4k_2048p30_2_injected.webm",
+   "media_type": "Movie",
+   "width": 4096,
+   "height": 2048,
+   "alt_text": "Visualization of Hurricane Maria.  These are full 360 degree frames.  These fames appear warped because they include the entire 360 degree view.This video is also available on our YouTube channel."
+  },
+  {
+   "group": 3,
+   "group_title": "",
+   "widget": "Video player",
+   "caption": "",
+   "group_text": "Visualization of Hurricane Maria.  These are full 360 degree frames.  These fames appear warped because they include the entire 360 degree view.<br><a href='https://www.youtube.com/watch?v=QFaXJ3fd2vM'>This video is also available on our YouTube channel</a>.<br>",
+   "url": "https://svs.gsfc.nasa.gov/vis/a000000/a004600/a004685/maria_360_4k_withCredits.mp4",
+   "filename": "maria_360_4k_withCredits.mp4",
+   "media_type": "Movie",
+   "width": 4096,
+   "height": 2048,
+   "alt_text": "Visualization of Hurricane Maria.  These are full 360 degree frames.  These fames appear warped because they include the entire 360 degree view.This video is also available on our YouTube channel."
+  },
+  {
+   "group": 3,
+   "group_title": "",
+   "widget": "Video player",
+   "caption": "",
+   "group_text": "Visualization of Hurricane Maria.  These are full 360 degree frames.  These fames appear warped because they include the entire 360 degree view.<br><a href='https://www.youtube.com/watch?v=QFaXJ3fd2vM'>This video is also available on our YouTube channel</a>.<br>",
+   "url": "https://svs.gsfc.nasa.gov/vis/a000000/a004600/a004685/maria360.112_4k_2048p30_2_injected.mp4",
+   "filename": "maria360.112_4k_2048p30_2_injected.mp4",
+   "media_type": "Movie",
+   "width": 4096,
+   "height": 2048,
+   "alt_text": "Visualization of Hurricane Maria.  These are full 360 degree frames.  These fames appear warped because they include the entire 360 degree view.This video is also available on our YouTube channel."
+  },
+  {
+   "group": 3,
+   "group_title": "",
+   "widget": "Video player",
+   "caption": "",
+   "group_text": "Visualization of Hurricane Maria.  These are full 360 degree frames.  These fames appear warped because they include the entire 360 degree view.<br><a href='https://www.youtube.com/watch?v=QFaXJ3fd2vM'>This video is also available on our YouTube channel</a>.<br>",
+   "url": "https://svs.gsfc.nasa.gov/vis/a000000/a004600/a004685/InsideHurricaneMariain360Meatball_360.mp4",
+   "filename": "InsideHurricaneMariain360Meatball_360.mp4",
+   "media_type": "Movie",
+   "width": 4096,
+   "height": 2048,
+   "alt_text": "Visualization of Hurricane Maria.  These are full 360 degree frames.  These fames appear warped because they include the entire 360 degree view.This video is also available on our YouTube channel."
+  },
+  {
+   "group": 3,
+   "group_title": "",
+   "widget": "Video player",
+   "caption": "",
+   "group_text": "Visualization of Hurricane Maria.  These are full 360 degree frames.  These fames appear warped because they include the entire 360 degree view.<br><a href='https://www.youtube.com/watch?v=QFaXJ3fd2vM'>This video is also available on our YouTube channel</a>.<br>",
+   "url": "https://svs.gsfc.nasa.gov/vis/a000000/a004600/a004685/maria360_8k_final_4096p29.97_h265_5_w_audio_injected.mp4",
+   "filename": "maria360_8k_final_4096p29.97_h265_5_w_audio_injected.mp4",
+   "media_type": "Movie",
+   "width": 8192,
+   "height": 4096,
+   "alt_text": "Visualization of Hurricane Maria.  These are full 360 degree frames.  These fames appear warped because they include the entire 360 degree view.This video is also available on our YouTube channel."
+  },
+  {
+   "group": 3,
+   "group_title": "",
+   "widget": "Video player",
+   "caption": "",
+   "group_text": "Visualization of Hurricane Maria.  These are full 360 degree frames.  These fames appear warped because they include the entire 360 degree view.<br><a href='https://www.youtube.com/watch?v=QFaXJ3fd2vM'>This video is also available on our YouTube channel</a>.<br>",
+   "url": "https://svs.gsfc.nasa.gov/vis/a000000/a004600/a004685/InsideHurricaneMariain360Meatball_Prores.mov",
+   "filename": "InsideHurricaneMariain360Meatball_Prores.mov",
+   "media_type": "Movie",
+   "width": 4096,
+   "height": 2048,
+   "alt_text": "Visualization of Hurricane Maria.  These are full 360 degree frames.  These fames appear warped because they include the entire 360 degree view.This video is also available on our YouTube channel."
+  }
+ ],
+ "text_links": [],
+ "frame_folders": {
+  "https://svs.gsfc.nasa.gov/vis/a000000/a004600/a004685/frames/4096x2048_2x1_29.97/": {
+   "url": "https://svs.gsfc.nasa.gov/vis/a000000/a004600/a004685/frames/4096x2048_2x1_29.97/",
+   "frame_count": 9361,
+   "bytes_approx": 147843399891,
+   "first": "maria360_4k_final_withMeatball.0200.tif",
+   "last": "maria360_4k_final_withMeatball.9560.tif",
+   "subfolders": {}
+  },
+  "https://svs.gsfc.nasa.gov/vis/a000000/a004600/a004685/frames/4096x2048_2x1_30p/": {
+   "url": "https://svs.gsfc.nasa.gov/vis/a000000/a004600/a004685/frames/4096x2048_2x1_30p/",
+   "frame_count": 9361,
+   "bytes_approx": 129329999747,
+   "first": "maria360.112_4k.0200.tif",
+   "last": "maria360.112_4k.9560.tif",
+   "subfolders": {}
+  },
+  "https://svs.gsfc.nasa.gov/vis/a000000/a004600/a004685/frames/8192x4096_2x1_30p/": {
+   "url": "https://svs.gsfc.nasa.gov/vis/a000000/a004600/a004685/frames/8192x4096_2x1_30p/",
+   "frame_count": 9361,
+   "bytes_approx": 444407699819,
+   "first": "maria360_8k_final.0200.tif",
+   "last": "maria360_8k_final.9560.tif",
+   "subfolders": {}
+  }
+ },
+ "api_url": "https://svs.gsfc.nasa.gov/api/4685",
+ "fetched_utc": "2026-10-29T07:34:02Z"
+}

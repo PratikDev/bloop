@@ -1,0 +1,6535 @@
+{
+ "record": "patterns_eic",
+ "app_title": "EIC patterns (pattern, not values)",
+ "svs_ids": [
+  4170,
+  4685,
+  4810,
+  4889,
+  4897,
+  4968,
+  4983,
+  4993,
+  5041,
+  5046,
+  5047,
+  5054,
+  5058,
+  5064,
+  5067,
+  5072,
+  5081,
+  5087,
+  5097,
+  5098,
+  5099,
+  5107,
+  5110,
+  5111,
+  5115,
+  5116,
+  5117,
+  5118,
+  5119,
+  5120,
+  5121,
+  5126,
+  5175,
+  5190,
+  5191,
+  5207,
+  5209,
+  5235,
+  5382,
+  5453,
+  30521,
+  31196
+ ],
+ "title": "EIC Content Database: pattern records (class B)",
+ "svs_pages": [
+  "https://svs.gsfc.nasa.gov/4170/",
+  "https://svs.gsfc.nasa.gov/4685/",
+  "https://svs.gsfc.nasa.gov/4810/",
+  "https://svs.gsfc.nasa.gov/4889/",
+  "https://svs.gsfc.nasa.gov/4897/",
+  "https://svs.gsfc.nasa.gov/4968/",
+  "https://svs.gsfc.nasa.gov/4983/",
+  "https://svs.gsfc.nasa.gov/4993/",
+  "https://svs.gsfc.nasa.gov/5041/",
+  "https://svs.gsfc.nasa.gov/5046/",
+  "https://svs.gsfc.nasa.gov/5047/",
+  "https://svs.gsfc.nasa.gov/5054/",
+  "https://svs.gsfc.nasa.gov/5058/",
+  "https://svs.gsfc.nasa.gov/5064/",
+  "https://svs.gsfc.nasa.gov/5067/",
+  "https://svs.gsfc.nasa.gov/5072/",
+  "https://svs.gsfc.nasa.gov/5081/",
+  "https://svs.gsfc.nasa.gov/5087/",
+  "https://svs.gsfc.nasa.gov/5097/",
+  "https://svs.gsfc.nasa.gov/5098/",
+  "https://svs.gsfc.nasa.gov/5099/",
+  "https://svs.gsfc.nasa.gov/5107/",
+  "https://svs.gsfc.nasa.gov/5110/",
+  "https://svs.gsfc.nasa.gov/5111/",
+  "https://svs.gsfc.nasa.gov/5115/",
+  "https://svs.gsfc.nasa.gov/5116/",
+  "https://svs.gsfc.nasa.gov/5117/",
+  "https://svs.gsfc.nasa.gov/5118/",
+  "https://svs.gsfc.nasa.gov/5119/",
+  "https://svs.gsfc.nasa.gov/5120/",
+  "https://svs.gsfc.nasa.gov/5121/",
+  "https://svs.gsfc.nasa.gov/5126/",
+  "https://svs.gsfc.nasa.gov/5175/",
+  "https://svs.gsfc.nasa.gov/5190/",
+  "https://svs.gsfc.nasa.gov/5191/",
+  "https://svs.gsfc.nasa.gov/5207/",
+  "https://svs.gsfc.nasa.gov/5209/",
+  "https://svs.gsfc.nasa.gov/5235/",
+  "https://svs.gsfc.nasa.gov/5382/",
+  "https://svs.gsfc.nasa.gov/5453/",
+  "https://svs.gsfc.nasa.gov/30521/",
+  "https://svs.gsfc.nasa.gov/31196/"
+ ],
+ "description": "42 EIC items whose pictures have no numeric key or no flat map: each is kept as the brightness pattern of its SVS preview image, labelled 'pattern, not values'.",
+ "release_date": "2014-07-01T00:00:00-04:00",
+ "period": {
+  "start": "2026-10-29T13:25:02Z",
+  "end": "2026-10-29T13:25:02Z",
+  "label": "29 Oct 2026 – 29 Oct 2026"
+ },
+ "badge": "observation",
+ "credits_by_role": {
+  "Animator": [
+   "Horace Mitchell (NASA/GSFC)",
+   "Trent L. Schindler (USRA)",
+   "Cindy Starr (Global Science and Technology, Inc.)",
+   "Marit Jentoft-Nilsen (Global Science and Technology, Inc.)"
+  ],
+  "Scientist": [
+   "Gail Skofronick Jackson (NASA/GSFC)",
+   "Dalia B Kirschbaum (NASA/GSFC)",
+   "George Huffman (NASA/GSFC)",
+   "Stephen J. Munchak (University of Maryland)",
+   "Scott Braun (NASA/GSFC)",
+   "Bryan Duncan (NASA/GSFC)",
+   "Joanna Joiner (NASA/GSFC)",
+   "Lok Lamsal (USRA)",
+   "Sarah Cooley (Stanford University)",
+   "Alex C. Ruane (NASA/GISS)",
+   "Luke Monhollon (SciSpace/NASA GISS)",
+   "Lesley Ott (NASA/GSFC)",
+   "Brad Weir (Morgan State University)",
+   "Doug C. Morton (NASA/GSFC)",
+   "Benjamin Poulter (NASA/GSFC)",
+   "Brendan Byrne (NASA/JPL)",
+   "Matthew Rodell (NASA/GSFC)",
+   "Bailing Li (University of Maryland College Park)",
+   "Tomohiro Oda (USRA/EfSI)",
+   "Caroline Nowlan (Center for Astrophysics | Harvard & Smithsonian)",
+   "Xiong Liu (Center for Astrophysics | Harvard & Smithsonian)",
+   "Gavin A. Schmidt (NASA/GSFC GISS)",
+   "Robert B Schmunk (SIGMA Space Partners, LLC.)",
+   "Reto A. Ruedy (SIGMA Space Partners, LLC.)",
+   "Walt Meier (NASA/GSFC)",
+   "Jay Famiglietti (University of California, Irvine)"
+  ],
+  "Project support": [
+   "Laurence Schuler (ADNET Systems, Inc.)",
+   "Ian Jones (ADNET Systems, Inc.)"
+  ],
+  "Visualizer": [
+   "Greg Shirah (NASA/GSFC)",
+   "Kel Elkins (USRA)",
+   "Alex Kekesi (Global Science and Technology, Inc.)",
+   "Horace Mitchell (NASA/GSFC)",
+   "Devika Elakara (GSFC Interns)",
+   "Trent L. Schindler (USRA)",
+   "Mark SubbaRao (NASA/GSFC)",
+   "AJ Christensen (SSAI)",
+   "Helen-Nicole Kostis (USRA)",
+   "Cindy Starr (Global Science and Technology, Inc.)",
+   "Michala Garrison (SSAI)",
+   "Brenda Lopez-Silva (SSAI)",
+   "Anansa B. Keaton-Ashanti (NASA/GSFC)",
+   "Alex Gurvich (NASA/GSFC)",
+   "Ryan Boller (NASA/GSFC)",
+   "Ed Hawkins (National Centre for Atmospheric Science, University of Reading)"
+  ],
+  "Technical support": [
+   "Laurence Schuler (ADNET Systems, Inc.)",
+   "Ian Jones (ADNET Systems, Inc.)",
+   "Eric Sokolowsky (Global Science and Technology, Inc.)"
+  ],
+  "Producer": [
+   "Ryan Fitzgibbons (USRA)",
+   "Joy Ng (USRA)",
+   "Mark SubbaRao (NASA/GSFC)",
+   "Kathleen Gaeta (Advocates in Manpower Management, Inc.)",
+   "Katie Jepson (KBR Wyle Services, LLC)",
+   "Grace Weikert (eMITS)",
+   "Felix W. Landerer (NASA/JPL CalTech)"
+  ],
+  "Support": [
+   "Joycelyn Thomson Jones (NASA/GSFC)",
+   "Leann Johnson (Global Science and Technology, Inc.)"
+  ],
+  "Writer": [
+   "Bryan Duncan (NASA/GSFC)",
+   "Kathryn Cawdrey (ASRC Federal System Solutions)",
+   "Mike Carlowicz (SSAI)",
+   "Sally Younger (NASA/JPL)",
+   "Jenny Marder Fadoul (Telophase)"
+  ],
+  "Data visualizer": [
+   "Alex Kekesi (Global Science and Technology, Inc.)",
+   "Greg Shirah (NASA/GSFC)"
+  ],
+  "Web administrator": [
+   "Ella Kaplan (Global Science and Technology, Inc.)"
+  ],
+  "Web developer": [
+   "Ella Kaplan (Global Science and Technology, Inc.)"
+  ],
+  "Data provider": [
+   "Lori Perkins (NASA/GSFC)",
+   "Hiroko Kato Beaudoing (University of Maryland)"
+  ],
+  "Science support": [
+   "Peter H. Jacobs (NASA/GSFC)"
+  ],
+  "Public affairs officer": [
+   "Peter H. Jacobs (NASA/GSFC)"
+  ]
+ },
+ "datasets": [
+  {
+   "name": "Daily Rainfall",
+   "common_name": "",
+   "platform": "TRMM",
+   "sensor": "TMI",
+   "type": "Other",
+   "organizations": [],
+   "description": "",
+   "credit": "",
+   "url": "http://disc.sci.gsfc.nasa.gov/data/datapool/TRMM/01_Data_Products/index.html",
+   "date_range": "4/1/2014-4/3/2014"
+  },
+  {
+   "name": "Surface Precipitation",
+   "common_name": "Rain Rates",
+   "platform": "GPM",
+   "sensor": "GMI",
+   "type": "Other",
+   "organizations": [],
+   "description": "",
+   "credit": "Data provided by the joint NASA/JAXA GPM mission.",
+   "url": "",
+   "date_range": "4/1/2014-4/3/2014"
+  }
+ ],
+ "credit_line": "Visualizations: NASA's Scientific Visualization Studio for the NASA Earth Information Center.",
+ "disclosure": "Brightness of preview images with no numeric key or map position: pattern, not values.",
+ "licence": "SVS: \"All of our content is in the public domain (unless otherwise noted), meaning that it is free to download, use, and redistribute for whatever purposes you see fit.\" (https://svs.gsfc.nasa.gov/help/, read 29 Oct 2026)",
+ "frame_times": {
+  "method": "linear",
+  "approximate": true,
+  "count": 1,
+  "source": "preview images (no time)"
+ },
+ "georef": {
+  "projection": "none (preview images)",
+  "bounds": [
+   -180,
+   -101.25,
+   180,
+   101.25
+  ],
+  "pass_at": 0.0,
+  "shifts_deg": [],
+  "iou": {},
+  "pass": false,
+  "best_is_assumed": false
+ },
+ "layers": [
+  {
+   "id": "svs4170",
+   "unit": "relative brightness (0–1)",
+   "encoding": "linear",
+   "scale": 0.002,
+   "offset": 0.11046624183654785,
+   "nodata": 65535,
+   "below": 65534,
+   "grid": {
+    "width": 256,
+    "height": 144,
+    "bounds": [
+     -180,
+     -101.25,
+     180,
+     101.25
+    ],
+    "row0": "north",
+    "col0": "west",
+    "byte_order": "little",
+    "space": "frame"
+   },
+   "times": [
+    "2026-10-29T13:25:02Z"
+   ],
+   "chunks": [
+    {
+     "file": "svs4170_000.u16.gz",
+     "t0": 0,
+     "t1": 1,
+     "bytes": 34194
+    }
+   ],
+   "quantisation_step": 0.002,
+   "coverage": 1.0,
+   "value_range": [
+    0.11046624183654785,
+    1.0
+   ],
+   "label": "GPM Constellation Covers the Earth (pattern, not values)",
+   "aggregation": "brightness of the SVS preview image, 256 cells across",
+   "time_labels": [
+    "preview image"
+   ],
+   "svs_id": 4170,
+   "image": "https://svs.gsfc.nasa.gov/vis/a000000/a004100/a004170/allswaths3_fade.png",
+   "display": {
+    "colours": [
+     "#141418",
+     "#1c1c1f",
+     "#232327",
+     "#2b2b2e",
+     "#323236",
+     "#3a3a3d",
+     "#414145",
+     "#49494c",
+     "#515154",
+     "#58585b",
+     "#606063",
+     "#67676a",
+     "#6f6f71",
+     "#777779",
+     "#7e7e80",
+     "#868688",
+     "#8d8d8f",
+     "#959597",
+     "#9c9c9e",
+     "#a4a4a6",
+     "#acacad",
+     "#b3b3b4",
+     "#bbbbbc",
+     "#c2c2c3",
+     "#cacacb",
+     "#d2d2d2",
+     "#d9d9da",
+     "#e1e1e1",
+     "#e8e8e9",
+     "#f0f0f0",
+     "#f7f7f8",
+     "#ffffff"
+    ],
+    "values": [
+     0.0,
+     0.03225806451612903,
+     0.06451612903225806,
+     0.0967741935483871,
+     0.12903225806451613,
+     0.16129032258064516,
+     0.1935483870967742,
+     0.22580645161290322,
+     0.25806451612903225,
+     0.29032258064516125,
+     0.3225806451612903,
+     0.3548387096774194,
+     0.3870967741935484,
+     0.4193548387096774,
+     0.45161290322580644,
+     0.4838709677419355,
+     0.5161290322580645,
+     0.5483870967741935,
+     0.5806451612903225,
+     0.6129032258064516,
+     0.6451612903225806,
+     0.6774193548387096,
+     0.7096774193548387,
+     0.7419354838709677,
+     0.7741935483870968,
+     0.8064516129032258,
+     0.8387096774193548,
+     0.8709677419354839,
+     0.9032258064516129,
+     0.9354838709677419,
+     0.967741935483871,
+     1.0
+    ],
+    "scale": "linear",
+    "ramp": true
+   },
+   "status": "pattern only",
+   "statement": "pattern, not values (no numeric key, no map position)",
+   "status_check": "a_4170"
+  },
+  {
+   "id": "svs4685",
+   "unit": "relative brightness (0–1)",
+   "encoding": "linear",
+   "scale": 0.002,
+   "offset": 0.0,
+   "nodata": 65535,
+   "below": 65534,
+   "grid": {
+    "width": 256,
+    "height": 144,
+    "bounds": [
+     -180,
+     -101.25,
+     180,
+     101.25
+    ],
+    "row0": "north",
+    "col0": "west",
+    "byte_order": "little",
+    "space": "frame"
+   },
+   "times": [
+    "2026-10-29T13:25:02Z"
+   ],
+   "chunks": [
+    {
+     "file": "svs4685_000.u16.gz",
+     "t0": 0,
+     "t1": 1,
+     "bytes": 34084
+    }
+   ],
+   "quantisation_step": 0.002,
+   "coverage": 1.0,
+   "value_range": [
+    0.0,
+    1.0
+   ],
+   "label": "Inside Hurricane Maria in 360° (pattern, not values)",
+   "aggregation": "brightness of the SVS preview image, 256 cells across",
+   "time_labels": [
+    "preview image"
+   ],
+   "svs_id": 4685,
+   "image": "https://svs.gsfc.nasa.gov/vis/a000000/a004600/a004685/full360Mariawithaudio.00001_print.jpg",
+   "display": {
+    "colours": [
+     "#141418",
+     "#1c1c1f",
+     "#232327",
+     "#2b2b2e",
+     "#323236",
+     "#3a3a3d",
+     "#414145",
+     "#49494c",
+     "#515154",
+     "#58585b",
+     "#606063",
+     "#67676a",
+     "#6f6f71",
+     "#777779",
+     "#7e7e80",
+     "#868688",
+     "#8d8d8f",
+     "#959597",
+     "#9c9c9e",
+     "#a4a4a6",
+     "#acacad",
+     "#b3b3b4",
+     "#bbbbbc",
+     "#c2c2c3",
+     "#cacacb",
+     "#d2d2d2",
+     "#d9d9da",
+     "#e1e1e1",
+     "#e8e8e9",
+     "#f0f0f0",
+     "#f7f7f8",
+     "#ffffff"
+    ],
+    "values": [
+     0.0,
+     0.03225806451612903,
+     0.06451612903225806,
+     0.0967741935483871,
+     0.12903225806451613,
+     0.16129032258064516,
+     0.1935483870967742,
+     0.22580645161290322,
+     0.25806451612903225,
+     0.29032258064516125,
+     0.3225806451612903,
+     0.3548387096774194,
+     0.3870967741935484,
+     0.4193548387096774,
+     0.45161290322580644,
+     0.4838709677419355,
+     0.5161290322580645,
+     0.5483870967741935,
+     0.5806451612903225,
+     0.6129032258064516,
+     0.6451612903225806,
+     0.6774193548387096,
+     0.7096774193548387,
+     0.7419354838709677,
+     0.7741935483870968,
+     0.8064516129032258,
+     0.8387096774193548,
+     0.8709677419354839,
+     0.9032258064516129,
+     0.9354838709677419,
+     0.967741935483871,
+     1.0
+    ],
+    "scale": "linear",
+    "ramp": true
+   },
+   "status": "pattern only",
+   "statement": "pattern, not values (no numeric key, no map position)",
+   "status_check": "a_4685"
+  },
+  {
+   "id": "svs4810",
+   "unit": "relative brightness (0–1)",
+   "encoding": "linear",
+   "scale": 0.002,
+   "offset": 0.020588235929608345,
+   "nodata": 65535,
+   "below": 65534,
+   "grid": {
+    "width": 256,
+    "height": 144,
+    "bounds": [
+     -180,
+     -101.25,
+     180,
+     101.25
+    ],
+    "row0": "north",
+    "col0": "west",
+    "byte_order": "little",
+    "space": "frame"
+   },
+   "times": [
+    "2026-10-29T13:25:02Z"
+   ],
+   "chunks": [
+    {
+     "file": "svs4810_000.u16.gz",
+     "t0": 0,
+     "t1": 1,
+     "bytes": 33367
+    }
+   ],
+   "quantisation_step": 0.002,
+   "coverage": 1.0,
+   "value_range": [
+    0.020588235929608345,
+    0.9970588684082031
+   ],
+   "label": "Reductions in Pollution Associated with Decreased Fossil Fuel Use Resulting from COVID-19 Mitigation (pattern, not values)",
+   "aggregation": "brightness of the SVS preview image, 256 cells across",
+   "time_labels": [
+    "preview image"
+   ],
+   "svs_id": 4810,
+   "image": "https://svs.gsfc.nasa.gov/vis/a000000/a004800/a004810/avg2015-2019_NO2_print_w_colorbar_date_print.jpg",
+   "display": {
+    "colours": [
+     "#141418",
+     "#1c1c1f",
+     "#232327",
+     "#2b2b2e",
+     "#323236",
+     "#3a3a3d",
+     "#414145",
+     "#49494c",
+     "#515154",
+     "#58585b",
+     "#606063",
+     "#67676a",
+     "#6f6f71",
+     "#777779",
+     "#7e7e80",
+     "#868688",
+     "#8d8d8f",
+     "#959597",
+     "#9c9c9e",
+     "#a4a4a6",
+     "#acacad",
+     "#b3b3b4",
+     "#bbbbbc",
+     "#c2c2c3",
+     "#cacacb",
+     "#d2d2d2",
+     "#d9d9da",
+     "#e1e1e1",
+     "#e8e8e9",
+     "#f0f0f0",
+     "#f7f7f8",
+     "#ffffff"
+    ],
+    "values": [
+     0.0,
+     0.03225806451612903,
+     0.06451612903225806,
+     0.0967741935483871,
+     0.12903225806451613,
+     0.16129032258064516,
+     0.1935483870967742,
+     0.22580645161290322,
+     0.25806451612903225,
+     0.29032258064516125,
+     0.3225806451612903,
+     0.3548387096774194,
+     0.3870967741935484,
+     0.4193548387096774,
+     0.45161290322580644,
+     0.4838709677419355,
+     0.5161290322580645,
+     0.5483870967741935,
+     0.5806451612903225,
+     0.6129032258064516,
+     0.6451612903225806,
+     0.6774193548387096,
+     0.7096774193548387,
+     0.7419354838709677,
+     0.7741935483870968,
+     0.8064516129032258,
+     0.8387096774193548,
+     0.8709677419354839,
+     0.9032258064516129,
+     0.9354838709677419,
+     0.967741935483871,
+     1.0
+    ],
+    "scale": "linear",
+    "ramp": true
+   },
+   "status": "pattern only",
+   "statement": "pattern, not values (no numeric key, no map position)",
+   "status_check": "a_4810"
+  },
+  {
+   "id": "svs4889",
+   "unit": "relative brightness (0–1)",
+   "encoding": "linear",
+   "scale": 0.002,
+   "offset": 0.13799020648002625,
+   "nodata": 65535,
+   "below": 65534,
+   "grid": {
+    "width": 256,
+    "height": 144,
+    "bounds": [
+     -180,
+     -101.25,
+     180,
+     101.25
+    ],
+    "row0": "north",
+    "col0": "west",
+    "byte_order": "little",
+    "space": "frame"
+   },
+   "times": [
+    "2026-10-29T13:25:02Z"
+   ],
+   "chunks": [
+    {
+     "file": "svs4889_000.u16.gz",
+     "t0": 0,
+     "t1": 1,
+     "bytes": 24508
+    }
+   ],
+   "quantisation_step": 0.002,
+   "coverage": 1.0,
+   "value_range": [
+    0.13799020648002625,
+    1.0
+   ],
+   "label": "Variability of Water Storage in Global Hydrological Basins (pattern, not values)",
+   "aggregation": "brightness of the SVS preview image, 256 cells across",
+   "time_labels": [
+    "preview image"
+   ],
+   "svs_id": 4889,
+   "image": "https://svs.gsfc.nasa.gov/vis/a000000/a004800/a004889/figure_2.00001_print.jpg",
+   "display": {
+    "colours": [
+     "#141418",
+     "#1c1c1f",
+     "#232327",
+     "#2b2b2e",
+     "#323236",
+     "#3a3a3d",
+     "#414145",
+     "#49494c",
+     "#515154",
+     "#58585b",
+     "#606063",
+     "#67676a",
+     "#6f6f71",
+     "#777779",
+     "#7e7e80",
+     "#868688",
+     "#8d8d8f",
+     "#959597",
+     "#9c9c9e",
+     "#a4a4a6",
+     "#acacad",
+     "#b3b3b4",
+     "#bbbbbc",
+     "#c2c2c3",
+     "#cacacb",
+     "#d2d2d2",
+     "#d9d9da",
+     "#e1e1e1",
+     "#e8e8e9",
+     "#f0f0f0",
+     "#f7f7f8",
+     "#ffffff"
+    ],
+    "values": [
+     0.0,
+     0.03225806451612903,
+     0.06451612903225806,
+     0.0967741935483871,
+     0.12903225806451613,
+     0.16129032258064516,
+     0.1935483870967742,
+     0.22580645161290322,
+     0.25806451612903225,
+     0.29032258064516125,
+     0.3225806451612903,
+     0.3548387096774194,
+     0.3870967741935484,
+     0.4193548387096774,
+     0.45161290322580644,
+     0.4838709677419355,
+     0.5161290322580645,
+     0.5483870967741935,
+     0.5806451612903225,
+     0.6129032258064516,
+     0.6451612903225806,
+     0.6774193548387096,
+     0.7096774193548387,
+     0.7419354838709677,
+     0.7741935483870968,
+     0.8064516129032258,
+     0.8387096774193548,
+     0.8709677419354839,
+     0.9032258064516129,
+     0.9354838709677419,
+     0.967741935483871,
+     1.0
+    ],
+    "scale": "linear",
+    "ramp": true
+   },
+   "status": "pattern only",
+   "statement": "pattern, not values (no numeric key, no map position)",
+   "status_check": "a_4889"
+  },
+  {
+   "id": "svs4897",
+   "unit": "relative brightness (0–1)",
+   "encoding": "linear",
+   "scale": 0.002,
+   "offset": 0.0,
+   "nodata": 65535,
+   "below": 65534,
+   "grid": {
+    "width": 256,
+    "height": 128,
+    "bounds": [
+     -180,
+     -90.0,
+     180,
+     90.0
+    ],
+    "row0": "north",
+    "col0": "west",
+    "byte_order": "little",
+    "space": "frame"
+   },
+   "times": [
+    "2026-10-29T13:25:02Z"
+   ],
+   "chunks": [
+    {
+     "file": "svs4897_000.u16.gz",
+     "t0": 0,
+     "t1": 1,
+     "bytes": 24092
+    }
+   ],
+   "quantisation_step": 0.002,
+   "coverage": 1.0,
+   "value_range": [
+    0.0,
+    0.8656862378120422
+   ],
+   "label": "Seasonal Global Precipitation Variation from the Global Precipitation Measurement Constellation (pattern, not values)",
+   "aggregation": "brightness of the SVS preview image, 256 cells across",
+   "time_labels": [
+    "preview image"
+   ],
+   "svs_id": 4897,
+   "image": "https://svs.gsfc.nasa.gov/vis/a000000/a004800/a004897/imergvar_composite_1080p15.00001_print.jpg",
+   "display": {
+    "colours": [
+     "#141418",
+     "#1c1c1f",
+     "#232327",
+     "#2b2b2e",
+     "#323236",
+     "#3a3a3d",
+     "#414145",
+     "#49494c",
+     "#515154",
+     "#58585b",
+     "#606063",
+     "#67676a",
+     "#6f6f71",
+     "#777779",
+     "#7e7e80",
+     "#868688",
+     "#8d8d8f",
+     "#959597",
+     "#9c9c9e",
+     "#a4a4a6",
+     "#acacad",
+     "#b3b3b4",
+     "#bbbbbc",
+     "#c2c2c3",
+     "#cacacb",
+     "#d2d2d2",
+     "#d9d9da",
+     "#e1e1e1",
+     "#e8e8e9",
+     "#f0f0f0",
+     "#f7f7f8",
+     "#ffffff"
+    ],
+    "values": [
+     0.0,
+     0.03225806451612903,
+     0.06451612903225806,
+     0.0967741935483871,
+     0.12903225806451613,
+     0.16129032258064516,
+     0.1935483870967742,
+     0.22580645161290322,
+     0.25806451612903225,
+     0.29032258064516125,
+     0.3225806451612903,
+     0.3548387096774194,
+     0.3870967741935484,
+     0.4193548387096774,
+     0.45161290322580644,
+     0.4838709677419355,
+     0.5161290322580645,
+     0.5483870967741935,
+     0.5806451612903225,
+     0.6129032258064516,
+     0.6451612903225806,
+     0.6774193548387096,
+     0.7096774193548387,
+     0.7419354838709677,
+     0.7741935483870968,
+     0.8064516129032258,
+     0.8387096774193548,
+     0.8709677419354839,
+     0.9032258064516129,
+     0.9354838709677419,
+     0.967741935483871,
+     1.0
+    ],
+    "scale": "linear",
+    "ramp": true
+   },
+   "status": "pattern only",
+   "statement": "pattern, not values (no numeric key, no map position)",
+   "status_check": "a_4897"
+  },
+  {
+   "id": "svs4968",
+   "unit": "relative brightness (0–1)",
+   "encoding": "linear",
+   "scale": 0.002,
+   "offset": 0.0,
+   "nodata": 65535,
+   "below": 65534,
+   "grid": {
+    "width": 256,
+    "height": 144,
+    "bounds": [
+     -180,
+     -101.25,
+     180,
+     101.25
+    ],
+    "row0": "north",
+    "col0": "west",
+    "byte_order": "little",
+    "space": "frame"
+   },
+   "times": [
+    "2026-10-29T13:25:02Z"
+   ],
+   "chunks": [
+    {
+     "file": "svs4968_000.u16.gz",
+     "t0": 0,
+     "t1": 1,
+     "bytes": 48724
+    }
+   ],
+   "quantisation_step": 0.002,
+   "coverage": 1.0,
+   "value_range": [
+    0.0,
+    0.8862745761871338
+   ],
+   "label": "Iowa Cropland 2001-2020 (pattern, not values)",
+   "aggregation": "brightness of the SVS preview image, 256 cells across",
+   "time_labels": [
+    "preview image"
+   ],
+   "svs_id": 4968,
+   "image": "https://svs.gsfc.nasa.gov/vis/a000000/a004900/a004968/IowaCrops_2022-02-17_1606.01240_print.jpg",
+   "display": {
+    "colours": [
+     "#141418",
+     "#1c1c1f",
+     "#232327",
+     "#2b2b2e",
+     "#323236",
+     "#3a3a3d",
+     "#414145",
+     "#49494c",
+     "#515154",
+     "#58585b",
+     "#606063",
+     "#67676a",
+     "#6f6f71",
+     "#777779",
+     "#7e7e80",
+     "#868688",
+     "#8d8d8f",
+     "#959597",
+     "#9c9c9e",
+     "#a4a4a6",
+     "#acacad",
+     "#b3b3b4",
+     "#bbbbbc",
+     "#c2c2c3",
+     "#cacacb",
+     "#d2d2d2",
+     "#d9d9da",
+     "#e1e1e1",
+     "#e8e8e9",
+     "#f0f0f0",
+     "#f7f7f8",
+     "#ffffff"
+    ],
+    "values": [
+     0.0,
+     0.03225806451612903,
+     0.06451612903225806,
+     0.0967741935483871,
+     0.12903225806451613,
+     0.16129032258064516,
+     0.1935483870967742,
+     0.22580645161290322,
+     0.25806451612903225,
+     0.29032258064516125,
+     0.3225806451612903,
+     0.3548387096774194,
+     0.3870967741935484,
+     0.4193548387096774,
+     0.45161290322580644,
+     0.4838709677419355,
+     0.5161290322580645,
+     0.5483870967741935,
+     0.5806451612903225,
+     0.6129032258064516,
+     0.6451612903225806,
+     0.6774193548387096,
+     0.7096774193548387,
+     0.7419354838709677,
+     0.7741935483870968,
+     0.8064516129032258,
+     0.8387096774193548,
+     0.8709677419354839,
+     0.9032258064516129,
+     0.9354838709677419,
+     0.967741935483871,
+     1.0
+    ],
+    "scale": "linear",
+    "ramp": true
+   },
+   "status": "pattern only",
+   "statement": "pattern, not values (no numeric key, no map position)",
+   "status_check": "a_4968"
+  },
+  {
+   "id": "svs4983",
+   "unit": "relative brightness (0–1)",
+   "encoding": "linear",
+   "scale": 0.002,
+   "offset": 0.0,
+   "nodata": 65535,
+   "below": 65534,
+   "grid": {
+    "width": 256,
+    "height": 86,
+    "bounds": [
+     -180,
+     -60.46875,
+     180,
+     60.46875
+    ],
+    "row0": "north",
+    "col0": "west",
+    "byte_order": "little",
+    "space": "frame"
+   },
+   "times": [
+    "2026-10-29T13:25:02Z"
+   ],
+   "chunks": [
+    {
+     "file": "svs4983_000.u16.gz",
+     "t0": 0,
+     "t1": 1,
+     "bytes": 12501
+    }
+   ],
+   "quantisation_step": 0.002,
+   "coverage": 1.0,
+   "value_range": [
+    0.0,
+    0.9997043609619141
+   ],
+   "label": "Global Carbon Dioxide 2020-2021 for Hyperwalls (pattern, not values)",
+   "aggregation": "brightness of the SVS preview image, 256 cells across",
+   "time_labels": [
+    "preview image"
+   ],
+   "svs_id": 4983,
+   "image": "https://svs.gsfc.nasa.gov/vis/a000000/a004900/a004983/CO2Volumetric_9600x3240_30fps.02582_print.jpg",
+   "display": {
+    "colours": [
+     "#141418",
+     "#1c1c1f",
+     "#232327",
+     "#2b2b2e",
+     "#323236",
+     "#3a3a3d",
+     "#414145",
+     "#49494c",
+     "#515154",
+     "#58585b",
+     "#606063",
+     "#67676a",
+     "#6f6f71",
+     "#777779",
+     "#7e7e80",
+     "#868688",
+     "#8d8d8f",
+     "#959597",
+     "#9c9c9e",
+     "#a4a4a6",
+     "#acacad",
+     "#b3b3b4",
+     "#bbbbbc",
+     "#c2c2c3",
+     "#cacacb",
+     "#d2d2d2",
+     "#d9d9da",
+     "#e1e1e1",
+     "#e8e8e9",
+     "#f0f0f0",
+     "#f7f7f8",
+     "#ffffff"
+    ],
+    "values": [
+     0.0,
+     0.03225806451612903,
+     0.06451612903225806,
+     0.0967741935483871,
+     0.12903225806451613,
+     0.16129032258064516,
+     0.1935483870967742,
+     0.22580645161290322,
+     0.25806451612903225,
+     0.29032258064516125,
+     0.3225806451612903,
+     0.3548387096774194,
+     0.3870967741935484,
+     0.4193548387096774,
+     0.45161290322580644,
+     0.4838709677419355,
+     0.5161290322580645,
+     0.5483870967741935,
+     0.5806451612903225,
+     0.6129032258064516,
+     0.6451612903225806,
+     0.6774193548387096,
+     0.7096774193548387,
+     0.7419354838709677,
+     0.7741935483870968,
+     0.8064516129032258,
+     0.8387096774193548,
+     0.8709677419354839,
+     0.9032258064516129,
+     0.9354838709677419,
+     0.967741935483871,
+     1.0
+    ],
+    "scale": "linear",
+    "ramp": true
+   },
+   "status": "pattern only",
+   "statement": "pattern, not values (no numeric key, no map position)",
+   "status_check": "a_4983"
+  },
+  {
+   "id": "svs4993",
+   "unit": "relative brightness (0–1)",
+   "encoding": "linear",
+   "scale": 0.002,
+   "offset": 0.03553921729326248,
+   "nodata": 65535,
+   "below": 65534,
+   "grid": {
+    "width": 256,
+    "height": 144,
+    "bounds": [
+     -180,
+     -101.25,
+     180,
+     101.25
+    ],
+    "row0": "north",
+    "col0": "west",
+    "byte_order": "little",
+    "space": "frame"
+   },
+   "times": [
+    "2026-10-29T13:25:02Z"
+   ],
+   "chunks": [
+    {
+     "file": "svs4993_000.u16.gz",
+     "t0": 0,
+     "t1": 1,
+     "bytes": 46885
+    }
+   ],
+   "quantisation_step": 0.002,
+   "coverage": 1.0,
+   "value_range": [
+    0.03553921729326248,
+    1.0
+   ],
+   "label": "Spread of the Dixie Fire - 2021 (pattern, not values)",
+   "aggregation": "brightness of the SVS preview image, 256 cells across",
+   "time_labels": [
+    "preview image"
+   ],
+   "svs_id": 4993,
+   "image": "https://svs.gsfc.nasa.gov/vis/a000000/a004900/a004993/Dixie_fire_2021.7135_print.jpg",
+   "display": {
+    "colours": [
+     "#141418",
+     "#1c1c1f",
+     "#232327",
+     "#2b2b2e",
+     "#323236",
+     "#3a3a3d",
+     "#414145",
+     "#49494c",
+     "#515154",
+     "#58585b",
+     "#606063",
+     "#67676a",
+     "#6f6f71",
+     "#777779",
+     "#7e7e80",
+     "#868688",
+     "#8d8d8f",
+     "#959597",
+     "#9c9c9e",
+     "#a4a4a6",
+     "#acacad",
+     "#b3b3b4",
+     "#bbbbbc",
+     "#c2c2c3",
+     "#cacacb",
+     "#d2d2d2",
+     "#d9d9da",
+     "#e1e1e1",
+     "#e8e8e9",
+     "#f0f0f0",
+     "#f7f7f8",
+     "#ffffff"
+    ],
+    "values": [
+     0.0,
+     0.03225806451612903,
+     0.06451612903225806,
+     0.0967741935483871,
+     0.12903225806451613,
+     0.16129032258064516,
+     0.1935483870967742,
+     0.22580645161290322,
+     0.25806451612903225,
+     0.29032258064516125,
+     0.3225806451612903,
+     0.3548387096774194,
+     0.3870967741935484,
+     0.4193548387096774,
+     0.45161290322580644,
+     0.4838709677419355,
+     0.5161290322580645,
+     0.5483870967741935,
+     0.5806451612903225,
+     0.6129032258064516,
+     0.6451612903225806,
+     0.6774193548387096,
+     0.7096774193548387,
+     0.7419354838709677,
+     0.7741935483870968,
+     0.8064516129032258,
+     0.8387096774193548,
+     0.8709677419354839,
+     0.9032258064516129,
+     0.9354838709677419,
+     0.967741935483871,
+     1.0
+    ],
+    "scale": "linear",
+    "ramp": true
+   },
+   "status": "pattern only",
+   "statement": "pattern, not values (no numeric key, no map position)",
+   "status_check": "a_4993"
+  },
+  {
+   "id": "svs5041",
+   "unit": "relative brightness (0–1)",
+   "encoding": "linear",
+   "scale": 0.002,
+   "offset": 0.0,
+   "nodata": 65535,
+   "below": 65534,
+   "grid": {
+    "width": 256,
+    "height": 256,
+    "bounds": [
+     -180,
+     -180.0,
+     180,
+     180.0
+    ],
+    "row0": "north",
+    "col0": "west",
+    "byte_order": "little",
+    "space": "frame"
+   },
+   "times": [
+    "2026-10-29T13:25:02Z"
+   ],
+   "chunks": [
+    {
+     "file": "svs5041_000.u16.gz",
+     "t0": 0,
+     "t1": 1,
+     "bytes": 30620
+    }
+   ],
+   "quantisation_step": 0.002,
+   "coverage": 1.0,
+   "value_range": [
+    0.0,
+    0.9977941513061523
+   ],
+   "label": "Methane Emissions in the United States (pattern, not values)",
+   "aggregation": "brightness of the SVS preview image, 256 cells across",
+   "time_labels": [
+    "preview image"
+   ],
+   "svs_id": 5041,
+   "image": "https://svs.gsfc.nasa.gov/vis/a000000/a005000/a005041/ch4_epa_sq_2022-11-14_1335.00100_print.jpg",
+   "display": {
+    "colours": [
+     "#141418",
+     "#1c1c1f",
+     "#232327",
+     "#2b2b2e",
+     "#323236",
+     "#3a3a3d",
+     "#414145",
+     "#49494c",
+     "#515154",
+     "#58585b",
+     "#606063",
+     "#67676a",
+     "#6f6f71",
+     "#777779",
+     "#7e7e80",
+     "#868688",
+     "#8d8d8f",
+     "#959597",
+     "#9c9c9e",
+     "#a4a4a6",
+     "#acacad",
+     "#b3b3b4",
+     "#bbbbbc",
+     "#c2c2c3",
+     "#cacacb",
+     "#d2d2d2",
+     "#d9d9da",
+     "#e1e1e1",
+     "#e8e8e9",
+     "#f0f0f0",
+     "#f7f7f8",
+     "#ffffff"
+    ],
+    "values": [
+     0.0,
+     0.03225806451612903,
+     0.06451612903225806,
+     0.0967741935483871,
+     0.12903225806451613,
+     0.16129032258064516,
+     0.1935483870967742,
+     0.22580645161290322,
+     0.25806451612903225,
+     0.29032258064516125,
+     0.3225806451612903,
+     0.3548387096774194,
+     0.3870967741935484,
+     0.4193548387096774,
+     0.45161290322580644,
+     0.4838709677419355,
+     0.5161290322580645,
+     0.5483870967741935,
+     0.5806451612903225,
+     0.6129032258064516,
+     0.6451612903225806,
+     0.6774193548387096,
+     0.7096774193548387,
+     0.7419354838709677,
+     0.7741935483870968,
+     0.8064516129032258,
+     0.8387096774193548,
+     0.8709677419354839,
+     0.9032258064516129,
+     0.9354838709677419,
+     0.967741935483871,
+     1.0
+    ],
+    "scale": "linear",
+    "ramp": true
+   },
+   "status": "pattern only",
+   "statement": "pattern, not values (no numeric key, no map position)",
+   "status_check": "a_5041"
+  },
+  {
+   "id": "svs5046",
+   "unit": "relative brightness (0–1)",
+   "encoding": "linear",
+   "scale": 0.002,
+   "offset": 0.0,
+   "nodata": 65535,
+   "below": 65534,
+   "grid": {
+    "width": 256,
+    "height": 144,
+    "bounds": [
+     -180,
+     -101.25,
+     180,
+     101.25
+    ],
+    "row0": "north",
+    "col0": "west",
+    "byte_order": "little",
+    "space": "frame"
+   },
+   "times": [
+    "2026-10-29T13:25:02Z"
+   ],
+   "chunks": [
+    {
+     "file": "svs5046_000.u16.gz",
+     "t0": 0,
+     "t1": 1,
+     "bytes": 18384
+    }
+   ],
+   "quantisation_step": 0.002,
+   "coverage": 1.0,
+   "value_range": [
+    0.0,
+    1.0
+   ],
+   "label": "Daily Arctic Sea Ice, By Year (pattern, not values)",
+   "aggregation": "brightness of the SVS preview image, 256 cells across",
+   "time_labels": [
+    "preview image"
+   ],
+   "svs_id": 5046,
+   "image": "https://svs.gsfc.nasa.gov/vis/a000000/a005000/a005046/arctic_sea_ice_w_dates.2023121_print.jpg",
+   "display": {
+    "colours": [
+     "#141418",
+     "#1c1c1f",
+     "#232327",
+     "#2b2b2e",
+     "#323236",
+     "#3a3a3d",
+     "#414145",
+     "#49494c",
+     "#515154",
+     "#58585b",
+     "#606063",
+     "#67676a",
+     "#6f6f71",
+     "#777779",
+     "#7e7e80",
+     "#868688",
+     "#8d8d8f",
+     "#959597",
+     "#9c9c9e",
+     "#a4a4a6",
+     "#acacad",
+     "#b3b3b4",
+     "#bbbbbc",
+     "#c2c2c3",
+     "#cacacb",
+     "#d2d2d2",
+     "#d9d9da",
+     "#e1e1e1",
+     "#e8e8e9",
+     "#f0f0f0",
+     "#f7f7f8",
+     "#ffffff"
+    ],
+    "values": [
+     0.0,
+     0.03225806451612903,
+     0.06451612903225806,
+     0.0967741935483871,
+     0.12903225806451613,
+     0.16129032258064516,
+     0.1935483870967742,
+     0.22580645161290322,
+     0.25806451612903225,
+     0.29032258064516125,
+     0.3225806451612903,
+     0.3548387096774194,
+     0.3870967741935484,
+     0.4193548387096774,
+     0.45161290322580644,
+     0.4838709677419355,
+     0.5161290322580645,
+     0.5483870967741935,
+     0.5806451612903225,
+     0.6129032258064516,
+     0.6451612903225806,
+     0.6774193548387096,
+     0.7096774193548387,
+     0.7419354838709677,
+     0.7741935483870968,
+     0.8064516129032258,
+     0.8387096774193548,
+     0.8709677419354839,
+     0.9032258064516129,
+     0.9354838709677419,
+     0.967741935483871,
+     1.0
+    ],
+    "scale": "linear",
+    "ramp": true
+   },
+   "status": "pattern only",
+   "statement": "pattern, not values (no numeric key, no map position)",
+   "status_check": "a_5046"
+  },
+  {
+   "id": "svs5047",
+   "unit": "relative brightness (0–1)",
+   "encoding": "linear",
+   "scale": 0.002,
+   "offset": 0.0,
+   "nodata": 65535,
+   "below": 65534,
+   "grid": {
+    "width": 256,
+    "height": 144,
+    "bounds": [
+     -180,
+     -101.25,
+     180,
+     101.25
+    ],
+    "row0": "north",
+    "col0": "west",
+    "byte_order": "little",
+    "space": "frame"
+   },
+   "times": [
+    "2026-10-29T13:25:02Z"
+   ],
+   "chunks": [
+    {
+     "file": "svs5047_000.u16.gz",
+     "t0": 0,
+     "t1": 1,
+     "bytes": 18486
+    }
+   ],
+   "quantisation_step": 0.002,
+   "coverage": 1.0,
+   "value_range": [
+    0.0,
+    1.0
+   ],
+   "label": "Net Ecosystem Exchange of Carbon Dioxide (pattern, not values)",
+   "aggregation": "brightness of the SVS preview image, 256 cells across",
+   "time_labels": [
+    "preview image"
+   ],
+   "svs_id": 5047,
+   "image": "https://svs.gsfc.nasa.gov/vis/a000000/a005000/a005047/co2_nee_5.01750_print.jpg",
+   "display": {
+    "colours": [
+     "#141418",
+     "#1c1c1f",
+     "#232327",
+     "#2b2b2e",
+     "#323236",
+     "#3a3a3d",
+     "#414145",
+     "#49494c",
+     "#515154",
+     "#58585b",
+     "#606063",
+     "#67676a",
+     "#6f6f71",
+     "#777779",
+     "#7e7e80",
+     "#868688",
+     "#8d8d8f",
+     "#959597",
+     "#9c9c9e",
+     "#a4a4a6",
+     "#acacad",
+     "#b3b3b4",
+     "#bbbbbc",
+     "#c2c2c3",
+     "#cacacb",
+     "#d2d2d2",
+     "#d9d9da",
+     "#e1e1e1",
+     "#e8e8e9",
+     "#f0f0f0",
+     "#f7f7f8",
+     "#ffffff"
+    ],
+    "values": [
+     0.0,
+     0.03225806451612903,
+     0.06451612903225806,
+     0.0967741935483871,
+     0.12903225806451613,
+     0.16129032258064516,
+     0.1935483870967742,
+     0.22580645161290322,
+     0.25806451612903225,
+     0.29032258064516125,
+     0.3225806451612903,
+     0.3548387096774194,
+     0.3870967741935484,
+     0.4193548387096774,
+     0.45161290322580644,
+     0.4838709677419355,
+     0.5161290322580645,
+     0.5483870967741935,
+     0.5806451612903225,
+     0.6129032258064516,
+     0.6451612903225806,
+     0.6774193548387096,
+     0.7096774193548387,
+     0.7419354838709677,
+     0.7741935483870968,
+     0.8064516129032258,
+     0.8387096774193548,
+     0.8709677419354839,
+     0.9032258064516129,
+     0.9354838709677419,
+     0.967741935483871,
+     1.0
+    ],
+    "scale": "linear",
+    "ramp": true
+   },
+   "status": "pattern only",
+   "statement": "pattern, not values (no numeric key, no map position)",
+   "status_check": "a_5047"
+  },
+  {
+   "id": "svs5054",
+   "unit": "relative brightness (0–1)",
+   "encoding": "linear",
+   "scale": 0.002,
+   "offset": 0.0,
+   "nodata": 65535,
+   "below": 65534,
+   "grid": {
+    "width": 256,
+    "height": 144,
+    "bounds": [
+     -180,
+     -101.25,
+     180,
+     101.25
+    ],
+    "row0": "north",
+    "col0": "west",
+    "byte_order": "little",
+    "space": "frame"
+   },
+   "times": [
+    "2026-10-29T13:25:02Z"
+   ],
+   "chunks": [
+    {
+     "file": "svs5054_000.u16.gz",
+     "t0": 0,
+     "t1": 1,
+     "bytes": 17978
+    }
+   ],
+   "quantisation_step": 0.002,
+   "coverage": 1.0,
+   "value_range": [
+    0.0,
+    0.9980392456054688
+   ],
+   "label": "Methane Emissions from Wetlands (pattern, not values)",
+   "aggregation": "brightness of the SVS preview image, 256 cells across",
+   "time_labels": [
+    "preview image"
+   ],
+   "svs_id": 5054,
+   "image": "https://svs.gsfc.nasa.gov/vis/a000000/a005000/a005054/ch4_wetlands.01500_print.jpg",
+   "display": {
+    "colours": [
+     "#141418",
+     "#1c1c1f",
+     "#232327",
+     "#2b2b2e",
+     "#323236",
+     "#3a3a3d",
+     "#414145",
+     "#49494c",
+     "#515154",
+     "#58585b",
+     "#606063",
+     "#67676a",
+     "#6f6f71",
+     "#777779",
+     "#7e7e80",
+     "#868688",
+     "#8d8d8f",
+     "#959597",
+     "#9c9c9e",
+     "#a4a4a6",
+     "#acacad",
+     "#b3b3b4",
+     "#bbbbbc",
+     "#c2c2c3",
+     "#cacacb",
+     "#d2d2d2",
+     "#d9d9da",
+     "#e1e1e1",
+     "#e8e8e9",
+     "#f0f0f0",
+     "#f7f7f8",
+     "#ffffff"
+    ],
+    "values": [
+     0.0,
+     0.03225806451612903,
+     0.06451612903225806,
+     0.0967741935483871,
+     0.12903225806451613,
+     0.16129032258064516,
+     0.1935483870967742,
+     0.22580645161290322,
+     0.25806451612903225,
+     0.29032258064516125,
+     0.3225806451612903,
+     0.3548387096774194,
+     0.3870967741935484,
+     0.4193548387096774,
+     0.45161290322580644,
+     0.4838709677419355,
+     0.5161290322580645,
+     0.5483870967741935,
+     0.5806451612903225,
+     0.6129032258064516,
+     0.6451612903225806,
+     0.6774193548387096,
+     0.7096774193548387,
+     0.7419354838709677,
+     0.7741935483870968,
+     0.8064516129032258,
+     0.8387096774193548,
+     0.8709677419354839,
+     0.9032258064516129,
+     0.9354838709677419,
+     0.967741935483871,
+     1.0
+    ],
+    "scale": "linear",
+    "ramp": true
+   },
+   "status": "pattern only",
+   "statement": "pattern, not values (no numeric key, no map position)",
+   "status_check": "a_5054"
+  },
+  {
+   "id": "svs5058",
+   "unit": "relative brightness (0–1)",
+   "encoding": "linear",
+   "scale": 0.002,
+   "offset": 0.0,
+   "nodata": 65535,
+   "below": 65534,
+   "grid": {
+    "width": 256,
+    "height": 144,
+    "bounds": [
+     -180,
+     -101.25,
+     180,
+     101.25
+    ],
+    "row0": "north",
+    "col0": "west",
+    "byte_order": "little",
+    "space": "frame"
+   },
+   "times": [
+    "2026-10-29T13:25:02Z"
+   ],
+   "chunks": [
+    {
+     "file": "svs5058_000.u16.gz",
+     "t0": 0,
+     "t1": 1,
+     "bytes": 24031
+    }
+   ],
+   "quantisation_step": 0.002,
+   "coverage": 1.0,
+   "value_range": [
+    0.0,
+    0.9946078062057495
+   ],
+   "label": "Florida Nighttime Lights Before and After Hurricane Ian (pattern, not values)",
+   "aggregation": "brightness of the SVS preview image, 256 cells across",
+   "time_labels": [
+    "preview image"
+   ],
+   "svs_id": 5058,
+   "image": "https://svs.gsfc.nasa.gov/vis/a000000/a005000/a005058/black_marble_slide_line4.00001_print.jpg",
+   "display": {
+    "colours": [
+     "#141418",
+     "#1c1c1f",
+     "#232327",
+     "#2b2b2e",
+     "#323236",
+     "#3a3a3d",
+     "#414145",
+     "#49494c",
+     "#515154",
+     "#58585b",
+     "#606063",
+     "#67676a",
+     "#6f6f71",
+     "#777779",
+     "#7e7e80",
+     "#868688",
+     "#8d8d8f",
+     "#959597",
+     "#9c9c9e",
+     "#a4a4a6",
+     "#acacad",
+     "#b3b3b4",
+     "#bbbbbc",
+     "#c2c2c3",
+     "#cacacb",
+     "#d2d2d2",
+     "#d9d9da",
+     "#e1e1e1",
+     "#e8e8e9",
+     "#f0f0f0",
+     "#f7f7f8",
+     "#ffffff"
+    ],
+    "values": [
+     0.0,
+     0.03225806451612903,
+     0.06451612903225806,
+     0.0967741935483871,
+     0.12903225806451613,
+     0.16129032258064516,
+     0.1935483870967742,
+     0.22580645161290322,
+     0.25806451612903225,
+     0.29032258064516125,
+     0.3225806451612903,
+     0.3548387096774194,
+     0.3870967741935484,
+     0.4193548387096774,
+     0.45161290322580644,
+     0.4838709677419355,
+     0.5161290322580645,
+     0.5483870967741935,
+     0.5806451612903225,
+     0.6129032258064516,
+     0.6451612903225806,
+     0.6774193548387096,
+     0.7096774193548387,
+     0.7419354838709677,
+     0.7741935483870968,
+     0.8064516129032258,
+     0.8387096774193548,
+     0.8709677419354839,
+     0.9032258064516129,
+     0.9354838709677419,
+     0.967741935483871,
+     1.0
+    ],
+    "scale": "linear",
+    "ramp": true
+   },
+   "status": "pattern only",
+   "statement": "pattern, not values (no numeric key, no map position)",
+   "status_check": "a_5058"
+  },
+  {
+   "id": "svs5064",
+   "unit": "relative brightness (0–1)",
+   "encoding": "linear",
+   "scale": 0.002,
+   "offset": 0.0,
+   "nodata": 65535,
+   "below": 65534,
+   "grid": {
+    "width": 256,
+    "height": 144,
+    "bounds": [
+     -180,
+     -101.25,
+     180,
+     101.25
+    ],
+    "row0": "north",
+    "col0": "west",
+    "byte_order": "little",
+    "space": "frame"
+   },
+   "times": [
+    "2026-10-29T13:25:02Z"
+   ],
+   "chunks": [
+    {
+     "file": "svs5064_000.u16.gz",
+     "t0": 0,
+     "t1": 1,
+     "bytes": 13688
+    }
+   ],
+   "quantisation_step": 0.002,
+   "coverage": 1.0,
+   "value_range": [
+    0.0,
+    1.0
+   ],
+   "label": "Daily Antarctic Sea Ice, By Year (pattern, not values)",
+   "aggregation": "brightness of the SVS preview image, 256 cells across",
+   "time_labels": [
+    "preview image"
+   ],
+   "svs_id": 5064,
+   "image": "https://svs.gsfc.nasa.gov/vis/a000000/a005000/a005064/antarctic_sea_ice_w_dates.2023121_print.jpg",
+   "display": {
+    "colours": [
+     "#141418",
+     "#1c1c1f",
+     "#232327",
+     "#2b2b2e",
+     "#323236",
+     "#3a3a3d",
+     "#414145",
+     "#49494c",
+     "#515154",
+     "#58585b",
+     "#606063",
+     "#67676a",
+     "#6f6f71",
+     "#777779",
+     "#7e7e80",
+     "#868688",
+     "#8d8d8f",
+     "#959597",
+     "#9c9c9e",
+     "#a4a4a6",
+     "#acacad",
+     "#b3b3b4",
+     "#bbbbbc",
+     "#c2c2c3",
+     "#cacacb",
+     "#d2d2d2",
+     "#d9d9da",
+     "#e1e1e1",
+     "#e8e8e9",
+     "#f0f0f0",
+     "#f7f7f8",
+     "#ffffff"
+    ],
+    "values": [
+     0.0,
+     0.03225806451612903,
+     0.06451612903225806,
+     0.0967741935483871,
+     0.12903225806451613,
+     0.16129032258064516,
+     0.1935483870967742,
+     0.22580645161290322,
+     0.25806451612903225,
+     0.29032258064516125,
+     0.3225806451612903,
+     0.3548387096774194,
+     0.3870967741935484,
+     0.4193548387096774,
+     0.45161290322580644,
+     0.4838709677419355,
+     0.5161290322580645,
+     0.5483870967741935,
+     0.5806451612903225,
+     0.6129032258064516,
+     0.6451612903225806,
+     0.6774193548387096,
+     0.7096774193548387,
+     0.7419354838709677,
+     0.7741935483870968,
+     0.8064516129032258,
+     0.8387096774193548,
+     0.8709677419354839,
+     0.9032258064516129,
+     0.9354838709677419,
+     0.967741935483871,
+     1.0
+    ],
+    "scale": "linear",
+    "ramp": true
+   },
+   "status": "pattern only",
+   "statement": "pattern, not values (no numeric key, no map position)",
+   "status_check": "a_5064"
+  },
+  {
+   "id": "svs5067",
+   "unit": "relative brightness (0–1)",
+   "encoding": "linear",
+   "scale": 0.002,
+   "offset": 0.0,
+   "nodata": 65535,
+   "below": 65534,
+   "grid": {
+    "width": 256,
+    "height": 144,
+    "bounds": [
+     -180,
+     -101.25,
+     180,
+     101.25
+    ],
+    "row0": "north",
+    "col0": "west",
+    "byte_order": "little",
+    "space": "frame"
+   },
+   "times": [
+    "2026-10-29T13:25:02Z"
+   ],
+   "chunks": [
+    {
+     "file": "svs5067_000.u16.gz",
+     "t0": 0,
+     "t1": 1,
+     "bytes": 36354
+    }
+   ],
+   "quantisation_step": 0.002,
+   "coverage": 1.0,
+   "value_range": [
+    0.0,
+    0.9997549057006836
+   ],
+   "label": "Earth Observing Fleet - Now (pattern, not values)",
+   "aggregation": "brightness of the SVS preview image, 256 cells across",
+   "time_labels": [
+    "preview image"
+   ],
+   "svs_id": 5067,
+   "image": "https://svs.gsfc.nasa.gov/vis/a000000/a005000/a005067/fleet_now_print.jpg",
+   "display": {
+    "colours": [
+     "#141418",
+     "#1c1c1f",
+     "#232327",
+     "#2b2b2e",
+     "#323236",
+     "#3a3a3d",
+     "#414145",
+     "#49494c",
+     "#515154",
+     "#58585b",
+     "#606063",
+     "#67676a",
+     "#6f6f71",
+     "#777779",
+     "#7e7e80",
+     "#868688",
+     "#8d8d8f",
+     "#959597",
+     "#9c9c9e",
+     "#a4a4a6",
+     "#acacad",
+     "#b3b3b4",
+     "#bbbbbc",
+     "#c2c2c3",
+     "#cacacb",
+     "#d2d2d2",
+     "#d9d9da",
+     "#e1e1e1",
+     "#e8e8e9",
+     "#f0f0f0",
+     "#f7f7f8",
+     "#ffffff"
+    ],
+    "values": [
+     0.0,
+     0.03225806451612903,
+     0.06451612903225806,
+     0.0967741935483871,
+     0.12903225806451613,
+     0.16129032258064516,
+     0.1935483870967742,
+     0.22580645161290322,
+     0.25806451612903225,
+     0.29032258064516125,
+     0.3225806451612903,
+     0.3548387096774194,
+     0.3870967741935484,
+     0.4193548387096774,
+     0.45161290322580644,
+     0.4838709677419355,
+     0.5161290322580645,
+     0.5483870967741935,
+     0.5806451612903225,
+     0.6129032258064516,
+     0.6451612903225806,
+     0.6774193548387096,
+     0.7096774193548387,
+     0.7419354838709677,
+     0.7741935483870968,
+     0.8064516129032258,
+     0.8387096774193548,
+     0.8709677419354839,
+     0.9032258064516129,
+     0.9354838709677419,
+     0.967741935483871,
+     1.0
+    ],
+    "scale": "linear",
+    "ramp": true
+   },
+   "status": "pattern only",
+   "statement": "pattern, not values (no numeric key, no map position)",
+   "status_check": "a_5067"
+  },
+  {
+   "id": "svs5072",
+   "unit": "relative brightness (0–1)",
+   "encoding": "linear",
+   "scale": 0.002,
+   "offset": 0.0009803922148421407,
+   "nodata": 65535,
+   "below": 65534,
+   "grid": {
+    "width": 256,
+    "height": 144,
+    "bounds": [
+     -180,
+     -101.25,
+     180,
+     101.25
+    ],
+    "row0": "north",
+    "col0": "west",
+    "byte_order": "little",
+    "space": "frame"
+   },
+   "times": [
+    "2026-10-29T13:25:02Z"
+   ],
+   "chunks": [
+    {
+     "file": "svs5072_000.u16.gz",
+     "t0": 0,
+     "t1": 1,
+     "bytes": 7065
+    }
+   ],
+   "quantisation_step": 0.002,
+   "coverage": 1.0,
+   "value_range": [
+    0.0009803922148421407,
+    0.9855391979217529
+   ],
+   "label": "Atlantic Hurricane Wind Speed Plots (pattern, not values)",
+   "aggregation": "brightness of the SVS preview image, 256 cells across",
+   "time_labels": [
+    "preview image"
+   ],
+   "svs_id": 5072,
+   "image": "https://svs.gsfc.nasa.gov/vis/a000000/a005000/a005072/atlantic_may_to_dec_singleYear_print.jpg",
+   "display": {
+    "colours": [
+     "#141418",
+     "#1c1c1f",
+     "#232327",
+     "#2b2b2e",
+     "#323236",
+     "#3a3a3d",
+     "#414145",
+     "#49494c",
+     "#515154",
+     "#58585b",
+     "#606063",
+     "#67676a",
+     "#6f6f71",
+     "#777779",
+     "#7e7e80",
+     "#868688",
+     "#8d8d8f",
+     "#959597",
+     "#9c9c9e",
+     "#a4a4a6",
+     "#acacad",
+     "#b3b3b4",
+     "#bbbbbc",
+     "#c2c2c3",
+     "#cacacb",
+     "#d2d2d2",
+     "#d9d9da",
+     "#e1e1e1",
+     "#e8e8e9",
+     "#f0f0f0",
+     "#f7f7f8",
+     "#ffffff"
+    ],
+    "values": [
+     0.0,
+     0.03225806451612903,
+     0.06451612903225806,
+     0.0967741935483871,
+     0.12903225806451613,
+     0.16129032258064516,
+     0.1935483870967742,
+     0.22580645161290322,
+     0.25806451612903225,
+     0.29032258064516125,
+     0.3225806451612903,
+     0.3548387096774194,
+     0.3870967741935484,
+     0.4193548387096774,
+     0.45161290322580644,
+     0.4838709677419355,
+     0.5161290322580645,
+     0.5483870967741935,
+     0.5806451612903225,
+     0.6129032258064516,
+     0.6451612903225806,
+     0.6774193548387096,
+     0.7096774193548387,
+     0.7419354838709677,
+     0.7741935483870968,
+     0.8064516129032258,
+     0.8387096774193548,
+     0.8709677419354839,
+     0.9032258064516129,
+     0.9354838709677419,
+     0.967741935483871,
+     1.0
+    ],
+    "scale": "linear",
+    "ramp": true
+   },
+   "status": "pattern only",
+   "statement": "pattern, not values (no numeric key, no map position)",
+   "status_check": "a_5072"
+  },
+  {
+   "id": "svs5081",
+   "unit": "relative brightness (0–1)",
+   "encoding": "linear",
+   "scale": 0.002,
+   "offset": 0.11323529481887817,
+   "nodata": 65535,
+   "below": 65534,
+   "grid": {
+    "width": 256,
+    "height": 192,
+    "bounds": [
+     -180,
+     -135.0,
+     180,
+     135.0
+    ],
+    "row0": "north",
+    "col0": "west",
+    "byte_order": "little",
+    "space": "frame"
+   },
+   "times": [
+    "2026-10-29T13:25:02Z"
+   ],
+   "chunks": [
+    {
+     "file": "svs5081_000.u16.gz",
+     "t0": 0,
+     "t1": 1,
+     "bytes": 26706
+    }
+   ],
+   "quantisation_step": 0.002,
+   "coverage": 1.0,
+   "value_range": [
+    0.11323529481887817,
+    1.0
+   ],
+   "label": "National Carbon Dioxide (CO₂) budgets inferred from atmospheric observations (pattern, not values)",
+   "aggregation": "brightness of the SVS preview image, 256 cells across",
+   "time_labels": [
+    "preview image"
+   ],
+   "svs_id": 5081,
+   "image": "https://svs.gsfc.nasa.gov/vis/a000000/a005000/a005081/NetEmissions_2015_2020_White_4Kx3K_print.jpg",
+   "display": {
+    "colours": [
+     "#141418",
+     "#1c1c1f",
+     "#232327",
+     "#2b2b2e",
+     "#323236",
+     "#3a3a3d",
+     "#414145",
+     "#49494c",
+     "#515154",
+     "#58585b",
+     "#606063",
+     "#67676a",
+     "#6f6f71",
+     "#777779",
+     "#7e7e80",
+     "#868688",
+     "#8d8d8f",
+     "#959597",
+     "#9c9c9e",
+     "#a4a4a6",
+     "#acacad",
+     "#b3b3b4",
+     "#bbbbbc",
+     "#c2c2c3",
+     "#cacacb",
+     "#d2d2d2",
+     "#d9d9da",
+     "#e1e1e1",
+     "#e8e8e9",
+     "#f0f0f0",
+     "#f7f7f8",
+     "#ffffff"
+    ],
+    "values": [
+     0.0,
+     0.03225806451612903,
+     0.06451612903225806,
+     0.0967741935483871,
+     0.12903225806451613,
+     0.16129032258064516,
+     0.1935483870967742,
+     0.22580645161290322,
+     0.25806451612903225,
+     0.29032258064516125,
+     0.3225806451612903,
+     0.3548387096774194,
+     0.3870967741935484,
+     0.4193548387096774,
+     0.45161290322580644,
+     0.4838709677419355,
+     0.5161290322580645,
+     0.5483870967741935,
+     0.5806451612903225,
+     0.6129032258064516,
+     0.6451612903225806,
+     0.6774193548387096,
+     0.7096774193548387,
+     0.7419354838709677,
+     0.7741935483870968,
+     0.8064516129032258,
+     0.8387096774193548,
+     0.8709677419354839,
+     0.9032258064516129,
+     0.9354838709677419,
+     0.967741935483871,
+     1.0
+    ],
+    "scale": "linear",
+    "ramp": true
+   },
+   "status": "pattern only",
+   "statement": "pattern, not values (no numeric key, no map position)",
+   "status_check": "a_5081"
+  },
+  {
+   "id": "svs5087",
+   "unit": "relative brightness (0–1)",
+   "encoding": "linear",
+   "scale": 0.002,
+   "offset": 0.0,
+   "nodata": 65535,
+   "below": 65534,
+   "grid": {
+    "width": 256,
+    "height": 144,
+    "bounds": [
+     -180,
+     -101.25,
+     180,
+     101.25
+    ],
+    "row0": "north",
+    "col0": "west",
+    "byte_order": "little",
+    "space": "frame"
+   },
+   "times": [
+    "2026-10-29T13:25:02Z"
+   ],
+   "chunks": [
+    {
+     "file": "svs5087_000.u16.gz",
+     "t0": 0,
+     "t1": 1,
+     "bytes": 8711
+    }
+   ],
+   "quantisation_step": 0.002,
+   "coverage": 1.0,
+   "value_range": [
+    0.0,
+    0.9730392098426819
+   ],
+   "label": "Water Cycle Extremes: Droughts and Pluvials (pattern, not values)",
+   "aggregation": "brightness of the SVS preview image, 256 cells across",
+   "time_labels": [
+    "preview image"
+   ],
+   "svs_id": 5087,
+   "image": "https://svs.gsfc.nasa.gov/vis/a000000/a005000/a005087/water_extremes_morph_2160p30.00001_print.jpg",
+   "display": {
+    "colours": [
+     "#141418",
+     "#1c1c1f",
+     "#232327",
+     "#2b2b2e",
+     "#323236",
+     "#3a3a3d",
+     "#414145",
+     "#49494c",
+     "#515154",
+     "#58585b",
+     "#606063",
+     "#67676a",
+     "#6f6f71",
+     "#777779",
+     "#7e7e80",
+     "#868688",
+     "#8d8d8f",
+     "#959597",
+     "#9c9c9e",
+     "#a4a4a6",
+     "#acacad",
+     "#b3b3b4",
+     "#bbbbbc",
+     "#c2c2c3",
+     "#cacacb",
+     "#d2d2d2",
+     "#d9d9da",
+     "#e1e1e1",
+     "#e8e8e9",
+     "#f0f0f0",
+     "#f7f7f8",
+     "#ffffff"
+    ],
+    "values": [
+     0.0,
+     0.03225806451612903,
+     0.06451612903225806,
+     0.0967741935483871,
+     0.12903225806451613,
+     0.16129032258064516,
+     0.1935483870967742,
+     0.22580645161290322,
+     0.25806451612903225,
+     0.29032258064516125,
+     0.3225806451612903,
+     0.3548387096774194,
+     0.3870967741935484,
+     0.4193548387096774,
+     0.45161290322580644,
+     0.4838709677419355,
+     0.5161290322580645,
+     0.5483870967741935,
+     0.5806451612903225,
+     0.6129032258064516,
+     0.6451612903225806,
+     0.6774193548387096,
+     0.7096774193548387,
+     0.7419354838709677,
+     0.7741935483870968,
+     0.8064516129032258,
+     0.8387096774193548,
+     0.8709677419354839,
+     0.9032258064516129,
+     0.9354838709677419,
+     0.967741935483871,
+     1.0
+    ],
+    "scale": "linear",
+    "ramp": true
+   },
+   "status": "pattern only",
+   "statement": "pattern, not values (no numeric key, no map position)",
+   "status_check": "a_5087"
+  },
+  {
+   "id": "svs5097",
+   "unit": "relative brightness (0–1)",
+   "encoding": "linear",
+   "scale": 0.002,
+   "offset": 0.0,
+   "nodata": 65535,
+   "below": 65534,
+   "grid": {
+    "width": 256,
+    "height": 256,
+    "bounds": [
+     -180,
+     -180.0,
+     180,
+     180.0
+    ],
+    "row0": "north",
+    "col0": "west",
+    "byte_order": "little",
+    "space": "frame"
+   },
+   "times": [
+    "2026-10-29T13:25:02Z"
+   ],
+   "chunks": [
+    {
+     "file": "svs5097_000.u16.gz",
+     "t0": 0,
+     "t1": 1,
+     "bytes": 65525
+    }
+   ],
+   "quantisation_step": 0.002,
+   "coverage": 1.0,
+   "value_range": [
+    0.0,
+    1.0
+   ],
+   "label": "2022 Hurricane Season (pattern, not values)",
+   "aggregation": "brightness of the SVS preview image, 256 cells across",
+   "time_labels": [
+    "preview image"
+   ],
+   "svs_id": 5097,
+   "image": "https://svs.gsfc.nasa.gov/vis/a000000/a005000/a005097/hurr2022_v6.8800_print.jpg",
+   "display": {
+    "colours": [
+     "#141418",
+     "#1c1c1f",
+     "#232327",
+     "#2b2b2e",
+     "#323236",
+     "#3a3a3d",
+     "#414145",
+     "#49494c",
+     "#515154",
+     "#58585b",
+     "#606063",
+     "#67676a",
+     "#6f6f71",
+     "#777779",
+     "#7e7e80",
+     "#868688",
+     "#8d8d8f",
+     "#959597",
+     "#9c9c9e",
+     "#a4a4a6",
+     "#acacad",
+     "#b3b3b4",
+     "#bbbbbc",
+     "#c2c2c3",
+     "#cacacb",
+     "#d2d2d2",
+     "#d9d9da",
+     "#e1e1e1",
+     "#e8e8e9",
+     "#f0f0f0",
+     "#f7f7f8",
+     "#ffffff"
+    ],
+    "values": [
+     0.0,
+     0.03225806451612903,
+     0.06451612903225806,
+     0.0967741935483871,
+     0.12903225806451613,
+     0.16129032258064516,
+     0.1935483870967742,
+     0.22580645161290322,
+     0.25806451612903225,
+     0.29032258064516125,
+     0.3225806451612903,
+     0.3548387096774194,
+     0.3870967741935484,
+     0.4193548387096774,
+     0.45161290322580644,
+     0.4838709677419355,
+     0.5161290322580645,
+     0.5483870967741935,
+     0.5806451612903225,
+     0.6129032258064516,
+     0.6451612903225806,
+     0.6774193548387096,
+     0.7096774193548387,
+     0.7419354838709677,
+     0.7741935483870968,
+     0.8064516129032258,
+     0.8387096774193548,
+     0.8709677419354839,
+     0.9032258064516129,
+     0.9354838709677419,
+     0.967741935483871,
+     1.0
+    ],
+    "scale": "linear",
+    "ramp": true
+   },
+   "status": "pattern only",
+   "statement": "pattern, not values (no numeric key, no map position)",
+   "status_check": "a_5097"
+  },
+  {
+   "id": "svs5098",
+   "unit": "relative brightness (0–1)",
+   "encoding": "linear",
+   "scale": 0.002,
+   "offset": 0.0,
+   "nodata": 65535,
+   "below": 65534,
+   "grid": {
+    "width": 256,
+    "height": 144,
+    "bounds": [
+     -180,
+     -101.25,
+     180,
+     101.25
+    ],
+    "row0": "north",
+    "col0": "west",
+    "byte_order": "little",
+    "space": "frame"
+   },
+   "times": [
+    "2026-10-29T13:25:02Z"
+   ],
+   "chunks": [
+    {
+     "file": "svs5098_000.u16.gz",
+     "t0": 0,
+     "t1": 1,
+     "bytes": 22749
+    }
+   ],
+   "quantisation_step": 0.002,
+   "coverage": 1.0,
+   "value_range": [
+    0.0,
+    0.9980392456054688
+   ],
+   "label": "Relative Wetness Root Zone Versus Groundwater Comparison (pattern, not values)",
+   "aggregation": "brightness of the SVS preview image, 256 cells across",
+   "time_labels": [
+    "preview image"
+   ],
+   "svs_id": 5098,
+   "image": "https://svs.gsfc.nasa.gov/vis/a000000/a005000/a005098/root_n_grnd.4k.2676_print.jpg",
+   "display": {
+    "colours": [
+     "#141418",
+     "#1c1c1f",
+     "#232327",
+     "#2b2b2e",
+     "#323236",
+     "#3a3a3d",
+     "#414145",
+     "#49494c",
+     "#515154",
+     "#58585b",
+     "#606063",
+     "#67676a",
+     "#6f6f71",
+     "#777779",
+     "#7e7e80",
+     "#868688",
+     "#8d8d8f",
+     "#959597",
+     "#9c9c9e",
+     "#a4a4a6",
+     "#acacad",
+     "#b3b3b4",
+     "#bbbbbc",
+     "#c2c2c3",
+     "#cacacb",
+     "#d2d2d2",
+     "#d9d9da",
+     "#e1e1e1",
+     "#e8e8e9",
+     "#f0f0f0",
+     "#f7f7f8",
+     "#ffffff"
+    ],
+    "values": [
+     0.0,
+     0.03225806451612903,
+     0.06451612903225806,
+     0.0967741935483871,
+     0.12903225806451613,
+     0.16129032258064516,
+     0.1935483870967742,
+     0.22580645161290322,
+     0.25806451612903225,
+     0.29032258064516125,
+     0.3225806451612903,
+     0.3548387096774194,
+     0.3870967741935484,
+     0.4193548387096774,
+     0.45161290322580644,
+     0.4838709677419355,
+     0.5161290322580645,
+     0.5483870967741935,
+     0.5806451612903225,
+     0.6129032258064516,
+     0.6451612903225806,
+     0.6774193548387096,
+     0.7096774193548387,
+     0.7419354838709677,
+     0.7741935483870968,
+     0.8064516129032258,
+     0.8387096774193548,
+     0.8709677419354839,
+     0.9032258064516129,
+     0.9354838709677419,
+     0.967741935483871,
+     1.0
+    ],
+    "scale": "linear",
+    "ramp": true
+   },
+   "status": "pattern only",
+   "statement": "pattern, not values (no numeric key, no map position)",
+   "status_check": "a_5098"
+  },
+  {
+   "id": "svs5099",
+   "unit": "relative brightness (0–1)",
+   "encoding": "linear",
+   "scale": 0.002,
+   "offset": 0.0,
+   "nodata": 65535,
+   "below": 65534,
+   "grid": {
+    "width": 256,
+    "height": 128,
+    "bounds": [
+     -180,
+     -90.0,
+     180,
+     90.0
+    ],
+    "row0": "north",
+    "col0": "west",
+    "byte_order": "little",
+    "space": "frame"
+   },
+   "times": [
+    "2026-10-29T13:25:02Z"
+   ],
+   "chunks": [
+    {
+     "file": "svs5099_000.u16.gz",
+     "t0": 0,
+     "t1": 1,
+     "bytes": 25498
+    }
+   ],
+   "quantisation_step": 0.002,
+   "coverage": 1.0,
+   "value_range": [
+    0.0,
+    1.0
+   ],
+   "label": "Daily Polar Sea Ice, Two Year History (pattern, not values)",
+   "aggregation": "brightness of the SVS preview image, 256 cells across",
+   "time_labels": [
+    "preview image"
+   ],
+   "svs_id": 5099,
+   "image": "https://svs.gsfc.nasa.gov/vis/a000000/a005000/a005099/polar_sea_ice_sxs_w_date.2023172_print.jpg",
+   "display": {
+    "colours": [
+     "#141418",
+     "#1c1c1f",
+     "#232327",
+     "#2b2b2e",
+     "#323236",
+     "#3a3a3d",
+     "#414145",
+     "#49494c",
+     "#515154",
+     "#58585b",
+     "#606063",
+     "#67676a",
+     "#6f6f71",
+     "#777779",
+     "#7e7e80",
+     "#868688",
+     "#8d8d8f",
+     "#959597",
+     "#9c9c9e",
+     "#a4a4a6",
+     "#acacad",
+     "#b3b3b4",
+     "#bbbbbc",
+     "#c2c2c3",
+     "#cacacb",
+     "#d2d2d2",
+     "#d9d9da",
+     "#e1e1e1",
+     "#e8e8e9",
+     "#f0f0f0",
+     "#f7f7f8",
+     "#ffffff"
+    ],
+    "values": [
+     0.0,
+     0.03225806451612903,
+     0.06451612903225806,
+     0.0967741935483871,
+     0.12903225806451613,
+     0.16129032258064516,
+     0.1935483870967742,
+     0.22580645161290322,
+     0.25806451612903225,
+     0.29032258064516125,
+     0.3225806451612903,
+     0.3548387096774194,
+     0.3870967741935484,
+     0.4193548387096774,
+     0.45161290322580644,
+     0.4838709677419355,
+     0.5161290322580645,
+     0.5483870967741935,
+     0.5806451612903225,
+     0.6129032258064516,
+     0.6451612903225806,
+     0.6774193548387096,
+     0.7096774193548387,
+     0.7419354838709677,
+     0.7741935483870968,
+     0.8064516129032258,
+     0.8387096774193548,
+     0.8709677419354839,
+     0.9032258064516129,
+     0.9354838709677419,
+     0.967741935483871,
+     1.0
+    ],
+    "scale": "linear",
+    "ramp": true
+   },
+   "status": "pattern only",
+   "statement": "pattern, not values (no numeric key, no map position)",
+   "status_check": "a_5099"
+  },
+  {
+   "id": "svs5107",
+   "unit": "relative brightness (0–1)",
+   "encoding": "linear",
+   "scale": 0.002,
+   "offset": 0.07276689261198044,
+   "nodata": 65535,
+   "below": 65534,
+   "grid": {
+    "width": 256,
+    "height": 144,
+    "bounds": [
+     -180,
+     -101.25,
+     180,
+     101.25
+    ],
+    "row0": "north",
+    "col0": "west",
+    "byte_order": "little",
+    "space": "frame"
+   },
+   "times": [
+    "2026-10-29T13:25:02Z"
+   ],
+   "chunks": [
+    {
+     "file": "svs5107_000.u16.gz",
+     "t0": 0,
+     "t1": 1,
+     "bytes": 16218
+    }
+   ],
+   "quantisation_step": 0.002,
+   "coverage": 1.0,
+   "value_range": [
+    0.07276689261198044,
+    0.9068584442138672
+   ],
+   "label": "Air Quality Monitoring Stations in Washington D.C. (pattern, not values)",
+   "aggregation": "brightness of the SVS preview image, 256 cells across",
+   "time_labels": [
+    "preview image"
+   ],
+   "svs_id": 5107,
+   "image": "https://svs.gsfc.nasa.gov/vis/a000000/a005100/a005107/dc_air_stations_full_preview.png",
+   "display": {
+    "colours": [
+     "#141418",
+     "#1c1c1f",
+     "#232327",
+     "#2b2b2e",
+     "#323236",
+     "#3a3a3d",
+     "#414145",
+     "#49494c",
+     "#515154",
+     "#58585b",
+     "#606063",
+     "#67676a",
+     "#6f6f71",
+     "#777779",
+     "#7e7e80",
+     "#868688",
+     "#8d8d8f",
+     "#959597",
+     "#9c9c9e",
+     "#a4a4a6",
+     "#acacad",
+     "#b3b3b4",
+     "#bbbbbc",
+     "#c2c2c3",
+     "#cacacb",
+     "#d2d2d2",
+     "#d9d9da",
+     "#e1e1e1",
+     "#e8e8e9",
+     "#f0f0f0",
+     "#f7f7f8",
+     "#ffffff"
+    ],
+    "values": [
+     0.0,
+     0.03225806451612903,
+     0.06451612903225806,
+     0.0967741935483871,
+     0.12903225806451613,
+     0.16129032258064516,
+     0.1935483870967742,
+     0.22580645161290322,
+     0.25806451612903225,
+     0.29032258064516125,
+     0.3225806451612903,
+     0.3548387096774194,
+     0.3870967741935484,
+     0.4193548387096774,
+     0.45161290322580644,
+     0.4838709677419355,
+     0.5161290322580645,
+     0.5483870967741935,
+     0.5806451612903225,
+     0.6129032258064516,
+     0.6451612903225806,
+     0.6774193548387096,
+     0.7096774193548387,
+     0.7419354838709677,
+     0.7741935483870968,
+     0.8064516129032258,
+     0.8387096774193548,
+     0.8709677419354839,
+     0.9032258064516129,
+     0.9354838709677419,
+     0.967741935483871,
+     1.0
+    ],
+    "scale": "linear",
+    "ramp": true
+   },
+   "status": "pattern only",
+   "statement": "pattern, not values (no numeric key, no map position)",
+   "status_check": "a_5107"
+  },
+  {
+   "id": "svs5110",
+   "unit": "relative brightness (0–1)",
+   "encoding": "linear",
+   "scale": 0.002,
+   "offset": 0.0,
+   "nodata": 65535,
+   "below": 65534,
+   "grid": {
+    "width": 256,
+    "height": 144,
+    "bounds": [
+     -180,
+     -101.25,
+     180,
+     101.25
+    ],
+    "row0": "north",
+    "col0": "west",
+    "byte_order": "little",
+    "space": "frame"
+   },
+   "times": [
+    "2026-10-29T13:25:02Z"
+   ],
+   "chunks": [
+    {
+     "file": "svs5110_000.u16.gz",
+     "t0": 0,
+     "t1": 1,
+     "bytes": 14485
+    }
+   ],
+   "quantisation_step": 0.002,
+   "coverage": 1.0,
+   "value_range": [
+    0.0,
+    0.9982843399047852
+   ],
+   "label": "Atmospheric Carbon Dioxide Tagged by Source (pattern, not values)",
+   "aggregation": "brightness of the SVS preview image, 256 cells across",
+   "time_labels": [
+    "preview image"
+   ],
+   "svs_id": 5110,
+   "image": "https://svs.gsfc.nasa.gov/vis/a000000/a005100/a005110/CO2explainer_1080p30.00740_print.jpg",
+   "display": {
+    "colours": [
+     "#141418",
+     "#1c1c1f",
+     "#232327",
+     "#2b2b2e",
+     "#323236",
+     "#3a3a3d",
+     "#414145",
+     "#49494c",
+     "#515154",
+     "#58585b",
+     "#606063",
+     "#67676a",
+     "#6f6f71",
+     "#777779",
+     "#7e7e80",
+     "#868688",
+     "#8d8d8f",
+     "#959597",
+     "#9c9c9e",
+     "#a4a4a6",
+     "#acacad",
+     "#b3b3b4",
+     "#bbbbbc",
+     "#c2c2c3",
+     "#cacacb",
+     "#d2d2d2",
+     "#d9d9da",
+     "#e1e1e1",
+     "#e8e8e9",
+     "#f0f0f0",
+     "#f7f7f8",
+     "#ffffff"
+    ],
+    "values": [
+     0.0,
+     0.03225806451612903,
+     0.06451612903225806,
+     0.0967741935483871,
+     0.12903225806451613,
+     0.16129032258064516,
+     0.1935483870967742,
+     0.22580645161290322,
+     0.25806451612903225,
+     0.29032258064516125,
+     0.3225806451612903,
+     0.3548387096774194,
+     0.3870967741935484,
+     0.4193548387096774,
+     0.45161290322580644,
+     0.4838709677419355,
+     0.5161290322580645,
+     0.5483870967741935,
+     0.5806451612903225,
+     0.6129032258064516,
+     0.6451612903225806,
+     0.6774193548387096,
+     0.7096774193548387,
+     0.7419354838709677,
+     0.7741935483870968,
+     0.8064516129032258,
+     0.8387096774193548,
+     0.8709677419354839,
+     0.9032258064516129,
+     0.9354838709677419,
+     0.967741935483871,
+     1.0
+    ],
+    "scale": "linear",
+    "ramp": true
+   },
+   "status": "pattern only",
+   "statement": "pattern, not values (no numeric key, no map position)",
+   "status_check": "a_5110"
+  },
+  {
+   "id": "svs5111",
+   "unit": "relative brightness (0–1)",
+   "encoding": "linear",
+   "scale": 0.002,
+   "offset": 0.0,
+   "nodata": 65535,
+   "below": 65534,
+   "grid": {
+    "width": 256,
+    "height": 256,
+    "bounds": [
+     -180,
+     -180.0,
+     180,
+     180.0
+    ],
+    "row0": "north",
+    "col0": "west",
+    "byte_order": "little",
+    "space": "frame"
+   },
+   "times": [
+    "2026-10-29T13:25:02Z"
+   ],
+   "chunks": [
+    {
+     "file": "svs5111_000.u16.gz",
+     "t0": 0,
+     "t1": 1,
+     "bytes": 28732
+    }
+   ],
+   "quantisation_step": 0.002,
+   "coverage": 1.0,
+   "value_range": [
+    0.0,
+    0.9504902362823486
+   ],
+   "label": "Increase in Ocean Heat since 1957 Map - Spilhaus Projection (pattern, not values)",
+   "aggregation": "brightness of the SVS preview image, 256 cells across",
+   "time_labels": [
+    "preview image"
+   ],
+   "svs_id": 5111,
+   "image": "https://svs.gsfc.nasa.gov/vis/a000000/a005100/a005111/oceans_spilhaus_map2160_print.jpg",
+   "display": {
+    "colours": [
+     "#141418",
+     "#1c1c1f",
+     "#232327",
+     "#2b2b2e",
+     "#323236",
+     "#3a3a3d",
+     "#414145",
+     "#49494c",
+     "#515154",
+     "#58585b",
+     "#606063",
+     "#67676a",
+     "#6f6f71",
+     "#777779",
+     "#7e7e80",
+     "#868688",
+     "#8d8d8f",
+     "#959597",
+     "#9c9c9e",
+     "#a4a4a6",
+     "#acacad",
+     "#b3b3b4",
+     "#bbbbbc",
+     "#c2c2c3",
+     "#cacacb",
+     "#d2d2d2",
+     "#d9d9da",
+     "#e1e1e1",
+     "#e8e8e9",
+     "#f0f0f0",
+     "#f7f7f8",
+     "#ffffff"
+    ],
+    "values": [
+     0.0,
+     0.03225806451612903,
+     0.06451612903225806,
+     0.0967741935483871,
+     0.12903225806451613,
+     0.16129032258064516,
+     0.1935483870967742,
+     0.22580645161290322,
+     0.25806451612903225,
+     0.29032258064516125,
+     0.3225806451612903,
+     0.3548387096774194,
+     0.3870967741935484,
+     0.4193548387096774,
+     0.45161290322580644,
+     0.4838709677419355,
+     0.5161290322580645,
+     0.5483870967741935,
+     0.5806451612903225,
+     0.6129032258064516,
+     0.6451612903225806,
+     0.6774193548387096,
+     0.7096774193548387,
+     0.7419354838709677,
+     0.7741935483870968,
+     0.8064516129032258,
+     0.8387096774193548,
+     0.8709677419354839,
+     0.9032258064516129,
+     0.9354838709677419,
+     0.967741935483871,
+     1.0
+    ],
+    "scale": "linear",
+    "ramp": true
+   },
+   "status": "pattern only",
+   "statement": "pattern, not values (no numeric key, no map position)",
+   "status_check": "a_5111"
+  },
+  {
+   "id": "svs5115",
+   "unit": "relative brightness (0–1)",
+   "encoding": "linear",
+   "scale": 0.002,
+   "offset": 0.0,
+   "nodata": 65535,
+   "below": 65534,
+   "grid": {
+    "width": 256,
+    "height": 256,
+    "bounds": [
+     -180,
+     -180.0,
+     180,
+     180.0
+    ],
+    "row0": "north",
+    "col0": "west",
+    "byte_order": "little",
+    "space": "frame"
+   },
+   "times": [
+    "2026-10-29T13:25:02Z"
+   ],
+   "chunks": [
+    {
+     "file": "svs5115_000.u16.gz",
+     "t0": 0,
+     "t1": 1,
+     "bytes": 43187
+    }
+   ],
+   "quantisation_step": 0.002,
+   "coverage": 1.0,
+   "value_range": [
+    0.0,
+    1.0
+   ],
+   "label": "Global Atmospheric Carbon Dioxide (CO₂) (pattern, not values)",
+   "aggregation": "brightness of the SVS preview image, 256 cells across",
+   "time_labels": [
+    "preview image"
+   ],
+   "svs_id": 5115,
+   "image": "https://svs.gsfc.nasa.gov/vis/a000000/a005100/a005115/TotalCO2_Comp_1920x1920p30_00080_print.jpg",
+   "display": {
+    "colours": [
+     "#141418",
+     "#1c1c1f",
+     "#232327",
+     "#2b2b2e",
+     "#323236",
+     "#3a3a3d",
+     "#414145",
+     "#49494c",
+     "#515154",
+     "#58585b",
+     "#606063",
+     "#67676a",
+     "#6f6f71",
+     "#777779",
+     "#7e7e80",
+     "#868688",
+     "#8d8d8f",
+     "#959597",
+     "#9c9c9e",
+     "#a4a4a6",
+     "#acacad",
+     "#b3b3b4",
+     "#bbbbbc",
+     "#c2c2c3",
+     "#cacacb",
+     "#d2d2d2",
+     "#d9d9da",
+     "#e1e1e1",
+     "#e8e8e9",
+     "#f0f0f0",
+     "#f7f7f8",
+     "#ffffff"
+    ],
+    "values": [
+     0.0,
+     0.03225806451612903,
+     0.06451612903225806,
+     0.0967741935483871,
+     0.12903225806451613,
+     0.16129032258064516,
+     0.1935483870967742,
+     0.22580645161290322,
+     0.25806451612903225,
+     0.29032258064516125,
+     0.3225806451612903,
+     0.3548387096774194,
+     0.3870967741935484,
+     0.4193548387096774,
+     0.45161290322580644,
+     0.4838709677419355,
+     0.5161290322580645,
+     0.5483870967741935,
+     0.5806451612903225,
+     0.6129032258064516,
+     0.6451612903225806,
+     0.6774193548387096,
+     0.7096774193548387,
+     0.7419354838709677,
+     0.7741935483870968,
+     0.8064516129032258,
+     0.8387096774193548,
+     0.8709677419354839,
+     0.9032258064516129,
+     0.9354838709677419,
+     0.967741935483871,
+     1.0
+    ],
+    "scale": "linear",
+    "ramp": true
+   },
+   "status": "pattern only",
+   "statement": "pattern, not values (no numeric key, no map position)",
+   "status_check": "a_5115"
+  },
+  {
+   "id": "svs5116",
+   "unit": "relative brightness (0–1)",
+   "encoding": "linear",
+   "scale": 0.002,
+   "offset": 0.0,
+   "nodata": 65535,
+   "below": 65534,
+   "grid": {
+    "width": 256,
+    "height": 256,
+    "bounds": [
+     -180,
+     -180.0,
+     180,
+     180.0
+    ],
+    "row0": "north",
+    "col0": "west",
+    "byte_order": "little",
+    "space": "frame"
+   },
+   "times": [
+    "2026-10-29T13:25:02Z"
+   ],
+   "chunks": [
+    {
+     "file": "svs5116_000.u16.gz",
+     "t0": 0,
+     "t1": 1,
+     "bytes": 39543
+    }
+   ],
+   "quantisation_step": 0.002,
+   "coverage": 1.0,
+   "value_range": [
+    0.0,
+    0.866911768913269
+   ],
+   "label": "Global Atmospheric Methane (CH₄) (pattern, not values)",
+   "aggregation": "brightness of the SVS preview image, 256 cells across",
+   "time_labels": [
+    "preview image"
+   ],
+   "svs_id": 5116,
+   "image": "https://svs.gsfc.nasa.gov/vis/a000000/a005100/a005116/TotalCH4_Comp_1920x19020p30_00080_print.jpg",
+   "display": {
+    "colours": [
+     "#141418",
+     "#1c1c1f",
+     "#232327",
+     "#2b2b2e",
+     "#323236",
+     "#3a3a3d",
+     "#414145",
+     "#49494c",
+     "#515154",
+     "#58585b",
+     "#606063",
+     "#67676a",
+     "#6f6f71",
+     "#777779",
+     "#7e7e80",
+     "#868688",
+     "#8d8d8f",
+     "#959597",
+     "#9c9c9e",
+     "#a4a4a6",
+     "#acacad",
+     "#b3b3b4",
+     "#bbbbbc",
+     "#c2c2c3",
+     "#cacacb",
+     "#d2d2d2",
+     "#d9d9da",
+     "#e1e1e1",
+     "#e8e8e9",
+     "#f0f0f0",
+     "#f7f7f8",
+     "#ffffff"
+    ],
+    "values": [
+     0.0,
+     0.03225806451612903,
+     0.06451612903225806,
+     0.0967741935483871,
+     0.12903225806451613,
+     0.16129032258064516,
+     0.1935483870967742,
+     0.22580645161290322,
+     0.25806451612903225,
+     0.29032258064516125,
+     0.3225806451612903,
+     0.3548387096774194,
+     0.3870967741935484,
+     0.4193548387096774,
+     0.45161290322580644,
+     0.4838709677419355,
+     0.5161290322580645,
+     0.5483870967741935,
+     0.5806451612903225,
+     0.6129032258064516,
+     0.6451612903225806,
+     0.6774193548387096,
+     0.7096774193548387,
+     0.7419354838709677,
+     0.7741935483870968,
+     0.8064516129032258,
+     0.8387096774193548,
+     0.8709677419354839,
+     0.9032258064516129,
+     0.9354838709677419,
+     0.967741935483871,
+     1.0
+    ],
+    "scale": "linear",
+    "ramp": true
+   },
+   "status": "pattern only",
+   "statement": "pattern, not values (no numeric key, no map position)",
+   "status_check": "a_5116"
+  },
+  {
+   "id": "svs5117",
+   "unit": "relative brightness (0–1)",
+   "encoding": "linear",
+   "scale": 0.002,
+   "offset": 0.0,
+   "nodata": 65535,
+   "below": 65534,
+   "grid": {
+    "width": 256,
+    "height": 144,
+    "bounds": [
+     -180,
+     -101.25,
+     180,
+     101.25
+    ],
+    "row0": "north",
+    "col0": "west",
+    "byte_order": "little",
+    "space": "frame"
+   },
+   "times": [
+    "2026-10-29T13:25:02Z"
+   ],
+   "chunks": [
+    {
+     "file": "svs5117_000.u16.gz",
+     "t0": 0,
+     "t1": 1,
+     "bytes": 11344
+    }
+   ],
+   "quantisation_step": 0.002,
+   "coverage": 1.0,
+   "value_range": [
+    0.0,
+    0.9997549057006836
+   ],
+   "label": "Trends in atmospheric Nitrous Oxide (N₂O) (pattern, not values)",
+   "aggregation": "brightness of the SVS preview image, 256 cells across",
+   "time_labels": [
+    "preview image"
+   ],
+   "svs_id": 5117,
+   "image": "https://svs.gsfc.nasa.gov/vis/a000000/a005100/a005117/N2OTrends_1920x1080p30.00900_print.jpg",
+   "display": {
+    "colours": [
+     "#141418",
+     "#1c1c1f",
+     "#232327",
+     "#2b2b2e",
+     "#323236",
+     "#3a3a3d",
+     "#414145",
+     "#49494c",
+     "#515154",
+     "#58585b",
+     "#606063",
+     "#67676a",
+     "#6f6f71",
+     "#777779",
+     "#7e7e80",
+     "#868688",
+     "#8d8d8f",
+     "#959597",
+     "#9c9c9e",
+     "#a4a4a6",
+     "#acacad",
+     "#b3b3b4",
+     "#bbbbbc",
+     "#c2c2c3",
+     "#cacacb",
+     "#d2d2d2",
+     "#d9d9da",
+     "#e1e1e1",
+     "#e8e8e9",
+     "#f0f0f0",
+     "#f7f7f8",
+     "#ffffff"
+    ],
+    "values": [
+     0.0,
+     0.03225806451612903,
+     0.06451612903225806,
+     0.0967741935483871,
+     0.12903225806451613,
+     0.16129032258064516,
+     0.1935483870967742,
+     0.22580645161290322,
+     0.25806451612903225,
+     0.29032258064516125,
+     0.3225806451612903,
+     0.3548387096774194,
+     0.3870967741935484,
+     0.4193548387096774,
+     0.45161290322580644,
+     0.4838709677419355,
+     0.5161290322580645,
+     0.5483870967741935,
+     0.5806451612903225,
+     0.6129032258064516,
+     0.6451612903225806,
+     0.6774193548387096,
+     0.7096774193548387,
+     0.7419354838709677,
+     0.7741935483870968,
+     0.8064516129032258,
+     0.8387096774193548,
+     0.8709677419354839,
+     0.9032258064516129,
+     0.9354838709677419,
+     0.967741935483871,
+     1.0
+    ],
+    "scale": "linear",
+    "ramp": true
+   },
+   "status": "pattern only",
+   "statement": "pattern, not values (no numeric key, no map position)",
+   "status_check": "a_5117"
+  },
+  {
+   "id": "svs5118",
+   "unit": "relative brightness (0–1)",
+   "encoding": "linear",
+   "scale": 0.002,
+   "offset": 0.0,
+   "nodata": 65535,
+   "below": 65534,
+   "grid": {
+    "width": 256,
+    "height": 144,
+    "bounds": [
+     -180,
+     -101.25,
+     180,
+     101.25
+    ],
+    "row0": "north",
+    "col0": "west",
+    "byte_order": "little",
+    "space": "frame"
+   },
+   "times": [
+    "2026-10-29T13:25:02Z"
+   ],
+   "chunks": [
+    {
+     "file": "svs5118_000.u16.gz",
+     "t0": 0,
+     "t1": 1,
+     "bytes": 12386
+    }
+   ],
+   "quantisation_step": 0.002,
+   "coverage": 1.0,
+   "value_range": [
+    0.0,
+    0.938725471496582
+   ],
+   "label": "Trends in atmospheric Methane (CH₄) (pattern, not values)",
+   "aggregation": "brightness of the SVS preview image, 256 cells across",
+   "time_labels": [
+    "preview image"
+   ],
+   "svs_id": 5118,
+   "image": "https://svs.gsfc.nasa.gov/vis/a000000/a005100/a005118/CH4Trends_1920x1080p30.00900_print.jpg",
+   "display": {
+    "colours": [
+     "#141418",
+     "#1c1c1f",
+     "#232327",
+     "#2b2b2e",
+     "#323236",
+     "#3a3a3d",
+     "#414145",
+     "#49494c",
+     "#515154",
+     "#58585b",
+     "#606063",
+     "#67676a",
+     "#6f6f71",
+     "#777779",
+     "#7e7e80",
+     "#868688",
+     "#8d8d8f",
+     "#959597",
+     "#9c9c9e",
+     "#a4a4a6",
+     "#acacad",
+     "#b3b3b4",
+     "#bbbbbc",
+     "#c2c2c3",
+     "#cacacb",
+     "#d2d2d2",
+     "#d9d9da",
+     "#e1e1e1",
+     "#e8e8e9",
+     "#f0f0f0",
+     "#f7f7f8",
+     "#ffffff"
+    ],
+    "values": [
+     0.0,
+     0.03225806451612903,
+     0.06451612903225806,
+     0.0967741935483871,
+     0.12903225806451613,
+     0.16129032258064516,
+     0.1935483870967742,
+     0.22580645161290322,
+     0.25806451612903225,
+     0.29032258064516125,
+     0.3225806451612903,
+     0.3548387096774194,
+     0.3870967741935484,
+     0.4193548387096774,
+     0.45161290322580644,
+     0.4838709677419355,
+     0.5161290322580645,
+     0.5483870967741935,
+     0.5806451612903225,
+     0.6129032258064516,
+     0.6451612903225806,
+     0.6774193548387096,
+     0.7096774193548387,
+     0.7419354838709677,
+     0.7741935483870968,
+     0.8064516129032258,
+     0.8387096774193548,
+     0.8709677419354839,
+     0.9032258064516129,
+     0.9354838709677419,
+     0.967741935483871,
+     1.0
+    ],
+    "scale": "linear",
+    "ramp": true
+   },
+   "status": "pattern only",
+   "statement": "pattern, not values (no numeric key, no map position)",
+   "status_check": "a_5118"
+  },
+  {
+   "id": "svs5119",
+   "unit": "relative brightness (0–1)",
+   "encoding": "linear",
+   "scale": 0.002,
+   "offset": 0.0,
+   "nodata": 65535,
+   "below": 65534,
+   "grid": {
+    "width": 256,
+    "height": 144,
+    "bounds": [
+     -180,
+     -101.25,
+     180,
+     101.25
+    ],
+    "row0": "north",
+    "col0": "west",
+    "byte_order": "little",
+    "space": "frame"
+   },
+   "times": [
+    "2026-10-29T13:25:02Z"
+   ],
+   "chunks": [
+    {
+     "file": "svs5119_000.u16.gz",
+     "t0": 0,
+     "t1": 1,
+     "bytes": 7149
+    }
+   ],
+   "quantisation_step": 0.002,
+   "coverage": 1.0,
+   "value_range": [
+    0.0,
+    0.9752451181411743
+   ],
+   "label": "OCO-2 and Keeling Curve: Trends in global atmospheric Carbon Dioxide (CO₂) (pattern, not values)",
+   "aggregation": "brightness of the SVS preview image, 256 cells across",
+   "time_labels": [
+    "preview image"
+   ],
+   "svs_id": 5119,
+   "image": "https://svs.gsfc.nasa.gov/vis/a000000/a005100/a005119/KeelingCurve_OCO2_1920x1080p30.00370_print.jpg",
+   "display": {
+    "colours": [
+     "#141418",
+     "#1c1c1f",
+     "#232327",
+     "#2b2b2e",
+     "#323236",
+     "#3a3a3d",
+     "#414145",
+     "#49494c",
+     "#515154",
+     "#58585b",
+     "#606063",
+     "#67676a",
+     "#6f6f71",
+     "#777779",
+     "#7e7e80",
+     "#868688",
+     "#8d8d8f",
+     "#959597",
+     "#9c9c9e",
+     "#a4a4a6",
+     "#acacad",
+     "#b3b3b4",
+     "#bbbbbc",
+     "#c2c2c3",
+     "#cacacb",
+     "#d2d2d2",
+     "#d9d9da",
+     "#e1e1e1",
+     "#e8e8e9",
+     "#f0f0f0",
+     "#f7f7f8",
+     "#ffffff"
+    ],
+    "values": [
+     0.0,
+     0.03225806451612903,
+     0.06451612903225806,
+     0.0967741935483871,
+     0.12903225806451613,
+     0.16129032258064516,
+     0.1935483870967742,
+     0.22580645161290322,
+     0.25806451612903225,
+     0.29032258064516125,
+     0.3225806451612903,
+     0.3548387096774194,
+     0.3870967741935484,
+     0.4193548387096774,
+     0.45161290322580644,
+     0.4838709677419355,
+     0.5161290322580645,
+     0.5483870967741935,
+     0.5806451612903225,
+     0.6129032258064516,
+     0.6451612903225806,
+     0.6774193548387096,
+     0.7096774193548387,
+     0.7419354838709677,
+     0.7741935483870968,
+     0.8064516129032258,
+     0.8387096774193548,
+     0.8709677419354839,
+     0.9032258064516129,
+     0.9354838709677419,
+     0.967741935483871,
+     1.0
+    ],
+    "scale": "linear",
+    "ramp": true
+   },
+   "status": "pattern only",
+   "statement": "pattern, not values (no numeric key, no map position)",
+   "status_check": "a_5119"
+  },
+  {
+   "id": "svs5120",
+   "unit": "relative brightness (0–1)",
+   "encoding": "linear",
+   "scale": 0.002,
+   "offset": 0.0,
+   "nodata": 65535,
+   "below": 65534,
+   "grid": {
+    "width": 256,
+    "height": 256,
+    "bounds": [
+     -180,
+     -180.0,
+     180,
+     180.0
+    ],
+    "row0": "north",
+    "col0": "west",
+    "byte_order": "little",
+    "space": "frame"
+   },
+   "times": [
+    "2026-10-29T13:25:02Z"
+   ],
+   "chunks": [
+    {
+     "file": "svs5120_000.u16.gz",
+     "t0": 0,
+     "t1": 1,
+     "bytes": 61727
+    }
+   ],
+   "quantisation_step": 0.002,
+   "coverage": 1.0,
+   "value_range": [
+    0.0,
+    0.9946078658103943
+   ],
+   "label": "NOAA GOES-East and NOAA GOES-West True Color Imagery Over Past 5 Days (pattern, not values)",
+   "aggregation": "brightness of the SVS preview image, 256 cells across",
+   "time_labels": [
+    "preview image"
+   ],
+   "svs_id": 5120,
+   "image": "https://svs.gsfc.nasa.gov/vis/a000000/a005100/a005120/PR_WorldView_geostationary_east_2160x2160_en.00001_print.jpg",
+   "display": {
+    "colours": [
+     "#141418",
+     "#1c1c1f",
+     "#232327",
+     "#2b2b2e",
+     "#323236",
+     "#3a3a3d",
+     "#414145",
+     "#49494c",
+     "#515154",
+     "#58585b",
+     "#606063",
+     "#67676a",
+     "#6f6f71",
+     "#777779",
+     "#7e7e80",
+     "#868688",
+     "#8d8d8f",
+     "#959597",
+     "#9c9c9e",
+     "#a4a4a6",
+     "#acacad",
+     "#b3b3b4",
+     "#bbbbbc",
+     "#c2c2c3",
+     "#cacacb",
+     "#d2d2d2",
+     "#d9d9da",
+     "#e1e1e1",
+     "#e8e8e9",
+     "#f0f0f0",
+     "#f7f7f8",
+     "#ffffff"
+    ],
+    "values": [
+     0.0,
+     0.03225806451612903,
+     0.06451612903225806,
+     0.0967741935483871,
+     0.12903225806451613,
+     0.16129032258064516,
+     0.1935483870967742,
+     0.22580645161290322,
+     0.25806451612903225,
+     0.29032258064516125,
+     0.3225806451612903,
+     0.3548387096774194,
+     0.3870967741935484,
+     0.4193548387096774,
+     0.45161290322580644,
+     0.4838709677419355,
+     0.5161290322580645,
+     0.5483870967741935,
+     0.5806451612903225,
+     0.6129032258064516,
+     0.6451612903225806,
+     0.6774193548387096,
+     0.7096774193548387,
+     0.7419354838709677,
+     0.7741935483870968,
+     0.8064516129032258,
+     0.8387096774193548,
+     0.8709677419354839,
+     0.9032258064516129,
+     0.9354838709677419,
+     0.967741935483871,
+     1.0
+    ],
+    "scale": "linear",
+    "ramp": true
+   },
+   "status": "pattern only",
+   "statement": "pattern, not values (no numeric key, no map position)",
+   "status_check": "a_5120"
+  },
+  {
+   "id": "svs5121",
+   "unit": "relative brightness (0–1)",
+   "encoding": "linear",
+   "scale": 0.002,
+   "offset": 0.0,
+   "nodata": 65535,
+   "below": 65534,
+   "grid": {
+    "width": 256,
+    "height": 256,
+    "bounds": [
+     -180,
+     -180.0,
+     180,
+     180.0
+    ],
+    "row0": "north",
+    "col0": "west",
+    "byte_order": "little",
+    "space": "frame"
+   },
+   "times": [
+    "2026-10-29T13:25:02Z"
+   ],
+   "chunks": [
+    {
+     "file": "svs5121_000.u16.gz",
+     "t0": 0,
+     "t1": 1,
+     "bytes": 37641
+    }
+   ],
+   "quantisation_step": 0.002,
+   "coverage": 1.0,
+   "value_range": [
+    0.0,
+    1.0
+   ],
+   "label": "ODIAC: a map of human made carbon dioxide emissions (pattern, not values)",
+   "aggregation": "brightness of the SVS preview image, 256 cells across",
+   "time_labels": [
+    "preview image"
+   ],
+   "svs_id": 5121,
+   "image": "https://svs.gsfc.nasa.gov/vis/a000000/a005100/a005121/odiac_2023_2160p60.00001_print.jpg",
+   "display": {
+    "colours": [
+     "#141418",
+     "#1c1c1f",
+     "#232327",
+     "#2b2b2e",
+     "#323236",
+     "#3a3a3d",
+     "#414145",
+     "#49494c",
+     "#515154",
+     "#58585b",
+     "#606063",
+     "#67676a",
+     "#6f6f71",
+     "#777779",
+     "#7e7e80",
+     "#868688",
+     "#8d8d8f",
+     "#959597",
+     "#9c9c9e",
+     "#a4a4a6",
+     "#acacad",
+     "#b3b3b4",
+     "#bbbbbc",
+     "#c2c2c3",
+     "#cacacb",
+     "#d2d2d2",
+     "#d9d9da",
+     "#e1e1e1",
+     "#e8e8e9",
+     "#f0f0f0",
+     "#f7f7f8",
+     "#ffffff"
+    ],
+    "values": [
+     0.0,
+     0.03225806451612903,
+     0.06451612903225806,
+     0.0967741935483871,
+     0.12903225806451613,
+     0.16129032258064516,
+     0.1935483870967742,
+     0.22580645161290322,
+     0.25806451612903225,
+     0.29032258064516125,
+     0.3225806451612903,
+     0.3548387096774194,
+     0.3870967741935484,
+     0.4193548387096774,
+     0.45161290322580644,
+     0.4838709677419355,
+     0.5161290322580645,
+     0.5483870967741935,
+     0.5806451612903225,
+     0.6129032258064516,
+     0.6451612903225806,
+     0.6774193548387096,
+     0.7096774193548387,
+     0.7419354838709677,
+     0.7741935483870968,
+     0.8064516129032258,
+     0.8387096774193548,
+     0.8709677419354839,
+     0.9032258064516129,
+     0.9354838709677419,
+     0.967741935483871,
+     1.0
+    ],
+    "scale": "linear",
+    "ramp": true
+   },
+   "status": "pattern only",
+   "statement": "pattern, not values (no numeric key, no map position)",
+   "status_check": "a_5121"
+  },
+  {
+   "id": "svs5126",
+   "unit": "relative brightness (0–1)",
+   "encoding": "linear",
+   "scale": 0.002,
+   "offset": 0.0,
+   "nodata": 65535,
+   "below": 65534,
+   "grid": {
+    "width": 256,
+    "height": 106,
+    "bounds": [
+     -180,
+     -74.53125,
+     180,
+     74.53125
+    ],
+    "row0": "north",
+    "col0": "west",
+    "byte_order": "little",
+    "space": "frame"
+   },
+   "times": [
+    "2026-10-29T13:25:02Z"
+   ],
+   "chunks": [
+    {
+     "file": "svs5126_000.u16.gz",
+     "t0": 0,
+     "t1": 1,
+     "bytes": 16872
+    }
+   ],
+   "quantisation_step": 0.002,
+   "coverage": 1.0,
+   "value_range": [
+    0.0,
+    0.805882453918457
+   ],
+   "label": "NOAA Annual Greenhouse Gas Index (pattern, not values)",
+   "aggregation": "brightness of the SVS preview image, 256 cells across",
+   "time_labels": [
+    "preview image"
+   ],
+   "svs_id": 5126,
+   "image": "https://svs.gsfc.nasa.gov/vis/a000000/a005100/a005126/AGGI_1920x800_cc_print.jpg",
+   "display": {
+    "colours": [
+     "#141418",
+     "#1c1c1f",
+     "#232327",
+     "#2b2b2e",
+     "#323236",
+     "#3a3a3d",
+     "#414145",
+     "#49494c",
+     "#515154",
+     "#58585b",
+     "#606063",
+     "#67676a",
+     "#6f6f71",
+     "#777779",
+     "#7e7e80",
+     "#868688",
+     "#8d8d8f",
+     "#959597",
+     "#9c9c9e",
+     "#a4a4a6",
+     "#acacad",
+     "#b3b3b4",
+     "#bbbbbc",
+     "#c2c2c3",
+     "#cacacb",
+     "#d2d2d2",
+     "#d9d9da",
+     "#e1e1e1",
+     "#e8e8e9",
+     "#f0f0f0",
+     "#f7f7f8",
+     "#ffffff"
+    ],
+    "values": [
+     0.0,
+     0.03225806451612903,
+     0.06451612903225806,
+     0.0967741935483871,
+     0.12903225806451613,
+     0.16129032258064516,
+     0.1935483870967742,
+     0.22580645161290322,
+     0.25806451612903225,
+     0.29032258064516125,
+     0.3225806451612903,
+     0.3548387096774194,
+     0.3870967741935484,
+     0.4193548387096774,
+     0.45161290322580644,
+     0.4838709677419355,
+     0.5161290322580645,
+     0.5483870967741935,
+     0.5806451612903225,
+     0.6129032258064516,
+     0.6451612903225806,
+     0.6774193548387096,
+     0.7096774193548387,
+     0.7419354838709677,
+     0.7741935483870968,
+     0.8064516129032258,
+     0.8387096774193548,
+     0.8709677419354839,
+     0.9032258064516129,
+     0.9354838709677419,
+     0.967741935483871,
+     1.0
+    ],
+    "scale": "linear",
+    "ramp": true
+   },
+   "status": "pattern only",
+   "statement": "pattern, not values (no numeric key, no map position)",
+   "status_check": "a_5126"
+  },
+  {
+   "id": "svs5175",
+   "unit": "relative brightness (0–1)",
+   "encoding": "linear",
+   "scale": 0.002,
+   "offset": 0.0,
+   "nodata": 65535,
+   "below": 65534,
+   "grid": {
+    "width": 256,
+    "height": 144,
+    "bounds": [
+     -180,
+     -101.25,
+     180,
+     101.25
+    ],
+    "row0": "north",
+    "col0": "west",
+    "byte_order": "little",
+    "space": "frame"
+   },
+   "times": [
+    "2026-10-29T13:25:02Z"
+   ],
+   "chunks": [
+    {
+     "file": "svs5175_000.u16.gz",
+     "t0": 0,
+     "t1": 1,
+     "bytes": 27786
+    }
+   ],
+   "quantisation_step": 0.002,
+   "coverage": 1.0,
+   "value_range": [
+    0.0,
+    0.9968137741088867
+   ],
+   "label": "TEMPO - Nitrogen Dioxide Air Pollution Over North America - Additional Views (pattern, not values)",
+   "aggregation": "brightness of the SVS preview image, 256 cells across",
+   "time_labels": [
+    "preview image"
+   ],
+   "svs_id": 5175,
+   "image": "https://svs.gsfc.nasa.gov/vis/a000000/a005100/a005175/tempo_no2_north-america.02402_print.jpg",
+   "display": {
+    "colours": [
+     "#141418",
+     "#1c1c1f",
+     "#232327",
+     "#2b2b2e",
+     "#323236",
+     "#3a3a3d",
+     "#414145",
+     "#49494c",
+     "#515154",
+     "#58585b",
+     "#606063",
+     "#67676a",
+     "#6f6f71",
+     "#777779",
+     "#7e7e80",
+     "#868688",
+     "#8d8d8f",
+     "#959597",
+     "#9c9c9e",
+     "#a4a4a6",
+     "#acacad",
+     "#b3b3b4",
+     "#bbbbbc",
+     "#c2c2c3",
+     "#cacacb",
+     "#d2d2d2",
+     "#d9d9da",
+     "#e1e1e1",
+     "#e8e8e9",
+     "#f0f0f0",
+     "#f7f7f8",
+     "#ffffff"
+    ],
+    "values": [
+     0.0,
+     0.03225806451612903,
+     0.06451612903225806,
+     0.0967741935483871,
+     0.12903225806451613,
+     0.16129032258064516,
+     0.1935483870967742,
+     0.22580645161290322,
+     0.25806451612903225,
+     0.29032258064516125,
+     0.3225806451612903,
+     0.3548387096774194,
+     0.3870967741935484,
+     0.4193548387096774,
+     0.45161290322580644,
+     0.4838709677419355,
+     0.5161290322580645,
+     0.5483870967741935,
+     0.5806451612903225,
+     0.6129032258064516,
+     0.6451612903225806,
+     0.6774193548387096,
+     0.7096774193548387,
+     0.7419354838709677,
+     0.7741935483870968,
+     0.8064516129032258,
+     0.8387096774193548,
+     0.8709677419354839,
+     0.9032258064516129,
+     0.9354838709677419,
+     0.967741935483871,
+     1.0
+    ],
+    "scale": "linear",
+    "ramp": true
+   },
+   "status": "pattern only",
+   "statement": "pattern, not values (no numeric key, no map position)",
+   "status_check": "a_5175"
+  },
+  {
+   "id": "svs5190",
+   "unit": "relative brightness (0–1)",
+   "encoding": "linear",
+   "scale": 0.002,
+   "offset": 0.0,
+   "nodata": 65535,
+   "below": 65534,
+   "grid": {
+    "width": 256,
+    "height": 256,
+    "bounds": [
+     -180,
+     -180.0,
+     180,
+     180.0
+    ],
+    "row0": "north",
+    "col0": "west",
+    "byte_order": "little",
+    "space": "frame"
+   },
+   "times": [
+    "2026-10-29T13:25:02Z"
+   ],
+   "chunks": [
+    {
+     "file": "svs5190_000.u16.gz",
+     "t0": 0,
+     "t1": 1,
+     "bytes": 45961
+    }
+   ],
+   "quantisation_step": 0.002,
+   "coverage": 1.0,
+   "value_range": [
+    0.0,
+    0.99529629945755
+   ],
+   "label": "NASA Climate Spiral 1880-Present (pattern, not values)",
+   "aggregation": "brightness of the SVS preview image, 256 cells across",
+   "time_labels": [
+    "preview image"
+   ],
+   "svs_id": 5190,
+   "image": "https://svs.gsfc.nasa.gov/vis/a000000/a005100/a005190/GISTEMP_Spiral_English_degC_2160p60.01402_print.jpg",
+   "display": {
+    "colours": [
+     "#141418",
+     "#1c1c1f",
+     "#232327",
+     "#2b2b2e",
+     "#323236",
+     "#3a3a3d",
+     "#414145",
+     "#49494c",
+     "#515154",
+     "#58585b",
+     "#606063",
+     "#67676a",
+     "#6f6f71",
+     "#777779",
+     "#7e7e80",
+     "#868688",
+     "#8d8d8f",
+     "#959597",
+     "#9c9c9e",
+     "#a4a4a6",
+     "#acacad",
+     "#b3b3b4",
+     "#bbbbbc",
+     "#c2c2c3",
+     "#cacacb",
+     "#d2d2d2",
+     "#d9d9da",
+     "#e1e1e1",
+     "#e8e8e9",
+     "#f0f0f0",
+     "#f7f7f8",
+     "#ffffff"
+    ],
+    "values": [
+     0.0,
+     0.03225806451612903,
+     0.06451612903225806,
+     0.0967741935483871,
+     0.12903225806451613,
+     0.16129032258064516,
+     0.1935483870967742,
+     0.22580645161290322,
+     0.25806451612903225,
+     0.29032258064516125,
+     0.3225806451612903,
+     0.3548387096774194,
+     0.3870967741935484,
+     0.4193548387096774,
+     0.45161290322580644,
+     0.4838709677419355,
+     0.5161290322580645,
+     0.5483870967741935,
+     0.5806451612903225,
+     0.6129032258064516,
+     0.6451612903225806,
+     0.6774193548387096,
+     0.7096774193548387,
+     0.7419354838709677,
+     0.7741935483870968,
+     0.8064516129032258,
+     0.8387096774193548,
+     0.8709677419354839,
+     0.9032258064516129,
+     0.9354838709677419,
+     0.967741935483871,
+     1.0
+    ],
+    "scale": "linear",
+    "ramp": true
+   },
+   "status": "pattern only",
+   "statement": "pattern, not values (no numeric key, no map position)",
+   "status_check": "a_5190"
+  },
+  {
+   "id": "svs5191",
+   "unit": "relative brightness (0–1)",
+   "encoding": "linear",
+   "scale": 0.002,
+   "offset": 0.0,
+   "nodata": 65535,
+   "below": 65534,
+   "grid": {
+    "width": 256,
+    "height": 144,
+    "bounds": [
+     -180,
+     -101.25,
+     180,
+     101.25
+    ],
+    "row0": "north",
+    "col0": "west",
+    "byte_order": "little",
+    "space": "frame"
+   },
+   "times": [
+    "2026-10-29T13:25:02Z"
+   ],
+   "chunks": [
+    {
+     "file": "svs5191_000.u16.gz",
+     "t0": 0,
+     "t1": 1,
+     "bytes": 18517
+    }
+   ],
+   "quantisation_step": 0.002,
+   "coverage": 1.0,
+   "value_range": [
+    0.0,
+    0.971323549747467
+   ],
+   "label": "Global Temperature Graph 1880-2024 (pattern, not values)",
+   "aggregation": "brightness of the SVS preview image, 256 cells across",
+   "time_labels": [
+    "preview image"
+   ],
+   "svs_id": 5191,
+   "image": "https://svs.gsfc.nasa.gov/vis/a000000/a005100/a005191/GISTEMP_Curves_English_degC_2160p60.01750_print.jpg",
+   "display": {
+    "colours": [
+     "#141418",
+     "#1c1c1f",
+     "#232327",
+     "#2b2b2e",
+     "#323236",
+     "#3a3a3d",
+     "#414145",
+     "#49494c",
+     "#515154",
+     "#58585b",
+     "#606063",
+     "#67676a",
+     "#6f6f71",
+     "#777779",
+     "#7e7e80",
+     "#868688",
+     "#8d8d8f",
+     "#959597",
+     "#9c9c9e",
+     "#a4a4a6",
+     "#acacad",
+     "#b3b3b4",
+     "#bbbbbc",
+     "#c2c2c3",
+     "#cacacb",
+     "#d2d2d2",
+     "#d9d9da",
+     "#e1e1e1",
+     "#e8e8e9",
+     "#f0f0f0",
+     "#f7f7f8",
+     "#ffffff"
+    ],
+    "values": [
+     0.0,
+     0.03225806451612903,
+     0.06451612903225806,
+     0.0967741935483871,
+     0.12903225806451613,
+     0.16129032258064516,
+     0.1935483870967742,
+     0.22580645161290322,
+     0.25806451612903225,
+     0.29032258064516125,
+     0.3225806451612903,
+     0.3548387096774194,
+     0.3870967741935484,
+     0.4193548387096774,
+     0.45161290322580644,
+     0.4838709677419355,
+     0.5161290322580645,
+     0.5483870967741935,
+     0.5806451612903225,
+     0.6129032258064516,
+     0.6451612903225806,
+     0.6774193548387096,
+     0.7096774193548387,
+     0.7419354838709677,
+     0.7741935483870968,
+     0.8064516129032258,
+     0.8387096774193548,
+     0.8709677419354839,
+     0.9032258064516129,
+     0.9354838709677419,
+     0.967741935483871,
+     1.0
+    ],
+    "scale": "linear",
+    "ramp": true
+   },
+   "status": "pattern only",
+   "statement": "pattern, not values (no numeric key, no map position)",
+   "status_check": "a_5191"
+  },
+  {
+   "id": "svs5207",
+   "unit": "relative brightness (0–1)",
+   "encoding": "linear",
+   "scale": 0.002,
+   "offset": 0.0,
+   "nodata": 65535,
+   "below": 65534,
+   "grid": {
+    "width": 256,
+    "height": 144,
+    "bounds": [
+     -180,
+     -101.25,
+     180,
+     101.25
+    ],
+    "row0": "north",
+    "col0": "west",
+    "byte_order": "little",
+    "space": "frame"
+   },
+   "times": [
+    "2026-10-29T13:25:02Z"
+   ],
+   "chunks": [
+    {
+     "file": "svs5207_000.u16.gz",
+     "t0": 0,
+     "t1": 1,
+     "bytes": 29906
+    }
+   ],
+   "quantisation_step": 0.002,
+   "coverage": 1.0,
+   "value_range": [
+    0.0,
+    0.9948529601097107
+   ],
+   "label": "Global Temperature Anomalies from 1880 to 2023 (pattern, not values)",
+   "aggregation": "brightness of the SVS preview image, 256 cells across",
+   "time_labels": [
+    "preview image"
+   ],
+   "svs_id": 5207,
+   "image": "https://svs.gsfc.nasa.gov/vis/a000000/a005200/a005207/2023GISTEMP_Map.00899_print.jpg",
+   "display": {
+    "colours": [
+     "#141418",
+     "#1c1c1f",
+     "#232327",
+     "#2b2b2e",
+     "#323236",
+     "#3a3a3d",
+     "#414145",
+     "#49494c",
+     "#515154",
+     "#58585b",
+     "#606063",
+     "#67676a",
+     "#6f6f71",
+     "#777779",
+     "#7e7e80",
+     "#868688",
+     "#8d8d8f",
+     "#959597",
+     "#9c9c9e",
+     "#a4a4a6",
+     "#acacad",
+     "#b3b3b4",
+     "#bbbbbc",
+     "#c2c2c3",
+     "#cacacb",
+     "#d2d2d2",
+     "#d9d9da",
+     "#e1e1e1",
+     "#e8e8e9",
+     "#f0f0f0",
+     "#f7f7f8",
+     "#ffffff"
+    ],
+    "values": [
+     0.0,
+     0.03225806451612903,
+     0.06451612903225806,
+     0.0967741935483871,
+     0.12903225806451613,
+     0.16129032258064516,
+     0.1935483870967742,
+     0.22580645161290322,
+     0.25806451612903225,
+     0.29032258064516125,
+     0.3225806451612903,
+     0.3548387096774194,
+     0.3870967741935484,
+     0.4193548387096774,
+     0.45161290322580644,
+     0.4838709677419355,
+     0.5161290322580645,
+     0.5483870967741935,
+     0.5806451612903225,
+     0.6129032258064516,
+     0.6451612903225806,
+     0.6774193548387096,
+     0.7096774193548387,
+     0.7419354838709677,
+     0.7741935483870968,
+     0.8064516129032258,
+     0.8387096774193548,
+     0.8709677419354839,
+     0.9032258064516129,
+     0.9354838709677419,
+     0.967741935483871,
+     1.0
+    ],
+    "scale": "linear",
+    "ramp": true
+   },
+   "status": "pattern only",
+   "statement": "pattern, not values (no numeric key, no map position)",
+   "status_check": "a_5207"
+  },
+  {
+   "id": "svs5209",
+   "unit": "relative brightness (0–1)",
+   "encoding": "linear",
+   "scale": 0.002,
+   "offset": 0.0,
+   "nodata": 65535,
+   "below": 65534,
+   "grid": {
+    "width": 256,
+    "height": 144,
+    "bounds": [
+     -180,
+     -101.25,
+     180,
+     101.25
+    ],
+    "row0": "north",
+    "col0": "west",
+    "byte_order": "little",
+    "space": "frame"
+   },
+   "times": [
+    "2026-10-29T13:25:02Z"
+   ],
+   "chunks": [
+    {
+     "file": "svs5209_000.u16.gz",
+     "t0": 0,
+     "t1": 1,
+     "bytes": 9350
+    }
+   ],
+   "quantisation_step": 0.002,
+   "coverage": 1.0,
+   "value_range": [
+    0.0,
+    0.8235294818878174
+   ],
+   "label": "Zonal Climate Anomalies 1880-2023 (pattern, not values)",
+   "aggregation": "brightness of the SVS preview image, 256 cells across",
+   "time_labels": [
+    "preview image"
+   ],
+   "svs_id": 5209,
+   "image": "https://svs.gsfc.nasa.gov/vis/a000000/a005200/a005209/GISTEMP_Zonal_1880-2023_C.00840_print.jpg",
+   "display": {
+    "colours": [
+     "#141418",
+     "#1c1c1f",
+     "#232327",
+     "#2b2b2e",
+     "#323236",
+     "#3a3a3d",
+     "#414145",
+     "#49494c",
+     "#515154",
+     "#58585b",
+     "#606063",
+     "#67676a",
+     "#6f6f71",
+     "#777779",
+     "#7e7e80",
+     "#868688",
+     "#8d8d8f",
+     "#959597",
+     "#9c9c9e",
+     "#a4a4a6",
+     "#acacad",
+     "#b3b3b4",
+     "#bbbbbc",
+     "#c2c2c3",
+     "#cacacb",
+     "#d2d2d2",
+     "#d9d9da",
+     "#e1e1e1",
+     "#e8e8e9",
+     "#f0f0f0",
+     "#f7f7f8",
+     "#ffffff"
+    ],
+    "values": [
+     0.0,
+     0.03225806451612903,
+     0.06451612903225806,
+     0.0967741935483871,
+     0.12903225806451613,
+     0.16129032258064516,
+     0.1935483870967742,
+     0.22580645161290322,
+     0.25806451612903225,
+     0.29032258064516125,
+     0.3225806451612903,
+     0.3548387096774194,
+     0.3870967741935484,
+     0.4193548387096774,
+     0.45161290322580644,
+     0.4838709677419355,
+     0.5161290322580645,
+     0.5483870967741935,
+     0.5806451612903225,
+     0.6129032258064516,
+     0.6451612903225806,
+     0.6774193548387096,
+     0.7096774193548387,
+     0.7419354838709677,
+     0.7741935483870968,
+     0.8064516129032258,
+     0.8387096774193548,
+     0.8709677419354839,
+     0.9032258064516129,
+     0.9354838709677419,
+     0.967741935483871,
+     1.0
+    ],
+    "scale": "linear",
+    "ramp": true
+   },
+   "status": "pattern only",
+   "statement": "pattern, not values (no numeric key, no map position)",
+   "status_check": "a_5209"
+  },
+  {
+   "id": "svs5235",
+   "unit": "relative brightness (0–1)",
+   "encoding": "linear",
+   "scale": 0.002,
+   "offset": 0.0,
+   "nodata": 65535,
+   "below": 65534,
+   "grid": {
+    "width": 256,
+    "height": 256,
+    "bounds": [
+     -180,
+     -180.0,
+     180,
+     180.0
+    ],
+    "row0": "north",
+    "col0": "west",
+    "byte_order": "little",
+    "space": "frame"
+   },
+   "times": [
+    "2026-10-29T13:25:02Z"
+   ],
+   "chunks": [
+    {
+     "file": "svs5235_000.u16.gz",
+     "t0": 0,
+     "t1": 1,
+     "bytes": 27786
+    }
+   ],
+   "quantisation_step": 0.002,
+   "coverage": 1.0,
+   "value_range": [
+    0.0,
+    1.0
+   ],
+   "label": "Sea Level Through a Porthole (2023) (pattern, not values)",
+   "aggregation": "brightness of the SVS preview image, 256 cells across",
+   "time_labels": [
+    "preview image"
+   ],
+   "svs_id": 5235,
+   "image": "https://svs.gsfc.nasa.gov/vis/a000000/a005200/a005235/seaLevelWaveTankComp_noWW_3-5-5-2024a.01500_print.jpg",
+   "display": {
+    "colours": [
+     "#141418",
+     "#1c1c1f",
+     "#232327",
+     "#2b2b2e",
+     "#323236",
+     "#3a3a3d",
+     "#414145",
+     "#49494c",
+     "#515154",
+     "#58585b",
+     "#606063",
+     "#67676a",
+     "#6f6f71",
+     "#777779",
+     "#7e7e80",
+     "#868688",
+     "#8d8d8f",
+     "#959597",
+     "#9c9c9e",
+     "#a4a4a6",
+     "#acacad",
+     "#b3b3b4",
+     "#bbbbbc",
+     "#c2c2c3",
+     "#cacacb",
+     "#d2d2d2",
+     "#d9d9da",
+     "#e1e1e1",
+     "#e8e8e9",
+     "#f0f0f0",
+     "#f7f7f8",
+     "#ffffff"
+    ],
+    "values": [
+     0.0,
+     0.03225806451612903,
+     0.06451612903225806,
+     0.0967741935483871,
+     0.12903225806451613,
+     0.16129032258064516,
+     0.1935483870967742,
+     0.22580645161290322,
+     0.25806451612903225,
+     0.29032258064516125,
+     0.3225806451612903,
+     0.3548387096774194,
+     0.3870967741935484,
+     0.4193548387096774,
+     0.45161290322580644,
+     0.4838709677419355,
+     0.5161290322580645,
+     0.5483870967741935,
+     0.5806451612903225,
+     0.6129032258064516,
+     0.6451612903225806,
+     0.6774193548387096,
+     0.7096774193548387,
+     0.7419354838709677,
+     0.7741935483870968,
+     0.8064516129032258,
+     0.8387096774193548,
+     0.8709677419354839,
+     0.9032258064516129,
+     0.9354838709677419,
+     0.967741935483871,
+     1.0
+    ],
+    "scale": "linear",
+    "ramp": true
+   },
+   "status": "pattern only",
+   "statement": "pattern, not values (no numeric key, no map position)",
+   "status_check": "a_5235"
+  },
+  {
+   "id": "svs5382",
+   "unit": "relative brightness (0–1)",
+   "encoding": "linear",
+   "scale": 0.002,
+   "offset": 0.0,
+   "nodata": 65535,
+   "below": 65534,
+   "grid": {
+    "width": 256,
+    "height": 144,
+    "bounds": [
+     -180,
+     -101.25,
+     180,
+     101.25
+    ],
+    "row0": "north",
+    "col0": "west",
+    "byte_order": "little",
+    "space": "frame"
+   },
+   "times": [
+    "2026-10-29T13:25:02Z"
+   ],
+   "chunks": [
+    {
+     "file": "svs5382_000.u16.gz",
+     "t0": 0,
+     "t1": 1,
+     "bytes": 32202
+    }
+   ],
+   "quantisation_step": 0.002,
+   "coverage": 1.0,
+   "value_range": [
+    0.0,
+    0.9995098114013672
+   ],
+   "label": "Arctic Sea Ice Minimum 2024 (pattern, not values)",
+   "aggregation": "brightness of the SVS preview image, 256 cells across",
+   "time_labels": [
+    "preview image"
+   ],
+   "svs_id": 5382,
+   "image": "https://svs.gsfc.nasa.gov/vis/a000000/a005300/a005382/sea_ice_2024_min_2160p60.2608_print.jpg",
+   "display": {
+    "colours": [
+     "#141418",
+     "#1c1c1f",
+     "#232327",
+     "#2b2b2e",
+     "#323236",
+     "#3a3a3d",
+     "#414145",
+     "#49494c",
+     "#515154",
+     "#58585b",
+     "#606063",
+     "#67676a",
+     "#6f6f71",
+     "#777779",
+     "#7e7e80",
+     "#868688",
+     "#8d8d8f",
+     "#959597",
+     "#9c9c9e",
+     "#a4a4a6",
+     "#acacad",
+     "#b3b3b4",
+     "#bbbbbc",
+     "#c2c2c3",
+     "#cacacb",
+     "#d2d2d2",
+     "#d9d9da",
+     "#e1e1e1",
+     "#e8e8e9",
+     "#f0f0f0",
+     "#f7f7f8",
+     "#ffffff"
+    ],
+    "values": [
+     0.0,
+     0.03225806451612903,
+     0.06451612903225806,
+     0.0967741935483871,
+     0.12903225806451613,
+     0.16129032258064516,
+     0.1935483870967742,
+     0.22580645161290322,
+     0.25806451612903225,
+     0.29032258064516125,
+     0.3225806451612903,
+     0.3548387096774194,
+     0.3870967741935484,
+     0.4193548387096774,
+     0.45161290322580644,
+     0.4838709677419355,
+     0.5161290322580645,
+     0.5483870967741935,
+     0.5806451612903225,
+     0.6129032258064516,
+     0.6451612903225806,
+     0.6774193548387096,
+     0.7096774193548387,
+     0.7419354838709677,
+     0.7741935483870968,
+     0.8064516129032258,
+     0.8387096774193548,
+     0.8709677419354839,
+     0.9032258064516129,
+     0.9354838709677419,
+     0.967741935483871,
+     1.0
+    ],
+    "scale": "linear",
+    "ramp": true
+   },
+   "status": "pattern only",
+   "statement": "pattern, not values (no numeric key, no map position)",
+   "status_check": "a_5382"
+  },
+  {
+   "id": "svs5453",
+   "unit": "relative brightness (0–1)",
+   "encoding": "linear",
+   "scale": 0.002,
+   "offset": 0.0,
+   "nodata": 65535,
+   "below": 65534,
+   "grid": {
+    "width": 256,
+    "height": 128,
+    "bounds": [
+     -180,
+     -90.0,
+     180,
+     90.0
+    ],
+    "row0": "north",
+    "col0": "west",
+    "byte_order": "little",
+    "space": "frame"
+   },
+   "times": [
+    "2026-10-29T13:25:02Z"
+   ],
+   "chunks": [
+    {
+     "file": "svs5453_000.u16.gz",
+     "t0": 0,
+     "t1": 1,
+     "bytes": 12057
+    }
+   ],
+   "quantisation_step": 0.002,
+   "coverage": 1.0,
+   "value_range": [
+    0.0,
+    1.0
+   ],
+   "label": "Annual Wildfire Burned Area in the United States (pattern, not values)",
+   "aggregation": "brightness of the SVS preview image, 256 cells across",
+   "time_labels": [
+    "preview image"
+   ],
+   "svs_id": 5453,
+   "image": "https://svs.gsfc.nasa.gov/vis/a000000/a005400/a005453/fireIncrease.jpg",
+   "display": {
+    "colours": [
+     "#141418",
+     "#1c1c1f",
+     "#232327",
+     "#2b2b2e",
+     "#323236",
+     "#3a3a3d",
+     "#414145",
+     "#49494c",
+     "#515154",
+     "#58585b",
+     "#606063",
+     "#67676a",
+     "#6f6f71",
+     "#777779",
+     "#7e7e80",
+     "#868688",
+     "#8d8d8f",
+     "#959597",
+     "#9c9c9e",
+     "#a4a4a6",
+     "#acacad",
+     "#b3b3b4",
+     "#bbbbbc",
+     "#c2c2c3",
+     "#cacacb",
+     "#d2d2d2",
+     "#d9d9da",
+     "#e1e1e1",
+     "#e8e8e9",
+     "#f0f0f0",
+     "#f7f7f8",
+     "#ffffff"
+    ],
+    "values": [
+     0.0,
+     0.03225806451612903,
+     0.06451612903225806,
+     0.0967741935483871,
+     0.12903225806451613,
+     0.16129032258064516,
+     0.1935483870967742,
+     0.22580645161290322,
+     0.25806451612903225,
+     0.29032258064516125,
+     0.3225806451612903,
+     0.3548387096774194,
+     0.3870967741935484,
+     0.4193548387096774,
+     0.45161290322580644,
+     0.4838709677419355,
+     0.5161290322580645,
+     0.5483870967741935,
+     0.5806451612903225,
+     0.6129032258064516,
+     0.6451612903225806,
+     0.6774193548387096,
+     0.7096774193548387,
+     0.7419354838709677,
+     0.7741935483870968,
+     0.8064516129032258,
+     0.8387096774193548,
+     0.8709677419354839,
+     0.9032258064516129,
+     0.9354838709677419,
+     0.967741935483871,
+     1.0
+    ],
+    "scale": "linear",
+    "ramp": true
+   },
+   "status": "pattern only",
+   "statement": "pattern, not values (no numeric key, no map position)",
+   "status_check": "a_5453"
+  },
+  {
+   "id": "svs30521",
+   "unit": "relative brightness (0–1)",
+   "encoding": "linear",
+   "scale": 0.002,
+   "offset": 0.0,
+   "nodata": 65535,
+   "below": 65534,
+   "grid": {
+    "width": 256,
+    "height": 144,
+    "bounds": [
+     -180,
+     -101.25,
+     180,
+     101.25
+    ],
+    "row0": "north",
+    "col0": "west",
+    "byte_order": "little",
+    "space": "frame"
+   },
+   "times": [
+    "2026-10-29T13:25:02Z"
+   ],
+   "chunks": [
+    {
+     "file": "svs30521_000.u16.gz",
+     "t0": 0,
+     "t1": 1,
+     "bytes": 26288
+    }
+   ],
+   "quantisation_step": 0.002,
+   "coverage": 1.0,
+   "value_range": [
+    0.0,
+    0.9923379421234131
+   ],
+   "label": "California Drought (pattern, not values)",
+   "aggregation": "brightness of the SVS preview image, 256 cells across",
+   "time_labels": [
+    "preview image"
+   ],
+   "svs_id": 30521,
+   "image": "https://svs.gsfc.nasa.gov/vis/a030000/a030500/a030521/grace_ca_drought_v4_0128_print.jpg",
+   "display": {
+    "colours": [
+     "#141418",
+     "#1c1c1f",
+     "#232327",
+     "#2b2b2e",
+     "#323236",
+     "#3a3a3d",
+     "#414145",
+     "#49494c",
+     "#515154",
+     "#58585b",
+     "#606063",
+     "#67676a",
+     "#6f6f71",
+     "#777779",
+     "#7e7e80",
+     "#868688",
+     "#8d8d8f",
+     "#959597",
+     "#9c9c9e",
+     "#a4a4a6",
+     "#acacad",
+     "#b3b3b4",
+     "#bbbbbc",
+     "#c2c2c3",
+     "#cacacb",
+     "#d2d2d2",
+     "#d9d9da",
+     "#e1e1e1",
+     "#e8e8e9",
+     "#f0f0f0",
+     "#f7f7f8",
+     "#ffffff"
+    ],
+    "values": [
+     0.0,
+     0.03225806451612903,
+     0.06451612903225806,
+     0.0967741935483871,
+     0.12903225806451613,
+     0.16129032258064516,
+     0.1935483870967742,
+     0.22580645161290322,
+     0.25806451612903225,
+     0.29032258064516125,
+     0.3225806451612903,
+     0.3548387096774194,
+     0.3870967741935484,
+     0.4193548387096774,
+     0.45161290322580644,
+     0.4838709677419355,
+     0.5161290322580645,
+     0.5483870967741935,
+     0.5806451612903225,
+     0.6129032258064516,
+     0.6451612903225806,
+     0.6774193548387096,
+     0.7096774193548387,
+     0.7419354838709677,
+     0.7741935483870968,
+     0.8064516129032258,
+     0.8387096774193548,
+     0.8709677419354839,
+     0.9032258064516129,
+     0.9354838709677419,
+     0.967741935483871,
+     1.0
+    ],
+    "scale": "linear",
+    "ramp": true
+   },
+   "status": "pattern only",
+   "statement": "pattern, not values (no numeric key, no map position)",
+   "status_check": "a_30521"
+  },
+  {
+   "id": "svs31196",
+   "unit": "relative brightness (0–1)",
+   "encoding": "linear",
+   "scale": 0.002,
+   "offset": 0.06642156839370728,
+   "nodata": 65535,
+   "below": 65534,
+   "grid": {
+    "width": 256,
+    "height": 144,
+    "bounds": [
+     -180,
+     -101.25,
+     180,
+     101.25
+    ],
+    "row0": "north",
+    "col0": "west",
+    "byte_order": "little",
+    "space": "frame"
+   },
+   "times": [
+    "2026-10-29T13:25:02Z"
+   ],
+   "chunks": [
+    {
+     "file": "svs31196_000.u16.gz",
+     "t0": 0,
+     "t1": 1,
+     "bytes": 40654
+    }
+   ],
+   "quantisation_step": 0.002,
+   "coverage": 1.0,
+   "value_range": [
+    0.06642156839370728,
+    0.9924019575119019
+   ],
+   "label": "50 years of Landsat: Denver (pattern, not values)",
+   "aggregation": "brightness of the SVS preview image, 256 cells across",
+   "time_labels": [
+    "preview image"
+   ],
+   "svs_id": 31196,
+   "image": "https://svs.gsfc.nasa.gov/vis/a030000/a031100/a031196/denver_landsat_v1_2022_print.jpg",
+   "display": {
+    "colours": [
+     "#141418",
+     "#1c1c1f",
+     "#232327",
+     "#2b2b2e",
+     "#323236",
+     "#3a3a3d",
+     "#414145",
+     "#49494c",
+     "#515154",
+     "#58585b",
+     "#606063",
+     "#67676a",
+     "#6f6f71",
+     "#777779",
+     "#7e7e80",
+     "#868688",
+     "#8d8d8f",
+     "#959597",
+     "#9c9c9e",
+     "#a4a4a6",
+     "#acacad",
+     "#b3b3b4",
+     "#bbbbbc",
+     "#c2c2c3",
+     "#cacacb",
+     "#d2d2d2",
+     "#d9d9da",
+     "#e1e1e1",
+     "#e8e8e9",
+     "#f0f0f0",
+     "#f7f7f8",
+     "#ffffff"
+    ],
+    "values": [
+     0.0,
+     0.03225806451612903,
+     0.06451612903225806,
+     0.0967741935483871,
+     0.12903225806451613,
+     0.16129032258064516,
+     0.1935483870967742,
+     0.22580645161290322,
+     0.25806451612903225,
+     0.29032258064516125,
+     0.3225806451612903,
+     0.3548387096774194,
+     0.3870967741935484,
+     0.4193548387096774,
+     0.45161290322580644,
+     0.4838709677419355,
+     0.5161290322580645,
+     0.5483870967741935,
+     0.5806451612903225,
+     0.6129032258064516,
+     0.6451612903225806,
+     0.6774193548387096,
+     0.7096774193548387,
+     0.7419354838709677,
+     0.7741935483870968,
+     0.8064516129032258,
+     0.8387096774193548,
+     0.8709677419354839,
+     0.9032258064516129,
+     0.9354838709677419,
+     0.967741935483871,
+     1.0
+    ],
+    "scale": "linear",
+    "ramp": true
+   },
+   "status": "pattern only",
+   "statement": "pattern, not values (no numeric key, no map position)",
+   "status_check": "a_31196"
+  }
+ ],
+ "voices": {
+  "brightness": "patternScan"
+ },
+ "play": [
+  {
+   "id": "svs4170",
+   "label": "SVS 4170: GPM Constellation Covers the Earth",
+   "view": "global",
+   "map": "svs4170",
+   "start": {
+    "lat": 0.0,
+    "lon": 0.0
+   },
+   "steps_per_second": 1,
+   "channels": [
+    {
+     "voice": "patternScan",
+     "layers": [
+      "svs4170"
+     ],
+     "combine": "value"
+    }
+   ]
+  },
+  {
+   "id": "svs4685",
+   "label": "SVS 4685: Inside Hurricane Maria in 360°",
+   "view": "global",
+   "map": "svs4685",
+   "start": {
+    "lat": 0.0,
+    "lon": 0.0
+   },
+   "steps_per_second": 1,
+   "channels": [
+    {
+     "voice": "patternScan",
+     "layers": [
+      "svs4685"
+     ],
+     "combine": "value"
+    }
+   ]
+  },
+  {
+   "id": "svs4810",
+   "label": "SVS 4810: Reductions in Pollution Associated with Decreased Fossil Fuel Use Resulting from COVID-19 Mitigation",
+   "view": "global",
+   "map": "svs4810",
+   "start": {
+    "lat": 0.0,
+    "lon": 0.0
+   },
+   "steps_per_second": 1,
+   "channels": [
+    {
+     "voice": "patternScan",
+     "layers": [
+      "svs4810"
+     ],
+     "combine": "value"
+    }
+   ]
+  },
+  {
+   "id": "svs4889",
+   "label": "SVS 4889: Variability of Water Storage in Global Hydrological Basins",
+   "view": "global",
+   "map": "svs4889",
+   "start": {
+    "lat": 0.0,
+    "lon": 0.0
+   },
+   "steps_per_second": 1,
+   "channels": [
+    {
+     "voice": "patternScan",
+     "layers": [
+      "svs4889"
+     ],
+     "combine": "value"
+    }
+   ]
+  },
+  {
+   "id": "svs4897",
+   "label": "SVS 4897: Seasonal Global Precipitation Variation from the Global Precipitation Measurement Constellation",
+   "view": "global",
+   "map": "svs4897",
+   "start": {
+    "lat": 0.0,
+    "lon": 0.0
+   },
+   "steps_per_second": 1,
+   "channels": [
+    {
+     "voice": "patternScan",
+     "layers": [
+      "svs4897"
+     ],
+     "combine": "value"
+    }
+   ]
+  },
+  {
+   "id": "svs4968",
+   "label": "SVS 4968: Iowa Cropland 2001-2020",
+   "view": "global",
+   "map": "svs4968",
+   "start": {
+    "lat": 0.0,
+    "lon": 0.0
+   },
+   "steps_per_second": 1,
+   "channels": [
+    {
+     "voice": "patternScan",
+     "layers": [
+      "svs4968"
+     ],
+     "combine": "value"
+    }
+   ]
+  },
+  {
+   "id": "svs4983",
+   "label": "SVS 4983: Global Carbon Dioxide 2020-2021 for Hyperwalls",
+   "view": "global",
+   "map": "svs4983",
+   "start": {
+    "lat": 0.0,
+    "lon": 0.0
+   },
+   "steps_per_second": 1,
+   "channels": [
+    {
+     "voice": "patternScan",
+     "layers": [
+      "svs4983"
+     ],
+     "combine": "value"
+    }
+   ]
+  },
+  {
+   "id": "svs4993",
+   "label": "SVS 4993: Spread of the Dixie Fire - 2021",
+   "view": "global",
+   "map": "svs4993",
+   "start": {
+    "lat": 0.0,
+    "lon": 0.0
+   },
+   "steps_per_second": 1,
+   "channels": [
+    {
+     "voice": "patternScan",
+     "layers": [
+      "svs4993"
+     ],
+     "combine": "value"
+    }
+   ]
+  },
+  {
+   "id": "svs5041",
+   "label": "SVS 5041: Methane Emissions in the United States",
+   "view": "global",
+   "map": "svs5041",
+   "start": {
+    "lat": 0.0,
+    "lon": 0.0
+   },
+   "steps_per_second": 1,
+   "channels": [
+    {
+     "voice": "patternScan",
+     "layers": [
+      "svs5041"
+     ],
+     "combine": "value"
+    }
+   ]
+  },
+  {
+   "id": "svs5046",
+   "label": "SVS 5046: Daily Arctic Sea Ice, By Year",
+   "view": "global",
+   "map": "svs5046",
+   "start": {
+    "lat": 0.0,
+    "lon": 0.0
+   },
+   "steps_per_second": 1,
+   "channels": [
+    {
+     "voice": "patternScan",
+     "layers": [
+      "svs5046"
+     ],
+     "combine": "value"
+    }
+   ]
+  },
+  {
+   "id": "svs5047",
+   "label": "SVS 5047: Net Ecosystem Exchange of Carbon Dioxide",
+   "view": "global",
+   "map": "svs5047",
+   "start": {
+    "lat": 0.0,
+    "lon": 0.0
+   },
+   "steps_per_second": 1,
+   "channels": [
+    {
+     "voice": "patternScan",
+     "layers": [
+      "svs5047"
+     ],
+     "combine": "value"
+    }
+   ]
+  },
+  {
+   "id": "svs5054",
+   "label": "SVS 5054: Methane Emissions from Wetlands",
+   "view": "global",
+   "map": "svs5054",
+   "start": {
+    "lat": 0.0,
+    "lon": 0.0
+   },
+   "steps_per_second": 1,
+   "channels": [
+    {
+     "voice": "patternScan",
+     "layers": [
+      "svs5054"
+     ],
+     "combine": "value"
+    }
+   ]
+  },
+  {
+   "id": "svs5058",
+   "label": "SVS 5058: Florida Nighttime Lights Before and After Hurricane Ian",
+   "view": "global",
+   "map": "svs5058",
+   "start": {
+    "lat": 0.0,
+    "lon": 0.0
+   },
+   "steps_per_second": 1,
+   "channels": [
+    {
+     "voice": "patternScan",
+     "layers": [
+      "svs5058"
+     ],
+     "combine": "value"
+    }
+   ]
+  },
+  {
+   "id": "svs5064",
+   "label": "SVS 5064: Daily Antarctic Sea Ice, By Year",
+   "view": "global",
+   "map": "svs5064",
+   "start": {
+    "lat": 0.0,
+    "lon": 0.0
+   },
+   "steps_per_second": 1,
+   "channels": [
+    {
+     "voice": "patternScan",
+     "layers": [
+      "svs5064"
+     ],
+     "combine": "value"
+    }
+   ]
+  },
+  {
+   "id": "svs5067",
+   "label": "SVS 5067: Earth Observing Fleet - Now",
+   "view": "global",
+   "map": "svs5067",
+   "start": {
+    "lat": 0.0,
+    "lon": 0.0
+   },
+   "steps_per_second": 1,
+   "channels": [
+    {
+     "voice": "patternScan",
+     "layers": [
+      "svs5067"
+     ],
+     "combine": "value"
+    }
+   ]
+  },
+  {
+   "id": "svs5072",
+   "label": "SVS 5072: Atlantic Hurricane Wind Speed Plots",
+   "view": "global",
+   "map": "svs5072",
+   "start": {
+    "lat": 0.0,
+    "lon": 0.0
+   },
+   "steps_per_second": 1,
+   "channels": [
+    {
+     "voice": "patternScan",
+     "layers": [
+      "svs5072"
+     ],
+     "combine": "value"
+    }
+   ]
+  },
+  {
+   "id": "svs5081",
+   "label": "SVS 5081: National Carbon Dioxide (CO₂) budgets inferred from atmospheric observations",
+   "view": "global",
+   "map": "svs5081",
+   "start": {
+    "lat": 0.0,
+    "lon": 0.0
+   },
+   "steps_per_second": 1,
+   "channels": [
+    {
+     "voice": "patternScan",
+     "layers": [
+      "svs5081"
+     ],
+     "combine": "value"
+    }
+   ]
+  },
+  {
+   "id": "svs5087",
+   "label": "SVS 5087: Water Cycle Extremes: Droughts and Pluvials",
+   "view": "global",
+   "map": "svs5087",
+   "start": {
+    "lat": 0.0,
+    "lon": 0.0
+   },
+   "steps_per_second": 1,
+   "channels": [
+    {
+     "voice": "patternScan",
+     "layers": [
+      "svs5087"
+     ],
+     "combine": "value"
+    }
+   ]
+  },
+  {
+   "id": "svs5097",
+   "label": "SVS 5097: 2022 Hurricane Season",
+   "view": "global",
+   "map": "svs5097",
+   "start": {
+    "lat": 0.0,
+    "lon": 0.0
+   },
+   "steps_per_second": 1,
+   "channels": [
+    {
+     "voice": "patternScan",
+     "layers": [
+      "svs5097"
+     ],
+     "combine": "value"
+    }
+   ]
+  },
+  {
+   "id": "svs5098",
+   "label": "SVS 5098: Relative Wetness Root Zone Versus Groundwater Comparison",
+   "view": "global",
+   "map": "svs5098",
+   "start": {
+    "lat": 0.0,
+    "lon": 0.0
+   },
+   "steps_per_second": 1,
+   "channels": [
+    {
+     "voice": "patternScan",
+     "layers": [
+      "svs5098"
+     ],
+     "combine": "value"
+    }
+   ]
+  },
+  {
+   "id": "svs5099",
+   "label": "SVS 5099: Daily Polar Sea Ice, Two Year History",
+   "view": "global",
+   "map": "svs5099",
+   "start": {
+    "lat": 0.0,
+    "lon": 0.0
+   },
+   "steps_per_second": 1,
+   "channels": [
+    {
+     "voice": "patternScan",
+     "layers": [
+      "svs5099"
+     ],
+     "combine": "value"
+    }
+   ]
+  },
+  {
+   "id": "svs5107",
+   "label": "SVS 5107: Air Quality Monitoring Stations in Washington D.C.",
+   "view": "global",
+   "map": "svs5107",
+   "start": {
+    "lat": 0.0,
+    "lon": 0.0
+   },
+   "steps_per_second": 1,
+   "channels": [
+    {
+     "voice": "patternScan",
+     "layers": [
+      "svs5107"
+     ],
+     "combine": "value"
+    }
+   ]
+  },
+  {
+   "id": "svs5110",
+   "label": "SVS 5110: Atmospheric Carbon Dioxide Tagged by Source",
+   "view": "global",
+   "map": "svs5110",
+   "start": {
+    "lat": 0.0,
+    "lon": 0.0
+   },
+   "steps_per_second": 1,
+   "channels": [
+    {
+     "voice": "patternScan",
+     "layers": [
+      "svs5110"
+     ],
+     "combine": "value"
+    }
+   ]
+  },
+  {
+   "id": "svs5111",
+   "label": "SVS 5111: Increase in Ocean Heat since 1957 Map - Spilhaus Projection",
+   "view": "global",
+   "map": "svs5111",
+   "start": {
+    "lat": 0.0,
+    "lon": 0.0
+   },
+   "steps_per_second": 1,
+   "channels": [
+    {
+     "voice": "patternScan",
+     "layers": [
+      "svs5111"
+     ],
+     "combine": "value"
+    }
+   ]
+  },
+  {
+   "id": "svs5115",
+   "label": "SVS 5115: Global Atmospheric Carbon Dioxide (CO₂)",
+   "view": "global",
+   "map": "svs5115",
+   "start": {
+    "lat": 0.0,
+    "lon": 0.0
+   },
+   "steps_per_second": 1,
+   "channels": [
+    {
+     "voice": "patternScan",
+     "layers": [
+      "svs5115"
+     ],
+     "combine": "value"
+    }
+   ]
+  },
+  {
+   "id": "svs5116",
+   "label": "SVS 5116: Global Atmospheric Methane (CH₄)",
+   "view": "global",
+   "map": "svs5116",
+   "start": {
+    "lat": 0.0,
+    "lon": 0.0
+   },
+   "steps_per_second": 1,
+   "channels": [
+    {
+     "voice": "patternScan",
+     "layers": [
+      "svs5116"
+     ],
+     "combine": "value"
+    }
+   ]
+  },
+  {
+   "id": "svs5117",
+   "label": "SVS 5117: Trends in atmospheric Nitrous Oxide (N₂O)",
+   "view": "global",
+   "map": "svs5117",
+   "start": {
+    "lat": 0.0,
+    "lon": 0.0
+   },
+   "steps_per_second": 1,
+   "channels": [
+    {
+     "voice": "patternScan",
+     "layers": [
+      "svs5117"
+     ],
+     "combine": "value"
+    }
+   ]
+  },
+  {
+   "id": "svs5118",
+   "label": "SVS 5118: Trends in atmospheric Methane (CH₄)",
+   "view": "global",
+   "map": "svs5118",
+   "start": {
+    "lat": 0.0,
+    "lon": 0.0
+   },
+   "steps_per_second": 1,
+   "channels": [
+    {
+     "voice": "patternScan",
+     "layers": [
+      "svs5118"
+     ],
+     "combine": "value"
+    }
+   ]
+  },
+  {
+   "id": "svs5119",
+   "label": "SVS 5119: OCO-2 and Keeling Curve: Trends in global atmospheric Carbon Dioxide (CO₂)",
+   "view": "global",
+   "map": "svs5119",
+   "start": {
+    "lat": 0.0,
+    "lon": 0.0
+   },
+   "steps_per_second": 1,
+   "channels": [
+    {
+     "voice": "patternScan",
+     "layers": [
+      "svs5119"
+     ],
+     "combine": "value"
+    }
+   ]
+  },
+  {
+   "id": "svs5120",
+   "label": "SVS 5120: NOAA GOES-East and NOAA GOES-West True Color Imagery Over Past 5 Days",
+   "view": "global",
+   "map": "svs5120",
+   "start": {
+    "lat": 0.0,
+    "lon": 0.0
+   },
+   "steps_per_second": 1,
+   "channels": [
+    {
+     "voice": "patternScan",
+     "layers": [
+      "svs5120"
+     ],
+     "combine": "value"
+    }
+   ]
+  },
+  {
+   "id": "svs5121",
+   "label": "SVS 5121: ODIAC: a map of human made carbon dioxide emissions",
+   "view": "global",
+   "map": "svs5121",
+   "start": {
+    "lat": 0.0,
+    "lon": 0.0
+   },
+   "steps_per_second": 1,
+   "channels": [
+    {
+     "voice": "patternScan",
+     "layers": [
+      "svs5121"
+     ],
+     "combine": "value"
+    }
+   ]
+  },
+  {
+   "id": "svs5126",
+   "label": "SVS 5126: NOAA Annual Greenhouse Gas Index",
+   "view": "global",
+   "map": "svs5126",
+   "start": {
+    "lat": 0.0,
+    "lon": 0.0
+   },
+   "steps_per_second": 1,
+   "channels": [
+    {
+     "voice": "patternScan",
+     "layers": [
+      "svs5126"
+     ],
+     "combine": "value"
+    }
+   ]
+  },
+  {
+   "id": "svs5175",
+   "label": "SVS 5175: TEMPO - Nitrogen Dioxide Air Pollution Over North America - Additional Views",
+   "view": "global",
+   "map": "svs5175",
+   "start": {
+    "lat": 0.0,
+    "lon": 0.0
+   },
+   "steps_per_second": 1,
+   "channels": [
+    {
+     "voice": "patternScan",
+     "layers": [
+      "svs5175"
+     ],
+     "combine": "value"
+    }
+   ]
+  },
+  {
+   "id": "svs5190",
+   "label": "SVS 5190: NASA Climate Spiral 1880-Present",
+   "view": "global",
+   "map": "svs5190",
+   "start": {
+    "lat": 0.0,
+    "lon": 0.0
+   },
+   "steps_per_second": 1,
+   "channels": [
+    {
+     "voice": "patternScan",
+     "layers": [
+      "svs5190"
+     ],
+     "combine": "value"
+    }
+   ]
+  },
+  {
+   "id": "svs5191",
+   "label": "SVS 5191: Global Temperature Graph 1880-2024",
+   "view": "global",
+   "map": "svs5191",
+   "start": {
+    "lat": 0.0,
+    "lon": 0.0
+   },
+   "steps_per_second": 1,
+   "channels": [
+    {
+     "voice": "patternScan",
+     "layers": [
+      "svs5191"
+     ],
+     "combine": "value"
+    }
+   ]
+  },
+  {
+   "id": "svs5207",
+   "label": "SVS 5207: Global Temperature Anomalies from 1880 to 2023",
+   "view": "global",
+   "map": "svs5207",
+   "start": {
+    "lat": 0.0,
+    "lon": 0.0
+   },
+   "steps_per_second": 1,
+   "channels": [
+    {
+     "voice": "patternScan",
+     "layers": [
+      "svs5207"
+     ],
+     "combine": "value"
+    }
+   ]
+  },
+  {
+   "id": "svs5209",
+   "label": "SVS 5209: Zonal Climate Anomalies 1880-2023",
+   "view": "global",
+   "map": "svs5209",
+   "start": {
+    "lat": 0.0,
+    "lon": 0.0
+   },
+   "steps_per_second": 1,
+   "channels": [
+    {
+     "voice": "patternScan",
+     "layers": [
+      "svs5209"
+     ],
+     "combine": "value"
+    }
+   ]
+  },
+  {
+   "id": "svs5235",
+   "label": "SVS 5235: Sea Level Through a Porthole (2023)",
+   "view": "global",
+   "map": "svs5235",
+   "start": {
+    "lat": 0.0,
+    "lon": 0.0
+   },
+   "steps_per_second": 1,
+   "channels": [
+    {
+     "voice": "patternScan",
+     "layers": [
+      "svs5235"
+     ],
+     "combine": "value"
+    }
+   ]
+  },
+  {
+   "id": "svs5382",
+   "label": "SVS 5382: Arctic Sea Ice Minimum 2024",
+   "view": "global",
+   "map": "svs5382",
+   "start": {
+    "lat": 0.0,
+    "lon": 0.0
+   },
+   "steps_per_second": 1,
+   "channels": [
+    {
+     "voice": "patternScan",
+     "layers": [
+      "svs5382"
+     ],
+     "combine": "value"
+    }
+   ]
+  },
+  {
+   "id": "svs5453",
+   "label": "SVS 5453: Annual Wildfire Burned Area in the United States",
+   "view": "global",
+   "map": "svs5453",
+   "start": {
+    "lat": 0.0,
+    "lon": 0.0
+   },
+   "steps_per_second": 1,
+   "channels": [
+    {
+     "voice": "patternScan",
+     "layers": [
+      "svs5453"
+     ],
+     "combine": "value"
+    }
+   ]
+  },
+  {
+   "id": "svs30521",
+   "label": "SVS 30521: California Drought",
+   "view": "global",
+   "map": "svs30521",
+   "start": {
+    "lat": 0.0,
+    "lon": 0.0
+   },
+   "steps_per_second": 1,
+   "channels": [
+    {
+     "voice": "patternScan",
+     "layers": [
+      "svs30521"
+     ],
+     "combine": "value"
+    }
+   ]
+  },
+  {
+   "id": "svs31196",
+   "label": "SVS 31196: 50 years of Landsat: Denver",
+   "view": "global",
+   "map": "svs31196",
+   "start": {
+    "lat": 0.0,
+    "lon": 0.0
+   },
+   "steps_per_second": 1,
+   "channels": [
+    {
+     "voice": "patternScan",
+     "layers": [
+      "svs31196"
+     ],
+     "combine": "value"
+    }
+   ]
+  }
+ ],
+ "validation": [
+  {
+   "id": "a_4170",
+   "title": "SVS 4170: GPM Constellation Covers the Earth",
+   "kind": "none",
+   "pass": null,
+   "threshold": null
+  },
+  {
+   "id": "a_4685",
+   "title": "SVS 4685: Inside Hurricane Maria in 360°",
+   "kind": "none",
+   "pass": null,
+   "threshold": null
+  },
+  {
+   "id": "a_4810",
+   "title": "SVS 4810: Reductions in Pollution Associated with Decreased Fossil Fuel Use Resulting from COVID-19 Mitigation",
+   "kind": "none",
+   "pass": null,
+   "threshold": null
+  },
+  {
+   "id": "a_4889",
+   "title": "SVS 4889: Variability of Water Storage in Global Hydrological Basins",
+   "kind": "none",
+   "pass": null,
+   "threshold": null
+  },
+  {
+   "id": "a_4897",
+   "title": "SVS 4897: Seasonal Global Precipitation Variation from the Global Precipitation Measurement Constellation",
+   "kind": "none",
+   "pass": null,
+   "threshold": null
+  },
+  {
+   "id": "a_4968",
+   "title": "SVS 4968: Iowa Cropland 2001-2020",
+   "kind": "none",
+   "pass": null,
+   "threshold": null
+  },
+  {
+   "id": "a_4983",
+   "title": "SVS 4983: Global Carbon Dioxide 2020-2021 for Hyperwalls",
+   "kind": "none",
+   "pass": null,
+   "threshold": null
+  },
+  {
+   "id": "a_4993",
+   "title": "SVS 4993: Spread of the Dixie Fire - 2021",
+   "kind": "none",
+   "pass": null,
+   "threshold": null
+  },
+  {
+   "id": "a_5041",
+   "title": "SVS 5041: Methane Emissions in the United States",
+   "kind": "none",
+   "pass": null,
+   "threshold": null
+  },
+  {
+   "id": "a_5046",
+   "title": "SVS 5046: Daily Arctic Sea Ice, By Year",
+   "kind": "none",
+   "pass": null,
+   "threshold": null
+  },
+  {
+   "id": "a_5047",
+   "title": "SVS 5047: Net Ecosystem Exchange of Carbon Dioxide",
+   "kind": "none",
+   "pass": null,
+   "threshold": null
+  },
+  {
+   "id": "a_5054",
+   "title": "SVS 5054: Methane Emissions from Wetlands",
+   "kind": "none",
+   "pass": null,
+   "threshold": null
+  },
+  {
+   "id": "a_5058",
+   "title": "SVS 5058: Florida Nighttime Lights Before and After Hurricane Ian",
+   "kind": "none",
+   "pass": null,
+   "threshold": null
+  },
+  {
+   "id": "a_5064",
+   "title": "SVS 5064: Daily Antarctic Sea Ice, By Year",
+   "kind": "none",
+   "pass": null,
+   "threshold": null
+  },
+  {
+   "id": "a_5067",
+   "title": "SVS 5067: Earth Observing Fleet - Now",
+   "kind": "none",
+   "pass": null,
+   "threshold": null
+  },
+  {
+   "id": "a_5072",
+   "title": "SVS 5072: Atlantic Hurricane Wind Speed Plots",
+   "kind": "none",
+   "pass": null,
+   "threshold": null
+  },
+  {
+   "id": "a_5081",
+   "title": "SVS 5081: National Carbon Dioxide (CO₂) budgets inferred from atmospheric observations",
+   "kind": "none",
+   "pass": null,
+   "threshold": null
+  },
+  {
+   "id": "a_5087",
+   "title": "SVS 5087: Water Cycle Extremes: Droughts and Pluvials",
+   "kind": "none",
+   "pass": null,
+   "threshold": null
+  },
+  {
+   "id": "a_5097",
+   "title": "SVS 5097: 2022 Hurricane Season",
+   "kind": "none",
+   "pass": null,
+   "threshold": null
+  },
+  {
+   "id": "a_5098",
+   "title": "SVS 5098: Relative Wetness Root Zone Versus Groundwater Comparison",
+   "kind": "none",
+   "pass": null,
+   "threshold": null
+  },
+  {
+   "id": "a_5099",
+   "title": "SVS 5099: Daily Polar Sea Ice, Two Year History",
+   "kind": "none",
+   "pass": null,
+   "threshold": null
+  },
+  {
+   "id": "a_5107",
+   "title": "SVS 5107: Air Quality Monitoring Stations in Washington D.C.",
+   "kind": "none",
+   "pass": null,
+   "threshold": null
+  },
+  {
+   "id": "a_5110",
+   "title": "SVS 5110: Atmospheric Carbon Dioxide Tagged by Source",
+   "kind": "none",
+   "pass": null,
+   "threshold": null
+  },
+  {
+   "id": "a_5111",
+   "title": "SVS 5111: Increase in Ocean Heat since 1957 Map - Spilhaus Projection",
+   "kind": "none",
+   "pass": null,
+   "threshold": null
+  },
+  {
+   "id": "a_5115",
+   "title": "SVS 5115: Global Atmospheric Carbon Dioxide (CO₂)",
+   "kind": "none",
+   "pass": null,
+   "threshold": null
+  },
+  {
+   "id": "a_5116",
+   "title": "SVS 5116: Global Atmospheric Methane (CH₄)",
+   "kind": "none",
+   "pass": null,
+   "threshold": null
+  },
+  {
+   "id": "a_5117",
+   "title": "SVS 5117: Trends in atmospheric Nitrous Oxide (N₂O)",
+   "kind": "none",
+   "pass": null,
+   "threshold": null
+  },
+  {
+   "id": "a_5118",
+   "title": "SVS 5118: Trends in atmospheric Methane (CH₄)",
+   "kind": "none",
+   "pass": null,
+   "threshold": null
+  },
+  {
+   "id": "a_5119",
+   "title": "SVS 5119: OCO-2 and Keeling Curve: Trends in global atmospheric Carbon Dioxide (CO₂)",
+   "kind": "none",
+   "pass": null,
+   "threshold": null
+  },
+  {
+   "id": "a_5120",
+   "title": "SVS 5120: NOAA GOES-East and NOAA GOES-West True Color Imagery Over Past 5 Days",
+   "kind": "none",
+   "pass": null,
+   "threshold": null
+  },
+  {
+   "id": "a_5121",
+   "title": "SVS 5121: ODIAC: a map of human made carbon dioxide emissions",
+   "kind": "none",
+   "pass": null,
+   "threshold": null
+  },
+  {
+   "id": "a_5126",
+   "title": "SVS 5126: NOAA Annual Greenhouse Gas Index",
+   "kind": "none",
+   "pass": null,
+   "threshold": null
+  },
+  {
+   "id": "a_5175",
+   "title": "SVS 5175: TEMPO - Nitrogen Dioxide Air Pollution Over North America - Additional Views",
+   "kind": "none",
+   "pass": null,
+   "threshold": null
+  },
+  {
+   "id": "a_5190",
+   "title": "SVS 5190: NASA Climate Spiral 1880-Present",
+   "kind": "none",
+   "pass": null,
+   "threshold": null
+  },
+  {
+   "id": "a_5191",
+   "title": "SVS 5191: Global Temperature Graph 1880-2024",
+   "kind": "none",
+   "pass": null,
+   "threshold": null
+  },
+  {
+   "id": "a_5207",
+   "title": "SVS 5207: Global Temperature Anomalies from 1880 to 2023",
+   "kind": "none",
+   "pass": null,
+   "threshold": null
+  },
+  {
+   "id": "a_5209",
+   "title": "SVS 5209: Zonal Climate Anomalies 1880-2023",
+   "kind": "none",
+   "pass": null,
+   "threshold": null
+  },
+  {
+   "id": "a_5235",
+   "title": "SVS 5235: Sea Level Through a Porthole (2023)",
+   "kind": "none",
+   "pass": null,
+   "threshold": null
+  },
+  {
+   "id": "a_5382",
+   "title": "SVS 5382: Arctic Sea Ice Minimum 2024",
+   "kind": "none",
+   "pass": null,
+   "threshold": null
+  },
+  {
+   "id": "a_5453",
+   "title": "SVS 5453: Annual Wildfire Burned Area in the United States",
+   "kind": "none",
+   "pass": null,
+   "threshold": null
+  },
+  {
+   "id": "a_30521",
+   "title": "SVS 30521: California Drought",
+   "kind": "none",
+   "pass": null,
+   "threshold": null
+  },
+  {
+   "id": "a_31196",
+   "title": "SVS 31196: 50 years of Landsat: Denver",
+   "kind": "none",
+   "pass": null,
+   "threshold": null
+  }
+ ],
+ "size": {
+  "choice": {
+   "width": 256
+  },
+  "tried": [],
+  "bytes": 1293618,
+  "budget": 25000000
+ },
+ "asset_checksums": {
+  "file": "checksums.tsv.gz",
+  "rows": 42,
+  "sha256_of_list": "e0313b3acc599855b22bed432b01e9af39c44ce4c0a01f208694688a29768fed"
+ },
+ "code_commit": "64330f5e33e51a0a2887fd910ea1019c5179b59c-dirty",
+ "generated_utc": "2026-10-29T13:25:05Z"
+}

@@ -1,0 +1,350 @@
+{
+ "record": "eic_5154",
+ "app_title": "Nitrogen oxides (GEOS-CF) (EIC, model)",
+ "svs_ids": [
+  5154
+ ],
+ "title": "Nitrogen Oxides (NOx)",
+ "svs_pages": [
+  "https://svs.gsfc.nasa.gov/5154/"
+ ],
+ "description": "Near surface concentration of Nitrogen Oxides (NOx) estimated from concentrations of nitrogen oxide and nitrogen dioxide produced by  NASA’s GEOS-CF model.",
+ "release_date": "2023-09-26T17:00:00-04:00",
+ "period": {
+  "start": "2026-10-28T22:00:00Z",
+  "end": "2026-10-28T22:00:00Z",
+  "label": "28 Oct 2026 – 28 Oct 2026"
+ },
+ "badge": "model",
+ "credits_by_role": {
+  "Visualizer": [
+   "Joseph V. Ardizzone (NASA/GSFC)"
+  ]
+ },
+ "datasets": [
+  {
+   "name": "GEOS-CF",
+   "common_name": "",
+   "platform": null,
+   "sensor": null,
+   "type": "Other",
+   "organizations": [
+    "NASA GMAO"
+   ],
+   "description": "Knowland, K.E., C.A. Keller, and R. Lucchesi, 2022: File Specification for GEOS-CF Products. GMAO Office Note No. 17 (Version 1.3), 54 pp, available from [https://gmao.gsfc.nasa.gov/pubs/docs/Knowland1446.pdf](https://gmao.gsfc.nasa.gov/pubs/docs/Knowland1446.pdf)",
+   "credit": "",
+   "url": "https://portal.nccs.nasa.gov/datashare/gmao/geos-cf/v2/",
+   "date_range": null
+  }
+ ],
+ "credit_line": "Visualization: NASA's Scientific Visualization Studio (SVS 5154) for the NASA Earth Information Center.",
+ "disclosure": "One frame of a rolling EIC layer, read back through its key.",
+ "licence": "SVS: \"All of our content is in the public domain (unless otherwise noted), meaning that it is free to download, use, and redistribute for whatever purposes you see fit.\" (https://svs.gsfc.nasa.gov/help/, read 29 Oct 2026)",
+ "frame_times": {
+  "method": "ocr",
+  "approximate": false,
+  "count": 1,
+  "source": "date box OCR: 28 Oct 2026 18 : 00 : 00 EDT"
+ },
+ "georef": {
+  "projection": "equirectangular",
+  "bounds": [
+   -180,
+   -90,
+   180,
+   90
+  ],
+  "pass_at": 0.9,
+  "shifts_deg": [
+   1.0
+  ],
+  "iou": {},
+  "pass": true,
+  "best_is_assumed": true
+ },
+ "colorbar": {
+  "geometry": {
+   "x0": 73,
+   "x1": 463,
+   "band": [
+    41,
+    76
+   ],
+   "vertical": false,
+   "outline_rgb": [
+    255.0,
+    255.0,
+    255.0
+   ],
+   "image_size": [
+    125,
+    528
+   ]
+  },
+  "ticks": [
+   {
+    "px": -4.0,
+    "value": 0.001,
+    "text": "10^-3",
+    "engine": "glyph",
+    "label_px": -4.0
+   },
+   {
+    "px": 103.50677966101695,
+    "value": 0.01,
+    "text": "10^-2",
+    "engine": "glyph",
+    "label_px": 104.0,
+    "tick_mark": true
+   },
+   {
+    "px": 207.5,
+    "value": 0.1,
+    "text": "10^-1",
+    "engine": "glyph",
+    "label_px": 207.0,
+    "tick_mark": true
+   },
+   {
+    "px": 285.5025,
+    "value": 1.0,
+    "text": "10^0",
+    "engine": "glyph",
+    "label_px": 286.0,
+    "tick_mark": true
+   },
+   {
+    "px": 365.5,
+    "value": 10.0,
+    "text": "10^1",
+    "engine": "glyph",
+    "label_px": 367.0,
+    "tick_mark": true
+   }
+  ],
+  "scale": "piecewise",
+  "fit": {
+   "segments": 4,
+   "segment_interp": "log",
+   "rejected": {
+    "linear": {
+     "a": -4.705656209167702,
+     "b": 0.031566834746859604,
+     "fit": "weighted 1/tolerance",
+     "max_resid_px": 153.10130353300437,
+     "resid_px": [
+      153.1,
+      45.88,
+      -55.26,
+      -104.75,
+      100.36
+     ],
+     "ok": false
+    },
+    "log": {
+     "a": -3.2257003236964703,
+     "b": 0.01135872979364054,
+     "fit": "weighted 1/tolerance",
+     "max_resid_px": 23.870208007134206,
+     "resid_px": [
+      23.87,
+      4.4,
+      -11.55,
+      -1.52,
+      6.52
+     ],
+     "ok": false
+    }
+   }
+  },
+  "notes": [
+   "1 label(s) not on a tick mark (10^-3): label-centre position, ±5 px."
+  ],
+  "n_samples": 391,
+  "value_range": [
+   0.001089449128508998,
+   20.242286651103317
+  ],
+  "opacity_varies": false
+ },
+ "colorbar_file": "NOx_colorbar.png",
+ "decode": {
+  "mode": "exact",
+  "exact_share": 0.7404273688541126,
+  "decoded_share": 0.7140097618103027,
+  "base_map_share": null,
+  "matcher": "rgb-nearest",
+  "max_dist": 12.0
+ },
+ "frame": "00000201.png",
+ "frame_set": "https://svs.gsfc.nasa.gov/vis/a000000/a005100/a005154/frames/2048x1024_2x1_12p/MC04_stage4_GMAO_NO2_2048x1024_en-hwtool/",
+ "layers": [
+  {
+   "id": "value",
+   "unit": "ppbv",
+   "encoding": "linear",
+   "scale": 0.0010918293132487786,
+   "offset": 0.001124383183196187,
+   "nodata": 65535,
+   "below": 65534,
+   "grid": {
+    "width": 720,
+    "height": 360,
+    "bounds": [
+     -180,
+     -90,
+     180,
+     90
+    ],
+    "row0": "north",
+    "col0": "west",
+    "byte_order": "little"
+   },
+   "times": [
+    "2026-10-28T22:00:00Z"
+   ],
+   "chunks": [
+    {
+     "file": "value_000.u16.gz",
+     "t0": 0,
+     "t1": 1,
+     "bytes": 196858
+    }
+   ],
+   "quantisation_step": 0.0010918293132487786,
+   "coverage": 0.732133487654321,
+   "value_range": [
+    0.001124383183196187,
+    19.66795539855957
+   ],
+   "label": "Nitrogen oxides (GEOS-CF) (model)",
+   "aggregation": "mean of decoded pixels per 0.5° cell",
+   "display": {
+    "colours": [
+     "#f9fef9",
+     "#e8fae8",
+     "#cef6ce",
+     "#b7f2b7",
+     "#abefab",
+     "#9eed9e",
+     "#92ea92",
+     "#85e585",
+     "#7ae27a",
+     "#6ede6e",
+     "#63d963",
+     "#59d559",
+     "#4ecf4e",
+     "#46c946",
+     "#3dc33d",
+     "#35bd35",
+     "#2fb72f",
+     "#29b029",
+     "#23a822",
+     "#1ea01d",
+     "#1a9719",
+     "#169016",
+     "#128712",
+     "#0f7d0f",
+     "#0c740c",
+     "#096a08",
+     "#086107",
+     "#055604",
+     "#034b02",
+     "#023f01",
+     "#013501",
+     "#002a00"
+    ],
+    "values": [
+     0.001089449128508998,
+     0.0014263589546366236,
+     0.00186745742800902,
+     0.0024449646662151087,
+     0.003201064789687663,
+     0.004190987268392948,
+     0.005487041168431198,
+     0.007183896980818963,
+     0.00940550184458981,
+     0.012401044705813278,
+     0.016384526734936317,
+     0.02164758878758008,
+     0.02860125946249887,
+     0.03778859857641568,
+     0.04992710842827777,
+     0.06596476847291016,
+     0.08715406953590205,
+     0.12069143632630942,
+     0.17496920114168907,
+     0.2536569476676888,
+     0.36773241622098335,
+     0.5331102939742112,
+     0.7728624755520054,
+     1.1172638286556875,
+     1.6047918781649098,
+     2.305057146012479,
+     3.310889417298756,
+     4.755625582881566,
+     6.83078527672761,
+     9.811459435476907,
+     14.092777382709041,
+     20.242286651103317
+    ],
+    "scale": "log"
+   },
+   "time_labels": [
+    "28 Oct 2026 22:00 UTC"
+   ],
+   "status": "pattern only",
+   "statement": "pattern only (values not verified)",
+   "status_check": "a_same_model"
+  }
+ ],
+ "voices": {
+  "value": "eic5154"
+ },
+ "play": [
+  {
+   "id": "value",
+   "label": "Nitrogen oxides (GEOS-CF): higher pitch = higher value",
+   "view": "global",
+   "map": "value",
+   "start": {
+    "lat": 23.81,
+    "lon": 90.41
+   },
+   "steps_per_second": 1,
+   "channels": [
+    {
+     "voice": "eic5154",
+     "layers": [
+      "value"
+     ],
+     "combine": "value"
+    }
+   ]
+  }
+ ],
+ "validation": [
+  {
+   "id": "a_same_model",
+   "title": "Nitrogen oxides (GEOS-CF): frame vs GEOS-CF v2 analysis chm_tavg_1hr_glo_L1440x721_slv no/no2 at 2026-10-28 22:30:00 UTC",
+   "kind": "value",
+   "pass": false,
+   "threshold": "Spearman ≥ 0.9 and median relative error ≤ 15 % (provisional)"
+  }
+ ],
+ "size": {
+  "choice": {
+   "cell_deg": 0.5
+  },
+  "tried": [],
+  "bytes": 205765,
+  "budget": 25000000
+ },
+ "asset_checksums": {
+  "file": "checksums.tsv.gz",
+  "rows": 3,
+  "sha256_of_list": "fb355769f261a22ed4889f20d39b7df38c18c12408e72cd09c1f52f888f7c471"
+ },
+ "code_commit": "0220d44fae471638787a046ba95322810b8907ac-dirty",
+ "generated_utc": "2026-11-06T14:11:51Z"
+}

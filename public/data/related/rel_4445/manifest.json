@@ -1,0 +1,329 @@
+{
+ "record": "rel_4445",
+ "app_title": "El Niño - Atmospheric River in January 2016 (observation)",
+ "svs_ids": [
+  4445
+ ],
+ "title": "El Niño - Atmospheric River in January 2016",
+ "svs_pages": [
+  "https://svs.gsfc.nasa.gov/4445/"
+ ],
+ "description": "The atmospheric river in Jan 2016. || ElNinoAtmosphericRiver_1080p30.00405_print.jpg (1024x576) [91.9 KB] || ElNinoAtmosphericRiver_1080p30.00405_ipad_poster_frame.jpg (1024x576) [91.9 KB] || ElNinoAtmosphericRiver_1080p30.00405_searchweb.png (320x180) [52.7 KB] || ElNinoAtmosphericRiver_1080p30.00405_web.png (320x180) [52.7 KB] || ElNinoAtmosphericRiver_1080p30.00405_thm.png (80x40) [4.2 KB] || ElNinoAtmosphericRiver_1080p30.mp4 (1920x1080) [50.9 MB] || 1920x1080_16x9_30p (1920x1080) [64.0 KB] || ElNinoAtmosphericRiver_1080p30.webm (1920x1080) [2.4 MB] || ElNinoAtmosphericRiver_1080p30.mp4.hwshow [232 bytes] || ",
+ "release_date": "2016-04-18T00:00:00-04:00",
+ "period": {
+  "start": "2016-04-18T04:00:00Z",
+  "end": "2016-04-18T04:00:00Z",
+  "label": "undated (no frame dates found; SVS release 18 Apr 2016)"
+ },
+ "badge": "observation",
+ "credits_by_role": {
+  "Visualizer": [
+   "Cheng Zhang (USRA)",
+   "Horace Mitchell (NASA/GSFC)",
+   "Alex Kekesi (Global Science and Technology, Inc.)"
+  ],
+  "Producer": [
+   "Kayvon Sharghi (USRA)"
+  ],
+  "Technical support": [
+   "Laurence Schuler (ADNET Systems, Inc.)",
+   "Ian Jones (ADNET Systems, Inc.)"
+  ]
+ },
+ "datasets": [
+  {
+   "name": "",
+   "common_name": "IMERG",
+   "platform": null,
+   "sensor": null,
+   "type": "Data Compilation",
+   "organizations": [
+    "NASA/GSFC"
+   ],
+   "description": "",
+   "credit": "",
+   "url": "http://pmm.nasa.gov/sites/default/files/document_files/IMERG_ATBD_V4.4.pdf",
+   "date_range": null
+  },
+  {
+   "name": "",
+   "common_name": "GOES-West",
+   "platform": "GOES-15/P",
+   "sensor": "Imager",
+   "type": "Other",
+   "organizations": [],
+   "description": "",
+   "credit": "",
+   "url": "",
+   "date_range": null
+  }
+ ],
+ "credit_line": "Visualization: NASA's Scientific Visualization Studio (SVS 4445) for the NASA Earth Information Center.",
+ "disclosure": "A related NASA visualization read back through its key (relative).",
+ "licence": "SVS: \"All of our content is in the public domain (unless otherwise noted), meaning that it is free to download, use, and redistribute for whatever purposes you see fit.\" (https://svs.gsfc.nasa.gov/help/, read 29 Oct 2026)",
+ "focus": "water resources",
+ "related_to": [
+  4960
+ ],
+ "frame_times": {
+  "method": "linear",
+  "approximate": true,
+  "count": 4,
+  "source": "undated"
+ },
+ "georef": {
+  "projection": "none (not a flat 2:1 map)",
+  "bounds": [
+   -180,
+   -101.25,
+   180,
+   101.25
+  ],
+  "pass_at": 0.9,
+  "shifts_deg": [],
+  "iou": {},
+  "pass": false,
+  "best_is_assumed": false
+ },
+ "colorbar": {
+  "geometry": {
+   "x0": 23,
+   "x1": 416,
+   "band": [
+    29,
+    44
+   ],
+   "vertical": false,
+   "outline_rgb": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "image_size": [
+    90,
+    440
+   ]
+  },
+  "ticks": [],
+  "scale": "stated-range",
+  "fit": {
+   "a": 0.0,
+   "b": 0.002544529262086514
+  },
+  "notes": [
+   "OCR read []: too few increasing labels; the SVS text's range 0.0–1.0 is used, linear between the strip ends."
+  ],
+  "n_samples": 394,
+  "value_range": [
+   0.0,
+   1.0
+  ],
+  "opacity_varies": false
+ },
+ "colorbar_source": "page colorbar rainbarblack3.png (word labels: relative 0–1)",
+ "asset": {
+  "kind": "frames",
+  "owner": 4445,
+  "what": "1920x1080_16x9_30p"
+ },
+ "twins": [],
+ "decode": {
+  "mode": "chroma",
+  "decoded_share": 0.004671706211419753
+ },
+ "layers": [
+  {
+   "id": "value",
+   "unit": "relative (0–1)",
+   "encoding": "linear",
+   "scale": 0.0002538071065989848,
+   "offset": 0.14153942465782166,
+   "nodata": 65535,
+   "below": 65534,
+   "grid": {
+    "width": 160,
+    "height": 90,
+    "bounds": [
+     -180,
+     -101.25,
+     180,
+     101.25
+    ],
+    "row0": "north",
+    "col0": "west",
+    "byte_order": "little",
+    "space": "frame"
+   },
+   "times": [
+    "2016-04-18T04:00:00Z",
+    "2016-04-18T04:00:00Z",
+    "2016-04-18T04:00:00Z",
+    "2016-04-18T04:00:00Z"
+   ],
+   "chunks": [
+    {
+     "file": "value_000.u16.gz",
+     "t0": 0,
+     "t1": 4,
+     "bytes": 579
+    }
+   ],
+   "quantisation_step": 0.0002538071065989848,
+   "coverage": 0.0020833333333333333,
+   "value_range": [
+    0.14153942465782166,
+    0.7760813236236572
+   ],
+   "label": "El Niño - Atmospheric River in January 2016 (relative)",
+   "aggregation": "mean of decoded pixels per cell",
+   "time_labels": [
+    "undated",
+    "undated",
+    "undated",
+    "undated"
+   ],
+   "display": {
+    "colours": [
+     "#000000",
+     "#3a3d48",
+     "#008114",
+     "#008114",
+     "#008114",
+     "#008b52",
+     "#008b52",
+     "#00a939",
+     "#00b330",
+     "#00b330",
+     "#60d300",
+     "#60d300",
+     "#60d300",
+     "#b4e700",
+     "#b4e700",
+     "#b4e700",
+     "#fffb00",
+     "#fffb00",
+     "#fffb00",
+     "#ffc400",
+     "#ffc400",
+     "#ffc400",
+     "#ff9300",
+     "#ff9300",
+     "#ff6d00",
+     "#ff0000",
+     "#ff0000",
+     "#c80000",
+     "#c80000",
+     "#c80000",
+     "#910000",
+     "#000000"
+    ],
+    "values": [
+     0.0,
+     0.03225806451612904,
+     0.06451612903225808,
+     0.09677419354838711,
+     0.12903225806451615,
+     0.16129032258064518,
+     0.19354838709677422,
+     0.22580645161290328,
+     0.2580645161290323,
+     0.2903225806451613,
+     0.32258064516129037,
+     0.35483870967741943,
+     0.38709677419354843,
+     0.4193548387096775,
+     0.45161290322580655,
+     0.4838709677419355,
+     0.5161290322580646,
+     0.5483870967741936,
+     0.5806451612903226,
+     0.6129032258064516,
+     0.6451612903225807,
+     0.6774193548387097,
+     0.7096774193548389,
+     0.7419354838709677,
+     0.7741935483870969,
+     0.8064516129032259,
+     0.838709677419355,
+     0.870967741935484,
+     0.9032258064516131,
+     0.935483870967742,
+     0.967741935483871,
+     1.0
+    ],
+    "scale": "linear"
+   },
+   "status": "relative",
+   "status_check": "a_no_validation_source",
+   "statement": "relative"
+  }
+ ],
+ "voices": {
+  "value": "rel4445"
+ },
+ "play": [
+  {
+   "id": "value",
+   "label": "El Niño - Atmospheric River in January 2016: higher pitch = higher value",
+   "view": "global",
+   "map": "value",
+   "start": {
+    "lat": -41.625,
+    "lon": 25.875
+   },
+   "steps_per_second": 1,
+   "channels": [
+    {
+     "voice": "rel4445",
+     "layers": [
+      "value"
+     ],
+     "combine": "value"
+    }
+   ]
+  }
+ ],
+ "validation": [
+  {
+   "id": "a_no_validation_source",
+   "title": "El Niño - Atmospheric River in January 2016: no validation source",
+   "kind": "none",
+   "pass": null,
+   "threshold": null
+  }
+ ],
+ "size": {
+  "choice": {
+   "frames": 4
+  },
+  "tried": [],
+  "bytes": 8959,
+  "budget": 25000000
+ },
+ "onboarding": {
+  "timings_s": {
+   "api": 25.1,
+   "twins": 1.0,
+   "asset choice": 0.0,
+   "frames": 36.0,
+   "frame times": 2.9,
+   "georef": 0.0,
+   "colorbar": 11.6,
+   "inversion": 26.3,
+   "validation": 0.0
+  },
+  "status": "relative"
+ },
+ "asset_checksums": {
+  "file": "checksums.tsv.gz",
+  "rows": 7,
+  "sha256_of_list": "81a87d5c70b12acffc8d5e432c9dde571b9d35a66105b8eb277a0bd4487bf7de"
+ },
+ "code_commit": "dc9dd8e7cc40c87e26c3db4101ce1e122fde8be2-dirty",
+ "generated_utc": "2026-11-06T20:02:44Z",
+ "playable": {
+  "moved_starts": [
+   "value"
+  ]
+ }
+}

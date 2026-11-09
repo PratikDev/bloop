@@ -1,0 +1,303 @@
+{
+ "id": 40476,
+ "url": "http://svs.gsfc.nasa.gov/gallery/main-dashboard/",
+ "page_type": "Gallery",
+ "title": "Main Dashboard",
+ "description": "This gallery consists of content used in the Main Dashboard at the hyperwall display at the Earth Information Center (EIC), NASA HQ. \n\n\n\n\n\n\n\n",
+ "release_date": "2023-06-07T00:00:00-04:00",
+ "update_date": "2023-10-25T00:00:00-04:00",
+ "main_image": {
+  "id": 369286,
+  "url": "http://svs.gsfc.nasa.gov/vis/a000000/a005000/a005028/Arctic_Spira_mi.01000_searchweb.png",
+  "filename": "Arctic_Spira_mi.01000_searchweb.png",
+  "media_type": "Image",
+  "alt_text": "A data visualization of the Arctic sea ice extent from October 1978 to September 2022. This version is in units of square miles, see below for  version in square kilometers.",
+  "width": 180,
+  "height": 320,
+  "pixels": 57600
+ },
+ "media_groups": [
+  {
+   "id": 371622,
+   "url": "http://svs.gsfc.nasa.gov/gallery/main-dashboard/#media_group_371622",
+   "widget": "Basic text (large)",
+   "title": "Overview",
+   "caption": "",
+   "description": "This gallery consists of content used in the Main Dashboard at the hyperwall display at the Earth Information Center (EIC), NASA HQ. \n<br><br>\n<img src=\"/images/gallery/MainDashboard/Hyperwall_D001_Stage01.png\" class=\"w-100\">\n<br><br>\n<img src=\"/images/gallery/MainDashboard/Hyperwall_D001_Stage02.png\" class=\"w-100\">\n<br><br>\n<img src=\"/images/gallery/MainDashboard/Hyperwall_D001_Stage03.png\" class=\"w-100\">\n<br><br>\n<img src=\"/images/gallery/MainDashboard/Hyperwall_D001_Stage04.png\" class=\"w-100\">",
+   "items": [],
+   "extra_data": {}
+  },
+  {
+   "id": 371623,
+   "url": "http://svs.gsfc.nasa.gov/gallery/main-dashboard/#media_group_371623",
+   "widget": "Card gallery",
+   "title": "Visualizations",
+   "caption": "",
+   "description": "List of data-driven visualizations displayed on the Main Dashboard.",
+   "items": [
+    {
+     "id": 412552,
+     "type": "media_group",
+     "extra_data": null,
+     "title": "Arctic Sea Ice Spiral",
+     "caption": "<show group=33425 /><show group=33429 />\nThis data visualization shows the Arctic sea ice extent from October 1978 to September 2022. The amount of Arctic sea ice varies seasonally, typically reaching a maximum in March and a minimum in September. Recently, the Arctic sea ice minimum has been decreasing at a rate of 13% per decade. Please see <a href=\"https://climate.nasa.gov/vital-signs/arctic-sea-ice/\">Global Climate Change Vital Signs: Arctic Sea Ice Minimum Extent</a> for more information.",
+     "instance": {
+      "id": 369286,
+      "url": "http://svs.gsfc.nasa.gov/vis/a000000/a005000/a005028/Arctic_Spira_mi.01000_searchweb.png",
+      "filename": "Arctic_Spira_mi.01000_searchweb.png",
+      "media_type": "Image",
+      "alt_text": "A data visualization of the Arctic sea ice extent from October 1978 to September 2022. This version is in units of square miles, see below for  version in square kilometers.",
+      "width": 180,
+      "height": 320,
+      "pixels": 57600
+     }
+    },
+    {
+     "id": 412553,
+     "type": "details_page",
+     "extra_data": null,
+     "instance": {
+      "id": 5057,
+      "url": "http://svs.gsfc.nasa.gov/5057/",
+      "page_type": "Visualization",
+      "title": "NASA Climate Spiral 1880-2022",
+      "description": "The NASA climate spiral 1880-2022. This version is in Celsius; see below for an alternate version in Fahrenheit. Both a 30 fps, 60 second duration video and 60 fps, 30 second duration video are available. || GISTEMP_Spiral_60sec_C.01400_print.jpg (1024x1024) [283.8 KB] || GISTEMP_Spiral_60sec_C.01400_searchweb.png (180x320) [92.9 KB] || GISTEMP_Spiral_60sec_C.01400_thm.png (80x40) [6.6 KB] || GISTEMP_Spiral_30sec_C.mp4 (2160x2160) [20.3 MB] || GISTEMP_Spiral_60sec_C.mp4 (2160x2160) [38.3 MB] || GISTEMP_Spiral_60sec_C.webm (2160x2160) [8.2 MB] || C (2160x2160) [0 Item(s)] || ",
+      "release_date": "2023-01-12T11:00:00-05:00",
+      "update_date": "2025-03-16T22:57:07.091270-04:00",
+      "main_image": {
+       "id": 551996,
+       "url": "http://svs.gsfc.nasa.gov/vis/a000000/a005000/a005057/GISTEMP_Spiral_60sec_C.01400_print.jpg",
+       "filename": "GISTEMP_Spiral_60sec_C.01400_print.jpg",
+       "media_type": "Image",
+       "alt_text": "The NASA climate spiral 1880-2022. This version is in Celsius; see below for an alternate version in Fahrenheit. Both a 30 fps, 60 second duration video and 60 fps, 30 second duration video are available.",
+       "width": 1024,
+       "height": 1024,
+       "pixels": 1048576
+      }
+     }
+    },
+    {
+     "id": 412554,
+     "type": "details_page",
+     "extra_data": null,
+     "instance": {
+      "id": 5101,
+      "url": "http://svs.gsfc.nasa.gov/5101/",
+      "page_type": "Visualization",
+      "title": "Sea Surface Temperature (SST) - Near Real Time",
+      "description": "An equirectangular view of sea surface temperature (SST) data for the past two and half years, updated daily to include the latest available data. || sst_mur_print.jpg (1024x512) [142.4 KB] || sst_mur_searchweb.png (320x180) [78.8 KB] || sst_mur_thm.png (80x40) [6.5 KB] || sst_mur (4096x2048) [0 Item(s)] || sst_30_sec_4096x2048_2x1_30p.mp4 (4096x2048) [78.0 MB] || slide-01.hwshow [504 bytes] ||",
+      "release_date": "2023-05-08T00:00:00-04:00",
+      "update_date": "2026-10-26T14:29:47.801071-04:00",
+      "main_image": {
+       "id": 855015,
+       "url": "http://svs.gsfc.nasa.gov/vis/a000000/a005100/a005101/sst_mur_print.jpg",
+       "filename": "sst_mur_print.jpg",
+       "media_type": "Image",
+       "alt_text": "An equirectangular view of sea surface temperature (SST) data for the past two and half years, updated daily to include the latest available data.  ",
+       "width": 1024,
+       "height": 512,
+       "pixels": 524288
+      }
+     }
+    },
+    {
+     "id": 412555,
+     "type": "details_page",
+     "extra_data": null,
+     "instance": {
+      "id": 5087,
+      "url": "http://svs.gsfc.nasa.gov/5087/",
+      "page_type": "Visualization",
+      "title": "Water Cycle Extremes: Droughts and Pluvials",
+      "description": "This visualization shows extremes of the water cycle — droughts and pluvials — over a twenty-year period (2002-2021) based on observations from the GRACE and GRACE-FO satellites. Dry events are shown as red spheres and wet events as blue spheres, with earlier years being shown as lighter shades and later years as darker shades. The volume of the sphere is proportional to the intensity of the event, a quantity measured in cubic kilometer months.",
+      "release_date": "2023-03-13T12:00:00-04:00",
+      "update_date": "2024-10-16T16:01:25.175630-04:00",
+      "main_image": {
+       "id": 765278,
+       "url": "http://svs.gsfc.nasa.gov/vis/a000000/a005000/a005087/WaterExtremes.00899_print.jpg",
+       "filename": "WaterExtremes.00899_print.jpg",
+       "media_type": "Image",
+       "alt_text": "This visualization shows extremes of the water cycle — droughts and pluvials — over a twenty-year period (2002-2021) based on observations from the GRACE and GRACE-FO satellites. Dry events are shown as red spheres and wet events as blue spheres, with earlier years being shown as lighter shades and later years as darker shades. The volume of the sphere is proportional to the intensity of the event, a quantity measured in cubic kilometer months. A total of 1,056 extreme wet and dry events appear over the course of the visualization. The plots at the bottom of the figure show that the total intensity of extreme events increased as global temperatures increased. The most intense event was a 2019 pluvial (excessive, persistent rain) in central Africa.",
+       "width": 1024,
+       "height": 576,
+       "pixels": 589824
+      }
+     }
+    },
+    {
+     "id": 412556,
+     "type": "details_page",
+     "extra_data": null,
+     "instance": {
+      "id": 5075,
+      "url": "http://svs.gsfc.nasa.gov/5075/",
+      "page_type": "Visualization",
+      "title": "Near Real-Time Global Biosphere",
+      "description": "The latest 2.5 years of Biosphere data with date annotations. || nrtbio_print.jpg (1024x512) [205.4 KB] || nrtbio_searchweb.png (320x160) [88.7 KB] || nrtbio_thm.png (80x40) [7.2 KB] || Plate_Carree_with_Dates (4096x2048) [0 Item(s)] || nrtbio_annot_plate_2048p30.mp4 (4096x2048) [113.2 MB] || slide-01.hwshow ||",
+      "release_date": "2023-02-13T00:00:00-05:00",
+      "update_date": "9999-12-30T18:59:59-05:00",
+      "main_image": {
+       "id": 855212,
+       "url": "http://svs.gsfc.nasa.gov/vis/a000000/a005000/a005075/nrtbio_print.jpg",
+       "filename": "nrtbio_print.jpg",
+       "media_type": "Image",
+       "alt_text": "The latest 2.5 years of Biosphere data with date annotations.",
+       "width": 1024,
+       "height": 512,
+       "pixels": 524288
+      }
+     }
+    },
+    {
+     "id": 412557,
+     "type": "media_group",
+     "extra_data": null,
+     "title": "Earth Observing Fleet - Now",
+     "caption": "<show group=33964 /><show group=34218 />\nThese visualizations show the current orbits of NASA's fleet of Earth observing spacecraft.  Satellite orbits are generated using today's two-line element sets (TLEs).  The still image at the top of the page is updated every 10 minutes.  The video is updated once per day.  \n\n<b>Spacecraft included:</b>\n• Aqua\n• Aura\n• CALIPSO: Cloud-Aerosol Lidar and Infrared Pathfinder Satellite Observation\n• CYGNSS-1: Cyclone Global Navigation Satellite System 1\n• CYGNSS-2: Cyclone Global Navigation Satellite System 2\n• CYGNSS-3: Cyclone Global Navigation Satellite System 3\n• CYGNSS-4: Cyclone Global Navigation Satellite System 4\n• CYNGSS-5: Cyclone Global Navigation Satellite System 5\n• CYGNSS-7: Cyclone Global Navigation Satellite System 7\n• CYGNSS-8: Cyclone Global Navigation Satellite System 8\n• Cloudsat\n• GPM: Global Precipitation Measurement\n• GRACE-FO-1: Gravity Recovery and Climate Experiment Follow On-1\n• GRACE-FO-2: Gravity Recovery and Climate Experiment Follow On-2\n• ICESat-2\n• ISS: International Space Station\n• Landsat 8\n• Landsat 9\n• OCO-2: Orbiting Carbon Observatory-2\n• SMAP: Soil Moisture Passive Active\n• Suomi NPP: Suomi National Polar-orbiting Partnership\n• Sentinel-6 Michael Freilich\n• SWOT\n• Terra\n\nThe clouds used in this version are from a high resolution GEOS model run at 10 minute time steps interpolated down to the per-frame level. The timeframe for this model does not match the date in this fleet visualization, so the clouds shown do not represent actual conditions for today.",
+     "instance": {
+      "id": 552410,
+      "url": "http://svs.gsfc.nasa.gov/vis/a000000/a005000/a005067/fleet_now_searchweb.png",
+      "filename": "fleet_now_searchweb.png",
+      "media_type": "Image",
+      "alt_text": "\nThese visualizations show the current orbits of NASA's fleet of Earth observing spacecraft.  Satellite orbits are generated using today's two-line element sets (TLEs).  The still image at the top of the page is updated every 10 minutes.  The video is updated once per day.  \n\nSpacecraft included:\n• Aqua\n• Aura\n• CALIPSO: Cloud-Aerosol Lidar and Infrared Pathfinder Satellite Observation\n• CYGNSS-1: Cyclone Global Navigation Satellite System 1\n• CYGNSS-2: Cyclone Global Navigation Satellite System 2\n• CYGNSS-3: Cyclone Global Navigation Satellite System 3\n• CYGNSS-4: Cyclone Global Navigation Satellite System 4\n• CYNGSS-5: Cyclone Global Navigation Satellite System 5\n• CYGNSS-7: Cyclone Global Navigation Satellite System 7\n• CYGNSS-8: Cyclone Global Navigation Satellite System 8\n• Cloudsat\n• GPM: Global Precipitation Measurement\n• GRACE-FO-1: Gravity Recovery and Climate Experiment Follow On-1\n• GRACE-FO-2: Gravity Recovery and Climate Experiment Follow On-2\n• ICESat-2\n• ISS: International Space Station\n• Landsat 8\n• Landsat 9\n• OCO-2: Orbiting Carbon Observatory-2\n• SMAP: Soil Moisture Passive Active\n• Suomi NPP: Suomi National Polar-orbiting Partnership\n• Sentinel-6 Michael Freilich\n• SWOT\n• Terra\n\nThe clouds used in this version are from a high resolution GEOS model run at 10 minute time steps interpolated down to the per-frame level. The timeframe for this model does not match the date in this fleet visualization, so the clouds shown do not represent actual conditions for today.",
+      "width": 180,
+      "height": 320,
+      "pixels": 57600
+     }
+    },
+    {
+     "id": 412558,
+     "type": "details_page",
+     "extra_data": null,
+     "instance": {
+      "id": 5113,
+      "url": "http://svs.gsfc.nasa.gov/5113/",
+      "page_type": "Visualization",
+      "title": "Active Fires As Observed by VIIRS, 2024-Present",
+      "description": "This animated visualization uses a moving five-day window of VIIRS measurments of fire radiative power (FRP), to present a view of fire intensities around the globe. || fires_frp_VIIRS.892_print.jpg (1024x512) [71.9 KB] || fires_frp_VIIRS.892_searchweb.png (320x180) [37.8 KB] || fires_frp_VIIRS.892_web.png (320x160) [33.5 KB] || fires_frp_VIIRS.892_thm.png (80x40) [4.3 KB] || fires_frp_VIIRS_2048p30.mp4 (4096x2048) [46.5 MB] || EIC (4096x2048) [824 Item(s)] || VIIRS_fires_latest.exr [7.0 MB] || ",
+      "release_date": "2024-03-01T14:00:00-05:00",
+      "update_date": "2026-10-24T19:30:10.364230-04:00",
+      "main_image": {
+       "id": 856615,
+       "url": "http://svs.gsfc.nasa.gov/vis/a000000/a005100/a005113/fires_frp_VIIRS.001_print.jpg",
+       "filename": "fires_frp_VIIRS.001_print.jpg",
+       "media_type": "Image",
+       "alt_text": "This animated visualization uses a moving five-day window of VIIRS measurments of fire radiative power (FRP), to present a view of fire intensities around the globe.",
+       "width": 1024,
+       "height": 512,
+       "pixels": 524288
+      }
+     }
+    },
+    {
+     "id": 413319,
+     "type": "details_page",
+     "extra_data": null,
+     "instance": {
+      "id": 5106,
+      "url": "http://svs.gsfc.nasa.gov/5106/",
+      "page_type": "Visualization",
+      "title": "Washington D.C. Map Highlighting NASA Headquarters",
+      "description": "This map displays Washington D.C. with some major buildings highlighted. It slowly zooms in to the location of the NASA headquarters building. || dc_zoom_cover.png (1920x1080) [1.3 MB] || dc_zoom_cover_searchweb.png (320x180) [65.4 KB] || dc_zoom_cover_thm.png (80x40) [6.2 KB] || dc_zoom5.mp4 (3840x2160) [575.5 MB] || dc_zoom5.webm (3840x2160) [42.0 MB] || ",
+      "release_date": "2023-06-16T10:00:00-04:00",
+      "update_date": "2023-06-08T16:53:00.221007-04:00",
+      "main_image": {
+       "id": 855484,
+       "url": "http://svs.gsfc.nasa.gov/vis/a000000/a005100/a005106/dc_zoom_cover.png",
+       "filename": "dc_zoom_cover.png",
+       "media_type": "Image",
+       "alt_text": "This map displays Washington D.C. with some major buildings highlighted. It slowly zooms in to the location of the NASA headquarters building. ",
+       "width": 1920,
+       "height": 1080,
+       "pixels": 2073600
+      }
+     }
+    },
+    {
+     "id": 413320,
+     "type": "details_page",
+     "extra_data": null,
+     "instance": {
+      "id": 5120,
+      "url": "http://svs.gsfc.nasa.gov/5120/",
+      "page_type": "Visualization",
+      "title": "NOAA GOES-East and NOAA GOES-West True Color Imagery Over Past 5 Days",
+      "description": "A true color view of the Earth from GOES-16 (GOES-East) over the past 5 days. || PR_WorldView_geostationary_east_2160x2160_en.00001_print.jpg (1024x1024) [306.7 KB] || PR_WorldView_geostationary_east_2160x2160_en.00001_searchweb.png (320x180) [105.7 KB] || PR_WorldView_geostationary_east_2160x2160_en.00001_thm.png (80x40) [7.5 KB] || east (2160x2160) [0 Item(s)] || PR_WorldView_geostationary_east_2160x2160_en.mp4 (2160x2160) [1.1 GB] ||",
+      "release_date": "2023-06-26T09:00:00-04:00",
+      "update_date": "2026-10-29T23:35:17.447440-04:00",
+      "main_image": {
+       "id": 856333,
+       "url": "http://svs.gsfc.nasa.gov/vis/a000000/a005100/a005120/PR_WorldView_geostationary_east_2160x2160_en.00001_print.jpg",
+       "filename": "PR_WorldView_geostationary_east_2160x2160_en.00001_print.jpg",
+       "media_type": "Image",
+       "alt_text": "A true color view of the Earth from GOES-16 (GOES-East) over the past 5 days.",
+       "width": 1024,
+       "height": 1024,
+       "pixels": 1048576
+      }
+     }
+    }
+   ],
+   "extra_data": {}
+  },
+  {
+   "id": 372601,
+   "url": "http://svs.gsfc.nasa.gov/gallery/main-dashboard/#media_group_372601",
+   "widget": "Card gallery",
+   "title": "Worldview Tours",
+   "caption": "",
+   "description": "",
+   "items": [
+    {
+     "id": 413292,
+     "type": "details_page",
+     "extra_data": null,
+     "instance": {
+      "id": 5180,
+      "url": "http://svs.gsfc.nasa.gov/5180/",
+      "page_type": "Visualization",
+      "title": "Worldview Tour: Atmospheric Rivers",
+      "description": "Atmospheric rivers are long, narrow regions in the atmosphere - like rivers in the sky - that transport moist air from the tropics to higher altitudes, even up to the poles. The moist air combined with high wind speeds, produces heavy rain and snow. || Worldview_AtmosphericRivers.png (3548x1822) [8.0 MB] || Worldview_AtmosphericRivers_print.jpg (1024x525) [227.3 KB] || Worldview_AtmosphericRivers_searchweb.png (320x180) [123.7 KB] || Worldview_AtmosphericRivers_thm.png (80x40) [7.7 KB] || Worldview_AtmosphericRivers.mov (3548x1822) [121.9 MB] || ",
+      "release_date": "2023-10-25T09:55:00-04:00",
+      "update_date": "2023-10-25T09:50:26.154668-04:00",
+      "main_image": {
+       "id": 860395,
+       "url": "http://svs.gsfc.nasa.gov/vis/a000000/a005100/a005180/Worldview_AtmosphericRivers_print.jpg",
+       "filename": "Worldview_AtmosphericRivers_print.jpg",
+       "media_type": "Image",
+       "alt_text": "Atmospheric rivers are long, narrow regions in the atmosphere - like rivers in the sky - that transport moist air from the tropics to higher altitudes, even up to the poles. The moist air combined with high wind speeds, produces heavy rain and snow.",
+       "width": 1024,
+       "height": 525,
+       "pixels": 537600
+      }
+     }
+    },
+    {
+     "id": 413293,
+     "type": "details_page",
+     "extra_data": null,
+     "instance": {
+      "id": 5179,
+      "url": "http://svs.gsfc.nasa.gov/5179/",
+      "page_type": "Visualization",
+      "title": "Worldview Tour: Journey of Iceberg B-22",
+      "description": "Iceberg B-22 calved from Thwaites Glacier, located in Antarctica in early 2002. From the vantage point of space we track its journey and evolution during the last 21 years. || Worldview_IcebergJourney.png (3548x1824) [5.8 MB] || Worldview_IcebergJourney_print.jpg (1024x526) [176.1 KB] || Worldview_IcebergJourney_searchweb.png (320x180) [107.3 KB] || Worldview_IcebergJourney_thm.png (80x40) [7.1 KB] || Worldview_IcebergJourney.mov (3548x1824) [146.2 MB] || ",
+      "release_date": "2023-10-25T09:50:00-04:00",
+      "update_date": "2023-10-25T09:40:23.000358-04:00",
+      "main_image": {
+       "id": 860386,
+       "url": "http://svs.gsfc.nasa.gov/vis/a000000/a005100/a005179/Worldview_IcebergJourney_print.jpg",
+       "filename": "Worldview_IcebergJourney_print.jpg",
+       "media_type": "Image",
+       "alt_text": "Iceberg B-22 calved from Thwaites Glacier, located in Antarctica in early 2002. From the vantage point of space we track its journey and evolution during the last 21 years.",
+       "width": 1024,
+       "height": 526,
+       "pixels": 538624
+      }
+     }
+    }
+   ],
+   "extra_data": {}
+  }
+ ]
+}

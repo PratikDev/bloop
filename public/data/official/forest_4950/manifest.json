@@ -1,0 +1,558 @@
+{
+ "record": "forest_4950",
+ "app_title": "Forest height (observation, GEDI)",
+ "svs_ids": [
+  4950
+ ],
+ "title": "GEDI Forest Height",
+ "svs_pages": [
+  "https://svs.gsfc.nasa.gov/4950/"
+ ],
+ "description": "This visualization depicts a global view of forest height data collected by the GEDI instrument aboard the International Space Station.  Brown and dark green represent shorter vegetation.  Bright green and white represent taller vegetation.  This visualization uses data collected between April 2019 and April 2020. Height is exaggerated to depict variation at this scale.Coming soon to our YouTube channel. || GEDI_global_w_colorbar_0900_print.jpg (1024x576) [83.4 KB] || GEDI_global_w_colorbar_0900_searchweb.png (320x180) [42.8 KB] || GEDI_global_w_colorbar_0900_thm.png (80x40) [4.0 KB] || GEDI_global_w_colorbar_1080p60.mp4 (1920x1080) [17.7 MB] || GEDI_global_w_colorbar_1080p60.webm (1920x1080) [6.0 MB] || GEDI_global_w_colorbar (3840x2160) [0 Item(s)] || GEDI_global_w_colorbar_2160p30.mp4 (3840x2160) [61.5 MB] || GEDI_global_w_colorbar_2160p60.mp4 (3840x2160) [65.5 MB] || captions_silent.31845.en_US.srt [43 bytes] || ",
+ "release_date": "2021-10-29T10:00:00-04:00",
+ "period": {
+  "start": "2019-04-18T00:00:00Z",
+  "end": "2020-04-30T00:00:00Z",
+  "label": "18 Apr 2019 – 30 Apr 2020"
+ },
+ "badge": "observation",
+ "credits_by_role": {
+  "Visualizer": [
+   "Kel Elkins (USRA)",
+   "Horace Mitchell (NASA/GSFC)",
+   "Greg Shirah (NASA/GSFC)"
+  ],
+  "Technical support": [
+   "Laurence Schuler (ADNET Systems, Inc.)",
+   "Ian Jones (ADNET Systems, Inc.)"
+  ],
+  "Scientist": [
+   "Temilola Fatoyinbo (NASA/GSFC)",
+   "Atticus Stovall (University of Maryland)"
+  ]
+ },
+ "datasets": [
+  {
+   "name": "Relative Height",
+   "common_name": "",
+   "platform": "GEDI",
+   "sensor": null,
+   "type": "Other",
+   "organizations": [],
+   "description": "RH100 or relative height is the 100th percentile of waveform energy relative to ground elevation. Derived from the L2B LIDAR metric RH100 data product.",
+   "credit": "",
+   "url": "https://gedi.umd.edu/",
+   "date_range": null
+  }
+ ],
+ "credit_line": "Visualization: NASA's Scientific Visualization Studio (SVS 4950) for the NASA Earth Information Center. Data: NASA GEDI (University of Maryland, ORNL DAAC).",
+ "disclosure": "Heights read from a lit 3D globe render with its colorbar; no map position, and the values are not verified (pattern only).",
+ "licence": "SVS: \"All of our content is in the public domain (unless otherwise noted), meaning that it is free to download, use, and redistribute for whatever purposes you see fit.\" (https://svs.gsfc.nasa.gov/help/, read 29 Oct 2026)",
+ "frame_times": {
+  "method": "date-list",
+  "approximate": true,
+  "count": 4,
+  "source": "the SVS text's period (April 2019 – April 2020); the stills are views, not times"
+ },
+ "georef": {
+  "projection": "none for the layer (3D globe view); a perspective globe fit per still is used for validation",
+  "bounds": [
+   -180,
+   -101.25,
+   180,
+   101.25
+  ],
+  "pass_at": 0.0,
+  "shifts_deg": [],
+  "pass": false,
+  "best_is_assumed": false,
+  "iou": {
+   "GEDI_global_w_colorbar_0230_print.tif": 0.63,
+   "GEDI_global_w_colorbar_0600_print.tif": 0.79,
+   "GEDI_global_w_colorbar_1055_print.tif": 0.952,
+   "GEDI_global_w_colorbar_1900_print.tif": 0.907
+  }
+ },
+ "bar": "0–50 m",
+ "colorbar": {
+  "geometry": {
+   "x0": 124,
+   "x1": 1003,
+   "band": [
+    361,
+    408
+   ],
+   "vertical": false,
+   "outline_rgb": null,
+   "image_size": [
+    540,
+    1344
+   ]
+  },
+  "ticks": [
+   {
+    "px": 2.5,
+    "value": 0.0,
+    "text": "0",
+    "engine": "glyph",
+    "label_px": 2.5
+   },
+   {
+    "px": 327.2908413592586,
+    "value": 20.0,
+    "text": "20",
+    "engine": "glyph",
+    "label_px": 328.0,
+    "tick_mark": true
+   },
+   {
+    "px": 490.1791718946048,
+    "value": 30.0,
+    "text": "30",
+    "engine": "glyph",
+    "label_px": 491.0,
+    "tick_mark": true
+   },
+   {
+    "px": 817.0,
+    "value": 50.0,
+    "text": "50",
+    "engine": "glyph",
+    "label_px": 817.0
+   }
+  ],
+  "scale": "linear",
+  "fit": {
+   "a": -0.09675943892747456,
+   "b": 0.061388465048924326,
+   "fit": "weighted 1/tolerance",
+   "max_resid_px": 0.9385558996755382,
+   "resid_px": [
+    -0.92,
+    0.08,
+    0.09,
+    -0.94
+   ],
+   "ok": true
+  },
+  "notes": [
+   "OCR read ['0', '51', '20', '30', '46', '50']; ['51', '46'] disagree with the line through the other 4 labels and are dropped as misreads.",
+   "2 label(s) not on a tick mark (0, 50): label-centre position, ±5 px."
+  ],
+  "n_samples": 880,
+  "value_range": [
+   -0.09675943892747456,
+   53.863701339077004
+  ],
+  "opacity_varies": false,
+  "px_per_unit": 16.289705227244845
+ },
+ "decode": {
+  "matcher": "rgb-nearest",
+  "mode": "chroma",
+  "max_dist": 12.0,
+  "min_k": 0.1,
+  "stills": {
+   "GEDI_global_w_colorbar_0230_print.tif": {
+    "decoded_pixels": 175486,
+    "globe_land_pixels": 1301325,
+    "median_m": 30.72024917602539,
+    "p90_m": 40.97212219238281
+   },
+   "GEDI_global_w_colorbar_0600_print.tif": {
+    "decoded_pixels": 214260,
+    "globe_land_pixels": 1511074,
+    "median_m": 31.14996910095215,
+    "p90_m": 41.3404541015625
+   },
+   "GEDI_global_w_colorbar_1055_print.tif": {
+    "decoded_pixels": 147576,
+    "globe_land_pixels": 1788701,
+    "median_m": 30.72024917602539,
+    "p90_m": 42.4454460144043
+   },
+   "GEDI_global_w_colorbar_1900_print.tif": {
+    "decoded_pixels": 148800,
+    "globe_land_pixels": 1203624,
+    "median_m": 32.13218307495117,
+    "p90_m": 40.296852111816406
+   }
+  }
+ },
+ "layers": [
+  {
+   "id": "height",
+   "unit": "m",
+   "encoding": "linear",
+   "scale": 0.0061388465048924324,
+   "offset": -0.035370975732803345,
+   "nodata": 65535,
+   "below": 65534,
+   "grid": {
+    "width": 480,
+    "height": 270,
+    "bounds": [
+     -180,
+     -101.25,
+     180,
+     101.25
+    ],
+    "row0": "north",
+    "col0": "west",
+    "byte_order": "little",
+    "space": "frame"
+   },
+   "times": [
+    "2020-04-30T00:00:00Z",
+    "2020-04-30T00:00:00Z",
+    "2020-04-30T00:00:00Z",
+    "2020-04-30T00:00:00Z"
+   ],
+   "chunks": [
+    {
+     "file": "height_000.u16.gz",
+     "t0": 0,
+     "t1": 4,
+     "bytes": 94264
+    }
+   ],
+   "quantisation_step": 0.0061388465048924324,
+   "coverage": 0.0814332561728395,
+   "value_range": [
+    -0.035370975732803345,
+    52.94287872314453
+   ],
+   "label": "Forest height from GEDI (the picture's own view; no map position)",
+   "aggregation": "mean of decoded pixels in each of 480×270 picture cells",
+   "time_labels": [
+    "view 1 (frame 0230)",
+    "view 2 (frame 0600)",
+    "view 3 (frame 1055)",
+    "view 4 (frame 1900)"
+   ],
+   "display": {
+    "colours": [
+     "#848484",
+     "#564a32",
+     "#565035",
+     "#565636",
+     "#565d38",
+     "#56643b",
+     "#576c3e",
+     "#5a7440",
+     "#5f7942",
+     "#627d45",
+     "#698245",
+     "#6e8646",
+     "#758b46",
+     "#7b9048",
+     "#81954a",
+     "#899a4c",
+     "#909e4e",
+     "#97a452",
+     "#9ea958",
+     "#a6af5e",
+     "#aeb667",
+     "#b8bc74",
+     "#c1c483",
+     "#cccc93",
+     "#d6d4a4",
+     "#e0dcb6",
+     "#ebe2c5",
+     "#f3e8d3",
+     "#faeedf",
+     "#fef0e6",
+     "#fef0e6",
+     "#000000"
+    ],
+    "values": [
+     -0.09675943892747456,
+     1.6439005861694442,
+     3.3845606112663633,
+     5.125220636363282,
+     6.865880661460201,
+     8.60654068655712,
+     10.347200711654038,
+     12.087860736750958,
+     13.828520761847876,
+     15.569180786944795,
+     17.309840812041713,
+     19.050500837138635,
+     20.79116086223555,
+     22.531820887332472,
+     24.27248091242939,
+     26.013140937526305,
+     27.753800962623227,
+     29.494460987720146,
+     31.235121012817064,
+     32.97578103791398,
+     34.7164410630109,
+     36.45710108810782,
+     38.19776111320474,
+     39.93842113830165,
+     41.67908116339857,
+     43.41974118849549,
+     45.160401213592415,
+     46.90106123868933,
+     48.64172126378625,
+     50.38238128888317,
+     52.12304131398008,
+     53.863701339077004
+    ],
+    "scale": "linear"
+   },
+   "status": "pattern only",
+   "status_check": "a_l2b_frame_cells",
+   "statement": "pattern only (values not verified): flat pixels vs GEDI L2B RH100 in the frame's cells: Spearman 0.10, median difference +9.4 m (105 cells)"
+  }
+ ],
+ "voices": {
+  "height": "forestHeight"
+ },
+ "play": [
+  {
+   "id": "height",
+   "label": "Forest height: higher pitch = taller canopy (one view per second)",
+   "view": "global",
+   "map": "height",
+   "start": {
+    "lat": 0.375,
+    "lon": 0.375
+   },
+   "steps_per_second": 1,
+   "channels": [
+    {
+     "voice": "forestHeight",
+     "layers": [
+      "height"
+     ],
+     "combine": "value"
+    }
+   ]
+  }
+ ],
+ "histograms": {
+  "edges_m": [
+   0.0,
+   1.0,
+   2.0,
+   3.0,
+   4.0,
+   5.0,
+   6.0,
+   7.0,
+   8.0,
+   9.0,
+   10.0,
+   11.0,
+   12.0,
+   13.0,
+   14.0,
+   15.0,
+   16.0,
+   17.0,
+   18.0,
+   19.0,
+   20.0,
+   21.0,
+   22.0,
+   23.0,
+   24.0,
+   25.0,
+   26.0,
+   27.0,
+   28.0,
+   29.0,
+   30.0,
+   31.0,
+   32.0,
+   33.0,
+   34.0,
+   35.0,
+   36.0,
+   37.0,
+   38.0,
+   39.0,
+   40.0,
+   41.0,
+   42.0,
+   43.0,
+   44.0,
+   45.0,
+   46.0,
+   47.0,
+   48.0,
+   49.0,
+   50.0,
+   51.0,
+   52.0,
+   53.0,
+   54.0
+  ],
+  "decoded": [
+   3738,
+   801,
+   1711,
+   14787,
+   34666,
+   15260,
+   19433,
+   16509,
+   5180,
+   1619,
+   400,
+   1145,
+   436,
+   635,
+   37,
+   108,
+   474,
+   973,
+   1354,
+   8122,
+   1290,
+   11045,
+   2305,
+   19298,
+   16513,
+   18164,
+   8142,
+   52249,
+   6172,
+   36765,
+   40348,
+   13141,
+   41408,
+   34603,
+   43944,
+   39262,
+   41572,
+   8001,
+   11137,
+   13209,
+   17460,
+   22363,
+   18812,
+   6391,
+   11237,
+   3865,
+   3078,
+   2015,
+   1786,
+   624,
+   0,
+   0,
+   11814,
+   0
+  ],
+  "gedi_l3": [
+   123,
+   19349,
+   769113,
+   20496663,
+   14421902,
+   7239320,
+   5034150,
+   4020678,
+   3383100,
+   2895365,
+   2494254,
+   2165411,
+   1895605,
+   1674619,
+   1492057,
+   1342316,
+   1214282,
+   1105673,
+   1008625,
+   921097,
+   848125,
+   780036,
+   720545,
+   662526,
+   611294,
+   563574,
+   515668,
+   473447,
+   431742,
+   389529,
+   346608,
+   301347,
+   256242,
+   214160,
+   175414,
+   139354,
+   109307,
+   85527,
+   66400,
+   51632,
+   40309,
+   31634,
+   24609,
+   19166,
+   15308,
+   11736,
+   9102,
+   7251,
+   5625,
+   4326,
+   3423,
+   2566,
+   1896,
+   5622
+  ]
+ },
+ "validation": [
+  {
+   "id": "a_height_hist_gedi_l3",
+   "title": "Decoded heights vs GEDI L3 canopy height (histograms, 1 m bins)",
+   "kind": "value",
+   "pass": null,
+   "threshold": null
+  },
+  {
+   "id": "a_l2b_frame_cells",
+   "title": "Flat decoded heights vs GEDI L2B RH100, gridded into the frame's cells (fitted globe view)",
+   "kind": "value",
+   "pass": false,
+   "threshold": "Spearman ≥ 0.6 and |median difference| ≤ 5 m (provisional)"
+  },
+  {
+   "id": "b_l2b_cell_distributions",
+   "title": "Distributions of the matched cell medians (decoded vs L2B): KS",
+   "kind": "context",
+   "pass": null,
+   "threshold": null
+  },
+  {
+   "id": "c_l3_superseded",
+   "title": "Superseded: all decoded pixels vs GEDI L3 rh100 mean over all land (before correction 1)",
+   "kind": "context",
+   "pass": null,
+   "threshold": null
+  }
+ ],
+ "size": {
+  "choice": {
+   "grid": [
+    480,
+    270
+   ]
+  },
+  "tried": [],
+  "bytes": 110803,
+  "budget": 25000000
+ },
+ "asset_checksums": {
+  "file": "checksums.tsv.gz",
+  "rows": 8,
+  "sha256_of_list": "cb84191402285be7010db3e2397091447497a82cdfca6d3e426174d2d77a16a9"
+ },
+ "code_commit": "fafde1e3647bf57c996e19ddcb5cf47624a0f21d-dirty",
+ "generated_utc": "2026-10-31T14:36:18Z",
+ "playable": {
+  "moved_starts": [
+   "height"
+  ]
+ }
+}

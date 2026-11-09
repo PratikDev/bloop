@@ -1,0 +1,20 @@
+{
+ "record": "rel_4658",
+ "checks": [
+  {
+   "record": "rel_4658",
+   "id": "a_no_validation_source",
+   "title": "NASA's Black Marble night lights used to examine disaster recovery in Puerto Rico: no validation source",
+   "kind": "none",
+   "source": null,
+   "metrics": {
+    "reason": "no validation source matches the item's words"
+   },
+   "threshold": null,
+   "pass": null,
+   "note": "no validation source matches the item's words",
+   "run_utc": "2026-11-06T20:09:58Z"
+  }
+ ],
+ "updated_utc": "2026-11-06T20:09:58Z"
+}

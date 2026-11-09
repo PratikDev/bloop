@@ -1,0 +1,651 @@
+{
+ "record": "patterns_eic",
+ "checks": [
+  {
+   "record": "patterns_eic",
+   "id": "a_4170",
+   "title": "SVS 4170: GPM Constellation Covers the Earth",
+   "kind": "none",
+   "source": null,
+   "metrics": {
+    "reason": "data picture without a colorbar: pattern, not values",
+    "image": "https://svs.gsfc.nasa.gov/vis/a000000/a004100/a004170/allswaths3_fade.png"
+   },
+   "threshold": null,
+   "pass": null,
+   "note": "Pattern record: no validation source applies.",
+   "run_utc": "2026-10-29T13:25:02Z"
+  },
+  {
+   "record": "patterns_eic",
+   "id": "a_4685",
+   "title": "SVS 4685: Inside Hurricane Maria in 360°",
+   "kind": "none",
+   "source": null,
+   "metrics": {
+    "reason": "data picture without a colorbar: pattern, not values",
+    "image": "https://svs.gsfc.nasa.gov/vis/a000000/a004600/a004685/full360Mariawithaudio.00001_print.jpg"
+   },
+   "threshold": null,
+   "pass": null,
+   "note": "Pattern record: no validation source applies.",
+   "run_utc": "2026-10-29T13:25:02Z"
+  },
+  {
+   "record": "patterns_eic",
+   "id": "a_4810",
+   "title": "SVS 4810: Reductions in Pollution Associated with Decreased Fossil Fuel Use Resulting from COVID-19 Mitigation",
+   "kind": "none",
+   "source": null,
+   "metrics": {
+    "reason": "colorbar, but no flat map: pattern only unless a georeference can be fitted",
+    "image": "https://svs.gsfc.nasa.gov/vis/a000000/a004800/a004810/avg2015-2019_NO2_print_w_colorbar_date_print.jpg"
+   },
+   "threshold": null,
+   "pass": null,
+   "note": "Pattern record: no validation source applies.",
+   "run_utc": "2026-10-29T13:25:02Z"
+  },
+  {
+   "record": "patterns_eic",
+   "id": "a_4889",
+   "title": "SVS 4889: Variability of Water Storage in Global Hydrological Basins",
+   "kind": "none",
+   "source": null,
+   "metrics": {
+    "reason": "colorbar, but no flat map: pattern only unless a georeference can be fitted",
+    "image": "https://svs.gsfc.nasa.gov/vis/a000000/a004800/a004889/figure_2.00001_print.jpg"
+   },
+   "threshold": null,
+   "pass": null,
+   "note": "Pattern record: no validation source applies.",
+   "run_utc": "2026-10-29T13:25:02Z"
+  },
+  {
+   "record": "patterns_eic",
+   "id": "a_4897",
+   "title": "SVS 4897: Seasonal Global Precipitation Variation from the Global Precipitation Measurement Constellation",
+   "kind": "none",
+   "source": null,
+   "metrics": {
+    "reason": "data picture without a colorbar: pattern, not values",
+    "image": "https://svs.gsfc.nasa.gov/vis/a000000/a004800/a004897/imergvar_composite_1080p15.00001_print.jpg"
+   },
+   "threshold": null,
+   "pass": null,
+   "note": "Pattern record: no validation source applies.",
+   "run_utc": "2026-10-29T13:25:02Z"
+  },
+  {
+   "record": "patterns_eic",
+   "id": "a_4968",
+   "title": "SVS 4968: Iowa Cropland 2001-2020",
+   "kind": "none",
+   "source": null,
+   "metrics": {
+    "reason": "data picture without a colorbar: pattern, not values",
+    "image": "https://svs.gsfc.nasa.gov/vis/a000000/a004900/a004968/IowaCrops_2022-02-17_1606.01240_print.jpg"
+   },
+   "threshold": null,
+   "pass": null,
+   "note": "Pattern record: no validation source applies.",
+   "run_utc": "2026-10-29T13:25:02Z"
+  },
+  {
+   "record": "patterns_eic",
+   "id": "a_4983",
+   "title": "SVS 4983: Global Carbon Dioxide 2020-2021 for Hyperwalls",
+   "kind": "none",
+   "source": null,
+   "metrics": {
+    "reason": "data picture without a colorbar: pattern, not values",
+    "image": "https://svs.gsfc.nasa.gov/vis/a000000/a004900/a004983/CO2Volumetric_9600x3240_30fps.02582_print.jpg"
+   },
+   "threshold": null,
+   "pass": null,
+   "note": "Pattern record: no validation source applies.",
+   "run_utc": "2026-10-29T13:25:02Z"
+  },
+  {
+   "record": "patterns_eic",
+   "id": "a_4993",
+   "title": "SVS 4993: Spread of the Dixie Fire - 2021",
+   "kind": "none",
+   "source": null,
+   "metrics": {
+    "reason": "data picture without a colorbar: pattern, not values",
+    "image": "https://svs.gsfc.nasa.gov/vis/a000000/a004900/a004993/Dixie_fire_2021.7135_print.jpg"
+   },
+   "threshold": null,
+   "pass": null,
+   "note": "Pattern record: no validation source applies.",
+   "run_utc": "2026-10-29T13:25:02Z"
+  },
+  {
+   "record": "patterns_eic",
+   "id": "a_5041",
+   "title": "SVS 5041: Methane Emissions in the United States",
+   "kind": "none",
+   "source": null,
+   "metrics": {
+    "reason": "colorbar, but no flat map: pattern only unless a georeference can be fitted",
+    "image": "https://svs.gsfc.nasa.gov/vis/a000000/a005000/a005041/ch4_epa_sq_2022-11-14_1335.00100_print.jpg"
+   },
+   "threshold": null,
+   "pass": null,
+   "note": "Pattern record: no validation source applies.",
+   "run_utc": "2026-10-29T13:25:02Z"
+  },
+  {
+   "record": "patterns_eic",
+   "id": "a_5046",
+   "title": "SVS 5046: Daily Arctic Sea Ice, By Year",
+   "kind": "none",
+   "source": null,
+   "metrics": {
+    "reason": "data picture without a colorbar: pattern, not values",
+    "image": "https://svs.gsfc.nasa.gov/vis/a000000/a005000/a005046/arctic_sea_ice_w_dates.2023121_print.jpg"
+   },
+   "threshold": null,
+   "pass": null,
+   "note": "Pattern record: no validation source applies.",
+   "run_utc": "2026-10-29T13:25:02Z"
+  },
+  {
+   "record": "patterns_eic",
+   "id": "a_5047",
+   "title": "SVS 5047: Net Ecosystem Exchange of Carbon Dioxide",
+   "kind": "none",
+   "source": null,
+   "metrics": {
+    "reason": "data picture without a colorbar: pattern, not values",
+    "image": "https://svs.gsfc.nasa.gov/vis/a000000/a005000/a005047/co2_nee_5.01750_print.jpg"
+   },
+   "threshold": null,
+   "pass": null,
+   "note": "Pattern record: no validation source applies.",
+   "run_utc": "2026-10-29T13:25:02Z"
+  },
+  {
+   "record": "patterns_eic",
+   "id": "a_5054",
+   "title": "SVS 5054: Methane Emissions from Wetlands",
+   "kind": "none",
+   "source": null,
+   "metrics": {
+    "reason": "data picture without a colorbar: pattern, not values",
+    "image": "https://svs.gsfc.nasa.gov/vis/a000000/a005000/a005054/ch4_wetlands.01500_print.jpg"
+   },
+   "threshold": null,
+   "pass": null,
+   "note": "Pattern record: no validation source applies.",
+   "run_utc": "2026-10-29T13:25:02Z"
+  },
+  {
+   "record": "patterns_eic",
+   "id": "a_5058",
+   "title": "SVS 5058: Florida Nighttime Lights Before and After Hurricane Ian",
+   "kind": "none",
+   "source": null,
+   "metrics": {
+    "reason": "data picture without a colorbar: pattern, not values",
+    "image": "https://svs.gsfc.nasa.gov/vis/a000000/a005000/a005058/black_marble_slide_line4.00001_print.jpg"
+   },
+   "threshold": null,
+   "pass": null,
+   "note": "Pattern record: no validation source applies.",
+   "run_utc": "2026-10-29T13:25:02Z"
+  },
+  {
+   "record": "patterns_eic",
+   "id": "a_5064",
+   "title": "SVS 5064: Daily Antarctic Sea Ice, By Year",
+   "kind": "none",
+   "source": null,
+   "metrics": {
+    "reason": "data picture without a colorbar: pattern, not values",
+    "image": "https://svs.gsfc.nasa.gov/vis/a000000/a005000/a005064/antarctic_sea_ice_w_dates.2023121_print.jpg"
+   },
+   "threshold": null,
+   "pass": null,
+   "note": "Pattern record: no validation source applies.",
+   "run_utc": "2026-10-29T13:25:03Z"
+  },
+  {
+   "record": "patterns_eic",
+   "id": "a_5067",
+   "title": "SVS 5067: Earth Observing Fleet - Now",
+   "kind": "none",
+   "source": null,
+   "metrics": {
+    "reason": "data picture without a colorbar: pattern, not values",
+    "image": "https://svs.gsfc.nasa.gov/vis/a000000/a005000/a005067/fleet_now_print.jpg"
+   },
+   "threshold": null,
+   "pass": null,
+   "note": "Pattern record: no validation source applies.",
+   "run_utc": "2026-10-29T13:25:03Z"
+  },
+  {
+   "record": "patterns_eic",
+   "id": "a_5072",
+   "title": "SVS 5072: Atlantic Hurricane Wind Speed Plots",
+   "kind": "none",
+   "source": null,
+   "metrics": {
+    "reason": "data picture without a colorbar: pattern, not values",
+    "image": "https://svs.gsfc.nasa.gov/vis/a000000/a005000/a005072/atlantic_may_to_dec_singleYear_print.jpg"
+   },
+   "threshold": null,
+   "pass": null,
+   "note": "Pattern record: no validation source applies.",
+   "run_utc": "2026-10-29T13:25:03Z"
+  },
+  {
+   "record": "patterns_eic",
+   "id": "a_5081",
+   "title": "SVS 5081: National Carbon Dioxide (CO₂) budgets inferred from atmospheric observations",
+   "kind": "none",
+   "source": null,
+   "metrics": {
+    "reason": "data picture without a colorbar: pattern, not values",
+    "image": "https://svs.gsfc.nasa.gov/vis/a000000/a005000/a005081/NetEmissions_2015_2020_White_4Kx3K_print.jpg"
+   },
+   "threshold": null,
+   "pass": null,
+   "note": "Pattern record: no validation source applies.",
+   "run_utc": "2026-10-29T13:25:03Z"
+  },
+  {
+   "record": "patterns_eic",
+   "id": "a_5087",
+   "title": "SVS 5087: Water Cycle Extremes: Droughts and Pluvials",
+   "kind": "none",
+   "source": null,
+   "metrics": {
+    "reason": "data picture without a colorbar: pattern, not values",
+    "image": "https://svs.gsfc.nasa.gov/vis/a000000/a005000/a005087/water_extremes_morph_2160p30.00001_print.jpg"
+   },
+   "threshold": null,
+   "pass": null,
+   "note": "Pattern record: no validation source applies.",
+   "run_utc": "2026-10-29T13:25:03Z"
+  },
+  {
+   "record": "patterns_eic",
+   "id": "a_5097",
+   "title": "SVS 5097: 2022 Hurricane Season",
+   "kind": "none",
+   "source": null,
+   "metrics": {
+    "reason": "colorbar, but no flat map: pattern only unless a georeference can be fitted",
+    "image": "https://svs.gsfc.nasa.gov/vis/a000000/a005000/a005097/hurr2022_v6.8800_print.jpg"
+   },
+   "threshold": null,
+   "pass": null,
+   "note": "Pattern record: no validation source applies.",
+   "run_utc": "2026-10-29T13:25:03Z"
+  },
+  {
+   "record": "patterns_eic",
+   "id": "a_5098",
+   "title": "SVS 5098: Relative Wetness Root Zone Versus Groundwater Comparison",
+   "kind": "none",
+   "source": null,
+   "metrics": {
+    "reason": "colorbar, but no flat map: pattern only unless a georeference can be fitted",
+    "image": "https://svs.gsfc.nasa.gov/vis/a000000/a005000/a005098/root_n_grnd.4k.2676_print.jpg"
+   },
+   "threshold": null,
+   "pass": null,
+   "note": "Pattern record: no validation source applies.",
+   "run_utc": "2026-10-29T13:25:03Z"
+  },
+  {
+   "record": "patterns_eic",
+   "id": "a_5099",
+   "title": "SVS 5099: Daily Polar Sea Ice, Two Year History",
+   "kind": "none",
+   "source": null,
+   "metrics": {
+    "reason": "data picture without a colorbar: pattern, not values",
+    "image": "https://svs.gsfc.nasa.gov/vis/a000000/a005000/a005099/polar_sea_ice_sxs_w_date.2023172_print.jpg"
+   },
+   "threshold": null,
+   "pass": null,
+   "note": "Pattern record: no validation source applies.",
+   "run_utc": "2026-10-29T13:25:03Z"
+  },
+  {
+   "record": "patterns_eic",
+   "id": "a_5107",
+   "title": "SVS 5107: Air Quality Monitoring Stations in Washington D.C.",
+   "kind": "none",
+   "source": null,
+   "metrics": {
+    "reason": "data picture without a colorbar: pattern, not values",
+    "image": "https://svs.gsfc.nasa.gov/vis/a000000/a005100/a005107/dc_air_stations_full_preview.png"
+   },
+   "threshold": null,
+   "pass": null,
+   "note": "Pattern record: no validation source applies.",
+   "run_utc": "2026-10-29T13:25:03Z"
+  },
+  {
+   "record": "patterns_eic",
+   "id": "a_5110",
+   "title": "SVS 5110: Atmospheric Carbon Dioxide Tagged by Source",
+   "kind": "none",
+   "source": null,
+   "metrics": {
+    "reason": "colorbar, but no flat map: pattern only unless a georeference can be fitted",
+    "image": "https://svs.gsfc.nasa.gov/vis/a000000/a005100/a005110/CO2explainer_1080p30.00740_print.jpg"
+   },
+   "threshold": null,
+   "pass": null,
+   "note": "Pattern record: no validation source applies.",
+   "run_utc": "2026-10-29T13:25:03Z"
+  },
+  {
+   "record": "patterns_eic",
+   "id": "a_5111",
+   "title": "SVS 5111: Increase in Ocean Heat since 1957 Map - Spilhaus Projection",
+   "kind": "none",
+   "source": null,
+   "metrics": {
+    "reason": "data picture without a colorbar: pattern, not values",
+    "image": "https://svs.gsfc.nasa.gov/vis/a000000/a005100/a005111/oceans_spilhaus_map2160_print.jpg"
+   },
+   "threshold": null,
+   "pass": null,
+   "note": "Pattern record: no validation source applies.",
+   "run_utc": "2026-10-29T13:25:03Z"
+  },
+  {
+   "record": "patterns_eic",
+   "id": "a_5115",
+   "title": "SVS 5115: Global Atmospheric Carbon Dioxide (CO₂)",
+   "kind": "none",
+   "source": null,
+   "metrics": {
+    "reason": "data picture without a colorbar: pattern, not values",
+    "image": "https://svs.gsfc.nasa.gov/vis/a000000/a005100/a005115/TotalCO2_Comp_1920x1920p30_00080_print.jpg"
+   },
+   "threshold": null,
+   "pass": null,
+   "note": "Pattern record: no validation source applies.",
+   "run_utc": "2026-10-29T13:25:03Z"
+  },
+  {
+   "record": "patterns_eic",
+   "id": "a_5116",
+   "title": "SVS 5116: Global Atmospheric Methane (CH₄)",
+   "kind": "none",
+   "source": null,
+   "metrics": {
+    "reason": "data picture without a colorbar: pattern, not values",
+    "image": "https://svs.gsfc.nasa.gov/vis/a000000/a005100/a005116/TotalCH4_Comp_1920x19020p30_00080_print.jpg"
+   },
+   "threshold": null,
+   "pass": null,
+   "note": "Pattern record: no validation source applies.",
+   "run_utc": "2026-10-29T13:25:03Z"
+  },
+  {
+   "record": "patterns_eic",
+   "id": "a_5117",
+   "title": "SVS 5117: Trends in atmospheric Nitrous Oxide (N₂O)",
+   "kind": "none",
+   "source": null,
+   "metrics": {
+    "reason": "data picture without a colorbar: pattern, not values",
+    "image": "https://svs.gsfc.nasa.gov/vis/a000000/a005100/a005117/N2OTrends_1920x1080p30.00900_print.jpg"
+   },
+   "threshold": null,
+   "pass": null,
+   "note": "Pattern record: no validation source applies.",
+   "run_utc": "2026-10-29T13:25:03Z"
+  },
+  {
+   "record": "patterns_eic",
+   "id": "a_5118",
+   "title": "SVS 5118: Trends in atmospheric Methane (CH₄)",
+   "kind": "none",
+   "source": null,
+   "metrics": {
+    "reason": "data picture without a colorbar: pattern, not values",
+    "image": "https://svs.gsfc.nasa.gov/vis/a000000/a005100/a005118/CH4Trends_1920x1080p30.00900_print.jpg"
+   },
+   "threshold": null,
+   "pass": null,
+   "note": "Pattern record: no validation source applies.",
+   "run_utc": "2026-10-29T13:25:04Z"
+  },
+  {
+   "record": "patterns_eic",
+   "id": "a_5119",
+   "title": "SVS 5119: OCO-2 and Keeling Curve: Trends in global atmospheric Carbon Dioxide (CO₂)",
+   "kind": "none",
+   "source": null,
+   "metrics": {
+    "reason": "data picture without a colorbar: pattern, not values",
+    "image": "https://svs.gsfc.nasa.gov/vis/a000000/a005100/a005119/KeelingCurve_OCO2_1920x1080p30.00370_print.jpg"
+   },
+   "threshold": null,
+   "pass": null,
+   "note": "Pattern record: no validation source applies.",
+   "run_utc": "2026-10-29T13:25:04Z"
+  },
+  {
+   "record": "patterns_eic",
+   "id": "a_5120",
+   "title": "SVS 5120: NOAA GOES-East and NOAA GOES-West True Color Imagery Over Past 5 Days",
+   "kind": "none",
+   "source": null,
+   "metrics": {
+    "reason": "data picture without a colorbar: pattern, not values",
+    "image": "https://svs.gsfc.nasa.gov/vis/a000000/a005100/a005120/PR_WorldView_geostationary_east_2160x2160_en.00001_print.jpg"
+   },
+   "threshold": null,
+   "pass": null,
+   "note": "Pattern record: no validation source applies.",
+   "run_utc": "2026-10-29T13:25:04Z"
+  },
+  {
+   "record": "patterns_eic",
+   "id": "a_5121",
+   "title": "SVS 5121: ODIAC: a map of human made carbon dioxide emissions",
+   "kind": "none",
+   "source": null,
+   "metrics": {
+    "reason": "data picture without a colorbar: pattern, not values",
+    "image": "https://svs.gsfc.nasa.gov/vis/a000000/a005100/a005121/odiac_2023_2160p60.00001_print.jpg"
+   },
+   "threshold": null,
+   "pass": null,
+   "note": "Pattern record: no validation source applies.",
+   "run_utc": "2026-10-29T13:25:04Z"
+  },
+  {
+   "record": "patterns_eic",
+   "id": "a_5126",
+   "title": "SVS 5126: NOAA Annual Greenhouse Gas Index",
+   "kind": "none",
+   "source": null,
+   "metrics": {
+    "reason": "data picture without a colorbar: pattern, not values",
+    "image": "https://svs.gsfc.nasa.gov/vis/a000000/a005100/a005126/AGGI_1920x800_cc_print.jpg"
+   },
+   "threshold": null,
+   "pass": null,
+   "note": "Pattern record: no validation source applies.",
+   "run_utc": "2026-10-29T13:25:04Z"
+  },
+  {
+   "record": "patterns_eic",
+   "id": "a_5175",
+   "title": "SVS 5175: TEMPO - Nitrogen Dioxide Air Pollution Over North America - Additional Views",
+   "kind": "none",
+   "source": null,
+   "metrics": {
+    "reason": "data picture without a colorbar: pattern, not values",
+    "image": "https://svs.gsfc.nasa.gov/vis/a000000/a005100/a005175/tempo_no2_north-america.02402_print.jpg"
+   },
+   "threshold": null,
+   "pass": null,
+   "note": "Pattern record: no validation source applies.",
+   "run_utc": "2026-10-29T13:25:04Z"
+  },
+  {
+   "record": "patterns_eic",
+   "id": "a_5190",
+   "title": "SVS 5190: NASA Climate Spiral 1880-Present",
+   "kind": "none",
+   "source": null,
+   "metrics": {
+    "reason": "data picture without a colorbar: pattern, not values",
+    "image": "https://svs.gsfc.nasa.gov/vis/a000000/a005100/a005190/GISTEMP_Spiral_English_degC_2160p60.01402_print.jpg"
+   },
+   "threshold": null,
+   "pass": null,
+   "note": "Pattern record: no validation source applies.",
+   "run_utc": "2026-10-29T13:25:04Z"
+  },
+  {
+   "record": "patterns_eic",
+   "id": "a_5191",
+   "title": "SVS 5191: Global Temperature Graph 1880-2024",
+   "kind": "none",
+   "source": null,
+   "metrics": {
+    "reason": "data picture without a colorbar: pattern, not values",
+    "image": "https://svs.gsfc.nasa.gov/vis/a000000/a005100/a005191/GISTEMP_Curves_English_degC_2160p60.01750_print.jpg"
+   },
+   "threshold": null,
+   "pass": null,
+   "note": "Pattern record: no validation source applies.",
+   "run_utc": "2026-10-29T13:25:04Z"
+  },
+  {
+   "record": "patterns_eic",
+   "id": "a_5207",
+   "title": "SVS 5207: Global Temperature Anomalies from 1880 to 2023",
+   "kind": "none",
+   "source": null,
+   "metrics": {
+    "reason": "data picture without a colorbar: pattern, not values",
+    "image": "https://svs.gsfc.nasa.gov/vis/a000000/a005200/a005207/2023GISTEMP_Map.00899_print.jpg"
+   },
+   "threshold": null,
+   "pass": null,
+   "note": "Pattern record: no validation source applies.",
+   "run_utc": "2026-10-29T13:25:04Z"
+  },
+  {
+   "record": "patterns_eic",
+   "id": "a_5209",
+   "title": "SVS 5209: Zonal Climate Anomalies 1880-2023",
+   "kind": "none",
+   "source": null,
+   "metrics": {
+    "reason": "data picture without a colorbar: pattern, not values",
+    "image": "https://svs.gsfc.nasa.gov/vis/a000000/a005200/a005209/GISTEMP_Zonal_1880-2023_C.00840_print.jpg"
+   },
+   "threshold": null,
+   "pass": null,
+   "note": "Pattern record: no validation source applies.",
+   "run_utc": "2026-10-29T13:25:04Z"
+  },
+  {
+   "record": "patterns_eic",
+   "id": "a_5235",
+   "title": "SVS 5235: Sea Level Through a Porthole (2023)",
+   "kind": "none",
+   "source": null,
+   "metrics": {
+    "reason": "data picture without a colorbar: pattern, not values",
+    "image": "https://svs.gsfc.nasa.gov/vis/a000000/a005200/a005235/seaLevelWaveTankComp_noWW_3-5-5-2024a.01500_print.jpg"
+   },
+   "threshold": null,
+   "pass": null,
+   "note": "Pattern record: no validation source applies.",
+   "run_utc": "2026-10-29T13:25:04Z"
+  },
+  {
+   "record": "patterns_eic",
+   "id": "a_5382",
+   "title": "SVS 5382: Arctic Sea Ice Minimum 2024",
+   "kind": "none",
+   "source": null,
+   "metrics": {
+    "reason": "data picture without a colorbar: pattern, not values",
+    "image": "https://svs.gsfc.nasa.gov/vis/a000000/a005300/a005382/sea_ice_2024_min_2160p60.2608_print.jpg"
+   },
+   "threshold": null,
+   "pass": null,
+   "note": "Pattern record: no validation source applies.",
+   "run_utc": "2026-10-29T13:25:04Z"
+  },
+  {
+   "record": "patterns_eic",
+   "id": "a_5425",
+   "title": "SVS 5425: Perpetual Ocean 2: Western Boundary Currents",
+   "kind": "none",
+   "source": null,
+   "metrics": {
+    "reason": "colorbar, but no flat map: pattern only unless a georeference can be fitted",
+    "image": "https://svs.gsfc.nasa.gov/vis/a000000/a005400/a005425/perpetual_ocean2_CLOSE_093_4k_clean_noDate.00000_print.jpg"
+   },
+   "threshold": null,
+   "pass": null,
+   "note": "Pattern record: no validation source applies.",
+   "run_utc": "2026-10-29T13:23:27Z"
+  },
+  {
+   "record": "patterns_eic",
+   "id": "a_5453",
+   "title": "SVS 5453: Annual Wildfire Burned Area in the United States",
+   "kind": "none",
+   "source": null,
+   "metrics": {
+    "reason": "data picture without a colorbar: pattern, not values",
+    "image": "https://svs.gsfc.nasa.gov/vis/a000000/a005400/a005453/fireIncrease.jpg"
+   },
+   "threshold": null,
+   "pass": null,
+   "note": "Pattern record: no validation source applies.",
+   "run_utc": "2026-10-29T13:25:04Z"
+  },
+  {
+   "record": "patterns_eic",
+   "id": "a_30521",
+   "title": "SVS 30521: California Drought",
+   "kind": "none",
+   "source": null,
+   "metrics": {
+    "reason": "data picture without a colorbar: pattern, not values",
+    "image": "https://svs.gsfc.nasa.gov/vis/a030000/a030500/a030521/grace_ca_drought_v4_0128_print.jpg"
+   },
+   "threshold": null,
+   "pass": null,
+   "note": "Pattern record: no validation source applies.",
+   "run_utc": "2026-10-29T13:25:04Z"
+  },
+  {
+   "record": "patterns_eic",
+   "id": "a_31196",
+   "title": "SVS 31196: 50 years of Landsat: Denver",
+   "kind": "none",
+   "source": null,
+   "metrics": {
+    "reason": "data picture without a colorbar: pattern, not values",
+    "image": "https://svs.gsfc.nasa.gov/vis/a030000/a031100/a031196/denver_landsat_v1_2022_print.jpg"
+   },
+   "threshold": null,
+   "pass": null,
+   "note": "Pattern record: no validation source applies.",
+   "run_utc": "2026-10-29T13:25:05Z"
+  }
+ ],
+ "updated_utc": "2026-10-29T13:25:05Z"
+}

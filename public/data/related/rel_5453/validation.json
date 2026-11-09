@@ -1,0 +1,20 @@
+{
+ "record": "rel_5453",
+ "checks": [
+  {
+   "record": "rel_5453",
+   "id": "a_no_validation_source",
+   "title": "Annual Wildfire Burned Area in the United States: no validation source",
+   "kind": "none",
+   "source": null,
+   "metrics": {
+    "reason": "no key: brightness pattern only, nothing to compare with values"
+   },
+   "threshold": null,
+   "pass": null,
+   "note": "no key: brightness pattern only, nothing to compare with values",
+   "run_utc": "2026-10-31T17:14:12Z"
+  }
+ ],
+ "updated_utc": "2026-10-31T17:14:12Z"
+}

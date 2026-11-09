@@ -10,9 +10,10 @@
 //   mapping-text.ts      rule sentences for the Mapping panel
 
 export { MappingError, validateMapping } from "./mapping-validate";
-export { MAPPING, voiceSpec } from "./mapping-spec";
+export { APP_VOICES, MAPPING, voiceSpec } from "./mapping-spec";
 export {
   bandFor,
+  continuousRule,
   inverseContinuous,
   loudnessGain,
   mapContinuous,
@@ -22,6 +23,9 @@ export {
   panFor,
   runtimeRange,
   scaleOutput,
+  semitonesPerUnit,
+  unisonTones,
+  withInputRange,
   type BandResult,
 } from "./mapping-maths";
 export { formatNumber, ruleParts, ruleText, type RuleParts } from "./mapping-text";

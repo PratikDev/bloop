@@ -1,0 +1,286 @@
+{
+ "id": 4514,
+ "title": "Carbon Dioxide from GMAO using Assimilated OCO-2 Data",
+ "url": "https://svs.gsfc.nasa.gov/4514/",
+ "page_type": "Visualization",
+ "release_date": "2016-12-13T14:00:00-05:00",
+ "update_date": "2025-02-02T00:08:54.440493-05:00",
+ "description": "Carbon Dioxide from the GEOS-5 modelThis video is also available on our YouTube channel. || co2_30.with_labels.2000_print.jpg (1024x576) [90.1 KB] || co2_30.with_labels.2000_searchweb.png (180x320) [64.0 KB] || co2_30.with_labels.2000_thm.png (80x40) [5.9 KB] || co2_30.with_labels_1080p30.mp4 (1920x1080) [75.6 MB] || co2_30.with_labels_1080p30.webm (1920x1080) [11.3 MB] || co2_30.with_labels_360p30.mp4 (640x360) [12.2 MB] || final_no_dates (3840x2160) [0 Item(s)] || final_with_labels (3840x2160) [0 Item(s)] || co2_30.with_labels.key [77.8 MB] || co2_30.with_labels.pptx [77.4 MB] || co2_30.with_labels_2160p30.mp4 (3840x2160) [306.7 MB] || co2_30.with_labels_1080p30.mp4.hwshow [192 bytes] || ",
+ "full_text": "Carbon Dioxide from the GEOS-5 modelThis video is also available on our YouTube channel. || co2_30.with_labels.2000_print.jpg (1024x576) [90.1 KB] || co2_30.with_labels.2000_searchweb.png (180x320) [64.0 KB] || co2_30.with_labels.2000_thm.png (80x40) [5.9 KB] || co2_30.with_labels_1080p30.mp4 (1920x1080) [75.6 MB] || co2_30.with_labels_1080p30.webm (1920x1080) [11.3 MB] || co2_30.with_labels_360p30.mp4 (640x360) [12.2 MB] || final_no_dates (3840x2160) [0 Item(s)] || final_with_labels (3840x2160) [0 Item(s)] || co2_30.with_labels.key [77.8 MB] || co2_30.with_labels.pptx [77.4 MB] || co2_30.with_labels_2160p30.mp4 (3840x2160) [306.7 MB] || co2_30.with_labels_1080p30.mp4.hwshow [192 bytes] ||\n\nCarbon Dioxide from the GEOS-5 model<br><a href='https://www.youtube.com/watch?v=5lGy2Z9w8Ao'>This video is also available on our YouTube channel</a>.<br>\n\nCarbon dioxide is the most important greenhouse gas released to the atmosphere through human activities. It is also influenced by natural exchange with the land and ocean. This visualization provides a high-resolution, three-dimensional view of global atmospheric carbon dioxide concentrations from September 1, 2014 to August 31, 2015. The visualization was created using output from the GEOS modeling system, developed and maintained by scientists at NASA. The height of Earth’s atmosphere and topography have been vertically exaggerated and appear approximately 400 times higher than normal to show the complexity of the atmospheric flow.  Measurements of carbon dioxide from NASA’s second Orbiting Carbon Observatory (OCO-2) spacecraft are incorporated into the model every 6 hours to update, or “correct,” the model results, called data assimilation.<p><br>\rAs the visualization shows, carbon dioxide in the atmosphere can be mixed and transported by winds in the blink of an eye. For several decades, scientists have measured carbon dioxide at remote surface locations and occasionally from aircraft. The OCO-2 mission represents an important advance in the ability to observe atmospheric carbon dioxide. OCO-2 collects high-precision, total column measurements of carbon dioxide (from the sensor to Earth’s surface) during daylight conditions. While surface, aircraft, and satellite observations all provide valuable information about carbon dioxide, these measurements do not tell us the amount of carbon dioxide at specific heights throughout the atmosphere or how it is moving across countries and continents. Numerical modeling and data assimilation capabilities allow scientists to combine different types of measurements (e.g., carbon dioxide and wind measurements) from various sources (e.g., satellites, aircraft, and ground-based observation sites) to study how carbon dioxide behaves in the atmosphere and how mountains and weather patterns influence the flow of atmospheric carbon dioxide. Scientists can also use model results to understand and predict where carbon dioxide is being emitted and removed from the atmosphere and how much is from natural processes and human activities. <p>\r\rCarbon dioxide variations are largely controlled by fossil fuel emissions and seasonal fluxes of carbon between the atmosphere and land biosphere. For example, dark red and orange shades represent regions where carbon dioxide concentrations are enhanced by carbon sources. During Northern Hemisphere fall and winter, when trees and plants begin to lose their leaves and decay, carbon dioxide is released in the atmosphere, mixing with emissions from human sources. This, combined with fewer trees and plants removing carbon dioxide from the atmosphere, allows concentrations to climb all winter, reaching a peak by early spring. During Northern Hemisphere spring and summer months, plants absorb a substantial amount of carbon dioxide through photosynthesis, thus removing it from the atmosphere and change the color to blue (low carbon dioxide concentrations). This three-dimensional view also shows the impact of fires in South America and Africa, which occur with a regular seasonal cycle. Carbon dioxide from fires can be transported over large distances, but the path is strongly influenced by large mountain ranges like the Andes. Near the top of the atmosphere, the blue color indicates air that last touched the Earth more than a year before. In this part of the atmosphere, called the stratosphere, carbon dioxide concentrations are lower because they haven’t been influenced by recent increases in emissions.\n\nVolumetric Color bar",
+ "credits_by_role": {
+  "Visualizer": [
+   "Greg Shirah (NASA/GSFC)",
+   "Horace Mitchell (NASA/GSFC)"
+  ],
+  "Technical support": [
+   "Laurence Schuler (ADNET Systems, Inc.)",
+   "Ian Jones (ADNET Systems, Inc.)"
+  ],
+  "Scientist": [
+   "Lesley Ott (NASA/GSFC)",
+   "Steven Pawson (NASA/GSFC)",
+   "Brad Weir (Morgan State University)"
+  ],
+  "Writer": [
+   "Heather Hanson (Global Science and Technology, Inc.)"
+  ]
+ },
+ "keywords": [
+  "Atmospheric Composition",
+  "Carbon Cycle and Ecosystems",
+  "Carbon Dioxide",
+  "GMAO",
+  "Hyperwall",
+  "Model Data",
+  "Presentation",
+  "Volume"
+ ],
+ "datasets": [
+  {
+   "name": "GTOPO30 Topography and Bathymetry",
+   "common_name": "",
+   "platform": null,
+   "sensor": null,
+   "type": "Data Compilation",
+   "organizations": [
+    "USGS"
+   ],
+   "description": "",
+   "credit": "",
+   "url": "",
+   "date_range": null
+  },
+  {
+   "name": "GEOS Carbon Dioxide",
+   "common_name": "",
+   "platform": null,
+   "sensor": null,
+   "type": "Model",
+   "organizations": [
+    "GMAO"
+   ],
+   "description": "",
+   "credit": "",
+   "url": "",
+   "date_range": "2014/08/01 to 2015/08/23"
+  }
+ ],
+ "missions": [],
+ "related": [
+  {
+   "id": 4983,
+   "title": "Global Carbon Dioxide 2020-2021 for Hyperwalls",
+   "url": "https://svs.gsfc.nasa.gov/4983/"
+  },
+  {
+   "id": 4949,
+   "title": "Global Carbon Dioxide 2020-2021",
+   "url": "https://svs.gsfc.nasa.gov/4949/"
+  },
+  {
+   "id": 4565,
+   "title": "Seasonal Changes in Carbon Dioxide",
+   "url": "https://svs.gsfc.nasa.gov/4565/"
+  },
+  {
+   "id": 4519,
+   "title": "Assimilation of OCO-2 Carbon Dioxide into the GEOS Simulation",
+   "url": "https://svs.gsfc.nasa.gov/4519/"
+  }
+ ],
+ "alternate_versions": [],
+ "newer_versions": [],
+ "older_versions": [],
+ "media": [
+  {
+   "group": 0,
+   "group_title": "",
+   "widget": "Video player",
+   "caption": "",
+   "group_text": "Carbon Dioxide from the GEOS-5 model<br><a href='https://www.youtube.com/watch?v=5lGy2Z9w8Ao'>This video is also available on our YouTube channel</a>.<br>",
+   "url": "https://svs.gsfc.nasa.gov/vis/a000000/a004500/a004514/co2_30.with_labels.2000_print.jpg",
+   "filename": "co2_30.with_labels.2000_print.jpg",
+   "media_type": "Image",
+   "width": 1024,
+   "height": 576,
+   "alt_text": "Carbon Dioxide from the GEOS-5 modelThis video is also available on our YouTube channel."
+  },
+  {
+   "group": 0,
+   "group_title": "",
+   "widget": "Video player",
+   "caption": "",
+   "group_text": "Carbon Dioxide from the GEOS-5 model<br><a href='https://www.youtube.com/watch?v=5lGy2Z9w8Ao'>This video is also available on our YouTube channel</a>.<br>",
+   "url": "https://svs.gsfc.nasa.gov/vis/a000000/a004500/a004514/co2_30.with_labels.2000_searchweb.png",
+   "filename": "co2_30.with_labels.2000_searchweb.png",
+   "media_type": "Image",
+   "width": 180,
+   "height": 320,
+   "alt_text": "Carbon Dioxide from the GEOS-5 modelThis video is also available on our YouTube channel."
+  },
+  {
+   "group": 0,
+   "group_title": "",
+   "widget": "Video player",
+   "caption": "",
+   "group_text": "Carbon Dioxide from the GEOS-5 model<br><a href='https://www.youtube.com/watch?v=5lGy2Z9w8Ao'>This video is also available on our YouTube channel</a>.<br>",
+   "url": "https://svs.gsfc.nasa.gov/vis/a000000/a004500/a004514/co2_30.with_labels.2000_thm.png",
+   "filename": "co2_30.with_labels.2000_thm.png",
+   "media_type": "Image",
+   "width": 80,
+   "height": 40,
+   "alt_text": "Carbon Dioxide from the GEOS-5 modelThis video is also available on our YouTube channel."
+  },
+  {
+   "group": 0,
+   "group_title": "",
+   "widget": "Video player",
+   "caption": "",
+   "group_text": "Carbon Dioxide from the GEOS-5 model<br><a href='https://www.youtube.com/watch?v=5lGy2Z9w8Ao'>This video is also available on our YouTube channel</a>.<br>",
+   "url": "https://svs.gsfc.nasa.gov/vis/a000000/a004500/a004514/co2_30.with_labels_1080p30.mp4",
+   "filename": "co2_30.with_labels_1080p30.mp4",
+   "media_type": "Movie",
+   "width": 1920,
+   "height": 1080,
+   "alt_text": "Carbon Dioxide from the GEOS-5 modelThis video is also available on our YouTube channel."
+  },
+  {
+   "group": 0,
+   "group_title": "",
+   "widget": "Video player",
+   "caption": "",
+   "group_text": "Carbon Dioxide from the GEOS-5 model<br><a href='https://www.youtube.com/watch?v=5lGy2Z9w8Ao'>This video is also available on our YouTube channel</a>.<br>",
+   "url": "https://svs.gsfc.nasa.gov/vis/a000000/a004500/a004514/co2_30.with_labels_1080p30.webm",
+   "filename": "co2_30.with_labels_1080p30.webm",
+   "media_type": "Movie",
+   "width": 1920,
+   "height": 1080,
+   "alt_text": "Carbon Dioxide from the GEOS-5 modelThis video is also available on our YouTube channel."
+  },
+  {
+   "group": 0,
+   "group_title": "",
+   "widget": "Video player",
+   "caption": "",
+   "group_text": "Carbon Dioxide from the GEOS-5 model<br><a href='https://www.youtube.com/watch?v=5lGy2Z9w8Ao'>This video is also available on our YouTube channel</a>.<br>",
+   "url": "https://svs.gsfc.nasa.gov/vis/a000000/a004500/a004514/co2_30.with_labels_360p30.mp4",
+   "filename": "co2_30.with_labels_360p30.mp4",
+   "media_type": "Movie",
+   "width": 640,
+   "height": 360,
+   "alt_text": "Carbon Dioxide from the GEOS-5 modelThis video is also available on our YouTube channel."
+  },
+  {
+   "group": 0,
+   "group_title": "",
+   "widget": "Video player",
+   "caption": "",
+   "group_text": "Carbon Dioxide from the GEOS-5 model<br><a href='https://www.youtube.com/watch?v=5lGy2Z9w8Ao'>This video is also available on our YouTube channel</a>.<br>",
+   "url": "https://svs.gsfc.nasa.gov/vis/a000000/a004500/a004514/frames/3840x2160_16x9_30p/final_no_dates/",
+   "filename": "final_no_dates",
+   "media_type": "Frames",
+   "width": 3840,
+   "height": 2160,
+   "alt_text": "Carbon Dioxide from the GEOS-5 modelThis video is also available on our YouTube channel."
+  },
+  {
+   "group": 0,
+   "group_title": "",
+   "widget": "Video player",
+   "caption": "",
+   "group_text": "Carbon Dioxide from the GEOS-5 model<br><a href='https://www.youtube.com/watch?v=5lGy2Z9w8Ao'>This video is also available on our YouTube channel</a>.<br>",
+   "url": "https://svs.gsfc.nasa.gov/vis/a000000/a004500/a004514/frames/3840x2160_16x9_30p/final_with_labels/",
+   "filename": "final_with_labels",
+   "media_type": "Frames",
+   "width": 3840,
+   "height": 2160,
+   "alt_text": "Carbon Dioxide from the GEOS-5 modelThis video is also available on our YouTube channel."
+  },
+  {
+   "group": 0,
+   "group_title": "",
+   "widget": "Video player",
+   "caption": "",
+   "group_text": "Carbon Dioxide from the GEOS-5 model<br><a href='https://www.youtube.com/watch?v=5lGy2Z9w8Ao'>This video is also available on our YouTube channel</a>.<br>",
+   "url": "https://svs.gsfc.nasa.gov/vis/a000000/a004500/a004514/co2_30.with_labels.key",
+   "filename": "co2_30.with_labels.key",
+   "media_type": "Presentation",
+   "width": 0,
+   "height": 0,
+   "alt_text": "Carbon Dioxide from the GEOS-5 modelThis video is also available on our YouTube channel."
+  },
+  {
+   "group": 0,
+   "group_title": "",
+   "widget": "Video player",
+   "caption": "",
+   "group_text": "Carbon Dioxide from the GEOS-5 model<br><a href='https://www.youtube.com/watch?v=5lGy2Z9w8Ao'>This video is also available on our YouTube channel</a>.<br>",
+   "url": "https://svs.gsfc.nasa.gov/vis/a000000/a004500/a004514/co2_30.with_labels.pptx",
+   "filename": "co2_30.with_labels.pptx",
+   "media_type": "Presentation",
+   "width": 0,
+   "height": 0,
+   "alt_text": "Carbon Dioxide from the GEOS-5 modelThis video is also available on our YouTube channel."
+  },
+  {
+   "group": 0,
+   "group_title": "",
+   "widget": "Video player",
+   "caption": "",
+   "group_text": "Carbon Dioxide from the GEOS-5 model<br><a href='https://www.youtube.com/watch?v=5lGy2Z9w8Ao'>This video is also available on our YouTube channel</a>.<br>",
+   "url": "https://svs.gsfc.nasa.gov/vis/a000000/a004500/a004514/co2_30.with_labels_2160p30.mp4",
+   "filename": "co2_30.with_labels_2160p30.mp4",
+   "media_type": "Movie",
+   "width": 3840,
+   "height": 2160,
+   "alt_text": "Carbon Dioxide from the GEOS-5 modelThis video is also available on our YouTube channel."
+  },
+  {
+   "group": 0,
+   "group_title": "",
+   "widget": "Video player",
+   "caption": "",
+   "group_text": "Carbon Dioxide from the GEOS-5 model<br><a href='https://www.youtube.com/watch?v=5lGy2Z9w8Ao'>This video is also available on our YouTube channel</a>.<br>",
+   "url": "https://svs.gsfc.nasa.gov/vis/a000000/a004500/a004514/co2_30.with_labels_1080p30.mp4.hwshow",
+   "filename": "co2_30.with_labels_1080p30.mp4.hwshow",
+   "media_type": "HyperwallShow",
+   "width": 0,
+   "height": 0,
+   "alt_text": ""
+  },
+  {
+   "group": 2,
+   "group_title": "",
+   "widget": "Single image",
+   "caption": "",
+   "group_text": "Volumetric Color bar",
+   "url": "https://svs.gsfc.nasa.gov/vis/a000000/a004500/a004514/cbar_improved.png",
+   "filename": "cbar_improved.png",
+   "media_type": "Image",
+   "width": 1218,
+   "height": 288,
+   "alt_text": "Volumetric Color bar"
+  }
+ ],
+ "text_links": [],
+ "frame_folders": {
+  "https://svs.gsfc.nasa.gov/vis/a000000/a004500/a004514/frames/3840x2160_16x9_30p/final_no_dates/": {
+   "url": "https://svs.gsfc.nasa.gov/vis/a000000/a004500/a004514/frames/3840x2160_16x9_30p/final_no_dates/",
+   "frame_count": 2850,
+   "bytes_approx": 176481399966,
+   "first": "co2_30_maxsamp64_with_plane.1000.exr",
+   "last": "co2_30_maxsamp64_with_plane.3849.exr",
+   "subfolders": {}
+  },
+  "https://svs.gsfc.nasa.gov/vis/a000000/a004500/a004514/frames/3840x2160_16x9_30p/final_with_labels/": {
+   "url": "https://svs.gsfc.nasa.gov/vis/a000000/a004500/a004514/frames/3840x2160_16x9_30p/final_with_labels/",
+   "frame_count": 2850,
+   "bytes_approx": 50187399944,
+   "first": "co2_30.with_labels.1000.exr",
+   "last": "co2_30.with_labels.3849.exr",
+   "subfolders": {}
+  }
+ },
+ "api_url": "https://svs.gsfc.nasa.gov/api/4514",
+ "fetched_utc": "2026-10-31T17:07:03Z"
+}

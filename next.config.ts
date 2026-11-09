@@ -9,6 +9,9 @@ const nextConfig: NextConfig = {
 
   // Build: `next build` writes a fully static site to ./out
   output: "export",
+
+  // The dev-only "N" badge sat over the bottom bar's caption and buttons. Errors still show in the overlay.
+  devIndicators: false,
 };
 
 export default nextConfig;

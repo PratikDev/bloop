@@ -1,0 +1,281 @@
+{
+ "CollectionCitations": [
+  {
+   "OtherCitationDetails": "Cecil, Daniel J.2001. LIS/OTD 0.5 Degree High Resolution Full Climatology (HRFC) [indicate subset used]. Dataset available online from the NASA Global Hydrometeorology Resource Center DAAC, Huntsville, Alabama, U.S.A. DOI: http://dx.doi.org/10.5067/LIS/LIS-OTD/DATA302"
+  }
+ ],
+ "SpatialExtent": {
+  "SpatialCoverageType": "HORIZONTAL",
+  "HorizontalSpatialDomain": {
+   "Geometry": {
+    "CoordinateSystem": "CARTESIAN",
+    "BoundingRectangles": [
+     {
+      "WestBoundingCoordinate": -179.75,
+      "NorthBoundingCoordinate": 89.75,
+      "EastBoundingCoordinate": 179.75,
+      "SouthBoundingCoordinate": -89.75
+     }
+    ]
+   }
+  },
+  "GranuleSpatialRepresentation": "CARTESIAN"
+ },
+ "CollectionProgress": "COMPLETE",
+ "ScienceKeywords": [
+  {
+   "Category": "EARTH SCIENCE",
+   "Topic": "Atmosphere",
+   "Term": "Atmospheric Electricity",
+   "VariableLevel1": "Lightning"
+  },
+  {
+   "Category": "EARTH SCIENCE",
+   "Topic": "Atmosphere",
+   "Term": "Weather Events",
+   "VariableLevel1": "Lightning"
+  }
+ ],
+ "TemporalExtents": [
+  {
+   "EndsAtPresentFlag": false,
+   "RangeDateTimes": [
+    {
+     "BeginningDateTime": "1995-05-04T00:00:00.000Z",
+     "EndingDateTime": "2014-12-31T23:59:59.000Z"
+    }
+   ]
+  }
+ ],
+ "ProcessingLevel": {
+  "ProcessingLevelDescription": "https://ghrc.nsstc.nasa.gov/home/proc_level",
+  "Id": "3"
+ },
+ "DOI": {
+  "DOI": "10.5067/LIS/LIS-OTD/DATA302"
+ },
+ "ShortName": "lohrfc",
+ "EntryTitle": "LIS/OTD 0.5 Degree High Resolution Full Climatology (HRFC) V2.3.2015",
+ "DirectDistributionInformation": {
+  "Region": "us-west-2",
+  "S3BucketAndObjectPrefixNames": [
+   "ghrcw-protected/lohrfc__2.3.2015/"
+  ],
+  "S3CredentialsAPIEndpoint": "https://data.ghrc.earthdata.nasa.gov/s3credentials",
+  "S3CredentialsAPIDocumentationURL": "https://data.ghrc.earthdata.nasa.gov/s3credentialsREADME"
+ },
+ "AccessConstraints": {
+  "Description": "This product has full public access.",
+  "Value": 0
+ },
+ "RelatedUrls": [
+  {
+   "Description": "Earthdata Search allows users to search, discover, visualize, refine, and access NASA Earth Observation data.",
+   "URLContentType": "DistributionURL",
+   "Type": "GET DATA",
+   "URL": "https://search.earthdata.nasa.gov/search/granules?p=C1995863244-GHRC_DAAC",
+   "Subtype": "Earthdata Search"
+  },
+  {
+   "Description": "Browse sample",
+   "URLContentType": "VisualizationURL",
+   "Type": "GET RELATED VISUALIZATION",
+   "URL": "https://ghrc.earthdata.nasa.gov/browseui/#pub/lohrfc__2.3.2015/browse/HRFC_COM_FR_V2.3.2015.png"
+  },
+  {
+   "Description": "The 13 years of TRMM Lightning Imaging Sensor: From individual flash characteristics to decadal tendencies",
+   "URLContentType": "PublicationURL",
+   "Type": "VIEW RELATED INFORMATION",
+   "Subtype": "GENERAL DOCUMENTATION",
+   "URL": "https://ntrs.nasa.gov/archive/nasa/casi.ntrs.nasa.gov/20110015779.pdf"
+  },
+  {
+   "Description": "Global frequency and distribution of lightning as observed from space by the Optical Transient Detector",
+   "URLContentType": "PublicationURL",
+   "Type": "VIEW RELATED INFORMATION",
+   "Subtype": "GENERAL DOCUMENTATION",
+   "URL": "https://dx.doi.org/10.1029/2002JD002347"
+  },
+  {
+   "Description": "Digital Object Identifier for a collection of related datasets",
+   "URLContentType": "PublicationURL",
+   "Type": "VIEW RELATED INFORMATION",
+   "URL": "https://dx.doi.org/10.5067/LIS/LIS-OTD/DATA311"
+  },
+  {
+   "Description": "LIS/OTD Climatology Dataset Collection User Guide",
+   "URLContentType": "PublicationURL",
+   "Type": "VIEW RELATED INFORMATION",
+   "Subtype": "USER'S GUIDE",
+   "URL": "https://ghrc.earthdata.nasa.gov/browseui/#pub/lohrfc__2.3.2015/docs/lohrfc_dataset.pdf"
+  },
+  {
+   "Description": "Products in LIS-OTD gridded climatology files",
+   "URLContentType": "PublicationURL",
+   "Type": "VIEW RELATED INFORMATION",
+   "Subtype": "PI DOCUMENTATION",
+   "URL": "https://ghrc.earthdata.nasa.gov/browseui/#pub/lohrfc__2.3.2015/docs/LISOTD_Climo_prod_table.doc"
+  },
+  {
+   "Description": "Gridded lightning climatology from TRMM-LIS and OTD: Dataset description",
+   "URLContentType": "PublicationURL",
+   "Type": "VIEW RELATED INFORMATION",
+   "Subtype": "ALGORITHM DOCUMENTATION",
+   "URL": "http://dx.doi.org/10.1016/j.atmosres.2012.06.028"
+  },
+  {
+   "Description": "Read SDS Arrays From an A HDF file",
+   "URLContentType": "DistributionURL",
+   "Type": "DOWNLOAD SOFTWARE",
+   "URL": "https://ghrc.earthdata.nasa.gov/browseui/#pub/lohrfc__2.3.2015/software/getgrid.pro"
+  },
+  {
+   "Description": "Read an SDS grid from the LIS/OTD HDF climatology files",
+   "URLContentType": "DistributionURL",
+   "Type": "DOWNLOAD SOFTWARE",
+   "URL": "https://ghrc.earthdata.nasa.gov/browseui/#pub/lohrfc__2.3.2015/software/read_sds.pro"
+  },
+  {
+   "Description": "Lightning Imaging Sensor (LIS) Overview",
+   "URLContentType": "CollectionURL",
+   "Type": "PROJECT HOME PAGE",
+   "URL": "https://ghrc.nsstc.nasa.gov/lightning/"
+  },
+  {
+   "Description": "Browse Imagery",
+   "URLContentType": "VisualizationURL",
+   "Type": "GET RELATED VISUALIZATION",
+   "URL": "https://ghrc.earthdata.nasa.gov/browseui/#pub/lohrfc__2.3.2015/browse/"
+  },
+  {
+   "Description": "Instructions for citing GHRC data",
+   "URLContentType": "PublicationURL",
+   "Type": "VIEW RELATED INFORMATION",
+   "Subtype": "DATA CITATION GUIDELINES",
+   "URL": "https://ghrc.nsstc.nasa.gov/home/about-ghrc/citing-ghrc-daac-data"
+  }
+ ],
+ "DataDates": [
+  {
+   "Date": "2001-08-24T00:00:00.000Z",
+   "Type": "CREATE"
+  },
+  {
+   "Date": "2022-04-28T13:50:08.000Z",
+   "Type": "UPDATE"
+  }
+ ],
+ "Abstract": "The LIS/OTD 0.5 Degree High Resolution Full Climatology (HRFC)  contains a variety of gridded climatologies of total lightning flash rates obtained from two lightning detection sensors - the spaceborne Optical Transient Detector (OTD) on Orbview-1 and the Lightning Imaging Sensor (LIS) onboard the Tropical Rainfall Measuring Mission (TRMM) satellite.The long LIS (equatorward of about 38 degree) record makes the merged climatology most robust in the tropics and subtropics, while the high latitude data is entirely from OTD. The HRFC dataset include flash rate climatology data including raw and scaled flash on a 0.5 degree grid in HDF and netCDF-4 format.",
+ "LocationKeywords": [
+  {
+   "Category": "GEOGRAPHIC REGION",
+   "Type": "GLOBAL"
+  }
+ ],
+ "MetadataDates": [
+  {
+   "Type": "CREATE",
+   "Date": "2024-06-03T19:28:00.000Z"
+  },
+  {
+   "Type": "UPDATE",
+   "Date": "2024-08-08T15:40:00.000Z"
+  }
+ ],
+ "Version": "2.3.2015",
+ "Projects": [
+  {
+   "ShortName": "LIS",
+   "LongName": "Lightning Imaging Sensor Project"
+  }
+ ],
+ "DataCenters": [
+  {
+   "Roles": [
+    "ARCHIVER"
+   ],
+   "ContactInformation": {
+    "RelatedUrls": [
+     {
+      "URLContentType": "DataCenterURL",
+      "Type": "HOME PAGE",
+      "URL": "https://www.earthdata.nasa.gov/centers/ghrc-daac/",
+      "Description": "Data Center Home Page"
+     }
+    ],
+    "ContactMechanisms": [
+     {
+      "Type": "Telephone",
+      "Value": "+1 256-961-7932"
+     },
+     {
+      "Type": "Fax",
+      "Value": "+1 256-824-5149"
+     },
+     {
+      "Type": "Email",
+      "Value": "support-ghrc@earthdata.nasa.gov"
+     }
+    ],
+    "Addresses": [
+     {
+      "StreetAddresses": [
+       "320 Sparkman Drive"
+      ],
+      "Country": "United States",
+      "City": "Huntsville",
+      "PostalCode": "35805"
+     }
+    ]
+   },
+   "ShortName": "NASA/MSFC/GHRC",
+   "LongName": "Global Hydrometeorology Resource Center, Marshall Space Flight Center, NASA"
+  }
+ ],
+ "TemporalKeywords": [
+  "Annual Climatology"
+ ],
+ "Platforms": [
+  {
+   "Type": "Earth Observation Satellites",
+   "ShortName": "OrbView-1",
+   "LongName": "OSC Microlab-1 Satellite",
+   "Instruments": [
+    {
+     "ShortName": "OTD",
+     "LongName": "Optical Transient Detector"
+    }
+   ]
+  },
+  {
+   "Type": "Earth Observation Satellites",
+   "ShortName": "TRMM",
+   "LongName": "Tropical Rainfall Measuring Mission",
+   "Instruments": [
+    {
+     "ShortName": "LIS",
+     "LongName": "Lightning Imaging Sensor"
+    }
+   ]
+  }
+ ],
+ "MetadataSpecification": {
+  "URL": "https://cdn.earthdata.nasa.gov/umm/collection/v1.18.6",
+  "Name": "UMM-C",
+  "Version": "1.18.6"
+ },
+ "ArchiveAndDistributionInformation": {
+  "FileDistributionInformation": [
+   {
+    "FormatType": "Native",
+    "Fees": "0.0",
+    "Format": "HDF4"
+   },
+   {
+    "FormatType": "Native",
+    "Fees": "0.0",
+    "Format": "netCDF-4"
+   }
+  ]
+ }
+}

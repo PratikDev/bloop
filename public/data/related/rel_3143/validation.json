@@ -1,0 +1,36 @@
+{
+ "record": "rel_3143",
+ "checks": [
+  {
+   "record": "rel_3143",
+   "id": "a_auto_source",
+   "title": "Global Lightning Accumulation (WMS): decoded values vs LIS/OTD HRFC climatology (GIBS)",
+   "kind": "value",
+   "source": "LIS/OTD HRFC climatology (GIBS)",
+   "metrics": {
+    "rung": "independent satellites, other years",
+    "unit": "flashes/km²/yr",
+    "spearman": 0.8671122307144115,
+    "n": 42723,
+    "median_rel_error": 2.7846111454930584,
+    "bias": 4.557316384073741,
+    "dates": [
+     {
+      "date": "climatology"
+     },
+     {
+      "date": "climatology"
+     },
+     {
+      "date": "climatology"
+     }
+    ]
+   },
+   "threshold": "Spearman ≥ 0.9 and median relative error ≤ 15 % → verified; ρ ≥ 0.9 → values with stated error; ρ ≥ 0.6 → relative (provisional, onboarding defaults)",
+   "pass": false,
+   "note": "Rung: independent satellites, other years. Onboarding run, 3 frames.",
+   "run_utc": "2026-10-31T18:00:45Z"
+  }
+ ],
+ "updated_utc": "2026-10-31T21:37:13Z"
+}

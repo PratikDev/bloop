@@ -1,0 +1,313 @@
+{
+ "id": 5382,
+ "title": "Arctic Sea Ice Minimum 2024",
+ "url": "https://svs.gsfc.nasa.gov/5382/",
+ "page_type": "Visualization",
+ "release_date": "2024-09-24T13:00:00-04:00",
+ "update_date": "2025-06-23T00:16:20.996433-04:00",
+ "description": "Animation of Arctic sea ice maximum extent, March 14 2024, to its minimum, September 11, 2024 || sea_ice_2024_min_2160p60.2608_print.jpg (1024x576) [152.6 KB] || sea_ice_2024_min_2160p60.2608_searchweb.png (320x180) [74.6 KB] || sea_ice_2024_min_2160p60.2608_thm.png (80x40) [6.0 KB] || sea_ice_2024_min_1080p60.mp4 (1920x1080) [38.2 MB] || sea_ice_min_2024 [0 Item(s)] || sea_ice_2024_min_2160p60.mp4 (3840x2160) [106.6 MB] || antarctic_arctic_seaice_comp_5x3.hwshow || ",
+ "full_text": "Animation of Arctic sea ice maximum extent, March 14 2024, to its minimum, September 11, 2024 || sea_ice_2024_min_2160p60.2608_print.jpg (1024x576) [152.6 KB] || sea_ice_2024_min_2160p60.2608_searchweb.png (320x180) [74.6 KB] || sea_ice_2024_min_2160p60.2608_thm.png (80x40) [6.0 KB] || sea_ice_2024_min_1080p60.mp4 (1920x1080) [38.2 MB] || sea_ice_min_2024 [0 Item(s)] || sea_ice_2024_min_2160p60.mp4 (3840x2160) [106.6 MB] || antarctic_arctic_seaice_comp_5x3.hwshow ||\n\nAnimation of Arctic sea ice maximum extent, March 14 2024, to its minimum, September 11, 2024\n\nSatellite-based passive microwave images of the sea ice have provided a reliable tool for continuously monitoring changes in the Arctic ice since 1979. Every summer the Arctic ice cap melts down to what scientists call its \"minimum\" before colder weather begins to cause ice cover to increase. An analysis of satellite data by NASA and the National Snow and Ice Data Center (NSIDC) at the University of Colorado Boulder shows that the 2024 minimum extent, which was likely reached on Sept. 11, measured 1.65 million square miles (4.28 million square kilometers). This is the 7th lowest measured sea ice extent for the arctic on record.<br><br>The Japan Aerospace Exploration Agency (JAXA) provides many water-related products derived from data acquired by the Advanced Microwave Scanning Radiometer 2 (AMSR2) instrument aboard the Global Change Observation Mission 1st-Water \"SHIZUKU\" (GCOM-W1) satellite. Two JAXA datasets used in this animation are the 10-km daily sea ice concentration and the 10 km daily 89 GHz Brightness Temperature.<br><br>In this animation, the daily Arctic sea ice and seasonal land cover change progress through time, from the yearly maximum ice extent on March 14 2024, through its minimum on September 11 2024. Over the water, Arctic sea ice changes from day to day showing a running 3-day minimum sea ice concentration in the region where the concentration is greater than 15%. The blueish white color of the sea ice is derived from a 3-day running minimum of the AMSR2 89 GHz brightness temperature. The yellow boundary shows the minimum extent averaged over the 30-year period from 1981 to 2010. Over the terrain, monthly data from the seasonal Blue Marble Next Generation fades slowly from month to month.\n\nAnimation of Arctic sea ice maximum extent, March 14 2024, to its minimum, September 11, 2024, mobile format\n\nArctic sea ice minimum extent, September 11, 2024",
+ "credits_by_role": {
+  "Animator": [
+   "Trent L. Schindler (USRA)",
+   "Cindy Starr (Global Science and Technology, Inc.)"
+  ],
+  "Producer": [
+   "Grace Weikert (eMITS)"
+  ],
+  "Scientist": [
+   "Walt Meier (NASA/GSFC)"
+  ]
+ },
+ "keywords": [
+  "Arctic Circle",
+  "Arctic Ice Thickness",
+  "Climage Change",
+  "Climate",
+  "Climate Change",
+  "Cryology",
+  "Earth Science",
+  "HDTV",
+  "Hyperwall",
+  "Ice Melt",
+  "Oceans",
+  "Physical oceanography",
+  "Sea Ice"
+ ],
+ "datasets": [
+  {
+   "name": "Blue Marble: Next Generation",
+   "common_name": "BMNG",
+   "platform": "Terra and Aqua",
+   "sensor": "MODIS",
+   "type": "Other",
+   "organizations": [],
+   "description": "",
+   "credit": "The Blue Marble data is courtesy of Reto Stockli (NASA/GSFC).",
+   "url": "http://earthobservatory.nasa.gov/Newsroom/BlueMarble/",
+   "date_range": null
+  },
+  {
+   "name": "10 km Daily Sea Ice Concentration",
+   "common_name": "",
+   "platform": "SHIZUKU (GCOM-W1)",
+   "sensor": "AMSR2",
+   "type": "Observed Data",
+   "organizations": [
+    "Japan Aerospace Exploration Agency"
+   ],
+   "description": "",
+   "credit": "AMSR2 data courtesy of the Japan Aerospace Exploration Agency (JAXA).",
+   "url": "",
+   "date_range": null
+  },
+  {
+   "name": "10 km Daily 89 GHz Brightness Temperature",
+   "common_name": "",
+   "platform": "SHIZUKU (GCOM-W1)",
+   "sensor": "AMSR2",
+   "type": "Observed Data",
+   "organizations": [
+    "Japan Aerospace Exploration Agency"
+   ],
+   "description": "",
+   "credit": "AMSR2 data courtesy of the Japan Aerospace Exploration Agency (JAXA).",
+   "url": "",
+   "date_range": null
+  }
+ ],
+ "missions": [
+  "Aqua",
+  "Terra"
+ ],
+ "related": [
+  {
+   "id": 14900,
+   "title": "Arctic Sea Ice Minimum (2025)",
+   "url": "https://svs.gsfc.nasa.gov/14900/"
+  },
+  {
+   "id": 14684,
+   "title": "Arctic Sea Ice Near Historic Low; Antarctic Ice Continues Decline",
+   "url": "https://svs.gsfc.nasa.gov/14684/"
+  },
+  {
+   "id": 4927,
+   "title": "Arctic Sea Ice 2020-2021, Domemaster Format",
+   "url": "https://svs.gsfc.nasa.gov/4927/"
+  },
+  {
+   "id": 13746,
+   "title": "Measuring the Seas from Space! U.S.-European Satellite Launching THIS SATURDAY Seeks to Answer Vital Climate Questions Live Shots",
+   "url": "https://svs.gsfc.nasa.gov/13746/"
+  },
+  {
+   "id": 13300,
+   "title": "New NASA Images Show Summer Melting In The Arctic Live Shots",
+   "url": "https://svs.gsfc.nasa.gov/13300/"
+  }
+ ],
+ "alternate_versions": [],
+ "newer_versions": [],
+ "older_versions": [
+  {
+   "id": 4941,
+   "title": "Arctic Sea Ice Minimum 2021",
+   "url": "https://svs.gsfc.nasa.gov/4941/"
+  },
+  {
+   "id": 4860,
+   "title": "Arctic Sea Ice Minimum 2020",
+   "url": "https://svs.gsfc.nasa.gov/4860/"
+  },
+  {
+   "id": 4757,
+   "title": "Arctic Sea Ice Minimum 2019",
+   "url": "https://svs.gsfc.nasa.gov/4757/"
+  },
+  {
+   "id": 4562,
+   "title": "Minimum Antarctic Sea Ice 2017",
+   "url": "https://svs.gsfc.nasa.gov/4562/"
+  }
+ ],
+ "media": [
+  {
+   "group": 0,
+   "group_title": "",
+   "widget": "Video player",
+   "caption": "",
+   "group_text": "Animation of Arctic sea ice maximum extent, March 14 2024, to its minimum, September 11, 2024",
+   "url": "https://svs.gsfc.nasa.gov/vis/a000000/a005300/a005382/sea_ice_2024_min_2160p60.2608_print.jpg",
+   "filename": "sea_ice_2024_min_2160p60.2608_print.jpg",
+   "media_type": "Image",
+   "width": 1024,
+   "height": 576,
+   "alt_text": "Animation of Arctic sea ice maximum extent, March 14 2024, to its minimum, September 11, 2024"
+  },
+  {
+   "group": 0,
+   "group_title": "",
+   "widget": "Video player",
+   "caption": "",
+   "group_text": "Animation of Arctic sea ice maximum extent, March 14 2024, to its minimum, September 11, 2024",
+   "url": "https://svs.gsfc.nasa.gov/vis/a000000/a005300/a005382/sea_ice_2024_min_2160p60.2608_searchweb.png",
+   "filename": "sea_ice_2024_min_2160p60.2608_searchweb.png",
+   "media_type": "Image",
+   "width": 320,
+   "height": 180,
+   "alt_text": "Animation of Arctic sea ice maximum extent, March 14 2024, to its minimum, September 11, 2024"
+  },
+  {
+   "group": 0,
+   "group_title": "",
+   "widget": "Video player",
+   "caption": "",
+   "group_text": "Animation of Arctic sea ice maximum extent, March 14 2024, to its minimum, September 11, 2024",
+   "url": "https://svs.gsfc.nasa.gov/vis/a000000/a005300/a005382/sea_ice_2024_min_2160p60.2608_thm.png",
+   "filename": "sea_ice_2024_min_2160p60.2608_thm.png",
+   "media_type": "Image",
+   "width": 80,
+   "height": 40,
+   "alt_text": "Animation of Arctic sea ice maximum extent, March 14 2024, to its minimum, September 11, 2024"
+  },
+  {
+   "group": 0,
+   "group_title": "",
+   "widget": "Video player",
+   "caption": "",
+   "group_text": "Animation of Arctic sea ice maximum extent, March 14 2024, to its minimum, September 11, 2024",
+   "url": "https://svs.gsfc.nasa.gov/vis/a000000/a005300/a005382/sea_ice_2024_min_1080p60.mp4",
+   "filename": "sea_ice_2024_min_1080p60.mp4",
+   "media_type": "Movie",
+   "width": 1920,
+   "height": 1080,
+   "alt_text": "Animation of Arctic sea ice maximum extent, March 14 2024, to its minimum, September 11, 2024"
+  },
+  {
+   "group": 0,
+   "group_title": "",
+   "widget": "Video player",
+   "caption": "",
+   "group_text": "Animation of Arctic sea ice maximum extent, March 14 2024, to its minimum, September 11, 2024",
+   "url": "https://svs.gsfc.nasa.gov/vis/a000000/a005300/a005382/frames/3840x2160_16x9_60p/sea_ice_min_2024/",
+   "filename": "sea_ice_min_2024",
+   "media_type": "Frames",
+   "width": 3840,
+   "height": 2160,
+   "alt_text": "Animation of Arctic sea ice maximum extent, March 14 2024, to its minimum, September 11, 2024"
+  },
+  {
+   "group": 0,
+   "group_title": "",
+   "widget": "Video player",
+   "caption": "",
+   "group_text": "Animation of Arctic sea ice maximum extent, March 14 2024, to its minimum, September 11, 2024",
+   "url": "https://svs.gsfc.nasa.gov/vis/a000000/a005300/a005382/sea_ice_2024_min_2160p60.mp4",
+   "filename": "sea_ice_2024_min_2160p60.mp4",
+   "media_type": "Movie",
+   "width": 3840,
+   "height": 2160,
+   "alt_text": "Animation of Arctic sea ice maximum extent, March 14 2024, to its minimum, September 11, 2024"
+  },
+  {
+   "group": 0,
+   "group_title": "",
+   "widget": "Video player",
+   "caption": "",
+   "group_text": "Animation of Arctic sea ice maximum extent, March 14 2024, to its minimum, September 11, 2024",
+   "url": "https://svs.gsfc.nasa.gov/vis/a000000/a005300/a005382/sea_ice_2024_min_2160p60.mp4.hwshow",
+   "filename": "sea_ice_2024_min_2160p60.mp4.hwshow",
+   "media_type": "HyperwallShow",
+   "width": 0,
+   "height": 0,
+   "alt_text": ""
+  },
+  {
+   "group": 2,
+   "group_title": "",
+   "widget": "Video player",
+   "caption": "",
+   "group_text": "Animation of Arctic sea ice maximum extent, March 14 2024, to its minimum, September 11, 2024, mobile format",
+   "url": "https://svs.gsfc.nasa.gov/vis/a000000/a005300/a005382/sea_ice_2024_vert_60.2608_print.jpg",
+   "filename": "sea_ice_2024_vert_60.2608_print.jpg",
+   "media_type": "Image",
+   "width": 1024,
+   "height": 1820,
+   "alt_text": "Animation of Arctic sea ice maximum extent, March 14 2024, to its minimum, September 11, 2024, mobile format"
+  },
+  {
+   "group": 2,
+   "group_title": "",
+   "widget": "Video player",
+   "caption": "",
+   "group_text": "Animation of Arctic sea ice maximum extent, March 14 2024, to its minimum, September 11, 2024, mobile format",
+   "url": "https://svs.gsfc.nasa.gov/vis/a000000/a005300/a005382/frames/1080x1920_9x16_60p/sea_ice_2024_vert_60/",
+   "filename": "sea_ice_2024_vert_60",
+   "media_type": "Frames",
+   "width": 1080,
+   "height": 1920,
+   "alt_text": "Animation of Arctic sea ice maximum extent, March 14 2024, to its minimum, September 11, 2024, mobile format"
+  },
+  {
+   "group": 2,
+   "group_title": "",
+   "widget": "Video player",
+   "caption": "",
+   "group_text": "Animation of Arctic sea ice maximum extent, March 14 2024, to its minimum, September 11, 2024, mobile format",
+   "url": "https://svs.gsfc.nasa.gov/vis/a000000/a005300/a005382/sea_ice_2024_vert_1920p60.mp4",
+   "filename": "sea_ice_2024_vert_1920p60.mp4",
+   "media_type": "Movie",
+   "width": 1080,
+   "height": 1920,
+   "alt_text": "Animation of Arctic sea ice maximum extent, March 14 2024, to its minimum, September 11, 2024, mobile format"
+  },
+  {
+   "group": 3,
+   "group_title": "",
+   "widget": "Single image",
+   "caption": "",
+   "group_text": "Arctic sea ice minimum extent, September 11, 2024",
+   "url": "https://svs.gsfc.nasa.gov/vis/a000000/a005300/a005382/sea_ice_2024_still_print.jpg",
+   "filename": "sea_ice_2024_still_print.jpg",
+   "media_type": "Image",
+   "width": 1024,
+   "height": 576,
+   "alt_text": "Arctic sea ice minimum extent, September 11, 2024"
+  },
+  {
+   "group": 3,
+   "group_title": "",
+   "widget": "Single image",
+   "caption": "",
+   "group_text": "Arctic sea ice minimum extent, September 11, 2024",
+   "url": "https://svs.gsfc.nasa.gov/vis/a000000/a005300/a005382/sea_ice_2024_still.png",
+   "filename": "sea_ice_2024_still.png",
+   "media_type": "Image",
+   "width": 3840,
+   "height": 2160,
+   "alt_text": "Arctic sea ice minimum extent, September 11, 2024"
+  }
+ ],
+ "text_links": [],
+ "frame_folders": {
+  "https://svs.gsfc.nasa.gov/vis/a000000/a005300/a005382/frames/3840x2160_16x9_60p/sea_ice_min_2024/": {
+   "url": "https://svs.gsfc.nasa.gov/vis/a000000/a005300/a005382/frames/3840x2160_16x9_60p/sea_ice_min_2024/",
+   "frame_count": 3200,
+   "bytes_approx": 23432500000,
+   "first": "sea_ice_2024_min_2160p60.0001.png",
+   "last": "sea_ice_2024_min_2160p60.3200.png",
+   "subfolders": {}
+  },
+  "https://svs.gsfc.nasa.gov/vis/a000000/a005300/a005382/frames/1080x1920_9x16_60p/sea_ice_2024_vert_60/": {
+   "url": "https://svs.gsfc.nasa.gov/vis/a000000/a005300/a005382/frames/1080x1920_9x16_60p/sea_ice_2024_vert_60/",
+   "frame_count": 3200,
+   "bytes_approx": 6310600000,
+   "first": "sea_ice_2024_vert_60.0001.png",
+   "last": "sea_ice_2024_vert_60.3200.png",
+   "subfolders": {}
+  }
+ },
+ "api_url": "https://svs.gsfc.nasa.gov/api/5382",
+ "fetched_utc": "2026-10-29T07:42:23Z"
+}

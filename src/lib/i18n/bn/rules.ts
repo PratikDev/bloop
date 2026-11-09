@@ -2,7 +2,7 @@
 // L2's English ruleText() (src/lib/audio/mapping-text.ts), so it can never
 // disagree with the sound.
 
-import { ruleParts } from "@/lib/audio/mapping";
+import { ruleParts, ruleText } from "@/lib/audio/mapping";
 import type { VoiceSpec } from "@/types/data-contract";
 import { localDigits } from "../format";
 import { translateData } from "./data";
@@ -21,9 +21,28 @@ export function voiceLabelBn(voice: VoiceSpec): string {
   return voice.label.bn.startsWith("TODO") ? translateData(voice.label.en) : voice.label.bn;
 }
 
+/**
+ * The words a voice's rule needs that Bangla doesn't have yet: a parameter without a Bangla word, a unit
+ * translateData() doesn't know, a "same rule as" voice, a falling output (bloop-dev's voices: normalTone, clarity,
+ * unison, …). Empty = the Bangla sentence can be built. Listed in docs/i18n/TO_TRANSLATE.md.
+ */
+export function missingRuleWords(voice: VoiceSpec): string[] {
+  const p = ruleParts(voice);
+  if (!p) return [];
+  const missing: string[] = [];
+  if (p.kind === "sameAs") missing.push("a rule shared with another voice (sameAs)");
+  if (p.outputFalling) missing.push("a falling output (higher value, lower output)");
+  if (p.param !== undefined && !(p.param in PARAM_WORDS)) missing.push(`parameter: ${p.param}`);
+  // Symbols and acronyms (Hz, s, cm, °C, NDVI) stay as they are in Bangla; a unit with an English word needs translating.
+  for (const unit of [p.inputUnit, p.outputUnit]) if (unit && /[a-z]{3,}/u.test(unit) && translateData(unit) === unit) missing.push(`unit: ${unit}`);
+  return missing;
+}
+
+/** The rule sentence in Bangla; English (ruleText) until its words are translated (missingRuleWords). */
 export function ruleTextBn(voice: VoiceSpec): string {
   const p = ruleParts(voice);
   if (!p) return translateData(voice.silence);
+  if (missingRuleWords(voice).length) return ruleText(voice);
   const name = voiceLabelBn(voice);
   const unit = translateData(p.inputUnit);
 

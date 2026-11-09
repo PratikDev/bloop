@@ -1,0 +1,633 @@
+{
+ "record": "rel_5110",
+ "app_title": "Atmospheric Carbon Dioxide Tagged by Source (model)",
+ "svs_ids": [
+  5110
+ ],
+ "title": "Atmospheric Carbon Dioxide Tagged by Source",
+ "svs_pages": [
+  "https://svs.gsfc.nasa.gov/5110/"
+ ],
+ "description": "Carbon dioxide (CO2) is the most prevalent greenhouse gas driving global climate change. However, its increase in the atmosphere would be even more rapid without land and ocean carbon sinks, which collectively absorb about half of human emissions every year.  Advanced computer modeling techniques in NASA's Global Modeling and Assimilation Office allow us to disentangle the influences of sources and sinks and to better understand where carbon is coming from and going to. ||",
+ "release_date": "2023-06-16T10:00:00-04:00",
+ "period": {
+  "start": "2023-06-16T14:00:00Z",
+  "end": "2023-06-16T14:00:00Z",
+  "label": "16 Jun 2023 – 16 Jun 2023"
+ },
+ "badge": "model",
+ "credits_by_role": {
+  "Visualizer": [
+   "AJ Christensen (SSAI)",
+   "Mark SubbaRao (NASA/GSFC)",
+   "Helen-Nicole Kostis (USRA)",
+   "Brenda Lopez-Silva (SSAI)",
+   "Anansa B. Keaton-Ashanti (NASA/GSFC)",
+   "Greg Shirah (NASA/GSFC)"
+  ],
+  "Technical support": [
+   "Laurence Schuler (ADNET Systems, Inc.)",
+   "Ian Jones (ADNET Systems, Inc.)"
+  ],
+  "Scientist": [
+   "Lesley Ott (NASA/GSFC)"
+  ]
+ },
+ "datasets": [
+  {
+   "name": "GEOS Carbon Dioxide",
+   "common_name": "",
+   "platform": null,
+   "sensor": null,
+   "type": "Model",
+   "organizations": [
+    "GMAO"
+   ],
+   "description": "",
+   "credit": "",
+   "url": "",
+   "date_range": null
+  }
+ ],
+ "credit_line": "Visualization: NASA's Scientific Visualization Studio (SVS 5110) for the NASA Earth Information Center.",
+ "disclosure": "A related NASA visualization read back through its key (pattern only).",
+ "licence": "SVS: \"All of our content is in the public domain (unless otherwise noted), meaning that it is free to download, use, and redistribute for whatever purposes you see fit.\" (https://svs.gsfc.nasa.gov/help/, read 29 Oct 2026)",
+ "focus": "greenhouse gases",
+ "related_to": [
+  5196
+ ],
+ "frame_times": {
+  "method": "linear",
+  "approximate": true,
+  "count": 1,
+  "source": "undated"
+ },
+ "georef": {
+  "projection": "equirectangular (2:1)",
+  "bounds": [
+   -180,
+   -90,
+   180,
+   90
+  ],
+  "pass_at": 0.9,
+  "shifts_deg": [],
+  "iou": {
+   "land": 0.35121728096884886
+  },
+  "pass": false,
+  "best_is_assumed": false
+ },
+ "colorbar": {
+  "geometry": {
+   "x0": 92,
+   "x1": 259,
+   "band": [
+    111,
+    114
+   ],
+   "vertical": false,
+   "outline_rgb": null,
+   "image_size": [
+    180,
+    320
+   ]
+  },
+  "ticks": [
+   {
+    "px": 6.0,
+    "value": -4.0,
+    "text": "-4",
+    "engine": "glyph",
+    "label_px": 6.0
+   },
+   {
+    "px": 108.0,
+    "value": 137231006679.0,
+    "text": "39^7",
+    "engine": "glyph",
+    "label_px": 108.0
+   }
+  ],
+  "scale": "linear",
+  "fit": {
+   "a": -8072412161.823499,
+   "b": 1345402026.3039217,
+   "fit": "weighted 1/tolerance",
+   "max_resid_px": 3.4024303734145915e-14,
+   "resid_px": [
+    -0.0,
+    -0.0
+   ],
+   "ok": true
+  },
+  "notes": [
+   "Only two labels: scale chosen from the label values (≥ 2 decades → log), not from spacing."
+  ],
+  "n_samples": 168,
+  "value_range": [
+   -8072412161.823499,
+   216609726230.93143
+  ],
+  "opacity_varies": false,
+  "px_per_unit": 7.432722565069955e-10
+ },
+ "colorbar_source": "page colorbar JanToDec2021_TaggedCO2_6-6-2023a_diorama_legend.00001_web.png",
+ "asset": {
+  "kind": "frames",
+  "owner": 5273,
+  "what": "SOS_TaggedCO2_10-6-2023a_co2_foursources_quality_ScienceOnASphere_copied"
+ },
+ "twins": [
+  {
+   "id": 5273,
+   "title": "Atmospheric Carbon Dioxide Tagged by Source for Science-on-a-Sphere",
+   "reason": "search; 6 title words shared",
+   "flat_sets": [
+    {
+     "layer": "SOS_TaggedCO2_10-6-2023a_co2_foursources_quality_ScienceOnASphere_copied",
+     "size": "4096×2048",
+     "frames": 2920,
+     "url": "https://svs.gsfc.nasa.gov/vis/a000000/a005200/a005273/frames/4096x2048_2x1_30p/SOS_TaggedCO2_10-6-2023a_co2_foursources_quality_ScienceOnASphere_copied/"
+    },
+    {
+     "layer": "SOS_TaggedCO2_10-6-2023a_co2_foursources_quality_ScienceOnASphere_copied_pngs",
+     "size": "4096×2048",
+     "frames": 2919,
+     "url": "https://svs.gsfc.nasa.gov/vis/a000000/a005200/a005273/frames/4096x2048_2x1_30p/SOS_TaggedCO2_10-6-2023a_co2_foursources_quality_ScienceOnASphere_copied_pngs/"
+    },
+    {
+     "layer": "SOS_TaggedCO2_4-1-2024a_co2_FF_quality_ScienceOnASphere",
+     "size": "4096×2048",
+     "frames": 2920,
+     "url": "https://svs.gsfc.nasa.gov/vis/a000000/a005200/a005273/frames/4096x2048_2x1_30p/SOS_TaggedCO2_4-1-2024a_co2_FF_quality_ScienceOnASphere/"
+    },
+    {
+     "layer": "SOS_TaggedCO2_4-1-2024a_co2_BB_quality_ScienceOnASphere",
+     "size": "4096×2048",
+     "frames": 2920,
+     "url": "https://svs.gsfc.nasa.gov/vis/a000000/a005200/a005273/frames/4096x2048_2x1_30p/SOS_TaggedCO2_4-1-2024a_co2_BB_quality_ScienceOnASphere/"
+    },
+    {
+     "layer": "SOS_TaggedCO2_4-1-2024a_co2_NEE_quality_ScienceOnASphere",
+     "size": "4096×2048",
+     "frames": 2920,
+     "url": "https://svs.gsfc.nasa.gov/vis/a000000/a005200/a005273/frames/4096x2048_2x1_30p/SOS_TaggedCO2_4-1-2024a_co2_NEE_quality_ScienceOnASphere/"
+    },
+    {
+     "layer": "SOS_TaggedCO2_5-21-2024a_co2_NEE_sourceAndSink_ScienceOnASphere",
+     "size": "4096×2047",
+     "frames": 2920,
+     "url": "https://svs.gsfc.nasa.gov/vis/a000000/a005200/a005273/frames/4096x2048_2x1_30p/SOS_TaggedCO2_5-21-2024a_co2_NEE_sourceAndSink_ScienceOnASphere/"
+    },
+    {
+     "layer": "SOS_TaggedCO2_4-1-2024a_co2_OCN_quality_ScienceOnASphere",
+     "size": "4096×2048",
+     "frames": 2920,
+     "url": "https://svs.gsfc.nasa.gov/vis/a000000/a005200/a005273/frames/4096x2048_2x1_30p/SOS_TaggedCO2_4-1-2024a_co2_OCN_quality_ScienceOnASphere/"
+    },
+    {
+     "layer": "SOS_TaggedCO2_5-21-2024a_co2_OCN_sourceAndSink_ScienceOnASphere",
+     "size": "4096×2048",
+     "frames": 2920,
+     "url": "https://svs.gsfc.nasa.gov/vis/a000000/a005200/a005273/frames/4096x2048_2x1_30p/SOS_TaggedCO2_5-21-2024a_co2_OCN_sourceAndSink_ScienceOnASphere/"
+    },
+    {
+     "layer": "SOS_TaggedCO2_4-1-2024a_co2_SINKS_quality_ScienceOnASphere",
+     "size": "4096×2048",
+     "frames": 2920,
+     "url": "https://svs.gsfc.nasa.gov/vis/a000000/a005200/a005273/frames/4096x2048_2x1_30p/SOS_TaggedCO2_4-1-2024a_co2_SINKS_quality_ScienceOnASphere/"
+    },
+    {
+     "layer": "SOS_TaggedCO2_4-1-2024a_co2_BORDERS_quality_ScienceOnASphere",
+     "size": "4096×2048",
+     "frames": 1,
+     "url": "https://svs.gsfc.nasa.gov/vis/a000000/a005200/a005273/frames/4096x2048_2x1_30p/SOS_TaggedCO2_4-1-2024a_co2_BORDERS_quality_ScienceOnASphere/"
+    },
+    {
+     "layer": "pngs",
+     "size": "4096×2048",
+     "frames": 1,
+     "url": "https://svs.gsfc.nasa.gov/vis/a000000/a005200/a005273/frames/4096x2048_2x1_30p/SOS_TaggedCO2_4-1-2024a_co2_BORDERS_quality_ScienceOnASphere/pngs/"
+    }
+   ],
+   "flat_movies": [
+    {
+     "file": "SOS_TaggedCO2_10-6-2023a_co2_foursources_quality_ScienceOnASphere_1024p30.mp4",
+     "size": "2048×1024",
+     "url": "https://svs.gsfc.nasa.gov/vis/a000000/a005200/a005273/SOS_TaggedCO2_10-6-2023a_co2_foursources_quality_ScienceOnASphere_1024p30.mp4"
+    },
+    {
+     "file": "SOS_TaggedCO2_10-6-2023a_co2_foursources_quality_ScienceOnASphere_2048p30.mp4",
+     "size": "4096×2048",
+     "url": "https://svs.gsfc.nasa.gov/vis/a000000/a005200/a005273/SOS_TaggedCO2_10-6-2023a_co2_foursources_quality_ScienceOnASphere_2048p30.mp4"
+    },
+    {
+     "file": "SOS_TaggedCO2_10-6-2023a_co2_foursources_quality_ScienceOnASphere_1024p30.mp4",
+     "size": "2048×1024",
+     "url": "https://svs.gsfc.nasa.gov/vis/a000000/a005200/a005273/SOS_TaggedCO2_10-6-2023a_co2_foursources_quality_ScienceOnASphere_1024p30.mp4"
+    },
+    {
+     "file": "SOS_TaggedCO2_10-6-2023a_co2_foursources_quality_ScienceOnASphere_2048p30.mp4",
+     "size": "4096×2048",
+     "url": "https://svs.gsfc.nasa.gov/vis/a000000/a005200/a005273/SOS_TaggedCO2_10-6-2023a_co2_foursources_quality_ScienceOnASphere_2048p30.mp4"
+    },
+    {
+     "file": "SOS_TaggedCO2_4-1-2024a_co2_FF_quality_ScienceOnASphere_1024p30.mp4",
+     "size": "2048×1024",
+     "url": "https://svs.gsfc.nasa.gov/vis/a000000/a005200/a005273/SOS_TaggedCO2_4-1-2024a_co2_FF_quality_ScienceOnASphere_1024p30.mp4"
+    },
+    {
+     "file": "SOS_TaggedCO2_4-1-2024a_co2_FF_quality_ScienceOnASphere_2048p30.mp4",
+     "size": "4096×2048",
+     "url": "https://svs.gsfc.nasa.gov/vis/a000000/a005200/a005273/SOS_TaggedCO2_4-1-2024a_co2_FF_quality_ScienceOnASphere_2048p30.mp4"
+    },
+    {
+     "file": "SOS_TaggedCO2_4-1-2024a_co2_BB_quality_ScienceOnASphere_1024p30.mp4",
+     "size": "2048×1024",
+     "url": "https://svs.gsfc.nasa.gov/vis/a000000/a005200/a005273/SOS_TaggedCO2_4-1-2024a_co2_BB_quality_ScienceOnASphere_1024p30.mp4"
+    },
+    {
+     "file": "SOS_TaggedCO2_4-1-2024a_co2_BB_quality_ScienceOnASphere_2048p30.mp4",
+     "size": "4096×2048",
+     "url": "https://svs.gsfc.nasa.gov/vis/a000000/a005200/a005273/SOS_TaggedCO2_4-1-2024a_co2_BB_quality_ScienceOnASphere_2048p30.mp4"
+    },
+    {
+     "file": "SOS_TaggedCO2_4-1-2024a_co2_NEE_quality_ScienceOnASphere_1024p30.mp4",
+     "size": "2048×1024",
+     "url": "https://svs.gsfc.nasa.gov/vis/a000000/a005200/a005273/SOS_TaggedCO2_4-1-2024a_co2_NEE_quality_ScienceOnASphere_1024p30.mp4"
+    },
+    {
+     "file": "SOS_TaggedCO2_4-1-2024a_co2_NEE_quality_ScienceOnASphere_2048p30.mp4",
+     "size": "4096×2048",
+     "url": "https://svs.gsfc.nasa.gov/vis/a000000/a005200/a005273/SOS_TaggedCO2_4-1-2024a_co2_NEE_quality_ScienceOnASphere_2048p30.mp4"
+    },
+    {
+     "file": "SOS_TaggedCO2_5-21-2024a_co2_NEE_sourceAndSink_ScienceOnASphere_1024p30.mp4",
+     "size": "2048×1024",
+     "url": "https://svs.gsfc.nasa.gov/vis/a000000/a005200/a005273/SOS_TaggedCO2_5-21-2024a_co2_NEE_sourceAndSink_ScienceOnASphere_1024p30.mp4"
+    },
+    {
+     "file": "SOS_TaggedCO2_5-21-2024a_co2_NEE_sourceAndSink_ScienceOnASphere_2048p30.mp4",
+     "size": "4096×2048",
+     "url": "https://svs.gsfc.nasa.gov/vis/a000000/a005200/a005273/SOS_TaggedCO2_5-21-2024a_co2_NEE_sourceAndSink_ScienceOnASphere_2048p30.mp4"
+    },
+    {
+     "file": "SOS_TaggedCO2_4-1-2024a_co2_OCN_quality_ScienceOnASphere_1024p30.mp4",
+     "size": "2048×1024",
+     "url": "https://svs.gsfc.nasa.gov/vis/a000000/a005200/a005273/SOS_TaggedCO2_4-1-2024a_co2_OCN_quality_ScienceOnASphere_1024p30.mp4"
+    },
+    {
+     "file": "SOS_TaggedCO2_4-1-2024a_co2_OCN_quality_ScienceOnASphere_2048p30.mp4",
+     "size": "4096×2048",
+     "url": "https://svs.gsfc.nasa.gov/vis/a000000/a005200/a005273/SOS_TaggedCO2_4-1-2024a_co2_OCN_quality_ScienceOnASphere_2048p30.mp4"
+    },
+    {
+     "file": "SOS_TaggedCO2_5-21-2024a_co2_OCN_sourceAndSink_ScienceOnASphere_1024p30.mp4",
+     "size": "2048×1024",
+     "url": "https://svs.gsfc.nasa.gov/vis/a000000/a005200/a005273/SOS_TaggedCO2_5-21-2024a_co2_OCN_sourceAndSink_ScienceOnASphere_1024p30.mp4"
+    },
+    {
+     "file": "SOS_TaggedCO2_5-21-2024a_co2_OCN_sourceAndSink_ScienceOnASphere_2048p30.mp4",
+     "size": "4096×2048",
+     "url": "https://svs.gsfc.nasa.gov/vis/a000000/a005200/a005273/SOS_TaggedCO2_5-21-2024a_co2_OCN_sourceAndSink_ScienceOnASphere_2048p30.mp4"
+    },
+    {
+     "file": "SOS_TaggedCO2_4-1-2024a_co2_SINKS_quality_ScienceOnASphere_1024p30.mp4",
+     "size": "2048×1024",
+     "url": "https://svs.gsfc.nasa.gov/vis/a000000/a005200/a005273/SOS_TaggedCO2_4-1-2024a_co2_SINKS_quality_ScienceOnASphere_1024p30.mp4"
+    },
+    {
+     "file": "SOS_TaggedCO2_4-1-2024a_co2_SINKS_quality_ScienceOnASphere_2048p30.mp4",
+     "size": "4096×2048",
+     "url": "https://svs.gsfc.nasa.gov/vis/a000000/a005200/a005273/SOS_TaggedCO2_4-1-2024a_co2_SINKS_quality_ScienceOnASphere_2048p30.mp4"
+    },
+    {
+     "file": "SOS_TaggedCO2_10-6-2023a_co2_foursources_quality_ScienceOnASphere_2048p30.mp4",
+     "size": "4096×2048",
+     "url": "https://svs.gsfc.nasa.gov/vis/a000000/a005200/a005273/SOS_TaggedCO2_10-6-2023a_co2_foursources_quality_ScienceOnASphere_2048p30.mp4"
+    }
+   ],
+   "colorbars": [
+    "TaggedCO2_SOSColorbar.png",
+    "TaggedCO2_SOSColorbar_print.jpg"
+   ],
+   "colorbar_inherited": false
+  },
+  {
+   "id": 5022,
+   "title": "OCO-2 Gridded Global Carbon Dioxide (CO₂)",
+   "reason": "search; 2 title words shared",
+   "flat_sets": [
+    {
+     "layer": "CO2_Mollweide_Layer",
+     "size": "4096×2048",
+     "frames": 1618,
+     "url": "https://svs.gsfc.nasa.gov/vis/a000000/a005000/a005022/frames/3840x2160_16x9_60p/CO2_Mollweide_Layer/"
+    },
+    {
+     "layer": "exr",
+     "size": "4096×2048",
+     "frames": 1618,
+     "url": "https://svs.gsfc.nasa.gov/vis/a000000/a005000/a005022/frames/4096x2048_2x1_60p/exr/"
+    },
+    {
+     "layer": "exr",
+     "size": "4096×2048",
+     "frames": 809,
+     "url": "https://svs.gsfc.nasa.gov/vis/a000000/a005000/a005022/frames/4096x2048_2x1_30p/exr/"
+    },
+    {
+     "layer": "png",
+     "size": "4096×2048",
+     "frames": 809,
+     "url": "https://svs.gsfc.nasa.gov/vis/a000000/a005000/a005022/frames/4096x2048_2x1_30p/png/"
+    }
+   ],
+   "flat_movies": [
+    {
+     "file": "oco2_SOS_4096x2048p30.mp4",
+     "size": "4096×2048",
+     "url": "https://svs.gsfc.nasa.gov/vis/a000000/a005000/a005022/oco2_SOS_4096x2048p30.mp4"
+    },
+    {
+     "file": "oco2_SOS_4096x2048p30.webm",
+     "size": "4096×2048",
+     "url": "https://svs.gsfc.nasa.gov/vis/a000000/a005000/a005022/oco2_SOS_4096x2048p30.webm"
+    }
+   ],
+   "colorbars": [
+    "JanToDec2021_TaggedCO2_6-6-2023a_diorama_legend.00001_print.jpg",
+    "JanToDec2021_TaggedCO2_6-6-2023a_diorama_legend.00001_web.png",
+    "JanToDec2021_TaggedCO2_6-6-2023a_diorama_legend.00001_thm.png",
+    "JanToDec2021_TaggedCO2_6-23-2023b_diorama_legend_long_1080p30_2.00001_print.jpg",
+    "JanToDec2021_TaggedCO2_6-23-2023b_diorama_legend_long_1080p30_2.00001_web.png",
+    "JanToDec2021_TaggedCO2_6-23-2023b_diorama_legend_long_1080p30_2.00001_thm.png"
+   ],
+   "colorbar_inherited": true
+  },
+  {
+   "id": 5024,
+   "title": "20 years of AIRS Global Carbon Dioxide (CO₂) measurements (2002-October 2022)",
+   "reason": "search; 2 title words shared",
+   "flat_sets": [
+    {
+     "layer": "60South_exr",
+     "size": "4096×2048",
+     "frames": 794,
+     "url": "https://svs.gsfc.nasa.gov/vis/a000000/a005000/a005024/frames/4096x2048_2x1_30p/60South_exr/"
+    },
+    {
+     "layer": "60South_png",
+     "size": "4096×2048",
+     "frames": 794,
+     "url": "https://svs.gsfc.nasa.gov/vis/a000000/a005000/a005024/frames/4096x2048_2x1_30p/60South_png/"
+    }
+   ],
+   "flat_movies": [
+    {
+     "file": "co2_airs_SOS_4096x2048_p30.webm",
+     "size": "4096×2048",
+     "url": "https://svs.gsfc.nasa.gov/vis/a000000/a005000/a005024/co2_airs_SOS_4096x2048_p30.webm"
+    },
+    {
+     "file": "co2_airs_SOS_4096x2048_p30.mp4",
+     "size": "4096×2048",
+     "url": "https://svs.gsfc.nasa.gov/vis/a000000/a005000/a005024/co2_airs_SOS_4096x2048_p30.mp4"
+    }
+   ],
+   "colorbars": [
+    "airsco2_colorbar_1000x200.png"
+   ],
+   "colorbar_inherited": false
+  },
+  {
+   "id": 4990,
+   "title": "20 years of AIRS Global Carbon Dioxide (CO₂) measurements (2002- March 2022)",
+   "reason": "search; 2 title words shared",
+   "flat_sets": [
+    {
+     "layer": "png",
+     "size": "4096×2048",
+     "frames": 772,
+     "url": "https://svs.gsfc.nasa.gov/vis/a000000/a004900/a004990/frames/4096x2048_2x1_30p/png/"
+    },
+    {
+     "layer": "exr",
+     "size": "4096×2048",
+     "frames": 772,
+     "url": "https://svs.gsfc.nasa.gov/vis/a000000/a004900/a004990/frames/4096x2048_2x1_30p/exr/"
+    }
+   ],
+   "flat_movies": [
+    {
+     "file": "co2_airs_SOS_4096x2048p30.webm",
+     "size": "4096×2048",
+     "url": "https://svs.gsfc.nasa.gov/vis/a000000/a004900/a004990/co2_airs_SOS_4096x2048p30.webm"
+    },
+    {
+     "file": "co2_airs_SOS_4096x2048p30.mp4",
+     "size": "4096×2048",
+     "url": "https://svs.gsfc.nasa.gov/vis/a000000/a004900/a004990/co2_airs_SOS_4096x2048p30.mp4"
+    }
+   ],
+   "colorbars": [
+    "airsco2_colorbar_1000x200.png"
+   ],
+   "colorbar_inherited": false
+  }
+ ],
+ "decode": {
+  "mode": "chroma",
+  "decoded_share": 0.000507195790608724
+ },
+ "layers": [
+  {
+   "id": "value",
+   "unit": "colorbar units",
+   "encoding": "linear",
+   "scale": 134540202.6303922,
+   "offset": 40362061824.0,
+   "nodata": 65535,
+   "below": 65534,
+   "grid": {
+    "width": 360,
+    "height": 180,
+    "bounds": [
+     -180,
+     -90,
+     180,
+     90
+    ],
+    "row0": "north",
+    "col0": "west",
+    "byte_order": "little"
+   },
+   "times": [
+    "2023-06-16T14:00:00Z"
+   ],
+   "chunks": [
+    {
+     "file": "value_000.u16.gz",
+     "t0": 0,
+     "t1": 1,
+     "bytes": 243
+    }
+   ],
+   "quantisation_step": 134540202.6303922,
+   "coverage": 0.0002932098765432099,
+   "value_range": [
+    40362061824.0,
+    85868462080.0
+   ],
+   "label": "Atmospheric Carbon Dioxide Tagged by Source (pattern only)",
+   "aggregation": "mean of decoded pixels per cell",
+   "time_labels": [
+    "undated"
+   ],
+   "display": {
+    "colours": [
+     "#040404",
+     "#6599bd",
+     "#2e2e2f",
+     "#282927",
+     "#292929",
+     "#87c287",
+     "#272727",
+     "#242424",
+     "#292929",
+     "#5c7c5c",
+     "#272727",
+     "#242424",
+     "#292929",
+     "#292929",
+     "#262626",
+     "#242724",
+     "#292929",
+     "#292929",
+     "#000000",
+     "#000000",
+     "#000000",
+     "#010101",
+     "#000000",
+     "#000000",
+     "#0a0a0a",
+     "#000000",
+     "#000000",
+     "#000000",
+     "#000000",
+     "#060606",
+     "#000000",
+     "#000000"
+    ],
+    "values": [
+     -8072412161.823499,
+     -824601245.9281788,
+     6423209669.967141,
+     13671020585.862461,
+     20918831501.757782,
+     28166642417.653103,
+     35414453333.548416,
+     42662264249.44373,
+     49910075165.33906,
+     57157886081.23438,
+     64405696997.1297,
+     71653507913.02501,
+     78901318828.92033,
+     86149129744.81566,
+     93396940660.71097,
+     100644751576.6063,
+     107892562492.50162,
+     115140373408.39694,
+     122388184324.29227,
+     129635995240.18758,
+     136883806156.0829,
+     144131617071.97824,
+     151379427987.87354,
+     158627238903.76886,
+     165875049819.66418,
+     173122860735.55948,
+     180370671651.45483,
+     187618482567.35013,
+     194866293483.24545,
+     202114104399.14078,
+     209361915315.0361,
+     216609726230.93143
+    ],
+    "scale": "linear"
+   },
+   "status": "pattern only",
+   "status_check": "a_no_validation_source",
+   "statement": "pattern only"
+  }
+ ],
+ "voices": {
+  "value": "rel5110"
+ },
+ "play": [
+  {
+   "id": "value",
+   "label": "Atmospheric Carbon Dioxide Tagged by Source: higher pitch = higher value",
+   "view": "global",
+   "map": "value",
+   "start": {
+    "lat": 59.5,
+    "lon": 14.5
+   },
+   "steps_per_second": 1,
+   "channels": [
+    {
+     "voice": "rel5110",
+     "layers": [
+      "value"
+     ],
+     "combine": "value"
+    }
+   ]
+  }
+ ],
+ "validation": [
+  {
+   "id": "a_no_validation_source",
+   "title": "Atmospheric Carbon Dioxide Tagged by Source: no validation source",
+   "kind": "none",
+   "pass": null,
+   "threshold": null
+  }
+ ],
+ "size": {
+  "choice": {
+   "frames": 3
+  },
+  "tried": [],
+  "bytes": 21062,
+  "budget": 25000000
+ },
+ "onboarding": {
+  "timings_s": {
+   "api": 22.1,
+   "twins": 0.9,
+   "asset choice": 0.0,
+   "frames": 76.4,
+   "frame times": 23.7,
+   "georef": 4.1,
+   "colorbar": 8.8,
+   "inversion": 21.0,
+   "validation": 0.0
+  },
+  "status": "pattern only"
+ },
+ "asset_checksums": {
+  "file": "checksums.tsv.gz",
+  "rows": 4,
+  "sha256_of_list": "51e81768a14a7e3df50c2a64e64a81c5a20e2847065153c305a8618ea02bd2aa"
+ },
+ "code_commit": "a8f0638dc9adb81b18f259cf0813046acd882fa1-dirty",
+ "generated_utc": "2026-10-31T17:12:17Z",
+ "playable": {
+  "dropped_empty_steps": [
+   1,
+   2
+  ]
+ }
+}

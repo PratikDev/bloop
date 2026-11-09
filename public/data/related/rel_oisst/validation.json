@@ -1,0 +1,25 @@
+{
+ "record": "rel_oisst",
+ "checks": [
+  {
+   "record": "rel_oisst",
+   "id": "a_erddap_numbers",
+   "title": "ERDDAP-rendered OISST read back by Bloop vs ERDDAP's own numbers, same day, 1° cells",
+   "kind": "value",
+   "source": "NOAA OISST v2.1 NRT (ncdcOisst21NrtAgg_LonPM180, CoastWatch ERDDAP)",
+   "metrics": {
+    "spearman": 0.9985635963029286,
+    "n": 42259,
+    "median_diff_C": 1.2691192626953125,
+    "decoded_share_of_opaque": 1.0,
+    "date": "2026-10-29",
+    "strip_colours": 330
+   },
+   "threshold": "Spearman ≥ 0.99 and |median difference| ≤ 0.2 °C (provisional)",
+   "pass": false,
+   "note": "Second agency, second renderer: a test of the colour inversion, not of OISST.",
+   "run_utc": "2026-10-31T15:20:01Z"
+  }
+ ],
+ "updated_utc": "2026-10-31T15:20:01Z"
+}

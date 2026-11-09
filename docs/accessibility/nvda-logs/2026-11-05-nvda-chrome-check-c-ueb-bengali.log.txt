@@ -1,0 +1,80 @@
+# NVDA 2026.3 portable, Chrome (separate test profile), synth: silence, log level debug, 5 Nov 2026.
+# Check c after the value-line fix: session 1 with UEB grade 1 (en-ueb-g1.ctb), session 2 with NVDA's Bengali table
+# (be-in-g1.utb) and the app in বাংলা mode. Keystrokes are real OS key events. Regions text = what NVDA put on the display;
+# window dots = the 40 cells ('-' = blank). Only lines for the app are kept: no paths, user names or other windows.
+
+## Session 1: UEB grade 1
+
+IO 19:54:52.213
+Braille regions text: ['btn Start listening ']
+Braille window dots: 12 2345 1345 - 2347 2345 1 1235 2345 - 123 24 234 2345 15 1345 24 1345 1245 - - - - - - - - - - - - - - - - - - - - -
+Input: kb(desktop):tab
+IO 19:55:20.611
+Braille regions text: ['btn Explore without sound ']
+Braille window dots: 12 2345 1345 - 157 1346 1234 123 135 1235 15 - 2456 24 2345 125 135 136 2345 - 234 135 136 1345 145 - - - - - - - - - - - - - - -
+Input: kb(desktop):enter
+IO 19:55:21.427
+Braille regions text: ['Earth Information Jukebox - Google Chrome wnd ', 'Earth Information Jukebox doc ', 'lmk main ', 'Both. 30.2 °C; Dry at 21.5° N, 89.8° E. map Arrow keys move 1 degree, Shift with arrows moves 10. Enter speaks the value. H lists all keys.']
+Braille window dots: 6 12 135 2345 125 256 - 3456 14 245 256 12 - 45 245 6 14 23 - 6 145 1235 13456 - 1 2345 - 3456 12 1 256 15 45 245 - 6 1345 2 - -
+Input: kb(desktop):b
+IO 19:55:26.264
+Braille regions text: ['lmk main map Both. 30.2 °C; Dry at 21.5° N, 89.8° E. ']
+Braille window dots: 3456 12 1 256 15 45 245 - 6 1345 2 - 236 35 256 236 45 245 - 6 15 256 - - - - - - - - - - - - - - - - - -
+IO 19:55:26.291
+Braille regions text: ['⠀⠀⠀⠀⠉⠀⠀⠀⠀⠉⠉⠉⠀⠀⠉⠀⠀⠀⠀⠉⠉⠉⠉⠉⠉⠉⠉⠉⠉⠉⠉⠉⠉ ']
+Braille window dots: - - - - 14 - - - - 14 14 14 - - 14 - - - - 14 14 14 14 14 14 14 14 14 14 14 14 14 14 - - - - - - -
+Input: kb(desktop):shift+tab
+IO 19:55:29.055
+Braille regions text: ['Earth Information Jukebox - Google Chrome wnd ', 'Earth Information Jukebox doc ', 'lmk main ', 'Braille data explorer rgn ', 'Value line ro edt ', 'SST 30.2C 21.5N 89.8E 1Nov 00UTC obs ']
+Braille window dots: 15 145 2345 - 2347 2347 23457 - 3456 14 245 256 12 56 14 - 3456 12 1 256 15 1345 - 3456 125 24 256 125 56 15 6 3 - 3456 1 6 1345 135 1236 -
+Input: kb(desktop):end
+IO 19:55:49.547
+Braille regions text: ['Earth Information Jukebox - Google Chrome wnd ', 'Earth Information Jukebox doc ', 'lmk main ', 'Braille data explorer rgn ', 'Value line ro edt ', 'SST 30.2C 21.5N 89.8E 1Nov 00UTC obs ']
+Braille window dots: 3456 1 6 1345 135 1236 - 3456 245 245 6 6 136 2345 14 - 135 12 234 - - - - - - - - - - - - - - - - - - - - -
+Input: kb(desktop):home
+IO 19:55:52.398
+Braille regions text: ['Earth Information Jukebox - Google Chrome wnd ', 'Earth Information Jukebox doc ', 'lmk main ', 'Braille data explorer rgn ', 'Value line ro edt ', 'SST 30.2C 21.5N 89.8E 1Nov 00UTC obs ']
+Braille window dots: 1235 135 - 15 145 2345 - 2347 2347 23457 - 3456 14 245 256 12 56 14 - 3456 12 1 256 15 1345 - 3456 125 24 256 125 56 15 6 3 - - - - -
+Input: kb(desktop):rightArrow
+Input: kb(desktop):rightArrow
+
+## Session 2: Bengali grade 1 (be-in-g1.utb), app in বাংলা mode
+
+Input: kb(desktop):shift+tab
+IO 19:58:38.563
+Braille regions text: ['Earth Information Jukebox - Google Chrome wnd ', 'Earth Information Jukebox doc ', 'lmk main ', 'Both. 30.2 °C; Dry at 21.5° N, 89.8° E. map Arrow keys move 1 degree, Shift with arrows moves 10. Enter speaks the value. H lists all keys.']
+Braille window dots: 6 12 135 2345 125 256 - 3456 14 245 46 12 - 56 145 1245 6 14 23 - 6 145 1235 13456 - 1 2345 - 3456 12 1 46 15 56 145 1245 - 6 1345 2
+Input: kb(desktop):shift+tab
+Input: kb(desktop):shift+tab
+IO 19:58:40.969
+Braille regions text: ['Language grp ⢎⣿⡱ tgbtn EN ']
+Braille window dots: 6 123 1 1345 1245 136 1 1245 15 - 1245 1235 1234 - 2348 12345678 1567 - 2345 1245 12 2345 1345 - 157 13457 - - - - - - - - - - - - - -
+Input: kb(desktop):rightArrow
+Input: kb(desktop):space
+Input: kb(desktop):downArrow
+IO 19:58:59.926
+Braille regions text: ['⢎⣀⡱ tgbtn বাংলা grp end']
+Braille window dots: 2348 78 1567 - 2345 1245 12 2345 1345 - 12 345 56 123 345 - 1245 1235 1234 - 15 1345 145 - - - - - - - - - - - - - - - - -
+Input: kb(desktop):enter
+IO 19:59:01.998
+Braille regions text: ['⢎⣿⡱ tgbtn বাংলা grp end']
+Braille window dots: 2348 12345678 1567 - 2345 1245 12 2345 1345 - 12 345 56 123 345 - 1245 1235 1234 - 15 1345 145 - - - - - - - - - - - - - - - - -
+Input: kb(desktop):tab
+Input: kb(desktop):tab
+IO 19:59:16.116
+Braille regions text: ['Earth Information Jukebox - Google Chrome wnd ', 'Earth Information Jukebox doc ', 'lmk main ', 'Both. 30.2 °C; Dry at 21.5° N, 89.8° E. map Arrow keys move 1 degree, Shift with arrows moves 10. Enter speaks the value. H lists all keys.']
+Braille window dots: 6 12 135 2345 125 256 - 3456 14 245 46 12 - 56 145 1245 6 14 23 - 6 145 1235 13456 - 1 2345 - 3456 12 1 46 15 56 145 1245 - 6 1345 2
+Input: kb(desktop):tab
+Input: kb(desktop):tab
+IO 19:59:18.486
+Braille regions text: ['Value line ro edt ', 'সমুদ্রপৃষ্ঠের তাপমাত্রা 30 দশমিক 2 ডিগ্রি সেলসিয়াস 21 দশমিক 5 উত্তর 89 দশমিক 8 পূর্ব 1 নভেম্বর 0টা পর্যবেক্ষণ পুরোনো ']
+Braille window dots: 234 134 136 145 4 1235 1234 5 1235 12346 4 2456 15 1235 - 2345 345 1234 134 345 4 2345 1235 345 - 3456 14 245 - 145 146 134 24 13 - 3456 12 - - -
+Input: kb(desktop):end
+IO 19:59:22.455
+Braille regions text: ['Earth Information Jukebox - Google Chrome wnd ', 'Earth Information Jukebox doc ', 'lmk main ', 'Braille data explorer rgn ', 'Value line ro edt ', 'সমুদ্রপৃষ্ঠের তাপমাত্রা 30 দশমিক 2 ডিগ্রি সেলসিয়াস 21 দশমিক 5 উত্তর 89 দশমিক 8 পূর্ব 1 নভেম্বর 0টা পর্যবেক্ষণ পুরোনো ']
+Braille window dots: 1234 136 1235 135 1345 135 - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+Input: kb(desktop):home
+IO 19:59:25.317
+Braille regions text: ['Earth Information Jukebox - Google Chrome wnd ', 'Earth Information Jukebox doc ', 'lmk main ', 'Braille data explorer rgn ', 'Value line ro edt ', 'সমুদ্রপৃষ্ঠের তাপমাত্রা 30 দশমিক 2 ডিগ্রি সেলসিয়াস 21 দশমিক 5 উত্তর 89 দশমিক 8 পূর্ব 1 নভেম্বর 0টা পর্যবেক্ষণ পুরোনো ']
+Braille window dots: 234 134 136 145 4 1235 1234 5 1235 12346 4 2456 15 1235 - 2345 345 1234 134 345 4 2345 1235 345 - 3456 14 245 - 145 146 134 24 13 - 3456 12 - - -
+

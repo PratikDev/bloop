@@ -1,0 +1,26 @@
+{
+ "record": "live_sst",
+ "checks": [
+  {
+   "record": "live_sst",
+   "id": "a_Check C re-evaluated with corrected colorbar positions (same frame, same MUR values)",
+   "title": "SVS 5101 live frame: acceptance test Check C re-evaluated with corrected colorbar positions (same frame, same MUR values)",
+   "kind": "value",
+   "source": null,
+   "metrics": {
+    "metric": "median_abs_error_C",
+    "value": 0.31,
+    "p90_abs_error_C": 0.77,
+    "bias_C": 0.08,
+    "n_points": 60,
+    "frames_tested": 1,
+    "test": "Check C re-evaluated with corrected colorbar positions (same frame, same MUR values)"
+   },
+   "threshold": null,
+   "pass": null,
+   "note": "",
+   "run_utc": "2026-10-29T12:47:05Z"
+  }
+ ],
+ "updated_utc": "2026-10-29T12:47:05Z"
+}

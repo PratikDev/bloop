@@ -1,0 +1,23 @@
+{
+ "record": "rel_5126",
+ "checks": [
+  {
+   "record": "rel_5126",
+   "id": "a_source_series",
+   "title": "NOAA Annual Greenhouse Gas Index: values are the cited source's series (not decoded from the graph)",
+   "kind": "context",
+   "source": "NOAA GML Annual Greenhouse Gas Index (free use with credit)",
+   "metrics": {
+    "points": 47,
+    "first": "1979-07-01",
+    "last": "2025-07-01",
+    "url": "https://gml.noaa.gov/aggi/AGGI_Table.csv"
+   },
+   "threshold": null,
+   "pass": null,
+   "note": "A graph or spiral is drawn from these numbers; the record plays the numbers, not the picture.",
+   "run_utc": "2026-10-31T15:09:06Z"
+  }
+ ],
+ "updated_utc": "2026-10-31T15:09:06Z"
+}

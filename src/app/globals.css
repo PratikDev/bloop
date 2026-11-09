@@ -34,6 +34,42 @@
   --glow: rgb(255 155 212 / 0.28);
   --shadow-tint: rgb(6 3 14 / 0.55);
 
+  /* Turntable Earth: the 3D studio and the map overlays. Chrome only, never
+     data: the warm tones stay in the backdrop and the turntable, away from the
+     globe, and overlay lines stay pale and in the interface's hue range. */
+  --studio-top: #110d0c;
+  --studio-bottom: #040303;
+  --studio-glow: #3a2618;
+  --anodised: #1d1b1f;
+  --deck-glass: #0e0c0d; /* the turntable deck's smoked glass (Turntable/scene/deck.ts) */
+  --vinyl: #0d0c0e;
+  --metal: #d9d6dc;
+  --label: #f1ebe0;
+  --label-ink: #1a1512;
+  --amber: #f2a541;
+  --atmosphere: #7fb2ff;
+  --sun-glint: #fff3d6;
+  --terminator-warm: #ffb27a;
+
+  /* Turntable v3 interface: near-black, warm off-white, one amber accent
+     (--amber, used sparingly: focus, pressed, the needle mark). Glass panels
+     float over the globe; text on them stays ≥ 4.5:1 over white cloud too. */
+  --tt-black: #0c0a09;
+  --tt-panel: #16120f;
+  --tt-raise: #2a231d;
+  --tt-line: #5a4f45;
+  --tt-text: #f4efe7;
+  --tt-muted: #c4baad;
+  --tt-glass: rgb(16 13 11 / 0.8);
+  --tt-glass-strong: rgb(16 13 11 / 0.94);
+  --tt-glass-edge: rgb(244 239 231 / 0.14);
+  --tt-glass-shadow: rgb(0 0 0 / 0.45);
+  --label-shadow: rgb(0 0 0 / 0.85);
+  --geo-border: #f3f0fa;
+  --geo-district: #d6d0ee;
+  --geo-river: #b4b1ff;
+  --geo-graticule: #c5bfe2;
+
   /* Charts: "then" is the quieter tone, "now" the brighter; shape tells them
      apart too (hollow vs filled). The playhead is --shapla, as it listens. */
   --chart-then: var(--haze);
@@ -103,6 +139,10 @@
   --color-glass: var(--glass);
   --color-glass-edge: var(--glass-edge);
   --color-glow: var(--glow);
+  --color-studio-bottom: var(--studio-bottom);
+  --color-amber: var(--amber);
+  --color-tt-black: var(--tt-black);
+  --font-display: var(--font-anek), system-ui, sans-serif;
   --color-chart-then: var(--chart-then);
   --color-chart-now: var(--chart-now);
   --color-chart-grid: var(--chart-grid);
@@ -155,6 +195,8 @@
   --text-headline--line-height: 1.02;
   --text-display: clamp(3rem, 1.6rem + 5.2vw, 6.5rem);
   --text-display--line-height: 0.94;
+  --text-value: 2.75rem;
+  --text-value--line-height: 1;
   --text-readout-mobile: 3.05rem;
   --text-readout-mobile--line-height: 1;
   --text-readout-strip: 2.25rem;
@@ -188,6 +230,19 @@
   font-weight: 400;
   font-variant-numeric: tabular-nums;
   letter-spacing: -0.02em;
+}
+
+/* Turntable globe labels: a dark halo keeps light text readable on any imagery. */
+@utility label-halo {
+  text-shadow:
+    0 0 2px var(--ink),
+    0 0 4px var(--ink),
+    0 1px 6px var(--ink);
+}
+
+/* "No value here": a hatch, so it reads as empty without relying on colour. */
+@utility hatch {
+  background: repeating-linear-gradient(45deg, var(--tide) 0 4px, var(--night) 4px 8px);
 }
 
 /* Bengali digits are not covered by tnum: each sits in a fixed cell (§3.1). */
@@ -394,4 +449,123 @@ html:lang(bn) .readout-figure {
 /* The mono eyebrow's size is too small for Bengali glyphs. */
 html:lang(bn) .eyebrow {
   font-size: 0.8rem;
+}
+
+/* Turntable v3: the warm palette, re-pointing the app's tokens (and the shadcn
+   variables built on them) inside the Turntable and its drawers and popovers. */
+.tt-warm {
+  --night: var(--tt-black);
+  --dusk: var(--tt-panel);
+  --tide: var(--tt-raise);
+  --line: var(--tt-line);
+  --moon: var(--tt-text);
+  --haze: var(--tt-muted);
+  --shapla: var(--amber);
+  --ink: var(--tt-black);
+  --scrim: var(--tt-glass);
+  --background: var(--night);
+  --foreground: var(--moon);
+  --card: var(--dusk);
+  --card-foreground: var(--moon);
+  --popover: var(--dusk);
+  --popover-foreground: var(--moon);
+  --primary: var(--tide);
+  --primary-foreground: var(--moon);
+  --secondary: var(--tide);
+  --secondary-foreground: var(--moon);
+  --muted: var(--tide);
+  --muted-foreground: var(--haze);
+  --accent: var(--tide);
+  --accent-foreground: var(--moon);
+  --border: var(--line);
+  --input: var(--line);
+  --ring: var(--shapla);
+  color: var(--moon);
+}
+
+@utility glass-chip {
+  background: var(--tt-glass);
+  border: 1px solid var(--tt-glass-edge);
+  box-shadow: 0 6px 20px var(--tt-glass-shadow);
+  backdrop-filter: blur(14px) saturate(1.1);
+}
+
+@utility glass-card {
+  background: var(--tt-glass-strong);
+  border: 1px solid var(--tt-glass-edge);
+  box-shadow: 0 12px 32px var(--tt-glass-shadow);
+  backdrop-filter: blur(18px) saturate(1.1);
+}
+
+@utility glass-dock {
+  background: var(--tt-glass);
+  border: 1px solid var(--tt-glass-edge);
+  box-shadow: 0 10px 30px var(--tt-glass-shadow);
+  backdrop-filter: blur(16px) saturate(1.15);
+}
+
+/* Place names on the globe: sentence case, light, small, a soft shadow (no outline). */
+@utility globe-label {
+  font-size: 0.875rem;
+  font-weight: 300;
+  letter-spacing: 0.01em;
+  color: var(--tt-text);
+  text-shadow:
+    0 1px 2px var(--label-shadow),
+    0 0 8px var(--label-shadow);
+  transition: opacity 0.25s ease-out;
+}
+
+/* Turntable captions: a new one shows for 3 s, then fades. */
+@keyframes caption-fade {
+  0%,
+  75% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+
+.caption-fade {
+  animation: caption-fade 4s ease-out forwards;
+}
+
+/* The intro's fade from black. */
+@keyframes intro-fade {
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 0;
+  }
+}
+
+@utility animate-intro-fade {
+  animation: intro-fade 1.4s ease-out 0.2s both;
+}
+
+/* A scene opening over the turntable: a soft ease in (≤ 1.2 s; a cut with reduced motion). */
+@keyframes scene-in {
+  from {
+    opacity: 0;
+    transform: scale(1.03);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+@utility animate-scene-in {
+  animation: scene-in 0.9s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+html[data-reduce-motion="true"] .animate-scene-in {
+  animation: none !important;
+}
+
+/* Reduced motion: captions just stay (no fade-out to nothing). */
+html[data-reduce-motion="true"] .caption-fade {
+  animation: none !important;
 }

@@ -1,0 +1,442 @@
+{
+ "record": "co2_5196",
+ "app_title": "CO₂ nature run (model, Jan–Mar 2020)",
+ "svs_ids": [
+  5196,
+  5436
+ ],
+ "title": "DYAMOND Global Carbon Dioxide",
+ "svs_pages": [
+  "https://svs.gsfc.nasa.gov/5196/",
+  "https://svs.gsfc.nasa.gov/5436/"
+ ],
+ "description": "Global CO2 ppm for January-March of 2020. This camera move orbits the Earth from a distance. || dyamondPointCloud_12-1-2023b_dyamond_co2_anim_globe_orbit_3x3Hyperwall.00200_print.jpg (1024x576) [46.2 KB] || dyamondPointCloud_12-1-2023b_dyamond_co2_anim_globe_orbit_3x3Hyperwall.00200_searchweb.png (320x180) [31.3 KB] || dyamondPointCloud_12-1-2023b_dyamond_co2_anim_globe_orbit_3x3Hyperwall.00200_web.png (320x180) [31.3 KB] || dyamondPointCloud_12-1-2023b_dyamond_co2_anim_globe_orbit_3x3Hyperwall.00200_thm.png (80x40) [3.0 KB] || dyamondPointCloud_12-1-2023b_dyamond_co2_anim_globe_orbit_1080p30_h265.mp4 (1920x1080) [6.9 MB] || dyamondPointCloud_12-1-2023b_dyamond_co2_anim_globe_orbit_3x3Hyperwall (5760x3240) [0 Item(s)] || dyamondPointCloud_12-1-2023b_dyamond_co2_anim_globe_orbit_2160p30.mp4 (3840x2160) [68.4 MB] || ",
+ "release_date": "2024-07-22T09:00:00-04:00",
+ "period": {
+  "start": "2020-01-14T00:00:00Z",
+  "end": "2020-03-03T00:00:00Z",
+  "label": "14 Jan 2020 – 3 Mar 2020"
+ },
+ "badge": "model",
+ "credits_by_role": {
+  "Visualizer": [
+   "AJ Christensen (SSAI)",
+   "Greg Shirah (NASA/GSFC)",
+   "Helen-Nicole Kostis (USRA)",
+   "Mark SubbaRao (NASA/GSFC)"
+  ],
+  "Technical support": [
+   "Laurence Schuler (ADNET Systems, Inc.)",
+   "Ian Jones (ADNET Systems, Inc.)"
+  ],
+  "Scientist": [
+   "Lesley Ott (NASA/GSFC)",
+   "Brad Weir (Morgan State University)",
+   "William Putman (NASA/GSFC)",
+   "Tomohiro Oda (USRA/EfSI)"
+  ]
+ },
+ "datasets": [
+  {
+   "name": "DYAMOND",
+   "common_name": "",
+   "platform": null,
+   "sensor": null,
+   "type": "Model",
+   "organizations": [
+    "NASA/JPL, NASA/GMAO"
+   ],
+   "description": "The data from the experimental coupled GEOS-MITgcm model known as DYAMOND that was run on NASA Advanced Supercomputing facility.",
+   "credit": "",
+   "url": "",
+   "date_range": null
+  }
+ ],
+ "credit_line": "Visualization: NASA's Scientific Visualization Studio (SVS 5196, 5436) for the NASA Earth Information Center. Data: NASA GEOS–MITgcm DYAMOND nature run (GMAO).",
+ "disclosure": "Relative ppm read from the volume render's colours with its colour and opacity transfer functions; a model nature run, averaged along the view.",
+ "licence": "SVS: \"All of our content is in the public domain (unless otherwise noted), meaning that it is free to download, use, and redistribute for whatever purposes you see fit.\" (https://svs.gsfc.nasa.gov/help/, read 29 Oct 2026)",
+ "frame_times": {
+  "method": "date-list",
+  "approximate": false,
+  "count": 12,
+  "source": "dyamond_timestamps.txt (SVS 5436)",
+  "of": 1177
+ },
+ "georef": {
+  "projection": "equirectangular (SOS)",
+  "bounds": [
+   -180,
+   -90,
+   180,
+   90
+  ],
+  "pass_at": 0.9,
+  "shifts_deg": [
+   0.5,
+   1.0
+  ],
+  "iou": {
+   "surface layer": 0.7602
+  },
+  "pass": false,
+  "best_is_assumed": true
+ },
+ "colorbar": {
+  "geometry": {
+   "x0": 238,
+   "x1": 1681,
+   "band": [
+    323,
+    539
+   ],
+   "vertical": false,
+   "image_size": [
+    1080,
+    1920
+   ],
+   "checker_backgrounds": [
+    [
+     238.0,
+     238.0,
+     238.0
+    ],
+    [
+     118.7,
+     118.7,
+     118.7
+    ]
+   ]
+  },
+  "ticks": [
+   {
+    "px": 0.5,
+    "value": 380.0,
+    "text": "380",
+    "engine": "glyph"
+   },
+   {
+    "px": 361.0,
+    "value": 400.0,
+    "text": "400",
+    "engine": "glyph"
+   },
+   {
+    "px": 722.0,
+    "value": 420.0,
+    "text": "420",
+    "engine": "glyph"
+   },
+   {
+    "px": 1083.0,
+    "value": 440.0,
+    "text": "440",
+    "engine": "glyph"
+   },
+   {
+    "px": 1444.0,
+    "value": 460.0,
+    "text": "460",
+    "engine": "glyph"
+   }
+  ],
+  "scale": "linear",
+  "fit": {
+   "a": 379.9833779684147,
+   "b": 0.05541700876829428,
+   "max_resid_value": 0.0110864727988087
+  },
+  "notes": [
+   "Colour and opacity separated from the checkerboard (backgrounds read at the 380 ppm end, assumed transparent there), median-smoothed over half a checker cell."
+  ],
+  "n_samples": 1444,
+  "value_range": [
+   379.9833779684147,
+   459.9501216210633
+  ],
+  "opacity_varies": true,
+  "px_per_unit": 18.04500138542537
+ },
+ "decode": {
+  "matcher": "rgb-nearest",
+  "mode": "chroma",
+  "alpha_min": 0.05,
+  "max_dist": 20.0,
+  "plume_ppm": 424.92657207950134
+ },
+ "plumes": {
+  "1": {
+   "area_km2": 37790957.72154253,
+   "edge_km": 997633.8858867425
+  },
+  "108": {
+   "area_km2": 37485662.37048443,
+   "edge_km": 970328.533077976
+  },
+  "215": {
+   "area_km2": 34767043.31774348,
+   "edge_km": 1117255.1363487758
+  },
+  "321": {
+   "area_km2": 48652431.87177536,
+   "edge_km": 1303662.5242081813
+  },
+  "428": {
+   "area_km2": 29926772.388679553,
+   "edge_km": 1062289.5424468687
+  },
+  "535": {
+   "area_km2": 42069180.18804023,
+   "edge_km": 1316804.2857992752
+  },
+  "642": {
+   "area_km2": 28476878.697874054,
+   "edge_km": 1170844.061240473
+  },
+  "749": {
+   "area_km2": 43373763.902459994,
+   "edge_km": 1268388.4012526753
+  },
+  "856": {
+   "area_km2": 27874886.31492418,
+   "edge_km": 918001.6387422131
+  },
+  "962": {
+   "area_km2": 34398386.765383884,
+   "edge_km": 967760.2401452729
+  },
+  "1069": {
+   "area_km2": 31786048.90902725,
+   "edge_km": 742342.0003451334
+  },
+  "1176": {
+   "area_km2": 31793456.742248382,
+   "edge_km": 1141786.3292794551
+  }
+ },
+ "layers": [
+  {
+   "id": "co2",
+   "unit": "ppm",
+   "encoding": "linear",
+   "scale": 0.005541700876829428,
+   "offset": 408.02447509765625,
+   "nodata": 65535,
+   "below": 65534,
+   "grid": {
+    "width": 720,
+    "height": 360,
+    "bounds": [
+     -180,
+     -90,
+     180,
+     90
+    ],
+    "row0": "north",
+    "col0": "west",
+    "byte_order": "little"
+   },
+   "times": [
+    "2020-01-14T00:00:00Z",
+    "2020-01-19T00:00:00Z",
+    "2020-01-23T00:00:00Z",
+    "2020-01-28T00:00:00Z",
+    "2020-02-01T00:00:00Z",
+    "2020-02-06T00:00:00Z",
+    "2020-02-10T00:00:00Z",
+    "2020-02-15T00:00:00Z",
+    "2020-02-19T00:00:00Z",
+    "2020-02-23T00:00:00Z",
+    "2020-02-28T00:00:00Z",
+    "2020-03-03T00:00:00Z"
+   ],
+   "chunks": [
+    {
+     "file": "co2_000.u16.gz",
+     "t0": 0,
+     "t1": 12,
+     "bytes": 1044737
+    }
+   ],
+   "quantisation_step": 0.005541700876829428,
+   "coverage": 0.1865940072016461,
+   "value_range": [
+    408.02447509765625,
+    459.87640380859375
+   ],
+   "below_range_bound": 408.0243844051716,
+   "below_kind": "at_or_below",
+   "label": "CO2 along the view (model nature run, relative ppm)",
+   "display": {
+    "colours": [
+     "#c2c2c2",
+     "#f2f2f2",
+     "#ffffff",
+     "#ffffff",
+     "#ffffff",
+     "#ffffff",
+     "#ffffff",
+     "#ffffff",
+     "#ffffff",
+     "#ffffff",
+     "#ffffff",
+     "#fffffd",
+     "#fffff1",
+     "#ffffe3",
+     "#ffffcd",
+     "#ffffaf",
+     "#ffe295",
+     "#e6c987",
+     "#d5bb7d",
+     "#dfb362",
+     "#ea9f41",
+     "#e97b2d",
+     "#e4732a",
+     "#e06a27",
+     "#e06424",
+     "#e15d22",
+     "#e2561f",
+     "#e34d1c",
+     "#e44419",
+     "#e53814",
+     "#e6290f",
+     "#e70300"
+    ],
+    "values": [
+     379.9833779684147,
+     382.56295034430656,
+     385.1425227201985,
+     387.72209509609036,
+     390.3016674719822,
+     392.88123984787416,
+     395.460812223766,
+     398.04038459965795,
+     400.6199569755498,
+     403.1995293514417,
+     405.7791017273336,
+     408.3586741032255,
+     410.93824647911737,
+     413.5178188550093,
+     416.09739123090117,
+     418.67696360679304,
+     421.25653598268497,
+     423.83610835857684,
+     426.41568073446876,
+     428.99525311036064,
+     431.5748254862525,
+     434.15439786214444,
+     436.7339702380363,
+     439.3135426139282,
+     441.8931149898201,
+     444.472687365712,
+     447.05225974160385,
+     449.6318321174958,
+     452.21140449338765,
+     454.7909768692796,
+     457.37054924517145,
+     459.9501216210633
+    ],
+    "scale": "linear"
+   },
+   "aggregation": "opacity-weighted mean of the decoded pixels in each 0.5° cell",
+   "time_labels": [
+    "14 Jan 2020",
+    "19 Jan 2020",
+    "23 Jan 2020",
+    "28 Jan 2020",
+    "01 Feb 2020",
+    "06 Feb 2020",
+    "10 Feb 2020",
+    "15 Feb 2020",
+    "19 Feb 2020",
+    "23 Feb 2020",
+    "28 Feb 2020",
+    "03 Mar 2020"
+   ],
+   "status": "relative",
+   "statement": "model nature run; relative values (opacity-weighted along the view; ≤ 408 ppm is the colorbar's white end)",
+   "status_check": "a_synthetic_round_trip"
+  }
+ ],
+ "voices": {
+  "co2": "co2Ppm"
+ },
+ "play": [
+  {
+   "id": "co2",
+   "label": "CO2 in the nature run: higher pitch = more CO2 along the view",
+   "view": "global",
+   "map": "co2",
+   "start": {
+    "lat": 23.81,
+    "lon": 90.41
+   },
+   "steps_per_second": 2,
+   "channels": [
+    {
+     "voice": "co2Ppm",
+     "layers": [
+      "co2"
+     ],
+     "combine": "value"
+    }
+   ]
+  }
+ ],
+ "ppm_range": [
+  408.0243844051716,
+  459.9501216210633
+ ],
+ "validation": [
+  {
+   "id": "a_synthetic_round_trip",
+   "title": "Synthetic render with the same transfer functions, decoded by the record's code",
+   "kind": "value",
+   "pass": true,
+   "threshold": "every value within 1 % of the range (provisional)"
+  },
+  {
+   "id": "b_mauna_loa_context",
+   "title": "Context: NOAA GML Mauna Loa monthly CO2 vs the frames at Mauna Loa's cell",
+   "kind": "context",
+   "pass": null,
+   "threshold": null
+  },
+  {
+   "id": "c_georef_surface",
+   "title": "Surface layer vs Natural Earth land (same SOS projection as the CO2 layer)",
+   "kind": "context",
+   "pass": null,
+   "threshold": null
+  },
+  {
+   "id": "d_gradient_oco2",
+   "title": "Latitude-band gradient (10° bands, 60° S – 60° N) vs OCO-2 Lite V11.2r, Jan–Mar 2020",
+   "kind": "context",
+   "pass": null,
+   "threshold": null
+  },
+  {
+   "id": "d_gradient_ghg",
+   "title": "Latitude-band gradient (10° bands, 60° S – 60° N) vs US GHG Center oco2geos-co2-daygrid-v10r, Jan–Mar 2020",
+   "kind": "context",
+   "pass": null,
+   "threshold": null
+  }
+ ],
+ "size": {
+  "choice": {
+   "cell_deg": 0.5,
+   "frames": 12
+  },
+  "tried": [],
+  "bytes": 1061544,
+  "budget": 25000000
+ },
+ "asset_checksums": {
+  "file": "checksums.tsv.gz",
+  "rows": 15,
+  "sha256_of_list": "97cf0bb1111bdeea9781dacaa34982cc491512e756b7b57703253a0d580246e6"
+ },
+ "code_commit": "5e77339f053350d8c3190d6743ecf10f08f9627e-dirty",
+ "generated_utc": "2026-10-30T11:27:31Z"
+}

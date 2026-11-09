@@ -1,0 +1,473 @@
+{
+ "id": 5207,
+ "title": "Global Temperature Anomalies from 1880 to 2023",
+ "url": "https://svs.gsfc.nasa.gov/5207/",
+ "page_type": "Visualization",
+ "release_date": "2024-01-12T11:00:00-05:00",
+ "update_date": "2025-01-08T13:56:34-05:00",
+ "description": "This color-coded map in Robinson projection displays a progression of changing global surface temperature anomalies. Normal temperatures are shown in white. Higher than normal temperatures are shown in red and lower than normal temperatures are shown in blue. Normal temperatures are calculated over the 30 year baseline period 1951-1980. The maps are averages over a running 24 month window. The final frame represents  global temperature anomalies in 2023. || 2023GISTEMP_Map.00899_print.jpg (1024x576) [138.7 KB] || 2023GISTEMP_Map.00899_searchweb.png (320x180) [66.6 KB] || 2023GISTEMP_Map.00899_thm.png (80x40) [6.4 KB] || 2023GISTEMP_Map.00899_web.png (320x180) [65.9 KB] || 2023GISTEMP_Map_HD.mp4 (1920x1080) [57.2 MB] || 3840x2160_16x9_30p (3840x2160) [0 Item(s)] || 2023GISTEMP_Map.mp4 (3840x2160) [114.3 MB] || earth_observations_5x3.hwshow || ",
+ "full_text": "This color-coded map in Robinson projection displays a progression of changing global surface temperature anomalies. Normal temperatures are shown in white. Higher than normal temperatures are shown in red and lower than normal temperatures are shown in blue. Normal temperatures are calculated over the 30 year baseline period 1951-1980. The maps are averages over a running 24 month window. The final frame represents  global temperature anomalies in 2023. || 2023GISTEMP_Map.00899_print.jpg (1024x576) [138.7 KB] || 2023GISTEMP_Map.00899_searchweb.png (320x180) [66.6 KB] || 2023GISTEMP_Map.00899_thm.png (80x40) [6.4 KB] || 2023GISTEMP_Map.00899_web.png (320x180) [65.9 KB] || 2023GISTEMP_Map_HD.mp4 (1920x1080) [57.2 MB] || 3840x2160_16x9_30p (3840x2160) [0 Item(s)] || 2023GISTEMP_Map.mp4 (3840x2160) [114.3 MB] || earth_observations_5x3.hwshow ||\n\nThis color-coded map in Robinson projection displays a progression of changing global surface temperature anomalies. Normal temperatures are shown in white. Higher than normal temperatures are shown in red and lower than normal temperatures are shown in blue. Normal temperatures are calculated over the 30 year baseline period 1951-1980. The maps are averages over a running 24 month window. The final frame represents  global temperature anomalies in 2023.\n\nEarth's average surface temperature in 2023 was the warmest on record, according to an analysis by NASA. Global temperatures in 2023 were around 2 degrees Fahrenheit (1.1 degrees Celsius) above the average for NASA's baseline period (1951-1980), scientists from NASA's Goddard Institute for Space Studies (GISS) in New York reported.\r<br>\r<br>In 2023, hundreds of millions of people around the world experienced extreme heat, and each month from June through December set a global record for the respective month. July was the hottest month ever recorded. Overall, Earth was about 2.45 degrees Fahrenheit (or about 1.36 degrees Celsius) warmer in 2023 than the late 19th-century average, when modern record-keeping began.\r<br>\r<br>“The exceptional warming that we’re experiencing is not something we’ve seen before as a species,” said Gavin Schmidt, director of GISS. “It’s driven primarily by our fossil fuel emissions, and we're seeing the impacts in heat waves, intense rainfall, and coastal flooding.”\r<br> \r<br>Though scientists have conclusive evidence that the planet’s long-term warming trend is driven by human activitiy, they still examine other events that can effect yearly or multi-year changes in climate such as El Nino, aerosols and pollution, and volcanic eruptions.\r<br>\r<br>NASA's <a href=\"https://data.giss.nasa.gov/gistemp/\" target=\"_blank\">full dataset of global surface temperatures </a> as well as full details with code of how NASA scientists conducted the analysis, are publicly available from GISS.\r<br>\r<br>GISS is a NASA laboratory managed by the Earth Sciences Division of the agency's Goddard Space Flight Center in Greenbelt, Maryland. The laboratory is affiliated with Columbia University's Earth Institute and School of Engineering and Applied Science in New York.\r<br>\r<br>For more information about NASA's Earth science programs, visit: \r<br>\r<br>https://www.nasa.gov/earth\n\nThis visualizarion is in an equirectangular projection optimised for spherical displays such as Science On a Sphere. This color-coded map displays a progression of changing global surface temperature anomalies. Normal temperatures are shown in white. Higher than normal temperatures are shown in red and lower than normal temperatures are shown in blue. Normal temperatures are calculated over the 30 year baseline period 1951-1980. The maps are averages over a running 24 month window. The final frame represents global temperature anomalies in 2023.<p><p>The file <a href=\"/vis/a000000/a005200/a005207/time.txt\">time.txt</a> is a label file containing the animation time for each frame number\n\nThis color-coded map in Robinson projection of the 2023 global surface temperature anomalies. Normal temperatures are shown in white. Higher than normal temperatures are shown in red and lower than normal temperatures are shown in blue. Normal temperatures are calculated over the 30 year baseline period 1951-1980.\n\nThis color-coded map in Orthographic projection displays a progression of changing global surface temperature anomalies. Normal temperatures are shown in white. Higher than normal temperatures are shown in red and lower than normal temperatures are shown in blue. Normal temperatures are calculated over the 30 year baseline period 1951-1980. The maps are averages over a running 24 month window. The final frame represents  global temperature anomalies in 2023.\n\nColortable in both degrees Fahrenheit and degrees Celsius.",
+ "credits_by_role": {
+  "Scientist": [
+   "Gavin A. Schmidt (NASA/GSFC GISS)",
+   "Robert B Schmunk (SIGMA Space Partners, LLC.)",
+   "Reto A. Ruedy (SIGMA Space Partners, LLC.)"
+  ],
+  "Public affairs officer": [
+   "Peter H. Jacobs (NASA/GSFC)"
+  ],
+  "Producer": [
+   "Kathleen Gaeta (Advocates in Manpower Management, Inc.)"
+  ],
+  "Visualizer": [
+   "Mark SubbaRao (NASA/GSFC)"
+  ],
+  "Writer": [
+   "Sally Younger (NASA/JPL)",
+   "Jenny Marder Fadoul (Telophase)"
+  ]
+ },
+ "keywords": [
+  "Anomaly",
+  "Climate",
+  "Climate Variability and Change",
+  "Coastal Processes",
+  "Earth Information Center",
+  "Earth Science",
+  "Global Warming",
+  "HDTV",
+  "Hyperwall",
+  "Model Data",
+  "Oceans",
+  "Physical oceanography",
+  "Science On a Sphere",
+  "Sea Level Rise"
+ ],
+ "datasets": [
+  {
+   "name": "GISTEMP",
+   "common_name": "",
+   "platform": null,
+   "sensor": "GISS Surface Temperature Analysis (GISTEMP)",
+   "type": "Model",
+   "organizations": [
+    "NASA/GISS"
+   ],
+   "description": "The GISS Surface Temperature Analysis version 4 (GISTEMP v4) is an estimate of global surface temperature change. Graphs and tables are updated around the middle of every month using current data files from NOAA GHCN v4 (meteorological stations) and ERSST v5 (ocean areas), combined as described in our publications [Hansen et al. (2010)](https://pubs.giss.nasa.gov/abs/ha00510u.html), [Lenssen et al. (2019)](https://pubs.giss.nasa.gov/abs/le05800h.html), and [Lenssen et al. (2024)](https://pubs.giss.nasa.gov/abs/le07900t.html).",
+   "credit": "Lenssen, N., G.A. Schmidt, M. Hendrickson, P. Jacobs, M. Menne, and R. Ruedy, 2024: [A GISTEMPv4 observational uncertainty ensemble](https://pubs.giss.nasa.gov/abs/le07900t.html). J. Geophys. Res. Atmos., 129, no. 17, e2023JD040179, doi:10.1029/2023JD040179.",
+   "url": "https://data.giss.nasa.gov/gistemp/",
+   "date_range": null
+  }
+ ],
+ "missions": [],
+ "related": [
+  {
+   "id": 5376,
+   "title": "Record Temperature Years: 2024, 2023, and 2016",
+   "url": "https://svs.gsfc.nasa.gov/5376/"
+  },
+  {
+   "id": 5451,
+   "title": "Zonal Climate Anomalies 1880-2024",
+   "url": "https://svs.gsfc.nasa.gov/5451/"
+  },
+  {
+   "id": 5452,
+   "title": "Shifting Distribution of Land Temperature Anomalies, 1964-2024",
+   "url": "https://svs.gsfc.nasa.gov/5452/"
+  },
+  {
+   "id": 5383,
+   "title": "Slow Reveal Graphs: Climate Spiral",
+   "url": "https://svs.gsfc.nasa.gov/5383/"
+  },
+  {
+   "id": 5311,
+   "title": "Twelve consecutive months of global surface temperature records: June 2023 - May 2024",
+   "url": "https://svs.gsfc.nasa.gov/5311/"
+  },
+  {
+   "id": 5327,
+   "title": "Slow Reveal Graphs: Twelve consecutive months of global surface temperature records (June 2023 - May 2024)",
+   "url": "https://svs.gsfc.nasa.gov/5327/"
+  },
+  {
+   "id": 5328,
+   "title": "Twelve consecutive months of global surface temperature records: June 2023 - May 2024",
+   "url": "https://svs.gsfc.nasa.gov/5328/"
+  },
+  {
+   "id": 5208,
+   "title": "2023 Temperature Measurements",
+   "url": "https://svs.gsfc.nasa.gov/5208/"
+  },
+  {
+   "id": 5209,
+   "title": "Zonal Climate Anomalies 1880-2023",
+   "url": "https://svs.gsfc.nasa.gov/5209/"
+  },
+  {
+   "id": 5211,
+   "title": "Shifting Distribution of Land Temperature Anomalies, 1963-2023",
+   "url": "https://svs.gsfc.nasa.gov/5211/"
+  },
+  {
+   "id": 5191,
+   "title": "Global Temperature Graph 1880-2024",
+   "url": "https://svs.gsfc.nasa.gov/5191/"
+  },
+  {
+   "id": 5161,
+   "title": "Summer 2023 Record High Global Temperatures",
+   "url": "https://svs.gsfc.nasa.gov/5161/"
+  },
+  {
+   "id": 5137,
+   "title": "July 2023 Record High Global Temperatures",
+   "url": "https://svs.gsfc.nasa.gov/5137/"
+  },
+  {
+   "id": 5065,
+   "title": "Shifting Distribution of Land Temperature Anomalies, 1962-2022",
+   "url": "https://svs.gsfc.nasa.gov/5065/"
+  },
+  {
+   "id": 14327,
+   "title": "NASA Interview Opportunity: Celebrate our Dynamic Planet with a NASA Expert this Earth Day",
+   "url": "https://svs.gsfc.nasa.gov/14327/"
+  },
+  {
+   "id": 5057,
+   "title": "NASA Climate Spiral 1880-2022",
+   "url": "https://svs.gsfc.nasa.gov/5057/"
+  },
+  {
+   "id": 5059,
+   "title": "Zonal Climate Anomalies 1880-2022",
+   "url": "https://svs.gsfc.nasa.gov/5059/"
+  },
+  {
+   "id": 14273,
+   "title": "A Look Back: 2022's Temperature Record",
+   "url": "https://svs.gsfc.nasa.gov/14273/"
+  },
+  {
+   "id": 4978,
+   "title": "Zonal Climate Anomalies",
+   "url": "https://svs.gsfc.nasa.gov/4978/"
+  },
+  {
+   "id": 4975,
+   "title": "GISTEMP Climate Spiral",
+   "url": "https://svs.gsfc.nasa.gov/4975/"
+  },
+  {
+   "id": 14069,
+   "title": "The Numbers Are In: Where Does 2021 Rank for Global Temperatures Live Shots",
+   "url": "https://svs.gsfc.nasa.gov/14069/"
+  },
+  {
+   "id": 4961,
+   "title": "Temperature Measurement Stations",
+   "url": "https://svs.gsfc.nasa.gov/4961/"
+  },
+  {
+   "id": 4908,
+   "title": "Climate Drivers",
+   "url": "https://svs.gsfc.nasa.gov/4908/"
+  },
+  {
+   "id": 4891,
+   "title": "Shifting Distribution of Land Temperature Anomalies, 1951-2020",
+   "url": "https://svs.gsfc.nasa.gov/4891/"
+  },
+  {
+   "id": 13791,
+   "title": "2020 Global Temperature Announcement Live Shots",
+   "url": "https://svs.gsfc.nasa.gov/13791/"
+  }
+ ],
+ "alternate_versions": [],
+ "newer_versions": [
+  {
+   "id": 5450,
+   "title": "Global Temperature Anomalies from 1880 to 2024",
+   "url": "https://svs.gsfc.nasa.gov/5450/"
+  }
+ ],
+ "older_versions": [
+  {
+   "id": 5060,
+   "title": "Global Temperature Anomalies from 1880 to 2022",
+   "url": "https://svs.gsfc.nasa.gov/5060/"
+  },
+  {
+   "id": 4964,
+   "title": "Global Temperature Anomalies from 1880 to 2021",
+   "url": "https://svs.gsfc.nasa.gov/4964/"
+  },
+  {
+   "id": 4882,
+   "title": "Global Temperature Anomalies from 1880 to 2020",
+   "url": "https://svs.gsfc.nasa.gov/4882/"
+  },
+  {
+   "id": 4626,
+   "title": "Global Temperature Anomalies from 1880 to 2018",
+   "url": "https://svs.gsfc.nasa.gov/4626/"
+  },
+  {
+   "id": 4609,
+   "title": "Global Temperature Anomalies from 1880 to 2017",
+   "url": "https://svs.gsfc.nasa.gov/4609/"
+  },
+  {
+   "id": 4546,
+   "title": "Five-Year Global Temperature Anomalies from 1880 to 2016",
+   "url": "https://svs.gsfc.nasa.gov/4546/"
+  },
+  {
+   "id": 4419,
+   "title": "Five-Year Global Temperature Anomalies from 1880 to 2015",
+   "url": "https://svs.gsfc.nasa.gov/4419/"
+  },
+  {
+   "id": 4252,
+   "title": "Five-Year Global Temperature Anomalies from 1880 to 2014",
+   "url": "https://svs.gsfc.nasa.gov/4252/"
+  },
+  {
+   "id": 4135,
+   "title": "Five-Year Global Temperature Anomalies from 1880 to 2013",
+   "url": "https://svs.gsfc.nasa.gov/4135/"
+  },
+  {
+   "id": 4030,
+   "title": "Five-Year Global Temperature Anomalies from 1880 to 2012",
+   "url": "https://svs.gsfc.nasa.gov/4030/"
+  },
+  {
+   "id": 3901,
+   "title": "Five-Year Average Global Temperature Anomalies from 1880 to 2011",
+   "url": "https://svs.gsfc.nasa.gov/3901/"
+  },
+  {
+   "id": 3375,
+   "title": "Five-Year Average Global Temperature Anomalies from 1881 to 2006",
+   "url": "https://svs.gsfc.nasa.gov/3375/"
+  }
+ ],
+ "media": [
+  {
+   "group": 0,
+   "group_title": "",
+   "widget": "Video player",
+   "caption": "",
+   "group_text": "This color-coded map in Robinson projection displays a progression of changing global surface temperature anomalies. Normal temperatures are shown in white. Higher than normal temperatures are shown in red and lower than normal temperatures are shown in blue. Normal temperatures are calculated over the 30 year baseline period 1951-1980. The maps are averages over a running 24 month window. The final frame represents  global temperature anomalies in 2023.",
+   "url": "https://svs.gsfc.nasa.gov/vis/a000000/a005200/a005207/2023GISTEMP_Map.00899_print.jpg",
+   "filename": "2023GISTEMP_Map.00899_print.jpg",
+   "media_type": "Image",
+   "width": 1024,
+   "height": 576,
+   "alt_text": "This color-coded map in Robinson projection displays a progression of changing global surface temperature anomalies. Normal temperatures are shown in white. Higher than normal temperatures are shown in red and lower than normal temperatures are shown in blue. Normal temperatures are calculated over the 30 year baseline period 1951-1980. The maps are averages over a running 24 month window. The final frame represents  global temperature anomalies in 2023."
+  },
+  {
+   "group": 0,
+   "group_title": "",
+   "widget": "Video player",
+   "caption": "",
+   "group_text": "This color-coded map in Robinson projection displays a progression of changing global surface temperature anomalies. Normal temperatures are shown in white. Higher than normal temperatures are shown in red and lower than normal temperatures are shown in blue. Normal temperatures are calculated over the 30 year baseline period 1951-1980. The maps are averages over a running 24 month window. The final frame represents  global temperature anomalies in 2023.",
+   "url": "https://svs.gsfc.nasa.gov/vis/a000000/a005200/a005207/2023GISTEMP_Map.00899_searchweb.png",
+   "filename": "2023GISTEMP_Map.00899_searchweb.png",
+   "media_type": "Image",
+   "width": 320,
+   "height": 180,
+   "alt_text": "This color-coded map in Robinson projection displays a progression of changing global surface temperature anomalies. Normal temperatures are shown in white. Higher than normal temperatures are shown in red and lower than normal temperatures are shown in blue. Normal temperatures are calculated over the 30 year baseline period 1951-1980. The maps are averages over a running 24 month window. The final frame represents  global temperature anomalies in 2023."
+  },
+  {
+   "group": 0,
+   "group_title": "",
+   "widget": "Video player",
+   "caption": "",
+   "group_text": "This color-coded map in Robinson projection displays a progression of changing global surface temperature anomalies. Normal temperatures are shown in white. Higher than normal temperatures are shown in red and lower than normal temperatures are shown in blue. Normal temperatures are calculated over the 30 year baseline period 1951-1980. The maps are averages over a running 24 month window. The final frame represents  global temperature anomalies in 2023.",
+   "url": "https://svs.gsfc.nasa.gov/vis/a000000/a005200/a005207/2023GISTEMP_Map.00899_thm.png",
+   "filename": "2023GISTEMP_Map.00899_thm.png",
+   "media_type": "Image",
+   "width": 80,
+   "height": 40,
+   "alt_text": "This color-coded map in Robinson projection displays a progression of changing global surface temperature anomalies. Normal temperatures are shown in white. Higher than normal temperatures are shown in red and lower than normal temperatures are shown in blue. Normal temperatures are calculated over the 30 year baseline period 1951-1980. The maps are averages over a running 24 month window. The final frame represents  global temperature anomalies in 2023."
+  },
+  {
+   "group": 0,
+   "group_title": "",
+   "widget": "Video player",
+   "caption": "",
+   "group_text": "This color-coded map in Robinson projection displays a progression of changing global surface temperature anomalies. Normal temperatures are shown in white. Higher than normal temperatures are shown in red and lower than normal temperatures are shown in blue. Normal temperatures are calculated over the 30 year baseline period 1951-1980. The maps are averages over a running 24 month window. The final frame represents  global temperature anomalies in 2023.",
+   "url": "https://svs.gsfc.nasa.gov/vis/a000000/a005200/a005207/2023GISTEMP_Map.00899_web.png",
+   "filename": "2023GISTEMP_Map.00899_web.png",
+   "media_type": "Image",
+   "width": 320,
+   "height": 180,
+   "alt_text": "This color-coded map in Robinson projection displays a progression of changing global surface temperature anomalies. Normal temperatures are shown in white. Higher than normal temperatures are shown in red and lower than normal temperatures are shown in blue. Normal temperatures are calculated over the 30 year baseline period 1951-1980. The maps are averages over a running 24 month window. The final frame represents  global temperature anomalies in 2023."
+  },
+  {
+   "group": 0,
+   "group_title": "",
+   "widget": "Video player",
+   "caption": "",
+   "group_text": "This color-coded map in Robinson projection displays a progression of changing global surface temperature anomalies. Normal temperatures are shown in white. Higher than normal temperatures are shown in red and lower than normal temperatures are shown in blue. Normal temperatures are calculated over the 30 year baseline period 1951-1980. The maps are averages over a running 24 month window. The final frame represents  global temperature anomalies in 2023.",
+   "url": "https://svs.gsfc.nasa.gov/vis/a000000/a005200/a005207/2023GISTEMP_Map_HD.mp4",
+   "filename": "2023GISTEMP_Map_HD.mp4",
+   "media_type": "Movie",
+   "width": 1920,
+   "height": 1080,
+   "alt_text": "This color-coded map in Robinson projection displays a progression of changing global surface temperature anomalies. Normal temperatures are shown in white. Higher than normal temperatures are shown in red and lower than normal temperatures are shown in blue. Normal temperatures are calculated over the 30 year baseline period 1951-1980. The maps are averages over a running 24 month window. The final frame represents  global temperature anomalies in 2023."
+  },
+  {
+   "group": 0,
+   "group_title": "",
+   "widget": "Video player",
+   "caption": "",
+   "group_text": "This color-coded map in Robinson projection displays a progression of changing global surface temperature anomalies. Normal temperatures are shown in white. Higher than normal temperatures are shown in red and lower than normal temperatures are shown in blue. Normal temperatures are calculated over the 30 year baseline period 1951-1980. The maps are averages over a running 24 month window. The final frame represents  global temperature anomalies in 2023.",
+   "url": "https://svs.gsfc.nasa.gov/vis/a000000/a005200/a005207/frames/3840x2160_16x9_30p/",
+   "filename": "3840x2160_16x9_30p",
+   "media_type": "Frames",
+   "width": 3840,
+   "height": 2160,
+   "alt_text": "This color-coded map in Robinson projection displays a progression of changing global surface temperature anomalies. Normal temperatures are shown in white. Higher than normal temperatures are shown in red and lower than normal temperatures are shown in blue. Normal temperatures are calculated over the 30 year baseline period 1951-1980. The maps are averages over a running 24 month window. The final frame represents  global temperature anomalies in 2023."
+  },
+  {
+   "group": 0,
+   "group_title": "",
+   "widget": "Video player",
+   "caption": "",
+   "group_text": "This color-coded map in Robinson projection displays a progression of changing global surface temperature anomalies. Normal temperatures are shown in white. Higher than normal temperatures are shown in red and lower than normal temperatures are shown in blue. Normal temperatures are calculated over the 30 year baseline period 1951-1980. The maps are averages over a running 24 month window. The final frame represents  global temperature anomalies in 2023.",
+   "url": "https://svs.gsfc.nasa.gov/vis/a000000/a005200/a005207/2023GISTEMP_Map.mp4",
+   "filename": "2023GISTEMP_Map.mp4",
+   "media_type": "Movie",
+   "width": 3840,
+   "height": 2160,
+   "alt_text": "This color-coded map in Robinson projection displays a progression of changing global surface temperature anomalies. Normal temperatures are shown in white. Higher than normal temperatures are shown in red and lower than normal temperatures are shown in blue. Normal temperatures are calculated over the 30 year baseline period 1951-1980. The maps are averages over a running 24 month window. The final frame represents  global temperature anomalies in 2023."
+  },
+  {
+   "group": 2,
+   "group_title": "",
+   "widget": "Video player",
+   "caption": "",
+   "group_text": "This visualizarion is in an equirectangular projection optimised for spherical displays such as Science On a Sphere. This color-coded map displays a progression of changing global surface temperature anomalies. Normal temperatures are shown in white. Higher than normal temperatures are shown in red and lower than normal temperatures are shown in blue. Normal temperatures are calculated over the 30 year baseline period 1951-1980. The maps are averages over a running 24 month window. The final frame represents global temperature anomalies in 2023.<p><p>The file <a href=\"/vis/a000000/a005200/a005207/time.txt\">time.txt</a> is a label file containing the animation time for each frame number ",
+   "url": "https://svs.gsfc.nasa.gov/vis/a000000/a005200/a005207/2023GISTEMP_Map_SOS.00899_print.jpg",
+   "filename": "2023GISTEMP_Map_SOS.00899_print.jpg",
+   "media_type": "Image",
+   "width": 1024,
+   "height": 512,
+   "alt_text": "This visualizarion is in an equirectangular projection optimised for spherical displays such as Science On a Sphere. This color-coded map displays a progression of changing global surface temperature anomalies. Normal temperatures are shown in white. Higher than normal temperatures are shown in red and lower than normal temperatures are shown in blue. Normal temperatures are calculated over the 30 year baseline period 1951-1980. The maps are averages over a running 24 month window. The final frame represents global temperature anomalies in 2023.The file time.txt is a label file containing the animation time for each frame number "
+  },
+  {
+   "group": 2,
+   "group_title": "",
+   "widget": "Video player",
+   "caption": "",
+   "group_text": "This visualizarion is in an equirectangular projection optimised for spherical displays such as Science On a Sphere. This color-coded map displays a progression of changing global surface temperature anomalies. Normal temperatures are shown in white. Higher than normal temperatures are shown in red and lower than normal temperatures are shown in blue. Normal temperatures are calculated over the 30 year baseline period 1951-1980. The maps are averages over a running 24 month window. The final frame represents global temperature anomalies in 2023.<p><p>The file <a href=\"/vis/a000000/a005200/a005207/time.txt\">time.txt</a> is a label file containing the animation time for each frame number ",
+   "url": "https://svs.gsfc.nasa.gov/vis/a000000/a005200/a005207/2023GISTEMP_Map_SOS.mp4",
+   "filename": "2023GISTEMP_Map_SOS.mp4",
+   "media_type": "Movie",
+   "width": 4096,
+   "height": 2048,
+   "alt_text": "This visualizarion is in an equirectangular projection optimised for spherical displays such as Science On a Sphere. This color-coded map displays a progression of changing global surface temperature anomalies. Normal temperatures are shown in white. Higher than normal temperatures are shown in red and lower than normal temperatures are shown in blue. Normal temperatures are calculated over the 30 year baseline period 1951-1980. The maps are averages over a running 24 month window. The final frame represents global temperature anomalies in 2023.The file time.txt is a label file containing the animation time for each frame number "
+  },
+  {
+   "group": 3,
+   "group_title": "",
+   "widget": "Single image",
+   "caption": "",
+   "group_text": "This color-coded map in Robinson projection of the 2023 global surface temperature anomalies. Normal temperatures are shown in white. Higher than normal temperatures are shown in red and lower than normal temperatures are shown in blue. Normal temperatures are calculated over the 30 year baseline period 1951-1980. ",
+   "url": "https://svs.gsfc.nasa.gov/vis/a000000/a005200/a005207/2023AverageTemp_HD.png",
+   "filename": "2023AverageTemp_HD.png",
+   "media_type": "Image",
+   "width": 1920,
+   "height": 1080,
+   "alt_text": "This color-coded map in Robinson projection of the 2023 global surface temperature anomalies. Normal temperatures are shown in white. Higher than normal temperatures are shown in red and lower than normal temperatures are shown in blue. Normal temperatures are calculated over the 30 year baseline period 1951-1980. "
+  },
+  {
+   "group": 3,
+   "group_title": "",
+   "widget": "Single image",
+   "caption": "",
+   "group_text": "This color-coded map in Robinson projection of the 2023 global surface temperature anomalies. Normal temperatures are shown in white. Higher than normal temperatures are shown in red and lower than normal temperatures are shown in blue. Normal temperatures are calculated over the 30 year baseline period 1951-1980. ",
+   "url": "https://svs.gsfc.nasa.gov/vis/a000000/a005200/a005207/2023AverageTemp_print.png",
+   "filename": "2023AverageTemp_print.png",
+   "media_type": "Image",
+   "width": 1024,
+   "height": 576,
+   "alt_text": "This color-coded map in Robinson projection of the 2023 global surface temperature anomalies. Normal temperatures are shown in white. Higher than normal temperatures are shown in red and lower than normal temperatures are shown in blue. Normal temperatures are calculated over the 30 year baseline period 1951-1980. "
+  },
+  {
+   "group": 3,
+   "group_title": "",
+   "widget": "Single image",
+   "caption": "",
+   "group_text": "This color-coded map in Robinson projection of the 2023 global surface temperature anomalies. Normal temperatures are shown in white. Higher than normal temperatures are shown in red and lower than normal temperatures are shown in blue. Normal temperatures are calculated over the 30 year baseline period 1951-1980. ",
+   "url": "https://svs.gsfc.nasa.gov/vis/a000000/a005200/a005207/2023AverageTemp_4K.png",
+   "filename": "2023AverageTemp_4K.png",
+   "media_type": "Image",
+   "width": 3840,
+   "height": 2160,
+   "alt_text": "This color-coded map in Robinson projection of the 2023 global surface temperature anomalies. Normal temperatures are shown in white. Higher than normal temperatures are shown in red and lower than normal temperatures are shown in blue. Normal temperatures are calculated over the 30 year baseline period 1951-1980. "
+  },
+  {
+   "group": 4,
+   "group_title": "",
+   "widget": "Video player",
+   "caption": "",
+   "group_text": "This color-coded map in Orthographic projection displays a progression of changing global surface temperature anomalies. Normal temperatures are shown in white. Higher than normal temperatures are shown in red and lower than normal temperatures are shown in blue. Normal temperatures are calculated over the 30 year baseline period 1951-1980. The maps are averages over a running 24 month window. The final frame represents  global temperature anomalies in 2023.",
+   "url": "https://svs.gsfc.nasa.gov/vis/a000000/a005200/a005207/GISTEMP_1880-2023_vert.00899_print.jpg",
+   "filename": "GISTEMP_1880-2023_vert.00899_print.jpg",
+   "media_type": "Image",
+   "width": 1024,
+   "height": 1820,
+   "alt_text": "This color-coded map in Orthographic projection displays a progression of changing global surface temperature anomalies. Normal temperatures are shown in white. Higher than normal temperatures are shown in red and lower than normal temperatures are shown in blue. Normal temperatures are calculated over the 30 year baseline period 1951-1980. The maps are averages over a running 24 month window. The final frame represents  global temperature anomalies in 2023."
+  },
+  {
+   "group": 4,
+   "group_title": "",
+   "widget": "Video player",
+   "caption": "",
+   "group_text": "This color-coded map in Orthographic projection displays a progression of changing global surface temperature anomalies. Normal temperatures are shown in white. Higher than normal temperatures are shown in red and lower than normal temperatures are shown in blue. Normal temperatures are calculated over the 30 year baseline period 1951-1980. The maps are averages over a running 24 month window. The final frame represents  global temperature anomalies in 2023.",
+   "url": "https://svs.gsfc.nasa.gov/vis/a000000/a005200/a005207/GISTEMP_1880-2023_vert.mp4",
+   "filename": "GISTEMP_1880-2023_vert.mp4",
+   "media_type": "Movie",
+   "width": 1080,
+   "height": 1920,
+   "alt_text": "This color-coded map in Orthographic projection displays a progression of changing global surface temperature anomalies. Normal temperatures are shown in white. Higher than normal temperatures are shown in red and lower than normal temperatures are shown in blue. Normal temperatures are calculated over the 30 year baseline period 1951-1980. The maps are averages over a running 24 month window. The final frame represents  global temperature anomalies in 2023."
+  },
+  {
+   "group": 5,
+   "group_title": "",
+   "widget": "Single image",
+   "caption": "",
+   "group_text": "Colortable in both degrees Fahrenheit and degrees Celsius.",
+   "url": "https://svs.gsfc.nasa.gov/vis/a000000/a005200/a005207/giss_navy_anomaly_Vertical-both.png",
+   "filename": "giss_navy_anomaly_Vertical-both.png",
+   "media_type": "Image",
+   "width": 167,
+   "height": 333,
+   "alt_text": "Colortable in both degrees Fahrenheit and degrees Celsius."
+  }
+ ],
+ "text_links": [
+  "https://data.giss.nasa.gov/gistemp/",
+  "https://svs.gsfc.nasa.gov/vis/a000000/a005200/a005207/time.txt"
+ ],
+ "frame_folders": {
+  "https://svs.gsfc.nasa.gov/vis/a000000/a005200/a005207/frames/3840x2160_16x9_30p/": {
+   "url": "https://svs.gsfc.nasa.gov/vis/a000000/a005200/a005207/frames/3840x2160_16x9_30p/",
+   "frame_count": 900,
+   "bytes_approx": 3977999954,
+   "first": "GISTEMP_Map_4K000.png",
+   "last": "GISTEMP_Map_4K899.png",
+   "subfolders": {}
+  }
+ },
+ "api_url": "https://svs.gsfc.nasa.gov/api/5207",
+ "fetched_utc": "2026-10-31T15:05:49Z"
+}

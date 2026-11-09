@@ -1,0 +1,339 @@
+{
+ "record": "eic_5151",
+ "app_title": "PM2.5 (GEOS-CF) (EIC, model)",
+ "svs_ids": [
+  5151
+ ],
+ "title": "Particulate Matter (PM) 2.5",
+ "svs_pages": [
+  "https://svs.gsfc.nasa.gov/5151/"
+ ],
+ "description": "Near surface concentration of fine particular matter (PM2.5) estimated from NASA’s aerosol and weather fields produced by NASA’s GEOS-CF model.",
+ "release_date": "2023-09-26T17:00:00-04:00",
+ "period": {
+  "start": "2026-10-28T22:00:00Z",
+  "end": "2026-10-28T22:00:00Z",
+  "label": "28 Oct 2026 – 28 Oct 2026"
+ },
+ "badge": "model",
+ "credits_by_role": {
+  "Visualizer": [
+   "Joseph V. Ardizzone (NASA/GSFC)"
+  ]
+ },
+ "datasets": [
+  {
+   "name": "GEOS-CF",
+   "common_name": "",
+   "platform": null,
+   "sensor": null,
+   "type": "Other",
+   "organizations": [
+    "NASA GMAO"
+   ],
+   "description": "Knowland, K.E., C.A. Keller, and R. Lucchesi, 2022: File Specification for GEOS-CF Products. GMAO Office Note No. 17 (Version 1.3), 54 pp, available from [https://gmao.gsfc.nasa.gov/pubs/docs/Knowland1446.pdf](https://gmao.gsfc.nasa.gov/pubs/docs/Knowland1446.pdf)",
+   "credit": "",
+   "url": "https://portal.nccs.nasa.gov/datashare/gmao/geos-cf/v2/",
+   "date_range": ""
+  }
+ ],
+ "credit_line": "Visualization: NASA's Scientific Visualization Studio (SVS 5151) for the NASA Earth Information Center.",
+ "disclosure": "One frame of a rolling EIC layer, read back through its key.",
+ "licence": "SVS: \"All of our content is in the public domain (unless otherwise noted), meaning that it is free to download, use, and redistribute for whatever purposes you see fit.\" (https://svs.gsfc.nasa.gov/help/, read 29 Oct 2026)",
+ "frame_times": {
+  "method": "ocr",
+  "approximate": false,
+  "count": 1,
+  "source": "date box OCR: 28 Oct 2026 18 : 00 : 00 EDT"
+ },
+ "georef": {
+  "projection": "equirectangular",
+  "bounds": [
+   -180,
+   -90,
+   180,
+   90
+  ],
+  "pass_at": 0.9,
+  "shifts_deg": [
+   1.0
+  ],
+  "iou": {},
+  "pass": true,
+  "best_is_assumed": true
+ },
+ "colorbar": {
+  "geometry": {
+   "x0": 74,
+   "x1": 462,
+   "band": [
+    41,
+    76
+   ],
+   "vertical": false,
+   "outline_rgb": [
+    255.0,
+    255.0,
+    255.0
+   ],
+   "image_size": [
+    125,
+    528
+   ]
+  },
+  "ticks": [
+   {
+    "px": -2.0,
+    "value": 0.4,
+    "text": "0.4",
+    "engine": "glyph",
+    "label_px": -2.0
+   },
+   {
+    "px": 73.49640287769785,
+    "value": 1.6,
+    "text": "1.6",
+    "engine": "glyph",
+    "label_px": 73.5,
+    "tick_mark": true
+   },
+   {
+    "px": 152.5,
+    "value": 6.4,
+    "text": "6.4",
+    "engine": "glyph",
+    "label_px": 154.0,
+    "tick_mark": true
+   },
+   {
+    "px": 231.50292397660817,
+    "value": 25.6,
+    "text": "25.6",
+    "engine": "glyph",
+    "label_px": 233.5,
+    "tick_mark": true
+   },
+   {
+    "px": 310.50174520069805,
+    "value": 102.4,
+    "text": "102.4",
+    "engine": "glyph",
+    "label_px": 311.5,
+    "tick_mark": true
+   },
+   {
+    "px": 391.5,
+    "value": 409.6,
+    "text": "409.6",
+    "engine": "glyph",
+    "label_px": 391.5
+   }
+  ],
+  "scale": "log",
+  "fit": {
+   "a": -0.35786891669189513,
+   "b": 0.007625905535125265,
+   "fit": "weighted 1/tolerance",
+   "max_resid_px": 3.254601148096211,
+   "resid_px": [
+    -3.25,
+    0.2,
+    0.14,
+    0.09,
+    0.04,
+    -2.01
+   ],
+   "ok": true
+  },
+  "notes": [
+   "2 label(s) not on a tick mark (0.4, 409.6): label-centre position, ±5 px."
+  ],
+  "n_samples": 389,
+  "value_range": [
+   0.43866307967956447,
+   399.00876043021196
+  ],
+  "opacity_varies": false,
+  "px_per_decade": 131.13196792091836
+ },
+ "colorbar_file": "PM2.5_colorbar.png",
+ "decode": {
+  "mode": "exact",
+  "exact_share": 0.9293447947118371,
+  "decoded_share": 0.8961868286132812,
+  "base_map_share": null,
+  "matcher": "rgb-nearest",
+  "max_dist": 12.0
+ },
+ "frame": "00000201.png",
+ "frame_set": "https://svs.gsfc.nasa.gov/vis/a000000/a005100/a005151/frames/2048x1024_2x1_12p/MC01_stage4_GMAO_pm25_2048x1024_en-hwtool/",
+ "layers": [
+  {
+   "id": "value",
+   "unit": "µg/m³",
+   "encoding": "linear",
+   "scale": 0.004305110997239639,
+   "offset": 0.4464337229728699,
+   "nodata": 65535,
+   "below": 65534,
+   "grid": {
+    "width": 720,
+    "height": 360,
+    "bounds": [
+     -180,
+     -90,
+     180,
+     90
+    ],
+    "row0": "north",
+    "col0": "west",
+    "byte_order": "little"
+   },
+   "times": [
+    "2026-10-28T22:00:00Z"
+   ],
+   "chunks": [
+    {
+     "file": "value_000.u16.gz",
+     "t0": 0,
+     "t1": 1,
+     "bytes": 239324
+    }
+   ],
+   "quantisation_step": 0.004305110997239639,
+   "coverage": 0.8998804012345679,
+   "value_range": [
+    0.4464337229728699,
+    282.5732727050781
+   ],
+   "label": "PM2.5 (GEOS-CF) (model)",
+   "aggregation": "mean of decoded pixels per 0.5° cell",
+   "display": {
+    "colours": [
+     "#fffef3",
+     "#fff3b3",
+     "#fee493",
+     "#fed675",
+     "#fec756",
+     "#feb844",
+     "#fea736",
+     "#fd9728",
+     "#f88c23",
+     "#f4831d",
+     "#ef7718",
+     "#e96d12",
+     "#e2650e",
+     "#dc5e0b",
+     "#d65708",
+     "#d05004",
+     "#c84b02",
+     "#c04602",
+     "#b94303",
+     "#b14003",
+     "#aa3c03",
+     "#a23804",
+     "#9b3404",
+     "#943304",
+     "#8f3104",
+     "#892f05",
+     "#842e05",
+     "#7d2c05",
+     "#782a05",
+     "#722906",
+     "#6d2706",
+     "#682606"
+    ],
+    "values": [
+     0.43866307967956447,
+     0.5464845660059413,
+     0.6808081069892117,
+     0.8481477929555925,
+     1.0566188494386448,
+     1.3163311892830694,
+     1.6398796981522092,
+     2.0429550300912025,
+     2.545104533995857,
+     3.170680212514074,
+     3.9500196851421965,
+     4.920917426938907,
+     6.13045763134704,
+     7.63729758276388,
+     9.514512272206117,
+     11.853138207192933,
+     14.766588274759773,
+     18.39615175869211,
+     22.917846237189565,
+     28.550953647318973,
+     35.56865447716348,
+     44.31127579637398,
+     55.202795595289146,
+     68.77140381917496,
+     85.67511721568754,
+     106.73369020097252,
+     132.9683692785333,
+     165.65141892218898,
+     206.3678207066991,
+     257.0921378176475,
+     320.2842725251629,
+     399.00876043021196
+    ],
+    "scale": "log"
+   },
+   "time_labels": [
+    "28 Oct 2026 22:00 UTC"
+   ],
+   "status": "pattern only",
+   "statement": "pattern only (values not verified)",
+   "status_check": "a_same_model"
+  }
+ ],
+ "voices": {
+  "value": "eic5151"
+ },
+ "play": [
+  {
+   "id": "value",
+   "label": "PM2.5 (GEOS-CF): higher pitch = higher value",
+   "view": "global",
+   "map": "value",
+   "start": {
+    "lat": 23.81,
+    "lon": 90.41
+   },
+   "steps_per_second": 1,
+   "channels": [
+    {
+     "voice": "eic5151",
+     "layers": [
+      "value"
+     ],
+     "combine": "value"
+    }
+   ]
+  }
+ ],
+ "validation": [
+  {
+   "id": "a_same_model",
+   "title": "PM2.5 (GEOS-CF): frame vs GEOS-CF v2 analysis chm_tavg_1hr_glo_L1440x721_slv pm25_rh35 at 2026-10-28 22:30:00 UTC",
+   "kind": "value",
+   "pass": false,
+   "threshold": "Spearman ≥ 0.9 and median relative error ≤ 15 % (provisional)"
+  }
+ ],
+ "size": {
+  "choice": {
+   "cell_deg": 0.5
+  },
+  "tried": [],
+  "bytes": 247929,
+  "budget": 25000000
+ },
+ "asset_checksums": {
+  "file": "checksums.tsv.gz",
+  "rows": 3,
+  "sha256_of_list": "cbf4cc60f2a3dfb6d01c95151a50dbd6d2e320a3e5ac9088023185289b0092a5"
+ },
+ "code_commit": "65405281e6df7801cd75a6db04f5ebcec70af3a9-dirty",
+ "generated_utc": "2026-11-06T14:10:04Z"
+}

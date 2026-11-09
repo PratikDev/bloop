@@ -1,6 +1,7 @@
 "use client";
 
 import { cn } from "@/lib/utils";
+import { LiveBrailleExplorer } from "../../BrailleExplorer/LiveBrailleExplorer";
 import { useAppState, useT } from "../../AppState/use-app-state";
 import { ExploreControls } from "../../ExploreControls";
 import { FrameLabel } from "../../FrameLabel";
@@ -18,7 +19,8 @@ import { ListenStatus } from "./ListenStatus";
  * tour's panel sits beside it from 1024 px (above it on phones), and the
  * readout (the value under the cursor) sits under it, or, on wide screens,
  * in a panel beside it with the track choice and the frame times. On the map only what
- * was asked for (the Inspector, the first-visit hint) and loading badges.
+ * was asked for (the Inspector, the first-visit hint) and loading badges; the braille explorer,
+ * when opened, follows below the map and the page scrolls.
  * The dock (AppShell) holds the sound controls.
  */
 export function ListenPage() {
@@ -26,14 +28,16 @@ export function ListenPage() {
   const t = useT();
   const story = state.mode === "story";
   return (
-    <section aria-labelledby="listen-title" className="flex h-full min-h-0 flex-col lg:px-4 lg:pt-2 lg:pb-2">
+    // With the braille explorer open (B, or the dock's Braille) the page scrolls: the map keeps the screen, the explorer
+    // follows below it (focus moves into it, which brings it into view).
+    <section aria-labelledby="listen-title" className={cn("flex h-full min-h-0 flex-col lg:px-4 lg:pt-2 lg:pb-2", state.brailleOpen && "overflow-y-auto")}>
       {/*
         From 1024 px the stage is measured (a container named listen), and a grid inside it gives the
         head and the map (2:1) the width that fits both ways. The readout sits under the map, or beside
         it when the stage is wider than 2:1 (most desktops); the tour's column sits on the left.
         In the page (and reading) order: head, tour, map, readout.
       */}
-      <div className={cn("contents lg:block lg:h-full", story ? "lg:[container:listen-tour_/_size]" : "lg:[container:listen_/_size]")}>
+      <div className={cn("contents lg:block lg:h-full lg:shrink-0", story ? "lg:[container:listen-tour_/_size]" : "lg:[container:listen_/_size]")}>
         <div
           className={cn(
             "contents lg:grid lg:h-full lg:content-center lg:justify-center lg:gap-x-4",
@@ -87,6 +91,7 @@ export function ListenPage() {
           </aside>
         </div>
       </div>
+      <LiveBrailleExplorer className="shrink-0 px-4 pb-3 lg:px-1 lg:pt-4" />
     </section>
   );
 }

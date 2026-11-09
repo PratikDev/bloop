@@ -1,0 +1,710 @@
+{
+ "DataLanguage": "eng",
+ "AncillaryKeywords": [
+  "GHRSST",
+  "sea surface temperature",
+  "Level 4",
+  "SST",
+  "sea surface temperature",
+  "MUR",
+  "MUR25",
+  "foundation SST",
+  "0.25 degree",
+  "L4",
+  "SST anomaly"
+ ],
+ "CollectionCitations": [
+  {
+   "Creator": "JPL MUR MEaSUREs Project",
+   "OnlineResource": {
+    "Linkage": "https://podaac.jpl.nasa.gov/MEaSUREs-MUR"
+   },
+   "Publisher": "NASA/JPL",
+   "Title": "GHRSST Level 4 MUR 0.25 deg Global Foundation Sea Surface Temperature Analysis",
+   "SeriesName": "GHRSST Level 4 MUR 0.25deg Global Foundation Sea Surface Temperature Analysis (v4.2)",
+   "OtherCitationDetails": "JPL MUR MEaSUREs Project, NASA/JPL, 2019-10-18, GHRSST Level 4 MUR 0.25deg Global Foundation Sea Surface Temperature Analysis (v4.2), ",
+   "ReleaseDate": "2019-10-18T00:00:00.000Z",
+   "Version": "4.2",
+   "ReleasePlace": "Jet Propulsion Laboratory"
+  }
+ ],
+ "AdditionalAttributes": [
+  {
+   "Name": "earliest_granule_start_time",
+   "Description": "Earliest Granule Start Time for dataset.",
+   "Value": "2002-09-01T09:00:00.000Z",
+   "DataType": "DATETIME"
+  },
+  {
+   "Name": "latest_granule_end_time",
+   "Description": "Latest Granule Stop/End Time for dataset.",
+   "Value": "2021-04-18T09:00:00.000Z",
+   "DataType": "DATETIME"
+  },
+  {
+   "Name": "data_latency",
+   "Description": "Dataset Latency",
+   "Value": "24",
+   "DataType": "INT"
+  },
+  {
+   "Name": "Series Name",
+   "Description": "Dataset citation series name",
+   "Value": "GHRSST Level 4 MUR 0.25deg Global Foundation Sea Surface Temperature Analysis (v4.2)",
+   "DataType": "STRING"
+  },
+  {
+   "Name": "Persistent ID",
+   "Description": "Dataset Persistent ID",
+   "Value": "PODAAC-GHM25-4FJ42",
+   "DataType": "STRING"
+  }
+ ],
+ "SpatialExtent": {
+  "SpatialCoverageType": "HORIZONTAL",
+  "HorizontalSpatialDomain": {
+   "Geometry": {
+    "CoordinateSystem": "CARTESIAN",
+    "BoundingRectangles": [
+     {
+      "NorthBoundingCoordinate": 90.0,
+      "WestBoundingCoordinate": -180.0,
+      "EastBoundingCoordinate": 180.0,
+      "SouthBoundingCoordinate": -90.0
+     }
+    ]
+   },
+   "ResolutionAndCoordinateSystem": {
+    "Description": "Projection Type: Cylindrical Lat-Lon, Projection Detail: Geolocation information included for each pixel",
+    "GeodeticModel": {
+     "HorizontalDatumName": "World Geodetic System 1984",
+     "EllipsoidName": "WGS 84",
+     "SemiMajorAxis": 6378137.0,
+     "DenominatorOfFlatteningRatio": 298.2572236
+    },
+    "HorizontalDataResolution": {
+     "GenericResolutions": [
+      {
+       "XDimension": 0.25,
+       "YDimension": 0.25,
+       "Unit": "Decimal Degrees"
+      }
+     ]
+    }
+   }
+  },
+  "GranuleSpatialRepresentation": "CARTESIAN"
+ },
+ "CollectionProgress": "ACTIVE",
+ "StandardProduct": false,
+ "ScienceKeywords": [
+  {
+   "Category": "EARTH SCIENCE",
+   "Topic": "OCEANS",
+   "Term": "OCEAN TEMPERATURE",
+   "VariableLevel1": "SEA SURFACE TEMPERATURE",
+   "DetailedVariable": "FOUNDATION SEA SURFACE TEMPERATURE"
+  }
+ ],
+ "TemporalExtents": [
+  {
+   "RangeDateTimes": [
+    {
+     "BeginningDateTime": "2002-08-31T21:00:00.000Z"
+    }
+   ]
+  }
+ ],
+ "ProcessingLevel": {
+  "Id": "4"
+ },
+ "DOI": {
+  "DOI": "10.5067/GHM25-4FJ42",
+  "Authority": "https://doi.org"
+ },
+ "ShortName": "MUR25-JPL-L4-GLOB-v04.2",
+ "EntryTitle": "GHRSST Level 4 MUR 0.25deg Global Foundation Sea Surface Temperature Analysis (v4.2)",
+ "PublicationReferences": [
+  {
+   "Title": " A multi-scale high-resolution analysis of global sea surface temperature",
+   "Publisher": "Remote Sensing of Environment",
+   "DOI": {
+    "DOI": "https://doi.org/10.1016/j.rse.2017.07.029"
+   },
+   "Author": "Chin, T.M,  J. Vazquez-Cuervo, and E.M. Armstrong",
+   "PublicationDate": "2017-10-01T00:00:00.000Z",
+   "Volume": "200 ",
+   "Pages": "154-169"
+  }
+ ],
+ "DirectDistributionInformation": {
+  "Region": "us-west-2",
+  "S3BucketAndObjectPrefixNames": [
+   "podaac-ops-cumulus-public/MUR25-JPL-L4-GLOB-v04.2/",
+   "podaac-ops-cumulus-protected/MUR25-JPL-L4-GLOB-v04.2/"
+  ],
+  "S3CredentialsAPIEndpoint": "https://archive.podaac.earthdata.nasa.gov/s3credentials",
+  "S3CredentialsAPIDocumentationURL": "https://archive.podaac.earthdata.nasa.gov/s3credentialsREADME"
+ },
+ "RelatedUrls": [
+  {
+   "Type": "VIEW RELATED INFORMATION",
+   "Description": "Data Use and Citation Guidelines",
+   "URLContentType": "PublicationURL",
+   "Subtype": "DATA CITATION GUIDELINES",
+   "URL": "https://podaac.jpl.nasa.gov/CitingPODAAC"
+  },
+  {
+   "Description": "Group for High Resolution Sea Surface Temperature Information",
+   "URLContentType": "PublicationURL",
+   "Type": "VIEW RELATED INFORMATION",
+   "Subtype": "GENERAL DOCUMENTATION",
+   "URL": "https://ghrsst.jpl.nasa.gov"
+  },
+  {
+   "Description": "MUR Project homepage",
+   "URLContentType": "PublicationURL",
+   "Type": "VIEW RELATED INFORMATION",
+   "Subtype": "GENERAL DOCUMENTATION",
+   "URL": "https://podaac.jpl.nasa.gov/MEaSUREs-MUR"
+  },
+  {
+   "Description": "Documentation on the GDS version 2 format specification",
+   "URLContentType": "PublicationURL",
+   "Type": "VIEW RELATED INFORMATION",
+   "Subtype": "USER'S GUIDE",
+   "URL": "https://archive.podaac.earthdata.nasa.gov/podaac-ops-cumulus-docs/ghrsst/open/docs/GDS20r5.pdf"
+  },
+  {
+   "Description": "GHRSST Project website",
+   "URLContentType": "PublicationURL",
+   "Type": "VIEW RELATED INFORMATION",
+   "Subtype": "GENERAL DOCUMENTATION",
+   "URL": "http://www.ghrsst.org"
+  },
+  {
+   "Description": " Generic data readers",
+   "URLContentType": "PublicationURL",
+   "Type": "VIEW RELATED INFORMATION",
+   "Subtype": "DATA RECIPE",
+   "URL": "https://github.com/podaac/data-readers"
+  },
+  {
+   "Description": "Homepage for the NASA MEaSUREs projects",
+   "URLContentType": "PublicationURL",
+   "Type": "VIEW RELATED INFORMATION",
+   "Subtype": "GENERAL DOCUMENTATION",
+   "URL": "https://earthdata.nasa.gov/esds/competitive-programs/measures/mur-sst"
+  },
+  {
+   "Description": "Chin T.M., Milliff R.F., Large W.G. (1998). Basin-scale, high-wavenumber sea surface wind fields from a multiresolution analysis of scatterometer data. Journal of Atmospheric and Oceanic Technology, 15: 741-763",
+   "URLContentType": "PublicationURL",
+   "Type": "VIEW RELATED INFORMATION",
+   "Subtype": "PUBLICATIONS",
+   "URL": "http://journals.ametsoc.org/doi/abs/10.1175/1520-0426%281998%29015%3C0741:BSHWSS%3E2.0.CO;2"
+  },
+  {
+   "Description": "HTTPS endpoint for data browse and download",
+   "URLContentType": "DistributionURL",
+   "Type": "GET DATA",
+   "Subtype": "DIRECT DOWNLOAD",
+   "URL": "https://cmr.earthdata.nasa.gov/virtual-directory/collections/C2036880657-POCLOUD",
+   "GetData": {
+    "Format": "netCDF-4 classic",
+    "MimeType": "application/x-netcdf",
+    "Size": 50.0,
+    "Unit": "MB"
+   }
+  },
+  {
+   "Description": "Browse granule search results in Earthdata Search",
+   "URLContentType": "DistributionURL",
+   "Type": "GET DATA",
+   "Subtype": "Earthdata Search",
+   "URL": "https://search.earthdata.nasa.gov/search/granules?p=C2036880657-POCLOUD",
+   "GetData": {
+    "Format": "Not provided",
+    "MimeType": "text/html",
+    "Size": 0.0,
+    "Unit": "MB"
+   }
+  },
+  {
+   "Description": "Chin, Toshio Michael, Jorge Vazquez-Cuervo, and Edward M. Armstrong. A multi-scale high-resolution analysis of global sea surface temperature. Remote sensing of environment 200 (2017): 154-169.",
+   "URLContentType": "PublicationURL",
+   "Type": "VIEW RELATED INFORMATION",
+   "Subtype": "PUBLICATIONS",
+   "URL": "https://doi.org/10.1016/j.rse.2017.07.029"
+  },
+  {
+   "Description": "SOTO (State of the Ocean) Visualization",
+   "URLContentType": "VisualizationURL",
+   "Type": "GET RELATED VISUALIZATION",
+   "Subtype": "SOTO",
+   "URL": "https://soto.podaac.earthdatacloud.nasa.gov/?l=GHRSST_L4_MUR25_Sea_Surface_Temperature,BlueMarble_ShadedRelief_Bathymetry,Coastlines_15m"
+  },
+  {
+   "Type": "GET RELATED VISUALIZATION",
+   "Description": "Thumbnail",
+   "URLContentType": "VisualizationURL",
+   "URL": "https://podaac.jpl.nasa.gov/Podaac/thumbnails/MUR25-JPL-L4-GLOB-v04.2.jpg"
+  },
+  {
+   "Description": "HTTPS virtual dataset reference file (out-of-cloud use)",
+   "URLContentType": "DistributionURL",
+   "URL": "https://archive.podaac.earthdata.nasa.gov/podaac-ops-cumulus-public/virtual_collections/MUR25-JPL-L4-GLOB-v04.2/MUR25-JPL-L4-GLOB-v04.2_virtual_https.json",
+   "Type": "GET DATA",
+   "Subtype": "VIRTUAL COLLECTION"
+  },
+  {
+   "URLContentType": "DistributionURL",
+   "Type": "GET DATA",
+   "Subtype": "VIRTUAL COLLECTION",
+   "Description": "S3 virtual dataset reference file (in-cloud use)",
+   "URL": "https://archive.podaac.earthdata.nasa.gov/podaac-ops-cumulus-public/virtual_collections/MUR25-JPL-L4-GLOB-v04.2/MUR25-JPL-L4-GLOB-v04.2_virtual_s3.json"
+  },
+  {
+   "URLContentType": "DistributionURL",
+   "Type": "GET DATA",
+   "Subtype": "Data Access Tool",
+   "URL": "https://github.com/podaac/data-subscriber",
+   "Description": "This dataset can be downloaded using the podaac-data-subscriber (the recommended tool for bulk downloading PO.DAAC data). It is a Python package for downloading one or many files using the command line interface. The URL redirects to the data-subscriber home page with instructions for utilizing the tool"
+  },
+  {
+   "URLContentType": "DistributionURL",
+   "Type": "USE SERVICE API",
+   "Subtype": "OPENDAP DATA",
+   "URL": "https://opendap.earthdata.nasa.gov",
+   "Description": "This dataset can be accessed with the Open-source Project for a Network Data Access Protocol (OPeNDAP) API framework. This service enables variable and dimensional subsetting. The URL redirects to a page with information about utilizing the service."
+  },
+  {
+   "URLContentType": "DistributionURL",
+   "Type": "GOTO WEB TOOL",
+   "Subtype": "SUBSETTER",
+   "URL": "https://harmony.earthdata.nasa.gov/",
+   "Description": "This dataset can be accessed with the Harmony subsetter service to subset and regrid data on-the-fly. Several subsetting options are available such as spatial, variable, temporal, and vertical level. The URL redirects to a general page with information about utilizing the service. An example query:  https://harmony.earthdata.nasa.gov/C3378626164-POCLOUD/ogc-api-coverages/1.0.0/collections/all/coverage/rangeset?subset=lat(minLat:maxLat)&subset=lon(minLon:maxLon)&subset=time(startTime:stopTime)&format=application%2Fx-netcdf4"
+  },
+  {
+   "URLContentType": "VisualizationURL",
+   "Type": "GET RELATED VISUALIZATION",
+   "Subtype": "WORLDVIEW",
+   "URL": "https://www.earthdata.nasa.gov/data/tools/worldview",
+   "Description": "The Worldview tool from NASA's Earth Observing System Data and Information System (EOSDIS) provides the capability to interactively browse and visualize satellite imagery layers and then download the underlying data. Many of the layers are updated within three hours of observation. This link redirects to the Worldview home page - from there, users can launch the tool and search for this dataset."
+  }
+ ],
+ "DataDates": [
+  {
+   "Type": "CREATE",
+   "Date": "2019-08-09T19:47:48.185Z"
+  },
+  {
+   "Type": "UPDATE",
+   "Date": "2019-08-09T19:47:48.185Z"
+  }
+ ],
+ "Abstract": "A Group for High Resolution Sea Surface Temperature (GHRSST) Level 4 sea surface temperature analysis produced as a retrospective dataset  at the JPL Physical Oceanography DAAC using wavelets as basis functions in an optimal interpolation approach on a global 0.25 degree grid. The version 4 Multiscale Ultrahigh Resolution (MUR) L4 analysis is based upon nighttime GHRSST L2P skin and subskin SST observations from several instruments including the NASA Advanced Microwave Scanning Radiometer-EOS (AMSR-E), the JAXA Advanced Microwave Scanning Radiometer 2 on GCOM-W1, the Moderate Resolution Imaging Spectroradiometers (MODIS) on the NASA Aqua and Terra platforms, the US Navy microwave WindSat radiometer, the Advanced Very High Resolution Radiometer (AVHRR) on several NOAA satellites, and in situ SST observations from the NOAA iQuam project. The ice concentration data are from the archives at the EUMETSAT Ocean and Sea Ice Satellite Application Facility (OSI SAF) High Latitude Processing Center and are also used for an improved SST parameterization for the high-latitudes. The dataset also contains an additional SST anomaly variable derived from a MUR climatology (average between 2003 and 2014). This dataset was originally funded by the NASA MEaSUREs program (http://earthdata.nasa.gov/our-community/community-data-system-programs/measures-projects ) and the NASA CEOS COVERAGE project and created by a team led by Dr. Toshio M. Chin from JPL. It adheres to the GHRSST Data Processing Specification (GDS) version 2 format specifications.",
+ "LocationKeywords": [
+  {
+   "Category": "GEOGRAPHIC REGION",
+   "Type": "GLOBAL"
+  }
+ ],
+ "MetadataDates": [
+  {
+   "Type": "CREATE",
+   "Date": "2021-04-22T23:57:00.000Z"
+  },
+  {
+   "Type": "UPDATE",
+   "Date": "2023-05-30T16:44:00.000Z"
+  }
+ ],
+ "Version": "4.2",
+ "Projects": [
+  {
+   "ShortName": "GHRSST",
+   "LongName": "Group for High Resolution Sea Surface Temperature"
+  }
+ ],
+ "ContactPersons": [
+  {
+   "Roles": [
+    "Science Contact"
+   ],
+   "FirstName": "Toshio",
+   "MiddleName": "M",
+   "LastName": "Chin",
+   "NonDataCenterAffiliation": "NASA Jet Propulsion Laboratory",
+   "ContactInformation": {
+    "ContactMechanisms": [
+     {
+      "Type": "Email",
+      "Value": "toshio.m.chin@jpl.nasa.gov"
+     }
+    ]
+   }
+  }
+ ],
+ "CollectionDataType": "SCIENCE_QUALITY",
+ "DataCenters": [
+  {
+   "Roles": [
+    "ARCHIVER"
+   ],
+   "ShortName": "NASA/JPL/PODAAC",
+   "LongName": "Physical Oceanography Distributed Active Archive Center, Jet Propulsion Laboratory, NASA",
+   "ContactInformation": {
+    "ContactMechanisms": [
+     {
+      "Type": "Email",
+      "Value": "podaac@podaac.jpl.nasa.gov"
+     }
+    ],
+    "RelatedUrls": [
+     {
+      "URLContentType": "DataCenterURL",
+      "Type": "HOME PAGE",
+      "URL": "https://www.earthdata.nasa.gov/centers/po-daac",
+      "Description": "Physical Oceanography Distributed Active Archive Center Page"
+     }
+    ]
+   }
+  },
+  {
+   "Roles": [
+    "PROCESSOR"
+   ],
+   "ShortName": "NASA/JPL",
+   "LongName": "Jet Propulsion Laboratory, NASA",
+   "ContactInformation": {
+    "RelatedUrls": [
+     {
+      "URLContentType": "DataCenterURL",
+      "Type": "HOME PAGE",
+      "URL": "https://podaac.jpl.nasa.gov/missions"
+     }
+    ]
+   }
+  },
+  {
+   "Roles": [
+    "DISTRIBUTOR"
+   ],
+   "ShortName": "NASA/JPL/PODAAC",
+   "LongName": "Physical Oceanography Distributed Active Archive Center, Jet Propulsion Laboratory, NASA",
+   "ContactInformation": {
+    "ContactMechanisms": [
+     {
+      "Type": "Email",
+      "Value": "podaac@podaac.jpl.nasa.gov"
+     }
+    ],
+    "RelatedUrls": [
+     {
+      "URLContentType": "DataCenterURL",
+      "Type": "HOME PAGE",
+      "URL": "https://podaac.jpl.nasa.gov/"
+     }
+    ]
+   }
+  },
+  {
+   "ContactGroups": [
+    {
+     "ContactInformation": {
+      "ContactMechanisms": [
+       {
+        "Type": "Email",
+        "Value": "podaac@podaac.jpl.nasa.gov"
+       }
+      ],
+      "RelatedUrls": [
+       {
+        "Type": "HOME PAGE",
+        "URL": "https://podaac.jpl.nasa.gov/",
+        "URLContentType": "DataContactURL"
+       }
+      ]
+     },
+     "GroupName": "Help Desk",
+     "Roles": [
+      "Data Center Contact"
+     ]
+    }
+   ],
+   "ContactInformation": {
+    "RelatedUrls": [
+     {
+      "Type": "HOME PAGE",
+      "URL": "https://podaac.jpl.nasa.gov/",
+      "URLContentType": "DataCenterURL"
+     }
+    ]
+   },
+   "LongName": "Physical Oceanography Distributed Active Archive Center, Jet Propulsion Laboratory, NASA",
+   "Roles": [
+    "ARCHIVER"
+   ],
+   "ShortName": "NASA/JPL/PODAAC"
+  }
+ ],
+ "TemporalKeywords": [
+  "Hourly - < Daily"
+ ],
+ "Platforms": [
+  {
+   "Type": "Earth Observation Satellites",
+   "ShortName": "Aqua",
+   "LongName": "Earth Observing System, Aqua",
+   "Characteristics": [
+    {
+     "Name": "OrbitPeriod",
+     "Description": "Nominal period of a spacecraft’s single revolution on an orbital plane.",
+     "Value": "98.4",
+     "Unit": "Minutes",
+     "DataType": "FLOAT"
+    },
+    {
+     "Name": "InclinationAngle",
+     "Description": "Spacecraft angular distance from orbital plane relative to the Equator.",
+     "Value": "98.1",
+     "Unit": "Degrees",
+     "DataType": "FLOAT"
+    }
+   ],
+   "Instruments": [
+    {
+     "ShortName": "MODIS",
+     "LongName": "Moderate-Resolution Imaging Spectroradiometer",
+     "Characteristics": [
+      {
+       "Name": "SwathWidth",
+       "Description": "Spacecraft angular distance from orbital plane relative to the Equator.",
+       "Value": "2330.0",
+       "Unit": "Kilometers",
+       "DataType": "FLOAT"
+      }
+     ]
+    },
+    {
+     "ShortName": "AMSR-E",
+     "LongName": "Advanced Microwave Scanning Radiometer-EOS",
+     "Characteristics": [
+      {
+       "Name": "SwathWidth",
+       "Description": "Spacecraft angular distance from orbital plane relative to the Equator.",
+       "Value": "1450.0",
+       "Unit": "Kilometers",
+       "DataType": "FLOAT"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "Type": "Earth Observation Satellites",
+   "ShortName": "CORIOLIS",
+   "LongName": "Coriolis",
+   "Characteristics": [
+    {
+     "Name": "OrbitPeriod",
+     "Description": "Nominal period of a spacecraft’s single revolution on an orbital plane.",
+     "Value": "101.6",
+     "Unit": "Minutes",
+     "DataType": "FLOAT"
+    },
+    {
+     "Name": "InclinationAngle",
+     "Description": "Spacecraft angular distance from orbital plane relative to the Equator.",
+     "Value": "98.7",
+     "Unit": "Degrees",
+     "DataType": "FLOAT"
+    }
+   ],
+   "Instruments": [
+    {
+     "ShortName": "WINDSAT",
+     "LongName": "WindSat",
+     "Characteristics": [
+      {
+       "Name": "SwathWidth",
+       "Description": "Spacecraft angular distance from orbital plane relative to the Equator.",
+       "Value": "1200.0",
+       "Unit": "Kilometers",
+       "DataType": "FLOAT"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "Type": "Earth Observation Satellites",
+   "ShortName": "Terra",
+   "LongName": "Earth Observing System, Terra (AM-1)",
+   "Characteristics": [
+    {
+     "Name": "OrbitPeriod",
+     "Description": "Nominal period of a spacecraft’s single revolution on an orbital plane.",
+     "Value": "98.8",
+     "Unit": "Minutes",
+     "DataType": "FLOAT"
+    },
+    {
+     "Name": "InclinationAngle",
+     "Description": "Spacecraft angular distance from orbital plane relative to the Equator.",
+     "Value": "98.2",
+     "Unit": "Degrees",
+     "DataType": "FLOAT"
+    }
+   ],
+   "Instruments": [
+    {
+     "ShortName": "MODIS",
+     "LongName": "Moderate-Resolution Imaging Spectroradiometer",
+     "Characteristics": [
+      {
+       "Name": "SwathWidth",
+       "Description": "Spacecraft angular distance from orbital plane relative to the Equator.",
+       "Value": "2330.0",
+       "Unit": "Kilometers",
+       "DataType": "FLOAT"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "Type": "Earth Observation Satellites",
+   "ShortName": "NOAA-19",
+   "LongName": "National Oceanic & Atmospheric Administration-19",
+   "Characteristics": [
+    {
+     "Name": "OrbitPeriod",
+     "Description": "Nominal period of a spacecraft’s single revolution on an orbital plane.",
+     "Value": "102.12",
+     "Unit": "Minutes",
+     "DataType": "FLOAT"
+    },
+    {
+     "Name": "InclinationAngle",
+     "Description": "Spacecraft angular distance from orbital plane relative to the Equator.",
+     "Value": "98.74",
+     "Unit": "Degrees",
+     "DataType": "FLOAT"
+    }
+   ],
+   "Instruments": [
+    {
+     "ShortName": "AVHRR-3",
+     "LongName": "Advanced Very High Resolution Radiometer-3",
+     "Characteristics": [
+      {
+       "Name": "SwathWidth",
+       "Description": "Spacecraft angular distance from orbital plane relative to the Equator.",
+       "Value": "2400.0",
+       "Unit": "Kilometers",
+       "DataType": "FLOAT"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "Type": "Water-based Platforms",
+   "ShortName": "Buoys",
+   "Characteristics": [
+    {
+     "Name": "OrbitPeriod",
+     "Description": "Nominal period of a spacecraft’s single revolution on an orbital plane.",
+     "Value": "-999.0",
+     "Unit": "Minutes",
+     "DataType": "FLOAT"
+    },
+    {
+     "Name": "InclinationAngle",
+     "Description": "Spacecraft angular distance from orbital plane relative to the Equator.",
+     "Value": "-999.0",
+     "Unit": "Degrees",
+     "DataType": "FLOAT"
+    }
+   ],
+   "Instruments": [
+    {
+     "ShortName": "DRIFTING BUOYS",
+     "Characteristics": [
+      {
+       "Name": "SwathWidth",
+       "Description": "Spacecraft angular distance from orbital plane relative to the Equator.",
+       "Value": "-999.0",
+       "Unit": "Kilometers",
+       "DataType": "FLOAT"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "Type": "Earth Observation Satellites",
+   "ShortName": "GCOM-W1",
+   "LongName": "Global Change Observation Mission 1st-Water",
+   "Characteristics": [
+    {
+     "Name": "OrbitPeriod",
+     "Description": "Nominal period of a spacecraft’s single revolution on an orbital plane.",
+     "Value": "100.0",
+     "Unit": "Minutes",
+     "DataType": "FLOAT"
+    },
+    {
+     "Name": "InclinationAngle",
+     "Description": "Spacecraft angular distance from orbital plane relative to the Equator.",
+     "Value": "98.19",
+     "Unit": "Degrees",
+     "DataType": "FLOAT"
+    }
+   ],
+   "Instruments": [
+    {
+     "ShortName": "AMSR2",
+     "LongName": "Advanced Microwave Scanning Radiometer 2",
+     "Characteristics": [
+      {
+       "Name": "SwathWidth",
+       "Description": "Spacecraft angular distance from orbital plane relative to the Equator.",
+       "Value": "1450.0",
+       "Unit": "Kilometers",
+       "DataType": "FLOAT"
+      }
+     ]
+    }
+   ]
+  }
+ ],
+ "MetadataSpecification": {
+  "URL": "https://cdn.earthdata.nasa.gov/umm/collection/v1.18.6",
+  "Name": "UMM-C",
+  "Version": "1.18.6"
+ },
+ "ArchiveAndDistributionInformation": {
+  "FileArchiveInformation": [
+   {
+    "Format": "netCDF-4",
+    "FormatType": "Native",
+    "FormatDescription": "netCDF",
+    "AverageFileSize": 2.0,
+    "AverageFileSizeUnit": "MB",
+    "TotalCollectionFileSizeBeginDate": "2002-06-01T00:00:00.000Z"
+   }
+  ],
+  "FileDistributionInformation": [
+   {
+    "Format": "netCDF-4",
+    "FormatType": "Native",
+    "FormatDescription": "netCDF",
+    "AverageFileSize": 2.0,
+    "AverageFileSizeUnit": "MB",
+    "TotalCollectionFileSizeBeginDate": "2002-06-01T00:00:00.000Z"
+   }
+  ]
+ }
+}

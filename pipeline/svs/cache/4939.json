@@ -1,0 +1,414 @@
+{
+ "id": 4939,
+ "title": "3D Water Vapor shows an Atmospheric River",
+ "url": "https://svs.gsfc.nasa.gov/4939/",
+ "page_type": "Visualization",
+ "release_date": "2021-10-07T00:00:00-04:00",
+ "update_date": "2025-01-06T00:19:04.835221-05:00",
+ "description": "This visualization shows the NOAA-20 satellite orbiting the Earth with a trail of 3D water vapor behind it collected between January 25 and 28, 2021.  The calculated total precipitable water (TPW) is shown in a blue to red color scale beneath the white water vapor.Coming soon to our YouTube channel. || JPSS_ATMS_water_vapor_with_TPW.3462_print.jpg (1024x576) [179.6 KB] || JPSS_ATMS_water_vapor_with_TPW_1080p30.mp4 (1920x1080) [83.0 MB] || JPSS_ATMS_water_vapor_with_TPW_1080p60.mp4 (1920x1080) [84.5 MB] || JPSS_ATMS_water_vapor_with_TPW_1080p30.webm (1920x1080) [7.7 MB] || 1920x1080_16x9_30p (1920x1080) [0 Item(s)] || 1920x1080_16x9_60p (1920x1080) [0 Item(s)] || 3840x2160_16x9_30p (3840x2160) [0 Item(s)] || 3840x2160_16x9_60p (3840x2160) [0 Item(s)] || captions_silent.31606.en_US.srt [43 bytes] || JPSS_ATMS_water_vapor_with_TPW_30p_2160p30_2.mp4 (3840x2160) [409.8 MB] || JPSS_ATMS_water_vapor_with_TPW_60p_2160p60_2.mp4 (3840x2160) [441.6 MB] || JPSS_ATMS_water_vapor_with_TPW_1080p30.mp4.hwshow [204 bytes] || ",
+ "full_text": "This visualization shows the NOAA-20 satellite orbiting the Earth with a trail of 3D water vapor behind it collected between January 25 and 28, 2021.  The calculated total precipitable water (TPW) is shown in a blue to red color scale beneath the white water vapor.Coming soon to our YouTube channel. || JPSS_ATMS_water_vapor_with_TPW.3462_print.jpg (1024x576) [179.6 KB] || JPSS_ATMS_water_vapor_with_TPW_1080p30.mp4 (1920x1080) [83.0 MB] || JPSS_ATMS_water_vapor_with_TPW_1080p60.mp4 (1920x1080) [84.5 MB] || JPSS_ATMS_water_vapor_with_TPW_1080p30.webm (1920x1080) [7.7 MB] || 1920x1080_16x9_30p (1920x1080) [0 Item(s)] || 1920x1080_16x9_60p (1920x1080) [0 Item(s)] || 3840x2160_16x9_30p (3840x2160) [0 Item(s)] || 3840x2160_16x9_60p (3840x2160) [0 Item(s)] || captions_silent.31606.en_US.srt [43 bytes] || JPSS_ATMS_water_vapor_with_TPW_30p_2160p30_2.mp4 (3840x2160) [409.8 MB] || JPSS_ATMS_water_vapor_with_TPW_60p_2160p60_2.mp4 (3840x2160) [441.6 MB] || JPSS_ATMS_water_vapor_with_TPW_1080p30.mp4.hwshow [204 bytes] ||\n\nThis visualization shows the NOAA-20 satellite orbiting the Earth with a trail of 3D water vapor behind it collected between January 25 and 28, 2021.  The calculated total precipitable water (TPW) is shown in a blue to red color scale beneath the white water vapor.<br><br>Coming soon to our YouTube channel.<br>\n\nThe NOAA-20 satellite, formerly named JPSS-1, was launched in November 2017 to gather global measurements of atmospheric, terrestrial and oceanic conditions.  These measurements are used to increase the speed and accuracy of weather models run by NOAA's National Weather Service to forecast severe weather such as hurricanes, tornadoes and blizzards as well as to assess environmental hazards such as droughts, poor air quality and forest fires.  NOAA-20 is a polar-orbiting satellite that crosses the equator about 14 times a day, covering the entire globe twice daily.  The Advanced Technology Microwave Sounder (ATMS), the source of data used in this visualization, is an instrument on NOAA-20 that collects 3-dimensional atmospheric temperature and moisture profiles.<br><br>In this visualization the swaths of 3D water vapor are revealed as the NOAA-20 satellite circumnavigates the globe.  Water vapor is  shown as clouds of white particles with higher density (more opaque) where the water vapor is denser and lower density (more transparent) in regions of less water vapor.<br><br>Beneath the water vapor the total precipitable water (TPW) is shown as a color on the surface of the globe with low values in blues and high values shown in red.  TPW is the sum of all forms of water (ice, snow, rain, water vapor) through the column at all altitudes in the atmosphere.  <br><br>Toward the end of this visualization, about 12-hour time steps are shown in sequence to reveal the structure of the atmospheric river that formed in the Pacific ocean and approached the west coast of the United States in January 2021. Here the low values of the TPW have been faded out in order to more clearly see  the water vapor of the atmospheric river as it progresses down the coastline. <br><br>A total of 21,600 data files are combined in order to portray the water vapor and the TPW over a four day time period.  The topography is exaggerated by 20 times at the beginning of the animation and is reduced to 12 times as the view moves closer to the west coast of the US.  The water vapor is exaggerated by 100 time at the start of the visualization and is reduced to 66 times for the closer views.\n\nA high resolution still image from the visualization showing the NOAA-20 satellite orbiting the earth on January 25, 2021 at 04:54 GMT with the swath of water vapor over the total precipitable water trailing behind it.<p>\n\nA high resolution still image from the visualization showing the NOAA-20 satellite orbiting the earth on January 25, 2021 at 09:06 GMT with the swath of water vapor over the total precipitable water trailing behind it.<p>\n\nA high resolution still image from the visualization showing the water vapor from an atmospheric river forming in the Pacific Ocean off the coast of the US on January 26, 2021 at 14:46 GMT.\n\nThe colorbar used for the total precipitable water",
+ "credits_by_role": {
+  "Visualizer": [
+   "Cindy Starr (Global Science and Technology, Inc.)",
+   "Horace Mitchell (NASA/GSFC)",
+   "Greg Shirah (NASA/GSFC)",
+   "Kel Elkins (USRA)",
+   "Alex Kekesi (Global Science and Technology, Inc.)"
+  ],
+  "Producer": [
+   "Peter H. Jacobs (NASA/GSFC)",
+   "Jefferson Beck (KBR Wyle Services, LLC)",
+   "Ashley Hume (ASRC Federal System Solutions)"
+  ],
+  "Writer": [
+   "Jenny Marder Fadoul (Telophase)"
+  ],
+  "Scientist": [
+   "Edward Kim (NASA/GSFC)",
+   "Matthew Sammons (SGT)",
+   "Christopher Grassotti (NOAA)"
+  ],
+  "Data provider": [
+   "Jorel Torres (Intern)"
+  ],
+  "Technical support": [
+   "Laurence Schuler (ADNET Systems, Inc.)",
+   "Ian Jones (ADNET Systems, Inc.)"
+  ]
+ },
+ "keywords": [
+  "Atmosphere",
+  "Atmospheric science",
+  "Atmospheric Water Vapor",
+  "Earth Science",
+  "Hyperwall",
+  "precipitation",
+  "Water Vapor"
+ ],
+ "datasets": [
+  {
+   "name": "MiRS Microwave Sounding Products",
+   "common_name": "MiRS Microwave Sounding Products",
+   "platform": "NOAA-20 and SUOMI-NPP",
+   "sensor": "ATMS",
+   "type": "Observed Data",
+   "organizations": [
+    "NOAA"
+   ],
+   "description": "",
+   "credit": "",
+   "url": "https://www.avl.class.noaa.gov/saa/products/search?sub_id=0&datatype_family=JPSS_SND&submit.x=17&submit.y=8",
+   "date_range": "2021/01/25 - 2021/01/28"
+  },
+  {
+   "name": "MiRS Imaging Products",
+   "common_name": "MiRS Imaging Products",
+   "platform": "NOAA-20 and SUOMI-NPP",
+   "sensor": "ATMS",
+   "type": "Analysis",
+   "organizations": [
+    "NOAA"
+   ],
+   "description": "",
+   "credit": "",
+   "url": "https://www.avl.class.noaa.gov/saa/products/search?datatype_family=JPSS_SND",
+   "date_range": "2021/01/25 - 2021/01/28"
+  }
+ ],
+ "missions": [],
+ "related": [
+  {
+   "id": 14223,
+   "title": "NOAA and NASA Continue Mission to Monitor Extreme Weather and EnhanceForecasts with JPSS-2 Launching Nov. 1 Live Shots",
+   "url": "https://svs.gsfc.nasa.gov/14223/"
+  }
+ ],
+ "alternate_versions": [],
+ "newer_versions": [],
+ "older_versions": [],
+ "media": [
+  {
+   "group": 0,
+   "group_title": "",
+   "widget": "Video player",
+   "caption": "",
+   "group_text": "This visualization shows the NOAA-20 satellite orbiting the Earth with a trail of 3D water vapor behind it collected between January 25 and 28, 2021.  The calculated total precipitable water (TPW) is shown in a blue to red color scale beneath the white water vapor.<br><br>Coming soon to our YouTube channel.<br>",
+   "url": "https://svs.gsfc.nasa.gov/vis/a000000/a004900/a004939/JPSS_ATMS_water_vapor_with_TPW.3462_print.jpg",
+   "filename": "JPSS_ATMS_water_vapor_with_TPW.3462_print.jpg",
+   "media_type": "Image",
+   "width": 1024,
+   "height": 576,
+   "alt_text": "This visualization shows the NOAA-20 satellite orbiting the Earth with a trail of 3D water vapor behind it collected between January 25 and 28, 2021.  The calculated total precipitable water (TPW) is shown in a blue to red color scale beneath the white water vapor.Coming soon to our YouTube channel."
+  },
+  {
+   "group": 0,
+   "group_title": "",
+   "widget": "Video player",
+   "caption": "",
+   "group_text": "This visualization shows the NOAA-20 satellite orbiting the Earth with a trail of 3D water vapor behind it collected between January 25 and 28, 2021.  The calculated total precipitable water (TPW) is shown in a blue to red color scale beneath the white water vapor.<br><br>Coming soon to our YouTube channel.<br>",
+   "url": "https://svs.gsfc.nasa.gov/vis/a000000/a004900/a004939/JPSS_ATMS_water_vapor_with_TPW_1080p30.mp4",
+   "filename": "JPSS_ATMS_water_vapor_with_TPW_1080p30.mp4",
+   "media_type": "Movie",
+   "width": 1920,
+   "height": 1080,
+   "alt_text": "This visualization shows the NOAA-20 satellite orbiting the Earth with a trail of 3D water vapor behind it collected between January 25 and 28, 2021.  The calculated total precipitable water (TPW) is shown in a blue to red color scale beneath the white water vapor.Coming soon to our YouTube channel."
+  },
+  {
+   "group": 0,
+   "group_title": "",
+   "widget": "Video player",
+   "caption": "",
+   "group_text": "This visualization shows the NOAA-20 satellite orbiting the Earth with a trail of 3D water vapor behind it collected between January 25 and 28, 2021.  The calculated total precipitable water (TPW) is shown in a blue to red color scale beneath the white water vapor.<br><br>Coming soon to our YouTube channel.<br>",
+   "url": "https://svs.gsfc.nasa.gov/vis/a000000/a004900/a004939/JPSS_ATMS_water_vapor_with_TPW_1080p60.mp4",
+   "filename": "JPSS_ATMS_water_vapor_with_TPW_1080p60.mp4",
+   "media_type": "Movie",
+   "width": 1920,
+   "height": 1080,
+   "alt_text": "This visualization shows the NOAA-20 satellite orbiting the Earth with a trail of 3D water vapor behind it collected between January 25 and 28, 2021.  The calculated total precipitable water (TPW) is shown in a blue to red color scale beneath the white water vapor.Coming soon to our YouTube channel."
+  },
+  {
+   "group": 0,
+   "group_title": "",
+   "widget": "Video player",
+   "caption": "",
+   "group_text": "This visualization shows the NOAA-20 satellite orbiting the Earth with a trail of 3D water vapor behind it collected between January 25 and 28, 2021.  The calculated total precipitable water (TPW) is shown in a blue to red color scale beneath the white water vapor.<br><br>Coming soon to our YouTube channel.<br>",
+   "url": "https://svs.gsfc.nasa.gov/vis/a000000/a004900/a004939/JPSS_ATMS_water_vapor_with_TPW_1080p30.webm",
+   "filename": "JPSS_ATMS_water_vapor_with_TPW_1080p30.webm",
+   "media_type": "Movie",
+   "width": 1920,
+   "height": 1080,
+   "alt_text": "This visualization shows the NOAA-20 satellite orbiting the Earth with a trail of 3D water vapor behind it collected between January 25 and 28, 2021.  The calculated total precipitable water (TPW) is shown in a blue to red color scale beneath the white water vapor.Coming soon to our YouTube channel."
+  },
+  {
+   "group": 0,
+   "group_title": "",
+   "widget": "Video player",
+   "caption": "",
+   "group_text": "This visualization shows the NOAA-20 satellite orbiting the Earth with a trail of 3D water vapor behind it collected between January 25 and 28, 2021.  The calculated total precipitable water (TPW) is shown in a blue to red color scale beneath the white water vapor.<br><br>Coming soon to our YouTube channel.<br>",
+   "url": "https://svs.gsfc.nasa.gov/vis/a000000/a004900/a004939/frames/1920x1080_16x9_30p/",
+   "filename": "1920x1080_16x9_30p",
+   "media_type": "Frames",
+   "width": 1920,
+   "height": 1080,
+   "alt_text": "This visualization shows the NOAA-20 satellite orbiting the Earth with a trail of 3D water vapor behind it collected between January 25 and 28, 2021.  The calculated total precipitable water (TPW) is shown in a blue to red color scale beneath the white water vapor.Coming soon to our YouTube channel."
+  },
+  {
+   "group": 0,
+   "group_title": "",
+   "widget": "Video player",
+   "caption": "",
+   "group_text": "This visualization shows the NOAA-20 satellite orbiting the Earth with a trail of 3D water vapor behind it collected between January 25 and 28, 2021.  The calculated total precipitable water (TPW) is shown in a blue to red color scale beneath the white water vapor.<br><br>Coming soon to our YouTube channel.<br>",
+   "url": "https://svs.gsfc.nasa.gov/vis/a000000/a004900/a004939/frames/1920x1080_16x9_60p/",
+   "filename": "1920x1080_16x9_60p",
+   "media_type": "Frames",
+   "width": 1920,
+   "height": 1080,
+   "alt_text": "This visualization shows the NOAA-20 satellite orbiting the Earth with a trail of 3D water vapor behind it collected between January 25 and 28, 2021.  The calculated total precipitable water (TPW) is shown in a blue to red color scale beneath the white water vapor.Coming soon to our YouTube channel."
+  },
+  {
+   "group": 0,
+   "group_title": "",
+   "widget": "Video player",
+   "caption": "",
+   "group_text": "This visualization shows the NOAA-20 satellite orbiting the Earth with a trail of 3D water vapor behind it collected between January 25 and 28, 2021.  The calculated total precipitable water (TPW) is shown in a blue to red color scale beneath the white water vapor.<br><br>Coming soon to our YouTube channel.<br>",
+   "url": "https://svs.gsfc.nasa.gov/vis/a000000/a004900/a004939/frames/3840x2160_16x9_30p/",
+   "filename": "3840x2160_16x9_30p",
+   "media_type": "Frames",
+   "width": 3840,
+   "height": 2160,
+   "alt_text": "This visualization shows the NOAA-20 satellite orbiting the Earth with a trail of 3D water vapor behind it collected between January 25 and 28, 2021.  The calculated total precipitable water (TPW) is shown in a blue to red color scale beneath the white water vapor.Coming soon to our YouTube channel."
+  },
+  {
+   "group": 0,
+   "group_title": "",
+   "widget": "Video player",
+   "caption": "",
+   "group_text": "This visualization shows the NOAA-20 satellite orbiting the Earth with a trail of 3D water vapor behind it collected between January 25 and 28, 2021.  The calculated total precipitable water (TPW) is shown in a blue to red color scale beneath the white water vapor.<br><br>Coming soon to our YouTube channel.<br>",
+   "url": "https://svs.gsfc.nasa.gov/vis/a000000/a004900/a004939/frames/3840x2160_16x9_60p/",
+   "filename": "3840x2160_16x9_60p",
+   "media_type": "Frames",
+   "width": 3840,
+   "height": 2160,
+   "alt_text": "This visualization shows the NOAA-20 satellite orbiting the Earth with a trail of 3D water vapor behind it collected between January 25 and 28, 2021.  The calculated total precipitable water (TPW) is shown in a blue to red color scale beneath the white water vapor.Coming soon to our YouTube channel."
+  },
+  {
+   "group": 0,
+   "group_title": "",
+   "widget": "Video player",
+   "caption": "",
+   "group_text": "This visualization shows the NOAA-20 satellite orbiting the Earth with a trail of 3D water vapor behind it collected between January 25 and 28, 2021.  The calculated total precipitable water (TPW) is shown in a blue to red color scale beneath the white water vapor.<br><br>Coming soon to our YouTube channel.<br>",
+   "url": "https://svs.gsfc.nasa.gov/vis/a000000/a004900/a004939/captions_silent.31606.en_US.srt",
+   "filename": "captions_silent.31606.en_US.srt",
+   "media_type": "Captions",
+   "width": 0,
+   "height": 0,
+   "alt_text": "This visualization shows the NOAA-20 satellite orbiting the Earth with a trail of 3D water vapor behind it collected between January 25 and 28, 2021.  The calculated total precipitable water (TPW) is shown in a blue to red color scale beneath the white water vapor.Coming soon to our YouTube channel."
+  },
+  {
+   "group": 0,
+   "group_title": "",
+   "widget": "Video player",
+   "caption": "",
+   "group_text": "This visualization shows the NOAA-20 satellite orbiting the Earth with a trail of 3D water vapor behind it collected between January 25 and 28, 2021.  The calculated total precipitable water (TPW) is shown in a blue to red color scale beneath the white water vapor.<br><br>Coming soon to our YouTube channel.<br>",
+   "url": "https://svs.gsfc.nasa.gov/vis/a000000/a004900/a004939/JPSS_ATMS_water_vapor_with_TPW_30p_2160p30_2.mp4",
+   "filename": "JPSS_ATMS_water_vapor_with_TPW_30p_2160p30_2.mp4",
+   "media_type": "Movie",
+   "width": 3840,
+   "height": 2160,
+   "alt_text": "This visualization shows the NOAA-20 satellite orbiting the Earth with a trail of 3D water vapor behind it collected between January 25 and 28, 2021.  The calculated total precipitable water (TPW) is shown in a blue to red color scale beneath the white water vapor.Coming soon to our YouTube channel."
+  },
+  {
+   "group": 0,
+   "group_title": "",
+   "widget": "Video player",
+   "caption": "",
+   "group_text": "This visualization shows the NOAA-20 satellite orbiting the Earth with a trail of 3D water vapor behind it collected between January 25 and 28, 2021.  The calculated total precipitable water (TPW) is shown in a blue to red color scale beneath the white water vapor.<br><br>Coming soon to our YouTube channel.<br>",
+   "url": "https://svs.gsfc.nasa.gov/vis/a000000/a004900/a004939/JPSS_ATMS_water_vapor_with_TPW_60p_2160p60_2.mp4",
+   "filename": "JPSS_ATMS_water_vapor_with_TPW_60p_2160p60_2.mp4",
+   "media_type": "Movie",
+   "width": 3840,
+   "height": 2160,
+   "alt_text": "This visualization shows the NOAA-20 satellite orbiting the Earth with a trail of 3D water vapor behind it collected between January 25 and 28, 2021.  The calculated total precipitable water (TPW) is shown in a blue to red color scale beneath the white water vapor.Coming soon to our YouTube channel."
+  },
+  {
+   "group": 0,
+   "group_title": "",
+   "widget": "Video player",
+   "caption": "",
+   "group_text": "This visualization shows the NOAA-20 satellite orbiting the Earth with a trail of 3D water vapor behind it collected between January 25 and 28, 2021.  The calculated total precipitable water (TPW) is shown in a blue to red color scale beneath the white water vapor.<br><br>Coming soon to our YouTube channel.<br>",
+   "url": "https://svs.gsfc.nasa.gov/vis/a000000/a004900/a004939/JPSS_ATMS_water_vapor_with_TPW_1080p30.mp4.hwshow",
+   "filename": "JPSS_ATMS_water_vapor_with_TPW_1080p30.mp4.hwshow",
+   "media_type": "HyperwallShow",
+   "width": 0,
+   "height": 0,
+   "alt_text": ""
+  },
+  {
+   "group": 2,
+   "group_title": "",
+   "widget": "Single image",
+   "caption": "",
+   "group_text": "A high resolution still image from the visualization showing the NOAA-20 satellite orbiting the earth on January 25, 2021 at 04:54 GMT with the swath of water vapor over the total precipitable water trailing behind it.<p>",
+   "url": "https://svs.gsfc.nasa.gov/vis/a000000/a004900/a004939/JPSS_ATMS_water_vapor_with_TPW.2418_print.jpg",
+   "filename": "JPSS_ATMS_water_vapor_with_TPW.2418_print.jpg",
+   "media_type": "Image",
+   "width": 1024,
+   "height": 576,
+   "alt_text": "A high resolution still image from the visualization showing the NOAA-20 satellite orbiting the earth on January 25, 2021 at 04:54 GMT with the swath of water vapor over the total precipitable water trailing behind it."
+  },
+  {
+   "group": 2,
+   "group_title": "",
+   "widget": "Single image",
+   "caption": "",
+   "group_text": "A high resolution still image from the visualization showing the NOAA-20 satellite orbiting the earth on January 25, 2021 at 04:54 GMT with the swath of water vapor over the total precipitable water trailing behind it.<p>",
+   "url": "https://svs.gsfc.nasa.gov/vis/a000000/a004900/a004939/JPSS_ATMS_water_vapor_with_TPW.2418.tif",
+   "filename": "JPSS_ATMS_water_vapor_with_TPW.2418.tif",
+   "media_type": "Image",
+   "width": 3840,
+   "height": 2160,
+   "alt_text": "A high resolution still image from the visualization showing the NOAA-20 satellite orbiting the earth on January 25, 2021 at 04:54 GMT with the swath of water vapor over the total precipitable water trailing behind it."
+  },
+  {
+   "group": 3,
+   "group_title": "",
+   "widget": "Single image",
+   "caption": "",
+   "group_text": "A high resolution still image from the visualization showing the NOAA-20 satellite orbiting the earth on January 25, 2021 at 09:06 GMT with the swath of water vapor over the total precipitable water trailing behind it.<p>",
+   "url": "https://svs.gsfc.nasa.gov/vis/a000000/a004900/a004939/JPSS_ATMS_water_vapor_with_TPW.3107_print.jpg",
+   "filename": "JPSS_ATMS_water_vapor_with_TPW.3107_print.jpg",
+   "media_type": "Image",
+   "width": 1024,
+   "height": 576,
+   "alt_text": "A high resolution still image from the visualization showing the NOAA-20 satellite orbiting the earth on January 25, 2021 at 09:06 GMT with the swath of water vapor over the total precipitable water trailing behind it."
+  },
+  {
+   "group": 3,
+   "group_title": "",
+   "widget": "Single image",
+   "caption": "",
+   "group_text": "A high resolution still image from the visualization showing the NOAA-20 satellite orbiting the earth on January 25, 2021 at 09:06 GMT with the swath of water vapor over the total precipitable water trailing behind it.<p>",
+   "url": "https://svs.gsfc.nasa.gov/vis/a000000/a004900/a004939/JPSS_ATMS_water_vapor_with_TPW.3107.tif",
+   "filename": "JPSS_ATMS_water_vapor_with_TPW.3107.tif",
+   "media_type": "Image",
+   "width": 3840,
+   "height": 2160,
+   "alt_text": "A high resolution still image from the visualization showing the NOAA-20 satellite orbiting the earth on January 25, 2021 at 09:06 GMT with the swath of water vapor over the total precipitable water trailing behind it."
+  },
+  {
+   "group": 4,
+   "group_title": "",
+   "widget": "Single image",
+   "caption": "",
+   "group_text": "A high resolution still image from the visualization showing the water vapor from an atmospheric river forming in the Pacific Ocean off the coast of the US on January 26, 2021 at 14:46 GMT.",
+   "url": "https://svs.gsfc.nasa.gov/vis/a000000/a004900/a004939/JPSS_ATMS_water_vapor_with_TPW.5019_print.jpg",
+   "filename": "JPSS_ATMS_water_vapor_with_TPW.5019_print.jpg",
+   "media_type": "Image",
+   "width": 1024,
+   "height": 576,
+   "alt_text": "A high resolution still image from the visualization showing the water vapor from an atmospheric river forming in the Pacific Ocean off the coast of the US on January 26, 2021 at 14:46 GMT."
+  },
+  {
+   "group": 4,
+   "group_title": "",
+   "widget": "Single image",
+   "caption": "",
+   "group_text": "A high resolution still image from the visualization showing the water vapor from an atmospheric river forming in the Pacific Ocean off the coast of the US on January 26, 2021 at 14:46 GMT.",
+   "url": "https://svs.gsfc.nasa.gov/vis/a000000/a004900/a004939/JPSS_ATMS_water_vapor_with_TPW.5019_searchweb.png",
+   "filename": "JPSS_ATMS_water_vapor_with_TPW.5019_searchweb.png",
+   "media_type": "Image",
+   "width": 320,
+   "height": 180,
+   "alt_text": "A high resolution still image from the visualization showing the water vapor from an atmospheric river forming in the Pacific Ocean off the coast of the US on January 26, 2021 at 14:46 GMT."
+  },
+  {
+   "group": 4,
+   "group_title": "",
+   "widget": "Single image",
+   "caption": "",
+   "group_text": "A high resolution still image from the visualization showing the water vapor from an atmospheric river forming in the Pacific Ocean off the coast of the US on January 26, 2021 at 14:46 GMT.",
+   "url": "https://svs.gsfc.nasa.gov/vis/a000000/a004900/a004939/JPSS_ATMS_water_vapor_with_TPW.5019_thm.png",
+   "filename": "JPSS_ATMS_water_vapor_with_TPW.5019_thm.png",
+   "media_type": "Image",
+   "width": 80,
+   "height": 40,
+   "alt_text": "A high resolution still image from the visualization showing the water vapor from an atmospheric river forming in the Pacific Ocean off the coast of the US on January 26, 2021 at 14:46 GMT."
+  },
+  {
+   "group": 4,
+   "group_title": "",
+   "widget": "Single image",
+   "caption": "",
+   "group_text": "A high resolution still image from the visualization showing the water vapor from an atmospheric river forming in the Pacific Ocean off the coast of the US on January 26, 2021 at 14:46 GMT.",
+   "url": "https://svs.gsfc.nasa.gov/vis/a000000/a004900/a004939/JPSS_ATMS_water_vapor_with_TPW.5019.tif",
+   "filename": "JPSS_ATMS_water_vapor_with_TPW.5019.tif",
+   "media_type": "Image",
+   "width": 3840,
+   "height": 2160,
+   "alt_text": "A high resolution still image from the visualization showing the water vapor from an atmospheric river forming in the Pacific Ocean off the coast of the US on January 26, 2021 at 14:46 GMT."
+  },
+  {
+   "group": 5,
+   "group_title": "",
+   "widget": "Single image",
+   "caption": "",
+   "group_text": "The colorbar used for the total precipitable water",
+   "url": "https://svs.gsfc.nasa.gov/vis/a000000/a004900/a004939/TPW_colorbar_print.jpg",
+   "filename": "TPW_colorbar_print.jpg",
+   "media_type": "Image",
+   "width": 1024,
+   "height": 576,
+   "alt_text": "The colorbar used for the total precipitable water"
+  },
+  {
+   "group": 5,
+   "group_title": "",
+   "widget": "Single image",
+   "caption": "",
+   "group_text": "The colorbar used for the total precipitable water",
+   "url": "https://svs.gsfc.nasa.gov/vis/a000000/a004900/a004939/TPW_colorbar.tif",
+   "filename": "TPW_colorbar.tif",
+   "media_type": "Image",
+   "width": 640,
+   "height": 360,
+   "alt_text": "The colorbar used for the total precipitable water"
+  }
+ ],
+ "text_links": [],
+ "frame_folders": {
+  "https://svs.gsfc.nasa.gov/vis/a000000/a004900/a004939/frames/1920x1080_16x9_30p/": {
+   "url": "https://svs.gsfc.nasa.gov/vis/a000000/a004900/a004939/frames/1920x1080_16x9_30p/",
+   "frame_count": 1968,
+   "bytes_approx": 23419200000,
+   "first": "JPSS_ATMS_water_vapor_with_TPW_p30.0000.tif",
+   "last": "JPSS_ATMS_water_vapor_with_TPW_p30.1967.tif",
+   "subfolders": {}
+  },
+  "https://svs.gsfc.nasa.gov/vis/a000000/a004900/a004939/frames/1920x1080_16x9_60p/": {
+   "url": "https://svs.gsfc.nasa.gov/vis/a000000/a004900/a004939/frames/1920x1080_16x9_60p/",
+   "frame_count": 3935,
+   "bytes_approx": 46826500000,
+   "first": "JPSS_ATMS_water_vapor_with_TPW.0000.tif",
+   "last": "JPSS_ATMS_water_vapor_with_TPW.3934.tif",
+   "subfolders": {}
+  },
+  "https://svs.gsfc.nasa.gov/vis/a000000/a004900/a004939/frames/3840x2160_16x9_30p/": {
+   "url": "https://svs.gsfc.nasa.gov/vis/a000000/a004900/a004939/frames/3840x2160_16x9_30p/",
+   "frame_count": 1968,
+   "bytes_approx": 93480000000,
+   "first": "JPSS_ATMS_water_vapor_with_TPW_30p.0000.tif",
+   "last": "JPSS_ATMS_water_vapor_with_TPW_30p.1967.tif",
+   "subfolders": {}
+  },
+  "https://svs.gsfc.nasa.gov/vis/a000000/a004900/a004939/frames/3840x2160_16x9_60p/": {
+   "url": "https://svs.gsfc.nasa.gov/vis/a000000/a004900/a004939/frames/3840x2160_16x9_60p/",
+   "frame_count": 3936,
+   "bytes_approx": 186960000000,
+   "first": "JPSS_ATMS_water_vapor_with_TPW_60p.0000.tif",
+   "last": "JPSS_ATMS_water_vapor_with_TPW_60p.3935.tif",
+   "subfolders": {}
+  }
+ },
+ "api_url": "https://svs.gsfc.nasa.gov/api/4939",
+ "fetched_utc": "2026-11-06T20:10:33Z"
+}

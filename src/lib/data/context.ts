@@ -4,6 +4,7 @@
 import type {
   CitiesThenNowFile,
   DhakaThenNowDemo,
+  EnsembleFile,
   FirmsContextFile,
   GistempContextFile,
   GlobeDuetFile,
@@ -114,6 +115,8 @@ export const loadNdvi = () =>
 /** Ground vs satellite cloud cover (contract §12). Shown only when status is "ok". */
 export const loadGlobeDuet = () =>
   load<GlobeDuetFile>(DATA_PATHS.globeDuet, { title: "string", status: "string", disclosure: "string", credit: "string", summary: "object", pairs: "array" });
+
+export const loadEnsemble = () => load<EnsembleFile>(DATA_PATHS.ensemble, { months: "array", "voices.water.resolution": "string", disclosure: "string" });
 
 export const loadGpcp = () =>
   load<RainContextFile>(DATA_PATHS.gpcp, Object.fromEntries(CELLS.map((c) => [`cells.${c}.mm_per_day`, "array"])));

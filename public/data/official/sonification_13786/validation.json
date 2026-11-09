@@ -1,0 +1,144 @@
+{
+ "record": "sonification_13786",
+ "checks": [
+  {
+   "record": "sonification_13786",
+   "id": "a_single_star_pairing",
+   "title": "Pitch (pYIN f0) vs radius of the one coloured star the sweep crosses (planned)",
+   "kind": "value",
+   "source": "the movie's own frames and soundtrack (pYIN, onsets, constant-Q)",
+   "metrics": {
+    "spearman": -0.13943865245081877,
+    "n": 219,
+    "semitones_re_A440_per_radius": -0.3079193898842346,
+    "semitones_at_centre": -28.38142501974681,
+    "radius_unit": "fraction of the frame's half-diagonal",
+    "centroid_by_class": {
+     "red/orange": {
+      "frames": 202,
+      "median_centroid_hz": 762.0570733150971
+     },
+     "blue": {
+      "frames": 17,
+      "median_centroid_hz": 857.703010594812
+     }
+    }
+   },
+   "threshold": null,
+   "pass": null,
+   "note": "Planned measurement. The soundtrack is polyphonic (a choir for the whole line), which a single f0 cannot separate.",
+   "run_utc": "2026-10-30T10:45:54Z"
+  },
+  {
+   "record": "sonification_13786",
+   "id": "b_onset_pairing",
+   "title": "Pitch of each note onset vs the brightest coloured star crossed within ±2 frames",
+   "kind": "value",
+   "source": "the movie's own frames and soundtrack (pYIN, onsets, constant-Q)",
+   "metrics": {
+    "notes": 114,
+    "paired": 110,
+    "spearman_f0_radius": 0.04438140411402702,
+    "fit": {
+     "semitones_re_A440_per_radius": 6.670855192673044,
+     "semitones_at_centre": -15.550826518703282
+    },
+    "by_class": {
+     "red/orange": {
+      "n": 101,
+      "spearman": 0.018107876945294008
+     },
+     "blue": {
+      "n": 9,
+      "spearman": 0.16736548175114463
+     }
+    }
+   },
+   "threshold": null,
+   "pass": null,
+   "note": "Added after the planned single-star pairing showed no relation (the choir dominates pYIN).",
+   "run_utc": "2026-10-30T10:45:54Z"
+  },
+  {
+   "record": "sonification_13786",
+   "id": "c_ring_pairing",
+   "title": "Pitch of each onset vs the radius of the star the movie circles as it plays",
+   "kind": "value",
+   "source": "the movie's own frames and soundtrack (pYIN, onsets, constant-Q)",
+   "metrics": {
+    "rings": 171,
+    "paired": 90,
+    "spearman_f0_radius": -0.08384112266590062,
+    "fit": {
+     "semitones_re_A440_per_radius": -11.96490384784592,
+     "semitones_at_centre": -5.771055059459904
+    },
+    "by_class": {
+     "red/orange": 58,
+     "blue": 25,
+     "other": 7
+    }
+   },
+   "threshold": null,
+   "pass": null,
+   "note": "Added after the first two analyses: the movie circles each star as it plays; these are its own markers.",
+   "run_utc": "2026-10-30T10:45:54Z"
+  },
+  {
+   "record": "sonification_13786",
+   "id": "d_size_area_flux",
+   "title": "Pitch vs star SIZE (blob area and flux in the median frame), all three pairings",
+   "kind": "value",
+   "source": "the movie's own frames and soundtrack (pYIN, onsets, constant-Q)",
+   "metrics": {
+    "single_star": {
+     "area": {
+      "spearman": 0.04341299387238056,
+      "n": 219
+     },
+     "flux": {
+      "spearman": 0.02514858185238361,
+      "n": 219
+     },
+     "radius": {
+      "spearman": -0.13943865245081877,
+      "n": 219
+     }
+    },
+    "onset": {
+     "area": {
+      "spearman": 0.050381468427435495,
+      "n": 110
+     },
+     "flux": {
+      "spearman": 0.052053611177574205,
+      "n": 110
+     },
+     "radius": {
+      "spearman": 0.04438140411402702,
+      "n": 110
+     }
+    },
+    "ring": {
+     "area": {
+      "spearman": -0.08685428494729679,
+      "n": 67
+     },
+     "flux": {
+      "spearman": -0.07743443022489944,
+      "n": 67
+     },
+     "radius": {
+      "spearman": -0.15233126129257565,
+      "n": 67
+     }
+    }
+   },
+   "threshold": null,
+   "pass": null,
+   "note": "Second reading of 'the radius of the stars' (star size), added 30 Oct after the report suggested it; the page's next words ('so stars farther from the center are higher pitched') describe distance from the centre.",
+   "run_utc": "2026-10-30T10:45:54Z"
+  }
+ ],
+ "updated_utc": "2026-10-30T10:45:54Z"
+}

@@ -1,0 +1,229 @@
+{
+ "id": 3143,
+ "title": "Global Lightning Accumulation (WMS)",
+ "url": "https://svs.gsfc.nasa.gov/3143/",
+ "page_type": "Visualization",
+ "release_date": "2005-04-14T12:00:00-04:00",
+ "update_date": "2023-05-03T13:56:14.364005-04:00",
+ "description": "Lightning is a brief but intense electrical discharge between positive and negative regions of a thunderstorm. The Lightning Imaging Sensor (LIS) on the Tropical Rainfall Measuring Mission (TRMM) satellite was designed to study the distribution and variability of total lightning on a global basis. The Optical Transient Detector (OTD) was an earlier lightning detector flying aboard the Microlab-1 spacecraft. The data shown here are compiled from LIS (1998-2002) and OTD (1995-1999) observations. Because each satellite saw only a part of the Earth at any one time, these data use complex algorithms to estimate total flash rate based on the flashes observed and the amount of time the satellite views each area.NOTE: This animation is primarily designed to be used through the Web Mapping Services (WMS) protocol. Each frame in the animation actually represents an accumulation of a number of years of data up through a particular day of the year. Because of a limitation in the WMS protocol, each frame is marked only with a single date representing the last date for which the data was accumulated. || ",
+ "full_text": "Lightning is a brief but intense electrical discharge between positive and negative regions of a thunderstorm. The Lightning Imaging Sensor (LIS) on the Tropical Rainfall Measuring Mission (TRMM) satellite was designed to study the distribution and variability of total lightning on a global basis. The Optical Transient Detector (OTD) was an earlier lightning detector flying aboard the Microlab-1 spacecraft. The data shown here are compiled from LIS (1998-2002) and OTD (1995-1999) observations. Because each satellite saw only a part of the Earth at any one time, these data use complex algorithms to estimate total flash rate based on the flashes observed and the amount of time the satellite views each area.NOTE: This animation is primarily designed to be used through the Web Mapping Services (WMS) protocol. Each frame in the animation actually represents an accumulation of a number of years of data up through a particular day of the year. Because of a limitation in the WMS protocol, each frame is marked only with a single date representing the last date for which the data was accumulated. ||\n\nLightning is a brief but intense electrical discharge between positive and negative regions of a thunderstorm. The Lightning Imaging Sensor (LIS) on the Tropical Rainfall Measuring Mission (TRMM) satellite was designed to study the distribution and variability of total lightning on a global basis. The Optical Transient Detector (OTD) was an earlier lightning detector flying aboard the Microlab-1 spacecraft. The data shown here are compiled from LIS (1998-2002) and OTD (1995-1999) observations. Because each satellite saw only a part of the Earth at any one time, these data use complex algorithms to estimate total flash rate based on the flashes observed and the amount of time the satellite views each area.<p>NOTE: This animation is primarily designed to be used through the Web Mapping Services (WMS) protocol. Each frame in the animation actually represents an accumulation of a number of years of data up through a particular day of the year. Because of a limitation in the WMS protocol, each frame is marked only with a single date representing the last date for which the data was accumulated.\n\nThis animation shows an accumulation of daily\nlightning climatology values for a typical year. That is, the\nfirst frame shows the number of flashes per square kilometer\nthat occurred on a typical January 1 during the multi-year data\ncollection period, the second frame shows the total of Jan 1 and\nJan 2 flashes, the third frame shows Jan 1 through Jan 3, and so\non until the last frame (#365) which shows the total\naccumulation for a typical year. As the year progresses, more\nand more of the Earth experiences lightning, and hard-hit areas\nexperience more strikes. The most intense activity is in central\nAfrica. Areas where no lightning was measured are transparent,\nletting the background image show through. The data pixels are\n2.5deg on a side (144x72 pixels globally), and each frame has\nbeen magnified to 720x360 pixels for greater\nclarity.<br><br>This <a href='/vis/a000000/a003100/a003143/wms_product_description_3143_21313.html'>product is available through our Web Map Service</a>.\n\nThis color scale for the lightning accumulation animation ranges from deep blue (less than 10 flashes per square kilometer) through deep red (more than 60 flashes per square kilometer).\n\nSee [http://thunder.nsstc.nasa.gov/primer/](http://thunder.nsstc.nasa.gov/primer/)",
+ "credits_by_role": {
+  "Animator": [
+   "Jeff de La Beaujardiere (NASA)"
+  ],
+  "Scientist": [
+   "Jeff Halverson (JCET UMBC)"
+  ]
+ },
+ "keywords": [
+  "Atmosphere",
+  "Atmospheric Electricity",
+  "Atmospheric Phenomena",
+  "Atmospheric science",
+  "Earth Science",
+  "global",
+  "Lightning",
+  "Location"
+ ],
+ "datasets": [
+  {
+   "name": "Lightning",
+   "common_name": "",
+   "platform": "Microlab-1",
+   "sensor": "OTD",
+   "type": "Other",
+   "organizations": [],
+   "description": "",
+   "credit": "",
+   "url": "",
+   "date_range": "1995/04 - 1999"
+  },
+  {
+   "name": "Lightning",
+   "common_name": "",
+   "platform": "TRMM",
+   "sensor": "LIS",
+   "type": "Other",
+   "organizations": [],
+   "description": "",
+   "credit": "",
+   "url": "",
+   "date_range": "1998 - 2002/12"
+  }
+ ],
+ "missions": [
+  "Tropical Rainfall Measuring Mission (TRMM)"
+ ],
+ "related": [],
+ "alternate_versions": [],
+ "newer_versions": [],
+ "older_versions": [],
+ "media": [
+  {
+   "group": 1,
+   "group_title": "",
+   "widget": "Video player",
+   "caption": "",
+   "group_text": "This animation shows an accumulation of daily\nlightning climatology values for a typical year. That is, the\nfirst frame shows the number of flashes per square kilometer\nthat occurred on a typical January 1 during the multi-year data\ncollection period, the second frame shows the total of Jan 1 and\nJan 2 flashes, the third frame shows Jan 1 through Jan 3, and so\non until the last frame (#365) which shows the total\naccumulation for a typical year. As the year progresses, more\nand more of the Earth experiences lightning, and hard-hit areas\nexperience more strikes. The most intense activity is in central\nAfrica. Areas where no lightning was measured are transparent,\nletting the background image show through. The data pixels are\n2.5deg on a side (144x72 pixels globally), and each frame has\nbeen magnified to 720x360 pixels for greater\nclarity.<br><br>This <a href='/vis/a000000/a003100/a003143/wms_product_description_3143_21313.html'>product is available through our Web Map Service</a>.",
+   "url": "https://svs.gsfc.nasa.gov/vis/a000000/a003100/a003143/lis318.png",
+   "filename": "lis318.png",
+   "media_type": "Image",
+   "width": 720,
+   "height": 360,
+   "alt_text": "This animation shows an accumulation of daily\nlightning climatology values for a typical year. That is, the\nfirst frame shows the number of flashes per square kilometer\nthat occurred on a typical January 1 during the multi-year data\ncollection period, the second frame shows the total of Jan 1 and\nJan 2 flashes, the third frame shows Jan 1 through Jan 3, and so\non until the last frame (#365) which shows the total\naccumulation for a typical year. As the year progresses, more\nand more of the Earth experiences lightning, and hard-hit areas\nexperience more strikes. The most intense activity is in central\nAfrica. Areas where no lightning was measured are transparent,\nletting the background image show through. The data pixels are\n2.5deg on a side (144x72 pixels globally), and each frame has\nbeen magnified to 720x360 pixels for greater\nclarity.This product is available through our Web Map Service."
+  },
+  {
+   "group": 1,
+   "group_title": "",
+   "widget": "Video player",
+   "caption": "",
+   "group_text": "This animation shows an accumulation of daily\nlightning climatology values for a typical year. That is, the\nfirst frame shows the number of flashes per square kilometer\nthat occurred on a typical January 1 during the multi-year data\ncollection period, the second frame shows the total of Jan 1 and\nJan 2 flashes, the third frame shows Jan 1 through Jan 3, and so\non until the last frame (#365) which shows the total\naccumulation for a typical year. As the year progresses, more\nand more of the Earth experiences lightning, and hard-hit areas\nexperience more strikes. The most intense activity is in central\nAfrica. Areas where no lightning was measured are transparent,\nletting the background image show through. The data pixels are\n2.5deg on a side (144x72 pixels globally), and each frame has\nbeen magnified to 720x360 pixels for greater\nclarity.<br><br>This <a href='/vis/a000000/a003100/a003143/wms_product_description_3143_21313.html'>product is available through our Web Map Service</a>.",
+   "url": "https://svs.gsfc.nasa.gov/vis/a000000/a003100/a003143/lis318_pring.jpg",
+   "filename": "lis318_pring.jpg",
+   "media_type": "Image",
+   "width": 720,
+   "height": 360,
+   "alt_text": "This animation shows an accumulation of daily\nlightning climatology values for a typical year. That is, the\nfirst frame shows the number of flashes per square kilometer\nthat occurred on a typical January 1 during the multi-year data\ncollection period, the second frame shows the total of Jan 1 and\nJan 2 flashes, the third frame shows Jan 1 through Jan 3, and so\non until the last frame (#365) which shows the total\naccumulation for a typical year. As the year progresses, more\nand more of the Earth experiences lightning, and hard-hit areas\nexperience more strikes. The most intense activity is in central\nAfrica. Areas where no lightning was measured are transparent,\nletting the background image show through. The data pixels are\n2.5deg on a side (144x72 pixels globally), and each frame has\nbeen magnified to 720x360 pixels for greater\nclarity.This product is available through our Web Map Service."
+  },
+  {
+   "group": 1,
+   "group_title": "",
+   "widget": "Video player",
+   "caption": "",
+   "group_text": "This animation shows an accumulation of daily\nlightning climatology values for a typical year. That is, the\nfirst frame shows the number of flashes per square kilometer\nthat occurred on a typical January 1 during the multi-year data\ncollection period, the second frame shows the total of Jan 1 and\nJan 2 flashes, the third frame shows Jan 1 through Jan 3, and so\non until the last frame (#365) which shows the total\naccumulation for a typical year. As the year progresses, more\nand more of the Earth experiences lightning, and hard-hit areas\nexperience more strikes. The most intense activity is in central\nAfrica. Areas where no lightning was measured are transparent,\nletting the background image show through. The data pixels are\n2.5deg on a side (144x72 pixels globally), and each frame has\nbeen magnified to 720x360 pixels for greater\nclarity.<br><br>This <a href='/vis/a000000/a003100/a003143/wms_product_description_3143_21313.html'>product is available through our Web Map Service</a>.",
+   "url": "https://svs.gsfc.nasa.gov/vis/a000000/a003100/a003143/preview.jpg",
+   "filename": "preview.jpg",
+   "media_type": "Image",
+   "width": 320,
+   "height": 160,
+   "alt_text": "This animation shows an accumulation of daily\nlightning climatology values for a typical year. That is, the\nfirst frame shows the number of flashes per square kilometer\nthat occurred on a typical January 1 during the multi-year data\ncollection period, the second frame shows the total of Jan 1 and\nJan 2 flashes, the third frame shows Jan 1 through Jan 3, and so\non until the last frame (#365) which shows the total\naccumulation for a typical year. As the year progresses, more\nand more of the Earth experiences lightning, and hard-hit areas\nexperience more strikes. The most intense activity is in central\nAfrica. Areas where no lightning was measured are transparent,\nletting the background image show through. The data pixels are\n2.5deg on a side (144x72 pixels globally), and each frame has\nbeen magnified to 720x360 pixels for greater\nclarity.This product is available through our Web Map Service."
+  },
+  {
+   "group": 1,
+   "group_title": "",
+   "widget": "Video player",
+   "caption": "",
+   "group_text": "This animation shows an accumulation of daily\nlightning climatology values for a typical year. That is, the\nfirst frame shows the number of flashes per square kilometer\nthat occurred on a typical January 1 during the multi-year data\ncollection period, the second frame shows the total of Jan 1 and\nJan 2 flashes, the third frame shows Jan 1 through Jan 3, and so\non until the last frame (#365) which shows the total\naccumulation for a typical year. As the year progresses, more\nand more of the Earth experiences lightning, and hard-hit areas\nexperience more strikes. The most intense activity is in central\nAfrica. Areas where no lightning was measured are transparent,\nletting the background image show through. The data pixels are\n2.5deg on a side (144x72 pixels globally), and each frame has\nbeen magnified to 720x360 pixels for greater\nclarity.<br><br>This <a href='/vis/a000000/a003100/a003143/wms_product_description_3143_21313.html'>product is available through our Web Map Service</a>.",
+   "url": "https://svs.gsfc.nasa.gov/vis/a000000/a003100/a003143/thm.png",
+   "filename": "thm.png",
+   "media_type": "Image",
+   "width": 80,
+   "height": 40,
+   "alt_text": "This animation shows an accumulation of daily\nlightning climatology values for a typical year. That is, the\nfirst frame shows the number of flashes per square kilometer\nthat occurred on a typical January 1 during the multi-year data\ncollection period, the second frame shows the total of Jan 1 and\nJan 2 flashes, the third frame shows Jan 1 through Jan 3, and so\non until the last frame (#365) which shows the total\naccumulation for a typical year. As the year progresses, more\nand more of the Earth experiences lightning, and hard-hit areas\nexperience more strikes. The most intense activity is in central\nAfrica. Areas where no lightning was measured are transparent,\nletting the background image show through. The data pixels are\n2.5deg on a side (144x72 pixels globally), and each frame has\nbeen magnified to 720x360 pixels for greater\nclarity.This product is available through our Web Map Service."
+  },
+  {
+   "group": 1,
+   "group_title": "",
+   "widget": "Video player",
+   "caption": "",
+   "group_text": "This animation shows an accumulation of daily\nlightning climatology values for a typical year. That is, the\nfirst frame shows the number of flashes per square kilometer\nthat occurred on a typical January 1 during the multi-year data\ncollection period, the second frame shows the total of Jan 1 and\nJan 2 flashes, the third frame shows Jan 1 through Jan 3, and so\non until the last frame (#365) which shows the total\naccumulation for a typical year. As the year progresses, more\nand more of the Earth experiences lightning, and hard-hit areas\nexperience more strikes. The most intense activity is in central\nAfrica. Areas where no lightning was measured are transparent,\nletting the background image show through. The data pixels are\n2.5deg on a side (144x72 pixels globally), and each frame has\nbeen magnified to 720x360 pixels for greater\nclarity.<br><br>This <a href='/vis/a000000/a003100/a003143/wms_product_description_3143_21313.html'>product is available through our Web Map Service</a>.",
+   "url": "https://svs.gsfc.nasa.gov/vis/a000000/a003100/a003143/gallery.png",
+   "filename": "gallery.png",
+   "media_type": "Image",
+   "width": 160,
+   "height": 80,
+   "alt_text": "This animation shows an accumulation of daily\nlightning climatology values for a typical year. That is, the\nfirst frame shows the number of flashes per square kilometer\nthat occurred on a typical January 1 during the multi-year data\ncollection period, the second frame shows the total of Jan 1 and\nJan 2 flashes, the third frame shows Jan 1 through Jan 3, and so\non until the last frame (#365) which shows the total\naccumulation for a typical year. As the year progresses, more\nand more of the Earth experiences lightning, and hard-hit areas\nexperience more strikes. The most intense activity is in central\nAfrica. Areas where no lightning was measured are transparent,\nletting the background image show through. The data pixels are\n2.5deg on a side (144x72 pixels globally), and each frame has\nbeen magnified to 720x360 pixels for greater\nclarity.This product is available through our Web Map Service."
+  },
+  {
+   "group": 1,
+   "group_title": "",
+   "widget": "Video player",
+   "caption": "",
+   "group_text": "This animation shows an accumulation of daily\nlightning climatology values for a typical year. That is, the\nfirst frame shows the number of flashes per square kilometer\nthat occurred on a typical January 1 during the multi-year data\ncollection period, the second frame shows the total of Jan 1 and\nJan 2 flashes, the third frame shows Jan 1 through Jan 3, and so\non until the last frame (#365) which shows the total\naccumulation for a typical year. As the year progresses, more\nand more of the Earth experiences lightning, and hard-hit areas\nexperience more strikes. The most intense activity is in central\nAfrica. Areas where no lightning was measured are transparent,\nletting the background image show through. The data pixels are\n2.5deg on a side (144x72 pixels globally), and each frame has\nbeen magnified to 720x360 pixels for greater\nclarity.<br><br>This <a href='/vis/a000000/a003100/a003143/wms_product_description_3143_21313.html'>product is available through our Web Map Service</a>.",
+   "url": "https://svs.gsfc.nasa.gov/vis/a000000/a003100/a003143/movie_searchweb.png",
+   "filename": "movie_searchweb.png",
+   "media_type": "Image",
+   "width": 320,
+   "height": 180,
+   "alt_text": "This animation shows an accumulation of daily\nlightning climatology values for a typical year. That is, the\nfirst frame shows the number of flashes per square kilometer\nthat occurred on a typical January 1 during the multi-year data\ncollection period, the second frame shows the total of Jan 1 and\nJan 2 flashes, the third frame shows Jan 1 through Jan 3, and so\non until the last frame (#365) which shows the total\naccumulation for a typical year. As the year progresses, more\nand more of the Earth experiences lightning, and hard-hit areas\nexperience more strikes. The most intense activity is in central\nAfrica. Areas where no lightning was measured are transparent,\nletting the background image show through. The data pixels are\n2.5deg on a side (144x72 pixels globally), and each frame has\nbeen magnified to 720x360 pixels for greater\nclarity.This product is available through our Web Map Service."
+  },
+  {
+   "group": 1,
+   "group_title": "",
+   "widget": "Video player",
+   "caption": "",
+   "group_text": "This animation shows an accumulation of daily\nlightning climatology values for a typical year. That is, the\nfirst frame shows the number of flashes per square kilometer\nthat occurred on a typical January 1 during the multi-year data\ncollection period, the second frame shows the total of Jan 1 and\nJan 2 flashes, the third frame shows Jan 1 through Jan 3, and so\non until the last frame (#365) which shows the total\naccumulation for a typical year. As the year progresses, more\nand more of the Earth experiences lightning, and hard-hit areas\nexperience more strikes. The most intense activity is in central\nAfrica. Areas where no lightning was measured are transparent,\nletting the background image show through. The data pixels are\n2.5deg on a side (144x72 pixels globally), and each frame has\nbeen magnified to 720x360 pixels for greater\nclarity.<br><br>This <a href='/vis/a000000/a003100/a003143/wms_product_description_3143_21313.html'>product is available through our Web Map Service</a>.",
+   "url": "https://svs.gsfc.nasa.gov/vis/a000000/a003100/a003143/movie.webmhd.webm",
+   "filename": "movie.webmhd.webm",
+   "media_type": "Movie",
+   "width": 960,
+   "height": 540,
+   "alt_text": "This animation shows an accumulation of daily\nlightning climatology values for a typical year. That is, the\nfirst frame shows the number of flashes per square kilometer\nthat occurred on a typical January 1 during the multi-year data\ncollection period, the second frame shows the total of Jan 1 and\nJan 2 flashes, the third frame shows Jan 1 through Jan 3, and so\non until the last frame (#365) which shows the total\naccumulation for a typical year. As the year progresses, more\nand more of the Earth experiences lightning, and hard-hit areas\nexperience more strikes. The most intense activity is in central\nAfrica. Areas where no lightning was measured are transparent,\nletting the background image show through. The data pixels are\n2.5deg on a side (144x72 pixels globally), and each frame has\nbeen magnified to 720x360 pixels for greater\nclarity.This product is available through our Web Map Service."
+  },
+  {
+   "group": 1,
+   "group_title": "",
+   "widget": "Video player",
+   "caption": "",
+   "group_text": "This animation shows an accumulation of daily\nlightning climatology values for a typical year. That is, the\nfirst frame shows the number of flashes per square kilometer\nthat occurred on a typical January 1 during the multi-year data\ncollection period, the second frame shows the total of Jan 1 and\nJan 2 flashes, the third frame shows Jan 1 through Jan 3, and so\non until the last frame (#365) which shows the total\naccumulation for a typical year. As the year progresses, more\nand more of the Earth experiences lightning, and hard-hit areas\nexperience more strikes. The most intense activity is in central\nAfrica. Areas where no lightning was measured are transparent,\nletting the background image show through. The data pixels are\n2.5deg on a side (144x72 pixels globally), and each frame has\nbeen magnified to 720x360 pixels for greater\nclarity.<br><br>This <a href='/vis/a000000/a003100/a003143/wms_product_description_3143_21313.html'>product is available through our Web Map Service</a>.",
+   "url": "https://svs.gsfc.nasa.gov/vis/a000000/a003100/a003143/movie.mpeg",
+   "filename": "movie.mpeg",
+   "media_type": "Movie",
+   "width": 720,
+   "height": 360,
+   "alt_text": "This animation shows an accumulation of daily\nlightning climatology values for a typical year. That is, the\nfirst frame shows the number of flashes per square kilometer\nthat occurred on a typical January 1 during the multi-year data\ncollection period, the second frame shows the total of Jan 1 and\nJan 2 flashes, the third frame shows Jan 1 through Jan 3, and so\non until the last frame (#365) which shows the total\naccumulation for a typical year. As the year progresses, more\nand more of the Earth experiences lightning, and hard-hit areas\nexperience more strikes. The most intense activity is in central\nAfrica. Areas where no lightning was measured are transparent,\nletting the background image show through. The data pixels are\n2.5deg on a side (144x72 pixels globally), and each frame has\nbeen magnified to 720x360 pixels for greater\nclarity.This product is available through our Web Map Service."
+  },
+  {
+   "group": 1,
+   "group_title": "",
+   "widget": "Video player",
+   "caption": "",
+   "group_text": "This animation shows an accumulation of daily\nlightning climatology values for a typical year. That is, the\nfirst frame shows the number of flashes per square kilometer\nthat occurred on a typical January 1 during the multi-year data\ncollection period, the second frame shows the total of Jan 1 and\nJan 2 flashes, the third frame shows Jan 1 through Jan 3, and so\non until the last frame (#365) which shows the total\naccumulation for a typical year. As the year progresses, more\nand more of the Earth experiences lightning, and hard-hit areas\nexperience more strikes. The most intense activity is in central\nAfrica. Areas where no lightning was measured are transparent,\nletting the background image show through. The data pixels are\n2.5deg on a side (144x72 pixels globally), and each frame has\nbeen magnified to 720x360 pixels for greater\nclarity.<br><br>This <a href='/vis/a000000/a003100/a003143/wms_product_description_3143_21313.html'>product is available through our Web Map Service</a>.",
+   "url": "https://svs.gsfc.nasa.gov/vis/a000000/a003100/a003143/frames/720x360/",
+   "filename": "720x360",
+   "media_type": "Frames",
+   "width": 720,
+   "height": 360,
+   "alt_text": "This animation shows an accumulation of daily\nlightning climatology values for a typical year. That is, the\nfirst frame shows the number of flashes per square kilometer\nthat occurred on a typical January 1 during the multi-year data\ncollection period, the second frame shows the total of Jan 1 and\nJan 2 flashes, the third frame shows Jan 1 through Jan 3, and so\non until the last frame (#365) which shows the total\naccumulation for a typical year. As the year progresses, more\nand more of the Earth experiences lightning, and hard-hit areas\nexperience more strikes. The most intense activity is in central\nAfrica. Areas where no lightning was measured are transparent,\nletting the background image show through. The data pixels are\n2.5deg on a side (144x72 pixels globally), and each frame has\nbeen magnified to 720x360 pixels for greater\nclarity.This product is available through our Web Map Service."
+  },
+  {
+   "group": 1,
+   "group_title": "",
+   "widget": "Video player",
+   "caption": "",
+   "group_text": "This animation shows an accumulation of daily\nlightning climatology values for a typical year. That is, the\nfirst frame shows the number of flashes per square kilometer\nthat occurred on a typical January 1 during the multi-year data\ncollection period, the second frame shows the total of Jan 1 and\nJan 2 flashes, the third frame shows Jan 1 through Jan 3, and so\non until the last frame (#365) which shows the total\naccumulation for a typical year. As the year progresses, more\nand more of the Earth experiences lightning, and hard-hit areas\nexperience more strikes. The most intense activity is in central\nAfrica. Areas where no lightning was measured are transparent,\nletting the background image show through. The data pixels are\n2.5deg on a side (144x72 pixels globally), and each frame has\nbeen magnified to 720x360 pixels for greater\nclarity.<br><br>This <a href='/vis/a000000/a003100/a003143/wms_product_description_3143_21313.html'>product is available through our Web Map Service</a>.",
+   "url": "https://svs.gsfc.nasa.gov/vis/a000000/a003100/a003143/frames/144x72/",
+   "filename": "144x72",
+   "media_type": "Frames",
+   "width": 144,
+   "height": 72,
+   "alt_text": "This animation shows an accumulation of daily\nlightning climatology values for a typical year. That is, the\nfirst frame shows the number of flashes per square kilometer\nthat occurred on a typical January 1 during the multi-year data\ncollection period, the second frame shows the total of Jan 1 and\nJan 2 flashes, the third frame shows Jan 1 through Jan 3, and so\non until the last frame (#365) which shows the total\naccumulation for a typical year. As the year progresses, more\nand more of the Earth experiences lightning, and hard-hit areas\nexperience more strikes. The most intense activity is in central\nAfrica. Areas where no lightning was measured are transparent,\nletting the background image show through. The data pixels are\n2.5deg on a side (144x72 pixels globally), and each frame has\nbeen magnified to 720x360 pixels for greater\nclarity.This product is available through our Web Map Service."
+  },
+  {
+   "group": 2,
+   "group_title": "",
+   "widget": "Single image",
+   "caption": "",
+   "group_text": "This color scale for the lightning accumulation animation ranges from deep blue (less than 10 flashes per square kilometer) through deep red (more than 60 flashes per square kilometer).",
+   "url": "https://svs.gsfc.nasa.gov/vis/a000000/a003100/a003143/lightacc_bar.png",
+   "filename": "lightacc_bar.png",
+   "media_type": "Image",
+   "width": 320,
+   "height": 90,
+   "alt_text": "This color scale for the lightning accumulation animation ranges from deep blue (less than 10 flashes per square kilometer) through deep red (more than 60 flashes per square kilometer)."
+  }
+ ],
+ "text_links": [
+  "https://thunder.nsstc.nasa.gov/primer/"
+ ],
+ "frame_folders": {
+  "https://svs.gsfc.nasa.gov/vis/a000000/a003100/a003143/frames/720x360/": {
+   "url": "https://svs.gsfc.nasa.gov/vis/a000000/a003100/a003143/frames/720x360/",
+   "frame_count": 366,
+   "bytes_approx": 2851000,
+   "first": "background.png",
+   "last": "lis365.png",
+   "subfolders": {}
+  },
+  "https://svs.gsfc.nasa.gov/vis/a000000/a003100/a003143/frames/144x72/": {
+   "url": "https://svs.gsfc.nasa.gov/vis/a000000/a003100/a003143/frames/144x72/",
+   "frame_count": 366,
+   "bytes_approx": 1491618,
+   "first": "background.png",
+   "last": "lis365.png",
+   "subfolders": {}
+  }
+ },
+ "api_url": "https://svs.gsfc.nasa.gov/api/3143",
+ "fetched_utc": "2026-10-31T18:00:30Z"
+}

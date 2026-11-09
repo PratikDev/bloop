@@ -1,0 +1,268 @@
+{
+ "id": 40477,
+ "url": "http://svs.gsfc.nasa.gov/gallery/greenhouse-gases-dashboard/",
+ "page_type": "Gallery",
+ "title": "Greenhouse Gases Dashboard",
+ "description": "NASA and its partner agencies track greenhouse gases for space, air, and ground. our scientists model the flow of these gases around our planet.\n\n\n\n\n\n\n\n",
+ "release_date": "2023-06-07T00:00:00-04:00",
+ "update_date": "2023-10-25T00:00:00-04:00",
+ "main_image": {
+  "id": 372179,
+  "url": "http://svs.gsfc.nasa.gov/vis/a000000/a004900/a004983/CO2Volumetric_9600x3240_30fps.02582_searchweb.png",
+  "filename": "CO2Volumetric_9600x3240_30fps.02582_searchweb.png",
+  "media_type": "Image",
+  "alt_text": "Data visualization in wide aspect ratio and 9600x3240 resolution,  featuring volumetric carbon dioxide on a global scale for the period June 1, 2020 - July 31, 2021. This set of frames can be shown on 5x3 hyperwalls and wide aspect ratio displays. Lower resolution movies are provided for preview.",
+  "width": 180,
+  "height": 320,
+  "pixels": 57600
+ },
+ "media_groups": [
+  {
+   "id": 371624,
+   "url": "http://svs.gsfc.nasa.gov/gallery/greenhouse-gases-dashboard/#media_group_371624",
+   "widget": "Basic text (large)",
+   "title": "Overview",
+   "caption": "",
+   "description": "NASA and its partner agencies track greenhouse gases for space, air, and ground. our scientists model the flow of these gases around our planet.\n<br><br>\n<img src=\"/images/gallery/GreenhouseGasesDashboard/Hyperwall_D004_Stage1.png\" class=\"w-100\">\n<br><br>\n<img src=\"/images/gallery/GreenhouseGasesDashboard/Hyperwall_D004_Stage2.png\" class=\"w-100\">\n<br><br>\n<img src=\"/images/gallery/GreenhouseGasesDashboard/Hyperwall_D004_Stage3.png\" class=\"w-100\">\n<br><br>\n<img src=\"/images/gallery/GreenhouseGasesDashboard/Hyperwall_D004_Stage4.png\" class=\"w-100\">",
+   "items": [],
+   "extra_data": {}
+  },
+  {
+   "id": 371625,
+   "url": "http://svs.gsfc.nasa.gov/gallery/greenhouse-gases-dashboard/#media_group_371625",
+   "widget": "Card gallery",
+   "title": "Visualizations",
+   "caption": "",
+   "description": "",
+   "items": [
+    {
+     "id": 412559,
+     "type": "media_group",
+     "extra_data": null,
+     "title": "Methane Emissions from Wetlands",
+     "caption": "<show group=33547 />\nMethane is an important greenhouse gas that contributes substantially to global warming. On a molecule by molecule basis, methane is much more efficient at trapping heat than carbon dioxide, the main driver of warming. Though human activities, including agriculture, oil and natural gas production and use, and waste disposal, collectively contribute the majority of methane to the atmosphere, about a third of total methane emissions comes from wetlands. Wetland habitats are filled with things like waterlogged soils and permafrost, which makes them sizable carbon sinks. However, as the climate changes, these carbon-rich soils are vulnerable to flooding and to rising temperatures, which can release more carbon to the atmosphere in the form or methane. Understanding methane emissions from natural sources like wetlands is critically important to scientists and policymakers who are working to ensure that changes in natural systems don’t counteract progress in combatting climate change made by reducing emissions from human activities.\r\n\r\nThis animation shows estimates of wetland methane emissions produced by the Lund–Potsdam–Jena Dynamic Global Vegetation Model (LPJ-DGVM) Wald Schnee und Landscaft version (LPJ-wsl). LPJ-wsl is a prognostic model, meaning that it can be used to simulate future changes in wetland emissions and independently verified with remote sensing data products. The model includes a complex, topography dependent model of near surface hydrology, and a permafrost and dynamic snow model, allowing it to produce realistic distributions of inundated area. Highlighted areas show concentrated methane sources from tropical and high latitude ecosystems. The LPJ-wsl model is regularly used in conjunction with NASA’s GEOS model to simulate the impact of wetlands and other methane sources on atmospheric methane concentrations, compare against satellite and airborne data, and to improve understanding and prediction of wetland emissions.",
+     "instance": {
+      "id": 367972,
+      "url": "http://svs.gsfc.nasa.gov/vis/a000000/a005000/a005054/ch4_wetlands.01500_searchweb.png",
+      "filename": "ch4_wetlands.01500_searchweb.png",
+      "media_type": "Image",
+      "alt_text": "Methane emissions from wetlands for the years 1980-2021with significant wetlands highlighted.",
+      "width": 180,
+      "height": 320,
+      "pixels": 57600
+     }
+    },
+    {
+     "id": 412560,
+     "type": "media_group",
+     "extra_data": null,
+     "title": "Methane Emissions in the United States",
+     "caption": "<show group=33600 />\nMethane is the second most important greenhouse gas contributing to climate change. While emissions are substantially lower than for carbon dioxide, the biggest driver of climate change, methane is more efficient at trapping heat on a molecule by molecule basis. As a result, understanding the sources of methane and how they can be reduced, quickly, is a major effort of policymakers and environmental managers around the world.\r\n\r\nThis visualization presents gridded methane emissions across the United States for the year 2012. The gridded methane inventory is designed to be consistent with EPA’s 2016 Inventory of <a href=\"https://www.epa.gov/ghgemissions/us-greenhouse-gas-inventory-report-1990-2014\">U.S. Greenhouse Gas Emissions and Sinks </a> for the year 2012, which presents national totals for different source types. Gridded estimates with 0.1 degree spatial resolution are produced using a wide range of databases at the state, county, local, and point source level to allocate the spatial and temporal distribution of emissions for individual source types. Gridded inventories, developed with support from NASA’s Carbon Monitoring System, help researchers use satellite, airborne, and in situ observations to independently evaluate EPA inventories and provide recommendations on refinements that may be needed. Additional detail and dataset access are available at the <a href=\"https://www.epa.gov/ghgemissions/gridded-2012-methane-emissions\">EPA website</a>.\r\n\r\nThe gridded inventory presents totals for different major methane source types. Agriculture emissions in this visualization include manure management, enteric fermentation, rice cultivation, and field burning. Waste emissions include landfills, wastewater treatment, and composting. Natural Gas emissions include emissions from production, processing, and transmission. Coal emissions include both active and abandoned coal mines.",
+     "instance": {
+      "id": 368019,
+      "url": "http://svs.gsfc.nasa.gov/vis/a000000/a005000/a005041/ch4_epa_sq_2022-11-14_1335.00100_searchweb.png",
+      "filename": "ch4_epa_sq_2022-11-14_1335.00100_searchweb.png",
+      "media_type": "Image",
+      "alt_text": "\nMethane is the second most important greenhouse gas contributing to climate change. While emissions are substantially lower than for carbon dioxide, the biggest driver of climate change, methane is more efficient at trapping heat on a molecule by molecule basis. As a result, understanding the sources of methane and how they can be reduced, quickly, is a major effort of policymakers and environmental managers around the world.\r\n\r\nThis visualization presents gridded methane emissions across the United States for the year 2012. The gridded methane inventory is designed to be consistent with EPA’s 2016 Inventory of U.S. Greenhouse Gas Emissions and Sinks  for the year 2012, which presents national totals for different source types. Gridded estimates with 0.1 degree spatial resolution are produced using a wide range of databases at the state, county, local, and point source level to allocate the spatial and temporal distribution of emissions for individual source types. Gridded inventories, developed with support from NASA’s Carbon Monitoring System, help researchers use satellite, airborne, and in situ observations to independently evaluate EPA inventories and provide recommendations on refinements that may be needed. Additional detail and dataset access are available at the EPA website.\r\n\r\nThe gridded inventory presents totals for different major methane source types. Agriculture emissions in this visualization include manure management, enteric fermentation, rice cultivation, and field burning. Waste emissions include landfills, wastewater treatment, and composting. Natural Gas emissions include emissions from production, processing, and transmission. Coal emissions include both active and abandoned coal mines.",
+      "width": 180,
+      "height": 320,
+      "pixels": 57600
+     }
+    },
+    {
+     "id": 412561,
+     "type": "details_page",
+     "extra_data": null,
+     "instance": {
+      "id": 5047,
+      "url": "http://svs.gsfc.nasa.gov/5047/",
+      "page_type": "Visualization",
+      "title": "Net Ecosystem Exchange of Carbon Dioxide",
+      "description": "The NASA Carbon Monotoring System's estimate of  the Net Ecosystem Exchange of Carbon Dioxide from 2000  to 2018. || co2_nee_5.01750_print.jpg (1024x576) [124.3 KB] || co2_nee_5.01750_searchweb.png (320x180) [43.8 KB] || co2_nee_5.01750_thm.png (80x40) [4.5 KB] || 3840x2160_16x9_30p (3840x2160) [64.0 KB] || co2_nee_5.webm (3840x2160) [14.2 MB] || co2_nee_5.mp4 (3840x2160) [256.2 MB] || ",
+      "release_date": "2022-11-30T00:00:00-05:00",
+      "update_date": "2024-10-06T23:09:57.352228-04:00",
+      "main_image": {
+       "id": 368026,
+       "url": "http://svs.gsfc.nasa.gov/vis/a000000/a005000/a005047/co2_nee_5.01750_print.jpg",
+       "filename": "co2_nee_5.01750_print.jpg",
+       "media_type": "Image",
+       "alt_text": "The NASA Carbon Monotoring System's estimate of  the Net Ecosystem Exchange of Carbon Dioxide from 2000  to 2018.",
+       "width": 1024,
+       "height": 576,
+       "pixels": 589824
+      }
+     }
+    },
+    {
+     "id": 412562,
+     "type": "details_page",
+     "extra_data": null,
+     "instance": {
+      "id": 5115,
+      "url": "http://svs.gsfc.nasa.gov/5115/",
+      "page_type": "Visualization",
+      "title": "Global Atmospheric Carbon Dioxide (CO₂)",
+      "description": "Volumetric visualization of the total carbon dioxide (CO₂) on a global scale added on Earth's atmosphere over the course of the year 2021. || TotalCO2_Comp_1920x1920p30_00080.png (1920x1920) [3.2 MB] || TotalCO2_Comp_1920x1920p30_00080_print.jpg (1024x1024) [168.5 KB] || VolumetricCO2_Composite (1920x1920) [0 Item(s)] || VolumetricCO2_Composite_1920x1920p30.mp4 (1920x1920) [806.2 MB] || ",
+      "release_date": "2023-06-20T15:00:00-04:00",
+      "update_date": "2025-01-15T10:57:49-05:00",
+      "main_image": {
+       "id": 856146,
+       "url": "http://svs.gsfc.nasa.gov/vis/a000000/a005100/a005115/TotalCO2_Volume_1920x1920.00080.png",
+       "filename": "TotalCO2_Volume_1920x1920.00080.png",
+       "media_type": "Image",
+       "alt_text": "Visualization of the total carbon dioxide (CO₂) on a global scale added on Earth's atmosphere over the course of the year 2021 (without the timeline).",
+       "width": 1920,
+       "height": 1920,
+       "pixels": 3686400
+      }
+     }
+    },
+    {
+     "id": 412563,
+     "type": "details_page",
+     "extra_data": null,
+     "instance": {
+      "id": 5116,
+      "url": "http://svs.gsfc.nasa.gov/5116/",
+      "page_type": "Visualization",
+      "title": "Global Atmospheric Methane (CH₄)",
+      "description": "Volumetric visualization of the total Methane (CH₄) on a global scale added on Earth's atmosphere over the course of the year 2021. || TotalCH4_Comp_1920x19020p30_00080.png (1920x1920) [2.5 MB] || TotalCH4_Comp_1920x19020p30_00080_print.jpg (1024x1024) [114.9 KB] || VolumetricCH4_Composite (1920x1920) [0 Item(s)] || VolumetricCH4_Composite_1920x19020p30.mp4 (1920x1920) [353.5 MB] || ",
+      "release_date": "2023-06-20T16:00:00-04:00",
+      "update_date": "2025-03-16T23:03:25.999759-04:00",
+      "main_image": {
+       "id": 856165,
+       "url": "http://svs.gsfc.nasa.gov/vis/a000000/a005100/a005116/TotalCH4_Volume_1920x1920.00080.png",
+       "filename": "TotalCH4_Volume_1920x1920.00080.png",
+       "media_type": "Image",
+       "alt_text": "This visualization shows the total methane on a global scale added on Earth's atmosphere over the course of the year 2021.",
+       "width": 1920,
+       "height": 1920,
+       "pixels": 3686400
+      }
+     }
+    },
+    {
+     "id": 412564,
+     "type": "details_page",
+     "extra_data": null,
+     "instance": {
+      "id": 5118,
+      "url": "http://svs.gsfc.nasa.gov/5118/",
+      "page_type": "Visualization",
+      "title": "Trends in atmospheric Methane (CH₄)",
+      "description": "Global trends in atmospheric Methane (CH₄) for the period July 1983-December 2022. || CH4Trends_1920x1080p30.00900_print.jpg (1024x576) [64.5 KB] || CH4Trends_1920x1080p30.00900.png (1920x1080) [766.2 KB] || CH4Trends_1920x1080p30.00900_searchweb.png (320x180) [26.3 KB] || CH4Trends_1920x1080p30.00900_thm.png (80x40) [3.5 KB] || CH4_Trends_1920x1080.mp4 (1920x1080) [4.4 MB] || 1920x1080_16x9_30p (1920x1080) [0 Item(s)] || CH4Trends_1920x1080p30.00900.exr (1920x1080) [1.7 MB] || ",
+      "release_date": "2023-06-20T22:00:00-04:00",
+      "update_date": "2025-06-23T00:15:56.469642-04:00",
+      "main_image": {
+       "id": 856225,
+       "url": "http://svs.gsfc.nasa.gov/vis/a000000/a005100/a005118/CH4Trends_1920x1080p30.00900.png",
+       "filename": "CH4Trends_1920x1080p30.00900.png",
+       "media_type": "Image",
+       "alt_text": "Global trends in atmospheric Methane (CH₄) for the period July 1983-December 2022.",
+       "width": 1920,
+       "height": 1080,
+       "pixels": 2073600
+      }
+     }
+    },
+    {
+     "id": 412565,
+     "type": "details_page",
+     "extra_data": null,
+     "instance": {
+      "id": 5117,
+      "url": "http://svs.gsfc.nasa.gov/5117/",
+      "page_type": "Visualization",
+      "title": "Trends in atmospheric Nitrous Oxide (N₂O)",
+      "description": "Global trends in atmospheric Nitrous Oxide (N₂O) for the period January 2001-December 2022. || N2OTrends_1920x1080p30.00900_print.jpg (1024x576) [60.7 KB] || N2OTrends_1920x1080p30.00900.png (1920x1080) [685.4 KB] || N2OTrends_1920x1080p30.00900_searchweb.png (320x180) [24.2 KB] || N2OTrends_1920x1080p30.00900_thm.png (80x40) [3.0 KB] || 1920x1080_16x9_30p (1920x1080) [0 Item(s)] || N2O_Trends_1920x1080p30.mp4 (1920x1080) [7.4 MB] || N2OTrends_1920x1080p30.00900.exr (1920x1080) [1.8 MB] || ",
+      "release_date": "2023-06-20T21:00:00-04:00",
+      "update_date": "2025-03-16T23:03:26.017499-04:00",
+      "main_image": {
+       "id": 856200,
+       "url": "http://svs.gsfc.nasa.gov/vis/a000000/a005100/a005117/N2OTrends_1920x1080p30.00900.png",
+       "filename": "N2OTrends_1920x1080p30.00900.png",
+       "media_type": "Image",
+       "alt_text": "Global trends in atmospheric Nitrous Oxide (N₂O) for the period January 2001-December 2022.",
+       "width": 1920,
+       "height": 1080,
+       "pixels": 2073600
+      }
+     }
+    },
+    {
+     "id": 412566,
+     "type": "details_page",
+     "extra_data": null,
+     "instance": {
+      "id": 5119,
+      "url": "http://svs.gsfc.nasa.gov/5119/",
+      "page_type": "Visualization",
+      "title": "OCO-2 and Keeling Curve: Trends in global atmospheric Carbon Dioxide (CO₂)",
+      "description": "OCO-2 and Keeling Curve trends in global atmospheric carbon dioxide. || KeelingCurve_OCO2_1920x1080p30.00370_print.jpg (1024x576) [49.6 KB] || KeelingCurve_OCO2_1920x1080p30.00370.png (1920x1080) [357.7 KB] || KeelingCurve_OCO2_1920x1080p30.00370_searchweb.png (320x180) [16.8 KB] || KeelingCurve_OCO2_1920x1080p30.00370_thm.png (80x40) [2.1 KB] || 1920x1080_16x9_30p (1920x1080) [0 Item(s)] || OCO2_KeelingCurve_1920x1080p30.mp4 (1920x1080) [5.3 MB] || KeelingCurve_OCO2_1920x1080p30.00370.exr (1920x1080) [2.3 MB] || ",
+      "release_date": "2023-06-20T22:00:00-04:00",
+      "update_date": "2025-06-23T00:15:56.562963-04:00",
+      "main_image": {
+       "id": 856233,
+       "url": "http://svs.gsfc.nasa.gov/vis/a000000/a005100/a005119/KeelingCurve_OCO2_1920x1080p30.00370.png",
+       "filename": "KeelingCurve_OCO2_1920x1080p30.00370.png",
+       "media_type": "Image",
+       "alt_text": "OCO-2 and Keeling Curve trends in global atmospheric carbon dioxide.",
+       "width": 1920,
+       "height": 1080,
+       "pixels": 2073600
+      }
+     }
+    },
+    {
+     "id": 412567,
+     "type": "details_page",
+     "extra_data": null,
+     "instance": {
+      "id": 5121,
+      "url": "http://svs.gsfc.nasa.gov/5121/",
+      "page_type": "Visualization",
+      "title": "ODIAC: a map of human made carbon dioxide emissions",
+      "description": "ODIAC (Open-source Data Inventory for Anthropogenic CO2) map for December 2021. || odiac_2023_2160p60.00001_print.jpg (1024x1024) [310.4 KB] || odiac_2023_2160p60.00001_searchweb.png (320x180) [64.3 KB] || odiac_2023_2160p60.00001_thm.png (80x40) [5.2 KB] || 2160x2160_1x1_60p (2160x2160) [0 Item(s)] || odiac_2023_2160p60.mp4 (2160x2160) [126.7 MB] ||",
+      "release_date": "2023-06-30T00:00:00-04:00",
+      "update_date": "2025-05-29T14:20:05.512646-04:00",
+      "main_image": {
+       "id": 856383,
+       "url": "http://svs.gsfc.nasa.gov/vis/a000000/a005100/a005121/odiac_2023_2160p60.00001_print.jpg",
+       "filename": "odiac_2023_2160p60.00001_print.jpg",
+       "media_type": "Image",
+       "alt_text": "ODIAC (Open-source Data Inventory for Anthropogenic CO2) map for December 2021.",
+       "width": 1024,
+       "height": 1024,
+       "pixels": 1048576
+      }
+     }
+    },
+    {
+     "id": 413331,
+     "type": "details_page",
+     "extra_data": null,
+     "instance": {
+      "id": 5126,
+      "url": "http://svs.gsfc.nasa.gov/5126/",
+      "page_type": "Visualization",
+      "title": "NOAA Annual Greenhouse Gas Index",
+      "description": "This visualization of the NOAA Annual Greenhouse Gas Index shows the relative warming contribution from various greenhouse gasses (1979-2023). The donut chart shows 2023 AGGI data.",
+      "release_date": "2023-07-07T00:00:00-04:00",
+      "update_date": "2025-04-01T09:34:27.086916-04:00",
+      "main_image": {
+       "id": 856489,
+       "url": "http://svs.gsfc.nasa.gov/vis/a000000/a005100/a005126/AGGI_1920x800_cc.png",
+       "filename": "AGGI_1920x800_cc.png",
+       "media_type": "Image",
+       "alt_text": "This visualization of the NOAA Annual Greenhouse Gas Index shows the relative warming contribution from various greenhouse gasses (1979-2023). The donut chart shows 2023 AGGI data.",
+       "width": 1920,
+       "height": 800,
+       "pixels": 1536000
+      }
+     }
+    }
+   ],
+   "extra_data": {}
+  }
+ ]
+}

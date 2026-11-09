@@ -1,0 +1,222 @@
+{
+ "id": 5221,
+ "title": "Global Mean Sea Level 1993-2023",
+ "url": "https://svs.gsfc.nasa.gov/5221/",
+ "page_type": "Visualization",
+ "release_date": "2024-03-21T12:00:00-04:00",
+ "update_date": "2025-03-16T23:08:01.166105-04:00",
+ "description": "This animation shows the rise in global mean sea level from 1993 to 2023 based on data from a series of five international satellites. The spike in sea level from 2022 to 2023 is mostly a consequence of climate change and the development of El Niño conditions in the Pacific Ocean. || seaLevelRise_2024_English.00405_print.jpg (1024x576) [188.5 KB] || seaLevelRise_2024_English.00405_web.png (320x180) [54.4 KB] || seaLevelRise_2024_English.00405_thm.png (80x40) [5.1 KB] || seaLevel_Curves_2024_English.00405_searchweb.png (320x180) [41.9 KB] || English (3840x2160) [0 Item(s)] || seaLevelRise_2024_English.mp4 (3840x2160) [45.0 MB] || Climate-dashboard.hwshow [1.6 KB] || ",
+ "full_text": "This animation shows the rise in global mean sea level from 1993 to 2023 based on data from a series of five international satellites. The spike in sea level from 2022 to 2023 is mostly a consequence of climate change and the development of El Niño conditions in the Pacific Ocean. || seaLevelRise_2024_English.00405_print.jpg (1024x576) [188.5 KB] || seaLevelRise_2024_English.00405_web.png (320x180) [54.4 KB] || seaLevelRise_2024_English.00405_thm.png (80x40) [5.1 KB] || seaLevel_Curves_2024_English.00405_searchweb.png (320x180) [41.9 KB] || English (3840x2160) [0 Item(s)] || seaLevelRise_2024_English.mp4 (3840x2160) [45.0 MB] || Climate-dashboard.hwshow [1.6 KB] ||\n\nThis animation shows the rise in global mean sea level from 1993 to 2023 based on data from a series of five international satellites. The spike in sea level from 2022 to 2023 is mostly a consequence of climate change and the development of El Niño conditions in the Pacific Ocean.\n\nThis animation shows the rise in global mean sea level from 1993 to 2023 based on data from a series of five international satellites. The relatively large jump in sea level from 2022 to 2023, a rise of about 0.3 inches (0.76 centimeters), is due mostly to a warming climate and the development of a strong El Niño. The 2022-2023 rise is equivalent to draining a quarter of Lake Superior into the ocean over the course of a year. \r<br>\r<br>This NASA-led analysis is based on a sea level data set featuring more than 30 years of satellite observations, starting with the U.S.-French <a href=\"https://sealevel.jpl.nasa.gov/missions/topex-poseidon/summary/\">TOPEX/Poseidon</a> mission, which launched in 1992. The <a href=\"https://sealevel.jpl.nasa.gov/missions/jason-cs-sentinel-6/summary/\">Sentinel-6 Michael Freilich</a> mission, which launched in November 2020, is the latest in the series of satellites that have contributed to this sea level record.\n\nThis animation shows the rise in global mean sea level from 1993 to 2023 based on data from a series of five international satellites. The spike in sea level from 2022 to 2023 is mostly a consequence of climate change and the development of El Niño conditions in the Pacific Ocean.<p><p>This version is labeled in Spanish.",
+ "credits_by_role": {
+  "Visualizer": [
+   "Mark SubbaRao (NASA/GSFC)"
+  ],
+  "Scientist": [
+   "Benjamin Hamlington (NASA/JPL)"
+  ]
+ },
+ "keywords": [
+  "Coastal Processes",
+  "Earth Science",
+  "Hyperwall",
+  "Oceans",
+  "Physical oceanography",
+  "Sea Level",
+  "Sea Level Rise"
+ ],
+ "datasets": [
+  {
+   "name": "Sea Surface Height Anomaly",
+   "common_name": "SSHA",
+   "platform": "OSTM/Jason-2",
+   "sensor": "Poseidon-3",
+   "type": "Other",
+   "organizations": [
+    "NASA, NOAA, CNES, EUMETSAT"
+   ],
+   "description": "",
+   "credit": "",
+   "url": "",
+   "date_range": null
+  }
+ ],
+ "missions": [],
+ "related": [],
+ "alternate_versions": [],
+ "newer_versions": [],
+ "older_versions": [],
+ "media": [
+  {
+   "group": 0,
+   "group_title": "",
+   "widget": "Video player",
+   "caption": "",
+   "group_text": "This animation shows the rise in global mean sea level from 1993 to 2023 based on data from a series of five international satellites. The spike in sea level from 2022 to 2023 is mostly a consequence of climate change and the development of El Niño conditions in the Pacific Ocean.",
+   "url": "https://svs.gsfc.nasa.gov/vis/a000000/a005200/a005221/seaLevelRise_2024_English.00405_print.jpg",
+   "filename": "seaLevelRise_2024_English.00405_print.jpg",
+   "media_type": "Image",
+   "width": 1024,
+   "height": 576,
+   "alt_text": "This animation shows the rise in global mean sea level from 1993 to 2023 based on data from a series of five international satellites. The spike in sea level from 2022 to 2023 is mostly a consequence of climate change and the development of El Niño conditions in the Pacific Ocean."
+  },
+  {
+   "group": 0,
+   "group_title": "",
+   "widget": "Video player",
+   "caption": "",
+   "group_text": "This animation shows the rise in global mean sea level from 1993 to 2023 based on data from a series of five international satellites. The spike in sea level from 2022 to 2023 is mostly a consequence of climate change and the development of El Niño conditions in the Pacific Ocean.",
+   "url": "https://svs.gsfc.nasa.gov/vis/a000000/a005200/a005221/seaLevelRise_2024_English.00405_web.png",
+   "filename": "seaLevelRise_2024_English.00405_web.png",
+   "media_type": "Image",
+   "width": 320,
+   "height": 180,
+   "alt_text": "This animation shows the rise in global mean sea level from 1993 to 2023 based on data from a series of five international satellites. The spike in sea level from 2022 to 2023 is mostly a consequence of climate change and the development of El Niño conditions in the Pacific Ocean."
+  },
+  {
+   "group": 0,
+   "group_title": "",
+   "widget": "Video player",
+   "caption": "",
+   "group_text": "This animation shows the rise in global mean sea level from 1993 to 2023 based on data from a series of five international satellites. The spike in sea level from 2022 to 2023 is mostly a consequence of climate change and the development of El Niño conditions in the Pacific Ocean.",
+   "url": "https://svs.gsfc.nasa.gov/vis/a000000/a005200/a005221/seaLevelRise_2024_English.00405_thm.png",
+   "filename": "seaLevelRise_2024_English.00405_thm.png",
+   "media_type": "Image",
+   "width": 80,
+   "height": 40,
+   "alt_text": "This animation shows the rise in global mean sea level from 1993 to 2023 based on data from a series of five international satellites. The spike in sea level from 2022 to 2023 is mostly a consequence of climate change and the development of El Niño conditions in the Pacific Ocean."
+  },
+  {
+   "group": 0,
+   "group_title": "",
+   "widget": "Video player",
+   "caption": "",
+   "group_text": "This animation shows the rise in global mean sea level from 1993 to 2023 based on data from a series of five international satellites. The spike in sea level from 2022 to 2023 is mostly a consequence of climate change and the development of El Niño conditions in the Pacific Ocean.",
+   "url": "https://svs.gsfc.nasa.gov/vis/a000000/a005200/a005221/seaLevel_Curves_2024_English.00405_searchweb.png",
+   "filename": "seaLevel_Curves_2024_English.00405_searchweb.png",
+   "media_type": "Image",
+   "width": 320,
+   "height": 180,
+   "alt_text": "This animation shows the rise in global mean sea level from 1993 to 2023 based on data from a series of five international satellites. The spike in sea level from 2022 to 2023 is mostly a consequence of climate change and the development of El Niño conditions in the Pacific Ocean."
+  },
+  {
+   "group": 0,
+   "group_title": "",
+   "widget": "Video player",
+   "caption": "",
+   "group_text": "This animation shows the rise in global mean sea level from 1993 to 2023 based on data from a series of five international satellites. The spike in sea level from 2022 to 2023 is mostly a consequence of climate change and the development of El Niño conditions in the Pacific Ocean.",
+   "url": "https://svs.gsfc.nasa.gov/vis/a000000/a005200/a005221/frames/3840x2160_16x9_30p/English/",
+   "filename": "English",
+   "media_type": "Frames",
+   "width": 3840,
+   "height": 2160,
+   "alt_text": "This animation shows the rise in global mean sea level from 1993 to 2023 based on data from a series of five international satellites. The spike in sea level from 2022 to 2023 is mostly a consequence of climate change and the development of El Niño conditions in the Pacific Ocean."
+  },
+  {
+   "group": 0,
+   "group_title": "",
+   "widget": "Video player",
+   "caption": "",
+   "group_text": "This animation shows the rise in global mean sea level from 1993 to 2023 based on data from a series of five international satellites. The spike in sea level from 2022 to 2023 is mostly a consequence of climate change and the development of El Niño conditions in the Pacific Ocean.",
+   "url": "https://svs.gsfc.nasa.gov/vis/a000000/a005200/a005221/seaLevelRise_2024_English.mp4",
+   "filename": "seaLevelRise_2024_English.mp4",
+   "media_type": "Movie",
+   "width": 3840,
+   "height": 2160,
+   "alt_text": "This animation shows the rise in global mean sea level from 1993 to 2023 based on data from a series of five international satellites. The spike in sea level from 2022 to 2023 is mostly a consequence of climate change and the development of El Niño conditions in the Pacific Ocean."
+  },
+  {
+   "group": 2,
+   "group_title": "",
+   "widget": "Video player",
+   "caption": "",
+   "group_text": "This animation shows the rise in global mean sea level from 1993 to 2023 based on data from a series of five international satellites. The spike in sea level from 2022 to 2023 is mostly a consequence of climate change and the development of El Niño conditions in the Pacific Ocean.<p><p>This version is labeled in Spanish.",
+   "url": "https://svs.gsfc.nasa.gov/vis/a000000/a005200/a005221/seaLevel_Curves_2024_Spanish.00405_print.jpg",
+   "filename": "seaLevel_Curves_2024_Spanish.00405_print.jpg",
+   "media_type": "Image",
+   "width": 1024,
+   "height": 576,
+   "alt_text": "This animation shows the rise in global mean sea level from 1993 to 2023 based on data from a series of five international satellites. The spike in sea level from 2022 to 2023 is mostly a consequence of climate change and the development of El Niño conditions in the Pacific Ocean.This version is labeled in Spanish."
+  },
+  {
+   "group": 2,
+   "group_title": "",
+   "widget": "Video player",
+   "caption": "",
+   "group_text": "This animation shows the rise in global mean sea level from 1993 to 2023 based on data from a series of five international satellites. The spike in sea level from 2022 to 2023 is mostly a consequence of climate change and the development of El Niño conditions in the Pacific Ocean.<p><p>This version is labeled in Spanish.",
+   "url": "https://svs.gsfc.nasa.gov/vis/a000000/a005200/a005221/seaLevel_Curves_2024_Spanish.mp4",
+   "filename": "seaLevel_Curves_2024_Spanish.mp4",
+   "media_type": "Movie",
+   "width": 3840,
+   "height": 2160,
+   "alt_text": "This animation shows the rise in global mean sea level from 1993 to 2023 based on data from a series of five international satellites. The spike in sea level from 2022 to 2023 is mostly a consequence of climate change and the development of El Niño conditions in the Pacific Ocean.This version is labeled in Spanish."
+  },
+  {
+   "group": 3,
+   "group_title": "",
+   "widget": "Video player",
+   "caption": "",
+   "group_text": "This animation shows the rise in global mean sea level from 1993 to 2023 based on data from a series of five international satellites. The spike in sea level from 2022 to 2023 is mostly a consequence of climate change and the development of El Niño conditions in the Pacific Ocean.",
+   "url": "https://svs.gsfc.nasa.gov/vis/a000000/a005200/a005221/seaLevel_Curves_vert_2024_English_1920p30.00405_print.jpg",
+   "filename": "seaLevel_Curves_vert_2024_English_1920p30.00405_print.jpg",
+   "media_type": "Image",
+   "width": 1024,
+   "height": 1820,
+   "alt_text": "This animation shows the rise in global mean sea level from 1993 to 2023 based on data from a series of five international satellites. The spike in sea level from 2022 to 2023 is mostly a consequence of climate change and the development of El Niño conditions in the Pacific Ocean."
+  },
+  {
+   "group": 3,
+   "group_title": "",
+   "widget": "Video player",
+   "caption": "",
+   "group_text": "This animation shows the rise in global mean sea level from 1993 to 2023 based on data from a series of five international satellites. The spike in sea level from 2022 to 2023 is mostly a consequence of climate change and the development of El Niño conditions in the Pacific Ocean.",
+   "url": "https://svs.gsfc.nasa.gov/vis/a000000/a005200/a005221/seaLevel_Curves_vert_2024_English_1920p30.mp4",
+   "filename": "seaLevel_Curves_vert_2024_English_1920p30.mp4",
+   "media_type": "Movie",
+   "width": 1080,
+   "height": 1920,
+   "alt_text": "This animation shows the rise in global mean sea level from 1993 to 2023 based on data from a series of five international satellites. The spike in sea level from 2022 to 2023 is mostly a consequence of climate change and the development of El Niño conditions in the Pacific Ocean."
+  },
+  {
+   "group": 4,
+   "group_title": "",
+   "widget": "Video player",
+   "caption": "",
+   "group_text": "This animation shows the rise in global mean sea level from 1993 to 2023 based on data from a series of five international satellites. The spike in sea level from 2022 to 2023 is mostly a consequence of climate change and the development of El Niño conditions in the Pacific Ocean.<p><p>This version is labeled in Spanish.",
+   "url": "https://svs.gsfc.nasa.gov/vis/a000000/a005200/a005221/seaLevel_Curves_vert_2024_Spanish_1920p30.00405_print.jpg",
+   "filename": "seaLevel_Curves_vert_2024_Spanish_1920p30.00405_print.jpg",
+   "media_type": "Image",
+   "width": 1024,
+   "height": 1820,
+   "alt_text": "This animation shows the rise in global mean sea level from 1993 to 2023 based on data from a series of five international satellites. The spike in sea level from 2022 to 2023 is mostly a consequence of climate change and the development of El Niño conditions in the Pacific Ocean.This version is labeled in Spanish."
+  },
+  {
+   "group": 4,
+   "group_title": "",
+   "widget": "Video player",
+   "caption": "",
+   "group_text": "This animation shows the rise in global mean sea level from 1993 to 2023 based on data from a series of five international satellites. The spike in sea level from 2022 to 2023 is mostly a consequence of climate change and the development of El Niño conditions in the Pacific Ocean.<p><p>This version is labeled in Spanish.",
+   "url": "https://svs.gsfc.nasa.gov/vis/a000000/a005200/a005221/seaLevel_Curves_vert_2024_Spanish_1920p30.mp4",
+   "filename": "seaLevel_Curves_vert_2024_Spanish_1920p30.mp4",
+   "media_type": "Movie",
+   "width": 1080,
+   "height": 1920,
+   "alt_text": "This animation shows the rise in global mean sea level from 1993 to 2023 based on data from a series of five international satellites. The spike in sea level from 2022 to 2023 is mostly a consequence of climate change and the development of El Niño conditions in the Pacific Ocean.This version is labeled in Spanish."
+  }
+ ],
+ "text_links": [
+  "https://sealevel.jpl.nasa.gov/missions/topex-poseidon/summary/",
+  "https://sealevel.jpl.nasa.gov/missions/jason-cs-sentinel-6/summary/"
+ ],
+ "frame_folders": {
+  "https://svs.gsfc.nasa.gov/vis/a000000/a005200/a005221/frames/3840x2160_16x9_30p/English/": {
+   "url": "https://svs.gsfc.nasa.gov/vis/a000000/a005200/a005221/frames/3840x2160_16x9_30p/English/",
+   "frame_count": 600,
+   "bytes_approx": 2589099993,
+   "first": "seaLevel_Curves_2024_English.00002.exr",
+   "last": "seaLevel_Curves_2024_English.00601.exr",
+   "subfolders": {}
+  }
+ },
+ "api_url": "https://svs.gsfc.nasa.gov/api/5221",
+ "fetched_utc": "2026-10-31T15:06:57Z"
+}

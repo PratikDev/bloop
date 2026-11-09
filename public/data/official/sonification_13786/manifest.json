@@ -1,0 +1,112 @@
+{
+ "record": "sonification_13786",
+ "kind": "method",
+ "app_title": "Caldwell 73 sonification (method evidence)",
+ "svs_ids": [
+  13786
+ ],
+ "title": "Data Sonification: Caldwell 73",
+ "svs_pages": [
+  "https://svs.gsfc.nasa.gov/13786/"
+ ],
+ "description": "Located 40,000 light-years from Earth in the constellation Columba, this globular cluster is called Caldwell 73 or NGC 1851. A globular cluster is a spherical group of stars that are gravitationally bound to each other, with most of the stars concentrated at the cluster’s center.  As the radar scans around in this sonification, the radius of the stars is mapped to pitch, so stars farther from the center are higher pitched. The entire image is converted to the sound of a choir, while the orange and red stars are represented by a marimba, and the blue stars are represented by a glockenspiel.Credit: SYSTEM Sounds (M. Russo, A. Santaguida)For more information about the Hubble Space Telescope and its images, visit https://nasa.gov/hubble. || ",
+ "release_date": "2020-12-23T09:00:00-05:00",
+ "period": {
+  "start": "2020-12-23T09:00:00Z",
+  "end": "2020-12-23T09:00:00Z",
+  "label": "23 Dec 2020 – 23 Dec 2020"
+ },
+ "badge": "observation",
+ "credits_by_role": {
+  "Technical support": [
+   "Aaron E. Lepsch (ADNET Systems, Inc.)"
+  ]
+ },
+ "datasets": [],
+ "credit_line": "Credit: SYSTEM Sounds (M. Russo, A. Santaguida) and NASA (SVS 13786).",
+ "disclosure": "A sonification of a Hubble image, measured as evidence for the radial-sweep method; not Earth data.",
+ "licence": "SVS: \"All of our content is in the public domain (unless otherwise noted), meaning that it is free to download, use, and redistribute for whatever purposes you see fit.\" (https://svs.gsfc.nasa.gov/help/, read 29 Oct 2026)",
+ "frame_times": {
+  "method": "linear",
+  "approximate": false,
+  "count": 1020,
+  "source": "30 fps movie"
+ },
+ "georef": {
+  "projection": "none (sky image)",
+  "bounds": [
+   0,
+   0,
+   0,
+   0
+  ],
+  "pass_at": 0,
+  "shifts_deg": [],
+  "iou": {},
+  "pass": false,
+  "best_is_assumed": false
+ },
+ "layers": [],
+ "voices": {},
+ "play": [],
+ "mapping_fit": "mapping_fit.json",
+ "analysis": {
+  "centre_px": [
+   958.87663892342,
+   958.7823168971222
+  ],
+  "angular_speed_deg_s": -12.01669919468,
+  "stars": {
+   "red/orange": 907,
+   "blue": 53,
+   "white": 25204
+  },
+  "audio": {
+   "duration_s": 34.0,
+   "voiced_share": 0.9754266211604096
+  }
+ },
+ "validation": [
+  {
+   "id": "a_single_star_pairing",
+   "title": "Pitch (pYIN f0) vs radius of the one coloured star the sweep crosses (planned)",
+   "kind": "value",
+   "pass": null,
+   "threshold": null
+  },
+  {
+   "id": "b_onset_pairing",
+   "title": "Pitch of each note onset vs the brightest coloured star crossed within ±2 frames",
+   "kind": "value",
+   "pass": null,
+   "threshold": null
+  },
+  {
+   "id": "c_ring_pairing",
+   "title": "Pitch of each onset vs the radius of the star the movie circles as it plays",
+   "kind": "value",
+   "pass": null,
+   "threshold": null
+  },
+  {
+   "id": "d_size_area_flux",
+   "title": "Pitch vs star SIZE (blob area and flux in the median frame), all three pairings",
+   "kind": "value",
+   "pass": null,
+   "threshold": null
+  }
+ ],
+ "size": {
+  "choice": {},
+  "tried": [],
+  "bytes": 8802,
+  "budget": 25000000
+ },
+ "asset_checksums": {
+  "file": "checksums.tsv.gz",
+  "rows": 1,
+  "sha256_of_list": "9b6ba0a4af094bfeaba501b2079bbe2ccf5bc09687caf131b039e89f54f799d8"
+ },
+ "code_commit": "b2727c5f73634eb004c1a452804f2b38a8fabe56-dirty",
+ "generated_utc": "2026-10-30T10:45:54Z"
+}

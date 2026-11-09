@@ -108,7 +108,7 @@ function Vegetation() {
       chart={{
         unit: t("field.veg.unit"),
         tick: (i) => `${formatMonth((pair.dates.then[i] ?? "").slice(0, 7), state.lang)}/${localDigits((pair.dates.now[i] ?? "").slice(2, 4), state.lang)}`,
-        summary: t("field.veg.summary", { place, then: pair.then.label, now: pair.now.label }),
+        summary: t("field.veg.summary", { place, then: pair.then.label, now: pair.now.label, dataset: file.dataset }),
       }}
       caption={t("field.veg.caption", { place, then: pair.then.label, thenMean: pair.then.mean ?? 0, now: pair.now.label, nowMean: pair.now.mean ?? 0 })}
       facts={

@@ -1,0 +1,437 @@
+{
+ "record": "rel_4353",
+ "app_title": "Aquarius Sea Surface Salinity 2011-2015 (observation)",
+ "svs_ids": [
+  4353
+ ],
+ "title": "Aquarius Sea Surface Salinity 2011-2015",
+ "svs_pages": [
+  "https://svs.gsfc.nasa.gov/4353/"
+ ],
+ "description": "Rectangular flat map projection shows Sea Surface Salinity measurements taken by Aquarius in its whole life span (September 2011 - May 2015). || aquarius_sss_timeCbar_flatmap_1080p30_print.jpg (1024x576) [137.4 KB] || aquarius_sss_timeCbar_flatmap_1080p30_searchweb.png (320x180) [80.4 KB] || aquarius_sss_timeCbar_flatmap_1080p30_web.png (320x180) [80.4 KB] || aquarius_sss_timeCbar_flatmap_1080p30_thm.png (80x40) [7.2 KB] || aquarius_sss_timeCbar_flatmap_1080p30.mp4 (1920x1080) [83.1 MB] || aquarius_sss_timeCbar_flatmap_1080p30.webm (1920x1080) [12.0 MB] || flatmap_4k (3840x2160) [0 Item(s)] || flatmap_no_timeCbar_4k (3840x2160) [0 Item(s)] || aquarius_sss_timeCbar_flatmap_4353.key [88.0 MB] || aquarius_sss_timeCbar_flatmap_4353.pptx [85.4 MB] || aquarius_sss_timeCbar_flatmap_4k_2160p30.mp4 (3840x2160) [259.0 MB] || aquarius-sea-surface-salinity-2011-2015.hwshow [203 bytes] || ",
+ "release_date": "2015-09-10T00:00:00-04:00",
+ "period": {
+  "start": "2015-09-10T04:00:00Z",
+  "end": "2015-09-10T04:00:00Z",
+  "label": "10 Sep 2015 – 10 Sep 2015"
+ },
+ "badge": "observation",
+ "credits_by_role": {
+  "Animator": [
+   "Cheng Zhang (USRA)",
+   "Horace Mitchell (NASA/GSFC)",
+   "Kel Elkins (USRA)",
+   "Greg Shirah (NASA/GSFC)"
+  ],
+  "Scientist": [
+   "Gene Feldman (NASA/GSFC)"
+  ]
+ },
+ "datasets": [
+  {
+   "name": "Sea Surface Salinity",
+   "common_name": "SSS",
+   "platform": "Aquarius",
+   "sensor": "Microwave Radiometer",
+   "type": "Observed Data",
+   "organizations": [
+    "NASA"
+   ],
+   "description": "",
+   "credit": "",
+   "url": "",
+   "date_range": null
+  }
+ ],
+ "credit_line": "Visualization: NASA's Scientific Visualization Studio (SVS 4353) for the NASA Earth Information Center.",
+ "disclosure": "A related NASA visualization read back through its key (pattern only).",
+ "licence": "SVS: \"All of our content is in the public domain (unless otherwise noted), meaning that it is free to download, use, and redistribute for whatever purposes you see fit.\" (https://svs.gsfc.nasa.gov/help/, read 29 Oct 2026)",
+ "focus": "water resources",
+ "related_to": [
+  5425
+ ],
+ "frame_times": {
+  "method": "linear",
+  "approximate": true,
+  "count": 3,
+  "source": "undated"
+ },
+ "georef": {
+  "projection": "equirectangular (2:1)",
+  "bounds": [
+   -180,
+   -90,
+   180,
+   90
+  ],
+  "pass_at": 0.9,
+  "shifts_deg": [],
+  "iou": {
+   "land": 0.868079715245239
+  },
+  "pass": false,
+  "best_is_assumed": false
+ },
+ "colorbar": {
+  "geometry": {
+   "x0": 75,
+   "x1": 1924,
+   "band": [
+    202,
+    299
+   ],
+   "vertical": false,
+   "outline_rgb": null,
+   "image_size": [
+    502,
+    2000
+   ]
+  },
+  "ticks": [
+   {
+    "px": 125.55164075993092,
+    "value": 30.0,
+    "text": "30",
+    "engine": "glyph",
+    "label_px": 125.5,
+    "tick_mark": true
+   },
+   {
+    "px": 324.5411992263056,
+    "value": 31.0,
+    "text": "31",
+    "engine": "glyph",
+    "label_px": 326.0,
+    "tick_mark": true
+   },
+   {
+    "px": 524.501998487631,
+    "value": 32.0,
+    "text": "32",
+    "engine": "glyph",
+    "label_px": 525.5,
+    "tick_mark": true
+   },
+   {
+    "px": 724.5393249221694,
+    "value": 33.0,
+    "text": "33",
+    "engine": "glyph",
+    "label_px": 725.5,
+    "tick_mark": true
+   },
+   {
+    "px": 924.5021492770613,
+    "value": 34.0,
+    "text": "34",
+    "engine": "glyph",
+    "label_px": 925.5,
+    "tick_mark": true
+   },
+   {
+    "px": 1124.5482446206115,
+    "value": 35.0,
+    "text": "35",
+    "engine": "glyph",
+    "label_px": 1125.5,
+    "tick_mark": true
+   },
+   {
+    "px": 1324.5010378228783,
+    "value": 36.0,
+    "text": "36",
+    "engine": "glyph",
+    "label_px": 1325.5,
+    "tick_mark": true
+   },
+   {
+    "px": 1524.5372540097828,
+    "value": 37.0,
+    "text": "37",
+    "engine": "glyph",
+    "label_px": 1525.5,
+    "tick_mark": true
+   },
+   {
+    "px": 1723.4375651720543,
+    "value": 38.0,
+    "text": "38",
+    "engine": "glyph",
+    "label_px": 1725.5,
+    "tick_mark": true
+   }
+  ],
+  "scale": "linear",
+  "fit": {
+   "a": 29.37415123508794,
+   "b": 0.005003525779355923,
+   "fit": "weighted 1/tolerance",
+   "max_resid_px": 0.516531457466876,
+   "resid_px": [
+    -0.47,
+    0.4,
+    0.3,
+    0.12,
+    0.02,
+    -0.17,
+    -0.27,
+    -0.44,
+    0.52
+   ],
+   "ok": true
+  },
+  "notes": [],
+  "n_samples": 1850,
+  "value_range": [
+   29.37415123508794,
+   38.62567040111704
+  ],
+  "opacity_varies": false,
+  "px_per_unit": 199.85906820464604
+ },
+ "colorbar_source": "page colorbar salinity_v48_colorbar2.tif",
+ "asset": {
+  "kind": "frames",
+  "owner": 5017,
+  "what": "2000x1000_2x1_60p"
+ },
+ "twins": [
+  {
+   "id": 5017,
+   "title": "A Decade of Sea Surface Salinity",
+   "reason": "related; 3 title words shared",
+   "flat_sets": [
+    {
+     "layer": "2000x1000_2x1_60p",
+     "size": "2000×1000",
+     "frames": 3654,
+     "url": "https://svs.gsfc.nasa.gov/vis/a000000/a005000/a005017/frames/2000x1000_2x1_60p/"
+    },
+    {
+     "layer": "8000x4000_2x1_60p",
+     "size": "8000×4000",
+     "frames": 3654,
+     "url": "https://svs.gsfc.nasa.gov/vis/a000000/a005000/a005017/frames/8000x4000_2x1_60p/"
+    }
+   ],
+   "flat_movies": [
+    {
+     "file": "salinity_v49_1000p30.mp4",
+     "size": "2000×1000",
+     "url": "https://svs.gsfc.nasa.gov/vis/a000000/a005000/a005017/salinity_v49_1000p30.mp4"
+    },
+    {
+     "file": "salinity_v49_1000p30.webm",
+     "size": "2000×1000",
+     "url": "https://svs.gsfc.nasa.gov/vis/a000000/a005000/a005017/salinity_v49_1000p30.webm"
+    },
+    {
+     "file": "salinity_v49_1000p60.mp4",
+     "size": "2000×1000",
+     "url": "https://svs.gsfc.nasa.gov/vis/a000000/a005000/a005017/salinity_v49_1000p60.mp4"
+    },
+    {
+     "file": "salinity_v49_8k_2000p30_h265.mp4",
+     "size": "4000×2000",
+     "url": "https://svs.gsfc.nasa.gov/vis/a000000/a005000/a005017/salinity_v49_8k_2000p30_h265.mp4"
+    }
+   ],
+   "colorbars": [
+    "salinity_v48_colorbar2_print.jpg",
+    "salinity_v48_colorbar2.tif"
+   ],
+   "colorbar_inherited": false
+  }
+ ],
+ "decode": {
+  "mode": "chroma",
+  "decoded_share": 0.017317833333333334
+ },
+ "layers": [
+  {
+   "id": "value",
+   "unit": "colorbar units",
+   "encoding": "linear",
+   "scale": 0.0005003525779355923,
+   "offset": 29.550363540649414,
+   "nodata": 65535,
+   "below": 65534,
+   "grid": {
+    "width": 360,
+    "height": 180,
+    "bounds": [
+     -180,
+     -90,
+     180,
+     90
+    ],
+    "row0": "north",
+    "col0": "west",
+    "byte_order": "little"
+   },
+   "times": [
+    "2015-09-10T04:00:00Z",
+    "2015-09-10T04:00:00Z",
+    "2015-09-10T04:00:00Z"
+   ],
+   "chunks": [
+    {
+     "file": "value_000.u16.gz",
+     "t0": 0,
+     "t1": 3,
+     "bytes": 6712
+    }
+   ],
+   "quantisation_step": 0.0005003525779355923,
+   "coverage": 0.013858024691358025,
+   "value_range": [
+    29.550363540649414,
+    34.2817268371582
+   ],
+   "label": "Aquarius Sea Surface Salinity 2011-2015 (pattern only)",
+   "aggregation": "mean of decoded pixels per cell",
+   "time_labels": [
+    "undated",
+    "undated",
+    "undated"
+   ],
+   "display": {
+    "colours": [
+     "#000000",
+     "#3d2ec0",
+     "#3d2ec0",
+     "#6526c5",
+     "#7d22cb",
+     "#8d1cce",
+     "#9b0dd1",
+     "#a700d3",
+     "#b200d4",
+     "#bc1fd4",
+     "#c53dd2",
+     "#cc53ce",
+     "#d465ca",
+     "#d973c5",
+     "#df7fbf",
+     "#e48ab9",
+     "#e994b4",
+     "#ed9ead",
+     "#f0a6a7",
+     "#f4afa0",
+     "#f7b79a",
+     "#f9bf93",
+     "#fbc78b",
+     "#fdcf83",
+     "#fed77a",
+     "#fede72",
+     "#fee76a",
+     "#fcee69",
+     "#faf66c",
+     "#f8fc65",
+     "#f8fc65",
+     "#000000"
+    ],
+    "values": [
+     29.37415123508794,
+     29.672587337217912,
+     29.97102343934788,
+     30.269459541477854,
+     30.567895643607823,
+     30.866331745737796,
+     31.164767847867765,
+     31.463203949997737,
+     31.761640052127706,
+     32.06007615425768,
+     32.35851225638765,
+     32.656948358517624,
+     32.95538446064759,
+     33.25382056277756,
+     33.55225666490753,
+     33.85069276703751,
+     34.14912886916748,
+     34.447564971297446,
+     34.74600107342742,
+     35.04443717555739,
+     35.34287327768736,
+     35.64130937981733,
+     35.9397454819473,
+     36.238181584077275,
+     36.536617686207244,
+     36.83505378833721,
+     37.13348989046719,
+     37.43192599259716,
+     37.73036209472713,
+     38.028798196857096,
+     38.32723429898707,
+     38.62567040111704
+    ],
+    "scale": "linear"
+   },
+   "status": "pattern only",
+   "status_check": "a_no_validation_source",
+   "statement": "pattern only"
+  }
+ ],
+ "voices": {
+  "value": "rel4353"
+ },
+ "play": [
+  {
+   "id": "value",
+   "label": "Aquarius Sea Surface Salinity 2011-2015: higher pitch = higher value",
+   "view": "global",
+   "map": "value",
+   "start": {
+    "lat": -31.5,
+    "lon": -50.5
+   },
+   "steps_per_second": 1,
+   "channels": [
+    {
+     "voice": "rel4353",
+     "layers": [
+      "value"
+     ],
+     "combine": "value"
+    }
+   ]
+  }
+ ],
+ "validation": [
+  {
+   "id": "a_no_validation_source",
+   "title": "Aquarius Sea Surface Salinity 2011-2015: no validation source",
+   "kind": "none",
+   "pass": null,
+   "threshold": null
+  }
+ ],
+ "size": {
+  "choice": {
+   "frames": 3
+  },
+  "tried": [],
+  "bytes": 17776,
+  "budget": 25000000
+ },
+ "onboarding": {
+  "timings_s": {
+   "api": 14.9,
+   "twins": 0.7,
+   "asset choice": 0.0,
+   "frames": 22.7,
+   "frame times": 1.5,
+   "georef": 5.4,
+   "colorbar": 40.3,
+   "inversion": 47.0,
+   "validation": 0.0
+  },
+  "status": "pattern only"
+ },
+ "asset_checksums": {
+  "file": "checksums.tsv.gz",
+  "rows": 9,
+  "sha256_of_list": "4d8b740cef57f5d81c07f2d239e03110715ed7a4438c715ac96b1da418386e68"
+ },
+ "code_commit": "a8f0638dc9adb81b18f259cf0813046acd882fa1-dirty",
+ "generated_utc": "2026-10-31T17:57:43Z"
+}

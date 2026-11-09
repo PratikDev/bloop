@@ -1,0 +1,20 @@
+{
+ "record": "rel_4372",
+ "checks": [
+  {
+   "record": "rel_4372",
+   "id": "a_no_validation_source",
+   "title": "IMERG Global Precipitation Rates (New Colorbar): no validation source",
+   "kind": "none",
+   "source": null,
+   "metrics": {
+    "reason": "IMERG precipitation rate (GIBS): no date covered ([])"
+   },
+   "threshold": null,
+   "pass": null,
+   "note": "IMERG precipitation rate (GIBS): no date covered ([])",
+   "run_utc": "2026-10-31T17:02:50Z"
+  }
+ ],
+ "updated_utc": "2026-10-31T17:02:50Z"
+}

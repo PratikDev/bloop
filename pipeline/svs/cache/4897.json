@@ -1,0 +1,387 @@
+{
+ "id": 4897,
+ "title": "Seasonal Global Precipitation Variation from the Global Precipitation Measurement Constellation",
+ "url": "https://svs.gsfc.nasa.gov/4897/",
+ "page_type": "Visualization",
+ "release_date": "2021-04-12T08:00:00-04:00",
+ "update_date": "2026-10-29T01:04:48.605538-04:00",
+ "description": "An animation of the most recent variation in global precipitation data from IMERG.",
+ "full_text": "An animation of the most recent variation in global precipitation data from IMERG.\n\nThe Global Precipitation Meaurement (GPM) mission produces NASA's most comprehensive estimate of global rain and snowfall, the Integrated Multi-satellite Retrievals for GPM, or IMERG.  IMERG is largely based on data from the GPM constellation - a group of satellites independently operated by many agencies that pool their data for global precipitation estimates.  These satellites currently include the GPM Core Observatory, other U.S. civilian satellites (Aqua, NOAA-19, NOAA-20, Suomi NPP), U.S. defense satellites (DMSP F-16, DMSP F-17, DMSP- F18), and international agency satellites (GCOM-W1, Metop-B, Metop-C, and MeghaTropiques).  The IMERG dataset starts in June 2000, providing a sufficiently long record that seasonal/regional averages, or climatology, can be computed with reasonable confidence.  By comparing the progression of the observed precipitation with climatology, we can generate maps of showing how much observations depart from normal.  In the animation, each day's variation from the average precipitation is added to the map, then allowed to gradually fade away over three months so that time changes in the larger-scale patterns are easier to see.  Researchers sometimes refer to these deviations from the climatology as \"precipitation anomalies\".\n\nNear realtime IMERG Anomaly data in Robinson projection.\n\nAn image of the most currently available global precipitation variation from IMERG.",
+ "credits_by_role": {
+  "Animator": [
+   "Horace Mitchell (NASA/GSFC)"
+  ],
+  "Data visualizer": [
+   "Alex Kekesi (Global Science and Technology, Inc.)"
+  ],
+  "Scientist": [
+   "George Huffman (NASA/GSFC)",
+   "Gail Skofronick Jackson (NASA/GSFC)",
+   "Dalia B Kirschbaum (NASA/GSFC)"
+  ],
+  "Producer": [
+   "Ryan Fitzgibbons (USRA)"
+  ]
+ },
+ "keywords": [
+  "Atmosphere",
+  "Atmospheric science",
+  "Earth Science",
+  "Global Precipitation Measurement",
+  "Hyperwall",
+  "precipitation",
+  "Precipitation Rate",
+  "rain",
+  "Real-time",
+  "Realtime",
+  "SOS",
+  "Up-to-date",
+  "Updated",
+  "Weather and Atmospheric Dynamics"
+ ],
+ "datasets": [
+  {
+   "name": "",
+   "common_name": "IMERG",
+   "platform": null,
+   "sensor": null,
+   "type": "Data Compilation",
+   "organizations": [
+    "NASA/GSFC"
+   ],
+   "description": "",
+   "credit": "",
+   "url": "http://pmm.nasa.gov/sites/default/files/document_files/IMERG_ATBD_V4.4.pdf",
+   "date_range": null
+  }
+ ],
+ "missions": [],
+ "related": [
+  {
+   "id": 5682,
+   "title": "Currrent IMERG Accumulated Anomaly",
+   "url": "https://svs.gsfc.nasa.gov/5682/"
+  }
+ ],
+ "alternate_versions": [],
+ "newer_versions": [],
+ "older_versions": [],
+ "media": [
+  {
+   "group": 0,
+   "group_title": "",
+   "widget": "Video player",
+   "caption": "",
+   "group_text": "An animation of the most recent variation in global precipitation data from IMERG.",
+   "url": "https://svs.gsfc.nasa.gov/vis/a000000/a004800/a004897/imergvar_composite_1080p15.00001_print.jpg",
+   "filename": "imergvar_composite_1080p15.00001_print.jpg",
+   "media_type": "Image",
+   "width": 1024,
+   "height": 576,
+   "alt_text": "An animation of the most recent variation in global precipitation data from IMERG."
+  },
+  {
+   "group": 0,
+   "group_title": "",
+   "widget": "Video player",
+   "caption": "",
+   "group_text": "An animation of the most recent variation in global precipitation data from IMERG.",
+   "url": "https://svs.gsfc.nasa.gov/vis/a000000/a004800/a004897/imergvar_composite_1080p15.00001_searchweb.png",
+   "filename": "imergvar_composite_1080p15.00001_searchweb.png",
+   "media_type": "Image",
+   "width": 320,
+   "height": 180,
+   "alt_text": "An animation of the most recent variation in global precipitation data from IMERG."
+  },
+  {
+   "group": 0,
+   "group_title": "",
+   "widget": "Video player",
+   "caption": "",
+   "group_text": "An animation of the most recent variation in global precipitation data from IMERG.",
+   "url": "https://svs.gsfc.nasa.gov/vis/a000000/a004800/a004897/imergvar_composite_1080p15.00001_thm.png",
+   "filename": "imergvar_composite_1080p15.00001_thm.png",
+   "media_type": "Image",
+   "width": 80,
+   "height": 40,
+   "alt_text": "An animation of the most recent variation in global precipitation data from IMERG."
+  },
+  {
+   "group": 0,
+   "group_title": "",
+   "widget": "Video player",
+   "caption": "",
+   "group_text": "An animation of the most recent variation in global precipitation data from IMERG.",
+   "url": "https://svs.gsfc.nasa.gov/vis/a000000/a004800/a004897/imergvar_composite_1080p15.mp4",
+   "filename": "imergvar_composite_1080p15.mp4",
+   "media_type": "Movie",
+   "width": 1920,
+   "height": 1080,
+   "alt_text": "An animation of the most recent variation in global precipitation data from IMERG."
+  },
+  {
+   "group": 0,
+   "group_title": "",
+   "widget": "Video player",
+   "caption": "",
+   "group_text": "An animation of the most recent variation in global precipitation data from IMERG.",
+   "url": "https://svs.gsfc.nasa.gov/vis/a000000/a004800/a004897/frames/1920x1080_16x9_15p/flatcomposite/",
+   "filename": "flatcomposite",
+   "media_type": "Frames",
+   "width": 1920,
+   "height": 1080,
+   "alt_text": "An animation of the most recent variation in global precipitation data from IMERG."
+  },
+  {
+   "group": 0,
+   "group_title": "",
+   "widget": "Video player",
+   "caption": "",
+   "group_text": "An animation of the most recent variation in global precipitation data from IMERG.",
+   "url": "https://svs.gsfc.nasa.gov/vis/a000000/a004800/a004897/frames/1920x1080_16x9_15p/numberedcomposite/",
+   "filename": "numberedcomposite",
+   "media_type": "Frames",
+   "width": 1920,
+   "height": 1080,
+   "alt_text": "An animation of the most recent variation in global precipitation data from IMERG."
+  },
+  {
+   "group": 0,
+   "group_title": "",
+   "widget": "Video player",
+   "caption": "",
+   "group_text": "An animation of the most recent variation in global precipitation data from IMERG.",
+   "url": "https://svs.gsfc.nasa.gov/vis/a000000/a004800/a004897/frames/3600x1800_2x1_15p/flatcomposite/",
+   "filename": "flatcomposite",
+   "media_type": "Frames",
+   "width": 3600,
+   "height": 1800,
+   "alt_text": "An animation of the most recent variation in global precipitation data from IMERG."
+  },
+  {
+   "group": 0,
+   "group_title": "",
+   "widget": "Video player",
+   "caption": "",
+   "group_text": "An animation of the most recent variation in global precipitation data from IMERG.",
+   "url": "https://svs.gsfc.nasa.gov/vis/a000000/a004800/a004897/frames/3600x1800_2x1_15p/flatalpha/",
+   "filename": "flatalpha",
+   "media_type": "Frames",
+   "width": 3600,
+   "height": 1800,
+   "alt_text": "An animation of the most recent variation in global precipitation data from IMERG."
+  },
+  {
+   "group": 0,
+   "group_title": "",
+   "widget": "Video player",
+   "caption": "",
+   "group_text": "An animation of the most recent variation in global precipitation data from IMERG.",
+   "url": "https://svs.gsfc.nasa.gov/vis/a000000/a004800/a004897/frames/3600x1800_2x1_15p/flatcompwithdates/",
+   "filename": "flatcompwithdates",
+   "media_type": "Frames",
+   "width": 3600,
+   "height": 1800,
+   "alt_text": "An animation of the most recent variation in global precipitation data from IMERG."
+  },
+  {
+   "group": 0,
+   "group_title": "",
+   "widget": "Video player",
+   "caption": "",
+   "group_text": "An animation of the most recent variation in global precipitation data from IMERG.",
+   "url": "https://svs.gsfc.nasa.gov/vis/a000000/a004800/a004897/frames/3600x1800_2x1_15p/flatdates/",
+   "filename": "flatdates",
+   "media_type": "Frames",
+   "width": 195,
+   "height": 63,
+   "alt_text": "An animation of the most recent variation in global precipitation data from IMERG."
+  },
+  {
+   "group": 2,
+   "group_title": "",
+   "widget": "Video player",
+   "caption": "",
+   "group_text": "Near realtime IMERG Anomaly data in Robinson projection.",
+   "url": "https://svs.gsfc.nasa.gov/vis/a000000/a004800/a004897/imerganom_w_date.now.rob_print.jpg",
+   "filename": "imerganom_w_date.now.rob_print.jpg",
+   "media_type": "Image",
+   "width": 1024,
+   "height": 512,
+   "alt_text": "Near realtime IMERG Anomaly data in Robinson projection."
+  },
+  {
+   "group": 2,
+   "group_title": "",
+   "widget": "Video player",
+   "caption": "",
+   "group_text": "Near realtime IMERG Anomaly data in Robinson projection.",
+   "url": "https://svs.gsfc.nasa.gov/vis/a000000/a004800/a004897/imerganomrob_w_dates_1080p15.mp4",
+   "filename": "imerganomrob_w_dates_1080p15.mp4",
+   "media_type": "Movie",
+   "width": 1920,
+   "height": 1080,
+   "alt_text": "Near realtime IMERG Anomaly data in Robinson projection."
+  },
+  {
+   "group": 2,
+   "group_title": "",
+   "widget": "Video player",
+   "caption": "",
+   "group_text": "Near realtime IMERG Anomaly data in Robinson projection.",
+   "url": "https://svs.gsfc.nasa.gov/vis/a000000/a004800/a004897/frames/3600x1800_2x1_15p/Robinson/",
+   "filename": "Robinson",
+   "media_type": "Frames",
+   "width": 3600,
+   "height": 1800,
+   "alt_text": "Near realtime IMERG Anomaly data in Robinson projection."
+  },
+  {
+   "group": 2,
+   "group_title": "",
+   "widget": "Video player",
+   "caption": "",
+   "group_text": "Near realtime IMERG Anomaly data in Robinson projection.",
+   "url": "https://svs.gsfc.nasa.gov/vis/a000000/a004800/a004897/frames/3600x1800_2x1_15p/RobinsonWithDates/",
+   "filename": "RobinsonWithDates",
+   "media_type": "Frames",
+   "width": 3600,
+   "height": 1800,
+   "alt_text": "Near realtime IMERG Anomaly data in Robinson projection."
+  },
+  {
+   "group": 3,
+   "group_title": "",
+   "widget": "Single image",
+   "caption": "",
+   "group_text": "An image of the most currently available global precipitation variation from IMERG.",
+   "url": "https://svs.gsfc.nasa.gov/vis/a000000/a004800/a004897/imergvar_1080p.now.png",
+   "filename": "imergvar_1080p.now.png",
+   "media_type": "Image",
+   "width": 1920,
+   "height": 1080,
+   "alt_text": "An image of the most currently available global precipitation variation from IMERG."
+  },
+  {
+   "group": 3,
+   "group_title": "",
+   "widget": "Single image",
+   "caption": "",
+   "group_text": "An image of the most currently available global precipitation variation from IMERG.",
+   "url": "https://svs.gsfc.nasa.gov/vis/a000000/a004800/a004897/imergvar_1080p.now_print.jpg",
+   "filename": "imergvar_1080p.now_print.jpg",
+   "media_type": "Image",
+   "width": 1024,
+   "height": 576,
+   "alt_text": "An image of the most currently available global precipitation variation from IMERG."
+  },
+  {
+   "group": 3,
+   "group_title": "",
+   "widget": "Single image",
+   "caption": "",
+   "group_text": "An image of the most currently available global precipitation variation from IMERG.",
+   "url": "https://svs.gsfc.nasa.gov/vis/a000000/a004800/a004897/imergvar_alpha.now.png",
+   "filename": "imergvar_alpha.now.png",
+   "media_type": "Image",
+   "width": 3600,
+   "height": 1800,
+   "alt_text": "An image of the most currently available global precipitation variation from IMERG."
+  },
+  {
+   "group": 3,
+   "group_title": "",
+   "widget": "Single image",
+   "caption": "",
+   "group_text": "An image of the most currently available global precipitation variation from IMERG.",
+   "url": "https://svs.gsfc.nasa.gov/vis/a000000/a004800/a004897/imergvar_composite.now.png",
+   "filename": "imergvar_composite.now.png",
+   "media_type": "Image",
+   "width": 3600,
+   "height": 1800,
+   "alt_text": "An image of the most currently available global precipitation variation from IMERG."
+  },
+  {
+   "group": 3,
+   "group_title": "",
+   "widget": "Single image",
+   "caption": "",
+   "group_text": "An image of the most currently available global precipitation variation from IMERG.",
+   "url": "https://svs.gsfc.nasa.gov/vis/a000000/a004800/a004897/imergvar_dates.now.png",
+   "filename": "imergvar_dates.now.png",
+   "media_type": "Image",
+   "width": 199,
+   "height": 63,
+   "alt_text": "An image of the most currently available global precipitation variation from IMERG."
+  }
+ ],
+ "text_links": [],
+ "frame_folders": {
+  "https://svs.gsfc.nasa.gov/vis/a000000/a004800/a004897/frames/1920x1080_16x9_15p/flatcomposite/": {
+   "url": "https://svs.gsfc.nasa.gov/vis/a000000/a004800/a004897/frames/1920x1080_16x9_15p/flatcomposite/",
+   "frame_count": 847,
+   "bytes_approx": null,
+   "first": "imergvar_composite.2024.07.01.png",
+   "last": "imergvar_composite.2026.10.27.png",
+   "subfolders": {}
+  },
+  "https://svs.gsfc.nasa.gov/vis/a000000/a004800/a004897/frames/1920x1080_16x9_15p/numberedcomposite/": {
+   "url": "https://svs.gsfc.nasa.gov/vis/a000000/a004800/a004897/frames/1920x1080_16x9_15p/numberedcomposite/",
+   "frame_count": 593,
+   "bytes_approx": null,
+   "first": "imergvar_composite.00000.png",
+   "last": "imergvar_composite.00592.png",
+   "subfolders": {}
+  },
+  "https://svs.gsfc.nasa.gov/vis/a000000/a004800/a004897/frames/3600x1800_2x1_15p/flatcomposite/": {
+   "url": "https://svs.gsfc.nasa.gov/vis/a000000/a004800/a004897/frames/3600x1800_2x1_15p/flatcomposite/",
+   "frame_count": 847,
+   "bytes_approx": null,
+   "first": "imergvar_composite.2024.07.01.png",
+   "last": "imergvar_composite.2026.10.27.png",
+   "subfolders": {}
+  },
+  "https://svs.gsfc.nasa.gov/vis/a000000/a004800/a004897/frames/3600x1800_2x1_15p/flatalpha/": {
+   "url": "https://svs.gsfc.nasa.gov/vis/a000000/a004800/a004897/frames/3600x1800_2x1_15p/flatalpha/",
+   "frame_count": 847,
+   "bytes_approx": null,
+   "first": "imergvar_alpha.2024.07.01.png",
+   "last": "imergvar_alpha.2026.10.27.png",
+   "subfolders": {}
+  },
+  "https://svs.gsfc.nasa.gov/vis/a000000/a004800/a004897/frames/3600x1800_2x1_15p/flatcompwithdates/": {
+   "url": "https://svs.gsfc.nasa.gov/vis/a000000/a004800/a004897/frames/3600x1800_2x1_15p/flatcompwithdates/",
+   "frame_count": 847,
+   "bytes_approx": null,
+   "first": "imerganom_w_date.2024.07.01.png",
+   "last": "imerganom_w_date.2026.10.27.png",
+   "subfolders": {}
+  },
+  "https://svs.gsfc.nasa.gov/vis/a000000/a004800/a004897/frames/3600x1800_2x1_15p/flatdates/": {
+   "url": "https://svs.gsfc.nasa.gov/vis/a000000/a004800/a004897/frames/3600x1800_2x1_15p/flatdates/",
+   "frame_count": 847,
+   "bytes_approx": null,
+   "first": "imergvar_dates.2024.07.01.png",
+   "last": "imergvar_dates.2026.10.27.png",
+   "subfolders": {}
+  },
+  "https://svs.gsfc.nasa.gov/vis/a000000/a004800/a004897/frames/3600x1800_2x1_15p/Robinson/": {
+   "url": "https://svs.gsfc.nasa.gov/vis/a000000/a004800/a004897/frames/3600x1800_2x1_15p/Robinson/",
+   "frame_count": 847,
+   "bytes_approx": null,
+   "first": "imergvar_composite.2024.07.01.rob.png",
+   "last": "imergvar_composite.2026.10.27.rob.png",
+   "subfolders": {}
+  },
+  "https://svs.gsfc.nasa.gov/vis/a000000/a004800/a004897/frames/3600x1800_2x1_15p/RobinsonWithDates/": {
+   "url": "https://svs.gsfc.nasa.gov/vis/a000000/a004800/a004897/frames/3600x1800_2x1_15p/RobinsonWithDates/",
+   "frame_count": 847,
+   "bytes_approx": null,
+   "first": "imerganom_w_date.2024.07.01.rob.png",
+   "last": "imerganom_w_date.2026.10.27.rob.png",
+   "subfolders": {}
+  }
+ },
+ "api_url": "https://svs.gsfc.nasa.gov/api/4897",
+ "fetched_utc": "2026-10-29T07:36:21Z"
+}

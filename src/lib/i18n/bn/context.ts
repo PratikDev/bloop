@@ -4,6 +4,7 @@
 
 import type { contextEn } from "../en/context";
 import { formatFixed, formatInteger, formatYear, localDigits } from "../format";
+import type { Translated } from "../types";
 
 const n1 = (v: number) => formatFixed(v, "bn", 1);
 const n2 = (v: number) => formatFixed(v, "bn", 2);
@@ -11,7 +12,7 @@ const int = (v: number) => formatInteger(v, "bn");
 const year = (v: number) => formatYear(v, "bn");
 const d = (s: string) => localDigits(s, "bn");
 
-export const contextBn: typeof contextEn = {
+export const contextBn: Translated<typeof contextEn> = {
   "thenNow.contextNote": "এগুলো প্রসঙ্গ-রেকর্ড, EIC ফ্রেম নয়: বাংলাদেশের জন্য নাসা ও সহযোগীদের দীর্ঘমেয়াদি ডেটাসেট।",
   "thenNow.title": (p: { city: string }) => `${p.city}: আগে বনাম এখন`,
   "thenNow.city": "শহর",
@@ -31,7 +32,7 @@ export const contextBn: typeof contextEn = {
   "thenNow.split": "আগে বাঁ কানে, এখন ডান কানে",
   "thenNow.stop": "থামান",
   "thenNow.soundOff": "শব্দ বন্ধ আছে। এই তুলনা শুনতে শব্দ চালু করুন।",
-  "thenNow.loading": "তুলনা লোড হচ্ছে…",
+  "thenNow.loading": "তুলনা লোড হচ্ছে",
   "thenNow.error": "তুলনার ডেটা লোড করা যায়নি। আবার চেষ্টা করতে পাতাটি রিলোড করুন।",
   "thenNow.then": (p: { label: string }) => `আগে, ${d(p.label)}`,
   "thenNow.now": (p: { label: string }) => `এখন, ${d(p.label)}`,
@@ -71,8 +72,6 @@ export const contextBn: typeof contextEn = {
   "field.veg.point.Madhupur_forest": "মধুপুর বন",
   "field.veg.point.Dhaka_city_control": "ঢাকা শহর (তুলনার জন্য)",
   "field.veg.unit": "NDVI",
-  "field.veg.summary": (p: { place: string; then: string; now: string }) =>
-    `উদ্ভিদ সূচক (NDVI), ${p.place}, প্রতি ১৬ দিনে, ${d(p.then)} বনাম ${d(p.now)}।`,
   "field.veg.caption": (p: { place: string; then: string; thenMean: number; now: string; nowMean: number }) =>
     `${p.place}: গড় NDVI ${d(p.then)} সময়ে ${n2(p.thenMean)}, ${d(p.now)} সময়ে ${n2(p.nowMean)} (একটিমাত্র ২৫০ মিটার পিক্সেল)।`,
 
@@ -102,7 +101,7 @@ export const contextBn: typeof contextEn = {
   "history.unit.water": "সেমি",
   "history.group.bangladesh": "বাংলাদেশ",
   "history.group.world": "বিশ্ব",
-  "history.loadingWorld": "বিশ্বের জন্য এই রেকর্ড লোড হচ্ছে (কয়েক মেগাবাইট, শুধু প্রথমবার)…",
+  "history.loadingWorld": "বিশ্বের জন্য এই রেকর্ড লোড হচ্ছে (কয়েক মেগাবাইট, শুধু প্রথমবার)",
   "history.noValue": (p: { month: string }) => `${p.month}: কোনো পরিমাপ নেই (নীরবতা)`,
   "history.sharedCell": (p: { places: string }) => `এই ডেটাসেটে এটি আর ${p.places} একই গ্রিড সেলে: একটিই রেকর্ড, আলাদা স্থান নয়।`,
   "history.sharedRegion": (p: { places: string }) => `এই ডেটাসেটে এটি আর ${p.places} একই GRACE অঞ্চলে: একটিই রেকর্ড, আলাদা স্থান নয়।`,
@@ -118,6 +117,6 @@ export const contextBn: typeof contextEn = {
   "history.summary": (p: { metric: string; place: string; from: string; to: string }) => `${p.metric}, ${p.place}, মাসিক, ${p.from} থেকে ${p.to}।`,
   "history.scrub": (p: { place: string }) => `চার্ট (${p.place}): একটি মাস শুনতে এর বরাবর টানুন, অথবা তীর-কী ব্যবহার করুন`,
   "history.monthValue": (p: { month: string; value: string; unit: string }) => `${p.month}: ${p.value} ${p.unit}`,
-  "history.loading": "রেকর্ড লোড হচ্ছে…",
+  "history.loading": "রেকর্ড লোড হচ্ছে",
   "history.error": "রেকর্ড লোড করা যায়নি। আবার চেষ্টা করতে পাতাটি রিলোড করুন।",
 };
