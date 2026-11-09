@@ -15,6 +15,8 @@ import { idleHandle, playSequence, type SequenceStep } from "./sequence";
 const POINT_SEC = 1.2; // each reference sound
 const GAP_SEC = 0.4; // silence between them
 export const LEGEND_POINT_SEC = POINT_SEC + GAP_SEC;
+/** How long each legend step actually sounds. */
+export const LEGEND_SOUND_SEC = POINT_SEC;
 
 type LiveLegendVoice = keyof LiveVoices;
 type PlayableLegendVoice = LiveLegendVoice | "heat";

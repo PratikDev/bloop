@@ -21,6 +21,7 @@ export function SettingsMenu() {
         <SettingToggle setting="builtInVoice" />
         <p className="px-1 text-small text-haze">{t("help.voiceNote")}</p>
         <SettingToggle setting="reduceMotion" />
+        <SettingToggle setting="soundWords" />
       </PopoverContent>
     </Popover>
   );

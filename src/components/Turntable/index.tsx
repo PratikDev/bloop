@@ -188,10 +188,10 @@ export function Turntable() {
           </Button>
         </div>
         <div className="pointer-events-none absolute inset-x-3 bottom-3 flex flex-col items-center gap-2">
-          <div className="max-w-2xl text-center">
-            <CaptionBar fade className="min-h-0 text-body [text-shadow:0_1px_3px_var(--label-shadow)] sm:text-lead" />
+          <div className="max-w-2xl space-y-2 text-center">
+            <CaptionBar fade className="min-h-0 text-body sm:text-lead" />
             {actions.where && (
-              <p key={actions.where} className="caption-fade text-body text-moon [text-shadow:0_1px_3px_var(--label-shadow)]">
+              <p key={actions.where} className="comic-box caption-fade rounded-caption px-2.5 py-1 text-body">
                 {actions.where}
               </p>
             )}

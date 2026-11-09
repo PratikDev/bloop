@@ -8,10 +8,18 @@ const AXIS_FONT_PX = 12.8;
 /** Chart height on the pages that fit one screen: grows with the screen, within reason (a little less on short laptops). */
 export const CHART_HEIGHT = "h-[clamp(9rem,28dvh,21rem)] lg:short:h-[clamp(8rem,24dvh,18rem)]";
 
+/** A panel's plot: shorter than CHART_HEIGHT, because the panel's frame and caption box take the rest of its height. */
+export const PANEL_CHART_HEIGHT = "h-48 lg:short:h-40";
+
+/** Then vs Now's comic panels hold the 14 px minimum. */
+export const PANEL_AXIS_FONT_PX = 14;
+
 export const AXIS = { stroke: "var(--line)", tick: { fill: "var(--haze)", fontSize: AXIS_FONT_PX, fontFamily: "var(--font-mono)" } };
 
+export const PANEL_AXIS = { ...AXIS, tick: { ...AXIS.tick, fontSize: PANEL_AXIS_FONT_PX } };
+
 /** The unit, written up the y-axis. */
-export const unitLabel = (unit: string) => ({ value: unit, angle: -90, position: "insideLeft" as const, fill: "var(--haze)", fontSize: AXIS_FONT_PX });
+export const unitLabel = (unit: string, fontSize = AXIS_FONT_PX) => ({ value: unit, angle: -90, position: "insideLeft" as const, fill: "var(--haze)", fontSize });
 
 export const ZERO_LINE_STROKE = "var(--line)";
 

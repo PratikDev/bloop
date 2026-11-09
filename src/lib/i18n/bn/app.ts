@@ -39,6 +39,7 @@ export const appBn: Translated<typeof appEn> = {
   "settings.captions": "ক্যাপশন",
   "settings.builtInVoice": "বিল্ট-ইন কণ্ঠস্বর",
   "settings.reduceMotion": "অ্যানিমেশন কমান",
+  "settings.soundWords": "ধ্বন্যাত্মক শব্দ",
   "settings.language": "ভাষা",
   "settings.open": "সেটিংস",
   "lang.en": "English",

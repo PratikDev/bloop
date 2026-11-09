@@ -13,6 +13,7 @@ import { captionText } from "@/lib/i18n";
 import { useAnnounce } from "./Announcer/use-announcer";
 import { useAppState, useT } from "./AppState/use-app-state";
 import { useLatestCaption } from "./CaptionBar/use-latest-caption";
+import { ComicWordmark } from "./ComicWordmark";
 import { useLiveData } from "./LiveData/use-live-data";
 import { SignalMark } from "./SignalMark";
 import { Waveform } from "./Waveform";
@@ -104,6 +105,7 @@ export function Opening() {
           </p>
 
           <div className="relative flex flex-col items-center justify-center gap-10">
+            <ComicWordmark />
             <SignalMark className="size-16 md:size-20" />
             <AnimatePresence mode="wait">
               <motion.p

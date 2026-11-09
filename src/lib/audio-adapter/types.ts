@@ -36,7 +36,7 @@ export type {
   VoiceId,
   WindowSeries,
 } from "@/lib/audio";
-export { LIVE_VOICES, TRACK_VOICES } from "@/lib/audio";
+export { LEGEND_SOUND_SEC, LIVE_VOICES, TRACK_VOICES } from "@/lib/audio";
 
 /**
  * Exactly the part of L2's API (docs/L2/BUILD_PLAN.md §2.2, §8) that the UI

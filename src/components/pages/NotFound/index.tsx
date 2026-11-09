@@ -6,6 +6,7 @@ import { motion } from "motion/react";
 import { RISE, STAGGER } from "@/lib/motion";
 import { PAGE_PATHS } from "@/router/modes";
 import { useT } from "../../AppState/use-app-state";
+import { ComicWordmark } from "../../ComicWordmark";
 import { SignalMark } from "../../SignalMark";
 
 /** Any unknown address: "no signal", and the way back to the map. */
@@ -13,7 +14,8 @@ export function NotFoundPage() {
   const t = useT();
   return (
     <motion.section variants={STAGGER} initial="hidden" animate="shown" aria-labelledby="not-found-title" className="grid h-full place-content-center justify-items-start gap-6 px-6 py-12">
-      <motion.div variants={RISE}>
+      <motion.div variants={RISE} className="flex items-center gap-5">
+        <ComicWordmark />
         <SignalMark live={false} className="size-12 opacity-70" />
       </motion.div>
       <motion.h1 variants={RISE} id="not-found-title" data-page-title tabIndex={-1} className="display-tight font-wide text-headline">

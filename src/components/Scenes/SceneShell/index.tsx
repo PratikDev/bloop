@@ -121,7 +121,7 @@ export function SceneShell({ title, entry, stage, topRight, controls, legend, di
       {topRight && <div className="pointer-events-none absolute top-3 right-3 left-3 flex items-start justify-end gap-2 pt-8 sm:pt-0">{topRight}</div>}
       <div className="pointer-events-none absolute inset-x-3 bottom-3 flex flex-col items-center gap-2">
         <div className="max-w-2xl text-center">
-          <CaptionBar fade className={cn("min-h-0 text-body sm:text-lead", LABEL_SHADOW)} />
+          <CaptionBar fade className="min-h-0 text-body sm:text-lead" />
         </div>
         {controls && <div className="pointer-events-auto w-full max-w-xl">{controls}</div>}
         <div className="pointer-events-auto w-full max-w-md">{legend}</div>

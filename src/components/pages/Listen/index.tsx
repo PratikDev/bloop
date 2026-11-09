@@ -12,6 +12,7 @@ import { TrackChoice } from "../../TrackChoice";
 import { FirstHint } from "./FirstHint";
 import { Inspector } from "./Inspector";
 import { ListenStatus } from "./ListenStatus";
+import { NeedleSoundWord } from "./NeedleSoundWord";
 
 /**
  * Listen: the latest EIC frame as a sound map, full size. The page's title,
@@ -69,6 +70,7 @@ export function ListenPage() {
               <FirstHint />
             </div>
             <ListenStatus className="px-4 pt-3 lg:absolute lg:top-3 lg:left-3 lg:z-(--layer-map-plates) lg:p-0" />
+              <NeedleSoundWord />
             <Inspector />
           </div>
 

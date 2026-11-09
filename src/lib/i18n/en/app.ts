@@ -33,6 +33,7 @@ export const appEn = {
   "settings.captions": "Captions",
   "settings.builtInVoice": "Built-in voice",
   "settings.reduceMotion": "Reduce motion",
+  "settings.soundWords": "Sound words",
   "settings.language": "Language",
   "settings.open": "Settings",
   "lang.en": "English",

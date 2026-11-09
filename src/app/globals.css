@@ -130,9 +130,11 @@
   --radius: 10px;
   --radius-plate-value: 14px;
   --radius-sheet-value: 22px;
+  --radius-caption-value: 4px; /* comic captions and panels: square-ish */
 
   /* Motion: exits fast, entrances a little slower, movement longest */
   --ease-out-soft: cubic-bezier(0.22, 1, 0.36, 1);
+  --ease-mechanical: cubic-bezier(0.2, 0.9, 0.1, 1); /* a quick, firm stop: the sound word's pop */
   --duration-exit: 160ms;
   --duration-enter: 260ms;
   --duration-move: 420ms;
@@ -248,6 +250,7 @@
   --radius-4xl: calc(var(--radius) * 2.6);
   --radius-plate: var(--radius-plate-value);
   --radius-sheet: var(--radius-sheet-value);
+  --radius-caption: var(--radius-caption-value);
 
   --shadow-float: var(--shadow-key) var(--shadow-key) 0 var(--navy);
   --shadow-glow: none;
@@ -341,6 +344,22 @@
   color: var(--navy);
   border: var(--outline) solid var(--navy);
   box-shadow: var(--shadow-panel) var(--shadow-panel) 0 var(--shadow-on-space);
+}
+
+/* The comic accent's box: sound words, caption boxes, the intro and 404 wordmark. Navy on bubble is 9:1.
+   Its shadow follows --key-shadow, so it still reads on the night sky. */
+@utility comic-box {
+  background: var(--bubble);
+  color: var(--navy);
+  border: var(--outline) solid var(--navy);
+  box-shadow: var(--shadow-key) var(--shadow-key) 0 var(--key-shadow, var(--navy));
+}
+
+/* One window of Then vs Now, drawn as a comic panel. */
+@utility comic-panel {
+  border: var(--outline-panel) solid var(--navy);
+  border-radius: var(--radius-caption-value);
+  padding: 0.5rem;
 }
 
 /* "No value here": a hatch, so it reads as empty without relying on colour. */
@@ -492,6 +511,29 @@
     opacity: 1;
     transform: none;
   }
+}
+
+/* A sound word on the map, 920 ms in all: pops in over 120 ms, holds 600 ms, fades over 200 ms
+   (SOUND_WORD_SHOW_MS in src/lib/sound-words.ts). Only ever applied when motion is allowed. */
+@keyframes sound-word {
+  0% {
+    scale: 0.8;
+    animation-timing-function: var(--ease-mechanical);
+  }
+  13.04%,
+  78.26% {
+    scale: 1;
+    opacity: 1;
+    animation-timing-function: linear;
+  }
+  100% {
+    scale: 1;
+    opacity: 0;
+  }
+}
+
+@utility animate-sound-word {
+  animation: sound-word 920ms both;
 }
 
 /* Page changes: "retuning". The old page dims and drifts away, the new one

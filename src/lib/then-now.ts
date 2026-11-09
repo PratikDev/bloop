@@ -63,6 +63,28 @@ export function yearRows(pair: { A: DemoWindow; B: DemoWindow }): YearRow[] {
   ];
 }
 
+export interface ChartScale {
+  domain: [number, number];
+  ticks: number[];
+}
+
+const TICK_TARGET = 5;
+const NICE_STEPS = [1, 2, 2.5, 5, 10];
+
+/** One y-axis for both panels of a comparison, so equal heights mean equal values. Always includes zero, as a single chart's axis does. */
+export function sharedYScale(values: readonly number[]): ChartScale {
+  const lo = Math.min(0, ...values);
+  const hi = Math.max(0, ...values);
+  const rough = (hi - lo || 1) / (TICK_TARGET - 1);
+  const magnitude = 10 ** Math.floor(Math.log10(rough));
+  const step = (NICE_STEPS.find((s) => s * magnitude >= rough) ?? 10) * magnitude;
+  const first = Math.floor(lo / step);
+  const last = Math.max(first + 1, Math.ceil(hi / step)); // never an empty range, even if every value is 0
+  // Rounded back from the multiples: 0.1 × 3 must not print as 0.30000000000000004.
+  const ticks = Array.from({ length: last - first + 1 }, (_, i) => Number(((first + i) * step).toFixed(6)));
+  return { domain: [ticks[0], ticks[ticks.length - 1]], ticks };
+}
+
 export interface MonthRow {
   i: number;
   month: string;

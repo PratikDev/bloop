@@ -25,9 +25,9 @@ export function CaptionBar({ className, fade = false }: { className?: string; /*
     ? shown.reading && readingText(t, shown.reading, shown.track)
     : caption && captionText(state.lang, caption.key, caption.params);
   return (
-    // Up to two lines rather than cut off: long captions stay readable.
-    <p key={fade ? text || "" : undefined} aria-hidden="true" className={cn("line-clamp-2 min-h-8 text-lead text-moon", fade && "caption-fade", className)}>
-      {text || " "}
+    // Up to two lines rather than cut off: long captions stay readable. With nothing to say the box keeps its place, unseen.
+    <p key={fade ? text || "" : undefined} aria-hidden="true" className={cn("comic-box min-h-8 rounded-caption px-2.5 py-1 text-lead", fade && "caption-fade", !text && "invisible", className)}>
+      <span className="line-clamp-2">{text || " "}</span>
     </p>
   );
 }

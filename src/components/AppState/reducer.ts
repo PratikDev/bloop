@@ -8,7 +8,7 @@ export type Mode = "home" | "explore" | "story" | "thenNow" | "how" | "turntable
 export type PanelTab = "truth" | "mapping" | "provenance" | "history";
 
 /** Settings remembered on this device (src/components/AppState/prefs.ts). */
-export type PrefKey = "lang" | "describe" | "captions" | "builtInVoice" | "started";
+export type PrefKey = "lang" | "describe" | "captions" | "builtInVoice" | "soundWords" | "started";
 export type Prefs = Partial<Pick<AppState, PrefKey>>;
 
 export interface VoiceMix {
@@ -29,6 +29,8 @@ export interface AppState {
   captions: boolean;
   reduceMotion: boolean;
   builtInVoice: boolean;
+  /** Comic sound words on the map and the audio legend (src/lib/sound-words.ts). */
+  soundWords: boolean;
   allMuted: boolean;
   solo: LiveVoiceId | null;
   mix: Record<LiveVoiceId, VoiceMix>;
@@ -51,7 +53,7 @@ export type AppAction =
   | { type: "setTrack"; track: TrackMode }
   | { type: "setMode"; mode: Mode }
   | { type: "setLang"; lang: Lang }
-  | { type: "toggle"; key: "describe" | "captions" | "reduceMotion" | "builtInVoice" | "allMuted" }
+  | { type: "toggle"; key: "describe" | "captions" | "reduceMotion" | "builtInVoice" | "soundWords" | "allMuted" }
   | { type: "setReduceMotion"; on: boolean }
   | { type: "setSolo"; solo: LiveVoiceId | null }
   | { type: "setVoiceMix"; voice: LiveVoiceId; mix: Partial<VoiceMix> }
@@ -75,6 +77,7 @@ export const initialState: AppState = {
   captions: true,
   reduceMotion: false,
   builtInVoice: true,
+  soundWords: true,
   allMuted: false,
   solo: null,
   mix: { ocean: FULL_MIX, rain: FULL_MIX, snow: FULL_MIX },
@@ -95,11 +98,15 @@ export function liveSoundOn(state: AppState): boolean {
   return state.started && state.soundOn && state.playing && state.introDone;
 }
 
+/** Whether the mixer lets a voice through: not muted, not turned down, not soloed away. */
+export function isVoiceUnmuted(state: AppState, voice: LiveVoiceId): boolean {
+  if (state.allMuted || state.mix[voice].muted || state.mix[voice].volume === 0) return false;
+  return state.solo === null || state.solo === voice;
+}
+
 /** Whether a live voice is sounding right now (for rings and captions). */
 export function isVoiceAudible(state: AppState, voice: LiveVoiceId): boolean {
-  if (!liveSoundOn(state) || state.allMuted || !isLiveMode(state.mode)) return false;
-  if (state.mix[voice].muted || state.mix[voice].volume === 0) return false;
-  if (state.solo !== null && state.solo !== voice) return false;
+  if (!liveSoundOn(state) || !isLiveMode(state.mode) || !isVoiceUnmuted(state, voice)) return false;
   return TRACK_VOICES[state.track].includes(voice);
 }
 
