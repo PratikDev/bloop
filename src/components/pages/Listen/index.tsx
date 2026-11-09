@@ -69,8 +69,10 @@ export function ListenPage() {
               </ExploreControls>
               <FirstHint />
             </div>
-            <ListenStatus className="px-4 pt-3 lg:absolute lg:top-3 lg:left-3 lg:z-(--layer-map-plates) lg:p-0" />
+            <div data-overlay>
+              <ListenStatus className="px-4 pt-3 lg:absolute lg:top-3 lg:left-3 lg:z-(--layer-map-plates) lg:p-0" />
               <NeedleSoundWord />
+            </div>
             <Inspector />
           </div>
 

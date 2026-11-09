@@ -1,10 +1,7 @@
 "use client";
 
-import { BookOpenText } from "lucide-react";
 import { useEffect, useMemo, useRef, useState } from "react";
-import { Button } from "@/components/ui/button";
 import { formatDegrees, formatUtc } from "@/lib/i18n";
-import { readAt } from "@/lib/reading";
 import { liveSoundOn } from "../AppState/reducer";
 import { useAppState } from "../AppState/use-app-state";
 import { CaptionBar } from "../CaptionBar";
@@ -35,8 +32,11 @@ import { SceneHost } from "../Scenes/SceneHost";
 
 const SEND_LOG_MAX = 5000;
 const IDLE_MS = 30_000;
+/** How long the legend stays up after the needle was moved. */
+const LEGEND_MS = 2500;
+const LEGEND_CHECK_MS = 250;
+const MAX_BOOKMARKS = 9;
 const IDLE_CHECK_MS = 5_000;
-const GLASS_BUTTON = "glass-chip pointer-events-auto h-11 gap-2 rounded-full px-4 text-body text-moon";
 
 /** After leaving, keyboard focus lands on the flat map rather than the page. */
 const focusFlatMap = () => requestAnimationFrame(() => document.getElementById(MAP_REGION_ID)?.focus());
@@ -142,6 +142,13 @@ export function Turntable() {
     return () => clearInterval(id);
   }, [lastInput]);
 
+  // The legend tubes: while the needle is being moved (the readout's hover or focus shows them too).
+  const [needleMoving, setNeedleMoving] = useState(false);
+  useEffect(() => {
+    const id = setInterval(() => setNeedleMoving(performance.now() - lastInput() < LEGEND_MS), LEGEND_CHECK_MS);
+    return () => clearInterval(id);
+  }, [lastInput]);
+
   // A scene record: the record swap plays, then the scene opens over the turntable (which pauses).
   const openScene = (id: SceneId) => {
     void tt.changeRecord().then(() => setSceneOpen(id));
@@ -161,7 +168,7 @@ export function Turntable() {
   }, []);
 
   return (
-    <section ref={sectionRef} lang={rootLang} className="tt-warm relative min-h-[32rem] min-w-0 overflow-hidden bg-tt-black">
+    <section ref={sectionRef} data-space lang={rootLang} className="tt-warm relative min-h-[32rem] min-w-0 overflow-hidden bg-tt-black">
       <div inert={sceneOpen !== null} className="contents">
         <Stage
           tt={tt}
@@ -174,32 +181,22 @@ export function Turntable() {
           graticule={graticule}
           details={details}
           intro={intro.phase}
+          ready={intro.ready}
           idle={idle}
           onKeyDown={onKeyDown}
           debug={debug ? { sendLog, placed } : null}
           className="absolute inset-0"
         />
-        <div className="pointer-events-none absolute top-3 right-3 left-3 flex items-start justify-end gap-2 pt-6 sm:pt-0">
-          <SearchBox gazetteer={geo?.gazetteer ?? null} onChoose={actions.choosePlace} inputRef={searchRef} className="pointer-events-auto max-w-[calc(100%-3.5rem)]" />
-          <Button variant="ghost" onClick={() => setDrawer("howWeKnow")} className={GLASS_BUTTON}>
-            <BookOpenText aria-hidden="true" />
-            <span className="hidden sm:inline">{tr("turntable.howWeKnow")}</span>
-            <span className="sr-only sm:hidden">{tr("turntable.howWeKnow")}</span>
-          </Button>
+        <div data-overlay className="pointer-events-none absolute top-3 right-3 left-3 flex items-start justify-end gap-2 pt-6 sm:pt-0">
+          <SearchBox gazetteer={geo?.gazetteer ?? null} onChoose={actions.choosePlace} inputRef={searchRef} className="pointer-events-auto max-w-full" />
         </div>
-        <div className="pointer-events-none absolute inset-x-3 bottom-3 flex flex-col items-center gap-2">
-          <div className="max-w-2xl space-y-2 text-center">
-            <CaptionBar fade className="min-h-0 text-body sm:text-lead" />
-            {actions.where && (
-              <p key={actions.where} className="comic-box caption-fade rounded-caption px-2.5 py-1 text-body">
-                {actions.where}
-              </p>
-            )}
-          </div>
-          <LegendBar
-            pixel={fields ? tt.texture.sample(state.track, readAt(fields, state.cursor), state.cursor) : null}
-            className="pointer-events-auto w-full max-w-md"
-          />
+        <div data-overlay className="pointer-events-none absolute inset-x-3 bottom-3 flex flex-col items-center gap-2">
+          {actions.where && (
+            <p key={actions.where} className="comic-box caption-fade max-w-2xl rounded-caption px-2.5 py-1 text-center text-body">
+              {actions.where}
+            </p>
+          )}
+          {(needleMoving || details.open) && <LegendBar className="w-full max-w-md" />}
           <div className="pointer-events-auto max-w-full">
             <Dock
               ref={dockRef}
@@ -220,10 +217,14 @@ export function Turntable() {
               onLayers={() => setDrawer("layers")}
               onSettings={() => setDrawer("settings")}
               onHelp={commands.openHelp}
+              onSources={() => setDrawer("sources")}
+              bookmarks={geo?.gazetteer.bookmarks.slice(0, MAX_BOOKMARKS).map((b) => b.name) ?? []}
+              onBookmark={actions.bookmark}
+              caption={<CaptionBar soundOnly className="mx-auto min-h-0 w-fit max-w-full text-center text-body sm:text-lead" />}
             />
           </div>
         </div>
-        <CreditsLink className="absolute right-2 bottom-2 hidden h-8 px-2 text-small text-haze lg:inline-flex" />
+        <CreditsLink className="key absolute right-6 bottom-6 hidden h-11 rounded-lg bg-paper px-4 text-body text-moon hover:bg-paper lg:inline-flex" />
         <Drawers
           open={drawer}
           onClose={() => setDrawer(null)}

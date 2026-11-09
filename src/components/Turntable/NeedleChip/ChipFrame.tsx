@@ -10,11 +10,11 @@ import type { Details } from "./use-details";
 
 /** Gap between the needle and the chip, so the chip never covers the needle. */
 const GAP_PX = 26;
-const EDGE_PX = 12;
-const CHIP_PX = 44;
+const EDGE_PX = 24;
 /** The caption, legend and dock along the bottom: the card stops above them. */
 const BOTTOM_RESERVE_PX = 230;
 const MIN_CARD_PX = 160;
+const MAX_CHIP_PX = 352;
 /** Narrower than this, the chip sits under the top row instead of beside the needle (there's no room beside it). */
 const NARROW_PX = 640;
 const NARROW_TOP_PX = 96;
@@ -55,7 +55,7 @@ export function ChipFrame({ subscribe, details, reserved, bottomReserve = BOTTOM
   const { tt } = useTT();
   const crossRef = useRef<SVGSVGElement>(null);
   const boxRef = useRef<HTMLDivElement | null>(null);
-  const size = useRef({ w: 0, h: 0 });
+  const size = useRef({ w: 0, h: 0, chip: 0 });
 
   // The box's size from a ResizeObserver: never read in the frame loop (that forces a layout).
   const observe = useCallback((box: HTMLDivElement | null) => {
@@ -63,7 +63,8 @@ export function ChipFrame({ subscribe, details, reserved, bottomReserve = BOTTOM
     if (!box) return;
     const observer = new ResizeObserver(([entry]) => {
       const b = entry.borderBoxSize[0];
-      size.current = { w: b?.inlineSize ?? 0, h: b?.blockSize ?? 0 };
+      // The chip's own height: long place names wrap, so it isn't a fixed size.
+      size.current = { w: b?.inlineSize ?? 0, h: b?.blockSize ?? 0, chip: box.firstElementChild?.getBoundingClientRect().height ?? 0 };
     });
     observer.observe(box);
     return () => observer.disconnect();
@@ -78,7 +79,7 @@ export function ChipFrame({ subscribe, details, reserved, bottomReserve = BOTTOM
           cross.style.opacity = String(Math.max(0, (f.blend - 0.4) / 0.6));
         }
         const box = boxRef.current;
-        const { w, h } = size.current;
+        const { w, h, chip: chipPx } = size.current;
         if (!box || w === 0) {
           if (reserved) reserved.current = [];
           return;
@@ -89,9 +90,10 @@ export function ChipFrame({ subscribe, details, reserved, bottomReserve = BOTTOM
         const x = narrow ? EDGE_PX : left ? f.needle.x - GAP_PX - w : Math.min(f.width - w - EDGE_PX, f.needle.x + GAP_PX);
         // The chip's middle lines up with the needle; the card grows downward from there,
         // scrolling inside rather than running under the caption, legend and dock.
-        const y = narrow ? NARROW_TOP_PX : Math.min(f.height - CHIP_PX - bottomReserve, Math.max(EDGE_PX, f.needle.y - CHIP_PX / 2));
+        const y = narrow ? NARROW_TOP_PX : Math.min(f.height - chipPx - bottomReserve, Math.max(EDGE_PX, f.needle.y - chipPx / 2));
         box.style.transform = `translate(${Math.round(x)}px, ${Math.round(y)}px)`;
-        box.style.setProperty("--card-max", `${Math.max(MIN_CARD_PX, Math.round(f.height - bottomReserve - y - CHIP_PX - 8))}px`);
+        box.style.setProperty("--card-max", `${Math.max(MIN_CARD_PX, Math.round(f.height - bottomReserve - y - chipPx - 8))}px`);
+        box.style.maxWidth = `${Math.min(MAX_CHIP_PX, f.width - 2 * EDGE_PX)}px`;
         box.dataset.side = left ? "left" : "right";
         if (reserved) reserved.current = [{ x, y, w, h }];
       }),
@@ -107,7 +109,7 @@ export function ChipFrame({ subscribe, details, reserved, bottomReserve = BOTTOM
       {chip !== null && (
         <div
           ref={observe}
-          className="absolute top-0 left-0 z-10 max-w-[min(22rem,calc(100%-1.5rem))]"
+          className="absolute top-0 left-0 z-10"
           onPointerEnter={() => {
             details.show();
             details.hold(true);
@@ -124,7 +126,7 @@ export function ChipFrame({ subscribe, details, reserved, bottomReserve = BOTTOM
             aria-label={label}
             onClick={details.toggle}
             onFocus={details.show}
-            className="glass-chip flex h-11 max-w-full items-center gap-2 rounded-full px-4 text-left text-body"
+            className="on-space flex min-h-11 max-w-full flex-wrap items-baseline gap-x-3 rounded-plate px-4 py-1 text-left text-body"
           >
             {chip}
           </button>
@@ -132,7 +134,7 @@ export function ChipFrame({ subscribe, details, reserved, bottomReserve = BOTTOM
             data-open={details.open}
             inert={!details.open}
             className={cn(
-              "glass-card mt-2 max-h-(--card-max) origin-top space-y-2 overflow-y-auto rounded-2xl p-4 transition-[opacity,transform] duration-200 ease-out motion-reduce:transition-none",
+              "on-space mt-2 max-h-(--card-max) origin-top space-y-2 overflow-y-auto rounded-plate p-4 transition-[opacity,transform] duration-200 ease-out motion-reduce:transition-none",
               details.open ? "scale-100 opacity-100" : "pointer-events-none scale-95 opacity-0",
           )}
         >

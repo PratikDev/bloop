@@ -27,9 +27,20 @@ export function introWanted(reduceMotion: boolean): boolean {
  * in from a wide product shot while the arm swings onto the globe (the crackle
  * earcon on touchdown, then the data voice). Any key or click skips it.
  */
-export function useIntro(tt: Turntable, wanted: boolean): { phase: IntroPhase; skip(): void } {
+export function useIntro(tt: Turntable, wanted: boolean): { phase: IntroPhase; ready: boolean; skip(): void } {
   const [phase, setPhase] = useState<IntroPhase>(wanted ? "waiting" : "done");
   const { sceneRef, startIntro, skipIntro } = tt;
+  // The Earth's textures are in, or the wait has timed out: there's a first frame to show.
+  const [ready, setReady] = useState(false);
+
+  useEffect(() => {
+    if (ready) return;
+    const since = performance.now();
+    const id = setInterval(() => {
+      if (sceneRef.current?.info().surface != null || performance.now() - since >= READY_TIMEOUT_MS) setReady(true);
+    }, READY_POLL_MS);
+    return () => clearInterval(id);
+  }, [ready, sceneRef]);
 
   useEffect(() => {
     if (phase !== "waiting") return;
@@ -79,5 +90,5 @@ export function useIntro(tt: Turntable, wanted: boolean): { phase: IntroPhase; s
     };
   });
 
-  return { phase, skip };
+  return { phase, ready, skip };
 }

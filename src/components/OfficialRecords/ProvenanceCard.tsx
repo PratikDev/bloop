@@ -25,7 +25,7 @@ export function ProvenanceCard({ manifest, validation }: { manifest: OfficialMan
       <ProductBadges product={manifest.record} />
       <dl className="grid grid-cols-[auto_1fr] gap-x-3 gap-y-1">
         <dt className="text-haze">{t("provenance.visualization")}</dt>
-        <dd className="space-x-2">
+        <dd className="flex flex-wrap gap-x-2">
           {manifest.svs_ids.map((id, i) => (
             <a key={id} href={manifest.svs_pages[i]} target="_blank" rel="noreferrer" className="underline underline-offset-2">
               {t("official.svs", { id })}

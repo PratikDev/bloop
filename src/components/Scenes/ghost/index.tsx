@@ -219,7 +219,7 @@ export function GhostEarths({ onExit, tier, geo }: SceneProps) {
             {files && <p className="text-small text-haze">{files.places.basis[layer]}</p>}
             <p className="text-small text-haze">{tt(layer === "water" ? "scenes.ghost.monthly" : "scenes.ghost.yearly")}</p>
           </SceneChip>
-          {!field && <p className="absolute inset-x-0 top-1/2 text-center text-body text-haze">{tt(error ? "scenes.failed" : "scenes.loading")}</p>}
+          {!field && <p className="absolute inset-x-0 top-1/2 text-center text-body text-star">{tt(error ? "scenes.failed" : "scenes.loading")}</p>}
         </>
       }
       topRight={

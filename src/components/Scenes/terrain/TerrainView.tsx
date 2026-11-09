@@ -261,7 +261,7 @@ export function TerrainView({ data, onExit, tier, geo }: SceneProps & { data: Te
       topRight={<div className="glass-chip pointer-events-auto rounded-full px-3 py-2">{zoomBadge}</div>}
       controls={
         <div className="glass-chip space-y-1 rounded-2xl px-4 py-2">
-          {hunting && <p className="text-center text-body text-moon">{found ? tt("scenes.terrain.found", { value: formatTemperature(field.warmest.valueC, lang), lat: latText(field.warmest.lat, lang), lon: lonText(field.warmest.lon, lang) }) : tt("scenes.terrain.goalOn")}</p>}
+          {hunting && <p className="text-center text-body text-star">{found ? tt("scenes.terrain.found", { value: formatTemperature(field.warmest.valueC, lang), lat: latText(field.warmest.lat, lang), lon: lonText(field.warmest.lon, lang) }) : tt("scenes.terrain.goalOn")}</p>}
           {loop.seq && frame && (
             <Scrubber label={tt("scenes.scrub.rain")} valueText={formatUtc(frame.ref.time_utc, lang)} index={loop.frame} count={loop.seq.frames.length} onChange={loop.setFrame} />
           )}

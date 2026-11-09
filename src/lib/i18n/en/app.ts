@@ -10,7 +10,7 @@ const deg = (v: number) => formatDegrees(v, "en");
 export const appEn = {
   "app.title": APP_NAME,
 
-  "start.lead": "Hear NASA's view of the latest ocean and rain as live sound.",
+  "start.lead": "NASA's pictures of Earth, turned into live sound you can explore by ear, with or without sight.",
   "start.hint": "Headphones help: west sounds left, east sounds right.",
   "start.button": "Start listening",
   "start.silent": "Explore without sound",

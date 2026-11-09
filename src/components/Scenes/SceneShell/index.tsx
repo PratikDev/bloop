@@ -11,8 +11,6 @@ import { Drawer } from "../../Turntable/Drawers";
 import { useTT } from "../../Turntable/i18n";
 import { SceneDock, type SceneDockProps } from "./SceneDock";
 
-const LABEL_SHADOW = "[text-shadow:0_1px_3px_var(--label-shadow)]";
-
 export interface SceneShellProps {
   title: string;
   /** Announced (live region) when the scene opens. */
@@ -111,13 +109,14 @@ export function SceneShell({ title, entry, stage, topRight, controls, legend, di
     <section
       ref={rootRef}
       tabIndex={-1}
+      data-space
       lang={rootLang}
       aria-label={title}
       onKeyDown={onKeyDown}
       className={cn("tt-warm absolute inset-0 z-20 overflow-hidden bg-tt-black outline-none", !state.reduceMotion && "animate-scene-in")}
     >
       {stage}
-      <h2 className={cn("pointer-events-none absolute top-3 left-4 max-w-[60%] font-display text-lead font-semibold text-moon", LABEL_SHADOW)}>{title}</h2>
+      <h2 className="pointer-events-none absolute top-3 left-4 max-w-[60%] font-display text-lead font-semibold text-star">{title}</h2>
       {topRight && <div className="pointer-events-none absolute top-3 right-3 left-3 flex items-start justify-end gap-2 pt-8 sm:pt-0">{topRight}</div>}
       <div className="pointer-events-none absolute inset-x-3 bottom-3 flex flex-col items-center gap-2">
         <div className="max-w-2xl text-center">
@@ -125,7 +124,7 @@ export function SceneShell({ title, entry, stage, topRight, controls, legend, di
         </div>
         {controls && <div className="pointer-events-auto w-full max-w-xl">{controls}</div>}
         <div className="pointer-events-auto w-full max-w-md">{legend}</div>
-        <p className={cn("max-w-2xl text-center text-small text-haze", LABEL_SHADOW)}>{disclosure.join(" · ")}</p>
+        <p className="max-w-2xl text-center text-small text-star">{disclosure.join(" · ")}</p>
         <div className="pointer-events-auto max-w-full">
           <SceneDock ref={dockRef} {...dock} onBack={onExit} onLayers={() => setLayersOpen(true)} />
         </div>

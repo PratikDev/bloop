@@ -4,6 +4,7 @@ import { useEffect, useRef } from "react";
 import { cn } from "@/lib/utils";
 import { analyserFor } from "@/lib/audio-engines";
 import { readPalette } from "@/lib/css-tokens";
+import { subscribeTicker } from "@/hooks/use-ticker";
 import { useAppState } from "./AppState/use-app-state";
 
 const FPS = 30;
@@ -23,11 +24,9 @@ export function Waveform({ className }: { className?: string }) {
     const color = readPalette().shapla;
     let samples: Uint8Array<ArrayBuffer> | null = null;
     let last = 0;
-    let raf = 0;
 
     const draw = (ms: number) => {
-      raf = requestAnimationFrame(draw);
-      if (document.hidden || ms - last < 1000 / fps) return;
+      if (ms - last < 1000 / fps) return;
       last = ms;
       const dpr = window.devicePixelRatio || 1;
       const w = canvas.clientWidth;
@@ -54,8 +53,7 @@ export function Waveform({ className }: { className?: string }) {
       }
       ctx.stroke();
     };
-    raf = requestAnimationFrame(draw);
-    return () => cancelAnimationFrame(raf);
+    return subscribeTicker(draw, canvas);
   }, [fps, mode]);
 
   return <canvas ref={canvasRef} aria-hidden="true" className={cn("h-8 w-32", className)} />;

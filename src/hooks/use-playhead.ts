@@ -2,6 +2,7 @@
 
 import { useEffect, useState } from "react";
 import { audio, clockNow, eventClockTime } from "@/lib/audio-adapter";
+import { subscribeTicker } from "./use-ticker";
 
 const LINGER_SEC = 1.5; // longer than the 0.8 s pause between Then and Now
 
@@ -17,7 +18,6 @@ export function usePlayhead(playerPrefix: string): { player: string; index: numb
   useEffect(() => {
     let queue: { player: string; index: number; time: number }[] = [];
     let shown: { player: string; index: number; time: number } | null = null;
-    let raf = 0;
 
     const off = audio.onAudioEvent((e) => {
       if (e.kind !== "step" || !e.player.startsWith(playerPrefix)) return;
@@ -25,7 +25,6 @@ export function usePlayhead(playerPrefix: string): { player: string; index: numb
     });
 
     const tick = () => {
-      raf = requestAnimationFrame(tick);
       const now = clockNow();
       let next = shown;
       while (queue.length > 0 && queue[0].time <= now) next = queue.shift() ?? next;
@@ -37,11 +36,11 @@ export function usePlayhead(playerPrefix: string): { player: string; index: numb
         setHead(null);
       }
     };
-    raf = requestAnimationFrame(tick);
+    const unsubscribe = subscribeTicker(tick);
     return () => {
       off();
       queue = [];
-      cancelAnimationFrame(raf);
+      unsubscribe();
     };
   }, [playerPrefix]);
 

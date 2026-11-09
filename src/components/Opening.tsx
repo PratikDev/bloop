@@ -114,7 +114,7 @@ export function Opening() {
                 animate={{ opacity: 1, y: 0 }}
                 exit={{ opacity: 0, y: -8 }}
                 transition={{ duration: 0.7, ease: EASE_OUT_SOFT }}
-                className="display-tight min-h-20 max-w-3xl text-center font-wide text-display text-moon"
+                className="display-tight min-h-20 max-w-3xl text-center font-wide-display text-display text-moon"
               >
                 {line}
               </motion.p>

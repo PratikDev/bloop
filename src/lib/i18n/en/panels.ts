@@ -7,10 +7,10 @@ import { formatFixed, formatInteger } from "../format";
 export const panelsEn = {
   "panel.label": "About this sound",
   // The Listen page's Inspector tabs.
+  "panel.history": "Month by month",
   "panel.truth": "Checks",
   "panel.mapping": "What you hear",
   "panel.provenance": "Where it's from",
-  "panel.history": "Month by month",
 
   "truth.intro": "We read each value back from the frame's colours, then checked those values against NASA's source data.",
   "truth.ocean.heading": "Ocean temperature",

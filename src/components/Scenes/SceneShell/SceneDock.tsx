@@ -25,7 +25,7 @@ export function SceneDock({ ref, playing, onPlay, speedText, onSpeed, onBack, on
   const { tt } = useTT();
   const commands = useCommands();
   return (
-    <div ref={ref} role="group" aria-label={tt("turntable.dock")} className="glass-dock flex flex-wrap items-center justify-center gap-1 rounded-full p-1.5">
+    <div ref={ref} role="group" aria-label={tt("turntable.dock")} className="glass-dock flex flex-wrap items-center justify-center gap-2 rounded-sheet p-2">
       <DockButton icon={playing ? Pause : Play} label={tt(playing ? "scenes.pause" : "scenes.play")} keys="Space" pressed={playing} onClick={onPlay} />
       <Popover>
         <DockButton icon={Gauge} label={tt("turntable.dock.speed")} keys="[ ]" wrap={(b) => <PopoverTrigger render={b} />} />

@@ -33,6 +33,7 @@ export interface StageProps {
   graticule: GraticuleLabel[] | null;
   details: Details;
   intro: IntroPhase;
+  ready: boolean;
   idle: boolean;
   onKeyDown(e: KeyboardEvent<HTMLElement>): void;
   debug: { sendLog: RefObject<SentReading[]>; placed: { current: PlacedLabels } } | null;
@@ -40,7 +41,7 @@ export interface StageProps {
 }
 
 /** The globe and everything drawn over it; the focusable region for the Turntable keys. */
-export function Stage({ tt, hostRef, geo, record, tier, place, labels, graticule, details, intro, idle, onKeyDown, debug, className }: StageProps) {
+export function Stage({ tt, hostRef, geo, record, tier, place, labels, graticule, details, intro, ready, idle, onKeyDown, debug, className }: StageProps) {
   const { tt: tr } = useTT();
   const pointer = useGlobePointer(tt);
   const instructionsId = useId();
@@ -60,6 +61,7 @@ export function Stage({ tt, hostRef, geo, record, tier, place, labels, graticule
 
   return (
     <div
+      data-overlay
       role="application"
       tabIndex={0}
       aria-roledescription={tr("turntable.roleDescription")}
@@ -76,16 +78,21 @@ export function Stage({ tt, hostRef, geo, record, tier, place, labels, graticule
       </div>
       {labels && <LabelLayer subscribe={tt.subscribe} candidates={labels} graticule={graticule} reserved={reserved} placedRef={debug?.placed} />}
       <NeedleChip subscribe={tt.subscribe} place={place} details={details} reserved={reserved} />
-      <p className="pointer-events-none absolute top-3 left-4 max-w-[60%] text-small text-haze">{tr("turntable.background")}</p>
       {idle && intro === "done" && (
-        <p className="glass-chip pointer-events-none absolute top-16 left-1/2 flex -translate-x-1/2 items-center gap-2 rounded-full px-4 py-2 text-body text-moon">
+        <p className="on-space pointer-events-none absolute top-16 left-1/2 flex -translate-x-1/2 items-center gap-2 rounded-full px-4 py-2 text-body">
           <Search aria-hidden="true" className="size-4" />
           {tr("turntable.idleHint")}
         </p>
       )}
-      {intro !== "done" && (
-        <div aria-hidden="true" className={cn("pointer-events-none absolute inset-0 grid place-items-center bg-tt-black", intro === "running" && "animate-intro-fade")}>
-          <p className="text-body text-haze">{tr("turntable.intro.skip")}</p>
+      {intro !== "done" && <div aria-hidden="true" className={cn("pointer-events-none absolute inset-0 bg-tt-black", intro === "running" && "animate-intro-fade")} />}
+      {!ready && (
+        <div aria-hidden="true" className="pointer-events-none absolute inset-0 grid place-items-center">
+          <p className="on-space rounded-plate px-5 py-3 text-body">{tr("turntable.loading")}</p>
+        </div>
+      )}
+      {ready && intro === "running" && (
+        <div aria-hidden="true" className="pointer-events-none absolute inset-0 grid place-items-center">
+          <p className="label-halo text-body">{tr("turntable.intro.skip")}</p>
         </div>
       )}
       {debug && <DebugOverlay tt={tt} sendLog={debug.sendLog} placed={debug.placed} geo={geo} />}

@@ -35,6 +35,8 @@ import { asOccluder } from "./layers";
 const BASE = { size: new Vector3(4.6, 0.24, 3.8), center: new Vector3(0.35, -1.42, 0.1), bevel: 0.06 };
 const GLASS = { thickness: 0.05, bevel: 0.022 };
 const PLATTER = { radius: 1.6, height: 0.06, y: -1.2 };
+/** The rim mirrors the studio's light; a darker metal keeps it from reading as a glowing ring (the environment is scene-wide, so its intensity can't be set per material). */
+const PLATTER_REFLECTANCE = 0.55;
 const RECORD = { radius: 1.5, height: 0.012, y: -1.164, labelRadius: 0.48 };
 const SPINDLE = { radius: 0.03, bottom: -1.16, top: -1.09 };
 const ROD_RADIUS = 0.012;
@@ -104,6 +106,7 @@ export function createDeck(palette: Palette): Deck {
       opacity: 0.94,
     }),
     brushed: physical({ color: new Color(palette.metal), metalness: 1, roughness: 0.38, anisotropy: 0.8, anisotropyRotation: Math.PI / 2 }),
+    platter: physical({ color: new Color(palette.metal).multiplyScalar(PLATTER_REFLECTANCE), metalness: 1, roughness: 0.38, anisotropy: 0.8, anisotropyRotation: Math.PI / 2 }),
     chrome: physical({ color: new Color(palette.metal), metalness: 1, roughness: 0.08 }),
     darkMetal: physical({ color: new Color(palette.anodised), metalness: 0.9, roughness: 0.32 }),
     vinyl: physical({
@@ -135,7 +138,7 @@ export function createDeck(palette: Palette): Deck {
   const plinthTop = baseTop + GLASS.thickness - 0.004;
 
   const platter = new Group();
-  const platterBody = mesh(new CylinderGeometry(PLATTER.radius, PLATTER.radius * 0.985, PLATTER.height, 128), materials.brushed);
+  const platterBody = mesh(new CylinderGeometry(PLATTER.radius, PLATTER.radius * 0.985, PLATTER.height, 128), materials.platter);
   platterBody.position.y = PLATTER.y;
   const record = new Group();
   const vinyl = mesh(new CylinderGeometry(RECORD.radius, RECORD.radius, RECORD.height, 192), materials.vinyl);

@@ -8,21 +8,27 @@ import { dock, map, name, onMap, sounds, tab, type Feature } from "./common";
 const title = (page: Page) => page.getByRole("heading", { level: 1 }).first();
 
 export const PAGES: Feature[] = [
-  { id: "home", group: "pages", name: "Home: live globe and the five stations", where: "/ (Home)", keyboard: false,
-    what: "The start screen: the live globe, its frame label, and a station for each page",
-    control: (page) => page.getByRole("navigation", { name: "Five ways in" }),
+  { id: "home", group: "pages", name: "Home: live globe, its frame caption and the way in", where: "/ (Home)", keyboard: false,
+    what: "The start screen: the live globe, its frame caption, Continue listening and the tour",
+    control: (page) => page.getByRole("link", { name: "Continue listening" }),
     async run(page) {
       await page.getByRole("banner").getByRole("link", { name: "Bloop, home" }).click();
       await expect(page).toHaveURL(/\/$/u);
-      const stations = page.getByRole("navigation", { name: "Five ways in" }).getByRole("link");
-      await expect(stations).toHaveCount(5);
-      return { evidence: `Home: ${(await stations.allInnerTexts()).map((s) => s.split("\n")[1] ?? s).join(", ")}` };
+      await expect(title(page)).toHaveText(/Hear Earth's ocean and rain/u);
+      const caption = page.getByText(/^NASA EIC frame: ocean temperature, /u);
+      await expect(caption).toBeVisible();
+      await expect(page.getByRole("main").locator("canvas")).toHaveCount(1);
+      await expect(page.getByRole("link", { name: "Continue listening" })).toBeVisible();
+      await expect(page.getByRole("link", { name: "Take the 90-second tour" })).toBeVisible();
+      return { evidence: `Home: ${await caption.innerText()}` };
     } },
-  { id: "start-remembered", group: "pages", name: "The sound choice is remembered; Reset sound choice", where: "Home · Continue listening · Reset sound choice", keyboard: false,
+  { id: "start-remembered", group: "pages", name: "The sound choice is remembered; Reset sound choice", where: "Home · Continue listening; Settings · Reset sound choice", keyboard: false,
     what: "After the first visit Home offers Continue listening; Reset sound choice brings the start buttons back",
     control: (page) => page.getByRole("button", { name: "Reset sound choice" }),
     async run(page) {
       await page.goto("/");
+      await expect(page.getByRole("link", { name: "Continue listening" })).toBeVisible();
+      await page.getByRole("button", { name: "Settings" }).click();
       await page.getByRole("button", { name: "Reset sound choice" }).click({ timeout: 15_000 });
       await expect(page.getByRole("button", { name: "Start listening" })).toBeVisible();
       return { evidence: "reload → Reset sound choice offered; → Start listening again" };
@@ -45,7 +51,9 @@ export const PAGES: Feature[] = [
       await onMap(page); await page.keyboard.press("t");
       await expect(page).toHaveURL(/\/then-now/u);
       await expect(title(page)).toHaveText(/Then vs Now/u);
-      const parts = await page.getByRole("tablist", { name: "Part" }).getByRole("tab").allInnerTexts();
+      const partTabs = page.getByRole("tablist", { name: "Part" }).getByRole("tab");
+      await expect(partTabs.first()).toBeVisible(); // the tabs come with the page's data, a moment after its title
+      const parts = await partTabs.allInnerTexts();
       for (const p of ["Heat", "Monsoon rain", "Water underground", "Fires", "Vegetation"]) if (!parts.some((x) => x.trim().startsWith(p))) throw new Error(`no ${p} part (${parts.join(", ")})`);
       await page.getByRole("button", { name: "Play this part" }).click();
       const s = await sounds(page, "heat part");

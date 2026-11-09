@@ -69,8 +69,14 @@ export async function turntable(page: Page) {
   return { app, details };
 }
 
+/** Opens the More menu on the Turntable's bar. */
+export async function openMore(page: Page) {
+  await page.getByRole("group", { name: "Turntable controls" }).getByRole("button", { name: "More", exact: true }).click();
+}
+
 export async function openScene(page: Page, sleeve: string): Promise<Outcome> {
   await turntable(page);
+  await openMore(page);
   await page.getByRole("button", { name: "Records", exact: true }).click();
   const open = page.getByRole("button", { name: `Open the ${sleeve} scene` });
   await open.click();

@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useState, type ReactNode } from "react";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import type { HistoryMetric } from "@/lib/history";
 import type { PanelTab } from "../AppState/reducer";
@@ -24,13 +24,13 @@ function HistoryTab() {
   return <MonthByMonth place={place} metric={metric} onPlace={setPlace} onMetric={setMetric} />;
 }
 
-/** Truth, Mapping, Provenance and History: the Turntable's "How we know" drawer. */
-export function PanelTabs() {
+/** Truth, Mapping, Provenance and History: the Turntable's "Sources and checks" drawer. */
+export function PanelTabs({ provenanceNote }: { provenanceNote?: ReactNode }) {
   const { state, dispatch } = useAppState();
   const t = useT();
   return (
     <Tabs value={state.panel} onValueChange={(panel: PanelTab) => dispatch({ type: "setPanel", panel })} className="gap-4">
-      <TabsList aria-label={t("panel.label")} className="w-full bg-night group-data-horizontal/tabs:h-11">
+      <TabsList aria-label={t("panel.label")} className="w-full bg-paper group-data-horizontal/tabs:h-11">
         {TABS.map(({ tab, label }) => (
           <TabsTrigger key={tab} value={tab} className="h-full px-2 text-body data-active:bg-tide">
             {t(label)}
@@ -45,6 +45,7 @@ export function PanelTabs() {
       </TabsContent>
       <TabsContent value="provenance">
         <ProvenancePanel />
+        {provenanceNote && <p className="mt-3 text-body text-moon">{provenanceNote}</p>}
       </TabsContent>
       <TabsContent value="history">
         <HistoryTab />

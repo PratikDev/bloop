@@ -28,7 +28,7 @@ export function StartGate() {
           <p className="text-lead text-moon">{t("start.lead")}</p>
         </motion.div>
         <motion.div variants={RISE}>
-          <StartActions autoFocus />
+          <StartActions silentHint autoFocus />
         </motion.div>
       </motion.div>
     </div>
