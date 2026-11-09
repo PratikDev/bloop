@@ -25,8 +25,12 @@ export const FLAGS = {
   // Ready on 9 Nov 2026: table-places.e2e.ts 20/20, the a11y + features + health checks 312/312 with it on (Chromium +
   // Firefox).
   /** Step 5: Track 0 "Tuning" (anchors, reference tone, sound grammar) and the spoken provenance line (Shift+P). */
-  // Ready on 9 Nov 2026: tuning.e2e.ts 8/8, the a11y + features + health checks 328/328 with it on (Chromium + Firefox;
+  // Ready on 9 Nov 2026: tuning.e2e.ts 16/16, the a11y + features + health checks 328/328 with it on (Chromium + Firefox;
   // one Official record timed out once and passed on rerun).
+  /** Step 6: Compare two dates (beating tones, exact difference), the sonar (N), the expedition log (.txt). */
+  // Ready on 9 Nov 2026: expedition.e2e.ts 12/12, the a11y + features + health checks 340/340 with it on (Chromium +
+  // Firefox).
+  expedition: flag(process.env.NEXT_PUBLIC_A11Y_EXPEDITION, true),
   tuning: flag(process.env.NEXT_PUBLIC_A11Y_TUNING, true),
   tablePlaces: flag(process.env.NEXT_PUBLIC_A11Y_TABLE_PLACES, true),
   describe: flag(process.env.NEXT_PUBLIC_A11Y_DESCRIBE, true),

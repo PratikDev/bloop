@@ -20,7 +20,7 @@ export { stopAll } from "./stop";
 export { setAllMuted, setMasterVolume, setSolo, setTrackMode, setVoiceMuted, setVoiceVolume } from "./mixer";
 export { setOcean, setRain, silenceLive } from "./live";
 export { speak } from "./speech";
-export { playEarcon } from "./earcons";
+export { playEarcon, playSonarPing } from "./earcons";
 export { playAnchor, playLegend, playLegendForMode, type Anchor } from "./players/legend";
 export { playWarmup } from "./players/warmup";
 export { playSweep } from "./players/sweep";

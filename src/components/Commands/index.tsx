@@ -73,10 +73,15 @@ export function CommandsProvider({ children }: { children: ReactNode }) {
       if (source && state.soundOn && id === sayCount.current) audio.playEarcon("whisper", { params: { source: source.caption } });
     };
 
+    const note = (text: string, sources: string[]) => dispatch({ type: "note", entry: { at: new Date().toISOString(), text, sources } });
+
     const speakAt = (at: LatLon) => {
       if (!fields) return;
       const reading = readAt(fields, at);
       void say((tl) => spokenReading(tl, reading, state.track, at), whisperSource(t, fields, state.track));
+      // The expedition log keeps what Enter said, with the frames it came from.
+      const sources = [state.track !== "rain" ? fields.sst.meta.source_dataset : null, state.track !== "ocean" ? (fields.rain?.meta.source_dataset ?? null) : null];
+      note(spokenReading(t, reading, state.track, at), sources.filter((s) => s !== null));
     };
 
     const startSweep = () => {
@@ -196,8 +201,10 @@ export function CommandsProvider({ children }: { children: ReactNode }) {
       toggleBraille(open) {
         dispatch({ type: "setBrailleOpen", open: open ?? !state.brailleOpen });
       },
+      note,
       stopAll({ leave = true } = {}) {
         sayCount.current++;
+        dispatch({ type: "setSonar", on: false });
         stopAllEngines();
         sweepRef.current = null;
         dispatch({ type: "introDone" }); // Esc also skips the opening

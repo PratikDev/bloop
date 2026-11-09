@@ -11,6 +11,7 @@ import type { Commands } from "../Commands/use-commands";
 import type { ShownPoint } from "../TimeLapse/use-shown-point";
 import { useDescribeHere } from "../Describe/use-describe-here";
 import { useSayProvenance } from "../Tuning/use-say-provenance";
+import { useSonar } from "./use-sonar";
 import { useTimeLapse } from "../TimeLapse/use-time-lapse";
 
 export const STEP_DEG = 1;
@@ -53,6 +54,7 @@ export function useMapKeys(commands: Commands, shown: ShownPoint, stepDeg: numbe
   const { stepFrame } = useTimeLapse();
   const describeHere = useDescribeHere();
   const sayProvenance = useSayProvenance();
+  const sonar = useSonar();
   const announce = useAnnounce();
   const t = useT();
   // The J region mode's current view; null when it is off.
@@ -105,6 +107,10 @@ export function useMapKeys(commands: Commands, shown: ShownPoint, stepDeg: numbe
         return FLAGS.describe && describeHere ? describeHere : speakHere;
       case "D":
         return () => commands.toggleSetting("describe");
+      case "n":
+      case "N":
+        // Step 6: the sonar toward the warmest or wettest spot near the needle; N again stops it.
+        return FLAGS.expedition ? sonar : null;
       case "P":
         // Step 5: the record's source in one line (plain P still opens Where it's from).
         return FLAGS.tuning ? sayProvenance : null;

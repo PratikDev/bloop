@@ -1,5 +1,6 @@
 import { TRACK_VOICES, type LiveVoiceId, type TrackMode } from "@/lib/audio-adapter/types";
 import { DEFAULT_CELL, remember } from "@/a11y/mapNav";
+import { addEntry, type LogEntry } from "@/lib/expedition-log";
 import { FLAGS } from "@/lib/flags";
 import { clampLat, START_CURSOR, wrapLon, type LatLon } from "@/lib/data";
 import type { Lang } from "@/lib/i18n";
@@ -55,6 +56,10 @@ export interface AppState extends AccessChoices {
   /** Track 0 "Tuning" was finished or skipped on this device (remembered), and whether it is showing now. */
   tuned: boolean;
   tuning: boolean;
+  /** The expedition log: this session's places, values, comparisons and their sources (never saved by the app). */
+  log: LogEntry[];
+  /** The sonar (N) is pinging toward its target. */
+  sonar: boolean;
   /** What the map's next settled announcement leads with (a jump's region or place); `n` counts, so a repeat is new. */
   lead: Lead | null;
 }
@@ -92,6 +97,8 @@ export type AppAction =
   | { type: "setBrailleOpen"; open: boolean }
   | { type: "setAccess"; patch: Partial<AccessChoices> }
   | { type: "startTuning" }
+  | { type: "note"; entry: LogEntry }
+  | { type: "setSonar"; on: boolean }
   | { type: "endTuning" };
 
 const FULL_MIX: VoiceMix = { volume: 1, muted: false };
@@ -124,6 +131,8 @@ export const initialState: AppState = {
   lead: null,
   tuned: false,
   tuning: false,
+  log: [],
+  sonar: false,
   ...ACCESS_DEFAULTS,
 };
 
@@ -216,6 +225,10 @@ export function reducer(state: AppState, action: AppAction): AppState {
       return { ...state, ...action.patch };
     case "startTuning":
       return { ...state, tuning: true };
+    case "note":
+      return { ...state, log: addEntry(state.log, action.entry) };
+    case "setSonar":
+      return { ...state, sonar: action.on };
     case "endTuning":
       return { ...state, tuning: false, tuned: true };
   }

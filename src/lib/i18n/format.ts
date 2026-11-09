@@ -79,6 +79,11 @@ export function formatMonthRange(range: string, lang: Lang): string {
 }
 
 /** "2017-07" → "Jul 2017". */
+/** A month's name alone ("January"), for month pickers; `mm` is "01".."12". */
+export function formatMonthName(mm: string, lang: Lang): string {
+  return new Intl.DateTimeFormat(LOCALE[lang], { month: "long", timeZone: "UTC" }).format(new Date(Date.UTC(2000, Number(mm) - 1, 1)));
+}
+
 export function formatMonth(yyyyMm: string, lang: Lang): string {
   const [y, m] = yyyyMm.split("-").map(Number);
   return new Intl.DateTimeFormat(LOCALE[lang], { month: "short", year: "numeric", timeZone: "UTC" }).format(

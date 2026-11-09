@@ -53,6 +53,8 @@ export interface Commands {
   setCursor(cursor: LatLon, opts?: { remember?: boolean; lead?: string }): void;
   /** + (1) / − (−1): the next step size for the arrow keys (src/a11y/mapNav.ts), announced. */
   changeStep(dir: 1 | -1): void;
+  /** Adds a line to the expedition log (step 6): what was said, in the screen's language, and its datasets. */
+  note(text: string, sources: string[]): void;
   /** ".": back to the needle's previous place, or says there is none. */
   goBack(): void;
   setTrack(track: TrackMode): void;

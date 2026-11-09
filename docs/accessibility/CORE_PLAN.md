@@ -52,6 +52,8 @@ as the existing S, M, D, C, T, L, P, X, U, H, B already do. Help says so.
 | PageUp / PageDown | none | change voice rate during Say All only | no | **bind**: time step |
 | `D` / Shift+`D` | landmark next / previous | D = next different element | no | **bind** (passes in focus/forms mode) |
 | `H` | heading | heading | no | already bound (help, map focus only) |
+| Shift+`P` | previous paragraph | previous paragraph | no | **bind** (step 5): the record's provenance line |
+| `N` | non-linked text | skip past links | no | **bind** (step 6): the sonar |
 
 ## Order (one commit each, each with its tests)
 
@@ -65,5 +67,16 @@ as the existing S, M, D, C, T, L, P, X, U, H, B already do. Help says so.
 8. Low vision: themes + OS preferences + focus; text size, spacing, fonts; banding + re-colour + legends; Context Lens;
    calm view, compact centre, point of regard; the preset.
 9. Docs: `ACCESSIBILITY.md`, `MANUAL_TESTS.md`, `RESULTS.md` (NVDA log method, run with the user off the PC).
+
+Added by the user on 9 Nov 2026, in this order after step 9:
+
+10. Low vision, Part 4 in full, nothing skipped: the Context Lens (Z; [ and ] resize) with its value, mini scale and
+    overview inset; banding and re-colour with legends and the "re-coloured" label; thick coastlines and city labels;
+    themes, text size, spacing, fonts; calm view, compact centre, point of regard; the Alt+L preset. (Step 8 builds
+    it; this item is the check that every part of Part 4 exists and is tested.)
+11. Braille Data Explorer on Then vs Now: the shape line shows the yearly series for the selected part and city
+    (shared scale, MAIDR bands), the caret is the year, R reviews the value with its confidence interval. Same tests as
+    the existing braille suite.
+12. Every new description and stat line gets a braille-safe short form (the src/a11y/brailleText.ts rules).
 
 Tests per the spec, desktop Chromium + Firefox, 3D shown and hidden; axe zero serious.

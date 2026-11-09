@@ -50,6 +50,7 @@ export function PlacesMenu() {
 
   const go = (at: LatLon, name: string) => {
     commands.setCursor(at, { remember: true, lead: t("places.moved", { name }) });
+    commands.note(`${t("places.moved", { name })} ${t("place.latlon", at)}`, []);
     went.current = true;
     setOpen(false);
   };

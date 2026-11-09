@@ -163,6 +163,8 @@ export interface L3AudioExtensions {
   setClarity(c: Clarity): void;
   // PROPOSAL (§15, C1): proof in unison for one checked point (frame tone, then the file tone joins).
   playUnison(pair: { frameC: number; fileC: number }): PlayerHandle;
+  // Accessibility core, step 6: Compare two dates: one place at two times by a pitch rule (heat, water), beating.
+  playPair(p: { rule: string; a: number; b: number; caption(beatsPerSec: number): { key: string; params: CaptionParams } }): PlayerHandle;
   // PROPOSAL (§15, guardrail 16): a live track's data is past its freshness limit → the recorded texture.
   setRecorded(track: "ocean" | "rain", stale: boolean): void;
   // PROPOSAL (§15 official records, B9): a plain record voice by its mapping.json id; the synth follows the rule's

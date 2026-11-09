@@ -63,6 +63,8 @@ export interface L2AudioApi {
   // Speech, legend, earcons
   speak(text: string, lang: Lang): Promise<void>;
   playEarcon(id: EarconId, opts?: { lon?: number; params?: CaptionParams }): void;
+  // Accessibility core, step 6: the sonar's ping, rising and (by the caller's timing) quickening near the target.
+  playSonarPing(closeness: number, lon?: number): void;
   playLegend(voice: LegendVoice): PlayerHandle;
   playWarmup(): PlayerHandle;
   // Track 0 ("Tuning", accessibility core step 5): one legend anchor, or the reference tone.

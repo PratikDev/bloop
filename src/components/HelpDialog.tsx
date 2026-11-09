@@ -46,6 +46,7 @@ const CORE_KEYS: KeyRow[] = KEYS.flatMap((row): KeyRow[] => {
     ];
   if (row.key === "D") return [{ key: "D", action: "key.d.here.action" }, { key: "Shift+D", action: "key.shiftD.action" }];
   if (row.key === "P" && FLAGS.tuning) return [row, { key: "Shift+P", action: "key.shiftP.action" }];
+  if (row.key === "U" && FLAGS.expedition) return [row, { key: "N", action: "key.n.action" }];
   return [row];
 });
 

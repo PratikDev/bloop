@@ -499,7 +499,7 @@ The Mapping panel builds each rule sentence from its parts (`src/lib/i18n/bn/rul
 | `clarity` | parameter: reverbSec; unit: hours since a 1 km infrared look | How recently measured 0 to 48 hours since a 1 km infrared look → echo length 0.1 to 2.4 s (linear). |
 | `unison` | a rule shared with another voice (sameAs) | Proof in unison: two tones in one ear, both by the Ocean temperature rule (Ocean temperature −5 to 35 °C → pitch 220 to 880 Hz (exponential: equal steps in value sound like equal musical steps).) Beats per second = the difference between the two pitches in Hz. |
 
-## Draft Bangla, needs review (336)
+## Draft Bangla, needs review (374)
 
 Drafted for the mentor fixes (`docs/MENTOR_FIXES.md`); **draft, needs review** by a Bangla speaker. Listed in `src/lib/i18n/bn/drafts.ts`: remove an entry there once it is checked.
 
@@ -839,6 +839,44 @@ Drafted for the mentor fixes (`docs/MENTOR_FIXES.md`); **draft, needs review** b
 | `provenance.kind.model` | model | মডেল |
 | `provenance.kind.inventory` | inventory | তালিকা |
 | `key.shiftP.action` | Say where this record comes from, in one line | এই রেকর্ড কোথা থেকে এসেছে, এক লাইনে শুনুন |
+| `compare.open` | Compare two dates at the needle | কার্সরের জায়গায় দুটি তারিখ তুলনা করুন |
+| `compare.short` | Compare | তুলনা |
+| `compare.title` | Compare two dates | দুটি তারিখ তুলনা |
+| `compare.layer` | Record | রেকর্ড |
+| `compare.layer.heat` | Land temperature, against its normal | স্থলের তাপমাত্রা, স্বাভাবিকের তুলনায় |
+| `compare.layer.rain` | Rain | বৃষ্টি |
+| `compare.layer.water` | Water underground | ভূগর্ভের পানি |
+| `compare.month` | Month | মাস |
+| `compare.yearA` | First year | প্রথম বছর |
+| `compare.yearB` | Second year | দ্বিতীয় বছর |
+| `compare.play` | Compare | তুলনা করুন |
+| `compare.loading` | Loading the monthly record. | মাসিক রেকর্ড লোড হচ্ছে। |
+| `compare.error` | The monthly record could not load. | মাসিক রেকর্ড লোড হয়নি। |
+| `compare.unit.heat` | degrees Celsius | ডিগ্রি সেলসিয়াস |
+| `compare.unit.rain` | millimetres a day | মিলিমিটার প্রতিদিন |
+| `compare.unit.water` | centimetres of water | সেন্টিমিটার পানি |
+| `compare.said` | ``${p.record}, the cell around ${p.place}. ${p.a}: ${p.aValue} ${p.unit}. ${p.b}: ${p.bValue} ${p.unit}.`` | ``${p.record}, ${p.place}-\u098F\u09B0 \u099A\u09BE\u09B0\u09AA\u09BE\u09B6\u09C7\u09B0 \u0998\u09B0\u0964 ${p.a}: ${p.aValue} ${p.unit}\u0964 ${p.b}: ${p.bValue} ${p.unit}\u0964`` |
+| `compare.higher` | ``The second is ${p.diff} ${p.unit} higher.`` | ``\u09A6\u09CD\u09AC\u09BF\u09A4\u09C0\u09AF\u09BC\u099F\u09BF ${p.diff} ${p.unit} \u09AC\u09C7\u09B6\u09BF\u0964`` |
+| `compare.lower` | ``The second is ${p.diff} ${p.unit} lower.`` | ``\u09A6\u09CD\u09AC\u09BF\u09A4\u09C0\u09AF\u09BC\u099F\u09BF ${p.diff} ${p.unit} \u0995\u09AE\u0964`` |
+| `compare.same` | The two are the same. | দুটি একই। |
+| `compare.none` | ``${p.record}: no data for the cell around ${p.place} in one of the two months.`` | ``${p.record}: \u09A6\u09C1\u099F\u09BF \u09AE\u09BE\u09B8\u09C7\u09B0 \u098F\u0995\u099F\u09BF\u09A4\u09C7 ${p.place}-\u098F\u09B0 \u099A\u09BE\u09B0\u09AA\u09BE\u09B6\u09C7\u09B0 \u0998\u09B0\u09C7 \u09A4\u09A5\u09CD\u09AF \u09A8\u09C7\u0987\u0964`` |
+| `compare.howBeats` | Two tones in one ear: the faster they beat, the bigger the difference. | এক কানে দুটি সুর: যত দ্রুত কাঁপে, পার্থক্য তত বেশি। |
+| `compare.howDrops` | Rain plays as drops: the first month, then the second. | বৃষ্টি ফোঁটা হয়ে বাজে: প্রথম মাস, তারপর দ্বিতীয়। |
+| `caption.compare.pair` | ``Two dates, one ear: ${p.beats} beats a second`` | ``\u09A6\u09C1\u099F\u09BF \u09A4\u09BE\u09B0\u09BF\u0996, \u098F\u0995 \u0995\u09BE\u09A8: \u09B8\u09C7\u0995\u09C7\u09A8\u09CD\u09A1\u09C7 ${p.beats}\u099F\u09BF \u0995\u09AE\u09CD\u09AA\u09A8`` |
+| `sonar.warmest` | warmest | সবচেয়ে উষ্ণ |
+| `sonar.wettest` | wettest | সবচেয়ে ভেজা |
+| `sonar.start` | ``Sonar: finding the ${p.what} spot near here. The ping rises and quickens as the needle gets closer.`` | ``\u09B8\u09CB\u09A8\u09BE\u09B0: \u0995\u09BE\u099B\u09C7\u09B0 ${p.what} \u099C\u09BE\u09AF\u09BC\u0997\u09BE \u0996\u09CB\u0981\u099C\u09BE \u09B9\u099A\u09CD\u099B\u09C7\u0964 \u0995\u09BE\u09B0\u09CD\u09B8\u09B0 \u0995\u09BE\u099B\u09C7 \u0997\u09C7\u09B2\u09C7 \u09AA\u09BF\u0982 \u0989\u0981\u099A\u09C1 \u0993 \u09A6\u09CD\u09B0\u09C1\u09A4 \u09B9\u09AF\u09BC\u0964`` |
+| `sonar.none` | Sonar: nothing to find near here. | সোনার: কাছে খোঁজার মতো কিছু নেই। |
+| `sonar.arrived` | ``Found the ${p.what} spot near here: ${p.value}, ${p.place}.`` | ``\u0995\u09BE\u099B\u09C7\u09B0 ${p.what} \u099C\u09BE\u09AF\u09BC\u0997\u09BE \u09AA\u09BE\u0993\u09AF\u09BC\u09BE \u0997\u09C7\u099B\u09C7: ${p.value}, ${p.place}\u0964`` |
+| `sonar.stopped` | Sonar off. | সোনার বন্ধ। |
+| `key.n.action` | Sonar: find the warmest (ocean) or wettest (rain) spot near the needle; N again stops it | সোনার: কার্সরের কাছে সবচেয়ে উষ্ণ (সমুদ্র) বা ভেজা (বৃষ্টি) জায়গা খুঁজুন; আবার N চাপলে থামে |
+| `log.open` | Expedition log: what this session found | অভিযানের খাতা: এই সেশনে যা পাওয়া গেল |
+| `log.short` | Log | খাতা |
+| `log.title` | Bloop expedition log | ব্লুপ অভিযানের খাতা |
+| `log.empty` | Nothing yet. Enter, D, Compare, Places and the sonar add to it. | এখনও কিছু নেই। Enter, D, তুলনা, জায়গা আর সোনার এতে যোগ করে। |
+| `log.sources` | Sources: | উৎস: |
+| `log.download` | Save as text (.txt) | টেক্সট হিসেবে সংরক্ষণ (.txt) |
+| `log.width` | ``Lines are ${p.width} characters wide, as set for the braille explorer.`` | ``\u09AA\u09CD\u09B0\u09A4\u09BF\u099F\u09BF \u09B2\u09BE\u0987\u09A8 ${p.width} \u0985\u0995\u09CD\u09B7\u09B0 \u099A\u0993\u09A1\u09BC\u09BE, \u09AC\u09CD\u09B0\u09C7\u0987\u09B2 \u098F\u0995\u09CD\u09B8\u09AA\u09CD\u09B2\u09CB\u09B0\u09BE\u09B0\u09C7\u09B0 \u09AE\u09BE\u09AA \u0985\u09A8\u09C1\u09AF\u09BE\u09AF\u09BC\u09C0\u0964`` |
 | data template | GPCC stops at # because the gauge version we use (GPCC Full Data Monthly V#) ends in December #, so both rain records compare #–# with #–#. | GPCC {0} সালে থামে, কারণ আমাদের ব্যবহৃত বৃষ্টিমাপক সংস্করণ (GPCC Full Data Monthly V{1}) ডিসেম্বর {2}-এ শেষ; তাই দুটি বৃষ্টির রেকর্ডই {3}–{4}-কে {5}–{6}-এর সাথে তুলনা করে। |
 | data template | GPCP only, newer decade; GPCC data ends in # | শুধু GPCP, নতুন দশক; GPCC ডেটা {0} সালে শেষ |
 
