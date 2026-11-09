@@ -100,7 +100,6 @@ export function createDeck(palette: Palette): Deck {
     navy: toon(palette["arm-edge"]),
     head: toon(palette.stylus),
     label: new MeshToonMaterial({ gradientMap: gradient }),
-    stylus: new MeshBasicMaterial({ color: new Color(palette.stylus) }),
     outline: new MeshBasicMaterial({ color: new Color(palette["arm-edge"]), side: BackSide }),
     shadow: new MeshBasicMaterial({ color: new Color(palette["shadow-on-space"]) }),
     armShadow: new MeshBasicMaterial({ color: new Color(palette["arm-edge"]) }),
@@ -168,7 +167,6 @@ export function createDeck(palette: Palette): Deck {
   const counterweight = outline(mesh(new CylinderGeometry(0.1, 0.1, 1, 40), materials.paper), OUTLINE.arm, true);
   const headshell = outline(mesh(new RoundedBoxGeometry(0.08, 0.035, 0.13, 3, 0.012), materials.head), OUTLINE.arm);
   const needle = mesh(new ConeGeometry(0.014, NEEDLE_LENGTH, 12), materials.navy);
-  const tip = mesh(new SphereGeometry(0.014, 16, 16), materials.stylus);
   const cableTube = mesh(new CylinderGeometry(0.005, 0.005, 1, 8), materials.navy);
   // The cable runs from the pivot down beside the post and into the plinth.
   const cableDrop = mesh(
@@ -187,7 +185,7 @@ export function createDeck(palette: Palette): Deck {
   const armShadow = mesh(new PlaneGeometry(1, ARM_SHADOW.width), materials.armShadow);
   armShadow.rotation.order = "YXZ";
   armShadow.rotation.x = -Math.PI / 2;
-  arm.add(armBase, post, bearing, bearingRing, tube, counterweight, headshell, needle, tip, cableTube, cableDrop, armShadow);
+  arm.add(armBase, post, bearing, bearingRing, tube, counterweight, headshell, needle, cableTube, cableDrop, armShadow);
   // The arm hides the data layer where it passes in front of the globe.
   asOccluder(arm);
 
@@ -219,7 +217,6 @@ export function createDeck(palette: Palette): Deck {
       headshell.quaternion.copy(pointInward);
       needle.position.copy(tipAt).addScaledVector(normal, NEEDLE_LENGTH / 2);
       needle.quaternion.copy(pointInward);
-      tip.position.copy(tipAt);
       const dx = head.x - PIVOT.x;
       const dz = head.z - PIVOT.z;
       armShadow.position.set((PIVOT.x + head.x) / 2 + ARM_SHADOW.offset, ARM_SHADOW.y, (PIVOT.z + head.z) / 2 + ARM_SHADOW.offset);
