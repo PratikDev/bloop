@@ -1,5 +1,6 @@
 "use client";
 
+import type { ReactNode } from "react";
 import {
   CircleHelp,
   Disc3,
@@ -44,6 +45,8 @@ export interface DockProps {
   onLayers(): void;
   onSettings(): void;
   onHelp(): void;
+  /** The sound caption, on its own row at the top of the bar. */
+  caption: ReactNode;
 }
 
 /** The one floating control strip: everything else opens from here, closed by default. */
@@ -55,7 +58,8 @@ export function Dock({ ref, ...p }: DockProps) {
   const playLabel = t(!state.soundOn ? "sound.turnOn" : state.playing ? "sound.pause" : "sound.play");
 
   return (
-    <div ref={ref} role="group" aria-label={tt("turntable.dock")} className="glass-dock flex flex-wrap items-center justify-center gap-1 rounded-full p-1.5">
+    <div ref={ref} role="group" aria-label={tt("turntable.dock")} className="glass-dock flex flex-wrap items-center justify-center gap-1 rounded-sheet p-1.5">
+      <div className="basis-full empty:hidden">{p.caption}</div>
       <DockButton icon={state.playing ? Pause : Play} label={playLabel} pressed={state.playing} onClick={p.onPlay} />
       <Popover>
         <DockButton icon={Gauge} label={tt("turntable.dock.speed")} keys="Space [ ]" wrap={(b) => <PopoverTrigger render={b} />} />

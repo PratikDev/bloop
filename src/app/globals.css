@@ -652,7 +652,6 @@ html:lang(bn) .readout-figure {
     -1px -1px 0 var(--label-shadow),
     1px -1px 0 var(--label-shadow),
     -1px 1px 0 var(--label-shadow);
-  transition: opacity 0.25s ease-out;
 }
 
 /* Turntable captions: a new one shows for 3 s, then fades. */

@@ -94,7 +94,6 @@ export const turntableEn = {
   "turntable.layers.districts": "Districts",
   "turntable.layers.rivers": "Rivers",
   "turntable.layers.sound": "Sound mixer",
-  "turntable.howWeKnow": "How we know",
   "turntable.creditsLink": "Credits",
   "turntable.intro.skip": "Press any key to skip",
   "turntable.skip": "Skip animation",

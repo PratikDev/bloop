@@ -6,8 +6,10 @@ import { GRATICULE_LATS } from "./scene/overlays";
 import { JUKEBOX_DISTANCE, type LabelCandidate, type LabelKind } from "./labels";
 import type { FrameInfo, Turntable } from "./use-turntable";
 
-const MAX_LABELS = 55;
-const MIN_FACING = 0.3; // hide names close to the globe's edge
+const MAX_LABELS = 6;
+const MIN_FACING = 0.45; // hide names close to the globe's edge
+/** A name must sit fully inside this share of the globe's on-screen radius, or it isn't drawn. */
+const DISC_INSET = 0.96;
 const GAP_PX = 4;
 const DOT_OFFSET_PX = 7;
 
@@ -27,8 +29,6 @@ const NORMAL_WEIGHT_KINDS: ReadonlySet<LabelKind> = new Set(["story", "capital",
 const FONT_PX = 14;
 const LINE_PX = 18;
 const TRACKING_EM: Partial<Record<LabelKind, number>> = { country: 0.025, sea: 0.04 };
-/** Labels fade in from MIN_FACING over this much of the facing range (angle to the camera). */
-const FADE_FACING = 0.35;
 /** Labels are re-placed at most this often (ms), and less often on slow devices (3 × the frame time). */
 const MIN_UPDATE_MS = 33;
 const MAX_UPDATE_MS = 120;
@@ -39,6 +39,15 @@ export interface Rect {
   w: number;
   h: number;
 }
+
+/** The globe's outline on screen: centred on the point facing the camera, out to a point on the horizon. */
+function globeDisc(f: FrameInfo, horizon: number): { x: number; y: number; r: number } {
+  const centre = f.project(f.viewLat, f.viewLon);
+  const lat = f.viewLat + (Math.acos(Math.min(1, horizon)) * 180) / Math.PI;
+  const edge = lat > 90 ? f.project(180 - lat, f.viewLon + 180) : f.project(lat, f.viewLon);
+  return { x: centre.x, y: centre.y, r: Math.hypot(edge.x - centre.x, edge.y - centre.y) };
+}
+
 const overlaps = (a: Rect, b: Rect) => a.x < b.x + b.w + GAP_PX && b.x < a.x + a.w + GAP_PX && a.y < b.y + b.h + GAP_PX && b.y < a.y + a.h + GAP_PX;
 
 export interface GraticuleLabel {
@@ -51,7 +60,8 @@ export type PlacedLabels = Map<string, { x: number; y: number; lat: number; lon:
 
 /**
  * Place names on the globe as HTML text (real text shaping for Bangla, any size,
- * crisp), positioned each frame, most important first, never overlapping.
+ * crisp), positioned each frame, most important first. A name is drawn whole or
+ * not at all: one that would collide or reach the globe's edge is hidden.
  * Visual only: "Where am I?" gives screen-reader users the same information.
  */
 export function LabelLayer({
@@ -73,7 +83,7 @@ export function LabelLayer({
   useEffect(() => {
     const host = hostRef.current;
     if (!host) return;
-    type Entry = { el: HTMLSpanElement; w: number; h: number; transform: string; opacity: string };
+    type Entry = { el: HTMLSpanElement; w: number; h: number; transform: string };
     const els = new Map<string, Entry>();
     // Unit vectors of every candidate, so ones beyond the horizon are skipped before projecting.
     const units = candidates.map((c) => latLonToSphere(c.lat, c.lon));
@@ -105,7 +115,7 @@ export function LabelLayer({
         el.prepend(d);
       }
       host.append(el);
-      const entry = { el, w: textWidth(text, kind), h: LINE_PX, transform: "", opacity: "" };
+      const entry = { el, w: textWidth(text, kind), h: LINE_PX, transform: "" };
       els.set(key, entry);
       return entry;
     };
@@ -114,10 +124,13 @@ export function LabelLayer({
       const distance = f.blend < 0.5 ? JUKEBOX_DISTANCE : f.distance;
       const view = latLonToSphere(f.viewLat, f.viewLon);
       const horizon = 1 / distance; // cosine of the visible cap's angular radius
+      const disc = globeDisc(f, horizon);
+      const insideDisc = (r: Rect) =>
+        [r.x, r.x + r.w].every((x) => [r.y, r.y + r.h].every((y) => Math.hypot(x - disc.x, y - disc.y) <= disc.r * DISC_INSET));
       const placed: Rect[] = [];
       const shown = new Set<string>();
       const anchors: PlacedLabels = new Map();
-      const tryPlace = (key: string, x: number, y: number, entry: Entry, dot: boolean, lat: number, lon: number, facing: number) => {
+      const tryPlace = (key: string, x: number, y: number, entry: Entry, dot: boolean, lat: number, lon: number) => {
         const sides = dot
           ? [
               // The 6 px dot's centre sits on the anchor, with the name to its right, or else its left.
@@ -128,6 +141,7 @@ export function LabelLayer({
         for (const side of sides) {
           const rect = { x: side.x, y: y - entry.h / 2, w: entry.w, h: entry.h };
           if (rect.x < 0 || rect.y < 0 || rect.x + rect.w > f.width || rect.y + rect.h > f.height) continue;
+          if (!insideDisc(rect)) continue;
           if (placed.some((p) => overlaps(p, rect))) continue;
           placed.push(rect);
           shown.add(key);
@@ -138,12 +152,6 @@ export function LabelLayer({
             entry.transform = transform;
             if (dot) (entry.el.firstElementChild as HTMLElement).style.left = `${side.dotLeft}px`;
           }
-          // Fade with the angle to the camera (in 5% steps, so the DOM is touched only on change).
-          const opacity = String(Math.round(Math.min(1, (facing - MIN_FACING) / FADE_FACING) * 20) / 20);
-          if (opacity !== entry.opacity) {
-            entry.el.style.opacity = opacity;
-            entry.opacity = opacity;
-          }
           if (entry.el.hidden) entry.el.hidden = false;
           return;
         }
@@ -152,7 +160,7 @@ export function LabelLayer({
       // The needle's own spot stays clear for the crosshair, and the readout card's area too.
       placed.push({ x: f.needle.x - 24, y: f.needle.y - 24, w: 48, h: 48 }, ...reserved.current);
 
-      for (let i = 0; i < candidates.length && placed.length <= MAX_LABELS; i++) {
+      for (let i = 0; i < candidates.length && shown.size < MAX_LABELS; i++) {
         const c = candidates[i];
         if (distance > c.maxDistance || distance < c.minDistance) continue;
         const u = units[i];
@@ -160,14 +168,15 @@ export function LabelLayer({
         const p = f.project(c.lat, c.lon);
         if (p.facing < MIN_FACING) continue;
         const dot = DOT_KINDS.has(c.kind);
-        tryPlace(c.key, p.x, p.y, element(c.key, c.text, c.lang, c.kind, dot), dot, c.lat, c.lon, p.facing);
+        tryPlace(c.key, p.x, p.y, element(c.key, c.text, c.lang, c.kind, dot), dot, c.lat, c.lon);
       }
       if (graticule) {
         for (const g of graticule) {
+          if (shown.size >= MAX_LABELS) break;
           const key = `grat:${g.lat}`;
           const p = f.project(g.lat, f.viewLon + 18);
           if (p.facing < MIN_FACING) continue;
-          tryPlace(key, p.x, p.y, element(key, g.text, document.documentElement.lang, "district", false), false, g.lat, f.viewLon + 18, p.facing);
+          tryPlace(key, p.x, p.y, element(key, g.text, document.documentElement.lang, "district", false), false, g.lat, f.viewLon + 18);
         }
       }
       // Only labels that changed state are touched (hidden ones stay untouched).

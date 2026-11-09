@@ -96,7 +96,6 @@ export const turntableBnDraft: { [K in TurntableKey]?: Table[K] } = {
   "turntable.layers.districts": "জেলা",
   "turntable.layers.rivers": "নদী",
   "turntable.layers.sound": "শব্দ মিশ্রণ",
-  "turntable.howWeKnow": "আমরা কীভাবে জানি",
   "turntable.creditsLink": "কৃতজ্ঞতা",
   "turntable.intro.skip": "এড়িয়ে যেতে যেকোনো কী চাপুন",
   "turntable.quality": "ছবির মান",

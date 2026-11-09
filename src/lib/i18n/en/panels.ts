@@ -10,7 +10,6 @@ export const panelsEn = {
   "panel.truth": "Checks",
   "panel.mapping": "What you hear",
   "panel.provenance": "Where it's from",
-  "panel.history": "Month by month",
 
   "truth.intro": "We read each value back from the frame's colours, then checked those values against NASA's source data.",
   "truth.ocean.heading": "Ocean temperature",

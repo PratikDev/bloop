@@ -1,8 +1,6 @@
 "use client";
 
-import { BookOpenText } from "lucide-react";
 import { useEffect, useMemo, useRef, useState } from "react";
-import { Button } from "@/components/ui/button";
 import { formatDegrees, formatUtc } from "@/lib/i18n";
 import { readAt } from "@/lib/reading";
 import { liveSoundOn } from "../AppState/reducer";
@@ -36,7 +34,6 @@ import { SceneHost } from "../Scenes/SceneHost";
 const SEND_LOG_MAX = 5000;
 const IDLE_MS = 30_000;
 const IDLE_CHECK_MS = 5_000;
-const GLASS_BUTTON = "glass-chip pointer-events-auto h-11 gap-2 rounded-full px-4 text-body text-moon";
 
 /** After leaving, keyboard focus lands on the flat map rather than the page. */
 const focusFlatMap = () => requestAnimationFrame(() => document.getElementById(MAP_REGION_ID)?.focus());
@@ -180,22 +177,14 @@ export function Turntable() {
           className="absolute inset-0"
         />
         <div data-overlay className="pointer-events-none absolute top-3 right-3 left-3 flex items-start justify-end gap-2 pt-6 sm:pt-0">
-          <SearchBox gazetteer={geo?.gazetteer ?? null} onChoose={actions.choosePlace} inputRef={searchRef} className="pointer-events-auto max-w-[calc(100%-3.5rem)]" />
-          <Button variant="ghost" onClick={() => setDrawer("howWeKnow")} className={GLASS_BUTTON}>
-            <BookOpenText aria-hidden="true" />
-            <span className="hidden sm:inline">{tr("turntable.howWeKnow")}</span>
-            <span className="sr-only sm:hidden">{tr("turntable.howWeKnow")}</span>
-          </Button>
+          <SearchBox gazetteer={geo?.gazetteer ?? null} onChoose={actions.choosePlace} inputRef={searchRef} className="pointer-events-auto max-w-full" />
         </div>
         <div data-overlay className="pointer-events-none absolute inset-x-3 bottom-3 flex flex-col items-center gap-2">
-          <div className="max-w-2xl space-y-2 text-center">
-            <CaptionBar fade className="min-h-0 text-body sm:text-lead" />
-            {actions.where && (
-              <p key={actions.where} className="comic-box caption-fade rounded-caption px-2.5 py-1 text-body">
-                {actions.where}
-              </p>
-            )}
-          </div>
+          {actions.where && (
+            <p key={actions.where} className="comic-box caption-fade max-w-2xl rounded-caption px-2.5 py-1 text-center text-body">
+              {actions.where}
+            </p>
+          )}
           <LegendBar
             pixel={fields ? tt.texture.sample(state.track, readAt(fields, state.cursor), state.cursor) : null}
             className="pointer-events-auto w-full max-w-md"
@@ -220,6 +209,7 @@ export function Turntable() {
               onLayers={() => setDrawer("layers")}
               onSettings={() => setDrawer("settings")}
               onHelp={commands.openHelp}
+              caption={<CaptionBar fade soundOnly className="mx-auto min-h-0 w-fit max-w-full text-center text-body sm:text-lead" />}
             />
           </div>
         </div>

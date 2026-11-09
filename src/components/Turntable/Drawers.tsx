@@ -7,15 +7,15 @@ import { Slider } from "@/components/ui/slider";
 import { useMediaQuery } from "@/hooks/use-media-query";
 import { cn } from "@/lib/utils";
 import { ChoiceGroup } from "../ChoiceGroup";
+import { CreditsLink } from "./CreditsLink";
 import { Mixer } from "../Mixer";
 import { OnOffToggle } from "../OnOffToggle";
-import { PanelTabs } from "../panels/PanelTabs";
 import { SettingToggle } from "../SettingToggle";
 import { useTT, type TT } from "./i18n";
 import { TIERS, type Tier } from "./quality";
 import type { TurntableSettings } from "./settings";
 
-export type DrawerId = "layers" | "settings" | "howWeKnow";
+export type DrawerId = "layers" | "settings";
 
 const SECTION = "space-y-2";
 const HEADING = "text-body font-semibold text-moon";
@@ -123,6 +123,8 @@ function SettingsBody({ settings, update, onMyLocation, onFlatMap }: { settings:
         </Button>
       </section>
       <p className="text-body text-haze">{tt("turntable.myLocation.note")}</p>
+      {/* The corner link is desktop only; phones reach the credits here. */}
+      <CreditsLink className="h-11 justify-start px-3 text-body text-moon lg:hidden" />
     </>
   );
 }
@@ -146,9 +148,6 @@ export function Drawers({ open, onClose, settings, update, onMyLocation, onFlatM
       </Drawer>
       <Drawer open={open === "settings"} onClose={onClose} title={tt("turntable.dock.settings")}>
         <SettingsBody settings={settings} update={update} onMyLocation={onMyLocation} onFlatMap={onFlatMap} />
-      </Drawer>
-      <Drawer open={open === "howWeKnow"} onClose={onClose} title={tt("turntable.howWeKnow")}>
-        <PanelTabs />
       </Drawer>
     </>
   );

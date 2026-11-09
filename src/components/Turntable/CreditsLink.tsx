@@ -19,6 +19,8 @@ export function CreditsLink({ className }: { className?: string }) {
         <DialogDescription lang="en" className="text-body text-moon">
           {tt("turntable.credits")}
         </DialogDescription>
+        {/* Phase 6's flat land replaces the Blue Marble texture; this note goes with it. */}
+        <p className="text-body text-moon">{tt("turntable.background")}</p>
         <Credits t={t} className="text-body" />
         <ProductCredits />
       </DialogContent>
