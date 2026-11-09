@@ -12,8 +12,8 @@ export function TurntablePage() {
   const t = useT();
   useRecordedTexture();
   return (
-    // A grid stretches the Turntable to the page: the screen below the header (phones scroll the shell, so a height).
-    <div className="relative grid h-[calc(100dvh-4rem)] min-h-0 grid-rows-[minmax(0,1fr)] md:h-full">
+    // A grid stretches the Turntable to the page: the screen below the header.
+    <div className="relative grid h-full min-h-0 grid-rows-[minmax(0,1fr)]">
       <h1 data-page-title tabIndex={-1} className="sr-only">
         {t("nav.turntable")}
       </h1>

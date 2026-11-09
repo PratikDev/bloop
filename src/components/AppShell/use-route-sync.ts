@@ -60,6 +60,8 @@ export function useRouteSync(): void {
   useEffect(() => {
     if (pathname === firstPath.current) return;
     firstPath.current = "";
+    // Pages scroll inside main, which stays mounted: a new page starts at its top.
+    document.querySelector("main")?.scrollTo({ top: 0 });
     let tries = 0;
     let frame = requestAnimationFrame(function focusTitle() {
       const heading = document.querySelector<HTMLElement>("[data-page-title]");

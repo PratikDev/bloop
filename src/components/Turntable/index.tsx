@@ -179,7 +179,7 @@ export function Turntable() {
           debug={debug ? { sendLog, placed } : null}
           className="absolute inset-0"
         />
-        <div className="pointer-events-none absolute top-3 right-3 left-3 flex items-start justify-end gap-2 pt-6 sm:pt-0">
+        <div data-overlay className="pointer-events-none absolute top-3 right-3 left-3 flex items-start justify-end gap-2 pt-6 sm:pt-0">
           <SearchBox gazetteer={geo?.gazetteer ?? null} onChoose={actions.choosePlace} inputRef={searchRef} className="pointer-events-auto max-w-[calc(100%-3.5rem)]" />
           <Button variant="ghost" onClick={() => setDrawer("howWeKnow")} className={GLASS_BUTTON}>
             <BookOpenText aria-hidden="true" />
@@ -187,7 +187,7 @@ export function Turntable() {
             <span className="sr-only sm:hidden">{tr("turntable.howWeKnow")}</span>
           </Button>
         </div>
-        <div className="pointer-events-none absolute inset-x-3 bottom-3 flex flex-col items-center gap-2">
+        <div data-overlay className="pointer-events-none absolute inset-x-3 bottom-3 flex flex-col items-center gap-2">
           <div className="max-w-2xl space-y-2 text-center">
             <CaptionBar fade className="min-h-0 text-body sm:text-lead" />
             {actions.where && (

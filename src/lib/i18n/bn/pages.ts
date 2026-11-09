@@ -17,14 +17,11 @@ export const pagesBn: Translated<typeof pagesEn> = {
   "nav.how": "আমরা কীভাবে জানি",
   "nav.howShort": "কীভাবে",
 
-  "home.eyebrow": "নাসা আর্থ ইনফরমেশন সেন্টার · সর্বশেষ ফ্রেম",
-  // The headline is "{lead} {accent}", the accent in colour.
-  "home.title": "শুনুন: পৃথিবীর সর্বশেষ ফ্রেম।",
+  "home.title": "শুনুন পৃথিবীর সমুদ্র আর বৃষ্টি।",
   "home.continue": "শোনা চালিয়ে যান",
   "home.resetChoice": "শব্দের পছন্দ রিসেট করুন",
-  "home.station.listen": "নাসার সর্বশেষ ফ্রেমের ওপর ঘুরে বেড়ান, আর কার্সরের নিচের সমুদ্র ও বৃষ্টি শুনুন।",
-  "home.station.thenNow": "বাংলাদেশে তাপ, বর্ষার বৃষ্টি আর ভূগর্ভস্থ পানি কীভাবে বদলেছে, শুনুন।",
-  "home.station.how": "প্রতিটি মান নাসার মূল ডেটার সাথে কীভাবে মিলিয়ে দেখা হয়েছে, আর শব্দের পেছনের প্রতিটি নিয়ম।",
+  "home.tour": "৯০ সেকেন্ডের ট্যুর নিন",
+  "home.frameCaption": (p: { date: string }) => `নাসা EIC ফ্রেম: সমুদ্রের তাপমাত্রা, ${p.date}।`,
 
   "opening.label": "ভূমিকা",
   "opening.escHint": "অথবা Esc চাপুন",

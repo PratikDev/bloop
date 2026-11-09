@@ -74,6 +74,7 @@ export function Inspector() {
         {state.panelOpen && (
           <motion.aside
             key="inspector"
+            data-overlay
             aria-label={t("panel.label")}
             variants={left ? FROM_LEFT : FROM_RIGHT}
             initial="hidden"

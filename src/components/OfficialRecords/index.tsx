@@ -111,7 +111,7 @@ export function OfficialRecords() {
   if (!index) return <StatusBadge kind="loading">{t("official.loading")}</StatusBadge>;
   const current = record ?? index.records[0]?.record;
   return (
-    <section className="min-h-0 space-y-4 overflow-y-auto bg-night px-4 py-4" aria-labelledby="official-heading">
+    <section className="space-y-4 bg-night px-4 py-4" aria-labelledby="official-heading">
       <div className="space-y-1">
         <h2 id="official-heading" className="text-lead font-medium">{t("official.heading")}</h2>
         <p className="text-haze">{t("official.intro")}</p>

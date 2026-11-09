@@ -45,10 +45,10 @@ function Shell() {
       >
         {t("app.skipToContent")}
       </a>
-      {/* Page height = screen height from 768 px up: pages fit one screen, nothing scrolls but what must. */}
-      <div inert={gated || opening} className="grid min-h-dvh grid-cols-[minmax(0,1fr)] grid-rows-[auto_minmax(0,1fr)_auto] md:h-dvh">
+      {/* The frame is one screen tall: header and dock stay put, and a page taller than the space between them scrolls in main. */}
+      <div inert={gated || opening} className="grid h-dvh grid-cols-[minmax(0,1fr)] grid-rows-[auto_minmax(0,1fr)_auto]">
         <Header />
-        <main id={CONTENT_ID} tabIndex={-1} className="min-h-0 outline-none">
+        <main id={CONTENT_ID} tabIndex={-1} className="min-h-0 overflow-y-auto outline-none">
           <Outlet />
         </main>
         <Dock />

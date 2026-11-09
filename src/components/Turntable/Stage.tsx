@@ -60,6 +60,7 @@ export function Stage({ tt, hostRef, geo, record, tier, place, labels, graticule
 
   return (
     <div
+      data-overlay
       role="application"
       tabIndex={0}
       aria-roledescription={tr("turntable.roleDescription")}

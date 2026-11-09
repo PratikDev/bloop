@@ -2,66 +2,51 @@
 
 import { Link, useNavigate } from "@tanstack/react-router";
 import { ArrowRight } from "@phosphor-icons/react";
-import { motion } from "motion/react";
-import { Button } from "@/components/ui/button";
-import { RISE, STAGGER } from "@/lib/motion";
-import { PAGE_PATHS } from "@/router/modes";
+import { formatUtcDate } from "@/lib/i18n";
+import { locationForMode, PAGE_PATHS } from "@/router/modes";
 import { useAppState, useT } from "../../AppState/use-app-state";
-import { useCommands } from "../../Commands/use-commands";
-import { FrameLabel } from "../../FrameLabel";
 import { Globe } from "../../Globe";
-import { QUIET_BUTTON, StartActions } from "../../StartActions";
-import { Stations } from "./Stations";
+import { useLiveData } from "../../LiveData/use-live-data";
+import { PAPER_KEY, StartActions, StartHint } from "../../StartActions";
 
-/**
- * Home: what this is, in one line, on today's real frame turning as a globe;
- * the one thing to do (Start listening); and the three pages below.
- */
+/** Home has one job: say what this is, then start listening. Today's real ocean frame turns beside it as a globe. */
 export function HomePage() {
   const { state } = useAppState();
+  const { sst } = useLiveData();
   const t = useT();
-  const commands = useCommands();
   const navigate = useNavigate();
   const toListen = () => void navigate({ to: PAGE_PATHS.listen });
+  const toTour = () => void navigate(locationForMode("story"));
 
   return (
-    <div className="flex h-full min-h-0 flex-col">
-      <section aria-labelledby="home-title" className="relative grid min-h-0 flex-1 items-center gap-6 px-4 pt-4 md:px-8 lg:grid-cols-[minmax(0,1.05fr)_minmax(0,1fr)] lg:gap-10 lg:px-12">
-        <motion.div variants={STAGGER} initial="hidden" animate="shown" className="relative z-10 space-y-6 md:space-y-8">
-          <motion.p variants={RISE} className="eyebrow flex items-center gap-2">
-            <span aria-hidden="true" className="size-1.5 animate-pulse rounded-full bg-shapla" />
-            {t("home.eyebrow")}
-          </motion.p>
-          <motion.h1 variants={RISE} id="home-title" data-page-title tabIndex={-1} className="display-tight font-wide text-display text-moon">
-            {t("home.title")}
-          </motion.h1>
-          <motion.p variants={RISE} className="max-w-lg text-lead text-moon/90">
-            {t("start.lead")}
-          </motion.p>
-          <motion.div variants={RISE}>
-            {state.started ? (
-              <div className="flex flex-wrap items-center gap-3">
-                <Link to={PAGE_PATHS.listen} className="group inline-flex h-13 items-center gap-3 key rounded-full bg-shapla pr-5 pl-6 text-lead text-moon">
-                  {t("home.continue")}
-                  <ArrowRight aria-hidden="true" className="size-4 transition-transform duration-200 group-hover:translate-x-0.5" />
-                </Link>
-                {/* The Start buttons come back in its place, Start listening focused. */}
-                <Button variant="ghost" onClick={commands.resetStart} className={QUIET_BUTTON}>
-                  {t("home.resetChoice")}
-                </Button>
-              </div>
-            ) : (
-              <StartActions autoFocus after={toListen} />
-            )}
-          </motion.div>
-        </motion.div>
+    <section aria-labelledby="home-title" className="flex min-h-full flex-col justify-center gap-8 px-4 py-6 md:px-8 lg:flex-row lg:items-center lg:gap-16 lg:px-12">
+      <div className="min-w-0 space-y-6 lg:shrink lg:grow-0 lg:basis-160">
+        <h1 id="home-title" data-page-title tabIndex={-1} className="display-tight font-wide-display text-hero text-moon">
+          {t("home.title")}
+        </h1>
+        <p className="max-w-lg text-lead text-moon">{t("start.lead")}</p>
+        {state.started ? (
+          <div className="space-y-4">
+            <div className="flex flex-wrap items-center gap-3">
+              <Link to={PAGE_PATHS.listen} className="inline-flex h-13 items-center gap-3 key rounded-full bg-shapla pr-5 pl-6 text-lead text-moon">
+                {t("home.continue")}
+                <ArrowRight aria-hidden="true" className="size-4" />
+              </Link>
+              <Link {...locationForMode("story")} className={PAPER_KEY}>
+                {t("home.tour")}
+              </Link>
+            </div>
+            <StartHint />
+          </div>
+        ) : (
+          <StartActions autoFocus after={toListen} onTour={toTour} />
+        )}
+      </div>
 
-        <div className="relative mx-auto flex w-full max-w-md flex-col items-center gap-3 lg:h-full lg:max-w-none lg:min-h-0 lg:py-4">
-          <Globe className="w-full max-w-[34rem] lg:min-h-0 lg:w-auto lg:max-w-full lg:flex-1" />
-          <FrameLabel className="max-w-sm text-center" />
-        </div>
-      </section>
-      <Stations />
-    </div>
+      <div className="mx-auto flex w-full max-w-md min-w-0 flex-col items-center gap-3 lg:max-w-none lg:flex-1 lg:basis-80">
+        <Globe className="w-full max-w-136" />
+        {sst && <p className="text-center text-small text-haze">{t("home.frameCaption", { date: formatUtcDate(sst.meta.frame_time_utc, state.lang) })}</p>}
+      </div>
+    </section>
   );
 }

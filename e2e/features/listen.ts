@@ -64,9 +64,9 @@ export const LISTEN: Feature[] = [
   { id: "unison", group: "sound", name: "Proof in unison", where: "Listen · key U · Inspector · Checks · Hear the nearest checked point", keyboard: true,
     what: "Plays the frame's tone and NASA's file tone together: beats mean they disagree (on the Jukebox engine)",
     async run(page) { await onMap(page); await page.keyboard.press("u"); return sounds(page, "unison"); } },
-  { id: "motif", group: "sound", name: "Motif", where: "Header · Play the Bloop motif", keyboard: false,
+  { id: "motif", group: "sound", name: "Motif", where: "Settings · Play the Bloop motif", keyboard: false,
     what: "Plays the app's short signature", control: (page) => page.getByRole("button", { name: "Play the Bloop motif" }),
-    async run(page) { await page.getByRole("button", { name: "Play the Bloop motif" }).click(); return sounds(page, "motif"); } },
+    async run(page) { await page.getByRole("button", { name: "Settings" }).click(); await page.getByRole("button", { name: "Play the Bloop motif" }).click(); return sounds(page, "motif"); } },
   { id: "pause", group: "sound", name: "Pause and resume", where: "Listen · Space · the dock's sound button", keyboard: true,
     what: "Pauses the live sound", control: (page) => dock(page).getByRole("button", { name: /sound/u }).first(),
     async run(page) {

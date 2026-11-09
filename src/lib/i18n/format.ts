@@ -34,11 +34,6 @@ export function formatYear(year: number, lang: Lang): string {
   return fmt(year, lang, { maximumFractionDigits: 0, useGrouping: false });
 }
 
-/** A position in a list, two digits: "01". */
-export function formatIndex(n: number, lang: Lang): string {
-  return fmt(n, lang, { minimumIntegerDigits: 2, useGrouping: false });
-}
-
 /** A chart axis value: up to two decimals, no trailing zeros. */
 export function formatAxis(value: number, lang: Lang): string {
   return fmt(value, lang, { maximumFractionDigits: 2 });
@@ -100,15 +95,20 @@ export function formatDay(yyyyMmDd: string, lang: Lang): string {
   );
 }
 
-/** "25 Sep 2026, 00:00" in UTC. */
-export function formatUtc(iso: string, lang: Lang): string {
-  const d = new Date(iso);
-  const date = new Intl.DateTimeFormat(LOCALE[lang], {
+/** "25 Sep 2026" in UTC. */
+export function formatUtcDate(iso: string, lang: Lang): string {
+  return new Intl.DateTimeFormat(LOCALE[lang], {
     day: "numeric",
     month: "short",
     year: "numeric",
     timeZone: "UTC",
-  }).format(d);
+  }).format(new Date(iso));
+}
+
+/** "25 Sep 2026, 00:00" in UTC. */
+export function formatUtc(iso: string, lang: Lang): string {
+  const d = new Date(iso);
+  const date = formatUtcDate(iso, lang);
   const time = new Intl.DateTimeFormat(LOCALE[lang], {
     hour: "2-digit",
     minute: "2-digit",

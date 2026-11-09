@@ -52,7 +52,7 @@ export function ChoiceGroup<T extends string>({
       }}
       spacing={1}
       orientation={vertical ? "vertical" : "horizontal"}
-      className={cn("rounded-3xl border-2 border-line bg-paper p-1", vertical ? "w-full" : "flex-wrap", className)}
+      className={cn("max-w-full rounded-3xl border-2 border-line bg-paper p-1", vertical ? "w-full" : "flex-wrap", className)}
     >
       {options.map((o) => {
         const chosen = o.value === value;
@@ -63,8 +63,9 @@ export function ChoiceGroup<T extends string>({
             lang={o.lang}
             {...brailleLabel(o.brailleLabel)}
             className={cn(
-              "relative isolate h-11 min-w-11 rounded-full px-4 text-body font-normal text-haze transition-colors duration-200 hover:bg-transparent hover:text-moon aria-pressed:bg-transparent aria-pressed:text-ink md:pointer-fine:h-9",
-              vertical && "h-auto min-h-11 justify-start rounded-2xl py-2 text-left whitespace-normal md:pointer-fine:h-auto md:pointer-fine:min-h-10",
+              // Long names wrap inside the pill: the row never pushes the page sideways.
+              "relative isolate h-auto min-h-11 max-w-full min-w-11 shrink rounded-full px-4 py-1 text-body font-normal whitespace-normal text-haze transition-colors duration-200 hover:bg-transparent hover:text-moon aria-pressed:bg-transparent aria-pressed:text-ink md:pointer-fine:h-auto md:pointer-fine:min-h-9",
+              vertical && "justify-start rounded-2xl py-2 text-left md:pointer-fine:min-h-10",
               itemClassName,
             )}
           >

@@ -28,7 +28,7 @@ export function ThenNowPage() {
   const set = (next: Partial<ThenNowSearch>, replace = true) => void navigate({ search: (prev) => ({ ...prev, ...next }), replace });
 
   return (
-    <section aria-labelledby="then-now-title" className="mx-auto flex h-full min-h-0 w-full max-w-7xl flex-col gap-4 overflow-y-auto px-4 pt-3 pb-4 md:px-8 lg:short:gap-2 lg:short:pt-1 lg:short:pb-1">
+    <section aria-labelledby="then-now-title" className="mx-auto flex min-h-full w-full max-w-7xl flex-col gap-4 px-4 pt-3 pb-4 md:px-8 lg:short:gap-2 lg:short:pt-1 lg:short:pb-1">
       <header className="flex flex-wrap items-end justify-between gap-x-8 gap-y-3">
         <div className="space-y-1">
           <h1 id="then-now-title" data-page-title tabIndex={-1} className="display-tight font-wide text-headline">
