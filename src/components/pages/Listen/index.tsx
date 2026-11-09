@@ -1,5 +1,6 @@
 "use client";
 
+import { useState } from "react";
 import { cn } from "@/lib/utils";
 import { LiveBrailleExplorer } from "../../BrailleExplorer/LiveBrailleExplorer";
 import { useAppState, useT } from "../../AppState/use-app-state";
@@ -17,6 +18,7 @@ import { TuningPanel } from "../../Tuning";
 import { FirstHint } from "./FirstHint";
 import { Inspector } from "./Inspector";
 import { ListenStatus } from "./ListenStatus";
+import { AskBloop } from "../../AskBloop";
 
 /**
  * Listen: the latest EIC frame as a sound map, full size. The page's title,
@@ -33,18 +35,20 @@ export function ListenPage() {
   const { state } = useAppState();
   const t = useT();
   const story = state.mode === "story";
+  const [askOpen, setAskOpen] = useState(false);
   const gapInHead = state.track === "both" && !story;
   return (
     // With the braille explorer open (B, or the dock's Braille) the page scrolls: the map keeps the screen, the explorer
     // follows below it (focus moves into it, which brings it into view).
-    <section aria-labelledby="listen-title" className={cn("flex h-full min-h-0 flex-col fit:px-4 fit:pt-2 fit:pb-2", state.brailleOpen && "overflow-y-auto")}>
+    <section aria-labelledby="listen-title" className={cn("flex h-full min-h-0 flex-col fit:px-4 fit:pt-2 fit:pb-2", (state.brailleOpen || askOpen) && "overflow-y-auto")}>
       {/*
         From 1024 px the stage is measured (a container named listen), and a grid inside it gives the
         head and the map (2:1) the width that fits both ways. The readout sits under the map, or beside
         it when the stage is wider than 2:1 (most desktops); the tour's column sits on the left.
         In the page (and reading) order: head, tour, map, readout.
       */}
-      <div className={cn("contents fit:block fit:h-full fit:shrink-0", story ? "fit:[container:listen-tour_/_size]" : "fit:[container:listen_/_size]")}>
+      {/* With Ask Bloop on, the fitted stage leaves one row under it for Ask Bloop's button. */}
+      <div className={cn("contents fit:block fit:h-full fit:shrink-0", FLAGS.askBloop && !story && "fit:h-[calc(100%-3.5rem)]", story ? "fit:[container:listen-tour_/_size]" : "fit:[container:listen_/_size]")}>
         <div
           className={cn(
             "contents fit:grid fit:h-full fit:content-center fit:justify-center fit:gap-x-4",
@@ -109,6 +113,7 @@ export function ListenPage() {
           </aside>
         </div>
       </div>
+      {FLAGS.askBloop && !story && <AskBloop open={askOpen} onOpenChange={setAskOpen} className="shrink-0 px-4 pb-3 fit:px-1 fit:pt-2" />}
       <LiveBrailleExplorer className="shrink-0 px-4 pb-3 fit:px-1 fit:pt-4" />
     </section>
   );

@@ -499,7 +499,7 @@ The Mapping panel builds each rule sentence from its parts (`src/lib/i18n/bn/rul
 | `clarity` | parameter: reverbSec; unit: hours since a 1 km infrared look | How recently measured 0 to 48 hours since a 1 km infrared look → echo length 0.1 to 2.4 s (linear). |
 | `unison` | a rule shared with another voice (sameAs) | Proof in unison: two tones in one ear, both by the Ocean temperature rule (Ocean temperature −5 to 35 °C → pitch 220 to 880 Hz (exponential: equal steps in value sound like equal musical steps).) Beats per second = the difference between the two pitches in Hz. |
 
-## Draft Bangla, needs review (555)
+## Draft Bangla, needs review (603)
 
 Drafted for the mentor fixes (`docs/MENTOR_FIXES.md`); **draft, needs review** by a Bangla speaker. Listed in `src/lib/i18n/bn/drafts.ts`: remove an entry there once it is checked.
 
@@ -1058,6 +1058,54 @@ Drafted for the mentor fixes (`docs/MENTOR_FIXES.md`); **draft, needs review** b
 | `key.z.action` | Context Lens on or off (low-vision mode) | কনটেক্সট লেন্স চালু বা বন্ধ (স্বল্প-দৃষ্টি মোড) |
 | `key.brackets.action` | Make the Context Lens smaller or larger | কনটেক্সট লেন্স ছোট বা বড় করুন |
 | `key.altL.action` | Low-vision mode on or off | স্বল্প-দৃষ্টি মোড চালু বা বন্ধ |
+| `ask.title` | Ask Bloop | ব্লুপকে জিজ্ঞেস করুন |
+| `ask.open` | Ask Bloop | ব্লুপকে জিজ্ঞেস করুন |
+| `ask.close` | Close Ask Bloop | ব্লুপকে জিজ্ঞেস করা বন্ধ করুন |
+| `ask.input` | Ask or tell Bloop | ব্লুপকে প্রশ্ন করুন বা বলুন |
+| `ask.hint` | Type a question or a command, then press Enter. For example: go to Dhaka. | একটি প্রশ্ন বা নির্দেশ লিখে এন্টার চাপুন। যেমন: ঢাকায় যাও। |
+| `ask.submit` | Ask | জিজ্ঞেস করুন |
+| `ask.speak` | Speak | বলুন |
+| `ask.speakKey` | Speak (hold Alt+K) | বলুন (Alt+K চেপে ধরে) |
+| `ask.listening` | Listening. Release to stop. | শুনছি। ছেড়ে দিলে থামবে। |
+| `ask.heard` | ``Heard: ${p.text}`` | ``\u09B6\u09C1\u09A8\u09C7\u099B\u09BF: ${p.text}`` |
+| `ask.voiceUnavailable` | Speaking to Bloop needs a browser with speech recognition. Typing works everywhere. | ব্লুপকে মুখে বলতে কথা চেনার সুবিধাসহ ব্রাউজার লাগে। লিখে সব ব্রাউজারেই চলে। |
+| `ask.voiceError` | Bloop could not hear that. Try again, or type it. | ব্লুপ শুনতে পায়নি। আবার বলুন, বা লিখুন। |
+| `ask.answer` | Bloop's answer | ব্লুপের উত্তর |
+| `ask.none` | No answer yet. | এখনও কোনো উত্তর নেই। |
+| `ask.settings` | Ask Bloop settings | ব্লুপকে জিজ্ঞেস করার সেটিংস |
+| `ask.inputLanguage` | I speak | আমি বলি |
+| `ask.inputLanguage.en` | English | ইংরেজি |
+| `ask.inputLanguage.bn` | Bangla | বাংলা |
+| `ask.shortcut.on` | On | চালু |
+| `ask.shortcut.off` | Off | বন্ধ |
+| `ask.voiceLocal` | Your speech is recognised on this device: nothing is sent anywhere. | আপনার কথা এই যন্ত্রেই চেনা হয়: কোথাও কিছু পাঠানো হয় না। |
+| `ask.voiceCloud` | Your browser may send your speech to its own speech service to recognise it. Typing avoids this. Bloop records nothing. | কথা চিনতে আপনার ব্রাউজার আপনার কথা তার নিজের সেবায় পাঠাতে পারে। লিখলে তা হয় না। ব্লুপ কিছু রেকর্ড করে না। |
+| `ask.settingsNote` | Speech and detail are the app's own settings (Settings at the top): Ask Bloop answers through them. | কথা আর বিস্তারিত অ্যাপের নিজের সেটিংস (ওপরে সেটিংস): ব্লুপ সেগুলো মেনেই উত্তর দেয়। |
+| `ask.starters` | Try one of these | এগুলোর একটি চেষ্টা করুন |
+| `ask.help` | ``You can say: ${p.examples}.`` | ``\u0986\u09AA\u09A8\u09BF \u09AC\u09B2\u09A4\u09C7 \u09AA\u09BE\u09B0\u09C7\u09A8: ${p.examples}\u0964`` |
+| `ask.clarify` | Did you mean a place or a record? Try: go to Dhaka, or: play the rain. | আপনি কি কোনো জায়গা না রেকর্ড বোঝাচ্ছেন? চেষ্টা করুন: ঢাকায় যাও, বা: বৃষ্টি শোনাও। |
+| `ask.placeUnknown` | ``I don't know a place called ${p.place}.`` | ``${p.place} \u09A8\u09BE\u09AE\u09C7 \u0995\u09CB\u09A8\u09CB \u099C\u09BE\u09AF\u09BC\u0997\u09BE \u0986\u09AE\u09BF \u099A\u09BF\u09A8\u09BF \u09A8\u09BE\u0964`` |
+| `ask.placeWhich` | ``Did you mean ${p.options}?`` | ``\u0986\u09AA\u09A8\u09BF \u0995\u09BF ${p.options} \u09AC\u09CB\u099D\u09BE\u099A\u09CD\u099B\u09C7\u09A8?`` |
+| `ask.or` | or | নাকি |
+| `ask.loading` | The frames are still loading. Ask again in a moment. | ফ্রেমগুলো এখনও লোড হচ্ছে। একটু পরে আবার জিজ্ঞেস করুন। |
+| `ask.nothingToRepeat` | Nothing to repeat yet. | আবার বলার মতো কিছু এখনও নেই। |
+| `ask.noMore` | That is all Bloop has on it. | এ নিয়ে ব্লুপের কাছে এর বেশি কিছু নেই। |
+| `ask.cancelled` | Cancelled. | বাতিল করা হয়েছে। |
+| `ask.answer.play` | Playing. | চলছে। |
+| `ask.answer.pause` | Paused. | থামানো হয়েছে। |
+| `ask.answer.stop` | Stopped. | বন্ধ করা হয়েছে। |
+| `ask.answer.record` | ``Track: ${p.record}.`` | ``\u099F\u09CD\u09B0\u09CD\u09AF\u09BE\u0995: ${p.record}\u0964`` |
+| `ask.answer.place` | ``Moved to ${p.place}.`` | ``${p.place}-\u098F \u09B8\u09B0\u09BE\u09A8\u09CB \u09B9\u09AF\u09BC\u09C7\u099B\u09C7\u0964`` |
+| `ask.answer.page` | ``Opened ${p.page}.`` | ``${p.page} \u0996\u09CB\u09B2\u09BE \u09B9\u09AF\u09BC\u09C7\u099B\u09C7\u0964`` |
+| `ask.answer.setting` | ``${p.setting}: ${p.value}.`` | ``${p.setting}: ${p.value}\u0964`` |
+| `ask.answer.noFrames` | Only the latest rain frame is loaded, so there is no other frame to hold. | শুধু সর্বশেষ বৃষ্টির ফ্রেম লোড হয়েছে, তাই ধরে রাখার মতো অন্য ফ্রেম নেই। |
+| `ask.answer.valueAt` | ``${p.place}: ${p.reading}`` | ``${p.place}: ${p.reading}`` |
+| `ask.answer.extreme` | ``${p.what} near there: ${p.value}, ${p.place}.`` | ``\u09B8\u09C7\u0996\u09BE\u09A8\u09C7\u09B0 \u0995\u09BE\u099B\u09C7 ${p.what}: ${p.value}, ${p.place}\u0964`` |
+| `ask.answer.extremeNone` | There is no data near there to compare. | সেখানের কাছে তুলনা করার মতো তথ্য নেই। |
+| `ask.answer.outside` | ``That month is outside the record, which runs from ${p.from} to ${p.to}.`` | ``\u0993\u0987 \u09AE\u09BE\u09B8 \u09B0\u09C7\u0995\u09B0\u09CD\u09A1\u09C7\u09B0 \u09AC\u09BE\u0987\u09B0\u09C7; \u09B0\u09C7\u0995\u09B0\u09CD\u09A1\u099F\u09BF ${p.from} \u09A5\u09C7\u0995\u09C7 ${p.to} \u09AA\u09B0\u09CD\u09AF\u09A8\u09CD\u09A4\u0964`` |
+| `ask.answer.noCheck` | No independent check is available for this record. | এই রেকর্ডের কোনো স্বাধীন যাচাই নেই। |
+| `ask.highest` | Highest | সবচেয়ে বেশি |
+| `ask.lowest` | Lowest | সবচেয়ে কম |
 | data template | GPCC stops at # because the gauge version we use (GPCC Full Data Monthly V#) ends in December #, so both rain records compare #–# with #–#. | GPCC {0} সালে থামে, কারণ আমাদের ব্যবহৃত বৃষ্টিমাপক সংস্করণ (GPCC Full Data Monthly V{1}) ডিসেম্বর {2}-এ শেষ; তাই দুটি বৃষ্টির রেকর্ডই {3}–{4}-কে {5}–{6}-এর সাথে তুলনা করে। |
 | data template | GPCP only, newer decade; GPCC data ends in # | শুধু GPCP, নতুন দশক; GPCC ডেটা {0} সালে শেষ |
 

@@ -5,22 +5,29 @@ import type { LatLon } from "@/lib/data";
 import { cellIndex, clampLat, wrapLon } from "@/lib/data/grid";
 import { cellCentre, SPAN_DEG, type Extreme, type ValueGrid } from "@/lib/describe/stats";
 
-/** The highest value within `spanDeg` (a square centred on `at`), at its cell's centre; null when there is none. */
-export function sonarTarget(g: ValueGrid, at: LatLon, spanDeg: number = SPAN_DEG): Extreme | null {
+/**
+ * The highest (the sonar's target: positive values only) or lowest value within `spanDeg` (a square centred on `at`),
+ * at its cell's centre; null when there is none. The lowest is Ask Bloop's "coldest spot near here".
+ */
+export function extremeNear(g: ValueGrid, at: LatLon, kind: "highest" | "lowest", spanDeg: number = SPAN_DEG): Extreme | null {
   const half = spanDeg / 2;
   const dLat = 180 / g.height;
   const dLon = 360 / g.width;
+  const better = kind === "highest" ? (v: number, b: number) => v > b : (v: number, b: number) => v < b;
   let best: Extreme | null = null;
   for (let lat = at.lat - half + dLat / 2; lat < at.lat + half; lat += dLat) {
     if (lat < -90 || lat > 90) continue;
     for (let lon = at.lon - half + dLon / 2; lon < at.lon + half; lon += dLon) {
       const i = cellIndex(g, clampLat(lat), wrapLon(lon));
       const v = g.value(i);
-      if (v !== null && v > 0 && (best === null || v > best.value)) best = { value: v, ...cellCentre(g, i) };
+      if (v !== null && (kind === "lowest" || v > 0) && (best === null || better(v, best.value))) best = { value: v, ...cellCentre(g, i) };
     }
   }
   return best;
 }
+
+/** The highest value within `spanDeg` (a square centred on `at`), at its cell's centre; null when there is none. */
+export const sonarTarget = (g: ValueGrid, at: LatLon, spanDeg: number = SPAN_DEG): Extreme | null => extremeNear(g, at, "highest", spanDeg);
 
 /** Degrees between two points on the map (lon wrapped the short way). */
 export function mapDistance(a: LatLon, b: LatLon): number {

@@ -40,6 +40,12 @@ export const FLAGS = {
   // Ready on 9 Nov 2026: low-vision.e2e.ts 26/26 (Part 4 in full, plan item 10), the a11y + features + health checks
   // 414/414 with steps 7 and 8 on (Chromium + Firefox).
   lowVision: flag(process.env.NEXT_PUBLIC_A11Y_LOW_VISION, true),
+  /** Ask Bloop (docs/voice/README.md): the panel, typed commands and questions (on in dev and preview). */
+  askBloop: flag(process.env.NEXT_PUBLIC_ASK_BLOOP, false),
+  /** Ask Bloop's push-to-talk: only when asked for, until the gate test (docs/voice/GATE_TEST.md) passes. */
+  askBloopVoice: process.env.NEXT_PUBLIC_ASK_BLOOP_VOICE === "1",
+  /** Ask Bloop's AI fallback: only when asked for, and only with a deployed route (deploy/ask-intent). */
+  askBloopLlm: process.env.NEXT_PUBLIC_ASK_BLOOP_LLM === "1",
   expedition: flag(process.env.NEXT_PUBLIC_A11Y_EXPEDITION, true),
   tuning: flag(process.env.NEXT_PUBLIC_A11Y_TUNING, true),
   tablePlaces: flag(process.env.NEXT_PUBLIC_A11Y_TABLE_PLACES, true),

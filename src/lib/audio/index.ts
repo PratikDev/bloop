@@ -17,6 +17,8 @@ export async function ensureAudio(): Promise<void> {
 export { getAnalyser, isAudioReady } from "./context";
 export { onAudioEvent } from "./events";
 export { stopAll } from "./stop";
+// Ask Bloop ducks the sonification while it listens (spec §5.5), with the same holder-counted duck speech uses.
+export { beginDuck } from "./duck";
 export { setAllMuted, setMasterVolume, setSolo, setTrackMode, setVoiceMuted, setVoiceVolume } from "./mixer";
 export { setOcean, setRain, silenceLive } from "./live";
 export { speak } from "./speech";
