@@ -21,7 +21,7 @@ export { setAllMuted, setMasterVolume, setSolo, setTrackMode, setVoiceMuted, set
 export { setOcean, setRain, silenceLive } from "./live";
 export { speak } from "./speech";
 export { playEarcon } from "./earcons";
-export { playLegend, playLegendForMode } from "./players/legend";
+export { playAnchor, playLegend, playLegendForMode, type Anchor } from "./players/legend";
 export { playWarmup } from "./players/warmup";
 export { playSweep } from "./players/sweep";
 export { playMotif } from "./players/motif";

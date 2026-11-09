@@ -10,6 +10,7 @@ import { useT } from "../AppState/use-app-state";
 import type { Commands } from "../Commands/use-commands";
 import type { ShownPoint } from "../TimeLapse/use-shown-point";
 import { useDescribeHere } from "../Describe/use-describe-here";
+import { useSayProvenance } from "../Tuning/use-say-provenance";
 import { useTimeLapse } from "../TimeLapse/use-time-lapse";
 
 export const STEP_DEG = 1;
@@ -51,6 +52,7 @@ export interface MapKeys {
 export function useMapKeys(commands: Commands, shown: ShownPoint, stepDeg: number): MapKeys {
   const { stepFrame } = useTimeLapse();
   const describeHere = useDescribeHere();
+  const sayProvenance = useSayProvenance();
   const announce = useAnnounce();
   const t = useT();
   // The J region mode's current view; null when it is off.
@@ -103,6 +105,9 @@ export function useMapKeys(commands: Commands, shown: ShownPoint, stepDeg: numbe
         return FLAGS.describe && describeHere ? describeHere : speakHere;
       case "D":
         return () => commands.toggleSetting("describe");
+      case "P":
+        // Step 5: the record's source in one line (plain P still opens Where it's from).
+        return FLAGS.tuning ? sayProvenance : null;
       default:
         return null;
     }

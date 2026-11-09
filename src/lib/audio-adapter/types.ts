@@ -65,6 +65,8 @@ export interface L2AudioApi {
   playEarcon(id: EarconId, opts?: { lon?: number; params?: CaptionParams }): void;
   playLegend(voice: LegendVoice): PlayerHandle;
   playWarmup(): PlayerHandle;
+  // Track 0 ("Tuning", accessibility core step 5): one legend anchor, or the reference tone.
+  playAnchor(voice: LegendVoice, which: "lowest" | "highest" | "reference"): PlayerHandle;
 
   // Sequences
   playSweep(points: SweepPoint[], opts?: { stepMs?: number }): PlayerHandle;

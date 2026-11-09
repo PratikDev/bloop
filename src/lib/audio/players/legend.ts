@@ -6,7 +6,7 @@
 
 import { emitCaption } from "../captions";
 import { liveVoices, type LiveVoices } from "../live";
-import { voiceSpec } from "../mapping";
+import { anchorPoint, referenceValue, voiceSpec } from "../mapping";
 import type { LegendVoice, PlayerHandle, TrackMode } from "../types";
 import type { VoiceSpec } from "@/types/data-contract";
 import { contextVoices, silenceContext } from "./context-voices";
@@ -80,6 +80,37 @@ const MODE_VOICES: Record<TrackMode, readonly LiveLegendVoice[]> = {
   rain: ["rain"],
   both: ["ocean", "rain"],
 };
+
+/** How long Track 0 holds the reference tone (seconds; design choice, as the warm-up's volume check). */
+export const REFERENCE_SEC = 3;
+
+export type Anchor = "lowest" | "highest";
+
+/**
+ * Track 0 ("Tuning", accessibility core step 5): one anchor through the real voice, with its legend caption, or the
+ * reference tone. One sound at a time, so the listener sets the pace.
+ */
+export function playAnchor(voice: LegendVoice, which: Anchor | "reference"): PlayerHandle {
+  if (which === "reference") {
+    return playSequence({
+      id: "anchor.reference",
+      steps: [
+        { at: 0, run: (time) => sound("ocean", referenceValue(), time) },
+        { at: REFERENCE_SEC, run: (time) => sound("ocean", null, time) },
+      ],
+      durationSec: REFERENCE_SEC,
+      holdLive: true,
+      liftTrackGate: true,
+    });
+  }
+  const point = isPlayable(voice) ? anchorPoint(voice, which) : null;
+  if (!point || !isPlayable(voice)) {
+    emitCaption("caption.legendUnavailable", { voice });
+    return idleHandle();
+  }
+  const { steps, end } = legendSteps(voice, 0, () => [point]);
+  return playSequence({ id: `anchor.${voice}.${which}`, steps, durationSec: end, holdLive: true, liftTrackGate: true, onFinish: silenceContext });
+}
 
 const firstAndLast = <T>(points: readonly T[]): readonly T[] =>
   points.length <= 2 ? points : [points[0], points[points.length - 1]];

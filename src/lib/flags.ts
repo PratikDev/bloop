@@ -24,6 +24,10 @@ export const FLAGS = {
   /** Step 4: "View as table" (values around the needle) and Places (search, continent → country → division). */
   // Ready on 9 Nov 2026: table-places.e2e.ts 20/20, the a11y + features + health checks 312/312 with it on (Chromium +
   // Firefox).
+  /** Step 5: Track 0 "Tuning" (anchors, reference tone, sound grammar) and the spoken provenance line (Shift+P). */
+  // Ready on 9 Nov 2026: tuning.e2e.ts 8/8, the a11y + features + health checks 328/328 with it on (Chromium + Firefox;
+  // one Official record timed out once and passed on rerun).
+  tuning: flag(process.env.NEXT_PUBLIC_A11Y_TUNING, true),
   tablePlaces: flag(process.env.NEXT_PUBLIC_A11Y_TABLE_PLACES, true),
   describe: flag(process.env.NEXT_PUBLIC_A11Y_DESCRIBE, true),
   // Ready on 8 Nov 2026: e2e/a11y/map-keys.e2e.ts 26/26 and the whole suite 406/406 with it on (Chromium + Firefox).

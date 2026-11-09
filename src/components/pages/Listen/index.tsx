@@ -10,6 +10,8 @@ import { FrameView } from "../../FrameView";
 import { Readout } from "../../Readout";
 import { StoryPanel } from "../../Story/StoryPanel";
 import { TrackChoice } from "../../TrackChoice";
+import { FLAGS } from "@/lib/flags";
+import { TuningPanel } from "../../Tuning";
 import { FirstHint } from "./FirstHint";
 import { Inspector } from "./Inspector";
 import { ListenStatus } from "./ListenStatus";
@@ -71,6 +73,7 @@ export function ListenPage() {
               </ExploreControls>
               <FirstHint />
             </div>
+            {FLAGS.tuning && state.tuning && !story && <TuningPanel className="mx-4 mt-3 lg:absolute lg:bottom-3 lg:left-3 lg:z-(--layer-map-plates) lg:m-0" />}
             <ListenStatus className="px-4 pt-3 lg:absolute lg:top-3 lg:left-3 lg:z-(--layer-map-plates) lg:p-0" />
             <Inspector />
           </div>

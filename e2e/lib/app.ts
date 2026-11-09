@@ -61,9 +61,9 @@ export async function heard(page: Page, ms = 4000): Promise<number> {
 }
 
 /** Opens the app past the start overlay and the intro, with the audio tap (and, when asked, the 3D hidden). */
-export async function start(page: Page, opts: { hide3d?: boolean } = {}) {
+export async function start(page: Page, opts: { hide3d?: boolean; keepTuning?: boolean } = {}) {
   await tapAudio(page, opts);
-  await open(page);
+  await open(page, opts);
 }
 
 /** The audio tap (and, when asked, the 3D hidden) on every page this one loads, without starting the app. */
@@ -73,13 +73,18 @@ export async function tapAudio(page: Page, opts: { hide3d?: boolean } = {}) {
 }
 
 /** Loads the app again on a page that already has the init scripts (a fresh start after a failed check). */
-export async function open(page: Page) {
+export async function open(page: Page, opts: { keepTuning?: boolean } = {}) {
   await page.goto("/");
   await page.getByRole("button", { name: "Start listening" }).click();
   // The intro can appear a moment after Start: wait for it (it plays its own sound and takes the keys), then skip it.
   const skip = page.getByRole("button", { name: "Skip intro" });
   if (await skip.waitFor({ state: "visible", timeout: 5000 }).then(() => true, () => false)) await skip.click();
   await skip.waitFor({ state: "hidden", timeout: 10_000 }).catch(() => undefined);
+  // Track 0 "Tuning" (accessibility core step 5) follows the intro on a first visit: skipped here as the intro is
+  // (e2e/a11y/tuning.e2e.ts walks it), unless the page asked to keep it.
+  if (opts.keepTuning) return;
+  const skipTuning = page.getByRole("button", { name: "Skip tuning" });
+  if (await skipTuning.waitFor({ state: "visible", timeout: 3000 }).then(() => true, () => false)) await skipTuning.click();
 }
 
 /** The header's pages (main's router): a click on the dial's link, as a user moves between pages (the app's state stays). */

@@ -1,9 +1,11 @@
 "use client";
 
 import { Dialog, DialogContent, DialogDescription, DialogHeader, DialogTitle } from "@/components/ui/dialog";
+import { Button } from "@/components/ui/button";
 import { FLAGS } from "@/lib/flags";
 import type { MessageKey } from "@/lib/i18n";
 import { useAppState, useT } from "./AppState/use-app-state";
+import { useCommands } from "./Commands/use-commands";
 import { SettingToggle } from "./SettingToggle";
 import { isTurntableKey, ttFor } from "./Turntable/i18n";
 import type { TurntableKey } from "./Turntable/strings-bn";
@@ -43,6 +45,7 @@ const CORE_KEYS: KeyRow[] = KEYS.flatMap((row): KeyRow[] => {
       { key: "key.frames", action: "key.frames.action" },
     ];
   if (row.key === "D") return [{ key: "D", action: "key.d.here.action" }, { key: "Shift+D", action: "key.shiftD.action" }];
+  if (row.key === "P" && FLAGS.tuning) return [row, { key: "Shift+P", action: "key.shiftP.action" }];
   return [row];
 });
 
@@ -108,6 +111,7 @@ function KeyTable({ rows, caption, translate, lang }: { rows: KeyRow[]; caption?
 
 export function HelpDialog() {
   const { state, dispatch } = useAppState();
+  const commands = useCommands();
   const t = useT();
   const tr = ttFor(state.lang);
 
@@ -136,6 +140,20 @@ export function HelpDialog() {
           <SettingToggle setting="captions" />
           <SettingToggle setting="describe" />
           {FLAGS.mapKeys && <SettingToggle setting="hide3d" />}
+          {FLAGS.tuning && (
+            <Button
+              variant="outline"
+              size="lg"
+              className="mt-2 h-11 w-full rounded-full"
+              onClick={() => {
+                dispatch({ type: "setHelpOpen", open: false });
+                dispatch({ type: "startTuning" });
+                commands.setMode("explore");
+              }}
+            >
+              {t("tuning.replay")}
+            </Button>
+          )}
         </div>
 
         {/* "More below": fades the content at the bottom edge while scrolling; at the end it sits under the last row. */}

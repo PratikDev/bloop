@@ -499,7 +499,7 @@ The Mapping panel builds each rule sentence from its parts (`src/lib/i18n/bn/rul
 | `clarity` | parameter: reverbSec; unit: hours since a 1 km infrared look | How recently measured 0 to 48 hours since a 1 km infrared look → echo length 0.1 to 2.4 s (linear). |
 | `unison` | a rule shared with another voice (sameAs) | Proof in unison: two tones in one ear, both by the Ocean temperature rule (Ocean temperature −5 to 35 °C → pitch 220 to 880 Hz (exponential: equal steps in value sound like equal musical steps).) Beats per second = the difference between the two pitches in Hz. |
 
-## Draft Bangla, needs review (314)
+## Draft Bangla, needs review (336)
 
 Drafted for the mentor fixes (`docs/MENTOR_FIXES.md`); **draft, needs review** by a Bangla speaker. Listed in `src/lib/i18n/bn/drafts.ts`: remove an entry there once it is checked.
 
@@ -817,6 +817,28 @@ Drafted for the mentor fixes (`docs/MENTOR_FIXES.md`); **draft, needs review** b
 | `continent.oceania` | Oceania | ওশেনিয়া |
 | `continent.antarctica` | Antarctica | অ্যান্টার্কটিকা |
 | `continent.sevenSeas` | Islands in the open ocean | খোলা সমুদ্রের দ্বীপ |
+| `tuning.title` | Track 0: Tuning | ট্র্যাক ০: সুর মেলানো |
+| `tuning.progress` | ``Step ${p.n} of ${p.total}`` | ``\u09A7\u09BE\u09AA ${p.n} / ${p.total}`` |
+| `tuning.intro` | Before you explore, learn what the sounds mean, one at a time. Next plays each step; Skip ends tuning. Help can play it again. | শোনা শুরুর আগে জেনে নিন কোন শব্দের কী মানে, একটি একটি করে। পরের ধাপ চাপলে প্রতিটি বাজে; বাদ দিন চাপলে শেষ। সাহায্য থেকে আবার বাজানো যায়। |
+| `tuning.reference` | ``The reference tone: ${p.value} degrees Celsius, the middle of the ocean scale. Set a volume that is comfortable.`` | ``\u09B0\u09C7\u09AB\u09BE\u09B0\u09C7\u09A8\u09CD\u09B8 \u09B8\u09C1\u09B0: ${p.value} \u09A1\u09BF\u0997\u09CD\u09B0\u09BF \u09B8\u09C7\u09B2\u09B8\u09BF\u09AF\u09BC\u09BE\u09B8, \u09B8\u09AE\u09C1\u09A6\u09CD\u09B0\u09C7\u09B0 \u09AE\u09BE\u09AA\u0995\u09BE\u09A0\u09BF\u09B0 \u09AE\u09BE\u099D\u09BE\u09AE\u09BE\u099D\u09BF\u0964 \u0986\u09B0\u09BE\u09AE\u09A6\u09BE\u09AF\u09BC\u0995 \u09AD\u09B2\u09BF\u0989\u09AE \u09A0\u09BF\u0995 \u0995\u09B0\u09C1\u09A8\u0964`` |
+| `tuning.oceanLow` | ``Ocean temperature, the lowest anchor: ${p.value} degrees Celsius. A low pitch.`` | ``\u09B8\u09AE\u09C1\u09A6\u09CD\u09B0\u09C7\u09B0 \u09A4\u09BE\u09AA\u09AE\u09BE\u09A4\u09CD\u09B0\u09BE, \u09B8\u09AC\u099A\u09C7\u09AF\u09BC\u09C7 \u09A8\u09BF\u099A\u09C7\u09B0 \u09A8\u09CB\u0999\u09B0: ${p.value} \u09A1\u09BF\u0997\u09CD\u09B0\u09BF \u09B8\u09C7\u09B2\u09B8\u09BF\u09AF\u09BC\u09BE\u09B8\u0964 \u09A8\u09BF\u099A\u09C1 \u09B8\u09C1\u09B0\u0964`` |
+| `tuning.oceanHigh` | ``Ocean temperature, the highest anchor: ${p.value} degrees Celsius. A high pitch.`` | ``\u09B8\u09AE\u09C1\u09A6\u09CD\u09B0\u09C7\u09B0 \u09A4\u09BE\u09AA\u09AE\u09BE\u09A4\u09CD\u09B0\u09BE, \u09B8\u09AC\u099A\u09C7\u09AF\u09BC\u09C7 \u0993\u09AA\u09B0\u09C7\u09B0 \u09A8\u09CB\u0999\u09B0: ${p.value} \u09A1\u09BF\u0997\u09CD\u09B0\u09BF \u09B8\u09C7\u09B2\u09B8\u09BF\u09AF\u09BC\u09BE\u09B8\u0964 \u0989\u0981\u099A\u09C1 \u09B8\u09C1\u09B0\u0964`` |
+| `tuning.rainLow` | ``Rain, the lowest anchor: ${p.value} millimetres an hour. Slow drops.`` | ``\u09AC\u09C3\u09B7\u09CD\u099F\u09BF, \u09B8\u09AC\u099A\u09C7\u09AF\u09BC\u09C7 \u09A8\u09BF\u099A\u09C7\u09B0 \u09A8\u09CB\u0999\u09B0: \u0998\u09A3\u09CD\u099F\u09BE\u09AF\u09BC ${p.value} \u09AE\u09BF\u09B2\u09BF\u09AE\u09BF\u099F\u09BE\u09B0\u0964 \u09A7\u09C0\u09B0 \u09AB\u09CB\u0981\u099F\u09BE\u0964`` |
+| `tuning.rainHigh` | ``Rain, the highest anchor: ${p.value} millimetres an hour. Fast drops.`` | ``\u09AC\u09C3\u09B7\u09CD\u099F\u09BF, \u09B8\u09AC\u099A\u09C7\u09AF\u09BC\u09C7 \u0993\u09AA\u09B0\u09C7\u09B0 \u09A8\u09CB\u0999\u09B0: \u0998\u09A3\u09CD\u099F\u09BE\u09AF\u09BC ${p.value} \u09AE\u09BF\u09B2\u09BF\u09AE\u09BF\u099F\u09BE\u09B0\u0964 \u09A6\u09CD\u09B0\u09C1\u09A4 \u09AB\u09CB\u0981\u099F\u09BE\u0964`` |
+| `tuning.snow` | ``Snow follows the same rule, as bells: ${p.value} millimetres an hour.`` | ``\u09A4\u09C1\u09B7\u09BE\u09B0\u0993 \u098F\u0995\u0987 \u09A8\u09BF\u09AF\u09BC\u09AE\u09C7 \u09AC\u09BE\u099C\u09C7, \u0998\u09A3\u09CD\u099F\u09BE\u09B0 \u09AE\u09A4\u09CB: \u0998\u09A3\u09CD\u099F\u09BE\u09AF\u09BC ${p.value} \u09AE\u09BF\u09B2\u09BF\u09AE\u09BF\u099F\u09BE\u09B0\u0964`` |
+| `tuning.nodata` | Silence means no data: land, or no measurement. It never means zero. This tick marks where the data stops. | নীরবতা মানে তথ্য নেই: স্থল, বা কোনো মাপ নেই। এর মানে কখনো শূন্য নয়। এই টিক শব্দটি জানায় তথ্য কোথায় শেষ। |
+| `tuning.grammar` | The sound grammar. Pitch is ocean temperature: higher is warmer. Rhythm is rain: faster drops are heavier rain, and bells are snow. Loudness carries no data, so set it to what is comfortable. Left and right follow longitude. | শব্দের ব্যাকরণ। সুরের উচ্চতা হলো সমুদ্রের তাপমাত্রা: উঁচু সুর মানে বেশি উষ্ণ। ছন্দ হলো বৃষ্টি: দ্রুত ফোঁটা মানে ভারী বৃষ্টি, ঘণ্টাধ্বনি মানে তুষার। জোরে-আস্তে কোনো তথ্য বহন করে না, তাই আরামদায়ক রাখুন। বাম-ডান দ্রাঘিমাংশ অনুসরণ করে। |
+| `tuning.done` | Tuning done. On the map, Enter says the value here, D describes the place, and H lists every key. | সুর মেলানো শেষ। মানচিত্রে Enter চাপলে এখানকার মান, D চাপলে জায়গার বর্ণনা, H চাপলে সব কী-র তালিকা। |
+| `tuning.next` | Next | পরের ধাপ |
+| `tuning.again` | Play again | আবার বাজান |
+| `tuning.skip` | Skip tuning | সুর মেলানো বাদ দিন |
+| `tuning.finish` | Start exploring | শোনা শুরু করুন |
+| `tuning.replay` | Play Track 0 (Tuning) again | ট্র্যাক ০ (সুর মেলানো) আবার বাজান |
+| `provenance.line` | ``${p.dataset}: a ${p.agency} ${p.kind}. Cells ${p.deg} degrees across, about ${p.km} kilometres at the equator. This frame: ${p.time} UTC.`` | ``${p.dataset}: ${p.agency}-\u098F\u09B0 ${p.kind}\u0964 \u09AA\u09CD\u09B0\u09A4\u09BF\u099F\u09BF \u0998\u09B0 ${p.deg} \u09A1\u09BF\u0997\u09CD\u09B0\u09BF \u099A\u0993\u09A1\u09BC\u09BE, \u09AC\u09BF\u09B7\u09C1\u09AC\u09B0\u09C7\u0996\u09BE\u09AF\u09BC \u09AA\u09CD\u09B0\u09BE\u09AF\u09BC ${p.km} \u0995\u09BF\u09B2\u09CB\u09AE\u09BF\u099F\u09BE\u09B0\u0964 \u098F\u0987 \u09AB\u09CD\u09B0\u09C7\u09AE: ${p.time} UTC\u0964`` |
+| `provenance.kind.measurement` | observation | পর্যবেক্ষণ |
+| `provenance.kind.model` | model | মডেল |
+| `provenance.kind.inventory` | inventory | তালিকা |
+| `key.shiftP.action` | Say where this record comes from, in one line | এই রেকর্ড কোথা থেকে এসেছে, এক লাইনে শুনুন |
 | data template | GPCC stops at # because the gauge version we use (GPCC Full Data Monthly V#) ends in December #, so both rain records compare #–# with #–#. | GPCC {0} সালে থামে, কারণ আমাদের ব্যবহৃত বৃষ্টিমাপক সংস্করণ (GPCC Full Data Monthly V{1}) ডিসেম্বর {2}-এ শেষ; তাই দুটি বৃষ্টির রেকর্ডই {3}–{4}-কে {5}–{6}-এর সাথে তুলনা করে। |
 | data template | GPCP only, newer decade; GPCC data ends in # | শুধু GPCP, নতুন দশক; GPCC ডেটা {0} সালে শেষ |
 

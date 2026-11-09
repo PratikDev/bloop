@@ -1,5 +1,6 @@
 import { TRACK_VOICES, type LiveVoiceId, type TrackMode } from "@/lib/audio-adapter/types";
 import { DEFAULT_CELL, remember } from "@/a11y/mapNav";
+import { FLAGS } from "@/lib/flags";
 import { clampLat, START_CURSOR, wrapLon, type LatLon } from "@/lib/data";
 import type { Lang } from "@/lib/i18n";
 import { ACCESS_DEFAULTS, type AccessChoices, type AccessKey } from "./access";
@@ -10,7 +11,7 @@ export type Mode = "home" | "explore" | "story" | "thenNow" | "how" | "turntable
 export type PanelTab = "describe" | "table" | "truth" | "mapping" | "provenance" | "history";
 
 /** Settings remembered on this device (src/components/AppState/prefs.ts). */
-export type PrefKey = "lang" | "describe" | "captions" | "builtInVoice" | "hide3d" | "started" | "soundChoice" | AccessKey;
+export type PrefKey = "lang" | "describe" | "captions" | "builtInVoice" | "hide3d" | "tuned" | "started" | "soundChoice" | AccessKey;
 
 /** What the visitor chose at Start (mentor item 2): remembered, so a return visit knows; null before any choice. */
 export type SoundChoice = "sound" | "silent";
@@ -51,6 +52,9 @@ export interface AppState extends AccessChoices {
   heldFrame: number | null;
   /** The 3D views are hidden (Settings); every task still works from the HTML around them. */
   hide3d: boolean;
+  /** Track 0 "Tuning" was finished or skipped on this device (remembered), and whether it is showing now. */
+  tuned: boolean;
+  tuning: boolean;
   /** What the map's next settled announcement leads with (a jump's region or place); `n` counts, so a repeat is new. */
   lead: Lead | null;
 }
@@ -86,7 +90,9 @@ export type AppAction =
   | { type: "setPanelOpen"; open: boolean }
   | { type: "setHelpOpen"; open: boolean }
   | { type: "setBrailleOpen"; open: boolean }
-  | { type: "setAccess"; patch: Partial<AccessChoices> };
+  | { type: "setAccess"; patch: Partial<AccessChoices> }
+  | { type: "startTuning" }
+  | { type: "endTuning" };
 
 const FULL_MIX: VoiceMix = { volume: 1, muted: false };
 
@@ -116,6 +122,8 @@ export const initialState: AppState = {
   heldFrame: null,
   hide3d: false,
   lead: null,
+  tuned: false,
+  tuning: false,
   ...ACCESS_DEFAULTS,
 };
 
@@ -138,20 +146,23 @@ export function isVoiceAudible(state: AppState, voice: LiveVoiceId): boolean {
   return TRACK_VOICES[state.track].includes(voice);
 }
 
+/** Track 0 opens once the intro is over, before the first exploration, until it has been finished or skipped. */
+export const withTuning = (state: AppState, on: boolean = FLAGS.tuning): AppState => (on && !state.tuned ? { ...state, tuning: true } : state);
+
 export function reducer(state: AppState, action: AppAction): AppState {
   switch (action.type) {
     case "start":
       return { ...state, started: true, soundChoice: "sound", soundOn: true, playing: true };
     case "startSilent":
       // Straight to the map: no opening (it is a sound piece), captions carry the values.
-      return { ...state, started: true, soundChoice: "silent", soundOn: false, playing: false, introDone: true, captions: true };
+      return withTuning({ ...state, started: true, soundChoice: "silent", soundOn: false, playing: false, introDone: true, captions: true });
     case "resetStart":
       // Forget the sound choice: back to the first visit (the Start buttons, then the opening).
       return { ...state, started: false, soundChoice: null, soundOn: false, playing: false, introDone: false };
     case "enableSound":
       return { ...state, soundOn: true, playing: true };
     case "introDone":
-      return { ...state, introDone: true };
+      return state.introDone ? state : withTuning({ ...state, introDone: true });
     case "setPlaying":
       return { ...state, playing: action.playing };
     case "moveCursor":
@@ -203,5 +214,9 @@ export function reducer(state: AppState, action: AppAction): AppState {
       return { ...state, brailleOpen: action.open };
     case "setAccess":
       return { ...state, ...action.patch };
+    case "startTuning":
+      return { ...state, tuning: true };
+    case "endTuning":
+      return { ...state, tuning: false, tuned: true };
   }
 }

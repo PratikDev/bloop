@@ -16,10 +16,15 @@ const VERSION = /\b(?:RL\d+(?:\.\d+)*M?v\d+|[vV]\d+(?:\.\d+)*)\b/u;
 
 export const versionOf = (name: string): string | null => VERSION.exec(name)?.[0] ?? null;
 
-/** The registry's link for the data a product plays (its first dataset that isn't the SVS frame itself). */
-export function datasetLink(freshness: FreshnessFile | null, product: string | undefined): string | null {
+/** The registry's entry for the data a product plays: its first dataset that isn't the SVS frame itself. */
+export function sourceDataset(freshness: FreshnessFile | null, product: string | undefined) {
   const entry = product ? freshness?.products[product] : undefined;
-  return entry?.datasets.find((d) => !FRAME.test(d.id))?.url ?? null;
+  return entry?.datasets.find((d) => !FRAME.test(d.id)) ?? null;
+}
+
+/** The registry's link for the data a product plays. */
+export function datasetLink(freshness: FreshnessFile | null, product: string | undefined): string | null {
+  return sourceDataset(freshness, product)?.url ?? null;
 }
 
 const gridCell = (t: BoundT, lang: Lang, grid: { width: number; height: number; aggregation: string }) =>
