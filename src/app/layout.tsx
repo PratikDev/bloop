@@ -13,9 +13,21 @@ const instrument = Instrument_Serif({ variable: "--font-instrument", subsets: ["
 const anek = Anek_Bangla({ variable: "--font-anek", subsets: ["bengali"], preload: false });
 const tiro = Tiro_Bangla({ variable: "--font-tiro", subsets: ["bengali"], weight: "400", style: ["normal", "italic"], preload: false });
 
+const DESCRIPTION = "Hear NASA Earth Information Center frames as live sound, and see how the values were checked.";
+
 export const metadata: Metadata = {
-  title: { default: appEn["app.title"], template: `%s · ${appEn["app.title"]}` },
-  description: "Hear NASA Earth Information Center frames as live sound, and see how the values were checked.",
+  // Absolute URLs for link previews (the Space Apps submission, Discord, social posts).
+  metadataBase: new URL("https://bloop-ptsd.pages.dev"),
+  title: { default: `${appEn["app.title"]}: the Earth Information Jukebox`, template: `%s · ${appEn["app.title"]}` },
+  description: DESCRIPTION,
+  openGraph: {
+    type: "website",
+    siteName: appEn["app.title"],
+    title: `${appEn["app.title"]}: the Earth Information Jukebox`,
+    description: DESCRIPTION,
+    images: [{ url: "/og.jpg", width: 1200, height: 630, alt: "Bloop: a globe of today's ocean temperature beside the words Listen to Earth's latest frames" }],
+  },
+  twitter: { card: "summary_large_image" },
 };
 
 export const viewport: Viewport = {

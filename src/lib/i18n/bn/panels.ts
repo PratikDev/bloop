@@ -35,7 +35,7 @@ export const panelsBn: Translated<typeof panelsEn> = {
   "truth.checkedOn": (p: { datetime: string }) => `যাচাই করা হয়েছে ${p.datetime} UTC`,
   "truth.rain.plotCaption": (p: { run: string; points: number }) => `ওপরের যাচাই, চিত্রে (IMERG ${p.run} রান, ${int(p.points)}টি বিন্দু)।`,
 
-  "globe.teaser": "টিজার: অক্টোবরে আসছে",
+  "globe.teaser": "প্রাথমিক প্রিভিউ",
   "globe.plan": "নাগরিক পর্যবেক্ষক বনাম স্যাটেলাইট: দুটি দৃষ্টিভঙ্গি, ঠিক বনাম ভুল নয়।",
   "globe.featured": (p: { date: string; lat: number; lon: number; ground: number; satellite: number; reports: number }) =>
     `একটি সাধারণ দিন: ${p.date} তারিখে ${formatFixed(p.lat, "bn", 2)}° উত্তর, ${formatFixed(p.lon, "bn", 2)}° পূর্বের কাছে মাটিতে থাকা পর্যবেক্ষকেরা ` +

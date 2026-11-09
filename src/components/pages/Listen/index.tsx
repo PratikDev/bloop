@@ -53,7 +53,7 @@ export function ListenPage() {
               <h1 id="listen-title" data-page-title tabIndex={-1} className="font-serif text-title leading-tight md:text-headline lg:truncate lg:text-title">
                 {t("listen.title")}
               </h1>
-              <FrameLabel className="hidden lg:block lg:listen-wide:hidden" />
+              <FrameLabel compact className="hidden lg:block lg:listen-wide:hidden" />
             </div>
             {!story && <TrackChoice className="shrink-0 lg:listen-wide:hidden" />}
           </header>

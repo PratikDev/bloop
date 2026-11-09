@@ -42,7 +42,7 @@ export const appEn = {
   "help.open": "Help",
   "help.keys": "Keys",
 
-  "badge.comingOctober": "Coming in October",
+  "badge.comingOctober": "Planned",
   "badge.loadingRain": "Loading rain",
 
   "map.roleDescription": "sound map",
@@ -85,6 +85,9 @@ export const appEn = {
   // Plan §16 "Frame label", exact wording.
   "frame.label": (p: { product: string; datetime: string }) =>
     `EIC frame: ${p.product}, ${p.datetime} UTC. Sound generated live from this frame.`,
+  // The same label on one line, for the Listen page's head on screens narrower than 2:1 (FrameLabel compact).
+  "frame.compact": (p: { list: string }) => `EIC frames: ${p.list}. Sound generated live from these frames.`,
+  "frame.compactItem": (p: { product: string; datetime: string }) => `${p.product}, ${p.datetime} UTC`,
 
   "sound.pause": "Pause sound",
   "sound.play": "Play sound",
@@ -123,7 +126,7 @@ export const appEn = {
   "whisper.kind.sst": "sea surface temperature",
   "whisper.kind.rain": "rain",
   "whisper.announce": (p: { text: string; source: string }) => `${p.text} Source: ${p.source}.`,
-  "xray.unavailable": "X-ray is coming in October: it needs NASA's colorbar data, which isn't published yet.",
+  "xray.unavailable": "X-ray is planned: it needs NASA's colorbar data, which isn't published yet.",
 
   "announce.track": (p: { track: string }) => `Now hearing: ${p.track}.`,
   "announce.mode": (p: { mode: string }) => `${p.mode} mode.`,

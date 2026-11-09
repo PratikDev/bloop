@@ -80,7 +80,7 @@ export const pagesEn = {
   "how.globe.value": (p: { percent: number }) => `${formatInteger(p.percent, "en")}%`,
   "how.open": "Read the full check",
   "how.openRules": "See every rule",
-  "how.openGlobe": "Read the teaser",
+  "how.openGlobe": "Read the preview",
   "how.credits": "Credits",
   "how.keys": "Keys and accessibility",
 

@@ -33,7 +33,7 @@ export function TuningDial({ className }: { className?: string }) {
                   active ? "text-moon" : "text-haze hover:text-moon",
                 )}
               >
-                <span aria-hidden="true" className={cn("hidden font-mono text-small tabular-nums sm:inline", active ? "text-shapla" : "text-haze/70 group-hover:text-haze")}>
+                <span aria-hidden="true" className={cn("hidden font-mono text-small tabular-nums xl:inline", active ? "text-shapla" : "text-haze/70 group-hover:text-haze")}>
                   {formatIndex(i + 1, state.lang)}
                 </span>
                 <span className="hidden sm:inline">{t(item.label)}</span>

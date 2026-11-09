@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useRef, useState } from "react";
+import { useCallback, useEffect, useRef, useState } from "react";
 import { ArrowRight } from "@phosphor-icons/react";
 import { AnimatePresence, motion } from "motion/react";
 import { Button } from "@/components/ui/button";
@@ -8,6 +8,7 @@ import { EASE_OUT_SOFT } from "@/lib/motion";
 import { audio } from "@/lib/audio-adapter";
 import type { PlayerHandle } from "@/lib/audio-adapter/types";
 import { openingPath } from "@/lib/data";
+import { pushEscapeHandler } from "@/lib/escape";
 import { captionText } from "@/lib/i18n";
 import { useAnnounce } from "./Announcer/use-announcer";
 import { useAppState, useT } from "./AppState/use-app-state";
@@ -67,10 +68,20 @@ export function Opening() {
   }, [active, sstStatus, dispatch]);
 
   // Skip works whether or not the sound has started yet.
-  const skip = () => {
+  const skip = useCallback(() => {
     handleRef.current?.stop();
     dispatch({ type: "introDone" });
-  };
+  }, [dispatch]);
+
+  // Esc does exactly what Skip does. The opening claims it, so the global Esc
+  // (stop all sound) doesn't run and leave the map silent after "Start listening".
+  useEffect(() => {
+    if (!active) return;
+    return pushEscapeHandler(() => {
+      skip();
+      return true;
+    });
+  }, [active, skip]);
 
   // Its own stage, unlike any page: near-black, a breathing glow, a big signal
   // ring, no header or dock. It fades away as the map opens from the equator.

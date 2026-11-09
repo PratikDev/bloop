@@ -50,7 +50,7 @@ export const turntableEn = {
   "turntable.missing": "none",
   "turntable.frameTime": (p: { datetime: string }) => `Frame: ${p.datetime} UTC`,
   "turntable.error": (p: { text: string }) => `Measured error: ${p.text}`,
-  "turntable.error.rain": (p: { percent: number }) => `typically within ~${formatInteger(p.percent, "en")}% (pending team approval)`,
+  "turntable.error.rain": (p: { percent: number }) => `typically within ~${formatInteger(p.percent, "en")}%`,
   "turntable.error.ocean": (p: { median: number; n: number }) =>
     `median ${formatFixed(p.median, "en", 2)} °C against NASA MUR (${formatInteger(p.n, "en")} points, latest frame)`,
 

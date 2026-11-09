@@ -17,7 +17,7 @@ import { useShownPoint } from "./TimeLapse/use-shown-point";
  * it is the time of the frame being shown. Only the frames of the track shown.
  * Each frame carries its source and data-age badges (meta/freshness.json).
  */
-export function FrameLabel({ className }: { className?: string }) {
+export function FrameLabel({ className, compact = false }: { className?: string; compact?: boolean }) {
   const { state } = useAppState();
   const { sst, rain, fields } = useLiveData();
   const t = useT();
@@ -30,6 +30,17 @@ export function FrameLabel({ className }: { className?: string }) {
         track !== "rain" && sst ? { product: t("frame.product.ocean"), time: sst.meta.frame_time_utc, voice: "ocean" as const } : null,
         track !== "ocean" && rain ? { product: t("frame.product.rain"), time: rain.meta.frame_time_utc, voice: "rain" as const } : null,
       ].filter((f) => f !== null);
+
+  // One line, no rule or badges: the Listen page's head has a fixed height on screens narrower than 2:1,
+  // and the full label (with its age badges) didn't fit there. The details stay in the Inspector.
+  if (compact) {
+    const text = t("frame.compact", { list: frames.map((f) => t("frame.compactItem", { product: f.product, datetime: formatUtc(f.time, state.lang) })).join(" · ") });
+    return (
+      <p title={text} className={cn("truncate text-small text-haze", className)}>
+        {text}
+      </p>
+    );
+  }
 
   return (
     <div className={cn("space-y-1 text-small text-haze", className)}>

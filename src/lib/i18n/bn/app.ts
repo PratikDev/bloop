@@ -48,7 +48,7 @@ export const appBn: Translated<typeof appEn> = {
   "help.open": "সাহায্য",
   "help.keys": "কীবোর্ড",
 
-  "badge.comingOctober": "অক্টোবরে আসছে",
+  "badge.comingOctober": "পরিকল্পিত",
   "badge.loadingRain": "বৃষ্টি লোড হচ্ছে",
 
   "map.roleDescription": "শব্দ-মানচিত্র",
@@ -84,6 +84,8 @@ export const appBn: Translated<typeof appEn> = {
   "frame.product.rain": "বৃষ্টি ও তুষার",
   // Plan §16 "Frame label": a translation, to be checked by the team.
   "frame.label": (p: { product: string; datetime: string }) => `EIC ফ্রেম: ${p.product}, ${p.datetime} UTC। শব্দটি এই ফ্রেম থেকে সরাসরি তৈরি।`,
+  "frame.compact": (p: { list: string }) => `EIC ফ্রেম: ${p.list}। শব্দ এই ফ্রেমগুলো থেকে সরাসরি তৈরি।`,
+  "frame.compactItem": (p: { product: string; datetime: string }) => `${p.product}, ${p.datetime} UTC`,
 
   "sound.pause": "শব্দ থামান",
   "sound.play": "শব্দ চালান",
@@ -121,7 +123,7 @@ export const appBn: Translated<typeof appEn> = {
   "whisper.kind.sst": "সমুদ্রপৃষ্ঠের তাপমাত্রা",
   "whisper.kind.rain": "বৃষ্টি",
   "whisper.announce": (p: { text: string; source: string }) => `${p.text} উৎস: ${p.source}।`,
-  "xray.unavailable": "এক্স-রে অক্টোবরে আসছে: এর জন্য নাসার কালারবার ডেটা লাগবে, যা এখনো প্রকাশিত হয়নি।",
+  "xray.unavailable": "এক্স-রে পরিকল্পিত: এর জন্য নাসার কালারবার ডেটা লাগবে, যা এখনো প্রকাশিত হয়নি।",
 
   "announce.track": (p: { track: string }) => `এখন শুনছেন: ${p.track}।`,
   "announce.mode": (p: { mode: string }) => `${p.mode} মোড।`,

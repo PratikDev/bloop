@@ -52,7 +52,7 @@ export const contextBn: Translated<typeof contextEn> = {
   "thenNow.moreTitle": "আরও রেকর্ড, আগে বনাম এখন",
   "thenNow.part.fires": "আগুন",
   "thenNow.part.vegetation": "গাছপালা",
-  "field.soundOctober": "এই রেকর্ডের এখনো শব্দ নেই: অক্টোবরে আসছে",
+  "field.soundOctober": "এই রেকর্ডের এখনো শব্দ নেই",
   "field.place": "স্থান",
   "field.sources": "এই সংখ্যাগুলো কোথা থেকে এসেছে",
   "field.rule": "নিয়ম",
