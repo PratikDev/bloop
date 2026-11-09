@@ -16,6 +16,7 @@ import { useLatestCaption } from "./CaptionBar/use-latest-caption";
 import { ComicWordmark } from "./ComicWordmark";
 import { useLiveData } from "./LiveData/use-live-data";
 import { SignalMark } from "./SignalMark";
+import { Starfield } from "./Starfield";
 import { Waveform } from "./Waveform";
 
 const OPENING_KEYS = new Set(["caption.opening.closeEyes", "caption.opening.openEyes"]);
@@ -99,6 +100,7 @@ export function Opening() {
           exit={{ opacity: 0, pointerEvents: "none", transition: { duration: 0.8, ease: EASE_OUT_SOFT } }}
           className="fixed inset-0 z-(--layer-opening) grid grid-rows-[auto_1fr_auto] overflow-hidden night-sky px-5 py-6 md:px-10 md:py-8"
         >
+          <Starfield />
           <p className="eyebrow relative flex items-center gap-2">
             <span aria-hidden="true" className="size-1.5 animate-pulse rounded-full bg-shapla" />
             {t("opening.label")}
