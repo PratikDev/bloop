@@ -1,3 +1,4 @@
 - motion tokens, spin model, Odometer | b48a8db | 2026-11-09 22:01 | next: Starfield, SpaceWindow, Globe extension
 - Starfield, SpaceWindow | db4aef9 | 2026-11-09 22:04 | next: phase 6 toon Turntable
 - phase 6 toon Turntable, globe never covered, swatch, needle motion, sound rings | 24716a5 | 2026-11-10 00:33 | next: phase 5 Globe, Then vs Now stage, time-lapse stage, intro
+- Globe extension, Home globe mount | 70c9e1c | 2026-11-10 00:39 | next: time-lapse stage, intro, Then vs Now stage
