@@ -7,7 +7,7 @@ import { ACCESS_DEFAULTS, type AccessChoices, type AccessKey } from "./access";
 /** What the current page is doing; set from the URL only (src/router/modes.ts). */
 export type Mode = "home" | "explore" | "story" | "thenNow" | "how" | "turntable" | "official" | "team";
 /** The Listen page's Inspector tabs; the Turntable's "How we know" drawer adds History (Month by month). */
-export type PanelTab = "describe" | "truth" | "mapping" | "provenance" | "history";
+export type PanelTab = "describe" | "table" | "truth" | "mapping" | "provenance" | "history";
 
 /** Settings remembered on this device (src/components/AppState/prefs.ts). */
 export type PrefKey = "lang" | "describe" | "captions" | "builtInVoice" | "hide3d" | "started" | "soundChoice" | AccessKey;
@@ -51,6 +51,13 @@ export interface AppState extends AccessChoices {
   heldFrame: number | null;
   /** The 3D views are hidden (Settings); every task still works from the HTML around them. */
   hide3d: boolean;
+  /** What the map's next settled announcement leads with (a jump's region or place); `n` counts, so a repeat is new. */
+  lead: Lead | null;
+}
+
+export interface Lead {
+  text: string;
+  n: number;
 }
 
 /** The on/off settings (Settings, Help and the keys toggle them). */
@@ -64,7 +71,7 @@ export type AppAction =
   | { type: "introDone" }
   | { type: "setPlaying"; playing: boolean }
   | { type: "moveCursor"; dLat: number; dLon: number }
-  | { type: "setCursor"; cursor: LatLon; remember?: boolean }
+  | { type: "setCursor"; cursor: LatLon; remember?: boolean; lead?: string }
   | { type: "cursorBack" }
   | { type: "setStepDeg"; stepDeg: number }
   | { type: "holdFrame"; index: number | null }
@@ -108,6 +115,7 @@ export const initialState: AppState = {
   trail: [],
   heldFrame: null,
   hide3d: false,
+  lead: null,
   ...ACCESS_DEFAULTS,
 };
 
@@ -160,6 +168,7 @@ export function reducer(state: AppState, action: AppAction): AppState {
         ...state,
         trail: action.remember ? remember(state.trail, state.cursor) : state.trail,
         cursor: { lat: clampLat(action.cursor.lat), lon: wrapLon(action.cursor.lon) },
+        lead: action.lead === undefined ? state.lead : { text: action.lead, n: (state.lead?.n ?? 0) + 1 },
       };
     case "cursorBack": {
       const back = state.trail[state.trail.length - 1];

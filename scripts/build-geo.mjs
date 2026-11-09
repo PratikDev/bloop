@@ -58,7 +58,7 @@ async function main() {
   // Countries: whole world at 110m; South Asia at 10m for close-up.
   const world = await shape(
     await download(NE("ne_110m_admin_0_countries")),
-    "-filter-fields NAME,NAME_EN,NAME_BN,LABEL_X,LABEL_Y,LABELRANK,ADM0_A3 -o precision=0.01",
+    "-filter-fields NAME,NAME_EN,NAME_BN,LABEL_X,LABEL_Y,LABELRANK,ADM0_A3,CONTINENT -o precision=0.01",
   );
   await write("countries-110m.json", world);
   const southAsia = await shape(

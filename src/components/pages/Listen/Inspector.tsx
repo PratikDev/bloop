@@ -15,27 +15,31 @@ import { useAppState, useT } from "../../AppState/use-app-state";
 import { MappingPanel } from "../../panels/MappingPanel";
 import { ProvenancePanel } from "../../panels/ProvenancePanel";
 import { TruthPanel } from "../../panels/TruthPanel";
-import { DescriptionPanel } from "../../Describe";
-import { FLAGS } from "@/lib/flags";
+import { CORE_TABS, shownTab } from "../../panels/core-tabs";
 
 /** The Inspector's tabs (the Turntable's drawer adds History; the Inspector shows Provenance in its place). */
 type InspectorTab = Exclude<PanelTab, "history">;
-const inspectorTab = (panel: PanelTab): InspectorTab => (panel === "history" || (panel === "describe" && !FLAGS.describe) ? "provenance" : panel);
+const inspectorTab = (panel: PanelTab): InspectorTab => {
+  const shown = shownTab(panel);
+  return shown === "history" ? "provenance" : shown;
+};
 
-const TABS: { tab: InspectorTab; label: "panel.describe" | "panel.provenance" | "panel.mapping" | "panel.truth" }[] = [
-  // Accessibility core, step 3: the needle's description, as text.
-  ...(FLAGS.describe ? [{ tab: "describe" as const, label: "panel.describe" as const }] : []),
+const TABS: { tab: InspectorTab; label: "panel.describe" | "panel.table" | "panel.provenance" | "panel.mapping" | "panel.truth" }[] = [
+  // The accessibility core's tabs (the needle's description and table), each behind its flag.
+  ...CORE_TABS,
   { tab: "provenance", label: "panel.provenance" },
   { tab: "mapping", label: "panel.mapping" },
   { tab: "truth", label: "panel.truth" },
 ];
 
-const PANELS: Record<InspectorTab, ReactNode> = {
-  describe: <DescriptionPanel />,
+const PANELS: Record<Exclude<InspectorTab, "describe" | "table">, ReactNode> = {
   provenance: <ProvenancePanel />,
   mapping: <MappingPanel />,
   truth: <TruthPanel />,
 };
+
+/** A tab's content: one of the core tabs (core-tabs.tsx), or the Inspector's own. */
+const panelFor = (tab: InspectorTab): ReactNode => (tab === "describe" || tab === "table" ? CORE_TABS.find((c) => c.tab === tab)?.panel : PANELS[tab]);
 
 function InspectorTabs() {
   const { state, dispatch } = useAppState();
@@ -51,7 +55,7 @@ function InspectorTabs() {
       </TabsList>
       {TABS.map(({ tab }) => (
         <TabsContent key={tab} value={tab} className="text-body">
-          {PANELS[tab]}
+          {panelFor(tab)}
         </TabsContent>
       ))}
     </Tabs>

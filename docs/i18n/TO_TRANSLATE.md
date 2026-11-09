@@ -499,7 +499,7 @@ The Mapping panel builds each rule sentence from its parts (`src/lib/i18n/bn/rul
 | `clarity` | parameter: reverbSec; unit: hours since a 1 km infrared look | How recently measured 0 to 48 hours since a 1 km infrared look → echo length 0.1 to 2.4 s (linear). |
 | `unison` | a rule shared with another voice (sameAs) | Proof in unison: two tones in one ear, both by the Ocean temperature rule (Ocean temperature −5 to 35 °C → pitch 220 to 880 Hz (exponential: equal steps in value sound like equal musical steps).) Beats per second = the difference between the two pitches in Hz. |
 
-## Draft Bangla, needs review (284)
+## Draft Bangla, needs review (314)
 
 Drafted for the mentor fixes (`docs/MENTOR_FIXES.md`); **draft, needs review** by a Bangla speaker. Listed in `src/lib/i18n/bn/drafts.ts`: remove an entry there once it is checked.
 
@@ -787,6 +787,36 @@ Drafted for the mentor fixes (`docs/MENTOR_FIXES.md`); **draft, needs review** b
 | `panel.describe` | Description | বর্ণনা |
 | `describe.meaning.ocean` | Warm sea water gives heat and moisture to the air above it. That is the fuel for cyclones and for the monsoon rain over the Bay of Bengal. Where the sea is warmer than usual, storms can grow stronger. | উষ্ণ সমুদ্রের পানি ওপরের বাতাসকে তাপ আর জলীয় বাষ্প দেয়। বঙ্গোপসাগরে ঘূর্ণিঝড় আর বর্ষার বৃষ্টির জ্বালানি এটাই। সমুদ্র স্বাভাবিকের চেয়ে উষ্ণ হলে ঝড় আরও শক্তিশালী হতে পারে। |
 | `describe.meaning.rain` | This is rain and snow falling now, measured from space by NASA's IMERG about every half hour. Heavy rain upstream can bring floods downstream days later. Long dry spells matter for farms and drinking water. | এটি এখন পড়তে থাকা বৃষ্টি ও তুষার, মহাকাশ থেকে নাসার IMERG প্রায় প্রতি আধা ঘণ্টায় মাপে। উজানে ভারী বৃষ্টি কয়েক দিন পরে ভাটিতে বন্যা আনতে পারে। দীর্ঘ শুকনো সময় খেত আর খাবার পানির জন্য গুরুত্বপূর্ণ। |
+| `panel.table` | Table | সারণি |
+| `table.caption` | ``${p.record} around the needle, in ${p.unit}, ${formatUtc(p.timeUtc, "en")} UTC. Rows are latitudes and columns longitudes, ${p.step} degrees apart; the needle is the middle cell.`` | ``\u0995\u09BE\u09B0\u09CD\u09B8\u09B0\u09C7\u09B0 \u099A\u09BE\u09B0\u09AA\u09BE\u09B6\u09C7 ${p.record}, ${p.unit} \u098F\u0995\u0995\u09C7, ${formatUtc(p.timeUtc, "bn")} UTC\u0964 \u09B8\u09BE\u09B0\u09BF\u0997\u09C1\u09B2\u09CB \u0985\u0995\u09CD\u09B7\u09BE\u0982\u09B6, \u0995\u09B2\u09BE\u09AE\u0997\u09C1\u09B2\u09CB \u09A6\u09CD\u09B0\u09BE\u0998\u09BF\u09AE\u09BE\u0982\u09B6, ${p.step} \u09A1\u09BF\u0997\u09CD\u09B0\u09BF \u09AA\u09B0\u09AA\u09B0; \u09AE\u09BE\u099D\u09C7\u09B0 \u0998\u09B0\u099F\u09BF \u0995\u09BE\u09B0\u09CD\u09B8\u09B0\u0964`` |
+| `table.corner` | Latitude by longitude | অক্ষাংশ ও দ্রাঘিমাংশ |
+| `table.lat` | ``${formatDegrees(p.lat, "en")}\xB0 ${p.lat >= 0 ? "N" : "S"}`` | ``${formatDegrees(p.lat, "bn")}\xB0 ${p.lat >= 0 ? "\u0989" : "\u09A6"}`` |
+| `table.lon` | ``${formatDegrees(p.lon, "en")}\xB0 ${p.lon >= 0 ? "E" : "W"}`` | ``${formatDegrees(p.lon, "bn")}\xB0 ${p.lon >= 0 ? "\u09AA\u09C2" : "\u09AA"}`` |
+| `table.needle` | needle | কার্সর |
+| `table.dry` | dry | শুকনো |
+| `table.none` | no data | তথ্য নেই |
+| `table.unit.celsius` | degrees Celsius | ডিগ্রি সেলসিয়াস |
+| `table.unit.mmPerHour` | millimetres an hour | মিলিমিটার প্রতি ঘণ্টা |
+| `table.loading` | Loading the values. | মানগুলো লোড হচ্ছে। |
+| `places.open` | Find a place or browse continents, countries and divisions | জায়গা খুঁজুন, বা মহাদেশ, দেশ ও বিভাগ থেকে বেছে নিন |
+| `places.short` | Places | জায়গা |
+| `places.title` | Places | জায়গা |
+| `places.search` | Search places | জায়গা খুঁজুন |
+| `places.searchHint` | A city, country, district or sea, in English or Bangla. | শহর, দেশ, জেলা বা সাগর, বাংলা বা ইংরেজিতে। |
+| `places.none` | No place found. | কোনো জায়গা পাওয়া যায়নি। |
+| `places.loading` | Loading places. | জায়গাগুলো লোড হচ্ছে। |
+| `places.error` | Places could not load. Go to by coordinates still works. | জায়গাগুলো লোড হয়নি। স্থানাঙ্ক দিয়ে যাওয়া এখনও কাজ করে। |
+| `places.browse` | Browse by region | অঞ্চল ধরে দেখুন |
+| `places.goTo` | ``Go to ${p.name}`` | ``${p.name}-\u098F \u09AF\u09BE\u09A8`` |
+| `places.moved` | ``${p.name}.`` | ``${p.name}\u0964`` |
+| `continent.asia` | Asia | এশিয়া |
+| `continent.africa` | Africa | আফ্রিকা |
+| `continent.europe` | Europe | ইউরোপ |
+| `continent.northAmerica` | North America | উত্তর আমেরিকা |
+| `continent.southAmerica` | South America | দক্ষিণ আমেরিকা |
+| `continent.oceania` | Oceania | ওশেনিয়া |
+| `continent.antarctica` | Antarctica | অ্যান্টার্কটিকা |
+| `continent.sevenSeas` | Islands in the open ocean | খোলা সমুদ্রের দ্বীপ |
 | data template | GPCC stops at # because the gauge version we use (GPCC Full Data Monthly V#) ends in December #, so both rain records compare #–# with #–#. | GPCC {0} সালে থামে, কারণ আমাদের ব্যবহৃত বৃষ্টিমাপক সংস্করণ (GPCC Full Data Monthly V{1}) ডিসেম্বর {2}-এ শেষ; তাই দুটি বৃষ্টির রেকর্ডই {3}–{4}-কে {5}–{6}-এর সাথে তুলনা করে। |
 | data template | GPCP only, newer decade; GPCC data ends in # | শুধু GPCP, নতুন দশক; GPCC ডেটা {0} সালে শেষ |
 

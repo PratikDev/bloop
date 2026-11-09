@@ -7,7 +7,9 @@ import { useCommands } from "../Commands/use-commands";
 import { TimeLapseButton } from "../TimeLapse/TimeLapseButton";
 import { DOCK_BUTTON } from "./dock-button";
 import { DockAction } from "./DockAction";
+import { FLAGS } from "@/lib/flags";
 import { GoToMenu } from "./GoToMenu";
+import { PlacesMenu } from "./PlacesMenu";
 
 /** The Listen page's actions: go to a place, sweep, storm time-lapse, the tour, the braille explorer, the Inspector, the keys (the mixer is on every page, in the dock). */
 export function ListenActions() {
@@ -21,6 +23,7 @@ export function ListenActions() {
       {explore && (
         <>
           <GoToMenu />
+          {FLAGS.tablePlaces && <PlacesMenu />}
           <DockAction icon={<Broadcast aria-hidden="true" />} full={t("sweep.play")} label={t("dock.short.sweep")} short={t("dock.short.sweep")} onClick={commands.playSweep} />
           <TimeLapseButton className={DOCK_BUTTON} />
           <DockAction icon={<Compass aria-hidden="true" />} full={t("tour.start")} label={t("dock.short.tour")} short={t("dock.short.tour")} onClick={() => commands.setMode("story")} />

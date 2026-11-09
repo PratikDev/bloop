@@ -13,6 +13,7 @@ import { teamBn } from "./team";
 import { listenTestBn } from "./listen-test";
 import { accessBn } from "./access";
 import { describeBn } from "./describe";
+import { placesTableBn } from "./places-table";
 import { helpBn } from "./help";
 import { pagesBn } from "./pages";
 import { panelsBn } from "./panels";
@@ -21,7 +22,7 @@ import { howBn } from "./how";
 import { statsBn } from "./stats";
 import { storyBn } from "./story";
 
-export const bn: Partial<Messages> = { ...appBn, ...helpBn, ...captionsBn, ...panelsBn, ...contextBn, ...storyBn, ...pagesBn, ...statsBn, ...framesBn, ...howBn, ...creditsBn, ...provenanceBn, ...teamBn, ...listenTestBn, ...accessBn, ...describeBn };
+export const bn: Partial<Messages> = { ...appBn, ...helpBn, ...captionsBn, ...panelsBn, ...contextBn, ...storyBn, ...pagesBn, ...statsBn, ...framesBn, ...howBn, ...creditsBn, ...provenanceBn, ...teamBn, ...listenTestBn, ...accessBn, ...describeBn, ...placesTableBn };
 
 /**
  * Spoken lines (Enter, the tour, Describe) are translated, so speech follows

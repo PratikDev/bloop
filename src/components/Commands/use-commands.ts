@@ -48,8 +48,9 @@ export interface Commands {
   resetStart(): void;
   enableSound(): Promise<void>;
   moveCursor(dLat: number, dLon: number): void;
-  /** Puts the cursor at an exact place (Go to); `remember` lets "." come back to where it was. */
-  setCursor(cursor: LatLon, opts?: { remember?: boolean }): void;
+  /** Puts the cursor at an exact place (Go to); `remember` lets "." come back to where it was; `lead` (a region's or
+   *  place's name) leads the map's announcement of the new place. */
+  setCursor(cursor: LatLon, opts?: { remember?: boolean; lead?: string }): void;
   /** + (1) / − (−1): the next step size for the arrow keys (src/a11y/mapNav.ts), announced. */
   changeStep(dir: 1 | -1): void;
   /** ".": back to the needle's previous place, or says there is none. */

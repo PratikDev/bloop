@@ -102,8 +102,8 @@ export function CommandsProvider({ children }: { children: ReactNode }) {
       moveCursor(dLat, dLon) {
         dispatch({ type: "moveCursor", dLat, dLon });
       },
-      setCursor(cursor, { remember = false } = {}) {
-        dispatch({ type: "setCursor", cursor, remember });
+      setCursor(cursor, { remember = false, lead } = {}) {
+        dispatch({ type: "setCursor", cursor, remember, lead });
       },
       changeStep(dir) {
         const stepDeg = nextCellSize(state.stepDeg, dir);

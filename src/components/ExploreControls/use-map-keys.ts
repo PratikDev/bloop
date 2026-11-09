@@ -1,6 +1,6 @@
 "use client";
 
-import { useCallback, useRef, useState, type KeyboardEvent } from "react";
+import { useCallback, useRef, type KeyboardEvent } from "react";
 import { centreOf, REGION_LABEL, regionOf, WHOLE_MAP, type Bounds } from "@/a11y/mapNav";
 import type { TrackMode } from "@/lib/audio-adapter/types";
 import { FLAGS } from "@/lib/flags";
@@ -35,17 +35,10 @@ export const SHRINK_KEYS = new Set(["-", "_", "−"]);
 /** A modifier pressed on its own (Shift on the way to +) is not a key of its own. */
 const MODIFIERS = new Set(["Shift", "Control", "Alt", "Meta", "CapsLock"]);
 
-/** Text the next settled announcement leads with (a region's name), with a count so the same text counts again. */
-export interface Lead {
-  text: string;
-  n: number;
-}
-
 export interface MapKeys {
   onKeyDown(e: KeyboardEvent<HTMLElement>): void;
   /** Ends the J region mode (the map lost focus). */
   disarm(): void;
-  lead: Lead | null;
 }
 
 /**
@@ -62,7 +55,6 @@ export function useMapKeys(commands: Commands, shown: ShownPoint, stepDeg: numbe
   const t = useT();
   // The J region mode's current view; null when it is off.
   const regions = useRef<Bounds | null>(null);
-  const [lead, setLead] = useState<Lead | null>(null);
   const disarm = useCallback(() => {
     regions.current = null;
   }, []);
@@ -84,12 +76,8 @@ export function useMapKeys(commands: Commands, shown: ShownPoint, stepDeg: numbe
     if (region) {
       return () => {
         regions.current = region.bounds;
-        const n = Number(e.key);
-        setLead((l) => ({
-          text: t("map.region", { n, name: t(REGION_LABEL[region.name]) }),
-          n: (l?.n ?? 0) + 1,
-        }));
-        commands.setCursor(centreOf(region.bounds), { remember: true });
+        const lead = t("map.region", { n: Number(e.key), name: t(REGION_LABEL[region.name]) });
+        commands.setCursor(centreOf(region.bounds), { remember: true, lead });
       };
     }
     regions.current = null; // any other key ends the region mode
@@ -139,7 +127,7 @@ export function useMapKeys(commands: Commands, shown: ShownPoint, stepDeg: numbe
     e.preventDefault();
   };
 
-  return { onKeyDown, disarm, lead };
+  return { onKeyDown, disarm };
 }
 
 /** The map's letter keys (also used by the turntable for the keys it doesn't redefine). */

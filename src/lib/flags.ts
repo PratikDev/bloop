@@ -21,6 +21,10 @@ export const FLAGS = {
   /** Step 3: layered descriptions (EN + BN templates, pattern rules, digit provenance); D says one; a Description tab. */
   // Ready on 8 Nov 2026: descriptions.e2e.ts 20/20, the a11y + features + health checks 292/292 with it on (Chromium +
   // Firefox); the digit-provenance test runs in every build.
+  /** Step 4: "View as table" (values around the needle) and Places (search, continent → country → division). */
+  // Ready on 9 Nov 2026: table-places.e2e.ts 20/20, the a11y + features + health checks 312/312 with it on (Chromium +
+  // Firefox).
+  tablePlaces: flag(process.env.NEXT_PUBLIC_A11Y_TABLE_PLACES, true),
   describe: flag(process.env.NEXT_PUBLIC_A11Y_DESCRIBE, true),
   // Ready on 8 Nov 2026: e2e/a11y/map-keys.e2e.ts 26/26 and the whole suite 406/406 with it on (Chromium + Firefox).
   mapKeys: flag(process.env.NEXT_PUBLIC_A11Y_MAP_KEYS, true),

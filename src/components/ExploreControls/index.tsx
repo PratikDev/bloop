@@ -29,7 +29,8 @@ export function ExploreControls({ children }: { children: ReactNode }) {
   const announce = useAnnounce();
   const t = useT();
   const shown = useShownPoint();
-  const { onKeyDown, disarm, lead } = useMapKeys(commands, shown, state.stepDeg);
+  const { onKeyDown, disarm } = useMapKeys(commands, shown, state.stepDeg);
+  const { lead } = state;
   // Story Mode drives the map and narrates it; map keys and value announcements pause.
   const story = state.mode === "story";
   const instructionsId = useId();
@@ -72,7 +73,7 @@ export function ExploreControls({ children }: { children: ReactNode }) {
     // with it: "Now hearing: Both. Frames rain 2d newer. 29.8 °C; …" (mentor item 1).
     const changed = lastTrack.current !== track && !frameChanged;
     lastTrack.current = track;
-    // A region jump (J, then 1–9) leads with the region's name.
+    // A jump (J, then 1–9; a place from Places) leads with the region's or place's name.
     const region = lead && lead.n !== usedLead.current ? lead.text : null;
     if (lead) usedLead.current = lead.n;
     // Sound-only steps (accessibility core) leave the status region to the sound; a track change still says so.

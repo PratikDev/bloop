@@ -16,6 +16,7 @@ import { teamEn } from "./en/team";
 import { listenTestEn } from "./en/listen-test";
 import { accessEn } from "./en/access";
 import { describeEn } from "./en/describe";
+import { placesTableEn } from "./en/places-table";
 import { dataEn } from "./en/data";
 import { helpEn } from "./en/help";
 import { officialEn } from "./en/official";
@@ -52,6 +53,7 @@ export const en = {
   ...listenTestEn,
   ...accessEn,
   ...describeEn,
+  ...placesTableEn,
 };
 
 export type Messages = typeof en;

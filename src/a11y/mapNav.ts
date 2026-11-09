@@ -102,3 +102,18 @@ export function frameAfter(held: number | null, dir: 1 | -1, frames: number): nu
   if (dir === 1) return held >= newest ? null : held + 1;
   return held <= 0 ? "edge" : held - 1;
 }
+
+/** "View as table": cells a table shows around the needle, per side of the middle one (design choice: 5 × 5). */
+export const TABLE_REACH = 2;
+
+/**
+ * The table's latitudes (north to south) and longitudes (west to east): one arrow-key step apart, so each cell is where
+ * an arrow press would put the needle; the middle cell is the needle.
+ */
+export function tableAxes(at: LatLon, stepDeg: number, reach: number = TABLE_REACH): { lats: number[]; lons: number[] } {
+  const offsets = Array.from({ length: reach * 2 + 1 }, (_, i) => i - reach);
+  return {
+    lats: offsets.map((k) => clampLat(at.lat - k * stepDeg)),
+    lons: offsets.map((k) => wrapLon(at.lon + k * stepDeg)),
+  };
+}
