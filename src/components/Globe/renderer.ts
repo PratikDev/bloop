@@ -3,9 +3,11 @@ import { FRAGMENT_SHADER, VERTEX_SHADER } from "./shader";
 
 /** The frame is drawn at this size for the texture: smooth enough on a turning globe, light to upload. */
 const TEXTURE_SIZE = { width: 1024, height: 512 };
-/** The disc's share of half the canvas (shader.ts) and its outline, in CSS pixels. */
-const DISC = 0.94;
+/** The outline and the space kept clear around the disc, in CSS pixels. */
 const OUTLINE_PX = 3;
+const CLEAR_PX = 16;
+/** On a very small canvas the disc keeps at least this share of it. */
+const MIN_DISC_SHARE = 0.5;
 /** No pulse running (shader.ts). */
 export const NO_PULSE = -1;
 
@@ -80,7 +82,7 @@ export function createGlobeRenderer(canvas: HTMLCanvasElement, images: readonly 
   setImages(images);
 
   const at = (name: string) => gl.getUniformLocation(program, name);
-  const u = { res: at("u_res"), lon: at("u_lon"), lat: at("u_lat"), pulse: at("u_pulse"), outline: at("u_outline"), target: at("u_target"), ring: at("u_ring") };
+  const u = { res: at("u_res"), lon: at("u_lon"), lat: at("u_lat"), pulse: at("u_pulse"), outline: at("u_outline"), disc: at("u_disc"), target: at("u_target"), ring: at("u_ring") };
   gl.uniform2f(u.target, target.lat, target.lon);
   gl.uniform3f(at("u_land"), ...toVec3(palette.land));
   gl.uniform3f(at("u_edge"), ...toVec3(palette.line));
@@ -100,7 +102,10 @@ export function createGlobeRenderer(canvas: HTMLCanvasElement, images: readonly 
       canvas.height = height;
       gl.viewport(0, 0, width, height);
       gl.uniform2f(u.res, width, height);
-      gl.uniform1f(u.outline, (OUTLINE_PX * dpr) / (0.5 * Math.min(width, height) * DISC));
+      const half = 0.5 * Math.min(width, height);
+      const disc = Math.max(MIN_DISC_SHARE, 1 - ((OUTLINE_PX + CLEAR_PX) * dpr) / half);
+      gl.uniform1f(u.disc, disc);
+      gl.uniform1f(u.outline, (OUTLINE_PX * dpr) / (half * disc));
     },
     setImages,
     setTarget({ lat, lon }) {

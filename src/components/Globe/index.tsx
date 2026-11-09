@@ -26,11 +26,11 @@ export function Globe({ dataKey, className, ...options }: GlobeProps) {
   return (
     <div aria-hidden="true" className={cn("relative size-full", className)}>
       {webgl ? (
-        <canvas ref={canvasRef} className="size-full cursor-grab touch-pan-y active:cursor-grabbing" />
+        <canvas ref={canvasRef} className="absolute inset-0 size-full cursor-grab touch-pan-y active:cursor-grabbing" />
       ) : (
         // The published frame as it is; next/image adds nothing for this local file.
         // eslint-disable-next-line @next/next/no-img-element
-        flat && <img src={flat.src} alt="" className="size-full object-contain" />
+        flat && <img src={flat.src} alt="" className="absolute inset-0 size-full object-contain" />
       )}
     </div>
   );

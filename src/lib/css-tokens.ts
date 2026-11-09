@@ -15,6 +15,8 @@ const TOKENS = [
   "star",
   "star-warm",
   "shadow-on-space",
+  "bubble",
+  "dial",
   "deck-top",
   "deck-side",
   "platter",

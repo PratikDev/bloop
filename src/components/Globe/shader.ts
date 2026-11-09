@@ -16,13 +16,13 @@ uniform float u_lon;     // longitude at the centre of the disc (radians)
 uniform float u_lat;     // latitude at the centre of the disc (radians)
 uniform float u_pulse;   // the ring's pulse, 0..1; below 0, none
 uniform float u_outline; // the outline's width, as a share of the disc's radius
+uniform float u_disc;    // the disc's radius, as a share of half the canvas
 uniform vec2 u_target;   // where the ring sits: latitude, longitude (radians)
 uniform vec3 u_land;
 uniform vec3 u_edge;
 uniform vec3 u_ring;
 
 const float PI = 3.14159265;
-const float DISC = 0.94;  // the disc's radius, as a share of half the canvas (room for the outline)
 const float RING_RADIUS = 0.06;
 const float RING_WIDTH = 0.012;
 
@@ -31,7 +31,7 @@ float band(float dist, float radius) {
 }
 
 void main() {
-  float half_size = 0.5 * min(u_res.x, u_res.y) * DISC;
+  float half_size = 0.5 * min(u_res.x, u_res.y) * u_disc;
   vec2 p = (gl_FragCoord.xy - 0.5 * u_res) / half_size;
   float r = length(p);
   float px = 1.0 / half_size;

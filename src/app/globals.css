@@ -827,6 +827,15 @@ body:has([data-tt-stage]) [data-slot="sheet-overlay"] {
   background: transparent;
 }
 
+/* ---- Then vs Now: a year's stripe fills with a quick wipe as the playhead passes. ---- */
+.stripe-fill {
+  clip-path: inset(0 100% 0 0);
+  transition: clip-path 120ms linear;
+}
+.stripe-fill[data-played] {
+  clip-path: inset(0);
+}
+
 /* ---- Toon turntable (Turntable/scene/deck.ts). ---- */
 :root {
   --deck-top: #ff6b4a;

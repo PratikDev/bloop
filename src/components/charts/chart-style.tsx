@@ -11,6 +11,18 @@ export const CHART_HEIGHT = "h-[clamp(9rem,28dvh,21rem)] lg:short:h-[clamp(8rem,
 /** A panel's plot: shorter than CHART_HEIGHT, because the panel's frame and caption box take the rest of its height. */
 export const PANEL_CHART_HEIGHT = "h-48 lg:short:h-40";
 
+/** Where a panel's plot area sits inside its chart: the margins, the y-axis and the padding below (the stripes and playhead line up with it). */
+export const PANEL_AXIS_WIDTH = 44;
+export const PANEL_MARGIN = { top: 8, right: 16, bottom: 4, left: 0 };
+export const PANEL_X_PADDING = 8;
+const X_AXIS_HEIGHT = 30;
+export const PANEL_PLOT_INSET = {
+  left: PANEL_MARGIN.left + PANEL_AXIS_WIDTH + PANEL_X_PADDING,
+  right: PANEL_MARGIN.right + PANEL_X_PADDING,
+  top: PANEL_MARGIN.top,
+  bottom: PANEL_MARGIN.bottom + X_AXIS_HEIGHT,
+};
+
 /** Then vs Now's comic panels hold the 14 px minimum. */
 export const PANEL_AXIS_FONT_PX = 14;
 
