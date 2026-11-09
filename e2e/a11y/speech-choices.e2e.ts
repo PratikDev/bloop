@@ -3,7 +3,7 @@
 // needle step sends text, sound or both; the choices are remembered. Runs on a build with NEXT_PUBLIC_A11Y_SPEECH=1.
 // Bloop's voice is recorded by a stand-in speechSynthesis (headless browsers may have no voices installed).
 import { expect, test, type Page } from "@playwright/test";
-import { AUDIBLE, heard, level } from "../lib/app";
+import { AUDIBLE, heard, level, settingsButton } from "../lib/app";
 import { axeSerious } from "../lib/axe";
 import { liveLog, logCaptions, captionLog, logLiveRegion, openAt, settle } from "../mentor/lib";
 
@@ -21,7 +21,6 @@ const VOICE_STUB = `(() => {
 
 const spoken = (page: Page) => page.evaluate(() => (window as unknown as { __spoken: string[] }).__spoken.slice());
 const map = (page: Page) => page.getByRole("application").first();
-const settingsButton = (page: Page) => page.getByRole("banner").getByRole("button", { name: "Settings" });
 
 /** Picks one option in the Settings popover and closes it with its own button (Esc would also stop the sound). */
 async function choose(page: Page, group: string, option: string) {
@@ -116,7 +115,7 @@ test("the choices are remembered after a reload", async ({ page }) => {
 test("Bangla: the choices are in Bangla", async ({ page }) => {
   await fresh(page);
   await page.getByRole("banner").getByRole("button", { name: "বাংলা" }).first().click();
-  await page.getByRole("banner").getByRole("button", { name: "সেটিংস" }).click();
+  await page.getByRole("banner").getByRole("button", { name: "সেটিংস", exact: true }).click();
   for (const name of ["কথা", "বিস্তারিত", "প্রতিটি ধাপে"]) await expect(page.getByRole("group", { name })).toBeVisible();
   await expect(page.getByRole("group", { name: "কথা" }).getByRole("button", { name: "আমার স্ক্রিন রিডার" })).toBeVisible();
 });

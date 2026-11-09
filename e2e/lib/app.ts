@@ -94,3 +94,6 @@ export async function navTo(page: Page, name: PageName) {
   await page.getByRole("banner").getByRole("link", { name: new RegExp(`${name}$`, "u") }).first().click();
   await page.waitForURL(/./u);
 }
+
+/** The header's Settings button (exact: the header also has "Low-vision settings"). */
+export const settingsButton = (page: Page) => page.getByRole("banner").getByRole("button", { name: "Settings", exact: true });

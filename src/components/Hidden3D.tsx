@@ -1,6 +1,7 @@
 "use client";
 
 import { FLAGS } from "@/lib/flags";
+import { useForcedColors } from "@/hooks/use-media-query";
 import { useAppState, useT } from "./AppState/use-app-state";
 
 /**
@@ -10,7 +11,9 @@ import { useAppState, useT } from "./AppState/use-app-state";
  */
 export function useHide3d(): boolean {
   const { state } = useAppState();
-  return FLAGS.mapKeys && state.hide3d;
+  const forced = useForcedColors();
+  // Low-vision mode (step 8): calm view hides them too, and a Windows contrast theme falls back to the 2D views.
+  return FLAGS.mapKeys && (state.hide3d || (FLAGS.lowVision && (state.lowVision.calm || forced)));
 }
 
 /** Said in place of a hidden 3D view, so a sighted user knows why it is blank and where to bring it back. */

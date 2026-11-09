@@ -1,5 +1,5 @@
 import type { Metadata, Viewport } from "next";
-import { Anek_Bangla, Geist, Geist_Mono, Instrument_Serif, Tiro_Bangla } from "next/font/google";
+import { Anek_Bangla, Atkinson_Hyperlegible, Geist, Geist_Mono, Hind_Siliguri, Instrument_Serif, Noto_Sans_Bengali, Tiro_Bangla } from "next/font/google";
 import { LANG_SCRIPT } from "@/components/AppState/lang-script";
 import { TooltipProvider } from "@/components/ui/tooltip";
 import { appEn } from "@/lib/i18n/en/app";
@@ -24,7 +24,14 @@ export const viewport: Viewport = {
   themeColor: "#120c20",
 };
 
-const FONT_VARIABLES = [geist, geistMono, instrument, anek, tiro].map((f) => f.variable).join(" ");
+// Low-vision mode's fonts (accessibility core, step 8; all SIL OFL 1.1, docs/accessibility/LICENCES.md): Atkinson
+// Hyperlegible (Braille Institute) for Latin text, and two large, clear Bangla candidates. Not preloaded: each
+// downloads only once its setting puts it on screen.
+const atkinson = Atkinson_Hyperlegible({ variable: "--font-atkinson", subsets: ["latin"], weight: ["400", "700"], preload: false });
+const notoBn = Noto_Sans_Bengali({ variable: "--font-noto-bn", subsets: ["bengali"], preload: false });
+const hindBn = Hind_Siliguri({ variable: "--font-hind-bn", subsets: ["bengali"], weight: ["400", "600"], preload: false });
+
+const FONT_VARIABLES = [geist, geistMono, instrument, anek, tiro, atkinson, notoBn, hindBn].map((f) => f.variable).join(" ");
 
 export default function RootLayout({ children }: LayoutProps<"/">) {
   return (

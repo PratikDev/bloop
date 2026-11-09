@@ -4,6 +4,7 @@ import { addEntry, type LogEntry } from "@/lib/expedition-log";
 import { FLAGS } from "@/lib/flags";
 import { clampLat, START_CURSOR, wrapLon, type LatLon } from "@/lib/data";
 import type { Lang } from "@/lib/i18n";
+import { applyPreset, LV_DEFAULTS, type LowVision } from "@/lib/low-vision/settings";
 import { ACCESS_DEFAULTS, type AccessChoices, type AccessKey } from "./access";
 
 /** What the current page is doing; set from the URL only (src/router/modes.ts). */
@@ -62,6 +63,10 @@ export interface AppState extends AccessChoices {
   sonar: boolean;
   /** What the map's next settled announcement leads with (a jump's region or place); `n` counts, so a repeat is new. */
   lead: Lead | null;
+  /** Low-vision mode's settings (step 8; saved on their own, src/lib/low-vision/settings.ts). */
+  lowVision: LowVision;
+  /** The OS's reduced-motion setting; calm view reduces motion too, and gives it back when it is turned off. */
+  osReduceMotion: boolean;
 }
 
 export interface Lead {
@@ -99,6 +104,9 @@ export type AppAction =
   | { type: "startTuning" }
   | { type: "note"; entry: LogEntry }
   | { type: "setSonar"; on: boolean }
+  | { type: "setLowVision"; patch: Partial<LowVision> }
+  | { type: "lowVisionPreset"; on: boolean }
+  | { type: "resetLowVision" }
   | { type: "endTuning" };
 
 const FULL_MIX: VoiceMix = { volume: 1, muted: false };
@@ -133,8 +141,16 @@ export const initialState: AppState = {
   tuning: false,
   log: [],
   sonar: false,
+  lowVision: LV_DEFAULTS,
+  osReduceMotion: false,
   ...ACCESS_DEFAULTS,
 };
+
+/** New low-vision settings; calm view also reduces motion, and turning it off gives back the OS setting. */
+function withLowVision(state: AppState, lowVision: LowVision): AppState {
+  const calmChanged = lowVision.calm !== state.lowVision.calm;
+  return { ...state, lowVision, reduceMotion: calmChanged ? lowVision.calm || state.osReduceMotion : state.reduceMotion };
+}
 
 /** Pages where the live sound of the cursor plays: the map, How we know beside it (Hear the legend over it, as before),
  *  and the Turntable's needle (on its own engine: src/lib/audio-engines.ts). */
@@ -208,7 +224,13 @@ export function reducer(state: AppState, action: AppAction): AppState {
     case "toggle":
       return { ...state, [action.key]: !state[action.key] };
     case "setReduceMotion":
-      return { ...state, reduceMotion: action.on };
+      return { ...state, osReduceMotion: action.on, reduceMotion: action.on || state.lowVision.calm };
+    case "setLowVision":
+      return withLowVision(state, { ...state.lowVision, ...action.patch });
+    case "lowVisionPreset":
+      return withLowVision(state, applyPreset(state.lowVision, action.on));
+    case "resetLowVision":
+      return withLowVision(state, LV_DEFAULTS);
     case "setSolo":
       return { ...state, solo: action.solo };
     case "setVoiceMix":

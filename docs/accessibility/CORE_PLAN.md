@@ -74,6 +74,10 @@ Added by the user on 9 Nov 2026, in this order after step 9:
     overview inset; banding and re-colour with legends and the "re-coloured" label; thick coastlines and city labels;
     themes, text size, spacing, fonts; calm view, compact centre, point of regard; the Alt+L preset. (Step 8 builds
     it; this item is the check that every part of Part 4 exists and is tested.)
+    **Done 9 Nov 2026, in step 8's commit.** The check found these missing and they were built: band labels inside the
+    lens; the lens in a corner the user picks or docked in the page; the preset in Track 0; no pop-ups in low-vision
+    mode (Help, About this sound, How we got this, credits and the Turntable's drawers open in the page); zoom keeps the
+    point of regard; tests for focus and needle contrast, thick coastlines and city labels. low-vision.e2e.ts 26/26.
 11. Braille Data Explorer on Then vs Now: the shape line shows the yearly series for the selected part and city
     (shared scale, MAIDR bands), the caret is the year, R reviews the value with its confidence interval. Same tests as
     the existing braille suite.

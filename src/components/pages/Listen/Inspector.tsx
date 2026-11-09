@@ -12,6 +12,8 @@ import { FROM_LEFT, FROM_RIGHT } from "@/lib/motion";
 import { cn } from "@/lib/utils";
 import type { PanelTab } from "../../AppState/reducer";
 import { useAppState, useT } from "../../AppState/use-app-state";
+import { InlinePanel } from "../../InlinePanel";
+import { useInlinePanels } from "../../LowVision/use-inline-panels";
 import { MappingPanel } from "../../panels/MappingPanel";
 import { ProvenancePanel } from "../../panels/ProvenancePanel";
 import { TruthPanel } from "../../panels/TruthPanel";
@@ -67,7 +69,7 @@ function InspectorTabs() {
  * from, what you hear, and how it was checked. From 1024 px a drawer over the
  * map's right edge that leaves the map usable (move the cursor, the facts
  * follow); during the tour, over its left edge, since the tour points at
- * Bangladesh on the right. Below 1024 px a sheet (bottom on phones, right on tablets).
+ * Bangladesh on the right. Below 1024 px a sheet (bottom on phones, right on tablets). In low-vision mode, in the page.
  */
 export function Inspector() {
   const { state, dispatch } = useAppState();
@@ -76,6 +78,16 @@ export function Inspector() {
   const drawer = useMediaQuery(MEDIA.mapOverlay);
   const close = () => dispatch({ type: "setPanelOpen", open: false });
   const left = state.mode === "story";
+  const inline = useInlinePanels();
+
+  // Low-vision mode: in the page, under the map it describes (spec 4.5: no pop-ups, related information close).
+  if (inline) {
+    return state.panelOpen ? (
+      <InlinePanel title={t("panel.label")} onClose={close} testId="inspector-inline" className="mx-4 mt-3 w-auto fit:mx-0">
+        <InspectorTabs />
+      </InlinePanel>
+    ) : null;
+  }
 
   if (drawer) {
     return (

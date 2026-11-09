@@ -1,9 +1,10 @@
 // Feature checks on the Listen page (the live map), its dock, the Inspector and the header's settings.
 import { expect } from "@playwright/test";
 import { dock, inspector, live, map, name, onMap, pressed, sounds, stops, type Feature } from "./common";
+import { settingsButton } from "../lib/app";
 
 const mixerButton = (page: Parameters<Feature["run"]>[0]) => dock(page).getByRole("button", { name: /^Mixer/u });
-const settings = (page: Parameters<Feature["run"]>[0]) => page.getByRole("banner").getByRole("button", { name: "Settings" });
+const settings = (page: Parameters<Feature["run"]>[0]) => settingsButton(page);
 
 export const LISTEN: Feature[] = [
   // ---- data ----

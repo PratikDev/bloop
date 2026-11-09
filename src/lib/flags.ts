@@ -35,6 +35,11 @@ export const FLAGS = {
   // Ready on 9 Nov 2026: timed-text.e2e.ts 22/22, the a11y + features + health checks 414/414 with steps 7 and 8 on
   // (Chromium + Firefox).
   timedText: flag(process.env.NEXT_PUBLIC_A11Y_TIMED_TEXT, true),
+  /** Step 8: low-vision mode (themes and OS preferences, text and spacing, re-coloured bands and legends, the Context
+   *  Lens, calm view, compact centre, point of regard, the Alt+L preset). */
+  // Ready on 9 Nov 2026: low-vision.e2e.ts 26/26 (Part 4 in full, plan item 10), the a11y + features + health checks
+  // 414/414 with steps 7 and 8 on (Chromium + Firefox).
+  lowVision: flag(process.env.NEXT_PUBLIC_A11Y_LOW_VISION, true),
   expedition: flag(process.env.NEXT_PUBLIC_A11Y_EXPEDITION, true),
   tuning: flag(process.env.NEXT_PUBLIC_A11Y_TUNING, true),
   tablePlaces: flag(process.env.NEXT_PUBLIC_A11Y_TABLE_PLACES, true),

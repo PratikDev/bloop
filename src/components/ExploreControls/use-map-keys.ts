@@ -4,6 +4,7 @@ import { useCallback, useRef, type KeyboardEvent } from "react";
 import { centreOf, REGION_LABEL, regionOf, WHOLE_MAP, type Bounds } from "@/a11y/mapNav";
 import type { TrackMode } from "@/lib/audio-adapter/types";
 import { FLAGS } from "@/lib/flags";
+import { useLensKeys } from "../LowVision/use-lens-keys";
 import { spokenReading } from "@/lib/reading";
 import { useAnnounce } from "../Announcer/use-announcer";
 import { useT } from "../AppState/use-app-state";
@@ -63,6 +64,7 @@ export function useMapKeys(commands: Commands, shown: ShownPoint, stepDeg: numbe
     regions.current = null;
   }, []);
 
+  const lens = useLensKeys();
   const held = shown.timelapse?.held ? shown.timelapse : null;
   // Enter and D: the value here, in the frame on screen (a held frame says which one first).
   const speakHere = () => {
@@ -114,6 +116,14 @@ export function useMapKeys(commands: Commands, shown: ShownPoint, stepDeg: numbe
       case "P":
         // Step 5: the record's source in one line (plain P still opens Where it's from).
         return FLAGS.tuning ? sayProvenance : null;
+      case "z":
+      case "Z":
+        // Step 8: the Context Lens on or off; [ and ] resize it (they only mean speed on the Turntable).
+        return FLAGS.lowVision ? lens.toggle : null;
+      case "[":
+        return FLAGS.lowVision ? () => lens.resize(-1) : null;
+      case "]":
+        return FLAGS.lowVision ? () => lens.resize(1) : null;
       default:
         return null;
     }

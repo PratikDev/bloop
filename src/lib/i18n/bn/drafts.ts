@@ -4,6 +4,7 @@
 
 import type { MessageKey } from "../index";
 import { timedTextBn } from "./timed-text";
+import { lowVisionBn } from "./low-vision";
 
 /** UI keys whose Bangla is a draft. */
 export const DRAFT_KEYS: readonly MessageKey[] = [
@@ -398,6 +399,8 @@ export const DRAFT_KEYS: readonly MessageKey[] = [
   "log.width",
   // accessibility core 7 (en/timed-text.ts): every key
   ...(Object.keys(timedTextBn) as MessageKey[]),
+  // accessibility core 8 (en/low-vision.ts): every key
+  ...(Object.keys(lowVisionBn) as MessageKey[]),
 ];
 
 /** Data-file sentences (bn/data.ts templates) whose Bangla is a draft: the English template, numbers as "#". */

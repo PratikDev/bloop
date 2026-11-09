@@ -15,6 +15,8 @@ export interface OverlayInputs {
   oceanC: number | null; // only when the ocean voice is audible
   rainMm: number | null; // only when rain or snow is audible
   reduceMotion: boolean;
+  /** Low-vision mode: a larger needle with a thicker dual outline (step 8). */
+  thick: boolean;
 }
 
 // Ring shapes (design-plan §5 #2). Ocean spacing follows pitch.
@@ -105,7 +107,7 @@ export function useOverlayLoop(
       } else {
         rings = [];
       }
-      drawCursor(ctx, palette, x, y);
+      drawCursor(ctx, palette, x, y, inputsRef.current.thick);
     };
 
     const onVisibility = () => {

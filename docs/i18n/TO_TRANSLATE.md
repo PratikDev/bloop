@@ -499,7 +499,7 @@ The Mapping panel builds each rule sentence from its parts (`src/lib/i18n/bn/rul
 | `clarity` | parameter: reverbSec; unit: hours since a 1 km infrared look | How recently measured 0 to 48 hours since a 1 km infrared look → echo length 0.1 to 2.4 s (linear). |
 | `unison` | a rule shared with another voice (sameAs) | Proof in unison: two tones in one ear, both by the Ocean temperature rule (Ocean temperature −5 to 35 °C → pitch 220 to 880 Hz (exponential: equal steps in value sound like equal musical steps).) Beats per second = the difference between the two pitches in Hz. |
 
-## Draft Bangla, needs review (455)
+## Draft Bangla, needs review (551)
 
 Drafted for the mentor fixes (`docs/MENTOR_FIXES.md`); **draft, needs review** by a Bangla speaker. Listed in `src/lib/i18n/bn/drafts.ts`: remove an entry there once it is checked.
 
@@ -958,6 +958,102 @@ Drafted for the mentor fixes (`docs/MENTOR_FIXES.md`); **draft, needs review** b
 | `alt.tactileExtreme` | ``${p.which}, ${p.ring}: ${p.step}, ${p.value} ${p.unit}.`` | ``${p.which}, ${p.ring}: ${p.step}, ${p.value} ${p.unit}\u0964`` |
 | `alt.highest` | Highest | সর্বোচ্চ |
 | `alt.lowest` | Lowest | সর্বনিম্ন |
+| `lv.toggle` | Low vision | স্বল্প দৃষ্টি |
+| `lv.tuningToggle` | Low-vision mode | স্বল্প-দৃষ্টি মোড |
+| `lv.tuningNote` | Larger text, high contrast and a magnifying lens that carries the value with it. Each part can be changed in the low-vision settings. | বড় লেখা, উচ্চ কনট্রাস্ট আর একটি বিবর্ধক লেন্স, যা মানটি সঙ্গে নিয়ে চলে। প্রতিটি অংশ স্বল্প-দৃষ্টি সেটিংসে বদলানো যায়। |
+| `lv.toggleOn` | Low-vision mode is on | স্বল্প-দৃষ্টি মোড চালু |
+| `lv.toggleOff` | Low-vision mode is off | স্বল্প-দৃষ্টি মোড বন্ধ |
+| `lv.settings` | Low-vision settings | স্বল্প-দৃষ্টি সেটিংস |
+| `lv.close` | Close low-vision settings | স্বল্প-দৃষ্টি সেটিংস বন্ধ করুন |
+| `lv.reset` | Reset low-vision settings | স্বল্প-দৃষ্টি সেটিংস আগের মতো করুন |
+| `lv.resetDone` | Low-vision settings reset | স্বল্প-দৃষ্টি সেটিংস আগের মতো করা হয়েছে |
+| `lv.preview` | Preview | নমুনা |
+| `lv.section.look` | Colours and brightness | রং ও উজ্জ্বলতা |
+| `lv.section.text` | Text and controls | লেখা ও বোতাম |
+| `lv.section.map` | The map | মানচিত্র |
+| `lv.section.lens` | Context Lens | কনটেক্সট লেন্স |
+| `lv.section.layout` | Layout and motion | বিন্যাস ও নড়াচড়া |
+| `lv.theme` | Theme | থিম |
+| `lv.theme.app` | Bloop's colours | ব্লুপের রং |
+| `lv.theme.auto` | Follow my device | আমার ডিভাইস অনুযায়ী |
+| `lv.theme.hcDark` | High contrast, dark | উচ্চ কনট্রাস্ট, গাঢ় |
+| `lv.theme.hcLight` | High contrast, light | উচ্চ কনট্রাস্ট, হালকা |
+| `lv.theme.custom` | My own colours | আমার নিজের রং |
+| `lv.customText` | Text colour | লেখার রং |
+| `lv.customBackground` | Background colour | পটভূমির রং |
+| `lv.customContrast` | ``Contrast ${p.ratio} to 1`` | ``\u0995\u09A8\u099F\u09CD\u09B0\u09BE\u09B8\u09CD\u099F ${p.ratio} : \u09E7`` |
+| `lv.customLow` | ``Contrast ${p.ratio} to 1: below 7 to 1, hard to read for many people with low vision.`` | ``\u0995\u09A8\u099F\u09CD\u09B0\u09BE\u09B8\u09CD\u099F ${p.ratio} : \u09E7: \u09ED : \u09E7-\u098F\u09B0 \u0995\u09AE, \u09B8\u09CD\u09AC\u09B2\u09CD\u09AA \u09A6\u09C3\u09B7\u09CD\u099F\u09BF\u09B0 \u0985\u09A8\u09C7\u0995\u09C7\u09B0 \u09AA\u0995\u09CD\u09B7\u09C7 \u09AA\u09A1\u09BC\u09BE \u0995\u09A0\u09BF\u09A8\u0964`` |
+| `lv.dim` | Dim for glare | আলোর ঝলক কমাতে অনুজ্জ্বল |
+| `lv.dim.off` | Off | বন্ধ |
+| `lv.dim.dim` | Dim | অনুজ্জ্বল |
+| `lv.dim.dimmer` | Dimmer | আরও অনুজ্জ্বল |
+| `lv.textScale` | Text size | লেখার আকার |
+| `lv.textScale.value` | ``${p.pct}%`` | ``${p.pct}%`` |
+| `lv.controls` | Control size | বোতামের আকার |
+| `lv.controls.normal` | Normal | সাধারণ |
+| `lv.controls.large` | Large | বড় |
+| `lv.controls.xl` | Extra large | খুব বড় |
+| `lv.font` | Font | ফন্ট |
+| `lv.font.default` | Bloop's font | ব্লুপের ফন্ট |
+| `lv.font.atkinson` | Atkinson Hyperlegible | অ্যাটকিনসন হাইপারলেজিবল |
+| `lv.banglaFont` | Bangla font | বাংলা ফন্ট |
+| `lv.banglaFont.default` | Bloop's Bangla font | ব্লুপের বাংলা ফন্ট |
+| `lv.banglaFont.noto` | Noto Sans Bengali | নোটো সান্স বেঙ্গলি |
+| `lv.banglaFont.hind` | Hind Siliguri | হিন্দ শিলিগুড়ি |
+| `lv.spacing` | Text spacing | লেখার ফাঁক |
+| `lv.spacing.normal` | Normal | সাধারণ |
+| `lv.spacing.wide` | Wide | চওড়া |
+| `lv.measure` | Line length | লাইনের দৈর্ঘ্য |
+| `lv.measure.normal` | Normal | সাধারণ |
+| `lv.measure.narrow` | Short lines | ছোট লাইন |
+| `lv.scheme` | Map colours | মানচিত্রের রং |
+| `lv.scheme.original` | NASA's colours | নাসার রং |
+| `lv.scheme.luminance` | Light to dark | হালকা থেকে গাঢ় |
+| `lv.scheme.cividis` | Colour-blind safe | বর্ণান্ধতা-বান্ধব |
+| `lv.scheme.twoTone` | Two-tone high contrast | দুই রঙের উচ্চ কনট্রাস্ট |
+| `lv.bands` | Value bands | মানের স্তর |
+| `lv.bands.0` | Off | বন্ধ |
+| `lv.bands.n` | ``${p.n} bands`` | ``${p.n}\u099F\u09BF \u09B8\u09CD\u09A4\u09B0`` |
+| `lv.coast` | Coastlines | উপকূলরেখা |
+| `lv.coast.normal` | Normal | সাধারণ |
+| `lv.coast.thick` | Thick | মোটা |
+| `lv.cities` | City names in large text | বড় লেখায় শহরের নাম |
+| `lv.lens` | Context Lens (Z) | কনটেক্সট লেন্স (Z) |
+| `lv.lensSize` | Lens size ([ and ]) | লেন্সের আকার ([ আর ]) |
+| `lv.lensSize.value` | ``${p.px} px`` | ``${p.px} \u09AA\u09BF\u0995\u09CD\u09B8\u09C7\u09B2`` |
+| `lv.lensPlace` | Lens position | লেন্সের জায়গা |
+| `lv.lensPlace.follow` | Follows the needle | কার্সরের সাথে চলে |
+| `lv.lensPlace.topLeft` | Top left of the screen | পর্দার ওপরে বাঁয়ে |
+| `lv.lensPlace.topRight` | Top right of the screen | পর্দার ওপরে ডানে |
+| `lv.lensPlace.bottomLeft` | Bottom left of the screen | পর্দার নিচে বাঁয়ে |
+| `lv.lensPlace.bottomRight` | Bottom right of the screen | পর্দার নিচে ডানে |
+| `lv.lensPlace.docked` | In the page, under the map | পাতার মধ্যে, মানচিত্রের নিচে |
+| `lv.edges` | Sharpen band edges in the lens | লেন্সে স্তরের সীমা স্পষ্ট করুন |
+| `lv.calm` | Calm view: no 3D, no motion | শান্ত দৃশ্য: থ্রিডি নেই, নড়াচড়া নেই |
+| `lv.compact` | Compact centre layout | মাঝখানে সংক্ষিপ্ত বিন্যাস |
+| `lv.largeCursor` | Large mouse pointer | বড় মাউস পয়েন্টার |
+| `lv.speakDwell` | Say the value where the pointer rests | পয়েন্টার যেখানে থামে সেখানকার মান বলুন |
+| `lv.recoloured` | Re-coloured by Bloop from decoded values; NASA's original colours are one click away. | ব্লুপ ডিকোড করা মান থেকে নতুন রং দিয়েছে; নাসার আসল রং এক ক্লিক দূরে। |
+| `lv.showOriginal` | Show NASA's original colours | নাসার আসল রং দেখান |
+| `lv.legend` | ``${p.record}, in ${p.unit}`` | ``${p.record}, ${p.unit}-\u098F`` |
+| `lv.legend.dry` | Dry | শুকনো |
+| `lv.legend.nodata` | No data | তথ্য নেই |
+| `lv.band.range` | ``${p.lo} to ${p.hi}`` | ``${p.lo} \u09A5\u09C7\u0995\u09C7 ${p.hi}`` |
+| `lv.band.above` | ``${p.lo} or more`` | ``${p.lo} \u09AC\u09BE \u09AC\u09C7\u09B6\u09BF`` |
+| `lv.unit.ocean` | degrees Celsius | ডিগ্রি সেলসিয়াস |
+| `lv.unit.rain` | millimetres an hour | মিলিমিটার প্রতি ঘণ্টা |
+| `lv.lens.value` | ``${p.value} ${p.unit}`` | ``${p.value} ${p.unit}`` |
+| `lv.lens.none` | No data here | এখানে তথ্য নেই |
+| `lv.lens.dry` | Dry here | এখানে শুকনো |
+| `lv.lens.on` | Context Lens on | কনটেক্সট লেন্স চালু |
+| `lv.lens.off` | Context Lens off | কনটেক্সট লেন্স বন্ধ |
+| `lv.lens.size` | ``Lens ${p.px} pixels`` | ``\u09B2\u09C7\u09A8\u09CD\u09B8 ${p.px} \u09AA\u09BF\u0995\u09CD\u09B8\u09C7\u09B2`` |
+| `lv.lens.overview` | Where the lens is on the whole map | পুরো মানচিত্রে লেন্স কোথায় |
+| `lv.presetOn` | Low-vision mode on: high contrast, large text and controls, calm view, the Context Lens, value bands and thick coastlines. Each can be changed in Low-vision settings. | স্বল্প-দৃষ্টি মোড চালু: উচ্চ কনট্রাস্ট, বড় লেখা ও বোতাম, শান্ত দৃশ্য, কনটেক্সট লেন্স, মানের স্তর আর মোটা উপকূলরেখা। প্রতিটি স্বল্প-দৃষ্টি সেটিংসে বদলানো যায়। |
+| `lv.presetOff` | Low-vision mode off. | স্বল্প-দৃষ্টি মোড বন্ধ। |
+| `key.z.action` | Context Lens on or off (low-vision mode) | কনটেক্সট লেন্স চালু বা বন্ধ (স্বল্প-দৃষ্টি মোড) |
+| `key.brackets.action` | Make the Context Lens smaller or larger | কনটেক্সট লেন্স ছোট বা বড় করুন |
+| `key.altL.action` | Low-vision mode on or off | স্বল্প-দৃষ্টি মোড চালু বা বন্ধ |
 | data template | GPCC stops at # because the gauge version we use (GPCC Full Data Monthly V#) ends in December #, so both rain records compare #–# with #–#. | GPCC {0} সালে থামে, কারণ আমাদের ব্যবহৃত বৃষ্টিমাপক সংস্করণ (GPCC Full Data Monthly V{1}) ডিসেম্বর {2}-এ শেষ; তাই দুটি বৃষ্টির রেকর্ডই {3}–{4}-কে {5}–{6}-এর সাথে তুলনা করে। |
 | data template | GPCP only, newer decade; GPCC data ends in # | শুধু GPCP, নতুন দশক; GPCC ডেটা {0} সালে শেষ |
 

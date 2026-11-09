@@ -56,10 +56,10 @@ export function Readout({ className }: { className?: string }) {
   return (
     <div data-slot="readout" data-provenance-group="" className={cn("space-y-2", className)}>
       {/* From 1024 px off the map: one line under it, or a column beside it when the screen is wide (Listen). */}
-      <div aria-hidden="true" className="space-y-1.5 lg:flex lg:flex-wrap lg:items-baseline lg:gap-x-6 lg:space-y-0 lg:listen-wide:block lg:listen-wide:space-y-1.5">
+      <div aria-hidden="true" className="space-y-1.5 fit:flex fit:flex-wrap fit:items-baseline fit:gap-x-6 fit:space-y-0 fit:listen-wide:block fit:listen-wide:space-y-1.5">
         <p key={main?.figure ?? fallback} className="duration-150 animate-in fade-in slide-in-from-bottom-1">
           {main ? (
-            <span className="readout-figure text-readout-mobile md:text-readout lg:text-readout-strip lg:listen-wide:text-readout-mobile 2xl:listen-wide:text-readout">
+            <span className="readout-figure text-readout-mobile md:text-readout fit:text-readout-strip fit:listen-wide:text-readout-mobile 2xl:listen-wide:text-readout">
               <Figure text={main.figure} lang={state.lang} />
               <span className="font-sans text-lead text-haze">{" " + t(main.unit)}</span>
             </span>
@@ -73,7 +73,7 @@ export function Readout({ className }: { className?: string }) {
       </div>
       <HowWeGotThis facts={facts} />
       {/* From 1024 px the frame times sit in the page head, above the map. */}
-      <FrameLabel className="max-w-md border-t border-glass-edge pt-2 lg:hidden" />
+      <FrameLabel className="max-w-md border-t border-glass-edge pt-2 fit:hidden" />
     </div>
   );
 }

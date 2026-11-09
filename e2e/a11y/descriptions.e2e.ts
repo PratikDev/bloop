@@ -4,12 +4,11 @@
 // frame. Runs on a build with NEXT_PUBLIC_A11Y_DESCRIBE=1 (and steps 1–2 on), 3D shown and hidden. The value is the
 // map label's, which health-records.e2e.ts already checks against the shipped grids.
 import { expect, test, type Page } from "@playwright/test";
-import { start } from "../lib/app";
+import { settingsButton, start } from "../lib/app";
 import { axeSerious } from "../lib/axe";
 import { liveLog, logLiveRegion, settle } from "../mentor/lib";
 
 const map = (page: Page) => page.locator("#sound-map");
-const settingsButton = (page: Page) => page.getByRole("banner").getByRole("button", { name: "Settings" });
 
 async function fresh(page: Page, hide3d: boolean) {
   await start(page, { hide3d });

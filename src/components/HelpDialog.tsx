@@ -6,6 +6,8 @@ import { FLAGS } from "@/lib/flags";
 import type { MessageKey } from "@/lib/i18n";
 import { useAppState, useT } from "./AppState/use-app-state";
 import { useCommands } from "./Commands/use-commands";
+import { InlinePanel } from "./InlinePanel";
+import { useInlinePanels } from "./LowVision/use-inline-panels";
 import { SettingToggle } from "./SettingToggle";
 import { isTurntableKey, ttFor } from "./Turntable/i18n";
 import type { TurntableKey } from "./Turntable/strings-bn";
@@ -46,7 +48,12 @@ const CORE_KEYS: KeyRow[] = KEYS.flatMap((row): KeyRow[] => {
     ];
   if (row.key === "D") return [{ key: "D", action: "key.d.here.action" }, { key: "Shift+D", action: "key.shiftD.action" }];
   if (row.key === "P" && FLAGS.tuning) return [row, { key: "Shift+P", action: "key.shiftP.action" }];
-  if (row.key === "U" && FLAGS.expedition) return [row, { key: "N", action: "key.n.action" }];
+  if (row.key === "U")
+    return [
+      row,
+      ...(FLAGS.expedition ? [{ key: "N", action: "key.n.action" } as const] : []),
+      ...(FLAGS.lowVision ? ([{ key: "Z", action: "key.z.action" }, { key: "[ / ]", action: "key.brackets.action" }, { key: "Alt+L", action: "key.altL.action" }] as const) : []),
+    ];
   return [row];
 });
 
@@ -110,12 +117,55 @@ function KeyTable({ rows, caption, translate, lang }: { rows: KeyRow[]; caption?
   );
 }
 
-export function HelpDialog() {
+/** Help's keys and settings: in the dialog, or (low-vision mode) in the page. */
+function HelpBody() {
   const { state, dispatch } = useAppState();
   const commands = useCommands();
   const t = useT();
   const tr = ttFor(state.lang);
+  return (
+    <>
+      <KeyTable rows={FLAGS.mapKeys ? CORE_KEYS : KEYS} />
+      <KeyTable
+        rows={TURNTABLE_KEYS}
+        caption={tr("help.turntable")}
+        translate={(k) => (isTurntableKey(k) ? tr(k) : t(k))}
+        lang={state.lang === "bn" ? "bn" : undefined}
+      />
+      <KeyTable rows={SCENE_KEYS} caption={tr("help.scenes")} translate={(k) => tr(k as TurntableKey)} lang={state.lang === "bn" ? "bn" : undefined} />
 
+      <div className="space-y-1 border-t border-glass-edge pt-4">
+        <SettingToggle setting="builtInVoice" />
+        <p className="px-3 pb-1 text-small text-haze">{t("help.voiceNote")}</p>
+        <SettingToggle setting="reduceMotion" />
+        <SettingToggle setting="captions" />
+        <SettingToggle setting="describe" />
+        {FLAGS.mapKeys && <SettingToggle setting="hide3d" />}
+        {FLAGS.tuning && (
+          <Button
+            variant="outline"
+            size="lg"
+            className="mt-2 h-11 w-full rounded-full"
+            onClick={() => {
+              dispatch({ type: "setHelpOpen", open: false });
+              dispatch({ type: "startTuning" });
+              commands.setMode("explore");
+            }}
+          >
+            {t("tuning.replay")}
+          </Button>
+        )}
+      </div>
+    </>
+  );
+}
+
+export function HelpDialog() {
+  const { state, dispatch } = useAppState();
+  const t = useT();
+  const inline = useInlinePanels();
+  // Low-vision mode: Help opens in the page instead (HelpPanel, in the shell's main).
+  if (inline) return null;
   return (
     <Dialog open={state.helpOpen} onOpenChange={(open) => dispatch({ type: "setHelpOpen", open })}>
       <DialogContent closeLabel={t("inspector.close")} className="max-h-[85dvh] overflow-y-auto p-6 sm:max-w-xl">
@@ -124,42 +174,29 @@ export function HelpDialog() {
           <DialogDescription className="text-body text-haze">{t("help.focusNote")}</DialogDescription>
           {FLAGS.mapKeys && <p className="text-body text-haze">{t("help.browseNote")}</p>}
         </DialogHeader>
-
-        <KeyTable rows={FLAGS.mapKeys ? CORE_KEYS : KEYS} />
-        <KeyTable
-          rows={TURNTABLE_KEYS}
-          caption={tr("help.turntable")}
-          translate={(k) => (isTurntableKey(k) ? tr(k) : t(k))}
-          lang={state.lang === "bn" ? "bn" : undefined}
-        />
-        <KeyTable rows={SCENE_KEYS} caption={tr("help.scenes")} translate={(k) => tr(k as TurntableKey)} lang={state.lang === "bn" ? "bn" : undefined} />
-
-        <div className="space-y-1 border-t border-glass-edge pt-4">
-          <SettingToggle setting="builtInVoice" />
-          <p className="px-3 pb-1 text-small text-haze">{t("help.voiceNote")}</p>
-          <SettingToggle setting="reduceMotion" />
-          <SettingToggle setting="captions" />
-          <SettingToggle setting="describe" />
-          {FLAGS.mapKeys && <SettingToggle setting="hide3d" />}
-          {FLAGS.tuning && (
-            <Button
-              variant="outline"
-              size="lg"
-              className="mt-2 h-11 w-full rounded-full"
-              onClick={() => {
-                dispatch({ type: "setHelpOpen", open: false });
-                dispatch({ type: "startTuning" });
-                commands.setMode("explore");
-              }}
-            >
-              {t("tuning.replay")}
-            </Button>
-          )}
-        </div>
-
+        <HelpBody />
         {/* "More below": fades the content at the bottom edge while scrolling; at the end it sits under the last row. */}
         <div aria-hidden="true" className="pointer-events-none sticky bottom-0 -mt-4 h-8 bg-linear-to-t from-popover to-transparent" />
       </DialogContent>
     </Dialog>
+  );
+}
+
+/** Help in the page, at the top of the content (low-vision mode, spec 4.5: no full-screen pop-ups). */
+export function HelpPanel({ className }: { className?: string }) {
+  const { state, dispatch } = useAppState();
+  const t = useT();
+  const inline = useInlinePanels();
+  if (!inline || !state.helpOpen) return null;
+  return (
+    <InlinePanel
+      title={t("help.title")}
+      description={FLAGS.mapKeys ? `${t("help.focusNote")} ${t("help.browseNote")}` : t("help.focusNote")}
+      onClose={() => dispatch({ type: "setHelpOpen", open: false })}
+      testId="help-inline"
+      className={className}
+    >
+      <HelpBody />
+    </InlinePanel>
   );
 }

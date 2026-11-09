@@ -11,13 +11,12 @@ import { decodeSequenceCode } from "../../src/lib/data/sequence";
 import { bindT } from "../../src/lib/i18n";
 import { rainText } from "../../src/lib/reading";
 import type { SequenceIndex } from "../../src/types/data-contract";
-import { start } from "../lib/app";
+import { settingsButton, start } from "../lib/app";
 import { axeSerious } from "../lib/axe";
 import { liveLog, logLiveRegion, settle, shipped } from "../mentor/lib";
 
 const t = bindT("en");
 const map = (page: Page) => page.locator("#sound-map");
-const settingsButton = (page: Page) => page.getByRole("banner").getByRole("button", { name: "Settings" });
 
 async function fresh(page: Page, hide3d: boolean, url = "/listen") {
   await start(page, { hide3d });
