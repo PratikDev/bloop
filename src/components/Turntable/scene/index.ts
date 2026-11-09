@@ -22,7 +22,8 @@ import {
 import type { Palette } from "@/lib/css-tokens";
 import type { LatLon } from "@/lib/data";
 import { latLonToSphere, sphereHitToLatLon } from "@/lib/sphere";
-import { NARROW_STAGE_PX } from "../canvas-config";
+import { createSpin, stepSpin } from "@/lib/spin";
+import type { GlobeFit } from "../fit";
 import type { LayerToggles } from "../settings";
 import { createCameraRig, type CameraRig } from "./camera";
 import { ARM_REST, createDeck, type Deck } from "./deck";
@@ -44,8 +45,8 @@ const RECORD_LIFT = 0.7;
 const JUKEBOX_HEIGHT = 4.2;
 /** three's light units: at pi a surface facing the light shows its exact colour. */
 const FULL_LIGHT = Math.PI;
-/** On a phone the whole view moves down by this share of its height, so the top row's chip clears the globe. */
-const NARROW_VIEW_SHIFT = 0.085;
+/** Silhouette points for the debug check that no panel touches the globe. */
+const DISC_SAMPLES = 72;
 
 /** A globe point projected to CSS pixels; `facing` > 0 when it is on the side facing the camera. */
 export interface ScreenPoint {
@@ -86,10 +87,14 @@ export interface TurntableScene {
   setRecordLift(t: number): void;
   /** Sun direction in the globe's frame (null = always day): the land's two light steps. */
   setSun(dir: Vector3 | null): void;
+  /** Where the globe's disc should sit (the free space between the panels). */
+  setFit(fit: GlobeFit, width: number, height: number): void;
+  /** Points on the globe's outline as seen now, in CSS pixels (debug and verification). */
+  discOutline(): { x: number; y: number }[];
   /** Size in CSS pixels (R3F sizes the canvas; this keeps projection and the post chain in step). */
   resize(width: number, height: number): void;
   /** Advance camera and effects by dt seconds; returns the number of particles spawned. */
-  update(dt: number, opts: { instant: boolean; layers: LayerToggles }): number;
+  update(dt: number, opts: { instant: boolean; layers: LayerToggles; spinning: boolean }): number;
   /** Renders one frame: R3F's advance, which runs `draw` and drei's helpers. */
   render(): void;
   /** Draws one frame through the post chain (called from R3F's frame, see TurntableCanvas). */
@@ -131,6 +136,7 @@ export function createTurntableScene(host: SceneHost, dataCanvas: HTMLCanvasElem
   const toCamera = new Vector3();
   let width = 1;
   let height = 1;
+  const platterSpin = createSpin();
 
   const toScreen = (p: Vector3, normal: Vector3): ScreenPoint => {
     toCamera.copy(camera.position).sub(p).normalize();
@@ -149,7 +155,6 @@ export function createTurntableScene(host: SceneHost, dataCanvas: HTMLCanvasElem
     setPose(lat, lon, lift, park) {
       const spin = (NEEDLE_AZIMUTH_DEG - lon) * RAD;
       globe.rotation.y = spin;
-      deck.platter.rotation.y = spin;
       globe.updateMatrixWorld();
       const n = latLonToSphere(lat, NEEDLE_AZIMUTH_DEG);
       needleNormal.set(n.x, n.y, n.z);
@@ -190,22 +195,41 @@ export function createTurntableScene(host: SceneHost, dataCanvas: HTMLCanvasElem
     setSun(dir) {
       earth.setSun(dir);
     },
+    setFit(fit, w, h) {
+      rig.setFit(fit, w, h);
+    },
+    discOutline() {
+      const d = camera.position.length();
+      const axis = camera.position.clone().normalize();
+      const side = new Vector3(0, 1, 0).cross(axis).normalize();
+      const up = axis.clone().cross(side);
+      const ring = Math.sqrt(1 - 1 / (d * d));
+      return Array.from({ length: DISC_SAMPLES }, (_, i) => {
+        const a = (i / DISC_SAMPLES) * 2 * Math.PI;
+        const p = axis.clone().multiplyScalar(1 / d).addScaledVector(side, ring * Math.cos(a)).addScaledVector(up, ring * Math.sin(a));
+        const s = toScreen(p, p);
+        return { x: s.x, y: s.y };
+      });
+    },
     resize(w, h) {
       width = w;
       height = h;
-      if (h > 0) rig.setAspect(w / h);
-      if (w < NARROW_STAGE_PX) camera.setViewOffset(w, h, 0, -h * NARROW_VIEW_SHIFT, w, h);
-      else camera.clearViewOffset();
       post.setSize(w, h);
     },
-    update(dt, { instant, layers }) {
+    update(dt, { instant, layers, spinning }) {
+      if (!instant) {
+        stepSpin(platterSpin, spinning, dt);
+        deck.platter.rotation.y = -platterSpin.angle;
+      }
       rig.update(dt, needleNormal, instant);
       const blend = rig.blend();
       overlays.setVisibility({ distance: blend > 0.5 ? rig.distance() : Infinity, ...layers });
       deck.arm.visible = blend < ARM_HIDDEN_ABOVE;
       // The camera's height above the surface, relative to the Jukebox view: effects keep their screen size.
       const zoom = Math.min(1, Math.max(0.03, (camera.position.length() - EARTH_RADIUS) / JUKEBOX_HEIGHT));
-      return effects.update(dt, zoom);
+      world.copy(needleNormal).multiplyScalar(EARTH_RADIUS);
+      const worldPerPx = (2 * Math.tan((camera.fov * Math.PI) / 360) * camera.position.distanceTo(world)) / Math.max(1, height);
+      return effects.update(dt, zoom, worldPerPx);
     },
     render() {
       host.advance(performance.now());

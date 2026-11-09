@@ -159,6 +159,10 @@ export interface DebugApi {
   labelCheck(): { key: string; lat: number; lon: number; picked: LatLon | null; errorDeg: number | null }[];
   /** The globe point under a screen position (for the data-pixel check). */
   pickAt(x: number, y: number): LatLon | null;
+  /** The frame's pixel the swatch is showing (null: an empty disc). */
+  swatch(): [number, number, number] | null;
+  /** The globe's outline on screen, in CSS pixels inside the stage. */
+  discOutline(): { x: number; y: number }[];
   particlesSpawned(): number;
   distance(): number;
 }
@@ -195,6 +199,8 @@ export function createDebugApi(
       });
     },
     pickAt: (x, y) => tt().pickAt(x, y),
+    swatch: () => tt().sceneRef.current?.effects.swatchColor() ?? null,
+    discOutline: () => tt().sceneRef.current?.discOutline() ?? [],
     particlesSpawned: () => tt().particlesSpawned.current,
     distance: () => tt().distance(),
     needle: () => tt().needle(),

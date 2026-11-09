@@ -70,7 +70,7 @@ export function useGlobePointer(tt: Turntable) {
         return;
       }
       const hit = tt.pickAt(e.clientX, e.clientY);
-      if (hit) tt.moveTo(hit);
+      if (hit) tt.pick(hit);
     },
     onPointerCancel(e: PointerEvent<HTMLElement>) {
       pointers.current.delete(e.pointerId);

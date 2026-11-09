@@ -70,4 +70,8 @@ export function drawLabel(canvas: HTMLCanvasElement, t: LabelText): void {
   ctx.beginPath();
   ctx.arc(c, c, LABEL_SIZE * 0.03, 0, Math.PI * 2);
   ctx.fill();
+  // Off centre, so the record's spin can be seen.
+  ctx.beginPath();
+  ctx.arc(c + c * 0.72, c, LABEL_SIZE * 0.03, 0, Math.PI * 2);
+  ctx.fill();
 }

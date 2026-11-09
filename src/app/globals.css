@@ -676,7 +676,7 @@ html:lang(bn) .readout-figure {
   --moon: var(--tt-text);
   --haze: var(--tt-muted);
   --shapla: var(--coral);
-  --ink: var(--tt-black);
+  --ink: var(--tt-panel); /* paper on the navy fills, as everywhere else */
   --scrim: var(--tt-glass);
   --background: var(--night);
   --foreground: var(--moon);
@@ -822,6 +822,11 @@ html:lang(bn) .odometer-cell {
     transform: translateY(-50%);
   }
 }
+/* ---- The Turntable: nothing dims the globe, so a sheet opens without a scrim there. ---- */
+body:has([data-tt-stage]) [data-slot="sheet-overlay"] {
+  background: transparent;
+}
+
 /* ---- Toon turntable (Turntable/scene/deck.ts). ---- */
 :root {
   --deck-top: #ff6b4a;

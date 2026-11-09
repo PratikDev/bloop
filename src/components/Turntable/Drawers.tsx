@@ -27,8 +27,9 @@ export function Drawer({ open, onClose, title, description, children }: { open: 
   return (
     <Sheet open={open} onOpenChange={(o) => !o && onClose()}>
       <SheetContent
+        data-tt-occluder
         side={phone ? "bottom" : "right"}
-        className={cn("tt-warm on-space overflow-y-auto p-5 text-body", phone ? "max-h-[85dvh] rounded-t-sheet" : "w-full rounded-l-sheet sm:max-w-md")}
+        className={cn("tt-warm on-space overflow-y-auto p-5 text-body", phone ? "max-h-[60dvh] rounded-t-sheet" : "w-full rounded-l-sheet sm:max-w-md")}
       >
         <SheetTitle className="font-wide text-title text-moon">{title}</SheetTitle>
         {description && <SheetDescription className="text-body text-haze">{description}</SheetDescription>}

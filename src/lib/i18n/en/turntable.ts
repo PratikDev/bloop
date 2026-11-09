@@ -89,7 +89,7 @@ export const turntableEn = {
   "turntable.details.pin": "Keep details open",
   "turntable.details.unpin": "Let details close",
   "turntable.details.close": "Close details",
-  "turntable.layers.note": "Clouds, borders and names are decoration. The data layer, values and sound don't change.",
+  "turntable.layers.note": "Borders and names are decoration. The data layer, values and sound don't change.",
   "turntable.layers.decoration": "Background and map layers",
   "turntable.layers.labels": "Place names",
   "turntable.layers.borders": "Borders",

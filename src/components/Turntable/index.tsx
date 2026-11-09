@@ -1,7 +1,10 @@
 "use client";
 
+import { Search } from "lucide-react";
 import { useEffect, useMemo, useRef, useState } from "react";
+import { useMediaQuery } from "@/hooks/use-media-query";
 import { formatDegrees, formatUtc } from "@/lib/i18n";
+import { cn } from "@/lib/utils";
 import { liveSoundOn } from "../AppState/reducer";
 import { useAppState } from "../AppState/use-app-state";
 import { CaptionBar } from "../CaptionBar";
@@ -58,6 +61,8 @@ export function Turntable() {
   const hostRef = useRef<HTMLDivElement>(null);
   const searchRef = useRef<HTMLInputElement>(null);
   const dockRef = useRef<HTMLDivElement>(null);
+  const phone = useMediaQuery("(max-width: 639px)");
+  const [chipDock, setChipDock] = useState<HTMLDivElement | null>(null);
   const [debug] = useState(() => new URLSearchParams(window.location.search).get("debug") === "1");
   const sendLog = useRef<SentReading[]>([]);
   const placed = useRef<PlacedLabels>(new Map());
@@ -165,8 +170,10 @@ export function Turntable() {
     return () => window.removeEventListener("keydown", onKey);
   }, []);
 
+  const legendShown = needleMoving || details.open;
+
   return (
-    <section ref={sectionRef} data-space lang={rootLang} className="tt-warm relative min-h-[32rem] min-w-0 overflow-hidden bg-tt-black">
+    <section ref={sectionRef} data-space data-tt-stage lang={rootLang} className="tt-warm relative min-h-[32rem] min-w-0 overflow-hidden bg-tt-black">
       <div inert={sceneOpen !== null} className="contents">
         <Stage
           tt={tt}
@@ -180,21 +187,41 @@ export function Turntable() {
           details={details}
           intro={intro.phase}
           ready={intro.ready}
-          idle={idle}
+          chipDock={chipDock}
           onKeyDown={onKeyDown}
           debug={debug ? { sendLog, placed } : null}
           className="absolute inset-0"
         />
+        {/* Desktop: the readout and the legend share one column at the edge. */}
+        {!phone && (
+          <div data-overlay className="absolute top-6 left-6 z-10 flex w-88 flex-col gap-2">
+            <div ref={setChipDock} />
+            {/* Always laid out, so the globe doesn't resize each time the needle moves. */}
+            <LegendBar className={cn(!legendShown && "invisible")} />
+          </div>
+        )}
         <div data-overlay className="pointer-events-none absolute top-3 right-3 left-3 flex items-start justify-end gap-2 pt-6 sm:pt-0">
           <SearchBox gazetteer={geo?.gazetteer ?? null} onChoose={actions.choosePlace} inputRef={searchRef} className="pointer-events-auto max-w-full" />
         </div>
         <div data-overlay className="pointer-events-none absolute inset-x-3 bottom-3 flex flex-col items-center gap-2">
           {actions.where && (
-            <p key={actions.where} className="comic-box caption-fade max-w-2xl rounded-caption px-2.5 py-1 text-center text-body">
+            <p key={actions.where} data-tt-occluder className="comic-box caption-fade max-w-2xl rounded-caption px-2.5 py-1 text-center text-body">
               {actions.where}
             </p>
           )}
-          {(needleMoving || details.open) && <LegendBar className="w-full max-w-md" />}
+          {idle && intro.phase === "done" && (
+            <p data-tt-occluder className="on-space flex items-center gap-2 rounded-full px-4 py-2 text-body">
+              <Search aria-hidden="true" className="size-4" />
+              {tr("turntable.idleHint")}
+            </p>
+          )}
+          {/* On a phone the readout and legend are one compact panel under the globe. */}
+          {phone && (
+            <div data-tt-occluder className="on-space pointer-events-auto w-full rounded-plate p-1">
+              <div ref={setChipDock} />
+              {legendShown && <LegendBar className="border-0 shadow-none" />}
+            </div>
+          )}
           <div className="pointer-events-auto max-w-full">
             <Dock
               ref={dockRef}

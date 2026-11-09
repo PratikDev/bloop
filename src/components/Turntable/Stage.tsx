@@ -1,12 +1,12 @@
 "use client";
 
 import dynamic from "next/dynamic";
-import { Search } from "lucide-react";
 import { useEffect, useId, useRef, type KeyboardEvent, type RefObject } from "react";
 import { cn } from "@/lib/utils";
 import { useTT } from "./i18n";
 import type { LabelCandidate } from "./labels";
 import { LabelLayer, type GraticuleLabel, type PlacedLabels, type Rect } from "./LabelLayer";
+import { LoadingPanel } from "./LoadingPanel";
 import { NeedleChip } from "./NeedleChip";
 import type { Details } from "./NeedleChip/use-details";
 import type { SentReading } from "./needle-sound";
@@ -14,9 +14,11 @@ import type { Tier } from "./quality";
 import type { IntroPhase } from "./use-intro";
 import type { Geo } from "./use-geo";
 import { useGlobePointer, wheelZoom } from "./use-globe-pointer";
+import { useOccluderFit } from "./use-occluder-fit";
+import { useSoundRings } from "./use-sound-rings";
 import type { Turntable } from "./use-turntable";
 
-// The 3D view (R3F, drei, postprocessing, takram): its own chunk.
+// The 3D view (R3F, postprocessing): its own chunk.
 const TurntableCanvas = dynamic(() => import("./TurntableCanvas").then((m) => m.TurntableCanvas), { ssr: false });
 // Developer overlay (?debug=1): its own chunk, never loaded otherwise.
 const DebugOverlay = dynamic(() => import("./DebugOverlay").then((m) => m.DebugOverlay), { ssr: false });
@@ -34,18 +36,21 @@ export interface StageProps {
   details: Details;
   intro: IntroPhase;
   ready: boolean;
-  idle: boolean;
+  /** Where the readout stays. */
+  chipDock: HTMLElement | null;
   onKeyDown(e: KeyboardEvent<HTMLElement>): void;
   debug: { sendLog: RefObject<SentReading[]>; placed: { current: PlacedLabels } } | null;
   className?: string;
 }
 
 /** The globe and everything drawn over it; the focusable region for the Turntable keys. */
-export function Stage({ tt, hostRef, geo, record, tier, place, labels, graticule, details, intro, ready, idle, onKeyDown, debug, className }: StageProps) {
+export function Stage({ tt, hostRef, geo, record, tier, place, labels, graticule, details, intro, ready, chipDock, onKeyDown, debug, className }: StageProps) {
   const { tt: tr } = useTT();
   const pointer = useGlobePointer(tt);
   const instructionsId = useId();
   const reserved = useRef<Rect[]>([]);
+  useOccluderFit(tt.scene, hostRef);
+  useSoundRings(tt.sceneRef);
 
   // Wheel zoom without scrolling the page (React's wheel listeners are passive).
   useEffect(() => {
@@ -77,22 +82,16 @@ export function Stage({ tt, hostRef, geo, record, tier, place, labels, graticule
         <TurntableCanvas dataCanvas={tt.texture.canvas} tier={tier} label={tr("turntable.canvas", { record })} onReady={tt.onSceneReady} />
       </div>
       {labels && <LabelLayer subscribe={tt.subscribe} candidates={labels} graticule={graticule} reserved={reserved} placedRef={debug?.placed} />}
-      <NeedleChip subscribe={tt.subscribe} place={place} details={details} reserved={reserved} />
-      {idle && intro === "done" && (
-        <p className="on-space pointer-events-none absolute top-16 left-1/2 flex -translate-x-1/2 items-center gap-2 rounded-full px-4 py-2 text-body">
-          <Search aria-hidden="true" className="size-4" />
-          {tr("turntable.idleHint")}
-        </p>
-      )}
+      <NeedleChip subscribe={tt.subscribe} place={place} details={details} reserved={reserved} dock={chipDock} />
       {intro !== "done" && <div aria-hidden="true" className={cn("pointer-events-none absolute inset-0 bg-tt-black", intro === "running" && "animate-intro-fade")} />}
       {!ready && (
         <div aria-hidden="true" className="pointer-events-none absolute inset-0 grid place-items-center">
-          <p className="on-space rounded-plate px-5 py-3 text-body">{tr("turntable.loading")}</p>
+          <LoadingPanel />
         </div>
       )}
       {ready && intro === "running" && (
-        <div aria-hidden="true" className="pointer-events-none absolute inset-0 grid place-items-center">
-          <p className="label-halo text-body">{tr("turntable.intro.skip")}</p>
+        <div aria-hidden="true" className="pointer-events-none absolute inset-x-0 top-6 grid place-items-center">
+          <p data-tt-occluder className="label-halo text-body">{tr("turntable.intro.skip")}</p>
         </div>
       )}
       {debug && <DebugOverlay tt={tt} sendLog={debug.sendLog} placed={debug.placed} geo={geo} />}

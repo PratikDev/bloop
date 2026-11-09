@@ -88,7 +88,7 @@ export const turntableBnDraft: { [K in TurntableKey]?: Table[K] } = {
   "turntable.details.pin": "বিস্তারিত খোলা রাখুন",
   "turntable.details.unpin": "বিস্তারিত বন্ধ হতে দিন",
   "turntable.details.close": "বিস্তারিত বন্ধ করুন",
-  "turntable.layers.note": "মেঘ, সীমানা ও নাম কেবল সাজ। ডেটা স্তর, মান ও শব্দ বদলায় না।",
+  "turntable.layers.note": "সীমানা ও নাম কেবল সাজ। ডেটা স্তর, মান ও শব্দ বদলায় না।",
   "turntable.layers.decoration": "পটভূমি ও মানচিত্রের স্তর",
   "turntable.layers.labels": "স্থানের নাম",
   "turntable.layers.borders": "সীমানা",

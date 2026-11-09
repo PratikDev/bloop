@@ -41,14 +41,17 @@ const SPINDLE = { radius: 0.03, bottom: -1.16, top: -1.09 };
 const ROD_RADIUS = 0.012;
 const PIVOT = new Vector3(2.15, 0.12, 0.95);
 const ARM_RADIUS = 0.026;
-const HEADSHELL_OFFSET = 0.14;
-const NEEDLE_LENGTH = 0.1;
+/** The head sits well above the surface and the needle runs down to it, so the swatch at the contact point stays in view. */
+const HEADSHELL_OFFSET = 0.24;
+const NEEDLE_LENGTH = 0.22;
 /** The three light steps of the cel shading (lit, half, shade), as 0..255. */
 const TOON_STEPS = [178, 216, 255];
 /** Inverted-hull outline widths, in scene units. */
 const OUTLINE = { body: 0.022, arm: 0.011 };
 /** How far the hard shadow falls from the plinth, towards the viewer's right. */
 const SHADOW_OFFSET = 0.2;
+/** The arm's flat shadow: just above the record, so it lies on the deck and the record alike. */
+const ARM_SHADOW = { width: 0.05, y: RECORD.y + 0.02, offset: 0.09 };
 /** Where the stylus rests while a record is changed (beside the globe). */
 export const ARM_REST = new Vector3(1.55, -0.55, 1.35);
 
@@ -56,7 +59,7 @@ const UP = new Vector3(0, 1, 0);
 
 export interface Deck {
   group: Group;
-  /** Turns with the globe. */
+  /** Spins with the sound. */
   platter: Group;
   /** The record on the platter (lifted during a record change). */
   record: Group;
@@ -95,10 +98,12 @@ export function createDeck(palette: Palette): Deck {
     grooved: new MeshToonMaterial({ map: grooves, gradientMap: gradient }),
     paper: toon(palette.arm),
     navy: toon(palette["arm-edge"]),
+    head: toon(palette.stylus),
     label: new MeshToonMaterial({ gradientMap: gradient }),
     stylus: new MeshBasicMaterial({ color: new Color(palette.stylus) }),
     outline: new MeshBasicMaterial({ color: new Color(palette["arm-edge"]), side: BackSide }),
     shadow: new MeshBasicMaterial({ color: new Color(palette["shadow-on-space"]) }),
+    armShadow: new MeshBasicMaterial({ color: new Color(palette["arm-edge"]) }),
   };
   const mesh = (geometry: BufferGeometry, material: Material | Material[]) => {
     geometries.push(geometry);
@@ -150,7 +155,7 @@ export function createDeck(palette: Palette): Deck {
   platter.add(platterBody, record, spindle, spindleCap, rod);
 
   const arm = new Group();
-  const armBase = outline(mesh(new CylinderGeometry(0.22, 0.25, 0.08, 48), materials.paper), OUTLINE.body);
+  const armBase = mesh(new CylinderGeometry(0.22, 0.25, 0.08, 48), materials.navy);
   armBase.position.set(PIVOT.x, plinthTop + 0.04, PIVOT.z);
   const post = outline(mesh(new CylinderGeometry(0.045, 0.045, 1, 24), materials.paper), OUTLINE.arm, true);
   span(post, new Vector3(PIVOT.x, plinthTop, PIVOT.z), PIVOT);
@@ -161,7 +166,7 @@ export function createDeck(palette: Palette): Deck {
   bearingRing.rotation.x = Math.PI / 2;
   const tube = outline(mesh(new CylinderGeometry(ARM_RADIUS, ARM_RADIUS, 1, 24), materials.paper), OUTLINE.arm, true);
   const counterweight = outline(mesh(new CylinderGeometry(0.1, 0.1, 1, 40), materials.paper), OUTLINE.arm, true);
-  const headshell = outline(mesh(new RoundedBoxGeometry(0.1, 0.04, 0.18, 3, 0.012), materials.paper), OUTLINE.arm);
+  const headshell = outline(mesh(new RoundedBoxGeometry(0.08, 0.035, 0.13, 3, 0.012), materials.head), OUTLINE.arm);
   const needle = mesh(new ConeGeometry(0.014, NEEDLE_LENGTH, 12), materials.navy);
   const tip = mesh(new SphereGeometry(0.014, 16, 16), materials.stylus);
   const cableTube = mesh(new CylinderGeometry(0.005, 0.005, 1, 8), materials.navy);
@@ -179,7 +184,10 @@ export function createDeck(palette: Palette): Deck {
     ),
     materials.navy,
   );
-  arm.add(armBase, post, bearing, bearingRing, tube, counterweight, headshell, needle, tip, cableTube, cableDrop);
+  const armShadow = mesh(new PlaneGeometry(1, ARM_SHADOW.width), materials.armShadow);
+  armShadow.rotation.order = "YXZ";
+  armShadow.rotation.x = -Math.PI / 2;
+  arm.add(armBase, post, bearing, bearingRing, tube, counterweight, headshell, needle, tip, cableTube, cableDrop, armShadow);
   // The arm hides the data layer where it passes in front of the globe.
   asOccluder(arm);
 
@@ -212,6 +220,11 @@ export function createDeck(palette: Palette): Deck {
       needle.position.copy(tipAt).addScaledVector(normal, NEEDLE_LENGTH / 2);
       needle.quaternion.copy(pointInward);
       tip.position.copy(tipAt);
+      const dx = head.x - PIVOT.x;
+      const dz = head.z - PIVOT.z;
+      armShadow.position.set((PIVOT.x + head.x) / 2 + ARM_SHADOW.offset, ARM_SHADOW.y, (PIVOT.z + head.z) / 2 + ARM_SHADOW.offset);
+      armShadow.scale.x = Math.hypot(dx, dz);
+      armShadow.rotation.y = -Math.atan2(dz, dx);
     },
     setLabel(canvas) {
       labelTexture?.dispose();

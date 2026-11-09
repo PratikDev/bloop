@@ -27,6 +27,9 @@ const MAX_FRAME_SEC = 0.1; // after a stall, don't jump the globe
 // While turning, the readout and panels follow the needle at 4 Hz (each sync re-renders the app);
 // keys, clicks and stops sync at once. Sound follows at 30 Hz regardless.
 const CURSOR_SYNC_MS = 250;
+/** Arrow keys: a critically damped glide that settles in about 200 ms. */
+const GLIDE_RATE = 24;
+const GLIDE_SETTLED_DEG = 0.005;
 /** Camera distance for each kind of place (globe radii); design choices. */
 export const ZOOM_DISTANCE: Record<ZoomLevel, number> = { country: 3.0, region: 2.3, local: 1.35 };
 
@@ -64,6 +67,8 @@ export interface FrameInfo {
   viewLat: number;
   viewLon: number;
   project(lat: number, lon: number): ScreenPoint;
+  /** The frame's pixel under the needle (null: land, dry or no data). */
+  swatch?: [number, number, number] | null;
 }
 
 export interface Turntable {
@@ -75,6 +80,10 @@ export interface Turntable {
   needle(): LatLon;
   nudge(dLat: number, dLon: number): void;
   moveTo(at: LatLon): void;
+  /** A click on the globe: the arm lifts, swings to the point and drops. */
+  pick(at: LatLon): void;
+  /** Back to the framing that fits the globe into the free space. */
+  resetFraming(): void;
   turnTo(at: LatLon): void;
   pickAt(clientX: number, clientY: number): LatLon | null;
   /** Eased flight that brings `at` under the needle; resolves on arrival (or at once if cancelled). */
@@ -98,6 +107,7 @@ export interface Turntable {
   texture: GlobeTexture;
   /** R3F hands the scene over here once it exists (and null when it's gone). */
   onSceneReady(scene: TurntableScene | null): void;
+  scene: TurntableScene | null;
   sceneRef: RefObject<TurntableScene | null>;
   fpsRef: RefObject<number>;
   particlesSpawned: RefObject<number>;
@@ -115,6 +125,10 @@ export function useTurntable(o: Options): Turntable {
   const pose = useRef<LatLon>(startPose);
   const reading = useRef<LatLon>(startPose);
   const motion = useRef({ lift: 0, park: 0 });
+  /** Where a pick is swinging from and to. */
+  const swing = useRef<{ from: LatLon; to: LatLon } | null>(null);
+  /** Where the arrow keys are gliding to, and how fast the glide is going. */
+  const glide = useRef<{ lat: number; lon: number; vLat: number; vLon: number } | null>(null);
   const drop = useRef(createNeedleDrop());
   const dropDone = useRef<(() => void) | null>(null);
   const holding = useRef(false);
@@ -173,7 +187,9 @@ export function useTurntable(o: Options): Turntable {
   }, [dispatch]);
 
   const setRotating = useCallback(
-    (on: boolean) => {
+    (wanted: boolean) => {
+      // Reduced motion: no self-running turn at all.
+      const on = wanted && !live.current.reduceMotion;
       setRotatingState(on);
       live.current.rotating = on;
       if (!on) syncCursor();
@@ -199,6 +215,8 @@ export function useTurntable(o: Options): Turntable {
     (at: LatLon, syncNow: boolean) => {
       touched();
       cancelFlight();
+      glide.current = null;
+      swing.current = null;
       if (live.current.rotating) setRotating(false);
       pose.current = { lat: clampNeedleLat(at.lat), lon: wrapLon(at.lon) };
       applyPose();
@@ -262,14 +280,42 @@ export function useTurntable(o: Options): Turntable {
         pose.current = { lat: pose.current.lat, lon: wrapLon(pose.current.lon - DEG_PER_SEC * o.speed * dt) };
         moved = true;
       }
+      const g = glide.current;
+      if (g && !flight.current) {
+        // A critically damped step, exact for any dt: it can't overshoot.
+        const offLat = pose.current.lat - g.lat;
+        const offLon = wrapLon(pose.current.lon - g.lon);
+        const decay = Math.exp(-GLIDE_RATE * dt);
+        const slipLat = (g.vLat + GLIDE_RATE * offLat) * dt;
+        const slipLon = (g.vLon + GLIDE_RATE * offLon) * dt;
+        const nextLat = (offLat + slipLat) * decay;
+        const nextLon = (offLon + slipLon) * decay;
+        g.vLat = (g.vLat - GLIDE_RATE * slipLat) * decay;
+        g.vLon = (g.vLon - GLIDE_RATE * slipLon) * decay;
+        const settled = Math.abs(nextLat) < GLIDE_SETTLED_DEG && Math.abs(nextLon) < GLIDE_SETTLED_DEG;
+        pose.current = settled ? { lat: g.lat, lon: wrapLon(g.lon) } : { lat: g.lat + nextLat, lon: wrapLon(g.lon + nextLon) };
+        moved = true;
+        if (settled) {
+          glide.current = null;
+          unsynced.current = true;
+          lastSync.current = 0;
+        }
+      }
       const d = drop.current.step(now);
       if (d) {
         motion.current = { lift: d.lift, park: d.park };
+        const path = swing.current;
+        if (path) pose.current = { lat: path.from.lat + (path.to.lat - path.from.lat) * d.swing, lon: wrapLon(path.from.lon + wrapLon(path.to.lon - path.from.lon) * d.swing) };
         scene.setRecordLift(d.recordLift);
         moved = true;
         if (d.swap) labelRecord(scene);
         if (d.landed && o.liveOn && !o.allMuted) audio.playNeedleDrop();
         if (d.done) {
+          if (path) {
+            swing.current = null;
+            lastSync.current = 0;
+            unsynced.current = true;
+          }
           holding.current = false;
           dropDone.current?.();
           dropDone.current = null;
@@ -277,7 +323,7 @@ export function useTurntable(o: Options): Turntable {
       }
       if (moved) applyPose();
       scene.effects.setMotion(!o.reduceMotion);
-      particlesSpawned.current += scene.update(dt, { instant: o.reduceMotion, layers: o.layers });
+      particlesSpawned.current += scene.update(dt, { instant: o.reduceMotion, layers: o.layers, spinning: o.liveOn && !o.allMuted && !holding.current });
       scene.render();
 
       const view = scene.viewCenter();
@@ -292,6 +338,7 @@ export function useTurntable(o: Options): Turntable {
           viewLat: view.lat,
           viewLon,
           project: scene.project,
+          swatch: scene.effects.swatchColor(),
         };
         for (const fn of subscribers.current) fn(info);
       }
@@ -403,9 +450,33 @@ export function useTurntable(o: Options): Turntable {
     needle,
     nudge(dLat, dLon) {
       toExplore();
-      place({ lat: pose.current.lat + dLat, lon: pose.current.lon + dLon }, true);
+      if (live.current.reduceMotion) {
+        place({ lat: pose.current.lat + dLat, lon: pose.current.lon + dLon }, true);
+        return;
+      }
+      touched();
+      cancelFlight();
+      swing.current = null;
+      if (live.current.rotating) setRotating(false);
+      const from = glide.current ?? { ...pose.current, vLat: 0, vLon: 0 };
+      glide.current = { lat: clampNeedleLat(from.lat + dLat), lon: from.lon + dLon, vLat: from.vLat, vLon: from.vLon };
     },
     moveTo: (at) => place(at, true),
+    pick(at) {
+      if (live.current.reduceMotion) {
+        place(at, true);
+        return;
+      }
+      touched();
+      cancelFlight();
+      glide.current = null;
+      if (live.current.rotating) setRotating(false);
+      swing.current = { from: { ...pose.current }, to: { lat: clampNeedleLat(at.lat), lon: wrapLon(at.lon) } };
+      startDrop("pick");
+    },
+    resetFraming() {
+      sceneRef.current?.rig.resetFraming();
+    },
     turnTo: (at) => place(at, false),
     pickAt(clientX, clientY) {
       const host = hostRef.current;
@@ -471,6 +542,7 @@ export function useTurntable(o: Options): Turntable {
     subscribe,
     texture,
     onSceneReady,
+    scene,
     sceneRef,
     fpsRef,
     particlesSpawned,

@@ -71,7 +71,7 @@ export function SearchBox({
   const optionId = (i: number) => `${listId}-${i}`;
 
   return (
-    <div className={cn("relative", className)}>
+    <div data-tt-occluder className={cn("relative", !fieldOpen && "max-sm:sr-only", className)}>
       {/* Compact until used: a labelled key that opens into the field on focus (/ or a click). */}
       <label
         className={cn("search-field key ml-auto flex h-11 cursor-text items-center gap-2 overflow-hidden rounded-lg bg-paper px-3", fieldOpen ? "w-80 max-w-full" : "w-fit")}
@@ -110,6 +110,7 @@ export function SearchBox({
       </label>
       <ul
         id={listId}
+        data-tt-occluder={expanded || undefined}
         role="listbox"
         aria-label={tt("turntable.search.label")}
         hidden={!expanded}

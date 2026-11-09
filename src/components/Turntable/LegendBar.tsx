@@ -24,7 +24,7 @@ export function LegendBar({ className }: { className?: string }) {
   const scales = recordFrames(track, fields).map((f) => frameScale(f, f.product === "ocean" ? reading.ocean.valueC : reading.rain.mmPerHour));
 
   return (
-    <div aria-hidden="true" className={cn("on-space space-y-2 rounded-plate px-4 py-2", className)}>
+    <div data-tt-occluder aria-hidden="true" className={cn("on-space space-y-2 rounded-plate px-4 py-2", className)}>
       {scales.map((s) => (
         <div key={s.title} className="grid grid-cols-[auto_minmax(0,1fr)_auto] items-center gap-x-3">
           <span className="text-body text-haze tabular-nums">{fmt(s, s.min)}</span>
