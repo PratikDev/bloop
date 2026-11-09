@@ -30,12 +30,15 @@ export function StartHint() {
 export function StartActions({
   after,
   onTour,
+  onStartClick,
   silentHint = false,
   autoFocus = false,
   className,
 }: {
   after?: () => void;
   onTour?: () => void;
+  /** Runs in the Start listening click, before anything else (Home measures its jukebox here). */
+  onStartClick?: () => void;
   silentHint?: boolean;
   autoFocus?: boolean;
   className?: string;
@@ -66,7 +69,10 @@ export function StartActions({
         <Button
           autoFocus={autoFocus}
           disabled={starting}
-          onClick={() => void start(after)}
+          onClick={() => {
+            onStartClick?.();
+            void start(after);
+          }}
           className="group h-13 gap-3 key rounded-full bg-shapla pr-5 pl-3 text-lead text-moon hover:bg-shapla"
         >
           <span className="grid size-8 place-items-center rounded-full bg-moon/10">

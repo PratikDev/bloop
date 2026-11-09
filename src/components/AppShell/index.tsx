@@ -12,6 +12,7 @@ import { useCommands } from "../Commands/use-commands";
 import { Dock } from "../Dock";
 import { Header } from "../Header";
 import { HelpDialog } from "../HelpDialog";
+import { JukeboxJourney } from "../JukeboxJourney";
 import { LiveDataProvider } from "../LiveData";
 import { Opening } from "../Opening";
 import { RecordsProvider } from "../Records";
@@ -51,6 +52,7 @@ function Shell() {
       </div>
       {gated && <StartGate />}
       <Opening />
+      <JukeboxJourney />
       <HelpDialog />
     </MotionConfig>
   );

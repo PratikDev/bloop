@@ -1,11 +1,15 @@
 "use client";
 
+import { useState } from "react";
 import { Link, useNavigate } from "@tanstack/react-router";
 import { ArrowRight } from "@phosphor-icons/react";
+import type { LatLon } from "@/lib/data";
 import { formatUtcDate } from "@/lib/i18n";
 import { locationForMode, PAGE_PATHS } from "@/router/modes";
 import { useAppState, useT } from "../../AppState/use-app-state";
 import { JukeboxArt } from "../../JukeboxArt";
+import { DataTube } from "../../JukeboxArt/DataTube";
+import { armJourney } from "../../JukeboxJourney/journey-store";
 import { useLiveData } from "../../LiveData/use-live-data";
 import { PAPER_KEY, StartActions, StartHint } from "../../StartActions";
 
@@ -16,6 +20,10 @@ export function HomePage() {
   const t = useT();
   const navigate = useNavigate();
   const toListen = () => void navigate({ to: PAGE_PATHS.listen });
+  // The point the globe faces (the Globe reports it once it is mounted in the window); null drains the amber tube.
+  const [facing] = useState<LatLon | null>(null);
+  // While the intro plays, its wordmark follows the sound instead: only one at a time.
+  const opening = state.started && !state.introDone;
   const toTour = () => void navigate(locationForMode("story"));
 
   return (
@@ -28,7 +36,7 @@ export function HomePage() {
         {state.started ? (
           <div className="space-y-4">
             <div className="flex flex-wrap items-center gap-3">
-              <Link to={PAGE_PATHS.listen} className="inline-flex h-13 items-center gap-3 key rounded-full bg-shapla pr-5 pl-6 text-lead text-moon">
+              <Link to={PAGE_PATHS.listen} onClick={armJourney} className="inline-flex h-13 items-center gap-3 key rounded-full bg-shapla pr-5 pl-6 text-lead text-moon">
                 {t("home.continue")}
                 <ArrowRight aria-hidden="true" className="size-4" />
               </Link>
@@ -39,12 +47,12 @@ export function HomePage() {
             <StartHint />
           </div>
         ) : (
-          <StartActions autoFocus after={toListen} onTour={toTour} />
+          <StartActions autoFocus after={toListen} onStartClick={armJourney} onTour={toTour} />
         )}
       </div>
 
       <div className="mx-auto flex w-full max-w-md min-w-0 flex-col items-center gap-3 lg:max-w-none lg:flex-1 lg:basis-80">
-        <JukeboxArt marquee={t("app.title")} className="w-full max-w-[min(28rem,54dvh)]" />
+        <JukeboxArt marquee={t("app.title")} reactive={!opening} tube={<DataTube facing={facing} />} className="w-full max-w-[min(28rem,54dvh)]" />
         {sst && <p className="text-center text-small text-haze">{t("home.frameCaption", { date: formatUtcDate(sst.meta.frame_time_utc, state.lang) })}</p>}
       </div>
     </section>

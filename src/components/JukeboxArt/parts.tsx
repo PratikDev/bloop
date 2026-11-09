@@ -20,6 +20,9 @@ const BUBBLES = [
   { dy: 330, r: 4 },
 ] as const;
 
+/** The left amber tube's inside, where Home's live tube mounts. */
+export const AMBER_TUBE = { x: 49.5, y: 171.5, width: 23, height: 387 } as const;
+
 export function Tubes() {
   return (
     <>
@@ -73,4 +76,9 @@ export function Unplugged() {
       <path d="M134 606 H118 M134 618 H118" fill="none" strokeWidth="4" strokeLinecap="round" />
     </g>
   );
+}
+
+/** The coin the journey drops into the slot. */
+export function Coin() {
+  return <circle data-coin cx="220" cy="395" r="11" strokeWidth="3" className="fill-bubble stroke-navy" />;
 }
