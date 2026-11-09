@@ -7,6 +7,7 @@ import { formatFixed, formatInteger } from "../format";
 export const panelsEn = {
   "panel.label": "About this sound",
   // The Listen page's Inspector tabs.
+  "panel.history": "Month by month",
   "panel.truth": "Checks",
   "panel.mapping": "What you hear",
   "panel.provenance": "Where it's from",

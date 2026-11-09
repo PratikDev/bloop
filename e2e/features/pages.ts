@@ -51,7 +51,9 @@ export const PAGES: Feature[] = [
       await onMap(page); await page.keyboard.press("t");
       await expect(page).toHaveURL(/\/then-now/u);
       await expect(title(page)).toHaveText(/Then vs Now/u);
-      const parts = await page.getByRole("tablist", { name: "Part" }).getByRole("tab").allInnerTexts();
+      const partTabs = page.getByRole("tablist", { name: "Part" }).getByRole("tab");
+      await expect(partTabs.first()).toBeVisible(); // the tabs come with the page's data, a moment after its title
+      const parts = await partTabs.allInnerTexts();
       for (const p of ["Heat", "Monsoon rain", "Water underground", "Fires", "Vegetation"]) if (!parts.some((x) => x.trim().startsWith(p))) throw new Error(`no ${p} part (${parts.join(", ")})`);
       await page.getByRole("button", { name: "Play this part" }).click();
       const s = await sounds(page, "heat part");

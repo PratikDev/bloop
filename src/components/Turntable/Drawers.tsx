@@ -7,6 +7,7 @@ import { Slider } from "@/components/ui/slider";
 import { useMediaQuery } from "@/hooks/use-media-query";
 import { cn } from "@/lib/utils";
 import { ChoiceGroup } from "../ChoiceGroup";
+import { PanelTabs } from "../panels/PanelTabs";
 import { CreditsLink } from "./CreditsLink";
 import { Mixer } from "../Mixer";
 import { OnOffToggle } from "../OnOffToggle";
@@ -15,7 +16,7 @@ import { useTT, type TT } from "./i18n";
 import { TIERS, type Tier } from "./quality";
 import type { TurntableSettings } from "./settings";
 
-export type DrawerId = "layers" | "settings";
+export type DrawerId = "layers" | "settings" | "sources";
 
 const SECTION = "space-y-2";
 const HEADING = "text-body font-semibold text-moon";
@@ -27,9 +28,9 @@ export function Drawer({ open, onClose, title, description, children }: { open: 
     <Sheet open={open} onOpenChange={(o) => !o && onClose()}>
       <SheetContent
         side={phone ? "bottom" : "right"}
-        className={cn("tt-warm glass-card overflow-y-auto p-5 text-body", phone ? "max-h-[85dvh] rounded-t-sheet" : "w-full rounded-l-sheet sm:max-w-md")}
+        className={cn("tt-warm on-space overflow-y-auto p-5 text-body", phone ? "max-h-[85dvh] rounded-t-sheet" : "w-full rounded-l-sheet sm:max-w-md")}
       >
-        <SheetTitle className="text-lead font-semibold text-moon">{title}</SheetTitle>
+        <SheetTitle className="font-wide text-title text-moon">{title}</SheetTitle>
         {description && <SheetDescription className="text-body text-haze">{description}</SheetDescription>}
         <div className="mt-2 space-y-5">{children}</div>
       </SheetContent>
@@ -148,6 +149,9 @@ export function Drawers({ open, onClose, settings, update, onMyLocation, onFlatM
       </Drawer>
       <Drawer open={open === "settings"} onClose={onClose} title={tt("turntable.dock.settings")}>
         <SettingsBody settings={settings} update={update} onMyLocation={onMyLocation} onFlatMap={onFlatMap} />
+      </Drawer>
+      <Drawer open={open === "sources"} onClose={onClose} title={tt("turntable.sources")}>
+        <PanelTabs provenanceNote={tt("turntable.background")} />
       </Drawer>
     </>
   );

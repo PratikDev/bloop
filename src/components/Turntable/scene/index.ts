@@ -30,6 +30,7 @@ import { ARM_REST, createDeck, type Deck } from "./deck";
 import { createEarth, EARTH_RADIUS, type Earth, type EarthLook } from "./earth";
 import { createEffects, type Effects } from "./effects";
 import { createOverlays, type Overlays } from "./overlays";
+import { asOccluder } from "./layers";
 import { createPost, type Post, type PostLook } from "./post";
 import { createStudio, type Studio } from "./studio";
 
@@ -128,12 +129,15 @@ export function createTurntableScene(host: SceneHost, dataCanvas: HTMLCanvasElem
   const overlays = createOverlays(palette);
   const deck = createDeck(palette);
   const effects = createEffects(palette, deck.setStylusColor);
-  const studio = createStudio(palette);
+  const studio = createStudio(palette, { exact: true });
+  studio.setStars(1);
   const textures = createEarthTextureLoader(renderer);
   const globe = new Group();
   globe.add(earth.surface, overlays.group);
   const root = new Group();
   root.add(key, studio.group, globe, effects.group, deck.group);
+  // The exact sky is drawn in the overlay pass: the deck has to hold it back there, as the globe does.
+  asOccluder(deck.group);
   scene.add(root);
 
   let currentTier = tier;
@@ -247,7 +251,6 @@ export function createTurntableScene(host: SceneHost, dataCanvas: HTMLCanvasElem
       deck.arm.visible = blend < ARM_HIDDEN_ABOVE;
       // Decoration steps aside in the close-up: clouds fade out, the stars come in.
       earth.setClouds(layers.clouds ? 1 - blend : 0);
-      studio.setStars(blend);
       post.setViewBlend(blend, camera.position.length() - FOCUS_IN_FRONT);
       // The camera's height above the surface, relative to the Jukebox view: effects keep their screen size.
       const zoom = Math.min(1, Math.max(0.03, (camera.position.length() - EARTH_RADIUS) / JUKEBOX_HEIGHT));

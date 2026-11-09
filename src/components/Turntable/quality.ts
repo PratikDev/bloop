@@ -12,14 +12,12 @@ export interface TierSpec {
   ao: boolean;
   /** Depth of field, Jukebox view only. */
   dof: boolean;
-  /** Bloom at half resolution with fewer mip levels. */
-  cheapBloom: boolean;
 }
 
 export const TIER_SPEC: Record<Tier, TierSpec> = {
-  ultra: { surface: 8192, normal: 4096, clouds: true, ao: true, dof: true, cheapBloom: false },
-  high: { surface: 8192, normal: 4096, clouds: true, ao: false, dof: false, cheapBloom: false },
-  low: { surface: 4096, normal: 2048, clouds: false, ao: false, dof: false, cheapBloom: true },
+  ultra: { surface: 8192, normal: 4096, clouds: true, ao: true, dof: true },
+  high: { surface: 8192, normal: 4096, clouds: true, ao: false, dof: false },
+  low: { surface: 4096, normal: 2048, clouds: false, ao: false, dof: false },
 };
 
 interface DeviceHints {

@@ -59,9 +59,9 @@
   /* Turntable Earth: the 3D studio and the map overlays. Chrome only, never
      data: the warm tones stay in the backdrop and the turntable, away from the
      globe, and overlay lines stay pale and in the interface's hue range. */
-  --studio-top: #110d0c;
-  --studio-bottom: #040303;
-  --studio-glow: #3a2618;
+  --studio-top: #0b1530;
+  --studio-bottom: #0b1530;
+  --studio-glow: #0b1530;
   --anodised: #1d1b1f;
   --deck-glass: #0e0c0d; /* the turntable deck's smoked glass (Turntable/scene/deck.ts) */
   --vinyl: #0d0c0e;
@@ -76,17 +76,17 @@
   /* Turntable v3 interface: near-black, warm off-white, one amber accent
      (--amber, used sparingly: focus, pressed, the needle mark). Glass panels
      float over the globe; text on them stays ≥ 4.5:1 over white cloud too. */
-  --tt-black: #0c0a09;
-  --tt-panel: #16120f;
-  --tt-raise: #2a231d;
-  --tt-line: #5a4f45;
-  --tt-text: #f4efe7;
-  --tt-muted: #c4baad;
-  --tt-glass: rgb(16 13 11 / 0.8);
-  --tt-glass-strong: rgb(16 13 11 / 0.94);
-  --tt-glass-edge: rgb(244 239 231 / 0.14);
-  --tt-glass-shadow: rgb(0 0 0 / 0.45);
-  --label-shadow: rgb(0 0 0 / 0.85);
+  --tt-black: #0b1530;
+  --tt-panel: #fff8e6;
+  --tt-raise: #a9d3c5;
+  --tt-line: #14213d;
+  --tt-text: #14213d;
+  --tt-muted: #3c4a66;
+  --tt-glass: #fff8e6;
+  --tt-glass-strong: #fff8e6;
+  --tt-glass-edge: #14213d;
+  --tt-glass-shadow: #7db8f0;
+  --label-shadow: transparent;
   --geo-border: #f3f0fa;
   --geo-district: #d6d0ee;
   --geo-river: #b4b1ff;
@@ -355,6 +355,7 @@
   color: var(--navy);
   border: var(--outline) solid var(--navy);
   box-shadow: var(--shadow-panel) var(--shadow-panel) 0 var(--shadow-on-space);
+  --key-shadow: var(--navy);
 }
 
 /* The comic accent's box: sound words, caption boxes, the intro and 404 wordmark. Navy on bubble is 9:1.
@@ -416,7 +417,8 @@
 @utility surface-glass {
   background: var(--paper);
   border: var(--outline) solid var(--navy);
-  box-shadow: var(--shadow-panel) var(--shadow-panel) 0 var(--navy);
+  box-shadow: var(--shadow-panel) var(--shadow-panel) 0 var(--panel-shadow, var(--navy));
+  --key-shadow: var(--navy);
 }
 
 /* The same, a step lower (4 px shadow), for plates away from the map. */
@@ -460,8 +462,23 @@
   outline-offset: 3px;
 }
 .night-sky :focus-visible,
-.bg-space :focus-visible {
+.bg-space :focus-visible,
+[data-space] :focus-visible {
   outline-color: var(--paper);
+}
+
+/* A control inside a paper panel on the night sky: back to navy. */
+[data-space] .on-space :focus-visible {
+  outline-color: var(--navy);
+}
+
+/* The Turntable's search: the ring goes round the whole field. */
+.search-field:focus-within {
+  outline: 3px solid var(--paper);
+  outline-offset: 3px;
+}
+.search-field input:focus-visible {
+  outline: none;
 }
 
 /* The map is full bleed, so its ring sits inside the edge. */
@@ -593,13 +610,15 @@ html:lang(bn) .readout-figure {
 /* Turntable v3: the warm palette, re-pointing the app's tokens (and the shadcn
    variables built on them) inside the Turntable and its drawers and popovers. */
 .tt-warm {
-  --night: var(--tt-black);
+  --night: var(--tt-panel);
+  --panel-shadow: var(--tt-glass-shadow);
+  --key-shadow: var(--tt-glass-shadow);
   --dusk: var(--tt-panel);
   --tide: var(--tt-raise);
   --line: var(--tt-line);
   --moon: var(--tt-text);
   --haze: var(--tt-muted);
-  --shapla: var(--amber);
+  --shapla: var(--coral);
   --ink: var(--tt-black);
   --scrim: var(--tt-glass);
   --background: var(--night);
@@ -623,6 +642,11 @@ html:lang(bn) .readout-figure {
 }
 
 /* Turntable panels: opaque, outlined, hard shadow (no blur). Phase 6 moves them onto the daylight palette. */
+/* A popover that must never be wider than the screen (the Turntable's record sleeves). */
+@utility popover-fit {
+  max-width: calc(100vw - 2rem);
+}
+
 @utility glass-chip {
   background: var(--tt-glass-strong);
   border: var(--outline) solid var(--tt-line);
@@ -641,17 +665,13 @@ html:lang(bn) .readout-figure {
   box-shadow: var(--shadow-panel) var(--shadow-panel) 0 var(--tt-glass-shadow);
 }
 
-/* Place names on the globe: sentence case, small, a hard 1 px shadow for legibility on any imagery. */
+/* Place names on the globe: sentence case, small, on a paper pill so they read on any imagery. */
 @utility globe-label {
   font-size: 0.875rem;
-  font-weight: 300;
-  letter-spacing: 0.01em;
-  color: var(--tt-text);
-  text-shadow:
-    1px 1px 0 var(--label-shadow),
-    -1px -1px 0 var(--label-shadow),
-    1px -1px 0 var(--label-shadow),
-    -1px 1px 0 var(--label-shadow);
+  background: var(--paper);
+  border: 1.5px solid var(--navy);
+  border-radius: 999px;
+  padding: 0 5px;
 }
 
 /* Turntable captions: a new one shows for 3 s, then fades. */

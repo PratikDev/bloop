@@ -1,7 +1,7 @@
 // Feature checks on the Turntable page: the globe, its needle, search, tour, view, the four 3D scenes, its drawers.
 import { expect } from "@playwright/test";
 import { navTo } from "../lib/app";
-import { name, openScene, turntable, type Feature } from "./common";
+import { name, openMore, openScene, tab, turntable, type Feature } from "./common";
 
 export const TURNTABLE: Feature[] = [
   { id: "turntable", group: "visuals", name: "Turntable Earth (3D globe, needle reads the point beneath it)", where: "Turntable tab", keyboard: false,
@@ -47,15 +47,22 @@ export const TURNTABLE: Feature[] = [
     } },
   { id: "turntable-view", group: "visuals", name: "Close-up view", where: "Turntable · V or Close-up view", keyboard: true,
     what: "Switches between the jukebox view and a close-up of the globe",
-    control: (page) => page.getByRole("group", { name: "Turntable controls" }).getByRole("button", { name: /Close-up view|Jukebox view/u }),
+    control: (page) => page.getByRole("button", { name: /Close-up view|Jukebox view/u }),
     async run(page) {
       const { app } = await turntable(page);
-      const view = page.getByRole("group", { name: "Turntable controls" }).getByRole("button", { name: /Close-up view|Jukebox view/u });
-      const before = `${await name(view)} pressed=${await view.getAttribute("aria-pressed")}`;
-      const now = async () => `${await name(view)} pressed=${await view.getAttribute("aria-pressed")}`;
+      const view = page.getByRole("button", { name: /Close-up view|Jukebox view/u });
+      // The key lives in More: open it to read the state, then close it again.
+      const now = async () => {
+        await openMore(page);
+        const state = `${await name(view)} pressed=${await view.getAttribute("aria-pressed")}`;
+        await page.keyboard.press("Escape");
+        await expect(view).toBeHidden();
+        return state;
+      };
+      const before = await now();
       await app.focus(); await page.keyboard.press("v");
       await expect.poll(now, { timeout: 20_000 }).not.toBe(before);
-      return { evidence: `V: "${before}" → "${await name(view)} pressed=${await view.getAttribute("aria-pressed")}"` };
+      return { evidence: `V: "${before}" → "${await now()}"` };
     } },
   ...([["scene-ghost", "Ghost Earths"], ["scene-delta", "Delta + aquifer"], ["scene-terrain", "Sound terrain"], ["scene-tunnel", "Dhaka time tunnel"]] as const)
     .map(([id, sleeve]): Feature => ({ id, group: "visuals", name: `Scene: ${sleeve}`, where: "Turntable · Records · scene sleeve", keyboard: false,
@@ -66,20 +73,36 @@ export const TURNTABLE: Feature[] = [
     what: "Lists the records and scenes to put on the turntable", control: (page) => page.getByRole("button", { name: "Records", exact: true }),
     async run(page) {
       await turntable(page);
+      await openMore(page);
       await page.getByRole("button", { name: "Records", exact: true }).click();
       const n = await page.getByRole("button", { name: /^Play the .* record$/u }).count();
       if (n < 2) throw new Error(`${n} record sleeves`);
       return { evidence: `${n} record sleeves` };
     } },
-  { id: "settings", group: "jukebox", name: "Turntable settings", where: "Turntable · Settings", keyboard: false,
-    what: "Turntable quality, motion and display settings", control: (page) => page.locator("main").getByRole("button", { name: "Settings", exact: true }),
+  { id: "settings", group: "jukebox", name: "Turntable settings", where: "Turntable · More · Settings", keyboard: false,
+    what: "Turntable quality, motion and display settings", control: (page) => page.getByRole("dialog").getByRole("button", { name: "Settings", exact: true }),
     async run(page) {
       await turntable(page);
-      const b = page.locator("main").getByRole("button", { name: "Settings", exact: true });
-      await b.click();
-      const drawer = page.getByRole("dialog");                               // a side sheet
+      await openMore(page);
+      await page.getByRole("dialog").getByRole("button", { name: "Settings", exact: true }).click();
+      const drawer = page.getByRole("dialog", { name: "Settings" });         // a side sheet
       await expect(drawer).toBeVisible();
       return { evidence: `Settings opens the "${(await drawer.innerText()).split("\n")[0]}" drawer` };
+    } },
+  { id: "turntable-sources", group: "truth", name: "Sources and checks on the Turntable (Month by month)", where: "Turntable · More · Sources and checks", keyboard: false,
+    what: "The Truth, Mapping, Provenance and History panels, and the note on the Blue Marble background",
+    control: (page) => page.getByRole("group", { name: "Turntable controls" }).getByRole("button", { name: "More", exact: true }),
+    async run(page) {
+      await turntable(page);
+      await openMore(page);
+      await page.getByRole("button", { name: "Sources and checks", exact: true }).click();
+      await tab(page, "Where it's from").click();
+      await expect(page.getByRole("tabpanel", { name: "Where it's from" })).toContainText("Background: Blue Marble composite, not today's clouds");
+      await tab(page, "Month by month").click();
+      const p = page.getByRole("tabpanel", { name: "Month by month" });
+      await expect(p).toBeVisible({ timeout: 30_000 });
+      await expect(p).toContainText(/Chattogram|Dhaka/u, { timeout: 30_000 });
+      return { evidence: (await p.innerText()).replace(/\s+/gu, " ").slice(0, 120) };
     } },
   { id: "credits", group: "jukebox", name: "Credits", where: "Turntable · Credits", keyboard: false,
     what: "Names every NASA visualization and dataset used", control: (page) => page.getByRole("button", { name: "Credits", exact: true }),

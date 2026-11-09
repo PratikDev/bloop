@@ -49,7 +49,7 @@ export function NeedleChip({ subscribe, place, details, reserved }: Props) {
       chip={
         r && (
           <>
-            <span className="shrink-0 font-display text-lead font-semibold whitespace-nowrap tabular-nums text-moon">
+            <span className="readout-figure text-title whitespace-nowrap text-moon">
               {main ? (
                 <>
                   <Figure text={main.figure} lang={state.lang} /> {t(main.unit)}
@@ -58,12 +58,20 @@ export function NeedleChip({ subscribe, place, details, reserved }: Props) {
                 <En active={bn}>{fallback}</En>
               )}
             </span>
-            {place && <span className="min-w-0 truncate text-haze">· {place}</span>}
+            {track === "both" && (
+              <span className="text-body text-moon">
+                <En active={bn}>{rainText(t, r.rain, r.rainLoaded)}</En>
+              </span>
+            )}
+            {place && <span className="basis-full text-body text-haze">{place}</span>}
+            <span className="basis-full text-small text-haze">
+              <En active={bn}>{t("place.latlon", cursor)}</En>
+            </span>
           </>
         )
       }
       headline={
-        <p className="font-display text-value leading-none font-semibold tabular-nums text-moon">
+        <p className="readout-figure text-value leading-none text-moon">
           {main ? (
             <>
               <Figure text={main.figure} lang={state.lang} />
@@ -77,16 +85,7 @@ export function NeedleChip({ subscribe, place, details, reserved }: Props) {
         </p>
       }
     >
-      {r && track === "both" && (
-        <p className="text-body font-medium text-moon">
-          <En active={bn}>{rainText(t, r.rain, r.rainLoaded)}</En>
-        </p>
-      )}
-      {place && <p className="text-body font-medium text-moon">{place}</p>}
-      <p className="text-body text-haze">
-        <En active={bn}>{t("place.latlon", cursor)}</En>
-      </p>
-      <div className="space-y-2 border-t border-line pt-2">
+      <div className="space-y-2">
         {recordFrames(track, fields).map((f) => (
           <FrameFacts key={f.product} frame={f} now={now} tt={tt} />
         ))}

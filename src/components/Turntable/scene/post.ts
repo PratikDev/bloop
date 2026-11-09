@@ -1,9 +1,8 @@
 // The post chain (pmndrs postprocessing):
 //   main render → [SSAO, Ultra] → atmosphere (takram aerial perspective)
-//   → [depth of field, Ultra, Jukebox view] → bloom → AgX → vignette
-//   → overlay composite (data, lines, needle effects) → SMAA.
-// The overlay is composited after tone mapping so the colormap's hue is never
-// changed; bloom only catches HDR emitters (stylus, city lights).
+//   → [depth of field, Ultra, Jukebox view] → AgX
+//   → overlay composite (data, lines, needle effects, sky) → SMAA.
+// The overlay is composited after tone mapping so the colormap's hue is never changed.
 
 import {
   AerialPerspectiveEffect,
@@ -12,7 +11,6 @@ import {
 } from "@takram/three-atmosphere";
 import { Ellipsoid } from "@takram/three-geospatial";
 import {
-  BloomEffect,
   DepthOfFieldEffect,
   Effect,
   EffectComposer,
@@ -24,7 +22,6 @@ import {
   SSAOEffect,
   ToneMappingEffect,
   ToneMappingMode,
-  VignetteEffect,
 } from "postprocessing";
 import {
   HalfFloatType,
@@ -60,7 +57,7 @@ const OVERLAY_FRAGMENT = /* glsl */ `
 uniform sampler2D overlay;
 void mainImage(const in vec4 inputColor, const in vec2 uv, out vec4 outputColor) {
   vec4 o = texture2D(overlay, uv); // premultiplied
-  outputColor = vec4(o.rgb + inputColor.rgb * (1.0 - o.a), inputColor.a);
+  outputColor = vec4(o.rgb + inputColor.rgb * (1.0 - o.a), o.a + inputColor.a * (1.0 - o.a));
 }`;
 
 /** Lays the overlay target (premultiplied) over the tone-mapped image. */
@@ -72,11 +69,9 @@ class OverlayCompositeEffect extends Effect {
 
 export interface PostLook {
   exposure: number;
-  bloom: number;
-  vignette: number;
 }
 
-export const DEFAULT_POST_LOOK: PostLook = { exposure: 1, bloom: 0.55, vignette: 0.42 };
+export const DEFAULT_POST_LOOK: PostLook = { exposure: 1 };
 
 export interface Post {
   /** The globe group (its rotation defines the atmosphere's ECEF frame). */
@@ -141,17 +136,7 @@ export function createPost(renderer: WebGLRenderer, scene: Scene, camera: Perspe
       .catch(() => undefined); // tables missing: the globe shows without an atmosphere
   }
 
-  const bloom = new BloomEffect({
-    luminanceThreshold: 1,
-    luminanceSmoothing: 0.2,
-    intensity: look.bloom,
-    mipmapBlur: true,
-    radius: 0.7,
-    levels: spec.cheapBloom ? 4 : 7,
-    resolutionScale: spec.cheapBloom ? 0.5 : 1,
-  });
   const toneMapping = new ToneMappingEffect({ mode: ToneMappingMode.AGX });
-  const vignette = new VignetteEffect({ offset: 0.32, darkness: look.vignette });
   const overlay = new OverlayCompositeEffect(overlayTarget.texture);
 
   composer.addPass(new RenderPass(scene, camera));
@@ -177,7 +162,7 @@ export function createPost(renderer: WebGLRenderer, scene: Scene, camera: Perspe
   const dof = spec.dof ? new DepthOfFieldEffect(camera, { focusDistance: 5, focusRange: 2.2, bokehScale: 2.4 }) : null;
   const dofPass = dof ? new EffectPass(camera, dof) : null;
   if (dofPass) composer.addPass(dofPass);
-  composer.addPass(new EffectPass(camera, bloom, toneMapping, vignette, overlay));
+  composer.addPass(new EffectPass(camera, toneMapping, overlay));
   composer.addPass(new EffectPass(camera, new SMAAEffect({ preset: SMAAPreset.HIGH })));
 
   let globe: Object3D | null = null;
@@ -224,8 +209,6 @@ export function createPost(renderer: WebGLRenderer, scene: Scene, camera: Perspe
     setLook(l) {
       look = { ...look, ...l };
       renderer.toneMappingExposure = look.exposure;
-      bloom.intensity = look.bloom;
-      vignette.darkness = look.vignette;
     },
     setSize(width, height) {
       composer.setSize(width, height, false);

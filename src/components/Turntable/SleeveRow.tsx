@@ -81,18 +81,18 @@ function SceneSleeve({ id, onScene }: { id: SceneId; onScene: (id: SceneId) => v
   const t = useT();
   const name = tt(SCENE_SLEEVES[id]);
   return (
-    <li className="w-44 shrink-0 snap-start">
+    <li className="w-44 shrink-0 snap-start p-1">
       <button
         type="button"
         onClick={() => onScene(id)}
         aria-label={tt("scenes.open", { scene: name })}
         {...brailleLabel(t("braille.bl.scene", { scene: name }))}
-        className="relative block h-32 w-full overflow-hidden rounded-lg border-2 border-haze bg-night text-left hover:border-amber focus-visible:border-amber"
+        className="key flex aspect-square w-full flex-col overflow-hidden rounded-lg bg-paper text-left"
       >
         {/* eslint-disable-next-line @next/next/no-img-element */}
-        <img src={sceneCover(id)} alt="" className="absolute inset-0 size-full object-cover" />
-        <span className="absolute inset-x-0 bottom-0 flex items-center justify-between gap-2 bg-scrim px-3 py-2">
-          <span className="text-body font-semibold text-moon">{name}</span>
+        <img src={sceneCover(id)} alt="" className="min-h-0 w-full flex-1 object-cover" />
+        <span className="flex items-center justify-between gap-2 border-t-2 border-line px-3 py-2">
+          <span className="font-strip text-lead text-moon">{name}</span>
           <Box aria-hidden="true" className="size-4 shrink-0 text-moon" />
         </span>
       </button>

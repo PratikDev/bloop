@@ -13,21 +13,23 @@ const DISC_INSET = 0.96;
 const GAP_PX = 4;
 const DOT_OFFSET_PX = 7;
 
-/** Sentence case, light and small, with a soft shadow (globe-label); story places and capitals a touch heavier. */
+/** Sentence case and small, on a paper pill (globe-label); countries heavier. */
 const KIND_CLASS: Record<LabelKind, string> = {
-  story: "font-normal",
-  capital: "font-normal",
+  story: "",
+  capital: "",
   city: "",
-  country: "tracking-wide",
+  country: "font-semibold tracking-wide",
   // Seas are upright like everything else; the muted colour and wider spacing tell them from countries.
-  sea: "font-normal tracking-sea text-haze",
+  sea: "tracking-sea text-haze",
   district: "",
 };
 const DOT_KINDS: ReadonlySet<LabelKind> = new Set(["story", "capital", "city"]);
-const NORMAL_WEIGHT_KINDS: ReadonlySet<LabelKind> = new Set(["story", "capital", "sea"]);
 /** globe-label: 14 px font, 18 px line; tracking-wide (0.025em per letter) on country names, tracking-sea (0.04em) on seas. */
 const FONT_PX = 14;
 const LINE_PX = 18;
+/** The pill around each name: 5 px padding and a 1.5 px border on each side. */
+const PILL_WIDTH_PX = 13;
+const PILL_HEIGHT_PX = 3;
 const TRACKING_EM: Partial<Record<LabelKind, number>> = { country: 0.025, sea: 0.04 };
 /** Labels are re-placed at most this often (ms), and less often on slow devices (3 × the frame time). */
 const MIN_UPDATE_MS = 33;
@@ -97,8 +99,8 @@ export function LabelLayer({
     const family = getComputedStyle(host).fontFamily;
     const textWidth = (text: string, kind: LabelKind) => {
       if (!measure) return text.length * 9;
-      measure.font = `${NORMAL_WEIGHT_KINDS.has(kind) ? 400 : 300} ${FONT_PX}px ${family}`;
-      return Math.ceil(measure.measureText(text).width + (TRACKING_EM[kind] ?? 0) * FONT_PX * text.length) + 2;
+      measure.font = `${kind === "country" ? 600 : 400} ${FONT_PX}px ${family}`;
+      return Math.ceil(measure.measureText(text).width + (TRACKING_EM[kind] ?? 0) * FONT_PX * text.length) + PILL_WIDTH_PX + 2;
     };
 
     const element = (key: string, text: string, lang: string, kind: LabelKind, dot: boolean): Entry => {
@@ -115,7 +117,7 @@ export function LabelLayer({
         el.prepend(d);
       }
       host.append(el);
-      const entry = { el, w: textWidth(text, kind), h: LINE_PX, transform: "" };
+      const entry = { el, w: textWidth(text, kind), h: LINE_PX + PILL_HEIGHT_PX, transform: "" };
       els.set(key, entry);
       return entry;
     };
@@ -199,7 +201,7 @@ export function LabelLayer({
     };
   }, [subscribe, candidates, graticule, reserved, placedRef]);
 
-  return <div ref={hostRef} aria-hidden="true" className="pointer-events-none absolute inset-0 overflow-hidden" />;
+  return <div ref={hostRef} aria-hidden="true" className="pointer-events-none absolute inset-0 overflow-hidden text-moon" />;
 }
 
 /** The graticule's named lines (equator and tropics) and the 30° / 60° lines. */
