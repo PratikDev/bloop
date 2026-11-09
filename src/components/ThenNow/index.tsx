@@ -3,7 +3,7 @@
 import { useMemo } from "react";
 import { SpeakerSimpleSlash } from "@phosphor-icons/react";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
-import { buildThenNowInput, cityDemo } from "@/lib/then-now";
+import { buildThenNowInput, cityDemo, waterBeat, yearlyBeat, yearlyWindows } from "@/lib/then-now";
 import type { ClimateCellName } from "@/types/data-contract";
 import { useT } from "../AppState/use-app-state";
 import { ChoiceGroup } from "../ChoiceGroup";
@@ -12,6 +12,8 @@ import { Disclosure } from "./Disclosure";
 import { FieldPartView } from "./FieldPartView";
 import { HonestyFolds } from "./HonestyNote";
 import { PartLayout } from "./Layout";
+import { MotionStage } from "./MotionStage";
+import { usePauseMotion } from "../SpaceWindow/use-pause-motion";
 import { isFieldPart, VIEW_PARTS, type ViewPart } from "./parts";
 import { PartView } from "./PartView";
 import { PlayControls } from "./PlayControls";
@@ -57,6 +59,9 @@ export function ThenNow({
   // The cell this part plays from; the sharer's caption already names its reference city, the reference's doesn't.
   const cell = part === "heat" ? city?.heat : part === "monsoon" ? city?.rain.gpcp : null;
   const sharedWith = cell && cell.same_record_as === null ? cell.shares_cell_with : [];
+  const pause = usePauseMotion();
+  const sounding = player.soundingPart === part ? player.index : null;
+  const beat = !view || !ready || isFieldPart(part) ? null : part === "water" ? waterBeat(ready.grace, sounding) : yearlyBeat(part, yearlyWindows(view.demo, part), sounding, player.splitIndex);
 
   const choosePart = (next: ViewPart) => {
     if (isFieldPart(next)) player.stop(); // a record without sound: nothing else keeps playing under it
@@ -113,13 +118,12 @@ export function ThenNow({
               <PartLayout
                 finding={
                   <>
-                    <PartView
-                      part={part}
-                      demo={view.demo}
-                      grace={ready.grace}
-                      index={player.soundingPart === part ? player.index : null}
-                      splitIndex={player.splitIndex}
-                    />
+                    <div className="grid gap-4 lg:grid-cols-[minmax(0,1fr)_13rem]">
+                      <div className="min-w-0 space-y-3">
+                        <PartView part={part} demo={view.demo} grace={ready.grace} index={sounding} splitIndex={player.splitIndex} motionPaused={pause.paused} />
+                      </div>
+                      <MotionStage city={cityName} beat={beat} beatIndex={sounding ?? player.splitIndex} pause={pause} className="-order-1 mx-auto aspect-square w-full max-w-56 lg:order-none lg:aspect-auto lg:max-w-none" />
+                    </div>
                     {part === "water" &&  <p className="text-small text-haze">{t("thenNow.waterNational")}</p>}
                     {sharedWith.length > 0 && (
                       <p className="text-small text-moon">{t("history.sharedCell", { places: sharedWith.map((c) => t(`place.${c}`)).join(", ") })}</p>
