@@ -32,7 +32,9 @@ export const FLAGS = {
   // Firefox).
   /** Step 7: timed text tracks (WebVTT) for the sweep and the time-lapse, sound captions, a transcript page per record,
    *  alt text with exports. */
-  timedText: flag(process.env.NEXT_PUBLIC_A11Y_TIMED_TEXT, false),
+  // Ready on 9 Nov 2026: timed-text.e2e.ts 22/22, the a11y + features + health checks 414/414 with steps 7 and 8 on
+  // (Chromium + Firefox).
+  timedText: flag(process.env.NEXT_PUBLIC_A11Y_TIMED_TEXT, true),
   expedition: flag(process.env.NEXT_PUBLIC_A11Y_EXPEDITION, true),
   tuning: flag(process.env.NEXT_PUBLIC_A11Y_TUNING, true),
   tablePlaces: flag(process.env.NEXT_PUBLIC_A11Y_TABLE_PLACES, true),
