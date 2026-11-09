@@ -141,3 +141,78 @@ test("বাংলা mode: the braille lines are written for the Bengali table 
   expect(heading).toMatch(/^স্কেল /u);
   expect(heading).not.toMatch(/[A-Za-z:]/u);
 });
+
+// Plan item 11: the same checks on Then vs Now. The shape line is the selected part's series for the selected city
+// on the shared scale, the caret is the year, moving it plays that year, R gives the value with the change and its
+// 95% interval; width 20 wraps; axe finds nothing serious; the Bengali table's lines have no Latin.
+async function thenNow(page: Page, part?: string) {
+  await start(page);
+  await navTo(page, "Then vs Now");
+  // The page settles after arriving (it renders once more); a click before that is lost with the first render.
+  await page.waitForTimeout(1500);
+  if (part) await page.getByRole("tab", { name: part }).click();
+  const open = page.getByRole("button", { name: "Braille explorer" }).last();
+  await expect(open).toBeEnabled({ timeout: 60_000 });
+  await open.click();
+  await expect(page.getByTestId("braille-shape")).toBeFocused();
+}
+
+test("Then vs Now: the caret is the year; moving it changes the year and plays it; the city is named", async ({ page }) => {
+  await thenNow(page);
+  const value = page.getByTestId("braille-value");
+  await expect(page.getByTestId("braille-shape")).toHaveValue(/^Scale /u);
+  await expect(value).toHaveValue(/^Heat .*Dhaka/u);
+  // The point's year is the line's last four-digit number (the window label "2016-2025" comes before it).
+  const year = (s: string) => Number([...s.matchAll(/\b(?:19|20)\d{2}\b/gu)].at(-1)?.[0]);
+  const before = await value.inputValue();
+  for (let i = 0; i < 3; i++) await page.keyboard.press("ArrowLeft");
+  await expect(value).not.toHaveValue(before);
+  expect(year(before) - year(await value.inputValue())).toBe(3);
+  // One more step on its own: that year's tone plays (the level is sampled once, just after the move; quick repeated
+  // steps restart the tone, so the check takes a single one).
+  await page.waitForTimeout(600);
+  await page.keyboard.press("ArrowLeft");
+  await expect.poll(async () => Number(await page.locator("#braille-explorer").getAttribute("data-level"))).toBeGreaterThan(0);
+});
+
+test("Then vs Now: R reviews the value with the change between the decades and its 95% interval; width 20 wraps", async ({ page }) => {
+  await thenNow(page);
+  await page.getByTestId("braille-shape").focus();
+  await page.keyboard.press("r");
+  await expect(page.getByTestId("braille-value")).toHaveValue(/95% CI .* to /u);
+  await page.getByRole("group", { name: "Display width (cells)" }).getByRole("button", { name: "20", exact: true }).click();
+  const lines = (await page.getByTestId("braille-shape").inputValue()).split("\n").slice(1);
+  expect(lines.length).toBeGreaterThan(1);
+  for (const l of lines) expect([...l].length).toBeLessThanOrEqual(20);
+});
+
+test("Then vs Now: water reads GRACE's months, Bangladesh-wide; rain reads its own years", async ({ page }) => {
+  await thenNow(page, "Water underground");
+  await expect(page.getByTestId("braille-value")).toHaveValue(/Bangladesh/u);
+  await expect(page.getByTestId("braille-value")).toHaveValue(/\b(Jan|Feb|Mar|Apr|May|Jun|Jul|Aug|Sep|Oct|Nov|Dec) \d{4}\b/u);
+});
+
+test("Then vs Now: axe finds no serious violation with the explorer open", async ({ page }) => {
+  await thenNow(page);
+  await page.addScriptTag({ content: AXE });
+  const result = await page.evaluate(async () => {
+    const axe = (window as unknown as { axe: { run: (c: unknown, o: unknown) => Promise<{ violations: { id: string; impact: string }[] }> } }).axe;
+    return axe.run({ include: [["#braille-explorer"]] }, { resultTypes: ["violations"] });
+  });
+  expect(result.violations.filter((v) => v.impact === "serious" || v.impact === "critical" || v.id === "aria-braille-equivalent")).toEqual([]);
+});
+
+test("Then vs Now, বাংলা mode: the lines are written for the Bengali table", async ({ page }) => {
+  await start(page);
+  await page.getByRole("button", { name: "বাংলা" }).click();
+  await page.getByRole("banner").getByRole("link", { name: /আগে বনাম এখন|Then vs Now/u }).first().click();
+  await page.waitForURL(/then-now/u);
+  await page.waitForTimeout(1500);
+  const open = page.getByRole("button", { name: /ব্রেইল|Braille/u }).last();
+  await expect(open).toBeEnabled({ timeout: 60_000 });
+  await open.click();
+  const line = await page.getByTestId("braille-value").inputValue();
+  expect(line).not.toMatch(/[A-Za-z:]/u);
+  expect(line).not.toMatch(/[০-৯়]/u);
+  expect(line).toMatch(/ঢাকা/u);
+});

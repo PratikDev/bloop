@@ -32,13 +32,18 @@ export interface BrailleReading {
   unit: string;
   place: { lat: number; lon: number } | { x: number; y: number };
   /** The time step: its ISO time and, when the record states one, its own label ("01 Mar 2017 (approx.)"). */
-  time: { iso: string | null; label: string | null };
+  time: { iso: string | null; label: string | null; /** The label for the Bengali table ("2019", "জানুয়ারি 2003"). */ bn?: string };
   badge: string;
   status: string;
   /** Relative or pattern-only: the line says so first. */
   relative: boolean;
   /** A short note after the value, in each table's language: Both mode's frame gap ("rain 2d newer"). */
   note?: { en: string; bn: string };
+  /** A named place instead of coordinates (Then vs Now: the city, or Bangladesh for water), in each table's language. */
+  placeName?: { en: string; bn: string };
+  /** Said on the review line (R) only, in each table's language: Then vs Now's change between the decades with its
+   *  95% interval (the series' own statistic; a single year has no interval of its own). */
+  reviewNote?: { en: string; bn: string };
 }
 
 export type BrailleLang = "en" | "bn";
@@ -81,6 +86,7 @@ function valueShort(t: BoundT, r: BrailleReading, degree: DegreeStyle, withUnit 
 }
 
 function placeShort(r: BrailleReading): string {
+  if (r.placeName) return clean(r.placeName.en);
   return "lat" in r.place ? braillePlace(r.place.lat, r.place.lon) : `x${brailleNumber(r.place.x, 0)} y${brailleNumber(r.place.y, 0)}`;
 }
 
@@ -115,7 +121,7 @@ export function uebReview(t: BoundT, r: BrailleReading, degree: DegreeStyle): st
   const time = r.time.label ? clean(r.time.label) : r.time.iso ? brailleTime(r.time.iso, true) : "";
   const line = clean(t("braille.reviewLine", { name: r.long, value: shown, place: `${placeShort(r)}${r.time.label && time ? `, ${time}` : ""}`,
     time: r.time.label ? "" : time, badge: r.badge, status: r.status }));
-  return r.note ? frontLoad([line, r.note.en]) : line;
+  return r.note || r.reviewNote ? frontLoad([line, r.note?.en, r.reviewNote && brailleUnit(r.reviewNote.en, degree)]) : line;
 }
 
 function bnName(r: BrailleReading): string {
@@ -131,11 +137,13 @@ function bnValue(r: BrailleReading): string {
 }
 
 function bnPlaceOf(r: BrailleReading): string {
+  if (r.placeName) return r.placeName.bn;
   return "lat" in r.place ? bnPlace(r.place.lat, r.place.lon)
     : `${BN.across} ${bnNumber(r.place.x, 0)} ${BN.percent} ${BN.up} ${bnNumber(r.place.y, 0)} ${BN.percent}`;
 }
 
 function bnTimeOf(r: BrailleReading): string {
+  if (r.time.bn) return r.time.bn;
   if (!r.time.iso) return "";
   return frontLoad([bnTime(r.time.iso), r.time.label && /approx/iu.test(r.time.label) && BN.approx]);
 }
@@ -148,8 +156,8 @@ export function banglaLine(r: BrailleReading): string {
 
 /** The review line (R) for the Bengali table: the same reading with the time zone named. */
 export function banglaReview(r: BrailleReading): string {
-  return bnCompose(frontLoad([r.relative && BN_STATUS[r.status], bnName(r), bnValue(r), bnPlaceOf(r), r.note?.bn, bnTimeOf(r) && `${bnTimeOf(r)} ${BN.utc}`,
-    BN_STATUS[r.badge], !r.relative && BN_STATUS[r.status]]));
+  return bnCompose(frontLoad([r.relative && BN_STATUS[r.status], bnName(r), bnValue(r), bnPlaceOf(r), r.note?.bn, r.time.bn ?? (bnTimeOf(r) && `${bnTimeOf(r)} ${BN.utc}`),
+    BN_STATUS[r.badge], !r.relative && BN_STATUS[r.status], r.reviewNote?.bn]));
 }
 
 /** The value or review line for the reader's table. */

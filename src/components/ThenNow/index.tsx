@@ -1,8 +1,9 @@
 "use client";
 
-import { useCallback, useMemo } from "react";
+import { useCallback, useMemo, useState, type KeyboardEvent } from "react";
 import { SpeakerSimpleSlash } from "@phosphor-icons/react";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
+import { isLetter, isTypingTarget } from "@/a11y/keys";
 import { buildThenNowInput, cityDemo } from "@/lib/then-now";
 import { bi, type BiText } from "@/lib/bi-text";
 import { statTexts } from "@/lib/then-now-stats";
@@ -18,6 +19,7 @@ import { isFieldPart, VIEW_PARTS, type ViewPart } from "./parts";
 import { PartView } from "./PartView";
 import { PlayControls } from "./PlayControls";
 import { StatsDetails, StatsLine } from "./StatsDetails";
+import { ThenNowBraille } from "./ThenNowBraille";
 import { WaterNote } from "../WaterNote";
 import { HowWeGotThis, ProvenanceGroup } from "../HowWeGotThis";
 import { usePartProvenance } from "./use-part-provenance";
@@ -85,6 +87,24 @@ export function ThenNow({
   const cities = ready?.cities?.cities ?? [];
   const facts = usePartProvenance(ready && view ? { cityName, city, demo: view.demo, grace: ready.grace, stats: ready.stats } : null, part);
 
+  // The Braille Data Explorer (plan item 11): B on the page, or its button beside the play controls. Opening it stops
+  // the part playing, so the caret's own tone is the only sound.
+  const [brailleOpen, setBrailleOpen] = useState(false);
+  // One input per part, city and data (a new object each render would rebuild the source and reset the caret).
+  const brailleInput = useMemo(
+    () => (ready && view && !isFieldPart(part) ? { part, cityName, demo: view.demo, grace: ready.grace, stats: ready.stats ?? null } : null),
+    [ready, view, part, cityName],
+  );
+  const openBraille = (open: boolean) => {
+    if (open) player.stop();
+    setBrailleOpen(open);
+  };
+  const onKeyDown = (e: KeyboardEvent<HTMLElement>) => {
+    if (field || !isLetter(e, "b") || isTypingTarget(e.target)) return;
+    e.preventDefault();
+    openBraille(!brailleOpen);
+  };
+
   const choosePart = (next: ViewPart) => {
     if (isFieldPart(next)) player.stop(); // a record without sound: nothing else keeps playing under it
     onPart(next);
@@ -95,7 +115,7 @@ export function ThenNow({
   };
 
   return (
-    <div className="flex flex-col gap-4 lg:short:gap-3">
+    <div className="flex flex-col gap-4 lg:short:gap-3" onKeyDown={onKeyDown}>
       <div className="flex flex-wrap items-end justify-between gap-x-6 gap-y-3">
         <div className="max-w-2xl space-y-1">
           {/* The headline and the chosen city already say which city; the heading keeps the page's outline for screen readers. */}
@@ -168,7 +188,12 @@ export function ThenNow({
                   </ProvenanceGroup>
                 }
                 sideTitle={t("thenNow.listen")}
-                side={<PlayControls part={part} player={player} />}
+                side={
+                  <>
+                    <PlayControls part={part} player={player} />
+                    {brailleInput && <ThenNowBraille input={brailleInput} open={brailleOpen} onOpenChange={openBraille} />}
+                  </>
+                }
                 detailsTitle={t("disclosure.title")}
                 details={
                   <ProvenanceGroup className="space-y-4">
