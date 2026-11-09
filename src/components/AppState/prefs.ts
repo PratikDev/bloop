@@ -4,7 +4,7 @@ import type { PrefKey, Prefs } from "./reducer";
 // Per-device conveniences only: nothing here is needed for the app to work,
 // and a blocked or empty storage just means the defaults.
 const STORAGE_KEY = "jukebox.prefs.v1";
-const FLAGS = ["describe", "captions", "builtInVoice", "soundWords", "started"] as const satisfies readonly PrefKey[];
+const FLAGS = ["describe", "captions", "builtInVoice", "soundWords", "started", "timeLapseGlobe"] as const satisfies readonly PrefKey[];
 
 export function readPrefs(): Prefs {
   try {

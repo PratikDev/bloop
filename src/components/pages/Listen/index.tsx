@@ -9,6 +9,7 @@ import { Cabinet } from "../../Cabinet";
 import { ExploreControls } from "../../ExploreControls";
 import { FrameLabel } from "../../FrameLabel";
 import { FrameView } from "../../FrameView";
+import { TimeLapseStage } from "../../Globe/TimeLapseStage";
 import { Rack } from "../../Rack";
 import { Readout } from "../../Readout";
 import { useRecords } from "../../Records/use-records";
@@ -60,6 +61,7 @@ export function ListenPage() {
                   {/* The frame opens out from the equator when the intro ends (C1), and again on each visit. */}
                   <FrameView revealClassName={cn(state.introDone && "animate-reveal-equator")} />
                 </ExploreControls>
+                <TimeLapseStage />
               </div>
               <div data-overlay>
                 <ListenStatus className="pt-2 lg:absolute lg:top-3 lg:left-3 lg:z-(--layer-map-plates) lg:p-0" />

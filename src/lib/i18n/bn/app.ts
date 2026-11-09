@@ -139,4 +139,9 @@ export const appBn: Translated<typeof appEn> = {
 
   "motion.pause": "গতি থামান",
   "globe.home": "গ্লোবে আজকের সমুদ্রের তাপমাত্রার ফ্রেম।",
+  "globe.centredOn": (p: { place: string }) => `গ্লোবের কেন্দ্রে ${p.place}।`,
+  "globe.following": "গ্লোব সবচেয়ে ভারী বৃষ্টিকে অনুসরণ করছে।",
+  "timelapse.view": "ঝড়ের দৃশ্য",
+  "timelapse.view.globe": "গ্লোব",
+  "timelapse.view.flat": "সমতল মানচিত্র",
 };

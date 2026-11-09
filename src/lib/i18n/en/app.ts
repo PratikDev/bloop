@@ -146,4 +146,9 @@ export const appEn = {
   // Space windows: their "Pause motion" key and the sentence that says what each globe shows.
   "motion.pause": "Pause motion",
   "globe.home": "Globe showing today's ocean temperature frame.",
+  "globe.centredOn": (p: { place: string }) => `Globe centred on ${p.place}.`,
+  "globe.following": "Globe following the heaviest rain.",
+  "timelapse.view": "Storm view",
+  "timelapse.view.globe": "Globe",
+  "timelapse.view.flat": "Flat map",
 };
