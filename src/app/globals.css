@@ -174,6 +174,8 @@
   --color-bubble: var(--bubble);
   --color-coral: var(--coral);
   --color-dial: var(--dial);
+  --color-bubble-tint: var(--bubble-tint);
+  --color-dial-tint: var(--dial-tint);
   --color-space: var(--space);
   --color-star: var(--star);
   --color-star-warm: var(--star-warm);
@@ -832,7 +834,12 @@ body:has([data-tt-stage]) [data-slot="sheet-overlay"] {
   background: transparent;
 }
 
-/* ---- Then vs Now: a year's stripe fills with a quick wipe as the playhead passes. ---- */
+/* ---- Then vs Now: a year's stripe fills with a quick wipe as the playhead passes. Inside the plot only a pale tint
+   (18% over paper), so the line, dots and gridlines stay the strongest marks; the full colour is the band at the foot. ---- */
+:root {
+  --bubble-tint: color-mix(in srgb, var(--bubble) 18%, var(--paper));
+  --dial-tint: color-mix(in srgb, var(--dial) 18%, var(--paper));
+}
 .stripe-fill {
   clip-path: inset(0 100% 0 0);
   transition: clip-path 120ms linear;
@@ -894,17 +901,23 @@ html[data-reduce-motion="true"] .star-twinkle {
     forced-color-adjust: none;
     border-color: CanvasText;
   }
-  /* Then vs Now stripes: an outline per year; played years filled, above and below the baseline in two system colours. */
+  /* Then vs Now stripes: no tint behind the chart's line; the band at the foot is Canvas with a CanvasText outline, and
+     a played year fills it in Highlight (above the baseline) or CanvasText (below). */
   [data-stripe] {
     forced-color-adjust: none;
+  }
+  [data-stripe-tint] {
+    background-color: transparent;
+  }
+  [data-stripe-band] {
     background-color: Canvas;
-    border-color: GrayText;
+    border-color: CanvasText;
   }
   [data-stripe-fill="above"] {
     background-color: Highlight;
   }
   [data-stripe-fill="below"] {
-    background-color: LinkText;
+    background-color: CanvasText;
   }
   [data-playhead] {
     forced-color-adjust: none;

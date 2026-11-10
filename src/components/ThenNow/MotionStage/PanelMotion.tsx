@@ -13,7 +13,11 @@ import { useHeld } from "./use-held";
 
 const plot: CSSProperties = { left: PANEL_PLOT_INSET.left, right: PANEL_PLOT_INSET.right, top: PANEL_PLOT_INSET.top, bottom: PANEL_PLOT_INSET.bottom };
 
-/** One stripe per year behind a panel's line, filled as the playhead passes: bubble above the baseline, dial below, a paper outline until played. */
+/**
+ * One stripe per year behind a panel's line, filled as the playhead passes: amber above the baseline, dial blue below.
+ * Inside the plot a pale tint; along its foot a 10 px band in the full colour. Until played, only the band's paper and
+ * navy outline. With nothing playing, every year is drawn.
+ */
 export function PanelStripes({ win, baseline, playedThrough }: { win: DemoWindow; baseline: number; playedThrough: number | null }) {
   const n = win.years.length;
   return (
@@ -23,10 +27,14 @@ export function PanelStripes({ win, baseline, playedThrough }: { win: DemoWindow
         const left = i === 0 ? 0 : ((i - 0.5) / (n - 1)) * 100;
         const right = i === n - 1 ? 100 : ((i + 0.5) / (n - 1)) * 100;
         const value = win.values[i];
-        const played = playedThrough === null || year <= playedThrough;
+        const played = (playedThrough === null || year <= playedThrough) || undefined;
+        const above = value !== null && value >= baseline;
         return (
-          <div key={year} data-stripe className="absolute inset-y-0 border border-navy/25 bg-paper" style={{ left: `${left}%`, width: `${right - left}%` }}>
-            {value !== null && <div className={cn("stripe-fill size-full", value >= baseline ? "bg-bubble" : "bg-dial")} data-stripe-fill={value >= baseline ? "above" : "below"} data-played={played || undefined} />}
+          <div key={year} data-stripe className="absolute inset-y-0" style={{ left: `${left}%`, width: `${right - left}%` }}>
+            {value !== null && <div data-stripe-tint data-played={played} className={cn("stripe-fill absolute inset-0", above ? "bg-bubble-tint" : "bg-dial-tint")} />}
+            <div data-stripe-band className={cn("absolute inset-x-0 bottom-0 h-2.5 border-y border-l border-navy bg-paper", i === n - 1 && "border-r")}>
+              {value !== null && <div data-stripe-fill={above ? "above" : "below"} data-played={played} className={cn("stripe-fill size-full", above ? "bg-bubble" : "bg-dial")} />}
+            </div>
           </div>
         );
       })}
