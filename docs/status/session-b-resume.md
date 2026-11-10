@@ -32,7 +32,8 @@ Read this in full before doing anything else after a compaction.
 | 13 | Item 30: no stripes or year on Fires, Vegetation, Water; their stage is the city globe without a pulse | merged `c810fdd` | — |
 | 14 | Items 31 and 32: atmosphere packages removed; docs/turntable.md updated | merged `e505a82`, `c63274f` (status `cdee5e9`) | — |
 | 15 | **Item 28: verify the Home globe in A's new window** | **not started: waiting on A** | When A's Home merge is on `final-pass`: rebase `session-b`, build, serve on 3201, run `size-check`-style measurements on Home at 1920x1080, 1536x730, 1440x900, 1280x720, 1024x768, 390x844 (the canvas's disc = min(canvas w, h) − 38). Check: disc ≥ 576 px window at 1440 (544 px disc incl. outline) and ≥ the Home globe baseline in `docs/status/map-sizes.md` at every size; `onViewChange` still fills the amber tube (`home-check.cjs`); e2e `home` feature's canvas count (`e2e/features/pages.ts`). Fix only what's broken. Don't re-mount. |
-| 16 | **"Then vs Now stage growing while playing"** | **not started: decision not received in this session** | Pratik lists this as a decision, but its wording never reached Session B. Ask for it word for word before acting. Today the stage only gets the side column's free height (about 53–80 px disc on desktop). |
+| 16 | **"Then vs Now stage growing while playing"** | **wording received (§3); A folds the controls** | My part: the stage follows its container smoothly (ResizeObserver, no new WebGL context, 16 px clear, ring and year positioned at both sizes). Check after A's merge with item 28: disc ≥ 200 px at 1440×900, ≥ 160 px at 1280×720 and 1536×730. |
+| 16b | **B1–B5 audit items** (§3) | in progress | B1 player sheet MEDIA + text tokens; B2 Phosphor icons; B3 forced colours; B4 Bangla drafts listed for Pratik; B5 200%/400% zoom reflow. |
 | 17 | Write "B done" with the final commit in `docs/status/session-b.md` | not started | After items 15 and 16 are merged. |
 
 ## 3. Pratik's decisions, word for word
@@ -95,7 +96,20 @@ Decisions below are copied from the messages Session B received. Where Pratik's 
 
 **Home jukebox built around the globe:** the wording received is decision 2 above ("rebuilding Home's jukebox as a frame around a large round window").
 
-**Then vs Now stage growing while playing:** **not received**. See item 16.
+**Then vs Now stage growing while playing (received 2026-11-10, item 16):**
+> "While a part is playing, the listen controls fold down to just the Play/Stop key, and the motion stage gets the freed height." The target is a globe of at least 200 px across at 1440×900, and 160 px at 1280×720 and 1536×730, over a 280 ms transition, instant under reduced motion, never page scroll, charts unchanged. **Your part:** make sure the stage follows its container's size smoothly. Resize the globe on a ResizeObserver without re-creating the WebGL context, keep 16 px clear around the disc, and keep the ring and year counter positioned correctly at both sizes. Check it after A's merge, along with item 28.
+
+**Control limit (received 2026-11-10):**
+> "The header's fixed controls (logo, nav, language, Settings, Help) don't count. Count only the page and the player bar: at most 8 on desktop, 5 on phones. A scrolling list (the Official records list, the rack) counts as one control, as long as it's one focusable region you move through with the arrow keys or Tab."
+
+**Audit items (received 2026-11-10; do before A's merge lands):**
+> - **B1. Player sheet:** use the shared `MEDIA` breakpoint list instead of the hardcoded phone breakpoint. Replace its arbitrary caption text sizes with the theme's text tokens.
+> - **B2. Icons:** `PauseMotionKey` uses lucide icons, but the app uses Phosphor. Switch to Phosphor (check for any other lucide uses in your files).
+> - **B3. High contrast** (`forced-colors: active`) on your stages: the globe's outline and ring, the swatch outline, the Then vs Now stripes and playhead, and the Turntable's selected states stay visible (`CanvasText` / `Highlight`). The Starfield is hidden there.
+> - **B4. Bangla strings:** draft Bangla for every English-only string in your files (the Turntable scene and labels, Player, Scenes). Controls and announcements first. List them for Pratik's review.
+> - **B5. Zoom:** at 200% and 400% zoom, your stages reflow inside the page's normal flow (A is making short screens scroll). Nothing clips, and the Turntable's globe stays clear of panels.
+
+Notes: lucide in the Turntable Dock side (`Dock.tsx`, `DockMore.tsx`, `dock-actions.ts`) is A's; tell A. Scenes (`src/components/Scenes/**`) treated as mine for B2/B4 per this message.
 
 ## 4. Rules I'm following
 
