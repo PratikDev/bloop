@@ -499,7 +499,7 @@ The Mapping panel builds each rule sentence from its parts (`src/lib/i18n/bn/rul
 | `clarity` | parameter: reverbSec; unit: hours since a 1 km infrared look | How recently measured 0 to 48 hours since a 1 km infrared look → echo length 0.1 to 2.4 s (linear). |
 | `unison` | a rule shared with another voice (sameAs) | Proof in unison: two tones in one ear, both by the Ocean temperature rule (Ocean temperature −5 to 35 °C → pitch 220 to 880 Hz (exponential: equal steps in value sound like equal musical steps).) Beats per second = the difference between the two pitches in Hz. |
 
-## Draft Bangla, needs review (731)
+## Draft Bangla, needs review (752)
 
 Drafted for the mentor fixes (`docs/MENTOR_FIXES.md`); **draft, needs review** by a Bangla speaker. Listed in `src/lib/i18n/bn/drafts.ts`: remove an entry there once it is checked.
 
@@ -1230,6 +1230,27 @@ Drafted for the mentor fixes (`docs/MENTOR_FIXES.md`); **draft, needs review** b
 | `earth.layer.on` | Fire-weather chord on. | আগুন-আবহাওয়ার কর্ড চালু। |
 | `earth.layer.off` | Fire-weather chord off. | আগুন-আবহাওয়ার কর্ড বন্ধ। |
 | `earth.layer.loading` | Loading the fire-weather forecast. | আগুন-আবহাওয়ার পূর্বাভাস লোড হচ্ছে। |
+| `earth.pilot.dataset` | Bloop's daily copies of the SVS 5315 forecast (context/fwi_archive_index.json) and FIRMS's daily counts (context/firms.json) | SVS 5315 পূর্বাভাসের ব্লুপের দৈনিক কপি (context/fwi_archive_index.json) আর FIRMS-এর দৈনিক গণনা (context/firms.json) |
+| `earth.pilot.cell` | Each FIRMS box: its most common forecast class. | প্রতিটি FIRMS বাক্স: তার সবচেয়ে সাধারণ পূর্বাভাস-শ্রেণি। |
+| `earth.pilot.method` | For each archived forecast and each FIRMS box: the box's most common class on that day's grid, beside FIRMS's count in the box on the day the forecast was for (the next day). Spearman rho over the rows, per sensor. | প্রতিটি আর্কাইভ করা পূর্বাভাস ও প্রতিটি FIRMS বাক্সে: সেদিনের গ্রিডে বাক্সের সবচেয়ে সাধারণ শ্রেণি, আর যে দিনের পূর্বাভাস (পরের দিন) সেদিন বাক্সে FIRMS-এর গণনা। সারিগুলোর ওপর সেন্সরপ্রতি স্পিয়ারম্যান rho। |
+| `earth.pilot.n` | ``${p.n} box-days`` | ``${p.n}\u099F\u09BF \u09AC\u09BE\u0995\u09CD\u09B8-\u09A6\u09BF\u09A8`` |
+| `earth.slide.lead` | Landslide exposure as thresholded sound: silence for none and low, a soft rumble for moderate, a stronger one for high, slow pulses for very high. | ভূমিধসের ঝুঁকি ধাপে ধাপে শব্দে: না থাকলে ও কম হলে নীরবতা, মাঝারিতে মৃদু গুমগুম, বেশিতে জোরালো, খুব বেশিতে ধীর স্পন্দন। |
+| `earth.slide.label` | Modelled exposure (LHASA), not observed landslides. | মডেলে হিসাব করা ঝুঁকি (LHASA), দেখা ভূমিধস নয়। |
+| `earth.slide.at` | ``Landslide exposure (LHASA nowcast of ${p.date}): ${p.cls}. ${p.sound}`` | ``\u09AD\u09C2\u09AE\u09BF\u09A7\u09B8\u09C7\u09B0 \u099D\u09C1\u0981\u0995\u09BF (${p.date}-\u098F\u09B0 LHASA \u09A4\u09BE\u09CE\u0995\u09CD\u09B7\u09A3\u09BF\u0995 \u09AA\u09C2\u09B0\u09CD\u09AC\u09BE\u09AD\u09BE\u09B8): ${p.cls}\u0964 ${p.sound}`` |
+| `earth.slide.silent` | ``Silence: ${p.why}`` | ``\u09A8\u09C0\u09B0\u09AC\u09A4\u09BE: ${p.why}`` |
+| `earth.slide.rumble` | Sound: its fixed rumble. | শব্দ: তার স্থির গুমগুম। |
+| `earth.slide.rumblePulses` | Sound: its fixed rumble, with slow pulses. | শব্দ: তার স্থির গুমগুম, ধীর স্পন্দনসহ। |
+| `earth.slide.alt` | ``Landslide exposure classes from NASA's SVS 5584 picture (LHASA), frame of ${p.date}, drawn in the legend's own colours; the needle is the ring.`` | ``\u09A8\u09BE\u09B8\u09BE\u09B0 SVS 5584 \u099B\u09AC\u09BF (LHASA) \u09A5\u09C7\u0995\u09C7 \u09AD\u09C2\u09AE\u09BF\u09A7\u09B8\u09C7\u09B0 \u099D\u09C1\u0981\u0995\u09BF\u09B0 \u09B6\u09CD\u09B0\u09C7\u09A3\u09BF, ${p.date}-\u098F\u09B0 \u09AB\u09CD\u09B0\u09C7\u09AE, \u09B2\u09C7\u099C\u09C7\u09A8\u09CD\u09A1\u09C7\u09B0 \u09A8\u09BF\u099C\u09C7\u09B0 \u09B0\u0999\u09C7 \u0986\u0981\u0995\u09BE; \u09B8\u09C1\u0987 \u09B9\u09B2\u09CB \u0986\u0982\u099F\u09BF\u099F\u09BF\u0964`` |
+| `earth.slide.places` | Places to hear: | শোনার জায়গা: |
+| `earth.slide.cht` | Chittagong Hill Tracts | পার্বত্য চট্টগ্রাম |
+| `earth.slide.exposedLead` | The three most exposed regions in this frame, found by Bloop's code: | এই ফ্রেমে সবচেয়ে ঝুঁকির তিনটি অঞ্চল, ব্লুপের কোড খুঁজে পেয়েছে: |
+| `earth.slide.table.caption` | Cells per exposure class, whole grid (the pipeline's count and the app's) | ঝুঁকির শ্রেণিপ্রতি ঘর, পুরো গ্রিড (পাইপলাইনের গণনা ও অ্যাপের) |
+| `earth.slide.table.class` | Class | শ্রেণি |
+| `earth.slide.table.sound` | Sound | শব্দ |
+| `earth.slide.table.pipeline` | Cells (pipeline) | ঘর (পাইপলাইন) |
+| `earth.slide.table.app` | Cells (decoded here) | ঘর (এখানে পড়া) |
+| `earth.slide.subject` | the landslide exposure class at the needle | সুইয়ের জায়গায় ভূমিধসের ঝুঁকির শ্রেণি |
+| `earth.slide.method` | The pipeline reads the class of each pixel of SVS 5584's picture from its legend colours (the highest class within 3×3 source pixels), then maps it from Robinson to a 1024×512 latitude-longitude grid; Bloop reads the cell under the needle. | পাইপলাইন SVS 5584-এর ছবির প্রতিটি পিক্সেলের শ্রেণি তার লেজেন্ডের রং থেকে পড়ে (৩×৩ উৎস-পিক্সেলের মধ্যে সর্বোচ্চ শ্রেণি), তারপর রবিনসন থেকে ১০২৪×৫১২ অক্ষাংশ-দ্রাঘিমাংশ গ্রিডে নেয়; ব্লুপ সুইয়ের নিচের ঘরটি পড়ে। |
 | `earth.hwgt.sourceTime` | ``newest source time ${p.time}`` | ``\u0989\u09CE\u09B8\u09C7\u09B0 \u09B8\u09AC\u099A\u09C7\u09AF\u09BC\u09C7 \u09A8\u09A4\u09C1\u09A8 \u09B8\u09AE\u09AF\u09BC ${p.time}`` |
 | `earth.anom.legend` | Ocean temperature vs normal (the 5176 picture) | স্বাভাবিকের তুলনায় সমুদ্রের তাপমাত্রা (৫১৭৬-এর ছবি) |
 | `earth.anom.frame` | ``Picture and anomaly: the SVS 5176 frame of ${p.date}`` | ``\u099B\u09AC\u09BF \u0993 \u09AC\u09BF\u099A\u09CD\u09AF\u09C1\u09A4\u09BF: ${p.date}-\u098F\u09B0 SVS 5176 \u09AB\u09CD\u09B0\u09C7\u09AE`` |

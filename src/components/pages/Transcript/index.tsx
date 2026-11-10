@@ -10,6 +10,9 @@ import { NotFoundPage } from "../NotFound";
 import { LiveTranscript } from "./LiveTranscript";
 import { OfficialTranscript } from "./OfficialTranscript";
 import { PAGE, TranscriptHeader } from "./parts";
+// >>> DATA
+import { appRecordTranscript } from "../../EarthRecords";
+// <<< DATA
 
 const route = getRouteApi("/transcript");
 
@@ -21,7 +24,7 @@ export function TranscriptPage() {
   const { record } = route.useSearch();
   if (!FLAGS.timedText) return <NotFoundPage />;
   if (record && isLiveTranscript(record)) return <LiveTranscript record={record} />;
-  if (record) return <OfficialTranscript record={record} />;
+  if (record) return appRecordTranscript(record) ?? <OfficialTranscript record={record} />; // DATA: a DATA record's own transcript
   return <TranscriptList />;
 }
 

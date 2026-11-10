@@ -16,6 +16,10 @@ const PARAM_WORDS: Record<string, string> = {
   gain: "জোর",
 };
 
+// >>> DATA
+const CLASS_SOUND_BN = { silence: "নীরবতা (বলে দেওয়া)", chord: "একটি স্থির কর্ড", rumble: "একটি স্থির গুমগুম শব্দ" } as const;
+// <<< DATA
+
 /** A voice's Bangla name: mapping.json's, unless it is still marked TODO there. */
 export function voiceLabelBn(voice: VoiceSpec): string {
   return voice.label.bn.startsWith("TODO") ? translateData(voice.label.en) : voice.label.bn;
@@ -45,6 +49,13 @@ export function ruleTextBn(voice: VoiceSpec): string {
   if (missingRuleWords(voice).length) return ruleText(voice);
   const name = voiceLabelBn(voice);
   const unit = translateData(p.inputUnit);
+
+  // >>> DATA
+  if (p.kind === "classes") {
+    const parts = (p.classes ?? []).map((c) => `${translateData(c.label)}: ${CLASS_SOUND_BN[c.sound]}`);
+    return `${name} (${unit}) → প্রতিটি শ্রেণির একটি স্থির শব্দ, কখনও সুরের উচ্চতা নয়। ${parts.join("; ")}।`;
+  }
+  // <<< DATA
 
   if (p.kind === "bands") {
     const what = p.inputTransform === "abs" ? `স্বাভাবিক থেকে কতটা দূরে (যেকোনো দিকে, ${unit})` : name;

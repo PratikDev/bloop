@@ -151,6 +151,32 @@ export const earthEn = {
   "earth.layer.on": "Fire-weather chord on.",
   "earth.layer.off": "Fire-weather chord off.",
   "earth.layer.loading": "Loading the fire-weather forecast.",
+  "earth.pilot.dataset": "Bloop's daily copies of the SVS 5315 forecast (context/fwi_archive_index.json) and FIRMS's daily counts (context/firms.json)",
+  "earth.pilot.cell": "Each FIRMS box: its most common forecast class.",
+  "earth.pilot.method":
+    "For each archived forecast and each FIRMS box: the box's most common class on that day's grid, beside FIRMS's count in the box on the day the forecast was for (the next day). Spearman rho over the rows, per sensor.",
+  "earth.pilot.n": (p: { n: string }) => `${p.n} box-days`,
+
+  // P3: landslide exposure (LHASA).
+  "earth.slide.lead": "Landslide exposure as thresholded sound: silence for none and low, a soft rumble for moderate, a stronger one for high, slow pulses for very high.",
+  "earth.slide.label": "Modelled exposure (LHASA), not observed landslides.",
+  "earth.slide.at": (p: { cls: string; date: string; sound: string }) => `Landslide exposure (LHASA nowcast of ${p.date}): ${p.cls}. ${p.sound}`,
+  "earth.slide.silent": (p: { why: string }) => `Silence: ${p.why}`,
+  "earth.slide.rumble": "Sound: its fixed rumble.",
+  "earth.slide.rumblePulses": "Sound: its fixed rumble, with slow pulses.",
+  "earth.slide.alt": (p: { date: string }) =>
+    `Landslide exposure classes from NASA's SVS 5584 picture (LHASA), frame of ${p.date}, drawn in the legend's own colours; the needle is the ring.`,
+  "earth.slide.places": "Places to hear:",
+  "earth.slide.cht": "Chittagong Hill Tracts",
+  "earth.slide.exposedLead": "The three most exposed regions in this frame, found by Bloop's code:",
+  "earth.slide.table.caption": "Cells per exposure class, whole grid (the pipeline's count and the app's)",
+  "earth.slide.table.class": "Class",
+  "earth.slide.table.sound": "Sound",
+  "earth.slide.table.pipeline": "Cells (pipeline)",
+  "earth.slide.table.app": "Cells (decoded here)",
+  "earth.slide.subject": "the landslide exposure class at the needle",
+  "earth.slide.method":
+    "The pipeline reads the class of each pixel of SVS 5584's picture from its legend colours (the highest class within 3×3 source pixels), then maps it from Robinson to a 1024×512 latitude-longitude grid; Bloop reads the cell under the needle.",
 
   // How we got this for the DATA products (src/lib/earth/provenance.ts).
   "earth.hwgt.sourceTime": (p: { time: string }) => `newest source time ${p.time}`,

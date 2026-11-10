@@ -144,6 +144,31 @@ export const earthBn: Translated<typeof earthEn> = {
   "earth.layer.on": "আগুন-আবহাওয়ার কর্ড চালু।",
   "earth.layer.off": "আগুন-আবহাওয়ার কর্ড বন্ধ।",
   "earth.layer.loading": "আগুন-আবহাওয়ার পূর্বাভাস লোড হচ্ছে।",
+  "earth.pilot.dataset": "SVS 5315 পূর্বাভাসের ব্লুপের দৈনিক কপি (context/fwi_archive_index.json) আর FIRMS-এর দৈনিক গণনা (context/firms.json)",
+  "earth.pilot.cell": "প্রতিটি FIRMS বাক্স: তার সবচেয়ে সাধারণ পূর্বাভাস-শ্রেণি।",
+  "earth.pilot.method":
+    "প্রতিটি আর্কাইভ করা পূর্বাভাস ও প্রতিটি FIRMS বাক্সে: সেদিনের গ্রিডে বাক্সের সবচেয়ে সাধারণ শ্রেণি, আর যে দিনের পূর্বাভাস (পরের দিন) সেদিন বাক্সে FIRMS-এর গণনা। সারিগুলোর ওপর সেন্সরপ্রতি স্পিয়ারম্যান rho।",
+  "earth.pilot.n": (p: { n: string }) => `${p.n}টি বাক্স-দিন`,
+
+  "earth.slide.lead": "ভূমিধসের ঝুঁকি ধাপে ধাপে শব্দে: না থাকলে ও কম হলে নীরবতা, মাঝারিতে মৃদু গুমগুম, বেশিতে জোরালো, খুব বেশিতে ধীর স্পন্দন।",
+  "earth.slide.label": "মডেলে হিসাব করা ঝুঁকি (LHASA), দেখা ভূমিধস নয়।",
+  "earth.slide.at": (p: { cls: string; date: string; sound: string }) => `ভূমিধসের ঝুঁকি (${p.date}-এর LHASA তাৎক্ষণিক পূর্বাভাস): ${p.cls}। ${p.sound}`,
+  "earth.slide.silent": (p: { why: string }) => `নীরবতা: ${p.why}`,
+  "earth.slide.rumble": "শব্দ: তার স্থির গুমগুম।",
+  "earth.slide.rumblePulses": "শব্দ: তার স্থির গুমগুম, ধীর স্পন্দনসহ।",
+  "earth.slide.alt": (p: { date: string }) =>
+    `নাসার SVS 5584 ছবি (LHASA) থেকে ভূমিধসের ঝুঁকির শ্রেণি, ${p.date}-এর ফ্রেম, লেজেন্ডের নিজের রঙে আঁকা; সুই হলো আংটিটি।`,
+  "earth.slide.places": "শোনার জায়গা:",
+  "earth.slide.cht": "পার্বত্য চট্টগ্রাম",
+  "earth.slide.exposedLead": "এই ফ্রেমে সবচেয়ে ঝুঁকির তিনটি অঞ্চল, ব্লুপের কোড খুঁজে পেয়েছে:",
+  "earth.slide.table.caption": "ঝুঁকির শ্রেণিপ্রতি ঘর, পুরো গ্রিড (পাইপলাইনের গণনা ও অ্যাপের)",
+  "earth.slide.table.class": "শ্রেণি",
+  "earth.slide.table.sound": "শব্দ",
+  "earth.slide.table.pipeline": "ঘর (পাইপলাইন)",
+  "earth.slide.table.app": "ঘর (এখানে পড়া)",
+  "earth.slide.subject": "সুইয়ের জায়গায় ভূমিধসের ঝুঁকির শ্রেণি",
+  "earth.slide.method":
+    "পাইপলাইন SVS 5584-এর ছবির প্রতিটি পিক্সেলের শ্রেণি তার লেজেন্ডের রং থেকে পড়ে (৩×৩ উৎস-পিক্সেলের মধ্যে সর্বোচ্চ শ্রেণি), তারপর রবিনসন থেকে ১০২৪×৫১২ অক্ষাংশ-দ্রাঘিমাংশ গ্রিডে নেয়; ব্লুপ সুইয়ের নিচের ঘরটি পড়ে।",
 
   "earth.hwgt.sourceTime": (p: { time: string }) => `উৎসের সবচেয়ে নতুন সময় ${p.time}`,
 

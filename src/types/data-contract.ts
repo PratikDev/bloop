@@ -8,6 +8,9 @@
 // Binary grids: little-endian, row 0 = north (90° N), column 0 = 180° W.
 
 import type { ExtraOutputParam, FirmsDailyBlock, SameAsMapping } from "./contract-15";
+// >>> DATA
+import type { ClassesMapping } from "./contract-15";
+// <<< DATA
 
 // ---------------------------------------------------------------------------
 // 1. Latest-frame metadata (latest/sst.json, latest/rain.json)
@@ -496,7 +499,8 @@ export interface RuntimeRangeMapping {
   };
 }
 
-export type VoiceMapping = ContinuousMapping | BandsMapping | RuntimeRangeMapping | SameAsMapping;
+// DATA: ClassesMapping (contract-15/classes.ts) for the class products (fire weather, landslide exposure).
+export type VoiceMapping = ContinuousMapping | BandsMapping | RuntimeRangeMapping | SameAsMapping | ClassesMapping;
 
 export interface VoiceSpec {
   id: string; // a voice id (lib/audio VoiceId) or an earcon id

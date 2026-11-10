@@ -8,6 +8,9 @@ import { fetchBuffer, fetchJson } from "./fetch";
 import { gunzip } from "./gunzip";
 import { DATA_PATHS } from "./paths";
 import { requirePaths } from "./validate";
+// >>> DATA
+import { withAppRecords } from "@/lib/earth/records";
+// <<< DATA
 
 export const OFFICIAL_NODATA = 65535;
 export const OFFICIAL_BELOW = 65534;
@@ -37,7 +40,8 @@ const RELATED_PREFIX = "rel_";
 const recordPath = (record: string, file: string) =>
   (record.startsWith(RELATED_PREFIX) ? DATA_PATHS.related : DATA_PATHS.official)(`${record}/${file}`);
 
-export const loadOfficialIndex = () => fetchJson<OfficialIndex>(DATA_PATHS.official("index.json"));
+// DATA: the records built from the shipped products (src/lib/earth/records.ts) join after the pipeline's rows.
+export const loadOfficialIndex = () => fetchJson<OfficialIndex>(DATA_PATHS.official("index.json")).then(withAppRecords);
 /** Feature flag: NEXT_PUBLIC_SHOW_HIDDEN_RELATED=1 also lists the related records the pipeline marks `hidden` (too sparse
  *  to play: a needle reads "no value" as they play). Off by default. */
 export const SHOW_HIDDEN_RELATED = process.env.NEXT_PUBLIC_SHOW_HIDDEN_RELATED === "1";

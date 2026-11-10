@@ -49,15 +49,54 @@ function checkOutput(o: unknown, where: string) {
   if (scale === "exponential" && min <= 0) fail(`${where}: exponential scale needs min > 0`);
 }
 
+// >>> DATA
+/** A categorical rule (contract-15/classes.ts): ascending codes, a label each, and one fixed sound state each: a
+ *  stated silence (with its reason), a fixed chord (semitones over rootHz) or a fixed rumble. Never a data pitch. */
+function checkClasses(m: Record<string, unknown>, where: string) {
+  const states = m.states;
+  if (!Array.isArray(states) || states.length === 0) fail(`${where}.states must be a non-empty array`);
+  let prev = -Infinity;
+  let chords = 0;
+  states.forEach((s: unknown, i) => {
+    const w = `${where}.states[${i}]`;
+    if (!isObject(s)) fail(`${w} must be an object`);
+    const code = num(s.code, `${w}.code`);
+    if (!Number.isInteger(code) || code <= prev) fail(`${where}.states must be in ascending order of integer code`);
+    prev = code;
+    str(s.label, `${w}.label`);
+    const sound = oneOf(s.sound, ["silence", "chord", "rumble"] as const, `${w}.sound`);
+    if (sound === "silence") str(s.silence, `${w}.silence`);
+    if (sound === "chord") {
+      chords++;
+      if (!Array.isArray(s.tones) || s.tones.length === 0) fail(`${w}.tones must be a non-empty array`);
+      s.tones.forEach((x: unknown, j) => num(x, `${w}.tones[${j}]`));
+    }
+    if (sound === "rumble") {
+      const r = s.rumble;
+      if (!isObject(r)) fail(`${w}.rumble is missing`);
+      if (num(r.cutoffHz, `${w}.rumble.cutoffHz`) <= 0) fail(`${w}.rumble.cutoffHz must be > 0`);
+      const gain = num(r.gain, `${w}.rumble.gain`);
+      if (gain <= 0 || gain > 1) fail(`${w}.rumble.gain must be in (0, 1]`);
+      if (num(r.pulsesPerSecond, `${w}.rumble.pulsesPerSecond`) < 0) fail(`${w}.rumble.pulsesPerSecond must be >= 0`);
+    }
+    if (sound !== "chord" && s.tones !== undefined) fail(`${w}.tones belongs to a chord state only`);
+    if (sound !== "rumble" && s.rumble !== undefined) fail(`${w}.rumble belongs to a rumble state only`);
+  });
+  if (chords > 0 && num(m.rootHz, `${where}.rootHz`) <= 0) fail(`${where}.rootHz must be > 0`);
+}
+// <<< DATA
+
 function checkMapping(m: unknown, where: string) {
   if (m === null) return;
   if (!isObject(m)) fail(`${where} must be an object or null`);
-  const kind = oneOf(m.kind, ["continuous", "bands", "runtimeRange", "sameAs"] as const, `${where}.kind`);
+  const kind = oneOf(m.kind, ["continuous", "bands", "runtimeRange", "sameAs", "classes"] as const, `${where}.kind`);
   const input = m.input;
   if (!isObject(input)) fail(`${where}.input is missing`);
   str(input.unit, `${where}.input.unit`);
 
-  if (kind === "sameAs") {
+  if (kind === "classes") {
+    checkClasses(m, where); // >>> DATA (categorical rules) <<< DATA
+  } else if (kind === "sameAs") {
     str(m.voice, `${where}.voice`); // the referenced voice is checked once every voice is read
   } else if (kind === "continuous") {
     const min = num(input.min, `${where}.input.min`);

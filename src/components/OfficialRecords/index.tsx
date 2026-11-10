@@ -24,6 +24,7 @@ import { RelatedRecords } from "./RelatedRecords";
 import { useOfficialRecord } from "./use-official-record";
 // >>> DATA
 import { NotPlayable } from "../EarthData/NotPlayable";
+import { appRecordPlayer } from "../EarthRecords";
 // <<< DATA
 
 
@@ -124,7 +125,8 @@ export function OfficialRecords() {
       </div>
       <ChoiceGroup label={t("official.records")} value={current ?? ""} onChange={setRecord} className="flex-wrap"
         options={index.records.map((r) => ({ value: r.record, label: r.title, brailleLabel: recordBrailleLabel(r) }))} />
-      {current && <Player key={current} record={current} />}
+      {/* DATA: a record built from the shipped products plays its own player (src/components/EarthRecords). */}
+      {current && (appRecordPlayer(current) ?? <Player key={current} record={current} />)}
       <RelatedRecords value={current ?? ""} onChange={setRecord} />
       {/* >>> DATA */}
       <NotPlayable />
