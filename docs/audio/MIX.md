@@ -52,6 +52,45 @@ is silent there, by the "silence means no data or dry, never zero" rule).
   the target means changing the voices' levels in `mapping.json`, which this build may not touch; it is listed as the
   next mix step, with these numbers as the baseline. The chord, the only new layer, was set relative to the melody.
 
+## Integration trims (10 Nov 2026)
+
+The pass above measured the levels and left them; integration brings them toward the target **without touching
+`public/mapping.json`**: a constant per-voice gain at each voice channel's input (`src/lib/audio/mix-trims.ts`, applied
+in `graph.ts`, the opening sweep and the chord's melody reference). The trims are computed, never typed, by
+`scripts/mix-trims.ts` from CV's untrimmed measurements, frozen in `docs/audio/mix_baseline.json`:
+
+> trim = min(target − measured loudness, (master compressor threshold − 1 dB) − measured true peak)
+
+so no trim pushes a mode's peaks into the master compressor (threshold −6 dBFS, from `mapping.json`). The rain voice is
+sparse drops: its integrated loudness is low because of the silence between drops, so its trim is capped by its peaks
+(+8.9 dB of the +13.8 dB to target) rather than chasing the average.
+
+| Voice | Trim (dB) | From mode | To target | Peak room |
+|---|---|---|---|---|
+| ocean | −3.9 | Listen Ocean | −3.9 | +3.1 |
+| rain, snow | +8.9 | Listen Rain | +13.8 | +8.9 |
+| heat, monsoon, water | +1.6 | Then vs Now | +1.6 | +6.7 |
+
+Re-measured on the integrated build (every CV, ART and DATA flag on; Chromium, 30 s; `mix_results.json`):
+
+| Mode | Before (LUFS) | After (LUFS) | vs −18 (LU) | True peak after (dBTP) |
+|---|---|---|---|---|
+| Listen Ocean | −14.1 | −16.4 | +1.6 | −10.6 |
+| Listen Rain (time-lapse) | −31.8 | −23.0 | −5.0 | −7.0 |
+| Listen Both | −14.1 | −17.7 | +0.3 | −13.4 |
+| Listen Ocean + chord | −13.1 | −16.8 | +1.2 | −10.7 |
+| Duet (proof in unison) | −15.3 | −19.2 | −1.2 | −7.7 |
+| Then vs Now | −19.6 | −16.3 | +1.7 | −9.7 |
+| Turntable | −17.7 | −17.5 | +0.5 | −11.3 |
+
+- Every mode but rain is within ±3 LU of −18; rain is 5 LU under it, held there by its peak cap (its loudest drops now
+  sit at −7 dBTP, the cap).
+- Ocean and Then vs Now came out about 1.6 LU louder than the trims alone predict: on the integrated build the dial's
+  default (Blend) plays them in their Earth Orchestra families, whose harmonics add loudness. Pitch is unchanged
+  (the pitch-identity and Check 5 runs in `docs/BUILD_2026-11-10.md`).
+- The chord still sits 7.6 dB RMS under the melody (it follows the ocean voice's trim).
+- No true peak reaches −1 dBTP; the loudest is −7.0 dBTP.
+
 ## The test
 
 `e2e/cv/mix.e2e.ts` (one test per mode, a fresh app each): fails if a mode is silent, if its true peak reaches −1 dBTP,

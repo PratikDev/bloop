@@ -2,7 +2,7 @@
 // sine with its quick glide, on the sonification bus (ducked with it, silenced by Mute all and Esc). Each tone's
 // fundamental is exactly its ChordTone.hz. New tones roll in low → high, ROLL_SEC apart, then hold.
 import { getCtx, getGraph, peekEngine } from "../../context";
-import { MAPPING } from "../../mapping";
+import { channelGain } from "../../mix-trims";
 import { fadeTo } from "../../params";
 import { track } from "../../sources";
 import { voicePeak } from "../../voices/common";
@@ -16,8 +16,9 @@ export const CHORD_DB = -8;
 /** Partials of the pad (fundamental first): timbre only, the pitch is the fundamental's. */
 export const PARTIALS = [0, 1, 0.3, 0.1];
 
-/** The melody's peak level on the sonification bus (the ocean voice: its peak × the channel's input cap). */
-export const melodyPeak = () => voicePeak("ocean") * MAPPING.global.voiceMaxGain;
+/** The melody's peak level on the sonification bus (the ocean voice: its peak × its channel's input gain, the cap
+ *  times the mix trim), so the chord stays CHORD_DB under the melody it describes. */
+export const melodyPeak = () => voicePeak("ocean") * channelGain("ocean");
 /** The chord's total peak: CHORD_DB under the melody, shared between the tones by their area fractions. */
 export const chordPeak = () => melodyPeak() * 10 ** (CHORD_DB / 20);
 

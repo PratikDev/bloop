@@ -6,7 +6,7 @@
 import { emitCaption } from "../captions";
 import { getCtx, getGraph } from "../context";
 import { liveVoices, routeRain } from "../live";
-import { MAPPING } from "../mapping";
+import { channelGain } from "../mix-trims";
 import { glideTo } from "../params";
 import type { PlayerHandle, SweepPoint } from "../types";
 import { playSequence } from "./sequence";
@@ -18,10 +18,10 @@ const FADE_OUT_SEC = 1.5;
 const RESTORE_SEC = 0.05;
 const VOICES = ["ocean", "rain", "snow"] as const;
 
-/** The fade shapes the voices' channel inputs (normally fixed at the voice cap); restored afterwards. */
+/** The fade shapes the voices' channel inputs (normally fixed at channelGain); restored afterwards. */
 function scheduleFades(start: number, durationSec: number) {
-  const cap = MAPPING.global.voiceMaxGain;
   for (const id of VOICES) {
+    const cap = channelGain(id);
     const gain = getGraph().channels[id].input.gain;
     gain.cancelScheduledValues(start);
     gain.setValueAtTime(0, start);
@@ -32,8 +32,7 @@ function scheduleFades(start: number, durationSec: number) {
 }
 
 function restoreChannels() {
-  const cap = MAPPING.global.voiceMaxGain;
-  for (const id of VOICES) glideTo(getCtx(), getGraph().channels[id].input.gain, cap, RESTORE_SEC);
+  for (const id of VOICES) glideTo(getCtx(), getGraph().channels[id].input.gain, channelGain(id), RESTORE_SEC);
 }
 
 export function playOpening(points: SweepPoint[], opts: { durationSec?: number } = {}): PlayerHandle {
