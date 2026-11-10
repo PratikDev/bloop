@@ -28,7 +28,6 @@ export function MotionStage({ city, beat, beatIndex, pause, className }: { city:
       pulseKey={pulseKey ?? undefined}
       sentence={t("globe.centredOn", { place: t(`place.${city}`) })}
       pause={pause}
-      keyBelow
       className={className}
     />
   );

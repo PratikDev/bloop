@@ -1,4 +1,4 @@
-import type { ReactNode, RefObject } from "react";
+import type { ReactNode, Ref, RefObject } from "react";
 import { cn } from "@/lib/utils";
 import { Starfield } from "../Starfield";
 import type { StarDensity } from "../Starfield/sky";
@@ -8,12 +8,14 @@ import type { StarDensity } from "../Starfield/sky";
  * (night-sky re-points the tokens); a panel inside uses the on-space utility.
  */
 export function SpaceWindow({
+  ref,
   children,
   density,
   still,
   driftRef,
   className,
 }: {
+  ref?: Ref<HTMLDivElement>;
   children?: ReactNode;
   density?: StarDensity;
   still?: boolean;
@@ -21,7 +23,7 @@ export function SpaceWindow({
   className?: string;
 }) {
   return (
-    <div data-space className={cn("night-sky relative isolate overflow-hidden rounded-sheet border-3 border-navy", className)}>
+    <div ref={ref} data-space className={cn("night-sky relative isolate overflow-hidden rounded-sheet border-3 border-navy", className)}>
       <Starfield density={density} still={still} driftRef={driftRef} className="-z-10" />
       {children}
     </div>
