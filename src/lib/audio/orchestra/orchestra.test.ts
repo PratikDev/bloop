@@ -6,7 +6,7 @@ import { readFileSync } from "node:fs";
 import { join } from "node:path";
 import { EARTH_CATEGORIES } from "@/lib/audio/layers/types";
 import { classifyRecord, matchCategory } from "./classify";
-import { earconHz, EARCON_SEC, FAMILIES, familyFor } from "./families";
+import { earconHz, EARCON_SEC, FAMILIES, familyFor, noteAttack } from "./families";
 import { categoryOfVoice, getCategory, orchestra, UNCLASSIFIED } from "./index";
 import table from "./categories.json";
 
@@ -60,6 +60,15 @@ describe("Earth Orchestra categories", () => {
 });
 
 describe("Earth Orchestra families", () => {
+  test("every family's note opens before it ends, however short (a song note is 0.22 s)", () => {
+    for (const f of Object.values(FAMILIES))
+      for (const d of [0.05, 0.22, 0.4, 2]) {
+        expect(noteAttack(f, d)).toBeLessThan(d);
+        expect(noteAttack(f, d)).toBeLessThanOrEqual(f.attack);
+      }
+    expect(noteAttack(FAMILIES.plain, 1)).toBe(FAMILIES.plain.attack);
+  });
+
   test("one family per Earth system, plus plain tones", () => {
     expect(Object.keys(FAMILIES).sort()).toEqual([...EARTH_CATEGORIES, "plain"].sort());
     expect(familyFor("ocean", false).timbre).toBe("plain");

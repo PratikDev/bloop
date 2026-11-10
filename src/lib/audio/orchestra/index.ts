@@ -10,6 +10,7 @@ import { getCategory } from "./table";
 
 export { categoryOfVoice, getCategory, recordsIn, UNCLASSIFIED } from "./table";
 export { EARCON_SEC, FAMILIES, familyFor, REFERENCE_HZ, type FamilyRecipe, type Timbre } from "./families";
+export { mixInto } from "./mix";
 export { familyNote, noiseBand, noiseBuffer, seeded, setSpectrum, type NoteOptions, type OnSource } from "./synth";
 
 const voices = new Map<EarthCategory, OrchestraVoice>();

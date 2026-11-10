@@ -136,3 +136,10 @@ export function familyFor(category: EarthCategory | null, orchestra: boolean): F
 
 /** The earcon's notes as frequencies (fixed: never a data value). */
 export const earconHz = (f: FamilyRecipe): number[] => f.earcon.map((s) => EARCON_BASE_HZ * 2 ** (s / 12));
+
+/**
+ * The attack a note of `duration` seconds really gets: the family's own, but never more than half the note. The note's
+ * release cancels every automation from its end on, so an attack still ramping then would be cancelled with it and the
+ * note would never open (the pad's 0.25 s attack against a 0.22 s song note was silent).
+ */
+export const noteAttack = (family: Pick<FamilyRecipe, "attack">, duration: number): number => Math.min(family.attack, duration / 2);

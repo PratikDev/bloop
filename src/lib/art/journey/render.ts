@@ -2,7 +2,7 @@
 // steps: one note a value in the step's Earth Orchestra family, swara + meend landing on the value (dial 1); drops and
 // clicks: short seeded noise bursts; under each step a drone on its Sa (rate steps: A3), and a light reverb on all.
 
-import { FAMILIES, familyFor, familyNote, noiseBand, type OnSource } from "@/lib/audio/orchestra";
+import { FAMILIES, familyFor, familyNote, mixInto, noiseBand, type OnSource } from "@/lib/audio/orchestra";
 import { createDrone, createReverb, DEFAULT_SA, droneColour, reverbLevel } from "../layers";
 import { MEEND_MIN_STEP, MEEND_SEC, nearestSwara } from "../meend";
 import type { Journey } from "./plan";
@@ -13,7 +13,7 @@ const MONSOON_MONTH = 7; // the suite is the monsoon's water: the drone wears it
 function tick(ctx: BaseAudioContext, out: AudioNode, at: number, noise: "drop" | "click", onSource?: OnSource) {
   const { source, out: band } = noise === "drop" ? noiseBand(ctx, 2500, 1.2, onSource) : noiseBand(ctx, 5000, 2, onSource);
   const env = new GainNode(ctx, { gain: 0 });
-  band.connect(env).connect(out);
+  mixInto(band.connect(env), out);
   env.gain.setValueAtTime(0, at);
   env.gain.linearRampToValueAtTime(GAIN, at + 0.002);
   env.gain.setTargetAtTime(0, at + 0.002, noise === "drop" ? 0.015 : 0.006);
@@ -24,7 +24,7 @@ function tick(ctx: BaseAudioContext, out: AudioNode, at: number, noise: "drop" |
 /** Schedules the whole suite from `t0` into `out`. */
 export function renderJourney(ctx: BaseAudioContext, out: AudioNode, j: Journey, t0: number, onSource?: OnSource): void {
   const mix = new GainNode(ctx, { gain: 1 });
-  mix.connect(out);
+  mixInto(mix, out);
   const reverb = createReverb(ctx, out);
   mix.connect(reverb.input);
   reverb.wet.gain.value = reverbLevel(true);

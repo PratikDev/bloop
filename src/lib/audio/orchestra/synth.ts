@@ -3,7 +3,8 @@
 // exactly one pitch: the data's. Noise is seeded, so an offline render is the same every time.
 
 import type { OrchestraNote, OrchestraNoteHandle } from "@/lib/audio/layers/types";
-import type { FamilyRecipe } from "./families";
+import { noteAttack, type FamilyRecipe } from "./families";
+import { mixInto } from "./mix";
 
 const NOISE_SEC = 2;
 const noises = new WeakMap<BaseAudioContext, AudioBuffer>();
@@ -72,6 +73,25 @@ export interface NoteOptions {
   onSource?: OnSource;
 }
 
+const lowpasses = new WeakMap<AudioNode, Map<number, BiquadFilterNode>>();
+
+/**
+ * One low-pass per output and cutoff, shared by every note into it. The same sound as a filter per note (the filter is
+ * linear: filtering the sum = summing the filtered notes), and an offline render is bit-identical every time (Chromium
+ * renders a fresh filter per note a float ULP differently run to run, enough to flip a 16-bit sample in a WAV).
+ */
+function sharedLowpass(ctx: BaseAudioContext, out: AudioNode, hz: number): BiquadFilterNode {
+  let byHz = lowpasses.get(out);
+  if (!byHz) lowpasses.set(out, (byHz = new Map()));
+  let lp = byHz.get(hz);
+  if (!lp) {
+    lp = new BiquadFilterNode(ctx, { type: "lowpass", frequency: hz });
+    mixInto(lp, out);
+    byHz.set(hz, lp);
+  }
+  return lp;
+}
+
 /** Plays one note of a family into `out`. Its settled pitch is exactly note.hz. */
 export function familyNote(ctx: BaseAudioContext, out: AudioNode, family: FamilyRecipe, note: OrchestraNote, opts: NoteOptions = {}): OrchestraNoteHandle {
   const { when, duration, gain } = note;
@@ -81,10 +101,10 @@ export function familyNote(ctx: BaseAudioContext, out: AudioNode, family: Family
     pitch.offset.exponentialRampToValueAtTime(note.hz, when + (opts.glideSec ?? 0.12));
   }
   const env = new GainNode(ctx, { gain: 0 });
-  if (family.lowpass === null) env.connect(out);
-  else env.connect(new BiquadFilterNode(ctx, { type: "lowpass", frequency: family.lowpass })).connect(out);
+  mixInto(env, family.lowpass === null ? out : sharedLowpass(ctx, out, family.lowpass));
   env.gain.setValueAtTime(0, when);
-  env.gain.linearRampToValueAtTime(gain, when + family.attack);
+  const attack = noteAttack(family, duration);
+  env.gain.linearRampToValueAtTime(gain, when + attack);
 
   const sources: AudioScheduledSourceNode[] = [pitch];
   for (const layer of family.layers) {
@@ -92,16 +112,16 @@ export function familyNote(ctx: BaseAudioContext, out: AudioNode, family: Family
     setSpectrum(osc, layer.partials);
     pitch.connect(osc.frequency);
     const g = new GainNode(ctx, { gain: 0 });
-    osc.connect(g).connect(env);
+    mixInto(osc.connect(g), env);
     g.gain.setValueAtTime(layer.gain, when);
-    if (layer.decay !== null) g.gain.setTargetAtTime(0, when + family.attack, layer.decay / 3);
+    if (layer.decay !== null) g.gain.setTargetAtTime(0, when + attack, layer.decay / 3);
     sources.push(osc);
   }
   if (family.texture) {
     const tx = family.texture;
     const { source, out: band } = noiseBand(ctx, tx.hz, tx.q);
     const g = new GainNode(ctx, { gain: 0 });
-    band.connect(g).connect(env);
+    mixInto(band.connect(g), env);
     g.gain.setValueAtTime(tx.gain, when);
     if (!tx.sustain) g.gain.setTargetAtTime(0, when, 0.015);
     sources.push(source);
