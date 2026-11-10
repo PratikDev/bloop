@@ -19,7 +19,7 @@ export function OfficialRead({ rec, className, children }: { rec: OfficialRecord
     [t, state.lang, freshness, rec.manifest, rec.validation, rec.grids, rec.option, source],
   );
   return (
-    <JukeboxRead source={source} base={base} needle={rec.needle} loading={!rec.ready} className={className}>
+    <JukeboxRead source={source} base={base} needle={rec.needle} playMode={(rec.option?.channels.length ?? 0) > 1 ? "both" : "single"} loading={!rec.ready} className={className}>
       {children}
     </JukeboxRead>
   );

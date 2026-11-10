@@ -7,6 +7,9 @@ import { FLAGS } from "@/lib/flags";
 import { AccessSettings } from "../AccessSettings";
 import { useT } from "../AppState/use-app-state";
 import { SettingToggle } from "../SettingToggle";
+// >>> CV
+import { ChordToggle } from "../JukeboxRead/ChordToggle";
+// <<< CV
 
 /** Describe, Captions, Speech (or Built-in voice), Detail, Each step and Reduce motion, one click from anywhere. */
 export function SettingsMenu() {
@@ -31,6 +34,9 @@ export function SettingsMenu() {
         )}
         <SettingToggle setting="reduceMotion" />
         {FLAGS.mapKeys && <SettingToggle setting="hide3d" />}
+        {/* >>> CV */}
+        {FLAGS.cvChord && <ChordToggle />}
+        {/* <<< CV */}
       </PopoverContent>
     </Popover>
   );

@@ -499,7 +499,7 @@ The Mapping panel builds each rule sentence from its parts (`src/lib/i18n/bn/rul
 | `clarity` | parameter: reverbSec; unit: hours since a 1 km infrared look | How recently measured 0 to 48 hours since a 1 km infrared look → echo length 0.1 to 2.4 s (linear). |
 | `unison` | a rule shared with another voice (sameAs) | Proof in unison: two tones in one ear, both by the Ocean temperature rule (Ocean temperature −5 to 35 °C → pitch 220 to 880 Hz (exponential: equal steps in value sound like equal musical steps).) Beats per second = the difference between the two pitches in Hz. |
 
-## Draft Bangla, needs review (643)
+## Draft Bangla, needs review (659)
 
 Drafted for the mentor fixes (`docs/MENTOR_FIXES.md`); **draft, needs review** by a Bangla speaker. Listed in `src/lib/i18n/bn/drafts.ts`: remove an entry there once it is checked.
 
@@ -1146,6 +1146,22 @@ Drafted for the mentor fixes (`docs/MENTOR_FIXES.md`); **draft, needs review** b
 | `cv.hwgt.budgetMethod` | Semitones per unit of each value-to-pitch rule (12 x log2 of its highest over its lowest pitch, divided by its input range; per decade on a log axis), times the record's measured error, times 100. Over 100 cents, a pitch step smaller than the error carries no meaning. Sound terrain's zoomed axis uses today's span. | প্রতিটি মান-থেকে-সুর নিয়মের প্রতি এককে সেমিটোন (সর্বোচ্চ ও সর্বনিম্ন সুরের অনুপাতের log2 গুণ ১২, ইনপুট পরিসর দিয়ে ভাগ; লগ অক্ষে প্রতি দশকে), গুণ রেকর্ডের মাপা ত্রুটি, গুণ ১০০। ১০০ সেন্টের বেশি হলে ত্রুটির চেয়ে ছোট সুরের ধাপের কোনো মানে নেই। সাউন্ড টেরেইনের জুম করা অক্ষ আজকের পরিসর ব্যবহার করে। |
 | `cv.hwgt.budgetUnc` | Each error is the record's own measured error, read from the validation table or the data file. A record with no validation source shows its error as not known, never 0. | প্রতিটি ত্রুটি রেকর্ডের নিজের মাপা ত্রুটি, যাচাই সারণি বা তথ্য ফাইল থেকে পড়া। যে রেকর্ডের যাচাইয়ের উৎস নেই, তার ত্রুটি জানা নেই বলে দেখায়, কখনো ০ নয়। |
 | `cv.hwgt.unc` | ``${p.budget} Inversion confidence per cell is not shipped, so it is not shown.`` | ``${p.budget} \u09AA\u09CD\u09B0\u09A4\u09BF\u099F\u09BF \u0998\u09B0\u09C7\u09B0 \u0987\u09A8\u09AD\u09BE\u09B0\u09CD\u09B6\u09A8-\u0986\u09B8\u09CD\u09A5\u09BE \u09AA\u09BE\u09A0\u09BE\u09A8\u09CB \u09B9\u09AF\u09BC \u09A8\u09BE, \u09A4\u09BE\u0987 \u09A6\u09C7\u0996\u09BE\u09A8\u09CB \u09B9\u09AF\u09BC \u09A8\u09BE\u0964`` |
+| `cv.chord.toggle` | Chord: spread of values | কর্ড: মানের বিস্তার |
+| `cv.chord.two` | ``Two groups: ${p.a} (${p.pa} %) and ${p.b} (${p.pb} %)`` | ``\u09A6\u09C1\u099F\u09BF \u09A6\u09B2: ${p.a} (${p.pa} %) \u098F\u09AC\u0982 ${p.b} (${p.pb} %)`` |
+| `cv.chord.one` | ``One group around ${p.a}`` | ``\u098F\u0995\u099F\u09BF \u09A6\u09B2, \u09AA\u09CD\u09B0\u09BE\u09AF\u09BC ${p.a}`` |
+| `cv.chord.brief` | ``Chord: ${p.count} groups`` | ``\u0995\u09B0\u09CD\u09A1: ${p.count}\u099F\u09BF \u09A6\u09B2`` |
+| `cv.chord.briefOne` | Chord: 1 group | কর্ড: ১টি দল |
+| `cv.chord.relative` | relative values | আপেক্ষিক মান |
+| `cv.chord.modesOnly` | This colour bar is dark at its low end, so the chord gives the groups only, not the lowest values. | এই রঙের পট্টির নিচের প্রান্ত গাঢ়, তাই কর্ড শুধু দলগুলো দেয়, সবচেয়ে কম মানগুলো নয়। |
+| `cv.chord.block.pattern-only` | Chord off: this record is pattern only, so no values were read. | কর্ড বন্ধ: এই রেকর্ড শুধু নকশা, তাই কোনো মান পড়া হয়নি। |
+| `cv.chord.block.not-allowlisted` | Chord off: this record's colour bar or error doesn't allow it. | কর্ড বন্ধ: এই রেকর্ডের রঙের পট্টি বা ত্রুটি এটি অনুমতি দেয় না। |
+| `cv.chord.block.both` | Chord off: Both already plays two data voices. | কর্ড বন্ধ: দুটোই মোডে আগে থেকেই দুটি তথ্যের স্বর বাজছে। |
+| `cv.chord.block.duet` | Chord off: the proof-in-unison duet already plays two data voices. | কর্ড বন্ধ: একসুরে প্রমাণের দ্বৈত স্বরে আগে থেকেই দুটি তথ্যের স্বর বাজছে। |
+| `cv.chord.block.no-data` | Chord off: no values in this box. | কর্ড বন্ধ: এই এলাকায় কোনো মান নেই। |
+| `cv.chord.block.off` | Chord is off. | কর্ড বন্ধ। |
+| `cv.hwgt.chord.subject` | The chord | কর্ড |
+| `cv.hwgt.chord.method` | The values come from inverting NASA's colour bar (the same values the panel reads). Their histogram is smoothed with a Gaussian as wide as the record's measured error, and at most 2 groups are kept (each at least 5 % of the box). Each group plays at its value through the same value-to-pitch rule as the melody, louder for a bigger share, under the melody. | মানগুলো আসে নাসার রঙের পট্টি উল্টে পড়া থেকে (প্যানেল যে মান পড়ে, সেগুলোই)। এদের হিস্টোগ্রাম রেকর্ডের মাপা ত্রুটির সমান চওড়া গাউসিয়ান দিয়ে মসৃণ করা হয়, আর সর্বোচ্চ ২টি দল রাখা হয় (প্রতিটি এলাকার অন্তত ৫ %)। প্রতিটি দল সুরের মতোই একই মান-থেকে-সুর নিয়মে নিজের মানে বাজে, বড় অংশ হলে জোরে, সুরের চেয়ে নিচু স্বরে। |
+| `cv.hwgt.chord.unc` | ``Smoothing width: the measured error, ${p.sigma}. Groups closer than that merge.`` | ``\u09AE\u09B8\u09C3\u09A3 \u0995\u09B0\u09BE\u09B0 \u09AA\u09CD\u09B0\u09B8\u09CD\u09A5: \u09AE\u09BE\u09AA\u09BE \u09A4\u09CD\u09B0\u09C1\u099F\u09BF, ${p.sigma}\u0964 \u098F\u09B0 \u099A\u09C7\u09AF\u09BC\u09C7 \u0995\u09BE\u099B\u09C7\u09B0 \u09A6\u09B2\u0997\u09C1\u09B2\u09CB \u09AE\u09BF\u09B6\u09C7 \u09AF\u09BE\u09AF\u09BC\u0964`` |
 | data template | GPCC stops at # because the gauge version we use (GPCC Full Data Monthly V#) ends in December #, so both rain records compare #–# with #–#. | GPCC {0} সালে থামে, কারণ আমাদের ব্যবহৃত বৃষ্টিমাপক সংস্করণ (GPCC Full Data Monthly V{1}) ডিসেম্বর {2}-এ শেষ; তাই দুটি বৃষ্টির রেকর্ডই {3}–{4}-কে {5}–{6}-এর সাথে তুলনা করে। |
 | data template | GPCP only, newer decade; GPCC data ends in # | শুধু GPCP, নতুন দশক; GPCC ডেটা {0} সালে শেষ |
 

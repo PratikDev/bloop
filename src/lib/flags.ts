@@ -58,5 +58,9 @@ export const FLAGS = {
   /** A: "What the jukebox read from this frame" panel + cents error budget (Listen, Official records). */
   // Passing: src/lib/cv/*.test.ts, pipeline/tests/test_box_stats.py + test_error_budget.py, e2e/cv/read-panel.e2e.ts.
   cvRead: flag(process.env.NEXT_PUBLIC_CV_READ, false),
+  /** B: the value chord (its toggle in the panel and Settings; the layer is src/lib/audio/layers/chord). Needs cvRead. */
+  // Passing: src/lib/audio/layers/chord/*.test.ts (T1), pipeline/tests/test_colormap_invariance.py (T2),
+  // e2e/cv/chord.e2e.ts.
+  cvChord: flag(process.env.NEXT_PUBLIC_CV_CHORD, false),
   // <<< CV
 } as const;

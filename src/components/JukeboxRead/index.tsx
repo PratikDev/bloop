@@ -19,6 +19,10 @@ import { ChoiceGroup } from "../ChoiceGroup";
 import { HowWeGotThis, ProvenanceGroup } from "../HowWeGotThis";
 import { STATUS_KEYS } from "../HowWeGotThis/Facts";
 import { BudgetTable } from "./BudgetTable";
+import { ChordControls } from "./ChordControls";
+import { useValueChord } from "@/hooks/use-value-chord";
+import type { PlayMode } from "@/lib/audio/layers/types";
+import { FLAGS } from "@/lib/flags";
 import { useBoxRead, type BoxRead } from "./use-box-read";
 
 const num = (lang: Lang, v: number) => formatFixed(v, lang, sigDecimals(v));
@@ -65,8 +69,10 @@ function Rows({ t, lang, source, read }: { t: BoundT; lang: Lang; source: ReadSo
  * validation status and its cents error budget. Pattern-only records show no numbers; relative ones no units. Plain
  * HTML: a heading with its toggle, keyboard reachable, its own "How we got this", and a braille-safe short line.
  */
-export function JukeboxRead({ source, base, needle, loading, className, children }: {
+export function JukeboxRead({ source, base, needle, playMode, loading, className, children }: {
   source: ReadSource | null;
+  /** What the foreground plays (the chord is off in Both and the duet). */
+  playMode: PlayMode;
   base: Provenance | null;
   needle: LatLon;
   loading?: boolean;
@@ -82,11 +88,12 @@ export function JukeboxRead({ source, base, needle, loading, className, children
   const panelId = useId();
   const headingId = useId();
   const read = useBoxRead(source, needle);
+  const chord = useValueChord(source, read.stats, read.budget, playMode);
   const budget = source && source.trust !== "pattern" ? budgetLines(t, lang, read.budget, source.unit, read.pitch) : [];
   const short = source ? readShort(source, read.stats, read.budget) : "";
   const facts = source ? [readProvenance(t, lang, base, { name: read.boxName, bounds: read.bounds }, read.stats, budget.join(" "))] : [];
   return (
-    <section aria-labelledby={headingId} data-testid="jukebox-read" className={cn("space-y-2", className)}>
+    <section aria-labelledby={headingId} data-testid="jukebox-read" data-chord-voices={chord.tones.length} className={cn("space-y-2", className)}>
       <h2 id={headingId} className="text-lead">
         <Button variant="outline" className="h-11 gap-2 rounded-full" aria-expanded={open} aria-controls={panelId} onClick={() => setOpen((o) => !o)}>
           <CaretDown aria-hidden="true" className={cn("size-4 transition-transform", open && "rotate-180")} />
@@ -125,6 +132,7 @@ export function JukeboxRead({ source, base, needle, loading, className, children
               <HowWeGotThis facts={facts} />
             </ProvenanceGroup>
           )}
+          {FLAGS.cvChord && source && <ChordControls chord={chord} unit={source.unit} base={base} />}
           {children}
           <details className="space-y-2">
             <summary className="min-h-11 cursor-pointer py-2">{t("cv.budget.all")}</summary>

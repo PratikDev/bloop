@@ -12,7 +12,7 @@ export function ListenRead({ className, children }: { className?: string; childr
   const { source, loading, record } = useListenSource();
   const [base] = useLiveProvenance(record, null, { gap: false });
   return (
-    <JukeboxRead source={source} base={base ?? null} needle={state.cursor} loading={loading} className={className}>
+    <JukeboxRead source={source} base={base ?? null} needle={state.cursor} playMode={state.track === "both" ? "both" : "single"} loading={loading} className={className}>
       {children}
     </JukeboxRead>
   );
