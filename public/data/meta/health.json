@@ -1,6 +1,6 @@
 {
- "generated_utc": "2026-11-08T05:44Z",
- "seconds": 354,
+ "generated_utc": "2026-11-10T23:23Z",
+ "seconds": 577,
  "completeness": [],
  "records": [
   {
@@ -49,19 +49,24 @@
      "note": "no links"
     },
     {
+     "check": "fresh within its limit",
+     "ok": false,
+     "note": "lag 5.0 d > limit 2 d"
+    },
+    {
      "check": "app (chromium): plays, labels, no console errors",
      "ok": true,
-     "note": "levels 1.3e-1, 1.2e-1, 1.1e-1"
+     "note": "levels 8.6e-2, 8.1e-2, 7.4e-2"
     },
     {
      "check": "app (firefox): plays, labels, no console errors",
      "ok": true,
-     "note": "levels 1.3e-1, 1.2e-1, 1.1e-1"
+     "note": "levels 8.6e-2, 8.1e-2, 7.4e-2"
     }
    ],
    "last_data_utc": "2026-11-04T00:00Z",
-   "source_latest_utc": "2026-11-06T00:00Z",
-   "lag_days": 2.0,
+   "source_latest_utc": "2026-11-09T00:00Z",
+   "lag_days": 5.0,
    "app_plays": "yes"
   },
   {
@@ -110,19 +115,24 @@
      "note": "no links"
     },
     {
+     "check": "fresh within its limit",
+     "ok": false,
+     "note": "lag 4.67 d > limit 2 d"
+    },
+    {
      "check": "app (chromium): plays, labels, no console errors",
      "ok": true,
-     "note": "levels 1.1e-1, 1.1e-1, 1.1e-1"
+     "note": "levels 7.0e-2, 7.0e-2, 7.0e-2"
     },
     {
      "check": "app (firefox): plays, labels, no console errors",
-     "ok": true,
-     "note": "levels 1.1e-1, 1.1e-1, 1.1e-1"
+     "ok": false,
+     "note": "the needle did not move with the arrows (same place on the value line)"
     }
    ],
    "last_data_utc": "2026-11-06T01:30Z",
-   "source_latest_utc": "2026-11-07T08:30Z",
-   "lag_days": 1.29,
+   "source_latest_utc": "2026-11-10T17:30Z",
+   "lag_days": 4.67,
    "app_plays": "yes"
   },
   {
@@ -166,19 +176,24 @@
      "note": "no links"
     },
     {
+     "check": "fresh within its limit",
+     "ok": false,
+     "note": "lag 4.62 d > limit 2 d"
+    },
+    {
      "check": "app (chromium): plays, labels, no console errors",
      "ok": true,
-     "note": "levels 1.1e-1, 1.1e-1, 1.1e-1"
+     "note": "levels 7.0e-2, 7.0e-2, 7.0e-2"
     },
     {
      "check": "app (firefox): plays, labels, no console errors",
-     "ok": true,
-     "note": "levels 1.1e-1, 1.1e-1, 1.1e-1"
+     "ok": false,
+     "note": "the needle did not move with the arrows (same place on the value line)"
     }
    ],
    "last_data_utc": "2026-11-06T02:30Z",
-   "source_latest_utc": "2026-11-07T08:30Z",
-   "lag_days": 1.25,
+   "source_latest_utc": "2026-11-10T17:30Z",
+   "lag_days": 4.62,
    "app_plays": "yes"
   },
   {
@@ -500,11 +515,16 @@
      "check": "links resolve",
      "ok": null,
      "note": "no links"
+    },
+    {
+     "check": "fresh within its limit",
+     "ok": false,
+     "note": "lag 5.88 d > limit 4 d"
     }
    ],
    "last_data_utc": "2026-11-04T00:00Z",
-   "source_latest_utc": "2026-11-06T21:00Z",
-   "lag_days": 2.88
+   "source_latest_utc": "2026-11-09T21:00Z",
+   "lag_days": 5.88
   },
   {
    "id": "rain_pairs",
@@ -545,11 +565,16 @@
      "check": "links resolve",
      "ok": null,
      "note": "no links"
+    },
+    {
+     "check": "fresh within its limit",
+     "ok": false,
+     "note": "lag 4.69 d > limit 3 d"
     }
    ],
    "last_data_utc": "2026-11-06T01:30Z",
-   "source_latest_utc": "2026-11-08T00:59Z",
-   "lag_days": 1.98
+   "source_latest_utc": "2026-11-10T17:59Z",
+   "lag_days": 4.69
   },
   {
    "id": "threeway",
@@ -590,11 +615,16 @@
      "check": "links resolve",
      "ok": null,
      "note": "no links"
+    },
+    {
+     "check": "fresh within its limit",
+     "ok": false,
+     "note": "lag 5.88 d > limit 4 d"
     }
    ],
    "last_data_utc": "2026-11-04T00:00Z",
-   "source_latest_utc": "2026-11-06T21:00Z",
-   "lag_days": 2.88
+   "source_latest_utc": "2026-11-09T21:00Z",
+   "lag_days": 5.88
   },
   {
    "id": "sst_anom",
@@ -643,8 +673,8 @@
     }
    ],
    "last_data_utc": "2026-11-03T00:00Z",
-   "source_latest_utc": "2026-11-04T00:00Z",
-   "lag_days": 1.0
+   "source_latest_utc": "2026-11-08T00:00Z",
+   "lag_days": 5.0
   },
   {
    "id": "sst_dt",
@@ -683,11 +713,16 @@
      "check": "links resolve",
      "ok": null,
      "note": "no links"
+    },
+    {
+     "check": "fresh within its limit",
+     "ok": false,
+     "note": "lag 5.5 d > limit 3 d"
     }
    ],
    "last_data_utc": "2026-11-04T09:00Z",
-   "source_latest_utc": "2026-11-06T21:00Z",
-   "lag_days": 2.5
+   "source_latest_utc": "2026-11-09T21:00Z",
+   "lag_days": 5.5
   },
   {
    "id": "fwi_class",
@@ -733,11 +768,16 @@
      "check": "links resolve",
      "ok": null,
      "note": "no links"
+    },
+    {
+     "check": "fresh within its limit",
+     "ok": false,
+     "note": "lag 4.0 d > limit 2 d"
     }
    ],
    "last_data_utc": "2026-11-06T07:10Z",
-   "source_latest_utc": "2026-11-07T07:11Z",
-   "lag_days": 1.0
+   "source_latest_utc": "2026-11-10T07:12Z",
+   "lag_days": 4.0
   },
   {
    "id": "fwi_archive",
@@ -778,11 +818,16 @@
      "check": "links resolve",
      "ok": null,
      "note": "no links"
+    },
+    {
+     "check": "fresh within its limit",
+     "ok": false,
+     "note": "lag 4.0 d > limit 2 d"
     }
    ],
    "last_data_utc": "2026-11-06T07:10Z",
-   "source_latest_utc": "2026-11-07T07:11Z",
-   "lag_days": 1.0
+   "source_latest_utc": "2026-11-10T07:12Z",
+   "lag_days": 4.0
   },
   {
    "id": "fires_frame",
@@ -828,11 +873,16 @@
      "check": "links resolve",
      "ok": null,
      "note": "no links"
+    },
+    {
+     "check": "fresh within its limit",
+     "ok": false,
+     "note": "lag 5.0 d > limit 3 d"
     }
    ],
    "last_data_utc": "2026-11-05T11:27Z",
-   "source_latest_utc": "2026-11-07T11:25Z",
-   "lag_days": 2.0
+   "source_latest_utc": "2026-11-10T11:26Z",
+   "lag_days": 5.0
   },
   {
    "id": "firms_daily",
@@ -871,11 +921,16 @@
      "check": "links resolve",
      "ok": null,
      "note": "no links"
+    },
+    {
+     "check": "fresh within its limit",
+     "ok": false,
+     "note": "lag 3.67 d > limit 2 d"
     }
    ],
    "last_data_utc": "2026-11-06T08:00Z",
-   "source_latest_utc": "2026-11-08T00:00Z",
-   "lag_days": 1.67
+   "source_latest_utc": "2026-11-10T00:00Z",
+   "lag_days": 3.67
   },
   {
    "id": "landslide_class",
@@ -921,11 +976,16 @@
      "check": "links resolve",
      "ok": null,
      "note": "no links"
+    },
+    {
+     "check": "fresh within its limit",
+     "ok": false,
+     "note": "lag 4.0 d > limit 2 d"
     }
    ],
    "last_data_utc": "2026-11-06T05:00Z",
-   "source_latest_utc": "2026-11-07T05:00Z",
-   "lag_days": 1.0
+   "source_latest_utc": "2026-11-10T05:00Z",
+   "lag_days": 4.0
   },
   {
    "id": "nightlights",
@@ -1149,12 +1209,12 @@
     {
      "check": "app (chromium): plays, labels, no console errors",
      "ok": true,
-     "note": "levels 9.0e-2, 9.1e-2, 8.9e-2"
+     "note": "levels 9.7e-2, 9.6e-2, 9.7e-2"
     },
     {
      "check": "app (firefox): plays, labels, no console errors",
      "ok": true,
-     "note": "levels 8.7e-2, 9.0e-2, 8.9e-2"
+     "note": "levels 1.1e-1, 9.6e-2, 9.5e-2"
     }
    ],
    "app_plays": "yes"
@@ -1383,12 +1443,12 @@
     {
      "check": "app (chromium): plays, labels, no console errors",
      "ok": true,
-     "note": "levels 3.2e-2, 3.3e-2, 3.9e-2"
+     "note": "levels 3.4e-2, 3.4e-2, 3.8e-2"
     },
     {
      "check": "app (firefox): plays, labels, no console errors",
      "ok": true,
-     "note": "levels 3.3e-2, 3.3e-2, 3.8e-2"
+     "note": "levels 3.3e-2, 3.4e-2, 3.9e-2"
     }
    ],
    "app_plays": "yes"
@@ -1477,12 +1537,12 @@
     {
      "check": "app (chromium): plays, labels, no console errors",
      "ok": true,
-     "note": "levels 7.6e-2, 7.2e-2, 7.2e-2"
+     "note": "levels 6.7e-2, 6.4e-2, 6.3e-2"
     },
     {
      "check": "app (firefox): plays, labels, no console errors",
      "ok": true,
-     "note": "levels 7.6e-2, 7.2e-2, 7.2e-2"
+     "note": "levels 7.5e-2, 6.4e-2, 6.3e-2"
     }
    ],
    "app_plays": "yes"
@@ -1650,12 +1710,12 @@
     {
      "check": "app (chromium): plays, labels, no console errors",
      "ok": true,
-     "note": "levels 8.7e-2, 1.0e-1, 1.0e-1"
+     "note": "levels 8.9e-2, 1.0e-1, 1.0e-1"
     },
     {
      "check": "app (firefox): plays, labels, no console errors",
      "ok": true,
-     "note": "levels 8.7e-2, 1.0e-1, 1.0e-1"
+     "note": "levels 8.9e-2, 1.0e-1, 1.0e-1"
     }
    ],
    "app_plays": "yes"
@@ -1743,17 +1803,17 @@
     {
      "check": "app (chromium): plays, labels, no console errors",
      "ok": true,
-     "note": "levels 8.2e-2, 7.8e-2, 7.8e-2"
+     "note": "levels 8.0e-2, 7.7e-2, 7.7e-2"
     },
     {
      "check": "app (firefox): plays, labels, no console errors",
      "ok": true,
-     "note": "levels 8.2e-2, 7.8e-2, 7.8e-2"
+     "note": "levels 8.0e-2, 7.7e-2, 7.6e-2"
     }
    ],
    "last_data_utc": "2026-10-28T22:00Z",
-   "source_latest_utc": "2026-11-07T07:30Z",
-   "lag_days": 9.4,
+   "source_latest_utc": "2026-11-09T11:53Z",
+   "lag_days": 11.58,
    "app_plays": "yes"
   },
   {
@@ -1833,23 +1893,23 @@
     },
     {
      "check": "links resolve",
-     "ok": true,
-     "note": "5 of 5 links resolve"
+     "ok": false,
+     "note": "https://svs.gsfc.nasa.gov/5148/ (ReadTimeout)"
     },
     {
      "check": "app (chromium): plays, labels, no console errors",
      "ok": true,
-     "note": "levels 6.1e-2, 8.2e-2, 7.7e-2"
+     "note": "levels 6.0e-2, 8.0e-2, 7.6e-2"
     },
     {
      "check": "app (firefox): plays, labels, no console errors",
      "ok": true,
-     "note": "levels 6.1e-2, 8.2e-2, 7.7e-2"
+     "note": "levels 6.1e-2, 8.1e-2, 7.6e-2"
     }
    ],
    "last_data_utc": "2026-10-28T22:00Z",
-   "source_latest_utc": "2026-11-07T07:31Z",
-   "lag_days": 9.4,
+   "source_latest_utc": "2026-11-09T11:54Z",
+   "lag_days": 11.58,
    "app_plays": "yes"
   },
   {
@@ -1935,17 +1995,17 @@
     {
      "check": "app (chromium): plays, labels, no console errors",
      "ok": true,
-     "note": "levels 8.1e-2, 8.1e-2, 7.9e-2"
+     "note": "levels 8.0e-2, 8.0e-2, 7.8e-2"
     },
     {
      "check": "app (firefox): plays, labels, no console errors",
      "ok": true,
-     "note": "levels 8.1e-2, 8.1e-2, 7.9e-2"
+     "note": "levels 8.1e-2, 8.0e-2, 7.9e-2"
     }
    ],
    "last_data_utc": "2026-10-28T22:00Z",
-   "source_latest_utc": "2026-11-07T07:32Z",
-   "lag_days": 9.4,
+   "source_latest_utc": "2026-11-09T11:55Z",
+   "lag_days": 11.58,
    "app_plays": "yes"
   },
   {
@@ -2031,17 +2091,17 @@
     {
      "check": "app (chromium): plays, labels, no console errors",
      "ok": true,
-     "note": "levels 6.2e-2, 7.5e-2, 7.7e-2"
+     "note": "levels 6.1e-2, 7.4e-2, 7.5e-2"
     },
     {
      "check": "app (firefox): plays, labels, no console errors",
      "ok": true,
-     "note": "levels 6.2e-2, 7.5e-2, 7.7e-2"
+     "note": "levels 6.2e-2, 7.3e-2, 7.6e-2"
     }
    ],
    "last_data_utc": "2026-10-29T22:00Z",
-   "source_latest_utc": "2026-11-07T07:17Z",
-   "lag_days": 8.39,
+   "source_latest_utc": "2026-11-10T07:16Z",
+   "lag_days": 11.39,
    "app_plays": "yes"
   },
   {
@@ -2127,17 +2187,17 @@
     {
      "check": "app (chromium): plays, labels, no console errors",
      "ok": true,
-     "note": "levels 7.4e-2, 6.0e-2, 7.4e-2"
+     "note": "levels 8.1e-2, 6.6e-2, 8.1e-2"
     },
     {
      "check": "app (firefox): plays, labels, no console errors",
      "ok": true,
-     "note": "levels 7.4e-2, 6.0e-2, 7.4e-2"
+     "note": "levels 8.1e-2, 6.6e-2, 8.2e-2"
     }
    ],
    "last_data_utc": "2026-10-28T22:00Z",
-   "source_latest_utc": "2026-11-07T07:33Z",
-   "lag_days": 9.4,
+   "source_latest_utc": "2026-11-09T11:58Z",
+   "lag_days": 11.58,
    "app_plays": "yes"
   },
   {
@@ -2223,17 +2283,17 @@
     {
      "check": "app (chromium): plays, labels, no console errors",
      "ok": true,
-     "note": "levels 7.1e-2, 6.3e-2, 6.6e-2"
+     "note": "levels 7.8e-2, 6.9e-2, 7.3e-2"
     },
     {
      "check": "app (firefox): plays, labels, no console errors",
      "ok": true,
-     "note": "levels 7.1e-2, 6.3e-2, 6.7e-2"
+     "note": "levels 7.8e-2, 7.0e-2, 7.3e-2"
     }
    ],
    "last_data_utc": "2026-10-28T22:00Z",
-   "source_latest_utc": "2026-11-07T07:34Z",
-   "lag_days": 9.4,
+   "source_latest_utc": "2026-11-09T11:59Z",
+   "lag_days": 11.58,
    "app_plays": "yes"
   },
   {
@@ -2319,17 +2379,17 @@
     {
      "check": "app (chromium): plays, labels, no console errors",
      "ok": true,
-     "note": "levels 6.4e-2, 6.3e-2, 8.1e-2"
+     "note": "levels 7.1e-2, 6.9e-2, 8.8e-2"
     },
     {
      "check": "app (firefox): plays, labels, no console errors",
      "ok": true,
-     "note": "levels 6.4e-2, 6.2e-2, 8.1e-2"
+     "note": "levels 7.0e-2, 6.9e-2, 8.9e-2"
     }
    ],
    "last_data_utc": "2026-10-28T22:00Z",
-   "source_latest_utc": "2026-11-07T07:35Z",
-   "lag_days": 9.4,
+   "source_latest_utc": "2026-11-09T12:00Z",
+   "lag_days": 11.58,
    "app_plays": "yes"
   },
   {
@@ -2415,17 +2475,17 @@
     {
      "check": "app (chromium): plays, labels, no console errors",
      "ok": true,
-     "note": "levels 8.2e-2, 6.3e-2, 6.2e-2"
+     "note": "levels 8.9e-2, 6.9e-2, 6.8e-2"
     },
     {
      "check": "app (firefox): plays, labels, no console errors",
      "ok": true,
-     "note": "levels 8.2e-2, 6.3e-2, 6.2e-2"
+     "note": "levels 8.9e-2, 6.9e-2, 6.9e-2"
     }
    ],
    "last_data_utc": "2026-10-28T22:00Z",
-   "source_latest_utc": "2026-11-07T07:36Z",
-   "lag_days": 9.4,
+   "source_latest_utc": "2026-11-09T12:01Z",
+   "lag_days": 11.58,
    "app_plays": "yes"
   },
   {
@@ -2511,12 +2571,12 @@
     {
      "check": "app (chromium): plays, labels, no console errors",
      "ok": true,
-     "note": "levels 7.2e-2, 8.0e-2, 7.7e-2"
+     "note": "levels 5.6e-2, 6.2e-2, 6.1e-2"
     },
     {
      "check": "app (firefox): plays, labels, no console errors",
      "ok": true,
-     "note": "levels 7.1e-2, 7.9e-2, 7.7e-2"
+     "note": "levels 5.6e-2, 6.1e-2, 6.1e-2"
     }
    ],
    "last_data_utc": "2026-06-13T00:00Z",
@@ -2607,12 +2667,12 @@
     {
      "check": "app (chromium): plays, labels, no console errors",
      "ok": true,
-     "note": "levels 8.1e-2, 8.2e-2, 8.1e-2"
+     "note": "levels 6.3e-2, 6.3e-2, 6.2e-2"
     },
     {
      "check": "app (firefox): plays, labels, no console errors",
      "ok": true,
-     "note": "levels 8.1e-2, 8.2e-2, 8.1e-2"
+     "note": "levels 6.3e-2, 6.3e-2, 6.3e-2"
     }
    ],
    "app_plays": "yes"
@@ -2700,12 +2760,12 @@
     {
      "check": "app (chromium): plays, labels, no console errors",
      "ok": true,
-     "note": "levels 3.9e-3, 2.6e-3, 2.5e-3"
+     "note": "levels 2.5e-3, 2.1e-3, 1.6e-4"
     },
     {
      "check": "app (firefox): plays, labels, no console errors",
      "ok": true,
-     "note": "levels 3.1e-3, 3.0e-3, 3.1e-3"
+     "note": "levels 1.6e-3, 1.9e-1, 1.1e-4"
     }
    ],
    "app_plays": "yes"
@@ -2815,12 +2875,12 @@
     {
      "check": "app (chromium): plays, labels, no console errors",
      "ok": true,
-     "note": "levels 7.1e-2, 8.1e-2, 8.1e-2"
+     "note": "levels 6.2e-2, 7.2e-2, 7.1e-2"
     },
     {
      "check": "app (firefox): plays, labels, no console errors",
      "ok": true,
-     "note": "levels 7.1e-2, 8.1e-2, 8.1e-2"
+     "note": "levels 6.2e-2, 7.1e-2, 7.0e-2"
     }
    ],
    "app_plays": "yes"
@@ -3048,12 +3108,12 @@
     {
      "check": "app (chromium): plays, labels, no console errors",
      "ok": true,
-     "note": "levels 6.7e-2, 6.8e-2, 6.5e-2"
+     "note": "levels 6.7e-2, 6.8e-2, 6.7e-2"
     },
     {
      "check": "app (firefox): plays, labels, no console errors",
      "ok": true,
-     "note": "levels 6.5e-2, 6.5e-2, 6.6e-2"
+     "note": "levels 6.9e-2, 6.8e-2, 6.8e-2"
     }
    ],
    "app_plays": "yes"
@@ -3141,15 +3201,72 @@
     {
      "check": "app (chromium): plays, labels, no console errors",
      "ok": true,
-     "note": "levels 7.3e-2, 5.8e-2, 7.3e-2"
+     "note": "levels 7.2e-2, 5.9e-2, 7.2e-2"
     },
     {
      "check": "app (firefox): plays, labels, no console errors",
      "ok": true,
-     "note": "levels 7.3e-2, 5.9e-2, 7.3e-2"
+     "note": "levels 7.2e-2, 5.9e-2, 7.2e-2"
     }
    ],
    "app_plays": "yes"
+  },
+  {
+   "id": "sonification_13786",
+   "category": "method",
+   "title": "Caldwell 73 sonification (method evidence)",
+   "manifest": "official/sonification_13786/manifest.json",
+   "kind": "official",
+   "svs_ids": [
+    13786
+   ],
+   "source": "SVS 13786",
+   "status": "",
+   "product": "sonification_13786",
+   "layer": null,
+   "notes": [],
+   "checks": [
+    {
+     "check": "contract-15 schema",
+     "ok": true,
+     "note": ""
+    },
+    {
+     "check": "files exist and load",
+     "ok": true,
+     "note": "0 chunks"
+    },
+    {
+     "check": "checksums match",
+     "ok": true,
+     "note": "1 asset rows"
+    },
+    {
+     "check": "index = manifest (period, badge, title)",
+     "ok": true,
+     "note": "23 Dec 2020 – 23 Dec 2020"
+    },
+    {
+     "check": "freshness.json period = manifest",
+     "ok": true,
+     "note": "['2020-12-23T09:00:00Z', '2020-12-23T09:00:00Z'] vs 2020-12-23T09:00:00Z…2020-12-23T09:00:00Z"
+    },
+    {
+     "check": "validation table = validation.json",
+     "ok": true,
+     "note": "4 checks"
+    },
+    {
+     "check": "credits and licence present",
+     "ok": true,
+     "note": "Credit: SYSTEM Sounds (M. Russo, A. Santaguida) and NASA (SVS 13786)."
+    },
+    {
+     "check": "links resolve",
+     "ok": true,
+     "note": "3 of 3 links resolve"
+    }
+   ]
   },
   {
    "id": "rel_30919",
@@ -3234,12 +3351,12 @@
     {
      "check": "app (chromium): plays, labels, no console errors",
      "ok": true,
-     "note": "levels 7.3e-2, 5.9e-2, 7.3e-2"
+     "note": "levels 6.4e-2, 5.3e-2, 6.5e-2"
     },
     {
      "check": "app (firefox): plays, labels, no console errors",
      "ok": true,
-     "note": "levels 7.3e-2, 5.8e-2, 7.3e-2"
+     "note": "levels 6.4e-2, 5.3e-2, 6.4e-2"
     }
    ],
    "app_plays": "yes"
@@ -3327,12 +3444,12 @@
     {
      "check": "app (chromium): plays, labels, no console errors",
      "ok": true,
-     "note": "levels 8.2e-2, 8.1e-2, 6.7e-2"
+     "note": "levels 8.0e-2, 8.0e-2, 6.6e-2"
     },
     {
      "check": "app (firefox): plays, labels, no console errors",
      "ok": true,
-     "note": "levels 8.2e-2, 8.1e-2, 6.7e-2"
+     "note": "levels 8.0e-2, 8.0e-2, 6.6e-2"
     }
    ],
    "app_plays": "yes"
@@ -3420,12 +3537,12 @@
     {
      "check": "app (chromium): plays, labels, no console errors",
      "ok": true,
-     "note": "levels 8.2e-2, 8.2e-2, 8.0e-2"
+     "note": "levels 8.1e-2, 8.1e-2, 7.9e-2"
     },
     {
      "check": "app (firefox): plays, labels, no console errors",
      "ok": true,
-     "note": "levels 8.2e-2, 8.2e-2, 8.0e-2"
+     "note": "levels 8.1e-2, 8.0e-2, 7.9e-2"
     }
    ],
    "app_plays": "yes"
@@ -3513,12 +3630,12 @@
     {
      "check": "app (chromium): plays, labels, no console errors",
      "ok": true,
-     "note": "levels 8.0e-2, 7.9e-2, 7.8e-2"
+     "note": "levels 8.2e-2, 8.1e-2, 8.0e-2"
     },
     {
      "check": "app (firefox): plays, labels, no console errors",
      "ok": true,
-     "note": "levels 8.0e-2, 7.9e-2, 7.8e-2"
+     "note": "levels 8.2e-2, 1.4e-1, 2.8e-1"
     }
    ],
    "app_plays": "yes"
@@ -3606,12 +3723,12 @@
     {
      "check": "app (chromium): plays, labels, no console errors",
      "ok": true,
-     "note": "levels 5.9e-2, 5.9e-2, 6.5e-2"
+     "note": "levels 6.1e-2, 6.1e-2, 6.7e-2"
     },
     {
      "check": "app (firefox): plays, labels, no console errors",
      "ok": true,
-     "note": "levels 5.9e-2, 5.9e-2, 6.5e-2"
+     "note": "levels 6.2e-2, 6.1e-2, 6.7e-2"
     }
    ],
    "app_plays": "yes"
@@ -3699,12 +3816,12 @@
     {
      "check": "app (chromium): plays, labels, no console errors",
      "ok": true,
-     "note": "levels 5.9e-2, 5.9e-2, 6.9e-2"
+     "note": "levels 5.9e-2, 5.9e-2, 6.8e-2"
     },
     {
      "check": "app (firefox): plays, labels, no console errors",
      "ok": true,
-     "note": "levels 5.9e-2, 5.9e-2, 6.9e-2"
+     "note": "levels 5.8e-2, 5.9e-2, 6.8e-2"
     }
    ],
    "app_plays": "yes"
@@ -3786,18 +3903,18 @@
     },
     {
      "check": "links resolve",
-     "ok": true,
-     "note": "3 of 3 links resolve"
+     "ok": false,
+     "note": "https://svs.gsfc.nasa.gov/4284/ (ReadTimeout)"
     },
     {
      "check": "app (chromium): plays, labels, no console errors",
      "ok": true,
-     "note": "levels 7.7e-2, 6.9e-2, 7.7e-2"
+     "note": "levels 7.6e-2, 6.9e-2, 7.6e-2"
     },
     {
      "check": "app (firefox): plays, labels, no console errors",
      "ok": true,
-     "note": "levels 7.7e-2, 6.9e-2, 7.8e-2"
+     "note": "levels 7.6e-2, 6.8e-2, 7.7e-2"
     }
    ],
    "app_plays": "yes"
@@ -3885,12 +4002,12 @@
     {
      "check": "app (chromium): plays, labels, no console errors",
      "ok": true,
-     "note": "levels 7.6e-2, 8.2e-2, 8.1e-2"
+     "note": "levels 7.8e-2, 8.4e-2, 8.3e-2"
     },
     {
      "check": "app (firefox): plays, labels, no console errors",
      "ok": true,
-     "note": "levels 7.6e-2, 8.2e-2, 8.1e-2"
+     "note": "levels 7.8e-2, 8.4e-2, 8.3e-2"
     }
    ],
    "app_plays": "yes"
@@ -3978,12 +4095,12 @@
     {
      "check": "app (chromium): plays, labels, no console errors",
      "ok": true,
-     "note": "levels 8.1e-2, 8.2e-2, 8.1e-2"
+     "note": "levels 8.3e-2, 8.4e-2, 8.5e-2"
     },
     {
      "check": "app (firefox): plays, labels, no console errors",
      "ok": true,
-     "note": "levels 8.1e-2, 8.2e-2, 8.2e-2"
+     "note": "levels 8.3e-2, 8.4e-2, 8.4e-2"
     }
    ],
    "app_plays": "yes"
@@ -4071,12 +4188,12 @@
     {
      "check": "app (chromium): plays, labels, no console errors",
      "ok": true,
-     "note": "levels 6.7e-2, 6.2e-2, 6.3e-2"
+     "note": "levels 6.9e-2, 6.5e-2, 6.5e-2"
     },
     {
      "check": "app (firefox): plays, labels, no console errors",
      "ok": true,
-     "note": "levels 6.7e-2, 6.2e-2, 6.3e-2"
+     "note": "levels 7.0e-2, 6.5e-2, 6.5e-2"
     }
    ],
    "app_plays": "yes"
@@ -4164,12 +4281,12 @@
     {
      "check": "app (chromium): plays, labels, no console errors",
      "ok": true,
-     "note": "levels 7.3e-2, 7.2e-2, 7.5e-2"
+     "note": "levels 7.2e-2, 7.1e-2, 7.4e-2"
     },
     {
      "check": "app (firefox): plays, labels, no console errors",
      "ok": true,
-     "note": "levels 7.3e-2, 7.2e-2, 7.5e-2"
+     "note": "levels 7.2e-2, 7.1e-2, 7.4e-2"
     }
    ],
    "app_plays": "yes"
@@ -4257,12 +4374,12 @@
     {
      "check": "app (chromium): plays, labels, no console errors",
      "ok": true,
-     "note": "levels 6.7e-2, 6.6e-2, 7.1e-2"
+     "note": "levels 6.6e-2, 6.5e-2, 7.1e-2"
     },
     {
      "check": "app (firefox): plays, labels, no console errors",
      "ok": true,
-     "note": "levels 6.7e-2, 6.6e-2, 7.1e-2"
+     "note": "levels 6.7e-2, 6.5e-2, 7.0e-2"
     }
    ],
    "app_plays": "yes"
@@ -4516,12 +4633,12 @@
     {
      "check": "app (chromium): plays, labels, no console errors",
      "ok": true,
-     "note": "levels 8.0e-2, 8.1e-2, 7.2e-2"
+     "note": "levels 8.7e-2, 8.8e-2, 7.9e-2"
     },
     {
      "check": "app (firefox): plays, labels, no console errors",
      "ok": true,
-     "note": "levels 8.0e-2, 8.1e-2, 7.2e-2"
+     "note": "levels 8.7e-2, 8.8e-2, 7.9e-2"
     }
    ],
    "app_plays": "yes"
@@ -4609,12 +4726,12 @@
     {
      "check": "app (chromium): plays, labels, no console errors",
      "ok": true,
-     "note": "levels 8.0e-2, 7.8e-2, 8.2e-2"
+     "note": "levels 8.6e-2, 8.5e-2, 8.9e-2"
     },
     {
      "check": "app (firefox): plays, labels, no console errors",
      "ok": true,
-     "note": "levels 8.0e-2, 7.8e-2, 8.2e-2"
+     "note": "levels 8.7e-2, 8.5e-2, 8.9e-2"
     }
    ],
    "app_plays": "yes"
@@ -4702,12 +4819,12 @@
     {
      "check": "app (chromium): plays, labels, no console errors",
      "ok": true,
-     "note": "levels 8.1e-2, 8.0e-2, 7.9e-2"
+     "note": "levels 7.3e-2, 7.2e-2, 7.1e-2"
     },
     {
      "check": "app (firefox): plays, labels, no console errors",
      "ok": true,
-     "note": "levels 8.1e-2, 8.0e-2, 7.9e-2"
+     "note": "levels 7.3e-2, 7.3e-2, 7.1e-2"
     }
    ],
    "app_plays": "yes"
@@ -4878,12 +4995,12 @@
     {
      "check": "app (chromium): plays, labels, no console errors",
      "ok": true,
-     "note": "levels 8.1e-2, 5.9e-2, 8.1e-2"
+     "note": "levels 8.8e-2, 6.5e-2, 8.8e-2"
     },
     {
      "check": "app (firefox): plays, labels, no console errors",
      "ok": true,
-     "note": "levels 8.1e-2, 5.9e-2, 8.1e-2"
+     "note": "levels 8.8e-2, 6.5e-2, 8.8e-2"
     }
    ],
    "app_plays": "yes"
@@ -4965,18 +5082,18 @@
     },
     {
      "check": "links resolve",
-     "ok": true,
-     "note": "9 of 9 links resolve"
+     "ok": false,
+     "note": "https://podaac.jpl.nasa.gov/dataset/OISSS_L4_multimission_7day_v1 (ReadTimeout)"
     },
     {
      "check": "app (chromium): plays, labels, no console errors",
      "ok": true,
-     "note": "levels 6.8e-2, 6.8e-2, 6.8e-2"
+     "note": "levels 7.0e-2, 7.0e-2, 7.0e-2"
     },
     {
      "check": "app (firefox): plays, labels, no console errors",
      "ok": true,
-     "note": "levels 6.8e-2, 6.8e-2, 6.8e-2"
+     "note": "levels 7.0e-2, 1.4e-1, 7.0e-2"
     }
    ],
    "app_plays": "yes"
@@ -5064,12 +5181,12 @@
     {
      "check": "app (chromium): plays, labels, no console errors",
      "ok": true,
-     "note": "levels 7.4e-2, 8.1e-2, 8.1e-2"
+     "note": "levels 8.1e-2, 8.8e-2, 8.8e-2"
     },
     {
      "check": "app (firefox): plays, labels, no console errors",
      "ok": true,
-     "note": "levels 7.4e-2, 8.1e-2, 8.1e-2"
+     "note": "levels 8.1e-2, 8.7e-2, 8.8e-2"
     }
    ],
    "app_plays": "yes"
@@ -5157,12 +5274,12 @@
     {
      "check": "app (chromium): plays, labels, no console errors",
      "ok": true,
-     "note": "levels 8.2e-2, 8.1e-2, 7.8e-2"
+     "note": "levels 7.3e-2, 7.3e-2, 7.0e-2"
     },
     {
      "check": "app (firefox): plays, labels, no console errors",
      "ok": true,
-     "note": "levels 8.2e-2, 8.1e-2, 7.8e-2"
+     "note": "levels 7.4e-2, 7.3e-2, 7.0e-2"
     }
    ],
    "app_plays": "yes"
@@ -5250,12 +5367,12 @@
     {
      "check": "app (chromium): plays, labels, no console errors",
      "ok": true,
-     "note": "levels 7.4e-2, 7.7e-2, 8.2e-2"
+     "note": "levels 8.0e-2, 8.4e-2, 8.9e-2"
     },
     {
      "check": "app (firefox): plays, labels, no console errors",
      "ok": true,
-     "note": "levels 7.4e-2, 7.7e-2, 8.2e-2"
+     "note": "levels 8.0e-2, 8.4e-2, 8.9e-2"
     }
    ],
    "app_plays": "yes"
@@ -5343,12 +5460,12 @@
     {
      "check": "app (chromium): plays, labels, no console errors",
      "ok": true,
-     "note": "levels 7.0e-2, 7.9e-2, 7.6e-2"
+     "note": "levels 6.2e-2, 6.9e-2, 6.7e-2"
     },
     {
      "check": "app (firefox): plays, labels, no console errors",
      "ok": true,
-     "note": "levels 7.0e-2, 7.9e-2, 7.6e-2"
+     "note": "levels 6.2e-2, 7.0e-2, 6.7e-2"
     }
    ],
    "app_plays": "yes"
@@ -5436,12 +5553,12 @@
     {
      "check": "app (chromium): plays, labels, no console errors",
      "ok": true,
-     "note": "levels 8.2e-2, 8.2e-2, 8.2e-2"
+     "note": "levels 8.5e-2, 8.5e-2, 8.4e-2"
     },
     {
      "check": "app (firefox): plays, labels, no console errors",
      "ok": true,
-     "note": "levels 8.2e-2, 8.2e-2, 8.2e-2"
+     "note": "levels 8.5e-2, 8.5e-2, 8.5e-2"
     }
    ],
    "app_plays": "yes"
@@ -5529,12 +5646,12 @@
     {
      "check": "app (chromium): plays, labels, no console errors",
      "ok": true,
-     "note": "levels 8.2e-2, 8.2e-2, 8.2e-2"
+     "note": "levels 7.2e-2, 7.2e-2, 7.2e-2"
     },
     {
      "check": "app (firefox): plays, labels, no console errors",
      "ok": true,
-     "note": "levels 8.2e-2, 8.2e-2, 8.2e-2"
+     "note": "levels 7.3e-2, 7.2e-2, 7.2e-2"
     }
    ],
    "app_plays": "yes"
@@ -5622,12 +5739,12 @@
     {
      "check": "app (chromium): plays, labels, no console errors",
      "ok": true,
-     "note": "levels 8.2e-2, 8.2e-2, 8.2e-2"
+     "note": "levels 7.2e-2, 7.2e-2, 7.2e-2"
     },
     {
      "check": "app (firefox): plays, labels, no console errors",
      "ok": true,
-     "note": "levels 8.2e-2, 8.2e-2, 8.2e-2"
+     "note": "levels 7.2e-2, 7.2e-2, 7.2e-2"
     }
    ],
    "app_plays": "yes"
@@ -5715,12 +5832,12 @@
     {
      "check": "app (chromium): plays, labels, no console errors",
      "ok": true,
-     "note": "levels 6.9e-2, 7.7e-2, 7.2e-2"
+     "note": "levels 7.6e-2, 8.4e-2, 7.8e-2"
     },
     {
      "check": "app (firefox): plays, labels, no console errors",
      "ok": true,
-     "note": "levels 6.9e-2, 7.7e-2, 7.1e-2"
+     "note": "levels 7.6e-2, 8.4e-2, 7.8e-2"
     }
    ],
    "app_plays": "yes"
@@ -5808,12 +5925,12 @@
     {
      "check": "app (chromium): plays, labels, no console errors",
      "ok": true,
-     "note": "levels 8.2e-2, 8.2e-2, 8.2e-2"
+     "note": "levels 8.0e-2, 8.0e-2, 8.0e-2"
     },
     {
      "check": "app (firefox): plays, labels, no console errors",
      "ok": true,
-     "note": "levels 8.2e-2, 8.2e-2, 8.2e-2"
+     "note": "levels 3.1e-1, 2.6e-1, 2.6e-1"
     }
    ],
    "app_plays": "yes"
@@ -5901,12 +6018,12 @@
     {
      "check": "app (chromium): plays, labels, no console errors",
      "ok": true,
-     "note": "levels 8.2e-2, 8.2e-2, 8.2e-2"
+     "note": "levels 8.0e-2, 8.1e-2, 8.0e-2"
     },
     {
      "check": "app (firefox): plays, labels, no console errors",
      "ok": true,
-     "note": "levels 8.2e-2, 8.2e-2, 8.2e-2"
+     "note": "levels 8.1e-2, 8.1e-2, 8.1e-2"
     }
    ],
    "app_plays": "yes"
@@ -5994,12 +6111,12 @@
     {
      "check": "app (chromium): plays, labels, no console errors",
      "ok": true,
-     "note": "levels 8.2e-2, 8.2e-2, 8.2e-2"
+     "note": "levels 8.1e-2, 8.0e-2, 8.1e-2"
     },
     {
      "check": "app (firefox): plays, labels, no console errors",
      "ok": true,
-     "note": "levels 8.2e-2, 8.2e-2, 8.2e-2"
+     "note": "levels 8.1e-2, 8.0e-2, 8.0e-2"
     }
    ],
    "app_plays": "yes"
@@ -6087,12 +6204,12 @@
     {
      "check": "app (chromium): plays, labels, no console errors",
      "ok": true,
-     "note": "levels 8.2e-2, 8.2e-2, 8.2e-2"
+     "note": "levels 8.0e-2, 8.1e-2, 8.0e-2"
     },
     {
      "check": "app (firefox): plays, labels, no console errors",
      "ok": true,
-     "note": "levels 8.2e-2, 8.2e-2, 8.2e-2"
+     "note": "levels 8.1e-2, 8.0e-2, 8.0e-2"
     }
    ],
    "app_plays": "yes"
@@ -6180,12 +6297,12 @@
     {
      "check": "app (chromium): plays, labels, no console errors",
      "ok": true,
-     "note": "levels 8.2e-2, 8.2e-2, 8.2e-2"
+     "note": "levels 8.5e-2, 8.4e-2, 8.4e-2"
     },
     {
      "check": "app (firefox): plays, labels, no console errors",
      "ok": true,
-     "note": "levels 8.2e-2, 8.2e-2, 8.2e-2"
+     "note": "levels 8.5e-2, 8.4e-2, 3.0e-1"
     }
    ],
    "app_plays": "yes"
@@ -6267,18 +6384,18 @@
     },
     {
      "check": "links resolve",
-     "ok": true,
-     "note": "5 of 5 links resolve"
+     "ok": false,
+     "note": "https://podaac.jpl.nasa.gov/dataset/MERGED_TP_J1_OSTM_OST_ALL_V51 (ReadTimeout)"
     },
     {
      "check": "app (chromium): plays, labels, no console errors",
      "ok": true,
-     "note": "levels 8.2e-2, 8.2e-2, 8.2e-2"
+     "note": "levels 8.4e-2, 8.4e-2, 8.3e-2"
     },
     {
      "check": "app (firefox): plays, labels, no console errors",
      "ok": true,
-     "note": "levels 8.2e-2, 8.2e-2, 8.2e-2"
+     "note": "levels 8.4e-2, 8.5e-2, 2.8e-1"
     }
    ],
    "app_plays": "yes"
@@ -6366,12 +6483,12 @@
     {
      "check": "app (chromium): plays, labels, no console errors",
      "ok": true,
-     "note": "levels 7.7e-2, 7.7e-2, 7.7e-2"
+     "note": "levels 8.4e-2, 8.4e-2, 8.5e-2"
     },
     {
      "check": "app (firefox): plays, labels, no console errors",
      "ok": true,
-     "note": "levels 7.7e-2, 7.7e-2, 7.8e-2"
+     "note": "levels 8.4e-2, 8.4e-2, 8.4e-2"
     }
    ],
    "app_plays": "yes"
@@ -6459,12 +6576,12 @@
     {
      "check": "app (chromium): plays, labels, no console errors",
      "ok": true,
-     "note": "levels 8.1e-2, 5.9e-2, 8.1e-2"
+     "note": "levels 8.8e-2, 6.5e-2, 8.8e-2"
     },
     {
      "check": "app (firefox): plays, labels, no console errors",
      "ok": true,
-     "note": "levels 8.1e-2, 5.9e-2, 8.1e-2"
+     "note": "levels 8.8e-2, 6.5e-2, 8.8e-2"
     }
    ],
    "app_plays": "yes"
@@ -6552,12 +6669,12 @@
     {
      "check": "app (chromium): plays, labels, no console errors",
      "ok": true,
-     "note": "levels 8.2e-2, 7.3e-2, 7.8e-2"
+     "note": "levels 8.0e-2, 7.2e-2, 7.6e-2"
     },
     {
      "check": "app (firefox): plays, labels, no console errors",
      "ok": true,
-     "note": "levels 8.2e-2, 7.3e-2, 7.8e-2"
+     "note": "levels 8.0e-2, 7.2e-2, 7.7e-2"
     }
    ],
    "app_plays": "yes"
@@ -6645,12 +6762,12 @@
     {
      "check": "app (chromium): plays, labels, no console errors",
      "ok": true,
-     "note": "levels 7.3e-2, 5.8e-2, 7.3e-2"
+     "note": "levels 6.4e-2, 5.3e-2, 6.5e-2"
     },
     {
      "check": "app (firefox): plays, labels, no console errors",
      "ok": true,
-     "note": "levels 7.3e-2, 5.9e-2, 7.3e-2"
+     "note": "levels 6.4e-2, 5.2e-2, 6.4e-2"
     }
    ],
    "app_plays": "yes"
@@ -6738,12 +6855,12 @@
     {
      "check": "app (chromium): plays, labels, no console errors",
      "ok": true,
-     "note": "levels 8.2e-2, 8.2e-2, 8.2e-2"
+     "note": "levels 8.4e-2, 8.4e-2, 8.4e-2"
     },
     {
      "check": "app (firefox): plays, labels, no console errors",
      "ok": true,
-     "note": "levels 8.2e-2, 8.2e-2, 8.2e-2"
+     "note": "levels 8.5e-2, 8.5e-2, 2.6e-1"
     }
    ],
    "app_plays": "yes"
@@ -6831,12 +6948,12 @@
     {
      "check": "app (chromium): plays, labels, no console errors",
      "ok": true,
-     "note": "levels 6.2e-2, 6.3e-2, 6.2e-2"
+     "note": "levels 6.8e-2, 7.0e-2, 6.9e-2"
     },
     {
      "check": "app (firefox): plays, labels, no console errors",
      "ok": true,
-     "note": "levels 6.2e-2, 6.3e-2, 6.2e-2"
+     "note": "levels 6.9e-2, 6.9e-2, 6.8e-2"
     }
    ],
    "app_plays": "yes"
@@ -6924,12 +7041,12 @@
     {
      "check": "app (chromium): plays, labels, no console errors",
      "ok": true,
-     "note": "levels 6.2e-2, 6.3e-2, 6.2e-2"
+     "note": "levels 6.9e-2, 7.0e-2, 6.9e-2"
     },
     {
      "check": "app (firefox): plays, labels, no console errors",
      "ok": true,
-     "note": "levels 6.2e-2, 6.3e-2, 6.2e-2"
+     "note": "levels 6.9e-2, 6.9e-2, 6.8e-2"
     }
    ],
    "app_plays": "yes"
@@ -7017,12 +7134,12 @@
     {
      "check": "app (chromium): plays, labels, no console errors",
      "ok": true,
-     "note": "levels 7.3e-2, 5.9e-2, 7.3e-2"
+     "note": "levels 8.0e-2, 6.5e-2, 8.0e-2"
     },
     {
      "check": "app (firefox): plays, labels, no console errors",
      "ok": true,
-     "note": "levels 7.3e-2, 5.9e-2, 7.3e-2"
+     "note": "levels 8.0e-2, 6.5e-2, 8.0e-2"
     }
    ],
    "app_plays": "yes"
@@ -7110,12 +7227,12 @@
     {
      "check": "app (chromium): plays, labels, no console errors",
      "ok": true,
-     "note": "levels 8.2e-2, 8.2e-2, 8.2e-2"
+     "note": "levels 8.5e-2, 8.5e-2, 8.4e-2"
     },
     {
      "check": "app (firefox): plays, labels, no console errors",
      "ok": true,
-     "note": "levels 8.2e-2, 8.2e-2, 8.2e-2"
+     "note": "levels 8.5e-2, 8.4e-2, 2.7e-1"
     }
    ],
    "app_plays": "yes"
@@ -7201,19 +7318,24 @@
      "note": "4 of 4 links resolve"
     },
     {
+     "check": "fresh within its limit",
+     "ok": false,
+     "note": "lag 2.92 d > limit 2.0 d"
+    },
+    {
      "check": "app (chromium): plays, labels, no console errors",
      "ok": true,
-     "note": "levels 7.6e-2, 7.7e-2, 8.2e-2"
+     "note": "levels 8.2e-2, 8.5e-2, 8.9e-2"
     },
     {
      "check": "app (firefox): plays, labels, no console errors",
      "ok": true,
-     "note": "levels 7.6e-2, 7.7e-2, 8.2e-2"
+     "note": "levels 8.3e-2, 8.4e-2, 8.9e-2"
     }
    ],
    "last_data_utc": "2026-11-07T08:00Z",
-   "source_latest_utc": "2026-11-07T06:00Z",
-   "lag_days": -0.08,
+   "source_latest_utc": "2026-11-10T06:00Z",
+   "lag_days": 2.92,
    "app_plays": "yes"
   },
   {
@@ -7299,12 +7421,12 @@
     {
      "check": "app (chromium): plays, labels, no console errors",
      "ok": true,
-     "note": "levels 6.0e-2, 7.3e-2, 7.2e-2"
+     "note": "levels 6.6e-2, 8.0e-2, 7.9e-2"
     },
     {
      "check": "app (firefox): plays, labels, no console errors",
      "ok": true,
-     "note": "levels 6.0e-2, 7.3e-2, 7.2e-2"
+     "note": "levels 6.7e-2, 8.0e-2, 7.9e-2"
     }
    ],
    "app_plays": "yes"
@@ -7390,19 +7512,24 @@
      "note": "15 of 15 links resolve"
     },
     {
+     "check": "fresh within its limit",
+     "ok": false,
+     "note": "lag 4.62 d > limit 2.0 d"
+    },
+    {
      "check": "app (chromium): plays, labels, no console errors",
      "ok": true,
-     "note": "levels 8.2e-2, 8.2e-2, 8.2e-2"
+     "note": "levels 8.0e-2, 8.0e-2, 8.0e-2"
     },
     {
      "check": "app (firefox): plays, labels, no console errors",
      "ok": true,
-     "note": "levels 8.2e-2, 8.2e-2, 8.1e-2"
+     "note": "levels 8.0e-2, 8.0e-2, 8.1e-2"
     }
    ],
    "last_data_utc": "2026-11-06T02:30Z",
-   "source_latest_utc": "2026-11-07T08:30Z",
-   "lag_days": 1.25,
+   "source_latest_utc": "2026-11-10T17:30Z",
+   "lag_days": 4.62,
    "app_plays": "yes"
   },
   {
@@ -7746,12 +7873,12 @@
     {
      "check": "app (chromium): plays, labels, no console errors",
      "ok": true,
-     "note": "levels 8.2e-2, 8.2e-2, 7.9e-2"
+     "note": "levels 8.3e-2, 8.3e-2, 8.1e-2"
     },
     {
      "check": "app (firefox): plays, labels, no console errors",
      "ok": true,
-     "note": "levels 8.2e-2, 8.2e-2, 7.9e-2"
+     "note": "levels 8.3e-2, 8.3e-2, 8.1e-2"
     }
    ],
    "app_plays": "yes"
@@ -7812,12 +7939,12 @@
     {
      "check": "app (chromium): plays, labels, no console errors",
      "ok": true,
-     "note": "levels 8.2e-2, 8.2e-2, 7.9e-2"
+     "note": "levels 8.3e-2, 8.3e-2, 8.1e-2"
     },
     {
      "check": "app (firefox): plays, labels, no console errors",
      "ok": true,
-     "note": "levels 8.2e-2, 8.2e-2, 7.9e-2"
+     "note": "levels 8.3e-2, 8.3e-2, 8.1e-2"
     }
    ],
    "last_data_utc": "2026-10-31T00:00Z",
@@ -7881,12 +8008,12 @@
     {
      "check": "app (chromium): plays, labels, no console errors",
      "ok": true,
-     "note": "levels 8.2e-2, 8.2e-2, 7.9e-2"
+     "note": "levels 8.3e-2, 8.3e-2, 8.1e-2"
     },
     {
      "check": "app (firefox): plays, labels, no console errors",
      "ok": true,
-     "note": "levels 8.2e-2, 8.2e-2, 7.9e-2"
+     "note": "levels 8.3e-2, 8.3e-2, 8.1e-2"
     }
    ],
    "last_data_utc": "2026-10-30T00:00Z",
@@ -7950,12 +8077,12 @@
     {
      "check": "app (chromium): plays, labels, no console errors",
      "ok": true,
-     "note": "levels 8.2e-2, 8.2e-2, 7.9e-2"
+     "note": "levels 8.3e-2, 8.3e-2, 8.1e-2"
     },
     {
      "check": "app (firefox): plays, labels, no console errors",
      "ok": true,
-     "note": "levels 8.2e-2, 8.2e-2, 7.9e-2"
+     "note": "levels 8.3e-2, 8.3e-2, 8.1e-2"
     }
    ],
    "last_data_utc": "2026-10-29T00:00Z",
@@ -8019,12 +8146,12 @@
     {
      "check": "app (chromium): plays, labels, no console errors",
      "ok": true,
-     "note": "levels 8.2e-2, 8.2e-2, 7.9e-2"
+     "note": "levels 8.3e-2, 8.3e-2, 8.1e-2"
     },
     {
      "check": "app (firefox): plays, labels, no console errors",
      "ok": true,
-     "note": "levels 8.2e-2, 8.2e-2, 7.9e-2"
+     "note": "levels 8.3e-2, 8.3e-2, 8.1e-2"
     }
    ],
    "last_data_utc": "2026-10-30T00:00Z",
@@ -8088,12 +8215,12 @@
     {
      "check": "app (chromium): plays, labels, no console errors",
      "ok": true,
-     "note": "levels 8.2e-2, 8.2e-2, 7.9e-2"
+     "note": "levels 8.3e-2, 8.3e-2, 8.1e-2"
     },
     {
      "check": "app (firefox): plays, labels, no console errors",
      "ok": true,
-     "note": "levels 8.2e-2, 8.2e-2, 7.9e-2"
+     "note": "levels 8.3e-2, 8.3e-2, 8.1e-2"
     }
    ],
    "last_data_utc": "2026-10-29T00:00Z",
@@ -8157,12 +8284,12 @@
     {
      "check": "app (chromium): plays, labels, no console errors",
      "ok": true,
-     "note": "levels 8.2e-2, 8.2e-2, 7.9e-2"
+     "note": "levels 8.3e-2, 8.3e-2, 8.1e-2"
     },
     {
      "check": "app (firefox): plays, labels, no console errors",
      "ok": true,
-     "note": "levels 8.2e-2, 8.2e-2, 7.9e-2"
+     "note": "levels 8.3e-2, 8.3e-2, 8.1e-2"
     }
    ],
    "last_data_utc": "2026-10-30T00:00Z",
@@ -8226,12 +8353,12 @@
     {
      "check": "app (chromium): plays, labels, no console errors",
      "ok": true,
-     "note": "levels 8.2e-2, 8.2e-2, 7.9e-2"
+     "note": "levels 8.3e-2, 8.3e-2, 8.1e-2"
     },
     {
      "check": "app (firefox): plays, labels, no console errors",
      "ok": true,
-     "note": "levels 8.2e-2, 8.2e-2, 7.9e-2"
+     "note": "levels 8.3e-2, 8.3e-2, 8.1e-2"
     }
    ],
    "last_data_utc": "2026-10-31T00:00Z",
@@ -8295,12 +8422,12 @@
     {
      "check": "app (chromium): plays, labels, no console errors",
      "ok": true,
-     "note": "levels 8.2e-2, 8.2e-2, 7.9e-2"
+     "note": "levels 8.3e-2, 8.3e-2, 8.1e-2"
     },
     {
      "check": "app (firefox): plays, labels, no console errors",
      "ok": true,
-     "note": "levels 8.2e-2, 8.2e-2, 7.9e-2"
+     "note": "levels 8.3e-2, 8.3e-2, 8.1e-2"
     }
    ],
    "last_data_utc": "2026-10-26T00:00Z",
@@ -8364,12 +8491,12 @@
     {
      "check": "app (chromium): plays, labels, no console errors",
      "ok": true,
-     "note": "levels 8.2e-2, 8.2e-2, 7.9e-2"
+     "note": "levels 8.3e-2, 8.3e-2, 8.1e-2"
     },
     {
      "check": "app (firefox): plays, labels, no console errors",
      "ok": true,
-     "note": "levels 8.2e-2, 8.2e-2, 7.9e-2"
+     "note": "levels 8.3e-2, 8.3e-2, 8.1e-2"
     }
    ],
    "last_data_utc": "2026-10-26T00:00Z",
@@ -8433,12 +8560,12 @@
     {
      "check": "app (chromium): plays, labels, no console errors",
      "ok": true,
-     "note": "levels 8.2e-2, 8.2e-2, 7.9e-2"
+     "note": "levels 8.3e-2, 8.3e-2, 8.1e-2"
     },
     {
      "check": "app (firefox): plays, labels, no console errors",
      "ok": true,
-     "note": "levels 8.2e-2, 8.2e-2, 7.9e-2"
+     "note": "levels 8.3e-2, 8.3e-2, 8.1e-2"
     }
    ],
    "last_data_utc": "2026-10-31T00:00Z",
@@ -8502,12 +8629,12 @@
     {
      "check": "app (chromium): plays, labels, no console errors",
      "ok": true,
-     "note": "levels 8.2e-2, 8.2e-2, 7.9e-2"
+     "note": "levels 8.3e-2, 8.3e-2, 8.1e-2"
     },
     {
      "check": "app (firefox): plays, labels, no console errors",
      "ok": true,
-     "note": "levels 8.2e-2, 8.2e-2, 7.9e-2"
+     "note": "levels 8.3e-2, 8.3e-2, 8.1e-2"
     }
    ],
    "last_data_utc": "2026-10-30T00:00Z",
@@ -8571,12 +8698,12 @@
     {
      "check": "app (chromium): plays, labels, no console errors",
      "ok": true,
-     "note": "levels 8.2e-2, 8.2e-2, 7.9e-2"
+     "note": "levels 8.3e-2, 8.3e-2, 8.1e-2"
     },
     {
      "check": "app (firefox): plays, labels, no console errors",
      "ok": true,
-     "note": "levels 8.2e-2, 8.2e-2, 7.9e-2"
+     "note": "levels 8.3e-2, 8.3e-2, 8.1e-2"
     }
    ],
    "last_data_utc": "2026-10-31T00:00Z",
@@ -8640,12 +8767,12 @@
     {
      "check": "app (chromium): plays, labels, no console errors",
      "ok": true,
-     "note": "levels 8.2e-2, 8.2e-2, 7.9e-2"
+     "note": "levels 8.3e-2, 8.3e-2, 8.1e-2"
     },
     {
      "check": "app (firefox): plays, labels, no console errors",
      "ok": true,
-     "note": "levels 8.2e-2, 8.2e-2, 7.9e-2"
+     "note": "levels 8.3e-2, 8.3e-2, 8.1e-2"
     }
    ],
    "last_data_utc": "2026-10-25T00:00Z",
@@ -8709,12 +8836,12 @@
     {
      "check": "app (chromium): plays, labels, no console errors",
      "ok": true,
-     "note": "levels 8.2e-2, 8.2e-2, 7.9e-2"
+     "note": "levels 8.3e-2, 8.3e-2, 8.1e-2"
     },
     {
      "check": "app (firefox): plays, labels, no console errors",
      "ok": true,
-     "note": "levels 8.2e-2, 8.2e-2, 7.9e-2"
+     "note": "levels 8.3e-2, 8.3e-2, 8.1e-2"
     }
    ],
    "last_data_utc": "1995-05-04T00:00Z",
@@ -8803,70 +8930,18 @@
     {
      "check": "app (chromium): plays, labels, no console errors",
      "ok": true,
-     "note": "levels 8.1e-2, 6.0e-2, 6.2e-2"
+     "note": "levels 8.4e-2, 6.2e-2, 6.5e-2"
     },
     {
      "check": "app (firefox): plays, labels, no console errors",
      "ok": true,
-     "note": "levels 8.1e-2, 6.0e-2, 6.2e-2"
+     "note": "levels 8.3e-2, 6.2e-2, 6.5e-2"
     }
    ],
    "last_data_utc": "2026-10-29T12:00Z",
-   "source_latest_utc": "2026-11-06T12:00Z",
-   "lag_days": 8.0,
+   "source_latest_utc": "2026-11-09T12:00Z",
+   "lag_days": 11.0,
    "app_plays": "yes"
-  },
-  {
-   "id": "sonification_13786",
-   "category": "method",
-   "title": "Caldwell 73 sonification (method evidence)",
-   "manifest": "official/sonification_13786/manifest.json",
-   "kind": "official",
-   "svs_ids": [
-    13786
-   ],
-   "source": "",
-   "status": "method evidence",
-   "product": "sonification_13786",
-   "layer": null,
-   "notes": [],
-   "checks": [
-    {
-     "check": "contract-15 schema",
-     "ok": true,
-     "note": ""
-    },
-    {
-     "check": "files exist and load",
-     "ok": true,
-     "note": "0 chunks"
-    },
-    {
-     "check": "checksums match",
-     "ok": true,
-     "note": "1 asset rows"
-    },
-    {
-     "check": "freshness.json period = manifest",
-     "ok": true,
-     "note": "['2020-12-23T09:00:00Z', '2020-12-23T09:00:00Z'] vs 2020-12-23T09:00:00Z…2020-12-23T09:00:00Z"
-    },
-    {
-     "check": "validation table = validation.json",
-     "ok": true,
-     "note": "4 checks"
-    },
-    {
-     "check": "credits and licence present",
-     "ok": true,
-     "note": "Credit: SYSTEM Sounds (M. Russo, A. Santaguida) and NASA (SVS 13786)."
-    },
-    {
-     "check": "links resolve",
-     "ok": true,
-     "note": "3 of 3 links resolve"
-    }
-   ]
   },
   {
    "id": "patterns_eic:svs4170",
@@ -8926,12 +9001,12 @@
     {
      "check": "app (chromium): plays, labels, no console errors",
      "ok": true,
-     "note": "levels 4.4e-2, 4.4e-2, 4.4e-2"
+     "note": "levels 4.6e-2, 4.7e-2, 4.7e-2"
     },
     {
      "check": "app (firefox): plays, labels, no console errors",
      "ok": true,
-     "note": "levels 4.4e-2, 4.4e-2, 4.4e-2"
+     "note": "levels 4.7e-2, 4.7e-2, 4.7e-2"
     }
    ],
    "app_plays": "yes"
@@ -8994,12 +9069,12 @@
     {
      "check": "app (chromium): plays, labels, no console errors",
      "ok": true,
-     "note": "levels 4.4e-2, 4.4e-2, 4.4e-2"
+     "note": "levels 4.6e-2, 4.7e-2, 4.7e-2"
     },
     {
      "check": "app (firefox): plays, labels, no console errors",
      "ok": true,
-     "note": "levels 4.4e-2, 4.4e-2, 4.4e-2"
+     "note": "levels 4.7e-2, 4.7e-2, 4.7e-2"
     }
    ],
    "app_plays": "yes"
@@ -9062,12 +9137,12 @@
     {
      "check": "app (chromium): plays, labels, no console errors",
      "ok": true,
-     "note": "levels 4.4e-2, 4.4e-2, 4.4e-2"
+     "note": "levels 4.6e-2, 4.7e-2, 4.7e-2"
     },
     {
      "check": "app (firefox): plays, labels, no console errors",
      "ok": true,
-     "note": "levels 4.4e-2, 4.4e-2, 4.4e-2"
+     "note": "levels 4.7e-2, 4.7e-2, 4.7e-2"
     }
    ],
    "app_plays": "yes"
@@ -9130,12 +9205,12 @@
     {
      "check": "app (chromium): plays, labels, no console errors",
      "ok": true,
-     "note": "levels 4.4e-2, 4.4e-2, 4.4e-2"
+     "note": "levels 4.6e-2, 4.7e-2, 4.7e-2"
     },
     {
      "check": "app (firefox): plays, labels, no console errors",
      "ok": true,
-     "note": "levels 4.4e-2, 4.4e-2, 4.4e-2"
+     "note": "levels 4.7e-2, 4.7e-2, 4.7e-2"
     }
    ],
    "app_plays": "yes"
@@ -9198,12 +9273,12 @@
     {
      "check": "app (chromium): plays, labels, no console errors",
      "ok": true,
-     "note": "levels 4.4e-2, 4.4e-2, 4.4e-2"
+     "note": "levels 4.6e-2, 4.7e-2, 4.7e-2"
     },
     {
      "check": "app (firefox): plays, labels, no console errors",
      "ok": true,
-     "note": "levels 4.4e-2, 4.4e-2, 4.4e-2"
+     "note": "levels 4.7e-2, 4.7e-2, 4.7e-2"
     }
    ],
    "app_plays": "yes"
@@ -9293,12 +9368,12 @@
     {
      "check": "app (chromium): plays, labels, no console errors",
      "ok": true,
-     "note": "levels 8.1e-2, 8.2e-2, 8.1e-2"
+     "note": "levels 6.3e-2, 6.3e-2, 6.2e-2"
     },
     {
      "check": "app (firefox): plays, labels, no console errors",
      "ok": true,
-     "note": "levels 8.1e-2, 8.2e-2, 8.1e-2"
+     "note": "levels 6.3e-2, 6.3e-2, 6.3e-2"
     }
    ],
    "app_plays": "yes"
@@ -9388,12 +9463,12 @@
     {
      "check": "app (chromium): plays, labels, no console errors",
      "ok": true,
-     "note": "levels 7.3e-2, 5.8e-2, 7.3e-2"
+     "note": "levels 7.2e-2, 5.9e-2, 7.2e-2"
     },
     {
      "check": "app (firefox): plays, labels, no console errors",
      "ok": true,
-     "note": "levels 7.3e-2, 5.9e-2, 7.3e-2"
+     "note": "levels 7.2e-2, 5.9e-2, 7.2e-2"
     }
    ],
    "app_plays": "yes"
@@ -9456,12 +9531,12 @@
     {
      "check": "app (chromium): plays, labels, no console errors",
      "ok": true,
-     "note": "levels 4.4e-2, 4.4e-2, 4.4e-2"
+     "note": "levels 4.6e-2, 4.7e-2, 4.7e-2"
     },
     {
      "check": "app (firefox): plays, labels, no console errors",
      "ok": true,
-     "note": "levels 4.4e-2, 4.4e-2, 4.4e-2"
+     "note": "levels 4.7e-2, 4.7e-2, 4.7e-2"
     }
    ],
    "app_plays": "yes"
@@ -9524,12 +9599,12 @@
     {
      "check": "app (chromium): plays, labels, no console errors",
      "ok": true,
-     "note": "levels 4.4e-2, 4.4e-2, 4.4e-2"
+     "note": "levels 4.6e-2, 4.7e-2, 4.7e-2"
     },
     {
      "check": "app (firefox): plays, labels, no console errors",
      "ok": true,
-     "note": "levels 4.4e-2, 4.4e-2, 4.4e-2"
+     "note": "levels 4.7e-2, 4.7e-2, 4.7e-2"
     }
    ],
    "app_plays": "yes"
@@ -9592,12 +9667,12 @@
     {
      "check": "app (chromium): plays, labels, no console errors",
      "ok": true,
-     "note": "levels 4.4e-2, 4.4e-2, 4.4e-2"
+     "note": "levels 4.6e-2, 4.7e-2, 4.7e-2"
     },
     {
      "check": "app (firefox): plays, labels, no console errors",
      "ok": true,
-     "note": "levels 4.4e-2, 4.4e-2, 4.4e-2"
+     "note": "levels 4.7e-2, 4.7e-2, 4.7e-2"
     }
    ],
    "app_plays": "yes"
@@ -9687,12 +9762,12 @@
     {
      "check": "app (chromium): plays, labels, no console errors",
      "ok": true,
-     "note": "levels 3.9e-3, 2.6e-3, 2.5e-3"
+     "note": "levels 2.5e-3, 2.1e-3, 1.6e-4"
     },
     {
      "check": "app (firefox): plays, labels, no console errors",
      "ok": true,
-     "note": "levels 3.1e-3, 3.0e-3, 3.1e-3"
+     "note": "levels 1.6e-3, 1.9e-1, 1.1e-4"
     }
    ],
    "app_plays": "yes"
@@ -9755,12 +9830,12 @@
     {
      "check": "app (chromium): plays, labels, no console errors",
      "ok": true,
-     "note": "levels 4.4e-2, 4.4e-2, 4.4e-2"
+     "note": "levels 4.6e-2, 4.7e-2, 4.7e-2"
     },
     {
      "check": "app (firefox): plays, labels, no console errors",
      "ok": true,
-     "note": "levels 4.4e-2, 4.4e-2, 4.4e-2"
+     "note": "levels 4.7e-2, 4.7e-2, 4.7e-2"
     }
    ],
    "app_plays": "yes"
@@ -9823,12 +9898,12 @@
     {
      "check": "app (chromium): plays, labels, no console errors",
      "ok": true,
-     "note": "levels 4.4e-2, 4.4e-2, 4.4e-2"
+     "note": "levels 4.6e-2, 4.7e-2, 4.7e-2"
     },
     {
      "check": "app (firefox): plays, labels, no console errors",
      "ok": true,
-     "note": "levels 4.4e-2, 4.4e-2, 4.4e-2"
+     "note": "levels 4.7e-2, 4.7e-2, 4.7e-2"
     }
    ],
    "app_plays": "yes"
@@ -9891,12 +9966,12 @@
     {
      "check": "app (chromium): plays, labels, no console errors",
      "ok": true,
-     "note": "levels 4.4e-2, 4.4e-2, 4.4e-2"
+     "note": "levels 4.6e-2, 4.7e-2, 4.7e-2"
     },
     {
      "check": "app (firefox): plays, labels, no console errors",
      "ok": true,
-     "note": "levels 4.4e-2, 4.4e-2, 4.4e-2"
+     "note": "levels 4.7e-2, 4.7e-2, 4.7e-2"
     }
    ],
    "app_plays": "yes"
@@ -9959,12 +10034,12 @@
     {
      "check": "app (chromium): plays, labels, no console errors",
      "ok": true,
-     "note": "levels 4.4e-2, 4.4e-2, 4.4e-2"
+     "note": "levels 4.6e-2, 4.7e-2, 4.7e-2"
     },
     {
      "check": "app (firefox): plays, labels, no console errors",
      "ok": true,
-     "note": "levels 4.4e-2, 4.4e-2, 4.4e-2"
+     "note": "levels 4.7e-2, 4.7e-2, 4.7e-2"
     }
    ],
    "app_plays": "yes"
@@ -10027,12 +10102,12 @@
     {
      "check": "app (chromium): plays, labels, no console errors",
      "ok": true,
-     "note": "levels 4.4e-2, 4.4e-2, 4.4e-2"
+     "note": "levels 4.6e-2, 4.7e-2, 4.7e-2"
     },
     {
      "check": "app (firefox): plays, labels, no console errors",
      "ok": true,
-     "note": "levels 4.4e-2, 4.4e-2, 4.4e-2"
+     "note": "levels 4.7e-2, 4.7e-2, 4.7e-2"
     }
    ],
    "app_plays": "yes"
@@ -10095,12 +10170,12 @@
     {
      "check": "app (chromium): plays, labels, no console errors",
      "ok": true,
-     "note": "levels 4.4e-2, 4.4e-2, 4.4e-2"
+     "note": "levels 4.6e-2, 4.7e-2, 4.7e-2"
     },
     {
      "check": "app (firefox): plays, labels, no console errors",
      "ok": true,
-     "note": "levels 4.4e-2, 4.4e-2, 4.4e-2"
+     "note": "levels 4.7e-2, 4.7e-2, 4.7e-2"
     }
    ],
    "app_plays": "yes"
@@ -10163,12 +10238,12 @@
     {
      "check": "app (chromium): plays, labels, no console errors",
      "ok": true,
-     "note": "levels 4.4e-2, 4.4e-2, 4.4e-2"
+     "note": "levels 4.6e-2, 4.7e-2, 4.7e-2"
     },
     {
      "check": "app (firefox): plays, labels, no console errors",
      "ok": true,
-     "note": "levels 4.4e-2, 4.4e-2, 4.4e-2"
+     "note": "levels 4.7e-2, 4.7e-2, 4.7e-2"
     }
    ],
    "app_plays": "yes"
@@ -10231,12 +10306,12 @@
     {
      "check": "app (chromium): plays, labels, no console errors",
      "ok": true,
-     "note": "levels 4.4e-2, 4.4e-2, 4.4e-2"
+     "note": "levels 4.6e-2, 4.7e-2, 4.7e-2"
     },
     {
      "check": "app (firefox): plays, labels, no console errors",
      "ok": true,
-     "note": "levels 4.4e-2, 4.4e-2, 4.4e-2"
+     "note": "levels 4.7e-2, 4.7e-2, 4.7e-2"
     }
    ],
    "app_plays": "yes"
@@ -10299,12 +10374,12 @@
     {
      "check": "app (chromium): plays, labels, no console errors",
      "ok": true,
-     "note": "levels 4.4e-2, 4.4e-2, 4.4e-2"
+     "note": "levels 4.6e-2, 4.7e-2, 4.7e-2"
     },
     {
      "check": "app (firefox): plays, labels, no console errors",
      "ok": true,
-     "note": "levels 4.4e-2, 4.4e-2, 4.4e-2"
+     "note": "levels 4.7e-2, 4.7e-2, 4.7e-2"
     }
    ],
    "app_plays": "yes"
@@ -10367,12 +10442,12 @@
     {
      "check": "app (chromium): plays, labels, no console errors",
      "ok": true,
-     "note": "levels 4.4e-2, 4.4e-2, 4.4e-2"
+     "note": "levels 4.6e-2, 4.7e-2, 4.7e-2"
     },
     {
      "check": "app (firefox): plays, labels, no console errors",
      "ok": true,
-     "note": "levels 4.4e-2, 4.4e-2, 4.4e-2"
+     "note": "levels 4.7e-2, 4.7e-2, 4.7e-2"
     }
    ],
    "app_plays": "yes"
@@ -10435,12 +10510,12 @@
     {
      "check": "app (chromium): plays, labels, no console errors",
      "ok": true,
-     "note": "levels 4.4e-2, 4.4e-2, 4.4e-2"
+     "note": "levels 4.6e-2, 4.7e-2, 4.7e-2"
     },
     {
      "check": "app (firefox): plays, labels, no console errors",
      "ok": true,
-     "note": "levels 4.4e-2, 4.4e-2, 4.4e-2"
+     "note": "levels 4.7e-2, 4.7e-2, 4.7e-2"
     }
    ],
    "app_plays": "yes"
@@ -10503,12 +10578,12 @@
     {
      "check": "app (chromium): plays, labels, no console errors",
      "ok": true,
-     "note": "levels 4.4e-2, 4.4e-2, 4.4e-2"
+     "note": "levels 4.6e-2, 4.7e-2, 4.7e-2"
     },
     {
      "check": "app (firefox): plays, labels, no console errors",
      "ok": true,
-     "note": "levels 4.4e-2, 4.4e-2, 4.4e-2"
+     "note": "levels 4.7e-2, 4.7e-2, 4.7e-2"
     }
    ],
    "app_plays": "yes"
@@ -10571,12 +10646,12 @@
     {
      "check": "app (chromium): plays, labels, no console errors",
      "ok": true,
-     "note": "levels 4.4e-2, 4.4e-2, 4.4e-2"
+     "note": "levels 4.6e-2, 4.7e-2, 4.7e-2"
     },
     {
      "check": "app (firefox): plays, labels, no console errors",
      "ok": true,
-     "note": "levels 4.4e-2, 4.4e-2, 4.4e-2"
+     "note": "levels 4.7e-2, 4.7e-2, 4.7e-2"
     }
    ],
    "app_plays": "yes"
@@ -10639,12 +10714,12 @@
     {
      "check": "app (chromium): plays, labels, no console errors",
      "ok": true,
-     "note": "levels 4.4e-2, 4.4e-2, 4.4e-2"
+     "note": "levels 4.6e-2, 4.7e-2, 4.7e-2"
     },
     {
      "check": "app (firefox): plays, labels, no console errors",
      "ok": true,
-     "note": "levels 4.4e-2, 4.4e-2, 4.4e-2"
+     "note": "levels 4.7e-2, 4.7e-2, 4.7e-2"
     }
    ],
    "app_plays": "yes"
@@ -10707,12 +10782,12 @@
     {
      "check": "app (chromium): plays, labels, no console errors",
      "ok": true,
-     "note": "levels 4.4e-2, 4.4e-2, 4.4e-2"
+     "note": "levels 4.6e-2, 4.7e-2, 4.7e-2"
     },
     {
      "check": "app (firefox): plays, labels, no console errors",
      "ok": true,
-     "note": "levels 4.4e-2, 4.4e-2, 4.4e-2"
+     "note": "levels 4.7e-2, 4.7e-2, 4.7e-2"
     }
    ],
    "app_plays": "yes"
@@ -10775,12 +10850,12 @@
     {
      "check": "app (chromium): plays, labels, no console errors",
      "ok": true,
-     "note": "levels 4.4e-2, 4.4e-2, 4.4e-2"
+     "note": "levels 4.6e-2, 4.7e-2, 4.7e-2"
     },
     {
      "check": "app (firefox): plays, labels, no console errors",
      "ok": true,
-     "note": "levels 4.4e-2, 4.4e-2, 4.4e-2"
+     "note": "levels 4.7e-2, 4.7e-2, 4.7e-2"
     }
    ],
    "app_plays": "yes"
@@ -10843,12 +10918,12 @@
     {
      "check": "app (chromium): plays, labels, no console errors",
      "ok": true,
-     "note": "levels 4.4e-2, 4.4e-2, 4.4e-2"
+     "note": "levels 4.6e-2, 4.7e-2, 4.7e-2"
     },
     {
      "check": "app (firefox): plays, labels, no console errors",
      "ok": true,
-     "note": "levels 4.4e-2, 4.4e-2, 4.4e-2"
+     "note": "levels 4.7e-2, 4.7e-2, 4.7e-2"
     }
    ],
    "app_plays": "yes"
@@ -10911,12 +10986,12 @@
     {
      "check": "app (chromium): plays, labels, no console errors",
      "ok": true,
-     "note": "levels 4.4e-2, 4.4e-2, 4.4e-2"
+     "note": "levels 4.6e-2, 4.7e-2, 4.7e-2"
     },
     {
      "check": "app (firefox): plays, labels, no console errors",
      "ok": true,
-     "note": "levels 4.4e-2, 4.4e-2, 4.4e-2"
+     "note": "levels 4.7e-2, 4.7e-2, 4.7e-2"
     }
    ],
    "app_plays": "yes"
@@ -10979,12 +11054,12 @@
     {
      "check": "app (chromium): plays, labels, no console errors",
      "ok": true,
-     "note": "levels 4.4e-2, 4.4e-2, 4.4e-2"
+     "note": "levels 4.6e-2, 4.7e-2, 4.7e-2"
     },
     {
      "check": "app (firefox): plays, labels, no console errors",
      "ok": true,
-     "note": "levels 4.4e-2, 4.4e-2, 4.4e-2"
+     "note": "levels 4.7e-2, 4.7e-2, 4.7e-2"
     }
    ],
    "app_plays": "yes"
@@ -11047,12 +11122,12 @@
     {
      "check": "app (chromium): plays, labels, no console errors",
      "ok": true,
-     "note": "levels 4.4e-2, 4.4e-2, 4.4e-2"
+     "note": "levels 4.6e-2, 4.7e-2, 4.7e-2"
     },
     {
      "check": "app (firefox): plays, labels, no console errors",
      "ok": true,
-     "note": "levels 4.4e-2, 4.4e-2, 4.4e-2"
+     "note": "levels 4.7e-2, 4.7e-2, 4.7e-2"
     }
    ],
    "app_plays": "yes"
@@ -11115,12 +11190,12 @@
     {
      "check": "app (chromium): plays, labels, no console errors",
      "ok": true,
-     "note": "levels 4.4e-2, 4.4e-2, 4.4e-2"
+     "note": "levels 4.6e-2, 4.7e-2, 4.7e-2"
     },
     {
      "check": "app (firefox): plays, labels, no console errors",
      "ok": true,
-     "note": "levels 4.4e-2, 4.4e-2, 4.4e-2"
+     "note": "levels 4.7e-2, 4.7e-2, 4.7e-2"
     }
    ],
    "app_plays": "yes"
@@ -11183,12 +11258,12 @@
     {
      "check": "app (chromium): plays, labels, no console errors",
      "ok": true,
-     "note": "levels 4.4e-2, 4.4e-2, 4.4e-2"
+     "note": "levels 4.6e-2, 4.7e-2, 4.7e-2"
     },
     {
      "check": "app (firefox): plays, labels, no console errors",
      "ok": true,
-     "note": "levels 4.4e-2, 4.4e-2, 4.4e-2"
+     "note": "levels 4.7e-2, 4.7e-2, 4.7e-2"
     }
    ],
    "app_plays": "yes"
@@ -11251,12 +11326,12 @@
     {
      "check": "app (chromium): plays, labels, no console errors",
      "ok": true,
-     "note": "levels 4.4e-2, 4.4e-2, 4.4e-2"
+     "note": "levels 4.6e-2, 4.7e-2, 4.7e-2"
     },
     {
      "check": "app (firefox): plays, labels, no console errors",
      "ok": true,
-     "note": "levels 4.4e-2, 4.4e-2, 4.4e-2"
+     "note": "levels 4.7e-2, 4.7e-2, 4.7e-2"
     }
    ],
    "app_plays": "yes"
@@ -11319,12 +11394,12 @@
     {
      "check": "app (chromium): plays, labels, no console errors",
      "ok": true,
-     "note": "levels 4.4e-2, 4.4e-2, 4.4e-2"
+     "note": "levels 4.6e-2, 4.7e-2, 4.7e-2"
     },
     {
      "check": "app (firefox): plays, labels, no console errors",
      "ok": true,
-     "note": "levels 4.4e-2, 4.4e-2, 4.4e-2"
+     "note": "levels 4.7e-2, 4.7e-2, 4.7e-2"
     }
    ],
    "app_plays": "yes"
@@ -11387,12 +11462,12 @@
     {
      "check": "app (chromium): plays, labels, no console errors",
      "ok": true,
-     "note": "levels 4.4e-2, 4.4e-2, 4.4e-2"
+     "note": "levels 4.6e-2, 4.7e-2, 4.7e-2"
     },
     {
      "check": "app (firefox): plays, labels, no console errors",
      "ok": true,
-     "note": "levels 4.4e-2, 4.4e-2, 4.4e-2"
+     "note": "levels 4.7e-2, 4.7e-2, 4.7e-2"
     }
    ],
    "app_plays": "yes"
@@ -11455,12 +11530,12 @@
     {
      "check": "app (chromium): plays, labels, no console errors",
      "ok": true,
-     "note": "levels 4.4e-2, 4.4e-2, 4.4e-2"
+     "note": "levels 4.6e-2, 4.7e-2, 4.7e-2"
     },
     {
      "check": "app (firefox): plays, labels, no console errors",
      "ok": true,
-     "note": "levels 4.4e-2, 4.4e-2, 4.4e-2"
+     "note": "levels 4.7e-2, 4.7e-2, 4.7e-2"
     }
    ],
    "app_plays": "yes"
@@ -11523,12 +11598,12 @@
     {
      "check": "app (chromium): plays, labels, no console errors",
      "ok": true,
-     "note": "levels 4.4e-2, 4.4e-2, 4.4e-2"
+     "note": "levels 4.6e-2, 4.7e-2, 4.7e-2"
     },
     {
      "check": "app (firefox): plays, labels, no console errors",
      "ok": true,
-     "note": "levels 4.4e-2, 4.4e-2, 4.4e-2"
+     "note": "levels 4.7e-2, 4.7e-2, 4.7e-2"
     }
    ],
    "app_plays": "yes"
@@ -11618,12 +11693,12 @@
     {
      "check": "app (chromium): plays, labels, no console errors",
      "ok": true,
-     "note": "levels 7.6e-2, 7.2e-2, 7.2e-2"
+     "note": "levels 6.7e-2, 6.4e-2, 6.3e-2"
     },
     {
      "check": "app (firefox): plays, labels, no console errors",
      "ok": true,
-     "note": "levels 7.6e-2, 7.2e-2, 7.2e-2"
+     "note": "levels 7.5e-2, 6.4e-2, 6.3e-2"
     }
    ],
    "app_plays": "yes"
@@ -11686,12 +11761,12 @@
     {
      "check": "app (chromium): plays, labels, no console errors",
      "ok": true,
-     "note": "levels 4.4e-2, 4.4e-2, 4.4e-2"
+     "note": "levels 4.6e-2, 4.7e-2, 4.7e-2"
     },
     {
      "check": "app (firefox): plays, labels, no console errors",
      "ok": true,
-     "note": "levels 4.4e-2, 4.4e-2, 4.4e-2"
+     "note": "levels 4.7e-2, 4.7e-2, 4.7e-2"
     }
    ],
    "app_plays": "yes"
@@ -11754,12 +11829,12 @@
     {
      "check": "app (chromium): plays, labels, no console errors",
      "ok": true,
-     "note": "levels 4.4e-2, 4.4e-2, 4.4e-2"
+     "note": "levels 4.6e-2, 4.7e-2, 4.7e-2"
     },
     {
      "check": "app (firefox): plays, labels, no console errors",
      "ok": true,
-     "note": "levels 4.4e-2, 4.4e-2, 4.4e-2"
+     "note": "levels 4.7e-2, 4.7e-2, 4.7e-2"
     }
    ],
    "app_plays": "yes"
@@ -11822,12 +11897,12 @@
     {
      "check": "app (chromium): plays, labels, no console errors",
      "ok": true,
-     "note": "levels 4.4e-2, 4.4e-2, 4.4e-2"
+     "note": "levels 4.6e-2, 4.7e-2, 4.7e-2"
     },
     {
      "check": "app (firefox): plays, labels, no console errors",
      "ok": true,
-     "note": "levels 4.4e-2, 4.4e-2, 4.4e-2"
+     "note": "levels 4.7e-2, 4.7e-2, 4.7e-2"
     }
    ],
    "app_plays": "yes"
@@ -11890,12 +11965,12 @@
     {
      "check": "app (chromium): plays, labels, no console errors",
      "ok": true,
-     "note": "levels 4.4e-2, 4.4e-2, 4.4e-2"
+     "note": "levels 4.6e-2, 4.7e-2, 4.7e-2"
     },
     {
      "check": "app (firefox): plays, labels, no console errors",
      "ok": true,
-     "note": "levels 4.4e-2, 4.4e-2, 4.4e-2"
+     "note": "levels 4.7e-2, 4.7e-2, 4.7e-2"
     }
    ],
    "app_plays": "yes"
@@ -12125,12 +12200,12 @@
     {
      "check": "app (chromium): plays, labels, no console errors",
      "ok": true,
-     "note": "levels 6.7e-2, 6.8e-2, 6.5e-2"
+     "note": "levels 6.7e-2, 6.8e-2, 6.7e-2"
     },
     {
      "check": "app (firefox): plays, labels, no console errors",
      "ok": true,
-     "note": "levels 6.5e-2, 6.5e-2, 6.6e-2"
+     "note": "levels 6.9e-2, 6.8e-2, 6.8e-2"
     }
    ],
    "app_plays": "yes"
@@ -12193,12 +12268,12 @@
     {
      "check": "app (chromium): plays, labels, no console errors",
      "ok": true,
-     "note": "levels 4.4e-2, 4.4e-2, 4.4e-2"
+     "note": "levels 4.6e-2, 4.7e-2, 4.7e-2"
     },
     {
      "check": "app (firefox): plays, labels, no console errors",
      "ok": true,
-     "note": "levels 4.4e-2, 4.4e-2, 4.4e-2"
+     "note": "levels 4.7e-2, 4.7e-2, 4.7e-2"
     }
    ],
    "app_plays": "yes"
@@ -12261,12 +12336,12 @@
     {
      "check": "app (chromium): plays, labels, no console errors",
      "ok": true,
-     "note": "levels 4.4e-2, 4.4e-2, 4.4e-2"
+     "note": "levels 4.6e-2, 4.7e-2, 4.7e-2"
     },
     {
      "check": "app (firefox): plays, labels, no console errors",
      "ok": true,
-     "note": "levels 4.4e-2, 4.4e-2, 4.4e-2"
+     "note": "levels 4.7e-2, 4.7e-2, 4.7e-2"
     }
    ],
    "app_plays": "yes"
@@ -12329,12 +12404,12 @@
     {
      "check": "app (chromium): plays, labels, no console errors",
      "ok": true,
-     "note": "levels 4.4e-2, 4.4e-2, 4.4e-2"
+     "note": "levels 4.6e-2, 4.7e-2, 4.7e-2"
     },
     {
      "check": "app (firefox): plays, labels, no console errors",
      "ok": true,
-     "note": "levels 4.4e-2, 4.4e-2, 4.4e-2"
+     "note": "levels 4.7e-2, 4.7e-2, 4.7e-2"
     }
    ],
    "app_plays": "yes"
@@ -12515,6 +12590,41 @@
    ]
   },
   {
+   "id": "file:thenvsnow/lifetime.json",
+   "category": "history",
+   "title": "thenvsnow/lifetime.json",
+   "manifest": "thenvsnow/lifetime.json",
+   "kind": "file",
+   "svs_ids": [],
+   "source": "NASA GISTEMP v4, Dhaka cell, April-May anomaly vs 1951-1980; GPCP v2.3, Dhaka cell, June-September; GPCC gauges v2020, Dhaka cell, June-September; NASA GISTEMP v4, Chattogram cell, April-May anomaly v",
+   "status": "baseline",
+   "product": null,
+   "layer": null,
+   "notes": [],
+   "checks": [
+    {
+     "check": "files exist and load",
+     "ok": true,
+     "note": "1 files"
+    },
+    {
+     "check": "checksums match",
+     "ok": null,
+     "note": "no checksum list for this kind (spotcheck checks the decode)"
+    },
+    {
+     "check": "credits present",
+     "ok": true,
+     "note": "NASA GISTEMP v4, Dhaka cell, April-May anomaly vs 1951-1980; GPCP v2.3, Dhaka ce"
+    },
+    {
+     "check": "links resolve",
+     "ok": null,
+     "note": "no links"
+    }
+   ]
+  },
+  {
    "id": "file:truth/stats.json",
    "category": "history",
    "title": "truth/stats.json",
@@ -12589,43 +12699,43 @@
   {
    "record": "sst",
    "shipped_utc": "2026-11-04T00:00Z",
-   "source_latest_utc": "2026-11-06T00:00Z",
-   "source": "SVS 5101 4096x2048_2x1_30p/sst_mur_no-dates/sst_mur_20261106_no-dates.exr",
-   "age_days": 4.24,
-   "lag_days": 2.0,
+   "source_latest_utc": "2026-11-09T00:00Z",
+   "source": "SVS 5101 4096x2048_2x1_30p/sst_mur_no-dates/sst_mur_20261109_no-dates.exr",
+   "age_days": 6.97,
+   "lag_days": 5.0,
    "limit_days": 2,
    "companion": null,
-   "behind_limit": false
+   "behind_limit": true
   },
   {
    "record": "rain",
    "shipped_utc": "2026-11-06T01:30Z",
-   "source_latest_utc": "2026-11-07T08:30Z",
-   "source": "SVS 4285 3600x1800_2x1_30p/flatalpha/imergert_alpha.2026-11-07T08:30:00Z.png",
-   "age_days": 2.17,
-   "lag_days": 1.29,
+   "source_latest_utc": "2026-11-10T17:30Z",
+   "source": "SVS 4285 3600x1800_2x1_30p/flatalpha/imergert_alpha.2026-11-10T17:30:00Z.png",
+   "age_days": 4.91,
+   "lag_days": 4.67,
    "limit_days": 2,
    "companion": null,
-   "behind_limit": false
+   "behind_limit": true
   },
   {
    "record": "sequence",
    "shipped_utc": "2026-11-06T02:30Z",
-   "source_latest_utc": "2026-11-07T08:30Z",
-   "source": "SVS 4285 3600x1800_2x1_30p/flatalpha/imergert_alpha.2026-11-07T08:30:00Z.png",
-   "age_days": 2.13,
-   "lag_days": 1.25,
+   "source_latest_utc": "2026-11-10T17:30Z",
+   "source": "SVS 4285 3600x1800_2x1_30p/flatalpha/imergert_alpha.2026-11-10T17:30:00Z.png",
+   "age_days": 4.86,
+   "lag_days": 4.62,
    "limit_days": 2,
    "companion": null,
-   "behind_limit": false
+   "behind_limit": true
   },
   {
    "record": "sst_anom",
    "shipped_utc": "2026-11-03T00:00Z",
-   "source_latest_utc": "2026-11-04T00:00Z",
+   "source_latest_utc": "2026-11-08T00:00Z",
    "source": "SVS 5176 newest dated frame (file name)",
-   "age_days": 5.24,
-   "lag_days": 1.0,
+   "age_days": 7.97,
+   "lag_days": 5.0,
    "limit_days": 5,
    "companion": null,
    "behind_limit": false
@@ -12633,97 +12743,97 @@
   {
    "record": "fires_frame",
    "shipped_utc": "2026-11-05T11:27Z",
-   "source_latest_utc": "2026-11-07T11:25Z",
+   "source_latest_utc": "2026-11-10T11:26Z",
    "source": "SVS 5113 newest dated frame (Last-Modified)",
-   "age_days": 2.76,
-   "lag_days": 2.0,
+   "age_days": 5.49,
+   "lag_days": 5.0,
    "limit_days": 3,
    "companion": null,
-   "behind_limit": false
+   "behind_limit": true
   },
   {
    "record": "fwi_class",
    "shipped_utc": "2026-11-06T07:10Z",
-   "source_latest_utc": "2026-11-07T07:11Z",
+   "source_latest_utc": "2026-11-10T07:12Z",
    "source": "Last-Modified FWI_forecast_latest.png",
-   "age_days": 1.94,
-   "lag_days": 1.0,
+   "age_days": 4.67,
+   "lag_days": 4.0,
    "limit_days": 2,
    "companion": null,
-   "behind_limit": false
+   "behind_limit": true
   },
   {
    "record": "fwi_archive",
    "shipped_utc": "2026-11-06T07:10Z",
-   "source_latest_utc": "2026-11-07T07:11Z",
+   "source_latest_utc": "2026-11-10T07:12Z",
    "source": "Last-Modified FWI_forecast_latest.png",
-   "age_days": 1.94,
-   "lag_days": 1.0,
+   "age_days": 4.67,
+   "lag_days": 4.0,
    "limit_days": 2,
    "companion": null,
-   "behind_limit": false
+   "behind_limit": true
   },
   {
    "record": "landslide_class",
    "shipped_utc": "2026-11-06T05:00Z",
-   "source_latest_utc": "2026-11-07T05:00Z",
+   "source_latest_utc": "2026-11-10T05:00Z",
    "source": "Last-Modified landslides_daily.png",
-   "age_days": 2.03,
-   "lag_days": 1.0,
+   "age_days": 4.76,
+   "lag_days": 4.0,
    "limit_days": 2,
    "companion": null,
-   "behind_limit": false
+   "behind_limit": true
   },
   {
    "record": "sst_dt",
    "shipped_utc": "2026-11-04T09:00Z",
-   "source_latest_utc": "2026-11-06T21:00Z",
+   "source_latest_utc": "2026-11-09T21:00Z",
    "source": "CMR MUR-JPL-L4-GLOB-v4.1 latest granule (C1996881146-POCLOUD)",
-   "age_days": 3.86,
-   "lag_days": 2.5,
+   "age_days": 6.59,
+   "lag_days": 5.5,
    "limit_days": 3,
    "companion": null,
-   "behind_limit": false
+   "behind_limit": true
   },
   {
    "record": "sst_pairs",
    "shipped_utc": "2026-11-04T00:00Z",
-   "source_latest_utc": "2026-11-06T21:00Z",
+   "source_latest_utc": "2026-11-09T21:00Z",
    "source": "CMR MUR-JPL-L4-GLOB-v4.1 latest granule (C1996881146-POCLOUD)",
-   "age_days": 4.24,
-   "lag_days": 2.88,
+   "age_days": 6.97,
+   "lag_days": 5.88,
    "limit_days": 4,
    "companion": null,
-   "behind_limit": false
+   "behind_limit": true
   },
   {
    "record": "threeway",
    "shipped_utc": "2026-11-04T00:00Z",
-   "source_latest_utc": "2026-11-06T21:00Z",
+   "source_latest_utc": "2026-11-09T21:00Z",
    "source": "CMR MUR-JPL-L4-GLOB-v4.1 latest granule (C1996881146-POCLOUD)",
-   "age_days": 4.24,
-   "lag_days": 2.88,
+   "age_days": 6.97,
+   "lag_days": 5.88,
    "limit_days": 4,
    "companion": null,
-   "behind_limit": false
+   "behind_limit": true
   },
   {
    "record": "rain_pairs",
    "shipped_utc": "2026-11-06T01:30Z",
-   "source_latest_utc": "2026-11-08T00:59Z",
+   "source_latest_utc": "2026-11-10T17:59Z",
    "source": "CMR GPM_3IMERGHHE latest granule (C2723758340-GES_DISC)",
-   "age_days": 2.17,
-   "lag_days": 1.98,
+   "age_days": 4.91,
+   "lag_days": 4.69,
    "limit_days": 3,
    "companion": null,
-   "behind_limit": false
+   "behind_limit": true
   },
   {
    "record": "nightlights",
    "shipped_utc": "2026-10-26T00:00Z",
    "source_latest_utc": "2026-11-05T00:00Z",
    "source": "CMR VJ146A2 latest granule (C3370789118-LAADS)",
-   "age_days": 13.24,
+   "age_days": 15.97,
    "lag_days": 10.0,
    "limit_days": 14,
    "companion": null,
@@ -12732,43 +12842,43 @@
   {
    "record": "firms_daily",
    "shipped_utc": "2026-11-06T08:00Z",
-   "source_latest_utc": "2026-11-08T00:00Z",
+   "source_latest_utc": "2026-11-10T00:00Z",
    "source": "FIRMS data availability VIIRS_NOAA21_NRT",
-   "age_days": 1.9,
-   "lag_days": 1.67,
+   "age_days": 4.63,
+   "lag_days": 3.67,
    "limit_days": 2,
    "companion": null,
-   "behind_limit": false
+   "behind_limit": true
   },
   {
    "record": "rel_5624",
    "shipped_utc": "2026-11-07T08:00Z",
-   "source_latest_utc": "2026-11-07T06:00Z",
+   "source_latest_utc": "2026-11-10T06:00Z",
    "source": "SVS 5624 media Last-Modified GMAO_global_smoke_forecast_4096x2048.mp4",
-   "age_days": 0.9,
-   "lag_days": -0.08,
+   "age_days": 3.64,
+   "lag_days": 2.92,
    "limit_days": 2.0,
    "companion": null,
-   "behind_limit": false
+   "behind_limit": true
   },
   {
    "record": "rel_5650",
    "shipped_utc": "2026-11-06T02:30Z",
-   "source_latest_utc": "2026-11-07T08:30Z",
-   "source": "SVS 5650 2048x1024_2x1_30p/annotated_flat/imergert_composite.2026-11-07T08:30:00Z_2048x1024.annotated.png",
-   "age_days": 2.13,
-   "lag_days": 1.25,
+   "source_latest_utc": "2026-11-10T17:30Z",
+   "source": "SVS 5650 2048x1024_2x1_30p/annotated_flat/imergert_composite.2026-11-10T17:30:00Z_2048x1024.annotated.png",
+   "age_days": 4.86,
+   "lag_days": 4.62,
    "limit_days": 2.0,
    "companion": null,
-   "behind_limit": false
+   "behind_limit": true
   },
   {
    "record": "eic_5147",
    "shipped_utc": "2026-10-28T22:00Z",
-   "source_latest_utc": "2026-11-07T07:30Z",
+   "source_latest_utc": "2026-11-09T11:53Z",
    "source": "SVS 5147 2048x1024_2x1_12p/MC01_stage3_GMAO_near_surface_temperature_2048x1024_en-hwtool/00000372.png",
-   "age_days": 10.32,
-   "lag_days": 9.4,
+   "age_days": 13.05,
+   "lag_days": 11.58,
    "limit_days": null,
    "companion": null,
    "behind_limit": false
@@ -12776,10 +12886,10 @@
   {
    "record": "eic_5148",
    "shipped_utc": "2026-10-28T22:00Z",
-   "source_latest_utc": "2026-11-07T07:31Z",
+   "source_latest_utc": "2026-11-09T11:54Z",
    "source": "SVS 5148 2048x1024_2x1_12p/MC02_stage3_GMAO_near_surface_wind_2048x1024_en-hwtool/00000372.png",
-   "age_days": 10.32,
-   "lag_days": 9.4,
+   "age_days": 13.05,
+   "lag_days": 11.58,
    "limit_days": null,
    "companion": null,
    "behind_limit": false
@@ -12787,10 +12897,10 @@
   {
    "record": "eic_5149",
    "shipped_utc": "2026-10-28T22:00Z",
-   "source_latest_utc": "2026-11-07T07:32Z",
+   "source_latest_utc": "2026-11-09T11:55Z",
    "source": "SVS 5149 2048x1024_2x1_12p/MC03_stage3_GMAO_precipitation_2048x1024_en-hwtool/00000372.png",
-   "age_days": 10.32,
-   "lag_days": 9.4,
+   "age_days": 13.05,
+   "lag_days": 11.58,
    "limit_days": null,
    "companion": null,
    "behind_limit": false
@@ -12798,10 +12908,10 @@
   {
    "record": "eic_5150",
    "shipped_utc": "2026-10-29T22:00Z",
-   "source_latest_utc": "2026-11-07T07:17Z",
+   "source_latest_utc": "2026-11-10T07:16Z",
    "source": "SVS 5150 media Last-Modified MC04_stage3_GMAO_near_surface_humidity_2048x1024_en.mp4",
-   "age_days": 9.32,
-   "lag_days": 8.39,
+   "age_days": 12.05,
+   "lag_days": 11.39,
    "limit_days": null,
    "companion": null,
    "behind_limit": false
@@ -12809,10 +12919,10 @@
   {
    "record": "eic_5151",
    "shipped_utc": "2026-10-28T22:00Z",
-   "source_latest_utc": "2026-11-07T07:33Z",
+   "source_latest_utc": "2026-11-09T11:58Z",
    "source": "SVS 5151 2048x1024_2x1_12p/MC01_stage4_GMAO_pm25_2048x1024_en-hwtool/00000372.png",
-   "age_days": 10.32,
-   "lag_days": 9.4,
+   "age_days": 13.05,
+   "lag_days": 11.58,
    "limit_days": null,
    "companion": null,
    "behind_limit": false
@@ -12820,10 +12930,10 @@
   {
    "record": "eic_5152",
    "shipped_utc": "2026-10-28T22:00Z",
-   "source_latest_utc": "2026-11-07T07:34Z",
+   "source_latest_utc": "2026-11-09T11:59Z",
    "source": "SVS 5152 2048x1024_2x1_12p/MC02_stage4_GMAO_O3_2048x1024_en-hwtool/00000372.png",
-   "age_days": 10.32,
-   "lag_days": 9.4,
+   "age_days": 13.05,
+   "lag_days": 11.58,
    "limit_days": null,
    "companion": null,
    "behind_limit": false
@@ -12831,10 +12941,10 @@
   {
    "record": "eic_5153",
    "shipped_utc": "2026-10-28T22:00Z",
-   "source_latest_utc": "2026-11-07T07:35Z",
+   "source_latest_utc": "2026-11-09T12:00Z",
    "source": "SVS 5153 2048x1024_2x1_12p/MC03_stage4_GMAO_CO_2048x1024_en-hwtool/00000372.png",
-   "age_days": 10.32,
-   "lag_days": 9.4,
+   "age_days": 13.05,
+   "lag_days": 11.58,
    "limit_days": null,
    "companion": null,
    "behind_limit": false
@@ -12842,10 +12952,10 @@
   {
    "record": "eic_5154",
    "shipped_utc": "2026-10-28T22:00Z",
-   "source_latest_utc": "2026-11-07T07:36Z",
+   "source_latest_utc": "2026-11-09T12:01Z",
    "source": "SVS 5154 2048x1024_2x1_12p/MC04_stage4_GMAO_NO2_2048x1024_en-hwtool/00000372.png",
-   "age_days": 10.32,
-   "lag_days": 9.4,
+   "age_days": 13.05,
+   "lag_days": 11.58,
    "limit_days": null,
    "companion": null,
    "behind_limit": false
@@ -12855,7 +12965,7 @@
    "shipped_utc": "2026-06-13T00:00Z",
    "source_latest_utc": "2026-06-13T00:00Z",
    "source": "SVS 5544 4096x2048_2x1_30p/equirectangular_w_dates/SNPP_VIIRS.20260613.ndvi_w_snow.oceanblue.annotated.png",
-   "age_days": 148.24,
+   "age_days": 150.97,
    "lag_days": 0.0,
    "limit_days": null,
    "companion": null,
@@ -12864,10 +12974,10 @@
   {
    "record": "rel_oisst",
    "shipped_utc": "2026-10-29T12:00Z",
-   "source_latest_utc": "2026-11-06T12:00Z",
+   "source_latest_utc": "2026-11-09T12:00Z",
    "source": "ERDDAP ncdcOisst21NrtAgg time_coverage_end",
-   "age_days": 9.74,
-   "lag_days": 8.0,
+   "age_days": 12.47,
+   "lag_days": 11.0,
    "limit_days": null,
    "companion": null,
    "behind_limit": false
@@ -12875,7 +12985,7 @@
   {
    "record": "oscar_nrt",
    "shipped_utc": null,
-   "source_latest_utc": "2026-11-05T23:59Z",
+   "source_latest_utc": "2026-11-08T23:59Z",
    "source": "CMR OSCAR_L4_OC_NRT_V2.0 latest granule (C2102958977-POCLOUD)",
    "age_days": null,
    "lag_days": null,
@@ -12899,7 +13009,7 @@
    "shipped_utc": "2026-10-31T00:00Z",
    "source_latest_utc": "2026-10-31T00:00Z",
    "source": "GIBS GetCapabilities VIIRS_NOAA20_DayNightBand_At_Sensor_Radiance default time",
-   "age_days": 8.24,
+   "age_days": 10.97,
    "lag_days": 0.0,
    "limit_days": null,
    "companion": null,
@@ -12910,7 +13020,7 @@
    "shipped_utc": "2026-10-30T00:00Z",
    "source_latest_utc": "2026-10-30T00:00Z",
    "source": "GIBS GetCapabilities IMERG_Precipitation_Rate default time",
-   "age_days": 9.24,
+   "age_days": 11.97,
    "lag_days": 0.0,
    "limit_days": null,
    "companion": null,
@@ -12921,7 +13031,7 @@
    "shipped_utc": "2026-10-29T00:00Z",
    "source_latest_utc": "2026-10-29T00:00Z",
    "source": "GIBS GetCapabilities GHRSST_L4_MUR_Sea_Surface_Temperature default time",
-   "age_days": 10.24,
+   "age_days": 12.97,
    "lag_days": 0.0,
    "limit_days": null,
    "companion": null,
@@ -12932,7 +13042,7 @@
    "shipped_utc": "2026-10-30T00:00Z",
    "source_latest_utc": "2026-10-30T00:00Z",
    "source": "GIBS GetCapabilities MODIS_Terra_L3_Land_Surface_Temp_Daily_Day default time",
-   "age_days": 9.24,
+   "age_days": 11.97,
    "lag_days": 0.0,
    "limit_days": null,
    "companion": null,
@@ -12943,7 +13053,7 @@
    "shipped_utc": "2026-10-29T00:00Z",
    "source_latest_utc": "2026-10-29T00:00Z",
    "source": "GIBS GetCapabilities GHRSST_L4_MUR_Sea_Ice_Concentration default time",
-   "age_days": 10.24,
+   "age_days": 12.97,
    "lag_days": 0.0,
    "limit_days": null,
    "companion": null,
@@ -12954,7 +13064,7 @@
    "shipped_utc": "2026-10-30T00:00Z",
    "source_latest_utc": "2026-10-30T00:00Z",
    "source": "GIBS GetCapabilities MODIS_Combined_Value_Added_AOD default time",
-   "age_days": 9.24,
+   "age_days": 11.97,
    "lag_days": 0.0,
    "limit_days": null,
    "companion": null,
@@ -12965,7 +13075,7 @@
    "shipped_utc": "2026-10-31T00:00Z",
    "source_latest_utc": "2026-10-31T00:00Z",
    "source": "GIBS GetCapabilities OMI_Aerosol_Index default time",
-   "age_days": 8.24,
+   "age_days": 10.97,
    "lag_days": 0.0,
    "limit_days": null,
    "companion": null,
@@ -12976,7 +13086,7 @@
    "shipped_utc": "2026-10-26T00:00Z",
    "source_latest_utc": "2026-10-26T00:00Z",
    "source": "GIBS GetCapabilities AIRS_L3_Carbon_Monoxide_500hPa_Volume_Mixing_Ratio_Daily_Day default time",
-   "age_days": 13.24,
+   "age_days": 15.97,
    "lag_days": 0.0,
    "limit_days": null,
    "companion": null,
@@ -12987,7 +13097,7 @@
    "shipped_utc": "2026-10-26T00:00Z",
    "source_latest_utc": "2026-10-26T00:00Z",
    "source": "GIBS GetCapabilities OMI_Nitrogen_Dioxide_Tropo_Column default time",
-   "age_days": 13.24,
+   "age_days": 15.97,
    "lag_days": 0.0,
    "limit_days": null,
    "companion": null,
@@ -12998,7 +13108,7 @@
    "shipped_utc": "2026-10-31T00:00Z",
    "source_latest_utc": "2026-10-31T00:00Z",
    "source": "GIBS GetCapabilities VIIRS_NOAA20_AOD_Deep_Blue_Land_Ocean default time",
-   "age_days": 8.24,
+   "age_days": 10.97,
    "lag_days": 0.0,
    "limit_days": null,
    "companion": null,
@@ -13009,7 +13119,7 @@
    "shipped_utc": "2026-10-30T00:00Z",
    "source_latest_utc": "2026-10-30T00:00Z",
    "source": "GIBS GetCapabilities VIIRS_NOAA20_NDVI_8Day default time",
-   "age_days": 9.24,
+   "age_days": 11.97,
    "lag_days": 0.0,
    "limit_days": null,
    "companion": null,
@@ -13020,7 +13130,7 @@
    "shipped_utc": "2026-10-31T00:00Z",
    "source_latest_utc": "2026-10-31T00:00Z",
    "source": "GIBS GetCapabilities MODIS_Aqua_L2_Chlorophyll_A default time",
-   "age_days": 8.24,
+   "age_days": 10.97,
    "lag_days": 0.0,
    "limit_days": null,
    "companion": null,
@@ -13031,7 +13141,7 @@
    "shipped_utc": "2026-10-25T00:00Z",
    "source_latest_utc": "2026-10-25T00:00Z",
    "source": "GIBS GetCapabilities SMAP_L3_Sea_Surface_Salinity_CAP_8Day_RunningMean default time",
-   "age_days": 14.24,
+   "age_days": 16.97,
    "lag_days": 0.0,
    "limit_days": null,
    "companion": null,
@@ -13042,7 +13152,7 @@
    "shipped_utc": "1995-05-04T00:00Z",
    "source_latest_utc": "1995-05-04T00:00Z",
    "source": "GIBS GetCapabilities LIS_High_Resolution_Full_Climatology_Combined_Flash_Rate_Climatology default time",
-   "age_days": 11511.24,
+   "age_days": 11513.97,
    "lag_days": 0.0,
    "limit_days": null,
    "companion": null,
@@ -13066,7 +13176,7 @@
     "source": "FIRMS data availability VIIRS_SNPP_NRT",
     "stopped": true,
     "replacement": "VIIRS_NOAA20_NRT / VIIRS_NOAA21_NRT",
-    "replacement_latest_utc": "2026-11-08",
+    "replacement_latest_utc": "2026-11-10",
     "replacement_source": "FIRMS data availability VIIRS_NOAA20_NRT"
    },
    {
@@ -13084,7 +13194,7 @@
     "source": "CMR AERDB_L2_VIIRS_SNPP latest granule (C2600303218-LAADS)",
     "stopped": true,
     "replacement": "AERDB_L2_VIIRS_NOAA20",
-    "replacement_latest_utc": "2026-11-07",
+    "replacement_latest_utc": "2026-11-10",
     "replacement_source": "CMR AERDB_L2_VIIRS_NOAA20 latest granule (C2600305692-LAADS)"
    }
   ],
@@ -14085,7 +14195,7 @@
    "svs_id": 5639,
    "update_date": [
     "2026-10-31T02:00:14.271837-04:00",
-    "2026-11-07T02:00:08.372384-05:00"
+    "2026-11-08T02:00:07.067314-05:00"
    ],
    "title_changed": false,
    "assets_added": [],
@@ -14179,8 +14289,8 @@
   "https://lpdaac.usgs.gov/products/mcd12c1v006/": 200,
   "https://nasa.gov/hubble": 200,
   "https://ntrs.nasa.gov/citations/20180005253": 200,
-  "https://podaac.jpl.nasa.gov/dataset/MERGED_TP_J1_OSTM_OST_ALL_V51": 200,
-  "https://podaac.jpl.nasa.gov/dataset/OISSS_L4_multimission_7day_v1": 200,
+  "https://podaac.jpl.nasa.gov/dataset/MERGED_TP_J1_OSTM_OST_ALL_V51": "ReadTimeout",
+  "https://podaac.jpl.nasa.gov/dataset/OISSS_L4_multimission_7day_v1": "ReadTimeout",
   "https://portal.nccs.nasa.gov/datashare/gmao/geos-cf/v2/": 200,
   "https://pubs.giss.nasa.gov/abs/ha00510u.html": 200,
   "https://pubs.giss.nasa.gov/abs/le05800h.html": 200,
@@ -14195,7 +14305,7 @@
   "https://svs.gsfc.nasa.gov/3912/": 200,
   "https://svs.gsfc.nasa.gov/3913/": 200,
   "https://svs.gsfc.nasa.gov/4272/": 200,
-  "https://svs.gsfc.nasa.gov/4284/": 200,
+  "https://svs.gsfc.nasa.gov/4284/": "ReadTimeout",
   "https://svs.gsfc.nasa.gov/4332/": 200,
   "https://svs.gsfc.nasa.gov/4345/": 200,
   "https://svs.gsfc.nasa.gov/4353/": 200,
@@ -14221,7 +14331,7 @@
   "https://svs.gsfc.nasa.gov/5126/": 200,
   "https://svs.gsfc.nasa.gov/5142/": 200,
   "https://svs.gsfc.nasa.gov/5147/": 200,
-  "https://svs.gsfc.nasa.gov/5148/": 200,
+  "https://svs.gsfc.nasa.gov/5148/": "ReadTimeout",
   "https://svs.gsfc.nasa.gov/5149/": 200,
   "https://svs.gsfc.nasa.gov/5150/": 200,
   "https://svs.gsfc.nasa.gov/5151/": 200,
@@ -14475,6 +14585,6 @@
   }
  ],
  "app": {
-  "summary": "67 of 67 records pass in chromium, firefox"
+  "summary": "65 of 67 records pass in chromium, firefox"
  }
 }
