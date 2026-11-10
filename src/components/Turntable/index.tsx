@@ -11,7 +11,7 @@ import { CaptionBar } from "../CaptionBar";
 import { useCommands } from "../Commands/use-commands";
 import { MAP_REGION_ID } from "../ExploreControls";
 import { useLiveData } from "../LiveData/use-live-data";
-import { CreditsLink } from "./CreditsLink";
+import { CreditsDialog } from "./CreditsLink";
 import { Dock } from "./Dock";
 import { Drawers, type DrawerId } from "./Drawers";
 import { ttFor, useTT } from "./i18n";
@@ -72,6 +72,7 @@ export function Turntable() {
   const settings = settingsState[0];
   const [drawer, setDrawer] = useState<DrawerId | null>(null);
   const [sceneOpen, setSceneOpen] = useState<SceneId | null>(null);
+  const [creditsOpen, setCreditsOpen] = useState(false);
   const details = useDetails();
   const record = tr(RECORD_LABELS[state.track]);
   const frameTime = recordFrames(state.track, fields)[0]?.meta.frame_time_utc ?? null;
@@ -242,13 +243,14 @@ export function Turntable() {
               onSettings={() => setDrawer("settings")}
               onHelp={commands.openHelp}
               onSources={() => setDrawer("sources")}
-              credits={<CreditsLink className="flex h-11 items-center rounded-lg px-3 text-body text-moon underline underline-offset-4 hover:bg-tide" />}
+              onCredits={() => setCreditsOpen(true)}
               bookmarks={geo?.gazetteer.bookmarks.slice(0, MAX_BOOKMARKS).map((b) => b.name) ?? []}
               onBookmark={actions.bookmark}
               caption={<CaptionBar soundOnly className="min-h-0 w-fit max-w-full text-body sm:text-lead" />}
             />
           </div>
         </div>
+        <CreditsDialog open={creditsOpen} onOpenChange={setCreditsOpen} />
         <Drawers
           open={drawer}
           onClose={() => setDrawer(null)}

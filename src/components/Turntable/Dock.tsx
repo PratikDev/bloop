@@ -12,6 +12,7 @@ import {
   Route,
   ScanEye,
   Search,
+  ScrollText,
   Settings2,
   ShieldCheck,
   SlidersHorizontal,
@@ -56,8 +57,8 @@ export interface DockProps {
   onHelp(): void;
   /** The sound caption, above the needle sliders. */
   caption: ReactNode;
-  /** The credits link, at the end of the keys. */
-  credits: ReactNode;
+  /** Opens the credits (a dialog kept outside More, so it survives the menu closing). */
+  onCredits(): void;
 }
 
 /** The Turntable's bar: the shared mini player with four labelled keys and More. Every action comes from one list. */
@@ -81,6 +82,7 @@ export function Dock({ ref, ...p }: DockProps) {
     { id: "records", place: "more", icon: Disc3, label: tt("turntable.records"), keys: "R", view: "records" },
     { id: "tour", place: "more", icon: Route, label: tt(p.touring ? "turntable.tour.stop" : "turntable.tour.start"), keys: "T", pressed: p.touring, onClick: p.onTour },
     { id: "speed", place: "more", icon: Gauge, label: tt("turntable.dock.speed"), keys: "[ ]", view: "speed" },
+    { id: "credits", place: "more", icon: ScrollText, label: tt("turntable.creditsLink"), onClick: p.onCredits },
     { id: "settings", place: "more", icon: Settings2, label: tt("turntable.dock.settings"), onClick: p.onSettings },
   ];
 
@@ -145,7 +147,7 @@ export function Dock({ ref, ...p }: DockProps) {
                   <DockButton key={a.id} icon={a.icon} label={a.label} short={a.short} keys={a.keys} pressed={a.pressed} onClick={a.onClick} />
                 ),
               )}
-            <DockMore actions={actions.filter((a) => a.place === "more")} view={view} footer={p.credits} />
+            <DockMore actions={actions.filter((a) => a.place === "more")} view={view} />
           </>
         }
       />
