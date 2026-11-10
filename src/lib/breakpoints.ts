@@ -8,4 +8,6 @@ export const MEDIA = {
   phone: "(max-width: 767px)",
   /** Tailwind `lg` (1024 px) and up: plates and the Inspector sit on the map. Below it they stack under the map, and the Inspector is a sheet. */
   mapOverlay: "(min-width: 1024px)",
+  /** Windows High Contrast and other forced-colour modes: canvases switch to the system colours (lib/forced-colors.ts). */
+  forcedColors: "(forced-colors: active)",
 } as const;

@@ -65,7 +65,7 @@ export function NeedleChip({ subscribe, place, details, reserved, dock }: Props)
       chip={
         r && (
           <>
-            <span ref={swatch} aria-hidden="true" className="inline-block size-3.5 shrink-0 self-center rounded-full border-2 border-navy bg-paper" />
+            <span ref={swatch} data-swatch aria-hidden="true" className="inline-block size-3.5 shrink-0 self-center rounded-full border-2 border-navy bg-paper" />
             {/* A number stays on one line; the "no data" sentence may wrap on a phone. */}
             <span className={cn("readout-figure text-title text-moon", main && "whitespace-nowrap")}>
               {main ? (

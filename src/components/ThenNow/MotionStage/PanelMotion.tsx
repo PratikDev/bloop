@@ -25,8 +25,8 @@ export function PanelStripes({ win, baseline, playedThrough }: { win: DemoWindow
         const value = win.values[i];
         const played = playedThrough === null || year <= playedThrough;
         return (
-          <div key={year} className="absolute inset-y-0 border border-navy/25 bg-paper" style={{ left: `${left}%`, width: `${right - left}%` }}>
-            {value !== null && <div className={cn("stripe-fill size-full", value >= baseline ? "bg-bubble" : "bg-dial")} data-played={played || undefined} />}
+          <div key={year} data-stripe className="absolute inset-y-0 border border-navy/25 bg-paper" style={{ left: `${left}%`, width: `${right - left}%` }}>
+            {value !== null && <div className={cn("stripe-fill size-full", value >= baseline ? "bg-bubble" : "bg-dial")} data-stripe-fill={value >= baseline ? "above" : "below"} data-played={played || undefined} />}
           </div>
         );
       })}
@@ -78,7 +78,7 @@ export function PanelPlayhead({ side, nA, nB, part, paused }: { side: "then" | "
 
   return (
     <div aria-hidden="true" className="pointer-events-none absolute overflow-hidden" style={plot}>
-      <div ref={line} className="absolute inset-y-0 left-0 w-full border-l-2 border-shapla opacity-0" />
+      <div ref={line} data-playhead className="absolute inset-y-0 left-0 w-full border-l-2 border-shapla opacity-0" />
     </div>
   );
 }

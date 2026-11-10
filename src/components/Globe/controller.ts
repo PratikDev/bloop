@@ -3,6 +3,7 @@
 
 import { readPalette } from "@/lib/css-tokens";
 import { START_CURSOR, type LatLon } from "@/lib/data";
+import { forcedColors, onForcedColorsChange } from "@/lib/forced-colors";
 import { subscribeTicker } from "@/hooks/use-ticker";
 import { setStarDrift } from "../Starfield/drift";
 import { createGlobeRenderer, NO_PULSE, type GlobeView } from "./renderer";
@@ -58,8 +59,23 @@ const tilt = (lat: number) => Math.max(-MAX_TILT, Math.min(MAX_TILT, lat));
 
 export function startGlobe(canvas: HTMLCanvasElement, read: () => GlobeOptions): GlobeControl | null {
   const first = read();
-  const renderer = createGlobeRenderer(canvas, first.images, readPalette(), toRadians(first.focus ?? DEFAULT_TARGET));
+  const palette = readPalette();
+  const renderer = createGlobeRenderer(canvas, first.images, palette, toRadians(first.focus ?? DEFAULT_TARGET));
   if (!renderer) return null;
+
+  // Forced colours: the outline in CanvasText and the ring in Highlight, whatever colour the stage asked for.
+  let ringHex = first.ringColor ?? palette.shapla;
+  let system = forcedColors();
+  const paint = () => {
+    renderer.setEdge(system?.text ?? palette.line);
+    renderer.setRing(system?.highlight ?? ringHex);
+  };
+  paint();
+  const offForced = onForcedColorsChange((next) => {
+    system = next;
+    paint();
+    renderer.draw(view);
+  });
 
   const start = first.focus ? toRadians(first.focus) : { lat: 14 * DEG, lon: START_CURSOR.lon * DEG };
   const view: GlobeView = { lon: start.lon, lat: tilt(start.lat), pulse: NO_PULSE };
@@ -181,7 +197,8 @@ export function startGlobe(canvas: HTMLCanvasElement, read: () => GlobeOptions):
       wake();
     },
     setRing(hex) {
-      renderer.setRing(hex);
+      ringHex = hex;
+      paint();
       wake();
     },
     pulse() {
@@ -196,6 +213,7 @@ export function startGlobe(canvas: HTMLCanvasElement, read: () => GlobeOptions):
     wake,
     dispose() {
       stop();
+      offForced();
       sizeObserver.disconnect();
       canvas.removeEventListener("pointerdown", down);
       canvas.removeEventListener("pointermove", move);

@@ -25,6 +25,8 @@ export interface GlobeRenderer {
   /** Where the ring sits (radians). */
   setTarget(target: { lat: number; lon: number }): void;
   setRing(hex: string): void;
+  /** The disc's outline colour. */
+  setEdge(hex: string): void;
   dispose(): void;
 }
 
@@ -82,10 +84,10 @@ export function createGlobeRenderer(canvas: HTMLCanvasElement, images: readonly 
   setImages(images);
 
   const at = (name: string) => gl.getUniformLocation(program, name);
-  const u = { res: at("u_res"), lon: at("u_lon"), lat: at("u_lat"), pulse: at("u_pulse"), outline: at("u_outline"), disc: at("u_disc"), target: at("u_target"), ring: at("u_ring") };
+  const u = { res: at("u_res"), lon: at("u_lon"), lat: at("u_lat"), pulse: at("u_pulse"), outline: at("u_outline"), disc: at("u_disc"), target: at("u_target"), ring: at("u_ring"), edge: at("u_edge") };
   gl.uniform2f(u.target, target.lat, target.lon);
   gl.uniform3f(at("u_land"), ...toVec3(palette.land));
-  gl.uniform3f(at("u_edge"), ...toVec3(palette.line));
+  gl.uniform3f(u.edge, ...toVec3(palette.line));
   gl.uniform3f(u.ring, ...toVec3(palette.shapla));
 
   return {
@@ -113,6 +115,9 @@ export function createGlobeRenderer(canvas: HTMLCanvasElement, images: readonly 
     },
     setRing(hex) {
       gl.uniform3f(u.ring, ...toVec3(hex));
+    },
+    setEdge(hex) {
+      gl.uniform3f(u.edge, ...toVec3(hex));
     },
     dispose() {
       gl.deleteTexture(texture);

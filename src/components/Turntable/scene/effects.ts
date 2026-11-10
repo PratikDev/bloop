@@ -21,6 +21,7 @@ import {
   Vector3,
 } from "three";
 import type { Palette } from "@/lib/css-tokens";
+import { forcedColors } from "@/lib/forced-colors";
 import { parallel, pathsGeometry } from "./geometry";
 import { onOverlay } from "./layers";
 
@@ -128,7 +129,10 @@ export function createEffects(palette: Palette): Effects {
   const groove = new LineSegments(new BufferGeometry(), grooveMaterial);
   groove.renderOrder = 4;
 
-  const navy = new Color(palette.moon);
+  // Forced colours (read when the scene is built): the swatch's outline in CanvasText, the rings in Highlight.
+  const system = forcedColors();
+  const navy = new Color(system?.text ?? palette.moon);
+  const ringEdge = new Color(system?.highlight ?? palette.moon);
   const paper = new Color(palette.star);
   const discGeometry = new CircleGeometry(1, 48);
   const swatchHalfSize = SWATCH.radiusPx + SWATCH.outlinePx + DISC_PADDING_PX;
@@ -146,7 +150,7 @@ export function createEffects(palette: Palette): Effects {
 
   const ringHalfSize = RING.toPx + DISC_PADDING_PX;
   const rings = Array.from({ length: RING.pool }, () => {
-    const uniforms = { edge: { value: navy }, radius: { value: RING.fromPx }, halfWidth: { value: RING.halfWidthPx }, opacity: { value: 0 }, halfSize: { value: ringHalfSize } };
+    const uniforms = { edge: { value: ringEdge }, radius: { value: RING.fromPx }, halfWidth: { value: RING.halfWidthPx }, opacity: { value: 0 }, halfSize: { value: ringHalfSize } };
     const material = new ShaderMaterial({ uniforms, vertexShader: DISC_VERTEX, fragmentShader: RING_FRAGMENT, transparent: true, depthWrite: false });
     const mesh = new Mesh(discGeometry, material);
     mesh.renderOrder = 5;

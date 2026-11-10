@@ -883,6 +883,32 @@ html[data-reduce-motion="true"] .star-twinkle {
   .starfield {
     display: none;
   }
+  /* Session B stages. The swatch keeps the frame's own colour (it is the data), with a system outline. */
+  [data-swatch] {
+    forced-color-adjust: none;
+    border-color: CanvasText;
+  }
+  /* Then vs Now stripes: an outline per year; played years filled, above and below the baseline in two system colours. */
+  [data-stripe] {
+    forced-color-adjust: none;
+    background-color: Canvas;
+    border-color: GrayText;
+  }
+  [data-stripe-fill="above"] {
+    background-color: Highlight;
+  }
+  [data-stripe-fill="below"] {
+    background-color: LinkText;
+  }
+  [data-playhead] {
+    forced-color-adjust: none;
+    border-color: CanvasText;
+  }
+  /* Turntable: the chosen tab, the search result under the arrow keys and an open popover's key. */
+  :is([data-tt-stage], [data-tt-occluder]) :is([aria-selected="true"], [aria-expanded="true"]) {
+    border-color: Highlight;
+    outline: 2px solid Highlight;
+  }
 }
 
 /* ---- Comfortable text (Settings): larger, normal-width type for low-vision users. ---- */
