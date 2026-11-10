@@ -1,16 +1,20 @@
-// HOOK: orchestra. The one place the DATA records' notes go through an instrument family (Earth Orchestra, built by
-// ART in parallel; the orchestrator wires it at integration). Until then every note is a plain tone (a sine with a soft
-// envelope), and every call site names its category in a "// HOOK: orchestra (<category>)" comment:
-//   fire weather chord, Fire Geiger clicks → "fire" (Fire and smoke)
-//   landslide rumble                       → "land" (Land and life)
-//   night-light notes                      → "people" (People and carbon)
-// To wire it: set `orchestra` below to ART's OrchestraApi (src/lib/audio/layers/types.ts) and keep plainVoice as the
-// "Plain tones" style. A voice settles at exactly note.hz (value → pitch never changes); only timbre changes.
+// The one place the DATA records' pitched notes go through an instrument family (Earth Orchestra). The family comes from
+// the record's category in the generated table (getCategory: fires_fwi → fire, nightlights_bm → people, the radar
+// method → the ocean voice it is applied to). Plain tones (a sine with a soft envelope) when Earth Orchestra is off, the
+// listener chose "Plain tones", or the record has no category. Pitched notes only: the Geiger clicks and the landslide
+// rumble are fixed categorical sounds (filtered noise) and keep their own design. A family note settles at exactly
+// note.hz (value → pitch never changes); only timbre changes.
 
-import type { EarthCategory, OrchestraApi, OrchestraNote, OrchestraNoteHandle, OrchestraVoice } from "@/lib/audio/layers/types";
+import type { OrchestraApi, OrchestraNote, OrchestraNoteHandle, OrchestraVoice } from "@/lib/audio/layers/types";
+import { orchestra as earthOrchestra } from "@/lib/audio/orchestra";
+import { getArt } from "@/lib/art/settings";
+import { FLAGS } from "@/lib/flags";
 
-/** HOOK: orchestra. null until integration (ART's OrchestraApi goes here). */
-export const orchestra: OrchestraApi | null = null;
+/** ART's OrchestraApi, when Earth Orchestra is on. */
+export const orchestra: OrchestraApi | null = FLAGS.artOrchestra ? earthOrchestra : null;
+
+/** What a DATA call site plays a note through. */
+export type DataVoice = Pick<OrchestraVoice, "note">;
 
 /** A plain tone: one sine, a soft attack, a release on stop. Settles at exactly note.hz. */
 function plainNote(ctx: BaseAudioContext, out: AudioNode, note: OrchestraNote): OrchestraNoteHandle {
@@ -45,9 +49,14 @@ function plainNote(ctx: BaseAudioContext, out: AudioNode, note: OrchestraNote): 
   };
 }
 
-const plain = (category: EarthCategory): OrchestraVoice => ({ category, note: plainNote });
+const PLAIN: DataVoice = { note: plainNote };
 
-/** The voice a DATA note plays through: the category's orchestra family once wired, plain tones until then. */
-export function dataVoice(category: EarthCategory): OrchestraVoice {
-  return orchestra?.orchestraVoice(category) ?? plain(category);
+/** The record's Earth Orchestra family, or null (Earth Orchestra off, "Plain tones" chosen, or no category). */
+export function dataFamily(recordId: string): OrchestraVoice | null {
+  const category = orchestra?.getCategory(recordId) ?? null;
+  if (orchestra === null || category === null || getArt().style === "plain") return null;
+  return orchestra.orchestraVoice(category);
 }
+
+/** The voice a DATA record's note plays through: its family, or plain tones (see the top of this file). */
+export const dataVoice = (recordId: string): DataVoice => dataFamily(recordId) ?? PLAIN;

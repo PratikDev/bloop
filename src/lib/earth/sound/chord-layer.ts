@@ -5,6 +5,7 @@
 import { panFor, voiceSpec } from "@/lib/audio/mapping";
 import type { OrchestraNoteHandle } from "@/lib/audio/layers/types";
 import { chordHz, classesRule, classState } from "../classes";
+import { APP_RECORDS } from "../records";
 import { dataVoice } from "./orchestra-hook";
 import { dataOut, report } from "./out";
 
@@ -49,8 +50,8 @@ export function createChordLayer(voiceId: string): ChordLayer {
       release();
       hz = tones(code);
       const gain = voiceGain(voiceId) / Math.max(1, hz.length);
-      // HOOK: orchestra (fire): the fire-weather chord's tones go through the Fire and smoke family.
-      const voice = dataVoice("fire");
+      // Earth Orchestra: the record's family (Fire and smoke).
+      const voice = dataVoice(APP_RECORDS.fires_fwi.id);
       notes = hz.map((f) => voice.note(graph.ctx, pan as AudioNode, { hz: f, when: graph.ctx.currentTime, duration: HOLD_SEC, gain }));
       report("chord", { voice: voiceId, code, hz });
     },
@@ -59,8 +60,8 @@ export function createChordLayer(voiceId: string): ChordLayer {
       if (!out) return;
       const f = tones(code);
       const gain = voiceGain(voiceId) / Math.max(1, f.length);
-      // HOOK: orchestra (fire): the replay's daily chords.
-      const voice = dataVoice("fire");
+      // Earth Orchestra: the replay's daily chords, in the record's family.
+      const voice = dataVoice(APP_RECORDS.fires_fwi.id);
       for (const x of f) voice.note(out.graph.ctx, out.bus, { hz: x, when, duration, gain });
       report("chord", { voice: voiceId, code, hz: f });
     },

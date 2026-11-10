@@ -1,10 +1,12 @@
 // The radar method's instruments (P5), synthesised: a glockenspiel (a bright partial at 2.76× decaying fast), a marimba
 // (a partial at 4×, short and woody), and a soft choir-like pad (two slightly detuned triangles, slow attack). NASA's
-// method keeps its own instruments: these notes do not go through the Earth Orchestra (no orchestra hook here).
+// method keeps its own instruments: NASA mode never goes through the Earth Orchestra. Bloop mode is Bloop's data voice
+// (value → pitch, the ocean rule): with Earth Orchestra on it plays in the family of the voice it reads (dataVoice).
 
 import { voiceSpec } from "@/lib/audio/mapping";
 import type { Instrument, RadarMode, RadarNote } from "../radar";
-import { RADAR_VOICE } from "../radar";
+import { RADAR_RECORD, RADAR_VOICE } from "../radar";
+import { dataFamily } from "./orchestra-hook";
 import { dataOut, report } from "./out";
 
 const PARTIALS: Record<Instrument, { ratios: number[]; levels: number[]; attack: number; decay: number; type: OscillatorType }> = {
@@ -41,7 +43,11 @@ export function playRadar(mode: RadarMode, notes: readonly RadarNote[]): number 
   bus.connect(out.bus);
   const t0 = ctx.currentTime + 0.1;
   const gain = voiceSpec(RADAR_VOICE).sound.maxGain;
-  for (const n of notes) note(ctx, bus, n.instrument, n.hz, t0 + n.timeSec, gain);
+  const family = mode === "bloop" ? dataFamily(RADAR_RECORD) : null;
+  for (const n of notes) {
+    if (family) family.note(ctx, bus, { hz: n.hz, when: t0 + n.timeSec, duration: PARTIALS[n.instrument].decay, gain });
+    else note(ctx, bus, n.instrument, n.hz, t0 + n.timeSec, gain);
+  }
   stopAt = () => {
     bus.gain.setTargetAtTime(0, ctx.currentTime, 0.02);
     setTimeout(() => bus.disconnect(), 200);

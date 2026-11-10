@@ -4,6 +4,7 @@ import { useCallback, useEffect, useMemo, useRef, useState } from "react";
 import { useLoaded } from "@/hooks/use-loaded";
 import { voiceSpec } from "@/lib/audio/mapping";
 import { LIGHTS_VOICE, lightsSteps, loadNightLights } from "@/lib/earth/nightlights";
+import { APP_RECORDS } from "@/lib/earth/records";
 import { dataVoice } from "@/lib/earth/sound/orchestra-hook";
 import { dataOut, report } from "@/lib/earth/sound/out";
 import { useRecordPlay } from "../use-record-play";
@@ -45,8 +46,8 @@ export function useNightLights() {
       const out = dataOut();
       if (out && s.hz !== null) {
         const gain = voiceSpec(LIGHTS_VOICE).sound.maxGain;
-        // HOOK: orchestra (people): each night's note goes through the People and carbon family.
-        dataVoice("people").note(out.graph.ctx, out.bus, { hz: s.hz, when: out.graph.ctx.currentTime, duration: (STEP_MS / 1000) * NOTE_SHARE, gain });
+        // Earth Orchestra: each night's note in the record's family (People and carbon).
+        dataVoice(APP_RECORDS.nightlights_bm.id).note(out.graph.ctx, out.bus, { hz: s.hz, when: out.graph.ctx.currentTime, duration: (STEP_MS / 1000) * NOTE_SHARE, gain });
       }
       // A gap: a rest (no note at all), said on screen as "gap: cloud".
       report("lights", { radiance: s.radiance, hz: s.hz, step: i });
