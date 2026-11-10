@@ -1,0 +1,71 @@
+// Bangla for src/lib/i18n/en/braille.ts: the braille data explorer and the short braille labels. DRAFT, review first
+// (audit A-bn, 2026-11-10): written by Session A for Pratik's review. The braille labels (braille.bl.*) are short on
+// purpose: a braille display shows only a few cells.
+
+import type { brailleEn } from "../en/braille";
+import { localDigits } from "../format";
+import type { Translated } from "../types";
+
+const d = (s: string) => localDigits(s, "bn");
+
+export const brailleBn: Translated<typeof brailleEn> = {
+  "braille.heading": "ব্রেইল ডেটা এক্সপ্লোরার",
+  "braille.open": "ব্রেইল এক্সপ্লোরার",
+  "braille.close": "ব্রেইল এক্সপ্লোরার বন্ধ করুন",
+  "braille.instructions":
+    "আকার-লাইনে তথ্যগুলো ব্রেইল সেল হিসেবে থাকে। এর ক্যারেট সরান, বা রাউটিং কী চাপুন, সুই সরে যাবে: শব্দ আর মান-লাইন সাথে সাথে বদলায়। R চাপলে মানটি কথায় শোনা যায়। Escape চাপলে বন্ধ হয়।",
+  "braille.valueLine": "মান-লাইন",
+  "braille.shapeLine": "আকার-লাইন",
+  "braille.shapeRole": "ব্রেইল আকার",
+  "braille.channel": "কণ্ঠ",
+  "braille.mode": "আকারে দেখায়",
+  "braille.mode.time": "সময়ের সাথে",
+  "braille.mode.path": "অক্ষাংশ বরাবর",
+  "braille.mode.grid": "সুইয়ের চারপাশে ৩ × ৩",
+  "braille.modeAnnounce": (p) => `আকার: ${p.mode}`,
+  "braille.width": "ডিসপ্লের প্রস্থ (সেল)",
+  "braille.field": "আকারের ঘর",
+  "braille.field.textarea": "টেক্সট এরিয়া",
+  "braille.field.input": "এক লাইন",
+  "braille.degree": "ডিগ্রি",
+  "braille.degree.word": "ডিগ্রি সে.",
+  "braille.degree.symbol": "°সে",
+  "braille.preview": "ব্রেইলের পূর্বরূপ",
+  "braille.previewNote": "পূর্বরূপ: আপনার স্ক্রিন রিডারের ব্রেইল টেবিল আলাদা হতে পারে।",
+  "braille.review": "মান কথায় শুনুন (R)",
+  "braille.reviewOn": "কথায় শোনা চালু",
+  "braille.reviewOff": "কথায় শোনা বন্ধ",
+  "braille.loading": "আকার লোড হচ্ছে",
+  "braille.scale": "মাপকাঠি",
+  "braille.relativeScale": "আপেক্ষিক আকার, মাপকাঠি",
+  "braille.noData": "তথ্য নেই",
+  "braille.dry": "শুকনো",
+  "braille.snow": "তুষার",
+  "braille.atOrBelow": (p) => `${p.value} বা তার নিচে`,
+  "braille.name.ocean": "সমুদ্রপৃষ্ঠের তাপমাত্রা",
+  "braille.name.rain": "বৃষ্টি",
+  "braille.words.mmh": "মিলিমিটার প্রতি ঘণ্টা",
+  "braille.words.degC": "ডিগ্রি সেলসিয়াস",
+  "braille.words.observation": "পর্যবেক্ষণ",
+  "braille.reviewLine": (p) => `${p.name} ${p.value}, ${p.place}${p.time ? `, ${p.time} UTC` : ""}, ${p.badge}${p.status ? `, ${p.status}` : ""}`,
+  "braille.frame": (p) => `x${d(p.x)} y${d(p.y)}`,
+  "braille.txt.heading": "ব্রেইল-বান্ধব লেখা",
+  "braille.txt.show": "ব্রেইল-বান্ধব লেখা",
+  "braille.txt.download": ".txt ডাউনলোড করুন",
+  "braille.txt.note": "সাধারণ লেখা, আপনার ডিসপ্লের প্রস্থে ভাঙা, ব্রেইল নোট-টেকারের জন্য।",
+  "braille.bl.play": "বাজান",
+  "braille.bl.pause": "থামান",
+  "braille.bl.soundOn": "শব্দ চালু",
+  "braille.bl.sweep": "সুইপ",
+  "braille.bl.storm": "ঝড়",
+  "braille.bl.stop": "বন্ধ",
+  "braille.bl.braille": "ব্রেইল",
+  "braille.bl.keys": "কী",
+  "braille.bl.speak": "বলুন",
+  "braille.bl.record": (p) => `${p.record} ${p.playing ? "বাজছে" : "লাইভ"}`,
+  "braille.bl.flip": (p) => `${p.back ? "সামনে" : "পেছনে"} ${p.record}`,
+  "braille.bl.scene": (p) => `থ্রিডি ${p.scene}`,
+  "braille.bl.map": "মানচিত্র",
+  "braille.bl.shape": "আকার",
+  "braille.bl.save": "txt রাখুন",
+};

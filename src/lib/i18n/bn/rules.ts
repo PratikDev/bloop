@@ -2,7 +2,7 @@
 // L2's English ruleText() (src/lib/audio/mapping-text.ts), so it can never
 // disagree with the sound.
 
-import { ruleParts, ruleText } from "@/lib/audio/mapping";
+import { ruleParts, ruleText, voiceSpec } from "@/lib/audio/mapping";
 import type { VoiceSpec } from "@/types/data-contract";
 import { localDigits } from "../format";
 import { translateData } from "./data";
@@ -14,6 +14,7 @@ const PARAM_WORDS: Record<string, string> = {
   dropsPerSecond: "ঘনত্ব",
   dropsPerStep: "ঘনত্ব",
   gain: "জোর",
+  reverbSec: "প্রতিধ্বনির দৈর্ঘ্য", // draft, review first (audit A-bn)
 };
 
 /** A voice's Bangla name: mapping.json's, unless it is still marked TODO there. */
@@ -30,7 +31,6 @@ export function missingRuleWords(voice: VoiceSpec): string[] {
   const p = ruleParts(voice);
   if (!p) return [];
   const missing: string[] = [];
-  if (p.kind === "sameAs") missing.push("a rule shared with another voice (sameAs)");
   if (p.outputFalling) missing.push("a falling output (higher value, lower output)");
   if (p.param !== undefined && !(p.param in PARAM_WORDS)) missing.push(`parameter: ${p.param}`);
   // Symbols and acronyms (Hz, s, cm, °C, NDVI) stay as they are in Bangla; a unit with an English word needs translating.
@@ -45,6 +45,12 @@ export function ruleTextBn(voice: VoiceSpec): string {
   if (missingRuleWords(voice).length) return ruleText(voice);
   const name = voiceLabelBn(voice);
   const unit = translateData(p.inputUnit);
+
+  // Draft, review first (audit A-bn): the same sentence as English's sameAs rule.
+  if (p.kind === "sameAs" && p.sameAs) {
+    const other = voiceSpec(p.sameAs);
+    return `${name}: এক কানে দুটি সুর, দুটোই ${voiceLabelBn(other)}-এর নিয়মে (${ruleTextBn(other)}) প্রতি সেকেন্ডে বিটের সংখ্যা = দুই সুরের উচ্চতার পার্থক্য, Hz-এ।`;
+  }
 
   if (p.kind === "bands") {
     const what = p.inputTransform === "abs" ? `স্বাভাবিক থেকে কতটা দূরে (যেকোনো দিকে, ${unit})` : name;

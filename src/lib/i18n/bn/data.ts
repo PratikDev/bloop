@@ -91,6 +91,21 @@ const EXACT: Record<string, string> = {
   "One short bright tone at the extreme point's position": "চরম বিন্দুর অবস্থানে একটি ছোট উজ্জ্বল সুর",
   "Four soft bell-sine notes": "চারটি নরম ঘণ্টা-সাইন নোট",
 
+  // Drafts, review first (audit A-bn, 2026-11-10): mapping.json's newer voices (normal tone, clarity, unison,
+  // water's legend, the stale hiss).
+  "Land, sea ice or no data at this point (the reference tone stops too).": "এই বিন্দুতে স্থল, সমুদ্রের বরফ বা কোনো তথ্য নেই (রেফারেন্স সুরও থেমে যায়)।",
+  normal: "স্বাভাবিক",
+  "An echo tail on the ocean voice; only its length changes, never its loudness or pitch": "সমুদ্রের কণ্ঠের পেছনে একটি প্রতিধ্বনি; শুধু এর দৈর্ঘ্য বদলায়, কখনো জোর বা সুরের উচ্চতা নয়",
+  "seen just now": "এইমাত্র দেখা",
+  "a day ago": "এক দিন আগে",
+  "two days or more": "দুই দিন বা তার বেশি",
+  "Plays only when asked (U, or the Truth panel button).": "শুধু চাইলে বাজে (U, বা যাচাই প্যানেলের বোতাম)।",
+  "Two sines in the left ear: first the frame tone alone, then the file tone joins it": "বাঁ কানে দুটি সাইন তরঙ্গ: প্রথমে শুধু ফ্রেমের সুর, তারপর ফাইলের সুর যোগ হয়",
+  "Off while the data is within its freshness limit.": "তথ্য যতক্ষণ তার সতেজতার সীমার মধ্যে আছে, ততক্ষণ বন্ধ।",
+  "A soft, steady tape-like hiss under the voice while its data is older than its limit": "তথ্য তার সীমার চেয়ে পুরোনো হলে কণ্ঠের নিচে টেপের মতো নরম, স্থির হিস্‌ শব্দ",
+  "°C vs normal": "°সে, স্বাভাবিকের তুলনায়",
+  "hours since a 1 km infrared look": "ঘণ্টা, শেষ ১ কিমি ইনফ্রারেড পর্যবেক্ষণের পর থেকে",
+
   // mapping.json: the heat deviation bands.
   "close to normal": "স্বাভাবিকের কাছাকাছি",
   "a little unusual": "একটু অস্বাভাবিক",
@@ -137,6 +152,23 @@ const TEMPLATES: Record<string, string> = {
   "Two perspectives, not right vs wrong: an observer sees the sky from below at one spot; the satellite sees from above over a wider area. Differences are expected. Reports from the same day within # km are combined.":
     "দুটি দৃষ্টিভঙ্গি, ঠিক বনাম ভুল নয়: একজন পর্যবেক্ষক এক জায়গায় দাঁড়িয়ে নিচ থেকে আকাশ দেখেন; স্যাটেলাইট ওপর থেকে আরও বড় এলাকা দেখে। পার্থক্য থাকাই স্বাভাবিক। একই দিনের {0} কিমির মধ্যের প্রতিবেদনগুলো একসাথে ধরা হয়েছে।",
   "start of the #-minute period": "{0} মিনিটের সময়কালের শুরু",
+
+  // Drafts, review first (audit A-bn, 2026-11-10): mapping.json's newer voices, with numbers.
+  "A quiet fixed reference sine at 'normal' (the rule's centre, B#) and the data sine bending above or below it: the gap is heard as an interval and as beating":
+    "'স্বাভাবিক'-এ একটি মৃদু, স্থির রেফারেন্স সাইন (নিয়মের কেন্দ্র, B{0}) আর তথ্যের সাইনটি তার ওপরে বা নিচে বাঁকে: ব্যবধানটি শোনা যায় সুরের দূরত্ব ও বিট হিসেবে",
+  "B#: the reference tone is the data voice's own pitch at anomaly #. Warm and cold bend the same distance.":
+    "B{0}: রেফারেন্স সুর হলো অস্বাভাবিকতা {1}-এ তথ্যের কণ্ঠের নিজের সুরের উচ্চতা। উষ্ণ আর শীতল সমান দূরত্বে বাঁকে।",
+  "# °C cooler than normal": "স্বাভাবিকের চেয়ে {0} °সে শীতল",
+  "# °C warmer than normal": "স্বাভাবিকের চেয়ে {0} °সে উষ্ণ",
+  "Land: no echo. A cell with no # km look in MUR's window gets the longest echo.": "স্থল: কোনো প্রতিধ্বনি নেই। MUR-এর সময়সীমায় যে সেলে {0} কিমি পর্যবেক্ষণ নেই, সেটি পায় সবচেয়ে লম্বা প্রতিধ্বনি।",
+  "C#: a reverb tail, not a low-pass (that cue belongs to the air voice).": "C{0}: একটি রিভার্ব, লো-পাস নয় (ওই সংকেতটি বাতাসের কণ্ঠের)।",
+  "C#: identical values sound as one pure tone; any difference beats at |f# − f#| times per second.":
+    "C{0}: মান এক হলে একটিই বিশুদ্ধ সুর শোনায়; কোনো পার্থক্য থাকলে সেকেন্ডে |f{1} − f{2}| বার বিট হয়।",
+  "One fixed range for every box (team decision, build book A#/D#), so Bangladesh and NW India are heard on the same scale. Legend points are our choice.":
+    "প্রতিটি বক্সের জন্য একটিই নির্দিষ্ট পরিসর (দলের সিদ্ধান্ত, বিল্ড বুক A{0}/D{1}), যাতে বাংলাদেশ আর উত্তর-পশ্চিম ভারত একই মাপে শোনা যায়। লেজেন্ডের বিন্দুগুলো আমাদের বেছে নেওয়া।",
+  "# cm": "{0} সেমি",
+  "# cm (the #–# average)": "{0} সেমি ({1}–{2}-এর গড়)",
+  "Guardrail #: stale data never sounds live. Fixed level, distinct from the no-data tick.": "নিয়ম {0}: পুরোনো তথ্য কখনো লাইভ শোনায় না। জোর নির্দিষ্ট, তথ্য-না-থাকার টিক থেকে আলাদা।",
 };
 
 interface Pattern {

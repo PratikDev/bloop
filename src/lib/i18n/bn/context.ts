@@ -123,4 +123,7 @@ export const contextBn: Translated<typeof contextEn> = {
   "history.monthValue": (p: { month: string; value: string; unit: string }) => `${p.month}: ${p.value} ${p.unit}`,
   "history.loading": "রেকর্ড লোড হচ্ছে",
   "history.error": "রেকর্ড লোড করা যায়নি। আবার চেষ্টা করতে পাতাটি রিলোড করুন।",
+  // Draft, review first (audit A-bn, 2026-11-10).
+  "field.veg.summary": (p: { place: string; then: string; now: string; dataset: string }) =>
+    `${p.place}-এ উদ্ভিদ সূচক (NDVI), ${p.then} বনাম ${p.now} (${p.dataset})।`,
 };

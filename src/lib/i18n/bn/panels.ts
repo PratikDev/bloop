@@ -68,4 +68,6 @@ export const panelsBn: Translated<typeof panelsEn> = {
   "provenance.utc": (p: { datetime: string }) => `${p.datetime} UTC`,
   "provenance.check": "যাচাই",
   "provenance.checkIsLatest": (p: { datetime: string }) => `এই যাচাই সর্বশেষ ফ্রেমের (${p.datetime} UTC), দেখানো টাইম-ল্যাপস ফ্রেমের নয়।`,
+  // Draft, review first (audit A-bn, 2026-11-10).
+  "panel.history": "মাসে মাসে",
 };

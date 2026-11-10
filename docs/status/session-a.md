@@ -1,7 +1,10 @@
 # Session A: status
 
 - layout rebuild: one screen per page, maps at least their baseline size, Home's jukebox around the globe | 43d3a43, 397751e, d16c217, 96a4e1d | 2026-11-10
-- Then vs Now and How we know briefs, header language and Help on every page, Home window border outside | a799dca | 2026-11-10 | next: audit items A1–A11, A-bn
+- Then vs Now and How we know briefs, header language and Help on every page, Home window border outside | a799dca | 2026-11-10
+- Official map size kept, feature inventory (reach-*), কমলা | 975df5c, 9644a36, 9e160a9 | 2026-11-10
+- audit items A1–A11 (A2, the A1 page flow and the A11 clipping were already fixed by the rebuild) | 44099c2 | 2026-11-10
+- A-bn: Bangla drafts for every string in my files, review list in docs/i18n/A-BN-REVIEW.md | (this merge) | 2026-11-10 | next: motion items 16–20
 
 ## Home window, for Session B's check
 

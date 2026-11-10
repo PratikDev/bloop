@@ -38,4 +38,7 @@ export const helpBn: Translated<typeof helpEn> = {
   "key.h.action": "এই সাহায্য খুলুন",
   "key.esc": "Esc",
   "key.esc.action": "সব শব্দ থামান ও প্যানেল বন্ধ করুন",
+  // Drafts, review first (audit A-bn, 2026-11-10).
+  "key.b.action": "ব্রেইল ডেটা এক্সপ্লোরার: তথ্যগুলো ব্রেইল সেল হিসেবে অনুভব করুন; এর ক্যারেট হলো সুই",
+  "key.r.action": "ব্রেইল এক্সপ্লোরারে: মানটি কথায় শুনুন",
 };

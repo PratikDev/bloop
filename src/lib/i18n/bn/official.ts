@@ -1,0 +1,76 @@
+// Bangla for src/lib/i18n/en/official.ts: the Official records page. DRAFT, review first (audit A-bn, 2026-11-10):
+// written by Session A for Pratik's review; names, organisations and dataset titles (SVS, EIC, record titles from the
+// files) stay as in English.
+
+import type { officialEn } from "../en/official";
+import { formatFixed, formatInteger, localDigits } from "../format";
+import type { Translated } from "../types";
+
+const int = (v: number) => formatInteger(v, "bn");
+const d = (s: string) => localDigits(s, "bn");
+
+export const officialBn: Translated<typeof officialEn> = {
+  "mode.official": "অফিশিয়াল",
+  "official.heading": "নাসার চ্যালেঞ্জের উপকরণ, তথ্য হিসেবে",
+  "official.intro": "প্রতিটি রেকর্ড নাসার একটি অফিশিয়াল SVS ভিজ্যুয়ালাইজেশন, যা থেকে আবার মান পড়া হয়েছে। শুধু সাদামাটা শব্দ: প্রতি রেকর্ডে একটি কণ্ঠ।",
+  "official.loading": "রেকর্ডগুলো লোড হচ্ছে",
+  "official.error": "অফিশিয়াল রেকর্ডগুলো লোড করা যায়নি। আবার চেষ্টা করতে পাতাটি রিলোড করুন।",
+  "official.records": "রেকর্ড",
+  "official.related.heading": "সম্পর্কিত নাসা ভিজ্যুয়ালাইজেশন",
+  "official.related.intro":
+    "যেসব জিনিস নাসা যোগ করতে পারে: প্রতিটি থাকে যে অফিশিয়াল রেকর্ডের সাথে সম্পর্কিত তার পাশে, EIC-এর বিষয় অনুযায়ী সাজানো, একই উৎস-তথ্য ও যাচাইসহ।",
+  "official.related.loading": "সম্পর্কিত রেকর্ডগুলো লোড হচ্ছে",
+  "official.related.error": "সম্পর্কিত রেকর্ডগুলো লোড করা যায়নি।",
+  "official.related.beside": (p) => `SVS ${d(p.ids)}-এর পাশে`,
+  "official.focus.sea level": "সমুদ্রপৃষ্ঠের উচ্চতা",
+  "official.focus.air quality": "বাতাসের মান",
+  "official.focus.biodiversity": "জীববৈচিত্র্য",
+  "official.focus.wildfires": "দাবানল",
+  "official.focus.greenhouse gases": "গ্রিনহাউস গ্যাস",
+  "official.focus.energy": "শক্তি",
+  "official.focus.disasters": "দুর্যোগ",
+  "official.focus.water resources": "পানিসম্পদ",
+  "official.focus.agriculture": "কৃষি",
+  "official.focus.other": "অন্যান্য",
+  "official.layer": "স্তর",
+  "official.view": "এলাকা",
+  "official.view.global": "পৃথিবী",
+  "official.view.box": "বাংলাদেশ (প্রতি ঘণ্টা)",
+  "official.play": "বাজান",
+  "official.pause": "থামান",
+  "official.time": "সময়ের ধাপ",
+  "official.timeValue": (p) => `${p.time} (${int(p.total)}টির মধ্যে ${int(p.step)} নম্বর ধাপ)`,
+  "official.approximate": "আনুমানিক সময়",
+  "official.speak": "মান শুনুন",
+  "official.value": (p) => `${p.value} ${p.unit}`,
+  "official.below": (p) => `${p.value} ${p.unit}-এর নিচে (রঙের মাপকাঠির সর্বনিম্ন)`,
+  "official.atLimit": (p) => `${p.value} ${p.unit} বা তার নিচে (রঙের মাপকাঠির সীমা)`,
+  "official.noValue": "এখানে কোনো মান নেই",
+  "official.pattern": (p) => `${p.level} (শুধু নকশা: কোনো সংখ্যা নেই, মানগুলো যাচাই করা নয়)`,
+  "level.veryLow": "খুব কম",
+  "level.low": "কম",
+  "level.middle": "মাঝামাঝি",
+  "level.high": "বেশি",
+  "level.veryHigh": "খুব বেশি",
+  "official.framePos": (p) => `ছবির অবস্থান: বাঁ দিক থেকে ${d(p.x)}%, নিচ থেকে ${d(p.y)}% (মানচিত্রে অবস্থান নেই)`,
+  "official.map": (p) => `${p.layer}, ${p.time}। সুইয়ের নিচে: ${p.reading}। তীর-কী দিয়ে সুই সরান।`,
+  "official.details": "বিস্তারিত",
+  "official.tab.source": "কোথা থেকে এসেছে",
+  "official.tab.controls": "নিয়ন্ত্রণ",
+  "official.provenance": "এটি কোথা থেকে এসেছে",
+  "official.svs": (p) => `SVS ${int(p.id)}`,
+  "official.period": "সময়কাল",
+  "official.frameTime": "ফ্রেমের সময়",
+  "official.frameTime.count": (p) => `${int(p.count)}টি ফ্রেম`,
+  "official.georef": "মানচিত্রে অবস্থান",
+  "official.georef.iou": (p) => `মানচিত্র উপকূলরেখার সাথে মেলে (স্কোর ${d(p.iou)}, পাসের সীমা ${d(p.passAt)})`,
+  "official.credits": "কৃতজ্ঞতা",
+  "official.licence": "লাইসেন্স",
+  "official.voiceSource": (p) => `কণ্ঠের উৎস ${p.label} (${p.badge}), ${p.period}`,
+  "official.description": "SVS পাতা থেকে",
+  "official.checks": "যাচাই",
+  "official.check.pass": "পাস",
+  "official.check.miss": "অস্থায়ী সীমা পার হয়নি",
+  "official.check.none": "কোনো সীমা নেই",
+  "official.size": (p) => `${formatFixed(p.mb, "bn", 1)} মেগাবাইট তথ্য`,
+};
