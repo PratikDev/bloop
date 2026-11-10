@@ -3,12 +3,12 @@
 import { Scales, Target } from "@phosphor-icons/react";
 import { useEffect, useMemo, useRef, useState, type KeyboardEvent } from "react";
 import { continuousRule, mapContinuous, voiceSpec, withInputRange } from "@/lib/audio/mapping";
-import { formatDegrees, formatFixed, formatInteger, formatSigned, formatTemperature, formatUtc, type Lang } from "@/lib/i18n";
+import { formatFixed, formatInteger, formatSigned, formatTemperature, formatUtc, type Lang } from "@/lib/i18n";
 import { useAppState } from "../../AppState/use-app-state";
 import { useCommands } from "../../Commands/use-commands";
 import { OnOffToggle } from "../../OnOffToggle";
 import { DockButton } from "../../Turntable/DockButton";
-import { ttFor, useTT } from "../../Turntable/i18n";
+import { latText, lonText, ttFor, useTT } from "../../Turntable/i18n";
 import { LabelLayer, type Rect } from "../../Turntable/LabelLayer";
 import { labelCandidates } from "../../Turntable/labels";
 import { useDetails } from "../../Turntable/NeedleChip/use-details";
@@ -33,8 +33,6 @@ import { useTerrainScene } from "./use-terrain-scene";
 
 const DEFAULT_SPEED = 2;
 const ZOOM_STEP = 0.85;
-const latText = (lat: number, lang: Lang) => `${formatDegrees(lat, lang)}° ${lat >= 0 ? "N" : "S"}`;
-const lonText = (lon: number, lang: Lang) => `${formatDegrees(lon, lang)}° ${lon >= 0 ? "E" : "W"}`;
 
 /** ?debug=1: the anomaly and clarity under the walker, with the Hz and echo length their rules give. */
 function normalDebug(r: TerrainReading) {

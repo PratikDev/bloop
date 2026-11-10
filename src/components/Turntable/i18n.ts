@@ -18,6 +18,10 @@ export function ttFor(lang: Lang) {
 
 export type TT = ReturnType<typeof ttFor>;
 
+/** "21.5° N" in the language ("২১.৫° উত্তর" in Bangla). */
+export const latText = (lat: number, lang: Lang) => ttFor(lang)("turntable.lat", { lat });
+export const lonText = (lon: number, lang: Lang) => ttFor(lang)("turntable.lon", { lon });
+
 export function isTurntableKey(key: string): key is TurntableKey {
   return key in turntableEn;
 }

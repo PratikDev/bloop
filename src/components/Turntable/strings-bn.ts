@@ -8,7 +8,7 @@
 import type { badgesEn } from "@/lib/i18n/en/badges";
 import type { scenesEn } from "@/lib/i18n/en/scenes";
 import type { turntableEn } from "@/lib/i18n/en/turntable";
-import { formatInteger } from "@/lib/i18n/format";
+import { formatDegrees, formatFixed, formatInteger } from "@/lib/i18n/format";
 import { scenesBnDraft } from "../Scenes/strings-bn";
 import { badgesBnDraft } from "../SourceBadges/strings-bn";
 import type { CompassPoint } from "@/lib/geo/spherical";
@@ -37,7 +37,7 @@ export const turntableBnDraft: { [K in TurntableKey]?: Table[K] } = {
   "turntable.instructions":
     "তীর চিহ্নের কী দিয়ে গ্লোব ঘোরান ও সুই সরান (Shift সহ: ১০ ডিগ্রি)। Enter চাপলে মান বলা হবে। স্ল্যাশ (/) দিয়ে জায়গা খুঁজুন, L চাপলে আপনি কোথায় আছেন জানাবে, " +
     "১ থেকে ৯ বুকমার্কে যায়, T দিয়ে ট্যুর শুরু, প্লাস ও মাইনাস দিয়ে জুম, V দিয়ে দৃশ্য বদলান। সব কী দেখতে H চাপুন। Esc চাপলে সমতল মানচিত্রে ফিরবেন।",
-  "turntable.canvas": (p) => `টার্নটেবিলে একটি বাস্তবসম্মত গ্লোব, তার ওপর সর্বশেষ প্রাপ্ত ${p.record} ফ্রেম। টোনআর্মের সুই নিচের বিন্দুটি পড়ে।`,
+  "turntable.canvas": (p) => `টার্নটেবিলে একটি গ্লোব, তার ওপর সর্বশেষ প্রাপ্ত ${p.record} ফ্রেম। টোনআর্মের সুই নিচের বিন্দুটি পড়ে।`,
 
   "turntable.records": "রেকর্ড",
   "turntable.record.ocean": "সমুদ্র",
@@ -61,6 +61,9 @@ export const turntableBnDraft: { [K in TurntableKey]?: Table[K] } = {
 
   "turntable.frameTime": (p) => `ফ্রেম: ${p.datetime} UTC`,
   "turntable.error": (p) => `পরিমাপিত ত্রুটি: ${p.text}`,
+  "turntable.missing": "নেই",
+  "turntable.error.rain": (p) => `সাধারণত ~${bnInt(p.percent)}%-এর মধ্যে`,
+  "turntable.error.ocean": (p) => `মধ্যমা ${formatFixed(p.median, "bn", 2)} °সে, NASA MUR-এর তুলনায় (${bnInt(p.n)}টি বিন্দু, সর্বশেষ ফ্রেম)`,
 
   "turntable.turn": "ঘোরান",
   "turntable.stopTurning": "ঘোরানো থামান",
@@ -152,12 +155,15 @@ export const turntableBnDraft: { [K in TurntableKey]?: Table[K] } = {
   "turntable.graticule.equator": "বিষুবরেখা",
   "turntable.graticule.cancer": "কর্কটক্রান্তি রেখা",
   "turntable.graticule.capricorn": "মকরক্রান্তি রেখা",
+  "turntable.lat": (p) => `${formatDegrees(p.lat, "bn")}° ${p.lat >= 0 ? "উত্তর" : "দক্ষিণ"}`,
+  "turntable.lon": (p) => `${formatDegrees(p.lon, "bn")}° ${p.lon >= 0 ? "পূর্ব" : "পশ্চিম"}`,
 
   "turntable.announce.record": (p) => `রেকর্ড: ${p.record}। ${p.frames}`,
   "turntable.announce.frame": (p) => `${p.product}, সর্বশেষ প্রাপ্ত ফ্রেম ${p.datetime} UTC।`,
   "turntable.announce.turning": "ঘুরছে",
   "turntable.announce.stoppedTurning": "ঘোরানো থেমেছে",
   "turntable.announce.view": (p) => `${p.view}।`,
+  "turntable.stopped": "থেমেছে। সমতল মানচিত্রে ফেরা হলো।",
 
   "help.turntable": "টার্নটেবিলে",
   "key.tt.leftRight": "বাম / ডান",

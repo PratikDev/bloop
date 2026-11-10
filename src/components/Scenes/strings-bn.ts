@@ -123,6 +123,8 @@ export const scenesBnDraft: { [K in keyof Table]?: Table[K] } = {
   "scenes.tunnel.jump": (p) => `${p.label}-এ যান`,
   "scenes.tunnel.say": (p) => `${p.year}। ${p.heat}। ${p.rain}।`,
   "scenes.tunnel.end": "রেকর্ড শেষ: টার্নটেবিলে ফেরা।",
+  "scenes.missing": "নেই",
+  "scenes.delta.resolution": (p) => `GRACE ${p.text}`,
   "scenes.tunnel.rings": (p) => `${p.n}টি বলয়, ${p.from} থেকে ${p.to}`,
   "scenes.tunnel.speed": (p) => `${p.speed} বছর/সেকেন্ড`,
   "help.scenes": "ত্রিমাত্রিক দৃশ্যে",

@@ -2,7 +2,7 @@
 // src/components/Turntable/strings-bn.ts (Turntable only; bn.ts stays empty).
 
 import type { CompassPoint } from "@/lib/geo/spherical";
-import { formatFixed, formatInteger } from "../format";
+import { formatDegrees, formatFixed, formatInteger } from "../format";
 
 const COMPASS_WORDS: Record<CompassPoint, string> = {
   N: "north",
@@ -24,7 +24,7 @@ export const turntableEn = {
     "Arrows turn the globe and move the needle (Shift: 10 degrees). Enter speaks the value. Slash searches places, L says where you are, " +
     "1 to 9 jump to bookmarks, T starts a tour, plus and minus zoom, V switches the view. H lists all keys. Esc goes back to the flat map.",
   "turntable.canvas": (p: { record: string }) =>
-    `A realistic globe on a turntable with the latest available ${p.record} frame over it. A tonearm's needle reads the point beneath it.`,
+    `A globe on a turntable with the latest available ${p.record} frame over it. A tonearm's needle reads the point beneath it.`,
 
   "turntable.records": "Records",
   "turntable.record.ocean": "Ocean",
@@ -153,6 +153,8 @@ export const turntableEn = {
   "turntable.graticule.equator": "Equator",
   "turntable.graticule.cancer": "Tropic of Cancer",
   "turntable.graticule.capricorn": "Tropic of Capricorn",
+  "turntable.lat": (p: { lat: number }) => `${formatDegrees(p.lat, "en")}° ${p.lat >= 0 ? "N" : "S"}`,
+  "turntable.lon": (p: { lon: number }) => `${formatDegrees(p.lon, "en")}° ${p.lon >= 0 ? "E" : "W"}`,
 
   "turntable.announce.record": (p: { record: string; frames: string }) => `Record: ${p.record}. ${p.frames}`,
   "turntable.announce.frame": (p: { product: string; datetime: string }) =>

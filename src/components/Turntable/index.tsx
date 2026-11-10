@@ -4,7 +4,7 @@ import { MagnifyingGlass } from "@phosphor-icons/react";
 import { useEffect, useMemo, useRef, useState } from "react";
 import { useMediaQuery } from "@/hooks/use-media-query";
 import { MEDIA } from "@/lib/breakpoints";
-import { formatDegrees, formatUtc } from "@/lib/i18n";
+import { formatUtc } from "@/lib/i18n";
 import { cn } from "@/lib/utils";
 import { liveSoundOn } from "../AppState/reducer";
 import { useAppState } from "../AppState/use-app-state";
@@ -15,7 +15,7 @@ import { useLiveData } from "../LiveData/use-live-data";
 import { CreditsDialog } from "./CreditsLink";
 import { Dock } from "./Dock";
 import { Drawers, type DrawerId } from "./Drawers";
-import { ttFor, useTT } from "./i18n";
+import { latText, ttFor, useTT } from "./i18n";
 import { graticuleLabels, type PlacedLabels } from "./LabelLayer";
 import { labelCandidates } from "./labels";
 import { LegendBar } from "./LegendBar";
@@ -46,7 +46,7 @@ const IDLE_CHECK_MS = 5_000;
 const focusFlatMap = () => requestAnimationFrame(() => document.getElementById(MAP_REGION_ID)?.focus());
 
 /**
- * Turntable Earth: the latest EIC frame over a realistic globe on a turntable.
+ * Turntable Earth: the latest EIC frame over a cel-shaded globe on a turntable.
  * The needle is the app's cursor and the records are its tracks, so the value,
  * captions, speech and panels are the flat map's own; the globe, places and
  * motion are presentation only. The screen stays calm: the globe, a needle
@@ -134,7 +134,7 @@ export function Turntable() {
     const tl = ttFor(lang);
     return graticuleLabels(
       { equator: tl("turntable.graticule.equator"), cancer: tl("turntable.graticule.cancer"), capricorn: tl("turntable.graticule.capricorn") },
-      (lat) => `${formatDegrees(lat, lang)}° ${lat >= 0 ? "N" : "S"}`,
+      (lat) => latText(lat, lang),
     );
   }, [settings.graticule, lang]);
   const place = geo ? placeText(tr, lang, geo.gazetteer.whereAmI(state.cursor)).line : null;
