@@ -1,7 +1,7 @@
 "use client";
 
 import { useEffect, type RefObject } from "react";
-import { fitDisc, heightShortfall, largestFreeRect } from "./fit";
+import { fitDisc, growthForReadable, largestFreeRect } from "./fit";
 import type { Rect } from "./LabelLayer";
 import type { TurntableScene } from "./scene";
 
@@ -24,7 +24,8 @@ function occluderRects(stage: DOMRect, within?: Element): Rect[] {
  * Keeps the globe in the largest space the panels leave free: re-measures on resize, when a panel
  * appears, goes or changes size, and when a drawer finishes sliding in (a transform fires no resize).
  * When the stage's own panels leave less than a readable globe (a 320 px screen, 200–400% zoom), the
- * stage grows by the shortfall (--tt-need) and the page scrolls. Drawers and sheets over it don't count.
+ * stage grows (--tt-need) and the page scrolls. It is measured at its usual height each time, so it shrinks back
+ * when a panel closes. Drawers and sheets over it don't count. All within one frame: nothing is painted between.
  */
 export function useOccluderFit(scene: TurntableScene | null, hostRef: RefObject<HTMLElement | null>): void {
   useEffect(() => {
@@ -33,19 +34,19 @@ export function useOccluderFit(scene: TurntableScene | null, hostRef: RefObject<
     let frame = 0;
     let last = "";
     const section = host.closest<HTMLElement>(STAGE);
-    let grown = false;
+
+    const grow = () => {
+      if (!section) return;
+      section.style.removeProperty("--tt-need");
+      const usual = host.getBoundingClientRect();
+      const extra = growthForReadable(usual.width, usual.height, occluderRects(usual, section));
+      if (extra > 0) section.style.setProperty("--tt-need", `${Math.round(usual.height + extra)}px`);
+    };
 
     const measure = () => {
       frame = 0;
+      grow();
       const stage = host.getBoundingClientRect();
-      if (section) {
-        const short = heightShortfall(largestFreeRect(stage.width, stage.height, occluderRects(stage, section)));
-        if (short > 0.5 || grown) {
-          const need = Math.max(0, Math.round(stage.height + short));
-          section.style.setProperty("--tt-need", `${need}px`);
-          grown = need > 0;
-        }
-      }
       const fit = fitDisc(largestFreeRect(stage.width, stage.height, occluderRects(stage)));
       const key = `${stage.width}|${stage.height}|${Math.round(fit.cx)}|${Math.round(fit.cy)}|${Math.round(fit.radius)}`;
       if (key === last) return;

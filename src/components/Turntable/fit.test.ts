@@ -1,5 +1,5 @@
 import { describe, expect, test } from "bun:test";
-import { fitDisc, heightShortfall, largestFreeRect } from "./fit";
+import { fitDisc, growthForReadable, largestFreeRect } from "./fit";
 
 describe("largestFreeRect", () => {
   test("no panels: the whole stage", () => {
@@ -48,16 +48,32 @@ describe("fitDisc", () => {
   });
 });
 
-describe("heightShortfall", () => {
-  test("a 320 px phone with a tall dock: the free space must grow to hold a 200 px globe and its margin", () => {
-    expect(heightShortfall({ x: 0, y: 0, w: 320, h: 107 })).toBe(248 - 107);
+describe("growthForReadable", () => {
+  const dock = (width: number, height: number, tall: number) => ({ x: 0, y: height - tall, w: width, h: tall });
+
+  test("room to spare: no growth", () => {
+    expect(growthForReadable(1440, 840, [dock(1440, 840, 100)])).toBe(0);
   });
 
-  test("room to spare: negative", () => {
-    expect(heightShortfall({ x: 0, y: 0, w: 1000, h: 700 })).toBe(248 - 700);
+  test("a 320 px phone with a tall dock: grows until a 200 px globe and its margin fit above the dock", () => {
+    const extra = growthForReadable(320, 640, [dock(320, 640, 480)]);
+    expect(extra).toBeGreaterThan(0);
+    const free = largestFreeRect(320, 640 + extra, [{ ...dock(320, 640, 480), y: 160 + extra }]);
+    expect(fitDisc(free).radius).toBeGreaterThanOrEqual(100);
   });
 
-  test("a narrow space asks only for as much height as it is wide", () => {
-    expect(heightShortfall({ x: 0, y: 0, w: 150, h: 100 })).toBe(50);
+  test("200% zoom: the readout and search stay at the top, the wrapped dock moves down, and a 200 px globe fits", () => {
+    const readout = { x: 24, y: 24, w: 352, h: 200 };
+    const search = { x: 400, y: 12, w: 228, h: 48 };
+    const before = fitDisc(largestFreeRect(640, 512, [readout, search, dock(640, 512, 240)]));
+    expect(before.radius).toBeLessThan(100);
+    const extra = growthForReadable(640, 512, [readout, search, dock(640, 512, 240)]);
+    const free = largestFreeRect(640, 512 + extra, [readout, search, { ...dock(640, 512, 240), y: 272 + extra }]);
+    expect(fitDisc(free).radius).toBeGreaterThanOrEqual(100);
+  });
+
+  test("a stage too narrow for 200 px asks only for what its width allows", () => {
+    const extra = growthForReadable(180, 100, []);
+    expect(fitDisc(largestFreeRect(180, 100 + extra, [])).radius).toBeGreaterThanOrEqual(180 / 2 - 24 - 0.5);
   });
 });

@@ -54,12 +54,23 @@ export function largestFreeRect(width: number, height: number, obstacles: Rect[]
   return best;
 }
 
+/** The stage grows in these steps, and never by more than this. */
+const GROWTH_STEP_PX = 16;
+const MAX_GROWTH_PX = 960;
+
 /**
- * How much taller the free space must be to hold a readable globe and its margin (negative: room to spare).
- * Width can't be helped by growing, so a narrow space asks only for as much height as it is wide.
+ * How much taller the stage must be for its panels to leave a readable globe (0: it already fits). Panels
+ * nearer the stage's bottom than its top are anchored there and move down as it grows; the others stay.
+ * A stage too narrow for a readable globe asks only for the largest disc its width allows.
  */
-export function heightShortfall(free: Rect): number {
-  return Math.min(READABLE_DISC_PX + 2 * MARGIN_PX, free.w) - free.h;
+export function growthForReadable(width: number, height: number, panels: Rect[]): number {
+  const wanted = Math.min(READABLE_DISC_PX / 2, width / 2 - MARGIN_PX);
+  const anchoredLow = panels.map((p) => height - (p.y + p.h) < p.y);
+  for (let extra = 0; extra <= MAX_GROWTH_PX; extra += GROWTH_STEP_PX) {
+    const moved = panels.map((p, i) => (anchoredLow[i] ? { ...p, y: p.y + extra } : p));
+    if (fitDisc(largestFreeRect(width, height + extra, moved)).radius >= wanted - 0.5) return extra;
+  }
+  return MAX_GROWTH_PX;
 }
 
 /** The disc centred in a free rectangle, with its margin. */
