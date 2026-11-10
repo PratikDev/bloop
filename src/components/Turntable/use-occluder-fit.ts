@@ -58,8 +58,14 @@ export function useOccluderFit(scene: TurntableScene | null, hostRef: RefObject<
       if (key === last) return;
       last = key;
       scene.setFit(fit, stage.width, stage.height);
-      // Moved by transform, so it eases with the globe's own fit (a short transition; none under reduced motion).
-      if (deckHost) Object.assign(deckHost.style, { transform: `translate(${deck.x}px, ${deck.y}px)`, width: `${deck.w}px`, height: `${deck.h}px` });
+      // Moved by transform, so it eases with the globe's own fit (a short transition; none under reduced motion). Whole
+      // pixels: a canvas at a fractional place or size is resampled by the browser, which would blend the record's colours.
+      if (deckHost) {
+        // On whole pixels of the page, not just of the stage (which may itself sit at a fractional offset).
+        const x = Math.round(stage.left + deck.x) - stage.left;
+        const y = Math.round(stage.top + deck.y) - stage.top;
+        Object.assign(deckHost.style, { transform: `translate(${x}px, ${y}px)`, width: `${Math.round(deck.w)}px`, height: `${Math.round(deck.h)}px` });
+      }
     };
     const schedule = () => {
       if (frame === 0) frame = requestAnimationFrame(measure);

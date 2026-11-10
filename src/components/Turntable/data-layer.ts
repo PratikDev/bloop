@@ -47,20 +47,36 @@ export function drawCover(canvas: HTMLCanvasElement, track: TrackMode, images: B
 
 export type Pixel = [number, number, number];
 
-/** A frame image at its own size, unsmoothed, for reading single pixels. */
-function nativeReader(image: HTMLImageElement): (lat: number, lon: number) => Pixel | null {
+export type PixelReader = (lat: number, lon: number) => Pixel | null;
+
+/** The pixel of an equirectangular image (row 0 = 90° N, column 0 = 180° W) that holds a point. */
+const pixelIndex = (width: number, height: number, lat: number, lon: number) =>
+  Math.min(height - 1, Math.floor(((90 - lat) / 180) * height)) * width + Math.min(width - 1, Math.floor(((lon + 180) / 360) * width));
+
+/** A frame image at its own size, unsmoothed, read once into memory: any number of single pixels, cheaply. */
+export function nativeReader(image: HTMLImageElement): PixelReader {
   const c = document.createElement("canvas");
   c.width = image.naturalWidth;
   c.height = image.naturalHeight;
   const ctx = c.getContext("2d", { willReadFrequently: true });
   ctx?.drawImage(image, 0, 0);
+  const data = ctx?.getImageData(0, 0, c.width, c.height).data;
   return (lat, lon) => {
-    if (!ctx) return null;
-    const x = Math.min(c.width - 1, Math.floor(((lon + 180) / 360) * c.width));
-    const y = Math.min(c.height - 1, Math.floor(((90 - lat) / 180) * c.height));
-    const [r, g, b, a] = ctx.getImageData(x, y, 1, 1).data;
-    return a === 0 ? null : [r, g, b];
+    if (!data) return null;
+    const i = pixelIndex(c.width, c.height, lat, lon) * 4;
+    return data[i + 3] === 0 ? null : [data[i], data[i + 1], data[i + 2]];
   };
+}
+
+/**
+ * Which frame's pixel a reading shows on a record: rain where the grid has rain or snow, else ocean where the grid has
+ * a temperature, else none (land, dry, no data). The swatch, the record and the groove all use this one rule.
+ */
+export function pickPixel(track: TrackMode, r: Reading, at: { lat: number; lon: number }, readers: { sst: PixelReader | null; rain: PixelReader | null }): Pixel | null {
+  const wet = r.rain.phase === "liquid" || r.rain.phase === "frozen";
+  if (track !== "ocean" && wet && readers.rain) return readers.rain(at.lat, at.lon);
+  if (track !== "rain" && r.ocean.valueC !== null && readers.sst) return readers.sst(at.lat, at.lon);
+  return null;
 }
 
 /**
@@ -69,12 +85,6 @@ function nativeReader(image: HTMLImageElement): (lat: number, lon: number) => Pi
  * else ocean where the grid has a temperature, else none (land, dry, no data).
  */
 export function createPixelSampler(images: { sst: HTMLImageElement | null; rain: HTMLImageElement | null }) {
-  const sst = images.sst && nativeReader(images.sst);
-  const rain = images.rain && nativeReader(images.rain);
-  return (track: TrackMode, r: Reading, at: { lat: number; lon: number }): Pixel | null => {
-    const wet = r.rain.phase === "liquid" || r.rain.phase === "frozen";
-    if (track !== "ocean" && wet && rain) return rain(at.lat, at.lon);
-    if (track !== "rain" && r.ocean.valueC !== null && sst) return sst(at.lat, at.lon);
-    return null;
-  };
+  const readers = { sst: images.sst && nativeReader(images.sst), rain: images.rain && nativeReader(images.rain) };
+  return (track: TrackMode, r: Reading, at: { lat: number; lon: number }): Pixel | null => pickPixel(track, r, at, readers);
 }

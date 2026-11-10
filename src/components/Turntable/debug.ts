@@ -2,6 +2,7 @@
 // exposes window.__turntable for the verification script (docs/turntable.md).
 
 import { audio } from "@/lib/audio-jukebox";
+import type { TrackMode } from "@/lib/audio-jukebox/types";
 import { mapVoice } from "@/lib/audio/mapping";
 import type { LatLon, LiveFields } from "@/lib/data";
 import { cellIndex, wrapLon } from "@/lib/data/grid";
@@ -167,6 +168,12 @@ export interface DebugApi {
   discOutline(): { x: number; y: number }[];
   /** The swatch on the globe and the stylus tip on the turntable as drawn now (visible, in front of their camera, on screen). */
   pointer(): (ReturnType<TurntableScene["pointer"]> & { arm: DeckPart | null }) | null;
+  /** The frame's pixel the swatch would show at a point (the same rule and images as the swatch and the record). */
+  pixelAt(lat: number, lon: number): [number, number, number] | null;
+  /** The record's latitude and longitude under a page point (CSS px), or null off its grooves. */
+  pickRecord(x: number, y: number): { lat: number; lon: number } | null;
+  /** The record under the needle on screen (page CSS px), with the arm hidden or shown for the check. */
+  recordAtNeedle(hideArm: boolean): { x: number; y: number } | null;
   particlesSpawned(): number;
   distance(): number;
 }
@@ -183,6 +190,7 @@ export function createDebugApi(
   log: SentReading[],
   geo: () => Geo | null,
   placed: { current: PlacedLabels },
+  track: () => TrackMode,
 ): DebugApi {
   return {
     whereAmI: (lat, lon) => geo()?.gazetteer.whereAmI({ lat, lon }) ?? null,
@@ -210,6 +218,25 @@ export function createDebugApi(
       return p ? { ...p, arm: deckProbe.view?.stylus() ?? null } : null;
     },
     particlesSpawned: () => tt().particlesSpawned.current,
+    pixelAt(lat, lon) {
+      const f = fields();
+      if (!f) return null;
+      const at = { lat, lon };
+      return tt().texture.sample(track(), readAt(f, at), at);
+    },
+    pickRecord(x, y) {
+      const box = deckProbe.canvas?.getBoundingClientRect();
+      return box && deckProbe.view ? deckProbe.view.pick(x - box.left, y - box.top) : null;
+    },
+    recordAtNeedle(hideArm) {
+      const view = deckProbe.view;
+      const box = deckProbe.canvas?.getBoundingClientRect();
+      if (!view || !box) return null;
+      view.hideArm(hideArm);
+      const n = tt().needle();
+      const p = view.project(n.lat, n.lon);
+      return { x: box.left + p.x, y: box.top + p.y };
+    },
     distance: () => tt().distance(),
     needle: () => tt().needle(),
     readingAt(lat, lon) {

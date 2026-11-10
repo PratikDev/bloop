@@ -2,10 +2,16 @@
 // the needle's groove, the record turning with the Earth. Plain three.js, no post chain: the deck is flat-shaded and the
 // record's data (DeckView step 2) is drawn unlit, so the canvas's own sRGB output gives exact colours.
 
-import { Box3, Color, DirectionalLight, PerspectiveCamera, Scene, Vector3, WebGLRenderer } from "three";
+import { Box3, Color, DirectionalLight, Mesh, PerspectiveCamera, Plane, PlaneGeometry, Raycaster, Scene, Vector2, Vector3, WebGLRenderer } from "three";
+import type { TrackMode } from "@/lib/audio-jukebox/types";
+import type { LiveFields } from "@/lib/data";
 import type { Palette } from "@/lib/css-tokens";
 import { CAMERA } from "../canvas-config";
-import { ARM_REST, createDeck, grooveTip, tipAngle, type Deck } from "../scene/deck";
+import { ARM_REST, createDeck, GROOVES, grooveTip, RECORD_TOP, tipAngle, type Deck } from "../scene/deck";
+
+const raycaster = new Raycaster();
+const recordPlane = new Plane(new Vector3(0, 1, 0), -RECORD_TOP);
+import { createRecordData, recordPoint } from "./record-texture";
 import type { DeckPose } from "../use-turntable";
 
 const RAD = Math.PI / 180;
@@ -34,6 +40,15 @@ export interface DeckView {
   resize(width: number, height: number, dpr: number): void;
   /** The stylus tip as drawn now (debug and the zoom regression test). */
   stylus(): DeckPart;
+  /** The record's data (record-texture.ts): the frame's images read unsmoothed at each point, so its colours are their own. */
+  setRecord(fields: LiveFields, track: TrackMode, images: { sst: HTMLImageElement | null; rain: HTMLImageElement | null }): void;
+  setLabel(canvas: HTMLCanvasElement): void;
+  /** The record's latitude and longitude under a point of the canvas (CSS px), or null off the grooves. */
+  pick(x: number, y: number): { lat: number; lon: number } | null;
+  /** Debug: where a point of the record (a latitude and longitude) is on screen now, in CSS px inside the canvas. */
+  project(lat: number, lon: number): { x: number; y: number };
+  /** Debug: hides the arm, so a check can read the record's own pixel under the needle. */
+  hideArm(hidden: boolean): void;
   dispose(): void;
 }
 
@@ -66,6 +81,13 @@ export function createDeckView(canvas: HTMLCanvasElement, palette: Palette): Dec
   key.position.set(3, 5, 4);
   const deck = createDeck(palette);
   scene.add(key, deck.group);
+
+  // The Earth as grooves: a flat disc on the record, turning with it (record-texture.ts).
+  const recordData = createRecordData(palette);
+  const recordGeometry = new PlaneGeometry(2 * GROOVES.outer, 2 * GROOVES.outer).rotateX(-Math.PI / 2);
+  const recordDisc = new Mesh(recordGeometry, recordData.material);
+  recordDisc.position.y = RECORD_TOP + 0.0015;
+  deck.record.add(recordDisc);
 
   const bounds = deckBounds(deck);
   const centre = bounds.getCenter(new Vector3());
@@ -115,6 +137,32 @@ export function createDeckView(canvas: HTMLCanvasElement, palette: Palette): Dec
       renderer.setSize(width, height, false);
       frame();
     },
+    setRecord(fields, track, images) {
+      recordData.set(fields, track, images);
+    },
+    setLabel(canvas) {
+      deck.setLabel(canvas);
+    },
+    pick(x, y) {
+      raycaster.setFromCamera(new Vector2((x / width) * 2 - 1, 1 - (y / height) * 2), camera);
+      const hit = raycaster.ray.intersectPlane(recordPlane, new Vector3());
+      if (!hit) return null;
+      deck.record.updateMatrixWorld(true);
+      const local = deck.record.worldToLocal(hit.setY(RECORD_TOP + deck.record.position.y));
+      const r = Math.hypot(local.x, local.z);
+      if (r < GROOVES.inner || r > GROOVES.outer) return null;
+      return { lat: -90 + ((r - GROOVES.inner) / (GROOVES.outer - GROOVES.inner)) * 180, lon: (Math.atan2(local.x, local.z) * 180) / Math.PI };
+    },
+    project(lat, lon) {
+      const p = recordPoint(lat, lon);
+      const world = new Vector3(p.x, RECORD_TOP, p.z);
+      deck.record.updateMatrixWorld(true);
+      world.applyMatrix4(deck.record.matrixWorld).project(camera);
+      return { x: ((world.x + 1) / 2) * width, y: ((1 - world.y) / 2) * height };
+    },
+    hideArm(hidden) {
+      deck.arm.visible = !hidden;
+    },
     stylus() {
       const view = tip.clone().applyMatrix4(camera.matrixWorldInverse);
       const ndc = tip.clone().project(camera);
@@ -127,6 +175,8 @@ export function createDeckView(canvas: HTMLCanvasElement, palette: Palette): Dec
       };
     },
     dispose() {
+      recordData.dispose();
+      recordGeometry.dispose();
       deck.dispose();
       renderer.dispose();
     },
