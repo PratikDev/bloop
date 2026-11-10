@@ -60,6 +60,8 @@ export function useRouteSync(): void {
   useEffect(() => {
     if (pathname === firstPath.current) return;
     firstPath.current = "";
+    // From now on a page's panels land as it opens (motion item 8); never on the first load.
+    document.documentElement.dataset.navigated = "";
     // Pages scroll inside main, which stays mounted: a new page starts at its top.
     document.querySelector("main")?.scrollTo({ top: 0 });
     let tries = 0;

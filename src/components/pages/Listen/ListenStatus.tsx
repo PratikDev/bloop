@@ -25,7 +25,7 @@ export function ListenStatus({ className }: { className?: string }) {
     sstStatus === "loading" && <StatusBadge key="ocean" kind="loading">{t("start.loading")}</StatusBadge>,
     rainStatus === "loading" && <StatusBadge key="rain" kind="loading">{t("badge.loadingRain")}</StatusBadge>,
     timeLapse.status === "loading" && (
-      <StatusBadge key="tl" kind="loading">
+      <StatusBadge key="tl" kind="loading" progress={timeLapse.progress ? timeLapse.progress.loaded / timeLapse.progress.total : undefined}>
         {timeLapse.progress ? t("timelapse.loading", timeLapse.progress) : t("timelapse.loadingStart")}
       </StatusBadge>
     ),

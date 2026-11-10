@@ -1,10 +1,9 @@
 "use client";
 
-import { usePagePlayerSounding } from "@/hooks/use-page-player";
+import { useRecordSounding } from "@/hooks/use-record-sounding";
 import { cn } from "@/lib/utils";
 import { captionText } from "@/lib/i18n";
 import { readingText } from "@/lib/reading";
-import { captionsLiveSound, liveSoundOn } from "../AppState/reducer";
 import { useAppState, useT } from "../AppState/use-app-state";
 import { useShownPoint } from "../TimeLapse/use-shown-point";
 import { useDescribe } from "./use-describe";
@@ -34,8 +33,7 @@ export function CaptionBar({
   const { state } = useAppState();
   const shown = useShownPoint();
   const t = useT();
-  const pagePlayer = usePagePlayerSounding();
-  const sounding = pagePlayer || (captionsLiveSound(state.mode) && liveSoundOn(state));
+  const sounding = useRecordSounding();
   const caption = useLatestCaption(whileSounding ? `${state.mode}:${sounding}` : "");
   useDescribe();
   if (!state.captions || (whileSounding && !sounding)) return null;

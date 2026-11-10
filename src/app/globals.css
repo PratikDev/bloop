@@ -270,9 +270,6 @@
 
   --ease-out-soft: var(--ease-out-soft);
 
-  --animate-signal-pulse: signal-pulse 2.4s var(--ease-out-soft) infinite;
-  --animate-rise: rise var(--duration-move) var(--ease-out-soft) both;
-  --animate-breathe: breathe 6s ease-in-out infinite;
 }
 
 /* The readout value: wide display weight, tabular digits (the 200% zoom test). */
@@ -567,42 +564,6 @@
 
 @utility animate-reveal-equator {
   animation: reveal-from-equator 1.2s var(--ease-out-soft) both;
-}
-
-/* A ring spreading from a point: "a signal". */
-@keyframes signal-pulse {
-  0% {
-    transform: scale(0.4);
-    opacity: 0.9;
-  }
-  100% {
-    transform: scale(2.6);
-    opacity: 0;
-  }
-}
-
-/* The intro's glow: a slow breath (about the pace of calm breathing). */
-@keyframes breathe {
-  0%,
-  100% {
-    opacity: 0.35;
-    transform: scale(0.92);
-  }
-  50% {
-    opacity: 0.7;
-    transform: scale(1.06);
-  }
-}
-
-@keyframes rise {
-  from {
-    opacity: 0;
-    transform: translateY(14px);
-  }
-  to {
-    opacity: 1;
-    transform: none;
-  }
 }
 
 /* A sound word on the map, 920 ms in all: pops in over 120 ms, holds 600 ms, fades over 200 ms
@@ -997,6 +958,49 @@ html[data-text="comfortable"] .font-wide-display {
   .recharts-cartesian-axis-tick-value,
   .recharts-text {
     fill: CanvasText;
+  }
+}
+
+/* ---- Motion item 8: a page's panels land as it opens (never on the first load): down 8 px into place, settling. ---- */
+@keyframes panel-land {
+  from {
+    transform: translateY(-8px);
+  }
+  to {
+    transform: none;
+  }
+}
+@media (prefers-reduced-motion: no-preference) {
+  html[data-navigated]:not([data-reduce-motion="true"]) [data-land] {
+    animation: panel-land var(--duration-land) var(--ease-settle) both;
+    animation-delay: calc(var(--land-i, 0) * 40ms);
+  }
+}
+
+/* ---- Motion item 12: a slider's knob follows a key press with a critically damped spring (about 200 ms); while
+   dragging it stays under the pointer. ---- */
+:root {
+  --ease-spring: linear(0, 0.122, 0.337, 0.537, 0.692, 0.801, 0.874, 0.922, 0.952, 0.971, 1);
+}
+@media (prefers-reduced-motion: no-preference) {
+  html:not([data-reduce-motion="true"]) [data-slot="slider"]:not([data-dragging]) :is([data-slot="slider-thumb"], [data-slot="slider-range"]) {
+    transition:
+      inset-inline-start 200ms var(--ease-spring),
+      width 200ms var(--ease-spring),
+      bottom 200ms var(--ease-spring),
+      height 200ms var(--ease-spring);
+  }
+}
+
+/* ---- Motion item 15: the loading badge's record turns at 33⅓ rpm (1.8 s a turn); still with Reduce motion. ---- */
+@keyframes loading-record {
+  to {
+    transform: rotate(1turn);
+  }
+}
+@media (prefers-reduced-motion: no-preference) {
+  html:not([data-reduce-motion="true"]) .loading-record {
+    animation: loading-record 1.8s linear infinite;
   }
 }
 

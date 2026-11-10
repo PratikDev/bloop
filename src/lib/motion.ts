@@ -21,18 +21,6 @@ export const SPRING = {
   gentle: { type: "spring", stiffness: 260, damping: 30 },
 } as const satisfies Record<string, Transition>;
 
-/** A group whose children rise in one after another. */
-export const STAGGER: Variants = {
-  hidden: {},
-  shown: { transition: { staggerChildren: 0.07, delayChildren: 0.05 } },
-};
-
-/** One child of STAGGER: rises 14 px and fades in. */
-export const RISE: Variants = {
-  hidden: { opacity: 0, y: 14 },
-  shown: { opacity: 1, y: 0, transition: { duration: 0.5, ease: EASE_OUT_SOFT } },
-};
-
 /** Panels over the map: slide in from their edge. */
 export const FROM_RIGHT: Variants = {
   hidden: { opacity: 0, x: 24 },

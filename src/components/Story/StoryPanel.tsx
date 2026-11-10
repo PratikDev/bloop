@@ -14,12 +14,12 @@ import { useStory, type StoryStepId } from "./use-story";
 /** How long the tour's heading holds focus after starting from the player (frames, about half a second). */
 const FOCUS_FRAMES = 30;
 
-/** A step's dot: filled once done, pink and pulsing while current. */
+/** A step's dot: filled once done, coral and a size larger while current (no pulse). */
 function StepDot({ index, current }: { index: number; current: number }) {
   const now = index === current;
   return (
     <span aria-hidden="true" className="relative grid size-2.5 shrink-0 place-items-center">
-      {now && <span className="absolute inset-0 animate-signal-pulse rounded-full border border-shapla" />}
+      {now && <span className="absolute -inset-1 rounded-full border-2 border-shapla" />}
       <span className={cn("size-2.5 rounded-full border", now ? "border-shapla bg-shapla" : index < current ? "border-haze bg-haze" : "border-line bg-night")} />
     </span>
   );

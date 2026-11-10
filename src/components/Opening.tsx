@@ -102,7 +102,7 @@ export function Opening() {
         >
           <Starfield />
           <p className="eyebrow relative flex items-center gap-2">
-            <span aria-hidden="true" className="size-1.5 animate-pulse rounded-full bg-shapla" />
+            <span aria-hidden="true" className="size-1.5 rounded-full bg-shapla" />
             {t("opening.label")}
           </p>
 

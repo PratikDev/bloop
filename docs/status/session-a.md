@@ -4,7 +4,8 @@
 - Then vs Now and How we know briefs, header language and Help on every page, Home window border outside | a799dca | 2026-11-10
 - Official map size kept, feature inventory (reach-*), কমলা | 975df5c, 9644a36, 9e160a9 | 2026-11-10
 - audit items A1–A11 (A2, the A1 page flow and the A11 clipping were already fixed by the rebuild) | 44099c2 | 2026-11-10
-- A-bn: Bangla drafts for every string in my files, review list in docs/i18n/A-BN-REVIEW.md | (this merge) | 2026-11-10 | next: motion items 16–20
+- A-bn: Bangla drafts for every string in my files, review list in docs/i18n/A-BN-REVIEW.md | 92de058 | 2026-11-10
+- motion items 16–19: bubbles in Listen's tubes; the crown's tonearm and split-flap title; the live equaliser; panels landing on page change; the slider knob's spring; the spinning-record loader with a progress bar; the banned pulses, breathing and rise entrances removed. Item 20 (pointer upgrade, optional) skipped. The Turntable's player bar stays one row from 1024 px (Session B's two-object stage) | (this merge) | 2026-11-10 | next: docs/i18n/REVIEW.md once B's Bangla wiring is merged; phase 8 after "B done (turntable)"
 
 ## Home window, for Session B's check
 

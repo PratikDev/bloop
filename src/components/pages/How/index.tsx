@@ -37,7 +37,7 @@ export function HowPage() {
 
   return (
     <section aria-labelledby="how-title" className="mx-auto w-full max-w-7xl px-4 py-6 lg:px-8 lg:short:py-4">
-      <div className="slab space-y-6 p-5 lg:p-6">
+      <div data-land className="slab space-y-6 p-5 lg:p-6">
         <header className="flex flex-wrap items-center gap-x-6 gap-y-2">
           <h1 id="how-title" data-page-title tabIndex={-1} className="display-tight font-wide text-title lg:text-headline">
             {t("nav.how")}
