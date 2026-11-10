@@ -10,16 +10,32 @@ import { InfoSheet } from "../InfoSheet";
  * caption as the headline, then the chart) beside a side card (how to listen,
  * or which place). The details open in a sheet, so the page never grows.
  */
-export function PartLayout({ finding, side, sideTitle, details, detailsTitle }: { finding: ReactNode; side: ReactNode; sideTitle: string; details: ReactNode; detailsTitle: string }) {
+export function PartLayout({
+  finding,
+  side,
+  sideTitle,
+  details,
+  detailsTitle,
+  stage,
+}: {
+  finding: ReactNode;
+  side: ReactNode;
+  sideTitle: string;
+  details: ReactNode;
+  detailsTitle: string;
+  /** The city globe: under the side card, in whatever height the finding leaves it (it never makes the row taller or the chart narrower). */
+  stage?: ReactNode;
+}) {
   return (
     <div className="grid items-start gap-4 lg:grid-cols-[minmax(0,1fr)_18rem]">
       <div className="min-w-0 space-y-3 lg:short:space-y-2">{finding}</div>
       {/* Narrow screens: below the chart it plays; wide screens: beside it. */}
-      <aside aria-label={sideTitle} className="space-y-3 lg:short:space-y-2">
+      <aside aria-label={sideTitle} className="space-y-3 lg:flex lg:flex-col lg:self-stretch lg:short:space-y-2">
         <h3 className="eyebrow lg:short:sr-only">{sideTitle}</h3>
         {side}
         <div aria-hidden="true" className="stitch-x opacity-50" />
         <DetailsSheet title={detailsTitle}>{details}</DetailsSheet>
+        {stage && <div className="mx-auto aspect-square w-full max-w-56 lg:relative lg:aspect-auto lg:max-w-none lg:min-h-0 lg:flex-1">{stage}</div>}
       </aside>
     </div>
   );

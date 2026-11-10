@@ -130,7 +130,7 @@ export function ThenNow({
                   onChange={choosePart}
                   options={FIELD_PARTS.map((p) => ({ value: p, label: t(`thenNow.part.${p}`) }))}
                 />
-                <FieldPartView part={part} />
+                <FieldPartView part={part} stage={<MotionStage city={cityName} beat={null} beatIndex={null} pause={pause} className="size-full lg:absolute lg:inset-0" />} />
               </div>
             ) : (
               <PartLayout
@@ -139,18 +139,14 @@ export function ThenNow({
                     {sharedWith.length > 0 && (
                       <p className="text-small text-moon">{t("history.sharedCell", { places: sharedWith.map((c) => t(`place.${c}`)).join(", ") })}</p>
                     )}
-                    <div className="grid gap-4 lg:grid-cols-[minmax(0,1fr)_13rem]">
-                      <div className="min-w-0 space-y-3">
-                        <PartView part={part} demo={view.demo} grace={ready.grace} index={sounding} splitIndex={player.splitIndex} motionPaused={pause.paused} />
-                      </div>
-                      <MotionStage city={cityName} beat={beat} beatIndex={sounding ?? player.splitIndex} pause={pause} className="-order-1 mx-auto aspect-square w-full max-w-56 lg:order-none lg:aspect-auto lg:max-w-none" />
-                    </div>
+                    <PartView part={part} demo={view.demo} grace={ready.grace} index={sounding} splitIndex={player.splitIndex} motionPaused={pause.paused} />
                     {part === "water" &&  <p className="text-small text-haze">{t("thenNow.waterNational")}</p>}
                     <p className="text-small text-haze">{t("thenNow.contextNote")}</p>
                   </>
                 }
                 sideTitle={t("thenNow.listen")}
                 side={<PlayControls part={part} player={player} />}
+                stage={<MotionStage city={cityName} beat={beat} beatIndex={sounding ?? player.splitIndex} pause={pause} className="size-full lg:absolute lg:inset-0" />}
                 detailsTitle={t("disclosure.title")}
                 details={
                   <>

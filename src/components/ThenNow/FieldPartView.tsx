@@ -18,12 +18,13 @@ import { Headline } from "./PartView";
 export type FieldPart = "fires" | "vegetation";
 
 /** Fires and vegetation in the shared layout: finding left; place and "no sound yet" right; sources folded. */
-function FieldLayout({ part, decimals, picker, pair, chart, caption, facts }: { part: FieldPart; decimals: number; picker: ReactNode; pair: SeriesPair; chart: Omit<FieldChartProps, "pair">; caption: string; facts: ReactNode }) {
+function FieldLayout({ part, decimals, picker, pair, chart, caption, facts, stage }: { stage: ReactNode; part: FieldPart; decimals: number; picker: ReactNode; pair: SeriesPair; chart: Omit<FieldChartProps, "pair">; caption: string; facts: ReactNode }) {
   const { state } = useAppState();
   const t = useT();
   const value = (v: number | null) => (v === null ? null : formatFixed(v, state.lang, decimals));
   return (
     <PartLayout
+      stage={stage}
       finding={
         <>
           <Headline caption={caption} />
@@ -74,7 +75,7 @@ function FieldChart({ pair, unit, tick, summary }: FieldChartProps) {
   );
 }
 
-function Fires() {
+function Fires({ stage }: { stage: ReactNode }) {
   const { state } = useAppState();
   const t = useT();
   const { value: file, status } = useLoaded(loadFirms);
@@ -85,6 +86,7 @@ function Fires() {
   const place = t(`field.fires.region.${region}`);
   return (
     <FieldLayout
+      stage={stage}
       part="fires"
       decimals={0}
       picker={<ChoiceGroup<FirmsRegion> label={t("field.fires.region")} value={region} onChange={setRegion} options={FIRE_REGIONS.map((r) => ({ value: r, label: t(`field.fires.region.${r}`) }))} vertical />}
@@ -106,7 +108,7 @@ function Fires() {
   );
 }
 
-function Vegetation() {
+function Vegetation({ stage }: { stage: ReactNode }) {
   const { state } = useAppState();
   const t = useT();
   const { value: file, status } = useLoaded(loadNdvi);
@@ -117,6 +119,7 @@ function Vegetation() {
   const place = t(`field.veg.point.${point}`);
   return (
     <FieldLayout
+      stage={stage}
       part="vegetation"
       decimals={2}
       picker={<ChoiceGroup<NdviPointName> label={t("field.veg.point")} value={point} onChange={setPoint} options={NDVI_POINTS.map((p) => ({ value: p, label: t(`field.veg.point.${p}`) }))} vertical />}
@@ -143,6 +146,7 @@ function Vegetation() {
  * example years) and vegetation (NDVI, single pixels). Shown with their data
  * rules; no sound yet. Not tied to the city: fixed places in the files.
  */
-export function FieldPartView({ part }: { part: FieldPart }) {
-  return part === "fires" ? <Fires /> : <Vegetation />;
+/** `stage` is the city globe: Fires and Vegetation have no sound, so it never pulses (and they have no year axis, so no stripes or year). */
+export function FieldPartView({ part, stage }: { part: FieldPart; stage: ReactNode }) {
+  return part === "fires" ? <Fires stage={stage} /> : <Vegetation stage={stage} />;
 }
