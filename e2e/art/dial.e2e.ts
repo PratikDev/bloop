@@ -83,7 +83,9 @@ test("Mute all and Esc stop everything at Music", async ({ page }) => {
   if (await tap.waitFor({ state: "visible", timeout: 3000 }).then(() => true, () => false)) await tap.click();
   await settingsButton(page).click();
   await chooseStop(page, "Music");
-  await page.keyboard.press("Escape"); // closes the popover
+  // Close Settings with its own button: an Esc here would already stop all sound (CORE_PLAN, plan 9.3), and this test
+  // needs the Music stop sounding (data voice, drone, reverb) before Mute all and Esc.
+  await settingsButton(page).click();
   await page.locator("#sound-map").focus();
   await page.keyboard.press("ArrowRight");
   await page.keyboard.press("ArrowRight");

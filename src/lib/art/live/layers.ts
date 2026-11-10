@@ -125,10 +125,16 @@ function ticks(voiceId: string, prev: number, value: number, time?: number) {
   });
 }
 
-// Stop / Esc: every layer's sources are stopped with the rest; forget them, and let the chord go.
+// Stop / Esc: every layer's sources are stopped with the rest; forget them, and let the chord go. The reverb's tail is
+// cut too (it would ring on for a second after its sources stop); the next sync brings the wet level back.
 onStopAll(() => {
-  if (live) live.bed = live.drone = null;
-  if (live) live.sa = 0;
+  if (live) {
+    const now = getCtx().currentTime;
+    live.reverb.wet.gain.cancelScheduledValues(now);
+    live.reverb.wet.gain.setTargetAtTime(0, now, 0.01);
+    live.bed = live.drone = null;
+    live.sa = 0;
+  }
   sounding.clear();
   lastValue.clear();
   chordLayer()?.stop();
