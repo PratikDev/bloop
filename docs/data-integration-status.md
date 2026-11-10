@@ -138,3 +138,31 @@
 5. **Black Marble on NOAA-20:** Dhaka reaches 42.0 on 19 Oct, above the book's S-NPP range of 25–32. The other clear nights are 24.8–34.5.
 6. **The SVS 5176 frame lags SVS 5101 by 2 days** (25 vs 27 Oct). Both times are shown.
 7. **MUR `dt_1km_data`:** only 22% of ocean cells had a recent 1 km infrared look (cloud). The Bay of Bengal points are all "no look" today, so clarity plays the longest echo there.
+
+<!-- >>> DATA -->
+## App status of every product (DATA build, 10 Nov 2026)
+
+Every shipped product, what the app now does with it, and the feature. Flags: `NEXT_PUBLIC_DATA_*` (`src/lib/flags.ts`,
+DATA block; off in production until the integrated pass).
+
+| Product | App status | Feature |
+|---|---|---|
+| `latest/sst.*` (5101) | playing | Listen ocean track, Turntable, scenes (unchanged); acceptance check `live_sst` now read in How we got this |
+| `latest/rain.*` (4285) | playing | Listen rain track (unchanged); acceptance check `live_rain` read in How we got this |
+| `latest/sst_anom.*` (5176) | playing + shown | Sound terrain N: the anomaly plays against the normal tone and **`sst_anom.webp` is now the terrain's picture**, with its frame date and a legend coloured from the picture |
+| `truth/sst_compare.png` | documented only | Not shown: the pre-recalibration 21 Sep Frame-vs-MUR scatter; How we know's ocean card already plots the same check from today's `sst_pairs.json` |
+| `meta/health.json` | shown | "Is this data fresh?" in every How we got this; the Data health page (`/data-health`) linked from How we know |
+| `official/live_*/validation.json` (6) | shown | Read directly by the provenance (key numbers = `VALIDATION_TABLE.md`) |
+| `latest/fwi_class.*` (5315) | playing | Fire-weather chord: a Mixer layer on Listen, and the "Fires and fire weather" record |
+| `archive/fwi/*` + `context/fwi_archive_index.json` | playing + shown | The record's archive replay (forecast meets outcome) and pilot table |
+| `latest/fires.*` (5113) | shown | The record's picture (display only; satellite not named in its file, said so) |
+| `context/firms.json` → `daily` | playing | Fire Geiger clicks (count → rate, FRP → brightness), the FIRMS table; Ask Bloop "fires here" |
+| `context/firms.json` → `cases` | playing (example) | Off-season "fire season example" (CHT, March–April) |
+| `latest/landslide_class.*` (5584) | playing | "Landslide exposure (LHASA, modelled)" record: thresholded rumble |
+| `context/nightlights.json` (VJ146A2, NOAA-20) | playing | "Night lights by city" record: one note per night, gaps as rests; linked from 5313 |
+| `official/sonification_13786` | playing (method) | NASA mode vs Bloop mode (radar sweep on the ocean frame) |
+| `related` rel_4445 / rel_4658 / rel_4939 | shown (not playable) | "Not playable: too sparse to sonify honestly" list |
+| SVS 5479 (`data_raw/5479`) | documented (credited) | Credited in ocean2_5425's How we got this ("Also checked with") |
+| SVS 30028, 5022, 5075, 5273, 5505, 5552 | documented only | `docs/official/REJECTED.md` |
+| `DATA_PATHS.gpcc` | removed | Dead path deleted (GPCC's numbers come from the demo file) |
+<!-- <<< DATA -->

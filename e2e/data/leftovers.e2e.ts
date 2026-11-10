@@ -7,7 +7,7 @@ import * as path from "node:path";
 import { hiddenRecords } from "../../src/lib/earth/hidden";
 import type { OfficialIndex } from "../../src/types/data-contract";
 import { navTo } from "../lib/app";
-import { expectAxeClean, fresh, OFFICIAL_SECTION, openSceneOnly, readJson, ROOT, sceneRead } from "./lib";
+import { chooseRecord, expectAxeClean, fresh, OFFICIAL_SECTION, openSceneOnly, readJson, ROOT, sceneRead } from "./lib";
 
 /** VALIDATION_TABLE.md's "Key numbers" cells for a record. */
 const tableNumbers = (record: string) =>
@@ -41,6 +41,16 @@ test.describe("the leftovers", () => {
     // They stay unplayable: no record button for them on any shelf.
     for (const h of hidden) await expect(page.getByRole("button", { name: h.title, exact: true })).toHaveCount(0);
     await expectAxeClean(page, '[data-testid="not-playable"]');
+  });
+
+  test("P6: Perpetual Ocean 2's How we got this credits SVS 5479, the flat maps its checks used", async ({ page }) => {
+    await fresh(page, "/listen");
+    await navTo(page, "Official records");
+    await chooseRecord(page, /^Perpetual Ocean 2/u);
+    await page.locator(OFFICIAL_SECTION).getByRole("button", { name: /^How we got this: Perpetual Ocean 2/u }).first().click();
+    const c = page.getByTestId("how-we-got-this").getByTestId("checked-with");
+    await expect(c.locator('li[data-svs="5479"]')).toBeVisible({ timeout: 15_000 });
+    await expect(c).toContainText("GLORYS12");
   });
 
   test("Sound terrain: N puts the SVS 5176 picture on the terrain, with its alt text, frame date and legend", async ({ page }) => {
