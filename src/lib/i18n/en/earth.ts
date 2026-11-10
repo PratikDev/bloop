@@ -1,4 +1,4 @@
-// English strings for the DATA records (docs/prompts/CLAUDE_CODE_PROMPT_data_maximize.md): Data health, the leftovers,
+// English strings for the DATA records (the data-maximize spec): Data health, the leftovers,
 // fire weather, Fire Geiger, landslide exposure, night lights, NASA's radar method. No number is typed next to a unit:
 // every value is a {param} filled from the shipped files. Bangla drafts: bn/earth.ts.
 

@@ -1,6 +1,6 @@
 # Accessibility core: build plan
 
-From `remaining features/CLAUDE_CODE_PROMPT_accessibility_core.md`. Decisions agreed on 8 Nov 2026: built after the
+From the accessibility core spec. Decisions agreed on 8 Nov 2026: built after the
 mentor fixes, before Ask Bloop, on `bloop-dev`, one commit per feature, **desktop website only**. Part 2 (phone touch
 mode, Android vibration), TalkBack and the mobile Playwright runs are **not built** (listed in the final report).
 

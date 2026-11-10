@@ -1,6 +1,6 @@
 # ART roadmap: Tier 3 (plans only, no code)
 
-From `docs/prompts/CLAUDE_CODE_PROMPT_art_emotion_musicality.md`, Tier 3. Each plan keeps the rule that never bends:
+From the art, emotion and musicality spec, Tier 3. Each plan keeps the rule that never bends:
 art may change timbre, harmony underneath, voicing, onset placement, reverb, beds and arrangement; never value → pitch,
 the onset count or tempo of a data voice, or any number. Each one needs the pitch-identity check
 (`src/lib/art/proof/check.ts`) before it ships, EN + BN strings, braille rules and a flag in the `// >>> ART` block.

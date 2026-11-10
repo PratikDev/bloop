@@ -1,8 +1,8 @@
 // Shared contracts for the sound layers built in parallel (10 Nov 2026), so each side builds against one interface:
-//   - CV  (docs/prompts/CLAUDE_CODE_PROMPT_cvml_build.md): the value chord, a standalone layer implementing ChordLayer;
-//   - ART (docs/prompts/CLAUDE_CODE_PROMPT_art_emotion_musicality.md): the Science ↔ Art dial, which drives a ChordLayer
+//   - CV  (the CV/ML spec): the value chord, a standalone layer implementing ChordLayer;
+//   - ART (the art, emotion and musicality spec): the Science ↔ Art dial, which drives a ChordLayer
 //     through a hook, and Earth Orchestra, which implements OrchestraApi;
-//   - DATA (docs/prompts/CLAUDE_CODE_PROMPT_data_maximize.md): new records that play plain tones now and call
+//   - DATA (the data-maximize spec): new records that play plain tones now and call
 //     OrchestraApi at integration.
 // Types only. The rule every layer keeps: value → pitch never changes. A layer may shape timbre, add sound around the
 // data voice or replace the second voice; it never moves a data voice's settled pitch, onset count or tempo.

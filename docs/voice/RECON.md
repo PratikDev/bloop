@@ -1,6 +1,6 @@
 # Ask Bloop: reconnaissance (Phase 0)
 
-Spec: `remaining features/CLAUDE_CODE_PROMPT_voice_ask_bloop.md`. Written 9 Nov 2026 on `bloop-dev`, after the
+Spec: the Ask Bloop spec. Written 9 Nov 2026 on `bloop-dev`, after the
 accessibility core (steps 1–8). Decisions agreed with the team on 8 Nov 2026: parser-only (Phases 0–4, typed and
 voice, behind flags); the LLM route (Phase 5) is built but stays off; desktop website only.
 

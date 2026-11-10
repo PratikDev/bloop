@@ -1,4 +1,4 @@
-// Ask Bloop's four DATA questions (docs/prompts/CLAUDE_CODE_PROMPT_data_maximize.md): fire weather, fires, landslide
+// Ask Bloop's four DATA questions (the data-maximize spec): fire weather, fires, landslide
 // exposure and night lights at the needle, answered only from the engine's values (src/components/AskBloop/data-questions.ts).
 // Joined to the registry, the parser and the validator in their DATA blocks. Bangla examples are drafts.
 

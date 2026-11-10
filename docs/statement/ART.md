@@ -1,6 +1,6 @@
 # ART: art, emotion and musicality
 
-Built on `wt/art` (10 Nov 2026) from `docs/prompts/CLAUDE_CODE_PROMPT_art_emotion_musicality.md`: Tier 1 (items 1–6)
+Built on `wt/art` (10 Nov 2026) from the art, emotion and musicality spec: Tier 1 (items 1–6)
 and Tier 2 (items 7–9) in full; Tier 3 as plans (`docs/statement/ART_ROADMAP.md`). Row-by-row status:
 `docs/statement/ART_PARAGRAPH_STATUS.md`.
 

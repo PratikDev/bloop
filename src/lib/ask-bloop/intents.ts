@@ -1,4 +1,4 @@
-// Ask Bloop (remaining features/CLAUDE_CODE_PROMPT_voice_ask_bloop.md §5.1): the intents, as one typed union. Only
+// Ask Bloop (the Ask Bloop spec §5.1): the intents, as one typed union. Only
 // intents whose handler already exists in Bloop are here; the ones skipped (set_mode Listen/Analyse, set_dial,
 // slower/faster, set_time to a date) are listed in docs/voice/RECON.md.
 import type { SpeechMode, Verbosity } from "@/components/AppState/access";

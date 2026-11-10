@@ -5,7 +5,7 @@ already call; every number in an answer is computed from NASA data by Bloop's en
 and Bangla on its own, offline, with no key. An optional AI fallback only interprets the question, is off, and never
 supplies a number.
 
-Spec: `remaining features/CLAUDE_CODE_PROMPT_voice_ask_bloop.md`. Reconnaissance: [RECON.md](RECON.md). Report:
+Spec: the Ask Bloop spec. Reconnaissance: [RECON.md](RECON.md). Report:
 [REPORT.md](REPORT.md).
 
 ## How it works
