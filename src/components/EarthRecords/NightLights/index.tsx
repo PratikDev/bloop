@@ -11,6 +11,8 @@ import { DataTable } from "../../EarthData/DataTable";
 import { HowWeGotThis } from "../../HowWeGotThis";
 import { StatusBadge } from "../../StatusBadge";
 import { TranscriptLink } from "../../TranscriptLink";
+import { RecordLetter } from "../../Art/Letter/RecordLetter"; // ART: the letter on this record
+import { lightsLetter } from "@/lib/art/letter/data-records";
 import { AgeNote } from "../AgeNote";
 import { BrailleLine, DescribeButton, LinerNotes, TableToggle } from "../RecordTools";
 import { lightsLinerNotes } from "./liner";
@@ -63,6 +65,7 @@ export function NightLights() {
         </div>
         <p className="text-small text-haze">{t("earth.lights.events")}</p>
         <TranscriptLink record="nightlights_bm" label={t("earth.lights.title")} />
+        <RecordLetter letter={s ? lightsLetter(t, file, city, s) : null} />
       </div>
       <aside className="space-y-4">
         <AgeNote product={file.product} sourceTime={file.source_time_utc} />

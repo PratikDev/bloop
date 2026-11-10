@@ -11,6 +11,8 @@ import { DataTable } from "../../EarthData/DataTable";
 import { HowWeGotThis } from "../../HowWeGotThis";
 import { StatusBadge } from "../../StatusBadge";
 import { TranscriptLink } from "../../TranscriptLink";
+import { RecordLetter } from "../../Art/Letter/RecordLetter"; // ART: the letter on this record
+import { slideLetter } from "@/lib/art/letter/data-records";
 import { AgeNote } from "../AgeNote";
 import { ClassCanvas } from "../ClassCanvas";
 import { EarthMap } from "../EarthMap";
@@ -64,6 +66,7 @@ export function Landslides() {
           <LinerNotes lines={slideLinerNotes(t, meta)} />
         </div>
         <TranscriptLink record="landslide_lhasa" label={t("earth.slide.title")} />
+        <RecordLetter letter={slideLetter(t, meta, s.code, place)} />
       </div>
       <aside className="space-y-4">
         <AgeNote product={meta.product} sourceTime={meta.source_time_utc} />

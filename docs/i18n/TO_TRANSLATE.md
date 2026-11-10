@@ -499,7 +499,7 @@ The Mapping panel builds each rule sentence from its parts (`src/lib/i18n/bn/rul
 | `clarity` | parameter: reverbSec; unit: hours since a 1 km infrared look | How recently measured 0 to 48 hours since a 1 km infrared look → echo length 0.1 to 2.4 s (linear). |
 | `unison` | a rule shared with another voice (sameAs) | Proof in unison: two tones in one ear, both by the Ocean temperature rule (Ocean temperature −5 to 35 °C → pitch 220 to 880 Hz (exponential: equal steps in value sound like equal musical steps).) Beats per second = the difference between the two pitches in Hz. |
 
-## Draft Bangla, needs review (1095)
+## Draft Bangla, needs review (1103)
 
 Drafted for the mentor fixes (`docs/MENTOR_FIXES.md`); **draft, needs review** by a Bangla speaker. Listed in `src/lib/i18n/bn/drafts.ts`: remove an entry there once it is checked.
 
@@ -1500,6 +1500,12 @@ Drafted for the mentor fixes (`docs/MENTOR_FIXES.md`); **draft, needs review** b
 | `letter.pattern` | ``${p.record}: pattern only; no value recorded.`` | ``${p.record}: \u09B6\u09C1\u09A7\u09C1 \u09A8\u0995\u09B6\u09BE; \u0995\u09CB\u09A8\u09CB \u09AE\u09BE\u09A8 \u09B2\u09C7\u0996\u09BE \u09A8\u09C7\u0987\u0964`` |
 | `letter.none` | No value here: land, or no measurement. | এখানে কোনো মান নেই: স্থল, বা কোনো পরিমাপ নেই। |
 | `letter.noValue` | no value recorded | কোনো মান লেখা নেই |
+| `letter.class` | ``${p.record}: ${p.label}. A category; no value recorded.`` | ``${p.record}: ${p.label}\u0964 \u098F\u0995\u099F\u09BF \u09B6\u09CD\u09B0\u09C7\u09A3\u09BF; \u0995\u09CB\u09A8\u09CB \u09AE\u09BE\u09A8 \u09B2\u09C7\u0996\u09BE \u09A8\u09C7\u0987\u0964`` |
+| `letter.classValue` | ``${p.label} (a category, no value)`` | ``${p.label} (\u098F\u0995\u099F\u09BF \u09B6\u09CD\u09B0\u09C7\u09A3\u09BF, \u0995\u09CB\u09A8\u09CB \u09AE\u09BE\u09A8 \u09A8\u09AF\u09BC)`` |
+| `letter.radiance` | ``Night lights ${p.value}.`` | ``\u09B0\u09BE\u09A4\u09C7\u09B0 \u0986\u09B2\u09CB ${p.value}\u0964`` |
+| `letter.gap` | Gap: clouds hid this night; no value recorded. A gap, not darkness. | ফাঁক: মেঘে এই রাত ঢাকা ছিল; কোনো মান লেখা নেই। এটি ফাঁক, অন্ধকার নয়। |
+| `letter.from` | ``From ${p.source}, read by Bloop.`` | ``${p.source} \u09A5\u09C7\u0995\u09C7, Bloop \u09AA\u09A1\u09BC\u09C7\u099B\u09C7\u0964`` |
+| `letter.leaveHere` | Leave a letter from this record | এই রেকর্ড থেকে একটি চিঠি রাখুন |
 | `letter.field.date` | Date | তারিখ |
 | `letter.field.place` | Place | স্থান |
 | `letter.field.value` | Value | মান |
@@ -1578,23 +1584,25 @@ Drafted for the mentor fixes (`docs/MENTOR_FIXES.md`); **draft, needs review** b
 | `ltx.clip.strip` | Bars, one for each place; taller is warmer | প্রতিটি জায়গার একটি দণ্ড; উঁচু মানে বেশি উষ্ণ |
 | `journey.open` | Water's journey | জলের যাত্রা |
 | `journey.title` | Water's journey: a Bangladesh suite | জলের যাত্রা: একটি বাংলাদেশ সুইট |
-| `journey.lead` | Lightning, an atmospheric river, the rain over Bangladesh, the water stored under it, and the Bay of Bengal: five records, each in its Earth Orchestra family, with the dial at Music (the data voice unchanged) and two seconds of silence between them. | বজ্রপাত, একটি বায়ুমণ্ডলীয় নদী, বাংলাদেশের ওপর বৃষ্টি, তার নিচে জমা জল আর বঙ্গোপসাগর: পাঁচটি রেকর্ড, প্রতিটি তার পৃথিবী অর্কেস্ট্রা পরিবারে, ডায়াল সংগীতে (ডেটার কণ্ঠ অপরিবর্তিত), মাঝে দুই সেকেন্ডের নীরবতা। |
+| `journey.lead` | Lightning, an atmospheric river, the rain over Bangladesh, the landslide exposure on its hills, the water stored under it, and the Bay of Bengal: each record in its Earth Orchestra family, with the dial at Music (the data voice unchanged) and two seconds of silence between them. | বজ্রপাত, একটি বায়ুমণ্ডলীয় নদী, বাংলাদেশের ওপর বৃষ্টি, তার পাহাড়ে ভূমিধসের ঝুঁকি, তার নিচে জমা জল আর বঙ্গোপসাগর: প্রতিটি রেকর্ড তার পৃথিবী অর্কেস্ট্রা পরিবারে, ডায়াল সংগীতে (ডেটার কণ্ঠ অপরিবর্তিত), মাঝে দুই সেকেন্ডের নীরবতা। |
 | `journey.play` | Play the suite | সুইটটি বাজান |
 | `journey.stop` | Stop | থামান |
 | `journey.close` | Close the suite | সুইটটি বন্ধ করুন |
 | `journey.wav` | Play as one piece (save a WAV) | একটি টুকরো হিসেবে বাজান (WAV সংরক্ষণ) |
 | `journey.wavDone` | ``Saved: ${p.seconds} seconds, fingerprint ${p.id}.`` | ``\u09B8\u0982\u09B0\u0995\u09CD\u09B7\u09BF\u09A4: ${p.seconds} \u09B8\u09C7\u0995\u09C7\u09A8\u09CD\u09A1, \u099B\u09BE\u09AA ${p.id}\u0964`` |
 | `journey.rendering` | Rendering the suite | সুইটটি রেন্ডার হচ্ছে |
-| `journey.loading` | Loading the five records | পাঁচটি রেকর্ড লোড হচ্ছে |
+| `journey.loading` | Loading the records | রেকর্ডগুলো লোড হচ্ছে |
 | `journey.step.lightning` | Lightning | বজ্রপাত |
 | `journey.step.river` | An atmospheric river | একটি বায়ুমণ্ডলীয় নদী |
 | `journey.step.rain` | Rain over Bangladesh | বাংলাদেশের ওপর বৃষ্টি |
+| `journey.step.slope` | Landslide exposure on Bangladesh's hills | বাংলাদেশের পাহাড়ে ভূমিধসের ঝুঁকি |
 | `journey.step.water` | Water stored under Bangladesh | বাংলাদেশের নিচে জমা জল |
 | `journey.step.sea` | The Bay of Bengal | বঙ্গোপসাগর |
 | `journey.status.pattern only` | pattern only, no values | শুধু নকশা, কোনো মান নেই |
 | `journey.status.relative` | relative values | আপেক্ষিক মান |
 | `journey.status.verified` | values checked against NASA's files | নাসার ফাইলের সঙ্গে যাচাই করা মান |
 | `journey.status.observation` | observed values | পর্যবেক্ষিত মান |
+| `journey.status.model` | modelled exposure classes (LHASA), not observed landslides; low classes are stated silences | মডেল করা ঝুঁকির শ্রেণি (LHASA), দেখা ভূমিধস নয়; নিচের শ্রেণিগুলো বলে দেওয়া নীরবতা |
 | `journey.line` | ``${p.name}. ${p.dataset}; ${p.period}; ${p.status}.`` | ``${p.name}\u0964 ${p.dataset}; ${p.period}; ${p.status}\u0964`` |
 | `journey.dial` | Dial at Music: the data voice unchanged; what changes is the instrument, a drone on Sa, swara and meend glides and light reverb. Interpretation, not measurement. | ডায়াল সংগীতে: ডেটার কণ্ঠ অপরিবর্তিত; বদলায় বাদ্য, সা-তে স্থির সুর, স্বর ও মীড় আর হালকা প্রতিধ্বনি। ব্যাখ্যা, পরিমাপ নয়। |
 | `journey.season` | Artistic choice: season colour (monsoon). | শিল্পিত পছন্দ: ঋতুর রং (বর্ষা)। |

@@ -19,6 +19,8 @@ import { HowWeGotThis } from "../../HowWeGotThis";
 import { OnOffToggle } from "../../OnOffToggle";
 import { StatusBadge } from "../../StatusBadge";
 import { TranscriptLink } from "../../TranscriptLink";
+import { RecordLetter } from "../../Art/Letter/RecordLetter"; // ART: the letter on this record
+import { fireLetter } from "@/lib/art/letter/data-records";
 import { AgeNote } from "../AgeNote";
 import { EarthMap } from "../EarthMap";
 import { BrailleLine, DescribeButton, LinerNotes, TableToggle } from "../RecordTools";
@@ -123,6 +125,7 @@ export function Wildfires() {
           </p>
         )}
         <TranscriptLink record="fires_fwi" label={t("earth.fire.title")} />
+        <RecordLetter letter={fireLetter(t, meta, reading.fwiCode, reading.forDay, place)} />
       </div>
 
       <aside className="space-y-4">
