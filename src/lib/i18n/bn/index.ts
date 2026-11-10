@@ -26,8 +26,15 @@ import { framesBn } from "./frames";
 import { howBn } from "./how";
 import { statsBn } from "./stats";
 import { storyBn } from "./story";
+// >>> CV
+import { cvBn } from "./cv";
+// <<< CV
 
-export const bn: Partial<Messages> = { ...appBn, ...helpBn, ...captionsBn, ...panelsBn, ...contextBn, ...storyBn, ...pagesBn, ...statsBn, ...framesBn, ...howBn, ...creditsBn, ...provenanceBn, ...teamBn, ...listenTestBn, ...accessBn, ...describeBn, ...placesTableBn, ...tuningBn, ...expeditionBn, ...timedTextBn, ...lowVisionBn, ...askBloopBn };
+export const bn: Partial<Messages> = { ...appBn, ...helpBn, ...captionsBn, ...panelsBn, ...contextBn, ...storyBn, ...pagesBn, ...statsBn, ...framesBn, ...howBn, ...creditsBn, ...provenanceBn, ...teamBn, ...listenTestBn, ...accessBn, ...describeBn, ...placesTableBn, ...tuningBn, ...expeditionBn, ...timedTextBn, ...lowVisionBn, ...askBloopBn,
+  // >>> CV
+  ...cvBn,
+  // <<< CV
+};
 
 /**
  * Spoken lines (Enter, the tour, Describe) are translated, so speech follows

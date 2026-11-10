@@ -5,6 +5,8 @@ import { readdirSync, readFileSync } from "node:fs";
 import { join } from "node:path";
 import { isResultsFile, summarise, type ResultsFile } from "../src/lib/listen-test/results";
 import { TASK_IDS } from "../src/lib/listen-test/tasks";
+/** The task column fits the longest task id (the CV/ML chord tasks are longer than the first five). */
+const TASK_WIDTH = Math.max(...TASK_IDS.map((id) => id.length));
 
 export function readFolder(folder: string): { files: ResultsFile[]; skipped: string[] } {
   const files: ResultsFile[] = [];
@@ -25,8 +27,8 @@ export function report(folder: string): string {
     "Bloop listener test: formative only (a small, informal check; not a validation)",
     `Listeners (files): ${s.listeners}`,
     "",
-    "Task     n  correct  accuracy",
-    ...s.tasks.map((t) => `${t.task.padEnd(7)} ${String(t.n).padStart(2)}  ${String(t.correct).padStart(7)}  ${t.n ? pct(t.accuracy).padStart(8) : "     n/a"}`),
+    `${"Task".padEnd(TASK_WIDTH)}  n  correct  accuracy`,
+    ...s.tasks.map((t) => `${t.task.padEnd(TASK_WIDTH)} ${String(t.n).padStart(2)}  ${String(t.correct).padStart(7)}  ${t.n ? pct(t.accuracy).padStart(8) : "     n/a"}`),
   ];
   if (skipped.length) lines.push("", `Not listener-test files (skipped): ${skipped.join(", ")}`);
   return lines.join("\n");

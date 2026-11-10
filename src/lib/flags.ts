@@ -52,4 +52,21 @@ export const FLAGS = {
   describe: flag(process.env.NEXT_PUBLIC_A11Y_DESCRIBE, true),
   // Ready on 8 Nov 2026: e2e/a11y/map-keys.e2e.ts 26/26 and the whole suite 406/406 with it on (Chromium + Firefox).
   mapKeys: flag(process.env.NEXT_PUBLIC_A11Y_MAP_KEYS, true),
+  // >>> CV
+  // CV/ML build (docs/cvml/BUILD.md). `ready` stays false: the orchestrator turns these on in production after the
+  // integrated full pass. Tests that pass with each on are listed beside it.
+  /** A: "What the jukebox read from this frame" panel + cents error budget (Listen, Official records). */
+  // Passing: src/lib/cv/*.test.ts, pipeline/tests/test_box_stats.py + test_error_budget.py, e2e/cv/read-panel.e2e.ts.
+  cvRead: flag(process.env.NEXT_PUBLIC_CV_READ, false),
+  /** B: the value chord (its toggle in the panel and Settings; the layer is src/lib/audio/layers/chord). Needs cvRead. */
+  // Passing: src/lib/audio/layers/chord/*.test.ts (T1), pipeline/tests/test_colormap_invariance.py (T2),
+  // e2e/cv/chord.e2e.ts.
+  cvChord: flag(process.env.NEXT_PUBLIC_CV_CHORD, false),
+  /** C: the "Same chord, whatever the colours" card on How we know (T2's outputs). */
+  // Passing: src/lib/cv/same-chord.test.ts, e2e/cv/same-chord-card.e2e.ts.
+  cvCard: flag(process.env.NEXT_PUBLIC_CV_CARD, false),
+  /** E: the two chord tasks in /listen-test (variety, one group or two). */
+  // Passing: src/lib/listen-test/chord/chord-tasks.test.ts, e2e/cv/listen-test-chord.e2e.ts, e2e/mentor/item08.
+  cvListenTest: flag(process.env.NEXT_PUBLIC_CV_LISTEN_TEST, false),
+  // <<< CV
 } as const;

@@ -2,10 +2,13 @@
 // answer computed from the same data the sound plays (never typed). PURE: the page loads the inputs.
 
 import type { DemoWindow, GlobalPlace, RainPhase, SstTruthPair } from "@/types/data-contract";
+// >>> CV
+import { CV_TASK_IDS, cvTasks, type CvOptionId, type CvSoundPlan, type CvTaskInputs } from "./chord";
+// <<< CV
 
-export const TASK_IDS = ["ocean", "rain", "unison", "both", "heat"] as const;
+export const TASK_IDS = ["ocean", "rain", "unison", "both", "heat", /* >>> CV */ ...CV_TASK_IDS /* <<< CV */] as const;
 export type TaskId = (typeof TASK_IDS)[number];
-export type OptionId = "warmer" | "colder" | "first" | "second" | "yes" | "no";
+export type OptionId = "warmer" | "colder" | "first" | "second" | "yes" | "no" /* >>> CV */ | CvOptionId /* <<< CV */;
 
 export interface SweepStep {
   lat: number;
@@ -17,6 +20,9 @@ export interface SweepStep {
 
 /** What a task plays: two ocean tones, two duets (proof in unison), a sweep of points, or two decades of heat. */
 export type SoundPlan =
+  // >>> CV
+  | CvSoundPlan
+  // <<< CV
   | { kind: "tones"; first: number; second: number }
   | { kind: "duets"; first: { frameC: number; fileC: number }; second: { frameC: number; fileC: number } }
   | { kind: "sweep"; steps: SweepStep[]; stepMs: number }
@@ -36,7 +42,7 @@ export interface RainReading {
   phase: RainPhase;
 }
 
-export interface TaskInputs {
+export interface TaskInputs /* >>> CV */ extends Partial<CvTaskInputs> /* <<< CV */ {
   /** truth/sst_pairs.json: ocean points where the frame and NASA's MUR file were both read. */
   pairs: readonly SstTruthPair[];
   /** global/places.json */
@@ -124,5 +130,14 @@ function heatTask({ heat }: TaskInputs): Task | null {
 
 /** The tasks in order; a task whose data gives no clear answer today (e.g. no rain anywhere) is left out. */
 export function buildTasks(inputs: TaskInputs): Task[] {
-  return [oceanTask(inputs.pairs), rainTask(inputs), unisonTask(inputs.pairs), bothTask(inputs), heatTask(inputs)].filter((t): t is Task => t !== null);
+  return [
+    oceanTask(inputs.pairs),
+    rainTask(inputs),
+    unisonTask(inputs.pairs),
+    bothTask(inputs),
+    heatTask(inputs),
+    // >>> CV
+    ...cvTasks(inputs),
+    // <<< CV
+  ].filter((t): t is Task => t !== null);
 }

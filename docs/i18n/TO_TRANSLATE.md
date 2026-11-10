@@ -499,7 +499,7 @@ The Mapping panel builds each rule sentence from its parts (`src/lib/i18n/bn/rul
 | `clarity` | parameter: reverbSec; unit: hours since a 1 km infrared look | How recently measured 0 to 48 hours since a 1 km infrared look → echo length 0.1 to 2.4 s (linear). |
 | `unison` | a rule shared with another voice (sameAs) | Proof in unison: two tones in one ear, both by the Ocean temperature rule (Ocean temperature −5 to 35 °C → pitch 220 to 880 Hz (exponential: equal steps in value sound like equal musical steps).) Beats per second = the difference between the two pitches in Hz. |
 
-## Draft Bangla, needs review (603)
+## Draft Bangla, needs review (679)
 
 Drafted for the mentor fixes (`docs/MENTOR_FIXES.md`); **draft, needs review** by a Bangla speaker. Listed in `src/lib/i18n/bn/drafts.ts`: remove an entry there once it is checked.
 
@@ -1106,6 +1106,82 @@ Drafted for the mentor fixes (`docs/MENTOR_FIXES.md`); **draft, needs review** b
 | `ask.answer.noCheck` | No independent check is available for this record. | এই রেকর্ডের কোনো স্বাধীন যাচাই নেই। |
 | `ask.highest` | Highest | সবচেয়ে বেশি |
 | `ask.lowest` | Lowest | সবচেয়ে কম |
+| `cv.read.title` | What the jukebox read from this frame | এই ফ্রেম থেকে জুকবক্স যা পড়ল |
+| `cv.read.box` | Box | এলাকা |
+| `cv.box.needle` | Around the needle | সুইয়ের চারপাশে |
+| `cv.box.name` | `NAMED_BOXES.find((b) => b.id === p.id)?.name ?? p.id` | `BOX_BN[p.id] ?? p.id` |
+| `cv.axis` | `budget.axes.find((a) => a.id === p.id)?.label ?? p.id` | `AXIS_BN[p.id] ?? p.id` |
+| `cv.read.record` | Record | রেকর্ড |
+| `cv.read.frame` | Frame | ফ্রেম |
+| `cv.read.median` | Median | মধ্যমা |
+| `cv.read.spread` | 10th to 90th percentile | ১০ থেকে ৯০ শতাংশিক |
+| `cv.read.nodata` | No data | তথ্য নেই |
+| `cv.read.cells` | Cells read | পড়া ঘর |
+| `cv.read.status` | Validation | যাচাই |
+| `cv.read.budget` | Error budget | ত্রুটির হিসাব |
+| `cv.read.value` | `p.unit ? `${p.value} ${p.unit}` : p.value` | `p.unit ? `${p.value} ${p.unit}` : p.value` |
+| `cv.read.range` | `p.unit ? `${p.lo} to ${p.hi} ${p.unit}` : `${p.lo} to ${p.hi}`` | `p.unit ? `${p.lo} \u09A5\u09C7\u0995\u09C7 ${p.hi} ${p.unit}` : `${p.lo} \u09A5\u09C7\u0995\u09C7 ${p.hi}`` |
+| `cv.read.percent` | ``${p.value} %`` | ``${p.value} %`` |
+| `cv.read.pattern` | Pattern only: no values read. | শুধু নকশা: কোনো মান পড়া হয়নি। |
+| `cv.read.relative` | Relative values: no units. | আপেক্ষিক মান: কোনো একক নেই। |
+| `cv.read.empty` | No values in this box (land or no data). | এই এলাকায় কোনো মান নেই (স্থল বা তথ্য নেই)। |
+| `cv.read.loading` | Reading the frame | ফ্রেম পড়া হচ্ছে |
+| `cv.read.none` | Nothing to read on this page yet. | এই পাতায় এখনো পড়ার কিছু নেই। |
+| `cv.read.short` | Braille line | ব্রেইল লাইন |
+| `cv.budget.known` | ``Our measured error is about ${p.error}: about ${p.cents} cents of pitch.`` | ``\u0986\u09AE\u09BE\u09A6\u09C7\u09B0 \u09AE\u09BE\u09AA\u09BE \u09A4\u09CD\u09B0\u09C1\u099F\u09BF \u09AA\u09CD\u09B0\u09BE\u09AF\u09BC ${p.error}: \u09B8\u09C1\u09B0\u09C7 \u09AA\u09CD\u09B0\u09BE\u09AF\u09BC ${p.cents} \u09B8\u09C7\u09A8\u09CD\u099F\u0964`` |
+| `cv.budget.flag` | ``Pitch differences under about ${p.semitones} semitones here are within our error; don't read them as real.`` | ``\u098F\u0996\u09BE\u09A8\u09C7 \u09AA\u09CD\u09B0\u09BE\u09AF\u09BC ${p.semitones} \u09B8\u09C7\u09AE\u09BF\u099F\u09CB\u09A8\u09C7\u09B0 \u0995\u09AE \u09B8\u09C1\u09B0\u09C7\u09B0 \u09AA\u09BE\u09B0\u09CD\u09A5\u0995\u09CD\u09AF \u0986\u09AE\u09BE\u09A6\u09C7\u09B0 \u09A4\u09CD\u09B0\u09C1\u099F\u09BF\u09B0 \u09AE\u09A7\u09CD\u09AF\u09C7; \u098F\u0997\u09C1\u09B2\u09CB\u0995\u09C7 \u09B8\u09A4\u09CD\u09AF\u09BF \u09AA\u09BE\u09B0\u09CD\u09A5\u0995\u09CD\u09AF \u09A7\u09B0\u09AC\u09C7\u09A8 \u09A8\u09BE\u0964`` |
+| `cv.budget.unknown` | Error not known: no validation source for this axis. | ত্রুটি জানা নেই: এই অক্ষের কোনো যাচাইয়ের উৎস নেই। |
+| `cv.budget.noPitch` | No pitch axis: this record plays drops, not pitch. | সুরের অক্ষ নেই: এই রেকর্ড সুর নয়, ফোঁটা বাজায়। |
+| `cv.budget.zoomWaiting` | Computed from today's span once the frame loads. | ফ্রেম এলে আজকের পরিসর থেকে হিসাব হবে। |
+| `cv.budget.all` | Error budget for every pitch axis | প্রতিটি সুরের অক্ষের ত্রুটির হিসাব |
+| `cv.budget.col.axis` | Pitch axis | সুরের অক্ষ |
+| `cv.budget.col.error` | Measured error | মাপা ত্রুটি |
+| `cv.budget.col.cents` | Cents | সেন্ট |
+| `cv.budget.col.note` | What it means | এর মানে |
+| `cv.budget.ok` | Pitch steps above the error carry meaning. | ত্রুটির চেয়ে বড় সুরের ধাপের মানে আছে। |
+| `cv.hwgt.subject` | What the jukebox read | জুকবক্স যা পড়ল |
+| `cv.hwgt.place` | ``${p.box} (${p.bounds})`` | ``${p.box} (${p.bounds})`` |
+| `cv.hwgt.method` | Every grid cell whose centre lies in the box, read from the decoded frame with the app's own decoder: the median and the 10th and 90th percentiles of the cells with a value; cells with no value are counted apart. The pipeline test recomputes the same numbers with numpy. | এলাকার ভেতরে যেসব ঘরের কেন্দ্র পড়ে, অ্যাপের নিজের ডিকোডার দিয়ে ডিকোড করা ফ্রেম থেকে সেগুলো পড়া: মান আছে এমন ঘরগুলোর মধ্যমা এবং ১০ ও ৯০ শতাংশিক; মান নেই এমন ঘর আলাদা গোনা হয়। পাইপলাইনের পরীক্ষা numpy দিয়ে একই সংখ্যা আবার হিসাব করে। |
+| `cv.hwgt.n` | ``${p.valid} of ${p.n} cells have a value`` | ``${p.n}\u099F\u09BF \u0998\u09B0\u09C7\u09B0 \u09AE\u09A7\u09CD\u09AF\u09C7 ${p.valid}\u099F\u09BF\u09A4\u09C7 \u09AE\u09BE\u09A8 \u0986\u099B\u09C7`` |
+| `cv.hwgt.budgetMethod` | Semitones per unit of each value-to-pitch rule (12 x log2 of its highest over its lowest pitch, divided by its input range; per decade on a log axis), times the record's measured error, times 100. Over 100 cents, a pitch step smaller than the error carries no meaning. Sound terrain's zoomed axis uses today's span. | প্রতিটি মান-থেকে-সুর নিয়মের প্রতি এককে সেমিটোন (সর্বোচ্চ ও সর্বনিম্ন সুরের অনুপাতের log2 গুণ ১২, ইনপুট পরিসর দিয়ে ভাগ; লগ অক্ষে প্রতি দশকে), গুণ রেকর্ডের মাপা ত্রুটি, গুণ ১০০। ১০০ সেন্টের বেশি হলে ত্রুটির চেয়ে ছোট সুরের ধাপের কোনো মানে নেই। সাউন্ড টেরেইনের জুম করা অক্ষ আজকের পরিসর ব্যবহার করে। |
+| `cv.hwgt.budgetUnc` | Each error is the record's own measured error, read from the validation table or the data file. A record with no validation source shows its error as not known, never 0. | প্রতিটি ত্রুটি রেকর্ডের নিজের মাপা ত্রুটি, যাচাই সারণি বা তথ্য ফাইল থেকে পড়া। যে রেকর্ডের যাচাইয়ের উৎস নেই, তার ত্রুটি জানা নেই বলে দেখায়, কখনো ০ নয়। |
+| `cv.hwgt.unc` | ``${p.budget} Inversion confidence per cell is not shipped, so it is not shown.`` | ``${p.budget} \u09AA\u09CD\u09B0\u09A4\u09BF\u099F\u09BF \u0998\u09B0\u09C7\u09B0 \u0987\u09A8\u09AD\u09BE\u09B0\u09CD\u09B6\u09A8-\u0986\u09B8\u09CD\u09A5\u09BE \u09AA\u09BE\u09A0\u09BE\u09A8\u09CB \u09B9\u09AF\u09BC \u09A8\u09BE, \u09A4\u09BE\u0987 \u09A6\u09C7\u0996\u09BE\u09A8\u09CB \u09B9\u09AF\u09BC \u09A8\u09BE\u0964`` |
+| `cv.chord.toggle` | Chord: spread of values | কর্ড: মানের বিস্তার |
+| `cv.chord.two` | ``Two groups: ${p.a} (${p.pa} %) and ${p.b} (${p.pb} %)`` | ``\u09A6\u09C1\u099F\u09BF \u09A6\u09B2: ${p.a} (${p.pa} %) \u098F\u09AC\u0982 ${p.b} (${p.pb} %)`` |
+| `cv.chord.one` | ``One group around ${p.a}`` | ``\u098F\u0995\u099F\u09BF \u09A6\u09B2, \u09AA\u09CD\u09B0\u09BE\u09AF\u09BC ${p.a}`` |
+| `cv.chord.brief` | ``Chord: ${p.count} groups`` | ``\u0995\u09B0\u09CD\u09A1: ${p.count}\u099F\u09BF \u09A6\u09B2`` |
+| `cv.chord.briefOne` | Chord: 1 group | কর্ড: ১টি দল |
+| `cv.chord.relative` | relative values | আপেক্ষিক মান |
+| `cv.chord.modesOnly` | This colour bar is dark at its low end, so the chord gives the groups only, not the lowest values. | এই রঙের পট্টির নিচের প্রান্ত গাঢ়, তাই কর্ড শুধু দলগুলো দেয়, সবচেয়ে কম মানগুলো নয়। |
+| `cv.chord.block.pattern-only` | Chord off: this record is pattern only, so no values were read. | কর্ড বন্ধ: এই রেকর্ড শুধু নকশা, তাই কোনো মান পড়া হয়নি। |
+| `cv.chord.block.not-allowlisted` | Chord off: this record's colour bar or error doesn't allow it. | কর্ড বন্ধ: এই রেকর্ডের রঙের পট্টি বা ত্রুটি এটি অনুমতি দেয় না। |
+| `cv.chord.block.both` | Chord off: Both already plays two data voices. | কর্ড বন্ধ: দুটোই মোডে আগে থেকেই দুটি তথ্যের স্বর বাজছে। |
+| `cv.chord.block.duet` | Chord off: the proof-in-unison duet already plays two data voices. | কর্ড বন্ধ: একসুরে প্রমাণের দ্বৈত স্বরে আগে থেকেই দুটি তথ্যের স্বর বাজছে। |
+| `cv.chord.block.no-data` | Chord off: no values in this box. | কর্ড বন্ধ: এই এলাকায় কোনো মান নেই। |
+| `cv.chord.block.off` | Chord is off. | কর্ড বন্ধ। |
+| `cv.hwgt.chord.subject` | The chord | কর্ড |
+| `cv.hwgt.chord.method` | The values come from inverting NASA's colour bar (the same values the panel reads). Their histogram is smoothed with a Gaussian as wide as the record's measured error, and at most 2 groups are kept (each at least 5 % of the box). Each group plays at its value through the same value-to-pitch rule as the melody, louder for a bigger share, under the melody. | মানগুলো আসে নাসার রঙের পট্টি উল্টে পড়া থেকে (প্যানেল যে মান পড়ে, সেগুলোই)। এদের হিস্টোগ্রাম রেকর্ডের মাপা ত্রুটির সমান চওড়া গাউসিয়ান দিয়ে মসৃণ করা হয়, আর সর্বোচ্চ ২টি দল রাখা হয় (প্রতিটি এলাকার অন্তত ৫ %)। প্রতিটি দল সুরের মতোই একই মান-থেকে-সুর নিয়মে নিজের মানে বাজে, বড় অংশ হলে জোরে, সুরের চেয়ে নিচু স্বরে। |
+| `cv.hwgt.chord.unc` | ``Smoothing width: the measured error, ${p.sigma}. Groups closer than that merge.`` | ``\u09AE\u09B8\u09C3\u09A3 \u0995\u09B0\u09BE\u09B0 \u09AA\u09CD\u09B0\u09B8\u09CD\u09A5: \u09AE\u09BE\u09AA\u09BE \u09A4\u09CD\u09B0\u09C1\u099F\u09BF, ${p.sigma}\u0964 \u098F\u09B0 \u099A\u09C7\u09AF\u09BC\u09C7 \u0995\u09BE\u099B\u09C7\u09B0 \u09A6\u09B2\u0997\u09C1\u09B2\u09CB \u09AE\u09BF\u09B6\u09C7 \u09AF\u09BE\u09AF\u09BC\u0964`` |
+| `cv.card.title` | Same chord, whatever the colours | রং যা-ই হোক, একই কর্ড |
+| `cv.card.value` | ``${p.spread} \xB0C`` | ``${p.spread} \xB0C`` |
+| `cv.card.figure` | ``the most the middle value moved between three colour maps (our measured error: ${p.sigma} \xB0C)`` | ``\u09A4\u09BF\u09A8\u099F\u09BF \u09B0\u0999\u09C7\u09B0 \u09AE\u09BE\u09A8\u099A\u09BF\u09A4\u09CD\u09B0\u09C7\u09B0 \u09AE\u09A7\u09CD\u09AF\u09C7 \u09AE\u09BE\u099D\u09C7\u09B0 \u09AE\u09BE\u09A8 \u09B8\u09AC\u099A\u09C7\u09AF\u09BC\u09C7 \u09AC\u09C7\u09B6\u09BF \u09AF\u09A4\u099F\u09BE \u09B8\u09B0\u09C7\u099B\u09C7 (\u0986\u09AE\u09BE\u09A6\u09C7\u09B0 \u09AE\u09BE\u09AA\u09BE \u09A4\u09CD\u09B0\u09C1\u099F\u09BF: ${p.sigma} \xB0C)`` |
+| `cv.card.numbers` | ``Median moved at most ${p.median} \xB0C, a group's value at most ${p.mode} \xB0C, between colour maps; our error is ${p.sigma} \xB0C.`` | ``\u09B0\u0999\u09C7\u09B0 \u09AE\u09BE\u09A8\u099A\u09BF\u09A4\u09CD\u09B0\u09C7\u09B0 \u09AE\u09A7\u09CD\u09AF\u09C7 \u09AE\u09A7\u09CD\u09AF\u09AE\u09BE \u09B8\u09B0\u09CD\u09AC\u09CB\u099A\u09CD\u099A ${p.median} \xB0C, \u0995\u09CB\u09A8\u09CB \u09A6\u09B2\u09C7\u09B0 \u09AE\u09BE\u09A8 \u09B8\u09B0\u09CD\u09AC\u09CB\u099A\u09CD\u099A ${p.mode} \xB0C \u09B8\u09B0\u09C7\u099B\u09C7; \u0986\u09AE\u09BE\u09A6\u09C7\u09B0 \u09A4\u09CD\u09B0\u09C1\u099F\u09BF ${p.sigma} \xB0C\u0964`` |
+| `cv.card.explain` | The same sea temperatures drawn three ways (NASA's bar, viridis and jet) give the same chord, because Bloop reads values, not colours. A chord built from hues would change with the colours. | একই সমুদ্রের তাপমাত্রা তিনভাবে আঁকা হলেও (নাসার পট্টি, viridis ও jet) একই কর্ড বাজে, কারণ ব্লুপ রং নয়, মান পড়ে। রঙের আভা থেকে বানানো কর্ড রঙের সঙ্গে বদলে যেত। |
+| `cv.card.limit` | Tested on synthetic renders of NASA MUR data; real frames add compression and line effects. | নাসার MUR তথ্যের কৃত্রিম ছবিতে পরীক্ষিত; আসল ফ্রেমে সংকোচন ও রেখার প্রভাব যোগ হয়। |
+| `cv.card.alt` | ``${p.region}, ${p.date}: three renders of the same MUR sea temperatures (NASA's colour bar, viridis, jet), and under each the values Bloop recovered drawn over the true distribution. The three recovered curves match the truth and each other.`` | ``${p.region}, ${p.date}: \u098F\u0995\u0987 MUR \u09B8\u09AE\u09C1\u09A6\u09CD\u09B0-\u09A4\u09BE\u09AA\u09AE\u09BE\u09A4\u09CD\u09B0\u09BE\u09B0 \u09A4\u09BF\u09A8\u099F\u09BF \u099B\u09AC\u09BF (\u09A8\u09BE\u09B8\u09BE\u09B0 \u09B0\u0999\u09C7\u09B0 \u09AA\u099F\u09CD\u099F\u09BF, viridis, jet), \u0986\u09B0 \u09AA\u09CD\u09B0\u09A4\u09BF\u099F\u09BF\u09B0 \u09A8\u09BF\u099A\u09C7 \u09AC\u09CD\u09B2\u09C1\u09AA\u09C7\u09B0 \u09AB\u09BF\u09B0\u09C7 \u09AA\u09BE\u0993\u09AF\u09BC\u09BE \u09AE\u09BE\u09A8 \u0986\u09B8\u09B2 \u09AC\u09A3\u09CD\u099F\u09A8\u09C7\u09B0 \u0993\u09AA\u09B0 \u0986\u0981\u0995\u09BE\u0964 \u09A4\u09BF\u09A8\u099F\u09BF \u09AC\u0995\u09CD\u09B0\u09B0\u09C7\u0996\u09BE \u0986\u09B8\u09B2\u09C7\u09B0 \u09B8\u0999\u09CD\u0997\u09C7 \u0993 \u09AA\u09B0\u09B8\u09CD\u09AA\u09B0\u09C7\u09B0 \u09B8\u0999\u09CD\u0997\u09C7 \u09AE\u09C7\u09B2\u09C7\u0964`` |
+| `cv.card.col.region` | Region and date | এলাকা ও তারিখ |
+| `cv.card.col.map` | Colour map | রঙের মানচিত্র |
+| `cv.card.col.median` | Median, °C | মধ্যমা, °C |
+| `cv.card.col.modes` | Groups, °C | দল, °C |
+| `cv.card.col.hue` | Hue difference from NASA's bar (0 same, 2 none shared) | নাসার পট্টি থেকে আভার পার্থক্য (০ একই, ২ কিছুই মেলে না) |
+| `cv.card.truth` | MUR truth | MUR আসল মান |
+| `cv.card.open` | See both regions | দুটি এলাকাই দেখুন |
+| `cv.card.hwgt.method` | Real NASA MUR sea temperatures in two boxes were drawn with three colour maps over the same range, and each picture was read back with the pipeline's own inverter against its own bar. Median and value groups (smoothed by the measured error, at most 2) were compared; so were the colours' hue histograms. | দুটি এলাকায় নাসার আসল MUR সমুদ্র-তাপমাত্রা একই পরিসরে তিনটি রঙের মানচিত্রে আঁকা হয়েছে, আর প্রতিটি ছবি পাইপলাইনের নিজের ইনভার্টার দিয়ে তার নিজের পট্টি ধরে আবার পড়া হয়েছে। মধ্যমা ও মানের দল (মাপা ত্রুটি দিয়ে মসৃণ, সর্বোচ্চ ২টি) তুলনা করা হয়েছে; রঙের আভার হিস্টোগ্রামও। |
+| `cv.card.hwgt.unc` | ``Agreement is judged against our measured error, ${p.sigma} \xB0C. With JPEG compression, jet's dark low end moved the 10th percentile by up to ${p.jpeg} \xB0C (reported, not hidden).`` | ``\u09AE\u09BF\u09B2 \u09AC\u09BF\u099A\u09BE\u09B0 \u0995\u09B0\u09BE \u09B9\u09AF\u09BC \u0986\u09AE\u09BE\u09A6\u09C7\u09B0 \u09AE\u09BE\u09AA\u09BE \u09A4\u09CD\u09B0\u09C1\u099F\u09BF, ${p.sigma} \xB0C, \u09A6\u09BF\u09AF\u09BC\u09C7\u0964 JPEG \u09B8\u0982\u0995\u09CB\u099A\u09A8\u09C7 jet-\u098F\u09B0 \u0997\u09BE\u09A2\u09BC \u09A8\u09BF\u099A\u09C7\u09B0 \u09AA\u09CD\u09B0\u09BE\u09A8\u09CD\u09A4 \u09E7\u09E6 \u09B6\u09A4\u09BE\u0982\u09B6\u09BF\u0995\u0995\u09C7 \u09B8\u09B0\u09CD\u09AC\u09CB\u099A\u09CD\u099A ${p.jpeg} \xB0C \u09B8\u09B0\u09BF\u09AF\u09BC\u09C7\u099B\u09C7 (\u099C\u09BE\u09A8\u09BE\u09A8\u09CB \u09B9\u09B2\u09CB, \u09B2\u09C1\u0995\u09BE\u09A8\u09CB \u09A8\u09AF\u09BC)\u0964`` |
+| `lt.q.chordVariety` | ``You hear two views of the ocean, ${box(p.a)} and then ${box(p.b)}, each as its low, middle and high temperatures. Which view has more variety?`` | ``\u0986\u09AA\u09A8\u09BF \u09B8\u09AE\u09C1\u09A6\u09CD\u09B0\u09C7\u09B0 \u09A6\u09C1\u099F\u09BF \u09A6\u09C3\u09B6\u09CD\u09AF \u09B6\u09C1\u09A8\u09AC\u09C7\u09A8, \u09AA\u09CD\u09B0\u09A5\u09AE\u09C7 ${box(p.a)}, \u09A4\u09BE\u09B0\u09AA\u09B0 ${box(p.b)}, \u09AA\u09CD\u09B0\u09A4\u09BF\u099F\u09BF \u09A4\u09BE\u09B0 \u09A8\u09BF\u099A\u09C1, \u09AE\u09BE\u099D\u09C7\u09B0 \u0993 \u0989\u0981\u099A\u09C1 \u09A4\u09BE\u09AA\u09AE\u09BE\u09A4\u09CD\u09B0\u09BE \u09B9\u09BF\u09B8\u09C7\u09AC\u09C7\u0964 \u0995\u09CB\u09A8 \u09A6\u09C3\u09B6\u09CD\u09AF\u09C7 \u09AC\u09C8\u099A\u09BF\u09A4\u09CD\u09B0\u09CD\u09AF \u09AC\u09C7\u09B6\u09BF?`` |
+| `lt.q.chordGroups` | You hear the spread of sea temperatures in one view, played as a chord. Do you hear one group or two? | আপনি একটি দৃশ্যের সমুদ্র-তাপমাত্রার বিস্তার কর্ড হিসেবে শুনবেন। আপনি কি একটি দল শুনছেন, নাকি দুটি? |
+| `lt.opt.one` | One group | একটি দল |
+| `lt.opt.two` | Two groups | দুটি দল |
 | data template | GPCC stops at # because the gauge version we use (GPCC Full Data Monthly V#) ends in December #, so both rain records compare #–# with #–#. | GPCC {0} সালে থামে, কারণ আমাদের ব্যবহৃত বৃষ্টিমাপক সংস্করণ (GPCC Full Data Monthly V{1}) ডিসেম্বর {2}-এ শেষ; তাই দুটি বৃষ্টির রেকর্ডই {3}–{4}-কে {5}–{6}-এর সাথে তুলনা করে। |
 | data template | GPCP only, newer decade; GPCC data ends in # | শুধু GPCP, নতুন দশক; GPCC ডেটা {0} সালে শেষ |
 

@@ -1,0 +1,61 @@
+{
+ "generated_by": "e2e/cv/mix.e2e.ts",
+ "browser": "chromium",
+ "seconds": 30,
+ "target_lufs": -18,
+ "ceiling_dbtp": -1,
+ "tolerance_lu": 3,
+ "chord_db_design": -8,
+ "modes": {
+  "turntable": {
+   "lufs": -17.70208626411054,
+   "lufs_mono": -17.98771268022507,
+   "true_peak_dbtp": -12.103232882924626,
+   "flatness": 0.268983770635562,
+   "flatness_hp200": 0.2685810601073274
+  },
+  "listen-ocean": {
+   "lufs": -14.063601799312579,
+   "lufs_mono": -14.74815904331758,
+   "true_peak_dbtp": -10.054841341351231,
+   "flatness": 2.6363895643696163e-13,
+   "flatness_hp200": 2.6130589315747936e-13
+  },
+  "listen-rain": {
+   "lufs": -31.834370442750178,
+   "lufs_mono": -32.470994971153715,
+   "true_peak_dbtp": -15.927691412010464,
+   "flatness": 0.03453677302337595,
+   "flatness_hp200": 0.033704302326277615
+  },
+  "listen-both": {
+   "lufs": -14.063651419581705,
+   "lufs_mono": -14.748208663181954,
+   "true_peak_dbtp": -10.824820194424849,
+   "flatness": 2.541818912237689e-13,
+   "flatness_hp200": 2.4365627743808326e-13
+  },
+  "listen-ocean-chord": {
+   "lufs": -13.069032169669027,
+   "lufs_mono": -13.604404117213916,
+   "true_peak_dbtp": -7.807633292973929,
+   "flatness": 0.000033827640712218395,
+   "flatness_hp200": 0.000033228822606104735
+  },
+  "duet": {
+   "lufs": -15.293097280211017,
+   "lufs_mono": -16.58220540694064,
+   "true_peak_dbtp": -9.71723329185203,
+   "flatness": 0.7499999999996301,
+   "flatness_hp200": 0.7499999999996476
+  },
+  "then-vs-now": {
+   "lufs": -19.619665751658562,
+   "lufs_mono": -19.619665751658562,
+   "true_peak_dbtp": -13.723035712503787,
+   "flatness": 0.9999999999993892,
+   "flatness_hp200": 0.9999999999993892
+  }
+ },
+ "chord_vs_melody_rms_db": -7.586073656921419
+}
