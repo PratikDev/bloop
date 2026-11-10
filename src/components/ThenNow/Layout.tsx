@@ -35,7 +35,7 @@ export function PartLayout({
   const menu = useMoreSlot();
   return (
     <>
-      <div className={stage ? "grid gap-6 lg:grid-cols-[minmax(0,1fr)_13rem] xl:grid-cols-[minmax(0,1fr)_14.5rem]" : undefined}>
+      <div className={stage ? "grid gap-6 lg:grid-cols-[minmax(0,1fr)_13rem] xl:grid-cols-[minmax(0,1fr)_15rem]" : undefined}>
         <div className="min-w-0 space-y-4">{finding}</div>
         {stage && <div className="relative -order-1 mx-auto aspect-5/6 w-full max-w-56 lg:order-none lg:aspect-auto lg:max-w-none lg:min-h-52">{stage}</div>}
       </div>

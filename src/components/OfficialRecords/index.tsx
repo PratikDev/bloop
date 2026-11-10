@@ -97,12 +97,14 @@ function Player({ record, related }: { record: string; related: ReactNode }) {
   );
   return (
     <div className="space-y-3" onKeyDown={onKeyDown}>
-      {map && rec.ready ? (
-        <RecordMap grid={map} step={rec.step} needle={rec.needle} onMove={rec.moveNeedle} label={t("official.map", { layer: map.layer.label, time: timeText, reading: text })} />
-      ) : (
-        <StatusBadge kind="loading">{t("official.loading")}</StatusBadge>
-      )}
-      <div className="flex flex-wrap items-center gap-4">
+      <div className="official-stage min-w-0">
+        {map && rec.ready ? (
+          <RecordMap grid={map} step={rec.step} needle={rec.needle} onMove={rec.moveNeedle} label={t("official.map", { layer: map.layer.label, time: timeText, reading: text })} />
+        ) : (
+          <StatusBadge kind="loading">{t("official.loading")}</StatusBadge>
+        )}
+      </div>
+      <div className="official-row flex flex-wrap items-center gap-4">
         <p aria-live="off" className="min-w-0 flex-1 basis-64 text-body">
           {place}: {readingText(t, state.lang, first?.reading ?? null, map?.layer)}
         </p>
@@ -160,8 +162,8 @@ export function OfficialRecords() {
   return (
     <section aria-labelledby="official-heading">
       <h2 id="official-heading" className="sr-only">{t("official.heading")}</h2>
-      <Cabinet code={crown?.code} title={crown?.title(t)} flush foldCrown>
-        <div className="grid gap-6 lg:grid-cols-[18.75rem_minmax(0,1fr)]">
+      <Cabinet code={crown?.code} title={crown?.title(t)} flush flushVeryShort foldCrown>
+        <div className="official-grid grid gap-6">
           <div tabIndex={0} aria-label={t("official.records")} role="group" className="official-list space-y-4 pr-1">
             {KIND_ORDER.map((kind) => {
               const rows = index.records.filter((r) => r.badge === kind);
@@ -183,7 +185,7 @@ export function OfficialRecords() {
               );
             })}
           </div>
-          <div className="min-w-0">{current && <Player key={current} record={current} related={<RelatedRecords value={current ?? ""} onChange={(id) => setRelated({ id, forRecord: selected })} />} />}</div>
+          <div className="official-player min-w-0">{current && <Player key={current} record={current} related={<RelatedRecords value={current ?? ""} onChange={(id) => setRelated({ id, forRecord: selected })} />} />}</div>
         </div>
       </Cabinet>
     </section>

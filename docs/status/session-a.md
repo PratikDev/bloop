@@ -26,5 +26,5 @@
 
 ## Then vs Now, for Session B
 
-- The globe column beside the chart is `13rem` from 1024 px and `14.5rem` from 1280 px (`src/components/ThenNow/Layout.tsx`); on phones the stage is `aspect-5/6`, `max-w-56`, for your corner Pause key.
+- The globe column beside the chart is `13rem` from 1024 px and `15rem` from 1280 px (`src/components/ThenNow/Layout.tsx`); on phones the stage is `aspect-5/6`, `max-w-56`, for your corner Pause key.
 - `src/components/charts/YearlyChart.tsx` (it imports your `PanelStripes`, `PanelPlayhead`, `PanelYear`; none of them changed): the year labels are paper with a navy outline (no longer `comic-box`), the unit is a line of text above each plot (no rotated y-axis label), the legend adds the stripe colours (amber at or above `yearlyBaseline`, blue below) and the plot height is `PANEL_CHART_HEIGHT` = `h-48 lg:h-(--tn-panel)`, which grows with the screen (192 px at 1280×720, 372 at 1440×900, 552 at 1920×1080). Your stripes and playhead follow the plot through `PANEL_PLOT_INSET`, which didn't change.

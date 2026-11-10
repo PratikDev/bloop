@@ -1106,13 +1106,33 @@ html[data-text="comfortable"] .font-wide-display {
   overflow-y: auto;
 }
 @media (min-width: 64rem) and (min-height: 37.5rem) {
-  .official-list {
-    max-height: calc(100dvh - 17rem);
-    overflow-y: auto;
+  /* The map takes the whole right column; the list and the record's row (reading, Play, Details) share the left one.
+     The list is sized by the map (contain: size), so it scrolls inside its column and never makes the page taller. */
+  .official-grid {
+    grid-template-columns: 18.75rem minmax(0, 1fr);
+    grid-template-rows: minmax(0, 1fr) auto;
   }
-  /* The map is as tall as the list may be: on a wide, short screen it narrows (centred) instead of scrolling the page. */
-  .official-map {
-    max-width: calc((100dvh - 17rem) * var(--map-ratio));
-    margin-inline: auto;
+  .official-grid .official-list {
+    grid-area: 1 / 1;
+    max-height: none;
+    contain: size;
+  }
+  .official-grid .official-player,
+  .official-grid .official-player > div {
+    display: contents;
+  }
+  .official-grid .official-stage {
+    grid-area: 1 / 2 / 3 / 3;
+    margin-block: 0; /* the player's space-y margin; the grid's gap spaces it here */
+  }
+  .official-grid .official-row {
+    grid-area: 2 / 1;
+  }
+}
+/* Wide but very short (1536×730): the cabinet's frame folds away (as on phones) and the list column takes its 38 px,
+   so the map keeps its size and the page still fits. */
+@media (min-width: 64rem) and (min-height: 37.5rem) and (max-height: 47.5rem) {
+  .official-grid {
+    grid-template-columns: calc(18.75rem + 2.375rem) minmax(0, 1fr);
   }
 }
