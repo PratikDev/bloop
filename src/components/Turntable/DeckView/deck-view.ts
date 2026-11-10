@@ -10,7 +10,8 @@ import { CAMERA } from "../canvas-config";
 import { ARM_REST, createDeck, GROOVES, grooveTip, RECORD_TOP, tipAngle, type Deck } from "../scene/deck";
 
 const raycaster = new Raycaster();
-const recordPlane = new Plane(new Vector3(0, 1, 0), -RECORD_TOP);
+/** The record's data disc lies just above the vinyl; picks meet it there (not at the vinyl), or they'd shift by a sub-pixel. */
+const DATA_DISC_Y = RECORD_TOP + 0.0015;
 import { createRecordData, recordPoint } from "./record-texture";
 import type { DeckPose } from "../use-turntable";
 
@@ -86,7 +87,7 @@ export function createDeckView(canvas: HTMLCanvasElement, palette: Palette): Dec
   const recordData = createRecordData(palette);
   const recordGeometry = new PlaneGeometry(2 * GROOVES.outer, 2 * GROOVES.outer).rotateX(-Math.PI / 2);
   const recordDisc = new Mesh(recordGeometry, recordData.material);
-  recordDisc.position.y = RECORD_TOP + 0.0015;
+  recordDisc.position.y = DATA_DISC_Y;
   deck.record.add(recordDisc);
 
   const bounds = deckBounds(deck);
@@ -145,17 +146,18 @@ export function createDeckView(canvas: HTMLCanvasElement, palette: Palette): Dec
     },
     pick(x, y) {
       raycaster.setFromCamera(new Vector2((x / width) * 2 - 1, 1 - (y / height) * 2), camera);
-      const hit = raycaster.ray.intersectPlane(recordPlane, new Vector3());
+      const disc = new Plane(new Vector3(0, 1, 0), -(DATA_DISC_Y + deck.record.position.y));
+      const hit = raycaster.ray.intersectPlane(disc, new Vector3());
       if (!hit) return null;
       deck.record.updateMatrixWorld(true);
-      const local = deck.record.worldToLocal(hit.setY(RECORD_TOP + deck.record.position.y));
+      const local = deck.record.worldToLocal(hit);
       const r = Math.hypot(local.x, local.z);
       if (r < GROOVES.inner || r > GROOVES.outer) return null;
       return { lat: -90 + ((r - GROOVES.inner) / (GROOVES.outer - GROOVES.inner)) * 180, lon: (Math.atan2(local.x, local.z) * 180) / Math.PI };
     },
     project(lat, lon) {
       const p = recordPoint(lat, lon);
-      const world = new Vector3(p.x, RECORD_TOP, p.z);
+      const world = new Vector3(p.x, DATA_DISC_Y, p.z);
       deck.record.updateMatrixWorld(true);
       world.applyMatrix4(deck.record.matrixWorld).project(camera);
       return { x: ((world.x + 1) / 2) * width, y: ((1 - world.y) / 2) * height };

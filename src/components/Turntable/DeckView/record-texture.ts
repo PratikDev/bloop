@@ -28,8 +28,9 @@ void main() {
   gl_Position = projectionMatrix * modelViewMatrix * vec4(position, 1.0);
 }`;
 
-// Images and masks alike are uploaded unflipped (flipY off): row 0 (north) at v = 0, so v = (90 − lat) / 180.
-// Columns: u = (lon + 180) / 360, nearest, as data-layer.ts's pixelIndex.
+// Images and masks alike are uploaded unflipped (flipY off): row 0 is north. Each lookup fetches the exact texel the
+// swatch's reader uses (data-layer.ts pixelIndex: column floor((lon + 180) / 360 · width), row floor((90 − lat) / 180 ·
+// height)), with texelFetch, so no filtering or driver rounding can pick a neighbour.
 const FRAGMENT = /* glsl */ `
 uniform sampler2D sstImage;
 uniform sampler2D rainImage;
@@ -44,6 +45,12 @@ uniform float ringLine;
 uniform float ringEquator;
 varying vec2 vP;
 const float PI = 3.141592653589793;
+vec4 fetch(sampler2D t, float lat, float lon) {
+  ivec2 size = textureSize(t, 0);
+  int col = min(size.x - 1, int(floor((lon + 180.0) / 360.0 * float(size.x))));
+  int row = min(size.y - 1, int(floor((90.0 - lat) / 180.0 * float(size.y))));
+  return texelFetch(t, ivec2(col, row), 0);
+}
 float ringAt(float r) {
   float step = (outer - inner) / 12.0;
   float k = (r - inner) / step;
@@ -59,10 +66,9 @@ void main() {
   if (ringAt(r) < 0.5) {
     float lat = -90.0 + (r - inner) / (outer - inner) * 180.0;
     float lon = atan(vP.x, vP.y) * 180.0 / PI;
-    vec2 uv = vec2((lon + 180.0) / 360.0, (90.0 - lat) / 180.0);
     vec4 c = vec4(0.0);
-    if (track != 0 && hasRain && texture2D(wetMask, uv).r > 0.5) c = texture2D(rainImage, uv);
-    else if (track != 1 && texture2D(oceanMask, uv).r > 0.5) c = texture2D(sstImage, uv);
+    if (track != 0 && hasRain && fetch(wetMask, lat, lon).r > 0.5) c = fetch(rainImage, lat, lon);
+    else if (track != 1 && fetch(oceanMask, lat, lon).r > 0.5) c = fetch(sstImage, lat, lon);
     if (c.a < 0.5) discard;
     colour = c.rgb;
   }
