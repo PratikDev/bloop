@@ -8,6 +8,8 @@ import { useT } from "../AppState/use-app-state";
 import { StatusBadge } from "../StatusBadge";
 import { SKIPPED_STEPS, STORY_STEPS } from "./script";
 import { useStory, type StoryStepId } from "./use-story";
+import { StoryDataset } from "../Art/StoryDataset"; // ART
+import { StoryLetter } from "../Art/Letter/StoryLetter"; // ART
 
 /** A step's dot: filled once done, pink and pulsing while current. */
 function StepDot({ index, current }: { index: number; current: number }) {
@@ -93,6 +95,8 @@ export function StoryPanel({ className }: { className?: string }) {
           )}
         </AnimatePresence>
       </div>
+      <StoryDataset /> {/* ART: the dataset and period on every step */}
+      {story.status === "finished" && <StoryLetter />} {/* ART: the tour ends with a letter to the future */}
       <div className="flex flex-wrap gap-2">
         {story.status === "finished" && (
           <Button onClick={story.replay} className="h-11 gap-2 rounded-full bg-moon px-4 text-body text-ink hover:bg-moon/90">

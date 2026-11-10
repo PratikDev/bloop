@@ -100,4 +100,27 @@ export const FLAGS = {
   // e2e/data/ask.e2e.ts + src/lib/ask-bloop/data-intents.test.ts.
   dataAsk: flag(process.env.NEXT_PUBLIC_DATA_ASK, false),
   // <<< DATA
+  // >>> ART (docs/statement/ART.md): art, emotion and musicality. `ready` stays false until the integrated full pass.
+  // Passing on 10 Nov 2026 (production build, every NEXT_PUBLIC_ART_* on): unit 508/508; e2e/art 21/21 Chromium and
+  // 21/21 Firefox (orchestra 6, dial 7, raw-pixel 2, pieces 6: letter, lifetime, choices, tour, journey, listen test);
+  // the existing suites with them on: e2e/a11y 95/95 Chromium and 95/95 Firefox (dock-fit included), e2e/features.e2e.ts
+  // 53/53 Chromium and 53/53 Firefox.
+  /** Earth Orchestra: an instrument family per Earth system, the Instrument style setting, the category earcon, the
+   *  Official grid grouped by category, the legend card. */
+  artOrchestra: flag(process.env.NEXT_PUBLIC_ART_ORCHESTRA, false),
+  /** The Science ↔ Art dial (Measure / Blend / Music), its data-voice check and the season colour of the drone. */
+  artDial: flag(process.env.NEXT_PUBLIC_ART_DIAL, false),
+  /** Raw-pixel vs Bloop: the naive scan and Bloop's, with measured flatness, entropy and roughness. */
+  artRawPixel: flag(process.env.NEXT_PUBLIC_ART_RAW_PIXEL, false),
+  /** A letter to the future: a dated card built only from data (Listen, the tour's end). */
+  artLetter: flag(process.env.NEXT_PUBLIC_ART_LETTER, false),
+  /** "Your lifetime" on Then vs Now, and the MIDI export (Then vs Now, Your lifetime). */
+  artLifetime: flag(process.env.NEXT_PUBLIC_ART_LIFETIME, false),
+  /** Data vs artistic choice per record (About this sound, Official records) and the tour naming every dataset. */
+  artChoices: flag(process.env.NEXT_PUBLIC_ART_CHOICES, false),
+  /** Water's journey: the Bangladesh suite (and its WAV). */
+  artJourney: flag(process.env.NEXT_PUBLIC_ART_JOURNEY, false),
+  /** /listen-test: the emotion ratings and the ear-vs-eye task after the five core tasks. */
+  artListenTest: flag(process.env.NEXT_PUBLIC_ART_LISTEN_TEST, false),
+  // <<< ART
 } as const;

@@ -3,6 +3,7 @@
 import { describeShort } from "@/a11y/shortForms";
 import type { DegreeStyle } from "@/a11y/brailleText";
 import { describeRecord, spokenDescription } from "@/lib/describe/compose";
+import { categoryWord } from "@/lib/art/category-lead"; // ART
 import { bindT, type BoundT, type Lang } from "@/lib/i18n";
 import type { Verbosity } from "../AppState/access";
 import { useAppState } from "../AppState/use-app-state";
@@ -20,13 +21,15 @@ const sourcesOf = (input: DescribeInput) =>
 /** Every record's description as one spoken text, in a language. */
 export function spokenFor(facts: FactsFor, verbosity: Verbosity, t: BoundT, lang: Lang): string {
   return facts(lang)
-    .map((f) => spokenDescription(describeRecord(f, verbosity, lang), t))
+    .map((f) => spokenDescription(describeRecord(f, verbosity, lang), t)) // ART: D answers with the record's title first (the a11y contract); the earcon, the panel and the braille line carry the system
     .join(" ");
 }
 
 /** The description's braille short form (plan item 12): each record's value at the needle, as one line. */
 export function shortFor(facts: FactsFor, t: BoundT, lang: Lang, degree: DegreeStyle): string {
-  return describeShort(t, lang, degree, facts(lang).map((f) => ({ record: f.record, value: f.value, frozen: f.frozen, at: f.here, timeUtc: f.timeUtc })));
+  const records = facts(lang);
+  const short = describeShort(t, lang, degree, records.map((f) => ({ record: f.record, value: f.value, frozen: f.frozen, at: f.here, timeUtc: f.timeUtc })));
+  return [records.length === 1 ? categoryWord(t, records[0].record) : "", short].filter(Boolean).join(" "); // ART: category word first
 }
 
 /**

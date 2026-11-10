@@ -43,6 +43,18 @@ If the answer is no, choose **No**. The test ends politely and nothing is kept. 
    explain "variety" beyond "how different the temperatures in the view are from each other"; "group" is "a cluster of
    similar temperatures".
 <!-- <<< CV -->
+<!-- >>> ART -->
+3a. **After the tasks (builds with `NEXT_PUBLIC_ART_LISTEN_TEST=1`; results carry `testVersion: 2`):**
+   - **How did that feel? (twice):** one clip of the checked ocean points is *heard* (sound only) and one is *seen* (bars,
+     no sound); the order is counterbalanced per session. After each, two 5-point ratings: *how it felt* (1 unpleasant
+     to 5 pleasant) and *"How connected do you feel to this place right now?"* (1 not at all to 5 very). Stored as
+     `extras.emotion`: `condition` (sound / visual), `position`, `valence`, `connection`.
+   - **When did the rain peak? (twice):** one half of the storm the time-lapse follows is heard, the other half is seen;
+     which half and which sense come first are counterbalanced. The answer (early / in the middle / late) comes from the
+     data. Stored as `extras.earEye`: `sense`, `half`, `position`, `answer`, `correct_answer`, `correct`, `ms`.
+   - Together about 2 minutes; the whole test stays within 10 minutes (CV's two chord tasks included).
+   - Don't comment on the ratings; there are no right answers there. Results are never shown in the app.
+<!-- <<< ART -->
 4. **Comment (optional):** ask *"Anything you'd like to tell us about the sounds?"* They type it, or you type their words. Don't type names.
 5. **Finish**, then **Export results** (see below).
 
@@ -64,6 +76,11 @@ The time per task is logged from when the task appears to the answer, so don't h
 The file holds, for each task: the task, the answer, the correct answer (computed from the app's data, never typed), whether it was right, and the time in milliseconds. It also holds the language and the optional comment. It never holds a name, an IP address or any audio.
 
 ## The summary
+
+<!-- >>> ART -->
+Files with `testVersion` 2 or more also get the emotion means per condition and the ear-vs-eye correct answers per sense;
+earlier sessions (no `testVersion`, read as 1) are counted for the five tasks only, so the two sets stay separable.
+<!-- <<< ART -->
 
 ```
 bun run listen-test:summary listen-test-results

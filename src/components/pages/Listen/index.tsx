@@ -22,6 +22,10 @@ import { AskBloop } from "../../AskBloop";
 // >>> CV
 import { ListenRead } from "../../JukeboxRead/ListenRead";
 // <<< CV
+import { ART_ROW, ArtListen } from "../../Art/ArtListen"; // ART
+
+/** The fitted stage leaves one row under it for each of: CV's read panel, Ask Bloop's button, ART's buttons. */
+const STAGE_HEIGHT = ["", "fit:h-[calc(100%-3.5rem)]", "fit:h-[calc(100%-7rem)]", "fit:h-[calc(100%-10.5rem)]"] as const;
 
 /**
  * Listen: the latest EIC frame as a sound map, full size. The page's title,
@@ -39,19 +43,22 @@ export function ListenPage() {
   const t = useT();
   const story = state.mode === "story";
   const [askOpen, setAskOpen] = useState(false);
+  const [artOpen, setArtOpen] = useState(false); // ART: a letter or Water's journey is open (the page scrolls)
+  const artRow = ART_ROW && !story; // ART: a row under the map for its buttons
   const gapInHead = state.track === "both" && !story;
+  const rowsUnder = story ? 0 : Number(FLAGS.cvRead) + Number(FLAGS.askBloop) + Number(artRow);
   return (
     // With the braille explorer open (B, or the dock's Braille) the page scrolls: the map keeps the screen, the explorer
     // follows below it (focus moves into it, which brings it into view).
-    <section aria-labelledby="listen-title" className={cn("flex h-full min-h-0 flex-col fit:px-4 fit:pt-2 fit:pb-2", (state.brailleOpen || askOpen || FLAGS.cvRead) && "overflow-y-auto")}>
+    <section aria-labelledby="listen-title" className={cn("flex h-full min-h-0 flex-col fit:px-4 fit:pt-2 fit:pb-2", (state.brailleOpen || askOpen || artOpen || FLAGS.cvRead) && "overflow-y-auto")}>
       {/*
         From 1024 px the stage is measured (a container named listen), and a grid inside it gives the
         head and the map (2:1) the width that fits both ways. The readout sits under the map, or beside
         it when the stage is wider than 2:1 (most desktops); the tour's column sits on the left.
         In the page (and reading) order: head, tour, map, readout.
       */}
-      {/* With Ask Bloop on, the fitted stage leaves one row under it for Ask Bloop's button. */}
-      <div className={cn("contents fit:block fit:h-full fit:shrink-0", FLAGS.askBloop && !story && !FLAGS.cvRead && "fit:h-[calc(100%-3.5rem)]", /* >>> CV */ FLAGS.cvRead && !story && (FLAGS.askBloop ? "fit:h-[calc(100%-7rem)]" : "fit:h-[calc(100%-3.5rem)]"), /* <<< CV */ story ? "fit:[container:listen-tour_/_size]" : "fit:[container:listen_/_size]")}>
+      {/* The fitted stage leaves a row under it for each panel row that is on (STAGE_HEIGHT). */}
+      <div className={cn("contents fit:block fit:h-full fit:shrink-0", STAGE_HEIGHT[rowsUnder], story ? "fit:[container:listen-tour_/_size]" : "fit:[container:listen_/_size]")}>
         <div
           className={cn(
             "contents fit:grid fit:h-full fit:content-center fit:justify-center fit:gap-x-4",
@@ -120,6 +127,8 @@ export function ListenPage() {
       {FLAGS.cvRead && !story && <ListenRead className="shrink-0 px-4 pb-3 fit:px-1 fit:pt-2" />}
       {/* <<< CV */}
       {FLAGS.askBloop && !story && <AskBloop open={askOpen} onOpenChange={setAskOpen} className="shrink-0 px-4 pb-3 fit:px-1 fit:pt-2" />}
+      {/* ART: what the dial describes here, and the row with Leave a letter and Water's journey */}
+      {(FLAGS.artDial || FLAGS.artOrchestra || ART_ROW) && <ArtListen onOpenChange={setArtOpen} className="shrink-0 space-y-3 px-4 pb-3 fit:px-1 fit:pt-2" />}
       <LiveBrailleExplorer className="shrink-0 px-4 pb-3 fit:px-1 fit:pt-4" />
     </section>
   );

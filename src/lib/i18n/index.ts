@@ -25,6 +25,7 @@ import { askBloopEn } from "./en/ask-bloop";
 // >>> DATA
 import { earthEn } from "./en/earth";
 // <<< DATA
+import { artEn } from "./en/art"; // ART
 import { dataEn } from "./en/data";
 import { helpEn } from "./en/help";
 import { officialEn } from "./en/official";
@@ -76,6 +77,7 @@ export const en = {
   // >>> DATA
   ...earthEn,
   // <<< DATA
+  ...artEn, // ART
 };
 
 export type Messages = typeof en;

@@ -22,6 +22,7 @@ import { askBloopBn } from "./ask-bloop";
 // >>> DATA
 import { earthBn } from "./earth";
 // <<< DATA
+import { artBn } from "./art"; // ART
 import { helpBn } from "./help";
 import { pagesBn } from "./pages";
 import { panelsBn } from "./panels";
@@ -40,6 +41,9 @@ export const bn: Partial<Messages> = { ...appBn, ...helpBn, ...captionsBn, ...pa
   // >>> DATA
   ...earthBn,
   // <<< DATA
+  // >>> ART
+  ...artBn,
+  // <<< ART
 };
 
 /**

@@ -22,14 +22,19 @@ import { recordBrailleLabel } from "./braille-label";
 import { OfficialBrailleExplorer } from "./OfficialBrailleExplorer";
 import { RelatedRecords } from "./RelatedRecords";
 import { useOfficialRecord } from "./use-official-record";
-// >>> CV
 import { FLAGS } from "@/lib/flags";
+// >>> CV
 import { OfficialRead } from "../JukeboxRead/OfficialRead";
 // <<< CV
 // >>> DATA
 import { NotPlayable } from "../EarthData/NotPlayable";
 import { appRecordExtras, appRecordPlayer } from "../EarthRecords";
 // <<< DATA
+// >>> ART: Earth Orchestra (records grouped by Earth system, the category word) and the dial
+import { ArtRecord } from "../Art/ArtRecord";
+import { RecordPicker } from "../Art/Orchestra/RecordPicker";
+import { categoryLead } from "@/lib/art/category-lead";
+// <<< ART
 
 
 function readingText(t: BoundT, lang: Lang, r: OfficialReading | null, layer: OfficialLayer | undefined): string {
@@ -76,7 +81,7 @@ function Player({ record }: { record: string }) {
   const first = rec.readings[0];
   const statementOf = (ids: string[]) => ids.map((id) => rec.manifest?.layers.find((l) => l.id === id)?.statement).find(Boolean);
   const mapStatement = statementOf([rec.option.channels[0]?.layers[0] ?? rec.option.map]);
-  const text = `${readingText(t, state.lang, first?.reading ?? null, map?.layer)}${mapStatement ? ` (${mapStatement})` : ""}`;
+  const text = `${[...categoryLead(t, record), readingText(t, state.lang, first?.reading ?? null, map?.layer)].join(" ")}${mapStatement ? ` (${mapStatement})` : ""}`; // ART: category word first
   const place = map?.layer.grid.space === "frame" ? framePlace(t, state.lang, rec.needle, map.layer) : t("place.latlon", rec.needle);
   const times = map?.layer.times ?? [];
   const timeText = map?.layer.time_labels?.[rec.step] ?? (times[rec.step] ? formatUtc(times[rec.step], state.lang) : "");
@@ -102,6 +107,7 @@ function Player({ record }: { record: string }) {
         </ul>
         <RecordProvenance manifest={rec.manifest} validation={rec.validation} option={rec.option} place={place} />
         <RecordControls rec={rec} timeText={timeText} readingText={`${place}: ${text}`} />
+        <ArtRecord rec={rec} record={record} time={times[rec.step]} /> {/* ART */}
         <Button ref={brailleButton} variant="outline" className="h-11" disabled={!rec.ready} aria-expanded={brailleOpen}
           onClick={() => setBrailleOpen((o) => !o)} {...brailleLabel(t("braille.bl.braille"))}>
           {t("braille.open")}
@@ -130,8 +136,12 @@ export function OfficialRecords() {
         <h2 id="official-heading" className="text-lead font-medium">{t("official.heading")}</h2>
         <p className="text-haze">{t("official.intro")}</p>
       </div>
-      <ChoiceGroup label={t("official.records")} value={current ?? ""} onChange={setRecord} className="flex-wrap"
-        options={index.records.map((r) => ({ value: r.record, label: r.title, brailleLabel: recordBrailleLabel(r) }))} />
+      {FLAGS.artOrchestra ? (
+        <RecordPicker records={index.records.map((r) => ({ record: r.record, title: r.title, brailleLabel: recordBrailleLabel(r) }))} value={current ?? ""} onChange={setRecord} />
+      ) : (
+        <ChoiceGroup label={t("official.records")} value={current ?? ""} onChange={setRecord} className="flex-wrap"
+          options={index.records.map((r) => ({ value: r.record, label: r.title, brailleLabel: recordBrailleLabel(r) }))} />
+      )}
       {/* DATA: a record built from the shipped products plays its own player (src/components/EarthRecords). */}
       {current && (appRecordPlayer(current) ?? <Player key={current} record={current} />)}
       {current && appRecordExtras(current, setRecord)}

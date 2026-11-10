@@ -12,6 +12,7 @@ import { cvBn } from "./cv";
 // >>> DATA
 import { earthBn } from "./earth";
 // <<< DATA
+import { artBn } from "./art"; // ART
 
 /** UI keys whose Bangla is a draft. */
 export const DRAFT_KEYS: readonly MessageKey[] = [
@@ -421,6 +422,9 @@ export const DRAFT_KEYS: readonly MessageKey[] = [
   // >>> DATA
   ...(Object.keys(earthBn) as MessageKey[]),
   // <<< DATA
+  // >>> ART (en/art/): every key, a developer's draft
+  ...(Object.keys(artBn) as MessageKey[]),
+  // <<< ART
 ];
 
 /** Data-file sentences (bn/data.ts templates) whose Bangla is a draft: the English template, numbers as "#". */

@@ -4,6 +4,11 @@
 
 import { continuousRule, loudnessGain, mapContinuous, panFor, voiceSpec, withInputRange } from "@/lib/audio/mapping";
 import { glideAt, glideTo, type Graph } from "../graph";
+// >>> ART: Earth Orchestra's timbre and the dial (src/lib/art/live): timbre, swara + meend, layers; never the pitch.
+import { dressLive, meend } from "@/lib/art/live/dress";
+import { reportVoice } from "@/lib/art/live/layers";
+import { recordCategory } from "@/lib/art/live/record";
+// <<< ART
 
 export interface ToneVoice {
   /** Live: glide from the current sound. null = silence (land / no data). */
@@ -27,6 +32,7 @@ export function createToneVoice(graph: Graph, id: string, bus: AudioNode): ToneV
   const gain = new GainNode(ctx, { gain: 0 });
   const pan = new StereoPannerNode(ctx, { pan: 0 });
   osc.connect(gain).connect(pan).connect(bus);
+  dressLive(osc, { category: () => recordCategory(id), env: gain }); // ART
   osc.start();
 
   function targets(value: number | null) {
@@ -42,21 +48,23 @@ export function createToneVoice(graph: Graph, id: string, bus: AudioNode): ToneV
     set(value, lon) {
       const t = targets(value);
       glideTo(ctx, pan.pan, panFor(lon), glideSec);
+      reportVoice(id, t ? value : null, t !== null); // ART
       if (!t) {
         glideTo(ctx, gain.gain, 0, releaseSec);
         return;
       }
-      glideTo(ctx, osc.frequency, t.freq, glideSec);
+      if (!meend(osc.frequency, t.freq, id, ctx)) glideTo(ctx, osc.frequency, t.freq, glideSec); // ART: meend
       glideTo(ctx, gain.gain, t.level, attackSec);
     },
     at(time, value, lon, glide = glideSec) {
       const t = targets(value);
       glideAt(pan.pan, panFor(lon), time, glide);
+      reportVoice(id, t ? value : null, t !== null, time); // ART
       if (!t) {
         glideAt(gain.gain, 0, time, releaseSec);
         return;
       }
-      glideAt(osc.frequency, t.freq, time, glide);
+      if (!meend(osc.frequency, t.freq, id, ctx, time)) glideAt(osc.frequency, t.freq, time, glide); // ART: meend
       glideAt(gain.gain, t.level, time, attackSec);
     },
   };

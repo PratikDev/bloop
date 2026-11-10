@@ -10,6 +10,7 @@ import { SettingToggle } from "../SettingToggle";
 // >>> CV
 import { ChordToggle } from "../JukeboxRead/ChordToggle";
 // <<< CV
+import { ArtSettings } from "../Art/ArtSettings"; // ART
 
 /** Describe, Captions, Speech (or Built-in voice), Detail, Each step and Reduce motion, one click from anywhere. */
 export function SettingsMenu() {
@@ -37,6 +38,7 @@ export function SettingsMenu() {
         {/* >>> CV */}
         {FLAGS.cvChord && <ChordToggle />}
         {/* <<< CV */}
+        <ArtSettings /> {/* ART: Instrument style and the Science to Art dial (each behind its flag) */}
       </PopoverContent>
     </Popover>
   );

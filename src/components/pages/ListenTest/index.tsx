@@ -62,7 +62,7 @@ export function ListenTestPage() {
   };
 
   const s = lt.step;
-  const inTest = s.kind === "intro" || s.kind === "task" || s.kind === "comment";
+  const inTest = s.kind === "intro" || s.kind === "task" || s.kind === "extra" || s.kind === "comment";
   let body: ReactNode;
   if (lt.error) body = <StatusBadge kind="error">{t("lt.error")}</StatusBadge>;
   else if (s.kind === "consent")
@@ -120,6 +120,14 @@ export function ListenTestPage() {
             </Button>
           ))}
         </div>
+      </Panel>
+    );
+  } else if (s.kind === "extra") {
+    // ART: an extra task module (src/components/pages/ListenTest/extras/registry.ts)
+    const { Step, info, heading } = lt.extras[s.index];
+    body = (
+      <Panel heading={t(heading)}>
+        <Step key={`${info.id}-${s.index}`} inputs={{ pairs: lt.pairs }} play={lt.playExtra} coins={lt.coins} onDone={(r) => lt.extraDone(s.index, r)} />
       </Panel>
     );
   } else if (s.kind === "comment")

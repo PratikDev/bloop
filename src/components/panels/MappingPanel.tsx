@@ -8,6 +8,7 @@ import type { LegendVoice } from "@/lib/audio-adapter/types";
 import type { VoiceSpec } from "@/types/data-contract";
 import { useT } from "../AppState/use-app-state";
 import { ProductBadges } from "../SourceBadges/ProductBadges";
+import { DataChoice } from "../Art/DataChoice"; // ART
 
 const LEGEND_VOICES: readonly string[] = ["ocean", "rain", "snow"] satisfies LegendVoice[];
 
@@ -48,6 +49,7 @@ function VoiceRule({ v }: { v: VoiceSpec }) {
       </p>
       {v.note && <p className="text-small text-haze">{t("data.text", { text: v.note })}</p>}
       {v.designChoice && <p className="text-small text-moon">{t("mapping.designChoice")}</p>}
+      {v.mapping?.kind === "continuous" && <DataChoice voiceId={v.id} />} {/* ART: data vs artistic choice */}
       {isLegendVoice(v.id) && (
         <Button variant="secondary" onClick={() => isLegendVoice(v.id) && audio.playLegend(v.id)} className="mt-1 h-10 gap-2 pointer-coarse:h-11">
           <SpeakerHigh aria-hidden="true" className="size-4.5" />

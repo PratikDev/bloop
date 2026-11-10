@@ -25,6 +25,7 @@ import { HowWeGotThis, ProvenanceGroup } from "../HowWeGotThis";
 import { usePartProvenance } from "./use-part-provenance";
 import { useThenNowData } from "./use-then-now-data";
 import { useThenNowPlayer, type Part } from "./use-then-now-player";
+import { ThenNowMidi } from "../Art/ThenNowMidi"; // ART
 
 export const DEFAULT_CITY: ClimateCellName = "Dhaka";
 
@@ -192,6 +193,7 @@ export function ThenNow({
                   <>
                     <PlayControls part={part} player={player} />
                     {brailleInput && <ThenNowBraille input={brailleInput} open={brailleOpen} onOpenChange={openBraille} />}
+                    {view && <ThenNowMidi input={view.input} part={part} city={cityName} />} {/* ART: MIDI for a performer */}
                   </>
                 }
                 detailsTitle={t("disclosure.title")}
