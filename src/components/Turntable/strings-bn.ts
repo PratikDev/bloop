@@ -8,7 +8,7 @@
 import type { badgesEn } from "@/lib/i18n/en/badges";
 import type { scenesEn } from "@/lib/i18n/en/scenes";
 import type { turntableEn } from "@/lib/i18n/en/turntable";
-import { formatDegrees, formatFixed, formatInteger } from "@/lib/i18n/format";
+import { formatDegrees, formatInteger } from "@/lib/i18n/format";
 import { scenesBnDraft } from "../Scenes/strings-bn";
 import { badgesBnDraft } from "../SourceBadges/strings-bn";
 import type { CompassPoint } from "@/lib/geo/spherical";
@@ -62,8 +62,6 @@ export const turntableBnDraft: { [K in TurntableKey]?: Table[K] } = {
   "turntable.frameTime": (p) => `ফ্রেম: ${p.datetime} UTC`,
   "turntable.error": (p) => `পরিমাপিত ত্রুটি: ${p.text}`,
   "turntable.missing": "নেই",
-  "turntable.error.rain": (p) => `সাধারণত ~${bnInt(p.percent)}%-এর মধ্যে`,
-  "turntable.error.ocean": (p) => `মধ্যমা ${formatFixed(p.median, "bn", 2)} °সে, NASA MUR-এর তুলনায় (${bnInt(p.n)}টি বিন্দু, সর্বশেষ ফ্রেম)`,
 
   "turntable.turn": "ঘোরান",
   "turntable.stopTurning": "ঘোরানো থামান",
@@ -170,7 +168,6 @@ export const turntableBnDraft: { [K in TurntableKey]?: Table[K] } = {
   "turntable.announce.turning": "ঘুরছে",
   "turntable.announce.stoppedTurning": "ঘোরানো থেমেছে",
   "turntable.announce.view": (p) => `${p.view}।`,
-  "turntable.stopped": "থেমেছে। সমতল মানচিত্রে ফেরা হলো।",
 
   "help.turntable": "টার্নটেবিলে",
   "key.tt.leftRight": "বাম / ডান",
