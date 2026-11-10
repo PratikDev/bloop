@@ -19,7 +19,7 @@ import { FirstHint } from "./FirstHint";
 import { Inspector } from "./Inspector";
 import { ListenStatus } from "./ListenStatus";
 import { AskBloop } from "../../AskBloop";
-import { ArtListen } from "../../Art/ArtListen"; // ART
+import { ART_ROW, ArtListen } from "../../Art/ArtListen"; // ART
 
 /**
  * Listen: the latest EIC frame as a sound map, full size. The page's title,
@@ -37,11 +37,13 @@ export function ListenPage() {
   const t = useT();
   const story = state.mode === "story";
   const [askOpen, setAskOpen] = useState(false);
+  const [artOpen, setArtOpen] = useState(false); // ART: a letter or Water's journey is open (the page scrolls)
+  const artRow = ART_ROW && !story; // ART: a row under the map for its buttons
   const gapInHead = state.track === "both" && !story;
   return (
     // With the braille explorer open (B, or the dock's Braille) the page scrolls: the map keeps the screen, the explorer
     // follows below it (focus moves into it, which brings it into view).
-    <section aria-labelledby="listen-title" className={cn("flex h-full min-h-0 flex-col fit:px-4 fit:pt-2 fit:pb-2", (state.brailleOpen || askOpen) && "overflow-y-auto")}>
+    <section aria-labelledby="listen-title" className={cn("flex h-full min-h-0 flex-col fit:px-4 fit:pt-2 fit:pb-2", (state.brailleOpen || askOpen || artOpen) && "overflow-y-auto")}>
       {/*
         From 1024 px the stage is measured (a container named listen), and a grid inside it gives the
         head and the map (2:1) the width that fits both ways. The readout sits under the map, or beside
@@ -49,7 +51,7 @@ export function ListenPage() {
         In the page (and reading) order: head, tour, map, readout.
       */}
       {/* With Ask Bloop on, the fitted stage leaves one row under it for Ask Bloop's button. */}
-      <div className={cn("contents fit:block fit:h-full fit:shrink-0", FLAGS.askBloop && !story && "fit:h-[calc(100%-3.5rem)]", story ? "fit:[container:listen-tour_/_size]" : "fit:[container:listen_/_size]")}>
+      <div className={cn("contents fit:block fit:h-full fit:shrink-0", FLAGS.askBloop && !story && !artRow && "fit:h-[calc(100%-3.5rem)]", FLAGS.askBloop && artRow && "fit:h-[calc(100%-7rem)]", !FLAGS.askBloop && artRow && "fit:h-[calc(100%-3.5rem)]", story ? "fit:[container:listen-tour_/_size]" : "fit:[container:listen_/_size]")}>
         <div
           className={cn(
             "contents fit:grid fit:h-full fit:content-center fit:justify-center fit:gap-x-4",
@@ -115,8 +117,9 @@ export function ListenPage() {
         </div>
       </div>
       {FLAGS.askBloop && !story && <AskBloop open={askOpen} onOpenChange={setAskOpen} className="shrink-0 px-4 pb-3 fit:px-1 fit:pt-2" />}
+      {/* ART: what the dial describes here, and the row with Leave a letter and Water's journey */}
+      {(FLAGS.artDial || FLAGS.artOrchestra || ART_ROW) && <ArtListen onOpenChange={setArtOpen} className="shrink-0 space-y-3 px-4 pb-3 fit:px-1 fit:pt-2" />}
       <LiveBrailleExplorer className="shrink-0 px-4 pb-3 fit:px-1 fit:pt-4" />
-      {(FLAGS.artDial || FLAGS.artOrchestra || FLAGS.artLetter || FLAGS.artJourney) && <ArtListen />} {/* ART: what the dial describes here */}
     </section>
   );
 }
