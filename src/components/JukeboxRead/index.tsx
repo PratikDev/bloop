@@ -93,7 +93,7 @@ export function JukeboxRead({ source, base, needle, playMode, loading, className
   const short = source ? readShort(source, read.stats, read.budget) : "";
   const facts = source ? [readProvenance(t, lang, base, { name: read.boxName, bounds: read.bounds }, read.stats, budget.join(" "))] : [];
   return (
-    <section aria-labelledby={headingId} data-testid="jukebox-read" data-chord-voices={chord.tones.length} className={cn("space-y-2", className)}>
+    <section aria-labelledby={headingId} data-testid="jukebox-read" data-chord-voices={chord.tones.length} data-chord-hz={chord.tones.map((x) => x.hz).join(" ")} className={cn("space-y-2", className)}>
       <h2 id={headingId} className="text-lead">
         <Button variant="outline" className="h-11 gap-2 rounded-full" aria-expanded={open} aria-controls={panelId} onClick={() => setOpen((o) => !o)}>
           <CaretDown aria-hidden="true" className={cn("size-4 transition-transform", open && "rotate-180")} />
