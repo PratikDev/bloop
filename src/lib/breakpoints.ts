@@ -2,6 +2,8 @@
 // so the JS and the CSS switch layouts at the same width.
 
 export const MEDIA = {
+  /** Below Tailwind `sm` (640 px): the narrowest phones. The Turntable folds its readout and legend into one panel. */
+  narrow: "(max-width: 639px)",
   /** Below Tailwind `md` (768 px): phones. Sheets open from the bottom. */
   phone: "(max-width: 767px)",
   /** Tailwind `lg` (1024 px) and up: plates and the Inspector sit on the map. Below it they stack under the map, and the Inspector is a sheet. */

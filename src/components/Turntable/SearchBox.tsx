@@ -1,6 +1,6 @@
 "use client";
 
-import { Search } from "lucide-react";
+import { MagnifyingGlass } from "@phosphor-icons/react";
 import { useEffect, useId, useMemo, useState, type KeyboardEvent, type Ref } from "react";
 import { pushEscapeHandler } from "@/lib/escape";
 import type { Gazetteer } from "@/lib/geo/gazetteer";
@@ -76,7 +76,7 @@ export function SearchBox({
       <label
         className={cn("search-field key ml-auto flex h-11 cursor-text items-center gap-2 overflow-hidden rounded-lg bg-paper px-3", fieldOpen ? "w-80 max-w-full" : "w-fit")}
       >
-        <Search aria-hidden="true" className="size-5 shrink-0 text-moon" />
+        <MagnifyingGlass aria-hidden="true" className="size-5 shrink-0 text-moon" />
         <span className={fieldOpen ? "sr-only" : "text-body whitespace-nowrap text-moon"}>{tt("turntable.search.short")}</span>
         <input
           ref={inputRef}

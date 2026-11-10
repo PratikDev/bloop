@@ -3,6 +3,7 @@
 import { useRef } from "react";
 import { Sheet, SheetContent, SheetTitle } from "@/components/ui/sheet";
 import { useMediaQuery } from "@/hooks/use-media-query";
+import { MEDIA } from "@/lib/breakpoints";
 import { cn } from "@/lib/utils";
 import { useT } from "../AppState/use-app-state";
 import { useRecords } from "../Records/use-records";
@@ -14,7 +15,7 @@ import { useCaptionLines } from "./use-caption-lines";
 export function PlayerSheet() {
   const { current } = useRecords();
   const t = useT();
-  const phone = useMediaQuery("(max-width: 1023px)");
+  const phone = useMediaQuery(MEDIA.phone);
   const open = usePlayerSheetOpen();
   const lines = useCaptionLines();
   const heading = useRef<HTMLHeadingElement>(null);

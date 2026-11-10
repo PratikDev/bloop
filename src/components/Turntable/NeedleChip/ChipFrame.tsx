@@ -1,6 +1,6 @@
 "use client";
 
-import { Pin, PinOff, X } from "lucide-react";
+import { PushPin, PushPinSlash, X } from "@phosphor-icons/react";
 import { useCallback, useEffect, useRef, type CSSProperties, type ReactNode } from "react";
 import { createPortal } from "react-dom";
 import { Button } from "@/components/ui/button";
@@ -157,7 +157,7 @@ export function ChipFrame({ subscribe, details, reserved, dock, bottomReserve = 
               onClick={() => details.setPinned(!details.pinned)}
               className="size-11"
             >
-              {details.pinned ? <PinOff aria-hidden="true" /> : <Pin aria-hidden="true" />}
+              {details.pinned ? <PushPinSlash aria-hidden="true" /> : <PushPin aria-hidden="true" />}
             </Button>
             <Button variant="ghost" size="icon" aria-label={tt("turntable.details.close")} onClick={details.hide} className="size-11">
               <X aria-hidden="true" />

@@ -49,7 +49,7 @@ function Lyrics({ lines }: { lines: CaptionEvent[] }) {
       {lines.map((line, i) => {
         const newest = i === lines.length - 1;
         return (
-          <p key={`${i}:${line.key}`} className={cn(newest ? "comic-box rounded-caption px-2 py-1 font-strip text-[1.875rem] leading-tight" : "text-[1.1875rem] leading-snug text-haze")}>
+          <p key={`${i}:${line.key}`} className={cn(newest ? "comic-box rounded-caption px-2 py-1 font-strip text-lyric" : "text-lead text-haze")}>
             {captionText(state.lang, line.key, line.params)}
           </p>
         );

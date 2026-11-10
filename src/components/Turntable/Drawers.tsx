@@ -1,10 +1,11 @@
 "use client";
 
-import { LocateFixed, Map as MapIcon } from "lucide-react";
+import { GpsFix, MapTrifold as MapIcon } from "@phosphor-icons/react";
 import { Button } from "@/components/ui/button";
 import { Sheet, SheetContent, SheetDescription, SheetTitle } from "@/components/ui/sheet";
 import { Slider } from "@/components/ui/slider";
 import { useMediaQuery } from "@/hooks/use-media-query";
+import { MEDIA } from "@/lib/breakpoints";
 import { cn } from "@/lib/utils";
 import { ChoiceGroup } from "../ChoiceGroup";
 import { PanelTabs } from "../panels/PanelTabs";
@@ -23,7 +24,7 @@ const HEADING = "text-body font-semibold text-moon";
 
 /** One slide-over drawer: right on wide screens, bottom sheet on phones. */
 export function Drawer({ open, onClose, title, description, children }: { open: boolean; onClose: () => void; title: string; description?: string; children: React.ReactNode }) {
-  const phone = useMediaQuery("(max-width: 767px)");
+  const phone = useMediaQuery(MEDIA.phone);
   return (
     <Sheet open={open} onOpenChange={(o) => !o && onClose()}>
       <SheetContent
@@ -115,7 +116,7 @@ function SettingsBody({ settings, update, onMyLocation, onFlatMap }: { settings:
       </section>
       <section className="flex flex-wrap gap-2">
         <Button variant="secondary" onClick={onMyLocation} className="h-11 gap-2 px-3 text-body">
-          <LocateFixed aria-hidden="true" />
+          <GpsFix aria-hidden="true" />
           {tt("turntable.myLocation")}
         </Button>
         <Button variant="secondary" onClick={onFlatMap} className="h-11 gap-2 px-3 text-body">

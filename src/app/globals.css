@@ -248,6 +248,9 @@
   --text-readout-strip--line-height: 1;
   --text-readout: 4.25rem;
   --text-readout--line-height: 1;
+  /* Session B: the newest caption in the player sheet, set like a lyric. */
+  --text-lyric: 1.875rem;
+  --text-lyric--line-height: 1.25;
 
   --radius-sm: calc(var(--radius) * 0.6);
   --radius-md: calc(var(--radius) * 0.8);

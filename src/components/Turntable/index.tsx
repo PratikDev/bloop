@@ -1,8 +1,9 @@
 "use client";
 
-import { Search } from "lucide-react";
+import { MagnifyingGlass } from "@phosphor-icons/react";
 import { useEffect, useMemo, useRef, useState } from "react";
 import { useMediaQuery } from "@/hooks/use-media-query";
+import { MEDIA } from "@/lib/breakpoints";
 import { formatDegrees, formatUtc } from "@/lib/i18n";
 import { cn } from "@/lib/utils";
 import { liveSoundOn } from "../AppState/reducer";
@@ -61,7 +62,7 @@ export function Turntable() {
   const hostRef = useRef<HTMLDivElement>(null);
   const searchRef = useRef<HTMLInputElement>(null);
   const dockRef = useRef<HTMLDivElement>(null);
-  const phone = useMediaQuery("(max-width: 639px)");
+  const phone = useMediaQuery(MEDIA.narrow);
   const [chipDock, setChipDock] = useState<HTMLDivElement | null>(null);
   const [debug] = useState(() => new URLSearchParams(window.location.search).get("debug") === "1");
   const sendLog = useRef<SentReading[]>([]);
@@ -212,7 +213,7 @@ export function Turntable() {
           )}
           {idle && intro.phase === "done" && (
             <p data-tt-occluder className="on-space flex items-center gap-2 rounded-full px-4 py-2 text-body">
-              <Search aria-hidden="true" className="size-4" />
+              <MagnifyingGlass aria-hidden="true" className="size-4" />
               {tr("turntable.idleHint")}
             </p>
           )}

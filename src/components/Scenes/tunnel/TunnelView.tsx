@@ -1,7 +1,6 @@
 "use client";
 
-import { CalendarClock } from "lucide-react";
-import { Download } from "lucide-react";
+import { CalendarDots, DownloadSimple } from "@phosphor-icons/react";
 import { useEffect, useMemo, useState, type KeyboardEvent } from "react";
 import { formatFixed, formatInteger, formatSignedUpTo, type Lang } from "@/lib/i18n";
 import { useAnnounce } from "../../Announcer/use-announcer";
@@ -188,9 +187,9 @@ April-May anomaly ${rows[0].year}-${rows[rows.length - 1].year}`,
         extra: (
           <>
             {windows.map((w, i) => (
-              <DockButton key={w.key} icon={CalendarClock} label={tt("scenes.tunnel.jump", { label: w.key })} keys={String(i + 1)} onClick={() => ctl.goTo(indexOf(w.from))} />
+              <DockButton key={w.key} icon={CalendarDots} label={tt("scenes.tunnel.jump", { label: w.key })} keys={String(i + 1)} onClick={() => ctl.goTo(indexOf(w.from))} />
             ))}
-            <DockButton icon={Download} label={tt("scenes.tactile")} onClick={exportTactile} />
+            <DockButton icon={DownloadSimple} label={tt("scenes.tactile")} onClick={exportTactile} />
           </>
         ),
       }}

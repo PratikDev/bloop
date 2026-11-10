@@ -1,6 +1,6 @@
 "use client";
 
-import { Scale, Target } from "lucide-react";
+import { Scales, Target } from "@phosphor-icons/react";
 import { useEffect, useMemo, useRef, useState, type KeyboardEvent } from "react";
 import { continuousRule, mapContinuous, voiceSpec, withInputRange } from "@/lib/audio/mapping";
 import { formatDegrees, formatFixed, formatInteger, formatSigned, formatTemperature, formatUtc, type Lang } from "@/lib/i18n";
@@ -293,7 +293,7 @@ export function TerrainView({ data, onExit, tier, geo }: SceneProps & { data: Te
         extra: (
           <>
             <DockButton icon={Target} label={tt("scenes.terrain.goal")} keys="G" pressed={hunting} onClick={toggleHunt} />
-            {data.anomaly && <DockButton icon={Scale} label={tt("scenes.terrain.vsNormal")} keys="N" pressed={vsNormal} onClick={toggleNormal} />}
+            {data.anomaly && <DockButton icon={Scales} label={tt("scenes.terrain.vsNormal")} keys="N" pressed={vsNormal} onClick={toggleNormal} />}
           </>
         ),
       }}

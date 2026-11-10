@@ -1,13 +1,16 @@
 "use client";
 
-import { Minus, Plus, type LucideIcon } from "lucide-react";
-import { cloneElement, type ReactElement, type ReactNode } from "react";
+import { Minus, Plus } from "@phosphor-icons/react";
+import { cloneElement, type ComponentType, type ReactElement, type ReactNode } from "react";
 import { Button } from "@/components/ui/button";
 import { Tooltip, TooltipContent, TooltipTrigger } from "@/components/ui/tooltip";
 import { cn } from "@/lib/utils";
 
 const DOCK_KEY = "key border-navy h-auto min-h-11 gap-2 rounded-lg bg-paper px-3 py-1 text-body font-normal whitespace-normal text-moon hover:bg-paper aria-expanded:bg-tide aria-pressed:bg-tide";
 const PRIMARY_KEY = "bg-shapla hover:bg-shapla aria-pressed:bg-shapla";
+
+/** Any icon component (the app uses Phosphor). */
+export type DockIcon = ComponentType<{ className?: string; "aria-hidden"?: boolean | "true" | "false" }>;
 
 /** A labelled key: icon and visible text, its shortcut in a tooltip. `wrap` lets a popover trigger wrap it. */
 export function DockButton({
@@ -23,7 +26,7 @@ export function DockButton({
   onClick,
   wrap,
 }: {
-  icon: LucideIcon;
+  icon: DockIcon;
   /** The accessible name. */
   label: string;
   /** Shorter visible text, when the name is long (the name starts with the same words). */

@@ -1,6 +1,6 @@
 "use client";
 
-import { Download } from "lucide-react";
+import { DownloadSimple } from "@phosphor-icons/react";
 import { useMemo, useRef, useState, type KeyboardEvent } from "react";
 import { mapVoice } from "@/lib/audio/mapping";
 import { valueInFrame, wrapLon, type LatLon } from "@/lib/data";
@@ -277,7 +277,7 @@ ${first.slice(0, 4)}-${last.slice(0, 4)}  inner: BD, outer: NW India`,
         onPlay: sound.toggle,
         speedText: tt("scenes.speed", { speed: formatFixed(SPEEDS[speedIndex], lang, SPEEDS[speedIndex] < 1 ? 2 : 0) }),
         onSpeed: (step) => setSpeedIndex((i) => Math.min(SPEEDS.length - 1, Math.max(0, i + step))),
-        extra: <DockButton icon={Download} label={tt("scenes.tactile")} onClick={exportTactile} />,
+        extra: <DockButton icon={DownloadSimple} label={tt("scenes.tactile")} onClick={exportTactile} />,
       }}
       layers={
         <section className="space-y-2">
