@@ -14,7 +14,7 @@ const RELEASE_SEC = 0.4;
 /** The chord sits this many dB under the melody's peak (docs/audio/MIX.md: measured there). */
 export const CHORD_DB = -8;
 /** Partials of the pad (fundamental first): timbre only, the pitch is the fundamental's. */
-const PARTIALS = [0, 1, 0.3, 0.1];
+export const PARTIALS = [0, 1, 0.3, 0.1];
 
 /** The melody's peak level on the sonification bus (the ocean voice: its peak × the channel's input cap). */
 export const melodyPeak = () => voicePeak("ocean") * MAPPING.global.voiceMaxGain;
