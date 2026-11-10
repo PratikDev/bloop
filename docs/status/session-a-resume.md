@@ -24,12 +24,12 @@ Written 2026-11-10 before a context compaction. Read this in full before doing a
 | 7 | Phase 7 leftovers | merged, `17d9d1f` |
 | 8 | Journey Esc test fix | merged, `e3302e2` |
 | 9 | `docs/status/map-sizes.md` baseline | merged, `99b5d03` |
-| 10 | Layout rebuild: one screen per page, maps at baseline, Home jukebox around the globe, journey halves, "Now playing" in More, phone map pans | in progress: `43d3a43` + `397751e` + the wip commit with this file. **Next action below.** |
-| 11 | Home globe mount in the new window (A places B's Globe; B verifies) | in progress, inside item 10 |
-| 12 | Recount controls under the clarified rule; move extras into More | not started; script ready: `scratchpad/counts2.mjs` |
+| 10 | Layout rebuild: one screen per page, maps at baseline, Home jukebox around the globe, journey halves, "Now playing" in More, phone map pans, Then vs Now Play/Stop while playing | merged: `43d3a43`, `397751e`, `d16c217`, `96a4e1d` |
+| 11 | Home globe mount in the new window (A places B's Globe; B verifies) | merged with item 10; details in `docs/status/session-a.md` |
+| 12 | Recount controls under the clarified rule; move extras into More | merged, `96a4e1d` (every page within 8 desktop / 5 phone; coral at most 1) |
 | 13 | Re-check the strip above the header and the blue dot on :3101 | done in an earlier build (not reproduced: no element above the header, no blue pixels at the bottom left); re-check once more after the merge |
-| 14 | Home at 1536×730 and 1920×1080: no page scroll | not started (`scratchpad/final.mjs` measures scroll; add 1536×730) |
-| 15 | Merge item 10, post the window size and position in `docs/status/session-a.md`, message Session B | not started |
+| 14 | Home at 1536×730 and 1920×1080: no page scroll | done (0 at both), `96a4e1d` |
+| 15 | Merge item 10, post the window size and position in `docs/status/session-a.md`, message Session B | done (status file in the commit after `96a4e1d`) |
 | A1–A11, A-bn | **Audit items, from Pratik, after item 15 and before item 16.** Re-check each on the rebuilt code at :3101 first; fix only what's still broken; report which ones the rebuild already fixed. Full text under "Audit items" in Pratik's decisions below. A1 zoom and short screens (blocker) · A2 focus after Start goes to the map region · A3 Next route announcer · A4 Help opens on its title · A5 forced colours + `prefers-contrast: more` · A6 Home caption vs Pause motion · A7 player labels at 390 px + `layout.e2e.ts` includes `aria-hidden` text · A8 visible sound-button label · A9 player caption ≥ 200 px at 1280–1440 · A10 Official records roving focus · A11 smaller items · A-bn Bangla drafts for A's files | not started |
 | 16 | Motion item 4: bubbles in Listen's tubes (component `Cabinet/TubeBubbles.tsx` exists) | not started |
 | 17 | Motion items 1, 2, 5, 8, 12 (tonearm, split-flap, live equaliser, panels landing, scrubber spring) | not started |
@@ -38,7 +38,11 @@ Written 2026-11-10 before a context compaction. Read this in full before doing a
 | 20 | Pointer upgrade: Listen cursor like the Turntable pointer (optional) | not started |
 | 21 | Phase 8 (starts after items 10 to 20 and A1–A11, A-bn are merged and B has written "B done"). Adds the audit's checks: 200% and 400% zoom on every page, 320×568, forced colours, text spacing, one announcement per page change, Help focus | not started |
 
-### Exact next action for item 10
+### Next action: the audit items
+
+Item 10 is merged. Next: re-check A1 to A11 and A-bn on :3101 (scripts in `docs/status/audit/`), fix what is still broken, then items 16 to 20. Session B's audit item B2 asks for lucide icons to become Phosphor in `Turntable/Dock.tsx`, `DockMore.tsx`, `dock-actions.ts` and `BrailleExplorer/index.tsx`; do it with A11.
+
+### Earlier next action for item 10 (done)
 
 1. The uncommitted Turntable credits fix is committed as `wip:` with this file. It moves the credits dialog out of the More popover, because the dialog unmounted with the menu, so `feature credits` failed. The background run started for it (`feature credits|turntable*|records-drawer`) may not have finished.
 2. Rebuild: `bun run build` in `bloop-a`. Serve on 3101 if nothing listens there.
