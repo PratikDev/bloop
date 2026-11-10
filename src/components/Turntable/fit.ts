@@ -13,6 +13,8 @@ export interface GlobeFit {
 const MARGIN_PX = 24;
 /** A smaller globe than this can't be read: it stops shrinking. */
 const MIN_RADIUS_PX = 40;
+/** A globe narrower than this is too small to read: where the page can scroll, the stage grows to make room. */
+const READABLE_DISC_PX = 200;
 /** A free space this share of the largest disc's size is as good: the one nearest the stage's middle wins. */
 const CENTRED_TOLERANCE = 0.85;
 
@@ -50,6 +52,14 @@ export function largestFreeRect(width: number, height: number, obstacles: Rect[]
     if (better) best = r;
   }
   return best;
+}
+
+/**
+ * How much taller the free space must be to hold a readable globe and its margin (negative: room to spare).
+ * Width can't be helped by growing, so a narrow space asks only for as much height as it is wide.
+ */
+export function heightShortfall(free: Rect): number {
+  return Math.min(READABLE_DISC_PX + 2 * MARGIN_PX, free.w) - free.h;
 }
 
 /** The disc centred in a free rectangle, with its margin. */

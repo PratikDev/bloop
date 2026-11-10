@@ -1,5 +1,5 @@
 import { describe, expect, test } from "bun:test";
-import { fitDisc, largestFreeRect } from "./fit";
+import { fitDisc, heightShortfall, largestFreeRect } from "./fit";
 
 describe("largestFreeRect", () => {
   test("no panels: the whole stage", () => {
@@ -45,5 +45,19 @@ describe("fitDisc", () => {
 
   test("never smaller than the minimum", () => {
     expect(fitDisc({ x: 0, y: 0, w: 60, h: 60 }).radius).toBe(40);
+  });
+});
+
+describe("heightShortfall", () => {
+  test("a 320 px phone with a tall dock: the free space must grow to hold a 200 px globe and its margin", () => {
+    expect(heightShortfall({ x: 0, y: 0, w: 320, h: 107 })).toBe(248 - 107);
+  });
+
+  test("room to spare: negative", () => {
+    expect(heightShortfall({ x: 0, y: 0, w: 1000, h: 700 })).toBe(248 - 700);
+  });
+
+  test("a narrow space asks only for as much height as it is wide", () => {
+    expect(heightShortfall({ x: 0, y: 0, w: 150, h: 100 })).toBe(50);
   });
 });

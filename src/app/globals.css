@@ -841,6 +841,12 @@ body:has([data-tt-stage]) [data-slot="sheet-overlay"] {
   clip-path: inset(0);
 }
 
+/* ---- The Turntable's stage: its usual height, or taller when its panels leave less than a readable globe
+   (Turntable/use-occluder-fit.ts sets --tt-need on narrow screens and at 200–400% zoom; the page scrolls). ---- */
+[data-tt-stage] {
+  min-height: max(32rem, var(--tt-need, 0px));
+}
+
 /* ---- Toon turntable (Turntable/scene/deck.ts). ---- */
 :root {
   --deck-top: #ff6b4a;
