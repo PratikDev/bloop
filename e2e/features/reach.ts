@@ -13,7 +13,7 @@ const ONE_SHOT = new Set(["A0", "D3"]);
 
 /** Plays a record by typing its code in the Records sheet; → the code, once the crown names it (or, for a one-shot
  *  record, once the sheet has closed without saying the code is unknown). */
-async function playCode(page: Page, code: string): Promise<string> {
+async function playCode(page: Page, code: string, { stop = true }: { stop?: boolean } = {}): Promise<string> {
   await openRecords(page);
   const sheet = page.getByRole("dialog", { name: "Records" });
   await sheet.getByRole("textbox", { name: "Record code" }).fill(code);
@@ -26,7 +26,7 @@ async function playCode(page: Page, code: string): Promise<string> {
   // The crown names the current record on every page with a cabinet (even where it folds away on short screens).
   const crown = page.locator("[data-cabinet-crown]").first();
   await expect(crown).toContainText(code, { timeout: 30_000 });
-  await page.keyboard.press("Escape"); // stop whatever the record started, so the next one starts clean
+  if (stop) await page.keyboard.press("Escape"); // stop whatever the record started, so the next one starts clean
   return code;
 }
 
@@ -67,7 +67,7 @@ export const REACH: Feature[] = [
   { id: "reach-timelapse-view", group: "visuals", name: "Storm time-lapse with its Globe / Flat map choice", where: "Records · D2", keyboard: false,
     what: "The time-lapse opens on Listen and its view switches between the globe and the flat map",
     async run(page) {
-      await playCode(page, "D2").catch(() => undefined); // the time-lapse may still be loading when Esc is pressed
+      await playCode(page, "D2", { stop: false }); // Esc would end the time-lapse and take its view choice with it
       const view = page.getByRole("group", { name: "Storm view" });
       await expect(view).toBeVisible({ timeout: 30_000 });
       const flat = view.getByRole("button", { name: "Flat map" });
