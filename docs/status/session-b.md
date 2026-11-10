@@ -12,3 +12,4 @@
 - Bangla for the Turntable credits, needle-drop caption, Ghost Earths honesty line and tunnel credit (review first) | e1e44be | 2026-11-10 20:48 | next: none
 - **B done**: every Session B item merged (item 16 accepted at 194 px at 1440×900, per Pratik) | final commit e1e44be | 2026-11-10 20:48 | next: Session A's phase 8
 - the measured error and stop announcement in the app's Bangla (review first); credits checked against what's loaded: nothing to remove | f7f0f0c | 2026-11-10 20:57 | next: Turntable pointer bug
+- Part 0: pointer zoom fix (the arm shrinks about the tip instead of hiding in the close view; swatch over the stylus), regression test turntable-pointer-zoom (passes Chromium and Firefox) | f20e4ac | 2026-11-10 21:15 | next: part 1, the groove
