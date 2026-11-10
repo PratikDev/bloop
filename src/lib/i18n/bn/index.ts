@@ -14,11 +14,12 @@ import { pagesBn } from "./pages";
 import { panelsBn } from "./panels";
 import { finalPassBn, recordsBn } from "./records";
 import { badgesBnDraft } from "@/components/SourceBadges/strings-bn";
+import { turntableBnDraft } from "@/components/Turntable/strings-bn";
 import { storyBn } from "./story";
 import { truthBn } from "./truth";
 import { turntableBn } from "./turntable";
 
-export const bn: Partial<Messages> = { ...appBn, ...helpBn, ...captionsBn, ...panelsBn, ...contextBn, ...storyBn, ...pagesBn, ...recordsBn, ...finalPassBn, ...badgesBnDraft, ...turntableBn, ...truthBn, ...officialBn, ...brailleBn };
+export const bn: Partial<Messages> = { ...appBn, ...helpBn, ...captionsBn, ...panelsBn, ...contextBn, ...storyBn, ...pagesBn, ...recordsBn, ...finalPassBn, ...badgesBnDraft, ...turntableBnDraft, ...turntableBn, ...truthBn, ...officialBn, ...brailleBn };
 
 /**
  * Spoken lines (Enter, the tour, Describe) are translated, so speech follows

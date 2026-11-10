@@ -8,7 +8,7 @@ import { useLiveData } from "../../LiveData/use-live-data";
 import { Figure, hero } from "../../Readout";
 import { useShownPoint } from "../../TimeLapse/use-shown-point";
 import { FrameFacts } from "../FrameFacts";
-import { En, useTT } from "../i18n";
+import { useTT } from "../i18n";
 import type { Rect } from "../LabelLayer";
 import { recordFrames } from "../records";
 import type { Turntable } from "../use-turntable";
@@ -35,7 +35,7 @@ export function NeedleChip({ subscribe, place, details, reserved, dock }: Props)
   const { state } = useAppState();
   const { fields } = useLiveData();
   const t = useT();
-  const { tt, lang } = useTT();
+  const { tt } = useTT();
   const { reading: r, cursor, track } = useShownPoint();
   const [now] = useState(Date.now);
   const swatch = useRef<HTMLSpanElement>(null);
@@ -52,7 +52,6 @@ export function NeedleChip({ subscribe, place, details, reserved, dock }: Props)
   }, [subscribe]);
 
   const main = r ? hero(r, track, state.lang) : null;
-  const bn = lang === "bn";
   const fallback = r && (track === "rain" ? rainText(t, r.rain, r.rainLoaded) : t("reading.oceanNone"));
 
   return (
@@ -73,17 +72,17 @@ export function NeedleChip({ subscribe, place, details, reserved, dock }: Props)
                   <Figure text={main.figure} lang={state.lang} /> {t(main.unit)}
                 </>
               ) : (
-                <En active={bn}>{fallback}</En>
+                fallback
               )}
             </span>
             {track === "both" && (
               <span className="text-body text-moon">
-                <En active={bn}>{rainText(t, r.rain, r.rainLoaded)}</En>
+                {rainText(t, r.rain, r.rainLoaded)}
               </span>
             )}
             {place && <span className="basis-full text-body text-haze">{place}</span>}
             <span className="basis-full text-small text-haze max-sm:hidden">
-              <En active={bn}>{t("place.latlon", cursor)}</En>
+              {t("place.latlon", cursor)}
             </span>
           </>
         )
@@ -97,7 +96,7 @@ export function NeedleChip({ subscribe, place, details, reserved, dock }: Props)
             </>
           ) : (
             <span className="text-title">
-              <En active={bn}>{fallback}</En>
+              {fallback}
             </span>
           )}
         </p>

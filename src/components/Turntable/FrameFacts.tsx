@@ -32,7 +32,7 @@ export function FrameFacts({ frame, now, tt }: { frame: RecordFrame; now: number
       </span>
       {fields && (
         <span className="block text-haze">
-          <En active={bn}>{hearLine(t, frame.product, fields)}</En>
+          {hearLine(t, frame.product, fields)}
         </span>
       )}
       {product && <SourceBadges entry={freshness?.products[product]} now={now} tr={tt} lang={state.lang} className="pt-1" />}
