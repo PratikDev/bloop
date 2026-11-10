@@ -2,7 +2,7 @@
 
 Every Bangla string drafted in the final pass, in Pratik's priority order: controls, announcements, errors, headings, then the rest. Each row says which session drafted it (A: the interface, Official records, braille, the truth checks; B: the Turntable, its scenes and the source badges). Rows marked **review first** are Pratik's seven and come first in their group. Every string already shows in Bangla mode; all are drafts until a translator has checked them.
 
-Terms follow `docs/i18n/GLOSSARY.md`: Play বাজান; Pause and Stop থামান; Close বন্ধ করুন; amber কমলা; needle সুই; record রেকর্ড; frame ফ্রেম; voice কণ্ঠ; scene দৃশ্য. Names, organisations, dataset titles and record titles stay as in English. `{name}` is a value the app fills in; `{name: a / b}` means one of those words is used.
+Terms follow `docs/i18n/GLOSSARY.md`: Play বাজান; Pause বিরতি দিন; Stop থামান; Close বন্ধ করুন; amber কমলা; needle সুই; record রেকর্ড; frame ফ্রেম; voice কণ্ঠ (under review: in the Mixer it means a sound layer); scene দৃশ্য. Names, organisations, dataset titles and record titles stay as in English. `{name}` is a value the app fills in; `{name: a / b}` means one of those words is used.
 
 Combined by Session A on 2026-11-10 from `docs/i18n/A-BN-REVIEW.md` and `docs/i18n/B-BN-REVIEW.md`, which are generated from the tables.
 
@@ -14,7 +14,7 @@ Combined by Session A on 2026-11-10 from `docs/i18n/A-BN-REVIEW.md` and `docs/i1
 | `braille.bl.flip` | {back: Front / Back} {record} | {back: সামনে / পেছনে} {record} | A |
 | `braille.bl.keys` | Keys | কী | A |
 | `braille.bl.map` | map | মানচিত্র | A |
-| `braille.bl.pause` | Pause | থামান | A |
+| `braille.bl.pause` | Pause | বিরতি দিন | A |
 | `braille.bl.play` | Play | বাজান | A |
 | `braille.bl.record` | {record} {playing: playing / live} | {record} {playing: বাজছে / লাইভ} | A |
 | `braille.bl.save` | Save txt | txt রাখুন | A |
@@ -48,7 +48,7 @@ Combined by Session A on 2026-11-10 from `docs/i18n/A-BN-REVIEW.md` and `docs/i1
 | `mode.official` | Official | অফিশিয়াল | A |
 | `official.details` | Details | বিস্তারিত | A |
 | `official.layer` | Layer | স্তর | A |
-| `official.pause` | Pause | থামান | A |
+| `official.pause` | Pause | বিরতি দিন | A |
 | `official.play` | Play | বাজান | A |
 | `official.speak` | Speak value | মান শুনুন | A |
 | `official.tab.controls` | Controls | নিয়ন্ত্রণ | A |
@@ -60,7 +60,7 @@ Combined by Session A on 2026-11-10 from `docs/i18n/A-BN-REVIEW.md` and `docs/i1
 | `panel.history` | Month by month | মাসে মাসে | A |
 | `truth.unison.play` | Hear the nearest checked point | সবচেয়ে কাছের যাচাই করা বিন্দুটি শুনুন | A |
 | `key.sc.all` | Every scene | প্রতিটি দৃশ্য | B |
-| `key.sc.all.action` | Space: play or pause · [ / ]: slower or faster · I: details · O: layers · H: help · Shift+D: the controls · Esc: back to the turntable | Space: চালান বা থামান · [ / ]: ধীরে বা দ্রুত · I: বিস্তারিত · O: স্তর · H: সাহায্য · Shift+D: নিয়ন্ত্রণ · Esc: টার্নটেবিলে ফিরুন | B |
+| `key.sc.all.action` | Space: play or pause · [ / ]: slower or faster · I: details · O: layers · H: help · Shift+D: the controls · Esc: back to the turntable | Space: বাজান বা বিরতি দিন · [ / ]: ধীরে বা দ্রুত · I: বিস্তারিত · O: স্তর · H: সাহায্য · Shift+D: নিয়ন্ত্রণ · Esc: টার্নটেবিলে ফিরুন | B (was চালান বা থামান; glossary fix) |
 | `key.sc.delta.action` | Arrows or W A S D: move one degree (with Shift: ten) · , / .: month · Shift+, / .: rain frame · Enter: speak · + / −: zoom | তীর বা W A S D: এক ডিগ্রি সরান (Shift দিয়ে দশ) · , / .: মাস · Shift+, / .: বৃষ্টির ফ্রেম · Enter: বলুন · + / −: জুম | B |
 | `key.sc.ghost.action` | Arrows: turn one grid cell (with Shift: five) · 1–3: heat, rain or water · Enter: play both windows · /: search · + / −: zoom | তীর: এক গ্রিড ঘর ঘোরান (Shift দিয়ে পাঁচ) · ১–৩: তাপ, বৃষ্টি বা পানি · Enter: দুই সময়কাল বাজান · /: খুঁজুন · + / −: জুম | B |
 | `key.sc.terrain.action` | W / S: walk · A / D: step sideways · Left / Right: turn (with Shift: faster) · Enter: speak · G: find the warmest water · N: the temperature or how far from normal · , / .: rain frame · + / −: zoom | W / S: হাঁটুন · A / D: পাশে সরুন · বাম / ডান: ঘুরুন (Shift দিয়ে দ্রুত) · Enter: বলুন · G: সবচেয়ে উষ্ণ পানি খুঁজুন · N: তাপমাত্রা নাকি স্বাভাবিক থেকে কতটা দূরে · , / .: বৃষ্টির ফ্রেম · + / −: জুম | B |
@@ -95,7 +95,7 @@ Combined by Session A on 2026-11-10 from `docs/i18n/A-BN-REVIEW.md` and `docs/i1
 | `scenes.layers.heading` | Show | দেখান | B |
 | `scenes.layers.note` | Decoration only: the values and sounds never change. | শুধু সাজসজ্জা: মান ও শব্দ কখনো বদলায় না। | B |
 | `scenes.open` | Open the {scene} scene | {scene} দৃশ্য খুলুন | B |
-| `scenes.pause` | Pause | থামান | B |
+| `scenes.pause` | Pause | বিরতি দিন | B (was থামান; glossary fix) |
 | `scenes.play` | Play | বাজান | B (was চালান; glossary fix) |
 | `scenes.speed` | {speed}× | {speed}× | B |
 | `scenes.tactile` | Export tactile record (STL) | স্পর্শযোগ্য রেকর্ড রপ্তানি (STL) | B |
@@ -455,4 +455,5 @@ In `src/lib/i18n/bn/data.ts` (entries marked "Drafts, review first") and `src/li
 - `braille.bl.stop` (A): বন্ধ → থামান. Stop is থামান; বন্ধ করুন is Close.
 - `sound.play` (A): শব্দ চালান → শব্দ বাজান. Play is বাজান.
 - `scenes.play` (B): চালান → বাজান, shown above with the glossary word; Session B applies it in `src/components/Scenes/strings-bn.ts`.
+- Pause is বিরতি দিন, Stop is থামান (Pratik, 2026-11-10): Session A's `sound.pause`, `sound.paused`, `motion.pause`, `official.pause`, `braille.bl.pause` and `key.space.action` changed; Session B's Pause strings (e.g. `scenes.pause`) are shown with বিরতি দিন and B applies them.
 - Left as they are: "low" and "high" are কম / বেশি for data levels (`level.*`) and নিম্ন / উচ্চ for graphics quality and confidence (`turntable.quality.*`, `scenes.conf.*`), which are different senses.

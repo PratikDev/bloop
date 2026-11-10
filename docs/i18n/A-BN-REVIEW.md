@@ -16,7 +16,7 @@ Order: controls, announcements, errors, headings, the rest. Files: `src/lib/i18n
 | `official.view.global` | World | পৃথিবী |
 | `official.view.box` | Bangladesh (hourly) | বাংলাদেশ (প্রতি ঘণ্টা) |
 | `official.play` | Play | বাজান |
-| `official.pause` | Pause | থামান |
+| `official.pause` | Pause | বিরতি দিন |
 | `official.time` | Time step | সময়ের ধাপ |
 | `official.speak` | Speak value | মান শুনুন |
 | `official.details` | Details | বিস্তারিত |
@@ -40,7 +40,7 @@ Order: controls, announcements, errors, headings, the rest. Files: `src/lib/i18n
 | `braille.txt.show` | Braille-friendly text | ব্রেইল-বান্ধব লেখা |
 | `braille.txt.download` | Download .txt | .txt ডাউনলোড করুন |
 | `braille.bl.play` | Play | বাজান |
-| `braille.bl.pause` | Pause | থামান |
+| `braille.bl.pause` | Pause | বিরতি দিন |
 | `braille.bl.soundOn` | Sound on | শব্দ চালু |
 | `braille.bl.sweep` | Sweep | সুইপ |
 | `braille.bl.storm` | Storm | ঝড় |

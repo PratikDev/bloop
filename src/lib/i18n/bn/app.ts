@@ -87,9 +87,9 @@ export const appBn: Translated<typeof appEn> = {
   "frame.compact": (p: { list: string }) => `EIC ফ্রেম: ${p.list}। শব্দ এই ফ্রেমগুলো থেকে সরাসরি তৈরি।`,
   "frame.compactItem": (p: { product: string; datetime: string }) => `${p.product}, ${p.datetime} UTC`,
 
-  "sound.pause": "শব্দ থামান",
+  "sound.pause": "শব্দে বিরতি দিন",
   "sound.play": "শব্দ বাজান",
-  "sound.paused": "শব্দ থেমে আছে",
+  "sound.paused": "শব্দে বিরতি চলছে",
   "sound.resumed": "শব্দ চালু",
   "sound.muteAll": "সব মিউট",
   "sound.unmuteAll": "সব আনমিউট",
@@ -137,7 +137,7 @@ export const appBn: Translated<typeof appEn> = {
 
   "data.text": (p: { text: string }) => translateData(p.text),
 
-  "motion.pause": "গতি থামান",
+  "motion.pause": "গতিতে বিরতি দিন",
   "globe.home": "গ্লোবে আজকের সমুদ্রের তাপমাত্রার ফ্রেম।",
   "globe.centredOn": (p: { place: string }) => `গ্লোবের কেন্দ্রে ${p.place}।`,
   "globe.following": "গ্লোব সবচেয়ে ভারী বৃষ্টিকে অনুসরণ করছে।",

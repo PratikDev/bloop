@@ -14,7 +14,7 @@ export const helpBn: Translated<typeof helpEn> = {
   "key.arrows.action": "কার্সর ১ ডিগ্রি সরান (Shift সহ: ১০ ডিগ্রি)",
   "key.enter.action": "মান ও অবস্থান শুনুন",
   "key.space": "স্পেস",
-  "key.space.action": "লাইভ শব্দ থামান বা আবার চালান",
+  "key.space.action": "লাইভ শব্দে বিরতি দিন বা আবার চালান",
   "key.s.action": `${PLACE_NAMES_BN.sweepCenter} থেকে চারদিকে সুইপ বাজান`,
   "key.123.action": "সমুদ্র, বৃষ্টি, বা দুটোই শুনুন",
   "key.m.action": "সব মিউট বা আনমিউট",

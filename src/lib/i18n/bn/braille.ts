@@ -54,7 +54,7 @@ export const brailleBn: Translated<typeof brailleEn> = {
   "braille.txt.download": ".txt ডাউনলোড করুন",
   "braille.txt.note": "সাধারণ লেখা, আপনার ডিসপ্লের প্রস্থে ভাঙা, ব্রেইল নোট-টেকারের জন্য।",
   "braille.bl.play": "বাজান",
-  "braille.bl.pause": "থামান",
+  "braille.bl.pause": "বিরতি দিন",
   "braille.bl.soundOn": "শব্দ চালু",
   "braille.bl.sweep": "সুইপ",
   "braille.bl.storm": "ঝড়",

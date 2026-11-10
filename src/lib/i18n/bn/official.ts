@@ -37,7 +37,7 @@ export const officialBn: Translated<typeof officialEn> = {
   "official.view.global": "পৃথিবী",
   "official.view.box": "বাংলাদেশ (প্রতি ঘণ্টা)",
   "official.play": "বাজান",
-  "official.pause": "থামান",
+  "official.pause": "বিরতি দিন",
   "official.time": "সময়ের ধাপ",
   "official.timeValue": (p) => `${p.time} (${int(p.total)}টির মধ্যে ${int(p.step)} নম্বর ধাপ)`,
   "official.approximate": "আনুমানিক সময়",
