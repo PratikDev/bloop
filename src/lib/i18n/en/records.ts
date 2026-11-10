@@ -43,6 +43,7 @@ export const recordsEn = {
   "records.chartOnly": "Chart only",
   "records.frames": (p: { count: number }) => `${formatInteger(p.count, "en")} frames`,
   "records.allOfficial": "All official records",
+  "records.stale": (p: { days: string }) => `Frame ${p.days} days old`,
   "records.startHere": "Start here",
   "records.hint.legend": "New here? Play A0 to learn the sounds first.",
   "records.code": "Record code",
@@ -56,6 +57,7 @@ export const recordsEn = {
   "records.kind.observation": "Observations",
 
   "player.nowPlaying": "Now playing",
+  "player.more": "More",
   "player.previous": "Previous record",
   "player.next": "Next record",
   "player.upNext": "Up next",
@@ -72,7 +74,6 @@ export const recordsEn = {
   "needle.latValue": (p: { lat: number; place?: string | null }) => withPlace(`${formatFixed(Math.abs(p.lat), "en", 1)}° ${latWord(p.lat)}`, p.place),
 
   "skip.map": "Skip to map",
-  "skip.records": "Skip to records",
   "skip.player": "Skip to player",
 
   "listen.howChecked": "How we checked these",

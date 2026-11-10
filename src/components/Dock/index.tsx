@@ -1,13 +1,15 @@
 "use client";
 
 import { AnimatePresence, motion } from "motion/react";
-import { useMediaQuery } from "@/hooks/use-media-query";
-import { MEDIA } from "@/lib/breakpoints";
 import { SPRING } from "@/lib/motion";
 import { useAppState, useT } from "../AppState/use-app-state";
-import { ListenActions } from "./ListenActions";
+import { useTimeLapse } from "../TimeLapse/use-time-lapse";
+import { GoToMenu } from "./GoToMenu";
 import { MiniPlayer } from "./MiniPlayer";
 import { MixerMenu } from "./MixerMenu";
+import { ListenItems, NowPlayingItem, PlayPauseItem, StepItems } from "./MoreItems";
+import { NeedleSlider } from "./NeedleSliders";
+import { PlayerMore } from "./PlayerMore";
 import { RecordsKey } from "./RecordsKey";
 
 export const PLAYER_ID = "player";
@@ -19,10 +21,13 @@ export const PLAYER_ID = "player";
 export function Dock() {
   const { state } = useAppState();
   const t = useT();
-  const wide = useMediaQuery(MEDIA.mapOverlay);
+  const { status } = useTimeLapse();
   const shown = state.started && state.mode !== "home" && state.mode !== "turntable";
   const explore = state.mode === "explore";
-  const listen = explore || state.mode === "story";
+  // While the time-lapse runs, the sheet is what people are after: it comes first.
+  const storm = status === "playing" || status === "loading";
+  // Pages that spend their controls on their own content: Records joins the rest in More.
+  const inMore = state.mode === "thenNow" || state.mode === "how" || state.mode === "official";
 
   return (
     <AnimatePresence initial={false}>
@@ -35,16 +40,30 @@ export function Dock() {
           initial={{ opacity: 0, y: 24 }}
           animate={{ opacity: 1, y: 0, transition: SPRING.gentle }}
           exit={{ opacity: 0, y: 24 }}
-          className="sticky bottom-0 z-(--layer-dock) px-2 pb-3 outline-none [view-transition-name:dock] md:px-4"
+          className="dock-bar z-(--layer-dock) outline-none [view-transition-name:dock]"
         >
           <MiniPlayer
-            className="mx-auto max-w-7xl"
+            slider={explore}
+            play={state.mode !== "how"}
             keys={
               <>
-                {explore && <ListenActions />}
-                {!(listen && wide) && <RecordsKey />}
-                {/* On every page: mute all and solo reach Then vs Now too, so they can be undone there. */}
-                <MixerMenu />
+                {!inMore && <RecordsKey />}
+                <PlayerMore>
+                  {storm && <NowPlayingItem />}
+                  {state.mode === "how" && <PlayPauseItem />}
+                  {inMore && <RecordsKey wide />}
+                  <StepItems />
+                  {explore && (
+                    <div role="group" aria-label={t("needle.group")} className="space-y-1">
+                      <NeedleSlider axis="lat" className="px-3" />
+                      <GoToMenu />
+                    </div>
+                  )}
+                  {explore && <ListenItems />}
+                  {!storm && <NowPlayingItem />}
+                  {/* On every page: mute all and solo reach Then vs Now too, so they can be undone there. */}
+                  <MixerMenu />
+                </PlayerMore>
               </>
             }
           />

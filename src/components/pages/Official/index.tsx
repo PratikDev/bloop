@@ -7,8 +7,8 @@ import { OfficialRecords } from "../../OfficialRecords";
 export function OfficialPage() {
   const t = useT();
   return (
-    <div className="mx-auto flex min-h-full w-full max-w-7xl flex-col gap-3 px-4 pt-3 pb-6 md:px-8">
-      <h1 data-page-title tabIndex={-1} className="display-tight font-wide text-headline outline-none">
+    <div className="flex min-h-full w-full flex-col gap-6 px-4 py-6 lg:px-8">
+      <h1 data-page-title tabIndex={-1} className="sr-only">
         {t("nav.official")}
       </h1>
       <OfficialRecords />

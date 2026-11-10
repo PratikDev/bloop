@@ -7,6 +7,7 @@ import {
   Gauge,
   Layers,
   LocateFixed,
+  Move,
   RotateCw,
   Route,
   ScanEye,
@@ -23,6 +24,7 @@ import type { TrackMode } from "@/lib/audio-jukebox/types";
 import { useT } from "../AppState/use-app-state";
 import { MiniPlayer } from "../Dock/MiniPlayer";
 import { MixerContent, useMixerLimited } from "../Dock/MixerMenu";
+import { NeedleSlider } from "../Dock/NeedleSliders";
 import type { DockAction, DockView } from "./dock-actions";
 import { DockButton, SpeedStepper } from "./DockButton";
 import { DockMore } from "./DockMore";
@@ -70,6 +72,7 @@ export function Dock({ ref, ...p }: DockProps) {
     { id: "search", place: "key", icon: Search, label: tt("turntable.search.label"), short: tt("turntable.search.short"), keys: "/", onClick: p.onSearch },
     { id: "where", place: "key", icon: LocateFixed, label: tt("turntable.where.button"), keys: "L", onClick: p.onWhereAmI },
     { id: "mixer", place: "key", icon: SlidersHorizontal, label: t(mixerLimited ? "mixer.limited" : "mixer.label"), short: t("dock.short.mixer"), popover: <MixerContent /> },
+    { id: "needle", place: "more", icon: Move, label: t("needle.group"), view: "needle" },
     { id: "bookmarks", place: "more", icon: Bookmark, label: tt("turntable.bookmarks"), keys: "1–9", view: "bookmarks" },
     { id: "layers", place: "more", icon: Layers, label: tt("turntable.dock.layers"), keys: "O", onClick: p.onLayers },
     { id: "view", place: "more", icon: ScanEye, label: tt(explore ? "turntable.view.jukebox" : "turntable.view.explore"), keys: "V", pressed: explore, onClick: () => p.onCameraMode(explore ? "jukebox" : "explore") },
@@ -82,6 +85,14 @@ export function Dock({ ref, ...p }: DockProps) {
   ];
 
   const view = (id: DockView, close: () => void) => {
+    if (id === "needle") {
+      return (
+        <div role="group" aria-label={t("needle.group")} className="space-y-1">
+          <NeedleSlider axis="lon" />
+          <NeedleSlider axis="lat" />
+        </div>
+      );
+    }
     if (id === "speed") {
       return <SpeedStepper text={tt("turntable.speed", { speed: p.speed })} slower={tt("turntable.slower")} faster={tt("turntable.faster")} onStep={p.onSpeed} />;
     }
@@ -119,7 +130,6 @@ export function Dock({ ref, ...p }: DockProps) {
     <div ref={ref} role="group" aria-label={tt("turntable.dock")}>
       <MiniPlayer
         caption={p.caption}
-        onTrack={p.onRecord}
         fullWidthKeys
         keys={
           <>
@@ -135,8 +145,7 @@ export function Dock({ ref, ...p }: DockProps) {
                   <DockButton key={a.id} icon={a.icon} label={a.label} short={a.short} keys={a.keys} pressed={a.pressed} onClick={a.onClick} />
                 ),
               )}
-            <DockMore actions={actions.filter((a) => a.place === "more")} view={view} />
-            {p.credits}
+            <DockMore actions={actions.filter((a) => a.place === "more")} view={view} footer={p.credits} />
           </>
         }
       />

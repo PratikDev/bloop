@@ -33,7 +33,7 @@ export function Tile({
 }) {
   const { state } = useAppState();
   return (
-    <li className="grid grid-cols-[auto_minmax(0,1fr)] items-start gap-x-4 gap-y-1 py-4 sm:grid-cols-[auto_minmax(0,1fr)_auto]">
+    <li className="grid grid-cols-[auto_minmax(0,1fr)] items-start gap-x-4 gap-y-1 py-3 sm:grid-cols-[auto_minmax(0,1fr)_auto]">
       <span aria-hidden="true" className="readout-figure text-title">
         {formatInteger(number, state.lang)}
       </span>

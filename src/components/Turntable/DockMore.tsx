@@ -11,7 +11,7 @@ import { useTT } from "./i18n";
 const WIDE_VIEWS: ReadonlySet<DockView> = new Set(["records"]);
 
 /** The More key: a list of labelled actions; some open a view in the same popover, with a way back. */
-export function DockMore({ actions, view: renderView }: { actions: readonly DockAction[]; view: (view: DockView, close: () => void) => ReactNode }) {
+export function DockMore({ actions, view: renderView, footer }: { actions: readonly DockAction[]; view: (view: DockView, close: () => void) => ReactNode; footer?: ReactNode }) {
   const { tt } = useTT();
   const [open, setOpen] = useState(false);
   const [view, setView] = useState<DockView | null>(null);
@@ -51,6 +51,7 @@ export function DockMore({ actions, view: renderView }: { actions: readonly Dock
             />
           ))
         )}
+        {!view && footer}
       </PopoverContent>
     </Popover>
   );

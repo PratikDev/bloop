@@ -12,7 +12,7 @@ export function TuningDial({ className }: { className?: string }) {
   return (
     <nav aria-label={t("nav.label")} className={cn("min-w-0", className)}>
       {/* On a 320 px phone the row scrolls sideways inside itself, never the page; the padding leaves room for the shadows. */}
-      <ul className="flex items-center gap-2 overflow-x-auto px-0.5 py-1.5 pr-1.5 [scrollbar-width:none]">
+      <ul className="flex items-center gap-2 overflow-x-auto py-1 pr-1 pl-0.5 [scrollbar-width:none]">
         {NAV_ITEMS.map((item) => {
           const active = pathname === item.to;
           return (

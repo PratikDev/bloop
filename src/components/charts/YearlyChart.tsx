@@ -54,7 +54,7 @@ function WindowPanel({ side, win, rows, config, unit, scale, zeroLine, motion, n
   return (
     <div className="comic-panel min-w-0 space-y-2">
       <div className="flex min-h-9 items-center justify-between gap-2">
-        <p className="comic-box w-fit rounded-caption px-2 py-0.5 text-body">{localDigits(windowLabel(win), state.lang)}</p>
+        <p className="comic-box w-fit rounded-caption px-2 py-0.5 text-body shadow-none!">{localDigits(windowLabel(win), state.lang)}</p>
         <PanelYear year={motion.sounding !== null && motion.sounding >= from && motion.sounding <= to ? motion.sounding : motion.splitYear[side]} paused={motion.paused} />
       </div>
       <div className="relative">

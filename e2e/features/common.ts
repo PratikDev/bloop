@@ -24,14 +24,32 @@ export const onMap = async (page: Page) => { await map(page).focus(); };
 /** The player (the bar on every page after Start but Home; the Turntable has its own copy). */
 export const dock = (page: Page) => page.getByRole("region", { name: "Player" });
 
-/** Opens a record group in the rack beside the map, if it is closed. */
+/** Opens a record group in the Records sheet, if it is closed. */
 export async function openGroup(page: Page, name: RegExp) {
-  const group = page.getByRole("complementary", { name: "Records" }).getByRole("button", { name });
+  await openRecords(page);
+  const group = page.getByRole("dialog", { name: "Records" }).getByRole("button", { name });
   if ((await group.getAttribute("aria-expanded")) !== "true") await group.click();
 }
 
-/** A record's strip in the rack beside the map (its name starts with the code). */
-export const strip = (page: Page, code: string) => page.getByRole("complementary", { name: "Records" }).getByRole("button", { name: new RegExp(`^${code},`, "u") });
+/** A record's strip in the Records sheet (its name starts with the code). */
+export const strip = (page: Page, code: string) => page.getByRole("dialog", { name: "Records" }).getByRole("button", { name: new RegExp(`^${code},`, "u") });
+
+/** The Records sheet (a key on the player). */
+export async function openRecords(page: Page) {
+  if (await page.getByRole("dialog", { name: "Records" }).count()) return;
+  await dock(page).getByRole("button", { name: "Records", exact: true }).click();
+}
+
+/** Picks a part of Then vs Now from its one-control list. */
+export async function choosePart(page: Page, part: string) {
+  await page.getByRole("combobox", { name: "Part" }).click();
+  await page.getByRole("option", { name: part }).click();
+}
+
+/** The player's More menu. */
+export async function openPlayerMore(page: Page) {
+  await dock(page).getByRole("button", { name: "More", exact: true }).click();
+}
 
 /** The accessible name a screen reader announces for the feature's control. A modal drawer the check opened hides the
  *  rest of the page from the accessibility tree, so the control can't be found until it is closed (Esc closes the top
@@ -59,6 +77,7 @@ export async function stops(page: Page, what: string): Promise<Outcome> {
 
 /** Listen's Inspector ("Sources and checks", under the readout) on one of its tabs: Checks, What you hear, Where it's from. */
 export async function inspector(page: Page, tabName: "Checks" | "What you hear" | "Where it's from"): Promise<Locator> {
+  await openPlayerMore(page);
   await page.getByRole("button", { name: "Sources and checks" }).click();
   await tab(page, tabName).click();
   const panel = page.getByRole("tabpanel", { name: tabName });

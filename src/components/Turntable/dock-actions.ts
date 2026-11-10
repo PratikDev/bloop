@@ -2,7 +2,7 @@ import type { LucideIcon } from "lucide-react";
 import type { ReactNode } from "react";
 
 /** A view that opens inside the More popover. */
-export type DockView = "speed" | "records" | "bookmarks";
+export type DockView = "speed" | "records" | "bookmarks" | "needle";
 
 /** One control in the Turntable's bar. One list, so the shared mini player can take them over later. */
 export interface DockAction {

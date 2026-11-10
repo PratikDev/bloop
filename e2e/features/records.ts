@@ -35,10 +35,11 @@ export const RECORDS: Feature[] = [
     control: (page) => page.getByRole("region", { name: "Where this comes from" }),
     async run(page) {
       await navTo(page, "Official records");
+      await page.getByRole("button", { name: "Details" }).click();
       const r = page.getByRole("region", { name: "Where this comes from" });
       const t = await r.innerText();
-      for (const w of ["Credits", "Licence", "Checks", "SVS"]) if (!t.includes(w)) throw new Error(`no ${w}`);
-      return { evidence: "credits, licence, checks and SVS links shown" };
+      for (const w of ["Checks", "SVS"]) if (!t.includes(w)) throw new Error(`no ${w}`);
+      return { evidence: "checks and SVS links shown; credits and licence are on the Credits tab" };
     } },
   { id: "open-data", group: "forms", name: "Open data files", where: "/data/… (static JSON and grids)", keyboard: false,
     what: "Every record's manifest, validation and freshness as plain files",

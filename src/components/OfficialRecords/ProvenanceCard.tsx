@@ -13,11 +13,29 @@ const RESULT_KEYS = { pass: "official.check.pass", miss: "official.check.miss", 
 const BYTES_PER_MB = 1e6;
 
 /** Everything a record states about itself, from its manifest and validation.json (nothing typed here). */
-export function ProvenanceCard({ manifest, validation }: { manifest: OfficialManifest; validation: OfficialValidationFile | null }) {
+export function ProvenanceCard({ manifest, validation, part = "source" }: { manifest: OfficialManifest; validation: OfficialValidationFile | null; part?: "source" | "credits" }) {
   const { state } = useAppState();
   const t = useT();
   const ious = Object.values(manifest.georef.iou);
   const checks = validation?.checks ?? manifest.validation;
+  if (part === "credits") {
+    return (
+      <dl className="grid grid-cols-[auto_1fr] gap-x-3 gap-y-1">
+        <dt className="text-haze">{t("official.credits")}</dt>
+        <dd>
+          {Object.entries(manifest.credits_by_role).map(([role, people]) => (
+            <p key={role}>
+              <span className="text-haze">{role}: </span>
+              {people.join("; ")}
+            </p>
+          ))}
+          <p>{manifest.credit_line}</p>
+        </dd>
+        <dt className="text-haze">{t("official.licence")}</dt>
+        <dd>{manifest.licence}</dd>
+      </dl>
+    );
+  }
   return (
     <section className="space-y-4" aria-labelledby="official-provenance">
       <h3 id="official-provenance" className="text-lead font-medium">
@@ -51,18 +69,6 @@ export function ProvenanceCard({ manifest, validation }: { manifest: OfficialMan
             passAt: formatFixed(manifest.georef.pass_at, state.lang, 2),
           })}
         </dd>
-        <dt className="text-haze">{t("official.credits")}</dt>
-        <dd>
-          {Object.entries(manifest.credits_by_role).map(([role, people]) => (
-            <p key={role}>
-              <span className="text-haze">{role}: </span>
-              {people.join("; ")}
-            </p>
-          ))}
-          <p>{manifest.credit_line}</p>
-        </dd>
-        <dt className="text-haze">{t("official.licence")}</dt>
-        <dd>{manifest.licence}</dd>
         {Object.entries(manifest.voice_sources ?? {}).map(([voice, s]) => (
           <Fragment key={voice}>
             <dt className="text-haze">{t("official.voiceSource", { ...s, period: collapseRange(s.period) })}</dt>

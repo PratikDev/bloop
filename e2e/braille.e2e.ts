@@ -126,7 +126,9 @@ test("value line: no selection on focus, caret at 0, Home/End/arrows move it, ty
 
 test("বাংলা mode: the braille lines are written for the Bengali table (no Latin, no colon, decimals as দশমিক)", async ({ page }) => {
   await start(page);
+  await page.getByRole("button", { name: "Settings" }).click();
   await page.getByRole("button", { name: "বাংলা" }).click();
+  await page.keyboard.press("Escape");
   await page.locator("#sound-map").focus();
   await page.keyboard.press("b");
   const value = page.getByTestId("braille-value");

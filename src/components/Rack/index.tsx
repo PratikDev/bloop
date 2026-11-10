@@ -10,6 +10,7 @@ import { PAGE_PATHS } from "@/router/modes";
 import { useT } from "../AppState/use-app-state";
 import { useRecords } from "../Records/use-records";
 import { useTimeLapse } from "../TimeLapse/use-time-lapse";
+import { FirstHint } from "../pages/Listen/FirstHint";
 import { CodeEntry } from "./CodeEntry";
 import { RecordStrip } from "./RecordStrip";
 
@@ -38,6 +39,7 @@ export function Rack({ className, onPicked }: { className?: string; onPicked?: (
   return (
     <div className={cn("space-y-4", className)}>
       <h2 className="font-wide text-title">{t("records.heading")}</h2>
+      <FirstHint />
       <CodeEntry onPlayed={onPicked} />
       {RECORD_GROUPS.map((group) => {
         const all = records.filter((r) => r.group === group);

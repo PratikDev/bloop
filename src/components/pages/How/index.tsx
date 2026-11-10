@@ -1,7 +1,7 @@
 "use client";
 
 import { Link } from "@tanstack/react-router";
-import { Disc, Keyboard, Sparkle } from "@phosphor-icons/react";
+import { CaretDown, Disc, Keyboard, Sparkle } from "@phosphor-icons/react";
 import { Button } from "@/components/ui/button";
 import { useLoaded } from "@/hooks/use-loaded";
 import { loadGlobeDuet } from "@/lib/data";
@@ -79,22 +79,28 @@ export function HowPage() {
         </Tile>
         </ol>
 
-        <footer className="space-y-3">
-          <Credits t={t} />
-          <div className="flex flex-wrap items-center gap-2">
-        <Link to={PAGE_PATHS.official} className={FOOT_LINK}>
-          <Disc aria-hidden="true" className="size-4.5" />
-          {t("records.allOfficial")}
-        </Link>
-        <Button variant="ghost" onClick={commands.openHelp} className={FOOT_LINK}>
-          <Keyboard aria-hidden="true" className="size-4.5" />
-          {t("how.keys")}
-        </Button>
-        <InfoSheet title={t("october.heading")} triggerClassName={FOOT_LINK} trigger={<><Sparkle aria-hidden="true" className="size-4.5" />{t("october.heading")}</>}>
-          <ComingInOctober />
-        </InfoSheet>
+        <details className="group">
+          <summary className="flex min-h-11 cursor-pointer list-none items-center justify-between gap-3 text-body font-medium [&::-webkit-details-marker]:hidden">
+            {t("how.credits")}
+            <CaretDown aria-hidden="true" className="size-4 shrink-0 text-haze group-open:rotate-180" />
+          </summary>
+          <div className="space-y-3 pt-2">
+            <Credits t={t} />
+            <div className="flex flex-wrap items-center gap-2">
+              <Link to={PAGE_PATHS.official} className={FOOT_LINK}>
+                <Disc aria-hidden="true" className="size-4.5" />
+                {t("records.allOfficial")}
+              </Link>
+              <Button variant="ghost" onClick={commands.openHelp} className={FOOT_LINK}>
+                <Keyboard aria-hidden="true" className="size-4.5" />
+                {t("how.keys")}
+              </Button>
+              <InfoSheet title={t("october.heading")} triggerClassName={FOOT_LINK} trigger={<><Sparkle aria-hidden="true" className="size-4.5" />{t("october.heading")}</>}>
+                <ComingInOctober />
+              </InfoSheet>
+            </div>
           </div>
-        </footer>
+        </details>
       </div>
     </section>
   );

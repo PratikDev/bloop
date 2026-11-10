@@ -53,9 +53,9 @@ function Shell() {
     <MotionConfig reducedMotion={state.reduceMotion ? "always" : "never"}>
       <SkipLinks contentId={CONTENT_ID} />
       {/* The frame is one screen tall: header and dock stay put, and a page taller than the space between them scrolls in main. */}
-      <div inert={gated || opening} className="grid h-dvh grid-cols-[minmax(0,1fr)] grid-rows-[auto_minmax(0,1fr)_auto]">
+      <div inert={gated || opening} className="app-shell">
         <Header />
-        <main id={CONTENT_ID} tabIndex={-1} onClickCapture={askForSound} className="min-h-0 overflow-y-auto outline-none">
+        <main id={CONTENT_ID} tabIndex={-1} onClickCapture={askForSound} className="app-main outline-none">
           <Outlet />
         </main>
         <Dock />

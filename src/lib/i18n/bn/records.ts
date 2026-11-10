@@ -46,6 +46,7 @@ export const recordsBn: Translated<typeof recordsEn> = {
   "records.chartOnly": "শুধু চার্ট",
   "records.frames": (p: { count: number }) => `${formatInteger(p.count, "bn")}টি ফ্রেম`,
   "records.allOfficial": "সব অফিশিয়াল রেকর্ড",
+  "records.stale": (p: { days: string }) => `ফ্রেমটি ${p.days} দিন পুরোনো`,
   "records.startHere": "এখান থেকে শুরু",
   "records.hint.legend": "নতুন? আগে A0 বাজিয়ে শব্দগুলো চিনে নিন।",
   "records.code": "রেকর্ড কোড",
@@ -59,6 +60,7 @@ export const recordsBn: Translated<typeof recordsEn> = {
   "records.kind.observation": "পর্যবেক্ষণ",
 
   "player.nowPlaying": "এখন বাজছে",
+  "player.more": "আরও",
   "player.previous": "আগের রেকর্ড",
   "player.next": "পরের রেকর্ড",
   "player.upNext": "এরপর",
@@ -75,7 +77,6 @@ export const recordsBn: Translated<typeof recordsEn> = {
   "needle.latValue": (p: { lat: number; place?: string | null }) => withPlace(`${formatFixed(Math.abs(p.lat), "bn", 1)}° ${latWord(p.lat)}`, p.place),
 
   "skip.map": "মানচিত্রে যান",
-  "skip.records": "রেকর্ডে যান",
   "skip.player": "প্লেয়ারে যান",
 
   "listen.howChecked": "আমরা কীভাবে যাচাই করেছি",

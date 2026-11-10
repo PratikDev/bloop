@@ -1,6 +1,6 @@
 "use client";
 
-import { useCallback, useEffect, useRef, useState, type KeyboardEvent } from "react";
+import { useCallback, useEffect, useRef, useState, type KeyboardEvent, type ReactNode } from "react";
 import { getRouteApi } from "@tanstack/react-router";
 import { brailleLabel } from "@/a11y/aria";
 import { isLetter, isTypingTarget } from "@/a11y/keys";
@@ -13,12 +13,14 @@ import { useAnnounceError } from "@/hooks/use-announce-error";
 import { useLoaded } from "@/hooks/use-loaded";
 import type { OfficialBadge, OfficialLayer } from "@/types/data-contract";
 import { useAppState, useT } from "../AppState/use-app-state";
+import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { Cabinet } from "../Cabinet";
+import { InfoSheet } from "../InfoSheet";
 import { RecordStrip } from "../Rack/RecordStrip";
 import { useRecords } from "../Records/use-records";
 import { StatusBadge } from "../StatusBadge";
 import { ProvenanceCard } from "./ProvenanceCard";
-import { RecordControls } from "./RecordControls";
+import { PlayRecordButton, RecordControls } from "./RecordControls";
 import { RecordMap } from "./RecordMap";
 import { recordBrailleLabel } from "./braille-label";
 import { OfficialBrailleExplorer } from "./OfficialBrailleExplorer";
@@ -42,7 +44,7 @@ function framePlace(t: BoundT, lang: Lang, at: { lat: number; lon: number }, lay
   return t("official.framePos", { x: pct(at.lon, west, east), y: pct(at.lat, south, north) });
 }
 
-function Player({ record }: { record: string }) {
+function Player({ record, related }: { record: string; related: ReactNode }) {
   const { state } = useAppState();
   const t = useT();
   const rec = useOfficialRecord(record, state.soundOn);
@@ -78,37 +80,58 @@ function Player({ record }: { record: string }) {
   const place = map?.layer.grid.space === "frame" ? framePlace(t, state.lang, rec.needle, map.layer) : t("place.latlon", rec.needle);
   const times = map?.layer.times ?? [];
   const timeText = map?.layer.time_labels?.[rec.step] ?? (times[rec.step] ? formatUtc(times[rec.step], state.lang) : "");
-  return (
-    <div className="grid gap-6 2xl:grid-cols-[minmax(0,1fr)_24rem]" onKeyDown={onKeyDown}>
-      <div className="space-y-3">
-        {map && rec.ready ? (
-          <RecordMap grid={map} step={rec.step} needle={rec.needle} onMove={rec.moveNeedle}
-            label={t("official.map", { layer: map.layer.label, time: timeText, reading: text })} />
-        ) : (
-          <StatusBadge kind="loading">{t("official.loading")}</StatusBadge>
-        )}
-        <p aria-live="off" className="text-body">
-          {place}: {text}
-        </p>
-        <ul className="space-y-1 text-small text-haze">
-          {rec.option.channels.map((c) => (
-            <li key={c.voice}>
-              {ruleText(voiceSpec(c.voice))}
-              {statementOf(c.layers) && ` (${statementOf(c.layers)})`}
-            </li>
-          ))}
-        </ul>
-        <RecordControls rec={rec} timeText={timeText} readingText={`${place}: ${text}`} />
-        <Button ref={brailleButton} variant="outline" className="h-11" disabled={!rec.ready} aria-expanded={brailleOpen}
-          onClick={() => setBrailleOpen((o) => !o)} {...brailleLabel(t("braille.bl.braille"))}>
-          {t("braille.open")}
-        </Button>
-        {brailleOpen && <OfficialBrailleExplorer rec={rec} onClose={closeBraille} />}
-      </div>
+  const sourcesTab = (
+    <div className="space-y-4">
+      <p className="text-haze">{t("official.intro")}</p>
+      <ul className="space-y-1 text-small text-haze">
+        {rec.option.channels.map((c) => (
+          <li key={c.voice}>
+            {ruleText(voiceSpec(c.voice))}
+            {statementOf(c.layers) && ` (${statementOf(c.layers)})`}
+          </li>
+        ))}
+      </ul>
       <ProvenanceCard manifest={rec.manifest} validation={rec.validation} />
     </div>
   );
+  return (
+    <div className="space-y-3" onKeyDown={onKeyDown}>
+      {map && rec.ready ? (
+        <RecordMap grid={map} step={rec.step} needle={rec.needle} onMove={rec.moveNeedle} label={t("official.map", { layer: map.layer.label, time: timeText, reading: text })} />
+      ) : (
+        <StatusBadge kind="loading">{t("official.loading")}</StatusBadge>
+      )}
+      <div className="flex flex-wrap items-center gap-4">
+        <p aria-live="off" className="min-w-0 flex-1 basis-64 text-body">
+          {place}: {readingText(t, state.lang, first?.reading ?? null, map?.layer)}
+        </p>
+        <PlayRecordButton rec={rec} />
+        <InfoSheet title={t("official.details")} triggerClassName="key h-11 rounded-lg bg-paper px-4 text-body font-normal text-moon hover:bg-paper" trigger={t("official.details")}>
+          <Tabs defaultValue="source" className="gap-4">
+            <TabsList variant="line" aria-label={t("official.details")} className="w-full justify-start">
+              <TabsTrigger value="source">{t("official.tab.source")}</TabsTrigger>
+              <TabsTrigger value="controls">{t("official.tab.controls")}</TabsTrigger>
+              <TabsTrigger value="credits">{t("official.credits")}</TabsTrigger>
+            </TabsList>
+            <TabsContent value="source" className="text-body">{sourcesTab}</TabsContent>
+            <TabsContent value="controls" className="space-y-4 text-body">
+              <RecordControls rec={rec} timeText={timeText} readingText={`${place}: ${text}`} />
+              <Button ref={brailleButton} variant="outline" className="h-11" disabled={!rec.ready} aria-expanded={brailleOpen} onClick={() => setBrailleOpen((o) => !o)} {...brailleLabel(t("braille.bl.braille"))}>
+                {t("braille.open")}
+              </Button>
+              {brailleOpen && <OfficialBrailleExplorer rec={rec} onClose={closeBraille} />}
+              {related}
+            </TabsContent>
+            <TabsContent value="credits" className="text-body">
+              <ProvenanceCard manifest={rec.manifest} validation={rec.validation} part="credits" />
+            </TabsContent>
+          </Tabs>
+        </InfoSheet>
+      </div>
+    </div>
+  );
 }
+
 
 // In code order: the list runs model, observation, reanalysis.
 const KIND_ORDER: readonly OfficialBadge[] = ["model", "observation", "reanalysis"];
@@ -134,14 +157,11 @@ export function OfficialRecords() {
   };
   const stripOf = (id: string) => records.find((r) => r.action.kind === "official" && r.action.record === id);
   return (
-    <section className="space-y-4" aria-labelledby="official-heading">
-      <div className="space-y-1">
-        <h2 id="official-heading" className="text-lead font-medium">{t("official.heading")}</h2>
-        <p className="text-haze">{t("official.intro")}</p>
-      </div>
-      <Cabinet code={crown?.code} title={crown?.title(t)}>
-        <div className="grid gap-6 lg:grid-cols-[20rem_minmax(0,1fr)]">
-          <div aria-label={t("official.records")} role="group" className="space-y-4 pr-1 lg:max-h-[75dvh] lg:overflow-y-auto">
+    <section aria-labelledby="official-heading">
+      <h2 id="official-heading" className="sr-only">{t("official.heading")}</h2>
+      <Cabinet code={crown?.code} title={crown?.title(t)} flush>
+        <div className="grid gap-6 lg:grid-cols-[18.75rem_minmax(0,1fr)]">
+          <div tabIndex={0} aria-label={t("official.records")} role="group" className="official-list space-y-4 pr-1">
             {KIND_ORDER.map((kind) => {
               const rows = index.records.filter((r) => r.badge === kind);
               if (rows.length === 0) return null;
@@ -162,10 +182,9 @@ export function OfficialRecords() {
               );
             })}
           </div>
-          <div className="min-w-0">{current && <Player key={current} record={current} />}</div>
+          <div className="min-w-0">{current && <Player key={current} record={current} related={<RelatedRecords value={current ?? ""} onChange={(id) => setRelated({ id, forRecord: selected })} />} />}</div>
         </div>
       </Cabinet>
-      <RelatedRecords value={current ?? ""} onChange={(id) => setRelated({ id, forRecord: selected })} />
     </section>
   );
 }

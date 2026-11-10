@@ -16,12 +16,15 @@ export function Cabinet({
   title,
   tubes = false,
   below,
+  flush = false,
   className,
   children,
 }: {
   code?: string;
   title?: string;
   tubes?: boolean;
+  /** Phones: no body padding, so the window keeps the full width between the page gutters. */
+  flush?: boolean;
   below?: ReactNode;
   className?: string;
   children: ReactNode;
@@ -29,20 +32,20 @@ export function Cabinet({
   const t = useT();
   return (
     <div className={cn("flex min-w-0 flex-col items-center", className)}>
-      <div data-cabinet-crown className="crown relative z-1 -mb-(--outline-panel) flex w-[min(100%,36rem)] max-w-full items-center justify-center gap-3 px-10 py-2 sm:px-16">
+      <div data-cabinet-crown className="crown relative z-1 -mb-(--outline-panel) flex h-11 w-[min(100%,36rem)] max-w-full items-center justify-center gap-3 px-10 very-short:xl:hidden sm:px-16">
         <h2 className="shrink-0 text-body font-semibold">{t("player.nowPlaying")}</h2>
         {code && title && (
           <p className="flex min-w-0 items-center gap-2 rounded-md border-2 border-navy bg-paper py-0.5 pr-3 pl-0.5">
-            <CodeChip code={code} className="h-8 w-10 border-0 bg-moon text-ink" />
+            <CodeChip code={code} className="h-7 w-10 border-0 bg-moon text-ink" />
             <span className="truncate font-strip text-strip">{title}</span>
           </p>
         )}
       </div>
-      <div className="cabinet-body w-full min-w-0 p-3">
-        <div className={cn("grid min-w-0 gap-3", tubes && "lg:grid-cols-[auto_minmax(0,auto)_auto] lg:justify-center")}>
-          <div className="min-w-0 lg:col-start-2 lg:row-start-1">{children}</div>
-          {tubes && <BubbleTube voice="ocean" className="lg:col-start-1 lg:row-start-1" />}
-          {tubes && <BubbleTube voice="rain" className="lg:col-start-3 lg:row-start-1" />}
+      <div className={cn("cabinet-body w-full min-w-0 p-4", flush && "max-lg:border-0 max-lg:bg-transparent max-lg:p-0 max-lg:shadow-none")}>
+        <div className={cn("grid min-w-0 gap-3", tubes && "grid-cols-2 xl:grid-cols-[auto_minmax(0,auto)_auto] xl:justify-center")}>
+          <div className={cn("min-w-0", tubes && "col-span-2 xl:col-span-1 xl:col-start-2 xl:row-start-1")}>{children}</div>
+          {tubes && <BubbleTube voice="ocean" className="xl:col-start-1 xl:row-start-1" />}
+          {tubes && <BubbleTube voice="rain" className="xl:col-start-3 xl:row-start-1" />}
         </div>
         {below}
       </div>

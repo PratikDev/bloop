@@ -12,13 +12,13 @@ import { usePauseMotion } from "../../SpaceWindow/use-pause-motion";
 import { formatUtcDate } from "@/lib/i18n";
 import { locationForMode, PAGE_PATHS } from "@/router/modes";
 import { useAppState, useT } from "../../AppState/use-app-state";
-import { JukeboxArt } from "../../JukeboxArt";
+import { JukeboxFrame } from "../../JukeboxArt/Frame";
 import { DataTube } from "../../JukeboxArt/DataTube";
 import { armJourney } from "../../JukeboxJourney/journey-store";
 import { useLiveData } from "../../LiveData/use-live-data";
 import { PAPER_KEY, StartActions, StartHint } from "../../StartActions";
 
-/** Home has one job: say what this is, then start listening. The closed jukebox stands beside it. */
+/** Home has one job: say what this is, then start listening. Today's real ocean frame turns inside the jukebox beside it. */
 export function HomePage() {
   const { state } = useAppState();
   const { sst, fields } = useLiveData();
@@ -36,8 +36,8 @@ export function HomePage() {
   const toTour = () => void navigate(locationForMode("story"));
 
   return (
-    <section aria-labelledby="home-title" className="flex min-h-full flex-col justify-center gap-8 px-4 py-6 md:px-8 lg:flex-row lg:items-center lg:gap-16 lg:px-12">
-      <div className="min-w-0 space-y-6 lg:shrink lg:grow-0 lg:basis-160">
+    <section aria-labelledby="home-title" className="flex min-h-full flex-col justify-center gap-6 px-4 py-6 lg:flex-row lg:items-center lg:px-8">
+      <div className="min-w-0 space-y-6 lg:w-96 lg:shrink-0 xl:w-lg">
         <h1 id="home-title" data-page-title tabIndex={-1} className="display-tight font-wide-display text-hero text-moon">
           {t("home.title")}
         </h1>
@@ -60,18 +60,24 @@ export function HomePage() {
         )}
       </div>
 
-      <div className="mx-auto flex w-full max-w-md min-w-0 flex-col items-center gap-3 lg:max-w-none lg:flex-1 lg:basis-80">
-        <JukeboxArt marquee={t("app.title")} reactive={!opening} tube={<DataTube facing={facing} paused={pause.paused} />} className="w-full max-w-[min(28rem,54dvh)]" window={
-          <SpaceWindow density="sparse" still={pause.paused} driftRef={drift} className="size-full rounded-full border-0">
-            <Globe images={images} autoTurn paused={pause.paused} driftRef={drift} onViewChange={setFacing} dataKey={fields} />
-          </SpaceWindow>
-        } />
+      <div className="jukebox-home -mx-4 flex min-w-0 flex-col items-center lg:mx-0 lg:flex-1">
+        <JukeboxFrame
+          marquee={t("app.title")}
+          reactive={!opening}
+          tube={<DataTube facing={facing} paused={pause.paused} />}
+          window={
+            <SpaceWindow density="sparse" still={pause.paused} driftRef={drift} className="size-full rounded-full border-0">
+              <Globe images={images} autoTurn paused={pause.paused} driftRef={drift} onViewChange={setFacing} dataKey={fields} />
+            </SpaceWindow>
+          }
+          footer={
+            <>
+              {sst && <p className="text-center text-small text-haze">{t("home.frameCaption", { date: formatUtcDate(sst.meta.frame_time_utc, state.lang) })}</p>}
+              <PauseMotionKey pause={pause} />
+            </>
+          }
+        />
         <p className="sr-only">{t("globe.home")}</p>
-        {/* From lg the key sits in the column's corner beside the jukebox, so it adds no height to the one-screen page. */}
-        <div className="relative flex w-full flex-wrap items-center justify-center gap-3">
-          {sst && <p className="text-center text-small text-haze">{t("home.frameCaption", { date: formatUtcDate(sst.meta.frame_time_utc, state.lang) })}</p>}
-          <PauseMotionKey pause={pause} className="lg:absolute lg:right-0 lg:bottom-0" />
-        </div>
       </div>
     </section>
   );

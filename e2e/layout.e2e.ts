@@ -88,7 +88,10 @@ function findOverlaps(maxOverlap: number): Finding {
 
 /** A click on the header's link, as a user moves between pages (phones show shorter labels, so by address). */
 async function go(page: Page, path: string) {
-  if (path === "/official") await page.getByRole("main").getByRole("link", { name: "All official records" }).click();
+  if (path === "/official") {
+    await page.getByRole("main").locator("summary", { hasText: "Credits" }).click();
+    await page.getByRole("main").getByRole("link", { name: "All official records" }).click();
+  }
   else await page.getByRole("banner").locator(`a[href="${path}"]`).first().click();
   await page.waitForTimeout(SETTLE_MS);
 }

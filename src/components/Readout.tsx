@@ -38,8 +38,7 @@ export function hero(r: Reading, track: string, lang: Lang): { figure: string; u
 }
 
 /**
- * The value under the needle on one line: the figure, the rain beside it, then the place and its latitude and
- * longitude. No boxes. Visual only; screen readers get the same reading from the map region and the live region.
+ * The value under the needle, on the player right under the map: the figure and the rain, then the place. No boxes. Visual only; screen readers get the same reading from the map region and the live region.
  */
 export function Readout({ className }: { className?: string }) {
   const { state } = useAppState();
@@ -52,18 +51,19 @@ export function Readout({ className }: { className?: string }) {
   const fallback = track === "rain" ? rainText(t, r.rain, r.rainLoaded) : t("reading.oceanNone");
 
   return (
-    <div data-slot="readout" aria-hidden="true" className={cn("flex flex-wrap items-baseline gap-x-5 gap-y-0.5", className)}>
-      {main ? (
-        <p className="readout-figure text-readout-strip">
-          <Figure text={main.figure} lang={state.lang} />
-          <span className="font-sans text-lead text-haze">{" " + t(main.unit)}</span>
-        </p>
-      ) : (
-        <p className="text-title">{fallback}</p>
-      )}
-      {track === "both" && <p className="text-lead">{rainText(t, r.rain, r.rainLoaded)}</p>}
-      <p className="text-body text-haze">{[place, t("place.latlon", cursor)].filter(Boolean).join(" · ")}</p>
-      {timelapse && <p className="text-body text-haze">{t("timelapse.frame", { index: timelapse.index + 1, total: timelapse.total })}</p>}
+    <div data-slot="readout" aria-hidden="true" className={cn("min-w-0", className)}>
+      <div className="flex items-baseline gap-x-3">
+        {main ? (
+          <p className="readout-figure text-title">
+            <Figure text={main.figure} lang={state.lang} />
+            <span className="font-sans text-body text-haze">{" " + t(main.unit)}</span>
+          </p>
+        ) : (
+          <p className="text-lead">{fallback}</p>
+        )}
+        {track === "both" && <p className="text-body">{rainText(t, r.rain, r.rainLoaded)}</p>}
+      </div>
+      <p className="truncate text-small text-haze">{[place, timelapse ? t("timelapse.frame", { index: timelapse.index + 1, total: timelapse.total }) : t("place.latlon", cursor)].filter(Boolean).join(" · ")}</p>
     </div>
   );
 }

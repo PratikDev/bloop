@@ -4,6 +4,8 @@
 
 /* Short screens (a 1280×720 laptop): the map is under 450 px tall, so the plates on it get compact. */
 @custom-variant short (@media (max-height: 50rem));
+/* So short that the map needs the crown's height too (a 1280×720 laptop). */
+@custom-variant very-short (@media (max-height: 47.5rem));
 /* Listen from 1024 px: the stage (a container named listen) is wider than 2:1, so there is room beside the map. */
 @custom-variant listen-wide (@container listen (min-aspect-ratio: 2 / 1));
 
@@ -917,5 +919,121 @@ html[data-text="comfortable"] .font-wide-display {
   }
   .starfield {
     display: none;
+  }
+}
+
+/* ---- The app frame. One screen from 1024 px: the header, main (which alone can scroll), the player. At 200% zoom,
+   320 px wide or with Comfortable text it goes back to normal page flow, so nothing is clipped (WCAG 1.4.10). ---- */
+.app-shell {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  grid-template-rows: auto minmax(0, 1fr) auto;
+  min-height: 100dvh;
+}
+@media (min-height: 40rem) {
+  .dock-bar {
+    position: sticky;
+    bottom: 0;
+  }
+}
+@media (min-width: 64rem) and (min-height: 37.5rem) {
+  html:not([data-text="comfortable"]) .app-shell {
+    height: 100dvh;
+  }
+  html:not([data-text="comfortable"]) .app-main {
+    min-height: 0;
+    overflow-y: auto;
+  }
+}
+
+/* ---- Listen: the map takes all the space the cabinet leaves. Tubes sit beside it from 1280 px, under it below. ---- */
+@media (min-width: 64rem) {
+  .cabinet-sizes {
+    --cab-side: 2.375rem;
+    --cab-chrome: 7.375rem;
+  }
+  .cabinet-map {
+    width: min(100cqw - var(--cab-side), (100cqh - var(--cab-chrome)) * 2);
+  }
+}
+@media (min-width: 80rem) {
+  .cabinet-sizes {
+    --cab-side: 6.875rem;
+    --cab-chrome: 4.9375rem;
+  }
+}
+@media (min-width: 80rem) and (max-height: 47.5rem) {
+  .cabinet-sizes {
+    --cab-chrome: 2.375rem;
+  }
+}
+
+/* ---- Home's jukebox, built around the globe. --jf-window is the window's size; the frame follows it. ---- */
+.jukebox-frame {
+  --jf-width: var(--jf-window);
+  width: var(--jf-width);
+  background: var(--paper);
+  border-top: var(--outline-panel) solid var(--navy);
+  border-bottom: var(--outline-panel) solid var(--navy);
+  border-radius: calc(var(--jf-width) / 2) calc(var(--jf-width) / 2) var(--radius-sheet-value) var(--radius-sheet-value);
+}
+.jukebox-window {
+  width: var(--jf-window);
+  height: var(--jf-window);
+  flex: none;
+}
+.jukebox-cap {
+  height: calc(3.5rem + var(--jf-window) * 0.18);
+}
+.jukebox-coin {
+  bottom: 1.25rem;
+}
+.jukebox-tube {
+  height: 1.25rem;
+  flex: 1;
+}
+.jukebox-tubes {
+  width: 100%;
+  padding: 1rem 1rem 0;
+}
+.jukebox-home {
+  --jf-window: 100vw;
+}
+@media (min-width: 64rem) {
+  .jukebox-home {
+    --jf-window: min(36rem, 100dvh - 13.5rem, 100vw - 15.5rem - 24rem);
+  }
+  .jukebox-frame {
+    --jf-width: calc(var(--jf-window) + 7.5rem);
+    border: var(--outline-panel) solid var(--navy);
+    box-shadow: var(--shadow-cabinet) var(--shadow-cabinet) 0 var(--navy);
+  }
+  .jukebox-tubes {
+    position: absolute;
+    inset: calc(var(--jf-width) * 0.36) 0.75rem 3.5rem;
+    width: auto;
+    padding: 0;
+    justify-content: space-between;
+  }
+  .jukebox-tube {
+    width: 1.5rem;
+    height: 100%;
+    flex: none;
+  }
+}
+@media (min-width: 80rem) {
+  .jukebox-home {
+    --jf-window: min(36rem, 100dvh - 13.5rem, 100vw - 15.5rem - 32rem);
+  }
+}
+
+/* ---- Official records: the list scrolls inside its column, so the page doesn't. ---- */
+.official-list:focus-visible {
+  outline-offset: -3px;
+}
+@media (min-width: 64rem) and (min-height: 37.5rem) {
+  .official-list {
+    max-height: calc(100dvh - 17rem);
+    overflow-y: auto;
   }
 }

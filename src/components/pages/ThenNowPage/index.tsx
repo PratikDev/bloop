@@ -30,36 +30,32 @@ export function ThenNowPage() {
   const set = (next: Partial<ThenNowSearch>, replace = true) => void navigate({ search: (prev) => ({ ...prev, ...next }), replace });
 
   return (
-    <section aria-labelledby="then-now-title" className="mx-auto flex min-h-full w-full max-w-7xl flex-col gap-4 px-4 pt-3 pb-4 md:px-8 lg:short:gap-2 lg:short:pt-1 lg:short:pb-1">
-      <header className="flex flex-wrap items-end justify-between gap-x-8 gap-y-3">
-        <div className="space-y-1">
-          <h1 id="then-now-title" data-page-title tabIndex={-1} className="display-tight font-wide text-headline">
-            {t("nav.thenNow")}
-          </h1>
-          <p className="max-w-2xl text-body text-haze">{t("thenNow.pageLead")}</p>
-        </div>
-        <div className="flex flex-col items-start gap-2 md:items-end">
-          <ChoiceGroup<ThenNowView>
-            label={t("thenNow.view")}
-            value={view}
-            onChange={(v) => set({ view: v }, false)}
-            options={[
-              { value: "compare", label: t("thenNow.view.compare") },
-              { value: "monthly", label: t("thenNow.view.monthly") },
-            ]}
-          />
-        </div>
-      </header>
+    <section aria-labelledby="then-now-title" className="mx-auto flex min-h-full w-full max-w-7xl flex-col gap-6 px-4 py-6 lg:px-8">
+      <h1 id="then-now-title" data-page-title tabIndex={-1} className="sr-only">
+        {t("nav.thenNow")}
+      </h1>
+      {view === "monthly" && (
+        <ChoiceGroup<ThenNowView>
+          label={t("thenNow.view")}
+          value={view}
+          onChange={(v) => set({ view: v }, false)}
+          options={[
+            { value: "compare", label: t("thenNow.view.compare") },
+            { value: "monthly", label: t("thenNow.view.monthly") },
+          ]}
+        />
+      )}
 
       <AnimatePresence mode="wait" initial={false}>
         <motion.div key={view} initial={{ opacity: 0, y: 10 }} animate={{ opacity: 1, y: 0 }} exit={{ opacity: 0, y: -6 }} transition={{ duration: 0.22 }}>
-          <Cabinet code={current?.code} title={current?.title(t)}>
+          <Cabinet code={current?.code} title={current?.title(t)} flush>
           {view === "compare" ? (
             <ThenNow
               cityName={search.city ?? DEFAULT_CITY}
               chosen={search.part ?? "heat"}
               onCity={(city: ClimateCellName) => set({ city })}
               onPart={(part: ViewPart) => set({ part })}
+              onMonthly={() => set({ view: "monthly" }, false)}
             />
           ) : (
             <MonthByMonth

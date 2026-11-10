@@ -8,16 +8,8 @@ import { useAppState } from "../AppState/use-app-state";
 import { TubeBubbles } from "../Cabinet/TubeBubbles";
 import { useLiveData } from "../LiveData/use-live-data";
 import { recordFrames } from "../Turntable/records";
-import { AMBER_TUBE, VIEW_H, VIEW_W } from "./parts";
 
 const BUBBLES_PER_SECOND = 2;
-
-const place: CSSProperties = {
-  left: `${(AMBER_TUBE.x / VIEW_W) * 100}%`,
-  top: `${(AMBER_TUBE.y / VIEW_H) * 100}%`,
-  width: `${(AMBER_TUBE.width / VIEW_W) * 100}%`,
-  height: `${(AMBER_TUBE.height / VIEW_H) * 100}%`,
-};
 
 /**
  * Home's amber tube: filled to the real ocean temperature at the point the globe faces, on the frame's own scale.
@@ -31,7 +23,7 @@ export function DataTube({ facing, paused = false }: { facing: LatLon | null; pa
   const scale = frame ? frameScale(frame, value) : null;
   const level = scale && scale.value !== null ? scaleShare(scale, scale.value) : 0;
   return (
-    <div style={place} className="absolute overflow-hidden rounded-full bg-paper">
+    <div className="absolute inset-0 overflow-hidden rounded-full bg-paper">
       <div
         data-tube-fill
         style={{ "--level": level } as CSSProperties}

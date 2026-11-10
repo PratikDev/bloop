@@ -173,7 +173,7 @@ export function Turntable() {
   const legendShown = needleMoving || details.open;
 
   return (
-    <section ref={sectionRef} data-space data-tt-stage lang={rootLang} className="tt-warm relative min-h-[32rem] min-w-0 overflow-hidden bg-tt-black max-sm:min-h-[40rem]">
+    <section ref={sectionRef} data-space data-tt-stage lang={rootLang} className="tt-warm relative min-h-[32rem] min-w-0 overflow-hidden bg-tt-black">
       <div inert={sceneOpen !== null} className="contents">
         <Stage
           tt={tt}
@@ -242,7 +242,7 @@ export function Turntable() {
               onSettings={() => setDrawer("settings")}
               onHelp={commands.openHelp}
               onSources={() => setDrawer("sources")}
-              credits={<CreditsLink className="key border-navy ml-auto hidden h-11 rounded-lg bg-paper px-4 text-body text-moon hover:bg-paper lg:inline-flex" />}
+              credits={<CreditsLink className="flex h-11 items-center rounded-lg px-3 text-body text-moon underline underline-offset-4 hover:bg-tide" />}
               bookmarks={geo?.gazetteer.bookmarks.slice(0, MAX_BOOKMARKS).map((b) => b.name) ?? []}
               onBookmark={actions.bookmark}
               caption={<CaptionBar soundOnly className="min-h-0 w-fit max-w-full text-body sm:text-lead" />}

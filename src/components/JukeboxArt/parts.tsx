@@ -20,9 +20,6 @@ const BUBBLES = [
   { dy: 330, r: 4 },
 ] as const;
 
-/** The left amber tube's inside, where Home's live tube mounts. */
-export const AMBER_TUBE = { x: 49.5, y: 171.5, width: 23, height: 387 } as const;
-
 export function Tubes() {
   return (
     <>

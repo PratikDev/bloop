@@ -3,7 +3,7 @@
 // and the rain grid loading after Start.
 import { expect, type Page } from "@playwright/test";
 import { AUDIBLE, heard, level, navTo, officialStrip } from "../lib/app";
-import { dock, map, name, onMap, sounds, tab, type Feature } from "./common";
+import { choosePart, dock, map, name, onMap, openPlayerMore, sounds, type Feature } from "./common";
 
 const title = (page: Page) => page.getByRole("heading", { level: 1 }).first();
 
@@ -51,10 +51,12 @@ export const PAGES: Feature[] = [
       await onMap(page); await page.keyboard.press("t");
       await expect(page).toHaveURL(/\/then-now/u);
       await expect(title(page)).toHaveText(/Then vs Now/u);
-      const partTabs = page.getByRole("tablist", { name: "Part" }).getByRole("tab");
-      await expect(partTabs.first()).toBeVisible(); // the tabs come with the page's data, a moment after its title
-      const parts = await partTabs.allInnerTexts();
-      for (const p of ["Heat", "Monsoon rain", "Water underground", "More records"]) if (!parts.some((x) => x.trim().startsWith(p))) throw new Error(`no ${p} part (${parts.join(", ")})`);
+      const picker = page.getByRole("combobox", { name: "Part" });
+      await expect(picker).toBeVisible(); // the picker comes with the page's data, a moment after its title
+      await picker.click();
+      const parts = await page.getByRole("option").allInnerTexts();
+      await page.keyboard.press("Escape");
+      for (const p of ["Heat", "Monsoon rain", "Water underground", "Fires", "Vegetation"]) if (!parts.some((x) => x.trim().startsWith(p))) throw new Error(`no ${p} part (${parts.join(", ")})`);
       await page.getByRole("button", { name: "Play this part" }).click();
       const s = await sounds(page, "heat part");
       return { evidence: `parts: ${parts.join(", ")}; ${s.evidence}` };
@@ -63,8 +65,10 @@ export const PAGES: Feature[] = [
     what: "The national water note shows for every city; cities sharing a grid cell are named",
     async run(page) {
       await navTo(page, "Then vs Now");
-      await tab(page, "Water underground").click();
-      const text = await page.locator("main").innerText();
+      await choosePart(page, "Water underground");
+      await openPlayerMore(page);
+      await page.getByRole("button", { name: "Details" }).click();
+      const text = await page.getByRole("dialog").innerText();
       if (!/Bangladesh|national|whole country/iu.test(text)) throw new Error("no national water note");
       return { evidence: text.replace(/\s+/gu, " ").match(/[^.]*(?:national|whole country|Bangladesh)[^.]*\./iu)?.[0]?.slice(0, 160) ?? "water note shown" };
     } },
@@ -73,7 +77,8 @@ export const PAGES: Feature[] = [
     control: (page) => page.getByRole("slider").first(),
     async run(page) {
       await navTo(page, "Then vs Now");
-      await page.getByRole("group", { name: "View" }).getByRole("button", { name: "Month by month" }).click();
+      await openPlayerMore(page);
+      await page.getByRole("button", { name: "Month by month" }).click();
       const chart = page.getByRole("slider").first();
       await expect(chart).toBeVisible({ timeout: 30_000 });
       await chart.focus();
@@ -92,9 +97,10 @@ export const PAGES: Feature[] = [
       return { evidence: `${rules[1]} sounds with a written rule` };
     } },
   { id: "go-to", group: "pages", name: "Go to a latitude and longitude", where: "Dock · Go to", keyboard: true,
-    what: "Moves the cursor to typed coordinates and reads the value there", control: (page) => dock(page).getByRole("button", { name: "Go to a latitude and longitude" }),
+    what: "Moves the cursor to typed coordinates and reads the value there", control: (page) => dock(page).getByRole("button", { name: "More", exact: true }),
     async run(page) {
-      await dock(page).getByRole("button", { name: "Go to a latitude and longitude" }).click();
+      await openPlayerMore(page);
+      await page.getByRole("button", { name: "Go to a latitude and longitude" }).click();
       await page.getByRole("textbox", { name: /Latitude/u }).fill("23.8");
       await page.getByRole("textbox", { name: /Longitude/u }).fill("90.4");
       await page.keyboard.press("Enter");
@@ -144,7 +150,8 @@ export const PAGES: Feature[] = [
       if (playing <= AUDIBLE) throw new Error(`the record is silent (${playing.toExponential(1)})`);
       const contexts = await page.evaluate(() => (window as unknown as { __bloopTaps: unknown[] }).__bloopTaps.length);
       if (contexts !== 1) throw new Error(`${contexts} AudioContexts (one shared context expected)`);
-      await dock(page).getByRole("button", { name: /^Mixer/u }).click();
+      await openPlayerMore(page);
+      await page.getByRole("button", { name: /^Mixer/u }).click();
       const muteAll = page.getByRole("button", { name: "Mute all" });
       await muteAll.click();
       await page.waitForTimeout(800);

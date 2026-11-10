@@ -97,6 +97,7 @@ export async function navTo(page: Page, name: PageName) {
   // Official records isn't in the header: it is one link away from How we know.
   if (name === "Official records") {
     await navTo(page, "How we know");
+    await page.getByRole("main").locator("summary", { hasText: "Credits" }).click();
     await page.getByRole("main").getByRole("link", { name: "All official records" }).click();
     await page.waitForURL(/official/u);
     return;

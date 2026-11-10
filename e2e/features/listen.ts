@@ -1,8 +1,8 @@
 // Feature checks on the Listen page (the live map), its dock, the Inspector and the header's settings.
 import { expect } from "@playwright/test";
-import { dock, inspector, live, map, name, onMap, openGroup, pressed, sounds, stops, strip, type Feature } from "./common";
+import { dock, inspector, live, map, name, onMap, openGroup, openPlayerMore, openRecords, pressed, sounds, stops, strip, type Feature } from "./common";
 
-const mixerButton = (page: Parameters<Feature["run"]>[0]) => dock(page).getByRole("button", { name: /^Mixer/u });
+const mixerButton = (page: Parameters<Feature["run"]>[0]) => page.getByRole("button", { name: /^Mixer/u });
 const settings = (page: Parameters<Feature["run"]>[0]) => page.getByRole("banner").getByRole("button", { name: "Settings" });
 
 export const LISTEN: Feature[] = [
@@ -28,6 +28,7 @@ export const LISTEN: Feature[] = [
   { id: "freshness-badges", group: "data", name: "Freshness and source badges", where: "Listen · Sources and checks", keyboard: false,
     what: "Says how old each frame is, and when it is older than its freshness limit",
     async run(page) {
+      await openPlayerMore(page);
       await page.getByRole("button", { name: "Sources and checks" }).click();
       const t = await page.locator("main").innerText();
       const m = t.match(/Latest available: [^\n]+|Recorded \([^)]+\)[^\n]*/gu) ?? [];
@@ -47,13 +48,16 @@ export const LISTEN: Feature[] = [
       await onMap(page); await page.keyboard.press("1");
       await openGroup(page, /Live frames/u);
       await pressed(strip(page, "A1"));
+      await page.keyboard.press("Escape");
       await onMap(page); await page.keyboard.press("3");
+      await openRecords(page);
       await pressed(strip(page, "A3"));
       return { evidence: "1 → A1 pressed; 3 → A3 pressed" };
     } },
   { id: "mixer", group: "sound", name: "Mixer (volume, mute, solo per voice)", where: "Dock · Mixer", keyboard: false,
     what: "Sets each voice's volume, mutes or solos it", control: mixerButton,
     async run(page) {
+      await openPlayerMore(page);
       await mixerButton(page).click();
       const mute = page.getByRole("button", { name: "Mute Ocean" });
       await mute.click(); await pressed(mute);
@@ -80,7 +84,7 @@ export const LISTEN: Feature[] = [
   { id: "esc", group: "sound", name: "Esc stops all sound (both engines)", where: "Anywhere · Esc", keyboard: true, what: "Stops all sound and closes panels",
     async run(page) { await sounds(page, "before Esc"); await onMap(page); await page.keyboard.press("Escape"); return stops(page, "Esc"); } },
   { id: "mapping-panel", group: "sound", name: "Mapping panel (What you hear)", where: "Sources and checks · What you hear", keyboard: false,
-    what: "States each data-to-sound rule (range, scale, what higher means)", control: (page) => page.getByRole("button", { name: "Sources and checks" }),
+    what: "States each data-to-sound rule (range, scale, what higher means)", control: (page) => dock(page).getByRole("button", { name: "More", exact: true }),
     async run(page) {
       const t = await (await inspector(page, "What you hear")).innerText();
       if (!/Hz|semitone|pitch/iu.test(t)) throw new Error("no rule wording");
@@ -101,7 +105,7 @@ export const LISTEN: Feature[] = [
     } },
   // ---- accessibility ----
   { id: "help", group: "a11y", name: "Keys and help", where: "Anywhere · H or Help", keyboard: true,
-    what: "Lists every key (map, turntable, scenes)", control: (page) => page.getByRole("banner").getByRole("button", { name: "Help" }),
+    what: "Lists every key (map, turntable, scenes)", control: (page) => page.getByRole("banner").getByRole("button", { name: "Settings" }),
     async run(page) {
       await onMap(page); await page.keyboard.press("h");
       const dialog = page.getByRole("dialog", { name: "Keys and help" });
@@ -132,7 +136,7 @@ export const LISTEN: Feature[] = [
       return { evidence: `live region after C: "${(await live(page)).replace(/\s+/gu, " ").slice(0, 100)}"` };
     } },
   { id: "braille", group: "a11y", name: "Braille data explorer", where: "Listen · key B or the dock's Braille explorer", keyboard: true,
-    what: "Feel the data as braille cells; the caret is the needle", control: (page) => dock(page).getByRole("button", { name: "Braille explorer" }),
+    what: "Feel the data as braille cells; the caret is the needle", control: (page) => dock(page).getByRole("button", { name: "More", exact: true }),
     async run(page) {
       await onMap(page); await page.keyboard.press("b");
       await expect(page.getByTestId("braille-value")).toHaveValue(/\S/u);
@@ -144,9 +148,11 @@ export const LISTEN: Feature[] = [
     } },
   { id: "bangla", group: "a11y", name: "Bangla interface", where: "Header · বাংলা", keyboard: false,
     what: "Switches the interface to Bangla (Samonwita's translation), and the braille lines",
-    control: (page) => page.getByRole("banner").getByRole("button", { name: "বাংলা" }),
+    control: (page) => page.getByRole("banner").getByRole("button", { name: "Settings" }),
     async run(page) {
-      await page.getByRole("banner").getByRole("button", { name: "বাংলা" }).click();
+      await page.getByRole("banner").getByRole("button", { name: "Settings" }).click();
+      await page.getByRole("button", { name: "বাংলা" }).click();
+      await page.keyboard.press("Escape");
       await expect(page.locator("html")).toHaveAttribute("lang", "bn");
       const title = await page.getByRole("heading", { level: 1 }).first().innerText();
       if (!/[ঀ-৿]/u.test(title)) throw new Error(`page title not in Bangla: "${title}"`);
