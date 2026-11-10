@@ -1,9 +1,13 @@
 "use client";
 
-import { useEffect, useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 import { readPalette } from "@/lib/css-tokens";
+import { useAppState } from "../../AppState/use-app-state";
+import { useFrameImages } from "../../FrameView/use-frame-images";
+import { useLiveData } from "../../LiveData/use-live-data";
 import type { Turntable } from "../use-turntable";
 import { createDeckView, type DeckView } from "./deck-view";
+import { drawBloopLabel } from "./record-texture";
 
 /** The mounted deck view and its canvas, for the debug hook (debug.ts). */
 export const deckProbe: { view: DeckView | null; canvas: HTMLCanvasElement | null } = { view: null, canvas: null };
@@ -17,10 +21,26 @@ const MAX_DPR = 2;
  */
 export function DeckViewCanvas({ subscribe }: { subscribe: Turntable["subscribe"] }) {
   const canvasRef = useRef<HTMLCanvasElement>(null);
+  const [view, setView] = useState<DeckView | null>(null);
+  const { state } = useAppState();
+  const { fields } = useLiveData();
+  const { sst, rain } = useFrameImages();
+
+  // The record's grooves are this frame's data, redrawn when the record (track) or the data changes.
+  useEffect(() => {
+    if (!view || !fields) return;
+    view.setRecord(fields, state.track, { sst, rain });
+  }, [view, fields, state.track, sst, rain]);
+
   useEffect(() => {
     const canvas = canvasRef.current;
     if (!canvas) return;
-    const view = createDeckView(canvas, readPalette());
+    const palette = readPalette();
+    const view = createDeckView(canvas, palette);
+    setView(view);
+    const label = document.createElement("canvas");
+    drawBloopLabel(label, palette);
+    view.setLabel(label);
     deckProbe.view = view;
     deckProbe.canvas = canvas;
     const size = () => view.resize(canvas.clientWidth, canvas.clientHeight, Math.min(MAX_DPR, window.devicePixelRatio || 1));
@@ -34,6 +54,7 @@ export function DeckViewCanvas({ subscribe }: { subscribe: Turntable["subscribe"
       off();
       observer.disconnect();
       view.dispose();
+      setView(null);
       deckProbe.view = null;
       deckProbe.canvas = null;
     };
