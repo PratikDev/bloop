@@ -41,9 +41,34 @@ rule, a data voice's onset count or tempo, or any number. How the code keeps it:
 
 ## Pitch-identity results
 
-See the final report of the ART build for the run's table (per record and setup, largest difference in cents); the
-CI test prints one `PITCH-IDENTITY` line per record. Limit: 1 cent. Every Earth Orchestra family, as the live voice and
-as OrchestraApi notes, is checked against the art-off render on the same live SST plan.
+The CI test (`e2e/art/dial.e2e.ts`) prints one `PITCH-IDENTITY` line per record; this table is that run (10 Nov 2026,
+production build with every `NEXT_PUBLIC_ART_*` flag, Chromium). Limit: 1 cent. Largest difference over all of the
+record's notes, in cents, between the data voice's measured settled pitch and the rule ("vs rule"), and the art-off
+render ("vs art off"). Onsets: the data voice's note count (tempo is the same in every row: the renderer's log).
+
+| Record | Setup | Timbre | Onsets | vs rule (cents) | vs art off (cents) |
+|---|---|---|---|---|---|
+| ocean (live SST) | art off | plain | 24 | 0.0001 | 0 |
+| | 0 Measure | Ocean | 24 | 0.0001 | 0 |
+| | 0.5 Blend | Ocean | 24 | 0.0084 | 0.0085 |
+| | 1 Music | Ocean | 24 | 0.0139 | 0.0139 |
+| | 1 Music, monsoon month | Ocean | 24 | 0.0139 | 0.0139 |
+| rain (IMERG) | art off | plain | 484 | 0 | 0 |
+| | 0 Measure | Air and weather | 484 | 0 | 0 |
+| | 0.5 Blend | Air and weather | 484 | 0 | 0 |
+| | 1 Music | Air and weather | 484 | 0 | 0 |
+| | 1 Music, monsoon month | Air and weather | 484 | 0 | 0 |
+| currents_3912 | art off | plain | 24 | 0.0001 | 0 |
+| | 0 Measure | Ocean | 24 | 0.0001 | 0 |
+| | 0.5 Blend | Ocean | 24 | 0.0189 | 0.0188 |
+| | 1 Music | Ocean | 24 | 0.0228 | 0.0228 |
+| | 1 Music, monsoon month | Ocean | 24 | 0.0228 | 0.0228 |
+
+Rain is a rate voice (drops, no pitch; its cents columns are 0 by construction): its check is the drop count (484)
+and tempo (within 0.005 s), the same at every stop. The same test
+also checks every Earth Orchestra family, as the live voice and as OrchestraApi notes, against the art-off render on
+the live SST plan (all within the limit). Water's journey's WAV is bit-identical render to render (two renders, 0
+differing samples; see `src/lib/audio/orchestra/mix.ts` for why the offline graph sums two inputs at a time).
 
 ## Raw-pixel numbers (measured, `public/data/art/raw_pixel.json`)
 
