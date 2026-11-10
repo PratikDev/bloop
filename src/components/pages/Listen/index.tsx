@@ -33,7 +33,7 @@ export function ListenPage() {
 
       <div className="cabinet-sizes min-w-0 lg:h-full lg:flex-[999_1_40rem]">
         <div className={cn("min-w-0", !state.brailleOpen && "lg:h-full lg:[container:cabinet_/_size]")}>
-          <Cabinet code={current?.code} title={current?.title(t)} tubes foldCrown className="mx-auto lg:w-fit lg:max-w-full">
+          <Cabinet code={current?.code} title={current?.title(t)} tubes foldCrown flush className="mx-auto lg:w-fit lg:max-w-full">
             <div className="cabinet-map relative">
               <div className="relative overflow-hidden rounded-plate border-(length:--outline-panel) border-navy">
                 <ExploreControls>

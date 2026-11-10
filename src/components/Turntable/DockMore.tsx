@@ -1,6 +1,6 @@
 "use client";
 
-import { ArrowLeft, Ellipsis } from "lucide-react";
+import { ArrowLeft, DotsThree } from "@phosphor-icons/react";
 import { useState, type ReactNode } from "react";
 import { Popover, PopoverContent, PopoverTrigger } from "@/components/ui/popover";
 import { cn } from "@/lib/utils";
@@ -22,7 +22,7 @@ export function DockMore({ actions, view: renderView }: { actions: readonly Dock
   const close = () => change(false);
   return (
     <Popover open={open} onOpenChange={change}>
-      <DockButton icon={Ellipsis} label={tt("turntable.more")} wrap={(b) => <PopoverTrigger render={b} />} />
+      <DockButton icon={DotsThree} label={tt("turntable.more")} wrap={(b) => <PopoverTrigger render={b} />} />
       <PopoverContent data-tt-occluder side="top" aria-label={tt("turntable.more")} className={cn("tt-warm on-space gap-2 rounded-sheet p-3 text-body", "max-h-(--available-height) overflow-y-auto", view && WIDE_VIEWS.has(view) ? "popover-fit w-184" : "w-72")}>
         {view ? (
           <>

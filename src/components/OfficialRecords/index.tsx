@@ -27,6 +27,7 @@ import { OfficialBrailleExplorer } from "./OfficialBrailleExplorer";
 import { RelatedRecords } from "./RelatedRecords";
 import { useOfficialRecord } from "./use-official-record";
 import { ROW_KEY } from "../row-key";
+import { useRovingFocus } from "@/hooks/use-roving-focus";
 
 const SIGNIFICANT = 3;
 
@@ -149,6 +150,9 @@ export function OfficialRecords() {
   const navigate = route.useNavigate();
   // A related record has no URL of its own: it stays open until the record in the URL changes.
   const [related, setRelated] = useState<{ id: string; forRecord: string | undefined } | null>(null);
+  // The list is one Tab stop (audit A10): the strip last focused, or the chosen record; arrows, Home and End move inside.
+  const [focused, setFocused] = useState<string | null>(null);
+  const rove = useRovingFocus();
   useAnnounceError(error ? t("official.error") : null);
   if (error) return <StatusBadge kind="error">{t("official.error")}</StatusBadge>;
   if (!index) return <StatusBadge kind="loading">{t("official.loading")}</StatusBadge>;
@@ -164,7 +168,7 @@ export function OfficialRecords() {
       <h2 id="official-heading" className="sr-only">{t("official.heading")}</h2>
       <Cabinet code={crown?.code} title={crown?.title(t)} flush flushVeryShort foldCrown>
         <div className="official-grid grid gap-6">
-          <div tabIndex={0} aria-label={t("official.records")} role="group" className="official-list space-y-4 pr-1">
+          <div aria-label={t("official.records")} role="group" onKeyDown={rove} className="official-list space-y-4 pr-1">
             {KIND_ORDER.map((kind) => {
               const rows = index.records.filter((r) => r.badge === kind);
               if (rows.length === 0) return null;
@@ -176,7 +180,13 @@ export function OfficialRecords() {
                       const record = stripOf(row.record);
                       return record && (
                         <li key={row.record}>
-                          <RecordStrip record={record} chosen={row.record === current} braille={recordBrailleLabel(row)} onClick={() => select(row.record)} />
+                          <RecordStrip
+                            record={record}
+                            chosen={row.record === current}
+                            braille={recordBrailleLabel(row)}
+                            onClick={() => select(row.record)}
+                            roving={{ tabStop: row.record === (focused && index.records.some((r) => r.record === focused) ? focused : selected), onFocus: () => setFocused(row.record) }}
+                          />
                         </li>
                       );
                     })}

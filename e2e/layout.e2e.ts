@@ -1,10 +1,12 @@
 // Nothing is printed over anything else: on every page at every viewport, no two text elements overlap and nothing
 // scrolls sideways. Chromium only. Overlays on the map and the 3D view (data-overlay) sit on purpose, so they don't count.
+// Text hidden from screen readers (aria-hidden) still counts: sighted users read it.
 import { expect, test, type Page } from "@playwright/test";
 import { start } from "./lib/app";
 
 const VIEWPORTS = [
   { width: 1920, height: 1080 },
+  { width: 1536, height: 730 },
   { width: 1440, height: 900 },
   { width: 1280, height: 720 },
   { width: 1024, height: 768 },
@@ -53,7 +55,7 @@ function findOverlaps(maxOverlap: number): Finding {
   const items: Item[] = [];
   for (const el of document.querySelectorAll("body *")) {
     if (["SCRIPT", "STYLE", "NOSCRIPT"].includes(el.tagName)) continue;
-    if (el.closest('[aria-hidden="true"], [data-overlay]')) continue;
+    if (el.closest("[data-overlay]")) continue;
     const text = [...el.childNodes].filter((n) => n.nodeType === Node.TEXT_NODE).map((n) => n.textContent ?? "").join("").trim();
     if (!text) continue;
     // False for display: none, hidden and transparent text, and for what's inside a closed <details>.
@@ -89,11 +91,16 @@ function findOverlaps(maxOverlap: number): Finding {
 /** A click on the header's link, as a user moves between pages (phones show shorter labels, so by address). */
 async function go(page: Page, path: string) {
   if (path === "/official") {
-    await page.getByRole("main").locator("summary", { hasText: "Credits" }).click();
-    await page.getByRole("main").getByRole("link", { name: "All official records" }).click();
+    // In How we know's Credits drawer (the key beside the page's heading).
+    await page.getByRole("main").getByRole("button", { name: "Credits", exact: true }).click();
+    await page.getByRole("dialog", { name: "Credits" }).getByRole("link", { name: "All official records" }).click();
   }
   else await page.getByRole("banner").locator(`a[href="${path}"]`).first().click();
   await page.waitForTimeout(SETTLE_MS);
+  // Where the page itself scrolls (phones), the sticky player covers what is below the fold until it is scrolled to:
+  // at the end of the page, the last content must clear the player.
+  await page.evaluate(() => window.scrollTo(0, document.documentElement.scrollHeight));
+  await page.waitForTimeout(300);
 }
 
 for (const viewport of VIEWPORTS) {

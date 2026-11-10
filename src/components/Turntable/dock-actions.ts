@@ -1,5 +1,5 @@
-import type { LucideIcon } from "lucide-react";
 import type { ReactNode } from "react";
+import type { DockIcon } from "./DockButton";
 
 /** A view that opens inside the More popover. */
 export type DockView = "speed" | "records" | "bookmarks" | "needle" | "mixer";
@@ -7,7 +7,7 @@ export type DockView = "speed" | "records" | "bookmarks" | "needle" | "mixer";
 /** One control in the Turntable's bar. One list, so the shared mini player can take them over later. */
 export interface DockAction {
   id: string;
-  icon: LucideIcon;
+  icon: DockIcon;
   /** The accessible name. */
   label: string;
   /** Shorter visible text, when the name is long. */

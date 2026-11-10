@@ -1,6 +1,6 @@
 "use client";
 
-import { X } from "lucide-react";
+import { X } from "@phosphor-icons/react";
 import { brailleRole } from "@/a11y/aria";
 import dynamic from "next/dynamic";
 import { useId } from "react";

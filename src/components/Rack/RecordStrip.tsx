@@ -7,6 +7,7 @@ import type { JukeboxRecord } from "@/lib/records";
 import { cn } from "@/lib/utils";
 import { useT } from "../AppState/use-app-state";
 import { Equaliser } from "../Equaliser";
+import { ROVING_ITEM } from "@/hooks/use-roving-focus";
 
 /** A record's code chip: navy on the crown, paper in the rack, coral when chosen. */
 export function CodeChip({ code, chosen = false, className }: { code: string; chosen?: boolean; className?: string }) {
@@ -25,6 +26,7 @@ export function RecordStrip({
   tag,
   braille,
   onClick,
+  roving,
 }: {
   record: JukeboxRecord;
   chosen: boolean;
@@ -34,6 +36,8 @@ export function RecordStrip({
   /** A short braille form of the name. */
   braille?: string;
   onClick: () => void;
+  /** In a list that is one Tab stop (useRovingFocus): whether this strip is the stop, and what to do when it gets focus. */
+  roving?: { tabStop: boolean; onFocus: () => void };
 }) {
   const t = useT();
   const title = record.title(t);
@@ -45,6 +49,7 @@ export function RecordStrip({
       aria-pressed={chosen}
       aria-label={[`${record.code}, ${title}`, subtitle, shownLength].filter(Boolean).join(". ")}
       onClick={onClick}
+      {...(roving ? { [ROVING_ITEM]: "", tabIndex: roving.tabStop ? 0 : -1, onFocus: roving.onFocus } : {})}
       {...(braille ? brailleLabel(braille) : {})}
       className="key border-navy h-auto min-h-14 w-full justify-start gap-3 rounded-lg bg-paper px-2 py-1.5 text-left font-normal whitespace-normal text-moon hover:bg-paper aria-pressed:border-[3.5px] aria-pressed:bg-paper"
     >

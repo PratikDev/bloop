@@ -64,7 +64,7 @@ export function ChoiceGroup<T extends string>({
             {...brailleLabel(o.brailleLabel)}
             className={cn(
               // Long names wrap inside the pill: the row never pushes the page sideways.
-              "relative isolate h-auto min-h-11 max-w-full min-w-11 shrink rounded-full px-4 py-1 text-body font-normal whitespace-normal text-haze transition-colors duration-200 hover:bg-transparent hover:text-moon aria-pressed:bg-transparent aria-pressed:text-ink md:pointer-fine:h-auto md:pointer-fine:min-h-9",
+              "relative isolate h-auto min-h-11 max-w-full min-w-11 shrink rounded-full px-4 py-1 text-body font-normal whitespace-normal text-haze transition-colors duration-200 hover:bg-transparent hover:text-moon aria-pressed:bg-transparent aria-pressed:text-ink",
               vertical && "justify-start rounded-2xl py-2 text-left md:pointer-fine:min-h-10",
               itemClassName,
             )}

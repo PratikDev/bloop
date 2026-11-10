@@ -11,6 +11,7 @@ import { useAppState, useT } from "../AppState/use-app-state";
 import { useCommands } from "../Commands/use-commands";
 import { useTimeLapse } from "../TimeLapse/use-time-lapse";
 import { RecordsContext, type PlayOptions, type RecordsValue } from "./use-records";
+import { requestFocus } from "@/lib/arrival-focus";
 
 const LEGEND_KEY = "jukebox.hint.legend.v1";
 const loadFrameCount = () => loadSequenceIndex().then((index) => index.frames.length);
@@ -113,6 +114,7 @@ export function RecordsProvider({ children }: { children: ReactNode }) {
         case "official":
           return void navigate({ to: PAGE_PATHS.official, search: { record: action.record } });
         case "tour":
+          requestFocus("tour");
           return commands.setMode("story");
         case "timeLapse":
           return onMap("timeLapse");

@@ -1,5 +1,6 @@
 "use client";
 
+import { useRef } from "react";
 import { Dialog, DialogContent, DialogDescription, DialogHeader, DialogTitle } from "@/components/ui/dialog";
 import type { MessageKey } from "@/lib/i18n";
 import { useAppState, useT } from "./AppState/use-app-state";
@@ -95,12 +96,14 @@ export function HelpDialog() {
   const { state, dispatch } = useAppState();
   const t = useT();
   const tr = ttFor(state.lang);
+  // Opens on its title, at the top (audit A4): the key tables come first, the toggles after them.
+  const title = useRef<HTMLHeadingElement>(null);
 
   return (
     <Dialog open={state.helpOpen} onOpenChange={(open) => dispatch({ type: "setHelpOpen", open })}>
-      <DialogContent closeLabel={t("inspector.close")} className="max-h-[85dvh] overflow-y-auto p-6 sm:max-w-xl">
+      <DialogContent closeLabel={t("inspector.close")} initialFocus={title} className="max-h-[85dvh] overflow-y-auto p-6 sm:max-w-xl">
         <DialogHeader>
-          <DialogTitle className="pr-10 font-wide text-headline">{t("help.title")}</DialogTitle>
+          <DialogTitle ref={title} tabIndex={-1} className="pr-10 font-wide text-headline outline-none">{t("help.title")}</DialogTitle>
           <DialogDescription className="text-body text-haze">{t("help.focusNote")}</DialogDescription>
         </DialogHeader>
 

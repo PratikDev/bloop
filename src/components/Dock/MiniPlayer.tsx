@@ -26,9 +26,9 @@ export function MiniPlayer({ keys, caption, slider = false, fullWidthKeys = fals
       <PlayerSheet />
       <SoundButton />
       {listen ? <Readout className="order-last basis-full lg:order-none lg:basis-auto lg:shrink-0" /> : <Sleeve />}
-      <div className="order-last flex min-w-0 basis-full items-center gap-2 lg:order-none lg:flex-1 lg:basis-0">
+      <div className="order-last flex min-w-0 basis-full items-center gap-2 lg:order-none lg:flex-1 lg:basis-0 xl:min-w-fit">
         {listen && <StalePill />}
-        {caption ?? <CaptionBar soundOnly whileSounding className="min-h-0 min-w-0 flex-1 text-body lg:max-w-[40vw]" />}
+        {caption ?? <CaptionBar soundOnly whileSounding className="min-h-0 min-w-0 flex-1 text-body lg:max-w-[40vw] xl:min-w-50" />}
       </div>
       {frame ? <FrameProgress frame={frame} className="order-last basis-full lg:order-none lg:flex-1 lg:basis-0" /> : slider && <NeedleSlider axis="lon" className="order-last basis-full lg:order-none lg:flex-1 lg:basis-0" />}
       <div className={cn("flex flex-wrap items-center gap-2", fullWidthKeys ? "basis-full lg:basis-auto" : "ml-auto")}>{keys}</div>

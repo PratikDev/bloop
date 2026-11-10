@@ -829,11 +829,6 @@ html:lang(bn) .odometer-cell {
     transform: translateY(-50%);
   }
 }
-/* ---- The Turntable: nothing dims the globe, so a sheet opens without a scrim there. ---- */
-body:has([data-tt-stage]) [data-slot="sheet-overlay"] {
-  background: transparent;
-}
-
 /* ---- Then vs Now: a year's stripe fills with a quick wipe as the playhead passes. Inside the plot only a pale tint
    (18% over paper), so the line, dots and gridlines stay the strongest marks; the full colour is the band at the foot. ---- */
 :root {
@@ -930,6 +925,15 @@ html[data-reduce-motion="true"] .star-twinkle {
   }
 }
 
+/* ---- More contrast (the system's "increase contrast"): thicker outlines, and the soft text colour becomes navy. ---- */
+@media (prefers-contrast: more) {
+  :root {
+    --outline: 3.5px;
+    --navy-soft: var(--navy);
+    --haze: var(--navy);
+  }
+}
+
 /* ---- Comfortable text (Settings): larger, normal-width type for low-vision users. ---- */
 html[data-text="comfortable"] {
   font-size: 112.5%;
@@ -954,6 +958,10 @@ html[data-text="comfortable"] .font-wide-display {
   .comic-box {
     border-color: CanvasText;
   }
+  /* The chosen pill (aria-pressed), the current page and the selected tab: a Highlight marker, never colour alone. */
+  [role="tab"][aria-selected="true"] {
+    border-bottom: 3px solid Highlight;
+  }
   [aria-pressed="true"],
   [aria-current="page"] {
     border-color: Highlight;
@@ -968,6 +976,34 @@ html[data-text="comfortable"] .font-wide-display {
   .starfield {
     display: none;
   }
+}
+
+/* Charts in forced colours: SVG keeps its own paint, so lines and dots take the system's text and highlight colours. */
+@media (forced-colors: active) {
+  .recharts-line-curve,
+  .recharts-reference-line-line,
+  .recharts-cartesian-axis-line,
+  .recharts-cartesian-axis-tick-line {
+    stroke: CanvasText;
+  }
+  /* "Then" dots stay hollow and "now" dots filled, so shape still tells them apart. */
+  .recharts-dot {
+    stroke: CanvasText;
+    fill: CanvasText;
+  }
+  .recharts-dot[fill="var(--night)"] {
+    fill: Canvas;
+  }
+  .recharts-cartesian-axis-tick-value,
+  .recharts-text {
+    fill: CanvasText;
+  }
+}
+
+/* Next's route announcer reads the previous page's title (it runs before our router names the new page), and it is a
+   second live region. Each page change already says one thing: focus moves to the new page's heading (audit A3). */
+next-route-announcer {
+  display: none;
 }
 
 /* ---- The app frame. One screen from 1024 px: the header, main (which alone can scroll), the player. At 200% zoom,

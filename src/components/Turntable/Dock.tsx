@@ -1,23 +1,23 @@
 "use client";
 
 import {
-  Bookmark,
-  CircleHelp,
-  Disc3,
+  ArrowClockwise,
+  ArrowsOutCardinal,
+  BookmarkSimple,
+  Crosshair,
+  Disc,
   Gauge,
-  Layers,
-  LocateFixed,
-  Move,
-  RotateCw,
-  Route,
-  ScanEye,
-  Search,
-  ScrollText,
-  Settings2,
+  GearSix,
+  MagnifyingGlass,
+  MagnifyingGlassPlus,
+  Path,
+  Question,
+  Scroll,
   ShieldCheck,
   SlidersHorizontal,
-  Square,
-} from "lucide-react";
+  Stack,
+  Stop,
+} from "@phosphor-icons/react";
 import type { ReactNode, Ref } from "react";
 import { Button } from "@/components/ui/button";
 import { Popover, PopoverTrigger } from "@/components/ui/popover";
@@ -69,21 +69,21 @@ export function Dock({ ref, ...p }: DockProps) {
   const explore = p.cameraMode === "explore";
 
   const actions: DockAction[] = [
-    { id: "turn", place: "key", icon: p.rotating ? Square : RotateCw, label: tt(p.rotating ? "turntable.stopTurning" : "turntable.turn"), keys: "Space", pressed: p.rotating, onClick: p.onToggleRotation },
-    { id: "search", place: "key", icon: Search, label: tt("turntable.search.label"), short: tt("turntable.search.short"), keys: "/", onClick: p.onSearch },
-    { id: "where", place: "key", phoneMore: true, icon: LocateFixed, label: tt("turntable.where.button"), keys: "L", onClick: p.onWhereAmI },
+    { id: "turn", place: "key", icon: p.rotating ? Stop : ArrowClockwise, label: tt(p.rotating ? "turntable.stopTurning" : "turntable.turn"), keys: "Space", pressed: p.rotating, onClick: p.onToggleRotation },
+    { id: "search", place: "key", icon: MagnifyingGlass, label: tt("turntable.search.label"), short: tt("turntable.search.short"), keys: "/", onClick: p.onSearch },
+    { id: "where", place: "key", phoneMore: true, icon: Crosshair, label: tt("turntable.where.button"), keys: "L", onClick: p.onWhereAmI },
     { id: "mixer", place: "key", phoneMore: true, view: "mixer", icon: SlidersHorizontal, label: t(mixerLimited ? "mixer.limited" : "mixer.label"), short: t("dock.short.mixer"), popover: <MixerContent /> },
-    { id: "needle", place: "more", icon: Move, label: t("needle.group"), view: "needle" },
-    { id: "bookmarks", place: "more", icon: Bookmark, label: tt("turntable.bookmarks"), keys: "1–9", view: "bookmarks" },
-    { id: "layers", place: "more", icon: Layers, label: tt("turntable.dock.layers"), keys: "O", onClick: p.onLayers },
-    { id: "view", place: "more", icon: ScanEye, label: tt(explore ? "turntable.view.jukebox" : "turntable.view.explore"), keys: "V", pressed: explore, onClick: () => p.onCameraMode(explore ? "jukebox" : "explore") },
-    { id: "keys", place: "more", icon: CircleHelp, label: tt("turntable.dock.help"), keys: "H", onClick: p.onHelp },
+    { id: "needle", place: "more", icon: ArrowsOutCardinal, label: t("needle.group"), view: "needle" },
+    { id: "bookmarks", place: "more", icon: BookmarkSimple, label: tt("turntable.bookmarks"), keys: "1–9", view: "bookmarks" },
+    { id: "layers", place: "more", icon: Stack, label: tt("turntable.dock.layers"), keys: "O", onClick: p.onLayers },
+    { id: "view", place: "more", icon: MagnifyingGlassPlus, label: tt(explore ? "turntable.view.jukebox" : "turntable.view.explore"), keys: "V", pressed: explore, onClick: () => p.onCameraMode(explore ? "jukebox" : "explore") },
+    { id: "keys", place: "more", icon: Question, label: tt("turntable.dock.help"), keys: "H", onClick: p.onHelp },
     { id: "sources", place: "more", icon: ShieldCheck, label: tt("turntable.sources"), onClick: p.onSources },
-    { id: "records", place: "more", icon: Disc3, label: tt("turntable.records"), keys: "R", view: "records" },
-    { id: "tour", place: "more", icon: Route, label: tt(p.touring ? "turntable.tour.stop" : "turntable.tour.start"), keys: "T", pressed: p.touring, onClick: p.onTour },
+    { id: "records", place: "more", icon: Disc, label: tt("turntable.records"), keys: "R", view: "records" },
+    { id: "tour", place: "more", icon: Path, label: tt(p.touring ? "turntable.tour.stop" : "turntable.tour.start"), keys: "T", pressed: p.touring, onClick: p.onTour },
     { id: "speed", place: "more", icon: Gauge, label: tt("turntable.dock.speed"), keys: "[ ]", view: "speed" },
-    { id: "credits", place: "more", icon: ScrollText, label: tt("turntable.creditsLink"), onClick: p.onCredits },
-    { id: "settings", place: "more", icon: Settings2, label: tt("turntable.dock.settings"), onClick: p.onSettings },
+    { id: "credits", place: "more", icon: Scroll, label: tt("turntable.creditsLink"), onClick: p.onCredits },
+    { id: "settings", place: "more", icon: GearSix, label: tt("turntable.dock.settings"), onClick: p.onSettings },
   ];
 
   const view = (id: DockView, close: () => void) => {

@@ -1,13 +1,18 @@
 "use client";
 
 import { ArrowCounterClockwise, Stop } from "@phosphor-icons/react";
+import { useEffect, useRef } from "react";
 import { AnimatePresence, motion } from "motion/react";
+import { takeFocus } from "@/lib/arrival-focus";
 import { Button } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
 import { useT } from "../AppState/use-app-state";
 import { StatusBadge } from "../StatusBadge";
 import { SKIPPED_STEPS, STORY_STEPS } from "./script";
 import { useStory, type StoryStepId } from "./use-story";
+
+/** How long the tour's heading holds focus after starting from the player (frames, about half a second). */
+const FOCUS_FRAMES = 30;
 
 /** A step's dot: filled once done, pink and pulsing while current. */
 function StepDot({ index, current }: { index: number; current: number }) {
@@ -36,10 +41,22 @@ export function StoryPanel({ className }: { className?: string }) {
   const t = useT();
   const current = story.step ? STORY_STEPS.indexOf(story.step) : story.status === "finished" ? STORY_STEPS.length : -1;
   const currentId = story.step;
+  const heading = useRef<HTMLHeadingElement>(null);
+  // Started from the player: focus comes to the tour's heading. The Records sheet hands focus back to its key as it
+  // closes, a few frames later, so the heading takes it back until it sticks (about half a second at most).
+  useEffect(() => {
+    if (!takeFocus("tour")) return;
+    let frames = 0;
+    let id = requestAnimationFrame(function hold() {
+      if (document.activeElement !== heading.current) heading.current?.focus({ preventScroll: true });
+      if (++frames < FOCUS_FRAMES) id = requestAnimationFrame(hold);
+    });
+    return () => cancelAnimationFrame(id);
+  }, []);
 
   return (
     <section aria-labelledby="story-heading" className={cn("space-y-3 text-body", className)}>
-      <h2 id="story-heading" className="eyebrow">
+      <h2 ref={heading} id="story-heading" tabIndex={-1} className="eyebrow outline-none">
         {t("story.heading")}
       </h2>
 

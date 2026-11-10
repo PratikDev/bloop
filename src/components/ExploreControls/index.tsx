@@ -2,6 +2,7 @@
 
 import { useEffect, useId, useRef, type ReactNode } from "react";
 import { brailleRole } from "@/a11y/aria";
+import { takeFocus } from "@/lib/arrival-focus";
 import { readingText } from "@/lib/reading";
 import { useAnnounce } from "../Announcer/use-announcer";
 import { useAppState, useT } from "../AppState/use-app-state";
@@ -33,9 +34,10 @@ export function ExploreControls({ children }: { children: ReactNode }) {
     ? t("map.alt", { track: trackName, reading: readingText(t, reading, track), place: t("place.latlon", cursor) })
     : t("start.loading");
 
-  // Focus the map when the intro ends, so the keys work at once.
+  // After Start or Continue listening, the map takes focus once the intro ends, so the keys work at once. Any other
+  // arrival keeps focus on the page heading (use-route-sync), which names the page.
   useEffect(() => {
-    if (state.introDone) regionRef.current?.focus();
+    if (state.introDone && takeFocus("map")) regionRef.current?.focus();
   }, [state.introDone]);
 
   // Announce the settled reading after the cursor moves (debounced in the announcer).
@@ -46,10 +48,18 @@ export function ExploreControls({ children }: { children: ReactNode }) {
   // Nor right after the story ends: its own "Story stopped" message stays the last word.
   const settled = reading && !timelapse && !story ? `${readingText(t, reading, track)}. ${t("place.latlon", cursor)}` : null;
   const wasStory = useRef(story);
+  // The first reading after the page appears isn't announced: the heading or the focused map already names it, and a
+  // page change says one thing (audit A3). Only a move after that is.
+  const firstReading = useRef<string | null>(null);
   useEffect(() => {
     const leftStory = wasStory.current && !story;
     wasStory.current = story;
-    if (state.introDone && settled && !leftStory) announce(settled);
+    if (!settled) return;
+    if (firstReading.current === null) {
+      firstReading.current = settled;
+      return;
+    }
+    if (state.introDone && !leftStory) announce(settled);
   }, [settled, state.introDone, story, announce]);
 
   return (
