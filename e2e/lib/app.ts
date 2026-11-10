@@ -102,12 +102,12 @@ export async function officialBrailleButton(page: Page, name: string | RegExp = 
 export type PageName = "Listen" | "Then vs Now" | "How we know" | "Official records" | "Turntable";
 
 export async function navTo(page: Page, name: PageName) {
-  // Official records isn't in the header: it is one link away from How we know.
+  // Official records isn't in the header: it is in How we know's Credits drawer (the key beside the page's heading).
   // By address, so it works in either language.
   if (name === "Official records") {
     await page.getByRole("banner").locator('a[href="/how"]').first().click();
-    await page.getByRole("main").locator("summary").first().click();
-    await page.getByRole("main").locator('a[href="/official"]').first().click();
+    await page.getByRole("main").locator("header button").first().click();
+    await page.getByRole("dialog").locator('a[href="/official"]').first().click();
     await page.waitForURL(/official/u);
     return;
   }

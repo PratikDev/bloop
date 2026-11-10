@@ -36,7 +36,7 @@ Written 2026-11-10 before a context compaction. Read this in full before doing a
 | 18 | Motion item 15 (spinning-record loader); item 14 mostly exists in `key` | not started |
 | 19 | Remove banned animations: `animate-pulse` dot in `Opening.tsx`, `signal-pulse` in `SignalMark` and `StoryPanel`, `breathe` keyframes, `RISE`/`STAGGER` in `StartGate` | not started |
 | 20 | Pointer upgrade: Listen cursor like the Turntable pointer (optional) | not started |
-| 21 | Phase 8 (starts after items 10 to 20 and A1–A11, A-bn are merged and B has written "B done"). Adds the audit's checks: 200% and 400% zoom on every page, 320×568, forced colours, text spacing, one announcement per page change, Help focus | not started |
+| 21 | Phase 8 (starts after items 10 to 20 and A1–A11, A-bn are merged and B has written "B done"). Adds the audit's checks: 200% and 400% zoom on every page, 320×568, forced colours, text spacing, one announcement per page change, Help focus. Also the feature inventory (Pratik, 2026-11-10, after the time-lapse went missing in a merge): `e2e/features.e2e.ts` with the `reach-*` checks in `e2e/features/reach.ts` must pass on `final-pass` (every record A0–A3, B1–B5, every C, D1–D3; Listen's controls and the time-lapse's Globe / Flat map; Then vs Now's parts, views and Details; How we know's check links and Credits; every Official record; the Turntable's scenes, More, search and Where am I; Settings, Help, language, the 404); report anything missing | not started |
 
 ### Next action: the audit items
 

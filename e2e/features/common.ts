@@ -34,10 +34,13 @@ export async function openGroup(page: Page, name: RegExp) {
 /** A record's strip in the Records sheet (its name starts with the code). */
 export const strip = (page: Page, code: string) => page.getByRole("dialog", { name: "Records" }).getByRole("button", { name: new RegExp(`^${code},`, "u") });
 
-/** The Records sheet (a key on the player). */
+/** The Records sheet: a key on the player, or inside its More on pages that spend their keys on their own content
+ *  (Then vs Now, How we know, Official records). */
 export async function openRecords(page: Page) {
   if (await page.getByRole("dialog", { name: "Records" }).count()) return;
-  await dock(page).getByRole("button", { name: "Records", exact: true }).click();
+  const key = dock(page).getByRole("button", { name: "Records", exact: true });
+  if (!(await key.isVisible())) await openPlayerMore(page);
+  await page.getByRole("button", { name: "Records", exact: true }).first().click();
 }
 
 /** Picks a part of Then vs Now from its one-control list. */

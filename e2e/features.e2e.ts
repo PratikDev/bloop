@@ -12,12 +12,13 @@ import { start } from "./lib/app";
 import { controlName } from "./features/common";
 import { LISTEN } from "./features/listen";
 import { PAGES } from "./features/pages";
+import { REACH } from "./features/reach";
 import { RECORDS } from "./features/records";
 import { TURNTABLE } from "./features/turntable";
 
 const HIDE_3D = process.env.FEATURES_HIDE_3D === "1";
 const OUT = join(process.cwd(), "data_raw", "_tmp", "features");
-const FEATURES = [...LISTEN, ...RECORDS, ...TURNTABLE, ...PAGES];
+const FEATURES = [...LISTEN, ...RECORDS, ...TURNTABLE, ...PAGES, ...REACH];
 
 for (const f of FEATURES) {
   test(`feature ${f.id}`, async ({ page, browserName }) => {
