@@ -7,3 +7,4 @@
 - B done: phases 4, 5, 6 and motion items 9, 10, 11, 13 merged | final commit 1a1b1ad | 2026-11-10 00:55 | next: Session A's phase 8
 - player sheet: single open function | 30a300e | 2026-11-10 01:03 | next: Home globe mount when Session A reports the new window
 - Home: Pause key adds no height | 12014a5 | 2026-11-10 01:09 | next: Home globe mount when Session A reports the new window
+- items 24, 25, 19, 30, 31, 32: Then vs Now globe in the side column (charts at size), Turntable scrolls on narrow screens, key outlines and chosen tab 3:1, atmosphere removed, docs | c63274f | 2026-11-10 15:45 | next: item 28 check after Session A's Home merge
