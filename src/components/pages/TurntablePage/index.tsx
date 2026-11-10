@@ -28,7 +28,7 @@ export function TurntablePage() {
         <div data-space className="grid place-items-center bg-space p-6">
           <div className="on-space max-w-md space-y-4 rounded-sheet p-6">
             <p className="text-lead">{t("turntable.noWebgl")}</p>
-            <Link to={PAGE_PATHS.listen} className="key inline-flex h-11 items-center rounded-lg bg-paper px-4 text-body text-moon">
+            <Link to={PAGE_PATHS.listen} className="key border-navy inline-flex h-11 items-center rounded-lg bg-paper px-4 text-body text-moon">
               {t("turntable.noWebglLink")}
             </Link>
           </div>

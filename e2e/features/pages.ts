@@ -158,6 +158,7 @@ export const PAGES: Feature[] = [
       const muted = await level(page);
       await muteAll.click();                                                   // the same toggle unmutes
       await page.keyboard.press("Escape");                                     // closes the mixer
+      await page.keyboard.press("Escape");                                     // closes More, which holds it
       await page.keyboard.press("Escape");                                     // stops everything
       await page.waitForTimeout(800);
       const stopped = await level(page);

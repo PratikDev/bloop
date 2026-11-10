@@ -60,7 +60,7 @@ export function CodeEntry({ onPlayed }: { onPlayed?: () => void }) {
           spellCheck={false}
           className="h-11 min-w-0 flex-1 rounded-lg border-2 border-line bg-paper px-3 md:text-base"
         />
-        <Button type="submit" variant="ghost" className="key h-11 rounded-lg bg-paper px-4 text-body text-moon hover:bg-paper">
+        <Button type="submit" variant="ghost" className="key border-navy h-11 rounded-lg bg-paper px-4 text-body text-moon hover:bg-paper">
           {t("records.code.play")}
         </Button>
       </div>

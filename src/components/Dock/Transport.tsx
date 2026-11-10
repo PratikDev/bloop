@@ -9,7 +9,7 @@ import { useRecords } from "../Records/use-records";
 import { SoundButton } from "./SoundButton";
 
 const STEP_KEY =
-  "key size-11 rounded-full bg-paper text-moon hover:bg-paper disabled:border-navy-soft disabled:text-navy-soft disabled:opacity-100 disabled:shadow-none [&_svg]:size-5";
+  "key border-navy size-11 rounded-full bg-paper text-moon hover:bg-paper disabled:border-navy-soft disabled:text-navy-soft disabled:opacity-100 disabled:shadow-none [&_svg]:size-5";
 
 /**
  * Previous, Play/Pause, Next. Previous and next walk the current record's group only, stop at its ends,

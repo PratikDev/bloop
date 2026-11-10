@@ -4,7 +4,7 @@
 import { expect, test, type Page } from "@playwright/test";
 import { readFileSync } from "node:fs";
 import { join } from "node:path";
-import { navTo, open } from "./lib/app";
+import { navTo, officialBrailleButton, open } from "./lib/app";
 
 const AXE = readFileSync(join(process.cwd(), "node_modules", "axe-core", "axe.min.js"), "utf8");
 const CONTINUES = "\u28FF";
@@ -59,7 +59,7 @@ test("width 20 wraps with the continuation marker; R reviews in words", async ({
 test("an official record: B on the record opens its explorer", async ({ page }) => {
   await start(page);
   await navTo(page, "Official records");
-  const open = page.getByRole("button", { name: "Braille explorer" }).last();
+  const open = await officialBrailleButton(page, "Braille explorer");
   await expect(open).toBeEnabled({ timeout: 60_000 });
   await open.click();
   const value = page.getByTestId("braille-value");

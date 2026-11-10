@@ -47,7 +47,7 @@ export function Tile({
         <InfoSheet
           title={title}
           triggerLabel={`${open}: ${title}`}
-          triggerClassName="key h-11 gap-2 rounded-lg bg-paper px-3 text-body font-normal text-moon hover:bg-paper"
+          triggerClassName="key border-navy h-11 gap-2 rounded-lg bg-paper px-3 text-body font-normal text-moon hover:bg-paper"
           trigger={
             <>
               {open}

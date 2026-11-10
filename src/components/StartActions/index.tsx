@@ -13,7 +13,7 @@ import { StatusBadge } from "../StatusBadge";
 const QUIET_BUTTON = "h-13 rounded-full px-5 text-body text-moon underline-offset-4 hover:bg-transparent hover:underline";
 
 /** A secondary action beside the coral one (Home's tour): paper fill. */
-export const PAPER_KEY = "inline-flex h-13 items-center key rounded-full bg-paper px-5 text-body text-moon hover:bg-paper";
+export const PAPER_KEY = "inline-flex h-13 items-center key border-navy rounded-full bg-paper px-5 text-body text-moon hover:bg-paper";
 
 /** The headphones line, once, under the actions. */
 export function StartHint() {
@@ -73,7 +73,7 @@ export function StartActions({
             onStartClick?.();
             void start(after);
           }}
-          className="group h-13 gap-3 key rounded-full bg-shapla pr-5 pl-3 text-lead text-moon hover:bg-shapla"
+          className="group h-13 gap-3 key border-navy rounded-full bg-shapla pr-5 pl-3 text-lead text-moon hover:bg-shapla"
         >
           <span className="grid size-8 place-items-center rounded-full bg-moon/10">
             <Headphones aria-hidden="true" weight="fill" className="size-4.5" />

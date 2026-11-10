@@ -3,7 +3,6 @@
 import { useEffect, useLayoutEffect, useRef, useState } from "react";
 import { pushEscapeHandler } from "@/lib/escape";
 import { useAppState, useT } from "../AppState/use-app-state";
-import { MAP_REGION_ID } from "../ExploreControls";
 import { JukeboxFrame } from "../JukeboxArt/Frame";
 import { Starfield } from "../Starfield";
 import { animateJourney, GROW_MS, REDUCED_MS } from "./animate-journey";
@@ -107,9 +106,10 @@ export function JukeboxJourney() {
       reduced={reduceMotion}
       onEnd={() => {
         setFrom(null);
-        // Only if nobody has moved it: a key pressed on a link mid-journey must still land there.
+        // Only if focus was lost: keyboard users are already on the map (its keys work at once), and a key pressed on a
+        // link mid-journey must still land there.
         const active = document.activeElement;
-        if (!active || active === document.body || active.id === MAP_REGION_ID) document.querySelector<HTMLElement>("[data-page-title]")?.focus({ preventScroll: true });
+        if (!active || active === document.body) document.querySelector<HTMLElement>("[data-page-title]")?.focus({ preventScroll: true });
       }}
     />
   );

@@ -19,7 +19,7 @@ import { useLiveData } from "../../LiveData/use-live-data";
 import { PAGE_PATHS } from "@/router/modes";
 import { Tile } from "./Tile";
 
-const FOOT_LINK = "key inline-flex h-11 items-center gap-2 rounded-lg bg-paper px-4 text-body font-normal text-moon hover:bg-paper";
+const FOOT_LINK = "key border-navy inline-flex h-11 items-center gap-2 rounded-lg bg-paper px-4 text-body font-normal text-moon hover:bg-paper";
 
 /**
  * How we know, the back of the sleeve: four checks as a numbered track list (ocean, rain, the sound rules, ground

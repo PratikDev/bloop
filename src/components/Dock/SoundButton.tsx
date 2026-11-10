@@ -18,7 +18,7 @@ export function SoundButton() {
   const label = t(!state.soundOn ? "sound.turnOn" : state.playing ? "sound.pause" : "sound.play");
   const Icon = !state.soundOn ? SpeakerHigh : state.playing ? Pause : Play;
   return (
-    <Button onClick={commands.togglePlaying} aria-label={label} className="key size-16 shrink-0 rounded-full bg-shapla text-moon hover:bg-shapla [&_svg]:size-7">
+    <Button onClick={commands.togglePlaying} aria-label={label} className="key border-navy size-16 shrink-0 rounded-full bg-shapla text-moon hover:bg-shapla [&_svg]:size-7">
       <Icon aria-hidden="true" weight="fill" />
     </Button>
   );

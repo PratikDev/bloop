@@ -46,7 +46,7 @@ export function RecordStrip({
       aria-label={[`${record.code}, ${title}`, subtitle, shownLength].filter(Boolean).join(". ")}
       onClick={onClick}
       {...(braille ? brailleLabel(braille) : {})}
-      className="key h-auto min-h-14 w-full justify-start gap-3 rounded-lg bg-paper px-2 py-1.5 text-left font-normal whitespace-normal text-moon hover:bg-paper aria-pressed:border-[3.5px] aria-pressed:bg-paper"
+      className="key border-navy h-auto min-h-14 w-full justify-start gap-3 rounded-lg bg-paper px-2 py-1.5 text-left font-normal whitespace-normal text-moon hover:bg-paper aria-pressed:border-[3.5px] aria-pressed:bg-paper"
     >
       <CodeChip code={record.code} chosen={chosen} />
       <span className="min-w-0 flex-1">

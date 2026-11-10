@@ -20,7 +20,7 @@ export function TuningDial({ className }: { className?: string }) {
               <Link
                 to={item.to}
                 aria-current={active ? "page" : undefined}
-                className={cn("key flex h-11 items-center rounded-full px-4 text-body whitespace-nowrap", active ? "bg-moon text-ink" : "bg-paper text-moon")}
+                className={cn("key border-navy flex h-11 items-center rounded-full px-4 text-body whitespace-nowrap", active ? "bg-moon text-ink" : "bg-paper text-moon")}
               >
                 <span className="hidden sm:inline">{t(item.label)}</span>
                 <span className="sm:hidden">{t(item.short)}</span>

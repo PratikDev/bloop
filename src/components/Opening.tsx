@@ -129,7 +129,7 @@ export function Opening() {
             <Button
               autoFocus
               onClick={skip}
-              className="group h-12 gap-2 key rounded-full bg-moon px-6 text-body text-ink hover:bg-moon"
+              className="group h-12 gap-2 key border-navy rounded-full bg-moon px-6 text-body text-ink hover:bg-moon"
             >
               {t("start.skipIntro")}
               <ArrowRight aria-hidden="true" className="size-4 transition-transform duration-200 group-hover:translate-x-0.5" />

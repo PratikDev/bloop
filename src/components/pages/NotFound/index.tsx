@@ -17,7 +17,7 @@ export function NotFoundPage() {
           {t("notFound.title")}
         </h1>
         <p className="text-lead text-haze">{t("notFound.text")}</p>
-        <Link to={PAGE_PATHS.listen} className="inline-flex h-12 items-center gap-3 key rounded-full bg-moon px-5 text-body text-ink">
+        <Link to={PAGE_PATHS.listen} className="inline-flex h-12 items-center gap-3 key border-navy rounded-full bg-moon px-5 text-body text-ink">
           {t("notFound.back")}
           <ArrowRight aria-hidden="true" className="size-4" />
         </Link>

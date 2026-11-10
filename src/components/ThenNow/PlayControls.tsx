@@ -13,7 +13,7 @@ export function PlayPartButton({ part, player }: { part: Part; player: Player })
   const { state } = useAppState();
   const t = useT();
   return (
-    <Button disabled={!state.soundOn} onClick={() => player.playPart(part)} className="key h-11 gap-2 rounded-lg bg-shapla px-4 text-body text-moon hover:bg-shapla">
+    <Button disabled={!state.soundOn} onClick={() => player.playPart(part)} className="key border-navy h-11 gap-2 rounded-lg bg-shapla px-4 text-body text-moon hover:bg-shapla">
       <Play aria-hidden="true" weight="fill" />
       {t("thenNow.play")}
     </Button>

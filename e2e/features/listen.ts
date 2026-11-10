@@ -135,7 +135,7 @@ export const LISTEN: Feature[] = [
       await expect.poll(() => live(page)).not.toBe(a);
       return { evidence: `live region after C: "${(await live(page)).replace(/\s+/gu, " ").slice(0, 100)}"` };
     } },
-  { id: "braille", group: "a11y", name: "Braille data explorer", where: "Listen · key B or the dock's Braille explorer", keyboard: true,
+  { id: "braille", group: "a11y", name: "Braille data explorer", where: "Listen · key B or More · Braille explorer", keyboard: true,
     what: "Feel the data as braille cells; the caret is the needle", control: (page) => dock(page).getByRole("button", { name: "More", exact: true }),
     async run(page) {
       await onMap(page); await page.keyboard.press("b");

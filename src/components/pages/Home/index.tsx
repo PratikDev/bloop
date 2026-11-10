@@ -45,7 +45,7 @@ export function HomePage() {
         {state.started ? (
           <div className="space-y-4">
             <div className="flex flex-wrap items-center gap-3">
-              <Link to={PAGE_PATHS.listen} onClick={armJourney} className="inline-flex h-13 items-center gap-3 key rounded-full bg-shapla pr-5 pl-6 text-lead text-moon">
+              <Link to={PAGE_PATHS.listen} onClick={armJourney} className="inline-flex h-13 items-center gap-3 key border-navy rounded-full bg-shapla pr-5 pl-6 text-lead text-moon">
                 {t("home.continue")}
                 <ArrowRight aria-hidden="true" className="size-4" />
               </Link>

@@ -1,7 +1,7 @@
 // Feature checks on the Turntable page: the globe, its needle, search, tour, view, the four 3D scenes, its drawers.
 import { expect } from "@playwright/test";
 import { navTo } from "../lib/app";
-import { name, openMore, openScene, tab, turntable, type Feature } from "./common";
+import { dock, name, openMore, openPlayerMore, openScene, tab, turntable, type Feature } from "./common";
 
 export const TURNTABLE: Feature[] = [
   { id: "turntable", group: "visuals", name: "Turntable Earth (3D globe, needle reads the point beneath it)", where: "Turntable tab", keyboard: false,
@@ -102,20 +102,22 @@ export const TURNTABLE: Feature[] = [
       await expect(p).toContainText(/Chattogram|Dhaka/u, { timeout: 30_000 });
       return { evidence: (await p.innerText()).replace(/\s+/gu, " ").slice(0, 120) };
     } },
-  { id: "credits", group: "jukebox", name: "Credits", where: "Turntable · Credits", keyboard: false,
-    what: "Names every NASA visualization and dataset used", control: (page) => page.getByRole("button", { name: "Credits", exact: true }),
+  { id: "credits", group: "jukebox", name: "Credits", where: "Turntable · More · Credits", keyboard: false,
+    what: "Names every NASA visualization and dataset used", control: (page) => page.getByRole("group", { name: "Turntable controls" }).getByRole("button", { name: "More", exact: true }),
     async run(page) {
       await turntable(page);
+      await openMore(page);
       await page.getByRole("button", { name: "Credits", exact: true }).click();
       await expect(page.getByText(/SVS/u).first()).toBeVisible();
       return { evidence: "Credits opens with the SVS credits" };
     } },
-  { id: "history-panel", group: "data", name: "History: a place's Month by month record", where: "Then vs Now · Month by month", keyboard: false,
+  { id: "history-panel", group: "data", name: "History: a place's Month by month record", where: "Then vs Now · More · Month by month", keyboard: false,
     what: "A place's monthly heat, rain or water record, a decade at a time (main's Month by month)",
-    control: (page) => page.getByRole("group", { name: "View" }).getByRole("button", { name: "Month by month" }),
+    control: (page) => dock(page).getByRole("button", { name: "More", exact: true }),
     async run(page) {
       await navTo(page, "Then vs Now");
-      await page.getByRole("group", { name: "View" }).getByRole("button", { name: "Month by month" }).click();
+      await openPlayerMore(page);
+      await page.getByRole("button", { name: "Month by month" }).click();
       const p = page.getByRole("main");
       await expect(p).toBeVisible({ timeout: 30_000 });
       await expect(p).toContainText(/Chattogram|Dhaka/u, { timeout: 30_000 });

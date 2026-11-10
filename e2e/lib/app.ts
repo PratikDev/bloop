@@ -90,15 +90,24 @@ export async function open(page: Page) {
 export const officialStrip = (page: Page, title: string) =>
   page.getByRole("button", { name: new RegExp(`^C\\d+, ${title.replace(/[.*+?^${}()|[\]\\]/gu, "\\$&")}$`, "u") });
 
+/** An official record's braille explorer button: in its Details drawer, on the Controls tab. */
+export async function officialBrailleButton(page: Page, name: string | RegExp = /Braille explorer/u) {
+  const drawer = page.getByRole("dialog", { name: "Details" });
+  if (!(await drawer.count())) await page.getByRole("button", { name: "Details", exact: true }).click();
+  await drawer.getByRole("tab", { name: "Controls" }).click();
+  return drawer.getByRole("button", { name });
+}
+
 /** The header's pages (main's router): a click on the dial's link, as a user moves between pages (the app's state stays). */
 export type PageName = "Listen" | "Then vs Now" | "How we know" | "Official records" | "Turntable";
 
 export async function navTo(page: Page, name: PageName) {
   // Official records isn't in the header: it is one link away from How we know.
+  // By address, so it works in either language.
   if (name === "Official records") {
-    await navTo(page, "How we know");
-    await page.getByRole("main").locator("summary", { hasText: "Credits" }).click();
-    await page.getByRole("main").getByRole("link", { name: "All official records" }).click();
+    await page.getByRole("banner").locator('a[href="/how"]').first().click();
+    await page.getByRole("main").locator("summary").first().click();
+    await page.getByRole("main").locator('a[href="/official"]').first().click();
     await page.waitForURL(/official/u);
     return;
   }

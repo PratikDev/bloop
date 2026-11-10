@@ -134,7 +134,7 @@ export function MonthByMonth({
           />
         )}
         {decade !== undefined && (
-          <Button disabled={!state.soundOn} onClick={play} className="h-11 w-full justify-start gap-2 key rounded-full bg-shapla px-4 text-body text-moon hover:bg-shapla">
+          <Button disabled={!state.soundOn} onClick={play} className="h-11 w-full justify-start gap-2 key border-navy rounded-full bg-shapla px-4 text-body text-moon hover:bg-shapla">
             <Play aria-hidden="true" weight="fill" />
             {t("history.play", { decade })}
           </Button>

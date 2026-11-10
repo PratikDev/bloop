@@ -98,7 +98,7 @@ export function GoToMenu() {
               </StatusBadge>
             )}
           </div>
-          <Button type="submit" className="h-11 w-full gap-2 key rounded-full bg-shapla text-body text-moon hover:bg-shapla pointer-fine:h-9">
+          <Button type="submit" className="h-11 w-full gap-2 key border-navy rounded-full bg-shapla text-body text-moon hover:bg-shapla pointer-fine:h-9">
             <MapPin aria-hidden="true" weight="fill" />
             {t("goto.submit")}
           </Button>

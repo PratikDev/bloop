@@ -106,7 +106,7 @@ function Player({ record, related }: { record: string; related: ReactNode }) {
           {place}: {readingText(t, state.lang, first?.reading ?? null, map?.layer)}
         </p>
         <PlayRecordButton rec={rec} />
-        <InfoSheet title={t("official.details")} triggerClassName="key h-11 rounded-lg bg-paper px-4 text-body font-normal text-moon hover:bg-paper" trigger={t("official.details")}>
+        <InfoSheet title={t("official.details")} triggerClassName="key border-navy h-11 rounded-lg bg-paper px-4 text-body font-normal text-moon hover:bg-paper" trigger={t("official.details")}>
           <Tabs defaultValue="source" className="gap-4">
             <TabsList variant="line" aria-label={t("official.details")} className="w-full justify-start">
               <TabsTrigger value="source">{t("official.tab.source")}</TabsTrigger>

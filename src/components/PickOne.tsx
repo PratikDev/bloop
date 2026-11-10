@@ -13,7 +13,7 @@ export function PickOne<T extends string>({ label, value, options, onChange }: {
         if (chosen) onChange(chosen.value);
       }}
     >
-      <SelectTrigger aria-label={label} className="key h-11! rounded-lg bg-paper px-3 text-body text-moon">
+      <SelectTrigger aria-label={label} className="key border-navy h-11! rounded-lg bg-paper px-3 text-body text-moon">
         <SelectValue />
       </SelectTrigger>
       <SelectContent>

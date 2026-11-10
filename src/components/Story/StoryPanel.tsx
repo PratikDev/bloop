@@ -95,7 +95,7 @@ export function StoryPanel({ className }: { className?: string }) {
       </div>
       <div className="flex flex-wrap gap-2">
         {story.status === "finished" && (
-          <Button onClick={story.replay} className="h-11 gap-2 key rounded-full bg-moon px-4 text-body text-ink hover:bg-moon">
+          <Button onClick={story.replay} className="h-11 gap-2 key border-navy rounded-full bg-moon px-4 text-body text-ink hover:bg-moon">
             <ArrowCounterClockwise aria-hidden="true" className="size-4" />
             {t("story.replay")}
           </Button>

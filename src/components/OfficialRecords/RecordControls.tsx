@@ -20,7 +20,7 @@ export function PlayRecordButton({ rec }: { rec: OfficialRecordState }) {
     rec.setPlaying(!rec.playing);
   }
   return (
-    <Button data-needs-sound onClick={toggle} disabled={!rec.ready} className="key h-11 min-w-24 rounded-lg bg-shapla text-body text-moon hover:bg-shapla" {...brailleLabel(t(rec.playing ? "braille.bl.pause" : "braille.bl.play"))}>
+    <Button data-needs-sound onClick={toggle} disabled={!rec.ready} className="key border-navy h-11 min-w-24 rounded-lg bg-shapla text-body text-moon hover:bg-shapla" {...brailleLabel(t(rec.playing ? "braille.bl.pause" : "braille.bl.play"))}>
       {t(rec.playing ? "official.pause" : "official.play")}
     </Button>
   );

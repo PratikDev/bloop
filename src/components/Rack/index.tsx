@@ -84,7 +84,7 @@ export function Rack({ className, onPicked }: { className?: string; onPicked?: (
                 ))}
                 {group === "C" && (
                   <li>
-                    <Link to={PAGE_PATHS.official} onClick={onPicked} className="key flex min-h-11 items-center rounded-lg bg-paper px-3 text-body text-moon">
+                    <Link to={PAGE_PATHS.official} onClick={onPicked} className="key border-navy flex min-h-11 items-center rounded-lg bg-paper px-3 text-body text-moon">
                       {t("records.allOfficial")}
                     </Link>
                   </li>

@@ -5,7 +5,7 @@
 import { expect, test, type Page } from "@playwright/test";
 import { mkdirSync, writeFileSync } from "node:fs";
 import { join } from "node:path";
-import { navTo, officialStrip, open } from "./lib/app";
+import { navTo, officialBrailleButton, officialStrip, open } from "./lib/app";
 
 const CONTINUES = "⣿";
 const OFFICIAL = [
@@ -117,12 +117,13 @@ test("protocol a–g, browser side; lines saved for liblouis", async ({ page, br
     const card = officialStrip(page, o.title);
     await card.click();
     if (i === 0) out.recordCard = await exposed(page, `[aria-braillelabel][aria-pressed="true"]`);
-    const open = page.getByRole("button", { name: "Braille explorer" }).last();
+    const open = await officialBrailleButton(page, "Braille explorer");
     await expect(open).toBeEnabled({ timeout: 60_000 });
     await open.click();
     await expect(page.getByTestId("braille-value")).toHaveValue(/\S/u);
     official[o.record] = await lines(page);
     await page.getByRole("button", { name: "Close braille explorer" }).click();
+    await page.keyboard.press("Escape"); // closes the Details drawer, so the next record can be picked
   }
   out.official = official;
 
@@ -153,12 +154,13 @@ test("বাংলা mode: the same records' lines saved for the Bengali-table 
   const official: Record<string, unknown> = {};
   for (const o of OFFICIAL) {
     await officialStrip(page, o.title).first().click();
-    const open = page.getByRole("button", { name: /Braille explorer/u }).last();
+    const open = await officialBrailleButton(page);
     await expect(open).toBeEnabled({ timeout: 60_000 });
     await open.click();
     await expect(page.getByTestId("braille-value")).toHaveValue(/\S/u);
     official[o.record] = await lines(page);
     await page.getByRole("button", { name: /Close braille explorer/u }).click();
+    await page.keyboard.press("Escape"); // closes the Details drawer, so the next record can be picked
   }
   out.official = official;
   out.map = { snapshot: (await page.locator("body").ariaSnapshot()).split("\n")[0] };

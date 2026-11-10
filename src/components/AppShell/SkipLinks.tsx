@@ -4,7 +4,7 @@ import { useAppState, useT } from "../AppState/use-app-state";
 import { PLAYER_ID } from "../Dock";
 import { MAP_REGION_ID } from "../ExploreControls";
 
-const SKIP = "fixed top-2 left-2 z-(--layer-start) -translate-y-20 key rounded-lg bg-shapla px-4 py-2 text-body text-moon focus-visible:translate-y-0";
+const SKIP = "fixed top-2 left-2 z-(--layer-start) -translate-y-20 key border-navy rounded-lg bg-shapla px-4 py-2 text-body text-moon focus-visible:translate-y-0";
 
 /** The first keys on the page: to the map and the player on Listen; to the content and the player elsewhere. */
 export function SkipLinks({ contentId }: { contentId: string }) {
