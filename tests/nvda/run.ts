@@ -51,7 +51,11 @@ function writeConfig() {
   );
 }
 
-function press(...keys: string[]) {
+/** The page keys go to: brought to the front before each key (Windows lets Playwright do it when keys.ps1 can't). */
+let front: Page | null = null;
+
+async function press(...keys: string[]) {
+  await front?.bringToFront();
   execFileSync("powershell", ["-NoProfile", "-ExecutionPolicy", "Bypass", "-File", KEYS, "-Keys", keys.join(","), "-Owner", BROWSERS], { stdio: "inherit" });
 }
 
@@ -106,6 +110,7 @@ async function runBrowser(name: "chromium" | "firefox", checks: Check[]) {
       : await firefox.launch({ headless: false, firefoxUserPrefs: FIREFOX_PREFS });
   const context = await browser.newContext({ viewport: null, baseURL: URL });
   const page = await context.newPage();
+  front = page;
   const add = (id: string, pass: boolean, detail: string, spoken: string[]) => checks.push({ browser: name, id, pass, detail, spoken });
   try {
     await page.goto("/");
@@ -116,12 +121,12 @@ async function runBrowser(name: "chromium" | "firefox", checks: Check[]) {
     await page.getByRole("button", { name: "Start listening" }).focus();
     await sleep(800);
     mark();
-    press("Enter");
+    await press("Enter");
     const skipIntro = page.getByRole("button", { name: "Skip intro" });
     if (await skipIntro.waitFor({ state: "visible", timeout: 6000 }).then(() => true, () => false)) {
       await skipIntro.focus();
       await sleep(500);
-      press("Enter");
+      await press("Enter");
     }
     await page.getByTestId("tuning").waitFor({ timeout: 15000 });
     await sleep(3000);
@@ -130,9 +135,9 @@ async function runBrowser(name: "chromium" | "firefox", checks: Check[]) {
     await page.getByRole("button", { name: "Skip tuning" }).focus();
     await sleep(600);
     mark();
-    press("Enter");
+    await press("Enter");
     await sleep(1500);
-    press("F5");
+    await press("F5");
     await sleep(6000);
     const a2 = spokenSinceMark();
     const panelGone = (await page.getByTestId("tuning").count()) === 0;
@@ -148,7 +153,7 @@ async function runBrowser(name: "chromium" | "firefox", checks: Check[]) {
     const tap = page.getByRole("button", { name: "Tap to start sound" });
     if (await tap.isVisible().catch(() => false)) {
       await tap.focus();
-      press("Enter");
+      await press("Enter");
       await sleep(1500);
     }
     await page.locator("#sound-map").focus();
@@ -156,7 +161,7 @@ async function runBrowser(name: "chromium" | "firefox", checks: Check[]) {
     await logLiveRegion(page);
     mark();
     for (let i = 0; i < 3; i++) {
-      press("Right");
+      await press("Right");
       await sleep(2000);
     }
     const b = spokenSinceMark();
@@ -169,7 +174,7 @@ async function runBrowser(name: "chromium" | "firefox", checks: Check[]) {
     // C. D speaks the description (once).
     await logLiveRegion(page);
     mark();
-    press("d");
+    await press("d");
     await sleep(4000);
     const c = spokenSinceMark();
     const desc = (await liveLog(page)).at(-1) ?? "";

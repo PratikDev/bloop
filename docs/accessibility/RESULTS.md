@@ -96,28 +96,39 @@ Unit tests (`bun test`): 458/458.
 
 Run on 10 Nov 2026: portable NVDA 2026.3, a throw-away config (synth "silence", speech logged), the production build
 (shipped flags: low vision and timed text on, Ask Bloop off), Chromium and Firefox driven with real OS keys
-(`node --experimental-strip-types tests/nvda/run.ts`).
+(`node --experimental-strip-types tests/nvda/run.ts`). Two runs counted: the first found a bug, the second checked the
+fix.
 
-| Check | Chromium | Firefox |
+| Check | First run, Chromium / Firefox | After the fix, Chromium / Firefox |
 |---|---|---|
-| A1 Track 0 is spoken when it opens ("Track 0: Tuning, heading level 2", then its instructions) | pass | pass |
-| A2 Skip is remembered: after a reload the panel is gone and Track 0 isn't spoken | pass | pass |
-| B Each map step is spoken exactly once, 3D hidden | **fail** | **fail** |
-| C D speaks the description once | pass | pass |
+| A1 Track 0 is spoken when it opens ("Track 0: Tuning, heading level 2", then its instructions) | pass / pass | pass / pass |
+| A2 Skip is remembered: after a reload the panel is gone and Track 0 isn't spoken | pass / pass | pass / pass |
+| B Each map step is spoken exactly once, 3D hidden | **fail / fail** | pass / pass |
+| C D speaks the description once | pass / pass | pass / pass |
 
-**B: each step is spoken twice.** The status region's text is spoken once ("30.3 °C; Dry. 21.5° N, 90.8° E"), but
-NVDA first reads the map's own name, which changes with every step because it carries the reading ("Both. 30.3 °C;
-Dry at 21.5° N, 90.8° E."). NVDA speaks a name change on the focused item, so all three steps were heard twice in both
-browsers. The first version of check B counted only the status region's exact words and passed; it now also counts
-every utterance naming the step's place (1 expected, 2 found). The cause is in the app (`ExploreControls`: the map's
-`aria-label` is the live reading); not fixed yet, as the fix trades against the braille line (the label is what a
-braille display shows on the map, and NVDA ignores `aria-braillelabel`).
+**B, first run: each step was spoken twice.** The status region's text was spoken once ("30.3 °C; Dry. 21.5° N,
+90.8° E"), but NVDA first read the map's own name, which changed with every step because it carried the reading
+("Both. 30.3 °C; Dry at 21.5° N, 90.8° E."): NVDA speaks a name change on the focused item. The first version of
+check B counted only the status region's exact words, so it passed; it now also counts every utterance naming the
+step's place (1 expected; 2 were found, all three steps, both browsers).
 
-Problems in the method, found and fixed before the run counted: Bun can't launch a headed browser on Windows (the
+**The fix** (`ExploreControls/use-held-name.ts`): the map's name is the reading as the map is reached and holds still
+while it has focus; the status region says each step once (in Bloop's voice mode too, which the changing name also
+doubled). Tab away and back reads it afresh; `data-reading` carries the live reading for the browser checks. The
+trade-off: on a braille display each step's message shows for a moment and the name from arrival comes back (NVDA
+ignores `aria-braillelabel`); the Braille explorer (B) is the line that stays. After the fix, NVDA said each step once
+in both browsers: "30.3 °C; Dry. 21.5° N, 90.8° E", "30.4 °C; Dry. 21.5° N, 91.8° E", "No ocean data here; Dry.
+21.5° N, 92.8° E". Browser checks with the fix (Ask Bloop on): the affected suites 214/214, then the full a11y +
+features + health + braille + Ask Bloop run 468/468 (Chromium + Firefox), with a new map-keys check that the name holds
+still while stepping and follows again off the map.
+
+Problems in the method, found and fixed before a run counted: Bun can't launch a headed browser on Windows (the
 script runs under Node); `keys.ps1` built a 32-byte `INPUT` where 64-bit Windows needs 40, so Windows refused every
 key without an error (it now exits with an error if a key is refused, releases every key it pressed, and splits
-`a,Right` lists); and it now sends a key only while the test browser is in front (else it brings it forward, or stops
-with nothing sent), so no key can reach another program.
+`a,Right` lists). Keys go only to the test browser: before each one, Playwright brings it to the front and `keys.ps1`
+checks the foreground window, handing the foreground over itself if needed (no key is sent for that); if the browser
+still isn't in front, it stops with nothing sent. Runs stopped this way when VS Code took the front as the first
+browser closed, and when the Grammarly app opened a dialog (quit it before a run).
 
 ## Not tested
 

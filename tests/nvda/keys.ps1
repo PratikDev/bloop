@@ -17,6 +17,21 @@ public static class Kb {
   [DllImport("user32.dll")] static extern IntPtr GetForegroundWindow();
   [DllImport("user32.dll")] static extern uint GetWindowThreadProcessId(IntPtr h, out uint procId);
   public static int ForegroundProcess() { uint id; GetWindowThreadProcessId(GetForegroundWindow(), out id); return (int)id; }
+  [DllImport("user32.dll")] static extern bool SetForegroundWindow(IntPtr h);
+  [DllImport("user32.dll")] static extern bool BringWindowToTop(IntPtr h);
+  [DllImport("user32.dll")] static extern bool AttachThreadInput(uint from, uint to, bool attach);
+  [DllImport("kernel32.dll")] static extern uint GetCurrentThreadId();
+  // Windows lets only the foreground thread hand the foreground over: join its input queue for the hand-over (no key
+  // is sent, so nothing reaches the program that had it).
+  public static void Activate(IntPtr h) {
+    uint id;
+    uint fg = GetWindowThreadProcessId(GetForegroundWindow(), out id);
+    uint me = GetCurrentThreadId();
+    bool joined = fg != me && AttachThreadInput(me, fg, true);
+    BringWindowToTop(h);
+    SetForegroundWindow(h);
+    if (joined) AttachThreadInput(me, fg, false);
+  }
   const uint KEYUP = 2, EXTENDED = 1;
   static bool Ext(ushort vk) { return vk == 0x25 || vk == 0x26 || vk == 0x27 || vk == 0x28 || vk == 0x21 || vk == 0x22 || vk == 0x24 || vk == 0x23 || vk == 0x2D || vk == 0x2E; }
   // The union is as large as MOUSEINPUT (32 bytes on x64, so INPUT is 40); a wrong size makes SendInput drop every key
@@ -49,8 +64,7 @@ function EnsureForeground {
   if (OwnsForeground) { return }
   $w = Get-Process | Where-Object { $_.Path -and $_.Path.StartsWith($Owner, [StringComparison]::OrdinalIgnoreCase) -and $_.MainWindowHandle -ne 0 } | Select-Object -First 1
   if ($w) {
-    $shell = New-Object -ComObject WScript.Shell
-    for ($i = 0; $i -lt 5 -and -not (OwnsForeground); $i++) { [void]$shell.AppActivate($w.Id); Start-Sleep -Milliseconds 400 }
+    for ($i = 0; $i -lt 5 -and -not (OwnsForeground); $i++) { [Kb]::Activate($w.MainWindowHandle); Start-Sleep -Milliseconds 400 }
   }
   if (-not (OwnsForeground)) { [Console]::Error.WriteLine("keys.ps1: the test browser is not in front; no key sent"); exit 2 }
 }
