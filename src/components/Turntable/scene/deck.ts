@@ -1,6 +1,8 @@
-// The turntable around the globe, cel-shaded: a flat coral plinth with a navy
+// The turntable beside the globe, cel-shaded: a flat coral plinth with a navy
 // outline and a hard offset shadow, a navy platter and record with drawn
 // grooves, a paper label, and a paper-and-navy tonearm with a coral stylus.
+// The record is the Earth as grooves: radius is latitude (outer edge 90° N,
+// inner edge 90° S), angle is longitude; the arm sits on the latitude's groove.
 
 import {
   BackSide,
@@ -33,13 +35,15 @@ import type { Palette } from "@/lib/css-tokens";
 import { grooveTexture } from "./deck-textures";
 import { asOccluder } from "./layers";
 
-const BASE = { size: new Vector3(4.6, 0.24, 3.8), center: new Vector3(0.35, -1.42, 0.1), bevel: 0.06 };
+const BASE = { size: new Vector3(3.9, 0.24, 3.8), center: new Vector3(0.2, -1.42, 0.1), bevel: 0.06 };
 const TOP = { thickness: 0.05, bevel: 0.022 };
 const PLATTER = { radius: 1.6, height: 0.06, y: -1.2 };
 const RECORD = { radius: 1.5, height: 0.012, y: -1.164, labelRadius: 0.48 };
 const SPINDLE = { radius: 0.03, bottom: -1.16, top: -1.09 };
-const ROD_RADIUS = 0.012;
-const PIVOT = new Vector3(2.15, 0.12, 0.95);
+/** The arm's pivot: back right, a little above the record. */
+const PIVOT = new Vector3(1.75, -0.86, -0.95);
+/** The pivot to the stylus tip, in plan: it reaches every groove from the label's edge to the rim. */
+const ARM_REACH = 2.0;
 const ARM_RADIUS = 0.026;
 /** The head sits well above the surface and the needle runs down to it, so the swatch at the contact point stays in view. */
 const HEADSHELL_OFFSET = 0.24;
@@ -52,16 +56,45 @@ const OUTLINE = { body: 0.022, arm: 0.011 };
 const SHADOW_OFFSET = 0.2;
 /** The arm's flat shadow: just above the record, so it lies on the deck and the record alike. */
 const ARM_SHADOW = { width: 0.05, y: RECORD.y + 0.02, offset: 0.09 };
-/** Where the stylus rests while a record is changed (beside the globe). */
-export const ARM_REST = new Vector3(1.55, -0.55, 1.35);
+/** The record's surface, its grooves' span (radius for 90° S and 90° N) and where the stylus rests off the record. */
+export const RECORD_TOP = RECORD.y + RECORD.height / 2;
+export const GROOVES = { inner: RECORD.labelRadius + 0.06, outer: RECORD.radius - 0.05 } as const;
+export const ARM_REST = new Vector3(1.9, RECORD_TOP + 0.12, 1.0);
+
+/** The groove's radius for a latitude: outer edge 90° N, inner edge 90° S. */
+export const grooveRadius = (lat: number) => GROOVES.inner + ((lat + 90) / 180) * (GROOVES.outer - GROOVES.inner);
+
+/**
+ * Where the stylus tip touches the record for a latitude, in the deck's frame: the point on that groove the arm reaches
+ * from its pivot (the one on the record's right, nearer the pivot).
+ */
+export function grooveTip(lat: number): Vector3 {
+  const r = grooveRadius(lat);
+  const px = PIVOT.x;
+  const pz = PIVOT.z;
+  const d = Math.hypot(px, pz);
+  const a = (r * r - ARM_REACH * ARM_REACH + d * d) / (2 * d);
+  const h = Math.sqrt(Math.max(0, r * r - a * a));
+  const bx = (a * px) / d;
+  const bz = (a * pz) / d;
+  const one = { x: bx - (h * pz) / d, z: bz + (h * px) / d };
+  const two = { x: bx + (h * pz) / d, z: bz - (h * px) / d };
+  const p = one.x > two.x ? one : two;
+  return new Vector3(p.x, RECORD_TOP, p.z);
+}
+
+/** The angle on the record at the tip (radians, x = sin, z = cos, as lib/sphere's longitude). */
+export const tipAngle = (lat: number) => {
+  const t = grooveTip(lat);
+  return Math.atan2(t.x, t.z);
+};
 
 const UP = new Vector3(0, 1, 0);
 
 export interface Deck {
   group: Group;
-  /** Spins with the sound. */
   platter: Group;
-  /** The record on the platter (lifted during a record change). */
+  /** The record on the platter: turns with the Earth (lifted during a record change). */
   record: Group;
   /** The tonearm and stylus. */
   arm: Group;
@@ -150,10 +183,7 @@ export function createDeck(palette: Palette): Deck {
   span(spindle, new Vector3(0, SPINDLE.bottom, 0), new Vector3(0, SPINDLE.top, 0));
   const spindleCap = mesh(new SphereGeometry(SPINDLE.radius, 16, 8), materials.paper);
   spindleCap.position.y = SPINDLE.top;
-  // The globe floats a few centimetres above the spindle, on a thin rod.
-  const rod = mesh(new CylinderGeometry(ROD_RADIUS, ROD_RADIUS, 1, 16), materials.paper);
-  span(rod, new Vector3(0, SPINDLE.top, 0), new Vector3(0, -0.995, 0));
-  platter.add(platterBody, record, spindle, spindleCap, rod);
+  platter.add(platterBody, record, spindle, spindleCap);
 
   const arm = new Group();
   const armBase = mesh(new CylinderGeometry(0.22, 0.25, 0.08, 48), materials.navy);
@@ -175,7 +205,7 @@ export function createDeck(palette: Palette): Deck {
     new TubeGeometry(
       new CatmullRomCurve3([
         PIVOT.clone().add(new Vector3(0.06, -0.02, 0.05)),
-        new Vector3(PIVOT.x + 0.12, PIVOT.y - 0.5, PIVOT.z + 0.1),
+        new Vector3(PIVOT.x + 0.12, (PIVOT.y + plinthTop) / 2, PIVOT.z + 0.1),
         new Vector3(PIVOT.x + 0.1, plinthTop + 0.01, PIVOT.z + 0.26),
       ]),
       32,

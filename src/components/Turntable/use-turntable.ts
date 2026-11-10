@@ -12,7 +12,7 @@ import { createControl } from "./control";
 import { createFlight, type Flight } from "./flight";
 import { createNeedleDrop, type DropKind } from "./needle-drop";
 import type { SentReading } from "./needle-sound";
-import { recordLabelCanvas, type RecordLabel } from "./record-label";
+import type { RecordLabel } from "./record-label";
 import type { LayerToggles } from "./settings";
 import { DISTANCE, type CameraMode, type ScreenPoint, type TurntableScene } from "./scene";
 import { useGlobeTexture, type GlobeTexture } from "./use-globe-texture";
@@ -69,6 +69,18 @@ export interface FrameInfo {
   project(lat: number, lon: number): ScreenPoint;
   /** The frame's pixel under the needle (null: land, dry or no data). */
   swatch?: [number, number, number] | null;
+  /** The needle as the turntable beside the globe shows it (DeckView). */
+  pose?: DeckPose;
+}
+
+/** The needle on the record: its place, the arm's lift and park (0..1), the record's lift in a change, and the sound. */
+export interface DeckPose extends LatLon {
+  lift: number;
+  park: number;
+  recordLift: number;
+  spinning: boolean;
+  /** Reduced motion: no easing. */
+  instant: boolean;
 }
 
 export interface Turntable {
@@ -125,6 +137,7 @@ export function useTurntable(o: Options): Turntable {
   const pose = useRef<LatLon>(startPose);
   const reading = useRef<LatLon>(startPose);
   const motion = useRef({ lift: 0, park: 0 });
+  const recordLift = useRef(0);
   /** Where a pick is swinging from and to. */
   const swing = useRef<{ from: LatLon; to: LatLon } | null>(null);
   /** Where the arrow keys are gliding to, and how fast the glide is going. */
@@ -158,13 +171,6 @@ export function useTurntable(o: Options): Turntable {
     setScene(s);
   }, []);
 
-  /** Draws the current record's label onto the record (async: waits for the fonts). */
-  const labelRecord = useCallback((s: TurntableScene) => {
-    const text = live.current.label;
-    void recordLabelCanvas(text).then((canvas) => {
-      if (sceneRef.current === s && live.current.label === text) s.deck.setLabel(canvas);
-    });
-  }, []);
 
   const touched = () => {
     inputAt.current = performance.now();
@@ -173,7 +179,7 @@ export function useTurntable(o: Options): Turntable {
   const applyPose = useCallback(() => {
     const scene = sceneRef.current;
     if (!scene) return;
-    scene.setPose(pose.current.lat, pose.current.lon, motion.current.lift, motion.current.park);
+    scene.setPose(pose.current.lat, pose.current.lon);
     // Stored as read: the reducer leaves these numbers unchanged, so the
     // readout, speech and sound all look up the same grid cell.
     reading.current = scene.readNeedle();
@@ -306,9 +312,8 @@ export function useTurntable(o: Options): Turntable {
         motion.current = { lift: d.lift, park: d.park };
         const path = swing.current;
         if (path) pose.current = { lat: path.from.lat + (path.to.lat - path.from.lat) * d.swing, lon: wrapLon(path.from.lon + wrapLon(path.to.lon - path.from.lon) * d.swing) };
-        scene.setRecordLift(d.recordLift);
+        recordLift.current = d.recordLift;
         moved = true;
-        if (d.swap) labelRecord(scene);
         if (d.landed && o.liveOn && !o.allMuted) audio.playNeedleDrop();
         if (d.done) {
           if (path) {
@@ -323,7 +328,7 @@ export function useTurntable(o: Options): Turntable {
       }
       if (moved) applyPose();
       scene.effects.setMotion(!o.reduceMotion);
-      particlesSpawned.current += scene.update(dt, { instant: o.reduceMotion, layers: o.layers, spinning: o.liveOn && !o.allMuted && !holding.current });
+      particlesSpawned.current += scene.update(dt, { instant: o.reduceMotion, layers: o.layers });
       scene.render();
 
       const view = scene.viewCenter();
@@ -339,6 +344,7 @@ export function useTurntable(o: Options): Turntable {
           viewLon,
           project: scene.project,
           swatch: scene.effects.swatchColor(),
+          pose: { ...pose.current, ...motion.current, recordLift: recordLift.current, spinning: o.liveOn && !o.allMuted && !holding.current, instant: o.reduceMotion },
         };
         for (const fn of subscribers.current) fn(info);
       }
@@ -386,7 +392,7 @@ export function useTurntable(o: Options): Turntable {
       flight.current = null;
       if (unsynced.current) syncCursor(); // the flat map opens where the needle was
     };
-  }, [hostRef, scene, paused, applyPose, syncCursor, startDrop, labelRecord]);
+  }, [hostRef, scene, paused, applyPose, syncCursor, startDrop]);
 
   useSceneAssets(scene, o.scene);
 
@@ -394,11 +400,6 @@ export function useTurntable(o: Options): Turntable {
   useEffect(() => {
     if (hostSize) size.current = { width: hostSize.width, height: hostSize.height };
   }, [hostSize]);
-
-  // The record label shows the current record (not mid-change: the swap redraws it).
-  useEffect(() => {
-    if (scene && !drop.current.running()) labelRecord(scene);
-  }, [scene, labelRecord, o.label.title, o.label.subtitle]);
 
   // Every record change is a record-change animation, wherever it was chosen.
   const trackWas = useRef(o.track);

@@ -123,8 +123,8 @@ export const TURNTABLE: Feature[] = [
       await expect(p).toContainText(/Chattogram|Dhaka/u, { timeout: 30_000 });
       return { evidence: (await p.innerText()).replace(/\s+/gu, " ").slice(0, 120) };
     } },
-  { id: "turntable-pointer-zoom", group: "visuals", name: "The pointer stays on the globe at every zoom", where: "Turntable · + / − and browser zoom", keyboard: true,
-    what: "The tonearm, stylus and swatch stay drawn, in front of the camera and on screen, the stylus on the swatch, zooming in to the closest and back out, and at 200% browser zoom",
+  { id: "turntable-pointer-zoom", group: "visuals", name: "The pointer stays drawn at every zoom (the swatch on the globe, the stylus on the record)", where: "Turntable · + / − and browser zoom", keyboard: true,
+    what: "The swatch on the globe and the tonearm's stylus on the turntable stay drawn, in front of their cameras and on screen, zooming in to the closest and back out, and at 200% browser zoom",
     async run(page) {
       await turntable(page);
       await page.goto(`${new URL(page.url()).pathname}?debug=1`);
@@ -139,10 +139,10 @@ export const TURNTABLE: Feature[] = [
       const check = async (step: string) => {
         await page.waitForTimeout(900); // the zoom eases in about 0.2 s; the arm follows on the next frames
         const p = await pointerState(page);
-        const bad = (["arm", "swatch"] as const).flatMap((part) => (["visible", "inFront", "onScreen"] as const).filter((k) => !p[part][k]).map((k) => `${part} not ${k}`));
-        // The stylus tip stands on the swatch: the needle meets the point it reads.
-        const apart = Math.hypot(p.arm.x - p.swatch.x, p.arm.y - p.swatch.y);
-        if (apart > 3) bad.push(`stylus ${apart.toFixed(1)} px off the swatch`);
+        const bad = (["arm", "swatch"] as const).flatMap((part) => {
+          const state = p[part];
+          return state ? (["visible", "inFront", "onScreen"] as const).filter((k) => !state[k]).map((k) => `${part} not ${k}`) : [`no ${part}`];
+        });
         if (bad.length) throw new Error(`${step}: ${bad.join(", ")} (distance ${p.distance.toFixed(2)})`);
         steps.push(`${step} ${p.distance.toFixed(2)}`);
       };
@@ -171,7 +171,7 @@ export const TURNTABLE: Feature[] = [
 ];
 
 interface PointerPart { visible: boolean; inFront: boolean; onScreen: boolean; x: number; y: number }
-interface TurntableDebug { pointer(): { arm: PointerPart; swatch: PointerPart } | null; distance(): number }
+interface TurntableDebug { pointer(): { arm: PointerPart | null; swatch: PointerPart } | null; distance(): number }
 
 /** The pointer as the scene draws it now, from the Turntable's debug hook (src/components/Turntable/debug.ts). */
 async function pointerState(page: Page) {

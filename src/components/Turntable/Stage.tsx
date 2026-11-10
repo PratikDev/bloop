@@ -3,6 +3,7 @@
 import dynamic from "next/dynamic";
 import { useEffect, useId, useRef, type KeyboardEvent, type RefObject } from "react";
 import { cn } from "@/lib/utils";
+import { DeckViewCanvas } from "./DeckView";
 import { useTT } from "./i18n";
 import type { LabelCandidate } from "./labels";
 import { LabelLayer, type GraticuleLabel, type PlacedLabels, type Rect } from "./LabelLayer";
@@ -80,6 +81,10 @@ export function Stage({ tt, hostRef, geo, record, tier, place, labels, graticule
       </p>
       <div ref={hostRef} {...pointer} className="absolute inset-0 touch-none select-none">
         <TurntableCanvas dataCanvas={tt.texture.canvas} tier={tier} label={tr("turntable.canvas", { record })} onReady={tt.onSceneReady} />
+      </div>
+      {/* The turntable beside the globe (under it on narrow screens): placed by use-occluder-fit. Not a panel. */}
+      <div data-deck-host className="absolute top-0 left-0 transition-transform duration-(--duration-flip) ease-(--ease-mechanical) motion-reduce:transition-none">
+        <DeckViewCanvas subscribe={tt.subscribe} />
       </div>
       {labels && <LabelLayer subscribe={tt.subscribe} candidates={labels} graticule={graticule} reserved={reserved} placedRef={debug?.placed} />}
       <NeedleChip subscribe={tt.subscribe} place={place} details={details} reserved={reserved} dock={chipDock} />

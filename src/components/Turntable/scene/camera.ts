@@ -12,11 +12,12 @@ export type CameraMode = "jukebox" | "explore";
 
 /** Camera distance from the globe centre in Explore mode, in globe radii. */
 export const DISTANCE = { min: 1.12, max: 5.2, explore: 4.2 } as const;
-const JUKEBOX = { position: new Vector3(1.35, 1.55, 6.7), target: new Vector3(0.35, -0.38, 0) };
-const WIDE = { position: new Vector3(4.2, 3.4, 13.5), target: new Vector3(0.35, -0.5, 0) };
+// The Earth alone in space (the turntable is its own view beside it): a little above the equator, straight on.
+const JUKEBOX = { position: new Vector3(0, 0.9, 6.7), target: new Vector3(0, 0, 0) };
+const WIDE = { position: new Vector3(1.6, 3.0, 13.5), target: new Vector3(0, 0, 0) };
 const INTRO_SEC = 2.6;
-/** The Jukebox camera comes no closer than this, however much room there is: the deck and the arm's pivot stay in the picture. */
-const MIN_JUKEBOX_DISTANCE = 6.2;
+/** The Jukebox camera comes no closer than this, however much room there is: the whole globe stays a globe in space. */
+const MIN_JUKEBOX_DISTANCE = 3.2;
 const BLEND_SEC = 0.9;
 const ZOOM_TIME_CONSTANT_SEC = 0.18;
 const FIT_TIME_CONSTANT_SEC = 0.18;

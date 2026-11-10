@@ -23,29 +23,19 @@ import {
 import type { Palette } from "@/lib/css-tokens";
 import type { LatLon } from "@/lib/data";
 import { latLonToSphere, sphereHitToLatLon } from "@/lib/sphere";
-import { createSpin, stepSpin } from "@/lib/spin";
 import type { GlobeFit } from "../fit";
 import type { LayerToggles } from "../settings";
-import { createCameraRig, DISTANCE, type CameraRig } from "./camera";
-import { ARM_REST, createDeck, type Deck } from "./deck";
+import { createCameraRig, type CameraRig } from "./camera";
 import { createEarth, EARTH_RADIUS, type Earth } from "./earth";
 import { createEffects, type Effects } from "./effects";
 import { createOverlays, type Overlays } from "./overlays";
-import { asOccluder } from "./layers";
 import { createPost } from "./post";
 import { createStudio, type Studio } from "./studio";
 
 /** Where the needle sits, as an azimuth on the unturned globe (front right, so the camera sees it). */
-export const NEEDLE_AZIMUTH_DEG = 35;
+export const NEEDLE_AZIMUTH_DEG = 0;
 const MAX_ANISOTROPY = 8;
 const RAD = Math.PI / 180;
-/**
- * The camera's distance from the needle's tip at which the tonearm is drawn at its size on the deck (the Explore view's
- * starting distance). Closer than this it shrinks about the tip, so up close it keeps its size on screen and still
- * touches the globe, instead of filling the view or passing behind the camera.
- */
-const ARM_FULL_SIZE_REACH = DISTANCE.explore - EARTH_RADIUS;
-const RECORD_LIFT = 0.7;
 /** Camera height above the surface in the Jukebox view (globe radii), the reference for effect sizes. */
 const JUKEBOX_HEIGHT = 4.2;
 /** three's light units: at pi a surface facing the light shows its exact colour. */
@@ -73,11 +63,10 @@ export interface TurntableScene {
   earth: Earth;
   overlays: Overlays;
   effects: Effects;
-  deck: Deck;
   studio: Studio;
   rig: CameraRig;
-  /** Turns the globe so `lon` is under the needle, needle on `lat`, lifted by `lift`, parked by `park` (0..1). */
-  setPose(lat: number, lon: number, lift: number, park: number): void;
+  /** Turns the globe so `lon` is under the needle (the point facing the camera), needle on `lat`. */
+  setPose(lat: number, lon: number): void;
   /** What the needle reads: the globe point under its tip, back through sphereHitToLatLon. */
   readNeedle(): LatLon;
   /** The globe point under a canvas position (normalised device coordinates), or null off the globe. */
@@ -89,7 +78,6 @@ export interface TurntableScene {
   projectNeedle(): ScreenPoint;
   /** The globe point straight below the camera (the centre of what's in view). */
   viewCenter(): LatLon;
-  setRecordLift(t: number): void;
   /** Sun direction in the globe's frame (null = always day): the land's two light steps. */
   setSun(dir: Vector3 | null): void;
   /** Where the globe's disc should sit (the free space between the panels). */
@@ -97,11 +85,11 @@ export interface TurntableScene {
   /** Points on the globe's outline as seen now, in CSS pixels (debug and verification). */
   discOutline(): { x: number; y: number }[];
   /** The pointer as drawn now: the stylus tip and the contact swatch (debug and the zoom regression test). */
-  pointer(): { arm: PointerPart; swatch: PointerPart; blend: number };
+  pointer(): { swatch: PointerPart; blend: number };
   /** Size in CSS pixels (R3F sizes the canvas; this keeps projection and the post chain in step). */
   resize(width: number, height: number): void;
   /** Advance camera and effects by dt seconds; returns the number of particles spawned. */
-  update(dt: number, opts: { instant: boolean; layers: LayerToggles; spinning: boolean }): number;
+  update(dt: number, opts: { instant: boolean; layers: LayerToggles }): number;
   /** Renders one frame: R3F's advance, which runs `draw` and drei's helpers. */
   render(): void;
   /** Draws one frame through the post chain (called from R3F's frame, see TurntableCanvas). */
@@ -131,16 +119,13 @@ export function createTurntableScene(host: SceneHost, dataCanvas: HTMLCanvasElem
   const anisotropy = Math.min(MAX_ANISOTROPY, renderer.capabilities.getMaxAnisotropy());
   const earth = createEarth(palette, dataCanvas, anisotropy);
   const overlays = createOverlays(palette);
-  const deck = createDeck(palette);
   const effects = createEffects(palette);
   const studio = createStudio(palette, { exact: true });
   studio.setStars(1);
   const globe = new Group();
   globe.add(earth.surface, overlays.group);
   const root = new Group();
-  root.add(key, studio.group, globe, effects.group, deck.group);
-  // The exact sky is drawn in the overlay pass: the deck has to hold it back there, as the globe does.
-  asOccluder(deck.group);
+  root.add(key, studio.group, globe, effects.group);
   scene.add(root);
 
   const post = createPost(renderer, scene, camera);
@@ -148,13 +133,11 @@ export function createTurntableScene(host: SceneHost, dataCanvas: HTMLCanvasElem
   const globeSphere = new Sphere(new Vector3(), EARTH_RADIUS);
   const raycaster = new Raycaster();
   const needleNormal = new Vector3(0, 0, 1);
-  const tip = new Vector3();
   const local = new Vector3();
   const world = new Vector3();
   const toCamera = new Vector3();
   let width = 1;
   let height = 1;
-  const platterSpin = createSpin();
 
   const toScreen = (p: Vector3, normal: Vector3): ScreenPoint => {
     toCamera.copy(camera.position).sub(p).normalize();
@@ -167,18 +150,15 @@ export function createTurntableScene(host: SceneHost, dataCanvas: HTMLCanvasElem
     earth,
     overlays,
     effects,
-    deck,
     studio,
     rig,
-    setPose(lat, lon, lift, park) {
+    setPose(lat, lon) {
       const spin = (NEEDLE_AZIMUTH_DEG - lon) * RAD;
       globe.rotation.y = spin;
       globe.updateMatrixWorld();
       const n = latLonToSphere(lat, NEEDLE_AZIMUTH_DEG);
       needleNormal.set(n.x, n.y, n.z);
-      tip.copy(needleNormal).multiplyScalar(EARTH_RADIUS + lift);
-      if (park > 0) tip.lerp(ARM_REST, park).addScaledVector(new Vector3(0, 1, 0), Math.sin(park * Math.PI) * 0.25);
-      deck.setArm(tip, needleNormal);
+      // The arm is on the turntable beside the globe (DeckView); here the needle's point is the swatch and its latitude line.
       effects.setGroove(lat);
       effects.setNeedle(needleNormal.clone().multiplyScalar(EARTH_RADIUS), needleNormal);
     },
@@ -206,10 +186,6 @@ export function createTurntableScene(host: SceneHost, dataCanvas: HTMLCanvasElem
     viewCenter() {
       return sphereHitToLatLon(globe.worldToLocal(camera.position.clone()));
     },
-    setRecordLift(t) {
-      deck.record.position.y = t * RECORD_LIFT;
-      deck.record.rotation.z = t * 0.25;
-    },
     setSun(dir) {
       earth.setSun(dir);
     },
@@ -228,7 +204,7 @@ export function createTurntableScene(host: SceneHost, dataCanvas: HTMLCanvasElem
           y: ((1 - ndc.y) / 2) * height,
         };
       };
-      return { arm: part(deck.arm, tip), swatch: part(effects.swatch, effects.swatch.getWorldPosition(new Vector3())), blend: rig.blend() };
+      return { swatch: part(effects.swatch, effects.swatch.getWorldPosition(new Vector3())), blend: rig.blend() };
     },
     discOutline() {
       const d = camera.position.length();
@@ -248,15 +224,10 @@ export function createTurntableScene(host: SceneHost, dataCanvas: HTMLCanvasElem
       height = h;
       post.setSize(w, h);
     },
-    update(dt, { instant, layers, spinning }) {
-      if (!instant) {
-        stepSpin(platterSpin, spinning, dt);
-        deck.platter.rotation.y = -platterSpin.angle;
-      }
+    update(dt, { instant, layers }) {
       rig.update(dt, needleNormal, instant);
       const blend = rig.blend();
       overlays.setVisibility({ distance: blend > 0.5 ? rig.distance() : Infinity, ...layers });
-      deck.setArmScale(Math.min(1, camera.position.distanceTo(tip) / ARM_FULL_SIZE_REACH), tip);
       // The camera's height above the surface, relative to the Jukebox view: effects keep their screen size.
       const zoom = Math.min(1, Math.max(0.03, (camera.position.length() - EARTH_RADIUS) / JUKEBOX_HEIGHT));
       world.copy(needleNormal).multiplyScalar(EARTH_RADIUS);
@@ -275,7 +246,6 @@ export function createTurntableScene(host: SceneHost, dataCanvas: HTMLCanvasElem
       earth.dispose();
       overlays.dispose();
       effects.dispose();
-      deck.dispose();
       studio.dispose();
     },
   };
