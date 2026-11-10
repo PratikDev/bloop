@@ -9,3 +9,5 @@
 - Home: Pause key adds no height | 12014a5 | 2026-11-10 01:09 | next: Home globe mount when Session A reports the new window
 - items 24, 25, 19, 30, 31, 32: Then vs Now globe in the side column (charts at size), Turntable scrolls on narrow screens, key outlines and chosen tab 3:1, atmosphere removed, docs | c63274f | 2026-11-10 15:45 | next: item 28 check after Session A's Home merge
 - B1–B5 audit (MEDIA and text tokens, Phosphor, forced colours, Bangla drafts, 200–400% zoom with the Turntable stage growing to fit a 200 px globe); item 28 Home globe at baseline everywhere; item 16 stage follows its container (194 px at 1440, 200 needs A's 15rem column); stripes as tints with a 10 px band; compact corner Pause key; time-lapse globe mounted again | 86ba211 | 2026-11-10 20:38 | next: item 16 recheck after Session A's column, then B done
+- Bangla for the Turntable credits, needle-drop caption, Ghost Earths honesty line and tunnel credit (review first) | e1e44be | 2026-11-10 20:48 | next: none
+- **B done**: every Session B item merged (item 16 accepted at 194 px at 1440×900, per Pratik) | final commit e1e44be | 2026-11-10 20:48 | next: Session A's phase 8
