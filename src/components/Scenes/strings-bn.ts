@@ -111,6 +111,9 @@ export const scenesBnDraft: { [K in keyof Table]?: Table[K] } = {
 
   "scenes.tunnel.sleeve": "ঢাকা সময়-সুড়ঙ্গ",
   "scenes.tunnel.title": "ঢাকা সময়-সুড়ঙ্গ",
+  // REVIEW FIRST (Pratik, 2026-11-10): the honesty line in full; the credit keeps the person's name as in English.
+  "scenes.ghost.honesty": "তাপ: শুধু GISTEMP-এর স্থলভাগের ঘর। GRACE-এর রেজোলিউশন প্রায় ৩°। মাসিক রেকর্ড, বহু বছরের সময়সীমা।",
+  "scenes.tunnel.credit": "প্রতি বছরের জন্য একটি সুরের উচ্চতার ধারণা, Daniel Crawford (২০১৩)-এর অনুসরণে।",
   "scenes.tunnel.how": "স্পেস বছরগুলোর মধ্য দিয়ে ওড়ায়; [ ও ] গতি বদলায়; বাম ও ডান এক বছর সরায়; ১ ও ২ দুটি সময়কালে যায়। Enter বছরটি বলে।",
   "scenes.tunnel.canvas": "বছরপ্রতি একটি করে বলয়ের সুড়ঙ্গ। প্রতিটি বলয়ের রং সেই বছরের এপ্রিল–মে তাপের অস্বাভাবিকতা; বারোটি পুঁতি মাসগুলোর বৃষ্টি।",
   "scenes.tunnel.year": "বছর",

@@ -99,6 +99,13 @@ export const turntableBnDraft: { [K in TurntableKey]?: Table[K] } = {
   "turntable.layers.rivers": "নদী",
   "turntable.layers.sound": "শব্দ মিশ্রণ",
   "turntable.creditsLink": "কৃতজ্ঞতা",
+  // REVIEW FIRST (Pratik, 2026-11-10): labels and joining words only; names, organisations and dataset titles stay as in English.
+  "turntable.credits":
+    "ত্রিমাত্রিক দৃশ্য: NASA Earth Observatory, Blue Marble Next Generation, September (Reto Stöckli) · " +
+    "ভূসংস্থান: NASA Earth Observatory (Jesse Allen), British Oceanographic Data Centre-এর GEBCO ডেটা · " +
+    "স্টুডিওর আলো: Poly Haven studio_small_09 (CC0) · " +
+    "সীমানা, স্থান, নদী, সমুদ্র: Natural Earth (পাবলিক ডোমেইন) · জেলা: geoBoundaries (CC BY 3.0 IGO; উৎস BBS, OCHA ROAP) · " +
+    "ডেটা ফ্রেম: NASA Earth Information Center-এর জন্য NASA SVS 5101 / 4285",
   "turntable.intro.skip": "এড়িয়ে যেতে যেকোনো কী চাপুন",
   "turntable.quality": "ছবির মান",
   "turntable.quality.auto": "স্বয়ংক্রিয়",

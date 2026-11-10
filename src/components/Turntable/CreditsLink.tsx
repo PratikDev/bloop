@@ -8,7 +8,7 @@ import { Credits } from "../Credits";
 import { ProductCredits } from "../ProductCredits";
 import { useTT } from "./i18n";
 
-/** The full list (assets, licences, data) in a dialog. Attribution stays English. Opened from More or a drawer. */
+/** The full list (assets, licences, data) in a dialog: names stay as in English, the labels follow the language. Opened from More or a drawer. */
 export function CreditsDialog({ open, onOpenChange }: { open: boolean; onOpenChange: (open: boolean) => void }) {
   const t = useT();
   const { tt } = useTT();
@@ -16,7 +16,7 @@ export function CreditsDialog({ open, onOpenChange }: { open: boolean; onOpenCha
     <Dialog open={open} onOpenChange={onOpenChange}>
       <DialogContent className="tt-warm on-space max-w-lg rounded-sheet text-body">
         <DialogTitle className="font-wide text-title text-moon">{tt("turntable.creditsLink")}</DialogTitle>
-        <DialogDescription lang="en" className="text-body text-moon">
+        <DialogDescription className="text-body text-moon">
           {tt("turntable.credits")}
         </DialogDescription>
         <Credits t={t} className="text-body" />
