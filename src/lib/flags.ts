@@ -65,5 +65,8 @@ export const FLAGS = {
   /** C: the "Same chord, whatever the colours" card on How we know (T2's outputs). */
   // Passing: src/lib/cv/same-chord.test.ts, e2e/cv/same-chord-card.e2e.ts.
   cvCard: flag(process.env.NEXT_PUBLIC_CV_CARD, false),
+  /** E: the two chord tasks in /listen-test (variety, one group or two). */
+  // Passing: src/lib/listen-test/chord/chord-tasks.test.ts, e2e/cv/listen-test-chord.e2e.ts, e2e/mentor/item08.
+  cvListenTest: flag(process.env.NEXT_PUBLIC_CV_LISTEN_TEST, false),
   // <<< CV
 } as const;

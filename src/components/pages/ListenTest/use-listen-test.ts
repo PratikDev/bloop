@@ -12,6 +12,9 @@ import { buildTasks, referenceC, type OptionId, type SoundPlan, type Task, type 
 import { useAppState } from "../../AppState/use-app-state";
 import { useCommands } from "../../Commands/use-commands";
 import { useLiveData } from "../../LiveData/use-live-data";
+// >>> CV
+import { FLAGS } from "@/lib/flags";
+// <<< CV
 import { playPlan, playScale } from "./play";
 
 export type Step =
@@ -40,9 +43,13 @@ export function useListenTest() {
   const commands = useCommands();
   const { rain, rainStatus } = useLiveData();
   const inputs = useLoaded(loadInputs);
+  // >>> CV: the chord tasks read today's SST grid; which box the groups task plays is drawn once per session.
+  const { sst } = useLiveData();
+  const [cvPick] = useState<0 | 1>(() => (Math.random() < 0.5 ? 0 : 1));
+  // <<< CV
   const tasks: Task[] | null = useMemo(
-    () => (inputs.value && rain ? buildTasks({ ...inputs.value, rainAt: (lat, lon) => rainAt(rain, lat, lon) }) : null),
-    [inputs.value, rain],
+    () => (inputs.value && rain ? buildTasks({ ...inputs.value, rainAt: (lat, lon) => rainAt(rain, lat, lon), /* >>> CV */ sst: FLAGS.cvListenTest ? sst : null, cvPick /* <<< CV */ }) : null),
+    [inputs.value, rain, /* >>> CV */ sst, cvPick /* <<< CV */],
   );
   const [step, setStep] = useState<Step>({ kind: "consent" });
   const [comment, setComment] = useState("");

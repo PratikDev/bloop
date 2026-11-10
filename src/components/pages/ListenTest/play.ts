@@ -3,6 +3,9 @@
 import { audio } from "@/lib/audio-jukebox";
 import type { PlayerHandle } from "@/lib/audio-jukebox/types";
 import type { SoundPlan } from "@/lib/listen-test/tasks";
+// >>> CV
+import { playCvPlan } from "@/lib/listen-test/chord/play";
+// <<< CV
 
 /** Two handles one after the other, as one handle (stopping it stops whichever is playing). */
 function chain(first: PlayerHandle, next: () => PlayerHandle): PlayerHandle {
@@ -32,6 +35,11 @@ export function playPlan(plan: SoundPlan): PlayerHandle {
       return audio.playSweep(plan.steps, { stepMs: plan.stepMs });
     case "decades":
       return audio.playCompare({ label: plan.labels[0], values: plan.first, voice: "heat" }, { label: plan.labels[1], values: plan.second, voice: "heat" }, "sequential");
+    // >>> CV
+    case "views":
+    case "chord":
+      return playCvPlan(plan, chain);
+    // <<< CV
   }
 }
 

@@ -32,6 +32,17 @@ If the answer is no, choose **No**. The test ends politely and nothing is kept. 
    - which of two duets (frame vs NASA's file) disagrees more;
    - in Both mode, whether rain plays with the ocean tone;
    - which of two decades of Dhaka's April–May heat is hotter.
+<!-- >>> CV -->
+   - **chord, variety** (CV/ML build): two ocean views (named boxes), each played as its low, middle and high
+     temperature (its 10th, 50th and 90th percentile); which view has more variety? The answer is the box with the wider
+     10th–90th percentile spread in today's SST frame, computed by the panel's own function.
+   - **chord, groups** (CV/ML build): one ocean view played as the value chord for 4 seconds; one group or two? The box
+     is today's one-group or two-group box, drawn once per session; the answer is the chord's own group count.
+
+   With these two the session is seven tasks and still takes under 8 minutes (each adds about 30 seconds). Don't
+   explain "variety" beyond "how different the temperatures in the view are from each other"; "group" is "a cluster of
+   similar temperatures".
+<!-- <<< CV -->
 4. **Comment (optional):** ask *"Anything you'd like to tell us about the sounds?"* They type it, or you type their words. Don't type names.
 5. **Finish**, then **Export results** (see below).
 
