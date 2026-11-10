@@ -66,7 +66,8 @@ export interface TurntableScene {
   studio: Studio;
   rig: CameraRig;
   /** Turns the globe so `lon` is under the needle (the point facing the camera), needle on `lat`. */
-  setPose(lat: number, lon: number): void;
+  /** `yaw`: how far the view is turned away from the needle by a drag (degrees); the needle's point turns with the globe. */
+  setPose(lat: number, lon: number, yaw?: number): void;
   /** What the needle reads: the globe point under its tip, back through sphereHitToLatLon. */
   readNeedle(): LatLon;
   /** The globe point under a canvas position (normalised device coordinates), or null off the globe. */
@@ -133,6 +134,7 @@ export function createTurntableScene(host: SceneHost, dataCanvas: HTMLCanvasElem
   const globeSphere = new Sphere(new Vector3(), EARTH_RADIUS);
   const raycaster = new Raycaster();
   const needleNormal = new Vector3(0, 0, 1);
+  const viewNormal = new Vector3(0, 0, 1);
   const local = new Vector3();
   const world = new Vector3();
   const toCamera = new Vector3();
@@ -152,12 +154,15 @@ export function createTurntableScene(host: SceneHost, dataCanvas: HTMLCanvasElem
     effects,
     studio,
     rig,
-    setPose(lat, lon) {
-      const spin = (NEEDLE_AZIMUTH_DEG - lon) * RAD;
+    setPose(lat, lon, yaw = 0) {
+      const spin = (NEEDLE_AZIMUTH_DEG - lon + yaw) * RAD;
       globe.rotation.y = spin;
       globe.updateMatrixWorld();
-      const n = latLonToSphere(lat, NEEDLE_AZIMUTH_DEG);
+      // The needle's point turns with the globe when the view is looked around; the close-up camera keeps facing the front.
+      const n = latLonToSphere(lat, NEEDLE_AZIMUTH_DEG + yaw);
       needleNormal.set(n.x, n.y, n.z);
+      const v = latLonToSphere(lat, NEEDLE_AZIMUTH_DEG);
+      viewNormal.set(v.x, v.y, v.z);
       // The arm is on the turntable beside the globe (DeckView); here the needle's point is the swatch and its latitude line.
       effects.setGroove(lat);
       effects.setNeedle(needleNormal.clone().multiplyScalar(EARTH_RADIUS), needleNormal);
@@ -225,7 +230,7 @@ export function createTurntableScene(host: SceneHost, dataCanvas: HTMLCanvasElem
       post.setSize(w, h);
     },
     update(dt, { instant, layers }) {
-      rig.update(dt, needleNormal, instant);
+      rig.update(dt, viewNormal, instant);
       const blend = rig.blend();
       overlays.setVisibility({ distance: blend > 0.5 ? rig.distance() : Infinity, ...layers });
       // The camera's height above the surface, relative to the Jukebox view: effects keep their screen size.

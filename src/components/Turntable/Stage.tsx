@@ -3,7 +3,9 @@
 import dynamic from "next/dynamic";
 import { useEffect, useId, useRef, type KeyboardEvent, type RefObject } from "react";
 import { cn } from "@/lib/utils";
+import type { LatLon } from "@/lib/data";
 import { DeckViewCanvas } from "./DeckView";
+import { PreviewMarker } from "./PreviewMarker";
 import { useTT } from "./i18n";
 import type { LabelCandidate } from "./labels";
 import { LabelLayer, type GraticuleLabel, type PlacedLabels, type Rect } from "./LabelLayer";
@@ -31,6 +33,8 @@ export interface StageProps {
   record: string;
   tier: Tier | null;
   place: string | null;
+  /** The point previewed under the pointer, and its place line (null: none). */
+  preview: { at: LatLon; place: string | null } | null;
   /** null = names hidden (Layers). */
   labels: LabelCandidate[] | null;
   graticule: GraticuleLabel[] | null;
@@ -45,7 +49,7 @@ export interface StageProps {
 }
 
 /** The globe and everything drawn over it; the focusable region for the Turntable keys. */
-export function Stage({ tt, hostRef, geo, record, tier, place, labels, graticule, details, intro, ready, chipDock, onKeyDown, debug, className }: StageProps) {
+export function Stage({ tt, hostRef, geo, record, tier, place, preview, labels, graticule, details, intro, ready, chipDock, onKeyDown, debug, className }: StageProps) {
   const { tt: tr } = useTT();
   const pointer = useGlobePointer(tt);
   const instructionsId = useId();
@@ -84,10 +88,11 @@ export function Stage({ tt, hostRef, geo, record, tier, place, labels, graticule
       </div>
       {/* The turntable beside the globe (under it on narrow screens): placed by use-occluder-fit. Not a panel. */}
       <div data-deck-host className="absolute top-0 left-0 transition-transform duration-(--duration-flip) ease-(--ease-mechanical) motion-reduce:transition-none">
-        <DeckViewCanvas subscribe={tt.subscribe} />
+        <DeckViewCanvas tt={tt} />
       </div>
       {labels && <LabelLayer subscribe={tt.subscribe} candidates={labels} graticule={graticule} reserved={reserved} placedRef={debug?.placed} />}
-      <NeedleChip subscribe={tt.subscribe} place={place} details={details} reserved={reserved} dock={chipDock} />
+      <NeedleChip subscribe={tt.subscribe} place={place} preview={preview} details={details} reserved={reserved} dock={chipDock} />
+      <PreviewMarker subscribe={tt.subscribe} at={preview?.at ?? null} />
       {intro !== "done" && <div aria-hidden="true" className={cn("pointer-events-none absolute inset-0 bg-tt-black", intro === "running" && "animate-intro-fade")} />}
       {!ready && (
         <div aria-hidden="true" className="pointer-events-none absolute inset-0 grid place-items-center">

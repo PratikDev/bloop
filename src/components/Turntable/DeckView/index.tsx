@@ -7,6 +7,7 @@ import { useFrameImages } from "../../FrameView/use-frame-images";
 import { useLiveData } from "../../LiveData/use-live-data";
 import type { Turntable } from "../use-turntable";
 import { createDeckView, type DeckView } from "./deck-view";
+import { useRecordPointer } from "./use-record-pointer";
 import { drawBloopLabel } from "./record-texture";
 
 /** The mounted deck view and its canvas, for the debug hook (debug.ts). */
@@ -19,7 +20,8 @@ const MAX_DPR = 2;
  * The turntable beside the globe: its own canvas, drawn on the globe's frame (the Turntable's frame loop, paused when
  * hidden). Decorative: the needle's place and value are in the readout and the hidden description.
  */
-export function DeckViewCanvas({ subscribe }: { subscribe: Turntable["subscribe"] }) {
+export function DeckViewCanvas({ tt }: { tt: Turntable }) {
+  const { subscribe } = tt;
   const canvasRef = useRef<HTMLCanvasElement>(null);
   const [view, setView] = useState<DeckView | null>(null);
   const { state } = useAppState();
@@ -59,5 +61,6 @@ export function DeckViewCanvas({ subscribe }: { subscribe: Turntable["subscribe"
       deckProbe.canvas = null;
     };
   }, [subscribe]);
-  return <canvas ref={canvasRef} aria-hidden="true" className="block size-full" />;
+  useRecordPointer(canvasRef, view, tt);
+  return <canvas ref={canvasRef} aria-hidden="true" className="block size-full touch-none" />;
 }

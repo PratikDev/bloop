@@ -138,6 +138,8 @@ export function Turntable() {
     );
   }, [settings.graticule, lang]);
   const place = geo ? placeText(tr, lang, geo.gazetteer.whereAmI(state.cursor)).line : null;
+  // A point under the mouse on the globe, or under a drag on the record: shown in the readout as a preview (silent).
+  const preview = tt.preview && { at: tt.preview, place: geo ? placeText(tr, lang, geo.gazetteer.whereAmI(tt.preview)).line : null };
 
   // The idle hint: after 30 s without input on the turntable.
   const [idle, setIdle] = useState(false);
@@ -175,7 +177,7 @@ export function Turntable() {
   const legendShown = needleMoving || details.open;
 
   return (
-    <section ref={sectionRef} data-space data-tt-stage lang={rootLang} className="tt-warm relative min-h-[32rem] min-w-0 overflow-hidden bg-tt-black">
+    <section ref={sectionRef} data-space data-tt-stage data-tt-preview={preview ? "" : undefined} lang={rootLang} className="tt-warm relative min-h-[32rem] min-w-0 overflow-hidden bg-tt-black">
       <div inert={sceneOpen !== null} className="contents">
         <Stage
           tt={tt}
@@ -184,6 +186,7 @@ export function Turntable() {
           record={record}
           tier={settings.quality}
           place={place}
+          preview={preview}
           labels={settings.labels ? labels : null}
           graticule={graticule}
           details={details}

@@ -153,6 +153,8 @@ export const turntableEn = {
   "turntable.graticule.equator": "Equator",
   "turntable.graticule.cancer": "Tropic of Cancer",
   "turntable.graticule.capricorn": "Tropic of Capricorn",
+  // A point under the mouse (or a drag on the record), shown in the readout before it is selected.
+  "turntable.preview": "Preview",
   "turntable.lat": (p: { lat: number }) => `${formatDegrees(p.lat, "en")}° ${p.lat >= 0 ? "N" : "S"}`,
   "turntable.lon": (p: { lon: number }) => `${formatDegrees(p.lon, "en")}° ${p.lon >= 0 ? "E" : "W"}`,
 

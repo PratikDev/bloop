@@ -1,6 +1,6 @@
 "use client";
 
-import { useCallback, useEffect, useRef, useState, type Dispatch, type RefObject } from "react";
+import { type Dispatch, type RefObject, useCallback, useEffect, useRef, useState } from "react";
 import { Vector2 } from "three";
 import { audio } from "@/lib/audio-jukebox";
 import type { TrackMode } from "@/lib/audio-jukebox/types";
@@ -10,7 +10,9 @@ import type { AppAction } from "../AppState/reducer";
 import { useCanvasSize } from "../FrameView/use-canvas-size";
 import { createControl } from "./control";
 import { createFlight, type Flight } from "./flight";
-import { createNeedleDrop, type DropKind } from "./needle-drop";
+import { cubicBezier } from "motion";
+import { EASE_MECHANICAL } from "@/lib/motion";
+import { createNeedleDrop, LIFT_HEIGHT, type DropKind } from "./needle-drop";
 import type { SentReading } from "./needle-sound";
 import type { RecordLabel } from "./record-label";
 import type { LayerToggles } from "./settings";
@@ -21,6 +23,11 @@ import { useSceneAssets, type SceneSettings } from "./use-scene-assets";
 export const NEEDLE_MAX_LAT = 80;
 /** Rotation speeds (× one turn a minute); design choices, not data. */
 export const SPEEDS = [0.25, 0.5, 1, 2, 4] as const;
+/** A looked-around view turns back to the needle in this long when the needle moves (the motion tokens' scene length). */
+const VIEW_RETURN_MS = 600;
+/** The preview follows the pointer in steps this small (degrees): finer than the data's grid, coarser than every mouse move. */
+const PREVIEW_STEP_DEG = 0.05;
+const mechanicalEase = cubicBezier(...EASE_MECHANICAL);
 const DEFAULT_SPEED_INDEX = 2;
 const DEG_PER_SEC = 6;
 const MAX_FRAME_SEC = 0.1; // after a stall, don't jump the globe
@@ -98,6 +105,13 @@ export interface Turntable {
   resetFraming(): void;
   turnTo(at: LatLon): void;
   pickAt(clientX: number, clientY: number): LatLon | null;
+  /** Looks around: turns the globe by `deg` without moving the needle or what's playing. Any needle move turns it back. */
+  look(deg: number): void;
+  /** The point being previewed (the globe under the mouse, or the record under a drag), or null. Silent. */
+  preview: LatLon | null;
+  setPreview(at: LatLon | null): void;
+  /** Lifts the needle off the record and silences it (a drag on the record), or lets it down again. */
+  hold(on: boolean): void;
   /** Eased flight that brings `at` under the needle; resolves on arrival (or at once if cancelled). */
   flyTo(at: LatLon, zoom: ZoomLevel): Promise<boolean>;
   /** Stops a flight; true if one was running. */
@@ -142,6 +156,15 @@ export function useTurntable(o: Options): Turntable {
   const swing = useRef<{ from: LatLon; to: LatLon } | null>(null);
   /** Where the arrow keys are gliding to, and how fast the glide is going. */
   const glide = useRef<{ lat: number; lon: number; vLat: number; vLon: number } | null>(null);
+  /** The view turned away from the needle by a drag (degrees), and its ease back when the needle moves. */
+  const yaw = useRef({ deg: 0, from: 0, startedAt: -1 });
+  const [preview, setPreviewState] = useState<LatLon | null>(null);
+  const setPreview = useCallback((at: LatLon | null) => {
+    setPreviewState((was) => {
+      if (!at || !was) return at;
+      return Math.abs(at.lat - was.lat) < PREVIEW_STEP_DEG && Math.abs(wrapLon(at.lon - was.lon)) < PREVIEW_STEP_DEG ? was : at;
+    });
+  }, []);
   const drop = useRef(createNeedleDrop());
   const dropDone = useRef<(() => void) | null>(null);
   const holding = useRef(false);
@@ -179,7 +202,7 @@ export function useTurntable(o: Options): Turntable {
   const applyPose = useCallback(() => {
     const scene = sceneRef.current;
     if (!scene) return;
-    scene.setPose(pose.current.lat, pose.current.lon);
+    scene.setPose(pose.current.lat, pose.current.lon, yaw.current.deg);
     // Stored as read: the reducer leaves these numbers unchanged, so the
     // readout, speech and sound all look up the same grid cell.
     reading.current = scene.readNeedle();
@@ -217,9 +240,23 @@ export function useTurntable(o: Options): Turntable {
     setCameraModeState(mode);
   }, []);
 
+  /** Any needle move brings the looked-around view back to the needle: eased with the move, at once under reduced motion. */
+  const returnView = useCallback(() => {
+    const y = yaw.current;
+    if (y.deg === 0) return;
+    if (live.current.reduceMotion) {
+      y.deg = 0;
+      y.startedAt = -1;
+      return;
+    }
+    y.from = y.deg;
+    y.startedAt = performance.now();
+  }, []);
+
   const place = useCallback(
     (at: LatLon, syncNow: boolean) => {
       touched();
+      returnView();
       cancelFlight();
       glide.current = null;
       swing.current = null;
@@ -228,7 +265,7 @@ export function useTurntable(o: Options): Turntable {
       applyPose();
       if (syncNow) syncCursor();
     },
-    [applyPose, cancelFlight, setRotating, syncCursor],
+    [applyPose, cancelFlight, returnView, setRotating, syncCursor],
   );
 
   const needle = useCallback(() => reading.current, []);
@@ -325,6 +362,16 @@ export function useTurntable(o: Options): Turntable {
           dropDone.current?.();
           dropDone.current = null;
         }
+      }
+      const y = yaw.current;
+      if (y.startedAt >= 0) {
+        const t = Math.min(1, (now - y.startedAt) / VIEW_RETURN_MS);
+        y.deg = y.from * (1 - mechanicalEase(t));
+        if (t >= 1) {
+          y.deg = 0;
+          y.startedAt = -1;
+        }
+        moved = true;
       }
       if (moved) applyPose();
       scene.effects.setMotion(!o.reduceMotion);
@@ -451,6 +498,7 @@ export function useTurntable(o: Options): Turntable {
     needle,
     nudge(dLat, dLon) {
       toExplore();
+      returnView();
       if (live.current.reduceMotion) {
         place({ lat: pose.current.lat + dLat, lon: pose.current.lon + dLon }, true);
         return;
@@ -465,10 +513,14 @@ export function useTurntable(o: Options): Turntable {
     moveTo: (at) => place(at, true),
     pick(at) {
       if (live.current.reduceMotion) {
+        // No drop to lower the needle: put it down at once (a drag on the record had lifted and silenced it).
+        holding.current = false;
+        motion.current = { lift: 0, park: 0 };
         place(at, true);
         return;
       }
       touched();
+      returnView();
       cancelFlight();
       glide.current = null;
       if (live.current.rotating) setRotating(false);
@@ -479,6 +531,22 @@ export function useTurntable(o: Options): Turntable {
       sceneRef.current?.rig.resetFraming();
     },
     turnTo: (at) => place(at, false),
+    look(deg) {
+      touched();
+      const y = yaw.current;
+      y.startedAt = -1;
+      y.deg = ((y.deg + deg + 540) % 360) - 180;
+      applyPose();
+    },
+    preview,
+    setPreview,
+    hold(on) {
+      touched();
+      holding.current = on;
+      motion.current = { lift: on ? LIFT_HEIGHT : 0, park: 0 };
+      if (on) audio.silenceLive();
+      applyPose();
+    },
     pickAt(clientX, clientY) {
       const host = hostRef.current;
       const scene = sceneRef.current;
@@ -488,6 +556,7 @@ export function useTurntable(o: Options): Turntable {
     },
     flyTo(at, zoom) {
       touched();
+      returnView();
       const scene = sceneRef.current;
       cancelFlight();
       if (live.current.rotating) setRotating(false);

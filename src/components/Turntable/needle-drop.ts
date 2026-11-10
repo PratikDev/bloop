@@ -10,7 +10,8 @@ import { cubicBezier } from "motion";
 import { EASE_MECHANICAL } from "@/lib/motion";
 
 const SETTLE_MS = 150; // earcon first, then the data
-const LIFT_HEIGHT = 0.3; // globe radii
+/** How high the needle lifts (globe radii): also its height while the record is dragged under it. */
+export const LIFT_HEIGHT = 0.3;
 
 /** Phases in ms: needle drop alone, a full record change (1.2 s), or the intro (arm from rest, after the camera glide). */
 const DROP = { lift: 220, lower: 280 } as const;

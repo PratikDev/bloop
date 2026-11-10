@@ -10,6 +10,8 @@ const OCCLUDER = "[data-tt-occluder]";
 const STAGE = "[data-tt-stage]";
 /** The turntable's canvas host inside the stage: placed beside (or under) the globe by the layout. */
 const DECK_HOST = "[data-deck-host]";
+/** Set on the stage while a point is previewed (Turntable/index.tsx). */
+const PREVIEWING = "data-tt-preview";
 /** Smaller than this it's visually hidden, not a panel (the phone's Search until it's used). */
 const MIN_PANEL_PX = 4;
 
@@ -51,6 +53,9 @@ export function useOccluderFit(scene: TurntableScene | null, hostRef: RefObject<
 
     const measure = () => {
       frame = 0;
+      // While a point is previewed the readout shows it, and may change size: the layout holds still (no jump under the
+      // pointer, so a drag on the record stays on its groove), and settles again when the preview ends.
+      if (section?.hasAttribute(PREVIEWING) && last !== "") return;
       grow();
       const stage = host.getBoundingClientRect();
       const { globe: fit, deck } = layoutPair(stage.width, stage.height, occluderRects(stage), modeNow());
@@ -81,7 +86,7 @@ export function useOccluderFit(scene: TurntableScene | null, hostRef: RefObject<
       observeAll();
       schedule();
     });
-    changes.observe(document.body, { subtree: true, childList: true, attributes: true, attributeFilter: ["data-tt-occluder", "hidden"] });
+    changes.observe(document.body, { subtree: true, childList: true, attributes: true, attributeFilter: ["data-tt-occluder", "hidden", PREVIEWING] });
     document.addEventListener("transitionend", schedule, true);
     document.addEventListener("animationend", schedule, true);
     observeAll();
