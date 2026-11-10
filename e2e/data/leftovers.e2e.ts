@@ -48,8 +48,8 @@ test.describe("the leftovers", () => {
     await navTo(page, "Official records");
     await chooseRecord(page, /^Perpetual Ocean 2/u);
     await page.locator(OFFICIAL_SECTION).getByRole("button", { name: /^How we got this: Perpetual Ocean 2/u }).first().click();
-    const c = page.getByTestId("how-we-got-this").getByTestId("checked-with");
-    await expect(c.locator('li[data-svs="5479"]')).toBeVisible({ timeout: 15_000 });
+    const c = page.getByTestId("how-we-got-this").getByTestId("checked-with").first();
+    await expect(c.locator('li[data-svs="5479"]').first()).toBeVisible({ timeout: 15_000 });
     await expect(c).toContainText("GLORYS12");
   });
 
