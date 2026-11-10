@@ -217,11 +217,12 @@ export function Turntable() {
               {tr("turntable.idleHint")}
             </p>
           )}
-          {/* On a phone the readout and legend are one compact panel under the globe. */}
+          {/* On a phone the readout and legend are one compact panel under the globe. The legend is always laid out,
+              as on desktop, so the panel (and the stage that grows around it) doesn't resize each time the needle moves. */}
           {phone && (
             <div data-tt-occluder className="on-space pointer-events-auto w-full rounded-plate p-1">
               <div ref={setChipDock} />
-              {legendShown && <LegendBar className="border-0 shadow-none" />}
+              <LegendBar className={cn("border-0 shadow-none", !legendShown && "invisible")} />
             </div>
           )}
           <div className="pointer-events-auto max-w-full">
