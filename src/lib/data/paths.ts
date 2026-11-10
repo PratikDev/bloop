@@ -19,7 +19,6 @@ export const DATA_PATHS = {
   grace: `${ROOT}/context/grace.json`,
   gistemp: `${ROOT}/context/gistemp_bd.json`,
   gpcp: `${ROOT}/context/gpcp_bd.json`,
-  gpcc: `${ROOT}/context/gpcc_bd.json`,
   firms: `${ROOT}/context/firms.json`,
   ndvi: `${ROOT}/context/ndvi.json`,
   globeDuet: `${ROOT}/context/globe_duet.json`,

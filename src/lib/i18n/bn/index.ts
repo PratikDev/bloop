@@ -19,6 +19,9 @@ import { expeditionBn } from "./expedition";
 import { timedTextBn } from "./timed-text";
 import { lowVisionBn } from "./low-vision";
 import { askBloopBn } from "./ask-bloop";
+// >>> DATA
+import { earthBn } from "./earth";
+// <<< DATA
 import { helpBn } from "./help";
 import { pagesBn } from "./pages";
 import { panelsBn } from "./panels";
@@ -34,6 +37,9 @@ export const bn: Partial<Messages> = { ...appBn, ...helpBn, ...captionsBn, ...pa
   // >>> CV
   ...cvBn,
   // <<< CV
+  // >>> DATA
+  ...earthBn,
+  // <<< DATA
 };
 
 /**

@@ -68,5 +68,6 @@ export function officialProvenance(c: OfficialContext, m: OfficialManifest, laye
     scripts: (m.record.startsWith("rel_") ? SCRIPTS.related : SCRIPTS.official).map((p) => repoLink(p)),
     validation: rowLink(VALIDATION_TABLE, m.record),
     patternOnly: pattern ? t("hwgt.patternOnly", { why: t("data.text", { text: layer.statement ?? m.disclosure }) }) : null,
+    health: m.record, // >>> DATA <<< DATA
   };
 }

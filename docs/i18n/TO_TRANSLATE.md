@@ -499,7 +499,7 @@ The Mapping panel builds each rule sentence from its parts (`src/lib/i18n/bn/rul
 | `clarity` | parameter: reverbSec; unit: hours since a 1 km infrared look | How recently measured 0 to 48 hours since a 1 km infrared look → echo length 0.1 to 2.4 s (linear). |
 | `unison` | a rule shared with another voice (sameAs) | Proof in unison: two tones in one ear, both by the Ocean temperature rule (Ocean temperature −5 to 35 °C → pitch 220 to 880 Hz (exponential: equal steps in value sound like equal musical steps).) Beats per second = the difference between the two pitches in Hz. |
 
-## Draft Bangla, needs review (679)
+## Draft Bangla, needs review (875)
 
 Drafted for the mentor fixes (`docs/MENTOR_FIXES.md`); **draft, needs review** by a Bangla speaker. Listed in `src/lib/i18n/bn/drafts.ts`: remove an entry there once it is checked.
 
@@ -1182,6 +1182,202 @@ Drafted for the mentor fixes (`docs/MENTOR_FIXES.md`); **draft, needs review** b
 | `lt.q.chordGroups` | You hear the spread of sea temperatures in one view, played as a chord. Do you hear one group or two? | আপনি একটি দৃশ্যের সমুদ্র-তাপমাত্রার বিস্তার কর্ড হিসেবে শুনবেন। আপনি কি একটি দল শুনছেন, নাকি দুটি? |
 | `lt.opt.one` | One group | একটি দল |
 | `lt.opt.two` | Two groups | দুটি দল |
+| `earth.fresh.heading` | Is this data fresh? | এই ডেটা কি টাটকা? |
+| `earth.fresh.lastData` | Newest data shipped | পাঠানো সবচেয়ে নতুন ডেটা |
+| `earth.fresh.sourceLatest` | Newest at the source | উৎসে সবচেয়ে নতুন |
+| `earth.fresh.lag` | Lag | পিছিয়ে |
+| `earth.fresh.lagValue` | ``${p.days} d behind the source`` | ``\u0989\u09CE\u09B8 \u09A5\u09C7\u0995\u09C7 ${p.days} \u09A6\u09BF\u09A8 \u09AA\u09BF\u099B\u09BF\u09AF\u09BC\u09C7`` |
+| `earth.fresh.checks` | Checks | যাচাই |
+| `earth.fresh.checksValue` | ``${p.passed} passed, ${p.failed} failed`` | ``${p.passed}\u099F\u09BF \u09AA\u09BE\u09B8, ${p.failed}\u099F\u09BF \u09AB\u09C7\u09B2`` |
+| `earth.fresh.failed` | ``Failed: ${p.checks}`` | ``\u09AB\u09C7\u09B2: ${p.checks}`` |
+| `earth.fresh.run` | Last health run | শেষ স্বাস্থ্য-যাচাই |
+| `earth.fresh.none` | This record is not in the latest health run. | শেষ স্বাস্থ্য-যাচাইয়ে এই রেকর্ডটি নেই। |
+| `earth.fresh.loading` | Loading the health run. | স্বাস্থ্য-যাচাই লোড হচ্ছে। |
+| `earth.health.title` | Data health | ডেটার স্বাস্থ্য |
+| `earth.health.lead` | Every record and product in the latest health run: how new its data is, how far behind its source, and how many checks passed. Read from meta/health.json. | শেষ স্বাস্থ্য-যাচাইয়ের প্রতিটি রেকর্ড ও পণ্য: তার ডেটা কত নতুন, উৎস থেকে কতটা পিছিয়ে, আর কতগুলো যাচাই পাস করেছে। meta/health.json থেকে পড়া। |
+| `earth.health.caption` | ``${p.n} records, health run of ${p.date}`` | ``${p.n}\u099F\u09BF \u09B0\u09C7\u0995\u09B0\u09CD\u09A1, ${p.date}-\u098F\u09B0 \u09B8\u09CD\u09AC\u09BE\u09B8\u09CD\u09A5\u09CD\u09AF-\u09AF\u09BE\u099A\u09BE\u0987`` |
+| `earth.health.col.record` | Record | রেকর্ড |
+| `earth.health.col.category` | Kind | ধরন |
+| `earth.health.col.lastData` | Newest data | সবচেয়ে নতুন ডেটা |
+| `earth.health.col.sourceLatest` | Newest at source | উৎসে সবচেয়ে নতুন |
+| `earth.health.col.lag` | Lag | পিছিয়ে |
+| `earth.health.col.checks` | Checks passed / failed | যাচাই পাস / ফেল |
+| `earth.health.passFail` | ``${p.passed} / ${p.failed}`` | ``${p.passed} / ${p.failed}`` |
+| `earth.health.lagDays` | ``${p.days} d`` | ``${p.days} \u09A6\u09BF\u09A8`` |
+| `earth.health.loading` | Loading the health run. | স্বাস্থ্য-যাচাই লোড হচ্ছে। |
+| `earth.health.error` | The health run could not be loaded. | স্বাস্থ্য-যাচাই লোড করা যায়নি। |
+| `earth.health.open` | Open Data health | ডেটার স্বাস্থ্য খুলুন |
+| `earth.health.cardTitle` | Is every record fresh? | প্রতিটি রেকর্ড কি টাটকা? |
+| `earth.health.cardLead` | One row per record: newest data, lag behind the source, checks passed and failed. | প্রতি রেকর্ডে এক সারি: সবচেয়ে নতুন ডেটা, উৎস থেকে কতটা পিছিয়ে, পাস আর ফেল করা যাচাই। |
+| `earth.health.back` | Back to How we know | কীভাবে জানি-তে ফিরুন |
+| `earth.health.keys` | The table is one stop for Tab; scroll it with the arrow keys. Each row starts with the record's name. | টেবিলটি ট্যাবের একটি থামা; তীর-চাবি দিয়ে স্ক্রল করুন। প্রতিটি সারি রেকর্ডের নাম দিয়ে শুরু। |
+| `earth.check.heading` | Acceptance check (from validation.json) | গ্রহণযোগ্যতা যাচাই (validation.json থেকে) |
+| `earth.check.line` | ``${p.title}: ${p.numbers}. Result: ${p.result}.`` | ``${p.title}: ${p.numbers}\u0964 \u09AB\u09B2: ${p.result}\u0964`` |
+| `earth.check.loading` | Loading the acceptance check. | গ্রহণযোগ্যতা যাচাই লোড হচ্ছে। |
+| `earth.notPlayable.heading` | Not playable: too sparse to sonify honestly | বাজানো যায় না: সৎভাবে শব্দে রূপ দিতে খুব বিরল |
+| `earth.notPlayable.lead` | Decoded, but kept off the shelves: a needle would read no value most of the time. The pipeline's reason for each: | পড়া হয়েছে, কিন্তু তাকে রাখা হয়নি: সুই বেশিরভাগ সময় কোনো মান পেত না। প্রতিটির জন্য পাইপলাইনের কারণ: |
+| `earth.notPlayable.loading` | Loading the related records. | সম্পর্কিত রেকর্ড লোড হচ্ছে। |
+| `earth.notPlayable.subject` | the records kept off the shelves | তাকে না-রাখা রেকর্ডগুলো |
+| `earth.notPlayable.dataset` | Bloop's related records index (public/data/related/index.json), its hidden rows | ব্লুপের সম্পর্কিত রেকর্ডের সূচি (public/data/related/index.json), তার লুকানো সারি |
+| `earth.notPlayable.method` | The pipeline decodes each related record, counts the share of cells with a value at each time step, and hides a record that has values in too few cells, or in no cell at every step. The reason is the pipeline's own sentence. | পাইপলাইন প্রতিটি সম্পর্কিত রেকর্ড পড়ে, প্রতি ধাপে কত ভাগ ঘরে মান আছে তা গোনে, আর যে রেকর্ডে খুব কম ঘরে মান আছে, বা কোনো ঘরে প্রতিটি ধাপে মান নেই, তা লুকিয়ে রাখে। কারণটি পাইপলাইনের নিজের বাক্য। |
+| `earth.notPlayable.n` | ``${p.n} records hidden`` | ``${p.n}\u099F\u09BF \u09B0\u09C7\u0995\u09B0\u09CD\u09A1 \u09B2\u09C1\u0995\u09BE\u09A8\u09CB`` |
+| `earth.fire.title` | Fires and fire weather | আগুন ও আগুন-আবহাওয়া |
+| `earth.slide.title` | Landslide exposure (LHASA, modelled) | ভূমিধসের ঝুঁকি (LHASA, মডেল) |
+| `earth.lights.title` | Night lights by city (Black Marble) | শহরের রাতের আলো (ব্ল্যাক মার্বেল) |
+| `earth.age.from` | ``Data from ${p.date}.`` | ``${p.date}-\u098F\u09B0 \u09A1\u09C7\u099F\u09BE\u0964`` |
+| `earth.age.stale` | ``Data from ${p.date}; may be out of date.`` | ``${p.date}-\u098F\u09B0 \u09A1\u09C7\u099F\u09BE; \u09AA\u09C1\u09B0\u09CB\u09A8\u09CB \u09B9\u09A4\u09C7 \u09AA\u09BE\u09B0\u09C7\u0964`` |
+| `earth.map.keys` | Arrow keys move the needle by one degree, Shift+arrow by five; or click the map. | তীর-চাবি সুইকে এক ডিগ্রি সরায়, শিফট+তীর পাঁচ ডিগ্রি; অথবা মানচিত্রে ক্লিক করুন। |
+| `earth.map.needle` | ``Needle: ${p.place}`` | ``\u09B8\u09C1\u0987: ${p.place}`` |
+| `earth.play` | Play at the needle | সুইয়ের জায়গায় বাজান |
+| `earth.stop` | Stop | থামান |
+| `earth.describe` | Describe | বর্ণনা |
+| `earth.braille` | Braille line | ব্রেইল লাইন |
+| `earth.liner` | Liner notes | লাইনার নোট |
+| `earth.viewTable` | View as table | টেবিল হিসেবে দেখুন |
+| `earth.hideTable` | Hide table | টেবিল লুকান |
+| `earth.badge.off` | off | বন্ধ |
+| `earth.badge.silent` | stated silence | বলে দেওয়া নীরবতা |
+| `earth.fire.lead` | Two sound layers: tomorrow's fire weather as a fixed chord at the needle, and FIRMS hotspots as Geiger clicks for the chosen box and day. NASA's fire picture sits underneath. | দুটি শব্দের স্তর: আগামীকালের আগুন-আবহাওয়া সুইয়ের জায়গায় একটি স্থির কর্ড, আর বেছে নেওয়া বাক্স ও দিনের FIRMS হটস্পট গাইগারের ক্লিক। নিচে নাসার আগুনের ছবি। |
+| `earth.fire.fwiLabel` | Fire weather: an experimental 1-day forecast (NASA GISS GlobalFWI, a model), never a measured fire. | আগুন-আবহাওয়া: একটি পরীক্ষামূলক এক দিনের পূর্বাভাস (নাসা GISS GlobalFWI, একটি মডেল), কখনও মাপা আগুন নয়। |
+| `earth.fire.fwiAt` | ``Fire weather forecast for ${p.date}: ${p.cls}. ${p.sound}`` | ``${p.date}-\u098F\u09B0 \u0986\u0997\u09C1\u09A8-\u0986\u09AC\u09B9\u09BE\u0993\u09AF\u09BC\u09BE\u09B0 \u09AA\u09C2\u09B0\u09CD\u09AC\u09BE\u09AD\u09BE\u09B8: ${p.cls}\u0964 ${p.sound}`` |
+| `earth.fire.fwiChord` | Sound: its fixed chord. | শব্দ: তার স্থির কর্ড। |
+| `earth.fire.fwiSilent` | Sound: silence (stated). | শব্দ: নীরবতা (বলে দেওয়া)। |
+| `earth.fire.fwiNone` | Silence: no forecast at this point (no calculation). | নীরবতা: এই জায়গায় কোনো পূর্বাভাস নেই (হিসাব হয়নি)। |
+| `earth.fire.firmsAt` | ``FIRMS: ${p.count} hotspots in ${p.box} on ${p.day} (${p.sat}).`` | ``FIRMS: ${p.day}-\u098F ${p.box}-\u098F ${p.count}\u099F\u09BF \u09B9\u099F\u09B8\u09CD\u09AA\u099F (${p.sat})\u0964`` |
+| `earth.fire.firmsZero` | ``Silence: no detections in this box (${p.box}, ${p.day}, ${p.sat}).`` | ``\u09A8\u09C0\u09B0\u09AC\u09A4\u09BE: \u098F\u0987 \u09AC\u09BE\u0995\u09CD\u09B8\u09C7 \u0995\u09CB\u09A8\u09CB \u09B6\u09A8\u09BE\u0995\u09CD\u09A4 \u09A8\u09C7\u0987 (${p.box}, ${p.day}, ${p.sat})\u0964`` |
+| `earth.fire.firmsNoDay` | No FIRMS count for this day from this sensor: no data, not a zero. | এই সেন্সরের এই দিনের কোনো FIRMS গণনা নেই: ডেটা নেই, শূন্য নয়। |
+| `earth.fire.pixelNote` | A hotspot is a pixel containing one or more fires, not one fire. | একটি হটস্পট মানে এক বা একাধিক আগুনসহ একটি পিক্সেল, একটি আগুন নয়। |
+| `earth.fire.picture` | Picture: NASA's SVS 5113 active fires, a five-day fire radiative power window. Display only: the sound uses FIRMS counts. | ছবি: নাসার SVS 5113 সক্রিয় আগুন, পাঁচ দিনের আগুনের বিকিরণ শক্তির জানালা। শুধু দেখার জন্য: শব্দ আসে FIRMS গণনা থেকে। |
+| `earth.fire.pictureSat` | ``The picture's satellite: ${p.sat}.`` | ``\u099B\u09AC\u09BF\u09B0 \u0989\u09AA\u0997\u09CD\u09B0\u09B9: ${p.sat}\u0964`` |
+| `earth.fire.pictureSatNone` | The picture's satellite: not named in its file (VIIRS active fires). | ছবির উপগ্রহ: তার ফাইলে নাম নেই (VIIRS সক্রিয় আগুন)। |
+| `earth.fire.pictureAlt` | ``NASA's map of active fires (SVS 5113), frame of ${p.date}: fire pixels drawn over the Earth; the FIRMS boxes are outlined, the needle is the ring.`` | ``\u09B8\u0995\u09CD\u09B0\u09BF\u09AF\u09BC \u0986\u0997\u09C1\u09A8\u09C7\u09B0 \u09A8\u09BE\u09B8\u09BE\u09B0 \u09AE\u09BE\u09A8\u099A\u09BF\u09A4\u09CD\u09B0 (SVS 5113), ${p.date}-\u098F\u09B0 \u09AB\u09CD\u09B0\u09C7\u09AE: \u09AA\u09C3\u09A5\u09BF\u09AC\u09C0\u09B0 \u0993\u09AA\u09B0 \u0986\u0997\u09C1\u09A8\u09C7\u09B0 \u09AA\u09BF\u0995\u09CD\u09B8\u09C7\u09B2; FIRMS \u09AC\u09BE\u0995\u09CD\u09B8\u0997\u09C1\u09B2\u09CB\u09B0 \u09B0\u09C7\u0996\u09BE \u0986\u0981\u0995\u09BE, \u09B8\u09C1\u0987 \u09B9\u09B2\u09CB \u0986\u0982\u099F\u09BF\u099F\u09BF\u0964`` |
+| `earth.fire.box` | FIRMS box | FIRMS বাক্স |
+| `earth.fire.sensor` | Sensor | সেন্সর |
+| `earth.fire.day` | Day | দিন |
+| `earth.fire.layers` | Sound layers | শব্দের স্তর |
+| `earth.fire.layer.chord` | Fire-weather chord | আগুন-আবহাওয়ার কর্ড |
+| `earth.fire.layer.clicks` | Geiger clicks | গাইগার ক্লিক |
+| `earth.fire.badge.chord` | ``Chord: ${p.state}`` | ``\u0995\u09B0\u09CD\u09A1: ${p.state}`` |
+| `earth.fire.badge.clicks` | ``Clicks: ${p.state}`` | ``\u0995\u09CD\u09B2\u09BF\u0995: ${p.state}`` |
+| `earth.fire.badge.rate` | ``${p.rate} a second`` | ``\u09B8\u09C7\u0995\u09C7\u09A8\u09CD\u09A1\u09C7 ${p.rate}\u099F\u09BF`` |
+| `earth.fire.scale` | ``Click scale: ${p.cmin} hotspot a day gives ${p.min} clicks a second, ${p.cmax} or more give ${p.max} (logarithmic).`` | ``\u0995\u09CD\u09B2\u09BF\u0995\u09C7\u09B0 \u09AE\u09BE\u09AA: \u09A6\u09BF\u09A8\u09C7 ${p.cmin}\u099F\u09BF \u09B9\u099F\u09B8\u09CD\u09AA\u099F\u09C7 \u09B8\u09C7\u0995\u09C7\u09A8\u09CD\u09A1\u09C7 ${p.min}\u099F\u09BF \u0995\u09CD\u09B2\u09BF\u0995, ${p.cmax}\u099F\u09BF \u09AC\u09BE \u09AC\u09C7\u09B6\u09BF\u09A4\u09C7 ${p.max}\u099F\u09BF (\u09B2\u0997\u09BE\u09B0\u09BF\u09A6\u09AE\u09BF\u0995)\u0964`` |
+| `earth.fire.brightness` | Brightness: more fire radiative power per hotspot, brighter clicks; never louder. | উজ্জ্বলতা: হটস্পট-প্রতি আগুনের বিকিরণ শক্তি বেশি হলে ক্লিক উজ্জ্বল; কখনও জোরে নয়। |
+| `earth.fire.bdNow` | ``Bangladesh on the forecast for ${p.date}: mostly ${p.cls}.`` | ``${p.date}-\u098F\u09B0 \u09AA\u09C2\u09B0\u09CD\u09AC\u09BE\u09AD\u09BE\u09B8\u09C7 \u09AC\u09BE\u0982\u09B2\u09BE\u09A6\u09C7\u09B6: \u09AC\u09C7\u09B6\u09BF\u09B0\u09AD\u09BE\u0997\u0987 ${p.cls}\u0964`` |
+| `earth.fire.regionsLead` | The three most active fire-weather regions in this grid, found by Bloop's code. One click moves the needle there: | এই গ্রিডে আগুন-আবহাওয়ার সবচেয়ে সক্রিয় তিনটি অঞ্চল, ব্লুপের কোড খুঁজে পেয়েছে। এক ক্লিকে সুই সেখানে যায়: |
+| `earth.fire.region` | ``${p.place} (${p.cls})`` | ``${p.place} (${p.cls})`` |
+| `earth.fire.offSeason` | ``Off-season: no detections in Bangladesh on ${p.day} from any sensor.`` | ``\u09AE\u09CC\u09B8\u09C1\u09AE \u09A8\u09AF\u09BC: ${p.day}-\u098F \u09AC\u09BE\u0982\u09B2\u09BE\u09A6\u09C7\u09B6\u09C7 \u0995\u09CB\u09A8\u09CB \u09B8\u09C7\u09A8\u09CD\u09B8\u09B0\u09C7 \u0995\u09CB\u09A8\u09CB \u09B6\u09A8\u09BE\u0995\u09CD\u09A4 \u09A8\u09C7\u0987\u0964`` |
+| `earth.fire.season` | ``Fire season example: ${p.place}, March to April ${p.year} (${p.sensor}, archive)`` | ``\u0986\u0997\u09C1\u09A8\u09C7\u09B0 \u09AE\u09CC\u09B8\u09C1\u09AE\u09C7\u09B0 \u0989\u09A6\u09BE\u09B9\u09B0\u09A3: ${p.place}, ${p.year}-\u098F\u09B0 \u09AE\u09BE\u09B0\u09CD\u099A \u09A5\u09C7\u0995\u09C7 \u098F\u09AA\u09CD\u09B0\u09BF\u09B2 (${p.sensor}, \u0986\u09B0\u09CD\u0995\u09BE\u0987\u09AD)`` |
+| `earth.fire.seasonStep` | ``${p.day}: ${p.count} hotspots`` | ``${p.day}: ${p.count}\u099F\u09BF \u09B9\u099F\u09B8\u09CD\u09AA\u099F`` |
+| `earth.fire.seasonStop` | Stop the example | উদাহরণ থামান |
+| `earth.fire.replay` | Replay the archive (forecast meets outcome) | আর্কাইভ আবার বাজান (পূর্বাভাস বনাম ফল) |
+| `earth.fire.replayStop` | Stop the replay | আবার বাজানো থামান |
+| `earth.fire.replayStep` | ``Day ${p.i} of ${p.n}: forecast issued ${p.issued} for ${p.forDay}: ${p.cls}. ${p.outcome}`` | ``${p.n}\u099F\u09BF\u09B0 \u09AE\u09A7\u09CD\u09AF\u09C7 ${p.i} \u09A8\u09AE\u09CD\u09AC\u09B0 \u09A6\u09BF\u09A8: ${p.issued}-\u098F \u09A6\u09C7\u0993\u09AF\u09BC\u09BE ${p.forDay}-\u098F\u09B0 \u09AA\u09C2\u09B0\u09CD\u09AC\u09BE\u09AD\u09BE\u09B8: ${p.cls}\u0964 ${p.outcome}`` |
+| `earth.fire.outcome` | ``FIRMS that day: ${p.count} hotspots in ${p.box} (${p.sat}).`` | ``\u09B8\u09C7\u09A6\u09BF\u09A8 FIRMS: ${p.box}-\u098F ${p.count}\u099F\u09BF \u09B9\u099F\u09B8\u09CD\u09AA\u099F (${p.sat})\u0964`` |
+| `earth.fire.outcomeNone` | No FIRMS count yet for that day. | সেই দিনের FIRMS গণনা এখনও নেই। |
+| `earth.fire.table.caption` | ``FIRMS hotspots per day in ${p.box}`` | ``${p.box}-\u098F \u09A6\u09BF\u09A8\u09AA\u09CD\u09B0\u09A4\u09BF FIRMS \u09B9\u099F\u09B8\u09CD\u09AA\u099F`` |
+| `earth.fire.table.day` | Day | দিন |
+| `earth.fire.table.frp` | ``${p.sat} FRP sum, MW`` | ``${p.sat} FRP \u09AF\u09CB\u0997\u09AB\u09B2, MW`` |
+| `earth.fire.subject.fwi` | the fire-weather class at the needle | সুইয়ের জায়গায় আগুন-আবহাওয়ার শ্রেণি |
+| `earth.fire.subject.firms` | the FIRMS hotspot counts | FIRMS হটস্পটের গণনা |
+| `earth.fire.subject.picture` | the fire picture | আগুনের ছবি |
+| `earth.fire.method.fwi` | The pipeline reads the class of each pixel of SVS 5315's picture from its six legend colours (a 3×3 majority filter), then maps it from Robinson to a 1024×512 latitude-longitude grid; Bloop reads the cell under the needle. | পাইপলাইন SVS 5315-এর ছবির প্রতিটি পিক্সেলের শ্রেণি তার ছয়টি লেজেন্ড রং থেকে পড়ে (৩×৩ সংখ্যাগরিষ্ঠ ফিল্টার), তারপর রবিনসন থেকে ১০২৪×৫১২ অক্ষাংশ-দ্রাঘিমাংশ গ্রিডে নেয়; ব্লুপ সুইয়ের নিচের ঘরটি পড়ে। |
+| `earth.fire.method.firms` | FIRMS near-real-time detections, counted per day inside each fixed box (Bangladesh inside its outline), with their fire radiative power summed. | FIRMS-এর প্রায়-তাৎক্ষণিক শনাক্ত, প্রতিটি স্থির বাক্সের ভেতরে দিনপ্রতি গোনা (বাংলাদেশ তার সীমানার ভেতরে), আর তাদের আগুনের বিকিরণ শক্তি যোগ করা। |
+| `earth.fire.method.picture` | NASA's picture, shown as it is: no value is read from it. | নাসার ছবি, যেমন আছে তেমন দেখানো: এ থেকে কোনো মান পড়া হয় না। |
+| `earth.fire.cell` | One cell of the 1024×512 class grid. | ১০২৪×৫১২ শ্রেণি-গ্রিডের একটি ঘর। |
+| `earth.fire.boxCell` | ``The ${p.box} box.`` | ``${p.box} \u09AC\u09BE\u0995\u09CD\u09B8\u0964`` |
+| `earth.fire.describe.brief` | ``${p.fwi} ${p.firms}`` | ``${p.fwi} ${p.firms}`` |
+| `earth.fire.describe.more` | ``${p.pixel} ${p.regions}`` | ``${p.pixel} ${p.regions}`` |
+| `earth.fire.regionsLine` | ``Most active fire-weather regions now: ${p.list}.`` | ``\u098F\u0996\u09A8 \u0986\u0997\u09C1\u09A8-\u0986\u09AC\u09B9\u09BE\u0993\u09AF\u09BC\u09BE\u09B0 \u09B8\u09AC\u099A\u09C7\u09AF\u09BC\u09C7 \u09B8\u0995\u09CD\u09B0\u09BF\u09AF\u09BC \u0985\u099E\u09CD\u099A\u09B2: ${p.list}\u0964`` |
+| `earth.pilot.heading` | Forecast meets outcome: pilot check, experimental forecast | পূর্বাভাস বনাম ফল: প্রাথমিক যাচাই, পরীক্ষামূলক পূর্বাভাস |
+| `earth.pilot.lead` | Each archived forecast's class for a FIRMS box (its most common class) beside FIRMS's count there on the day it forecast. A pilot check: no skill is claimed unless n is large and the agreement clear. | প্রতিটি আর্কাইভ করা পূর্বাভাসে একটি FIRMS বাক্সের শ্রেণি (তার সবচেয়ে সাধারণ শ্রেণি), আর যে দিনের পূর্বাভাস সেদিন সেখানে FIRMS-এর গণনা। প্রাথমিক যাচাই: n বড় আর মিল স্পষ্ট না হলে কোনো দক্ষতা দাবি করা হয় না। |
+| `earth.pilot.col.box` | Box | বাক্স |
+| `earth.pilot.col.issued` | Issued | দেওয়া |
+| `earth.pilot.col.forDay` | For | যে দিনের |
+| `earth.pilot.col.class` | Forecast class | পূর্বাভাসের শ্রেণি |
+| `earth.pilot.rho` | ``${p.sat}: Spearman rho ${p.rho}, n ${p.n}`` | ``${p.sat}: \u09B8\u09CD\u09AA\u09BF\u09AF\u09BC\u09BE\u09B0\u09AE\u09CD\u09AF\u09BE\u09A8 rho ${p.rho}, n ${p.n}`` |
+| `earth.pilot.rhoNone` | ``${p.sat}: rho undefined (no variation), n ${p.n}`` | ``${p.sat}: rho \u09A8\u09BF\u09B0\u09CD\u09A7\u09BE\u09B0\u09BF\u09A4 \u09A8\u09AF\u09BC (\u0995\u09CB\u09A8\u09CB \u09A4\u09BE\u09B0\u09A4\u09AE\u09CD\u09AF \u09A8\u09C7\u0987), n ${p.n}`` |
+| `earth.pilot.noClaim` | Too few days to tell: no skill is claimed. | বলার মতো যথেষ্ট দিন নেই: কোনো দক্ষতা দাবি করা হয় না। |
+| `earth.pilot.claim` | Agreement on these days: still a pilot, not a skill score. | এই দিনগুলোতে মিল আছে: তবু প্রাথমিক যাচাই, দক্ষতার মাপ নয়। |
+| `earth.pilot.loading` | Loading the archived forecasts. | আর্কাইভ করা পূর্বাভাস লোড হচ্ছে। |
+| `earth.pilot.open` | Show the pilot table | প্রাথমিক যাচাইয়ের টেবিল দেখান |
+| `earth.layer.menu` | Fire weather | আগুন-আবহাওয়া |
+| `earth.layer.full` | Fire-weather layer (experimental forecast) | আগুন-আবহাওয়ার স্তর (পরীক্ষামূলক পূর্বাভাস) |
+| `earth.layer.switch` | Play tomorrow's fire weather at the needle | সুইয়ের জায়গায় আগামীকালের আগুন-আবহাওয়া বাজান |
+| `earth.layer.on` | Fire-weather chord on. | আগুন-আবহাওয়ার কর্ড চালু। |
+| `earth.layer.off` | Fire-weather chord off. | আগুন-আবহাওয়ার কর্ড বন্ধ। |
+| `earth.layer.loading` | Loading the fire-weather forecast. | আগুন-আবহাওয়ার পূর্বাভাস লোড হচ্ছে। |
+| `earth.pilot.dataset` | Bloop's daily copies of the SVS 5315 forecast (context/fwi_archive_index.json) and FIRMS's daily counts (context/firms.json) | SVS 5315 পূর্বাভাসের ব্লুপের দৈনিক কপি (context/fwi_archive_index.json) আর FIRMS-এর দৈনিক গণনা (context/firms.json) |
+| `earth.pilot.cell` | Each FIRMS box: its most common forecast class. | প্রতিটি FIRMS বাক্স: তার সবচেয়ে সাধারণ পূর্বাভাস-শ্রেণি। |
+| `earth.pilot.method` | For each archived forecast and each FIRMS box: the box's most common class on that day's grid, beside FIRMS's count in the box on the day the forecast was for (the next day). Spearman rho over the rows, per sensor. | প্রতিটি আর্কাইভ করা পূর্বাভাস ও প্রতিটি FIRMS বাক্সে: সেদিনের গ্রিডে বাক্সের সবচেয়ে সাধারণ শ্রেণি, আর যে দিনের পূর্বাভাস (পরের দিন) সেদিন বাক্সে FIRMS-এর গণনা। সারিগুলোর ওপর সেন্সরপ্রতি স্পিয়ারম্যান rho। |
+| `earth.pilot.n` | ``${p.n} box-days`` | ``${p.n}\u099F\u09BF \u09AC\u09BE\u0995\u09CD\u09B8-\u09A6\u09BF\u09A8`` |
+| `earth.slide.lead` | Landslide exposure as thresholded sound: silence for none and low, a soft rumble for moderate, a stronger one for high, slow pulses for very high. | ভূমিধসের ঝুঁকি ধাপে ধাপে শব্দে: না থাকলে ও কম হলে নীরবতা, মাঝারিতে মৃদু গুমগুম, বেশিতে জোরালো, খুব বেশিতে ধীর স্পন্দন। |
+| `earth.slide.label` | Modelled exposure (LHASA), not observed landslides. | মডেলে হিসাব করা ঝুঁকি (LHASA), দেখা ভূমিধস নয়। |
+| `earth.slide.at` | ``Landslide exposure (LHASA nowcast of ${p.date}): ${p.cls}. ${p.sound}`` | ``\u09AD\u09C2\u09AE\u09BF\u09A7\u09B8\u09C7\u09B0 \u099D\u09C1\u0981\u0995\u09BF (${p.date}-\u098F\u09B0 LHASA \u09A4\u09BE\u09CE\u0995\u09CD\u09B7\u09A3\u09BF\u0995 \u09AA\u09C2\u09B0\u09CD\u09AC\u09BE\u09AD\u09BE\u09B8): ${p.cls}\u0964 ${p.sound}`` |
+| `earth.slide.silent` | ``Silence: ${p.why}`` | ``\u09A8\u09C0\u09B0\u09AC\u09A4\u09BE: ${p.why}`` |
+| `earth.slide.rumble` | Sound: its fixed rumble. | শব্দ: তার স্থির গুমগুম। |
+| `earth.slide.rumblePulses` | Sound: its fixed rumble, with slow pulses. | শব্দ: তার স্থির গুমগুম, ধীর স্পন্দনসহ। |
+| `earth.slide.alt` | ``Landslide exposure classes from NASA's SVS 5584 picture (LHASA), frame of ${p.date}, drawn in the legend's own colours; the needle is the ring.`` | ``\u09A8\u09BE\u09B8\u09BE\u09B0 SVS 5584 \u099B\u09AC\u09BF (LHASA) \u09A5\u09C7\u0995\u09C7 \u09AD\u09C2\u09AE\u09BF\u09A7\u09B8\u09C7\u09B0 \u099D\u09C1\u0981\u0995\u09BF\u09B0 \u09B6\u09CD\u09B0\u09C7\u09A3\u09BF, ${p.date}-\u098F\u09B0 \u09AB\u09CD\u09B0\u09C7\u09AE, \u09B2\u09C7\u099C\u09C7\u09A8\u09CD\u09A1\u09C7\u09B0 \u09A8\u09BF\u099C\u09C7\u09B0 \u09B0\u0999\u09C7 \u0986\u0981\u0995\u09BE; \u09B8\u09C1\u0987 \u09B9\u09B2\u09CB \u0986\u0982\u099F\u09BF\u099F\u09BF\u0964`` |
+| `earth.slide.places` | Places to hear: | শোনার জায়গা: |
+| `earth.slide.cht` | Chittagong Hill Tracts | পার্বত্য চট্টগ্রাম |
+| `earth.slide.exposedLead` | The three most exposed regions in this frame, found by Bloop's code: | এই ফ্রেমে সবচেয়ে ঝুঁকির তিনটি অঞ্চল, ব্লুপের কোড খুঁজে পেয়েছে: |
+| `earth.slide.table.caption` | Cells per exposure class, whole grid (the pipeline's count and the app's) | ঝুঁকির শ্রেণিপ্রতি ঘর, পুরো গ্রিড (পাইপলাইনের গণনা ও অ্যাপের) |
+| `earth.slide.table.class` | Class | শ্রেণি |
+| `earth.slide.table.sound` | Sound | শব্দ |
+| `earth.slide.table.pipeline` | Cells (pipeline) | ঘর (পাইপলাইন) |
+| `earth.slide.table.app` | Cells (decoded here) | ঘর (এখানে পড়া) |
+| `earth.slide.table.example` | Hear | শুনুন |
+| `earth.slide.example` | Hear an example | একটি উদাহরণ শুনুন |
+| `earth.slide.exampleFor` | ``Hear an example of ${p.cls}: move the needle to the nearest such cell`` | ``${p.cls}-\u098F\u09B0 \u098F\u0995\u099F\u09BF \u0989\u09A6\u09BE\u09B9\u09B0\u09A3 \u09B6\u09C1\u09A8\u09C1\u09A8: \u09B8\u09C1\u0987\u0995\u09C7 \u09B8\u09AC\u099A\u09C7\u09AF\u09BC\u09C7 \u0995\u09BE\u099B\u09C7\u09B0 \u098F\u09AE\u09A8 \u0998\u09B0\u09C7 \u09A8\u09BF\u09A8`` |
+| `earth.slide.subject` | the landslide exposure class at the needle | সুইয়ের জায়গায় ভূমিধসের ঝুঁকির শ্রেণি |
+| `earth.slide.method` | The pipeline reads the class of each pixel of SVS 5584's picture from its legend colours (the highest class within 3×3 source pixels), then maps it from Robinson to a 1024×512 latitude-longitude grid; Bloop reads the cell under the needle. | পাইপলাইন SVS 5584-এর ছবির প্রতিটি পিক্সেলের শ্রেণি তার লেজেন্ডের রং থেকে পড়ে (৩×৩ উৎস-পিক্সেলের মধ্যে সর্বোচ্চ শ্রেণি), তারপর রবিনসন থেকে ১০২৪×৫১২ অক্ষাংশ-দ্রাঘিমাংশ গ্রিডে নেয়; ব্লুপ সুইয়ের নিচের ঘরটি পড়ে। |
+| `earth.lights.lead` | Each night's light at a city, one note per night: brighter, higher (a log scale). A cloud-blocked night is a rest. | শহরের প্রতি রাতের আলো, প্রতি রাতে একটি সুর: উজ্জ্বল হলে উঁচু (লগ মাপে)। মেঘে ঢাকা রাত একটি বিরাম। |
+| `earth.lights.label` | Radiance measured from space. A cloud-blocked night is a gap, not darkness: no blackout is claimed from it. | মহাকাশ থেকে মাপা বিকিরণ। মেঘে ঢাকা রাত একটি ফাঁক, অন্ধকার নয়: তা থেকে কোনো বিদ্যুৎ-বিভ্রাট দাবি করা হয় না। |
+| `earth.lights.product` | ``Product: ${p.product} (${p.variable}), satellite ${p.sat}, read from the file.`` | ``\u09AA\u09A3\u09CD\u09AF: ${p.product} (${p.variable}), \u0989\u09AA\u0997\u09CD\u09B0\u09B9 ${p.sat}, \u09AB\u09BE\u0987\u09B2 \u09A5\u09C7\u0995\u09C7 \u09AA\u09A1\u09BC\u09BE\u0964`` |
+| `earth.lights.productNoSat` | ``Product: ${p.product} (${p.variable}); the file names no satellite.`` | ``\u09AA\u09A3\u09CD\u09AF: ${p.product} (${p.variable}); \u09AB\u09BE\u0987\u09B2\u09C7 \u0995\u09CB\u09A8\u09CB \u0989\u09AA\u0997\u09CD\u09B0\u09B9\u09C7\u09B0 \u09A8\u09BE\u09AE \u09A8\u09C7\u0987\u0964`` |
+| `earth.lights.value` | ``${p.city}, ${p.day}: ${p.value} ${p.unit}`` | ``${p.city}, ${p.day}: ${p.value} ${p.unit}`` |
+| `earth.lights.gap` | ``${p.city}, ${p.day}: gap: cloud (a rest, not darkness)`` | ``${p.city}, ${p.day}: \u09AB\u09BE\u0981\u0995: \u09AE\u09C7\u0998 (\u098F\u0995\u099F\u09BF \u09AC\u09BF\u09B0\u09BE\u09AE, \u0985\u09A8\u09CD\u09A7\u0995\u09BE\u09B0 \u09A8\u09AF\u09BC)`` |
+| `earth.lights.city` | City | শহর |
+| `earth.lights.play` | Play the nights | রাতগুলো বাজান |
+| `earth.lights.stop` | Stop | থামান |
+| `earth.lights.step` | ``Night ${p.i} of ${p.n}: ${p.line}`` | ``${p.n}\u099F\u09BF\u09B0 \u09AE\u09A7\u09CD\u09AF\u09C7 ${p.i} \u09A8\u09AE\u09CD\u09AC\u09B0 \u09B0\u09BE\u09A4: ${p.line}`` |
+| `earth.lights.timeline` | ``${p.city}: ${p.n} nights, ${p.gaps} of them gaps (cloud). Taller bars, brighter nights; hatched, a gap.`` | ``${p.city}: ${p.n}\u099F\u09BF \u09B0\u09BE\u09A4, \u09A4\u09BE\u09B0 ${p.gaps}\u099F\u09BF \u09AB\u09BE\u0981\u0995 (\u09AE\u09C7\u0998)\u0964 \u0989\u0981\u099A\u09C1 \u09A6\u09A3\u09CD\u09A1 \u09AE\u09BE\u09A8\u09C7 \u0989\u099C\u09CD\u099C\u09CD\u09AC\u09B2 \u09B0\u09BE\u09A4; \u09A1\u09CB\u09B0\u09BE\u0995\u09BE\u099F\u09BE \u09AE\u09BE\u09A8\u09C7 \u09AB\u09BE\u0981\u0995\u0964`` |
+| `earth.lights.events` | The file holds no before-and-after event dates, so no event is offered. | ফাইলে কোনো ঘটনার আগে-পরের তারিখ নেই, তাই কোনো ঘটনা দেখানো হয় না। |
+| `earth.lights.table.caption` | ``Night lights at ${p.city}, night by night`` | ``${p.city}-\u098F\u09B0 \u09B0\u09BE\u09A4\u09C7\u09B0 \u0986\u09B2\u09CB, \u09B0\u09BE\u09A4\u09C7 \u09B0\u09BE\u09A4\u09C7`` |
+| `earth.lights.table.day` | Night | রাত |
+| `earth.lights.table.radiance` | ``Radiance, ${p.unit}`` | ``\u09AC\u09BF\u0995\u09BF\u09B0\u09A3, ${p.unit}`` |
+| `earth.lights.table.valid` | Clear share of the window | জানালার পরিষ্কার অংশ |
+| `earth.lights.table.gap` | gap: cloud | ফাঁক: মেঘ |
+| `earth.lights.subject` | the night lights at the city | শহরের রাতের আলো |
+| `earth.lights.method` | ``Median of a ${p.window}-pixel window around the city. ${p.rule}`` | ``\u09B6\u09B9\u09B0\u09C7\u09B0 \u099A\u09BE\u09B0\u09AA\u09BE\u09B6\u09C7 ${p.window}-\u09AA\u09BF\u0995\u09CD\u09B8\u09C7\u09B2 \u099C\u09BE\u09A8\u09BE\u09B2\u09BE\u09B0 \u09AE\u09A7\u09CD\u09AF\u09AE\u09BE\u0964 ${p.rule}`` |
+| `earth.lights.hearDhaka` | ``Hear measured radiance for ${p.city} (Black Marble, night by night)`` | ``${p.city}-\u098F\u09B0 \u09AE\u09BE\u09AA\u09BE \u09AC\u09BF\u0995\u09BF\u09B0\u09A3 \u09B6\u09C1\u09A8\u09C1\u09A8 (\u09AC\u09CD\u09B2\u09CD\u09AF\u09BE\u0995 \u09AE\u09BE\u09B0\u09CD\u09AC\u09C7\u09B2, \u09B0\u09BE\u09A4\u09C7 \u09B0\u09BE\u09A4\u09C7)`` |
+| `earth.radar.title` | NASA mode (after Caldwell 73, SYSTEM Sounds) | নাসা মোড (ক্যালডওয়েল ৭৩, SYSTEM Sounds-এর মতো) |
+| `earth.radar.lead` | A method record, with no data layer of its own: NASA's radar sweep from the Caldwell 73 sonification, played on today's ocean temperature frame around a centre, beside Bloop's own rule on the same points. | একটি পদ্ধতির রেকর্ড, নিজের কোনো ডেটা-স্তর নেই: ক্যালডওয়েল ৭৩ সনিফিকেশনের নাসার রাডার ঘূর্ণন, আজকের সমুদ্র-তাপমাত্রার ফ্রেমে একটি কেন্দ্রের চারপাশে বাজানো, একই বিন্দুতে ব্লুপের নিজের নিয়মের পাশে। |
+| `earth.radar.caption` | NASA's version: where things are. Bloop's version: what the values are. | নাসার সংস্করণ: জিনিস কোথায়। ব্লুপের সংস্করণ: মানগুলো কী। |
+| `earth.radar.mode` | Mode | মোড |
+| `earth.radar.nasa` | NASA mode | নাসা মোড |
+| `earth.radar.bloop` | Bloop mode | ব্লুপ মোড |
+| `earth.radar.nasaRule` | NASA mode: a line sweeps around the centre at the movie's own speed; each point sounds as the line reaches it, its distance from the centre sets the pitch, its colour sets the instrument (cool: glockenspiel, warm: marimba, the rest: a soft choir). | নাসা মোড: একটি রেখা মুভির নিজের গতিতে কেন্দ্রের চারপাশে ঘোরে; রেখা পৌঁছালে প্রতিটি বিন্দু বাজে, কেন্দ্র থেকে দূরত্ব ঠিক করে সুরের উচ্চতা, রং ঠিক করে বাদ্য (ঠান্ডা: গ্লকেনস্পিল, উষ্ণ: মারিম্বা, বাকিটা: নরম কোরাস)। |
+| `earth.radar.bloopRule` | Bloop mode: a ring grows from the centre over the same time; distance sets when a point sounds, its value sets the pitch by the Ocean rule. | ব্লুপ মোড: একই সময়ে কেন্দ্র থেকে একটি বৃত্ত বড় হয়; দূরত্ব ঠিক করে বিন্দু কখন বাজবে, তার মান সমুদ্রের নিয়মে সুরের উচ্চতা ঠিক করে। |
+| `earth.radar.centre` | Centre | কেন্দ্র |
+| `earth.radar.dhaka` | Dhaka | ঢাকা |
+| `earth.radar.needle` | The needle on Listen | শোনার পাতার সুই |
+| `earth.radar.play` | ``Play ${p.mode}`` | ``${p.mode} \u09AC\u09BE\u099C\u09BE\u09A8`` |
+| `earth.radar.stop` | Stop | থামান |
+| `earth.radar.points` | ``${p.n} ocean points from the frame of ${p.time}, one sweep of ${p.seconds} s.`` | ``${p.time}-\u098F\u09B0 \u09AB\u09CD\u09B0\u09C7\u09AE \u09A5\u09C7\u0995\u09C7 ${p.n}\u099F\u09BF \u09B8\u09AE\u09C1\u09A6\u09CD\u09B0-\u09AC\u09BF\u09A8\u09CD\u09A6\u09C1, \u098F\u0995 \u0998\u09C2\u09B0\u09CD\u09A3\u09A8 ${p.seconds} \u09B8\u09C7\u0995\u09C7\u09A8\u09CD\u09A1\u0964`` |
+| `earth.radar.credit` | ``${p.credit} The sweep code is Bloop's own (radial-sweep.ts), after NASA's description: not NASA's code.`` | ``${p.credit} \u0998\u09C2\u09B0\u09CD\u09A3\u09A8\u09C7\u09B0 \u0995\u09CB\u09A1 \u09AC\u09CD\u09B2\u09C1\u09AA\u09C7\u09B0 \u09A8\u09BF\u099C\u09C7\u09B0 (radial-sweep.ts), \u09A8\u09BE\u09B8\u09BE\u09B0 \u09AC\u09B0\u09CD\u09A3\u09A8\u09BE \u0985\u09A8\u09C1\u09AF\u09BE\u09AF\u09BC\u09C0: \u09A8\u09BE\u09B8\u09BE\u09B0 \u0995\u09CB\u09A1 \u09A8\u09AF\u09BC\u0964`` |
+| `earth.radar.svs` | SVS 13786 page | SVS 13786 পাতা |
+| `earth.radar.alt` | ``The points around ${p.centre}: ${p.n} ocean points on rings, marked by colour class (cool, middle, warm); land is left out.`` | ``${p.centre}-\u098F\u09B0 \u099A\u09BE\u09B0\u09AA\u09BE\u09B6\u09C7\u09B0 \u09AC\u09BF\u09A8\u09CD\u09A6\u09C1: \u09AC\u09C3\u09A4\u09CD\u09A4\u09C7 ${p.n}\u099F\u09BF \u09B8\u09AE\u09C1\u09A6\u09CD\u09B0-\u09AC\u09BF\u09A8\u09CD\u09A6\u09C1, \u09B0\u0999\u09C7\u09B0 \u09B6\u09CD\u09B0\u09C7\u09A3\u09BF \u09A6\u09BF\u09AF\u09BC\u09C7 \u099A\u09BF\u09B9\u09CD\u09A8\u09BF\u09A4 (\u09A0\u09BE\u09A8\u09CD\u09A1\u09BE, \u09AE\u09BE\u099D\u09BE\u09B0\u09BF, \u0989\u09B7\u09CD\u09A3); \u09B8\u09CD\u09A5\u09B2 \u09AC\u09BE\u09A6\u0964`` |
+| `earth.radar.subject` | NASA's radar method on the ocean frame | সমুদ্রের ফ্রেমে নাসার রাডার পদ্ধতি |
+| `earth.radar.method` | Points on rings around the centre read from today's ocean temperature frame (land left out). NASA mode: radial-sweep.ts with the radarDistance rule; Bloop mode: the same points, distance to time, the Ocean rule to pitch. | আজকের সমুদ্র-তাপমাত্রার ফ্রেম থেকে কেন্দ্রের চারপাশে বৃত্তের বিন্দু পড়া (স্থল বাদ)। নাসা মোড: radarDistance নিয়মসহ radial-sweep.ts; ব্লুপ মোড: একই বিন্দু, দূরত্ব থেকে সময়, সমুদ্রের নিয়ম থেকে সুরের উচ্চতা। |
+| `earth.hwgt.sourceTime` | ``newest source time ${p.time}`` | ``\u0989\u09CE\u09B8\u09C7\u09B0 \u09B8\u09AC\u099A\u09C7\u09AF\u09BC\u09C7 \u09A8\u09A4\u09C1\u09A8 \u09B8\u09AE\u09AF\u09BC ${p.time}`` |
+| `earth.anom.legend` | Ocean temperature vs normal (the 5176 picture) | স্বাভাবিকের তুলনায় সমুদ্রের তাপমাত্রা (৫১৭৬-এর ছবি) |
+| `earth.anom.frame` | ``Picture and anomaly: the SVS 5176 frame of ${p.date}`` | ``\u099B\u09AC\u09BF \u0993 \u09AC\u09BF\u099A\u09CD\u09AF\u09C1\u09A4\u09BF: ${p.date}-\u098F\u09B0 SVS 5176 \u09AB\u09CD\u09B0\u09C7\u09AE`` |
+| `earth.anom.alt` | ``NASA's map of ocean temperature against normal, frame of ${p.date}: blue cooler than normal, red warmer, from ${p.min} to ${p.max} degrees Celsius.`` | ``${p.date}-\u098F\u09B0 \u09AB\u09CD\u09B0\u09C7\u09AE\u09C7 \u09B8\u09CD\u09AC\u09BE\u09AD\u09BE\u09AC\u09BF\u0995\u09C7\u09B0 \u09A4\u09C1\u09B2\u09A8\u09BE\u09AF\u09BC \u09B8\u09AE\u09C1\u09A6\u09CD\u09B0\u09C7\u09B0 \u09A4\u09BE\u09AA\u09AE\u09BE\u09A4\u09CD\u09B0\u09BE\u09B0 \u09A8\u09BE\u09B8\u09BE\u09B0 \u09AE\u09BE\u09A8\u099A\u09BF\u09A4\u09CD\u09B0: \u09A8\u09C0\u09B2 \u09B8\u09CD\u09AC\u09BE\u09AD\u09BE\u09AC\u09BF\u0995\u09C7\u09B0 \u099A\u09C7\u09AF\u09BC\u09C7 \u09A0\u09BE\u09A8\u09CD\u09A1\u09BE, \u09B2\u09BE\u09B2 \u0989\u09B7\u09CD\u09A3, ${p.min} \u09A5\u09C7\u0995\u09C7 ${p.max} \u09A1\u09BF\u0997\u09CD\u09B0\u09BF \u09B8\u09C7\u09B2\u09B8\u09BF\u09AF\u09BC\u09BE\u09B8\u0964`` |
+| `earth.ask.noFirms` | The FIRMS daily counts are not in this build. | এই সংস্করণে FIRMS-এর দৈনিক গণনা নেই। |
+| `earth.ask.noBox` | ``No FIRMS box here: Bloop counts fires in ${p.boxes}.`` | ``\u098F\u0996\u09BE\u09A8\u09C7 \u0995\u09CB\u09A8\u09CB FIRMS \u09AC\u09BE\u0995\u09CD\u09B8 \u09A8\u09C7\u0987: \u09AC\u09CD\u09B2\u09C1\u09AA \u0986\u0997\u09C1\u09A8 \u0997\u09CB\u09A8\u09C7 ${p.boxes}-\u098F\u0964`` |
+| `earth.ask.noCity` | ``No Black Marble city near here: the file has ${p.cities}.`` | ``\u0995\u09BE\u099B\u09C7 \u0995\u09CB\u09A8\u09CB \u09AC\u09CD\u09B2\u09CD\u09AF\u09BE\u0995 \u09AE\u09BE\u09B0\u09CD\u09AC\u09C7\u09B2 \u09B6\u09B9\u09B0 \u09A8\u09C7\u0987: \u09AB\u09BE\u0987\u09B2\u09C7 \u0986\u099B\u09C7 ${p.cities}\u0964`` |
+| `earth.checkedWith.heading` | Also checked with (credited, not played) | যার সঙ্গেও যাচাই করা (কৃতিত্ব দেওয়া, বাজানো হয় না) |
+| `earth.checkedWith.svs` | ``SVS ${p.id}`` | ``SVS ${p.id}`` |
 | data template | GPCC stops at # because the gauge version we use (GPCC Full Data Monthly V#) ends in December #, so both rain records compare #–# with #–#. | GPCC {0} সালে থামে, কারণ আমাদের ব্যবহৃত বৃষ্টিমাপক সংস্করণ (GPCC Full Data Monthly V{1}) ডিসেম্বর {2}-এ শেষ; তাই দুটি বৃষ্টির রেকর্ডই {3}–{4}-কে {5}–{6}-এর সাথে তুলনা করে। |
 | data template | GPCP only, newer decade; GPCC data ends in # | শুধু GPCP, নতুন দশক; GPCC ডেটা {0} সালে শেষ |
 

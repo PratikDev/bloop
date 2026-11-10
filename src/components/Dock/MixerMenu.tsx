@@ -6,6 +6,9 @@ import { useAppState, useT } from "../AppState/use-app-state";
 import { Mixer } from "../Mixer";
 import { SettingToggle } from "../SettingToggle";
 import { DockAction } from "./DockAction";
+// >>> DATA
+import { FireWeatherLayerControl } from "../EarthData/FireWeatherLayer";
+// <<< DATA
 
 /** Volume, mute and solo per voice, and Mute all (M), in a popover above the dock. */
 export function MixerMenu() {
@@ -34,6 +37,9 @@ export function MixerMenu() {
         <Mixer />
         <div className="stitch-x opacity-60" aria-hidden="true" />
         <SettingToggle setting="allMuted" />
+        {/* >>> DATA: the fire-weather layer (Listen only, behind its flag) */}
+        <FireWeatherLayerControl />
+        {/* <<< DATA */}
       </PopoverContent>
     </Popover>
   );

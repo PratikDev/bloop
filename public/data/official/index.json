@@ -235,6 +235,17 @@
    "badge": "reanalysis",
    "period": "1 Oct 2010 – 14 Dec 2010",
    "manifest": "river_4960/manifest.json"
+  },
+  {
+   "record": "sonification_13786",
+   "title": "Caldwell 73 sonification (method evidence)",
+   "svs_ids": [
+    13786
+   ],
+   "badge": "observation",
+   "period": "23 Dec 2020 – 23 Dec 2020",
+   "manifest": "sonification_13786/manifest.json",
+   "kind": "method"
   }
  ]
 }

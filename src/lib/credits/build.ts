@@ -5,6 +5,9 @@
 
 import type { DatasetRef, FreshnessEntry, FreshnessFile, OfficialIndex, OfficialIndexRow } from "@/types/data-contract";
 import { SURFACES, voiceProduct } from "./surfaces";
+// >>> DATA
+import { appProducts } from "@/lib/earth/records";
+// <<< DATA
 import { CREDIT_GROUPS, CREDIT_PAGES, type CreditEntry, type CreditGroup, type CreditPage, type CreditsList } from "./types";
 
 /** The EIC/SVS frames themselves (credited as visualizations), and the related shelf's placeholder datasets. */
@@ -54,6 +57,9 @@ export function playedProducts(inputs: CreditInputs): Plays {
     for (const v of s.voices) add(plays, voiceProduct(v), s.page);
     for (const p of [...(s.products ?? []), ...(s.shows ?? [])]) add(plays, p, s.page);
   }
+  // >>> DATA: a record built from shipped products (src/lib/earth/records.ts) names the products it plays.
+  for (const row of inputs.official.records) for (const p of appProducts(row)) add(plays, p, "official");
+  // <<< DATA
   const outputs = new Set(officialRows(inputs).map((r) => r.output));
   for (const e of Object.values(inputs.freshness.products)) {
     if (!outputs.has(e.outputs[0])) continue;

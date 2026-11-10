@@ -51,5 +51,6 @@ export function monthlyProvenance(c: MonthlyContext): Provenance {
     scripts: (c.world ? SCRIPTS.world : metric === "water" ? SCRIPTS.water : SCRIPTS.monthly).map((p) => repoLink(p)),
     validation: null,
     patternOnly: null,
+    health: voiceProduct(HISTORY_VOICE[metric]), // >>> DATA <<< DATA
   };
 }

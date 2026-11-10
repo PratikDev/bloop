@@ -9,6 +9,9 @@ import { askBloopBn } from "./ask-bloop";
 // >>> CV
 import { cvBn } from "./cv";
 // <<< CV
+// >>> DATA
+import { earthBn } from "./earth";
+// <<< DATA
 
 /** UI keys whose Bangla is a draft. */
 export const DRAFT_KEYS: readonly MessageKey[] = [
@@ -415,6 +418,9 @@ export const DRAFT_KEYS: readonly MessageKey[] = [
   // CV/ML build (en/cv-*.ts): every key
   ...(Object.keys(cvBn) as MessageKey[]),
   // <<< CV
+  // >>> DATA
+  ...(Object.keys(earthBn) as MessageKey[]),
+  // <<< DATA
 ];
 
 /** Data-file sentences (bn/data.ts templates) whose Bangla is a draft: the English template, numbers as "#". */

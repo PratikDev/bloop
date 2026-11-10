@@ -23,10 +23,13 @@ import { useLiveData } from "../../LiveData/use-live-data";
 import { GlobeFace, OceanFace, RainFace, RulesFace } from "./cards";
 import { Tile } from "./Tile";
 import { useHowProvenance } from "./use-how-provenance";
-// >>> CV
 import { FLAGS } from "@/lib/flags";
+// >>> CV
 import { SameChordCard } from "./SameChordCard";
 // <<< CV
+// >>> DATA
+import { DataHealthCard } from "./DataHealthCard";
+// <<< DATA
 
 const FOOT_LINK = "h-11 gap-2 rounded-full px-4 text-body text-haze ring-1 ring-glass-edge hover:bg-tide hover:text-moon";
 
@@ -95,6 +98,9 @@ export function HowPage() {
         {/* >>> CV */}
         {FLAGS.cvCard && <SameChordCard />}
         {/* <<< CV */}
+        {/* >>> DATA */}
+        {FLAGS.dataHealth && <DataHealthCard />}
+        {/* <<< DATA */}
       </motion.div>
 
       <motion.footer variants={RISE} initial="hidden" animate="shown" className="flex flex-wrap items-center gap-2">

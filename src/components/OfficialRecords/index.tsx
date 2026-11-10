@@ -26,6 +26,10 @@ import { useOfficialRecord } from "./use-official-record";
 import { FLAGS } from "@/lib/flags";
 import { OfficialRead } from "../JukeboxRead/OfficialRead";
 // <<< CV
+// >>> DATA
+import { NotPlayable } from "../EarthData/NotPlayable";
+import { appRecordExtras, appRecordPlayer } from "../EarthRecords";
+// <<< DATA
 
 
 function readingText(t: BoundT, lang: Lang, r: OfficialReading | null, layer: OfficialLayer | undefined): string {
@@ -128,8 +132,13 @@ export function OfficialRecords() {
       </div>
       <ChoiceGroup label={t("official.records")} value={current ?? ""} onChange={setRecord} className="flex-wrap"
         options={index.records.map((r) => ({ value: r.record, label: r.title, brailleLabel: recordBrailleLabel(r) }))} />
-      {current && <Player key={current} record={current} />}
+      {/* DATA: a record built from the shipped products plays its own player (src/components/EarthRecords). */}
+      {current && (appRecordPlayer(current) ?? <Player key={current} record={current} />)}
+      {current && appRecordExtras(current, setRecord)}
       <RelatedRecords value={current ?? ""} onChange={setRecord} />
+      {/* >>> DATA */}
+      <NotPlayable />
+      {/* <<< DATA */}
       <InfoSheet title={t("official.credits")} trigger={t("official.credits")} triggerClassName="h-11 rounded-full px-4 text-body text-haze ring-1 ring-glass-edge">
         <DataCredits />
       </InfoSheet>

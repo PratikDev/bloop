@@ -3,6 +3,9 @@
 import { Fragment, type ReactNode } from "react";
 import type { BoundT, MessageKey } from "@/lib/i18n";
 import type { Provenance, ProvenanceLink, ProvenanceStatus } from "@/lib/provenance/types";
+// >>> DATA
+import { DataFacts } from "../EarthData/DataFacts";
+// <<< DATA
 
 export const STATUS_KEYS = {
   verified: "hwgt.status.verified",
@@ -62,6 +65,9 @@ export function Facts({ t, facts }: { t: BoundT; facts: Provenance }) {
           </Fragment>
         ))}
       </dl>
+      {/* >>> DATA: "Is this data fresh?" and a live frame's acceptance check */}
+      <DataFacts facts={facts} />
+      {/* <<< DATA */}
     </>
   );
 }

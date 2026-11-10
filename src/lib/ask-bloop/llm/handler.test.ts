@@ -3,6 +3,7 @@
 // never a loop; the request carries no number of Bloop's; unconfigured, it refuses at once.
 import { describe, expect, test } from "bun:test";
 import { createAskIntentHandler, RATE_PER_MINUTE, type ProviderEnv } from "./handler";
+import { INTENT_NAMES } from "../registry"; // DATA
 
 const ENV: ProviderEnv = { ASK_BLOOP_BASE_URL: "https://primary.test/v1", ASK_BLOOP_MODEL: "m1", ASK_BLOOP_API_KEY: "k1" };
 const BOTH: ProviderEnv = { ...ENV, ASK_BLOOP_FALLBACK_BASE_URL: "https://fallback.test/v1", ASK_BLOOP_FALLBACK_MODEL: "m2", ASK_BLOOP_FALLBACK_API_KEY: "k2" };
@@ -31,7 +32,7 @@ describe("the LLM fallback route", () => {
     // Temperature 0, the registry's tools, and nothing of Bloop's data: no grid, no value.
     const sent = JSON.parse(s.calls[0].body) as { temperature: number; tools: unknown[]; messages: { content: string }[] };
     expect(sent.temperature).toBe(0);
-    expect(sent.tools.length).toBe(21);
+    expect(sent.tools.length).toBe(INTENT_NAMES.length); // DATA: one tool per registry intent (21 + the four DATA questions)
     expect(JSON.parse(sent.messages[1].content)).toEqual({ request: "take me to chittagong", current_record: "ocean", records: ["ocean", "rain", "both"] });
   });
 

@@ -4,6 +4,9 @@ import { HomePage } from "@/components/pages/Home";
 import { ListenPage } from "@/components/pages/Listen";
 import { NotFoundPage } from "@/components/pages/NotFound";
 import { listenSearch, thenNowSearch, transcriptSearch } from "./search";
+// >>> DATA
+import { DATA_HEALTH_SEGMENT } from "@/lib/earth/routes";
+// <<< DATA
 
 // Seven places and a 404 (docs/L3/REDESIGN.md §2; Official and Turntable joined from bloop-dev). Then vs Now, How we
 // know, Official and Turntable load their code (the chart library, three.js) only when opened.
@@ -60,4 +63,13 @@ const transcriptRoute = createRoute({
   component: lazyRouteComponent(() => import("@/components/pages/Transcript"), "TranscriptPage"),
 });
 
-export const routeTree = rootRoute.addChildren([homeRoute, listenRoute, thenNowRoute, howRoute, officialRoute, turntableRoute, teamRoute, listenTestRoute, transcriptRoute]);
+// >>> DATA
+// Data health (P1): one row per record from the pipeline's health run, linked from How we know (behind its flag).
+const dataHealthRoute = createRoute({
+  getParentRoute: () => rootRoute,
+  path: DATA_HEALTH_SEGMENT,
+  component: lazyRouteComponent(() => import("@/components/pages/DataHealth"), "DataHealthPage"),
+});
+// <<< DATA
+
+export const routeTree = rootRoute.addChildren([homeRoute, listenRoute, thenNowRoute, howRoute, officialRoute, turntableRoute, teamRoute, listenTestRoute, transcriptRoute, dataHealthRoute]);
