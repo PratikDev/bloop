@@ -6,6 +6,7 @@ import type { MessageKey } from "../index";
 import { timedTextBn } from "./timed-text";
 import { lowVisionBn } from "./low-vision";
 import { askBloopBn } from "./ask-bloop";
+import { artBn } from "./art"; // ART
 
 /** UI keys whose Bangla is a draft. */
 export const DRAFT_KEYS: readonly MessageKey[] = [
@@ -408,6 +409,9 @@ export const DRAFT_KEYS: readonly MessageKey[] = [
   ...(Object.keys(lowVisionBn) as MessageKey[]),
   // Ask Bloop (en/ask-bloop.ts): every key (spec §1: needsReview)
   ...(Object.keys(askBloopBn) as MessageKey[]),
+  // >>> ART (en/art/): every key, a developer's draft
+  ...(Object.keys(artBn) as MessageKey[]),
+  // <<< ART
 ];
 
 /** Data-file sentences (bn/data.ts templates) whose Bangla is a draft: the English template, numbers as "#". */

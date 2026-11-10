@@ -2,9 +2,14 @@
 // names, no IP, no audio. scripts/listen-test-summary.ts reads the exported files.
 
 import type { OptionId, TaskId } from "./tasks";
+import type { ExtraRecord } from "./extras/types"; // ART
 
 export const RESULTS_KIND = "bloop-listen-test";
 export const RESULTS_VERSION = 1;
+// >>> ART: which set of tasks a session ran (1: the five core tasks; 2: + emotion ratings and ear-vs-eye), so earlier
+// sessions stay separable. The orchestrator bumps it when other builds' tasks join.
+export const TEST_VERSION = 2;
+// <<< ART
 
 export interface TaskResult {
   task: TaskId;
@@ -22,15 +27,21 @@ export interface ResultsFile {
   lang: "en" | "bn";
   results: TaskResult[];
   comment: string;
+  /** ART: the task set's version (missing in files from before it existed: read as 1). */
+  testVersion?: number;
+  /** ART: each extra task module's answers, by its id (registry.ts). */
+  extras?: Record<string, ExtraRecord[]>;
 }
 
-export const resultsFile = (lang: "en" | "bn", results: TaskResult[], comment: string): ResultsFile => ({
+export const resultsFile = (lang: "en" | "bn", results: TaskResult[], comment: string, extras: Record<string, ExtraRecord[]> = {}): ResultsFile => ({
   kind: RESULTS_KIND,
   version: RESULTS_VERSION,
+  testVersion: Object.keys(extras).length ? TEST_VERSION : 1,
   formative: true,
   lang,
   results,
   comment: comment.trim(),
+  extras,
 });
 
 /** The download's name: the date and time only (the protocol renames it to the session number). */

@@ -499,7 +499,7 @@ The Mapping panel builds each rule sentence from its parts (`src/lib/i18n/bn/rul
 | `clarity` | parameter: reverbSec; unit: hours since a 1 km infrared look | How recently measured 0 to 48 hours since a 1 km infrared look → echo length 0.1 to 2.4 s (linear). |
 | `unison` | a rule shared with another voice (sameAs) | Proof in unison: two tones in one ear, both by the Ocean temperature rule (Ocean temperature −5 to 35 °C → pitch 220 to 880 Hz (exponential: equal steps in value sound like equal musical steps).) Beats per second = the difference between the two pitches in Hz. |
 
-## Draft Bangla, needs review (603)
+## Draft Bangla, needs review (823)
 
 Drafted for the mentor fixes (`docs/MENTOR_FIXES.md`); **draft, needs review** by a Bangla speaker. Listed in `src/lib/i18n/bn/drafts.ts`: remove an entry there once it is checked.
 
@@ -1106,6 +1106,226 @@ Drafted for the mentor fixes (`docs/MENTOR_FIXES.md`); **draft, needs review** b
 | `ask.answer.noCheck` | No independent check is available for this record. | এই রেকর্ডের কোনো স্বাধীন যাচাই নেই। |
 | `ask.highest` | Highest | সবচেয়ে বেশি |
 | `ask.lowest` | Lowest | সবচেয়ে কম |
+| `orchestra.cat.ocean` | Ocean | সমুদ্র |
+| `orchestra.cat.air` | Air and weather | বায়ু ও আবহাওয়া |
+| `orchestra.cat.land` | Land and life | ভূমি ও জীবন |
+| `orchestra.cat.fire` | Fire and smoke | আগুন ও ধোঁয়া |
+| `orchestra.cat.ice` | Ice and water storage | বরফ ও জলের মজুত |
+| `orchestra.cat.people` | People and carbon | মানুষ ও কার্বন |
+| `orchestra.inst.ocean` | Breathy flute (a synthesised bansuri) | শ্বাসময় বাঁশি (সংশ্লেষিত বাঁশি) |
+| `orchestra.inst.air` | Soft, airy pad | নরম, হাওয়াময় প্যাড |
+| `orchestra.inst.land` | Plucked string (a synthesised dotara) | টোকা দেওয়া তার (সংশ্লেষিত দোতারা) |
+| `orchestra.inst.fire` | Muted metallic pluck with a crackle | চাপা ধাতব টোকা, সঙ্গে চটচট শব্দ |
+| `orchestra.inst.ice` | Glassy bell | কাচের মতো ঘণ্টা |
+| `orchestra.inst.people` | Felt piano | ফেল্ট পিয়ানো |
+| `orchestra.why.ocean` | Moving water and breath: a sustained, breathy tone. | চলমান জল আর শ্বাস: টানা, শ্বাসময় সুর। |
+| `orchestra.why.air` | Air moves softly and everywhere: a slow, airy pad. | বাতাস নরমভাবে সবখানে বয়: ধীর, হাওয়াময় প্যাড। |
+| `orchestra.why.land` | Soil and growing things: a plucked string, like the dotara of Bengal's folk songs. | মাটি আর বেড়ে ওঠা প্রাণ: বাংলার লোকগানের দোতারার মতো টোকা দেওয়া তার। |
+| `orchestra.why.fire` | Fire crackles: a damped metallic pluck over a crackle. | আগুন চটচট করে: চটচট শব্দের ওপর চাপা ধাতব টোকা। |
+| `orchestra.why.ice` | Ice and stored water are still and clear: a glassy bell. | বরফ আর জমা জল স্থির ও স্বচ্ছ: কাচের মতো ঘণ্টা। |
+| `orchestra.why.people` | Lights and carbon come from people: a warm felt piano, a human instrument. | আলো আর কার্বন আসে মানুষ থেকে: উষ্ণ ফেল্ট পিয়ানো, মানুষের বাদ্য। |
+| `orchestra.style` | Instrument style | বাদ্যের ধরন |
+| `orchestra.style.orchestra` | Earth Orchestra | পৃথিবী অর্কেস্ট্রা |
+| `orchestra.style.plain` | Plain tones | সাধারণ সুর |
+| `orchestra.style.note` | Earth Orchestra gives each Earth system its own instrument. Only the timbre changes: pitch, timing and every number stay the same. | পৃথিবী অর্কেস্ট্রা প্রতিটি পৃথিবী-ব্যবস্থাকে নিজস্ব বাদ্য দেয়। বদলায় শুধু সুরের রং: সুরের উচ্চতা, সময় আর প্রতিটি সংখ্যা একই থাকে। |
+| `orchestra.title` | Earth Orchestra | পৃথিবী অর্কেস্ট্রা |
+| `orchestra.figureLabel` | Earth systems, one instrument family each | পৃথিবী-ব্যবস্থা, প্রতিটির একটি বাদ্য-পরিবার |
+| `orchestra.figure` | ``${p.count} families`` | ``${p.count}\u099F\u09BF \u09AA\u09B0\u09BF\u09AC\u09BE\u09B0`` |
+| `orchestra.numbers` | ``${p.records} records placed by their own words; ${p.unclassified} left unplaced and played as plain tones.`` | ``${p.records}\u099F\u09BF \u09B0\u09C7\u0995\u09B0\u09CD\u09A1 \u09A4\u09BE\u09A6\u09C7\u09B0 \u09A8\u09BF\u099C\u09C7\u09B0 \u09B6\u09AC\u09CD\u09A6\u09C7 \u09AC\u09B8\u09BE\u09A8\u09CB; ${p.unclassified}\u099F\u09BF \u09AC\u09B8\u09BE\u09A8\u09CB \u09AF\u09BE\u09AF\u09BC\u09A8\u09BF, \u09B8\u09C7\u0997\u09C1\u09B2\u09CB \u09B8\u09BE\u09A7\u09BE\u09B0\u09A3 \u09B8\u09C1\u09B0\u09C7 \u09AC\u09BE\u099C\u09C7\u0964`` |
+| `orchestra.explain` | Each record belongs to an Earth system, and each system has its own instrument family, so you can learn the systems by ear. Pitch, timing and numbers never change: the family is only the timbre. | প্রতিটি রেকর্ড একটি পৃথিবী-ব্যবস্থার অংশ, আর প্রতিটি ব্যবস্থার নিজস্ব বাদ্য-পরিবার আছে, তাই কানে শুনেই ব্যবস্থাগুলো চেনা যায়। সুরের উচ্চতা, সময় আর সংখ্যা কখনো বদলায় না: পরিবার শুধু সুরের রং। |
+| `orchestra.interpretation` | Interpretation, not measurement: the families are our artistic choice. | ব্যাখ্যা, পরিমাপ নয়: বাদ্য-পরিবারগুলো আমাদের শিল্পিত পছন্দ। |
+| `orchestra.col.system` | Earth system | পৃথিবী-ব্যবস্থা |
+| `orchestra.col.instrument` | Instrument | বাদ্য |
+| `orchestra.col.why` | Why | কেন |
+| `orchestra.col.demo` | Hear it | শুনুন |
+| `orchestra.demo` | ``Play ${p.system} on the reference note`` | ``${p.system} \u09AC\u09BE\u099C\u09BE\u09A8, \u09A8\u09BF\u09B0\u09CD\u09A6\u09BF\u09B7\u09CD\u099F \u09B8\u09C1\u09B0\u09C7`` |
+| `orchestra.demoShort` | Play | বাজান |
+| `orchestra.reference` | Every demo plays one fixed reference note (E4, 330 Hz), never a data value. | প্রতিটি নমুনা একটি নির্দিষ্ট সুরে বাজে (E4, 330 Hz), কখনো ডেটার মানে নয়। |
+| `orchestra.unclassified` | ``Not placed in a system (plain tones): ${p.list}.`` | ``\u0995\u09CB\u09A8\u09CB \u09AC\u09CD\u09AF\u09AC\u09B8\u09CD\u09A5\u09BE\u09AF\u09BC \u09AC\u09B8\u09BE\u09A8\u09CB \u09B9\u09AF\u09BC\u09A8\u09BF (\u09B8\u09BE\u09A7\u09BE\u09B0\u09A3 \u09B8\u09C1\u09B0): ${p.list}\u0964`` |
+| `orchestra.unplaced` | Not placed | বসানো হয়নি |
+| `orchestra.open` | See every family | সব পরিবার দেখুন |
+| `orchestra.grid` | Records by Earth system | পৃথিবী-ব্যবস্থা অনুযায়ী রেকর্ড |
+| `orchestra.prefix` | ``${p.system}.`` | ``${p.system}\u0964`` |
+| `orchestra.hwgt.subject` | Earth Orchestra | পৃথিবী অর্কেস্ট্রা |
+| `orchestra.hwgt.method` | Each record's Earth system comes from its own words (its title, then its layer labels) through ordered keyword rules; a record the rules can't place, or whose layers disagree, is left unplaced. Generated by scripts/orchestra-categories.ts into src/lib/audio/orchestra/categories.json. | প্রতিটি রেকর্ডের পৃথিবী-ব্যবস্থা আসে তার নিজের শব্দ থেকে (শিরোনাম, তারপর স্তরের নাম), ক্রমানুসারে সাজানো শব্দ-নিয়মে; নিয়ম যে রেকর্ড বসাতে পারে না, বা যার স্তরগুলো একমত নয়, তা বসানো হয় না। scripts/orchestra-categories.ts থেকে src/lib/audio/orchestra/categories.json-এ তৈরি। |
+| `orchestra.hwgt.n` | ``${p.records} records and sounds`` | ``${p.records}\u099F\u09BF \u09B0\u09C7\u0995\u09B0\u09CD\u09A1 \u0993 \u09B6\u09AC\u09CD\u09A6`` |
+| `dial.change.timbre` | timbre | সুরের রং |
+| `dial.change.ticks` | faint gridline ticks | মৃদু মাপের টিক |
+| `dial.change.bed` | a soft bed | নরম পটভূমি |
+| `dial.change.chord` | the value chord | মানের কর্ড |
+| `dial.change.drone` | a drone on Sa | সা-তে স্থির সুর |
+| `dial.change.reverb` | light reverb | হালকা প্রতিধ্বনি |
+| `dial.change.meend` | swara and meend glides | স্বর আর মীড় |
+| `dial.label` | Science to Art | বিজ্ঞান থেকে শিল্প |
+| `dial.stop.0` | Measure | মাপ |
+| `dial.stop.0.5` | Blend | মিশ্রণ |
+| `dial.stop.1` | Music | সংগীত |
+| `dial.stopHint.0` | 0, Measure | ০, মাপ |
+| `dial.stopHint.0.5` | 0.5, Blend | ০.৫, মিশ্রণ |
+| `dial.stopHint.1` | 1, Music | ১, সংগীত |
+| `dial.unchanged` | Data voice: unchanged at every position. | ডেটার কণ্ঠ: প্রতিটি অবস্থানে অপরিবর্তিত। |
+| `dial.whatChanges` | ``What changes: ${p.list}.`` | ``\u09AF\u09BE \u09AC\u09A6\u09B2\u09BE\u09AF\u09BC: ${p.list}\u0964`` |
+| `dial.announce` | ``Dial: ${p.stop}, data unchanged`` | ``\u09A1\u09BE\u09AF\u09BC\u09BE\u09B2: ${p.stop}, \u09A1\u09C7\u099F\u09BE \u0985\u09AA\u09B0\u09BF\u09AC\u09B0\u09CD\u09A4\u09BF\u09A4`` |
+| `dial.chord.none` | Value chord: not available in this version, so none plays. | মানের কর্ড: এই সংস্করণে নেই, তাই বাজে না। |
+| `dial.chord.off` | Value chord: off with two data voices (Both). | মানের কর্ড: দুটি ডেটা-কণ্ঠে বন্ধ (দুটোই)। |
+| `dial.chord.blocked` | ``Value chord: silent here (${p.why}).`` | ``\u09AE\u09BE\u09A8\u09C7\u09B0 \u0995\u09B0\u09CD\u09A1: \u098F\u0996\u09BE\u09A8\u09C7 \u09A8\u09C0\u09B0\u09AC (${p.why})\u0964`` |
+| `dial.chord.why.pattern-only` | pattern only, no values | শুধু নকশা, কোনো মান নেই |
+| `dial.chord.why.not-allowlisted` | this colour bar isn't on the list | এই রঙের পট তালিকায় নেই |
+| `dial.chord.why.both` | two data voices already | আগে থেকেই দুটি ডেটা-কণ্ঠ |
+| `dial.chord.why.duet` | two data voices already | আগে থেকেই দুটি ডেটা-কণ্ঠ |
+| `dial.chord.why.no-data` | no values here | এখানে কোনো মান নেই |
+| `dial.chord.why.off` | off | বন্ধ |
+| `dial.season` | ``Artistic choice: season colour (${p.colour}). Sa never moves.`` | ``\u09B6\u09BF\u09B2\u09CD\u09AA\u09BF\u09A4 \u09AA\u099B\u09A8\u09CD\u09A6: \u098B\u09A4\u09C1\u09B0 \u09B0\u0982 (${p.colour})\u0964 \u09B8\u09BE \u0995\u0996\u09A8\u09CB \u09B8\u09B0\u09C7 \u09A8\u09BE\u0964`` |
+| `dial.season.monsoon` | monsoon, fuller and darker | বর্ষা, ভরাট ও গাঢ় |
+| `dial.season.dry` | dry season, lighter | শুকনো মৌসুম, হালকা |
+| `dial.artistic` | Interpretation, not measurement: everything the dial adds is our artistic choice. | ব্যাখ্যা, পরিমাপ নয়: ডায়াল যা যোগ করে সবই আমাদের শিল্পিত পছন্দ। |
+| `dial.check` | Check the data voice | ডেটার কণ্ঠ যাচাই করুন |
+| `dial.checking` | Checking: rendering every position | যাচাই চলছে: প্রতিটি অবস্থান রেন্ডার হচ্ছে |
+| `dial.check.pass` | ``Same data voice at ${p.stops} positions: ${p.notes} notes, largest pitch difference ${p.cents} cents (limit 1), same onsets and tempo.`` | ``${p.stops}\u099F\u09BF \u0985\u09AC\u09B8\u09CD\u09A5\u09BE\u09A8\u09C7 \u098F\u0995\u0987 \u09A1\u09C7\u099F\u09BE-\u0995\u09A3\u09CD\u09A0: ${p.notes}\u099F\u09BF \u09B8\u09C1\u09B0, \u09B8\u09C1\u09B0\u09C7\u09B0 \u0989\u099A\u09CD\u099A\u09A4\u09BE\u09AF\u09BC \u09B8\u09AC\u099A\u09C7\u09AF\u09BC\u09C7 \u09AC\u09A1\u09BC \u09AA\u09BE\u09B0\u09CD\u09A5\u0995\u09CD\u09AF ${p.cents} \u09B8\u09C7\u09A8\u09CD\u099F (\u09B8\u09C0\u09AE\u09BE \u09E7), \u098F\u0995\u0987 \u09B6\u09C1\u09B0\u09C1 \u0993 \u09B2\u09AF\u09BC\u0964`` |
+| `dial.check.fail` | ``Check failed: a difference of ${p.cents} cents. Please report it.`` | ``\u09AF\u09BE\u099A\u09BE\u0987 \u09AC\u09CD\u09AF\u09B0\u09CD\u09A5: ${p.cents} \u09B8\u09C7\u09A8\u09CD\u099F\u09C7\u09B0 \u09AA\u09BE\u09B0\u09CD\u09A5\u0995\u09CD\u09AF\u0964 \u09A6\u09AF\u09BC\u09BE \u0995\u09B0\u09C7 \u099C\u09BE\u09A8\u09BE\u09A8\u0964`` |
+| `dial.check.drops` | ``Same drops at ${p.stops} positions: ${p.onsets} onsets, same timing.`` | ``${p.stops}\u099F\u09BF \u0985\u09AC\u09B8\u09CD\u09A5\u09BE\u09A8\u09C7 \u098F\u0995\u0987 \u09AB\u09CB\u0981\u099F\u09BE: ${p.onsets}\u099F\u09BF \u09B6\u09C1\u09B0\u09C1, \u098F\u0995\u0987 \u09B8\u09AE\u09AF\u09BC\u0964`` |
+| `dial.check.none` | No data voice here to check. | এখানে যাচাই করার মতো ডেটা-কণ্ঠ নেই। |
+| `dial.hwgt.subject` | the data voice check | ডেটার কণ্ঠ যাচাই |
+| `dial.hwgt.uncertainty` | The measurement resolves well under 0.1 cent on these renders; the limit is 1 cent. | এই রেন্ডারে পরিমাপ ০.১ সেন্টের অনেক নিচে নির্ভুল; সীমা ১ সেন্ট। |
+| `dial.hwgt.n` | ``${p.notes} notes per position`` | ``\u09AA\u09CD\u09B0\u09A4\u09BF \u0985\u09AC\u09B8\u09CD\u09A5\u09BE\u09A8\u09C7 ${p.notes}\u099F\u09BF \u09B8\u09C1\u09B0`` |
+| `dial.braille` | ``Dial: ${p.stop}, data unchanged`` | ``\u09A1\u09BE\u09AF\u09BC\u09BE\u09B2: ${p.stop}, \u09A1\u09C7\u099F\u09BE \u0985\u09AA\u09B0\u09BF\u09AC\u09B0\u09CD\u09A4\u09BF\u09A4`` |
+| `dial.hwgt.method` | The record's own values are played through its rule and rendered offline (OfflineAudioContext) with the art layer off, then at 0, 0.5 and 1. The data voice is rendered on its own channel; its settled pitch per note is measured from the audio (a fine search of the windowed spectrum) and compared with the art-off render and with the rule. Onsets and tempo come from the renderer's log. | রেকর্ডের নিজের মানগুলো তার নিয়মে বাজিয়ে অফলাইনে (OfflineAudioContext) রেন্ডার করা হয়: শিল্প-স্তর বন্ধ রেখে, তারপর ০, ০.৫ আর ১-এ। ডেটার কণ্ঠ আলাদা চ্যানেলে রেন্ডার হয়; প্রতিটি সুরের থিতু উচ্চতা অডিও থেকে মাপা হয় (জানালা-করা বর্ণালির সূক্ষ্ম খোঁজ) এবং শিল্প-বন্ধ রেন্ডার ও নিয়মের সঙ্গে মেলানো হয়। শুরু আর লয় আসে রেন্ডারারের লগ থেকে। |
+| `proof.title` | Data voice check | ডেটার কণ্ঠ যাচাই |
+| `proof.figureLabel` | The data voice is the same at every dial position and in every family | ডায়ালের প্রতিটি অবস্থানে আর প্রতিটি পরিবারে ডেটার কণ্ঠ একই |
+| `proof.limit` | 1 cent limit | ১ সেন্ট সীমা |
+| `proof.explain` | Each record's own values are rendered offline with the art off, then at Measure, Blend and Music, and in every Earth Orchestra family. The data voice's settled pitch is measured from the audio and must stay within 1 cent; its onsets and tempo must not change. | প্রতিটি রেকর্ডের নিজের মানগুলো অফলাইনে রেন্ডার করা হয়: শিল্প বন্ধ রেখে, তারপর মাপ, মিশ্রণ আর সংগীতে, এবং পৃথিবী অর্কেস্ট্রার প্রতিটি পরিবারে। ডেটা-কণ্ঠের থিতু উচ্চতা অডিও থেকে মাপা হয় এবং তা ১ সেন্টের মধ্যে থাকতে হয়; শুরু আর লয় বদলাতে পারে না। |
+| `proof.record.ocean` | Check live sea surface temperature (MUR) | সরাসরি সমুদ্র-পৃষ্ঠের তাপমাত্রা যাচাই (MUR) |
+| `proof.record.rain` | Check IMERG rain (the storm time-lapse) | IMERG বৃষ্টি যাচাই (ঝড়ের টাইম-ল্যাপ্স) |
+| `proof.record.currents_3912` | Check SVS 3912 sea surface temperature | SVS 3912 সমুদ্র-পৃষ্ঠের তাপমাত্রা যাচাই |
+| `proof.categories` | Check every Earth Orchestra family | পৃথিবী অর্কেস্ট্রার প্রতিটি পরিবার যাচাই |
+| `proof.categories.pass` | ``${p.families} families, as the live voice and as notes: ${p.notes} notes each, largest pitch difference ${p.cents} cents (limit 1).`` | ``${p.families}\u099F\u09BF \u09AA\u09B0\u09BF\u09AC\u09BE\u09B0, \u09B8\u09B0\u09BE\u09B8\u09B0\u09BF \u0995\u09A3\u09CD\u09A0 \u0993 \u09B8\u09C1\u09B0 \u09B9\u09BF\u09B8\u09C7\u09AC\u09C7: \u09AA\u09CD\u09B0\u09A4\u09BF\u099F\u09BF\u09A4\u09C7 ${p.notes}\u099F\u09BF \u09B8\u09C1\u09B0, \u09B8\u09C1\u09B0\u09C7\u09B0 \u0989\u099A\u09CD\u099A\u09A4\u09BE\u09AF\u09BC \u09B8\u09AC\u099A\u09C7\u09AF\u09BC\u09C7 \u09AC\u09A1\u09BC \u09AA\u09BE\u09B0\u09CD\u09A5\u0995\u09CD\u09AF ${p.cents} \u09B8\u09C7\u09A8\u09CD\u099F (\u09B8\u09C0\u09AE\u09BE \u09E7)\u0964`` |
+| `proof.open` | How the check works | যাচাই কীভাবে হয় |
+| `raw.title` | Pixel to sound, or Bloop? | পিক্সেল থেকে শব্দ, নাকি ব্লুপ? |
+| `raw.figureLabel` | Roughness: the naive scan against Bloop, measured | রুক্ষতা: সরল স্ক্যান বনাম ব্লুপ, মাপা |
+| `raw.figure` | ``${p.naive} against ${p.bloop}`` | ``${p.naive} \u09AC\u09A8\u09BE\u09AE ${p.bloop}`` |
+| `raw.label` | Naive version shown for comparison; it is not how Bloop works. | সরল সংস্করণটি শুধু তুলনার জন্য দেখানো; ব্লুপ এভাবে কাজ করে না। |
+| `raw.explain` | One frame (SVS 3912, sea surface temperature), the same path row by row, 6 seconds each. The naive version turns each pixel's colour into a pitch; Bloop plays the real values through its written rule, and is silent over land. | একটি ফ্রেম (SVS 3912, সমুদ্র-পৃষ্ঠের তাপমাত্রা), একই পথ সারি ধরে, প্রতিটি ৬ সেকেন্ড। সরল সংস্করণ প্রতিটি পিক্সেলের রংকে সুরের উচ্চতায় বদলায়; ব্লুপ আসল মানগুলো তার লেখা নিয়মে বাজায়, আর স্থলের ওপর নীরব থাকে। |
+| `raw.naive` | Hear the naive version | সরল সংস্করণ শুনুন |
+| `raw.bloop` | Hear Bloop | ব্লুপ শুনুন |
+| `raw.stop` | Stop | থামান |
+| `raw.numbers` | ``Naive: flatness ${p.nf}, roughness ${p.nr}, entropy ${p.ne}. Bloop: flatness ${p.bf}, roughness ${p.br}, entropy ${p.be}.`` | ``\u09B8\u09B0\u09B2: \u09B8\u09AE\u09A4\u09B2\u09A4\u09BE ${p.nf}, \u09B0\u09C1\u0995\u09CD\u09B7\u09A4\u09BE ${p.nr}, \u098F\u09A8\u099F\u09CD\u09B0\u09AA\u09BF ${p.ne}\u0964 \u09AC\u09CD\u09B2\u09C1\u09AA: \u09B8\u09AE\u09A4\u09B2\u09A4\u09BE ${p.bf}, \u09B0\u09C1\u0995\u09CD\u09B7\u09A4\u09BE ${p.br}, \u098F\u09A8\u099F\u09CD\u09B0\u09AA\u09BF ${p.be}\u0964`` |
+| `raw.scale` | Flatness and entropy run from 0 (one clean tone) to 1 (noise); roughness is summed over the strongest partials (higher is rougher). | সমতলতা আর এনট্রপি ০ (একটি পরিষ্কার সুর) থেকে ১ (কোলাহল) পর্যন্ত; রুক্ষতা সবচেয়ে জোরালো উপসুরগুলোর ওপর যোগফল (বেশি মানে বেশি রুক্ষ)। |
+| `raw.hwgt.subject` | the naive and Bloop measurements | সরল ও ব্লুপের পরিমাপ |
+| `raw.hwgt.method` | Both versions are rendered from the frame's decoded values (6 s, 22 050 samples a second) and measured over 2048-sample frames that sound: spectral flatness (geometric over arithmetic mean of the power), spectral entropy (normalised Shannon entropy) and roughness (Sethares' form of the Plomp and Levelt curve over each frame's 20 strongest peaks), averaged. | দুটি সংস্করণই ফ্রেমের ডিকোড করা মান থেকে রেন্ডার করা (৬ সেকেন্ড, প্রতি সেকেন্ডে ২২০৫০ নমুনা) এবং শব্দ-থাকা ২০৪৮-নমুনার ফ্রেমে মাপা: বর্ণালির সমতলতা, বর্ণালির এনট্রপি আর রুক্ষতা (প্রতিটি ফ্রেমের ২০টি সবচেয়ে জোরালো চূড়ায় প্লম্প ও লেভেল্টের বক্ররেখার সেথারেস রূপ), গড় করা। |
+| `raw.hwgt.n` | ``${p.naive} sounding frames (naive), ${p.bloop} (Bloop)`` | ``${p.naive}\u099F\u09BF \u09B6\u09AC\u09CD\u09A6-\u09A5\u09BE\u0995\u09BE \u09AB\u09CD\u09B0\u09C7\u09AE (\u09B8\u09B0\u09B2), ${p.bloop}\u099F\u09BF (\u09AC\u09CD\u09B2\u09C1\u09AA)`` |
+| `raw.open` | Play both | দুটোই বাজান |
+| `letter.title` | A letter to the future | ভবিষ্যতের কাছে একটি চিঠি |
+| `letter.leave` | Leave a letter | একটি চিঠি রেখে যান |
+| `letter.save` | Save the letter | চিঠিটি সংরক্ষণ করুন |
+| `letter.close` | Close the letter | চিঠিটি বন্ধ করুন |
+| `letter.head` | ``${p.place}, ${p.date}.`` | ``${p.place}, ${p.date}\u0964`` |
+| `letter.ocean` | ``Sea surface ${p.value}.`` | ``\u09B8\u09AE\u09C1\u09A6\u09CD\u09B0-\u09AA\u09C3\u09B7\u09CD\u09A0 ${p.value}\u0964`` |
+| `letter.rain` | ``Rain ${p.value}.`` | ``\u09AC\u09C3\u09B7\u09CD\u099F\u09BF ${p.value}\u0964`` |
+| `letter.dry` | No rain falling here. | এখানে বৃষ্টি পড়ছে না। |
+| `letter.by` | ``Measured by ${p.source}, read and checked by Bloop.`` | ``\u09AE\u09C7\u09AA\u09C7\u099B\u09C7 ${p.source}, \u09AA\u09A1\u09BC\u09C7\u099B\u09C7 \u0993 \u09AF\u09BE\u099A\u09BE\u0987 \u0995\u09B0\u09C7\u099B\u09C7 \u09AC\u09CD\u09B2\u09C1\u09AA\u0964`` |
+| `letter.median` | ``Median error ${p.error} degrees.`` | ``\u09AE\u09A7\u09CD\u09AF\u09AE\u09BE \u09A4\u09CD\u09B0\u09C1\u099F\u09BF ${p.error} \u09A1\u09BF\u0997\u09CD\u09B0\u09BF\u0964`` |
+| `letter.percent` | ``Typical difference about ${p.percent}%.`` | ``\u09B8\u09BE\u09A7\u09BE\u09B0\u09A3 \u09AA\u09BE\u09B0\u09CD\u09A5\u0995\u09CD\u09AF \u09AA\u09CD\u09B0\u09BE\u09AF\u09BC ${p.percent}%\u0964`` |
+| `letter.pattern` | ``${p.record}: pattern only; no value recorded.`` | ``${p.record}: \u09B6\u09C1\u09A7\u09C1 \u09A8\u0995\u09B6\u09BE; \u0995\u09CB\u09A8\u09CB \u09AE\u09BE\u09A8 \u09B2\u09C7\u0996\u09BE \u09A8\u09C7\u0987\u0964`` |
+| `letter.none` | No value here: land, or no measurement. | এখানে কোনো মান নেই: স্থল, বা কোনো পরিমাপ নেই। |
+| `letter.noValue` | no value recorded | কোনো মান লেখা নেই |
+| `letter.field.date` | Date | তারিখ |
+| `letter.field.place` | Place | স্থান |
+| `letter.field.value` | Value | মান |
+| `letter.field.source` | Source | উৎস |
+| `letter.field.link` | Link | লিংক |
+| `letter.note` | Only measured values: the date of the frame, the value under the needle, and how it was checked. | শুধু মাপা মান: ফ্রেমের তারিখ, কাঁটার নিচের মান, আর তা কীভাবে যাচাই হয়েছে। |
+| `letter.hwgt.subject` | the letter | চিঠি |
+| `letter.hwgt.method` | The value under the needle, read from the frame by the same function the sound plays; the date is the frame's; the error is the record's validation line. | কাঁটার নিচের মান, ফ্রেম থেকে সেই একই ফাংশনে পড়া যা শব্দ বাজায়; তারিখ ফ্রেমের; ত্রুটি রেকর্ডের যাচাই-লাইন থেকে। |
+| `tour.data` | ``Data: ${p.source}; frame ${p.period}.`` | ``\u09A1\u09C7\u099F\u09BE: ${p.source}; \u09AB\u09CD\u09B0\u09C7\u09AE ${p.period}\u0964`` |
+| `tour.dataSpan` | ``Data: ${p.source}; frames ${p.from} to ${p.to}.`` | ``\u09A1\u09C7\u099F\u09BE: ${p.source}; \u09AB\u09CD\u09B0\u09C7\u09AE ${p.from} \u09A5\u09C7\u0995\u09C7 ${p.to}\u0964`` |
+| `lifetime.view` | Your lifetime | আপনার জীবনকাল |
+| `lifetime.title` | The song of your lifetime | আপনার জীবনকালের গান |
+| `lifetime.lead` | Pick a birth year and a city: hear that city's record from that year to the latest, one note a year. Nothing you pick is stored. | একটি জন্মসাল আর একটি শহর বেছে নিন: সেই বছর থেকে সর্বশেষ বছর পর্যন্ত শহরটির রেকর্ড শুনুন, বছরে একটি সুর। আপনার কোনো পছন্দ সংরক্ষণ করা হয় না। |
+| `lifetime.born` | Birth year | জন্মসাল |
+| `lifetime.city` | City | শহর |
+| `lifetime.play` | Play your lifetime | আপনার জীবনকাল বাজান |
+| `lifetime.stop` | Stop | থামান |
+| `lifetime.part.heat` | April to May heat | এপ্রিল থেকে মে মাসের গরম |
+| `lifetime.part.rain` | June to September rain | জুন থেকে সেপ্টেম্বরের বৃষ্টি |
+| `lifetime.part.water` | Water stored underground (all of Bangladesh) | মাটির নিচে জমা জল (পুরো বাংলাদেশ) |
+| `lifetime.unit.heat` | degrees | ডিগ্রি |
+| `lifetime.unit.rain` | mm a day | মিমি প্রতিদিন |
+| `lifetime.unit.water` | cm | সেমি |
+| `lifetime.since` | ``Since ${p.year} in ${p.city}:`` | ``${p.year} \u09A5\u09C7\u0995\u09C7 ${p.city}-\u098F:`` |
+| `lifetime.starts` | ``from ${p.year}`` | ``${p.year} \u09A5\u09C7\u0995\u09C7`` |
+| `lifetime.rose` | ``${p.part} (${p.starts}) rose ${p.slope} ${p.unit} a decade (95% range ${p.lo} to ${p.hi}): a clear trend.`` | ``${p.part} (${p.starts}) \u09AA\u09CD\u09B0\u09A4\u09BF \u09A6\u09B6\u0995\u09C7 ${p.slope} ${p.unit} \u09AC\u09C7\u09A1\u09BC\u09C7\u099B\u09C7 (\u09EF\u09EB% \u09AA\u09B0\u09BF\u09B8\u09B0 ${p.lo} \u09A5\u09C7\u0995\u09C7 ${p.hi}): \u09B8\u09CD\u09AA\u09B7\u09CD\u099F \u09AA\u09CD\u09B0\u09AC\u09A3\u09A4\u09BE\u0964`` |
+| `lifetime.fell` | ``${p.part} (${p.starts}) fell ${p.slope} ${p.unit} a decade (95% range ${p.lo} to ${p.hi}): a clear trend.`` | ``${p.part} (${p.starts}) \u09AA\u09CD\u09B0\u09A4\u09BF \u09A6\u09B6\u0995\u09C7 ${p.slope} ${p.unit} \u0995\u09AE\u09C7\u099B\u09C7 (\u09EF\u09EB% \u09AA\u09B0\u09BF\u09B8\u09B0 ${p.lo} \u09A5\u09C7\u0995\u09C7 ${p.hi}): \u09B8\u09CD\u09AA\u09B7\u09CD\u099F \u09AA\u09CD\u09B0\u09AC\u09A3\u09A4\u09BE\u0964`` |
+| `lifetime.unclear` | ``${p.part} (${p.starts}): no clear trend (${p.slope} ${p.unit} a decade, 95% range ${p.lo} to ${p.hi}).`` | ``${p.part} (${p.starts}): \u0995\u09CB\u09A8\u09CB \u09B8\u09CD\u09AA\u09B7\u09CD\u099F \u09AA\u09CD\u09B0\u09AC\u09A3\u09A4\u09BE \u09A8\u09C7\u0987 (\u09AA\u09CD\u09B0\u09A4\u09BF \u09A6\u09B6\u0995\u09C7 ${p.slope} ${p.unit}, \u09EF\u09EB% \u09AA\u09B0\u09BF\u09B8\u09B0 ${p.lo} \u09A5\u09C7\u0995\u09C7 ${p.hi})\u0964`` |
+| `lifetime.tooFew` | ``${p.part} (${p.starts}): too few years for a clear test; values from ${p.lo} to ${p.hi} ${p.unit}.`` | ``${p.part} (${p.starts}): \u09B8\u09CD\u09AA\u09B7\u09CD\u099F \u09AA\u09B0\u09C0\u0995\u09CD\u09B7\u09BE\u09B0 \u099C\u09A8\u09CD\u09AF \u09AC\u099B\u09B0 \u0996\u09C1\u09AC \u0995\u09AE; \u09AE\u09BE\u09A8 ${p.lo} \u09A5\u09C7\u0995\u09C7 ${p.hi} ${p.unit}\u0964`` |
+| `lifetime.notes` | ``${p.count} notes, one a year, four a second.`` | ``${p.count}\u099F\u09BF \u09B8\u09C1\u09B0, \u09AC\u099B\u09B0\u09C7 \u098F\u0995\u099F\u09BF, \u09B8\u09C7\u0995\u09C7\u09A8\u09CD\u09A1\u09C7 \u099A\u09BE\u09B0\u099F\u09BF\u0964`` |
+| `lifetime.link` | Link to this song | এই গানের লিংক |
+| `lifetime.linkNote` | The link holds only the year and the city. | লিংকে শুধু সাল আর শহর থাকে। |
+| `lifetime.chart` | ``${p.part}, one point a year`` | ``${p.part}, \u09AC\u099B\u09B0\u09C7 \u098F\u0995\u099F\u09BF \u09AC\u09BF\u09A8\u09CD\u09A6\u09C1`` |
+| `lifetime.hwgt.subject` | your lifetime's trends | আপনার জীবনকালের প্রবণতা |
+| `lifetime.hwgt.method` | Each city's yearly series (the seasons Then vs Now plays) and, for every start year, the Mann-Kendall test with the Hamed-Rao correction and Sen's slope with its 95% range; a trend is called clear only if p < 0.05 and the range excludes 0. Written by pipeline/stats/lifetime_stats.py; the app only reads it. | প্রতিটি শহরের বার্ষিক সারি (যে ঋতুগুলো তখন বনাম এখন বাজায়) এবং প্রতিটি শুরুর বছরের জন্য হামেদ-রাও সংশোধনসহ মান-কেন্ডাল পরীক্ষা ও সেনের ঢাল, তার ৯৫% পরিসরসহ; p < 0.05 এবং পরিসরে 0 না থাকলেই প্রবণতাকে স্পষ্ট বলা হয়। pipeline/stats/lifetime_stats.py লেখে; অ্যাপ শুধু পড়ে। |
+| `lifetime.hwgt.n` | ``${p.years} years`` | ``${p.years} \u09AC\u099B\u09B0`` |
+| `midi.download` | Download as MIDI | MIDI হিসেবে নামান |
+| `midi.sheet` | Download the value sheet | মানের তালিকা নামান |
+| `midi.note` | ``For a human performer: exact pitches as MIDI notes plus pitch bend (range ${p.range} semitones), one note a year, with a sheet of year, value and frequency to check against.`` | ``\u09AE\u09BE\u09A8\u09C1\u09B7 \u09AC\u09BE\u09A6\u0995\u09C7\u09B0 \u099C\u09A8\u09CD\u09AF: \u09A8\u09BF\u0996\u09C1\u0981\u09A4 \u0989\u099A\u09CD\u099A\u09A4\u09BE MIDI \u09B8\u09C1\u09B0 \u0986\u09B0 \u09AA\u09BF\u099A \u09AC\u09C7\u09A8\u09CD\u09A1 (\u09AA\u09B0\u09BF\u09B8\u09B0 ${p.range} \u09B8\u09C7\u09AE\u09BF\u099F\u09CB\u09A8) \u09B9\u09BF\u09B8\u09C7\u09AC\u09C7, \u09AC\u099B\u09B0\u09C7 \u098F\u0995\u099F\u09BF \u09B8\u09C1\u09B0, \u09B8\u0999\u09CD\u0997\u09C7 \u09AC\u099B\u09B0, \u09AE\u09BE\u09A8 \u0993 \u0995\u09AE\u09CD\u09AA\u09BE\u0999\u09CD\u0995\u09C7\u09B0 \u09A4\u09BE\u09B2\u09BF\u0995\u09BE \u09AE\u09BF\u09B2\u09BF\u09AF\u09BC\u09C7 \u09A6\u09C7\u0996\u09BE\u09B0 \u099C\u09A8\u09CD\u09AF\u0964`` |
+| `choices.fromData` | From the data: | ডেটা থেকে: |
+| `choices.ourChoice` | Our artistic choice: | আমাদের শিল্পিত পছন্দ: |
+| `choices.data.pitch` | ``pitch follows the value (${p.unit})`` | ``\u09B8\u09C1\u09B0\u09C7\u09B0 \u0989\u099A\u09CD\u099A\u09A4\u09BE \u09AE\u09BE\u09A8 \u0985\u09A8\u09C1\u09B8\u09B0\u09A3 \u0995\u09B0\u09C7 (${p.unit})`` |
+| `choices.data.rate` | ``how often it sounds follows the value (${p.unit})`` | ``\u0995\u09A4 \u0998\u09A8\u0998\u09A8 \u09AC\u09BE\u099C\u09C7 \u09A4\u09BE \u09AE\u09BE\u09A8 \u0985\u09A8\u09C1\u09B8\u09B0\u09A3 \u0995\u09B0\u09C7 (${p.unit})`` |
+| `choices.data.brightness` | ``brightness follows the value (${p.unit})`` | ``\u0989\u099C\u09CD\u099C\u09CD\u09AC\u09B2\u09A4\u09BE \u09AE\u09BE\u09A8 \u0985\u09A8\u09C1\u09B8\u09B0\u09A3 \u0995\u09B0\u09C7 (${p.unit})`` |
+| `choices.data.loudness` | ``strength follows the value (${p.unit})`` | ``\u099C\u09CB\u09B0 \u09AE\u09BE\u09A8 \u0985\u09A8\u09C1\u09B8\u09B0\u09A3 \u0995\u09B0\u09C7 (${p.unit})`` |
+| `choices.data.echo` | ``echo length follows the value (${p.unit})`` | ``\u09AA\u09CD\u09B0\u09A4\u09BF\u09A7\u09CD\u09AC\u09A8\u09BF\u09B0 \u09A6\u09C8\u09B0\u09CD\u0998\u09CD\u09AF \u09AE\u09BE\u09A8 \u0985\u09A8\u09C1\u09B8\u09B0\u09A3 \u0995\u09B0\u09C7 (${p.unit})`` |
+| `choices.data.silence` | silence means no data | নীরবতা মানে কোনো ডেটা নেই |
+| `choices.data.none` | no value drives this sound | কোনো মান এই শব্দ চালায় না |
+| `choices.range` | ``the range, ${p.min} to ${p.max} ${p.unit}, ${p.scale}`` | ``\u09AA\u09B0\u09BF\u09B8\u09B0, ${p.min} \u09A5\u09C7\u0995\u09C7 ${p.max} ${p.unit}, ${p.scale}`` |
+| `choices.scale.exponential` | exponential | সূচকীয় |
+| `choices.scale.linear` | linear | রৈখিক |
+| `choices.timbre` | ``the instrument: ${p.instrument}`` | ``\u09AC\u09BE\u09A6\u09CD\u09AF: ${p.instrument}`` |
+| `choices.legend` | the legend's points | লেজেন্ডের বিন্দুগুলো |
+| `choices.dial` | ``the dial at ${p.stop}: ${p.list}`` | ``\u09A1\u09BE\u09AF\u09BC\u09BE\u09B2 ${p.stop}-\u098F: ${p.list}`` |
+| `ltx.emotion.heading` | How did that feel? | কেমন লাগল? |
+| `ltx.emotion.sound` | Listen to this clip: ocean temperatures at the checked places, west to east. | এই ক্লিপটি শুনুন: যাচাই করা জায়গাগুলোর সমুদ্রের তাপমাত্রা, পশ্চিম থেকে পূর্বে। |
+| `ltx.emotion.visual` | Watch this clip, without sound: ocean temperatures at the checked places, west to east. | এই ক্লিপটি দেখুন, শব্দ ছাড়া: যাচাই করা জায়গাগুলোর সমুদ্রের তাপমাত্রা, পশ্চিম থেকে পূর্বে। |
+| `ltx.emotion.play` | Play the clip | ক্লিপটি বাজান |
+| `ltx.emotion.watch` | Show the clip | ক্লিপটি দেখান |
+| `ltx.valence` | How did it feel? | কেমন লাগল? |
+| `ltx.valence.1` | 1, unpleasant | ১, অপ্রীতিকর |
+| `ltx.valence.5` | 5, pleasant | ৫, মনোরম |
+| `ltx.connection` | How connected do you feel to this place right now? | এই মুহূর্তে এই জায়গার সঙ্গে নিজেকে কতটা যুক্ত মনে হচ্ছে? |
+| `ltx.connection.1` | 1, not at all | ১, একদমই না |
+| `ltx.connection.5` | 5, very | ৫, খুব |
+| `ltx.next` | Next | পরের ধাপ |
+| `ltx.eye.heading` | When did the rain peak? | বৃষ্টি কখন সবচেয়ে বেশি ছিল? |
+| `ltx.eye.sound` | Listen: one storm's rain, half-hour by half-hour (no picture). | শুনুন: একটি ঝড়ের বৃষ্টি, আধঘণ্টা ধরে ধরে (কোনো ছবি নেই)। |
+| `ltx.eye.picture` | Look: one storm's rain, half-hour by half-hour (no sound). | দেখুন: একটি ঝড়ের বৃষ্টি, আধঘণ্টা ধরে ধরে (কোনো শব্দ নেই)। |
+| `ltx.eye.listen` | Play the rain | বৃষ্টি বাজান |
+| `ltx.eye.question` | When was the rain heaviest? | বৃষ্টি কখন সবচেয়ে ভারী ছিল? |
+| `ltx.eye.early` | Early | শুরুতে |
+| `ltx.eye.middle` | In the middle | মাঝখানে |
+| `ltx.eye.late` | Late | শেষে |
+| `ltx.eye.chart` | Bars, one for each half-hour; taller is heavier rain | প্রতিটি আধঘণ্টার একটি দণ্ড; উঁচু মানে ভারী বৃষ্টি |
+| `ltx.clip.strip` | Bars, one for each place; taller is warmer | প্রতিটি জায়গার একটি দণ্ড; উঁচু মানে বেশি উষ্ণ |
+| `journey.open` | Water's journey | জলের যাত্রা |
+| `journey.title` | Water's journey: a Bangladesh suite | জলের যাত্রা: একটি বাংলাদেশ সুইট |
+| `journey.lead` | Lightning, an atmospheric river, the rain over Bangladesh, the water stored under it, and the Bay of Bengal: five records, each in its Earth Orchestra family, with the dial at Music (the data voice unchanged) and two seconds of silence between them. | বজ্রপাত, একটি বায়ুমণ্ডলীয় নদী, বাংলাদেশের ওপর বৃষ্টি, তার নিচে জমা জল আর বঙ্গোপসাগর: পাঁচটি রেকর্ড, প্রতিটি তার পৃথিবী অর্কেস্ট্রা পরিবারে, ডায়াল সংগীতে (ডেটার কণ্ঠ অপরিবর্তিত), মাঝে দুই সেকেন্ডের নীরবতা। |
+| `journey.play` | Play the suite | সুইটটি বাজান |
+| `journey.stop` | Stop | থামান |
+| `journey.close` | Close the suite | সুইটটি বন্ধ করুন |
+| `journey.wav` | Play as one piece (save a WAV) | একটি টুকরো হিসেবে বাজান (WAV সংরক্ষণ) |
+| `journey.wavDone` | ``Saved: ${p.seconds} seconds, fingerprint ${p.id}.`` | ``\u09B8\u0982\u09B0\u0995\u09CD\u09B7\u09BF\u09A4: ${p.seconds} \u09B8\u09C7\u0995\u09C7\u09A8\u09CD\u09A1, \u099B\u09BE\u09AA ${p.id}\u0964`` |
+| `journey.rendering` | Rendering the suite | সুইটটি রেন্ডার হচ্ছে |
+| `journey.loading` | Loading the five records | পাঁচটি রেকর্ড লোড হচ্ছে |
+| `journey.step.lightning` | Lightning | বজ্রপাত |
+| `journey.step.river` | An atmospheric river | একটি বায়ুমণ্ডলীয় নদী |
+| `journey.step.rain` | Rain over Bangladesh | বাংলাদেশের ওপর বৃষ্টি |
+| `journey.step.water` | Water stored under Bangladesh | বাংলাদেশের নিচে জমা জল |
+| `journey.step.sea` | The Bay of Bengal | বঙ্গোপসাগর |
+| `journey.status.pattern only` | pattern only, no values | শুধু নকশা, কোনো মান নেই |
+| `journey.status.relative` | relative values | আপেক্ষিক মান |
+| `journey.status.verified` | values checked against NASA's files | নাসার ফাইলের সঙ্গে যাচাই করা মান |
+| `journey.status.observation` | observed values | পর্যবেক্ষিত মান |
+| `journey.line` | ``${p.name}. ${p.dataset}; ${p.period}; ${p.status}.`` | ``${p.name}\u0964 ${p.dataset}; ${p.period}; ${p.status}\u0964`` |
+| `journey.dial` | Dial at Music: the data voice unchanged; what changes is the instrument, a drone on Sa, swara and meend glides and light reverb. Interpretation, not measurement. | ডায়াল সংগীতে: ডেটার কণ্ঠ অপরিবর্তিত; বদলায় বাদ্য, সা-তে স্থির সুর, স্বর ও মীড় আর হালকা প্রতিধ্বনি। ব্যাখ্যা, পরিমাপ নয়। |
+| `journey.season` | Artistic choice: season colour (monsoon). | শিল্পিত পছন্দ: ঋতুর রং (বর্ষা)। |
 | data template | GPCC stops at # because the gauge version we use (GPCC Full Data Monthly V#) ends in December #, so both rain records compare #–# with #–#. | GPCC {0} সালে থামে, কারণ আমাদের ব্যবহৃত বৃষ্টিমাপক সংস্করণ (GPCC Full Data Monthly V{1}) ডিসেম্বর {2}-এ শেষ; তাই দুটি বৃষ্টির রেকর্ডই {3}–{4}-কে {5}–{6}-এর সাথে তুলনা করে। |
 | data template | GPCP only, newer decade; GPCC data ends in # | শুধু GPCP, নতুন দশক; GPCC ডেটা {0} সালে শেষ |
 

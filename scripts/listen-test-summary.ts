@@ -5,6 +5,7 @@ import { readdirSync, readFileSync } from "node:fs";
 import { join } from "node:path";
 import { isResultsFile, summarise, type ResultsFile } from "../src/lib/listen-test/results";
 import { TASK_IDS } from "../src/lib/listen-test/tasks";
+import { extrasReport } from "../src/lib/listen-test/extras/summary"; // ART
 
 export function readFolder(folder: string): { files: ResultsFile[]; skipped: string[] } {
   const files: ResultsFile[] = [];
@@ -28,6 +29,7 @@ export function report(folder: string): string {
     "Task     n  correct  accuracy",
     ...s.tasks.map((t) => `${t.task.padEnd(7)} ${String(t.n).padStart(2)}  ${String(t.correct).padStart(7)}  ${t.n ? pct(t.accuracy).padStart(8) : "     n/a"}`),
   ];
+  lines.push(...extrasReport(files)); // ART: emotion ratings and ear vs eye (testVersion 2+)
   if (skipped.length) lines.push("", `Not listener-test files (skipped): ${skipped.join(", ")}`);
   return lines.join("\n");
 }

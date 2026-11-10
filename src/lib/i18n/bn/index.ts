@@ -19,6 +19,7 @@ import { expeditionBn } from "./expedition";
 import { timedTextBn } from "./timed-text";
 import { lowVisionBn } from "./low-vision";
 import { askBloopBn } from "./ask-bloop";
+import { artBn } from "./art"; // ART
 import { helpBn } from "./help";
 import { pagesBn } from "./pages";
 import { panelsBn } from "./panels";
@@ -27,7 +28,7 @@ import { howBn } from "./how";
 import { statsBn } from "./stats";
 import { storyBn } from "./story";
 
-export const bn: Partial<Messages> = { ...appBn, ...helpBn, ...captionsBn, ...panelsBn, ...contextBn, ...storyBn, ...pagesBn, ...statsBn, ...framesBn, ...howBn, ...creditsBn, ...provenanceBn, ...teamBn, ...listenTestBn, ...accessBn, ...describeBn, ...placesTableBn, ...tuningBn, ...expeditionBn, ...timedTextBn, ...lowVisionBn, ...askBloopBn };
+export const bn: Partial<Messages> = { ...appBn, ...helpBn, ...captionsBn, ...panelsBn, ...contextBn, ...storyBn, ...pagesBn, ...statsBn, ...framesBn, ...howBn, ...creditsBn, ...provenanceBn, ...teamBn, ...listenTestBn, ...accessBn, ...describeBn, ...placesTableBn, ...tuningBn, ...expeditionBn, ...timedTextBn, ...lowVisionBn, ...askBloopBn, ...artBn /* ART */ };
 
 /**
  * Spoken lines (Enter, the tour, Describe) are translated, so speech follows

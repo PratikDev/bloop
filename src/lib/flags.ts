@@ -52,4 +52,23 @@ export const FLAGS = {
   describe: flag(process.env.NEXT_PUBLIC_A11Y_DESCRIBE, true),
   // Ready on 8 Nov 2026: e2e/a11y/map-keys.e2e.ts 26/26 and the whole suite 406/406 with it on (Chromium + Firefox).
   mapKeys: flag(process.env.NEXT_PUBLIC_A11Y_MAP_KEYS, true),
+  // >>> ART (docs/statement/ART.md): art, emotion and musicality. `ready` stays false until the integrated full pass.
+  /** Earth Orchestra: an instrument family per Earth system, the Instrument style setting, the category earcon, the
+   *  Official grid grouped by category, the legend card. */
+  artOrchestra: flag(process.env.NEXT_PUBLIC_ART_ORCHESTRA, false),
+  /** The Science ↔ Art dial (Measure / Blend / Music), its data-voice check and the season colour of the drone. */
+  artDial: flag(process.env.NEXT_PUBLIC_ART_DIAL, false),
+  /** Raw-pixel vs Bloop: the naive scan and Bloop's, with measured flatness, entropy and roughness. */
+  artRawPixel: flag(process.env.NEXT_PUBLIC_ART_RAW_PIXEL, false),
+  /** A letter to the future: a dated card built only from data (Listen, the tour's end). */
+  artLetter: flag(process.env.NEXT_PUBLIC_ART_LETTER, false),
+  /** "Your lifetime" on Then vs Now, and the MIDI export (Then vs Now, Your lifetime). */
+  artLifetime: flag(process.env.NEXT_PUBLIC_ART_LIFETIME, false),
+  /** Data vs artistic choice per record (About this sound, Official records) and the tour naming every dataset. */
+  artChoices: flag(process.env.NEXT_PUBLIC_ART_CHOICES, false),
+  /** Water's journey: the Bangladesh suite (and its WAV). */
+  artJourney: flag(process.env.NEXT_PUBLIC_ART_JOURNEY, false),
+  /** /listen-test: the emotion ratings and the ear-vs-eye task after the five core tasks. */
+  artListenTest: flag(process.env.NEXT_PUBLIC_ART_LISTEN_TEST, false),
+  // <<< ART
 } as const;

@@ -22,6 +22,7 @@ import { expeditionEn } from "./en/expedition";
 import { timedTextEn } from "./en/timed-text";
 import { lowVisionEn } from "./en/low-vision";
 import { askBloopEn } from "./en/ask-bloop";
+import { artEn } from "./en/art"; // ART
 import { dataEn } from "./en/data";
 import { helpEn } from "./en/help";
 import { officialEn } from "./en/official";
@@ -64,6 +65,7 @@ export const en = {
   ...timedTextEn,
   ...lowVisionEn,
   ...askBloopEn,
+  ...artEn, // ART
 };
 
 export type Messages = typeof en;

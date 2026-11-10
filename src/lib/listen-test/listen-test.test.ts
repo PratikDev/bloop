@@ -42,7 +42,8 @@ describe("tasks", () => {
 describe("results and summary", () => {
   test("the export holds no names and trims the comment", () => {
     const f = resultsFile("en", [], "  fine  ");
-    expect(Object.keys(f).sort()).toEqual(["comment", "formative", "kind", "lang", "results", "version"]);
+    expect(Object.keys(f).sort()).toEqual(["comment", "extras", "formative", "kind", "lang", "results", "testVersion", "version"]);
+    expect(f.testVersion).toBe(1); // ART: no extra tasks ran (TEST_VERSION when they did)
     expect(f.comment).toBe("fine");
     expect(exportName(new Date("2026-11-07T09:05:00Z"))).toBe("listen-test-20261107-0905.json");
   });

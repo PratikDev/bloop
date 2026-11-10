@@ -13,6 +13,12 @@ import { useAppState } from "../../AppState/use-app-state";
 import { useCommands } from "../../Commands/use-commands";
 import { useLiveData } from "../../LiveData/use-live-data";
 import { playPlan, playScale } from "./play";
+// >>> ART: the extra task modules (emotion, ear vs eye; CV's chord tasks join the same list)
+import { FLAGS } from "@/lib/flags";
+import type { ExtraRecord } from "@/lib/listen-test/extras/types";
+import { EXTRA_MODULES } from "./extras/registry";
+const EXTRAS = FLAGS.artListenTest ? EXTRA_MODULES : [];
+// <<< ART
 
 export type Step =
   | { kind: "consent" }
@@ -21,6 +27,7 @@ export type Step =
   | { kind: "stopped" }
   | { kind: "intro" }
   | { kind: "task"; index: number }
+  | { kind: "extra"; index: number } // ART
   | { kind: "comment" }
   | { kind: "done" };
 
@@ -47,6 +54,8 @@ export function useListenTest() {
   const [step, setStep] = useState<Step>({ kind: "consent" });
   const [comment, setComment] = useState("");
   const results = useRef<TaskResult[]>([]);
+  const extras = useRef<Record<string, ExtraRecord[]>>({}); // ART
+  const [coins, setCoins] = useState<readonly [number, number]>([0, 0]); // ART: counterbalancing, drawn per session
   const shownAt = useRef(0);
   const player = useRef<PlayerHandle | null>(null);
 
@@ -75,19 +84,31 @@ export function useListenTest() {
   );
 
   const answer = (task: Task, option: OptionId, index: number) => {
+    if (EXTRAS.length && tasks && index + 1 >= tasks.length) setCoins([Math.random(), Math.random()]); // ART
     results.current.push({ task: task.id, answer: option, correct_answer: task.correct, correct: option === task.correct, ms: Math.round(performance.now() - shownAt.current) });
-    go(tasks && index + 1 < tasks.length ? { kind: "task", index: index + 1 } : { kind: "comment" });
+    go(tasks && index + 1 < tasks.length ? { kind: "task", index: index + 1 } : EXTRAS.length ? { kind: "extra", index: 0 } : { kind: "comment" });
+  };
+
+  // ART: an extra module's answers, then the next module (or the comment).
+  const extraDone = (index: number, records: ExtraRecord[]) => {
+    if (records.length) extras.current[EXTRAS[index].info.id] = records;
+    go(index + 1 < EXTRAS.length ? { kind: "extra", index: index + 1 } : { kind: "comment" });
+  };
+  const playExtra = (start: () => PlayerHandle) => {
+    silence();
+    player.current = start();
   };
 
   const stop = () => {
     results.current = [];
+    extras.current = {};
     go({ kind: "stopped" });
   };
 
   const exportResults = () =>
-    downloadBlob(new Blob([JSON.stringify(resultsFile(state.lang, results.current, comment), null, 1)], { type: "application/json" }), exportName(new Date()));
+    downloadBlob(new Blob([JSON.stringify(resultsFile(state.lang, results.current, comment, extras.current), null, 1)], { type: "application/json" }), exportName(new Date()));
 
   const reference = inputs.value ? referenceC(inputs.value.pairs) : null;
   const error = inputs.error || rainStatus === "error";
-  return { step, go, tasks, error, reference, play, answer, stop, comment, setComment, exportResults };
+  return { step, go, tasks, error, reference, play, answer, stop, comment, setComment, exportResults, extras: EXTRAS, extraDone, playExtra, pairs: inputs.value?.pairs ?? [], coins };
 }

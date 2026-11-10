@@ -19,6 +19,7 @@ import { FirstHint } from "./FirstHint";
 import { Inspector } from "./Inspector";
 import { ListenStatus } from "./ListenStatus";
 import { AskBloop } from "../../AskBloop";
+import { ArtListen } from "../../Art/ArtListen"; // ART
 
 /**
  * Listen: the latest EIC frame as a sound map, full size. The page's title,
@@ -115,6 +116,7 @@ export function ListenPage() {
       </div>
       {FLAGS.askBloop && !story && <AskBloop open={askOpen} onOpenChange={setAskOpen} className="shrink-0 px-4 pb-3 fit:px-1 fit:pt-2" />}
       <LiveBrailleExplorer className="shrink-0 px-4 pb-3 fit:px-1 fit:pt-4" />
+      {(FLAGS.artDial || FLAGS.artOrchestra || FLAGS.artLetter || FLAGS.artJourney) && <ArtListen />} {/* ART: what the dial describes here */}
     </section>
   );
 }
