@@ -6,6 +6,7 @@ import { LiveBrailleExplorer } from "../../BrailleExplorer/LiveBrailleExplorer";
 import { Cabinet } from "../../Cabinet";
 import { ExploreControls } from "../../ExploreControls";
 import { FrameView } from "../../FrameView";
+import { TimeLapseStage } from "../../Globe/TimeLapseStage";
 import { useRecords } from "../../Records/use-records";
 import { StoryPanel } from "../../Story/StoryPanel";
 import { Inspector } from "./Inspector";
@@ -34,11 +35,13 @@ export function ListenPage() {
         <div className={cn("min-w-0", !state.brailleOpen && "lg:h-full lg:[container:cabinet_/_size]")}>
           <Cabinet code={current?.code} title={current?.title(t)} tubes foldCrown className="mx-auto lg:w-fit lg:max-w-full">
             <div className="cabinet-map relative">
-              <div className="overflow-hidden rounded-plate border-(length:--outline-panel) border-navy">
+              <div className="relative overflow-hidden rounded-plate border-(length:--outline-panel) border-navy">
                 <ExploreControls>
                   {/* The frame opens out from the equator when the intro ends (C1), and again on each visit. */}
                   <FrameView pan revealClassName={cn(state.introDone && "animate-reveal-equator")} />
                 </ExploreControls>
+                {/* The storm time-lapse on a globe over the map window (Session B), with its Globe / Flat map choice. */}
+                <TimeLapseStage />
               </div>
               <div data-overlay>
                 <ListenStatus className="pt-2 lg:absolute lg:top-3 lg:left-3 lg:z-(--layer-map-plates) lg:p-0" />
