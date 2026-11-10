@@ -77,9 +77,10 @@ def _manifest_rows():
             if cat == "gibs":
                 rows += [Record(f"{name}:{l['id']}", cat, l.get("label") or l["id"], rel, "official", (), l["id"], l.get("status", ""), None, l["id"])
                          for l in m["layers"]]
+    indexed = {r.id for r in rows}
     for mp in sorted((DATA / "official").glob("*/manifest.json")):     # method evidence: a manifest with nothing to play, not indexed
         m = json.loads(mp.read_text(encoding="utf-8"))
-        if not m.get("play"):
+        if not m.get("play") and m["record"] not in indexed:
             rows.append(Record(m["record"], "method", m["app_title"], mp.relative_to(DATA).as_posix(), "official", tuple(m["svs_ids"]),
                                "; ".join(d.get("name", "") for d in m.get("datasets", []) if isinstance(d, dict)),
                                ", ".join(dict.fromkeys(l.get("status", "") for l in m["layers"])) or "method evidence", m["record"]))

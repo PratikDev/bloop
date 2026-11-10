@@ -79,6 +79,7 @@ def main(argv):
     for idx in ("official", "related"):                   # every playable record the app lists, by its index title
         for row in json.loads((inventory.DATA / idx / "index.json").read_text(encoding="utf-8"))["records"]:
             if row.get("hidden"): hidden.append({"record": row["record"], "title": row["title"], "reason": row["hidden"]}); continue
+            if row.get("kind") == "method": continue      # NASA's method plays in its own player (e2e/data/radar.e2e.ts)
             plan[row["record"]] = {**values.plan_for(f"{idx}/{row['manifest']}"), "title": row["title"], "tab": idx}
     say(f"files, values, labels: {sum(len(r['checks']) for r in rows)} checks; app plan {len(plan)} records")
     net, app = {}, {}
