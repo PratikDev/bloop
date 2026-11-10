@@ -10,7 +10,7 @@ import { track } from "@/lib/audio/sources";
 import { onStopAll } from "@/lib/audio/stop";
 import { VOICE_IDS, type VoiceId } from "@/lib/audio/types";
 import { getGraph as getJukeboxGraph } from "@/lib/audio-jukebox/graph";
-import { chordLayer } from "../chord-hook";
+import { chordLayer, chordOptedIn, subscribeChordOptIn } from "../chord-hook";
 import { dialLayers, type DialLayers } from "../dial";
 import { crossed, gridlines } from "../gridlines";
 import { createBed, createDrone, createReverb, droneColour, playTick, reverbLevel, type Swell } from "../layers";
@@ -90,7 +90,8 @@ function syncChord(layers: DialLayers | null) {
   const chord = chordLayer();
   const context = getArt().context;
   if (!chord) return;
-  if (layers?.chord && context) chord.enable({ recordId: context.recordId, playMode: context.playMode }, "dial");
+  // Opt-in (CV's toggle), and only while a data voice sounds.
+  if (layers?.chord && context && chordOptedIn() && anySounding()) chord.enable({ recordId: context.recordId, playMode: context.playMode }, "dial");
   else chord.disable("dial");
 }
 
@@ -140,3 +141,4 @@ onStopAll(() => {
   chordLayer()?.stop();
 });
 subscribeArt(() => sync());
+subscribeChordOptIn(() => sync());

@@ -2,7 +2,8 @@
 
 import type { ReactNode } from "react";
 import { useArtSettings } from "@/hooks/use-art-settings";
-import { chordLayer } from "@/lib/art/chord-hook";
+import { useCvView } from "@/hooks/use-cv-view";
+import { chordLayer, chordOptedIn } from "@/lib/art/chord-hook";
 import { dialLayers, whatChanges, type DialLayers } from "@/lib/art/dial";
 import { droneColour } from "@/lib/art/layers";
 import { orchestraOn, type PlayContext } from "@/lib/art/settings";
@@ -25,6 +26,7 @@ export function chordText(t: BoundT, layers: DialLayers, context: PlayContext | 
   if (!layers.chord) return null;
   const chord = chordLayer();
   if (!chord) return t("dial.chord.none");
+  if (!chordOptedIn()) return t("dial.chord.optIn");
   if (!context) return null;
   const gate = chord.gate({ recordId: context.recordId, playMode: context.playMode });
   return gate.allowed || gate.block === null ? null : t("dial.chord.blocked", { why: t(`dial.chord.why.${gate.block}`) });
@@ -49,6 +51,7 @@ export function ArtDial({ className, children }: { className?: string; children?
   const t = useT();
   const commands = useCommands();
   const [art, setArt] = useArtSettings();
+  useCvView(); // the chord's opt-in toggle: its line under the dial follows it
   if (!FLAGS.artDial) return null;
   const layers = dialLayers(art.dial, art.context?.playMode ?? "single", orchestraOn(art));
   const choose = (key: StopKey) => {

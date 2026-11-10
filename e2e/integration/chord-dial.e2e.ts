@@ -1,7 +1,8 @@
 // Integration wire 1: the Science to Art dial drives the CV value chord (src/lib/art/chord-hook.ts). On a build with the
-// CV and ART flags on: with the user's own chord toggle OFF, the dial at Blend and Music sounds the chord on a bimodal box
-// (2 tones, each at the ocean rule's pitch of its group within 1 cent), Measure lets it go, Both keeps it off, and the
-// "not available in this version" line is gone. Which named box is bimodal is computed here from today's SST grid (never typed).
+// CV and ART flags on: the chord is opt-in (off for a first-time visitor, at the dial's default Blend, and the dial says
+// how to turn it on); once the listener turns it on, the dial at Blend and Music sounds it on a bimodal box (2 tones,
+// each at the ocean rule's pitch of its group within 1 cent), Measure lets it go (and the panel says why), Both keeps it
+// off. Which named box is bimodal is computed here from today's SST grid (never typed).
 import { readFileSync } from "node:fs";
 import path from "node:path";
 import { expect, test, type Page } from "@playwright/test";
@@ -27,6 +28,7 @@ const cents = (a: number, b: number) => Math.abs(1200 * Math.log2(a / b));
 
 const panel = (page: Page) => page.getByTestId("jukebox-read");
 const dial = (page: Page) => page.getByTestId("art-dial").first();
+const settings = (page: Page) => page.getByRole("dialog", { name: "Settings" });
 const stop = (page: Page, name: "Measure" | "Blend" | "Music") =>
   dial(page).getByRole("group", { name: "Science to Art" }).getByRole("button", { name }).click();
 
@@ -41,14 +43,17 @@ async function listenOcean(page: Page, track: "1" | "3" = "1") {
   await panel(page).getByRole("button", { name: bimodal!.name, exact: true }).click();
 }
 
-test("the dial at Blend and Music sounds the real value chord; Measure lets it go", async ({ page }) => {
+test("opt-in: off for a first-time visitor; once on, the dial at Blend and Music sounds the real chord; Measure lets go", async ({ page }) => {
   expect(bimodal, "a named box with two groups in today's SST").toBeDefined();
   await listenOcean(page);
-  await settingsButton(page).click();
-  await stop(page, "Measure");
+  // A first-time visitor: the dial at its default (Blend), the chord not turned on.
+  await settle(page, 1500);
   await expect(panel(page)).toHaveAttribute("data-chord-voices", "0");
-  await stop(page, "Blend");
+  await settingsButton(page).click();
+  await expect(dial(page).getByTestId("dial-lines")).toContainText("Value chord: off until you turn it on");
+  await settings(page).getByRole("button", { name: "Chord: spread of values" }).click();
   await expect(panel(page)).toHaveAttribute("data-chord-voices", "2");
+  await expect(dial(page).getByTestId("dial-lines")).not.toContainText("off until you turn it on");
   await expect(dial(page).getByTestId("dial-lines")).not.toContainText("not available in this version");
   const rule = continuousRule("ocean");
   const want = modesOf(bimodal!.id).map((m) => mapContinuous(m.value, rule) ?? NaN);
@@ -59,11 +64,15 @@ test("the dial at Blend and Music sounds the real value chord; Measure lets it g
   await expect(panel(page)).toHaveAttribute("data-chord-voices", "2");
   await stop(page, "Measure");
   await expect(panel(page)).toHaveAttribute("data-chord-voices", "0");
+  await expect(panel(page).getByTestId("chord-text")).toContainText("the Science to Art dial is at Measure");
+  await stop(page, "Blend");
+  await expect(panel(page)).toHaveAttribute("data-chord-voices", "2");
 });
 
 test("in Both mode the dial keeps the chord off and says why", async ({ page }) => {
   await listenOcean(page, "3");
   await settingsButton(page).click();
+  await settings(page).getByRole("button", { name: "Chord: spread of values" }).click();
   await stop(page, "Blend");
   await expect(dial(page).getByTestId("dial-lines")).toContainText("Value chord: off with two data voices (Both).");
   await expect(panel(page)).toHaveAttribute("data-chord-voices", "0");

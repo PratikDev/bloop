@@ -499,7 +499,7 @@ The Mapping panel builds each rule sentence from its parts (`src/lib/i18n/bn/rul
 | `clarity` | parameter: reverbSec; unit: hours since a 1 km infrared look | How recently measured 0 to 48 hours since a 1 km infrared look → echo length 0.1 to 2.4 s (linear). |
 | `unison` | a rule shared with another voice (sameAs) | Proof in unison: two tones in one ear, both by the Ocean temperature rule (Ocean temperature −5 to 35 °C → pitch 220 to 880 Hz (exponential: equal steps in value sound like equal musical steps).) Beats per second = the difference between the two pitches in Hz. |
 
-## Draft Bangla, needs review (1106)
+## Draft Bangla, needs review (1108)
 
 Drafted for the mentor fixes (`docs/MENTOR_FIXES.md`); **draft, needs review** by a Bangla speaker. Listed in `src/lib/i18n/bn/drafts.ts`: remove an entry there once it is checked.
 
@@ -1159,6 +1159,7 @@ Drafted for the mentor fixes (`docs/MENTOR_FIXES.md`); **draft, needs review** b
 | `cv.chord.block.duet` | Chord off: the proof-in-unison duet already plays two data voices. | কর্ড বন্ধ: একসুরে প্রমাণের দ্বৈত স্বরে আগে থেকেই দুটি তথ্যের স্বর বাজছে। |
 | `cv.chord.block.no-data` | Chord off: no values in this box. | কর্ড বন্ধ: এই এলাকায় কোনো মান নেই। |
 | `cv.chord.block.off` | Chord is off. | কর্ড বন্ধ। |
+| `cv.chord.atMeasure` | Chord on, but the Science to Art dial is at Measure (plain tones): it plays at Blend and Music. | কর্ড চালু, কিন্তু বিজ্ঞান থেকে শিল্প ডায়াল মাপে আছে (সাধারণ সুর): মিশ্রণ আর সংগীতে এটি বাজে। |
 | `cv.hwgt.chord.subject` | The chord | কর্ড |
 | `cv.hwgt.chord.method` | The values come from inverting NASA's colour bar (the same values the panel reads). Their histogram is smoothed with a Gaussian as wide as the record's measured error, and at most 2 groups are kept (each at least 5 % of the box). Each group plays at its value through the same value-to-pitch rule as the melody, louder for a bigger share, under the melody. | মানগুলো আসে নাসার রঙের পট্টি উল্টে পড়া থেকে (প্যানেল যে মান পড়ে, সেগুলোই)। এদের হিস্টোগ্রাম রেকর্ডের মাপা ত্রুটির সমান চওড়া গাউসিয়ান দিয়ে মসৃণ করা হয়, আর সর্বোচ্চ ২টি দল রাখা হয় (প্রতিটি এলাকার অন্তত ৫ %)। প্রতিটি দল সুরের মতোই একই মান-থেকে-সুর নিয়মে নিজের মানে বাজে, বড় অংশ হলে জোরে, সুরের চেয়ে নিচু স্বরে। |
 | `cv.hwgt.chord.unc` | ``Smoothing width: the measured error, ${p.sigma}. Groups closer than that merge.`` | ``\u09AE\u09B8\u09C3\u09A3 \u0995\u09B0\u09BE\u09B0 \u09AA\u09CD\u09B0\u09B8\u09CD\u09A5: \u09AE\u09BE\u09AA\u09BE \u09A4\u09CD\u09B0\u09C1\u099F\u09BF, ${p.sigma}\u0964 \u098F\u09B0 \u099A\u09C7\u09AF\u09BC\u09C7 \u0995\u09BE\u099B\u09C7\u09B0 \u09A6\u09B2\u0997\u09C1\u09B2\u09CB \u09AE\u09BF\u09B6\u09C7 \u09AF\u09BE\u09AF\u09BC\u0964`` |
@@ -1441,6 +1442,7 @@ Drafted for the mentor fixes (`docs/MENTOR_FIXES.md`); **draft, needs review** b
 | `dial.chord.none` | Value chord: not available in this version, so none plays. | মানের কর্ড: এই সংস্করণে নেই, তাই বাজে না। |
 | `dial.chord.off` | Value chord: off with two data voices (Both). | মানের কর্ড: দুটি ডেটা-কণ্ঠে বন্ধ (দুটোই)। |
 | `dial.chord.blocked` | ``Value chord: silent here (${p.why}).`` | ``\u09AE\u09BE\u09A8\u09C7\u09B0 \u0995\u09B0\u09CD\u09A1: \u098F\u0996\u09BE\u09A8\u09C7 \u09A8\u09C0\u09B0\u09AC (${p.why})\u0964`` |
+| `dial.chord.optIn` | Value chord: off until you turn it on (Settings, Chord: spread of values). | মানের কর্ড: আপনি চালু না করা পর্যন্ত বন্ধ (সেটিংস, কর্ড: মানের বিস্তার)। |
 | `dial.chord.why.pattern-only` | pattern only, no values | শুধু নকশা, কোনো মান নেই |
 | `dial.chord.why.not-allowlisted` | this colour bar isn't on the list | এই রঙের পট তালিকায় নেই |
 | `dial.chord.why.both` | two data voices already | আগে থেকেই দুটি ডেটা-কণ্ঠ |

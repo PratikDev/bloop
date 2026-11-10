@@ -29,6 +29,7 @@ export const dialEn = {
   "dial.chord.none": "Value chord: not available in this version, so none plays.",
   "dial.chord.off": "Value chord: off with two data voices (Both).",
   "dial.chord.blocked": (p: { why: string }) => `Value chord: silent here (${p.why}).`,
+  "dial.chord.optIn": "Value chord: off until you turn it on (Settings, Chord: spread of values).",
   "dial.chord.why.pattern-only": "pattern only, no values",
   "dial.chord.why.not-allowlisted": "this colour bar isn't on the list",
   "dial.chord.why.both": "two data voices already",

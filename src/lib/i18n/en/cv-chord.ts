@@ -14,6 +14,7 @@ export const cvChordEn = {
   "cv.chord.block.duet": "Chord off: the proof-in-unison duet already plays two data voices.",
   "cv.chord.block.no-data": "Chord off: no values in this box.",
   "cv.chord.block.off": "Chord is off.",
+  "cv.chord.atMeasure": "Chord on, but the Science to Art dial is at Measure (plain tones): it plays at Blend and Music.",
   "cv.hwgt.chord.subject": "The chord",
   "cv.hwgt.chord.method":
     "The values come from inverting NASA's colour bar (the same values the panel reads). Their histogram is smoothed with a Gaussian as wide as the record's measured error, and at most 2 groups are kept (each at least 5 % of the box). Each group plays at its value through the same value-to-pitch rule as the melody, louder for a bigger share, under the melody.",

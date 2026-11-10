@@ -23,6 +23,7 @@ export const dialBn: Partial<typeof dialEn> = {
   "dial.chord.none": "মানের কর্ড: এই সংস্করণে নেই, তাই বাজে না।",
   "dial.chord.off": "মানের কর্ড: দুটি ডেটা-কণ্ঠে বন্ধ (দুটোই)।",
   "dial.chord.blocked": (p: { why: string }) => `মানের কর্ড: এখানে নীরব (${p.why})।`,
+  "dial.chord.optIn": "মানের কর্ড: আপনি চালু না করা পর্যন্ত বন্ধ (সেটিংস, কর্ড: মানের বিস্তার)।",
   "dial.chord.why.pattern-only": "শুধু নকশা, কোনো মান নেই",
   "dial.chord.why.not-allowlisted": "এই রঙের পট তালিকায় নেই",
   "dial.chord.why.both": "আগে থেকেই দুটি ডেটা-কণ্ঠ",

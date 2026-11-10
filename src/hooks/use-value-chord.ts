@@ -11,6 +11,9 @@ import { chordShort, chordText } from "@/lib/cv/chord-text";
 import type { LiveBudget } from "@/lib/cv/error-budget";
 import type { ReadSource } from "@/lib/cv/read-source";
 import { FLAGS } from "@/lib/flags";
+import { dialOwnsChord } from "@/lib/art/chord-hook";
+import { dialStop } from "@/lib/art/settings";
+import { useArtSettings } from "./use-art-settings";
 import { useCvView } from "./use-cv-view";
 import { useShortLines } from "./use-short-lines";
 
@@ -66,7 +69,11 @@ export function useValueChord(source: ReadSource | null, stats: BoxStats | null,
     valueChord.setView(source ? { recordId: source.recordId, trust: source.trust, pitchVoice: source.pitchVoice, sigma, values: stats?.values ?? NO_VALUES } : null);
   }, [source, stats, sigma]);
 
-  const on = FLAGS.cvChord && view.chord && state.playing && state.soundOn;
+  // With the Science to Art dial built in, the dial holds the chord at Blend and Music once the toggle is on; the toggle
+  // holds it here only in a build without the dial.
+  const [art] = useArtSettings();
+  const dialOwns = dialOwnsChord();
+  const on = FLAGS.cvChord && view.chord && state.playing && state.soundOn && !dialOwns;
   const recordId = req?.recordId;
   useEffect(() => {
     if (on && recordId) valueChord.enable({ recordId, playMode: mode }, "user");
@@ -76,7 +83,8 @@ export function useValueChord(source: ReadSource | null, stats: BoxStats | null,
 
   const gate = req ? valueChord.gate(req) : { allowed: false, block: "no-data" as const, modesOnly: false, trust: "stated" as const };
   const unit = source?.unit ?? "";
-  const text = chordText(t, state.lang, gate, tones, unit, state.verbosity === "brief");
+  const atMeasure = dialOwns && view.chord && dialStop(art) === 0 && gate.block === "off";
+  const text = atMeasure ? t("cv.chord.atMeasure") : chordText(t, state.lang, gate, tones, unit, state.verbosity === "brief");
   const short = chordShort(gate, tones, unit);
 
   // Say each change once, when the chord is sounding.
