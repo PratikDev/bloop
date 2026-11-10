@@ -121,9 +121,15 @@ test("the listener test: emotion ratings and ear vs eye after the tasks, exporte
     await em.getByRole("group", { name: /How connected/u }).getByRole("button", { name: "3" }).click();
     await em.getByRole("button", { name: "Next" }).click();
   }
+  // Ear vs eye: two items (one heard, one seen); the task is left out only on a dry day (no clear answer).
   const ee = page.getByTestId("lt-ear-eye");
-  if (await ee.isVisible({ timeout: 15_000 }).catch(() => false)) {
-    for (let k = 0; k < 2; k++) await page.getByTestId("lt-ear-eye").locator("[data-option]").first().click();
+  const finish = page.getByRole("button", { name: "Finish" });
+  await expect(ee.or(finish)).toBeVisible({ timeout: 30_000 });
+  if (await ee.isVisible()) {
+    const first = await ee.getAttribute("data-sense");
+    await ee.locator("[data-option]").first().click();
+    await expect(ee).not.toHaveAttribute("data-sense", first!);
+    await ee.locator("[data-option]").first().click();
   }
   await page.getByRole("button", { name: "Finish" }).click();
   const [file] = await Promise.all([page.waitForEvent("download"), page.getByRole("button", { name: /Export/u }).click()]);
