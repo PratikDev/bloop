@@ -63,6 +63,9 @@ export const proofEn = {
   "proof.record.ocean": "Check live sea surface temperature (MUR)",
   "proof.record.rain": "Check IMERG rain (the storm time-lapse)",
   "proof.record.currents_3912": "Check SVS 3912 sea surface temperature",
+  "proof.record.heat": "Check Then vs Now heat (GISTEMP, yearly)",
+  "proof.record.monsoon": "Check Then vs Now monsoon rain (GPCP, yearly)",
+  "proof.record.water": "Check Then vs Now stored water (GRACE, yearly)",
   "proof.categories": "Check every Earth Orchestra family",
   "proof.categories.pass": (p: { families: string; cents: string; notes: string }) =>
     `${p.families} families, as the live voice and as notes: ${p.notes} notes each, largest pitch difference ${p.cents} cents (limit 1).`,

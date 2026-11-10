@@ -57,6 +57,9 @@ export const proofBn: Partial<typeof proofEn> = {
   "proof.record.ocean": "সরাসরি সমুদ্র-পৃষ্ঠের তাপমাত্রা যাচাই (MUR)",
   "proof.record.rain": "IMERG বৃষ্টি যাচাই (ঝড়ের টাইম-ল্যাপ্স)",
   "proof.record.currents_3912": "SVS 3912 সমুদ্র-পৃষ্ঠের তাপমাত্রা যাচাই",
+  "proof.record.heat": "আগে বনাম এখনের তাপ যাচাই (GISTEMP, বছরভিত্তিক)",
+  "proof.record.monsoon": "আগে বনাম এখনের বর্ষার বৃষ্টি যাচাই (GPCP, বছরভিত্তিক)",
+  "proof.record.water": "আগে বনাম এখনের জমা জল যাচাই (GRACE, বছরভিত্তিক)",
   "proof.categories": "পৃথিবী অর্কেস্ট্রার প্রতিটি পরিবার যাচাই",
   "proof.categories.pass": (p: { families: string; cents: string; notes: string }) =>
     `${p.families}টি পরিবার, সরাসরি কণ্ঠ ও সুর হিসেবে: প্রতিটিতে ${p.notes}টি সুর, সুরের উচ্চতায় সবচেয়ে বড় পার্থক্য ${p.cents} সেন্ট (সীমা ১)।`,

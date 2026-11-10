@@ -499,7 +499,7 @@ The Mapping panel builds each rule sentence from its parts (`src/lib/i18n/bn/rul
 | `clarity` | parameter: reverbSec; unit: hours since a 1 km infrared look | How recently measured 0 to 48 hours since a 1 km infrared look → echo length 0.1 to 2.4 s (linear). |
 | `unison` | a rule shared with another voice (sameAs) | Proof in unison: two tones in one ear, both by the Ocean temperature rule (Ocean temperature −5 to 35 °C → pitch 220 to 880 Hz (exponential: equal steps in value sound like equal musical steps).) Beats per second = the difference between the two pitches in Hz. |
 
-## Draft Bangla, needs review (1103)
+## Draft Bangla, needs review (1106)
 
 Drafted for the mentor fixes (`docs/MENTOR_FIXES.md`); **draft, needs review** by a Bangla speaker. Listed in `src/lib/i18n/bn/drafts.ts`: remove an entry there once it is checked.
 
@@ -1469,6 +1469,9 @@ Drafted for the mentor fixes (`docs/MENTOR_FIXES.md`); **draft, needs review** b
 | `proof.record.ocean` | Check live sea surface temperature (MUR) | সরাসরি সমুদ্র-পৃষ্ঠের তাপমাত্রা যাচাই (MUR) |
 | `proof.record.rain` | Check IMERG rain (the storm time-lapse) | IMERG বৃষ্টি যাচাই (ঝড়ের টাইম-ল্যাপ্স) |
 | `proof.record.currents_3912` | Check SVS 3912 sea surface temperature | SVS 3912 সমুদ্র-পৃষ্ঠের তাপমাত্রা যাচাই |
+| `proof.record.heat` | Check Then vs Now heat (GISTEMP, yearly) | আগে বনাম এখনের তাপ যাচাই (GISTEMP, বছরভিত্তিক) |
+| `proof.record.monsoon` | Check Then vs Now monsoon rain (GPCP, yearly) | আগে বনাম এখনের বর্ষার বৃষ্টি যাচাই (GPCP, বছরভিত্তিক) |
+| `proof.record.water` | Check Then vs Now stored water (GRACE, yearly) | আগে বনাম এখনের জমা জল যাচাই (GRACE, বছরভিত্তিক) |
 | `proof.categories` | Check every Earth Orchestra family | পৃথিবী অর্কেস্ট্রার প্রতিটি পরিবার যাচাই |
 | `proof.categories.pass` | ``${p.families} families, as the live voice and as notes: ${p.notes} notes each, largest pitch difference ${p.cents} cents (limit 1).`` | ``${p.families}\u099F\u09BF \u09AA\u09B0\u09BF\u09AC\u09BE\u09B0, \u09B8\u09B0\u09BE\u09B8\u09B0\u09BF \u0995\u09A3\u09CD\u09A0 \u0993 \u09B8\u09C1\u09B0 \u09B9\u09BF\u09B8\u09C7\u09AC\u09C7: \u09AA\u09CD\u09B0\u09A4\u09BF\u099F\u09BF\u09A4\u09C7 ${p.notes}\u099F\u09BF \u09B8\u09C1\u09B0, \u09B8\u09C1\u09B0\u09C7\u09B0 \u0989\u099A\u09CD\u099A\u09A4\u09BE\u09AF\u09BC \u09B8\u09AC\u099A\u09C7\u09AF\u09BC\u09C7 \u09AC\u09A1\u09BC \u09AA\u09BE\u09B0\u09CD\u09A5\u0995\u09CD\u09AF ${p.cents} \u09B8\u09C7\u09A8\u09CD\u099F (\u09B8\u09C0\u09AE\u09BE \u09E7)\u0964`` |
 | `proof.open` | How the check works | যাচাই কীভাবে হয় |

@@ -5,13 +5,12 @@
 // sea surface along 15° N (MUR, the live frame).
 
 import { followStorm, loadOfficialLayer, loadOfficialManifest, loadSequence, officialValueAt, valueAt, type LiveFields } from "@/lib/data";
-import { fetchJson } from "@/lib/data/fetch";
 import { classAt } from "@/lib/earth/class-grid";
 import { LANDSLIDE_VOICE } from "@/lib/earth/classes";
 import { loadLandslide, loadSlidePlaces } from "@/lib/earth/landslide";
 import { APP_RECORDS } from "@/lib/earth/records";
 import { FLAGS } from "@/lib/flags";
-import type { LifetimeFile } from "../lifetime/song";
+import { loadLifetime } from "../lifetime/load";
 import type { JourneySource } from "./plan";
 
 const STEPS = 24;
@@ -58,7 +57,7 @@ async function slopeSource(): Promise<JourneySource> {
 }
 
 async function waterSource(): Promise<JourneySource> {
-  const f = await fetchJson<LifetimeFile>("/data/thenvsnow/lifetime.json");
+  const f = await loadLifetime();
   const w = f.water;
   return { id: "water", recordId: "water", voiceId: "water", values: w.values, stepSec: 0.4, dataset: w.source, period: `${w.years[0]} to ${w.years[w.years.length - 1]}`, status: "observation" };
 }

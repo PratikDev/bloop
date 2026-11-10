@@ -2,15 +2,16 @@
 
 import { useCallback, useEffect, useMemo, useRef, useState } from "react";
 import { useLoaded } from "@/hooks/use-loaded";
-import { lifetimeSong, type LifetimeFile } from "@/lib/art/lifetime/song";
+import { lifetimeSong } from "@/lib/art/lifetime/song";
 import { playSong, type Scheduled } from "@/lib/art/live/song-player";
-import { fetchJson } from "@/lib/data/fetch";
 import { useSoundStart } from "@/hooks/use-sound-start";
 import { getAnalyser } from "@/lib/audio";
 import type { PlayerHandle } from "@/lib/audio/types";
 import type { ClimateCellName } from "@/types/data-contract";
 
-export const loadLifetime = () => fetchJson<LifetimeFile>("/data/thenvsnow/lifetime.json");
+import { loadLifetime } from "@/lib/art/lifetime/load";
+
+export { loadLifetime };
 
 /** The song for a city and birth year, its player, and the playhead (the note sounding now, on the audio clock). */
 export function useLifetime(city: ClimateCellName, born: number) {

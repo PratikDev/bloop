@@ -31,16 +31,17 @@ export function pitchPlan(recordId: string, voiceId: string, values: readonly (n
   return { recordId, voiceId, kind: "pitch", stepSec, steps: values.map((value) => ({ value, out: mapContinuous(value, rule) })), drops: [] };
 }
 
-/** A rate record (rain): each step's drops per second through the rule, placed by a seeded clock (as the live drop
- *  clock: even spacing with a little jitter). Dry or no data = no drops. */
+/** A rate record (rain, monsoon): each step's drops through the rule (per second, or per step for a dropsPerStep rule),
+ *  placed by a seeded clock (as the live drop clock: even spacing with a little jitter). Dry or no data = no drops. */
 export function dropPlan(recordId: string, voiceId: string, values: readonly (number | null)[], stepSec: number, seed = 4285): ProofPlan {
   const rule = continuousRule(voiceId);
+  const perStep = rule.output.param === "dropsPerStep";
   const random = seeded(seed);
   const steps = values.map((value) => ({ value, out: value !== null && value > 0 ? mapContinuous(value, rule) : null }));
   const drops: number[] = [];
   steps.forEach((s, i) => {
     if (s.out === null) return;
-    const n = Math.max(1, Math.round(s.out * stepSec));
+    const n = Math.max(1, Math.round(perStep ? s.out : s.out * stepSec));
     for (let k = 0; k < n; k++) drops.push(Number((i * stepSec + ((k + 0.25 + 0.5 * random()) * stepSec) / n).toFixed(6)));
   });
   return { recordId, voiceId, kind: "drops", stepSec, steps, drops };
