@@ -62,5 +62,8 @@ export const FLAGS = {
   // Passing: src/lib/audio/layers/chord/*.test.ts (T1), pipeline/tests/test_colormap_invariance.py (T2),
   // e2e/cv/chord.e2e.ts.
   cvChord: flag(process.env.NEXT_PUBLIC_CV_CHORD, false),
+  /** C: the "Same chord, whatever the colours" card on How we know (T2's outputs). */
+  // Passing: src/lib/cv/same-chord.test.ts, e2e/cv/same-chord-card.e2e.ts.
+  cvCard: flag(process.env.NEXT_PUBLIC_CV_CARD, false),
   // <<< CV
 } as const;
