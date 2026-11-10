@@ -19,8 +19,6 @@
     "@phosphor-icons/react": "^2.1.10",
     "@react-three/drei": "10.7.9",
     "@react-three/fiber": "9.8.2",
-    "@takram/three-atmosphere": "0.19.1",
-    "@takram/three-geospatial": "0.9.1",
     "@tanstack/react-router": "^1.170.40",
     "class-variance-authority": "^0.7.1",
     "cn": "^0.4.0",
