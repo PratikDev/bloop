@@ -3,8 +3,10 @@
 import dynamic from "next/dynamic";
 import { useEffect, useId, useRef, type KeyboardEvent, type RefObject } from "react";
 import { cn } from "@/lib/utils";
+import { useAppState } from "../AppState/use-app-state";
 import { DeckViewCanvas } from "./DeckView";
-import { useTT } from "./i18n";
+import type { DeckControls } from "./DeckView/use-deck-hardware";
+import { latText, useTT } from "./i18n";
 import type { LabelCandidate } from "./labels";
 import { LabelLayer, type GraticuleLabel, type PlacedLabels, type Rect } from "./LabelLayer";
 import { LoadingPanel } from "./LoadingPanel";
@@ -41,14 +43,18 @@ export interface StageProps {
   chipDock: HTMLElement | null;
   onKeyDown(e: KeyboardEvent<HTMLElement>): void;
   debug: { sendLog: RefObject<SentReading[]>; placed: { current: PlacedLabels } } | null;
+  /** The bar's own actions and state, which the turntable's hardware mirrors. */
+  deckControls: DeckControls;
   className?: string;
 }
 
 /** The globe and everything drawn over it; the focusable region for the Turntable keys. */
-export function Stage({ tt, hostRef, geo, record, tier, place, labels, graticule, details, intro, ready, chipDock, onKeyDown, debug, className }: StageProps) {
-  const { tt: tr } = useTT();
+export function Stage({ tt, hostRef, geo, record, tier, place, labels, graticule, details, intro, ready, chipDock, onKeyDown, debug, deckControls, className }: StageProps) {
+  const { tt: tr, lang } = useTT();
+  const { state } = useAppState();
   const pointer = useGlobePointer(tt);
   const instructionsId = useId();
+  const recordId = useId();
   const reserved = useRef<Rect[]>([]);
   useOccluderFit(tt.scene, hostRef);
   useSoundRings(tt.sceneRef);
@@ -72,19 +78,23 @@ export function Stage({ tt, hostRef, geo, record, tier, place, labels, graticule
       tabIndex={0}
       aria-roledescription={tr("turntable.roleDescription")}
       aria-label={tr("turntable.region", { record })}
-      aria-describedby={instructionsId}
+      aria-describedby={`${instructionsId} ${recordId}`}
       onKeyDown={onKeyDown}
       className={cn("relative overflow-hidden bg-studio-bottom", className)}
     >
       <p id={instructionsId} className="sr-only">
         {tr("turntable.instructions")}
       </p>
+      {/* The record in words: follows the settled cursor, so it changes when the needle settles. Not a live region. */}
+      <p id={recordId} className="sr-only">
+        {tr("turntable.record.description", { lat: latText(state.cursor.lat, lang) })}
+      </p>
       <div ref={hostRef} {...pointer} className="absolute inset-0 touch-none select-none">
         <TurntableCanvas dataCanvas={tt.texture.canvas} tier={tier} label={tr("turntable.canvas", { record })} onReady={tt.onSceneReady} />
       </div>
       {/* The turntable beside the globe (under it on narrow screens): placed by use-occluder-fit. Not a panel. */}
       <div data-deck-host className="absolute top-0 left-0 transition-transform duration-(--duration-flip) ease-(--ease-mechanical) motion-reduce:transition-none">
-        <DeckViewCanvas subscribe={tt.subscribe} />
+        <DeckViewCanvas subscribe={tt.subscribe} controls={deckControls} />
       </div>
       {labels && <LabelLayer subscribe={tt.subscribe} candidates={labels} graticule={graticule} reserved={reserved} placedRef={debug?.placed} />}
       <NeedleChip subscribe={tt.subscribe} place={place} details={details} reserved={reserved} dock={chipDock} />

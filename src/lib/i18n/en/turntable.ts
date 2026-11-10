@@ -153,6 +153,9 @@ export const turntableEn = {
   "turntable.graticule.equator": "Equator",
   "turntable.graticule.cancer": "Tropic of Cancer",
   "turntable.graticule.capricorn": "Tropic of Capricorn",
+  // The turntable beside the globe, in the Turntable's hidden description (updated when the needle settles).
+  "turntable.record.description": (p: { lat: string }) =>
+    `The record shows the Earth as grooves: outer is north, inner is south. The needle is on the groove for ${p.lat}.`,
   "turntable.lat": (p: { lat: number }) => `${formatDegrees(p.lat, "en")}° ${p.lat >= 0 ? "N" : "S"}`,
   "turntable.lon": (p: { lon: number }) => `${formatDegrees(p.lon, "en")}° ${p.lon >= 0 ? "E" : "W"}`,
 
