@@ -68,6 +68,8 @@ test("the legend card: every system, instrument and a demo; axe clean", async ({
   expect(await axeSerious(page, '[data-testid="orchestra-legend"]')).toEqual([]);
 });
 
+// The Description panel leads each record with its system; D (spoken) keeps the record's title first, the a11y
+// contract e2e/a11y/descriptions checks.
 test("Describe leads with the category word", async ({ page }) => {
   await start(page, { hide3d: true });
   await page.goto("/listen");
@@ -75,7 +77,11 @@ test("Describe leads with the category word", async ({ page }) => {
   await logLiveRegion(page);
   await page.locator("#sound-map").focus();
   await page.keyboard.press("d");
-  await expect.poll(async () => (await liveLog(page)).join(" | "), { timeout: 10_000 }).toMatch(/Ocean\./u);
+  await expect.poll(async () => (await liveLog(page)).join(" | "), { timeout: 10_000 }).toMatch(/(?:^| \| )Ocean surface temperature, /u);
+  await page.keyboard.press("p");
+  await page.getByRole("tab", { name: "Description" }).click();
+  const first = page.getByTestId("description-panel").locator("section p").first();
+  await expect(first).toHaveText(/^Ocean\. Ocean surface temperature, /u, { timeout: 10_000 });
 });
 
 test("pitch identity: every Earth Orchestra family keeps the data voice within 1 cent", async ({ page }) => {
