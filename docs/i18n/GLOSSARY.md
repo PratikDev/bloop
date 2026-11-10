@@ -5,3 +5,17 @@ Words Bloop uses the same way everywhere in Bangla. Check a new string against t
 | English | Bangla | Where | Note |
 |---|---|---|---|
 | amber (the colour) | কমলা | Then vs Now's stripe legend, and anywhere else the colour is named | Pratik's decision, 2026-11-10: কমলা, not অ্যাম্বার. |
+| blue (the colour) | নীল | Then vs Now's stripe legend | |
+| Play (a record, a part, a scene, the sound) | বাজান | every Play key and line | One word for every Play (Session A and B drafts agreed, 2026-11-10). |
+| Pause, Stop (sound, a tour, turning) | থামান | Pause and Stop keys | Both are থামান; the key's object says what stops ("ট্যুর থামান"). |
+| Resume | আবার চালান | Space's help line | |
+| Close (a panel, a drawer, a dialog) | বন্ধ করুন | Close keys | Never for sound: sound stops (থামান). |
+| needle | সুই | Listen, the Turntable, Official records | |
+| record | রেকর্ড | the records, the rack | |
+| frame (a data picture) | ফ্রেম | time-lapse, provenance | |
+| voice (a sound mapped from data) | কণ্ঠ | the mixer, rules, braille | |
+| scene (3D) | দৃশ্য | the Turntable's scenes | |
+| Details | বিস্তারিত | Details keys and drawers | |
+| Credits | কৃতজ্ঞতা | Credits keys and drawers | |
+| Search | খুঁজুন | the Turntable's search | |
+| Loading … | … লোড হচ্ছে | loading badges | |

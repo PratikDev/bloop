@@ -88,7 +88,7 @@ export const appBn: Translated<typeof appEn> = {
   "frame.compactItem": (p: { product: string; datetime: string }) => `${p.product}, ${p.datetime} UTC`,
 
   "sound.pause": "শব্দ থামান",
-  "sound.play": "শব্দ চালান",
+  "sound.play": "শব্দ বাজান",
   "sound.paused": "শব্দ থেমে আছে",
   "sound.resumed": "শব্দ চালু",
   "sound.muteAll": "সব মিউট",

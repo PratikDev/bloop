@@ -58,7 +58,7 @@ export const brailleBn: Translated<typeof brailleEn> = {
   "braille.bl.soundOn": "শব্দ চালু",
   "braille.bl.sweep": "সুইপ",
   "braille.bl.storm": "ঝড়",
-  "braille.bl.stop": "বন্ধ",
+  "braille.bl.stop": "থামান",
   "braille.bl.braille": "ব্রেইল",
   "braille.bl.keys": "কী",
   "braille.bl.speak": "বলুন",
