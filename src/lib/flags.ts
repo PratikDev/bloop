@@ -55,6 +55,9 @@ export const FLAGS = {
   // >>> DATA
   // Every shipped dataset in the app (docs/prompts/CLAUDE_CODE_PROMPT_data_maximize.md). `ready` stays false: the
   // orchestrator turns these on in production after the integrated full pass. Tests per flag: see each line.
+  // 10 Nov 2026, all DATA flags on (production build): unit 513/513; e2e/data 24/24 in Chromium and in Firefox; the
+  // existing a11y + features + health-records + ask-bloop + braille suites 332/336 in one run, the two misses (features
+  // month-by-month in Chromium, ask-bloop "answered once" in Firefox) passing on rerun (4/4), 2 skipped as before.
   /** P1: Data health (meta/health.json): "Is this data fresh?" in every How we got this, the Data health page, its link. */
   // e2e/data/health.e2e.ts + src/lib/earth/health.test.ts.
   dataHealth: flag(process.env.NEXT_PUBLIC_DATA_HEALTH, false),
