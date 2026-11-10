@@ -85,3 +85,17 @@ describe("the most active fire-weather regions", () => {
     for (const r of regions) expect(classAt(latest, r.lat, r.lon)).toBe(r.topClass);
   });
 });
+
+describe("the stated silence names its class", () => {
+  test("the silent class's line says 'Silence: <class> fire weather' (EN), from the file's own label", async () => {
+    const { bindT } = await import("@/lib/i18n");
+    const { fwiLine } = await import("./fire-text");
+    const rule = classesRule(FIRE_WEATHER_VOICE);
+    const silentCodes = meta.classes.map((c) => c.code).filter((c) => c !== 0 && isSilent(classState(rule, c)));
+    expect(silentCodes.length).toBe(1);
+    const label = meta.classes.find((c) => c.code === silentCodes[0])?.label ?? "";
+    expect(label.toLowerCase()).toBe("very low");
+    const line = fwiLine(bindT("en"), "en", meta, { fwiCode: silentCodes[0], forDay: archive.days[0].date });
+    expect(line).toContain(`Silence: ${label} fire weather.`);
+  });
+});

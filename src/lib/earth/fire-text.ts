@@ -28,7 +28,8 @@ export const fwiClassText = (t: BoundT, meta: ClassMeta, code: number) => t("dat
 export function fwiLine(t: BoundT, lang: Lang, meta: ClassMeta, r: Pick<FireReading, "fwiCode" | "forDay">): string {
   if (r.fwiCode === NO_CALCULATION) return t("earth.fire.fwiNone");
   const silent = isSilent(classState(classesRule(FIRE_WEATHER_VOICE), r.fwiCode));
-  return t("earth.fire.fwiAt", { cls: fwiClassText(t, meta, r.fwiCode), date: formatDay(r.forDay, lang), sound: t(silent ? "earth.fire.fwiSilent" : "earth.fire.fwiChord") });
+  const cls = fwiClassText(t, meta, r.fwiCode);
+  return t("earth.fire.fwiAt", { cls, date: formatDay(r.forDay, lang), sound: silent ? t("earth.fire.fwiSilent", { cls }) : t("earth.fire.fwiChord") });
 }
 
 /** The satellite a source reads, from the file (e.g. "NOAA-21"), or the source id if the file doesn't say. */

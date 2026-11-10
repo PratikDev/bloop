@@ -78,7 +78,7 @@ export const earthEn = {
   "earth.fire.fwiLabel": "Fire weather: an experimental 1-day forecast (NASA GISS GlobalFWI, a model), never a measured fire.",
   "earth.fire.fwiAt": (p: { cls: string; date: string; sound: string }) => `Fire weather forecast for ${p.date}: ${p.cls}. ${p.sound}`,
   "earth.fire.fwiChord": "Sound: its fixed chord.",
-  "earth.fire.fwiSilent": "Sound: silence (stated).",
+  "earth.fire.fwiSilent": (p: { cls: string }) => `Silence: ${p.cls} fire weather.`,
   "earth.fire.fwiNone": "Silence: no forecast at this point (no calculation).",
   "earth.fire.firmsAt": (p: { count: string; box: string; day: string; sat: string }) => `FIRMS: ${p.count} hotspots in ${p.box} on ${p.day} (${p.sat}).`,
   "earth.fire.firmsZero": (p: { box: string; day: string; sat: string }) => `Silence: no detections in this box (${p.box}, ${p.day}, ${p.sat}).`,

@@ -1241,7 +1241,7 @@ Drafted for the mentor fixes (`docs/MENTOR_FIXES.md`); **draft, needs review** b
 | `earth.fire.fwiLabel` | Fire weather: an experimental 1-day forecast (NASA GISS GlobalFWI, a model), never a measured fire. | আগুন-আবহাওয়া: একটি পরীক্ষামূলক এক দিনের পূর্বাভাস (নাসা GISS GlobalFWI, একটি মডেল), কখনও মাপা আগুন নয়। |
 | `earth.fire.fwiAt` | ``Fire weather forecast for ${p.date}: ${p.cls}. ${p.sound}`` | ``${p.date}-\u098F\u09B0 \u0986\u0997\u09C1\u09A8-\u0986\u09AC\u09B9\u09BE\u0993\u09AF\u09BC\u09BE\u09B0 \u09AA\u09C2\u09B0\u09CD\u09AC\u09BE\u09AD\u09BE\u09B8: ${p.cls}\u0964 ${p.sound}`` |
 | `earth.fire.fwiChord` | Sound: its fixed chord. | শব্দ: তার স্থির কর্ড। |
-| `earth.fire.fwiSilent` | Sound: silence (stated). | শব্দ: নীরবতা (বলে দেওয়া)। |
+| `earth.fire.fwiSilent` | ``Silence: ${p.cls} fire weather.`` | ``\u09A8\u09C0\u09B0\u09AC\u09A4\u09BE: ${p.cls} \u0986\u0997\u09C1\u09A8-\u0986\u09AC\u09B9\u09BE\u0993\u09AF\u09BC\u09BE\u0964`` |
 | `earth.fire.fwiNone` | Silence: no forecast at this point (no calculation). | নীরবতা: এই জায়গায় কোনো পূর্বাভাস নেই (হিসাব হয়নি)। |
 | `earth.fire.firmsAt` | ``FIRMS: ${p.count} hotspots in ${p.box} on ${p.day} (${p.sat}).`` | ``FIRMS: ${p.day}-\u098F ${p.box}-\u098F ${p.count}\u099F\u09BF \u09B9\u099F\u09B8\u09CD\u09AA\u099F (${p.sat})\u0964`` |
 | `earth.fire.firmsZero` | ``Silence: no detections in this box (${p.box}, ${p.day}, ${p.sat}).`` | ``\u09A8\u09C0\u09B0\u09AC\u09A4\u09BE: \u098F\u0987 \u09AC\u09BE\u0995\u09CD\u09B8\u09C7 \u0995\u09CB\u09A8\u09CB \u09B6\u09A8\u09BE\u0995\u09CD\u09A4 \u09A8\u09C7\u0987 (${p.box}, ${p.day}, ${p.sat})\u0964`` |

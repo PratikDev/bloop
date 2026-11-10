@@ -72,7 +72,7 @@ export const earthBn: Translated<typeof earthEn> = {
   "earth.fire.fwiLabel": "আগুন-আবহাওয়া: একটি পরীক্ষামূলক এক দিনের পূর্বাভাস (নাসা GISS GlobalFWI, একটি মডেল), কখনও মাপা আগুন নয়।",
   "earth.fire.fwiAt": (p: { cls: string; date: string; sound: string }) => `${p.date}-এর আগুন-আবহাওয়ার পূর্বাভাস: ${p.cls}। ${p.sound}`,
   "earth.fire.fwiChord": "শব্দ: তার স্থির কর্ড।",
-  "earth.fire.fwiSilent": "শব্দ: নীরবতা (বলে দেওয়া)।",
+  "earth.fire.fwiSilent": (p: { cls: string }) => `নীরবতা: ${p.cls} আগুন-আবহাওয়া।`,
   "earth.fire.fwiNone": "নীরবতা: এই জায়গায় কোনো পূর্বাভাস নেই (হিসাব হয়নি)।",
   "earth.fire.firmsAt": (p: { count: string; box: string; day: string; sat: string }) => `FIRMS: ${p.day}-এ ${p.box}-এ ${p.count}টি হটস্পট (${p.sat})।`,
   "earth.fire.firmsZero": (p: { box: string; day: string; sat: string }) => `নীরবতা: এই বাক্সে কোনো শনাক্ত নেই (${p.box}, ${p.day}, ${p.sat})।`,
