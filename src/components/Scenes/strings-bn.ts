@@ -11,7 +11,7 @@ export const scenesBnDraft: { [K in keyof Table]?: Table[K] } = {
   "scenes.heading": "দৃশ্য",
   "scenes.note": "অ্যাপের নিজের রেকর্ড থেকে তৈরি ত্রিমাত্রিক দৃশ্য: প্রেক্ষাপট স্তর, EIC ফ্রেম নয়।",
   "scenes.open": (p) => `${p.scene} দৃশ্য খুলুন`,
-  "scenes.play": "চালান",
+  "scenes.play": "বাজান",
   "scenes.pause": "থামান",
   "scenes.back": "টার্নটেবিলে ফিরুন",
   "scenes.loading": "দৃশ্যের রেকর্ড লোড হচ্ছে…",
