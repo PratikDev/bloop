@@ -62,6 +62,7 @@ export function thenNowProvenance(c: ThenNowContext, part: Part): Provenance {
       scripts,
       validation,
       patternOnly: null,
+      health: voiceProduct(part), // >>> DATA <<< DATA
     };
   }
 
@@ -86,5 +87,6 @@ export function thenNowProvenance(c: ThenNowContext, part: Part): Provenance {
     scripts,
     validation,
     patternOnly: null,
+    health: voiceProduct(part), // >>> DATA <<< DATA
   };
 }

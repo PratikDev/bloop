@@ -52,4 +52,32 @@ export const FLAGS = {
   describe: flag(process.env.NEXT_PUBLIC_A11Y_DESCRIBE, true),
   // Ready on 8 Nov 2026: e2e/a11y/map-keys.e2e.ts 26/26 and the whole suite 406/406 with it on (Chromium + Firefox).
   mapKeys: flag(process.env.NEXT_PUBLIC_A11Y_MAP_KEYS, true),
+  // >>> DATA
+  // Every shipped dataset in the app (docs/prompts/CLAUDE_CODE_PROMPT_data_maximize.md). `ready` stays false: the
+  // orchestrator turns these on in production after the integrated full pass. Tests per flag: see each line.
+  /** P1: Data health (meta/health.json): "Is this data fresh?" in every How we got this, the Data health page, its link. */
+  // e2e/data/health.e2e.ts + src/lib/earth/health.test.ts.
+  dataHealth: flag(process.env.NEXT_PUBLIC_DATA_HEALTH, false),
+  /** P1: the leftovers: the 5176 picture under the normal tone, live validation in the provenance, "Not playable". */
+  // e2e/data/leftovers.e2e.ts + src/lib/earth/leftovers.test.ts.
+  dataLeftovers: flag(process.env.NEXT_PUBLIC_DATA_LEFTOVERS, false),
+  /** P2a: tomorrow's fire weather (SVS 5315): the chord layer on Listen, the archive replay. */
+  // e2e/data/fire.e2e.ts + src/lib/earth/fwi.test.ts.
+  dataFireWeather: flag(process.env.NEXT_PUBLIC_DATA_FIRE_WEATHER, false),
+  /** P2b + P2c: Fire Geiger (FIRMS daily) and the "Fires and fire weather" record in Official records. */
+  // e2e/data/fire.e2e.ts + src/lib/earth/geiger.test.ts.
+  dataWildfires: flag(process.env.NEXT_PUBLIC_DATA_WILDFIRES, false),
+  /** P3: landslide exposure rumble (SVS 5584, LHASA). */
+  // e2e/data/landslides.e2e.ts + src/lib/earth/landslide.test.ts.
+  dataLandslides: flag(process.env.NEXT_PUBLIC_DATA_LANDSLIDES, false),
+  /** P4: night lights (Black Marble VJ146A2): a voice per city, gaps as rests. */
+  // e2e/data/night-lights.e2e.ts + src/lib/earth/nightlights.test.ts.
+  dataNightLights: flag(process.env.NEXT_PUBLIC_DATA_NIGHT_LIGHTS, false),
+  /** P5: NASA's own method (Caldwell 73, SVS 13786): NASA mode vs Bloop mode on one frame. */
+  // e2e/data/radar.e2e.ts + src/lib/earth/radar.test.ts.
+  dataRadar: flag(process.env.NEXT_PUBLIC_DATA_RADAR, false),
+  /** Ask Bloop's four DATA questions (fire weather, fires, landslides, night lights here); needs askBloop too. */
+  // e2e/data/ask.e2e.ts + src/lib/ask-bloop/data-intents.test.ts.
+  dataAsk: flag(process.env.NEXT_PUBLIC_DATA_ASK, false),
+  // <<< DATA
 } as const;

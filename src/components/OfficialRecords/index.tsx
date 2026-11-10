@@ -22,6 +22,9 @@ import { recordBrailleLabel } from "./braille-label";
 import { OfficialBrailleExplorer } from "./OfficialBrailleExplorer";
 import { RelatedRecords } from "./RelatedRecords";
 import { useOfficialRecord } from "./use-official-record";
+// >>> DATA
+import { NotPlayable } from "../EarthData/NotPlayable";
+// <<< DATA
 
 
 function readingText(t: BoundT, lang: Lang, r: OfficialReading | null, layer: OfficialLayer | undefined): string {
@@ -123,6 +126,9 @@ export function OfficialRecords() {
         options={index.records.map((r) => ({ value: r.record, label: r.title, brailleLabel: recordBrailleLabel(r) }))} />
       {current && <Player key={current} record={current} />}
       <RelatedRecords value={current ?? ""} onChange={setRecord} />
+      {/* >>> DATA */}
+      <NotPlayable />
+      {/* <<< DATA */}
       <InfoSheet title={t("official.credits")} trigger={t("official.credits")} triggerClassName="h-11 rounded-full px-4 text-body text-haze ring-1 ring-glass-edge">
         <DataCredits />
       </InfoSheet>
