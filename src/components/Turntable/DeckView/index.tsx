@@ -7,11 +7,20 @@ import { useFrameImages } from "../../FrameView/use-frame-images";
 import { useLiveData } from "../../LiveData/use-live-data";
 import type { Turntable } from "../use-turntable";
 import { createDeckView, type DeckView } from "./deck-view";
-import { useRecordPointer } from "./use-record-pointer";
 import { drawBloopLabel } from "./record-texture";
+import { useDeckHardware, type DeckControls } from "./use-deck-hardware";
+import { useDeckLevels } from "./use-deck-levels";
+import { useRecordPointer } from "./use-record-pointer";
 
 /** The mounted deck view and its canvas, for the debug hook (debug.ts). */
 export const deckProbe: { view: DeckView | null; canvas: HTMLCanvasElement | null } = { view: null, canvas: null };
+
+declare global {
+  interface Window {
+    /** With ?debug=1: the deck view and its canvas, for the hardware checks. */
+    __deck?: { view: DeckView; canvas: HTMLCanvasElement };
+  }
+}
 
 /** The most the deck draws at: its lines stay crisp and the GPU has the globe to draw too. */
 const MAX_DPR = 2;
@@ -20,10 +29,12 @@ const MAX_DPR = 2;
  * The turntable beside the globe: its own canvas, drawn on the globe's frame (the Turntable's frame loop, paused when
  * hidden). Decorative: the needle's place and value are in the readout and the hidden description.
  */
-export function DeckViewCanvas({ tt }: { tt: Turntable }) {
+export function DeckViewCanvas({ tt, controls }: { tt: Turntable; controls: DeckControls }) {
   const { subscribe } = tt;
   const canvasRef = useRef<HTMLCanvasElement>(null);
   const [view, setView] = useState<DeckView | null>(null);
+  useDeckHardware(view, canvasRef, controls);
+  useDeckLevels(view, canvasRef);
   const { state } = useAppState();
   const { fields } = useLiveData();
   const { sst, rain } = useFrameImages();
@@ -45,6 +56,7 @@ export function DeckViewCanvas({ tt }: { tt: Turntable }) {
     view.setLabel(label);
     deckProbe.view = view;
     deckProbe.canvas = canvas;
+    if (new URLSearchParams(window.location.search).get("debug") === "1") window.__deck = { view, canvas };
     const size = () => view.resize(canvas.clientWidth, canvas.clientHeight, Math.min(MAX_DPR, window.devicePixelRatio || 1));
     const observer = new ResizeObserver(size);
     observer.observe(canvas);
@@ -59,6 +71,7 @@ export function DeckViewCanvas({ tt }: { tt: Turntable }) {
       setView(null);
       deckProbe.view = null;
       deckProbe.canvas = null;
+      delete window.__deck;
     };
   }, [subscribe]);
   useRecordPointer(canvasRef, view, tt);

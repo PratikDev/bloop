@@ -23,11 +23,21 @@ export function useRecordPointer(canvasRef: RefObject<HTMLCanvasElement | null>,
     const canvas = canvasRef.current;
     if (!canvas || !view) return;
     let held: LatLon | null = null;
-    const pickAt = (e: PointerEvent) => {
+    const local = (e: PointerEvent) => {
       const box = canvas.getBoundingClientRect();
-      return view.pick(e.clientX - box.left, e.clientY - box.top);
+      return { x: e.clientX - box.left, y: e.clientY - box.top };
+    };
+    const pickAt = (e: PointerEvent) => {
+      const p = local(e);
+      return view.pick(p.x, p.y);
+    };
+    /** Hardware takes its own presses (use-deck-hardware.ts): a press on it never moves the needle, even where it's too small to tap. */
+    const onHardware = (e: PointerEvent) => {
+      const p = local(e);
+      return view.hardwareAt(p.x, p.y) !== null;
     };
     const down = (e: PointerEvent) => {
+      if (onHardware(e)) return;
       const at = pickAt(e);
       if (!at) return;
       tt().skipAnimation();
@@ -39,7 +49,7 @@ export function useRecordPointer(canvasRef: RefObject<HTMLCanvasElement | null>,
     const move = (e: PointerEvent) => {
       const at = pickAt(e);
       if (!held) {
-        canvas.style.cursor = at ? "pointer" : "";
+        if (e.pointerType === "mouse") canvas.style.cursor = at || onHardware(e) ? "pointer" : "";
         return;
       }
       if (at) {

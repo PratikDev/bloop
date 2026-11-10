@@ -195,6 +195,7 @@ export function Turntable() {
           chipDock={chipDock}
           onKeyDown={onKeyDown}
           debug={debug ? { sendLog, placed } : null}
+          deckControls={{ rotating: tt.rotating, speed: tt.speed, toggleRotation: actions.toggleRotation, changeSpeed: actions.changeSpeed }}
           className="absolute inset-0"
         />
         {/* Desktop: the readout and the legend share one column at the edge. */}

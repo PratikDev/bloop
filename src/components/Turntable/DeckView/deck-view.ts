@@ -7,7 +7,8 @@ import type { TrackMode } from "@/lib/audio-jukebox/types";
 import type { LiveFields } from "@/lib/data";
 import type { Palette } from "@/lib/css-tokens";
 import { CAMERA } from "../canvas-config";
-import { ARM_REST, createDeck, GROOVES, grooveTip, RECORD_TOP, tipAngle, type Deck } from "../scene/deck";
+import { ARM_REST, createDeck, createToonKit, GROOVES, grooveTip, RECORD_TOP, tipAngle, type Deck } from "../scene/deck";
+import { createHardware, type Hardware, type HardwareId, type HardwareState } from "./hardware";
 
 const raycaster = new Raycaster();
 /** The record's data disc lies just above the vinyl; picks meet it there (not at the vinyl), or they'd shift by a sub-pixel. */
@@ -25,6 +26,16 @@ const FULL_LIGHT = Math.PI;
 const UP = new Vector3(0, 1, 0);
 /** How high a lift of 1 raises the stylus off the record, in deck units. */
 const LIFT_HEIGHT = 0.5;
+/** The stylus trembles with the sound by at most this much on screen, this many times a second. */
+const TREMBLE = { px: 1, hz: 9 } as const;
+/** The grille's pulse at the loudest low band: 1 → 1.04. */
+const GRILLE_PULSE = 0.04;
+
+/** The sound's levels for the grille and the stylus, each 0..1 in 4 steps (null: no sound, or reduced motion). */
+export interface DeckLevels {
+  low: number;
+  overall: number;
+}
 
 /** One part of the pointer as drawn now, in CSS px inside the canvas. */
 export interface DeckPart {
@@ -50,6 +61,17 @@ export interface DeckView {
   project(lat: number, lon: number): { x: number; y: number };
   /** Debug: hides the arm, so a check can read the record's own pixel under the needle. */
   hideArm(hidden: boolean): void;
+  /** The hardware mirrors its DOM controls' state (hardware.ts). */
+  setHardware(state: HardwareState): void;
+  /** The grille's pulse and the stylus's tremble follow these (null: both still). */
+  setLevels(levels: DeckLevels | null): void;
+  /** The hardware piece under a point of the canvas (CSS px), or null: a pointer handler checks this first. */
+  hardwareAt(x: number, y: number): HardwareId | null;
+  /** A piece's smaller side on screen, in CSS px (under 44 px it's visual only to a finger). */
+  hardwareSize(id: HardwareId): number;
+  /** Debug: a piece's centre on screen (CSS px inside the canvas), what the hardware shows now, and the stylus as drawn. */
+  hardwareCentre(id: HardwareId): { x: number; y: number };
+  hardwareShown(): ReturnType<Hardware["shown"]> & { tremblePx: number };
   dispose(): void;
 }
 
@@ -82,6 +104,13 @@ export function createDeckView(canvas: HTMLCanvasElement, palette: Palette): Dec
   key.position.set(3, 5, 4);
   const deck = createDeck(palette);
   scene.add(key, deck.group);
+  // The hardware on the plinth, inside the deck's bounds so the camera keeps it in frame.
+  const hardwareKit = createToonKit(palette);
+  const hardware = createHardware(hardwareKit, palette);
+  deck.group.add(hardware.group);
+  let levels: DeckLevels | null = null;
+  let last = performance.now();
+  let tremblePx = 0;
 
   // The Earth as grooves: a flat disc on the record, turning with it (record-texture.ts).
   const recordData = createRecordData(palette);
@@ -124,8 +153,22 @@ export function createDeckView(canvas: HTMLCanvasElement, palette: Palette): Dec
 
   return {
     update(pose) {
+      const now = performance.now();
+      const dt = Math.min(0.1, (now - last) / 1000);
+      last = now;
+      hardware.step(dt, pose.instant);
       tip = tipFor(pose);
-      deck.setArm(tip, UP);
+      // The tremble and the pulse: only while sound plays, never under reduced motion.
+      const live = levels && pose.spinning && !pose.instant ? levels : null;
+      hardware.setGrille(1 + GRILLE_PULSE * (live?.low ?? 0));
+      const drawn = tip.clone();
+      tremblePx = 0;
+      if (live && live.overall > 0) {
+        const worldPerPx = (2 * Math.tan((camera.fov * RAD) / 2) * camera.position.distanceTo(tip)) / height;
+        tremblePx = live.overall * TREMBLE.px * Math.sin((now / 1000) * 2 * Math.PI * TREMBLE.hz);
+        drawn.x += tremblePx * worldPerPx;
+      }
+      deck.setArm(drawn, UP);
       // The record turns with the Earth: the needle's longitude is under the tip (x = sin, z = cos, as lib/sphere).
       deck.record.rotation.y = tipAngle(pose.lat) - pose.lon * RAD;
       deck.record.position.y = pose.recordLift * 0.6;
@@ -165,6 +208,33 @@ export function createDeckView(canvas: HTMLCanvasElement, palette: Palette): Dec
     hideArm(hidden) {
       deck.arm.visible = !hidden;
     },
+    setHardware(state) {
+      hardware.setState(state);
+    },
+    setLevels(next) {
+      levels = next;
+    },
+    hardwareAt(x, y) {
+      raycaster.setFromCamera(new Vector2((x / width) * 2 - 1, 1 - (y / height) * 2), camera);
+      const hit = raycaster.intersectObjects(hardware.targets, true)[0];
+      return hit ? hardware.idOf(hit.object) : null;
+    },
+    hardwareSize(id) {
+      const box = new Box3().setFromObject(hardware.piece(id));
+      const xs: number[] = [];
+      const ys: number[] = [];
+      for (let i = 0; i < 8; i++) {
+        const p = new Vector3(i & 1 ? box.max.x : box.min.x, i & 2 ? box.max.y : box.min.y, i & 4 ? box.max.z : box.min.z).project(camera);
+        xs.push(((p.x + 1) / 2) * width);
+        ys.push(((1 - p.y) / 2) * height);
+      }
+      return Math.min(Math.max(...xs) - Math.min(...xs), Math.max(...ys) - Math.min(...ys));
+    },
+    hardwareCentre(id) {
+      const p = new Box3().setFromObject(hardware.piece(id)).getCenter(new Vector3()).project(camera);
+      return { x: ((p.x + 1) / 2) * width, y: ((1 - p.y) / 2) * height };
+    },
+    hardwareShown: () => ({ ...hardware.shown(), tremblePx }),
     stylus() {
       const view = tip.clone().applyMatrix4(camera.matrixWorldInverse);
       const ndc = tip.clone().project(camera);
@@ -179,6 +249,7 @@ export function createDeckView(canvas: HTMLCanvasElement, palette: Palette): Dec
     dispose() {
       recordData.dispose();
       recordGeometry.dispose();
+      hardwareKit.dispose();
       deck.dispose();
       renderer.dispose();
     },

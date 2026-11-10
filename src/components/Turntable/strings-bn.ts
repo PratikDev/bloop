@@ -161,6 +161,7 @@ export const turntableBnDraft: { [K in TurntableKey]?: Table[K] } = {
   "turntable.graticule.cancer": "কর্কটক্রান্তি রেখা",
   "turntable.graticule.capricorn": "মকরক্রান্তি রেখা",
   "turntable.preview": "পূর্বরূপ",
+  "turntable.record.description": (p) => `রেকর্ডে পৃথিবী খাঁজ হয়ে আছে: বাইরের দিকে উত্তর, ভেতরের দিকে দক্ষিণ। সুই ${p.lat}-এর খাঁজে আছে।`,
   "turntable.lat": (p) => `${formatDegrees(p.lat, "bn")}° ${p.lat >= 0 ? "উত্তর" : "দক্ষিণ"}`,
   "turntable.lon": (p) => `${formatDegrees(p.lon, "bn")}° ${p.lon >= 0 ? "পূর্ব" : "পশ্চিম"}`,
 

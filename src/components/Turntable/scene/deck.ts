@@ -120,11 +120,69 @@ function toonGradient(): DataTexture {
   return texture;
 }
 
-export function createDeck(palette: Palette): Deck {
+/** The plinth's top surface and its extent in plan (the deck's hardware sits on it). */
+export const PLINTH_TOP = BASE.center.y + BASE.size.y / 2 + TOP.thickness - 0.004;
+export const PLINTH = {
+  minX: BASE.center.x - BASE.size.x / 2,
+  maxX: BASE.center.x + BASE.size.x / 2,
+  minZ: BASE.center.z - BASE.size.z / 2,
+  maxZ: BASE.center.z + BASE.size.z / 2,
+} as const;
+/** Inverted-hull outline widths for the deck's body and its small parts, in scene units. */
+export const OUTLINE_WIDTH = OUTLINE;
+
+/** The cel-shading kit the deck and its hardware share: the three-step gradient, toon materials, navy outlines. */
+export interface ToonKit {
+  gradient: DataTexture;
+  toon(color: string): MeshToonMaterial;
+  mesh(geometry: BufferGeometry, material: Material | Material[]): Mesh;
+  /**
+   * An inverted hull: a navy, back-faced copy grown by `width` on each side, drawn as a child so it follows the
+   * mesh. Spanned meshes are stretched along y every frame, so they only grow around it.
+   */
+  outline(target: Mesh, width: number, spanned?: boolean): Mesh;
+  outlineMaterial: MeshBasicMaterial;
+  dispose(): void;
+}
+
+export function createToonKit(palette: Palette): ToonKit {
   const geometries: BufferGeometry[] = [];
+  const made: Material[] = [];
   const gradient = toonGradient();
+  const outlineMaterial = new MeshBasicMaterial({ color: new Color(palette["arm-edge"]), side: BackSide });
+  return {
+    gradient,
+    toon(color) {
+      const m = new MeshToonMaterial({ color: new Color(color), gradientMap: gradient });
+      made.push(m);
+      return m;
+    },
+    mesh(geometry, material) {
+      geometries.push(geometry);
+      return new Mesh(geometry, material);
+    },
+    outline(target, width, spanned = false) {
+      target.geometry.computeBoundingBox();
+      const size = (target.geometry.boundingBox ?? new Box3()).getSize(new Vector3());
+      const hull = new Mesh(target.geometry, outlineMaterial);
+      hull.scale.set(1 + (2 * width) / size.x, spanned ? 1 : 1 + (2 * width) / size.y, 1 + (2 * width) / size.z);
+      target.add(hull);
+      return target;
+    },
+    outlineMaterial,
+    dispose() {
+      for (const g of geometries) g.dispose();
+      for (const m of made) m.dispose();
+      outlineMaterial.dispose();
+      gradient.dispose();
+    },
+  };
+}
+
+export function createDeck(palette: Palette): Deck {
+  const kit = createToonKit(palette);
+  const { gradient, toon, mesh, outline } = kit;
   const grooves = grooveTexture(palette.platter, palette.groove);
-  const toon = (color: string) => new MeshToonMaterial({ color: new Color(color), gradientMap: gradient });
 
   const materials = {
     side: toon(palette["deck-side"]),
@@ -135,35 +193,16 @@ export function createDeck(palette: Palette): Deck {
     navy: toon(palette["arm-edge"]),
     head: toon(palette.stylus),
     label: new MeshToonMaterial({ gradientMap: gradient }),
-    outline: new MeshBasicMaterial({ color: new Color(palette["arm-edge"]), side: BackSide }),
     shadow: new MeshBasicMaterial({ color: new Color(palette["shadow-on-space"]) }),
     armShadow: new MeshBasicMaterial({ color: new Color(palette["arm-edge"]) }),
   };
-  const mesh = (geometry: BufferGeometry, material: Material | Material[]) => {
-    geometries.push(geometry);
-    return new Mesh(geometry, material);
-  };
-
-  /**
-   * An inverted hull: a navy, back-faced copy grown by `width` on each side, drawn as a child so it
-   * follows the mesh. Spanned meshes are stretched along y every frame, so they only grow around it.
-   */
-  const outline = (target: Mesh, width: number, spanned = false) => {
-    target.geometry.computeBoundingBox();
-    const size = (target.geometry.boundingBox ?? new Box3()).getSize(new Vector3());
-    const hull = new Mesh(target.geometry, materials.outline);
-    hull.scale.set(1 + (2 * width) / size.x, spanned ? 1 : 1 + (2 * width) / size.y, 1 + (2 * width) / size.z);
-    target.add(hull);
-    return target;
-  };
-
   const group = new Group();
   const base = outline(mesh(new RoundedBoxGeometry(BASE.size.x, BASE.size.y, BASE.size.z, 6, BASE.bevel), materials.side), OUTLINE.body);
   base.position.copy(BASE.center);
   const baseTop = BASE.center.y + BASE.size.y / 2;
   const top = outline(mesh(new RoundedBoxGeometry(BASE.size.x + 0.02, TOP.thickness, BASE.size.z + 0.02, 4, TOP.bevel), materials.top), OUTLINE.body);
   top.position.set(BASE.center.x, baseTop + TOP.thickness / 2 - 0.004, BASE.center.z);
-  const plinthTop = baseTop + TOP.thickness - 0.004;
+  const plinthTop = PLINTH_TOP;
 
   const shadow = mesh(new PlaneGeometry(BASE.size.x, BASE.size.z), materials.shadow);
   shadow.rotation.x = -Math.PI / 2;
@@ -268,9 +307,8 @@ export function createDeck(palette: Palette): Deck {
       materials.label.needsUpdate = true;
     },
     dispose() {
-      for (const g of geometries) g.dispose();
       for (const m of Object.values(materials)) m.dispose();
-      gradient.dispose();
+      kit.dispose();
       grooves.dispose();
       labelTexture?.dispose();
     },
