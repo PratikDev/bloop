@@ -36,7 +36,7 @@ export function HomePage() {
   const toTour = () => void navigate(locationForMode("story"));
 
   return (
-    <section aria-labelledby="home-title" className="flex min-h-full flex-col justify-center gap-6 px-4 py-6 lg:flex-row lg:items-center lg:px-8">
+    <section aria-labelledby="home-title" className="flex min-h-full flex-col justify-center gap-6 px-4 py-6 lg:flex-row lg:items-center lg:px-8 lg:pt-6 lg:pb-2">
       <div className="min-w-0 space-y-6 lg:w-96 lg:shrink-0 xl:w-lg">
         <h1 id="home-title" data-page-title tabIndex={-1} className="display-tight font-wide-display text-hero text-moon">
           {t("home.title")}

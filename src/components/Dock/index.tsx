@@ -7,7 +7,7 @@ import { useTimeLapse } from "../TimeLapse/use-time-lapse";
 import { GoToMenu } from "./GoToMenu";
 import { MiniPlayer } from "./MiniPlayer";
 import { MixerMenu } from "./MixerMenu";
-import { ListenItems, NowPlayingItem, PlayPauseItem, StepItems } from "./MoreItems";
+import { ListenItems, NowPlayingItem, StepItems } from "./MoreItems";
 import { NeedleSlider } from "./NeedleSliders";
 import { PlayerMore } from "./PlayerMore";
 import { RecordsKey } from "./RecordsKey";
@@ -44,13 +44,11 @@ export function Dock() {
         >
           <MiniPlayer
             slider={explore}
-            play={state.mode !== "how"}
             keys={
               <>
                 {!inMore && <RecordsKey />}
                 <PlayerMore>
                   {storm && <NowPlayingItem />}
-                  {state.mode === "how" && <PlayPauseItem />}
                   {inMore && <RecordsKey wide />}
                   <StepItems />
                   {explore && (

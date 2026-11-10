@@ -1,6 +1,7 @@
 "use client";
 
-import { formatMonth } from "@/lib/i18n";
+import type { ReactNode } from "react";
+import { formatMonth, localDigits } from "@/lib/i18n";
 import { heatNormalLabel, missingRuns, playheadYears, waterRows, windowLabel, yearlyBaseline, yearlyWindows, yearRows, type YearlyPart } from "@/lib/then-now";
 import type { DhakaThenNowDemo, GraceContextFile } from "@/types/data-contract";
 import { useAppState, useT } from "../AppState/use-app-state";
@@ -9,6 +10,7 @@ import { YearlyChart } from "../charts/YearlyChart";
 import type { Part } from "./use-then-now-player";
 
 function YearlyView({ part, demo, index, splitIndex, motionPaused }: { part: YearlyPart; demo: DhakaThenNowDemo; index: number | null; splitIndex: number | null; motionPaused: boolean }) {
+  const { state } = useAppState();
   const t = useT();
   const pair = yearlyWindows(demo, part);
   const [thenYear, nowYear] = playheadYears(pair, index, splitIndex);
@@ -28,6 +30,11 @@ function YearlyView({ part, demo, index, splitIndex, motionPaused }: { part: Yea
       labels={{ then: t("thenNow.then", { label: windowLabel(pair.A) }), now: t("thenNow.now", { label: windowLabel(pair.B) }) }}
       unit={unit}
       zeroLine={part === "heat" ? heatNormalLabel(t) : undefined}
+      stripes={
+        part === "heat"
+          ? { above: t("thenNow.stripes.heatAbove"), below: t("thenNow.stripes.heatBelow") }
+          : { above: t("thenNow.stripes.monsoonAbove", { window: localDigits(windowLabel(pair.A), state.lang) }), below: t("thenNow.stripes.monsoonBelow") }
+      }
       motion={{
         part,
         baseline: yearlyBaseline(part, pair),
@@ -87,14 +94,15 @@ export function Headline({ caption }: { caption: string }) {
   return <p className="text-lead leading-snug text-moon md:text-title lg:short:text-lead">{caption}</p>;
 }
 
-/** One sounded part: its caption as the headline, then the chart with its playhead. */
-export function PartView({ part, demo, grace, index, splitIndex, motionPaused = false }: { part: Part; demo: DhakaThenNowDemo; grace: GraceContextFile; index: number | null; splitIndex: number | null; motionPaused?: boolean }) {
+/** One sounded part: its caption as the headline, any `note` the chart needs read first, then the chart with its playhead. */
+export function PartView({ part, demo, grace, index, splitIndex, motionPaused = false, note }: { part: Part; demo: DhakaThenNowDemo; grace: GraceContextFile; index: number | null; splitIndex: number | null; motionPaused?: boolean; note?: ReactNode }) {
   const t = useT();
   const caption = part === "heat" ? demo.heat.caption : part === "monsoon" ? demo.rain.caption : demo.water.caption;
   return (
     <>
       {/* The caption exactly as the JSON gives it (translated in Bangla). */}
       <Headline caption={t("data.text", { text: caption })} />
+      {note}
       {part === "water" ? <WaterView grace={grace} index={index} /> : <YearlyView part={part} demo={demo} index={index} splitIndex={splitIndex} motionPaused={motionPaused} />}
     </>
   );

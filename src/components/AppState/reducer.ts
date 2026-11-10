@@ -99,6 +99,11 @@ export function isLiveMode(mode: Mode): boolean {
   return mode === "explore" || mode === "how" || mode === "turntable";
 }
 
+/** Pages whose record is the live sound (Listen, its Story, the Turntable): the player bar captions the live sound only there. */
+export function captionsLiveSound(mode: Mode): boolean {
+  return mode === "explore" || mode === "story" || mode === "turntable";
+}
+
 /** Whether live sound may play at all: past Start, sound on and playing, intro over. */
 export function liveSoundOn(state: AppState): boolean {
   return state.started && state.soundOn && state.playing && state.introDone;

@@ -106,7 +106,17 @@ export function ThenNow({
             <FieldPartView part={part} more={monthly} stage={<MotionStage city={cityName} beat={null} beatIndex={null} pause={pause} className={MOTION_STAGE} />} />
           ) : (
             <PartLayout
-              finding={<PartView part={part} demo={view.demo} grace={ready.grace} index={sounding} splitIndex={player.splitIndex} motionPaused={pause.paused} />}
+              finding={
+                <PartView
+                  part={part}
+                  demo={view.demo}
+                  grace={ready.grace}
+                  index={sounding}
+                  splitIndex={player.splitIndex}
+                  motionPaused={pause.paused}
+                  note={sharedWith.length > 0 && <p className="text-body text-moon">{t("history.sharedCell", { places: sharedWith.map((c) => t(`place.${c}`)).join(", ") })}</p>}
+                />
+              }
               stage={<MotionStage city={cityName} beat={beat} beatIndex={sounding ?? player.splitIndex} pause={pause} className={MOTION_STAGE} />}
               actions={<PlayPartButton part={part} player={player} />}
               more={
@@ -118,7 +128,6 @@ export function ThenNow({
               detailsTitle={t("disclosure.title")}
               details={
                 <>
-                  {sharedWith.length > 0 && <p className="text-moon">{t("history.sharedCell", { places: sharedWith.map((c) => t(`place.${c}`)).join(", ") })}</p>}
                   {/* Dhaka's story line is its cross-checked claim; other cities are computed with the same method. */}
                   <p className="text-moon">{isDhaka ? t("data.text", { text: view.demo.story }) : t("thenNow.computed")}</p>
                   {part === "water" && <p className="text-haze">{t("thenNow.waterNational")}</p>}

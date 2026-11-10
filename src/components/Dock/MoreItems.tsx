@@ -1,6 +1,6 @@
 "use client";
 
-import { Disc, GridFour, Pause, Play, ShieldCheck, SkipBack, SkipForward } from "@phosphor-icons/react";
+import { Disc, GridFour, ShieldCheck, SkipBack, SkipForward } from "@phosphor-icons/react";
 import { Link } from "@tanstack/react-router";
 import { Button } from "@/components/ui/button";
 import { neighbour } from "@/lib/records";
@@ -30,20 +30,6 @@ export function NowPlayingItem() {
     >
       <Disc aria-hidden="true" />
       {t("player.nowPlaying")}
-    </Button>
-  );
-}
-
-/** Play and pause, for a page that keeps its bar to one key. */
-export function PlayPauseItem() {
-  const { state } = useAppState();
-  const commands = useCommands();
-  const t = useT();
-  const Icon = state.playing ? Pause : Play;
-  return (
-    <Button variant="ghost" onClick={commands.togglePlaying} className={MORE_ITEM}>
-      <Icon aria-hidden="true" weight="fill" />
-      {t(!state.soundOn ? "sound.turnOn" : state.playing ? "sound.pause" : "sound.play")}
     </Button>
   );
 }

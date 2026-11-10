@@ -25,7 +25,7 @@ export function LanguageChoice() {
       variant="ghost"
       title={t("settings.language")}
       onClick={() => commands.setLang(other.value)}
-      className="h-11 w-full justify-start rounded-lg px-3 text-body font-normal text-moon hover:bg-tide/60"
+      className="key border-navy h-11 rounded-lg bg-paper px-3 text-body text-moon hover:bg-paper"
     >
       <span lang={other.lang}>{other.label}</span>
     </Button>

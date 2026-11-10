@@ -8,7 +8,7 @@ import { sharedYScale, windowLabel, type ChartScale, type YearRow } from "@/lib/
 import type { DemoWindow } from "@/types/data-contract";
 import { useAppState } from "../AppState/use-app-state";
 import { PanelPlayhead, PanelStripes, PanelYear } from "../ThenNow/MotionStage/PanelMotion";
-import { LegendItem, PANEL_AXIS, PANEL_AXIS_FONT_PX, PANEL_AXIS_WIDTH, PANEL_CHART_HEIGHT, PANEL_MARGIN, PANEL_X_PADDING, unitLabel, ZERO_LINE_STROKE, ZeroLineKey } from "./chart-style";
+import { LegendItem, PANEL_AXIS, PANEL_AXIS_WIDTH, PANEL_CHART_HEIGHT, PANEL_MARGIN, PANEL_X_PADDING, SquareSwatch, ZERO_LINE_STROKE, ZeroLineKey } from "./chart-style";
 import { useAxisFormat } from "./use-axis-format";
 
 type Side = "then" | "now";
@@ -46,7 +46,7 @@ interface PanelProps {
   heightClass: string;
 }
 
-/** One window as a comic panel: its years in a caption box, its own line and mean, the axis both panels share. */
+/** One window as a comic panel: its years in a paper label, the unit over the axis, its own line and mean, the axis both panels share. */
 function WindowPanel({ side, win, rows, config, unit, scale, zeroLine, motion, nA, nB, heightClass }: PanelProps) {
   const { state } = useAppState();
   const axis = useAxisFormat();
@@ -54,16 +54,17 @@ function WindowPanel({ side, win, rows, config, unit, scale, zeroLine, motion, n
   return (
     <div className="comic-panel min-w-0 space-y-2">
       <div className="flex min-h-9 items-center justify-between gap-2">
-        <p className="comic-box w-fit rounded-caption px-2 py-0.5 text-body shadow-none!">{localDigits(windowLabel(win), state.lang)}</p>
+        <p className="w-fit rounded-caption border-2 border-navy bg-paper px-2 py-0.5 text-body text-moon">{localDigits(windowLabel(win), state.lang)}</p>
         <PanelYear year={motion.sounding !== null && motion.sounding >= from && motion.sounding <= to ? motion.sounding : motion.splitYear[side]} paused={motion.paused} />
       </div>
+      <p className="text-small text-haze">{unit}</p>
       <div className="relative">
         <PanelStripes win={win} baseline={motion.baseline} playedThrough={motion.playedThrough[side]} />
       <ChartContainer config={config} className={cn("relative aspect-auto w-full", heightClass)}>
         <LineChart data={rows.filter((r) => r[side] !== null)} margin={PANEL_MARGIN} accessibilityLayer>
           <CartesianGrid stroke="var(--chart-grid)" vertical={false} />
           <XAxis dataKey="year" type="number" domain={[from, to]} ticks={win.years} padding={{ left: PANEL_X_PADDING, right: PANEL_X_PADDING }} allowDecimals={false} interval="preserveStartEnd" minTickGap={20} tickFormatter={axis.year} {...PANEL_AXIS} />
-          <YAxis width={PANEL_AXIS_WIDTH} domain={scale.domain} ticks={scale.ticks} tickFormatter={axis.value} {...PANEL_AXIS} label={unitLabel(unit, PANEL_AXIS_FONT_PX)} />
+          <YAxis width={PANEL_AXIS_WIDTH} domain={scale.domain} ticks={scale.ticks} tickFormatter={axis.value} {...PANEL_AXIS} />
           {zeroLine && <ReferenceLine y={0} stroke={ZERO_LINE_STROKE} />}
           <ReferenceLine
             segment={[
@@ -92,6 +93,7 @@ export function YearlyChart({
   labels,
   unit,
   zeroLine,
+  stripes,
   motion,
   summary,
   heightClass = PANEL_CHART_HEIGHT,
@@ -101,6 +103,8 @@ export function YearlyChart({
   labels: { then: string; now: string };
   unit: string;
   zeroLine?: string; // e.g. "1951–1980 normal" for anomalies
+  /** What the stripe colours mean: amber at or above the part's baseline, blue below. */
+  stripes: { above: string; below: string };
   motion: PanelMotionProps;
   summary: string; // text alternative for the whole chart
   heightClass?: string;
@@ -138,6 +142,8 @@ export function YearlyChart({
           {labels.now}
         </LegendItem>
         {zeroLine && <ZeroLineKey label={zeroLine} />}
+        <LegendItem swatch={<SquareSwatch className="bg-bubble" />}>{stripes.above}</LegendItem>
+        <LegendItem swatch={<SquareSwatch className="bg-dial" />}>{stripes.below}</LegendItem>
       </figcaption>
     </figure>
   );

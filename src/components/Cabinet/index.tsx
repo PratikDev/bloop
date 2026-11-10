@@ -17,6 +17,7 @@ export function Cabinet({
   tubes = false,
   below,
   flush = false,
+  foldCrown = false,
   className,
   children,
 }: {
@@ -25,6 +26,8 @@ export function Cabinet({
   tubes?: boolean;
   /** Phones: no body padding, so the window keeps the full width between the page gutters. */
   flush?: boolean;
+  /** Very short wide screens: the crown folds away to give the window its height (Listen's and Official's maps). */
+  foldCrown?: boolean;
   below?: ReactNode;
   className?: string;
   children: ReactNode;
@@ -32,7 +35,7 @@ export function Cabinet({
   const t = useT();
   return (
     <div className={cn("flex min-w-0 flex-col items-center", className)}>
-      <div data-cabinet-crown className="crown relative z-1 -mb-(--outline-panel) flex h-11 w-[min(100%,36rem)] max-w-full items-center justify-center gap-3 px-10 very-short:xl:hidden sm:px-16">
+      <div data-cabinet-crown className={cn("crown relative z-1 -mb-(--outline-panel) flex h-11 w-[min(100%,36rem)] max-w-full items-center justify-center gap-3 px-10 sm:px-16", foldCrown && "very-short:xl:hidden")}>
         <h2 className="shrink-0 text-body font-semibold">{t("player.nowPlaying")}</h2>
         {code && title && (
           <p className="flex min-w-0 items-center gap-2 rounded-md border-2 border-navy bg-paper py-0.5 pr-3 pl-0.5">

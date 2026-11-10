@@ -1,7 +1,7 @@
 "use client";
 
 import { Link } from "@tanstack/react-router";
-import { CaretDown, Disc, Keyboard, Sparkle } from "@phosphor-icons/react";
+import { Disc, Keyboard, Sparkle } from "@phosphor-icons/react";
 import { Button } from "@/components/ui/button";
 import { useLoaded } from "@/hooks/use-loaded";
 import { loadGlobeDuet } from "@/lib/data";
@@ -11,6 +11,7 @@ import { useCommands } from "../../Commands/use-commands";
 import { ComingInOctober } from "../../ComingInOctober";
 import { Credits } from "../../Credits";
 import { InfoSheet } from "../../InfoSheet";
+import { ROW_KEY } from "../../row-key";
 import { GlobeTeaser } from "../../panels/GlobeTeaser";
 import { MappingPanel, PLAYED_VOICES } from "../../panels/MappingPanel";
 import { OceanTruth, RainTruth } from "../../panels/TruthPanel";
@@ -35,22 +36,41 @@ export function HowPage() {
   const globe = duet?.status === "ok" ? duet.summary.share_within_25_points : undefined;
 
   return (
-    <section aria-labelledby="how-title" className="mx-auto w-full max-w-3xl px-4 pt-3 pb-6 md:px-8">
-      <div className="slab space-y-5 p-5 md:p-8">
-        <header className="space-y-1">
-          <h1 id="how-title" data-page-title tabIndex={-1} className="display-tight font-wide text-headline">
+    <section aria-labelledby="how-title" className="mx-auto w-full max-w-7xl px-4 py-6 lg:px-8 lg:short:py-4">
+      <div className="slab space-y-6 p-5 lg:p-6">
+        <header className="flex flex-wrap items-center gap-x-6 gap-y-2">
+          <h1 id="how-title" data-page-title tabIndex={-1} className="display-tight font-wide text-title lg:text-headline">
             {t("nav.how")}
           </h1>
-          <p className="max-w-2xl text-body text-haze">{t("how.lead")}</p>
+          <p className="max-w-[60ch] flex-1 basis-80 text-body text-haze">{t("how.lead")}</p>
+          {/* The credits and the page's other links, in a drawer: the four tracks keep the screen. */}
+          <InfoSheet title={t("how.credits")} triggerClassName={ROW_KEY} trigger={t("how.credits")}>
+            <div className="space-y-3">
+              <Credits t={t} />
+              <div className="flex flex-wrap items-center gap-2">
+                <Link to={PAGE_PATHS.official} className={FOOT_LINK}>
+                  <Disc aria-hidden="true" className="size-4.5" />
+                  {t("records.allOfficial")}
+                </Link>
+                <Button variant="ghost" onClick={commands.openHelp} className={FOOT_LINK}>
+                  <Keyboard aria-hidden="true" className="size-4.5" />
+                  {t("how.keys")}
+                </Button>
+                <InfoSheet title={t("october.heading")} triggerClassName={FOOT_LINK} trigger={<><Sparkle aria-hidden="true" className="size-4.5" />{t("october.heading")}</>}>
+                  <ComingInOctober />
+                </InfoSheet>
+              </div>
+            </div>
+          </InfoSheet>
         </header>
 
-        <ol className="divide-y-2 divide-navy border-y-2 border-navy">
+        <ol className="grid gap-6 lg:grid-cols-2">
         <Tile
           number={1}
           title={t("truth.ocean.heading")}
           figure={ocean ? t("how.ocean.value", { median: ocean.median }) : undefined}
           figureLabel={ocean ? t("how.ocean.figure") : t("truth.ocean.updating")}
-          open={t("how.open")}
+          open={t("how.open.ocean")}
         >
           <OceanTruth showHeading={false} />
         </Tile>
@@ -59,8 +79,9 @@ export function HowPage() {
           title={t("truth.rain.heading")}
           figure={rainCheck ? t("how.rain.value", { percent: rainCheck.percent }) : undefined}
           figureLabel={t("how.rain.figure")}
+          context={rainCheck ? t(rainCheck.allAgreed ? "how.rain.contextAll" : "how.rain.context", { agreed: rainCheck.agreedPct, passed: rainCheck.recheckRun !== null }) : undefined}
           note={rainStatus === "loading" ? <StatusBadge kind="loading">{t("badge.loadingRain")}</StatusBadge> : undefined}
-          open={t("how.open")}
+          open={t("how.open.rain")}
         >
           <RainTruth showHeading={false} />
         </Tile>
@@ -72,35 +93,13 @@ export function HowPage() {
           title={t("how.globe.title")}
           figure={globe !== undefined ? t("how.globe.value", { percent: globe * 100 }) : undefined}
           figureLabel={t("how.globe.figure")}
+          context={t("globe.plan")}
           note={<StatusBadge kind="october">{t("globe.teaser")}</StatusBadge>}
           open={t("how.openGlobe")}
         >
           <GlobeTeaser />
         </Tile>
         </ol>
-
-        <details className="group">
-          <summary className="flex min-h-11 cursor-pointer list-none items-center justify-between gap-3 text-body font-medium [&::-webkit-details-marker]:hidden">
-            {t("how.credits")}
-            <CaretDown aria-hidden="true" className="size-4 shrink-0 text-haze group-open:rotate-180" />
-          </summary>
-          <div className="space-y-3 pt-2">
-            <Credits t={t} />
-            <div className="flex flex-wrap items-center gap-2">
-              <Link to={PAGE_PATHS.official} className={FOOT_LINK}>
-                <Disc aria-hidden="true" className="size-4.5" />
-                {t("records.allOfficial")}
-              </Link>
-              <Button variant="ghost" onClick={commands.openHelp} className={FOOT_LINK}>
-                <Keyboard aria-hidden="true" className="size-4.5" />
-                {t("how.keys")}
-              </Button>
-              <InfoSheet title={t("october.heading")} triggerClassName={FOOT_LINK} trigger={<><Sparkle aria-hidden="true" className="size-4.5" />{t("october.heading")}</>}>
-                <ComingInOctober />
-              </InfoSheet>
-            </div>
-          </div>
-        </details>
       </div>
     </section>
   );

@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useRef, type KeyboardEvent, type PointerEvent } from "react";
+import { useEffect, useRef, type KeyboardEvent, type PointerEvent, type CSSProperties } from "react";
 import type { LatLon, OfficialGrid } from "@/lib/data";
 import { CoastLines } from "./CoastLines";
 import { stepImage } from "./colours";
@@ -39,8 +39,11 @@ export function RecordMap({ grid, step, needle, onMove, label }: { grid: Officia
 
   const x = ((needle.lon - west) / (east - west)) * 100;
   const y = ((north - needle.lat) / (north - south)) * 100;
+  const ratio = (east - west) / (north - south);
+  // --map-ratio lets globals.css cap the width by the screen's height (one-screen mode), so a wide, short screen never scrolls.
+  const box: CSSProperties & Record<"--map-ratio", number> = { aspectRatio: `${ratio}`, "--map-ratio": ratio };
   return (
-    <div className="relative w-full bg-land" style={{ aspectRatio: `${(east - west) / (north - south)}` }}>
+    <div className="official-map relative w-full bg-land" style={box}>
       <canvas
         ref={canvas}
         width={width}

@@ -5,15 +5,15 @@ import { createPortal } from "react-dom";
 import { CaretDown, ListMagnifyingGlass } from "@phosphor-icons/react";
 import { useT } from "../AppState/use-app-state";
 import { useMoreSlot } from "../Dock/more-slot";
-import { MORE_ITEM } from "../Dock/PlayerMore";
 import { InfoSheet } from "../InfoSheet";
+import { ROW_KEY } from "../row-key";
 
 /** Where a part's own controls go: the row with the place and part pickers. */
 export const PartActionsSlot = createContext<HTMLElement | null>(null);
 
 /**
- * One part of Then vs Now, the same shape for every part: the finding fills the window, the part's Play joins the
- * row above it, and everything else (other ways to listen, the Details) goes in the player's More.
+ * One part of Then vs Now, the same shape for every part: the finding fills the window, the part's Play and Details
+ * join the row above it, and the other ways to listen go in the player's More.
  */
 export function PartLayout({
   finding,
@@ -35,30 +35,30 @@ export function PartLayout({
   const menu = useMoreSlot();
   return (
     <>
-      <div className={stage ? "grid gap-6 lg:grid-cols-[minmax(0,1fr)_13rem]" : undefined}>
+      <div className={stage ? "grid gap-6 lg:grid-cols-[minmax(0,1fr)_13rem] xl:grid-cols-[minmax(0,1fr)_14.5rem]" : undefined}>
         <div className="min-w-0 space-y-4">{finding}</div>
-        {stage && <div className="relative -order-1 mx-auto aspect-square w-full max-w-56 lg:order-none lg:aspect-auto lg:max-w-none lg:min-h-52">{stage}</div>}
+        {stage && <div className="relative -order-1 mx-auto aspect-5/6 w-full max-w-56 lg:order-none lg:aspect-auto lg:max-w-none lg:min-h-52">{stage}</div>}
       </div>
-      {row && createPortal(actions, row)}
-      {menu &&
+      {row &&
         createPortal(
           <>
-            {more}
+            {actions}
             <DetailsSheet title={detailsTitle}>{details}</DetailsSheet>
           </>,
-          menu,
+          row,
         )}
+      {menu && more && createPortal(more, menu)}
     </>
   );
 }
 
-/** "Details": the sources, windows, tables and honesty notes, in a drawer. */
+/** "Details": the sources, windows, data tables and honesty notes, in a drawer (a dialog, so screen readers reach the tables). */
 function DetailsSheet({ title, children }: { title: string; children: ReactNode }) {
   const t = useT();
   return (
     <InfoSheet
       title={title}
-      triggerClassName={MORE_ITEM}
+      triggerClassName={ROW_KEY}
       trigger={
         <>
           <ListMagnifyingGlass aria-hidden="true" className="size-5" />

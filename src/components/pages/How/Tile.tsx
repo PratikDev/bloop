@@ -5,16 +5,18 @@ import { ArrowRight } from "@phosphor-icons/react";
 import { formatInteger } from "@/lib/i18n";
 import { useAppState } from "../../AppState/use-app-state";
 import { InfoSheet } from "../../InfoSheet";
+import { ROW_KEY } from "../../row-key";
 
 /**
- * One track on the back of the sleeve: what was checked, the one number that says how well
- * (from the data files), and the full wording one click away.
+ * One track on the back of the sleeve: what was checked, the one number that says how well (from the data files),
+ * a line of context, and the full wording one click away, right under the text. No box: spacing and a thin rule.
  */
 export function Tile({
   number,
   title,
   figure,
   figureLabel,
+  context,
   note,
   open,
   children,
@@ -25,39 +27,46 @@ export function Tile({
   /** Left out while the data loads, or when the file has no number to show. */
   figure?: string;
   figureLabel: string;
-  /** A status line under the number (e.g. "Coming in October"). */
+  /** What the number means, from the data's own sentences (left out when the data doesn't say). */
+  context?: string;
+  /** A status beside the title (e.g. "Early preview"). */
   note?: ReactNode;
-  /** The button text that opens the full content. */
+  /** The button text that opens the full content: unique on the page, so it is the link's whole name. */
   open: string;
   children: ReactNode;
 }) {
   const { state } = useAppState();
   return (
-    <li className="grid grid-cols-[auto_minmax(0,1fr)] items-start gap-x-4 gap-y-1 py-3 sm:grid-cols-[auto_minmax(0,1fr)_auto]">
-      <span aria-hidden="true" className="readout-figure text-title">
-        {formatInteger(number, state.lang)}
-      </span>
-      <div className="min-w-0 space-y-1">
-        <h2 className="eyebrow">{title}</h2>
-        {figure !== undefined && <p className="readout-figure text-title leading-tight text-moon">{figure}</p>}
-        <p className="text-body text-haze">{figureLabel}</p>
+    <li className="min-w-0 space-y-2 border-t-2 border-navy pt-4">
+      <div className="flex flex-wrap items-center justify-between gap-x-4 gap-y-1">
+        <h2 className="flex items-baseline gap-3 text-body font-semibold">
+          <span aria-hidden="true" className="readout-figure text-lead">
+            {formatInteger(number, state.lang)}
+          </span>
+          {title}
+        </h2>
         {note}
       </div>
-      <div className="col-start-2 sm:col-start-3">
-        <InfoSheet
-          title={title}
-          triggerLabel={`${open}: ${title}`}
-          triggerClassName="key border-navy h-11 gap-2 rounded-lg bg-paper px-3 text-body font-normal text-moon hover:bg-paper"
-          trigger={
-            <>
-              {open}
-              <ArrowRight aria-hidden="true" className="size-4" />
-            </>
-          }
-        >
-          {children}
-        </InfoSheet>
+      <div className="max-w-[60ch] space-y-1">
+        {/* The number and what it measures side by side, so each track takes fewer lines. */}
+        <p className="flex items-baseline gap-3">
+          {figure !== undefined && <span className="readout-figure shrink-0 text-headline leading-none text-moon">{figure}</span>}
+          <span className="text-body text-haze">{figureLabel}</span>
+        </p>
+        {context && <p className="text-body text-moon">{context}</p>}
       </div>
+      <InfoSheet
+        title={title}
+        triggerClassName={ROW_KEY}
+        trigger={
+          <>
+            {open}
+            <ArrowRight aria-hidden="true" className="size-4" />
+          </>
+        }
+      >
+        {children}
+      </InfoSheet>
     </li>
   );
 }

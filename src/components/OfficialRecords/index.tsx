@@ -26,6 +26,7 @@ import { recordBrailleLabel } from "./braille-label";
 import { OfficialBrailleExplorer } from "./OfficialBrailleExplorer";
 import { RelatedRecords } from "./RelatedRecords";
 import { useOfficialRecord } from "./use-official-record";
+import { ROW_KEY } from "../row-key";
 
 const SIGNIFICANT = 3;
 
@@ -106,7 +107,7 @@ function Player({ record, related }: { record: string; related: ReactNode }) {
           {place}: {readingText(t, state.lang, first?.reading ?? null, map?.layer)}
         </p>
         <PlayRecordButton rec={rec} />
-        <InfoSheet title={t("official.details")} triggerClassName="key border-navy h-11 rounded-lg bg-paper px-4 text-body font-normal text-moon hover:bg-paper" trigger={t("official.details")}>
+        <InfoSheet title={t("official.details")} triggerClassName={ROW_KEY} trigger={t("official.details")}>
           <Tabs defaultValue="source" className="gap-4">
             <TabsList variant="line" aria-label={t("official.details")} className="w-full justify-start">
               <TabsTrigger value="source">{t("official.tab.source")}</TabsTrigger>
@@ -159,7 +160,7 @@ export function OfficialRecords() {
   return (
     <section aria-labelledby="official-heading">
       <h2 id="official-heading" className="sr-only">{t("official.heading")}</h2>
-      <Cabinet code={crown?.code} title={crown?.title(t)} flush>
+      <Cabinet code={crown?.code} title={crown?.title(t)} flush foldCrown>
         <div className="grid gap-6 lg:grid-cols-[18.75rem_minmax(0,1fr)]">
           <div tabIndex={0} aria-label={t("official.records")} role="group" className="official-list space-y-4 pr-1">
             {KIND_ORDER.map((kind) => {

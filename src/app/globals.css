@@ -977,10 +977,18 @@ html[data-text="comfortable"] .font-wide-display {
   border-bottom: var(--outline-panel) solid var(--navy);
   border-radius: calc(var(--jf-width) / 2) calc(var(--jf-width) / 2) var(--radius-sheet-value) var(--radius-sheet-value);
 }
+/* --jf-window is the inside: the globe gets all of it, and the outline sits outside. Phones drop the outline so the
+   window keeps the full screen width (the globe draws its own). */
 .jukebox-window {
+  box-sizing: content-box;
   width: var(--jf-window);
   height: var(--jf-window);
   flex: none;
+}
+@media (max-width: 63.99rem) {
+  .jukebox-window {
+    border-width: 0;
+  }
 }
 .jukebox-cap {
   height: calc(3.5rem + var(--jf-window) * 0.18);
@@ -1001,7 +1009,7 @@ html[data-text="comfortable"] .font-wide-display {
 }
 @media (min-width: 64rem) {
   .jukebox-home {
-    --jf-window: min(36rem, 100dvh - 13.5rem, 100vw - 15.5rem - 24rem);
+    --jf-window: min(36rem, 100dvh - 13rem, 100vw - 15.875rem - 24rem);
   }
   .jukebox-frame {
     --jf-width: calc(var(--jf-window) + 7.5rem);
@@ -1023,7 +1031,21 @@ html[data-text="comfortable"] .font-wide-display {
 }
 @media (min-width: 80rem) {
   .jukebox-home {
-    --jf-window: min(36rem, 100dvh - 13.5rem, 100vw - 15.5rem - 32rem);
+    --jf-window: min(36rem, 100dvh - 13rem, 100vw - 15.875rem - 32rem);
+  }
+}
+
+/* ---- Then vs Now: each panel's plot takes the height the page leaves free, never under its baseline. ---- */
+/* The rest of the page (header, row, headline, panel labels, legend, player, the 24 px gaps) measures about 36rem from
+   1024 px and 33rem from 1280 px, where the row and legend wrap less. 12rem is the baseline. */
+@media (min-width: 64rem) {
+  :root {
+    --tn-panel: clamp(12rem, 100dvh - 36rem, 36rem);
+  }
+}
+@media (min-width: 80rem) {
+  :root {
+    --tn-panel: clamp(12rem, 100dvh - 33rem, 36rem);
   }
 }
 
@@ -1039,5 +1061,10 @@ html[data-text="comfortable"] .font-wide-display {
   .official-list {
     max-height: calc(100dvh - 17rem);
     overflow-y: auto;
+  }
+  /* The map is as tall as the list may be: on a wide, short screen it narrows (centred) instead of scrolling the page. */
+  .official-map {
+    max-width: calc((100dvh - 17rem) * var(--map-ratio));
+    margin-inline: auto;
   }
 }

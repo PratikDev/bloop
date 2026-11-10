@@ -23,7 +23,10 @@ export function Sleeve() {
   return (
     <div className="hidden min-w-0 flex-[0_1_18rem] items-center gap-3 md:flex">
       <div aria-hidden="true" className="relative mr-4 size-15.5 shrink-0">
-        <VinylMark ref={disc} className="absolute top-1 -right-4 size-13.5" />
+        {/* Clipped to its box: the spinning square's corners would otherwise reach past the screen's bottom edge. */}
+        <span className="absolute top-1 -right-4 size-13.5 overflow-clip rounded-full">
+          <VinylMark ref={disc} className="size-full" />
+        </span>
         <div style={art} className="absolute inset-0 rounded-md border-2 border-navy bg-paper" />
       </div>
       <div className="min-w-0">

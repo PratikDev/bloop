@@ -1,6 +1,7 @@
 "use client";
 
 import { useCallback, useEffect, useMemo, useState } from "react";
+import { useReportPagePlayer } from "@/hooks/use-page-player";
 import { audio } from "@/lib/audio-jukebox";
 import {
   clampLat,
@@ -116,6 +117,7 @@ export function useOfficialRecord(record: string, soundOn: boolean): OfficialRec
 
   // Sound follows the readings while playing (or listening); a below-range reading plays at its bound (the rule's bottom), no data is silence.
   const sounding = (playing || listening) && soundOn;
+  useReportPagePlayer(sounding);
   useEffect(() => {
     for (const r of readings) audio.setRecordVoice(r.voice, sounding ? (r.reading?.value ?? null) : null, at.lon);
   }, [readings, sounding, at.lon]);

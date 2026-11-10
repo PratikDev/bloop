@@ -39,6 +39,10 @@ export const contextBn: Translated<typeof contextEn> = {
   "thenNow.unit.anomaly": "°সে বিচ্যুতি",
   "thenNow.unit.mmPerDay": "মিমি/দিন",
   "thenNow.unit.cm": "সেমি",
+  "thenNow.stripes.heatAbove": "অ্যাম্বার: ১৯৫১–১৯৮০ সালের স্বাভাবিকের চেয়ে উষ্ণ",
+  "thenNow.stripes.heatBelow": "নীল: শীতল",
+  "thenNow.stripes.monsoonAbove": (p: { window: string }) => `অ্যাম্বার: ${p.window} সালের গড়ের চেয়ে বেশি বৃষ্টি`,
+  "thenNow.stripes.monsoonBelow": "নীল: কম বৃষ্টি",
   "thenNow.summary.yearly": (p: { part: string; unit: string; thenLabel: string; thenMean: number; nowLabel: string; nowMean: number }) =>
     `${p.part}: ${d(p.thenLabel)} সময়ে গড় ${n2(p.thenMean)} ${p.unit}, ${d(p.nowLabel)} সময়ে গড় ${n2(p.nowMean)} ${p.unit}।`,
   "thenNow.water.played": "বাংলাদেশ (এটিই শুনছেন)",

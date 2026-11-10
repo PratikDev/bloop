@@ -35,6 +35,11 @@ export const contextEn = {
   "thenNow.unit.anomaly": "°C anomaly",
   "thenNow.unit.mmPerDay": "mm/day",
   "thenNow.unit.cm": "cm",
+  // The stripes behind each panel's line: amber at or above what the part is compared against, blue below.
+  "thenNow.stripes.heatAbove": "Amber: warmer than the 1951–1980 normal",
+  "thenNow.stripes.heatBelow": "Blue: cooler",
+  "thenNow.stripes.monsoonAbove": (p: { window: string }) => `Amber: more rain than the ${p.window} average`,
+  "thenNow.stripes.monsoonBelow": "Blue: less rain",
   "thenNow.summary.yearly": (p: { part: string; unit: string; thenLabel: string; thenMean: number; nowLabel: string; nowMean: number }) =>
     `${p.part}: mean ${n2(p.thenMean)} ${p.unit} in ${p.thenLabel}, mean ${n2(p.nowMean)} ${p.unit} in ${p.nowLabel}.`,
   "thenNow.water.played": "Bangladesh (you hear this)",

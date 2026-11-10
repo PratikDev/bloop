@@ -135,9 +135,7 @@ test("protocol a–g, browser side; lines saved for liblouis", async ({ page, br
 test("বাংলা mode: the same records' lines saved for the Bengali-table liblouis check", async ({ page, browserName }) => {
   const out: Record<string, unknown> = { browser: browserName, lang: "bn", date: new Date().toISOString() };
   await start(page);
-  await page.getByRole("button", { name: "Settings" }).click();
   await page.getByRole("button", { name: "বাংলা" }).click();
-  await page.keyboard.press("Escape");
   await page.locator("#sound-map").focus();
   await page.keyboard.press("b");
   await expect(page.getByTestId("braille-shape")).toBeFocused();

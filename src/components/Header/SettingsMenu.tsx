@@ -1,18 +1,17 @@
 "use client";
 
 import { useState } from "react";
-import { ArrowCounterClockwise, GearSix, MusicNotesSimple, Question } from "@phosphor-icons/react";
+import { ArrowCounterClockwise, GearSix, MusicNotesSimple } from "@phosphor-icons/react";
 import { Button } from "@/components/ui/button";
 import { Popover, PopoverContent, PopoverTitle, PopoverTrigger } from "@/components/ui/popover";
 import { useAppState, useT } from "../AppState/use-app-state";
 import { useCommands } from "../Commands/use-commands";
-import { LanguageChoice } from "../LanguageChoice";
 import { SettingToggle } from "../SettingToggle";
 import { HEADER_KEY } from "./header-key";
 
 const MENU_ACTION = "h-11 w-full justify-start gap-2 rounded-lg px-3 text-body font-normal hover:bg-tide/60";
 
-/** Language, Help, the display settings, the Bloop motif and Reset sound choice: one key in the header. */
+/** The display settings, the Bloop motif and Reset sound choice: one key in the header. */
 export function SettingsMenu() {
   const { state } = useAppState();
   const t = useT();
@@ -29,18 +28,6 @@ export function SettingsMenu() {
       </PopoverTrigger>
       <PopoverContent data-tt-occluder align="end" sideOffset={8} className="surface-glass max-h-(--available-height) w-72 gap-2 overflow-y-auto rounded-plate p-3 text-body">
         <PopoverTitle className="eyebrow px-1 pb-1">{t("settings.open")}</PopoverTitle>
-        <LanguageChoice />
-        <Button
-          variant="ghost"
-          onClick={() => {
-            setOpen(false);
-            commands.openHelp();
-          }}
-          className={MENU_ACTION}
-        >
-          <Question aria-hidden="true" className="size-5" />
-          {t("help.open")}
-        </Button>
         <SettingToggle setting="describe" />
         <SettingToggle setting="captions" />
         <SettingToggle setting="builtInVoice" />

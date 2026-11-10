@@ -105,7 +105,7 @@ export const LISTEN: Feature[] = [
     } },
   // ---- accessibility ----
   { id: "help", group: "a11y", name: "Keys and help", where: "Anywhere · H or Help", keyboard: true,
-    what: "Lists every key (map, turntable, scenes)", control: (page) => page.getByRole("banner").getByRole("button", { name: "Settings" }),
+    what: "Lists every key (map, turntable, scenes)", control: (page) => page.getByRole("banner").getByRole("button", { name: "Help" }),
     async run(page) {
       await onMap(page); await page.keyboard.press("h");
       const dialog = page.getByRole("dialog", { name: "Keys and help" });
@@ -148,11 +148,9 @@ export const LISTEN: Feature[] = [
     } },
   { id: "bangla", group: "a11y", name: "Bangla interface", where: "Header · বাংলা", keyboard: false,
     what: "Switches the interface to Bangla (Samonwita's translation), and the braille lines",
-    control: (page) => page.getByRole("banner").getByRole("button", { name: "Settings" }),
+    control: (page) => page.getByRole("banner").getByRole("button", { name: "বাংলা" }),
     async run(page) {
-      await page.getByRole("banner").getByRole("button", { name: "Settings" }).click();
-      await page.getByRole("button", { name: "বাংলা" }).click();
-      await page.keyboard.press("Escape");
+      await page.getByRole("banner").getByRole("button", { name: "বাংলা" }).click();
       await expect(page.locator("html")).toHaveAttribute("lang", "bn");
       const title = await page.getByRole("heading", { level: 1 }).first().innerText();
       if (!/[ঀ-৿]/u.test(title)) throw new Error(`page title not in Bangla: "${title}"`);

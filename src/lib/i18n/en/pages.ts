@@ -65,7 +65,11 @@ export const pagesEn = {
   "how.globe.title": "Ground vs satellite",
   "how.globe.figure": "of place-days in Bangladesh where ground observers and the satellite agree on cloud cover within 25 points",
   "how.globe.value": (p: { percent: number }) => `${formatInteger(p.percent, "en")}%`,
-  "how.open": "Read the full check",
+  "how.open.ocean": "Read the ocean check",
+  "how.open.rain": "Read the rain check",
+  // What ~27% means, from rain.json: whether the newest frame's check passed, and how often rain and dry agreed.
+  "how.rain.contextAll": (p: { agreed: number; passed: boolean }) => `${p.passed ? "The newest check passed, and it" : "It"} agreed on where it was raining at every sampled point.`,
+  "how.rain.context": (p: { agreed: number; passed: boolean }) => `${p.passed ? "The newest check passed. " : ""}Rain and no rain agreed at ${formatInteger(p.agreed, "en")}% of sampled points.`,
   "how.openRules": "See every rule",
   "how.openGlobe": "Read the preview",
   "how.credits": "Credits",
