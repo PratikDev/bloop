@@ -8,7 +8,7 @@ import { dataOut, report } from "./out";
 
 const FADE_SEC = 0.25;
 /** How deep the pulses go (share of the rumble's gain), a design choice. */
-const PULSE_DEPTH = 0.8;
+export const PULSE_DEPTH = 0.8;
 
 export interface RumbleLayer {
   set(code: number | null, lon: number): void;

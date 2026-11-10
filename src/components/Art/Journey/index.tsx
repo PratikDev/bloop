@@ -14,7 +14,7 @@ import { useListenLetter } from "../Letter/use-listen-letter";
 import { useJourney } from "./use-journey";
 
 const statusText = (t: BoundT, status: string) =>
-  status === "pattern only" || status === "relative" || status === "verified" || status === "observation" ? t(`journey.status.${status}`) : status;
+  status === "pattern only" || status === "relative" || status === "verified" || status === "observation" || status === "model" ? t(`journey.status.${status}`) : status;
 
 /** A step's line: its name, dataset, period and status (shown, and spoken as it starts). */
 export function stepLine(t: BoundT, j: Journey, id: JourneyStepId): string {
@@ -23,7 +23,7 @@ export function stepLine(t: BoundT, j: Journey, id: JourneyStepId): string {
 }
 
 /**
- * Water's journey: the five steps as a list (the one sounding is the current step), its dataset, period and status shown
+ * Water's journey: its steps as a list (the one sounding is the current step), its dataset, period and status shown
  * and said as it starts, Play / Stop by button (keyboard and screen reader), "Play as one piece" (a WAV), and the
  * letter to the future at the end, for the Bay of Bengal.
  */

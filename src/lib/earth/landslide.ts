@@ -3,11 +3,34 @@
 // description are built here once for the record, its transcript and Ask Bloop.
 
 import { clean } from "@/a11y/brailleText";
+import type { LatLon } from "@/lib/data";
+import { loadFirms } from "@/lib/data/context";
+import { loadGeo } from "@/lib/geo/load";
 import { formatDay, type BoundT, type Lang } from "@/lib/i18n";
 import type { LandslideClassMetadata } from "@/types/data-contract";
 import { classLabel, loadClassGrid, type ClassGrid } from "./class-grid";
 import { classesRule, classState, LANDSLIDE_VOICE } from "./classes";
+import { boxCentre } from "./firms";
 import { EARTH_PATHS } from "./paths";
+
+/** A one-click place: its words and where it is (from the files and the app's gazetteer, never typed). */
+export interface SlidePlace {
+  id: "cht" | "cox";
+  at: LatLon;
+}
+
+const COX = "Cox's Bazar";
+
+/** The landslide record's places (and Water's journey's): the Hill Tracts (FIRMS's CHT box, its centre) and Cox's
+ *  Bazar (the gazetteer's). */
+export async function loadSlidePlaces(): Promise<SlidePlace[]> {
+  const [firms, geo] = await Promise.all([loadFirms(), loadGeo()]);
+  const out: SlidePlace[] = [];
+  if (firms.daily) out.push({ id: "cht", at: boxCentre(firms.daily.boxes.CHT) });
+  const cox = geo.gazetteer.search(COX, 1)[0];
+  if (cox) out.push({ id: "cox", at: { lat: cox.lat, lon: cox.lon } });
+  return out;
+}
 
 export type LandslideGrid = ClassGrid<LandslideClassMetadata>;
 
