@@ -137,3 +137,15 @@ describe("credit strings", () => {
     }
   });
 });
+
+describe("the integrated build's new sounds are credited (10 Nov 2026)", () => {
+  test("Water's journey and the raw-pixel demo play Official records listed under Data in this app", async () => {
+    const { JOURNEY_RECORDS } = await import("@/lib/art/journey/sources");
+    const raw = readData<{ record: string }>("art/raw_pixel.json").record;
+    const credited = recordsOf(data);
+    for (const r of [...Object.values(JOURNEY_RECORDS), raw]) expect([r, credited.has(r)]).toEqual([r, true]);
+  });
+  test("the value chord and Your lifetime use products already under Data in this app (Listen's SST; Then vs Now's)", () => {
+    for (const p of [voiceProduct("ocean"), "gistemp_bd", "gpcp_bd", "grace"]) expect([p, playing.has(p ?? "")]).toEqual([p, true]);
+  });
+});
