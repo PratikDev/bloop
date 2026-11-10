@@ -75,24 +75,29 @@ Re-measured on the integrated build (every CV, ART and DATA flag on; Chromium, 3
 
 | Mode | Before (LUFS) | After (LUFS) | vs −18 (LU) | True peak after (dBTP) |
 |---|---|---|---|---|
-| Listen Ocean | −14.1 | −16.4 | +1.6 | −10.6 |
-| Listen Rain (time-lapse) | −31.8 | −23.0 | −5.0 | −7.0 |
+| Listen Ocean | −14.1 | −17.7 | +0.3 | −12.8 |
+| Listen Rain (time-lapse) | −31.8 | −23.0 | −5.0 | −2.3 (−7.0 in the run before) |
 | Listen Both | −14.1 | −17.7 | +0.3 | −13.4 |
-| Listen Ocean + chord | −13.1 | −16.8 | +1.2 | −10.7 |
-| Duet (proof in unison) | −15.3 | −19.2 | −1.2 | −7.7 |
-| Then vs Now | −19.6 | −16.3 | +1.7 | −9.7 |
-| Turntable | −17.7 | −17.5 | +0.5 | −11.3 |
+| Listen Ocean + chord | −13.1 | −16.8 | +1.2 | −10.6 |
+| Duet (proof in unison) | −15.3 | −17.4 | +0.6 | −9.7 |
+| Then vs Now | −19.6 | −16.3 | +1.7 | −9.5 |
+| Turntable | −17.7 | −17.5 | +0.5 | −11.6 |
 
-- Every mode but rain is within ±3 LU of −18; rain is 5 LU under it, held there by its peak cap (its loudest drops now
-  sit at −7 dBTP, the cap). **Rain at −23 LUFS is accepted for now (decision, 11 Nov 2026):** sparse drops read low
+- Every mode but rain is within ±3 LU of −18; rain is 5 LU under it, held there by its peak cap. **Rain at −23 LUFS is accepted for now (decision, 11 Nov 2026):** sparse drops read low
   on an integrated meter because of the silence between them, and raising them further would push their peaks into
   the master compressor. Revisit with listeners (does rain sound as present as the ocean at the same volume?) before
   changing the cap.
-- Ocean and Then vs Now came out about 1.6 LU louder than the trims alone predict: on the integrated build the dial's
-  default (Blend) plays them in their Earth Orchestra families, whose harmonics add loudness. Pitch is unchanged
-  (the pitch-identity and Check 5 runs in `docs/BUILD_2026-11-10.md`).
+- Then vs Now came out 1.7 LU louder than its trim alone predicts: the dial's default (Blend) plays it in its Earth
+  Orchestra family, whose harmonics add loudness. (A first measurement put Listen Ocean 1.6 LU high too: before the
+  chord became opt-in the dial's Blend added it there; it no longer does.) Pitch is unchanged (the pitch-identity and
+  Check 5 runs in `docs/BUILD_2026-11-10.md`).
+- **Rain's true peak varies from run to run:** −7.0 dBTP in one 30 s run, −2.3 dBTP in the next (the drop clock's
+  jitter and the storm's frames decide when drops coincide). Both are under the −1 dBTP ceiling and the test passes, but
+  the trim's peak cap came from a single baseline run, so the margin is thinner than the cap suggests; the master
+  compressor catches the loudest drops. If a run ever reaches the ceiling, lower the rain trim (re-measure the baseline
+  over several runs and take the loudest peak).
 - The chord still sits 7.6 dB RMS under the melody (it follows the ocean voice's trim).
-- No true peak reaches −1 dBTP; the loudest is −7.0 dBTP.
+- No true peak reaches −1 dBTP; the loudest is rain's −2.3 dBTP.
 
 ## The test
 
