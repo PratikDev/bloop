@@ -19,10 +19,19 @@ export function MixerContent() {
   return (
     <PopoverContent data-tt-occluder side="top" align="end" sideOffset={12} className="surface-glass w-[min(22rem,calc(100vw-1.5rem))] gap-3 rounded-plate p-4 text-body">
       <PopoverTitle className="eyebrow">{t("mixer.label")}</PopoverTitle>
+      <MixerPanel />
+    </PopoverContent>
+  );
+}
+
+/** Volume, mute and solo per voice, and Mute all: in the mixer's popover, or inside another menu. */
+export function MixerPanel() {
+  return (
+    <div className="space-y-3">
       <Mixer />
       <div className="stitch-x opacity-60" aria-hidden="true" />
       <SettingToggle setting="allMuted" />
-    </PopoverContent>
+    </div>
   );
 }
 

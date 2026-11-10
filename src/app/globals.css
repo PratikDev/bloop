@@ -1031,6 +1031,10 @@ html[data-text="comfortable"] .font-wide-display {
 .official-list:focus-visible {
   outline-offset: -3px;
 }
+.official-list {
+  max-height: 50dvh;
+  overflow-y: auto;
+}
 @media (min-width: 64rem) and (min-height: 37.5rem) {
   .official-list {
     max-height: calc(100dvh - 17rem);

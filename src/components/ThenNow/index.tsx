@@ -63,6 +63,7 @@ export function ThenNow({
   // While "Play heat, rain and water" runs, the view follows the part that is sounding.
   const part: ViewPart = player.soundingPart ?? chosen;
   const field = isFieldPart(part);
+  const playing = player.soundingPart !== null;
   const cities = ready?.cities?.cities ?? [];
   // The cell this part plays from; the sharer's caption already names its reference city, the reference's doesn't.
   const cell = part === "heat" ? city?.heat : part === "monsoon" ? city?.rain.gpcp : null;
@@ -95,9 +96,10 @@ export function ThenNow({
 
       {ready && view && (
         <PartActionsSlot.Provider value={actionsRow}>
+          {/* While a part plays, only Play/Stop stays in the row: the pickers would stop it anyway, and the stage keeps the room. */}
           <div className="flex flex-wrap items-center gap-4">
-            {!field && cities.length > 1 && <PickOne<ClimateCellName> label={t("thenNow.city")} value={cityName} onChange={chooseCity} options={cities.map((c) => ({ value: c.name, label: t(`place.${c.name}`) }))} />}
-            <PickOne<ViewPart> label={t("thenNow.parts")} value={part} onChange={choosePart} options={VIEW_PARTS.map((p) => ({ value: p, label: t(`thenNow.part.${p}`) }))} />
+            {!playing && !field && cities.length > 1 && <PickOne<ClimateCellName> label={t("thenNow.city")} value={cityName} onChange={chooseCity} options={cities.map((c) => ({ value: c.name, label: t(`place.${c.name}`) }))} />}
+            {!playing && <PickOne<ViewPart> label={t("thenNow.parts")} value={part} onChange={choosePart} options={VIEW_PARTS.map((p) => ({ value: p, label: t(`thenNow.part.${p}`) }))} />}
             <div ref={setActionsRow} className="contents" />
           </div>
           {isFieldPart(part) ? (

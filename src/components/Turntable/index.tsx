@@ -174,7 +174,7 @@ export function Turntable() {
   const legendShown = needleMoving || details.open;
 
   return (
-    <section ref={sectionRef} data-space data-tt-stage lang={rootLang} className="tt-warm relative min-h-[32rem] min-w-0 overflow-hidden bg-tt-black">
+    <section ref={sectionRef} data-space data-tt-stage lang={rootLang} className="tt-warm relative min-h-[32rem] min-w-0 overflow-hidden bg-tt-black max-sm:min-h-[40rem]">
       <div inert={sceneOpen !== null} className="contents">
         <Stage
           tt={tt}

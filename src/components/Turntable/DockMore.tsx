@@ -39,7 +39,7 @@ export function DockMore({ actions, view: renderView }: { actions: readonly Dock
               keys={a.keys}
               inlineKeys
               pressed={a.pressed}
-              className="w-full justify-start"
+              className={cn("w-full justify-start", a.place === "key" && a.phoneMore && "md:hidden")}
               onClick={() => {
                 if (a.view) {
                   setView(a.view);

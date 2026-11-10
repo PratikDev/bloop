@@ -24,7 +24,7 @@ import { Popover, PopoverTrigger } from "@/components/ui/popover";
 import type { TrackMode } from "@/lib/audio-jukebox/types";
 import { useT } from "../AppState/use-app-state";
 import { MiniPlayer } from "../Dock/MiniPlayer";
-import { MixerContent, useMixerLimited } from "../Dock/MixerMenu";
+import { MixerContent, MixerPanel, useMixerLimited } from "../Dock/MixerMenu";
 import { NeedleSlider } from "../Dock/NeedleSliders";
 import type { DockAction, DockView } from "./dock-actions";
 import { DockButton, SpeedStepper } from "./DockButton";
@@ -71,8 +71,8 @@ export function Dock({ ref, ...p }: DockProps) {
   const actions: DockAction[] = [
     { id: "turn", place: "key", icon: p.rotating ? Square : RotateCw, label: tt(p.rotating ? "turntable.stopTurning" : "turntable.turn"), keys: "Space", pressed: p.rotating, onClick: p.onToggleRotation },
     { id: "search", place: "key", icon: Search, label: tt("turntable.search.label"), short: tt("turntable.search.short"), keys: "/", onClick: p.onSearch },
-    { id: "where", place: "key", icon: LocateFixed, label: tt("turntable.where.button"), keys: "L", onClick: p.onWhereAmI },
-    { id: "mixer", place: "key", icon: SlidersHorizontal, label: t(mixerLimited ? "mixer.limited" : "mixer.label"), short: t("dock.short.mixer"), popover: <MixerContent /> },
+    { id: "where", place: "key", phoneMore: true, icon: LocateFixed, label: tt("turntable.where.button"), keys: "L", onClick: p.onWhereAmI },
+    { id: "mixer", place: "key", phoneMore: true, view: "mixer", icon: SlidersHorizontal, label: t(mixerLimited ? "mixer.limited" : "mixer.label"), short: t("dock.short.mixer"), popover: <MixerContent /> },
     { id: "needle", place: "more", icon: Move, label: t("needle.group"), view: "needle" },
     { id: "bookmarks", place: "more", icon: Bookmark, label: tt("turntable.bookmarks"), keys: "1–9", view: "bookmarks" },
     { id: "layers", place: "more", icon: Layers, label: tt("turntable.dock.layers"), keys: "O", onClick: p.onLayers },
@@ -87,6 +87,7 @@ export function Dock({ ref, ...p }: DockProps) {
   ];
 
   const view = (id: DockView, close: () => void) => {
+    if (id === "mixer") return <MixerPanel />;
     if (id === "needle") {
       return (
         <div role="group" aria-label={t("needle.group")} className="space-y-1">
@@ -140,14 +141,14 @@ export function Dock({ ref, ...p }: DockProps) {
               .map((a) =>
                 a.popover ? (
                   <Popover key={a.id}>
-                    <DockButton icon={a.icon} label={a.label} short={a.short} wrap={(b) => <PopoverTrigger render={b} />} />
+                    <DockButton icon={a.icon} label={a.label} short={a.short} className={a.phoneMore ? "max-md:hidden" : undefined} wrap={(b) => <PopoverTrigger render={b} />} />
                     {a.popover}
                   </Popover>
                 ) : (
-                  <DockButton key={a.id} icon={a.icon} label={a.label} short={a.short} keys={a.keys} pressed={a.pressed} onClick={a.onClick} />
+                  <DockButton key={a.id} icon={a.icon} label={a.label} short={a.short} keys={a.keys} pressed={a.pressed} className={a.phoneMore ? "max-md:hidden" : undefined} onClick={a.onClick} />
                 ),
               )}
-            <DockMore actions={actions.filter((a) => a.place === "more")} view={view} />
+            <DockMore actions={[...actions.filter((a) => a.place === "key" && a.phoneMore), ...actions.filter((a) => a.place === "more")]} view={view} />
           </>
         }
       />
