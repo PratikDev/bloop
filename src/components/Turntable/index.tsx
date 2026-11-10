@@ -242,7 +242,7 @@ export function Turntable() {
               onSettings={() => setDrawer("settings")}
               onHelp={commands.openHelp}
               onSources={() => setDrawer("sources")}
-              credits={<CreditsLink className="key ml-auto hidden h-11 rounded-lg bg-paper px-4 text-body text-moon hover:bg-paper lg:inline-flex" />}
+              credits={<CreditsLink className="key border-navy ml-auto hidden h-11 rounded-lg bg-paper px-4 text-body text-moon hover:bg-paper lg:inline-flex" />}
               bookmarks={geo?.gazetteer.bookmarks.slice(0, MAX_BOOKMARKS).map((b) => b.name) ?? []}
               onBookmark={actions.bookmark}
               caption={<CaptionBar soundOnly className="min-h-0 w-fit max-w-full text-body sm:text-lead" />}

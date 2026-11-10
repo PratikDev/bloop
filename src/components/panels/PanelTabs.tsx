@@ -32,7 +32,7 @@ export function PanelTabs({ provenanceNote }: { provenanceNote?: ReactNode }) {
     <Tabs value={state.panel} onValueChange={(panel: PanelTab) => dispatch({ type: "setPanel", panel })} className="gap-4">
       <TabsList aria-label={t("panel.label")} className="w-full bg-paper group-data-horizontal/tabs:h-11">
         {TABS.map(({ tab, label }) => (
-          <TabsTrigger key={tab} value={tab} className="h-full px-2 text-body data-active:bg-tide">
+          <TabsTrigger key={tab} value={tab} className="h-full border-2 px-2 text-body data-active:border-navy data-active:bg-tide">
             {t(label)}
           </TabsTrigger>
         ))}

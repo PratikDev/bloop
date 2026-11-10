@@ -6,7 +6,7 @@ import { Button } from "@/components/ui/button";
 import { Tooltip, TooltipContent, TooltipTrigger } from "@/components/ui/tooltip";
 import { cn } from "@/lib/utils";
 
-const DOCK_KEY = "key h-auto min-h-11 gap-2 rounded-lg bg-paper px-3 py-1 text-body font-normal whitespace-normal text-moon hover:bg-paper aria-expanded:bg-tide aria-pressed:bg-tide";
+const DOCK_KEY = "key border-navy h-auto min-h-11 gap-2 rounded-lg bg-paper px-3 py-1 text-body font-normal whitespace-normal text-moon hover:bg-paper aria-expanded:bg-tide aria-pressed:bg-tide";
 const PRIMARY_KEY = "bg-shapla hover:bg-shapla aria-pressed:bg-shapla";
 
 /** A labelled key: icon and visible text, its shortcut in a tooltip. `wrap` lets a popover trigger wrap it. */

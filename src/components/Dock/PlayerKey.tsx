@@ -18,7 +18,7 @@ export function PlayerKey({ className }: { className?: string }) {
       aria-haspopup="dialog"
       aria-label={t("player.open", { record: `${current.code} ${current.title(t)}` })}
       onClick={(e) => openPlayerSheet(e.currentTarget)}
-      className={cn("key size-11 shrink-0 rounded-lg bg-paper p-0 hover:bg-paper", className)}
+      className={cn("key border-navy size-11 shrink-0 rounded-lg bg-paper p-0 hover:bg-paper", className)}
     >
       <VinylMark className="size-7" />
     </Button>
