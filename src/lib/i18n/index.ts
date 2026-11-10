@@ -34,6 +34,9 @@ import { howEn } from "./en/how";
 import { statsEn } from "./en/stats";
 import { turntableEn } from "./en/turntable";
 import type { Lang } from "./types";
+// >>> CV
+import { cvEn } from "./en/cv";
+// <<< CV
 
 export const en = {
   ...appEn,
@@ -64,6 +67,9 @@ export const en = {
   ...timedTextEn,
   ...lowVisionEn,
   ...askBloopEn,
+  // >>> CV
+  ...cvEn,
+  // <<< CV
 };
 
 export type Messages = typeof en;

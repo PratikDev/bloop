@@ -4,7 +4,7 @@ import { Fragment, type ReactNode } from "react";
 import type { BoundT, MessageKey } from "@/lib/i18n";
 import type { Provenance, ProvenanceLink, ProvenanceStatus } from "@/lib/provenance/types";
 
-const STATUS_KEYS = {
+export const STATUS_KEYS = {
   verified: "hwgt.status.verified",
   "values with stated error": "hwgt.status.stated",
   relative: "hwgt.status.relative",

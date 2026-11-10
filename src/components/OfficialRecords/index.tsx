@@ -22,6 +22,10 @@ import { recordBrailleLabel } from "./braille-label";
 import { OfficialBrailleExplorer } from "./OfficialBrailleExplorer";
 import { RelatedRecords } from "./RelatedRecords";
 import { useOfficialRecord } from "./use-official-record";
+// >>> CV
+import { FLAGS } from "@/lib/flags";
+import { OfficialRead } from "../JukeboxRead/OfficialRead";
+// <<< CV
 
 
 function readingText(t: BoundT, lang: Lang, r: OfficialReading | null, layer: OfficialLayer | undefined): string {
@@ -99,6 +103,9 @@ function Player({ record }: { record: string }) {
           {t("braille.open")}
         </Button>
         {brailleOpen && <OfficialBrailleExplorer rec={rec} onClose={closeBraille} />}
+        {/* >>> CV */}
+        {FLAGS.cvRead && <OfficialRead rec={rec} />}
+        {/* <<< CV */}
       </div>
       <ProvenanceCard manifest={rec.manifest} validation={rec.validation} />
     </div>

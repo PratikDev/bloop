@@ -499,7 +499,7 @@ The Mapping panel builds each rule sentence from its parts (`src/lib/i18n/bn/rul
 | `clarity` | parameter: reverbSec; unit: hours since a 1 km infrared look | How recently measured 0 to 48 hours since a 1 km infrared look → echo length 0.1 to 2.4 s (linear). |
 | `unison` | a rule shared with another voice (sameAs) | Proof in unison: two tones in one ear, both by the Ocean temperature rule (Ocean temperature −5 to 35 °C → pitch 220 to 880 Hz (exponential: equal steps in value sound like equal musical steps).) Beats per second = the difference between the two pitches in Hz. |
 
-## Draft Bangla, needs review (603)
+## Draft Bangla, needs review (643)
 
 Drafted for the mentor fixes (`docs/MENTOR_FIXES.md`); **draft, needs review** by a Bangla speaker. Listed in `src/lib/i18n/bn/drafts.ts`: remove an entry there once it is checked.
 
@@ -1106,6 +1106,46 @@ Drafted for the mentor fixes (`docs/MENTOR_FIXES.md`); **draft, needs review** b
 | `ask.answer.noCheck` | No independent check is available for this record. | এই রেকর্ডের কোনো স্বাধীন যাচাই নেই। |
 | `ask.highest` | Highest | সবচেয়ে বেশি |
 | `ask.lowest` | Lowest | সবচেয়ে কম |
+| `cv.read.title` | What the jukebox read from this frame | এই ফ্রেম থেকে জুকবক্স যা পড়ল |
+| `cv.read.box` | Box | এলাকা |
+| `cv.box.needle` | Around the needle | সুইয়ের চারপাশে |
+| `cv.box.name` | `NAMED_BOXES.find((b) => b.id === p.id)?.name ?? p.id` | `BOX_BN[p.id] ?? p.id` |
+| `cv.axis` | `budget.axes.find((a) => a.id === p.id)?.label ?? p.id` | `AXIS_BN[p.id] ?? p.id` |
+| `cv.read.record` | Record | রেকর্ড |
+| `cv.read.frame` | Frame | ফ্রেম |
+| `cv.read.median` | Median | মধ্যমা |
+| `cv.read.spread` | 10th to 90th percentile | ১০ থেকে ৯০ শতাংশিক |
+| `cv.read.nodata` | No data | তথ্য নেই |
+| `cv.read.cells` | Cells read | পড়া ঘর |
+| `cv.read.status` | Validation | যাচাই |
+| `cv.read.budget` | Error budget | ত্রুটির হিসাব |
+| `cv.read.value` | `p.unit ? `${p.value} ${p.unit}` : p.value` | `p.unit ? `${p.value} ${p.unit}` : p.value` |
+| `cv.read.range` | `p.unit ? `${p.lo} to ${p.hi} ${p.unit}` : `${p.lo} to ${p.hi}`` | `p.unit ? `${p.lo} \u09A5\u09C7\u0995\u09C7 ${p.hi} ${p.unit}` : `${p.lo} \u09A5\u09C7\u0995\u09C7 ${p.hi}`` |
+| `cv.read.percent` | ``${p.value} %`` | ``${p.value} %`` |
+| `cv.read.pattern` | Pattern only: no values read. | শুধু নকশা: কোনো মান পড়া হয়নি। |
+| `cv.read.relative` | Relative values: no units. | আপেক্ষিক মান: কোনো একক নেই। |
+| `cv.read.empty` | No values in this box (land or no data). | এই এলাকায় কোনো মান নেই (স্থল বা তথ্য নেই)। |
+| `cv.read.loading` | Reading the frame | ফ্রেম পড়া হচ্ছে |
+| `cv.read.none` | Nothing to read on this page yet. | এই পাতায় এখনো পড়ার কিছু নেই। |
+| `cv.read.short` | Braille line | ব্রেইল লাইন |
+| `cv.budget.known` | ``Our measured error is about ${p.error}: about ${p.cents} cents of pitch.`` | ``\u0986\u09AE\u09BE\u09A6\u09C7\u09B0 \u09AE\u09BE\u09AA\u09BE \u09A4\u09CD\u09B0\u09C1\u099F\u09BF \u09AA\u09CD\u09B0\u09BE\u09AF\u09BC ${p.error}: \u09B8\u09C1\u09B0\u09C7 \u09AA\u09CD\u09B0\u09BE\u09AF\u09BC ${p.cents} \u09B8\u09C7\u09A8\u09CD\u099F\u0964`` |
+| `cv.budget.flag` | ``Pitch differences under about ${p.semitones} semitones here are within our error; don't read them as real.`` | ``\u098F\u0996\u09BE\u09A8\u09C7 \u09AA\u09CD\u09B0\u09BE\u09AF\u09BC ${p.semitones} \u09B8\u09C7\u09AE\u09BF\u099F\u09CB\u09A8\u09C7\u09B0 \u0995\u09AE \u09B8\u09C1\u09B0\u09C7\u09B0 \u09AA\u09BE\u09B0\u09CD\u09A5\u0995\u09CD\u09AF \u0986\u09AE\u09BE\u09A6\u09C7\u09B0 \u09A4\u09CD\u09B0\u09C1\u099F\u09BF\u09B0 \u09AE\u09A7\u09CD\u09AF\u09C7; \u098F\u0997\u09C1\u09B2\u09CB\u0995\u09C7 \u09B8\u09A4\u09CD\u09AF\u09BF \u09AA\u09BE\u09B0\u09CD\u09A5\u0995\u09CD\u09AF \u09A7\u09B0\u09AC\u09C7\u09A8 \u09A8\u09BE\u0964`` |
+| `cv.budget.unknown` | Error not known: no validation source for this axis. | ত্রুটি জানা নেই: এই অক্ষের কোনো যাচাইয়ের উৎস নেই। |
+| `cv.budget.noPitch` | No pitch axis: this record plays drops, not pitch. | সুরের অক্ষ নেই: এই রেকর্ড সুর নয়, ফোঁটা বাজায়। |
+| `cv.budget.zoomWaiting` | Computed from today's span once the frame loads. | ফ্রেম এলে আজকের পরিসর থেকে হিসাব হবে। |
+| `cv.budget.all` | Error budget for every pitch axis | প্রতিটি সুরের অক্ষের ত্রুটির হিসাব |
+| `cv.budget.col.axis` | Pitch axis | সুরের অক্ষ |
+| `cv.budget.col.error` | Measured error | মাপা ত্রুটি |
+| `cv.budget.col.cents` | Cents | সেন্ট |
+| `cv.budget.col.note` | What it means | এর মানে |
+| `cv.budget.ok` | Pitch steps above the error carry meaning. | ত্রুটির চেয়ে বড় সুরের ধাপের মানে আছে। |
+| `cv.hwgt.subject` | What the jukebox read | জুকবক্স যা পড়ল |
+| `cv.hwgt.place` | ``${p.box} (${p.bounds})`` | ``${p.box} (${p.bounds})`` |
+| `cv.hwgt.method` | Every grid cell whose centre lies in the box, read from the decoded frame with the app's own decoder: the median and the 10th and 90th percentiles of the cells with a value; cells with no value are counted apart. The pipeline test recomputes the same numbers with numpy. | এলাকার ভেতরে যেসব ঘরের কেন্দ্র পড়ে, অ্যাপের নিজের ডিকোডার দিয়ে ডিকোড করা ফ্রেম থেকে সেগুলো পড়া: মান আছে এমন ঘরগুলোর মধ্যমা এবং ১০ ও ৯০ শতাংশিক; মান নেই এমন ঘর আলাদা গোনা হয়। পাইপলাইনের পরীক্ষা numpy দিয়ে একই সংখ্যা আবার হিসাব করে। |
+| `cv.hwgt.n` | ``${p.valid} of ${p.n} cells have a value`` | ``${p.n}\u099F\u09BF \u0998\u09B0\u09C7\u09B0 \u09AE\u09A7\u09CD\u09AF\u09C7 ${p.valid}\u099F\u09BF\u09A4\u09C7 \u09AE\u09BE\u09A8 \u0986\u099B\u09C7`` |
+| `cv.hwgt.budgetMethod` | Semitones per unit of each value-to-pitch rule (12 x log2 of its highest over its lowest pitch, divided by its input range; per decade on a log axis), times the record's measured error, times 100. Over 100 cents, a pitch step smaller than the error carries no meaning. Sound terrain's zoomed axis uses today's span. | প্রতিটি মান-থেকে-সুর নিয়মের প্রতি এককে সেমিটোন (সর্বোচ্চ ও সর্বনিম্ন সুরের অনুপাতের log2 গুণ ১২, ইনপুট পরিসর দিয়ে ভাগ; লগ অক্ষে প্রতি দশকে), গুণ রেকর্ডের মাপা ত্রুটি, গুণ ১০০। ১০০ সেন্টের বেশি হলে ত্রুটির চেয়ে ছোট সুরের ধাপের কোনো মানে নেই। সাউন্ড টেরেইনের জুম করা অক্ষ আজকের পরিসর ব্যবহার করে। |
+| `cv.hwgt.budgetUnc` | Each error is the record's own measured error, read from the validation table or the data file. A record with no validation source shows its error as not known, never 0. | প্রতিটি ত্রুটি রেকর্ডের নিজের মাপা ত্রুটি, যাচাই সারণি বা তথ্য ফাইল থেকে পড়া। যে রেকর্ডের যাচাইয়ের উৎস নেই, তার ত্রুটি জানা নেই বলে দেখায়, কখনো ০ নয়। |
+| `cv.hwgt.unc` | ``${p.budget} Inversion confidence per cell is not shipped, so it is not shown.`` | ``${p.budget} \u09AA\u09CD\u09B0\u09A4\u09BF\u099F\u09BF \u0998\u09B0\u09C7\u09B0 \u0987\u09A8\u09AD\u09BE\u09B0\u09CD\u09B6\u09A8-\u0986\u09B8\u09CD\u09A5\u09BE \u09AA\u09BE\u09A0\u09BE\u09A8\u09CB \u09B9\u09AF\u09BC \u09A8\u09BE, \u09A4\u09BE\u0987 \u09A6\u09C7\u0996\u09BE\u09A8\u09CB \u09B9\u09AF\u09BC \u09A8\u09BE\u0964`` |
 | data template | GPCC stops at # because the gauge version we use (GPCC Full Data Monthly V#) ends in December #, so both rain records compare #–# with #–#. | GPCC {0} সালে থামে, কারণ আমাদের ব্যবহৃত বৃষ্টিমাপক সংস্করণ (GPCC Full Data Monthly V{1}) ডিসেম্বর {2}-এ শেষ; তাই দুটি বৃষ্টির রেকর্ডই {3}–{4}-কে {5}–{6}-এর সাথে তুলনা করে। |
 | data template | GPCP only, newer decade; GPCC data ends in # | শুধু GPCP, নতুন দশক; GPCC ডেটা {0} সালে শেষ |
 

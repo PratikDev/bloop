@@ -52,4 +52,11 @@ export const FLAGS = {
   describe: flag(process.env.NEXT_PUBLIC_A11Y_DESCRIBE, true),
   // Ready on 8 Nov 2026: e2e/a11y/map-keys.e2e.ts 26/26 and the whole suite 406/406 with it on (Chromium + Firefox).
   mapKeys: flag(process.env.NEXT_PUBLIC_A11Y_MAP_KEYS, true),
+  // >>> CV
+  // CV/ML build (docs/cvml/BUILD.md). `ready` stays false: the orchestrator turns these on in production after the
+  // integrated full pass. Tests that pass with each on are listed beside it.
+  /** A: "What the jukebox read from this frame" panel + cents error budget (Listen, Official records). */
+  // Passing: src/lib/cv/*.test.ts, pipeline/tests/test_box_stats.py + test_error_budget.py, e2e/cv/read-panel.e2e.ts.
+  cvRead: flag(process.env.NEXT_PUBLIC_CV_READ, false),
+  // <<< CV
 } as const;
