@@ -11,3 +11,4 @@
 - B1–B5 audit (MEDIA and text tokens, Phosphor, forced colours, Bangla drafts, 200–400% zoom with the Turntable stage growing to fit a 200 px globe); item 28 Home globe at baseline everywhere; item 16 stage follows its container (194 px at 1440, 200 needs A's 15rem column); stripes as tints with a 10 px band; compact corner Pause key; time-lapse globe mounted again | 86ba211 | 2026-11-10 20:38 | next: item 16 recheck after Session A's column, then B done
 - Bangla for the Turntable credits, needle-drop caption, Ghost Earths honesty line and tunnel credit (review first) | e1e44be | 2026-11-10 20:48 | next: none
 - **B done**: every Session B item merged (item 16 accepted at 194 px at 1440×900, per Pratik) | final commit e1e44be | 2026-11-10 20:48 | next: Session A's phase 8
+- the measured error and stop announcement in the app's Bangla (review first); credits checked against what's loaded: nothing to remove | f7f0f0c | 2026-11-10 20:57 | next: Turntable pointer bug
