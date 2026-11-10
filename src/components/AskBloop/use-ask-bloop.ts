@@ -21,6 +21,9 @@ import { useTimeLapse } from "../TimeLapse/use-time-lapse";
 import { runAction } from "./actions";
 import { plain, type Answer, type AskContext } from "./context";
 import { runQuestion } from "./questions";
+// >>> DATA
+import { runDataQuestion } from "./data-questions";
+// <<< DATA
 import { useStoredChoice } from "./use-stored-choice";
 
 /** How long a value's tone sounds before the needle's own sound comes back (design choice). */
@@ -105,6 +108,13 @@ export function useAskBloop() {
         case "about_record":
         case "how_reliable":
           return runQuestion(ctx, intent);
+        // >>> DATA: the four DATA questions (data-questions.ts)
+        case "fire_weather_here":
+        case "fires_here":
+        case "landslide_here":
+        case "night_lights_here":
+          return runDataQuestion(ctx, intent);
+        // <<< DATA
         default:
           return runAction(ctx, intent);
       }

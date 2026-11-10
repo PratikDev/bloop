@@ -5,6 +5,9 @@ import { SPEECH_MODES, VERBOSITIES } from "@/components/AppState/access";
 import { LANGS } from "@/lib/i18n/types";
 import { ASK_PAGES, ASK_RECORDS, EXTREMES, FRAME_STEPS, type Intent, type IntentName } from "./intents";
 import { INTENT_NAMES } from "./registry";
+// >>> DATA
+import { DATA_SLOTS } from "./data-intents";
+// <<< DATA
 
 type Raw = Record<string, unknown>;
 
@@ -39,6 +42,9 @@ export const SLOTS: Record<IntentName, readonly string[]> = {
   what_am_i_hearing: [],
   about_record: ["record"],
   how_reliable: [],
+  // >>> DATA
+  ...DATA_SLOTS,
+  // <<< DATA
 };
 
 function setting(s: Raw): Intent | null {

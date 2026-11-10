@@ -4,6 +4,9 @@
 import type { SpeechMode, Verbosity } from "@/components/AppState/access";
 import type { TrackMode } from "@/lib/audio/types";
 import type { Lang } from "@/lib/i18n/types";
+// >>> DATA
+import type { DataIntent } from "./data-intents";
+// <<< DATA
 
 /** Pages Ask Bloop can open: the header's pages and the tour (each is an existing mode). */
 export const ASK_PAGES = ["listen", "tour", "thenNow", "how", "official", "turntable", "team", "home"] as const;
@@ -44,7 +47,10 @@ export type Intent =
   | { name: "compare_dates"; place: string | null; dateA: string; dateB: string }
   | { name: "what_am_i_hearing" }
   | { name: "about_record"; record: TrackMode | null }
-  | { name: "how_reliable" };
+  | { name: "how_reliable" }
+  // >>> DATA
+  | DataIntent;
+  // <<< DATA
 
 export type IntentName = Intent["name"];
 export type IntentOf<N extends IntentName> = Extract<Intent, { name: N }>;

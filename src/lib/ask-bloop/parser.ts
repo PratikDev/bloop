@@ -4,6 +4,9 @@
 import type { TrackMode } from "@/lib/audio/types";
 import type { AskPage, Extreme, Intent, SettingChange } from "./intents";
 import { monthsIn, normaliseUtterance, withoutMonths } from "./normalise";
+// >>> DATA
+import { dataIntentFor } from "./data-intents";
+// <<< DATA
 
 export interface Parsed {
   intent: Intent;
@@ -76,6 +79,12 @@ const RULES: readonly Rule[] = [
     const s = SETTINGS.find(([re]) => re.test(t));
     return s ? sure({ name: "set_setting", ...s[1] }) : null;
   },
+  // >>> DATA: fire weather, fires, landslides, night lights here (src/lib/ask-bloop/data-intents.ts).
+  (t) => {
+    const name = dataIntentFor(t);
+    return name ? sure({ name }) : null;
+  },
+  // <<< DATA
   // Pages.
   (t) => {
     const m = /^(?:open|show(?: me)?|go to|take me to|switch to)\s+(.+)$|^(.+?)\s+(?:খোলো|দেখাও|যাও)$/u.exec(t);

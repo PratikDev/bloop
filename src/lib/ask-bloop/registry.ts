@@ -4,6 +4,9 @@
 // calls); the answer templates are the i18n keys "ask.answer.<intent>" (en/ask-bloop.ts, bn/ask-bloop.ts).
 // Bangla examples are drafts until a Bangla speaker checks them (needsReview).
 import type { IntentKind, IntentName } from "./intents";
+// >>> DATA
+import { DATA_REGISTRY } from "./data-intents";
+// <<< DATA
 
 export interface IntentSpec {
   kind: IntentKind;
@@ -71,6 +74,9 @@ export const REGISTRY = {
     kind: "question",
     examples: { en: ["how reliable is this", "how accurate is it", "can I trust this value"], bn: ["এটা কতটা নির্ভরযোগ্য", "এটা কতটা সঠিক", "এই মান কি বিশ্বাসযোগ্য"] },
   },
+  // >>> DATA
+  ...DATA_REGISTRY,
+  // <<< DATA
 } as const satisfies Record<IntentName, IntentSpec>;
 
 export const INTENT_NAMES = Object.keys(REGISTRY) as IntentName[];
