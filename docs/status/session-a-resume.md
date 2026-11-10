@@ -30,12 +30,13 @@ Written 2026-11-10 before a context compaction. Read this in full before doing a
 | 13 | Re-check the strip above the header and the blue dot on :3101 | done in an earlier build (not reproduced: no element above the header, no blue pixels at the bottom left); re-check once more after the merge |
 | 14 | Home at 1536×730 and 1920×1080: no page scroll | not started (`scratchpad/final.mjs` measures scroll; add 1536×730) |
 | 15 | Merge item 10, post the window size and position in `docs/status/session-a.md`, message Session B | not started |
+| A1–A11, A-bn | **Audit items, from Pratik, after item 15 and before item 16.** Re-check each on the rebuilt code at :3101 first; fix only what's still broken; report which ones the rebuild already fixed. Full text under "Audit items" in Pratik's decisions below. A1 zoom and short screens (blocker) · A2 focus after Start goes to the map region · A3 Next route announcer · A4 Help opens on its title · A5 forced colours + `prefers-contrast: more` · A6 Home caption vs Pause motion · A7 player labels at 390 px + `layout.e2e.ts` includes `aria-hidden` text · A8 visible sound-button label · A9 player caption ≥ 200 px at 1280–1440 · A10 Official records roving focus · A11 smaller items · A-bn Bangla drafts for A's files | not started |
 | 16 | Motion item 4: bubbles in Listen's tubes (component `Cabinet/TubeBubbles.tsx` exists) | not started |
 | 17 | Motion items 1, 2, 5, 8, 12 (tonearm, split-flap, live equaliser, panels landing, scrubber spring) | not started |
 | 18 | Motion item 15 (spinning-record loader); item 14 mostly exists in `key` | not started |
 | 19 | Remove banned animations: `animate-pulse` dot in `Opening.tsx`, `signal-pulse` in `SignalMark` and `StoryPanel`, `breathe` keyframes, `RISE`/`STAGGER` in `StartGate` | not started |
 | 20 | Pointer upgrade: Listen cursor like the Turntable pointer (optional) | not started |
-| 21 | Phase 8 (starts after items 10 to 20 are merged and B has written "B done") | not started |
+| 21 | Phase 8 (starts after items 10 to 20 and A1–A11, A-bn are merged and B has written "B done"). Adds the audit's checks: 200% and 400% zoom on every page, 320×568, forced colours, text spacing, one announcement per page change, Help focus | not started |
 
 ### Exact next action for item 10
 
@@ -101,16 +102,81 @@ From the decision messages in this session:
 
 > Pratik's screenshot of Home at 1920 wide shows a vertical page scrollbar on desktop at normal zoom. [...] There must be no page scroll at 1280×720 and larger. [...] Never hide the problem with `overflow: hidden` on `html` or `body`. [...] "Pause motion" and the frame caption: move both directly under the Home globe window: the caption centred under it, the Pause motion key beside the caption.
 
-**Decisions I have not received in this session** (the resume request lists them, but no message with their wording reached Session A; ask Pratik or read Session B's resume file before acting on them):
-- "no stripes or year counter on Fires, Vegetation or Water";
-- "the Then vs Now stage growing while playing";
-- "the onViewChange calls" (beyond the DataTube wiring quoted above);
-- "testing only before merges, with everything in phase 8".
+**The four decisions earlier marked "not received"**, word for word from Pratik:
+
+> 1. **No stripes or year counter on Fires, Vegetation or Water.** Those charts have no year axis, and we don't invent one. Their motion stage shows the globe on the city only (no pulse, since they have no sound). (Session B has already done this; on your Then vs Now page, don't add any.)
+
+> 2. **Then vs Now side column:** while a part is playing, the listen controls fold down to just the Play/Stop key, and the motion stage gets the freed height.
+>    - **Playing:** only Play/Stop stays in the controls block. "More ways to listen" and the other controls hide (`hidden` or `inert`, not just transparent). The stage grows to fill the column: target a globe of at least 200 px across at 1440×900, and 160 px at 1280×720 and 1536×730. Never let the page scroll, and never change the chart panels' size.
+>    - **Stopped:** the controls come back and the stage returns to its current size.
+>    - **Transition:** 280 ms, `--ease-mechanical`, height via a transform-friendly approach (e.g. animate a wrapper's `grid-template-rows` or a scale on the stage). Instant under reduced motion.
+>    - **Focus:** stays on Play/Stop throughout. If focus was on a control that hides, move it to Play/Stop first.
+>    - **Screen readers:** no new announcements; the hidden controls are out of the tab order while hidden.
+>    - **Check:** the globe sizes above, no page scroll at the six sizes, charts unchanged, keyboard play/stop works. Include it in your layout merge.
+
+> 3. **onViewChange:** the Globe calls it once when it first draws, once when a drag ends, and once when the frame data finishes loading, in every state including paused and reduced motion; and continuously (at most about 10 a second) only while it's turning normally. Your `DataTube` needs nothing more than the wiring you already have; just confirm it still updates in those cases.
+
+> 4. **Testing policy:** while working, no tests required. Before every merge into `final-pass`, run `bunx next typegen && bunx tsc --noEmit && bun run lint && bun test && bun run build`. e2e, axe, screenshots, the overlap test and performance checks wait for phase 8, which runs everything. Exception: anything an item below says to check before its merge.
+
+**Audit items**, word for word from Pratik:
+
+> An independent audit tested the local `final-pass` before your layout rebuild. Insert these items **after your layout merge (item 15) and before the remaining motion items**. Re-check each one on your rebuilt code at :3101 first; fix only what's still broken, and say which ones the rebuild already fixed.
+>
+> **A1. Blocker: zoom and short screens.**
+> - At 200% zoom Listen's content got about 25 px; at 400% zoom four pages got zero height; on a 320×568 phone Listen got 29%.
+> - Rule: when the viewport is shorter than 40rem (640 CSS px), or narrower than 320 px, or Comfortable text is on, use normal page flow. The page scrolls, and the header and player are not pinned (`position: static`). The player collapses to one row.
+> - **Check:** at 1280×720 with 200% zoom, the main content gets at least 50% of the viewport height when scrolled to; at 400% zoom every page scrolls and nothing is clipped; at 320×568 Listen's map is reachable and at full width.
+>
+> **A2. Focus after Start.**
+> - After Start and the intro, focus lands on the hidden page heading, and arrow keys do nothing until Tab.
+> - Fix: after the journey from Start or Continue listening, focus goes to the **map region** (it has the "sound map" name), so arrow keys work at once.
+> - Other page changes keep focus on the page heading.
+>
+> **A3. Route announcer.**
+> - Next.js's built-in route announcer reads the **previous** page's title on every page change, clashing with focus moving to the new heading. It's also a second live region (§0.6 rule 1).
+> - Fix: make sure `document.title` is set before Next's announcer reads it, or stop it from announcing (it can't be removed, but its text can be kept empty or correct).
+> - **Check:** one page change produces exactly one announcement, naming the new page.
+>
+> **A4. Help focus.** `HelpDialog` opens focused on the "Built-in voice" toggle, scrolled past the key tables. Open it focused on its title, at the top.
+>
+> **A5. High contrast** (`@media (forced-colors: active)`):
+> - The chosen pill and the selected tab need a visible marker (border or underline in `Highlight`).
+> - Chart lines and dots use `CanvasText` or `Highlight` strokes so they stay visible.
+> - Also add `@media (prefers-contrast: more)`: outlines from 2.5 to 3.5 px, and `navy-soft` text becomes navy.
+>
+> **A6. Home overlap.** The frame caption overlaps "Pause motion" at 1280×720 and 1024×768 (`layout.e2e.ts` fails). Make sure your new Home layout passes it at all six sizes.
+>
+> **A7. Player labels at 390 px.**
+> - "Braille / Records / Mixer" run into each other.
+> - Fix the labels: shorter, wrap, or icon plus label stacked; at least 44 px targets.
+> - Also fix the test: `layout.e2e.ts` must include visible text even if it's `aria-hidden`. It should exclude only `data-overlay` containers.
+>
+> **A8. Sound button text.** The main sound button is icon-only. Give it a visible label ("Turn sound on" / "Pause sound", the existing keys).
+>
+> **A9. Player caption squeeze.** Check that your one-row player shows the live caption at at least 200 px wide at 1280–1440 px. Truncation is fine if the full caption is reachable.
+>
+> **A10. Official records Tab trail.**
+> - The 19 record strips plus 8 related records are each a Tab stop before the map.
+> - Make each group one Tab stop with arrow keys inside (roving tabindex; Home/End to the ends; `aria-pressed` kept), so the list also counts as one control.
+>
+> **A11. Smaller items, in your files:**
+> - **Slider knobs:** at least 24 px with a visible focus ring on the knob itself (`ui/slider.tsx`).
+> - **Touch targets:** every button at least 44 px tall on all sizes, including the Then vs Now controls and related records.
+> - **Clipping:** the Listen frame-time line doesn't clip at 1440. Record titles in the player and the Then vs Now "Listen" label don't clip with larger text spacing (`min-height`, wrapping).
+> - **Focus rings:** replace `transition-all` on buttons so the focus ring appears instantly (transition only `transform` and `box-shadow`).
+> - **Tour from the player:** starting the tour from the player puts focus on the tour panel's heading.
+> - **Sheet backdrop:** sheets keep their backdrop (scrim) everywhere, including over the Turntable.
+>
+> **Bangla strings.** About 410 strings are English-only in Bangla mode. Draft Bangla for every string in your files (everything except `src/components/Turntable/scene`, `Player` and the Scenes, which are Session B's). Order: controls, announcements and errors first, then headings, then the rest. List them for Pratik's review in priority order.
+>
+> **Phase 8 adds** the audit's checks: 200% and 400% zoom on every page, 320×568, forced colours, text spacing, the one-announcement-per-page-change check, and Help focus.
+
+Audit evidence from the audit session, copied into `docs/status/audit/`: notes `AUDIT-STATE.md`; scripts `audit.mjs`, `audit2.mjs`, `ring.mjs`, `announcer.mjs` (Playwright; `audit2.mjs` and `ring.mjs` take `BLOOP_URL`; `announcer.mjs` has its two ports hard-coded) and `static_server.py`. Screenshots were not copied. Code pointers from the audit, on `final-pass` @ `b80f001`: frame `AppShell/index.tsx:56` (`h-dvh` grid); journey focus `JukeboxJourney/index.tsx:92`; Home overlap `pages/Home/index.tsx:73`; Help `HelpDialog.tsx:101`; sound button `Dock/SoundButton.tsx:21`; dock labels `Dock/dock-button.ts:5`; test skip `e2e/layout.e2e.ts:56`; slider thumb `ui/slider.tsx:45`; charts `charts/YearlyChart.tsx`; pills `ChoiceGroup.tsx:72`. The rebuild may have moved these.
 
 ## Rules I'm following
 
 - **Never push, never touch `main`, never deploy.** Merge only by `git merge --ff-only session-a` from `C:\Users\User\bloop` (on `final-pass`). Rebase `session-a` on `final-pass` first. If the generated `docs/i18n/TO_TRANSLATE.md` conflicts, regenerate it with `bun run i18n:todo`.
-- **Pre-merge check:** `bunx next typegen && bunx tsc --noEmit && bun run lint && bun test && bun run build`, then Chromium e2e on 3101 for the affected files (the full suite in phase 8), sizes against `docs/status/map-sizes.md`, no page scroll at 1280×720 and 1440×900, and the counts at 1280×720 and 390×844.
+- **Pre-merge check** (decision 4 above supersedes the e2e part: only the five commands before each merge, plus whatever an item says to check before its merge; e2e, axe, screenshots, overlap and performance wait for phase 8): `bunx next typegen && bunx tsc --noEmit && bun run lint && bun test && bun run build`, then Chromium e2e on 3101 for the affected files (the full suite in phase 8), sizes against `docs/status/map-sizes.md`, no page scroll at 1280×720 and 1440×900, and the counts at 1280×720 and 390×844.
 - **Commits:** AGENTS.md: atomic, list every path, `git status` first; never `git add -A`, `git add .`, `git commit -a`, `git stash`, `git restore`, or `git reset` on others' work. No co-author lines.
 - **Strings:** every string in `src/lib/i18n/en/` and `bn/`; `bun run i18n:todo`; list new Bangla strings in each report.
 - **Motion rules:** every animation answers an action, the sound or the data; the only ambient motion is star twinkle (≤15%) and the Home globe; transform, opacity and clip-path only (box-shadow only for key press and panel landing); interruptible; ≤600 ms except loops; reduced motion turns off spins, bubbles, landing, breathing, drift and twinkle; animated elements `aria-hidden`; nothing flashes more than 3 times per second; a Pause motion key on any self-running stage.
