@@ -84,7 +84,10 @@ Re-measured on the integrated build (every CV, ART and DATA flag on; Chromium, 3
 | Turntable | −17.7 | −17.5 | +0.5 | −11.3 |
 
 - Every mode but rain is within ±3 LU of −18; rain is 5 LU under it, held there by its peak cap (its loudest drops now
-  sit at −7 dBTP, the cap).
+  sit at −7 dBTP, the cap). **Rain at −23 LUFS is accepted for now (decision, 11 Nov 2026):** sparse drops read low
+  on an integrated meter because of the silence between them, and raising them further would push their peaks into
+  the master compressor. Revisit with listeners (does rain sound as present as the ocean at the same volume?) before
+  changing the cap.
 - Ocean and Then vs Now came out about 1.6 LU louder than the trims alone predict: on the integrated build the dial's
   default (Blend) plays them in their Earth Orchestra families, whose harmonics add loudness. Pitch is unchanged
   (the pitch-identity and Check 5 runs in `docs/BUILD_2026-11-10.md`).
