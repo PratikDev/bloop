@@ -3,13 +3,14 @@
 
 import type { OptionId, TaskId } from "./tasks";
 import type { ExtraRecord } from "./extras/types"; // ART
+import { CV_TASK_IDS } from "./chord";
 
 export const RESULTS_KIND = "bloop-listen-test";
 export const RESULTS_VERSION = 1;
-// >>> ART: which set of tasks a session ran (1: the five core tasks; 2: + emotion ratings and ear-vs-eye), so earlier
-// sessions stay separable. The orchestrator bumps it when other builds' tasks join.
-export const TEST_VERSION = 2;
-// <<< ART
+// Which set of tasks a session ran, so earlier sessions stay separable: 1 = the five core tasks only (every session
+// before 10 Nov 2026); 2 = + the emotion ratings and ear-vs-eye (ART's build, never deployed); 3 = the integrated test
+// (10 Nov 2026): any of CV's two chord tasks or ART's extras ran.
+export const TEST_VERSION = 3;
 
 export interface TaskResult {
   task: TaskId;
@@ -36,7 +37,7 @@ export interface ResultsFile {
 export const resultsFile = (lang: "en" | "bn", results: TaskResult[], comment: string, extras: Record<string, ExtraRecord[]> = {}): ResultsFile => ({
   kind: RESULTS_KIND,
   version: RESULTS_VERSION,
-  testVersion: Object.keys(extras).length ? TEST_VERSION : 1,
+  testVersion: Object.keys(extras).length || results.some((r) => (CV_TASK_IDS as readonly string[]).includes(r.task)) ? TEST_VERSION : 1,
   formative: true,
   lang,
   results,

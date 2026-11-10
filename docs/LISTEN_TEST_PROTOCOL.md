@@ -39,12 +39,12 @@ If the answer is no, choose **No**. The test ends politely and nothing is kept. 
    - **chord, groups** (CV/ML build): one ocean view played as the value chord for 4 seconds; one group or two? The box
      is today's one-group or two-group box, drawn once per session; the answer is the chord's own group count.
 
-   With these two the session is seven tasks and still takes under 8 minutes (each adds about 30 seconds). Don't
+   With these two the session has seven right/wrong tasks. Don't
    explain "variety" beyond "how different the temperatures in the view are from each other"; "group" is "a cluster of
    similar temperatures".
 <!-- <<< CV -->
 <!-- >>> ART -->
-3a. **After the tasks (builds with `NEXT_PUBLIC_ART_LISTEN_TEST=1`; results carry `testVersion: 2`):**
+3a. **After the tasks (builds with `NEXT_PUBLIC_ART_LISTEN_TEST=1`):**
    - **How did that feel? (twice):** one clip of the checked ocean points is *heard* (sound only) and one is *seen* (bars,
      no sound); the order is counterbalanced per session. After each, two 5-point ratings: *how it felt* (1 unpleasant
      to 5 pleasant) and *"How connected do you feel to this place right now?"* (1 not at all to 5 very). Stored as
@@ -81,6 +81,12 @@ The file holds, for each task: the task, the answer, the correct answer (compute
 Files with `testVersion` 2 or more also get the emotion means per condition and the ear-vs-eye correct answers per sense;
 earlier sessions (no `testVersion`, read as 1) are counted for the five tasks only, so the two sets stay separable.
 <!-- <<< ART -->
+
+**Versions and length (integrated test, 10 Nov 2026).** `testVersion` is 1 for a session that ran only the five core
+tasks (every session before 10 Nov 2026), 2 for ART's build alone (never deployed), and 3 for the integrated test: any
+of the two chord tasks or the extras ran. With everything on, the estimate (`planSeconds` in
+`src/lib/listen-test/extras/types.ts`: 45 s per right/wrong task, the extras' own estimates, consent, intro and comment)
+is 585 s, under the 10-minute limit; a unit test keeps it there.
 
 ```
 bun run listen-test:summary listen-test-results

@@ -12,6 +12,7 @@ import { earEyeItems, peakThird } from "./ear-eye";
 import { emotionClip, emotionOrder } from "./emotion";
 import { extrasReport } from "./summary";
 import { counterbalance, LIMIT_SECONDS, planSeconds } from "./types";
+import { TASK_IDS } from "../tasks";
 
 describe("emotion ratings", () => {
   test("both orders occur; the clip is the checked points' own frame values, west to east", () => {
@@ -45,12 +46,16 @@ describe("ear vs eye", () => {
 });
 
 describe("the test as a whole", () => {
-  test("ten minutes at most, with room for CV's two chord tasks (about 60 s each)", () => {
-    expect(planSeconds(EXTRA_MODULES.map((m) => m.info))).toBeLessThanOrEqual(LIMIT_SECONDS - 2 * 50);
+  test("ten minutes at most with every task: the five core, CV's two chord tasks, and the extras", () => {
+    expect(TASK_IDS).toContain("chordVariety");
+    expect(planSeconds(TASK_IDS.length, EXTRA_MODULES.map((m) => m.info))).toBeLessThanOrEqual(LIMIT_SECONDS);
   });
-  test("testVersion separates sessions: 1 without the extras, 2 with them", () => {
+  test("testVersion separates sessions: 1 for the five core tasks only, TEST_VERSION when any new task ran", () => {
+    expect(TEST_VERSION).toBe(3);
     expect(resultsFile("en", [], "").testVersion).toBe(1);
     expect(resultsFile("en", [], "", { emotion: [{ condition: "sound", position: 1, valence: 3, connection: 4 }] }).testVersion).toBe(TEST_VERSION);
+    const chord = { task: "chordGroups" as const, answer: "one" as const, correct_answer: "one" as const, correct: true, ms: 1 };
+    expect(resultsFile("en", [chord], "").testVersion).toBe(TEST_VERSION);
   });
   test("the summary reads the extras (means per condition, correct per sense)", () => {
     const f = JSON.parse(readFileSync(join(process.cwd(), "src/lib/listen-test/extras/fixtures/P04.json"), "utf8"));

@@ -6,6 +6,7 @@ import { expect, test, type Page } from "@playwright/test";
 import { readFileSync } from "node:fs";
 import * as path from "node:path";
 import { lifetimeSong, type LifetimeFile } from "../../src/lib/art/lifetime/song";
+import { TEST_VERSION } from "../../src/lib/listen-test/results";
 import { AUDIBLE, heard, navTo, start } from "../lib/app";
 import { axeSerious } from "../lib/axe";
 import { settle } from "../mentor/lib";
@@ -80,12 +81,15 @@ test("the tour names the dataset on every step", async ({ page }) => {
   await expect(line).toContainText("Data:");
 });
 
-test("Water's journey: five steps named, played in order, and one deterministic WAV", async ({ page }) => {
+// With the landslide record on, Water's journey has its landslide-exposure step too (integration wire).
+const JOURNEY_STEPS = process.env.NEXT_PUBLIC_DATA_LANDSLIDES === "1" ? 6 : 5;
+
+test("Water's journey: every step named, played in order, and one deterministic WAV", async ({ page }) => {
   test.setTimeout(150_000);
   await listen(page);
   await page.getByRole("button", { name: "Water's journey" }).click();
   const j = page.getByTestId("journey");
-  await expect(j.locator("ol li")).toHaveCount(5, { timeout: 30_000 });
+  await expect(j.locator("ol li")).toHaveCount(JOURNEY_STEPS, { timeout: 30_000 });
   await expect(j.locator("ol li").first()).toContainText("pattern only");
   await j.getByRole("button", { name: "Play the suite" }).click();
   await expect(j).toHaveAttribute("data-step", "lightning", { timeout: 10_000 });
@@ -101,7 +105,7 @@ test("Water's journey: five steps named, played in order, and one deterministic 
   expect(await axeSerious(page, '[data-testid="journey"]')).toEqual([]);
 });
 
-test("the listener test: emotion ratings and ear vs eye after the tasks, exported with testVersion 2", async ({ page }) => {
+test("the listener test: emotion ratings and ear vs eye after the tasks, exported with the current testVersion", async ({ page }) => {
   test.setTimeout(150_000);
   await start(page, { hide3d: true });
   await page.goto("/listen-test");
@@ -134,6 +138,6 @@ test("the listener test: emotion ratings and ear vs eye after the tasks, exporte
   await page.getByRole("button", { name: "Finish" }).click();
   const [file] = await Promise.all([page.waitForEvent("download"), page.getByRole("button", { name: /Export/u }).click()]);
   const json = JSON.parse(readFileSync((await file.path())!, "utf8"));
-  expect(json.testVersion).toBe(2);
+  expect(json.testVersion).toBe(TEST_VERSION);
   expect(json.extras.emotion.map((r: { condition: string }) => r.condition).sort()).toEqual(["sound", "visual"]);
 });
