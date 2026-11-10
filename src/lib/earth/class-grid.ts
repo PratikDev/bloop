@@ -79,3 +79,25 @@ export function maxClass(size: GridSize & { nodata: number }, codes: Uint8Array,
   for (const code of boxCounts(size, codes, box).keys()) if (code !== size.nodata && (best === null || code > best)) best = code;
   return best;
 }
+
+/** The centre of the cell of class `code` nearest a point (by grid distance; longitude wraps); null if none has it. */
+export function nearestOfClass(size: GridSize, codes: Uint8Array, code: number, lat: number, lon: number): { lat: number; lon: number } | null {
+  const at = cellIndex(size, lat, lon);
+  const r0 = Math.floor(at / size.width);
+  const c0 = at % size.width;
+  let best = -1;
+  let bestD = Infinity;
+  for (let i = 0; i < codes.length; i++) {
+    if (codes[i] !== code) continue;
+    const dr = Math.floor(i / size.width) - r0;
+    const dcRaw = Math.abs((i % size.width) - c0);
+    const dc = Math.min(dcRaw, size.width - dcRaw);
+    const d = dr * dr + dc * dc;
+    if (d < bestD) {
+      bestD = d;
+      best = i;
+    }
+  }
+  if (best < 0) return null;
+  return { lat: 90 - ((Math.floor(best / size.width) + 0.5) / size.height) * 180, lon: -180 + (((best % size.width) + 0.5) / size.width) * 360 };
+}

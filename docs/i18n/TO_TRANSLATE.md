@@ -499,7 +499,7 @@ The Mapping panel builds each rule sentence from its parts (`src/lib/i18n/bn/rul
 | `clarity` | parameter: reverbSec; unit: hours since a 1 km infrared look | How recently measured 0 to 48 hours since a 1 km infrared look → echo length 0.1 to 2.4 s (linear). |
 | `unison` | a rule shared with another voice (sameAs) | Proof in unison: two tones in one ear, both by the Ocean temperature rule (Ocean temperature −5 to 35 °C → pitch 220 to 880 Hz (exponential: equal steps in value sound like equal musical steps).) Beats per second = the difference between the two pitches in Hz. |
 
-## Draft Bangla, needs review (752)
+## Draft Bangla, needs review (799)
 
 Drafted for the mentor fixes (`docs/MENTOR_FIXES.md`); **draft, needs review** by a Bangla speaker. Listed in `src/lib/i18n/bn/drafts.ts`: remove an entry there once it is checked.
 
@@ -1249,12 +1249,59 @@ Drafted for the mentor fixes (`docs/MENTOR_FIXES.md`); **draft, needs review** b
 | `earth.slide.table.sound` | Sound | শব্দ |
 | `earth.slide.table.pipeline` | Cells (pipeline) | ঘর (পাইপলাইন) |
 | `earth.slide.table.app` | Cells (decoded here) | ঘর (এখানে পড়া) |
+| `earth.slide.table.example` | Hear | শুনুন |
+| `earth.slide.example` | Hear an example | একটি উদাহরণ শুনুন |
+| `earth.slide.exampleFor` | ``Hear an example of ${p.cls}: move the needle to the nearest such cell`` | ``${p.cls}-\u098F\u09B0 \u098F\u0995\u099F\u09BF \u0989\u09A6\u09BE\u09B9\u09B0\u09A3 \u09B6\u09C1\u09A8\u09C1\u09A8: \u09B8\u09C1\u0987\u0995\u09C7 \u09B8\u09AC\u099A\u09C7\u09AF\u09BC\u09C7 \u0995\u09BE\u099B\u09C7\u09B0 \u098F\u09AE\u09A8 \u0998\u09B0\u09C7 \u09A8\u09BF\u09A8`` |
 | `earth.slide.subject` | the landslide exposure class at the needle | সুইয়ের জায়গায় ভূমিধসের ঝুঁকির শ্রেণি |
 | `earth.slide.method` | The pipeline reads the class of each pixel of SVS 5584's picture from its legend colours (the highest class within 3×3 source pixels), then maps it from Robinson to a 1024×512 latitude-longitude grid; Bloop reads the cell under the needle. | পাইপলাইন SVS 5584-এর ছবির প্রতিটি পিক্সেলের শ্রেণি তার লেজেন্ডের রং থেকে পড়ে (৩×৩ উৎস-পিক্সেলের মধ্যে সর্বোচ্চ শ্রেণি), তারপর রবিনসন থেকে ১০২৪×৫১২ অক্ষাংশ-দ্রাঘিমাংশ গ্রিডে নেয়; ব্লুপ সুইয়ের নিচের ঘরটি পড়ে। |
+| `earth.lights.lead` | Each night's light at a city, one note per night: brighter, higher (a log scale). A cloud-blocked night is a rest. | শহরের প্রতি রাতের আলো, প্রতি রাতে একটি সুর: উজ্জ্বল হলে উঁচু (লগ মাপে)। মেঘে ঢাকা রাত একটি বিরাম। |
+| `earth.lights.label` | Radiance measured from space. A cloud-blocked night is a gap, not darkness: no blackout is claimed from it. | মহাকাশ থেকে মাপা বিকিরণ। মেঘে ঢাকা রাত একটি ফাঁক, অন্ধকার নয়: তা থেকে কোনো বিদ্যুৎ-বিভ্রাট দাবি করা হয় না। |
+| `earth.lights.product` | ``Product: ${p.product} (${p.variable}), satellite ${p.sat}, read from the file.`` | ``\u09AA\u09A3\u09CD\u09AF: ${p.product} (${p.variable}), \u0989\u09AA\u0997\u09CD\u09B0\u09B9 ${p.sat}, \u09AB\u09BE\u0987\u09B2 \u09A5\u09C7\u0995\u09C7 \u09AA\u09A1\u09BC\u09BE\u0964`` |
+| `earth.lights.productNoSat` | ``Product: ${p.product} (${p.variable}); the file names no satellite.`` | ``\u09AA\u09A3\u09CD\u09AF: ${p.product} (${p.variable}); \u09AB\u09BE\u0987\u09B2\u09C7 \u0995\u09CB\u09A8\u09CB \u0989\u09AA\u0997\u09CD\u09B0\u09B9\u09C7\u09B0 \u09A8\u09BE\u09AE \u09A8\u09C7\u0987\u0964`` |
+| `earth.lights.value` | ``${p.city}, ${p.day}: ${p.value} ${p.unit}`` | ``${p.city}, ${p.day}: ${p.value} ${p.unit}`` |
+| `earth.lights.gap` | ``${p.city}, ${p.day}: gap: cloud (a rest, not darkness)`` | ``${p.city}, ${p.day}: \u09AB\u09BE\u0981\u0995: \u09AE\u09C7\u0998 (\u098F\u0995\u099F\u09BF \u09AC\u09BF\u09B0\u09BE\u09AE, \u0985\u09A8\u09CD\u09A7\u0995\u09BE\u09B0 \u09A8\u09AF\u09BC)`` |
+| `earth.lights.city` | City | শহর |
+| `earth.lights.play` | Play the nights | রাতগুলো বাজান |
+| `earth.lights.stop` | Stop | থামান |
+| `earth.lights.step` | ``Night ${p.i} of ${p.n}: ${p.line}`` | ``${p.n}\u099F\u09BF\u09B0 \u09AE\u09A7\u09CD\u09AF\u09C7 ${p.i} \u09A8\u09AE\u09CD\u09AC\u09B0 \u09B0\u09BE\u09A4: ${p.line}`` |
+| `earth.lights.timeline` | ``${p.city}: ${p.n} nights, ${p.gaps} of them gaps (cloud). Taller bars, brighter nights; hatched, a gap.`` | ``${p.city}: ${p.n}\u099F\u09BF \u09B0\u09BE\u09A4, \u09A4\u09BE\u09B0 ${p.gaps}\u099F\u09BF \u09AB\u09BE\u0981\u0995 (\u09AE\u09C7\u0998)\u0964 \u0989\u0981\u099A\u09C1 \u09A6\u09A3\u09CD\u09A1 \u09AE\u09BE\u09A8\u09C7 \u0989\u099C\u09CD\u099C\u09CD\u09AC\u09B2 \u09B0\u09BE\u09A4; \u09A1\u09CB\u09B0\u09BE\u0995\u09BE\u099F\u09BE \u09AE\u09BE\u09A8\u09C7 \u09AB\u09BE\u0981\u0995\u0964`` |
+| `earth.lights.events` | The file holds no before-and-after event dates, so no event is offered. | ফাইলে কোনো ঘটনার আগে-পরের তারিখ নেই, তাই কোনো ঘটনা দেখানো হয় না। |
+| `earth.lights.table.caption` | ``Night lights at ${p.city}, night by night`` | ``${p.city}-\u098F\u09B0 \u09B0\u09BE\u09A4\u09C7\u09B0 \u0986\u09B2\u09CB, \u09B0\u09BE\u09A4\u09C7 \u09B0\u09BE\u09A4\u09C7`` |
+| `earth.lights.table.day` | Night | রাত |
+| `earth.lights.table.radiance` | ``Radiance, ${p.unit}`` | ``\u09AC\u09BF\u0995\u09BF\u09B0\u09A3, ${p.unit}`` |
+| `earth.lights.table.valid` | Clear share of the window | জানালার পরিষ্কার অংশ |
+| `earth.lights.table.gap` | gap: cloud | ফাঁক: মেঘ |
+| `earth.lights.subject` | the night lights at the city | শহরের রাতের আলো |
+| `earth.lights.method` | ``Median of a ${p.window}-pixel window around the city. ${p.rule}`` | ``\u09B6\u09B9\u09B0\u09C7\u09B0 \u099A\u09BE\u09B0\u09AA\u09BE\u09B6\u09C7 ${p.window}-\u09AA\u09BF\u0995\u09CD\u09B8\u09C7\u09B2 \u099C\u09BE\u09A8\u09BE\u09B2\u09BE\u09B0 \u09AE\u09A7\u09CD\u09AF\u09AE\u09BE\u0964 ${p.rule}`` |
+| `earth.lights.hearDhaka` | ``Hear measured radiance for ${p.city} (Black Marble, night by night)`` | ``${p.city}-\u098F\u09B0 \u09AE\u09BE\u09AA\u09BE \u09AC\u09BF\u0995\u09BF\u09B0\u09A3 \u09B6\u09C1\u09A8\u09C1\u09A8 (\u09AC\u09CD\u09B2\u09CD\u09AF\u09BE\u0995 \u09AE\u09BE\u09B0\u09CD\u09AC\u09C7\u09B2, \u09B0\u09BE\u09A4\u09C7 \u09B0\u09BE\u09A4\u09C7)`` |
+| `earth.radar.title` | NASA mode (after Caldwell 73, SYSTEM Sounds) | নাসা মোড (ক্যালডওয়েল ৭৩, SYSTEM Sounds-এর মতো) |
+| `earth.radar.lead` | A method record, with no data layer of its own: NASA's radar sweep from the Caldwell 73 sonification, played on today's ocean temperature frame around a centre, beside Bloop's own rule on the same points. | একটি পদ্ধতির রেকর্ড, নিজের কোনো ডেটা-স্তর নেই: ক্যালডওয়েল ৭৩ সনিফিকেশনের নাসার রাডার ঘূর্ণন, আজকের সমুদ্র-তাপমাত্রার ফ্রেমে একটি কেন্দ্রের চারপাশে বাজানো, একই বিন্দুতে ব্লুপের নিজের নিয়মের পাশে। |
+| `earth.radar.caption` | NASA's version: where things are. Bloop's version: what the values are. | নাসার সংস্করণ: জিনিস কোথায়। ব্লুপের সংস্করণ: মানগুলো কী। |
+| `earth.radar.mode` | Mode | মোড |
+| `earth.radar.nasa` | NASA mode | নাসা মোড |
+| `earth.radar.bloop` | Bloop mode | ব্লুপ মোড |
+| `earth.radar.nasaRule` | NASA mode: a line sweeps around the centre at the movie's own speed; each point sounds as the line reaches it, its distance from the centre sets the pitch, its colour sets the instrument (cool: glockenspiel, warm: marimba, the rest: a soft choir). | নাসা মোড: একটি রেখা মুভির নিজের গতিতে কেন্দ্রের চারপাশে ঘোরে; রেখা পৌঁছালে প্রতিটি বিন্দু বাজে, কেন্দ্র থেকে দূরত্ব ঠিক করে সুরের উচ্চতা, রং ঠিক করে বাদ্য (ঠান্ডা: গ্লকেনস্পিল, উষ্ণ: মারিম্বা, বাকিটা: নরম কোরাস)। |
+| `earth.radar.bloopRule` | Bloop mode: a ring grows from the centre over the same time; distance sets when a point sounds, its value sets the pitch by the Ocean rule. | ব্লুপ মোড: একই সময়ে কেন্দ্র থেকে একটি বৃত্ত বড় হয়; দূরত্ব ঠিক করে বিন্দু কখন বাজবে, তার মান সমুদ্রের নিয়মে সুরের উচ্চতা ঠিক করে। |
+| `earth.radar.centre` | Centre | কেন্দ্র |
+| `earth.radar.dhaka` | Dhaka | ঢাকা |
+| `earth.radar.needle` | The needle on Listen | শোনার পাতার সুই |
+| `earth.radar.play` | ``Play ${p.mode}`` | ``${p.mode} \u09AC\u09BE\u099C\u09BE\u09A8`` |
+| `earth.radar.stop` | Stop | থামান |
+| `earth.radar.points` | ``${p.n} ocean points from the frame of ${p.time}, one sweep of ${p.seconds} s.`` | ``${p.time}-\u098F\u09B0 \u09AB\u09CD\u09B0\u09C7\u09AE \u09A5\u09C7\u0995\u09C7 ${p.n}\u099F\u09BF \u09B8\u09AE\u09C1\u09A6\u09CD\u09B0-\u09AC\u09BF\u09A8\u09CD\u09A6\u09C1, \u098F\u0995 \u0998\u09C2\u09B0\u09CD\u09A3\u09A8 ${p.seconds} \u09B8\u09C7\u0995\u09C7\u09A8\u09CD\u09A1\u0964`` |
+| `earth.radar.credit` | ``${p.credit} The sweep code is Bloop's own (radial-sweep.ts), after NASA's description: not NASA's code.`` | ``${p.credit} \u0998\u09C2\u09B0\u09CD\u09A3\u09A8\u09C7\u09B0 \u0995\u09CB\u09A1 \u09AC\u09CD\u09B2\u09C1\u09AA\u09C7\u09B0 \u09A8\u09BF\u099C\u09C7\u09B0 (radial-sweep.ts), \u09A8\u09BE\u09B8\u09BE\u09B0 \u09AC\u09B0\u09CD\u09A3\u09A8\u09BE \u0985\u09A8\u09C1\u09AF\u09BE\u09AF\u09BC\u09C0: \u09A8\u09BE\u09B8\u09BE\u09B0 \u0995\u09CB\u09A1 \u09A8\u09AF\u09BC\u0964`` |
+| `earth.radar.svs` | SVS 13786 page | SVS 13786 পাতা |
+| `earth.radar.alt` | ``The points around ${p.centre}: ${p.n} ocean points on rings, marked by colour class (cool, middle, warm); land is left out.`` | ``${p.centre}-\u098F\u09B0 \u099A\u09BE\u09B0\u09AA\u09BE\u09B6\u09C7\u09B0 \u09AC\u09BF\u09A8\u09CD\u09A6\u09C1: \u09AC\u09C3\u09A4\u09CD\u09A4\u09C7 ${p.n}\u099F\u09BF \u09B8\u09AE\u09C1\u09A6\u09CD\u09B0-\u09AC\u09BF\u09A8\u09CD\u09A6\u09C1, \u09B0\u0999\u09C7\u09B0 \u09B6\u09CD\u09B0\u09C7\u09A3\u09BF \u09A6\u09BF\u09AF\u09BC\u09C7 \u099A\u09BF\u09B9\u09CD\u09A8\u09BF\u09A4 (\u09A0\u09BE\u09A8\u09CD\u09A1\u09BE, \u09AE\u09BE\u099D\u09BE\u09B0\u09BF, \u0989\u09B7\u09CD\u09A3); \u09B8\u09CD\u09A5\u09B2 \u09AC\u09BE\u09A6\u0964`` |
+| `earth.radar.subject` | NASA's radar method on the ocean frame | সমুদ্রের ফ্রেমে নাসার রাডার পদ্ধতি |
+| `earth.radar.method` | Points on rings around the centre read from today's ocean temperature frame (land left out). NASA mode: radial-sweep.ts with the radarDistance rule; Bloop mode: the same points, distance to time, the Ocean rule to pitch. | আজকের সমুদ্র-তাপমাত্রার ফ্রেম থেকে কেন্দ্রের চারপাশে বৃত্তের বিন্দু পড়া (স্থল বাদ)। নাসা মোড: radarDistance নিয়মসহ radial-sweep.ts; ব্লুপ মোড: একই বিন্দু, দূরত্ব থেকে সময়, সমুদ্রের নিয়ম থেকে সুরের উচ্চতা। |
 | `earth.hwgt.sourceTime` | ``newest source time ${p.time}`` | ``\u0989\u09CE\u09B8\u09C7\u09B0 \u09B8\u09AC\u099A\u09C7\u09AF\u09BC\u09C7 \u09A8\u09A4\u09C1\u09A8 \u09B8\u09AE\u09AF\u09BC ${p.time}`` |
 | `earth.anom.legend` | Ocean temperature vs normal (the 5176 picture) | স্বাভাবিকের তুলনায় সমুদ্রের তাপমাত্রা (৫১৭৬-এর ছবি) |
 | `earth.anom.frame` | ``Picture and anomaly: the SVS 5176 frame of ${p.date}`` | ``\u099B\u09AC\u09BF \u0993 \u09AC\u09BF\u099A\u09CD\u09AF\u09C1\u09A4\u09BF: ${p.date}-\u098F\u09B0 SVS 5176 \u09AB\u09CD\u09B0\u09C7\u09AE`` |
 | `earth.anom.alt` | ``NASA's map of ocean temperature against normal, frame of ${p.date}: blue cooler than normal, red warmer, from ${p.min} to ${p.max} degrees Celsius.`` | ``${p.date}-\u098F\u09B0 \u09AB\u09CD\u09B0\u09C7\u09AE\u09C7 \u09B8\u09CD\u09AC\u09BE\u09AD\u09BE\u09AC\u09BF\u0995\u09C7\u09B0 \u09A4\u09C1\u09B2\u09A8\u09BE\u09AF\u09BC \u09B8\u09AE\u09C1\u09A6\u09CD\u09B0\u09C7\u09B0 \u09A4\u09BE\u09AA\u09AE\u09BE\u09A4\u09CD\u09B0\u09BE\u09B0 \u09A8\u09BE\u09B8\u09BE\u09B0 \u09AE\u09BE\u09A8\u099A\u09BF\u09A4\u09CD\u09B0: \u09A8\u09C0\u09B2 \u09B8\u09CD\u09AC\u09BE\u09AD\u09BE\u09AC\u09BF\u0995\u09C7\u09B0 \u099A\u09C7\u09AF\u09BC\u09C7 \u09A0\u09BE\u09A8\u09CD\u09A1\u09BE, \u09B2\u09BE\u09B2 \u0989\u09B7\u09CD\u09A3, ${p.min} \u09A5\u09C7\u0995\u09C7 ${p.max} \u09A1\u09BF\u0997\u09CD\u09B0\u09BF \u09B8\u09C7\u09B2\u09B8\u09BF\u09AF\u09BC\u09BE\u09B8\u0964`` |
+| `earth.ask.noFirms` | The FIRMS daily counts are not in this build. | এই সংস্করণে FIRMS-এর দৈনিক গণনা নেই। |
+| `earth.ask.noBox` | ``No FIRMS box here: Bloop counts fires in ${p.boxes}.`` | ``\u098F\u0996\u09BE\u09A8\u09C7 \u0995\u09CB\u09A8\u09CB FIRMS \u09AC\u09BE\u0995\u09CD\u09B8 \u09A8\u09C7\u0987: \u09AC\u09CD\u09B2\u09C1\u09AA \u0986\u0997\u09C1\u09A8 \u0997\u09CB\u09A8\u09C7 ${p.boxes}-\u098F\u0964`` |
+| `earth.ask.noCity` | ``No Black Marble city near here: the file has ${p.cities}.`` | ``\u0995\u09BE\u099B\u09C7 \u0995\u09CB\u09A8\u09CB \u09AC\u09CD\u09B2\u09CD\u09AF\u09BE\u0995 \u09AE\u09BE\u09B0\u09CD\u09AC\u09C7\u09B2 \u09B6\u09B9\u09B0 \u09A8\u09C7\u0987: \u09AB\u09BE\u0987\u09B2\u09C7 \u0986\u099B\u09C7 ${p.cities}\u0964`` |
+| `earth.checkedWith.heading` | Also checked with (credited, not played) | যার সঙ্গেও যাচাই করা (কৃতিত্ব দেওয়া, বাজানো হয় না) |
+| `earth.checkedWith.svs` | ``SVS ${p.id}`` | ``SVS ${p.id}`` |
 | data template | GPCC stops at # because the gauge version we use (GPCC Full Data Monthly V#) ends in December #, so both rain records compare #–# with #–#. | GPCC {0} সালে থামে, কারণ আমাদের ব্যবহৃত বৃষ্টিমাপক সংস্করণ (GPCC Full Data Monthly V{1}) ডিসেম্বর {2}-এ শেষ; তাই দুটি বৃষ্টির রেকর্ডই {3}–{4}-কে {5}–{6}-এর সাথে তুলনা করে। |
 | data template | GPCP only, newer decade; GPCC data ends in # | শুধু GPCP, নতুন দশক; GPCC ডেটা {0} সালে শেষ |
 

@@ -11,9 +11,9 @@ import { boxCentre, dayCount } from "@/lib/earth/firms";
 import { nextDay } from "@/lib/earth/fwi";
 import { BRIGHTNESS_VOICE, GEIGER_VOICE } from "@/lib/earth/geiger";
 import { pilotRows, pilotSummary } from "@/lib/earth/pilot";
-import { formatDay, formatFixed, formatInteger } from "@/lib/i18n";
+import { bindT, formatDay, formatFixed, formatInteger } from "@/lib/i18n";
 import { ruleTextBn } from "@/lib/i18n/bn/rules";
-import { useAppState, useT } from "../../AppState/use-app-state";
+import { useAppState } from "../../AppState/use-app-state";
 import type { AppTranscriptData } from "../AppTranscript";
 import { fireLinerNotes } from "./liner";
 
@@ -21,13 +21,14 @@ const RHO_DECIMALS = 2;
 
 /** The fires and fire-weather record's transcript: the same story as its two layers, from the same files. */
 export function useFireTranscript(): { data: AppTranscriptData | null; error: boolean } {
-  const t = useT();
   const { state } = useAppState();
   const lang = state.lang;
   const [data, setData] = useState<AppTranscriptData | null>(null);
   const [error, setError] = useState(false);
   useEffect(() => {
     let cancelled = false;
+    // t is bound here: useT() gives a new function each render, which would restart this load forever.
+    const t = bindT(lang);
     (async () => {
       const d = await loadFireData();
       const archive = await loadArchiveGrids(d);
@@ -68,6 +69,6 @@ export function useFireTranscript(): { data: AppTranscriptData | null; error: bo
     return () => {
       cancelled = true;
     };
-  }, [t, lang]);
+  }, [lang]);
   return { data, error };
 }

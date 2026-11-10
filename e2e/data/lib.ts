@@ -19,7 +19,7 @@ export async function fresh(page: Page, url: string, hide3d = true) {
   await page.goto(url);
   await settle(page, 800);
   const tap = page.getByRole("button", { name: "Tap to start sound" });
-  if (await tap.waitFor({ state: "visible", timeout: 2000 }).then(() => true, () => false)) await tap.click();
+  if (await tap.waitFor({ state: "visible", timeout: 2000 }).then(() => true, () => false)) await tap.click({ timeout: 5000 }).catch(() => undefined);
   await settle(page, 600);
 }
 

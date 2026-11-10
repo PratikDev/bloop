@@ -59,7 +59,7 @@ export function Wildfires() {
   const season = w.sequence?.kind === "season" ? w.seasonCases.find((c) => c.key === (w.sequence?.kind === "season" ? w.sequence.key : "")) : null;
 
   return (
-    <div className="grid gap-6 lg:grid-cols-[minmax(0,1fr)_24rem]" data-testid="record-fires_fwi">
+    <div data-provenance-group="" className="grid gap-6 lg:grid-cols-[minmax(0,1fr)_24rem]" data-testid="record-fires_fwi">
       <div className="space-y-3">
         <p className="text-body text-haze">{t("earth.fire.lead")}</p>
         <EarthMap

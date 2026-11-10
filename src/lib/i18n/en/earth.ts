@@ -174,9 +174,56 @@ export const earthEn = {
   "earth.slide.table.sound": "Sound",
   "earth.slide.table.pipeline": "Cells (pipeline)",
   "earth.slide.table.app": "Cells (decoded here)",
+  "earth.slide.table.example": "Hear",
+  "earth.slide.example": "Hear an example",
+  "earth.slide.exampleFor": (p: { cls: string }) => `Hear an example of ${p.cls}: move the needle to the nearest such cell`,
   "earth.slide.subject": "the landslide exposure class at the needle",
   "earth.slide.method":
     "The pipeline reads the class of each pixel of SVS 5584's picture from its legend colours (the highest class within 3×3 source pixels), then maps it from Robinson to a 1024×512 latitude-longitude grid; Bloop reads the cell under the needle.",
+
+  // P4: night lights (Black Marble).
+  "earth.lights.lead": "Each night's light at a city, one note per night: brighter, higher (a log scale). A cloud-blocked night is a rest.",
+  "earth.lights.label": "Radiance measured from space. A cloud-blocked night is a gap, not darkness: no blackout is claimed from it.",
+  "earth.lights.product": (p: { product: string; variable: string; sat: string }) => `Product: ${p.product} (${p.variable}), satellite ${p.sat}, read from the file.`,
+  "earth.lights.productNoSat": (p: { product: string; variable: string }) => `Product: ${p.product} (${p.variable}); the file names no satellite.`,
+  "earth.lights.value": (p: { city: string; day: string; value: string; unit: string }) => `${p.city}, ${p.day}: ${p.value} ${p.unit}`,
+  "earth.lights.gap": (p: { city: string; day: string }) => `${p.city}, ${p.day}: gap: cloud (a rest, not darkness)`,
+  "earth.lights.city": "City",
+  "earth.lights.play": "Play the nights",
+  "earth.lights.stop": "Stop",
+  "earth.lights.step": (p: { i: string; n: string; line: string }) => `Night ${p.i} of ${p.n}: ${p.line}`,
+  "earth.lights.timeline": (p: { city: string; n: string; gaps: string }) => `${p.city}: ${p.n} nights, ${p.gaps} of them gaps (cloud). Taller bars, brighter nights; hatched, a gap.`,
+  "earth.lights.events": "The file holds no before-and-after event dates, so no event is offered.",
+  "earth.lights.table.caption": (p: { city: string }) => `Night lights at ${p.city}, night by night`,
+  "earth.lights.table.day": "Night",
+  "earth.lights.table.radiance": (p: { unit: string }) => `Radiance, ${p.unit}`,
+  "earth.lights.table.valid": "Clear share of the window",
+  "earth.lights.table.gap": "gap: cloud",
+  "earth.lights.subject": "the night lights at the city",
+  "earth.lights.method": (p: { window: string; rule: string }) => `Median of a ${p.window}-pixel window around the city. ${p.rule}`,
+  "earth.lights.hearDhaka": (p: { city: string }) => `Hear measured radiance for ${p.city} (Black Marble, night by night)`,
+
+  // P5: NASA's own method (Caldwell 73, SVS 13786).
+  "earth.radar.title": "NASA mode (after Caldwell 73, SYSTEM Sounds)",
+  "earth.radar.lead":
+    "A method record, with no data layer of its own: NASA's radar sweep from the Caldwell 73 sonification, played on today's ocean temperature frame around a centre, beside Bloop's own rule on the same points.",
+  "earth.radar.caption": "NASA's version: where things are. Bloop's version: what the values are.",
+  "earth.radar.mode": "Mode",
+  "earth.radar.nasa": "NASA mode",
+  "earth.radar.bloop": "Bloop mode",
+  "earth.radar.nasaRule": "NASA mode: a line sweeps around the centre at the movie's own speed; each point sounds as the line reaches it, its distance from the centre sets the pitch, its colour sets the instrument (cool: glockenspiel, warm: marimba, the rest: a soft choir).",
+  "earth.radar.bloopRule": "Bloop mode: a ring grows from the centre over the same time; distance sets when a point sounds, its value sets the pitch by the Ocean rule.",
+  "earth.radar.centre": "Centre",
+  "earth.radar.dhaka": "Dhaka",
+  "earth.radar.needle": "The needle on Listen",
+  "earth.radar.play": (p: { mode: string }) => `Play ${p.mode}`,
+  "earth.radar.stop": "Stop",
+  "earth.radar.points": (p: { n: string; time: string; seconds: string }) => `${p.n} ocean points from the frame of ${p.time}, one sweep of ${p.seconds} s.`,
+  "earth.radar.credit": (p: { credit: string }) => `${p.credit} The sweep code is Bloop's own (radial-sweep.ts), after NASA's description: not NASA's code.`,
+  "earth.radar.svs": "SVS 13786 page",
+  "earth.radar.alt": (p: { centre: string; n: string }) => `The points around ${p.centre}: ${p.n} ocean points on rings, marked by colour class (cool, middle, warm); land is left out.`,
+  "earth.radar.subject": "NASA's radar method on the ocean frame",
+  "earth.radar.method": "Points on rings around the centre read from today's ocean temperature frame (land left out). NASA mode: radial-sweep.ts with the radarDistance rule; Bloop mode: the same points, distance to time, the Ocean rule to pitch.",
 
   // How we got this for the DATA products (src/lib/earth/provenance.ts).
   "earth.hwgt.sourceTime": (p: { time: string }) => `newest source time ${p.time}`,
@@ -186,4 +233,11 @@ export const earthEn = {
   "earth.anom.frame": (p: { date: string }) => `Picture and anomaly: the SVS 5176 frame of ${p.date}`,
   "earth.anom.alt": (p: { date: string; min: string; max: string }) =>
     `NASA's map of ocean temperature against normal, frame of ${p.date}: blue cooler than normal, red warmer, from ${p.min} to ${p.max} degrees Celsius.`,
+
+  // Ask Bloop's DATA answers (src/components/AskBloop/data-questions.ts).
+  "earth.ask.noFirms": "The FIRMS daily counts are not in this build.",
+  "earth.ask.noBox": (p: { boxes: string }) => `No FIRMS box here: Bloop counts fires in ${p.boxes}.`,
+  "earth.ask.noCity": (p: { cities: string }) => `No Black Marble city near here: the file has ${p.cities}.`,
+  "earth.checkedWith.heading": "Also checked with (credited, not played)",
+  "earth.checkedWith.svs": (p: { id: string }) => `SVS ${p.id}`,
 };

@@ -68,8 +68,12 @@ export async function appIndexRows(enabled: (s: AppRecordSpec) => boolean = (s) 
   return rows;
 }
 
-/** The index with the app records after the pipeline's rows (a failed product load leaves the index as it was). */
+/** A pipeline row for a method record (SVS 13786: no layers; the app plays NASA's method on an Earth frame). */
+export const isMethodRow = (row: OfficialIndexRow): boolean => "kind" in row && (row as { kind?: string }).kind === "method";
+
+/** The index with the app records after the pipeline's rows (a failed product load leaves the index as it was). A
+ *  method row is listed only with its flag (P5): without it the record has nothing to play. */
 export async function withAppRecords(index: OfficialIndex): Promise<OfficialIndex> {
   const extra = await appIndexRows().catch(() => []);
-  return { records: [...index.records, ...extra] };
+  return { records: [...index.records.filter((r) => FLAGS.dataRadar || !isMethodRow(r)), ...extra] };
 }
