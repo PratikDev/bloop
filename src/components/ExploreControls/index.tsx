@@ -12,6 +12,7 @@ import { useAppState, useT } from "../AppState/use-app-state";
 import { useCommands } from "../Commands/use-commands";
 import { useLiveData } from "../LiveData/use-live-data";
 import { useShownPoint } from "../TimeLapse/use-shown-point";
+import { useHeldName } from "./use-held-name";
 import { useMapKeys } from "./use-map-keys";
 
 export const MAP_REGION_ID = "sound-map";
@@ -20,8 +21,9 @@ const preloadGeo = () => void loadGeo().catch(() => undefined);
 
 /**
  * The focusable sound map: role="application" so screen readers pass arrow
- * keys through (needs testing with NVDA and others). Its label is the text
- * alternative to the canvas and updates with the cursor, value and track.
+ * keys through. Its label is the text alternative to the canvas: the reading
+ * as the map is reached, held while it has focus (useHeldName), so each step
+ * is said once, by the status region. data-reading is always the live reading.
  */
 export function ExploreControls({ children }: { children: ReactNode }) {
   const { state } = useAppState();
@@ -42,6 +44,7 @@ export function ExploreControls({ children }: { children: ReactNode }) {
   const label = reading
     ? t("map.alt", { track: trackLabel, reading: readingText(t, reading, track), place: t("place.latlon", cursor) })
     : t("start.loading");
+  const mapName = useHeldName(label, Boolean(reading));
 
   // Focus the map when the intro ends, so the keys work at once.
   useEffect(() => {
@@ -92,13 +95,20 @@ export function ExploreControls({ children }: { children: ReactNode }) {
       tabIndex={0}
       aria-roledescription={t("map.roleDescription")}
       {...brailleRole(t("braille.bl.map"))}
-      aria-label={label}
+      aria-label={mapName.name}
+      data-reading={label}
       aria-describedby={instructionsId}
       onKeyDown={story ? undefined : onKeyDown}
-      onBlur={disarm}
-      // Layered descriptions name places (step 3): the place names start loading when the map is first used, so the
-      // first D doesn't wait for them (cached; loaded once per page).
-      onFocus={FLAGS.describe ? preloadGeo : undefined}
+      onBlur={(e) => {
+        mapName.onBlur(e);
+        disarm();
+      }}
+      onFocus={(e) => {
+        mapName.onFocus(e);
+        // Layered descriptions name places (step 3): the place names start loading when the map is first used, so the
+        // first D doesn't wait for them (cached; loaded once per page).
+        if (FLAGS.describe) preloadGeo();
+      }}
       className="group relative"
     >
       <p id={instructionsId} className="sr-only">

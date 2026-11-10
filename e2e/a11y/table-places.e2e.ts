@@ -3,7 +3,7 @@
 // a build with NEXT_PUBLIC_A11Y_TABLE_PLACES=1 (and steps 1–3 on), 3D shown and hidden. The table's middle cell must
 // equal the map's own reading, which health-records.e2e.ts checks against the shipped grids.
 import { expect, test, type Page } from "@playwright/test";
-import { start } from "../lib/app";
+import { MAP_READING, start } from "../lib/app";
 import { axeSerious } from "../lib/axe";
 import { liveLog, logLiveRegion, settle } from "../mentor/lib";
 
@@ -27,9 +27,9 @@ async function openTable(page: Page) {
   return page.getByTestId("value-table");
 }
 
-/** The map label's ocean reading ("29.8 °C"), as the table writes it ("29.8"). */
+/** The map's ocean reading ("29.8 °C"), as the table writes it ("29.8"). */
 async function mapOcean(page: Page) {
-  return (await map(page).getAttribute("aria-label"))?.match(/([−-]?\d+\.\d) °C/u)?.[1];
+  return (await map(page).getAttribute(MAP_READING))?.match(/([−-]?\d+\.\d) °C/u)?.[1];
 }
 
 for (const hide3d of [false, true]) {
@@ -69,10 +69,10 @@ for (const hide3d of [false, true]) {
       const before = (await liveLog(page)).length;
       await menu.getByRole("button", { name: /^Chattogram/u }).first().click();
       await expect(map(page)).toBeFocused();
-      await expect(map(page)).toHaveAttribute("aria-label", /22\.3° N, 91\.8° E/u);
+      await expect(map(page)).toHaveAttribute(MAP_READING, /22\.3° N, 91\.8° E/u);
       await expect.poll(async () => (await liveLog(page)).slice(before).join(" ")).toMatch(/Chattogram\. .*22\.3° N, 91\.8° E/u);
       await page.keyboard.press(".");
-      await expect(map(page)).toHaveAttribute("aria-label", /21\.5° N, 89\.8° E/u);
+      await expect(map(page)).toHaveAttribute(MAP_READING, /21\.5° N, 89\.8° E/u);
     });
 
     test("Places: Asia → Bangladesh → Dhaka division moves the needle into Bangladesh; axe clean with the tree open", async ({ page }) => {
@@ -83,7 +83,7 @@ for (const hide3d of [false, true]) {
       await menu.getByText("Bangladesh", { exact: true }).click();
       expect(await axeSerious(page, '[data-testid="places-menu"]')).toEqual([]);
       await menu.getByRole("button", { name: "Dhaka", exact: true }).click();
-      const label = (await map(page).getAttribute("aria-label")) ?? "";
+      const label = (await map(page).getAttribute(MAP_READING)) ?? "";
       const [, lat, lon] = label.match(/(\d+\.\d)° N, (\d+\.\d)° E/u) ?? [];
       expect(Number(lat)).toBeGreaterThan(23);
       expect(Number(lat)).toBeLessThan(25);

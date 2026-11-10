@@ -4,7 +4,7 @@
 import { expect, test, type Page } from "@playwright/test";
 import { readFileSync } from "node:fs";
 import { join } from "node:path";
-import { navTo, open } from "./lib/app";
+import { MAP_READING, navTo, open } from "./lib/app";
 
 const AXE = readFileSync(join(process.cwd(), "node_modules", "axe-core", "axe.min.js"), "utf8");
 const CONTINUES = "\u28FF";
@@ -33,8 +33,8 @@ test("B opens the explorer; the caret is the needle", async ({ page }) => {
   // Path mode: one point = 5 degrees of longitude, so 5 steps move the needle 25 degrees east.
   const moved = lonOf(after) - lonOf(before);
   expect(Math.abs(moved - 25)).toBeLessThanOrEqual(2.5);
-  // The map's own label (the text alternative) follows the same needle.
-  await expect(page.locator("#sound-map")).toHaveAttribute("aria-label", new RegExp(`${lonOf(after).toFixed(1)}`, "u"));
+  // The map's reading follows the same needle.
+  await expect(page.locator("#sound-map")).toHaveAttribute(MAP_READING, new RegExp(`${lonOf(after).toFixed(1)}`, "u"));
   // The sound plays at the new point (output level from the analyser, read after the move).
   await expect.poll(async () => Number(await page.locator("#braille-explorer").getAttribute("data-level"))).toBeGreaterThan(0);
 });

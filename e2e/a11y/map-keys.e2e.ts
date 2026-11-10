@@ -11,7 +11,7 @@ import { decodeSequenceCode } from "../../src/lib/data/sequence";
 import { bindT } from "../../src/lib/i18n";
 import { rainText } from "../../src/lib/reading";
 import type { SequenceIndex } from "../../src/types/data-contract";
-import { settingsButton, start } from "../lib/app";
+import { MAP_READING, settingsButton, start } from "../lib/app";
 import { axeSerious } from "../lib/axe";
 import { liveLog, logLiveRegion, settle, shipped } from "../mentor/lib";
 
@@ -48,15 +48,33 @@ function heldRainText(lat: number, lon: number): string {
 
 for (const hide3d of [false, true]) {
   test.describe(`map keys, 3D ${hide3d ? "hidden" : "shown"}`, () => {
+    // NVDA log run (10 Nov 2026): a name that changed with each step was read as well as the status region's message.
+    test("the map's name holds still while it has focus, so the status region says each step once; off the map it follows", async ({ page }) => {
+      await fresh(page, hide3d);
+      await map(page).focus();
+      await expect(map(page)).toHaveAttribute("aria-label", /21\.5° N, 89\.8° E/u);
+      const arrived = await map(page).getAttribute("aria-label");
+      const said = await press(page, "ArrowRight", "ArrowRight");
+      await expect(map(page)).toHaveAttribute(MAP_READING, /21\.5° N, 91\.8° E/u);
+      expect(await map(page).getAttribute("aria-label")).toBe(arrived);
+      expect(said.join(" ")).toContain("21.5° N, 91.8° E");
+      // Off the map and back: the name is where the needle is now.
+      await page.keyboard.press("Shift+Tab");
+      await expect(map(page)).not.toBeFocused();
+      await expect(map(page)).toHaveAttribute("aria-label", /21\.5° N, 91\.8° E/u);
+      await map(page).focus();
+      await expect(map(page)).toHaveAttribute("aria-label", /21\.5° N, 91\.8° E/u);
+    });
+
     test("+ and − change the step; the arrows then move by it; the new size is said", async ({ page }) => {
       await fresh(page, hide3d);
       await map(page).focus();
       expect(await press(page, "+")).toContain("Step 2 degrees.");
       await press(page, "ArrowRight");
-      await expect(map(page)).toHaveAttribute("aria-label", /21\.5° N, 91\.8° E/u);
+      await expect(map(page)).toHaveAttribute(MAP_READING, /21\.5° N, 91\.8° E/u);
       expect(await press(page, "-", "-")).toContain("Step 0.5 degrees.");
       await press(page, "ArrowUp");
-      await expect(map(page)).toHaveAttribute("aria-label", /22\.0° N, 91\.8° E/u);
+      await expect(map(page)).toHaveAttribute(MAP_READING, /22\.0° N, 91\.8° E/u);
     });
 
     test("J then numbers jump region by region (numpad layout), leading with the region; '.' walks back", async ({ page }) => {
@@ -71,9 +89,9 @@ for (const hide3d of [false, true]) {
       expect((await press(page, "ArrowLeft", "1")).join(" ")).toContain("Now hearing: Ocean");
       // Back: before the arrow, then the first jump, then where it started.
       await press(page, ".");
-      await expect(map(page)).toHaveAttribute("aria-label", /20\.0° N, 80\.0° E/u);
+      await expect(map(page)).toHaveAttribute(MAP_READING, /20\.0° N, 80\.0° E/u);
       await press(page, ".", ".");
-      await expect(map(page)).toHaveAttribute("aria-label", /21\.5° N, 89\.8° E/u);
+      await expect(map(page)).toHaveAttribute(MAP_READING, /21\.5° N, 89\.8° E/u);
       expect(await press(page, ".")).toContain("No earlier place to go back to.");
     });
 
@@ -86,7 +104,7 @@ for (const hide3d of [false, true]) {
       const said = (await liveLog(page)).map((m) => m.trim()).filter(Boolean);
       expect(said.at(-1)).toContain("Rain frame 48 of 48");
       expect(said.at(-1)).toContain(heldRainText(21.5, 89.8));
-      await expect(map(page)).toHaveAttribute("aria-label", new RegExp(heldRainText(21.5, 89.8).replace(/[.*+?^${}()|[\]\\]/gu, "\\$&"), "u"));
+      await expect(map(page)).toHaveAttribute(MAP_READING, new RegExp(heldRainText(21.5, 89.8).replace(/[.*+?^${}()|[\]\\]/gu, "\\$&"), "u"));
       expect((await press(page, "PageDown")).at(-1)).toContain("Rain frame 47 of 48");
       await press(page, "PageUp");
       expect((await press(page, "PageUp")).at(-1)).toMatch(/^Latest frames\./u);

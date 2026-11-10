@@ -3,7 +3,7 @@
 // and the rain grid loading after Start.
 import { expect, type Page } from "@playwright/test";
 import { AUDIBLE, heard, level, navTo } from "../lib/app";
-import { dock, map, name, onMap, sounds, tab, type Feature } from "./common";
+import { dock, name, onMap, reading, sounds, tab, type Feature } from "./common";
 
 const title = (page: Page) => page.getByRole("heading", { level: 1 }).first();
 
@@ -93,8 +93,8 @@ export const PAGES: Feature[] = [
       await page.getByRole("textbox", { name: /Latitude/u }).fill("23.8");
       await page.getByRole("textbox", { name: /Longitude/u }).fill("90.4");
       await page.keyboard.press("Enter");
-      await expect.poll(() => name(map(page))).toMatch(/23\.8|23\.75|Dhaka/u);
-      return { evidence: `map reads "${(await name(map(page))).slice(0, 100)}"` };
+      await expect.poll(() => reading(page)).toMatch(/23\.8|23\.75|Dhaka/u);
+      return { evidence: `map reads "${(await reading(page)).slice(0, 100)}"` };
     } },
   { id: "not-found", group: "pages", name: "No signal (404) page", where: "Any unknown address", keyboard: false,
     what: "An unknown page says so and offers the way back",

@@ -97,3 +97,9 @@ export async function navTo(page: Page, name: PageName) {
 
 /** The header's Settings button (exact: the header also has "Low-vision settings"). */
 export const settingsButton = (page: Page) => page.getByRole("banner").getByRole("button", { name: "Settings", exact: true });
+
+/**
+ * The sound map's live reading. Its accessible name is the reading as the map is reached and holds still while it has
+ * focus (each step is said once, by the status region), so checks of where the needle is read this attribute.
+ */
+export const MAP_READING = "data-reading";

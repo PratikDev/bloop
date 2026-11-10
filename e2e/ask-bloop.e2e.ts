@@ -3,7 +3,7 @@
 // app as its own control would (the track, the needle, the page, a setting); unsafe input runs nothing; the map's keys
 // never fire while typing; answers are short. Voice needs a microphone and a speech service: the gate test covers it.
 import { expect, test, type Page } from "@playwright/test";
-import { open } from "./lib/app";
+import { MAP_READING, open } from "./lib/app";
 import { axeSerious } from "./lib/axe";
 import { liveLog, logLiveRegion, settle } from "./mentor/lib";
 
@@ -51,12 +51,12 @@ test("a typed question is answered once, with the same words Enter on the map sa
 test("actions leave the app as its own controls do: the track, the needle, the page", async ({ page }) => {
   await openAsk(page);
   await ask(page, "switch to rain");
-  // As pressing 2: the map's own label starts with the track it plays.
-  await expect(map(page)).toHaveAttribute("aria-label", /^Rain/u);
+  // As pressing 2: the map's reading starts with the track it plays.
+  await expect(map(page)).toHaveAttribute(MAP_READING, /^Rain/u);
   const said = await ask(page, "go to Dhaka");
   expect(said.join(" ")).toContain("Dhaka");
   // The needle is on Dhaka's gazetteer point (23.7 N, 90.4 E), as Places would put it.
-  await expect(map(page)).toHaveAttribute("aria-label", /23\.\d° N, 90\.\d° E/u);
+  await expect(map(page)).toHaveAttribute(MAP_READING, /23\.\d° N, 90\.\d° E/u);
   await ask(page, "open Then vs Now");
   await page.waitForURL(/then-now/u);
 });
@@ -85,12 +85,12 @@ test("a place Bloop doesn't know, and Bangla in the box", async ({ page }) => {
 
 test("typing in the box never reaches the map's keys (D, Enter, arrows)", async ({ page }) => {
   await openAsk(page);
-  const before = await map(page).getAttribute("aria-label");
+  const before = await map(page).getAttribute(MAP_READING);
   await box(page).fill("");
   await box(page).press("ArrowLeft");
   await box(page).type("dd");
   await page.waitForTimeout(800);
-  expect(await map(page).getAttribute("aria-label")).toBe(before);
+  expect(await map(page).getAttribute(MAP_READING)).toBe(before);
   expect((await liveLog(page)).join(" ")).not.toContain("Across the map");
 });
 

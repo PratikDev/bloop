@@ -4,7 +4,7 @@
 // frame. Runs on a build with NEXT_PUBLIC_A11Y_DESCRIBE=1 (and steps 1–2 on), 3D shown and hidden. The value is the
 // map label's, which health-records.e2e.ts already checks against the shipped grids.
 import { expect, test, type Page } from "@playwright/test";
-import { settingsButton, start } from "../lib/app";
+import { MAP_READING, settingsButton, start } from "../lib/app";
 import { axeSerious } from "../lib/axe";
 import { liveLog, logLiveRegion, settle } from "../mentor/lib";
 
@@ -41,8 +41,8 @@ for (const hide3d of [false, true]) {
     test("D says the standard description once: what, when, here (the readout's value), around, the whole map; both records", async ({ page }) => {
       await fresh(page, hide3d);
       const said = await describeHere(page);
-      // The map's own label carries the reading ("…29.8 °C; Dry…"): the same value, said in words.
-      const ocean = (await map(page).getAttribute("aria-label"))?.match(/([−-]?\d+\.\d) °C/u)?.[1];
+      // The map carries the reading ("…29.8 °C; Dry…"): the same value, said in words.
+      const ocean = (await map(page).getAttribute(MAP_READING))?.match(/([−-]?\d+\.\d) °C/u)?.[1];
       expect(ocean).toBeTruthy();
       expect(said).toMatch(/^Ocean surface temperature, \d+ Nov \d{4}, \d\d:\d\d UTC\./u);
       expect(said).toContain(`: ${ocean} degrees Celsius.`);

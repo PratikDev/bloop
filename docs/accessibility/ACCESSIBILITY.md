@@ -13,6 +13,7 @@ This page says what exists, how to use it (English, then Bangla), the keys, the 
 | Feature | Where | What it does |
 |---|---|---|
 | One status region | every page | One persistent, visually hidden `role="status"` element, present from page load, never re-mounted. Routine updates are debounced (250 ms); tone first, then text; never `role="alert"` for routine updates. Messages are short and front-loaded (the braille rules in `src/a11y/brailleText.ts`). |
+| The map's name | Listen | The sound map's accessible name is the reading where the needle is when you reach the map, and it holds still while the map has focus, so each step is said once, by the status region (a name that followed each step was read aloud as well: found in the NVDA run, 10 Nov 2026). Enter says the value here again; Tab away and back reads the name afresh. On a braille display each step's message shows for a moment, then the name from when you arrived; for a line that stays, use the Braille explorer (B). |
 | Speech mode | Settings → Accessibility | **My screen reader** (default: text goes to the status region), **Bloop's voice** (`speechSynthesis`, Bangla voice where the device has one; it ducks the music) or **Off**. Never both at once. |
 | Detail | Settings → Accessibility | Brief, standard or detailed, for descriptions and answers. |
 | Text, sound or both | Settings → Accessibility | Which channels fire on each step of the needle. |

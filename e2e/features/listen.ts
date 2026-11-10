@@ -1,6 +1,6 @@
 // Feature checks on the Listen page (the live map), its dock, the Inspector and the header's settings.
 import { expect } from "@playwright/test";
-import { dock, inspector, live, map, name, onMap, pressed, sounds, stops, type Feature } from "./common";
+import { dock, inspector, live, map, onMap, reading, pressed, sounds, stops, type Feature } from "./common";
 import { settingsButton } from "../lib/app";
 
 const mixerButton = (page: Parameters<Feature["run"]>[0]) => dock(page).getByRole("button", { name: /^Mixer/u });
@@ -12,10 +12,10 @@ export const LISTEN: Feature[] = [
     what: "Plays and reads the latest SST frame under the cursor", control: map,
     async run(page) {
       await onMap(page); await page.keyboard.press("1");
-      const a = await name(map(page));
+      const a = await reading(page);
       for (let i = 0; i < 5; i++) await page.keyboard.press("Shift+ArrowRight");
-      await expect.poll(() => name(map(page))).not.toBe(a);
-      const b = await name(map(page));
+      await expect.poll(() => reading(page)).not.toBe(a);
+      const b = await reading(page);
       if (!/°C/u.test(b)) throw new Error(`no temperature in "${b}"`);
       return { evidence: `"${a}" → "${b}"` };
     } },
@@ -23,8 +23,8 @@ export const LISTEN: Feature[] = [
     what: "Plays and reads the latest IMERG rain frame under the cursor", control: map,
     async run(page) {
       await onMap(page); await page.keyboard.press("2");
-      await expect.poll(() => name(map(page))).toMatch(/Rain|Dry|mm\/h/u);
-      return { evidence: `map reads "${await name(map(page))}"` };
+      await expect.poll(() => reading(page)).toMatch(/Rain|Dry|mm\/h/u);
+      return { evidence: `map reads "${await reading(page)}"` };
     } },
   { id: "freshness-badges", group: "data", name: "Freshness and source badges", where: "Listen · frame label beside the map", keyboard: false,
     what: "Says how old each frame is, and when it is older than its freshness limit",
