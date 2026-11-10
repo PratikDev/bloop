@@ -76,3 +76,12 @@ export function classifyRecord(r: RecordWords): Classified {
   if (found.some((m) => m.category !== first)) return { id: r.id, category: null, reason: "layers in different systems" };
   return { id: r.id, category: first, from: "layers", matched: found.map((m) => m.matched).join(", ") };
 }
+
+/** Method records take the category of the voice they are applied to (`appliedTo`: method record → voice id). */
+export function withMethods(classified: readonly Classified[], appliedTo: Readonly<Record<string, string>>): Classified[] {
+  return classified.map((c) => {
+    const voice = appliedTo[c.id];
+    const host = voice === undefined ? undefined : classified.find((x) => x.id === voice);
+    return host?.category ? { id: c.id, category: host.category, from: "title", matched: `method applied to the ${voice} voice` } : c;
+  });
+}

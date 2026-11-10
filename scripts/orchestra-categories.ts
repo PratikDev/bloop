@@ -4,7 +4,9 @@
 // listed, never guessed. Re-run after records are added: bun scripts/orchestra-categories.ts
 import { readFileSync, writeFileSync } from "node:fs";
 import { join } from "node:path";
-import { classifyRecord, CATEGORY_RULES, type Classified, type RecordWords } from "../src/lib/audio/orchestra/classify";
+import { classifyRecord, CATEGORY_RULES, withMethods, type Classified, type RecordWords } from "../src/lib/audio/orchestra/classify";
+import { APP_RECORD_IDS as DATA_RECORD_IDS, APP_RECORDS as DATA_RECORDS, METHOD_APPLIED_TO } from "../src/lib/earth/records";
+import { en } from "../src/lib/i18n";
 
 const DATA = join(process.cwd(), "public", "data");
 const OUT = join(process.cwd(), "src", "lib", "audio", "orchestra", "categories.json");
@@ -50,8 +52,14 @@ function registry(folder: "official" | "related"): { words: RecordWords; voices:
   });
 }
 
+/** DATA's records built from the shipped products (src/lib/earth/records.ts): classified from their own titles. */
+const dataRecords = (): RecordWords[] => DATA_RECORD_IDS.map((id) => ({ id, title: en[DATA_RECORDS[id].titleKey], layers: [] }));
+
 const records = [...registry("official"), ...registry("related")];
-const classified: Classified[] = [...appRecords().map(classifyRecord), ...records.map((r) => classifyRecord(r.words))];
+const classified: Classified[] = withMethods(
+  [...appRecords().map(classifyRecord), ...dataRecords().map(classifyRecord), ...records.map((r) => classifyRecord(r.words))],
+  METHOD_APPLIED_TO,
+);
 
 // A voice takes its record's category; a voice shared by records in different systems has none of its own (the
 // record being played decides).

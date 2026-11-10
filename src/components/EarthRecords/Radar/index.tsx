@@ -8,7 +8,7 @@ import type { LatLon } from "@/lib/data";
 import { loadSst } from "@/lib/data/latest";
 import { fetchJson } from "@/lib/data/fetch";
 import { DATA_PATHS } from "@/lib/data/paths";
-import { instrumentFor, RADAR_VOICE, radarNotes, radarPoints, turnSeconds, type MethodManifest, type RadarMode } from "@/lib/earth/radar";
+import { instrumentFor, RADAR_RECORD, RADAR_VOICE, radarNotes, radarPoints, turnSeconds, type MethodManifest, type RadarMode } from "@/lib/earth/radar";
 import { radarProvenance } from "@/lib/earth/radar-provenance";
 import { playRadar, stopRadar } from "@/lib/earth/sound/radar-player";
 import { formatFixed, formatInteger, formatUtc } from "@/lib/i18n";
@@ -21,7 +21,7 @@ import { StatusBadge } from "../../StatusBadge";
 import { TranscriptLink } from "../../TranscriptLink";
 import { useRecordPlay } from "../use-record-play";
 
-export const RADAR_RECORD = "sonification_13786";
+export { RADAR_RECORD } from "@/lib/earth/radar";
 const MODES = ["nasa", "bloop"] as const;
 const CENTRES = ["dhaka", "needle"] as const;
 type Centre = (typeof CENTRES)[number];

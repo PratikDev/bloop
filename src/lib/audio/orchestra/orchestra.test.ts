@@ -5,7 +5,9 @@ import { describe, expect, test } from "bun:test";
 import { readFileSync } from "node:fs";
 import { join } from "node:path";
 import { EARTH_CATEGORIES } from "@/lib/audio/layers/types";
-import { classifyRecord, matchCategory } from "./classify";
+import { APP_RECORD_IDS, APP_RECORDS, METHOD_APPLIED_TO } from "@/lib/earth/records";
+import { en } from "@/lib/i18n";
+import { classifyRecord, matchCategory, withMethods } from "./classify";
 import { earconHz, EARCON_SEC, FAMILIES, familyFor, noteAttack } from "./families";
 import { categoryOfVoice, getCategory, orchestra, UNCLASSIFIED } from "./index";
 import table from "./categories.json";
@@ -23,7 +25,9 @@ function registry(folder: "official" | "related") {
 }
 
 describe("Earth Orchestra categories", () => {
-  const records = [...registry("official"), ...registry("related")];
+  // DATA's records built from the shipped products join the registry with their own titles.
+  const dataRecords = APP_RECORD_IDS.map((id) => ({ id, title: en[APP_RECORDS[id].titleKey], layers: [] as string[] }));
+  const records = [...registry("official"), ...registry("related"), ...dataRecords];
 
   test("every playable record (Official, Related, Listen, Then vs Now) has a category or is listed as unplaced", () => {
     const ids = [...records.map((r) => r.id), "ocean", "rain", "snow", "heat", "monsoon", "water"];
@@ -32,10 +36,9 @@ describe("Earth Orchestra categories", () => {
   });
 
   test("the committed table matches the registry (re-run scripts/orchestra-categories.ts after adding records)", () => {
-    for (const r of records) {
-      const c = classifyRecord(r);
-      expect([r.id, c.category]).toEqual([r.id, getCategory(r.id)]);
-    }
+    const voices = ["ocean", "rain", "snow", "heat", "monsoon", "water"].map((id) => ({ id, category: getCategory(id), from: "title" as const, matched: "" }));
+    const classified = withMethods([...voices.flatMap((v) => (v.category === null ? [] : [{ ...v, category: v.category }])), ...records.map(classifyRecord)], METHOD_APPLIED_TO);
+    for (const r of records) expect([r.id, classified.find((c) => c.id === r.id)?.category ?? null]).toEqual([r.id, getCategory(r.id)]);
   });
 
   test("the unplaced records are the mixed ones, each with a reason", () => {
@@ -92,5 +95,12 @@ describe("Earth Orchestra families", () => {
   test("OrchestraApi: getCategory and orchestraVoice", () => {
     expect(orchestra.getCategory("river_4960")).toBe("air");
     for (const c of EARTH_CATEGORIES) expect(orchestra.orchestraVoice(c).category).toBe(c);
+  });
+});
+
+describe("DATA's records in Earth Orchestra", () => {
+  test("fires, landslides, night lights and NASA's radar method get their families through getCategory", () => {
+    expect([getCategory("fires_fwi"), getCategory("landslide_lhasa"), getCategory("nightlights_bm")]).toEqual(["fire", "land", "people"]);
+    for (const [method, voice] of Object.entries(METHOD_APPLIED_TO)) expect([method, getCategory(method)]).toEqual([method, getCategory(voice)]);
   });
 });

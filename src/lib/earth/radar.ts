@@ -15,7 +15,11 @@ import type { LatLon } from "@/lib/data";
 import type { OfficialManifest } from "@/types/data-contract";
 
 export const RADAR_VOICE = "radarDistance";
-const OCEAN_VOICE = "ocean";
+/** The voice Bloop mode plays (the frame NASA's method is applied to): Earth Orchestra files the record under it. */
+export const RADAR_APPLIED_VOICE = "ocean";
+/** The method record (official/index.json, kind "method"). */
+export const RADAR_RECORD = "sonification_13786";
+const OCEAN_VOICE = RADAR_APPLIED_VOICE;
 const KM_PER_DEG = 111.2;
 /** Sampling: rings out to the rule's own range, and spokes around (design choices). */
 const RINGS = 10;

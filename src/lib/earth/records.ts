@@ -3,12 +3,15 @@
 // list of their own. A row's title and period come from the products' files; only the ids and flags live here.
 
 import { fetchJson } from "@/lib/data/fetch";
-import type { EarthCategory } from "@/lib/audio/layers/types";
-import { en } from "@/lib/i18n";
+import { en, type MessageKey, type Messages } from "@/lib/i18n";
 import { FLAGS } from "@/lib/flags";
 import type { FirmsContextFile, FwiClassMetadata, LandslideClassMetadata, NightLightsFile, OfficialIndex, OfficialIndexRow } from "@/types/data-contract";
 import { DATA_PATHS } from "@/lib/data/paths";
 import { EARTH_PATHS } from "./paths";
+import { RADAR_APPLIED_VOICE, RADAR_RECORD } from "./radar";
+
+/** A key whose English is plain text (an index title). */
+type TitleKey = { [K in MessageKey]: Messages[K] extends string ? K : never }[MessageKey];
 
 export const APP_RECORD_IDS = ["fires_fwi", "landslide_lhasa", "nightlights_bm"] as const;
 export type AppRecordId = (typeof APP_RECORD_IDS)[number];
@@ -17,15 +20,16 @@ export interface AppRecordSpec {
   id: AppRecordId;
   /** The registry products (meta/freshness.json) the record plays or shows: they move to "Data in this app". */
   products: readonly string[];
-  /** Its Earth Orchestra family (HOOK: orchestra; ART's category table at integration). */
-  category: EarthCategory;
+  /** Its title (English: index titles are English). Earth Orchestra classifies it from these words
+   *  (scripts/orchestra-categories.ts, then getCategory), like every other record. */
+  titleKey: TitleKey;
   enabled: () => boolean;
 }
 
 export const APP_RECORDS: Record<AppRecordId, AppRecordSpec> = {
-  fires_fwi: { id: "fires_fwi", products: ["fwi_class", "fwi_archive", "firms_daily", "fires_frame"], category: "fire", enabled: () => FLAGS.dataWildfires },
-  landslide_lhasa: { id: "landslide_lhasa", products: ["landslide_class"], category: "land", enabled: () => FLAGS.dataLandslides },
-  nightlights_bm: { id: "nightlights_bm", products: ["nightlights"], category: "people", enabled: () => FLAGS.dataNightLights },
+  fires_fwi: { id: "fires_fwi", products: ["fwi_class", "fwi_archive", "firms_daily", "fires_frame"], titleKey: "earth.fire.title", enabled: () => FLAGS.dataWildfires },
+  landslide_lhasa: { id: "landslide_lhasa", products: ["landslide_class"], titleKey: "earth.slide.title", enabled: () => FLAGS.dataLandslides },
+  nightlights_bm: { id: "nightlights_bm", products: ["nightlights"], titleKey: "earth.lights.title", enabled: () => FLAGS.dataNightLights },
 };
 
 export const isAppRecord = (record: string): record is AppRecordId => (APP_RECORD_IDS as readonly string[]).includes(record);
@@ -48,7 +52,7 @@ export async function appIndexRows(enabled: (s: AppRecordSpec) => boolean = (s) 
     const days = firms.daily ? Object.values(firms.daily.series).flatMap((s) => s?.days ?? []).sort() : [];
     rows.push({
       record: "fires_fwi",
-      title: en["earth.fire.title"],
+      title: en[APP_RECORDS.fires_fwi.titleKey],
       svs_ids: [fwi.svs_id],
       badge: "observation",
       period: span(days[0] ?? day(fwi.frame_time_utc), day(fwi.frame_time_utc)),
@@ -58,15 +62,19 @@ export async function appIndexRows(enabled: (s: AppRecordSpec) => boolean = (s) 
   }
   if (enabled(APP_RECORDS.landslide_lhasa)) {
     const m = await fetchJson<LandslideClassMetadata>(EARTH_PATHS.landslideMeta);
-    rows.push({ record: "landslide_lhasa", title: en["earth.slide.title"], svs_ids: [m.svs_id], badge: "model", period: day(m.frame_time_utc), manifest: "app:landslide_lhasa", products: APP_RECORDS.landslide_lhasa.products });
+    rows.push({ record: "landslide_lhasa", title: en[APP_RECORDS.landslide_lhasa.titleKey], svs_ids: [m.svs_id], badge: "model", period: day(m.frame_time_utc), manifest: "app:landslide_lhasa", products: APP_RECORDS.landslide_lhasa.products });
   }
   if (enabled(APP_RECORDS.nightlights_bm)) {
     const n = await fetchJson<NightLightsFile>(EARTH_PATHS.nightLights);
     const days = Object.values(n.cities).flatMap((c) => c.days).sort();
-    rows.push({ record: "nightlights_bm", title: en["earth.lights.title"], svs_ids: [], badge: "observation", period: span(days[0] ?? "", days[days.length - 1] ?? ""), manifest: "app:nightlights_bm", products: APP_RECORDS.nightlights_bm.products });
+    rows.push({ record: "nightlights_bm", title: en[APP_RECORDS.nightlights_bm.titleKey], svs_ids: [], badge: "observation", period: span(days[0] ?? "", days[days.length - 1] ?? ""), manifest: "app:nightlights_bm", products: APP_RECORDS.nightlights_bm.products });
   }
   return rows;
 }
+
+/** Method records play NASA's method on another voice's data, and take that voice's Earth Orchestra category
+ *  (scripts/orchestra-categories.ts, orchestra.test.ts). */
+export const METHOD_APPLIED_TO: Readonly<Record<string, string>> = { [RADAR_RECORD]: RADAR_APPLIED_VOICE };
 
 /** A pipeline row for a method record (SVS 13786: no layers; the app plays NASA's method on an Earth frame). */
 export const isMethodRow = (row: OfficialIndexRow): boolean => "kind" in row && (row as { kind?: string }).kind === "method";
