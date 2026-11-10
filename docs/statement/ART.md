@@ -95,14 +95,17 @@ keyword rules (`classify.ts`); a record with no match, or whose layers fall into
 - **Air and weather**: rain, snow, heat (GISTEMP), monsoon, eic_5147, eic_5148, eic_5149, eic_5150, lightning_5011,
   river_4960, rel_3143, rel_3144, rel_4272 (the ozone layer), rel_4284, rel_4372, rel_4417, rel_4445, rel_4939,
   rel_5190, rel_5191, rel_5207, rel_5209, rel_5468, rel_5650.
-- **Land and life**: eic_5544, forest_4950.
+- **Land and life**: eic_5544, forest_4950, landslide_lhasa (DATA).
 - **Fire and smoke / air quality**: aerosols_5669, air_5533, eic_5151, eic_5152, eic_5153, eic_5154, rel_4764,
-  rel_4810, rel_4993, rel_5070, rel_5104, rel_5142, rel_5303, rel_5453, rel_5557, rel_5597, rel_5601, rel_5624, rel_5639.
+  rel_4810, rel_4993, rel_5070, rel_5104, rel_5142, rel_5303, rel_5453, rel_5557, rel_5597, rel_5601, rel_5624, rel_5639,
+  fires_fwi (DATA).
 - **Ice and water storage**: water (GRACE), rel_4889, rel_5098.
-- **People and carbon**: co2_5196, lights_5313, rel_30919, rel_4658, rel_5110, rel_5119, rel_5126, rel_5477.
+- **People and carbon**: co2_5196, lights_5313, rel_30919, rel_4658, rel_5110, rel_5119, rel_5126, rel_5477,
+  nightlights_bm (DATA).
 - **Unplaced (plain tones)**: patterns_eic (layers in different systems), rel_gibs (any GIBS layer: mixed).
 
-DATA's new records: re-run the script at integration; a record the rules can't place is listed, never guessed.
+DATA's records (integration, 10 Nov 2026) are classified by the same rules from their own titles; the radar method
+(sonification_13786) takes the category of the voice it is applied to (ocean). 75 placed, 2 unplaced.
 
 ## Honest wording
 
@@ -115,7 +118,9 @@ DATA's new records: re-run the script at integration; a record the rules can't p
 ## Known limits
 
 - Rain and snow keep their drops and bells at every stop (rate voices: the family is heard on the pitched voices).
-- The value chord is CV's: until integration the hook is empty and the dial says "not available in this version".
+- The value chord is CV's, wired at integration (`src/lib/art/chord-hook.ts`): at Blend and Music the dial holds it,
+  and CV's honesty gate and colour-bar allowlist still decide whether it sounds. The dial's default is Blend, so a
+  first-time visitor hears the chord where the gate allows (CV's own toggle stays off by default).
 - Swara + meend's "1 step = measured error" legend is not built (it needs a per-record error in pitch units).
 - The category word leads the Description panel, the braille line and Official records' reading; the spoken D
   ("describe here") keeps the record's title first, the existing accessibility contract (`e2e/a11y/descriptions`). There
