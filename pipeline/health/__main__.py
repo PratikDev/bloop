@@ -16,7 +16,7 @@ from .result import res
 
 PLAN = DATA_RAW / "_tmp" / "health" / "plan.json"
 PROD_PORT = 3100
-WORKERS = 6                                          # browser pages at once (one record each)
+WORKERS = int(os.environ.get("BLOOP_HEALTH_WORKERS", "6"))  # browser pages at once (one record each); 1 on a small machine
 
 def say(msg):
     print(f"[health {time.strftime('%H:%M:%S')}] {msg}", flush=True)
