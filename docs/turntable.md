@@ -1,9 +1,21 @@
-# Turntable Earth (v2)
+# Turntable Earth
 
-The latest EIC frame over a realistic Earth on a turntable. The needle reads the point beneath it and plays it with the app's existing voices and `mapping.json` rules: longitude changes as the globe turns, latitude is the needle's groove. v2 rebuilds the presentation (realistic globe, places, navigation, readability, motion). **Data, `valueAt()`, the sound mapping and every value are unchanged from v1.**
+The latest EIC frame on a cel-shaded globe on a turntable. The needle reads the point beneath it and plays it with the app's existing voices and `mapping.json` rules: longitude changes as the globe turns, latitude is the needle's groove. v2 rebuilds the presentation (realistic globe, places, navigation, readability, motion). **Data, `valueAt()`, the sound mapping and every value are unchanged from v1.**
 
 Branches: v1 `feat/turntable-earth`, v2 `feat/turntable-v2` (its child). Plans: [turntable-plan.md](turntable-plan.md) (v1), [turntable-v2-plan.md](turntable-v2-plan.md) (v2 audit, approach, assets). The repository now lives at `D:\Jukebox\nasa-sac` (moved from OneDrive Desktop on 27 Oct 2026, because drive C: was full).
 
+
+## The look (final pass, phase 6)
+
+The v2 realistic Earth was replaced by a toon look that matches the rest of the site. What it is now:
+
+- **Deck:** `MeshToonMaterial` with a three-step gradient: a coral plinth (`--deck-top`, `--deck-side`), a navy platter and record with drawn grooves (`--platter`, `--groove`), a paper label with an off-centre mark, and a paper tonearm with a coral head and a navy pivot (`--arm`, `--arm-edge`, `--stylus`). Navy outlines are inverted hulls. The plinth's hard shadow is a flat shape in `--shadow-on-space` (navy would vanish against space); the arm's shadow is a flat navy strip. No shadow maps, glow or chrome. Code: `scene/deck.ts`, `scene/deck-textures.ts`.
+- **Globe:** land is one flat colour (`--land`) in two light steps (lit, and 75% on the night side) from the frame-time sun. The data frame sits on its own sphere in the overlay pass at 100% opacity, with no lighting, so its pixels match the flat map (checked within ±1 per channel). Code: `scene/earth.ts`.
+- **Post chain:** main render → overlay composite (data, lines, needle effects, sky) → SMAA. There is no tone mapping, bloom, SSAO, depth of field or atmosphere on the Turntable. The 3D scenes keep AgX on their own lit relief. Code: `scene/post.ts`.
+- **Space:** a flat `--space` sky and 800 stars, drawn in the overlay pass so their colours are exact (`scene/studio.ts`).
+- **Never covered:** everything over the scene is marked `data-tt-occluder`; the camera fits the globe's disc into the largest free space between them with 24 px to spare (`fit.ts`, `use-occluder-fit.ts`, `scene/camera.ts`). On narrow screens the page scrolls rather than a panel covering the globe.
+- **The needle:** a swatch at the contact point in the exact frame colour under the needle (an empty paper disc over land), the same swatch in the readout, one ring per sound at the needle (at most 3 a second), a lift-swing-drop when you click a point, a critically damped glide on arrow keys, and the platter spinning at 33⅓ rpm only while sound plays. Reduced motion: no turning, no swing, no rings, no spin.
+- **Quality setting:** Auto / Ultra / High / Low now sets the drawing sharpness (device pixel ratio 2, 1.5, 1) on the Turntable, and the texture size in the 3D scenes.
 ## Open it
 
 - **Locally:** `bun install`, then `bun run dev` (or `bun run build && bun run start`). Open http://localhost:3000, choose **Start listening**, then the **Turntable** tab.
@@ -28,11 +40,11 @@ Keys work while the turntable has focus (Tab to it). Every key has a button, the
 | + / − | Zoom in / out (whole Earth to district level) | Wheel, pinch, zoom buttons |
 | [ / ] | Turn slower / faster (¼× … 4×) | **−** / **+** |
 | V | Jukebox view / close-up view | **Jukebox view / Close-up view** |
-| O | Data layer opacity: 0, 25, 50, 85, 100% | **Data layer** slider |
+| O | Data layer opacity: 0, 25, 50, 85, 100% (starts at 100%) | **Data layer** slider |
 | R / Shift+R | Next / previous record | Sleeves |
 | Esc | Stops a tour or flight, or closes search; otherwise stops all sound and goes back to the flat map | **Flat map** (same lat/lon) |
 
-Also: **My location** (asks the browser once, flies there; never stored or sent), **Sun at frame time / Always day**, **Grid lines**, **Texture quality** (Auto / 2048 / 4096 / 8192 px). Help (H/?) lists all of this under "On the turntable".
+Also: **My location** (asks the browser once, flies there; never stored or sent), **Sun at frame time / Always day**, **Grid lines**, **Quality** (Auto / Ultra / High / Low). Help (H/?) lists all of this under "On the turntable".
 
 **Key clashes, resolved inside the Turntable only** (Explore keeps its keys): L was the legend → Shift+L; T was Then vs Now → the mode tabs; 1–3 were tracks → R and the sleeves; + / − were speed → [ / ]. G is noted as "reserved for the game" in `use-map-keys.ts`; no game exists, and it's used only here. Every other map letter (H, M, D, C, P, X, S) keeps its meaning.
 
@@ -42,7 +54,7 @@ Also: **My location** (asks the browser once, flies there; never stored or sent)
 |---|---|---|
 | Data frame on the globe | The app's own `sst.webp` / `rain.png` (SVS 5101 / 4285), land cut by the SST grid's no-data mask | **Data** (display image, same pixels as the flat map) |
 | Every number, sound, ripple colour, particle rate, extreme ping | `valueAt()` on the existing grids; the frame's own pixel under the needle | **Data** |
-| Day / night Earth, relief, ocean glint, atmosphere | NASA Blue Marble / Black Marble, Natural Earth relief, SST mask | Design |
+| Land and its two light steps | The SST grid's no-data mask decides land; one flat colour, lit from the frame-time sun | Design |
 | Sun / terminator | Computed from the frame time (`src/lib/geo/sun.ts`) | Design (decoration) |
 | Borders, rivers, seas, places, districts, labels, search, where-am-I | Natural Earth, geoBoundaries, our story places | Orientation |
 | Turntable, sleeves, animations | Procedural, own design | Design |
@@ -53,15 +65,15 @@ Rules kept: the grid decides land/ocean for sound and readout (realism layers ne
 
 | Asset | Source | Licence | Credit |
 |---|---|---|---|
-| Blue Marble Next Generation (day) | NASA GIBS WMS `BlueMarble_NextGeneration` | NASA, open use | NASA Blue Marble |
-| Black Marble 2016 (night) | GIBS `VIIRS_Black_Marble` | NASA, open use | NASA Black Marble |
-| Shaded relief (bump) | Natural Earth `SR_50M` | Public domain | Natural Earth |
+| Blue Marble Next Generation (day), 3D scenes only | NASA GIBS WMS `BlueMarble_NextGeneration` | NASA, open use | NASA Blue Marble |
+| Black Marble 2016 (night), 3D scenes only | GIBS `VIIRS_Black_Marble` | NASA, open use | NASA Black Marble |
+| Shaded relief (bump), 3D scenes only | Natural Earth `SR_50M` | Public domain | Natural Earth |
 | Countries, coastlines, rivers, seas, places (`name_bn`) | Natural Earth v5.1.2, commit `ca96624` | Public domain | Natural Earth |
 | Bangladesh districts (64) | geoBoundaries gbOpen BGD ADM2 (source BBS, OCHA ROAP) | CC BY 3.0 IGO | geoBoundaries |
 | Story places | `public/geo/story-places.json` (team plan, Wikipedia coordinates, each with its source) | Facts | — |
 | GIBS service | — | — | "Imagery via NASA GIBS (ESDIS)" |
 
-Rebuild them with `node scripts/fetch-basemap.mjs [--hires]` (textures to `public/textures/`) and `node scripts/build-geo.mjs` (geography to `public/geo/`); each folder has a `SOURCES.json`. The credits strip at the end of the Turntable's side column reads: "Background: NASA Blue Marble · Night: NASA Black Marble · Relief: Natural Earth · Borders, places, rivers, seas: Natural Earth (public domain) · Districts: geoBoundaries (CC BY 3.0 IGO; source BBS, OCHA ROAP) · Imagery via NASA GIBS (ESDIS) · Data frames: NASA SVS 5101 / 4285 for the NASA Earth Information Center". The globe itself is labelled "Background: Blue Marble composite, not today's clouds".
+Rebuild them with `node scripts/fetch-basemap.mjs [--hires]` (textures to `public/textures/`) and `node scripts/build-geo.mjs` (geography to `public/geo/`); each folder has a `SOURCES.json`. The Turntable's Credits dialog lists every source in use (`turntable.credits`): the 3D scenes' Blue Marble and GEBCO topography, the studio light, Natural Earth, geoBoundaries and the NASA SVS data frames. The Turntable's own land is a flat colour, so it needs no basemap credit.
 
 ## Verification (27 Oct 2026, production build, headless Edge on an RTX 3050 laptop GPU, Playwright)
 
@@ -101,7 +113,7 @@ Screenshots: `docs/turntable-v2-screens/` — before (`before-*.png`) and after 
 
 - A leftover boolean in the loaded-texture object made the Earth's texture setup throw (silently, so the realistic textures never showed) and made leaving the Turntable crash the page. Fixed; all three ways out (Flat map, Esc, tab) checked.
 - Label layout forced a page layout every frame (re-hiding every label ever created, reading the card size); 4× CPU close-up was 18–25 FPS. Fixed with horizon culling, change-only DOM writes, canvas text metrics and a ResizeObserver.
-- three's PBR materials register on a module-level lookup texture (`DFG_LUT`) that kept every disposed renderer alive (the v1 leak); v2 releases it on unmount, so the deck can use `MeshPhysicalMaterial`.
+- three's PBR materials register on a module-level lookup texture (`DFG_LUT`) that kept every disposed renderer alive (the v1 leak); v2 releases it on unmount. (The toon deck no longer uses PBR materials.)
 - The phone layout overflowed sideways; fixed with a shrinkable grid column.
 
 ## Known limitations
@@ -112,7 +124,6 @@ Screenshots: `docs/turntable-v2-screens/` — before (`before-*.png`) and after 
 - **Esc** keeps its global meaning: with Help open, Esc closes Help *and* leaves the Turntable (as it already ends Story).
 - **Extreme ping** is new logic (the app had only the earcon): the hottest/wettest cell on the needle's groove within ±70° of the view centre.
 - **Drop timing while turning** (from v1): each new reading restarts the drop voice's next-drop timer, so over fast-changing rain the rate follows the rule only on average; at a fixed point it's exact.
-- The 4096 basemap is soft at district zoom (≈10 km/px); 8192 is available in Texture quality.
 - Not yet tested on a real phone or with a screen reader by a person; checks were automated.
 
 ## TODO hooks (typed, in code)
