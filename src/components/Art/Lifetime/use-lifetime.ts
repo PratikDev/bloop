@@ -5,7 +5,7 @@ import { useLoaded } from "@/hooks/use-loaded";
 import { lifetimeSong, type LifetimeFile } from "@/lib/art/lifetime/song";
 import { playSong, type Scheduled } from "@/lib/art/live/song-player";
 import { fetchJson } from "@/lib/data/fetch";
-import { ensureAudioAll } from "@/lib/audio-engines";
+import { useSoundStart } from "@/hooks/use-sound-start";
 import { getAnalyser } from "@/lib/audio";
 import type { PlayerHandle } from "@/lib/audio/types";
 import type { ClimateCellName } from "@/types/data-contract";
@@ -20,6 +20,7 @@ export function useLifetime(city: ClimateCellName, born: number) {
   const [playing, setPlaying] = useState(false);
   const handle = useRef<PlayerHandle | null>(null);
   const frame = useRef(0);
+  const soundStart = useSoundStart();
 
   const stop = useCallback(() => {
     handle.current?.stop();
@@ -30,7 +31,7 @@ export function useLifetime(city: ClimateCellName, born: number) {
 
   const play = useCallback(async () => {
     stop();
-    await ensureAudioAll();
+    await soundStart();
     const { handle: h, times } = playSong(parts);
     handle.current = h;
     setPlaying(true);
@@ -44,7 +45,7 @@ export function useLifetime(city: ClimateCellName, born: number) {
     void h.done.then(() => {
       if (handle.current === h) stop();
     });
-  }, [parts, stop]);
+  }, [parts, stop, soundStart]);
 
   useEffect(() => stop, [stop, city, born]);
   return { file, parts, play, stop, playing, now };

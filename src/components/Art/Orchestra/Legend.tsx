@@ -3,7 +3,7 @@
 import { Play } from "@phosphor-icons/react";
 import { Button } from "@/components/ui/button";
 import { playReferenceNote } from "@/lib/art/live/play";
-import { ensureAudioAll } from "@/lib/audio-engines";
+import { useSoundStart } from "@/hooks/use-sound-start";
 import { EARTH_CATEGORIES } from "@/lib/audio/layers/types";
 import { FAMILIES, UNCLASSIFIED } from "@/lib/audio/orchestra";
 import { useT } from "../../AppState/use-app-state";
@@ -15,8 +15,9 @@ import { CATEGORY_ICONS } from "./icons";
  */
 export function OrchestraLegend() {
   const t = useT();
+  const soundStart = useSoundStart();
   const demo = async (c: (typeof EARTH_CATEGORIES)[number]) => {
-    await ensureAudioAll();
+    await soundStart();
     playReferenceNote(FAMILIES[c]);
   };
   return (

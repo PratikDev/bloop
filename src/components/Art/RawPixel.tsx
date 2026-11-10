@@ -7,7 +7,7 @@ import { playSamples } from "@/lib/art/live/buffer";
 import { artProvenance } from "@/lib/art/provenance";
 import { loadRawFrame, loadRawPixel, type RawPixelFile } from "@/lib/art/raw-pixel/load";
 import { RAW_RATE, renderBloop, renderNaive, type Frame } from "@/lib/art/raw-pixel/render";
-import { ensureAudioAll } from "@/lib/audio-engines";
+import { useSoundStart } from "@/hooks/use-sound-start";
 import type { PlayerHandle } from "@/lib/audio/types";
 import { formatInteger, formatSignificant, formatUtc, type BoundT, type Lang } from "@/lib/i18n";
 import { useAppState, useT } from "../AppState/use-app-state";
@@ -34,6 +34,7 @@ export function rawNumbers(t: BoundT, lang: Lang, f: RawPixelFile): string {
 export function RawPixelCard() {
   const { state } = useAppState();
   const t = useT();
+  const soundStart = useSoundStart();
   const lang = state.lang;
   const { value: file } = useLoaded(loadRawPixel);
   const frame = useRef<Frame | null>(null);
@@ -41,7 +42,7 @@ export function RawPixelCard() {
   const [plays, setPlays] = useState({ naive: 0, bloop: 0 });
 
   async function play(which: "naive" | "bloop") {
-    await ensureAudioAll();
+    await soundStart();
     frame.current ??= await loadRawFrame();
     player.current?.stop();
     player.current = playSamples([which === "naive" ? renderNaive(frame.current) : renderBloop(frame.current)], RAW_RATE);

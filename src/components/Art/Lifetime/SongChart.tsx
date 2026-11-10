@@ -20,7 +20,7 @@ export function SongChart({ part, year }: { part: SongPart; year: number | null 
       <svg viewBox={`0 0 ${W} ${H}`} role="img" aria-label={t("lifetime.chart", { part: t(`lifetime.part.${part.part}`) })} className="h-16 w-full max-w-md text-moon">
         <path d={d} fill="none" stroke="currentColor" strokeWidth="1.5" />
         {year !== null && year >= xs[0] && year <= xs[xs.length - 1] && (
-          <line data-testid="playhead" data-year={year} x1={x(year)} x2={x(year)} y1={0} y2={H} stroke="currentColor" strokeWidth="2" strokeDasharray="3 2" />
+          <rect data-testid="playhead" data-year={year} x={x(year) - 1} width={2} y={0} height={H} fill="currentColor" opacity={0.8} />
         )}
       </svg>
       <figcaption className="text-small text-haze">{t(`lifetime.part.${part.part}`)}</figcaption>

@@ -7,7 +7,9 @@ import { journeySources } from "@/lib/art/journey/sources";
 import { encodeWav, fingerprint } from "@/lib/art/wav";
 import { getCtx, getGraph } from "@/lib/audio/context";
 import { track } from "@/lib/audio/sources";
-import { ensureAudioAll, stopAllEngines } from "@/lib/audio-engines";
+import { onStopAll } from "@/lib/audio/stop";
+import { stopAllEngines } from "@/lib/audio-engines";
+import { useSoundStart } from "@/hooks/use-sound-start";
 import { downloadBlob } from "@/lib/download";
 import { useLiveData } from "../../LiveData/use-live-data";
 
@@ -22,6 +24,7 @@ export function useJourney(onStep: (id: JourneyStepId, j: Journey) => void, onEn
   const [wav, setWav] = useState<{ seconds: number; id: string } | null>(null);
   const [rendering, setRendering] = useState(false);
   const frame = useRef(0);
+  const soundStart = useSoundStart();
 
   useEffect(() => {
     if (!fields || journey) return;
@@ -40,10 +43,15 @@ export function useJourney(onStep: (id: JourneyStepId, j: Journey) => void, onEn
 
   const play = useCallback(async () => {
     if (!journey) return;
-    await ensureAudioAll();
+    await soundStart();
     const ctx = getCtx();
     const out = new GainNode(ctx, { gain: 1 });
     out.connect(getGraph().sonification);
+    // Stop / Esc: the suite's sources stop with every other; its reverb's tail is cut with them (no ring after Esc).
+    const off = onStopAll(() => {
+      out.disconnect();
+      off();
+    });
     const t0 = ctx.currentTime + LEAD_SEC;
     renderJourney(ctx, out, journey, t0, track);
     setPlaying(true);
@@ -64,7 +72,7 @@ export function useJourney(onStep: (id: JourneyStepId, j: Journey) => void, onEn
       frame.current = requestAnimationFrame(tick);
     };
     frame.current = requestAnimationFrame(tick);
-  }, [journey, onStep, onEnd]);
+  }, [journey, onStep, onEnd, soundStart]);
 
   const saveWav = useCallback(async () => {
     if (!journey) return;
