@@ -117,3 +117,6 @@ DATA's new records: re-run the script at integration; a record the rules can't p
 - Rain and snow keep their drops and bells at every stop (rate voices: the family is heard on the pitched voices).
 - The value chord is CV's: until integration the hook is empty and the dial says "not available in this version".
 - Swara + meend's "1 step = measured error" legend is not built (it needs a per-record error in pitch units).
+- The category word leads the Description panel, the braille line and Official records' reading; the spoken D
+  ("describe here") keeps the record's title first, the existing accessibility contract (`e2e/a11y/descriptions`). There
+  the earcon names the system.

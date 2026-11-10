@@ -54,8 +54,9 @@ export const FLAGS = {
   mapKeys: flag(process.env.NEXT_PUBLIC_A11Y_MAP_KEYS, true),
   // >>> ART (docs/statement/ART.md): art, emotion and musicality. `ready` stays false until the integrated full pass.
   // Passing on 10 Nov 2026 (production build, every NEXT_PUBLIC_ART_* on): unit 508/508; e2e/art 21/21 Chromium and
-  // 21/21 Firefox (orchestra 6, dial 8, raw-pixel 2, pieces 6: letter, lifetime, choices, tour, journey, listen test).
-  // Not yet run with them on: the existing e2e/a11y + e2e/features suites (stopped at 11/296, machine low on memory).
+  // 21/21 Firefox (orchestra 6, dial 7, raw-pixel 2, pieces 6: letter, lifetime, choices, tour, journey, listen test);
+  // the existing suites with them on: e2e/a11y 95/95 Chromium and 95/95 Firefox (dock-fit included), e2e/features.e2e.ts
+  // 53/53 Chromium and 53/53 Firefox.
   /** Earth Orchestra: an instrument family per Earth system, the Instrument style setting, the category earcon, the
    *  Official grid grouped by category, the legend card. */
   artOrchestra: flag(process.env.NEXT_PUBLIC_ART_ORCHESTRA, false),
