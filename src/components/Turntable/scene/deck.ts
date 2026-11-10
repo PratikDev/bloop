@@ -63,9 +63,11 @@ export interface Deck {
   platter: Group;
   /** The record on the platter (lifted during a record change). */
   record: Group;
-  /** The tonearm and stylus (hidden in the close-up camera). */
+  /** The tonearm and stylus. */
   arm: Group;
   setArm(tip: Vector3, normal: Vector3): void;
+  /** Shrinks the whole arm about the needle's tip (1 = its size on the deck), so it keeps its size on screen up close. */
+  setArmScale(scale: number, tip: Vector3): void;
   setLabel(canvas: HTMLCanvasElement): void;
   dispose(): void;
 }
@@ -222,6 +224,10 @@ export function createDeck(palette: Palette): Deck {
       armShadow.position.set((PIVOT.x + head.x) / 2 + ARM_SHADOW.offset, ARM_SHADOW.y, (PIVOT.z + head.z) / 2 + ARM_SHADOW.offset);
       armShadow.scale.x = Math.hypot(dx, dz);
       armShadow.rotation.y = -Math.atan2(dz, dx);
+    },
+    setArmScale(scale, tipAt) {
+      arm.scale.setScalar(scale);
+      arm.position.copy(tipAt).multiplyScalar(1 - scale);
     },
     setLabel(canvas) {
       labelTexture?.dispose();

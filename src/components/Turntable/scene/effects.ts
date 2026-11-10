@@ -13,6 +13,7 @@ import {
   LineSegments,
   CircleGeometry,
   Mesh,
+  Object3D,
   Points,
   PointsMaterial,
   Quaternion,
@@ -53,6 +54,8 @@ export interface Effects {
   /** The swatch: the frame pixel under the needle, or null for an empty paper disc (land or no data). */
   setSwatchColor(rgb: [number, number, number] | null): void;
   swatchColor(): [number, number, number] | null;
+  /** The swatch's mesh (debug: is it drawn, in front of the camera, on screen). */
+  readonly swatch: Object3D;
   /** One ring spreading from the contact point (at most 3 per second). */
   ring(): void;
   /** Particles per second (the voice's own drops/s) and their kind; 0 = none. */
@@ -143,7 +146,8 @@ export function createEffects(palette: Palette): Effects {
     outline: { value: SWATCH.outlinePx },
     halfSize: { value: swatchHalfSize },
   };
-  const swatchMaterial = new ShaderMaterial({ uniforms: swatchUniforms, vertexShader: DISC_VERTEX, fragmentShader: SWATCH_FRAGMENT, transparent: true, depthWrite: false });
+  // No depth test: the swatch and its rings are the top marks, never covered by the stylus over them (the needle is always on the near side).
+  const swatchMaterial = new ShaderMaterial({ uniforms: swatchUniforms, vertexShader: DISC_VERTEX, fragmentShader: SWATCH_FRAGMENT, transparent: true, depthWrite: false, depthTest: false });
   const swatch = new Mesh(discGeometry, swatchMaterial);
   swatch.renderOrder = 6;
   let swatchRgb: [number, number, number] | null = null;
@@ -151,7 +155,7 @@ export function createEffects(palette: Palette): Effects {
   const ringHalfSize = RING.toPx + DISC_PADDING_PX;
   const rings = Array.from({ length: RING.pool }, () => {
     const uniforms = { edge: { value: ringEdge }, radius: { value: RING.fromPx }, halfWidth: { value: RING.halfWidthPx }, opacity: { value: 0 }, halfSize: { value: ringHalfSize } };
-    const material = new ShaderMaterial({ uniforms, vertexShader: DISC_VERTEX, fragmentShader: RING_FRAGMENT, transparent: true, depthWrite: false });
+    const material = new ShaderMaterial({ uniforms, vertexShader: DISC_VERTEX, fragmentShader: RING_FRAGMENT, transparent: true, depthWrite: false, depthTest: false });
     const mesh = new Mesh(discGeometry, material);
     mesh.renderOrder = 5;
     mesh.visible = false;
@@ -226,6 +230,7 @@ export function createEffects(palette: Palette): Effects {
       else swatchUniforms.fill.value.copy(paper);
     },
     swatchColor: () => swatchRgb,
+    swatch,
     ring() {
       if (!motion || sinceRing < RING.minGapSec) return;
       const free = rings.find((r) => r.age >= RING.seconds) ?? rings[0];

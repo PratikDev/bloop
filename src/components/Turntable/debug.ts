@@ -12,7 +12,7 @@ import type { Geo } from "./use-geo";
 import { toLatLon, toXY } from "@/lib/geo";
 import { readAt, type Reading } from "@/lib/reading";
 import type { SentReading } from "./needle-sound";
-import type { CameraMode } from "./scene";
+import type { CameraMode, TurntableScene } from "./scene";
 import { SPEEDS, type Turntable } from "./use-turntable";
 
 /** A flat-map size for the 2D pick (FrameView maps pixels the same way at any size). */
@@ -163,6 +163,8 @@ export interface DebugApi {
   swatch(): [number, number, number] | null;
   /** The globe's outline on screen, in CSS pixels inside the stage. */
   discOutline(): { x: number; y: number }[];
+  /** The stylus tip and contact swatch as drawn now (visible, in front of the camera, on screen). */
+  pointer(): ReturnType<TurntableScene["pointer"]> | null;
   particlesSpawned(): number;
   distance(): number;
 }
@@ -201,6 +203,7 @@ export function createDebugApi(
     pickAt: (x, y) => tt().pickAt(x, y),
     swatch: () => tt().sceneRef.current?.effects.swatchColor() ?? null,
     discOutline: () => tt().sceneRef.current?.discOutline() ?? [],
+    pointer: () => tt().sceneRef.current?.pointer() ?? null,
     particlesSpawned: () => tt().particlesSpawned.current,
     distance: () => tt().distance(),
     needle: () => tt().needle(),

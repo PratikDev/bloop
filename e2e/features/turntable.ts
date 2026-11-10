@@ -1,5 +1,5 @@
 // Feature checks on the Turntable page: the globe, its needle, search, tour, view, the four 3D scenes, its drawers.
-import { expect } from "@playwright/test";
+import { expect, type Page } from "@playwright/test";
 import { navTo } from "../lib/app";
 import { dock, name, openMore, openPlayerMore, openScene, tab, turntable, type Feature } from "./common";
 
@@ -123,4 +123,63 @@ export const TURNTABLE: Feature[] = [
       await expect(p).toContainText(/Chattogram|Dhaka/u, { timeout: 30_000 });
       return { evidence: (await p.innerText()).replace(/\s+/gu, " ").slice(0, 120) };
     } },
+  { id: "turntable-pointer-zoom", group: "visuals", name: "The pointer stays on the globe at every zoom", where: "Turntable · + / − and browser zoom", keyboard: true,
+    what: "The tonearm, stylus and swatch stay drawn, in front of the camera and on screen, the stylus on the swatch, zooming in to the closest and back out, and at 200% browser zoom",
+    async run(page) {
+      await turntable(page);
+      await page.goto(`${new URL(page.url()).pathname}?debug=1`);
+      // The reload starts without sound, and with no record playing the arm rests beside the globe: start it as a user would.
+      const start = page.getByRole("button", { name: /Start listening/u }).first();
+      if (await start.isVisible({ timeout: 5_000 }).catch(() => false)) await start.click();
+      await page.getByRole("button", { name: /Skip intro/u }).click({ timeout: 5_000 }).catch(() => undefined);
+      await page.waitForFunction(() => "__turntable" in window, null, { timeout: 60_000 });
+      await expect(page.getByText("Press any key to skip")).toBeHidden({ timeout: 30_000 });
+      const app = page.getByRole("application", { name: /Turntable Earth/u });
+      const steps: string[] = [];
+      const check = async (step: string) => {
+        await page.waitForTimeout(900); // the zoom eases in about 0.2 s; the arm follows on the next frames
+        const p = await pointerState(page);
+        const bad = (["arm", "swatch"] as const).flatMap((part) => (["visible", "inFront", "onScreen"] as const).filter((k) => !p[part][k]).map((k) => `${part} not ${k}`));
+        // The stylus tip stands on the swatch: the needle meets the point it reads.
+        const apart = Math.hypot(p.arm.x - p.swatch.x, p.arm.y - p.swatch.y);
+        if (apart > 3) bad.push(`stylus ${apart.toFixed(1)} px off the swatch`);
+        if (bad.length) throw new Error(`${step}: ${bad.join(", ")} (distance ${p.distance.toFixed(2)})`);
+        steps.push(`${step} ${p.distance.toFixed(2)}`);
+      };
+      await check("start");
+      await app.focus();
+      for (let i = 1; i <= 10; i++) { await page.keyboard.press("+"); await check(`+${i}`); }
+      for (let i = 1; i <= 12; i++) { await page.keyboard.press("-"); await check(`−${i}`); }
+      // Browser zoom at 200%: half the CSS pixels at twice the device pixels (the DPR change only where the browser allows it).
+      const size = page.viewportSize() ?? { width: 1280, height: 800 };
+      const cdp = page.context().browser()?.browserType().name() === "chromium" ? await page.context().newCDPSession(page) : null;
+      const zoomTo = async (factor: number) => {
+        const width = Math.round(size.width / factor), height = Math.round(size.height / factor);
+        await cdp?.send("Emulation.setDeviceMetricsOverride", { width, height, deviceScaleFactor: factor, mobile: false });
+        await page.setViewportSize({ width, height });
+      };
+      await zoomTo(2); await check("browser 200%");
+      await app.focus();
+      for (let i = 1; i <= 10; i++) await page.keyboard.press("+");
+      await check("browser 200%, closest");
+      await zoomTo(1); await check("browser 100%, closest");
+      for (let i = 1; i <= 12; i++) await page.keyboard.press("-");
+      await check("browser 100%, zoomed out");
+      await cdp?.send("Emulation.clearDeviceMetricsOverride");
+      return { evidence: `pointer drawn at ${steps.length} steps: ${steps.filter((_, i) => i % 6 === 0).join(" · ")}` };
+    } },
 ];
+
+interface PointerPart { visible: boolean; inFront: boolean; onScreen: boolean; x: number; y: number }
+interface TurntableDebug { pointer(): { arm: PointerPart; swatch: PointerPart } | null; distance(): number }
+
+/** The pointer as the scene draws it now, from the Turntable's debug hook (src/components/Turntable/debug.ts). */
+async function pointerState(page: Page) {
+  const p = await page.evaluate(() => {
+    const tt = (window as unknown as { __turntable?: TurntableDebug }).__turntable;
+    const pointer = tt?.pointer();
+    return pointer && tt ? { ...pointer, distance: tt.distance() } : null;
+  });
+  if (!p) throw new Error("the Turntable's debug hook has no pointer");
+  return p;
+}

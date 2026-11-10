@@ -11,6 +11,7 @@ import {
   Color,
   DirectionalLight,
   Group,
+  type Object3D,
   Raycaster,
   Sphere,
   Vector2,
@@ -25,7 +26,7 @@ import { latLonToSphere, sphereHitToLatLon } from "@/lib/sphere";
 import { createSpin, stepSpin } from "@/lib/spin";
 import type { GlobeFit } from "../fit";
 import type { LayerToggles } from "../settings";
-import { createCameraRig, type CameraRig } from "./camera";
+import { createCameraRig, DISTANCE, type CameraRig } from "./camera";
 import { ARM_REST, createDeck, type Deck } from "./deck";
 import { createEarth, EARTH_RADIUS, type Earth } from "./earth";
 import { createEffects, type Effects } from "./effects";
@@ -38,8 +39,12 @@ import { createStudio, type Studio } from "./studio";
 export const NEEDLE_AZIMUTH_DEG = 35;
 const MAX_ANISOTROPY = 8;
 const RAD = Math.PI / 180;
-/** Above this close-up blend the tonearm is hidden and the crosshair marks the needle. */
-const ARM_HIDDEN_ABOVE = 0.55;
+/**
+ * The camera's distance from the needle's tip at which the tonearm is drawn at its size on the deck (the Explore view's
+ * starting distance). Closer than this it shrinks about the tip, so up close it keeps its size on screen and still
+ * touches the globe, instead of filling the view or passing behind the camera.
+ */
+const ARM_FULL_SIZE_REACH = DISTANCE.explore - EARTH_RADIUS;
 const RECORD_LIFT = 0.7;
 /** Camera height above the surface in the Jukebox view (globe radii), the reference for effect sizes. */
 const JUKEBOX_HEIGHT = 4.2;
@@ -91,6 +96,8 @@ export interface TurntableScene {
   setFit(fit: GlobeFit, width: number, height: number): void;
   /** Points on the globe's outline as seen now, in CSS pixels (debug and verification). */
   discOutline(): { x: number; y: number }[];
+  /** The pointer as drawn now: the stylus tip and the contact swatch (debug and the zoom regression test). */
+  pointer(): { arm: PointerPart; swatch: PointerPart; blend: number };
   /** Size in CSS pixels (R3F sizes the canvas; this keeps projection and the post chain in step). */
   resize(width: number, height: number): void;
   /** Advance camera and effects by dt seconds; returns the number of particles spawned. */
@@ -101,6 +108,17 @@ export interface TurntableScene {
   draw(dt: number): void;
   dispose(): void;
 }
+
+/** One part of the pointer: drawn (it and every parent visible), in front of the near plane, inside the view, and where (CSS px). */
+export interface PointerPart {
+  visible: boolean;
+  inFront: boolean;
+  onScreen: boolean;
+  x: number;
+  y: number;
+}
+
+const drawn = (o: Object3D | null): boolean => (o === null ? true : o.visible && drawn(o.parent));
 
 export function createTurntableScene(host: SceneHost, dataCanvas: HTMLCanvasElement, palette: Palette): TurntableScene {
   const { renderer, scene, camera } = host;
@@ -198,6 +216,20 @@ export function createTurntableScene(host: SceneHost, dataCanvas: HTMLCanvasElem
     setFit(fit, w, h) {
       rig.setFit(fit, w, h);
     },
+    pointer() {
+      const part = (o: Object3D, at: Vector3): PointerPart => {
+        const view = at.clone().applyMatrix4(camera.matrixWorldInverse);
+        const ndc = at.clone().project(camera);
+        return {
+          visible: drawn(o),
+          inFront: -view.z > camera.near,
+          onScreen: Math.abs(ndc.x) <= 1 && Math.abs(ndc.y) <= 1,
+          x: ((ndc.x + 1) / 2) * width,
+          y: ((1 - ndc.y) / 2) * height,
+        };
+      };
+      return { arm: part(deck.arm, tip), swatch: part(effects.swatch, effects.swatch.getWorldPosition(new Vector3())), blend: rig.blend() };
+    },
     discOutline() {
       const d = camera.position.length();
       const axis = camera.position.clone().normalize();
@@ -224,7 +256,7 @@ export function createTurntableScene(host: SceneHost, dataCanvas: HTMLCanvasElem
       rig.update(dt, needleNormal, instant);
       const blend = rig.blend();
       overlays.setVisibility({ distance: blend > 0.5 ? rig.distance() : Infinity, ...layers });
-      deck.arm.visible = blend < ARM_HIDDEN_ABOVE;
+      deck.setArmScale(Math.min(1, camera.position.distanceTo(tip) / ARM_FULL_SIZE_REACH), tip);
       // The camera's height above the surface, relative to the Jukebox view: effects keep their screen size.
       const zoom = Math.min(1, Math.max(0.03, (camera.position.length() - EARTH_RADIUS) / JUKEBOX_HEIGHT));
       world.copy(needleNormal).multiplyScalar(EARTH_RADIUS);
