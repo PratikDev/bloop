@@ -9,6 +9,7 @@ import { cvTasks } from "../../src/lib/listen-test/chord";
 import { readUint16LE } from "../../src/lib/data/grid";
 import type { SstMetadata } from "../../src/types/data-contract";
 import { AUDIBLE, heard } from "../lib/app";
+import { answerExtras } from "../lib/listen-test";
 import { openAt } from "../mentor/lib";
 
 const ROOT = path.join(__dirname, "..", "..");
@@ -36,6 +37,8 @@ test("a fixture run: both chord tasks, answers from the data, audible", async ({
     if (chord) expect(await heard(page, 8000)).toBeGreaterThan(AUDIBLE);
     await page.locator("main [data-option]").first().click();
   }
+  // On an integrated build, ART's extras come after the tasks.
+  await answerExtras(page);
   await button(page, "Finish").click();
   const download = page.waitForEvent("download");
   await button(page, "Export results").click();

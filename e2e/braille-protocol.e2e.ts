@@ -114,7 +114,8 @@ test("protocol a–g, browser side; lines saved for liblouis", async ({ page, br
   await navTo(page, "Official records");
   const official: Record<string, unknown> = {};
   for (const [i, o] of OFFICIAL.entries()) {
-    const card = page.getByRole("group", { name: "Records", exact: true }).getByRole("button", { name: o.title, exact: true });
+    // "Records", or "Records by Earth system" when the Earth Orchestra groups them.
+    const card = page.getByRole("group", { name: /^Records( by |$)/u }).getByRole("button", { name: o.title, exact: true });
     await card.click();
     if (i === 0) out.recordCard = await exposed(page, `[aria-braillelabel][aria-pressed="true"]`);
     const open = page.getByRole("button", { name: "Braille explorer" }).last();

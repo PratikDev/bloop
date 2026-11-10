@@ -9,6 +9,7 @@ import { lifetimeSong, type LifetimeFile } from "../../src/lib/art/lifetime/song
 import { TEST_VERSION } from "../../src/lib/listen-test/results";
 import { AUDIBLE, heard, navTo, start } from "../lib/app";
 import { axeSerious } from "../lib/axe";
+import { answerExtras } from "../lib/listen-test";
 import { settle } from "../mentor/lib";
 
 const ROOT = path.resolve(__dirname, "../..");
@@ -117,24 +118,8 @@ test("the listener test: emotion ratings and ear vs eye after the tasks, exporte
     await page.locator("[data-option]").first().click();
     await settle(page, 200);
   }
-  for (let k = 0; k < 2; k++) {
-    const em = page.getByTestId("lt-emotion");
-    await expect(em).toBeVisible();
-    await em.getByRole("button", { name: /Play the clip|Show the clip/u }).click();
-    await em.getByRole("group", { name: "How did it feel?" }).getByRole("button", { name: "4" }).click();
-    await em.getByRole("group", { name: /How connected/u }).getByRole("button", { name: "3" }).click();
-    await em.getByRole("button", { name: "Next" }).click();
-  }
-  // Ear vs eye: two items (one heard, one seen); the task is left out only on a dry day (no clear answer).
-  const ee = page.getByTestId("lt-ear-eye");
-  const finish = page.getByRole("button", { name: "Finish" });
-  await expect(ee.or(finish)).toBeVisible({ timeout: 30_000 });
-  if (await ee.isVisible()) {
-    const first = await ee.getAttribute("data-sense");
-    await ee.locator("[data-option]").first().click();
-    await expect(ee).not.toHaveAttribute("data-sense", first!);
-    await ee.locator("[data-option]").first().click();
-  }
+  // Emotion ratings, then ear vs eye (left out only on a dry day: no clear answer).
+  await answerExtras(page);
   await page.getByRole("button", { name: "Finish" }).click();
   const [file] = await Promise.all([page.waitForEvent("download"), page.getByRole("button", { name: /Export/u }).click()]);
   const json = JSON.parse(readFileSync((await file.path())!, "utf8"));
