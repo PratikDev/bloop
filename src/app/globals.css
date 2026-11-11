@@ -928,6 +928,25 @@ html[data-text="comfortable"] .font-wide-display {
     border-color: Highlight;
     outline: 2px solid Highlight;
   }
+  /* The current page's pill is filled in Highlight, with HighlightText on it (axe's contrast check reads both). */
+  [aria-current="page"] {
+    forced-color-adjust: none;
+    background-color: Highlight;
+    color: HighlightText;
+  }
+  /* The coral primary action (rule 0.5.3) loses its fill here, so it keeps its place: a Highlight fill with
+     HighlightText, inside its CanvasText outline. Keys and links only, not the coral dots and fills. */
+  :is(button, a):is(.bg-shapla):not(:disabled, [aria-disabled="true"]) {
+    forced-color-adjust: none;
+    background-color: Highlight;
+    color: HighlightText;
+    border-color: CanvasText;
+  }
+  /* A Highlight ring would vanish on a Highlight fill. */
+  [aria-current="page"]:focus-visible,
+  :is(button, a):is(.bg-shapla):focus-visible {
+    outline-color: CanvasText;
+  }
   :focus-visible {
     outline-color: Highlight;
   }
