@@ -6,7 +6,7 @@ Terms follow `docs/i18n/GLOSSARY.md`: Play বাজান; Pause বিরত�
 
 Combined by Session A on 2026-11-10 from `docs/i18n/A-BN-REVIEW.md` and `docs/i18n/B-BN-REVIEW.md`, which are generated from the tables.
 
-## 1. Controls (149)
+## 1. Controls (151)
 
 | Key | English | Bangla draft | Drafted by |
 |---|---|---|---|
@@ -158,6 +158,8 @@ Combined by Session A on 2026-11-10 from `docs/i18n/A-BN-REVIEW.md` and `docs/i1
 | `turntable.view.explore` | Close-up view | কাছ থেকে দৃশ্য | B |
 | `turntable.view.jukebox` | Jukebox view | জুকবক্স দৃশ্য | B |
 | `turntable.view.label` | View | দৃশ্য | B |
+| `turntable.volume.all` | Volume, all sounds | ভলিউম, সব শব্দ | B |
+| `turntable.volume.all.value` | Volume, all sounds: {percent}% | ভলিউম, সব শব্দ: {percent}% | B |
 | `turntable.where.button` | Where am I? | আমি কোথায়? | B |
 
 ## 2. Announcements (28)
