@@ -1,6 +1,6 @@
 # Then vs Now: windows, statistics and how to rerun
 
-Written for the mentor fixes (`docs/MENTOR_FIXES.md`, items 9 and 10). Every number in the app's Then vs Now parts comes from the pipeline: `pipeline/build_context.py` (context files), `pipeline/build_demo.py` and `pipeline/build_cities.py` (the demo files), and `pipeline/stats/then_vs_now_stats.py` (the statistics, item 10).
+Every number in the app's Then vs Now parts comes from the pipeline: `pipeline/build_context.py` (context files), `pipeline/build_demo.py` and `pipeline/build_cities.py` (the demo files), and `pipeline/stats/then_vs_now_stats.py` (the statistics, item 10).
 
 ## 1. Rain products (item 9)
 

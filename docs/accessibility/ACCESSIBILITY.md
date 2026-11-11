@@ -2,7 +2,7 @@
 
 Bloop turns NASA Earth data into sound. Accessibility is a core theme of the challenge, so the accessible layer is the app's state, not an add-on: the map, the values and the descriptions are real HTML driven by one store, and the 3D views only draw that state. Every task works with the 3D hidden.
 
-This page says what exists, how to use it (English, then Bangla), the keys, the evidence the design rests on, how it was tested, and its limits. Build plan: CORE_PLAN.md. Test results: RESULTS.md. Tests that need a person: [MANUAL_TESTS.md](MANUAL_TESTS.md). Braille: [BRAILLE.md](BRAILLE.md).
+This page says what exists, how to use it (English, then Bangla), the keys, the evidence the design rests on, and its limits.
 
 **Scope.** The desktop website, in Chromium and Firefox. Phone touch mode, Android vibration, TalkBack and iPhone checks were not built (decided on 8 Nov 2026); see "Known limits".
 
@@ -115,14 +115,6 @@ Checked on 9 Nov 2026; quoted only as far as the sources say.
 - **Magnification loses context.** Prakash et al., "Towards Enhancing Low Vision Usability of Data Charts on Smartphones" (GraphLite), IEEE VIS 2024: magnifier users found enlarged charts force constant panning; personalisable charts that keep context improved task times over a standard magnifier with 26 low-vision participants. → The Context Lens carries its own value, scale and overview.
 - **Blur and separation hurt.** Prakash et al., "Understanding Low Vision Graphical Perception of Bar Charts", ASSETS 2024 (25 magnifier users): time spent counteracting blur and contrast; separated items were harder to compare than adjacent ones; tall distractors raised errors. → Sharp, discrete bands; value and scale side by side in the lens.
 - **Magnifiers follow focus.** TetraLogical, "Browsing with screen magnification", 2021: built-in magnifiers (lens or full screen) follow keyboard focus. → Point of regard: focus always lands on visible elements next to what they describe.
-
-## Test results
-
-Summary here; full tables, commands and dates in RESULTS.md.
-
-- Unit tests (`bun test`): templates in each detail level (English and Bangla), the digit-provenance test, pattern rules on synthetic grids, the status-region debounce, WebVTT writing and parsing, the sweep and time-lapse cues, sound captions, tactile alt text, low-vision bands, label placement, settings and theme contrast.
-- Browser tests (Playwright, Chromium and Firefox desktop, 3D shown and hidden), one file per step in `qa/e2e/a11y/`; axe-core with zero serious violations on each new panel.
-- NVDA log method: see RESULTS.md.
 
 ## Known limits
 
