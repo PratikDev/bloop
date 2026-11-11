@@ -7,6 +7,7 @@ import { neighbour } from "@/lib/records";
 import { PAGE_PATHS } from "@/router/modes";
 import { useAppState, useT } from "../AppState/use-app-state";
 import { BRAILLE_EXPLORER_ID } from "../BrailleExplorer";
+import { setBrailleOpener } from "../BrailleExplorer/opener";
 import { useCommands } from "../Commands/use-commands";
 import { openPlayerSheet } from "../Player/player-sheet-store";
 import { useRecords } from "../Records/use-records";
@@ -58,7 +59,7 @@ export function StepItems() {
 export function ListenItems() {
   const { state } = useAppState();
   const commands = useCommands();
-  const { close } = useMoreMenu();
+  const { close, button } = useMoreMenu();
   const t = useT();
   return (
     <>
@@ -69,6 +70,8 @@ export function ListenItems() {
         onClick={() => {
           close();
           commands.toggleBraille();
+          // Closing the explorer comes back to More (this item goes away with its menu).
+          setBrailleOpener(button.current);
         }}
         className={MORE_ITEM}
       >

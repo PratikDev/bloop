@@ -25,7 +25,8 @@ export function MiniPlayer({ keys, caption, slider = false, fullWidthKeys = fals
     <div data-tt-occluder className={cn("surface-glass flex flex-wrap items-center gap-x-4 gap-y-2 rounded-t-sheet p-2 lg:flex-nowrap lg:py-1", className)}>
       <PlayerSheet />
       <SoundButton />
-      {listen ? <Readout className="order-last basis-full lg:order-none lg:basis-auto lg:shrink-0" /> : <Sleeve />}
+      {/* While the braille explorer is open its value line holds the value: the bar shows the caption only. */}
+      {listen ? !state.brailleOpen && <Readout className="order-last basis-full lg:order-none lg:basis-auto lg:shrink-0" /> : <Sleeve />}
       <div className="order-last flex min-w-0 basis-full items-center gap-2 lg:order-none lg:flex-1 lg:basis-0 xl:min-w-fit">
         {listen && <StalePill />}
         {caption ?? <CaptionBar soundOnly whileSounding className="min-h-0 min-w-0 flex-1 text-body lg:max-w-[40vw] xl:min-w-50" />}

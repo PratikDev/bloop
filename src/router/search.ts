@@ -13,10 +13,14 @@ const oneOf = <T extends string>(options: readonly T[], value: unknown): T | und
 export interface ListenSearch {
   /** The guided tour (Story) on the map. */
   tour?: true;
+  /** The braille data explorer, open. */
+  braille?: true;
 }
 
+const isOn = (v: unknown) => v === true || v === 1 || v === "1";
+
 export function listenSearch(raw: Raw): ListenSearch {
-  return raw.tour === true || raw.tour === 1 || raw.tour === "1" ? { tour: true } : {};
+  return { ...(isOn(raw.tour) ? { tour: true } : {}), ...(isOn(raw.braille) ? { braille: true } : {}) };
 }
 
 export const THEN_NOW_VIEWS = ["compare", "monthly"] as const;

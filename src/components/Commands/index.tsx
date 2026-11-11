@@ -19,6 +19,7 @@ import { useAppState } from "../AppState/use-app-state";
 import { useLiveData } from "../LiveData/use-live-data";
 import { CommandsContext, SETTING_LABELS, type Line, type Commands, type SweepVisual } from "./use-commands";
 import { useSoundSync } from "./use-sound-sync";
+import { setBrailleOpener } from "../BrailleExplorer/opener";
 
 // Shortest time a said line stays before the next one (about fast reading speed).
 const MIN_MS_PER_CHAR = 40;
@@ -178,7 +179,10 @@ export function CommandsProvider({ children }: { children: ReactNode }) {
         dispatch({ type: "setHelpOpen", open: true });
       },
       toggleBraille(open) {
-        dispatch({ type: "setBrailleOpen", open: open ?? !state.brailleOpen });
+        const next = open ?? !state.brailleOpen;
+        // Closing it later comes back here (More's item replaces this with the More key).
+        if (next) setBrailleOpener(document.activeElement);
+        dispatch({ type: "setBrailleOpen", open: next });
       },
       stopAll() {
         sayCount.current++;

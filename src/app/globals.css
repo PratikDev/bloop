@@ -1004,6 +1004,12 @@ html[data-text="comfortable"] .font-wide-display {
   }
 }
 
+/* ---- The braille explorer's shape line: cells at 30 px, so a sighted helper can read the shape. ---- */
+.braille-cells {
+  font-size: 1.875rem;
+  line-height: 1.3;
+}
+
 /* Next's route announcer reads the previous page's title (it runs before our router names the new page), and it is a
    second live region. Each page change already says one thing: focus moves to the new page's heading (audit A3). */
 next-route-announcer {

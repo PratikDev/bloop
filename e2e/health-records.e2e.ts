@@ -9,6 +9,7 @@ import { expect, test, type Page } from "@playwright/test";
 import { AUDIBLE, heard, level, open, SETTLE_MS, start, navTo } from "./lib/app";
 import { existsSync, mkdirSync, readFileSync, writeFileSync } from "node:fs";
 import { join } from "node:path";
+import { BRAILLE_NAMES, chooseBrailleOption } from "./lib/braille";
 
 interface PlanPoint { lat: number; lon: number; fx: number; fy: number }
 interface PlanRecord {
@@ -80,15 +81,13 @@ async function checkRecord(page: Page, p: PlanRecord, errors: string[]): Promise
 
 async function checkLive(page: Page, errors: string[]): Promise<Record<string, AppResult>> {
   const out: Record<string, AppResult> = {};
-  for (const [id, voice] of [["sst", "SST"], ["rain", "Rain"]] as const) {
+  for (const [id, voice] of [["sst", BRAILLE_NAMES.en.ocean], ["rain", BRAILLE_NAMES.en.rain]] as const) {
     const before = errors.length;
     await page.locator("#sound-map").focus();
     await page.keyboard.press("b");
-    const voices = page.getByRole("group", { name: "Voice" });
-    if (await voices.count()) await voices.getByRole("button", { name: voice, exact: true }).click();
+    await chooseBrailleOption(page, BRAILLE_NAMES.en.data, voice);
     // Rain's shape line opens "Through time" (arrows step the 48 frames at one point); "Along the latitude" moves the needle.
-    const shapes = page.getByRole("group", { name: "Shape shows" });
-    if (await shapes.count()) await shapes.getByRole("button", { name: "Along the latitude", exact: true }).click();
+    await chooseBrailleOption(page, BRAILLE_NAMES.en.shape, "Along the latitude");
     const value = page.getByTestId("braille-value");
     await expect(value).toHaveValue(/\S/u);
     const first = await value.inputValue();

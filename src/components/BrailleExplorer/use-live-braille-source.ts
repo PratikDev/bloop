@@ -72,7 +72,10 @@ export function useLiveBrailleSource(): BrailleSource | null {
   return useMemo<BrailleSource | null>(() => {
     if (!fields) return null;
     const channels = track === "ocean" ? (["ocean"] as const) : track === "rain" ? (["rain"] as const) : (["ocean", "rain"] as const);
-    const label = (c: LiveChannel) => (c === "ocean" ? "SST" : "Rain");
+    // The data's names: in words on the controls ("Ocean temperature"); the braille value line keeps its standard
+    // short form ("SST").
+    const label = (c: LiveChannel) => t(c === "ocean" ? "track.oceanLong" : "braille.name.rain");
+    const short = (c: LiveChannel) => (c === "ocean" ? "SST" : "Rain");
     const lastFrame = seq ? seq.frames.length - 1 : 0;
     const shownFrame = frame ?? lastFrame;
 
@@ -128,7 +131,7 @@ export function useLiveBrailleSource(): BrailleSource | null {
         const ch = c as LiveChannel;
         const v = shown(ch, m);
         return {
-          short: label(ch), long: t(ch === "ocean" ? "braille.name.ocean" : "braille.name.rain"), layer: ch,
+          short: short(ch), long: t(ch === "ocean" ? "braille.name.ocean" : "braille.name.rain"), layer: ch,
           kind: v.value === null ? "nodata" : ch === "rain" && v.value === 0 ? "dry" : "value", value: v.value,
           decimals: ch === "ocean" ? 1 : v.value !== null && v.value >= 10 ? 0 : 1, below: false, snow: v.frozen,
           unit: ch === "ocean" ? "°C" : "mm/h", place: cursor, time: { iso: v.time || null, label: null },

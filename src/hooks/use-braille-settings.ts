@@ -1,6 +1,7 @@
 "use client";
 
 import { useCallback, useState } from "react";
+import type { ShapeMode } from "@/a11y/brailleSource";
 import type { DegreeStyle } from "@/a11y/brailleText";
 
 /** Display widths offered (cells); 40 is the default, as in MAIDR. */
@@ -14,6 +15,9 @@ export interface BrailleSettings {
   degree: DegreeStyle;
   /** The visual braille preview under the explorer (for sighted helpers and demos). */
   preview: boolean;
+  /** The data and shape last chosen, per source (its key): Listen keeps its own, and each record starts from its own
+   *  default until a choice is made there, so the cells are what they were before choices were kept. */
+  choices?: Record<string, { channel?: string; mode?: ShapeMode }>;
 }
 
 export const DEFAULT_BRAILLE_SETTINGS: BrailleSettings = { width: 40, field: "textarea", degree: "word", preview: false };

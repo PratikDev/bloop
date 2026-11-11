@@ -90,11 +90,14 @@ export async function open(page: Page) {
 export const officialStrip = (page: Page, title: string) =>
   page.getByRole("button", { name: new RegExp(`^C\\d+, ${title.replace(/[.*+?^${}()|[\]\\]/gu, "\\$&")}$`, "u") });
 
+/** The Details drawer's names, in English or (the Bangla-mode checks) in Bangla. */
+export const DETAILS_NAMES = { en: { details: "Details", controls: "Controls" }, bn: { details: "বিস্তারিত", controls: "নিয়ন্ত্রণ" } } as const;
+
 /** An official record's braille explorer button: in its Details drawer, on the Controls tab. */
-export async function officialBrailleButton(page: Page, name: string | RegExp = /Braille explorer/u) {
-  const drawer = page.getByRole("dialog", { name: "Details" });
-  if (!(await drawer.count())) await page.getByRole("button", { name: "Details", exact: true }).click();
-  await drawer.getByRole("tab", { name: "Controls" }).click();
+export async function officialBrailleButton(page: Page, name: string | RegExp = /Braille explorer/u, names: { details: string; controls: string } = DETAILS_NAMES.en) {
+  const drawer = page.getByRole("dialog", { name: names.details });
+  if (!(await drawer.count())) await page.getByRole("button", { name: names.details, exact: true }).click();
+  await drawer.getByRole("tab", { name: names.controls }).click();
   return drawer.getByRole("button", { name });
 }
 
