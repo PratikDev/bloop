@@ -84,6 +84,11 @@ export async function open(page: Page) {
   const skip = page.getByRole("button", { name: "Skip intro" });
   if (await skip.waitFor({ state: "visible", timeout: 5000 }).then(() => true, () => false)) await skip.click();
   await skip.waitFor({ state: "hidden", timeout: 10_000 }).catch(() => undefined);
+  // Listen's code loads on demand: wait for its map, and for the intro's fade and the journey to finish, so a check
+  // never acts on (or measures) a page that is still arriving.
+  await page.locator("#sound-map").waitFor({ state: "visible", timeout: 30_000 }).catch(() => undefined);
+  await page.locator("[data-jukebox-journey]").waitFor({ state: "detached", timeout: 10_000 }).catch(() => undefined);
+  await page.waitForFunction(() => document.getAnimations().every((a) => a.playState !== "running" || a.effect?.getTiming().iterations === Infinity), null, { timeout: 5_000 }).catch(() => undefined);
 }
 
 /** An official record's strip on the Official page: its name is its code, then its title. */

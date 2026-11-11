@@ -116,6 +116,12 @@ export const LISTEN: Feature[] = [
   { id: "enter-speaks", group: "a11y", name: "Speak the value (live region)", where: "Listen · Enter", keyboard: true,
     what: "Announces the value and place through the page's live region", control: map,
     async run(page) {
+      // The live region carries Enter's line when the built-in voice is off (screen-reader users, as Help suggests);
+      // with it on, the line is spoken instead, so the screen reader doesn't hear it twice.
+      await page.getByRole("banner").getByRole("button", { name: "Settings" }).click();
+      const voice = page.getByRole("button", { name: "Built-in voice", exact: true });
+      if ((await voice.getAttribute("aria-pressed")) === "true") await voice.click();
+      await page.keyboard.press("Escape");
       await onMap(page); await page.keyboard.press("Enter");
       await expect.poll(() => live(page)).toMatch(/°C|mm\/h|Dry/u);
       return { evidence: `live region: "${(await live(page)).replace(/\s+/gu, " ").slice(0, 100)}"` };
