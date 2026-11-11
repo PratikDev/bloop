@@ -178,9 +178,9 @@ export function useTurntable(o: Options): Turntable {
   const inputAt = useRef(0);
   const size = useRef({ width: 1, height: 1 });
 
-  // The Earth waits for the Turn key: turning at once carried the needle off the Bay of Bengal (START_CURSOR, the
-  // place Listen opens on) onto India within five seconds, so the first reading was "No ocean data here".
-  const [rotating, setRotatingState] = useState(false);
+  // The record turns when it's playing: with the sound playing the Earth turns from the start; otherwise it waits for
+  // Start or the Turn key. Reduced motion: never by itself (setRotating).
+  const [rotating, setRotatingState] = useState(o.liveOn && !o.reduceMotion);
   const [speedIndex, setSpeedIndex] = useState(DEFAULT_SPEED_INDEX);
   const [cameraMode, setCameraModeState] = useState<CameraMode>("jukebox");
   const speedIndexNow = useRef(DEFAULT_SPEED_INDEX);
@@ -238,6 +238,15 @@ export function useTurntable(o: Options): Turntable {
     },
     [syncCursor],
   );
+
+  // Sound starting turns the record; pausing (or turning sound off) stops it. Only a change counts, so the Turn key's
+  // choice stands until the sound changes.
+  const wasLive = useRef(o.liveOn);
+  useEffect(() => {
+    if (wasLive.current === o.liveOn) return;
+    wasLive.current = o.liveOn;
+    setRotating(o.liveOn);
+  }, [o.liveOn, setRotating]);
 
   const cancelFlight = useCallback(() => {
     const f = flight.current;
