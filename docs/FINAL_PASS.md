@@ -40,26 +40,41 @@ All on a production build (`bun run build`, served from `out/`), headless Chromi
 
 | Check | Result |
 |---|---|
-| Full Chromium e2e (94 tests, every spec) on `final-pass` e8e2b5c | 90 passed, 3 failed, 1 skipped. The 3 pass on rerun: the Turntable's Credits check matched hidden text (now scoped to the dialog); `turntable-pointer-zoom` hit its 120 s limit on this machine (108 s alone; Session B told); the 390×844 overlap check scrolled before Official's map had loaded (now scrolls again). The final full run after Session B's performance merge (`final-pass` c0504f1): 89 passed, 4 failed, 1 skipped. All 4 were the tests acting before Listen had arrived (it now loads on demand) or on an assumption about the voice; the test helper now waits for Listen's map and for the intro and journey to finish, and the Enter check turns the built-in voice off (with it on, Enter's line is spoken instead of written to the live region, by design). The 4 pass on rerun: axe on /listen, Esc, Enter speaks, the settings toggles. |
+| Full Chromium e2e (94 tests, every spec) | **Final run, on `final-pass` 7040067** (all of Session B's work, including the performance merge and the Turntable fix): **91 passed, 2 failed, 1 skipped**. Neither failure is an app fault: (1) axe with the player sheet open ran while the sheet was still opening, with the controls behind it part-dimmed and not yet hidden; once open, the page behind is `aria-hidden` and axe finds nothing. The check now waits for the sheet to finish opening (as a user sees it) and passed 5 times out of 5. (2) `feature scene-tunnel` (a 3D scene, Session B's) hit the 120 s limit on this machine's software rendering; it passed alone in 44 s. The skipped test is the record health check's live layer (`e2e/health-records.e2e.ts`), which runs only after `npm run health` has written its plan; it wasn't part of this run. Earlier runs: on e8e2b5c, 90 passed and 3 failed (two test fixes and a too-tight time limit); on c0504f1, 89 passed and 4 failed (the tests acting before Listen, now loaded on demand, had arrived; the start helper now waits for it, and the Enter check turns the built-in voice off, since with it on Enter's line is spoken rather than written to the live region, by design). No test was loosened to pass. |
 | axe (`e2e/a11y.e2e.ts`): Home, Listen, Then vs Now, How we know, Official records, the Turntable, the 404, the player sheet; and with the braille explorer open | no serious or critical violations |
 | 200% and 400% zoom, 320×568, forced colours, text spacing, one announcement per page change, Help focus | pass on every page (Listen and the Turntable re-checked after the braille redesign and the two-object Turntable) |
 | Reduced motion (the system setting and the app's own) | no running animations and no bubbles on Home, Listen, Then vs Now, How we know and Official records (the Turntable's motion is Session B's) |
 | Feature inventory (`e2e/features.e2e.ts`, including the `reach-*` checks) | every record, Listen's controls, the storm time-lapse with Globe / Flat map, Then vs Now's parts, views and Details, How we know's links and Credits, every Official record, the Turntable's scenes, More, search and Where am I, Settings, Help, language and the 404: all reachable |
 | Braille correctness | the value line's number equals the readout's and every cell is the readout's band at 27 points (ocean, rain, land, both sides of the antimeridian, both ends of the scale; both shapes; widths 14 and 40); one arrow is one point; routing lands on the cell's point; every line identical before and after the explorer redesign (16 English, 13 Bangla). The liblouis check needs NVDA, which isn't installed on this machine: **not re-run** (the lines are identical to those checked on 4 and 5 November). |
 | Map, globe and chart sizes | Listen's map, the Home globe, Then vs Now's chart panels and the Official records map at or above the pre-redesign baseline (`docs/status/map-sizes.md`) at 1920×1080, 1440×900, 1280×720, 1024×768 and 390×844 (the Turntable's sizes are Session B's) |
-| Turntable click responsiveness | Before Session B's last fix, the readout briefly showed the previous place between the click and the needle's touchdown. Session B's fix (9c5d05b) shows the picked place from the first frame after the click (0 stale frames in 7 recorded clicks, normal and reduced motion); the needle-drop sound and the arrival announcement still come at touchdown. On this machine (software rendering) the touchdown itself couldn't be timed reliably. |
+| Turntable click responsiveness | Before Session B's last fix, the readout briefly showed the previous place between the click and the needle's touchdown. Session B's fix (9c5d05b) shows the picked place from the first frame after the click (0 stale frames in 7 recorded clicks, normal and reduced motion); the needle-drop sound and the arrival announcement still come at touchdown. Re-checked by Session A on `final-pass` 7040067, recording the readout on every frame around clicks on the globe: the hover preview stays through the press and then becomes the picked place; no frame shows the previous place. On this machine (software rendering) the touchdown itself couldn't be timed reliably. |
 | Control counts | at most 8 per page and player on desktop. On phones the page scrolls, and controls are counted per screenful (Pratik, 2026-11-11): Then vs Now's City, Part, Play, Details, Pause motion, the sound key and More stay as they are. |
 
-**Performance** (Fast 4G: 9 Mbit/s down, 1.5 up, 60 ms; 4× CPU slowdown; median of 3; budget: Start usable within 3 s, first sound within 2 s of the click):
+### Performance
 
-| Build | Heading | Start usable | First sound after the click | Before Start |
-|---|---|---|---|---|
-| Before: `final-pass` e8e2b5c | 4.0 s | 4.1 s | 4.7 s | the app code and the ocean frame only |
-| After: Session B's performance merge, `final-pass` c0504f1 | 3.7 s | 3.8 s | 3.1 s | the app code, the ocean frame **and the rain grid** (fetched once Home is idle) |
+Budget (§10): Home shows its heading and a usable Start within 3 s; the first sound within 2 s of the click; Home downloads nothing before Start beyond the ocean frame and the app code. Measured with Chrome's "Fast 4G" (9 Mbit/s down, 1.5 Mbit/s up, 60 ms) and 4× CPU slowdown on a production build.
 
-Both numbers improved but still miss the budget (Start usable 3.8 s against 3 s; first sound 3.1 s against 2 s). Session B measured 3.5 s and about 3 s at 1440×900 on its machine. **For Pratik to decide:** the rain grid (4.7 MB) now loads while Home is idle, before Start. That brings the first sound forward, but it goes against the budget's "Home downloads nothing before Start beyond the ocean frame and the app code".
+| Build, measured by | Start usable | First sound after the click | Downloads before Start |
+|---|---|---|---|
+| Before Session B's performance merge (`final-pass` e8e2b5c), Session A, 1280×720, median of 3 | 4.1 s (heading 4.0 s) | 4.7 s | the app code and the ocean frame |
+| Before, Session B, 1440×900 / 390×844 (its earlier build) | 7.4 s / 6.7 s | 5.4 s / 5.8 s | as above |
+| After (`final-pass` c0504f1), Session A, 1280×720, median of 3 | 3.8 s (heading 3.7 s) | 3.1 s (runs: 3.0, 3.1, 6.0 s) | the app code, the ocean frame **and the rain grid** |
+| After, Session B, 1440×900 / 390×844 | 3.5 s / 3.4 s | 2.2–4.3 s (median about 3 s) / 2.7 s | as above |
 
-Screen-reader runs with NVDA, VoiceOver and TalkBack were not part of this pass and are not claimed.
+**Budget misses that remain:**
+- **Start usable:** 3.4–3.8 s against 3 s, at every size measured.
+- **First sound:** about 2.7–3.1 s (median) against 2 s, with single runs up to 4.3–6.0 s.
+- **Downloads before Start:** the rain grid (4.7 MB) is now fetched once the first page is usable and idle (`src/components/LiveData/index.tsx`, Session B's commented block), before Start, so that the first sound is sooner. That goes against the budget's third line. The prefetch runs on whatever page is opened first, not only Home. **For Pratik to decide:** keep it, or go back to loading the rain at Start.
+
+How these were measured: on a local static server that sends files **uncompressed** (no gzip or brotli), in headless Chromium on Windows; Session A with SwiftShader software rendering. The real host compresses, which shortens the downloads; that hasn't been measured (see "Not verified" below). No further performance pass was made after Session B's merge.
+
+### Not verified
+
+- **NVDA and liblouis:** the liblouis check (`tests/braille/louis_check.py`) needs NVDA's folder, and NVDA isn't installed on the machine that ran phase 8. It wasn't re-run after the braille explorer redesign. The braille lines are identical to the ones checked on 4 and 5 November, but the check itself is outstanding. No NVDA viewer run was made in this pass either.
+- **VoiceOver and TalkBack:** not tested.
+- **Static-host compression:** not verified. The performance numbers above were taken without compression; how Cloudflare Pages serves `out/` (compression, caching) hasn't been checked.
+- **Firefox:** not run in this pass; the draft pull request's CI runs the e2e in Chromium and Firefox.
+- **The Turntable's touchdown timing:** this machine's software rendering is too slow to time it; Session B measured it with hardware rendering.
 
 ## Deploy (for Pratik; the agents don't deploy)
 

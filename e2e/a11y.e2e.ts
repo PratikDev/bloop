@@ -53,5 +53,8 @@ test("axe: no serious or critical violations with the player sheet open", async 
   await openPlayerMore(page);
   await page.getByRole("button", { name: "Now playing" }).first().click();
   await expect(page.getByRole("dialog", { name: "Now playing" })).toBeVisible();
+  // Measured once the sheet has finished opening (its backdrop fading in, the page behind becoming hidden), as a user
+  // sees it: mid-fade, the controls behind are part-dimmed and not yet hidden.
+  await page.waitForFunction(() => document.getAnimations().every((a) => a.playState !== "running" || a.effect?.getTiming().iterations === Infinity));
   expect(await serious(page)).toEqual([]);
 });
