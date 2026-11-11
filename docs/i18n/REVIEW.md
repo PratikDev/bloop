@@ -476,6 +476,12 @@ Notes on the **fixes** rows (they replace earlier wording; `{name}` is filled in
 
 In `src/lib/i18n/bn/data.ts` (entries marked "Drafts, review first") and `src/lib/i18n/bn/rules.ts`: the sentences from mapping.json's newer voices (the normal tone, clarity, proof in unison, water's legend, the stale hiss), the units "°C vs normal" and "hours since a 1 km infrared look", the word for echo length (প্রতিধ্বনির দৈর্ঘ্য) and the Bangla "same rule as" sentence for proof in unison.
 
+## 7. bloop-dev's features (merged 2026-11-11)
+
+The features brought in from `bloop-dev` came with their own Bangla drafts, written by the developer and not yet checked: Earth Orchestra and the Science to Art dial, Water's journey, data and artistic choice, fire weather, wildfires, landslide exposure, night lights, the radar method, Ask Bloop, the speech choices, describe here, the map keys, low-vision mode and the braille explorer on Then vs Now.
+
+They are not repeated here. The keys are listed in `src/lib/i18n/bn/drafts.ts` (`DRAFT_KEYS`, and every key of the `art`, `earth`, `cv`, `ask-bloop`, `low-vision` and `timed-text` tables), and `docs/i18n/TO_TRANSLATE.md` shows each one with its English and its draft, marked "draft, needs review". Review them there in the same order as above: controls, announcements, errors, headings, then the rest. An entry leaves `DRAFT_KEYS` once it has been checked.
+
 ## Consistency fixes made while combining
 
 - `braille.bl.stop` (A): বন্ধ → থামান. Stop is থামান; বন্ধ করুন is Close.
