@@ -99,8 +99,11 @@ async function go(page: Page, path: string) {
   await page.waitForTimeout(SETTLE_MS);
   // Where the page itself scrolls (phones), the sticky player covers what is below the fold until it is scrolled to:
   // at the end of the page, the last content must clear the player.
-  await page.evaluate(() => window.scrollTo(0, document.documentElement.scrollHeight));
-  await page.waitForTimeout(300);
+  // Twice: a page whose data arrives late (Official records' map) grows after the first scroll.
+  for (let i = 0; i < 2; i++) {
+    await page.evaluate(() => window.scrollTo(0, document.documentElement.scrollHeight));
+    await page.waitForTimeout(800);
+  }
 }
 
 for (const viewport of VIEWPORTS) {

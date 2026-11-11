@@ -108,7 +108,8 @@ export const TURNTABLE: Feature[] = [
       await turntable(page);
       await openMore(page);
       await page.getByRole("button", { name: "Credits", exact: true }).click();
-      await expect(page.getByText(/SVS/u).first()).toBeVisible();
+      // In the Credits dialog: hidden text elsewhere on the page can name SVS too.
+      await expect(page.getByRole("dialog").getByText(/SVS/u).first()).toBeVisible();
       return { evidence: "Credits opens with the SVS credits" };
     } },
   { id: "history-panel", group: "data", name: "History: a place's Month by month record", where: "Then vs Now · More · Month by month", keyboard: false,
