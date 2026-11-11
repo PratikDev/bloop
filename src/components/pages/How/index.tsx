@@ -7,6 +7,7 @@ import { useLoaded } from "@/hooks/use-loaded";
 import { loadGlobeDuet } from "@/lib/data";
 import { oceanTruth, rainTruth } from "@/lib/truth";
 import { useT } from "../../AppState/use-app-state";
+import { ArtHowCards } from "../../Art/HowCards";
 import { useCommands } from "../../Commands/use-commands";
 import { ComingInOctober } from "../../ComingInOctober";
 import { Credits } from "../../Credits";
@@ -99,6 +100,7 @@ export function HowPage() {
         >
           <GlobeTeaser />
         </Tile>
+        <ArtHowCards firstNumber={5} />
         </ol>
       </div>
     </section>

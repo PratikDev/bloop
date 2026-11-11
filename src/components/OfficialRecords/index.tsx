@@ -13,8 +13,10 @@ import { useAnnounceError } from "@/hooks/use-announce-error";
 import { useLoaded } from "@/hooks/use-loaded";
 import type { OfficialBadge, OfficialLayer } from "@/types/data-contract";
 import { useAppState, useT } from "../AppState/use-app-state";
+import { ArtRecord } from "../Art/ArtRecord";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { Cabinet } from "../Cabinet";
+import { appRecordExtras, appRecordPlayer } from "../EarthRecords";
 import { InfoSheet } from "../InfoSheet";
 import { RecordStrip } from "../Rack/RecordStrip";
 import { useRecords } from "../Records/use-records";
@@ -120,6 +122,7 @@ function Player({ record, related }: { record: string; related: ReactNode }) {
             <TabsContent value="source" className="text-body">{sourcesTab}</TabsContent>
             <TabsContent value="controls" className="space-y-4 text-body">
               <RecordControls rec={rec} timeText={timeText} readingText={`${place}: ${text}`} />
+              <ArtRecord rec={rec} record={record} time={times[rec.step]} />
               <Button ref={brailleButton} variant="outline" className="h-11" disabled={!rec.ready} aria-expanded={brailleOpen} onClick={() => setBrailleOpen((o) => !o)} {...brailleLabel(t("braille.bl.braille"))}>
                 {t("braille.open")}
               </Button>
@@ -195,7 +198,11 @@ export function OfficialRecords() {
               );
             })}
           </div>
-          <div className="official-player min-w-0">{current && <Player key={current} record={current} related={<RelatedRecords value={current ?? ""} onChange={(id) => setRelated({ id, forRecord: selected })} />} />}</div>
+          <div className="official-player min-w-0">
+            {/* A record built from the shipped products plays its own player (src/components/EarthRecords). */}
+            {current && (appRecordPlayer(current) ?? <Player key={current} record={current} related={<RelatedRecords value={current} onChange={(id) => setRelated({ id, forRecord: selected })} />} />)}
+            {current && appRecordExtras(current, select)}
+          </div>
         </div>
       </Cabinet>
     </section>

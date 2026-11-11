@@ -15,8 +15,8 @@ import { DialCheck } from "./Dial/DialCheck";
 import { OrchestraLegend } from "./Orchestra/Legend";
 import { RawPixelCard } from "./RawPixel";
 
-/** ART's cards on How we know: the Earth Orchestra legend and the data voice check (each behind its flag). */
-export function ArtHowCards() {
+/** How we know's art tracks: the Earth Orchestra legend and the data voice check (each behind its flag), numbered from `firstNumber`. */
+export function ArtHowCards({ firstNumber }: { firstNumber: number }) {
   const { state } = useAppState();
   const t = useT();
   const { fields } = useLiveData();
@@ -45,6 +45,7 @@ export function ArtHowCards() {
     <>
       {FLAGS.artOrchestra && (
         <Tile
+          number={firstNumber}
           title={t("orchestra.title")}
           figure={t("orchestra.figure", { count: formatInteger(EARTH_CATEGORIES.length, lang) })}
           figureLabel={t("orchestra.figureLabel")}
@@ -61,7 +62,7 @@ export function ArtHowCards() {
         </Tile>
       )}
       {FLAGS.artDial && (
-        <Tile title={t("proof.title")} figure={t("proof.limit")} figureLabel={t("proof.figureLabel")} face={<p className="text-small text-haze">{t("proof.explain")}</p>} open={t("proof.open")} facts={proofFacts}>
+        <Tile number={firstNumber + Number(FLAGS.artOrchestra)} title={t("proof.title")} figure={t("proof.limit")} figureLabel={t("proof.figureLabel")} face={<p className="text-small text-haze">{t("proof.explain")}</p>} open={t("proof.open")} facts={proofFacts}>
           <div className="space-y-4" data-testid="proof-card">
             {PROOF_RECORDS.map((r) => (
               <div key={r} data-record={r}>

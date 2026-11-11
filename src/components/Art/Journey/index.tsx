@@ -38,7 +38,7 @@ export function JourneyPanel({ onClose }: { onClose: () => void }) {
   const bay = { lat: BAY.lat, lon: BAY.lon };
   const letter = useListenLetter(bay);
   return (
-    <section aria-labelledby="journey-title" className="surface-plate space-y-3 rounded-plate p-4" data-testid="journey" data-step={j.step ?? ""} data-ended={ended}>
+    <section aria-labelledby="journey-title" className="space-y-3 pt-3" data-testid="journey" data-step={j.step ?? ""} data-ended={ended}>
       <h2 id="journey-title" className="font-wide text-title">{t("journey.title")}</h2>
       <p className="text-body text-haze">{t("journey.lead")}</p>
       {!j.journey ? (

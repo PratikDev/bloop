@@ -1,45 +1,28 @@
 "use client";
 
-import { lazy, Suspense, useRef } from "react";
-import { Sheet, SheetContent, SheetTitle } from "@/components/ui/sheet";
-import { useMediaQuery } from "@/hooks/use-media-query";
-import { MEDIA } from "@/lib/breakpoints";
-import { cn } from "@/lib/utils";
+import { lazy, Suspense } from "react";
 import { useT } from "../AppState/use-app-state";
 import { useRecords } from "../Records/use-records";
 import { PageLoading } from "../PageLoading";
+import { SideSheet } from "../SideSheet";
 import { closePlayerSheet, playerSheetOpener, usePlayerSheetOpen } from "./player-sheet-store";
 import { useCaptionLines } from "./use-caption-lines";
 
 // The sheet's contents load the first time it opens.
 const NowPlaying = lazy(() => import("./NowPlaying").then((m) => ({ default: m.NowPlaying })));
 
-/** The "Now playing" sheet, mounted once with the mini player and opened with openPlayerSheet: from the right on wide screens, from the bottom on phones. */
+/** The "Now playing" sheet, mounted once with the mini player and opened with openPlayerSheet. */
 export function PlayerSheet() {
   const { current } = useRecords();
   const t = useT();
-  const phone = useMediaQuery(MEDIA.phone);
   const open = usePlayerSheetOpen();
   const lines = useCaptionLines();
-  const heading = useRef<HTMLHeadingElement>(null);
   if (!current) return null;
   return (
-    <Sheet open={open} onOpenChange={(next) => !next && closePlayerSheet()}>
-      <SheetContent
-        data-tt-occluder
-        closeLabel={t("inspector.close")}
-        side={phone ? "bottom" : "right"}
-        initialFocus={heading}
-        finalFocus={() => playerSheetOpener() ?? true}
-        className={cn("overflow-y-auto p-5 text-body", phone ? "max-h-[85dvh] rounded-t-sheet" : "w-full rounded-l-sheet sm:max-w-lg")}
-      >
-        <SheetTitle ref={heading} tabIndex={-1} className="eyebrow outline-none">
-          {t("player.nowPlaying")}
-        </SheetTitle>
-        <Suspense fallback={<PageLoading className="grid min-h-64 place-items-center" />}>
-          <NowPlaying current={current} lines={lines} onPicked={closePlayerSheet} />
-        </Suspense>
-      </SheetContent>
-    </Sheet>
+    <SideSheet open={open} onClose={closePlayerSheet} title={t("player.nowPlaying")} opener={playerSheetOpener}>
+      <Suspense fallback={<PageLoading className="grid min-h-64 place-items-center" />}>
+        <NowPlaying current={current} lines={lines} onPicked={closePlayerSheet} />
+      </Suspense>
+    </SideSheet>
   );
 }

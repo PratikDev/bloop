@@ -14,7 +14,7 @@ export function flag(value: string | undefined, ready: boolean, preview: boolean
 export const FLAGS = {
   /** Accessibility core, step 1: speech mode, verbosity, text/sound/both (docs/accessibility/CORE_PLAN.md). */
   // Ready on 8 Nov 2026: e2e/a11y/speech-choices.e2e.ts 10/10 and the whole suite 250/250 with it on.
-  speechChoices: flag(process.env.NEXT_PUBLIC_A11Y_SPEECH, false),
+  speechChoices: flag(process.env.NEXT_PUBLIC_A11Y_SPEECH, true),
   /** Step 2: the map widget's keys (+/−, J then 1–9, ., PageUp/PageDown, D, Shift+D), hide 3D, help while focused. */
   /** Step 3: layered descriptions (EN + BN templates, pattern rules, digit provenance); D says one; a Description tab. */
   // Ready on 8 Nov 2026: descriptions.e2e.ts 20/20, the a11y + features + health checks 292/292 with it on (Chromium +
@@ -40,7 +40,7 @@ export const FLAGS = {
   lowVision: flag(process.env.NEXT_PUBLIC_A11Y_LOW_VISION, false),
   /** Ask Bloop (docs/voice/README.md): the panel, typed commands and questions (parser only). */
   // Ready on 11 Nov 2026: e2e/ask-bloop.e2e.ts 16/16 and e2e/data/ask in the integrated final pass (Chromium + Firefox).
-  askBloop: flag(process.env.NEXT_PUBLIC_ASK_BLOOP, false),
+  askBloop: flag(process.env.NEXT_PUBLIC_ASK_BLOOP, true),
   /** Ask Bloop's push-to-talk: only when asked for, until the gate test (docs/voice/GATE_TEST.md) passes. */
   askBloopVoice: process.env.NEXT_PUBLIC_ASK_BLOOP_VOICE === "1",
   /** Ask Bloop's AI fallback: only when asked for, and only with a deployed route (deploy/ask-intent). */
@@ -48,9 +48,9 @@ export const FLAGS = {
   expedition: flag(process.env.NEXT_PUBLIC_A11Y_EXPEDITION, false),
   tuning: flag(process.env.NEXT_PUBLIC_A11Y_TUNING, false),
   tablePlaces: flag(process.env.NEXT_PUBLIC_A11Y_TABLE_PLACES, false),
-  describe: flag(process.env.NEXT_PUBLIC_A11Y_DESCRIBE, false),
+  describe: flag(process.env.NEXT_PUBLIC_A11Y_DESCRIBE, true),
   // Ready on 8 Nov 2026: e2e/a11y/map-keys.e2e.ts 26/26 and the whole suite 406/406 with it on (Chromium + Firefox).
-  mapKeys: flag(process.env.NEXT_PUBLIC_A11Y_MAP_KEYS, false),
+  mapKeys: flag(process.env.NEXT_PUBLIC_A11Y_MAP_KEYS, true),
   // CV/ML build (docs/cvml/BUILD.md). Ready on 11 Nov 2026 after the integrated final pass (docs/BUILD_2026-11-10.md).
   // The chord stays opt-in: cvChord makes it available, the listener turns it on. Tests that pass with each on are listed beside it.
   /** A: "What the jukebox read from this frame" panel + cents error budget (Listen, Official records). */
@@ -68,25 +68,25 @@ export const FLAGS = {
   cvListenTest: flag(process.env.NEXT_PUBLIC_CV_LISTEN_TEST, false),
   /** P1: the leftovers: the 5176 picture under the normal tone, live validation in the provenance, "Not playable". */
   // e2e/data/leftovers.e2e.ts + src/lib/earth/leftovers.test.ts.
-  dataLeftovers: flag(process.env.NEXT_PUBLIC_DATA_LEFTOVERS, false),
+  dataLeftovers: flag(process.env.NEXT_PUBLIC_DATA_LEFTOVERS, true),
   /** P2a: tomorrow's fire weather (SVS 5315): the chord layer on Listen, the archive replay. */
   // e2e/data/fire.e2e.ts + src/lib/earth/fwi.test.ts.
-  dataFireWeather: flag(process.env.NEXT_PUBLIC_DATA_FIRE_WEATHER, false),
+  dataFireWeather: flag(process.env.NEXT_PUBLIC_DATA_FIRE_WEATHER, true),
   /** P2b + P2c: Fire Geiger (FIRMS daily) and the "Fires and fire weather" record in Official records. */
   // e2e/data/fire.e2e.ts + src/lib/earth/geiger.test.ts.
-  dataWildfires: flag(process.env.NEXT_PUBLIC_DATA_WILDFIRES, false),
+  dataWildfires: flag(process.env.NEXT_PUBLIC_DATA_WILDFIRES, true),
   /** P3: landslide exposure rumble (SVS 5584, LHASA). */
   // e2e/data/landslides.e2e.ts + src/lib/earth/landslide.test.ts.
-  dataLandslides: flag(process.env.NEXT_PUBLIC_DATA_LANDSLIDES, false),
+  dataLandslides: flag(process.env.NEXT_PUBLIC_DATA_LANDSLIDES, true),
   /** P4: night lights (Black Marble VJ146A2): a voice per city, gaps as rests. */
   // e2e/data/night-lights.e2e.ts + src/lib/earth/nightlights.test.ts.
-  dataNightLights: flag(process.env.NEXT_PUBLIC_DATA_NIGHT_LIGHTS, false),
+  dataNightLights: flag(process.env.NEXT_PUBLIC_DATA_NIGHT_LIGHTS, true),
   /** P5: NASA's own method (Caldwell 73, SVS 13786): NASA mode vs Bloop mode on one frame. */
   // e2e/data/radar.e2e.ts + src/lib/earth/radar.test.ts.
-  dataRadar: flag(process.env.NEXT_PUBLIC_DATA_RADAR, false),
+  dataRadar: flag(process.env.NEXT_PUBLIC_DATA_RADAR, true),
   /** Ask Bloop's four DATA questions (fire weather, fires, landslides, night lights here); needs askBloop too. */
   // e2e/data/ask.e2e.ts + src/lib/ask-bloop/data-intents.test.ts.
-  dataAsk: flag(process.env.NEXT_PUBLIC_DATA_ASK, false),
+  dataAsk: flag(process.env.NEXT_PUBLIC_DATA_ASK, true),
   // Art, emotion and musicality. Ready on 11 Nov 2026 after the integrated final pass
   // (docs/BUILD_2026-11-10.md).
   // Passing on 10 Nov 2026 (production build, every NEXT_PUBLIC_ART_* on): unit 508/508; e2e/art 21/21 Chromium and
@@ -95,9 +95,9 @@ export const FLAGS = {
   // 53/53 Chromium and 53/53 Firefox.
   /** Earth Orchestra: an instrument family per Earth system, the Instrument style setting, the category earcon, the
    *  Official grid grouped by category, the legend card. */
-  artOrchestra: flag(process.env.NEXT_PUBLIC_ART_ORCHESTRA, false),
+  artOrchestra: flag(process.env.NEXT_PUBLIC_ART_ORCHESTRA, true),
   /** The Science ↔ Art dial (Measure / Blend / Music), its data-voice check and the season colour of the drone. */
-  artDial: flag(process.env.NEXT_PUBLIC_ART_DIAL, false),
+  artDial: flag(process.env.NEXT_PUBLIC_ART_DIAL, true),
   /** Raw-pixel vs Bloop: the naive scan and Bloop's, with measured flatness, entropy and roughness. */
   artRawPixel: flag(process.env.NEXT_PUBLIC_ART_RAW_PIXEL, false),
   /** A letter to the future: a dated card built only from data (Listen, the tour's end). */
@@ -105,9 +105,9 @@ export const FLAGS = {
   /** "Your lifetime" on Then vs Now, and the MIDI export (Then vs Now, Your lifetime). */
   artLifetime: flag(process.env.NEXT_PUBLIC_ART_LIFETIME, false),
   /** Data vs artistic choice per record (About this sound, Official records) and the tour naming every dataset. */
-  artChoices: flag(process.env.NEXT_PUBLIC_ART_CHOICES, false),
+  artChoices: flag(process.env.NEXT_PUBLIC_ART_CHOICES, true),
   /** Water's journey: the Bangladesh suite (and its WAV). */
-  artJourney: flag(process.env.NEXT_PUBLIC_ART_JOURNEY, false),
+  artJourney: flag(process.env.NEXT_PUBLIC_ART_JOURNEY, true),
   /** /listen-test: the emotion ratings and the ear-vs-eye task after the five core tasks. */
   artListenTest: flag(process.env.NEXT_PUBLIC_ART_LISTEN_TEST, false),
 } as const;

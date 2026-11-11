@@ -15,7 +15,7 @@ import { AgeNote } from "../EarthRecords/AgeNote";
 import { OnOffToggle } from "../OnOffToggle";
 
 // P2a on Listen: tomorrow's fire weather as a layer at the needle. The switch is in the dock's Mixer (a layer you can
-// switch on; no new dock button, no new key), the sound follows the cursor from ListenActions (mounted on Listen only).
+// switch on; no new dock button, no new key), the sound follows the cursor from the Listen page.
 
 let on = false;
 const listeners = new Set<() => void>();

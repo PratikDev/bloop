@@ -4,6 +4,7 @@ import { lazy, Suspense } from "react";
 import { SlidersHorizontal } from "@phosphor-icons/react";
 import { Popover, PopoverContent, PopoverTitle, PopoverTrigger } from "@/components/ui/popover";
 import { useAppState, useT } from "../AppState/use-app-state";
+import { FireWeatherLayerControl } from "../EarthData/FireWeatherLayer";
 import { PageLoading } from "../PageLoading";
 import { SettingToggle } from "../SettingToggle";
 import { DockAction } from "./DockAction";
@@ -37,6 +38,7 @@ export function MixerPanel() {
       </Suspense>
       <div className="stitch-x opacity-60" aria-hidden="true" />
       <SettingToggle setting="allMuted" />
+      <FireWeatherLayerControl />
     </div>
   );
 }

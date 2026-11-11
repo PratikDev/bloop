@@ -1,14 +1,16 @@
 "use client";
 
-import { Disc, GridFour, ShieldCheck, SkipBack, SkipForward } from "@phosphor-icons/react";
+import { ChatCircleText, Disc, Drop, GridFour, ShieldCheck, SkipBack, SkipForward } from "@phosphor-icons/react";
 import { Link } from "@tanstack/react-router";
 import { Button } from "@/components/ui/button";
+import { FLAGS } from "@/lib/flags";
 import { neighbour } from "@/lib/records";
 import { PAGE_PATHS } from "@/router/modes";
 import { useAppState, useT } from "../AppState/use-app-state";
 import { BRAILLE_EXPLORER_ID } from "../BrailleExplorer";
 import { setBrailleOpener } from "../BrailleExplorer/opener";
 import { useCommands } from "../Commands/use-commands";
+import { listenSheet, type ListenSheetId } from "../pages/Listen/listen-sheet-store";
 import { openPlayerSheet } from "../Player/player-sheet-store";
 import { useRecords } from "../Records/use-records";
 import { MORE_ITEM, useMoreMenu } from "./PlayerMore";
@@ -55,12 +57,17 @@ export function StepItems() {
   );
 }
 
-/** Listen's extras: the braille explorer, Sources and checks, and the way to How we know. */
+/** Listen's extras: the braille explorer, Ask Bloop, Water's journey, Sources and checks, and the way to How we know. */
 export function ListenItems() {
   const { state } = useAppState();
   const commands = useCommands();
   const { close, button } = useMoreMenu();
   const t = useT();
+  // A sheet opened from here gives focus back to More: this row goes away with its menu.
+  const openSheet = (id: ListenSheetId) => {
+    close();
+    listenSheet.open(id, button.current);
+  };
   return (
     <>
       <Button
@@ -78,6 +85,18 @@ export function ListenItems() {
         <GridFour aria-hidden="true" />
         {t("braille.open")}
       </Button>
+      {FLAGS.askBloop && (
+        <Button variant="ghost" aria-haspopup="dialog" onClick={() => openSheet("ask")} className={MORE_ITEM}>
+          <ChatCircleText aria-hidden="true" />
+          {t("ask.open")}
+        </Button>
+      )}
+      {FLAGS.artJourney && (
+        <Button variant="ghost" aria-haspopup="dialog" onClick={() => openSheet("journey")} className={MORE_ITEM}>
+          <Drop aria-hidden="true" />
+          {t("journey.open")}
+        </Button>
+      )}
       <Button
         variant="ghost"
         onClick={() => {
