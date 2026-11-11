@@ -1,0 +1,13 @@
+import { decodeCode } from "@/lib/data/official";
+import type { OfficialLayer } from "@/types/data-contract";
+import type { Frame } from "./render";
+
+export const RAW_RECORD = "currents_3912";
+export const RAW_LAYER = "sst";
+
+export function frameFrom(layer: OfficialLayer, codes: Uint16Array): Frame {
+  if (!layer.display) throw new Error(`${layer.id}: no colorbar to draw the pixels with`);
+  const { width, height } = layer.grid;
+  const values = Array.from(codes.subarray(0, width * height), (c) => decodeCode(layer, c)?.value ?? null);
+  return { width, height, values, colours: layer.display.colours, stops: layer.display.values };
+}

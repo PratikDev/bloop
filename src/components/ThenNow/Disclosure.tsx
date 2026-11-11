@@ -48,6 +48,11 @@ export function Disclosure({ part, demo, grace }: { part: Part; demo: DhakaThenN
           <Row label={t("disclosure.crossCheck")}>{demo.rain.gpcc.dataset}</Row>
           {windows(demo.rain.gpcc)}
           <Row label="">{t("disclosure.change", { value: `${formatSigned(demo.rain.gpcc.change_pct, state.lang, 0)}%` })}</Row>
+          <Row label={t("disclosure.whyYears")}>{t("data.text", { text: demo.rain.gpcc_end_note })}</Row>
+          {}
+          <Row label={t("disclosure.extra")}>{t("data.text", { text: demo.rain.gpcp_newer.label })}</Row>
+          {windows(demo.rain.gpcp_newer)}
+          <Row label="">{t("disclosure.change", { value: `${formatSigned(demo.rain.gpcp_newer.change_pct, state.lang, 0)}%` })}</Row>
         </>
       )}
       {part === "water" && (

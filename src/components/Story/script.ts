@@ -2,6 +2,7 @@
 // Bengal → storm time-lapse → satellite whisper → (X-ray, skipped) → truth.
 // Every number said comes from L1's data files; the strings only take params.
 
+import { frameGap, gapLong } from "@/lib/frame-gap";
 import { abortable, sleep } from "@/lib/abortable";
 import { audio } from "@/lib/audio-adapter";
 import type { PlayerHandle } from "@/lib/audio-adapter/types";
@@ -25,7 +26,7 @@ const WHISPER_HOLD_MS = 1500;
 // tour under 90 s (design choice). Explore's time-lapse still plays every frame.
 const STORM_FRAMES = 24;
 
-export interface StoryDeps {
+interface StoryDeps {
   signal: AbortSignal;
   t(): BoundT; // the screen language now (whisper captions)
   soundOn: boolean;
@@ -58,6 +59,9 @@ export async function runStory(d: StoryDeps): Promise<void> {
   const sweepTrack = d.fields().rain ? "both" : "ocean";
   d.enterStep("sweep", { point: SWEEP_CENTER, track: sweepTrack });
   await say((tl) => tl(d.soundOn ? "story.sweep" : "story.sweepNoSound"));
+  const both = d.fields();
+  const gap = sweepTrack === "both" && both.rain ? frameGap(both.sst.meta.frame_time_utc, both.rain.meta.frame_time_utc) : null;
+  if (gap) await say((tl, lang) => gapLong(tl, lang, gap));
   if (d.soundOn) {
     audio.setTrackMode(sweepTrack);
     const sweep = d.startSweep();

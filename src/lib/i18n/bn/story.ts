@@ -29,7 +29,7 @@ export const storyBn: Translated<typeof storyEn> = {
   "story.stormPeak": (p: { reading: string; datetime: string }) => `এর পথে সবচেয়ে ভারী: ${p.reading}, ${p.datetime} UTC।`,
   "story.stormFailed": "ঝড়ের ফ্রেম লোড করা যায়নি, তাই এই ধাপ বাদ দেওয়া হলো।",
   "story.whisper": (p: { reading: string }) => `ঝড়টি এখন যেখানে: ${p.reading}।`,
-  "story.xraySkipped": "এক্স-রে অক্টোবরে আসছে: এটি নাসার কালারবার ডেটার অপেক্ষায়।",
+  "story.xraySkipped": "এক্স-রে এই সংস্করণে নেই: এটি নাসার কালারবার ডেটার অপেক্ষায়।",
   "story.truth": (p: { sentence: string }) => `আমরা কীভাবে জানি? ${p.sentence}`,
   "story.truthLoading": "বৃষ্টির তথ্য লোড হলে যাচাইয়ের প্যানেলে বৃষ্টির যাচাই দেখা যাবে।",
   "story.end": (p: { close: string }) => `এ ছিল একটি জায়গা। পৃথিবীর যেকোনো জায়গা শুনতে “${p.close}” বেছে নিন।`,

@@ -13,6 +13,7 @@ import type {
   NdviPointName,
   RainContextFile,
 } from "@/types/data-contract";
+import type { ThenNowStatsFile } from "@/types/then-now-stats";
 import { fetchJson } from "./fetch";
 import { DATA_PATHS } from "./paths";
 import { requirePaths } from "./validate";
@@ -86,6 +87,13 @@ export const loadGrace = () =>
   });
 
 const CELLS = ["Dhaka", "Chattogram", "Rajshahi", "Sylhet"] as const;
+
+export const loadThenNowStats = () =>
+  load<ThenNowStatsFile>(DATA_PATHS.thenNowStats, {
+    "method.bootstrap_draws": "number",
+    ...Object.fromEntries(CELLS.flatMap((c) => [[`cities.${c}.heat.diff_ci`, "array"] as const, [`cities.${c}.rain.gpcp.change_pct_ci`, "array"] as const])),
+    "water.Bangladesh.trend.sen_slope_ci": "array",
+  });
 
 export const loadGistemp = () =>
   load<GistempContextFile>(DATA_PATHS.gistemp, Object.fromEntries(CELLS.map((c) => [`cells.${c}.anom_C`, "array"])));

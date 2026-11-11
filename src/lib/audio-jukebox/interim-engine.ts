@@ -1,5 +1,4 @@
 // Interim sound engine: a minimal, working implementation of L2's planned API
-// (docs/L2/BUILD_PLAN.md §2) built from docs/L2/AUDIO_RESEARCH.md Part A.
 // It exists so L3 can build and test the UI before L2's engine lands; the UI
 // shows an "Interim sound engine" badge while it is in use.
 
@@ -16,7 +15,7 @@ import { createSpatialRain, type SpatialRain } from "./spatial-rain";
 import { playCompare, playSeries, playThenNow, playYearsAndMonths } from "./then-now";
 import { playTimelapse } from "./timelapse";
 import { setRecordVoice, silenceRecord } from "./record-voices";
-import { playUnison } from "./unison";
+import { playPair, playUnison } from "./unison";
 import { cancelSpeech, initSpeech, speak } from "./speech";
 import type { AudioEngine } from "./types";
 
@@ -68,6 +67,7 @@ export const interimEngine: AudioEngine = {
   setClarity: live.setClarity,
   setRecorded: live.setRecorded,
   playUnison,
+  playPair,
   setRecordVoice(voice, value, lon) {
     const graph = getGraph();
     if (graph) setRecordVoice(graph, voice, value, lon);

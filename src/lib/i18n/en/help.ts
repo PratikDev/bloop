@@ -1,5 +1,3 @@
-// English strings for the Help dialog: the keyboard map (plan §9.3).
-
 import { PLACE_NAMES_EN } from "./places";
 
 export const helpEn = {
@@ -23,19 +21,8 @@ export const helpEn = {
   "key.t.action": "Then vs Now",
   "key.l.action": "Hear the legend (reference sounds)",
   "key.p.action": "Where this value comes from",
-  "key.x.action": "X-ray: how a colour becomes a number and a sound (coming in October)",
+  "key.x.action": "X-ray: how a colour becomes a number and a sound (not in this version)",
 
-  // Team plan §11.7 concept-only items, plus X-ray: shown with a "Coming in October" label.
-  "october.heading": "Not built yet",
-  "october.xray": "X-ray: how a colour becomes a number and a sound (waits for NASA's colorbar data)",
-  "october.aiByEar": "\"Check the AI by ear\" and \"Ask the Earth\", a voice agent (the AI never produces numbers)",
-  "october.study": "A listening study with blind and low-vision adults",
-  "october.choirs": "The full Anomaly Choir and Change Choir",
-  "october.passes": "Satellite-pass cues (\"who measured this?\")",
-  "october.raga": "Raga music mode",
-  "october.duets": "NASA vs JAXA (GSMaP) and NASA vs UK Met Office (OSTIA) duets",
-  "october.tracks": "More EIC tracks: fires, air quality, wind",
-  "october.kiosk": "Kiosk and hyperwall mode",
   "key.b.action": "Braille data explorer: feel the data as braille cells; its caret is the needle",
   "key.r.action": "In the braille explorer: review the value in words",
   "key.h.action": "Open this help",

@@ -5,6 +5,7 @@ import { Button } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
 import { useT } from "../AppState/use-app-state";
 import { useTimeLapse } from "./use-time-lapse";
+import { DOCK_LONG_LABEL, DOCK_SHORT_LABEL } from "../Dock/dock-button";
 
 /**
  * Play / stop the storm time-lapse. While the frames load (10 MB the first
@@ -29,11 +30,11 @@ export function TimeLapseButton({ className }: { className?: string }) {
       className={cn("overflow-hidden", className)}
     >
       {busy ? <Stop aria-hidden="true" weight="fill" /> : <CloudRain aria-hidden="true" />}
-      {/* The visible word: short below 1024 px, a little longer from there; both are part of the name. */}
-      <span aria-hidden="true" className="tabular-nums lg:hidden">
+      {}
+      <span aria-hidden="true" className={cn("tabular-nums", DOCK_SHORT_LABEL)}>
         {status === "loading" ? label : t(status === "playing" ? "dock.short.stop" : "dock.short.timelapse")}
       </span>
-      <span aria-hidden="true" className="hidden tabular-nums lg:inline">
+      <span aria-hidden="true" className={cn("tabular-nums", DOCK_LONG_LABEL)}>
         {status === "loading" ? label : t(status === "playing" ? "timelapse.stop" : "dock.label.timelapse")}
       </span>
       {status === "loading" && (

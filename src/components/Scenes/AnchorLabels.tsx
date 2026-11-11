@@ -3,11 +3,11 @@
 import { useEffect, useRef } from "react";
 
 /** Anything that can place a named 3D point on screen (null = not visible). */
-export interface AnchorFrame {
+interface AnchorFrame {
   anchor(key: string): { x: number; y: number } | null;
 }
 
-export interface AnchorText {
+interface AnchorText {
   key: string;
   text: string;
 }
@@ -27,7 +27,7 @@ export function AnchorLabels({ subscribe, labels }: { subscribe(fn: (f: AnchorFr
     [subscribe],
   );
   return (
-    <div aria-hidden="true" className="pointer-events-none absolute inset-0 overflow-hidden">
+    <div aria-hidden="true" data-globe-labels="" className="pointer-events-none absolute inset-0 overflow-hidden">
       {labels.map((l) => (
         <span
           key={l.key}

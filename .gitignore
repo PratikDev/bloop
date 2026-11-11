@@ -75,3 +75,7 @@ __pycache__/
 
 # official resources: raw downloads and frame dumps never enter git (docs/official/README.md)
 data_raw/
+
+# Proof outputs written by their checks, read by nothing (regenerated on each run)
+docs/art/pitch_identity_integrated.json
+docs/audio/check5_results.json

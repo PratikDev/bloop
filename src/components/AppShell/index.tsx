@@ -11,15 +11,18 @@ import { CommandsProvider } from "../Commands";
 import { useCommands } from "../Commands/use-commands";
 import { Dock } from "../Dock";
 import { Header } from "../Header";
-import { HelpDialog } from "../HelpDialog";
+import { HelpDialog, HelpPanel } from "../HelpDialog";
 import { LiveDataProvider } from "../LiveData";
 import { Opening } from "../Opening";
 import { StoryProvider } from "../Story";
 import { TimeLapseProvider } from "../TimeLapse";
 import { useTimeLapse } from "../TimeLapse/use-time-lapse";
 import { StartGate } from "./StartGate";
+import { TapToStart } from "./TapToStart";
 import { useGlobalEscape } from "./use-global-escape";
 import { useRouteSync, useUrlMode } from "./use-route-sync";
+import { cn } from "@/lib/utils";
+import { lowVisionFlow, useApplyLowVision } from "../LowVision/use-apply-low-vision";
 
 const CONTENT_ID = "content";
 
@@ -30,6 +33,7 @@ function Shell() {
   const timeLapse = useTimeLapse();
   useGlobalEscape(commands, timeLapse.stop);
   useRouteSync();
+  useApplyLowVision();
   // The two sound engines never play at once unless a page asks (src/lib/audio-engines.ts).
   useEffect(() => startEngineHandOff(), []);
   // Home is the start screen itself; any other page opened before Start waits behind the gate.
@@ -46,14 +50,17 @@ function Shell() {
         {t("app.skipToContent")}
       </a>
       {/* Page height = screen height from 768 px up: pages fit one screen, nothing scrolls but what must. */}
-      <div inert={gated || opening} className="grid min-h-dvh grid-cols-[minmax(0,1fr)] grid-rows-[auto_minmax(0,1fr)_auto] md:h-dvh">
+      {}
+      <div inert={gated || opening} className={cn("grid min-h-dvh grid-cols-[minmax(0,1fr)] grid-rows-[auto_minmax(0,1fr)_auto]", !lowVisionFlow(state.lowVision) && "md:h-dvh")}>
         <Header />
         <main id={CONTENT_ID} tabIndex={-1} className="min-h-0 outline-none">
+          <HelpPanel className="mx-auto my-3 max-w-3xl" />
           <Outlet />
         </main>
         <Dock />
       </div>
       {gated && <StartGate />}
+      <TapToStart />
       <Opening />
       <HelpDialog />
     </MotionConfig>

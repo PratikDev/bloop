@@ -1,0 +1,112 @@
+import type { ValueGrid } from "@/lib/describe/stats";
+import { cellCentre } from "@/lib/describe/stats";
+import type { BandCount } from "./settings";
+
+export type BandRecord = "ocean" | "rain";
+export type ShownBands = Exclude<BandCount, 0>;
+
+export interface Band {
+  lo: number;
+  hi: number | null;
+}
+
+const RAIN_EDGES: Record<ShownBands, readonly number[]> = {
+  5: [0, 0.5, 2, 5, 10],
+  7: [0, 0.25, 0.5, 1, 2.5, 5, 10],
+  10: [0, 0.1, 0.25, 0.5, 1, 2, 4, 8, 16, 32],
+};
+
+export const LENS_BANDS: ShownBands = 7;
+
+function valueRange(g: ValueGrid): { min: number; max: number } | null {
+  let min = Number.POSITIVE_INFINITY;
+  let max = Number.NEGATIVE_INFINITY;
+  for (let i = 0; i < g.width * g.height; i++) {
+    const v = g.value(i);
+    if (v === null) continue;
+    if (v < min) min = v;
+    if (v > max) max = v;
+  }
+  return min <= max ? { min, max } : null;
+}
+
+function oceanBands(range: { min: number; max: number }, n: ShownBands): Band[] {
+  const lo = Math.floor(range.min);
+  const step = Math.max(1, Math.ceil((range.max - lo) / n + Number.EPSILON));
+  return Array.from({ length: n }, (_, i) => ({ lo: lo + i * step, hi: lo + (i + 1) * step }));
+}
+
+function rainBands(n: ShownBands): Band[] {
+  const edges = RAIN_EDGES[n];
+  return edges.map((lo, i) => ({ lo, hi: edges[i + 1] ?? null }));
+}
+
+export function bandsFor(record: BandRecord, g: ValueGrid, n: ShownBands): Band[] {
+  if (record === "rain") return rainBands(n);
+  const range = valueRange(g);
+  return range ? oceanBands(range, n) : [];
+}
+
+export function bandIndex(bands: readonly Band[], record: BandRecord, v: number | null): number {
+  if (v === null || (record === "rain" && v <= 0)) return -1;
+  for (let i = bands.length - 1; i >= 0; i--) if (v >= bands[i].lo) return i;
+  return bands.length ? 0 : -1;
+}
+
+interface BandLabel {
+  band: number;
+  cell: number;
+  lat: number;
+  lon: number;
+}
+
+const LABEL_SHARE = 0.6;
+
+interface CellRegion {
+  c0: number;
+  r0: number;
+  c1: number;
+  r1: number;
+}
+
+export function bandLabels(g: ValueGrid, bands: readonly Band[], record: BandRecord, tilesX: number, tilesY: number, region?: CellRegion): BandLabel[] {
+  const labels: BandLabel[] = [];
+  const left = Math.max(0, region?.c0 ?? 0);
+  const top = Math.max(0, region?.r0 ?? 0);
+  const tw = (Math.min(g.width, region?.c1 ?? g.width) - left) / tilesX;
+  const th = (Math.min(g.height, region?.r1 ?? g.height) - top) / tilesY;
+  if (tw <= 0 || th <= 0) return labels;
+  for (let ty = 0; ty < tilesY; ty++) {
+    for (let tx = 0; tx < tilesX; tx++) {
+      const counts = new Map<number, number>();
+      let cells = 0;
+      const r0 = Math.floor(top + ty * th);
+      const r1 = Math.floor(top + (ty + 1) * th);
+      const c0 = Math.floor(left + tx * tw);
+      const c1 = Math.floor(left + (tx + 1) * tw);
+      for (let r = r0; r < r1; r++) {
+        for (let c = c0; c < c1; c++) {
+          cells++;
+          const b = bandIndex(bands, record, g.value(r * g.width + c));
+          if (b !== -1) counts.set(b, (counts.get(b) ?? 0) + 1);
+        }
+      }
+      const [band, n] = [...counts.entries()].sort((a, b) => b[1] - a[1])[0] ?? [-1, 0];
+      if (band === -1 || n < LABEL_SHARE * cells) continue;
+      const cr = (r0 + r1) / 2;
+      const cc = (c0 + c1) / 2;
+      let best = -1;
+      let bestD = Number.POSITIVE_INFINITY;
+      for (let r = r0; r < r1; r++) {
+        for (let c = c0; c < c1; c++) {
+          const i = r * g.width + c;
+          if (bandIndex(bands, record, g.value(i)) !== band) continue;
+          const d = (r - cr) ** 2 + (c - cc) ** 2;
+          if (d < bestD) [best, bestD] = [i, d];
+        }
+      }
+      if (best !== -1) labels.push({ band, cell: best, ...cellCentre(g, best) });
+    }
+  }
+  return labels;
+}

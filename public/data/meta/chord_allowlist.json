@@ -1,0 +1,572 @@
+{
+ "generated_by": "pipeline/stats/chord_allowlist.py",
+ "tested_bar": "currents_3912",
+ "records": [
+  {
+   "record": "ocean",
+   "voice": "ocean",
+   "colours_from": "pipeline/inputs/colorbars/sst_colorbar.png",
+   "class": "diverging",
+   "rho": 0.032,
+   "chord": "full"
+  },
+  {
+   "record": "aerosols_5669",
+   "layer": "smoke",
+   "voice": "aerosolSmoke",
+   "colours_from": "public/data/official/aerosols_5669/manifest.json layers.smoke.display.colours",
+   "class": "sequential",
+   "rho": 1.0,
+   "chord": "full"
+  },
+  {
+   "record": "aerosols_5669",
+   "layer": "sulfate",
+   "voice": "aerosolSulfate",
+   "colours_from": "public/data/official/aerosols_5669/manifest.json layers.sulfate.display.colours",
+   "class": "sequential",
+   "rho": 1.0,
+   "chord": "full"
+  },
+  {
+   "record": "co2_5196",
+   "layer": "co2",
+   "voice": "co2Ppm",
+   "colours_from": "public/data/official/co2_5196/manifest.json layers.co2.display.colours",
+   "class": "rainbow",
+   "rho": -0.886,
+   "chord": "none"
+  },
+  {
+   "record": "currents_3912",
+   "layer": "sst",
+   "voice": "ocean",
+   "colours_from": "public/data/official/currents_3912/manifest.json layers.sst.display.colours",
+   "class": "diverging",
+   "rho": 0.269,
+   "chord": "full"
+  },
+  {
+   "record": "eic_5147",
+   "layer": "value",
+   "voice": "eic5147",
+   "colours_from": "public/data/official/eic_5147/manifest.json layers.value.display.colours",
+   "class": "rainbow",
+   "rho": -0.254,
+   "chord": "none"
+  },
+  {
+   "record": "eic_5148",
+   "layer": "value",
+   "voice": "eic5148",
+   "colours_from": "public/data/official/eic_5148/manifest.json layers.value.display.colours",
+   "class": "rainbow",
+   "rho": -0.637,
+   "chord": "none"
+  },
+  {
+   "record": "eic_5149",
+   "layer": "value",
+   "voice": "eic5149",
+   "colours_from": "public/data/official/eic_5149/manifest.json layers.value.display.colours",
+   "class": "rainbow",
+   "rho": 0.556,
+   "chord": "none"
+  },
+  {
+   "record": "eic_5150",
+   "layer": "value",
+   "voice": "eic5150",
+   "colours_from": "public/data/official/eic_5150/manifest.json layers.value.display.colours",
+   "class": "diverging",
+   "rho": -0.261,
+   "chord": "full"
+  },
+  {
+   "record": "eic_5151",
+   "layer": "value",
+   "voice": "eic5151",
+   "colours_from": "public/data/official/eic_5151/manifest.json layers.value.display.colours",
+   "class": "sequential",
+   "rho": -1.0,
+   "chord": "full"
+  },
+  {
+   "record": "eic_5152",
+   "layer": "value",
+   "voice": "eic5152",
+   "colours_from": "public/data/official/eic_5152/manifest.json layers.value.display.colours",
+   "class": "sequential",
+   "rho": -1.0,
+   "chord": "full"
+  },
+  {
+   "record": "eic_5153",
+   "layer": "value",
+   "voice": "eic5153",
+   "colours_from": "public/data/official/eic_5153/manifest.json layers.value.display.colours",
+   "class": "sequential",
+   "rho": -1.0,
+   "chord": "full"
+  },
+  {
+   "record": "eic_5154",
+   "layer": "value",
+   "voice": "eic5154",
+   "colours_from": "public/data/official/eic_5154/manifest.json layers.value.display.colours",
+   "class": "sequential",
+   "rho": -1.0,
+   "chord": "full"
+  },
+  {
+   "record": "eic_5544",
+   "layer": "value",
+   "voice": "eic5544",
+   "colours_from": "public/data/official/eic_5544/manifest.json layers.value.display.colours",
+   "class": "sequential",
+   "rho": -0.999,
+   "chord": "full"
+  },
+  {
+   "record": "forest_4950",
+   "layer": "height",
+   "voice": "forestHeight",
+   "colours_from": "public/data/official/forest_4950/manifest.json layers.height.display.colours",
+   "class": "rainbow",
+   "rho": 0.79,
+   "chord": "none"
+  },
+  {
+   "record": "lights_5313",
+   "layer": "change",
+   "voice": "lightsChange",
+   "colours_from": "public/data/official/lights_5313/manifest.json layers.change.display.colours",
+   "class": "rainbow",
+   "rho": -0.515,
+   "chord": "none"
+  },
+  {
+   "record": "ocean2_5425",
+   "layer": "temperature_kuroshio",
+   "voice": "ocean2Temperature",
+   "colours_from": "public/data/official/ocean2_5425/manifest.json layers.temperature_kuroshio.display.colours",
+   "class": "sequential",
+   "rho": 1.0,
+   "chord": "full"
+  },
+  {
+   "record": "ocean2_5425",
+   "layer": "temperature_agulhas",
+   "voice": "ocean2Temperature",
+   "colours_from": "public/data/official/ocean2_5425/manifest.json layers.temperature_agulhas.display.colours",
+   "class": "sequential",
+   "rho": 1.0,
+   "chord": "full"
+  },
+  {
+   "record": "ocean2_5425",
+   "layer": "temperature_gulf_stream",
+   "voice": "ocean2Temperature",
+   "colours_from": "public/data/official/ocean2_5425/manifest.json layers.temperature_gulf_stream.display.colours",
+   "class": "sequential",
+   "rho": 1.0,
+   "chord": "full"
+  },
+  {
+   "record": "ocean2_5425",
+   "layer": "temperature_global",
+   "voice": "ocean2Temperature",
+   "colours_from": "public/data/official/ocean2_5425/manifest.json layers.temperature_global.display.colours",
+   "class": "sequential",
+   "rho": 1.0,
+   "chord": "full"
+  },
+  {
+   "record": "patterns_eic",
+   "layer": "svs4170",
+   "voice": "patternScan",
+   "colours_from": "public/data/official/patterns_eic/manifest.json layers.svs4170.display.colours",
+   "class": "sequential",
+   "rho": 1.0,
+   "chord": "full"
+  },
+  {
+   "record": "patterns_eic",
+   "layer": "svs4685",
+   "voice": "patternScan",
+   "colours_from": "public/data/official/patterns_eic/manifest.json layers.svs4685.display.colours",
+   "class": "sequential",
+   "rho": 1.0,
+   "chord": "full"
+  },
+  {
+   "record": "patterns_eic",
+   "layer": "svs4810",
+   "voice": "patternScan",
+   "colours_from": "public/data/official/patterns_eic/manifest.json layers.svs4810.display.colours",
+   "class": "sequential",
+   "rho": 1.0,
+   "chord": "full"
+  },
+  {
+   "record": "patterns_eic",
+   "layer": "svs4889",
+   "voice": "patternScan",
+   "colours_from": "public/data/official/patterns_eic/manifest.json layers.svs4889.display.colours",
+   "class": "sequential",
+   "rho": 1.0,
+   "chord": "full"
+  },
+  {
+   "record": "patterns_eic",
+   "layer": "svs4897",
+   "voice": "patternScan",
+   "colours_from": "public/data/official/patterns_eic/manifest.json layers.svs4897.display.colours",
+   "class": "sequential",
+   "rho": 1.0,
+   "chord": "full"
+  },
+  {
+   "record": "patterns_eic",
+   "layer": "svs4968",
+   "voice": "patternScan",
+   "colours_from": "public/data/official/patterns_eic/manifest.json layers.svs4968.display.colours",
+   "class": "sequential",
+   "rho": 1.0,
+   "chord": "full"
+  },
+  {
+   "record": "patterns_eic",
+   "layer": "svs4983",
+   "voice": "patternScan",
+   "colours_from": "public/data/official/patterns_eic/manifest.json layers.svs4983.display.colours",
+   "class": "sequential",
+   "rho": 1.0,
+   "chord": "full"
+  },
+  {
+   "record": "patterns_eic",
+   "layer": "svs4993",
+   "voice": "patternScan",
+   "colours_from": "public/data/official/patterns_eic/manifest.json layers.svs4993.display.colours",
+   "class": "sequential",
+   "rho": 1.0,
+   "chord": "full"
+  },
+  {
+   "record": "patterns_eic",
+   "layer": "svs5041",
+   "voice": "patternScan",
+   "colours_from": "public/data/official/patterns_eic/manifest.json layers.svs5041.display.colours",
+   "class": "sequential",
+   "rho": 1.0,
+   "chord": "full"
+  },
+  {
+   "record": "patterns_eic",
+   "layer": "svs5046",
+   "voice": "patternScan",
+   "colours_from": "public/data/official/patterns_eic/manifest.json layers.svs5046.display.colours",
+   "class": "sequential",
+   "rho": 1.0,
+   "chord": "full"
+  },
+  {
+   "record": "patterns_eic",
+   "layer": "svs5047",
+   "voice": "patternScan",
+   "colours_from": "public/data/official/patterns_eic/manifest.json layers.svs5047.display.colours",
+   "class": "sequential",
+   "rho": 1.0,
+   "chord": "full"
+  },
+  {
+   "record": "patterns_eic",
+   "layer": "svs5054",
+   "voice": "patternScan",
+   "colours_from": "public/data/official/patterns_eic/manifest.json layers.svs5054.display.colours",
+   "class": "sequential",
+   "rho": 1.0,
+   "chord": "full"
+  },
+  {
+   "record": "patterns_eic",
+   "layer": "svs5058",
+   "voice": "patternScan",
+   "colours_from": "public/data/official/patterns_eic/manifest.json layers.svs5058.display.colours",
+   "class": "sequential",
+   "rho": 1.0,
+   "chord": "full"
+  },
+  {
+   "record": "patterns_eic",
+   "layer": "svs5064",
+   "voice": "patternScan",
+   "colours_from": "public/data/official/patterns_eic/manifest.json layers.svs5064.display.colours",
+   "class": "sequential",
+   "rho": 1.0,
+   "chord": "full"
+  },
+  {
+   "record": "patterns_eic",
+   "layer": "svs5067",
+   "voice": "patternScan",
+   "colours_from": "public/data/official/patterns_eic/manifest.json layers.svs5067.display.colours",
+   "class": "sequential",
+   "rho": 1.0,
+   "chord": "full"
+  },
+  {
+   "record": "patterns_eic",
+   "layer": "svs5072",
+   "voice": "patternScan",
+   "colours_from": "public/data/official/patterns_eic/manifest.json layers.svs5072.display.colours",
+   "class": "sequential",
+   "rho": 1.0,
+   "chord": "full"
+  },
+  {
+   "record": "patterns_eic",
+   "layer": "svs5081",
+   "voice": "patternScan",
+   "colours_from": "public/data/official/patterns_eic/manifest.json layers.svs5081.display.colours",
+   "class": "sequential",
+   "rho": 1.0,
+   "chord": "full"
+  },
+  {
+   "record": "patterns_eic",
+   "layer": "svs5087",
+   "voice": "patternScan",
+   "colours_from": "public/data/official/patterns_eic/manifest.json layers.svs5087.display.colours",
+   "class": "sequential",
+   "rho": 1.0,
+   "chord": "full"
+  },
+  {
+   "record": "patterns_eic",
+   "layer": "svs5097",
+   "voice": "patternScan",
+   "colours_from": "public/data/official/patterns_eic/manifest.json layers.svs5097.display.colours",
+   "class": "sequential",
+   "rho": 1.0,
+   "chord": "full"
+  },
+  {
+   "record": "patterns_eic",
+   "layer": "svs5098",
+   "voice": "patternScan",
+   "colours_from": "public/data/official/patterns_eic/manifest.json layers.svs5098.display.colours",
+   "class": "sequential",
+   "rho": 1.0,
+   "chord": "full"
+  },
+  {
+   "record": "patterns_eic",
+   "layer": "svs5099",
+   "voice": "patternScan",
+   "colours_from": "public/data/official/patterns_eic/manifest.json layers.svs5099.display.colours",
+   "class": "sequential",
+   "rho": 1.0,
+   "chord": "full"
+  },
+  {
+   "record": "patterns_eic",
+   "layer": "svs5107",
+   "voice": "patternScan",
+   "colours_from": "public/data/official/patterns_eic/manifest.json layers.svs5107.display.colours",
+   "class": "sequential",
+   "rho": 1.0,
+   "chord": "full"
+  },
+  {
+   "record": "patterns_eic",
+   "layer": "svs5110",
+   "voice": "patternScan",
+   "colours_from": "public/data/official/patterns_eic/manifest.json layers.svs5110.display.colours",
+   "class": "sequential",
+   "rho": 1.0,
+   "chord": "full"
+  },
+  {
+   "record": "patterns_eic",
+   "layer": "svs5111",
+   "voice": "patternScan",
+   "colours_from": "public/data/official/patterns_eic/manifest.json layers.svs5111.display.colours",
+   "class": "sequential",
+   "rho": 1.0,
+   "chord": "full"
+  },
+  {
+   "record": "patterns_eic",
+   "layer": "svs5115",
+   "voice": "patternScan",
+   "colours_from": "public/data/official/patterns_eic/manifest.json layers.svs5115.display.colours",
+   "class": "sequential",
+   "rho": 1.0,
+   "chord": "full"
+  },
+  {
+   "record": "patterns_eic",
+   "layer": "svs5116",
+   "voice": "patternScan",
+   "colours_from": "public/data/official/patterns_eic/manifest.json layers.svs5116.display.colours",
+   "class": "sequential",
+   "rho": 1.0,
+   "chord": "full"
+  },
+  {
+   "record": "patterns_eic",
+   "layer": "svs5117",
+   "voice": "patternScan",
+   "colours_from": "public/data/official/patterns_eic/manifest.json layers.svs5117.display.colours",
+   "class": "sequential",
+   "rho": 1.0,
+   "chord": "full"
+  },
+  {
+   "record": "patterns_eic",
+   "layer": "svs5118",
+   "voice": "patternScan",
+   "colours_from": "public/data/official/patterns_eic/manifest.json layers.svs5118.display.colours",
+   "class": "sequential",
+   "rho": 1.0,
+   "chord": "full"
+  },
+  {
+   "record": "patterns_eic",
+   "layer": "svs5119",
+   "voice": "patternScan",
+   "colours_from": "public/data/official/patterns_eic/manifest.json layers.svs5119.display.colours",
+   "class": "sequential",
+   "rho": 1.0,
+   "chord": "full"
+  },
+  {
+   "record": "patterns_eic",
+   "layer": "svs5120",
+   "voice": "patternScan",
+   "colours_from": "public/data/official/patterns_eic/manifest.json layers.svs5120.display.colours",
+   "class": "sequential",
+   "rho": 1.0,
+   "chord": "full"
+  },
+  {
+   "record": "patterns_eic",
+   "layer": "svs5121",
+   "voice": "patternScan",
+   "colours_from": "public/data/official/patterns_eic/manifest.json layers.svs5121.display.colours",
+   "class": "sequential",
+   "rho": 1.0,
+   "chord": "full"
+  },
+  {
+   "record": "patterns_eic",
+   "layer": "svs5126",
+   "voice": "patternScan",
+   "colours_from": "public/data/official/patterns_eic/manifest.json layers.svs5126.display.colours",
+   "class": "sequential",
+   "rho": 1.0,
+   "chord": "full"
+  },
+  {
+   "record": "patterns_eic",
+   "layer": "svs5175",
+   "voice": "patternScan",
+   "colours_from": "public/data/official/patterns_eic/manifest.json layers.svs5175.display.colours",
+   "class": "sequential",
+   "rho": 1.0,
+   "chord": "full"
+  },
+  {
+   "record": "patterns_eic",
+   "layer": "svs5190",
+   "voice": "patternScan",
+   "colours_from": "public/data/official/patterns_eic/manifest.json layers.svs5190.display.colours",
+   "class": "sequential",
+   "rho": 1.0,
+   "chord": "full"
+  },
+  {
+   "record": "patterns_eic",
+   "layer": "svs5191",
+   "voice": "patternScan",
+   "colours_from": "public/data/official/patterns_eic/manifest.json layers.svs5191.display.colours",
+   "class": "sequential",
+   "rho": 1.0,
+   "chord": "full"
+  },
+  {
+   "record": "patterns_eic",
+   "layer": "svs5207",
+   "voice": "patternScan",
+   "colours_from": "public/data/official/patterns_eic/manifest.json layers.svs5207.display.colours",
+   "class": "sequential",
+   "rho": 1.0,
+   "chord": "full"
+  },
+  {
+   "record": "patterns_eic",
+   "layer": "svs5209",
+   "voice": "patternScan",
+   "colours_from": "public/data/official/patterns_eic/manifest.json layers.svs5209.display.colours",
+   "class": "sequential",
+   "rho": 1.0,
+   "chord": "full"
+  },
+  {
+   "record": "patterns_eic",
+   "layer": "svs5235",
+   "voice": "patternScan",
+   "colours_from": "public/data/official/patterns_eic/manifest.json layers.svs5235.display.colours",
+   "class": "sequential",
+   "rho": 1.0,
+   "chord": "full"
+  },
+  {
+   "record": "patterns_eic",
+   "layer": "svs5382",
+   "voice": "patternScan",
+   "colours_from": "public/data/official/patterns_eic/manifest.json layers.svs5382.display.colours",
+   "class": "sequential",
+   "rho": 1.0,
+   "chord": "full"
+  },
+  {
+   "record": "patterns_eic",
+   "layer": "svs5453",
+   "voice": "patternScan",
+   "colours_from": "public/data/official/patterns_eic/manifest.json layers.svs5453.display.colours",
+   "class": "sequential",
+   "rho": 1.0,
+   "chord": "full"
+  },
+  {
+   "record": "patterns_eic",
+   "layer": "svs30521",
+   "voice": "patternScan",
+   "colours_from": "public/data/official/patterns_eic/manifest.json layers.svs30521.display.colours",
+   "class": "sequential",
+   "rho": 1.0,
+   "chord": "full"
+  },
+  {
+   "record": "patterns_eic",
+   "layer": "svs31196",
+   "voice": "patternScan",
+   "colours_from": "public/data/official/patterns_eic/manifest.json layers.svs31196.display.colours",
+   "class": "sequential",
+   "rho": 1.0,
+   "chord": "full"
+  },
+  {
+   "record": "river_4960",
+   "layer": "transport",
+   "voice": "riverTransport",
+   "colours_from": "public/data/official/river_4960/manifest.json layers.transport.display.colours",
+   "class": "sequential",
+   "rho": 1.0,
+   "chord": "full"
+  }
+ ]
+}

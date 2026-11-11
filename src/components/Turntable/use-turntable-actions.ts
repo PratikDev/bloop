@@ -133,5 +133,3 @@ export function useTurntableActions(
     },
   };
 }
-
-export type TurntableActions = ReturnType<typeof useTurntableActions>;

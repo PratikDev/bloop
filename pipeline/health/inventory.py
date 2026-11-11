@@ -16,8 +16,12 @@ LIVE = ("sst", "rain", "sequence")
 TRUTH = ("sst_pairs", "rain_pairs", "threeway")
 # History files the app reads (src/lib/data/paths.ts) that no registry product owns; global/manifest.json lists its layers.
 HISTORY_FILES = ("context/ensemble_bd.json", "context/globe_duet.json", "demo/dhaka_then_now.json", "demo/cities_then_now.json",
+                 "thenvsnow/stats.json", "thenvsnow/lifetime.json", "truth/stats.json",
                  "global/manifest.json")
-NOT_RECORDS = ("meta/freshness.json", "meta/health.json", "official/index.json", "related/index.json")
+# Indexes and analysis tables, each checked by its own tests: the CV/ML error budget, chord allowlist and colour-map
+# invariance (pipeline/tests), ART's raw-pixel measurements (src/lib/art/raw-pixel).
+NOT_RECORDS = ("meta/freshness.json", "meta/health.json", "official/index.json", "related/index.json",
+               "meta/error_budget.json", "meta/chord_allowlist.json", "meta/colormap_invariance.json", "art/raw_pixel.json")
 
 @dataclass
 class Record:
@@ -73,9 +77,10 @@ def _manifest_rows():
             if cat == "gibs":
                 rows += [Record(f"{name}:{l['id']}", cat, l.get("label") or l["id"], rel, "official", (), l["id"], l.get("status", ""), None, l["id"])
                          for l in m["layers"]]
+    indexed = {r.id for r in rows}
     for mp in sorted((DATA / "official").glob("*/manifest.json")):     # method evidence: a manifest with nothing to play, not indexed
         m = json.loads(mp.read_text(encoding="utf-8"))
-        if not m.get("play"):
+        if not m.get("play") and m["record"] not in indexed:
             rows.append(Record(m["record"], "method", m["app_title"], mp.relative_to(DATA).as_posix(), "official", tuple(m["svs_ids"]),
                                "; ".join(d.get("name", "") for d in m.get("datasets", []) if isinstance(d, dict)),
                                ", ".join(dict.fromkeys(l.get("status", "") for l in m["layers"])) or "method evidence", m["record"]))

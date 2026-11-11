@@ -1,5 +1,3 @@
-// English strings for the §15 additions (docs/data-integration-plan.md): truth checks read from
-// JSON (book §13.2 wording), proof in unison, and the product credits. Every number is a
 // parameter filled from a pipeline file. Honesty wording stays English (no Bangla drafts).
 
 import { formatNumber } from "@/lib/audio/mapping";
@@ -42,6 +40,5 @@ export const dataEn = {
   "hear.rain": (p: { min: number; max: number; percent: number | null }) =>
     `More drops = heavier rain (${formatNumber(p.min)}–${formatNumber(p.max)} mm/h, logarithmic)` +
     (p.percent === null ? "" : ` · IMERG check ~${formatInteger(p.percent, "en")}%`),
-  "credits.products": "Data in this app",
   "key.u.action": "Proof in unison: hear the nearest checked point (EIC frame tone, then NASA's file tone)",
 };

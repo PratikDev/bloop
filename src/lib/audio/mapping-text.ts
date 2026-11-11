@@ -20,6 +20,8 @@ const PARAM_WORDS: Record<string, string> = {
   clicksPerSecond: "clicks per second",
 };
 
+const CLASS_SOUND_WORDS = { silence: "silence (stated)", chord: "a fixed chord", rumble: "a fixed rumble" } as const;
+
 /**
  * The pieces of a rule, so L3 can build the sentence in either language.
  * Returns null for voices without a value rule (most earcons).
@@ -40,12 +42,14 @@ export interface RuleParts {
   outputFalling?: boolean;
   bands?: { upTo: string | null; label: string }[];
   sameAs?: string; // the voice whose rule is used
+  classes?: { label: string; sound: "silence" | "chord" | "rumble" }[];
 }
 
 export function ruleParts(voice: VoiceSpec): RuleParts | null {
   const m = voice.mapping;
   if (!m) return null;
   if (m.kind === "sameAs") return { kind: m.kind, inputUnit: m.input.unit, sameAs: m.voice };
+  if (m.kind === "classes") return { kind: m.kind, inputUnit: m.input.unit, classes: m.states.map((s) => ({ label: s.label, sound: s.sound })) };
   if (m.kind === "bands") {
     return {
       kind: m.kind,
@@ -81,7 +85,6 @@ export function ruleParts(voice: VoiceSpec): RuleParts | null {
   };
 }
 
-/** The English rule sentence shown in the Mapping panel. Bangla: build from ruleParts(). */
 export function ruleText(voice: VoiceSpec): string {
   const p = ruleParts(voice);
   if (!p) return voice.silence;
@@ -90,6 +93,11 @@ export function ruleText(voice: VoiceSpec): string {
   if (p.kind === "sameAs" && p.sameAs) {
     const other = voiceSpec(p.sameAs);
     return `${name}: two tones in one ear, both by the ${other.label.en} rule (${ruleText(other)}) Beats per second = the difference between the two pitches in Hz.`;
+  }
+
+  if (p.kind === "classes") {
+    const parts = (p.classes ?? []).map((c) => `${c.label}: ${CLASS_SOUND_WORDS[c.sound]}`);
+    return `${name} (${p.inputUnit}) → a fixed sound per class, never a pitch. ${parts.join("; ")}.`;
   }
 
   if (p.kind === "bands") {

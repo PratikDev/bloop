@@ -1,4 +1,3 @@
-// English strings for the page shell (redesign, docs/L3/REDESIGN.md): the
 // navigation, Home, the Listen page's hint and tour, the Then vs Now views,
 // How we know, and "no signal". Numbers are parameters from the data files.
 
@@ -80,7 +79,6 @@ export const pagesEn = {
   "how.globe.value": (p: { percent: number }) => `${formatInteger(p.percent, "en")}%`,
   "how.open": "Read the full check",
   "how.openRules": "See every rule",
-  "how.openGlobe": "Read the teaser",
   "how.credits": "Credits",
   "how.keys": "Keys and accessibility",
 

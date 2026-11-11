@@ -6,6 +6,7 @@ import { wrapText } from "@/a11y/brailleText";
 import { Button } from "@/components/ui/button";
 import { useBrailleSettings } from "@/hooks/use-braille-settings";
 import { useT } from "./AppState/use-app-state";
+import { downloadBlob } from "@/lib/download";
 
 /**
  * A "braille-friendly text" view of a block of text (a record's liner notes): plain lines, front-loaded,
@@ -18,12 +19,7 @@ export function BrailleTextView({ lines, filename }: { lines: readonly string[];
   const id = useId();
   const text = open ? wrapText(lines, settings.width).join("\n") : "";
 
-  function download() {
-    const url = URL.createObjectURL(new Blob([`${text}\n`], { type: "text/plain;charset=utf-8" }));
-    const a = Object.assign(document.createElement("a"), { href: url, download: filename });
-    a.click();
-    URL.revokeObjectURL(url);
-  }
+  const download = () => downloadBlob(new Blob([`${text}\n`], { type: "text/plain;charset=utf-8" }), filename);
 
   return (
     <div className="space-y-2">

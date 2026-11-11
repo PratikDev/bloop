@@ -13,7 +13,7 @@ export const STATUS_BUDGET = 40;
 export type DegreeStyle = "symbol" | "word";
 
 /** The one abbreviation set (also listed in BRAILLE.md). */
-export const ABBREV = {
+const ABBREV = {
   observation: "obs",
   model: "model",
   reanalysis: "rean",
@@ -30,17 +30,7 @@ export const ABBREV = {
   stale: "stale",
 } as const;
 
-export type AbbrevKey = keyof typeof ABBREV;
-
-/** Characters no braille string may contain, with the reason (for the text-rules test). */
-export const BANNED: readonly { name: string; rx: RegExp }[] = [
-  { name: "emoji or pictograph", rx: /\p{Extended_Pictographic}/u },
-  { name: "decorative symbol", rx: /[•·★☆✓✔✗✘→←↑↓↔⇒⇐▲▼◆◇■□●○♪♫]/u },
-  { name: "glyph a table may lack", rx: /[≈±≤≥×÷–—−…‘’“”]/u },
-  { name: "special space", rx: /[   ​ ]/u },
-  { name: "box drawing or block", rx: /[─-▟]/u },
-  { name: "repeated punctuation", rx: /([!?.,;:*_=~#-])\1/u },
-];
+type AbbrevKey = keyof typeof ABBREV;
 
 const REPLACE: readonly [RegExp, string][] = [
   [/≈/gu, "about "],
@@ -65,19 +55,6 @@ export function clean(s: string): string {
   return out.replace(/\s+/gu, " ").trim();
 }
 
-/** What breaks the rules in `s` (empty = passes). `budget` checks the length too. */
-export function violations(s: string, budget?: number): string[] {
-  const out = BANNED.filter((b) => b.rx.test(s)).map((b) => b.name);
-  if (budget !== undefined && [...s].length > budget) out.push(`longer than ${budget}`);
-  if (s !== s.trim() || /\s{2}/u.test(s)) out.push("stray spaces");
-  return out;
-}
-
-/** Bangla (and other) digits → 0–9, so typed codes and numbers read the same everywhere. */
-export function latinDigits(s: string): string {
-  return s.replace(/[০-৯]/gu, (d) => String(d.charCodeAt(0) - 0x09e6));
-}
-
 /** Decimals a quantisation step allows (0.1 → 1, 0.005 → 3, 2 → 0). */
 export function decimalsFor(step: number): number {
   if (!(step > 0) || !Number.isFinite(step)) return 1;
@@ -90,7 +67,6 @@ export function brailleNumber(value: number, decimals: number): string {
   return /^-0(\.0+)?$/u.test(s) ? s.slice(1) : s;
 }
 
-/** A unit as braille shows it ("°C" → "deg C" in word style); other units pass through clean(). */
 export function brailleUnit(unit: string, degree: DegreeStyle): string {
   const u = clean(unit);
   return degree === "word" ? u.replace(/°\s?/gu, "deg ") : u;
@@ -153,7 +129,7 @@ export function wrapText(lines: readonly string[], width: number): string[] {
 }
 
 /** Long names a short line abbreviates (part of the one abbreviation set; BRAILLE.md lists it). */
-export const NAME_ABBREV: Record<string, string> = {
+const NAME_ABBREV: Record<string, string> = {
   "sea surface temperature": "SST",
   "sea surface salinity": "SSS",
   "land surface temperature": "LST",

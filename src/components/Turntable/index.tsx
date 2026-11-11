@@ -161,83 +161,86 @@ export function Turntable() {
   }, []);
 
   return (
-    <section ref={sectionRef} lang={rootLang} className="tt-warm relative min-h-[32rem] min-w-0 overflow-hidden bg-tt-black">
-      <div inert={sceneOpen !== null} className="contents">
-        <Stage
-          tt={tt}
-          hostRef={hostRef}
-          geo={geo}
-          record={record}
-          tier={settings.quality}
-          place={place}
-          labels={settings.labels ? labels : null}
-          graticule={graticule}
-          details={details}
-          intro={intro.phase}
-          idle={idle}
-          onKeyDown={onKeyDown}
-          debug={debug ? { sendLog, placed } : null}
-          className="absolute inset-0"
-        />
-        <div className="pointer-events-none absolute top-3 right-3 left-3 flex items-start justify-end gap-2 pt-6 sm:pt-0">
-          <SearchBox gazetteer={geo?.gazetteer ?? null} onChoose={actions.choosePlace} inputRef={searchRef} className="pointer-events-auto max-w-[calc(100%-3.5rem)]" />
-          <Button variant="ghost" onClick={() => setDrawer("howWeKnow")} className={GLASS_BUTTON}>
-            <BookOpenText aria-hidden="true" />
-            <span className="hidden sm:inline">{tr("turntable.howWeKnow")}</span>
-            <span className="sr-only sm:hidden">{tr("turntable.howWeKnow")}</span>
-          </Button>
-        </div>
-        <div className="pointer-events-none absolute inset-x-3 bottom-3 flex flex-col items-center gap-2">
-          <div className="max-w-2xl text-center">
-            <CaptionBar fade className="min-h-0 text-body [text-shadow:0_1px_3px_var(--label-shadow)] sm:text-lead" />
-            {actions.where && (
-              <p key={actions.where} className="caption-fade text-body text-moon [text-shadow:0_1px_3px_var(--label-shadow)]">
-                {actions.where}
-              </p>
-            )}
-          </div>
-          <LegendBar
-            pixel={fields ? tt.texture.sample(state.track, readAt(fields, state.cursor), state.cursor) : null}
-            className="pointer-events-auto w-full max-w-md"
+    <>
+      <section ref={sectionRef} lang={rootLang} className="tt-warm relative min-h-[32rem] min-w-0 overflow-hidden bg-tt-black">
+        <div inert={sceneOpen !== null} className="contents">
+          <Stage
+            tt={tt}
+            hostRef={hostRef}
+            geo={geo}
+            record={record}
+            tier={settings.quality}
+            place={place}
+            labels={settings.labels ? labels : null}
+            graticule={graticule}
+            details={details}
+            intro={intro.phase}
+            idle={idle}
+            onKeyDown={onKeyDown}
+            debug={debug ? { sendLog, placed } : null}
+            className="absolute inset-0"
           />
-          <div className="pointer-events-auto max-w-full">
-            <Dock
-              ref={dockRef}
-              rotating={tt.rotating}
-              speed={tt.speed}
-              touring={actions.touring}
-              cameraMode={tt.cameraMode}
-              covers={tt.texture.covers}
-              onPlay={commands.togglePlaying}
-              onToggleRotation={actions.toggleRotation}
-              onSpeed={actions.changeSpeed}
-              onSearch={actions.focusSearch}
-              onWhereAmI={actions.whereAmI}
-              onTour={actions.toggleTour}
-              onRecord={actions.selectRecord}
-              onScene={openScene}
-              onCameraMode={actions.setCameraMode}
-              onLayers={() => setDrawer("layers")}
-              onSettings={() => setDrawer("settings")}
-              onHelp={commands.openHelp}
-            />
+          <div className="pointer-events-none absolute top-3 right-3 left-3 flex items-start justify-end gap-2 pt-6 sm:pt-0">
+            <SearchBox gazetteer={geo?.gazetteer ?? null} onChoose={actions.choosePlace} inputRef={searchRef} className="pointer-events-auto max-w-[calc(100%-3.5rem)]" />
+            <Button variant="ghost" onClick={() => setDrawer("howWeKnow")} className={GLASS_BUTTON}>
+              <BookOpenText aria-hidden="true" />
+              <span className="hidden sm:inline">{tr("turntable.howWeKnow")}</span>
+              <span className="sr-only sm:hidden">{tr("turntable.howWeKnow")}</span>
+            </Button>
           </div>
+          <div className="pointer-events-none absolute inset-x-3 bottom-3 flex flex-col items-center gap-2">
+            <div className="max-w-2xl text-center">
+              <CaptionBar fade className="min-h-0 text-body [text-shadow:0_1px_3px_var(--label-shadow)] sm:text-lead" />
+              {actions.where && (
+                <p key={actions.where} className="caption-fade text-body text-moon [text-shadow:0_1px_3px_var(--label-shadow)]">
+                  {actions.where}
+                </p>
+              )}
+            </div>
+            <LegendBar
+              pixel={fields ? tt.texture.sample(state.track, readAt(fields, state.cursor), state.cursor) : null}
+              className="pointer-events-auto w-full max-w-md"
+            />
+            <div className="pointer-events-auto max-w-full">
+              <Dock
+                ref={dockRef}
+                rotating={tt.rotating}
+                speed={tt.speed}
+                touring={actions.touring}
+                cameraMode={tt.cameraMode}
+                covers={tt.texture.covers}
+                onPlay={commands.togglePlaying}
+                onToggleRotation={actions.toggleRotation}
+                onSpeed={actions.changeSpeed}
+                onSearch={actions.focusSearch}
+                onWhereAmI={actions.whereAmI}
+                onTour={actions.toggleTour}
+                onRecord={actions.selectRecord}
+                onScene={openScene}
+                onCameraMode={actions.setCameraMode}
+                onLayers={() => setDrawer("layers")}
+                onSettings={() => setDrawer("settings")}
+                onHelp={commands.openHelp}
+              />
+            </div>
+          </div>
+          <CreditsLink className="absolute right-2 bottom-2 hidden h-8 px-2 text-small text-haze lg:inline-flex" onInline={() => setDrawer("credits")} />
         </div>
-        <CreditsLink className="absolute right-2 bottom-2 hidden h-8 px-2 text-small text-haze lg:inline-flex" />
-        <Drawers
-          open={drawer}
-          onClose={() => setDrawer(null)}
-          settings={settings}
-          update={actions.updateSettings}
-          onMyLocation={actions.myLocation}
-          onFlatMap={() => {
-            setDrawer(null);
-            commands.setMode("explore");
-            focusFlatMap();
-          }}
-        />
-      </div>
-      {sceneOpen && <SceneHost id={sceneOpen} onExit={closeScene} tier={settings.quality} geo={geo} />}
-    </section>
+        {sceneOpen && <SceneHost id={sceneOpen} onExit={closeScene} tier={settings.quality} geo={geo} />}
+      </section>
+      {}
+      <Drawers
+        open={drawer}
+        onClose={() => setDrawer(null)}
+        settings={settings}
+        update={actions.updateSettings}
+        onMyLocation={actions.myLocation}
+        onFlatMap={() => {
+          setDrawer(null);
+          commands.setMode("explore");
+          focusFlatMap();
+        }}
+      />
+    </>
   );
 }

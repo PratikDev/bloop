@@ -20,7 +20,7 @@ const NARROW_PX = 640;
 const NARROW_TOP_PX = 96;
 
 /** Where the needle is on screen this frame (the Turntable's FrameInfo satisfies it). */
-export interface ChipFrameInfo {
+interface ChipFrameInfo {
   width: number;
   height: number;
   needle: { x: number; y: number };
@@ -56,6 +56,12 @@ export function ChipFrame({ subscribe, details, reserved, bottomReserve = BOTTOM
   const crossRef = useRef<SVGSVGElement>(null);
   const boxRef = useRef<HTMLDivElement | null>(null);
   const size = useRef({ w: 0, h: 0 });
+  const openRef = useRef(details.open);
+  const engaged = useRef(false);
+  const placedFor = useRef<{ width: number; height: number } | null>(null);
+  useEffect(() => {
+    openRef.current = details.open;
+  }, [details.open]);
 
   // The box's size from a ResizeObserver: never read in the frame loop (that forces a layout).
   const observe = useCallback((box: HTMLDivElement | null) => {
@@ -81,8 +87,12 @@ export function ChipFrame({ subscribe, details, reserved, bottomReserve = BOTTOM
         const { w, h } = size.current;
         if (!box || w === 0) {
           if (reserved) reserved.current = [];
+          placedFor.current = null;
           return;
         }
+        const placed = placedFor.current;
+        if ((openRef.current || engaged.current) && placed && placed.width === f.width && placed.height === f.height) return;
+        placedFor.current = { width: f.width, height: f.height };
         // Left of the needle by preference (the tonearm comes in from the right); flips when there's no room.
         const narrow = f.width < NARROW_PX;
         const left = f.needle.x - GAP_PX - w >= EDGE_PX;
@@ -107,15 +117,25 @@ export function ChipFrame({ subscribe, details, reserved, bottomReserve = BOTTOM
       {chip !== null && (
         <div
           ref={observe}
-          className="absolute top-0 left-0 z-10 max-w-[min(22rem,calc(100%-1.5rem))]"
+          data-provenance-group=""
+          className={cn("absolute top-0 left-0 z-10 max-w-[min(22rem,calc(100%-1.5rem))]", details.open && "w-[min(22rem,calc(100%-1.5rem))]")}
           onPointerEnter={() => {
+            engaged.current = true;
             details.show();
             details.hold(true);
           }}
-          onPointerLeave={() => details.hold(false)}
-          onFocus={() => details.hold(true)}
+          onPointerLeave={() => {
+            engaged.current = false;
+            details.hold(false);
+          }}
+          onFocus={() => {
+            engaged.current = true;
+            details.hold(true);
+          }}
           onBlur={(e) => {
-            if (!e.currentTarget.contains(e.relatedTarget)) details.hold(false);
+            if (e.currentTarget.contains(e.relatedTarget)) return;
+            engaged.current = false;
+            details.hold(false);
           }}
         >
           <button

@@ -4,9 +4,18 @@ Every dependency the braille work added, checked on 3 Nov 2026. Nothing new ship
 
 | Dependency | Version | Licence | Where it is used | Ships to users? | Obligation |
 |---|---|---|---|---|---|
-| `@playwright/test` (with `playwright`, `playwright-core`) | 1.56.1 | Apache-2.0 | Browser tests (`e2e/*.e2e.ts`, `bun run e2e`) | No (devDependency) | Keep the licence notice if it is ever redistributed. |
-| Playwright's Chromium and Firefox builds | Chromium 1194, Firefox 1495 | BSD-3-Clause (Chromium), MPL-2.0 (Firefox) | Test browsers, installed to `D:\Jukebox\tools\ms-playwright` (`PLAYWRIGHT_BROWSERS_PATH`) | No | None for local testing. |
-| `axe-core` | 4.13.0 | MPL-2.0 | Injected into the page by the e2e test to check accessibility | No (devDependency, test only) | MPL-2.0 is file-level copyleft. It applies only if we modify and distribute axe-core files, which we don't. |
+
+## Accessibility core, step 8 (low-vision mode), checked on 9 Nov 2026
+
+Three fonts, served through `next/font/google` (self-hosted at build time, no request to Google from the visitor's browser). None is preloaded: each downloads only when its setting puts it on screen.
+
+| Font | Licence | Where it is used | Ships to users? | Obligation |
+|---|---|---|---|---|
+| Atkinson Hyperlegible (Braille Institute of America) | SIL Open Font License 1.1 | Low-vision settings → Font (Latin text) | Yes (font files, on demand) | Keep the OFL notice with the font if the files are redistributed on their own; the font can't be sold by itself. Bundling in a site is allowed. |
+| Noto Sans Bengali (Google) | SIL Open Font License 1.1 | Low-vision settings → Bangla font (candidate 1) | Yes (on demand) | As above. |
+| Hind Siliguri (Indian Type Foundry) | SIL Open Font License 1.1 | Low-vision settings → Bangla font (candidate 2) | Yes (on demand) | As above. |
+
+The cividis colour scale (Nuñez, Anderton & Renslow 2018, PLOS ONE) is a list of ten published colour values typed into `globals.css`; no code is used.
 
 ## Considered and not used
 

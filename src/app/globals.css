@@ -6,11 +6,13 @@
 @custom-variant short (@media (max-height: 50rem));
 /* Listen from 1024 px: the stage (a container named listen) is wider than 2:1, so there is room beside the map. */
 @custom-variant listen-wide (@container listen (min-aspect-ratio: 2 / 1));
-
-/* "Signals over the Bay" (docs/L3/REDESIGN.md §1), on the "Night over the Bay"
-   palette (docs/L3/design-plan.md §2). Every chrome colour sits in the hue range
-   NASA's colormaps don't use (255°–330°), so nothing in the interface can be
-   mistaken for data. */
+@custom-variant fit {
+  @media (width >= 64rem) {
+    :root:not([data-lv-flow]) & {
+      @slot;
+    }
+  }
+}
 
 :root {
   color-scheme: dark;
@@ -182,7 +184,6 @@
   --font-heading: var(--font-geist), var(--font-anek), system-ui, sans-serif;
   --font-mono: var(--font-geist-mono), var(--font-anek), ui-monospace, monospace;
 
-  /* Scale, ratio 1.25 from 16 px (design-plan §3.2), plus two display steps */
   --text-small: 0.8rem;
   --text-small--line-height: 1.45;
   --text-body: 1rem;
@@ -224,7 +225,6 @@
   --animate-breathe: breathe 6s ease-in-out infinite;
 }
 
-/* The readout value: the display serif, tabular digits (the 200% zoom test, design-plan §3.3). */
 @utility readout-figure {
   font-family: var(--font-serif);
   font-weight: 400;
@@ -331,12 +331,11 @@
   }
 }
 
-/* Focus: one ring for everything, 2 px shapla with a 2 px gap (§2.3).
-   Unlayered on purpose, so component utilities can't override it. */
 :focus-visible {
-  outline: 2px solid var(--shapla);
+  outline: 3px solid var(--shapla);
   outline-offset: 2px;
   box-shadow: none;
+  transition-property: color, background-color, border-color, text-decoration-color, fill, stroke, opacity, transform, translate, scale, rotate;
 }
 
 /* The map is full bleed, so its ring sits inside the edge. */
@@ -568,4 +567,199 @@ html[data-reduce-motion="true"] .animate-scene-in {
 /* Reduced motion: captions just stay (no fade-out to nothing). */
 html[data-reduce-motion="true"] .caption-fade {
   animation: none !important;
+}
+
+:root {
+  --lv-lum-0: #3b3b3b;
+  --lv-lum-1: #4f4f4f;
+  --lv-lum-2: #646464;
+  --lv-lum-3: #7a7a7a;
+  --lv-lum-4: #919191;
+  --lv-lum-5: #a8a8a8;
+  --lv-lum-6: #c0c0c0;
+  --lv-lum-7: #d8d8d8;
+  --lv-lum-8: #ececec;
+  --lv-lum-9: #ffffff;
+  --lv-cividis-0: #00224e;
+  --lv-cividis-1: #123570;
+  --lv-cividis-2: #3b496c;
+  --lv-cividis-3: #575d6d;
+  --lv-cividis-4: #707173;
+  --lv-cividis-5: #8a8678;
+  --lv-cividis-6: #a59c74;
+  --lv-cividis-7: #c3b369;
+  --lv-cividis-8: #e1cc55;
+  --lv-cividis-9: #fee838;
+  --lv-two-a: #ffff00;
+  --lv-two-b: #000000;
+  --lv-land: #2b2b2b;
+  --lv-hatch: #6b6b6b;
+  --lv-coast: #ffffff;
+  --lv-label: #ffffff;
+  --lv-label-halo: #000000;
+  --lv-text-scale: 1;
+  --lv-dim: 1;
+}
+
+:root[data-lv-theme="hcDark"] {
+  color-scheme: dark;
+  --night: #000000;
+  --dusk: #0a0a0a;
+  --tide: #1c1c1c;
+  --land: #2b2b2b;
+  --line: #ffffff;
+  --moon: #ffffff;
+  --haze: #e6e6e6;
+  --shapla: #ffff00;
+  --ink: #000000;
+  --scrim: rgb(0 0 0 / 0.6);
+  --glass: rgb(0 0 0 / 0.94);
+  --glass-edge: rgb(255 255 255 / 0.6);
+  --glow: rgb(255 255 0 / 0.3);
+  --amber: #ffff00;
+  --tt-black: #000000;
+  --tt-panel: #000000;
+  --tt-raise: #1c1c1c;
+  --tt-line: #ffffff;
+  --tt-text: #ffffff;
+  --tt-muted: #e6e6e6;
+  --tt-glass: rgb(0 0 0 / 0.94);
+  --tt-glass-strong: rgb(0 0 0 / 0.98);
+  --tt-glass-edge: rgb(255 255 255 / 0.6);
+}
+
+:root[data-lv-theme="hcLight"] {
+  color-scheme: light;
+  --night: #ffffff;
+  --dusk: #f4f4f4;
+  --tide: #e2e2e2;
+  --land: #d0d0d0;
+  --line: #000000;
+  --moon: #000000;
+  --haze: #1f1f1f;
+  --shapla: #0033cc;
+  --ink: #ffffff;
+  --scrim: rgb(255 255 255 / 0.6);
+  --glass: rgb(255 255 255 / 0.96);
+  --glass-edge: rgb(0 0 0 / 0.6);
+  --glow: rgb(0 51 204 / 0.25);
+  --amber: #0033cc;
+  --tt-black: #ffffff;
+  --tt-panel: #ffffff;
+  --tt-raise: #e2e2e2;
+  --tt-line: #000000;
+  --tt-text: #000000;
+  --tt-muted: #1f1f1f;
+  --tt-glass: rgb(255 255 255 / 0.96);
+  --tt-glass-strong: rgb(255 255 255 / 0.99);
+  --tt-glass-edge: rgb(0 0 0 / 0.6);
+  --lv-two-a: #000000;
+  --lv-two-b: #ffffff;
+  --lv-land: #d0d0d0;
+  --lv-hatch: #8a8a8a;
+  --lv-coast: #000000;
+  --lv-label: #000000;
+  --lv-label-halo: #ffffff;
+}
+
+:root[data-lv-theme="custom"] {
+  --night: var(--lv-custom-bg);
+  --dusk: var(--lv-custom-bg);
+  --tide: var(--lv-custom-bg);
+  --moon: var(--lv-custom-text);
+  --haze: var(--lv-custom-text);
+  --line: var(--lv-custom-text);
+  --shapla: var(--lv-custom-text);
+  --ink: var(--lv-custom-bg);
+  --glass: var(--lv-custom-bg);
+  --glass-edge: var(--lv-custom-text);
+  --tt-panel: var(--lv-custom-bg);
+  --tt-text: var(--lv-custom-text);
+  --tt-muted: var(--lv-custom-text);
+  --tt-glass: var(--lv-custom-bg);
+  --tt-glass-strong: var(--lv-custom-bg);
+  --lv-coast: var(--lv-custom-text);
+  --lv-label: var(--lv-custom-text);
+  --lv-label-halo: var(--lv-custom-bg);
+}
+
+html {
+  font-size: calc(100% * var(--lv-text-scale));
+}
+
+:root[data-lv-dim] body {
+  filter: brightness(var(--lv-dim));
+}
+
+:root[data-lv-font="atkinson"] {
+  --font-geist: var(--font-atkinson);
+  --font-instrument: var(--font-atkinson);
+}
+:root[data-lv-bn-font="noto"] {
+  --font-anek: var(--font-noto-bn);
+  --font-tiro: var(--font-noto-bn);
+}
+:root[data-lv-bn-font="hind"] {
+  --font-anek: var(--font-hind-bn);
+  --font-tiro: var(--font-hind-bn);
+}
+
+:root[data-lv-spacing="wide"] body * {
+  line-height: 1.5 !important;
+  letter-spacing: 0.12em !important;
+  word-spacing: 0.16em !important;
+}
+:root[data-lv-spacing="wide"] body p {
+  margin-block-end: 2em;
+}
+:root[data-lv-measure="narrow"] body :is(p, li, dd) {
+  max-width: 60ch;
+}
+
+:root[data-lv-controls="large"] body :is(button, a[href], input, select, summary, [role="button"], [role="tab"], [role="radio"], [role="switch"]) {
+  min-height: max(36px, 2.25rem);
+  min-width: max(36px, 2.25rem);
+}
+:root[data-lv-controls="xl"] body :is(button, a[href], input, select, summary, [role="button"], [role="tab"], [role="radio"], [role="switch"]) {
+  min-height: max(44px, 2.75rem);
+  min-width: max(44px, 2.75rem);
+}
+
+:root[data-lv-cursor] body,
+:root[data-lv-cursor] body * {
+  cursor:
+    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='48' height='48' viewBox='0 0 24 24'%3E%3Cpath d='M3 2l16 9-7 1.5L9 20z' fill='white' stroke='black' stroke-width='1.6' stroke-linejoin='round'/%3E%3C/svg%3E")
+      4 2,
+    auto;
+}
+
+:root[data-lv-calm] *,
+:root[data-lv-calm] *::before,
+:root[data-lv-calm] *::after {
+  animation-duration: 0s !important;
+  animation-iteration-count: 1 !important;
+  transition-duration: 0s !important;
+  scroll-behavior: auto !important;
+}
+:root[data-lv-calm] [data-decorative] {
+  display: none !important;
+}
+
+:root[data-lv-flow]:not([data-dock-tall]) {
+  scroll-padding-block-end: calc(var(--dock-h, 9rem) + 0.75rem);
+}
+:root[data-lv-flow][data-dock-tall] [data-dock] {
+  position: static;
+}
+
+:root[data-lv-compact] main > * {
+  max-width: 44rem;
+  margin-inline: auto;
+}
+
+@media (forced-colors: active) {
+  #sound-map {
+    forced-color-adjust: none;
+    outline: 2px solid CanvasText;
+  }
 }

@@ -58,5 +58,5 @@ export function Waveform({ className }: { className?: string }) {
     return () => cancelAnimationFrame(raf);
   }, [fps, mode]);
 
-  return <canvas ref={canvasRef} aria-hidden="true" className={cn("h-8 w-32", className)} />;
+  return <canvas ref={canvasRef} aria-hidden="true" data-decorative="" className={cn("h-8 w-32", className)} />;
 }

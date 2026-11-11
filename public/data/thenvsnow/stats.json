@@ -1,0 +1,1401 @@
+{
+  "title": "Then vs Now: uncertainty and significance",
+  "disclosure": "Statistics computed by the Bloop pipeline from the yearly values the app plays (GISTEMP, GPCP, GPCC, GRACE); method and every number in docs/THEN_VS_NOW_STATS.md.",
+  "credit": "NASA GISTEMP v4, Dhaka cell, April-May anomaly vs 1951-1980; GPCP v2.3, Dhaka cell, June-September; GPCC gauges v2020, Dhaka cell, June-September; NASA GISTEMP v4, Chattogram cell, April-May anomaly vs 1951-1980; GPCP v2.3, Chattogram cell, June-September; GPCC gauges v2020, Chattogram cell, June-September; NASA GISTEMP v4, Rajshahi cell, April-May anomaly vs 1951-1980; GPCP v2.3, Rajshahi cell, June-September; GPCC gauges v2020, Rajshahi cell, June-September; NASA GISTEMP v4, Sylhet cell, April-May anomaly vs 1951-1980; GPCP v2.3, Sylhet cell, June-September; GPCC gauges v2020, Sylhet cell, June-September; NASA GISTEMP v4 (250 km smoothing), anomalies vs 1951-1980; GISTEMP Team, NASA Goddard Institute for Space Studies; GPCP v2.3 monthly (satellite + gauge), 2.5 deg; GPCP v2.3 (Adler et al.); data provided by NOAA PSL; GPCC Full Data v2020 (rain gauges), 2.5 deg, to 2019; GPCC, Deutscher Wetterdienst; data provided by NOAA PSL; GRACE/GRACE-FO JPL mascons RL06.3Mv04 CRI (lwe_thickness, anomalies vs 2004-2009); GRACE/GRACE-FO JPL RL06.3Mv04 CRI mascons, NASA/JPL PO.DAAC",
+  "method": {
+    "alpha": 0.05,
+    "ci": "95% bootstrap percentile interval: years resampled with replacement within each window",
+    "bootstrap_draws": 10000,
+    "seed": 20261102,
+    "tests": "Welch's t-test and Mann-Whitney U, two-sided",
+    "trend": "Mann-Kendall (Hamed-Rao 1998 variance correction when ranks show significant autocorrelation); Sen's slope with Gilbert (1987) 95% CI",
+    "clear_rule": "a change is stated only if both tests give p < 0.05 and the 95% CI excludes 0",
+    "script": "pipeline/stats/then_vs_now_stats.py",
+    "doc": "docs/THEN_VS_NOW_STATS.md"
+  },
+  "cities": {
+    "Dhaka": {
+      "heat": {
+        "source": "GISTEMP",
+        "season": "April-May",
+        "shown": "diff",
+        "unit": "°C",
+        "A": {
+          "window": [
+            1981,
+            1990
+          ],
+          "n": 10,
+          "mean": -0.14
+        },
+        "B": {
+          "window": [
+            2016,
+            2025
+          ],
+          "n": 10,
+          "mean": 1.2285
+        },
+        "diff": 1.3685,
+        "diff_ci": [
+          0.879,
+          1.8615
+        ],
+        "change_pct": -977.5,
+        "change_pct_ci": [
+          -9940.16,
+          9129.32
+        ],
+        "p_welch": 7e-05,
+        "p_mann_whitney": 0.00077,
+        "t": 5.114,
+        "u": 95.0,
+        "clear": true,
+        "trend": {
+          "years": [
+            1951.0,
+            2026.0
+          ],
+          "n": 76,
+          "test": "Mann-Kendall, Hamed-Rao modified",
+          "s": 892.0,
+          "z": 3.389,
+          "p": 0.000703,
+          "tau": 0.313,
+          "sen_slope": 0.0145,
+          "sen_slope_ci": [
+            0.0067,
+            0.0236
+          ],
+          "unit": "°C per year",
+          "lag1_autocorr": 0.188,
+          "variance_factor": 1.391,
+          "clear": true
+        }
+      },
+      "rain": {
+        "season": "June-September",
+        "shown_as": "JJAS mean daily rate (mm/day), change in %",
+        "gpcp": {
+          "source": "GPCP",
+          "shown": "change_pct",
+          "unit": "mm/day",
+          "A": {
+            "window": [
+              1981,
+              1990
+            ],
+            "n": 10,
+            "mean": 15.1045
+          },
+          "B": {
+            "window": [
+              2010,
+              2019
+            ],
+            "n": 10,
+            "mean": 13.612
+          },
+          "diff": -1.4925,
+          "diff_ci": [
+            -3.0484,
+            0.1537
+          ],
+          "change_pct": -9.88,
+          "change_pct_ci": [
+            -19.48,
+            1.07
+          ],
+          "p_welch": 0.10099,
+          "p_mann_whitney": 0.10411,
+          "t": -1.736,
+          "u": 28.0,
+          "clear": false,
+          "jjas_total_mm": {
+            "shown": "change_pct",
+            "unit": "mm",
+            "A": {
+              "window": [
+                1981,
+                1990
+              ],
+              "n": 10,
+              "mean": 1844.7049
+            },
+            "B": {
+              "window": [
+                2010,
+                2019
+              ],
+              "n": 10,
+              "mean": 1661.0507
+            },
+            "diff": -183.6542,
+            "diff_ci": [
+              -373.9136,
+              17.7469
+            ],
+            "change_pct": -9.96,
+            "change_pct_ci": [
+              -19.55,
+              1.01
+            ],
+            "p_welch": 0.09893,
+            "p_mann_whitney": 0.10411,
+            "t": -1.748,
+            "u": 28.0,
+            "clear": false
+          },
+          "annual_total_mm": {
+            "shown": "change_pct",
+            "unit": "mm",
+            "A": {
+              "window": [
+                1981,
+                1990
+              ],
+              "n": 10,
+              "mean": 2817.3081
+            },
+            "B": {
+              "window": [
+                2010,
+                2019
+              ],
+              "n": 10,
+              "mean": 2520.3806
+            },
+            "diff": -296.9275,
+            "diff_ci": [
+              -577.4915,
+              10.2438
+            ],
+            "change_pct": -10.54,
+            "change_pct_ci": [
+              -19.59,
+              0.35
+            ],
+            "p_welch": 0.08163,
+            "p_mann_whitney": 0.03121,
+            "t": -1.847,
+            "u": 21.0,
+            "clear": false
+          }
+        },
+        "gpcc": {
+          "source": "GPCC",
+          "shown": "change_pct",
+          "unit": "mm/day",
+          "A": {
+            "window": [
+              1981,
+              1990
+            ],
+            "n": 10,
+            "mean": 14.7947
+          },
+          "B": {
+            "window": [
+              2010,
+              2019
+            ],
+            "n": 10,
+            "mean": 13.0295
+          },
+          "diff": -1.7652,
+          "diff_ci": [
+            -3.4924,
+            0.057
+          ],
+          "change_pct": -11.93,
+          "change_pct_ci": [
+            -22.82,
+            0.39
+          ],
+          "p_welch": 0.08236,
+          "p_mann_whitney": 0.06402,
+          "t": -1.855,
+          "u": 25.0,
+          "clear": false,
+          "jjas_total_mm": {
+            "shown": "change_pct",
+            "unit": "mm",
+            "A": {
+              "window": [
+                1981,
+                1990
+              ],
+              "n": 10,
+              "mean": 1807.0943
+            },
+            "B": {
+              "window": [
+                2010,
+                2019
+              ],
+              "n": 10,
+              "mean": 1589.995
+            },
+            "diff": -217.0993,
+            "diff_ci": [
+              -427.8336,
+              5.6673
+            ],
+            "change_pct": -12.01,
+            "change_pct_ci": [
+              -22.88,
+              0.31
+            ],
+            "p_welch": 0.08075,
+            "p_mann_whitney": 0.06402,
+            "t": -1.866,
+            "u": 25.0,
+            "clear": false
+          },
+          "annual_total_mm": {
+            "shown": "change_pct",
+            "unit": "mm",
+            "A": {
+              "window": [
+                1981,
+                1990
+              ],
+              "n": 10,
+              "mean": 2766.5987
+            },
+            "B": {
+              "window": [
+                2010,
+                2019
+              ],
+              "n": 10,
+              "mean": 2432.93
+            },
+            "diff": -333.6687,
+            "diff_ci": [
+              -638.5844,
+              -5.5166
+            ],
+            "change_pct": -12.06,
+            "change_pct_ci": [
+              -22.03,
+              -0.21
+            ],
+            "p_welch": 0.06885,
+            "p_mann_whitney": 0.03764,
+            "t": -1.94,
+            "u": 22.0,
+            "clear": false
+          }
+        },
+        "gpcp_newer": {
+          "source": "GPCP",
+          "shown": "change_pct",
+          "unit": "mm/day",
+          "A": {
+            "window": [
+              1981,
+              1990
+            ],
+            "n": 10,
+            "mean": 15.1045
+          },
+          "B": {
+            "window": [
+              2016,
+              2025
+            ],
+            "n": 10,
+            "mean": 13.7052
+          },
+          "diff": -1.3993,
+          "diff_ci": [
+            -2.834,
+            0.1554
+          ],
+          "change_pct": -9.26,
+          "change_pct_ci": [
+            -18.04,
+            1.08
+          ],
+          "p_welch": 0.10608,
+          "p_mann_whitney": 0.07566,
+          "t": -1.706,
+          "u": 26.0,
+          "clear": false
+        }
+      }
+    },
+    "Chattogram": {
+      "heat": {
+        "source": "GISTEMP",
+        "season": "April-May",
+        "shown": "diff",
+        "unit": "°C",
+        "A": {
+          "window": [
+            1981,
+            1990
+          ],
+          "n": 10,
+          "mean": -0.14
+        },
+        "B": {
+          "window": [
+            2016,
+            2025
+          ],
+          "n": 10,
+          "mean": 1.2285
+        },
+        "diff": 1.3685,
+        "diff_ci": [
+          0.879,
+          1.8615
+        ],
+        "change_pct": -977.5,
+        "change_pct_ci": [
+          -9940.16,
+          9129.32
+        ],
+        "p_welch": 7e-05,
+        "p_mann_whitney": 0.00077,
+        "t": 5.114,
+        "u": 95.0,
+        "clear": true,
+        "trend": {
+          "years": [
+            1951.0,
+            2026.0
+          ],
+          "n": 76,
+          "test": "Mann-Kendall, Hamed-Rao modified",
+          "s": 892.0,
+          "z": 3.389,
+          "p": 0.000703,
+          "tau": 0.313,
+          "sen_slope": 0.0145,
+          "sen_slope_ci": [
+            0.0067,
+            0.0236
+          ],
+          "unit": "°C per year",
+          "lag1_autocorr": 0.188,
+          "variance_factor": 1.391,
+          "clear": true
+        }
+      },
+      "rain": {
+        "season": "June-September",
+        "shown_as": "JJAS mean daily rate (mm/day), change in %",
+        "gpcp": {
+          "source": "GPCP",
+          "shown": "change_pct",
+          "unit": "mm/day",
+          "A": {
+            "window": [
+              1981,
+              1990
+            ],
+            "n": 10,
+            "mean": 19.0337
+          },
+          "B": {
+            "window": [
+              2010,
+              2019
+            ],
+            "n": 10,
+            "mean": 18.3738
+          },
+          "diff": -0.6599,
+          "diff_ci": [
+            -2.8219,
+            1.6945
+          ],
+          "change_pct": -3.47,
+          "change_pct_ci": [
+            -14.0,
+            9.44
+          ],
+          "p_welch": 0.59425,
+          "p_mann_whitney": 0.52052,
+          "t": -0.542,
+          "u": 41.0,
+          "clear": false,
+          "jjas_total_mm": {
+            "shown": "change_pct",
+            "unit": "mm",
+            "A": {
+              "window": [
+                1981,
+                1990
+              ],
+              "n": 10,
+              "mean": 2325.7003
+            },
+            "B": {
+              "window": [
+                2010,
+                2019
+              ],
+              "n": 10,
+              "mean": 2244.7886
+            },
+            "diff": -80.9117,
+            "diff_ci": [
+              -346.6797,
+              207.3098
+            ],
+            "change_pct": -3.48,
+            "change_pct_ci": [
+              -14.06,
+              9.48
+            ],
+            "p_welch": 0.59454,
+            "p_mann_whitney": 0.57075,
+            "t": -0.542,
+            "u": 42.0,
+            "clear": false
+          },
+          "annual_total_mm": {
+            "shown": "change_pct",
+            "unit": "mm",
+            "A": {
+              "window": [
+                1981,
+                1990
+              ],
+              "n": 10,
+              "mean": 3083.6671
+            },
+            "B": {
+              "window": [
+                2010,
+                2019
+              ],
+              "n": 10,
+              "mean": 2975.5997
+            },
+            "diff": -108.0674,
+            "diff_ci": [
+              -377.7949,
+              171.0561
+            ],
+            "change_pct": -3.5,
+            "change_pct_ci": [
+              -11.76,
+              5.75
+            ],
+            "p_welch": 0.47366,
+            "p_mann_whitney": 0.52052,
+            "t": -0.732,
+            "u": 41.0,
+            "clear": false
+          }
+        },
+        "gpcc": {
+          "source": "GPCC",
+          "shown": "change_pct",
+          "unit": "mm/day",
+          "A": {
+            "window": [
+              1981,
+              1990
+            ],
+            "n": 10,
+            "mean": 19.686
+          },
+          "B": {
+            "window": [
+              2010,
+              2019
+            ],
+            "n": 10,
+            "mean": 19.6761
+          },
+          "diff": -0.0099,
+          "diff_ci": [
+            -2.4603,
+            2.6576
+          ],
+          "change_pct": -0.05,
+          "change_pct_ci": [
+            -11.94,
+            14.11
+          ],
+          "p_welch": 0.99434,
+          "p_mann_whitney": 0.85011,
+          "t": -0.007,
+          "u": 47.0,
+          "clear": false,
+          "jjas_total_mm": {
+            "shown": "change_pct",
+            "unit": "mm",
+            "A": {
+              "window": [
+                1981,
+                1990
+              ],
+              "n": 10,
+              "mean": 2405.8329
+            },
+            "B": {
+              "window": [
+                2010,
+                2019
+              ],
+              "n": 10,
+              "mean": 2404.3753
+            },
+            "diff": -1.4576,
+            "diff_ci": [
+              -302.8204,
+              325.3683
+            ],
+            "change_pct": -0.06,
+            "change_pct_ci": [
+              -12.01,
+              14.13
+            ],
+            "p_welch": 0.99321,
+            "p_mann_whitney": 0.90972,
+            "t": -0.009,
+            "u": 48.0,
+            "clear": false
+          },
+          "annual_total_mm": {
+            "shown": "change_pct",
+            "unit": "mm",
+            "A": {
+              "window": [
+                1981,
+                1990
+              ],
+              "n": 10,
+              "mean": 3160.305
+            },
+            "B": {
+              "window": [
+                2010,
+                2019
+              ],
+              "n": 10,
+              "mean": 3154.9764
+            },
+            "diff": -5.3286,
+            "diff_ci": [
+              -317.841,
+              307.7366
+            ],
+            "change_pct": -0.17,
+            "change_pct_ci": [
+              -9.62,
+              10.18
+            ],
+            "p_welch": 0.97533,
+            "p_mann_whitney": 0.96985,
+            "t": -0.031,
+            "u": 49.0,
+            "clear": false
+          }
+        },
+        "gpcp_newer": {
+          "source": "GPCP",
+          "shown": "change_pct",
+          "unit": "mm/day",
+          "A": {
+            "window": [
+              1981,
+              1990
+            ],
+            "n": 10,
+            "mean": 19.0337
+          },
+          "B": {
+            "window": [
+              2016,
+              2025
+            ],
+            "n": 10,
+            "mean": 17.962
+          },
+          "diff": -1.0717,
+          "diff_ci": [
+            -3.0524,
+            0.8901
+          ],
+          "change_pct": -5.63,
+          "change_pct_ci": [
+            -15.2,
+            5.03
+          ],
+          "p_welch": 0.32798,
+          "p_mann_whitney": 0.47268,
+          "t": -1.006,
+          "u": 40.0,
+          "clear": false
+        }
+      }
+    },
+    "Rajshahi": {
+      "heat": {
+        "source": "GISTEMP",
+        "season": "April-May",
+        "shown": "diff",
+        "unit": "°C",
+        "A": {
+          "window": [
+            1981,
+            1990
+          ],
+          "n": 10,
+          "mean": -0.4165
+        },
+        "B": {
+          "window": [
+            2016,
+            2025
+          ],
+          "n": 10,
+          "mean": 0.5295
+        },
+        "diff": 0.946,
+        "diff_ci": [
+          0.2955,
+          1.6055
+        ],
+        "change_pct": -227.13,
+        "change_pct_ci": [
+          -1032.63,
+          301.64
+        ],
+        "p_welch": 0.01689,
+        "p_mann_whitney": 0.00911,
+        "t": 2.633,
+        "u": 85.0,
+        "clear": true,
+        "trend": {
+          "years": [
+            1951.0,
+            2026.0
+          ],
+          "n": 76,
+          "test": "Mann-Kendall",
+          "s": 348.0,
+          "z": 1.556,
+          "p": 0.119635,
+          "tau": 0.122,
+          "sen_slope": 0.005,
+          "sen_slope_ci": [
+            -0.0015,
+            0.013
+          ],
+          "unit": "°C per year",
+          "lag1_autocorr": -0.002,
+          "variance_factor": 1.0,
+          "clear": false
+        }
+      },
+      "rain": {
+        "season": "June-September",
+        "shown_as": "JJAS mean daily rate (mm/day), change in %",
+        "gpcp": {
+          "source": "GPCP",
+          "shown": "change_pct",
+          "unit": "mm/day",
+          "A": {
+            "window": [
+              1981,
+              1990
+            ],
+            "n": 10,
+            "mean": 9.7421
+          },
+          "B": {
+            "window": [
+              2010,
+              2019
+            ],
+            "n": 10,
+            "mean": 9.1685
+          },
+          "diff": -0.5736,
+          "diff_ci": [
+            -1.7941,
+            0.7
+          ],
+          "change_pct": -5.89,
+          "change_pct_ci": [
+            -17.37,
+            7.75
+          ],
+          "p_welch": 0.39881,
+          "p_mann_whitney": 0.42736,
+          "t": -0.864,
+          "u": 39.0,
+          "clear": false,
+          "jjas_total_mm": {
+            "shown": "change_pct",
+            "unit": "mm",
+            "A": {
+              "window": [
+                1981,
+                1990
+              ],
+              "n": 10,
+              "mean": 1190.0359
+            },
+            "B": {
+              "window": [
+                2010,
+                2019
+              ],
+              "n": 10,
+              "mean": 1120.2307
+            },
+            "diff": -69.8052,
+            "diff_ci": [
+              -219.0737,
+              85.9795
+            ],
+            "change_pct": -5.87,
+            "change_pct_ci": [
+              -17.36,
+              7.82
+            ],
+            "p_welch": 0.39996,
+            "p_mann_whitney": 0.42736,
+            "t": -0.862,
+            "u": 39.0,
+            "clear": false
+          },
+          "annual_total_mm": {
+            "shown": "change_pct",
+            "unit": "mm",
+            "A": {
+              "window": [
+                1981,
+                1990
+              ],
+              "n": 10,
+              "mean": 1680.6349
+            },
+            "B": {
+              "window": [
+                2010,
+                2019
+              ],
+              "n": 10,
+              "mean": 1570.3424
+            },
+            "diff": -110.2925,
+            "diff_ci": [
+              -274.891,
+              72.6315
+            ],
+            "change_pct": -6.56,
+            "change_pct_ci": [
+              -15.45,
+              4.66
+            ],
+            "p_welch": 0.2523,
+            "p_mann_whitney": 0.24132,
+            "t": -1.185,
+            "u": 34.0,
+            "clear": false
+          }
+        },
+        "gpcc": {
+          "source": "GPCC",
+          "shown": "change_pct",
+          "unit": "mm/day",
+          "A": {
+            "window": [
+              1981,
+              1990
+            ],
+            "n": 10,
+            "mean": 9.3189
+          },
+          "B": {
+            "window": [
+              2010,
+              2019
+            ],
+            "n": 10,
+            "mean": 8.1035
+          },
+          "diff": -1.2154,
+          "diff_ci": [
+            -2.5737,
+            0.1453
+          ],
+          "change_pct": -13.04,
+          "change_pct_ci": [
+            -25.89,
+            1.7
+          ],
+          "p_welch": 0.10653,
+          "p_mann_whitney": 0.21229,
+          "t": -1.699,
+          "u": 33.0,
+          "clear": false,
+          "jjas_total_mm": {
+            "shown": "change_pct",
+            "unit": "mm",
+            "A": {
+              "window": [
+                1981,
+                1990
+              ],
+              "n": 10,
+              "mean": 1138.342
+            },
+            "B": {
+              "window": [
+                2010,
+                2019
+              ],
+              "n": 10,
+              "mean": 990.7726
+            },
+            "diff": -147.5694,
+            "diff_ci": [
+              -313.7034,
+              18.9931
+            ],
+            "change_pct": -12.96,
+            "change_pct_ci": [
+              -25.8,
+              1.79
+            ],
+            "p_welch": 0.10863,
+            "p_mann_whitney": 0.21229,
+            "t": -1.688,
+            "u": 33.0,
+            "clear": false
+          },
+          "annual_total_mm": {
+            "shown": "change_pct",
+            "unit": "mm",
+            "A": {
+              "window": [
+                1981,
+                1990
+              ],
+              "n": 10,
+              "mean": 1611.7016
+            },
+            "B": {
+              "window": [
+                2010,
+                2019
+              ],
+              "n": 10,
+              "mean": 1377.0813
+            },
+            "diff": -234.6203,
+            "diff_ci": [
+              -423.368,
+              -31.5719
+            ],
+            "change_pct": -14.56,
+            "change_pct_ci": [
+              -24.94,
+              -2.09
+            ],
+            "p_welch": 0.03847,
+            "p_mann_whitney": 0.03764,
+            "t": -2.234,
+            "u": 22.0,
+            "clear": true
+          }
+        },
+        "gpcp_newer": {
+          "source": "GPCP",
+          "shown": "change_pct",
+          "unit": "mm/day",
+          "A": {
+            "window": [
+              1981,
+              1990
+            ],
+            "n": 10,
+            "mean": 9.7421
+          },
+          "B": {
+            "window": [
+              2016,
+              2025
+            ],
+            "n": 10,
+            "mean": 9.0064
+          },
+          "diff": -0.7357,
+          "diff_ci": [
+            -1.9571,
+            0.4526
+          ],
+          "change_pct": -7.55,
+          "change_pct_ci": [
+            -18.75,
+            4.95
+          ],
+          "p_welch": 0.268,
+          "p_mann_whitney": 0.38467,
+          "t": -1.143,
+          "u": 38.0,
+          "clear": false
+        }
+      }
+    },
+    "Sylhet": {
+      "heat": {
+        "source": "GISTEMP",
+        "season": "April-May",
+        "shown": "diff",
+        "unit": "°C",
+        "A": {
+          "window": [
+            1981,
+            1990
+          ],
+          "n": 10,
+          "mean": -0.2115
+        },
+        "B": {
+          "window": [
+            2016,
+            2025
+          ],
+          "n": 10,
+          "mean": 0.992
+        },
+        "diff": 1.2035,
+        "diff_ci": [
+          0.726,
+          1.696
+        ],
+        "change_pct": -569.03,
+        "change_pct_ci": [
+          -4274.65,
+          3742.47
+        ],
+        "p_welch": 0.00024,
+        "p_mann_whitney": 0.00101,
+        "t": 4.599,
+        "u": 94.0,
+        "clear": true,
+        "trend": {
+          "years": [
+            1951.0,
+            2026.0
+          ],
+          "n": 76,
+          "test": "Mann-Kendall, Hamed-Rao modified",
+          "s": 706.0,
+          "z": 2.733,
+          "p": 0.006283,
+          "tau": 0.248,
+          "sen_slope": 0.0123,
+          "sen_slope_ci": [
+            0.0037,
+            0.0212
+          ],
+          "unit": "°C per year",
+          "lag1_autocorr": 0.233,
+          "variance_factor": 1.339,
+          "clear": true
+        }
+      },
+      "rain": {
+        "season": "June-September",
+        "shown_as": "JJAS mean daily rate (mm/day), change in %",
+        "gpcp": {
+          "source": "GPCP",
+          "shown": "change_pct",
+          "unit": "mm/day",
+          "A": {
+            "window": [
+              1981,
+              1990
+            ],
+            "n": 10,
+            "mean": 15.1045
+          },
+          "B": {
+            "window": [
+              2010,
+              2019
+            ],
+            "n": 10,
+            "mean": 13.612
+          },
+          "diff": -1.4925,
+          "diff_ci": [
+            -3.0484,
+            0.1537
+          ],
+          "change_pct": -9.88,
+          "change_pct_ci": [
+            -19.48,
+            1.07
+          ],
+          "p_welch": 0.10099,
+          "p_mann_whitney": 0.10411,
+          "t": -1.736,
+          "u": 28.0,
+          "clear": false,
+          "jjas_total_mm": {
+            "shown": "change_pct",
+            "unit": "mm",
+            "A": {
+              "window": [
+                1981,
+                1990
+              ],
+              "n": 10,
+              "mean": 1844.7049
+            },
+            "B": {
+              "window": [
+                2010,
+                2019
+              ],
+              "n": 10,
+              "mean": 1661.0507
+            },
+            "diff": -183.6542,
+            "diff_ci": [
+              -373.9136,
+              17.7469
+            ],
+            "change_pct": -9.96,
+            "change_pct_ci": [
+              -19.55,
+              1.01
+            ],
+            "p_welch": 0.09893,
+            "p_mann_whitney": 0.10411,
+            "t": -1.748,
+            "u": 28.0,
+            "clear": false
+          },
+          "annual_total_mm": {
+            "shown": "change_pct",
+            "unit": "mm",
+            "A": {
+              "window": [
+                1981,
+                1990
+              ],
+              "n": 10,
+              "mean": 2817.3081
+            },
+            "B": {
+              "window": [
+                2010,
+                2019
+              ],
+              "n": 10,
+              "mean": 2520.3806
+            },
+            "diff": -296.9275,
+            "diff_ci": [
+              -577.4915,
+              10.2438
+            ],
+            "change_pct": -10.54,
+            "change_pct_ci": [
+              -19.59,
+              0.35
+            ],
+            "p_welch": 0.08163,
+            "p_mann_whitney": 0.03121,
+            "t": -1.847,
+            "u": 21.0,
+            "clear": false
+          }
+        },
+        "gpcc": {
+          "source": "GPCC",
+          "shown": "change_pct",
+          "unit": "mm/day",
+          "A": {
+            "window": [
+              1981,
+              1990
+            ],
+            "n": 10,
+            "mean": 14.7947
+          },
+          "B": {
+            "window": [
+              2010,
+              2019
+            ],
+            "n": 10,
+            "mean": 13.0295
+          },
+          "diff": -1.7652,
+          "diff_ci": [
+            -3.4924,
+            0.057
+          ],
+          "change_pct": -11.93,
+          "change_pct_ci": [
+            -22.82,
+            0.39
+          ],
+          "p_welch": 0.08236,
+          "p_mann_whitney": 0.06402,
+          "t": -1.855,
+          "u": 25.0,
+          "clear": false,
+          "jjas_total_mm": {
+            "shown": "change_pct",
+            "unit": "mm",
+            "A": {
+              "window": [
+                1981,
+                1990
+              ],
+              "n": 10,
+              "mean": 1807.0943
+            },
+            "B": {
+              "window": [
+                2010,
+                2019
+              ],
+              "n": 10,
+              "mean": 1589.995
+            },
+            "diff": -217.0993,
+            "diff_ci": [
+              -427.8336,
+              5.6673
+            ],
+            "change_pct": -12.01,
+            "change_pct_ci": [
+              -22.88,
+              0.31
+            ],
+            "p_welch": 0.08075,
+            "p_mann_whitney": 0.06402,
+            "t": -1.866,
+            "u": 25.0,
+            "clear": false
+          },
+          "annual_total_mm": {
+            "shown": "change_pct",
+            "unit": "mm",
+            "A": {
+              "window": [
+                1981,
+                1990
+              ],
+              "n": 10,
+              "mean": 2766.5987
+            },
+            "B": {
+              "window": [
+                2010,
+                2019
+              ],
+              "n": 10,
+              "mean": 2432.93
+            },
+            "diff": -333.6687,
+            "diff_ci": [
+              -638.5844,
+              -5.5166
+            ],
+            "change_pct": -12.06,
+            "change_pct_ci": [
+              -22.03,
+              -0.21
+            ],
+            "p_welch": 0.06885,
+            "p_mann_whitney": 0.03764,
+            "t": -1.94,
+            "u": 22.0,
+            "clear": false
+          }
+        },
+        "gpcp_newer": {
+          "source": "GPCP",
+          "shown": "change_pct",
+          "unit": "mm/day",
+          "A": {
+            "window": [
+              1981,
+              1990
+            ],
+            "n": 10,
+            "mean": 15.1045
+          },
+          "B": {
+            "window": [
+              2016,
+              2025
+            ],
+            "n": 10,
+            "mean": 13.7052
+          },
+          "diff": -1.3993,
+          "diff_ci": [
+            -2.834,
+            0.1554
+          ],
+          "change_pct": -9.26,
+          "change_pct_ci": [
+            -18.04,
+            1.08
+          ],
+          "p_welch": 0.10608,
+          "p_mann_whitney": 0.07566,
+          "t": -1.706,
+          "u": 26.0,
+          "clear": false
+        }
+      }
+    }
+  },
+  "water": {
+    "Bangladesh": {
+      "windows": {
+        "basis": "yearly means of the months present",
+        "shown": "diff",
+        "unit": "cm",
+        "A": {
+          "window": [
+            2003,
+            2006
+          ],
+          "n": 4,
+          "mean": 0.8701
+        },
+        "B": {
+          "window": [
+            2021,
+            2024
+          ],
+          "n": 4,
+          "mean": -5.8156
+        },
+        "diff": -6.6856,
+        "diff_ci": [
+          -11.2724,
+          -2.2885
+        ],
+        "change_pct": -768.4,
+        "change_pct_ci": [
+          -4703.17,
+          9337.89
+        ],
+        "p_welch": 0.04626,
+        "p_mann_whitney": 0.11429,
+        "t": -2.525,
+        "u": 2.0,
+        "clear": false
+      },
+      "trend": {
+        "basis": "monthly values minus each calendar month's mean (seasonal cycle removed)",
+        "years": [
+          2002.29,
+          2026.54
+        ],
+        "n": 257,
+        "test": "Mann-Kendall, Hamed-Rao modified",
+        "s": -10670.0,
+        "z": -3.238,
+        "p": 0.001202,
+        "tau": -0.324,
+        "sen_slope": -0.3228,
+        "sen_slope_ci": [
+          -0.5085,
+          -0.1391
+        ],
+        "unit": "cm per year",
+        "lag1_autocorr": 0.615,
+        "variance_factor": 5.722,
+        "clear": true
+      },
+      "uncertainty_1sigma_cm": {
+        "median": 4.522,
+        "min": 3.34,
+        "max": 21.23
+      },
+      "uncertainty_note": "1-sigma uncertainty: not for each 0.5 degree grid cell, but for each 3-degree mascon estimate"
+    },
+    "NW_India": {
+      "windows": {
+        "basis": "yearly means of the months present",
+        "shown": "diff",
+        "unit": "cm",
+        "A": {
+          "window": [
+            2003,
+            2006
+          ],
+          "n": 4,
+          "mean": 8.8741
+        },
+        "B": {
+          "window": [
+            2021,
+            2024
+          ],
+          "n": 4,
+          "mean": -53.6339
+        },
+        "diff": -62.508,
+        "diff_ci": [
+          -68.3615,
+          -56.6122
+        ],
+        "change_pct": -704.39,
+        "change_pct_ci": [
+          -1809.13,
+          -469.73
+        ],
+        "p_welch": 7e-05,
+        "p_mann_whitney": 0.02857,
+        "t": -18.123,
+        "u": 0.0,
+        "clear": true
+      },
+      "trend": {
+        "basis": "monthly values minus each calendar month's mean (seasonal cycle removed)",
+        "years": [
+          2002.29,
+          2026.54
+        ],
+        "n": 257,
+        "test": "Mann-Kendall, Hamed-Rao modified",
+        "s": -25466.0,
+        "z": -7.389,
+        "p": 0.0,
+        "tau": -0.774,
+        "sen_slope": -3.2131,
+        "sen_slope_ci": [
+          -3.5358,
+          -2.8643
+        ],
+        "unit": "cm per year",
+        "lag1_autocorr": 0.83,
+        "variance_factor": 6.262,
+        "clear": true
+      },
+      "uncertainty_1sigma_cm": {
+        "median": 2.364,
+        "min": 1.89,
+        "max": 14.996
+      },
+      "uncertainty_note": "1-sigma uncertainty: not for each 0.5 degree grid cell, but for each 3-degree mascon estimate"
+    }
+  },
+  "generated_utc": "2026-11-08T00:19:32Z"
+}

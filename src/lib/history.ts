@@ -28,7 +28,7 @@ export interface BangladeshFiles {
 }
 
 /** Where a record comes from: a grid cell, or a named region (a GRACE box or 3° cell). */
-export type RecordSource = { kind: "cell"; lat: number; lon: number; neighbour: boolean } | { kind: "region"; label: string | null };
+type RecordSource = { kind: "cell"; lat: number; lon: number; neighbour: boolean } | { kind: "region"; label: string | null };
 
 export interface PlaceSeries {
   months: string[];
@@ -104,6 +104,8 @@ export function placeSeries(
 }
 
 export { isBangladesh };
+
+export const placeLabel = (t: (key: `place.${ClimateCellName}`) => string, name: string): string => (isBangladesh(name) ? t(`place.${name}`) : name);
 
 /** The decades a series covers completely, newest first ("2010"…"2019"). */
 export function fullDecades(months: readonly string[]): number[] {

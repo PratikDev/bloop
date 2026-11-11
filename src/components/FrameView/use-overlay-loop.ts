@@ -15,14 +15,13 @@ export interface OverlayInputs {
   oceanC: number | null; // only when the ocean voice is audible
   rainMm: number | null; // only when rain or snow is audible
   reduceMotion: boolean;
+  thick: boolean;
 }
 
-// Ring shapes (design-plan §5 #2). Ocean spacing follows pitch.
 const OCEAN = { periodSec: 0.6, life: 1.6, speedAt440: 26, alpha: 0.8 };
 const RAIN = { life: 0.7, speed: 30, alpha: 0.35, alphaPerGain: 0.6 };
 const SNOW = { life: 1.4, speed: 14, alpha: 0.25, alphaPerGain: 0.4 };
 const SWEEP_LINGER_SEC = 0.8;
-
 
 /** Redraws the overlay every animation frame while the tab is visible. */
 export function useOverlayLoop(
@@ -105,7 +104,7 @@ export function useOverlayLoop(
       } else {
         rings = [];
       }
-      drawCursor(ctx, palette, x, y);
+      drawCursor(ctx, palette, x, y, inputsRef.current.thick);
     };
 
     const onVisibility = () => {

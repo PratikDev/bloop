@@ -43,8 +43,3 @@ export function livenessAt(entry: FreshnessEntry | undefined, now: number): Live
 export function isModel(entry: FreshnessEntry): boolean {
   return entry.datasets.some((d) => d.kind !== "measurement");
 }
-
-/** Unique credit lines, in registry order (the credits drawer). */
-export function creditLines(file: FreshnessFile): string[] {
-  return [...new Set(Object.values(file.products).filter((e) => e.status !== "missing").map((e) => e.credit).filter(Boolean))];
-}

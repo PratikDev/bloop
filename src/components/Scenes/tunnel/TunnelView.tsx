@@ -1,11 +1,11 @@
 "use client";
 
 import { CalendarClock } from "lucide-react";
-import { Download } from "lucide-react";
+import { Download, FileText } from "lucide-react";
 import { useEffect, useMemo, useState, type KeyboardEvent } from "react";
 import { formatFixed, formatInteger, formatSignedUpTo, type Lang } from "@/lib/i18n";
 import { useAnnounce } from "../../Announcer/use-announcer";
-import { useAppState } from "../../AppState/use-app-state";
+import { useAppState, useT } from "../../AppState/use-app-state";
 import { useCommands } from "../../Commands/use-commands";
 import { OnOffToggle } from "../../OnOffToggle";
 import { DockButton } from "../../Turntable/DockButton";
@@ -19,7 +19,8 @@ import { SceneShell } from "../SceneShell";
 import { SceneChip } from "../SceneShell/SceneChip";
 import { SceneLegend } from "../SceneShell/SceneLegend";
 import { Scrubber } from "../SceneShell/Scrubber";
-import { downloadTactileRecord, scaleTag } from "../tactile";
+import { scaleTag } from "../tactile";
+import { useTactileExport } from "../use-tactile-export";
 import type { SceneProps } from "../types";
 import { useSampled } from "../use-sampled";
 import { BEAD_RADIUS_PER_SQRT_MM } from "./tunnel-scene";
@@ -32,6 +33,7 @@ const heatText = (v: number | null, lang: Lang) => (v === null ? "—" : formatS
 
 export function TunnelView({ data, onExit, tier }: SceneProps & { data: TunnelData }) {
   const { state } = useAppState();
+  const t = useT();
   const commands = useCommands();
   const { tt, lang } = useTT();
   const details = useDetails();
@@ -95,21 +97,25 @@ export function TunnelView({ data, onExit, tier }: SceneProps & { data: TunnelDa
 
   const announce = useAnnounce();
   /** Bonus (3D-4): the April–May anomaly per year as one ridge, on the rings' ±3 °C scale; ticks every ten years. */
-  const exportTactile = () => {
+  const tactileExport = useTactileExport();
+  const tactile = () => {
     const range = { min: -SCALE.clamp, max: SCALE.clamp };
     const file = `tactile-record_dhaka-apr-may-heat_${rows[0].year}-${rows[rows.length - 1].year}_${scaleTag(range, "C")}.stl`;
-    downloadTactileRecord(
-      {
-        tracks: [{ values: rows.map((r) => r.heat), inner: 32, outer: 50 }],
-        range,
-        ticks: rows.flatMap((r, i) => (r.year % 10 === 0 ? [i / rows.length] : [])),
-        label: `${gistemp.dataset.split(" (")[0]}, Dhaka
+    const rec = {
+      tracks: [{ values: rows.map((r) => r.heat), inner: 32, outer: 50 }],
+      range,
+      ticks: rows.flatMap((r, i) => (r.year % 10 === 0 ? [i / rows.length] : [])),
+      label: `${gistemp.dataset.split(" (")[0]}, Dhaka
 April-May anomaly ${rows[0].year}-${rows[rows.length - 1].year}`,
-      },
-      file,
-    );
+    };
+    return { rec, file, meta: { unit: "°C", steps: rows.map((r) => String(r.year)), names: ["Dhaka"] } };
+  };
+  const exportTactile = () => {
+    const { rec, file, meta } = tactile();
+    tactileExport.saveStl(rec, meta, file);
     announce(tt("scenes.tactile.saved", { file }));
   };
+  const exportAlt = tactileExport.saveAlt;
 
   useSceneDebug({
     id: "tunnel",
@@ -191,6 +197,16 @@ April-May anomaly ${rows[0].year}-${rows[rows.length - 1].year}`,
               <DockButton key={w.key} icon={CalendarClock} label={tt("scenes.tunnel.jump", { label: w.key })} keys={String(i + 1)} onClick={() => ctl.goTo(indexOf(w.from))} />
             ))}
             <DockButton icon={Download} label={tt("scenes.tactile")} onClick={exportTactile} />
+            {exportAlt && (
+              <DockButton
+                icon={FileText}
+                label={t("alt.save")}
+                onClick={() => {
+                  const { rec, file, meta } = tactile();
+                  exportAlt(rec, meta, file);
+                }}
+              />
+            )}
           </>
         ),
       }}

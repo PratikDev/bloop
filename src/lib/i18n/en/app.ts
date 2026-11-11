@@ -42,7 +42,6 @@ export const appEn = {
   "help.open": "Help",
   "help.keys": "Keys",
 
-  "badge.comingOctober": "Coming in October",
   "badge.loadingRain": "Loading rain",
 
   "map.roleDescription": "sound map",
@@ -123,19 +122,15 @@ export const appEn = {
   "whisper.kind.sst": "sea surface temperature",
   "whisper.kind.rain": "rain",
   "whisper.announce": (p: { text: string; source: string }) => `${p.text} Source: ${p.source}.`,
-  "xray.unavailable": "X-ray is coming in October: it needs NASA's colorbar data, which isn't published yet.",
+  "xray.unavailable": "X-ray isn't in this version: it needs NASA's colorbar data, which isn't published yet.",
 
   "announce.track": (p: { track: string }) => `Now hearing: ${p.track}.`,
   "announce.mode": (p: { mode: string }) => `${p.mode} mode.`,
   "announce.toggle": (p: { name: string; on: boolean }) => `${p.name} ${p.on ? "on" : "off"}.`,
+  "start.tapToStart": "Tap to start sound",
   "announce.started": "Sound started. The cursor is over the Bay of Bengal. Arrow keys move it.",
 
-  // Team plan §15 wording, split into what the app uses and what only our tests used
-  // (contract-proposals E3). FIRMS, MODIS and GLOBE moved into the app on 28 Sep (fires,
-  // vegetation, the GLOBE teaser); POWER is shown only as the record we dropped. Dataset names stay in English.
   "credits.visualizations": `Visualizations: ${CREDIT_NAMES.svs} for the ${CREDIT_NAMES.eic}.`,
-  "credits.data": `Data in this app: ${CREDIT_NAMES.data}.`,
-  "credits.testing": `Also used in our testing: ${CREDIT_NAMES.power} (dropped: it disagreed with independent records).`,
 
   "error.ocean": "Couldn't load the latest ocean frame. Check the connection and reload the page.",
   "error.rain": "Couldn't load the latest rain frame. Ocean sound still works; reload the page to try again.",

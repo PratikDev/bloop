@@ -126,9 +126,11 @@ def write_index():
     rows = []
     for m in sorted(PUBLIC_OFFICIAL.glob("*/manifest.json")):
         d = json.loads(m.read_text(encoding="utf-8"))
-        if not d.get("play"): continue                    # method evidence (13786): no layers to play, not in the list
-        rows.append({"record": d["record"], "title": d["app_title"], "svs_ids": d["svs_ids"], "badge": d["badge"],
-                     "period": d["period"]["label"], "manifest": f"{d['record']}/manifest.json"})
+        method = d.get("kind") == "method"               # method evidence (13786): no layers; the app plays its method
+        if not d.get("play") and not method: continue
+        row = {"record": d["record"], "title": d["app_title"], "svs_ids": d["svs_ids"], "badge": d["badge"],
+               "period": d["period"]["label"], "manifest": f"{d['record']}/manifest.json"}
+        rows.append({**row, "kind": "method"} if method else row)
     (PUBLIC_OFFICIAL / "index.json").write_text(json.dumps({"records": rows}, indent=1, ensure_ascii=False), encoding="utf-8")
     return rows
 

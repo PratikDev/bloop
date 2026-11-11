@@ -3,14 +3,16 @@
 
 export type Agency = "NASA" | "JAXA" | "NOAA" | "Copernicus" | "ground" | "other";
 export type SourceKind = "measurement" | "model" | "inventory";
-export type Pairing = "frame-paired" | "context";
+type Pairing = "frame-paired" | "context";
 
 export interface DatasetRef {
   id: string;
   name: string;
   agency: Agency;
   kind: SourceKind; // "model" and "inventory" always show the "Model estimate" badge (guardrail 15)
-  shares_inputs_with: string[]; // dataset ids (book §4.6): said out loud as "partly independent"
+  shares_inputs_with: string[];
+  url?: string | null;
+  provider?: string | null;
 }
 
 export interface ProductHeader {
@@ -18,7 +20,7 @@ export interface ProductHeader {
   title: string;
   pairing: Pairing;
   datasets: DatasetRef[];
-  credit: string; // book §13.3 wording
+  credit: string;
   disclosure: string;
   source_time_utc: string | null; // newest source time (ISO 8601 UTC)
   generated_utc: string;
@@ -40,8 +42,8 @@ export interface GridBlock<E extends string> {
 // The app recomputes age from source_time_utc; past limit_days = "recorded" (guardrail 16).
 // ---------------------------------------------------------------------------
 
-export type FreshnessStatus = "ok" | "stale" | "baseline" | "missing" | "no-time";
-export type Cadence = "daily" | "weekly" | "static" | "live";
+type FreshnessStatus = "ok" | "stale" | "baseline" | "missing" | "no-time";
+type Cadence = "daily" | "weekly" | "static" | "live";
 
 export interface FreshnessEntry {
   product: string;
@@ -57,6 +59,7 @@ export interface FreshnessEntry {
   period: [string | null, string | null] | null; // first/last date, shown for baselines
   credit: string;
   bytes: number;
+  checked_against?: string[];
 }
 
 export interface FreshnessFile {

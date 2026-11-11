@@ -13,6 +13,16 @@ export function pushEscapeHandler(handler: EscapeHandler): () => void {
   };
 }
 
+const OVERLAY_SELECTOR = '[role="dialog"], [role="alertdialog"], [role="menu"], [role="listbox"]';
+
+interface Closest {
+  closest(selectors: string): unknown;
+}
+
+export function escClosesOverlay(target: Closest | null): boolean {
+  return target !== null && target.closest(OVERLAY_SELECTOR) !== null;
+}
+
 /** Offers Esc to the claimed handlers, newest first; true if one used it. */
 export function consumeEscape(): boolean {
   for (let i = handlers.length - 1; i >= 0; i--) if (handlers[i]()) return true;

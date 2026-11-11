@@ -4,7 +4,7 @@ import { Scale, Target } from "lucide-react";
 import { useEffect, useMemo, useRef, useState, type KeyboardEvent } from "react";
 import { continuousRule, mapContinuous, voiceSpec, withInputRange } from "@/lib/audio/mapping";
 import { formatDegrees, formatFixed, formatInteger, formatSigned, formatTemperature, formatUtc, type Lang } from "@/lib/i18n";
-import { useAppState } from "../../AppState/use-app-state";
+import { useAppState, useT } from "../../AppState/use-app-state";
 import { useCommands } from "../../Commands/use-commands";
 import { OnOffToggle } from "../../OnOffToggle";
 import { DockButton } from "../../Turntable/DockButton";
@@ -77,6 +77,12 @@ export function TerrainView({ data, onExit, tier, geo }: SceneProps & { data: Te
     [loop.seq, frame, relief.plane],
   );
   const [sstImage] = useState(() => sstTexture(data.image));
+  const t = useT();
+  const [anomalyImage] = useState(() => (data.anomalyImage ? sstTexture(data.anomalyImage) : null));
+  useEffect(() => () => anomalyImage?.dispose(), [anomalyImage]);
+  const anomalyShown = vsNormal && anomalyImage !== null && data.anomaly !== null;
+  const anomalyDate = data.anomaly?.meta.frame_time_utc ? formatUtc(data.anomaly.meta.frame_time_utc, lang) : "";
+  const [anomMin, anomMax] = data.anomaly?.meta.value_range ?? [0, 0];
   const ctl = useTerrainScene({
     field,
     relief,
@@ -85,6 +91,7 @@ export function TerrainView({ data, onExit, tier, geo }: SceneProps & { data: Te
     anomaly: data.anomaly,
     dt: data.dt,
     vsNormal,
+    anomalyImage,
     seq: loop.seq,
     frame,
     rain,
@@ -198,6 +205,7 @@ export function TerrainView({ data, onExit, tier, geo }: SceneProps & { data: Te
         found,
         hunting,
         vsNormal,
+        picture: anomalyShown ? "sst_anom" : "sst",
         ...normalDebug(ctl.reading()),
       };
     },
@@ -222,7 +230,12 @@ export function TerrainView({ data, onExit, tier, geo }: SceneProps & { data: Te
       stage={
         <>
           <div ref={hostRef} {...pointer} className="absolute inset-0 touch-none select-none">
-            <SceneCanvas tier={tier} label={tt("scenes.terrain.canvas")} build={ctl.build} onReady={() => undefined} />
+            <SceneCanvas
+              tier={tier}
+              label={anomalyShown ? t("earth.anom.alt", { date: anomalyDate, min: formatSigned(anomMin, lang, 0), max: formatSigned(anomMax, lang, 0) }) : tt("scenes.terrain.canvas")}
+              build={ctl.build}
+              onReady={() => undefined}
+            />
           </div>
           <LabelLayer subscribe={ctl.bus.subscribe} candidates={labels} graticule={null} reserved={reserved} />
           <SceneChip
@@ -268,6 +281,16 @@ export function TerrainView({ data, onExit, tier, geo }: SceneProps & { data: Te
         </div>
       }
       legend={
+        anomalyShown ? (
+          <SceneLegend
+            title={t("earth.anom.legend")}
+            minLabel={formatSigned(anomMin, lang, 0)}
+            maxLabel={`${formatSigned(anomMax, lang, 0)} ${tt("scenes.unit.celsius")}`}
+            stops={data.anomalyStops}
+            marker={here.r.anomalyC === null ? null : Math.min(1, Math.max(0, (here.r.anomalyC - anomMin) / (anomMax - anomMin)))}
+            badge={<SceneBadge>{t("earth.anom.frame", { date: anomalyDate })}</SceneBadge>}
+          />
+        ) : (
         <SceneLegend
           title={tt("scenes.terrain.legend")}
           minLabel={formatInteger(axis.min, lang)}
@@ -276,6 +299,7 @@ export function TerrainView({ data, onExit, tier, geo }: SceneProps & { data: Te
           marker={marker}
           badge={<SceneBadge>{tt("scenes.terrain.axis", { min: formatInteger(axis.min, lang), max: formatInteger(axis.max, lang) })}</SceneBadge>}
         />
+        )
       }
       disclosure={[
         tt("scenes.framePaired", { datetime: formatUtc(sst.meta.frame_time_utc, lang) }),

@@ -1,6 +1,4 @@
-// The public audio API (docs/L2/AUDIO_API.md). This is the ONLY module other
 // lanes import: `import { ensureAudio, setOcean } from "@/lib/audio"`.
-// Everything takes plain numbers; only preloadClips() fetches (recorded narration).
 
 import { startEngine } from "./context";
 import { applyMixer } from "./mixer";
@@ -17,11 +15,12 @@ export async function ensureAudio(): Promise<void> {
 export { getAnalyser, isAudioReady } from "./context";
 export { onAudioEvent } from "./events";
 export { stopAll } from "./stop";
+export { beginDuck } from "./duck";
 export { setAllMuted, setMasterVolume, setSolo, setTrackMode, setVoiceMuted, setVoiceVolume } from "./mixer";
 export { setOcean, setRain, silenceLive } from "./live";
 export { speak } from "./speech";
-export { playEarcon } from "./earcons";
-export { playLegend, playLegendForMode } from "./players/legend";
+export { playEarcon, playSonarPing } from "./earcons";
+export { playAnchor, playLegend, playLegendForMode, type Anchor } from "./players/legend";
 export { playWarmup } from "./players/warmup";
 export { playSweep } from "./players/sweep";
 export { playMotif } from "./players/motif";

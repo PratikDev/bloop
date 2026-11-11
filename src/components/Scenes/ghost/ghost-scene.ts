@@ -17,7 +17,6 @@ import {
   Vector3,
   type Texture,
 } from "three";
-import { latLonToSphere } from "@/lib/sphere";
 import { globeGeometry } from "../../Turntable/scene/geometry";
 import { createStudio } from "../../Turntable/scene/studio";
 import { asOccluder, onOverlay } from "../../Turntable/scene/layers";
@@ -244,9 +243,3 @@ export function createGhostScene(host: SceneBuildHost): GhostScene {
     },
   };
 }
-
-/** A lat/lon as a unit vector (the orbit camera looks at the globe centre from here). */
-export const directionOf = (lat: number, lon: number) => {
-  const p = latLonToSphere(lat, lon);
-  return new Vector3(p.x, p.y, p.z);
-};

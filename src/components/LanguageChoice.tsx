@@ -23,7 +23,6 @@ export function LanguageChoice() {
   return (
     <Button
       variant="ghost"
-      title={t("settings.language")}
       onClick={() => commands.setLang(other.value)}
       className="h-11 rounded-full px-3 text-body text-haze hover:text-moon"
     >

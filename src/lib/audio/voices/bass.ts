@@ -10,6 +10,8 @@ import { glideAt, jumpAt } from "../params";
 import { track } from "../sources";
 import { onStopAll } from "../stop";
 import { voicePeak, type VoiceTiming } from "./common";
+import { dressLive } from "@/lib/art/live/dress";
+import { categoryOfVoice } from "@/lib/audio/orchestra";
 
 const HARMONICS = [1, 0.5, 0.25]; // fundamental, 2nd, 3rd (T5 decides)
 const HARMONIC_SUM = HARMONICS.reduce((a, b) => a + b, 0);
@@ -58,6 +60,7 @@ export function createBassVoice(output: AudioNode): BassVoice {
       osc.start();
       return g;
     });
+    dressLive(oscs[0], { category: () => categoryOfVoice("water"), env, onSource: track });
     return { oscs, gains, env };
   }
 

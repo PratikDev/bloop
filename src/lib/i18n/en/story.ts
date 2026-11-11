@@ -24,7 +24,7 @@ export const storyEn = {
   "story.stormPeak": (p: { reading: string; datetime: string }) => `Heaviest on its path: ${p.reading}, ${p.datetime} UTC.`,
   "story.stormFailed": "The storm frames couldn't load, so this step is skipped.",
   "story.whisper": (p: { reading: string }) => `Where the storm is now: ${p.reading}.`,
-  "story.xraySkipped": "X-ray is coming in October: it waits for NASA's colorbar data.",
+  "story.xraySkipped": "X-ray isn't in this version: it waits for NASA's colorbar data.",
   "story.truth": (p: { sentence: string }) => `How do we know? ${p.sentence}`,
   "story.truthLoading": "The rain check appears in the Truth panel once rain has loaded.",
   // `close` is the on-screen name of the button that ends the story (story.backToExplore), so the two never drift apart.

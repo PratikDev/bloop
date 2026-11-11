@@ -1,11 +1,10 @@
 import type { ReactNode } from "react";
 import { cn } from "@/lib/utils";
 
-export type BadgeKind = "october" | "error" | "loading";
+type BadgeKind = "note" | "error" | "loading";
 
-/** Status is shape + words, never colour: colour means data here (design-plan §2). */
 const GLYPHS: Record<BadgeKind, ReactNode> = {
-  october: <circle cx="6" cy="6" r="4" fill="none" stroke="currentColor" strokeWidth="1.5" />,
+  note: <circle cx="6" cy="6" r="4" fill="none" stroke="currentColor" strokeWidth="1.5" />,
   error: <path d="M2 2h8v5l-3 3H2z" fill="none" stroke="currentColor" strokeWidth="1.5" />,
   loading: <path d="M6 2a4 4 0 1 1-4 4" fill="none" stroke="currentColor" strokeWidth="1.5" />,
 };

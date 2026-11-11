@@ -10,9 +10,7 @@ export const contextEn = {
   "thenNow.contextNote": "Context records, not EIC frames: long-term NASA and partner datasets for Bangladesh.",
   "thenNow.title": (p: { city: string }) => `${p.city} then vs now`,
   "thenNow.city": "City",
-  // L1's label for cities other than Dhaka (docs/L1/DATA_HANDOFF.md §5).
   "thenNow.computed": "Computed, same method as Dhaka. Only Dhaka's records were cross-checked against independent records.",
-  "thenNow.waterNational": "Water underground is one national record (the Bangladesh box), the same for every city.",
   "thenNow.crosscheckAlt":
     "Two charts for Dhaka. Top: June to September rain since the 1890s from rain gauges (GPCC), GPCP and NASA POWER; POWER reads far below the other two. Bottom: April to May daily maximum temperature from NASA POWER and a weather station; POWER runs well above the station.",
   "thenNow.powerTitle": "Why we don't use NASA POWER here",
@@ -49,7 +47,7 @@ export const contextEn = {
   "thenNow.moreTitle": "More records, then vs now",
   "thenNow.part.fires": "Fires",
   "thenNow.part.vegetation": "Vegetation",
-  "field.soundOctober": "No sound for this record yet: coming in October",
+  "field.noSound": "No sound for this record",
   "field.place": "Place",
   "field.sources": "Where these numbers come from",
   "field.rule": "Rule",
@@ -81,6 +79,8 @@ export const contextEn = {
   "disclosure.spread": (p: { value: number; unit: string }) => `year-to-year spread ${n2(p.value)} ${p.unit}`,
   "disclosure.change": (p: { value: string }) => `Change: ${p.value}`,
   "disclosure.crossCheck": "Cross-check, rain gauges (GPCC, not played)",
+  "disclosure.whyYears": "Why these years",
+  "disclosure.extra": "Extra, not compared with GPCC",
   "disclosure.box": (p: { name: string; a: number; b: number; windowA: string; windowB: string; trend: number }) =>
     `${p.name}: ${n2(p.a)} cm (${p.windowA}) → ${n2(p.b)} cm (${p.windowB}); trend ${n2(p.trend)} cm per year`,
   "disclosure.gapNote": "Gap",
@@ -107,14 +107,13 @@ export const contextEn = {
   "history.sharedRegion": (p: { places: string }) => `In this dataset, this is the same GRACE region as ${p.places}: one record, not separate places.`,
   "history.cell": (p: { lat: number; lon: number }) =>
     `Grid cell centred at ${n1(Math.abs(p.lat))}° ${p.lat >= 0 ? "N" : "S"}, ${n1(Math.abs(p.lon))}° ${p.lon >= 0 ? "E" : "W"}`,
+  "history.region": "Bangladesh box (GRACE)",
   "history.neighbour": "(the nearest land cell; the place's own cell is sea)",
-  "history.nationalBox": "Bangladesh national box (GRACE): one record for the whole country, the same for every city.",
   // From L1's confidence.json method: GPCP against independent rain gauges (GPCC), annual means 1981–2019.
   "history.confidence.high": "Rain confidence: high (GPCP agrees closely with independent rain gauges here)",
   "history.confidence.medium": "Rain confidence: medium (GPCP roughly agrees with independent rain gauges here)",
   "history.confidence.low": "Rain confidence: low (GPCP and independent rain gauges disagree here)",
   "history.confidence.satellite-only": "Rain confidence: satellite only (no rain gauges to check against here, for example at sea)",
-  // L1's label outside Bangladesh (docs/L1/DATA_HANDOFF.md §8).
   "history.computed": "Computed from NASA GISTEMP / GPCP / GRACE with the same method as Dhaka; not separately cross-checked.",
   "history.summary": (p: { metric: string; place: string; from: string; to: string }) =>
     `${p.metric} for ${p.place}, monthly from ${p.from} to ${p.to}.`,

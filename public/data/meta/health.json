@@ -1,6 +1,6 @@
 {
- "generated_utc": "2026-11-06T22:35Z",
- "seconds": 393,
+ "generated_utc": "2026-11-10T23:23Z",
+ "seconds": 577,
  "completeness": [],
  "records": [
   {
@@ -44,24 +44,29 @@
      "note": "1 checks"
     },
     {
+     "check": "links resolve",
+     "ok": null,
+     "note": "no links"
+    },
+    {
+     "check": "fresh within its limit",
+     "ok": false,
+     "note": "lag 5.0 d > limit 2 d"
+    },
+    {
      "check": "app (chromium): plays, labels, no console errors",
      "ok": true,
-     "note": "levels 1.3e-1, 1.2e-1, 1.1e-1"
+     "note": "levels 8.6e-2, 8.1e-2, 7.4e-2"
     },
     {
      "check": "app (firefox): plays, labels, no console errors",
      "ok": true,
-     "note": "levels 1.3e-1, 1.2e-1, 1.1e-1"
-    },
-    {
-     "check": "links resolve",
-     "ok": null,
-     "note": "no links"
+     "note": "levels 8.6e-2, 8.1e-2, 7.4e-2"
     }
    ],
    "last_data_utc": "2026-11-04T00:00Z",
-   "source_latest_utc": "2026-11-04T00:00Z",
-   "lag_days": 0.0,
+   "source_latest_utc": "2026-11-09T00:00Z",
+   "lag_days": 5.0,
    "app_plays": "yes"
   },
   {
@@ -105,24 +110,29 @@
      "note": "1 checks"
     },
     {
-     "check": "app (chromium): plays, labels, no console errors",
-     "ok": true,
-     "note": "levels 1.1e-1, 1.1e-1, 1.1e-1"
-    },
-    {
-     "check": "app (firefox): plays, labels, no console errors",
-     "ok": true,
-     "note": "levels 1.1e-1, 1.1e-1, 1.1e-1"
-    },
-    {
      "check": "links resolve",
      "ok": null,
      "note": "no links"
+    },
+    {
+     "check": "fresh within its limit",
+     "ok": false,
+     "note": "lag 4.67 d > limit 2 d"
+    },
+    {
+     "check": "app (chromium): plays, labels, no console errors",
+     "ok": true,
+     "note": "levels 7.0e-2, 7.0e-2, 7.0e-2"
+    },
+    {
+     "check": "app (firefox): plays, labels, no console errors",
+     "ok": false,
+     "note": "the needle did not move with the arrows (same place on the value line)"
     }
    ],
    "last_data_utc": "2026-11-06T01:30Z",
-   "source_latest_utc": "2026-11-06T17:30Z",
-   "lag_days": 0.67,
+   "source_latest_utc": "2026-11-10T17:30Z",
+   "lag_days": 4.67,
    "app_plays": "yes"
   },
   {
@@ -161,24 +171,29 @@
      "note": "ok"
     },
     {
-     "check": "app (chromium): plays, labels, no console errors",
-     "ok": true,
-     "note": "levels 1.1e-1, 1.1e-1, 1.1e-1"
-    },
-    {
-     "check": "app (firefox): plays, labels, no console errors",
-     "ok": true,
-     "note": "levels 1.1e-1, 1.1e-1, 1.1e-1"
-    },
-    {
      "check": "links resolve",
      "ok": null,
      "note": "no links"
+    },
+    {
+     "check": "fresh within its limit",
+     "ok": false,
+     "note": "lag 4.62 d > limit 2 d"
+    },
+    {
+     "check": "app (chromium): plays, labels, no console errors",
+     "ok": true,
+     "note": "levels 7.0e-2, 7.0e-2, 7.0e-2"
+    },
+    {
+     "check": "app (firefox): plays, labels, no console errors",
+     "ok": false,
+     "note": "the needle did not move with the arrows (same place on the value line)"
     }
    ],
    "last_data_utc": "2026-11-06T02:30Z",
-   "source_latest_utc": "2026-11-06T17:30Z",
-   "lag_days": 0.62,
+   "source_latest_utc": "2026-11-10T17:30Z",
+   "lag_days": 4.62,
    "app_plays": "yes"
   },
   {
@@ -500,11 +515,16 @@
      "check": "links resolve",
      "ok": null,
      "note": "no links"
+    },
+    {
+     "check": "fresh within its limit",
+     "ok": false,
+     "note": "lag 5.88 d > limit 4 d"
     }
    ],
    "last_data_utc": "2026-11-04T00:00Z",
-   "source_latest_utc": "2026-11-05T21:00Z",
-   "lag_days": 1.88
+   "source_latest_utc": "2026-11-09T21:00Z",
+   "lag_days": 5.88
   },
   {
    "id": "rain_pairs",
@@ -545,11 +565,16 @@
      "check": "links resolve",
      "ok": null,
      "note": "no links"
+    },
+    {
+     "check": "fresh within its limit",
+     "ok": false,
+     "note": "lag 4.69 d > limit 3 d"
     }
    ],
    "last_data_utc": "2026-11-06T01:30Z",
-   "source_latest_utc": "2026-11-06T16:59Z",
-   "lag_days": 0.65
+   "source_latest_utc": "2026-11-10T17:59Z",
+   "lag_days": 4.69
   },
   {
    "id": "threeway",
@@ -590,11 +615,16 @@
      "check": "links resolve",
      "ok": null,
      "note": "no links"
+    },
+    {
+     "check": "fresh within its limit",
+     "ok": false,
+     "note": "lag 5.88 d > limit 4 d"
     }
    ],
    "last_data_utc": "2026-11-04T00:00Z",
-   "source_latest_utc": "2026-11-05T21:00Z",
-   "lag_days": 1.88
+   "source_latest_utc": "2026-11-09T21:00Z",
+   "lag_days": 5.88
   },
   {
    "id": "sst_anom",
@@ -643,8 +673,8 @@
     }
    ],
    "last_data_utc": "2026-11-03T00:00Z",
-   "source_latest_utc": "2026-11-04T00:00Z",
-   "lag_days": 1.0
+   "source_latest_utc": "2026-11-08T00:00Z",
+   "lag_days": 5.0
   },
   {
    "id": "sst_dt",
@@ -683,11 +713,16 @@
      "check": "links resolve",
      "ok": null,
      "note": "no links"
+    },
+    {
+     "check": "fresh within its limit",
+     "ok": false,
+     "note": "lag 5.5 d > limit 3 d"
     }
    ],
    "last_data_utc": "2026-11-04T09:00Z",
-   "source_latest_utc": "2026-11-05T21:00Z",
-   "lag_days": 1.5
+   "source_latest_utc": "2026-11-09T21:00Z",
+   "lag_days": 5.5
   },
   {
    "id": "fwi_class",
@@ -733,11 +768,16 @@
      "check": "links resolve",
      "ok": null,
      "note": "no links"
+    },
+    {
+     "check": "fresh within its limit",
+     "ok": false,
+     "note": "lag 4.0 d > limit 2 d"
     }
    ],
    "last_data_utc": "2026-11-06T07:10Z",
-   "source_latest_utc": "2026-11-06T07:10Z",
-   "lag_days": 0.0
+   "source_latest_utc": "2026-11-10T07:12Z",
+   "lag_days": 4.0
   },
   {
    "id": "fwi_archive",
@@ -778,11 +818,16 @@
      "check": "links resolve",
      "ok": null,
      "note": "no links"
+    },
+    {
+     "check": "fresh within its limit",
+     "ok": false,
+     "note": "lag 4.0 d > limit 2 d"
     }
    ],
    "last_data_utc": "2026-11-06T07:10Z",
-   "source_latest_utc": "2026-11-06T07:10Z",
-   "lag_days": 0.0
+   "source_latest_utc": "2026-11-10T07:12Z",
+   "lag_days": 4.0
   },
   {
    "id": "fires_frame",
@@ -828,11 +873,16 @@
      "check": "links resolve",
      "ok": null,
      "note": "no links"
+    },
+    {
+     "check": "fresh within its limit",
+     "ok": false,
+     "note": "lag 5.0 d > limit 3 d"
     }
    ],
    "last_data_utc": "2026-11-05T11:27Z",
-   "source_latest_utc": "2026-11-05T11:27Z",
-   "lag_days": 0.0
+   "source_latest_utc": "2026-11-10T11:26Z",
+   "lag_days": 5.0
   },
   {
    "id": "firms_daily",
@@ -871,11 +921,16 @@
      "check": "links resolve",
      "ok": null,
      "note": "no links"
+    },
+    {
+     "check": "fresh within its limit",
+     "ok": false,
+     "note": "lag 3.67 d > limit 2 d"
     }
    ],
    "last_data_utc": "2026-11-06T08:00Z",
-   "source_latest_utc": "2026-11-06T00:00Z",
-   "lag_days": -0.33
+   "source_latest_utc": "2026-11-10T00:00Z",
+   "lag_days": 3.67
   },
   {
    "id": "landslide_class",
@@ -921,11 +976,16 @@
      "check": "links resolve",
      "ok": null,
      "note": "no links"
+    },
+    {
+     "check": "fresh within its limit",
+     "ok": false,
+     "note": "lag 4.0 d > limit 2 d"
     }
    ],
    "last_data_utc": "2026-11-06T05:00Z",
-   "source_latest_utc": "2026-11-06T05:00Z",
-   "lag_days": 0.0
+   "source_latest_utc": "2026-11-10T05:00Z",
+   "lag_days": 4.0
   },
   {
    "id": "nightlights",
@@ -1142,19 +1202,19 @@
      "note": "Visualization: NASA's Scientific Visualization Studio (SVS 5669, 5572) for the N"
     },
     {
+     "check": "links resolve",
+     "ok": true,
+     "note": "3 of 3 links resolve"
+    },
+    {
      "check": "app (chromium): plays, labels, no console errors",
      "ok": true,
-     "note": "levels 8.9e-2, 9.0e-2, 8.9e-2"
+     "note": "levels 9.7e-2, 9.6e-2, 9.7e-2"
     },
     {
      "check": "app (firefox): plays, labels, no console errors",
      "ok": true,
-     "note": "levels 9.0e-2, 8.9e-2, 8.9e-2"
-    },
-    {
-     "check": "links resolve",
-     "ok": false,
-     "note": "https://svs.gsfc.nasa.gov/5572/ (ReadTimeout)"
+     "note": "levels 1.1e-1, 9.6e-2, 9.5e-2"
     }
    ],
    "app_plays": "yes"
@@ -1376,19 +1436,19 @@
      "note": "Visualization: NASA's Scientific Visualization Studio (SVS 5533, 5518) for the N"
     },
     {
+     "check": "links resolve",
+     "ok": true,
+     "note": "5 of 5 links resolve"
+    },
+    {
      "check": "app (chromium): plays, labels, no console errors",
      "ok": true,
-     "note": "levels 3.4e-2, 3.3e-2, 3.8e-2"
+     "note": "levels 3.4e-2, 3.4e-2, 3.8e-2"
     },
     {
      "check": "app (firefox): plays, labels, no console errors",
      "ok": true,
-     "note": "levels 3.3e-2, 3.3e-2, 3.8e-2"
-    },
-    {
-     "check": "links resolve",
-     "ok": true,
-     "note": "5 of 5 links resolve"
+     "note": "levels 3.3e-2, 3.4e-2, 3.9e-2"
     }
    ],
    "app_plays": "yes"
@@ -1470,19 +1530,19 @@
      "note": "Visualization: NASA's Scientific Visualization Studio (SVS 5196, 5436) for the N"
     },
     {
+     "check": "links resolve",
+     "ok": true,
+     "note": "3 of 3 links resolve"
+    },
+    {
      "check": "app (chromium): plays, labels, no console errors",
      "ok": true,
-     "note": "levels 7.6e-2, 7.2e-2, 7.2e-2"
+     "note": "levels 6.7e-2, 6.4e-2, 6.3e-2"
     },
     {
      "check": "app (firefox): plays, labels, no console errors",
      "ok": true,
-     "note": "levels 7.6e-2, 7.2e-2, 7.2e-2"
-    },
-    {
-     "check": "links resolve",
-     "ok": true,
-     "note": "3 of 3 links resolve"
+     "note": "levels 7.5e-2, 6.4e-2, 6.3e-2"
     }
    ],
    "app_plays": "yes"
@@ -1643,19 +1703,19 @@
      "note": "Visualization: NASA's Scientific Visualization Studio (SVS 3912) for the NASA Ea"
     },
     {
+     "check": "links resolve",
+     "ok": true,
+     "note": "3 of 3 links resolve"
+    },
+    {
      "check": "app (chromium): plays, labels, no console errors",
      "ok": true,
-     "note": "levels 8.7e-2, 1.0e-1, 1.0e-1"
+     "note": "levels 8.9e-2, 1.0e-1, 1.0e-1"
     },
     {
      "check": "app (firefox): plays, labels, no console errors",
      "ok": true,
-     "note": "levels 8.7e-2, 1.0e-1, 1.0e-1"
-    },
-    {
-     "check": "links resolve",
-     "ok": false,
-     "note": "https://doi.org/10.5067/OSCAR-25F20 (ReadTimeout)"
+     "note": "levels 8.9e-2, 1.0e-1, 1.0e-1"
     }
    ],
    "app_plays": "yes"
@@ -1736,24 +1796,24 @@
      "note": "Visualization: NASA's Scientific Visualization Studio (SVS 5147) for the NASA Ea"
     },
     {
+     "check": "links resolve",
+     "ok": true,
+     "note": "5 of 5 links resolve"
+    },
+    {
      "check": "app (chromium): plays, labels, no console errors",
      "ok": true,
-     "note": "levels 8.2e-2, 7.8e-2, 7.8e-2"
+     "note": "levels 8.0e-2, 7.7e-2, 7.7e-2"
     },
     {
      "check": "app (firefox): plays, labels, no console errors",
      "ok": true,
-     "note": "levels 8.2e-2, 7.8e-2, 7.8e-2"
-    },
-    {
-     "check": "links resolve",
-     "ok": true,
-     "note": "5 of 5 links resolve"
+     "note": "levels 8.0e-2, 7.7e-2, 7.6e-2"
     }
    ],
    "last_data_utc": "2026-10-28T22:00Z",
-   "source_latest_utc": "2026-11-06T07:30Z",
-   "lag_days": 8.4,
+   "source_latest_utc": "2026-11-09T11:53Z",
+   "lag_days": 11.58,
    "app_plays": "yes"
   },
   {
@@ -1832,24 +1892,24 @@
      "note": "Visualization: NASA's Scientific Visualization Studio (SVS 5148) for the NASA Ea"
     },
     {
+     "check": "links resolve",
+     "ok": false,
+     "note": "https://svs.gsfc.nasa.gov/5148/ (ReadTimeout)"
+    },
+    {
      "check": "app (chromium): plays, labels, no console errors",
      "ok": true,
-     "note": "levels 6.1e-2, 8.2e-2, 7.7e-2"
+     "note": "levels 6.0e-2, 8.0e-2, 7.6e-2"
     },
     {
      "check": "app (firefox): plays, labels, no console errors",
      "ok": true,
-     "note": "levels 6.1e-2, 8.2e-2, 7.7e-2"
-    },
-    {
-     "check": "links resolve",
-     "ok": true,
-     "note": "5 of 5 links resolve"
+     "note": "levels 6.1e-2, 8.1e-2, 7.6e-2"
     }
    ],
    "last_data_utc": "2026-10-28T22:00Z",
-   "source_latest_utc": "2026-11-06T07:31Z",
-   "lag_days": 8.4,
+   "source_latest_utc": "2026-11-09T11:54Z",
+   "lag_days": 11.58,
    "app_plays": "yes"
   },
   {
@@ -1928,24 +1988,24 @@
      "note": "Visualization: NASA's Scientific Visualization Studio (SVS 5149) for the NASA Ea"
     },
     {
+     "check": "links resolve",
+     "ok": true,
+     "note": "5 of 5 links resolve"
+    },
+    {
      "check": "app (chromium): plays, labels, no console errors",
      "ok": true,
-     "note": "levels 8.1e-2, 8.1e-2, 7.9e-2"
+     "note": "levels 8.0e-2, 8.0e-2, 7.8e-2"
     },
     {
      "check": "app (firefox): plays, labels, no console errors",
      "ok": true,
-     "note": "levels 8.1e-2, 8.1e-2, 7.9e-2"
-    },
-    {
-     "check": "links resolve",
-     "ok": true,
-     "note": "5 of 5 links resolve"
+     "note": "levels 8.1e-2, 8.0e-2, 7.9e-2"
     }
    ],
    "last_data_utc": "2026-10-28T22:00Z",
-   "source_latest_utc": "2026-11-06T07:32Z",
-   "lag_days": 8.4,
+   "source_latest_utc": "2026-11-09T11:55Z",
+   "lag_days": 11.58,
    "app_plays": "yes"
   },
   {
@@ -2024,24 +2084,24 @@
      "note": "Visualization: NASA's Scientific Visualization Studio (SVS 5150) for the NASA Ea"
     },
     {
+     "check": "links resolve",
+     "ok": true,
+     "note": "5 of 5 links resolve"
+    },
+    {
      "check": "app (chromium): plays, labels, no console errors",
      "ok": true,
-     "note": "levels 6.2e-2, 7.5e-2, 7.6e-2"
+     "note": "levels 6.1e-2, 7.4e-2, 7.5e-2"
     },
     {
      "check": "app (firefox): plays, labels, no console errors",
      "ok": true,
-     "note": "levels 6.2e-2, 7.5e-2, 7.7e-2"
-    },
-    {
-     "check": "links resolve",
-     "ok": true,
-     "note": "5 of 5 links resolve"
+     "note": "levels 6.2e-2, 7.3e-2, 7.6e-2"
     }
    ],
    "last_data_utc": "2026-10-29T22:00Z",
-   "source_latest_utc": "2026-11-06T07:43Z",
-   "lag_days": 7.4,
+   "source_latest_utc": "2026-11-10T07:16Z",
+   "lag_days": 11.39,
    "app_plays": "yes"
   },
   {
@@ -2120,24 +2180,24 @@
      "note": "Visualization: NASA's Scientific Visualization Studio (SVS 5151) for the NASA Ea"
     },
     {
+     "check": "links resolve",
+     "ok": true,
+     "note": "5 of 5 links resolve"
+    },
+    {
      "check": "app (chromium): plays, labels, no console errors",
      "ok": true,
-     "note": "levels 7.4e-2, 6.0e-2, 7.4e-2"
+     "note": "levels 8.1e-2, 6.6e-2, 8.1e-2"
     },
     {
      "check": "app (firefox): plays, labels, no console errors",
      "ok": true,
-     "note": "levels 7.4e-2, 6.0e-2, 7.4e-2"
-    },
-    {
-     "check": "links resolve",
-     "ok": true,
-     "note": "5 of 5 links resolve"
+     "note": "levels 8.1e-2, 6.6e-2, 8.2e-2"
     }
    ],
    "last_data_utc": "2026-10-28T22:00Z",
-   "source_latest_utc": "2026-11-05T07:33Z",
-   "lag_days": 7.4,
+   "source_latest_utc": "2026-11-09T11:58Z",
+   "lag_days": 11.58,
    "app_plays": "yes"
   },
   {
@@ -2216,24 +2276,24 @@
      "note": "Visualization: NASA's Scientific Visualization Studio (SVS 5152) for the NASA Ea"
     },
     {
+     "check": "links resolve",
+     "ok": true,
+     "note": "5 of 5 links resolve"
+    },
+    {
      "check": "app (chromium): plays, labels, no console errors",
      "ok": true,
-     "note": "levels 7.1e-2, 6.3e-2, 6.6e-2"
+     "note": "levels 7.8e-2, 6.9e-2, 7.3e-2"
     },
     {
      "check": "app (firefox): plays, labels, no console errors",
      "ok": true,
-     "note": "levels 7.1e-2, 6.3e-2, 6.6e-2"
-    },
-    {
-     "check": "links resolve",
-     "ok": true,
-     "note": "5 of 5 links resolve"
+     "note": "levels 7.8e-2, 7.0e-2, 7.3e-2"
     }
    ],
    "last_data_utc": "2026-10-28T22:00Z",
-   "source_latest_utc": "2026-11-05T07:34Z",
-   "lag_days": 7.4,
+   "source_latest_utc": "2026-11-09T11:59Z",
+   "lag_days": 11.58,
    "app_plays": "yes"
   },
   {
@@ -2312,24 +2372,24 @@
      "note": "Visualization: NASA's Scientific Visualization Studio (SVS 5153) for the NASA Ea"
     },
     {
+     "check": "links resolve",
+     "ok": true,
+     "note": "5 of 5 links resolve"
+    },
+    {
      "check": "app (chromium): plays, labels, no console errors",
      "ok": true,
-     "note": "levels 6.4e-2, 6.2e-2, 8.1e-2"
+     "note": "levels 7.1e-2, 6.9e-2, 8.8e-2"
     },
     {
      "check": "app (firefox): plays, labels, no console errors",
      "ok": true,
-     "note": "levels 6.4e-2, 6.2e-2, 8.1e-2"
-    },
-    {
-     "check": "links resolve",
-     "ok": true,
-     "note": "5 of 5 links resolve"
+     "note": "levels 7.0e-2, 6.9e-2, 8.9e-2"
     }
    ],
    "last_data_utc": "2026-10-28T22:00Z",
-   "source_latest_utc": "2026-11-05T07:35Z",
-   "lag_days": 7.4,
+   "source_latest_utc": "2026-11-09T12:00Z",
+   "lag_days": 11.58,
    "app_plays": "yes"
   },
   {
@@ -2408,24 +2468,24 @@
      "note": "Visualization: NASA's Scientific Visualization Studio (SVS 5154) for the NASA Ea"
     },
     {
+     "check": "links resolve",
+     "ok": true,
+     "note": "5 of 5 links resolve"
+    },
+    {
      "check": "app (chromium): plays, labels, no console errors",
      "ok": true,
-     "note": "levels 8.2e-2, 6.3e-2, 6.2e-2"
+     "note": "levels 8.9e-2, 6.9e-2, 6.8e-2"
     },
     {
      "check": "app (firefox): plays, labels, no console errors",
      "ok": true,
-     "note": "levels 8.2e-2, 6.3e-2, 6.2e-2"
-    },
-    {
-     "check": "links resolve",
-     "ok": true,
-     "note": "5 of 5 links resolve"
+     "note": "levels 8.9e-2, 6.9e-2, 6.9e-2"
     }
    ],
    "last_data_utc": "2026-10-28T22:00Z",
-   "source_latest_utc": "2026-11-05T07:35Z",
-   "lag_days": 7.4,
+   "source_latest_utc": "2026-11-09T12:01Z",
+   "lag_days": 11.58,
    "app_plays": "yes"
   },
   {
@@ -2504,19 +2564,19 @@
      "note": "Visualization: NASA's Scientific Visualization Studio (SVS 5544) for the NASA Ea"
     },
     {
+     "check": "links resolve",
+     "ok": true,
+     "note": "3 of 3 links resolve"
+    },
+    {
      "check": "app (chromium): plays, labels, no console errors",
      "ok": true,
-     "note": "levels 7.2e-2, 8.0e-2, 7.7e-2"
+     "note": "levels 5.6e-2, 6.2e-2, 6.1e-2"
     },
     {
      "check": "app (firefox): plays, labels, no console errors",
      "ok": true,
-     "note": "levels 7.2e-2, 7.9e-2, 7.7e-2"
-    },
-    {
-     "check": "links resolve",
-     "ok": true,
-     "note": "3 of 3 links resolve"
+     "note": "levels 5.6e-2, 6.1e-2, 6.1e-2"
     }
    ],
    "last_data_utc": "2026-06-13T00:00Z",
@@ -2600,19 +2660,19 @@
      "note": "Visualization: NASA's Scientific Visualization Studio (SVS 4950) for the NASA Ea"
     },
     {
+     "check": "links resolve",
+     "ok": true,
+     "note": "3 of 3 links resolve"
+    },
+    {
      "check": "app (chromium): plays, labels, no console errors",
      "ok": true,
-     "note": "levels 8.1e-2, 8.2e-2, 8.1e-2"
+     "note": "levels 6.3e-2, 6.3e-2, 6.2e-2"
     },
     {
      "check": "app (firefox): plays, labels, no console errors",
      "ok": true,
-     "note": "levels 8.1e-2, 8.2e-2, 8.1e-2"
-    },
-    {
-     "check": "links resolve",
-     "ok": false,
-     "note": "https://svs.gsfc.nasa.gov/4950/ (ReadTimeout)"
+     "note": "levels 6.3e-2, 6.3e-2, 6.3e-2"
     }
    ],
    "app_plays": "yes"
@@ -2693,19 +2753,19 @@
      "note": "Visualization: NASA's Scientific Visualization Studio (SVS 5011) for the NASA Ea"
     },
     {
+     "check": "links resolve",
+     "ok": true,
+     "note": "6 of 6 links resolve"
+    },
+    {
      "check": "app (chromium): plays, labels, no console errors",
      "ok": true,
-     "note": "levels 3.1e-3, 1.4e-4, 8.7e-4"
+     "note": "levels 2.5e-3, 2.1e-3, 1.6e-4"
     },
     {
      "check": "app (firefox): plays, labels, no console errors",
      "ok": true,
-     "note": "levels 2.9e-3, 2.6e-3, 3.1e-3"
-    },
-    {
-     "check": "links resolve",
-     "ok": false,
-     "note": "https://doi.org/10.5067/MODIS/MCD12C1.006 (ReadTimeout); https://lpdaac.usgs.gov/products/mcd12c1v006/ (ReadTimeout)"
+     "note": "levels 1.6e-3, 1.9e-1, 1.1e-4"
     }
    ],
    "app_plays": "yes"
@@ -2808,19 +2868,19 @@
      "note": "Visualization: NASA's Scientific Visualization Studio (SVS 5313, 5276, 5475) for"
     },
     {
+     "check": "links resolve",
+     "ok": true,
+     "note": "5 of 5 links resolve"
+    },
+    {
      "check": "app (chromium): plays, labels, no console errors",
      "ok": true,
-     "note": "levels 7.1e-2, 8.1e-2, 8.1e-2"
+     "note": "levels 6.2e-2, 7.2e-2, 7.1e-2"
     },
     {
      "check": "app (firefox): plays, labels, no console errors",
      "ok": true,
-     "note": "levels 7.1e-2, 8.1e-2, 8.1e-2"
-    },
-    {
-     "check": "links resolve",
-     "ok": false,
-     "note": "https://svs.gsfc.nasa.gov/5313/ (ReadTimeout)"
+     "note": "levels 6.2e-2, 7.1e-2, 7.0e-2"
     }
    ],
    "app_plays": "yes"
@@ -3041,19 +3101,19 @@
      "note": "Visualization: NASA's Scientific Visualization Studio (SVS 5425) for the NASA Ea"
     },
     {
+     "check": "links resolve",
+     "ok": true,
+     "note": "4 of 4 links resolve"
+    },
+    {
      "check": "app (chromium): plays, labels, no console errors",
      "ok": true,
-     "note": "levels 6.4e-2, 6.6e-2, 6.6e-2"
+     "note": "levels 6.7e-2, 6.8e-2, 6.7e-2"
     },
     {
      "check": "app (firefox): plays, labels, no console errors",
      "ok": true,
-     "note": "levels 6.5e-2, 6.5e-2, 6.6e-2"
-    },
-    {
-     "check": "links resolve",
-     "ok": false,
-     "note": "http://earthobservatory.nasa.gov/Newsroom/BlueMarble/ (ConnectionError); https://svs.gsfc.nasa.gov/5425/ (ReadTimeout)"
+     "note": "levels 6.9e-2, 6.8e-2, 6.8e-2"
     }
    ],
    "app_plays": "yes"
@@ -3134,22 +3194,79 @@
      "note": "Visualization: NASA's Scientific Visualization Studio (SVS 4960) for the NASA Ea"
     },
     {
+     "check": "links resolve",
+     "ok": true,
+     "note": "2 of 2 links resolve"
+    },
+    {
      "check": "app (chromium): plays, labels, no console errors",
      "ok": true,
-     "note": "levels 7.3e-2, 5.9e-2, 7.3e-2"
+     "note": "levels 7.2e-2, 5.9e-2, 7.2e-2"
     },
     {
      "check": "app (firefox): plays, labels, no console errors",
      "ok": true,
-     "note": "levels 7.3e-2, 5.8e-2, 7.3e-2"
-    },
-    {
-     "check": "links resolve",
-     "ok": false,
-     "note": "https://svs.gsfc.nasa.gov/4960/ (ReadTimeout)"
+     "note": "levels 7.2e-2, 5.9e-2, 7.2e-2"
     }
    ],
    "app_plays": "yes"
+  },
+  {
+   "id": "sonification_13786",
+   "category": "method",
+   "title": "Caldwell 73 sonification (method evidence)",
+   "manifest": "official/sonification_13786/manifest.json",
+   "kind": "official",
+   "svs_ids": [
+    13786
+   ],
+   "source": "SVS 13786",
+   "status": "",
+   "product": "sonification_13786",
+   "layer": null,
+   "notes": [],
+   "checks": [
+    {
+     "check": "contract-15 schema",
+     "ok": true,
+     "note": ""
+    },
+    {
+     "check": "files exist and load",
+     "ok": true,
+     "note": "0 chunks"
+    },
+    {
+     "check": "checksums match",
+     "ok": true,
+     "note": "1 asset rows"
+    },
+    {
+     "check": "index = manifest (period, badge, title)",
+     "ok": true,
+     "note": "23 Dec 2020 – 23 Dec 2020"
+    },
+    {
+     "check": "freshness.json period = manifest",
+     "ok": true,
+     "note": "['2020-12-23T09:00:00Z', '2020-12-23T09:00:00Z'] vs 2020-12-23T09:00:00Z…2020-12-23T09:00:00Z"
+    },
+    {
+     "check": "validation table = validation.json",
+     "ok": true,
+     "note": "4 checks"
+    },
+    {
+     "check": "credits and licence present",
+     "ok": true,
+     "note": "Credit: SYSTEM Sounds (M. Russo, A. Santaguida) and NASA (SVS 13786)."
+    },
+    {
+     "check": "links resolve",
+     "ok": true,
+     "note": "3 of 3 links resolve"
+    }
+   ]
   },
   {
    "id": "rel_30919",
@@ -3227,19 +3344,19 @@
      "note": "Visualization: NASA's Scientific Visualization Studio (SVS 30919) for the NASA E"
     },
     {
+     "check": "links resolve",
+     "ok": true,
+     "note": "3 of 3 links resolve"
+    },
+    {
      "check": "app (chromium): plays, labels, no console errors",
      "ok": true,
-     "note": "levels 7.3e-2, 5.9e-2, 7.3e-2"
+     "note": "levels 6.4e-2, 5.3e-2, 6.5e-2"
     },
     {
      "check": "app (firefox): plays, labels, no console errors",
      "ok": true,
-     "note": "levels 7.3e-2, 5.9e-2, 7.3e-2"
-    },
-    {
-     "check": "links resolve",
-     "ok": false,
-     "note": "https://svs.gsfc.nasa.gov/vis/a030000/a030000/a030028/frames/6750x3375_2x1_30p/split-750m/ (ReadTimeout)"
+     "note": "levels 6.4e-2, 5.3e-2, 6.4e-2"
     }
    ],
    "app_plays": "yes"
@@ -3320,19 +3437,19 @@
      "note": "Visualization: NASA's Scientific Visualization Studio (SVS 3143) for the NASA Ea"
     },
     {
+     "check": "links resolve",
+     "ok": true,
+     "note": "2 of 2 links resolve"
+    },
+    {
      "check": "app (chromium): plays, labels, no console errors",
      "ok": true,
-     "note": "levels 8.2e-2, 8.1e-2, 6.7e-2"
+     "note": "levels 8.0e-2, 8.0e-2, 6.6e-2"
     },
     {
      "check": "app (firefox): plays, labels, no console errors",
      "ok": true,
-     "note": "levels 8.2e-2, 8.1e-2, 6.7e-2"
-    },
-    {
-     "check": "links resolve",
-     "ok": true,
-     "note": "2 of 2 links resolve"
+     "note": "levels 8.0e-2, 8.0e-2, 6.6e-2"
     }
    ],
    "app_plays": "yes"
@@ -3413,19 +3530,19 @@
      "note": "Visualization: NASA's Scientific Visualization Studio (SVS 3144) for the NASA Ea"
     },
     {
+     "check": "links resolve",
+     "ok": true,
+     "note": "2 of 2 links resolve"
+    },
+    {
      "check": "app (chromium): plays, labels, no console errors",
      "ok": true,
-     "note": "levels 8.2e-2, 8.2e-2, 8.0e-2"
+     "note": "levels 8.1e-2, 8.1e-2, 7.9e-2"
     },
     {
      "check": "app (firefox): plays, labels, no console errors",
      "ok": true,
-     "note": "levels 8.2e-2, 8.2e-2, 8.0e-2"
-    },
-    {
-     "check": "links resolve",
-     "ok": true,
-     "note": "2 of 2 links resolve"
+     "note": "levels 8.1e-2, 8.0e-2, 7.9e-2"
     }
    ],
    "app_plays": "yes"
@@ -3506,19 +3623,19 @@
      "note": "Visualization: NASA's Scientific Visualization Studio (SVS 3821) for the NASA Ea"
     },
     {
+     "check": "links resolve",
+     "ok": true,
+     "note": "8 of 8 links resolve"
+    },
+    {
      "check": "app (chromium): plays, labels, no console errors",
      "ok": true,
-     "note": "levels 8.0e-2, 7.9e-2, 7.8e-2"
+     "note": "levels 8.2e-2, 8.1e-2, 8.0e-2"
     },
     {
      "check": "app (firefox): plays, labels, no console errors",
      "ok": true,
-     "note": "levels 8.0e-2, 7.9e-2, 7.8e-2"
-    },
-    {
-     "check": "links resolve",
-     "ok": true,
-     "note": "8 of 8 links resolve"
+     "note": "levels 8.2e-2, 1.4e-1, 2.8e-1"
     }
    ],
    "app_plays": "yes"
@@ -3599,19 +3716,19 @@
      "note": "Visualization: NASA's Scientific Visualization Studio (SVS 3913) for the NASA Ea"
     },
     {
+     "check": "links resolve",
+     "ok": null,
+     "note": "19 of 20 links resolve; 1 refused automated requests (403), unverified"
+    },
+    {
      "check": "app (chromium): plays, labels, no console errors",
      "ok": true,
-     "note": "levels 5.9e-2, 5.9e-2, 6.5e-2"
+     "note": "levels 6.1e-2, 6.1e-2, 6.7e-2"
     },
     {
      "check": "app (firefox): plays, labels, no console errors",
      "ok": true,
-     "note": "levels 5.9e-2, 5.9e-2, 6.5e-2"
-    },
-    {
-     "check": "links resolve",
-     "ok": false,
-     "note": "http://archive.eso.org/ASTROM/ (ReadTimeout)"
+     "note": "levels 6.2e-2, 6.1e-2, 6.7e-2"
     }
    ],
    "app_plays": "yes"
@@ -3692,19 +3809,19 @@
      "note": "Visualization: NASA's Scientific Visualization Studio (SVS 4272) for the NASA Ea"
     },
     {
+     "check": "links resolve",
+     "ok": true,
+     "note": "2 of 2 links resolve"
+    },
+    {
      "check": "app (chromium): plays, labels, no console errors",
      "ok": true,
-     "note": "levels 5.9e-2, 5.9e-2, 6.9e-2"
+     "note": "levels 5.9e-2, 5.9e-2, 6.8e-2"
     },
     {
      "check": "app (firefox): plays, labels, no console errors",
      "ok": true,
-     "note": "levels 5.9e-2, 5.9e-2, 6.9e-2"
-    },
-    {
-     "check": "links resolve",
-     "ok": true,
-     "note": "2 of 2 links resolve"
+     "note": "levels 5.8e-2, 5.9e-2, 6.8e-2"
     }
    ],
    "app_plays": "yes"
@@ -3785,19 +3902,19 @@
      "note": "Visualization: NASA's Scientific Visualization Studio (SVS 4284) for the NASA Ea"
     },
     {
+     "check": "links resolve",
+     "ok": false,
+     "note": "https://svs.gsfc.nasa.gov/4284/ (ReadTimeout)"
+    },
+    {
      "check": "app (chromium): plays, labels, no console errors",
      "ok": true,
-     "note": "levels 7.7e-2, 6.9e-2, 7.8e-2"
+     "note": "levels 7.6e-2, 6.9e-2, 7.6e-2"
     },
     {
      "check": "app (firefox): plays, labels, no console errors",
      "ok": true,
-     "note": "levels 7.7e-2, 6.9e-2, 7.7e-2"
-    },
-    {
-     "check": "links resolve",
-     "ok": true,
-     "note": "3 of 3 links resolve"
+     "note": "levels 7.6e-2, 6.8e-2, 7.7e-2"
     }
    ],
    "app_plays": "yes"
@@ -3878,19 +3995,19 @@
      "note": "Visualization: NASA's Scientific Visualization Studio (SVS 4332) for the NASA Ea"
     },
     {
+     "check": "links resolve",
+     "ok": true,
+     "note": "2 of 2 links resolve"
+    },
+    {
      "check": "app (chromium): plays, labels, no console errors",
      "ok": true,
-     "note": "levels 7.6e-2, 8.2e-2, 8.1e-2"
+     "note": "levels 7.8e-2, 8.4e-2, 8.3e-2"
     },
     {
      "check": "app (firefox): plays, labels, no console errors",
      "ok": true,
-     "note": "levels 7.5e-2, 8.2e-2, 8.1e-2"
-    },
-    {
-     "check": "links resolve",
-     "ok": true,
-     "note": "2 of 2 links resolve"
+     "note": "levels 7.8e-2, 8.4e-2, 8.3e-2"
     }
    ],
    "app_plays": "yes"
@@ -3971,19 +4088,19 @@
      "note": "Visualization: NASA's Scientific Visualization Studio (SVS 4345) for the NASA Ea"
     },
     {
+     "check": "links resolve",
+     "ok": true,
+     "note": "4 of 4 links resolve"
+    },
+    {
      "check": "app (chromium): plays, labels, no console errors",
      "ok": true,
-     "note": "levels 8.1e-2, 8.2e-2, 8.1e-2"
+     "note": "levels 8.3e-2, 8.4e-2, 8.5e-2"
     },
     {
      "check": "app (firefox): plays, labels, no console errors",
      "ok": true,
-     "note": "levels 8.1e-2, 8.2e-2, 8.1e-2"
-    },
-    {
-     "check": "links resolve",
-     "ok": false,
-     "note": "https://svs.gsfc.nasa.gov/vis/a000000/a005300/a005304/seaLevelWaveTank_sos_5-29-2024a_1024p30.mp4 (ReadTimeout)"
+     "note": "levels 8.3e-2, 8.4e-2, 8.4e-2"
     }
    ],
    "app_plays": "yes"
@@ -4064,19 +4181,19 @@
      "note": "Visualization: NASA's Scientific Visualization Studio (SVS 4353) for the NASA Ea"
     },
     {
+     "check": "links resolve",
+     "ok": true,
+     "note": "8 of 8 links resolve"
+    },
+    {
      "check": "app (chromium): plays, labels, no console errors",
      "ok": true,
-     "note": "levels 6.7e-2, 6.2e-2, 6.2e-2"
+     "note": "levels 6.9e-2, 6.5e-2, 6.5e-2"
     },
     {
      "check": "app (firefox): plays, labels, no console errors",
      "ok": true,
-     "note": "levels 6.7e-2, 6.2e-2, 6.2e-2"
-    },
-    {
-     "check": "links resolve",
-     "ok": false,
-     "note": "https://svs.gsfc.nasa.gov/4353/ (ReadTimeout)"
+     "note": "levels 7.0e-2, 6.5e-2, 6.5e-2"
     }
    ],
    "app_plays": "yes"
@@ -4157,19 +4274,19 @@
      "note": "Visualization: NASA's Scientific Visualization Studio (SVS 4372) for the NASA Ea"
     },
     {
+     "check": "links resolve",
+     "ok": true,
+     "note": "29 of 29 links resolve"
+    },
+    {
      "check": "app (chromium): plays, labels, no console errors",
      "ok": true,
-     "note": "levels 7.3e-2, 7.2e-2, 7.5e-2"
+     "note": "levels 7.2e-2, 7.1e-2, 7.4e-2"
     },
     {
      "check": "app (firefox): plays, labels, no console errors",
      "ok": true,
-     "note": "levels 7.3e-2, 7.2e-2, 7.5e-2"
-    },
-    {
-     "check": "links resolve",
-     "ok": false,
-     "note": "https://svs.gsfc.nasa.gov/4372/ (ReadTimeout); https://svs.gsfc.nasa.gov/vis/a000000/a005400/a005478/IMERGdaily30_2048x102430p_sos.mp4 (ReadTimeout); https://svs.gsfc.nasa.gov/vis/a000000/a005400/a005478/IMERGdaily30_4096x204830p_sos.mp4 (ReadTimeout); https://svs.gsfc.nasa.gov/vis/a000000/a005400/a005478/IMERGdaily30_raw_v07.00416.edgefix_2048p30.mp4 (ReadTimeout) (+10)"
+     "note": "levels 7.2e-2, 7.1e-2, 7.4e-2"
     }
    ],
    "app_plays": "yes"
@@ -4250,19 +4367,19 @@
      "note": "Visualization: NASA's Scientific Visualization Studio (SVS 4417) for the NASA Ea"
     },
     {
+     "check": "links resolve",
+     "ok": true,
+     "note": "3 of 3 links resolve"
+    },
+    {
      "check": "app (chromium): plays, labels, no console errors",
      "ok": true,
-     "note": "levels 6.7e-2, 6.6e-2, 7.1e-2"
+     "note": "levels 6.6e-2, 6.5e-2, 7.1e-2"
     },
     {
      "check": "app (firefox): plays, labels, no console errors",
      "ok": true,
-     "note": "levels 6.7e-2, 6.6e-2, 7.1e-2"
-    },
-    {
-     "check": "links resolve",
-     "ok": true,
-     "note": "3 of 3 links resolve"
+     "note": "levels 6.7e-2, 6.5e-2, 7.0e-2"
     }
    ],
    "app_plays": "yes"
@@ -4509,19 +4626,19 @@
      "note": "Visualization: NASA's Scientific Visualization Studio (SVS 4764) for the NASA Ea"
     },
     {
+     "check": "links resolve",
+     "ok": true,
+     "note": "2 of 2 links resolve"
+    },
+    {
      "check": "app (chromium): plays, labels, no console errors",
      "ok": true,
-     "note": "levels 8.0e-2, 8.1e-2, 7.2e-2"
+     "note": "levels 8.7e-2, 8.8e-2, 7.9e-2"
     },
     {
      "check": "app (firefox): plays, labels, no console errors",
      "ok": true,
-     "note": "levels 8.0e-2, 8.1e-2, 7.2e-2"
-    },
-    {
-     "check": "links resolve",
-     "ok": false,
-     "note": "https://svs.gsfc.nasa.gov/4764/ (ReadTimeout)"
+     "note": "levels 8.7e-2, 8.8e-2, 7.9e-2"
     }
    ],
    "app_plays": "yes"
@@ -4602,19 +4719,19 @@
      "note": "Visualization: NASA's Scientific Visualization Studio (SVS 4810) for the NASA Ea"
     },
     {
+     "check": "links resolve",
+     "ok": true,
+     "note": "3 of 3 links resolve"
+    },
+    {
      "check": "app (chromium): plays, labels, no console errors",
      "ok": true,
-     "note": "levels 8.0e-2, 7.8e-2, 8.2e-2"
+     "note": "levels 8.6e-2, 8.5e-2, 8.9e-2"
     },
     {
      "check": "app (firefox): plays, labels, no console errors",
      "ok": true,
-     "note": "levels 8.0e-2, 7.8e-2, 8.2e-2"
-    },
-    {
-     "check": "links resolve",
-     "ok": false,
-     "note": "http://earthobservatory.nasa.gov/Newsroom/BlueMarble/ (ConnectionError); https://svs.gsfc.nasa.gov/4810/ (ReadTimeout)"
+     "note": "levels 8.7e-2, 8.5e-2, 8.9e-2"
     }
    ],
    "app_plays": "yes"
@@ -4695,19 +4812,19 @@
      "note": "Visualization: NASA's Scientific Visualization Studio (SVS 4889) for the NASA Ea"
     },
     {
+     "check": "links resolve",
+     "ok": true,
+     "note": "2 of 2 links resolve"
+    },
+    {
      "check": "app (chromium): plays, labels, no console errors",
      "ok": true,
-     "note": "levels 8.1e-2, 8.0e-2, 7.9e-2"
+     "note": "levels 7.3e-2, 7.2e-2, 7.1e-2"
     },
     {
      "check": "app (firefox): plays, labels, no console errors",
      "ok": true,
-     "note": "levels 8.1e-2, 8.0e-2, 7.9e-2"
-    },
-    {
-     "check": "links resolve",
-     "ok": true,
-     "note": "2 of 2 links resolve"
+     "note": "levels 7.3e-2, 7.3e-2, 7.1e-2"
     }
    ],
    "app_plays": "yes"
@@ -4871,19 +4988,19 @@
      "note": "Visualization: NASA's Scientific Visualization Studio (SVS 4993) for the NASA Ea"
     },
     {
+     "check": "links resolve",
+     "ok": true,
+     "note": "4 of 4 links resolve"
+    },
+    {
      "check": "app (chromium): plays, labels, no console errors",
      "ok": true,
-     "note": "levels 8.1e-2, 5.9e-2, 8.1e-2"
+     "note": "levels 8.8e-2, 6.5e-2, 8.8e-2"
     },
     {
      "check": "app (firefox): plays, labels, no console errors",
      "ok": true,
-     "note": "levels 8.1e-2, 5.9e-2, 8.1e-2"
-    },
-    {
-     "check": "links resolve",
-     "ok": false,
-     "note": "https://svs.gsfc.nasa.gov/4993/ (ReadTimeout)"
+     "note": "levels 8.8e-2, 6.5e-2, 8.8e-2"
     }
    ],
    "app_plays": "yes"
@@ -4964,19 +5081,19 @@
      "note": "Visualization: NASA's Scientific Visualization Studio (SVS 5017) for the NASA Ea"
     },
     {
+     "check": "links resolve",
+     "ok": false,
+     "note": "https://podaac.jpl.nasa.gov/dataset/OISSS_L4_multimission_7day_v1 (ReadTimeout)"
+    },
+    {
      "check": "app (chromium): plays, labels, no console errors",
      "ok": true,
-     "note": "levels 6.8e-2, 6.8e-2, 6.8e-2"
+     "note": "levels 7.0e-2, 7.0e-2, 7.0e-2"
     },
     {
      "check": "app (firefox): plays, labels, no console errors",
      "ok": true,
-     "note": "levels 6.8e-2, 6.8e-2, 6.8e-2"
-    },
-    {
-     "check": "links resolve",
-     "ok": false,
-     "note": "https://svs.gsfc.nasa.gov/vis/a000000/a004000/a004050/aquarius_flat_datesAndCbar_640x320.m4v (ReadTimeout); https://svs.gsfc.nasa.gov/vis/a000000/a004000/a004050/frames/4096x2048_2x1_30p/flat/ (ReadTimeout)"
+     "note": "levels 7.0e-2, 1.4e-1, 7.0e-2"
     }
    ],
    "app_plays": "yes"
@@ -5057,19 +5174,19 @@
      "note": "Visualization: NASA's Scientific Visualization Studio (SVS 5070) for the NASA Ea"
     },
     {
+     "check": "links resolve",
+     "ok": true,
+     "note": "2 of 2 links resolve"
+    },
+    {
      "check": "app (chromium): plays, labels, no console errors",
      "ok": true,
-     "note": "levels 7.4e-2, 8.1e-2, 8.1e-2"
+     "note": "levels 8.1e-2, 8.8e-2, 8.8e-2"
     },
     {
      "check": "app (firefox): plays, labels, no console errors",
      "ok": true,
-     "note": "levels 7.4e-2, 8.1e-2, 8.1e-2"
-    },
-    {
-     "check": "links resolve",
-     "ok": true,
-     "note": "2 of 2 links resolve"
+     "note": "levels 8.1e-2, 8.7e-2, 8.8e-2"
     }
    ],
    "app_plays": "yes"
@@ -5150,19 +5267,19 @@
      "note": "Visualization: NASA's Scientific Visualization Studio (SVS 5098) for the NASA Ea"
     },
     {
+     "check": "links resolve",
+     "ok": true,
+     "note": "2 of 2 links resolve"
+    },
+    {
      "check": "app (chromium): plays, labels, no console errors",
      "ok": true,
-     "note": "levels 8.2e-2, 8.1e-2, 7.8e-2"
+     "note": "levels 7.3e-2, 7.3e-2, 7.0e-2"
     },
     {
      "check": "app (firefox): plays, labels, no console errors",
      "ok": true,
-     "note": "levels 8.2e-2, 8.1e-2, 7.8e-2"
-    },
-    {
-     "check": "links resolve",
-     "ok": true,
-     "note": "2 of 2 links resolve"
+     "note": "levels 7.4e-2, 7.3e-2, 7.0e-2"
     }
    ],
    "app_plays": "yes"
@@ -5243,19 +5360,19 @@
      "note": "Visualization: NASA's Scientific Visualization Studio (SVS 5104) for the NASA Ea"
     },
     {
+     "check": "links resolve",
+     "ok": true,
+     "note": "4 of 4 links resolve"
+    },
+    {
      "check": "app (chromium): plays, labels, no console errors",
      "ok": true,
-     "note": "levels 7.4e-2, 7.7e-2, 8.2e-2"
+     "note": "levels 8.0e-2, 8.4e-2, 8.9e-2"
     },
     {
      "check": "app (firefox): plays, labels, no console errors",
      "ok": true,
-     "note": "levels 7.4e-2, 7.7e-2, 8.2e-2"
-    },
-    {
-     "check": "links resolve",
-     "ok": true,
-     "note": "4 of 4 links resolve"
+     "note": "levels 8.0e-2, 8.4e-2, 8.9e-2"
     }
    ],
    "app_plays": "yes"
@@ -5336,19 +5453,19 @@
      "note": "Visualization: NASA's Scientific Visualization Studio (SVS 5110) for the NASA Ea"
     },
     {
+     "check": "links resolve",
+     "ok": true,
+     "note": "43 of 43 links resolve"
+    },
+    {
      "check": "app (chromium): plays, labels, no console errors",
      "ok": true,
-     "note": "levels 7.0e-2, 7.9e-2, 7.6e-2"
+     "note": "levels 6.2e-2, 6.9e-2, 6.7e-2"
     },
     {
      "check": "app (firefox): plays, labels, no console errors",
      "ok": true,
-     "note": "levels 7.0e-2, 7.9e-2, 7.6e-2"
-    },
-    {
-     "check": "links resolve",
-     "ok": false,
-     "note": "https://svs.gsfc.nasa.gov/vis/a000000/a005000/a005022/frames/4096x2048_2x1_30p/exr/ (ReadTimeout); https://svs.gsfc.nasa.gov/vis/a000000/a005000/a005022/frames/4096x2048_2x1_30p/png/ (ReadTimeout); https://svs.gsfc.nasa.gov/vis/a000000/a005000/a005022/frames/4096x2048_2x1_60p/exr/ (ReadTimeout); https://svs.gsfc.nasa.gov/vis/a000000/a005200/a005273/SOS_TaggedCO2_10-6-2023a_co2_foursources_quality_"
+     "note": "levels 6.2e-2, 7.0e-2, 6.7e-2"
     }
    ],
    "app_plays": "yes"
@@ -5429,19 +5546,19 @@
      "note": "Visualization: NASA's Scientific Visualization Studio (SVS 5111) for the NASA Ea"
     },
     {
+     "check": "links resolve",
+     "ok": true,
+     "note": "3 of 3 links resolve"
+    },
+    {
      "check": "app (chromium): plays, labels, no console errors",
      "ok": true,
-     "note": "levels 8.2e-2, 8.2e-2, 8.2e-2"
+     "note": "levels 8.5e-2, 8.5e-2, 8.4e-2"
     },
     {
      "check": "app (firefox): plays, labels, no console errors",
      "ok": true,
-     "note": "levels 8.2e-2, 8.2e-2, 8.2e-2"
-    },
-    {
-     "check": "links resolve",
-     "ok": true,
-     "note": "3 of 3 links resolve"
+     "note": "levels 8.5e-2, 8.5e-2, 8.5e-2"
     }
    ],
    "app_plays": "yes"
@@ -5522,19 +5639,19 @@
      "note": "Visualization: NASA's Scientific Visualization Studio (SVS 5119) for the NASA Ea"
     },
     {
+     "check": "links resolve",
+     "ok": true,
+     "note": "3 of 3 links resolve"
+    },
+    {
      "check": "app (chromium): plays, labels, no console errors",
      "ok": true,
-     "note": "levels 8.2e-2, 8.2e-2, 8.2e-2"
+     "note": "levels 7.2e-2, 7.2e-2, 7.2e-2"
     },
     {
      "check": "app (firefox): plays, labels, no console errors",
      "ok": true,
-     "note": "levels 8.2e-2, 8.2e-2, 8.2e-2"
-    },
-    {
-     "check": "links resolve",
-     "ok": true,
-     "note": "3 of 3 links resolve"
+     "note": "levels 7.3e-2, 7.2e-2, 7.2e-2"
     }
    ],
    "app_plays": "yes"
@@ -5615,19 +5732,19 @@
      "note": "Visualization: NASA's Scientific Visualization Studio (SVS 5126) for the NASA Ea"
     },
     {
+     "check": "links resolve",
+     "ok": true,
+     "note": "3 of 3 links resolve"
+    },
+    {
      "check": "app (chromium): plays, labels, no console errors",
      "ok": true,
-     "note": "levels 8.2e-2, 8.2e-2, 8.2e-2"
+     "note": "levels 7.2e-2, 7.2e-2, 7.2e-2"
     },
     {
      "check": "app (firefox): plays, labels, no console errors",
      "ok": true,
-     "note": "levels 8.2e-2, 8.2e-2, 8.2e-2"
-    },
-    {
-     "check": "links resolve",
-     "ok": true,
-     "note": "3 of 3 links resolve"
+     "note": "levels 7.2e-2, 7.2e-2, 7.2e-2"
     }
    ],
    "app_plays": "yes"
@@ -5708,19 +5825,19 @@
      "note": "Visualization: NASA's Scientific Visualization Studio (SVS 5142) for the NASA Ea"
     },
     {
+     "check": "links resolve",
+     "ok": true,
+     "note": "2 of 2 links resolve"
+    },
+    {
      "check": "app (chromium): plays, labels, no console errors",
      "ok": true,
-     "note": "levels 6.9e-2, 7.7e-2, 7.2e-2"
+     "note": "levels 7.6e-2, 8.4e-2, 7.8e-2"
     },
     {
      "check": "app (firefox): plays, labels, no console errors",
      "ok": true,
-     "note": "levels 6.9e-2, 7.7e-2, 7.2e-2"
-    },
-    {
-     "check": "links resolve",
-     "ok": true,
-     "note": "2 of 2 links resolve"
+     "note": "levels 7.6e-2, 8.4e-2, 7.8e-2"
     }
    ],
    "app_plays": "yes"
@@ -5801,19 +5918,19 @@
      "note": "Visualization: NASA's Scientific Visualization Studio (SVS 5190) for the NASA Ea"
     },
     {
+     "check": "links resolve",
+     "ok": true,
+     "note": "7 of 7 links resolve"
+    },
+    {
      "check": "app (chromium): plays, labels, no console errors",
      "ok": true,
-     "note": "levels 8.2e-2, 8.2e-2, 8.2e-2"
+     "note": "levels 8.0e-2, 8.0e-2, 8.0e-2"
     },
     {
      "check": "app (firefox): plays, labels, no console errors",
      "ok": true,
-     "note": "levels 8.2e-2, 8.2e-2, 8.2e-2"
-    },
-    {
-     "check": "links resolve",
-     "ok": false,
-     "note": "https://pubs.giss.nasa.gov/abs/ha00510u.html (ReadTimeout); https://pubs.giss.nasa.gov/abs/le05800h.html (ReadTimeout); https://pubs.giss.nasa.gov/abs/le07900t.html (ReadTimeout); https://svs.gsfc.nasa.gov/5190/ (ReadTimeout)"
+     "note": "levels 3.1e-1, 2.6e-1, 2.6e-1"
     }
    ],
    "app_plays": "yes"
@@ -5894,19 +6011,19 @@
      "note": "Visualization: NASA's Scientific Visualization Studio (SVS 5191) for the NASA Ea"
     },
     {
+     "check": "links resolve",
+     "ok": true,
+     "note": "7 of 7 links resolve"
+    },
+    {
      "check": "app (chromium): plays, labels, no console errors",
      "ok": true,
-     "note": "levels 8.2e-2, 8.2e-2, 8.2e-2"
+     "note": "levels 8.0e-2, 8.1e-2, 8.0e-2"
     },
     {
      "check": "app (firefox): plays, labels, no console errors",
      "ok": true,
-     "note": "levels 8.2e-2, 8.2e-2, 8.2e-2"
-    },
-    {
-     "check": "links resolve",
-     "ok": false,
-     "note": "https://pubs.giss.nasa.gov/abs/ha00510u.html (ReadTimeout); https://pubs.giss.nasa.gov/abs/le05800h.html (ReadTimeout); https://pubs.giss.nasa.gov/abs/le07900t.html (ReadTimeout)"
+     "note": "levels 8.1e-2, 8.1e-2, 8.1e-2"
     }
    ],
    "app_plays": "yes"
@@ -5987,19 +6104,19 @@
      "note": "Visualization: NASA's Scientific Visualization Studio (SVS 5207) for the NASA Ea"
     },
     {
+     "check": "links resolve",
+     "ok": true,
+     "note": "7 of 7 links resolve"
+    },
+    {
      "check": "app (chromium): plays, labels, no console errors",
      "ok": true,
-     "note": "levels 8.2e-2, 8.2e-2, 8.2e-2"
+     "note": "levels 8.1e-2, 8.0e-2, 8.1e-2"
     },
     {
      "check": "app (firefox): plays, labels, no console errors",
      "ok": true,
-     "note": "levels 8.2e-2, 8.2e-2, 8.2e-2"
-    },
-    {
-     "check": "links resolve",
-     "ok": false,
-     "note": "https://pubs.giss.nasa.gov/abs/ha00510u.html (ReadTimeout); https://pubs.giss.nasa.gov/abs/le05800h.html (ReadTimeout); https://pubs.giss.nasa.gov/abs/le07900t.html (ReadTimeout)"
+     "note": "levels 8.1e-2, 8.0e-2, 8.0e-2"
     }
    ],
    "app_plays": "yes"
@@ -6080,19 +6197,19 @@
      "note": "Visualization: NASA's Scientific Visualization Studio (SVS 5209) for the NASA Ea"
     },
     {
+     "check": "links resolve",
+     "ok": true,
+     "note": "7 of 7 links resolve"
+    },
+    {
      "check": "app (chromium): plays, labels, no console errors",
      "ok": true,
-     "note": "levels 8.2e-2, 8.2e-2, 8.2e-2"
+     "note": "levels 8.0e-2, 8.1e-2, 8.0e-2"
     },
     {
      "check": "app (firefox): plays, labels, no console errors",
      "ok": true,
-     "note": "levels 8.2e-2, 8.2e-2, 8.2e-2"
-    },
-    {
-     "check": "links resolve",
-     "ok": false,
-     "note": "https://pubs.giss.nasa.gov/abs/ha00510u.html (ReadTimeout); https://pubs.giss.nasa.gov/abs/le05800h.html (ReadTimeout); https://pubs.giss.nasa.gov/abs/le07900t.html (ReadTimeout); https://svs.gsfc.nasa.gov/5209/ (ReadTimeout)"
+     "note": "levels 8.1e-2, 8.0e-2, 8.0e-2"
     }
    ],
    "app_plays": "yes"
@@ -6173,19 +6290,19 @@
      "note": "Visualization: NASA's Scientific Visualization Studio (SVS 5221) for the NASA Ea"
     },
     {
+     "check": "links resolve",
+     "ok": true,
+     "note": "3 of 3 links resolve"
+    },
+    {
      "check": "app (chromium): plays, labels, no console errors",
      "ok": true,
-     "note": "levels 8.2e-2, 8.2e-2, 8.2e-2"
+     "note": "levels 8.5e-2, 8.4e-2, 8.4e-2"
     },
     {
      "check": "app (firefox): plays, labels, no console errors",
      "ok": true,
-     "note": "levels 8.2e-2, 8.2e-2, 8.2e-2"
-    },
-    {
-     "check": "links resolve",
-     "ok": true,
-     "note": "3 of 3 links resolve"
+     "note": "levels 8.5e-2, 8.4e-2, 3.0e-1"
     }
    ],
    "app_plays": "yes"
@@ -6266,19 +6383,19 @@
      "note": "Visualization: NASA's Scientific Visualization Studio (SVS 5235) for the NASA Ea"
     },
     {
+     "check": "links resolve",
+     "ok": false,
+     "note": "https://podaac.jpl.nasa.gov/dataset/MERGED_TP_J1_OSTM_OST_ALL_V51 (ReadTimeout)"
+    },
+    {
      "check": "app (chromium): plays, labels, no console errors",
      "ok": true,
-     "note": "levels 8.2e-2, 8.2e-2, 8.2e-2"
+     "note": "levels 8.4e-2, 8.4e-2, 8.3e-2"
     },
     {
      "check": "app (firefox): plays, labels, no console errors",
      "ok": true,
-     "note": "levels 8.2e-2, 8.2e-2, 8.2e-2"
-    },
-    {
-     "check": "links resolve",
-     "ok": false,
-     "note": "https://doi.org/10.5067/GMSLM-TJ151 (ReadTimeout)"
+     "note": "levels 8.4e-2, 8.5e-2, 2.8e-1"
     }
    ],
    "app_plays": "yes"
@@ -6359,19 +6476,19 @@
      "note": "Visualization: NASA's Scientific Visualization Studio (SVS 5303) for the NASA Ea"
     },
     {
+     "check": "links resolve",
+     "ok": true,
+     "note": "3 of 3 links resolve"
+    },
+    {
      "check": "app (chromium): plays, labels, no console errors",
      "ok": true,
-     "note": "levels 7.7e-2, 7.7e-2, 7.8e-2"
+     "note": "levels 8.4e-2, 8.4e-2, 8.5e-2"
     },
     {
      "check": "app (firefox): plays, labels, no console errors",
      "ok": true,
-     "note": "levels 7.7e-2, 7.7e-2, 7.8e-2"
-    },
-    {
-     "check": "links resolve",
-     "ok": true,
-     "note": "3 of 3 links resolve"
+     "note": "levels 8.4e-2, 8.4e-2, 8.4e-2"
     }
    ],
    "app_plays": "yes"
@@ -6452,19 +6569,19 @@
      "note": "Visualization: NASA's Scientific Visualization Studio (SVS 5453) for the NASA Ea"
     },
     {
+     "check": "links resolve",
+     "ok": true,
+     "note": "3 of 3 links resolve"
+    },
+    {
      "check": "app (chromium): plays, labels, no console errors",
      "ok": true,
-     "note": "levels 8.1e-2, 5.9e-2, 8.1e-2"
+     "note": "levels 8.8e-2, 6.5e-2, 8.8e-2"
     },
     {
      "check": "app (firefox): plays, labels, no console errors",
      "ok": true,
-     "note": "levels 8.1e-2, 5.9e-2, 8.1e-2"
-    },
-    {
-     "check": "links resolve",
-     "ok": true,
-     "note": "3 of 3 links resolve"
+     "note": "levels 8.8e-2, 6.5e-2, 8.8e-2"
     }
    ],
    "app_plays": "yes"
@@ -6545,19 +6662,19 @@
      "note": "Visualization: NASA's Scientific Visualization Studio (SVS 5468) for the NASA Ea"
     },
     {
+     "check": "links resolve",
+     "ok": true,
+     "note": "4 of 4 links resolve"
+    },
+    {
      "check": "app (chromium): plays, labels, no console errors",
      "ok": true,
-     "note": "levels 8.2e-2, 7.3e-2, 7.8e-2"
+     "note": "levels 8.0e-2, 7.2e-2, 7.6e-2"
     },
     {
      "check": "app (firefox): plays, labels, no console errors",
      "ok": true,
-     "note": "levels 8.2e-2, 7.3e-2, 7.8e-2"
-    },
-    {
-     "check": "links resolve",
-     "ok": true,
-     "note": "4 of 4 links resolve"
+     "note": "levels 8.0e-2, 7.2e-2, 7.7e-2"
     }
    ],
    "app_plays": "yes"
@@ -6638,19 +6755,19 @@
      "note": "Visualization: NASA's Scientific Visualization Studio (SVS 5477) for the NASA Ea"
     },
     {
+     "check": "links resolve",
+     "ok": true,
+     "note": "3 of 3 links resolve"
+    },
+    {
      "check": "app (chromium): plays, labels, no console errors",
      "ok": true,
-     "note": "levels 7.3e-2, 5.9e-2, 7.3e-2"
+     "note": "levels 6.4e-2, 5.3e-2, 6.5e-2"
     },
     {
      "check": "app (firefox): plays, labels, no console errors",
      "ok": true,
-     "note": "levels 7.3e-2, 5.9e-2, 7.3e-2"
-    },
-    {
-     "check": "links resolve",
-     "ok": true,
-     "note": "3 of 3 links resolve"
+     "note": "levels 6.4e-2, 5.2e-2, 6.4e-2"
     }
    ],
    "app_plays": "yes"
@@ -6731,19 +6848,19 @@
      "note": "Visualization: NASA's Scientific Visualization Studio (SVS 5516) for the NASA Ea"
     },
     {
+     "check": "links resolve",
+     "ok": true,
+     "note": "3 of 3 links resolve"
+    },
+    {
      "check": "app (chromium): plays, labels, no console errors",
      "ok": true,
-     "note": "levels 8.2e-2, 8.2e-2, 8.2e-2"
+     "note": "levels 8.4e-2, 8.4e-2, 8.4e-2"
     },
     {
      "check": "app (firefox): plays, labels, no console errors",
      "ok": true,
-     "note": "levels 8.2e-2, 8.2e-2, 8.2e-2"
-    },
-    {
-     "check": "links resolve",
-     "ok": false,
-     "note": "https://svs.gsfc.nasa.gov/5516/ (ReadTimeout)"
+     "note": "levels 8.5e-2, 8.5e-2, 2.6e-1"
     }
    ],
    "app_plays": "yes"
@@ -6824,19 +6941,19 @@
      "note": "Visualization: NASA's Scientific Visualization Studio (SVS 5557) for the NASA Ea"
     },
     {
+     "check": "links resolve",
+     "ok": null,
+     "note": "23 of 24 links resolve; 1 refused automated requests (403), unverified"
+    },
+    {
      "check": "app (chromium): plays, labels, no console errors",
      "ok": true,
-     "note": "levels 6.2e-2, 6.3e-2, 6.2e-2"
+     "note": "levels 6.8e-2, 7.0e-2, 6.9e-2"
     },
     {
      "check": "app (firefox): plays, labels, no console errors",
      "ok": true,
-     "note": "levels 6.2e-2, 6.3e-2, 6.2e-2"
-    },
-    {
-     "check": "links resolve",
-     "ok": false,
-     "note": "https://svs.gsfc.nasa.gov/vis/a000000/a005500/a005597/Palisades_Eaton.FirePerimeters.mp4 (ReadTimeout); https://svs.gsfc.nasa.gov/vis/a000000/a005500/a005597/event001-Palisades_Wildfire_Los_Angeles_California-BlackCarbonGEOS2km-20250120.mp4 (ReadTimeout); https://svs.gsfc.nasa.gov/vis/a000000/a005600/a005631/CanadianWildfires2023_SmokeIntensity_Global_4096x2048.mp4 (ReadTimeout); https://svs.gsfc."
+     "note": "levels 6.9e-2, 6.9e-2, 6.8e-2"
     }
    ],
    "app_plays": "yes"
@@ -6917,19 +7034,19 @@
      "note": "Visualization: NASA's Scientific Visualization Studio (SVS 5597) for the NASA Ea"
     },
     {
+     "check": "links resolve",
+     "ok": null,
+     "note": "17 of 18 links resolve; 1 refused automated requests (403), unverified"
+    },
+    {
      "check": "app (chromium): plays, labels, no console errors",
      "ok": true,
-     "note": "levels 6.2e-2, 6.3e-2, 6.2e-2"
+     "note": "levels 6.9e-2, 7.0e-2, 6.9e-2"
     },
     {
      "check": "app (firefox): plays, labels, no console errors",
      "ok": true,
-     "note": "levels 6.2e-2, 6.3e-2, 6.2e-2"
-    },
-    {
-     "check": "links resolve",
-     "ok": false,
-     "note": "https://svs.gsfc.nasa.gov/5597/ (ReadTimeout); https://svs.gsfc.nasa.gov/vis/a000000/a005500/a005557/event001_BlackCarbonGEOS2km_latest.mp4 (ReadTimeout); https://svs.gsfc.nasa.gov/vis/a000000/a005500/a005557/event001_FirePerimeters_latest.mp4 (ReadTimeout); https://svs.gsfc.nasa.gov/vis/a000000/a005500/a005557/event002_BlackCarbonGEOS2km_latest.mp4 (ReadTimeout) (+3); 1 refused automated requests"
+     "note": "levels 6.9e-2, 6.9e-2, 6.8e-2"
     }
    ],
    "app_plays": "yes"
@@ -7010,19 +7127,19 @@
      "note": "Visualization: NASA's Scientific Visualization Studio (SVS 5601) for the NASA Ea"
     },
     {
+     "check": "links resolve",
+     "ok": null,
+     "note": "11 of 12 links resolve; 1 refused automated requests (403), unverified"
+    },
+    {
      "check": "app (chromium): plays, labels, no console errors",
      "ok": true,
-     "note": "levels 7.3e-2, 5.9e-2, 7.3e-2"
+     "note": "levels 8.0e-2, 6.5e-2, 8.0e-2"
     },
     {
      "check": "app (firefox): plays, labels, no console errors",
      "ok": true,
-     "note": "levels 7.3e-2, 5.9e-2, 7.3e-2"
-    },
-    {
-     "check": "links resolve",
-     "ok": false,
-     "note": "https://svs.gsfc.nasa.gov/vis/a000000/a005500/a005597/Palisades_Eaton.FirePerimeters.mp4 (ReadTimeout); https://svs.gsfc.nasa.gov/vis/a000000/a005500/a005597/event001-Palisades_Wildfire_Los_Angeles_California-BlackCarbonGEOS2km-20250120.mp4 (ReadTimeout); https://svs.gsfc.nasa.gov/vis/a000000/a005500/a005598/DragonBravo.FirePerimeters.mp4 (ReadTimeout); 1 refused automated requests (403), unverifi"
+     "note": "levels 8.0e-2, 6.5e-2, 8.0e-2"
     }
    ],
    "app_plays": "yes"
@@ -7103,19 +7220,19 @@
      "note": "Visualization: NASA's Scientific Visualization Studio (SVS 5611) for the NASA Ea"
     },
     {
+     "check": "links resolve",
+     "ok": true,
+     "note": "3 of 3 links resolve"
+    },
+    {
      "check": "app (chromium): plays, labels, no console errors",
      "ok": true,
-     "note": "levels 8.2e-2, 8.2e-2, 8.2e-2"
+     "note": "levels 8.5e-2, 8.5e-2, 8.4e-2"
     },
     {
      "check": "app (firefox): plays, labels, no console errors",
      "ok": true,
-     "note": "levels 8.2e-2, 8.2e-2, 8.2e-2"
-    },
-    {
-     "check": "links resolve",
-     "ok": true,
-     "note": "3 of 3 links resolve"
+     "note": "levels 8.5e-2, 8.4e-2, 2.7e-1"
     }
    ],
    "app_plays": "yes"
@@ -7196,24 +7313,29 @@
      "note": "Visualization: NASA's Scientific Visualization Studio (SVS 5624) for the NASA Ea"
     },
     {
+     "check": "links resolve",
+     "ok": true,
+     "note": "4 of 4 links resolve"
+    },
+    {
+     "check": "fresh within its limit",
+     "ok": false,
+     "note": "lag 2.92 d > limit 2.0 d"
+    },
+    {
      "check": "app (chromium): plays, labels, no console errors",
      "ok": true,
-     "note": "levels 7.6e-2, 7.7e-2, 8.2e-2"
+     "note": "levels 8.2e-2, 8.5e-2, 8.9e-2"
     },
     {
      "check": "app (firefox): plays, labels, no console errors",
      "ok": true,
-     "note": "levels 7.6e-2, 7.7e-2, 8.2e-2"
-    },
-    {
-     "check": "links resolve",
-     "ok": true,
-     "note": "4 of 4 links resolve"
+     "note": "levels 8.3e-2, 8.4e-2, 8.9e-2"
     }
    ],
    "last_data_utc": "2026-11-07T08:00Z",
-   "source_latest_utc": "2026-11-06T06:00Z",
-   "lag_days": -1.08,
+   "source_latest_utc": "2026-11-10T06:00Z",
+   "lag_days": 2.92,
    "app_plays": "yes"
   },
   {
@@ -7292,19 +7414,19 @@
      "note": "Visualization: NASA's Scientific Visualization Studio (SVS 5639) for the NASA Ea"
     },
     {
+     "check": "links resolve",
+     "ok": null,
+     "note": "21 of 22 links resolve; 1 refused automated requests (403), unverified"
+    },
+    {
      "check": "app (chromium): plays, labels, no console errors",
      "ok": true,
-     "note": "levels 6.0e-2, 7.3e-2, 7.2e-2"
+     "note": "levels 6.6e-2, 8.0e-2, 7.9e-2"
     },
     {
      "check": "app (firefox): plays, labels, no console errors",
      "ok": true,
-     "note": "levels 6.0e-2, 7.3e-2, 7.2e-2"
-    },
-    {
-     "check": "links resolve",
-     "ok": false,
-     "note": "https://svs.gsfc.nasa.gov/vis/a000000/a005500/a005557/event001_BlackCarbonGEOS2km_latest.mp4 (ReadTimeout); https://svs.gsfc.nasa.gov/vis/a000000/a005500/a005557/event001_FirePerimeters_latest.mp4 (ReadTimeout); https://svs.gsfc.nasa.gov/vis/a000000/a005500/a005557/event002_BlackCarbonGEOS2km_latest.mp4 (ReadTimeout); https://svs.gsfc.nasa.gov/vis/a000000/a005500/a005557/event002_FirePerimeters_la"
+     "note": "levels 6.7e-2, 8.0e-2, 7.9e-2"
     }
    ],
    "app_plays": "yes"
@@ -7385,24 +7507,29 @@
      "note": "Visualization: NASA's Scientific Visualization Studio (SVS 5650) for the NASA Ea"
     },
     {
+     "check": "links resolve",
+     "ok": true,
+     "note": "15 of 15 links resolve"
+    },
+    {
+     "check": "fresh within its limit",
+     "ok": false,
+     "note": "lag 4.62 d > limit 2.0 d"
+    },
+    {
      "check": "app (chromium): plays, labels, no console errors",
      "ok": true,
-     "note": "levels 8.1e-2, 8.2e-2, 8.2e-2"
+     "note": "levels 8.0e-2, 8.0e-2, 8.0e-2"
     },
     {
      "check": "app (firefox): plays, labels, no console errors",
      "ok": true,
-     "note": "levels 8.2e-2, 8.2e-2, 8.2e-2"
-    },
-    {
-     "check": "links resolve",
-     "ok": false,
-     "note": "https://svs.gsfc.nasa.gov/vis/a010000/a012100/a012126/12126_2DSOS_IMERG-MERRA-SST-Snippet_4K_Prores.mov (ReadTimeout); https://svs.gsfc.nasa.gov/vis/a010000/a012100/a012126/12126_2DSOS_MERRA-SST-Snippet_Prores.mov (ReadTimeout); https://svs.gsfc.nasa.gov/vis/a010000/a012100/a012126/12126_2DSOS_MERRA-SST-Snippet_Prores.webm (ReadTimeout); https://svs.gsfc.nasa.gov/vis/a010000/a012100/a012126/12126_"
+     "note": "levels 8.0e-2, 8.0e-2, 8.1e-2"
     }
    ],
    "last_data_utc": "2026-11-06T02:30Z",
-   "source_latest_utc": "2026-11-06T16:30Z",
-   "lag_days": 0.58,
+   "source_latest_utc": "2026-11-10T17:30Z",
+   "lag_days": 4.62,
    "app_plays": "yes"
   },
   {
@@ -7739,19 +7866,19 @@
      "note": "Imagery: NASA Global Imagery Browse Services (GIBS), part of NASA's Earth Scienc"
     },
     {
+     "check": "links resolve",
+     "ok": null,
+     "note": "no links"
+    },
+    {
      "check": "app (chromium): plays, labels, no console errors",
      "ok": true,
-     "note": "levels 8.2e-2, 8.2e-2, 7.9e-2"
+     "note": "levels 8.3e-2, 8.3e-2, 8.1e-2"
     },
     {
      "check": "app (firefox): plays, labels, no console errors",
      "ok": true,
-     "note": "levels 8.2e-2, 8.1e-2, 7.9e-2"
-    },
-    {
-     "check": "links resolve",
-     "ok": null,
-     "note": "no links"
+     "note": "levels 8.3e-2, 8.3e-2, 8.1e-2"
     }
    ],
    "app_plays": "yes"
@@ -7805,19 +7932,19 @@
      "note": "1 times"
     },
     {
+     "check": "links resolve",
+     "ok": null,
+     "note": "no links"
+    },
+    {
      "check": "app (chromium): plays, labels, no console errors",
      "ok": true,
-     "note": "levels 8.2e-2, 8.2e-2, 7.9e-2"
+     "note": "levels 8.3e-2, 8.3e-2, 8.1e-2"
     },
     {
      "check": "app (firefox): plays, labels, no console errors",
      "ok": true,
-     "note": "levels 8.2e-2, 8.1e-2, 7.9e-2"
-    },
-    {
-     "check": "links resolve",
-     "ok": null,
-     "note": "no links"
+     "note": "levels 8.3e-2, 8.3e-2, 8.1e-2"
     }
    ],
    "last_data_utc": "2026-10-31T00:00Z",
@@ -7874,19 +8001,19 @@
      "note": "1 times"
     },
     {
+     "check": "links resolve",
+     "ok": null,
+     "note": "no links"
+    },
+    {
      "check": "app (chromium): plays, labels, no console errors",
      "ok": true,
-     "note": "levels 8.2e-2, 8.2e-2, 7.9e-2"
+     "note": "levels 8.3e-2, 8.3e-2, 8.1e-2"
     },
     {
      "check": "app (firefox): plays, labels, no console errors",
      "ok": true,
-     "note": "levels 8.2e-2, 8.1e-2, 7.9e-2"
-    },
-    {
-     "check": "links resolve",
-     "ok": null,
-     "note": "no links"
+     "note": "levels 8.3e-2, 8.3e-2, 8.1e-2"
     }
    ],
    "last_data_utc": "2026-10-30T00:00Z",
@@ -7943,19 +8070,19 @@
      "note": "1 times"
     },
     {
+     "check": "links resolve",
+     "ok": null,
+     "note": "no links"
+    },
+    {
      "check": "app (chromium): plays, labels, no console errors",
      "ok": true,
-     "note": "levels 8.2e-2, 8.2e-2, 7.9e-2"
+     "note": "levels 8.3e-2, 8.3e-2, 8.1e-2"
     },
     {
      "check": "app (firefox): plays, labels, no console errors",
      "ok": true,
-     "note": "levels 8.2e-2, 8.1e-2, 7.9e-2"
-    },
-    {
-     "check": "links resolve",
-     "ok": null,
-     "note": "no links"
+     "note": "levels 8.3e-2, 8.3e-2, 8.1e-2"
     }
    ],
    "last_data_utc": "2026-10-29T00:00Z",
@@ -8012,19 +8139,19 @@
      "note": "1 times"
     },
     {
+     "check": "links resolve",
+     "ok": null,
+     "note": "no links"
+    },
+    {
      "check": "app (chromium): plays, labels, no console errors",
      "ok": true,
-     "note": "levels 8.2e-2, 8.2e-2, 7.9e-2"
+     "note": "levels 8.3e-2, 8.3e-2, 8.1e-2"
     },
     {
      "check": "app (firefox): plays, labels, no console errors",
      "ok": true,
-     "note": "levels 8.2e-2, 8.1e-2, 7.9e-2"
-    },
-    {
-     "check": "links resolve",
-     "ok": null,
-     "note": "no links"
+     "note": "levels 8.3e-2, 8.3e-2, 8.1e-2"
     }
    ],
    "last_data_utc": "2026-10-30T00:00Z",
@@ -8081,19 +8208,19 @@
      "note": "1 times"
     },
     {
+     "check": "links resolve",
+     "ok": null,
+     "note": "no links"
+    },
+    {
      "check": "app (chromium): plays, labels, no console errors",
      "ok": true,
-     "note": "levels 8.2e-2, 8.2e-2, 7.9e-2"
+     "note": "levels 8.3e-2, 8.3e-2, 8.1e-2"
     },
     {
      "check": "app (firefox): plays, labels, no console errors",
      "ok": true,
-     "note": "levels 8.2e-2, 8.1e-2, 7.9e-2"
-    },
-    {
-     "check": "links resolve",
-     "ok": null,
-     "note": "no links"
+     "note": "levels 8.3e-2, 8.3e-2, 8.1e-2"
     }
    ],
    "last_data_utc": "2026-10-29T00:00Z",
@@ -8150,19 +8277,19 @@
      "note": "1 times"
     },
     {
+     "check": "links resolve",
+     "ok": null,
+     "note": "no links"
+    },
+    {
      "check": "app (chromium): plays, labels, no console errors",
      "ok": true,
-     "note": "levels 8.2e-2, 8.2e-2, 7.9e-2"
+     "note": "levels 8.3e-2, 8.3e-2, 8.1e-2"
     },
     {
      "check": "app (firefox): plays, labels, no console errors",
      "ok": true,
-     "note": "levels 8.2e-2, 8.1e-2, 7.9e-2"
-    },
-    {
-     "check": "links resolve",
-     "ok": null,
-     "note": "no links"
+     "note": "levels 8.3e-2, 8.3e-2, 8.1e-2"
     }
    ],
    "last_data_utc": "2026-10-30T00:00Z",
@@ -8219,19 +8346,19 @@
      "note": "1 times"
     },
     {
+     "check": "links resolve",
+     "ok": null,
+     "note": "no links"
+    },
+    {
      "check": "app (chromium): plays, labels, no console errors",
      "ok": true,
-     "note": "levels 8.2e-2, 8.2e-2, 7.9e-2"
+     "note": "levels 8.3e-2, 8.3e-2, 8.1e-2"
     },
     {
      "check": "app (firefox): plays, labels, no console errors",
      "ok": true,
-     "note": "levels 8.2e-2, 8.1e-2, 7.9e-2"
-    },
-    {
-     "check": "links resolve",
-     "ok": null,
-     "note": "no links"
+     "note": "levels 8.3e-2, 8.3e-2, 8.1e-2"
     }
    ],
    "last_data_utc": "2026-10-31T00:00Z",
@@ -8288,19 +8415,19 @@
      "note": "1 times"
     },
     {
+     "check": "links resolve",
+     "ok": null,
+     "note": "no links"
+    },
+    {
      "check": "app (chromium): plays, labels, no console errors",
      "ok": true,
-     "note": "levels 8.2e-2, 8.2e-2, 7.9e-2"
+     "note": "levels 8.3e-2, 8.3e-2, 8.1e-2"
     },
     {
      "check": "app (firefox): plays, labels, no console errors",
      "ok": true,
-     "note": "levels 8.2e-2, 8.1e-2, 7.9e-2"
-    },
-    {
-     "check": "links resolve",
-     "ok": null,
-     "note": "no links"
+     "note": "levels 8.3e-2, 8.3e-2, 8.1e-2"
     }
    ],
    "last_data_utc": "2026-10-26T00:00Z",
@@ -8357,19 +8484,19 @@
      "note": "1 times"
     },
     {
+     "check": "links resolve",
+     "ok": null,
+     "note": "no links"
+    },
+    {
      "check": "app (chromium): plays, labels, no console errors",
      "ok": true,
-     "note": "levels 8.2e-2, 8.2e-2, 7.9e-2"
+     "note": "levels 8.3e-2, 8.3e-2, 8.1e-2"
     },
     {
      "check": "app (firefox): plays, labels, no console errors",
      "ok": true,
-     "note": "levels 8.2e-2, 8.1e-2, 7.9e-2"
-    },
-    {
-     "check": "links resolve",
-     "ok": null,
-     "note": "no links"
+     "note": "levels 8.3e-2, 8.3e-2, 8.1e-2"
     }
    ],
    "last_data_utc": "2026-10-26T00:00Z",
@@ -8426,19 +8553,19 @@
      "note": "1 times"
     },
     {
+     "check": "links resolve",
+     "ok": null,
+     "note": "no links"
+    },
+    {
      "check": "app (chromium): plays, labels, no console errors",
      "ok": true,
-     "note": "levels 8.2e-2, 8.2e-2, 7.9e-2"
+     "note": "levels 8.3e-2, 8.3e-2, 8.1e-2"
     },
     {
      "check": "app (firefox): plays, labels, no console errors",
      "ok": true,
-     "note": "levels 8.2e-2, 8.1e-2, 7.9e-2"
-    },
-    {
-     "check": "links resolve",
-     "ok": null,
-     "note": "no links"
+     "note": "levels 8.3e-2, 8.3e-2, 8.1e-2"
     }
    ],
    "last_data_utc": "2026-10-31T00:00Z",
@@ -8495,19 +8622,19 @@
      "note": "1 times"
     },
     {
+     "check": "links resolve",
+     "ok": null,
+     "note": "no links"
+    },
+    {
      "check": "app (chromium): plays, labels, no console errors",
      "ok": true,
-     "note": "levels 8.2e-2, 8.2e-2, 7.9e-2"
+     "note": "levels 8.3e-2, 8.3e-2, 8.1e-2"
     },
     {
      "check": "app (firefox): plays, labels, no console errors",
      "ok": true,
-     "note": "levels 8.2e-2, 8.1e-2, 7.9e-2"
-    },
-    {
-     "check": "links resolve",
-     "ok": null,
-     "note": "no links"
+     "note": "levels 8.3e-2, 8.3e-2, 8.1e-2"
     }
    ],
    "last_data_utc": "2026-10-30T00:00Z",
@@ -8564,19 +8691,19 @@
      "note": "1 times"
     },
     {
+     "check": "links resolve",
+     "ok": null,
+     "note": "no links"
+    },
+    {
      "check": "app (chromium): plays, labels, no console errors",
      "ok": true,
-     "note": "levels 8.2e-2, 8.2e-2, 7.9e-2"
+     "note": "levels 8.3e-2, 8.3e-2, 8.1e-2"
     },
     {
      "check": "app (firefox): plays, labels, no console errors",
      "ok": true,
-     "note": "levels 8.2e-2, 8.1e-2, 7.9e-2"
-    },
-    {
-     "check": "links resolve",
-     "ok": null,
-     "note": "no links"
+     "note": "levels 8.3e-2, 8.3e-2, 8.1e-2"
     }
    ],
    "last_data_utc": "2026-10-31T00:00Z",
@@ -8633,19 +8760,19 @@
      "note": "1 times"
     },
     {
+     "check": "links resolve",
+     "ok": null,
+     "note": "no links"
+    },
+    {
      "check": "app (chromium): plays, labels, no console errors",
      "ok": true,
-     "note": "levels 8.2e-2, 8.2e-2, 7.9e-2"
+     "note": "levels 8.3e-2, 8.3e-2, 8.1e-2"
     },
     {
      "check": "app (firefox): plays, labels, no console errors",
      "ok": true,
-     "note": "levels 8.2e-2, 8.1e-2, 7.9e-2"
-    },
-    {
-     "check": "links resolve",
-     "ok": null,
-     "note": "no links"
+     "note": "levels 8.3e-2, 8.3e-2, 8.1e-2"
     }
    ],
    "last_data_utc": "2026-10-25T00:00Z",
@@ -8702,19 +8829,19 @@
      "note": "1 times"
     },
     {
+     "check": "links resolve",
+     "ok": null,
+     "note": "no links"
+    },
+    {
      "check": "app (chromium): plays, labels, no console errors",
      "ok": true,
-     "note": "levels 8.2e-2, 8.2e-2, 7.9e-2"
+     "note": "levels 8.3e-2, 8.3e-2, 8.1e-2"
     },
     {
      "check": "app (firefox): plays, labels, no console errors",
      "ok": true,
-     "note": "levels 8.2e-2, 8.1e-2, 7.9e-2"
-    },
-    {
-     "check": "links resolve",
-     "ok": null,
-     "note": "no links"
+     "note": "levels 8.3e-2, 8.3e-2, 8.1e-2"
     }
    ],
    "last_data_utc": "1995-05-04T00:00Z",
@@ -8796,77 +8923,25 @@
      "note": "Data: NOAA NCEI OISST v2.1 (Huang et al. 2021), served by NOAA CoastWatch ERDDAP"
     },
     {
+     "check": "links resolve",
+     "ok": null,
+     "note": "no links"
+    },
+    {
      "check": "app (chromium): plays, labels, no console errors",
      "ok": true,
-     "note": "levels 8.1e-2, 6.0e-2, 6.2e-2"
+     "note": "levels 8.4e-2, 6.2e-2, 6.5e-2"
     },
     {
      "check": "app (firefox): plays, labels, no console errors",
      "ok": true,
-     "note": "levels 8.1e-2, 6.0e-2, 6.3e-2"
-    },
-    {
-     "check": "links resolve",
-     "ok": null,
-     "note": "no links"
+     "note": "levels 8.3e-2, 6.2e-2, 6.5e-2"
     }
    ],
    "last_data_utc": "2026-10-29T12:00Z",
-   "source_latest_utc": "2026-11-05T12:00Z",
-   "lag_days": 7.0,
+   "source_latest_utc": "2026-11-09T12:00Z",
+   "lag_days": 11.0,
    "app_plays": "yes"
-  },
-  {
-   "id": "sonification_13786",
-   "category": "method",
-   "title": "Caldwell 73 sonification (method evidence)",
-   "manifest": "official/sonification_13786/manifest.json",
-   "kind": "official",
-   "svs_ids": [
-    13786
-   ],
-   "source": "",
-   "status": "method evidence",
-   "product": "sonification_13786",
-   "layer": null,
-   "notes": [],
-   "checks": [
-    {
-     "check": "contract-15 schema",
-     "ok": true,
-     "note": ""
-    },
-    {
-     "check": "files exist and load",
-     "ok": true,
-     "note": "0 chunks"
-    },
-    {
-     "check": "checksums match",
-     "ok": true,
-     "note": "1 asset rows"
-    },
-    {
-     "check": "freshness.json period = manifest",
-     "ok": true,
-     "note": "['2020-12-23T09:00:00Z', '2020-12-23T09:00:00Z'] vs 2020-12-23T09:00:00Z…2020-12-23T09:00:00Z"
-    },
-    {
-     "check": "validation table = validation.json",
-     "ok": true,
-     "note": "4 checks"
-    },
-    {
-     "check": "credits and licence present",
-     "ok": true,
-     "note": "Credit: SYSTEM Sounds (M. Russo, A. Santaguida) and NASA (SVS 13786)."
-    },
-    {
-     "check": "links resolve",
-     "ok": false,
-     "note": "https://nasa.gov/hubble (ConnectionError)"
-    }
-   ]
   },
   {
    "id": "patterns_eic:svs4170",
@@ -8919,19 +8994,19 @@
      "note": "1 times"
     },
     {
+     "check": "links resolve",
+     "ok": true,
+     "note": "44 of 44 links resolve"
+    },
+    {
      "check": "app (chromium): plays, labels, no console errors",
      "ok": true,
-     "note": "levels 4.4e-2, 4.4e-2, 4.4e-2"
+     "note": "levels 4.6e-2, 4.7e-2, 4.7e-2"
     },
     {
      "check": "app (firefox): plays, labels, no console errors",
      "ok": true,
-     "note": "levels 4.4e-2, 4.4e-2, 4.4e-2"
-    },
-    {
-     "check": "links resolve",
-     "ok": false,
-     "note": "https://svs.gsfc.nasa.gov/vis/a000000/a004800/a004897/imergvar_composite_1080p15.00001_print.jpg (ReadTimeout); https://svs.gsfc.nasa.gov/vis/a000000/a005000/a005046/arctic_sea_ice_w_dates.2023121_print.jpg (ReadTimeout); https://svs.gsfc.nasa.gov/vis/a000000/a005000/a005047/co2_nee_5.01750_print.jpg (ReadTimeout); https://svs.gsfc.nasa.gov/vis/a000000/a005000/a005054/ch4_wetlands.01500_print.jpg "
+     "note": "levels 4.7e-2, 4.7e-2, 4.7e-2"
     }
    ],
    "app_plays": "yes"
@@ -8987,19 +9062,19 @@
      "note": "1 times"
     },
     {
+     "check": "links resolve",
+     "ok": null,
+     "note": "no links"
+    },
+    {
      "check": "app (chromium): plays, labels, no console errors",
      "ok": true,
-     "note": "levels 4.4e-2, 4.4e-2, 4.4e-2"
+     "note": "levels 4.6e-2, 4.7e-2, 4.7e-2"
     },
     {
      "check": "app (firefox): plays, labels, no console errors",
      "ok": true,
-     "note": "levels 4.4e-2, 4.4e-2, 4.4e-2"
-    },
-    {
-     "check": "links resolve",
-     "ok": null,
-     "note": "no links"
+     "note": "levels 4.7e-2, 4.7e-2, 4.7e-2"
     }
    ],
    "app_plays": "yes"
@@ -9055,19 +9130,19 @@
      "note": "1 times"
     },
     {
+     "check": "links resolve",
+     "ok": true,
+     "note": "2 of 2 links resolve"
+    },
+    {
      "check": "app (chromium): plays, labels, no console errors",
      "ok": true,
-     "note": "levels 4.4e-2, 4.4e-2, 4.4e-2"
+     "note": "levels 4.6e-2, 4.7e-2, 4.7e-2"
     },
     {
      "check": "app (firefox): plays, labels, no console errors",
      "ok": true,
-     "note": "levels 4.4e-2, 4.4e-2, 4.4e-2"
-    },
-    {
-     "check": "links resolve",
-     "ok": false,
-     "note": "https://svs.gsfc.nasa.gov/4810/ (ReadTimeout)"
+     "note": "levels 4.7e-2, 4.7e-2, 4.7e-2"
     }
    ],
    "app_plays": "yes"
@@ -9123,19 +9198,19 @@
      "note": "1 times"
     },
     {
+     "check": "links resolve",
+     "ok": true,
+     "note": "2 of 2 links resolve"
+    },
+    {
      "check": "app (chromium): plays, labels, no console errors",
      "ok": true,
-     "note": "levels 4.4e-2, 4.4e-2, 4.4e-2"
+     "note": "levels 4.6e-2, 4.7e-2, 4.7e-2"
     },
     {
      "check": "app (firefox): plays, labels, no console errors",
      "ok": true,
-     "note": "levels 4.4e-2, 4.4e-2, 4.4e-2"
-    },
-    {
-     "check": "links resolve",
-     "ok": true,
-     "note": "2 of 2 links resolve"
+     "note": "levels 4.7e-2, 4.7e-2, 4.7e-2"
     }
    ],
    "app_plays": "yes"
@@ -9191,19 +9266,19 @@
      "note": "1 times"
     },
     {
+     "check": "links resolve",
+     "ok": null,
+     "note": "no links"
+    },
+    {
      "check": "app (chromium): plays, labels, no console errors",
      "ok": true,
-     "note": "levels 4.4e-2, 4.4e-2, 4.4e-2"
+     "note": "levels 4.6e-2, 4.7e-2, 4.7e-2"
     },
     {
      "check": "app (firefox): plays, labels, no console errors",
      "ok": true,
-     "note": "levels 4.4e-2, 4.4e-2, 4.4e-2"
-    },
-    {
-     "check": "links resolve",
-     "ok": null,
-     "note": "no links"
+     "note": "levels 4.7e-2, 4.7e-2, 4.7e-2"
     }
    ],
    "app_plays": "yes"
@@ -9286,19 +9361,19 @@
      "note": "Visualization: NASA's Scientific Visualization Studio (SVS 4950) for the NASA Ea"
     },
     {
+     "check": "links resolve",
+     "ok": true,
+     "note": "3 of 3 links resolve"
+    },
+    {
      "check": "app (chromium): plays, labels, no console errors",
      "ok": true,
-     "note": "levels 8.1e-2, 8.2e-2, 8.1e-2"
+     "note": "levels 6.3e-2, 6.3e-2, 6.2e-2"
     },
     {
      "check": "app (firefox): plays, labels, no console errors",
      "ok": true,
-     "note": "levels 8.1e-2, 8.2e-2, 8.1e-2"
-    },
-    {
-     "check": "links resolve",
-     "ok": false,
-     "note": "https://svs.gsfc.nasa.gov/4950/ (ReadTimeout)"
+     "note": "levels 6.3e-2, 6.3e-2, 6.3e-2"
     }
    ],
    "app_plays": "yes"
@@ -9381,19 +9456,19 @@
      "note": "Visualization: NASA's Scientific Visualization Studio (SVS 4960) for the NASA Ea"
     },
     {
+     "check": "links resolve",
+     "ok": true,
+     "note": "2 of 2 links resolve"
+    },
+    {
      "check": "app (chromium): plays, labels, no console errors",
      "ok": true,
-     "note": "levels 7.3e-2, 5.9e-2, 7.3e-2"
+     "note": "levels 7.2e-2, 5.9e-2, 7.2e-2"
     },
     {
      "check": "app (firefox): plays, labels, no console errors",
      "ok": true,
-     "note": "levels 7.3e-2, 5.8e-2, 7.3e-2"
-    },
-    {
-     "check": "links resolve",
-     "ok": false,
-     "note": "https://svs.gsfc.nasa.gov/4960/ (ReadTimeout)"
+     "note": "levels 7.2e-2, 5.9e-2, 7.2e-2"
     }
    ],
    "app_plays": "yes"
@@ -9449,19 +9524,19 @@
      "note": "1 times"
     },
     {
+     "check": "links resolve",
+     "ok": null,
+     "note": "no links"
+    },
+    {
      "check": "app (chromium): plays, labels, no console errors",
      "ok": true,
-     "note": "levels 4.4e-2, 4.4e-2, 4.4e-2"
+     "note": "levels 4.6e-2, 4.7e-2, 4.7e-2"
     },
     {
      "check": "app (firefox): plays, labels, no console errors",
      "ok": true,
-     "note": "levels 4.4e-2, 4.4e-2, 4.4e-2"
-    },
-    {
-     "check": "links resolve",
-     "ok": null,
-     "note": "no links"
+     "note": "levels 4.7e-2, 4.7e-2, 4.7e-2"
     }
    ],
    "app_plays": "yes"
@@ -9517,19 +9592,19 @@
      "note": "1 times"
     },
     {
+     "check": "links resolve",
+     "ok": null,
+     "note": "no links"
+    },
+    {
      "check": "app (chromium): plays, labels, no console errors",
      "ok": true,
-     "note": "levels 4.4e-2, 4.4e-2, 4.4e-2"
+     "note": "levels 4.6e-2, 4.7e-2, 4.7e-2"
     },
     {
      "check": "app (firefox): plays, labels, no console errors",
      "ok": true,
-     "note": "levels 4.4e-2, 4.4e-2, 4.4e-2"
-    },
-    {
-     "check": "links resolve",
-     "ok": null,
-     "note": "no links"
+     "note": "levels 4.7e-2, 4.7e-2, 4.7e-2"
     }
    ],
    "app_plays": "yes"
@@ -9585,19 +9660,19 @@
      "note": "1 times"
     },
     {
+     "check": "links resolve",
+     "ok": true,
+     "note": "2 of 2 links resolve"
+    },
+    {
      "check": "app (chromium): plays, labels, no console errors",
      "ok": true,
-     "note": "levels 4.4e-2, 4.4e-2, 4.4e-2"
+     "note": "levels 4.6e-2, 4.7e-2, 4.7e-2"
     },
     {
      "check": "app (firefox): plays, labels, no console errors",
      "ok": true,
-     "note": "levels 4.4e-2, 4.4e-2, 4.4e-2"
-    },
-    {
-     "check": "links resolve",
-     "ok": false,
-     "note": "https://svs.gsfc.nasa.gov/4993/ (ReadTimeout)"
+     "note": "levels 4.7e-2, 4.7e-2, 4.7e-2"
     }
    ],
    "app_plays": "yes"
@@ -9680,19 +9755,19 @@
      "note": "Visualization: NASA's Scientific Visualization Studio (SVS 5011) for the NASA Ea"
     },
     {
+     "check": "links resolve",
+     "ok": true,
+     "note": "6 of 6 links resolve"
+    },
+    {
      "check": "app (chromium): plays, labels, no console errors",
      "ok": true,
-     "note": "levels 3.1e-3, 1.4e-4, 8.7e-4"
+     "note": "levels 2.5e-3, 2.1e-3, 1.6e-4"
     },
     {
      "check": "app (firefox): plays, labels, no console errors",
      "ok": true,
-     "note": "levels 2.9e-3, 2.6e-3, 3.1e-3"
-    },
-    {
-     "check": "links resolve",
-     "ok": false,
-     "note": "https://doi.org/10.5067/MODIS/MCD12C1.006 (ReadTimeout); https://lpdaac.usgs.gov/products/mcd12c1v006/ (ReadTimeout)"
+     "note": "levels 1.6e-3, 1.9e-1, 1.1e-4"
     }
    ],
    "app_plays": "yes"
@@ -9748,19 +9823,19 @@
      "note": "1 times"
     },
     {
+     "check": "links resolve",
+     "ok": null,
+     "note": "no links"
+    },
+    {
      "check": "app (chromium): plays, labels, no console errors",
      "ok": true,
-     "note": "levels 4.4e-2, 4.4e-2, 4.4e-2"
+     "note": "levels 4.6e-2, 4.7e-2, 4.7e-2"
     },
     {
      "check": "app (firefox): plays, labels, no console errors",
      "ok": true,
-     "note": "levels 4.4e-2, 4.4e-2, 4.4e-2"
-    },
-    {
-     "check": "links resolve",
-     "ok": null,
-     "note": "no links"
+     "note": "levels 4.7e-2, 4.7e-2, 4.7e-2"
     }
    ],
    "app_plays": "yes"
@@ -9816,19 +9891,19 @@
      "note": "1 times"
     },
     {
+     "check": "links resolve",
+     "ok": null,
+     "note": "no links"
+    },
+    {
      "check": "app (chromium): plays, labels, no console errors",
      "ok": true,
-     "note": "levels 4.4e-2, 4.4e-2, 4.4e-2"
+     "note": "levels 4.6e-2, 4.7e-2, 4.7e-2"
     },
     {
      "check": "app (firefox): plays, labels, no console errors",
      "ok": true,
-     "note": "levels 4.4e-2, 4.4e-2, 4.4e-2"
-    },
-    {
-     "check": "links resolve",
-     "ok": null,
-     "note": "no links"
+     "note": "levels 4.7e-2, 4.7e-2, 4.7e-2"
     }
    ],
    "app_plays": "yes"
@@ -9884,19 +9959,19 @@
      "note": "1 times"
     },
     {
+     "check": "links resolve",
+     "ok": null,
+     "note": "no links"
+    },
+    {
      "check": "app (chromium): plays, labels, no console errors",
      "ok": true,
-     "note": "levels 4.4e-2, 4.4e-2, 4.4e-2"
+     "note": "levels 4.6e-2, 4.7e-2, 4.7e-2"
     },
     {
      "check": "app (firefox): plays, labels, no console errors",
      "ok": true,
-     "note": "levels 4.4e-2, 4.4e-2, 4.4e-2"
-    },
-    {
-     "check": "links resolve",
-     "ok": null,
-     "note": "no links"
+     "note": "levels 4.7e-2, 4.7e-2, 4.7e-2"
     }
    ],
    "app_plays": "yes"
@@ -9952,19 +10027,19 @@
      "note": "1 times"
     },
     {
+     "check": "links resolve",
+     "ok": null,
+     "note": "no links"
+    },
+    {
      "check": "app (chromium): plays, labels, no console errors",
      "ok": true,
-     "note": "levels 4.4e-2, 4.4e-2, 4.4e-2"
+     "note": "levels 4.6e-2, 4.7e-2, 4.7e-2"
     },
     {
      "check": "app (firefox): plays, labels, no console errors",
      "ok": true,
-     "note": "levels 4.4e-2, 4.4e-2, 4.4e-2"
-    },
-    {
-     "check": "links resolve",
-     "ok": null,
-     "note": "no links"
+     "note": "levels 4.7e-2, 4.7e-2, 4.7e-2"
     }
    ],
    "app_plays": "yes"
@@ -10020,19 +10095,19 @@
      "note": "1 times"
     },
     {
+     "check": "links resolve",
+     "ok": null,
+     "note": "no links"
+    },
+    {
      "check": "app (chromium): plays, labels, no console errors",
      "ok": true,
-     "note": "levels 4.4e-2, 4.4e-2, 4.4e-2"
+     "note": "levels 4.6e-2, 4.7e-2, 4.7e-2"
     },
     {
      "check": "app (firefox): plays, labels, no console errors",
      "ok": true,
-     "note": "levels 4.4e-2, 4.4e-2, 4.4e-2"
-    },
-    {
-     "check": "links resolve",
-     "ok": null,
-     "note": "no links"
+     "note": "levels 4.7e-2, 4.7e-2, 4.7e-2"
     }
    ],
    "app_plays": "yes"
@@ -10088,19 +10163,19 @@
      "note": "1 times"
     },
     {
+     "check": "links resolve",
+     "ok": null,
+     "note": "no links"
+    },
+    {
      "check": "app (chromium): plays, labels, no console errors",
      "ok": true,
-     "note": "levels 4.4e-2, 4.4e-2, 4.4e-2"
+     "note": "levels 4.6e-2, 4.7e-2, 4.7e-2"
     },
     {
      "check": "app (firefox): plays, labels, no console errors",
      "ok": true,
-     "note": "levels 4.4e-2, 4.4e-2, 4.4e-2"
-    },
-    {
-     "check": "links resolve",
-     "ok": null,
-     "note": "no links"
+     "note": "levels 4.7e-2, 4.7e-2, 4.7e-2"
     }
    ],
    "app_plays": "yes"
@@ -10156,19 +10231,19 @@
      "note": "1 times"
     },
     {
+     "check": "links resolve",
+     "ok": null,
+     "note": "no links"
+    },
+    {
      "check": "app (chromium): plays, labels, no console errors",
      "ok": true,
-     "note": "levels 4.4e-2, 4.4e-2, 4.4e-2"
+     "note": "levels 4.6e-2, 4.7e-2, 4.7e-2"
     },
     {
      "check": "app (firefox): plays, labels, no console errors",
      "ok": true,
-     "note": "levels 4.4e-2, 4.4e-2, 4.4e-2"
-    },
-    {
-     "check": "links resolve",
-     "ok": null,
-     "note": "no links"
+     "note": "levels 4.7e-2, 4.7e-2, 4.7e-2"
     }
    ],
    "app_plays": "yes"
@@ -10224,19 +10299,19 @@
      "note": "1 times"
     },
     {
+     "check": "links resolve",
+     "ok": null,
+     "note": "no links"
+    },
+    {
      "check": "app (chromium): plays, labels, no console errors",
      "ok": true,
-     "note": "levels 4.4e-2, 4.4e-2, 4.4e-2"
+     "note": "levels 4.6e-2, 4.7e-2, 4.7e-2"
     },
     {
      "check": "app (firefox): plays, labels, no console errors",
      "ok": true,
-     "note": "levels 4.4e-2, 4.4e-2, 4.4e-2"
-    },
-    {
-     "check": "links resolve",
-     "ok": null,
-     "note": "no links"
+     "note": "levels 4.7e-2, 4.7e-2, 4.7e-2"
     }
    ],
    "app_plays": "yes"
@@ -10292,19 +10367,19 @@
      "note": "1 times"
     },
     {
+     "check": "links resolve",
+     "ok": null,
+     "note": "no links"
+    },
+    {
      "check": "app (chromium): plays, labels, no console errors",
      "ok": true,
-     "note": "levels 4.4e-2, 4.4e-2, 4.4e-2"
+     "note": "levels 4.6e-2, 4.7e-2, 4.7e-2"
     },
     {
      "check": "app (firefox): plays, labels, no console errors",
      "ok": true,
-     "note": "levels 4.4e-2, 4.4e-2, 4.4e-2"
-    },
-    {
-     "check": "links resolve",
-     "ok": null,
-     "note": "no links"
+     "note": "levels 4.7e-2, 4.7e-2, 4.7e-2"
     }
    ],
    "app_plays": "yes"
@@ -10360,19 +10435,19 @@
      "note": "1 times"
     },
     {
+     "check": "links resolve",
+     "ok": null,
+     "note": "no links"
+    },
+    {
      "check": "app (chromium): plays, labels, no console errors",
      "ok": true,
-     "note": "levels 4.4e-2, 4.4e-2, 4.4e-2"
+     "note": "levels 4.6e-2, 4.7e-2, 4.7e-2"
     },
     {
      "check": "app (firefox): plays, labels, no console errors",
      "ok": true,
-     "note": "levels 4.4e-2, 4.4e-2, 4.4e-2"
-    },
-    {
-     "check": "links resolve",
-     "ok": null,
-     "note": "no links"
+     "note": "levels 4.7e-2, 4.7e-2, 4.7e-2"
     }
    ],
    "app_plays": "yes"
@@ -10428,19 +10503,19 @@
      "note": "1 times"
     },
     {
+     "check": "links resolve",
+     "ok": null,
+     "note": "no links"
+    },
+    {
      "check": "app (chromium): plays, labels, no console errors",
      "ok": true,
-     "note": "levels 4.4e-2, 4.4e-2, 4.4e-2"
+     "note": "levels 4.6e-2, 4.7e-2, 4.7e-2"
     },
     {
      "check": "app (firefox): plays, labels, no console errors",
      "ok": true,
-     "note": "levels 4.4e-2, 4.4e-2, 4.4e-2"
-    },
-    {
-     "check": "links resolve",
-     "ok": null,
-     "note": "no links"
+     "note": "levels 4.7e-2, 4.7e-2, 4.7e-2"
     }
    ],
    "app_plays": "yes"
@@ -10496,19 +10571,19 @@
      "note": "1 times"
     },
     {
+     "check": "links resolve",
+     "ok": true,
+     "note": "2 of 2 links resolve"
+    },
+    {
      "check": "app (chromium): plays, labels, no console errors",
      "ok": true,
-     "note": "levels 4.4e-2, 4.4e-2, 4.4e-2"
+     "note": "levels 4.6e-2, 4.7e-2, 4.7e-2"
     },
     {
      "check": "app (firefox): plays, labels, no console errors",
      "ok": true,
-     "note": "levels 4.4e-2, 4.4e-2, 4.4e-2"
-    },
-    {
-     "check": "links resolve",
-     "ok": true,
-     "note": "2 of 2 links resolve"
+     "note": "levels 4.7e-2, 4.7e-2, 4.7e-2"
     }
    ],
    "app_plays": "yes"
@@ -10564,19 +10639,19 @@
      "note": "1 times"
     },
     {
+     "check": "links resolve",
+     "ok": null,
+     "note": "no links"
+    },
+    {
      "check": "app (chromium): plays, labels, no console errors",
      "ok": true,
-     "note": "levels 4.4e-2, 4.4e-2, 4.4e-2"
+     "note": "levels 4.6e-2, 4.7e-2, 4.7e-2"
     },
     {
      "check": "app (firefox): plays, labels, no console errors",
      "ok": true,
-     "note": "levels 4.4e-2, 4.4e-2, 4.4e-2"
-    },
-    {
-     "check": "links resolve",
-     "ok": null,
-     "note": "no links"
+     "note": "levels 4.7e-2, 4.7e-2, 4.7e-2"
     }
    ],
    "app_plays": "yes"
@@ -10632,19 +10707,19 @@
      "note": "1 times"
     },
     {
+     "check": "links resolve",
+     "ok": null,
+     "note": "no links"
+    },
+    {
      "check": "app (chromium): plays, labels, no console errors",
      "ok": true,
-     "note": "levels 4.4e-2, 4.4e-2, 4.4e-2"
+     "note": "levels 4.6e-2, 4.7e-2, 4.7e-2"
     },
     {
      "check": "app (firefox): plays, labels, no console errors",
      "ok": true,
-     "note": "levels 4.4e-2, 4.4e-2, 4.4e-2"
-    },
-    {
-     "check": "links resolve",
-     "ok": null,
-     "note": "no links"
+     "note": "levels 4.7e-2, 4.7e-2, 4.7e-2"
     }
    ],
    "app_plays": "yes"
@@ -10700,19 +10775,19 @@
      "note": "1 times"
     },
     {
+     "check": "links resolve",
+     "ok": true,
+     "note": "2 of 2 links resolve"
+    },
+    {
      "check": "app (chromium): plays, labels, no console errors",
      "ok": true,
-     "note": "levels 4.4e-2, 4.4e-2, 4.4e-2"
+     "note": "levels 4.6e-2, 4.7e-2, 4.7e-2"
     },
     {
      "check": "app (firefox): plays, labels, no console errors",
      "ok": true,
-     "note": "levels 4.4e-2, 4.4e-2, 4.4e-2"
-    },
-    {
-     "check": "links resolve",
-     "ok": true,
-     "note": "2 of 2 links resolve"
+     "note": "levels 4.7e-2, 4.7e-2, 4.7e-2"
     }
    ],
    "app_plays": "yes"
@@ -10768,19 +10843,19 @@
      "note": "1 times"
     },
     {
+     "check": "links resolve",
+     "ok": true,
+     "note": "2 of 2 links resolve"
+    },
+    {
      "check": "app (chromium): plays, labels, no console errors",
      "ok": true,
-     "note": "levels 4.4e-2, 4.4e-2, 4.4e-2"
+     "note": "levels 4.6e-2, 4.7e-2, 4.7e-2"
     },
     {
      "check": "app (firefox): plays, labels, no console errors",
      "ok": true,
-     "note": "levels 4.4e-2, 4.4e-2, 4.4e-2"
-    },
-    {
-     "check": "links resolve",
-     "ok": true,
-     "note": "2 of 2 links resolve"
+     "note": "levels 4.7e-2, 4.7e-2, 4.7e-2"
     }
    ],
    "app_plays": "yes"
@@ -10836,19 +10911,19 @@
      "note": "1 times"
     },
     {
+     "check": "links resolve",
+     "ok": null,
+     "note": "no links"
+    },
+    {
      "check": "app (chromium): plays, labels, no console errors",
      "ok": true,
-     "note": "levels 4.4e-2, 4.4e-2, 4.4e-2"
+     "note": "levels 4.6e-2, 4.7e-2, 4.7e-2"
     },
     {
      "check": "app (firefox): plays, labels, no console errors",
      "ok": true,
-     "note": "levels 4.4e-2, 4.4e-2, 4.4e-2"
-    },
-    {
-     "check": "links resolve",
-     "ok": null,
-     "note": "no links"
+     "note": "levels 4.7e-2, 4.7e-2, 4.7e-2"
     }
    ],
    "app_plays": "yes"
@@ -10904,19 +10979,19 @@
      "note": "1 times"
     },
     {
+     "check": "links resolve",
+     "ok": null,
+     "note": "no links"
+    },
+    {
      "check": "app (chromium): plays, labels, no console errors",
      "ok": true,
-     "note": "levels 4.4e-2, 4.4e-2, 4.4e-2"
+     "note": "levels 4.6e-2, 4.7e-2, 4.7e-2"
     },
     {
      "check": "app (firefox): plays, labels, no console errors",
      "ok": true,
-     "note": "levels 4.4e-2, 4.4e-2, 4.4e-2"
-    },
-    {
-     "check": "links resolve",
-     "ok": null,
-     "note": "no links"
+     "note": "levels 4.7e-2, 4.7e-2, 4.7e-2"
     }
    ],
    "app_plays": "yes"
@@ -10972,19 +11047,19 @@
      "note": "1 times"
     },
     {
+     "check": "links resolve",
+     "ok": null,
+     "note": "no links"
+    },
+    {
      "check": "app (chromium): plays, labels, no console errors",
      "ok": true,
-     "note": "levels 4.4e-2, 4.4e-2, 4.4e-2"
+     "note": "levels 4.6e-2, 4.7e-2, 4.7e-2"
     },
     {
      "check": "app (firefox): plays, labels, no console errors",
      "ok": true,
-     "note": "levels 4.4e-2, 4.4e-2, 4.4e-2"
-    },
-    {
-     "check": "links resolve",
-     "ok": null,
-     "note": "no links"
+     "note": "levels 4.7e-2, 4.7e-2, 4.7e-2"
     }
    ],
    "app_plays": "yes"
@@ -11040,19 +11115,19 @@
      "note": "1 times"
     },
     {
+     "check": "links resolve",
+     "ok": null,
+     "note": "no links"
+    },
+    {
      "check": "app (chromium): plays, labels, no console errors",
      "ok": true,
-     "note": "levels 4.4e-2, 4.4e-2, 4.4e-2"
+     "note": "levels 4.6e-2, 4.7e-2, 4.7e-2"
     },
     {
      "check": "app (firefox): plays, labels, no console errors",
      "ok": true,
-     "note": "levels 4.4e-2, 4.4e-2, 4.4e-2"
-    },
-    {
-     "check": "links resolve",
-     "ok": null,
-     "note": "no links"
+     "note": "levels 4.7e-2, 4.7e-2, 4.7e-2"
     }
    ],
    "app_plays": "yes"
@@ -11108,19 +11183,19 @@
      "note": "1 times"
     },
     {
+     "check": "links resolve",
+     "ok": true,
+     "note": "2 of 2 links resolve"
+    },
+    {
      "check": "app (chromium): plays, labels, no console errors",
      "ok": true,
-     "note": "levels 4.4e-2, 4.4e-2, 4.4e-2"
+     "note": "levels 4.6e-2, 4.7e-2, 4.7e-2"
     },
     {
      "check": "app (firefox): plays, labels, no console errors",
      "ok": true,
-     "note": "levels 4.4e-2, 4.4e-2, 4.4e-2"
-    },
-    {
-     "check": "links resolve",
-     "ok": true,
-     "note": "2 of 2 links resolve"
+     "note": "levels 4.7e-2, 4.7e-2, 4.7e-2"
     }
    ],
    "app_plays": "yes"
@@ -11176,19 +11251,19 @@
      "note": "1 times"
     },
     {
+     "check": "links resolve",
+     "ok": null,
+     "note": "no links"
+    },
+    {
      "check": "app (chromium): plays, labels, no console errors",
      "ok": true,
-     "note": "levels 4.4e-2, 4.4e-2, 4.4e-2"
+     "note": "levels 4.6e-2, 4.7e-2, 4.7e-2"
     },
     {
      "check": "app (firefox): plays, labels, no console errors",
      "ok": true,
-     "note": "levels 4.4e-2, 4.4e-2, 4.4e-2"
-    },
-    {
-     "check": "links resolve",
-     "ok": null,
-     "note": "no links"
+     "note": "levels 4.7e-2, 4.7e-2, 4.7e-2"
     }
    ],
    "app_plays": "yes"
@@ -11244,19 +11319,19 @@
      "note": "1 times"
     },
     {
+     "check": "links resolve",
+     "ok": null,
+     "note": "no links"
+    },
+    {
      "check": "app (chromium): plays, labels, no console errors",
      "ok": true,
-     "note": "levels 4.4e-2, 4.4e-2, 4.4e-2"
+     "note": "levels 4.6e-2, 4.7e-2, 4.7e-2"
     },
     {
      "check": "app (firefox): plays, labels, no console errors",
      "ok": true,
-     "note": "levels 4.4e-2, 4.4e-2, 4.4e-2"
-    },
-    {
-     "check": "links resolve",
-     "ok": null,
-     "note": "no links"
+     "note": "levels 4.7e-2, 4.7e-2, 4.7e-2"
     }
    ],
    "app_plays": "yes"
@@ -11312,19 +11387,19 @@
      "note": "1 times"
     },
     {
+     "check": "links resolve",
+     "ok": true,
+     "note": "2 of 2 links resolve"
+    },
+    {
      "check": "app (chromium): plays, labels, no console errors",
      "ok": true,
-     "note": "levels 4.4e-2, 4.4e-2, 4.4e-2"
+     "note": "levels 4.6e-2, 4.7e-2, 4.7e-2"
     },
     {
      "check": "app (firefox): plays, labels, no console errors",
      "ok": true,
-     "note": "levels 4.4e-2, 4.4e-2, 4.4e-2"
-    },
-    {
-     "check": "links resolve",
-     "ok": true,
-     "note": "2 of 2 links resolve"
+     "note": "levels 4.7e-2, 4.7e-2, 4.7e-2"
     }
    ],
    "app_plays": "yes"
@@ -11380,19 +11455,19 @@
      "note": "1 times"
     },
     {
+     "check": "links resolve",
+     "ok": null,
+     "note": "no links"
+    },
+    {
      "check": "app (chromium): plays, labels, no console errors",
      "ok": true,
-     "note": "levels 4.4e-2, 4.4e-2, 4.4e-2"
+     "note": "levels 4.6e-2, 4.7e-2, 4.7e-2"
     },
     {
      "check": "app (firefox): plays, labels, no console errors",
      "ok": true,
-     "note": "levels 4.4e-2, 4.4e-2, 4.4e-2"
-    },
-    {
-     "check": "links resolve",
-     "ok": null,
-     "note": "no links"
+     "note": "levels 4.7e-2, 4.7e-2, 4.7e-2"
     }
    ],
    "app_plays": "yes"
@@ -11448,19 +11523,19 @@
      "note": "1 times"
     },
     {
+     "check": "links resolve",
+     "ok": true,
+     "note": "2 of 2 links resolve"
+    },
+    {
      "check": "app (chromium): plays, labels, no console errors",
      "ok": true,
-     "note": "levels 4.4e-2, 4.4e-2, 4.4e-2"
+     "note": "levels 4.6e-2, 4.7e-2, 4.7e-2"
     },
     {
      "check": "app (firefox): plays, labels, no console errors",
      "ok": true,
-     "note": "levels 4.4e-2, 4.4e-2, 4.4e-2"
-    },
-    {
-     "check": "links resolve",
-     "ok": false,
-     "note": "https://svs.gsfc.nasa.gov/5190/ (ReadTimeout)"
+     "note": "levels 4.7e-2, 4.7e-2, 4.7e-2"
     }
    ],
    "app_plays": "yes"
@@ -11516,19 +11591,19 @@
      "note": "1 times"
     },
     {
+     "check": "links resolve",
+     "ok": true,
+     "note": "2 of 2 links resolve"
+    },
+    {
      "check": "app (chromium): plays, labels, no console errors",
      "ok": true,
-     "note": "levels 4.4e-2, 4.4e-2, 4.4e-2"
+     "note": "levels 4.6e-2, 4.7e-2, 4.7e-2"
     },
     {
      "check": "app (firefox): plays, labels, no console errors",
      "ok": true,
-     "note": "levels 4.4e-2, 4.4e-2, 4.4e-2"
-    },
-    {
-     "check": "links resolve",
-     "ok": true,
-     "note": "2 of 2 links resolve"
+     "note": "levels 4.7e-2, 4.7e-2, 4.7e-2"
     }
    ],
    "app_plays": "yes"
@@ -11611,19 +11686,19 @@
      "note": "Visualization: NASA's Scientific Visualization Studio (SVS 5196, 5436) for the N"
     },
     {
+     "check": "links resolve",
+     "ok": true,
+     "note": "3 of 3 links resolve"
+    },
+    {
      "check": "app (chromium): plays, labels, no console errors",
      "ok": true,
-     "note": "levels 7.6e-2, 7.2e-2, 7.2e-2"
+     "note": "levels 6.7e-2, 6.4e-2, 6.3e-2"
     },
     {
      "check": "app (firefox): plays, labels, no console errors",
      "ok": true,
-     "note": "levels 7.6e-2, 7.2e-2, 7.2e-2"
-    },
-    {
-     "check": "links resolve",
-     "ok": true,
-     "note": "3 of 3 links resolve"
+     "note": "levels 7.5e-2, 6.4e-2, 6.3e-2"
     }
    ],
    "app_plays": "yes"
@@ -11679,19 +11754,19 @@
      "note": "1 times"
     },
     {
+     "check": "links resolve",
+     "ok": true,
+     "note": "2 of 2 links resolve"
+    },
+    {
      "check": "app (chromium): plays, labels, no console errors",
      "ok": true,
-     "note": "levels 4.4e-2, 4.4e-2, 4.4e-2"
+     "note": "levels 4.6e-2, 4.7e-2, 4.7e-2"
     },
     {
      "check": "app (firefox): plays, labels, no console errors",
      "ok": true,
-     "note": "levels 4.4e-2, 4.4e-2, 4.4e-2"
-    },
-    {
-     "check": "links resolve",
-     "ok": true,
-     "note": "2 of 2 links resolve"
+     "note": "levels 4.7e-2, 4.7e-2, 4.7e-2"
     }
    ],
    "app_plays": "yes"
@@ -11747,19 +11822,19 @@
      "note": "1 times"
     },
     {
+     "check": "links resolve",
+     "ok": true,
+     "note": "2 of 2 links resolve"
+    },
+    {
      "check": "app (chromium): plays, labels, no console errors",
      "ok": true,
-     "note": "levels 4.4e-2, 4.4e-2, 4.4e-2"
+     "note": "levels 4.6e-2, 4.7e-2, 4.7e-2"
     },
     {
      "check": "app (firefox): plays, labels, no console errors",
      "ok": true,
-     "note": "levels 4.4e-2, 4.4e-2, 4.4e-2"
-    },
-    {
-     "check": "links resolve",
-     "ok": false,
-     "note": "https://svs.gsfc.nasa.gov/5209/ (ReadTimeout)"
+     "note": "levels 4.7e-2, 4.7e-2, 4.7e-2"
     }
    ],
    "app_plays": "yes"
@@ -11815,19 +11890,19 @@
      "note": "1 times"
     },
     {
+     "check": "links resolve",
+     "ok": true,
+     "note": "2 of 2 links resolve"
+    },
+    {
      "check": "app (chromium): plays, labels, no console errors",
      "ok": true,
-     "note": "levels 4.4e-2, 4.4e-2, 4.4e-2"
+     "note": "levels 4.6e-2, 4.7e-2, 4.7e-2"
     },
     {
      "check": "app (firefox): plays, labels, no console errors",
      "ok": true,
-     "note": "levels 4.4e-2, 4.4e-2, 4.4e-2"
-    },
-    {
-     "check": "links resolve",
-     "ok": true,
-     "note": "2 of 2 links resolve"
+     "note": "levels 4.7e-2, 4.7e-2, 4.7e-2"
     }
    ],
    "app_plays": "yes"
@@ -11883,19 +11958,19 @@
      "note": "1 times"
     },
     {
+     "check": "links resolve",
+     "ok": null,
+     "note": "no links"
+    },
+    {
      "check": "app (chromium): plays, labels, no console errors",
      "ok": true,
-     "note": "levels 4.4e-2, 4.4e-2, 4.4e-2"
+     "note": "levels 4.6e-2, 4.7e-2, 4.7e-2"
     },
     {
      "check": "app (firefox): plays, labels, no console errors",
      "ok": true,
-     "note": "levels 4.4e-2, 4.4e-2, 4.4e-2"
-    },
-    {
-     "check": "links resolve",
-     "ok": null,
-     "note": "no links"
+     "note": "levels 4.7e-2, 4.7e-2, 4.7e-2"
     }
    ],
    "app_plays": "yes"
@@ -12118,19 +12193,19 @@
      "note": "Visualization: NASA's Scientific Visualization Studio (SVS 5425) for the NASA Ea"
     },
     {
+     "check": "links resolve",
+     "ok": true,
+     "note": "4 of 4 links resolve"
+    },
+    {
      "check": "app (chromium): plays, labels, no console errors",
      "ok": true,
-     "note": "levels 6.4e-2, 6.6e-2, 6.6e-2"
+     "note": "levels 6.7e-2, 6.8e-2, 6.7e-2"
     },
     {
      "check": "app (firefox): plays, labels, no console errors",
      "ok": true,
-     "note": "levels 6.5e-2, 6.5e-2, 6.6e-2"
-    },
-    {
-     "check": "links resolve",
-     "ok": false,
-     "note": "http://earthobservatory.nasa.gov/Newsroom/BlueMarble/ (ConnectionError); https://svs.gsfc.nasa.gov/5425/ (ReadTimeout)"
+     "note": "levels 6.9e-2, 6.8e-2, 6.8e-2"
     }
    ],
    "app_plays": "yes"
@@ -12186,19 +12261,19 @@
      "note": "1 times"
     },
     {
+     "check": "links resolve",
+     "ok": true,
+     "note": "2 of 2 links resolve"
+    },
+    {
      "check": "app (chromium): plays, labels, no console errors",
      "ok": true,
-     "note": "levels 4.4e-2, 4.4e-2, 4.4e-2"
+     "note": "levels 4.6e-2, 4.7e-2, 4.7e-2"
     },
     {
      "check": "app (firefox): plays, labels, no console errors",
      "ok": true,
-     "note": "levels 4.4e-2, 4.4e-2, 4.4e-2"
-    },
-    {
-     "check": "links resolve",
-     "ok": true,
-     "note": "2 of 2 links resolve"
+     "note": "levels 4.7e-2, 4.7e-2, 4.7e-2"
     }
    ],
    "app_plays": "yes"
@@ -12254,19 +12329,19 @@
      "note": "1 times"
     },
     {
+     "check": "links resolve",
+     "ok": null,
+     "note": "no links"
+    },
+    {
      "check": "app (chromium): plays, labels, no console errors",
      "ok": true,
-     "note": "levels 4.4e-2, 4.4e-2, 4.4e-2"
+     "note": "levels 4.6e-2, 4.7e-2, 4.7e-2"
     },
     {
      "check": "app (firefox): plays, labels, no console errors",
      "ok": true,
-     "note": "levels 4.4e-2, 4.4e-2, 4.4e-2"
-    },
-    {
-     "check": "links resolve",
-     "ok": null,
-     "note": "no links"
+     "note": "levels 4.7e-2, 4.7e-2, 4.7e-2"
     }
    ],
    "app_plays": "yes"
@@ -12322,19 +12397,19 @@
      "note": "1 times"
     },
     {
+     "check": "links resolve",
+     "ok": null,
+     "note": "no links"
+    },
+    {
      "check": "app (chromium): plays, labels, no console errors",
      "ok": true,
-     "note": "levels 4.4e-2, 4.4e-2, 4.4e-2"
+     "note": "levels 4.6e-2, 4.7e-2, 4.7e-2"
     },
     {
      "check": "app (firefox): plays, labels, no console errors",
      "ok": true,
-     "note": "levels 4.4e-2, 4.4e-2, 4.4e-2"
-    },
-    {
-     "check": "links resolve",
-     "ok": null,
-     "note": "no links"
+     "note": "levels 4.7e-2, 4.7e-2, 4.7e-2"
     }
    ],
    "app_plays": "yes"
@@ -12480,6 +12555,111 @@
    ]
   },
   {
+   "id": "file:thenvsnow/stats.json",
+   "category": "history",
+   "title": "thenvsnow/stats.json",
+   "manifest": "thenvsnow/stats.json",
+   "kind": "file",
+   "svs_ids": [],
+   "source": "NASA GISTEMP v4, Dhaka cell, April-May anomaly vs 1951-1980; GPCP v2.3, Dhaka cell, June-September; GPCC gauges v2020, Dhaka cell, June-September; NASA GISTEMP v4, Chattogram cell, April-May anomaly v",
+   "status": "baseline",
+   "product": null,
+   "layer": null,
+   "notes": [],
+   "checks": [
+    {
+     "check": "files exist and load",
+     "ok": true,
+     "note": "1 files"
+    },
+    {
+     "check": "checksums match",
+     "ok": null,
+     "note": "no checksum list for this kind (spotcheck checks the decode)"
+    },
+    {
+     "check": "credits present",
+     "ok": true,
+     "note": "NASA GISTEMP v4, Dhaka cell, April-May anomaly vs 1951-1980; GPCP v2.3, Dhaka ce"
+    },
+    {
+     "check": "links resolve",
+     "ok": null,
+     "note": "no links"
+    }
+   ]
+  },
+  {
+   "id": "file:thenvsnow/lifetime.json",
+   "category": "history",
+   "title": "thenvsnow/lifetime.json",
+   "manifest": "thenvsnow/lifetime.json",
+   "kind": "file",
+   "svs_ids": [],
+   "source": "NASA GISTEMP v4, Dhaka cell, April-May anomaly vs 1951-1980; GPCP v2.3, Dhaka cell, June-September; GPCC gauges v2020, Dhaka cell, June-September; NASA GISTEMP v4, Chattogram cell, April-May anomaly v",
+   "status": "baseline",
+   "product": null,
+   "layer": null,
+   "notes": [],
+   "checks": [
+    {
+     "check": "files exist and load",
+     "ok": true,
+     "note": "1 files"
+    },
+    {
+     "check": "checksums match",
+     "ok": null,
+     "note": "no checksum list for this kind (spotcheck checks the decode)"
+    },
+    {
+     "check": "credits present",
+     "ok": true,
+     "note": "NASA GISTEMP v4, Dhaka cell, April-May anomaly vs 1951-1980; GPCP v2.3, Dhaka ce"
+    },
+    {
+     "check": "links resolve",
+     "ok": null,
+     "note": "no links"
+    }
+   ]
+  },
+  {
+   "id": "file:truth/stats.json",
+   "category": "history",
+   "title": "truth/stats.json",
+   "manifest": "truth/stats.json",
+   "kind": "file",
+   "svs_ids": [],
+   "source": "Data: MUR SST (NASA/JPL PO.DAAC). Visualization: NASA's Scientific Visualization Studio (SVS 5101) for the NASA Earth Information Center.; Data: GPM IMERG (NASA/JAXA, GES DISC). Visualization: NASA's ",
+   "status": "baseline",
+   "product": null,
+   "layer": null,
+   "notes": [],
+   "checks": [
+    {
+     "check": "files exist and load",
+     "ok": true,
+     "note": "1 files"
+    },
+    {
+     "check": "checksums match",
+     "ok": null,
+     "note": "no checksum list for this kind (spotcheck checks the decode)"
+    },
+    {
+     "check": "credits present",
+     "ok": true,
+     "note": "Data: MUR SST (NASA/JPL PO.DAAC). Visualization: NASA's Scientific Visualization"
+    },
+    {
+     "check": "links resolve",
+     "ok": null,
+     "note": "no links"
+    }
+   ]
+  },
+  {
    "id": "file:global/manifest.json",
    "category": "history",
    "title": "global/manifest.json",
@@ -12519,43 +12699,43 @@
   {
    "record": "sst",
    "shipped_utc": "2026-11-04T00:00Z",
-   "source_latest_utc": "2026-11-04T00:00Z",
-   "source": "SVS 5101 4096x2048_2x1_30p/sst_mur_no-dates/sst_mur_20261104_no-dates.exr",
-   "age_days": 2.94,
-   "lag_days": 0.0,
+   "source_latest_utc": "2026-11-09T00:00Z",
+   "source": "SVS 5101 4096x2048_2x1_30p/sst_mur_no-dates/sst_mur_20261109_no-dates.exr",
+   "age_days": 6.97,
+   "lag_days": 5.0,
    "limit_days": 2,
    "companion": null,
-   "behind_limit": false
+   "behind_limit": true
   },
   {
    "record": "rain",
    "shipped_utc": "2026-11-06T01:30Z",
-   "source_latest_utc": "2026-11-06T17:30Z",
-   "source": "SVS 4285 3600x1800_2x1_30p/flatalpha/imergert_alpha.2026-11-06T17:30:00Z.png",
-   "age_days": 0.88,
-   "lag_days": 0.67,
+   "source_latest_utc": "2026-11-10T17:30Z",
+   "source": "SVS 4285 3600x1800_2x1_30p/flatalpha/imergert_alpha.2026-11-10T17:30:00Z.png",
+   "age_days": 4.91,
+   "lag_days": 4.67,
    "limit_days": 2,
    "companion": null,
-   "behind_limit": false
+   "behind_limit": true
   },
   {
    "record": "sequence",
    "shipped_utc": "2026-11-06T02:30Z",
-   "source_latest_utc": "2026-11-06T17:30Z",
-   "source": "SVS 4285 3600x1800_2x1_30p/flatalpha/imergert_alpha.2026-11-06T17:30:00Z.png",
-   "age_days": 0.84,
-   "lag_days": 0.62,
+   "source_latest_utc": "2026-11-10T17:30Z",
+   "source": "SVS 4285 3600x1800_2x1_30p/flatalpha/imergert_alpha.2026-11-10T17:30:00Z.png",
+   "age_days": 4.86,
+   "lag_days": 4.62,
    "limit_days": 2,
    "companion": null,
-   "behind_limit": false
+   "behind_limit": true
   },
   {
    "record": "sst_anom",
    "shipped_utc": "2026-11-03T00:00Z",
-   "source_latest_utc": "2026-11-04T00:00Z",
+   "source_latest_utc": "2026-11-08T00:00Z",
    "source": "SVS 5176 newest dated frame (file name)",
-   "age_days": 3.94,
-   "lag_days": 1.0,
+   "age_days": 7.97,
+   "lag_days": 5.0,
    "limit_days": 5,
    "companion": null,
    "behind_limit": false
@@ -12563,97 +12743,97 @@
   {
    "record": "fires_frame",
    "shipped_utc": "2026-11-05T11:27Z",
-   "source_latest_utc": "2026-11-05T11:27Z",
+   "source_latest_utc": "2026-11-10T11:26Z",
    "source": "SVS 5113 newest dated frame (Last-Modified)",
-   "age_days": 1.46,
-   "lag_days": 0.0,
+   "age_days": 5.49,
+   "lag_days": 5.0,
    "limit_days": 3,
    "companion": null,
-   "behind_limit": false
+   "behind_limit": true
   },
   {
    "record": "fwi_class",
    "shipped_utc": "2026-11-06T07:10Z",
-   "source_latest_utc": "2026-11-06T07:10Z",
+   "source_latest_utc": "2026-11-10T07:12Z",
    "source": "Last-Modified FWI_forecast_latest.png",
-   "age_days": 0.64,
-   "lag_days": 0.0,
+   "age_days": 4.67,
+   "lag_days": 4.0,
    "limit_days": 2,
    "companion": null,
-   "behind_limit": false
+   "behind_limit": true
   },
   {
    "record": "fwi_archive",
    "shipped_utc": "2026-11-06T07:10Z",
-   "source_latest_utc": "2026-11-06T07:10Z",
+   "source_latest_utc": "2026-11-10T07:12Z",
    "source": "Last-Modified FWI_forecast_latest.png",
-   "age_days": 0.64,
-   "lag_days": 0.0,
+   "age_days": 4.67,
+   "lag_days": 4.0,
    "limit_days": 2,
    "companion": null,
-   "behind_limit": false
+   "behind_limit": true
   },
   {
    "record": "landslide_class",
    "shipped_utc": "2026-11-06T05:00Z",
-   "source_latest_utc": "2026-11-06T05:00Z",
+   "source_latest_utc": "2026-11-10T05:00Z",
    "source": "Last-Modified landslides_daily.png",
-   "age_days": 0.73,
-   "lag_days": 0.0,
+   "age_days": 4.76,
+   "lag_days": 4.0,
    "limit_days": 2,
    "companion": null,
-   "behind_limit": false
+   "behind_limit": true
   },
   {
    "record": "sst_dt",
    "shipped_utc": "2026-11-04T09:00Z",
-   "source_latest_utc": "2026-11-05T21:00Z",
+   "source_latest_utc": "2026-11-09T21:00Z",
    "source": "CMR MUR-JPL-L4-GLOB-v4.1 latest granule (C1996881146-POCLOUD)",
-   "age_days": 2.57,
-   "lag_days": 1.5,
+   "age_days": 6.59,
+   "lag_days": 5.5,
    "limit_days": 3,
    "companion": null,
-   "behind_limit": false
+   "behind_limit": true
   },
   {
    "record": "sst_pairs",
    "shipped_utc": "2026-11-04T00:00Z",
-   "source_latest_utc": "2026-11-05T21:00Z",
+   "source_latest_utc": "2026-11-09T21:00Z",
    "source": "CMR MUR-JPL-L4-GLOB-v4.1 latest granule (C1996881146-POCLOUD)",
-   "age_days": 2.94,
-   "lag_days": 1.88,
+   "age_days": 6.97,
+   "lag_days": 5.88,
    "limit_days": 4,
    "companion": null,
-   "behind_limit": false
+   "behind_limit": true
   },
   {
    "record": "threeway",
    "shipped_utc": "2026-11-04T00:00Z",
-   "source_latest_utc": "2026-11-05T21:00Z",
+   "source_latest_utc": "2026-11-09T21:00Z",
    "source": "CMR MUR-JPL-L4-GLOB-v4.1 latest granule (C1996881146-POCLOUD)",
-   "age_days": 2.94,
-   "lag_days": 1.88,
+   "age_days": 6.97,
+   "lag_days": 5.88,
    "limit_days": 4,
    "companion": null,
-   "behind_limit": false
+   "behind_limit": true
   },
   {
    "record": "rain_pairs",
    "shipped_utc": "2026-11-06T01:30Z",
-   "source_latest_utc": "2026-11-06T16:59Z",
+   "source_latest_utc": "2026-11-10T17:59Z",
    "source": "CMR GPM_3IMERGHHE latest granule (C2723758340-GES_DISC)",
-   "age_days": 0.88,
-   "lag_days": 0.65,
+   "age_days": 4.91,
+   "lag_days": 4.69,
    "limit_days": 3,
    "companion": null,
-   "behind_limit": false
+   "behind_limit": true
   },
   {
    "record": "nightlights",
    "shipped_utc": "2026-10-26T00:00Z",
    "source_latest_utc": "2026-11-05T00:00Z",
    "source": "CMR VJ146A2 latest granule (C3370789118-LAADS)",
-   "age_days": 11.94,
+   "age_days": 15.97,
    "lag_days": 10.0,
    "limit_days": 14,
    "companion": null,
@@ -12662,43 +12842,43 @@
   {
    "record": "firms_daily",
    "shipped_utc": "2026-11-06T08:00Z",
-   "source_latest_utc": "2026-11-06T00:00Z",
+   "source_latest_utc": "2026-11-10T00:00Z",
    "source": "FIRMS data availability VIIRS_NOAA21_NRT",
-   "age_days": 0.61,
-   "lag_days": -0.33,
+   "age_days": 4.63,
+   "lag_days": 3.67,
    "limit_days": 2,
    "companion": null,
-   "behind_limit": false
+   "behind_limit": true
   },
   {
    "record": "rel_5624",
    "shipped_utc": "2026-11-07T08:00Z",
-   "source_latest_utc": "2026-11-06T06:00Z",
+   "source_latest_utc": "2026-11-10T06:00Z",
    "source": "SVS 5624 media Last-Modified GMAO_global_smoke_forecast_4096x2048.mp4",
-   "age_days": -0.39,
-   "lag_days": -1.08,
+   "age_days": 3.64,
+   "lag_days": 2.92,
    "limit_days": 2.0,
    "companion": null,
-   "behind_limit": false
+   "behind_limit": true
   },
   {
    "record": "rel_5650",
    "shipped_utc": "2026-11-06T02:30Z",
-   "source_latest_utc": "2026-11-06T16:30Z",
-   "source": "SVS 5650 2048x1024_2x1_30p/annotated_flat/imergert_composite.2026-11-06T16:30:00Z_2048x1024.annotated.png",
-   "age_days": 0.84,
-   "lag_days": 0.58,
+   "source_latest_utc": "2026-11-10T17:30Z",
+   "source": "SVS 5650 2048x1024_2x1_30p/annotated_flat/imergert_composite.2026-11-10T17:30:00Z_2048x1024.annotated.png",
+   "age_days": 4.86,
+   "lag_days": 4.62,
    "limit_days": 2.0,
    "companion": null,
-   "behind_limit": false
+   "behind_limit": true
   },
   {
    "record": "eic_5147",
    "shipped_utc": "2026-10-28T22:00Z",
-   "source_latest_utc": "2026-11-06T07:30Z",
+   "source_latest_utc": "2026-11-09T11:53Z",
    "source": "SVS 5147 2048x1024_2x1_12p/MC01_stage3_GMAO_near_surface_temperature_2048x1024_en-hwtool/00000372.png",
-   "age_days": 9.02,
-   "lag_days": 8.4,
+   "age_days": 13.05,
+   "lag_days": 11.58,
    "limit_days": null,
    "companion": null,
    "behind_limit": false
@@ -12706,10 +12886,10 @@
   {
    "record": "eic_5148",
    "shipped_utc": "2026-10-28T22:00Z",
-   "source_latest_utc": "2026-11-06T07:31Z",
+   "source_latest_utc": "2026-11-09T11:54Z",
    "source": "SVS 5148 2048x1024_2x1_12p/MC02_stage3_GMAO_near_surface_wind_2048x1024_en-hwtool/00000372.png",
-   "age_days": 9.02,
-   "lag_days": 8.4,
+   "age_days": 13.05,
+   "lag_days": 11.58,
    "limit_days": null,
    "companion": null,
    "behind_limit": false
@@ -12717,10 +12897,10 @@
   {
    "record": "eic_5149",
    "shipped_utc": "2026-10-28T22:00Z",
-   "source_latest_utc": "2026-11-06T07:32Z",
+   "source_latest_utc": "2026-11-09T11:55Z",
    "source": "SVS 5149 2048x1024_2x1_12p/MC03_stage3_GMAO_precipitation_2048x1024_en-hwtool/00000372.png",
-   "age_days": 9.02,
-   "lag_days": 8.4,
+   "age_days": 13.05,
+   "lag_days": 11.58,
    "limit_days": null,
    "companion": null,
    "behind_limit": false
@@ -12728,10 +12908,10 @@
   {
    "record": "eic_5150",
    "shipped_utc": "2026-10-29T22:00Z",
-   "source_latest_utc": "2026-11-06T07:43Z",
+   "source_latest_utc": "2026-11-10T07:16Z",
    "source": "SVS 5150 media Last-Modified MC04_stage3_GMAO_near_surface_humidity_2048x1024_en.mp4",
-   "age_days": 8.02,
-   "lag_days": 7.4,
+   "age_days": 12.05,
+   "lag_days": 11.39,
    "limit_days": null,
    "companion": null,
    "behind_limit": false
@@ -12739,10 +12919,10 @@
   {
    "record": "eic_5151",
    "shipped_utc": "2026-10-28T22:00Z",
-   "source_latest_utc": "2026-11-05T07:33Z",
+   "source_latest_utc": "2026-11-09T11:58Z",
    "source": "SVS 5151 2048x1024_2x1_12p/MC01_stage4_GMAO_pm25_2048x1024_en-hwtool/00000372.png",
-   "age_days": 9.02,
-   "lag_days": 7.4,
+   "age_days": 13.05,
+   "lag_days": 11.58,
    "limit_days": null,
    "companion": null,
    "behind_limit": false
@@ -12750,10 +12930,10 @@
   {
    "record": "eic_5152",
    "shipped_utc": "2026-10-28T22:00Z",
-   "source_latest_utc": "2026-11-05T07:34Z",
+   "source_latest_utc": "2026-11-09T11:59Z",
    "source": "SVS 5152 2048x1024_2x1_12p/MC02_stage4_GMAO_O3_2048x1024_en-hwtool/00000372.png",
-   "age_days": 9.02,
-   "lag_days": 7.4,
+   "age_days": 13.05,
+   "lag_days": 11.58,
    "limit_days": null,
    "companion": null,
    "behind_limit": false
@@ -12761,10 +12941,10 @@
   {
    "record": "eic_5153",
    "shipped_utc": "2026-10-28T22:00Z",
-   "source_latest_utc": "2026-11-05T07:35Z",
+   "source_latest_utc": "2026-11-09T12:00Z",
    "source": "SVS 5153 2048x1024_2x1_12p/MC03_stage4_GMAO_CO_2048x1024_en-hwtool/00000372.png",
-   "age_days": 9.02,
-   "lag_days": 7.4,
+   "age_days": 13.05,
+   "lag_days": 11.58,
    "limit_days": null,
    "companion": null,
    "behind_limit": false
@@ -12772,10 +12952,10 @@
   {
    "record": "eic_5154",
    "shipped_utc": "2026-10-28T22:00Z",
-   "source_latest_utc": "2026-11-05T07:35Z",
+   "source_latest_utc": "2026-11-09T12:01Z",
    "source": "SVS 5154 2048x1024_2x1_12p/MC04_stage4_GMAO_NO2_2048x1024_en-hwtool/00000372.png",
-   "age_days": 9.02,
-   "lag_days": 7.4,
+   "age_days": 13.05,
+   "lag_days": 11.58,
    "limit_days": null,
    "companion": null,
    "behind_limit": false
@@ -12785,7 +12965,7 @@
    "shipped_utc": "2026-06-13T00:00Z",
    "source_latest_utc": "2026-06-13T00:00Z",
    "source": "SVS 5544 4096x2048_2x1_30p/equirectangular_w_dates/SNPP_VIIRS.20260613.ndvi_w_snow.oceanblue.annotated.png",
-   "age_days": 146.94,
+   "age_days": 150.97,
    "lag_days": 0.0,
    "limit_days": null,
    "companion": null,
@@ -12794,10 +12974,10 @@
   {
    "record": "rel_oisst",
    "shipped_utc": "2026-10-29T12:00Z",
-   "source_latest_utc": "2026-11-05T12:00Z",
+   "source_latest_utc": "2026-11-09T12:00Z",
    "source": "ERDDAP ncdcOisst21NrtAgg time_coverage_end",
-   "age_days": 8.44,
-   "lag_days": 7.0,
+   "age_days": 12.47,
+   "lag_days": 11.0,
    "limit_days": null,
    "companion": null,
    "behind_limit": false
@@ -12805,7 +12985,7 @@
   {
    "record": "oscar_nrt",
    "shipped_utc": null,
-   "source_latest_utc": "2026-11-04T23:59Z",
+   "source_latest_utc": "2026-11-08T23:59Z",
    "source": "CMR OSCAR_L4_OC_NRT_V2.0 latest granule (C2102958977-POCLOUD)",
    "age_days": null,
    "lag_days": null,
@@ -12829,7 +13009,7 @@
    "shipped_utc": "2026-10-31T00:00Z",
    "source_latest_utc": "2026-10-31T00:00Z",
    "source": "GIBS GetCapabilities VIIRS_NOAA20_DayNightBand_At_Sensor_Radiance default time",
-   "age_days": 6.94,
+   "age_days": 10.97,
    "lag_days": 0.0,
    "limit_days": null,
    "companion": null,
@@ -12840,7 +13020,7 @@
    "shipped_utc": "2026-10-30T00:00Z",
    "source_latest_utc": "2026-10-30T00:00Z",
    "source": "GIBS GetCapabilities IMERG_Precipitation_Rate default time",
-   "age_days": 7.94,
+   "age_days": 11.97,
    "lag_days": 0.0,
    "limit_days": null,
    "companion": null,
@@ -12851,7 +13031,7 @@
    "shipped_utc": "2026-10-29T00:00Z",
    "source_latest_utc": "2026-10-29T00:00Z",
    "source": "GIBS GetCapabilities GHRSST_L4_MUR_Sea_Surface_Temperature default time",
-   "age_days": 8.94,
+   "age_days": 12.97,
    "lag_days": 0.0,
    "limit_days": null,
    "companion": null,
@@ -12862,7 +13042,7 @@
    "shipped_utc": "2026-10-30T00:00Z",
    "source_latest_utc": "2026-10-30T00:00Z",
    "source": "GIBS GetCapabilities MODIS_Terra_L3_Land_Surface_Temp_Daily_Day default time",
-   "age_days": 7.94,
+   "age_days": 11.97,
    "lag_days": 0.0,
    "limit_days": null,
    "companion": null,
@@ -12873,7 +13053,7 @@
    "shipped_utc": "2026-10-29T00:00Z",
    "source_latest_utc": "2026-10-29T00:00Z",
    "source": "GIBS GetCapabilities GHRSST_L4_MUR_Sea_Ice_Concentration default time",
-   "age_days": 8.94,
+   "age_days": 12.97,
    "lag_days": 0.0,
    "limit_days": null,
    "companion": null,
@@ -12884,7 +13064,7 @@
    "shipped_utc": "2026-10-30T00:00Z",
    "source_latest_utc": "2026-10-30T00:00Z",
    "source": "GIBS GetCapabilities MODIS_Combined_Value_Added_AOD default time",
-   "age_days": 7.94,
+   "age_days": 11.97,
    "lag_days": 0.0,
    "limit_days": null,
    "companion": null,
@@ -12895,7 +13075,7 @@
    "shipped_utc": "2026-10-31T00:00Z",
    "source_latest_utc": "2026-10-31T00:00Z",
    "source": "GIBS GetCapabilities OMI_Aerosol_Index default time",
-   "age_days": 6.94,
+   "age_days": 10.97,
    "lag_days": 0.0,
    "limit_days": null,
    "companion": null,
@@ -12906,7 +13086,7 @@
    "shipped_utc": "2026-10-26T00:00Z",
    "source_latest_utc": "2026-10-26T00:00Z",
    "source": "GIBS GetCapabilities AIRS_L3_Carbon_Monoxide_500hPa_Volume_Mixing_Ratio_Daily_Day default time",
-   "age_days": 11.94,
+   "age_days": 15.97,
    "lag_days": 0.0,
    "limit_days": null,
    "companion": null,
@@ -12917,7 +13097,7 @@
    "shipped_utc": "2026-10-26T00:00Z",
    "source_latest_utc": "2026-10-26T00:00Z",
    "source": "GIBS GetCapabilities OMI_Nitrogen_Dioxide_Tropo_Column default time",
-   "age_days": 11.94,
+   "age_days": 15.97,
    "lag_days": 0.0,
    "limit_days": null,
    "companion": null,
@@ -12928,7 +13108,7 @@
    "shipped_utc": "2026-10-31T00:00Z",
    "source_latest_utc": "2026-10-31T00:00Z",
    "source": "GIBS GetCapabilities VIIRS_NOAA20_AOD_Deep_Blue_Land_Ocean default time",
-   "age_days": 6.94,
+   "age_days": 10.97,
    "lag_days": 0.0,
    "limit_days": null,
    "companion": null,
@@ -12939,7 +13119,7 @@
    "shipped_utc": "2026-10-30T00:00Z",
    "source_latest_utc": "2026-10-30T00:00Z",
    "source": "GIBS GetCapabilities VIIRS_NOAA20_NDVI_8Day default time",
-   "age_days": 7.94,
+   "age_days": 11.97,
    "lag_days": 0.0,
    "limit_days": null,
    "companion": null,
@@ -12950,7 +13130,7 @@
    "shipped_utc": "2026-10-31T00:00Z",
    "source_latest_utc": "2026-10-31T00:00Z",
    "source": "GIBS GetCapabilities MODIS_Aqua_L2_Chlorophyll_A default time",
-   "age_days": 6.94,
+   "age_days": 10.97,
    "lag_days": 0.0,
    "limit_days": null,
    "companion": null,
@@ -12961,7 +13141,7 @@
    "shipped_utc": "2026-10-25T00:00Z",
    "source_latest_utc": "2026-10-25T00:00Z",
    "source": "GIBS GetCapabilities SMAP_L3_Sea_Surface_Salinity_CAP_8Day_RunningMean default time",
-   "age_days": 12.94,
+   "age_days": 16.97,
    "lag_days": 0.0,
    "limit_days": null,
    "companion": null,
@@ -12972,7 +13152,7 @@
    "shipped_utc": "1995-05-04T00:00Z",
    "source_latest_utc": "1995-05-04T00:00Z",
    "source": "GIBS GetCapabilities LIS_High_Resolution_Full_Climatology_Combined_Flash_Rate_Climatology default time",
-   "age_days": 11509.94,
+   "age_days": 11513.97,
    "lag_days": 0.0,
    "limit_days": null,
    "companion": null,
@@ -12996,7 +13176,7 @@
     "source": "FIRMS data availability VIIRS_SNPP_NRT",
     "stopped": true,
     "replacement": "VIIRS_NOAA20_NRT / VIIRS_NOAA21_NRT",
-    "replacement_latest_utc": "2026-11-06",
+    "replacement_latest_utc": "2026-11-10",
     "replacement_source": "FIRMS data availability VIIRS_NOAA20_NRT"
    },
    {
@@ -13014,7 +13194,7 @@
     "source": "CMR AERDB_L2_VIIRS_SNPP latest granule (C2600303218-LAADS)",
     "stopped": true,
     "replacement": "AERDB_L2_VIIRS_NOAA20",
-    "replacement_latest_utc": "2026-11-06",
+    "replacement_latest_utc": "2026-11-10",
     "replacement_source": "CMR AERDB_L2_VIIRS_NOAA20 latest granule (C2600305692-LAADS)"
    }
   ],
@@ -13023,11 +13203,21 @@
  "archive": [
   {
    "svs_id": 3143,
-   "error": "ConnectionError",
+   "update_date": [
+    "2023-05-03T13:56:14.364005-04:00",
+    "2023-05-03T13:56:14.364005-04:00"
+   ],
+   "title_changed": false,
+   "assets_added": [],
+   "assets_removed": [],
+   "n_assets": [
+    11,
+    11
+   ],
    "record": "rel_3143",
    "size_changes": [],
    "size_unchecked": [],
-   "changed": true
+   "changed": false
   },
   {
    "svs_id": 3144,
@@ -13049,27 +13239,57 @@
   },
   {
    "svs_id": 3821,
-   "error": "ConnectionError",
+   "update_date": [
+    "2025-02-02T22:02:19.811171-05:00",
+    "2025-02-02T22:02:19.811171-05:00"
+   ],
+   "title_changed": false,
+   "assets_added": [],
+   "assets_removed": [],
+   "n_assets": [
+    38,
+    38
+   ],
    "record": "rel_3821",
    "size_changes": [],
    "size_unchecked": [],
-   "changed": true
+   "changed": false
   },
   {
    "svs_id": 3912,
-   "error": "ConnectionError",
+   "update_date": [
+    "2025-02-18T00:01:26.447913-05:00",
+    "2025-02-18T00:01:26.447913-05:00"
+   ],
+   "title_changed": false,
+   "assets_added": [],
+   "assets_removed": [],
+   "n_assets": [
+    55,
+    55
+   ],
    "record": "currents_3912",
    "size_changes": [],
    "size_unchecked": [],
-   "changed": true
+   "changed": false
   },
   {
    "svs_id": 3913,
-   "error": "ReadTimeout",
+   "update_date": [
+    "2024-10-13T22:08:25.244827-04:00",
+    "2024-10-13T22:08:25.244827-04:00"
+   ],
+   "title_changed": false,
+   "assets_added": [],
+   "assets_removed": [],
+   "n_assets": [
+    101,
+    101
+   ],
    "record": "rel_3913",
    "size_changes": [],
    "size_unchecked": [],
-   "changed": true
+   "changed": false
   },
   {
    "svs_id": 4272,
@@ -13145,43 +13365,93 @@
   },
   {
    "svs_id": 4353,
-   "error": "ConnectionError",
+   "update_date": [
+    "2025-01-05T22:47:51.783604-05:00",
+    "2025-01-05T22:47:51.783604-05:00"
+   ],
+   "title_changed": false,
+   "assets_added": [],
+   "assets_removed": [],
+   "n_assets": [
+    29,
+    29
+   ],
    "record": "rel_4353",
    "size_changes": [],
    "size_unchecked": [],
-   "changed": true
+   "changed": false
   },
   {
    "svs_id": 4372,
-   "error": "ConnectionError",
+   "update_date": [
+    "2017-02-23T14:10:55-05:00",
+    "2017-02-23T14:10:55-05:00"
+   ],
+   "title_changed": false,
+   "assets_added": [],
+   "assets_removed": [],
+   "n_assets": [
+    15,
+    15
+   ],
    "record": "rel_4372",
    "size_changes": [],
    "size_unchecked": [],
-   "changed": true
+   "changed": false
   },
   {
    "svs_id": 4417,
-   "error": "ReadTimeout",
+   "update_date": [
+    "2025-01-05T22:59:01.217613-05:00",
+    "2025-01-05T22:59:01.217613-05:00"
+   ],
+   "title_changed": false,
+   "assets_added": [],
+   "assets_removed": [],
+   "n_assets": [
+    16,
+    16
+   ],
    "record": "rel_4417",
    "size_changes": [],
    "size_unchecked": [],
-   "changed": true
+   "changed": false
   },
   {
    "svs_id": 4445,
-   "error": "ReadTimeout",
+   "update_date": [
+    "2024-10-09T00:06:21.330973-04:00",
+    "2024-10-09T00:06:21.330973-04:00"
+   ],
+   "title_changed": false,
+   "assets_added": [],
+   "assets_removed": [],
+   "n_assets": [
+    26,
+    26
+   ],
    "record": "rel_4445",
    "size_changes": [],
    "size_unchecked": [],
-   "changed": true
+   "changed": false
   },
   {
    "svs_id": 4658,
-   "error": "ConnectionError",
+   "update_date": [
+    "2019-09-17T15:04:45-04:00",
+    "2019-09-17T15:04:45-04:00"
+   ],
+   "title_changed": false,
+   "assets_added": [],
+   "assets_removed": [],
+   "n_assets": [
+    45,
+    45
+   ],
    "record": "rel_4658",
    "size_changes": [],
    "size_unchecked": [],
-   "changed": true
+   "changed": false
   },
   {
    "svs_id": 4764,
@@ -13203,43 +13473,93 @@
   },
   {
    "svs_id": 4810,
-   "error": "ConnectionError",
+   "update_date": [
+    "2025-01-19T22:42:34.297178-05:00",
+    "2025-01-19T22:42:34.297178-05:00"
+   ],
+   "title_changed": false,
+   "assets_added": [],
+   "assets_removed": [],
+   "n_assets": [
+    96,
+    96
+   ],
    "record": "rel_4810",
    "size_changes": [],
    "size_unchecked": [],
-   "changed": true
+   "changed": false
   },
   {
    "svs_id": 4889,
-   "error": "ReadTimeout",
+   "update_date": [
+    "2025-01-06T00:18:46.960639-05:00",
+    "2025-01-06T00:18:46.960639-05:00"
+   ],
+   "title_changed": false,
+   "assets_added": [],
+   "assets_removed": [],
+   "n_assets": [
+    19,
+    19
+   ],
    "record": "rel_4889",
    "size_changes": [],
    "size_unchecked": [],
-   "changed": true
+   "changed": false
   },
   {
    "svs_id": 4939,
-   "error": "ReadTimeout",
+   "update_date": [
+    "2025-01-06T00:19:04.835221-05:00",
+    "2025-01-06T00:19:04.835221-05:00"
+   ],
+   "title_changed": false,
+   "assets_added": [],
+   "assets_removed": [],
+   "n_assets": [
+    22,
+    22
+   ],
    "record": "rel_4939",
    "size_changes": [],
    "size_unchecked": [],
-   "changed": true
+   "changed": false
   },
   {
    "svs_id": 4950,
-   "error": "ConnectionError",
+   "update_date": [
+    "2025-04-01T13:54:15.020681-04:00",
+    "2025-04-01T13:54:15.020681-04:00"
+   ],
+   "title_changed": false,
+   "assets_added": [],
+   "assets_removed": [],
+   "n_assets": [
+    97,
+    97
+   ],
    "record": "forest_4950",
    "size_changes": [],
    "size_unchecked": [],
-   "changed": true
+   "changed": false
   },
   {
    "svs_id": 4960,
-   "error": "ConnectionError",
+   "update_date": [
+    "2025-04-23T17:09:14.695315-04:00",
+    "2025-04-23T17:09:14.695315-04:00"
+   ],
+   "title_changed": false,
+   "assets_added": [],
+   "assets_removed": [],
+   "n_assets": [
+    24,
+    24
+   ],
    "record": "river_4960",
    "size_changes": [],
    "size_unchecked": [],
-   "changed": true
+   "changed": false
   },
   {
    "svs_id": 4993,
@@ -13875,7 +14195,7 @@
    "svs_id": 5639,
    "update_date": [
     "2026-10-31T02:00:14.271837-04:00",
-    "2026-11-06T02:00:08.820643-05:00"
+    "2026-11-08T02:00:07.067314-05:00"
    ],
    "title_changed": false,
    "assets_added": [],
@@ -13945,16 +14265,16 @@
   }
  ],
  "links": {
-  "http://archive.eso.org/ASTROM/": "ReadTimeout",
-  "http://earthobservatory.nasa.gov/Newsroom/BlueMarble/": "ConnectionError",
+  "http://archive.eso.org/ASTROM/": 403,
+  "http://earthobservatory.nasa.gov/Newsroom/BlueMarble/": 200,
   "http://pmm.nasa.gov/sites/default/files/document_files/IMERG_ATBD_V4.4.pdf": 200,
   "https://acdisc.gesdisc.eosdis.nasa.gov/data/HAQAST/SFC_NITROGEN_DIOXIDE_CONC.1/": 200,
   "https://data.giss.nasa.gov/gistemp/": 200,
   "https://data.giss.nasa.gov/gistemp/tabledata_v4/GLB.Ts+dSST.csv": 200,
   "https://data.giss.nasa.gov/gistemp/tabledata_v4/ZonAnn.Ts+dSST.csv": 200,
-  "https://doi.org/10.5067/GMSLM-TJ151": "ReadTimeout",
-  "https://doi.org/10.5067/MODIS/MCD12C1.006": "ReadTimeout",
-  "https://doi.org/10.5067/OSCAR-25F20": "ReadTimeout",
+  "https://doi.org/10.5067/GMSLM-TJ151": 200,
+  "https://doi.org/10.5067/MODIS/MCD12C1.006": 200,
+  "https://doi.org/10.5067/OSCAR-25F20": 200,
   "https://doi.org/10.6084/m9.figshare.c.5601537.v1": 202,
   "https://earth-information-system.github.io/fireatlas/docs/nrt.html": 200,
   "https://eonet.gsfc.nasa.gov/": 200,
@@ -13966,15 +14286,15 @@
   "https://gmao.gsfc.nasa.gov/pubs/docs/Lucchesi1203.pdf": 200,
   "https://gml.noaa.gov/aggi/AGGI_Table.csv": 200,
   "https://gml.noaa.gov/webdata/ccgg/trends/co2/co2_annmean_mlo.txt": 200,
-  "https://lpdaac.usgs.gov/products/mcd12c1v006/": "ReadTimeout",
-  "https://nasa.gov/hubble": "ConnectionError",
+  "https://lpdaac.usgs.gov/products/mcd12c1v006/": 200,
+  "https://nasa.gov/hubble": 200,
   "https://ntrs.nasa.gov/citations/20180005253": 200,
-  "https://podaac.jpl.nasa.gov/dataset/MERGED_TP_J1_OSTM_OST_ALL_V51": 200,
-  "https://podaac.jpl.nasa.gov/dataset/OISSS_L4_multimission_7day_v1": 200,
+  "https://podaac.jpl.nasa.gov/dataset/MERGED_TP_J1_OSTM_OST_ALL_V51": "ReadTimeout",
+  "https://podaac.jpl.nasa.gov/dataset/OISSS_L4_multimission_7day_v1": "ReadTimeout",
   "https://portal.nccs.nasa.gov/datashare/gmao/geos-cf/v2/": 200,
-  "https://pubs.giss.nasa.gov/abs/ha00510u.html": "ReadTimeout",
-  "https://pubs.giss.nasa.gov/abs/le05800h.html": "ReadTimeout",
-  "https://pubs.giss.nasa.gov/abs/le07900t.html": "ReadTimeout",
+  "https://pubs.giss.nasa.gov/abs/ha00510u.html": 200,
+  "https://pubs.giss.nasa.gov/abs/le05800h.html": 200,
+  "https://pubs.giss.nasa.gov/abs/le07900t.html": 200,
   "https://sites.wustl.edu/acag/datasets/surface-pm2-5/#V4.NA.03": 200,
   "https://springernature.figshare.com/collections/A_Dataset_of_California_Wildfire_Spread_Derived_Using_VIIRS_Observations_and_an_Object-based_Tracking_System/5601537/1": 202,
   "https://svs.gsfc.nasa.gov/13786/": 200,
@@ -13985,21 +14305,21 @@
   "https://svs.gsfc.nasa.gov/3912/": 200,
   "https://svs.gsfc.nasa.gov/3913/": 200,
   "https://svs.gsfc.nasa.gov/4272/": 200,
-  "https://svs.gsfc.nasa.gov/4284/": 200,
+  "https://svs.gsfc.nasa.gov/4284/": "ReadTimeout",
   "https://svs.gsfc.nasa.gov/4332/": 200,
   "https://svs.gsfc.nasa.gov/4345/": 200,
-  "https://svs.gsfc.nasa.gov/4353/": "ReadTimeout",
-  "https://svs.gsfc.nasa.gov/4372/": "ReadTimeout",
+  "https://svs.gsfc.nasa.gov/4353/": 200,
+  "https://svs.gsfc.nasa.gov/4372/": 200,
   "https://svs.gsfc.nasa.gov/4417/": 200,
   "https://svs.gsfc.nasa.gov/4445/": 200,
   "https://svs.gsfc.nasa.gov/4658/": 200,
-  "https://svs.gsfc.nasa.gov/4764/": "ReadTimeout",
-  "https://svs.gsfc.nasa.gov/4810/": "ReadTimeout",
+  "https://svs.gsfc.nasa.gov/4764/": 200,
+  "https://svs.gsfc.nasa.gov/4810/": 200,
   "https://svs.gsfc.nasa.gov/4889/": 200,
   "https://svs.gsfc.nasa.gov/4939/": 200,
-  "https://svs.gsfc.nasa.gov/4950/": "ReadTimeout",
-  "https://svs.gsfc.nasa.gov/4960/": "ReadTimeout",
-  "https://svs.gsfc.nasa.gov/4993/": "ReadTimeout",
+  "https://svs.gsfc.nasa.gov/4950/": 200,
+  "https://svs.gsfc.nasa.gov/4960/": 200,
+  "https://svs.gsfc.nasa.gov/4993/": 200,
   "https://svs.gsfc.nasa.gov/5011/": 200,
   "https://svs.gsfc.nasa.gov/5017/": 200,
   "https://svs.gsfc.nasa.gov/5070/": 200,
@@ -14011,36 +14331,36 @@
   "https://svs.gsfc.nasa.gov/5126/": 200,
   "https://svs.gsfc.nasa.gov/5142/": 200,
   "https://svs.gsfc.nasa.gov/5147/": 200,
-  "https://svs.gsfc.nasa.gov/5148/": 200,
+  "https://svs.gsfc.nasa.gov/5148/": "ReadTimeout",
   "https://svs.gsfc.nasa.gov/5149/": 200,
   "https://svs.gsfc.nasa.gov/5150/": 200,
   "https://svs.gsfc.nasa.gov/5151/": 200,
   "https://svs.gsfc.nasa.gov/5152/": 200,
   "https://svs.gsfc.nasa.gov/5153/": 200,
   "https://svs.gsfc.nasa.gov/5154/": 200,
-  "https://svs.gsfc.nasa.gov/5190/": "ReadTimeout",
+  "https://svs.gsfc.nasa.gov/5190/": 200,
   "https://svs.gsfc.nasa.gov/5191/": 200,
   "https://svs.gsfc.nasa.gov/5196/": 200,
   "https://svs.gsfc.nasa.gov/5207/": 200,
-  "https://svs.gsfc.nasa.gov/5209/": "ReadTimeout",
+  "https://svs.gsfc.nasa.gov/5209/": 200,
   "https://svs.gsfc.nasa.gov/5221/": 200,
   "https://svs.gsfc.nasa.gov/5235/": 200,
   "https://svs.gsfc.nasa.gov/5276/": 200,
   "https://svs.gsfc.nasa.gov/5303/": 200,
-  "https://svs.gsfc.nasa.gov/5313/": "ReadTimeout",
-  "https://svs.gsfc.nasa.gov/5425/": "ReadTimeout",
+  "https://svs.gsfc.nasa.gov/5313/": 200,
+  "https://svs.gsfc.nasa.gov/5425/": 200,
   "https://svs.gsfc.nasa.gov/5436/": 200,
   "https://svs.gsfc.nasa.gov/5453/": 200,
   "https://svs.gsfc.nasa.gov/5468/": 200,
   "https://svs.gsfc.nasa.gov/5475/": 200,
   "https://svs.gsfc.nasa.gov/5477/": 200,
-  "https://svs.gsfc.nasa.gov/5516/": "ReadTimeout",
+  "https://svs.gsfc.nasa.gov/5516/": 200,
   "https://svs.gsfc.nasa.gov/5518/": 200,
   "https://svs.gsfc.nasa.gov/5533/": 200,
   "https://svs.gsfc.nasa.gov/5544/": 200,
   "https://svs.gsfc.nasa.gov/5557/": 200,
-  "https://svs.gsfc.nasa.gov/5572/": "ReadTimeout",
-  "https://svs.gsfc.nasa.gov/5597/": "ReadTimeout",
+  "https://svs.gsfc.nasa.gov/5572/": 200,
+  "https://svs.gsfc.nasa.gov/5597/": 200,
   "https://svs.gsfc.nasa.gov/5601/": 200,
   "https://svs.gsfc.nasa.gov/5611/": 200,
   "https://svs.gsfc.nasa.gov/5624/": 200,
@@ -14068,8 +14388,8 @@
   "https://svs.gsfc.nasa.gov/vis/a000000/a004000/a004050/aquarius_flat_2048x1024.mp4": 200,
   "https://svs.gsfc.nasa.gov/vis/a000000/a004000/a004050/aquarius_flat_640x320.m4v": 200,
   "https://svs.gsfc.nasa.gov/vis/a000000/a004000/a004050/aquarius_flat_datesAndCbar_2048x1024.mp4": 200,
-  "https://svs.gsfc.nasa.gov/vis/a000000/a004000/a004050/aquarius_flat_datesAndCbar_640x320.m4v": "ReadTimeout",
-  "https://svs.gsfc.nasa.gov/vis/a000000/a004000/a004050/frames/4096x2048_2x1_30p/flat/": "ReadTimeout",
+  "https://svs.gsfc.nasa.gov/vis/a000000/a004000/a004050/aquarius_flat_datesAndCbar_640x320.m4v": 200,
+  "https://svs.gsfc.nasa.gov/vis/a000000/a004000/a004050/frames/4096x2048_2x1_30p/flat/": 200,
   "https://svs.gsfc.nasa.gov/vis/a000000/a004000/a004050/frames/4096x2048_2x1_30p/flat_withDates/": 200,
   "https://svs.gsfc.nasa.gov/vis/a000000/a004100/a004170/allswaths3_fade.png": 200,
   "https://svs.gsfc.nasa.gov/vis/a000000/a004200/a004257/frames/3600x1800_2x1_30p/numbers_with_alpha/": 200,
@@ -14085,7 +14405,7 @@
   "https://svs.gsfc.nasa.gov/vis/a000000/a004600/a004685/full360Mariawithaudio.00001_print.jpg": 200,
   "https://svs.gsfc.nasa.gov/vis/a000000/a004800/a004810/avg2015-2019_NO2_print_w_colorbar_date_print.jpg": 200,
   "https://svs.gsfc.nasa.gov/vis/a000000/a004800/a004889/figure_2.00001_print.jpg": 200,
-  "https://svs.gsfc.nasa.gov/vis/a000000/a004800/a004897/imergvar_composite_1080p15.00001_print.jpg": "ReadTimeout",
+  "https://svs.gsfc.nasa.gov/vis/a000000/a004800/a004897/imergvar_composite_1080p15.00001_print.jpg": 200,
   "https://svs.gsfc.nasa.gov/vis/a000000/a004900/a004968/IowaCrops_2022-02-17_1606.01240_print.jpg": 200,
   "https://svs.gsfc.nasa.gov/vis/a000000/a004900/a004983/CO2Volumetric_9600x3240_30fps.02582_print.jpg": 200,
   "https://svs.gsfc.nasa.gov/vis/a000000/a004900/a004990/co2_airs_SOS_4096x2048p30.mp4": 200,
@@ -14101,9 +14421,9 @@
   "https://svs.gsfc.nasa.gov/vis/a000000/a005000/a005017/salinity_v49_1000p60.mp4": 200,
   "https://svs.gsfc.nasa.gov/vis/a000000/a005000/a005017/salinity_v49_8k_2000p30_h265.mp4": 200,
   "https://svs.gsfc.nasa.gov/vis/a000000/a005000/a005022/frames/3840x2160_16x9_60p/CO2_Mollweide_Layer/": 200,
-  "https://svs.gsfc.nasa.gov/vis/a000000/a005000/a005022/frames/4096x2048_2x1_30p/exr/": "ReadTimeout",
-  "https://svs.gsfc.nasa.gov/vis/a000000/a005000/a005022/frames/4096x2048_2x1_30p/png/": "ReadTimeout",
-  "https://svs.gsfc.nasa.gov/vis/a000000/a005000/a005022/frames/4096x2048_2x1_60p/exr/": "ReadTimeout",
+  "https://svs.gsfc.nasa.gov/vis/a000000/a005000/a005022/frames/4096x2048_2x1_30p/exr/": 200,
+  "https://svs.gsfc.nasa.gov/vis/a000000/a005000/a005022/frames/4096x2048_2x1_30p/png/": 200,
+  "https://svs.gsfc.nasa.gov/vis/a000000/a005000/a005022/frames/4096x2048_2x1_60p/exr/": 200,
   "https://svs.gsfc.nasa.gov/vis/a000000/a005000/a005022/oco2_SOS_4096x2048p30.mp4": 200,
   "https://svs.gsfc.nasa.gov/vis/a000000/a005000/a005022/oco2_SOS_4096x2048p30.webm": 200,
   "https://svs.gsfc.nasa.gov/vis/a000000/a005000/a005024/co2_airs_SOS_4096x2048_p30.mp4": 200,
@@ -14111,15 +14431,15 @@
   "https://svs.gsfc.nasa.gov/vis/a000000/a005000/a005024/frames/4096x2048_2x1_30p/60South_exr/": 200,
   "https://svs.gsfc.nasa.gov/vis/a000000/a005000/a005024/frames/4096x2048_2x1_30p/60South_png/": 200,
   "https://svs.gsfc.nasa.gov/vis/a000000/a005000/a005041/ch4_epa_sq_2022-11-14_1335.00100_print.jpg": 200,
-  "https://svs.gsfc.nasa.gov/vis/a000000/a005000/a005046/arctic_sea_ice_w_dates.2023121_print.jpg": "ReadTimeout",
-  "https://svs.gsfc.nasa.gov/vis/a000000/a005000/a005047/co2_nee_5.01750_print.jpg": "ReadTimeout",
-  "https://svs.gsfc.nasa.gov/vis/a000000/a005000/a005054/ch4_wetlands.01500_print.jpg": "ReadTimeout",
-  "https://svs.gsfc.nasa.gov/vis/a000000/a005000/a005058/black_marble_slide_line4.00001_print.jpg": "ReadTimeout",
+  "https://svs.gsfc.nasa.gov/vis/a000000/a005000/a005046/arctic_sea_ice_w_dates.2023121_print.jpg": 200,
+  "https://svs.gsfc.nasa.gov/vis/a000000/a005000/a005047/co2_nee_5.01750_print.jpg": 200,
+  "https://svs.gsfc.nasa.gov/vis/a000000/a005000/a005054/ch4_wetlands.01500_print.jpg": 200,
+  "https://svs.gsfc.nasa.gov/vis/a000000/a005000/a005058/black_marble_slide_line4.00001_print.jpg": 200,
   "https://svs.gsfc.nasa.gov/vis/a000000/a005000/a005064/antarctic_sea_ice_w_dates.2023121_print.jpg": 200,
   "https://svs.gsfc.nasa.gov/vis/a000000/a005000/a005067/fleet_now_print.jpg": 200,
-  "https://svs.gsfc.nasa.gov/vis/a000000/a005000/a005072/atlantic_may_to_dec_singleYear_print.jpg": "ReadTimeout",
+  "https://svs.gsfc.nasa.gov/vis/a000000/a005000/a005072/atlantic_may_to_dec_singleYear_print.jpg": 200,
   "https://svs.gsfc.nasa.gov/vis/a000000/a005000/a005081/NetEmissions_2015_2020_White_4Kx3K_print.jpg": 200,
-  "https://svs.gsfc.nasa.gov/vis/a000000/a005000/a005087/water_extremes_morph_2160p30.00001_print.jpg": "ReadTimeout",
+  "https://svs.gsfc.nasa.gov/vis/a000000/a005000/a005087/water_extremes_morph_2160p30.00001_print.jpg": 200,
   "https://svs.gsfc.nasa.gov/vis/a000000/a005000/a005097/hurr2022_v6.8800_print.jpg": 200,
   "https://svs.gsfc.nasa.gov/vis/a000000/a005000/a005098/root_n_grnd.4k.2676_print.jpg": 200,
   "https://svs.gsfc.nasa.gov/vis/a000000/a005000/a005099/polar_sea_ice_sxs_w_date.2023172_print.jpg": 200,
@@ -14151,92 +14471,92 @@
   "https://svs.gsfc.nasa.gov/vis/a000000/a005200/a005254/IMERGdaily30_raw_v05_2024-03-27_1635_2048p30.webm": 200,
   "https://svs.gsfc.nasa.gov/vis/a000000/a005200/a005254/IMERGdaily30_raw_v07.00416.edgefix_2048p30.mp4": 200,
   "https://svs.gsfc.nasa.gov/vis/a000000/a005200/a005254/frames/4096x2048_2x1_30p/raw/": 200,
-  "https://svs.gsfc.nasa.gov/vis/a000000/a005200/a005273/SOS_TaggedCO2_10-6-2023a_co2_foursources_quality_ScienceOnASphere_1024p30.mp4": "ReadTimeout",
+  "https://svs.gsfc.nasa.gov/vis/a000000/a005200/a005273/SOS_TaggedCO2_10-6-2023a_co2_foursources_quality_ScienceOnASphere_1024p30.mp4": 200,
   "https://svs.gsfc.nasa.gov/vis/a000000/a005200/a005273/SOS_TaggedCO2_10-6-2023a_co2_foursources_quality_ScienceOnASphere_2048p30.mp4": 200,
-  "https://svs.gsfc.nasa.gov/vis/a000000/a005200/a005273/SOS_TaggedCO2_4-1-2024a_co2_BB_quality_ScienceOnASphere_1024p30.mp4": "ReadTimeout",
+  "https://svs.gsfc.nasa.gov/vis/a000000/a005200/a005273/SOS_TaggedCO2_4-1-2024a_co2_BB_quality_ScienceOnASphere_1024p30.mp4": 200,
   "https://svs.gsfc.nasa.gov/vis/a000000/a005200/a005273/SOS_TaggedCO2_4-1-2024a_co2_BB_quality_ScienceOnASphere_2048p30.mp4": 200,
-  "https://svs.gsfc.nasa.gov/vis/a000000/a005200/a005273/SOS_TaggedCO2_4-1-2024a_co2_FF_quality_ScienceOnASphere_1024p30.mp4": "ReadTimeout",
-  "https://svs.gsfc.nasa.gov/vis/a000000/a005200/a005273/SOS_TaggedCO2_4-1-2024a_co2_FF_quality_ScienceOnASphere_2048p30.mp4": "ReadTimeout",
+  "https://svs.gsfc.nasa.gov/vis/a000000/a005200/a005273/SOS_TaggedCO2_4-1-2024a_co2_FF_quality_ScienceOnASphere_1024p30.mp4": 200,
+  "https://svs.gsfc.nasa.gov/vis/a000000/a005200/a005273/SOS_TaggedCO2_4-1-2024a_co2_FF_quality_ScienceOnASphere_2048p30.mp4": 200,
   "https://svs.gsfc.nasa.gov/vis/a000000/a005200/a005273/SOS_TaggedCO2_4-1-2024a_co2_NEE_quality_ScienceOnASphere_1024p30.mp4": 200,
   "https://svs.gsfc.nasa.gov/vis/a000000/a005200/a005273/SOS_TaggedCO2_4-1-2024a_co2_NEE_quality_ScienceOnASphere_2048p30.mp4": 200,
-  "https://svs.gsfc.nasa.gov/vis/a000000/a005200/a005273/SOS_TaggedCO2_4-1-2024a_co2_OCN_quality_ScienceOnASphere_1024p30.mp4": "ReadTimeout",
-  "https://svs.gsfc.nasa.gov/vis/a000000/a005200/a005273/SOS_TaggedCO2_4-1-2024a_co2_OCN_quality_ScienceOnASphere_2048p30.mp4": "ReadTimeout",
-  "https://svs.gsfc.nasa.gov/vis/a000000/a005200/a005273/SOS_TaggedCO2_4-1-2024a_co2_SINKS_quality_ScienceOnASphere_1024p30.mp4": "ReadTimeout",
+  "https://svs.gsfc.nasa.gov/vis/a000000/a005200/a005273/SOS_TaggedCO2_4-1-2024a_co2_OCN_quality_ScienceOnASphere_1024p30.mp4": 200,
+  "https://svs.gsfc.nasa.gov/vis/a000000/a005200/a005273/SOS_TaggedCO2_4-1-2024a_co2_OCN_quality_ScienceOnASphere_2048p30.mp4": 200,
+  "https://svs.gsfc.nasa.gov/vis/a000000/a005200/a005273/SOS_TaggedCO2_4-1-2024a_co2_SINKS_quality_ScienceOnASphere_1024p30.mp4": 200,
   "https://svs.gsfc.nasa.gov/vis/a000000/a005200/a005273/SOS_TaggedCO2_4-1-2024a_co2_SINKS_quality_ScienceOnASphere_2048p30.mp4": 200,
-  "https://svs.gsfc.nasa.gov/vis/a000000/a005200/a005273/SOS_TaggedCO2_5-21-2024a_co2_NEE_sourceAndSink_ScienceOnASphere_1024p30.mp4": "ReadTimeout",
-  "https://svs.gsfc.nasa.gov/vis/a000000/a005200/a005273/SOS_TaggedCO2_5-21-2024a_co2_NEE_sourceAndSink_ScienceOnASphere_2048p30.mp4": "ReadTimeout",
-  "https://svs.gsfc.nasa.gov/vis/a000000/a005200/a005273/SOS_TaggedCO2_5-21-2024a_co2_OCN_sourceAndSink_ScienceOnASphere_1024p30.mp4": "ReadTimeout",
-  "https://svs.gsfc.nasa.gov/vis/a000000/a005200/a005273/SOS_TaggedCO2_5-21-2024a_co2_OCN_sourceAndSink_ScienceOnASphere_2048p30.mp4": "ReadTimeout",
-  "https://svs.gsfc.nasa.gov/vis/a000000/a005200/a005273/frames/4096x2048_2x1_30p/SOS_TaggedCO2_10-6-2023a_co2_foursources_quality_ScienceOnASphere_copied/": "ReadTimeout",
-  "https://svs.gsfc.nasa.gov/vis/a000000/a005200/a005273/frames/4096x2048_2x1_30p/SOS_TaggedCO2_10-6-2023a_co2_foursources_quality_ScienceOnASphere_copied_pngs/": "ReadTimeout",
-  "https://svs.gsfc.nasa.gov/vis/a000000/a005200/a005273/frames/4096x2048_2x1_30p/SOS_TaggedCO2_4-1-2024a_co2_BB_quality_ScienceOnASphere/": "ReadTimeout",
-  "https://svs.gsfc.nasa.gov/vis/a000000/a005200/a005273/frames/4096x2048_2x1_30p/SOS_TaggedCO2_4-1-2024a_co2_BORDERS_quality_ScienceOnASphere/": "ReadTimeout",
+  "https://svs.gsfc.nasa.gov/vis/a000000/a005200/a005273/SOS_TaggedCO2_5-21-2024a_co2_NEE_sourceAndSink_ScienceOnASphere_1024p30.mp4": 200,
+  "https://svs.gsfc.nasa.gov/vis/a000000/a005200/a005273/SOS_TaggedCO2_5-21-2024a_co2_NEE_sourceAndSink_ScienceOnASphere_2048p30.mp4": 200,
+  "https://svs.gsfc.nasa.gov/vis/a000000/a005200/a005273/SOS_TaggedCO2_5-21-2024a_co2_OCN_sourceAndSink_ScienceOnASphere_1024p30.mp4": 200,
+  "https://svs.gsfc.nasa.gov/vis/a000000/a005200/a005273/SOS_TaggedCO2_5-21-2024a_co2_OCN_sourceAndSink_ScienceOnASphere_2048p30.mp4": 200,
+  "https://svs.gsfc.nasa.gov/vis/a000000/a005200/a005273/frames/4096x2048_2x1_30p/SOS_TaggedCO2_10-6-2023a_co2_foursources_quality_ScienceOnASphere_copied/": 200,
+  "https://svs.gsfc.nasa.gov/vis/a000000/a005200/a005273/frames/4096x2048_2x1_30p/SOS_TaggedCO2_10-6-2023a_co2_foursources_quality_ScienceOnASphere_copied_pngs/": 200,
+  "https://svs.gsfc.nasa.gov/vis/a000000/a005200/a005273/frames/4096x2048_2x1_30p/SOS_TaggedCO2_4-1-2024a_co2_BB_quality_ScienceOnASphere/": 200,
+  "https://svs.gsfc.nasa.gov/vis/a000000/a005200/a005273/frames/4096x2048_2x1_30p/SOS_TaggedCO2_4-1-2024a_co2_BORDERS_quality_ScienceOnASphere/": 200,
   "https://svs.gsfc.nasa.gov/vis/a000000/a005200/a005273/frames/4096x2048_2x1_30p/SOS_TaggedCO2_4-1-2024a_co2_BORDERS_quality_ScienceOnASphere/pngs/": 200,
   "https://svs.gsfc.nasa.gov/vis/a000000/a005200/a005273/frames/4096x2048_2x1_30p/SOS_TaggedCO2_4-1-2024a_co2_FF_quality_ScienceOnASphere/": 200,
   "https://svs.gsfc.nasa.gov/vis/a000000/a005200/a005273/frames/4096x2048_2x1_30p/SOS_TaggedCO2_4-1-2024a_co2_NEE_quality_ScienceOnASphere/": 200,
-  "https://svs.gsfc.nasa.gov/vis/a000000/a005200/a005273/frames/4096x2048_2x1_30p/SOS_TaggedCO2_4-1-2024a_co2_OCN_quality_ScienceOnASphere/": "ReadTimeout",
+  "https://svs.gsfc.nasa.gov/vis/a000000/a005200/a005273/frames/4096x2048_2x1_30p/SOS_TaggedCO2_4-1-2024a_co2_OCN_quality_ScienceOnASphere/": 200,
   "https://svs.gsfc.nasa.gov/vis/a000000/a005200/a005273/frames/4096x2048_2x1_30p/SOS_TaggedCO2_4-1-2024a_co2_SINKS_quality_ScienceOnASphere/": 200,
-  "https://svs.gsfc.nasa.gov/vis/a000000/a005200/a005273/frames/4096x2048_2x1_30p/SOS_TaggedCO2_5-21-2024a_co2_NEE_sourceAndSink_ScienceOnASphere/": "ReadTimeout",
-  "https://svs.gsfc.nasa.gov/vis/a000000/a005200/a005273/frames/4096x2048_2x1_30p/SOS_TaggedCO2_5-21-2024a_co2_OCN_sourceAndSink_ScienceOnASphere/": "ReadTimeout",
-  "https://svs.gsfc.nasa.gov/vis/a000000/a005300/a005304/seaLevelWaveTank_sos_5-29-2024a_1024p30.mp4": "ReadTimeout",
+  "https://svs.gsfc.nasa.gov/vis/a000000/a005200/a005273/frames/4096x2048_2x1_30p/SOS_TaggedCO2_5-21-2024a_co2_NEE_sourceAndSink_ScienceOnASphere/": 200,
+  "https://svs.gsfc.nasa.gov/vis/a000000/a005200/a005273/frames/4096x2048_2x1_30p/SOS_TaggedCO2_5-21-2024a_co2_OCN_sourceAndSink_ScienceOnASphere/": 200,
+  "https://svs.gsfc.nasa.gov/vis/a000000/a005300/a005304/seaLevelWaveTank_sos_5-29-2024a_1024p30.mp4": 200,
   "https://svs.gsfc.nasa.gov/vis/a000000/a005300/a005304/seaLevelWaveTank_sos_5-29-2024a_2048p30.mp4": 200,
-  "https://svs.gsfc.nasa.gov/vis/a000000/a005300/a005382/sea_ice_2024_min_2160p60.2608_print.jpg": "ReadTimeout",
-  "https://svs.gsfc.nasa.gov/vis/a000000/a005400/a005425/perpetual_ocean2_CLOSE_093_4k_clean_noDate.00000_print.jpg": "ReadTimeout",
-  "https://svs.gsfc.nasa.gov/vis/a000000/a005400/a005453/fireIncrease.jpg": "ReadTimeout",
-  "https://svs.gsfc.nasa.gov/vis/a000000/a005400/a005478/IMERGdaily30_2048x102430p_sos.mp4": "ReadTimeout",
-  "https://svs.gsfc.nasa.gov/vis/a000000/a005400/a005478/IMERGdaily30_4096x204830p_sos.mp4": "ReadTimeout",
-  "https://svs.gsfc.nasa.gov/vis/a000000/a005400/a005478/IMERGdaily30_raw_v07.00416.edgefix_2048p30.mp4": "ReadTimeout",
-  "https://svs.gsfc.nasa.gov/vis/a000000/a005400/a005478/frames/2048x1024_2x1_30p/": "ReadTimeout",
-  "https://svs.gsfc.nasa.gov/vis/a000000/a005400/a005478/frames/4096x2048_2x1_30p/": "ReadTimeout",
+  "https://svs.gsfc.nasa.gov/vis/a000000/a005300/a005382/sea_ice_2024_min_2160p60.2608_print.jpg": 200,
+  "https://svs.gsfc.nasa.gov/vis/a000000/a005400/a005425/perpetual_ocean2_CLOSE_093_4k_clean_noDate.00000_print.jpg": 200,
+  "https://svs.gsfc.nasa.gov/vis/a000000/a005400/a005453/fireIncrease.jpg": 200,
+  "https://svs.gsfc.nasa.gov/vis/a000000/a005400/a005478/IMERGdaily30_2048x102430p_sos.mp4": 200,
+  "https://svs.gsfc.nasa.gov/vis/a000000/a005400/a005478/IMERGdaily30_4096x204830p_sos.mp4": 200,
+  "https://svs.gsfc.nasa.gov/vis/a000000/a005400/a005478/IMERGdaily30_raw_v07.00416.edgefix_2048p30.mp4": 200,
+  "https://svs.gsfc.nasa.gov/vis/a000000/a005400/a005478/frames/2048x1024_2x1_30p/": 200,
+  "https://svs.gsfc.nasa.gov/vis/a000000/a005400/a005478/frames/4096x2048_2x1_30p/": 200,
   "https://svs.gsfc.nasa.gov/vis/a000000/a005500/a005544/frames/4096x2048_2x1_30p/equirectangular_w_dates/": 200,
-  "https://svs.gsfc.nasa.gov/vis/a000000/a005500/a005557/event001_BlackCarbonGEOS2km_latest.mp4": "ReadTimeout",
-  "https://svs.gsfc.nasa.gov/vis/a000000/a005500/a005557/event001_FirePerimeters_latest.mp4": "ReadTimeout",
-  "https://svs.gsfc.nasa.gov/vis/a000000/a005500/a005557/event002_BlackCarbonGEOS2km_latest.mp4": "ReadTimeout",
-  "https://svs.gsfc.nasa.gov/vis/a000000/a005500/a005557/event002_FirePerimeters_latest.mp4": "ReadTimeout",
+  "https://svs.gsfc.nasa.gov/vis/a000000/a005500/a005557/event001_BlackCarbonGEOS2km_latest.mp4": 200,
+  "https://svs.gsfc.nasa.gov/vis/a000000/a005500/a005557/event001_FirePerimeters_latest.mp4": 200,
+  "https://svs.gsfc.nasa.gov/vis/a000000/a005500/a005557/event002_BlackCarbonGEOS2km_latest.mp4": 200,
+  "https://svs.gsfc.nasa.gov/vis/a000000/a005500/a005557/event002_FirePerimeters_latest.mp4": 200,
   "https://svs.gsfc.nasa.gov/vis/a000000/a005500/a005557/frames/event001_FireContext_prev_versions/": 200,
-  "https://svs.gsfc.nasa.gov/vis/a000000/a005500/a005557/frames/event002_FireContext_prev_versions/": "ReadTimeout",
-  "https://svs.gsfc.nasa.gov/vis/a000000/a005500/a005597/Palisades_Eaton.FirePerimeters.mp4": "ReadTimeout",
-  "https://svs.gsfc.nasa.gov/vis/a000000/a005500/a005597/event001-Palisades_Wildfire_Los_Angeles_California-BlackCarbonGEOS2km-20250120.mp4": "ReadTimeout",
-  "https://svs.gsfc.nasa.gov/vis/a000000/a005500/a005598/DragonBravo.FirePerimeters.mp4": "ReadTimeout",
+  "https://svs.gsfc.nasa.gov/vis/a000000/a005500/a005557/frames/event002_FireContext_prev_versions/": 200,
+  "https://svs.gsfc.nasa.gov/vis/a000000/a005500/a005597/Palisades_Eaton.FirePerimeters.mp4": 200,
+  "https://svs.gsfc.nasa.gov/vis/a000000/a005500/a005597/event001-Palisades_Wildfire_Los_Angeles_California-BlackCarbonGEOS2km-20250120.mp4": 200,
+  "https://svs.gsfc.nasa.gov/vis/a000000/a005500/a005598/DragonBravo.FirePerimeters.mp4": 200,
   "https://svs.gsfc.nasa.gov/vis/a000000/a005500/a005598/event001-Dragon_Bravo_Wildfire_Coconino_County_Arizona-BlackCarbonGEOS2km-20250731.mp4": 200,
   "https://svs.gsfc.nasa.gov/vis/a000000/a005600/a005601/RedCanyon.FirePerimeters.mp4": 200,
   "https://svs.gsfc.nasa.gov/vis/a000000/a005600/a005601/event001-RED_CANYON_Wildfire_Hot_Springs_Wyoming-BlackCarbonGEOS2km-20250824.mp4": 200,
-  "https://svs.gsfc.nasa.gov/vis/a000000/a005600/a005631/CanadianWildfires2023_SmokeIntensity_Global_4096x2048.mp4": "ReadTimeout",
-  "https://svs.gsfc.nasa.gov/vis/a000000/a005600/a005631/CanadianWildfires2023_SmokeIntensity_Global_Labels_4096x2048.mp4": "ReadTimeout",
-  "https://svs.gsfc.nasa.gov/vis/a000000/a005600/a005631/CanadianWildfires2023_SmokeIntensity_Global_Labels_7680x3840.mp4": "ReadTimeout",
-  "https://svs.gsfc.nasa.gov/vis/a000000/a005600/a005631/CanadianWildfires_SmokeIntensity_Global_7680x3840.mp4": "ReadTimeout",
-  "https://svs.gsfc.nasa.gov/vis/a000000/a005600/a005631/frames/7680x3840_2x1_30p/Global_Labels/": "ReadTimeout",
-  "https://svs.gsfc.nasa.gov/vis/a000000/a005600/a005631/frames/7680x3840_2x1_30p/Global_NoLabels/": "ReadTimeout",
-  "https://svs.gsfc.nasa.gov/vis/a000000/a005600/a005639/EVENT1_BlackCarbonGEOS2km_latest.mp4": "ReadTimeout",
-  "https://svs.gsfc.nasa.gov/vis/a000000/a005600/a005639/EVENT1_FirePerimeters_latest.mp4": "ReadTimeout",
-  "https://svs.gsfc.nasa.gov/vis/a000000/a005600/a005639/EVENT2_BlackCarbonGEOS2km_latest.mp4": "ReadTimeout",
-  "https://svs.gsfc.nasa.gov/vis/a000000/a005600/a005639/EVENT2_FirePerimeters_latest.mp4": "ReadTimeout",
+  "https://svs.gsfc.nasa.gov/vis/a000000/a005600/a005631/CanadianWildfires2023_SmokeIntensity_Global_4096x2048.mp4": 200,
+  "https://svs.gsfc.nasa.gov/vis/a000000/a005600/a005631/CanadianWildfires2023_SmokeIntensity_Global_Labels_4096x2048.mp4": 200,
+  "https://svs.gsfc.nasa.gov/vis/a000000/a005600/a005631/CanadianWildfires2023_SmokeIntensity_Global_Labels_7680x3840.mp4": 200,
+  "https://svs.gsfc.nasa.gov/vis/a000000/a005600/a005631/CanadianWildfires_SmokeIntensity_Global_7680x3840.mp4": 200,
+  "https://svs.gsfc.nasa.gov/vis/a000000/a005600/a005631/frames/7680x3840_2x1_30p/Global_Labels/": 200,
+  "https://svs.gsfc.nasa.gov/vis/a000000/a005600/a005631/frames/7680x3840_2x1_30p/Global_NoLabels/": 200,
+  "https://svs.gsfc.nasa.gov/vis/a000000/a005600/a005639/EVENT1_BlackCarbonGEOS2km_latest.mp4": 200,
+  "https://svs.gsfc.nasa.gov/vis/a000000/a005600/a005639/EVENT1_FirePerimeters_latest.mp4": 200,
+  "https://svs.gsfc.nasa.gov/vis/a000000/a005600/a005639/EVENT2_BlackCarbonGEOS2km_latest.mp4": 200,
+  "https://svs.gsfc.nasa.gov/vis/a000000/a005600/a005639/EVENT2_FirePerimeters_latest.mp4": 200,
   "https://svs.gsfc.nasa.gov/vis/a000000/a005600/a005639/frames/event001_FireContext_prev_versions/": 200,
-  "https://svs.gsfc.nasa.gov/vis/a000000/a005600/a005639/frames/event002_FireContext_prev_versions/": "ReadTimeout",
+  "https://svs.gsfc.nasa.gov/vis/a000000/a005600/a005639/frames/event002_FireContext_prev_versions/": 200,
   "https://svs.gsfc.nasa.gov/vis/a000000/a005600/a005650/annotated_flat_2048x1024.mp4": 200,
   "https://svs.gsfc.nasa.gov/vis/a000000/a005600/a005650/annotated_robinson_2048x1024.mp4": 200,
-  "https://svs.gsfc.nasa.gov/vis/a000000/a005600/a005650/composite_3600x1800.mp4": "ReadTimeout",
-  "https://svs.gsfc.nasa.gov/vis/a000000/a005600/a005650/flat_alpha_3600x1800.mp4": "ReadTimeout",
-  "https://svs.gsfc.nasa.gov/vis/a000000/a005600/a005650/frames/2048x1024_2x1_30p/annotated_flat/": "ReadTimeout",
-  "https://svs.gsfc.nasa.gov/vis/a000000/a005600/a005650/frames/2048x1024_2x1_30p/annotated_robinson/": "ReadTimeout",
-  "https://svs.gsfc.nasa.gov/vis/a000000/a005600/a005650/frames/2048x1024_2x1_30p/composite/": "ReadTimeout",
-  "https://svs.gsfc.nasa.gov/vis/a000000/a005600/a005650/frames/2048x1024_2x1_30p/robinson/": "ReadTimeout",
-  "https://svs.gsfc.nasa.gov/vis/a000000/a005600/a005650/frames/3600x1800_2x1_30p/robinson/": "ReadTimeout",
-  "https://svs.gsfc.nasa.gov/vis/a000000/a005600/a005650/robinson_3600x1800.mp4": "ReadTimeout",
-  "https://svs.gsfc.nasa.gov/vis/a000000/a005600/a005665/CanadianWildfires_Perimeters_072126.mp4": "ReadTimeout",
-  "https://svs.gsfc.nasa.gov/vis/a010000/a012100/a012126/12126_2DSOS_IMERG-MERRA-SST-Snippet_4K_Prores.mov": "ReadTimeout",
-  "https://svs.gsfc.nasa.gov/vis/a010000/a012100/a012126/12126_2DSOS_MERRA-SST-Snippet_Prores.mov": "ReadTimeout",
-  "https://svs.gsfc.nasa.gov/vis/a010000/a012100/a012126/12126_2DSOS_MERRA-SST-Snippet_Prores.webm": "ReadTimeout",
+  "https://svs.gsfc.nasa.gov/vis/a000000/a005600/a005650/composite_3600x1800.mp4": 200,
+  "https://svs.gsfc.nasa.gov/vis/a000000/a005600/a005650/flat_alpha_3600x1800.mp4": 200,
+  "https://svs.gsfc.nasa.gov/vis/a000000/a005600/a005650/frames/2048x1024_2x1_30p/annotated_flat/": 200,
+  "https://svs.gsfc.nasa.gov/vis/a000000/a005600/a005650/frames/2048x1024_2x1_30p/annotated_robinson/": 200,
+  "https://svs.gsfc.nasa.gov/vis/a000000/a005600/a005650/frames/2048x1024_2x1_30p/composite/": 200,
+  "https://svs.gsfc.nasa.gov/vis/a000000/a005600/a005650/frames/2048x1024_2x1_30p/robinson/": 200,
+  "https://svs.gsfc.nasa.gov/vis/a000000/a005600/a005650/frames/3600x1800_2x1_30p/robinson/": 200,
+  "https://svs.gsfc.nasa.gov/vis/a000000/a005600/a005650/robinson_3600x1800.mp4": 200,
+  "https://svs.gsfc.nasa.gov/vis/a000000/a005600/a005665/CanadianWildfires_Perimeters_072126.mp4": 200,
+  "https://svs.gsfc.nasa.gov/vis/a010000/a012100/a012126/12126_2DSOS_IMERG-MERRA-SST-Snippet_4K_Prores.mov": 200,
+  "https://svs.gsfc.nasa.gov/vis/a010000/a012100/a012126/12126_2DSOS_MERRA-SST-Snippet_Prores.mov": 200,
+  "https://svs.gsfc.nasa.gov/vis/a010000/a012100/a012126/12126_2DSOS_MERRA-SST-Snippet_Prores.webm": 200,
   "https://svs.gsfc.nasa.gov/vis/a010000/a012100/a012126/12126_2DSOS_SST-Precip-Snippet_Prores.mov": 200,
-  "https://svs.gsfc.nasa.gov/vis/a010000/a012100/a012126/12126_2DSOS_SST-Snippet_Prores.mov": "ReadTimeout",
-  "https://svs.gsfc.nasa.gov/vis/a010000/a012100/a012126/YOUTUBE_HQ-12126_2DSOS_IMERG-MERRA-SST-Snippet_youtube_hq.mov": "ReadTimeout",
-  "https://svs.gsfc.nasa.gov/vis/a010000/a012100/a012126/YOUTUBE_HQ-12126_2DSOS_IMERG-MERRA-SST-Snippet_youtube_hq.webm": "ReadTimeout",
+  "https://svs.gsfc.nasa.gov/vis/a010000/a012100/a012126/12126_2DSOS_SST-Snippet_Prores.mov": 200,
+  "https://svs.gsfc.nasa.gov/vis/a010000/a012100/a012126/YOUTUBE_HQ-12126_2DSOS_IMERG-MERRA-SST-Snippet_youtube_hq.mov": 200,
+  "https://svs.gsfc.nasa.gov/vis/a010000/a012100/a012126/YOUTUBE_HQ-12126_2DSOS_IMERG-MERRA-SST-Snippet_youtube_hq.webm": 200,
   "https://svs.gsfc.nasa.gov/vis/a010000/a012100/a012126/YOUTUBE_HQ-12126_2DSOS_MERRA-SST-Snippet_youtube_hq.mov": 200,
-  "https://svs.gsfc.nasa.gov/vis/a010000/a012100/a012126/YOUTUBE_HQ-12126_2DSOS_SST-Precip-Snippet_youtube_hq.mov": "ReadTimeout",
-  "https://svs.gsfc.nasa.gov/vis/a010000/a012100/a012126/YOUTUBE_HQ-12126_2DSOS_SST-Snippet_youtube_hq.mov": "ReadTimeout",
-  "https://svs.gsfc.nasa.gov/vis/a030000/a030000/a030028/frames/6750x3375_2x1_30p/split-750m/": "ReadTimeout",
+  "https://svs.gsfc.nasa.gov/vis/a010000/a012100/a012126/YOUTUBE_HQ-12126_2DSOS_SST-Precip-Snippet_youtube_hq.mov": 200,
+  "https://svs.gsfc.nasa.gov/vis/a010000/a012100/a012126/YOUTUBE_HQ-12126_2DSOS_SST-Snippet_youtube_hq.mov": 200,
+  "https://svs.gsfc.nasa.gov/vis/a030000/a030000/a030028/frames/6750x3375_2x1_30p/split-750m/": 200,
   "https://svs.gsfc.nasa.gov/vis/a030000/a030500/a030521/grace_ca_drought_v4_0128_print.jpg": 200,
-  "https://svs.gsfc.nasa.gov/vis/a030000/a031100/a031196/denver_landsat_v1_2022_print.jpg": "ReadTimeout",
+  "https://svs.gsfc.nasa.gov/vis/a030000/a031100/a031196/denver_landsat_v1_2022_print.jpg": 200,
   "https://visibleearth.nasa.gov/images/144898/earth-at-night-black-marble-2016-color-maps/144947l": 200,
   "https://www.cfa.harvard.edu/facilities-technology/telescopes-instruments/tempo": 200,
   "https://www.class.noaa.gov/": 200,
@@ -14265,6 +14585,6 @@
   }
  ],
  "app": {
-  "summary": "67 of 67 records pass in chromium, firefox"
+  "summary": "65 of 67 records pass in chromium, firefox"
  }
 }

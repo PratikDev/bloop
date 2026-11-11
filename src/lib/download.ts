@@ -1,0 +1,8 @@
+const REVOKE_MS = 1000;
+
+export function downloadBlob(blob: Blob, fileName: string): void {
+  const url = URL.createObjectURL(blob);
+  const a = Object.assign(document.createElement("a"), { href: url, download: fileName });
+  a.click();
+  setTimeout(() => URL.revokeObjectURL(url), REVOKE_MS);
+}

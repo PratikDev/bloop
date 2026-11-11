@@ -30,6 +30,7 @@ export interface CountryProps {
   LABEL_Y?: number;
   LABELRANK?: number;
   ADM0_A3?: string;
+  CONTINENT?: string;
 }
 
 export interface DistrictProps {

@@ -189,7 +189,7 @@ export function LabelLayer({
     };
   }, [subscribe, candidates, graticule, reserved, placedRef]);
 
-  return <div ref={hostRef} aria-hidden="true" className="pointer-events-none absolute inset-0 overflow-hidden" />;
+  return <div ref={hostRef} aria-hidden="true" data-globe-labels="" className="pointer-events-none absolute inset-0 overflow-hidden" />;
 }
 
 /** The graticule's named lines (equator and tropics) and the 30° / 60° lines. */

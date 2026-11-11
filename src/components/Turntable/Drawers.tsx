@@ -7,22 +7,32 @@ import { Slider } from "@/components/ui/slider";
 import { useMediaQuery } from "@/hooks/use-media-query";
 import { cn } from "@/lib/utils";
 import { ChoiceGroup } from "../ChoiceGroup";
+import { InlinePanel } from "../InlinePanel";
+import { useInlinePanels } from "../LowVision/use-inline-panels";
 import { Mixer } from "../Mixer";
 import { OnOffToggle } from "../OnOffToggle";
 import { PanelTabs } from "../panels/PanelTabs";
 import { SettingToggle } from "../SettingToggle";
+import { CreditsBody } from "./CreditsLink";
 import { useTT, type TT } from "./i18n";
 import { TIERS, type Tier } from "./quality";
 import type { TurntableSettings } from "./settings";
 
-export type DrawerId = "layers" | "settings" | "howWeKnow";
+export type DrawerId = "layers" | "settings" | "howWeKnow" | "credits";
 
 const SECTION = "space-y-2";
 const HEADING = "text-body font-semibold text-moon";
 
-/** One slide-over drawer: right on wide screens, bottom sheet on phones. */
 export function Drawer({ open, onClose, title, description, children }: { open: boolean; onClose: () => void; title: string; description?: string; children: React.ReactNode }) {
   const phone = useMediaQuery("(max-width: 767px)");
+  const inline = useInlinePanels();
+  if (inline) {
+    return open ? (
+      <InlinePanel title={title} description={description} onClose={onClose} className="tt-warm mx-auto my-3 max-w-3xl">
+        <div className="space-y-5">{children}</div>
+      </InlinePanel>
+    ) : null;
+  }
   return (
     <Sheet open={open} onOpenChange={(o) => !o && onClose()}>
       <SheetContent
@@ -127,7 +137,7 @@ function SettingsBody({ settings, update, onMyLocation, onFlatMap }: { settings:
   );
 }
 
-export interface DrawersProps {
+interface DrawersProps {
   open: DrawerId | null;
   onClose(): void;
   settings: TurntableSettings;
@@ -149,6 +159,9 @@ export function Drawers({ open, onClose, settings, update, onMyLocation, onFlatM
       </Drawer>
       <Drawer open={open === "howWeKnow"} onClose={onClose} title={tt("turntable.howWeKnow")}>
         <PanelTabs />
+      </Drawer>
+      <Drawer open={open === "credits"} onClose={onClose} title={tt("turntable.creditsLink")}>
+        <CreditsBody />
       </Drawer>
     </>
   );

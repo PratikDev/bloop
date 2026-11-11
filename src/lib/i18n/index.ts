@@ -10,6 +10,20 @@ import { badgesEn } from "./en/badges";
 import { brailleEn } from "./en/braille";
 import { captionsEn } from "./en/captions";
 import { contextEn } from "./en/context";
+import { creditsEn } from "./en/credits";
+import { provenanceEn } from "./en/provenance";
+import { teamEn } from "./en/team";
+import { listenTestEn } from "./en/listen-test";
+import { accessEn } from "./en/access";
+import { describeEn } from "./en/describe";
+import { placesTableEn } from "./en/places-table";
+import { tuningEn } from "./en/tuning";
+import { expeditionEn } from "./en/expedition";
+import { timedTextEn } from "./en/timed-text";
+import { lowVisionEn } from "./en/low-vision";
+import { askBloopEn } from "./en/ask-bloop";
+import { earthEn } from "./en/earth";
+import { artEn } from "./en/art";
 import { dataEn } from "./en/data";
 import { helpEn } from "./en/help";
 import { officialEn } from "./en/official";
@@ -17,8 +31,12 @@ import { pagesEn } from "./en/pages";
 import { panelsEn } from "./en/panels";
 import { storyEn } from "./en/story";
 import { scenesEn } from "./en/scenes";
+import { framesEn } from "./en/frames";
+import { howEn } from "./en/how";
+import { statsEn } from "./en/stats";
 import { turntableEn } from "./en/turntable";
 import type { Lang } from "./types";
+import { cvEn } from "./en/cv";
 
 export const en = {
   ...appEn,
@@ -34,6 +52,24 @@ export const en = {
   ...dataEn,
   ...officialEn,
   ...brailleEn,
+  ...statsEn,
+  ...framesEn,
+  ...howEn,
+  ...creditsEn,
+  ...provenanceEn,
+  ...teamEn,
+  ...listenTestEn,
+  ...accessEn,
+  ...describeEn,
+  ...placesTableEn,
+  ...tuningEn,
+  ...expeditionEn,
+  ...timedTextEn,
+  ...lowVisionEn,
+  ...askBloopEn,
+  ...cvEn,
+  ...earthEn,
+  ...artEn,
 };
 
 export type Messages = typeof en;
@@ -44,9 +80,6 @@ export type ArgsOf<K extends MessageKey> = [ParamsOf<K>] extends [never] ? [] : 
 /** Bangla: every translated key, English for the rest (until a teammate translates them). */
 const bn: Messages = { ...en, ...bnTranslated };
 
-/** The keys still shown in English in Bangla (docs/i18n/TO_TRANSLATE.md). */
-export const UNTRANSLATED_KEYS = (Object.keys(en) as MessageKey[]).filter((key) => !(key in bnTranslated));
-
 const TABLES: Record<Lang, Messages> = { en, bn };
 
 export function t<K extends MessageKey>(lang: Lang, key: K, ...args: ArgsOf<K>): string {
@@ -55,12 +88,10 @@ export function t<K extends MessageKey>(lang: Lang, key: K, ...args: ArgsOf<K>):
   return (msg as (p: ArgsOf<K>[0]) => string)(args[0]);
 }
 
-/** The language built-in speech may use: English until Bangla speech is ready (plan §17). */
 export function speechLang(lang: Lang): Lang {
   return lang === "bn" && BANGLA_SPEECH_READY ? "bn" : "en";
 }
 
-/** t() bound to one language. */
 export function bindT(lang: Lang) {
   return <K extends MessageKey>(key: K, ...args: ArgsOf<K>) => t(lang, key, ...args);
 }

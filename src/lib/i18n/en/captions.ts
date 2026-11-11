@@ -40,6 +40,9 @@ export const captionsEn = {
   "caption.thenNow.caption": (p: CaptionParams) => strParam(p, "text"),
   "caption.thenNow.window": (p: CaptionParams) => `Playing ${strParam(p, "label")}`,
   "caption.thenNow.end": "Then vs Now finished",
+  "caption.thenNow.stats": (p: CaptionParams) => strParam(p, "en"),
+  "caption.frameGap": (p: CaptionParams) => strParam(p, "en"),
+  "caption.note": (p: CaptionParams) => strParam(p, "en"),
   "caption.water.gap": (p: CaptionParams) => {
     const from = formatMonth(strParam(p, "from"), "en");
     const to = formatMonth(strParam(p, "to"), "en");

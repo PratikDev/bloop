@@ -63,8 +63,10 @@ export interface L2AudioApi {
   // Speech, legend, earcons
   speak(text: string, lang: Lang): Promise<void>;
   playEarcon(id: EarconId, opts?: { lon?: number; params?: CaptionParams }): void;
+  playSonarPing(closeness: number, lon?: number): void;
   playLegend(voice: LegendVoice): PlayerHandle;
   playWarmup(): PlayerHandle;
+  playAnchor(voice: LegendVoice, which: "lowest" | "highest" | "reference"): PlayerHandle;
 
   // Sequences
   playSweep(points: SweepPoint[], opts?: { stepMs?: number }): PlayerHandle;
@@ -83,10 +85,6 @@ export interface L2AudioApi {
   onAudioEvent(cb: (e: AudioEvent) => void): () => void;
 }
 
-/**
- * L3's additions (docs/L3/contract-proposals.md §B). Requested from L2, but the
- * UI never depends on them: withFallbacks() fills any that are missing.
- */
 export interface L3AudioExtensions {
   setVoiceVolume(id: VoiceId, v: number): void; // B3: per-voice volume slider
   getAnalyser(): AnalyserNode | null; // B1: waveform, rings, audio clock

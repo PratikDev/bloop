@@ -1,5 +1,4 @@
 // The Mapping panel's rule sentence in Bangla, built from the same parts as
-// L2's English ruleText() (src/lib/audio/mapping-text.ts), so it can never
 // disagree with the sound.
 
 import { ruleParts, ruleText } from "@/lib/audio/mapping";
@@ -16,17 +15,14 @@ const PARAM_WORDS: Record<string, string> = {
   gain: "জোর",
 };
 
+const CLASS_SOUND_BN = { silence: "নীরবতা (বলে দেওয়া)", chord: "একটি স্থির কর্ড", rumble: "একটি স্থির গুমগুম শব্দ" } as const;
+
 /** A voice's Bangla name: mapping.json's, unless it is still marked TODO there. */
 export function voiceLabelBn(voice: VoiceSpec): string {
   return voice.label.bn.startsWith("TODO") ? translateData(voice.label.en) : voice.label.bn;
 }
 
-/**
- * The words a voice's rule needs that Bangla doesn't have yet: a parameter without a Bangla word, a unit
- * translateData() doesn't know, a "same rule as" voice, a falling output (bloop-dev's voices: normalTone, clarity,
- * unison, …). Empty = the Bangla sentence can be built. Listed in docs/i18n/TO_TRANSLATE.md.
- */
-export function missingRuleWords(voice: VoiceSpec): string[] {
+function missingRuleWords(voice: VoiceSpec): string[] {
   const p = ruleParts(voice);
   if (!p) return [];
   const missing: string[] = [];
@@ -45,6 +41,11 @@ export function ruleTextBn(voice: VoiceSpec): string {
   if (missingRuleWords(voice).length) return ruleText(voice);
   const name = voiceLabelBn(voice);
   const unit = translateData(p.inputUnit);
+
+  if (p.kind === "classes") {
+    const parts = (p.classes ?? []).map((c) => `${translateData(c.label)}: ${CLASS_SOUND_BN[c.sound]}`);
+    return `${name} (${unit}) → প্রতিটি শ্রেণির একটি স্থির শব্দ, কখনও সুরের উচ্চতা নয়। ${parts.join("; ")}।`;
+  }
 
   if (p.kind === "bands") {
     const what = p.inputTransform === "abs" ? `স্বাভাবিক থেকে কতটা দূরে (যেকোনো দিকে, ${unit})` : name;

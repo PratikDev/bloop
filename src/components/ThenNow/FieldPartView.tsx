@@ -32,7 +32,7 @@ function FieldLayout({ picker, pair, chart, caption, facts }: { picker: ReactNod
         <>
           {picker}
           {/* No voice yet for these records (L2's optional list): said, never faked. */}
-          <StatusBadge kind="october">{t("field.soundOctober")}</StatusBadge>
+          <StatusBadge kind="note">{t("field.noSound")}</StatusBadge>
         </>
       }
       detailsTitle={t("field.sources")}

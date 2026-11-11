@@ -4,13 +4,7 @@ import { useLoaded } from "@/hooks/use-loaded";
 import { loadGlobeDuet } from "@/lib/data";
 import { formatDay } from "@/lib/i18n";
 import { useAppState, useT } from "../AppState/use-app-state";
-import { StatusBadge } from "../StatusBadge";
 
-/**
- * Citizen observers vs satellite (contract §12, plan §11.6 teaser): the typical
- * place-day, how often the two agree, and L1's own disclosure. Only when the
- * file says there are enough pairs (status "ok"); otherwise nothing is shown.
- */
 export function GlobeTeaser() {
   const { state } = useAppState();
   const t = useT();
@@ -21,7 +15,6 @@ export function GlobeTeaser() {
 
   return (
     <section className="space-y-2 rounded-lg border border-tide p-4">
-      <StatusBadge kind="october">{t("globe.teaser")}</StatusBadge>
       <h3 className="text-lead font-medium">{t("data.text", { text: duet.title })}</h3>
       <p className="text-moon">{t("globe.plan")}</p>
       <p>

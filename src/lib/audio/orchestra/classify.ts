@@ -1,0 +1,75 @@
+import type { EarthCategory } from "@/lib/audio/layers/types";
+
+interface CategoryRule {
+  category: EarthCategory;
+  pattern: RegExp;
+  why: string;
+}
+
+export const CATEGORY_RULES: readonly CategoryRule[] = [
+  { category: "air", pattern: /ozone layer/i, why: "the stratospheric ozone layer is the atmosphere, not air quality at the ground" },
+  {
+    category: "fire",
+    pattern: /fire|smoke|burn|aerosol|pm ?2\.?5|particulate|pollution|air quality|surface ozone|near-surface ozone|\bozone\b|nitrogen|\bno2\b|\bnox\b|carbon monoxide|\bco\b(?!₂|2)|tempo/i,
+    why: "fire, smoke and air quality",
+  },
+  {
+    category: "people",
+    pattern: /night ?lights?|black marble|earth at night|carbon dioxide|co₂|co2|greenhouse|keeling/i,
+    why: "people and carbon: night lights and CO₂",
+  },
+  { category: "ice", pattern: /grace|glacier|\bice\b|water storage|groundwater|hydrological/i, why: "ice and water storage" },
+  { category: "land", pattern: /vegetation|ndvi|forest|gedi|soil|landslide|crop|biomass/i, why: "land and life" },
+  {
+    category: "ocean",
+    pattern: /sea surface|\bsst\b|ocean|current|salinity|sea level|gulf stream|kuroshio|agulhas|oisst/i,
+    why: "the ocean",
+  },
+  {
+    category: "air",
+    pattern: /gistemp|rain|precipitation|imerg|gpm|wind|humidity|lightning|atmospheric river|water vapou?r|hurricane|storm|cloud|snow|monsoon|temperature|climate/i,
+    why: "air and weather",
+  },
+];
+
+interface CategoryMatch {
+  category: EarthCategory;
+  matched: string;
+}
+
+function matchCategory(text: string): CategoryMatch | null {
+  for (const rule of CATEGORY_RULES) {
+    const m = rule.pattern.exec(text);
+    if (m) return { category: rule.category, matched: m[0] };
+  }
+  return null;
+}
+
+export interface RecordWords {
+  id: string;
+  title: string;
+  layers: readonly string[];
+}
+
+export type Classified =
+  | { id: string; category: EarthCategory; from: "title" | "layers"; matched: string }
+  | { id: string; category: null; reason: "no rule matches" | "layers in different systems" };
+
+export function classifyRecord(r: RecordWords): Classified {
+  const byTitle = matchCategory(r.title);
+  if (byTitle) return { id: r.id, category: byTitle.category, from: "title", matched: byTitle.matched };
+  const byLayer = r.layers.map(matchCategory);
+  if (!byLayer.length || byLayer.some((m) => m === null)) return { id: r.id, category: null, reason: "no rule matches" };
+  const found = byLayer as CategoryMatch[];
+  const first = found[0].category;
+  if (found.some((m) => m.category !== first)) return { id: r.id, category: null, reason: "layers in different systems" };
+  return { id: r.id, category: first, from: "layers", matched: found.map((m) => m.matched).join(", ") };
+}
+
+export function withMethods(classified: readonly Classified[], appliedTo: Readonly<Record<string, string>>): Classified[] {
+  return classified.map((c) => {
+    const voice = appliedTo[c.id];
+    const host = voice === undefined ? undefined : classified.find((x) => x.id === voice);
+    return host?.category ? { id: c.id, category: host.category, from: "title", matched: `method applied to the ${voice} voice` } : c;
+  });
+}

@@ -18,7 +18,6 @@ export const panelsEn = {
   "truth.ocean.updating": "Verification being updated",
   "truth.ocean.updatingNote":
     "The ocean colorbar was recalibrated, and the new error is waiting for a check on a separate frame before we show it.",
-  // Ocean and rain sentences: L1's templates (docs/L1/DATA_HANDOFF.md §4), filled from the JSON;
   // pending until the team adopts them in plan §16.
   "truth.ocean.sentence": (p: { lo: number; hi: number; legend: string; median: number; points: number }) =>
     `Colour scale checked against NASA MUR SST: the frame's colours match ${formatInteger(p.lo, "en")}…${formatInteger(p.hi, "en")} °C ` +
@@ -40,7 +39,6 @@ export const panelsEn = {
     `The check above, plotted (IMERG ${p.run} run, ${formatInteger(p.points, "en")} points).`,
 
   // GLOBE duet teaser (contract §12; plan §16 "GLOBE (teaser)" wording is the heading line).
-  "globe.teaser": "Teaser: coming in October",
   "globe.plan": "Citizen observers vs satellite: two perspectives, not right vs wrong.",
   "globe.featured": (p: { date: string; lat: number; lon: number; ground: number; satellite: number; reports: number }) =>
     `A typical day: on ${p.date} near ${formatFixed(p.lat, "en", 2)}° N, ${formatFixed(p.lon, "en", 2)}° E, observers on the ground ` +

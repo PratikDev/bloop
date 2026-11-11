@@ -11,6 +11,8 @@ import { glideAt, jumpAt } from "../params";
 import { track } from "../sources";
 import { onStopAll } from "../stop";
 import { voicePeak, type VoiceTiming } from "./common";
+import { dressLive } from "@/lib/art/live/dress";
+import { categoryOfVoice } from "@/lib/audio/orchestra";
 
 const LOWPASS_HZ = 1800;
 const ROUGHNESS_HZ = 30;
@@ -64,6 +66,7 @@ export function createHeatVoice(output: AudioNode): HeatVoice {
     const lfoDepth = new GainNode(ctx, { gain: 0 });
     lfo.connect(lfoDepth).connect(wobble.gain);
 
+    for (const osc of [main, second]) dressLive(osc, { category: () => categoryOfVoice("heat"), plainType: "triangle", env, onSource: track });
     for (const osc of [main, second, lfo]) osc.start();
     return { main, second, secondGain, wobble, lfoDepth, env };
   }

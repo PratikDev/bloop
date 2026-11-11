@@ -4,6 +4,8 @@ import { useCallback, useMemo, useRef, useState } from "react";
 import { voiceScale, nearestIndex, type BrailleSource, type ShapeMode, type ShapePoint, type ShapeScale } from "@/a11y/brailleSource";
 import type { BrailleReading } from "@/a11y/brailleLines";
 import { useFreshness } from "@/hooks/use-freshness";
+import { frameGap, gapShort } from "@/lib/frame-gap";
+import { bindT } from "@/lib/i18n";
 import { audio } from "@/lib/audio-adapter";
 import { clampLat, livenessAt, loadSequence, valueAt, valueInFrame, wrapLon, type LatLon, type LiveFields, type Sequence } from "@/lib/data";
 import type { RainValue } from "@/types/data-contract";
@@ -73,6 +75,8 @@ export function useLiveBrailleSource(): BrailleSource | null {
     if (!fields) return null;
     const channels = track === "ocean" ? (["ocean"] as const) : track === "rain" ? (["rain"] as const) : (["ocean", "rain"] as const);
     const label = (c: LiveChannel) => (c === "ocean" ? "SST" : "Rain");
+    const gap = track === "both" && fields.rain ? frameGap(fields.sst.meta.frame_time_utc, fields.rain.meta.frame_time_utc) : null;
+    const note = gap ? { en: gapShort(bindT("en"), gap), bn: gapShort(bindT("bn"), gap) } : undefined;
     const lastFrame = seq ? seq.frames.length - 1 : 0;
     const shownFrame = frame ?? lastFrame;
 
@@ -132,7 +136,7 @@ export function useLiveBrailleSource(): BrailleSource | null {
           kind: v.value === null ? "nodata" : ch === "rain" && v.value === 0 ? "dry" : "value", value: v.value,
           decimals: ch === "ocean" ? 1 : v.value !== null && v.value >= 10 ? 0 : 1, below: false, snow: v.frozen,
           unit: ch === "ocean" ? "°C" : "mm/h", place: cursor, time: { iso: v.time || null, label: null },
-          badge: "observation", status: status(ch), relative: false,
+          badge: "observation", status: status(ch), relative: false, note: m === "time" ? undefined : note,
         };
       },
       go(c, m, p) {

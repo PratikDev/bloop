@@ -1,0 +1,136 @@
+{
+  "about": "DATA voices (10 Nov 2026): the rules of the records built from every shipped dataset (fire weather, Fire Geiger, landslide exposure, night lights, NASA's radar method). Validated with public/mapping.json by src/lib/audio/mapping-validate.ts; shown with each record, like mapping-official.json.",
+  "voices": [
+    {
+      "id": "fireWeather",
+      "label": { "en": "Tomorrow's fire weather (experimental forecast)", "bn": "আগামীকালের আগুন-আবহাওয়া (পরীক্ষামূলক পূর্বাভাস)" },
+      "group": "context",
+      "source": { "dataset": "NASA GISS GlobalFWI, experimental 1-day forecast, via EIC frame SVS 5315", "svsId": 5315, "product": "fwi_class" },
+      "status": "context",
+      "mapping": {
+        "kind": "classes",
+        "input": { "unit": "fire-weather class" },
+        "rootHz": 110,
+        "states": [
+          { "code": 0, "label": "no calculation", "sound": "silence", "silence": "No forecast at this point (ocean, ice or no calculation)." },
+          { "code": 1, "label": "very low", "sound": "silence", "silence": "Very low fire weather: stated silence." },
+          { "code": 2, "label": "low", "sound": "chord", "tones": [0, 7] },
+          { "code": 3, "label": "moderate", "sound": "chord", "tones": [0, 7, 12] },
+          { "code": 4, "label": "high", "sound": "chord", "tones": [0, 7, 10, 14] },
+          { "code": 5, "label": "very high", "sound": "chord", "tones": [0, 6, 7, 11, 13] },
+          { "code": 6, "label": "extreme", "sound": "chord", "tones": [0, 1, 2, 5, 6, 7, 8] }
+        ]
+      },
+      "silence": "No forecast here, or very low fire weather: a stated silence, never a gap.",
+      "sound": { "timbre": "Six fixed states: a stated silence (very low), then an open fifth (low) that thickens to a dense cluster (extreme); soft sine partials", "attackMs": 120, "releaseMs": 300, "maxGain": 0.2, "family": "model" },
+      "pan": "longitude",
+      "legend": [],
+      "designChoice": true,
+      "note": "A model forecast's class, not a measured fire: each class is a fixed chord, never a pitch."
+    },
+    {
+      "id": "landslideRumble",
+      "label": { "en": "Landslide exposure (LHASA, modelled)", "bn": "ভূমিধসের ঝুঁকি (LHASA, মডেল)" },
+      "group": "context",
+      "source": { "dataset": "NASA LHASA landslide exposure nowcast, via EIC frame SVS 5584", "svsId": 5584, "product": "landslide_class" },
+      "status": "context",
+      "mapping": {
+        "kind": "classes",
+        "input": { "unit": "exposure class" },
+        "states": [
+          { "code": 0, "label": "none shown", "sound": "silence", "silence": "No exposure shown here: stated silence." },
+          { "code": 1, "label": "low", "sound": "silence", "silence": "Low exposure: stated silence." },
+          { "code": 2, "label": "moderate", "sound": "rumble", "rumble": { "cutoffHz": 110, "gain": 0.35, "pulsesPerSecond": 0 } },
+          { "code": 3, "label": "high", "sound": "rumble", "rumble": { "cutoffHz": 150, "gain": 0.6, "pulsesPerSecond": 0 } },
+          { "code": 4, "label": "very high", "sound": "rumble", "rumble": { "cutoffHz": 190, "gain": 0.85, "pulsesPerSecond": 0.5 } }
+        ]
+      },
+      "silence": "No exposure shown, or low exposure: a stated silence.",
+      "sound": { "timbre": "Low-passed noise at a fixed cutoff: soft for moderate, stronger for high, with slow pulses for very high", "attackMs": 250, "releaseMs": 400, "maxGain": 0.2, "family": "model" },
+      "pan": "longitude",
+      "legend": [],
+      "designChoice": true,
+      "note": "Modelled exposure (LHASA), not observed landslides: each class is a fixed rumble."
+    },
+    {
+      "id": "fireGeiger",
+      "label": { "en": "Fire Geiger (FIRMS hotspots per day)", "bn": "ফায়ার গাইগার (দিনে FIRMS হটস্পট)" },
+      "group": "context",
+      "source": { "dataset": "NASA FIRMS NRT (VIIRS NOAA-21 and NOAA-20, MODIS), daily counts in fixed boxes", "product": "firms_daily" },
+      "status": "context",
+      "mapping": {
+        "kind": "continuous",
+        "input": { "unit": "hotspots per day", "min": 1, "max": 1000, "scale": "log" },
+        "output": { "param": "clicksPerSecond", "unit": "clicks/s", "min": 0.5, "max": 8, "scale": "exponential" }
+      },
+      "silence": "No detections in this box on this day: a stated silence.",
+      "sound": { "timbre": "Geiger clicks at random times (a Poisson process): the rate is the count, the brightness is the fire power", "attackMs": 1, "releaseMs": 25, "maxGain": 0.22 },
+      "pan": "longitude",
+      "legend": [
+        { "value": 1, "label": "1 hotspot a day" },
+        { "value": 10, "label": "10 hotspots a day" },
+        { "value": 100, "label": "100 hotspots a day" },
+        { "value": 1000, "label": "1000 hotspots a day" }
+      ],
+      "designChoice": true,
+      "note": "A hotspot is a pixel containing one or more fires, not one fire."
+    },
+    {
+      "id": "fireBrightness",
+      "label": { "en": "Fire Geiger brightness (fire radiative power per hotspot)", "bn": "ফায়ার গাইগারের উজ্জ্বলতা (হটস্পট-প্রতি আগুনের বিকিরণ শক্তি)" },
+      "group": "context",
+      "source": { "dataset": "NASA FIRMS NRT: daily fire radiative power sum ÷ hotspot count", "product": "firms_daily" },
+      "status": "context",
+      "mapping": {
+        "kind": "continuous",
+        "input": { "unit": "MW per hotspot", "min": 1, "max": 100, "scale": "log" },
+        "output": { "param": "cutoff", "unit": "Hz", "min": 900, "max": 6000, "scale": "exponential" }
+      },
+      "silence": "No detections: no clicks to colour.",
+      "sound": { "timbre": "The clicks' low-pass filter: more power per hotspot, brighter clicks; never louder", "attackMs": 1, "releaseMs": 25, "maxGain": 0.22 },
+      "pan": "longitude",
+      "legend": [],
+      "designChoice": true
+    },
+    {
+      "id": "nightLights",
+      "label": { "en": "Night lights (Black Marble radiance)", "bn": "রাতের আলো (ব্ল্যাক মার্বেল বিকিরণ)" },
+      "group": "context",
+      "source": { "dataset": "NASA Black Marble VJ146A2 (NOAA-20 VIIRS), NASA LAADS DAAC", "product": "nightlights" },
+      "status": "context",
+      "mapping": {
+        "kind": "continuous",
+        "input": { "unit": "nW·cm⁻²·sr⁻¹", "min": 1, "max": 100, "scale": "log" },
+        "output": { "param": "frequency", "unit": "Hz", "min": 196, "max": 784, "scale": "exponential" }
+      },
+      "silence": "A cloud-masked night: a rest (a gap, never darkness).",
+      "sound": { "timbre": "Warm sine, one short note per night", "attackMs": 20, "releaseMs": 120, "glideMs": 20, "maxGain": 0.2 },
+      "pan": "longitude",
+      "legend": [
+        { "value": 1, "label": "1 nW·cm⁻²·sr⁻¹" },
+        { "value": 10, "label": "10 nW·cm⁻²·sr⁻¹" },
+        { "value": 100, "label": "100 nW·cm⁻²·sr⁻¹" }
+      ],
+      "designChoice": true,
+      "note": "Radiance on a log scale: each tenfold step in light is the same musical step (two octaves over the range)."
+    },
+    {
+      "id": "radarDistance",
+      "label": { "en": "NASA mode: distance from the centre (after Caldwell 73)", "bn": "নাসা মোড: কেন্দ্র থেকে দূরত্ব (ক্যালডওয়েল ৭৩-এর মতো)" },
+      "group": "context",
+      "source": { "dataset": "Method of SVS 13786 (SYSTEM Sounds), applied to the EIC ocean frame", "svsId": 13786, "product": "sonification_13786" },
+      "status": "context",
+      "mapping": {
+        "kind": "continuous",
+        "input": { "unit": "km from the centre", "min": 0, "max": 1500, "scale": "linear" },
+        "output": { "param": "frequency", "unit": "Hz", "min": 220, "max": 880, "scale": "exponential" }
+      },
+      "silence": "Land or no data under the sweep.",
+      "sound": { "timbre": "Radar sweep: cool colours a glockenspiel, warm colours a marimba, the rest a soft choir-like pad", "attackMs": 2, "releaseMs": 300, "maxGain": 0.2 },
+      "pan": "center",
+      "legend": [],
+      "designChoice": true,
+      "note": "Where things are, not what they are: pitch follows distance from the centre."
+    }
+  ]
+}

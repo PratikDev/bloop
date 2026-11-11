@@ -1,8 +1,5 @@
-// Proof in unison (idea C1; mapping.json "unison" = sameAs "ocean"): the frame's tone alone, then
-// NASA's file tone joins it in the same (left) ear. Both pitches follow the Ocean rule, so equal
-// values are one pure tone and any difference beats |f1 − f2| times a second.
-
-import { loudnessGain, unisonTones, voiceSpec } from "@/lib/audio/mapping";
+import { loudnessGain, mapVoice, unisonTones, voiceSpec } from "@/lib/audio/mapping";
+import type { CaptionParams } from "@/lib/audio/types";
 import { emitCaption } from "./events";
 import type { Graph } from "./graph";
 import { playSequence, type Step } from "./sequence";
@@ -12,9 +9,36 @@ const SOLO_SEC = 1.2;
 const TOGETHER_SEC = 3.6;
 const ONE_EAR_PAN = -1;
 
+interface Beating {
+  tones: { aHz: number; bHz: number; beatsPerSec: number } | null;
+  envelope: string;
+  name: string;
+  caption(beatsPerSec: number): { key: string; params: CaptionParams };
+}
+
 export function playUnison(pair: { frameC: number; fileC: number }): PlayerHandle {
-  const tones = unisonTones(pair.frameC, pair.fileC);
-  const s = voiceSpec("unison").sound;
+  const t = unisonTones(pair.frameC, pair.fileC);
+  return playBeating({
+    tones: t && { aHz: t.frameHz, bHz: t.fileHz, beatsPerSec: t.beatsPerSec },
+    envelope: "unison",
+    name: "unison",
+    caption: (beats) => ({ key: "caption.unison", params: { frame: pair.frameC, file: pair.fileC, beats } }),
+  });
+}
+
+export function playPair(p: { rule: string; a: number; b: number; caption: Beating["caption"] }): PlayerHandle {
+  const aHz = mapVoice(p.rule, p.a);
+  const bHz = mapVoice(p.rule, p.b);
+  return playBeating({
+    tones: aHz === null || bHz === null ? null : { aHz, bHz, beatsPerSec: Math.abs(aHz - bHz) },
+    envelope: p.rule,
+    name: "pair",
+    caption: p.caption,
+  });
+}
+
+function playBeating({ tones, envelope, name, caption }: Beating): PlayerHandle {
+  const s = voiceSpec(envelope).sound;
   const playing: OscillatorNode[] = [];
   let pan: StereoPannerNode | null = null;
   const attackSec = s.attackMs / 1000;
@@ -37,16 +61,17 @@ export function playUnison(pair: { frameC: number; fileC: number }): PlayerHandl
     playing.push(osc);
   };
 
-  if (!tones) return playSequence([], { name: "unison" });
+  if (!tones) return playSequence([], { name });
   const steps: Step[] = [
-    { durationSec: SOLO_SEC, run: (time, _v, graph) => start(graph, time, tones.frameHz) },
-    { durationSec: TOGETHER_SEC, run: (time, _v, graph) => start(graph, time, tones.fileHz) },
+    { durationSec: SOLO_SEC, run: (time, _v, graph) => start(graph, time, tones.aHz) },
+    { durationSec: TOGETHER_SEC, run: (time, _v, graph) => start(graph, time, tones.bHz) },
   ];
   return playSequence(steps, {
-    name: "unison",
+    name,
     onStart(time, _graph, totalSec) {
       endAt.time = time + totalSec;
-      emitCaption("caption.unison", { frame: pair.frameC, file: pair.fileC, beats: tones.beatsPerSec });
+      const c = caption(tones.beatsPerSec);
+      emitCaption(c.key, c.params);
     },
     onStop(time) {
       for (const osc of playing) osc.stop(time + 0.05);

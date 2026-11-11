@@ -4,7 +4,7 @@
 // col 0 = west edge), gzip; value = q·scale + offset ("linear") or 10^(q·scale + offset) ("log10"); 65535 = no data;
 // 65534 = below the colorbar's range (censored: under below_range_bound, not unknown).
 
-export type OfficialBadge = "model" | "reanalysis" | "observation";
+type OfficialBadge = "model" | "reanalysis" | "observation";
 export type OfficialStatus =
   | "verified"
   | "values with stated error"
@@ -14,7 +14,7 @@ export type OfficialStatus =
   | "insufficient data"
   | "observation"
   | "no check";
-export type FrameTimeMethod = "date-list" | "ocr" | "linear";
+type FrameTimeMethod = "date-list" | "ocr" | "linear";
 
 export interface OfficialIndexRow {
   record: string;
@@ -34,7 +34,7 @@ export interface OfficialIndex {
   records: OfficialIndexRow[];
 }
 
-export interface OfficialChunk {
+interface OfficialChunk {
   file: string;
   t0: number;
   t1: number; // exclusive
@@ -99,7 +99,7 @@ export interface OfficialPlayOption {
 }
 
 /** A voice that plays a reference dataset instead of the frames (e.g. NASA OSCAR currents); citation copied from CMR. */
-export interface OfficialVoiceSource {
+interface OfficialVoiceSource {
   label: string;
   badge: OfficialBadge;
   period: string;
@@ -107,13 +107,20 @@ export interface OfficialVoiceSource {
   citation: { concept_id: string; short_name: string; doi: string | null; text: string };
 }
 
-export interface OfficialCheckSummary {
+interface OfficialCheckSummary {
   id: string;
   title: string;
   kind: "value" | "model-vs-obs" | "context" | "none";
   pass: boolean | null;
   threshold: string | null;
   decision?: { on: string; status: OfficialStatus; statement: string; table: string };
+}
+
+interface OfficialSvsDataset {
+  name: string;
+  common_name: string;
+  organizations: string[];
+  url: string | null;
 }
 
 export interface OfficialManifest {
@@ -128,6 +135,7 @@ export interface OfficialManifest {
   period: { start: string; end: string; label: string };
   badge: OfficialBadge;
   credits_by_role: Record<string, string[]>;
+  datasets?: OfficialSvsDataset[];
   credit_line: string;
   licence: string;
   frame_times: { method: FrameTimeMethod; approximate: boolean; source: string; count: number; subsample?: string };

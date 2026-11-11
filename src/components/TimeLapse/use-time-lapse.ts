@@ -12,6 +12,7 @@ export interface TimeLapseFrame {
   timeUtc: string; // this frame's own time (index.json)
   point: SweepPoint; // where the cursor is (the heaviest rain nearby) and its value
   image: HTMLImageElement | null;
+  held: boolean;
 }
 
 /** How a run ended, and its heaviest frame (for Story Mode's narration). */
@@ -32,6 +33,7 @@ export interface TimeLapseValue {
    */
   start(options?: { framesAroundPeak?: number }): Promise<TimeLapseRun>;
   stop(): void;
+  stepFrame(dir: 1 | -1): Promise<void>;
 }
 
 export const TimeLapseContext = createContext<TimeLapseValue | null>(null);

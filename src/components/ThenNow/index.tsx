@@ -15,18 +15,19 @@ import { PartLayout } from "./Layout";
 import { isFieldPart, VIEW_PARTS, type ViewPart } from "./parts";
 import { PartView } from "./PartView";
 import { PlayControls } from "./PlayControls";
+import { StatsDetails, StatsLine } from "./StatsDetails";
+import { ThenNowBraille } from "./ThenNowBraille";
+import { WaterNote } from "../WaterNote";
+import { HowWeGotThis, ProvenanceGroup } from "../HowWeGotThis";
+import { usePartProvenance } from "./use-part-provenance";
 import { useThenNowData } from "./use-then-now-data";
 import { useThenNowPlayer } from "./use-then-now-player";
+import { usePartNotes } from "./use-part-notes";
+import { useThenNowBraille } from "./use-then-now-braille";
+import { ThenNowMidi } from "../Art/ThenNowMidi";
 
 export const DEFAULT_CITY: ClimateCellName = "Dhaka";
 
-/**
- * Then vs Now, compare decades (plan §11.5, the killer demo): the city and a
- * tab per record; for each, the finding (caption, chart) beside how to
- * listen, with the details a click away. Dhaka by default; Chattogram,
- * Rajshahi and Sylhet from L1's cities file (§13); fires and vegetation
- * without sound yet. The city and the part live in the URL (the page passes them in).
- */
 export function ThenNow({
   cityName,
   chosen,
@@ -49,14 +50,16 @@ export function ThenNow({
     const demo = city ? cityDemo(ready.demo, city) : ready.demo;
     return { demo, input: buildThenNowInput(demo, ready.grace) };
   }, [ready, city]);
-  const player = useThenNowPlayer(view?.input ?? null, view?.demo ?? null);
+  const { sharedFor, statLines, noteLines } = usePartNotes(ready, city, cityName);
+  const player = useThenNowPlayer(view?.input ?? null, view?.demo ?? null, statLines, noteLines);
   // While "Play heat, rain and water" runs, the view follows the part that is sounding.
   const part: ViewPart = player.soundingPart ?? chosen;
   const field = isFieldPart(part);
+  const sharedWith = sharedFor(part);
   const cities = ready?.cities?.cities ?? [];
-  // The cell this part plays from; the sharer's caption already names its reference city, the reference's doesn't.
-  const cell = part === "heat" ? city?.heat : part === "monsoon" ? city?.rain.gpcp : null;
-  const sharedWith = cell && cell.same_record_as === null ? cell.shares_cell_with : [];
+  const facts = usePartProvenance(ready && view ? { cityName, city, demo: view.demo, grace: ready.grace, stats: ready.stats } : null, part);
+
+  const { brailleOpen, brailleInput, openBraille, onKeyDown } = useThenNowBraille({ ready, demo: view?.demo ?? null, part, cityName, stop: player.stop });
 
   const choosePart = (next: ViewPart) => {
     if (isFieldPart(next)) player.stop(); // a record without sound: nothing else keeps playing under it
@@ -68,7 +71,7 @@ export function ThenNow({
   };
 
   return (
-    <div className="flex flex-col gap-4 lg:short:gap-3">
+    <div className="flex flex-col gap-4 lg:short:gap-3" onKeyDown={onKeyDown}>
       <div className="flex flex-wrap items-end justify-between gap-x-6 gap-y-3">
         <div className="max-w-2xl space-y-1">
           {/* The headline and the chosen city already say which city; the heading keeps the page's outline for screen readers. */}
@@ -112,29 +115,50 @@ export function ThenNow({
             ) : (
               <PartLayout
                 finding={
-                  <>
+                  <ProvenanceGroup className="flex flex-col gap-3">
+                    <HowWeGotThis facts={facts} className="self-start" />
                     <PartView
                       part={part}
                       demo={view.demo}
                       grace={ready.grace}
                       index={player.soundingPart === part ? player.index : null}
                       splitIndex={player.splitIndex}
+                      notes={
+                        <>
+                          {part === "water" && <WaterNote grace={ready.grace} />}
+                          {sharedWith.length > 0 && (
+                            <p data-testid="shared-cell-note" className="text-small text-moon">
+                              {t("history.sharedCell", { places: sharedWith.map((c) => t(`place.${c}`)).join(", ") })}
+                            </p>
+                          )}
+                        </>
+                      }
                     />
-                    {part === "water" &&  <p className="text-small text-haze">{t("thenNow.waterNational")}</p>}
-                    {sharedWith.length > 0 && (
-                      <p className="text-small text-moon">{t("history.sharedCell", { places: sharedWith.map((c) => t(`place.${c}`)).join(", ") })}</p>
+                    {ready.stats && <StatsLine stats={ready.stats} city={cityName} part={part} />}
+                    {part === "monsoon" && (
+                      <p className="text-small text-haze" data-testid="rain-window-note">
+                        {t("data.text", { text: view.demo.rain.gpcc_end_note })}
+                      </p>
                     )}
                     <p className="text-small text-haze">{t("thenNow.contextNote")}</p>
-                  </>
+                  </ProvenanceGroup>
                 }
                 sideTitle={t("thenNow.listen")}
-                side={<PlayControls part={part} player={player} />}
+                side={
+                  <>
+                    <PlayControls part={part} player={player} />
+                    {brailleInput && <ThenNowBraille input={brailleInput} open={brailleOpen} onOpenChange={openBraille} />}
+                    {view && <ThenNowMidi input={view.input} part={part} city={cityName} />} {}
+                  </>
+                }
                 detailsTitle={t("disclosure.title")}
                 details={
-                  <>
+                  <ProvenanceGroup className="space-y-4">
+                    <HowWeGotThis facts={facts} />
                     <Disclosure part={part} demo={view.demo} grace={ready.grace} />
+                    {ready.stats && <StatsDetails stats={ready.stats} city={cityName} part={part} />}
                     <HonestyFolds demo={view.demo} isDhaka={isDhaka} />
-                  </>
+                  </ProvenanceGroup>
                 }
               />
             )}

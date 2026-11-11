@@ -6,11 +6,9 @@ import { Sheet, SheetContent, SheetTitle, SheetTrigger } from "@/components/ui/s
 import { useMediaQuery } from "@/hooks/use-media-query";
 import { MEDIA } from "@/lib/breakpoints";
 import { useT } from "./AppState/use-app-state";
+import { InlineDisclosure } from "./InlinePanel/Disclosure";
+import { useInlinePanels } from "./LowVision/use-inline-panels";
 
-/**
- * Full text one click away, so pages never grow: a side sheet (a bottom sheet
- * on phones), opened by a ghost button showing `trigger` (styled by `triggerClassName`).
- */
 export function InfoSheet({
   trigger,
   triggerClassName,
@@ -27,6 +25,14 @@ export function InfoSheet({
 }) {
   const phone = useMediaQuery(MEDIA.phone);
   const t = useT();
+  const inline = useInlinePanels();
+  if (inline) {
+    return (
+      <InlineDisclosure trigger={trigger} triggerLabel={triggerLabel} triggerClassName={triggerClassName} title={title}>
+        <div className="space-y-4 text-body">{children}</div>
+      </InlineDisclosure>
+    );
+  }
   return (
     <Sheet>
       <SheetTrigger render={<Button variant="ghost" aria-label={triggerLabel} className={triggerClassName} />}>{trigger}</SheetTrigger>

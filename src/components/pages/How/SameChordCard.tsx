@@ -1,0 +1,132 @@
+"use client";
+
+import { formatDay, formatFixed, type BoundT, type Lang } from "@/lib/i18n";
+import { repoLink } from "@/lib/provenance/repo";
+import type { Provenance } from "@/lib/provenance/types";
+import file from "../../../../public/data/meta/colormap_invariance.json";
+import { useAppState, useT } from "../../AppState/use-app-state";
+import { Evidence, type EvidenceTable } from "./Evidence";
+import { Tile } from "./Tile";
+
+interface Spread {
+  median_spread_C: number;
+  p10_spread_C: number;
+  mode_counts: number[];
+  mode_spread_C: number[] | null;
+}
+
+interface InvarianceCase {
+  box: string;
+  region: string;
+  date: string;
+  pixels: number;
+  sigma_C: number;
+  truth: { median: number; modes: number[] };
+  maps: Record<string, { median: number; modes: number[]; abs_err_median: number }>;
+  clean: Spread;
+  jpeg75_reported: Spread;
+  hue_L1: Record<string, number>;
+  figure: string;
+}
+
+const INVARIANCE: { generated_by: string; sigma_source: string; cases: InvarianceCase[] } = file;
+
+function largestSpread(cases: readonly InvarianceCase[] = INVARIANCE.cases) {
+  return {
+    median: Math.max(...cases.map((c) => c.clean.median_spread_C)),
+    mode: Math.max(...cases.flatMap((c) => c.clean.mode_spread_C ?? [])),
+    jpegP10: Math.max(...cases.map((c) => c.jpeg75_reported.p10_spread_C)),
+    sigma: cases[0]?.sigma_C ?? Number.NaN,
+  };
+}
+
+const C_DECIMALS = 2;
+const L1_DECIMALS = 2;
+const NASA_BAR = "3912 SVS bar";
+const f = (lang: Lang, v: number) => formatFixed(v, lang, C_DECIMALS);
+
+function table(t: BoundT, lang: Lang): EvidenceTable {
+  return {
+    caption: t("cv.card.title"),
+    columns: [t("cv.card.col.region"), t("cv.card.col.map"), t("cv.card.col.median"), t("cv.card.col.modes"), t("cv.card.col.hue")],
+    rows: INVARIANCE.cases.flatMap((c) => [
+      [`${c.region}, ${formatDay(c.date, lang)}`, t("cv.card.truth"), f(lang, c.truth.median), c.truth.modes.map((m) => f(lang, m)).join(", "), ""],
+      ...Object.entries(c.maps).map(([name, m]) => [
+        "",
+        name,
+        f(lang, m.median),
+        m.modes.map((x) => f(lang, x)).join(", "),
+        name === NASA_BAR ? formatFixed(0, lang, L1_DECIMALS) : formatFixed(c.hue_L1[`${NASA_BAR} vs ${name}`] ?? Number.NaN, lang, L1_DECIMALS),
+      ]),
+    ]),
+  };
+}
+
+function Figure({ c, t, lang }: { c: InvarianceCase; t: BoundT; lang: Lang }) {
+  return (
+    // eslint-disable-next-line @next/next/no-img-element
+    <img src={c.figure} alt={t("cv.card.alt", { region: c.region, date: formatDay(c.date, lang) })} className="w-full rounded-lg bg-white" />
+  );
+}
+
+function facts(t: BoundT, lang: Lang): Provenance[] {
+  const s = largestSpread();
+  return [
+    {
+      subject: t("cv.card.title"),
+      dataset: "NASA MUR sea surface temperature (the SVS 3912 validation truth files)",
+      version: null,
+      link: null,
+      window: INVARIANCE.cases.map((c) => `${c.region}: ${formatDay(c.date, lang)}`).join("; "),
+      cell: null,
+      place: INVARIANCE.cases.map((c) => c.region).join(", "),
+      method: t("cv.card.hwgt.method"),
+      uncertainty: t("cv.card.hwgt.unc", { sigma: f(lang, s.sigma), jpeg: f(lang, s.jpegP10) }),
+      n: INVARIANCE.cases.map((c) => `${c.region}: ${formatFixed(c.pixels, lang, 0)}`).join("; "),
+      status: null,
+      scripts: [repoLink("pipeline/tests/test_colormap_invariance.py"), repoLink("public/data/meta/colormap_invariance.json")],
+      validation: repoLink("docs/cvml/BUILD.md"),
+      patternOnly: null,
+    },
+  ];
+}
+
+export function SameChordCard() {
+  const { state } = useAppState();
+  const t = useT();
+  const lang = state.lang;
+  const s = largestSpread();
+  const shown = INVARIANCE.cases.find((c) => (c.clean.mode_counts[0] ?? 0) > 1) ?? INVARIANCE.cases[0];
+  if (!shown) return null;
+  return (
+    <Tile
+      title={t("cv.card.title")}
+      figure={t("cv.card.value", { spread: f(lang, s.median) })}
+      figureLabel={t("cv.card.figure", { sigma: f(lang, s.sigma) })}
+      face={
+        <div className="space-y-2" data-testid="same-chord-card">
+          <p className="text-small text-moon" data-testid="card-numbers">
+            {t("cv.card.numbers", { median: f(lang, s.median), mode: f(lang, s.mode), sigma: f(lang, s.sigma) })}
+          </p>
+          <Evidence alt={t("cv.card.alt", { region: shown.region, date: formatDay(shown.date, lang) })} table={table(t, lang)}>
+            <Figure c={shown} t={t} lang={lang} />
+          </Evidence>
+          <p className="text-small text-haze" data-testid="card-explain">
+            {t("cv.card.explain")}
+          </p>
+          <p className="text-small text-haze">{t("cv.card.limit")}</p>
+        </div>
+      }
+      open={t("cv.card.open")}
+      facts={facts(t, lang)}
+    >
+      <div className="space-y-4">
+        {INVARIANCE.cases.map((c) => (
+          <Figure key={c.box} c={c} t={t} lang={lang} />
+        ))}
+        <p className="text-body">{t("cv.card.explain")}</p>
+        <p className="text-small text-haze">{t("cv.card.limit")}</p>
+      </div>
+    </Tile>
+  );
+}

@@ -103,12 +103,12 @@ Every rule and number lives in one file, [`public/mapping.json`](public/mapping.
 
 ### Official records, the Turntable and braille
 
-- **🗂️ Official records:** NASA's Earth Information Center items and related SVS visualizations, each decoded back into values and played as one voice, with its period, credits, licence and the check it passed (or why it has none). Related records too sparse to play are kept off the shelf and listed in `docs/HEALTH.md`.
+- **🗂️ Official records:** NASA's Earth Information Center items and related SVS visualizations, each decoded back into values and played as one voice, with its period, credits, licence and the check it passed (or why it has none). Related records too sparse to play are kept off the shelf.
 - **💿 Turntable:** the live Earth on a disc; drop the needle anywhere on the globe, search a place, and open four 3D scenes (Ghost Earths, Delta, Sound terrain, the Dhaka time tunnel).
 - **⠿ Braille explorer:** <kbd>B</kbd> on Listen (or the dock's Braille) shows the data as braille cells along a line through the cursor; the caret is the needle.
 - **🔁 Proof in unison:** <kbd>U</kbd> plays the nearest checked point's frame value and file value as two tones; any difference beats.
 - **🏷️ Data-age badges:** every frame says how old its data is and where it came from (`public/data/meta/freshness.json`).
-- **🩺 Health checks:** `npm run health` checks every record's files, values, labels, links and freshness, and plays each one in Chromium and Firefox (`docs/HEALTH.md`).
+- **🩺 Health checks:** `npm run health` checks every record's files, values, labels, links and freshness.
 
 ## Made to be heard
 
@@ -140,11 +140,10 @@ bun run dev      # open http://localhost:3000
 | `bun run build` then `bun run start` | Static production build in `out/`, served at http://localhost:3000 |
 | `bun run lint` | ESLint |
 | `bunx tsc --noEmit` | Type check |
-| `bun test` | Unit tests |
-| `bun run e2e` | Browser checks (Playwright, Chromium and Firefox) |
-| `npm run health` | Record health check: writes `docs/HEALTH.md` (Python and Playwright) |
+| `npm run health` | Record health check (Python) |
 | `npm run refresh:live` | Refreshes every updating record; ships only what passes its truth check |
-| `bun run i18n:todo` | Rewrites `docs/i18n/TO_TRANSLATE.md`, the Bangla strings still to translate |
+
+**Team page.** The Team page (`/team`) reads `content/team.json`: the team name, each member's name and role, the challenge, the local event and the licence.
 
 The audio engine's test page (`/dev/audio`) is available in development only. For a test deployment that includes it, build with `AUDIO_HARNESS=1 bun run build`.
 
@@ -193,11 +192,7 @@ python run_all.py            # options: --no-sequence --no-context --with-global
 
 ## Credits
 
-Visualizations: NASA's Scientific Visualization Studio (SVS 5101, 4285) for the NASA Earth Information Center.
-
-Data in this app: MUR SST (NASA/JPL PO.DAAC); GPM IMERG (NASA/JAXA, GES DISC); GRACE/GRACE-FO JPL mascons RL06.3Mv04 (NASA/JPL PO.DAAC); NASA GISTEMP v4; GPCP v2.3 and GPCC Full Data v2020 (via NOAA PSL); NASA FIRMS; MODIS MOD13Q1 via ORNL DAAC; NASA GLOBE Program.
-
-Also used in our testing: NASA POWER (dropped: it disagreed with independent records).
+The credits are built from the record registry (`public/data/meta/freshness.json`, the Official and Related indexes, and the voices each page plays: `src/lib/credits/`), so they list every source a playing record uses and only those. The app shows the same list on How we know (Credits), Official records (Credits), the Turntable (Credits) and the Team page. It is grouped as Observations, Models and reanalyses, and NASA visualizations (SVS, with each record's IDs). Each entry gives the provider, the pages where it plays and a link. Sources we built and checked but don't play (GPCC, FIRMS, MODIS MOD13Q1, GLOBE and others) are listed separately as "Used in our testing (not playable)". NASA POWER was checked and dropped: it disagreed with independent records.
 
 We follow each dataset's own acknowledgement text where one is provided (for example GRACE and GPCP).
 

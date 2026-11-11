@@ -25,6 +25,10 @@ export function formatSignedUpTo(value: number, lang: Lang, decimals: number): s
   return fmt(value, lang, { maximumFractionDigits: decimals, signDisplay: "exceptZero" });
 }
 
+export function formatSignificant(value: number, lang: Lang, digits: number): string {
+  return formatFixed(value, lang, Math.max(0, digits - 1 - Math.floor(Math.log10(Math.abs(value) || 1))));
+}
+
 export function formatInteger(value: number, lang: Lang): string {
   return fmt(value, lang, { maximumFractionDigits: 0 });
 }
@@ -79,6 +83,10 @@ export function formatMonthRange(range: string, lang: Lang): string {
 }
 
 /** "2017-07" → "Jul 2017". */
+export function formatMonthName(mm: string, lang: Lang): string {
+  return new Intl.DateTimeFormat(LOCALE[lang], { month: "long", timeZone: "UTC" }).format(new Date(Date.UTC(2000, Number(mm) - 1, 1)));
+}
+
 export function formatMonth(yyyyMm: string, lang: Lang): string {
   const [y, m] = yyyyMm.split("-").map(Number);
   return new Intl.DateTimeFormat(LOCALE[lang], { month: "short", year: "numeric", timeZone: "UTC" }).format(

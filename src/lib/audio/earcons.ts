@@ -14,7 +14,7 @@ const WHISPER_NOTE_SEC = 0.15;
 const PING_HZ = 2500;
 
 /** Sounds on the earcon bus with their own mapping.json envelope: the earcons and the motif notes. */
-export type ToneId = EarconId | "motif";
+type ToneId = EarconId | "motif";
 
 /** One sine blip on the earcon bus at `time`, shaped by its mapping.json envelope. */
 export function playTone(id: ToneId, freq: number, time: number, lon: number) {
@@ -37,6 +37,12 @@ const SOUNDS: Record<EarconId, (time: number, lon: number) => void> = {
   // the extreme value in view (B5)
   ping: (time, lon) => playTone("ping", PING_HZ, time, lon),
 };
+
+export function playSonarPing(closeness: number, lon = 0) {
+  if (!peekEngine()) return;
+  const c = Math.min(1, Math.max(0, closeness));
+  playTone("ping", PING_HZ * 2 ** (c - 1), getCtx().currentTime, lon);
+}
 
 /** Plays an earcon now (silent before Start). Internal: no caption. */
 export function playEarconAt(id: EarconId, time: number, lon = 0) {

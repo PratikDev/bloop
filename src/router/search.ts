@@ -1,6 +1,7 @@
 import type { ViewPart } from "@/components/ThenNow/parts";
 import { VIEW_PARTS } from "@/components/ThenNow/parts";
 import { HISTORY_METRICS, PLACES, type HistoryMetric } from "@/lib/history";
+import { RECORD_ID } from "@/lib/transcript";
 import type { ClimateCellName } from "@/types/data-contract";
 
 // Each page's URL state, checked on the way in: an unknown value is dropped
@@ -19,11 +20,19 @@ export function listenSearch(raw: Raw): ListenSearch {
   return raw.tour === true || raw.tour === 1 || raw.tour === "1" ? { tour: true } : {};
 }
 
-export const THEN_NOW_VIEWS = ["compare", "monthly"] as const;
+const THEN_NOW_VIEWS = ["compare", "monthly"] as const;
 export type ThenNowView = (typeof THEN_NOW_VIEWS)[number];
 
+const LIFETIME_VIEW = "lifetime";
+const bornOf = (v: unknown): number | undefined => {
+  const y = typeof v === "number" ? v : typeof v === "string" ? Number(v) : NaN;
+  return Number.isInteger(y) && y >= 1850 && y <= 2100 ? y : undefined;
+};
+const cityOf = (v: unknown) => oneOf(PLACES, v) ?? PLACES.find((p) => typeof v === "string" && p.toLowerCase() === v.toLowerCase());
+
 export interface ThenNowSearch {
-  view?: ThenNowView;
+  view?: ThenNowView | typeof LIFETIME_VIEW;
+  born?: number;
   /** Compare decades */
   city?: ClimateCellName;
   part?: ViewPart;
@@ -33,15 +42,21 @@ export interface ThenNowSearch {
 }
 
 export function thenNowSearch(raw: Raw): ThenNowSearch {
-  const search: ThenNowSearch = {};
-  const view = oneOf(THEN_NOW_VIEWS, raw.view);
-  const city = oneOf(PLACES, raw.city);
-  const part = oneOf(VIEW_PARTS, raw.part);
-  const record = oneOf(HISTORY_METRICS, raw.record);
-  if (view) search.view = view;
-  if (city) search.city = city;
-  if (part) search.part = part;
-  if (typeof raw.place === "string" && raw.place.length > 0 && raw.place.length < 80) search.place = raw.place;
-  if (record) search.record = record;
-  return search;
+  const place = typeof raw.place === "string" && raw.place.length > 0 && raw.place.length < 80 ? raw.place : undefined;
+  return {
+    view: oneOf([...THEN_NOW_VIEWS, LIFETIME_VIEW], raw.view) ?? (bornOf(raw.born) ? LIFETIME_VIEW : undefined),
+    city: cityOf(raw.city),
+    born: bornOf(raw.born),
+    part: oneOf(VIEW_PARTS, raw.part),
+    place,
+    record: oneOf(HISTORY_METRICS, raw.record),
+  };
+}
+
+interface TranscriptSearch {
+  record?: string;
+}
+
+export function transcriptSearch(raw: Raw): TranscriptSearch {
+  return { record: typeof raw.record === "string" && RECORD_ID.test(raw.record) ? raw.record : undefined };
 }

@@ -1,6 +1,5 @@
 // Braille lines for the Bengali table (liblouis bn.tbl, as NVDA ships it). That table reads Latin letters as Bangla
 // letters (SST → সসত) and drops the numeric indicator after a decimal point or a colon (30.2 → ৩০.ব, 10:30 → ১০ঞচজ):
-// tests/braille/louis_check.py, 4 Nov 2026. So in বাংলা mode the braille lines are written for that table: Bangla
 // words only (no Latin letters), decimals as a word (30 দশমিক 2), times without a colon (10টা 30 মিনিট).
 // Two more things the same check found in bn.tbl, worked around here:
 //  - Bangla digits (০–৯) are only "litdigit": they get no number sign, so ৩০ is ⠉⠚ and reads as the letters চজ.
@@ -86,7 +85,7 @@ export const BN_STATUS: Record<string, string> = {
 };
 
 /** Units (a relative unit is dropped: the line already says "relative"). */
-export const BN_UNITS: Record<string, string> = {
+const BN_UNITS: Record<string, string> = {
   "°C": "ডিগ্রি সেলসিয়াস", // TEAM (deg C)
   "mm/h": "মিমি প্রতি ঘণ্টা", // TEAM
   "mm/hr": "মিমি প্রতি ঘণ্টা", // TEAM (same unit)
@@ -100,6 +99,9 @@ export const BN_UNITS: Record<string, string> = {
   "g/kg": "গ্রাম প্রতি কিলোগ্রাম", // DRAFT
   m: "মিটার", // DRAFT
   mm: "মিমি", // DRAFT
+  "mm/day": "মিমি প্রতি দিন",
+  cm: "সেমি",
+  "cm/yr": "সেমি প্রতি বছর",
   K: "কেলভিন", // DRAFT
   "%": "শতাংশ", // DRAFT
   index: "সূচক", // DRAFT
@@ -108,7 +110,7 @@ export const BN_UNITS: Record<string, string> = {
 };
 
 /** Layer names (by layer id, before any _bd / _global suffix). */
-export const BN_LAYERS: Record<string, string> = {
+const BN_LAYERS: Record<string, string> = {
   ocean: "সমুদ্রপৃষ্ঠের তাপমাত্রা", // TEAM (SST)
   sst: "সমুদ্রপৃষ্ঠের তাপমাত্রা", // TEAM (SST)
   rain: "বৃষ্টি", // DRAFT
@@ -128,6 +130,9 @@ export const BN_LAYERS: Record<string, string> = {
   brightness: "উজ্জ্বলতা", // DRAFT
   transport: "জলীয় বাষ্প পরিবহন", // DRAFT
   change: "পরিবর্তন", // DRAFT
+  heat: "তাপমাত্রার বিচ্যুতি",
+  monsoon: "বর্ষার বৃষ্টি",
+  water: "মোট পানির মজুত",
 };
 const BN_AREAS: Record<string, string> = { bd: "বাংলাদেশ", global: "বিশ্ব" }; // DRAFT
 
@@ -146,12 +151,4 @@ export function bnLayer(id: string): string {
 export function bnUnit(unit: string): string {
   if (/^relative/iu.test(unit)) return "";
   return BN_UNITS[unit] ?? BN_UNITS[unit.split(" ")[0]] ?? "";
-}
-
-/**
- * True when `s` is safe for the Bengali table: no Latin letters, no colon, no dot between digits, no Bangla digits
- * (no number sign in bn.tbl) and no combining nukta (undefined in bn.tbl).
- */
-export function bnTableSafe(s: string): boolean {
-  return !/[A-Za-z]/u.test(s) && !/:/u.test(s) && !/[0-9]\.[0-9]/u.test(s) && !/[০-৯]/u.test(s) && !/়/u.test(s);
 }

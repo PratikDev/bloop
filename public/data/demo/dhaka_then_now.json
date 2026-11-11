@@ -110,38 +110,38 @@
       },
       "B": {
         "window": [
-          2016,
-          2025
+          2010,
+          2019
         ],
         "years": [
+          2010,
+          2011,
+          2012,
+          2013,
+          2014,
+          2015,
           2016,
           2017,
           2018,
-          2019,
-          2020,
-          2021,
-          2022,
-          2023,
-          2024,
-          2025
+          2019
         ],
         "values": [
+          13.289,
+          13.695,
+          13.618,
+          10.821,
+          14.314,
+          16.642,
           11.634,
           17.689,
           11.575,
-          12.843,
-          13.59,
-          13.497,
-          12.244,
-          13.384,
-          16.733,
-          13.863
+          12.843
         ],
-        "mean": 13.706,
-        "spread": 1.922,
+        "mean": 13.612,
+        "spread": 2.07,
         "n_years": 10
       },
-      "change_pct": -9
+      "change_pct": -10
     },
     "gpcc": {
       "dataset": "GPCC gauges v2020, Dhaka cell, June-September",
@@ -213,7 +213,79 @@
       },
       "change_pct": -12
     },
-    "caption": "Dhaka, June–September: no wetter in these records. GPCP −9% (1981–1990 vs 2016–2025); rain gauges (GPCC) −12% (1981–1990 vs 2010–2019)."
+    "caption": "Dhaka, June–September: no wetter in these records. GPCP −10% (1981–1990 vs 2010–2019); rain gauges (GPCC) −12% (1981–1990 vs 2010–2019).",
+    "gpcc_end_note": "GPCC stops at 2019 because the gauge version we use (GPCC Full Data Monthly V2020) ends in December 2019, so both rain records compare 1981–1990 with 2010–2019.",
+    "gpcp_newer": {
+      "label": "GPCP only, newer decade; GPCC data ends in 2019",
+      "dataset": "GPCP v2.3, Dhaka cell, June-September",
+      "A": {
+        "window": [
+          1981,
+          1990
+        ],
+        "years": [
+          1981,
+          1982,
+          1983,
+          1984,
+          1985,
+          1986,
+          1987,
+          1988,
+          1989,
+          1990
+        ],
+        "values": [
+          12.661,
+          15.948,
+          15.578,
+          16.867,
+          13.575,
+          13.899,
+          16.404,
+          17.602,
+          14.739,
+          13.772
+        ],
+        "mean": 15.104,
+        "spread": 1.538,
+        "n_years": 10
+      },
+      "B": {
+        "window": [
+          2016,
+          2025
+        ],
+        "years": [
+          2016,
+          2017,
+          2018,
+          2019,
+          2020,
+          2021,
+          2022,
+          2023,
+          2024,
+          2025
+        ],
+        "values": [
+          11.634,
+          17.689,
+          11.575,
+          12.843,
+          13.59,
+          13.497,
+          12.244,
+          13.384,
+          16.733,
+          13.863
+        ],
+        "mean": 13.706,
+        "spread": 1.922,
+        "n_years": 10
+      },
+      "change_pct": -9
+    }
   },
   "water": {
     "dataset": "GRACE/GRACE-FO JPL mascons RL06.3Mv04 CRI",
@@ -237,5 +309,5 @@
   "not_claimed": [
     "more erratic rain (not tested)"
   ],
-  "generated_utc": "2026-09-28T09:06:16Z"
+  "generated_utc": "2026-11-07T06:21:25Z"
 }

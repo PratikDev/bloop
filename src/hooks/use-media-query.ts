@@ -14,3 +14,7 @@ export function useMediaQuery(query: string): boolean {
     () => false,
   );
 }
+
+export const useForcedColors = () => useMediaQuery("(forced-colors: active)");
+export const usePrefersContrast = () => useMediaQuery("(prefers-contrast: more)");
+export const usePrefersLight = () => useMediaQuery("(prefers-color-scheme: light)");

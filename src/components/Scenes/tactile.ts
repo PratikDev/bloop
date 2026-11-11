@@ -5,13 +5,15 @@
 
 import { BufferAttribute, BufferGeometry, Mesh, MeshBasicMaterial } from "three";
 import { STLExporter } from "three/examples/jsm/exporters/STLExporter.js";
+import { downloadBlob } from "@/lib/download";
+import type { TactileAltInput } from "@/lib/tactile-alt";
 
 /** Physical layout in millimetres (stated in the file name). */
 export const DISC = { radius: 60, hole: 4, base: 2, ridgeMax: 4, ridgeMin: 0.4, tick: 1.2, emboss: 0.6 } as const;
 const SEGMENTS = { around: 720, radial: 112 } as const;
 const LABEL = { inner: 10, outer: 26, px: 4 } as const; // label band (mm) and canvas pixels per mm
 
-export interface TactileTrack {
+interface TactileTrack {
   /** One value per step, oldest first (null = missing). */
   values: readonly (number | null)[];
   /** Ring band in mm. */
@@ -74,7 +76,7 @@ function heightAt(rec: TactileRecord, mask: (x: number, y: number) => boolean, a
 }
 
 /** A closed (watertight) disc mesh: top surface on a polar grid, flat bottom, inner and outer walls. */
-export function tactileMesh(rec: TactileRecord): Mesh {
+function tactileMesh(rec: TactileRecord): Mesh {
   const mask = labelMask(rec.label);
   const { around: A, radial: R } = SEGMENTS;
   const radius = (j: number) => DISC.hole + (j / R) * (DISC.radius - DISC.hole);
@@ -108,18 +110,29 @@ export function tactileMesh(rec: TactileRecord): Mesh {
   return new Mesh(geometry, new MeshBasicMaterial());
 }
 
-/** Builds the disc and hands the browser a binary STL to save. */
-export function downloadTactileRecord(rec: TactileRecord, fileName: string): void {
+export interface TactileMeta {
+  unit: string;
+  steps: readonly string[];
+  names: readonly string[];
+}
+
+export const tactileAltInput = (rec: TactileRecord, meta: TactileMeta): TactileAltInput => ({
+  label: rec.label,
+  sizeMm: DISC.radius * 2,
+  ridgeMm: { min: DISC.ridgeMin, max: DISC.ridgeMax },
+  range: rec.range,
+  unit: meta.unit,
+  steps: meta.steps,
+  rings: rec.tracks.map((tr, i) => ({ name: meta.names[i] ?? "", values: tr.values })),
+});
+
+export function downloadTactileRecord(rec: TactileRecord, fileName: string, header?: Uint8Array): void {
   const mesh = tactileMesh(rec);
   const data = new STLExporter().parse(mesh, { binary: true });
+  if (header) new Uint8Array(data.buffer, data.byteOffset, header.length).set(header);
   mesh.geometry.dispose();
   (mesh.material as MeshBasicMaterial).dispose();
-  const url = URL.createObjectURL(new Blob([data], { type: "model/stl" }));
-  const a = document.createElement("a");
-  a.href = url;
-  a.download = fileName;
-  a.click();
-  setTimeout(() => URL.revokeObjectURL(url), 1000);
+  downloadBlob(new Blob([data], { type: "model/stl" }), fileName);
 }
 
 /** The scale, for the file name: "disc-120mm_ridge-0.4-4mm-for--70-35cm". */

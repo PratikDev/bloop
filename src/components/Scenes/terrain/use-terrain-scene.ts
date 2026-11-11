@@ -14,7 +14,7 @@ import { createTerrainScene, type TerrainLayers, type TerrainScene } from "./ter
 import { createTerrainSound, type TerrainReading } from "./terrain-sound";
 
 /** Where the walk starts: the middle of the Bay of Bengal. */
-export const WALK_START: LatLon = { lat: 15, lon: 88 };
+const WALK_START: LatLon = { lat: 15, lon: 88 };
 const START_POSE = { yaw: 0, pitch: 0.92, distance: 27 };
 const LIMITS = { minDistance: 1, maxDistance: 34, minPitch: 0.08, maxPitch: 1.4 };
 /** Walking speed at 1×, in degrees per second (Shift: three times). Design, not data. */
@@ -31,7 +31,7 @@ const TURN_LEFT = new Set(["arrowleft"]);
 const TURN_RIGHT = new Set(["arrowright"]);
 const WALK_KEYS = new Set([...FORWARD, ...BACK, ...LEFT, ...RIGHT, ...TURN_LEFT, ...TURN_RIGHT]);
 
-export interface TerrainControl {
+interface TerrainControl {
   bus: ReturnType<typeof createFrameBus<SceneFrame>>;
   build(host: SceneBuildHost): SceneHandle;
   /** Walking keys are held, not stepped: true if the key was one. */
@@ -55,6 +55,7 @@ export function useTerrainScene(o: {
   dt: SstDtField | null;
   /** N: play the anomaly against the normal tone instead of the temperature. */
   vsNormal: boolean;
+  anomalyImage?: Texture | null;
   seq: Sequence | null;
   frame: SequenceFrame | null;
   rain: { cells: RainCell[]; cellSize: number };
@@ -146,6 +147,7 @@ export function useTerrainScene(o: {
           }
           if (!now.hunting) found = false;
           scene.setLayers(now.layers);
+          scene.setMap(now.vsNormal ? (now.anomalyImage ?? null) : null); 
           scene.update(dt, !now.reduceMotion);
           bus.publish(planeFrame({ camera: host.camera, ...size, plane, groundAt: scene.surfaceAt, needle: at, distance: orbit.pose().distance }));
         },

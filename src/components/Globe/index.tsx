@@ -6,6 +6,7 @@ import { DATA_PATHS } from "@/lib/data";
 import { EASE_OUT_SOFT } from "@/lib/motion";
 import { cn } from "@/lib/utils";
 import { useAppState } from "../AppState/use-app-state";
+import { useHide3d } from "../Hidden3D";
 import { useFrameImages } from "../FrameView/use-frame-images";
 import { supportsWebGL, useGlobe } from "./use-globe";
 
@@ -17,7 +18,9 @@ import { supportsWebGL, useGlobe } from "./use-globe";
 export function Globe({ className }: { className?: string }) {
   const { state } = useAppState();
   const { sst: image } = useFrameImages();
-  const [webgl] = useState(supportsWebGL);
+  const [canDraw] = useState(supportsWebGL);
+  const hide3d = useHide3d();
+  const webgl = canDraw && !hide3d;
   const canvasRef = useRef<HTMLCanvasElement>(null);
   useGlobe(canvasRef, webgl ? image : null, state.reduceMotion);
 

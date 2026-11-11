@@ -11,6 +11,8 @@ import { FrameLabel } from "../../FrameLabel";
 import { DEFAULT_PLACE, MonthByMonth } from "../../MonthByMonth";
 import { DEFAULT_CITY, ThenNow } from "../../ThenNow";
 import type { ViewPart } from "../../ThenNow/parts";
+import { FLAGS } from "@/lib/flags";
+import { DEFAULT_BORN, Lifetime } from "../../Art/Lifetime";
 
 const route = getRouteApi("/then-now");
 
@@ -23,7 +25,8 @@ export function ThenNowPage() {
   const t = useT();
   const search = route.useSearch();
   const navigate = route.useNavigate();
-  const view: ThenNowView = search.view ?? "compare";
+  const lifetime = FLAGS.artLifetime && search.view === "lifetime";
+  const view: ThenNowView = search.view === "lifetime" || !search.view ? "compare" : search.view;
   // In-page choices replace the entry (Back leaves the page, not each tab); the view switch pushes one.
   const set = (next: Partial<ThenNowSearch>, replace = true) => void navigate({ search: (prev) => ({ ...prev, ...next }), replace });
 
@@ -37,13 +40,14 @@ export function ThenNowPage() {
           <p className="max-w-2xl text-body text-haze">{t("thenNow.pageLead")}</p>
         </div>
         <div className="flex flex-col items-start gap-2 md:items-end">
-          <ChoiceGroup<ThenNowView>
+          <ChoiceGroup<ThenNowView | "lifetime">
             label={t("thenNow.view")}
-            value={view}
+            value={lifetime ? "lifetime" : view}
             onChange={(v) => set({ view: v }, false)}
             options={[
               { value: "compare", label: t("thenNow.view.compare") },
               { value: "monthly", label: t("thenNow.view.monthly") },
+              ...(FLAGS.artLifetime ? [{ value: "lifetime" as const, label: t("lifetime.view") }] : []),
             ]}
           />
           <FrameLabel className="text-small md:text-right" />
@@ -51,8 +55,10 @@ export function ThenNowPage() {
       </header>
 
       <AnimatePresence mode="wait" initial={false}>
-        <motion.div key={view} initial={{ opacity: 0, y: 10 }} animate={{ opacity: 1, y: 0 }} exit={{ opacity: 0, y: -6 }} transition={{ duration: 0.22 }}>
-          {view === "compare" ? (
+        <motion.div key={lifetime ? "lifetime" : view} initial={{ opacity: 0, y: 10 }} animate={{ opacity: 1, y: 0 }} exit={{ opacity: 0, y: -6 }} transition={{ duration: 0.22 }}>
+          {lifetime ? (
+            <Lifetime born={search.born ?? DEFAULT_BORN} city={search.city ?? DEFAULT_CITY} onChange={(next) => set(next)} />
+          ) : view === "compare" ? (
             <ThenNow
               cityName={search.city ?? DEFAULT_CITY}
               chosen={search.part ?? "heat"}

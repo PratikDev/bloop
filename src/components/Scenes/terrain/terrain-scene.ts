@@ -34,7 +34,7 @@ import { reliefMesh, type Relief } from "../relief";
 import type { TerrainField } from "./field";
 
 /** Scene units of height per °C on the zoomed axis (stated on screen in km). */
-export const UNITS_PER_DEGREE_C = 0.7;
+const UNITS_PER_DEGREE_C = 0.7;
 export const KM_PER_DEGREE_C = (UNITS_PER_DEGREE_C * METRES_PER_DEGREE) / 1000;
 const SEA_BASE = 0.08;
 const LAND_EXAGGERATION = 15;
@@ -84,6 +84,7 @@ export interface TerrainScene {
   setRain(cells: RainCell[], cellSize: number): void;
   setDecal(bitmap: ImageBitmap | null): void;
   setLayers(l: TerrainLayers): void;
+  setMap(tex: Texture | null): void;
   sparkle(at: LatLon, motion: boolean): void;
   update(dt: number, motion: boolean): void;
   dispose(): void;
@@ -204,6 +205,10 @@ export function createTerrainScene(o: { field: TerrainField; relief: Relief; sst
       cloudMaterial.map = cloudTexture;
       cloudMaterial.visible = cloudTexture !== null;
       cloudMaterial.needsUpdate = true;
+    },
+    setMap(tex) {
+      const next = tex ?? o.sstImage;
+      if (terrainMaterial.uniforms.map.value !== next) terrainMaterial.uniforms.map.value = next;
     },
     setLayers(l) {
       land.visible = l.relief;

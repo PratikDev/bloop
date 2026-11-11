@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useMemo, useRef, type PointerEvent } from "react";
+import { FLAGS } from "@/lib/flags";
 import { cn } from "@/lib/utils";
 import { readPalette } from "@/lib/css-tokens";
 import type { SstField } from "@/lib/data";
@@ -14,6 +15,9 @@ import { buildLandLayer, drawBase } from "./base-layer";
 import { prepareCanvas, useCanvasSize } from "./use-canvas-size";
 import { useFrameImages } from "./use-frame-images";
 import { useOverlayLoop, type OverlayInputs } from "./use-overlay-loop";
+import { ContextLens } from "../LowVision/ContextLens";
+import { LvMapLayer } from "../LowVision/MapLayer";
+import { useDwellSpeak } from "../LowVision/use-dwell-speak";
 
 /**
  * The EIC frame on a 2:1 equirectangular canvas, with the cursor and sound
@@ -32,6 +36,7 @@ export function FrameView({ className, revealClassName }: { className?: string; 
   const overlayRef = useRef<HTMLCanvasElement>(null);
   const landCache = useRef<{ sst: SstField; canvas: HTMLCanvasElement } | null>(null);
   const size = useCanvasSize(containerRef);
+  const dwell = useDwellSpeak();
 
   const shown = useShownPoint();
   // During the time-lapse the base shows that frame's own image, in the rain style.
@@ -58,14 +63,15 @@ export function FrameView({ className, revealClassName }: { className?: string; 
       oceanC: reading && !timelapse && isVoiceAudible(state, "ocean") ? reading.ocean.valueC : null,
       rainMm: reading && rainAudible ? reading.rain.mmPerHour : null,
       reduceMotion: state.reduceMotion,
+      thick: FLAGS.lowVision && (state.lowVision.on || state.lowVision.controls !== "normal"),
     };
   }, [shown, state]);
   useOverlayLoop(overlayRef, size, overlayInputs, sweepRef);
 
-  const moveTo = (e: PointerEvent<HTMLDivElement>) => {
+  const moveTo = (e: PointerEvent<HTMLDivElement>, remember = false) => {
     if (state.mode === "story") return; // the story moves the cursor
     const rect = e.currentTarget.getBoundingClientRect();
-    dispatch({ type: "setCursor", cursor: toLatLon(e.clientX - rect.left, e.clientY - rect.top, rect.width, rect.height) });
+    dispatch({ type: "setCursor", cursor: toLatLon(e.clientX - rect.left, e.clientY - rect.top, rect.width, rect.height), remember });
   };
 
   return (
@@ -74,17 +80,21 @@ export function FrameView({ className, revealClassName }: { className?: string; 
       className={cn("relative aspect-[2/1] w-full touch-none select-none", className)}
       onPointerDown={(e) => {
         e.currentTarget.setPointerCapture(e.pointerId);
-        moveTo(e);
+        moveTo(e, true);
       }}
       onPointerMove={(e) => {
         if (e.currentTarget.hasPointerCapture(e.pointerId)) moveTo(e);
+        else dwell.move(e);
       }}
+      onPointerLeave={dwell.leave}
       aria-hidden="true"
     >
       <div className={cn("absolute inset-0", revealClassName)}>
         <canvas ref={baseRef} className="absolute inset-0 size-full" />
+        <LvMapLayer size={size} rainImage={frameImage ?? images.rain} track={baseTrack} />
         <canvas ref={overlayRef} className="absolute inset-0 size-full" />
       </div>
+      <ContextLens mapRef={containerRef} />
     </div>
   );
 }

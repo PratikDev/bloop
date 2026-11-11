@@ -5,9 +5,10 @@ import type { PlayerHandle, SweepPoint, TrackMode } from "@/lib/audio-adapter/ty
 import type { LatLon } from "@/lib/data";
 import type { BoundT, Lang } from "@/lib/i18n";
 import type { WhisperSource } from "@/lib/whisper";
-import type { Mode, PanelTab } from "../AppState/reducer";
+import type { Mode, PanelTab, ToggleKey } from "../AppState/reducer";
+import type { DegreeStyle } from "@/a11y/brailleText";
 
-export type SettingKey = "describe" | "captions" | "reduceMotion" | "builtInVoice" | "allMuted";
+export type SettingKey = ToggleKey;
 
 export const SETTING_LABELS = {
   describe: "settings.describe",
@@ -15,6 +16,7 @@ export const SETTING_LABELS = {
   reduceMotion: "settings.reduceMotion",
   builtInVoice: "settings.builtInVoice",
   allMuted: "sound.muteAll",
+  hide3d: "access.hide3d",
 } as const satisfies Record<SettingKey, string>;
 
 export const MODE_LABELS = {
@@ -25,6 +27,7 @@ export const MODE_LABELS = {
   how: "nav.how",
   turntable: "mode.turntable",
   official: "mode.official",
+  team: "nav.team",
 } as const satisfies Record<Mode, string>;
 
 /** The sweep currently playing, for the map's sweep ring. */
@@ -37,6 +40,7 @@ export interface SweepVisual {
 
 /** A line to say, built for a language: once for the screen, once for speech. */
 export type Line = (t: BoundT, lang: Lang) => string;
+export type ShortLine = (t: BoundT, lang: Lang, degree: DegreeStyle) => string;
 
 /** Every user action, shared by keyboard shortcuts and on-screen controls. */
 export interface Commands {
@@ -46,8 +50,10 @@ export interface Commands {
   resetStart(): void;
   enableSound(): Promise<void>;
   moveCursor(dLat: number, dLon: number): void;
-  /** Puts the cursor at an exact place (Go to). */
-  setCursor(cursor: LatLon): void;
+  setCursor(cursor: LatLon, opts?: { remember?: boolean; lead?: string }): void;
+  changeStep(dir: 1 | -1): void;
+  note(text: string, sources: string[]): void;
+  goBack(): void;
   setTrack(track: TrackMode): void;
   setMode(mode: Mode): void;
   setLang(lang: Lang): void;
@@ -56,12 +62,7 @@ export interface Commands {
   speakCurrent(): void;
   /** Speaks the value(s) and place at `at` (the turntable's needle). */
   speakAt(at: LatLon): void;
-  /**
-   * Speaks the line (built-in voice, with a caption) or announces it (screen reader), then, with
-   * sound on, the satellite whisper with `source`'s caption. Resolves when it has been
-   * said; a later say() or Esc cancels a pending whisper.
-   */
-  say(line: Line, source?: WhisperSource | null): Promise<void>;
+  say(line: Line, source?: WhisperSource | null, short?: ShortLine): Promise<void>;
   playSweep(): void;
   /** Starts the sweep from Chattogram with its map ring; null if there's nothing to play. */
   startSweep(): PlayerHandle | null;
@@ -74,7 +75,7 @@ export interface Commands {
   openHelp(): void;
   /** B: opens or closes the Braille Data Explorer (`open` forces one). */
   toggleBraille(open?: boolean): void;
-  stopAll(): void;
+  stopAll(opts?: { leave?: boolean }): void;
   sweepRef: RefObject<SweepVisual | null>;
 }
 

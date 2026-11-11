@@ -1,9 +1,7 @@
 // Builds the Turntable's geography overlays once into public/geo/ (simplified,
 // rounded GeoJSON and compact JSON). Overlays and labels are for orientation
 // only: no value or sound comes from them.
-//
 //   node scripts/build-geo.mjs
-//
 // Sources (licences and credits in docs/turntable.md):
 //   Natural Earth v5.1.2 (public domain), pinned to one commit of nvkelso/natural-earth-vector
 //   geoBoundaries gbOpen BGD ADM2 (CC BY 3.0 IGO; source BBS, OCHA ROAP)
@@ -58,7 +56,7 @@ async function main() {
   // Countries: whole world at 110m; South Asia at 10m for close-up.
   const world = await shape(
     await download(NE("ne_110m_admin_0_countries")),
-    "-filter-fields NAME,NAME_EN,NAME_BN,LABEL_X,LABEL_Y,LABELRANK,ADM0_A3 -o precision=0.01",
+    "-filter-fields NAME,NAME_EN,NAME_BN,LABEL_X,LABEL_Y,LABELRANK,ADM0_A3,CONTINENT -o precision=0.01",
   );
   await write("countries-110m.json", world);
   const southAsia = await shape(

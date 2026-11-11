@@ -3,7 +3,7 @@
 import { useCallback, useEffect, useRef, useState } from "react";
 
 /** The card closes this long after the last interaction (unless pinned or focused). */
-export const AUTO_COLLAPSE_MS = 4000;
+const AUTO_COLLAPSE_MS = 4000;
 
 export interface Details {
   open: boolean;
@@ -17,10 +17,15 @@ export interface Details {
   hold(on: boolean): void;
 }
 
+function chipClick(open: boolean, byTheWay: boolean): "open" | "close" {
+  return open && !byTheWay ? "close" : "open";
+}
+
 export function useDetails(): Details {
   const [open, setOpen] = useState(false);
   const [pinned, setPinned] = useState(false);
   const holding = useRef(false);
+  const byTheWay = useRef(false);
   const timer = useRef<ReturnType<typeof setTimeout> | null>(null);
 
   const clear = () => {
@@ -44,15 +49,19 @@ export function useDetails(): Details {
     open: open || pinned,
     pinned,
     show() {
+      if (!open && !pinned) byTheWay.current = true;
       setOpen(true);
       if (!pinned) schedule();
     },
     hide() {
+      byTheWay.current = false;
       setOpen(false);
       setPinned(false);
     },
     toggle() {
-      if (open || pinned) {
+      const next = chipClick(open || pinned, byTheWay.current);
+      byTheWay.current = false;
+      if (next === "close") {
         setOpen(false);
         setPinned(false);
       } else setOpen(true);
