@@ -1316,7 +1316,8 @@ next-route-announcer {
   --navy-soft: #e6e6e6;
   --bubble: #ffff00;
   --coral: #ffff00;
-  --dial: #ffff00;
+  /* The cool accent (rain's tube, "cooler" stripes) keeps a colour of its own, so it never reads as the warm one. */
+  --dial: #00ffff;
   --space: #000000;
   --star: #ffffff;
   --star-warm: #ffff00;
@@ -1361,7 +1362,8 @@ next-route-announcer {
   --paper: #f4f4f4;
   --navy: #000000;
   --navy-soft: #1f1f1f;
-  --bubble: #0033cc;
+  /* The warm accent (the ocean's tube, "warmer" stripes) is a dark amber, so it never reads as the cool blue. */
+  --bubble: #7a3300;
   --coral: #0033cc;
   --dial: #0033cc;
   --space: #ffffff;
@@ -1483,13 +1485,18 @@ html {
   max-width: 60ch;
 }
 
-/* Control size: large, and extra-large with targets of at least 44 px (WCAG 2.5.5). */
+/* Control size: large, and extra-large with targets of at least 44 px (WCAG 2.5.5). A text field keeps its own width
+   (the Turntable's search field is folded to nothing until it opens; a minimum width showed a sliver of it). */
 :root[data-lv-controls="large"] body :is(button, a[href], input, select, summary, [role="button"], [role="tab"], [role="radio"], [role="switch"]) {
   min-height: max(36px, 2.25rem);
+}
+:root[data-lv-controls="large"] body :is(button, a[href], input:is([type="checkbox"], [type="radio"], [type="color"]), select, summary, [role="button"], [role="tab"], [role="radio"], [role="switch"]) {
   min-width: max(36px, 2.25rem);
 }
 :root[data-lv-controls="xl"] body :is(button, a[href], input, select, summary, [role="button"], [role="tab"], [role="radio"], [role="switch"]) {
   min-height: max(44px, 2.75rem);
+}
+:root[data-lv-controls="xl"] body :is(button, a[href], input:is([type="checkbox"], [type="radio"], [type="color"]), select, summary, [role="button"], [role="tab"], [role="radio"], [role="switch"]) {
   min-width: max(44px, 2.75rem);
 }
 
@@ -1523,9 +1530,51 @@ html {
 :root[data-lv-flow] .app-main {
   overflow-y: visible;
 }
-/* The player's row wraps rather than running off the screen. */
-:root[data-lv-flow] .dock-bar :is([data-tt-occluder], [data-tt-occluder] > div) {
+/* The header's one row can't hold the name, the pages and the keys at large text (the breakpoints that lay it out don't
+   see the text size, so the pages ended up under the keys): it wraps instead, in reading order, and the pages wrap
+   inside their row rather than scrolling sideways. The settings panel keeps a row of its own. */
+:root[data-lv-flow] .app-shell > header {
+  display: flex;
   flex-wrap: wrap;
+  row-gap: 0.5rem;
+  padding-block: 0.25rem;
+}
+:root[data-lv-flow] .app-shell > header > nav {
+  margin-inline: auto;
+}
+:root[data-lv-flow] .app-shell > header > nav > ul,
+:root[data-lv-flow] .app-shell > header > div {
+  flex-wrap: wrap;
+  overflow: visible;
+}
+:root[data-lv-flow] .app-shell > header > div {
+  min-width: 0;
+  margin-inline-start: auto;
+}
+:root[data-lv-flow] .app-shell > header > section {
+  flex-basis: 100%;
+}
+/* The player's row wraps rather than running off the screen (the Turntable's bar too, which sits in its stage). */
+:root[data-lv-flow] :is(.dock-bar, [data-overlay] [role="group"]) :is([data-tt-occluder], [data-tt-occluder] > div) {
+  flex-wrap: wrap;
+}
+/* Official records: the list and the record sit side by side while both fit and stack when they don't; the list
+   scrolls inside itself at its own height (in the one-screen layout it is sized by the map, and collapsed here). */
+:root[data-lv-flow] .official-grid {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-start;
+}
+:root[data-lv-flow] .official-grid .official-list {
+  flex: 1 1 18.75rem;
+  max-height: 70dvh;
+  contain: none;
+}
+:root[data-lv-flow] .official-grid :is(.official-player, .official-player > div) {
+  display: revert-layer;
+}
+:root[data-lv-flow] .official-grid .official-player {
+  flex: 2 1 24rem;
 }
 @media (min-width: 64rem) {
   :root[data-lv-flow] .cabinet-sizes > div {

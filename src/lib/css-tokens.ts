@@ -54,9 +54,11 @@ export function readPalette(): Palette {
   return palette;
 }
 
-/** "#rrggbb" → [r, g, b], for writing pixels. */
+/** "#rrggbb" → [r, g, b], for writing pixels. Also the short "#rgb": the production build's CSS minifier writes
+    #ffffff as #fff and #ffff00 as #ff0, and a custom property is read back as it was written. */
 export function hexToRgb(hex: string): [number, number, number] {
-  const n = parseInt(hex.replace("#", ""), 16);
+  const digits = hex.trim().replace("#", "");
+  const n = parseInt(digits.length === 3 ? digits.replace(/./g, "$&$&") : digits, 16);
   return [(n >> 16) & 255, (n >> 8) & 255, n & 255];
 }
 

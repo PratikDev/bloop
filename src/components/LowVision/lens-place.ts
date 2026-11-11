@@ -1,7 +1,7 @@
 // Where the Context Lens sits (accessibility core, step 8; spec 4.1): following the needle, in a corner of the screen
 // the user picked, or docked in the page under the map.
 import type { LensPlace } from "@/lib/low-vision/settings";
-import { dockHeight } from "../Dock/use-dock-height";
+import { stickyDockHeight } from "../Dock/use-dock-height";
 
 /** Space between the needle and a following lens (px). */
 const GAP = 28;
@@ -25,21 +25,21 @@ type Floating = Exclude<LensPlace, "docked">;
 /**
  * Where a floating lens goes: in the corner of the screen the user picked (the bottom ones above the sound dock), or
  * following the needle: beside it, on whichever side has room; on a narrow screen (no room either side), under or
- * over it instead, so the needle stays in sight. Always kept on screen.
+ * over it instead, so the needle stays in sight. Always kept on screen, and above the sound dock while it has the room.
  */
 export function place(where: Floating, map: DOMRect, needle: { x: number; y: number }, size: number, height: number): Box {
   const vw = window.innerWidth;
   const vh = window.innerHeight;
   const right = vw - size - EDGE;
-  const bottom = Math.max(EDGE, vh - dockHeight() - EDGE - height);
+  const bottom = Math.max(EDGE, vh - stickyDockHeight() - EDGE - height);
   if (where === "topLeft") return { left: EDGE, top: EDGE };
   if (where === "topRight") return { left: right, top: EDGE };
   if (where === "bottomLeft") return { left: EDGE, top: bottom };
   if (where === "bottomRight") return { left: right, top: bottom };
   const x = map.left + needle.x;
   const y = map.top + needle.y;
-  if (x + GAP + size <= vw - EDGE) return { left: x + GAP, top: clamp(y - height / 2, EDGE, vh - height - EDGE) };
-  if (x - GAP - size >= EDGE) return { left: x - GAP - size, top: clamp(y - height / 2, EDGE, vh - height - EDGE) };
+  if (x + GAP + size <= vw - EDGE) return { left: x + GAP, top: clamp(y - height / 2, EDGE, bottom) };
+  if (x - GAP - size >= EDGE) return { left: x - GAP - size, top: clamp(y - height / 2, EDGE, bottom) };
   const left = clamp(x - size / 2, EDGE, vw - size - EDGE);
   const below = y + GAP;
   return { left, top: below + height <= vh - EDGE ? below : Math.max(EDGE, y - GAP - height) };

@@ -11,6 +11,7 @@ import { ListenItems, NowPlayingItem, StepItems } from "./MoreItems";
 import { NeedleSlider } from "./NeedleSliders";
 import { PlayerMore } from "./PlayerMore";
 import { RecordsKey } from "./RecordsKey";
+import { useDockHeight } from "./use-dock-height";
 
 export const PLAYER_ID = "player";
 
@@ -22,6 +23,8 @@ export function Dock() {
   const { state } = useAppState();
   const t = useT();
   const { status } = useTimeLapse();
+  // Publishes the bar's height: low-vision layouts keep scrolled-to content above it, and un-stick a tall bar.
+  const dockRef = useDockHeight();
   const shown = state.started && state.mode !== "home" && state.mode !== "turntable";
   const explore = state.mode === "explore";
   // While the time-lapse runs, the sheet is what people are after: it comes first.
@@ -35,6 +38,8 @@ export function Dock() {
         <motion.section
           key="dock"
           id={PLAYER_ID}
+          ref={dockRef}
+          data-dock
           tabIndex={-1}
           aria-label={t("dock.label")}
           initial={{ opacity: 0, y: 24 }}

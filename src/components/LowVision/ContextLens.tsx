@@ -195,14 +195,18 @@ export function ContextLens({ mapRef }: { mapRef: RefObject<HTMLElement | null> 
           {placeName}
         </p>
         {meta && <p className="text-small text-haze">{formatUtc(meta.frame_time_utc, state.lang)}</p>}
-        <ol data-testid="lens-scale" className="mt-2 flex flex-wrap gap-1">
-          {map.bands.map((b, i) => (
-            <li key={i} data-here={i === here || undefined} className={cn("flex min-w-0 flex-1 basis-14 flex-col items-stretch text-center text-small font-semibold", i === here && "outline-4 outline-offset-1 outline-shapla")}>
-              <span className="h-4 border border-moon" style={{ background: `var(${map.vars[i]})` }} />
-              <span>{i === here ? `▲ ${bandText(t, state.lang, b)}` : bandText(t, state.lang, b)}</span>
-            </li>
+        {/* One row of swatches with the needle's band marked and named: every band's range is in the legend under the
+            map, and a lens that lists them all is taller than the screen at large text and covers the player. */}
+        <ol data-testid="lens-scale" className="mt-2 flex gap-1 p-1">
+          {map.bands.map((_, i) => (
+            <li key={i} data-here={i === here || undefined} className={cn("h-4 min-w-0 flex-1 border border-moon", i === here && "outline-4 outline-offset-1 outline-shapla")} style={{ background: `var(${map.vars[i]})` }} />
           ))}
         </ol>
+        {here >= 0 && (
+          <p className={cn("text-small font-semibold", here < map.bands.length / 3 ? "text-left" : here >= (map.bands.length * 2) / 3 ? "text-right" : "text-center")}>
+            ▲ {bandText(t, state.lang, map.bands[here])}
+          </p>
+        )}
       </div>
     </div>,
     slot ?? document.body,

@@ -12,6 +12,9 @@ const MAX_SHARE = 0.25;
 /** The dock's height in CSS pixels (0 when there is no dock). */
 export const dockHeight = () => parseFloat(getComputedStyle(document.documentElement).getPropertyValue(DOCK_HEIGHT_VAR)) || 0;
 
+/** The room the dock takes at the screen's foot while it sticks there (none once it is tall and sits at the page's end). */
+export const stickyDockHeight = () => (document.documentElement.hasAttribute(DOCK_TALL_ATTR) ? 0 : dockHeight());
+
 /**
  * A ref for the sound dock that publishes its height as --dock-h, so a page that scrolls (the low-vision layouts) never
  * brings focus or the needle's map to rest under the sticky dock; and, when large text makes the dock taller than a
