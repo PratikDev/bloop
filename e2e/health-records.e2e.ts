@@ -44,7 +44,7 @@ async function checkRecord(page: Page, p: PlanRecord, errors: string[]): Promise
   const startText = await reading.innerText();
   if (startText.includes(NO_VALUE)) notes.push("starts on no value");
   await play.click();
-  const canvas = section.locator("canvas[role=img]").first();
+  const canvas = section.locator("canvas[role=application]").first();
   const points = Object.values(p.options)[0]?.points ?? [];
   const texts: string[] = [];
   const levels: number[] = [];

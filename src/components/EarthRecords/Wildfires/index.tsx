@@ -15,6 +15,7 @@ import { formatDay, formatFixed, formatInteger, formatUtc, type BoundT, type Lan
 import type { WildfiresState } from "./use-wildfires";
 import { useAppState, useT } from "../../AppState/use-app-state";
 import { ChoiceGroup } from "../../ChoiceGroup";
+import { useCommands } from "../../Commands/use-commands";
 import { HowWeGotThis } from "../../HowWeGotThis";
 import { OnOffToggle } from "../../OnOffToggle";
 import { StatusBadge } from "../../StatusBadge";
@@ -40,6 +41,7 @@ export function Wildfires() {
   const t = useT();
   const { state } = useAppState();
   const lang = state.lang;
+  const commands = useCommands();
   const w = useWildfires();
   const regionNames = usePlaceNames(w.regions);
   const needleName = usePlaceNames([w.needle]);
@@ -58,6 +60,12 @@ export function Wildfires() {
   const pictureSat = satelliteIn(data.fires.datasets.map((d) => d.name).join(" "));
   const sensorLabel = (s: string) => t("data.text", { text: sourceDataset(daily, s as typeof w.source)?.name ?? s });
   const replayDay = w.sequence?.kind === "replay" && w.archive ? w.archive[w.sequence.step] : null;
+  // Play says what is at the needle too: both layers can be a stated silence, and then nothing else answers the key.
+  const playAtNeedle = () => {
+    if (w.playing) return w.stop();
+    void w.play();
+    void commands.say((tt, l) => `${place}: ${fwiLine(tt, l, meta, reading)} ${firmsLine(tt, l, daily, reading)}`);
+  };
   const season = w.sequence?.kind === "season" ? w.seasonCases.find((c) => c.key === (w.sequence?.kind === "season" ? w.sequence.key : "")) : null;
 
   return (
@@ -68,6 +76,7 @@ export function Wildfires() {
           testId="fire-map"
           image={EARTH_PATHS.firesImage}
           label={`${t("earth.fire.pictureAlt", { date: data.fires.frame_time_utc ? formatUtc(data.fires.frame_time_utc, lang) : t("hwgt.na") })} ${t("earth.map.needle", { place })}`}
+          reading={`${place}: ${fwi}`}
           needle={w.needle}
           onMove={w.moveNeedle}
           boxes={daily.regions.map((r) => ({ id: r, box: daily.boxes[r], current: r === w.region }))}
@@ -98,7 +107,7 @@ export function Wildfires() {
         </div>
 
         <div className="flex flex-wrap gap-2">
-          <Button className="h-11 rounded-full px-4 text-body" onClick={() => void (w.playing ? w.stop() : w.play())} data-testid="fire-play">
+          <Button className="h-11 rounded-full px-4 text-body" onClick={playAtNeedle} data-testid="fire-play">
             {w.playing ? t("earth.stop") : t("earth.play")}
           </Button>
           <Button variant="outline" className="h-11 rounded-full px-4 text-body" onClick={() => void (w.sequence?.kind === "replay" ? w.stop() : w.startReplay())} data-testid="fire-replay">

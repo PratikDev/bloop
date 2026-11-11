@@ -49,14 +49,16 @@ export function AskBloop() {
   const submit = (e: FormEvent) => {
     e.preventDefault();
     void bloop.ask(text);
+    // The question stays, selected: typing the next one replaces it, an arrow key keeps it to correct.
+    input.current?.select();
   };
   const onKeyDown = (e: KeyboardEvent) => {
-    // The map's keys never reach the box; Escape ends listening first.
+    // The map's keys never reach the box. Escape ends listening first; otherwise it goes on to the sheet, which closes.
+    if (e.key !== "Escape") return e.stopPropagation();
+    if (!talk.listening) return;
+    e.preventDefault();
     e.stopPropagation();
-    if (e.key === "Escape" && talk.listening) {
-      e.preventDefault();
-      talk.cancel();
-    }
+    talk.cancel();
   };
   const holdKey = (e: KeyboardEvent, down: boolean) => {
     if (e.key !== " " && e.key !== "Enter") return;
@@ -66,7 +68,7 @@ export function AskBloop() {
   };
 
   return (
-    <section aria-label={t("ask.title")} data-testid="ask-bloop" className="space-y-3 pt-3" onKeyDown={onKeyDown}>
+    <section data-testid="ask-bloop" className="space-y-3 pt-3" onKeyDown={onKeyDown}>
       <form onSubmit={submit} className="space-y-1">
         <label htmlFor={inputId} className="block font-medium">
           {t("ask.input")}

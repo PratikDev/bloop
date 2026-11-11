@@ -60,8 +60,8 @@ function WindowPanel({ side, win, rows, config, unit, scale, zeroLine, motion, n
       <p className="text-small text-haze">{unit}</p>
       <div className="relative">
         <PanelStripes win={win} baseline={motion.baseline} playedThrough={motion.playedThrough[side]} />
-      <ChartContainer config={config} className={cn("relative aspect-auto w-full", heightClass)}>
-        <LineChart data={rows.filter((r) => r[side] !== null)} margin={PANEL_MARGIN} accessibilityLayer>
+      <ChartContainer config={config} aria-hidden="true" className={cn("relative aspect-auto w-full", heightClass)}>
+        <LineChart data={rows.filter((r) => r[side] !== null)} margin={PANEL_MARGIN} accessibilityLayer={false}>
           <CartesianGrid stroke="var(--chart-grid)" vertical={false} />
           <XAxis dataKey="year" type="number" domain={[from, to]} ticks={win.years} padding={{ left: PANEL_X_PADDING, right: PANEL_X_PADDING }} allowDecimals={false} interval="preserveStartEnd" minTickGap={20} tickFormatter={axis.year} {...PANEL_AXIS} />
           <YAxis width={PANEL_AXIS_WIDTH} domain={scale.domain} ticks={scale.ticks} tickFormatter={axis.value} {...PANEL_AXIS} />

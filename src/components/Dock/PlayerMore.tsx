@@ -36,7 +36,7 @@ export function PlayerMore({ children }: { children: ReactNode }) {
         <DotsThree aria-hidden="true" weight="bold" />
         <span aria-hidden="true">{t("player.more")}</span>
       </PopoverTrigger>
-      <PopoverContent data-tt-occluder side="top" align="end" sideOffset={12} className="surface-glass max-h-(--available-height) w-80 gap-1 overflow-y-auto rounded-plate p-2 text-body">
+      <PopoverContent data-tt-occluder aria-label={t("player.more")} side="top" align="end" sideOffset={12} className="surface-glass max-h-(--available-height) w-80 gap-1 overflow-y-auto rounded-plate p-2 text-body">
         <MoreMenuContext.Provider value={{ close: () => setOpen(false), button }}>
           {children}
           <div ref={setMoreSlot} className="contents" />

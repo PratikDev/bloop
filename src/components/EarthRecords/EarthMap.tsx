@@ -1,9 +1,13 @@
 "use client";
 
-import type { KeyboardEvent, PointerEvent, ReactNode } from "react";
+import { useEffect, useId, useRef, type KeyboardEvent, type PointerEvent, type ReactNode } from "react";
 import type { LatLon } from "@/lib/data";
 import { clampLat, wrapLon } from "@/lib/data/grid";
+import { brailleRole } from "@/a11y/aria";
 import type { Box } from "@/lib/earth/class-grid";
+import { useAnnounce } from "../Announcer/use-announcer";
+import { useT } from "../AppState/use-app-state";
+import { useHeldName } from "../ExploreControls/use-held-name";
 
 const STEP_DEG = 1;
 const SHIFT_STEP_DEG = 5;
@@ -17,9 +21,20 @@ export interface MapBox {
 /**
  * A whole-Earth picture (equirectangular, 2:1: a shipped .webp, or a class grid drawn by the caller) with the needle
  * on top and, when given, outlined boxes. One Tab stop: arrow keys move the needle (Shift: further), a click or tap
- * places it. The caller's label is its accessible name (alt text and the needle's reading).
+ * places it. The caller's label is its accessible name (alt text and the needle's place), held while the map has focus
+ * as Listen's is. role="application" so a screen reader passes the arrow keys through; `reading` (the place and its
+ * value) is said by the status region after each key move.
  */
-export function EarthMap({ image, label, needle, onMove, boxes = [], children, testId }: { image?: string; label: string; needle: LatLon; onMove(to: LatLon): void; boxes?: readonly MapBox[]; children?: ReactNode; testId?: string }) {
+export function EarthMap({ image, label, reading, needle, onMove, boxes = [], children, testId }: { image?: string; label: string; reading?: string; needle: LatLon; onMove(to: LatLon): void; boxes?: readonly MapBox[]; children?: ReactNode; testId?: string }) {
+  const t = useT();
+  const announce = useAnnounce();
+  const keysId = useId();
+  const name = useHeldName(label, true);
+  // Only a key move is said (a click is seen, and the first reading belongs to the label).
+  const moved = useRef(false);
+  useEffect(() => {
+    if (moved.current && reading) announce(reading);
+  }, [reading, announce]);
   const x = (lon: number) => ((lon + 180) / 360) * 100;
   const y = (lat: number) => ((90 - lat) / 180) * 100;
 
@@ -33,21 +48,33 @@ export function EarthMap({ image, label, needle, onMove, boxes = [], children, t
     const m = d[e.key];
     if (!m) return;
     e.preventDefault();
+    moved.current = true;
     const step = e.shiftKey ? SHIFT_STEP_DEG : STEP_DEG;
     onMove({ lat: clampLat(needle.lat + m[0] * step), lon: wrapLon(needle.lon + m[1] * step) });
   }
 
   return (
     <div
-      role="img"
+      role="application"
       tabIndex={0}
-      aria-label={label}
+      aria-roledescription={t("map.roleDescription")}
+      {...brailleRole(t("braille.bl.map"))}
+      aria-label={name.name}
+      aria-describedby={keysId}
       onPointerDown={pick}
       onKeyDown={key}
+      onFocus={name.onFocus}
+      onBlur={(e) => {
+        name.onBlur(e);
+        moved.current = false;
+      }}
       data-testid={testId}
       data-needle={`${needle.lat.toFixed(2)},${needle.lon.toFixed(2)}`}
       className="relative aspect-[2/1] w-full overflow-hidden rounded-lg bg-land ring-1 ring-glass-edge focus-visible:outline-2 focus-visible:outline-moon"
     >
+      <p id={keysId} className="sr-only">
+        {t("earth.map.keys")}
+      </p>
       {/* eslint-disable-next-line @next/next/no-img-element -- a static export with no image optimiser; the picture is data */}
       {image && <img src={image} alt="" aria-hidden="true" className="absolute inset-0 size-full object-fill" draggable={false} />}
       {children}

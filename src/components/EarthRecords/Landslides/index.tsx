@@ -7,6 +7,7 @@ import { cellsPerClass, slideBrailleLine, slideDescription, slideLine, slideSoun
 import { slideProvenance } from "@/lib/earth/landslide-provenance";
 import { formatInteger, formatUtc } from "@/lib/i18n";
 import { useAppState, useT } from "../../AppState/use-app-state";
+import { useCommands } from "../../Commands/use-commands";
 import { DataTable } from "../../EarthData/DataTable";
 import { HowWeGotThis } from "../../HowWeGotThis";
 import { StatusBadge } from "../../StatusBadge";
@@ -31,6 +32,7 @@ export function Landslides() {
   const t = useT();
   const { state } = useAppState();
   const lang = state.lang;
+  const commands = useCommands();
   const s = useLandslides();
   const placeNames = usePlaceNames(s.places?.map((p) => p.at) ?? []);
   const exposedNames = usePlaceNames(s.exposed);
@@ -38,15 +40,22 @@ export function Landslides() {
   if (s.error) return <StatusBadge kind="error">{t("official.error")}</StatusBadge>;
   if (!s.grid || s.code === null) return <StatusBadge kind="loading">{t("official.loading")}</StatusBadge>;
   const { meta, codes } = s.grid;
+  const code = s.code;
   const place = needleName?.[0] ?? t("place.latlon", s.needle);
   const rule = classesRule(LANDSLIDE_VOICE);
   const decoded = cellsPerClass(s.grid);
+  // Play says what is at the needle too: a low class is a stated silence, and then nothing else answers the key.
+  const playAtNeedle = () => {
+    if (s.playing) return s.stop();
+    void s.play();
+    void commands.say((tt, l) => `${place}: ${slideLine(tt, l, meta, code)}`);
+  };
   const placeLabel = (id: string, i: number) => (id === "cht" ? t("earth.slide.cht") : (placeNames?.[i] ?? id));
   return (
     <div data-provenance-group="" className="grid gap-6 lg:grid-cols-[minmax(0,1fr)_24rem]" data-testid="record-landslide_lhasa">
       <div className="space-y-3">
         <p className="text-body text-haze">{t("earth.slide.lead")}</p>
-        <EarthMap testId="slide-map" label={`${t("earth.slide.alt", { date: formatUtc(meta.frame_time_utc, lang) })} ${t("earth.map.needle", { place })}`} needle={s.needle} onMove={s.setNeedle}>
+        <EarthMap testId="slide-map" label={`${t("earth.slide.alt", { date: formatUtc(meta.frame_time_utc, lang) })} ${t("earth.map.needle", { place })}`} reading={`${place}: ${slideLine(t, lang, meta, s.code)}`} needle={s.needle} onMove={s.setNeedle}>
           <ClassCanvas width={meta.grid.width} height={meta.grid.height} codes={codes} swatches={meta.legend_swatches_rgb} nodata={meta.grid.nodata} />
         </EarthMap>
         <p className="text-small text-haze">{t("earth.map.keys")}</p>
@@ -59,7 +68,7 @@ export function Landslides() {
           <HowWeGotThis facts={[slideProvenance(t, lang, meta, place)]} />
         </div>
         <div className="flex flex-wrap gap-2">
-          <Button className="h-11 rounded-full px-4 text-body" onClick={() => void (s.playing ? s.stop() : s.play())} data-testid="slide-play">
+          <Button className="h-11 rounded-full px-4 text-body" onClick={playAtNeedle} data-testid="slide-play">
             {s.playing ? t("earth.stop") : t("earth.play")}
           </Button>
           <DescribeButton describe={(tt, l, level) => slideDescription(tt, l, meta, s.code ?? 0, level, place)} />
