@@ -4,7 +4,6 @@
 const ROOT = "/data";
 
 export const EARTH_PATHS = {
-  health: `${ROOT}/meta/health.json`,
   fwiMeta: `${ROOT}/latest/fwi_class.json`,
   fwiGrid: `${ROOT}/latest/fwi_class.bin`,
   fwiArchiveIndex: `${ROOT}/context/fwi_archive_index.json`,

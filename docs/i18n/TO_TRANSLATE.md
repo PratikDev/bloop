@@ -499,7 +499,7 @@ The Mapping panel builds each rule sentence from its parts (`src/lib/i18n/bn/rul
 | `clarity` | parameter: reverbSec; unit: hours since a 1 km infrared look | How recently measured 0 to 48 hours since a 1 km infrared look → echo length 0.1 to 2.4 s (linear). |
 | `unison` | a rule shared with another voice (sameAs) | Proof in unison: two tones in one ear, both by the Ocean temperature rule (Ocean temperature −5 to 35 °C → pitch 220 to 880 Hz (exponential: equal steps in value sound like equal musical steps).) Beats per second = the difference between the two pitches in Hz. |
 
-## Draft Bangla, needs review (1108)
+## Draft Bangla, needs review (1079)
 
 Drafted for the mentor fixes (`docs/MENTOR_FIXES.md`); **draft, needs review** by a Bangla speaker. Listed in `src/lib/i18n/bn/drafts.ts`: remove an entry there once it is checked.
 
@@ -1183,35 +1183,6 @@ Drafted for the mentor fixes (`docs/MENTOR_FIXES.md`); **draft, needs review** b
 | `lt.q.chordGroups` | You hear the spread of sea temperatures in one view, played as a chord. Do you hear one group or two? | আপনি একটি দৃশ্যের সমুদ্র-তাপমাত্রার বিস্তার কর্ড হিসেবে শুনবেন। আপনি কি একটি দল শুনছেন, নাকি দুটি? |
 | `lt.opt.one` | One group | একটি দল |
 | `lt.opt.two` | Two groups | দুটি দল |
-| `earth.fresh.heading` | Is this data fresh? | এই ডেটা কি টাটকা? |
-| `earth.fresh.lastData` | Newest data shipped | পাঠানো সবচেয়ে নতুন ডেটা |
-| `earth.fresh.sourceLatest` | Newest at the source | উৎসে সবচেয়ে নতুন |
-| `earth.fresh.lag` | Lag | পিছিয়ে |
-| `earth.fresh.lagValue` | ``${p.days} d behind the source`` | ``\u0989\u09CE\u09B8 \u09A5\u09C7\u0995\u09C7 ${p.days} \u09A6\u09BF\u09A8 \u09AA\u09BF\u099B\u09BF\u09AF\u09BC\u09C7`` |
-| `earth.fresh.checks` | Checks | যাচাই |
-| `earth.fresh.checksValue` | ``${p.passed} passed, ${p.failed} failed`` | ``${p.passed}\u099F\u09BF \u09AA\u09BE\u09B8, ${p.failed}\u099F\u09BF \u09AB\u09C7\u09B2`` |
-| `earth.fresh.failed` | ``Failed: ${p.checks}`` | ``\u09AB\u09C7\u09B2: ${p.checks}`` |
-| `earth.fresh.run` | Last health run | শেষ স্বাস্থ্য-যাচাই |
-| `earth.fresh.none` | This record is not in the latest health run. | শেষ স্বাস্থ্য-যাচাইয়ে এই রেকর্ডটি নেই। |
-| `earth.fresh.loading` | Loading the health run. | স্বাস্থ্য-যাচাই লোড হচ্ছে। |
-| `earth.health.title` | Data health | ডেটার স্বাস্থ্য |
-| `earth.health.lead` | Every record and product in the latest health run: how new its data is, how far behind its source, and how many checks passed. Read from meta/health.json. | শেষ স্বাস্থ্য-যাচাইয়ের প্রতিটি রেকর্ড ও পণ্য: তার ডেটা কত নতুন, উৎস থেকে কতটা পিছিয়ে, আর কতগুলো যাচাই পাস করেছে। meta/health.json থেকে পড়া। |
-| `earth.health.caption` | ``${p.n} records, health run of ${p.date}`` | ``${p.n}\u099F\u09BF \u09B0\u09C7\u0995\u09B0\u09CD\u09A1, ${p.date}-\u098F\u09B0 \u09B8\u09CD\u09AC\u09BE\u09B8\u09CD\u09A5\u09CD\u09AF-\u09AF\u09BE\u099A\u09BE\u0987`` |
-| `earth.health.col.record` | Record | রেকর্ড |
-| `earth.health.col.category` | Kind | ধরন |
-| `earth.health.col.lastData` | Newest data | সবচেয়ে নতুন ডেটা |
-| `earth.health.col.sourceLatest` | Newest at source | উৎসে সবচেয়ে নতুন |
-| `earth.health.col.lag` | Lag | পিছিয়ে |
-| `earth.health.col.checks` | Checks passed / failed | যাচাই পাস / ফেল |
-| `earth.health.passFail` | ``${p.passed} / ${p.failed}`` | ``${p.passed} / ${p.failed}`` |
-| `earth.health.lagDays` | ``${p.days} d`` | ``${p.days} \u09A6\u09BF\u09A8`` |
-| `earth.health.loading` | Loading the health run. | স্বাস্থ্য-যাচাই লোড হচ্ছে। |
-| `earth.health.error` | The health run could not be loaded. | স্বাস্থ্য-যাচাই লোড করা যায়নি। |
-| `earth.health.open` | Open Data health | ডেটার স্বাস্থ্য খুলুন |
-| `earth.health.cardTitle` | Is every record fresh? | প্রতিটি রেকর্ড কি টাটকা? |
-| `earth.health.cardLead` | One row per record: newest data, lag behind the source, checks passed and failed. | প্রতি রেকর্ডে এক সারি: সবচেয়ে নতুন ডেটা, উৎস থেকে কতটা পিছিয়ে, পাস আর ফেল করা যাচাই। |
-| `earth.health.back` | Back to How we know | কীভাবে জানি-তে ফিরুন |
-| `earth.health.keys` | The table is one stop for Tab; scroll it with the arrow keys. Each row starts with the record's name. | টেবিলটি ট্যাবের একটি থামা; তীর-চাবি দিয়ে স্ক্রল করুন। প্রতিটি সারি রেকর্ডের নাম দিয়ে শুরু। |
 | `earth.check.heading` | Acceptance check (from validation.json) | গ্রহণযোগ্যতা যাচাই (validation.json থেকে) |
 | `earth.check.line` | ``${p.title}: ${p.numbers}. Result: ${p.result}.`` | ``${p.title}: ${p.numbers}\u0964 \u09AB\u09B2: ${p.result}\u0964`` |
 | `earth.check.loading` | Loading the acceptance check. | গ্রহণযোগ্যতা যাচাই লোড হচ্ছে। |

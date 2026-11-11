@@ -6,7 +6,10 @@ import { DATA_PATHS } from "@/lib/data/paths";
 import { readData } from "@/lib/i18n/data-sentences";
 import { checkResult, keyNumbers, LIVE_CHECK_RECORDS, pyG3 } from "@/lib/provenance/live-checks";
 import type { OfficialIndex, OfficialValidationFile } from "@/types/data-contract";
-import type { HealthFile } from "./health";
+/** The part of the pipeline\'s meta/health.json this test reads. */
+interface HealthFile {
+  hidden: { record: string; reason: string }[];
+}
 import { hiddenRecords } from "./hidden";
 
 /** The table's rows for a record: [check cell, key numbers, result]. */

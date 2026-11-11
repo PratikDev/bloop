@@ -25,7 +25,6 @@ import { Tile } from "./Tile";
 import { useHowProvenance } from "./use-how-provenance";
 import { FLAGS } from "@/lib/flags";
 import { SameChordCard } from "./SameChordCard";
-import { DataHealthCard } from "./DataHealthCard";
 import { ArtHowCards } from "../../Art/HowCards"; // ART
 
 const FOOT_LINK = "h-11 gap-2 rounded-full px-4 text-body text-haze ring-1 ring-glass-edge hover:bg-tide hover:text-moon";
@@ -96,7 +95,6 @@ export function HowPage() {
         {FLAGS.cvCard && <SameChordCard />}
         {/*  */}
         {/*  */}
-        {FLAGS.dataHealth && <DataHealthCard />}
         {/*  */}
         {/*  */}
         <ArtHowCards />

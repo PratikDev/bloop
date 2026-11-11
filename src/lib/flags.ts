@@ -53,9 +53,6 @@ export const FLAGS = {
   // Tests: src/lib/listen-test/chord/chord-tasks.test.ts, qa/e2e/cv/listen-test-chord.e2e.ts, qa/e2e/mentor/item08.
   cvListenTest: flag(process.env.NEXT_PUBLIC_CV_LISTEN_TEST, true),
   // Every shipped dataset in the app. The tests for each flag are listed beside it.
-  /** Data health (meta/health.json): "Is this data fresh?" in every How we got this, the Data health page, its link. */
-  // qa/e2e/data/health.e2e.ts + src/lib/earth/health.test.ts.
-  dataHealth: flag(process.env.NEXT_PUBLIC_DATA_HEALTH, true),
   /** The leftovers: the 5176 picture under the normal tone, live validation in the provenance, "Not playable". */
   // qa/e2e/data/leftovers.e2e.ts + src/lib/earth/leftovers.test.ts.
   dataLeftovers: flag(process.env.NEXT_PUBLIC_DATA_LEFTOVERS, true),

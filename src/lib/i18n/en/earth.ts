@@ -4,36 +4,6 @@
 
 export const earthEn = {
   // "Is this data fresh?" (in every How we got this) and the Data health page.
-  "earth.fresh.heading": "Is this data fresh?",
-  "earth.fresh.lastData": "Newest data shipped",
-  "earth.fresh.sourceLatest": "Newest at the source",
-  "earth.fresh.lag": "Lag",
-  "earth.fresh.lagValue": (p: { days: string }) => `${p.days} d behind the source`,
-  "earth.fresh.checks": "Checks",
-  "earth.fresh.checksValue": (p: { passed: string; failed: string }) => `${p.passed} passed, ${p.failed} failed`,
-  "earth.fresh.failed": (p: { checks: string }) => `Failed: ${p.checks}`,
-  "earth.fresh.run": "Last health run",
-  "earth.fresh.none": "This record is not in the latest health run.",
-  "earth.fresh.loading": "Loading the health run.",
-  "earth.health.title": "Data health",
-  "earth.health.lead":
-    "Every record and product in the latest health run: how new its data is, how far behind its source, and how many checks passed. Read from meta/health.json.",
-  "earth.health.caption": (p: { n: string; date: string }) => `${p.n} records, health run of ${p.date}`,
-  "earth.health.col.record": "Record",
-  "earth.health.col.category": "Kind",
-  "earth.health.col.lastData": "Newest data",
-  "earth.health.col.sourceLatest": "Newest at source",
-  "earth.health.col.lag": "Lag",
-  "earth.health.col.checks": "Checks passed / failed",
-  "earth.health.passFail": (p: { passed: string; failed: string }) => `${p.passed} / ${p.failed}`,
-  "earth.health.lagDays": (p: { days: string }) => `${p.days} d`,
-  "earth.health.loading": "Loading the health run.",
-  "earth.health.error": "The health run could not be loaded.",
-  "earth.health.open": "Open Data health",
-  "earth.health.cardTitle": "Is every record fresh?",
-  "earth.health.cardLead": "One row per record: newest data, lag behind the source, checks passed and failed.",
-  "earth.health.back": "Back to How we know",
-  "earth.health.keys": "The table is one stop for Tab; scroll it with the arrow keys. Each row starts with the record's name.",
 
   // The live frames' acceptance checks (public/data/official/live_*/validation.json).
   "earth.check.heading": "Acceptance check (from validation.json)",
