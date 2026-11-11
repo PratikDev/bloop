@@ -1,4 +1,4 @@
-// The art settings (docs/statement/ART.md): Instrument style (Earth Orchestra / Plain tones) and the Science ↔ Art
+// The art settings: Instrument style (Earth Orchestra / Plain tones) and the Science ↔ Art
 // dial, remembered on this device (try/catch: blocked storage only means they aren't remembered), plus what the
 // foreground plays now (the record, its play mode), which the dial's layers need. A small external store, so the
 // sound engines and the settings UI read one value.

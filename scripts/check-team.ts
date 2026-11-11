@@ -1,4 +1,4 @@
-// The release check for content/team.json (mentor item 7): with BLOOP_RELEASE=1 the build stops while any field is
+// The release check for content/team.json: with BLOOP_RELEASE=1 the build stops while any field is
 // still "TODO"; otherwise it only lists them. Usage: bun scripts/check-team.ts [path/to/team.json]
 import { readFileSync } from "node:fs";
 import { parseTeam, releaseCheck } from "../src/lib/team";

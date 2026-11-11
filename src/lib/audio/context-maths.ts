@@ -49,7 +49,7 @@ export function waterRange(series: readonly (number | null)[]): { min: number; m
   return { min, max };
 }
 
-/** GRACE cm → bass Hz on the water rule over `range` (from waterRange()); null (no measurement) → null. */
+/** GRACE cm → bass Hz on the water rule over `range` (from waterRange); null (no measurement) → null. */
 export function waterFreq(cm: number | null, range: { min: number; max: number }): number | null {
   return mapContinuous(cm, withInputRange(continuousRule("water"), range));
 }

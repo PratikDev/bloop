@@ -63,7 +63,7 @@ function RecordTable({ data, step }: { data: ValueTableData; step: number }) {
 }
 
 /**
- * "View as table" (accessibility core, step 4; spec Part 1.4): the values around the needle as a real table, with a
+ * "View as table": the values around the needle as a real table, with a
  * caption, headers and units, one arrow-key step apart; read from the grid the sound plays.
  */
 export function ValueTable() {

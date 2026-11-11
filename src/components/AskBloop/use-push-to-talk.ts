@@ -10,7 +10,7 @@ import { useAnnounce } from "../Announcer/use-announcer";
 import { useAppState, useT } from "../AppState/use-app-state";
 
 /**
- * Push-to-talk (spec §5.5): hold the Speak button, or Alt+K anywhere but a text field (it can be turned off), and
+ * Push-to-talk: hold the Speak button, or Alt+K anywhere but a text field (it can be turned off), and
  * release to finish. While listening: Bloop's voice stops, the sonification is ducked (always released, whatever
  * ends it), a short earcon marks the start and the end, and the status region says so. What was heard goes to
  * `onHeard` (the typed box, so it can be corrected before Enter).

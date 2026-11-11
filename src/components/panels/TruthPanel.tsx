@@ -13,7 +13,7 @@ import { GlobeTeaser } from "./GlobeTeaser";
 import { AnomalyCheck, ThreeWayCheck, UnisonCheck } from "./TruthChecks";
 
 /**
- * How we know the sound is right: L1's check wording (DATA_HANDOFF §4), filled
+ * How we know the sound is right: L1's check wording, filled
  * from the JSON, each check with its source and data-age badges (meta/freshness.json).
  * The sections are shared by the Listen page's Inspector and How we know.
  */
@@ -35,7 +35,7 @@ export function OceanTruth({ showHeading = true }: { showHeading?: boolean }) {
   const { sst } = useLiveData();
   return (
     <TruthSection heading="truth.ocean.heading" product="sst" showHeading={showHeading}>
-      {/* The ocean plot is drawn from truth/sst_pairs.json on the How we know card (mentor item 6). */}
+      {/* The ocean plot is drawn from truth/sst_pairs.json on the How we know card. */}
       {sst && <OceanCheck meta={sst.meta} />}
     </TruthSection>
   );

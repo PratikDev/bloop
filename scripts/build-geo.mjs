@@ -1,9 +1,7 @@
 // Builds the Turntable's geography overlays once into public/geo/ (simplified,
 // rounded GeoJSON and compact JSON). Overlays and labels are for orientation
 // only: no value or sound comes from them.
-//
 //   node scripts/build-geo.mjs
-//
 // Sources (licences and credits in docs/turntable.md):
 //   Natural Earth v5.1.2 (public domain), pinned to one commit of nvkelso/natural-earth-vector
 //   geoBoundaries gbOpen BGD ADM2 (CC BY 3.0 IGO; source BBS, OCHA ROAP)

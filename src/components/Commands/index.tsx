@@ -36,7 +36,7 @@ export function CommandsProvider({ children }: { children: ReactNode }) {
   const announce = useAnnounce();
   const shortLines = useShortLines();
   const sweepRef = useRef<SweepVisual | null>(null);
-  // Counts say() calls and stops, so a whisper never follows a cancelled value.
+  // Counts say calls and stops, so a whisper never follows a cancelled value.
   const sayCount = useRef(0);
   const navigate = useNavigate();
   useSoundSync(state, fields);
@@ -54,8 +54,8 @@ export function CommandsProvider({ children }: { children: ReactNode }) {
     // "~" is read aloud as "about".
     const sayable = (text: string, tl: typeof t) => text.replaceAll("~", tl("speak.approx"));
 
-    // Speech may be in another language than the screen (plan §17). `id` is the
-    // say() it belongs to: a later say() or Esc while voices load cancels it.
+    // Speech may be in another language than the screen. `id` is the
+    // say it belongs to: a later say or Esc while voices load cancels it.
     const speakLine = async (line: Line, id: number) => {
       const sl = await speechLangFor(state.lang);
       if (id !== sayCount.current) return;
@@ -69,7 +69,7 @@ export function CommandsProvider({ children }: { children: ReactNode }) {
       const voiced = out === "voice" && state.soundOn;
       const shown = line(t, state.lang);
       // Two voices never talk at once: built-in speech OR the status region (OR, with speech off, neither: the caption
-      // still shows it). With sound off, nothing is spoken aloud. "Short lines" (plan item 12): the status region gets
+      // still shows it). With sound off, nothing is spoken aloud. "Short lines": the status region gets
       // the short form and the caption shows the full line.
       const brief = short && shortLines.on && !voiced && out !== "off" ? short(t, state.lang, shortLines.degree) : null;
       if (voiced || out === "off" || brief) postCaption("caption.speech", { text: shown });
@@ -132,7 +132,7 @@ export function CommandsProvider({ children }: { children: ReactNode }) {
         dispatch({ type: "setTrack", track });
         // Off the map the status is the last word; on it, the reading that follows leads with the same status.
         announce(trackStatus(t, track, fields));
-        // Both: the two frames are from different moments; the caption says how far apart (mentor item 1).
+        // Both: the two frames are from different moments; the caption says how far apart.
         const gap = liveGap(track, fields);
         if (gap) postCaption("caption.frameGap", gapTexts(gap));
       },
@@ -221,7 +221,7 @@ export function CommandsProvider({ children }: { children: ReactNode }) {
         dispatch({ type: "setHelpOpen", open: false });
         dispatch({ type: "setPanelOpen", open: false });
         // Ending a story or leaving the turntable: back to Explore (Listen), with one combined message. Not when the Esc
-        // only closed an overlay on top of it (mentor item 4).
+        // only closed an overlay on top of it.
         const leaving = leave && (state.mode === "story" || state.mode === "turntable");
         if (leaving) void navigate(locationForMode("explore"));
         announce(t(!leaving ? "sound.stopped" : state.mode === "story" ? "story.stopped" : "turntable.stopped"));

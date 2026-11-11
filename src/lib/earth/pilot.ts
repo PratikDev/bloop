@@ -1,4 +1,4 @@
-// "Forecast meets outcome" (P2a): a pilot check of the experimental FWI forecast against what FIRMS saw. For each
+// "Forecast meets outcome": a pilot check of the experimental FWI forecast against what FIRMS saw. For each
 // archived forecast day and each FIRMS box, the box's forecast class (the most common class of its cells, on that day's
 // archived grid) beside the box's FIRMS hotspot count on the day the forecast was for (the next day), per sensor.
 // Spearman ρ with n per sensor. Labelled a pilot check of an experimental forecast: no skill is claimed when n is

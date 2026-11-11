@@ -1,4 +1,4 @@
-// P2, the fire trio (DATA): the "Fires and fire weather" record (chord + Geiger clicks + NASA's picture), its stated
+// The fire trio: the "Fires and fire weather" record (chord + Geiger clicks + NASA's picture), its stated
 // silences, the archive replay (forecast meets outcome), the pilot table, its transcript, and the fire-weather layer
 // on Listen. Runs on a build with NEXT_PUBLIC_DATA_FIRE_WEATHER=1 and NEXT_PUBLIC_DATA_WILDFIRES=1. Every expected value
 // comes from the shipped files through the app's own functions; the sound is read from window.__bloopData.

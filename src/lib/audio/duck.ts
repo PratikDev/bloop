@@ -46,7 +46,7 @@ export function setDuckingEnabled(on: boolean) {
   apply();
 }
 
-// stopAll() cancels every speaker and restores the buses itself.
+// stopAll cancels every speaker and restores the buses itself.
 onStopAll(() => {
   holders = 0;
 });

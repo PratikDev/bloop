@@ -1,4 +1,4 @@
-// "Compare two dates" (accessibility core, step 6; spec Part 1.9): the same place at two times, from the monthly global
+// "Compare two dates": the same place at two times, from the monthly global
 // layers (GISTEMP land temperature, GPCP rain, GRACE water) at the cell around the needle. The difference is computed
 // here and said exactly; the sound plays both values by the layer's own rule (two tones beating in one ear for the
 // pitch rules, one after the other for rain's drops).

@@ -27,7 +27,7 @@ export function useFireTranscript(): { data: AppTranscriptData | null; error: bo
   const [error, setError] = useState(false);
   useEffect(() => {
     let cancelled = false;
-    // t is bound here: useT() gives a new function each render, which would restart this load forever.
+    // t is bound here: useT gives a new function each render, which would restart this load forever.
     const t = bindT(lang);
     (async () => {
       const d = await loadFireData();

@@ -8,7 +8,7 @@ from common import *
 
 WIN_A, WIN_B = (1981, 1990), (2016, 2025)     # heat (GISTEMP) windows; WIN_B is also GPCP's newer, GPCP-only decade
 HOT, RAIN = [4, 5], [6, 7, 8, 9]
-# Rain: GPCP and GPCC always share one baseline and one recent decade (mentor item 9). The recent decade ends in the
+# Rain: GPCP and GPCC always share one baseline and one recent decade. The recent decade ends in the
 # last June-September GPCC has for every city (the shipped Full Data V2020 ends in Dec 2019); it is read from the data
 # in rain_windows(), never typed here. One GPCC product only: no Monitoring Product months are stitched on.
 C = PUBLIC / "context"

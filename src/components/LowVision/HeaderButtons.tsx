@@ -9,7 +9,7 @@ import { useLowVisionPreset } from "./use-low-vision-preset";
 export const LV_PANEL_ID = "lv-settings";
 
 /**
- * The low-vision switch and its settings, at the top left where magnifier users look first (TetraLogical; spec 4.5).
+ * The low-vision switch and its settings, at the top left where magnifier users look first (TetraLogical).
  * The switch turns the preset on or off (also Alt+L); the settings open inline under the header, never full screen.
  */
 export function LowVisionButtons({ open, onOpenChange }: { open: boolean; onOpenChange: (open: boolean) => void }) {
@@ -32,7 +32,7 @@ export function LowVisionButtons({ open, onOpenChange }: { open: boolean; onOpen
   );
 }
 
-/** The low-vision preset's switch ("Low vision", pressed when on): in the header and in Track 0 (spec 4.7). */
+/** The low-vision preset's switch ("Low vision", pressed when on): in the header and in Track 0. */
 export function LowVisionToggle({ label = "lv.toggle", className }: { label?: "lv.toggle" | "lv.tuningToggle"; className?: string }) {
   const t = useT();
   const { on, toggle } = useLowVisionPreset();

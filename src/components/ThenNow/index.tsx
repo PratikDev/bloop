@@ -30,7 +30,7 @@ import { ThenNowMidi } from "../Art/ThenNowMidi"; // ART
 export const DEFAULT_CITY: ClimateCellName = "Dhaka";
 
 /**
- * Then vs Now, compare decades (plan §11.5, the killer demo): the city and a
+ * Then vs Now, compare decades (the killer demo): the city and a
  * tab per record; for each, the finding (caption, chart) beside how to
  * listen, with the details a click away. Dhaka by default; Chattogram,
  * Rajshahi and Sylhet from L1's cities file (§13); fires and vegetation
@@ -68,7 +68,7 @@ export function ThenNow({
   );
   const stats = ready?.stats ?? null;
   const statLines = useCallback((p: Part) => (stats ? statTexts(stats, cityName, p) : null), [stats, cityName]);
-  // Captions and Describe carry the same notes as the screen (mentor item 12): Bangladesh-wide water, shared cells.
+  // Captions and Describe carry the same notes as the screen: Bangladesh-wide water, shared cells.
   const deg = ready?.grace.mascon_deg ?? null;
   const noteLines = useCallback(
     (p: Part): BiText[] => {
@@ -88,7 +88,7 @@ export function ThenNow({
   const cities = ready?.cities?.cities ?? [];
   const facts = usePartProvenance(ready && view ? { cityName, city, demo: view.demo, grace: ready.grace, stats: ready.stats } : null, part);
 
-  // The Braille Data Explorer (plan item 11): B on the page, or its button beside the play controls. Opening it stops
+  // The Braille Data Explorer: B on the page, or its button beside the play controls. Opening it stops
   // the part playing, so the caret's own tone is the only sound.
   const [brailleOpen, setBrailleOpen] = useState(false);
   // One input per part, city and data (a new object each render would rebuild the source and reset the caret).

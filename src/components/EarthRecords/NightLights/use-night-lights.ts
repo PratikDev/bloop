@@ -19,7 +19,7 @@ export const preferCity = (city: string) => {
   preferred = city;
 };
 
-/** The night-lights record (P4): the file, the chosen city, and its nights played as a short sequence with a playhead. */
+/** The night-lights record: the file, the chosen city, and its nights played as a short sequence with a playhead. */
 export function useNightLights() {
   const { value: file, error } = useLoaded(loadNightLights);
   const [chosen, setCity] = useState<string | null>(() => preferred);

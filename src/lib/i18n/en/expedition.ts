@@ -1,4 +1,4 @@
-// English strings for the accessibility core, step 6: Compare two dates, the sonar, and the expedition log. Every
+// English strings for Compare two dates, the sonar, and the expedition log. Every
 // number is a slot computed from the data files.
 
 export const expeditionEn = {

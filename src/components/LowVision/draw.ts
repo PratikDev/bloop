@@ -1,4 +1,4 @@
-// Canvas drawing for low-vision mode (accessibility core, step 8; spec 4.1, 4.2): the decoded grid as sharp bands
+// Canvas drawing for low-vision mode (4.2): the decoded grid as sharp bands
 // (one pixel per cell, drawn without smoothing, so edges never blur), land and no-data, thick coastlines and large
 // labels with a halo. Colours are the CSS variables, read when drawing.
 import { hexToRgb } from "@/lib/css-tokens";

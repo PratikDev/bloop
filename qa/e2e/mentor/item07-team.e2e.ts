@@ -1,4 +1,4 @@
-// Mentor item 7: "Add a Team/About section with team member name, specific role and the challenge name." The page
+// "Add a Team/About section with team member name, specific role and the challenge name." The page
 // renders content/team.json in English and Bangla, never shows "TODO", has one h1 and proper headings, is reached from
 // the header and the footer, and works by keyboard.
 import { expect, test } from "@playwright/test";

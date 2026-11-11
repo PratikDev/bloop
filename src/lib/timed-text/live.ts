@@ -1,4 +1,4 @@
-// The timed text of the run playing now (accessibility core, step 7). A run's .vtt files are parsed back here and
+// The timed text of the run playing now. A run's .vtt files are parsed back here and
 // follow the player's step events (both engines send them): each captions cue the playhead passes becomes a sound
 // caption in the caption bar, and the metadata cue under the playhead is the "now playing" line. So what the app shows
 // is what the files say. Visual only: Describe mode doesn't speak these (src/components/CaptionBar/use-describe.ts).

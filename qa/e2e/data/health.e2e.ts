@@ -1,4 +1,4 @@
-// P1, Data health (DATA): How we know links the Data health page; its table has one row per record of meta/health.json
+// Data health: How we know links the Data health page; its table has one row per record of meta/health.json
 // with the file's times and check counts; every How we got this has "Is this data fresh?" from the same file. Runs on
 // a build with NEXT_PUBLIC_DATA_HEALTH=1. Expected values come from the shipped file through the app's own functions.
 import { expect, test } from "@playwright/test";

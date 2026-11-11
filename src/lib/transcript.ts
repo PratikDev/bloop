@@ -1,4 +1,4 @@
-// PURE: the transcript page per record (accessibility core, step 7; spec Part 3.4, WCAG G158). Which records have one,
+// PURE: the transcript page per record (WCAG G158). Which records have one,
 // their address, the time a moment is heard at, and an Official record's highest and lowest values (from the same
 // decoded grid the sound plays).
 import { decodeCode, type OfficialGrid } from "@/lib/data/official";

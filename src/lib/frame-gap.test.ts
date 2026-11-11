@@ -1,4 +1,4 @@
-// Mentor item 1: the Both-mode gap is computed from the two manifests' frame times, in hours under a day, and its
+// The Both-mode gap is computed from the two manifests' frame times, in hours under a day, and its
 // short form is braille-ready.
 import { describe, expect, test } from "bun:test";
 import { STATUS_BUDGET, violations } from "@/a11y/brailleText";

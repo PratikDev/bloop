@@ -1,4 +1,4 @@
-// "Your lifetime" and the MIDI export (docs/statement/ART.md). Built only from data; braille rules apply.
+// "Your lifetime" and the MIDI export. Built only from data; braille rules apply.
 
 export const lifetimeEn = {
   "lifetime.view": "Your lifetime",

@@ -1,4 +1,4 @@
-// The mix pass (CV/ML build, piece D; docs/audio/MIX.md), on a build with the CV flags on. Records what the app sends to
+// The mix pass (docs/audio/MIX.md), on a build with the CV flags on. Records what the app sends to
 // the speakers in each mode (a recorder taps every AudioContext's destination; the app is not changed) and measures it:
 // true peak (must stay under the stated ceiling: no clipping), integrated loudness (BS.1770; must stay within the stated
 // tolerance of docs/audio/mix_results.json), the mono fold-down, and the small-speaker check (200 Hz high-pass: Ocean

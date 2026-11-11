@@ -15,7 +15,7 @@ const CURSOR_RADIUS = 11;
 const ACCENT_WIDTH = 2;
 const OUTLINE_WIDTH = 1.5;
 
-/** A shapla stroke with an ink outline on both sides, so it shows on any colormap (design-plan §2.2). */
+/** A shapla stroke with an ink outline on both sides, so it shows on any colormap. */
 function strokeOutlined(ctx: CanvasRenderingContext2D, palette: Palette, alpha: number, accentWidth = ACCENT_WIDTH, outlineWidth = OUTLINE_WIDTH) {
   ctx.globalAlpha = alpha;
   ctx.strokeStyle = palette.ink;

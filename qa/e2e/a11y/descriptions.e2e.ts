@@ -1,4 +1,4 @@
-// Accessibility core, step 3 (docs/accessibility/CORE_PLAN.md): layered descriptions. D says the description of the
+// Layered descriptions. D says the description of the
 // needle once (at the chosen detail, through the speech mode); the Inspector's Description tab shows the same words;
 // Detailed adds "What this means" in its own fold; Bangla has its own templates; a held rain frame is described as that
 // frame. Runs on a build with NEXT_PUBLIC_A11Y_DESCRIBE=1 (and steps 1–2 on), 3D shown and hidden. The value is the

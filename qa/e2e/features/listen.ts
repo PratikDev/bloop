@@ -118,7 +118,7 @@ export const LISTEN: Feature[] = [
   { id: "describe", group: "a11y", name: "Describe mode", where: "Header · Settings · Describe · Shift+D", keyboard: true,
     what: "Turns spoken descriptions on or off", control: (page) => settings(page),
     async run(page) {
-      // Shift+D: Describe mode (accessibility core step 2 gave plain D to "describe here"; Shift+D toggled it before too).
+      // Shift+D: Describe mode (plain D went to "describe here"; Shift+D toggled it before too).
       await onMap(page); await page.keyboard.press("Shift+D");
       await settings(page).click();
       await pressed(page.getByRole("button", { name: "Describe" }));

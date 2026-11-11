@@ -1,4 +1,4 @@
-// English strings for the Help dialog: the keyboard map (plan §9.3).
+// English strings for the Help dialog: the keyboard map.
 
 import { PLACE_NAMES_EN } from "./places";
 

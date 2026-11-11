@@ -1,4 +1,4 @@
-// Where the Context Lens sits (accessibility core, step 8; spec 4.1): following the needle, in a corner of the screen
+// Where the Context Lens sits: following the needle, in a corner of the screen
 // the user picked, or docked in the page under the map.
 import type { LensPlace } from "@/lib/low-vision/settings";
 import { dockHeight } from "../Dock/use-dock-height";

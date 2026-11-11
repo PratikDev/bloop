@@ -1,4 +1,4 @@
-// After all mentor items: axe-core on every page a visitor can open, with no serious or critical violation. The pages
+// Axe-core on every page a visitor can open, with no serious or critical violation. The pages
 // are the header's (each after Start), Home on a first visit (before sound is chosen) and the hidden /listen-test.
 import { expect, test } from "@playwright/test";
 import { axeSerious } from "../lib/axe";

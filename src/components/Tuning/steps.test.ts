@@ -1,4 +1,4 @@
-// Accessibility core, step 5: Track 0's steps (values from mapping.json, each record's source line from its metadata and
+// Track 0's steps (values from mapping.json, each record's source line from its metadata and
 // the registry), and that Track 0 opens once, is remembered when finished or skipped, and is offered again from Help.
 import { describe, expect, test } from "bun:test";
 import { readFileSync } from "node:fs";

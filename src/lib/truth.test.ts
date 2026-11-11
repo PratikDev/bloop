@@ -1,4 +1,4 @@
-// Mentor item 6: the How we know cards' key numbers are VALIDATION_TABLE.md's (read from sst.json / rain.json
+// The How we know cards' key numbers are VALIDATION_TABLE.md's (read from sst.json / rain.json
 // `verified`, which the card shows), and no "Coming in October" or "Not built yet" text is left anywhere in the app.
 import { describe, expect, test } from "bun:test";
 import { readdirSync, readFileSync, statSync } from "node:fs";

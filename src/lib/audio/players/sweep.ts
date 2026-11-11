@@ -1,5 +1,5 @@
 // The gist sweep (TEAM_BUILD_PLAN A6): the live voices play a path of points
-// (L3's sweepPath(): rings outward from a centre) one step at a time, exactly
+// (L3's sweepPath: rings outward from a centre) one step at a time, exactly
 // on the audio clock. Track mode applies as in exploration; entering a
 // no-data area plays the soft tick. One step event per point ("sweep").
 

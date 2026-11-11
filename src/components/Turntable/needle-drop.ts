@@ -2,8 +2,6 @@
 // swings out and lowers with easing (for a record change the record also rises,
 // its label swaps at the top, and it settles back); the earcon sounds on
 // touchdown, then the data voice fades in. Skippable; instant with reduced motion.
-// TODO(turntable: Bloop drop): a data-driven drop cue whose pitch is the Bay of
-// Bengal SST (read with valueAt, mapped by the ocean rule), replacing the UI earcon.
 
 const SETTLE_MS = 150; // earcon first, then the data
 const LIFT_HEIGHT = 0.3; // globe radii

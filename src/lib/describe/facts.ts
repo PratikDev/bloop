@@ -1,4 +1,4 @@
-// The facts one description is made of, for one record at the needle (accessibility core, step 3). Frame-wide facts
+// The facts one description is made of, for one record at the needle. Frame-wide facts
 // (range, warmest band) are computed once per decoded frame and cached; the 3×3 pattern follows the needle.
 import type { LatLon } from "@/lib/data";
 import { cellIndex } from "@/lib/data/grid";

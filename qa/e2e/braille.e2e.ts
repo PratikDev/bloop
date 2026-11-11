@@ -142,7 +142,7 @@ test("বাংলা mode: the braille lines are written for the Bengali table 
   expect(heading).not.toMatch(/[A-Za-z:]/u);
 });
 
-// Plan item 11: the same checks on Then vs Now. The shape line is the selected part's series for the selected city
+// The same checks on Then vs Now. The shape line is the selected part's series for the selected city
 // on the shared scale, the caret is the year, moving it plays that year, R gives the value with the change and its
 // 95% interval; width 20 wraps; axe finds nothing serious; the Bengali table's lines have no Latin.
 async function thenNow(page: Page, part?: string) {

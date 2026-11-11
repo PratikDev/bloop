@@ -1,4 +1,4 @@
-// Registry of playing source nodes, so stopAll() can stop them after its fade.
+// Registry of playing source nodes, so stopAll can stop them after its fade.
 // Each source is tagged with the stop "epoch" it started in: a stop only ends
 // sources that were already playing when it was requested, never ones started
 // during its fade.

@@ -1,4 +1,4 @@
-// PURE: "Water's journey", a Bangladesh suite (docs/statement/ART.md, Tier 2), from records already shipped: lightning
+// PURE: "Water's journey", a Bangladesh suite, from records already shipped: lightning
 // (SVS 5011, pattern only) → an atmospheric river (SVS 4960, relative) → IMERG rain over Bangladesh (the storm the
 // time-lapse follows) → landslide exposure on Bangladesh's hills (SVS 5584, LHASA, modelled from rainfall; with the
 // landslide record's flag) → GRACE water stored under Bangladesh → the Bay of Bengal's sea surface (MUR). Each step

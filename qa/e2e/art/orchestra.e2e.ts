@@ -1,4 +1,4 @@
-// Earth Orchestra (docs/statement/ART.md): the Official grid grouped by Earth system, the category earcon (and none
+// Earth Orchestra: the Official grid grouped by Earth system, the category earcon (and none
 // when muted), the Instrument style setting, the legend card (axe clean), the category word leading Describe, and the
 // pitch-identity check across every family. Build with NEXT_PUBLIC_ART_ORCHESTRA=1 NEXT_PUBLIC_ART_DIAL=1.
 import { expect, test, type Page } from "@playwright/test";

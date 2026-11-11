@@ -1,4 +1,4 @@
-// P4, night lights: the pitches follow the rule (log radiance → exponential Hz); cloud-masked nights are rests with the
+// Night lights: the pitches follow the rule (log radiance → exponential Hz); cloud-masked nights are rests with the
 // gap text (never "dark"); the product and satellite come from the file, which is not S-NPP.
 import { describe, expect, test } from "bun:test";
 import { violations } from "@/a11y/brailleText";

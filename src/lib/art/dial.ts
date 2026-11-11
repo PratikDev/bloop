@@ -1,4 +1,4 @@
-// PURE: what the Science ↔ Art dial adds at each stop (docs/statement/ART.md). The data voice is the same at every
+// PURE: what the Science ↔ Art dial adds at each stop. The data voice is the same at every
 // stop: the same value → pitch rule, onsets and tempo. Only what sounds around it changes.
 
 import type { DialStop, PlayMode } from "@/lib/audio/layers/types";
@@ -12,7 +12,7 @@ export interface DialLayers {
   bed: boolean;
   /** The value chord (CV's layer, through the hook), replacing the second voice; never with two data voices. */
   chord: boolean;
-  /** A fixed drone on the record's Sa (never moved by data); its colour follows the season (Tier 2). */
+  /** A fixed drone on the record's Sa (never moved by data); its colour follows the season. */
   drone: boolean;
   reverb: boolean;
   /** Swara + meend: the data voice starts on the nearest scale note, then glides to (and settles on) the data pitch. */

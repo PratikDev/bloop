@@ -1,16 +1,12 @@
 // Shared TypeScript types for every file L1's pipeline produces under public/data/.
 // This file is the one thing L1, L2 and L3 all agree on.
-//
 // These types mirror L1's real, published output (pipeline/ as of the L1 merge,
 // commit 9ce77b7). L1 has frozen these shapes: any change to a pipeline output
 // file must update this file in the same PR.
-//
 // Binary grids: little-endian, row 0 = north (90° N), column 0 = 180° W.
 
 import type { ExtraOutputParam, FirmsDailyBlock, SameAsMapping } from "./contract-15";
-// >>> DATA
 import type { ClassesMapping } from "./contract-15";
-// <<< DATA
 
 // ---------------------------------------------------------------------------
 // 1. Latest-frame metadata (latest/sst.json, latest/rain.json)
@@ -149,7 +145,6 @@ export type GridMetadata = SstMetadata | RainMetadata;
 // 2. Storm time-lapse (sequence/index.json, sequence/rain_NNN.json,
 //    sequence/rain_NNN.u8.gz, sequence/rain_NNN.png), oldest → newest.
 // Needed by: L3 (decoder + display), L2 (time-lapse audio, via decoded values).
-//
 // rain_NNN.u8.gz — gzip of Uint8, width × height, rain and phase in one byte:
 //   0 = dry; 255 = no data;
 //   1..127   = liquid: mm/h = 10^(−1 + (code − 1)   / 126 × log10(500))
@@ -199,7 +194,7 @@ export interface SequenceFrameMetadata {
 }
 
 // ---------------------------------------------------------------------------
-// 3. Decoded value output — what lib/data.ts's valueAt() returns.
+// 3. Decoded value output — what lib/data.ts's valueAt returns.
 // Produced by lib/data.ts (L3), not by L1. Neither consumer needs the raw
 // byte layout — only this shape.
 // ---------------------------------------------------------------------------
@@ -224,7 +219,6 @@ export type ValueAtResult = OceanValue | RainValue;
 // 4. Climate context series (context/gistemp_bd.json, gpcp_bd.json, gpcc_bd.json)
 // Needed by: BOTH — L3 renders History/Compare charts; L2 plays the same
 // numbers. Months are "YYYY-MM"; no missing values in the current files.
-//
 // Note: the cells are the dataset's nearest grid cells, so some places share
 // one cell (GISTEMP: Dhaka = Chattogram; GPCP/GPCC: Dhaka = Sylhet). Check
 // lat/lon before presenting two places as different records.
@@ -262,7 +256,7 @@ export interface RainContextFile {
   cells: Record<ClimateCellName, RainCellSeries>;
 }
 
-/** gpcc_bd.json: the product and its coverage, read from the NetCDF by build_context.py (mentor item 9). */
+/** gpcc_bd.json: the product and its coverage, read from the NetCDF by build_context.py. */
 export interface GpccContextFile extends RainContextFile {
   product: string; // "GPCC Full Data Monthly V2020"
   resolution_deg: number;
@@ -353,7 +347,6 @@ export interface NdviContextFile {
 // ---------------------------------------------------------------------------
 // 8. GLOBE citizen observations (context/globe_bd.json)
 // Needed by: L3 (the comparison display). L2 only for the GLOBE duet teaser.
-//
 // Rows keep the original GLOBE CSV column names; `columns` says which ones
 // hold time, position, cloud cover and satellite matches. Missing cells
 // are null. Columns that are empty for every Bangladesh row (all Terra/Aqua,
@@ -415,7 +408,7 @@ export interface RainNewerDemo extends RainSeriesDemo {
 }
 
 export interface RainDemo {
-  gpcp: RainSeriesDemo; // same A and B windows as gpcc (mentor item 9)
+  gpcp: RainSeriesDemo; // same A and B windows as gpcc
   gpcc: RainSeriesDemo;
   caption: string;
   gpcc_end_note: string; // why GPCC stops where it does (version and last month from gpcc_bd.json)
@@ -454,7 +447,7 @@ export interface DhakaThenNowDemo {
 // Owned by L2, not L1. Needed by BOTH: L3's Mapping panel renders it; L2's
 // lib/audio reads the same numbers, so the two never drift apart.
 // Rules are stored as numbers, never as formula text: the human-readable
-// sentence is generated from these numbers (lib/audio/mapping.ts ruleText()).
+// sentence is generated from these numbers (lib/audio/mapping.ts ruleText).
 // ---------------------------------------------------------------------------
 
 export type InputScale = "linear" | "log";
@@ -576,7 +569,7 @@ export interface EnsembleFile {
 // ---------------------------------------------------------------------------
 // 12. GLOBE duet teaser (context/globe_duet.json) — OPTIONAL, additive
 // Needed by: L3 (teaser card: time, place, both values, `disclosure`,
-// label removed for the mentor fixes); L2 (two tones, ground left / satellite right).
+// label removed); L2 (two tones, ground left / satellite right).
 // Built from file 8 (build_globe_duet.py): only observations inside
 // Bangladesh's national outline; reports on the same date within 1 km are
 // merged. `featured` = the place-day with the median difference (typical case).
@@ -637,7 +630,7 @@ export interface GlobeDuetFile {
 // (city name substituted; rain phrase "no wetter in these records." / "wetter in these records." / "no clear
 // change." from the signs of the GPCP and GPCC changes). Signed numbers use
 // "−" (U+2212); a value that rounds to zero prints unsigned ("0%", "0.00").
-// Only Dhaka is cross_checked (P1b). Cities sharing a dataset grid cell:
+// Only Dhaka is cross_checked. Cities sharing a dataset grid cell:
 // the first city (Dhaka) is the reference; the others get same_record_as and
 // a caption sentence "Same … grid cell(s) as <city>: this is the same record."
 // The Dhaka entry is identical to dhaka_then_now.json (spotcheck enforces it).
@@ -689,7 +682,6 @@ export interface CitiesThenNowFile {
 // L2 (same three voices as the ensemble, file 11). Built by build_global.py
 // from files already used for 4–5 (global versions); no new downloads.
 // Load lazily (only when the user opens the global view): about 10–15 MB total.
-//
 // <layer>.i16.gz — gzip of Int16 little-endian, [cell][month] row-major:
 //   value = int16 / scale; -32768 = no data → silence.
 //   cell_id = row × grid.lon.length + col (row 0 = northernmost, col 0 = westernmost);
@@ -698,7 +690,7 @@ export interface CitiesThenNowFile {
 // averaged and listed in duplicate_months_averaged. Values never exceed int16:
 // build_global.py fails (and publishes nothing) if any value would be clipped.
 // Cross-checking: only Dhaka's April–May heat and June–September rain (demo,
-// file 9) were cross-checked against independent records (P1b). The ANNUAL values
+// file 9) were cross-checked against independent records. The ANNUAL values
 // in places.json were not separately cross-checked; label them "annual".
 // Water per place: Bangladesh places use the national box (the same record as the
 // demo); other places use their 3° GRACE cell (water_region.label says which).
@@ -784,7 +776,7 @@ export interface GlobalManifest {
   disclosure: string;
 }
 // ---------------------------------------------------------------------------
-// 15. Additive products (docs/data-integration-plan.md) — OPTIONAL, additive
+// 15. Additive products — OPTIONAL, additive
 // Every new file starts with a ProductHeader (product, title, pairing, datasets
 // with agency + measurement/model badges, credit, disclosure, source_time_utc);
 // meta/freshness.json lists them all with age and freshness limit. Built by

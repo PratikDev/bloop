@@ -1,4 +1,4 @@
-// Mentor item 2: the sound choice is remembered with the Start it belongs to, and a blocked or broken storage only
+// The sound choice is remembered with the Start it belongs to, and a blocked or broken storage only
 // means the defaults (the first-visit dialog), never an error.
 import { afterEach, describe, expect, test } from "bun:test";
 import { pickPrefs, readPrefs, writePrefs } from "./prefs";

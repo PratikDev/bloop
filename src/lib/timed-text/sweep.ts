@@ -1,4 +1,4 @@
-// PURE: the sweep's timed text (accessibility core, step 7). One metadata cue per point, one chapter per ring, and
+// PURE: the sweep's timed text. One metadata cue per point, one chapter per ring, and
 // DCMP-style captions for what the sound does: where it begins, the highest and lowest tone, the densest drops, the
 // first silence on each ring, and the end. Point i starts at i × stepSec, as both engines schedule it.
 import type { SweepPoint, TrackMode } from "@/lib/audio/types";

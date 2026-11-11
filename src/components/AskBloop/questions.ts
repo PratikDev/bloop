@@ -1,4 +1,4 @@
-// Ask Bloop's question intents (spec §5.1): answered only from the engine's results, with the app's own sentences
+// Ask Bloop's question intents: answered only from the engine's results, with the app's own sentences
 // where it has them (the value line, Compare, the sound's rule, the provenance line, the Truth panel's check). Each
 // answer lists the formatted results its numbers come from (digit provenance, src/lib/ask-bloop/digits.ts).
 import { compareShort } from "@/a11y/shortForms";
@@ -114,7 +114,7 @@ export async function runQuestion(ctx: AskContext, intent: QuestionIntent): Prom
   }
 }
 
-/** Two months at a place in a monthly record (Compare two dates, step 6): its words, its short form, its tones. */
+/** Two months at a place in a monthly record (Compare two dates): its words, its short form, its tones. */
 async function compareDates(ctx: AskContext, intent: IntentOf<"compare_dates">): Promise<Answer> {
   const w = await where(ctx, intent.place);
   if ("answer" in w) return w.answer;

@@ -1,4 +1,4 @@
-// English templates for the layered descriptions (accessibility core, step 3; src/lib/describe/). Every parameter is
+// English templates for the layered descriptions (src/lib/describe/). Every parameter is
 // a slot: text the describer has already formatted from a computed value (a number, a time, a place). The templates
 // themselves never type a digit, which the digit-provenance test checks on every rendered description.
 // Written for the ear: short sentences, names instead of "it", units in words.

@@ -1,4 +1,4 @@
-// Starts the timed text of a sweep or a time-lapse that has just begun playing (accessibility core, step 7). The
+// Starts the timed text of a sweep or a time-lapse that has just begun playing. The
 // tracks are built once the gazetteer answers (a fraction of a second when it is loaded); cues the playhead has
 // already passed then show at once, so nothing is skipped.
 import { SWEEP_STEP_MS, TIMELAPSE_FPS } from "@/lib/data";

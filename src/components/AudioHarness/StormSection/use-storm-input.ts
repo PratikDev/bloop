@@ -12,7 +12,7 @@ const SYNTHETIC: StormInput = { source: "synthetic", frames: syntheticStorm() };
 
 /**
  * The harness's time-lapse frames: synthetic until "Load real storm", then the
- * real IMERG sequence through L3's own loadSequence() + followStorm() (the
+ * real IMERG sequence through L3's own loadSequence + followStorm (the
  * same frames L3's UI plays; no second decoder).
  */
 export function useStormInput() {

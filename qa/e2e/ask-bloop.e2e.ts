@@ -1,4 +1,4 @@
-// Ask Bloop in a real browser (spec §6.2, §6.3, §6.7), on a build with NEXT_PUBLIC_ASK_BLOOP=1: the panel is reachable
+// Ask Bloop in a real browser, on a build with NEXT_PUBLIC_ASK_BLOOP=1: the panel is reachable
 // and labelled (axe clean); a typed question is answered once, with the same words Enter says; each action leaves the
 // app as its own control would (the track, the needle, the page, a setting); unsafe input runs nothing; the map's keys
 // never fire while typing; answers are short. Voice needs a microphone and a speech service: the gate test covers it.

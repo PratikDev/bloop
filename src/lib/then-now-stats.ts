@@ -1,4 +1,4 @@
-// The Then vs Now statistics (stats.json, mentor item 10) as the app says them: one long line per part (the part
+// The Then vs Now statistics (stats.json) as the app says them: one long line per part (the part
 // view, its Details sheet, captions, Describe) and one braille-ready short form (the live region). The wording
 // follows the result in the file: a change is stated with its range only when both tests and the CI agree
 // (StatComparison.clear); otherwise "no clear change" ("no wetter" for rain), still with the range.

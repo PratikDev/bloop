@@ -1,4 +1,4 @@
-// PURE: the chord's honesty gate (CV/ML build, piece B3). The chord sounds only where the values it plays can be
+// PURE: the chord's honesty gate. The chord sounds only where the values it plays can be
 // trusted as values and drawn from a colour bar the allowlist accepts, and only as the second data voice.
 import type { ChordBlock, ChordGate, ChordRequest, ValueTrust } from "../types";
 import type { ChordAllowance } from "./allowlist";

@@ -1,7 +1,7 @@
 // PURE: Earth Orchestra's instrument families, one per Earth system, all synthesised (no samples). Every layer is a
 // harmonic spectrum on an oscillator at exactly the note's frequency, so a family shapes timbre only: the settled
 // pitch is the data's (the pitch-identity check measures it). Fixed filters and noise textures never follow data.
-// Numbers are design choices, tuned by ear; docs/statement/ART.md lists them.
+// Numbers are design choices, tuned by ear.
 
 import type { EarthCategory } from "@/lib/audio/layers/types";
 

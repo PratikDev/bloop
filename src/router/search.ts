@@ -23,14 +23,13 @@ export function listenSearch(raw: Raw): ListenSearch {
 export const THEN_NOW_VIEWS = ["compare", "monthly"] as const;
 export type ThenNowView = (typeof THEN_NOW_VIEWS)[number];
 
-// >>> ART: "Your lifetime" (docs/statement/ART.md): its view, and the birth year of a shared link (?born=1998&city=dhaka)
+// "Your lifetime": its view, and the birth year of a shared link (?born=1998&city=dhaka)
 export const LIFETIME_VIEW = "lifetime";
 const bornOf = (v: unknown): number | undefined => {
   const y = typeof v === "number" ? v : typeof v === "string" ? Number(v) : NaN;
   return Number.isInteger(y) && y >= 1850 && y <= 2100 ? y : undefined;
 };
 const cityOf = (v: unknown) => oneOf(PLACES, v) ?? PLACES.find((p) => typeof v === "string" && p.toLowerCase() === v.toLowerCase());
-// <<< ART
 
 export interface ThenNowSearch {
   view?: ThenNowView | typeof LIFETIME_VIEW;

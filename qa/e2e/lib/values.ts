@@ -1,4 +1,4 @@
-// Mentor item 11: every value the app shows (a number with a unit, a percent, a confidence interval) must sit in a
+// Every value the app shows (a number with a unit, a percent, a confidence interval) must sit in a
 // group ([data-provenance-group]) that holds a working "How we got this" button ([data-how-we-got-this]). Dates, times,
 // years, record IDs and counts of controls carry no unit, so they are not values here. The caption bar is skipped: it is
 // the live transcript of what is being spoken (the reading the page's readout group already explains).

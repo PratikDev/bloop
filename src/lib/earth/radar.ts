@@ -1,4 +1,4 @@
-// NASA's own method (P5): the radar sweep of SVS 13786 "Data Sonification: Caldwell 73" (SYSTEM Sounds, M. Russo and
+// NASA's own method: the radar sweep of SVS 13786 "Data Sonification: Caldwell 73" (SYSTEM Sounds, M. Russo and
 // A. Santaguida), applied to one Earth frame (the latest EIC ocean temperature) around a centre. Pure.
 //   NASA mode: a line turns about the centre at the movie's own angular speed (the manifest's analysis); a point sounds
 //     when the line reaches it, its DISTANCE from the centre sets its pitch (the "radarDistance" rule), and its colour

@@ -1,4 +1,4 @@
-// The fire-weather chord (P2a): a class's fixed chord from the "fireWeather" rule, sustained at the needle, crossfading
+// The fire-weather chord: a class's fixed chord from the "fireWeather" rule, sustained at the needle, crossfading
 // when the class changes; a stated silence for "no calculation" and "very low". Fixed tones: it never reads or moves a
 // data voice's pitch. Plays on the DATA bus (out.ts) through the orchestra hook.
 
@@ -9,7 +9,7 @@ import { APP_RECORDS } from "../records";
 import { dataVoice } from "./orchestra-hook";
 import { dataOut, report } from "./out";
 
-const HOLD_SEC = 1e6; // sustained until the class changes (stop() releases it)
+const HOLD_SEC = 1e6; // sustained until the class changes (stop releases it)
 
 export interface ChordLayer {
   /** The class at the needle (null = no data: silence), and where it is (pan). */

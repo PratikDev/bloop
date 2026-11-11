@@ -1,4 +1,4 @@
-// Facts the layered descriptions are built from (accessibility core, step 3): the range of a frame with where its
+// Facts the layered descriptions are built from: the range of a frame with where its
 // extremes are, the warmest latitude band, and how a value is spread in the 3×3 cells around the needle. Every number
 // here is computed from the decoded grid; the templates only place them into sentences.
 import type { LatLon } from "@/lib/data";
@@ -41,7 +41,7 @@ export function extremes(g: ValueGrid): { min: Extreme; max: Extreme } | null {
 
 /** Latitude bands for the warmest-band rule, in degrees (design choice). */
 export const BAND_DEG = 5;
-/** "Near the equator": a band whose centre is within this many degrees of it (the spec's ±15°). */
+/** "Near the equator": a band whose centre is within this many degrees of it (±15°). */
 export const EQUATOR_DEG = 15;
 
 /** The centre latitude of the band with the highest mean value, or null when no band has data. */

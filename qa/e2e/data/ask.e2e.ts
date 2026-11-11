@@ -1,4 +1,4 @@
-// Ask Bloop's four DATA questions (DATA): each is answered at the needle with the same words the records use, built
+// Ask Bloop's four DATA questions: each is answered at the needle with the same words the records use, built
 // from the shipped files (fire weather class, FIRMS count in the box or "no FIRMS box here", LHASA class, Black Marble at
 // the nearest city or "no city near here"). Runs on a build with NEXT_PUBLIC_ASK_BLOOP=1 and NEXT_PUBLIC_DATA_ASK=1.
 import { expect, test, type Page } from "@playwright/test";

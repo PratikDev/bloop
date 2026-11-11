@@ -10,7 +10,7 @@ import { downloadTactileRecord, tactileAltInput, type TactileMeta, type TactileR
 const TEXT = "text/plain;charset=utf-8";
 
 /**
- * The tactile disc's two saves (accessibility core, step 7): the STL, with its alt text in the header, and the alt
+ * The tactile disc's two saves: the STL, with its alt text in the header, and the alt
  * text and extended description as a sidecar .txt of the same name. Each is its own button, so no download happens
  * without a press. With the step's flag off, the STL is saved as before and there is no sidecar.
  */

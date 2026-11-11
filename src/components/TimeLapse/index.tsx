@@ -49,9 +49,9 @@ export function TimeLapseProvider({ children }: { children: ReactNode }) {
   // Which of the loaded frames this run plays: all of them, or a window around the peak (Story Mode).
   const [played, setPlayed] = useState({ first: 0, count: 0 });
   const handle = useRef<PlayerHandle | null>(null);
-  // Resolves the promise start() returned, once the run ends.
+  // Resolves the promise start returned, once the run ends.
   const settle = useRef<((finished: boolean) => void) | null>(null);
-  // Bumped by stop(), so a stop during loading cancels the run that was loading.
+  // Bumped by stop, so a stop during loading cancels the run that was loading.
   const runId = useRef(0);
   const head = usePlayhead(PLAYER);
 
@@ -123,7 +123,7 @@ export function TimeLapseProvider({ children }: { children: ReactNode }) {
       const h = audio.playTimelapse(path, { fps: FPS });
       handle.current = h;
       if (FLAGS.timedText) followTimelapse({ frames: path, times: frames.map((f) => f.ref.time_utc) });
-      // stop() clears the handle first, so only a natural end gets here.
+      // stop clears the handle first, so only a natural end gets here.
       void h.done.then(() => {
         if (handle.current === h) finish(true);
       });
@@ -134,7 +134,7 @@ export function TimeLapseProvider({ children }: { children: ReactNode }) {
     return { finished: await ended, peak, last: loaded.path[loaded.path.length - 1] ?? null };
   }, [status, data, load, announce, t, state.lang, state.soundOn, finish, dispatch]);
 
-  // PageUp/PageDown on the map (step 2): hold a newer or older frame at the needle, loading the frames the first time.
+  // PageUp/PageDown on the map: hold a newer or older frame at the needle, loading the frames the first time.
   const stepFrame = useCallback(
     async (dir: 1 | -1) => {
       if (status === "loading" || status === "playing") return;

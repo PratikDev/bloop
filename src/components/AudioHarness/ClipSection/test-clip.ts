@@ -1,6 +1,6 @@
 // A generated stand-in for a recorded narration clip (until L4's arrive): a
 // 4 s WAV of speech-like "syllables" (pulsed, gliding tones), served from a
-// blob: URL so preloadClips() fetches it like a real file.
+// blob: URL so preloadClips fetches it like a real file.
 
 const SAMPLE_RATE = 22050;
 const SECONDS = 4;

@@ -6,17 +6,13 @@ import type { MessageKey } from "../index";
 import { timedTextBn } from "./timed-text";
 import { lowVisionBn } from "./low-vision";
 import { askBloopBn } from "./ask-bloop";
-// >>> CV
 import { cvBn } from "./cv";
-// <<< CV
-// >>> DATA
 import { earthBn } from "./earth";
-// <<< DATA
 import { artBn } from "./art"; // ART
 
 /** UI keys whose Bangla is a draft. */
 export const DRAFT_KEYS: readonly MessageKey[] = [
-  // item 5 and its credits follow-up (en/credits.ts)
+  // Credits (en/credits.ts)
   "credits.heading.data",
   "credits.heading.testing",
   "credits.testing.note",
@@ -31,7 +27,7 @@ export const DRAFT_KEYS: readonly MessageKey[] = [
   "credits.power",
   "credits.loading",
   "credits.error",
-  // item 7 (en/team.ts)
+  // Team (en/team.ts)
   "nav.team",
   "team.title",
   "team.lead",
@@ -40,7 +36,7 @@ export const DRAFT_KEYS: readonly MessageKey[] = [
   "team.localEvent",
   "team.madeWith",
   "team.licence",
-  // item 8 (en/listen-test.ts)
+  // Listener test (en/listen-test.ts)
   "lt.title",
   "lt.consent.heading",
   "lt.consent.body",
@@ -77,7 +73,7 @@ export const DRAFT_KEYS: readonly MessageKey[] = [
   "lt.export",
   "lt.loading",
   "lt.error",
-  // item 11 (en/provenance.ts)
+  // How we got this (en/provenance.ts)
   "hwgt.button",
   "hwgt.name",
   "hwgt.intro",
@@ -142,16 +138,16 @@ export const DRAFT_KEYS: readonly MessageKey[] = [
   "hwgt.n.voices",
   "hwgt.n.placeDays",
   "field.noSound",
-  // item 6 (the X-ray strings, reworded)
+  // The X-ray strings, reworded
   "xray.unavailable",
   "key.x.action",
   "story.xraySkipped",
-  // item 2
+  // Start
   "start.tapToStart",
-  // item 9
+  // Disclosures
   "disclosure.whyYears",
   "disclosure.extra",
-  // item 10 (en/stats.ts, and the stats caption)
+  // Stats (en/stats.ts, and the stats caption)
   "stats.title",
   "stats.item",
   "stats.line",
@@ -187,7 +183,7 @@ export const DRAFT_KEYS: readonly MessageKey[] = [
   "stats.row.measurement",
   "stats.grace",
   "caption.thenNow.stats",
-  // item 1 (en/frames.ts, and the gap caption)
+  // Frame gap (en/frames.ts, and the gap caption)
   "frameGap.long",
   "frameGap.days",
   "frameGap.hours",
@@ -201,11 +197,11 @@ export const DRAFT_KEYS: readonly MessageKey[] = [
   "frameGap.short.same",
   "announce.trackBoth",
   "caption.frameGap",
-  // item 12
+  // Water, Bangladesh-wide
   "water.bangladeshWide",
   "history.region",
   "caption.note",
-  // item 6 (en/how.ts)
+  // How we know (en/how.ts)
   "how.notAvailable",
   "how.viewTable",
   "how.hideTable",
@@ -234,7 +230,7 @@ export const DRAFT_KEYS: readonly MessageKey[] = [
   "how.globe.alt",
   "how.openGlobe",
   "badge.skipped",
-  // accessibility core, step 1 (en/access.ts)
+  // Speech choices (en/access.ts)
   "access.speech",
   "access.speech.screenReader",
   "access.speech.voice",
@@ -252,7 +248,7 @@ export const DRAFT_KEYS: readonly MessageKey[] = [
   "access.channels.both",
   "access.channels.text",
   "access.channels.sound",
-  // accessibility core, step 2 (en/access.ts)
+  // Map keys (en/access.ts)
   "access.hide3d",
   "access.hide3d.note",
   "map.instructions.core",
@@ -283,7 +279,7 @@ export const DRAFT_KEYS: readonly MessageKey[] = [
   "key.d.here.action",
   "key.shiftD.action",
   "help.browseNote",
-  // accessibility core, step 3 (en/describe.ts): the templates and the human-written "What this means" blocks
+  // Descriptions (en/describe.ts): the templates and the human-written "What this means" blocks
   "describe.lat",
   "describe.ocean.what",
   "describe.ocean.here",
@@ -316,7 +312,7 @@ export const DRAFT_KEYS: readonly MessageKey[] = [
   "panel.describe",
   "describe.meaning.ocean",
   "describe.meaning.rain",
-  // accessibility core, step 4 (en/places-table.ts)
+  // Table and places (en/places-table.ts)
   "panel.table",
   "table.caption",
   "table.corner",
@@ -347,7 +343,7 @@ export const DRAFT_KEYS: readonly MessageKey[] = [
   "continent.oceania",
   "continent.antarctica",
   "continent.sevenSeas",
-  // accessibility core, step 5 (en/tuning.ts)
+  // Tuning (en/tuning.ts)
   "tuning.title",
   "tuning.progress",
   "tuning.intro",
@@ -370,7 +366,7 @@ export const DRAFT_KEYS: readonly MessageKey[] = [
   "provenance.kind.model",
   "provenance.kind.inventory",
   "key.shiftP.action",
-  // accessibility core, step 6 (en/expedition.ts)
+  // Compare, sonar, expedition log (en/expedition.ts)
   "compare.open",
   "compare.short",
   "compare.title",
@@ -409,22 +405,17 @@ export const DRAFT_KEYS: readonly MessageKey[] = [
   "log.sources",
   "log.download",
   "log.width",
-  // accessibility core 7 (en/timed-text.ts): every key
+  // Timed text (en/timed-text.ts): every key
   ...(Object.keys(timedTextBn) as MessageKey[]),
-  // accessibility core 8 (en/low-vision.ts): every key
+  // Low vision (en/low-vision.ts): every key
   ...(Object.keys(lowVisionBn) as MessageKey[]),
-  // Ask Bloop (en/ask-bloop.ts): every key (spec §1: needsReview)
+  // Ask Bloop (en/ask-bloop.ts): every key (needsReview)
   ...(Object.keys(askBloopBn) as MessageKey[]),
-  // >>> CV
-  // CV/ML build (en/cv-*.ts): every key
+  // CV/ML (en/cv-*.ts): every key
   ...(Object.keys(cvBn) as MessageKey[]),
-  // <<< CV
-  // >>> DATA
   ...(Object.keys(earthBn) as MessageKey[]),
-  // <<< DATA
-  // >>> ART (en/art/): every key, a developer's draft
+  // Art (en/art/): every key, a developer's draft
   ...(Object.keys(artBn) as MessageKey[]),
-  // <<< ART
 ];
 
 /** Data-file sentences (bn/data.ts templates) whose Bangla is a draft: the English template, numbers as "#". */

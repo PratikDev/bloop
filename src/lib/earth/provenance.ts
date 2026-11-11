@@ -1,4 +1,4 @@
-// "How we got this" for the DATA views (mentor item 11's shape, src/lib/provenance/types.ts): every field from a
+// "How we got this" for the DATA views (the shape of src/lib/provenance/types.ts): every field from a
 // shipped file's header, never typed. null = "not available" on screen.
 
 import { versionOf } from "@/lib/provenance/live";

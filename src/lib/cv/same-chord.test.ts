@@ -1,4 +1,4 @@
-// C: the card's numbers are the T2 output file's.
+// The card's numbers are the T2 output file's.
 import { describe, expect, test } from "bun:test";
 import { readFileSync } from "node:fs";
 import { INVARIANCE, largestSpread } from "./same-chord";

@@ -1,4 +1,4 @@
-// Accessibility core, step 2 (docs/accessibility/CORE_PLAN.md): the map widget's keys (+/−, J then 1–9, ".",
+// The map widget's keys (+/−, J then 1–9, ".",
 // PageUp/PageDown, D, Shift+D), help while focused, and the Hide 3D views setting. Runs on a build with
 // NEXT_PUBLIC_A11Y_MAP_KEYS=1, with the 3D drawn and with it hidden by the e2e init script (every task must work either
 // way). The held frame's value is checked against the shipped grid, decoded with the app's own functions.
@@ -120,7 +120,7 @@ for (const hide3d of [false, true]) {
       await page.keyboard.press("d");
       await expect.poll(async () => (await liveLog(page)).slice(before).join(" "), { timeout: 10_000 }).toMatch(/degrees/u);
       const here = (await liveLog(page)).slice(before);
-      // The value here (step 2), or with layered descriptions on (step 3) the description of this place.
+      // The value here, or with layered descriptions on the description of this place.
       expect(here.join(" ")).toMatch(/21\.5 degrees north, 89\.8 degrees east|^Ocean surface temperature, .*: \d+\.\d degrees Celsius\./u);
       expect(await press(page, "Shift+D")).toContain("Describe on.");
     });

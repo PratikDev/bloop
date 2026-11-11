@@ -9,7 +9,7 @@ import { RISE } from "@/lib/motion";
 import { cn } from "@/lib/utils";
 import { useT } from "../../AppState/use-app-state";
 
-/** How we know → Data health (P1, DATA): the link to one row per record from the pipeline's health run. */
+/** How we know → Data health: the link to one row per record from the pipeline's health run. */
 export function DataHealthCard() {
   const t = useT();
   return (

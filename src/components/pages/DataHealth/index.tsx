@@ -16,7 +16,7 @@ import { NotFoundPage } from "../NotFound";
 const LAG_DECIMALS = 1;
 
 /**
- * Data health (P1): one row per record and product from meta/health.json (the pipeline's health run): its newest data,
+ * Data health: one row per record and product from meta/health.json (the pipeline's health run): its newest data,
  * the source's newest, the lag, and the checks passed and failed. Linked from How we know. Off unless its flag.
  */
 export function DataHealthPage() {

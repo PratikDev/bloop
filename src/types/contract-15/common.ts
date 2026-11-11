@@ -10,7 +10,7 @@ export interface DatasetRef {
   name: string;
   agency: Agency;
   kind: SourceKind; // "model" and "inventory" always show the "Model estimate" badge (guardrail 15)
-  shares_inputs_with: string[]; // dataset ids (book §4.6): said out loud as "partly independent"
+  shares_inputs_with: string[]; // dataset ids: said out loud as "partly independent"
   /** The dataset's landing page or DOI (from the file itself, the SVS page or the fetch code); null = not available. */
   url?: string | null;
   /** Who provides it, when the name's last bracket doesn't say; null = read it from the name. */
@@ -22,7 +22,7 @@ export interface ProductHeader {
   title: string;
   pairing: Pairing;
   datasets: DatasetRef[];
-  credit: string; // book §13.3 wording
+  credit: string;
   disclosure: string;
   source_time_utc: string | null; // newest source time (ISO 8601 UTC)
   generated_utc: string;

@@ -1,4 +1,4 @@
-// Water's journey (docs/statement/ART.md, Tier 2). Braille rules apply.
+// Water's journey. Braille rules apply.
 
 export const journeyEn = {
   "journey.open": "Water's journey",

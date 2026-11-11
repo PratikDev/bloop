@@ -26,7 +26,7 @@ export default defineConfig({
     launchOptions: { args: ["--autoplay-policy=no-user-gesture-required", ...CHROMIUM_GPU] },
     screenshot: "only-on-failure",
   },
-  // Chromium and Firefox on desktop (the app is shown as a desktop website); both run every suite (mentor item 4).
+  // Chromium and Firefox on desktop (the app is shown as a desktop website); both run every suite.
   projects: [
     { name: "chromium", use: { ...devices["Desktop Chrome"] } },
     { name: "firefox", use: { ...devices["Desktop Firefox"], launchOptions: { firefoxUserPrefs: FIREFOX_PREFS } } },

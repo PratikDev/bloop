@@ -40,7 +40,7 @@ export interface SweepVisual {
 
 /** A line to say, built for a language: once for the screen, once for speech. */
 export type Line = (t: BoundT, lang: Lang) => string;
-/** A line's braille short form (plan item 12), in the reader's degree style. */
+/** A line's braille short form, in the reader's degree style. */
 export type ShortLine = (t: BoundT, lang: Lang, degree: DegreeStyle) => string;
 
 /** Every user action, shared by keyboard shortcuts and on-screen controls. */
@@ -56,7 +56,7 @@ export interface Commands {
   setCursor(cursor: LatLon, opts?: { remember?: boolean; lead?: string }): void;
   /** + (1) / − (−1): the next step size for the arrow keys (src/a11y/mapNav.ts), announced. */
   changeStep(dir: 1 | -1): void;
-  /** Adds a line to the expedition log (step 6): what was said, in the screen's language, and its datasets. */
+  /** Adds a line to the expedition log: what was said, in the screen's language, and its datasets. */
   note(text: string, sources: string[]): void;
   /** ".": back to the needle's previous place, or says there is none. */
   goBack(): void;
@@ -71,7 +71,7 @@ export interface Commands {
   /**
    * Speaks the line (built-in voice, with a caption) or announces it (screen reader), then, with
    * sound on, the satellite whisper with `source`'s caption. Resolves when it has been
-   * said; a later say() or Esc cancels a pending whisper.
+   * said; a later say or Esc cancels a pending whisper.
    */
   say(line: Line, source?: WhisperSource | null, short?: ShortLine): Promise<void>;
   playSweep(): void;

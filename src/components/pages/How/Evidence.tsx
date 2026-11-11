@@ -11,7 +11,7 @@ export interface EvidenceTable {
 }
 
 /**
- * A card's evidence (mentor item 6): the plot with its alt text, and a "View as table" button that shows the same
+ * A card's evidence: the plot with its alt text, and a "View as table" button that shows the same
  * numbers as a real table, for screen readers and anyone who prefers rows to dots.
  */
 export function Evidence({ alt, table, children }: { alt: string; table: EvidenceTable; children?: ReactNode }) {

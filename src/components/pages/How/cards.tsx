@@ -12,7 +12,7 @@ import { Evidence } from "./Evidence";
 import { TranscriptLink } from "../../TranscriptLink";
 import { LIVE_TITLE, type LiveTranscript } from "@/lib/transcript";
 
-// The face of each How we know card (mentor item 6): the evidence plot (or table) with its alt text and table, the
+// The face of each How we know card: the evidence plot (or table) with its alt text and table, the
 // key numbers and two or three plain sentences. The numbers: sst.json / rain.json `verified` (the rows of
 // docs/official/VALIDATION_TABLE.md), the pair files, truth/stats.json (rho) and globe_duet.json. Never typed.
 

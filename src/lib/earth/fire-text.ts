@@ -1,4 +1,4 @@
-// The words of the fires and fire-weather record (P2), pure, built once and used everywhere they appear: the record's
+// The words of the fires and fire-weather record, pure, built once and used everywhere they appear: the record's
 // readout, Describe, the braille line, the transcript and Ask Bloop. Every number is a formatted value from the files.
 
 import { clean } from "@/a11y/brailleText";

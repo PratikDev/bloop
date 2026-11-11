@@ -1,4 +1,4 @@
-// Accessibility core, step 6 (docs/accessibility/CORE_PLAN.md): Compare two dates (exact values and difference said,
+// Compare two dates (exact values and difference said,
 // two tones beating), the sonar (N: pings, then the exact value where it arrives) and the expedition log (on screen,
 // wrapped to the braille width, saved as .txt). Runs on a build with NEXT_PUBLIC_A11Y_EXPEDITION=1 (steps 1–5 on), 3D
 // shown and hidden. Expected values come from the shipped files through the app's own functions.

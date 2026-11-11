@@ -12,7 +12,7 @@ import { useAppState, useT } from "../../AppState/use-app-state";
 import { DockAction } from "../DockAction";
 
 /**
- * The expedition log (accessibility core, step 6; spec Part 1.10): this session's places, values, comparisons and
+ * The expedition log: this session's places, values, comparisons and
  * sources as plain text, wrapped at the braille explorer's width, readable here and saved as a .txt file.
  */
 export function LogMenu() {

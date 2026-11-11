@@ -1,8 +1,6 @@
-// Mentor item 8: the listener test's answers come from the data (never typed), and the summary counts fixture files right.
+// The listener test's answers come from the data (never typed), and the summary counts fixture files right.
 import { describe, expect, test } from "bun:test";
-// >>> CV
 import { CV_TASK_IDS } from "./chord";
-// <<< CV
 import { readData } from "@/lib/i18n/data-sentences";
 import type { CitiesThenNowFile, GlobalPlacesFile, SstPairsFile } from "@/types/data-contract";
 import { report } from "../../../scripts/listen-test-summary";
@@ -20,9 +18,8 @@ describe("tasks", () => {
     // Rain from a stand-in grid: wet only at the third place (the live grid is checked in the browser test).
     const wetAt = places[2];
     const tasks = buildTasks(inputs((lat, lon) => (lat === wetAt.lat && lon === wetAt.lon ? { mmPerHour: 4, phase: "liquid" } : { mmPerHour: 0, phase: "dry" })));
-    // >>> CV: the chord tasks need the SST grid (none here); src/lib/listen-test/chord/chord-tasks.test.ts covers them.
+    // the chord tasks need the SST grid (none here); src/lib/listen-test/chord/chord-tasks.test.ts covers them.
     expect(tasks.map((t) => t.id)).toEqual(TASK_IDS.filter((id) => !(CV_TASK_IDS as readonly string[]).includes(id)));
-    // <<< CV
     const byId = Object.fromEntries(tasks.map((t) => [t.id, t]));
     const ref = referenceC(pairs);
     const s = byId.ocean.sound;

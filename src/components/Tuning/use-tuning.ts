@@ -28,7 +28,7 @@ export function useTuning(): Tuning {
   const steps = useMemo(() => tuningSteps({ freshness, sst: sst?.meta ?? null, rain: rain?.meta ?? null }), [freshness, sst, rain]);
   const [index, setIndex] = useState(0);
   const playing = useRef<PlayerHandle | null>(null);
-  // Counts presentations, so a slow say() never plays the sound of a step already left.
+  // Counts presentations, so a slow say never plays the sound of a step already left.
   const shown = useRef(0);
   const step = steps[Math.min(index, steps.length - 1)];
 

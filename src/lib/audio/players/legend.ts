@@ -87,7 +87,7 @@ export const REFERENCE_SEC = 3;
 export type Anchor = "lowest" | "highest";
 
 /**
- * Track 0 ("Tuning", accessibility core step 5): one anchor through the real voice, with its legend caption, or the
+ * Track 0 ("Tuning"): one anchor through the real voice, with its legend caption, or the
  * reference tone. One sound at a time, so the listener sets the pace.
  */
 export function playAnchor(voice: LegendVoice, which: Anchor | "reference"): PlayerHandle {

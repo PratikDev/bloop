@@ -1,4 +1,4 @@
-// P5, NASA's method: in NASA mode the pitch follows the distance from the centre (and the time the angle); in Bloop mode
+// NASA's method: in NASA mode the pitch follows the distance from the centre (and the time the angle); in Bloop mode
 // the pitch follows the value by the Ocean rule (and the time the distance); the two play the same points of one frame.
 import { describe, expect, test } from "bun:test";
 import { readFileSync } from "node:fs";

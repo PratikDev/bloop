@@ -1,4 +1,4 @@
-// Mentor item 2 (promoted from the audit's item02): the first-visit dialog shows once, the sound choice is remembered,
+// The first-visit dialog shows once, the sound choice is remembered,
 // a return visit with "sound" gets a non-blocking "Tap to start sound" (never autoplay), "silent" gets nothing, Reset
 // brings the dialog back, and blocked storage only means the dialog shows (no errors).
 import { expect, test, type Page } from "@playwright/test";

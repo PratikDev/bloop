@@ -1,6 +1,6 @@
 import type { SweepPoint } from "@/lib/audio";
 
-/** Test paths for the harness only (L3 builds the real ones from valueAt()). */
+/** Test paths for the harness only (L3 builds the real ones from valueAt). */
 
 const lerp = (a: number, b: number, t: number) => a + (b - a) * t;
 

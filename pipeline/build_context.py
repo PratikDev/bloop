@@ -67,7 +67,7 @@ def grace():
         s = box.weighted(np.cos(np.deg2rad(box["lat"]))).mean(("lat", "lon")).to_series()
         s.index = pd.to_datetime(s.index)
         # The product's own 1-sigma (per 3-degree mascon), averaged over the box like the values: an upper bound on the
-        # box mean's error, since it treats the mascons' errors as fully correlated (mentor item 10).
+        # box mean's error, since it treats the mascons' errors as fully correlated.
         ub = unc.sel(lat=slice(y0, y1), lon=slice(x0, x1))
         u = ub.weighted(np.cos(np.deg2rad(ub["lat"]))).mean(("lat", "lon")).to_series(); u.index = s.index
         yrs = (s.index - s.index[0]).days / 365.25

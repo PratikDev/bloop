@@ -2,7 +2,6 @@
 // so the sound is less mechanical (AUDIO_RESEARCH A4, a design choice), with
 // the jitter symmetric around 1 so the AVERAGE rate always equals the mapping
 // rule (the honest average).
-//
 // The jitter is drawn ONCE per drop, as an amount of "progress" (in drops)
 // to accumulate at whatever rate is in force. A rate change only moves the
 // moment that progress completes; it never re-draws the jitter. (Re-drawing on

@@ -1,4 +1,4 @@
-// The first-click sweep (mentor item 4, promoted from the audit's data_raw/_tmp/mentor-audit/mentor.audit.ts): every
+// The first-click sweep: every
 // control on a page, clicked once on a settled page, must respond. A response is anything
 // the user would get: a new URL or language, an overlay, a disclosure or a pressed/selected/checked state, the control's
 // own state or name, the page's text or live region, focus moved elsewhere, a download, or sound rising from silence.

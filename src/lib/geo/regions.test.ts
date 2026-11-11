@@ -1,4 +1,4 @@
-// Accessibility core, step 4: the region tree from the shipped geo files, and the division table it relies on.
+// The region tree from the shipped geo files, and the division table it relies on.
 import { describe, expect, test } from "bun:test";
 import { readFileSync } from "node:fs";
 import { join } from "node:path";

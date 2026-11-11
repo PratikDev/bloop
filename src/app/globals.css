@@ -16,8 +16,8 @@
   }
 }
 
-/* "Signals over the Bay" (docs/L3/REDESIGN.md §1), on the "Night over the Bay"
-   palette (docs/L3/design-plan.md §2). Every chrome colour sits in the hue range
+/* "Signals over the Bay", on the "Night over the Bay"
+   palette. Every chrome colour sits in the hue range
    NASA's colormaps don't use (255°–330°), so nothing in the interface can be
    mistaken for data. */
 
@@ -191,7 +191,7 @@
   --font-heading: var(--font-geist), var(--font-anek), system-ui, sans-serif;
   --font-mono: var(--font-geist-mono), var(--font-anek), ui-monospace, monospace;
 
-  /* Scale, ratio 1.25 from 16 px (design-plan §3.2), plus two display steps */
+  /* Scale, ratio 1.25 from 16 px, plus two display steps */
   --text-small: 0.8rem;
   --text-small--line-height: 1.45;
   --text-body: 1rem;
@@ -233,7 +233,7 @@
   --animate-breathe: breathe 6s ease-in-out infinite;
 }
 
-/* The readout value: the display serif, tabular digits (the 200% zoom test, design-plan §3.3). */
+/* The readout value: the display serif, tabular digits (the 200% zoom test). */
 @utility readout-figure {
   font-family: var(--font-serif);
   font-weight: 400;

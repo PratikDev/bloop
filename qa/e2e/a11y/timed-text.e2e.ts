@@ -1,4 +1,4 @@
-// Accessibility core, step 7 (docs/accessibility/CORE_PLAN.md): timed text tracks (WebVTT) for the sweep and the storm
+// Timed text tracks (WebVTT) for the sweep and the storm
 // time-lapse, their cues driving the sound captions and the "now playing" line; a transcript page per record (Listen's
 // ocean and rain, every Official record) linked from the record, its liner notes and How we know; the tactile disc's
 // alt text (sidecar .txt, STL header). Runs on a build with NEXT_PUBLIC_A11Y_TIMED_TEXT=1 (steps 1–6 on), 3D shown and

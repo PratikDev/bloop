@@ -1,4 +1,4 @@
-// "What the jukebox read from this frame" (CV/ML build, piece A) in a real browser, on a build with NEXT_PUBLIC_CV_READ=1:
+// "What the jukebox read from this frame" in a real browser, on a build with NEXT_PUBLIC_CV_READ=1:
 // the panel opens from its heading's button (keyboard reachable, axe clean), reads the box chosen (numbers equal the
 // browser function on the shipped grid), its short line is braille-safe; pattern-only records show no numbers; every
 // flagged axis shows its warning in English and Bangla, and no axis shows cents without a source.

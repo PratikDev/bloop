@@ -7,7 +7,7 @@ export const AUDIBLE = 1e-4; // RMS of the summed output: above the noise floor 
 export const SETTLE_MS = 300;
 const SAMPLES = 6;
 
-/** Taps every AudioContext's destination with an analyser; window.__bloopLevel() → max RMS across them. */
+/** Taps every AudioContext's destination with an analyser; window.__bloopLevel → max RMS across them. */
 const TAP = `(() => {
   const connect = AudioNode.prototype.connect;
   const taps = new WeakMap();
@@ -80,7 +80,7 @@ export async function open(page: Page, opts: { keepTuning?: boolean } = {}) {
   const skip = page.getByRole("button", { name: "Skip intro" });
   if (await skip.waitFor({ state: "visible", timeout: 5000 }).then(() => true, () => false)) await skip.click();
   await skip.waitFor({ state: "hidden", timeout: 10_000 }).catch(() => undefined);
-  // Track 0 "Tuning" (accessibility core step 5) follows the intro on a first visit: skipped here as the intro is
+  // Track 0 "Tuning" follows the intro on a first visit: skipped here as the intro is
   // (qa/e2e/a11y/tuning.e2e.ts walks it), unless the page asked to keep it.
   if (opts.keepTuning) return;
   const skipTuning = page.getByRole("button", { name: "Skip tuning" });

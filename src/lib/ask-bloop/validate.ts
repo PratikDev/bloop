@@ -1,13 +1,11 @@
-// Ask Bloop's slot validation (spec §5.1, §6.5): anything that did not come from the parser (the §5.4 LLM route's
+// Ask Bloop's slot validation: anything that did not come from the parser (the §5.4 LLM route's
 // output, the benchmark file) is checked against the registry's own value lists before it can run. Unknown intents,
 // unknown values and extra slots are refused (null). Place slots are words, never coordinates: any digit is refused.
 import { SPEECH_MODES, VERBOSITIES } from "@/components/AppState/access";
 import { LANGS } from "@/lib/i18n/types";
 import { ASK_PAGES, ASK_RECORDS, EXTREMES, FRAME_STEPS, type Intent, type IntentName } from "./intents";
 import { INTENT_NAMES } from "./registry";
-// >>> DATA
 import { DATA_SLOTS } from "./data-intents";
-// <<< DATA
 
 type Raw = Record<string, unknown>;
 
@@ -42,9 +40,7 @@ export const SLOTS: Record<IntentName, readonly string[]> = {
   what_am_i_hearing: [],
   about_record: ["record"],
   how_reliable: [],
-  // >>> DATA
   ...DATA_SLOTS,
-  // <<< DATA
 };
 
 function setting(s: Raw): Intent | null {

@@ -11,7 +11,7 @@ export interface XY {
 }
 
 /**
- * A truth-test plot (mentor item 6): one dot per pair, the comparison source across, the value read back up, and the
+ * A truth-test plot: one dot per pair, the comparison source across, the value read back up, and the
  * 1:1 line where perfect agreement would sit. Both axes share one range so the line is the diagonal. Log axes for
  * rain rates (they span orders of magnitude). Visual only: the caller's figure gives the alt text and the table.
  */

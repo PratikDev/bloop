@@ -1,4 +1,4 @@
-// The expedition log (accessibility core, step 6; spec Part 1.10): a plain-text record of this session's places,
+// The expedition log: a plain-text record of this session's places,
 // values, comparisons and sources, readable on screen and saved as .txt. Lines wrap at the braille explorer's width
 // setting, so a braille display shows whole lines.
 

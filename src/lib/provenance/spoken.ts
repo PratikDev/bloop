@@ -1,4 +1,4 @@
-// The spoken provenance line (accessibility core, step 5; spec Part 1.8): each record's NASA product, resolution, date,
+// The spoken provenance line: each record's NASA product, resolution, date,
 // and model or observation, in one sentence for Shift+P and Track 0. Read from the frame's metadata and the dataset
 // registry (meta/freshness.json), the same sources "How we got this" uses; nothing is typed.
 import { formatFixed, formatInteger, formatUtc, type BoundT, type Lang } from "@/lib/i18n";

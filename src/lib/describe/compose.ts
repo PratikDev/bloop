@@ -1,4 +1,4 @@
-// Layered descriptions (accessibility core, step 3; spec Part 3.1): fill-in-the-blank templates (src/lib/i18n/*/
+// Layered descriptions: fill-in-the-blank templates (src/lib/i18n/*/
 // describe.ts) with slots bound to computed facts (facts.ts). Brief: what, where, when, units and the range. Standard:
 // + the pattern by rule and the change since the previous frame. Detailed: + a human-written "What this means" block,
 // kept apart from the data text. No number is ever typed into a template; the digit-provenance test renders every

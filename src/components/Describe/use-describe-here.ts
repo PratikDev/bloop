@@ -25,7 +25,7 @@ export function spokenFor(facts: FactsFor, verbosity: Verbosity, t: BoundT, lang
     .join(" ");
 }
 
-/** The description's braille short form (plan item 12): each record's value at the needle, as one line. */
+/** The description's braille short form: each record's value at the needle, as one line. */
 export function shortFor(facts: FactsFor, t: BoundT, lang: Lang, degree: DegreeStyle): string {
   const records = facts(lang);
   const short = describeShort(t, lang, degree, records.map((f) => ({ record: f.record, value: f.value, frozen: f.frozen, at: f.here, timeUtc: f.timeUtc })));
@@ -33,7 +33,7 @@ export function shortFor(facts: FactsFor, t: BoundT, lang: Lang, degree: DegreeS
 }
 
 /**
- * D ("describe here", spec 3.2): says the description of the needle once, at the chosen detail, through the speech
+ * D ("describe here"): says the description of the needle once, at the chosen detail, through the speech
  * mode (the status region or Bloop's voice, never both). Never continuous: Describe mode (Shift+D) keeps that job.
  * Null while there is nothing to describe (the frames are still loading, or a time-lapse is playing).
  */

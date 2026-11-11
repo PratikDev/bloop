@@ -21,7 +21,7 @@ interface Props {
 
 /**
  * The 3D view. R3F owns the WebGL renderer, camera and scene; the frame loop
- * stays in use-turntable (frameloop "never"), which calls scene.render() →
+ * stays in use-turntable (frameloop "never"), which calls scene.render →
  * R3F's advance → this component's frame callback → the post chain.
  */
 export function TurntableCanvas({ dataCanvas, tier, label, onReady }: Props) {

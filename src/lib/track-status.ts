@@ -1,5 +1,5 @@
 // What the live region says when the track changes: "Now hearing: Ocean temperature." or, for Both, the frame gap
-// too ("Now hearing: Both. Frames rain 2d newer.", mentor item 1). One function for the command that changes the
+// too ("Now hearing: Both. Frames rain 2d newer."). One function for the command that changes the
 // track and the map's reading announcement that follows it, so the status is never lost under the reading.
 
 import type { TrackMode } from "@/lib/audio-adapter/types";

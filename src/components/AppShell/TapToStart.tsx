@@ -6,7 +6,7 @@ import { useAppState, useT } from "../AppState/use-app-state";
 import { useCommands } from "../Commands/use-commands";
 
 /**
- * Mentor item 2: a return visitor who chose sound gets a small, non-blocking prompt. Browsers start audio only after
+ * A return visitor who chose sound gets a small, non-blocking prompt. Browsers start audio only after
  * a gesture, so the app never claims to play by itself: one tap turns sound on and the prompt goes. A visitor who chose
  * silence sees nothing; Reset sound choice (Home) brings the first-visit choice back.
  */

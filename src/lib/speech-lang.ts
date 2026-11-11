@@ -1,4 +1,4 @@
-// Which language the built-in voice speaks for the screen's language (plan §17):
+// Which language the built-in voice speaks for the screen's language:
 // Bangla when the device has a Bangla voice, otherwise English, so a value is
 // still heard (with Bangla on screen) rather than only shown.
 

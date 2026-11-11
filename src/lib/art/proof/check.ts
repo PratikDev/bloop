@@ -1,4 +1,4 @@
-// The data-voice check (the pitch-identity test, docs/statement/ART.md): render one plan under several setups (art off,
+// The data-voice check (the pitch-identity test): render one plan under several setups (art off,
 // each dial stop, each family) and assert the data voice is the same: the logged pitch per note identical, the
 // measured settled pitch within 1 cent of the art-off render and of the rule, the onset count and tempo identical.
 // The dial's "Check the data voice" button and the CI test (qa/e2e/art) both run this.
@@ -36,7 +36,7 @@ const tempo = (onsets: readonly number[]) => (onsets.length < 2 ? 0 : (onsets[on
 const same = (a: readonly number[], b: readonly number[]) => a.length === b.length && a.every((x, i) => Math.abs(x - b[i]) < 1e-9);
 
 /** The setups for the dial: art off (today's app), then 0, 0.5 and 1, in one family, and 1 again in a monsoon month
- *  (the drone's season colour, Tier 2). */
+ *  (the drone's season colour). */
 export const dialSetups = (timbre: Timbre): Setup[] => [
   { stop: null, timbre: "plain", path: "voice" },
   ...DIAL_STOPS.map((stop: DialStop): Setup => ({ stop, timbre, path: "voice" })),

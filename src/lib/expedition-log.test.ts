@@ -1,4 +1,4 @@
-// Accessibility core, step 6: the expedition log's wrapping (to the braille width) and its plain text.
+// The expedition log's wrapping (to the braille width) and its plain text.
 import { describe, expect, test } from "bun:test";
 import { addEntry, LOG_MAX, logSources, logText, wrapLines, type LogEntry } from "./expedition-log";
 

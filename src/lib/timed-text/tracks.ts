@@ -1,4 +1,4 @@
-// PURE: what the sweep's and the time-lapse's timed text tracks share (accessibility core, step 7). Every number in a
+// PURE: what the sweep's and the time-lapse's timed text tracks share. Every number in a
 // cue is a slot from the step it describes; the words are the i18n templates in en/bn timed-text.ts.
 import type { SweepPoint } from "@/lib/audio/types";
 import type { PlaceNamers } from "@/lib/describe/facts";

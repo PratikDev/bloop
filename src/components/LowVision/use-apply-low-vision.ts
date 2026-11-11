@@ -41,7 +41,7 @@ function attributes(lv: LowVision, theme: Exclude<Theme, "auto">): Record<string
 }
 
 /**
- * Point of regard (spec 4.5, W3C low-vision needs): after a change of size, zoom or layout, the needle's map and the
+ * Point of regard (W3C low-vision needs): after a change of size, zoom or layout, the needle's map and the
  * value beside it are scrolled back into view. The focused control is brought in first, then the value, then the
  * needle's map, so when they can't all fit (300% text) the needle wins, as the spec asks; the next Tab brings focus back.
  */
@@ -51,7 +51,7 @@ export function keepPointOfRegard(): void {
   for (const el of targets) if (el instanceof HTMLElement && el !== document.body) el.scrollIntoView({ block: "nearest", inline: "nearest" });
 }
 
-/** Applies the low-vision settings to the page and listens for Alt+L (accessibility core, step 8). */
+/** Applies the low-vision settings to the page and listens for Alt+L. */
 export function useApplyLowVision(): void {
   const { state } = useAppState();
   const preset = useLowVisionPreset();

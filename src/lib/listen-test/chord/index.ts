@@ -1,4 +1,4 @@
-// The CV/ML build's two listener-test tasks (piece E), each its own module, registered in tasks.ts's one list:
+// The CV/ML build's two listener-test tasks, each its own module, registered in tasks.ts's one list:
 //   chordVariety: "Which of these two views has more variety?" (2AFC; the answer is the larger P10–P90 spread);
 //   chordGroups:  "Do you hear one group or two?" (the answer is the value chord's own group count, B1).
 // PURE: every answer is computed from the shipped SST grid with the panel's and the chord's own functions.

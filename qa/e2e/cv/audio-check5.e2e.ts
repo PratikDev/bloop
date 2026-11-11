@@ -1,8 +1,8 @@
-// Check 5, the audio chain's pitch accuracy (CV/ML build, piece D; docs/audio/MIX.md). In headless Chromium, an
+// Check 5, the audio chain's pitch accuracy (docs/audio/MIX.md). In headless Chromium, an
 // OfflineAudioContext renders 100 notes across each voice's full input range, built as the engine builds them: the live
 // SST and 3912 voices (the ocean rule: a sine gliding with setTargetAtTime over its 30 ms glide), one official voice
 // (eic5147: the Jukebox tone voice, the same glide) and the chord (a fresh pad oscillator per tone, its PeriodicWave).
-// The expected pitch of each note is mapVoice() on its value. Samples go to data_raw/_tmp/cv/check5/; the numbers come
+// The expected pitch of each note is mapVoice on its value. Samples go to data_raw/_tmp/cv/check5/; the numbers come
 // from pipeline/stats/check5_audio.py (numpy/scipy, interpolated FFT on the steady part).
 import { mkdirSync, readFileSync, writeFileSync } from "node:fs";
 import path from "node:path";

@@ -1,4 +1,4 @@
-// The raw-pixel demo (docs/statement/ART.md). Braille rules apply.
+// The raw-pixel demo. Braille rules apply.
 
 export const rawPixelEn = {
   "raw.title": "Pixel to sound, or Bloop?",

@@ -3,7 +3,7 @@
 // every value is a {param} filled from the shipped files. Bangla drafts: bn/earth.ts.
 
 export const earthEn = {
-  // P1: "Is this data fresh?" (in every How we got this) and the Data health page.
+  // "Is this data fresh?" (in every How we got this) and the Data health page.
   "earth.fresh.heading": "Is this data fresh?",
   "earth.fresh.lastData": "Newest data shipped",
   "earth.fresh.sourceLatest": "Newest at the source",
@@ -35,12 +35,12 @@ export const earthEn = {
   "earth.health.back": "Back to How we know",
   "earth.health.keys": "The table is one stop for Tab; scroll it with the arrow keys. Each row starts with the record's name.",
 
-  // P1: the live frames' acceptance checks (public/data/official/live_*/validation.json).
+  // The live frames' acceptance checks (public/data/official/live_*/validation.json).
   "earth.check.heading": "Acceptance check (from validation.json)",
   "earth.check.line": (p: { title: string; numbers: string; result: string }) => `${p.title}: ${p.numbers}. Result: ${p.result}.`,
   "earth.check.loading": "Loading the acceptance check.",
 
-  // P1: related records kept off the shelves (related/index.json `hidden`).
+  // Related records kept off the shelves (related/index.json `hidden`).
   "earth.notPlayable.heading": "Not playable: too sparse to sonify honestly",
   "earth.notPlayable.lead": "Decoded, but kept off the shelves: a needle would read no value most of the time. The pipeline's reason for each:",
   "earth.notPlayable.loading": "Loading the related records.",
@@ -72,7 +72,7 @@ export const earthEn = {
   "earth.badge.off": "off",
   "earth.badge.silent": "stated silence",
 
-  // P2: fires and fire weather.
+  // Fires and fire weather.
   "earth.fire.lead":
     "Two sound layers: tomorrow's fire weather as a fixed chord at the needle, and FIRMS hotspots as Geiger clicks for the chosen box and day. NASA's fire picture sits underneath.",
   "earth.fire.fwiLabel": "Fire weather: an experimental 1-day forecast (NASA GISS GlobalFWI, a model), never a measured fire.",
@@ -157,7 +157,7 @@ export const earthEn = {
     "For each archived forecast and each FIRMS box: the box's most common class on that day's grid, beside FIRMS's count in the box on the day the forecast was for (the next day). Spearman rho over the rows, per sensor.",
   "earth.pilot.n": (p: { n: string }) => `${p.n} box-days`,
 
-  // P3: landslide exposure (LHASA).
+  // Landslide exposure (LHASA).
   "earth.slide.lead": "Landslide exposure as thresholded sound: silence for none and low, a soft rumble for moderate, a stronger one for high, slow pulses for very high.",
   "earth.slide.label": "Modelled exposure (LHASA), not observed landslides.",
   "earth.slide.at": (p: { cls: string; date: string; sound: string }) => `Landslide exposure (LHASA nowcast of ${p.date}): ${p.cls}. ${p.sound}`,
@@ -181,7 +181,7 @@ export const earthEn = {
   "earth.slide.method":
     "The pipeline reads the class of each pixel of SVS 5584's picture from its legend colours (the highest class within 3×3 source pixels), then maps it from Robinson to a 1024×512 latitude-longitude grid; Bloop reads the cell under the needle.",
 
-  // P4: night lights (Black Marble).
+  // Night lights (Black Marble).
   "earth.lights.lead": "Each night's light at a city, one note per night: brighter, higher (a log scale). A cloud-blocked night is a rest.",
   "earth.lights.label": "Radiance measured from space. A cloud-blocked night is a gap, not darkness: no blackout is claimed from it.",
   "earth.lights.product": (p: { product: string; variable: string; sat: string }) => `Product: ${p.product} (${p.variable}), satellite ${p.sat}, read from the file.`,
@@ -203,7 +203,7 @@ export const earthEn = {
   "earth.lights.method": (p: { window: string; rule: string }) => `Median of a ${p.window}-pixel window around the city. ${p.rule}`,
   "earth.lights.hearDhaka": (p: { city: string }) => `Hear measured radiance for ${p.city} (Black Marble, night by night)`,
 
-  // P5: NASA's own method (Caldwell 73, SVS 13786).
+  // NASA's own method (Caldwell 73, SVS 13786).
   "earth.radar.title": "NASA mode (after Caldwell 73, SYSTEM Sounds)",
   "earth.radar.lead":
     "A method record, with no data layer of its own: NASA's radar sweep from the Caldwell 73 sonification, played on today's ocean temperature frame around a centre, beside Bloop's own rule on the same points.",
@@ -228,7 +228,7 @@ export const earthEn = {
   // How we got this for the DATA products (src/lib/earth/provenance.ts).
   "earth.hwgt.sourceTime": (p: { time: string }) => `newest source time ${p.time}`,
 
-  // P1: the SVS 5176 picture under the normal tone (Sound terrain, N).
+  // The SVS 5176 picture under the normal tone (Sound terrain, N).
   "earth.anom.legend": "Ocean temperature vs normal (the 5176 picture)",
   "earth.anom.frame": (p: { date: string }) => `Picture and anomaly: the SVS 5176 frame of ${p.date}`,
   "earth.anom.alt": (p: { date: string; min: string; max: string }) =>

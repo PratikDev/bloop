@@ -44,7 +44,7 @@ export function useSoundSync(state: AppState, fields: LiveFields | null): void {
     // Story Mode owns the live voices while it runs.
     if (!started || !soundOn || !fields || mode === "story") return;
     const engine = liveEngine(mode);
-    // Text-only steps (accessibility core) keep the needle silent.
+    // Text-only steps keep the needle silent.
     if (!playing || !introDone || !isLiveMode(mode) || !stepSound(state)) {
       engine.silenceLive();
       return;

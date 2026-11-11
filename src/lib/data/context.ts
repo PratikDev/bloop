@@ -88,7 +88,7 @@ export const loadGrace = () =>
 
 const CELLS = ["Dhaka", "Chattogram", "Rajshahi", "Sylhet"] as const;
 
-/** The statistics behind every Then vs Now claim (pipeline/stats, mentor item 10). */
+/** The statistics behind every Then vs Now claim (pipeline/stats). */
 export const loadThenNowStats = () =>
   load<ThenNowStatsFile>(DATA_PATHS.thenNowStats, {
     "method.bootstrap_draws": "number",

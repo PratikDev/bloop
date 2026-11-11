@@ -23,7 +23,7 @@ export interface Closest {
 
 /**
  * Whether this Esc closes an overlay: it was pressed inside one. That Esc still stops the sound, but it only closes the
- * overlay, never the page under it (on the Turntable, Esc in Credits left for Listen; mentor item 4).
+ * overlay, never the page under it (on the Turntable, Esc in Credits left for Listen).
  */
 export function escClosesOverlay(target: Closest | null): boolean {
   return target !== null && target.closest(OVERLAY_SELECTOR) !== null;

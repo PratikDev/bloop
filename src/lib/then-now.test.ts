@@ -1,4 +1,4 @@
-// Mentor item 9: both rain sources compare the same baseline and the same recent decade, and that decade ends in
+// Both rain sources compare the same baseline and the same recent decade, and that decade ends in
 // the last year of the GPCC product we ship (read from the files, not typed here).
 import { describe, expect, test } from "bun:test";
 import { readData } from "@/lib/i18n/data-sentences";

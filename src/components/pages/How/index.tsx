@@ -24,12 +24,8 @@ import { GlobeFace, OceanFace, RainFace, RulesFace } from "./cards";
 import { Tile } from "./Tile";
 import { useHowProvenance } from "./use-how-provenance";
 import { FLAGS } from "@/lib/flags";
-// >>> CV
 import { SameChordCard } from "./SameChordCard";
-// <<< CV
-// >>> DATA
 import { DataHealthCard } from "./DataHealthCard";
-// <<< DATA
 import { ArtHowCards } from "../../Art/HowCards"; // ART
 
 const FOOT_LINK = "h-11 gap-2 rounded-full px-4 text-body text-haze ring-1 ring-glass-edge hover:bg-tide hover:text-moon";
@@ -37,7 +33,7 @@ const FOOT_LINK = "h-11 gap-2 rounded-full px-4 text-body text-haze ring-1 ring-
 /**
  * How we know: four checks at a glance (ocean, rain, the sound rules, ground
  * vs satellite), each with its evidence on the card (plot or table, key numbers,
- * a plain explanation; mentor item 6) and its full wording a click away; credits and keys at the foot.
+ * a plain explanation) and its full wording a click away; credits and keys at the foot.
  */
 export function HowPage() {
   const t = useT();
@@ -96,15 +92,15 @@ export function HowPage() {
         >
           <GlobeTeaser />
         </Tile>
-        {/* >>> CV */}
+        {/*  */}
         {FLAGS.cvCard && <SameChordCard />}
-        {/* <<< CV */}
-        {/* >>> DATA */}
+        {/*  */}
+        {/*  */}
         {FLAGS.dataHealth && <DataHealthCard />}
-        {/* <<< DATA */}
-        {/* >>> ART */}
+        {/*  */}
+        {/*  */}
         <ArtHowCards />
-        {/* <<< ART */}
+        {/*  */}
       </motion.div>
 
       <motion.footer variants={RISE} initial="hidden" animate="shown" className="flex flex-wrap items-center gap-2">

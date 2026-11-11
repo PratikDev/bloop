@@ -1,12 +1,10 @@
-// Ask Bloop (the Ask Bloop spec §5.1): the intents, as one typed union. Only
+// Ask Bloop: the intents, as one typed union. Only
 // intents whose handler already exists in Bloop are here; the ones skipped (set_mode Listen/Analyse, set_dial,
-// slower/faster, set_time to a date) are listed in docs/voice/RECON.md.
+// slower/faster, set_time to a date) are left out.
 import type { SpeechMode, Verbosity } from "@/components/AppState/access";
 import type { TrackMode } from "@/lib/audio/types";
 import type { Lang } from "@/lib/i18n/types";
-// >>> DATA
 import type { DataIntent } from "./data-intents";
-// <<< DATA
 
 /** Pages Ask Bloop can open: the header's pages and the tour (each is an existing mode). */
 export const ASK_PAGES = ["listen", "tour", "thenNow", "how", "official", "turntable", "team", "home"] as const;
@@ -25,7 +23,7 @@ export type Extreme = (typeof EXTREMES)[number];
 /** A setting Ask Bloop can change, with its value (the app's own value lists). */
 export type SettingChange = { setting: "verbosity"; value: Verbosity } | { setting: "speech_output"; value: SpeechMode } | { setting: "input_language"; value: Lang };
 
-/** Every intent with its slots. Places are the words the user said; resolvePlace() maps them to the gazetteer. */
+/** Every intent with its slots. Places are the words the user said; resolvePlace maps them to the gazetteer. */
 export type Intent =
   | { name: "play" }
   | { name: "pause" }
@@ -48,9 +46,7 @@ export type Intent =
   | { name: "what_am_i_hearing" }
   | { name: "about_record"; record: TrackMode | null }
   | { name: "how_reliable" }
-  // >>> DATA
   | DataIntent;
-  // <<< DATA
 
 export type IntentName = Intent["name"];
 export type IntentOf<N extends IntentName> = Extract<Intent, { name: N }>;

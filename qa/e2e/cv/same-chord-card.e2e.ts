@@ -1,4 +1,4 @@
-// The "Same chord, whatever the colours" card (CV/ML build, piece C) on a build with NEXT_PUBLIC_CV_CARD=1: its numbers
+// The "Same chord, whatever the colours" card on a build with NEXT_PUBLIC_CV_CARD=1: its numbers
 // equal the T2 output file (public/data/meta/colormap_invariance.json), its figure loads with alt text, "View as table"
 // and "How we got this" work, the limit is stated, axe finds nothing serious; Bangla shows Bangla digits.
 import { readFileSync } from "node:fs";

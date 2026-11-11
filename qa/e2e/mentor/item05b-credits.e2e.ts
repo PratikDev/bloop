@@ -1,4 +1,4 @@
-// Credits follow-up to mentor item 5 ("credits must match what plays"): the list is built from the record registry
+// Credits must match what plays: the list is built from the record registry
 // (src/lib/credits), so this compares what each page shows with what the shipped registry gives. Every playing
 // source is under "Data in this app", the testing line holds only sources no playing record uses, and the list is
 // the same wherever it is shown (How we know, Official records, the Turntable, Team).

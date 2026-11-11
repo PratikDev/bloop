@@ -1,4 +1,4 @@
-// Mentor item 11: "explain how you are getting this result and provide proper evidence". Every value on every page sits
+// "explain how you are getting this result and provide proper evidence". Every value on every page sits
 // in a group with a working "How we got this" button; its panel's fields are the files' (compared with the builders run
 // on the shipped data); it is a real button opening a titled dialog that gives focus back; axe finds nothing serious.
 import { expect, test, type Page } from "@playwright/test";

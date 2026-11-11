@@ -1,4 +1,4 @@
-// Mentor item 8: "…and do a quick listener test." The hidden page runs consent, the 18+ question, the intro and the
+// "…and do a quick listener test." The hidden page runs consent, the 18+ question, the intro and the
 // tasks; Playwright answers with fixture choices and the exported file must match them, with each correct answer the one
 // computed from the shipped data (in Node here, from the same files). Nothing is linked, indexed or uploaded.
 import { expect, test, type Page } from "@playwright/test";

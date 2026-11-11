@@ -61,7 +61,7 @@ export function appRecordTranscript(record: string): ReactNode | null {
 }
 
 /** Extras shown under a pipeline record by the DATA pieces: the 5313 night-lights record links to the measured
- *  radiance (P4). `choose` picks a record on the shelf. */
+ *  radiance. `choose` picks a record on the shelf. */
 export function appRecordExtras(record: string, choose: (record: string) => void): ReactNode | null {
   return record === "lights_5313" ? <LightsLink choose={choose} /> : null;
 }

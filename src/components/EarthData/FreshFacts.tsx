@@ -9,7 +9,7 @@ import { useAppState, useT } from "../AppState/use-app-state";
 const LAG_DECIMALS = 1;
 
 /**
- * "Is this data fresh?" (P1): a record's row of meta/health.json in its How we got this panel: the newest data shipped
+ * "Is this data fresh?": a record's row of meta/health.json in its How we got this panel: the newest data shipped
  * and at the source, the lag between them, the checks passed and failed, and when the health run was. A missing time
  * says "not available", never a guess; no local path is ever shown (src/lib/earth/health.ts).
  */

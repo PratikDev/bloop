@@ -9,10 +9,9 @@ import { glideAt, jumpAt } from "../params";
 import { track } from "../sources";
 import { onStopAll } from "../stop";
 import { createVoiceOutput, panTo, voicePeak, type VoiceTiming } from "./common";
-// >>> ART: Earth Orchestra's timbre and the dial (src/lib/art/live): timbre, swara + meend, layers; never the pitch.
+// Earth Orchestra's timbre and the dial (src/lib/art/live): timbre, swara + meend, layers; never the pitch.
 import { dressLive, meend } from "@/lib/art/live/dress";
 import { reportVoice } from "@/lib/art/live/layers";
-// <<< ART
 
 export interface OceanVoice {
   /** °C (null = land / no data → silence) at a longitude (stereo), now or at `at.time`. */
@@ -31,7 +30,7 @@ export function createOceanVoice(): OceanVoice {
   let env: GainNode | null = null;
   let sounding = false; // as scheduled (calls arrive in time order)
 
-  // stopAll() stops the oscillator; start a fresh one next time.
+  // stopAll stops the oscillator; start a fresh one next time.
   onStopAll(() => {
     osc = null;
     env = null;

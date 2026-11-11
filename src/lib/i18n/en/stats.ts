@@ -1,4 +1,4 @@
-// English strings for the Then vs Now statistics (mentor item 10; src/lib/then-now-stats.ts builds the lines).
+// English strings for the Then vs Now statistics (src/lib/then-now-stats.ts builds the lines).
 // Every number is a parameter from public/data/thenvsnow/stats.json.
 
 export const statsEn = {

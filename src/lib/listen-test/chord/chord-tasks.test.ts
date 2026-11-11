@@ -1,4 +1,4 @@
-// E: the two chord tasks, built from today's shipped SST grid. The variety task's answer is the box with the wider
+// The two chord tasks, built from today's shipped SST grid. The variety task's answer is the box with the wider
 // P10–P90 spread; the groups task's answer is the chord's own group count, for the one-group or the two-group box; both
 // are registered in the one task list, and the groups task's tones sit at the ocean rule's pitch.
 import { describe, expect, test } from "bun:test";

@@ -1,4 +1,4 @@
-// PURE: the raw-pixel demo's measurements (docs/statement/ART.md). Short-time spectra: 2048-sample Hann frames, hop
+// PURE: the raw-pixel demo's measurements. Short-time spectra: 2048-sample Hann frames, hop
 // 1024; silent frames (RMS under 1e-4) are skipped, so Bloop's honest silence over land isn't counted as anything.
 //   spectral flatness: geometric mean / arithmetic mean of the power spectrum (0 = a pure tone, 1 = white noise);
 //   spectral entropy: Shannon entropy of the normalised power spectrum, divided by log(bins) (0 = one bin, 1 = flat);

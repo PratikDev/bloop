@@ -1,4 +1,4 @@
-// The map widget's keyboard navigation (accessibility core, step 2; docs/accessibility/CORE_PLAN.md): cell size (+/−),
+// The map widget's keyboard navigation: cell size (+/−),
 // the iSonic-style 3×3 region jump (J, then 1–9), and the trail "." walks back along. Pure, so it is unit-tested.
 import { clampLat, wrapLon, type LatLon } from "@/lib/data";
 import type { MessageKey } from "@/lib/i18n";

@@ -1,4 +1,4 @@
-// Mentor item 3 (promoted from the audit's item03 and locale03): the language never changes by itself, and <html lang>
+// The language never changes by itself, and <html lang>
 // is the saved language from the first moment the body exists (the inline head script), on every route, after reloads.
 import { expect, test, type Page } from "@playwright/test";
 import { openAt, shot } from "./lib";

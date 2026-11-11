@@ -1,4 +1,4 @@
-// Low-vision mode (accessibility core, step 8; spec Part 4): every setting, its allowed values, the defaults and the
+// Low-vision mode: every setting, its allowed values, the defaults and the
 // one-switch preset. The value lists are the one source for the types, the saved settings and the settings panel.
 // Saved per device in localStorage (in try/catch: a blocked storage just means the defaults).
 
@@ -114,7 +114,7 @@ export const LV_DEFAULTS: LowVision = {
   speakDwell: false,
 };
 
-/** What the preset turns on (spec 4.7): high-contrast dark, large text and controls, calm, the lens, bands, thick coasts. */
+/** What the preset turns on: high-contrast dark, large text and controls, calm, the lens, bands, thick coasts. */
 export const LV_PRESET: Partial<LowVision> = {
   theme: "hcDark",
   textScale: 150,

@@ -1,4 +1,4 @@
-// What a description of the needle needs, gathered once (accessibility core, step 3): the frame on screen (live, or a
+// What a description of the needle needs, gathered once: the frame on screen (live, or a
 // time-lapse frame held with PageUp/PageDown), the change since the frame before, and place names from the gazetteer.
 // D and the Description panel both use it, so they never disagree.
 import type { TrackMode } from "@/lib/audio-adapter/types";

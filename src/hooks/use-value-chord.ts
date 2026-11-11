@@ -33,7 +33,7 @@ export interface ValueChordState {
 export const chordSigma = (budget: LiveBudget | null) => (budget && !budget.axis.log ? budget.axis.error_in_axis_units : null);
 
 /**
- * The value chord on a page (CV/ML build, piece B): gives the layer the current view (the record and the box's
+ * The value chord on a page: gives the layer the current view (the record and the box's
  * values), holds the "user" owner while the listener's toggle is on and the app is playing, marks the duet while
  * proof in unison plays (Esc stops the app's sound, which lets go of it; playing again takes it back), and says each change once (status region; "brief" says the count; short lines for braille).
  */

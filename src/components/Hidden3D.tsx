@@ -5,14 +5,14 @@ import { useForcedColors } from "@/hooks/use-media-query";
 import { useAppState, useT } from "./AppState/use-app-state";
 
 /**
- * Whether the 3D views are hidden (Settings → Hide 3D views; accessibility core, step 2). The scenes keep running
+ * Whether the 3D views are hidden (Settings → Hide 3D views). The scenes keep running
  * underneath (the Turntable's needle reads its value from its scene), so only the drawing goes: every task works from
  * the HTML around them, as the spec asks.
  */
 export function useHide3d(): boolean {
   const { state } = useAppState();
   const forced = useForcedColors();
-  // Low-vision mode (step 8): calm view hides them too, and a Windows contrast theme falls back to the 2D views.
+  // Low-vision mode: calm view hides them too, and a Windows contrast theme falls back to the 2D views.
   return FLAGS.mapKeys && (state.hide3d || (FLAGS.lowVision && (state.lowVision.calm || forced)));
 }
 

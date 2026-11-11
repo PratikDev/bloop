@@ -1,4 +1,4 @@
-// Plan item 12: a braille-safe short form for each of the accessibility core's new description and stat lines (D's
+// A braille-safe short form for each of the accessibility core's new description and stat lines (D's
 // description, a Compare result, the sonar's find, the provenance line): one front-loaded line of at most
 // STATUS_BUDGET cells under the brailleText.ts rules, in both braille tables (UEB English, the Bengali table). Sent
 // to the status region instead of the full line when the reader chooses "Short lines" (Settings → Braille display);

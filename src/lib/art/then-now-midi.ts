@@ -1,4 +1,4 @@
-// PURE: a Then vs Now part as MIDI and a value sheet (Tier 2): heat's two windows (one note a year, the heat rule) and
+// PURE: a Then vs Now part as MIDI and a value sheet: heat's two windows (one note a year, the heat rule) and
 // GRACE water (one note a month, the water rule), at the timing Then vs Now plays them. Rain is a count of drops, not a
 // pitch: its sheet lists the drops and its MIDI has no notes.
 

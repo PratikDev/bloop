@@ -1,5 +1,5 @@
-// Accessibility core, step 3: the pattern rules on synthetic grids with known answers, the layers by detail level, and
-// the digit-provenance test (spec Part 3.1): no rendered description, English or Bangla, at any detail level, may hold
+// The pattern rules on synthetic grids with known answers, the layers by detail level, and
+// the digit-provenance test: no rendered description, English or Bangla, at any detail level, may hold
 // a digit that no slot produced. The build runs this file (package.json "build"), so a typed number fails the build.
 import { describe, expect, test } from "bun:test";
 import { readFileSync } from "node:fs";

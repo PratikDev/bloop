@@ -1,4 +1,4 @@
-// Earth Orchestra (docs/statement/ART.md): one instrument family per Earth system. This module is the OrchestraApi
+// Earth Orchestra: one instrument family per Earth system. This module is the OrchestraApi
 // the other builds wire to (src/lib/audio/layers/types.ts): getCategory(recordId) from the generated table, and
 // orchestraVoice(category), a voice that plays a note in that family. Timbre only: every note settles at exactly the
 // pitch it is given.

@@ -1,4 +1,4 @@
-// ART's other pieces in the browser (docs/statement/ART.md): the letter to the future (Listen; numbers from the
+// ART's other pieces in the browser: the letter to the future (Listen; numbers from the
 // engine's reading, the saved .txt), Your lifetime (notes, playhead, wording, the deep link, MIDI), data vs artistic
 // choice, the tour naming every dataset, Water's journey (steps, deterministic WAV) and the listener test's new tasks.
 // Build with every NEXT_PUBLIC_ART_* flag on.

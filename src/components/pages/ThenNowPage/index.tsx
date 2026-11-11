@@ -11,10 +11,9 @@ import { FrameLabel } from "../../FrameLabel";
 import { DEFAULT_PLACE, MonthByMonth } from "../../MonthByMonth";
 import { DEFAULT_CITY, ThenNow } from "../../ThenNow";
 import type { ViewPart } from "../../ThenNow/parts";
-// >>> ART: Your lifetime
+// Your lifetime
 import { FLAGS } from "@/lib/flags";
 import { DEFAULT_BORN, Lifetime } from "../../Art/Lifetime";
-// <<< ART
 
 const route = getRouteApi("/then-now");
 

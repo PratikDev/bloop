@@ -1,4 +1,4 @@
-// Fire Geiger (P2b): clicks at Poisson times (geiger.ts) on the shared look-ahead scheduler. The day's hotspot count
+// Fire Geiger: clicks at Poisson times (geiger.ts) on the shared look-ahead scheduler. The day's hotspot count
 // sets the rate (the "fireGeiger" rule); FRP per hotspot sets only the clicks' low-pass cutoff (brightness), never
 // their loudness: every click has the same peak gain. Rate 0 = no clicks (a stated silence, said by the UI).
 
@@ -13,7 +13,7 @@ export interface GeigerLayer {
   /** Clicks per second (0 = silence) and the brightness cutoff (null = the rule's bottom). */
   set(rate: number, cutoffHz: number | null, lon: number): void;
   stop(): void;
-  /** Clicks scheduled since the last set() (for the checks). */
+  /** Clicks scheduled since the last set (for the checks). */
   clicks(): number;
 }
 

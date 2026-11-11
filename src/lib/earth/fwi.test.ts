@@ -1,4 +1,4 @@
-// P2a, tomorrow's fire weather: the app's decode of the shipped class grids equals the pipeline's own summaries (the
+// Tomorrow's fire weather: the app's decode of the shipped class grids equals the pipeline's own summaries (the
 // city cells it wrote into fwi_class.json and the archive index, and the Bangladesh box counts); each class plays its own
 // fixed state; the chord never touches a data voice's pitch; the replay plays the archive's days in the index's order.
 import { describe, expect, test } from "bun:test";

@@ -53,7 +53,7 @@ export function useThenNowPlayer(input: ThenNowInput | null, demo: DhakaThenNowD
     lines: narrating ? [partLine(data, part), ...statLines(part)] : [],
     play: () => audio.playThenNow(data, part),
   });
-  // Describe says the statistics right after the caption (mentor item 10).
+  // Describe says the statistics right after the caption.
   const statLines = (part: Part) => {
     const s = stats(part);
     return [...(s ? [captionLine("caption.thenNow.stats", statCaption(s))] : []), ...notes(part).map((n) => captionLine("caption.note", { ...n }))];

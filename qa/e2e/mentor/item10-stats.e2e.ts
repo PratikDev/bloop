@@ -1,4 +1,4 @@
-// Mentor item 10: each Then vs Now part shows its 95% range and a one-line result, and the wording shown matches the
+// Each Then vs Now part shows its 95% range and a one-line result, and the wording shown matches the
 // significance outcome in stats.json (read here from the shipped file).
 import { expect, test } from "@playwright/test";
 import type { ThenNowStatsFile } from "../../../src/types/then-now-stats";

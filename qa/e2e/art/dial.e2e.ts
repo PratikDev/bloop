@@ -1,4 +1,4 @@
-// The Science to Art dial (docs/statement/ART.md): three stops with their lines, announced in the status region; the
+// The Science to Art dial: three stops with their lines, announced in the status region; the
 // CI pitch-identity test for live SST, IMERG rain and SVS 3912 at art off, 0, 0.5 and 1 (OfflineAudioContext); the
 // dial on an Official record and its check; Both mode keeps the chord and drone off; Mute all and Esc stop everything.
 // Build with NEXT_PUBLIC_ART_ORCHESTRA=1 NEXT_PUBLIC_ART_DIAL=1.

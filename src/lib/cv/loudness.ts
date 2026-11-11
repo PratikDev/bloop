@@ -1,4 +1,4 @@
-// PURE: the mix pass's meters (CV/ML build, piece D; docs/audio/MIX.md). Integrated loudness per ITU-R BS.1770-4 (K
+// PURE: the mix pass's meters (docs/audio/MIX.md). Integrated loudness per ITU-R BS.1770-4 (K
 // weighting, 400 ms blocks with 75 % overlap, absolute gate −70 LUFS, relative gate −10 LU), true peak by 4× oversampling
 // (windowed-sinc interpolation, BS.1770 Annex 2's method), a 2nd-order high-pass (the small-speaker check) and spectral
 // flatness (tone vs noise). The filter coefficients come from the standard's analog prototypes, so any sample rate works.

@@ -1,4 +1,4 @@
-// Fire Geiger (P2b), pure: clicks at random times, a Poisson process whose rate comes from the day's FIRMS hotspot
+// Fire Geiger, pure: clicks at random times, a Poisson process whose rate comes from the day's FIRMS hotspot
 // count through the "fireGeiger" rule (public/mapping-data.json: a log scale into a listenable clicks/s band), and a
 // brightness (low-pass cutoff) from the fire radiative power per hotspot through "fireBrightness". FRP never changes
 // loudness. Zero detections: no clicks at all (a stated silence).

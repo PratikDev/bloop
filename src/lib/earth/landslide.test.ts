@@ -1,4 +1,4 @@
-// P3, landslide exposure: the app's decode equals the pipeline's (cells per class over the whole grid, which covers every
+// Landslide exposure: the app's decode equals the pipeline's (cells per class over the whole grid, which covers every
 // sample cell); each class gives its own sound and the lowest ones are stated silences; the braille line passes the rules.
 import { describe, expect, test } from "bun:test";
 import { readFileSync } from "node:fs";

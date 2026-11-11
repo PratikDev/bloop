@@ -9,11 +9,9 @@ import { loadRelief, type Relief } from "../relief";
 import type { LegendStop } from "../SceneShell/SceneLegend";
 import { terrainField, type TerrainField } from "./field";
 import { frameColourStops } from "./frame-colours";
-// >>> DATA
 import { EARTH_PATHS } from "@/lib/earth/paths";
 import { FLAGS } from "@/lib/flags";
 import { anomalyColourStops } from "./anomaly-colours";
-// <<< DATA
 
 export interface TerrainData {
   sst: SstField;
@@ -24,11 +22,9 @@ export interface TerrainData {
   /** §15, optional: the SVS 5176 anomaly (N: hear it against the normal tone) and MUR's hours since a look (clarity). */
   anomaly: SstAnomalyField | null;
   dt: SstDtField | null;
-  // >>> DATA
-  /** P1: NASA's SVS 5176 picture (latest/sst_anom.webp) and its legend colours, shown while the anomaly plays. */
+  /** NASA's SVS 5176 picture (latest/sst_anom.webp) and its legend colours, shown while the anomaly plays. */
   anomalyImage: HTMLImageElement | null;
   anomalyStops: LegendStop[];
-  // <<< DATA
 }
 
 /** Today's SST (the app's own loaded frame), its NASA image, the bay relief, and (if published) the anomaly and dt grids. */

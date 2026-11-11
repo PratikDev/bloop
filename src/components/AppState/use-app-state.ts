@@ -17,7 +17,7 @@ export function useAppState(): AppStateValue {
   return value;
 }
 
-/** t() bound to the current language. */
+/** t bound to the current language. */
 export function useT() {
   const { state } = useAppState();
   return bindT(state.lang);

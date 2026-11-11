@@ -1,4 +1,4 @@
-// Mentor item 1: wherever ocean and rain play together, the app says how far apart their frames are. The expected gap
+// Wherever ocean and rain play together, the app says how far apart their frames are. The expected gap
 // is computed here from the two shipped manifests, and again from a fixture with a newer rain frame.
 import { expect, test, type Page } from "@playwright/test";
 import { liveLog, logLiveRegion, openAt, shipped, shot } from "./lib";

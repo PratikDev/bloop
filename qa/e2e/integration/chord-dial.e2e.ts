@@ -1,4 +1,4 @@
-// Integration wire 1: the Science to Art dial drives the CV value chord (src/lib/art/chord-hook.ts). On a build with the
+// The Science to Art dial drives the CV value chord (src/lib/art/chord-hook.ts). On a build with the
 // CV and ART flags on: the chord is opt-in (off for a first-time visitor, at the dial's default Blend, and the dial says
 // how to turn it on); once the listener turns it on, the dial at Blend and Music sounds it on a bimodal box (2 tones,
 // each at the ocean rule's pitch of its group within 1 cent), Measure lets it go (and the panel says why), Both keeps it

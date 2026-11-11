@@ -1,4 +1,4 @@
-// Ask Bloop's text clean-up before matching (spec §5.2): Bangla digits to ASCII, case, punctuation, spaces; and the
+// Ask Bloop's text clean-up before matching: Bangla digits to ASCII, case, punctuation, spaces; and the
 // months people say ("August 2023", "আগস্ট ২০২৩", "2023-08"), read as the "YYYY-MM" the monthly records use.
 
 const BN_ZERO = 0x09e6; // ০

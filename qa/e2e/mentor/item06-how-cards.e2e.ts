@@ -1,4 +1,4 @@
-// Mentor item 6: every How we know card carries its evidence on its face (a plot with alt text and a table, or a
+// Every How we know card carries its evidence on its face (a plot with alt text and a table, or a
 // table), numbers that match VALIDATION_TABLE.md (via the shipped sst.json / rain.json), and plain explanation text.
 // Nothing says "Not built yet" or "Coming in October" any more.
 import { expect, test } from "@playwright/test";

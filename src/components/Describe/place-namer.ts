@@ -1,6 +1,6 @@
 // Place names for text about the map, from the shared gazetteer: a full line ("Bay of Bengal, 140 kilometres south of
 // Khulna") for one spot, and a region (the Bangladesh district, else the country, else the sea) for chapters. Used by
-// the descriptions (step 3) and the timed text tracks (step 7), so both name a place the same way.
+// the descriptions and the timed text tracks, so both name a place the same way.
 import type { PlaceNamers } from "@/lib/describe/facts";
 import { loadGeo, type GeoData } from "@/lib/geo/load";
 import type { Lang } from "@/lib/i18n";

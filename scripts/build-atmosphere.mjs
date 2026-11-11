@@ -3,7 +3,6 @@
 // atmosphere as raw half-float RGBA; scattering is linear in the sun's
 // irradiance, so the scattering and irradiance tables are scaled by SUN_MATCH
 // (transmittance is not) and written to public/atmosphere/.
-//
 //   node scripts/build-atmosphere.mjs     (also run by build-earth-textures.mjs)
 
 import { mkdir, readFile, writeFile } from "node:fs/promises";

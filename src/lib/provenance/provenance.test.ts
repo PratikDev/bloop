@@ -1,4 +1,4 @@
-// Mentor item 11: "How we got this" says only what the files say. Each field is compared with the manifest, the frame
+// "How we got this" says only what the files say. Each field is compared with the manifest, the frame
 // metadata, stats.json or the registry it comes from; a missing field stays null ("not available"), never a guess.
 import { describe, expect, test } from "bun:test";
 import { violations } from "@/a11y/brailleText";

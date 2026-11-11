@@ -12,7 +12,7 @@ import { useLiveProvenance } from "@/hooks/use-live-provenance";
 
 const BENGALI_DIGIT = /[০-৯]/;
 
-/** Bengali digits aren't tabular in Anek Bangla, so each gets a fixed cell (design-plan §3.1). */
+/** Bengali digits aren't tabular in Anek Bangla, so each gets a fixed cell. */
 export function Figure({ text, lang }: { text: string; lang: Lang }) {
   if (lang !== "bn") return <>{text}</>;
   return (

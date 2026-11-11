@@ -1,4 +1,4 @@
-// English strings for the Turntable's 3D scenes (docs/3d-scenes-1-plan.md).
+// English strings for the Turntable's 3D scenes.
 // Numbers arrive already formatted (format.ts); dataset names, windows and
 // captions are read from the JSON files and passed in, never written here.
 // Bangla drafts: src/components/Scenes/strings-bn.ts.

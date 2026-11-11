@@ -1,4 +1,4 @@
-// P6: SVS 5479 was used to check ocean2_5425 (its validation.json names it), so that record credits it.
+// SVS 5479 was used to check ocean2_5425 (its validation.json names it), so that record credits it.
 import { expect, test } from "bun:test";
 import { readData } from "@/lib/i18n/data-sentences";
 import type { OfficialValidationFile } from "@/types/data-contract";

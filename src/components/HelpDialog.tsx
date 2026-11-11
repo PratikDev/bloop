@@ -14,7 +14,7 @@ import type { TurntableKey } from "./Turntable/strings-bn";
 
 type KeyRow = { key: string | MessageKey; action: MessageKey };
 
-/** Keys shown in Help (plan §9.3). Letters are literal key names, not translated. */
+/** Keys shown in Help. Letters are literal key names, not translated. */
 const KEYS: KeyRow[] = [
   { key: "key.arrows", action: "key.arrows.action" },
   { key: "Enter", action: "key.enter.action" },
@@ -35,7 +35,7 @@ const KEYS: KeyRow[] = [
   { key: "key.esc", action: "key.esc.action" },
 ];
 
-/** The map widget's keys with the accessibility core's step 2 (docs/accessibility/CORE_PLAN.md): D describes here,
+/** The map widget's keys with the accessibility core's step 2: D describes here,
  *  Shift+D keeps Describe mode, and + / −, J then 1–9, "." and Page Up / Page Down join after the arrows. */
 const CORE_KEYS: KeyRow[] = KEYS.flatMap((row): KeyRow[] => {
   if (row.key === "key.arrows")

@@ -1,4 +1,4 @@
-// PURE: a letter to the future (docs/statement/ART.md), inspired by the Okjökull plaque: a dated card built only from
+// PURE: a letter to the future, inspired by the Okjökull plaque: a dated card built only from
 // data. The place, the frame's date, the value under the needle (through the engine's own reading), the dataset and
 // the record's validation line; nothing else. A pattern-only record says so and records no value. A class record (fire
 // weather, landslide exposure) records its class and its own "not a measurement" label, never a value; a night with

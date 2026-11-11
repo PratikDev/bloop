@@ -1,7 +1,6 @@
 // PURE: no Web Audio, no React. Every value → sound rule in the app is computed
 // from public/mapping.json, so the Mapping panel (L3) and the audio engine (L2)
 // always agree. Do not write these formulas anywhere else.
-//
 // This is the one import path for all of it (`@/lib/audio/mapping`); the code
 // lives in the mapping-*.ts files beside it:
 //   mapping-validate.ts  checks the file's shape and sanity

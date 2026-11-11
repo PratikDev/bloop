@@ -65,7 +65,7 @@ export function valueInFrame(seq: Pick<Sequence, "size">, frame: SequenceFrame, 
   return decodeSequenceCode(frame.codes[cellIndex(seq.size, lat, lon)]);
 }
 
-// One frame at a time, cached (layered descriptions, accessibility core step 3): the change since the previous frame,
+// One frame at a time, cached (layered descriptions): the change since the previous frame,
 // and a frame held with PageUp/PageDown, without loading all of them.
 let indexOnce: Promise<SequenceIndex> | null = null;
 const frameOnce = new Map<string, Promise<SequenceFrame>>();

@@ -36,7 +36,7 @@ export interface ThenNowBrailleInput {
 }
 
 /**
- * Then vs Now's Braille Data Explorer source (plan item 11): the shape line is the selected part's series for the
+ * Then vs Now's Braille Data Explorer source: the shape line is the selected part's series for the
  * selected city on the voice's shared scale (mapping.json, MAIDR's bands), the caret is the year (water: the month),
  * moving it plays that year's value, and R reviews the value with the part's change and its 95% interval.
  */

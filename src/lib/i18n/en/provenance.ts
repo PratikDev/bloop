@@ -1,4 +1,4 @@
-// English strings for "How we got this" (mentor item 11; src/components/HowWeGotThis, src/lib/provenance).
+// English strings for "How we got this" (src/components/HowWeGotThis, src/lib/provenance).
 // Every number is a parameter read from a manifest, a metadata file or stats.json.
 
 export const provenanceEn = {

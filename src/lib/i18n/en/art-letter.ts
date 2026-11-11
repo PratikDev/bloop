@@ -1,4 +1,4 @@
-// A letter to the future (docs/statement/ART.md). Built only from data; braille rules apply.
+// A letter to the future. Built only from data; braille rules apply.
 
 export const letterEn = {
   "letter.title": "A letter to the future",

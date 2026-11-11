@@ -1,4 +1,4 @@
-// PURE: the storm time-lapse's timed text (accessibility core, step 7). One metadata cue per half-hourly frame (its own
+// PURE: the storm time-lapse's timed text. One metadata cue per half-hourly frame (its own
 // UTC time), a chapter each time the followed storm moves into another region, and DCMP-style captions when the drops
 // begin, stop, turn to bells (snow) or fall silent (no data), at the heaviest frame, and at the end. Frame i starts at
 // i × stepSec, as both engines schedule it.

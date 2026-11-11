@@ -31,7 +31,7 @@ export function compareText(r: CompareResult, t: BoundT, lang: Lang): string {
 
 export type LayerState = { status: "loading" } | { status: "error" } | { status: "ready"; layer: GlobalLayer };
 
-/** Compare two dates (accessibility core, step 6): the chosen layer (loaded on first use), its months, and run(). */
+/** Compare two dates: the chosen layer (loaded on first use), its months, and run. */
 export function useCompare(open: boolean) {
   const { state } = useAppState();
   const commands = useCommands();

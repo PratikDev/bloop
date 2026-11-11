@@ -1,4 +1,4 @@
-// The Then vs Now URL: a value the page can't show (an unknown or hidden part, mentor item 5) comes back as an explicit
+// The Then vs Now URL: a value the page can't show (an unknown or hidden part) comes back as an explicit
 // undefined, so the router's raw search can't put it back.
 import { describe, expect, test } from "bun:test";
 import { thenNowSearch } from "./search";

@@ -1,4 +1,4 @@
-// English strings for the source and data-age badges on every voice and record (book §13.2:
+// English strings for the source and data-age badges on every voice and record (
 // "Model estimate", "Latest available: [age]"). Bangla drafts: components/SourceBadges/strings-bn.ts.
 
 import { formatFixed, formatInteger } from "../format";

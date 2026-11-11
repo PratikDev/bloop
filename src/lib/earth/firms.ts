@@ -1,4 +1,4 @@
-// FIRMS near-real-time daily counts (context/firms.json → `daily`, P2b): hotspots per day in fixed boxes (Bangladesh,
+// FIRMS near-real-time daily counts (context/firms.json → `daily`): hotspots per day in fixed boxes (Bangladesh,
 // the Chittagong Hill Tracts, Punjab) from VIIRS on NOAA-21 and NOAA-20 and from MODIS. A hotspot is a pixel containing
 // one or more fires, not one fire. The satellite is read from each source's own dataset name, never assumed.
 

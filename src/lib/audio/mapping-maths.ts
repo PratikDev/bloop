@@ -146,7 +146,7 @@ export function runtimeRange(
   return { min: percentile(vals, 5), max: percentile(vals, 95) };
 }
 
-/** A runtime-range rule: value → output, given the range from runtimeRange(). */
+/** A runtime-range rule: value → output, given the range from runtimeRange. */
 export function mapRuntime(
   value: number | null,
   mapping: RuntimeRangeMapping,

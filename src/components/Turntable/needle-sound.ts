@@ -3,8 +3,6 @@
 // re-synthesise from the value with mapping.json's rules. Nothing here knows
 // the rotation speed, so pitch and drop rate depend on the value alone.
 // Land and no data reach the voices as null: honest silence.
-// TODO(turntable: proof in unison): play the frame's tone beside a tone from the
-// NASA source file's value at the same point (needs that value from L1).
 
 import type { LatLon, LiveFields } from "@/lib/data";
 import { readAt, type Reading } from "@/lib/reading";
@@ -15,7 +13,7 @@ const CONTROL_MS = 1000 / CONTROL_HZ;
 
 /** One update sent to the voices (for the debug log). */
 export interface SentReading {
-  time: number; // performance.now()
+  time: number; // performance.now
   at: LatLon;
   reading: Reading;
 }
@@ -35,7 +33,7 @@ export function createNeedleSound(onSend?: (sent: SentReading) => void): NeedleS
       if (now - lastTick < CONTROL_MS) return;
       lastTick = now;
       const reading = readAt(fields, at);
-      // An unchanged reading isn't re-sent: each set() restarts the drop timing.
+      // An unchanged reading isn't re-sent: each set restarts the drop timing.
       const key = `${reading.ocean.valueC}|${reading.rain.mmPerHour}|${reading.rain.phase}|${Math.round(at.lon)}`;
       if (key === lastKey) return;
       lastKey = key;

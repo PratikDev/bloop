@@ -3,7 +3,6 @@
 // the last. Each step runs when the scheduler hands it over and receives its
 // exact audio-clock time, so voice changes land exactly on time. A sequence
 // can borrow the live voices (holdLive) and lift the track gate.
-//
 // Step events (BUILD_PLAN §2.1, agreed with L3): only steps that play a data
 // point emit one; `index` / `total` count data points. Like drop events they
 // arrive up to the look-ahead early, carrying `time`.

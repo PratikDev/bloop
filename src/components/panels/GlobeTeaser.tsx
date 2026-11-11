@@ -6,7 +6,7 @@ import { formatDay } from "@/lib/i18n";
 import { useAppState, useT } from "../AppState/use-app-state";
 
 /**
- * Citizen observers vs satellite (contract §12, plan §11.6): the typical
+ * Citizen observers vs satellite (contract §12): the typical
  * place-day, how often the two agree, and L1's own disclosure. Only when the
  * file says there are enough pairs (status "ok"); otherwise nothing is shown.
  */

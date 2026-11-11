@@ -8,7 +8,7 @@ import { bandText, RECORD_KEY, UNIT_KEY, useLvMap } from "./use-lv-map";
 const NODATA_HATCH = "repeating-linear-gradient(45deg, var(--lv-hatch) 0 2px, transparent 2px 8px)";
 
 /**
- * The re-coloured map's legend (accessibility core, step 8; spec 4.2), next to the map: every band's colour and range
+ * The re-coloured map's legend, next to the map: every band's colour and range
  * in large text, what dry and no data look like, the "re-coloured by Bloop" label, and NASA's original colours on one
  * press. Shown only while the map is re-coloured.
  */

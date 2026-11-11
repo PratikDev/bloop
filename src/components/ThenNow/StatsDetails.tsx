@@ -8,7 +8,7 @@ import type { StatComparison, StatTrend, ThenNowStatsFile } from "@/types/then-n
 import { useAppState, useT } from "../AppState/use-app-state";
 import { Row } from "./Disclosure";
 
-/** The part's statistics in one line, under its headline (mentor item 10). */
+/** The part's statistics in one line, under its headline. */
 export function StatsLine({ stats, city, part }: { stats: ThenNowStatsFile; city: ClimateCellName; part: StatPart }) {
   const { state } = useAppState();
   const t = useT();

@@ -1,4 +1,4 @@
-// Mentor item 4: every control works on the first click. The sweep clicks every control on
+// Every control works on the first click. The sweep clicks every control on
 // every page once, lists each control it found with what it did, and fails on any control that did nothing unless it is
 // an expected no-op (lib/first-click.ts). Runs in Chromium and Firefox (desktop). Also: the header link
 // Tabbed to just after a page change takes the first Enter (the flaky Turntable link), an Esc that closes a Turntable

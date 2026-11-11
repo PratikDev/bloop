@@ -23,18 +23,13 @@ import { OfficialBrailleExplorer } from "./OfficialBrailleExplorer";
 import { RelatedRecords } from "./RelatedRecords";
 import { useOfficialRecord } from "./use-official-record";
 import { FLAGS } from "@/lib/flags";
-// >>> CV
 import { OfficialRead } from "../JukeboxRead/OfficialRead";
-// <<< CV
-// >>> DATA
 import { NotPlayable } from "../EarthData/NotPlayable";
 import { appRecordExtras, appRecordPlayer } from "../EarthRecords";
-// <<< DATA
-// >>> ART: Earth Orchestra (records grouped by Earth system, the category word) and the dial
+// Earth Orchestra (records grouped by Earth system, the category word) and the dial
 import { ArtRecord } from "../Art/ArtRecord";
 import { RecordPicker } from "../Art/Orchestra/RecordPicker";
 import { categoryLead } from "@/lib/art/category-lead";
-// <<< ART
 
 
 function readingText(t: BoundT, lang: Lang, r: OfficialReading | null, layer: OfficialLayer | undefined): string {
@@ -113,9 +108,9 @@ function Player({ record }: { record: string }) {
           {t("braille.open")}
         </Button>
         {brailleOpen && <OfficialBrailleExplorer rec={rec} onClose={closeBraille} />}
-        {/* >>> CV */}
+        {/*  */}
         {FLAGS.cvRead && <OfficialRead rec={rec} />}
-        {/* <<< CV */}
+        {/*  */}
       </div>
       <ProvenanceCard manifest={rec.manifest} validation={rec.validation} />
     </div>
@@ -146,9 +141,9 @@ export function OfficialRecords() {
       {current && (appRecordPlayer(current) ?? <Player key={current} record={current} />)}
       {current && appRecordExtras(current, setRecord)}
       <RelatedRecords value={current ?? ""} onChange={setRecord} />
-      {/* >>> DATA */}
+      {/*  */}
       <NotPlayable />
-      {/* <<< DATA */}
+      {/*  */}
       <InfoSheet title={t("official.credits")} trigger={t("official.credits")} triggerClassName="h-11 rounded-full px-4 text-body text-haze ring-1 ring-glass-edge">
         <DataCredits />
       </InfoSheet>

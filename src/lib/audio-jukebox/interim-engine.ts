@@ -1,5 +1,5 @@
 // Interim sound engine: a minimal, working implementation of L2's planned API
-// (docs/L2/BUILD_PLAN.md §2) built from docs/L2/AUDIO_RESEARCH.md Part A.
+// (docs/L2/BUILD_PLAN.md §2).
 // It exists so L3 can build and test the UI before L2's engine lands; the UI
 // shows an "Interim sound engine" badge while it is in use.
 

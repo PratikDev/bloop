@@ -1,4 +1,4 @@
-// P4, night lights (DATA): a voice per city in the file; the nights play as a sequence with a playhead, notes at the
+// Night lights: a voice per city in the file; the nights play as a sequence with a playhead, notes at the
 // rule's pitch, cloud-masked nights as rests with the gap text; the product and satellite from the file; the SVS 5313
 // record links to Dhaka's measured radiance. Runs on a build with NEXT_PUBLIC_DATA_NIGHT_LIGHTS=1.
 import { expect, test, type Page } from "@playwright/test";

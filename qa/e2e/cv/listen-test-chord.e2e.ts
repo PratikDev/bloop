@@ -1,4 +1,4 @@
-// The two chord tasks in /listen-test (CV/ML build, piece E), on a build with NEXT_PUBLIC_CV_LISTEN_TEST=1: a fixture run
+// The two chord tasks in /listen-test, on a build with NEXT_PUBLIC_CV_LISTEN_TEST=1: a fixture run
 // through the whole test (consent, intro, every task) with fixed answers; the exported file holds both chord tasks, the
 // variety answer is the one computed here from the shipped SST grid, the groups answer is the chord's own count for one
 // of today's boxes, and each chord task's sound is audible.

@@ -1,4 +1,4 @@
-// English strings for the CV/ML build's two listener-test tasks (piece E; src/lib/listen-test/chord).
+// English strings for the CV/ML build's two listener-test tasks (src/lib/listen-test/chord).
 import { NAMED_BOXES } from "@/lib/cv/boxes";
 
 const box = (id: string) => NAMED_BOXES.find((b) => b.id === id)?.name ?? id;

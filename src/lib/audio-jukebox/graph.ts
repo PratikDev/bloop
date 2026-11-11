@@ -1,11 +1,9 @@
-// One AudioContext and the fixed node graph (docs/L2/AUDIO_RESEARCH.md A3, A5, A8).
-//
+// One AudioContext and the fixed node graph.
 //   voice buses (ocean, rain, snow) ─┐
 //   context bus (heat, monsoon, water) ─► fade ─► sonification (duckable) ─┐
 //   earcons, legend bells ─────────────────────────────────────────────┤
 //                                                                      ▼
 //            master (masterGain × user volume) ─► compressor (safety net) ─► analyser ─► speakers
-//
 // Gain staging is the real cap: each voice ≤ voiceMaxGain, at most three live
 // voices, so the sum stays below 1.0 before the master.
 

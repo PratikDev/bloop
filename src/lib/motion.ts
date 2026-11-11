@@ -1,4 +1,4 @@
-// Shared motion values (docs/L3/REDESIGN.md §1): one feel across the app.
+// Shared motion values: one feel across the app.
 // Only transform and opacity move; everything follows "Reduce motion"
 // (MotionConfig in AppShell, and the CSS rule in globals.css).
 

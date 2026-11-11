@@ -1,7 +1,7 @@
-// Earth Orchestra on the live engines' own data voices (docs/statement/ART.md). A voice hands its oscillator here once
+// Earth Orchestra on the live engines' own data voices. A voice hands its oscillator here once
 // it makes it; the oscillator then wears its family's spectrum (setPeriodicWave: timbre only, its frequency param is
 // never touched) while Earth Orchestra is on, and its plain wave otherwise. A sustained texture (breath, crackle) goes
-// into the voice's own envelope, so it is heard only while the voice sounds. At 1 Music, meend() shapes a pitch move:
+// into the voice's own envelope, so it is heard only while the voice sounds. At 1 Music, meend shapes a pitch move:
 // the nearest swara first, then an exponential glide that lands exactly on the data pitch.
 
 import type { EarthCategory } from "@/lib/audio/layers/types";

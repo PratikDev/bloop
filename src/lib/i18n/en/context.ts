@@ -10,7 +10,7 @@ export const contextEn = {
   "thenNow.contextNote": "Context records, not EIC frames: long-term NASA and partner datasets for Bangladesh.",
   "thenNow.title": (p: { city: string }) => `${p.city} then vs now`,
   "thenNow.city": "City",
-  // L1's label for cities other than Dhaka (docs/L1/DATA_HANDOFF.md §5).
+  // L1's label for cities other than Dhaka.
   "thenNow.computed": "Computed, same method as Dhaka. Only Dhaka's records were cross-checked against independent records.",
   "thenNow.crosscheckAlt":
     "Two charts for Dhaka. Top: June to September rain since the 1890s from rain gauges (GPCC), GPCP and NASA POWER; POWER reads far below the other two. Bottom: April to May daily maximum temperature from NASA POWER and a weather station; POWER runs well above the station.",
@@ -115,7 +115,7 @@ export const contextEn = {
   "history.confidence.medium": "Rain confidence: medium (GPCP roughly agrees with independent rain gauges here)",
   "history.confidence.low": "Rain confidence: low (GPCP and independent rain gauges disagree here)",
   "history.confidence.satellite-only": "Rain confidence: satellite only (no rain gauges to check against here, for example at sea)",
-  // L1's label outside Bangladesh (docs/L1/DATA_HANDOFF.md §8).
+  // L1's label outside Bangladesh.
   "history.computed": "Computed from NASA GISTEMP / GPCP / GRACE with the same method as Dhaka; not separately cross-checked.",
   "history.summary": (p: { metric: string; place: string; from: string; to: string }) =>
     `${p.metric} for ${p.place}, monthly from ${p.from} to ${p.to}.`,

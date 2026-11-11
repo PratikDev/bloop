@@ -1,4 +1,4 @@
-// The "Same chord, whatever the colours" card's numbers (CV/ML build, piece C): read from the T2 test's output
+// The "Same chord, whatever the colours" card's numbers: read from the T2 test's output
 // (public/data/meta/colormap_invariance.json, written by pipeline/tests/test_colormap_invariance.py), never typed.
 import file from "../../../public/data/meta/colormap_invariance.json";
 

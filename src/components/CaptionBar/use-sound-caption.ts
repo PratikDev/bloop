@@ -11,7 +11,7 @@ import { useAppState, useT } from "../AppState/use-app-state";
 const noNow = () => null;
 
 /**
- * The sound caption beside the caption bar (accessibility core, step 7): while the sweep or the time-lapse plays, its
+ * The sound caption beside the caption bar: while the sweep or the time-lapse plays, its
  * "now playing" line from the metadata track; otherwise a short note on what the last sound did ("rain thickening ↑").
  */
 export function useSoundCaption(): string | null {

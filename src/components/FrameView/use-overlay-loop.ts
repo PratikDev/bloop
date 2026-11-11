@@ -15,11 +15,11 @@ export interface OverlayInputs {
   oceanC: number | null; // only when the ocean voice is audible
   rainMm: number | null; // only when rain or snow is audible
   reduceMotion: boolean;
-  /** Low-vision mode: a larger needle with a thicker dual outline (step 8). */
+  /** Low-vision mode: a larger needle with a thicker dual outline. */
   thick: boolean;
 }
 
-// Ring shapes (design-plan §5 #2). Ocean spacing follows pitch.
+// Ring shapes. Ocean spacing follows pitch.
 const OCEAN = { periodSec: 0.6, life: 1.6, speedAt440: 26, alpha: 0.8 };
 const RAIN = { life: 0.7, speed: 30, alpha: 0.35, alphaPerGain: 0.6 };
 const SNOW = { life: 1.4, speed: 14, alpha: 0.25, alphaPerGain: 0.4 };

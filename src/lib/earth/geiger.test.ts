@@ -1,4 +1,4 @@
-// P2b, Fire Geiger: the clicks in a 10 s render match the Poisson mean (rate × 10 s) within tolerance; zero detections
+// Fire Geiger: the clicks in a 10 s render match the Poisson mean (rate × 10 s) within tolerance; zero detections
 // give no clicks; FRP changes only the brightness (cutoff), never the rate or the loudness. Plus the FIRMS reading (the
 // satellite from the file's own dataset names, never S-NPP) and the pilot table's maths.
 import { describe, expect, test } from "bun:test";

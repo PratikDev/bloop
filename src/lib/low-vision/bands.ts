@@ -1,4 +1,4 @@
-// PURE: discrete value bands for the low-vision map and the Context Lens (accessibility core, step 8; spec 4.1, 4.2).
+// PURE: discrete value bands for the low-vision map and the Context Lens (4.2).
 // The bands re-draw the decoded values the sound plays with sharp edges, and each band is labelled with its range;
 // labels go in the middle of the map's tiles where one band fills most of the tile, at a cell whose value is in it.
 import type { ValueGrid } from "@/lib/describe/stats";

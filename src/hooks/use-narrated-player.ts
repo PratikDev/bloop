@@ -28,7 +28,7 @@ export interface NarratedScript<Tag extends string> {
  * Plays sounds one after another, keeping speech and sound apart: each step's
  * lines are said first, then its sound plays with Describe quiet, so the voice
  * never talks over the data. `narrating` says whether there is anything to say
- * (Describe on); without it, callers pass no lines. stop(), a new start(), Esc
+ * (Describe on); without it, callers pass no lines. stop, a new start, Esc
  * or leaving the page ends the whole script.
  */
 export function useNarratedPlayer<Tag extends string = string>() {
@@ -65,7 +65,7 @@ export function useNarratedPlayer<Tag extends string = string>() {
   }, [cancel]);
 
   const stop = useCallback(() => {
-    // A line being said stops too (stop() only reaches the sound engine's players).
+    // A line being said stops too (stop only reaches the sound engine's players).
     if (saying.current && typeof speechSynthesis !== "undefined") speechSynthesis.cancel();
     cancel();
   }, [cancel]);

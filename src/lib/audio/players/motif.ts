@@ -1,7 +1,7 @@
 // The sonic identity (TEAM_BUILD_PLAN C9): four soft notes, one per latitude
 // band (60°S–30°S, 30°S–0°, 0°–30°N, 30°N–60°N, south → north), each pitched
 // by that band's mean ocean temperature through the ocean rule. A band with no
-// ocean data is a rest. The band means come from L3's bandMeans().
+// ocean data is a rest. The band means come from L3's bandMeans.
 
 import { emitCaption } from "../captions";
 import { playTone } from "../earcons";

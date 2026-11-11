@@ -1,4 +1,4 @@
-// Raw-pixel vs Bloop (docs/statement/ART.md): the numbers on screen are the stored measurement, the label says the naive
+// Raw-pixel vs Bloop: the numbers on screen are the stored measurement, the label says the naive
 // version isn't how Bloop works, both play from their own buttons, and the naive render never plays anywhere else.
 // Build with NEXT_PUBLIC_ART_RAW_PIXEL=1.
 import { expect, test } from "@playwright/test";

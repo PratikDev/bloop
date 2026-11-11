@@ -26,8 +26,8 @@ const BRAILLE_LABEL = {
   short: "access.braille.short",
 } as const satisfies Record<BrailleLines, MessageKey>;
 
-/** Speech (screen reader / Bloop's voice / off), detail, what each step sends (step 1), and what a braille display
- *  gets: full lines or short ones (plan item 12). */
+/** Speech (screen reader / Bloop's voice / off), detail, what each step sends, and what a braille display
+ *  gets: full lines or short ones. */
 export function AccessSettings() {
   const { state, dispatch } = useAppState();
   const t = useT();

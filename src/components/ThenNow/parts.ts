@@ -7,7 +7,7 @@ export const ALL_VIEW_PARTS = ["heat", "monsoon", "water", "fires", "vegetation"
 export const isFieldPart = (p: ViewPart): p is FieldPart => p === "fires" || p === "vegetation";
 
 /**
- * Feature flag (mentor item 5): fires and vegetation have no honest then-vs-now comparison yet (fires: one example
+ * Feature flag: fires and vegetation have no honest then-vs-now comparison yet (fires: one example
  * season per window; vegetation: three years of single 250 m pixels, unvalidated) and no sound, so they are hidden
  * from the tabs and the URL. NEXT_PUBLIC_SHOW_FIELD_PARTS=1 shows them again; their code stays.
  */

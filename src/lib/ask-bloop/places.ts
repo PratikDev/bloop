@@ -1,4 +1,4 @@
-// Ask Bloop's places (spec §5.3): the words a user said, mapped to a place in Bloop's own gazetteer (src/lib/geo:
+// Ask Bloop's places: the words a user said, mapped to a place in Bloop's own gazetteer (src/lib/geo:
 // Natural Earth's places, seas and Bangladesh's districts, English and Bangla, with typo-tolerant search). Nothing
 // here has coordinates: aliases only map other spellings to names the gazetteer already has, and an LLM (if ever on)
 // would output a place string that comes through here, never a coordinate.

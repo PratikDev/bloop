@@ -1,4 +1,4 @@
-// P5, NASA's own method (DATA): SVS 13786 is a playable method record; NASA mode's pitch follows distance and Bloop
+// NASA's own method: SVS 13786 is a playable method record; NASA mode's pitch follows distance and Bloop
 // mode's follows the value, on the same points of one frame; the toggle switches modes; the caption and the credits
 // (SYSTEM Sounds, the SVS page, "not NASA's code") show. Runs on a build with NEXT_PUBLIC_DATA_RADAR=1.
 import { expect, test, type Page } from "@playwright/test";

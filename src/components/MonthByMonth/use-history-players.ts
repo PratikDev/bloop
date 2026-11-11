@@ -69,7 +69,7 @@ export function useHistoryPlayers() {
       stopMonth();
       setMonthIndex(null);
       setPlayingFrom(from);
-      // The same-record note (shared cell, Bangladesh-wide water; mentor item 12): said first with Describe, else shown.
+      // The same-record note (shared cell, Bangladesh-wide water): said first with Describe, else shown.
       if (note && !narrating) postCaption("caption.note", { ...note });
       // playSeries captions the start ("Now playing: …") but not the end, so History adds that:
       // said after the sound with Describe on, otherwise shown.

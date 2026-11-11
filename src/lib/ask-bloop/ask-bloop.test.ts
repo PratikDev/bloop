@@ -1,4 +1,4 @@
-// Ask Bloop's registry, parser and places (spec §5.1–5.3, §6.1, §6.5): every intent has its examples in both
+// Ask Bloop's registry, parser and places: every intent has its examples in both
 // languages and each one parses back to that intent; slots come out right; Bangla digits and months are read; places
 // resolve through Bloop's own gazetteer (aliases point at names it has); unsafe or unknown input runs nothing.
 import { describe, expect, test } from "bun:test";

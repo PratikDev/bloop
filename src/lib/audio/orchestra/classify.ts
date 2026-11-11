@@ -1,4 +1,4 @@
-// PURE: Earth Orchestra's category rules (docs/statement/ART.md). A record's Earth system comes from its own words
+// PURE: Earth Orchestra's category rules. A record's Earth system comes from its own words
 // (title, then layer labels), through the ordered keyword rules below; the first rule that matches wins. A record the
 // rules can't place, or whose layers fall into different systems, is left unclassified (never guessed): it plays
 // plain tones and is listed in categories.json and the report.

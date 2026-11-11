@@ -1,4 +1,4 @@
-// Builds a run's timed text in both languages (accessibility core, step 7): the same builder feeds the run playing now
+// Builds a run's timed text in both languages: the same builder feeds the run playing now
 // (src/lib/timed-text/live.ts) and the transcript page's moments and .vtt downloads, so they never disagree.
 import { bindT, LANGS, type Lang } from "@/lib/i18n";
 import type { TimedRun } from "@/lib/timed-text/live";
@@ -27,7 +27,7 @@ export async function buildTracks(player: TimedPlayer, build: TrackBuilder): Pro
   };
 }
 
-/** A run's timed text, ready for startTimedRun(). */
+/** A run's timed text, ready for startTimedRun. */
 export async function timedRun(player: TimedPlayer, stepSec: number, build: TrackBuilder): Promise<TimedRun> {
   const { files } = await buildTracks(player, build);
   return { player, stepSec, files };

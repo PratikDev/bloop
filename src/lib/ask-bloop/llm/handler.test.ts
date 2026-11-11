@@ -1,4 +1,4 @@
-// Spec §5.4 / §6.5: the LLM fallback route, with a stub provider. Only a valid registry intent comes back; unknown
+// The LLM fallback route, with a stub provider. Only a valid registry intent comes back; unknown
 // intents, extra slots, coordinates and malformed tool JSON are refused; one fallback try on 429 / 5xx / timeout,
 // never a loop; the request carries no number of Bloop's; unconfigured, it refuses at once.
 import { describe, expect, test } from "bun:test";

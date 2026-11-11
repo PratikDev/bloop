@@ -43,7 +43,7 @@ export function dialLines(t: BoundT, layers: DialLayers, context: PlayContext | 
 }
 
 /**
- * The Science to Art dial (docs/statement/ART.md): three stops, Measure, Blend and Music. A real button group with
+ * The Science to Art dial: three stops, Measure, Blend and Music. A real button group with
  * labelled stops; choosing one says it in the status region ("Dial: Music, data unchanged"). Under it: what the data
  * voice keeps and what the stop changes, generated from the stop's layers.
  */

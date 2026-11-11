@@ -20,7 +20,7 @@ import { bandText, useLvMap } from "./use-lv-map";
 const TILES = { x: 12, y: 6 } as const;
 
 /**
- * Low-vision mode's map layer (accessibility core, step 8; spec 4.2), between NASA's frame and the needle: the
+ * Low-vision mode's map layer, between NASA's frame and the needle: the
  * decoded values re-coloured in sharp bands with their ranges written on them, thick coastlines, and city names in
  * large text (Dhaka, Chattogram, the other always-labelled cities and the needle's place). Empty when none is on.
  */

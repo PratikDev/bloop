@@ -12,7 +12,7 @@ import { useRecordPlay } from "../use-record-play";
 
 export type { SlidePlace } from "@/lib/earth/landslide";
 
-/** The landslide exposure record (P3): the grid, the needle, the places, and the rumble at the needle. */
+/** The landslide exposure record: the grid, the needle, the places, and the rumble at the needle. */
 export function useLandslides() {
   const { value: grid, error } = useLoaded(loadLandslide);
   const { value: places } = useLoaded(loadPlaces);

@@ -1,4 +1,4 @@
-// Night lights (P4): NASA Black Marble daily radiance at named cities (context/nightlights.json; the product and the
+// Night lights: NASA Black Marble daily radiance at named cities (context/nightlights.json; the product and the
 // satellite are the file's own: VJ146A2 on NOAA-20 today). Radiance → pitch on a log scale (the "nightLights" rule in
 // public/mapping-data.json); a cloud-masked night is a rest, "gap: cloud", never darkness and never a blackout.
 

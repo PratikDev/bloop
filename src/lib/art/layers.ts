@@ -1,6 +1,6 @@
 // The dial's layers on any BaseAudioContext (live, or offline for the check and the WAV): the soft bed, the drone on
 // Sa, the light reverb and the gridline tick. Every pitch here is fixed (Sa, a round value's own pitch): none follows
-// the data, and none is ever routed into the data voice. Levels and colours are design choices (docs/statement/ART.md).
+// the data, and none is ever routed into the data voice. Levels and colours are design choices.
 
 import { mixInto, noiseBand, noiseBuffer, setSpectrum, type OnSource } from "@/lib/audio/orchestra";
 
@@ -49,7 +49,7 @@ export function createBed(ctx: BaseAudioContext, out: AudioNode, sa: number, onS
   return swell(ctx, out, BED_GAIN, [air.source, pad], input);
 }
 
-/** The drone's colour: monsoon months fuller and darker (Tier 2, "Artistic choice: season colour"); Sa never moves. */
+/** The drone's colour: monsoon months fuller and darker ("Artistic choice: season colour"); Sa never moves. */
 export type DroneColour = "monsoon" | "dry";
 
 const DRONE_COLOUR: Record<DroneColour, { partials: number[]; lowpass: number }> = {

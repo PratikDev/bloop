@@ -15,7 +15,7 @@ export type PanelTab = "describe" | "table" | "truth" | "mapping" | "provenance"
 /** Settings remembered on this device (src/components/AppState/prefs.ts). */
 export type PrefKey = "lang" | "describe" | "captions" | "builtInVoice" | "hide3d" | "tuned" | "started" | "soundChoice" | AccessKey;
 
-/** What the visitor chose at Start (mentor item 2): remembered, so a return visit knows; null before any choice. */
+/** What the visitor chose at Start: remembered, so a return visit knows; null before any choice. */
 export type SoundChoice = "sound" | "silent";
 export type Prefs = Partial<Pick<AppState, PrefKey>>;
 
@@ -63,7 +63,7 @@ export interface AppState extends AccessChoices {
   sonar: boolean;
   /** What the map's next settled announcement leads with (a jump's region or place); `n` counts, so a repeat is new. */
   lead: Lead | null;
-  /** Low-vision mode's settings (step 8; saved on their own, src/lib/low-vision/settings.ts). */
+  /** Low-vision mode's settings (saved on their own, src/lib/low-vision/settings.ts). */
   lowVision: LowVision;
   /** The OS's reduced-motion setting; calm view reduces motion too, and gives it back when it is turned off. */
   osReduceMotion: boolean;

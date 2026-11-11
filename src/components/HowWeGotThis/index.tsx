@@ -12,7 +12,7 @@ import { useInlinePanels } from "../LowVision/use-inline-panels";
 import { Facts } from "./Facts";
 
 /**
- * "How we got this" (mentor item 11): a real button beside a group of numbers, opening a dialog with where they come
+ * "How we got this": a real button beside a group of numbers, opening a dialog with where they come
  * from, how they are computed, their uncertainty and how they are checked (src/lib/provenance builds the facts from
  * the data files). The dialog has a heading and gives focus back to the button when it closes.
  */
@@ -40,7 +40,7 @@ export function HowWeGotThis({ facts, className }: { facts: readonly Provenance[
         </section>
       ))
     );
-  // Low-vision mode: in the page, right after the button (spec 4.5).
+  // Low-vision mode: in the page, right after the button.
   if (inline) {
     return (
       <InlineDisclosure trigger={trigger} triggerLabel={name} triggerClassName={triggerClassName} triggerData={{ "data-how-we-got-this": "" }} title={name} description={t("hwgt.intro")} testId="how-we-got-this">

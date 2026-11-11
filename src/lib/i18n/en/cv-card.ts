@@ -1,4 +1,4 @@
-// English strings for the "Same chord, whatever the colours" card on How we know (CV/ML build, piece C). Numbers are
+// English strings for the "Same chord, whatever the colours" card on How we know. Numbers are
 // slots from public/data/meta/colormap_invariance.json.
 export const cvCardEn = {
   "cv.card.title": "Same chord, whatever the colours",

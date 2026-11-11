@@ -1,4 +1,4 @@
-// T1, the chord's contract (CV/ML build, piece B5): tones sit at the record's own value → pitch within 1 cent; gains
+// T1, the chord's contract: tones sit at the record's own value → pitch within 1 cent; gains
 // follow the groups' shares; at most 2 voices; the honesty gate for every status and mode; either owner keeps it on;
 // stop releases both; hysteresis holds the chord while groups move less than σ.
 import { describe, expect, test } from "bun:test";

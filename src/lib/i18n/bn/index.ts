@@ -19,9 +19,7 @@ import { expeditionBn } from "./expedition";
 import { timedTextBn } from "./timed-text";
 import { lowVisionBn } from "./low-vision";
 import { askBloopBn } from "./ask-bloop";
-// >>> DATA
 import { earthBn } from "./earth";
-// <<< DATA
 import { artBn } from "./art"; // ART
 import { helpBn } from "./help";
 import { pagesBn } from "./pages";
@@ -30,25 +28,17 @@ import { framesBn } from "./frames";
 import { howBn } from "./how";
 import { statsBn } from "./stats";
 import { storyBn } from "./story";
-// >>> CV
 import { cvBn } from "./cv";
-// <<< CV
 
 export const bn: Partial<Messages> = { ...appBn, ...helpBn, ...captionsBn, ...panelsBn, ...contextBn, ...storyBn, ...pagesBn, ...statsBn, ...framesBn, ...howBn, ...creditsBn, ...provenanceBn, ...teamBn, ...listenTestBn, ...accessBn, ...describeBn, ...placesTableBn, ...tuningBn, ...expeditionBn, ...timedTextBn, ...lowVisionBn, ...askBloopBn,
-  // >>> CV
   ...cvBn,
-  // <<< CV
-  // >>> DATA
   ...earthBn,
-  // <<< DATA
-  // >>> ART
   ...artBn,
-  // <<< ART
 };
 
 /**
  * Spoken lines (Enter, the tour, Describe) are translated, so speech follows
  * the screen when the device has a Bangla voice; without one, speech stays
- * English with Bangla on screen (plan §17), see src/lib/speech-lang.ts.
+ * English with Bangla on screen, see src/lib/speech-lang.ts.
  */
 export const BANGLA_SPEECH_READY = true;

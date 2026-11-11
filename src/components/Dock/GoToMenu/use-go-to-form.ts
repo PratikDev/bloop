@@ -12,7 +12,7 @@ const ERRORS = { lat: "goto.badLat", lon: "goto.badLon" } as const satisfies Rec
 /**
  * The Go to form: two fields, latitude and longitude, written in the page's
  * language (Bengali digits in Bangla; either kind is read back). A pair pasted
- * into either one fills both. submit() hands a valid place to `onGo`, or keeps
+ * into either one fills both. submit hands a valid place to `onGo`, or keeps
  * the first field that isn't one (with its message) and returns it.
  */
 export function useGoToForm(lang: Lang, onGo: (place: LatLon) => void) {

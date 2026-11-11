@@ -1,5 +1,5 @@
 // Official Challenge #14 records (contract §15 official.ts): the record list, a record's manifest and validation,
-// and its layers. A layer loads chunk by chunk (each chunk = consecutive time steps); valueAt() reads the cell
+// and its layers. A layer loads chunk by chunk (each chunk = consecutive time steps); valueAt reads the cell
 // whose area contains (lat, lon) at one time step. null = no data → honest silence; below = under the colorbar's
 // range (the value is then the layer's below_range_bound, an upper limit).
 
@@ -8,9 +8,7 @@ import { fetchBuffer, fetchJson } from "./fetch";
 import { gunzip } from "./gunzip";
 import { DATA_PATHS } from "./paths";
 import { requirePaths } from "./validate";
-// >>> DATA
 import { withAppRecords } from "@/lib/earth/records";
-// <<< DATA
 
 export const OFFICIAL_NODATA = 65535;
 export const OFFICIAL_BELOW = 65534;

@@ -105,7 +105,7 @@ try:
            ("GRACE NWI trend", d["water"]["NW_India"]["trend_cm_per_yr"], -3.25, 0.01)]
     for name, got, want, tol in exp:
         check(f"F demo {name}", abs(got - want) <= tol, f"got {got} expected {want}")
-    # Mentor item 9: GPCP and GPCC share one baseline and one recent decade, and the recent decade ends in GPCC's last year.
+    # GPCP and GPCC share one baseline and one recent decade, and the recent decade ends in GPCC's last year.
     gw, cw = d["rain"]["gpcp"], d["rain"]["gpcc"]
     gpcc_end = int(json.load(open(PUBLIC / "context" / "gpcc_bd.json"))["last_month"][:4])
     same = gw["A"]["window"] == cw["A"]["window"] and gw["B"]["window"] == cw["B"]["window"]

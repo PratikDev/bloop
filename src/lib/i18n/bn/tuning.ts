@@ -1,4 +1,4 @@
-// Bangla for the accessibility core, step 5 (en/tuning.ts). Drafts: listed in drafts.ts until a Bangla speaker checks
+// Bangla for the Tuning track (en/tuning.ts). Drafts: listed in drafts.ts until a Bangla speaker checks
 // them. Every number is a slot formatted in Bangla.
 import type { tuningEn } from "../en/tuning";
 import type { Translated } from "../types";

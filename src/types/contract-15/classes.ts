@@ -1,4 +1,4 @@
-// §15 mapping additions (DATA, 10 Nov 2026): categorical rules for class products (SVS 5315 fire-weather classes,
+// §15 mapping additions (10 Nov 2026): categorical rules for class products (SVS 5315 fire-weather classes,
 // SVS 5584 LHASA landslide exposure). A class gets a fixed sound state (a fixed chord, a fixed rumble, or a stated
 // silence), never a pitch that implies a precision the classes don't have. Checked by validateMapping.
 

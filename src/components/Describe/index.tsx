@@ -12,7 +12,7 @@ import { useDescribeHere } from "./use-describe-here";
 import { useDescription } from "./use-description";
 
 /**
- * The description of the needle, as text (accessibility core, step 3): the same words D says, at the chosen detail,
+ * The description of the needle, as text: the same words D says, at the chosen detail,
  * following the needle. Detailed adds "What this means" in its own fold, apart from the data text.
  */
 export function DescriptionPanel() {

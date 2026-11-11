@@ -42,7 +42,7 @@ interface Options {
   allMuted: boolean;
   reduceMotion: boolean;
   layers: LayerToggles;
-  /** The intro will run (once per session): the arm waits at rest until startIntro(). */
+  /** The intro will run (once per session): the arm waits at rest until startIntro. */
   introPending: boolean;
   /** A scene is open over the turntable: no frames, no live sound (the needle drops again on return). */
   paused: boolean;

@@ -28,7 +28,7 @@ const INSET = 0.32;
 const LENS_TILES = { x: 3, y: 2 } as const;
 
 /**
- * The Context Lens (accessibility core, step 8; spec 4.1): a magnifier that follows the needle and carries its own
+ * The Context Lens: a magnifier that follows the needle and carries its own
  * context, so nothing important is off-screen when zoomed: the area in sharp, labelled bands; the value at the needle in
  * very large text with its unit, place and time; a scale with the needle's band marked; and an inset of the whole map
  * showing where the lens is. Z turns it on or off, [ and ] resize it (on the map). Visual only: the status region says
@@ -96,7 +96,7 @@ export function ContextLens({ mapRef }: { mapRef: RefObject<HTMLElement | null> 
       }
       ctx.stroke();
     }
-    // Each band in view labelled with its range, in large text (spec 4.1); data-labels lets the checks read them.
+    // Each band in view labelled with its range, in large text; data-labels lets the checks read them.
     const fills = resolveVars(map.vars, read);
     const inView = bandLabels(map.grid, map.bands, map.record, LENS_TILES.x, LENS_TILES.y, { c0: sx, r0: sy, c1: sx + cellsX, r1: sy + cellsY });
     const labels = inView.map((l) => ({

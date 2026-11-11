@@ -1,4 +1,4 @@
-// PURE: WebVTT text tracks (accessibility core, step 7; spec Part 3.3). Bloop's sounds are synthesised live, so the
+// PURE: WebVTT text tracks. Bloop's sounds are synthesised live, so the
 // tracks are written from the same steps the players schedule (src/lib/timed-text/sweep.ts, timelapse.ts), offered
 // as .vtt files, and parsed back to drive the "now playing" line and the sound captions: what the app shows is what
 // the file says.

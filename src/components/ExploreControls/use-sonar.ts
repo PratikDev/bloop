@@ -27,7 +27,7 @@ interface Hunt {
 }
 
 /**
- * The sonar (accessibility core, step 6; key N on the map): the warmest ocean spot (or, on the Rain track, the wettest)
+ * The sonar (key N on the map): the warmest ocean spot (or, on the Rain track, the wettest)
  * near the needle, from the decoded frame. A ping rises and quickens as the needle nears it; arriving says the exact
  * value and the place, and goes into the expedition log. N again, or Esc, stops it.
  */
@@ -55,7 +55,7 @@ export function useSonar(): () => void {
       if (!h) return;
       const c = closeness(cursor.current, h.target);
       if (state.soundOn) audio.playSonarPing(c, cursor.current.lon);
-      // The ping's sound caption (step 7): quickening and nearer, or slowing and farther.
+      // The ping's sound caption: quickening and nearer, or slowing and farther.
       if (state.soundOn && FLAGS.timedText) postCaption("caption.sonar.ping", { trend: sonarTrend(last, c) });
       last = c;
       id = setTimeout(ping, pingIntervalMs(c));
@@ -79,7 +79,7 @@ export function useSonar(): () => void {
       .catch(() => t("place.spoken", h.target))
       .then((place) => {
         const text = t("sonar.arrived", { what, value, place });
-        // Short lines (plan item 12): the status region gets the short form; the log keeps the full line.
+        // Short lines: the status region gets the short form; the log keeps the full line.
         const time = (h.kind === "ocean" ? fields?.sst.meta.frame_time_utc : fields?.rain?.meta.frame_time_utc) ?? "";
         announce(shortLines.on ? sonarShort(t, state.lang, shortLines.degree, { record: h.kind, value: h.target.value, frozen: false, at: h.target, timeUtc: time }) : text);
         commands.note(text, [h.kind === "ocean" ? (fields?.sst.meta.source_dataset ?? "") : (fields?.rain?.meta.source_dataset ?? "")].filter(Boolean));

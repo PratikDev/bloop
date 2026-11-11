@@ -1,4 +1,4 @@
-// Mentor item 7: the Team page shows only filled fields (never "TODO"), and a release build stops while any remain.
+// The Team page shows only filled fields (never "TODO"), and a release build stops while any remain.
 import { describe, expect, test } from "bun:test";
 import { readFileSync } from "node:fs";
 import { parseTeam, releaseCheck, shownTeam, todoFields } from "./index";

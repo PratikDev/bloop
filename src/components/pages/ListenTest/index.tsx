@@ -18,10 +18,8 @@ const OPTION_KEYS = {
   second: "lt.opt.second",
   yes: "lt.opt.yes",
   no: "lt.opt.no",
-  // >>> CV
   one: "lt.opt.one",
   two: "lt.opt.two",
-  // <<< CV
 } as const satisfies Record<OptionId, MessageKey>;
 
 function Panel({ heading, children }: { heading: string; children: ReactNode }) {
@@ -36,7 +34,7 @@ function Panel({ heading, children }: { heading: string; children: ReactNode }) 
 }
 
 /**
- * The quick listener test (mentor item 8): hidden (no link, noindex), anonymous, adults only, five tasks whose answers
+ * The quick listener test: hidden (no link, noindex), anonymous, adults only, five tasks whose answers
  * come from the shipped data, answers kept in memory and exported as a file by the facilitator
  * (docs/LISTEN_TEST_PROTOCOL.md). No listener result is shown anywhere in the app.
  */
@@ -53,10 +51,8 @@ export function ListenTestPage() {
       unison: () => t("lt.q.unison"),
       both: () => t("lt.q.both"),
       heat: () => t("lt.q.heat", { place: placeLabel(t, task.params.place), a: task.params.a, b: task.params.b }),
-      // >>> CV
       chordVariety: () => t("lt.q.chordVariety", { a: task.params.a, b: task.params.b }),
       chordGroups: () => t("lt.q.chordGroups"),
-      // <<< CV
     };
     return q[task.id]();
   };

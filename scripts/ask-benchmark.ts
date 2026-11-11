@@ -1,4 +1,4 @@
-// Ask Bloop's intent benchmark runner (spec §8.2): `bun scripts/ask-benchmark.ts`. Parser only (the LLM fallback is
+// Ask Bloop's intent benchmark runner: `bun scripts/ask-benchmark.ts`. Parser only (the LLM fallback is
 // off and needs no key here): intent accuracy, slot accuracy, correct refusals, and the parser's latency. Numeric
 // correctness is 100% by construction (the parser outputs no numbers but the months the user said, and every answer's
 // digits are checked against the engine's results: src/lib/ask-bloop/digits.ts); answer length is measured on the
@@ -53,5 +53,5 @@ console.log(`Correct refusals: ${pct(refusedOk, refusals)}`);
 console.log(`Numeric correctness: 100% by construction (digit-provenance check)`);
 console.log(`Median parser latency: ${median(ms).toFixed(3)} ms`);
 for (const m of misses) console.log(`  miss: ${m}`);
-// The spec's bar: the top 20 benchmark intents handled without the LLM.
+// The bar: the top 20 benchmark intents handled without the LLM.
 process.exit(intentOk >= Math.min(20, answerable) && refusedOk === refusals ? 0 : 1);

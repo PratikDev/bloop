@@ -12,7 +12,7 @@ export const DWELL_MS = 600;
 const STILL_PX = 4;
 
 /**
- * Low-vision mode's "say the value where the pointer rests" (spec 4.6): hovering the map (no button pressed) and
+ * Low-vision mode's "say the value where the pointer rests": hovering the map (no button pressed) and
  * resting there says the value and place, through the status region or Bloop's voice as the speech mode says.
  */
 export function useDwellSpeak() {

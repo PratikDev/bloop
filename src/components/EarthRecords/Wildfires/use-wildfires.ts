@@ -26,7 +26,7 @@ const FIRST_REGION: FirmsDailyRegion = "Bangladesh";
 
 export type Sequence = { kind: "replay"; step: number } | { kind: "season"; key: string; step: number } | null;
 
-/** The fires and fire-weather record (P2): its data, needle, choices, the two sound layers and the two sequences. */
+/** The fires and fire-weather record: its data, needle, choices, the two sound layers and the two sequences. */
 export function useWildfires() {
   const { state } = useAppState();
   const { value: data, error } = useLoaded(loadFireData);

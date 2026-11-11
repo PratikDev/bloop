@@ -39,7 +39,7 @@ const SOUNDS: Record<EarconId, (time: number, lon: number) => void> = {
 };
 
 /**
- * The sonar's ping (accessibility core, step 6): the "Extreme ping" earcon, an octave below its pitch when the needle is
+ * The sonar's ping: the "Extreme ping" earcon, an octave below its pitch when the needle is
  * far from the target (closeness 0), rising to it at the target (closeness 1). No caption: the sonar says when it
  * starts and when it arrives, never every ping.
  */

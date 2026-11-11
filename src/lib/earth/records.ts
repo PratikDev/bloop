@@ -1,4 +1,4 @@
-// The records built from the shipped products (DATA): each joins Official records through the record index (as rows of
+// The records built from the shipped products: each joins Official records through the record index (as rows of
 // loadOfficialIndex, after the pipeline's own), so the shelf, the transcript list and the credits pick them up with no
 // list of their own. A row's title and period come from the products' files; only the ids and flags live here.
 
@@ -80,7 +80,7 @@ export const METHOD_APPLIED_TO: Readonly<Record<string, string>> = { [RADAR_RECO
 export const isMethodRow = (row: OfficialIndexRow): boolean => "kind" in row && (row as { kind?: string }).kind === "method";
 
 /** The index with the app records after the pipeline's rows (a failed product load leaves the index as it was). A
- *  method row is listed only with its flag (P5): without it the record has nothing to play. */
+ *  method row is listed only with its flag: without it the record has nothing to play. */
 export async function withAppRecords(index: OfficialIndex): Promise<OfficialIndex> {
   const extra = await appIndexRows().catch(() => []);
   return { records: [...index.records.filter((r) => FLAGS.dataRadar || !isMethodRow(r)), ...extra] };

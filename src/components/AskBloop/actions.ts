@@ -1,4 +1,4 @@
-// Ask Bloop's action intents (spec §5.1): each calls what the dock, the header or a key already calls, then confirms
+// Ask Bloop's action intents: each calls what the dock, the header or a key already calls, then confirms
 // in a few words. Places come from Bloop's gazetteer (resolvePlace), never from the words alone.
 import type { TrackMode } from "@/lib/audio/types";
 import { ASK_RECORDS, type AskPage, type IntentOf } from "@/lib/ask-bloop/intents";

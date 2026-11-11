@@ -1,5 +1,5 @@
 // "Close your eyes" (TEAM_BUILD_PLAN C1): about 10 s of real ocean and rain
-// sound along a path (L3's openingPath() over the Bay of Bengal), with long
+// sound along a path (L3's openingPath over the Bay of Bengal), with long
 // glides, fading in over 2 s and out over 1.5 s. Both tracks play whatever the
 // track mode. Captions tell the listener to close, then open, their eyes.
 

@@ -38,7 +38,7 @@ export function Header() {
           <Question aria-hidden="true" className="size-5" />
         </Button>
       </div>
-      {/* Low-vision settings open inline, under the bar that opened them (step 8; never a full-screen pop-up). */}
+      {/* Low-vision settings open inline, under the bar that opened them (never a full-screen pop-up). */}
       {FLAGS.lowVision && lvOpen && <LowVisionPanel onClose={() => setLvOpen(false)} className="col-span-full mt-2" />}
     </header>
   );

@@ -10,14 +10,12 @@ import { NotFoundPage } from "../NotFound";
 import { LiveTranscript } from "./LiveTranscript";
 import { OfficialTranscript } from "./OfficialTranscript";
 import { PAGE, TranscriptHeader } from "./parts";
-// >>> DATA
 import { appRecordTranscript } from "../../EarthRecords";
-// <<< DATA
 
 const route = getRouteApi("/transcript");
 
 /**
- * A transcript per record (accessibility core, step 7; spec Part 3.4, WCAG G158): a text version that tells the same
+ * A transcript per record (WCAG G158): a text version that tells the same
  * story as the sound. ?record= picks Listen's ocean or rain, or an Official record; without it, the list of them all.
  */
 export function TranscriptPage() {

@@ -33,7 +33,7 @@ const ITEM = "flex min-h-11 w-full items-center rounded-lg px-3 py-1.5 text-left
 const localName = (n: { name: string; nameBn: string | null }, lang: Lang) => (lang === "bn" && n.nameBn ? n.nameBn : n.name);
 
 /**
- * Places (accessibility core, step 4; spec Part 1.3): search places offline (the gazetteer, English and Bangla), or
+ * Places: search places offline (the gazetteer, English and Bangla), or
  * browse continent → country → Bangladesh's divisions. Choosing one moves the needle there ("." comes back), the map
  * announces it led by the place's name, and focus is back on the map, so the arrow keys carry on from there.
  */

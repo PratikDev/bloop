@@ -1,4 +1,4 @@
-// Mentor item 5: every Then vs Now part that shows is one that plays (audio level from the app's own tap), the
+// Every Then vs Now part that shows is one that plays (audio level from the app's own tap), the
 // unfinished parts are hidden. The credits list (data that plays, and the testing-only sources) is checked on every
 // page that shows it by item05b-credits.e2e.ts.
 import { expect, test } from "@playwright/test";

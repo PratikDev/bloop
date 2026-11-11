@@ -34,7 +34,7 @@ export function EarEyeTask({ onDone, play, coins }: ExtraStepProps) {
   if (unanswerable) return null;
   if (!items) return <StatusBadge kind="loading">{t("lt.loading")}</StatusBadge>;
   const item = items[i];
-  // `at`: the click's own time stamp (the same clock as performance.now()).
+  // `at`: the click's own time stamp (the same clock as performance.now).
   const answer = (o: PeakOption, at: number) => {
     const all = [...records, { sense: item.sense, half: item.half, position: i + 1, answer: o, correct_answer: item.correct, correct: o === item.correct, ms: Math.round(at - shownAt.current) }];
     if (i === 0) {

@@ -28,7 +28,7 @@ const CSV_COLUMNS: readonly (keyof Row)[] = ["browser", "os", "language", "condi
 const csvCell = (v: string | number) => `"${String(v).replace(/"/gu, '""')}"`;
 
 /**
- * Ask Bloop's speech recognition gate test (spec §7; docs/voice/GATE_TEST.md): one prompt at a time, press and hold
+ * Ask Bloop's speech recognition gate test (docs/voice/GATE_TEST.md): one prompt at a time, press and hold
  * Speak, read it, release; scored by what the parser makes of the transcript. A dev tool: English only on screen.
  */
 export function VoiceGate() {

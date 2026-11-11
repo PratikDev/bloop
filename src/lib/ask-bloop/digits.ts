@@ -1,4 +1,4 @@
-// Ask Bloop's digit-provenance check (spec §6.4): every number in an answer must be one an engine call returned in
+// Ask Bloop's digit-provenance check: every number in an answer must be one an engine call returned in
 // that turn (formatted as the app formats it), or part of a date or record id from the manifest. Used at runtime (a
 // failing answer is replaced by its plain template) and in the tests (a failure fails the build).
 import { asciiDigits } from "./normalise";

@@ -178,7 +178,7 @@ export function DeltaView({ data, onExit, tier, geo }: SceneProps & { data: Delt
       label: `${grace.dataset.split(" (")[0]}
 ${first.slice(0, 4)}-${last.slice(0, 4)}  inner: BD, outer: NW India`,
     };
-    // The alt text's steps and ring names (step 7): water in centimetres, a month per step, Bangladesh inside.
+    // The alt text's steps and ring names: water in centimetres, a month per step, Bangladesh inside.
     return { rec, file, meta: { unit: "cm", steps: months.map((m) => formatMonth(m, state.lang)), names: ["Bangladesh", "NW India"] } };
   };
   const exportTactile = () => {

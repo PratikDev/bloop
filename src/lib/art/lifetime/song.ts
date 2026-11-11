@@ -1,4 +1,4 @@
-// PURE: "The song of your lifetime" (docs/statement/ART.md). A city's yearly series from a birth year to the latest
+// PURE: "The song of your lifetime". A city's yearly series from a birth year to the latest
 // year (public/data/thenvsnow/lifetime.json, written by pipeline/stats/lifetime_stats.py), one note per year at four
 // notes a second, through the existing rules: heat → pitch (the heat rule), rain → that many drops (the monsoon rule),
 // water → pitch (the water rule, one fixed range). The trend from that year comes from the file: nothing here computes

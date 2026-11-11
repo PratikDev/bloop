@@ -28,11 +28,11 @@ export function Tile({
   figureLabel: string;
   /** A status line under the number (e.g. the rain frame still loading). */
   note?: ReactNode;
-  /** The evidence on the card itself (mentor item 6): plot or table, key numbers, a plain explanation. */
+  /** The evidence on the card itself: plot or table, key numbers, a plain explanation. */
   face?: ReactNode;
   /** The button text that opens the full content. */
   open: string;
-  /** "How we got this" for the card's numbers (mentor item 11). */
+  /** "How we got this" for the card's numbers. */
   facts: readonly Provenance[];
   children: ReactNode;
 }) {

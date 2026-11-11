@@ -1,11 +1,9 @@
-// "How we got this" (mentor item 11): where a number comes from, in one shape for every page. Every field is read
+// "How we got this": where a number comes from, in one shape for every page. Every field is read
 // from a manifest, a metadata file or stats.json by the builders beside this file; null = "not available" on screen,
 // never a guess. src/components/HowWeGotThis renders it.
 
 import type { OfficialStatus } from "@/types/data-contract";
-// >>> DATA
 import type { LiveCheckRecord } from "./live-checks";
-// <<< DATA
 
 /** The validation status shown: an Official layer's status, or "file" for a value read straight from the data file
  * (no picture decoded, so nothing to check the decoding against). */
@@ -35,12 +33,10 @@ export interface Provenance {
   validation: ProvenanceLink | null;
   /** Set when no number is shown: why (pattern-only records). */
   patternOnly: string | null;
-  // >>> DATA
   /** The record's id in meta/health.json ("sst", an Official record id, …): its "Is this data fresh?" section. */
   health?: string;
   /** A live frame's acceptance check (public/data/official/<liveCheck>/validation.json), read from the file. */
   liveCheck?: LiveCheckRecord;
-  // <<< DATA
 }
 
 /** Every Provenance field a reader checks for "not available" (the report lists records with any of these null). */

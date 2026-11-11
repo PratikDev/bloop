@@ -1,4 +1,4 @@
-// Then vs Now as the Braille Data Explorer reads it (accessibility core, plan item 11): the selected part's series for
+// Then vs Now as the Braille Data Explorer reads it: the selected part's series for
 // the selected city (heat and monsoon rain: one cell per year, the years between the two windows left blank so the gap
 // shows; water: GRACE's months, Bangladesh-wide), and the note R says with the value: the part's own statistic from
 // stats.json with its 95% interval. A single year has no interval of its own, so none is invented.

@@ -1,4 +1,4 @@
-// The region tree (accessibility core, step 4; spec Part 1.3): continent → country → Bangladesh's divisions, in Bangla
+// The region tree: continent → country → Bangladesh's divisions, in Bangla
 // and English, for "jump to place". Built from public/geo/ (Natural Earth's countries with their continent; the
 // districts' label points for the divisions). A continent's or division's place is the mean of its members' label
 // points; a country's is Natural Earth's own label point.

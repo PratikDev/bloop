@@ -26,7 +26,7 @@ function tick() {
   }
 }
 
-/** Started once by ensureAudio(); runs for the life of the page. */
+/** Started once by ensureAudio; runs for the life of the page. */
 export function startScheduler(clock: () => number) {
   if (getTime) return;
   getTime = clock;

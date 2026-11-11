@@ -18,7 +18,7 @@ export function useLightsTranscript(): { data: AppTranscriptData | null; error: 
   const [error, setError] = useState(false);
   useEffect(() => {
     let cancelled = false;
-    // t is bound here: useT() gives a new function each render, which would restart this load forever.
+    // t is bound here: useT gives a new function each render, which would restart this load forever.
     const t = bindT(lang);
     loadNightLights()
       .then((file) => {

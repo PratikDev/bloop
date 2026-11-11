@@ -1,5 +1,5 @@
 // Storm time-lapse (TEAM_BUILD_PLAN C4): one step per half-hourly IMERG frame
-// at the point that follows the heaviest rain (L3's followStorm()). Each frame
+// at the point that follows the heaviest rain (L3's followStorm). Each frame
 // sets rain or snow with the same rules as live rain; rate changes glide
 // (the drop voice's rate timeline), so there are no bursts between frames.
 // No-data frames are silent with one tick per run; dry frames are silent.

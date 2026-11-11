@@ -31,7 +31,7 @@ import { fireLinerNotes } from "./liner";
 import { useWildfires } from "./use-wildfires";
 
 /**
- * Fires and fire weather (P2c): one record, two sound layers. Tomorrow's fire weather (SVS 5315, an experimental model
+ * Fires and fire weather: one record, two sound layers. Tomorrow's fire weather (SVS 5315, an experimental model
  * forecast) is a fixed chord at the needle; FIRMS hotspots (a pixel holding one or more fires) are Geiger clicks for the
  * chosen box, sensor and day. NASA's SVS 5113 picture sits under them. "No calculation", "very low" and zero detections
  * are stated silences. The archive replay plays each stored forecast with the next day's FIRMS clicks over it.

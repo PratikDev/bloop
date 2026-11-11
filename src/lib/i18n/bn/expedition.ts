@@ -1,4 +1,4 @@
-// Bangla for the accessibility core, step 6 (en/expedition.ts). Drafts: listed in drafts.ts until a Bangla speaker
+// Bangla for compare, the sonar and the expedition log (en/expedition.ts). Drafts: listed in drafts.ts until a Bangla speaker
 // checks them. Every number is a slot formatted in Bangla.
 import type { expeditionEn } from "../en/expedition";
 import type { Translated } from "../types";

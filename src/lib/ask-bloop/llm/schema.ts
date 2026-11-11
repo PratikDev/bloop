@@ -1,5 +1,5 @@
-// The registry as the LLM fallback sees it (spec §5.4): one function per intent, its slots as JSON Schema with the
-// registry's own value lists. Nothing here carries a number or a coordinate; places are words resolvePlace() maps.
+// The registry as the LLM fallback sees it: one function per intent, its slots as JSON Schema with the
+// registry's own value lists. Nothing here carries a number or a coordinate; places are words resolvePlace maps.
 import { SPEECH_MODES, VERBOSITIES } from "@/components/AppState/access";
 import { LANGS } from "@/lib/i18n/types";
 import { ASK_PAGES, ASK_RECORDS, EXTREMES, FRAME_STEPS, type IntentName } from "../intents";

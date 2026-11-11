@@ -10,7 +10,7 @@ import { LowVisionToggle } from "../LowVision/HeaderButtons";
 import { useTuning } from "./use-tuning";
 
 /**
- * Track 0 "Tuning" (accessibility core, step 5): before the first exploration, the sounds' meaning one step at a time
+ * Track 0 "Tuning": before the first exploration, the sounds' meaning one step at a time
  * (anchors with their values, the reference tone, each record's source, the sound grammar). Skippable and remembered;
  * Help plays it again. A panel beside the map, never a full-screen pop-up; focus moves to its heading when it opens.
  */
@@ -35,7 +35,7 @@ export function TuningPanel({ className }: { className?: string }) {
         </p>
       </div>
       <p data-testid="tuning-text">{tuning.step.text(t, state.lang)}</p>
-      {/* The low-vision preset is offered here too (spec 4.7), on every step, for anyone who uses their remaining sight. */}
+      {/* The low-vision preset is offered here too, on every step, for anyone who uses their remaining sight. */}
       {FLAGS.lowVision && (
         <div className="space-y-1 border-t border-glass-edge pt-3">
           <LowVisionToggle label="lv.tuningToggle" className="ring-1 ring-glass-edge" />

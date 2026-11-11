@@ -6,7 +6,7 @@ import { checkResult, keyNumbers, loadLiveCheck, type LiveCheckRecord } from "@/
 import { useT } from "../AppState/use-app-state";
 
 /**
- * A live frame's acceptance check, read from its own validation.json in public/data/official (P1): the check, its
+ * A live frame's acceptance check, read from its own validation.json in public/data/official: the check, its
  * key numbers as docs/official/VALIDATION_TABLE.md writes them, and its result. The numbers are the file's.
  */
 export function LiveCheckFacts({ record }: { record: LiveCheckRecord }) {

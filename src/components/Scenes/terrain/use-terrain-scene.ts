@@ -55,10 +55,8 @@ export function useTerrainScene(o: {
   dt: SstDtField | null;
   /** N: play the anomaly against the normal tone instead of the temperature. */
   vsNormal: boolean;
-  // >>> DATA
   /** The SVS 5176 picture, shown on the terrain while the anomaly plays (vsNormal); null = keep the SST picture. */
   anomalyImage?: Texture | null;
-  // <<< DATA
   seq: Sequence | null;
   frame: SequenceFrame | null;
   rain: { cells: RainCell[]; cellSize: number };
@@ -150,7 +148,7 @@ export function useTerrainScene(o: {
           }
           if (!now.hunting) found = false;
           scene.setLayers(now.layers);
-          scene.setMap(now.vsNormal ? (now.anomalyImage ?? null) : null); // >>> DATA <<< DATA
+          scene.setMap(now.vsNormal ? (now.anomalyImage ?? null) : null); 
           scene.update(dt, !now.reduceMotion);
           bus.publish(planeFrame({ camera: host.camera, ...size, plane, groundAt: scene.surfaceAt, needle: at, distance: orbit.pose().distance }));
         },

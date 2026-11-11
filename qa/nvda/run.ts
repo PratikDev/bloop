@@ -1,4 +1,4 @@
-// The NVDA log method for the accessibility core (step 9; spec "NVDA log method", same safe procedure as braille
+// The NVDA log method (the same safe procedure as braille
 // Part B): a portable NVDA 2026.3 with a fresh, throw-away config (synth "silence", speech logged at input/output
 // level), and Chromium and Firefox driven with real OS keystrokes (qa/nvda/scripts/keys.ps1). From nvda.log it checks:
 //   A. Track 0 is spoken, can be skipped, and is remembered (not spoken again after a reload);

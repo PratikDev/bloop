@@ -1,4 +1,4 @@
-// Mentor item 10: the wording follows stats.json (a change is stated only when the file says it is clear), the numbers
+// The wording follows stats.json (a change is stated only when the file says it is clear), the numbers
 // shown are the file's, and the short form passes the braille text rules.
 import { describe, expect, test } from "bun:test";
 import { STATUS_BUDGET, violations } from "@/a11y/brailleText";

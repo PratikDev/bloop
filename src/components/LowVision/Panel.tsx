@@ -69,7 +69,7 @@ function Group({ title, children }: { title: string; children: ReactNode }) {
 }
 
 /**
- * Low-vision settings (accessibility core, step 8; spec 4.3–4.7), inline under the header (never a full-screen
+ * Low-vision settings (spec 4.3–4.7), inline under the header (never a full-screen
  * pop-up), with a live preview: the value at the needle in the chosen text, and the map's legend. Each change applies
  * at once and is remembered on this device; Reset puts every setting back.
  */

@@ -1,7 +1,7 @@
-// PURE: MIDI export for a human performer (docs/statement/ART.md, Tier 2). Each value's exact frequency becomes the
+// PURE: MIDI export for a human performer. Each value's exact frequency becomes the
 // nearest MIDI note plus a pitch bend; the bend range is set to ±2 semitones (RPN 0) at the start, so a bend of
 // b (−8192 … +8191) means b / 8192 × 200 cents. One note per value, at the song's own timing. Standard MIDI File,
-// format 0, 480 ticks per quarter note at 120 bpm (960 ticks a second). readMidi() reads it back (the 1-cent test).
+// format 0, 480 ticks per quarter note at 120 bpm (960 ticks a second). readMidi reads it back (the 1-cent test).
 
 export const PPQ = 480;
 export const TICKS_PER_SEC = 960; // 120 bpm

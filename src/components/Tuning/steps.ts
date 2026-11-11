@@ -1,4 +1,4 @@
-// Track 0 "Tuning" (accessibility core, step 5; spec Part 1.8): what each step says and plays. The anchors and the
+// Track 0 "Tuning": what each step says and plays. The anchors and the
 // reference come from mapping.json (the values the sound is built from), the provenance lines from each frame's
 // metadata and the registry. One sound per step, after its words, so speech and tone never overlap.
 import { audio } from "@/lib/audio-adapter";

@@ -1,4 +1,4 @@
-// The listener test's results (mentor item 8): kept in memory only; "Export results" saves them as a JSON file. No
+// The listener test's results: kept in memory only; "Export results" saves them as a JSON file. No
 // names, no IP, no audio. scripts/listen-test-summary.ts reads the exported files.
 
 import type { OptionId, TaskId } from "./tasks";

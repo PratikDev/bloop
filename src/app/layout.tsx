@@ -24,7 +24,7 @@ export const viewport: Viewport = {
   themeColor: "#120c20",
 };
 
-// Low-vision mode's fonts (accessibility core, step 8; all SIL OFL 1.1, docs/accessibility/LICENCES.md): Atkinson
+// Low-vision mode's fonts (all SIL OFL 1.1, docs/accessibility/LICENCES.md): Atkinson
 // Hyperlegible (Braille Institute) for Latin text, and two large, clear Bangla candidates. Not preloaded: each
 // downloads only once its setting puts it on screen.
 const atkinson = Atkinson_Hyperlegible({ variable: "--font-atkinson", subsets: ["latin"], weight: ["400", "700"], preload: false });
@@ -35,7 +35,7 @@ const FONT_VARIABLES = [geist, geistMono, instrument, anek, tiro, atkinson, noto
 
 export default function RootLayout({ children }: LayoutProps<"/">) {
   return (
-    // The inline script sets lang from the saved language before the body is parsed (mentor item 3), so the attribute
+    // The inline script sets lang from the saved language before the body is parsed, so the attribute
     // can differ from this HTML's "en" by the time React hydrates: that one difference is expected.
     <html lang="en" className={`${FONT_VARIABLES} h-full`} suppressHydrationWarning>
       <head>

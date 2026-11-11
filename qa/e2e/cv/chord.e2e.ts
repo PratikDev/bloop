@@ -1,4 +1,4 @@
-// The value chord (CV/ML build, piece B5) in a real browser, on a build with NEXT_PUBLIC_CV_READ=1 and
+// The value chord in a real browser, on a build with NEXT_PUBLIC_CV_READ=1 and
 // NEXT_PUBLIC_CV_CHORD=1. Which named box is bimodal or unimodal today is computed here from the shipped SST grid with
 // the app's own functions (never typed): with the toggle on, a bimodal box plays 2 tones and a unimodal box 1 (the
 // output is audible); a pattern-only record plays none and says why; Both and the proof-in-unison duet say "chord off".

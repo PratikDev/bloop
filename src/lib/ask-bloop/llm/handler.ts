@@ -1,4 +1,4 @@
-// Ask Bloop's LLM fallback (spec §5.4), built but OFF: it runs only where it is deployed as a server function with its
+// Ask Bloop's LLM fallback, built but OFF: it runs only where it is deployed as a server function with its
 // keys set, and the app calls it only with NEXT_PUBLIC_ASK_BLOOP_LLM=1 (src/lib/flags.ts). Server side only: the key is
 // read from the environment, never sent to the client, never logged. The request carries the transcript, the record
 // ids and the registry's tools, never an image, a grid or a number of Bloop's; the reply is one intent with its

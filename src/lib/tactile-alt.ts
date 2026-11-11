@@ -1,4 +1,4 @@
-// PURE: alt text for an exported tactile disc (accessibility core, step 7; spec Part 3.6). STL has no metadata fields
+// PURE: alt text for an exported tactile disc. STL has no metadata fields
 // (no IPTC "Alt Text (Accessibility)" or "Extended Description"), so the alt text goes in a sidecar .txt saved beside
 // it and, cut to ASCII, in the 80-byte header binary STL leaves free. Every number is a slot from the disc's own data.
 import { formatAxis, formatInteger, type BoundT, type Lang } from "@/lib/i18n";

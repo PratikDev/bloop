@@ -1,4 +1,4 @@
-// Summarises the listener test's exported files (mentor item 8; docs/LISTEN_TEST_PROTOCOL.md): n, correct answers and
+// Summarises the listener test's exported files (docs/LISTEN_TEST_PROTOCOL.md): n, correct answers and
 // accuracy per task. Formative only: 5-10 listeners say whether the sounds are understood, not how well in general.
 // Usage: bun scripts/listen-test-summary.ts <folder>   (or: bun run listen-test:summary <folder>)
 import { readdirSync, readFileSync } from "node:fs";

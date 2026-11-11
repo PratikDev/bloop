@@ -8,7 +8,7 @@ import { ClientRouter } from "@/router/ClientRouter";
 /** Titles for the first load and for link previews; the app keeps them in step with the language after that. */
 const TITLES: Record<string, string> = { listen: "Listen", "then-now": "Then vs Now", how: "How we know", official: "Official records", turntable: "Turntable", team: "Team", transcript: "Transcript", "data-health": "Data health" /* DATA */ };
 
-/** Pages with no link to them (the listener test, mentor item 8): prerendered, kept out of search engines. */
+/** Pages with no link to them (the listener test): prerendered, kept out of search engines. */
 const HIDDEN: Record<string, string> = { "listen-test": "Listening test" };
 
 export function generateStaticParams() {

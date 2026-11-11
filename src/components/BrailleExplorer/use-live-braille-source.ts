@@ -75,7 +75,7 @@ export function useLiveBrailleSource(): BrailleSource | null {
     if (!fields) return null;
     const channels = track === "ocean" ? (["ocean"] as const) : track === "rain" ? (["rain"] as const) : (["ocean", "rain"] as const);
     const label = (c: LiveChannel) => (c === "ocean" ? "SST" : "Rain");
-    // Both: each line says how far apart the two frames are (mentor item 1), in each braille table's language.
+    // Both: each line says how far apart the two frames are, in each braille table's language.
     const gap = track === "both" && fields.rain ? frameGap(fields.sst.meta.frame_time_utc, fields.rain.meta.frame_time_utc) : null;
     const note = gap ? { en: gapShort(bindT("en"), gap), bn: gapShort(bindT("bn"), gap) } : undefined;
     const lastFrame = seq ? seq.frames.length - 1 : 0;

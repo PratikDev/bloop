@@ -1,4 +1,4 @@
-// Accessibility core, step 5 (docs/accessibility/CORE_PLAN.md): Track 0 "Tuning" opens after the intro on a first
+// Track 0 "Tuning" opens after the intro on a first
 // visit, with focus on it; each step says its words (status region) and then plays its anchor; it can be skipped and is
 // remembered; Help plays it again. Shift+P says the record's provenance line. Runs on a build with
 // NEXT_PUBLIC_A11Y_TUNING=1 (and steps 1–4 on), 3D shown and hidden.

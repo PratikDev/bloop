@@ -6,7 +6,7 @@ import type { GraceContextFile } from "@/types/data-contract";
 import { useT } from "../AppState/use-app-state";
 import { WaterNote } from "../WaterNote";
 
-/** The same-record line for a place (mentor item 12), or null: the shared cell or region named, in one language. */
+/** The same-record line for a place, or null: the shared cell or region named, in one language. */
 export function sameRecordLine(t: BoundT, series: PlaceSeries, name: (place: string) => string, deg: number | null): string | null {
   const { source, sameRecord } = series;
   if (source.kind === "region" && source.label === null) return t("water.bangladeshWide", { deg });
@@ -15,7 +15,7 @@ export function sameRecordLine(t: BoundT, series: PlaceSeries, name: (place: str
 }
 
 /**
- * Above the chart, so it is on screen without scrolling (mentor item 12): the national water note (Bangladesh box),
+ * Above the chart, so it is on screen without scrolling: the national water note (Bangladesh box),
  * or the places that share this cell or region.
  */
 export function SameRecordNote({ series, name, grace }: { series: PlaceSeries; name: (place: string) => string; grace: GraceContextFile }) {

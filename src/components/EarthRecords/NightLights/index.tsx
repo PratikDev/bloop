@@ -22,7 +22,7 @@ import { useNightLights } from "./use-night-lights";
 const PCT = 100;
 
 /**
- * Night lights by city (P4): Black Marble daily radiance, one note per night on a log scale; a cloud-masked night is a
+ * Night lights by city: Black Marble daily radiance, one note per night on a log scale; a cloud-masked night is a
  * rest said as "gap: cloud", never darkness; no blackout is ever claimed. Product and satellite from the file.
  */
 export function NightLights() {

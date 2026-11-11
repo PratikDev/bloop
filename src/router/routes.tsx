@@ -4,11 +4,9 @@ import { HomePage } from "@/components/pages/Home";
 import { ListenPage } from "@/components/pages/Listen";
 import { NotFoundPage } from "@/components/pages/NotFound";
 import { listenSearch, thenNowSearch, transcriptSearch } from "./search";
-// >>> DATA
 import { DATA_HEALTH_SEGMENT } from "@/lib/earth/routes";
-// <<< DATA
 
-// Seven places and a 404 (docs/L3/REDESIGN.md §2; Official and Turntable joined from bloop-dev). Then vs Now, How we
+// Seven places and a 404 (Official and Turntable joined from bloop-dev). Then vs Now, How we
 // know, Official and Turntable load their code (the chart library, three.js) only when opened.
 
 const rootRoute = createRootRoute({ component: AppShell, notFoundComponent: NotFoundPage });
@@ -48,14 +46,14 @@ const teamRoute = createRoute({
   component: lazyRouteComponent(() => import("@/components/pages/Team"), "TeamPage"),
 });
 
-// The listener test (mentor item 8): no link to it anywhere, noindex (src/app/[[...path]]/page.tsx).
+// The listener test: no link to it anywhere, noindex (src/app/[[...path]]/page.tsx).
 const listenTestRoute = createRoute({
   getParentRoute: () => rootRoute,
   path: "listen-test",
   component: lazyRouteComponent(() => import("@/components/pages/ListenTest"), "ListenTestPage"),
 });
 
-// A transcript per record (accessibility core, step 7): linked from Listen, each Official record and How we know.
+// A transcript per record: linked from Listen, each Official record and How we know.
 const transcriptRoute = createRoute({
   getParentRoute: () => rootRoute,
   path: "transcript",
@@ -63,13 +61,11 @@ const transcriptRoute = createRoute({
   component: lazyRouteComponent(() => import("@/components/pages/Transcript"), "TranscriptPage"),
 });
 
-// >>> DATA
-// Data health (P1): one row per record from the pipeline's health run, linked from How we know (behind its flag).
+// Data health: one row per record from the pipeline's health run, linked from How we know (behind its flag).
 const dataHealthRoute = createRoute({
   getParentRoute: () => rootRoute,
   path: DATA_HEALTH_SEGMENT,
   component: lazyRouteComponent(() => import("@/components/pages/DataHealth"), "DataHealthPage"),
 });
-// <<< DATA
 
 export const routeTree = rootRoute.addChildren([homeRoute, listenRoute, thenNowRoute, howRoute, officialRoute, turntableRoute, teamRoute, listenTestRoute, transcriptRoute, dataHealthRoute]);

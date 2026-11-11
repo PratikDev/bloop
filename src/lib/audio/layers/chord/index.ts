@@ -1,4 +1,4 @@
-// The value chord (CV/ML build, piece B): the spread of values Bloop read in the current view, as at most two sustained
+// The value chord: the spread of values Bloop read in the current view, as at most two sustained
 // tones at the pitches of real recovered values, through the record's own value → pitch rule. A standalone ChordLayer
 // (src/lib/audio/layers/types.ts): it computes its groups from the view it is given (setView), and either owner — the
 // listener's toggle ("user") or the Science ↔ Art dial ("dial") — keeps it on.

@@ -1,7 +1,7 @@
-// PURE: the value groups (modes) of a box, for the value chord (CV/ML build, piece B1). The box's values are binned
+// PURE: the value groups (modes) of a box, for the value chord. The box's values are binned
 // finely, smoothed with a Gaussian whose σ is the record's measured error (so two groups closer than the error merge),
 // and at most MAX_MODES peaks are kept: each with prominence ≥ MIN_SHARE of the highest peak (the rule the gate's
-// Check 6 ran, docs/cvml/GO_NO_GO.md) and holding ≥ MIN_SHARE of the box's cells. Two groups split at the lowest point
+// Check 6 ran) and holding ≥ MIN_SHARE of the box's cells. Two groups split at the lowest point
 // of the smoothed curve between them.
 
 export const MAX_MODES = 2;

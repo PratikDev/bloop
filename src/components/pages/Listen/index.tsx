@@ -19,9 +19,7 @@ import { FirstHint } from "./FirstHint";
 import { Inspector } from "./Inspector";
 import { ListenStatus } from "./ListenStatus";
 import { AskBloop } from "../../AskBloop";
-// >>> CV
 import { ListenRead } from "../../JukeboxRead/ListenRead";
-// <<< CV
 import { ART_ROW, ArtListen } from "../../Art/ArtListen"; // ART
 
 /** The fitted stage leaves one row under it for each of: CV's read panel, Ask Bloop's button, ART's buttons. */
@@ -95,7 +93,7 @@ export function ListenPage() {
               <FirstHint />
             </div>
             {/* Low-vision mode's legend, right under the map it explains (step 8: related information kept close). */}
-            {/* The Context Lens, when docked in the page (step 8), sits here between the map and its legend. */}
+            {/* The Context Lens, when docked in the page, sits here between the map and its legend. */}
             {FLAGS.lowVision && <div id={LENS_DOCK_ID} className="mx-4 mt-3 empty:hidden fit:mx-0" />}
             <LvLegend className="mx-4 mt-3 fit:mx-0" />
             {FLAGS.tuning && state.tuning && !story && <TuningPanel className="mx-4 mt-3 fit:absolute fit:bottom-3 fit:left-3 fit:z-(--layer-map-plates) fit:m-0" />}
@@ -123,9 +121,9 @@ export function ListenPage() {
           </aside>
         </div>
       </div>
-      {/* >>> CV: the panel's row sits under the stage, with Ask Bloop's when both are on (the stage leaves a row for each). */}
+      {/* the panel's row sits under the stage, with Ask Bloop's when both are on (the stage leaves a row for each). */}
       {FLAGS.cvRead && !story && <ListenRead className="shrink-0 px-4 pb-3 fit:px-1 fit:pt-2" />}
-      {/* <<< CV */}
+      {/*  */}
       {FLAGS.askBloop && !story && <AskBloop open={askOpen} onOpenChange={setAskOpen} className="shrink-0 px-4 pb-3 fit:px-1 fit:pt-2" />}
       {/* ART: what the dial describes here, and the row with Leave a letter and Water's journey */}
       {(FLAGS.artDial || FLAGS.artOrchestra || ART_ROW) && <ArtListen onOpenChange={setArtOpen} className="shrink-0 space-y-3 px-4 pb-3 fit:px-1 fit:pt-2" />}

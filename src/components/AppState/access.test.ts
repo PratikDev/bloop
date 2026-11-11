@@ -1,4 +1,4 @@
-// Accessibility core, step 1: where a spoken line goes, which channels a step fires, and that the choices are
+// Where a spoken line goes, which channels a step fires, and that the choices are
 // remembered (or dropped when the saved value isn't one of theirs).
 import { afterEach, describe, expect, test } from "bun:test";
 import { ACCESS_DEFAULTS, ACCESS_VALUES, speechOut, stepSound, stepText } from "./access";

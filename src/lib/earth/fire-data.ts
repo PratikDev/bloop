@@ -1,4 +1,4 @@
-// Everything the fires and fire-weather record reads, loaded together (P2): the latest forecast grid, the archive index,
+// Everything the fires and fire-weather record reads, loaded together: the latest forecast grid, the archive index,
 // FIRMS's daily block and the fire picture's metadata. Plus the archive's grids for the replay and the pilot table.
 
 import { loadFirms } from "@/lib/data/context";

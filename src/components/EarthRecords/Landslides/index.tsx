@@ -23,7 +23,7 @@ import { ExampleButton } from "./ExampleButton";
 import { useLandslides } from "./use-landslides";
 
 /**
- * Landslide exposure (P3): SVS 5584's LHASA classes as thresholded sound at the needle: silence for "none shown" and
+ * Landslide exposure: SVS 5584's LHASA classes as thresholded sound at the needle: silence for "none shown" and
  * "low" (stated), a soft rumble for moderate, stronger for high, slow pulses for very high. Modelled exposure, not
  * observed landslides. Its age is shown, with "may be out of date" past the product's freshness limit.
  */

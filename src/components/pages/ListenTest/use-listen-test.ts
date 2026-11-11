@@ -14,11 +14,10 @@ import { useCommands } from "../../Commands/use-commands";
 import { useLiveData } from "../../LiveData/use-live-data";
 import { FLAGS } from "@/lib/flags";
 import { playPlan, playScale } from "./play";
-// >>> ART: the extra task modules (emotion, ear vs eye; CV's chord tasks join the same list)
+// the extra task modules (emotion, ear vs eye; CV's chord tasks join the same list)
 import type { ExtraRecord } from "@/lib/listen-test/extras/types";
 import { EXTRA_MODULES } from "./extras/registry";
 const EXTRAS = FLAGS.artListenTest ? EXTRA_MODULES : [];
-// <<< ART
 
 export type Step =
   | { kind: "consent" }
@@ -47,13 +46,12 @@ export function useListenTest() {
   const commands = useCommands();
   const { rain, rainStatus } = useLiveData();
   const inputs = useLoaded(loadInputs);
-  // >>> CV: the chord tasks read today's SST grid; which box the groups task plays is drawn once per session.
+  // the chord tasks read today's SST grid; which box the groups task plays is drawn once per session.
   const { sst } = useLiveData();
   const [cvPick] = useState<0 | 1>(() => (Math.random() < 0.5 ? 0 : 1));
-  // <<< CV
   const tasks: Task[] | null = useMemo(
-    () => (inputs.value && rain ? buildTasks({ ...inputs.value, rainAt: (lat, lon) => rainAt(rain, lat, lon), /* >>> CV */ sst: FLAGS.cvListenTest ? sst : null, cvPick /* <<< CV */ }) : null),
-    [inputs.value, rain, /* >>> CV */ sst, cvPick /* <<< CV */],
+    () => (inputs.value && rain ? buildTasks({ ...inputs.value, rainAt: (lat, lon) => rainAt(rain, lat, lon), /*  */ sst: FLAGS.cvListenTest ? sst : null, cvPick /*  */ }) : null),
+    [inputs.value, rain, /*  */ sst, cvPick /*  */],
   );
   const [step, setStep] = useState<Step>({ kind: "consent" });
   const [comment, setComment] = useState("");

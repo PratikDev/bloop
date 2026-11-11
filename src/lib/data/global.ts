@@ -1,4 +1,4 @@
-// Global history cube (contract §14, docs/L1/DATA_HANDOFF.md §8): monthly heat, rain and water on their own grids,
+// Global history cube (contract §14): monthly heat, rain and water on their own grids,
 // for 42 named places and every cell. Optional and heavy (about 13 MB), so each layer loads only when a view first
 // needs it, and is kept after that.
 //   <layer>.i16.gz: gzip of int16 little-endian, [row][month] (row = cells index; cells[row] = cell_id);

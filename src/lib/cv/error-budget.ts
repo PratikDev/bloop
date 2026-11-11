@@ -35,7 +35,7 @@ export interface ErrorBudget {
 export const ERROR_BUDGET: ErrorBudget = file;
 export const FLAG_CENTS = ERROR_BUDGET.flag_cents;
 
-/** Semitones per input unit, or per decade on a log input (the generator's maths: semitonesPerUnit() for linear). */
+/** Semitones per input unit, or per decade on a log input (the generator's maths: semitonesPerUnit for linear). */
 export function semitonesPerStep(rule: ContinuousMapping): number | null {
   if (rule.input.scale === "linear") return semitonesPerUnit(rule);
   if (rule.output.param !== "frequency" || rule.output.scale !== "exponential") return null;

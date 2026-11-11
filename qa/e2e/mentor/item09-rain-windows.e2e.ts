@@ -1,4 +1,4 @@
-// Mentor item 9: GPCP and GPCC compare the same two decades, and the Monsoon part says why GPCC stops where it does.
+// GPCP and GPCC compare the same two decades, and the Monsoon part says why GPCC stops where it does.
 import { expect, test } from "@playwright/test";
 import type { DhakaThenNowDemo, GpccContextFile } from "../../../src/types/data-contract";
 import { openAt, sheet, shipped, shot } from "./lib";

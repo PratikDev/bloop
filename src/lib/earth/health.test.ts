@@ -1,4 +1,4 @@
-// P1, Data health: the view model equals meta/health.json, row for row, and no local path ever reaches the page.
+// Data health: the view model equals meta/health.json, row for row, and no local path ever reaches the page.
 import { describe, expect, test } from "bun:test";
 import { readData } from "@/lib/i18n/data-sentences";
 import { healthOf, healthRows, looksLocal, type HealthFile } from "./health";

@@ -1,4 +1,4 @@
-// English for the accessibility core, step 8: low-vision mode (themes, text and spacing, re-coloured bands and legends,
+// English for low-vision mode (themes, text and spacing, re-coloured bands and legends,
 // the Context Lens, calm view, compact centre, the preset). Every number is a slot formatted from the data.
 
 export const lowVisionEn = {

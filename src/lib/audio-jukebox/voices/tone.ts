@@ -1,14 +1,13 @@
 // A pitched voice: one sine oscillator whose pitch follows a mapping.json "frequency" rule, with the rule's glide
 // (setTargetAtTime). The Ocean voice is this with the "ocean" rule on the ocean bus; official records reuse it on the
-// extras bus. setAxis() plays the same rule over a zoomed input range (Sound terrain); null = the rule's own range.
+// extras bus. setAxis plays the same rule over a zoomed input range (Sound terrain); null = the rule's own range.
 
 import { continuousRule, loudnessGain, mapContinuous, panFor, voiceSpec, withInputRange } from "@/lib/audio/mapping";
 import { glideAt, glideTo, type Graph } from "../graph";
-// >>> ART: Earth Orchestra's timbre and the dial (src/lib/art/live): timbre, swara + meend, layers; never the pitch.
+// Earth Orchestra's timbre and the dial (src/lib/art/live): timbre, swara + meend, layers; never the pitch.
 import { dressLive, meend } from "@/lib/art/live/dress";
 import { reportVoice } from "@/lib/art/live/layers";
 import { recordCategory } from "@/lib/art/live/record";
-// <<< ART
 
 export interface ToneVoice {
   /** Live: glide from the current sound. null = silence (land / no data). */

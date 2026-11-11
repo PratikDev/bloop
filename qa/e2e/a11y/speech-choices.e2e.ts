@@ -1,4 +1,4 @@
-// Accessibility core, step 1 (docs/accessibility/CORE_PLAN.md): the speech mode decides where Bloop's spoken lines go
+// The speech mode decides where Bloop's spoken lines go
 // (the screen reader's status region, Bloop's own voice, or neither, never two at once); "each step" decides whether a
 // needle step sends text, sound or both; the choices are remembered. Runs on a build with NEXT_PUBLIC_A11Y_SPEECH=1.
 // Bloop's voice is recorded by a stand-in speechSynthesis (headless browsers may have no voices installed).
@@ -33,7 +33,7 @@ async function choose(page: Page, group: string, option: string) {
 async function fresh(page: Page) {
   await page.addInitScript(VOICE_STUB);
   await openAt(page, "/listen");
-  // A reload after Start keeps the choice but needs one tap for sound (mentor item 2): tap it, as a listener does.
+  // A reload after Start keeps the choice but needs one tap for sound: tap it, as a listener does.
   const tap = page.getByRole("button", { name: "Tap to start sound" });
   if (await tap.waitFor({ state: "visible", timeout: 3000 }).then(() => true, () => false)) await tap.click();
   await logLiveRegion(page);

@@ -49,7 +49,6 @@ function checkOutput(o: unknown, where: string) {
   if (scale === "exponential" && min <= 0) fail(`${where}: exponential scale needs min > 0`);
 }
 
-// >>> DATA
 /** A categorical rule (contract-15/classes.ts): ascending codes, a label each, and one fixed sound state each: a
  *  stated silence (with its reason), a fixed chord (semitones over rootHz) or a fixed rumble. Never a data pitch. */
 function checkClasses(m: Record<string, unknown>, where: string) {
@@ -84,7 +83,6 @@ function checkClasses(m: Record<string, unknown>, where: string) {
   });
   if (chords > 0 && num(m.rootHz, `${where}.rootHz`) <= 0) fail(`${where}.rootHz must be > 0`);
 }
-// <<< DATA
 
 function checkMapping(m: unknown, where: string) {
   if (m === null) return;
@@ -95,7 +93,7 @@ function checkMapping(m: unknown, where: string) {
   str(input.unit, `${where}.input.unit`);
 
   if (kind === "classes") {
-    checkClasses(m, where); // >>> DATA (categorical rules) <<< DATA
+    checkClasses(m, where); // (categorical rules) <<< DATA
   } else if (kind === "sameAs") {
     str(m.voice, `${where}.voice`); // the referenced voice is checked once every voice is read
   } else if (kind === "continuous") {

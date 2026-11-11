@@ -1,4 +1,4 @@
-// Ask Bloop's voice input (spec §5.5): push-to-talk through the browser's own speech recognition (Web Speech API; no
+// Ask Bloop's voice input: push-to-talk through the browser's own speech recognition (Web Speech API; no
 // new dependency, no audio kept). One utterance per press; it ends on release, on a result, on an error or after
 // LISTEN_MS. The caller ducks the sonification while listening and always releases it (src/lib/audio duck).
 import type { Lang } from "@/lib/i18n/types";

@@ -77,14 +77,13 @@ export function TerrainView({ data, onExit, tier, geo }: SceneProps & { data: Te
     [loop.seq, frame, relief.plane],
   );
   const [sstImage] = useState(() => sstTexture(data.image));
-  // >>> DATA (P1): the SVS 5176 picture on the terrain while the anomaly plays, with its own legend and frame date.
+  //: the SVS 5176 picture on the terrain while the anomaly plays, with its own legend and frame date.
   const t = useT();
   const [anomalyImage] = useState(() => (data.anomalyImage ? sstTexture(data.anomalyImage) : null));
   useEffect(() => () => anomalyImage?.dispose(), [anomalyImage]);
   const anomalyShown = vsNormal && anomalyImage !== null && data.anomaly !== null;
   const anomalyDate = data.anomaly?.meta.frame_time_utc ? formatUtc(data.anomaly.meta.frame_time_utc, lang) : "";
   const [anomMin, anomMax] = data.anomaly?.meta.value_range ?? [0, 0];
-  // <<< DATA
   const ctl = useTerrainScene({
     field,
     relief,
@@ -284,7 +283,7 @@ export function TerrainView({ data, onExit, tier, geo }: SceneProps & { data: Te
       }
       legend={
         anomalyShown ? (
-          // >>> DATA: the anomaly's legend, its colours from the 5176 picture, its range from sst_anom.json.
+          // the anomaly's legend, its colours from the 5176 picture, its range from sst_anom.json.
           <SceneLegend
             title={t("earth.anom.legend")}
             minLabel={formatSigned(anomMin, lang, 0)}
@@ -294,7 +293,6 @@ export function TerrainView({ data, onExit, tier, geo }: SceneProps & { data: Te
             badge={<SceneBadge>{t("earth.anom.frame", { date: anomalyDate })}</SceneBadge>}
           />
         ) : (
-          // <<< DATA
         <SceneLegend
           title={tt("scenes.terrain.legend")}
           minLabel={formatInteger(axis.min, lang)}

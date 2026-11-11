@@ -12,7 +12,7 @@ export interface CoreTab {
   panel: ReactNode;
 }
 
-/** The accessibility core's tabs, first in both panels: the needle's description (step 3) and its table (step 4). */
+/** The accessibility core's tabs, first in both panels: the needle's description and its table. */
 export const CORE_TABS: readonly CoreTab[] = [
   ...(FLAGS.describe ? [{ tab: "describe", label: "panel.describe", panel: <DescriptionPanel /> } as const] : []),
   ...(FLAGS.tablePlaces ? [{ tab: "table", label: "panel.table", panel: <ValueTable /> } as const] : []),

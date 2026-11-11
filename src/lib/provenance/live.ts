@@ -64,8 +64,8 @@ export function oceanProvenance({ t, lang, freshness, place }: LiveContext, meta
     scripts: SCRIPTS.sst.map((p) => repoLink(p)),
     validation: rowLink(VALIDATION_TABLE, "live_sst"),
     patternOnly: null,
-    health: "sst", // >>> DATA <<< DATA
-    liveCheck: "live_sst", // >>> DATA <<< DATA
+    health: "sst", 
+    liveCheck: "live_sst", 
   };
 }
 
@@ -87,8 +87,8 @@ export function rainProvenance({ t, lang, freshness, place }: LiveContext, meta:
     scripts: SCRIPTS.rain.map((p) => repoLink(p)),
     validation: rowLink(VALIDATION_TABLE, "live_rain"),
     patternOnly: null,
-    health: "rain", // >>> DATA <<< DATA
-    liveCheck: "live_rain", // >>> DATA <<< DATA
+    health: "rain", 
+    liveCheck: "live_rain", 
   };
 }
 

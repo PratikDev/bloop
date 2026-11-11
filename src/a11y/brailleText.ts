@@ -90,7 +90,7 @@ export function brailleNumber(value: number, decimals: number): string {
   return /^-0(\.0+)?$/u.test(s) ? s.slice(1) : s;
 }
 
-/** A unit as braille shows it ("°C" → "deg C" in word style); other units pass through clean(). */
+/** A unit as braille shows it ("°C" → "deg C" in word style); other units pass through clean. */
 export function brailleUnit(unit: string, degree: DegreeStyle): string {
   const u = clean(unit);
   return degree === "word" ? u.replace(/°\s?/gu, "deg ") : u;

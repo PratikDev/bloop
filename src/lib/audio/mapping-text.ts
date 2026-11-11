@@ -20,9 +20,7 @@ const PARAM_WORDS: Record<string, string> = {
   clicksPerSecond: "clicks per second",
 };
 
-// >>> DATA
 const CLASS_SOUND_WORDS = { silence: "silence (stated)", chord: "a fixed chord", rumble: "a fixed rumble" } as const;
-// <<< DATA
 
 /**
  * The pieces of a rule, so L3 can build the sentence in either language.
@@ -44,19 +42,15 @@ export interface RuleParts {
   outputFalling?: boolean;
   bands?: { upTo: string | null; label: string }[];
   sameAs?: string; // the voice whose rule is used
-  // >>> DATA
   /** A categorical rule: each class's label and its fixed sound ("silence", "chord", "rumble"). */
   classes?: { label: string; sound: "silence" | "chord" | "rumble" }[];
-  // <<< DATA
 }
 
 export function ruleParts(voice: VoiceSpec): RuleParts | null {
   const m = voice.mapping;
   if (!m) return null;
   if (m.kind === "sameAs") return { kind: m.kind, inputUnit: m.input.unit, sameAs: m.voice };
-  // >>> DATA
   if (m.kind === "classes") return { kind: m.kind, inputUnit: m.input.unit, classes: m.states.map((s) => ({ label: s.label, sound: s.sound })) };
-  // <<< DATA
   if (m.kind === "bands") {
     return {
       kind: m.kind,
@@ -92,7 +86,7 @@ export function ruleParts(voice: VoiceSpec): RuleParts | null {
   };
 }
 
-/** The English rule sentence shown in the Mapping panel. Bangla: build from ruleParts(). */
+/** The English rule sentence shown in the Mapping panel. Bangla: build from ruleParts. */
 export function ruleText(voice: VoiceSpec): string {
   const p = ruleParts(voice);
   if (!p) return voice.silence;
@@ -103,12 +97,10 @@ export function ruleText(voice: VoiceSpec): string {
     return `${name}: two tones in one ear, both by the ${other.label.en} rule (${ruleText(other)}) Beats per second = the difference between the two pitches in Hz.`;
   }
 
-  // >>> DATA
   if (p.kind === "classes") {
     const parts = (p.classes ?? []).map((c) => `${c.label}: ${CLASS_SOUND_WORDS[c.sound]}`);
     return `${name} (${p.inputUnit}) → a fixed sound per class, never a pitch. ${parts.join("; ")}.`;
   }
-  // <<< DATA
 
   if (p.kind === "bands") {
     const what = p.inputTransform === "abs" ? `How far from normal (either direction, ${p.inputUnit})` : name;

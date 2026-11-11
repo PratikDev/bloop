@@ -1,4 +1,4 @@
-// The credits list (mentor item 5 follow-up): built from the record registry, never typed. See build.ts.
+// The credits list: built from the record registry, never typed. See build.ts.
 
 /** A place in the app where sound plays. The braille explorer reads the Listen tracks and the Official records. */
 export const CREDIT_PAGES = ["listen", "thenNow", "how", "official", "turntable", "braille"] as const;

@@ -1,4 +1,4 @@
-// P3, landslide exposure (DATA): the record reads the LHASA class at the needle with its label (modelled exposure, not
+// Landslide exposure: the record reads the LHASA class at the needle with its label (modelled exposure, not
 // observed landslides); each class gives its own sound and the lowest are stated silences; the staleness banner shows
 // when the product is past its freshness limit (and not when it is fresh). Runs on a build with
 // NEXT_PUBLIC_DATA_LANDSLIDES=1. Expected values come from the shipped files through the app's own functions.

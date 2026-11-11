@@ -1,4 +1,4 @@
-// The SVS items a record's checks were run against (P6): a check whose title starts with another SVS id ("5479 flat
+// The SVS items a record's checks were run against: a check whose title starts with another SVS id ("5479 flat
 // maps: …") used that item's frames to check this record. Read from validation.json: credited, never played.
 import { svsPage } from "@/lib/credits/build";
 import type { OfficialValidationFile } from "@/types/data-contract";

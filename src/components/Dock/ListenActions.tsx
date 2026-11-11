@@ -12,9 +12,7 @@ import { GoToMenu } from "./GoToMenu";
 import { PlacesMenu } from "./PlacesMenu";
 import { CompareMenu } from "./CompareMenu";
 import { LogMenu } from "./LogMenu";
-// >>> DATA
 import { FireWeatherLayerSound } from "../EarthData/FireWeatherLayer";
-// <<< DATA
 
 /** The Listen page's actions: go to a place, sweep, storm time-lapse, the tour, the braille explorer, the Inspector, the keys (the mixer is on every page, in the dock). */
 export function ListenActions() {
@@ -52,9 +50,9 @@ export function ListenActions() {
         onClick={() => commands.openPanel(state.panel)}
       />
       {FLAGS.expedition && <LogMenu />}
-      {/* >>> DATA: the fire-weather layer's sound at the cursor (no button; its switch is in the Mixer) */}
+      {/* the fire-weather layer's sound at the cursor (no button; its switch is in the Mixer) */}
       <FireWeatherLayerSound />
-      {/* <<< DATA */}
+      {/*  */}
       <DockAction icon={<Keyboard aria-hidden="true" />} full={t("help.keys")} short={t("help.keys")} onClick={commands.openHelp} className="hidden lg:inline-flex" />
     </>
   );

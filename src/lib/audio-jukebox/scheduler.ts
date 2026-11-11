@@ -1,4 +1,4 @@
-// One shared look-ahead scheduler (docs/L2/AUDIO_RESEARCH.md A2): a timer wakes
+// One shared look-ahead scheduler: a timer wakes
 // every 25 ms and each task schedules everything due in the next 100 ms against
 // the audio clock. Sound timing never comes from React state or animation frames.
 

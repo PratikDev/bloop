@@ -1,4 +1,4 @@
-// English strings for the accessibility core, step 5: Track 0 "Tuning" (each record's lowest and highest anchors with
+// English strings for Track 0 "Tuning" (each record's lowest and highest anchors with
 // their values, the reference tone, the sound grammar) and the spoken provenance line. Every number is a slot from
 // mapping.json or a frame's metadata.
 

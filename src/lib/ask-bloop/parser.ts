@@ -1,12 +1,10 @@
-// Ask Bloop's deterministic parser (spec §5.2): English and Bangla patterns and keyword sets, no network and no key, so
+// Ask Bloop's deterministic parser: English and Bangla patterns and keyword sets, no network and no key, so
 // it works offline and in the audio-lite mode. It returns an intent with the place words as said (resolvePlace maps
 // them) and a confidence; below PARSE_THRESHOLD nothing runs and Bloop asks a short question instead.
 import type { TrackMode } from "@/lib/audio/types";
 import type { AskPage, Extreme, Intent, SettingChange } from "./intents";
 import { monthsIn, normaliseUtterance, withoutMonths } from "./normalise";
-// >>> DATA
 import { dataIntentFor } from "./data-intents";
-// <<< DATA
 
 export interface Parsed {
   intent: Intent;
@@ -79,12 +77,11 @@ const RULES: readonly Rule[] = [
     const s = SETTINGS.find(([re]) => re.test(t));
     return s ? sure({ name: "set_setting", ...s[1] }) : null;
   },
-  // >>> DATA: fire weather, fires, landslides, night lights here (src/lib/ask-bloop/data-intents.ts).
+  // fire weather, fires, landslides, night lights here (src/lib/ask-bloop/data-intents.ts).
   (t) => {
     const name = dataIntentFor(t);
     return name ? sure({ name }) : null;
   },
-  // <<< DATA
   // Pages.
   (t) => {
     const m = /^(?:open|show(?: me)?|go to|take me to|switch to)\s+(.+)$|^(.+?)\s+(?:খোলো|দেখাও|যাও)$/u.exec(t);
@@ -116,7 +113,7 @@ const RULES: readonly Rule[] = [
     if (!/(?:tell me )?about (?:this|the) .*record|^what is the .*record$|রেকর্ড সম্পর্কে বলো|রেকর্ড কী$/u.test(t)) return null;
     return sure({ name: "about_record", record: /this|এই/u.test(t) ? null : recordIn(t) });
   },
-  // Compare two months (Compare two dates, step 6).
+  // Compare two months (Compare two dates).
   (t) => {
     if (!/compare|versus|\bvs\b|তুলনা/u.test(t)) return null;
     const [dateA, dateB] = monthsIn(t);

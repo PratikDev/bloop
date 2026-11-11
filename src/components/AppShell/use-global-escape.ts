@@ -5,7 +5,7 @@ import { consumeEscape, escClosesOverlay } from "@/lib/escape";
 import type { Commands } from "../Commands/use-commands";
 
 /**
- * Esc stops all sound and closes panels from anywhere on the page (plan §9.3).
+ * Esc stops all sound and closes panels from anywhere on the page.
  * `alsoStop` covers things that run without sound (the silent time-lapse).
  * Capture phase: an open sheet or dialog would otherwise take the first Esc.
  * An Esc pressed inside an overlay closes only that overlay: it stops the sound

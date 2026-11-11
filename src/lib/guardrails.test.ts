@@ -1,4 +1,4 @@
-// Guardrail checks for the §15 integration (docs/data-integration-plan.md §10), run by `bun test`:
+// Guardrail checks for the §15 integration, run by `bun test`:
 // one scale per comparison, model badges and timbre, the S-NPP rule, and no number typed next to
 // a unit in UI strings (numbers come from pipeline JSON or mapping.json).
 

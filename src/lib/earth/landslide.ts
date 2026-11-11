@@ -1,4 +1,4 @@
-// Landslide exposure (P3): SVS 5584's LHASA nowcast, decoded by the pipeline into its legend's classes
+// Landslide exposure: SVS 5584's LHASA nowcast, decoded by the pipeline into its legend's classes
 // (latest/landslide_class.*). A modelled exposure category, never an observed landslide. Its words, braille line and
 // description are built here once for the record, its transcript and Ask Bloop.
 

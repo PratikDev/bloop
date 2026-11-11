@@ -1,4 +1,4 @@
-// Plan item 11: Then vs Now in the Braille Data Explorer. The series is the file's (every year of both windows, the
+// Then vs Now in the Braille Data Explorer. The series is the file's (every year of both windows, the
 // gap blank; GRACE's months with their missing months blank); R's note is stats.json's statistic and 95% interval
 // exactly, within the braille text rules and safe for the Bengali table; the lines name the city, not coordinates.
 import { describe, expect, test } from "bun:test";

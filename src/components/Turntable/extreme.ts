@@ -1,5 +1,5 @@
 // The hottest (Ocean) or wettest (Rain) cell on the needle's groove within the
-// part of the globe facing the camera, read with the same valueAt() as the
+// part of the globe facing the camera, read with the same valueAt as the
 // sound. When the needle reaches it, the existing "ping" earcon plays (caption:
 // "Ping: the extreme value in view") and a sparkle shows.
 

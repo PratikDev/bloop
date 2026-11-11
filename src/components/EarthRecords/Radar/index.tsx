@@ -34,7 +34,7 @@ const loadMethod = async () => {
 };
 
 /**
- * NASA's own method (P5): SVS 13786's radar sweep (Caldwell 73, SYSTEM Sounds) as "NASA mode" on today's ocean frame,
+ * NASA's own method: SVS 13786's radar sweep (Caldwell 73, SYSTEM Sounds) as "NASA mode" on today's ocean frame,
  * beside "Bloop mode" on the same points. A toggle switches them; the caption says the difference.
  */
 export function RadarMethod() {

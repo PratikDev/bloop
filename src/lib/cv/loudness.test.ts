@@ -1,4 +1,4 @@
-// D: the meters against BS.1770's own reference points: a 997 Hz sine at 0 dBFS in one channel reads −3.01 LUFS; 20 dB
+// The meters against BS.1770's own reference points: a 997 Hz sine at 0 dBFS in one channel reads −3.01 LUFS; 20 dB
 // quieter reads 20 LU less; silence is −Infinity; true peak finds an inter-sample peak a sample peak misses; flatness
 // tells a tone from noise.
 import { describe, expect, test } from "bun:test";

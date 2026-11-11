@@ -1,10 +1,8 @@
 // Downloads the Turntable's design layers once and writes equirectangular WebP
 // textures to public/textures/ (row 0 = 90° N, column 0 = 180° W, like every
 // L1 grid). These are decoration only: no value, sound or label comes from them.
-//
 //   node scripts/fetch-basemap.mjs            # 4096 × 2048 + 2048 × 1024
 //   node scripts/fetch-basemap.mjs --hires    # also 8192 × 4096 (day, night)
-//
 // Sources (see docs/turntable.md for licences and credits):
 //   Day:    NASA Blue Marble Next Generation, GIBS WMS layer BlueMarble_NextGeneration
 //   Night:  NASA Black Marble 2016,          GIBS WMS layer VIIRS_Black_Marble

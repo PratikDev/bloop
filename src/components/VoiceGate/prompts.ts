@@ -1,4 +1,4 @@
-// The gate test's prompts (spec §7): 20 per language from the registry's own examples (the first of each intent but
+// The gate test's prompts: 20 per language from the registry's own examples (the first of each intent but
 // the last), each with the intent and slots the parser makes of the prompt itself, so a transcript is scored on
 // meaning, not on spelling. Bangla prompts are drafts until a Bangla speaker checks them.
 import type { Intent } from "@/lib/ask-bloop/intents";

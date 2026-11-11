@@ -1,7 +1,7 @@
 // Two values beating in one ear: the first tone alone, then the second joins it in the same (left) ear. Both follow
 // one pitch rule, so equal values are one pure tone and any difference beats |f1 − f2| times a second.
 // Proof in unison (idea C1; mapping.json "unison" = sameAs "ocean") plays the frame's value against NASA's file; Compare
-// two dates (accessibility core, step 6) plays one place at two times by its layer's rule.
+// two dates plays one place at two times by its layer's rule.
 
 import { loudnessGain, mapVoice, unisonTones, voiceSpec } from "@/lib/audio/mapping";
 import type { CaptionParams } from "@/lib/audio/types";

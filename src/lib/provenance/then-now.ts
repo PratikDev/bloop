@@ -25,7 +25,7 @@ export interface ThenNowContext {
   stats: ThenNowStatsFile | null;
 }
 
-/** The water record every city plays (mentor item 12: Bangladesh-wide). */
+/** The water record every city plays (Bangladesh-wide). */
 const BOX = "Bangladesh";
 const PART_RECORD = { heat: "heat", monsoon: "rain", water: "water" } as const satisfies Record<Part, string>;
 
@@ -62,7 +62,7 @@ export function thenNowProvenance(c: ThenNowContext, part: Part): Provenance {
       scripts,
       validation,
       patternOnly: null,
-      health: voiceProduct(part), // >>> DATA <<< DATA
+      health: voiceProduct(part), 
     };
   }
 
@@ -87,6 +87,6 @@ export function thenNowProvenance(c: ThenNowContext, part: Part): Provenance {
     scripts,
     validation,
     patternOnly: null,
-    health: voiceProduct(part), // >>> DATA <<< DATA
+    health: voiceProduct(part), 
   };
 }

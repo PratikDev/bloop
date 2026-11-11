@@ -36,7 +36,7 @@ export function bandText(t: BoundT, lang: Lang, b: Band): string {
 }
 
 /**
- * The live frame on the map as low-vision bands (accessibility core, step 8): the decoded grid the sound plays, its
+ * The live frame on the map as low-vision bands: the decoded grid the sound plays, its
  * bands and their colours. `lens`: the lens always draws bands, even when the map shows NASA's colours. Null while
  * the frames load, during the storm time-lapse (its frames show as NASA drew them), or with the flag off.
  */

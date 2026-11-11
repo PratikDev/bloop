@@ -126,7 +126,7 @@ const TEMPLATES: Record<string, string> = {
   "Water storage (GRACE): Bangladesh # → # cm; NW India # → # cm (#–# vs #–#). Silence = no satellite measurements (Jul #–May #).":
     "পানির মজুদ (GRACE): বাংলাদেশ {0} → {1} সেমি; উত্তর-পশ্চিম ভারত {2} → {3} সেমি ({4}–{5} বনাম {6}–{7})। নীরবতা = কোনো স্যাটেলাইট পরিমাপ নেই (জুলাই {8} – মে {9})।",
   "No satellite measurements Jul # - May # (between GRACE and GRACE-FO).": "জুলাই {0} – মে {1} পর্যন্ত কোনো স্যাটেলাইট পরিমাপ নেই (GRACE ও GRACE-FO-এর মাঝের সময়)।",
-  // build_demo.py gpcc_end_note / newer_label (mentor item 9; draft, needs review: bn/drafts.ts).
+  // build_demo.py gpcc_end_note / newer_label (draft, needs review: bn/drafts.ts).
   "GPCC stops at # because the gauge version we use (GPCC Full Data Monthly V#) ends in December #, so both rain records compare #–# with #–#.":
     "GPCC {0} সালে থামে, কারণ আমাদের ব্যবহৃত বৃষ্টিমাপক সংস্করণ (GPCC Full Data Monthly V{1}) ডিসেম্বর {2}-এ শেষ; তাই দুটি বৃষ্টির রেকর্ডই {3}–{4}-কে {5}–{6}-এর সাথে তুলনা করে।",
   "GPCP only, newer decade; GPCC data ends in #": "শুধু GPCP, নতুন দশক; GPCC ডেটা {0} সালে শেষ",

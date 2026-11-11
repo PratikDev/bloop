@@ -1,4 +1,4 @@
-// Accessibility core, step 2: the map widget's navigation (cell size, 3×3 regions, the back trail, frame steps) and its
+// The map widget's navigation (cell size, 3×3 regions, the back trail, frame steps) and its
 // state in the reducer.
 import { describe, expect, test } from "bun:test";
 import { initialState, reducer } from "@/components/AppState/reducer";

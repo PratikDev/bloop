@@ -1,4 +1,4 @@
-// English for the accessibility core, step 7: the timed text tracks (WebVTT), the sound captions, the transcript page
+// English for the timed text tracks (WebVTT), the sound captions, the transcript page
 // per record and the alt text that goes with an export. Sound captions follow the DCMP style: in brackets, lowercase
 // for the sound, present tense, what makes it named. Every number is a slot formatted from the data.
 
@@ -46,7 +46,7 @@ export const timedTextEn = {
   "caption.cue": (p: CaptionParams) => strParam(p, "en"),
   "caption.sonar.ping": "Sonar ping",
 
-  // Sound captions: a short visual note on what the last sound did (spec 3.5), beside the caption bar.
+  // Sound captions: a short visual note on what the last sound did, beside the caption bar.
   "sound.toneUp": "tone rising ↑ warmer",
   "sound.toneDown": "tone falling ↓ cooler",
   "sound.dropsUp": "rain thickening ↑",
@@ -84,7 +84,7 @@ export const timedTextEn = {
   "transcript.lowest": (p: { label: string; value: string; unit: string; place: string; time: string }) => `Lowest ${p.label}: ${p.value} ${p.unit}, ${p.place}, ${p.time}.`,
   "transcript.at": (p: { time: string; text: string }) => `${p.time}: ${p.text}`,
 
-  // Alt text that goes with an export (spec 3.6): a sidecar .txt, and the STL file's own header.
+  // Alt text that goes with an export: a sidecar .txt, and the STL file's own header.
   "alt.save": "Save its description (.txt)",
   "alt.saved": (p: { file: string }) => `Saved ${p.file}`,
   "alt.heading.alt": "Alt text",

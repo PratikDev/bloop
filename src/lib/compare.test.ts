@@ -1,4 +1,4 @@
-// Accessibility core, step 6: "Compare two dates" reads the right cell and months, and its difference is b − a from the
+// "Compare two dates" reads the right cell and months, and its difference is b − a from the
 // file itself (a hand-made layer with known values, then the shipped GISTEMP layer at Dhaka).
 import { describe, expect, test } from "bun:test";
 import { readFileSync } from "node:fs";

@@ -1,4 +1,4 @@
-// Accessibility core, step 1 (docs/accessibility/CORE_PLAN.md): how Bloop speaks and which channels fire. The value
+// How Bloop speaks and which channels fire. The value
 // lists here are the one source for the state's types, the saved prefs and the settings' choices.
 import { FLAGS } from "@/lib/flags";
 
@@ -6,7 +6,7 @@ import { FLAGS } from "@/lib/flags";
 export const SPEECH_MODES = ["screenReader", "voice", "off"] as const;
 export type SpeechMode = (typeof SPEECH_MODES)[number];
 
-/** How much a description or answer says (layered descriptions, step 3). */
+/** How much a description or answer says (layered descriptions). */
 export const VERBOSITIES = ["brief", "standard", "detailed"] as const;
 export type Verbosity = (typeof VERBOSITIES)[number];
 
@@ -14,7 +14,7 @@ export type Verbosity = (typeof VERBOSITIES)[number];
 export const CHANNELS = ["both", "text", "sound"] as const;
 export type Channels = (typeof CHANNELS)[number];
 
-/** What a braille display gets from the status region (plan item 12): the full lines, or each new description and
+/** What a braille display gets from the status region: the full lines, or each new description and
  *  stat line's short form (one 40-cell line; src/a11y/shortForms.ts). The full line stays in the app either way (caption bar with sound on, Description tab, log). */
 export const BRAILLE_LINES = ["full", "short"] as const;
 export type BrailleLines = (typeof BRAILLE_LINES)[number];

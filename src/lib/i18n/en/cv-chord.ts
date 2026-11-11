@@ -1,4 +1,4 @@
-// English strings for the value chord (CV/ML build, piece B; src/lib/audio/layers/chord). Every value and share is a
+// English strings for the value chord (src/lib/audio/layers/chord). Every value and share is a
 // slot filled from the box's groups, never typed here.
 export const cvChordEn = {
   "cv.chord.toggle": "Chord: spread of values",

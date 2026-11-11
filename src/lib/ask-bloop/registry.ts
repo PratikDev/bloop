@@ -1,12 +1,10 @@
-// Ask Bloop's intent registry (spec §5.1): for each intent, whether it acts or answers, and how people say it in
+// Ask Bloop's intent registry: for each intent, whether it acts or answers, and how people say it in
 // English and Bangla. The examples are the parser's test set (every one must parse to its intent) and the starter
 // suggestions' source. The handlers are bound in src/components/AskBloop (each calls what the UI or a key already
 // calls); the answer templates are the i18n keys "ask.answer.<intent>" (en/ask-bloop.ts, bn/ask-bloop.ts).
 // Bangla examples are drafts until a Bangla speaker checks them (needsReview).
 import type { IntentKind, IntentName } from "./intents";
-// >>> DATA
 import { DATA_REGISTRY } from "./data-intents";
-// <<< DATA
 
 export interface IntentSpec {
   kind: IntentKind;
@@ -74,12 +72,10 @@ export const REGISTRY = {
     kind: "question",
     examples: { en: ["how reliable is this", "how accurate is it", "can I trust this value"], bn: ["এটা কতটা নির্ভরযোগ্য", "এটা কতটা সঠিক", "এই মান কি বিশ্বাসযোগ্য"] },
   },
-  // >>> DATA
   ...DATA_REGISTRY,
-  // <<< DATA
 } as const satisfies Record<IntentName, IntentSpec>;
 
 export const INTENT_NAMES = Object.keys(REGISTRY) as IntentName[];
 
-/** The five starter suggestions (spec §5.6, VizAbility): one navigation, one value, one compare, one "what am I hearing", one setting. */
+/** The five starter suggestions (VizAbility): one navigation, one value, one compare, one "what am I hearing", one setting. */
 export const STARTERS = ["go_to_place", "value_here", "compare_dates", "what_am_i_hearing", "set_setting"] as const satisfies readonly IntentName[];

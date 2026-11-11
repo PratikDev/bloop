@@ -1,4 +1,4 @@
-// Accessibility core, step 4 (docs/accessibility/CORE_PLAN.md): "View as table" (the values around the needle, from
+// "View as table" (the values around the needle, from
 // the grid the sound plays, one arrow-step apart) and Places (offline search; continent → country → division). Runs on
 // a build with NEXT_PUBLIC_A11Y_TABLE_PLACES=1 (and steps 1–3 on), 3D shown and hidden. The table's middle cell must
 // equal the map's own reading, which health-records.e2e.ts checks against the shipped grids.

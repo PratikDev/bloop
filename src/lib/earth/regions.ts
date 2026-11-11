@@ -1,4 +1,4 @@
-// "The 3 most active fire-weather regions in the current grid, found by the code" (P2a): the grid is cut into blocks
+// "The 3 most active fire-weather regions in the current grid, found by the code": the grid is cut into blocks
 // of BLOCK_DEG; a block with enough land forecast (MIN_VALID_SHARE of its cells) is scored by its mean class; the top
 // blocks that don't touch each other are offered as one-click places, each at the centre of its highest-class cells.
 // Pure: a class grid in, places out. The block size and share are design choices, not data.

@@ -1,10 +1,10 @@
-// Accessibility core, step 8 (docs/accessibility/CORE_PLAN.md; spec Part 4): low-vision mode. The Alt+L preset, the
+// Low-vision mode. The Alt+L preset, the
 // Context Lens (value, scale, overview, labelled bands; follows keyboard moves; Z and [ ]; a corner or docked in the
 // page), every re-colour scheme with its legend and "re-coloured" label, band labels that match the decoded values,
 // thick coastlines and city labels, reflow at 320 px, WCAG 1.4.12 text spacing, theme contrast (text, focus ring,
 // needle), 44 px targets, point of regard (text size and zoom), calm view and reduced motion, forced colours, no
 // hover-only content, panels in the page instead of pop-ups, the preset in Track 0, the settings panel (axe), speaking
-// on dwell. Runs on a build with NEXT_PUBLIC_A11Y_LOW_VISION=1 (steps 1–7 on). Item 10 of the plan checks Part 4 here.
+// on dwell. Runs on a build with NEXT_PUBLIC_A11Y_LOW_VISION=1 (steps 1–7 on). It checks Part 4 here.
 import { expect, test, type Page } from "@playwright/test";
 import { readFileSync } from "node:fs";
 import * as path from "node:path";

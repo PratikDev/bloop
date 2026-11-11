@@ -1,4 +1,4 @@
-// PURE: sound captions (accessibility core, step 7; spec Part 3.5): a short visual note on what the last sound did, for
+// PURE: sound captions: a short visual note on what the last sound did, for
 // Deaf and hard-of-hearing visitors too ("rain thickening ↑", "beats = the two sources disagree"). Worked out from the
 // caption events every sound already sends, so a sound without one is a missing caption, never a missing note.
 import type { CaptionParams } from "@/lib/audio-adapter/types";

@@ -1,4 +1,4 @@
-// Mentor item 3: the inline head script sets <html lang> from the saved prefs, and does nothing (no throw) when the
+// The inline head script sets <html lang> from the saved prefs, and does nothing (no throw) when the
 // value is missing or unknown, or storage is blocked.
 import { afterEach, describe, expect, test } from "bun:test";
 import { LANG_SCRIPT } from "./lang-script";

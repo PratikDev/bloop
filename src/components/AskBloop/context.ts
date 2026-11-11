@@ -1,5 +1,5 @@
 // What Ask Bloop's handlers get (src/components/AskBloop): the app's own commands, state and data, so every intent
-// runs what the UI or a key already runs (spec §0: no synthetic clicks, no DOM reading).
+// runs what the UI or a key already runs (no synthetic clicks, no DOM reading).
 import type { ShortLine, Commands, Line } from "../Commands/use-commands";
 import type { AppAction, AppState } from "../AppState/reducer";
 import type { BoundT, Lang } from "@/lib/i18n";

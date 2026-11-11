@@ -1,4 +1,4 @@
-// P1, the leftovers (DATA): the live provenance cards read the live_*/validation.json files (their key numbers equal
+// The leftovers: the live provenance cards read the live_*/validation.json files (their key numbers equal
 // docs/official/VALIDATION_TABLE.md's), "Not playable" lists the pipeline's hidden records with its reasons, and the
 // Sound terrain shows NASA's SVS 5176 picture while the anomaly plays. Runs on a build with NEXT_PUBLIC_DATA_LEFTOVERS=1.
 import { expect, test } from "@playwright/test";

@@ -86,7 +86,7 @@ export function NeedleChip({ subscribe, place, details, reserved }: Props) {
           <En active={bn}>{rainText(t, r.rain, r.rainLoaded)}</En>
         </p>
       )}
-      {/* The Both record mixes two frames from different moments: say how far apart (mentor item 1). */}
+      {/* The Both record mixes two frames from different moments: say how far apart. */}
       {track === "both" && <FrameGapNote />}
       {place && <p className="text-body font-medium text-moon">{place}</p>}
       <p className="text-body text-haze">

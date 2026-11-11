@@ -110,7 +110,7 @@ export function tactileMesh(rec: TactileRecord): Mesh {
   return new Mesh(geometry, new MeshBasicMaterial());
 }
 
-/** What the disc's alt text needs beyond the disc itself (accessibility core, step 7). */
+/** What the disc's alt text needs beyond the disc itself. */
 export interface TactileMeta {
   unit: string;
   /** What each step around the circle is (a year, a month), oldest first. */

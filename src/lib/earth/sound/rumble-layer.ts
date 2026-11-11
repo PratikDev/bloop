@@ -1,4 +1,4 @@
-// The landslide exposure rumble (P3): a class's fixed rumble from the "landslideRumble" rule: noise through a low-pass
+// The landslide exposure rumble: a class's fixed rumble from the "landslideRumble" rule: noise through a low-pass
 // at a fixed cutoff, a fixed gain, and slow amplitude pulses for the highest class. Thresholded events: the state jumps
 // with the class, never a continuous pitch. "None shown" and "low" are stated silences.
 

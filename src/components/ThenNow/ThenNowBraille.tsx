@@ -8,7 +8,7 @@ import { BrailleExplorer } from "../BrailleExplorer";
 import { useThenNowBrailleSource, type ThenNowBrailleInput } from "./use-then-now-braille-source";
 
 /**
- * Then vs Now's Braille Data Explorer (plan item 11), beside the part's play controls: a button (or B on the page)
+ * Then vs Now's Braille Data Explorer, beside the part's play controls: a button (or B on the page)
  * opens it; closing gives focus back to the button.
  */
 export function ThenNowBraille({ input, open, onOpenChange }: { input: ThenNowBrailleInput; open: boolean; onOpenChange: (open: boolean) => void }) {

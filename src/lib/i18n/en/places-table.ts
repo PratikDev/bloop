@@ -1,4 +1,4 @@
-// English strings for the accessibility core, step 4: "View as table" (the values around the needle, from the grid the
+// English strings for "View as table" (the values around the needle, from the grid the
 // sound plays) and Places (search and the region tree: continent → country → division).
 import { formatDegrees, formatUtc } from "../format";
 

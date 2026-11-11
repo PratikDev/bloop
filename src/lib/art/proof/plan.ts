@@ -1,4 +1,4 @@
-// PURE: what the data-voice check renders (the pitch-identity proof, docs/statement/ART.md). A plan is a record's own
+// PURE: what the data-voice check renders (the pitch-identity proof). A plan is a record's own
 // values at its own tempo, turned into the data voice's notes by the record's rule (mapping.json, the same function
 // the engines use). The plan is fixed before rendering; the renderer logs what it actually scheduled at each dial
 // stop, and the check compares those logs and the measured audio.

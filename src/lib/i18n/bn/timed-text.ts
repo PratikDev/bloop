@@ -1,4 +1,4 @@
-// Bangla for the accessibility core, step 7 (en/timed-text.ts). Drafts: listed in drafts.ts until a Bangla speaker
+// Bangla for timed text (en/timed-text.ts). Drafts: listed in drafts.ts until a Bangla speaker
 // checks them. Sound captions keep the DCMP shape (in brackets, the sound first, present tense). Every number is a
 // slot formatted in Bangla.
 import type { timedTextEn } from "../en/timed-text";

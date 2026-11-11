@@ -1,4 +1,4 @@
-// Plan item 12: every new description and stat line has a short form within one 40-cell line, under the braille text
+// Every new description and stat line has a short form within one 40-cell line, under the braille text
 // rules, safe for the Bengali table, with the numbers of the full line (shipped data: the live frames' metadata, the
 // freshness file's datasets, values across each record's range).
 import { describe, expect, test } from "bun:test";

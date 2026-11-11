@@ -1,4 +1,4 @@
-// Mentor item 12: the water note says Bangladesh-wide (mascon size from grace.json) for every city, on screen at
+// The water note says Bangladesh-wide (mascon size from grace.json) for every city, on screen at
 // 1280×720 without scrolling, in both Then vs Now views; and a fixture with two places in one cell shows the shared-cell
 // note in Compare decades, Month by month, and the captions.
 import { expect, test, type Locator, type Page } from "@playwright/test";

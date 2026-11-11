@@ -1,4 +1,4 @@
-// Accessibility core, step 6: the sonar's target and ping on a synthetic grid with a known answer.
+// The sonar's target and ping on a synthetic grid with a known answer.
 import { describe, expect, test } from "bun:test";
 import type { ValueGrid } from "@/lib/describe/stats";
 import { arrived, closeness, FAR_MS, mapDistance, NEAR_MS, pingIntervalMs, sonarTarget } from "./sonar";

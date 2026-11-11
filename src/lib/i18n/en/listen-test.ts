@@ -1,4 +1,4 @@
-// English strings for the hidden listener test (mentor item 8; /listen-test, docs/LISTEN_TEST_PROTOCOL.md).
+// English strings for the hidden listener test (/listen-test, docs/LISTEN_TEST_PROTOCOL.md).
 
 export const listenTestEn = {
   "lt.title": "Quick listening test",

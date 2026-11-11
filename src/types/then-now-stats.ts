@@ -1,4 +1,4 @@
-// public/data/thenvsnow/stats.json (pipeline/stats/then_vs_now_stats.py, mentor item 10): the uncertainty and
+// public/data/thenvsnow/stats.json (pipeline/stats/then_vs_now_stats.py): the uncertainty and
 // significance of every Then vs Now claim. Method and every number: docs/THEN_VS_NOW_STATS.md.
 
 import type { ClimateCellName, GraceBoxName } from "./data-contract";

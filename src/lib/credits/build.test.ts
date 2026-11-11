@@ -1,4 +1,4 @@
-// Credits follow-up to mentor item 5 ("credits must match what plays"): built from the record registry, every source a
+// Credits must match what plays: built from the record registry, every source a
 // playing record uses is under "Data in this app", nothing there is testing-only, and nothing under "Used in our
 // testing" is used by a playing record. Read from the shipped files, so a new record or voice is checked with no edit.
 import { describe, expect, test } from "bun:test";
@@ -99,7 +99,7 @@ describe("credits from the registry", () => {
     const hidden = relatedAll.records.filter((r) => r.hidden).map((r) => r.record);
     expect(hidden.length).toBeGreaterThan(0);
     for (const r of hidden) expect([r, recordsOf(data).has(r)]).toEqual([r, false]);
-    // Fires and vegetation are hidden (item 5): their datasets are testing-only unless another record plays them.
+    // Fires and vegetation are hidden: their datasets are testing-only unless another record plays them.
     for (const pid of ["firms", "ndvi"]) {
       expect(playing.has(pid)).toBe(false);
       for (const d of freshness.products[pid].datasets) expect([d.id, dataIds.has(d.id)]).toEqual([d.id, false]);

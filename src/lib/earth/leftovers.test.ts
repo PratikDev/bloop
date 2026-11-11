@@ -1,4 +1,4 @@
-// P1, the leftovers: the live cards' numbers are the six live_*/validation.json files', equal to
+// The leftovers: the live cards' numbers are the six live_*/validation.json files', equal to
 // docs/official/VALIDATION_TABLE.md; the "Not playable" list is the pipeline's hidden flags; GPCC's dead path is gone.
 import { describe, expect, test } from "bun:test";
 import { readFileSync } from "node:fs";

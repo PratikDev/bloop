@@ -40,7 +40,7 @@ function Pick({ label, value, options, onChange }: { label: string; value: strin
 }
 
 /**
- * Compare two dates (accessibility core, step 6; spec Part 1.9): the same place, the cell around the needle, in one
+ * Compare two dates: the same place, the cell around the needle, in one
  * month of two years, from NASA's monthly records. The exact values and difference are said; the sound plays both by
  * the record's rule (two tones beating in one ear, or rain's drops one after the other).
  */

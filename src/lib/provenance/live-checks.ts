@@ -1,6 +1,6 @@
 // The live frames' acceptance checks (public/data/official/live_*/validation.json), read directly by the live
 // provenance cards so their numbers come from the files, not only from a link into docs/official/VALIDATION_TABLE.md.
-// keyNumbers() writes a check's numbers exactly as pipeline/svs/validate.py's _fmt does for that table (the first six
+// keyNumbers writes a check's numbers exactly as pipeline/svs/validate.py's _fmt does for that table (the first six
 // plain metrics, floats to three significant figures), so a test can hold the two equal.
 
 import { fetchJson } from "@/lib/data/fetch";

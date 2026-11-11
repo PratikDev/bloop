@@ -2,7 +2,7 @@
  * After a page change, whether to put focus on the new page's heading (screen readers read it; Tab continues from the
  * top of the new page). Only when focus is still where the move left it, on the header link that moved it, or was lost
  * with the old page. Once focus moves anywhere else (the user Tabs to a header link, a page or an overlay places it),
- * it stays there: taking it from a link focused after the move sent the next Enter to the heading (mentor item 4).
+ * it stays there: taking it from a link focused after the move sent the next Enter to the heading.
  */
 export type TitleFocus = "focus" | "wait" | "stop";
 

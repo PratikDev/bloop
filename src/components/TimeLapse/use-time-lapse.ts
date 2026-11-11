@@ -12,7 +12,7 @@ export interface TimeLapseFrame {
   timeUtc: string; // this frame's own time (index.json)
   point: SweepPoint; // where the cursor is (the heaviest rain nearby) and its value
   image: HTMLImageElement | null;
-  /** Held by PageUp/PageDown (step 2): `point` is the needle's own place in that frame, not the storm's. */
+  /** Held by PageUp/PageDown: `point` is the needle's own place in that frame, not the storm's. */
   held: boolean;
 }
 

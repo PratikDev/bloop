@@ -33,7 +33,7 @@ import { useGhostData } from "./use-ghost-data";
 import { useGhostScene } from "./use-ghost-scene";
 
 const LAYERS: readonly GlobalLayerName[] = ["heat", "rain", "water"];
-/** Fixed, stated scales (docs/3d-scenes-1-plan.md): colour saturates at ±clamp; offset per unit of change. */
+/** Fixed, stated scales: colour saturates at ±clamp; offset per unit of change. */
 const SCALES: Record<GlobalLayerName, ShellScale> = {
   heat: { clamp: 3, offsetPerUnit: 0.02, colours: DIVERGING.blueRed },
   rain: { clamp: 3, offsetPerUnit: 0.02, colours: DIVERGING.brownTeal },

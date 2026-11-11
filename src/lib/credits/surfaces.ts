@@ -7,9 +7,7 @@ import { isFieldPart, VIEW_PARTS } from "@/components/ThenNow/parts";
 import { TRACK_VOICES } from "@/lib/audio-jukebox/types";
 import { voiceSpec } from "@/lib/audio/mapping";
 import type { CreditPage } from "./types";
-// >>> DATA
 import { FLAGS } from "@/lib/flags";
-// <<< DATA
 
 const LIVE_VOICES = [...new Set(Object.values(TRACK_VOICES).flat())];
 /** Proof in unison (the U key, How we know's ocean check): the frame and the MUR file at the same point. */
@@ -34,9 +32,8 @@ const HOW_SHOWN = ["globe_bd"] as const;
 /** Every page but Official records, whose records are its index rows (build.ts reads them from the indexes). */
 export const SURFACES: readonly Surface[] = [
   { page: "listen", voices: [...LIVE_VOICES, UNISON], products: [TIME_LAPSE_PRODUCT] },
-  // >>> DATA: Listen's fire-weather layer plays the SVS 5315 forecast (behind its flag; credited when it plays).
+  // Listen's fire-weather layer plays the SVS 5315 forecast (behind its flag; credited when it plays).
   ...(FLAGS.dataFireWeather ? [{ page: "listen" as const, voices: ["fireWeather"] }] : []),
-  // <<< DATA
   { page: "thenNow", voices: VIEW_PARTS.filter((p) => !isFieldPart(p)), shows: THEN_NOW_SHOWN },
   { page: "how", voices: [UNISON], shows: HOW_SHOWN },
   { page: "turntable", voices: [...LIVE_VOICES, ...Object.values(SCENE_VOICES).flat(), UNISON] },

@@ -1,5 +1,4 @@
-// Scenes that need data the app doesn't ship yet (docs/3d-scenes-1-plan.md,
-// "Not in this pack"). Typed hooks only: each stays null until its data is
+// Scenes that need data the app doesn't ship yet. Typed hooks only: each stays null until its data is
 // published (L1) and its voice is in mapping.json (L2); then it gets a
 // component and joins SCENE_IDS in registry.ts.
 

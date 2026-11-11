@@ -1,4 +1,4 @@
-// English strings for the Team and about page (mentor item 7). Names, the challenge and the licence come from
+// English strings for the Team and about page. Names, the challenge and the licence come from
 // content/team.json and stay as written.
 
 export const teamEn = {

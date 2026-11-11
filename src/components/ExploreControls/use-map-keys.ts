@@ -45,9 +45,9 @@ export interface MapKeys {
 }
 
 /**
- * Keys that only work while the map region has focus (plan §9.3), so single letters never clash with screen reader
- * navigation (WCAG 2.1.4; the NVDA/JAWS check is in docs/accessibility/CORE_PLAN.md). Esc is handled globally, not
- * here. G is reserved for the game. With FLAGS.mapKeys (accessibility core, step 2): + and − set the step, J then 1–9
+ * Keys that only work while the map region has focus, so single letters never clash with screen reader
+ * navigation (WCAG 2.1.4). Esc is handled globally, not
+ * here. G is reserved for the game. With FLAGS.mapKeys: + and − set the step, J then 1–9
  * jumps by region, "." goes back, PageUp/PageDown hold a newer/older rain frame, D describes here and Shift+D toggles
  * Describe mode.
  */
@@ -105,20 +105,20 @@ export function useMapKeys(commands: Commands, shown: ShownPoint, stepDeg: numbe
       case "Enter":
         return speakHere;
       case "d":
-        // Step 3: the layered description; without it (or before the frames load), the value here.
+        // The layered description; without it (or before the frames load), the value here.
         return FLAGS.describe && describeHere ? describeHere : speakHere;
       case "D":
         return () => commands.toggleSetting("describe");
       case "n":
       case "N":
-        // Step 6: the sonar toward the warmest or wettest spot near the needle; N again stops it.
+        // The sonar toward the warmest or wettest spot near the needle; N again stops it.
         return FLAGS.expedition ? sonar : null;
       case "P":
-        // Step 5: the record's source in one line (plain P still opens Where it's from).
+        // The record's source in one line (plain P still opens Where it's from).
         return FLAGS.tuning ? sayProvenance : null;
       case "z":
       case "Z":
-        // Step 8: the Context Lens on or off; [ and ] resize it (they only mean speed on the Turntable).
+        // The Context Lens on or off; [ and ] resize it (they only mean speed on the Turntable).
         return FLAGS.lowVision ? lens.toggle : null;
       case "[":
         return FLAGS.lowVision ? () => lens.resize(-1) : null;

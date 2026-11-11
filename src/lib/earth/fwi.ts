@@ -1,4 +1,4 @@
-// "Tomorrow's fire weather" (P2a): SVS 5315's GISS GlobalFWI 1-day forecast, decoded by the pipeline into six classes
+// "Tomorrow's fire weather": SVS 5315's GISS GlobalFWI 1-day forecast, decoded by the pipeline into six classes
 // (latest/fwi_class.*), and Bloop's own daily copies (context/fwi_archive_index.json + archive/fwi/*.u8.gz, since SVS
 // keeps no archive). An experimental model forecast, categorical: never a measured fire.
 

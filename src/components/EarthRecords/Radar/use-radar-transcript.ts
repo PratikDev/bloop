@@ -20,7 +20,7 @@ export function useRadarTranscript(): { data: AppTranscriptData | null; error: b
   const [error, setError] = useState(false);
   useEffect(() => {
     let cancelled = false;
-    // t is bound here: useT() gives a new function each render, which would restart this load forever.
+    // t is bound here: useT gives a new function each render, which would restart this load forever.
     const t = bindT(lang);
     Promise.all([fetchJson<MethodManifest>(DATA_PATHS.official("sonification_13786/manifest.json")), loadSst()])
       .then(([m, sst]) => {

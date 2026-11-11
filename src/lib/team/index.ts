@@ -1,4 +1,4 @@
-// The Team/About page's content (mentor item 7): content/team.json, filled by the team. A field still "TODO" shows
+// The Team/About page's content: content/team.json, filled by the team. A field still "TODO" shows
 // nothing on the page (never the word), and a release build (BLOOP_RELEASE=1) refuses to build while one remains
 // (scripts/check-team.ts).
 

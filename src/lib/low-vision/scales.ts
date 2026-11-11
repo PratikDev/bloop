@@ -1,4 +1,4 @@
-// PURE: a band's colour in each low-vision scheme (accessibility core, step 8; spec 4.2), as the CSS variable that
+// PURE: a band's colour in each low-vision scheme, as the CSS variable that
 // holds it (globals.css), and the label colour that reads best on a fill. HTML swatches use the variables directly;
 // canvas code resolves them when it draws, so a theme change is always picked up.
 import { LV_STOPS } from "@/lib/css-tokens";

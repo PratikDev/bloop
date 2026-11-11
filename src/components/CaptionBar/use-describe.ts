@@ -45,7 +45,7 @@ const DESCRIBED = new Set([
 
 /**
  * Describe mode (plan H5, key D): spoken descriptions during playback. Goes
- * through say(), so the two-voices rule holds: the built-in voice or the live
+ * through say, so the two-voices rule holds: the built-in voice or the live
  * region, never both. Off during Story Mode, which narrates itself, and
  * while a narrated sound plays (its line was said before it).
  */
