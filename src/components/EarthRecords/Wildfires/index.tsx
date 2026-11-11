@@ -25,6 +25,8 @@ import { fireLetter } from "@/lib/art/letter/data-records";
 import { AgeNote } from "../AgeNote";
 import { EarthMap } from "../EarthMap";
 import { BrailleLine, DescribeButton, LinerNotes, TableToggle } from "../RecordTools";
+import { RECORD_GRID } from "../record-style";
+import { KEY_ROW, PLAY_KEY, WRAP_KEY } from "../../row-key";
 import { usePlaceNames } from "../use-place-names";
 import { DayPicker } from "../DayPicker";
 import { FiresTable, PilotTable } from "./FireTables";
@@ -69,7 +71,7 @@ export function Wildfires() {
   const season = w.sequence?.kind === "season" ? w.seasonCases.find((c) => c.key === (w.sequence?.kind === "season" ? w.sequence.key : "")) : null;
 
   return (
-    <div data-provenance-group="" className="grid gap-6 lg:grid-cols-[minmax(0,1fr)_24rem]" data-testid="record-fires_fwi">
+    <div data-provenance-group="" className={RECORD_GRID} data-testid="record-fires_fwi">
       <div className="space-y-3">
         <p className="text-body text-haze">{t("earth.fire.lead")}</p>
         <EarthMap
@@ -81,6 +83,33 @@ export function Wildfires() {
           onMove={w.moveNeedle}
           boxes={daily.regions.map((r) => ({ id: r, box: daily.boxes[r], current: r === w.region }))}
         />
+        <div className={KEY_ROW}>
+          <Button className={PLAY_KEY} onClick={playAtNeedle} data-testid="fire-play">
+            {w.playing ? t("earth.stop") : t("earth.play")}
+          </Button>
+          <Button variant="outline" className={WRAP_KEY} onClick={() => void (w.sequence?.kind === "replay" ? w.stop() : w.startReplay())} data-testid="fire-replay">
+            {w.sequence?.kind === "replay" ? t("earth.fire.replayStop") : t("earth.fire.replay")}
+          </Button>
+          <DescribeButton describe={(tt, l, level) => fireDescription(tt, l, meta, daily, reading, level, regionsText)} />
+          <LinerNotes lines={fireLinerNotes(t, data)} />
+        </div>
+        {replayDay && (
+          <p className="text-body text-moon" role="status" data-testid="replay-step">
+            {t("earth.fire.replayStep", {
+              i: formatInteger((w.sequence?.kind === "replay" ? w.sequence.step : 0) + 1, lang),
+              n: formatInteger(w.archive?.length ?? 0, lang),
+              issued: formatDay(replayDay.date, lang),
+              forDay: formatDay(nextDayOf(replayDay.date), lang),
+              cls: fwiClassText(t, meta, replayDay.codes[cellAt(meta.grid, w.needle)]),
+              outcome: outcomeText(t, lang, w, replayDay.date),
+            })}
+          </p>
+        )}
+        {season && w.sequence?.kind === "season" && (
+          <p className="text-body text-moon" role="status" data-testid="season-step">
+            {t("earth.fire.seasonStep", { day: formatDay(season.series.days[w.sequence.step] ?? season.series.days[0], lang), count: formatInteger(season.series.counts[w.sequence.step] ?? 0, lang) })}
+          </p>
+        )}
         <p className="text-small text-haze">
           {t("earth.fire.picture")} {pictureSat ? t("earth.fire.pictureSat", { sat: pictureSat }) : t("earth.fire.pictureSatNone")} {t("earth.map.keys")}
         </p>
@@ -106,33 +135,6 @@ export function Wildfires() {
           <StatusBadge kind="note">{t("earth.fire.badge.clicks", { state: !w.clicksOn ? t("earth.badge.off") : rate === 0 ? t("earth.badge.silent") : t("earth.fire.badge.rate", { rate: formatFixed(rate, lang, 1) }) })}</StatusBadge>
         </div>
 
-        <div className="flex flex-wrap gap-2">
-          <Button className="h-11 rounded-full px-4 text-body" onClick={playAtNeedle} data-testid="fire-play">
-            {w.playing ? t("earth.stop") : t("earth.play")}
-          </Button>
-          <Button variant="outline" className="h-11 rounded-full px-4 text-body" onClick={() => void (w.sequence?.kind === "replay" ? w.stop() : w.startReplay())} data-testid="fire-replay">
-            {w.sequence?.kind === "replay" ? t("earth.fire.replayStop") : t("earth.fire.replay")}
-          </Button>
-          <DescribeButton describe={(tt, l, level) => fireDescription(tt, l, meta, daily, reading, level, regionsText)} />
-          <LinerNotes lines={fireLinerNotes(t, data)} />
-        </div>
-        {replayDay && (
-          <p className="text-body text-moon" role="status" data-testid="replay-step">
-            {t("earth.fire.replayStep", {
-              i: formatInteger((w.sequence?.kind === "replay" ? w.sequence.step : 0) + 1, lang),
-              n: formatInteger(w.archive?.length ?? 0, lang),
-              issued: formatDay(replayDay.date, lang),
-              forDay: formatDay(nextDayOf(replayDay.date), lang),
-              cls: fwiClassText(t, meta, replayDay.codes[cellAt(meta.grid, w.needle)]),
-              outcome: outcomeText(t, lang, w, replayDay.date),
-            })}
-          </p>
-        )}
-        {season && w.sequence?.kind === "season" && (
-          <p className="text-body text-moon" role="status" data-testid="season-step">
-            {t("earth.fire.seasonStep", { day: formatDay(season.series.days[w.sequence.step] ?? season.series.days[0], lang), count: formatInteger(season.series.counts[w.sequence.step] ?? 0, lang) })}
-          </p>
-        )}
         <TranscriptLink record="fires_fwi" label={t("earth.fire.title")} />
         <RecordLetter letter={fireLetter(t, meta, reading.fwiCode, reading.forDay, place)} />
       </div>
@@ -152,19 +154,19 @@ export function Wildfires() {
         <section className="space-y-2" data-testid="fire-regions">
           {bdClass !== null && <p className="text-body">{t("earth.fire.bdNow", { date: formatDay(reading.forDay, lang), cls: fwiClassText(t, meta, bdClass) })}</p>}
           <p className="text-small text-haze">{t("earth.fire.regionsLead")}</p>
-          <div className="flex flex-wrap gap-2">
+          <div className={KEY_ROW}>
             {w.regions.map((r, i) => (
-              <Button key={i} variant="outline" className="h-11 rounded-full px-4 text-body" onClick={() => w.moveNeedle({ lat: r.lat, lon: r.lon })} data-region={i}>
+              <Button key={i} variant="outline" className={WRAP_KEY} onClick={() => w.moveNeedle({ lat: r.lat, lon: r.lon })} data-region={i}>
                 {t("earth.fire.region", { place: regionNames?.[i] ?? t("place.latlon", r), cls: fwiClassText(t, meta, r.topClass) })}
               </Button>
             ))}
           </div>
         </section>
         {w.offSeason && (
-          <section className="space-y-2" data-testid="fire-season">
+          <section className="space-y-3" data-testid="fire-season">
             <p className="text-body">{t("earth.fire.offSeason", { day: formatDay(w.offSeason, lang) })}</p>
             {w.seasonCases.map((c) => (
-              <Button key={c.key} variant="outline" className="h-auto min-h-11 rounded-full px-4 py-2 text-left text-body whitespace-normal" onClick={() => void (w.sequence?.kind === "season" && w.sequence.key === c.key ? w.stop() : w.startSeason(c.key))}>
+              <Button key={c.key} variant="outline" className={WRAP_KEY} onClick={() => void (w.sequence?.kind === "season" && w.sequence.key === c.key ? w.stop() : w.startSeason(c.key))}>
                 {w.sequence?.kind === "season" && w.sequence.key === c.key ? t("earth.fire.seasonStop") : t("earth.fire.season", { place: t("data.text", { text: "Chittagong Hill Tracts" }), sensor: c.sensor, year: c.year })}
               </Button>
             ))}

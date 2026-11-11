@@ -18,6 +18,8 @@ import { AgeNote } from "../AgeNote";
 import { ClassCanvas } from "../ClassCanvas";
 import { EarthMap } from "../EarthMap";
 import { BrailleLine, DescribeButton, LinerNotes, TableToggle } from "../RecordTools";
+import { RECORD_GRID } from "../record-style";
+import { KEY_ROW, PLAY_KEY, WRAP_KEY } from "../../row-key";
 import { usePlaceNames } from "../use-place-names";
 import { slideLinerNotes } from "./liner";
 import { ExampleButton } from "./ExampleButton";
@@ -52,12 +54,19 @@ export function Landslides() {
   };
   const placeLabel = (id: string, i: number) => (id === "cht" ? t("earth.slide.cht") : (placeNames?.[i] ?? id));
   return (
-    <div data-provenance-group="" className="grid gap-6 lg:grid-cols-[minmax(0,1fr)_24rem]" data-testid="record-landslide_lhasa">
+    <div data-provenance-group="" className={RECORD_GRID} data-testid="record-landslide_lhasa">
       <div className="space-y-3">
         <p className="text-body text-haze">{t("earth.slide.lead")}</p>
         <EarthMap testId="slide-map" label={`${t("earth.slide.alt", { date: formatUtc(meta.frame_time_utc, lang) })} ${t("earth.map.needle", { place })}`} reading={`${place}: ${slideLine(t, lang, meta, s.code)}`} needle={s.needle} onMove={s.setNeedle}>
           <ClassCanvas width={meta.grid.width} height={meta.grid.height} codes={codes} swatches={meta.legend_swatches_rgb} nodata={meta.grid.nodata} />
         </EarthMap>
+        <div className={KEY_ROW}>
+          <Button className={PLAY_KEY} onClick={playAtNeedle} data-testid="slide-play">
+            {s.playing ? t("earth.stop") : t("earth.play")}
+          </Button>
+          <DescribeButton describe={(tt, l, level) => slideDescription(tt, l, meta, s.code ?? 0, level, place)} />
+          <LinerNotes lines={slideLinerNotes(t, meta)} />
+        </div>
         <p className="text-small text-haze">{t("earth.map.keys")}</p>
         <div data-provenance-group="" className="space-y-2" data-testid="slide-readout">
           <p className="text-body" data-testid="slide-line" data-class={s.code}>
@@ -67,13 +76,6 @@ export function Landslides() {
           <BrailleLine line={slideBrailleLine(meta, s.code)} />
           <HowWeGotThis facts={[slideProvenance(t, lang, meta, place)]} />
         </div>
-        <div className="flex flex-wrap gap-2">
-          <Button className="h-11 rounded-full px-4 text-body" onClick={playAtNeedle} data-testid="slide-play">
-            {s.playing ? t("earth.stop") : t("earth.play")}
-          </Button>
-          <DescribeButton describe={(tt, l, level) => slideDescription(tt, l, meta, s.code ?? 0, level, place)} />
-          <LinerNotes lines={slideLinerNotes(t, meta)} />
-        </div>
         <TranscriptLink record="landslide_lhasa" label={t("earth.slide.title")} />
         <RecordLetter letter={slideLetter(t, meta, s.code, place)} />
       </div>
@@ -81,17 +83,17 @@ export function Landslides() {
         <AgeNote product={meta.product} sourceTime={meta.source_time_utc} />
         <section className="space-y-2">
           <p className="text-small text-haze">{t("earth.slide.places")}</p>
-          <div className="flex flex-wrap gap-2">
+          <div className={KEY_ROW}>
             {(s.places ?? []).map((p, i) => (
-              <Button key={p.id} variant="outline" className="h-11 rounded-full px-4 text-body" data-place={p.id} onClick={() => s.setNeedle(p.at)}>
+              <Button key={p.id} variant="outline" className={WRAP_KEY} data-place={p.id} onClick={() => s.setNeedle(p.at)}>
                 {placeLabel(p.id, i)}
               </Button>
             ))}
           </div>
           <p className="text-small text-haze">{t("earth.slide.exposedLead")}</p>
-          <div className="flex flex-wrap gap-2">
+          <div className={KEY_ROW}>
             {s.exposed.map((r, i) => (
-              <Button key={i} variant="outline" className="h-11 rounded-full px-4 text-body" data-exposed={i} onClick={() => s.setNeedle({ lat: r.lat, lon: r.lon })}>
+              <Button key={i} variant="outline" className={WRAP_KEY} data-exposed={i} onClick={() => s.setNeedle({ lat: r.lat, lon: r.lon })}>
                 {t("earth.fire.region", { place: exposedNames?.[i] ?? t("place.latlon", r), cls: t("data.text", { text: classLabel(meta, r.topClass) ?? "" }) })}
               </Button>
             ))}

@@ -15,6 +15,8 @@ import { RecordLetter } from "../../Art/Letter/RecordLetter"; // The letter on t
 import { lightsLetter } from "@/lib/art/letter/data-records";
 import { AgeNote } from "../AgeNote";
 import { BrailleLine, DescribeButton, LinerNotes, TableToggle } from "../RecordTools";
+import { RECORD_GRID } from "../record-style";
+import { KEY_ROW, PLAY_KEY } from "../../row-key";
 import { lightsLinerNotes } from "./liner";
 import { Timeline } from "./Timeline";
 import { useNightLights } from "./use-night-lights";
@@ -40,7 +42,7 @@ export function NightLights() {
   const rule = continuousRule(LIGHTS_VOICE);
   const cityName = t("data.text", { text: city });
   return (
-    <div data-provenance-group="" className="grid gap-6 lg:grid-cols-[minmax(0,1fr)_24rem]" data-testid="record-nightlights_bm">
+    <div data-provenance-group="" className={RECORD_GRID} data-testid="record-nightlights_bm">
       <div className="space-y-3">
         <p className="text-body text-haze">{t("earth.lights.lead")}</p>
         <ChoiceGroup label={t("earth.lights.city")} showLabel value={city} onChange={n.choose} className="flex-wrap" options={n.cities.map((c) => ({ value: c, label: t("data.text", { text: c }) }))} />
@@ -56,8 +58,8 @@ export function NightLights() {
           {s && <BrailleLine line={lightsBrailleLine(city, s)} />}
           <HowWeGotThis facts={[lightsProvenance(t, lang, file, city)]} />
         </div>
-        <div className="flex flex-wrap gap-2">
-          <Button className="h-11 rounded-full px-4 text-body" data-testid="lights-play" onClick={() => void (n.playing ? n.stop() : n.play())}>
+        <div className={KEY_ROW}>
+          <Button className={PLAY_KEY} data-testid="lights-play" onClick={() => void (n.playing ? n.stop() : n.play())}>
             {n.playing ? t("earth.lights.stop") : t("earth.lights.play")}
           </Button>
           <DescribeButton describe={(tt, l, level) => (level === "brief" ? latestLine(tt, l, file, city) : `${latestLine(tt, l, file, city)} ${tt("earth.lights.label")}`)} />

@@ -1204,11 +1204,17 @@ next-route-announcer {
   .official-grid .official-list {
     grid-area: 1 / 1;
     max-height: none;
+    min-height: min(24rem, 50dvh); /* while a record loads there is no map to size it */
     contain: size;
   }
   .official-grid .official-player,
   .official-grid .official-player > div {
     display: contents;
+  }
+  /* A record with its own player (src/components/EarthRecords) keeps its own columns, in the whole right column. */
+  .official-grid .official-player > .official-app {
+    display: grid;
+    grid-area: 1 / 2 / 3 / 3;
   }
   .official-grid .official-stage {
     grid-area: 1 / 2 / 3 / 3;

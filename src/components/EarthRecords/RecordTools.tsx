@@ -7,8 +7,7 @@ import type { BoundT, Lang } from "@/lib/i18n";
 import { useAppState, useT } from "../AppState/use-app-state";
 import { useCommands } from "../Commands/use-commands";
 import { InfoSheet } from "../InfoSheet";
-
-const TOOL = "h-11 rounded-full px-4 text-body";
+import { WRAP_KEY } from "../row-key";
 
 /** Describe (layered): says the record's description at the reader's verbosity, through the app's speech mode. */
 export function DescribeButton({ describe }: { describe: (t: BoundT, lang: Lang, level: "brief" | "standard" | "detailed") => string }) {
@@ -16,7 +15,7 @@ export function DescribeButton({ describe }: { describe: (t: BoundT, lang: Lang,
   const { state } = useAppState();
   const commands = useCommands();
   return (
-    <Button variant="outline" className={TOOL} data-testid="describe-record" onClick={() => void commands.say((tt, lang) => describe(tt, lang, state.verbosity))}>
+    <Button variant="outline" className={WRAP_KEY} data-testid="describe-record" onClick={() => void commands.say((tt, lang) => describe(tt, lang, state.verbosity))}>
       {t("earth.describe")}
     </Button>
   );
@@ -39,7 +38,7 @@ export function BrailleLine({ line }: { line: string }) {
 export function LinerNotes({ lines }: { lines: readonly string[] }) {
   const t = useT();
   return (
-    <InfoSheet title={t("earth.liner")} trigger={t("earth.liner")} triggerClassName={`${TOOL} text-haze ring-1 ring-glass-edge`}>
+    <InfoSheet title={t("earth.liner")} trigger={t("earth.liner")} triggerClassName={WRAP_KEY}>
       <div className="space-y-1.5 text-body" data-testid="liner-notes">
         {lines.map((l, i) => (l ? <p key={i}>{l}</p> : <hr key={i} className="border-tide" />))}
       </div>
@@ -54,7 +53,7 @@ export function TableToggle({ children, label }: { children: ReactNode; label?: 
   const id = useId();
   return (
     <div className="space-y-2">
-      <Button variant="ghost" aria-expanded={open} aria-controls={id} onClick={() => setOpen((o) => !o)} className={`${TOOL} -ml-3 text-moon hover:bg-tide`}>
+      <Button variant="ghost" aria-expanded={open} aria-controls={id} onClick={() => setOpen((o) => !o)} className={WRAP_KEY}>
         {label && !open ? label : t(open ? "earth.hideTable" : "earth.viewTable")}
       </Button>
       <div id={id} hidden={!open}>

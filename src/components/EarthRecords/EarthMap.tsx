@@ -70,7 +70,7 @@ export function EarthMap({ image, label, reading, needle, onMove, boxes = [], ch
       }}
       data-testid={testId}
       data-needle={`${needle.lat.toFixed(2)},${needle.lon.toFixed(2)}`}
-      className="relative aspect-[2/1] w-full overflow-hidden rounded-lg bg-land ring-1 ring-glass-edge focus-visible:outline-2 focus-visible:outline-moon"
+      className="relative aspect-[2/1] w-full overflow-hidden rounded-lg bg-land ring-2 ring-line focus-visible:outline-2 focus-visible:outline-moon"
     >
       <p id={keysId} className="sr-only">
         {t("earth.map.keys")}

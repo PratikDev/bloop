@@ -8,6 +8,7 @@ import { formatDay, formatFixed, formatInteger } from "@/lib/i18n";
 import { useAppState, useT } from "../../AppState/use-app-state";
 import { DataTable } from "../../EarthData/DataTable";
 import { HowWeGotThis } from "../../HowWeGotThis";
+import { WRAP_KEY } from "../../row-key";
 import type { WildfiresState } from "./use-wildfires";
 
 const FRP_DECIMALS = 1;
@@ -61,7 +62,7 @@ export function PilotTable({ w }: { w: WildfiresState }) {
       </h3>
       <p className="text-small text-haze">{t("earth.pilot.lead")}</p>
       {!w.pilot ? (
-        <Button variant="outline" className="h-11 rounded-full px-4 text-body" onClick={() => void w.loadArchive()}>
+        <Button variant="outline" className={WRAP_KEY} onClick={() => void w.loadArchive()}>
           {t("earth.pilot.open")}
         </Button>
       ) : (

@@ -19,6 +19,8 @@ import { ChoiceGroup } from "../../ChoiceGroup";
 import { HowWeGotThis } from "../../HowWeGotThis";
 import { StatusBadge } from "../../StatusBadge";
 import { TranscriptLink } from "../../TranscriptLink";
+import { RECORD_GRID } from "../record-style";
+import { KEY_ROW, PLAY_KEY } from "../../row-key";
 import { useRecordPlay } from "../use-record-play";
 
 export { RADAR_RECORD } from "@/lib/earth/radar";
@@ -68,7 +70,7 @@ export function RadarMethod() {
   const counts = { glockenspiel: 0, marimba: 0, choir: 0 };
   for (const p of points) counts[instrumentFor(p.valueC, range)] += 1;
   return (
-    <div data-provenance-group="" className="grid gap-6 lg:grid-cols-[minmax(0,1fr)_24rem]" data-testid={`record-${RADAR_RECORD}`}>
+    <div data-provenance-group="" className={RECORD_GRID} data-testid={`record-${RADAR_RECORD}`}>
       <div className="space-y-3">
         <h3 className="text-lead font-medium">{t("earth.radar.title")}</h3>
         <p className="text-body text-haze">{t("earth.radar.lead")}</p>
@@ -76,11 +78,17 @@ export function RadarMethod() {
           {t("earth.radar.caption")}
         </p>
         <ChoiceGroup label={t("earth.radar.mode")} showLabel value={mode} onChange={switchMode} options={MODES.map((x) => ({ value: x, label: t(x === "nasa" ? "earth.radar.nasa" : "earth.radar.bloop") }))} />
+        <div className={KEY_ROW}>
+          <Button className={PLAY_KEY} data-testid="radar-play" onClick={() => void (play.playing ? play.stop() : play.play())}>
+            {play.playing ? t("earth.radar.stop") : t("earth.radar.play", { mode: t(mode === "nasa" ? "earth.radar.nasa" : "earth.radar.bloop") })}
+          </Button>
+          <HowWeGotThis facts={radarProvenance(t, lang, m, value.sst.meta)} />
+        </div>
         <p className="text-body" data-testid="radar-rule" data-mode={mode}>
           {t(mode === "nasa" ? "earth.radar.nasaRule" : "earth.radar.bloopRule")}
         </p>
         <p className="text-small text-haze">{mode === "nasa" ? rule(RADAR_VOICE) : rule("ocean")}</p>
-        <svg role="img" aria-label={t("earth.radar.alt", { centre: centreName, n: formatInteger(points.length, lang) })} viewBox={`${-maxKm} ${-maxKm} ${2 * maxKm} ${2 * maxKm}`} className="mx-auto aspect-square w-full max-w-sm rounded-full ring-1 ring-glass-edge" data-testid="radar-plot" data-centre={`${centre.lat},${centre.lon}`}>
+        <svg role="img" aria-label={t("earth.radar.alt", { centre: centreName, n: formatInteger(points.length, lang) })} viewBox={`${-maxKm} ${-maxKm} ${2 * maxKm} ${2 * maxKm}`} className="mx-auto aspect-square w-full max-w-sm rounded-full ring-2 ring-line" data-testid="radar-plot" data-centre={`${centre.lat},${centre.lon}`}>
           {points.map((p, i) => {
             const inst = instrumentFor(p.valueC, range);
             return <circle key={i} cx={p.x} cy={p.y} r={maxKm / 60} className={inst === "glockenspiel" ? "fill-moon" : inst === "marimba" ? "fill-amber" : "fill-haze"} />;
@@ -90,12 +98,6 @@ export function RadarMethod() {
         <p className="text-small text-haze" data-testid="radar-points" data-n={points.length}>
           {t("earth.radar.points", { n: formatInteger(points.length, lang), time: formatUtc(value.sst.meta.frame_time_utc, lang), seconds: formatFixed(turnSeconds(speed), lang, 0) })}
         </p>
-        <div className="flex flex-wrap gap-2">
-          <Button className="h-11 rounded-full px-4 text-body" data-testid="radar-play" onClick={() => void (play.playing ? play.stop() : play.play())}>
-            {play.playing ? t("earth.radar.stop") : t("earth.radar.play", { mode: t(mode === "nasa" ? "earth.radar.nasa" : "earth.radar.bloop") })}
-          </Button>
-          <HowWeGotThis facts={radarProvenance(t, lang, m, value.sst.meta)} />
-        </div>
         <TranscriptLink record={RADAR_RECORD} label={t("earth.radar.title")} />
       </div>
       <aside className="space-y-4">

@@ -7,7 +7,7 @@ import { cn } from "@/lib/utils";
 export function Timeline({ steps, current, label, range }: { steps: readonly LightsStep[]; current: number; label: string; range: { min: number; max: number } }) {
   const h = (r: number) => Math.max(0.06, Math.min(1, (Math.log10(r) - Math.log10(range.min)) / (Math.log10(range.max) - Math.log10(range.min))));
   return (
-    <div role="img" aria-label={label} className="flex h-24 items-end gap-1 rounded-lg p-2 ring-1 ring-glass-edge" data-testid="lights-timeline">
+    <div role="img" aria-label={label} className="flex h-24 items-end gap-1 rounded-lg p-2 ring-2 ring-line" data-testid="lights-timeline">
       {steps.map((s, i) => (
         <span
           key={s.day}
