@@ -1,7 +1,8 @@
 "use client";
 
-import { useCallback, useMemo, useState } from "react";
-import { CalendarBlank } from "@phosphor-icons/react";
+import { useCallback, useMemo, useState, type KeyboardEvent } from "react";
+import { CalendarBlank, GridFour } from "@phosphor-icons/react";
+import { isLetter, isTypingTarget } from "@/a11y/keys";
 import { Button } from "@/components/ui/button";
 import { useAnnounceError } from "@/hooks/use-announce-error";
 import { bi, type BiText } from "@/lib/bi-text";
@@ -10,6 +11,7 @@ import { buildThenNowInput, cityDemo, waterBeat, yearlyBeat, yearlyWindows } fro
 import { statTexts } from "@/lib/then-now-stats";
 import type { ClimateCellName } from "@/types/data-contract";
 import { useAppState, useT } from "../AppState/use-app-state";
+import { setBrailleOpener } from "../BrailleExplorer/opener";
 import { MORE_ITEM } from "../Dock/PlayerMore";
 import { PickOne } from "../PickOne";
 import { StatusBadge } from "../StatusBadge";
@@ -23,6 +25,7 @@ import { isFieldPart, VIEW_PARTS, type ViewPart } from "./parts";
 import { PartTable } from "./PartTable";
 import { PartView } from "./PartView";
 import { ListenMoreItems, PlayPartButton } from "./PlayControls";
+import { ThenNowBraille } from "./ThenNowBraille";
 import { useThenNowData } from "./use-then-now-data";
 import { useThenNowPlayer, type Part } from "./use-then-now-player";
 
@@ -105,6 +108,27 @@ export function ThenNow({
       {t("thenNow.view.monthly")}
     </Button>
   );
+  // The Braille Data Explorer: B on the page, or its row in the player's More. Opening it stops the part playing, so
+  // the caret's own tone is the only sound.
+  const [brailleOpen, setBrailleOpen] = useState(false);
+  // One input per part, city and data (a new object each render would rebuild the source and reset the caret).
+  const brailleInput = useMemo(
+    () => (ready && view && !isFieldPart(part) ? { part, cityName, demo: view.demo, grace: ready.grace, stats: ready.stats ?? null } : null),
+    [ready, view, part, cityName],
+  );
+  const openBraille = (open: boolean) => {
+    if (open) {
+      player.stop();
+      setBrailleOpener(document.activeElement);
+    }
+    setBrailleOpen(open);
+  };
+  const onKeyDown = (e: KeyboardEvent<HTMLElement>) => {
+    if (field || !isLetter(e, "b") || isTypingTarget(e.target)) return;
+    e.preventDefault();
+    openBraille(!brailleOpen);
+  };
+
   const choosePart = (next: ViewPart) => {
     if (isFieldPart(next)) player.stop(); // a record without sound: nothing else keeps playing under it
     onPart(next);
@@ -115,7 +139,7 @@ export function ThenNow({
   };
 
   return (
-    <div className="flex flex-col gap-4">
+    <div className="flex flex-col gap-4" onKeyDown={onKeyDown}>
       <h2 className="sr-only">{field ? t("thenNow.moreTitle") : t("thenNow.title", { city: t(`place.${cityName}`) })}</h2>
       {data.status === "loading" && <StatusBadge kind="loading">{t("thenNow.loading")}</StatusBadge>}
       {data.status === "error" && <StatusBadge kind="error">{t("thenNow.error")}</StatusBadge>}
@@ -149,6 +173,10 @@ export function ThenNow({
               more={
                 <>
                   <ListenMoreItems part={part} player={player} />
+                  <Button variant="ghost" aria-expanded={brailleOpen} onClick={() => openBraille(true)} className={MORE_ITEM}>
+                    <GridFour aria-hidden="true" />
+                    {t("braille.open")}
+                  </Button>
                   {monthly}
                 </>
               }
@@ -166,6 +194,7 @@ export function ThenNow({
               }
             />
           )}
+          {brailleInput && <ThenNowBraille input={brailleInput} open={brailleOpen} onOpenChange={openBraille} />}
         </PartActionsSlot.Provider>
       )}
     </div>
