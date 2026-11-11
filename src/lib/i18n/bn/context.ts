@@ -65,7 +65,6 @@ export const contextBn: Translated<typeof contextEn> = {
   "thenNow.part.fires": "আগুন",
   "thenNow.part.vegetation": "গাছপালা",
   "field.soundOctober": "এই রেকর্ডের এখনো শব্দ নেই",
-  "field.noSound": "এই রেকর্ডের কোনো শব্দ নেই",
   "field.place": "স্থান",
   "field.sources": "এই সংখ্যাগুলো কোথা থেকে এসেছে",
   "field.rule": "নিয়ম",

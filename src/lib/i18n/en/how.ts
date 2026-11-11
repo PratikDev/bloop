@@ -39,6 +39,5 @@ export const howEn = {
     "Volunteers in Bangladesh reported how cloudy the sky looked; a weather satellite measured cloud cover over the same place and day. They often differ, because one looks up from a spot and the other down over a wider area: two perspectives, not right vs wrong.",
   "how.globe.alt": (p: { n: string; rho: string }) =>
     `Scatter plot of ${p.n} place-days: cloud cover a ground observer reported against the satellite's. The dots spread widely around the 1:1 line (ρ = ${p.rho}).`,
-  "how.openGlobe": "Read the full comparison",
   "badge.skipped": "Skipped in this version",
 };

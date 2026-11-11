@@ -137,7 +137,6 @@ export const DRAFT_KEYS: readonly MessageKey[] = [
   "hwgt.n.months",
   "hwgt.n.voices",
   "hwgt.n.placeDays",
-  "field.noSound",
   // item 6 (the X-ray strings, reworded)
   "xray.unavailable",
   "key.x.action",
@@ -228,7 +227,6 @@ export const DRAFT_KEYS: readonly MessageKey[] = [
   "how.globe.numbers",
   "how.globe.explain",
   "how.globe.alt",
-  "how.openGlobe",
   "badge.skipped",
   // accessibility core, step 1 (en/access.ts)
   "access.speech",

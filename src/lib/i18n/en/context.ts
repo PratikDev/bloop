@@ -64,7 +64,6 @@ export const contextEn = {
   "thenNow.part.fires": "Fires",
   "thenNow.part.vegetation": "Vegetation",
   "field.soundOctober": "No sound for this record yet",
-  "field.noSound": "No sound for this record",
   "field.place": "Place",
   "field.sources": "Where these numbers come from",
   "field.rule": "Rule",

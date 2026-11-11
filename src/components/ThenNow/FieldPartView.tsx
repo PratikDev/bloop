@@ -34,7 +34,7 @@ function FieldLayout({ part, more, stage, decimals, picker, pair, chart, caption
         <>
           {picker}
           {/* No voice yet for these records (L2's optional list): said, never faked. */}
-          <StatusBadge kind="note">{t("field.noSound")}</StatusBadge>
+          <StatusBadge kind="note">{t("field.soundOctober")}</StatusBadge>
         </>
       }
       more={more}
