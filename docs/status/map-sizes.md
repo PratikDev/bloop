@@ -24,7 +24,8 @@ Rendered size in CSS px. Every one must stay at least as large as its baseline a
 | Then vs Now chart (each panel) | 390x844 | 300×192 | 306×192 | ok |
 | Official records map | 1920x1080 | 1480×740 | 422×211 | **smaller** |
 | Official records map | 1440x900 | 1000×500 | 830×415 | **smaller** |
-| Official records map | 1280x720 | 840×420 | 830×415 | **smaller** |
+| Official records map | 1280x720 | 840×420 | 870×435 (`fixes`, 2026-11-11) | ok |
+| Official records map | 1536x730 | 1096×548 (page scrolled) | 1126×563 (`fixes`, 2026-11-11) | ok |
 | Official records map | 1024x768 | 584×292 | 574×287 | **smaller** |
 | Official records map | 390x844 | 358×179 | 330×165 | **smaller** |
 | Turntable canvas | 1920x1080 | 1920×1020 | 1920×1008 | **smaller** |
@@ -32,3 +33,5 @@ Rendered size in CSS px. Every one must stay at least as large as its baseline a
 | Turntable canvas | 1280x720 | 1280×660 | 1280×648 | **smaller** |
 | Turntable canvas | 1024x768 | 1024×708 | 1024×696 | **smaller** |
 | Turntable canvas | 390x844 | 390×748 | 390×734 | **smaller** |
+
+The 1536×730 baseline was measured on `592003b` (port 3503, Chromium) for the `fixes` branch; the table above had no row for it. On `fixes` the Official page keeps its cabinet frame at 1536×730 and 1280×720 and does not scroll.

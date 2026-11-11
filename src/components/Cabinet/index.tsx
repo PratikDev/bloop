@@ -20,7 +20,7 @@ export function Cabinet({
   tubes = false,
   below,
   flush = false,
-  flushVeryShort = false,
+  slimVeryShort = false,
   foldCrown = false,
   className,
   children,
@@ -30,8 +30,8 @@ export function Cabinet({
   tubes?: boolean;
   /** Phones: no body padding, so the window keeps the full width between the page gutters. */
   flush?: boolean;
-  /** Wide but very short screens: no frame either (Official, so its map keeps its size). */
-  flushVeryShort?: boolean;
+  /** Wide but very short screens: a slimmer frame (8 px of padding), so the window keeps its height (Official). */
+  slimVeryShort?: boolean;
   /** Very short wide screens: the crown folds away to give the window its height (Listen's and Official's maps). */
   foldCrown?: boolean;
   below?: ReactNode;
@@ -52,7 +52,7 @@ export function Cabinet({
         )}
         <Tonearm on={sounding} />
       </div>
-      <div data-land className={cn("cabinet-body w-full min-w-0 p-4", flush && "max-lg:border-0 max-lg:bg-transparent max-lg:p-0 max-lg:shadow-none", flushVeryShort && "lg:very-short:border-0 lg:very-short:bg-transparent lg:very-short:p-0 lg:very-short:shadow-none")}>
+      <div data-land className={cn("cabinet-body w-full min-w-0 p-4", flush && "max-lg:border-0 max-lg:bg-transparent max-lg:p-0 max-lg:shadow-none", slimVeryShort && "lg:very-short:p-2")}>
         <div className={cn("grid min-w-0 gap-3", tubes && "grid-cols-2 xl:grid-cols-[auto_minmax(0,auto)_auto] xl:justify-center")}>
           <div className={cn("min-w-0", tubes && "col-span-2 xl:col-span-1 xl:col-start-2 xl:row-start-1")}>{children}</div>
           {tubes && <BubbleTube voice="ocean" className="xl:col-start-1 xl:row-start-1" />}

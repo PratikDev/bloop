@@ -166,7 +166,7 @@ export function OfficialRecords() {
   return (
     <section aria-labelledby="official-heading">
       <h2 id="official-heading" className="sr-only">{t("official.heading")}</h2>
-      <Cabinet code={crown?.code} title={crown?.title(t)} flush flushVeryShort foldCrown>
+      <Cabinet code={crown?.code} title={crown?.title(t)} flush slimVeryShort foldCrown>
         <div className="official-grid grid gap-6">
           <div aria-label={t("official.records")} role="group" onKeyDown={rove} className="official-list space-y-4 pr-1">
             {KIND_ORDER.map((kind) => {
