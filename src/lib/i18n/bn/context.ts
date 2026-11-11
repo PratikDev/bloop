@@ -12,6 +12,9 @@ const int = (v: number) => formatInteger(v, "bn");
 const year = (v: number) => formatYear(v, "bn");
 const d = (s: string) => localDigits(s, "bn");
 
+/** A heat value's unit on the charts: the temperature change measured against the 1951–1980 normal. */
+const HEAT_UNIT = "°সে, ১৯৫১–১৯৮০ সালের স্বাভাবিকের তুলনায়";
+
 export const contextBn: Translated<typeof contextEn> = {
   "thenNow.contextNote": "এগুলো প্রসঙ্গ-রেকর্ড, EIC ফ্রেম নয়: বাংলাদেশের জন্য নাসা ও সহযোগীদের দীর্ঘমেয়াদি ডেটাসেট।",
   "thenNow.title": (p: { city: string }) => `${p.city}: আগে বনাম এখন`,
@@ -36,7 +39,12 @@ export const contextBn: Translated<typeof contextEn> = {
   "thenNow.error": "তুলনার ডেটা লোড করা যায়নি। আবার চেষ্টা করতে পাতাটি রিলোড করুন।",
   "thenNow.then": (p: { label: string }) => `আগে, ${d(p.label)}`,
   "thenNow.now": (p: { label: string }) => `এখন, ${d(p.label)}`,
-  "thenNow.unit.anomaly": "°সে বিচ্যুতি",
+  "thenNow.unit.anomaly": HEAT_UNIT,
+  "thenNow.heat.warmer": (p: { place: string; change: number; now: string; then: string }) =>
+    `${p.place}, এপ্রিল–মে: ${d(p.then)} সালের চেয়ে ${d(p.now)} সালে ${n2(p.change)} °সে বেশি উষ্ণ`,
+  "thenNow.heat.cooler": (p: { place: string; change: number; now: string; then: string }) =>
+    `${p.place}, এপ্রিল–মে: ${d(p.then)} সালের চেয়ে ${d(p.now)} সালে ${n2(p.change)} °সে বেশি শীতল`,
+  "thenNow.heat.source": "NASA GISTEMP",
   "thenNow.unit.mmPerDay": "মিমি/দিন",
   "thenNow.unit.cm": "সেমি",
   "thenNow.stripes.heatAbove": "কমলা: ১৯৫১–১৯৮০ সালের স্বাভাবিকের চেয়ে উষ্ণ",
@@ -100,14 +108,14 @@ export const contextBn: Translated<typeof contextEn> = {
   "history.decade": "দশক",
   "history.decadeLabel": (p: { decade: number }) => `${year(p.decade)}-এর দশক`,
   "history.play": (p: { decade: number }) => `${year(p.decade)}-এর দশক বাজান`,
-  "history.unit.heat": "°সে বিচ্যুতি",
+  "history.unit.heat": HEAT_UNIT,
   "history.unit.rain": "মিমি/দিন",
   "history.unit.water": "সেমি",
   "history.group.bangladesh": "বাংলাদেশ",
   "history.group.world": "বিশ্ব",
   "history.loadingWorld": "বিশ্বের জন্য এই রেকর্ড লোড হচ্ছে (কয়েক মেগাবাইট, শুধু প্রথমবার)",
   "history.noValue": (p: { month: string }) => `${p.month}: কোনো পরিমাপ নেই (নীরবতা)`,
-  "history.sharedCell": (p: { places: string }) => `এই ডেটাসেটে এটি আর ${p.places} একই গ্রিড সেলে: একটিই রেকর্ড, আলাদা স্থান নয়।`,
+  "history.sharedCell": (p: { places: string }) => `এই ডেটায় ${p.places} একই পরিমাপ-এলাকা ভাগ করে নেয়`,
   "history.sharedRegion": (p: { places: string }) => `এই ডেটাসেটে এটি আর ${p.places} একই GRACE অঞ্চলে: একটিই রেকর্ড, আলাদা স্থান নয়।`,
   "history.cell": (p: { lat: number; lon: number }) =>
     `গ্রিড সেলের কেন্দ্র ${n1(Math.abs(p.lat))}° ${p.lat >= 0 ? "উত্তর" : "দক্ষিণ"}, ${n1(Math.abs(p.lon))}° ${p.lon >= 0 ? "পূর্ব" : "পশ্চিম"}`,

@@ -4,9 +4,10 @@ import { useMemo, useState } from "react";
 import { CalendarBlank } from "@phosphor-icons/react";
 import { Button } from "@/components/ui/button";
 import { useAnnounceError } from "@/hooks/use-announce-error";
+import { formatList } from "@/lib/i18n";
 import { buildThenNowInput, cityDemo, waterBeat, yearlyBeat, yearlyWindows } from "@/lib/then-now";
 import type { ClimateCellName } from "@/types/data-contract";
-import { useT } from "../AppState/use-app-state";
+import { useAppState, useT } from "../AppState/use-app-state";
 import { MORE_ITEM } from "../Dock/PlayerMore";
 import { PickOne } from "../PickOne";
 import { StatusBadge } from "../StatusBadge";
@@ -48,6 +49,7 @@ export function ThenNow({
   onMonthly: () => void;
 }) {
   const t = useT();
+  const { state } = useAppState();
   const data = useThenNowData();
   const ready = data.status === "ready" ? data : null;
   useAnnounceError(data.status === "error" ? t("thenNow.error") : null);
@@ -67,7 +69,9 @@ export function ThenNow({
   const cities = ready?.cities?.cities ?? [];
   // The cell this part plays from; the sharer's caption already names its reference city, the reference's doesn't.
   const cell = part === "heat" ? city?.heat : part === "monsoon" ? city?.rain.gpcp : null;
-  const sharedWith = cell && cell.same_record_as === null ? cell.shares_cell_with : [];
+  // Heat's sentence is written from the numbers and no longer carries the caption's "same cell" sentence, so every
+  // city that shares its cell gets the note; rain's caption still says it for the sharer, so only the reference gets it.
+  const sharedWith = cell && (part === "heat" || cell.same_record_as === null) ? cell.shares_cell_with : [];
   const pause = usePauseMotion();
   const sounding = player.soundingPart === part ? player.index : null;
   const beat = !view || !ready || isFieldPart(part) ? null : part === "water" ? waterBeat(ready.grace, sounding) : yearlyBeat(part, yearlyWindows(view.demo, part), sounding, player.splitIndex);
@@ -109,12 +113,13 @@ export function ThenNow({
               finding={
                 <PartView
                   part={part}
+                  place={t(`place.${cityName}`)}
                   demo={view.demo}
                   grace={ready.grace}
                   index={sounding}
                   splitIndex={player.splitIndex}
                   motionPaused={pause.paused}
-                  note={sharedWith.length > 0 && <p className="text-body text-moon">{t("history.sharedCell", { places: sharedWith.map((c) => t(`place.${c}`)).join(", ") })}</p>}
+                  note={sharedWith.length > 0 && <p className="text-body text-moon">{t("history.sharedCell", { places: formatList([cityName, ...sharedWith].map((c) => t(`place.${c}`)), state.lang) })}</p>}
                 />
               }
               stage={<MotionStage city={cityName} beat={beat} beatIndex={sounding ?? player.splitIndex} pause={pause} className={MOTION_STAGE} />}

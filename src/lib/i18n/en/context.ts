@@ -6,6 +6,9 @@ import { formatFixed, formatInteger } from "../format";
 const n1 = (v: number) => formatFixed(v, "en", 1);
 const n2 = (v: number) => formatFixed(v, "en", 2);
 
+/** A heat value's unit on the charts: the temperature change measured against the 1951–1980 normal. */
+const HEAT_UNIT = "°C compared with the 1951–1980 normal";
+
 export const contextEn = {
   "thenNow.contextNote": "Context records, not EIC frames: long-term NASA and partner datasets for Bangladesh.",
   "thenNow.title": (p: { city: string }) => `${p.city} then vs now`,
@@ -32,7 +35,13 @@ export const contextEn = {
   "thenNow.error": "Couldn't load the comparison data. Reload the page to try again.",
   "thenNow.then": (p: { label: string }) => `Then, ${p.label}`,
   "thenNow.now": (p: { label: string }) => `Now, ${p.label}`,
-  "thenNow.unit.anomaly": "°C anomaly",
+  "thenNow.unit.anomaly": HEAT_UNIT,
+  // The heat headline, built from the data's own numbers: the change between the two windows, the place and the years.
+  "thenNow.heat.warmer": (p: { place: string; change: number; now: string; then: string }) =>
+    `${p.place} in April–May: ${n2(p.change)} °C warmer in ${p.now} than in ${p.then}`,
+  "thenNow.heat.cooler": (p: { place: string; change: number; now: string; then: string }) =>
+    `${p.place} in April–May: ${n2(p.change)} °C cooler in ${p.now} than in ${p.then}`,
+  "thenNow.heat.source": "NASA GISTEMP",
   "thenNow.unit.mmPerDay": "mm/day",
   "thenNow.unit.cm": "cm",
   // The stripes behind each panel's line: amber at or above what the part is compared against, blue below.
@@ -100,15 +109,14 @@ export const contextEn = {
   "history.decade": "Decade",
   "history.decadeLabel": (p: { decade: number }) => `${p.decade}s`,
   "history.play": (p: { decade: number }) => `Play the ${p.decade}s`,
-  "history.unit.heat": "°C anomaly",
+  "history.unit.heat": HEAT_UNIT,
   "history.unit.rain": "mm/day",
   "history.unit.water": "cm",
   "history.group.bangladesh": "Bangladesh",
   "history.group.world": "World",
   "history.loadingWorld": "Loading this record for the world (a few megabytes, first time only)",
   "history.noValue": (p: { month: string }) => `${p.month}: no measurement (silence)`,
-  "history.sharedCell": (p: { places: string }) =>
-    `In this dataset, this is the same grid cell as ${p.places}: one record, not separate places.`,
+  "history.sharedCell": (p: { places: string }) => `In this data, ${p.places} share one measurement area`,
   "history.sharedRegion": (p: { places: string }) => `In this dataset, this is the same GRACE region as ${p.places}: one record, not separate places.`,
   "history.cell": (p: { lat: number; lon: number }) =>
     `Grid cell centred at ${n1(Math.abs(p.lat))}° ${p.lat >= 0 ? "N" : "S"}, ${n1(Math.abs(p.lon))}° ${p.lon >= 0 ? "E" : "W"}`,

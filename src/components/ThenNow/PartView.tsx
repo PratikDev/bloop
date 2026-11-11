@@ -89,19 +89,37 @@ function WaterView({ grace, index }: { grace: GraceContextFile; index: number | 
   );
 }
 
-/** A finding's headline: its caption. */
-export function Headline({ caption }: { caption: string }) {
-  return <p className="text-lead leading-snug text-moon md:text-title lg:short:text-lead">{caption}</p>;
+/** A finding's headline: its sentence, then (smaller, after it) where the numbers come from. */
+export function Headline({ caption, source }: { caption: string; source?: string }) {
+  return (
+    <p className="text-lead leading-snug text-moon md:text-title lg:short:text-lead">
+      {caption}
+      {source && <span className="ms-2 text-small text-haze">{source}</span>}
+    </p>
+  );
+}
+
+/** The heat finding in plain words, from the data's own numbers: "Dhaka in April–May: 1.37 °C warmer in 2016–2025 than in 1981–1990". */
+function HeatHeadline({ place, heat }: { place: string; heat: DhakaThenNowDemo["heat"] }) {
+  const t = useT();
+  const change = heat.change_C;
+  const sentence = t(change < 0 ? "thenNow.heat.cooler" : "thenNow.heat.warmer", {
+    place,
+    change: Math.abs(change),
+    now: windowLabel(heat.B),
+    then: windowLabel(heat.A),
+  });
+  return <Headline caption={sentence} source={t("thenNow.heat.source")} />;
 }
 
 /** One sounded part: its caption as the headline, any `note` the chart needs read first, then the chart with its playhead. */
-export function PartView({ part, demo, grace, index, splitIndex, motionPaused = false, note }: { part: Part; demo: DhakaThenNowDemo; grace: GraceContextFile; index: number | null; splitIndex: number | null; motionPaused?: boolean; note?: ReactNode }) {
+export function PartView({ part, place, demo, grace, index, splitIndex, motionPaused = false, note }: { part: Part; place: string; demo: DhakaThenNowDemo; grace: GraceContextFile; index: number | null; splitIndex: number | null; motionPaused?: boolean; note?: ReactNode }) {
   const t = useT();
-  const caption = part === "heat" ? demo.heat.caption : part === "monsoon" ? demo.rain.caption : demo.water.caption;
+  const caption = part === "monsoon" ? demo.rain.caption : demo.water.caption;
   return (
     <>
-      {/* The caption exactly as the JSON gives it (translated in Bangla). */}
-      <Headline caption={t("data.text", { text: caption })} />
+      {/* Heat is written from the numbers; rain and water show the caption exactly as the JSON gives it (translated in Bangla). */}
+      {part === "heat" ? <HeatHeadline place={place} heat={demo.heat} /> : <Headline caption={t("data.text", { text: caption })} />}
       {note}
       {part === "water" ? <WaterView grace={grace} index={index} /> : <YearlyView part={part} demo={demo} index={index} splitIndex={splitIndex} motionPaused={motionPaused} />}
     </>

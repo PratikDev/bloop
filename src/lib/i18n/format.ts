@@ -117,3 +117,8 @@ export function formatUtc(iso: string, lang: Lang): string {
   }).format(d);
   return `${date}, ${time}`;
 }
+
+/** Names as a list in the language: "Dhaka and Chattogram", "Dhaka, Chattogram and Sylhet" (Bangla: এবং). */
+export function formatList(items: readonly string[], lang: Lang): string {
+  return new Intl.ListFormat(lang, { style: "long", type: "conjunction" }).format(items);
+}

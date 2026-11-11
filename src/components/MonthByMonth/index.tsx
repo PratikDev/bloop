@@ -162,7 +162,7 @@ export function MonthByMonth({
             to: formatMonth(series.months[series.months.length - 1], state.lang),
           })}
         />
-        <RecordNotes series={series} name={name} world={world && data.world ? { disclosure: t("data.text", { text: data.world.manifest.disclosure }) } : null} />
+        <RecordNotes series={series} place={place} name={name} world={world && data.world ? { disclosure: t("data.text", { text: data.world.manifest.disclosure }) } : null} />
       </div>
     </div>
   );
