@@ -2,6 +2,7 @@
 
 import { useEffect, useMemo, useRef, type PointerEvent } from "react";
 import { useMediaQuery } from "@/hooks/use-media-query";
+import { FLAGS } from "@/lib/flags";
 import { cn } from "@/lib/utils";
 import { readPalette } from "@/lib/css-tokens";
 import type { SstField } from "@/lib/data";
@@ -15,6 +16,9 @@ import { buildLandLayer, drawBase } from "./base-layer";
 import { prepareCanvas, useCanvasSize } from "./use-canvas-size";
 import { useFrameImages } from "./use-frame-images";
 import { useOverlayLoop, type OverlayInputs } from "./use-overlay-loop";
+import { ContextLens } from "../LowVision/ContextLens";
+import { LvMapLayer } from "../LowVision/MapLayer";
+import { useDwellSpeak } from "../LowVision/use-dwell-speak";
 
 const PHONE_PAN = "(max-width: 639px)";
 const DRAG_START_PX = 6;
@@ -37,6 +41,7 @@ export function FrameView({ className, revealClassName, pan = false }: { classNa
   const overlayRef = useRef<HTMLCanvasElement>(null);
   const landCache = useRef<{ sst: SstField; canvas: HTMLCanvasElement } | null>(null);
   const size = useCanvasSize(containerRef);
+  const dwell = useDwellSpeak();
 
   const shown = useShownPoint();
   // During the time-lapse the base shows that frame's own image, in the rain style.
@@ -63,6 +68,7 @@ export function FrameView({ className, revealClassName, pan = false }: { classNa
       oceanC: reading && !timelapse && isVoiceAudible(state, "ocean") ? reading.ocean.valueC : null,
       rainMm: reading && rainAudible ? reading.rain.mmPerHour : null,
       reduceMotion: state.reduceMotion,
+      thick: FLAGS.lowVision && (state.lowVision.on || state.lowVision.controls !== "normal"),
     };
   }, [shown, state]);
   useOverlayLoop(overlayRef, size, overlayInputs, sweepRef);
@@ -74,19 +80,20 @@ export function FrameView({ className, revealClassName, pan = false }: { classNa
   const drag = useRef<{ x: number; y: number; at: typeof shown.cursor; moved: boolean } | null>(null);
   const left = size && view ? Math.min(0, Math.max(view.width - size.width, view.width / 2 - ((shown.cursor.lon + 180) / 360) * size.width)) : 0;
 
-  const moveTo = (e: PointerEvent<HTMLDivElement>) => {
+  // A click (or a drag's start) is a place "." can come back to; the drag's own steps are not.
+  const moveTo = (e: PointerEvent<HTMLDivElement>, remember = false) => {
     if (state.mode === "story") return; // the story moves the cursor
     const rect = e.currentTarget.getBoundingClientRect();
-    dispatch({ type: "setCursor", cursor: toLatLon(e.clientX - rect.left, e.clientY - rect.top, rect.width, rect.height) });
+    dispatch({ type: "setCursor", cursor: toLatLon(e.clientX - rect.left, e.clientY - rect.top, rect.width, rect.height), remember });
   };
 
   const onDown = (e: PointerEvent<HTMLDivElement>) => {
     e.currentTarget.setPointerCapture(e.pointerId);
     if (panning) drag.current = { x: e.clientX, y: e.clientY, at: state.cursor, moved: false };
-    else moveTo(e);
+    else moveTo(e, true);
   };
   const onMove = (e: PointerEvent<HTMLDivElement>) => {
-    if (!e.currentTarget.hasPointerCapture(e.pointerId)) return;
+    if (!e.currentTarget.hasPointerCapture(e.pointerId)) return dwell.move(e);
     if (!panning) return moveTo(e);
     const from = drag.current;
     if (!from || state.mode === "story" || !size) return;
@@ -97,7 +104,7 @@ export function FrameView({ className, revealClassName, pan = false }: { classNa
     dispatch({ type: "setCursor", cursor: { lat: from.at.lat + (dy / size.height) * 180, lon: from.at.lon - (dx / size.width) * 360 } });
   };
   const onUp = (e: PointerEvent<HTMLDivElement>) => {
-    if (panning && drag.current && !drag.current.moved) moveTo(e);
+    if (panning && drag.current && !drag.current.moved) moveTo(e, true);
     drag.current = null;
   };
 
@@ -109,12 +116,15 @@ export function FrameView({ className, revealClassName, pan = false }: { classNa
       onPointerDown={onDown}
       onPointerMove={onMove}
       onPointerUp={onUp}
+      onPointerLeave={dwell.leave}
       aria-hidden="true"
     >
       <div className={cn("absolute inset-0", revealClassName)}>
         <canvas ref={baseRef} className="absolute inset-0 size-full" />
+        <LvMapLayer size={size} rainImage={frameImage ?? images.rain} track={baseTrack} />
         <canvas ref={overlayRef} className="absolute inset-0 size-full" />
       </div>
+      <ContextLens mapRef={containerRef} />
     </div>
   );
   return panning ? (

@@ -3,6 +3,7 @@
 import { useRef, useState } from "react";
 import { cn } from "@/lib/utils";
 import { useAppState } from "../AppState/use-app-state";
+import { useHide3d } from "../Hidden3D";
 import type { GlobeOptions } from "./controller";
 import { supportsWebGL, useGlobe } from "./use-globe";
 
@@ -18,7 +19,10 @@ export type GlobeProps = Omit<GlobeOptions, "reduceMotion"> & {
  */
 export function Globe({ dataKey, className, ...options }: GlobeProps) {
   const { state } = useAppState();
-  const [webgl] = useState(supportsWebGL);
+  const [canDraw] = useState(supportsWebGL);
+  // Hide 3D views (Settings): the flat frame, as without WebGL.
+  const hide3d = useHide3d();
+  const webgl = canDraw && !hide3d;
   const canvasRef = useRef<HTMLCanvasElement>(null);
   useGlobe(canvasRef, { ...options, images: webgl ? options.images : [], reduceMotion: state.reduceMotion }, dataKey);
   const flat = options.images[0];

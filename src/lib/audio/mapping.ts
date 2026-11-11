@@ -10,7 +10,7 @@
 //   mapping-text.ts      rule sentences for the Mapping panel
 
 export { MappingError, validateMapping } from "./mapping-validate";
-export { APP_VOICES, MAPPING, voiceSpec } from "./mapping-spec";
+export { anchorPoint, APP_VOICES, MAPPING, referenceValue, voiceSpec } from "./mapping-spec";
 export {
   bandFor,
   continuousRule,

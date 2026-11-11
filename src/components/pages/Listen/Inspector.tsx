@@ -13,25 +13,36 @@ import { cn } from "@/lib/utils";
 import type { PanelTab } from "../../AppState/reducer";
 import { useAppState, useT } from "../../AppState/use-app-state";
 import { FrameLabel } from "../../FrameLabel";
+import { InlinePanel } from "../../InlinePanel";
+import { useInlinePanels } from "../../LowVision/use-inline-panels";
 import { MappingPanel } from "../../panels/MappingPanel";
 import { ProvenancePanel } from "../../panels/ProvenancePanel";
 import { TruthPanel } from "../../panels/TruthPanel";
+import { CORE_TABS, shownTab } from "../../panels/core-tabs";
 
 /** The Inspector's tabs (the Turntable's drawer adds History; the Inspector shows Provenance in its place). */
 type InspectorTab = Exclude<PanelTab, "history">;
-const inspectorTab = (panel: PanelTab): InspectorTab => (panel === "history" ? "provenance" : panel);
+const inspectorTab = (panel: PanelTab): InspectorTab => {
+  const shown = shownTab(panel);
+  return shown === "history" ? "provenance" : shown;
+};
 
-const TABS: { tab: InspectorTab; label: "panel.provenance" | "panel.mapping" | "panel.truth" }[] = [
+const TABS: { tab: InspectorTab; label: "panel.describe" | "panel.table" | "panel.provenance" | "panel.mapping" | "panel.truth" }[] = [
+  // The accessibility core's tabs (the needle's description and table), each behind its flag.
+  ...CORE_TABS,
   { tab: "provenance", label: "panel.provenance" },
   { tab: "mapping", label: "panel.mapping" },
   { tab: "truth", label: "panel.truth" },
 ];
 
-const PANELS: Record<InspectorTab, ReactNode> = {
+const PANELS: Record<Exclude<InspectorTab, "describe" | "table">, ReactNode> = {
   provenance: <ProvenancePanel />,
   mapping: <MappingPanel />,
   truth: <TruthPanel />,
 };
+
+/** A tab's content: one of the core tabs (core-tabs.tsx), or the Inspector's own. */
+const panelFor = (tab: InspectorTab): ReactNode => (tab === "describe" || tab === "table" ? CORE_TABS.find((c) => c.tab === tab)?.panel : PANELS[tab]);
 
 function InspectorTabs() {
   const { state, dispatch } = useAppState();
@@ -49,7 +60,7 @@ function InspectorTabs() {
       </TabsList>
       {TABS.map(({ tab }) => (
         <TabsContent key={tab} value={tab} className="text-body">
-          {PANELS[tab]}
+          {panelFor(tab)}
         </TabsContent>
       ))}
     </Tabs>
@@ -62,7 +73,7 @@ function InspectorTabs() {
  * from, what you hear, and how it was checked. From 1024 px a drawer over the
  * map's right edge that leaves the map usable (move the cursor, the facts
  * follow); during the tour, over its left edge, since the tour points at
- * Bangladesh on the right. Below 1024 px a sheet (bottom on phones, right on tablets).
+ * Bangladesh on the right. Below 1024 px a sheet (bottom on phones, right on tablets). In low-vision mode, in the page.
  */
 export function Inspector() {
   const { state, dispatch } = useAppState();
@@ -71,6 +82,16 @@ export function Inspector() {
   const drawer = useMediaQuery(MEDIA.mapOverlay);
   const close = () => dispatch({ type: "setPanelOpen", open: false });
   const left = state.mode === "story";
+  const inline = useInlinePanels();
+
+  // Low-vision mode: in the page, under the map it describes (spec 4.5: no pop-ups, related information close).
+  if (inline) {
+    return state.panelOpen ? (
+      <InlinePanel title={t("panel.label")} onClose={close} testId="inspector-inline" className="mx-4 mt-3 w-auto fit:mx-0">
+        <InspectorTabs />
+      </InlinePanel>
+    ) : null;
+  }
 
   if (drawer) {
     return (

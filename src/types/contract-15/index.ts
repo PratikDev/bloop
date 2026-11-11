@@ -8,4 +8,5 @@ export type * from "./fire";
 export type * from "./disasters";
 export type * from "./energy";
 export type * from "./mapping";
+export type * from "./classes";
 export type * from "./official";

@@ -3,7 +3,9 @@
 import type { ReactNode } from "react";
 import { ArrowRight } from "@phosphor-icons/react";
 import { formatInteger } from "@/lib/i18n";
+import type { Provenance } from "@/lib/provenance/types";
 import { useAppState } from "../../AppState/use-app-state";
+import { HowWeGotThis } from "../../HowWeGotThis";
 import { InfoSheet } from "../../InfoSheet";
 import { ROW_KEY } from "../../row-key";
 
@@ -18,11 +20,13 @@ export function Tile({
   figureLabel,
   context,
   note,
+  face,
+  facts,
   open,
   children,
 }: {
-  /** Its place in the track list. */
-  number: number;
+  /** Its place in the track list (a card outside the numbered checks has none). */
+  number?: number;
   title: string;
   /** Left out while the data loads, or when the file has no number to show. */
   figure?: string;
@@ -31,6 +35,10 @@ export function Tile({
   context?: string;
   /** A status beside the title (e.g. "Early preview"). */
   note?: ReactNode;
+  /** The evidence on the card itself: a plot or table, key numbers, a plain explanation. */
+  face?: ReactNode;
+  /** Where the card's numbers come from. */
+  facts?: Provenance[];
   /** The button text that opens the full content: unique on the page, so it is the link's whole name. */
   open: string;
   children: ReactNode;
@@ -40,9 +48,11 @@ export function Tile({
     <li className="min-w-0 space-y-2 border-t-2 border-navy pt-4">
       <div className="flex flex-wrap items-center justify-between gap-x-4 gap-y-1">
         <h2 className="flex items-baseline gap-3 text-body font-semibold">
-          <span aria-hidden="true" className="readout-figure text-lead">
-            {formatInteger(number, state.lang)}
-          </span>
+          {number !== undefined && (
+            <span aria-hidden="true" className="readout-figure text-lead">
+              {formatInteger(number, state.lang)}
+            </span>
+          )}
           {title}
         </h2>
         {note}
@@ -55,6 +65,7 @@ export function Tile({
         </p>
         {context && <p className="text-body text-moon">{context}</p>}
       </div>
+      {face}
       <InfoSheet
         title={title}
         triggerClassName={ROW_KEY}
@@ -67,6 +78,7 @@ export function Tile({
       >
         {children}
       </InfoSheet>
+      {facts && <HowWeGotThis facts={facts} />}
     </li>
   );
 }

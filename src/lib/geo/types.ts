@@ -30,6 +30,8 @@ export interface CountryProps {
   LABEL_Y?: number;
   LABELRANK?: number;
   ADM0_A3?: string;
+  /** Natural Earth's continent (countries-110m only; the region tree's first level). */
+  CONTINENT?: string;
 }
 
 export interface DistrictProps {

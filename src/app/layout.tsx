@@ -1,5 +1,6 @@
 import type { Metadata, Viewport } from "next";
-import { Anek_Bangla, Archivo } from "next/font/google";
+import { Anek_Bangla, Archivo, Atkinson_Hyperlegible, Hind_Siliguri, Noto_Sans_Bengali } from "next/font/google";
+import { LANG_SCRIPT } from "@/components/AppState/lang-script";
 import { TooltipProvider } from "@/components/ui/tooltip";
 import { appEn } from "@/lib/i18n/en/app";
 import { recordsEn } from "@/lib/i18n/en/records";
@@ -32,11 +33,22 @@ export const viewport: Viewport = {
   themeColor: "#CFE9DF",
 };
 
-const FONT_VARIABLES = [archivo, anek].map((f) => f.variable).join(" ");
+// Low-vision mode's fonts (all SIL OFL 1.1, docs/accessibility/LICENCES.md): Atkinson Hyperlegible (Braille Institute)
+// for Latin text, and two large, clear Bangla faces. Not preloaded: each downloads only once its setting puts it on screen.
+const atkinson = Atkinson_Hyperlegible({ variable: "--font-atkinson", subsets: ["latin"], weight: ["400", "700"], preload: false });
+const notoBn = Noto_Sans_Bengali({ variable: "--font-noto-bn", subsets: ["bengali"], preload: false });
+const hindBn = Hind_Siliguri({ variable: "--font-hind-bn", subsets: ["bengali"], weight: ["400", "600"], preload: false });
+
+const FONT_VARIABLES = [archivo, anek, atkinson, notoBn, hindBn].map((f) => f.variable).join(" ");
 
 export default function RootLayout({ children }: LayoutProps<"/">) {
   return (
-    <html lang="en" className={`${FONT_VARIABLES} h-full`}>
+    // The inline script sets lang from the saved language before the body is parsed (mentor item 3), so the attribute
+    // can differ from this HTML's "en" by the time React hydrates: that one difference is expected.
+    <html lang="en" className={`${FONT_VARIABLES} h-full`} suppressHydrationWarning>
+      <head>
+        <script dangerouslySetInnerHTML={{ __html: LANG_SCRIPT }} />
+      </head>
       <body className="min-h-full">
         <noscript>
           <div className="mx-auto max-w-xl space-y-3 p-8 text-body text-moon">

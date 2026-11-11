@@ -5,6 +5,8 @@
 
 import { BufferAttribute, BufferGeometry, Mesh, MeshBasicMaterial } from "three";
 import { STLExporter } from "three/examples/jsm/exporters/STLExporter.js";
+import { downloadBlob } from "@/lib/download";
+import type { TactileAltInput } from "@/lib/tactile-alt";
 
 /** Physical layout in millimetres (stated in the file name). */
 export const DISC = { radius: 60, hole: 4, base: 2, ridgeMax: 4, ridgeMin: 0.4, tick: 1.2, emboss: 0.6 } as const;
@@ -108,18 +110,33 @@ export function tactileMesh(rec: TactileRecord): Mesh {
   return new Mesh(geometry, new MeshBasicMaterial());
 }
 
-/** Builds the disc and hands the browser a binary STL to save. */
-export function downloadTactileRecord(rec: TactileRecord, fileName: string): void {
+/** What the disc's alt text needs beyond the disc itself (accessibility core, step 7). */
+export interface TactileMeta {
+  unit: string;
+  /** What each step around the circle is (a year, a month), oldest first. */
+  steps: readonly string[];
+  /** Each track's name, from the centre out. */
+  names: readonly string[];
+}
+
+export const tactileAltInput = (rec: TactileRecord, meta: TactileMeta): TactileAltInput => ({
+  label: rec.label,
+  sizeMm: DISC.radius * 2,
+  ridgeMm: { min: DISC.ridgeMin, max: DISC.ridgeMax },
+  range: rec.range,
+  unit: meta.unit,
+  steps: meta.steps,
+  rings: rec.tracks.map((tr, i) => ({ name: meta.names[i] ?? "", values: tr.values })),
+});
+
+/** Builds the disc and hands the browser a binary STL to save; `header` (80 bytes, the alt text) fills the STL header. */
+export function downloadTactileRecord(rec: TactileRecord, fileName: string, header?: Uint8Array): void {
   const mesh = tactileMesh(rec);
   const data = new STLExporter().parse(mesh, { binary: true });
+  if (header) new Uint8Array(data.buffer, data.byteOffset, header.length).set(header);
   mesh.geometry.dispose();
   (mesh.material as MeshBasicMaterial).dispose();
-  const url = URL.createObjectURL(new Blob([data], { type: "model/stl" }));
-  const a = document.createElement("a");
-  a.href = url;
-  a.download = fileName;
-  a.click();
-  setTimeout(() => URL.revokeObjectURL(url), 1000);
+  downloadBlob(new Blob([data], { type: "model/stl" }), fileName);
 }
 
 /** The scale, for the file name: "disc-120mm_ridge-0.4-4mm-for--70-35cm". */

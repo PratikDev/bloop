@@ -1,0 +1,19 @@
+{
+ "kind": "bloop-listen-test",
+ "version": 1,
+ "testVersion": 2,
+ "formative": true,
+ "lang": "en",
+ "results": [],
+ "comment": "",
+ "extras": {
+  "emotion": [
+   { "condition": "visual", "position": 1, "valence": 3, "connection": 2 },
+   { "condition": "sound", "position": 2, "valence": 4, "connection": 4 }
+  ],
+  "earEye": [
+   { "sense": "sound", "half": 1, "position": 1, "answer": "late", "correct_answer": "late", "correct": true, "ms": 4000 },
+   { "sense": "picture", "half": 0, "position": 2, "answer": "early", "correct_answer": "middle", "correct": false, "ms": 3000 }
+  ]
+ }
+}

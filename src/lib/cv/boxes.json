@@ -1,0 +1,10 @@
+{
+  "note": "The named view boxes of the 'What the jukebox read' panel and the value chord, [west, south, east, north] in degrees. One source: the panel (src/lib/cv/boxes.ts) and the pipeline tests (pipeline/tests/test_box_stats.py) both read this file. First used by the CV/ML gate (docs/cvml/GO_NO_GO.md, Check 1).",
+  "boxes": [
+    { "id": "bayOfBengal", "name": "Bay of Bengal", "bounds": [78, 5, 100, 25] },
+    { "id": "bangladesh", "name": "Bangladesh", "bounds": [88.0, 20.6, 92.7, 26.6] },
+    { "id": "arabianSea", "name": "Arabian Sea", "bounds": [50, 5, 78, 25] },
+    { "id": "warmPool", "name": "Western Pacific warm pool", "bounds": [130, -10, 170, 10] },
+    { "id": "gulfStream", "name": "Gulf Stream", "bounds": [-80, 30, -50, 45] }
+  ]
+}

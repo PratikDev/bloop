@@ -1,6 +1,7 @@
 import type { ViewPart } from "@/components/ThenNow/parts";
 import { VIEW_PARTS } from "@/components/ThenNow/parts";
 import { HISTORY_METRICS, PLACES, type HistoryMetric } from "@/lib/history";
+import { RECORD_ID } from "@/lib/transcript";
 import type { ClimateCellName } from "@/types/data-contract";
 
 // Each page's URL state, checked on the way in: an unknown value is dropped
@@ -26,8 +27,18 @@ export function listenSearch(raw: Raw): ListenSearch {
 export const THEN_NOW_VIEWS = ["compare", "monthly"] as const;
 export type ThenNowView = (typeof THEN_NOW_VIEWS)[number];
 
+// "Your lifetime": its view, and the birth year of a shared link (?born=1998&city=dhaka)
+export const LIFETIME_VIEW = "lifetime";
+const bornOf = (v: unknown): number | undefined => {
+  const y = typeof v === "number" ? v : typeof v === "string" ? Number(v) : NaN;
+  return Number.isInteger(y) && y >= 1850 && y <= 2100 ? y : undefined;
+};
+const cityOf = (v: unknown) => oneOf(PLACES, v) ?? PLACES.find((p) => typeof v === "string" && p.toLowerCase() === v.toLowerCase());
+
 export interface ThenNowSearch {
-  view?: ThenNowView;
+  view?: ThenNowView | typeof LIFETIME_VIEW;
+  /** ART: Your lifetime's birth year (only ever in the URL; never stored). */
+  born?: number;
   /** Compare decades */
   city?: ClimateCellName;
   part?: ViewPart;
@@ -37,25 +48,32 @@ export interface ThenNowSearch {
 }
 
 export function thenNowSearch(raw: Raw): ThenNowSearch {
-  const search: ThenNowSearch = {};
-  const view = oneOf(THEN_NOW_VIEWS, raw.view);
-  const city = oneOf(PLACES, raw.city);
-  const part = oneOf(VIEW_PARTS, raw.part);
-  const record = oneOf(HISTORY_METRICS, raw.record);
-  if (view) search.view = view;
-  if (city) search.city = city;
-  if (part) search.part = part;
-  if (typeof raw.place === "string" && raw.place.length > 0 && raw.place.length < 80) search.place = raw.place;
-  if (record) search.record = record;
-  return search;
+  // Every key is returned, undefined when the URL's value isn't allowed: the router merges the root's raw search
+  // under this one, so a key left out would let the raw value (e.g. ?part=nonsense) through.
+  const place = typeof raw.place === "string" && raw.place.length > 0 && raw.place.length < 80 ? raw.place : undefined;
+  return {
+    view: oneOf([...THEN_NOW_VIEWS, LIFETIME_VIEW], raw.view) ?? (bornOf(raw.born) ? LIFETIME_VIEW : undefined),
+    city: cityOf(raw.city), // Any case (the lifetime link is lower case)
+    born: bornOf(raw.born),
+    part: oneOf(VIEW_PARTS, raw.part),
+    place,
+    record: oneOf(HISTORY_METRICS, raw.record),
+  };
+}
+
+export interface TranscriptSearch {
+  /** The record whose transcript is shown (Listen's ocean or rain, or an Official record's id); none lists them all. */
+  record?: string;
+}
+
+export function transcriptSearch(raw: Raw): TranscriptSearch {
+  return { record: typeof raw.record === "string" && RECORD_ID.test(raw.record) ? raw.record : undefined };
 }
 
 export interface OfficialSearch {
   /** Which record is open. Checked against the record list by the page, once the list has loaded. */
   record?: string;
 }
-
-const RECORD_ID = /^[a-z0-9_]{1,80}$/u;
 
 export function officialSearch(raw: Raw): OfficialSearch {
   return typeof raw.record === "string" && RECORD_ID.test(raw.record) ? { record: raw.record } : {};

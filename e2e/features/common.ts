@@ -1,7 +1,7 @@
 // Shared by the feature checks (e2e/features.e2e.ts): the Feature shape, and the helpers each check uses to drive the
 // app the way a user would and read what the user would get.
 import { expect, type Locator, type Page } from "@playwright/test";
-import { AUDIBLE, heard, level, navTo } from "../lib/app";
+import { AUDIBLE, heard, level, MAP_READING, navTo } from "../lib/app";
 
 export type Group = "data" | "sound" | "visuals" | "jukebox" | "a11y" | "truth" | "forms" | "pages";
 export interface Outcome { evidence: string; limit?: string }
@@ -16,6 +16,8 @@ export interface Feature {
 
 export const map = (page: Page) => page.getByRole("application").first();
 export const name = async (l: Locator) => (await l.evaluate((e) => e.getAttribute("aria-label") ?? e.textContent ?? "")).trim();
+/** The sound map's live reading (its name holds still while it has focus). */
+export const reading = async (page: Page) => ((await map(page).getAttribute(MAP_READING)) ?? "").trim();
 export const live = async (page: Page) =>
   (await page.locator('[role="status"], [role="alert"], [aria-live="polite"], [aria-live="assertive"]').allTextContents()).join(" ");
 export const tab = (page: Page, n: string) => page.getByRole("tab", { name: n, exact: true });

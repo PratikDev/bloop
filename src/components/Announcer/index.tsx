@@ -4,11 +4,13 @@ import { useCallback, useEffect, useRef, useState, type ReactNode } from "react"
 import { clean } from "@/a11y/brailleText";
 import { AnnouncerContext } from "./use-announcer";
 
-const DEBOUNCE_MS = 300;
+const DEBOUNCE_MS = 250;
 
 /**
- * The one aria-live region (plan §9.4). Rapid updates (holding an arrow key)
- * collapse into the last one, so screen readers hear the settled value. Every
+ * The one status region (plan §9.4; accessibility core: persistent, never hidden or
+ * re-mounted, polite, no role="alert" for routine updates). Rapid updates (holding an
+ * arrow key) collapse into the last one after 250 ms, so screen readers hear the
+ * settled value, after the tone it follows. Every
  * message is made braille-ready (src/a11y/brailleText.ts): it reaches a braille
  * display as a flash message, so no glyph a braille table may lack gets through.
  */
@@ -37,7 +39,7 @@ export function AnnouncerProvider({ children }: { children: ReactNode }) {
   return (
     <AnnouncerContext.Provider value={announce}>
       {children}
-      <div aria-live="polite" aria-atomic="true" className="sr-only" data-testid="live-region">
+      <div role="status" aria-live="polite" aria-atomic="true" className="sr-only" data-testid="live-region">
         {message}
       </div>
     </AnnouncerContext.Provider>

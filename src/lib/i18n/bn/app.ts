@@ -126,6 +126,7 @@ export const appBn: Translated<typeof appEn> = {
   "announce.track": (p: { track: string }) => `এখন শুনছেন: ${p.track}।`,
   "announce.mode": (p: { mode: string }) => `${p.mode} মোড।`,
   "announce.toggle": (p: { name: string; on: boolean }) => `${p.name} ${p.on ? "চালু" : "বন্ধ"}।`,
+  "start.tapToStart": "শব্দ শুরু করতে ট্যাপ করুন",
   "announce.started": "শব্দ শুরু হয়েছে। কার্সর বঙ্গোপসাগরের ওপর। তীর-কী দিয়ে সরান।",
 
   // Plan §15: only the words around the names are translated.

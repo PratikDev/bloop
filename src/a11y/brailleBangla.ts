@@ -100,6 +100,9 @@ export const BN_UNITS: Record<string, string> = {
   "g/kg": "গ্রাম প্রতি কিলোগ্রাম", // DRAFT
   m: "মিটার", // DRAFT
   mm: "মিমি", // DRAFT
+  "mm/day": "মিমি প্রতি দিন", // DRAFT (Then vs Now's monsoon rain)
+  cm: "সেমি", // DRAFT (Then vs Now's water)
+  "cm/yr": "সেমি প্রতি বছর", // DRAFT (Then vs Now's water trend)
   K: "কেলভিন", // DRAFT
   "%": "শতাংশ", // DRAFT
   index: "সূচক", // DRAFT
@@ -128,6 +131,9 @@ export const BN_LAYERS: Record<string, string> = {
   brightness: "উজ্জ্বলতা", // DRAFT
   transport: "জলীয় বাষ্প পরিবহন", // DRAFT
   change: "পরিবর্তন", // DRAFT
+  heat: "তাপমাত্রার বিচ্যুতি", // DRAFT (Then vs Now: GISTEMP anomaly)
+  monsoon: "বর্ষার বৃষ্টি", // DRAFT (Then vs Now: GPCP)
+  water: "মোট পানির মজুত", // DRAFT (Then vs Now: GRACE)
 };
 const BN_AREAS: Record<string, string> = { bd: "বাংলাদেশ", global: "বিশ্ব" }; // DRAFT
 

@@ -33,6 +33,8 @@ const DESCRIBED = new Set([
   "caption.thenNow.caption",
   "caption.thenNow.window",
   "caption.thenNow.end",
+  "caption.frameGap",
+  "caption.note",
   "caption.water.gap",
   "caption.water.windowStart",
   "caption.water.windowEnd",

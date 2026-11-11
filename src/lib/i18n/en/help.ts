@@ -25,7 +25,7 @@ export const helpEn = {
   "key.p.action": "Where this value comes from",
   "key.x.action": "X-ray: how a colour becomes a number and a sound (planned)",
 
-  // Team plan §11.7 concept-only items, plus X-ray: shown with a "Coming in October" label.
+  // Team plan §11.7 concept-only items, plus X-ray: shown with a "Planned" label.
   "october.heading": "Planned next",
   "october.xray": "X-ray: how a colour becomes a number and a sound (waits for NASA's colorbar data)",
   "october.aiByEar": "\"Check the AI by ear\" and \"Ask the Earth\", a voice agent (the AI never produces numbers)",

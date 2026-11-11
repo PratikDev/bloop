@@ -1,11 +1,13 @@
 "use client";
 
-import { useMemo, useState } from "react";
+import { useCallback, useMemo, useState } from "react";
 import { CalendarBlank } from "@phosphor-icons/react";
 import { Button } from "@/components/ui/button";
 import { useAnnounceError } from "@/hooks/use-announce-error";
+import { bi, type BiText } from "@/lib/bi-text";
 import { formatList } from "@/lib/i18n";
 import { buildThenNowInput, cityDemo, waterBeat, yearlyBeat, yearlyWindows } from "@/lib/then-now";
+import { statTexts } from "@/lib/then-now-stats";
 import type { ClimateCellName } from "@/types/data-contract";
 import { useAppState, useT } from "../AppState/use-app-state";
 import { MORE_ITEM } from "../Dock/PlayerMore";
@@ -22,7 +24,7 @@ import { PartTable } from "./PartTable";
 import { PartView } from "./PartView";
 import { ListenMoreItems, PlayPartButton } from "./PlayControls";
 import { useThenNowData } from "./use-then-now-data";
-import { useThenNowPlayer } from "./use-then-now-player";
+import { useThenNowPlayer, type Part } from "./use-then-now-player";
 
 export const DEFAULT_CITY: ClimateCellName = "Dhaka";
 
@@ -61,17 +63,37 @@ export function ThenNow({
     const demo = city ? cityDemo(ready.demo, city) : ready.demo;
     return { demo, input: buildThenNowInput(demo, ready.grace) };
   }, [ready, city]);
-  const player = useThenNowPlayer(view?.input ?? null, view?.demo ?? null);
+  // The cell a part plays from; the sharer's caption already names its reference city, the reference's doesn't.
+  // Heat's sentence is written from the numbers and no longer carries the caption's "same cell" sentence, so every
+  // city that shares its cell gets the note; rain's caption still says it for the sharer, so only the reference gets it.
+  const sharedFor = useCallback(
+    (p: ViewPart): ClimateCellName[] => {
+      const cell = p === "heat" ? city?.heat : p === "monsoon" ? city?.rain.gpcp : null;
+      return cell && (p === "heat" || cell.same_record_as === null) ? cell.shares_cell_with : [];
+    },
+    [city],
+  );
+  const stats = ready?.stats ?? null;
+  const statLines = useCallback((p: Part) => (stats ? statTexts(stats, cityName, p) : null), [stats, cityName]);
+  // Captions and Describe carry the same notes as the screen: Bangladesh-wide water, shared cells.
+  const deg = ready?.grace.mascon_deg ?? null;
+  const noteLines = useCallback(
+    (p: Part): BiText[] => {
+      const shared = sharedFor(p);
+      return [
+        ...(p === "water" ? [bi((tl) => tl("water.bangladeshWide", { deg }))] : []),
+        ...(shared.length ? [bi((tl) => tl("history.sharedCell", { places: shared.map((c) => tl(`place.${c}`)).join(", ") }))] : []),
+      ];
+    },
+    [sharedFor, deg],
+  );
+  const player = useThenNowPlayer(view?.input ?? null, view?.demo ?? null, statLines, noteLines);
   // While "Play heat, rain and water" runs, the view follows the part that is sounding.
   const part: ViewPart = player.soundingPart ?? chosen;
   const field = isFieldPart(part);
   const playing = player.soundingPart !== null;
   const cities = ready?.cities?.cities ?? [];
-  // The cell this part plays from; the sharer's caption already names its reference city, the reference's doesn't.
-  const cell = part === "heat" ? city?.heat : part === "monsoon" ? city?.rain.gpcp : null;
-  // Heat's sentence is written from the numbers and no longer carries the caption's "same cell" sentence, so every
-  // city that shares its cell gets the note; rain's caption still says it for the sharer, so only the reference gets it.
-  const sharedWith = cell && (part === "heat" || cell.same_record_as === null) ? cell.shares_cell_with : [];
+  const sharedWith = sharedFor(part);
   const pause = usePauseMotion();
   const sounding = player.soundingPart === part ? player.index : null;
   const beat = !view || !ready || isFieldPart(part) ? null : part === "water" ? waterBeat(ready.grace, sounding) : yearlyBeat(part, yearlyWindows(view.demo, part), sounding, player.splitIndex);

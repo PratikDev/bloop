@@ -2,9 +2,9 @@ import { createRootRoute, createRoute, lazyRouteComponent } from "@tanstack/reac
 import { AppShell } from "@/components/AppShell";
 import { HomePage } from "@/components/pages/Home";
 import { NotFoundPage } from "@/components/pages/NotFound";
-import { listenSearch, officialSearch, thenNowSearch } from "./search";
+import { listenSearch, officialSearch, thenNowSearch, transcriptSearch } from "./search";
 
-// Six places and a 404 (docs/L3/REDESIGN.md §2; Official and Turntable joined from bloop-dev). Then vs Now, How we
+// Seven places and a 404 (docs/L3/REDESIGN.md §2; Official and Turntable joined from bloop-dev). Then vs Now, How we
 // know, Official and Turntable load their code (the chart library, three.js) only when opened.
 
 const rootRoute = createRootRoute({ component: AppShell, notFoundComponent: NotFoundPage });
@@ -47,4 +47,25 @@ const turntableRoute = createRoute({
   component: lazyRouteComponent(() => import("@/components/pages/TurntablePage"), "TurntablePage"),
 });
 
-export const routeTree = rootRoute.addChildren([homeRoute, listenRoute, thenNowRoute, howRoute, officialRoute, turntableRoute]);
+const teamRoute = createRoute({
+  getParentRoute: () => rootRoute,
+  path: "team",
+  component: lazyRouteComponent(() => import("@/components/pages/Team"), "TeamPage"),
+});
+
+// The listener test (mentor item 8): no link to it anywhere, noindex (src/app/[[...path]]/page.tsx).
+const listenTestRoute = createRoute({
+  getParentRoute: () => rootRoute,
+  path: "listen-test",
+  component: lazyRouteComponent(() => import("@/components/pages/ListenTest"), "ListenTestPage"),
+});
+
+// A transcript per record (accessibility core, step 7): linked from Listen, each Official record and How we know.
+const transcriptRoute = createRoute({
+  getParentRoute: () => rootRoute,
+  path: "transcript",
+  validateSearch: transcriptSearch,
+  component: lazyRouteComponent(() => import("@/components/pages/Transcript"), "TranscriptPage"),
+});
+
+export const routeTree = rootRoute.addChildren([homeRoute, listenRoute, thenNowRoute, howRoute, officialRoute, turntableRoute, teamRoute, listenTestRoute, transcriptRoute]);

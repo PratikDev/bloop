@@ -2,11 +2,11 @@ import type { CSSProperties, ReactNode } from "react";
 import { cn } from "@/lib/utils";
 import { VinylMark } from "./VinylMark";
 
-export type BadgeKind = "october" | "error" | "loading";
+export type BadgeKind = "note" | "error" | "loading";
 
 /** Status is shape + words, never colour: colour means data here (design-plan §2). Loading is a spinning record. */
 const GLYPHS: Record<Exclude<BadgeKind, "loading">, ReactNode> = {
-  october: <circle cx="6" cy="6" r="4" fill="none" stroke="currentColor" strokeWidth="1.5" />,
+  note: <circle cx="6" cy="6" r="4" fill="none" stroke="currentColor" strokeWidth="1.5" />,
   error: <path d="M2 2h8v5l-3 3H2z" fill="none" stroke="currentColor" strokeWidth="1.5" />,
 };
 

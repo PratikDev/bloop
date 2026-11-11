@@ -129,11 +129,10 @@ export const appEn = {
   "announce.track": (p: { track: string }) => `Now hearing: ${p.track}.`,
   "announce.mode": (p: { mode: string }) => `${p.mode} mode.`,
   "announce.toggle": (p: { name: string; on: boolean }) => `${p.name} ${p.on ? "on" : "off"}.`,
+  "start.tapToStart": "Tap to start sound",
   "announce.started": "Sound started. The cursor is over the Bay of Bengal. Arrow keys move it.",
 
-  // Team plan §15 wording, split into what the app uses and what only our tests used
-  // (contract-proposals E3). FIRMS, MODIS and GLOBE moved into the app on 28 Sep (fires,
-  // vegetation, the GLOBE teaser); POWER is shown only as the record we dropped. Dataset names stay in English.
+  // Team plan §15 wording. The full credits list is built from the record registry (src/lib/credits, en/credits.ts).
   "credits.visualizations": `Visualizations: ${CREDIT_NAMES.svs} for the ${CREDIT_NAMES.eic}.`,
   "credits.data": `Data in this app: ${CREDIT_NAMES.data}.`,
   "credits.testing": `Also used in our testing: ${CREDIT_NAMES.power} (dropped: it disagreed with independent records).`,

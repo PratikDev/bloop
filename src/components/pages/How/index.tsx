@@ -94,7 +94,7 @@ export function HowPage() {
           figure={globe !== undefined ? t("how.globe.value", { percent: globe * 100 }) : undefined}
           figureLabel={t("how.globe.figure")}
           context={t("globe.plan")}
-          note={<StatusBadge kind="october">{t("globe.teaser")}</StatusBadge>}
+          note={<StatusBadge kind="note">{t("globe.teaser")}</StatusBadge>}
           open={t("how.openGlobe")}
         >
           <GlobeTeaser />

@@ -1,0 +1,46 @@
+// English strings for the accessibility core, step 6: Compare two dates, the sonar, and the expedition log. Every
+// number is a slot computed from the data files.
+
+export const expeditionEn = {
+  "compare.open": "Compare two dates at the needle",
+  "compare.short": "Compare",
+  "compare.title": "Compare two dates",
+  "compare.layer": "Record",
+  "compare.layer.heat": "Land temperature, against its normal",
+  "compare.layer.rain": "Rain",
+  "compare.layer.water": "Water underground",
+  "compare.month": "Month",
+  "compare.yearA": "First year",
+  "compare.yearB": "Second year",
+  "compare.play": "Compare",
+  "compare.loading": "Loading the monthly record.",
+  "compare.error": "The monthly record could not load.",
+  "compare.unit.heat": "degrees Celsius",
+  "compare.unit.rain": "millimetres a day",
+  "compare.unit.water": "centimetres of water",
+  "compare.said": (p: { record: string; place: string; a: string; aValue: string; b: string; bValue: string; unit: string }) =>
+    `${p.record}, the cell around ${p.place}. ${p.a}: ${p.aValue} ${p.unit}. ${p.b}: ${p.bValue} ${p.unit}.`,
+  "compare.higher": (p: { diff: string; unit: string }) => `The second is ${p.diff} ${p.unit} higher.`,
+  "compare.lower": (p: { diff: string; unit: string }) => `The second is ${p.diff} ${p.unit} lower.`,
+  "compare.same": "The two are the same.",
+  "compare.none": (p: { record: string; place: string }) => `${p.record}: no data for the cell around ${p.place} in one of the two months.`,
+  "compare.howBeats": "Two tones in one ear: the faster they beat, the bigger the difference.",
+  "compare.howDrops": "Rain plays as drops: the first month, then the second.",
+  "caption.compare.pair": (p: { beats: string }) => `Two dates, one ear: ${p.beats} beats a second`,
+
+  "sonar.warmest": "warmest",
+  "sonar.wettest": "wettest",
+  "sonar.start": (p: { what: string }) => `Sonar: finding the ${p.what} spot near here. The ping rises and quickens as the needle gets closer.`,
+  "sonar.none": "Sonar: nothing to find near here.",
+  "sonar.arrived": (p: { what: string; value: string; place: string }) => `Found the ${p.what} spot near here: ${p.value}, ${p.place}.`,
+  "sonar.stopped": "Sonar off.",
+  "key.n.action": "Sonar: find the warmest (ocean) or wettest (rain) spot near the needle; N again stops it",
+
+  "log.open": "Expedition log: what this session found",
+  "log.short": "Log",
+  "log.title": "Bloop expedition log",
+  "log.empty": "Nothing yet. Enter, D, Compare, Places and the sonar add to it.",
+  "log.sources": "Sources:",
+  "log.download": "Save as text (.txt)",
+  "log.width": (p: { width: string }) => `Lines are ${p.width} characters wide, as set for the braille explorer.`,
+};

@@ -12,6 +12,18 @@ for d in (RAW, WORK, PUBLIC / "latest", PUBLIC / "sequence", PUBLIC / "context",
 
 UA = {"User-Agent": "earth-jukebox-pipeline/1.0"}
 
+def nested_credits(o):
+    """Credit or dataset strings anywhere in a data file (history files credit each voice or section, not the file)."""
+    if isinstance(o, dict):
+        return [v for k, v in o.items() if k in ("credit", "dataset") and isinstance(v, str)] + [x for v in o.values() for x in nested_credits(v)]
+    return [x for v in o for x in nested_credits(v)] if isinstance(o, list) else []
+
+
+def inherited_credit(*files):
+    """A derived file's credit: its inputs' own credit lines, in order, each once (never typed)."""
+    return "; ".join(dict.fromkeys(c for f in files for c in nested_credits(f)))
+
+
 def now_utc():
     return dt.datetime.now(dt.timezone.utc).strftime("%Y-%m-%dT%H:%M:%SZ")
 

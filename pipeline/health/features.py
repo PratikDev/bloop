@@ -16,17 +16,18 @@ GROUPS = {"data": "Data and records", "sound": "Sound and mapping", "visuals": "
           "tools": "Tools"}
 RANK = {"BROKEN": 0, "PARTIAL": 1, "WORKING": 2}
 
-# Named in docs or briefs, not in src/ (the help dialog's "Not built yet" list, and the accessibility brief of 6 Nov 2026).
+# Named in docs or briefs, not in src/ (team plan §11.7, whose list the help dialog showed until the mentor fixes removed
+# it on 7 Nov 2026, and the accessibility brief of 6 Nov 2026).
 NOT_BUILT = [
-    ("X-ray: how a colour becomes a number and a sound", "help dialog, 'Coming in October' (key X says so)"),
-    ("'Check the AI by ear' and 'Ask the Earth' voice agent", "help dialog, 'Not built yet'"),
-    ("Listening study with blind and low-vision adults", "help dialog, 'Not built yet'"),
-    ("Full Anomaly Choir and Change Choir", "help dialog, 'Not built yet'"),
-    ("Satellite-pass cues", "help dialog, 'Not built yet'"),
-    ("Raga music mode", "help dialog, 'Not built yet'"),
-    ("NASA vs JAXA (GSMaP) and NASA vs UK Met Office (OSTIA) duets", "help dialog, 'Not built yet'"),
-    ("More EIC tracks: fires, air quality, wind (as live tracks)", "help dialog, 'Not built yet'"),
-    ("Kiosk and hyperwall mode", "help dialog, 'Not built yet'"),
+    ("X-ray: how a colour becomes a number and a sound", "team plan §11.7 (key X says 'not in this version')"),
+    ("'Check the AI by ear' and 'Ask the Earth' voice agent", "team plan §11.7"),
+    ("Listening study with blind and low-vision adults", "team plan §11.7"),
+    ("Full Anomaly Choir and Change Choir", "team plan §11.7"),
+    ("Satellite-pass cues", "team plan §11.7"),
+    ("Raga music mode", "team plan §11.7"),
+    ("NASA vs JAXA (GSMaP) and NASA vs UK Met Office (OSTIA) duets", "team plan §11.7"),
+    ("More EIC tracks: fires, air quality, wind (as live tracks)", "team plan §11.7"),
+    ("Kiosk and hyperwall mode", "team plan §11.7"),
     ("Hide-3D toggle, one app store for speech/verbosity/preset, globe as one composite widget", "accessibility brief, part 1"),
     ("Region tree (continent → country → division, BN+EN) and View as table", "accessibility brief, part 1"),
     ("Speech mode (screen reader / Bloop's voice / off), verbosity, text/sound/both", "accessibility brief, part 1"),

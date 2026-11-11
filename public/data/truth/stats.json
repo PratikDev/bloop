@@ -1,0 +1,27 @@
+{
+  "title": "How we know: rank correlation of each check's pairs",
+  "disclosure": "Spearman's rho between the value read from the frame (or the ground report) and the comparison source, computed by the Bloop pipeline from the shipped pair files.",
+  "credit": "Data: MUR SST (NASA/JPL PO.DAAC). Visualization: NASA's Scientific Visualization Studio (SVS 5101) for the NASA Earth Information Center.; Data: GPM IMERG (NASA/JAXA, GES DISC). Visualization: NASA's Scientific Visualization Studio (SVS 4285) for the NASA Earth Information Center.; NASA GLOBE Program (GLOBE Clouds 2025 v3.4, satellite-matched)",
+  "sst": {
+    "source": "truth/sst_pairs.json",
+    "frame_time_utc": "2026-11-04T00:00:00Z",
+    "spearman_rho": 0.999,
+    "p": 7.791114150442349e-84,
+    "n": 60
+  },
+  "rain": {
+    "source": "truth/rain_pairs.json",
+    "frame_time_utc": "2026-11-06T01:30:00Z",
+    "pairs_used": "both rain (kind = rain)",
+    "spearman_rho": 0.986,
+    "p": 1.7698338295434604e-116,
+    "n": 150
+  },
+  "globe": {
+    "source": "context/globe_duet.json",
+    "spearman_rho": 0.185,
+    "p": 0.07191928404316646,
+    "n": 96
+  },
+  "generated_utc": "2026-11-08T00:19:30Z"
+}

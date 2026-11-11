@@ -1,0 +1,19 @@
+// English strings for the credits list (src/components/DataCredits; built from the record registry by
+// src/lib/credits/build.ts). Dataset names stay in English; only the words around them are translated.
+
+export const creditsEn = {
+  "credits.heading.data": "Data in this app",
+  "credits.heading.testing": "Used in our testing (not playable)",
+  "credits.testing.note": "Built and checked by our pipeline; the app neither plays them nor shows their numbers.",
+  "credits.group.observations": "Observations",
+  "credits.group.models": "Models and reanalyses",
+  "credits.group.svs": "NASA visualizations (SVS)",
+  "credits.group.count": (p: { count: string }) => `${p.count} sources`,
+  "credits.plays": (p: { pages: string }) => `Plays in: ${p.pages}`,
+  "credits.page.braille": "Braille explorer",
+  "credits.link": (p: { name: string }) => `Source page: ${p.name}`,
+  "credits.noLink": "link not available",
+  "credits.power": "NASA POWER was checked and dropped: it disagreed with independent records.",
+  "credits.loading": "Loading the credits",
+  "credits.error": "The credits could not load. Reload the page to try again.",
+};

@@ -61,15 +61,20 @@ export async function heard(page: Page, ms = 4000): Promise<number> {
 }
 
 /** Opens the app past the start overlay and the intro, with the audio tap (and, when asked, the 3D hidden). */
-export async function start(page: Page, opts: { hide3d?: boolean } = {}) {
+export async function start(page: Page, opts: { hide3d?: boolean; keepTuning?: boolean } = {}) {
+  await tapAudio(page, opts);
+  await open(page, opts);
+}
+
+/** The audio tap (and, when asked, the 3D hidden) on every page this one loads, without starting the app. */
+export async function tapAudio(page: Page, opts: { hide3d?: boolean } = {}) {
   await page.addInitScript(TAP);
   if (opts.hide3d) await page.addInitScript(HIDE_3D);
-  await open(page);
 }
 
 /** Start listening and Skip intro, stopping the moment the journey into Listen is on screen. */
 export async function startToJourney(page: Page, overlay: string) {
-  await page.addInitScript(TAP);
+  await tapAudio(page);
   await page.goto("/");
   await page.getByRole("button", { name: "Start listening" }).click();
   await page.getByRole("button", { name: "Skip intro" }).click();
@@ -77,7 +82,7 @@ export async function startToJourney(page: Page, overlay: string) {
 }
 
 /** Loads the app again on a page that already has the init scripts (a fresh start after a failed check). */
-export async function open(page: Page) {
+export async function open(page: Page, opts: { keepTuning?: boolean } = {}) {
   await page.goto("/");
   await page.getByRole("button", { name: "Start listening" }).click();
   // The intro can appear a moment after Start: wait for it (it plays its own sound and takes the keys), then skip it.
@@ -89,6 +94,10 @@ export async function open(page: Page) {
   await page.locator("#sound-map").waitFor({ state: "visible", timeout: 30_000 }).catch(() => undefined);
   await page.locator("[data-jukebox-journey]").waitFor({ state: "detached", timeout: 10_000 }).catch(() => undefined);
   await page.waitForFunction(() => document.getAnimations().every((a) => a.playState !== "running" || a.effect?.getTiming().iterations === Infinity), null, { timeout: 5_000 }).catch(() => undefined);
+  // Track 0 "Tuning" follows the intro on a first visit, where it is on: skipped as the intro is, unless asked to keep it.
+  if (opts.keepTuning) return;
+  const skipTuning = page.getByRole("button", { name: "Skip tuning" });
+  if (await skipTuning.isVisible()) await skipTuning.click();
 }
 
 /** An official record's strip on the Official page: its name is its code, then its title. */
@@ -122,3 +131,12 @@ export async function navTo(page: Page, name: PageName) {
   await page.getByRole("banner").getByRole("link", { name: new RegExp(`${name}$`, "u") }).first().click();
   await page.waitForURL(/./u);
 }
+
+/** The header's Settings button (exact: the header also has "Low-vision settings"). */
+export const settingsButton = (page: Page) => page.getByRole("banner").getByRole("button", { name: "Settings", exact: true });
+
+/**
+ * The sound map's live reading. Its accessible name is the reading as the map is reached and holds still while it has
+ * focus (each step is said once, by the status region), so checks of where the needle is read this attribute.
+ */
+export const MAP_READING = "data-reading";

@@ -1,7 +1,8 @@
 numpy
 pandas
 pillow
-opencv-python
+# OpenCV 5.0 can't read the SVS .exr frames; keep 4.x.
+opencv-python<5
 xarray
 h5netcdf
 h5py

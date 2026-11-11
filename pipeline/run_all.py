@@ -22,11 +22,12 @@ frames = [["fetch_latest.py"], ["convert_sst.py"], ["convert_rain.py"]]
 if "--no-sequence" not in sys.argv: frames.append(["fetch_rain_sequence.py"])
 if cadence is None:
     required = frames + ([["build_context.py"], ["build_demo.py"]] if "--no-context" not in sys.argv else [])
-    optional = [["build_ensemble.py"], ["build_globe_duet.py"], ["build_cities.py"]] if "--no-context" not in sys.argv else []
+    # stats reads the cities file, so it runs after build_cities (mentor item 10)
+    optional = [["build_ensemble.py"], ["build_globe_duet.py"], ["build_cities.py"], ["-m", "stats.then_vs_now_stats"]] if "--no-context" not in sys.argv else []
     if "--with-global" in sys.argv: optional.append(["build_global.py"])    # global sources change rarely: rebuild only on request
-    optional += [["verify_latest.py"]] + products("daily")
+    optional += [["verify_latest.py"], ["-m", "stats.truth_stats"]] + products("daily")   # truth_stats reads verify_latest's pairs
 elif cadence == "daily":
-    required, optional = frames, [["verify_latest.py"]] + products("daily")
+    required, optional = frames, [["verify_latest.py"], ["-m", "stats.truth_stats"]] + products("daily")
 else:
     required, optional = [], products(cadence)
 optional.append(["build_freshness.py"])

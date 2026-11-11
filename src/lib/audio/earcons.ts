@@ -38,6 +38,17 @@ const SOUNDS: Record<EarconId, (time: number, lon: number) => void> = {
   ping: (time, lon) => playTone("ping", PING_HZ, time, lon),
 };
 
+/**
+ * The sonar's ping (accessibility core, step 6): the "Extreme ping" earcon, an octave below its pitch when the needle is
+ * far from the target (closeness 0), rising to it at the target (closeness 1). No caption: the sonar says when it
+ * starts and when it arrives, never every ping.
+ */
+export function playSonarPing(closeness: number, lon = 0) {
+  if (!peekEngine()) return;
+  const c = Math.min(1, Math.max(0, closeness));
+  playTone("ping", PING_HZ * 2 ** (c - 1), getCtx().currentTime, lon);
+}
+
 /** Plays an earcon now (silent before Start). Internal: no caption. */
 export function playEarconAt(id: EarconId, time: number, lon = 0) {
   if (!peekEngine()) return;

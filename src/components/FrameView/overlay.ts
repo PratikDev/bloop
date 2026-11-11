@@ -16,10 +16,10 @@ const ACCENT_WIDTH = 2;
 const OUTLINE_WIDTH = 1.5;
 
 /** A shapla stroke with an ink outline on both sides, so it shows on any colormap (design-plan §2.2). */
-function strokeOutlined(ctx: CanvasRenderingContext2D, palette: Palette, alpha: number, accentWidth = ACCENT_WIDTH) {
+function strokeOutlined(ctx: CanvasRenderingContext2D, palette: Palette, alpha: number, accentWidth = ACCENT_WIDTH, outlineWidth = OUTLINE_WIDTH) {
   ctx.globalAlpha = alpha;
   ctx.strokeStyle = palette.ink;
-  ctx.lineWidth = accentWidth + OUTLINE_WIDTH * 2;
+  ctx.lineWidth = accentWidth + outlineWidth * 2;
   ctx.stroke();
   ctx.strokeStyle = palette.shapla;
   ctx.lineWidth = accentWidth;
@@ -27,10 +27,13 @@ function strokeOutlined(ctx: CanvasRenderingContext2D, palette: Palette, alpha: 
   ctx.globalAlpha = 1;
 }
 
-export function drawCursor(ctx: CanvasRenderingContext2D, palette: Palette, x: number, y: number) {
+/** Low-vision mode's needle: larger, with a 4 px ring between 3 px outlines (WCAG 2.4.11's thickness, on any band). */
+const THICK = { radius: 16, accent: 4, outline: 3 } as const;
+
+export function drawCursor(ctx: CanvasRenderingContext2D, palette: Palette, x: number, y: number, thick = false) {
   ctx.beginPath();
-  ctx.arc(x, y, CURSOR_RADIUS, 0, Math.PI * 2);
-  strokeOutlined(ctx, palette, 1);
+  ctx.arc(x, y, thick ? THICK.radius : CURSOR_RADIUS, 0, Math.PI * 2);
+  strokeOutlined(ctx, palette, 1, thick ? THICK.accent : ACCENT_WIDTH, thick ? THICK.outline : OUTLINE_WIDTH);
   ctx.beginPath();
   ctx.arc(x, y, 2, 0, Math.PI * 2);
   ctx.fillStyle = palette.ink;

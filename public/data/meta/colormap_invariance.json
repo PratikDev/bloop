@@ -1,0 +1,156 @@
+{
+ "generated_by": "pipeline/tests/test_colormap_invariance.py",
+ "sigma_source": "public/data/latest/sst.json verified.value",
+ "cases": [
+  {
+   "box": "bayOfBengal",
+   "region": "Bay of Bengal",
+   "bounds": [
+    78,
+    5,
+    100,
+    25
+   ],
+   "date": "2007-11-18",
+   "pixels": 18083,
+   "sigma_C": 0.31,
+   "truth": {
+    "median": 28.47,
+    "modes": [
+     28.502
+    ]
+   },
+   "maps": {
+    "3912 SVS bar": {
+     "median": 28.471,
+     "modes": [
+      28.502
+     ],
+     "abs_err_median": 0.0074
+    },
+    "viridis": {
+     "median": 28.488,
+     "modes": [
+      28.492
+     ],
+     "abs_err_median": 0.0095
+    },
+    "jet": {
+     "median": 28.478,
+     "modes": [
+      28.502
+     ],
+     "abs_err_median": 0.0075
+    }
+   },
+   "clean": {
+    "median_spread_C": 0.017,
+    "p10_spread_C": 0.014,
+    "mode_counts": [
+     1,
+     1,
+     1
+    ],
+    "mode_spread_C": [
+     0.01
+    ]
+   },
+   "jpeg75_reported": {
+    "median_spread_C": 0.047,
+    "p10_spread_C": 0.023,
+    "mode_counts": [
+     1,
+     1,
+     1
+    ],
+    "mode_spread_C": [
+     0.04
+    ]
+   },
+   "hue_L1": {
+    "3912 SVS bar vs viridis": 2.0,
+    "3912 SVS bar vs jet": 0.185,
+    "viridis vs jet": 2.0
+   },
+   "figure": "/images/cvml/colormap_invariance_bayOfBengal.png"
+  },
+  {
+   "box": "gulfStream",
+   "region": "Gulf Stream",
+   "bounds": [
+    -80,
+    30,
+    -50,
+    45
+   ],
+   "date": "2008-02-13",
+   "pixels": 25054,
+   "sigma_C": 0.31,
+   "truth": {
+    "median": 18.889,
+    "modes": [
+     18.954,
+     20.403
+    ]
+   },
+   "maps": {
+    "3912 SVS bar": {
+     "median": 18.897,
+     "modes": [
+      18.954,
+      20.393
+     ],
+     "abs_err_median": 0.0103
+    },
+    "viridis": {
+     "median": 18.947,
+     "modes": [
+      18.954,
+      20.383
+     ],
+     "abs_err_median": 0.0251
+    },
+    "jet": {
+     "median": 18.884,
+     "modes": [
+      18.963,
+      20.413
+     ],
+     "abs_err_median": 0.0076
+    }
+   },
+   "clean": {
+    "median_spread_C": 0.063,
+    "p10_spread_C": 0.002,
+    "mode_counts": [
+     2,
+     2,
+     2
+    ],
+    "mode_spread_C": [
+     0.009,
+     0.03
+    ]
+   },
+   "jpeg75_reported": {
+    "median_spread_C": 0.025,
+    "p10_spread_C": 0.754,
+    "mode_counts": [
+     2,
+     2,
+     2
+    ],
+    "mode_spread_C": [
+     0.0,
+     0.05
+    ]
+   },
+   "hue_L1": {
+    "3912 SVS bar vs viridis": 1.466,
+    "3912 SVS bar vs jet": 0.617,
+    "viridis vs jet": 1.411
+   },
+   "figure": "/images/cvml/colormap_invariance_gulfStream.png"
+  }
+ ]
+}

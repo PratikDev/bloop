@@ -146,6 +146,8 @@ bun run dev      # open http://localhost:3000
 | `npm run refresh:live` | Refreshes every updating record; ships only what passes its truth check |
 | `bun run i18n:todo` | Rewrites `docs/i18n/TO_TRANSLATE.md`, the Bangla strings still to translate |
 
+**Team page and release builds.** The Team page (`/team`) reads `content/team.json`: the team name, each member's name and role, the challenge, the local event and the licence. A field still `"TODO"` shows nothing on the page. `bun run build` lists the TODO fields, and with `BLOOP_RELEASE=1` it stops until none remain (`bun run check:team` runs the check alone).
+
 The audio engine's test page (`/dev/audio`) is available in development only. For a test deployment that includes it, build with `AUDIO_HARNESS=1 bun run build`.
 
 <details>
@@ -193,11 +195,7 @@ python run_all.py            # options: --no-sequence --no-context --with-global
 
 ## Credits
 
-Visualizations: NASA's Scientific Visualization Studio (SVS 5101, 4285) for the NASA Earth Information Center.
-
-Data in this app: MUR SST (NASA/JPL PO.DAAC); GPM IMERG (NASA/JAXA, GES DISC); GRACE/GRACE-FO JPL mascons RL06.3Mv04 (NASA/JPL PO.DAAC); NASA GISTEMP v4; GPCP v2.3 and GPCC Full Data v2020 (via NOAA PSL); NASA FIRMS; MODIS MOD13Q1 via ORNL DAAC; NASA GLOBE Program.
-
-Also used in our testing: NASA POWER (dropped: it disagreed with independent records).
+The credits are built from the record registry (`public/data/meta/freshness.json`, the Official and Related indexes, and the voices each page plays: `src/lib/credits/`), so they list every source a playing record uses and only those. The app shows the same list on How we know (Credits), Official records (Credits), the Turntable (Credits) and the Team page. It is grouped as Observations, Models and reanalyses, and NASA visualizations (SVS, with each record's IDs). Each entry gives the provider, the pages where it plays and a link. Sources we built and checked but don't play (GPCC, FIRMS, MODIS MOD13Q1, GLOBE and others) are listed separately as "Used in our testing (not playable)". NASA POWER was checked and dropped: it disagreed with independent records.
 
 We follow each dataset's own acknowledgement text where one is provided (for example GRACE and GPCP).
 

@@ -25,7 +25,7 @@ export function ThenNowPage() {
   const search = route.useSearch();
   const navigate = route.useNavigate();
   const { current } = useRecords();
-  const view: ThenNowView = search.view ?? "compare";
+  const view: ThenNowView = search.view === "monthly" ? "monthly" : "compare";
   // In-page choices replace the entry (Back leaves the page, not each tab); the view switch pushes one.
   const set = (next: Partial<ThenNowSearch>, replace = true) => void navigate({ search: (prev) => ({ ...prev, ...next }), replace });
 

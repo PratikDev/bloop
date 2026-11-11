@@ -123,38 +123,38 @@
           },
           "B": {
             "window": [
-              2016,
-              2025
+              2010,
+              2019
             ],
             "years": [
+              2010,
+              2011,
+              2012,
+              2013,
+              2014,
+              2015,
               2016,
               2017,
               2018,
-              2019,
-              2020,
-              2021,
-              2022,
-              2023,
-              2024,
-              2025
+              2019
             ],
             "values": [
+              13.289,
+              13.695,
+              13.618,
+              10.821,
+              14.314,
+              16.642,
               11.634,
               17.689,
               11.575,
-              12.843,
-              13.59,
-              13.497,
-              12.244,
-              13.384,
-              16.733,
-              13.863
+              12.843
             ],
-            "mean": 13.706,
-            "spread": 1.922,
+            "mean": 13.612,
+            "spread": 2.07,
             "n_years": 10
           },
-          "change_pct": -9,
+          "change_pct": -10,
           "cell": {
             "lat": 23.75,
             "lon": 91.25
@@ -242,7 +242,79 @@
           ],
           "same_record_as": null
         },
-        "caption": "Dhaka, June–September: no wetter in these records. GPCP −9% (1981–1990 vs 2016–2025); rain gauges (GPCC) −12% (1981–1990 vs 2010–2019)."
+        "caption": "Dhaka, June–September: no wetter in these records. GPCP −10% (1981–1990 vs 2010–2019); rain gauges (GPCC) −12% (1981–1990 vs 2010–2019).",
+        "gpcc_end_note": "GPCC stops at 2019 because the gauge version we use (GPCC Full Data Monthly V2020) ends in December 2019, so both rain records compare 1981–1990 with 2010–2019.",
+        "gpcp_newer": {
+          "label": "GPCP only, newer decade; GPCC data ends in 2019",
+          "dataset": "GPCP v2.3, Dhaka cell, June-September",
+          "A": {
+            "window": [
+              1981,
+              1990
+            ],
+            "years": [
+              1981,
+              1982,
+              1983,
+              1984,
+              1985,
+              1986,
+              1987,
+              1988,
+              1989,
+              1990
+            ],
+            "values": [
+              12.661,
+              15.948,
+              15.578,
+              16.867,
+              13.575,
+              13.899,
+              16.404,
+              17.602,
+              14.739,
+              13.772
+            ],
+            "mean": 15.104,
+            "spread": 1.538,
+            "n_years": 10
+          },
+          "B": {
+            "window": [
+              2016,
+              2025
+            ],
+            "years": [
+              2016,
+              2017,
+              2018,
+              2019,
+              2020,
+              2021,
+              2022,
+              2023,
+              2024,
+              2025
+            ],
+            "values": [
+              11.634,
+              17.689,
+              11.575,
+              12.843,
+              13.59,
+              13.497,
+              12.244,
+              13.384,
+              16.733,
+              13.863
+            ],
+            "mean": 13.706,
+            "spread": 1.922,
+            "n_years": 10
+          },
+          "change_pct": -9
+        }
       }
     },
     {
@@ -365,38 +437,38 @@
           },
           "B": {
             "window": [
-              2016,
-              2025
+              2010,
+              2019
             ],
             "years": [
+              2010,
+              2011,
+              2012,
+              2013,
+              2014,
+              2015,
               2016,
               2017,
               2018,
-              2019,
-              2020,
-              2021,
-              2022,
-              2023,
-              2024,
-              2025
+              2019
             ],
             "values": [
+              14.829,
+              20.592,
+              17.281,
+              15.741,
+              17.646,
+              24.927,
               16.985,
               20.257,
               17.562,
-              17.918,
-              18.436,
-              19.24,
-              13.685,
-              15.709,
-              21.521,
-              18.307
+              17.918
             ],
-            "mean": 17.962,
-            "spread": 2.107,
+            "mean": 18.374,
+            "spread": 2.746,
             "n_years": 10
           },
-          "change_pct": -6,
+          "change_pct": -3,
           "cell": {
             "lat": 21.25,
             "lon": 91.25
@@ -480,7 +552,79 @@
           "shares_cell_with": [],
           "same_record_as": null
         },
-        "caption": "Chattogram, June–September: no wetter in these records. GPCP −6% (1981–1990 vs 2016–2025); rain gauges (GPCC) 0% (1981–1990 vs 2010–2019)."
+        "caption": "Chattogram, June–September: no wetter in these records. GPCP −3% (1981–1990 vs 2010–2019); rain gauges (GPCC) 0% (1981–1990 vs 2010–2019).",
+        "gpcc_end_note": "GPCC stops at 2019 because the gauge version we use (GPCC Full Data Monthly V2020) ends in December 2019, so both rain records compare 1981–1990 with 2010–2019.",
+        "gpcp_newer": {
+          "label": "GPCP only, newer decade; GPCC data ends in 2019",
+          "dataset": "GPCP v2.3, Chattogram cell, June-September",
+          "A": {
+            "window": [
+              1981,
+              1990
+            ],
+            "years": [
+              1981,
+              1982,
+              1983,
+              1984,
+              1985,
+              1986,
+              1987,
+              1988,
+              1989,
+              1990
+            ],
+            "values": [
+              17.178,
+              22.511,
+              20.877,
+              19.302,
+              17.001,
+              17.537,
+              22.644,
+              20.374,
+              14.998,
+              17.915
+            ],
+            "mean": 19.033,
+            "spread": 2.403,
+            "n_years": 10
+          },
+          "B": {
+            "window": [
+              2016,
+              2025
+            ],
+            "years": [
+              2016,
+              2017,
+              2018,
+              2019,
+              2020,
+              2021,
+              2022,
+              2023,
+              2024,
+              2025
+            ],
+            "values": [
+              16.985,
+              20.257,
+              17.562,
+              17.918,
+              18.436,
+              19.24,
+              13.685,
+              15.709,
+              21.521,
+              18.307
+            ],
+            "mean": 17.962,
+            "spread": 2.107,
+            "n_years": 10
+          },
+          "change_pct": -6
+        }
       }
     },
     {
@@ -601,38 +745,38 @@
           },
           "B": {
             "window": [
-              2016,
-              2025
+              2010,
+              2019
             ],
             "years": [
+              2010,
+              2011,
+              2012,
+              2013,
+              2014,
+              2015,
               2016,
               2017,
               2018,
-              2019,
-              2020,
-              2021,
-              2022,
-              2023,
-              2024,
-              2025
+              2019
             ],
             "values": [
+              7.877,
+              11.778,
+              8.214,
+              8.923,
+              9.415,
+              11.18,
               9.166,
               9.941,
               7.464,
-              7.727,
-              9.256,
-              10.729,
-              6.896,
-              8.172,
-              10.446,
-              10.267
+              7.727
             ],
-            "mean": 9.006,
-            "spread": 1.294,
+            "mean": 9.169,
+            "spread": 1.383,
             "n_years": 10
           },
-          "change_pct": -8,
+          "change_pct": -6,
           "cell": {
             "lat": 23.75,
             "lon": 88.75
@@ -716,7 +860,79 @@
           "shares_cell_with": [],
           "same_record_as": null
         },
-        "caption": "Rajshahi, June–September: no wetter in these records. GPCP −8% (1981–1990 vs 2016–2025); rain gauges (GPCC) −13% (1981–1990 vs 2010–2019)."
+        "caption": "Rajshahi, June–September: no wetter in these records. GPCP −6% (1981–1990 vs 2010–2019); rain gauges (GPCC) −13% (1981–1990 vs 2010–2019).",
+        "gpcc_end_note": "GPCC stops at 2019 because the gauge version we use (GPCC Full Data Monthly V2020) ends in December 2019, so both rain records compare 1981–1990 with 2010–2019.",
+        "gpcp_newer": {
+          "label": "GPCP only, newer decade; GPCC data ends in 2019",
+          "dataset": "GPCP v2.3, Rajshahi cell, June-September",
+          "A": {
+            "window": [
+              1981,
+              1990
+            ],
+            "years": [
+              1981,
+              1982,
+              1983,
+              1984,
+              1985,
+              1986,
+              1987,
+              1988,
+              1989,
+              1990
+            ],
+            "values": [
+              9.866,
+              7.247,
+              8.489,
+              12.415,
+              8.724,
+              10.587,
+              11.407,
+              10.332,
+              9.036,
+              9.318
+            ],
+            "mean": 9.742,
+            "spread": 1.432,
+            "n_years": 10
+          },
+          "B": {
+            "window": [
+              2016,
+              2025
+            ],
+            "years": [
+              2016,
+              2017,
+              2018,
+              2019,
+              2020,
+              2021,
+              2022,
+              2023,
+              2024,
+              2025
+            ],
+            "values": [
+              9.166,
+              9.941,
+              7.464,
+              7.727,
+              9.256,
+              10.729,
+              6.896,
+              8.172,
+              10.446,
+              10.267
+            ],
+            "mean": 9.006,
+            "spread": 1.294,
+            "n_years": 10
+          },
+          "change_pct": -8
+        }
       }
     },
     {
@@ -837,38 +1053,38 @@
           },
           "B": {
             "window": [
-              2016,
-              2025
+              2010,
+              2019
             ],
             "years": [
+              2010,
+              2011,
+              2012,
+              2013,
+              2014,
+              2015,
               2016,
               2017,
               2018,
-              2019,
-              2020,
-              2021,
-              2022,
-              2023,
-              2024,
-              2025
+              2019
             ],
             "values": [
+              13.289,
+              13.695,
+              13.618,
+              10.821,
+              14.314,
+              16.642,
               11.634,
               17.689,
               11.575,
-              12.843,
-              13.59,
-              13.497,
-              12.244,
-              13.384,
-              16.733,
-              13.863
+              12.843
             ],
-            "mean": 13.706,
-            "spread": 1.922,
+            "mean": 13.612,
+            "spread": 2.07,
             "n_years": 10
           },
-          "change_pct": -9,
+          "change_pct": -10,
           "cell": {
             "lat": 23.75,
             "lon": 91.25
@@ -956,9 +1172,81 @@
           ],
           "same_record_as": "Dhaka"
         },
-        "caption": "Sylhet, June–September: no wetter in these records. GPCP −9% (1981–1990 vs 2016–2025); rain gauges (GPCC) −12% (1981–1990 vs 2010–2019). Same GPCP and GPCC grid cells as Dhaka: this is the same record."
+        "caption": "Sylhet, June–September: no wetter in these records. GPCP −10% (1981–1990 vs 2010–2019); rain gauges (GPCC) −12% (1981–1990 vs 2010–2019). Same GPCP and GPCC grid cells as Dhaka: this is the same record.",
+        "gpcc_end_note": "GPCC stops at 2019 because the gauge version we use (GPCC Full Data Monthly V2020) ends in December 2019, so both rain records compare 1981–1990 with 2010–2019.",
+        "gpcp_newer": {
+          "label": "GPCP only, newer decade; GPCC data ends in 2019",
+          "dataset": "GPCP v2.3, Sylhet cell, June-September",
+          "A": {
+            "window": [
+              1981,
+              1990
+            ],
+            "years": [
+              1981,
+              1982,
+              1983,
+              1984,
+              1985,
+              1986,
+              1987,
+              1988,
+              1989,
+              1990
+            ],
+            "values": [
+              12.661,
+              15.948,
+              15.578,
+              16.867,
+              13.575,
+              13.899,
+              16.404,
+              17.602,
+              14.739,
+              13.772
+            ],
+            "mean": 15.104,
+            "spread": 1.538,
+            "n_years": 10
+          },
+          "B": {
+            "window": [
+              2016,
+              2025
+            ],
+            "years": [
+              2016,
+              2017,
+              2018,
+              2019,
+              2020,
+              2021,
+              2022,
+              2023,
+              2024,
+              2025
+            ],
+            "values": [
+              11.634,
+              17.689,
+              11.575,
+              12.843,
+              13.59,
+              13.497,
+              12.244,
+              13.384,
+              16.733,
+              13.863
+            ],
+            "mean": 13.706,
+            "spread": 1.922,
+            "n_years": 10
+          },
+          "change_pct": -9
+        }
       }
     }
   ],
-  "generated_utc": "2026-09-28T09:06:21Z"
+  "generated_utc": "2026-11-07T06:21:27Z"
 }

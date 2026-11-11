@@ -8,6 +8,7 @@
 // Binary grids: little-endian, row 0 = north (90° N), column 0 = 180° W.
 
 import type { ExtraOutputParam, FirmsDailyBlock, SameAsMapping } from "./contract-15";
+import type { ClassesMapping } from "./contract-15";
 
 // ---------------------------------------------------------------------------
 // 1. Latest-frame metadata (latest/sst.json, latest/rain.json)
@@ -259,6 +260,15 @@ export interface RainContextFile {
   cells: Record<ClimateCellName, RainCellSeries>;
 }
 
+/** gpcc_bd.json: the product and its coverage, read from the NetCDF by build_context.py (mentor item 9). */
+export interface GpccContextFile extends RainContextFile {
+  product: string; // "GPCC Full Data Monthly V2020"
+  resolution_deg: number;
+  first_month: string; // "1891-01"
+  last_month: string; // "2019-12"
+  last_month_text: string; // "December 2019"
+}
+
 // ---------------------------------------------------------------------------
 // 5. GRACE water storage (context/grace.json)
 // Needed by: BOTH — L3 chart + gap caption; L2 bass voice (null = silence).
@@ -276,11 +286,15 @@ export interface GraceBoxSeries {
   mean_B: number;
   window_A: string; // "2003-01..2006-12"
   window_B: string; // "2021-01..2024-12"
+  uncertainty_1sigma_cm: { median: number; min: number; max: number }; // the product's own 1-sigma, box-averaged, over all months
 }
 
 export interface GraceContextFile {
   dataset: string;
   units: "cm";
+  native_resolution: string; // from the file's metadata: "3-degree equal-area mascons"
+  mascon_deg: number | null; // 3
+  uncertainty_note: string;
   gap_note: string;
   credit: string;
   boxes: Record<GraceBoxName, GraceBoxSeries>;
@@ -393,10 +407,17 @@ export interface RainSeriesDemo {
   change_pct: number;
 }
 
+/** GPCP's own newer decade (WIN_B): an extra, labelled "GPCP only", never shown beside GPCC as comparable. */
+export interface RainNewerDemo extends RainSeriesDemo {
+  label: string; // "GPCP only, newer decade; GPCC data ends in 2019"
+}
+
 export interface RainDemo {
-  gpcp: RainSeriesDemo;
+  gpcp: RainSeriesDemo; // same A and B windows as gpcc (mentor item 9)
   gpcc: RainSeriesDemo;
   caption: string;
+  gpcc_end_note: string; // why GPCC stops where it does (version and last month from gpcc_bd.json)
+  gpcp_newer: RainNewerDemo;
 }
 
 export interface WaterBoxDemo {
@@ -476,7 +497,8 @@ export interface RuntimeRangeMapping {
   };
 }
 
-export type VoiceMapping = ContinuousMapping | BandsMapping | RuntimeRangeMapping | SameAsMapping;
+// ClassesMapping (contract-15/classes.ts) for the class products (fire weather, landslide exposure).
+export type VoiceMapping = ContinuousMapping | BandsMapping | RuntimeRangeMapping | SameAsMapping | ClassesMapping;
 
 export interface VoiceSpec {
   id: string; // a voice id (lib/audio VoiceId) or an earcon id
@@ -552,7 +574,7 @@ export interface EnsembleFile {
 // ---------------------------------------------------------------------------
 // 12. GLOBE duet teaser (context/globe_duet.json) — OPTIONAL, additive
 // Needed by: L3 (teaser card: time, place, both values, `disclosure`,
-// label "Teaser: coming in October"); L2 (two tones, ground left / satellite right).
+// label removed for the mentor fixes); L2 (two tones, ground left / satellite right).
 // Built from file 8 (build_globe_duet.py): only observations inside
 // Bangladesh's national outline; reports on the same date within 1 km are
 // merged. `featured` = the place-day with the median difference (typical case).

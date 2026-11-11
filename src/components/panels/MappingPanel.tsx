@@ -9,6 +9,7 @@ import type { VoiceSpec } from "@/types/data-contract";
 import { useT } from "../AppState/use-app-state";
 import { ProductBadges } from "../SourceBadges/ProductBadges";
 import { LegendSoundWord } from "./LegendSoundWord";
+import { DataChoice } from "../Art/DataChoice";
 
 const LEGEND_VOICES: readonly string[] = LIVE_VOICES;
 
@@ -49,6 +50,7 @@ function VoiceRule({ v }: { v: VoiceSpec }) {
       </p>
       {v.note && <p className="text-small text-haze">{t("data.text", { text: v.note })}</p>}
       {v.designChoice && <p className="text-small text-moon">{t("mapping.designChoice")}</p>}
+      {v.mapping?.kind === "continuous" && <DataChoice voiceId={v.id} />} {/* Data vs artistic choice */}
       {isLegendVoice(v.id) && (
         <div className="flex flex-wrap items-center gap-x-4 gap-y-1 pt-1">
           <Button data-needs-sound variant="secondary" onClick={() => isLegendVoice(v.id) && audio.playLegend(v.id)} className="h-10 gap-2 pointer-coarse:h-11">

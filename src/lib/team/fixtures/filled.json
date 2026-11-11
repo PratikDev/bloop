@@ -1,0 +1,1 @@
+{ "teamName": "Fixture Team", "members": [{ "name": "Member One", "role": "Data pipeline" }, { "name": "Member Two", "role": "Sound design" }], "challenge": "A challenge", "localEvent": "A city", "licence": "MIT License" }

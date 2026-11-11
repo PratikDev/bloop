@@ -65,6 +65,7 @@ export const contextBn: Translated<typeof contextEn> = {
   "thenNow.part.fires": "আগুন",
   "thenNow.part.vegetation": "গাছপালা",
   "field.soundOctober": "এই রেকর্ডের এখনো শব্দ নেই",
+  "field.noSound": "এই রেকর্ডের কোনো শব্দ নেই",
   "field.place": "স্থান",
   "field.sources": "এই সংখ্যাগুলো কোথা থেকে এসেছে",
   "field.rule": "নিয়ম",
@@ -94,6 +95,8 @@ export const contextBn: Translated<typeof contextEn> = {
   "disclosure.spread": (p: { value: number; unit: string }) => `বছর-থেকে-বছর ব্যবধান ${n2(p.value)} ${p.unit}`,
   "disclosure.change": (p: { value: string }) => `পরিবর্তন: ${p.value}`,
   "disclosure.crossCheck": "যাচাই, বৃষ্টিমাপক যন্ত্র (GPCC, বাজানো হয় না)",
+  "disclosure.whyYears": "কেন এই বছরগুলো",
+  "disclosure.extra": "অতিরিক্ত, GPCC-এর সাথে তুলনীয় নয়",
   "disclosure.box": (p: { name: string; a: number; b: number; windowA: string; windowB: string; trend: number }) =>
     `${p.name}: ${n2(p.a)} সেমি (${p.windowA}) → ${n2(p.b)} সেমি (${p.windowB}); প্রবণতা বছরে ${n2(p.trend)} সেমি`,
   "disclosure.gapNote": "ফাঁক",
@@ -119,6 +122,7 @@ export const contextBn: Translated<typeof contextEn> = {
   "history.sharedRegion": (p: { places: string }) => `এই ডেটাসেটে এটি আর ${p.places} একই GRACE অঞ্চলে: একটিই রেকর্ড, আলাদা স্থান নয়।`,
   "history.cell": (p: { lat: number; lon: number }) =>
     `গ্রিড সেলের কেন্দ্র ${n1(Math.abs(p.lat))}° ${p.lat >= 0 ? "উত্তর" : "দক্ষিণ"}, ${n1(Math.abs(p.lon))}° ${p.lon >= 0 ? "পূর্ব" : "পশ্চিম"}`,
+  "history.region": "বাংলাদেশ বক্স (GRACE)",
   "history.neighbour": "(সবচেয়ে কাছের স্থলভাগের সেল; স্থানটির নিজের সেলটি সমুদ্রে)",
   "history.nationalBox": "বাংলাদেশ জাতীয় বক্স (GRACE): পুরো দেশের জন্য একটি রেকর্ড, প্রতিটি শহরের জন্য একই।",
   "history.confidence.high": "বৃষ্টির নির্ভরযোগ্যতা: উচ্চ (এখানে GPCP স্বাধীন বৃষ্টিমাপক যন্ত্রের সাথে খুব মেলে)",

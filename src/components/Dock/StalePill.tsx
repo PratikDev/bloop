@@ -24,7 +24,7 @@ export function StalePill() {
     .find((entry): entry is FreshnessEntry => entry !== undefined && livenessAt(entry, now) === "recorded");
   if (!stale) return null;
   return (
-    <StatusBadge kind="october" className="shrink-0">
+    <StatusBadge kind="note" className="shrink-0">
       {t("records.stale", { days: formatFixed(ageDaysAt(stale, now) ?? 0, state.lang, 1) })}
     </StatusBadge>
   );

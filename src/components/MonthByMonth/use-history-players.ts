@@ -4,6 +4,7 @@ import { useCallback, useEffect, useRef, useState } from "react";
 import { useNarratedPlayer } from "@/hooks/use-narrated-player";
 import { audio } from "@/lib/audio-adapter";
 import type { CompareSide, PlayerHandle } from "@/lib/audio-adapter/types";
+import type { BiText } from "@/lib/bi-text";
 import { postCaption, quietSideCaption } from "@/lib/ui-captions";
 import { captionLine } from "../CaptionBar/use-describe";
 import type { ScrubMotion } from "../charts/HistoryChart";
@@ -64,16 +65,18 @@ export function useHistoryPlayers() {
   }, [stopDecade, stopMonth]);
 
   const playDecade = useCallback(
-    (side: CompareSide, from: number) => {
+    (side: CompareSide, from: number, note: BiText | null = null) => {
       stopMonth();
       setMonthIndex(null);
       setPlayingFrom(from);
+      // The same-record note (shared cell, Bangladesh-wide water; mentor item 12): said first with Describe, else shown.
+      if (note && !narrating) postCaption("caption.note", { ...note });
       // playSeries captions the start ("Now playing: …") but not the end, so History adds that:
       // said after the sound with Describe on, otherwise shown.
       void startDecade({
         steps: [
           {
-            lines: narrating ? [captionLine("caption.compare.side", { label: side.label })] : [],
+            lines: narrating ? [...(note ? [captionLine("caption.note", { ...note })] : []), captionLine("caption.compare.side", { label: side.label })] : [],
             play: () => audio.playSeries(side, { player: HISTORY_PLAYER }),
           },
         ],

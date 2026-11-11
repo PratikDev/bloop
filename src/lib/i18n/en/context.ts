@@ -64,6 +64,7 @@ export const contextEn = {
   "thenNow.part.fires": "Fires",
   "thenNow.part.vegetation": "Vegetation",
   "field.soundOctober": "No sound for this record yet",
+  "field.noSound": "No sound for this record",
   "field.place": "Place",
   "field.sources": "Where these numbers come from",
   "field.rule": "Rule",
@@ -95,6 +96,8 @@ export const contextEn = {
   "disclosure.spread": (p: { value: number; unit: string }) => `year-to-year spread ${n2(p.value)} ${p.unit}`,
   "disclosure.change": (p: { value: string }) => `Change: ${p.value}`,
   "disclosure.crossCheck": "Cross-check, rain gauges (GPCC, not played)",
+  "disclosure.whyYears": "Why these years",
+  "disclosure.extra": "Extra, not compared with GPCC",
   "disclosure.box": (p: { name: string; a: number; b: number; windowA: string; windowB: string; trend: number }) =>
     `${p.name}: ${n2(p.a)} cm (${p.windowA}) → ${n2(p.b)} cm (${p.windowB}); trend ${n2(p.trend)} cm per year`,
   "disclosure.gapNote": "Gap",
@@ -120,6 +123,7 @@ export const contextEn = {
   "history.sharedRegion": (p: { places: string }) => `In this dataset, this is the same GRACE region as ${p.places}: one record, not separate places.`,
   "history.cell": (p: { lat: number; lon: number }) =>
     `Grid cell centred at ${n1(Math.abs(p.lat))}° ${p.lat >= 0 ? "N" : "S"}, ${n1(Math.abs(p.lon))}° ${p.lon >= 0 ? "E" : "W"}`,
+  "history.region": "Bangladesh box (GRACE)",
   "history.neighbour": "(the nearest land cell; the place's own cell is sea)",
   "history.nationalBox": "Bangladesh national box (GRACE): one record for the whole country, the same for every city.",
   // From L1's confidence.json method: GPCP against independent rain gauges (GPCC), annual means 1981–2019.
