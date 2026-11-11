@@ -42,7 +42,7 @@ export function Cabinet({
   const sounding = useRecordSounding();
   return (
     <div className={cn("flex min-w-0 flex-col items-center", className)}>
-      <div data-cabinet-crown className={cn("crown relative z-1 -mb-(--outline-panel) flex h-11 w-[min(100%,36rem)] max-w-full items-center justify-center gap-3 px-10 sm:px-16", foldCrown && "very-short:xl:hidden")}>
+      <div data-cabinet-crown data-crown-folds={foldCrown || undefined} className={cn("crown relative z-1 -mb-(--outline-panel) flex h-11 w-[min(100%,36rem)] max-w-full items-center justify-center gap-3 px-10 sm:px-16", foldCrown && "very-short:xl:hidden")}>
         <h2 className="shrink-0 text-body font-semibold">{t("player.nowPlaying")}</h2>
         {code && title && (
           <p className="flex min-w-0 items-center gap-2 rounded-md border-2 border-navy bg-paper py-0.5 pr-3 pl-0.5">

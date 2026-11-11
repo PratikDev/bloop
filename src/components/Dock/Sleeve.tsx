@@ -7,7 +7,10 @@ import { useAppState, useT } from "../AppState/use-app-state";
 import { useRecords } from "../Records/use-records";
 import { VinylMark } from "../VinylMark";
 
-/** Today's ocean frame on a sleeve, centred on the needle's longitude, with the record peeking out; then the title and source. */
+/**
+ * Today's ocean frame on a sleeve, centred on the needle's longitude, with the record peeking out; then the title and source.
+ * A page with the cabinet's crown shows no sleeve in the bar: the crown already names the record (globals.css, `[data-sleeve]`).
+ */
 export function Sleeve() {
   const { state } = useAppState();
   const { current } = useRecords();
@@ -21,7 +24,7 @@ export function Sleeve() {
     backgroundPosition: `${((state.cursor.lon + 180) / 360) * 100}% 50%`,
   };
   return (
-    <div className="hidden min-w-0 flex-[0_1_18rem] items-center gap-3 md:flex">
+    <div data-sleeve className="hidden min-w-0 flex-[0_1_18rem] items-center gap-3 md:flex">
       <div aria-hidden="true" className="relative mr-4 size-15.5 shrink-0">
         {/* Clipped to its box: the spinning square's corners would otherwise reach past the screen's bottom edge. */}
         <span className="absolute top-1 -right-4 size-13.5 overflow-clip rounded-full">

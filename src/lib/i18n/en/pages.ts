@@ -75,6 +75,7 @@ export const pagesEn = {
   "how.credits": "Credits",
   "how.keys": "Keys and accessibility",
 
+  "notFound.code": "404",
   "notFound.title": "No signal here",
   "notFound.text": "This page doesn't exist. The latest frames are still live on the map.",
   "notFound.back": "Go to Listen",

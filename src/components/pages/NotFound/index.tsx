@@ -11,7 +11,7 @@ export function NotFoundPage() {
   const t = useT();
   return (
     <section aria-labelledby="not-found-title" className="flex min-h-full flex-col items-center justify-center gap-8 px-6 py-8 lg:flex-row lg:gap-16">
-      <JukeboxArt marquee={t("notFound.title")} unplugged className="w-full max-w-[min(24rem,50dvh)]" />
+      <JukeboxArt marquee={t("notFound.code")} unplugged className="w-full max-w-[min(24rem,50dvh)]" />
       <div className="max-w-md space-y-5">
         <h1 id="not-found-title" data-page-title tabIndex={-1} className="display-tight font-wide text-headline">
           {t("notFound.title")}

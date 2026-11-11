@@ -72,6 +72,7 @@ export const pagesBn: Translated<typeof pagesEn> = {
   "how.credits": "কৃতজ্ঞতা",
   "how.keys": "কী ও প্রবেশযোগ্যতা",
 
+  "notFound.code": "৪০৪",
   "notFound.title": "এখানে কোনো সংকেত নেই",
   "notFound.text": "এই পাতাটি নেই। সর্বশেষ ফ্রেমগুলো এখনো মানচিত্রে চালু আছে।",
   "notFound.back": "শুনুন পাতায় যান",

@@ -4,7 +4,7 @@ import { Fragment } from "react";
 import { usePlaceName } from "@/hooks/use-place-name";
 import { cn } from "@/lib/utils";
 import { formatRainRate, formatTemperature, type Lang } from "@/lib/i18n";
-import { rainText, type Reading } from "@/lib/reading";
+import { rainIsDry, rainText, type Reading } from "@/lib/reading";
 import { useAppState, useT } from "./AppState/use-app-state";
 import { useShownPoint } from "./TimeLapse/use-shown-point";
 
@@ -61,7 +61,7 @@ export function Readout({ className }: { className?: string }) {
         ) : (
           <p className="text-lead">{fallback}</p>
         )}
-        {track === "both" && <p className="text-body">{rainText(t, r.rain, r.rainLoaded)}</p>}
+        {track === "both" && !rainIsDry(r.rain, r.rainLoaded) && <p className="text-body">{rainText(t, r.rain, r.rainLoaded)}</p>}
       </div>
       <p className="truncate text-small text-haze">{[place, timelapse ? t("timelapse.frame", { index: timelapse.index + 1, total: timelapse.total }) : t("place.latlon", cursor)].filter(Boolean).join(" · ")}</p>
     </div>

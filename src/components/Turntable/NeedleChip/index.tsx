@@ -2,7 +2,7 @@
 
 import { useEffect, useRef, useState } from "react";
 import type { LatLon } from "@/lib/data";
-import { rainText, readAt } from "@/lib/reading";
+import { rainIsDry, rainText, readAt } from "@/lib/reading";
 import { cn } from "@/lib/utils";
 import { useAppState, useT } from "../../AppState/use-app-state";
 import { useLiveData } from "../../LiveData/use-live-data";
@@ -84,7 +84,7 @@ export function NeedleChip({ subscribe, place: needlePlace, details, reserved, d
                 fallback
               )}
             </span>
-            {track === "both" && (
+            {track === "both" && !rainIsDry(r.rain, r.rainLoaded) && (
               <span className="text-body text-moon">
                 {rainText(t, r.rain, r.rainLoaded)}
               </span>

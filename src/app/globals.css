@@ -886,6 +886,18 @@ html[data-reduce-motion="true"] .star-twinkle {
   }
 }
 
+/* ---- One name per screen (rule 0.5.5): the cabinet's crown names the record, so the player bar leaves its sleeve and
+   title out on every page that shows the crown (Then vs Now, Official; Listen's bar shows the reading instead). Where
+   the crown folds away (very short, from xl: Cabinet foldCrown), the bar names the record again. ---- */
+body:has([data-cabinet-crown]) [data-sleeve] {
+  display: none;
+}
+@media (min-width: 80rem) and (max-height: 47.5rem) {
+  body:has([data-cabinet-crown][data-crown-folds]) [data-sleeve] {
+    display: flex;
+  }
+}
+
 /* ---- More contrast (the system's "increase contrast"): thicker outlines, and the soft text colour becomes navy. ---- */
 @media (prefers-contrast: more) {
   :root {
