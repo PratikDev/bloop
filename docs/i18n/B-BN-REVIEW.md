@@ -301,6 +301,7 @@ Every string in the Turntable's and the 3D scenes' files, with the draft Bangla 
 | `scenes.terrain.anomalyNone` | No anomaly here (land or sea ice) | এখানে স্বাভাবিকের তুলনা নেই (স্থল বা সমুদ্রের বরফ) |
 | `scenes.terrain.clarity` | Last clear 1 km look: {hours} h before the analysis (echo length) | শেষ পরিষ্কার ১ কিমি পর্যবেক্ষণ: বিশ্লেষণের {hours} ঘণ্টা আগে (প্রতিধ্বনির দৈর্ঘ্য) |
 | `scenes.terrain.anomalyFrame` | Anomaly: EIC frame SVS 5176, {datetime} UTC | স্বাভাবিকের তুলনা: EIC ফ্রেম SVS 5176, {datetime} UTC |
+| `page.loading` (src/lib/i18n/bn/app.ts; performance: a page or panel whose code is on its way) | Loading | লোড হচ্ছে |
 
 ## Not drafted (0)
 

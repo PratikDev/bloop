@@ -2,6 +2,7 @@
 
 import { useEffect } from "react";
 import { createRouter, RouterProvider } from "@tanstack/react-router";
+import { PageLoading } from "@/components/PageLoading";
 import { createAppHistory } from "./history";
 import { routeTree } from "./routes";
 
@@ -12,6 +13,9 @@ const router = createRouter({
   defaultPreload: "intent",
   // "Retuning" between pages only; choices inside a page (a tab, a city, the tour) change in place.
   defaultViewTransition: { types: ({ pathChanged }) => (pathChanged ? ["retune"] : false) },
+  // ── Session B (performance): a page whose code is still on its way shows the site's loading badge.
+  defaultPendingComponent: PageLoading,
+  // ── end Session B
 });
 
 declare module "@tanstack/react-router" {

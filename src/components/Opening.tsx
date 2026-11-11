@@ -20,8 +20,10 @@ import { Starfield } from "./Starfield";
 import { Waveform } from "./Waveform";
 
 const OPENING_KEYS = new Set(["caption.opening.closeEyes", "caption.opening.openEyes"]);
-// The rain grid starts loading at Start; the opening waits this long for it, then plays the ocean alone.
-const RAIN_WAIT_MS = 4000;
+// ── Session B (performance): the rain grid is prefetched while the Start screen is idle (LiveData), so it is usually
+// here at the click; the opening waits at most this long for it, then plays the ocean alone (first sound within 2 s).
+const RAIN_WAIT_MS = 600;
+// ── end Session B
 
 /**
  * "Close your eyes" (feature C1): real ocean and rain sound over darkness, the

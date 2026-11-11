@@ -1,7 +1,6 @@
 import { createRootRoute, createRoute, lazyRouteComponent } from "@tanstack/react-router";
 import { AppShell } from "@/components/AppShell";
 import { HomePage } from "@/components/pages/Home";
-import { ListenPage } from "@/components/pages/Listen";
 import { NotFoundPage } from "@/components/pages/NotFound";
 import { listenSearch, officialSearch, thenNowSearch } from "./search";
 
@@ -12,7 +11,15 @@ const rootRoute = createRootRoute({ component: AppShell, notFoundComponent: NotF
 
 const homeRoute = createRoute({ getParentRoute: () => rootRoute, path: "/", component: HomePage });
 
-const listenRoute = createRoute({ getParentRoute: () => rootRoute, path: "listen", validateSearch: listenSearch, component: ListenPage });
+// ── Session B (performance): Listen (and the Braille explorer inside it) loads on demand too; hovering or focusing
+// its link starts the download (defaultPreload "intent").
+const listenRoute = createRoute({
+  getParentRoute: () => rootRoute,
+  path: "listen",
+  validateSearch: listenSearch,
+  component: lazyRouteComponent(() => import("@/components/pages/Listen"), "ListenPage"),
+});
+// ── end Session B
 
 const thenNowRoute = createRoute({
   getParentRoute: () => rootRoute,

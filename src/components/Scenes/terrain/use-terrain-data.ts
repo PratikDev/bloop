@@ -3,7 +3,7 @@
 import { useEffect, useMemo, useState } from "react";
 import { SRGBColorSpace, Texture } from "three";
 import { DATA_PATHS, loadSstAnomaly, loadSstDt, type SstAnomalyField, type SstDtField, type SstField } from "@/lib/data";
-import { loadImage } from "@/lib/load-image";
+import { loadSharedImage } from "@/lib/load-image";
 import { useLiveData } from "../../LiveData/use-live-data";
 import { loadRelief, type Relief } from "../relief";
 import type { LegendStop } from "../SceneShell/SceneLegend";
@@ -29,7 +29,7 @@ export function useTerrainData(): { data: TerrainData | null; error: boolean } {
   useEffect(() => {
     let cancelled = false;
     // The §15 grids are optional: a scene without them still plays the temperature itself.
-    Promise.all([loadRelief("bay"), loadImage(DATA_PATHS.sstImage), loadSstAnomaly().catch(() => null), loadSstDt().catch(() => null)])
+    Promise.all([loadRelief("bay"), loadSharedImage(DATA_PATHS.sstImage), loadSstAnomaly().catch(() => null), loadSstDt().catch(() => null)])
       .then(([relief, image, anomaly, dt]) => !cancelled && setLoaded({ relief, image, anomaly, dt }))
       .catch(() => !cancelled && setError(true));
     return () => {

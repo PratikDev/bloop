@@ -17,6 +17,7 @@ export const appEn = {
   "start.silentHint": "Values appear as text and captions. You can turn sound on at any time.",
   "start.loading": "Loading the latest ocean frame",
   "start.skipIntro": "Skip intro",
+  "page.loading": "Loading",
 
   "mode.explore": "Explore",
   "mode.story": "Tour",

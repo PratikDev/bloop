@@ -1,11 +1,15 @@
 "use client";
 
+import { lazy, Suspense } from "react";
 import { SlidersHorizontal } from "@phosphor-icons/react";
 import { Popover, PopoverContent, PopoverTitle, PopoverTrigger } from "@/components/ui/popover";
 import { useAppState, useT } from "../AppState/use-app-state";
-import { Mixer } from "../Mixer";
+import { PageLoading } from "../PageLoading";
 import { SettingToggle } from "../SettingToggle";
 import { DockAction } from "./DockAction";
+
+// The mixer's controls load the first time a mixer opens.
+const Mixer = lazy(() => import("../Mixer").then((m) => ({ default: m.Mixer })));
 
 /** Something is silenced on purpose: the button says so, so silence is never a mystery. */
 export function useMixerLimited(): boolean {
@@ -28,7 +32,9 @@ export function MixerContent() {
 export function MixerPanel() {
   return (
     <div className="space-y-3">
-      <Mixer />
+      <Suspense fallback={<PageLoading className="grid min-h-48 place-items-center" />}>
+        <Mixer />
+      </Suspense>
       <div className="stitch-x opacity-60" aria-hidden="true" />
       <SettingToggle setting="allMuted" />
     </div>

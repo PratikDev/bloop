@@ -1,15 +1,18 @@
 "use client";
 
-import { useRef } from "react";
+import { lazy, Suspense, useRef } from "react";
 import { Sheet, SheetContent, SheetTitle } from "@/components/ui/sheet";
 import { useMediaQuery } from "@/hooks/use-media-query";
 import { MEDIA } from "@/lib/breakpoints";
 import { cn } from "@/lib/utils";
 import { useT } from "../AppState/use-app-state";
 import { useRecords } from "../Records/use-records";
-import { NowPlaying } from "./NowPlaying";
+import { PageLoading } from "../PageLoading";
 import { closePlayerSheet, playerSheetOpener, usePlayerSheetOpen } from "./player-sheet-store";
 import { useCaptionLines } from "./use-caption-lines";
+
+// The sheet's contents load the first time it opens.
+const NowPlaying = lazy(() => import("./NowPlaying").then((m) => ({ default: m.NowPlaying })));
 
 /** The "Now playing" sheet, mounted once with the mini player and opened with openPlayerSheet: from the right on wide screens, from the bottom on phones. */
 export function PlayerSheet() {
@@ -33,7 +36,9 @@ export function PlayerSheet() {
         <SheetTitle ref={heading} tabIndex={-1} className="eyebrow outline-none">
           {t("player.nowPlaying")}
         </SheetTitle>
-        <NowPlaying current={current} lines={lines} onPicked={closePlayerSheet} />
+        <Suspense fallback={<PageLoading className="grid min-h-64 place-items-center" />}>
+          <NowPlaying current={current} lines={lines} onPicked={closePlayerSheet} />
+        </Suspense>
       </SheetContent>
     </Sheet>
   );

@@ -165,20 +165,37 @@ export const PAGES: Feature[] = [
       if (muted > AUDIBLE || stopped > AUDIBLE) throw new Error(`still sounding: muted ${muted.toExponential(1)}, after Esc ${stopped.toExponential(1)}`);
       return { evidence: `1 AudioContext; record ${playing.toExponential(1)} → M ${muted.toExponential(1)} → Esc ${stopped.toExponential(1)}` };
     } },
-  { id: "rain-after-start", group: "pages", name: "The rain grid loads after Start", where: "Home, before Start", keyboard: false,
-    what: "The first load stays light: the rain grid is fetched only once listening starts",
+  // ── Session B (performance): the rain grid is also the first sound's data, so it is prefetched once the Start screen is
+  // usable (lib/idle.ts) instead of at Start. The check follows: nothing of the rain before the Start button is on
+  // screen, each rain file once, and all of it by the time listening starts.
+  { id: "rain-after-start", group: "pages", name: "The rain grid loads once Home is usable", where: "Home, before Start", keyboard: false,
+    what: "The first load stays light: the rain grid is fetched once, only after the Start screen is up, ready for the first sound",
     async run(page) {
       const context = await page.context().browser()!.newContext({ baseURL: new URL(page.url()).origin });
       const fresh = await context.newPage();
-      const rain: string[] = [];
-      fresh.on("request", (r) => { if (/\/latest\/rain/u.test(r.url())) rain.push(r.url()); });
+      await fresh.addInitScript(() => {
+        const mark = () => {
+          const start = [...document.querySelectorAll("button")].some((b) => b.textContent?.includes("Start listening"));
+          if (start && !("__startShown" in window)) Object.assign(window, { __startShown: performance.now() });
+        };
+        new MutationObserver(mark).observe(document, { childList: true, subtree: true });
+      });
       await fresh.goto("/");
+      await fresh.getByRole("button", { name: "Start listening" }).waitFor();
       await fresh.waitForTimeout(4000);
-      const before = rain.length;
       await fresh.getByRole("button", { name: "Start listening" }).click();
-      await expect.poll(() => rain.length, { timeout: 20_000 }).toBeGreaterThan(before);
+      await fresh.waitForTimeout(1000);
+      const { shown, rain } = await fresh.evaluate(() => ({
+        shown: (window as unknown as { __startShown: number }).__startShown,
+        rain: performance.getEntriesByType("resource").filter((e) => /\/latest\/rain/u.test(e.name)).map((e) => ({ url: e.name, at: e.startTime })),
+      }));
       await context.close();
-      if (before) throw new Error(`${before} rain requests before Start`);
-      return { evidence: `0 rain requests before Start, ${rain.length} after` };
+      const early = rain.filter((r) => r.at < shown);
+      const twice = rain.filter((r, i) => rain.findIndex((x) => x.url === r.url) !== i);
+      if (!rain.length) throw new Error("no rain requests by Start");
+      if (early.length) throw new Error(`${early.length} rain requests before the Start screen was up`);
+      if (twice.length) throw new Error(`rain fetched twice: ${twice.map((r) => r.url).join(", ")}`);
+      return { evidence: `0 rain requests before the Start screen, ${rain.length} after (each once)` };
     } },
+  // ── end Session B
 ];

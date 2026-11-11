@@ -23,6 +23,7 @@ export const appBn: Translated<typeof appEn> = {
   "start.silentHint": "মানগুলো লেখা আর ক্যাপশনে দেখাবে। যেকোনো সময় শব্দ চালু করতে পারবেন।",
   "start.loading": "সর্বশেষ সমুদ্রের ফ্রেম লোড হচ্ছে",
   "start.skipIntro": "ভূমিকা বাদ দিন",
+  "page.loading": "লোড হচ্ছে",
 
   "mode.explore": "ঘুরে দেখা",
   "mode.story": "ট্যুর",
