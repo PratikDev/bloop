@@ -54,7 +54,10 @@ export const PAGES: Feature[] = [
       const picker = page.getByRole("combobox", { name: "Part" });
       await expect(picker).toBeVisible(); // the picker comes with the page's data, a moment after its title
       await picker.click();
-      const parts = await page.getByRole("option").allInnerTexts();
+      // The dropdown (a listbox) opens a moment after the click: read its options once it is open.
+      const list = page.getByRole("listbox");
+      await expect(list.getByRole("option").first()).toBeVisible();
+      const parts = await list.getByRole("option").allInnerTexts();
       await page.keyboard.press("Escape");
       for (const p of ["Heat", "Monsoon rain", "Water underground", "Fires", "Vegetation"]) if (!parts.some((x) => x.trim().startsWith(p))) throw new Error(`no ${p} part (${parts.join(", ")})`);
       await page.getByRole("button", { name: "Play this part" }).click();
