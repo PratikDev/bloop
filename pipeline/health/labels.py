@@ -1,4 +1,4 @@
-"""Labels are honest (data side; the app side is e2e/health-records.e2e.ts): the index row, freshness.json and
+"""Labels are honest (data side; the app side is qa/e2e/health-records.e2e.ts): the index row, freshness.json and
 VALIDATION_TABLE.md say exactly what the manifest and validation.json say, and credits and licence lines are present."""
 import json
 from functools import lru_cache

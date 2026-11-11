@@ -1,6 +1,6 @@
 """Check 5, the audio chain's pitch accuracy (CV/ML build, piece D; docs/audio/MIX.md, docs/cvml/BUILD.md).
 
-Reads the notes e2e/cv/audio-check5.e2e.ts rendered in headless Chromium (OfflineAudioContext; data_raw/_tmp/cv/check5/)
+Reads the notes qa/e2e/cv/audio-check5.e2e.ts rendered in headless Chromium (OfflineAudioContext; data_raw/_tmp/cv/check5/)
 and measures each note's pitch on its steady part: from STEADY_SEC after the note starts (the 30 ms glide is an
 exponential approach, 3 time constants long; by 100 ms it is 10 time constants in) to the note's end, with a Hann window,
 zero-padded FFT and parabolic interpolation of the log magnitude around the fundamental. Writes docs/audio/check5_results.json:
@@ -40,7 +40,7 @@ def main():
     src = SRC if SRC.is_dir() else DATA_RAW / "_tmp" / "cv" / "check5"
     meta = json.loads((src / "meta.json").read_text())
     fs, note = meta["fs"], meta["note_sec"]
-    out = {"generated_by": "pipeline/stats/check5_audio.py", "render": "e2e/cv/audio-check5.e2e.ts (headless Chromium, OfflineAudioContext)",
+    out = {"generated_by": "pipeline/stats/check5_audio.py", "render": "qa/e2e/cv/audio-check5.e2e.ts (headless Chromium, OfflineAudioContext)",
            "fs": fs, "note_sec": note, "steady_from_sec": STEADY_SEC, "median_limit_cents": MEDIAN_LIMIT, "voices": {}}
     for vid, v in meta["voices"].items():
         x = np.fromfile(src / f"{vid}.f32", "<f4").astype(float)

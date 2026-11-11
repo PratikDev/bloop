@@ -27,7 +27,7 @@ export function AnchorLabels({ subscribe, labels }: { subscribe(fn: (f: AnchorFr
     [subscribe],
   );
   return (
-    // data-globe-labels: text that is part of the globe picture (WCAG 1.4.3 exempts it; e2e/lib/axe.ts).
+    // data-globe-labels: text that is part of the globe picture (WCAG 1.4.3 exempts it; qa/e2e/lib/axe.ts).
     <div aria-hidden="true" data-globe-labels="" className="pointer-events-none absolute inset-0 overflow-hidden">
       {labels.map((l) => (
         <span

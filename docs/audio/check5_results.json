@@ -1,6 +1,6 @@
 {
  "generated_by": "pipeline/stats/check5_audio.py",
- "render": "e2e/cv/audio-check5.e2e.ts (headless Chromium, OfflineAudioContext)",
+ "render": "qa/e2e/cv/audio-check5.e2e.ts (headless Chromium, OfflineAudioContext)",
  "fs": 48000,
  "note_sec": 0.4,
  "steady_from_sec": 0.1,

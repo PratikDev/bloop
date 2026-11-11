@@ -1,5 +1,5 @@
-"""docs/FEATURES_WORKING.md from the browser checks, not from plans: e2e/features.e2e.ts (one check per feature, Chromium
-and Firefox, with the 3D shown and hidden) and the record health check (e2e/health-records.e2e.ts: every official and
+"""docs/FEATURES_WORKING.md from the browser checks, not from plans: qa/e2e/features.e2e.ts (one check per feature, Chromium
+and Firefox, with the 3D shown and hidden) and the record health check (qa/e2e/health-records.e2e.ts: every official and
 related record opened and played). A feature is WORKING only when its check passed in both browsers; PARTIAL when it
 passed with a stated limit; BROKEN with the error. NOT BUILT lists what the docs and briefs name that the code doesn't
 have (searched in src/ when this list was written: 6 Nov 2026).
@@ -105,7 +105,7 @@ def build():
             rows.append({"id": f"records-{tab}", "group": "data", "name": label, "where": "Official tab · each record", "what": "Opened, played at three needle points, labels as its manifest",
                          "status": "WORKING" if good == total else ("PARTIAL" if good else "BROKEN"), "note": "; ".join(bad[:4] + ([shelf] if shelf else [])),
                          "keyboard": "no", "sr": "yes", "hidden3d": "not checked",
-                         "evidence": f"`e2e/health-records.e2e.ts` (npm run health): {good} of {total} listed in both browsers"})
+                         "evidence": f"`qa/e2e/health-records.e2e.ts` (npm run health): {good} of {total} listed in both browsers"})
     health = json.loads((REPO / "public" / "data" / "meta" / "health.json").read_text(encoding="utf-8"))
     rows.append({"id": "tool-health", "group": "tools", "name": "npm run health", "where": "terminal", "what": "Inventory, files, values, labels, links, freshness, archive drift and the app check; writes docs/HEALTH.md",
                  "status": "WORKING" if health["seconds"] < 900 else "PARTIAL", "note": "" if health["seconds"] < 900 else f"took {health['seconds'] / 60:.1f} min (limit 15)",

@@ -76,7 +76,7 @@ limit, alt text, View as table, How we got this. The test checks the card's numb
 
 ## D. Mix pass and Check 5
 
-Check 5 (`e2e/cv/audio-check5.e2e.ts` renders, `pipeline/stats/check5_audio.py` measures; results in
+Check 5 (`qa/e2e/cv/audio-check5.e2e.ts` renders, `pipeline/stats/check5_audio.py` measures; results in
 `docs/audio/check5_results.json`): 100 notes per voice across the full range, OfflineAudioContext in headless
 Chromium, interpolated FFT on the steady part (from 100 ms):
 

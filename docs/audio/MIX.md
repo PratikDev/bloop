@@ -101,7 +101,7 @@ Re-measured on the integrated build (every CV, ART and DATA flag on; Chromium, 3
 
 ## The test
 
-`e2e/cv/mix.e2e.ts` (one test per mode, a fresh app each): fails if a mode is silent, if its true peak reaches −1 dBTP,
+`qa/e2e/cv/mix.e2e.ts` (one test per mode, a fresh app each): fails if a mode is silent, if its true peak reaches −1 dBTP,
 if mono folding moves it more than 3 LU, or if its loudness drifts more than 3 LU from `mix_results.json`; also the
 small-speaker check and the chord's 6–10 dB gap. `UPDATE_MIX=1 MIX_SECONDS=30` (Chromium) rewrites the file.
 

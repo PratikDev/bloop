@@ -1,6 +1,6 @@
 // Braille lines for the Bengali table (liblouis bn.tbl, as NVDA ships it). That table reads Latin letters as Bangla
 // letters (SST → সসত) and drops the numeric indicator after a decimal point or a colon (30.2 → ৩০.ব, 10:30 → ১০ঞচজ):
-// tests/braille/louis_check.py, 4 Nov 2026. So in বাংলা mode the braille lines are written for that table: Bangla
+// qa/braille/louis_check.py, 4 Nov 2026. So in বাংলা mode the braille lines are written for that table: Bangla
 // words only (no Latin letters), decimals as a word (30 দশমিক 2), times without a colon (10টা 30 মিনিট).
 // Two more things the same check found in bn.tbl, worked around here:
 //  - Bangla digits (০–৯) are only "litdigit": they get no number sign, so ৩০ is ⠉⠚ and reads as the letters চজ.

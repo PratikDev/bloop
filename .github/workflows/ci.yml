@@ -1,0 +1,37 @@
+# Pull-request checks, kept quick: unit tests, lint and type-checks, then the browser smoke subset (Chromium) against a
+# production build. The full browser suites run locally (npm run test:e2e; see qa/README.md).
+name: ci
+
+on:
+  pull_request:
+  workflow_dispatch:
+
+jobs:
+  unit:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+      - uses: oven-sh/setup-bun@v2
+      - run: bun install --frozen-lockfile
+      - run: bun test
+      - run: bun run lint
+      - run: bunx tsc --noEmit -p .
+      - run: bunx tsc --noEmit -p qa
+
+  smoke:
+    needs: unit
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v4
+      - uses: oven-sh/setup-bun@v2
+      - run: bun install --frozen-lockfile
+      - run: bun run build
+      - run: bunx playwright install --with-deps chromium
+      - name: Smoke (Chromium)
+        env:
+          BLOOP_URL: http://localhost:3700
+        run: |
+          python3 pipeline/health/static_server.py out 3700 &
+          bun run test:smoke

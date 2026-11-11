@@ -1,5 +1,5 @@
 {
- "generated_by": "e2e/integration/pitch-identity-all.e2e.ts",
+ "generated_by": "qa/e2e/integration/pitch-identity-all.e2e.ts",
  "browser": "chromium",
  "rows": [
   {

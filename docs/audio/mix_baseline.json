@@ -1,6 +1,6 @@
 {
  "note": "Frozen copy of docs/audio/mix_results.json as CV's build measured it (10 Nov 2026), before the integration's per-voice trims. scripts/mix-trims.ts reads it; never re-measured into.",
- "generated_by": "e2e/cv/mix.e2e.ts",
+ "generated_by": "qa/e2e/cv/mix.e2e.ts",
  "browser": "chromium",
  "seconds": 30,
  "target_lufs": -18,

@@ -141,7 +141,8 @@ bun run dev      # open http://localhost:3000
 | `bun run lint` | ESLint |
 | `bunx tsc --noEmit` | Type check |
 | `bun test` | Unit tests |
-| `bun run e2e` | Browser checks (Playwright, Chromium and Firefox) |
+| `bun run test:e2e` | Browser checks (Playwright, Chromium and Firefox; see `qa/README.md`) |
+| `bun run test:smoke` | The quick browser subset CI runs (Chromium) |
 | `npm run health` | Record health check: writes `docs/HEALTH.md` (Python and Playwright) |
 | `npm run refresh:live` | Refreshes every updating record; ships only what passes its truth check |
 | `bun run i18n:todo` | Rewrites `docs/i18n/TO_TRANSLATE.md`, the Bangla strings still to translate |

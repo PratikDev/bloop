@@ -121,7 +121,7 @@ Checked on 9 Nov 2026; quoted only as far as the sources say.
 Summary here; full tables, commands and dates in RESULTS.md.
 
 - Unit tests (`bun test`): templates in each detail level (English and Bangla), the digit-provenance test, pattern rules on synthetic grids, the status-region debounce, WebVTT writing and parsing, the sweep and time-lapse cues, sound captions, tactile alt text, low-vision bands, label placement, settings and theme contrast.
-- Browser tests (Playwright, Chromium and Firefox desktop, 3D shown and hidden), one file per step in `e2e/a11y/`; axe-core with zero serious violations on each new panel.
+- Browser tests (Playwright, Chromium and Firefox desktop, 3D shown and hidden), one file per step in `qa/e2e/a11y/`; axe-core with zero serious violations on each new panel.
 - NVDA log method: see RESULTS.md.
 
 ## Known limits

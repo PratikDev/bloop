@@ -1,7 +1,7 @@
 // The data-voice check (the pitch-identity test, docs/statement/ART.md): render one plan under several setups (art off,
 // each dial stop, each family) and assert the data voice is the same: the logged pitch per note identical, the
 // measured settled pitch within 1 cent of the art-off render and of the rule, the onset count and tempo identical.
-// The dial's "Check the data voice" button and the CI test (e2e/art) both run this.
+// The dial's "Check the data voice" button and the CI test (qa/e2e/art) both run this.
 
 import { DIAL_STOPS, EARTH_CATEGORIES, type DialStop } from "@/lib/audio/layers/types";
 import type { Timbre } from "@/lib/audio/orchestra";

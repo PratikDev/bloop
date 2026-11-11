@@ -4,7 +4,7 @@ Every dependency the braille work added, checked on 3 Nov 2026. Nothing new ship
 
 | Dependency | Version | Licence | Where it is used | Ships to users? | Obligation |
 |---|---|---|---|---|---|
-| `@playwright/test` (with `playwright`, `playwright-core`) | 1.56.1 | Apache-2.0 | Browser tests (`e2e/*.e2e.ts`, `bun run e2e`) | No (devDependency) | Keep the licence notice if it is ever redistributed. |
+| `@playwright/test` (with `playwright`, `playwright-core`) | 1.56.1 | Apache-2.0 | Browser tests (`qa/e2e/*.e2e.ts`, `bun run e2e`) | No (devDependency) | Keep the licence notice if it is ever redistributed. |
 | Playwright's Chromium and Firefox builds | Chromium 1194, Firefox 1495 | BSD-3-Clause (Chromium), MPL-2.0 (Firefox) | Test browsers, installed to `D:\Jukebox\tools\ms-playwright` (`PLAYWRIGHT_BROWSERS_PATH`) | No | None for local testing. |
 | `axe-core` | 4.13.0 | MPL-2.0 | Injected into the page by the e2e test to check accessibility | No (devDependency, test only) | MPL-2.0 is file-level copyleft. It applies only if we modify and distribute axe-core files, which we don't. |
 

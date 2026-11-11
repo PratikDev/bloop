@@ -15,7 +15,7 @@ export function flag(value: string | undefined, ready: boolean, preview: boolean
 
 export const FLAGS = {
   /** Accessibility core, step 1: speech mode, verbosity, text/sound/both (docs/accessibility/CORE_PLAN.md). */
-  // Ready on 8 Nov 2026: e2e/a11y/speech-choices.e2e.ts 10/10 and the whole suite 250/250 with it on.
+  // Ready on 8 Nov 2026: qa/e2e/a11y/speech-choices.e2e.ts 10/10 and the whole suite 250/250 with it on.
   speechChoices: flag(process.env.NEXT_PUBLIC_A11Y_SPEECH, true),
   /** Step 2: the map widget's keys (+/−, J then 1–9, ., PageUp/PageDown, D, Shift+D), hide 3D, help while focused. */
   /** Step 3: layered descriptions (EN + BN templates, pattern rules, digit provenance); D says one; a Description tab. */
@@ -41,7 +41,7 @@ export const FLAGS = {
   // 414/414 with steps 7 and 8 on (Chromium + Firefox).
   lowVision: flag(process.env.NEXT_PUBLIC_A11Y_LOW_VISION, true),
   /** Ask Bloop (docs/voice/README.md): the panel, typed commands and questions (parser only). */
-  // Ready on 11 Nov 2026: e2e/ask-bloop.e2e.ts 16/16 and e2e/data/ask in the integrated final pass (Chromium + Firefox).
+  // Ready on 11 Nov 2026: qa/e2e/ask-bloop.e2e.ts 16/16 and qa/e2e/data/ask in the integrated final pass (Chromium + Firefox).
   askBloop: flag(process.env.NEXT_PUBLIC_ASK_BLOOP, true),
   /** Ask Bloop's push-to-talk: only when asked for, until the gate test (docs/voice/GATE_TEST.md) passes. */
   askBloopVoice: process.env.NEXT_PUBLIC_ASK_BLOOP_VOICE === "1",
@@ -51,61 +51,61 @@ export const FLAGS = {
   tuning: flag(process.env.NEXT_PUBLIC_A11Y_TUNING, true),
   tablePlaces: flag(process.env.NEXT_PUBLIC_A11Y_TABLE_PLACES, true),
   describe: flag(process.env.NEXT_PUBLIC_A11Y_DESCRIBE, true),
-  // Ready on 8 Nov 2026: e2e/a11y/map-keys.e2e.ts 26/26 and the whole suite 406/406 with it on (Chromium + Firefox).
+  // Ready on 8 Nov 2026: qa/e2e/a11y/map-keys.e2e.ts 26/26 and the whole suite 406/406 with it on (Chromium + Firefox).
   mapKeys: flag(process.env.NEXT_PUBLIC_A11Y_MAP_KEYS, true),
   // >>> CV
   // CV/ML build (docs/cvml/BUILD.md). Ready on 11 Nov 2026 after the integrated final pass (docs/BUILD_2026-11-10.md).
   // The chord stays opt-in: cvChord makes it available, the listener turns it on. Tests that pass with each on are listed beside it.
   /** A: "What the jukebox read from this frame" panel + cents error budget (Listen, Official records). */
-  // Passing: src/lib/cv/*.test.ts, pipeline/tests/test_box_stats.py + test_error_budget.py, e2e/cv/read-panel.e2e.ts.
+  // Passing: src/lib/cv/*.test.ts, pipeline/tests/test_box_stats.py + test_error_budget.py, qa/e2e/cv/read-panel.e2e.ts.
   cvRead: flag(process.env.NEXT_PUBLIC_CV_READ, true),
   /** B: the value chord (its toggle in the panel and Settings; the layer is src/lib/audio/layers/chord). Needs cvRead. */
   // Passing: src/lib/audio/layers/chord/*.test.ts (T1), pipeline/tests/test_colormap_invariance.py (T2),
-  // e2e/cv/chord.e2e.ts.
+  // qa/e2e/cv/chord.e2e.ts.
   cvChord: flag(process.env.NEXT_PUBLIC_CV_CHORD, true),
   /** C: the "Same chord, whatever the colours" card on How we know (T2's outputs). */
-  // Passing: src/lib/cv/same-chord.test.ts, e2e/cv/same-chord-card.e2e.ts.
+  // Passing: src/lib/cv/same-chord.test.ts, qa/e2e/cv/same-chord-card.e2e.ts.
   cvCard: flag(process.env.NEXT_PUBLIC_CV_CARD, true),
   /** E: the two chord tasks in /listen-test (variety, one group or two). */
-  // Passing: src/lib/listen-test/chord/chord-tasks.test.ts, e2e/cv/listen-test-chord.e2e.ts, e2e/mentor/item08.
+  // Passing: src/lib/listen-test/chord/chord-tasks.test.ts, qa/e2e/cv/listen-test-chord.e2e.ts, qa/e2e/mentor/item08.
   cvListenTest: flag(process.env.NEXT_PUBLIC_CV_LISTEN_TEST, true),
   // <<< CV
   // >>> DATA
   // Every shipped dataset in the app (the data-maximize spec). Ready on 11 Nov 2026 after the
   // integrated final pass (docs/BUILD_2026-11-10.md). Tests per flag: see each line.
-  // 10 Nov 2026, all DATA flags on (production build): unit 513/513; e2e/data 24/24 in Chromium and in Firefox; the
+  // 10 Nov 2026, all DATA flags on (production build): unit 513/513; qa/e2e/data 24/24 in Chromium and in Firefox; the
   // existing a11y + features + health-records + ask-bloop + braille suites 332/336 in one run, the two misses (features
   // month-by-month in Chromium, ask-bloop "answered once" in Firefox) passing on rerun (4/4), 2 skipped as before.
   /** P1: Data health (meta/health.json): "Is this data fresh?" in every How we got this, the Data health page, its link. */
-  // e2e/data/health.e2e.ts + src/lib/earth/health.test.ts.
+  // qa/e2e/data/health.e2e.ts + src/lib/earth/health.test.ts.
   dataHealth: flag(process.env.NEXT_PUBLIC_DATA_HEALTH, true),
   /** P1: the leftovers: the 5176 picture under the normal tone, live validation in the provenance, "Not playable". */
-  // e2e/data/leftovers.e2e.ts + src/lib/earth/leftovers.test.ts.
+  // qa/e2e/data/leftovers.e2e.ts + src/lib/earth/leftovers.test.ts.
   dataLeftovers: flag(process.env.NEXT_PUBLIC_DATA_LEFTOVERS, true),
   /** P2a: tomorrow's fire weather (SVS 5315): the chord layer on Listen, the archive replay. */
-  // e2e/data/fire.e2e.ts + src/lib/earth/fwi.test.ts.
+  // qa/e2e/data/fire.e2e.ts + src/lib/earth/fwi.test.ts.
   dataFireWeather: flag(process.env.NEXT_PUBLIC_DATA_FIRE_WEATHER, true),
   /** P2b + P2c: Fire Geiger (FIRMS daily) and the "Fires and fire weather" record in Official records. */
-  // e2e/data/fire.e2e.ts + src/lib/earth/geiger.test.ts.
+  // qa/e2e/data/fire.e2e.ts + src/lib/earth/geiger.test.ts.
   dataWildfires: flag(process.env.NEXT_PUBLIC_DATA_WILDFIRES, true),
   /** P3: landslide exposure rumble (SVS 5584, LHASA). */
-  // e2e/data/landslides.e2e.ts + src/lib/earth/landslide.test.ts.
+  // qa/e2e/data/landslides.e2e.ts + src/lib/earth/landslide.test.ts.
   dataLandslides: flag(process.env.NEXT_PUBLIC_DATA_LANDSLIDES, true),
   /** P4: night lights (Black Marble VJ146A2): a voice per city, gaps as rests. */
-  // e2e/data/night-lights.e2e.ts + src/lib/earth/nightlights.test.ts.
+  // qa/e2e/data/night-lights.e2e.ts + src/lib/earth/nightlights.test.ts.
   dataNightLights: flag(process.env.NEXT_PUBLIC_DATA_NIGHT_LIGHTS, true),
   /** P5: NASA's own method (Caldwell 73, SVS 13786): NASA mode vs Bloop mode on one frame. */
-  // e2e/data/radar.e2e.ts + src/lib/earth/radar.test.ts.
+  // qa/e2e/data/radar.e2e.ts + src/lib/earth/radar.test.ts.
   dataRadar: flag(process.env.NEXT_PUBLIC_DATA_RADAR, true),
   /** Ask Bloop's four DATA questions (fire weather, fires, landslides, night lights here); needs askBloop too. */
-  // e2e/data/ask.e2e.ts + src/lib/ask-bloop/data-intents.test.ts.
+  // qa/e2e/data/ask.e2e.ts + src/lib/ask-bloop/data-intents.test.ts.
   dataAsk: flag(process.env.NEXT_PUBLIC_DATA_ASK, true),
   // <<< DATA
   // >>> ART (docs/statement/ART.md): art, emotion and musicality. Ready on 11 Nov 2026 after the integrated final pass
   // (docs/BUILD_2026-11-10.md).
-  // Passing on 10 Nov 2026 (production build, every NEXT_PUBLIC_ART_* on): unit 508/508; e2e/art 21/21 Chromium and
+  // Passing on 10 Nov 2026 (production build, every NEXT_PUBLIC_ART_* on): unit 508/508; qa/e2e/art 21/21 Chromium and
   // 21/21 Firefox (orchestra 6, dial 7, raw-pixel 2, pieces 6: letter, lifetime, choices, tour, journey, listen test);
-  // the existing suites with them on: e2e/a11y 95/95 Chromium and 95/95 Firefox (dock-fit included), e2e/features.e2e.ts
+  // the existing suites with them on: qa/e2e/a11y 95/95 Chromium and 95/95 Firefox (dock-fit included), qa/e2e/features.e2e.ts
   // 53/53 Chromium and 53/53 Firefox.
   /** Earth Orchestra: an instrument family per Earth system, the Instrument style setting, the category earcon, the
    *  Official grid grouped by category, the legend card. */

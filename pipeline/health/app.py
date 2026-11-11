@@ -1,5 +1,5 @@
 """The browser check's results: data_raw/_tmp/health/app-<browser>/<record>.json (one file per record per browser, written
-by e2e/health-records.e2e.ts). Read here once for the health report (__main__) and the feature inventory (features)."""
+by qa/e2e/health-records.e2e.ts). Read here once for the health report (__main__) and the feature inventory (features)."""
 import json
 from svs.config import DATA_RAW
 

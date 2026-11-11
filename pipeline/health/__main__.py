@@ -1,7 +1,7 @@
 """python -m health [--offline] [--app] [--strict] | --rerender   (from pipeline/; npm run health runs it with --app)
 Steps 1–3 of the record audit without refreshing anything: inventory and completeness, per-record checks (files,
 values, labels, links), freshness against each source, S-NPP status, archive drift; with --app, the browser checks
-(e2e/health-records.e2e.ts, Chromium and Firefox) read the plan this writes and their results are merged.
+(qa/e2e/health-records.e2e.ts, Chromium and Firefox) read the plan this writes and their results are merged.
 Writes docs/HEALTH.md and public/data/meta/health.json. --offline skips every network check and only prints (it never
 replaces the full report). --strict exits 1 on any
 failure (default: 0, so a morning run never blocks on a source being down). --rerender rewrites both reports from the
@@ -43,7 +43,7 @@ def app_checks(plan):
     PLAN.write_text(json.dumps(plan, indent=1), encoding="utf-8")
     for b in BROWSERS: shutil.rmtree(APP / f"app-{b}", ignore_errors=True)
     npx = shutil.which("bunx") or "bunx"
-    cmd = [npx, "playwright", "test", "e2e/health-records.e2e.ts", "--workers", str(WORKERS), "--reporter=dot",
+    cmd = [npx, "playwright", "test", "-c", "qa/playwright.config.ts", "qa/e2e/health-records.e2e.ts", "--workers", str(WORKERS), "--reporter=dot",
            *[f"--project={b}" for b in BROWSERS]]
     with production_server() as url:
         say(f"app checks on {url}: " + " ".join(cmd[1:]))
@@ -79,7 +79,7 @@ def main(argv):
     for idx in ("official", "related"):                   # every playable record the app lists, by its index title
         for row in json.loads((inventory.DATA / idx / "index.json").read_text(encoding="utf-8"))["records"]:
             if row.get("hidden"): hidden.append({"record": row["record"], "title": row["title"], "reason": row["hidden"]}); continue
-            if row.get("kind") == "method": continue      # NASA's method plays in its own player (e2e/data/radar.e2e.ts)
+            if row.get("kind") == "method": continue      # NASA's method plays in its own player (qa/e2e/data/radar.e2e.ts)
             plan[row["record"]] = {**values.plan_for(f"{idx}/{row['manifest']}"), "title": row["title"], "tab": idx}
     say(f"files, values, labels: {sum(len(r['checks']) for r in rows)} checks; app plan {len(plan)} records")
     net, app = {}, {}

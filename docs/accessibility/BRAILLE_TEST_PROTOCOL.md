@@ -58,8 +58,8 @@ Set the explorer width to the participant's display width.
 
 **Rows marked "not a screen-reader viewer test" were run without NVDA.** They are either:
 
-- **liblouis:** the lines translated with NVDA 2026.3's own liblouis 3.39.0, table list and mode, by `tests/braille/louis_check.py`; or
-- **Playwright:** the page driven in a browser, by `e2e/braille-protocol.e2e.ts`.
+- **liblouis:** the lines translated with NVDA 2026.3's own liblouis 3.39.0, table list and mode, by `qa/braille/louis_check.py`; or
+- **Playwright:** the page driven in a browser, by `qa/e2e/braille-protocol.e2e.ts`.
 
 They show what NVDA *should* put on a display. Only a run in the Braille Viewer (or on a display) shows what it does.
 

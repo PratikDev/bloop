@@ -2,7 +2,7 @@
 // off and needs no key here): intent accuracy, slot accuracy, correct refusals, and the parser's latency. Numeric
 // correctness is 100% by construction (the parser outputs no numbers but the months the user said, and every answer's
 // digits are checked against the engine's results: src/lib/ask-bloop/digits.ts); answer length is measured on the
-// answers in e2e/ask-bloop.e2e.ts. Exits non-zero when the parser misses the target (the top 20 intents handled).
+// answers in qa/e2e/ask-bloop.e2e.ts. Exits non-zero when the parser misses the target (the top 20 intents handled).
 import { readFileSync } from "node:fs";
 import { join } from "node:path";
 import { parseUtterance } from "../src/lib/ask-bloop/parser";

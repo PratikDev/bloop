@@ -60,7 +60,7 @@ export function HowWeGotThis({ facts, className }: { facts: readonly Provenance[
   );
 }
 
-/** A group of numbers and its "How we got this" button: the scan (e2e/mentor/item11) checks every number sits in one. */
+/** A group of numbers and its "How we got this" button: the scan (qa/e2e/mentor/item11) checks every number sits in one. */
 export function ProvenanceGroup({ children, className }: { children: ReactNode; className?: string }) {
   return (
     <div data-provenance-group="" className={className}>
