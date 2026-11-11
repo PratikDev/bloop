@@ -12,6 +12,7 @@
 - `i18n/TO_TRANSLATE.md`: Bangla strings waiting for a check (generated).
 - `voice/GATE_TEST.md`, `voice/benchmark.json`: Ask Bloop's speech gate test and parser benchmark.
 - `art/pitch_identity_integrated.json`: the pitch-identity table (written by its test).
+- `turntable.md`: the Turntable's assets, their licences and credits.
 - `official_resources_links.md`: the NASA pages the resource watch checks.
 - `MENTOR_FIXES.md`, `TEAM_BUILD_PLAN.md`, `L2/BUILD_PLAN.md`: cited by tests and data as sources.
 - `readme/`: images in the top-level README.
