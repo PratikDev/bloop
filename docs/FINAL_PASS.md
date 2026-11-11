@@ -64,7 +64,9 @@ Budget (§10): Home shows its heading and a usable Start within 3 s; the first s
 **Budget misses that remain:**
 - **Start usable:** 3.4–3.8 s against 3 s, at every size measured.
 - **First sound:** about 2.7–3.1 s (median) against 2 s, with single runs up to 4.3–6.0 s.
-- **Downloads before Start:** the rain grid (4.7 MB) is now fetched once the first page is usable and idle (`src/components/LiveData/index.tsx`, Session B's commented block), before Start, so that the first sound is sooner. That goes against the budget's third line. The prefetch runs on whatever page is opened first, not only Home. **For Pratik to decide:** keep it, or go back to loading the rain at Start.
+- **Downloads before Start:** the rain grid (4.7 MB) is fetched once Home or Listen is usable and idle, before Start, so the first sound is sooner, which goes against the budget's third line.
+
+**Pratik's decisions (2026-11-11):** rain prefetch kept with a guard (Home and Listen only; off on Data Saver and slow-2g/2g/3g; where the browser doesn't report the connection, Firefox and Safari, as before); performance budgets accepted for judging (measured on Fast 4G with 4× CPU and no compression). The guard is Session B's e9eb2c9 (`src/lib/prefetch.ts` with a test, and `src/components/LiveData/index.tsx` in Session B's block); Session B checked it in Chromium on the production build: rain before Start on / and /listen (Chrome reports Fast 4G as 4g, so the measurements above stand), nothing before Start on /official, /turntable, 3G or Data Saver.
 
 How these were measured: on a local static server that sends files **uncompressed** (no gzip or brotli), in headless Chromium on Windows; Session A with SwiftShader software rendering. The real host compresses, which shortens the downloads; that hasn't been measured (see "Not verified" below). No further performance pass was made after Session B's merge.
 
