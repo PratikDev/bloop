@@ -5,6 +5,7 @@ import { Vector2 } from "three";
 import { audio } from "@/lib/audio-jukebox";
 import type { TrackMode } from "@/lib/audio-jukebox/types";
 import { wrapLon, type LatLon, type LiveFields } from "@/lib/data";
+import { readAt } from "@/lib/reading";
 import type { ZoomLevel } from "@/lib/geo/search";
 import type { AppAction } from "../AppState/reducer";
 import { useCanvasSize } from "../FrameView/use-canvas-size";
@@ -156,6 +157,8 @@ export function useTurntable(o: Options): Turntable {
   const recordLift = useRef(0);
   /** Where a pick is swinging from and to. */
   const swing = useRef<{ from: LatLon; to: LatLon } | null>(null);
+  /** A pick's arm is still in the air: the readout and swatch already show the picked point, never a place on the way. */
+  const picking = useRef(false);
   /** Where the arrow keys are gliding to, and how fast the glide is going. */
   const glide = useRef<{ lat: number; lon: number; vLat: number; vLon: number } | null>(null);
   /** The view turned away from the needle by a drag (degrees), and its ease back when the needle moves. */
@@ -211,6 +214,12 @@ export function useTurntable(o: Options): Turntable {
     unsynced.current = true;
   }, []);
 
+  /** The swatch takes a picked point's pixel at once, so the frame after a click never shows the old place's colour. */
+  const paintSwatch = (at: LatLon) => {
+    const { fields, track } = live.current;
+    if (fields) sceneRef.current?.effects.setSwatchColor(textureRef.current.sample(track, readAt(fields, at), at));
+  };
+
   const syncCursor = useCallback(() => {
     dispatch({ type: "setCursor", cursor: reading.current });
     unsynced.current = false;
@@ -262,6 +271,7 @@ export function useTurntable(o: Options): Turntable {
       cancelFlight();
       glide.current = null;
       swing.current = null;
+      picking.current = false;
       if (live.current.rotating) setRotating(false);
       pose.current = { lat: clampNeedleLat(at.lat), lon: wrapLon(at.lon) };
       applyPose();
@@ -356,11 +366,15 @@ export function useTurntable(o: Options): Turntable {
         if (d.landed && o.liveOn && !o.allMuted) audio.playNeedleDrop();
         // The readout and the app's cursor follow the place the moment the needle touches down, not after the settle.
         if (d.landed && path) {
+          picking.current = false;
           lastSync.current = 0;
           unsynced.current = true;
         }
         if (d.done) {
-          if (path) swing.current = null;
+          if (path) {
+            swing.current = null;
+            picking.current = false;
+          }
           holding.current = false;
           dropDone.current?.();
           dropDone.current = null;
@@ -412,7 +426,7 @@ export function useTurntable(o: Options): Turntable {
           {
             fields: o.fields,
             track: o.track,
-            needle: reading.current,
+            needle: picking.current && swing.current ? swing.current.to : reading.current,
             viewLon,
             soundOn: o.liveOn && !holding.current,
             allMuted: o.allMuted,
@@ -421,7 +435,7 @@ export function useTurntable(o: Options): Turntable {
           scene.effects,
         );
       }
-      if (unsynced.current && !flight.current && now - lastSync.current >= CURSOR_SYNC_MS) syncCursor();
+      if (unsynced.current && !flight.current && !picking.current && now - lastSync.current >= CURSOR_SYNC_MS) syncCursor();
     };
     raf = requestAnimationFrame(loop);
     if (live.current.introPending) {
@@ -509,6 +523,7 @@ export function useTurntable(o: Options): Turntable {
       touched();
       cancelFlight();
       swing.current = null;
+      picking.current = false;
       if (live.current.rotating) setRotating(false);
       const from = glide.current ?? { ...pose.current, vLat: 0, vLon: 0 };
       glide.current = { lat: clampNeedleLat(from.lat + dLat), lon: from.lon + dLon, vLat: from.vLat, vLon: from.vLon };
@@ -520,6 +535,7 @@ export function useTurntable(o: Options): Turntable {
         holding.current = false;
         motion.current = { lift: 0, park: 0 };
         place(at, true);
+        paintSwatch(reading.current);
         return;
       }
       touched();
@@ -527,7 +543,12 @@ export function useTurntable(o: Options): Turntable {
       cancelFlight();
       glide.current = null;
       if (live.current.rotating) setRotating(false);
-      swing.current = { from: { ...pose.current }, to: { lat: clampNeedleLat(at.lat), lon: wrapLon(at.lon) } };
+      const to = { lat: clampNeedleLat(at.lat), lon: wrapLon(at.lon) };
+      swing.current = { from: { ...pose.current }, to };
+      // The picked place shows from the click on (the readout, the swatch): no frame of the old place or of the way there.
+      picking.current = true;
+      dispatch({ type: "setCursor", cursor: to });
+      paintSwatch(to);
       startDrop("pick");
     },
     resetFraming() {

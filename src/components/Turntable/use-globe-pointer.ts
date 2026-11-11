@@ -26,10 +26,11 @@ export function useGlobePointer(tt: Turntable) {
   return {
     onPointerDown(e: PointerEvent<HTMLElement>) {
       tt.skipAnimation();
-      tt.setPreview(null);
+      // The preview stays through the press: a click turns it into the pick at once (no frame of the old place between).
       e.currentTarget.setPointerCapture(e.pointerId);
       pointers.current.set(e.pointerId, { x: e.clientX, y: e.clientY });
       if (pointers.current.size === 2) {
+        tt.setPreview(null);
         pinch.current = spread();
         drag.current = null;
         return;
@@ -54,6 +55,7 @@ export function useGlobePointer(tt: Turntable) {
       const dx = e.clientX - d.x;
       const dy = e.clientY - d.y;
       if (!d.moved && Math.hypot(dx, dy) < CLICK_SLOP_PX) return;
+      if (!d.moved) tt.setPreview(null); // a drag looks around: no point is previewed
       d.moved = true;
       const close = tt.cameraMode === "explore";
       const degPerPx = close ? (DRAG_DEG * Math.max(0.05, tt.distance() - 1)) / Math.max(1, e.currentTarget.clientHeight) : 180 / Math.max(1, e.currentTarget.clientWidth);
@@ -71,6 +73,7 @@ export function useGlobePointer(tt: Turntable) {
       drag.current = null;
       if (d?.moved) return;
       const hit = tt.pickAt(e.clientX, e.clientY);
+      tt.setPreview(null);
       if (hit) tt.pick(hit);
     },
     onPointerLeave(e: PointerEvent<HTMLElement>) {

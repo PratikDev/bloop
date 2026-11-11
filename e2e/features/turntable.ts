@@ -1,5 +1,5 @@
 // Feature checks on the Turntable page: the globe, its needle, search, tour, view, the four 3D scenes, its drawers.
-import { expect, type Page } from "@playwright/test";
+import { expect, test, type Page } from "@playwright/test";
 import { navTo } from "../lib/app";
 import { dock, name, openMore, openPlayerMore, openScene, tab, turntable, type Feature } from "./common";
 
@@ -127,6 +127,7 @@ export const TURNTABLE: Feature[] = [
   { id: "turntable-pointer-zoom", group: "visuals", name: "The pointer stays drawn at every zoom (the swatch on the globe, the stylus on the record)", where: "Turntable · + / − and browser zoom", keyboard: true,
     what: "The swatch on the globe and the tonearm's stylus on the turntable stay drawn, in front of their cameras and on screen, zooming in to the closest and back out, and at 200% browser zoom",
     async run(page) {
+      test.setTimeout(240_000); // every zoom step and 200% browser zoom: about 110 s on software rendering
       await turntable(page);
       await page.goto(`${new URL(page.url()).pathname}?debug=1`);
       // The reload starts without sound, and with no record playing the arm rests beside the globe: start it as a user would.
