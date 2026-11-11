@@ -147,8 +147,9 @@ export function ChipFrame({ subscribe, details, reserved, dock, bottomReserve = 
         )}
       >
         <div className="flex items-start justify-between gap-2">
-          {headline}
-          <div className="flex gap-1">
+          {/* Docked on a phone the pill above the card already says the value: one readout only. */}
+          <div className={cn(docked && "max-sm:hidden")}>{headline}</div>
+          <div className="ml-auto flex gap-1">
             <Button
               variant="ghost"
               size="icon"

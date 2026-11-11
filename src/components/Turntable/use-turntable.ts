@@ -178,7 +178,9 @@ export function useTurntable(o: Options): Turntable {
   const inputAt = useRef(0);
   const size = useRef({ width: 1, height: 1 });
 
-  const [rotating, setRotatingState] = useState(!o.reduceMotion);
+  // The Earth waits for the Turn key: turning at once carried the needle off the Bay of Bengal (START_CURSOR, the
+  // place Listen opens on) onto India within five seconds, so the first reading was "No ocean data here".
+  const [rotating, setRotatingState] = useState(false);
   const [speedIndex, setSpeedIndex] = useState(DEFAULT_SPEED_INDEX);
   const [cameraMode, setCameraModeState] = useState<CameraMode>("jukebox");
   const speedIndexNow = useRef(DEFAULT_SPEED_INDEX);
