@@ -1,5 +1,5 @@
 // Lists the Official and Related record layers whose "How we got this" panel shows a field as "not available"
-//. Usage: bun scripts/provenance-missing.ts
+// Usage: bun scripts/provenance-missing.ts
 import { listedRelated } from "@/lib/data/official";
 import { bindT } from "@/lib/i18n";
 import { readData } from "@/lib/i18n/data-sentences";

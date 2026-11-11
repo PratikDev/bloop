@@ -77,7 +77,7 @@ export function TerrainView({ data, onExit, tier, geo }: SceneProps & { data: Te
     [loop.seq, frame, relief.plane],
   );
   const [sstImage] = useState(() => sstTexture(data.image));
-  //: the SVS 5176 picture on the terrain while the anomaly plays, with its own legend and frame date.
+  // The SVS 5176 picture on the terrain while the anomaly plays, with its own legend and frame date.
   const t = useT();
   const [anomalyImage] = useState(() => (data.anomalyImage ? sstTexture(data.anomalyImage) : null));
   useEffect(() => () => anomalyImage?.dispose(), [anomalyImage]);
