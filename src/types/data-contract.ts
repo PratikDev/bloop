@@ -7,6 +7,7 @@
 
 export * from "./contract/frames";
 export * from "./contract/context";
+export * from "./contract/context-extra";
 export * from "./contract/demo";
 export * from "./contract/mapping";
 export * from "./contract/global";

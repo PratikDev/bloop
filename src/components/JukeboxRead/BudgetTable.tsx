@@ -2,7 +2,7 @@
 
 import { useMemo } from "react";
 import { ERROR_BUDGET, liveBudget } from "@/lib/cv/error-budget";
-import { budgetLines, errorText } from "@/lib/cv/budget-text";
+import { budgetLines, errorText } from "@/lib/cv/text";
 import { formatInteger } from "@/lib/i18n";
 import { useAppState, useT } from "../AppState/use-app-state";
 import { useLiveData } from "../LiveData/use-live-data";

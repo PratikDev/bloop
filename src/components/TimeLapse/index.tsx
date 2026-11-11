@@ -4,31 +4,22 @@ import { useCallback, useEffect, useMemo, useRef, useState, type ReactNode } fro
 import { usePlayhead } from "@/hooks/use-playhead";
 import { peakFrame } from "@/lib/audio";
 import { audio } from "@/lib/audio-adapter";
-import type { PlayerHandle, SweepPoint } from "@/lib/audio-adapter/types";
+import type { PlayerHandle } from "@/lib/audio-adapter/types";
 import { frameAfter } from "@/a11y/mapNav";
-import { DATA_PATHS, followStorm, loadSequence, TIMELAPSE_FPS, valueInFrame, windowStart, type Sequence } from "@/lib/data";
+import { DATA_PATHS, followStorm, loadSequence, TIMELAPSE_FPS, windowStart } from "@/lib/data";
 import { FLAGS } from "@/lib/flags";
 import { formatUtc } from "@/lib/i18n";
 import { loadImage } from "@/lib/load-image";
-import { readingFromPoint } from "@/lib/reading";
 import { useAnnounce } from "../Announcer/use-announcer";
-import { stepSound } from "../AppState/access";
-import { liveSoundOn } from "../AppState/reducer";
 import { useAppState, useT } from "../AppState/use-app-state";
-import { playReading } from "../Commands/use-sound-sync";
 import { followTimelapse } from "../TimedText/follow";
-import { TimeLapseContext, type TimeLapseFrame, type TimeLapseRun, type TimeLapseStatus, type TimeLapseValue } from "./use-time-lapse";
+import { useHeldFrame, type Loaded } from "./use-held-frame";
+import { TimeLapseContext, type TimeLapseRun, type TimeLapseStatus, type TimeLapseValue } from "./use-time-lapse";
 
 // Player name agreed with L2 (contract-proposals B5): step index = frame index.
 const PLAYER = "timelapse";
 const FPS = TIMELAPSE_FPS;
 const NOT_RUN: TimeLapseRun = { finished: false, peak: null, last: null };
-
-interface Loaded {
-  seq: Sequence;
-  path: SweepPoint[];
-  images: HTMLImageElement[];
-}
 
 /**
  * Storm time-lapse (plan C4): the last ~48 half-hourly rain frames, with the
@@ -182,19 +173,7 @@ export function TimeLapseProvider({ children }: { children: ReactNode }) {
   // Leaving a mode stops the time-lapse (Story Mode starts its own).
   useEffect(() => () => stop(), [state.mode, stop]);
 
-  const { heldFrame, cursor } = state;
-  const held = useMemo<TimeLapseFrame | null>(() => {
-    const frame = heldFrame === null || !data ? null : data.seq.frames[heldFrame];
-    if (!data || !frame || heldFrame === null) return null;
-    const v = valueInFrame(data.seq, frame, cursor.lat, cursor.lon);
-    const point = { lat: cursor.lat, lon: cursor.lon, valueC: null, mmPerHour: v.mmPerHour, phase: v.phase };
-    return { index: heldFrame, total: data.seq.frames.length, timeUtc: frame.ref.time_utc, point, image: data.images[heldFrame] ?? null, held: true };
-  }, [heldFrame, cursor, data]);
-
-  const live = liveSoundOn(state) && stepSound(state) && state.mode === "explore";
-  useEffect(() => {
-    if (held && live) playReading(readingFromPoint(held.point), held.point.lon);
-  }, [held, live]);
+  const held = useHeldFrame(data);
 
   const value = useMemo<TimeLapseValue>(() => {
     if (held && status !== "playing") return { status, progress, current: held, start, stop, stepFrame };

@@ -1,29 +1,23 @@
 "use client";
 
-import { useCallback, useEffect, useMemo, useRef, useState } from "react";
+import { useCallback, useMemo, useState } from "react";
 import { useLoaded } from "@/hooks/use-loaded";
 import type { LatLon } from "@/lib/data";
-import { cellIndex } from "@/lib/data/grid";
 import { classAt } from "@/lib/earth/class-grid";
-import { FIRE_WEATHER_VOICE } from "@/lib/earth/classes";
 import { loadArchiveGrids, loadFireData } from "@/lib/earth/fire-data";
 import type { FireReading } from "@/lib/earth/fire-text";
 import { boxCentre, chtSeasonCases, dailyDays, dayCount, regionsAt, seriesOf, type SeasonCase } from "@/lib/earth/firms";
 import { nextDay } from "@/lib/earth/fwi";
-import { geigerBrightness, geigerRate } from "@/lib/earth/geiger";
 import { pilotRows, pilotSummary, type PilotDay } from "@/lib/earth/pilot";
 import { activeRegions } from "@/lib/earth/regions";
-import { createChordLayer } from "@/lib/earth/sound/chord-layer";
-import { createGeigerLayer } from "@/lib/earth/sound/geiger-layer";
 import { ensureDataAudio } from "@/lib/earth/sound/out";
 import type { FirmsDailyRegion, FirmsNrtSource } from "@/types/data-contract";
 import { useAppState } from "../../AppState/use-app-state";
+import { useFireSound, type Sequence } from "./use-fire-sound";
 
-const REPLAY_STEP_MS = 3000;
-const SEASON_STEP_MS = 700;
 const FIRST_REGION: FirmsDailyRegion = "Bangladesh";
 
-export type Sequence = { kind: "replay"; step: number } | { kind: "season"; key: string; step: number } | null;
+export type { Sequence };
 
 export function useWildfires() {
   const { state } = useAppState();
@@ -37,8 +31,6 @@ export function useWildfires() {
   const [playing, setPlaying] = useState(false);
   const [rawSequence, setSequence] = useState<Sequence>(null);
   const [archive, setArchive] = useState<PilotDay[] | null>(null);
-  const chord = useRef(createChordLayer(FIRE_WEATHER_VOICE));
-  const geiger = useRef(createGeigerLayer());
 
   const daily = data?.daily ?? null;
   const at = useMemo(() => needle ?? (daily ? boxCentre(daily.boxes[FIRST_REGION]) : { lat: 0, lon: 0 }), [needle, daily]);
@@ -93,48 +85,8 @@ export function useWildfires() {
     }
   }
 
-  const stopAll = useCallback(() => {
-    chord.current.stop();
-    geiger.current.stop();
-  }, []);
-
   const sounding = playing && state.soundOn && sequence === null;
-  useEffect(() => {
-    if (!sounding || !reading) {
-      if (sequence === null) stopAll();
-      return;
-    }
-    chord.current.set(chordOn ? reading.fwiCode : null, at.lon);
-    const count = reading.count?.count ?? 0;
-    geiger.current.set(clicksOn ? geigerRate(count) : 0, geigerBrightness(count, reading.count?.frpSumMW ?? 0), at.lon);
-  }, [sounding, reading, chordOn, clicksOn, at.lon, sequence, stopAll]);
-
-  useEffect(() => {
-    if (sequence?.kind !== "replay" || !archive || !daily || !src) return;
-    const d = archive[sequence.step];
-    chord.current.set(chordOn && data ? d.codes[cellIndex(data.fwi.meta.grid, at.lat, at.lon)] : null, at.lon);
-    const series = seriesOf(daily, region, src);
-    const c = series ? dayCount(series, nextDay(d.date)) : null;
-    geiger.current.set(clicksOn && c ? geigerRate(c.count) : 0, c ? geigerBrightness(c.count, c.frpSumMW) : null, at.lon);
-    const timer = setTimeout(() => setSequence((s) => (s?.kind === "replay" ? { kind: "replay", step: s.step + 1 } : s)), REPLAY_STEP_MS);
-    return () => clearTimeout(timer);
-  }, [sequence, archive, daily, src, region, at, chordOn, clicksOn, data]);
-
-  useEffect(() => {
-    if (sequence?.kind !== "season") return;
-    const c = seasonCases.find((x) => x.key === sequence.key);
-    if (!c) return;
-    chord.current.stop();
-    const count = c.series.counts[sequence.step];
-    geiger.current.set(geigerRate(count), null, at.lon);
-    const timer = setTimeout(() => setSequence((s) => (s?.kind === "season" ? { ...s, step: s.step + 1 } : s)), SEASON_STEP_MS);
-    return () => clearTimeout(timer);
-  }, [sequence, seasonCases, at.lon]);
-
-  useEffect(() => stopAll, [stopAll]);
-  useEffect(() => {
-    if (sequence === null && !playing) stopAll();
-  }, [sequence, playing, stopAll]);
+  const { chordTones } = useFireSound({ sounding, playing, reading, chordOn, clicksOn, at, sequence, setSequence, archive, daily, src, region, data: data ?? null, seasonCases });
 
   const play = useCallback(async () => {
     await ensureDataAudio();
@@ -205,7 +157,7 @@ export function useWildfires() {
     regions,
     seasonCases,
     offSeason,
-    chordTones: () => chord.current.sounding(),
+    chordTones,
   };
 }
 

@@ -1,6 +1,6 @@
 import { findModes } from "@/lib/audio/layers/chord/modes";
 import { NAMED_BOXES, type NamedBox } from "@/lib/cv/boxes";
-import { boxStats, type BoxStats } from "@/lib/cv/box-stats";
+import { boxStats, type BoxStats } from "@/lib/cv/boxes";
 import { budgetFor } from "@/lib/cv/error-budget";
 import { sstSource } from "@/lib/cv/read-source";
 import type { SstField } from "@/lib/data";

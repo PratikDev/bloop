@@ -2,7 +2,7 @@ import { formatFixed, formatInteger, type BoundT, type Lang } from "@/lib/i18n";
 import { repoLink, rowLink, VALIDATION_TABLE } from "@/lib/provenance/repo";
 import type { Provenance } from "@/lib/provenance/types";
 import type { Bounds } from "./boxes";
-import type { BoxStats } from "./box-stats";
+import type { BoxStats } from "./boxes";
 
 const READ_SCRIPTS = ["src/lib/cv/box-stats.ts", "pipeline/tests/test_box_stats.py", "pipeline/stats/error_budget.py"] as const;
 

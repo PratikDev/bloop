@@ -5,7 +5,7 @@ import type { ValueChordState } from "@/hooks/use-value-chord";
 import { formatFixed } from "@/lib/i18n";
 import { repoLink } from "@/lib/provenance/repo";
 import type { Provenance } from "@/lib/provenance/types";
-import { sigDecimals } from "@/lib/cv/read-short";
+import { sigDecimals } from "@/lib/cv/text";
 import { useAppState, useT } from "../AppState/use-app-state";
 import { HowWeGotThis, ProvenanceGroup } from "../HowWeGotThis";
 import { ChordToggle } from "./ChordToggle";

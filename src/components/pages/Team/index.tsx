@@ -2,11 +2,10 @@
 
 import teamJson from "../../../../content/team.json";
 import { placeLabel } from "@/lib/history";
-import { parseTeam, shownTeam } from "@/lib/team";
 import { useT } from "../../AppState/use-app-state";
 import { DataCredits } from "../../DataCredits";
 
-const TEAM = shownTeam(parseTeam(teamJson));
+const TEAM: { teamName: string; members: { name: string; role?: string }[]; challenge: string; localEvent: string; licence: string } = teamJson;
 
 const SECTION = "surface-plate space-y-3 rounded-plate p-5 md:p-6";
 
@@ -16,7 +15,7 @@ export function TeamPage() {
     <section aria-labelledby="team-title" className="mx-auto flex h-full min-h-0 w-full max-w-4xl flex-col gap-5 overflow-y-auto px-4 pt-3 pb-6 md:px-8">
       <header className="space-y-1">
         <h1 id="team-title" data-page-title tabIndex={-1} className="display-tight font-serif text-headline">
-          {TEAM.teamName ?? t("team.title")}
+          {TEAM.teamName}
         </h1>
         <p className="max-w-2xl text-body text-haze">{t("team.lead")}</p>
       </header>

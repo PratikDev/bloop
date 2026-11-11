@@ -3,7 +3,7 @@ import { decodeCode, decodeSequenceCode, type OfficialGrid, type RainField, type
 import { decodeRain, decodeSst } from "@/lib/data/latest";
 import type { ValueTrust } from "@/lib/audio/layers/types";
 import type { OfficialStatus } from "@/types/data-contract";
-import { GLOBAL_BOUNDS, type BoxGrid, type HistAxis } from "./box-stats";
+import { GLOBAL_BOUNDS, type BoxGrid, type HistAxis } from "./boxes";
 
 export interface ReadSource {
   recordId: string;

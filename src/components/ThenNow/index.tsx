@@ -1,12 +1,9 @@
 "use client";
 
-import { useCallback, useMemo, useState, type KeyboardEvent } from "react";
+import { useMemo } from "react";
 import { SpeakerSimpleSlash } from "@phosphor-icons/react";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
-import { isLetter, isTypingTarget } from "@/a11y/keys";
 import { buildThenNowInput, cityDemo } from "@/lib/then-now";
-import { bi, type BiText } from "@/lib/bi-text";
-import { statTexts } from "@/lib/then-now-stats";
 import type { ClimateCellName } from "@/types/data-contract";
 import { useT } from "../AppState/use-app-state";
 import { ChoiceGroup } from "../ChoiceGroup";
@@ -24,7 +21,9 @@ import { WaterNote } from "../WaterNote";
 import { HowWeGotThis, ProvenanceGroup } from "../HowWeGotThis";
 import { usePartProvenance } from "./use-part-provenance";
 import { useThenNowData } from "./use-then-now-data";
-import { useThenNowPlayer, type Part } from "./use-then-now-player";
+import { useThenNowPlayer } from "./use-then-now-player";
+import { usePartNotes } from "./use-part-notes";
+import { useThenNowBraille } from "./use-then-now-braille";
 import { ThenNowMidi } from "../Art/ThenNowMidi";
 
 export const DEFAULT_CITY: ClimateCellName = "Dhaka";
@@ -51,26 +50,7 @@ export function ThenNow({
     const demo = city ? cityDemo(ready.demo, city) : ready.demo;
     return { demo, input: buildThenNowInput(demo, ready.grace) };
   }, [ready, city]);
-  const sharedFor = useCallback(
-    (p: ViewPart): ClimateCellName[] => {
-      const cell = p === "heat" ? city?.heat : p === "monsoon" ? city?.rain.gpcp : null;
-      return cell && cell.same_record_as === null ? cell.shares_cell_with : [];
-    },
-    [city],
-  );
-  const stats = ready?.stats ?? null;
-  const statLines = useCallback((p: Part) => (stats ? statTexts(stats, cityName, p) : null), [stats, cityName]);
-  const deg = ready?.grace.mascon_deg ?? null;
-  const noteLines = useCallback(
-    (p: Part): BiText[] => {
-      const shared = sharedFor(p);
-      return [
-        ...(p === "water" ? [bi((tl) => tl("water.bangladeshWide", { deg }))] : []),
-        ...(shared.length ? [bi((tl) => tl("history.sharedCell", { places: shared.map((c) => tl(`place.${c}`)).join(", ") }))] : []),
-      ];
-    },
-    [sharedFor, deg],
-  );
+  const { sharedFor, statLines, noteLines } = usePartNotes(ready, city, cityName);
   const player = useThenNowPlayer(view?.input ?? null, view?.demo ?? null, statLines, noteLines);
   // While "Play heat, rain and water" runs, the view follows the part that is sounding.
   const part: ViewPart = player.soundingPart ?? chosen;
@@ -79,20 +59,7 @@ export function ThenNow({
   const cities = ready?.cities?.cities ?? [];
   const facts = usePartProvenance(ready && view ? { cityName, city, demo: view.demo, grace: ready.grace, stats: ready.stats } : null, part);
 
-  const [brailleOpen, setBrailleOpen] = useState(false);
-  const brailleInput = useMemo(
-    () => (ready && view && !isFieldPart(part) ? { part, cityName, demo: view.demo, grace: ready.grace, stats: ready.stats ?? null } : null),
-    [ready, view, part, cityName],
-  );
-  const openBraille = (open: boolean) => {
-    if (open) player.stop();
-    setBrailleOpen(open);
-  };
-  const onKeyDown = (e: KeyboardEvent<HTMLElement>) => {
-    if (field || !isLetter(e, "b") || isTypingTarget(e.target)) return;
-    e.preventDefault();
-    openBraille(!brailleOpen);
-  };
+  const { brailleOpen, brailleInput, openBraille, onKeyDown } = useThenNowBraille({ ready, demo: view?.demo ?? null, part, cityName, stop: player.stop });
 
   const choosePart = (next: ViewPart) => {
     if (isFieldPart(next)) player.stop(); // a record without sound: nothing else keeps playing under it

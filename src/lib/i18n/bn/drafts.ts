@@ -1,6 +1,7 @@
 import type { MessageKey } from "../index";
 import { ACCESS_DRAFTS } from "./drafts/access";
 import { PAGE_DRAFTS } from "./drafts/pages";
+import { EVIDENCE_DRAFTS } from "./drafts/pages-evidence";
 import { timedTextBn } from "./timed-text";
 import { lowVisionBn } from "./low-vision";
 import { askBloopBn } from "./ask-bloop";
@@ -10,6 +11,7 @@ import { artBn } from "./art";
 
 export const DRAFT_KEYS: readonly MessageKey[] = [
   ...PAGE_DRAFTS,
+  ...EVIDENCE_DRAFTS,
   ...ACCESS_DRAFTS,
   ...(Object.keys(timedTextBn) as MessageKey[]),
   ...(Object.keys(lowVisionBn) as MessageKey[]),

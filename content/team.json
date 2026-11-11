@@ -1,9 +1,12 @@
 {
   "teamName": "Team PTSD",
   "members": [
-    { "name": "Pratik Dev", "role": "TODO" },
-    { "name": "Samonwita Sarker", "role": "TODO" },
-    { "name": "TODO", "role": "TODO" }
+    {
+      "name": "Pratik Dev"
+    },
+    {
+      "name": "Samonwita Sarker"
+    }
   ],
   "challenge": "NASA Space Apps Challenge 2026, Challenge #14: The Earth Information Jukebox",
   "localEvent": "Chattogram",

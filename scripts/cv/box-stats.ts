@@ -2,7 +2,7 @@ import { readFileSync } from "node:fs";
 import { gunzipSync } from "node:zlib";
 import { readUint16LE, readUint8 } from "@/lib/data/grid";
 import { NAMED_BOXES } from "@/lib/cv/boxes";
-import { boxStats } from "@/lib/cv/box-stats";
+import { boxStats } from "@/lib/cv/boxes";
 import { latestRainSource, officialSource, sequenceRainSource, sstSource, type ReadSource } from "@/lib/cv/read-source";
 import type { OfficialManifest, RainMetadata, SequenceIndex, SstMetadata } from "@/types/data-contract";
 

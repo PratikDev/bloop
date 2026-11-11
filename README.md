@@ -143,7 +143,7 @@ bun run dev      # open http://localhost:3000
 | `npm run health` | Record health check (Python) |
 | `npm run refresh:live` | Refreshes every updating record; ships only what passes its truth check |
 
-**Team page and release builds.** The Team page (`/team`) reads `content/team.json`: the team name, each member's name and role, the challenge, the local event and the licence. A field still `"TODO"` shows nothing on the page. `bun run build` lists the TODO fields, and with `BLOOP_RELEASE=1` it stops until none remain (`bun run check:team` runs the check alone).
+**Team page.** The Team page (`/team`) reads `content/team.json`: the team name, each member's name and role, the challenge, the local event and the licence.
 
 The audio engine's test page (`/dev/audio`) is available in development only. For a test deployment that includes it, build with `AUDIO_HARNESS=1 bun run build`.
 

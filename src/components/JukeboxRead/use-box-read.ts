@@ -4,7 +4,7 @@ import { useMemo } from "react";
 import { useCvView } from "@/hooks/use-cv-view";
 import type { LatLon } from "@/lib/data";
 import { boundsOf, NAMED_BOXES, NEEDLE_BOX, type Bounds } from "@/lib/cv/boxes";
-import { boxStats, type BoxStats } from "@/lib/cv/box-stats";
+import { boxStats, type BoxStats } from "@/lib/cv/boxes";
 import { budgetFor, liveBudget, type LiveBudget } from "@/lib/cv/error-budget";
 import type { ReadSource } from "@/lib/cv/read-source";
 import { useT } from "../AppState/use-app-state";
