@@ -24,18 +24,28 @@ Order: controls, announcements, errors, headings, the rest. Files: `src/lib/i18n
 | `official.tab.controls` | Controls | নিয়ন্ত্রণ |
 | `braille.open` | Braille explorer | ব্রেইল এক্সপ্লোরার |
 | `braille.close` | Close braille explorer | ব্রেইল এক্সপ্লোরার বন্ধ করুন |
-| `braille.channel` | Voice | কণ্ঠ |
-| `braille.mode` | Shape shows | আকারে দেখায় |
+| `braille.channel` | Data | তথ্য |
+| `braille.mode` | Shape | আকার |
 | `braille.mode.time` | Through time | সময়ের সাথে |
 | `braille.mode.path` | Along the latitude | অক্ষাংশ বরাবর |
 | `braille.mode.grid` | 3 by 3 around the needle | সুইয়ের চারপাশে ৩ × ৩ |
-| `braille.width` | Display width (cells) | ডিসপ্লের প্রস্থ (সেল) |
-| `braille.field` | Shape field | আকারের ঘর |
-| `braille.field.textarea` | Text area | টেক্সট এরিয়া |
+| `braille.width` | Braille display width (cells) | ব্রেইল ডিসপ্লের প্রস্থ (সেল) |
+| `braille.instructions.short` | Move the caret or press a routing key to move the needle. R reads the value. | সুই সরাতে ক্যারেট সরান বা রাউটিং কী চাপুন। R চাপলে মানটি শোনা যায়। |
+| `braille.settings` | Display settings | প্রদর্শনের সেটিংস |
+| `braille.howTo` | How to use | কীভাবে ব্যবহার করবেন |
+| `braille.field` | Shape line field | আকার-লাইনের ঘর |
+| `braille.field.hint` | Some braille displays work better with a single line. | কিছু ব্রেইল ডিসপ্লেতে এক লাইনই ভালো কাজ করে। |
+| `braille.field.textarea` | Multi-line | একাধিক লাইন |
 | `braille.field.input` | Single line | এক লাইন |
-| `braille.degree` | Degrees | ডিগ্রি |
+| `braille.degree` | Temperature unit in braille | ব্রেইলে তাপমাত্রার একক |
+| `braille.degree.hint` | deg C reads more reliably on many displays. | অনেক ডিসপ্লেতে deg C বেশি নির্ভরযোগ্যভাবে পড়া যায়। |
 | `braille.degree.word` | deg C | ডিগ্রি সে. |
 | `braille.degree.symbol` | °C | °সে |
+| `braille.preview` | Show braille dots | ব্রেইল বিন্দু দেখান |
+| `braille.preview.hint` | Large visible dots, for sighted helpers. | বড় দৃশ্যমান বিন্দু, দেখতে পান এমন সহায়কদের জন্য। |
+| `braille.on` | On | চালু |
+| `braille.off` | Off | বন্ধ |
+| `braille.previewNote` | Preview: your screen reader's braille table may differ. | পূর্বরূপ: আপনার স্ক্রিন রিডারের ব্রেইল টেবিল আলাদা হতে পারে। |
 | `braille.review` | Review value (R) | মান কথায় শুনুন (R) |
 | `braille.txt.show` | Braille-friendly text | ব্রেইল-বান্ধব লেখা |
 | `braille.txt.download` | Download .txt | .txt ডাউনলোড করুন |
@@ -106,9 +116,8 @@ Order: controls, announcements, errors, headings, the rest. Files: `src/lib/i18n
 | `braille.valueLine` | Value line | মান-লাইন |
 | `braille.shapeLine` | Shape line | আকার-লাইন |
 | `braille.shapeRole` | braille shape | ব্রেইল আকার |
-| `braille.preview` | Braille preview | ব্রেইলের পূর্বরূপ |
-| `braille.scale` | Scale | মাপকাঠি |
-| `braille.relativeScale` | Relative shape, scale | আপেক্ষিক আকার, মাপকাঠি |
+| `braille.scale` | Scale | স্কেল |
+| `braille.relativeScale` | Relative shape, scale | আপেক্ষিক আকার, স্কেল |
 | `braille.txt.heading` | Braille-friendly text | ব্রেইল-বান্ধব লেখা |
 
 ## 5. The rest (sentences, values, levels)
@@ -136,13 +145,13 @@ Order: controls, announcements, errors, headings, the rest. Files: `src/lib/i18n
 | `official.timeValue` | ${p.time} (step ${p.step} of ${p.total}) | ${p.time} (${int(p.total)}টির মধ্যে ${int(p.step)} নম্বর ধাপ) |
 | `official.approximate` | approximate time | আনুমানিক সময় |
 | `official.value` | ${p.value} ${p.unit} | ${p.value} ${p.unit} |
-| `official.below` | below ${p.value} ${p.unit} (colorbar minimum) | ${p.value} ${p.unit}-এর নিচে (রঙের মাপকাঠির সর্বনিম্ন) |
-| `official.atLimit` | at or below ${p.value} ${p.unit} (colorbar limit) | ${p.value} ${p.unit} বা তার নিচে (রঙের মাপকাঠির সীমা) |
+| `official.below` | below ${p.value} ${p.unit} (colorbar minimum) | ${p.value} ${p.unit}-এর নিচে (রঙের স্কেলের সর্বনিম্ন) |
+| `official.atLimit` | at or below ${p.value} ${p.unit} (colorbar limit) | ${p.value} ${p.unit} বা তার নিচে (রঙের স্কেলের সীমা) |
 | `official.noValue` | No value here | এখানে কোনো মান নেই |
 | `official.pattern` | ${p.level} (pattern only: no number, the values are not verified) | ${p.level} (শুধু নকশা: কোনো সংখ্যা নেই, মানগুলো যাচাই করা নয়) |
 | `level.veryLow` | very low | খুব কম |
 | `level.low` | low | কম |
-| `level.middle` | middle | মাঝামাঝি |
+| `level.middle` | middle | মাঝারি |
 | `level.high` | high | বেশি |
 | `level.veryHigh` | very high | খুব বেশি |
 | `official.framePos` | picture position ${p.x}% across, ${p.y}% up (no map position) | ছবির অবস্থান: বাঁ দিক থেকে ${d(p.x)}%, নিচ থেকে ${d(p.y)}% (মানচিত্রে অবস্থান নেই) |
@@ -155,7 +164,6 @@ Order: controls, announcements, errors, headings, the rest. Files: `src/lib/i18n
 | `official.check.none` | no threshold | কোনো সীমা নেই |
 | `official.size` | ${formatFixed(p.mb, "en", 1)} MB of data | ${formatFixed(p.mb, "bn", 1)} মেগাবাইট তথ্য |
 | `braille.instructions` | The shape line holds the data as braille cells. Move its caret, or press a routing key, to move the needle: the sound and the value line follow. R reviews the value in words. Escape closes. | আকার-লাইনে তথ্যগুলো ব্রেইল সেল হিসেবে থাকে। এর ক্যারেট সরান, বা রাউটিং কী চাপুন, সুই সরে যাবে: শব্দ আর মান-লাইন সাথে সাথে বদলায়। R চাপলে মানটি কথায় শোনা যায়। Escape চাপলে বন্ধ হয়। |
-| `braille.previewNote` | Preview: your screen reader's braille table may differ. | পূর্বরূপ: আপনার স্ক্রিন রিডারের ব্রেইল টেবিল আলাদা হতে পারে। |
 | `braille.noData` | no data | তথ্য নেই |
 | `braille.dry` | dry | শুকনো |
 | `braille.snow` | snow | তুষার |

@@ -22,7 +22,7 @@ export const metadata: Metadata = {
     siteName: appEn["app.title"],
     title: `${appEn["app.title"]}: the Earth Information Jukebox`,
     description: DESCRIPTION,
-    images: [{ url: "/og.jpg", width: 1200, height: 630, alt: "Bloop: a globe of today's ocean temperature beside the words Listen to Earth's latest frames" }],
+    images: [{ url: "/og.jpg", width: 1200, height: 630, alt: "Bloop: today's ocean temperature on a globe inside a jukebox window, beside the words Hear Earth's ocean and rain" }],
   },
   twitter: { card: "summary_large_image" },
 };

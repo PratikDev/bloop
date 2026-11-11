@@ -6,7 +6,7 @@ Terms follow `docs/i18n/GLOSSARY.md`: Play বাজান; Pause বিরত�
 
 Combined by Session A on 2026-11-10 from `docs/i18n/A-BN-REVIEW.md` and `docs/i18n/B-BN-REVIEW.md`, which are generated from the tables.
 
-## 1. Controls (139)
+## 1. Controls (149)
 
 | Key | English | Bangla draft | Drafted by |
 |---|---|---|---|
@@ -25,23 +25,33 @@ Combined by Session A on 2026-11-10 from `docs/i18n/A-BN-REVIEW.md` and `docs/i1
 | `braille.bl.stop` | Stop | থামান | A |
 | `braille.bl.storm` | Storm | ঝড় | A |
 | `braille.bl.sweep` | Sweep | সুইপ | A |
-| `braille.channel` | Voice | কণ্ঠ | A |
+| `braille.channel` | Data | তথ্য | A |
 | `braille.close` | Close braille explorer | ব্রেইল এক্সপ্লোরার বন্ধ করুন | A |
-| `braille.degree` | Degrees | ডিগ্রি | A |
+| `braille.degree` | Temperature unit in braille | ব্রেইলে তাপমাত্রার একক | A |
+| `braille.degree.hint` | deg C reads more reliably on many displays. | অনেক ডিসপ্লেতে deg C বেশি নির্ভরযোগ্যভাবে পড়া যায়। | A |
 | `braille.degree.symbol` | °C | °সে | A |
 | `braille.degree.word` | deg C | ডিগ্রি সে. | A |
-| `braille.field` | Shape field | আকারের ঘর | A |
+| `braille.field` | Shape line field | আকার-লাইনের ঘর | A |
+| `braille.field.hint` | Some braille displays work better with a single line. | কিছু ব্রেইল ডিসপ্লেতে এক লাইনই ভালো কাজ করে। | A |
 | `braille.field.input` | Single line | এক লাইন | A |
-| `braille.field.textarea` | Text area | টেক্সট এরিয়া | A |
-| `braille.mode` | Shape shows | আকারে দেখায় | A |
+| `braille.field.textarea` | Multi-line | একাধিক লাইন | A |
+| `braille.howTo` | How to use | কীভাবে ব্যবহার করবেন | A |
+| `braille.instructions.short` | Move the caret or press a routing key to move the needle. R reads the value. | সুই সরাতে ক্যারেট সরান বা রাউটিং কী চাপুন। R চাপলে মানটি শোনা যায়। | A |
+| `braille.mode` | Shape | আকার | A |
 | `braille.mode.grid` | 3 by 3 around the needle | সুইয়ের চারপাশে ৩ × ৩ | A |
 | `braille.mode.path` | Along the latitude | অক্ষাংশ বরাবর | A |
 | `braille.mode.time` | Through time | সময়ের সাথে | A |
+| `braille.off` | Off | বন্ধ | A |
+| `braille.on` | On | চালু | A |
 | `braille.open` | Braille explorer | ব্রেইল এক্সপ্লোরার | A |
+| `braille.preview` | Show braille dots | ব্রেইল বিন্দু দেখান | A |
+| `braille.preview.hint` | Large visible dots, for sighted helpers. | বড় দৃশ্যমান বিন্দু, দেখতে পান এমন সহায়কদের জন্য। | A |
+| `braille.previewNote` | Preview: your screen reader's braille table may differ. | পূর্বরূপ: আপনার স্ক্রিন রিডারের ব্রেইল টেবিল আলাদা হতে পারে। | A |
 | `braille.review` | Review value (R) | মান কথায় শুনুন (R) | A |
+| `braille.settings` | Display settings | প্রদর্শনের সেটিংস | A |
 | `braille.txt.download` | Download .txt | .txt ডাউনলোড করুন | A |
 | `braille.txt.show` | Braille-friendly text | ব্রেইল-বান্ধব লেখা | A |
-| `braille.width` | Display width (cells) | ডিসপ্লের প্রস্থ (সেল) | A |
+| `braille.width` | Braille display width (cells) | ব্রেইল ডিসপ্লের প্রস্থ (সেল) | A |
 | `key.b.action` | Braille data explorer: feel the data as braille cells; its caret is the needle | ব্রেইল ডেটা এক্সপ্লোরার: তথ্যগুলো ব্রেইল সেল হিসেবে অনুভব করুন; এর ক্যারেট হলো সুই | A |
 | `key.r.action` | In the braille explorer: review the value in words | ব্রেইল এক্সপ্লোরারে: মানটি কথায় শুনুন | A |
 | `key.u.action` | Proof in unison: hear the nearest checked point (EIC frame tone, then NASA's file tone) | একসুরে প্রমাণ: সবচেয়ে কাছের যাচাই করা বিন্দুটি শুনুন (আগে EIC ফ্রেমের সুর, তারপর নাসার ফাইলের সুর) | A |
@@ -208,9 +218,8 @@ Combined by Session A on 2026-11-10 from `docs/i18n/A-BN-REVIEW.md` and `docs/i1
 | Key | English | Bangla draft | Drafted by |
 |---|---|---|---|
 | `braille.heading` | Braille data explorer | ব্রেইল ডেটা এক্সপ্লোরার | A |
-| `braille.preview` | Braille preview | ব্রেইলের পূর্বরূপ | A |
-| `braille.relativeScale` | Relative shape, scale | আপেক্ষিক আকার, মাপকাঠি | A |
-| `braille.scale` | Scale | মাপকাঠি | A |
+| `braille.relativeScale` | Relative shape, scale | আপেক্ষিক আকার, স্কেল | A |
+| `braille.scale` | Scale | স্কেল | A |
 | `braille.shapeLine` | Shape line | আকার-লাইন | A |
 | `braille.shapeRole` | braille shape | ব্রেইল আকার | A |
 | `braille.txt.heading` | Braille-friendly text | ব্রেইল-বান্ধব লেখা | A |
@@ -252,6 +261,7 @@ Combined by Session A on 2026-11-10 from `docs/i18n/A-BN-REVIEW.md` and `docs/i1
 | `scenes.tunnel.title` | Dhaka time tunnel | ঢাকা সময়-সুড়ঙ্গ | B |
 | `turntable.canvas` | A globe on a turntable with the latest available {record} frame over it. A tonearm's needle reads the point beneath it. | টার্নটেবিলে একটি গ্লোব, তার ওপর সর্বশেষ প্রাপ্ত {record} ফ্রেম। টোনআর্মের সুই নিচের বিন্দুটি পড়ে। | B |
 | `turntable.instructions` | Arrows turn the globe and move the needle (Shift: 10 degrees). Enter speaks the value. Slash searches places, L says where you are, 1 to 9 jump to bookmarks, T starts a tour, plus and minus zoom, V switches the view. H lists all keys. Esc goes back to the flat map. | তীর চিহ্নের কী দিয়ে গ্লোব ঘোরান ও সুই সরান (Shift সহ: ১০ ডিগ্রি)। Enter চাপলে মান বলা হবে। স্ল্যাশ (/) দিয়ে জায়গা খুঁজুন, L চাপলে আপনি কোথায় আছেন জানাবে, ১ থেকে ৯ বুকমার্কে যায়, T দিয়ে ট্যুর শুরু, প্লাস ও মাইনাস দিয়ে জুম, V দিয়ে দৃশ্য বদলান। সব কী দেখতে H চাপুন। Esc চাপলে সমতল মানচিত্রে ফিরবেন। | B |
+| `turntable.preview` | Preview | পূর্বরূপ | B |
 | `turntable.region` | Turntable Earth, playing the {record} record | টার্নটেবিল আর্থ, {record} রেকর্ড বাজছে | B |
 | `turntable.roleDescription` | turntable | টার্নটেবিল | B |
 
@@ -269,7 +279,6 @@ Combined by Session A on 2026-11-10 from `docs/i18n/A-BN-REVIEW.md` and `docs/i1
 | `braille.name.ocean` | Sea surface temperature | সমুদ্রপৃষ্ঠের তাপমাত্রা | A |
 | `braille.name.rain` | Rain | বৃষ্টি | A |
 | `braille.noData` | no data | তথ্য নেই | A |
-| `braille.previewNote` | Preview: your screen reader's braille table may differ. | পূর্বরূপ: আপনার স্ক্রিন রিডারের ব্রেইল টেবিল আলাদা হতে পারে। | A |
 | `braille.snow` | snow | তুষার | A |
 | `braille.txt.note` | Plain text, wrapped at your display width, for a braille note-taker. | সাধারণ লেখা, আপনার ডিসপ্লের প্রস্থে ভাঙা, ব্রেইল নোট-টেকারের জন্য। | A |
 | `braille.words.degC` | degrees C | ডিগ্রি সেলসিয়াস | A |
@@ -278,12 +287,12 @@ Combined by Session A on 2026-11-10 from `docs/i18n/A-BN-REVIEW.md` and `docs/i1
 | `field.veg.summary` | Vegetation index (NDVI) at {place}, {then} against {now} ({dataset}). | {place}-এ উদ্ভিদ সূচক (NDVI), {then} বনাম {now} ({dataset})। | A |
 | `level.high` | high | বেশি | A |
 | `level.low` | low | কম | A |
-| `level.middle` | middle | মাঝামাঝি | A |
+| `level.middle` | middle | মাঝারি | A |
 | `level.veryHigh` | very high | খুব বেশি | A |
 | `level.veryLow` | very low | খুব কম | A |
 | `official.approximate` | approximate time | আনুমানিক সময় | A |
-| `official.atLimit` | at or below {value} {unit} (colorbar limit) | {value} {unit} বা তার নিচে (রঙের মাপকাঠির সীমা) | A |
-| `official.below` | below {value} {unit} (colorbar minimum) | {value} {unit}-এর নিচে (রঙের মাপকাঠির সর্বনিম্ন) | A |
+| `official.atLimit` | at or below {value} {unit} (colorbar limit) | {value} {unit} বা তার নিচে (রঙের স্কেলের সীমা) | A |
+| `official.below` | below {value} {unit} (colorbar minimum) | {value} {unit}-এর নিচে (রঙের স্কেলের সর্বনিম্ন) | A |
 | `official.check.miss` | missed the provisional threshold | অস্থায়ী সীমা পার হয়নি | A |
 | `official.check.none` | no threshold | কোনো সীমা নেই | A |
 | `official.check.pass` | pass | পাস | A |
@@ -413,6 +422,7 @@ Combined by Session A on 2026-11-10 from `docs/i18n/A-BN-REVIEW.md` and `docs/i1
 | `turntable.record.agriculture` | Agriculture | কৃষি | B |
 | `turntable.record.air` | Air | বায়ু | B |
 | `turntable.record.both` | Ocean + Rain | সমুদ্র + বৃষ্টি | B |
+| `turntable.record.description` | The record shows the Earth as grooves: outer is north, inner is south. The needle is on the groove for {lat}. | রেকর্ডে পৃথিবী খাঁজ হয়ে আছে: বাইরের দিকে উত্তর, ভেতরের দিকে দক্ষিণ। সুই {lat}-এর খাঁজে আছে। | B |
 | `turntable.record.disasters` | Disasters | দুর্যোগ | B |
 | `turntable.record.energy` | Energy | শক্তি | B |
 | `turntable.record.fire` | Fire | আগুন | B |

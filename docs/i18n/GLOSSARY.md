@@ -20,3 +20,6 @@ Words Bloop uses the same way everywhere in Bangla. Check a new string against t
 | Credits | কৃতজ্ঞতা | Credits keys and drawers | |
 | Search | খুঁজুন | the Turntable's search | |
 | Loading … | … লোড হচ্ছে | loading badges | |
+| scale (a colour scale, the braille shape's scale) | স্কেল | braille lines, colour bars, Official values | Matches `src/a11y/brailleBangla.ts` and the panels. |
+| middle (a pattern level) | মাঝারি | Official pattern levels, braille | Matches `src/a11y/brailleBangla.ts`. |
+| groove (on the Turntable's record) | খাঁজ | the Turntable's record and its description | The record is the Earth as grooves: outer north, inner south. |
