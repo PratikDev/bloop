@@ -17,7 +17,6 @@ import { useArtSettings } from "./use-art-settings";
 import { useCvView } from "./use-cv-view";
 import { useShortLines } from "./use-short-lines";
 
-/** How long after the proof-in-unison duet's last step the chord stays off (its tones ring out). */
 const DUET_TAIL_MS = 2000;
 const NO_VALUES = new Float64Array(0);
 
@@ -29,14 +28,8 @@ export interface ValueChordState {
   sigma: number | null;
 }
 
-/** σ for the chord: the record's measured error in its own units (a log axis has none in value units). */
 const chordSigma = (budget: LiveBudget | null) => (budget && !budget.axis.log ? budget.axis.error_in_axis_units : null);
 
-/**
- * The value chord on a page: gives the layer the current view (the record and the box's
- * values), holds the "user" owner while the listener's toggle is on and the app is playing, marks the duet while
- * proof in unison plays (Esc stops the app's sound, which lets go of it; playing again takes it back), and says each change once (status region; "brief" says the count; short lines for braille).
- */
 export function useValueChord(source: ReadSource | null, stats: BoxStats | null, budget: LiveBudget | null, playMode: PlayMode): ValueChordState {
   const t = useT();
   const { state } = useAppState();
@@ -49,7 +42,6 @@ export function useValueChord(source: ReadSource | null, stats: BoxStats | null,
   const mode: PlayMode = duet ? "duet" : playMode;
   const req = source ? { recordId: source.recordId, playMode: mode } : null;
 
-  // Proof in unison plays two data voices: the chord steps aside while it plays.
   useEffect(() => {
     let timer: ReturnType<typeof setTimeout> | undefined;
     const off = onAnyAudioEvent((e) => {
@@ -69,8 +61,6 @@ export function useValueChord(source: ReadSource | null, stats: BoxStats | null,
     valueChord.setView(source ? { recordId: source.recordId, trust: source.trust, pitchVoice: source.pitchVoice, sigma, values: stats?.values ?? NO_VALUES } : null);
   }, [source, stats, sigma]);
 
-  // With the Science to Art dial built in, the dial holds the chord at Blend and Music once the toggle is on; the toggle
-  // holds it here only in a build without the dial.
   const [art] = useArtSettings();
   const dialOwns = dialOwnsChord();
   const on = FLAGS.cvChord && view.chord && state.playing && state.soundOn && !dialOwns;
@@ -87,7 +77,6 @@ export function useValueChord(source: ReadSource | null, stats: BoxStats | null,
   const text = atMeasure ? t("cv.chord.atMeasure") : chordText(t, state.lang, gate, tones, unit, state.verbosity === "brief");
   const short = chordShort(gate, tones, unit);
 
-  // Say each change once, when the chord is sounding.
   const said = useRef("");
   useEffect(() => {
     const line = tones.length ? (shortLines.on ? short : text) : "";

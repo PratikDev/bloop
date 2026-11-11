@@ -1,5 +1,3 @@
-// Bangla strings for the How we know cards' evidence (src/lib/i18n/en/how.ts). Draft, needs review (bn/drafts.ts).
-
 import type { howEn } from "../en/how";
 import type { Translated } from "../types";
 

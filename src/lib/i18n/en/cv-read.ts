@@ -1,5 +1,3 @@
-// English strings for the "What the jukebox read" panel and the cents error budget (CV/ML build, piece A;
-// src/components/JukeboxRead). Every number is a slot filled from a grid or a generated file, never typed here.
 import { NAMED_BOXES } from "@/lib/cv/boxes";
 import budget from "../../../../public/data/meta/error_budget.json";
 

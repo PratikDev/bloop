@@ -1,7 +1,3 @@
-// The region tree: continent → country → Bangladesh's divisions, in Bangla
-// and English, for "jump to place". Built from public/geo/ (Natural Earth's countries with their continent; the
-// districts' label points for the divisions). A continent's or division's place is the mean of its members' label
-// points; a country's is Natural Earth's own label point.
 import type { LatLon } from "@/lib/data";
 import { BD_DIVISIONS } from "./bd-divisions";
 import type { GeoFiles } from "./gazetteer";
@@ -9,12 +5,10 @@ import type { GeoFiles } from "./gazetteer";
 export interface RegionNode extends LatLon {
   id: string;
   name: string;
-  /** Natural Earth's (or the division table's) Bangla name; a continent's comes from the UI strings. */
   nameBn: string | null;
   children: RegionNode[];
 }
 
-/** Natural Earth's continents, as the tree lists them. */
 export const CONTINENTS = ["Asia", "Africa", "Europe", "North America", "South America", "Oceania", "Antarctica", "Seven seas (open ocean)"] as const;
 export type Continent = (typeof CONTINENTS)[number];
 
@@ -35,7 +29,6 @@ function divisions(files: GeoFiles): RegionNode[] {
   });
 }
 
-/** Continents (in CONTINENTS order) holding their countries (A to Z); Bangladesh holds its eight divisions. */
 export function regionTree(files: GeoFiles): RegionNode[] {
   const byContinent = new Map<Continent, RegionNode[]>();
   for (const f of files.countries110m.features) {

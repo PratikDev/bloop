@@ -15,7 +15,6 @@ import { Tile } from "../pages/How/Tile";
 
 const sig = (lang: Lang, v: number) => formatSignificant(v, lang, 3);
 
-/** The stored measurement as the card says it (every number from raw_pixel.json). */
 function rawNumbers(t: BoundT, lang: Lang, f: RawPixelFile): string {
   return t("raw.numbers", {
     nf: sig(lang, f.naive.flatness),
@@ -27,10 +26,6 @@ function rawNumbers(t: BoundT, lang: Lang, f: RawPixelFile): string {
   });
 }
 
-/**
- * Raw-pixel vs Bloop (How we know): one frame, the naive pixel-hue scan and Bloop's rule, 6 s each, with their measured
- * flatness, roughness and entropy. The naive version is played only by its own button here, never anywhere else.
- */
 export function RawPixelCard() {
   const { state } = useAppState();
   const t = useT();

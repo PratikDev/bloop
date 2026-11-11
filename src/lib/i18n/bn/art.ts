@@ -1,6 +1,3 @@
-// ART's Bangla drafts, one file per feature; every key is listed for review in
-// docs/i18n/TO_TRANSLATE.md through bn/drafts.ts.
-
 import { dialBn, proofBn } from "./art-dial";
 import { orchestraBn } from "./art-orchestra";
 import { rawPixelBn } from "./art-raw-pixel";

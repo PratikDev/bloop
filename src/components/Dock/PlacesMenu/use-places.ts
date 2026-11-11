@@ -7,7 +7,6 @@ import { regionTree, type RegionNode } from "@/lib/geo/regions";
 
 type PlacesState = { status: "loading" } | { status: "error" } | { status: "ready"; tree: RegionNode[]; gazetteer: Gazetteer };
 
-/** The region tree and the gazetteer, loaded the first time Places opens (src/lib/geo/load.ts shares the files). */
 export function usePlaces(open: boolean): PlacesState {
   const [state, setState] = useState<PlacesState>({ status: "loading" });
   const ready = state.status === "ready";

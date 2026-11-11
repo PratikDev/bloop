@@ -1,4 +1,3 @@
-// The Delta scene's constants and text helpers, used by DeltaView.
 import { mapVoice } from "@/lib/audio/mapping";
 import { type LatLon } from "@/lib/data";
 import { formatFixed, formatSigned, type Lang } from "@/lib/i18n";

@@ -1,11 +1,11 @@
-// "Hearing through haze" (the air rule): soft looping noise through a low-pass filter whose cutoff follows a
+// "Hearing through haze" (book §5.4 air rule): soft looping noise through a low-pass filter whose cutoff follows a
 // mapping.json "cutoff" rule (falling: more pollution, lower cutoff, more muffled). The level is fixed, so loudness
 // carries no data (guardrail 4); only the brightness moves.
 
 import { continuousRule, mapContinuous, panFor, voiceSpec } from "@/lib/audio/mapping";
 import { glideTo, type Graph } from "../graph";
 
-interface HazeVoice {
+export interface HazeVoice {
   set(value: number | null, lon: number): void;
 }
 

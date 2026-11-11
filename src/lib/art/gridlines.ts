@@ -1,14 +1,9 @@
-// PURE: the dial's gridline ticks at 0 Measure: fixed reference notes at round values on a record's axis, like a
-// chart's gridlines. A tick sounds when the value crosses one; it plays the round value's own pitch (the same rule),
-// quietly, and never moves the data voice.
-
 interface AxisInput {
   min: number;
   max: number;
   scale: "linear" | "log";
 }
 
-/** A 1-2-5 step giving about `target` lines over the range. */
 function niceStep(span: number, target = 8): number {
   const raw = span / target;
   const p = 10 ** Math.floor(Math.log10(raw));
@@ -16,7 +11,6 @@ function niceStep(span: number, target = 8): number {
   return (f < 1.5 ? 1 : f < 3.5 ? 2 : f < 7.5 ? 5 : 10) * p;
 }
 
-/** The round values on an axis: multiples of a nice step (linear), or 1, 2, 5 × 10^k (log). */
 export function gridlines(input: AxisInput): number[] {
   if (input.scale === "log") {
     const out: number[] = [];
@@ -34,7 +28,6 @@ export function gridlines(input: AxisInput): number[] {
   return out;
 }
 
-/** The gridlines passed going from `prev` to `next` (in the order travelled); a line landed on counts as crossed. */
 export function crossed(lines: readonly number[], prev: number, next: number): number[] {
   if (prev === next) return [];
   const up = next > prev;

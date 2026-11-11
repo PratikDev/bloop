@@ -1,6 +1,3 @@
-// public/data/thenvsnow/stats.json (pipeline/stats/then_vs_now_stats.py): the uncertainty and
-// significance of every Then vs Now claim. Method and every number: docs/THEN_VS_NOW_STATS.md.
-
 import type { ClimateCellName, GraceBoxName } from "./data-contract";
 
 interface StatWindow {
@@ -9,32 +6,31 @@ interface StatWindow {
   mean: number;
 }
 
-/** Window B against window A (B − A), from the yearly values the app plays. */
 export interface StatComparison {
-  shown: "diff" | "change_pct"; // which number the app shows (°C / cm difference, or % change)
+  shown: "diff" | "change_pct";
   unit: string;
   A: StatWindow;
   B: StatWindow;
   diff: number;
-  diff_ci: [number, number]; // 95% bootstrap interval
+  diff_ci: [number, number];
   change_pct: number;
   change_pct_ci: [number, number];
   p_welch: number;
   p_mann_whitney: number;
   t: number;
   u: number;
-  clear: boolean; // both p < 0.05 and the shown CI excludes 0
+  clear: boolean;
 }
 
 export interface StatTrend {
   years: [number, number];
   n: number;
-  test: string; // "Mann-Kendall" or "Mann-Kendall, Hamed-Rao modified"
+  test: string;
   s: number;
   z: number;
   p: number;
   tau: number;
-  sen_slope: number; // per year
+  sen_slope: number;
   sen_slope_ci: [number, number];
   unit: string;
   lag1_autocorr: number;

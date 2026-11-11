@@ -1,9 +1,3 @@
-// The per-voice output trims (src/lib/audio/mix-trims.json), computed from the untrimmed measurements
-// (docs/audio/mix_baseline.json, CV's mix pass) toward the loudness target in docs/audio/MIX.md, never typed: each mode's
-// voices get trim = min(target − measured loudness, (master compressor threshold − headroom) − measured true peak), so a
-// trim never pushes a mode's peaks into the master compressor. Applied at each voice channel's input (src/lib/audio/
-// graph.ts): a constant gain after the voice, so value → pitch, value → density and every relative level stay as they
-// are (public/mapping.json is not touched). Re-run after a new baseline: bun scripts/mix-trims.ts
 import { readFileSync, writeFileSync } from "node:fs";
 import { join } from "node:path";
 
@@ -14,10 +8,7 @@ const baseline = JSON.parse(readFileSync(join(ROOT, "docs", "audio", "mix_baseli
 };
 const mapping = JSON.parse(readFileSync(join(ROOT, "public", "mapping.json"), "utf8")) as { global: { compressor: { thresholdDb: number } } };
 
-/** Peaks stay this far under the master compressor's threshold (dB), so the trims never make it act. */
 const HEADROOM_DB = 1;
-/** Which channels each measured mode plays (the L2 engine's voices; the Turntable and the duet run on the jukebox engine
- *  and were already within tolerance of the target). */
 const MODE_VOICES: Record<string, readonly string[]> = {
   "listen-ocean": ["ocean"],
   "listen-rain": ["rain", "snow"],

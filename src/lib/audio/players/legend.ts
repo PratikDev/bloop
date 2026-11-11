@@ -81,15 +81,10 @@ const MODE_VOICES: Record<TrackMode, readonly LiveLegendVoice[]> = {
   both: ["ocean", "rain"],
 };
 
-/** How long Track 0 holds the reference tone (seconds; design choice, as the warm-up's volume check). */
 export const REFERENCE_SEC = 3;
 
 export type Anchor = "lowest" | "highest";
 
-/**
- * Track 0 ("Tuning"): one anchor through the real voice, with its legend caption, or the
- * reference tone. One sound at a time, so the listener sets the pace.
- */
 export function playAnchor(voice: LegendVoice, which: Anchor | "reference"): PlayerHandle {
   if (which === "reference") {
     return playSequence({

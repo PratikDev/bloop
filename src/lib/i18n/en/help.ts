@@ -1,5 +1,3 @@
-// English strings for the Help dialog: the keyboard map.
-
 import { PLACE_NAMES_EN } from "./places";
 
 export const helpEn = {

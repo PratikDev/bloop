@@ -110,12 +110,9 @@ function tactileMesh(rec: TactileRecord): Mesh {
   return new Mesh(geometry, new MeshBasicMaterial());
 }
 
-/** What the disc's alt text needs beyond the disc itself. */
 export interface TactileMeta {
   unit: string;
-  /** What each step around the circle is (a year, a month), oldest first. */
   steps: readonly string[];
-  /** Each track's name, from the centre out. */
   names: readonly string[];
 }
 
@@ -129,7 +126,6 @@ export const tactileAltInput = (rec: TactileRecord, meta: TactileMeta): TactileA
   rings: rec.tracks.map((tr, i) => ({ name: meta.names[i] ?? "", values: tr.values })),
 });
 
-/** Builds the disc and hands the browser a binary STL to save; `header` (80 bytes, the alt text) fills the STL header. */
 export function downloadTactileRecord(rec: TactileRecord, fileName: string, header?: Uint8Array): void {
   const mesh = tactileMesh(rec);
   const data = new STLExporter().parse(mesh, { binary: true });

@@ -30,7 +30,7 @@ export function TimeLapseButton({ className }: { className?: string }) {
       className={cn("overflow-hidden", className)}
     >
       {busy ? <Stop aria-hidden="true" weight="fill" /> : <CloudRain aria-hidden="true" />}
-      {/* The visible word: short below 1536 px, a little longer from there (the dock's); both are part of the name. */}
+      {}
       <span aria-hidden="true" className={cn("tabular-nums", DOCK_SHORT_LABEL)}>
         {status === "loading" ? label : t(status === "playing" ? "dock.short.stop" : "dock.short.timelapse")}
       </span>

@@ -12,7 +12,6 @@ import { TruthPanel } from "./TruthPanel";
 import { CORE_TABS, shownTab } from "./core-tabs";
 
 const TABS: { tab: PanelTab; label: "panel.describe" | "panel.table" | "panel.truth" | "panel.mapping" | "panel.provenance" | "panel.history" }[] = [
-  // The accessibility core's tabs (the needle drives the app's cursor, so they follow it here too).
   ...CORE_TABS,
   { tab: "truth", label: "panel.truth" },
   { tab: "mapping", label: "panel.mapping" },

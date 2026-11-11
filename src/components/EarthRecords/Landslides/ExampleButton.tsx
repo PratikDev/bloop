@@ -6,7 +6,6 @@ import { nearestOfClass } from "@/lib/earth/class-grid";
 import type { LandslideGrid } from "@/lib/earth/landslide";
 import { useT } from "../../AppState/use-app-state";
 
-/** "Hear an example": moves the needle to the nearest cell of a class, so each class's sound can be heard. */
 export function ExampleButton({ code, label, grid, from, onGo }: { code: number; label: string; grid: LandslideGrid | null; from: LatLon; onGo(to: LatLon): void }) {
   const t = useT();
   const at = grid ? nearestOfClass(grid.meta.grid, grid.codes, code, from.lat, from.lon) : null;

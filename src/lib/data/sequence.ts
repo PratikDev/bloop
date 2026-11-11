@@ -65,8 +65,6 @@ export function valueInFrame(seq: Pick<Sequence, "size">, frame: SequenceFrame, 
   return decodeSequenceCode(frame.codes[cellIndex(seq.size, lat, lon)]);
 }
 
-// One frame at a time, cached (layered descriptions): the change since the previous frame,
-// and a frame held with PageUp/PageDown, without loading all of them.
 let indexOnce: Promise<SequenceIndex> | null = null;
 const frameOnce = new Map<string, Promise<SequenceFrame>>();
 
@@ -78,7 +76,6 @@ function cachedIndex(): Promise<SequenceIndex> {
   return indexOnce;
 }
 
-/** One frame of the sequence (its grid decoded), by its position in index.json. */
 export async function loadSequenceFrame(position: number): Promise<{ index: SequenceIndex; frame: SequenceFrame } | null> {
   const index = await cachedIndex();
   const ref = index.frames[position];
@@ -93,10 +90,6 @@ export async function loadSequenceFrame(position: number): Promise<{ index: Sequ
   return { index, frame: await frame };
 }
 
-/**
- * Rain at `at` in the sequence frame at `timeUtc` and in the one before it: both from the same grid, so they compare.
- * Null when the sequence has no frame at that time, or none before it.
- */
 export async function rainChangeAt(timeUtc: string, lat: number, lon: number): Promise<{ before: number; after: number; minutes: number } | null> {
   const index = await cachedIndex();
   const at = index.frames.findIndex((f) => Date.parse(f.time_utc) === Date.parse(timeUtc));

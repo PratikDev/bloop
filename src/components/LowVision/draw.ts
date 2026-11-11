@@ -1,6 +1,3 @@
-// Canvas drawing for low-vision mode (4.2): the decoded grid as sharp bands
-// (one pixel per cell, drawn without smoothing, so edges never blur), land and no-data, thick coastlines and large
-// labels with a halo. Colours are the CSS variables, read when drawing.
 import { hexToRgb } from "@/lib/css-tokens";
 import type { ValueGrid } from "@/lib/describe/stats";
 import { bandIndex } from "@/lib/low-vision/bands";
@@ -9,9 +6,7 @@ import type { LvMap } from "./use-lv-map";
 
 type Read = (name: string) => string;
 
-/** No-data rain cells: a sparse diagonal hatch, so "no data" never looks like "dry" (one in this many cells). */
 const HATCH_EVERY = 4;
-/** Thick coastlines: this many CSS pixels wide (spec 4.2: 2–4 px). */
 export const THICK_COAST_PX = 3;
 
 function canvasOf(w: number, h: number): [HTMLCanvasElement, CanvasRenderingContext2D | null] {
@@ -21,7 +16,6 @@ function canvasOf(w: number, h: number): [HTMLCanvasElement, CanvasRenderingCont
   return [c, c.getContext("2d")];
 }
 
-/** The bands at grid resolution: each cell its band's colour; land (ocean) solid, no-data rain hatched, dry clear. */
 export function bandImage(map: LvMap, read: Read): HTMLCanvasElement {
   const { grid, bands, record } = map;
   const [canvas, ctx] = canvasOf(grid.width, grid.height);
@@ -42,7 +36,6 @@ export function bandImage(map: LvMap, read: Read): HTMLCanvasElement {
   return canvas;
 }
 
-/** The land mask (no ocean value) at grid resolution, filled with one colour. */
 export function landMask(grid: ValueGrid, colour: string): HTMLCanvasElement {
   const [canvas, ctx] = canvasOf(grid.width, grid.height);
   if (!ctx) return canvas;
@@ -53,7 +46,6 @@ export function landMask(grid: ValueGrid, colour: string): HTMLCanvasElement {
   return canvas;
 }
 
-/** A grid-resolution image drawn to fill the canvas with sharp edges. */
 export function drawSharp(ctx: CanvasRenderingContext2D, img: CanvasImageSource, w: number, h: number): void {
   const smooth = ctx.imageSmoothingEnabled;
   ctx.imageSmoothingEnabled = false;
@@ -61,7 +53,6 @@ export function drawSharp(ctx: CanvasRenderingContext2D, img: CanvasImageSource,
   ctx.imageSmoothingEnabled = smooth;
 }
 
-/** Thick coastlines: the coast-coloured mask drawn around itself, then the land on top, leaving a ring of `px`. */
 export function drawThickCoast(ctx: CanvasRenderingContext2D, coast: HTMLCanvasElement, land: HTMLCanvasElement | null, w: number, h: number, px = THICK_COAST_PX): void {
   for (let a = 0; a < 16; a++) {
     const ang = (a / 16) * Math.PI * 2;
@@ -73,24 +64,20 @@ export function drawThickCoast(ctx: CanvasRenderingContext2D, coast: HTMLCanvasE
   if (land) drawSharp(ctx, land, w, h);
 }
 
-/** Label text at 100% text size, in CSS pixels; it grows with the text-size setting up to MAX_LABEL_PX. */
 const LABEL_PX = 18;
 const MAX_LABEL_PX = 44;
 const PCT = 100;
 
-/** The size of the map's and the lens's labels at this text size (percent). */
 export const labelPx = (textScale: number) => Math.min(MAX_LABEL_PX, Math.round((LABEL_PX * textScale) / PCT));
 
 export interface MapLabel {
   x: number;
   y: number;
   text: string;
-  /** Text colour; the halo is the other of black and white, or `halo`. */
   fill: string;
   halo: string;
 }
 
-/** Large labels with a halo wide enough to read on any band (spec 4.2: large numbers in the bands' centres). */
 export function drawLabels(ctx: CanvasRenderingContext2D, labels: readonly MapLabel[], px: number, family: string): void {
   ctx.font = `700 ${px}px ${family}`;
   ctx.textAlign = "center";

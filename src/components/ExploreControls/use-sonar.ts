@@ -26,11 +26,6 @@ interface Hunt {
   cellDeg: number;
 }
 
-/**
- * The sonar (key N on the map): the warmest ocean spot (or, on the Rain track, the wettest)
- * near the needle, from the decoded frame. A ping rises and quickens as the needle nears it; arriving says the exact
- * value and the place, and goes into the expedition log. N again, or Esc, stops it.
- */
 export function useSonar(): () => void {
   const { state, dispatch } = useAppState();
   const commands = useCommands();
@@ -39,13 +34,11 @@ export function useSonar(): () => void {
   const t = useT();
   const { fields } = useLiveData();
   const hunt = useRef<Hunt | null>(null);
-  // The needle, for the ping loop (which reads it on every ping without restarting).
   const cursor = useRef<LatLon>(state.cursor);
   useEffect(() => {
     cursor.current = state.cursor;
   }, [state.cursor]);
 
-  // The ping: its interval follows the needle's distance, re-read on every ping.
   useEffect(() => {
     if (!state.sonar) return;
     let id: ReturnType<typeof setTimeout>;
@@ -55,7 +48,6 @@ export function useSonar(): () => void {
       if (!h) return;
       const c = closeness(cursor.current, h.target);
       if (state.soundOn) audio.playSonarPing(c, cursor.current.lon);
-      // The ping's sound caption: quickening and nearer, or slowing and farther.
       if (state.soundOn && FLAGS.timedText) postCaption("caption.sonar.ping", { trend: sonarTrend(last, c) });
       last = c;
       id = setTimeout(ping, pingIntervalMs(c));
@@ -64,7 +56,6 @@ export function useSonar(): () => void {
     return () => clearTimeout(id);
   }, [state.sonar, state.soundOn]);
 
-  // Arriving: said once with the exact value and the place, then the sonar stops.
   useEffect(() => {
     const h = hunt.current;
     if (!state.sonar || !h || !arrived(state.cursor, h.target, state.stepDeg, h.cellDeg)) return;
@@ -79,12 +70,10 @@ export function useSonar(): () => void {
       .catch(() => t("place.spoken", h.target))
       .then((place) => {
         const text = t("sonar.arrived", { what, value, place });
-        // Short lines: the status region gets the short form; the log keeps the full line.
         const time = (h.kind === "ocean" ? fields?.sst.meta.frame_time_utc : fields?.rain?.meta.frame_time_utc) ?? "";
         announce(shortLines.on ? sonarShort(t, state.lang, shortLines.degree, { record: h.kind, value: h.target.value, frozen: false, at: h.target, timeUtc: time }) : text);
         commands.note(text, [h.kind === "ocean" ? (fields?.sst.meta.source_dataset ?? "") : (fields?.rain?.meta.source_dataset ?? "")].filter(Boolean));
       });
-    // The target, kind and language are fixed while it runs.
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [state.cursor, state.sonar]);
 

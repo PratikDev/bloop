@@ -1,6 +1,7 @@
 // The one place that decides which sound engine the app uses. Components import
 // `audio` from here and never import an engine directly.
-// The engine is L2's. If L2's API drifts from
+//
+// The engine is L2's (docs/L3/integration.md). If L2's API drifts from
 // L2AudioApi, the line below fails the type check, so a mismatch shows up in
 // `bun run build`, not in front of an audience.
 

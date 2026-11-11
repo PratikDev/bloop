@@ -1,5 +1,3 @@
-// The sound mapping spec, public/mapping.json (section 10). Re-exported from src/types/data-contract.ts.
-
 import type { ClassesMapping, ExtraOutputParam, SameAsMapping } from "../contract-15";
 
 // ---------------------------------------------------------------------------
@@ -7,7 +5,6 @@ import type { ClassesMapping, ExtraOutputParam, SameAsMapping } from "../contrac
 // Owned by L2, not L1. Needed by BOTH: L3's Mapping panel renders it; L2's
 // lib/audio reads the same numbers, so the two never drift apart.
 // Rules are stored as numbers, never as formula text: the human-readable
-// sentence is generated from these numbers (lib/audio/mapping.ts ruleText).
 // ---------------------------------------------------------------------------
 
 type InputScale = "linear" | "log";
@@ -52,7 +49,6 @@ export interface RuntimeRangeMapping {
   };
 }
 
-// DATA: ClassesMapping (contract-15/classes.ts) for the class products (fire weather, landslide exposure).
 export type VoiceMapping = ContinuousMapping | BandsMapping | RuntimeRangeMapping | SameAsMapping | ClassesMapping;
 
 export interface VoiceSpec {

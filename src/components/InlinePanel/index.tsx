@@ -16,11 +16,6 @@ export interface InlinePanelProps {
   testId?: string;
 }
 
-/**
- * What a dialog or a side sheet shows, opened in the page instead (low-vision mode, spec 4.5: "no full-screen pop-ups;
- * panels open inline, next to what opened them"). A labelled region whose heading takes focus when it opens (a
- * magnifier following focus lands on it); Escape or Close shuts it and focus goes back to what opened it.
- */
 export function InlinePanel({ title, description, onClose, children, id, className, testId }: InlinePanelProps) {
   const t = useT();
   const titleId = useId();
@@ -30,7 +25,6 @@ export function InlinePanel({ title, description, onClose, children, id, classNa
     const opener = document.activeElement;
     heading.current?.focus();
     return () => {
-      // Back to the opener when focus was in the panel (or fell to the page) as it closed.
       const lost = document.activeElement === document.body || document.activeElement === null;
       if (lost && opener instanceof HTMLElement && opener.isConnected) opener.focus();
     };

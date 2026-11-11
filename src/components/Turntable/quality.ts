@@ -4,7 +4,7 @@
 export const TIERS = ["ultra", "high", "low"] as const;
 export type Tier = (typeof TIERS)[number];
 
-interface TierSpec {
+export interface TierSpec {
   /** Width of the day, night and cloud maps (height is half). */
   surface: 8192 | 4096;
   normal: 4096 | 2048;
@@ -28,7 +28,7 @@ interface DeviceHints {
 }
 
 /** Low on small touch screens, ≤ 4 GB / ≤ 4 cores, or a GPU without 8K textures; Ultra on roomy desktops. */
-function detectTier(maxTextureSize: number): Tier {
+export function detectTier(maxTextureSize: number): Tier {
   const nav: DeviceHints = navigator;
   const cores = nav.hardwareConcurrency ?? 4;
   const memory = nav.deviceMemory ?? 4;

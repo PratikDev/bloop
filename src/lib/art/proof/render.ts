@@ -1,9 +1,3 @@
-// Renders a proof plan offline (OfflineAudioContext), at one dial stop, in one instrument family. Channel 0 is the data
-// voice alone (as notes, channels 0, 2, 3 and 4 take every fourth note, so one note's release never overlaps the next
-// one's measurement); channel 1 is everything (data voice, bed, drone, reverb, ticks). The data voice moves exactly as the
-// live voices do (src/lib/audio/voices/ocean.ts; the art helpers in src/lib/art/live): a glide to each value, or, at
-// 1 Music, the nearest swara then an exponential glide landing on the value. The log is what the renderer scheduled.
-
 import type { DialStop } from "@/lib/audio/layers/types";
 import { familyNote, FAMILIES, noiseBand, setSpectrum, type Timbre } from "@/lib/audio/orchestra";
 import { voiceSpec } from "@/lib/audio/mapping";
@@ -17,15 +11,12 @@ import { continuousRule, mapContinuous } from "@/lib/audio/mapping";
 import { planSeconds, type ProofPlan } from "./plan";
 
 const PROOF_RATE = 24000;
-/** Where a note counts as settled: after the longest move (a glide's 0.1 s, or the meend), the same at every stop. */
 const SETTLE_SEC = Math.max(0.1, MEEND_SEC) + 0.01;
 const LEVEL = 0.2;
 
 export interface Setup {
-  /** null = the art layer off entirely (today's app). */
   stop: DialStop | null;
   timbre: Timbre;
-  /** "voice": the live gliding data voice; "notes": one OrchestraVoice note per value (what other records call). */
   path: "voice" | "notes";
   month?: number | null;
 }
@@ -36,12 +27,10 @@ interface LoggedNote {
   hz: number;
   settleFrom: number;
   to: number;
-  /** Which data channel holds it. */
   channel: number;
 }
 
 interface Rendered {
-  /** The data voice's channels: [0] for the gliding voice and drops; notes rotate over all four. */
   data: Float32Array[];
   mix: Float32Array;
   sampleRate: number;
@@ -50,7 +39,6 @@ interface Rendered {
   layers: DialLayers | null;
 }
 
-/** Output channels: the mix, then the data voice's four. */
 const MIX_CH = 1;
 const DATA_CH = [0, 2, 3, 4];
 
@@ -58,7 +46,7 @@ function routes(ctx: OfflineAudioContext) {
   const merger = new ChannelMergerNode(ctx, { numberOfInputs: DATA_CH.length + 1 });
   merger.connect(ctx.destination);
   const mix = new GainNode(ctx, { gain: 1 });
-  const all = new GainNode(ctx, { gain: 1 }); // the mix plus its reverb (kept apart so the reverb never feeds itself)
+  const all = new GainNode(ctx, { gain: 1 });
   const data = DATA_CH.map((ch) => {
     const g = new GainNode(ctx, { gain: 1 });
     g.connect(merger, 0, ch);
@@ -74,7 +62,6 @@ export async function renderProof(plan: ProofPlan, setup: Setup): Promise<Render
   const ctx = new OfflineAudioContext({ numberOfChannels: DATA_CH.length + 1, length: Math.ceil(planSeconds(plan) * PROOF_RATE), sampleRate: PROOF_RATE });
   const { data, mix, all } = routes(ctx);
   const dial = setup.stop === null ? null : dialLayers(setup.stop, "single", setup.timbre !== "plain");
-  // As live: no meend where notes are too short to settle after one.
   const layers = dial && { ...dial, meend: dial.meend && plan.stepSec >= MEEND_MIN_STEP };
   const family = FAMILIES[layers && !layers.timbre ? "plain" : setup.timbre];
   const sa = saFor(plan.voiceId);
@@ -102,12 +89,11 @@ export async function renderProof(plan: ProofPlan, setup: Setup): Promise<Render
   }
   if (layers?.ticks) ticksFor(ctx, mix, plan);
   const chord = chordLayer();
-  if (chord && layers?.chord) chord.gate({ recordId: plan.recordId, playMode: "single" }); // the gate only: a live layer can't render offline
+  if (chord && layers?.chord) chord.gate({ recordId: plan.recordId, playMode: "single" });
   const buffer = await ctx.startRendering();
   return { data: DATA_CH.map((ch) => buffer.getChannelData(ch)), mix: buffer.getChannelData(MIX_CH), sampleRate: PROOF_RATE, notes, drops: plan.kind === "drops" ? [...plan.drops] : [], layers };
 }
 
-/** The live data voice: one oscillator in the family's spectrum, gliding (or at Music, meend) to each value. */
 function gliding(ctx: OfflineAudioContext, out: AudioNode, plan: ProofPlan, family: (typeof FAMILIES)[Timbre], layers: DialLayers | null, sa: number, notes: LoggedNote[], swells: ({ set(on: boolean, at: number): void } | null)[]) {
   const spec = voiceSpec(plan.voiceId).sound;
   const glide = (spec.glideMs ?? 30) / 1000;
@@ -145,7 +131,6 @@ function gliding(ctx: OfflineAudioContext, out: AudioNode, plan: ProofPlan, fami
   osc.start();
 }
 
-/** A rain drop: a short band-passed noise burst (rain.ts's drop), the same at every stop. */
 function dropAt(ctx: OfflineAudioContext, out: AudioNode, t: number) {
   const { source, out: band } = noiseBand(ctx, 2500, 1.2);
   const env = new GainNode(ctx, { gain: 0 });

@@ -5,10 +5,6 @@ import { useLoaded } from "@/hooks/use-loaded";
 import { checkResult, keyNumbers, loadLiveCheck, type LiveCheckRecord } from "@/lib/provenance/live-checks";
 import { useT } from "../AppState/use-app-state";
 
-/**
- * A live frame's acceptance check, read from its own validation.json in public/data/official: the check, its
- * key numbers as docs/official/VALIDATION_TABLE.md writes them, and its result. The numbers are the file's.
- */
 export function LiveCheckFacts({ record }: { record: LiveCheckRecord }) {
   const t = useT();
   const load = useCallback(() => loadLiveCheck(record), [record]);

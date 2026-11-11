@@ -27,7 +27,6 @@ const inspectorTab = (panel: PanelTab): InspectorTab => {
 };
 
 const TABS: { tab: InspectorTab; label: "panel.describe" | "panel.table" | "panel.provenance" | "panel.mapping" | "panel.truth" }[] = [
-  // The accessibility core's tabs (the needle's description and table), each behind its flag.
   ...CORE_TABS,
   { tab: "provenance", label: "panel.provenance" },
   { tab: "mapping", label: "panel.mapping" },
@@ -40,7 +39,6 @@ const PANELS: Record<Exclude<InspectorTab, "describe" | "table">, ReactNode> = {
   truth: <TruthPanel />,
 };
 
-/** A tab's content: one of the core tabs (core-tabs.tsx), or the Inspector's own. */
 const panelFor = (tab: InspectorTab): ReactNode => (tab === "describe" || tab === "table" ? CORE_TABS.find((c) => c.tab === tab)?.panel : PANELS[tab]);
 
 function InspectorTabs() {
@@ -64,13 +62,6 @@ function InspectorTabs() {
   );
 }
 
-/**
- * About this sound (P opens it at "Where it's from"): where the value comes
- * from, what you hear, and how it was checked. From 1024 px a drawer over the
- * map's right edge that leaves the map usable (move the cursor, the facts
- * follow); during the tour, over its left edge, since the tour points at
- * Bangladesh on the right. Below 1024 px a sheet (bottom on phones, right on tablets). In low-vision mode, in the page.
- */
 export function Inspector() {
   const { state, dispatch } = useAppState();
   const t = useT();
@@ -80,7 +71,6 @@ export function Inspector() {
   const left = state.mode === "story";
   const inline = useInlinePanels();
 
-  // Low-vision mode: in the page, under the map it describes (spec 4.5: no pop-ups, related information close).
   if (inline) {
     return state.panelOpen ? (
       <InlinePanel title={t("panel.label")} onClose={close} testId="inspector-inline" className="mx-4 mt-3 w-auto fit:mx-0">

@@ -11,10 +11,6 @@ import { formatInteger, formatUtc } from "@/lib/i18n";
 import { useAppState, useT } from "../../AppState/use-app-state";
 import { DockAction } from "../DockAction";
 
-/**
- * The expedition log: this session's places, values, comparisons and
- * sources as plain text, wrapped at the braille explorer's width, readable here and saved as a .txt file.
- */
 export function LogMenu() {
   const { state } = useAppState();
   const t = useT();
@@ -30,7 +26,7 @@ export function LogMenu() {
       <PopoverContent side="top" align="start" sideOffset={12} data-testid="log-menu" className="surface-glass w-[min(28rem,calc(100vw-1.5rem))] gap-3 rounded-plate p-4 text-body">
         <PopoverTitle className="eyebrow">{t("log.title")}</PopoverTitle>
         <p className="text-small text-haze">{t("log.width", { width: formatInteger(width, state.lang) })}</p>
-        {/* The text as it will be saved: a focusable region, so a keyboard (and a braille display) can read it line by line. */}
+        {}
         <pre
           role="region"
           aria-label={t("log.title")}

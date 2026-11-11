@@ -1,12 +1,12 @@
 // Ghost Earths: the then and now window means per cell, from the global cube.
-// Windows are the data's own (dhaka_then_now.json): heat uses GISTEMP's 1981–1990
-// vs 2016–2025, rain the GPCP/GPCC shared 1981–1990 vs 2010–2019 (GPCC ends in
-// 2019), water GRACE's 2003–2006 vs 2021–2024 (grace.json). The mean is places.json's basis: the mean of the months present.
+// Windows are the data's own: heat and rain use the demo's 1981–1990 vs
+// 2016–2025 (dhaka_then_now.json), water uses GRACE's 2003–2006 vs 2021–2024
+// (grace.json). The mean is places.json's basis: the mean of the months present.
 
 import { cellIdAt, monthlyRun, windowMean, type GlobalLayer } from "@/lib/data/global";
 import type { DhakaThenNowDemo, GlobalLayerName, GlobalPlace, GlobalPlacesFile, GraceContextFile } from "@/types/data-contract";
 
-interface MonthWindow {
+export interface MonthWindow {
   from: string; // "YYYY-MM"
   to: string;
   /** "1981–1990", "2003–2006" */
@@ -50,7 +50,7 @@ export function buildField(layer: GlobalLayer, windows: { A: MonthWindow; B: Mon
 }
 
 /** The cube's rounding (places.json: two decimals). */
-const round2 = (v: number) => Math.round(v * 100) / 100;
+export const round2 = (v: number) => Math.round(v * 100) / 100;
 
 export interface GhostReading {
   cellId: number;

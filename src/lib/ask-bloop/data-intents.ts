@@ -1,7 +1,3 @@
-// Ask Bloop's four DATA questions (the data-maximize spec): fire weather, fires, landslide
-// exposure and night lights at the needle, answered only from the engine's values (src/components/AskBloop/data-questions.ts).
-// Joined to the registry, the parser and the validator in their DATA blocks. Bangla examples are drafts.
-
 export const DATA_INTENT_NAMES = ["fire_weather_here", "fires_here", "landslide_here", "night_lights_here"] as const;
 type DataIntentName = (typeof DATA_INTENT_NAMES)[number];
 export type DataIntent = { name: DataIntentName };
@@ -25,10 +21,8 @@ export const DATA_REGISTRY = {
   },
 } as const satisfies Record<DataIntentName, { kind: "question"; examples: { en: readonly string[]; bn: readonly string[] } }>;
 
-/** No slots: the place is the needle. */
 export const DATA_SLOTS: Record<DataIntentName, readonly string[]> = { fire_weather_here: [], fires_here: [], landslide_here: [], night_lights_here: [] };
 
-/** The parser's DATA rules, most specific first: fire weather before fires. They run before the value rules. */
 const DATA_RULES: readonly (readonly [RegExp, DataIntentName])[] = [
   [/fire[ -]?(?:weather|danger|risk|forecast)|আগুন[- ]?আবহাওয়া|আগুনের (?:ঝুঁকি|পূর্বাভাস)/u, "fire_weather_here"],
   [/landslides?|ভূমিধস/u, "landslide_here"],

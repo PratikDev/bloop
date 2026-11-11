@@ -1,6 +1,3 @@
-// Track 0 "Tuning": what each step says and plays. The anchors and the
-// reference come from mapping.json (the values the sound is built from), the provenance lines from each frame's
-// metadata and the registry. One sound per step, after its words, so speech and tone never overlap.
 import { audio } from "@/lib/audio-adapter";
 import type { PlayerHandle } from "@/lib/audio-adapter/types";
 import { anchorPoint, referenceValue } from "@/lib/audio/mapping";
@@ -11,9 +8,7 @@ import type { FreshnessFile, RainMetadata, SstMetadata } from "@/types/data-cont
 
 export interface TuningStep {
   id: string;
-  /** The words, as shown and as said. */
   text(t: BoundT, lang: Lang): string;
-  /** The step's sound, or null for words only. */
   play: (() => PlayerHandle | null) | null;
 }
 
@@ -23,7 +18,6 @@ interface TuningSources {
   rain: RainMetadata | null;
 }
 
-/** An anchor's value, as a slot (mapping.json writes them exactly: 0, 30, 0.5, 25). */
 const anchor = (voice: string, which: "lowest" | "highest", lang: Lang) => formatAxis(anchorPoint(voice, which)?.value ?? Number.NaN, lang);
 
 export function tuningSteps({ freshness, sst, rain }: TuningSources): TuningStep[] {
@@ -52,6 +46,5 @@ export function tuningSteps({ freshness, sst, rain }: TuningSources): TuningStep
     { id: "grammar", text: (t) => t("tuning.grammar"), play: null },
     { id: "done", text: (t) => t("tuning.done"), play: null },
   ];
-  // A source line the registry can't give is left out, never said empty.
   return steps.filter((s): s is TuningStep => s !== null);
 }

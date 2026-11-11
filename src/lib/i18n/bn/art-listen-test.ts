@@ -1,5 +1,3 @@
-// The listener test's ART tasks in Bangla: a developer's DRAFT.
-
 import type { listenTestArtEn } from "../en/art-listen-test";
 
 export const listenTestArtBn: Partial<typeof listenTestArtEn> = {

@@ -19,7 +19,7 @@ import { HowWeGotThis } from "../../HowWeGotThis";
 import { OnOffToggle } from "../../OnOffToggle";
 import { StatusBadge } from "../../StatusBadge";
 import { TranscriptLink } from "../../TranscriptLink";
-import { RecordLetter } from "../../Art/Letter/RecordLetter"; // ART: the letter on this record
+import { RecordLetter } from "../../Art/Letter/RecordLetter";
 import { fireLetter } from "@/lib/art/letter/data-records";
 import { AgeNote } from "../AgeNote";
 import { EarthMap } from "../EarthMap";
@@ -30,12 +30,6 @@ import { FiresTable, PilotTable } from "./FireTables";
 import { fireLinerNotes } from "./liner";
 import { useWildfires } from "./use-wildfires";
 
-/**
- * Fires and fire weather: one record, two sound layers. Tomorrow's fire weather (SVS 5315, an experimental model
- * forecast) is a fixed chord at the needle; FIRMS hotspots (a pixel holding one or more fires) are Geiger clicks for the
- * chosen box, sensor and day. NASA's SVS 5113 picture sits under them. "No calculation", "very low" and zero detections
- * are stated silences. The archive replay plays each stored forecast with the next day's FIRMS clicks over it.
- */
 export function Wildfires() {
   const t = useT();
   const { state } = useAppState();
@@ -172,7 +166,6 @@ export function Wildfires() {
     </div>
   );
 }
-
 
 const cellAt = (grid: { width: number; height: number }, at: { lat: number; lon: number }) => cellIndex(grid, at.lat, at.lon);
 

@@ -1,5 +1,3 @@
-// A letter to the future. Built only from data; braille rules apply.
-
 export const letterEn = {
   "letter.title": "A letter to the future",
   "letter.leave": "Leave a letter",

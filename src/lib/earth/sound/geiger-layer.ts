@@ -1,19 +1,12 @@
-// Fire Geiger: clicks at Poisson times (geiger.ts) on the shared look-ahead scheduler. The day's hotspot count
-// sets the rate (the "fireGeiger" rule); FRP per hotspot sets only the clicks' low-pass cutoff (brightness), never
-// their loudness: every click has the same peak gain. Rate 0 = no clicks (a stated silence, said by the UI).
-
 import { continuousRule, panFor, voiceSpec } from "@/lib/audio/mapping";
 import { BRIGHTNESS_VOICE, GEIGER_VOICE, poissonGap } from "../geiger";
 import { addTask, dataOut, report } from "./out";
 
-/** The cutoff when a day has no FRP to read: the brightness rule's own bottom (the dullest click). */
 const FALLBACK_CUTOFF = () => continuousRule(BRIGHTNESS_VOICE).output.min;
 
 interface GeigerLayer {
-  /** Clicks per second (0 = silence) and the brightness cutoff (null = the rule's bottom). */
   set(rate: number, cutoffHz: number | null, lon: number): void;
   stop(): void;
-  /** Clicks scheduled since the last set (for the checks). */
   clicks(): number;
 }
 
@@ -49,7 +42,6 @@ export function createGeigerLayer(random: () => number = Math.random): GeigerLay
     const now = out.graph.ctx.currentTime;
     if (next < now) next = now + poissonGap(rate, random);
     while (next < until) {
-      // HOOK: orchestra (fire): each Geiger click is a Fire and smoke percussion hit at integration.
       click(next);
       next += poissonGap(rate, random);
     }

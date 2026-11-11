@@ -1,5 +1,3 @@
-// Water's journey. Braille rules apply.
-
 export const journeyEn = {
   "journey.open": "Water's journey",
   "journey.title": "Water's journey: a Bangladesh suite",

@@ -14,9 +14,6 @@ import { useCommands } from "../Commands/use-commands";
 import { AgeNote } from "../EarthRecords/AgeNote";
 import { OnOffToggle } from "../OnOffToggle";
 
-// P2a on Listen: tomorrow's fire weather as a layer at the needle. The switch is in the dock's Mixer (a layer you can
-// switch on; no new dock button, no new key), the sound follows the cursor from ListenActions (mounted on Listen only).
-
 let on = false;
 const listeners = new Set<() => void>();
 const store = {
@@ -34,7 +31,6 @@ const useLayerOn = () => useSyncExternalStore(store.subscribe, store.get, () => 
 
 const listen = (mode: string) => mode === "explore" || mode === "story";
 
-/** The chord at the cursor while the layer is on and the sound plays (Listen only). Renders nothing. */
 export function FireWeatherLayerSound() {
   const { state } = useAppState();
   const layerOn = useLayerOn();
@@ -48,14 +44,12 @@ export function FireWeatherLayerSound() {
       chord.current.stop();
       return;
     }
-    // HOOK: orchestra (fire): the layer's chord (chord-layer.ts).
     chord.current.set(classAt(fwi, state.cursor.lat, state.cursor.lon), state.cursor.lon);
   }, [active, fwi, state.cursor]);
   useEffect(() => () => chord.current?.stop(), []);
   return null;
 }
 
-/** The switch and what it plays now, in the Mixer (Listen only). */
 export function FireWeatherLayerControl() {
   const t = useT();
   const { state } = useAppState();

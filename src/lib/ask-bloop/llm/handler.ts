@@ -1,10 +1,3 @@
-// Ask Bloop's LLM fallback, built but OFF: it runs only where it is deployed as a server function with its
-// keys set, and the app calls it only with NEXT_PUBLIC_ASK_BLOOP_LLM=1 (src/lib/flags.ts). Server side only: the key is
-// read from the environment, never sent to the client, never logged. The request carries the transcript, the record
-// ids and the registry's tools, never an image, a grid or a number of Bloop's; the reply is one intent with its
-// slots, validated against the registry (src/lib/ask-bloop/validate.ts) before anything can run. Temperature 0, 4 s
-// timeout, one try of the fallback provider on 429, 5xx or timeout, never a retry loop, a simple per-IP rate limit,
-// no transcript stored. Logged: intent name, latency, success or failure.
 import type { Intent, IntentName } from "../intents";
 import { ASK_RECORDS } from "../intents";
 import { validateIntent } from "../validate";
@@ -28,7 +21,6 @@ interface Provider {
   key: string;
 }
 
-/** Requests per IP per minute (design choice: a person asks a few times a minute). */
 const RATE_PER_MINUTE = 20;
 const MAX_TEXT = 300;
 const MINUTE = 60_000;
@@ -40,13 +32,11 @@ const SYSTEM =
 
 const provider = (base?: string, model?: string, key?: string): Provider | null => (base && model && key ? { baseUrl: base.replace(/\/$/u, ""), model, key } : null);
 
-/** What the tools say about each intent (short; the model chooses by it). */
 const describeIntent = (name: IntentName) => name.replace(/_/gu, " ");
 
 type FetchLike = (url: string, init: RequestInit) => Promise<Response>;
 type Log = (entry: { intent: IntentName | null; ms: number; ok: boolean }) => void;
 
-/** One provider call: the tool-calling request, the first tool call's validated intent, or why not. */
 async function callProvider(p: Provider, text: string, record: string, fetchImpl: FetchLike): Promise<{ status: number; intent: Intent | null; timeout: boolean }> {
   const ctl = new AbortController();
   const timer = setTimeout(() => ctl.abort(), TIMEOUT_MS);
@@ -87,10 +77,6 @@ async function callProvider(p: Provider, text: string, record: string, fetchImpl
 
 const retryable = (r: { status: number; timeout: boolean }) => r.timeout || r.status === 429 || r.status >= 500 || r.status === 0;
 
-/**
- * The route: POST `{ text, record }` → `{ ok, intent }`. `fetchImpl` and `log` are injected for tests (and so a deploy
- * can log to its own sink). The rate limit lives in this instance's memory.
- */
 export function createAskIntentHandler(env: ProviderEnv, fetchImpl: FetchLike = fetch, log: Log = () => undefined) {
   const primary = provider(env.ASK_BLOOP_BASE_URL, env.ASK_BLOOP_MODEL, env.ASK_BLOOP_API_KEY);
   const fallback = provider(env.ASK_BLOOP_FALLBACK_BASE_URL, env.ASK_BLOOP_FALLBACK_MODEL, env.ASK_BLOOP_FALLBACK_API_KEY);

@@ -1,8 +1,3 @@
-// A braille-safe short form for each of the accessibility core's new description and stat lines (D's
-// description, a Compare result, the sonar's find, the provenance line): one front-loaded line of at most
-// STATUS_BUDGET cells under the brailleText.ts rules, in both braille tables (UEB English, the Bengali table). Sent
-// to the status region instead of the full line when the reader chooses "Short lines" (Settings → Braille display);
-// the full line stays in the app (caption bar with sound on, Description tab, log). Then vs Now's statistics already have theirs (src/lib/then-now-stats.ts).
 import type { CompareLayer, CompareResult } from "@/lib/compare";
 import type { LatLon } from "@/lib/data";
 import type { BoundT } from "@/lib/i18n";
@@ -11,7 +6,6 @@ import { BN, BN_MONTHS, BN_STATUS, bnCompose, bnLayer, bnNumber, bnTime, bnUnit 
 import { fitLine, readingLine, type BrailleLang, type BrailleReading } from "./brailleLines";
 import { abbrev, brailleNumber, brailleTime, clean, type DegreeStyle } from "./brailleText";
 
-/** A live value as a short line reads it: the record, the value, the place, the frame time, and an optional note. */
 interface LiveValue {
   record: "ocean" | "rain";
   value: number | null;
@@ -23,7 +17,6 @@ interface LiveValue {
 
 const blang = (lang: Lang): BrailleLang => (lang === "bn" ? "bn" : "en");
 
-/** The same reading the Braille Data Explorer's value line draws (use-live-braille-source.ts). */
 function liveReading(t: BoundT, v: LiveValue): BrailleReading {
   const ocean = v.record === "ocean";
   return {
@@ -45,10 +38,8 @@ function liveReading(t: BoundT, v: LiveValue): BrailleReading {
   };
 }
 
-/** One live value as a short line (the explorer's value line). */
 export const valueShort = (t: BoundT, lang: Lang, degree: DegreeStyle, v: LiveValue) => readingLine(t, liveReading(t, v), blang(lang), degree, false);
 
-/** D's description, short: each shown record's value line, the second only when both fit. */
 export function describeShort(t: BoundT, lang: Lang, degree: DegreeStyle, values: readonly LiveValue[]): string {
   const [first, ...rest] = values.map((v) => valueShort(t, lang, degree, v));
   if (!first) return "";
@@ -56,9 +47,8 @@ export function describeShort(t: BoundT, lang: Lang, degree: DegreeStyle, values
   return lang === "bn" ? bnCompose(line) : line;
 }
 
-/** The sonar's find, short: the value line with what it is ("warmest", "wettest"). */
 export function sonarShort(t: BoundT, lang: Lang, degree: DegreeStyle, v: LiveValue): string {
-  const note = v.record === "ocean" ? { en: "warmest", bn: "সবচেয়ে উষ্ণ" } : { en: "wettest", bn: "সবচেয়ে বেশি বৃষ্টি" }; // bn: DRAFT
+  const note = v.record === "ocean" ? { en: "warmest", bn: "সবচেয়ে উষ্ণ" } : { en: "wettest", bn: "সবচেয়ে বেশি বৃষ্টি" };
   return valueShort(t, lang, degree, { ...v, note });
 }
 
@@ -68,12 +58,11 @@ const month = (ym: string, lang: Lang) => {
   return lang === "bn" ? `${BN_MONTHS[m - 1]} ${y}` : `${EN_MONTHS[m - 1]} ${y}`;
 };
 const COMPARE: Record<CompareLayer, { en: string; bn: string; unit: string; decimals: number }> = {
-  heat: { en: "Heat", bn: "তাপমাত্রার বিচ্যুতি", unit: "°C", decimals: 2 }, // bn: DRAFT
+  heat: { en: "Heat", bn: "তাপমাত্রার বিচ্যুতি", unit: "°C", decimals: 2 },
   rain: { en: "Rain", bn: "বৃষ্টি", unit: "mm/day", decimals: 2 },
-  water: { en: "Water", bn: "মোট পানির মজুত", unit: "cm", decimals: 1 }, // bn: DRAFT
+  water: { en: "Water", bn: "মোট পানির মজুত", unit: "cm", decimals: 1 },
 };
 
-/** A Compare result, short: the record, the difference (b − a), the two months, then the newer value if it fits. */
 export function compareShort(lang: Lang, degree: DegreeStyle, r: CompareResult): string {
   const c = COMPARE[r.layer];
   if (lang === "bn") {
@@ -81,7 +70,6 @@ export function compareShort(lang: Lang, degree: DegreeStyle, r: CompareResult):
     const sign = r.diff < 0 ? "ঋণাত্মক " : "";
     return bnCompose(fitLine([c.bn, `${sign}${bnNumber(Math.abs(r.diff), c.decimals)} ${bnUnit(c.unit)}`, `${month(r.b.month, lang)} বনাম ${month(r.a.month, lang)}`], []));
   }
-  // As the value line writes units straight after the number: "C" in word style, "°C" with the symbol.
   const unit = c.unit === "°C" ? (degree === "word" ? "C" : "°C") : c.unit;
   if (r.diff === null || r.a.value === null || r.b.value === null) return clean(`${c.en} no data ${month(r.b.month, lang)} vs ${month(r.a.month, lang)}`);
   const n = (v: number) => brailleNumber(v, c.decimals);
@@ -89,7 +77,6 @@ export function compareShort(lang: Lang, degree: DegreeStyle, r: CompareResult):
   return fitLine([c.en, diff, `${month(r.b.month, lang)} vs ${month(r.a.month, lang)}`], [`now ${n(r.b.value)}`]);
 }
 
-/** The provenance line, short: the record, its dataset, the cell size, the frame date, then the kind of source. */
 export function provenanceShort(
   lang: Lang,
   record: "ocean" | "rain",
@@ -99,10 +86,9 @@ export function provenanceShort(
   const deg = 360 / frame.grid.width;
   if (lang === "bn") {
     const kind = source.kind === "model" ? BN_STATUS.model : BN_STATUS.observation;
-    return bnCompose(fitLine([bnLayer(record), `${bnNumber(deg, 2)} ডিগ্রি ঘর`, bnTime(frame.frame_time_utc)], [kind])); // ঘর (cell): DRAFT
+    return bnCompose(fitLine([bnLayer(record), `${bnNumber(deg, 2)} ডিগ্রি ঘর`, bnTime(frame.frame_time_utc)], [kind]));
   }
   const short = record === "ocean" ? "SST" : "Rain";
-  // The dataset by its leading acronyms ("MUR SST", "GPM IMERG"): the version and the archive are in the full line.
   const dataset = /^[A-Z0-9]+(?: [A-Z0-9]+)*/u.exec(source.name)?.[0] ?? clean(source.name);
   return fitLine([short, dataset, `${brailleNumber(deg, 2)}deg`, brailleTime(frame.frame_time_utc, true)], [abbrev(source.kind)]);
 }

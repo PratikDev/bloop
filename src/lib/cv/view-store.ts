@@ -1,6 +1,3 @@
-// The CV view's own settings, shared by the "What the jukebox read" panel, the chord toggle (panel and Settings) and
-// the chord layer: which box is read, and whether the listener turned the chord on (off for first-time visitors). Kept
-// apart from the app's reducer; remembered on this device in a try/catch (blocked storage: just not remembered).
 import { BOX_IDS, NEEDLE_BOX } from "./boxes";
 
 export interface CvView {
@@ -36,7 +33,6 @@ export function setCvView(patch: Partial<CvView>) {
   try {
     localStorage.setItem(KEY, JSON.stringify(state));
   } catch {
-    // Not remembered, still used.
   }
   for (const l of listeners) l();
 }

@@ -1,6 +1,3 @@
-// The raw-pixel demo's stored measurement (public/data/art/raw_pixel.json): renders the naive and Bloop versions of
-// SVS 3912's first frame (src/lib/art/raw-pixel) and measures flatness, entropy and roughness (metrics.ts). The app
-// plays the same renders and shows these numbers; raw-pixel.test.ts checks they still match. Run: bun scripts/art-raw-pixel.ts
 import { readFileSync, writeFileSync } from "node:fs";
 import { join } from "node:path";
 import { gunzipSync } from "node:zlib";

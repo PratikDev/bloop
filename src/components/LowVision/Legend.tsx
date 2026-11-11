@@ -7,11 +7,6 @@ import { bandText, RECORD_KEY, UNIT_KEY, useLvMap } from "./use-lv-map";
 
 const NODATA_HATCH = "repeating-linear-gradient(45deg, var(--lv-hatch) 0 2px, transparent 2px 8px)";
 
-/**
- * The re-coloured map's legend, next to the map: every band's colour and range
- * in large text, what dry and no data look like, the "re-coloured by Bloop" label, and NASA's original colours on one
- * press. Shown only while the map is re-coloured.
- */
 export function LvLegend({ className }: { className?: string }) {
   const { state, dispatch } = useAppState();
   const t = useT();
@@ -30,7 +25,7 @@ export function LvLegend({ className }: { className?: string }) {
           </li>
         ))}
         <li className="flex items-center gap-2">
-          {/* As the map draws it: land solid (ocean), no-data rain as a sparse hatch. */}
+          {}
           <span aria-hidden="true" className="size-6 shrink-0 rounded-sm border-2 border-moon" style={{ background: map.record === "rain" ? NODATA_HATCH : "var(--lv-land)" }} />
           {t("lv.legend.nodata")}
         </li>
@@ -44,7 +39,7 @@ export function LvLegend({ className }: { className?: string }) {
       <p data-testid="lv-recoloured" className="text-body text-haze">
         {t("lv.recoloured")}
       </p>
-      {/* Wraps rather than widening the page (reflow at 320 px). */}
+      {}
       <Button variant="outline" className="h-auto max-w-full shrink py-2 text-start whitespace-normal" onClick={() => dispatch({ type: "setLowVision", patch: { scheme: "original", bands: 0 } })}>
         {t("lv.showOriginal")}
       </Button>

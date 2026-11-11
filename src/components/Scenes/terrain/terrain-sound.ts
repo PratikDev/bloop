@@ -23,7 +23,7 @@ export interface TerrainReading {
   clarity: Clarity;
 }
 
-interface TerrainSound {
+export interface TerrainSound {
   /** The walker moved (or the frame or mode changed): update the voices. */
   at(lat: number, lon: number, yaw: number, dt: number, vsNormal: boolean): TerrainReading;
   setFrame(seq: Sequence | null, frame: SequenceFrame | null): void;

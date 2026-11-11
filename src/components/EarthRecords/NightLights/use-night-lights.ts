@@ -9,17 +9,14 @@ import { dataVoice } from "@/lib/earth/sound/orchestra-hook";
 import { dataOut, report } from "@/lib/earth/sound/out";
 import { useRecordPlay } from "../use-record-play";
 
-/** One night per this long (a design choice); the note sounds for NOTE_SHARE of it. */
 const STEP_MS = 650;
 const NOTE_SHARE = 0.7;
 
-/** The city to open on: set by the 5313 record's "hear measured radiance" link, else the file's first. */
 let preferred: string | null = null;
 export const preferCity = (city: string) => {
   preferred = city;
 };
 
-/** The night-lights record: the file, the chosen city, and its nights played as a short sequence with a playhead. */
 export function useNightLights() {
   const { value: file, error } = useLoaded(loadNightLights);
   const [chosen, setCity] = useState<string | null>(() => preferred);
@@ -32,7 +29,6 @@ export function useNightLights() {
   const lon = file && city ? file.cities[city].lon : 0;
   const timer = useRef<ReturnType<typeof setInterval> | null>(null);
 
-  // The playhead: one night per STEP_MS while playing; it stops at the last night.
   useEffect(() => {
     if (!play.playing) return;
     let i = 0;
@@ -46,10 +42,8 @@ export function useNightLights() {
       const out = dataOut();
       if (out && s.hz !== null) {
         const gain = voiceSpec(LIGHTS_VOICE).sound.maxGain;
-        // Earth Orchestra: each night's note in the record's family (People and carbon).
         dataVoice(APP_RECORDS.nightlights_bm.id).note(out.graph.ctx, out.bus, { hz: s.hz, when: out.graph.ctx.currentTime, duration: (STEP_MS / 1000) * NOTE_SHARE, gain });
       }
-      // A gap: a rest (no note at all), said on screen as "gap: cloud".
       report("lights", { radiance: s.radiance, hz: s.hz, step: i });
       i += 1;
     };
@@ -59,7 +53,6 @@ export function useNightLights() {
       clearTimeout(first);
       if (timer.current) clearInterval(timer.current);
     };
-    // Restart only when playing starts or the city changes.
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [play.playing, steps]);
 

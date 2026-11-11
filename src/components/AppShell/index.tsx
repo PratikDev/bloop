@@ -50,7 +50,7 @@ function Shell() {
         {t("app.skipToContent")}
       </a>
       {/* Page height = screen height from 768 px up: pages fit one screen, nothing scrolls but what must. */}
-      {/* Low-vision layouts (larger text and controls, the legend, compact centre) need the page to scroll instead. */}
+      {}
       <div inert={gated || opening} className={cn("grid min-h-dvh grid-cols-[minmax(0,1fr)] grid-rows-[auto_minmax(0,1fr)_auto]", !lowVisionFlow(state.lowVision) && "md:h-dvh")}>
         <Header />
         <main id={CONTENT_ID} tabIndex={-1} className="min-h-0 outline-none">

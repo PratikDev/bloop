@@ -1,5 +1,3 @@
-// English strings for the hidden listener test (/listen-test, docs/LISTEN_TEST_PROTOCOL.md).
-
 export const listenTestEn = {
   "lt.title": "Quick listening test",
   "lt.consent.heading": "Before we start",

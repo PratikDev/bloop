@@ -42,7 +42,6 @@ export interface RuleParts {
   outputFalling?: boolean;
   bands?: { upTo: string | null; label: string }[];
   sameAs?: string; // the voice whose rule is used
-  /** A categorical rule: each class's label and its fixed sound ("silence", "chord", "rumble"). */
   classes?: { label: string; sound: "silence" | "chord" | "rumble" }[];
 }
 
@@ -86,7 +85,6 @@ export function ruleParts(voice: VoiceSpec): RuleParts | null {
   };
 }
 
-/** The English rule sentence shown in the Mapping panel. Bangla: build from ruleParts. */
 export function ruleText(voice: VoiceSpec): string {
   const p = ruleParts(voice);
   if (!p) return voice.silence;

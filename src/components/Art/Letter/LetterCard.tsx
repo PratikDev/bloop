@@ -10,11 +10,6 @@ import { useAppState, useT } from "../../AppState/use-app-state";
 import { useCommands } from "../../Commands/use-commands";
 import { HowWeGotThis } from "../../HowWeGotThis";
 
-/**
- * The letter: a dated card built only from data. Opening it says it (the status region or Bloop's voice) and, with
- * sound on, plays the value once on its own data voice, then holds it under the card; no music swells. Save the letter
- * gives a UTF-8 .txt wrapped to a braille display's 40 cells.
- */
 export function LetterCard({ letter, lon, onClose }: { letter: LetterInput; lon: number; onClose?: () => void }) {
   const { state } = useAppState();
   const t = useT();

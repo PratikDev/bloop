@@ -1,6 +1,3 @@
-// Bangla strings for the Then vs Now statistics (src/lib/i18n/en/stats.ts). Draft, needs review (bn/drafts.ts).
-// The short form (announce.thenNow.stat) reaches a braille display: its numbers come from bnNumber (Western digits).
-
 import type { statsEn } from "../en/stats";
 import type { Translated } from "../types";
 

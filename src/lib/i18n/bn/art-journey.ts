@@ -1,5 +1,3 @@
-// Water's journey in Bangla: a developer's DRAFT.
-
 import type { journeyEn } from "../en/art-journey";
 
 export const journeyBn: Partial<typeof journeyEn> = {

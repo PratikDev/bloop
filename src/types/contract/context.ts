@@ -1,5 +1,3 @@
-// Climate context files (sections 4–8, 11, 12). Re-exported from src/types/data-contract.ts.
-
 import type { FirmsDailyBlock } from "../contract-15";
 
 // ---------------------------------------------------------------------------
@@ -60,14 +58,14 @@ interface GraceBoxSeries {
   mean_B: number;
   window_A: string; // "2003-01..2006-12"
   window_B: string; // "2021-01..2024-12"
-  uncertainty_1sigma_cm: { median: number; min: number; max: number }; // the product's own 1-sigma, box-averaged, over all months
+  uncertainty_1sigma_cm: { median: number; min: number; max: number };
 }
 
 export interface GraceContextFile {
   dataset: string;
   units: "cm";
-  native_resolution: string; // from the file's metadata: "3-degree equal-area mascons"
-  mascon_deg: number | null; // 3
+  native_resolution: string;
+  mascon_deg: number | null;
   uncertainty_note: string;
   gap_note: string;
   credit: string;
@@ -166,7 +164,6 @@ export interface EnsembleFile {
 // ---------------------------------------------------------------------------
 // 12. GLOBE duet teaser (context/globe_duet.json) — OPTIONAL, additive
 // Needed by: L3 (teaser card: time, place, both values, `disclosure`,
-// label removed); L2 (two tones, ground left / satellite right).
 // Built from file 8 (build_globe_duet.py): only observations inside
 // Bangladesh's national outline; reports on the same date within 1 km are
 // merged. `featured` = the place-day with the median difference (typical case).

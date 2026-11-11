@@ -1,5 +1,3 @@
-// public/geo/ loaded once per page and shared: the Turntable's globe (overlays, search) and the Listen map's place names
-// (descriptions, the region tree) use the same files and the same gazetteer, fetched on first use, never before.
 import { fetchJson } from "@/lib/data";
 import { createGazetteer, type Gazetteer, type GeoFiles } from "./gazetteer";
 import type { FeatureCollection, LineGeometry, RiverProps } from "./types";
@@ -14,7 +12,6 @@ export interface GeoData {
 
 let loading: Promise<GeoData> | null = null;
 
-/** The geo files and their gazetteer; a failed load is forgotten, so the next call tries again. */
 export function loadGeo(): Promise<GeoData> {
   loading ??= Promise.all([
     fetchJson<GeoFiles["countries110m"]>(`${GEO}/countries-110m.json`),

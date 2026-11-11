@@ -5,8 +5,6 @@ import { useT } from "../AppState/use-app-state";
 import { Facts } from "../HowWeGotThis/Facts";
 import { Lines, Loading, PAGE, Section, TranscriptHeader } from "../pages/Transcript/parts";
 
-/** A DATA record's transcript, in the same parts as an Official record's (how the sound is made, what it covers,
- *  the pattern, how far to trust it), every line built by the record's own text module. */
 export interface AppTranscriptData {
   title: string;
   mapping: string[];

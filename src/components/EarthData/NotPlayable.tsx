@@ -7,10 +7,6 @@ import { hiddenProvenance } from "@/lib/earth/provenance";
 import { useAppState, useT } from "../AppState/use-app-state";
 import { HowWeGotThis } from "../HowWeGotThis";
 
-/**
- * "Not playable: too sparse to sonify honestly": the related records the pipeline marks hidden, at the foot of
- * Official records, each with the pipeline's reason. They stay unplayable: no button, no voice.
- */
 export function NotPlayable() {
   const t = useT();
   const { state } = useAppState();

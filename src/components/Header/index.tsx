@@ -24,8 +24,7 @@ export function Header() {
   const commands = useCommands();
   return (
     <header className="relative z-(--layer-header) grid grid-cols-[minmax(0,1fr)_auto] items-center gap-x-2 px-2 pt-2 [view-transition-name:header] sm:gap-x-4 sm:px-3 md:px-5 lg:grid-cols-[1fr_auto_1fr] lg:py-2">
-      {/* Narrow screens: the low-vision buttons wrap under the brand. From 1024 px the column keeps room for both, so the
-          dial (which scrolls) never covers them. */}
+      {}
       <div className="flex min-w-0 flex-wrap items-center gap-1 lg:min-w-max">
         <Brand />
         {FLAGS.lowVision && <LowVisionButtons open={lvOpen} onOpenChange={setLvOpen} />}
@@ -38,7 +37,7 @@ export function Header() {
           <Question aria-hidden="true" className="size-5" />
         </Button>
       </div>
-      {/* Low-vision settings open inline, under the bar that opened them (never a full-screen pop-up). */}
+      {}
       {FLAGS.lowVision && lvOpen && <LowVisionPanel onClose={() => setLvOpen(false)} className="col-span-full mt-2" />}
     </header>
   );

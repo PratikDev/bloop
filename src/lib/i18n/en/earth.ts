@@ -1,16 +1,9 @@
-// English strings for the DATA records (the data-maximize spec): Data health, the leftovers,
-// fire weather, Fire Geiger, landslide exposure, night lights, NASA's radar method. No number is typed next to a unit:
-// every value is a {param} filled from the shipped files. Bangla drafts: bn/earth.ts.
-
 export const earthEn = {
-  // "Is this data fresh?" (in every How we got this) and the Data health page.
 
-  // The live frames' acceptance checks (public/data/official/live_*/validation.json).
   "earth.check.heading": "Acceptance check (from validation.json)",
   "earth.check.line": (p: { title: string; numbers: string; result: string }) => `${p.title}: ${p.numbers}. Result: ${p.result}.`,
   "earth.check.loading": "Loading the acceptance check.",
 
-  // Related records kept off the shelves (related/index.json `hidden`).
   "earth.notPlayable.heading": "Not playable: too sparse to sonify honestly",
   "earth.notPlayable.lead": "Decoded, but kept off the shelves: a needle would read no value most of the time. The pipeline's reason for each:",
   "earth.notPlayable.loading": "Loading the related records.",
@@ -20,16 +13,13 @@ export const earthEn = {
     "The pipeline decodes each related record, counts the share of cells with a value at each time step, and hides a record that has values in too few cells, or in no cell at every step. The reason is the pipeline's own sentence.",
   "earth.notPlayable.n": (p: { n: string }) => `${p.n} records hidden`,
 
-  // Record titles (the record index's rows; index titles are English).
   "earth.fire.title": "Fires and fire weather",
   "earth.slide.title": "Landslide exposure (LHASA, modelled)",
   "earth.lights.title": "Night lights by city (Black Marble)",
 
-  // Data age (freshness.json; past its limit a product is "recorded").
   "earth.age.from": (p: { date: string }) => `Data from ${p.date}.`,
   "earth.age.stale": (p: { date: string }) => `Data from ${p.date}; may be out of date.`,
 
-  // Shared map and controls of the DATA records.
   "earth.map.keys": "Arrow keys move the needle by one degree, Shift+arrow by five; or click the map.",
   "earth.map.needle": (p: { place: string }) => `Needle: ${p.place}`,
   "earth.play": "Play at the needle",
@@ -42,7 +32,6 @@ export const earthEn = {
   "earth.badge.off": "off",
   "earth.badge.silent": "stated silence",
 
-  // Fires and fire weather.
   "earth.fire.lead":
     "Two sound layers: tomorrow's fire weather as a fixed chord at the needle, and FIRMS hotspots as Geiger clicks for the chosen box and day. NASA's fire picture sits underneath.",
   "earth.fire.fwiLabel": "Fire weather: an experimental 1-day forecast (NASA GISS GlobalFWI, a model), never a measured fire.",
@@ -114,7 +103,6 @@ export const earthEn = {
   "earth.pilot.loading": "Loading the archived forecasts.",
   "earth.pilot.open": "Show the pilot table",
 
-  // P2a on Listen: the fire-weather layer at the needle.
   "earth.layer.menu": "Fire weather",
   "earth.layer.full": "Fire-weather layer (experimental forecast)",
   "earth.layer.switch": "Play tomorrow's fire weather at the needle",
@@ -127,7 +115,6 @@ export const earthEn = {
     "For each archived forecast and each FIRMS box: the box's most common class on that day's grid, beside FIRMS's count in the box on the day the forecast was for (the next day). Spearman rho over the rows, per sensor.",
   "earth.pilot.n": (p: { n: string }) => `${p.n} box-days`,
 
-  // Landslide exposure (LHASA).
   "earth.slide.lead": "Landslide exposure as thresholded sound: silence for none and low, a soft rumble for moderate, a stronger one for high, slow pulses for very high.",
   "earth.slide.label": "Modelled exposure (LHASA), not observed landslides.",
   "earth.slide.at": (p: { cls: string; date: string; sound: string }) => `Landslide exposure (LHASA nowcast of ${p.date}): ${p.cls}. ${p.sound}`,
@@ -151,7 +138,6 @@ export const earthEn = {
   "earth.slide.method":
     "The pipeline reads the class of each pixel of SVS 5584's picture from its legend colours (the highest class within 3×3 source pixels), then maps it from Robinson to a 1024×512 latitude-longitude grid; Bloop reads the cell under the needle.",
 
-  // Night lights (Black Marble).
   "earth.lights.lead": "Each night's light at a city, one note per night: brighter, higher (a log scale). A cloud-blocked night is a rest.",
   "earth.lights.label": "Radiance measured from space. A cloud-blocked night is a gap, not darkness: no blackout is claimed from it.",
   "earth.lights.product": (p: { product: string; variable: string; sat: string }) => `Product: ${p.product} (${p.variable}), satellite ${p.sat}, read from the file.`,
@@ -173,7 +159,6 @@ export const earthEn = {
   "earth.lights.method": (p: { window: string; rule: string }) => `Median of a ${p.window}-pixel window around the city. ${p.rule}`,
   "earth.lights.hearDhaka": (p: { city: string }) => `Hear measured radiance for ${p.city} (Black Marble, night by night)`,
 
-  // NASA's own method (Caldwell 73, SVS 13786).
   "earth.radar.title": "NASA mode (after Caldwell 73, SYSTEM Sounds)",
   "earth.radar.lead":
     "A method record, with no data layer of its own: NASA's radar sweep from the Caldwell 73 sonification, played on today's ocean temperature frame around a centre, beside Bloop's own rule on the same points.",
@@ -195,16 +180,13 @@ export const earthEn = {
   "earth.radar.subject": "NASA's radar method on the ocean frame",
   "earth.radar.method": "Points on rings around the centre read from today's ocean temperature frame (land left out). NASA mode: radial-sweep.ts with the radarDistance rule; Bloop mode: the same points, distance to time, the Ocean rule to pitch.",
 
-  // How we got this for the DATA products (src/lib/earth/provenance.ts).
   "earth.hwgt.sourceTime": (p: { time: string }) => `newest source time ${p.time}`,
 
-  // The SVS 5176 picture under the normal tone (Sound terrain, N).
   "earth.anom.legend": "Ocean temperature vs normal (the 5176 picture)",
   "earth.anom.frame": (p: { date: string }) => `Picture and anomaly: the SVS 5176 frame of ${p.date}`,
   "earth.anom.alt": (p: { date: string; min: string; max: string }) =>
     `NASA's map of ocean temperature against normal, frame of ${p.date}: blue cooler than normal, red warmer, from ${p.min} to ${p.max} degrees Celsius.`,
 
-  // Ask Bloop's DATA answers (src/components/AskBloop/data-questions.ts).
   "earth.ask.noFirms": "The FIRMS daily counts are not in this build.",
   "earth.ask.noBox": (p: { boxes: string }) => `No FIRMS box here: Bloop counts fires in ${p.boxes}.`,
   "earth.ask.noCity": (p: { cities: string }) => `No Black Marble city near here: the file has ${p.cities}.`,

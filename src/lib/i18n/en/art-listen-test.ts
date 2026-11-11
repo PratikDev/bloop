@@ -1,5 +1,3 @@
-// The listener test's ART tasks: emotion ratings (gap #10) and ear vs eye (gap #11). Braille rules apply.
-
 export const listenTestArtEn = {
   "ltx.emotion.heading": "How did that feel?",
   "ltx.emotion.sound": "Listen to this clip: ocean temperatures at the checked places, west to east.",

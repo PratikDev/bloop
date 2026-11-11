@@ -1,5 +1,3 @@
-// The "Same chord, whatever the colours" card's numbers: read from the T2 test's output
-// (public/data/meta/colormap_invariance.json, written by pipeline/tests/test_colormap_invariance.py), never typed.
 import file from "../../../public/data/meta/colormap_invariance.json";
 
 interface Spread {
@@ -25,7 +23,6 @@ export interface InvarianceCase {
 
 export const INVARIANCE: { generated_by: string; sigma_source: string; cases: InvarianceCase[] } = file;
 
-/** The largest differences between colour maps over both boxes (median, any group's value, JPEG's P10), and σ. */
 export function largestSpread(cases: readonly InvarianceCase[] = INVARIANCE.cases) {
   return {
     median: Math.max(...cases.map((c) => c.clean.median_spread_C)),

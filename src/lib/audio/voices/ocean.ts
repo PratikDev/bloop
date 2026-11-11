@@ -9,7 +9,6 @@ import { glideAt, jumpAt } from "../params";
 import { track } from "../sources";
 import { onStopAll } from "../stop";
 import { createVoiceOutput, panTo, voicePeak, type VoiceTiming } from "./common";
-// Earth Orchestra's timbre and the dial (src/lib/art/live): timbre, swara + meend, layers; never the pitch.
 import { dressLive, meend } from "@/lib/art/live/dress";
 import { reportVoice } from "@/lib/art/live/layers";
 
@@ -30,7 +29,6 @@ export function createOceanVoice(): OceanVoice {
   let env: GainNode | null = null;
   let sounding = false; // as scheduled (calls arrive in time order)
 
-  // stopAll stops the oscillator; start a fresh one next time.
   onStopAll(() => {
     osc = null;
     env = null;
@@ -43,7 +41,7 @@ export function createOceanVoice(): OceanVoice {
     env = new GainNode(ctx, { gain: 0 });
     osc = track(new OscillatorNode(ctx, { type: "sine", frequency: freq }));
     osc.connect(env).connect(panner);
-    dressLive(osc, { category: () => "ocean", env, onSource: track }); // ART
+    dressLive(osc, { category: () => "ocean", env, onSource: track });
     osc.start();
     return { osc, env };
   }
@@ -55,23 +53,23 @@ export function createOceanVoice(): OceanVoice {
       if (freq === null) {
         if (sounding && env) glideAt(ctx, env.gain, 0, releaseSec, at.time);
         sounding = false;
-        reportVoice("ocean", null, false, at.time); // ART
+        reportVoice("ocean", null, false, at.time);
         return;
       }
       const nodes = ensureOscillator(freq);
       const level = peak * loudnessGain(freq);
       if (sounding) {
         const glide = at.glideSec ?? glideSec;
-        if (!meend(nodes.osc.frequency, freq, "ocean", ctx, at.time)) glideAt(ctx, nodes.osc.frequency, freq, glide, at.time); // ART: meend
+        if (!meend(nodes.osc.frequency, freq, "ocean", ctx, at.time)) glideAt(ctx, nodes.osc.frequency, freq, glide, at.time);
         glideAt(ctx, nodes.env.gain, level, glide, at.time);
       } else {
         // Coming out of silence: jump to the new pitch while silent, then fade in.
-        if (!meend(nodes.osc.frequency, freq, "ocean", ctx, at.time)) jumpAt(ctx, nodes.osc.frequency, freq, at.time); // ART: meend
+        if (!meend(nodes.osc.frequency, freq, "ocean", ctx, at.time)) jumpAt(ctx, nodes.osc.frequency, freq, at.time);
         glideAt(ctx, nodes.env.gain, level, attackSec, at.time);
       }
       panTo(panner, lon, at.time);
       sounding = true;
-      reportVoice("ocean", valueC, true, at.time); // ART
+      reportVoice("ocean", valueC, true, at.time);
     },
   };
 }

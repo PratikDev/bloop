@@ -1,6 +1,3 @@
-// The raw-pixel demo in the browser: the same frame (loadOfficialLayer, as the record page) and the stored
-// measurement the screen shows (public/data/art/raw_pixel.json).
-
 import { fetchJson } from "@/lib/data/fetch";
 import { loadOfficialLayer, loadOfficialManifest } from "@/lib/data";
 import type { Measures } from "./metrics";

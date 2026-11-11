@@ -13,7 +13,7 @@ import { SceneDock, type SceneDockProps } from "./SceneDock";
 
 const LABEL_SHADOW = "[text-shadow:0_1px_3px_var(--label-shadow)]";
 
-interface SceneShellProps {
+export interface SceneShellProps {
   title: string;
   /** Announced (live region) when the scene opens. */
   entry: string;

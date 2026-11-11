@@ -4,7 +4,7 @@
 import type { BandsMapping } from "@/types/data-contract";
 import { bandFor, continuousRule, mapContinuous, mapVoice, voiceSpec, withInputRange } from "./mapping";
 
-interface HeatTone {
+export interface HeatTone {
   freq: number; // Hz, heat rule
   band: number; // Anomaly Choir band 0..3
   detuneCents: number; // second voice's detune (0 = no second voice)
@@ -49,7 +49,7 @@ export function waterRange(series: readonly (number | null)[]): { min: number; m
   return { min, max };
 }
 
-/** GRACE cm → bass Hz on the water rule over `range` (from waterRange); null (no measurement) → null. */
+/** GRACE cm → bass Hz on the water rule over `range` (from waterRange()); null (no measurement) → null. */
 export function waterFreq(cm: number | null, range: { min: number; max: number }): number | null {
   return mapContinuous(cm, withInputRange(continuousRule("water"), range));
 }

@@ -1,6 +1,3 @@
-// Bangla for "How we got this" (src/lib/i18n/en/provenance.ts). Draft, needs review (bn/drafts.ts).
-// Numbers arrive formatted for Bangla (Bangla digits) by the builders in src/lib/provenance.
-
 import type { provenanceEn } from "../en/provenance";
 import type { Translated } from "../types";
 

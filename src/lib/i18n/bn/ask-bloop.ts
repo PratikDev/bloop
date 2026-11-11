@@ -1,5 +1,3 @@
-// Bangla for Ask Bloop (en/ask-bloop.ts). Drafts: listed in drafts.ts until a Bangla speaker checks them (
-// needsReview). Every number is a slot formatted in Bangla.
 import type { askBloopEn } from "../en/ask-bloop";
 import type { Translated } from "../types";
 

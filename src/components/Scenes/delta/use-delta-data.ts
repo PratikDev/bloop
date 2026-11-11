@@ -10,7 +10,7 @@ import { loadRelief, type Relief } from "../relief";
 import type { DeltaSceneData } from "./delta-scene";
 
 /** The rivers drawn (Natural Earth names); the Meghna isn't in the shipped file. */
-const DELTA_RIVERS = ["Ganges", "Brahmaputra"] as const;
+export const DELTA_RIVERS = ["Ganges", "Brahmaputra"] as const;
 export type DeltaRiverName = (typeof DELTA_RIVERS)[number];
 
 export interface DeltaData {

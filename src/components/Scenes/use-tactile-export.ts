@@ -9,11 +9,6 @@ import { downloadTactileRecord, tactileAltInput, type TactileMeta, type TactileR
 
 const TEXT = "text/plain;charset=utf-8";
 
-/**
- * The tactile disc's two saves: the STL, with its alt text in the header, and the alt
- * text and extended description as a sidecar .txt of the same name. Each is its own button, so no download happens
- * without a press. With the step's flag off, the STL is saved as before and there is no sidecar.
- */
 export function useTactileExport() {
   const { state } = useAppState();
   const t = useT();
@@ -23,7 +18,6 @@ export function useTactileExport() {
     saveStl(rec: TactileRecord, meta: TactileMeta, file: string) {
       downloadTactileRecord(rec, file, FLAGS.timedText ? stlHeader(tactileAlt(t, "en", tactileAltInput(rec, meta)).alt) : undefined);
     },
-    /** The sidecar (null with the flag off: no button). */
     saveAlt: FLAGS.timedText
       ? (rec: TactileRecord, meta: TactileMeta, stlFile: string) => {
           const file = stlFile.replace(/\.stl$/, ".txt");

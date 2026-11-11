@@ -7,7 +7,6 @@ import { downloadBlob } from "@/lib/download";
 import { FLAGS } from "@/lib/flags";
 import { useT } from "../AppState/use-app-state";
 
-/** Then vs Now's "Download as MIDI" and value sheet for the part shown (heat, rain or water). */
 export function ThenNowMidi({ input, part, city }: { input: ThenNowInput; part: string; city: string }) {
   const t = useT();
   if (!FLAGS.artLifetime || (part !== "heat" && part !== "monsoon" && part !== "water")) return null;

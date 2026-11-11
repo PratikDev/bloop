@@ -1,4 +1,4 @@
-// Official records' plain voices (PROPOSAL §15): any mapping.json voice with a
+// Official records' plain voices (PROPOSAL §15, docs/L3/contract-proposals.md B9): any mapping.json voice with a
 // continuous rule, played on the extras bus. The synth follows the rule's output param, so a new record needs only
 // its mapping entry: frequency → tone, cutoff → haze, clicksPerSecond → clicks. Voices are made on first use.
 

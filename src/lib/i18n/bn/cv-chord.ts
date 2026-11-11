@@ -1,4 +1,3 @@
-// Bangla for the value chord (en/cv-chord.ts). Drafts: listed in drafts.ts until a Bangla speaker checks them.
 import type { cvChordEn } from "../en/cv-chord";
 import type { Translated } from "../types";
 

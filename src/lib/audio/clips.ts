@@ -1,5 +1,5 @@
 // Recorded narration (BUILD_PLAN §11.1 task 3, D12). Clips are fetched and
-// decoded ahead of time by preloadClips (L3 calls it at start-up: the only
+// decoded ahead of time by preloadClips() (L3 calls it at start-up: the only
 // place L2 touches the network), then played through the narration bus with
 // the sonification ducked, exactly like speech. A new clip interrupts the one
 // before; Esc (stopAll) stops it and releases the duck.
@@ -18,7 +18,7 @@ const DECODE_SAMPLE_RATE = 48000;
 const clips = new Map<string, Promise<AudioBuffer>>();
 const status = new Map<string, ClipStatus>();
 let current: AudioBufferSourceNode | null = null;
-let token = 0; // the newest playClip call; older ones that are still loading don't play
+let token = 0; // the newest playClip() call; older ones that are still loading don't play
 
 function decoder(): BaseAudioContext {
   return peekEngine()?.ctx ?? new OfflineAudioContext({ length: 1, sampleRate: DECODE_SAMPLE_RATE });
@@ -48,7 +48,7 @@ function load(url: string): Promise<AudioBuffer> {
   return loading;
 }
 
-/** Fetches and decodes every clip now, so playClip starts without delay. Never rejects. */
+/** Fetches and decodes every clip now, so playClip() starts without delay. Never rejects. */
 export async function preloadClips(urls: string[]): Promise<void> {
   await Promise.allSettled(urls.map(load));
 }

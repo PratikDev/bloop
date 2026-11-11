@@ -2,10 +2,6 @@
 
 import { useEffect, useState } from "react";
 
-/**
- * A plain bar picture of a series (the picture-only clips): no numbers, no axis labels, so the eye gets what the ear
- * gets. With `animateMs`, a highlight walks along the bars at the sound's pace.
- */
 export function Bars({ values, label, animateMs }: { values: readonly (number | null)[]; label: string; animateMs?: number }) {
   const [at, setAt] = useState(animateMs ? 0 : -1);
   useEffect(() => {

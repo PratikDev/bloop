@@ -1,12 +1,8 @@
-// Summarises the listener test's exported files (docs/LISTEN_TEST_PROTOCOL.md): n, correct answers and
-// accuracy per task. Formative only: 5-10 listeners say whether the sounds are understood, not how well in general.
-// Usage: bun scripts/listen-test-summary.ts <folder>   (or: bun run listen-test:summary <folder>)
 import { readdirSync, readFileSync } from "node:fs";
 import { join } from "node:path";
 import { isResultsFile, summarise, type ResultsFile } from "../src/lib/listen-test/results";
 import { TASK_IDS } from "../src/lib/listen-test/tasks";
-import { extrasReport } from "../src/lib/listen-test/extras/summary"; // ART
-/** The task column fits the longest task id (the CV/ML chord tasks are longer than the first five). */
+import { extrasReport } from "../src/lib/listen-test/extras/summary";
 const TASK_WIDTH = Math.max(...TASK_IDS.map((id) => id.length));
 
 export function readFolder(folder: string): { files: ResultsFile[]; skipped: string[] } {
@@ -31,7 +27,7 @@ export function report(folder: string): string {
     `${"Task".padEnd(TASK_WIDTH)}  n  correct  accuracy`,
     ...s.tasks.map((t) => `${t.task.padEnd(TASK_WIDTH)} ${String(t.n).padStart(2)}  ${String(t.correct).padStart(7)}  ${t.n ? pct(t.accuracy).padStart(8) : "     n/a"}`),
   ];
-  lines.push(...extrasReport(files)); // ART: emotion ratings and ear vs eye (testVersion 2+)
+  lines.push(...extrasReport(files));
   if (skipped.length) lines.push("", `Not listener-test files (skipped): ${skipped.join(", ")}`);
   return lines.join("\n");
 }

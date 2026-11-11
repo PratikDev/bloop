@@ -1,7 +1,3 @@
-// The Team/About page's content: content/team.json, filled by the team. A field still "TODO" shows
-// nothing on the page (never the word), and a release build (BLOOP_RELEASE=1) refuses to build while one remains
-// (scripts/check-team.ts).
-
 export const TODO = "TODO";
 
 interface TeamMember {
@@ -24,7 +20,6 @@ interface ShownMember {
   role: string | null;
 }
 
-/** What the page shows: every field that isn't TODO; a member with no name isn't shown. */
 interface ShownTeam {
   teamName: string | null;
   members: ShownMember[];
@@ -46,7 +41,6 @@ export function shownTeam(file: TeamFile): ShownTeam {
   };
 }
 
-/** The JSON paths still TODO (or empty), e.g. "members[0].role". */
 function todoFields(file: TeamFile): string[] {
   const out: string[] = [];
   for (const key of ["teamName", "challenge", "localEvent", "licence"] as const) if (!filled(file[key])) out.push(key);
@@ -58,13 +52,11 @@ function todoFields(file: TeamFile): string[] {
   return out;
 }
 
-/** The release check: ok unless BLOOP_RELEASE=1 and a field is still TODO. */
 export function releaseCheck(file: TeamFile, release: boolean): { ok: boolean; todo: string[] } {
   const todo = todoFields(file);
   return { ok: !release || todo.length === 0, todo };
 }
 
-/** Reads a parsed JSON value as a TeamFile, or throws naming the first wrong field. */
 export function parseTeam(raw: unknown): TeamFile {
   const o = raw as Partial<Record<keyof TeamFile, unknown>>;
   const str = (k: keyof TeamFile) => {

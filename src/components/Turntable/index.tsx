@@ -228,7 +228,7 @@ export function Turntable() {
         </div>
         {sceneOpen && <SceneHost id={sceneOpen} onExit={closeScene} tier={settings.quality} geo={geo} />}
       </section>
-      {/* Outside the stage: sheets portal anyway; in low-vision mode a drawer opens here, in the page under the stage. */}
+      {}
       <Drawers
         open={drawer}
         onClose={() => setDrawer(null)}

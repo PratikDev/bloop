@@ -58,6 +58,5 @@ export function Waveform({ className }: { className?: string }) {
     return () => cancelAnimationFrame(raf);
   }, [fps, mode]);
 
-  // Decorative: calm view (low-vision mode) hides it.
   return <canvas ref={canvasRef} aria-hidden="true" data-decorative="" className={cn("h-8 w-32", className)} />;
 }

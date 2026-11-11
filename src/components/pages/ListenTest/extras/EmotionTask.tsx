@@ -13,7 +13,6 @@ import type { ExtraStepProps } from "./registry";
 
 const ACTION = "h-11 rounded-full px-5 text-body";
 
-/** Two clips of the same data (one heard, one seen, counterbalanced), each followed by the two 5-point ratings. */
 export function EmotionTask({ inputs, onDone, play, coins }: ExtraStepProps) {
   const t = useT();
   const order = emotionOrder(coins[0]);

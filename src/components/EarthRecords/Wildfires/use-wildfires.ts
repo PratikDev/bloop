@@ -19,14 +19,12 @@ import { ensureDataAudio } from "@/lib/earth/sound/out";
 import type { FirmsDailyRegion, FirmsNrtSource } from "@/types/data-contract";
 import { useAppState } from "../../AppState/use-app-state";
 
-/** A replay step and a fire-season day last this long (design choices). */
 const REPLAY_STEP_MS = 3000;
 const SEASON_STEP_MS = 700;
 const FIRST_REGION: FirmsDailyRegion = "Bangladesh";
 
 export type Sequence = { kind: "replay"; step: number } | { kind: "season"; key: string; step: number } | null;
 
-/** The fires and fire-weather record: its data, needle, choices, the two sound layers and the two sequences. */
 export function useWildfires() {
   const { state } = useAppState();
   const { value: data, error } = useLoaded(loadFireData);
@@ -63,7 +61,6 @@ export function useWildfires() {
 
   const regions = useMemo(() => (data ? activeRegions(data.fwi.meta.grid, data.fwi.codes) : []), [data]);
   const seasonCases: SeasonCase[] = useMemo(() => (data ? chtSeasonCases(data.firms) : []), [data]);
-  /** Bangladesh's latest day across every sensor: all zero = off-season. */
   const offSeason = useMemo(() => {
     if (!daily || !days.length) return null;
     const last = days[days.length - 1];
@@ -83,12 +80,10 @@ export function useWildfires() {
     return grids;
   }, [data, archive]);
 
-  // A sequence past its last day is over (no state to reset: it is derived here).
   const seqLength =
     rawSequence?.kind === "replay" ? (archive?.length ?? 0) : rawSequence?.kind === "season" ? (seasonCases.find((c) => c.key === rawSequence.key)?.series.days.length ?? 0) : 0;
   const sequence: Sequence = rawSequence && rawSequence.step < seqLength ? rawSequence : null;
 
-  // Stop (Esc, the dock) stops the record and its sequence (adjusted while rendering, when the app's state changes).
   const [appPlaying, setAppPlaying] = useState(state.playing);
   if (appPlaying !== state.playing) {
     setAppPlaying(state.playing);
@@ -103,7 +98,6 @@ export function useWildfires() {
     geiger.current.stop();
   }, []);
 
-  // The two layers follow the needle and the choices while playing (not during a sequence).
   const sounding = playing && state.soundOn && sequence === null;
   useEffect(() => {
     if (!sounding || !reading) {
@@ -115,7 +109,6 @@ export function useWildfires() {
     geiger.current.set(clicksOn ? geigerRate(count) : 0, geigerBrightness(count, reading.count?.frpSumMW ?? 0), at.lon);
   }, [sounding, reading, chordOn, clicksOn, at.lon, sequence, stopAll]);
 
-  // Forecast meets outcome: each archived day's chord at the needle, the next day's FIRMS clicks over it.
   useEffect(() => {
     if (sequence?.kind !== "replay" || !archive || !daily || !src) return;
     const d = archive[sequence.step];
@@ -127,7 +120,6 @@ export function useWildfires() {
     return () => clearTimeout(timer);
   }, [sequence, archive, daily, src, region, at, chordOn, clicksOn, data]);
 
-  // The fire-season example: the case's days, one after another, as clicks (no forecast for those years: no chord).
   useEffect(() => {
     if (sequence?.kind !== "season") return;
     const c = seasonCases.find((x) => x.key === sequence.key);
@@ -139,7 +131,6 @@ export function useWildfires() {
     return () => clearTimeout(timer);
   }, [sequence, seasonCases, at.lon]);
 
-  // Leaving the record stops everything.
   useEffect(() => stopAll, [stopAll]);
   useEffect(() => {
     if (sequence === null && !playing) stopAll();

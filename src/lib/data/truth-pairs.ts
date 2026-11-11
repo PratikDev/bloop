@@ -22,14 +22,12 @@ export function loadSstPairs(): Promise<SstPairsFile> {
   return pairsCache;
 }
 
-/** The rain points behind the newest frame's check (How we know's rain card). */
 export async function loadRainPairs(): Promise<RainPairsFile> {
   const file = await fetchJson<RainPairsFile>(DATA_PATHS.truthPairs("rain"));
   requirePaths("rain_pairs.json", file, { pairs: "array", check: "object", datasets: "array" });
   return file;
 }
 
-/** Spearman's rho and n for each How we know check (pipeline/stats/truth_stats.py). */
 export async function loadTruthStats(): Promise<TruthStatsFile> {
   const file = await fetchJson<TruthStatsFile>(DATA_PATHS.truthStats);
   requirePaths("truth/stats.json", file, { "sst.spearman_rho": "number", "rain.spearman_rho": "number", "globe.spearman_rho": "number" });

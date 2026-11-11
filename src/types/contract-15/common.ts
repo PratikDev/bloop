@@ -10,10 +10,8 @@ export interface DatasetRef {
   name: string;
   agency: Agency;
   kind: SourceKind; // "model" and "inventory" always show the "Model estimate" badge (guardrail 15)
-  shares_inputs_with: string[]; // dataset ids: said out loud as "partly independent"
-  /** The dataset's landing page or DOI (from the file itself, the SVS page or the fetch code); null = not available. */
+  shares_inputs_with: string[];
   url?: string | null;
-  /** Who provides it, when the name's last bracket doesn't say; null = read it from the name. */
   provider?: string | null;
 }
 
@@ -61,7 +59,6 @@ export interface FreshnessEntry {
   period: [string | null, string | null] | null; // first/last date, shown for baselines
   credit: string;
   bytes: number;
-  /** Ids of `datasets` used only to check the product, never played (e.g. NOAA Coral Reef Watch for the SST anomaly). */
   checked_against?: string[];
 }
 

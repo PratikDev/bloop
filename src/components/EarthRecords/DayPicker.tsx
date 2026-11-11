@@ -5,7 +5,6 @@ import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@
 import { formatDay } from "@/lib/i18n";
 import { useAppState } from "../AppState/use-app-state";
 
-/** One labelled list of days (a shadcn Select; its visible label names it for every screen reader). */
 export function DayPicker({ label, days, value, onChange }: { label: string; days: readonly string[]; value: string; onChange(day: string): void }) {
   const id = useId();
   const { state } = useAppState();

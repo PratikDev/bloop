@@ -1,8 +1,3 @@
-// Bangladesh's eight divisions and their districts (Bangladesh Bureau of Statistics), for the region tree's last level
-// District names are spelled as in public/geo/bd-districts.json (geoBoundaries); the
-// test checks that every district there belongs to exactly one division. Names only: a division's place on the map
-// is the mean of its districts' label points, computed from the geo file.
-
 interface Division {
   id: string;
   name: string;

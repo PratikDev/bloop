@@ -55,7 +55,6 @@ export function useTerrainScene(o: {
   dt: SstDtField | null;
   /** N: play the anomaly against the normal tone instead of the temperature. */
   vsNormal: boolean;
-  /** The SVS 5176 picture, shown on the terrain while the anomaly plays (vsNormal); null = keep the SST picture. */
   anomalyImage?: Texture | null;
   seq: Sequence | null;
   frame: SequenceFrame | null;

@@ -7,11 +7,6 @@ import { FLAGS } from "@/lib/flags";
 import { useT } from "../../AppState/use-app-state";
 import { LetterCard } from "./LetterCard";
 
-/**
- * "Leave a letter from this record" on DATA's records (fire weather, landslide exposure, night lights): the same dated
- * card, built only from the record's files (src/lib/art/letter/data-records.ts). Category records record their class
- * and say it is not a measurement; a cloud-masked night is a gap. The record's own Play keeps its sound.
- */
 export function RecordLetter({ letter }: { letter: LetterInput | null }) {
   const t = useT();
   const [open, setOpen] = useState(false);

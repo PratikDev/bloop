@@ -1,6 +1,3 @@
-// The quick listener test: five tasks built from the records the app ships, each with its correct
-// answer computed from the same data the sound plays (never typed). PURE: the page loads the inputs.
-
 import type { DemoWindow, GlobalPlace, RainPhase, SstTruthPair } from "@/types/data-contract";
 import { CV_TASK_IDS, cvTasks, type CvOptionId, type CvSoundPlan, type CvTaskInputs } from "./chord";
 
@@ -16,7 +13,6 @@ interface SweepStep {
   phase: RainPhase;
 }
 
-/** What a task plays: two ocean tones, two duets (proof in unison), a sweep of points, or two decades of heat. */
 export type SoundPlan =
   | CvSoundPlan
   | { kind: "tones"; first: number; second: number }
@@ -26,7 +22,6 @@ export type SoundPlan =
 
 export interface Task {
   id: TaskId;
-  /** Shown in the question (place names, decades): data as the files give it. */
   params: Record<string, string>;
   options: readonly OptionId[];
   correct: OptionId;
@@ -39,13 +34,9 @@ interface RainReading {
 }
 
 export interface TaskInputs /*  */ extends Partial<CvTaskInputs> /*  */ {
-  /** truth/sst_pairs.json: ocean points where the frame and NASA's MUR file were both read. */
   pairs: readonly SstTruthPair[];
-  /** global/places.json */
   places: readonly GlobalPlace[];
-  /** The latest rain frame at a point (latest/rain.bin). */
   rainAt: (lat: number, lon: number) => RainReading;
-  /** One city's heat record, two decades (demo/cities_then_now.json). */
   heat: { place: string; A: DemoWindow; B: DemoWindow };
 }
 
@@ -58,7 +49,6 @@ function median(values: readonly number[]): number {
   return s.length % 2 ? s[mid] : (s[mid - 1] + s[mid]) / 2;
 }
 
-/** The reference tone: the median ocean temperature of the checked points, as read from the frame. */
 export const referenceC = (pairs: readonly SstTruthPair[]) => median(pairs.map((p) => p.frame));
 
 function oceanTask(pairs: readonly SstTruthPair[]): Task | null {
@@ -74,7 +64,6 @@ function rainTask(inputs: TaskInputs): Task | null {
   const wet = read.filter((r) => (r.rain.mmPerHour ?? 0) > 0).sort((a, b) => (b.rain.mmPerHour ?? 0) - (a.rain.mmPerHour ?? 0))[0];
   const dry = read.find((r) => r.rain.mmPerHour === 0);
   if (!wet || !dry) return null;
-  // The order follows the places file, so the rainier city is not always first.
   const [first, second] = inputs.places.indexOf(wet.place) < inputs.places.indexOf(dry.place) ? [wet, dry] : [dry, wet];
   const step = (r: typeof wet): SweepStep => ({ lat: r.place.lat, lon: r.place.lon, valueC: null, mmPerHour: r.rain.mmPerHour, phase: r.rain.phase });
   return {
@@ -124,7 +113,6 @@ function heatTask({ heat }: TaskInputs): Task | null {
   };
 }
 
-/** The tasks in order; a task whose data gives no clear answer today (e.g. no rain anywhere) is left out. */
 export function buildTasks(inputs: TaskInputs): Task[] {
   return [
     oceanTask(inputs.pairs),

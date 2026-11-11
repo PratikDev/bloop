@@ -1,5 +1,3 @@
-// Task "chordGroups": one real box played as the value chord (B), either today's one-group box or its two-group box
-// (drawn once per session); the answer is the chord's own group count (findModes, B1).
 import { chordTones } from "@/lib/audio/layers/chord/tones";
 import { chordPeak } from "@/lib/audio/layers/chord/voice";
 import type { Task } from "../tasks";

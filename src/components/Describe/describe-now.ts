@@ -1,6 +1,3 @@
-// What a description of the needle needs, gathered once: the frame on screen (live, or a
-// time-lapse frame held with PageUp/PageDown), the change since the frame before, and place names from the gazetteer.
-// D and the Description panel both use it, so they never disagree.
 import type { TrackMode } from "@/lib/audio-adapter/types";
 import { loadSequenceFrame, rainChangeAt, type LatLon, type LiveFields } from "@/lib/data";
 import { liveRainFrame, oceanFacts, rainFacts, sequenceRainFrame, type DescribedRecord, type PlaceName, type RainFrame, type RecordFacts } from "@/lib/describe/facts";
@@ -10,13 +7,10 @@ import { loadGeoSoon, placeNamers } from "./place-namer";
 export interface DescribeInput {
   fields: LiveFields;
   at: LatLon;
-  /** The track on screen (a held frame shows rain). */
   track: TrackMode;
-  /** A time-lapse frame held on the map (its position in the sequence), or null for the live frames. */
   heldFrame: number | null;
 }
 
-/** The facts for each record on screen, in a language (place names follow it). */
 export type FactsFor = (lang: Lang) => RecordFacts[];
 
 async function rainFrameFor(input: DescribeInput): Promise<RainFrame | null> {

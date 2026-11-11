@@ -1,4 +1,3 @@
-// English strings for the page shell (redesign): the
 // navigation, Home, the Listen page's hint and tour, the Then vs Now views,
 // How we know, and "no signal". Numbers are parameters from the data files.
 

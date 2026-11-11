@@ -10,7 +10,6 @@ import { Section } from "./parts";
 
 const KINDS = ["captions", "chapters", "metadata"] as const satisfies readonly VttKind[];
 
-/** The run's three WebVTT files, each saved on its own button (no download happens without a press). */
 export function TimedTextFiles({ player, files }: { player: TimedPlayer; files: Record<VttKind, string> }) {
   const t = useT();
   const announce = useAnnounce();

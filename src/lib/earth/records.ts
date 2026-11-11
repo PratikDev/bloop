@@ -1,7 +1,3 @@
-// The records built from the shipped products: each joins Official records through the record index (as rows of
-// loadOfficialIndex, after the pipeline's own), so the shelf, the transcript list and the credits pick them up with no
-// list of their own. A row's title and period come from the products' files; only the ids and flags live here.
-
 import { fetchJson } from "@/lib/data/fetch";
 import { en, type MessageKey, type Messages } from "@/lib/i18n";
 import { FLAGS } from "@/lib/flags";
@@ -10,7 +6,6 @@ import { DATA_PATHS } from "@/lib/data/paths";
 import { EARTH_PATHS } from "./paths";
 import { RADAR_APPLIED_VOICE, RADAR_RECORD } from "./radar";
 
-/** A key whose English is plain text (an index title). */
 type TitleKey = { [K in MessageKey]: Messages[K] extends string ? K : never }[MessageKey];
 
 export const APP_RECORD_IDS = ["fires_fwi", "landslide_lhasa", "nightlights_bm"] as const;
@@ -18,10 +13,7 @@ export type AppRecordId = (typeof APP_RECORD_IDS)[number];
 
 interface AppRecordSpec {
   id: AppRecordId;
-  /** The registry products (meta/freshness.json) the record plays or shows: they move to "Data in this app". */
   products: readonly string[];
-  /** Its title (English: index titles are English). Earth Orchestra classifies it from these words
-   *  (scripts/orchestra-categories.ts, then getCategory), like every other record. */
   titleKey: TitleKey;
   enabled: () => boolean;
 }
@@ -34,7 +26,6 @@ export const APP_RECORDS: Record<AppRecordId, AppRecordSpec> = {
 
 export const isAppRecord = (record: string): record is AppRecordId => (APP_RECORD_IDS as readonly string[]).includes(record);
 
-/** An index row of an app record: the products it plays (credits read them). */
 interface AppIndexRow extends OfficialIndexRow {
   products: readonly string[];
 }
@@ -44,7 +35,6 @@ export const appProducts = (row: OfficialIndexRow): readonly string[] => ("produ
 const day = (iso: string | null) => (iso ? iso.slice(0, 10) : "");
 const span = (a: string, b: string) => (a === b ? a : `${a} – ${b}`);
 
-/** The rows, each from its products' own files (title words from the English table: index titles are English). */
 async function appIndexRows(enabled: (s: AppRecordSpec) => boolean = (s) => s.enabled()): Promise<AppIndexRow[]> {
   const rows: AppIndexRow[] = [];
   if (enabled(APP_RECORDS.fires_fwi)) {
@@ -72,15 +62,10 @@ async function appIndexRows(enabled: (s: AppRecordSpec) => boolean = (s) => s.en
   return rows;
 }
 
-/** Method records play NASA's method on another voice's data, and take that voice's Earth Orchestra category
- *  (scripts/orchestra-categories.ts, orchestra.test.ts). */
 export const METHOD_APPLIED_TO: Readonly<Record<string, string>> = { [RADAR_RECORD]: RADAR_APPLIED_VOICE };
 
-/** A pipeline row for a method record (SVS 13786: no layers; the app plays NASA's method on an Earth frame). */
 const isMethodRow = (row: OfficialIndexRow): boolean => "kind" in row && (row as { kind?: string }).kind === "method";
 
-/** The index with the app records after the pipeline's rows (a failed product load leaves the index as it was). A
- *  method row is listed only with its flag: without it the record has nothing to play. */
 export async function withAppRecords(index: OfficialIndex): Promise<OfficialIndex> {
   const extra = await appIndexRows().catch(() => []);
   return { records: [...index.records.filter((r) => FLAGS.dataRadar || !isMethodRow(r)), ...extra] };

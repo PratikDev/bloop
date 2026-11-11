@@ -5,7 +5,6 @@ import { Facts } from "../../HowWeGotThis/Facts";
 import { Lines, Loading, PAGE, Section, TranscriptHeader } from "./parts";
 import { useOfficialTranscript } from "./use-official-transcript";
 
-/** An Official record's transcript: the same story as its sound, its liner notes and NASA's own description. */
 export function OfficialTranscript({ record }: { record: string }) {
   const t = useT();
   const { data, error } = useOfficialTranscript(record);

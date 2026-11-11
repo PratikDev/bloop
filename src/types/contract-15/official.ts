@@ -116,7 +116,6 @@ interface OfficialCheckSummary {
   decision?: { on: string; status: OfficialStatus; statement: string; table: string };
 }
 
-/** One dataset as an SVS page lists it (pipeline/svs, links fixed by svs/dataset_links.py). */
 interface OfficialSvsDataset {
   name: string;
   common_name: string;
@@ -136,7 +135,6 @@ export interface OfficialManifest {
   period: { start: string; end: string; label: string };
   badge: OfficialBadge;
   credits_by_role: Record<string, string[]>;
-  /** The datasets the SVS page lists (absent for records with no SVS page of their own). */
   datasets?: OfficialSvsDataset[];
   credit_line: string;
   licence: string;

@@ -1,9 +1,3 @@
-// The plans the data-voice check renders, from data the app already ships: live SST (MUR, Listen's ocean voice) along
-// a row of the Bay of Bengal, IMERG rain at the storm the time-lapse follows (48 half-hourly frames), and SVS 3912's
-// SST at its start point through time; Then vs Now's three voices on the first city's yearly series (lifetime.json:
-// GISTEMP heat, GPCP monsoon rain, GRACE water). An Official record's own plan: its first channel at the needle
-// through time.
-
 import { channelReading, type OfficialRecordState } from "@/components/OfficialRecords/use-official-record";
 import { continuousRule } from "@/lib/audio/mapping";
 import { followStorm, loadOfficialLayer, loadOfficialManifest, loadSequence, valueAt, type LiveFields, type OfficialGrid } from "@/lib/data";
@@ -12,14 +6,11 @@ import { seriesOf } from "../lifetime/song";
 import type { ClimateCellName } from "@/types/data-contract";
 import { dropPlan, pitchPlan, type ProofPlan } from "./plan";
 
-/** The CI records: live SST, IMERG rain, SVS 3912, and Then vs Now's heat, monsoon and water voices. */
 export const PROOF_RECORDS = ["ocean", "rain", "currents_3912", "heat", "monsoon", "water"] as const;
 type ProofRecord = (typeof PROOF_RECORDS)[number];
 
 const MAX_STEPS = 24;
-/** A cursor's pace on the map (s per value): slow enough for Music's meend to settle. */
 const CURSOR_STEP_SEC = 0.4;
-/** The Bay of Bengal row the ocean plan reads (15° N, 81° E eastward, half a degree apart). */
 const BAY_ROW = { lat: 15, lon: 81, stepDeg: 0.5 };
 
 function oceanPlan(fields: LiveFields): ProofPlan {
@@ -44,7 +35,6 @@ async function currentsPlan(): Promise<ProofPlan> {
   return pitchPlan("currents_3912", "ocean", values, 1 / option.steps_per_second);
 }
 
-/** A Then vs Now voice on the first city's yearly series (the latest years), at the cursor's pace. */
 async function thenNowPlan(voice: "heat" | "monsoon" | "water"): Promise<ProofPlan> {
   const f = await loadLifetime();
   const city = Object.keys(f.cities)[0] as ClimateCellName;
@@ -58,7 +48,6 @@ export async function proofPlan(record: ProofRecord, fields: LiveFields | null):
   return record === "rain" ? rainPlan() : currentsPlan();
 }
 
-/** An Official record's plan: its first channel's values at the needle through time, at the record's own tempo. */
 export function recordPlan(rec: OfficialRecordState): ProofPlan | null {
   const channel = rec.option?.channels[0];
   if (!rec.option || !channel || !rec.ready || !rec.manifest) return null;

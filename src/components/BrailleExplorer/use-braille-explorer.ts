@@ -11,7 +11,7 @@ import { pushEscapeHandler } from "@/lib/escape";
 import { useAnnounce } from "../Announcer/use-announcer";
 import { useAppState, useT } from "../AppState/use-app-state";
 
-type ShapeField = HTMLTextAreaElement | HTMLInputElement;
+export type ShapeField = HTMLTextAreaElement | HTMLInputElement;
 
 const LEVEL_MS = 150;
 

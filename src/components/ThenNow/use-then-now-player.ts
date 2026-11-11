@@ -28,7 +28,6 @@ const PART_OF_PLAYER: Record<string, Part> = {
 /** What Describe says before a part plays: its caption, which names both windows (and, for water, the silences). */
 const partLine = (input: ThenNowInput, part: Part) => captionLine("caption.thenNow.caption", { text: input.captions[part] });
 
-/** A part's statistics (stats.json), by part; null when the file is missing (then nothing is said, never a typed number). */
 type StatLines = (part: Part) => StatTexts | null;
 
 const statCaption = (s: StatTexts) => ({ en: s.en, bn: s.bn });
@@ -53,7 +52,6 @@ export function useThenNowPlayer(input: ThenNowInput | null, demo: DhakaThenNowD
     lines: narrating ? [partLine(data, part), ...statLines(part)] : [],
     play: () => audio.playThenNow(data, part),
   });
-  // Describe says the statistics right after the caption.
   const statLines = (part: Part) => {
     const s = stats(part);
     return [...(s ? [captionLine("caption.thenNow.stats", statCaption(s))] : []), ...notes(part).map((n) => captionLine("caption.note", { ...n }))];
@@ -63,16 +61,12 @@ export function useThenNowPlayer(input: ThenNowInput | null, demo: DhakaThenNowD
   // The narrated part leads (its description is being said before any step sounds).
   const soundingPart = player.active ? (player.tag ?? headPart) : null;
 
-  // Without Describe, a part that starts sounding shows its statistics in the caption bar and gives the live region
-  // (and so a braille display) the short form. With Describe, its narrated lines already said them.
   useEffect(() => {
     if (!soundingPart || narrating) return;
     const s = stats(soundingPart);
-    // One caption: the bar shows only the latest, so the statistics and the notes go together.
     const lines = [...(s ? [statCaption(s)] : []), ...notes(soundingPart)];
     if (lines.length) postCaption("caption.note", { en: lines.map((l) => l.en).join(" "), bn: lines.map((l) => l.bn).join(" ") });
     if (s) announce(state.lang === "bn" ? s.shortBn : s.shortEn);
-    // Only when the sounding part changes: a language switch mid-part does not repeat it.
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [soundingPart]);
 

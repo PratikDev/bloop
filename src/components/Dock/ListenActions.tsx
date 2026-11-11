@@ -50,7 +50,7 @@ export function ListenActions() {
         onClick={() => commands.openPanel(state.panel)}
       />
       {FLAGS.expedition && <LogMenu />}
-      {/* the fire-weather layer's sound at the cursor (no button; its switch is in the Mixer) */}
+      {}
       <FireWeatherLayerSound />
       {/*  */}
       <DockAction icon={<Keyboard aria-hidden="true" />} full={t("help.keys")} short={t("help.keys")} onClick={commands.openHelp} className="hidden lg:inline-flex" />

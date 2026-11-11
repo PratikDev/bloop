@@ -1,7 +1,3 @@
-// PURE: the storm time-lapse's timed text. One metadata cue per half-hourly frame (its own
-// UTC time), a chapter each time the followed storm moves into another region, and DCMP-style captions when the drops
-// begin, stop, turn to bells (snow) or fall silent (no data), at the heaviest frame, and at the end. Frame i starts at
-// i × stepSec, as both engines schedule it.
 import { peakFrame } from "@/lib/audio/storm-maths";
 import type { SweepPoint } from "@/lib/audio/types";
 import { evenSteps } from "@/lib/audio/players/steps";
@@ -11,7 +7,6 @@ import { metadataCue, placeOf, rainNote, rainSlot, regionOf, UNIT, type TimedTra
 
 export interface TimelapseRun {
   frames: SweepPoint[];
-  /** Each frame's time (UTC, ISO 8601). */
   times: string[];
   stepSec: number;
 }

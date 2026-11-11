@@ -15,7 +15,6 @@ export type PanelTab = "describe" | "table" | "truth" | "mapping" | "provenance"
 /** Settings remembered on this device (src/components/AppState/prefs.ts). */
 export type PrefKey = "lang" | "describe" | "captions" | "builtInVoice" | "hide3d" | "tuned" | "started" | "soundChoice" | AccessKey;
 
-/** What the visitor chose at Start: remembered, so a return visit knows; null before any choice. */
 export type SoundChoice = "sound" | "silent";
 export type Prefs = Partial<Pick<AppState, PrefKey>>;
 
@@ -46,26 +45,16 @@ export interface AppState extends AccessChoices {
   helpOpen: boolean;
   /** The Braille Data Explorer (B) is open. */
   brailleOpen: boolean;
-  /** Degrees an arrow key moves the needle (+ and − on the map; src/a11y/mapNav.ts). */
   stepDeg: number;
-  /** Earlier places of the needle, oldest first ("." goes back; arrow steps, jumps and Go to add to it). */
   trail: LatLon[];
-  /** The storm time-lapse frame PageUp/PageDown hold on the map (index into its frames); null = the live frame. */
   heldFrame: number | null;
-  /** The 3D views are hidden (Settings); every task still works from the HTML around them. */
   hide3d: boolean;
-  /** Track 0 "Tuning" was finished or skipped on this device (remembered), and whether it is showing now. */
   tuned: boolean;
   tuning: boolean;
-  /** The expedition log: this session's places, values, comparisons and their sources (never saved by the app). */
   log: LogEntry[];
-  /** The sonar (N) is pinging toward its target. */
   sonar: boolean;
-  /** What the map's next settled announcement leads with (a jump's region or place); `n` counts, so a repeat is new. */
   lead: Lead | null;
-  /** Low-vision mode's settings (saved on their own, src/lib/low-vision/settings.ts). */
   lowVision: LowVision;
-  /** The OS's reduced-motion setting; calm view reduces motion too, and gives it back when it is turned off. */
   osReduceMotion: boolean;
 }
 
@@ -74,7 +63,6 @@ interface Lead {
   n: number;
 }
 
-/** The on/off settings (Settings, Help and the keys toggle them). */
 export type ToggleKey = "describe" | "captions" | "reduceMotion" | "builtInVoice" | "allMuted" | "hide3d";
 
 export type AppAction =
@@ -146,7 +134,6 @@ export const initialState: AppState = {
   ...ACCESS_DEFAULTS,
 };
 
-/** New low-vision settings; calm view also reduces motion, and turning it off gives back the OS setting. */
 function withLowVision(state: AppState, lowVision: LowVision): AppState {
   const calmChanged = lowVision.calm !== state.lowVision.calm;
   return { ...state, lowVision, reduceMotion: calmChanged ? lowVision.calm || state.osReduceMotion : state.reduceMotion };
@@ -171,7 +158,6 @@ export function isVoiceAudible(state: AppState, voice: LiveVoiceId): boolean {
   return TRACK_VOICES[state.track].includes(voice);
 }
 
-/** Track 0 opens once the intro is over, before the first exploration, until it has been finished or skipped. */
 const withTuning = (state: AppState, on: boolean = FLAGS.tuning): AppState => (on && !state.tuned ? { ...state, tuning: true } : state);
 
 export function reducer(state: AppState, action: AppAction): AppState {
@@ -217,7 +203,6 @@ export function reducer(state: AppState, action: AppAction): AppState {
     case "setTrack":
       return { ...state, track: action.track };
     case "setMode":
-      // A held time-lapse frame belongs to the map it was held on.
       return { ...state, mode: action.mode, heldFrame: action.mode === state.mode ? state.heldFrame : null };
     case "setLang":
       return { ...state, lang: action.lang };

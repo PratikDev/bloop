@@ -16,7 +16,7 @@ const TONE_RELEASE_SEC = 0.08;
 
 let tone: { osc: OscillatorNode; env: GainNode } | null = null;
 
-// stopAll stops the oscillator; forget it right away so the UI reads "stopped".
+// stopAll() stops the oscillator; forget it right away so the UI reads "stopped".
 onStopAll(() => {
   tone = null;
 });

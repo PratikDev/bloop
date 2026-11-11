@@ -1,6 +1,3 @@
-// Bangla templates for the layered descriptions (en/describe.ts), written in Bangla rather than translated word for
-// word. Drafts: listed in drafts.ts until a Bangla speaker checks them. Every parameter is a slot already formatted in
-// Bangla; the templates never type a digit (the digit-provenance test checks).
 import type { describeEn } from "../en/describe";
 import { formatDegrees } from "../format";
 import type { Translated } from "../types";

@@ -16,14 +16,8 @@ import { localName } from "../Turntable/place-text";
 import { bandImage, drawLabels, drawSharp, drawThickCoast, labelPx, landMask, THICK_COAST_PX, type MapLabel } from "./draw";
 import { bandText, useLvMap } from "./use-lv-map";
 
-/** Band labels: one per tile of a 12 × 6 grid over the whole map, where a band fills it (design choice). */
 const TILES = { x: 12, y: 6 } as const;
 
-/**
- * Low-vision mode's map layer, between NASA's frame and the needle: the
- * decoded values re-coloured in sharp bands with their ranges written on them, thick coastlines, and city names in
- * large text (Dhaka, Chattogram, the other always-labelled cities and the needle's place). Empty when none is on.
- */
 export function LvMapLayer({ size, rainImage, track }: { size: CanvasSize | null; rainImage: HTMLImageElement | null; track: string }) {
   const { state } = useAppState();
   const t = useT();
@@ -37,7 +31,6 @@ export function LvMapLayer({ size, rainImage, track }: { size: CanvasSize | null
     if (wantsCities && !geo) void loadGeo().then(setGeo, () => undefined);
   }, [wantsCities, geo]);
 
-  // The expensive parts, once per frame and theme: the band image and the land mask.
   const bandsImg = useMemo(() => (map?.recoloured ? bandImage(map, cssVarReader()) : null), [map]);
   const ocean = useMemo(() => (fields ? sstGrid(fields.sst) : null), [fields]);
   const labels = useMemo(() => (map?.recoloured && lv.bands ? bandLabels(map.grid, map.bands, map.record, TILES.x, TILES.y) : []), [map, lv.bands]);
@@ -51,7 +44,6 @@ export function LvMapLayer({ size, rainImage, track }: { size: CanvasSize | null
     const read = cssVarReader();
     if (bandsImg) {
       drawSharp(ctx, bandsImg, w, h);
-      // Both: the rain frame stays on top of the re-coloured ocean.
       if (track === "both" && rainImage) ctx.drawImage(rainImage, 0, 0, w, h);
     }
     if (lv.coast === "thick" && ocean) drawThickCoast(ctx, landMask(ocean, read("--lv-coast")), landMask(ocean, read("--lv-land")), w, h);
@@ -73,7 +65,6 @@ export function LvMapLayer({ size, rainImage, track }: { size: CanvasSize | null
     drawLabels(ctx, out, px, family);
     canvas.dataset.cities = JSON.stringify(out.slice(bandCount).map((l) => l.text));
     canvas.dataset.coast = lv.coast === "thick" && ocean ? String(THICK_COAST_PX) : "";
-    // For checks: what each label says and where (the canvas itself is decorative; the text is in the status region).
     canvas.dataset.labels = JSON.stringify(map && bandsImg ? labels.map((l) => ({ lat: l.lat, lon: l.lon, band: l.band, text: bandText(t, state.lang, map.bands[l.band]) })) : []);
   }, [size, bandsImg, labels, map, lv.coast, lv.cities, lv.textScale, geo, ocean, state.cursor, state.lang, t, track, rainImage]);
 

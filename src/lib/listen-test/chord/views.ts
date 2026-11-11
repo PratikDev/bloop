@@ -1,4 +1,3 @@
-// The named boxes over today's SST, read with the panel's own functions: each box's statistics and value groups.
 import { findModes } from "@/lib/audio/layers/chord/modes";
 import { NAMED_BOXES, type NamedBox } from "@/lib/cv/boxes";
 import { boxStats, type BoxStats } from "@/lib/cv/box-stats";
@@ -12,10 +11,8 @@ export interface BoxView {
   groups: ReturnType<typeof findModes>;
 }
 
-/** σ for the groups: the live SST's measured error (error_budget.json). */
 const sstSigma = () => budgetFor("ocean")?.error_in_axis_units ?? Number.NaN;
 
-/** Every named box with values today, in boxes.json order. */
 export function boxViews(sst: SstField): BoxView[] {
   const src = sstSource(sst, "SST");
   return NAMED_BOXES.map((box) => {
@@ -24,5 +21,4 @@ export function boxViews(sst: SstField): BoxView[] {
   }).filter((v) => v.stats.valid > 0);
 }
 
-/** A box's centre (where its sound is panned from). */
 export const centre = (b: NamedBox) => ({ lat: (b.bounds[1] + b.bounds[3]) / 2, lon: (b.bounds[0] + b.bounds[2]) / 2 });

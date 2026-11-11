@@ -33,11 +33,6 @@ function Panel({ heading, children }: { heading: string; children: ReactNode }) 
   );
 }
 
-/**
- * The quick listener test: hidden (no link, noindex), anonymous, adults only, five tasks whose answers
- * come from the shipped data, answers kept in memory and exported as a file by the facilitator
- * (docs/LISTEN_TEST_PROTOCOL.md). No listener result is shown anywhere in the app.
- */
 export function ListenTestPage() {
   const t = useT();
   const { state } = useAppState();
@@ -119,7 +114,6 @@ export function ListenTestPage() {
       </Panel>
     );
   } else if (s.kind === "extra") {
-    // ART: an extra task module (src/components/pages/ListenTest/extras/registry.ts)
     const { Step, info, heading } = lt.extras[s.index];
     body = (
       <Panel heading={t(heading)}>

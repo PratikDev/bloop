@@ -25,15 +25,10 @@ import { Tile } from "./Tile";
 import { useHowProvenance } from "./use-how-provenance";
 import { FLAGS } from "@/lib/flags";
 import { SameChordCard } from "./SameChordCard";
-import { ArtHowCards } from "../../Art/HowCards"; // ART
+import { ArtHowCards } from "../../Art/HowCards";
 
 const FOOT_LINK = "h-11 gap-2 rounded-full px-4 text-body text-haze ring-1 ring-glass-edge hover:bg-tide hover:text-moon";
 
-/**
- * How we know: four checks at a glance (ocean, rain, the sound rules, ground
- * vs satellite), each with its evidence on the card (plot or table, key numbers,
- * a plain explanation) and its full wording a click away; credits and keys at the foot.
- */
 export function HowPage() {
   const t = useT();
   const commands = useCommands();

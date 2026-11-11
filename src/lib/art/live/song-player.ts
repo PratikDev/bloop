@@ -1,7 +1,3 @@
-// Plays "Your lifetime" (and other one-note-a-value series) on L2's sonification bus: each part one note a year at its
-// own rule's pitch, in its Earth Orchestra family (plain tones when that is off), rain as that year's drops. A second of
-// silence between parts. Stop / Esc ends it with every other source; Mute all silences it with the master.
-
 import { getCtx, getGraph } from "@/lib/audio/context";
 import { categoryOfVoice, familyFor, familyNote, noiseBand } from "@/lib/audio/orchestra";
 import { track } from "@/lib/audio/sources";

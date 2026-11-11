@@ -5,7 +5,6 @@ import type { NightLightsFile } from "@/types/data-contract";
 import { LIGHTS_VOICE } from "./nightlights";
 import { DATA_SCRIPTS, headerProvenance } from "./provenance";
 
-/** How we got this for a city's night lights: the file's header, its quality rule and window, the sound's rule. */
 export function lightsProvenance(t: BoundT, lang: Lang, file: NightLightsFile, city: string): Provenance {
   const c = file.cities[city];
   return headerProvenance({

@@ -2,13 +2,16 @@
 // resizes them, and writes KTX2 (Basis Universal) plus a WebP fallback to
 // public/textures/earth/. Nothing is hot-linked at runtime. Every image here is
 // decoration: no value, sound or label in the app comes from these files.
+//
 //   node scripts/build-earth-textures.mjs                 # the live frames' month(s)
 //   node scripts/build-earth-textures.mjs --months 09,10  # specific months
 //   node scripts/build-earth-textures.mjs --all-months    # all 12 Blue Marble months
 //   node scripts/build-earth-textures.mjs --download-only
 //   node scripts/build-earth-textures.mjs --force          # re-encode files that exist
+//
 // The 21600 × 10800 sources decode to ~700 MB; libvips may spill to the temp
 // folder, so point TMP/TMPDIR at a drive with a few GB free if yours is small.
+//
 // Equirectangular, row 0 = 90° N, column 0 = 180° W (like every L1 grid).
 // Sources, licences and credits: docs/turntable.md and SOURCES.json.
 

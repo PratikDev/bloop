@@ -5,7 +5,7 @@
 import { clampLat, wrapLon } from "@/lib/data/grid";
 import type { LatLon } from "@/lib/data/places";
 
-interface Vec3 {
+export interface Vec3 {
   x: number;
   y: number;
   z: number;

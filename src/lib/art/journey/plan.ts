@@ -1,11 +1,3 @@
-// PURE: "Water's journey", a Bangladesh suite, from records already shipped: lightning
-// (SVS 5011, pattern only) → an atmospheric river (SVS 4960, relative) → IMERG rain over Bangladesh (the storm the
-// time-lapse follows) → landslide exposure on Bangladesh's hills (SVS 5584, LHASA, modelled from rainfall; with the
-// landslide record's flag) → GRACE water stored under Bangladesh → the Bay of Bengal's sea surface (MUR). Each step
-// plays its record's own rule at its own pace in its Earth Orchestra family, with the dial at 1 (swara + meend, drone,
-// reverb: the data voice unchanged), 2 s of silence between datasets. Every value comes from the data files. A class
-// step (landslides) plays each class's fixed rumble from its rule, and its stated silences.
-
 import { continuousRule, mapContinuous, voiceSpec } from "@/lib/audio/mapping";
 import { classesRule, classState } from "@/lib/earth/classes";
 import type { ClassRumble } from "@/types/data-contract";
@@ -38,7 +30,6 @@ export interface JourneySource {
 interface JourneyStep extends Omit<JourneySource, "values"> {
   values: (number | null)[];
   category: EarthCategory | null;
-  /** The step's Sa: the bottom of its pitch rule (a fixed note; never moved by data); null for a rate rule. */
   sa: number | null;
   start: number;
   end: number;
@@ -52,7 +43,6 @@ export interface Journey {
 
 function events(s: JourneySource, start: number): JourneyEvent[] {
   if (isClasses(s.voiceId)) {
-    // A class code per step: its rule's fixed rumble, or a stated silence (no event).
     const rule = classesRule(s.voiceId);
     return s.values.flatMap((code, i) => {
       const r = code === null ? undefined : classState(rule, code)?.rumble;
@@ -69,7 +59,6 @@ function events(s: JourneySource, start: number): JourneyEvent[] {
   if (rule.output.param === "dropsPerSecond") {
     return dropPlan(s.recordId, s.voiceId, s.values, s.stepSec).drops.map((t) => ({ kind: "tick" as const, at: start + t, noise: "drop" as const }));
   }
-  // A rate rule (clicks per second): that many evenly spaced clicks in each step.
   return s.values.flatMap((v, i) => {
     const rate = v === null ? null : mapContinuous(v, rule);
     const n = rate === null ? 0 : Math.max(1, Math.round(rate * s.stepSec));
@@ -89,5 +78,4 @@ export function buildJourney(sources: readonly JourneySource[]): Journey {
   return { steps, seconds: t + 1 };
 }
 
-/** The step sounding at time t (s from the start), or null in a gap. */
 export const stepAt = (j: Journey, t: number) => j.steps.find((s) => t >= s.start && t < s.end) ?? null;

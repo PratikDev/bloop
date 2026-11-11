@@ -1,6 +1,3 @@
-// PURE: the raw-pixel demo's frame: SVS 3912's sea surface temperature, first time step, decoded exactly as the app
-// decodes it (decodeCode), with the colorbar it was drawn with (layer.display).
-
 import { decodeCode } from "@/lib/data/official";
 import type { OfficialLayer } from "@/types/data-contract";
 import type { Frame } from "./render";

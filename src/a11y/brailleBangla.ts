@@ -1,6 +1,5 @@
 // Braille lines for the Bengali table (liblouis bn.tbl, as NVDA ships it). That table reads Latin letters as Bangla
 // letters (SST → সসত) and drops the numeric indicator after a decimal point or a colon (30.2 → ৩০.ব, 10:30 → ১০ঞচজ):
-// qa/braille/louis_check.py, 4 Nov 2026. So in বাংলা mode the braille lines are written for that table: Bangla
 // words only (no Latin letters), decimals as a word (30 দশমিক 2), times without a colon (10টা 30 মিনিট).
 // Two more things the same check found in bn.tbl, worked around here:
 //  - Bangla digits (০–৯) are only "litdigit": they get no number sign, so ৩০ is ⠉⠚ and reads as the letters চজ.
@@ -100,9 +99,9 @@ const BN_UNITS: Record<string, string> = {
   "g/kg": "গ্রাম প্রতি কিলোগ্রাম", // DRAFT
   m: "মিটার", // DRAFT
   mm: "মিমি", // DRAFT
-  "mm/day": "মিমি প্রতি দিন", // DRAFT (Then vs Now's monsoon rain)
-  cm: "সেমি", // DRAFT (Then vs Now's water)
-  "cm/yr": "সেমি প্রতি বছর", // DRAFT (Then vs Now's water trend)
+  "mm/day": "মিমি প্রতি দিন",
+  cm: "সেমি",
+  "cm/yr": "সেমি প্রতি বছর",
   K: "কেলভিন", // DRAFT
   "%": "শতাংশ", // DRAFT
   index: "সূচক", // DRAFT
@@ -131,9 +130,9 @@ const BN_LAYERS: Record<string, string> = {
   brightness: "উজ্জ্বলতা", // DRAFT
   transport: "জলীয় বাষ্প পরিবহন", // DRAFT
   change: "পরিবর্তন", // DRAFT
-  heat: "তাপমাত্রার বিচ্যুতি", // DRAFT (Then vs Now: GISTEMP anomaly)
-  monsoon: "বর্ষার বৃষ্টি", // DRAFT (Then vs Now: GPCP)
-  water: "মোট পানির মজুত", // DRAFT (Then vs Now: GRACE)
+  heat: "তাপমাত্রার বিচ্যুতি",
+  monsoon: "বর্ষার বৃষ্টি",
+  water: "মোট পানির মজুত",
 };
 const BN_AREAS: Record<string, string> = { bd: "বাংলাদেশ", global: "বিশ্ব" }; // DRAFT
 

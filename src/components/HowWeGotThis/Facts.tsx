@@ -23,7 +23,6 @@ const Link = ({ link }: { link: ProvenanceLink }) => (
   </a>
 );
 
-/** One group's facts as a definition list; a missing field says "not available", never a guess. */
 export function Facts({ t, facts }: { t: BoundT; facts: Provenance }) {
   const na = <span className="text-haze">{t("hwgt.na")}</span>;
   const text = (v: string | null): ReactNode => (v === null ? na : v);
@@ -63,7 +62,7 @@ export function Facts({ t, facts }: { t: BoundT; facts: Provenance }) {
           </Fragment>
         ))}
       </dl>
-      {/* "Is this data fresh?" and a live frame's acceptance check */}
+      {}
       <DataFacts facts={facts} />
       {/*  */}
     </>

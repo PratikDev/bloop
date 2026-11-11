@@ -1,7 +1,3 @@
-// English for the timed text tracks (WebVTT), the sound captions, the transcript page
-// per record and the alt text that goes with an export. Sound captions follow the DCMP style: in brackets, lowercase
-// for the sound, present tense, what makes it named. Every number is a slot formatted from the data.
-
 import type { CaptionParams } from "@/lib/audio-adapter/types";
 import { strParam } from "./captions";
 
@@ -42,11 +38,9 @@ export const timedTextEn = {
   "tt.value.temp": (p: { value: string }) => `${p.value} degrees Celsius`,
   "tt.value.rain": (p: { value: string }) => `${p.value} millimetres an hour`,
 
-  // A captions cue from the run playing now (src/lib/timed-text/live.ts), passed in both languages.
   "caption.cue": (p: CaptionParams) => strParam(p, "en"),
   "caption.sonar.ping": "Sonar ping",
 
-  // Sound captions: a short visual note on what the last sound did, beside the caption bar.
   "sound.toneUp": "tone rising ↑ warmer",
   "sound.toneDown": "tone falling ↓ cooler",
   "sound.dropsUp": "rain thickening ↑",
@@ -57,7 +51,6 @@ export const timedTextEn = {
   "sound.beatsDiffer": "beats = the two values differ",
   "sound.beatsDisagree": "beats = the two sources disagree",
 
-  // The transcript page (WCAG G158: a text version that tells the same story as the sound).
   "transcript.linkFor": (p: { record: string }) => `Transcript: ${p.record}`,
   "transcript.title": (p: { record: string }) => `Transcript: ${p.record}`,
   "transcript.lead": "A text version of this record's sound. It tells the same story: how the sound is made, what it covers, the pattern, the moments to listen for, and how far to trust it.",
@@ -84,7 +77,6 @@ export const timedTextEn = {
   "transcript.lowest": (p: { label: string; value: string; unit: string; place: string; time: string }) => `Lowest ${p.label}: ${p.value} ${p.unit}, ${p.place}, ${p.time}.`,
   "transcript.at": (p: { time: string; text: string }) => `${p.time}: ${p.text}`,
 
-  // Alt text that goes with an export: a sidecar .txt, and the STL file's own header.
   "alt.save": "Save its description (.txt)",
   "alt.saved": (p: { file: string }) => `Saved ${p.file}`,
   "alt.heading.alt": "Alt text",

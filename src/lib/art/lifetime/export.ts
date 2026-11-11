@@ -1,6 +1,3 @@
-// PURE: "Your lifetime" as MIDI and as the performer's sheet: pitched parts (heat, water) as notes at the song's own
-// timing; rain, a count of drops rather than a pitch, is listed on the sheet only.
-
 import { formatFixed } from "@/lib/i18n";
 import { midiFile, sheetText, type MidiNote, type SheetRow } from "../midi";
 import { NOTE_SEC, songTimes, type SongPart } from "./song";

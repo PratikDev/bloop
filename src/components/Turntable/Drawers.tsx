@@ -18,13 +18,11 @@ import { useTT, type TT } from "./i18n";
 import { TIERS, type Tier } from "./quality";
 import type { TurntableSettings } from "./settings";
 
-/** "credits" opens only in low-vision mode (elsewhere the corner link has its own dialog). */
 export type DrawerId = "layers" | "settings" | "howWeKnow" | "credits";
 
 const SECTION = "space-y-2";
 const HEADING = "text-body font-semibold text-moon";
 
-/** One slide-over drawer: right on wide screens, bottom sheet on phones; in low-vision mode, in the page under the stage. */
 export function Drawer({ open, onClose, title, description, children }: { open: boolean; onClose: () => void; title: string; description?: string; children: React.ReactNode }) {
   const phone = useMediaQuery("(max-width: 767px)");
   const inline = useInlinePanels();

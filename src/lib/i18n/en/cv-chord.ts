@@ -1,5 +1,3 @@
-// English strings for the value chord (src/lib/audio/layers/chord). Every value and share is a
-// slot filled from the box's groups, never typed here.
 export const cvChordEn = {
   "cv.chord.toggle": "Chord: spread of values",
   "cv.chord.two": (p: { a: string; pa: string; b: string; pb: string }) => `Two groups: ${p.a} (${p.pa} %) and ${p.b} (${p.pb} %)`,

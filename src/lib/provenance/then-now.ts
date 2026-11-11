@@ -1,6 +1,3 @@
-// "How we got this" for a Then vs Now part: the city's record (demo/cities_then_now.json), the statistics
-// (thenvsnow/stats.json, which also names its script and its doc) and the water record (context/grace.json).
-
 import { voiceProduct } from "@/lib/credits/surfaces";
 import { formatInteger, type BoundT, type Lang } from "@/lib/i18n";
 import { longLine, partStats } from "@/lib/then-now-stats";
@@ -18,14 +15,12 @@ export interface ThenNowContext {
   lang: Lang;
   freshness: FreshnessFile | null;
   cityName: ClimateCellName;
-  /** The city's own record (null while the cities file loads: the demo is Dhaka's). */
   city: CityThenNow | null;
   demo: DhakaThenNowDemo;
   grace: GraceContextFile;
   stats: ThenNowStatsFile | null;
 }
 
-/** The water record every city plays (Bangladesh-wide). */
 const BOX = "Bangladesh";
 const PART_RECORD = { heat: "heat", monsoon: "rain", water: "water" } as const satisfies Record<Part, string>;
 

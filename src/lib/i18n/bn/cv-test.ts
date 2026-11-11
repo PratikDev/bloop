@@ -1,4 +1,3 @@
-// Bangla for the CV/ML listener-test tasks (en/cv-test.ts). Drafts: listed in drafts.ts until a Bangla speaker checks them.
 import type { cvTestEn } from "../en/cv-test";
 import type { Translated } from "../types";
 import { cvReadBn } from "./cv-read";

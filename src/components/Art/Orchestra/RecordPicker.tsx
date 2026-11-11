@@ -5,7 +5,6 @@ import { earconAllowed, useRecordEarcon } from "../use-record-earcon";
 import { useAppState } from "../../AppState/use-app-state";
 import { RecordGrid, type GridRecord } from "./RecordGrid";
 
-/** The Official records, grouped by Earth system; picking one plays its category motif (when sound is allowed). */
 export function RecordPicker({ records, value, onChange }: { records: readonly GridRecord[]; value: string; onChange: (record: string) => void }) {
   const { state } = useAppState();
   const [earcon, played] = useRecordEarcon();

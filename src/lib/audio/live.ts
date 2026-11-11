@@ -1,8 +1,9 @@
 // Live exploration (Phase 2): the cursor's values drive the ocean, rain and
 // snow voices. Handles honest silence, the no-data tick on entering a
 // no-data area, and throttled value captions. Calls before Start do nothing.
-// Sequences (legend, warm-up, …) borrow the same voices with holdLive:
-// cursor updates are remembered but not played until releaseLive, which
+//
+// Sequences (legend, warm-up, …) borrow the same voices with holdLive():
+// cursor updates are remembered but not played until releaseLive(), which
 // then resumes from the latest cursor values.
 
 import { createThrottledCaption, emitCaption } from "./captions";

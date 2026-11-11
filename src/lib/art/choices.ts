@@ -1,13 +1,9 @@
-// PURE: "What is data, what is our artistic choice" for one record's sound (gap #4), generated from the rule
-// (mapping.json), the record's Earth system and the dial's state, never written by hand per record.
-
 import { dialLayers, whatChanges } from "@/lib/art/dial";
 import type { DialStop, EarthCategory, PlayMode } from "@/lib/audio/layers/types";
 import { formatNumber } from "@/lib/audio/mapping";
 import type { BoundT } from "@/lib/i18n";
 import type { VoiceSpec } from "@/types/data-contract";
 
-/** What the data drives, by the rule's output. */
 const DRIVES: Record<string, "pitch" | "rate" | "brightness" | "loudness" | "echo"> = {
   frequency: "pitch",
   dropsPerSecond: "rate",

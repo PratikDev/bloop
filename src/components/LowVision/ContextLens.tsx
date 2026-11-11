@@ -18,22 +18,11 @@ import { bandImage, drawLabels, drawSharp, labelPx } from "./draw";
 import { fitSize, LENS_DOCK_ID, place, type Box } from "./lens-place";
 import { bandText, UNIT_KEY, useLvMap } from "./use-lv-map";
 
-/** Degrees of longitude the lens shows across (design choice: about six times the map's scale at 320 px). */
 const SPAN_DEG = 20;
-/** The magnified view's height, as a share of the lens width (2:1, like the map). */
 const VIEW_RATIO = 0.5;
-/** The overview inset's width, as a share of the lens width. */
 const INSET = 0.32;
-/** Band labels in the magnified view: at most one per tile of a 3 × 2 grid over it (design choice). */
 const LENS_TILES = { x: 3, y: 2 } as const;
 
-/**
- * The Context Lens: a magnifier that follows the needle and carries its own
- * context, so nothing important is off-screen when zoomed: the area in sharp, labelled bands; the value at the needle in
- * very large text with its unit, place and time; a scale with the needle's band marked; and an inset of the whole map
- * showing where the lens is. Z turns it on or off, [ and ] resize it (on the map). Visual only: the status region says
- * the same values.
- */
 export function ContextLens({ mapRef }: { mapRef: RefObject<HTMLElement | null> }) {
   const { state } = useAppState();
   const t = useT();
@@ -56,7 +45,6 @@ export function ContextLens({ mapRef }: { mapRef: RefObject<HTMLElement | null> 
   const img = useMemo(() => (on && map ? bandImage(map, cssVarReader()) : null), [on, map]);
   const viewH = Math.round(size * VIEW_RATIO);
 
-  // The magnified area (sharp cells), its band edges when asked, the needle's cross; then the overview inset.
   useEffect(() => {
     if (!img || !map || !view.current || !inset.current) return;
     const ctx = view.current.getContext("2d");
@@ -76,7 +64,6 @@ export function ContextLens({ mapRef }: { mapRef: RefObject<HTMLElement | null> 
     const read = cssVarReader();
     const k = size / cellsX;
     if (lv.edges) {
-      // Edge enhancement (lens only): a line wherever neighbouring cells are in different bands.
       ctx.strokeStyle = read("--lv-label-halo");
       ctx.lineWidth = 2;
       ctx.beginPath();
@@ -96,7 +83,6 @@ export function ContextLens({ mapRef }: { mapRef: RefObject<HTMLElement | null> 
       }
       ctx.stroke();
     }
-    // Each band in view labelled with its range, in large text; data-labels lets the checks read them.
     const fills = resolveVars(map.vars, read);
     const inView = bandLabels(map.grid, map.bands, map.record, LENS_TILES.x, LENS_TILES.y, { c0: sx, r0: sy, c1: sx + cellsX, r1: sy + cellsY });
     const labels = inView.map((l) => ({
@@ -108,7 +94,6 @@ export function ContextLens({ mapRef }: { mapRef: RefObject<HTMLElement | null> 
     }));
     drawLabels(ctx, labels, labelPx(lv.textScale), getComputedStyle(document.body).fontFamily);
     view.current.dataset.labels = JSON.stringify(inView.map((l, i) => ({ lat: l.lat, lon: l.lon, text: labels[i].text })));
-    // The needle: a cross with a dark and a light line, visible on any band.
     for (const [colour, width] of [[read("--ink"), 6], [read("--shapla"), 3]] as const) {
       ctx.strokeStyle = colour;
       ctx.lineWidth = width;
@@ -128,7 +113,6 @@ export function ContextLens({ mapRef }: { mapRef: RefObject<HTMLElement | null> 
     ictx.strokeRect((sx / gw) * iw, (sy / gh) * ih, (cellsX / gw) * iw, (cellsY / gh) * ih);
   }, [img, map, state.cursor, size, viewH, lv.edges, lv.textScale, state.lang, t]);
 
-  // Follow the needle (or keep to the chosen corner, or to the page's slot), re-placed when the page scrolls or resizes.
   useLayoutEffect(() => {
     if (!on) return;
     const update = () => {
@@ -140,7 +124,6 @@ export function ContextLens({ mapRef }: { mapRef: RefObject<HTMLElement | null> 
       setSize(w);
       if (dock) return;
       const r = el.getBoundingClientRect();
-      // No slot on this page: a docked lens keeps to the top right.
       const where = lv.lensPlace === "docked" ? "topRight" : lv.lensPlace;
       setPos(place(where, r, toXY(state.cursor, r.width, r.height), w, box.current?.offsetHeight ?? w));
     };

@@ -1,6 +1,3 @@
-// English strings for Compare two dates, the sonar, and the expedition log. Every
-// number is a slot computed from the data files.
-
 export const expeditionEn = {
   "compare.open": "Compare two dates at the needle",
   "compare.short": "Compare",

@@ -47,10 +47,8 @@ export function hexToRgb(hex: string): [number, number, number] {
   return [(n >> 16) & 255, (n >> 8) & 255, n & 255];
 }
 
-/** Stops in each low-vision re-colour scale (globals.css --lv-lum-0 … --lv-lum-9, --lv-cividis-0 … 9). */
 export const LV_STOPS = 10;
 
-/** Reads CSS variables from <html> now (canvas code: the low-vision bands, labels and coastlines). */
 export function cssVarReader(): (name: string) => string {
   const style = getComputedStyle(document.documentElement);
   return (name) => style.getPropertyValue(name).trim();

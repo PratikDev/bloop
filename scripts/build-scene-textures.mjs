@@ -4,7 +4,9 @@
 // for relief. Decoration only: no value, sound or label in the app comes from
 // these files. Run build-earth-textures.mjs --download-only first if the cache
 // is empty.
+//
 //   node scripts/build-scene-textures.mjs
+//
 // Outputs public/textures/scenes/<region>-colour.webp and <region>-height.i16
 // (Int16 little-endian metres, row 0 = north, column 0 = west), plus SOURCES.json.
 

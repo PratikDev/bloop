@@ -11,7 +11,7 @@ import { DataTable } from "../../EarthData/DataTable";
 import { HowWeGotThis } from "../../HowWeGotThis";
 import { StatusBadge } from "../../StatusBadge";
 import { TranscriptLink } from "../../TranscriptLink";
-import { RecordLetter } from "../../Art/Letter/RecordLetter"; // ART: the letter on this record
+import { RecordLetter } from "../../Art/Letter/RecordLetter";
 import { slideLetter } from "@/lib/art/letter/data-records";
 import { AgeNote } from "../AgeNote";
 import { ClassCanvas } from "../ClassCanvas";
@@ -22,11 +22,6 @@ import { slideLinerNotes } from "./liner";
 import { ExampleButton } from "./ExampleButton";
 import { useLandslides } from "./use-landslides";
 
-/**
- * Landslide exposure: SVS 5584's LHASA classes as thresholded sound at the needle: silence for "none shown" and
- * "low" (stated), a soft rumble for moderate, stronger for high, slow pulses for very high. Modelled exposure, not
- * observed landslides. Its age is shown, with "may be out of date" past the product's freshness limit.
- */
 export function Landslides() {
   const t = useT();
   const { state } = useAppState();

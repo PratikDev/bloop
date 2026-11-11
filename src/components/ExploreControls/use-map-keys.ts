@@ -32,25 +32,15 @@ const TRACK_KEYS: Record<string, TrackMode> = {
   "3": "both",
 };
 
-/** + and − on the main keyboard (= and _ are the same keys unshifted/shifted); the numpad's, if a screen reader lets them through. */
 const GROW_KEYS = new Set(["+", "="]);
 const SHRINK_KEYS = new Set(["-", "_", "−"]);
-/** A modifier pressed on its own (Shift on the way to +) is not a key of its own. */
 const MODIFIERS = new Set(["Shift", "Control", "Alt", "Meta", "CapsLock"]);
 
 interface MapKeys {
   onKeyDown(e: KeyboardEvent<HTMLElement>): void;
-  /** Ends the J region mode (the map lost focus). */
   disarm(): void;
 }
 
-/**
- * Keys that only work while the map region has focus, so single letters never clash with screen reader
- * navigation (WCAG 2.1.4). Esc is handled globally, not
- * here. G is reserved for the game. With FLAGS.mapKeys: + and − set the step, J then 1–9
- * jumps by region, "." goes back, PageUp/PageDown hold a newer/older rain frame, D describes here and Shift+D toggles
- * Describe mode.
- */
 export function useMapKeys(commands: Commands, shown: ShownPoint, stepDeg: number): MapKeys {
   const { stepFrame } = useTimeLapse();
   const describeHere = useDescribeHere();
@@ -58,7 +48,6 @@ export function useMapKeys(commands: Commands, shown: ShownPoint, stepDeg: numbe
   const sonar = useSonar();
   const announce = useAnnounce();
   const t = useT();
-  // The J region mode's current view; null when it is off.
   const regions = useRef<Bounds | null>(null);
   const disarm = useCallback(() => {
     regions.current = null;
@@ -66,7 +55,6 @@ export function useMapKeys(commands: Commands, shown: ShownPoint, stepDeg: numbe
 
   const lens = useLensKeys();
   const held = shown.timelapse?.held ? shown.timelapse : null;
-  // Enter and D: the value here, in the frame on screen (a held frame says which one first).
   const speakHere = () => {
     if (!held || !shown.reading) return commands.speakCurrent();
     const { reading, cursor } = shown;
@@ -86,7 +74,7 @@ export function useMapKeys(commands: Commands, shown: ShownPoint, stepDeg: numbe
         commands.setCursor(centreOf(region.bounds), { remember: true, lead });
       };
     }
-    regions.current = null; // any other key ends the region mode
+    regions.current = null;
     if (e.key === "j" || e.key === "J") {
       return () => {
         regions.current = WHOLE_MAP;
@@ -105,20 +93,16 @@ export function useMapKeys(commands: Commands, shown: ShownPoint, stepDeg: numbe
       case "Enter":
         return speakHere;
       case "d":
-        // The layered description; without it (or before the frames load), the value here.
         return FLAGS.describe && describeHere ? describeHere : speakHere;
       case "D":
         return () => commands.toggleSetting("describe");
       case "n":
       case "N":
-        // The sonar toward the warmest or wettest spot near the needle; N again stops it.
         return FLAGS.expedition ? sonar : null;
       case "P":
-        // The record's source in one line (plain P still opens Where it's from).
         return FLAGS.tuning ? sayProvenance : null;
       case "z":
       case "Z":
-        // The Context Lens on or off; [ and ] resize it (they only mean speed on the Turntable).
         return FLAGS.lowVision ? lens.toggle : null;
       case "[":
         return FLAGS.lowVision ? () => lens.resize(-1) : null;

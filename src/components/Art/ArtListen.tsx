@@ -11,14 +11,8 @@ import { LetterCard } from "./Letter/LetterCard";
 import { useListenLetter } from "./Letter/use-listen-letter";
 import { monthOf, usePlayContext } from "./use-play-context";
 
-/** Whether Listen shows ART's row of buttons (the page keeps a row free for it under the map). */
 export const ART_ROW = FLAGS.artLetter || FLAGS.artJourney;
 
-/**
- * Listen's part in ART: the live record the dial describes (ocean, or rain when only rain plays; Both = two data
- * voices, so no chord or drone), and a row under the map with "Leave a letter" and "Water's journey". `onOpenChange`
- * tells the page a panel is open (the page then scrolls, as it does for the braille explorer).
- */
 export function ArtListen({ className, onOpenChange }: { className?: string; onOpenChange?: (open: boolean) => void }) {
   const { state } = useAppState();
   const t = useT();

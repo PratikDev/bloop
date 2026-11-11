@@ -1,5 +1,3 @@
-// The demo files: Dhaka and the cities then vs now (sections 9, 13). Re-exported from src/types/data-contract.ts.
-
 import type { ClimateCellName } from "./context";
 
 // ---------------------------------------------------------------------------
@@ -32,16 +30,15 @@ interface RainSeriesDemo {
   change_pct: number;
 }
 
-/** GPCP's own newer decade (WIN_B): an extra, labelled "GPCP only", never shown beside GPCC as comparable. */
 interface RainNewerDemo extends RainSeriesDemo {
-  label: string; // "GPCP only, newer decade; GPCC data ends in 2019"
+  label: string;
 }
 
 interface RainDemo {
-  gpcp: RainSeriesDemo; // same A and B windows as gpcc
+  gpcp: RainSeriesDemo;
   gpcc: RainSeriesDemo;
   caption: string;
-  gpcc_end_note: string; // why GPCC stops where it does (version and last month from gpcc_bd.json)
+  gpcc_end_note: string;
   gpcp_newer: RainNewerDemo;
 }
 
@@ -80,7 +77,6 @@ export interface DhakaThenNowDemo {
 // (city name substituted; rain phrase "no wetter in these records." / "wetter in these records." / "no clear
 // change." from the signs of the GPCP and GPCC changes). Signed numbers use
 // "−" (U+2212); a value that rounds to zero prints unsigned ("0%", "0.00").
-// Only Dhaka is cross_checked. Cities sharing a dataset grid cell:
 // the first city (Dhaka) is the reference; the others get same_record_as and
 // a caption sentence "Same … grid cell(s) as <city>: this is the same record."
 // The Dhaka entry is identical to dhaka_then_now.json (spotcheck enforces it).

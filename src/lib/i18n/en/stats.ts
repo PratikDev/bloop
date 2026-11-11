@@ -1,6 +1,3 @@
-// English strings for the Then vs Now statistics (src/lib/then-now-stats.ts builds the lines).
-// Every number is a parameter from public/data/thenvsnow/stats.json.
-
 export const statsEn = {
   "stats.title": "Uncertainty and significance",
   "stats.item": (p: { label: string; value: string; lo: string; hi: string }) => `${p.label ? `${p.label} ` : ""}${p.value} (95% CI ${p.lo} to ${p.hi})`,

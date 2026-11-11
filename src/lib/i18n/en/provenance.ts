@@ -1,6 +1,3 @@
-// English strings for "How we got this" (src/components/HowWeGotThis, src/lib/provenance).
-// Every number is a parameter read from a manifest, a metadata file or stats.json.
-
 export const provenanceEn = {
   "hwgt.button": "How we got this",
   "hwgt.name": (p: { subject: string }) => `How we got this: ${p.subject}`,

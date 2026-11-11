@@ -1,6 +1,3 @@
-// English strings for the Both-mode frame gap (src/lib/frame-gap.ts). The times and the gap are
-// parameters from the two manifests.
-
 import { formatInteger } from "../format";
 
 export const framesEn = {
@@ -15,7 +12,6 @@ export const framesEn = {
   "frameGap.short.d": "d",
   "frameGap.short.h": "h",
   "frameGap.short.same": "same hour",
-  // Water is one national GRACE record (mascon size from grace.json).
   "water.bangladeshWide": (p: { deg: number | null }) =>
     `Underground water (GRACE) is Bangladesh-wide${p.deg === null ? "" : ` (mascon about ${formatInteger(p.deg, "en")}°)`}, not city-specific: the same for every city.`,
   "announce.trackBoth": (p: { gap: string }) => `Now hearing: Both. Frames ${p.gap}.`,

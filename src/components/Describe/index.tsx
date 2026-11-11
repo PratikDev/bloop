@@ -3,7 +3,7 @@
 import { SpeakerHigh } from "@phosphor-icons/react";
 import { Button } from "@/components/ui/button";
 import { describeRecord } from "@/lib/describe/compose";
-import { categoryLead } from "@/lib/art/category-lead"; // ART: category word first
+import { categoryLead } from "@/lib/art/category-lead";
 import { LIVE_TITLE } from "@/lib/transcript";
 import { useAppState, useT } from "../AppState/use-app-state";
 import { Fold } from "../ThenNow/Layout";
@@ -11,10 +11,6 @@ import { TranscriptLink } from "../TranscriptLink";
 import { useDescribeHere } from "./use-describe-here";
 import { useDescription } from "./use-description";
 
-/**
- * The description of the needle, as text: the same words D says, at the chosen detail,
- * following the needle. Detailed adds "What this means" in its own fold, apart from the data text.
- */
 export function DescriptionPanel() {
   const { state } = useAppState();
   const t = useT();

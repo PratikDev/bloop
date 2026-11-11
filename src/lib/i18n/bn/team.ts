@@ -1,5 +1,3 @@
-// Bangla for the Team and about page (src/lib/i18n/en/team.ts). Draft, needs review (bn/drafts.ts).
-
 import type { teamEn } from "../en/team";
 import type { Translated } from "../types";
 

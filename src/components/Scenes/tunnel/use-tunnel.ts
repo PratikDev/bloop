@@ -15,7 +15,7 @@ const DEFAULT_SPEED = 2;
 const LAND_AFTER_MS = 2500;
 const EASE_PER_SEC = 5;
 
-interface TunnelControl {
+export interface TunnelControl {
   bus: ReturnType<typeof createFrameBus<TunnelFrame>>;
   build(host: SceneBuildHost): SceneHandle;
   /** The year index the camera is at (fractional while flying). */

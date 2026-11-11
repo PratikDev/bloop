@@ -10,13 +10,11 @@ import { useAppState, useT } from "../../AppState/use-app-state";
 import { useCommands } from "../../Commands/use-commands";
 import { compareShort } from "@/a11y/shortForms";
 
-/** Decimals as the files store them (scale 100 → two, scale 10 → one). */
 const DECIMALS: Record<CompareLayer, number> = { heat: 2, rain: 2, water: 1 };
 const LABEL = { heat: "compare.layer.heat", rain: "compare.layer.rain", water: "compare.layer.water" } as const;
 const UNIT = { heat: "compare.unit.heat", rain: "compare.unit.rain", water: "compare.unit.water" } as const;
 export const LAYER_LABEL = LABEL;
 
-/** What a comparison says: both values, then the difference (all slots from the file). */
 export function compareText(r: CompareResult, t: BoundT, lang: Lang): string {
   const record = t(LABEL[r.layer]);
   const place = t("place.spoken", r.cell);
@@ -31,7 +29,6 @@ export function compareText(r: CompareResult, t: BoundT, lang: Lang): string {
 
 type LayerState = { status: "loading" } | { status: "error" } | { status: "ready"; layer: GlobalLayer };
 
-/** Compare two dates: the chosen layer (loaded on first use), its months, and run. */
 export function useCompare(open: boolean) {
   const { state } = useAppState();
   const commands = useCommands();
@@ -67,7 +64,6 @@ export function useCompare(open: boolean) {
       .say((t, lang) => compareText(result, t, lang), null, (_t, lang, degree) => compareShort(lang, degree, result))
       .then(() => {
         if (!state.soundOn || result.a.value === null || result.b.value === null) return;
-        // The live voices step aside, as for proof in unison (src/lib/audio-engines.ts).
         audio.silenceLive();
         if (BEATS[name]) {
           jukebox.playPair({

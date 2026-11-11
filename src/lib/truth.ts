@@ -1,5 +1,5 @@
 // Truth panel numbers, read from sst.json and rain.json in the shape of L1's
-// wording templates. They change with each data
+// wording templates (docs/L1/DATA_HANDOFF.md §4). They change with each data
 // refresh, which is why they are read, never typed.
 
 import type { RainMetadata, SstMetadata } from "@/types/data-contract";
@@ -30,7 +30,7 @@ export interface RainTruth {
 
 const MINUS = "−";
 
-/** "-5..35 C" → "−5…35". */
+/** "-5..35 C" → "−5…35" (DATA_HANDOFF §4). */
 const legendText = (labels: string) => labels.replace(" C", "").replace("..", "…").replace(/-/g, MINUS);
 
 /** Null if the frame carries no calibration: the panel then says the check is being updated. */

@@ -84,7 +84,6 @@ export interface TerrainScene {
   setRain(cells: RainCell[], cellSize: number): void;
   setDecal(bitmap: ImageBitmap | null): void;
   setLayers(l: TerrainLayers): void;
-  /** The picture on the terrain: another frame image on the same grid (the SVS 5176 anomaly), or null for the SST's. */
   setMap(tex: Texture | null): void;
   sparkle(at: LatLon, motion: boolean): void;
   update(dt: number, motion: boolean): void;

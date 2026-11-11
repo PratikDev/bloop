@@ -1,18 +1,13 @@
-// Alt text for an exported tactile disc (3D-print STL): a sidecar .txt and the STL's 80-byte header, every number
-// from the disc's own data. Used by the tactile export (Scenes/use-tactile-export.ts) and its input type (Scenes/tactile.ts).
 import { formatAxis, formatInteger, type BoundT, type Lang } from "@/lib/i18n";
 import { extremeIndex } from "@/lib/timed-text/sweep";
 
 export interface TactileAltInput {
   label: string;
-  /** Disc diameter and ring heights, in millimetres. */
   sizeMm: number;
   ridgeMm: { min: number; max: number };
   range: { min: number; max: number };
   unit: string;
-  /** What each step around the circle is (a year, a month), oldest first. */
   steps: readonly string[];
-  /** The rings from the centre out, each with its name and values. */
   rings: readonly { name: string; values: readonly (number | null)[] }[];
 }
 
@@ -42,13 +37,11 @@ export function tactileAlt(t: BoundT, lang: Lang, d: TactileAltInput): TactileAl
   };
 }
 
-/** The sidecar .txt: the alt text, then the extended description. */
 export const sidecarText = (t: BoundT, a: TactileAlt) => `${t("alt.heading.alt")}\n${a.alt}\n\n${t("alt.heading.extended")}\n${a.extended.join("\n")}\n`;
 
 const STL_HEADER_BYTES = 80;
 const PRINTABLE_ASCII = /[^\x20-\x7e]/g;
 
-/** The STL header: the alt text in printable ASCII, never starting "solid" (readers would take the file for ASCII STL). */
 export function stlHeader(alt: string): Uint8Array {
   const text = `Bloop: ${alt}`.replace(PRINTABLE_ASCII, "?").slice(0, STL_HEADER_BYTES);
   const bytes = new Uint8Array(STL_HEADER_BYTES).fill(0x20);

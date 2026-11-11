@@ -8,12 +8,10 @@ import { stepSound } from "../AppState/access";
 import type { AppState } from "../AppState/reducer";
 import { useAppState } from "../AppState/use-app-state";
 
-/** Whether the category earcon may sound: sound on, nothing muted, and "Each step" sends sound. */
 export function earconAllowed(s: Pick<AppState, "soundOn" | "allMuted" | "channels">): boolean {
   return FLAGS.artOrchestra && s.soundOn && !s.allMuted && stepSound(s);
 }
 
-/** Plays a record's category motif when the listener picks it; → how many have played (for the tests). */
 export function useRecordEarcon(): [(record: string) => void, number] {
   const { state } = useAppState();
   const [played, setPlayed] = useState(0);

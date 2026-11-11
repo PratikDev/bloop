@@ -39,10 +39,8 @@ export const MOTIF_BANDS: readonly [number, number][] = [
 /** Sweep rings around the centre (design choice; rings are spaced in degrees). */
 export const SWEEP_RINGS = { stepDeg: 5, maxDeg: 45, pointsPerRing: 16 } as const;
 
-/** One sweep point every 80 ms (both engines' default; the timed text tracks use the same step). */
 export const SWEEP_STEP_MS = 80;
 
-/** The storm time-lapse's frame rate (plan C4: "about 2 frames/s"); the timed text tracks use the same step. */
 export const TIMELAPSE_FPS = 2;
 
 /**

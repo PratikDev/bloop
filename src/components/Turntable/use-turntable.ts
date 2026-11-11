@@ -18,7 +18,7 @@ import { DISTANCE, type CameraMode, type ScreenPoint, type TurntableScene } from
 import { useGlobeTexture, type GlobeTexture } from "./use-globe-texture";
 import { useSceneAssets, type SceneSettings } from "./use-scene-assets";
 
-const NEEDLE_MAX_LAT = 80;
+export const NEEDLE_MAX_LAT = 80;
 /** Rotation speeds (× one turn a minute); design choices, not data. */
 export const SPEEDS = [0.25, 0.5, 1, 2, 4] as const;
 const DEFAULT_SPEED_INDEX = 2;
@@ -42,7 +42,7 @@ interface Options {
   allMuted: boolean;
   reduceMotion: boolean;
   layers: LayerToggles;
-  /** The intro will run (once per session): the arm waits at rest until startIntro. */
+  /** The intro will run (once per session): the arm waits at rest until startIntro(). */
   introPending: boolean;
   /** A scene is open over the turntable: no frames, no live sound (the needle drops again on return). */
   paused: boolean;

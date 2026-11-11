@@ -1,6 +1,3 @@
-// Ask Bloop's question intents: answered only from the engine's results, with the app's own sentences
-// where it has them (the value line, Compare, the sound's rule, the provenance line, the Truth panel's check). Each
-// answer lists the formatted results its numbers come from (digit provenance, src/lib/ask-bloop/digits.ts).
 import { compareShort } from "@/a11y/shortForms";
 import { voiceSpec } from "@/lib/audio/mapping";
 import { ruleText } from "@/lib/audio/mapping-text";
@@ -25,10 +22,8 @@ import { plain, type Answer, type AskContext } from "./context";
 type QuestionIntent = IntentOf<"value_here" | "value_at" | "extreme_in" | "compare_dates" | "what_am_i_hearing" | "about_record" | "how_reliable">;
 
 const loading = plain((t) => t("ask.loading"));
-/** The record a question is about: rain on the rain track, else the ocean. */
 const recordOf = (track: TrackMode): "ocean" | "rain" => (track === "rain" ? "rain" : "ocean");
 
-/** Where: a place said (resolved), or the needle. */
 async function where(ctx: AskContext, said: string | null): Promise<{ at: LatLon; name: ((lang: Lang) => string) | null } | { answer: Answer }> {
   if (said === null) return { at: ctx.state.cursor, name: null };
   const found = await placeOrAsk(ctx, said);
@@ -37,7 +32,6 @@ async function where(ctx: AskContext, said: string | null): Promise<{ at: LatLon
   return { at: { lat: e.lat, lon: e.lon }, name: (lang) => (lang === "bn" && e.nameBn ? e.nameBn : e.name) };
 }
 
-/** The value at a point, in the app's own words (Enter's line); the tone plays after it. */
 function valueAnswer(ctx: AskContext, at: LatLon, name: ((lang: Lang) => string) | null): Answer {
   const fields = ctx.fields!;
   const reading = readAt(fields, at);
@@ -49,7 +43,6 @@ function valueAnswer(ctx: AskContext, at: LatLon, name: ((lang: Lang) => string)
     tone: at,
   };
 }
-
 
 export async function runQuestion(ctx: AskContext, intent: QuestionIntent): Promise<Answer> {
   const { fields, state } = ctx;
@@ -114,7 +107,6 @@ export async function runQuestion(ctx: AskContext, intent: QuestionIntent): Prom
   }
 }
 
-/** Two months at a place in a monthly record (Compare two dates): its words, its short form, its tones. */
 async function compareDates(ctx: AskContext, intent: IntentOf<"compare_dates">): Promise<Answer> {
   const w = await where(ctx, intent.place);
   if ("answer" in w) return w.answer;

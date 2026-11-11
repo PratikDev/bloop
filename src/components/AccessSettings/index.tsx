@@ -5,7 +5,6 @@ import { BRAILLE_LINES, CHANNELS, SPEECH_MODES, VERBOSITIES, type AccessChoices,
 import { useAppState, useT } from "../AppState/use-app-state";
 import { ChoiceGroup } from "../ChoiceGroup";
 
-// Each option's label (exhaustive: a value without a string doesn't compile).
 const SPEECH_LABEL = {
   screenReader: "access.speech.screenReader",
   voice: "access.speech.voice",
@@ -26,8 +25,6 @@ const BRAILLE_LABEL = {
   short: "access.braille.short",
 } as const satisfies Record<BrailleLines, MessageKey>;
 
-/** Speech (screen reader / Bloop's voice / off), detail, what each step sends, and what a braille display
- *  gets: full lines or short ones. */
 export function AccessSettings() {
   const { state, dispatch } = useAppState();
   const t = useT();

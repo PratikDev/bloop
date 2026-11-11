@@ -12,7 +12,6 @@ import { useCommands } from "../../Commands/use-commands";
 import { HowWeGotThis } from "../../HowWeGotThis";
 import { checkFacts } from "./check-facts";
 
-/** The check's one line: pass (notes, largest difference) or fail, from the result's own numbers. */
 export function checkLine(t: BoundT, lang: Lang, r: CheckResult): string {
   const stops = formatInteger(r.results.length, lang);
   if (!r.pass) return t("dial.check.fail", { cents: formatFixed(r.maxCents, lang, 3) });
@@ -20,14 +19,9 @@ export function checkLine(t: BoundT, lang: Lang, r: CheckResult): string {
   return t("dial.check.pass", { cents: formatFixed(r.maxCents, lang, 3), notes: formatInteger(r.results[0].loggedHz.length, lang), stops });
 }
 
-/** Per setup: its stop, family and path, and its two largest differences (cents), for the tests and the report. */
 export const detail = (r: CheckResult) =>
   JSON.stringify(r.results.map((x) => ({ stop: x.setup.stop, timbre: x.setup.timbre, path: x.setup.path, vsRule: Number(x.centsVsRule.toFixed(4)), vsOff: Number(x.centsVsOff.toFixed(4)), onsets: x.onsets.length })));
 
-/**
- * "Check the data voice": renders the plan offline with the art layer off and at every dial stop, then says what the
- * measurement found. The numbers carry their "How we got this".
- */
 export function DialCheck({ plan, timbre, label, ready = true }: { plan: () => Promise<ProofPlan | null>; timbre: Timbre; label?: string; ready?: boolean }) {
   const { state } = useAppState();
   const t = useT();
@@ -38,11 +32,10 @@ export function DialCheck({ plan, timbre, label, ready = true }: { plan: () => P
   async function run() {
     setBusy(true);
     try {
-      await ensureAudioAll().catch(() => undefined); // a gesture: some browsers render offline only after one
+      await ensureAudioAll().catch(() => undefined);
       const p = await plan();
       const r = p ? await checkPlan(p, dialSetups(timbre)) : null;
       setResult(r ?? "none");
-      // The page's one status region says the outcome (screen reader or Bloop's voice, per Speech).
       void commands.say((bt, lang) => (r ? checkLine(bt, lang, r) : bt("dial.check.none")));
     } finally {
       setBusy(false);

@@ -1,7 +1,3 @@
-// The browser's box statistics (src/lib/cv/box-stats.ts) for every named box and every frame of live SST, the latest
-// rain, the 48-frame rain sequence and SVS 3912's SST, read from public/data with the app's own decoders. JSON on
-// stdout. pipeline/tests/test_box_stats.py runs this and checks numpy gets the same numbers.
-// Run: bun scripts/cv/box-stats.ts
 import { readFileSync } from "node:fs";
 import { gunzipSync } from "node:zlib";
 import { readUint16LE, readUint8 } from "@/lib/data/grid";

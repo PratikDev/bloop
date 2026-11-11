@@ -1,5 +1,3 @@
-// Bangla for the hidden listener test (src/lib/i18n/en/listen-test.ts). Draft, needs review (bn/drafts.ts).
-
 import type { listenTestEn } from "../en/listen-test";
 import type { Translated } from "../types";
 

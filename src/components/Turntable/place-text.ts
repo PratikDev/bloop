@@ -16,7 +16,7 @@ export function localName(n: Named | Place, lang: Lang): { text: string; lang: L
 /** A place's country in the UI language (Natural Earth's Bangla name when it has one). */
 const placeCountry = (p: Place, lang: Lang) => (lang === "bn" && p.countryBn ? p.countryBn : p.country);
 
-interface PlaceText {
+export interface PlaceText {
   /** The main name: the city, the sea, or the district and country. */
   name: string;
   /** The whole line, e.g. "Bay of Bengal · 140 km S of Khulna, Bangladesh". */

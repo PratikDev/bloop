@@ -9,10 +9,6 @@ import { useT } from "./AppState/use-app-state";
 import { InlineDisclosure } from "./InlinePanel/Disclosure";
 import { useInlinePanels } from "./LowVision/use-inline-panels";
 
-/**
- * Full text one click away, so pages never grow: a side sheet (a bottom sheet
- * on phones), opened by a ghost button showing `trigger` (styled by `triggerClassName`); in low-vision mode, in the page.
- */
 export function InfoSheet({
   trigger,
   triggerClassName,
@@ -29,7 +25,6 @@ export function InfoSheet({
 }) {
   const phone = useMediaQuery(MEDIA.phone);
   const t = useT();
-  // Low-vision mode: in the page, right after the button (spec 4.5: no full-screen pop-ups).
   const inline = useInlinePanels();
   if (inline) {
     return (

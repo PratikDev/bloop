@@ -1,6 +1,3 @@
-// Ask Bloop's deterministic parser: English and Bangla patterns and keyword sets, no network and no key, so
-// it works offline and in the audio-lite mode. It returns an intent with the place words as said (resolvePlace maps
-// them) and a confidence; below PARSE_THRESHOLD nothing runs and Bloop asks a short question instead.
 import type { TrackMode } from "@/lib/audio/types";
 import type { AskPage, Extreme, Intent, SettingChange } from "./intents";
 import { monthsIn, normaliseUtterance, withoutMonths } from "./normalise";
@@ -8,13 +5,11 @@ import { dataIntentFor } from "./data-intents";
 
 interface Parsed {
   intent: Intent;
-  /** 0–1: a whole-phrase match is SURE; a keyword match is LIKELY. */
   confidence: number;
 }
 
 const SURE = 0.9;
 const LIKELY = 0.7;
-/** Only matches at or above this run (spec: "a fixed threshold"). */
 const PARSE_THRESHOLD = 0.6;
 
 const RECORD_WORDS: readonly (readonly [RegExp, TrackMode])[] = [
@@ -38,11 +33,9 @@ const PAGE_WORDS: readonly (readonly [RegExp, AskPage])[] = [
 const HIGH = /warmest|hottest|highest|wettest|most rain|rainiest|গরম|বেশি|উঁচু|সর্বোচ্চ/u;
 const LOW = /coldest|coolest|lowest|driest|least rain|ঠান্ডা|কম|নিচু|সর্বনিম্ন/u;
 
-/** "here", "near here", "nearby" (English and Bangla): no place named. */
 const HERE = /^(?:here|near here|nearby|around here|close by|this place|এখানে|কাছে|কাছাকাছি|আশেপাশে)$/u;
 const placeOrHere = (p: string | undefined): string | null => (p === undefined || HERE.test(p.trim()) ? null : p.trim() || null);
 
-/** Strips leading articles and trailing fillers from English place words. */
 const placeWords = (s: string) =>
   s
     .replace(/^(?:the|a)\s+/u, "")
@@ -52,7 +45,6 @@ const placeWords = (s: string) =>
 type Rule = (t: string) => Parsed | null;
 const sure = (intent: Intent): Parsed => ({ intent, confidence: SURE });
 const likely = (intent: Intent): Parsed => ({ intent, confidence: LIKELY });
-/** A rule matching any of `patterns` against the whole utterance. */
 const whole = (patterns: RegExp, intent: Intent): Rule => (t) => (patterns.test(t) ? sure(intent) : null);
 
 const SETTINGS: readonly (readonly [RegExp, SettingChange])[] = [
@@ -66,9 +58,7 @@ const SETTINGS: readonly (readonly [RegExp, SettingChange])[] = [
   [/(?:speak|talk|answer|reply) (?:in )?english|^ইংরেজিতে বলো$/u, { setting: "input_language", value: "en" }],
 ];
 
-/** In order: the most specific first (a page name before a place, a record before plain "play"). */
 const RULES: readonly Rule[] = [
-  // Controls and conversation.
   whole(/^(?:help|what can i (?:say|ask)|what can you do|commands|সাহায্য|কী বলতে পারি|তুমি কী পারো|কী জিজ্ঞেস করতে পারি)$/u, { name: "help" }),
   whole(/^(?:repeat|say (?:that|it) again|again(?: please)?|pardon|আবার বলো|আরেকবার বলো|পুনরায় বলো)$/u, { name: "repeat" }),
   whole(/^(?:more|tell me more|more detail|more details|go on|আরও বলো|আরও বিস্তারিত|বিস্তারিত বলো)$/u, { name: "more" }),
@@ -77,19 +67,16 @@ const RULES: readonly Rule[] = [
     const s = SETTINGS.find(([re]) => re.test(t));
     return s ? sure({ name: "set_setting", ...s[1] }) : null;
   },
-  // fire weather, fires, landslides, night lights here (src/lib/ask-bloop/data-intents.ts).
   (t) => {
     const name = dataIntentFor(t);
     return name ? sure({ name }) : null;
   },
-  // Pages.
   (t) => {
     const m = /^(?:open|show(?: me)?|go to|take me to|switch to)\s+(.+)$|^(.+?)\s+(?:খোলো|দেখাও|যাও)$/u.exec(t);
     const words = m?.[1] ?? m?.[2];
     const page = words ? PAGE_WORDS.find(([re]) => new RegExp(`^(?:${re.source})$`, "u").test(words.replace(/^the\s+/u, "").replace(/(?:ে|এ|য়)$/u, "")))?.[1] : undefined;
     return page ? sure({ name: "open_page", page }) : null;
   },
-  // Records and frames.
   whole(/^(?:next|the next) (?:record|track)$|^(?:the )?next one$|^পরের (?:রেকর্ড|ট্র্যাক)$|^পরেরটা$/u, { name: "next_record" }),
   whole(/^(?:previous|the previous|last) (?:record|track)$|^go back a (?:record|track)$|^আগের (?:রেকর্ড|ট্র্যাক)$|^আগেরটা$/u, { name: "previous_record" }),
   whole(/^(?:next|newer|a newer)(?: rain)? frame$|^(?:পরের|নতুন) ফ্রেম$/u, { name: "set_time", step: "next_frame" }),
@@ -102,18 +89,15 @@ const RULES: readonly Rule[] = [
     const record = recordIn(words);
     return record ? sure({ name: "select_record", record }) : null;
   },
-  // Playback.
   whole(/^(?:play|start(?: the)? sound|resume|play sound|চালাও|শব্দ চালু করো|আবার চালাও|চালু করো)$/u, { name: "play" }),
   whole(/^(?:pause|hold on|wait|pause (?:the )?sound|থামো|একটু থামাও|বিরতি|থামাও)$/u, { name: "pause" }),
   whole(/^(?:stop|stop everything|stop all|silence|quiet|বন্ধ করো|সব বন্ধ করো|চুপ)$/u, { name: "stop" }),
-  // Questions about the sound and the record.
   whole(/^(?:what am i hearing|what is this sound|what's this sound|what does the (?:pitch|sound) mean|আমি কী শুনছি|এই শব্দ কী|সুর উঁচু মানে কী)$/u, { name: "what_am_i_hearing" }),
   whole(/^(?:how (?:reliable|accurate|good|trustworthy) is (?:this|it|that)(?: value| record)?|can i trust (?:this|it)(?: value)?|এটা কতটা (?:নির্ভরযোগ্য|সঠিক)|এই মান কি বিশ্বাসযোগ্য)$/u, { name: "how_reliable" }),
   (t) => {
     if (!/(?:tell me )?about (?:this|the) .*record|^what is the .*record$|রেকর্ড সম্পর্কে বলো|রেকর্ড কী$/u.test(t)) return null;
     return sure({ name: "about_record", record: /this|এই/u.test(t) ? null : recordIn(t) });
   },
-  // Compare two months (Compare two dates).
   (t) => {
     if (!/compare|versus|\bvs\b|তুলনা/u.test(t)) return null;
     const [dateA, dateB] = monthsIn(t);
@@ -124,10 +108,8 @@ const RULES: readonly Rule[] = [
     const place = en ? placeWords(en[1]) : bn && /(?:ে|য়|তে)$/u.test(bn[1]) && !/তুলনা/u.test(bn[1]) ? bn[1] : null;
     return sure({ name: "compare_dates", place: placeOrHere(place ?? undefined), dateA, dateB });
   },
-  // Highest / lowest near here or in a place.
   (t) => {
     if (!/warmest|hottest|highest|wettest|most rain|rainiest|coldest|coolest|lowest|driest|least rain|সবচেয়ে/u.test(t)) return null;
-    // Low words first: "সবচেয়ে কম গরম" (least warm) is the lowest.
     const kind: Extreme | null = LOW.test(t) ? "lowest" : HIGH.test(t) ? "highest" : null;
     if (!kind) return null;
     const en = /\b(?:in|near|around|over|across)\s+(.+?)(?:\s+(?:now|today))?$/u.exec(t);
@@ -135,7 +117,6 @@ const RULES: readonly Rule[] = [
     const words = en ? placeWords(en[1]) : bn?.[1];
     return sure({ name: "extreme_in", kind, place: placeOrHere(words) });
   },
-  // A value somewhere else.
   (t) => {
     const en =
       /^(?:what(?:'s| is) the |what is |whats the )?(?:temperature|value|reading|rain(?:fall)?|sea temperature)(?: like)? (?:in|at|for|near|of) (.+)$/u.exec(t) ??
@@ -147,20 +128,16 @@ const RULES: readonly Rule[] = [
     const place = placeOrHere(words);
     return sure(place ? { name: "value_at", place } : { name: "value_here" });
   },
-  // The value here.
   whole(/^(?:what(?:'s| is) (?:the )?(?:value|temperature|reading|rain) here|how (?:warm|hot|cold|wet) is it here|what'?s here|what is here|value here|where am i|এখানে (?:মান|তাপমাত্রা|বৃষ্টি) কত|এখানে কত গরম|এখানে কী)$/u, { name: "value_here" }),
-  // Go somewhere.
   (t) => {
     const en = /^(?:go|take me|move|jump|fly|head|bring me|travel)(?: me)? (?:to|over to) (.+)$/u.exec(t);
     const bn = /^(.+?)\s+(?:যাও|নিয়ে চলো|নিয়ে যাও|চলো)$/u.exec(t);
     const words = en ? placeWords(en[1]) : bn?.[1];
     return words ? sure({ name: "go_to_place", place: words }) : null;
   },
-  // Keyword fallbacks (LIKELY): a value word with "here", a place after "in".
   (t) => (/\bhere\b|এখানে/u.test(t) && /value|warm|hot|temperature|rain|মান|গরম|তাপমাত্রা|বৃষ্টি/u.test(t) ? likely({ name: "value_here" }) : null),
 ];
 
-/** The best intent for what was typed or said, or null when nothing matches well enough (ask a short question). */
 export function parseUtterance(raw: string): Parsed | null {
   const t = normaliseUtterance(raw);
   if (!t) return null;

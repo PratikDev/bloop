@@ -1,7 +1,6 @@
 // Public audio API used by every L3 component.
 // Names and argument shapes follow docs/L2/BUILD_PLAN.md §2, so L2's real engine
 // can replace the interim one without UI changes. Additions that L2's plan does
-// not have yet are marked PROPOSAL.
 
 import type { Clarity } from "@/lib/data/ocean-extra";
 import type { RainPhase } from "@/types/data-contract";
@@ -141,10 +140,6 @@ export interface L2AudioApi {
   onAudioEvent(cb: (e: AudioEvent) => void): () => void;
 }
 
-/**
- * L3's additions. Requested from L2, but the
- * UI never depends on them: withFallbacks fills any that are missing.
- */
 export interface L3AudioExtensions {
   setVoiceVolume(id: VoiceId, v: number): void; // B3: per-voice volume slider
   getAnalyser(): AnalyserNode | null; // B1: waveform, rings, audio clock
@@ -163,7 +158,6 @@ export interface L3AudioExtensions {
   setClarity(c: Clarity): void;
   // PROPOSAL (§15, C1): proof in unison for one checked point (frame tone, then the file tone joins).
   playUnison(pair: { frameC: number; fileC: number }): PlayerHandle;
-  // Compare two dates: one place at two times by a pitch rule (heat, water), beating.
   playPair(p: { rule: string; a: number; b: number; caption(beatsPerSec: number): { key: string; params: CaptionParams } }): PlayerHandle;
   // PROPOSAL (§15, guardrail 16): a live track's data is past its freshness limit → the recorded texture.
   setRecorded(track: "ocean" | "rain", stale: boolean): void;

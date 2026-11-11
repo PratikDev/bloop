@@ -1,6 +1,3 @@
-// Links into the project's repository (git remote origin): the scripts that make each number and the files that
-// check them. Paths only; the numbers are never copied from these files.
-
 import type { ProvenanceLink } from "./types";
 
 const REPO = "https://github.com/PratikDev/bloop/blob/main/";
@@ -10,7 +7,6 @@ export const repoLink = (path: string, label = path): ProvenanceLink => ({ label
 export const VALIDATION_TABLE = "docs/official/VALIDATION_TABLE.md";
 export const TRUTH_STATS = "public/data/truth/stats.json";
 
-/** A row of a checking file, named by its first column (VALIDATION_TABLE.md: the record id). */
 export const rowLink = (file: string, row: string): ProvenanceLink => ({ label: `${file.split("/").pop()}: ${row}`, href: `${REPO}${file}` });
 
 export const SCRIPTS = {

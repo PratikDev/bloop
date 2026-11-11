@@ -5,7 +5,7 @@ export const T3_FREQS = [220, 440, 880] as const;
 export type T3Device = "headphones" | "phone";
 export type T3Answer = "equal" | `${(typeof T3_FREQS)[number]}`;
 
-interface T3Result {
+export interface T3Result {
   exponent: number;
   device: T3Device;
   answer: T3Answer;

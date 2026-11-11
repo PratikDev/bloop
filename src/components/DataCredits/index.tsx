@@ -22,7 +22,6 @@ const GROUP_KEYS = {
   svs: "credits.group.svs",
 } as const satisfies Record<CreditGroup, MessageKey>;
 
-/** Long groups (the SVS visualizations) start folded so the list stays readable. */
 const FOLDED: ReadonlySet<CreditGroup> = new Set(["svs"]);
 
 type Level = 2 | 3;
@@ -59,10 +58,6 @@ const List = ({ t, entries }: { t: BoundT; entries: CreditEntry[] }) => (
   </ul>
 );
 
-/**
- * The one credits list (How we know, Official records, the Turntable, Team): built from the record registry
- * (src/lib/credits), so it names every source that plays and only those, with where each plays and a link.
- */
 export function DataCredits({ level = 3, className }: { level?: Level; className?: string }) {
   const t = useT();
   const { state } = useAppState();

@@ -1,6 +1,3 @@
-// English strings for the Team and about page. Names, the challenge and the licence come from
-// content/team.json and stay as written.
-
 export const teamEn = {
   "nav.team": "Team",
   "team.title": "Team and about",

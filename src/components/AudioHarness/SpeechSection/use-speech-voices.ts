@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { loadVoices } from "@/lib/audio/dev";
 
-interface VoiceRow {
+export interface VoiceRow {
   name: string;
   lang: string;
   localService: boolean;

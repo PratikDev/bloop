@@ -1,4 +1,4 @@
-// stopAll: the Esc key (AUDIO_RESEARCH C5). Cancels everything scheduled,
+// stopAll(): the Esc key (AUDIO_RESEARCH C5). Cancels everything scheduled,
 // fades every bus to silence in ~50 ms (no click), stops the sources that
 // were playing, then quietly restores the buses so the next sound works.
 

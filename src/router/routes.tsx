@@ -5,7 +5,6 @@ import { ListenPage } from "@/components/pages/Listen";
 import { NotFoundPage } from "@/components/pages/NotFound";
 import { listenSearch, thenNowSearch, transcriptSearch } from "./search";
 
-// Seven places and a 404 (Official and Turntable joined from bloop-dev). Then vs Now, How we
 // know, Official and Turntable load their code (the chart library, three.js) only when opened.
 
 const rootRoute = createRootRoute({ component: AppShell, notFoundComponent: NotFoundPage });
@@ -45,14 +44,12 @@ const teamRoute = createRoute({
   component: lazyRouteComponent(() => import("@/components/pages/Team"), "TeamPage"),
 });
 
-// The listener test: no link to it anywhere, noindex (src/app/[[...path]]/page.tsx).
 const listenTestRoute = createRoute({
   getParentRoute: () => rootRoute,
   path: "listen-test",
   component: lazyRouteComponent(() => import("@/components/pages/ListenTest"), "ListenTestPage"),
 });
 
-// A transcript per record: linked from Listen, each Official record and How we know.
 const transcriptRoute = createRoute({
   getParentRoute: () => rootRoute,
   path: "transcript",

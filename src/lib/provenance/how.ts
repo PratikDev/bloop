@@ -1,6 +1,3 @@
-// "How we got this" for the How we know cards: the live frames' checks (as Listen's), plus the rank correlation from
-// truth/stats.json, the sounds counted from mapping.json, and the ground-vs-satellite duet (context/globe_duet.json).
-
 import { formatFixed, formatInteger } from "@/lib/i18n";
 import type { GlobeDuetFile, RainMetadata, SstMetadata } from "@/types/data-contract";
 import type { TruthStatsFile } from "@/types/truth-stats";
@@ -24,7 +21,6 @@ export const oceanCardProvenance = (c: LiveContext, meta: SstMetadata, stats: Tr
 export const rainCardProvenance = (c: LiveContext, meta: RainMetadata, stats: TruthStatsFile | null) =>
   withRho(c, rainProvenance({ ...c, place: null }, meta), stats?.rain.spearman_rho, stats?.rain.n);
 
-/** The sound rules card counts the sounds that play; the rules themselves are mapping.json's numbers. */
 export function rulesProvenance(c: LiveContext, subject: string, voices: number): Provenance {
   return {
     subject,
@@ -62,7 +58,6 @@ export function globeProvenance(c: LiveContext, subject: string, duet: GlobeDuet
     n: t("hwgt.n.placeDays", { n: formatInteger(duet.summary.unique_place_days, lang) }),
     status: "observation",
     scripts: SCRIPTS.globe.map((p) => repoLink(p)),
-    // No VALIDATION_TABLE.md row: the rank correlation is the pipeline's own output (truth_stats.py).
     validation: rowLink(TRUTH_STATS, "globe"),
     patternOnly: null,
   };

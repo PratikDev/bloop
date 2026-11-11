@@ -130,7 +130,6 @@ export const appEn = {
   "start.tapToStart": "Tap to start sound",
   "announce.started": "Sound started. The cursor is over the Bay of Bengal. Arrow keys move it.",
 
-  // Team plan §15 wording. The full credits list is built from the record registry (src/lib/credits, en/credits.ts).
   "credits.visualizations": `Visualizations: ${CREDIT_NAMES.svs} for the ${CREDIT_NAMES.eic}.`,
 
   "error.ocean": "Couldn't load the latest ocean frame. Check the connection and reload the page.",

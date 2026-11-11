@@ -17,14 +17,14 @@ import type { GlobeTexture } from "./use-globe-texture";
 const CONTROL_MS = 1000 / CONTROL_HZ;
 
 /** The voice's own rate for a reading: drops/s (rain) or bells/s (snow), from mapping.json; 0 = none. */
-function particleRate(r: Reading, track: TrackMode): { perSecond: number; kind: ParticleKind } {
+export function particleRate(r: Reading, track: TrackMode): { perSecond: number; kind: ParticleKind } {
   if (track === "ocean" || r.rain.mmPerHour === null) return { perSecond: 0, kind: "rain" };
   if (r.rain.phase === "liquid") return { perSecond: mapVoice("rain", r.rain.mmPerHour) ?? 0, kind: "rain" };
   if (r.rain.phase === "frozen") return { perSecond: mapVoice("snow", r.rain.mmPerHour) ?? 0, kind: "snow" };
   return { perSecond: 0, kind: "rain" };
 }
 
-interface ControlInput {
+export interface ControlInput {
   fields: LiveFields;
   track: TrackMode;
   needle: LatLon;

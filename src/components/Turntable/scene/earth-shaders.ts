@@ -1,5 +1,3 @@
-// The Earth's GLSL (surface, clouds and the data layer), used by createEarth (earth.ts).
-
 export const SURFACE_VERTEX = /* glsl */ `
 varying vec2 vUv;
 varying vec3 vPos;

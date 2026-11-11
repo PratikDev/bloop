@@ -4,13 +4,13 @@
 
 import { Vector3, type PerspectiveCamera } from "three";
 
-interface OrbitPose {
+export interface OrbitPose {
   yaw: number; // radians, 0 = camera on +z looking towards −z
   pitch: number; // radians above the horizon
   distance: number;
 }
 
-interface OrbitLimits {
+export interface OrbitLimits {
   minDistance: number;
   maxDistance: number;
   minPitch: number;

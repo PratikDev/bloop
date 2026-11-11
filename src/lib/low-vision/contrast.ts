@@ -1,7 +1,3 @@
-// PURE: WCAG contrast (relative luminance and contrast ratio, WCAG 2.2 §1.4.3 / 1.4.6 / 1.4.11). Used by the theme
-// tests (text at least 7:1 in the high-contrast themes; focus and the needle at least 3:1) and by the custom theme's
-// warning when the user's two colours are too close.
-
 import { hexToRgb } from "@/lib/css-tokens";
 
 const channel = (c: number) => {
@@ -19,5 +15,4 @@ export function contrast(a: string, b: string): number {
   return (hi + 0.05) / (lo + 0.05);
 }
 
-/** WCAG's enhanced (AAA) text contrast, the high-contrast themes' floor. */
 export const TEXT_AAA = 7;

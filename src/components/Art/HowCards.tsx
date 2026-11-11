@@ -15,7 +15,6 @@ import { DialCheck } from "./Dial/DialCheck";
 import { OrchestraLegend } from "./Orchestra/Legend";
 import { RawPixelCard } from "./RawPixel";
 
-/** ART's cards on How we know: the Earth Orchestra legend and the data voice check (each behind its flag). */
 export function ArtHowCards() {
   const { state } = useAppState();
   const t = useT();

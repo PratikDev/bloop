@@ -62,7 +62,7 @@ export function circularAnisotropyMap(size = 512): CanvasTexture {
   });
 }
 
-interface LabelText {
+export interface LabelText {
   title: string;
   subtitle: string;
   /** CSS colours (from the palette). */

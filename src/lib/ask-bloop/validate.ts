@@ -1,6 +1,3 @@
-// Ask Bloop's slot validation: anything that did not come from the parser (the §5.4 LLM route's
-// output, the benchmark file) is checked against the registry's own value lists before it can run. Unknown intents,
-// unknown values and extra slots are refused (null). Place slots are words, never coordinates: any digit is refused.
 import { SPEECH_MODES, VERBOSITIES } from "@/components/AppState/access";
 import { LANGS } from "@/lib/i18n/types";
 import { ASK_PAGES, ASK_RECORDS, EXTREMES, FRAME_STEPS, type Intent, type IntentName } from "./intents";
@@ -13,11 +10,9 @@ const isObject = (v: unknown): v is Raw => typeof v === "object" && v !== null &
 const oneOf = <T extends string>(list: readonly T[], v: unknown): v is T => typeof v === "string" && (list as readonly string[]).includes(v);
 const MONTH = /^\d{4}-(0[1-9]|1[0-2])$/u;
 const MAX_PLACE = 80;
-/** A place as said: letters, spaces and a little punctuation, never a number (coordinates come from the gazetteer). */
 const isPlace = (v: unknown): v is string => typeof v === "string" && v.trim().length > 0 && v.length <= MAX_PLACE && !/[0-9০-৯]/u.test(v);
 const placeOrNull = (v: unknown): v is string | null => v === null || isPlace(v);
 
-/** The slots each intent takes (anything else is refused). */
 export const SLOTS: Record<IntentName, readonly string[]> = {
   play: [],
   pause: [],
@@ -50,7 +45,6 @@ function setting(s: Raw): Intent | null {
   return null;
 }
 
-/** `{ name, ...slots }` checked against the registry; null when anything is unknown, missing or extra. */
 export function validateIntent(raw: unknown): Intent | null {
   if (!isObject(raw) || !oneOf(INTENT_NAMES, raw.name)) return null;
   const name = raw.name;

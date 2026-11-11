@@ -1,14 +1,7 @@
-// PURE: a letter to the future, inspired by the Okjökull plaque: a dated card built only from
-// data. The place, the frame's date, the value under the needle (through the engine's own reading), the dataset and
-// the record's validation line; nothing else. A pattern-only record says so and records no value. A class record (fire
-// weather, landslide exposure) records its class and its own "not a measurement" label, never a value; a night with
-// no radiance (cloud) is a gap, never darkness.
-
 import { brailleNumber, clean } from "@/a11y/brailleText";
 import { wrapLines } from "@/lib/expedition-log";
 import { formatDay, formatFixed, formatRainRate, formatTemperature, type BoundT, type Lang } from "@/lib/i18n";
 
-/** The braille-friendly width of the saved letter (characters per line). */
 const LETTER_WIDTH = 40;
 
 export type LetterReading =
@@ -16,25 +9,19 @@ export type LetterReading =
   | { kind: "rain"; mmPerHour: number; percent: number | null }
   | { kind: "dry" }
   | { kind: "pattern"; record: string }
-  /** A category (a forecast or modelled class): its label and the record's own label of what it is not. */
   | { kind: "class"; record: string; label: string; note: string }
-  /** Measured radiance (night lights), with its unit. */
   | { kind: "radiance"; value: number; unit: string }
-  /** A cloud-masked night: a gap, not darkness. */
   | { kind: "gap" }
   | { kind: "none" };
 
 export interface LetterInput {
   place: string;
-  /** The frame's date, YYYY-MM-DD. */
   date: string;
   reading: LetterReading;
-  /** The dataset that measured it (from the data file). */
   source: string;
   link: string | null;
 }
 
-/** The letter's sentences, on screen and spoken. */
 export function letterLines(t: BoundT, lang: Lang, l: LetterInput): string[] {
   const head = t("letter.head", { place: l.place, date: formatDay(l.date, lang) });
   const r = l.reading;
@@ -59,8 +46,6 @@ export function letterLines(t: BoundT, lang: Lang, l: LetterInput): string[] {
   }
 }
 
-/** The saved letter (.txt, UTF-8): the letter wrapped to the braille width, then its facts, one per line. Western
- *  digits for braille: the facts repeat the value with brailleNumber. */
 export function letterText(t: BoundT, lang: Lang, l: LetterInput): string {
   const r = l.reading;
   const value =

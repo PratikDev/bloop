@@ -10,7 +10,7 @@ import { ProductBadges } from "../SourceBadges/ProductBadges";
 import { StatusBadge } from "../StatusBadge";
 import { ProofHelix } from "./ProofHelix";
 
-/** SVS 5176 vs NOAA Coral Reef Watch (numbers from sst_anom.json). */
+/** SVS 5176 vs NOAA Coral Reef Watch (book §13.2 wording; numbers from sst_anom.json). */
 export function AnomalyCheck() {
   const t = useT();
   const { value: meta, error } = useLoaded(loadSstAnomalyMeta);

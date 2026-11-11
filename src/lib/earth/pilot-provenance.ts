@@ -3,7 +3,6 @@ import { repoLink } from "@/lib/provenance/repo";
 import type { Provenance } from "@/lib/provenance/types";
 import { DATA_SCRIPTS } from "./provenance";
 
-/** How we got this for the pilot table: the archive's grids and FIRMS's daily counts, compared by Bloop's code. */
 export function pilotProvenance(t: BoundT, lang: Lang, rows: number): Provenance {
   return {
     subject: t("earth.pilot.heading"),

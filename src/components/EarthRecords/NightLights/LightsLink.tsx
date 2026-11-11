@@ -7,7 +7,6 @@ import { FLAGS } from "@/lib/flags";
 import { useT } from "../../AppState/use-app-state";
 import { preferCity } from "./use-night-lights";
 
-/** Under SVS 5313 "Change in night lights": hear the measured radiance for Dhaka (if the file has Dhaka). */
 export function LightsLink({ choose }: { choose: (record: string) => void }) {
   const t = useT();
   const { value: file } = useLoaded(loadNightLights, FLAGS.dataNightLights);

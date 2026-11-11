@@ -1,5 +1,5 @@
 // DRAFT Bangla (NEEDS TRANSLATOR REVIEW) for the Turntable's own strings, written by the developer, NOT
-// yet checked by a translator. Used only inside the
+// yet checked by a translator (docs/L3/bangla-strings.md). Used only inside the
 // Turntable; src/lib/i18n/bn.ts stays empty, so <html lang> and the rest of the
 // app are unchanged. Deliberately left out (they fall back to English): the
 // honesty wording ("pending team approval", "Verification being updated"), the

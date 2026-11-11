@@ -6,22 +6,14 @@ import { cn } from "@/lib/utils";
 interface DataTableProps {
   caption: string;
   columns: readonly string[];
-  /** Each row's cells; the first is the row's header (th scope="row"), so a screen reader names every cell by it. */
   rows: readonly (readonly ReactNode[])[];
-  /** Keys for the rows (else their index). */
   rowKeys?: readonly string[];
-  /** Marks one row (the needle's, the day playing): bold, outlined, and said ("now"). */
   current?: number | null;
   currentLabel?: string;
   className?: string;
   testId?: string;
 }
 
-/**
- * A real table for the DATA views (Data health, the records' "View as table"): a caption, column headers, row headers.
- * It scrolls inside a region that takes focus, so a keyboard can reach and scroll it (axe: scrollable-region-focusable);
- * a screen reader's table keys move cell by cell.
- */
 export function DataTable({ caption, columns, rows, rowKeys, current = null, currentLabel, className, testId }: DataTableProps) {
   return (
     <div role="region" aria-label={caption} tabIndex={0} className={cn("overflow-auto rounded-lg ring-1 ring-glass-edge focus-visible:ring-2 focus-visible:ring-shapla", className)} data-testid={testId}>

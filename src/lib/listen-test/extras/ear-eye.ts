@@ -1,8 +1,3 @@
-// ART's ear-vs-eye task (gap #11): the same known-answer question, "When did the rain peak: early, in the middle, or
-// late?", asked once as sound only and once as picture only, counterbalanced. Two halves of the 48-frame rain sequence
-// (the storm the time-lapse follows), so the second answer isn't a memory of the first; which half is heard and which
-// is seen, and which comes first, are counterbalanced. The answer comes from the data. PURE.
-
 import { counterbalance, type ExtraRecord, type ExtraTaskInfo } from "./types";
 
 export const EAR_EYE: ExtraTaskInfo = { id: "earEye", seconds: 60 };
@@ -14,14 +9,12 @@ export const STEP_MS = 250;
 interface EarEyeItem {
   half: 0 | 1;
   sense: Sense;
-  /** mm/h per frame (null = no data) along the storm. */
   values: (number | null)[];
   lats: number[];
   lons: number[];
   correct: PeakOption;
 }
 
-/** Where the heaviest frame falls: the first, middle or last third. null when it never rains (no clear answer). */
 function peakThird(values: readonly (number | null)[]): PeakOption | null {
   let best = -1;
   let at = -1;
@@ -35,7 +28,6 @@ function peakThird(values: readonly (number | null)[]): PeakOption | null {
   return PEAK_OPTIONS[Math.min(2, Math.floor((3 * at) / values.length))];
 }
 
-/** Two items (one heard, one seen), counterbalanced by two coins; null if either half has no clear answer. */
 export function earEyeItems(points: readonly { lat: number; lon: number; mmPerHour: number | null }[], coinSense: number, coinOrder: number): EarEyeItem[] | null {
   const mid = Math.floor(points.length / 2);
   const halves = [points.slice(0, mid), points.slice(mid)];

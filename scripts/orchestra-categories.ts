@@ -1,7 +1,3 @@
-// Earth Orchestra's category table (src/lib/audio/orchestra/categories.json), generated from the record registry: the
-// Official and Related indexes, each record's manifest (title, layer labels, play voices), and the app's own voices
-// (Listen, Then vs Now) from public/mapping.json. Rules: src/lib/audio/orchestra/classify.ts. Unclassified records are
-// listed, never guessed. Re-run after records are added: bun scripts/orchestra-categories.ts
 import { readFileSync, writeFileSync } from "node:fs";
 import { join } from "node:path";
 import { classifyRecord, CATEGORY_RULES, withMethods, type Classified, type RecordWords } from "../src/lib/audio/orchestra/classify";
@@ -29,7 +25,6 @@ interface MappingVoice {
 
 const json = <T,>(path: string): T => JSON.parse(readFileSync(path, "utf8")) as T;
 
-/** The Listen and Then vs Now voices: each is a record of its own (ChordRequest uses these ids). */
 const APP_RECORDS = ["ocean", "rain", "snow", "heat", "monsoon", "water"] as const;
 
 function appRecords(): RecordWords[] {
@@ -52,7 +47,6 @@ function registry(folder: "official" | "related"): { words: RecordWords; voices:
   });
 }
 
-/** DATA's records built from the shipped products (src/lib/earth/records.ts): classified from their own titles. */
 const dataRecords = (): RecordWords[] => DATA_RECORD_IDS.map((id) => ({ id, title: en[DATA_RECORDS[id].titleKey], layers: [] }));
 
 const records = [...registry("official"), ...registry("related")];
@@ -61,8 +55,6 @@ const classified: Classified[] = withMethods(
   METHOD_APPLIED_TO,
 );
 
-// A voice takes its record's category; a voice shared by records in different systems has none of its own (the
-// record being played decides).
 const voiceCategories = new Map<string, Set<string | null>>();
 for (const r of records) {
   const c = classified.find((x) => x.id === r.words.id)?.category ?? null;

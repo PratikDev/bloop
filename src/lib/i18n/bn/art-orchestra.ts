@@ -1,5 +1,3 @@
-// Earth Orchestra in Bangla: a developer's DRAFT, listed for review in docs/i18n/TO_TRANSLATE.md (bn/drafts.ts).
-
 import type { orchestraEn } from "../en/art-orchestra";
 
 export const orchestraBn: Partial<typeof orchestraEn> = {

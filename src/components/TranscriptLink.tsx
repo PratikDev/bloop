@@ -4,7 +4,6 @@ import { Link } from "@tanstack/react-router";
 import { FLAGS } from "@/lib/flags";
 import { useT } from "./AppState/use-app-state";
 
-/** "Transcript: <record>": linked from the record, its liner notes and How we know. */
 export function TranscriptLink({ record, label, className }: { record: string; label: string; className?: string }) {
   const t = useT();
   if (!FLAGS.timedText) return null;

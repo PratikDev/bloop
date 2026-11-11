@@ -40,9 +40,7 @@ export const captionsEn = {
   "caption.thenNow.caption": (p: CaptionParams) => strParam(p, "text"),
   "caption.thenNow.window": (p: CaptionParams) => `Playing ${strParam(p, "label")}`,
   "caption.thenNow.end": "Then vs Now finished",
-  // The part's statistics (stats.json), passed in both languages by the Then vs Now player.
   "caption.thenNow.stats": (p: CaptionParams) => strParam(p, "en"),
-  // Both mode's frame gap, passed in both languages when Both starts.
   "caption.frameGap": (p: CaptionParams) => strParam(p, "en"),
   "caption.note": (p: CaptionParams) => strParam(p, "en"),
   "caption.water.gap": (p: CaptionParams) => {

@@ -1,5 +1,3 @@
-// The facts one description is made of, for one record at the needle. Frame-wide facts
-// (range, warmest band) are computed once per decoded frame and cached; the 3×3 pattern follows the needle.
 import type { LatLon } from "@/lib/data";
 import { cellIndex } from "@/lib/data/grid";
 import { decodeRain, decodeSst, type RainField, type SstField } from "@/lib/data/latest";
@@ -17,10 +15,8 @@ interface RainChange {
   minutes: number;
 }
 
-/** A computed place's name ("Bay of Bengal, 140 km south of Khulna"), or null where the gazetteer has none yet. */
 export type PlaceName = (at: LatLon) => string | null;
 
-/** A spot's full line and its region (district, country or sea), in one language (src/components/Describe/place-namer.ts). */
 export interface PlaceNamers {
   name: PlaceName;
   region: PlaceName;
@@ -34,17 +30,12 @@ export interface RecordFacts {
   record: DescribedRecord;
   timeUtc: string;
   here: Spot;
-  /** The value at the needle: °C, or mm/h (0 = dry); null = no data there. */
   value: number | null;
-  /** Rain only: the needle's rain is snow or other frozen precipitation. */
   frozen: boolean;
-  /** Ocean: the coldest cell. Rain has no "lowest" worth saying (it is dry somewhere). */
   min: (Extreme & { place: string | null }) | null;
   max: (Extreme & { place: string | null }) | null;
-  /** Ocean: the warmest latitude band's centre. */
   band: number | null;
   local: LocalPattern;
-  /** Rain: the needle's value one frame earlier and now, from the same grid (the time-lapse's), and how long apart. */
   change: RainChange | null;
 }
 
@@ -56,9 +47,8 @@ export function rainGrid(f: RainField): ValueGrid {
   return { width: f.meta.grid.width, height: f.meta.grid.height, value: (i) => decodeRain(f.codes[i]) };
 }
 
-/** A rain frame as describeable: the live frame, or a time-lapse frame held with PageUp/PageDown. */
 export interface RainFrame {
-  field: object; // the decoded frame (the cache key)
+  field: object;
   grid: ValueGrid;
   timeUtc: string;
   frozenAt(index: number): boolean;
@@ -83,7 +73,6 @@ interface FrameFacts {
 }
 const frameCache = new WeakMap<object, FrameFacts>();
 
-/** Range and band of a frame, once per decoded frame. */
 function frameFacts(field: object, grid: ValueGrid, withBand: boolean): FrameFacts {
   let facts = frameCache.get(field);
   if (!facts) {
@@ -112,7 +101,6 @@ export function oceanFacts(sst: SstField, at: LatLon, name: PlaceName): RecordFa
   };
 }
 
-/** Rain at the needle in a frame (live or held), with the change since the frame before when it is known. */
 export function rainFacts(frame: RainFrame, at: LatLon, name: PlaceName, change: RainChange | null): RecordFacts {
   const { range } = frameFacts(frame.field, frame.grid, false);
   const i = cellIndex(frame.grid, at.lat, at.lon);

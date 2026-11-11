@@ -1,5 +1,4 @@
 // The Mapping panel's rule sentence in Bangla, built from the same parts as
-// L2's English ruleText (src/lib/audio/mapping-text.ts), so it can never
 // disagree with the sound.
 
 import { ruleParts, ruleText } from "@/lib/audio/mapping";
@@ -23,11 +22,6 @@ export function voiceLabelBn(voice: VoiceSpec): string {
   return voice.label.bn.startsWith("TODO") ? translateData(voice.label.en) : voice.label.bn;
 }
 
-/**
- * The words a voice's rule needs that Bangla doesn't have yet: a parameter without a Bangla word, a unit
- * translateData doesn't know, a "same rule as" voice, a falling output (bloop-dev's voices: normalTone, clarity,
- * unison, …). Empty = the Bangla sentence can be built. Listed in docs/i18n/TO_TRANSLATE.md.
- */
 function missingRuleWords(voice: VoiceSpec): string[] {
   const p = ruleParts(voice);
   if (!p) return [];

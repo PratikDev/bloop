@@ -1,5 +1,3 @@
-// The raw-pixel demo in Bangla: a developer's DRAFT.
-
 import type { rawPixelEn } from "../en/art-raw-pixel";
 
 export const rawPixelBn: Partial<typeof rawPixelEn> = {

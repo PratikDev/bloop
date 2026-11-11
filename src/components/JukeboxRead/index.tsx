@@ -63,21 +63,13 @@ function Rows({ t, lang, source, read }: { t: BoundT; lang: Lang; source: ReadSo
   );
 }
 
-/**
- * "What the jukebox read from this frame": a collapsible panel with the box the values come
- * from (the needle's neighbourhood or a named box), the median, P10 to P90, % no data and n cells, the record's
- * validation status and its cents error budget. Pattern-only records show no numbers; relative ones no units. Plain
- * HTML: a heading with its toggle, keyboard reachable, its own "How we got this", and a braille-safe short line.
- */
 export function JukeboxRead({ source, base, needle, playMode, loading, className, children }: {
   source: ReadSource | null;
-  /** What the foreground plays (the chord is off in Both and the duet). */
   playMode: PlayMode;
   base: Provenance | null;
   needle: LatLon;
   loading?: boolean;
   className?: string;
-  /** Extra controls under the numbers (the chord's toggle and line). */
   children?: ReactNode;
 }) {
   const { state } = useAppState();

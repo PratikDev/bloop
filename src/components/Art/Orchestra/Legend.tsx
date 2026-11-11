@@ -9,10 +9,6 @@ import { FAMILIES, UNCLASSIFIED } from "@/lib/audio/orchestra";
 import { useT } from "../../AppState/use-app-state";
 import { CATEGORY_ICONS } from "./icons";
 
-/**
- * Earth Orchestra's legend: each Earth system, its instrument and why, and a button that plays the family on one
- * fixed reference note (never data). A real table, so a screen reader reads it row by row.
- */
 export function OrchestraLegend() {
   const t = useT();
   const soundStart = useSoundStart();

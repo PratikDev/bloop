@@ -1,5 +1,5 @@
 // DRAFT Bangla (NEEDS TRANSLATOR REVIEW) for the scenes' strings, written by the developer, NOT yet
-// checked by a translator. Merged into the
+// checked by a translator (docs/L3/bangla-strings.md). Merged into the
 // Turntable's drafts. Left out on purpose (English fallback): the honesty line
 // and the credit, which are quoted as written.
 

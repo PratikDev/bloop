@@ -11,7 +11,6 @@ import { DataChoice } from "./DataChoice";
 import { DialCheck } from "./Dial/DialCheck";
 import { monthOf, usePlayContext } from "./use-play-context";
 
-/** An Official record's art controls: the dial (and its check on this record) and the play context it describes. */
 export function ArtRecord({ rec, record, time }: { rec: OfficialRecordState; record: string; time: string | undefined }) {
   const [art] = useArtSettings();
   usePlayContext(rec.option ? { recordId: record, playMode: rec.option.channels.length > 1 ? "both" : "single", month: monthOf(time) } : null);

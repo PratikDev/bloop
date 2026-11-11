@@ -13,7 +13,6 @@ import { useLiveTranscript } from "./use-live-transcript";
 const VOICES = { ocean: ["ocean"], rain: ["rain", "snow"] } as const satisfies Record<LiveRecord, readonly string[]>;
 const PLAYER = { ocean: "sweep", rain: "timelapse" } as const satisfies Record<LiveRecord, TimedPlayer>;
 
-/** How the sound is made, in words: each voice's rule from mapping.json, then what silence means and the grammar. */
 const mappingLines = (t: BoundT, record: LiveRecord) => [...VOICES[record].map((v) => t("mapping.rule", { voice: voiceSpec(v) })), t("tuning.nodata"), t("tuning.grammar")];
 
 export function LiveTranscript({ record }: { record: LiveRecord }) {

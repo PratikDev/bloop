@@ -11,7 +11,7 @@ import { playSequence, type Step } from "./sequence";
 import type { PlayerHandle, SweepPoint } from "./types";
 
 const DEFAULT_FPS = 2;
-const TIMELAPSE_PLAYER = "timelapse";
+export const TIMELAPSE_PLAYER = "timelapse";
 
 export function playTimelapse(frames: SweepPoint[], opts?: { fps?: number; loop?: boolean }): PlayerHandle {
   const stepSec = 1 / (opts?.fps ?? DEFAULT_FPS);

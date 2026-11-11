@@ -1,4 +1,3 @@
-// Bangla for the accessibility core (en/access.ts). Drafts: listed in drafts.ts until a Bangla speaker checks them.
 import { formatAxis, formatInteger, formatUtc } from "../format";
 import type { Messages } from "../index";
 

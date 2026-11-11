@@ -8,8 +8,6 @@ import { gapProvenance, oceanProvenance, rainProvenance } from "@/lib/provenance
 import type { Provenance } from "@/lib/provenance/types";
 import { useFreshness } from "./use-freshness";
 
-/** "How we got this" for the live frames a track plays (Listen, the frame label, the Turntable): the ocean and/or rain
- * frame, and in Both mode the time between them. `place` is the cursor's place as shown, or null. */
 export function useLiveProvenance(track: TrackMode, place: string | null, { gap = true }: { gap?: boolean } = {}): Provenance[] {
   const t = useT();
   const { state } = useAppState();

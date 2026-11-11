@@ -29,7 +29,7 @@ export function emitState(playing = false, ducked = false) {
 }
 
 /**
- * Creates / resumes the engine. Public entry point is ensureAudio in index.ts.
+ * Creates / resumes the engine. Public entry point is ensureAudio() in index.ts.
  * Resumes from any state but "running": after a phone lock Safari reports
  * "interrupted", not "suspended", and one tap must bring the sound back.
  */
@@ -68,7 +68,7 @@ export function peekEngine(): Engine | null {
   return engine;
 }
 
-interface AudioInfo {
+export interface AudioInfo {
   state: AudioContextState;
   sampleRate: number;
   baseLatencyMs: number;

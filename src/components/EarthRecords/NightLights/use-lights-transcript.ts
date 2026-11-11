@@ -10,7 +10,6 @@ import { useAppState } from "../../AppState/use-app-state";
 import type { AppTranscriptData } from "../AppTranscript";
 import { lightsLinerNotes } from "./liner";
 
-/** The night-lights transcript: every night at every city, gaps said as gaps. */
 export function useLightsTranscript(): { data: AppTranscriptData | null; error: boolean } {
   const { state } = useAppState();
   const lang = state.lang;
@@ -18,7 +17,6 @@ export function useLightsTranscript(): { data: AppTranscriptData | null; error: 
   const [error, setError] = useState(false);
   useEffect(() => {
     let cancelled = false;
-    // t is bound here: useT gives a new function each render, which would restart this load forever.
     const t = bindT(lang);
     loadNightLights()
       .then((file) => {

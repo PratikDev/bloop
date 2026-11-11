@@ -1,6 +1,3 @@
-// English strings for the credits list (src/components/DataCredits; built from the record registry by
-// src/lib/credits/build.ts). Dataset names stay in English; only the words around them are translated.
-
 export const creditsEn = {
   "credits.heading.data": "Data in this app",
   "credits.heading.testing": "Used in our testing (not playable)",

@@ -13,15 +13,11 @@ export interface BoxRead {
   boxId: string;
   boxName: string;
   bounds: Bounds;
-  /** null while the source loads, and for pattern-only records (no values read). */
   stats: BoxStats | null;
-  /** The record plays pitch (it has a cents budget, known or not). */
   pitch: boolean;
-  /** null: no pitch, or no budget axis for the record (shown as "error not known"). */
   budget: LiveBudget | null;
 }
 
-/** The chosen box (needle or named) over the source's frame: its statistics and the record's error budget. */
 export function useBoxRead(source: ReadSource | null, needle: LatLon): BoxRead {
   const t = useT();
   const [view] = useCvView();

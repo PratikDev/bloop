@@ -15,7 +15,6 @@ const CURSOR_RADIUS = 11;
 const ACCENT_WIDTH = 2;
 const OUTLINE_WIDTH = 1.5;
 
-/** A shapla stroke with an ink outline on both sides, so it shows on any colormap. */
 function strokeOutlined(ctx: CanvasRenderingContext2D, palette: Palette, alpha: number, accentWidth = ACCENT_WIDTH, outlineWidth = OUTLINE_WIDTH) {
   ctx.globalAlpha = alpha;
   ctx.strokeStyle = palette.ink;
@@ -27,7 +26,6 @@ function strokeOutlined(ctx: CanvasRenderingContext2D, palette: Palette, alpha: 
   ctx.globalAlpha = 1;
 }
 
-/** Low-vision mode's needle: larger, with a 4 px ring between 3 px outlines (WCAG 2.4.11's thickness, on any band). */
 const THICK = { radius: 16, accent: 4, outline: 3 } as const;
 
 export function drawCursor(ctx: CanvasRenderingContext2D, palette: Palette, x: number, y: number, thick = false) {

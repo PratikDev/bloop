@@ -1,6 +1,3 @@
-// Bangla strings for the Both-mode frame gap (src/lib/i18n/en/frames.ts). Draft, needs review (bn/drafts.ts).
-// The short form reaches a braille display, so its number stays in Western digits.
-
 import type { framesEn } from "../en/frames";
 import { formatInteger } from "../format";
 import type { Translated } from "../types";

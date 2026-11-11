@@ -68,11 +68,6 @@ function Group({ title, children }: { title: string; children: ReactNode }) {
   );
 }
 
-/**
- * Low-vision settings (spec 4.3–4.7), inline under the header (never a full-screen
- * pop-up), with a live preview: the value at the needle in the chosen text, and the map's legend. Each change applies
- * at once and is remembered on this device; Reset puts every setting back.
- */
 export function LowVisionPanel({ onClose, className }: { onClose: () => void; className?: string }) {
   const { state, dispatch } = useAppState();
   const t = useT();

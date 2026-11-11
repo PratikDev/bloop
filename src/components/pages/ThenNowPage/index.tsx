@@ -11,7 +11,6 @@ import { FrameLabel } from "../../FrameLabel";
 import { DEFAULT_PLACE, MonthByMonth } from "../../MonthByMonth";
 import { DEFAULT_CITY, ThenNow } from "../../ThenNow";
 import type { ViewPart } from "../../ThenNow/parts";
-// Your lifetime
 import { FLAGS } from "@/lib/flags";
 import { DEFAULT_BORN, Lifetime } from "../../Art/Lifetime";
 
@@ -26,7 +25,7 @@ export function ThenNowPage() {
   const t = useT();
   const search = route.useSearch();
   const navigate = route.useNavigate();
-  const lifetime = FLAGS.artLifetime && search.view === "lifetime"; // ART
+  const lifetime = FLAGS.artLifetime && search.view === "lifetime";
   const view: ThenNowView = search.view === "lifetime" || !search.view ? "compare" : search.view;
   // In-page choices replace the entry (Back leaves the page, not each tab); the view switch pushes one.
   const set = (next: Partial<ThenNowSearch>, replace = true) => void navigate({ search: (prev) => ({ ...prev, ...next }), replace });
@@ -48,7 +47,7 @@ export function ThenNowPage() {
             options={[
               { value: "compare", label: t("thenNow.view.compare") },
               { value: "monthly", label: t("thenNow.view.monthly") },
-              ...(FLAGS.artLifetime ? [{ value: "lifetime" as const, label: t("lifetime.view") }] : []), // ART
+              ...(FLAGS.artLifetime ? [{ value: "lifetime" as const, label: t("lifetime.view") }] : []),
             ]}
           />
           <FrameLabel className="text-small md:text-right" />

@@ -6,8 +6,6 @@ import { useT } from "../../AppState/use-app-state";
 const W = 320;
 const H = 64;
 
-/** One part's yearly values as a small line, with the playhead on the year sounding now. The numbers are in the text
- *  beside it (and the sheet); the picture is a figure with a short name. */
 export function SongChart({ part, year }: { part: SongPart; year: number | null }) {
   const t = useT();
   const xs = part.notes.map((n) => n.year);

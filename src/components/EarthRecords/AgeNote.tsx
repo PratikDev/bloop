@@ -8,10 +8,6 @@ import { useAppState, useT } from "../AppState/use-app-state";
 import { SourceBadges } from "../SourceBadges";
 import { StatusBadge } from "../StatusBadge";
 
-/**
- * A product's data age (meta/freshness.json, recomputed now): its badges, and past its freshness limit a plain line,
- * "Data from <date>; may be out of date", shown and read (P1–P4: every DATA product shows its age).
- */
 export function AgeNote({ product, sourceTime }: { product: string; sourceTime: string | null }) {
   const t = useT();
   const { state } = useAppState();

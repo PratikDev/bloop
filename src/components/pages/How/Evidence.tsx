@@ -10,10 +10,6 @@ export interface EvidenceTable {
   rows: readonly (readonly string[])[];
 }
 
-/**
- * A card's evidence: the plot with its alt text, and a "View as table" button that shows the same
- * numbers as a real table, for screen readers and anyone who prefers rows to dots.
- */
 export function Evidence({ alt, table, children }: { alt: string; table: EvidenceTable; children?: ReactNode }) {
   const t = useT();
   const [open, setOpen] = useState(!children);
@@ -30,7 +26,7 @@ export function Evidence({ alt, table, children }: { alt: string; table: Evidenc
           {t(open ? "how.hideTable" : "how.viewTable")}
         </Button>
       )}
-      {/* It scrolls, so the keyboard can reach it (axe: scrollable-region-focusable); named by the table's caption. */}
+      {}
       <div id={id} hidden={!open} tabIndex={0} role="region" aria-label={table.caption} className="max-h-56 overflow-auto rounded-lg border border-tide">
         <table className="w-full text-left text-small tabular-nums" data-testid="evidence-table">
           <caption className="sr-only">{table.caption}</caption>

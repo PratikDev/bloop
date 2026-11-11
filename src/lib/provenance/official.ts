@@ -1,6 +1,3 @@
-// "How we got this" for an Official or Related record: its manifest (period, grid, layer status and statement, the SVS
-// page's datasets), its validation.json (n where a check reports one) and the registry's dataset link.
-
 import { formatFixed, formatInteger, type BoundT, type Lang } from "@/lib/i18n";
 import { PATTERN_ONLY } from "@/lib/data/official";
 import type { FreshnessFile, OfficialLayer, OfficialManifest, OfficialValidationFile } from "@/types/data-contract";
@@ -10,18 +7,15 @@ import type { Provenance } from "./types";
 
 const FRAME = /^(svs|eic_)/u;
 const PLACEHOLDER = /^svs_related_/u;
-/** Check metrics that count the compared points, in the names the pipeline uses. */
 const N_KEYS = ["n_points", "n", "n_pairs", "n_cells"] as const;
 
 interface OfficialContext {
   t: BoundT;
   lang: Lang;
   freshness: FreshnessFile | null;
-  /** The needle's place as the page shows it. */
   place: string | null;
 }
 
-/** The data behind the record: the registry's datasets (not the SVS frame), else the datasets its SVS page names. */
 function sources(freshness: FreshnessFile | null, m: OfficialManifest): { names: string[]; link: string | null } {
   const reg = (freshness?.products[m.record]?.datasets ?? []).filter((d) => !FRAME.test(d.id) && !PLACEHOLDER.test(d.id));
   if (reg.length) return { names: reg.map((d) => d.name), link: reg.find((d) => d.url)?.url ?? null };

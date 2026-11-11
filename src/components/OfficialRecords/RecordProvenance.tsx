@@ -7,7 +7,6 @@ import type { OfficialManifest, OfficialPlayOption, OfficialValidationFile } fro
 import { useAppState, useT } from "../AppState/use-app-state";
 import { HowWeGotThis } from "../HowWeGotThis";
 
-/** "How we got this" for the record on screen: one section per layer the map shows or the voices play. */
 export function RecordProvenance({
   manifest,
   validation,

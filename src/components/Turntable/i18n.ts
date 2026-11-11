@@ -6,7 +6,7 @@ import { turntableEn } from "@/lib/i18n/en/turntable";
 import { useAppState } from "../AppState/use-app-state";
 import { turntableBnDraft, type TurntableKey } from "./strings-bn";
 
-/** The Turntable's strings in a language: its Bangla drafts first, then the app's own t (English fallback). */
+/** The Turntable's strings in a language: its Bangla drafts first, then the app's own t() (English fallback). */
 export function ttFor(lang: Lang) {
   return <K extends TurntableKey>(key: K, ...args: ArgsOf<K>): string => {
     const draft = lang === "bn" ? turntableBnDraft[key] : undefined;

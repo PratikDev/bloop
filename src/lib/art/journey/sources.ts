@@ -1,9 +1,3 @@
-// Water's journey's data, from files the app already ships (each checked to exist and play; a step whose data won't
-// load is left out, never faked): SVS 5011 lightning at Dhaka (its play start), SVS 4960's river at its play start (the
-// picture's own view), the storm the time-lapse follows (IMERG), LHASA landslide exposure at the landslide record's own
-// places (the Hill Tracts and Cox's Bazar; with its flag), GRACE over Bangladesh (yearly means), and the Bay of Bengal's
-// sea surface along 15° N (MUR, the live frame).
-
 import { followStorm, loadOfficialLayer, loadOfficialManifest, loadSequence, officialValueAt, valueAt, type LiveFields } from "@/lib/data";
 import { classAt } from "@/lib/earth/class-grid";
 import { LANDSLIDE_VOICE } from "@/lib/earth/classes";
@@ -14,9 +8,7 @@ import { loadLifetime } from "../lifetime/load";
 import type { JourneySource } from "./plan";
 
 const STEPS = 24;
-/** The Official records the suite plays (credited under "Data in this app" as Official records). */
 const JOURNEY_RECORDS = { lightning: "lightning_5011", river: "river_4960" } as const;
-/** The Bay of Bengal row the last step reads (the same as the data-voice check's). */
 export const BAY = { lat: 15, lon: 81, stepDeg: 0.5 };
 
 const day = (iso: string) => iso.slice(0, 10);
@@ -27,7 +19,7 @@ async function officialSource(id: "lightning" | "river", recordId: string, voice
   const layer = m.layers.find((l) => l.id === option.map);
   if (!layer) throw new Error(`${recordId}: no map layer`);
   const grid = await loadOfficialLayer(m.record, layer);
-  const first = Math.max(0, grid.steps.length - STEPS); // the most recent windows
+  const first = Math.max(0, grid.steps.length - STEPS);
   const steps = Array.from({ length: grid.steps.length - first }, (_, k) => first + k);
   return {
     id,
@@ -48,7 +40,6 @@ async function rainSource(): Promise<JourneySource> {
   return { id: "rain", recordId: "rain", voiceId: "rain", values: pts.map((p) => p.mmPerHour), stepSec: 0.25, dataset: seq.index.credit, period: `${frames[0].time_utc} to ${frames[frames.length - 1].time_utc}`, status: "verified" };
 }
 
-/** Each place's exposure class, one place a step (codes: the rule turns them into rumbles or stated silences). */
 async function slopeSource(): Promise<JourneySource> {
   const [grid, places] = await Promise.all([loadLandslide(), loadSlidePlaces()]);
   if (!places.length) throw new Error("no landslide places");
@@ -68,7 +59,6 @@ function seaSource(fields: LiveFields): JourneySource {
   return { id: "sea", recordId: "ocean", voiceId: "ocean", values, stepSec: 0.4, dataset: meta.source_dataset, period: meta.frame_time_utc, status: "verified" };
 }
 
-/** Every step whose data loads, in the suite's order. */
 export async function journeySources(fields: LiveFields): Promise<JourneySource[]> {
   const loads: Promise<JourneySource>[] = [
     officialSource("lightning", JOURNEY_RECORDS.lightning, "lightningClicks", 0.3),

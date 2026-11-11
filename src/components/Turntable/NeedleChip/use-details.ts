@@ -17,12 +17,6 @@ export interface Details {
   hold(on: boolean): void;
 }
 
-/**
- * What a click (or Enter) on the chip does. Hover and focus open the card on their own, just before the click of the
- * same gesture (a tap fires both), so a toggle closed the card it had just opened: the first click seemed to do
- * nothing, and a tap never opened it. A card opened that way ("by the way") stays open on the click;
- * the next click closes it.
- */
 function chipClick(open: boolean, byTheWay: boolean): "open" | "close" {
   return open && !byTheWay ? "close" : "open";
 }
@@ -31,7 +25,6 @@ export function useDetails(): Details {
   const [open, setOpen] = useState(false);
   const [pinned, setPinned] = useState(false);
   const holding = useRef(false);
-  /** The card was opened by hover or focus, not by a click yet. */
   const byTheWay = useRef(false);
   const timer = useRef<ReturnType<typeof setTimeout> | null>(null);
 

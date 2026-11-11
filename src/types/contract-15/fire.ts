@@ -23,7 +23,7 @@ export interface FwiClassMetadata extends ProductHeader {
   bangladesh: FwiBangladesh;
 }
 
-interface FwiBangladesh {
+export interface FwiBangladesh {
   places: Record<string, number>; // class code at each city cell
   bd_box_counts: Record<string, number>; // cells per class code in the Bangladesh box
 }
@@ -54,7 +54,7 @@ export interface FiresFrameMetadata extends ProductHeader {
 
 export type FirmsNrtSource = "VIIRS_NOAA21_NRT" | "VIIRS_NOAA20_NRT" | "MODIS_NRT";
 export type FirmsDailyRegion = "Bangladesh" | "CHT" | "Punjab";
-type FirmsDailyKey = `${FirmsDailyRegion}|${FirmsNrtSource}`;
+export type FirmsDailyKey = `${FirmsDailyRegion}|${FirmsNrtSource}`;
 
 export interface FirmsDailySeries {
   days: string[]; // "YYYY-MM-DD", ascending

@@ -1,6 +1,3 @@
-// Which Earth system a live record voice plays in: its own (a rule used by one system), or, for a rule shared across
-// systems, the record being played now (the art settings' play context). null = plain tones.
-
 import type { EarthCategory } from "@/lib/audio/layers/types";
 import { categoryOfVoice, getCategory } from "@/lib/audio/orchestra";
 import { getArt } from "../settings";

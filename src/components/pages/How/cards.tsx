@@ -12,10 +12,6 @@ import { Evidence } from "./Evidence";
 import { TranscriptLink } from "../../TranscriptLink";
 import { LIVE_TITLE, type LiveTranscript } from "@/lib/transcript";
 
-// The face of each How we know card: the evidence plot (or table) with its alt text and table, the
-// key numbers and two or three plain sentences. The numbers: sst.json / rain.json `verified` (the rows of
-// docs/official/VALIDATION_TABLE.md), the pair files, truth/stats.json (rho) and globe_duet.json. Never typed.
-
 const f = (lang: Lang, v: number, d: number) => formatFixed(v, lang, d);
 
 function Face({ numbers, explain, transcript, children }: { numbers: string; explain: string; transcript?: LiveTranscript; children: React.ReactNode }) {
@@ -34,7 +30,6 @@ function Face({ numbers, explain, transcript, children }: { numbers: string; exp
   );
 }
 
-/** A dataset's name from a pair file's header (e.g. "MUR SST v4.1 (NASA/JPL PO.DAAC)"). */
 const sourceName = (datasets: readonly { id: string; name: string }[], id: string) => datasets.find((d) => d.id === id)?.name ?? id;
 
 const pairRows = (t: BoundT, lang: Lang, pairs: readonly { lat: number; lon: number; frame: number; file: number }[], d: number) =>

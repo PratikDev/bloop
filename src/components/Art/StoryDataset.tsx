@@ -15,7 +15,6 @@ interface Sources {
   storm: { credit: string; first: string; last: string } | null;
 }
 
-/** The dataset and period a tour step plays (gap #7: named on every step, as the whisper step does), from the files. */
 function stepDataset(t: BoundT, lang: Lang, step: StoryStepId, s: Sources): string | null {
   const sst = s.sst && t("tour.data", { source: s.sst.meta.source_dataset, period: formatUtc(s.sst.meta.frame_time_utc, lang) });
   const rain = s.rain && t("tour.data", { source: s.rain.meta.source_dataset, period: formatUtc(s.rain.meta.frame_time_utc, lang) });
@@ -34,7 +33,6 @@ function stepDataset(t: BoundT, lang: Lang, step: StoryStepId, s: Sources): stri
   }
 }
 
-/** Under the tour's line: "Data: …, frame …" for the step now playing (visible and read in browse mode). */
 export function StoryDataset() {
   const { state } = useAppState();
   const t = useT();

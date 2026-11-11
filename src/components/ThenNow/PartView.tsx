@@ -75,7 +75,6 @@ export function Headline({ caption }: { caption: string }) {
   return <p className="font-serif text-lead leading-snug text-moon md:text-title lg:short:text-lead">{caption}</p>;
 }
 
-/** One sounded part: its caption as the headline, its notes (on screen without scrolling), then the chart with its playhead. */
 export function PartView({ part, demo, grace, index, splitIndex, notes }: { part: Part; demo: DhakaThenNowDemo; grace: GraceContextFile; index: number | null; splitIndex: number | null; notes?: ReactNode }) {
   const t = useT();
   const caption = part === "heat" ? demo.heat.caption : part === "monsoon" ? demo.rain.caption : demo.water.caption;

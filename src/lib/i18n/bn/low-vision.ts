@@ -1,5 +1,3 @@
-// Bangla for low-vision mode (en/low-vision.ts). Drafts: listed in drafts.ts until a Bangla speaker
-// checks them. Every number is a slot formatted in Bangla.
 import type { lowVisionEn } from "../en/low-vision";
 import type { Translated } from "../types";
 

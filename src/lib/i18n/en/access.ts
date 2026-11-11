@@ -1,5 +1,3 @@
-// English strings for the accessibility core: speech mode, verbosity, channels;
-// the map widget's keys, hide 3D and help while focused.
 import { formatAxis, formatUtc } from "../format";
 
 export const accessEn = {

@@ -105,7 +105,6 @@ export function placeSeries(
 
 export { isBangladesh };
 
-/** A place's name in the app's language: the four cities have translated names; any other name stays as written. */
 export const placeLabel = (t: (key: `place.${ClimateCellName}`) => string, name: string): string => (isBangladesh(name) ? t(`place.${name}`) : name);
 
 /** The decades a series covers completely, newest first ("2010"…"2019"). */

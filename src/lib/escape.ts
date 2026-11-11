@@ -13,18 +13,12 @@ export function pushEscapeHandler(handler: EscapeHandler): () => void {
   };
 }
 
-/** The open overlays (dialogs, sheets, popovers, menus, lists) whose own Esc closes them. */
 const OVERLAY_SELECTOR = '[role="dialog"], [role="alertdialog"], [role="menu"], [role="listbox"]';
 
-/** Anything that can say whether it sits inside a selector (an Element; a stand-in in the unit test). */
 interface Closest {
   closest(selectors: string): unknown;
 }
 
-/**
- * Whether this Esc closes an overlay: it was pressed inside one. That Esc still stops the sound, but it only closes the
- * overlay, never the page under it (on the Turntable, Esc in Credits left for Listen).
- */
 export function escClosesOverlay(target: Closest | null): boolean {
   return target !== null && target.closest(OVERLAY_SELECTOR) !== null;
 }

@@ -3,7 +3,6 @@ import { cn } from "@/lib/utils";
 
 type BadgeKind = "note" | "error" | "loading";
 
-/** Status is shape + words, never colour: colour means data here. */
 const GLYPHS: Record<BadgeKind, ReactNode> = {
   note: <circle cx="6" cy="6" r="4" fill="none" stroke="currentColor" strokeWidth="1.5" />,
   error: <path d="M2 2h8v5l-3 3H2z" fill="none" stroke="currentColor" strokeWidth="1.5" />,

@@ -11,7 +11,6 @@ import { useAppState } from "../../AppState/use-app-state";
 import type { AppTranscriptData } from "../AppTranscript";
 import { slideLinerNotes } from "./liner";
 
-/** The landslide record's transcript: its rule, its classes and how many cells each holds now, its trust. */
 export function useSlideTranscript(): { data: AppTranscriptData | null; error: boolean } {
   const { state } = useAppState();
   const lang = state.lang;
@@ -19,7 +18,6 @@ export function useSlideTranscript(): { data: AppTranscriptData | null; error: b
   const [error, setError] = useState(false);
   useEffect(() => {
     let cancelled = false;
-    // t is bound here: useT gives a new function each render, which would restart this load forever.
     const t = bindT(lang);
     loadLandslide()
       .then((g) => {

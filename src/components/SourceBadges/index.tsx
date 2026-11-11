@@ -7,15 +7,15 @@ import type { badgesEn } from "@/lib/i18n/en/badges";
 import { cn } from "@/lib/utils";
 import type { Agency, FreshnessEntry } from "@/types/data-contract";
 
-type BadgeKey = keyof typeof badgesEn;
-/** The app's t or the Turntable's tt: both read these keys (tt adds Bangla drafts). */
-type BadgeT = <K extends BadgeKey>(key: K, ...args: ArgsOf<K>) => string;
+export type BadgeKey = keyof typeof badgesEn;
+/** The app's t() or the Turntable's tt(): both read these keys (tt adds Bangla drafts). */
+export type BadgeT = <K extends BadgeKey>(key: K, ...args: ArgsOf<K>) => string;
 
 const AGENCY_KEYS: Partial<Record<Agency, BadgeKey>> = { ground: "badge.agency.ground", other: "badge.agency.other" };
 const HOUR_DAYS = 1 / 24;
 
 /** "Latest available: 5 h old" / "1.6 days old"; the recorded line past the limit; a record's period for baselines. */
-function ageText(entry: FreshnessEntry, now: number, tr: BadgeT, lang: Lang): string {
+export function ageText(entry: FreshnessEntry, now: number, tr: BadgeT, lang: Lang): string {
   const live = livenessAt(entry, now);
   if (live === "missing") return tr("badge.missing");
   if (live === "baseline") {
@@ -28,7 +28,7 @@ function ageText(entry: FreshnessEntry, now: number, tr: BadgeT, lang: Lang): st
   return live === "live" ? tr("badge.latest", { age }) : tr("badge.recorded", { age });
 }
 
-/** Shared inputs across agencies in one product (a duet): "partly independent". */
+/** Shared inputs across agencies in one product (a duet): "partly independent" (book §4.6). */
 function sharesAcrossAgencies(entry: FreshnessEntry): boolean {
   return entry.datasets.some((a) => a.shares_inputs_with.some((id) => entry.datasets.some((b) => b.id === id && b.agency !== a.agency)));
 }

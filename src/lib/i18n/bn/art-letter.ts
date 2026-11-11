@@ -1,5 +1,3 @@
-// A letter to the future in Bangla: a developer's DRAFT.
-
 import type { letterEn, tourEn } from "../en/art-letter";
 
 export const letterBn: Partial<typeof letterEn> = {

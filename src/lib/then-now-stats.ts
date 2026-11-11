@@ -1,9 +1,3 @@
-// The Then vs Now statistics (stats.json) as the app says them: one long line per part (the part
-// view, its Details sheet, captions, Describe) and one braille-ready short form (the live region). The wording
-// follows the result in the file: a change is stated with its range only when both tests and the CI agree
-// (StatComparison.clear); otherwise "no clear change" ("no wetter" for rain), still with the range.
-// Every number comes from stats.json; nothing here computes a statistic.
-
 import { brailleNumber, clean } from "@/a11y/brailleText";
 import { bnNumber } from "@/a11y/brailleBangla";
 import { bindT, formatFixed, formatSigned, type BoundT, type Lang } from "@/lib/i18n";
@@ -14,7 +8,7 @@ export type StatPart = "heat" | "monsoon" | "water";
 export type Verdict = "clear" | "unclear" | "mixed";
 
 export interface StatItem {
-  label: "GPCP" | "GPCC" | "trend" | null; // rain's two sources, water's trend, null for heat's one difference
+  label: "GPCP" | "GPCC" | "trend" | null;
   value: number;
   ci: [number, number];
   decimals: number;
@@ -44,7 +38,6 @@ const pct = (label: "GPCP" | "GPCC", c: StatComparison): StatItem => ({
 
 const trendItem = (tr: StatTrend): StatItem => ({ label: "trend", value: tr.sen_slope, ci: tr.sen_slope_ci, decimals: 2, ciDecimals: 2, unit: "cm/yr", clear: tr.clear });
 
-/** The numbers behind one part's claim: heat = the decade difference, rain = GPCP and GPCC % change, water = the trend. */
 export function partStats(stats: ThenNowStatsFile, city: ClimateCellName, part: StatPart): PartStats {
   const c = stats.cities[city];
   const items: StatItem[] =
@@ -58,7 +51,6 @@ export function partStats(stats: ThenNowStatsFile, city: ClimateCellName, part: 
 
 const unitText = (t: BoundT, unit: StatItem["unit"]) => (unit === "%" ? "%" : unit === "°C" ? ` ${t("unit.celsius")}` : ` ${t("stats.unit.cmPerYear")}`);
 
-/** "+1.37 °C (95% CI +0.88 to +1.86)" in the page's language and digits; a % stays on every bound. */
 function itemText(t: BoundT, lang: Lang, i: StatItem): string {
   const u = unitText(t, i.unit);
   const bound = i.unit === "%" ? "%" : "";
@@ -70,16 +62,13 @@ function itemText(t: BoundT, lang: Lang, i: StatItem): string {
   });
 }
 
-/** The one-line result ("Not a clear change: year-to-year variation is larger."). */
 const resultText = (t: BoundT, v: Verdict) => t(v === "clear" ? "stats.result.clear" : v === "mixed" ? "stats.result.mixed" : "stats.result.unclear");
 
-/** The long line: head (when not clear), every item with its range, then the one-line result. */
 export function longLine(t: BoundT, lang: Lang, ps: PartStats): string {
   const head = ps.verdict === "clear" ? "" : ps.verdict === "mixed" ? t("stats.head.mixed") : t(ps.part === "monsoon" ? "stats.head.noWetter" : "stats.head.noClear");
   return t("stats.line", { head, items: ps.items.map((i) => itemText(t, lang, i)).join("; "), result: resultText(t, ps.verdict) });
 }
 
-/** The short form for a braille display (one 40-cell line where possible): the first item, Western digits, ASCII signs. */
 function shortLine(t: BoundT, lang: Lang, ps: PartStats): string {
   const i = ps.items[0];
   const num = (v: number, d: number) => (lang === "bn" ? bnNumber(v, d) : brailleNumber(v, d));
@@ -96,7 +85,6 @@ function shortLine(t: BoundT, lang: Lang, ps: PartStats): string {
   );
 }
 
-/** A p-value as people read it: "< 0.001", else three decimals. */
 export function pText(lang: Lang, p: number): string {
   return p < 0.001 ? `< ${formatFixed(0.001, lang, 3)}` : formatFixed(p, lang, 3);
 }
@@ -108,7 +96,6 @@ export interface StatTexts {
   shortBn: string;
 }
 
-/** Both languages at once, for captions (the caption bar renders whichever language is on when it shows). */
 export function statTexts(stats: ThenNowStatsFile, city: ClimateCellName, part: StatPart): StatTexts {
   const ps = partStats(stats, city, part);
   const [en, bn] = [bindT("en"), bindT("bn")];

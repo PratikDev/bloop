@@ -1,7 +1,3 @@
-// Low-vision mode: every setting, its allowed values, the defaults and the
-// one-switch preset. The value lists are the one source for the types, the saved settings and the settings panel.
-// Saved per device in localStorage (in try/catch: a blocked storage just means the defaults).
-
 export const THEMES = ["app", "auto", "hcDark", "hcLight", "custom"] as const;
 export const DIMS = ["off", "dim", "dimmer"] as const;
 export const TEXT_SCALES = [100, 125, 150, 200, 250, 300] as const;
@@ -14,8 +10,6 @@ export const SCHEMES = ["original", "luminance", "cividis", "twoTone"] as const;
 export const BAND_COUNTS = [0, 5, 7, 10] as const;
 export const COASTS = ["normal", "thick"] as const;
 export const LENS_SIZES = [240, 320, 420, 560] as const;
-/** Where the lens sits: following the needle, fixed in a corner of the screen the user picks, or docked in the page under
-    the map (spec 4.1: "a user-chosen position, or docked as a fixed panel"). */
 export const LENS_PLACES = ["follow", "topLeft", "topRight", "bottomLeft", "bottomRight", "docked"] as const;
 
 export type Theme = (typeof THEMES)[number];
@@ -32,13 +26,11 @@ type Coast = (typeof COASTS)[number];
 type LensSize = (typeof LENS_SIZES)[number];
 export type LensPlace = (typeof LENS_PLACES)[number];
 
-/** A hex colour (#rrggbb), the custom theme's text and background. */
 type Hex = `#${string}`;
 const HEX = /^#[0-9a-f]{6}$/i;
 export const isHex = (v: unknown): v is Hex => typeof v === "string" && HEX.test(v);
 
 export interface LowVision {
-  /** The preset switch (Alt+L): on turns on the preset's settings; each can then be changed. */
   on: boolean;
   theme: Theme;
   customText: Hex;
@@ -57,18 +49,15 @@ export interface LowVision {
   lens: boolean;
   lensSize: LensSize;
   lensPlace: LensPlace;
-  /** Lens only: outlines between bands (never on the map itself, nor in a screenshot shown as data). */
   edges: boolean;
   calm: boolean;
   compact: boolean;
   largeCursor: boolean;
-  /** Says the value where the pointer rests (the status region or Bloop's voice, as speech mode says). */
   speakDwell: boolean;
 }
 
 type LowVisionKey = keyof LowVision;
 
-/** Each choice's allowed values (booleans and colours are checked by type). */
 const LV_VALUES = {
   theme: THEMES,
   dim: DIMS,
@@ -114,7 +103,6 @@ export const LV_DEFAULTS: LowVision = {
   speakDwell: false,
 };
 
-/** What the preset turns on: high-contrast dark, large text and controls, calm, the lens, bands, thick coasts. */
 const LV_PRESET: Partial<LowVision> = {
   theme: "hcDark",
   textScale: 150,
@@ -127,7 +115,6 @@ const LV_PRESET: Partial<LowVision> = {
   cities: true,
 };
 
-/** The preset switch: on applies the preset over the current settings; off returns every preset setting to its default. */
 export function applyPreset(lv: LowVision, on: boolean): LowVision {
   const keys = Object.keys(LV_PRESET) as (keyof typeof LV_PRESET)[];
   const patch = Object.fromEntries(keys.map((k) => [k, on ? LV_PRESET[k] : LV_DEFAULTS[k]]));
@@ -136,7 +123,6 @@ export function applyPreset(lv: LowVision, on: boolean): LowVision {
 
 const LV_STORAGE_KEY = "bloop.lowvision.v1";
 
-/** The saved settings, each kept only when it is an allowed value. */
 function parseLowVision(raw: unknown): LowVision {
   const out: LowVision = { ...LV_DEFAULTS };
   if (typeof raw !== "object" || raw === null) return out;
@@ -165,15 +151,12 @@ export function writeLowVision(lv: LowVision): void {
   try {
     localStorage.setItem(LV_STORAGE_KEY, JSON.stringify(lv));
   } catch {
-    // Storage blocked: the settings last for this visit only.
   }
 }
 
-/** The next lens size for [ (smaller) or ] (larger), stopping at the ends. */
 export function nextLensSize(size: LensSize, dir: 1 | -1): LensSize {
   const i = LENS_SIZES.indexOf(size);
   return LENS_SIZES[Math.max(0, Math.min(LENS_SIZES.length - 1, i + dir))];
 }
 
-/** Whether the map is re-coloured by Bloop (a scheme other than NASA's, or bands). */
 export const recoloured = (lv: Pick<LowVision, "scheme" | "bands">) => lv.scheme !== "original" || lv.bands !== 0;

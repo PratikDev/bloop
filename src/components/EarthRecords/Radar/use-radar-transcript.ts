@@ -12,7 +12,6 @@ import { ruleTextBn } from "@/lib/i18n/bn/rules";
 import { useAppState } from "../../AppState/use-app-state";
 import type { AppTranscriptData } from "../AppTranscript";
 
-/** The radar method's transcript: the two rules, the caption, NASA's description and credits. */
 export function useRadarTranscript(): { data: AppTranscriptData | null; error: boolean } {
   const { state } = useAppState();
   const lang = state.lang;
@@ -20,7 +19,6 @@ export function useRadarTranscript(): { data: AppTranscriptData | null; error: b
   const [error, setError] = useState(false);
   useEffect(() => {
     let cancelled = false;
-    // t is bound here: useT gives a new function each render, which would restart this load forever.
     const t = bindT(lang);
     Promise.all([fetchJson<MethodManifest>(DATA_PATHS.official("sonification_13786/manifest.json")), loadSst()])
       .then(([m, sst]) => {

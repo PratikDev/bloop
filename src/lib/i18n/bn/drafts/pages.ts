@@ -1,8 +1,6 @@
-// Draft Bangla keys for the pages: credits, team, listener test, provenance, stats, how we know. Listed in DRAFT_KEYS (../drafts.ts).
 import type { MessageKey } from "../../index";
 
 export const PAGE_DRAFTS: readonly MessageKey[] = [
-  // Credits (en/credits.ts)
   "credits.heading.data",
   "credits.heading.testing",
   "credits.testing.note",
@@ -17,7 +15,6 @@ export const PAGE_DRAFTS: readonly MessageKey[] = [
   "credits.power",
   "credits.loading",
   "credits.error",
-  // Team (en/team.ts)
   "nav.team",
   "team.title",
   "team.lead",
@@ -26,7 +23,6 @@ export const PAGE_DRAFTS: readonly MessageKey[] = [
   "team.localEvent",
   "team.madeWith",
   "team.licence",
-  // Listener test (en/listen-test.ts)
   "lt.title",
   "lt.consent.heading",
   "lt.consent.body",
@@ -63,7 +59,6 @@ export const PAGE_DRAFTS: readonly MessageKey[] = [
   "lt.export",
   "lt.loading",
   "lt.error",
-  // How we got this (en/provenance.ts)
   "hwgt.button",
   "hwgt.name",
   "hwgt.intro",
@@ -128,16 +123,12 @@ export const PAGE_DRAFTS: readonly MessageKey[] = [
   "hwgt.n.voices",
   "hwgt.n.placeDays",
   "field.noSound",
-  // The X-ray strings, reworded
   "xray.unavailable",
   "key.x.action",
   "story.xraySkipped",
-  // Start
   "start.tapToStart",
-  // Disclosures
   "disclosure.whyYears",
   "disclosure.extra",
-  // Stats (en/stats.ts, and the stats caption)
   "stats.title",
   "stats.item",
   "stats.line",
@@ -173,7 +164,6 @@ export const PAGE_DRAFTS: readonly MessageKey[] = [
   "stats.row.measurement",
   "stats.grace",
   "caption.thenNow.stats",
-  // Frame gap (en/frames.ts, and the gap caption)
   "frameGap.long",
   "frameGap.days",
   "frameGap.hours",
@@ -187,11 +177,9 @@ export const PAGE_DRAFTS: readonly MessageKey[] = [
   "frameGap.short.same",
   "announce.trackBoth",
   "caption.frameGap",
-  // Water, Bangladesh-wide
   "water.bangladeshWide",
   "history.region",
   "caption.note",
-  // How we know (en/how.ts)
   "how.notAvailable",
   "how.viewTable",
   "how.hideTable",

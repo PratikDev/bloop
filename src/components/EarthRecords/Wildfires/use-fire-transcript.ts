@@ -19,7 +19,6 @@ import { fireLinerNotes } from "./liner";
 
 const RHO_DECIMALS = 2;
 
-/** The fires and fire-weather record's transcript: the same story as its two layers, from the same files. */
 export function useFireTranscript(): { data: AppTranscriptData | null; error: boolean } {
   const { state } = useAppState();
   const lang = state.lang;
@@ -27,7 +26,6 @@ export function useFireTranscript(): { data: AppTranscriptData | null; error: bo
   const [error, setError] = useState(false);
   useEffect(() => {
     let cancelled = false;
-    // t is bound here: useT gives a new function each render, which would restart this load forever.
     const t = bindT(lang);
     (async () => {
       const d = await loadFireData();

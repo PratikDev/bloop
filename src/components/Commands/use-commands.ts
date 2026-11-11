@@ -40,7 +40,6 @@ export interface SweepVisual {
 
 /** A line to say, built for a language: once for the screen, once for speech. */
 export type Line = (t: BoundT, lang: Lang) => string;
-/** A line's braille short form, in the reader's degree style. */
 export type ShortLine = (t: BoundT, lang: Lang, degree: DegreeStyle) => string;
 
 /** Every user action, shared by keyboard shortcuts and on-screen controls. */
@@ -51,14 +50,9 @@ export interface Commands {
   resetStart(): void;
   enableSound(): Promise<void>;
   moveCursor(dLat: number, dLon: number): void;
-  /** Puts the cursor at an exact place (Go to); `remember` lets "." come back to where it was; `lead` (a region's or
-   *  place's name) leads the map's announcement of the new place. */
   setCursor(cursor: LatLon, opts?: { remember?: boolean; lead?: string }): void;
-  /** + (1) / − (−1): the next step size for the arrow keys (src/a11y/mapNav.ts), announced. */
   changeStep(dir: 1 | -1): void;
-  /** Adds a line to the expedition log: what was said, in the screen's language, and its datasets. */
   note(text: string, sources: string[]): void;
-  /** ".": back to the needle's previous place, or says there is none. */
   goBack(): void;
   setTrack(track: TrackMode): void;
   setMode(mode: Mode): void;
@@ -68,11 +62,6 @@ export interface Commands {
   speakCurrent(): void;
   /** Speaks the value(s) and place at `at` (the turntable's needle). */
   speakAt(at: LatLon): void;
-  /**
-   * Speaks the line (built-in voice, with a caption) or announces it (screen reader), then, with
-   * sound on, the satellite whisper with `source`'s caption. Resolves when it has been
-   * said; a later say or Esc cancels a pending whisper.
-   */
   say(line: Line, source?: WhisperSource | null, short?: ShortLine): Promise<void>;
   playSweep(): void;
   /** Starts the sweep from Chattogram with its map ring; null if there's nothing to play. */
@@ -86,7 +75,6 @@ export interface Commands {
   openHelp(): void;
   /** B: opens or closes the Braille Data Explorer (`open` forces one). */
   toggleBraille(open?: boolean): void;
-  /** Esc: stops every sound and closes the panels; `leave` (default) also ends a story or leaves the turntable. */
   stopAll(opts?: { leave?: boolean }): void;
   sweepRef: RefObject<SweepVisual | null>;
 }

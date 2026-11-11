@@ -20,7 +20,7 @@ import { timedTextBn } from "./timed-text";
 import { lowVisionBn } from "./low-vision";
 import { askBloopBn } from "./ask-bloop";
 import { earthBn } from "./earth";
-import { artBn } from "./art"; // ART
+import { artBn } from "./art";
 import { helpBn } from "./help";
 import { pagesBn } from "./pages";
 import { panelsBn } from "./panels";
@@ -36,9 +36,4 @@ export const bn: Partial<Messages> = { ...appBn, ...helpBn, ...captionsBn, ...pa
   ...artBn,
 };
 
-/**
- * Spoken lines (Enter, the tour, Describe) are translated, so speech follows
- * the screen when the device has a Bangla voice; without one, speech stays
- * English with Bangla on screen, see src/lib/speech-lang.ts.
- */
 export const BANGLA_SPEECH_READY = true;

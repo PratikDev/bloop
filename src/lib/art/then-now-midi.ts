@@ -1,7 +1,3 @@
-// PURE: a Then vs Now part as MIDI and a value sheet: heat's two windows (one note a year, the heat rule) and
-// GRACE water (one note a month, the water rule), at the timing Then vs Now plays them. Rain is a count of drops, not a
-// pitch: its sheet lists the drops and its MIDI has no notes.
-
 import { monsoonDrops } from "@/lib/audio/context-maths";
 import { mapVoice } from "@/lib/audio/mapping";
 import { MONTH_STEP_SEC, WINDOW_GAP_SEC, YEAR_STEP_SEC } from "@/lib/audio/players/then-now";

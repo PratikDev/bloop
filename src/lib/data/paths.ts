@@ -34,7 +34,6 @@ export const DATA_PATHS = {
   globalLayer: (layer: GlobalLayerName) => `${ROOT}/global/${layer}.json`,
   globalFile: (file: string) => `${ROOT}/global/${file}`,
   mapping: "/mapping.json",
-  // §15
   freshness: `${ROOT}/meta/freshness.json`,
   sstAnomMeta: `${ROOT}/latest/sst_anom.json`,
   sstAnomGrid: `${ROOT}/latest/sst_anom.bin`,

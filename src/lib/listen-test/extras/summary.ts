@@ -1,7 +1,3 @@
-// PURE: the summary of ART's extra tasks across exported files (scripts/listen-test-summary.ts prints it). Emotion:
-// mean valence and connection per condition (sound / visual), with n. Ear vs eye: correct answers per sense, with n.
-// Formative only; never shown in the app.
-
 import type { ResultsFile } from "../results";
 
 interface ConditionMeans {
@@ -36,7 +32,6 @@ function earEyeSummary(files: readonly ResultsFile[]): SenseAccuracy[] {
   });
 }
 
-/** Lines for the printed summary (empty when no file has the extras: sessions before testVersion 2). */
 export function extrasReport(files: readonly ResultsFile[]): string[] {
   const v2 = files.filter((f) => (f.testVersion ?? 1) >= 2);
   if (!v2.length) return [];

@@ -10,7 +10,6 @@ import { useTableValues, type TableRecord, type ValueTableData } from "./use-tab
 const RECORD_LABEL = { ocean: "frame.product.ocean", rain: "frame.product.rain" } as const satisfies Record<TableRecord, string>;
 const UNIT_LABEL = { ocean: "table.unit.celsius", rain: "table.unit.mmPerHour" } as const satisfies Record<TableRecord, string>;
 
-/** One cell's value in words a screen reader reads well (the unit is in the caption). */
 function cellText(v: OceanValue | RainValue, t: BoundT, lang: Lang): string {
   if (v.track === "ocean") return v.valueC === null ? t("table.none") : formatTemperature(v.valueC, lang);
   if (v.mmPerHour === null || v.phase === "nodata") return t("table.none");
@@ -21,7 +20,6 @@ function RecordTable({ data, step }: { data: ValueTableData; step: number }) {
   const { state } = useAppState();
   const t = useT();
   return (
-    // A table wider than the drawer scrolls; the region takes focus so a keyboard can scroll it (axe: scrollable-region-focusable).
     <div role="region" aria-label={t(RECORD_LABEL[data.record])} tabIndex={0} className="overflow-x-auto rounded-lg ring-1 ring-glass-edge focus-visible:ring-2 focus-visible:ring-shapla">
       <table className="w-full border-collapse text-small tabular-nums">
         <caption className="px-2 pt-2 pb-1 text-left text-small text-haze">
@@ -62,10 +60,6 @@ function RecordTable({ data, step }: { data: ValueTableData; step: number }) {
   );
 }
 
-/**
- * "View as table": the values around the needle as a real table, with a
- * caption, headers and units, one arrow-key step apart; read from the grid the sound plays.
- */
 export function ValueTable() {
   const { state } = useAppState();
   const t = useT();

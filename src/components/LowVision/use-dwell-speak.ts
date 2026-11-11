@@ -6,15 +6,9 @@ import { toLatLon } from "@/lib/geo";
 import { useAppState } from "../AppState/use-app-state";
 import { useCommands } from "../Commands/use-commands";
 
-/** How long the pointer rests before its value is said (the touch mode's dwell in the spec, Part 2). */
 export const DWELL_MS = 600;
-/** Movement under this many pixels doesn't restart the wait (a resting hand trembles). */
 const STILL_PX = 4;
 
-/**
- * Low-vision mode's "say the value where the pointer rests": hovering the map (no button pressed) and
- * resting there says the value and place, through the status region or Bloop's voice as the speech mode says.
- */
 export function useDwellSpeak() {
   const { state } = useAppState();
   const { speakAt } = useCommands();

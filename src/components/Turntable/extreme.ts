@@ -1,5 +1,5 @@
 // The hottest (Ocean) or wettest (Rain) cell on the needle's groove within the
-// part of the globe facing the camera, read with the same valueAt as the
+// part of the globe facing the camera, read with the same valueAt() as the
 // sound. When the needle reaches it, the existing "ping" earcon plays (caption:
 // "Ping: the extreme value in view") and a sparkle shows.
 
@@ -16,7 +16,7 @@ export interface Extreme {
 }
 
 /** Which grid an extreme is found in: Ocean (and Ocean + Rain) uses SST, Rain uses rain. */
-function extremeTrack(track: TrackMode): "ocean" | "rain" {
+export function extremeTrack(track: TrackMode): "ocean" | "rain" {
   return track === "rain" ? "rain" : "ocean";
 }
 

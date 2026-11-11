@@ -1,7 +1,3 @@
-// English strings for Track 0 "Tuning" (each record's lowest and highest anchors with
-// their values, the reference tone, the sound grammar) and the spoken provenance line. Every number is a slot from
-// mapping.json or a frame's metadata.
-
 export const tuningEn = {
   "tuning.title": "Track 0: Tuning",
   "tuning.progress": (p: { n: string; total: string }) => `Step ${p.n} of ${p.total}`,

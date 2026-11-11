@@ -1,6 +1,3 @@
-// "How we got this" for the DATA views (the shape of src/lib/provenance/types.ts): every field from a
-// shipped file's header, never typed. null = "not available" on screen.
-
 import { versionOf } from "@/lib/provenance/live";
 import { repoLink, rowLink, SCRIPTS, VALIDATION_TABLE } from "@/lib/provenance/repo";
 import type { Provenance } from "@/lib/provenance/types";
@@ -8,7 +5,6 @@ import type { LiveCheckRecord } from "@/lib/provenance/live-checks";
 import { formatInteger, formatUtc, type BoundT, type Lang } from "@/lib/i18n";
 import type { ProductHeader } from "@/types/data-contract";
 
-/** Where the DATA products are made (pipeline scripts) and decoded (app modules). */
 export const DATA_SCRIPTS = {
   fwi: ["pipeline/products/fire/fwi.py", "src/lib/earth/fwi.ts"],
   firms: ["pipeline/products/fire/firms_daily.py", "src/lib/earth/firms.ts", "src/lib/earth/geiger.ts"],
@@ -34,7 +30,6 @@ interface HeaderFacts {
   liveCheck?: LiveCheckRecord;
 }
 
-/** A product's provenance from its own header (datasets, credit, times) and the caller's words for the method. */
 export function headerProvenance(f: HeaderFacts): Provenance {
   const names = f.header.datasets.map((d) => d.name).join("; ");
   const link = f.header.datasets.find((d) => d.url)?.url ?? null;
@@ -59,7 +54,6 @@ export function headerProvenance(f: HeaderFacts): Provenance {
   };
 }
 
-/** The "Not playable" list: related/index.json's hidden rows and the pipeline's reasons. */
 export function hiddenProvenance(t: BoundT, lang: Lang, count: number): Provenance {
   return {
     subject: t("earth.notPlayable.subject"),

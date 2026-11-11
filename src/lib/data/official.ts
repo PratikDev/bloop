@@ -1,5 +1,4 @@
 // Official Challenge #14 records (contract §15 official.ts): the record list, a record's manifest and validation,
-// and its layers. A layer loads chunk by chunk (each chunk = consecutive time steps); valueAt reads the cell
 // whose area contains (lat, lon) at one time step. null = no data → honest silence; below = under the colorbar's
 // range (the value is then the layer's below_range_bound, an upper limit).
 
@@ -12,7 +11,6 @@ import { withAppRecords } from "@/lib/earth/records";
 
 const OFFICIAL_NODATA = 65535;
 const OFFICIAL_BELOW = 65534;
-/** Significant figures an Official value is shown with (the record page, its transcript). */
 export const OFFICIAL_DIGITS = 3;
 
 /** A "pattern only" value is never shown as a number: only where it sits in the layer's own range, in five levels. */
@@ -38,7 +36,6 @@ const RELATED_PREFIX = "rel_";
 const recordPath = (record: string, file: string) =>
   (record.startsWith(RELATED_PREFIX) ? DATA_PATHS.related : DATA_PATHS.official)(`${record}/${file}`);
 
-// DATA: the records built from the shipped products (src/lib/earth/records.ts) join after the pipeline's rows.
 export const loadOfficialIndex = () => fetchJson<OfficialIndex>(DATA_PATHS.official("index.json")).then(withAppRecords);
 /** Feature flag: NEXT_PUBLIC_SHOW_HIDDEN_RELATED=1 also lists the related records the pipeline marks `hidden` (too sparse
  *  to play: a needle reads "no value" as they play). Off by default. */

@@ -1,21 +1,13 @@
-// "The 3 most active fire-weather regions in the current grid, found by the code": the grid is cut into blocks
-// of BLOCK_DEG; a block with enough land forecast (MIN_VALID_SHARE of its cells) is scored by its mean class; the top
-// blocks that don't touch each other are offered as one-click places, each at the centre of its highest-class cells.
-// Pure: a class grid in, places out. The block size and share are design choices, not data.
-
 import type { GridSize } from "@/lib/data/grid";
 
 const BLOCK_DEG = 10;
 const MIN_VALID_SHARE = 0.25;
-/** Blocks this many blocks apart or less (in either direction) count as the same region. */
 const NEIGHBOUR = 1;
 
 interface ActiveRegion {
   lat: number;
   lon: number;
-  /** Mean class over the block's forecast cells. */
   meanClass: number;
-  /** The block's highest class. */
   topClass: number;
 }
 
@@ -69,7 +61,6 @@ function scoreBlocks(size: GridSize & { nodata: number }, codes: Uint8Array): Bl
   return blocks;
 }
 
-/** The `count` most active regions, most active first (fewer if the grid has fewer distinct regions). */
 export function activeRegions(size: GridSize & { nodata: number }, codes: Uint8Array, count = 3): ActiveRegion[] {
   const ranked = scoreBlocks(size, codes).sort((a, b) => b.mean - a.mean || b.top - a.top || b.topCells - a.topCells);
   const chosen: Block[] = [];

@@ -14,7 +14,6 @@ import type { TurntableKey } from "./Turntable/strings-bn";
 
 type KeyRow = { key: string | MessageKey; action: MessageKey };
 
-/** Keys shown in Help. Letters are literal key names, not translated. */
 const KEYS: KeyRow[] = [
   { key: "key.arrows", action: "key.arrows.action" },
   { key: "Enter", action: "key.enter.action" },
@@ -35,8 +34,6 @@ const KEYS: KeyRow[] = [
   { key: "key.esc", action: "key.esc.action" },
 ];
 
-/** The map widget's keys with the accessibility core's step 2: D describes here,
- *  Shift+D keeps Describe mode, and + / −, J then 1–9, "." and Page Up / Page Down join after the arrows. */
 const CORE_KEYS: KeyRow[] = KEYS.flatMap((row): KeyRow[] => {
   if (row.key === "key.arrows")
     return [
@@ -117,7 +114,6 @@ function KeyTable({ rows, caption, translate, lang }: { rows: KeyRow[]; caption?
   );
 }
 
-/** Help's keys and settings: in the dialog, or (low-vision mode) in the page. */
 function HelpBody() {
   const { state, dispatch } = useAppState();
   const commands = useCommands();
@@ -164,7 +160,6 @@ export function HelpDialog() {
   const { state, dispatch } = useAppState();
   const t = useT();
   const inline = useInlinePanels();
-  // Low-vision mode: Help opens in the page instead (HelpPanel, in the shell's main).
   if (inline) return null;
   return (
     <Dialog open={state.helpOpen} onOpenChange={(open) => dispatch({ type: "setHelpOpen", open })}>
@@ -182,7 +177,6 @@ export function HelpDialog() {
   );
 }
 
-/** Help in the page, at the top of the content (low-vision mode, spec 4.5: no full-screen pop-ups). */
 export function HelpPanel({ className }: { className?: string }) {
   const { state, dispatch } = useAppState();
   const t = useT();

@@ -1,4 +1,3 @@
-// Bangla for the "Same chord" card (en/cv-card.ts). Drafts: listed in drafts.ts until a Bangla speaker checks them.
 import type { cvCardEn } from "../en/cv-card";
 import type { Translated } from "../types";
 

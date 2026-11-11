@@ -23,7 +23,7 @@ import { timedTextEn } from "./en/timed-text";
 import { lowVisionEn } from "./en/low-vision";
 import { askBloopEn } from "./en/ask-bloop";
 import { earthEn } from "./en/earth";
-import { artEn } from "./en/art"; // ART
+import { artEn } from "./en/art";
 import { dataEn } from "./en/data";
 import { helpEn } from "./en/help";
 import { officialEn } from "./en/official";
@@ -69,7 +69,7 @@ export const en = {
   ...askBloopEn,
   ...cvEn,
   ...earthEn,
-  ...artEn, // ART
+  ...artEn,
 };
 
 export type Messages = typeof en;
@@ -88,12 +88,10 @@ export function t<K extends MessageKey>(lang: Lang, key: K, ...args: ArgsOf<K>):
   return (msg as (p: ArgsOf<K>[0]) => string)(args[0]);
 }
 
-/** The language built-in speech may use: English until Bangla speech is ready. */
 export function speechLang(lang: Lang): Lang {
   return lang === "bn" && BANGLA_SPEECH_READY ? "bn" : "en";
 }
 
-/** t bound to one language. */
 export function bindT(lang: Lang) {
   return <K extends MessageKey>(key: K, ...args: ArgsOf<K>) => t(lang, key, ...args);
 }

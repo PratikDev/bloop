@@ -15,7 +15,6 @@ import type { ExtraStepProps } from "./registry";
 const ACTION = "h-11 rounded-full px-5 text-body";
 const loadStorm = async () => followStorm(await loadSequence());
 
-/** "When did the rain peak?": once heard, once seen (two halves of the storm, counterbalanced); answers from the data. */
 export function EarEyeTask({ onDone, play, coins }: ExtraStepProps) {
   const t = useT();
   const { value: storm, error } = useLoaded(loadStorm);
@@ -25,7 +24,6 @@ export function EarEyeTask({ onDone, play, coins }: ExtraStepProps) {
   const shownAt = useRef(0);
   const unanswerable = Boolean(error || (storm && !items));
   useEffect(() => {
-    // No clear answer today (a dry storm): the task is left out, never guessed.
     if (unanswerable) onDone([]);
   }, [unanswerable, onDone]);
   useEffect(() => {
@@ -34,7 +32,6 @@ export function EarEyeTask({ onDone, play, coins }: ExtraStepProps) {
   if (unanswerable) return null;
   if (!items) return <StatusBadge kind="loading">{t("lt.loading")}</StatusBadge>;
   const item = items[i];
-  // `at`: the click's own time stamp (the same clock as performance.now).
   const answer = (o: PeakOption, at: number) => {
     const all = [...records, { sense: item.sense, half: item.half, position: i + 1, answer: o, correct_answer: item.correct, correct: o === item.correct, ms: Math.round(at - shownAt.current) }];
     if (i === 0) {

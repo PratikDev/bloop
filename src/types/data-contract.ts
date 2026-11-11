@@ -12,7 +12,6 @@ export * from "./contract/mapping";
 export * from "./contract/global";
 
 // ---------------------------------------------------------------------------
-// 15. Additive products — OPTIONAL, additive
 // Every new file starts with a ProductHeader (product, title, pairing, datasets
 // with agency + measurement/model badges, credit, disclosure, source_time_utc);
 // meta/freshness.json lists them all with age and freshness limit. Built by

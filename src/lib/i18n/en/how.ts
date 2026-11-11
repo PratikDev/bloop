@@ -1,7 +1,3 @@
-// English strings for the How we know cards' evidence. Every number is a parameter from sst.json /
-// rain.json `verified` (the rows of docs/official/VALIDATION_TABLE.md), the pair files, truth/stats.json or
-// globe_duet.json.
-
 export const howEn = {
   "how.notAvailable": "not available",
   "how.viewTable": "View as table",

@@ -1,6 +1,4 @@
-// The public audio API. This is the ONLY module other
 // lanes import: `import { ensureAudio, setOcean } from "@/lib/audio"`.
-// Everything takes plain numbers; only preloadClips fetches (recorded narration).
 
 import { startEngine } from "./context";
 import { applyMixer } from "./mixer";
@@ -17,7 +15,6 @@ export async function ensureAudio(): Promise<void> {
 export { getAnalyser, isAudioReady } from "./context";
 export { onAudioEvent } from "./events";
 export { stopAll } from "./stop";
-// Ask Bloop ducks the sonification while it listens, with the same holder-counted duck speech uses.
 export { beginDuck } from "./duck";
 export { setAllMuted, setMasterVolume, setSolo, setTrackMode, setVoiceMuted, setVoiceVolume } from "./mixer";
 export { setOcean, setRain, silenceLive } from "./live";

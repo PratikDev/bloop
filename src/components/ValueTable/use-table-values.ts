@@ -15,16 +15,11 @@ export interface ValueTableData {
   timeUtc: string;
   lats: number[];
   lons: number[];
-  /** values[row][col], read exactly as the sound reads the needle (readAt, or the held frame's own grid). */
   values: (OceanValue | RainValue)[][];
 }
 
 type Reader = { timeUtc: string; read(at: LatLon): OceanValue | RainValue };
 
-/**
- * The values around the needle for each record on screen: the live frames (the same readAt the sound and the readout
- * use), or a time-lapse frame held with PageUp/PageDown (its own grid, as its sound plays it). Null while loading.
- */
 export function useTableValues(): ValueTableData[] | null {
   const { state } = useAppState();
   const input = useDescribeInput();

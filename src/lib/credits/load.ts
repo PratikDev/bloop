@@ -1,5 +1,3 @@
-// The credits as the app shows them: the shipped registry and indexes, built once per page (build.ts).
-
 import { loadFreshness, loadOfficialIndex, loadRelatedIndex } from "@/lib/data";
 import { buildCredits } from "./build";
 import type { CreditsList } from "./types";

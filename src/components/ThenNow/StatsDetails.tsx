@@ -8,7 +8,6 @@ import type { StatComparison, StatTrend, ThenNowStatsFile } from "@/types/then-n
 import { useAppState, useT } from "../AppState/use-app-state";
 import { Row } from "./Disclosure";
 
-/** The part's statistics in one line, under its headline. */
 export function StatsLine({ stats, city, part }: { stats: ThenNowStatsFile; city: ClimateCellName; part: StatPart }) {
   const { state } = useAppState();
   const t = useT();
@@ -37,7 +36,6 @@ function trendText(t: BoundT, lang: Lang, tr: StatTrend, perDecade: boolean) {
   });
 }
 
-/** Details sheet rows: the result, the tests, the method, and for heat and water the full-record trend. */
 export function StatsDetails({ stats, city, part }: { stats: ThenNowStatsFile; city: ClimateCellName; part: StatPart }) {
   const { state } = useAppState();
   const t = useT();

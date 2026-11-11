@@ -1,5 +1,3 @@
-// English strings for the "Same chord, whatever the colours" card on How we know. Numbers are
-// slots from public/data/meta/colormap_invariance.json.
 export const cvCardEn = {
   "cv.card.title": "Same chord, whatever the colours",
   "cv.card.value": (p: { spread: string }) => `${p.spread} °C`,

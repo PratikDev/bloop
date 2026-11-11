@@ -6,7 +6,6 @@ import { useAnnounce } from "../Announcer/use-announcer";
 import { useAppState, useT } from "../AppState/use-app-state";
 import { keepPointOfRegard } from "./use-apply-low-vision";
 
-/** Z (lens on or off) and [ / ] (smaller / larger) on the map, each said in the status region. */
 export function useLensKeys() {
   const { state, dispatch } = useAppState();
   const t = useT();

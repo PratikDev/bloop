@@ -7,10 +7,6 @@ import { useLiveData } from "./LiveData/use-live-data";
 import { HowWeGotThis } from "./HowWeGotThis";
 import { useLiveProvenance } from "@/hooks/use-live-provenance";
 
-/**
- * Both mode: the ocean and rain frames' own times and how far apart they are, from the two
- * manifests. The caller shows it only where both play together.
- */
 export function FrameGapNote({ className, explained = false }: { className?: string; explained?: boolean }) {
   const { state } = useAppState();
   const t = useT();
@@ -24,7 +20,6 @@ export function FrameGapNote({ className, explained = false }: { className?: str
       {gapLong(t, state.lang, gap)}
     </p>
   );
-  // Shown on its own (Listen's header): its own "How we got this". Inside a frame label, the label's.
   return explained ? (
     <div data-provenance-group="" className={cn("flex flex-wrap items-center gap-2", className)}>
       {note}

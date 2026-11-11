@@ -6,7 +6,7 @@ import { SYNTHETIC } from "./synthetic";
 
 const DECADE_MONTHS = 120;
 
-interface DemoInput {
+export interface DemoInput {
   source: "synthetic" | "real";
   input: ThenNowInput;
   series: CompareSide; // one decade of monthly heat for playSeries
@@ -22,7 +22,7 @@ const SYNTHETIC_INPUT: DemoInput = {
 
 /**
  * The harness's Then vs Now input: synthetic until "Load real demo", then the
- * real files through L3's own loaders and buildThenNowInput (no second
+ * real files through L3's own loaders and buildThenNowInput() (no second
  * adapter; agreed with L3 on PR #4).
  */
 export function useDemoInput() {

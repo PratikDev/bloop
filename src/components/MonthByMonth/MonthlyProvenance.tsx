@@ -8,7 +8,6 @@ import type { GraceContextFile } from "@/types/data-contract";
 import { useAppState, useT } from "../AppState/use-app-state";
 import { HowWeGotThis } from "../HowWeGotThis";
 
-/** "How we got this" for the monthly record on screen. */
 export function MonthlyProvenance(p: { metric: HistoryMetric; placeName: string; world: boolean; series: PlaceSeries; grace: GraceContextFile }) {
   const t = useT();
   const { state } = useAppState();

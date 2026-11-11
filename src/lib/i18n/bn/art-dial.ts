@@ -1,5 +1,3 @@
-// The Science to Art dial in Bangla: a developer's DRAFT, listed for review in docs/i18n/TO_TRANSLATE.md.
-
 import type { dialEn, proofEn } from "../en/art-dial";
 
 export const dialBn: Partial<typeof dialEn> = {

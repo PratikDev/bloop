@@ -15,7 +15,7 @@ import {
 } from "@/lib/data";
 import type { OfficialManifest, OfficialPlayOption, OfficialValidationFile } from "@/types/data-contract";
 
-interface ChannelReading {
+export interface ChannelReading {
   voice: string;
   reading: OfficialReading | null;
 }

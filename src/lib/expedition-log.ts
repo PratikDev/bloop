@@ -1,23 +1,15 @@
-// The expedition log: this session's places, values, comparisons and sources as plain text, wrapped at the braille
-// width. Used by the app state (AppState/reducer.ts), the Log menu (Dock/LogMenu) and the letter's line wrapping.
-
 export interface LogEntry {
-  /** When it was said (ISO, UTC). */
   at: string;
-  /** What was said, exactly as the app said it (values from slots, never retyped). */
   text: string;
-  /** The datasets it came from (their names, as the registry gives them). */
   sources: string[];
 }
 
-/** The newest entries kept (a session is short; the log is a summary, not a recording). */
 const LOG_MAX = 200;
 
 export function addEntry(log: readonly LogEntry[], entry: LogEntry): LogEntry[] {
   return [...log, entry].slice(-LOG_MAX);
 }
 
-/** Wraps text into lines of at most `width` characters, at spaces; a word longer than a line is cut. */
 export function wrapLines(text: string, width: number): string[] {
   const lines: string[] = [];
   let line = "";
@@ -42,13 +34,8 @@ export function wrapLines(text: string, width: number): string[] {
   return lines;
 }
 
-/** Every distinct source, in the order first used. */
 const logSources = (log: readonly LogEntry[]) => [...new Set(log.flatMap((e) => e.sources))];
 
-/**
- * The log as plain text: a title, one block per entry (its time, then its words), then the sources. `time` formats an
- * entry's time in the UI language; the labels come from the UI strings.
- */
 export function logText(
   log: readonly LogEntry[],
   width: number,

@@ -17,7 +17,6 @@ import { linerNotes } from "../../OfficialRecords/liner-notes";
 interface Loaded {
   manifest: OfficialManifest;
   validation: OfficialValidationFile | null;
-  /** The first way to play it: its map layer, decoded (null when it couldn't load). */
   grid: OfficialGrid | null;
   geo: GeoData | null;
 }
@@ -48,7 +47,6 @@ async function load(record: string): Promise<Loaded> {
   return { manifest, validation, grid, geo };
 }
 
-/** An Official record's transcript, from its manifest, validation file and the decoded map layer the sound plays. */
 export function useOfficialTranscript(record: string): { data: OfficialTranscriptData | null; error: boolean } {
   const { state } = useAppState();
   const t = useT();
@@ -78,7 +76,6 @@ export function useOfficialTranscript(record: string): { data: OfficialTranscrip
     return {
       title: m.app_title,
       mapping: voices.map((id) => t("mapping.rule", { voice: voiceSpec(id) })),
-      // A layer without a stated range (none ships so far) gets no range sentence rather than a guessed one.
       covers: m.layers.flatMap((l) =>
         l.status === PATTERN_ONLY
           ? [t("transcript.layerPattern", { label: label(t, l) })]

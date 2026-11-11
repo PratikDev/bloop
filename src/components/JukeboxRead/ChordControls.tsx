@@ -12,7 +12,6 @@ import { ChordToggle } from "./ChordToggle";
 
 const CHORD_SCRIPTS = ["src/lib/audio/layers/chord/modes.ts", "src/lib/audio/layers/chord/index.ts", "pipeline/stats/chord_allowlist.py", "pipeline/tests/test_colormap_invariance.py"];
 
-/** The chord's toggle, what it plays (or why it is off), its braille line and its "How we got this". */
 export function ChordControls({ chord, unit, base }: { chord: ValueChordState; unit: string; base: Provenance | null }) {
   const t = useT();
   const { state } = useAppState();

@@ -7,7 +7,6 @@ import { useT } from "../AppState/use-app-state";
 import { ChoiceGroup } from "../ChoiceGroup";
 import { ArtDial } from "./Dial";
 
-/** Settings: Instrument style (Earth Orchestra / Plain tones) and the Science to Art dial, each behind its flag. */
 export function ArtSettings() {
   const t = useT();
   const [art, setArt] = useArtSettings();

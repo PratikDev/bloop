@@ -1,13 +1,8 @@
-// The landslide exposure rumble: a class's fixed rumble from the "landslideRumble" rule: noise through a low-pass
-// at a fixed cutoff, a fixed gain, and slow amplitude pulses for the highest class. Thresholded events: the state jumps
-// with the class, never a continuous pitch. "None shown" and "low" are stated silences.
-
 import { panFor, voiceSpec } from "@/lib/audio/mapping";
 import { classesRule, classState } from "../classes";
 import { dataOut, report } from "./out";
 
 const FADE_SEC = 0.25;
-/** How deep the pulses go (share of the rumble's gain), a design choice. */
 export const PULSE_DEPTH = 0.8;
 
 interface RumbleLayer {
@@ -56,10 +51,8 @@ export function createRumbleLayer(voiceId: string): RumbleLayer {
         report("rumble", { code, cutoffHz: null, pulses: 0 });
         return;
       }
-      // HOOK: orchestra (land): the rumble is the Land and life family's ground layer at integration.
       nodes.filter.frequency.setTargetAtTime(r.cutoffHz, now, FADE_SEC / 3);
       nodes.level.gain.setTargetAtTime(maxGain * r.gain, now, FADE_SEC / 3);
-      // Pulses: gain 1 − depth/2 ± depth/2 at pulsesPerSecond (none = steady at 1).
       nodes.pulse.gain.setValueAtTime(r.pulsesPerSecond > 0 ? 1 - PULSE_DEPTH / 2 : 1, now);
       nodes.lfoDepth.gain.setValueAtTime(r.pulsesPerSecond > 0 ? PULSE_DEPTH / 2 : 0, now);
       nodes.lfo.frequency.setValueAtTime(r.pulsesPerSecond, now);

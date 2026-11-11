@@ -29,14 +29,8 @@ const CONTINENT_LABEL = {
 
 const ITEM = "flex min-h-11 w-full items-center rounded-lg px-3 py-1.5 text-left text-body text-moon hover:bg-tide/60 pointer-fine:min-h-9";
 
-/** A name in the UI language where the data has one. */
 const localName = (n: { name: string; nameBn: string | null }, lang: Lang) => (lang === "bn" && n.nameBn ? n.nameBn : n.name);
 
-/**
- * Places: search places offline (the gazetteer, English and Bangla), or
- * browse continent → country → Bangladesh's divisions. Choosing one moves the needle there ("." comes back), the map
- * announces it led by the place's name, and focus is back on the map, so the arrow keys carry on from there.
- */
 export function PlacesMenu() {
   const { state } = useAppState();
   const commands = useCommands();
@@ -137,7 +131,6 @@ interface ListProps {
   goLabel(name: string): string;
 }
 
-/** Native disclosures: they read the same in every screen reader's browse mode, and need no keyboard code of their own. */
 function RegionList({ nodes, name, go, goLabel }: ListProps) {
   return (
     <ul className="space-y-0.5">

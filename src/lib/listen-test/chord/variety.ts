@@ -1,5 +1,3 @@
-// Task "chordVariety" (2AFC): two real boxes with clearly different P10–P90 spreads (today's widest and narrowest), each
-// played as its 10th, 50th and 90th percentile; the answer is the box with the wider spread. Order: boxes.json order.
 import type { Task } from "../tasks";
 import { boxViews, centre, type BoxView } from "./views";
 

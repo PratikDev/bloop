@@ -15,7 +15,6 @@ import { useLiveData } from "../../LiveData/use-live-data";
 
 const LEAD_SEC = 0.15;
 
-/** The suite: its plan (from the shipped files), the live player and its playhead (the step sounding now), the WAV. */
 export function useJourney(onStep: (id: JourneyStepId, j: Journey) => void, onEnd: () => void) {
   const { fields } = useLiveData();
   const [journey, setJourney] = useState<Journey | null>(null);
@@ -47,7 +46,6 @@ export function useJourney(onStep: (id: JourneyStepId, j: Journey) => void, onEn
     const ctx = getCtx();
     const out = new GainNode(ctx, { gain: 1 });
     out.connect(getGraph().sonification);
-    // Stop / Esc: the suite's sources stop with every other; its reverb's tail is cut with them (no ring after Esc).
     const off = onStopAll(() => {
       out.disconnect();
       off();

@@ -1,5 +1,3 @@
-// What is data, what is our artistic choice (gap #4). Braille rules apply.
-
 export const choicesEn = {
   "choices.fromData": "From the data:",
   "choices.ourChoice": "Our artistic choice:",

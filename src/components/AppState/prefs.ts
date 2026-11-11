@@ -7,10 +7,8 @@ import type { AppState, PrefKey, Prefs, SoundChoice } from "./reducer";
 export const PREFS_STORAGE_KEY = "jukebox.prefs.v1";
 const FLAGS = ["describe", "captions", "builtInVoice", "hide3d", "tuned", "started"] as const satisfies readonly PrefKey[];
 const SOUND_CHOICES: readonly SoundChoice[] = ["sound", "silent"];
-/** Every setting remembered on this device. */
 const PREF_KEYS = ["lang", "describe", "captions", "builtInVoice", "hide3d", "tuned", "started", "soundChoice", "speechMode", "verbosity", "channels", "brailleLines"] as const satisfies readonly PrefKey[];
 
-/** The remembered settings out of the app state. */
 export function pickPrefs(state: Pick<AppState, PrefKey>): Required<Prefs> {
   return Object.fromEntries(PREF_KEYS.map((k) => [k, state[k]])) as Required<Prefs>;
 }
@@ -27,7 +25,6 @@ export function readPrefs(): Prefs {
     const choice = SOUND_CHOICES.find((c) => c === saved.soundChoice);
     if (choice) prefs.soundChoice = choice;
     for (const key of Object.keys(ACCESS_VALUES) as AccessKey[]) readChoice(prefs, key, saved[key]);
-    // A choice only counts with the Start it belongs to (an old file has started without a choice: that still works).
     if (!prefs.started) delete prefs.soundChoice;
     return prefs;
   } catch {
@@ -35,7 +32,6 @@ export function readPrefs(): Prefs {
   }
 }
 
-/** One accessibility choice, kept only when it is one of its allowed values. */
 function readChoice<K extends AccessKey>(prefs: Prefs, key: K, saved: unknown) {
   const value = (ACCESS_VALUES[key] as readonly AccessChoices[K][]).find((v) => v === saved);
   if (value !== undefined) prefs[key] = value;

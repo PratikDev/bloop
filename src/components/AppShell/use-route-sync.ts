@@ -30,12 +30,6 @@ export function useUrlMode(): Mode {
   return modeFromLocation(pathname, tour ? { tour } : {});
 }
 
-/**
- * Keeps the app in step with the URL: copies the mode into the state, names
- * the browser tab, and after moving to another page puts focus on its heading
- * (screen readers read it; Tab continues from the top of the new page), by the
- * rule in `focus-title.ts`.
- */
 export function useRouteSync(): void {
   const { state, dispatch } = useAppState();
   const t = useT();
@@ -57,8 +51,6 @@ export function useRouteSync(): void {
     document.title = title;
   }, [title]);
 
-  // Where focus was when the move began (the header link that moved it, Start, an overlay): read then, not once the
-  // new page has loaded, so a link Tabbed to while the page's code loads isn't taken for the one that moved it.
   const router = useRouter();
   const movedFrom = useRef<Element | null>(null);
   useEffect(

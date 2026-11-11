@@ -1,5 +1,3 @@
-// The SVS items a record's checks were run against: a check whose title starts with another SVS id ("5479 flat
-// maps: …") used that item's frames to check this record. Read from validation.json: credited, never played.
 import { svsPage } from "@/lib/credits/build";
 import type { OfficialValidationFile } from "@/types/data-contract";
 
@@ -8,9 +6,7 @@ const LEADING_SVS = /^(\d{4,5}) /u;
 interface CheckedWithItem {
   svs: number;
   link: string;
-  /** The checks' titles, as the file writes them. */
   checks: string[];
-  /** The datasets those checks compared against (each check's `source`). */
   sources: string[];
 }
 

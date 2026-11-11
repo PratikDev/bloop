@@ -1,17 +1,8 @@
-// PURE: the raw-pixel demo's measurements. Short-time spectra: 2048-sample Hann frames, hop
-// 1024; silent frames (RMS under 1e-4) are skipped, so Bloop's honest silence over land isn't counted as anything.
-//   spectral flatness: geometric mean / arithmetic mean of the power spectrum (0 = a pure tone, 1 = white noise);
-//   spectral entropy: Shannon entropy of the normalised power spectrum, divided by log(bins) (0 = one bin, 1 = flat);
-//   roughness: Sethares' (1993) parametrisation of the Plomp–Levelt curve, summed over every pair of the frame's 20
-//     strongest spectral peaks: a1·a2·(e^(−3.5·s·Δf) − e^(−5.75·s·Δf)), s = 0.24 / (0.0207·f_min + 18.96).
-// Each is the mean over the frames that sound.
-
 export const FRAME = 2048;
 const HOP = 1024;
 const SILENT_RMS = 1e-4;
 const PEAKS = 20;
 
-/** In-place radix-2 FFT (re, im of length a power of two). */
 function fft(re: Float64Array, im: Float64Array) {
   const n = re.length;
   for (let i = 1, j = 0; i < n; i++) {
@@ -42,7 +33,6 @@ function fft(re: Float64Array, im: Float64Array) {
   }
 }
 
-/** The power spectrum (bins 1 … N/2 − 1) of each sounding frame. */
 export function spectra(x: Float32Array): Float64Array[] {
   const out: Float64Array[] = [];
   for (let start = 0; start + FRAME <= x.length; start += HOP) {
@@ -83,14 +73,12 @@ export function entropy(p: Float64Array): number {
   return h / Math.log(p.length);
 }
 
-/** Sethares' dissonance of one pair of partials (Hz, linear amplitude). */
 function pairRoughness(f1: number, f2: number, a1: number, a2: number): number {
   const s = 0.24 / (0.0207 * Math.min(f1, f2) + 18.96);
   const d = Math.abs(f2 - f1);
   return a1 * a2 * (Math.exp(-3.5 * s * d) - Math.exp(-5.75 * s * d));
 }
 
-/** Roughness of one frame: its strongest local maxima (magnitude), every pair. */
 export function roughness(p: Float64Array, sampleRate: number): number {
   const mag = Array.from(p, (v) => Math.sqrt(v));
   const peaks: { f: number; a: number }[] = [];
@@ -120,7 +108,6 @@ export function measure(x: Float32Array, sampleRate: number): Measures {
   };
 }
 
-/** Rounded as stored and shown (4 significant figures). */
 export const stored = (m: Measures): Measures => ({
   flatness: Number(m.flatness.toPrecision(4)),
   entropy: Number(m.entropy.toPrecision(4)),

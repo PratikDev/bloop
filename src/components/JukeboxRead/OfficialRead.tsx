@@ -8,7 +8,6 @@ import type { OfficialRecordState } from "../OfficialRecords/use-official-record
 import { JukeboxRead } from ".";
 import { useOfficialSource } from "./use-official-source";
 
-/** The panel on an official record: what the jukebox read from the step on screen, around the needle or in a named box. */
 export function OfficialRead({ rec, className, children }: { rec: OfficialRecordState; className?: string; children?: ReactNode }) {
   const t = useT();
   const { state } = useAppState();

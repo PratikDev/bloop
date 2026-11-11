@@ -1,6 +1,3 @@
-// Ask Bloop's four DATA questions, answered only from the engine's values at the needle (the same text functions the
-// records use): fire weather (SVS 5315 class), fires (FIRMS daily count in the box), landslide exposure (LHASA class)
-// and night lights (Black Marble at the file's nearest city). Each answer lists its sources (digit provenance).
 import { loadFirms } from "@/lib/data/context";
 import type { DataIntent } from "@/lib/ask-bloop/data-intents";
 import { classAt } from "@/lib/earth/class-grid";
@@ -13,7 +10,6 @@ import { FLAGS } from "@/lib/flags";
 import { bindT, type BoundT, type Lang } from "@/lib/i18n";
 import { plain, type Answer, type AskContext } from "./context";
 
-/** An answer whose every number comes from `line` itself (built from the files). */
 const fromLine = (line: (t: BoundT, lang: Lang) => string): Answer => ({ line, sources: (lang) => [line(bindT(lang), lang)] });
 
 export async function runDataQuestion(ctx: AskContext, intent: DataIntent): Promise<Answer> {

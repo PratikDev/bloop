@@ -1,5 +1,3 @@
-// The Science to Art dial. Braille rules apply: no arrows or dashes.
-
 import type { ChangeKey } from "@/lib/art/dial";
 
 type Changes = { [K in ChangeKey as `dial.change.${K}`]: string };

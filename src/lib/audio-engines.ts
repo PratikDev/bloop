@@ -11,12 +11,12 @@ import { audio as l2 } from "@/lib/audio-adapter";
 import type { AudioEvent, LiveVoiceId, TrackMode } from "@/lib/audio-adapter/types";
 import { audio as jukebox } from "@/lib/audio-jukebox";
 
-type EngineId = "l2" | "jukebox";
+export type EngineId = "l2" | "jukebox";
 
 /** The pages that play on the Jukebox engine. */
 const JUKEBOX_MODES: readonly Mode[] = ["turntable", "official"];
 
-const engineFor = (mode: Mode): EngineId => (JUKEBOX_MODES.includes(mode) ? "jukebox" : "l2");
+export const engineFor = (mode: Mode): EngineId => (JUKEBOX_MODES.includes(mode) ? "jukebox" : "l2");
 
 /** The engine whose live voices follow the cursor (or the Turntable's needle) on a page. */
 export const liveEngine = (mode: Mode) => (engineFor(mode) === "jukebox" ? jukebox : l2);

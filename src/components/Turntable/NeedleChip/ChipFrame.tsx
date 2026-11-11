@@ -56,9 +56,6 @@ export function ChipFrame({ subscribe, details, reserved, bottomReserve = BOTTOM
   const crossRef = useRef<SVGSVGElement>(null);
   const boxRef = useRef<HTMLDivElement | null>(null);
   const size = useRef({ w: 0, h: 0 });
-  // The card holds still while it is open or the pointer or focus is on it: the needle drifts across the screen
-  // (~20 px/s), and a button that moves can't be hit on the first click. It re-anchors once closed and
-  // left, or when the stage changes size. The crosshair always follows the needle.
   const openRef = useRef(details.open);
   const engaged = useRef(false);
   const placedFor = useRef<{ width: number; height: number } | null>(null);
@@ -121,8 +118,6 @@ export function ChipFrame({ subscribe, details, reserved, bottomReserve = BOTTOM
         <div
           ref={observe}
           data-provenance-group=""
-          // Open, the card keeps one width: sized to its text, it widened and narrowed as the needle's place changed,
-          // and its Pin and Close buttons moved under the pointer.
           className={cn("absolute top-0 left-0 z-10 max-w-[min(22rem,calc(100%-1.5rem))]", details.open && "w-[min(22rem,calc(100%-1.5rem))]")}
           onPointerEnter={() => {
             engaged.current = true;

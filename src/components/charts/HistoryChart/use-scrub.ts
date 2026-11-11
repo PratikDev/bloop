@@ -17,7 +17,7 @@ export interface ChartScrub {
 export type ScrubMotion = "step" | "continuous";
 
 /** Plot edges inside the chart box, in px (the y-axis sits on the left). */
-interface PlotInset {
+export interface PlotInset {
   left: number;
   right: number;
 }

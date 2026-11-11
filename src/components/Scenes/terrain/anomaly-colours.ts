@@ -1,7 +1,3 @@
-// The anomaly legend's colours, taken from NASA's SVS 5176 picture itself (latest/sst_anom.webp), as frame-colours.ts
-// does for the SST: for each band of the anomaly's own range (sst_anom.json value_range), the mean colour of the
-// picture over the cells whose decoded anomaly falls in it. No colormap is invented.
-
 import type { SstAnomalyField } from "@/lib/data";
 import type { LegendStop } from "../SceneShell/SceneLegend";
 

@@ -1,13 +1,8 @@
-// The class products' grids (contract-15 fire.ts / disasters.ts): SVS 5315 fire-weather classes and SVS 5584 LHASA
-// exposure classes, each a Uint8 1024×512 equirectangular grid (row 0 = 90° N, column 0 = 180° W) whose codes are the
-// JSON's `classes`. Pure helpers plus the loader; the codes are read as the pipeline wrote them, never re-derived.
-
 import { fetchBuffer, fetchJson } from "@/lib/data/fetch";
 import { cellIndex, readUint8, type GridSize } from "@/lib/data/grid";
 import { gunzip } from "@/lib/data/gunzip";
 import type { ClassCode, ProductHeader } from "@/types/data-contract";
 
-/** The parts of a class product's metadata every helper needs. */
 export interface ClassMeta extends ProductHeader {
   classes: ClassCode[];
   grid: GridSize & { nodata: number; encoding: string };
@@ -26,23 +21,18 @@ function checkClassMeta(name: string, meta: ClassMeta): void {
   if (!Array.isArray(meta.classes) || meta.classes.length === 0) throw new Error(`${name}: no classes`);
 }
 
-/** A class grid's codes (raw .bin, or a gzip such as the FWI archive's days), checked against the grid's size. */
 export const loadCodes = async (url: string, size: GridSize): Promise<Uint8Array> => readUint8(await gunzip(await fetchBuffer(url)), size);
 
-/** Loads a class product: its JSON and its grid. */
 export async function loadClassGrid<M extends ClassMeta>(metaUrl: string, gridUrl: string): Promise<ClassGrid<M>> {
   const meta = await fetchJson<M>(metaUrl);
   checkClassMeta(metaUrl, meta);
   return { meta, codes: await loadCodes(gridUrl, meta.grid) };
 }
 
-/** The class code of the cell containing (lat, lon). */
 export const classAt = (g: ClassGrid, lat: number, lon: number): number => g.codes[cellIndex(g.meta.grid, lat, lon)];
 
-/** A code's label as the product's JSON spells it; null for a code the JSON doesn't list. */
 export const classLabel = (meta: Pick<ClassMeta, "classes">, code: number): string | null => meta.classes.find((c) => c.code === code)?.label ?? null;
 
-/** Cells per class code inside a box (every cell whose centre is in it). */
 function boxCounts(size: GridSize, codes: Uint8Array, box: Box): Map<number, number> {
   const [w, s, e, n] = box;
   const out = new Map<number, number>();
@@ -59,7 +49,6 @@ function boxCounts(size: GridSize, codes: Uint8Array, box: Box): Map<number, num
   return out;
 }
 
-/** The most common class among a box's valid cells (code ≠ nodata); null when it has none. Ties go to the higher class. */
 export function modalClass(size: GridSize & { nodata: number }, codes: Uint8Array, box: Box): number | null {
   let best: number | null = null;
   let most = 0;
@@ -73,7 +62,6 @@ export function modalClass(size: GridSize & { nodata: number }, codes: Uint8Arra
   return best;
 }
 
-/** The centre of the cell of class `code` nearest a point (by grid distance; longitude wraps); null if none has it. */
 export function nearestOfClass(size: GridSize, codes: Uint8Array, code: number, lat: number, lon: number): { lat: number; lon: number } | null {
   const at = cellIndex(size, lat, lon);
   const r0 = Math.floor(at / size.width);

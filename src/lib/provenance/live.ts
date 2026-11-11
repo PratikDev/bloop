@@ -1,6 +1,3 @@
-// "How we got this" for the live frames (Listen, the Turntable's records): the frame's own metadata (latest/sst.json,
-// latest/rain.json) and the registry's dataset link (meta/freshness.json). Nothing is typed here.
-
 import { voiceSpec } from "@/lib/audio/mapping";
 import { frameGap, gapLong } from "@/lib/frame-gap";
 import { formatFixed, formatInteger, formatUtc, type BoundT, type Lang } from "@/lib/i18n";
@@ -11,18 +8,15 @@ import type { Provenance } from "./types";
 
 const FULL_CIRCLE = 360;
 const FRAME = /^(svs|eic_)/u;
-/** "MUR-JPL-L4-GLOB-v4.1 (…)" → "v4.1"; "GPM IMERG half-hourly V07 (…)" → "V07"; "… RL06.3Mv04 CRI" → "RL06.3Mv04". */
 const VERSION = /\b(?:RL\d+(?:\.\d+)*M?v\d+|[vV]\d+(?:\.\d+)*)\b/u;
 
 export const versionOf = (name: string): string | null => VERSION.exec(name)?.[0] ?? null;
 
-/** The registry's entry for the data a product plays: its first dataset that isn't the SVS frame itself. */
 export function sourceDataset(freshness: FreshnessFile | null, product: string | undefined) {
   const entry = product ? freshness?.products[product] : undefined;
   return entry?.datasets.find((d) => !FRAME.test(d.id)) ?? null;
 }
 
-/** The registry's link for the data a product plays. */
 export function datasetLink(freshness: FreshnessFile | null, product: string | undefined): string | null {
   return sourceDataset(freshness, product)?.url ?? null;
 }
@@ -39,7 +33,6 @@ export interface LiveContext {
   t: BoundT;
   lang: Lang;
   freshness: FreshnessFile | null;
-  /** The cursor's place, as the page shows it; null when the group isn't about one point. */
   place: string | null;
 }
 
@@ -82,7 +75,6 @@ export function rainProvenance({ t, lang, freshness, place }: LiveContext, meta:
     method: t("hwgt.method.rainFrame", { aggregation: t("data.text", { text: meta.grid.aggregation }), formula: meta.grid.formula }),
     uncertainty: Number.isFinite(truth.percent) ? t("hwgt.unc.rain", { percent: formatInteger(truth.percent, lang), agree: formatInteger(truth.agreedPct, lang) }) : null,
     n: t("hwgt.n.points", { n: formatInteger(truth.points, lang) }),
-    // The rain check states its error as a percentage (no pass threshold): values with stated error.
     status: Number.isFinite(truth.percent) ? "values with stated error" : null,
     scripts: SCRIPTS.rain.map((p) => repoLink(p)),
     validation: rowLink(VALIDATION_TABLE, "live_rain"),
@@ -92,7 +84,6 @@ export function rainProvenance({ t, lang, freshness, place }: LiveContext, meta:
   };
 }
 
-/** Both mode: how far apart the two frames are (src/lib/frame-gap.ts), from the two frames' own times. */
 export function gapProvenance({ t, lang }: LiveContext, sst: SstMetadata, rain: RainMetadata): Provenance | null {
   const gap = frameGap(sst.frame_time_utc, rain.frame_time_utc);
   if (!gap) return null;

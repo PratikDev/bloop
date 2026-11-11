@@ -1,11 +1,8 @@
-// Plays a listener-test task's sound with the app's own engine and voices (mapping.json rules, nothing new).
-
 import { audio } from "@/lib/audio-jukebox";
 import type { PlayerHandle } from "@/lib/audio-jukebox/types";
 import type { SoundPlan } from "@/lib/listen-test/tasks";
 import { playCvPlan } from "@/lib/listen-test/chord/play";
 
-/** Two handles one after the other, as one handle (stopping it stops whichever is playing). */
 function chain(first: PlayerHandle, next: () => PlayerHandle): PlayerHandle {
   let current = first;
   let stopped = false;
@@ -39,5 +36,4 @@ export function playPlan(plan: SoundPlan): PlayerHandle {
   }
 }
 
-/** The intro's "low to high": the ocean voice's own legend. */
 export const playScale = () => audio.playLegend("ocean");

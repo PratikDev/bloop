@@ -1,6 +1,3 @@
-// PURE: 16-bit PCM WAV from sample arrays (Water's journey's "Play as one piece"). Deterministic: the same samples give
-// the same bytes.
-
 export function encodeWav(channels: readonly Float32Array[], sampleRate: number): Uint8Array {
   const n = channels[0]?.length ?? 0;
   const ch = channels.length;
@@ -30,7 +27,6 @@ export function encodeWav(channels: readonly Float32Array[], sampleRate: number)
   return new Uint8Array(buf.buffer);
 }
 
-/** A short, stable fingerprint of bytes (FNV-1a, hex), to show two renders are identical. */
 export function fingerprint(bytes: Uint8Array): string {
   let h = 0x811c9dc5;
   for (const b of bytes) h = Math.imul(h ^ b, 0x01000193) >>> 0;

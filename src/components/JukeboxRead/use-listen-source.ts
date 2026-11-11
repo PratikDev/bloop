@@ -9,7 +9,6 @@ import { useLiveData } from "../LiveData/use-live-data";
 
 type Held = { size: { width: number; height: number }; codes: Uint8Array; timeUtc: string } | null;
 
-/** The frame Listen plays: live SST (Ocean and Both), the latest rain, or the rain sequence frame PageUp/PageDown hold. */
 export function useListenSource(): { source: ReadSource | null; loading: boolean; record: "ocean" | "rain" } {
   const { state } = useAppState();
   const { sst, rain } = useLiveData();

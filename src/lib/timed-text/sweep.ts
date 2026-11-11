@@ -1,6 +1,3 @@
-// PURE: the sweep's timed text. One metadata cue per point, one chapter per ring, and
-// DCMP-style captions for what the sound does: where it begins, the highest and lowest tone, the densest drops, the
-// first silence on each ring, and the end. Point i starts at i × stepSec, as both engines schedule it.
 import type { SweepPoint, TrackMode } from "@/lib/audio/types";
 import { evenSteps } from "@/lib/audio/players/steps";
 import { formatInteger } from "@/lib/i18n";
@@ -16,7 +13,6 @@ export interface SweepRun {
   track: TrackMode;
 }
 
-/** The index of the largest (or, with `lowest`, smallest) non-null value, or -1. */
 export function extremeIndex(values: readonly (number | null)[], lowest = false): number {
   let best = -1;
   values.forEach((v, i) => {
@@ -54,7 +50,6 @@ export function sweepTracks(run: SweepRun, x: TrackText): TimedTracks {
     const lo = extremeIndex(temps, true);
     if (hi !== -1) caps.push({ start: at[hi], text: x.t("tt.cap.warmest", { value: tempSlot(x, temps[hi] as number), place: placeOf(x, points[hi]) }) });
     if (lo !== -1 && lo !== hi) caps.push({ start: at[lo], text: x.t("tt.cap.coolest", { value: tempSlot(x, temps[lo] as number), place: placeOf(x, points[lo]) }) });
-    // The soft tick: the first step onto land (or a gap) on each ring.
     for (const r of firsts) {
       const i = points.findIndex((p, j) => ring[j] === r.k && j > 0 && p.valueC === null && points[j - 1].valueC !== null);
       if (i !== -1) caps.push({ start: at[i], text: x.t("tt.cap.land", { place: placeOf(x, points[i]) }) });

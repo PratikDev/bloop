@@ -1,9 +1,5 @@
-// Ask Bloop's voice input: push-to-talk through the browser's own speech recognition (Web Speech API; no
-// new dependency, no audio kept). One utterance per press; it ends on release, on a result, on an error or after
-// LISTEN_MS. The caller ducks the sonification while listening and always releases it (src/lib/audio duck).
 import type { Lang } from "@/lib/i18n/types";
 
-/** The parts of the Web Speech API this uses (the DOM library has no types for it). */
 interface RecognitionResult {
   readonly 0: { readonly transcript: string };
 }
@@ -16,7 +12,6 @@ interface Recognition {
   interimResults: boolean;
   maxAlternatives: number;
   continuous: boolean;
-  /** Chrome's on-device recognition (where offered). */
   processLocally?: boolean;
   onresult: ((e: RecognitionEvent) => void) | null;
   onerror: ((e: { error: string }) => void) | null;
@@ -28,12 +23,9 @@ interface Recognition {
 type Availability = "available" | "downloadable" | "downloading" | "unavailable";
 type RecognitionCtor = (new () => Recognition) & { available?: (o: { langs: string[]; processLocally: boolean }) => Promise<Availability> };
 
-/** Where speech is recognised: on this device, by the browser's speech service, or not at all. */
 export type RecognitionMode = "on-device" | "cloud" | "unavailable";
 
-/** Each input language's recogniser locale (Bangladesh's Bangla; English as the browsers know it best). */
 const RECOGNITION_LANG: Record<Lang, string> = { en: "en-US", bn: "bn-BD" };
-/** Longest one press listens (design choice: a command is a few seconds). */
 const LISTEN_MS = 8000;
 
 export type Heard = { kind: "heard"; text: string } | { kind: "error"; error: "unavailable" | "no-speech" | "not-allowed" | "aborted" | "network" | "timeout" | "other" };
@@ -44,7 +36,6 @@ function ctor(): RecognitionCtor | null {
   return w.SpeechRecognition ?? w.webkitSpeechRecognition ?? null;
 }
 
-/** Whether this browser can listen at all (Chromium-based browsers and Safari do; Firefox doesn't). */
 export const speechRecognitionAvailable = () => ctor() !== null;
 
 const ERRORS: Record<string, Extract<Heard, { kind: "error" }>["error"]> = {
@@ -55,7 +46,6 @@ const ERRORS: Record<string, Extract<Heard, { kind: "error" }>["error"]> = {
   network: "network",
 };
 
-/** Whether this browser can recognise `lang` on the device (then nothing leaves it), or only through its service. */
 export async function recognitionMode(lang: Lang): Promise<RecognitionMode> {
   const Ctor = ctor();
   if (!Ctor) return "unavailable";
@@ -68,18 +58,11 @@ export async function recognitionMode(lang: Lang): Promise<RecognitionMode> {
 }
 
 export interface Listening {
-  /** Resolves once: what was heard, or why nothing was. */
   done: Promise<Heard>;
-  /** Push-to-talk released: finish with what was heard so far. */
   stop(): void;
-  /** Cancel (Escape, or the user starts typing): nothing is used. */
   cancel(): void;
 }
 
-/**
- * Starts listening for one utterance in `lang`; `onInterim` gets the words as they come (for the visible line).
- * `onDevice` (from recognitionMode) keeps the audio on the device where the browser can.
- */
 export function listen(lang: Lang, onInterim?: (text: string) => void, onDevice = false): Listening {
   const Ctor = ctor();
   if (!Ctor) return { done: Promise.resolve({ kind: "error", error: "unavailable" }), stop: () => undefined, cancel: () => undefined };

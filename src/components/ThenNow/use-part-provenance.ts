@@ -7,7 +7,6 @@ import type { Provenance } from "@/lib/provenance/types";
 import { useAppState, useT } from "../AppState/use-app-state";
 import { isFieldPart, type ViewPart } from "./parts";
 
-/** "How we got this" for the part on screen (its finding and its Details sheet share it); none for a field part. */
 export function usePartProvenance(data: Omit<ThenNowContext, "t" | "lang" | "freshness"> | null, part: ViewPart): Provenance[] {
   const t = useT();
   const { state } = useAppState();

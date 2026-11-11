@@ -1,6 +1,3 @@
-// Earth Orchestra: category names, instruments and why, the setting and the legend card.
-// Braille rules apply (src/a11y/brailleText.ts): no arrows, dashes or middle dots.
-
 import type { EarthCategory } from "@/lib/audio/layers/types";
 
 type ByCategory<P extends string> = { [C in EarthCategory as `${P}.${C}`]: string };

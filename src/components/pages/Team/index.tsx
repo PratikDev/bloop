@@ -10,10 +10,6 @@ const TEAM = shownTeam(parseTeam(teamJson));
 
 const SECTION = "surface-plate space-y-3 rounded-plate p-5 md:p-6";
 
-/**
- * Team and about: who made the app, for which challenge and event, and the data it plays, from
- * content/team.json. A field the team hasn't filled ("TODO") shows nothing here; BLOOP_RELEASE=1 builds refuse it.
- */
 export function TeamPage() {
   const t = useT();
   return (

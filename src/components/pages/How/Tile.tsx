@@ -26,13 +26,10 @@ export function Tile({
   /** Left out while the data loads, or when the file has no number to show. */
   figure?: string;
   figureLabel: string;
-  /** A status line under the number (e.g. the rain frame still loading). */
   note?: ReactNode;
-  /** The evidence on the card itself: plot or table, key numbers, a plain explanation. */
   face?: ReactNode;
   /** The button text that opens the full content. */
   open: string;
-  /** "How we got this" for the card's numbers. */
   facts: readonly Provenance[];
   children: ReactNode;
 }) {

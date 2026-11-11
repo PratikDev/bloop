@@ -1,27 +1,17 @@
-// "Forecast meets outcome": a pilot check of the experimental FWI forecast against what FIRMS saw. For each
-// archived forecast day and each FIRMS box, the box's forecast class (the most common class of its cells, on that day's
-// archived grid) beside the box's FIRMS hotspot count on the day the forecast was for (the next day), per sensor.
-// Spearman ρ with n per sensor. Labelled a pilot check of an experimental forecast: no skill is claimed when n is
-// small or ρ weak. Pure.
-
 import type { FirmsDailyBlock, FirmsDailyRegion, FirmsNrtSource } from "@/types/data-contract";
 import { modalClass } from "./class-grid";
 import { dayCount, seriesOf } from "./firms";
 import { nextDay } from "./fwi";
 import type { GridSize } from "@/lib/data/grid";
 
-/** Below this n, or below this |ρ|, the table says "too few days to tell" / "no clear agreement". */
 const PILOT_MIN_N = 10;
 const PILOT_MIN_RHO = 0.5;
 
 interface PilotRow {
   region: FirmsDailyRegion;
-  /** The day the forecast was issued (the archive's date) and the day it was for. */
   issued: string;
   forDay: string;
-  /** The box's most common forecast class (1 = very low … 6 = extreme); null = no forecast cells. */
   fwiClass: number | null;
-  /** The next day's FIRMS count per sensor; null when that sensor has no such day. */
   counts: Partial<Record<FirmsNrtSource, number | null>>;
 }
 
@@ -29,7 +19,6 @@ interface PilotSummary {
   source: FirmsNrtSource;
   n: number;
   rho: number | null;
-  /** "skill not claimed": n too small, or ρ too weak or undefined. */
   claim: "none" | "agreement";
 }
 
@@ -48,14 +37,13 @@ export function pilotRows(daily: FirmsDailyBlock, size: GridSize & { nodata: num
         const s = seriesOf(daily, region, source);
         counts[source] = s ? (dayCount(s, forDay)?.count ?? null) : null;
       }
-      if (Object.values(counts).every((c) => c === null)) continue; // no outcome yet for that day
+      if (Object.values(counts).every((c) => c === null)) continue;
       rows.push({ region, issued: d.date, forDay, fwiClass: modalClass(size, d.codes, daily.boxes[region]), counts });
     }
   }
   return rows;
 }
 
-/** Average ranks (ties share their mean rank). */
 function ranks(xs: readonly number[]): number[] {
   const order = xs.map((x, i) => ({ x, i })).sort((a, b) => a.x - b.x);
   const out = new Array<number>(xs.length);
@@ -68,7 +56,6 @@ function ranks(xs: readonly number[]): number[] {
   return out;
 }
 
-/** Spearman's ρ (Pearson on average ranks); null when n < 3 or either side is constant. */
 export function spearman(a: readonly number[], b: readonly number[]): number | null {
   if (a.length !== b.length || a.length < 3) return null;
   const ra = ranks(a);

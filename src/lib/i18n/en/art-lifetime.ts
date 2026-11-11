@@ -1,5 +1,3 @@
-// "Your lifetime" and the MIDI export. Built only from data; braille rules apply.
-
 export const lifetimeEn = {
   "lifetime.view": "Your lifetime",
   "lifetime.title": "The song of your lifetime",

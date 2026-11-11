@@ -7,7 +7,6 @@ import { useAppState } from "../AppState/use-app-state";
 import { ttFor } from "../Turntable/i18n";
 import { placeText } from "../Turntable/place-text";
 
-/** Names for points, from the app's own gazetteer (as "Where am I?" says them), in the page's language. */
 export function usePlaceNames(points: readonly LatLon[]): string[] | null {
   const { state } = useAppState();
   const [names, setNames] = useState<string[] | null>(null);
@@ -20,7 +19,6 @@ export function usePlaceNames(points: readonly LatLon[]): string[] | null {
     return () => {
       cancelled = true;
     };
-    // The points are compared by value (key).
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [key, state.lang]);
   return names;

@@ -2,10 +2,6 @@
 
 import { useEffect, useRef } from "react";
 
-/**
- * A class grid drawn in its own legend's colours (the pipeline's swatches: class k is swatches[k − 1]); class 0 and
- * no-data are left transparent over the map's land colour. Decorative: the map around it carries the words.
- */
 export function ClassCanvas({ width, height, codes, swatches, nodata }: { width: number; height: number; codes: Uint8Array; swatches: readonly (readonly number[])[]; nodata: number }) {
   const ref = useRef<HTMLCanvasElement>(null);
   useEffect(() => {

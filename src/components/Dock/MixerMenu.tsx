@@ -35,7 +35,7 @@ export function MixerMenu() {
         <Mixer />
         <div className="stitch-x opacity-60" aria-hidden="true" />
         <SettingToggle setting="allMuted" />
-        {/* the fire-weather layer (Listen only, behind its flag) */}
+        {}
         <FireWeatherLayerControl />
         {/*  */}
       </PopoverContent>

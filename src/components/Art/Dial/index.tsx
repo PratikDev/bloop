@@ -19,9 +19,8 @@ const STOP_KEYS = { "0": 0, "0.5": 0.5, "1": 1 } as const satisfies Record<strin
 type StopKey = keyof typeof STOP_KEYS;
 const keyOf = (s: DialStop): StopKey => (s === 0 ? "0" : s === 1 ? "1" : "0.5");
 
-/** The chord's line: on (no line), not in this build, off with two data voices, or why the gate keeps it silent. */
 export function chordText(t: BoundT, layers: DialLayers, context: PlayContext | null): string | null {
-  if (!layers.bed) return null; // 0 Measure: no chord asked for
+  if (!layers.bed) return null;
   if (context && context.playMode !== "single") return t("dial.chord.off");
   if (!layers.chord) return null;
   const chord = chordLayer();
@@ -32,7 +31,6 @@ export function chordText(t: BoundT, layers: DialLayers, context: PlayContext | 
   return gate.allowed || gate.block === null ? null : t("dial.chord.blocked", { why: t(`dial.chord.why.${gate.block}`) });
 }
 
-/** What the dial says under itself: the data voice is unchanged, what changes, the chord, the season colour. */
 function dialLines(t: BoundT, layers: DialLayers, context: PlayContext | null): string[] {
   const list = whatChanges(layers).map((k) => t(`dial.change.${k}`)).join(", ");
   const lines = [t("dial.unchanged"), t("dial.whatChanges", { list })];
@@ -42,16 +40,11 @@ function dialLines(t: BoundT, layers: DialLayers, context: PlayContext | null): 
   return lines;
 }
 
-/**
- * The Science to Art dial: three stops, Measure, Blend and Music. A real button group with
- * labelled stops; choosing one says it in the status region ("Dial: Music, data unchanged"). Under it: what the data
- * voice keeps and what the stop changes, generated from the stop's layers.
- */
 export function ArtDial({ className, children }: { className?: string; children?: ReactNode }) {
   const t = useT();
   const commands = useCommands();
   const [art, setArt] = useArtSettings();
-  useCvView(); // the chord's opt-in toggle: its line under the dial follows it
+  useCvView();
   if (!FLAGS.artDial) return null;
   const layers = dialLayers(art.dial, art.context?.playMode ?? "single", orchestraOn(art));
   const choose = (key: StopKey) => {

@@ -20,29 +20,17 @@ import { Inspector } from "./Inspector";
 import { ListenStatus } from "./ListenStatus";
 import { AskBloop } from "../../AskBloop";
 import { ListenRead } from "../../JukeboxRead/ListenRead";
-import { ART_ROW, ArtListen } from "../../Art/ArtListen"; // ART
+import { ART_ROW, ArtListen } from "../../Art/ArtListen";
 
-/** The fitted stage leaves one row under it for each of: CV's read panel, Ask Bloop's button, ART's buttons. */
 const STAGE_HEIGHT = ["", "fit:h-[calc(100%-3.5rem)]", "fit:h-[calc(100%-7rem)]", "fit:h-[calc(100%-10.5rem)]"] as const;
 
-/**
- * Listen: the latest EIC frame as a sound map, full size. The page's title,
- * the frame times and the track choice sit above the map, never on it; the
- * tour's panel sits beside it from 1024 px (above it on phones), and the
- * readout (the value under the cursor) sits under it, or, on wide screens,
- * in a panel beside it with the track choice and the frame times. On the map only what
- * was asked for (the Inspector, the first-visit hint) and loading badges; the braille explorer,
- * when opened, follows below the map and the page scrolls. The one-screen layout is the `fit:` variant (globals.css):
- * when the low-vision settings make pages flow, Listen keeps the single column at every width and the page scrolls.
- * The dock (AppShell) holds the sound controls.
- */
 export function ListenPage() {
   const { state } = useAppState();
   const t = useT();
   const story = state.mode === "story";
   const [askOpen, setAskOpen] = useState(false);
-  const [artOpen, setArtOpen] = useState(false); // ART: a letter or Water's journey is open (the page scrolls)
-  const artRow = ART_ROW && !story; // ART: a row under the map for its buttons
+  const [artOpen, setArtOpen] = useState(false);
+  const artRow = ART_ROW && !story;
   const gapInHead = state.track === "both" && !story;
   const rowsUnder = story ? 0 : Number(FLAGS.cvRead) + Number(FLAGS.askBloop) + Number(artRow);
   return (
@@ -55,7 +43,7 @@ export function ListenPage() {
         it when the stage is wider than 2:1 (most desktops); the tour's column sits on the left.
         In the page (and reading) order: head, tour, map, readout.
       */}
-      {/* The fitted stage leaves a row under it for each panel row that is on (STAGE_HEIGHT). */}
+      {}
       <div className={cn("contents fit:block fit:h-full fit:shrink-0", STAGE_HEIGHT[rowsUnder], story ? "fit:[container:listen-tour_/_size]" : "fit:[container:listen_/_size]")}>
         <div
           className={cn(
@@ -64,8 +52,6 @@ export function ListenPage() {
             story
               ? "fit:grid-cols-[var(--listen-tour)_auto] fit:[--listen-side:calc(var(--listen-tour)_+_1rem)] fit:[--listen-tour:20rem] xl:[--listen-tour:24rem]"
               : "fit:grid-cols-[auto] fit:[--listen-side:0rem]",
-            // Wider than 2:1 the head is one line, unless Both mode adds the frame-gap note and its "How we got this" (then
-            // the full head, so the title never rides up over the site's header).
             gapInHead ? "fit:listen-wide:[--listen-head:5rem]" : "fit:listen-wide:[--listen-head:2.75rem]",
             "fit:listen-wide:grid-cols-[auto_var(--listen-panel)] fit:listen-wide:[--listen-foot:0rem] fit:listen-wide:[--listen-panel:15rem] fit:listen-wide:[--listen-side:calc(var(--listen-panel)_+_1rem)]",
           )}
@@ -76,7 +62,7 @@ export function ListenPage() {
                 {t("listen.title")}
               </h1>
               <FrameLabel className="hidden fit:block fit:listen-wide:hidden" />
-              {/* Both mode: how far apart the two frames are, in the header (the frame label above carries it from 1024 px). */}
+              {}
               {gapInHead && <FrameGapNote explained className="fit:hidden fit:listen-wide:flex fit:listen-wide:flex-nowrap" />}
             </div>
             {!story && <TrackChoice className="shrink-0 fit:listen-wide:hidden" />}
@@ -92,8 +78,8 @@ export function ListenPage() {
               </ExploreControls>
               <FirstHint />
             </div>
-            {/* Low-vision mode's legend, right under the map it explains (step 8: related information kept close). */}
-            {/* The Context Lens, when docked in the page, sits here between the map and its legend. */}
+            {}
+            {}
             {FLAGS.lowVision && <div id={LENS_DOCK_ID} className="mx-4 mt-3 empty:hidden fit:mx-0" />}
             <LvLegend className="mx-4 mt-3 fit:mx-0" />
             {FLAGS.tuning && state.tuning && !story && <TuningPanel className="mx-4 mt-3 fit:absolute fit:bottom-3 fit:left-3 fit:z-(--layer-map-plates) fit:m-0" />}
@@ -101,11 +87,7 @@ export function ListenPage() {
             <Inspector />
           </div>
 
-          {/*
-            What's under the cursor, in one place: below the map on phones and on narrower stages (a one-line strip),
-            or, when the stage is wider than 2:1, a panel beside the map as tall as it, with the track choice and frame times.
-            Positioned, so its clip also holds the visually hidden (absolute) text inside it: it never stretches the page.
-          */}
+          {}
           <aside
             aria-label={t("listen.panel")}
             className={cn(
@@ -121,11 +103,11 @@ export function ListenPage() {
           </aside>
         </div>
       </div>
-      {/* the panel's row sits under the stage, with Ask Bloop's when both are on (the stage leaves a row for each). */}
+      {}
       {FLAGS.cvRead && !story && <ListenRead className="shrink-0 px-4 pb-3 fit:px-1 fit:pt-2" />}
       {/*  */}
       {FLAGS.askBloop && !story && <AskBloop open={askOpen} onOpenChange={setAskOpen} className="shrink-0 px-4 pb-3 fit:px-1 fit:pt-2" />}
-      {/* ART: what the dial describes here, and the row with Leave a letter and Water's journey */}
+      {}
       {(FLAGS.artDial || FLAGS.artOrchestra || ART_ROW) && <ArtListen onOpenChange={setArtOpen} className="shrink-0 space-y-3 px-4 pb-3 fit:px-1 fit:pt-2" />}
       <LiveBrailleExplorer className="shrink-0 px-4 pb-3 fit:px-1 fit:pt-4" />
     </section>

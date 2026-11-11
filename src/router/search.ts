@@ -23,7 +23,6 @@ export function listenSearch(raw: Raw): ListenSearch {
 const THEN_NOW_VIEWS = ["compare", "monthly"] as const;
 export type ThenNowView = (typeof THEN_NOW_VIEWS)[number];
 
-// "Your lifetime": its view, and the birth year of a shared link (?born=1998&city=dhaka)
 const LIFETIME_VIEW = "lifetime";
 const bornOf = (v: unknown): number | undefined => {
   const y = typeof v === "number" ? v : typeof v === "string" ? Number(v) : NaN;
@@ -33,7 +32,6 @@ const cityOf = (v: unknown) => oneOf(PLACES, v) ?? PLACES.find((p) => typeof v =
 
 export interface ThenNowSearch {
   view?: ThenNowView | typeof LIFETIME_VIEW;
-  /** ART: Your lifetime's birth year (only ever in the URL; never stored). */
   born?: number;
   /** Compare decades */
   city?: ClimateCellName;
@@ -44,13 +42,11 @@ export interface ThenNowSearch {
 }
 
 export function thenNowSearch(raw: Raw): ThenNowSearch {
-  // Every key is returned, undefined when the URL's value isn't allowed: the router merges the root's raw search
-  // under this one, so a key left out would let the raw value (e.g. a hidden part, ?part=fires) through.
   const place = typeof raw.place === "string" && raw.place.length > 0 && raw.place.length < 80 ? raw.place : undefined;
   return {
-    view: oneOf([...THEN_NOW_VIEWS, LIFETIME_VIEW], raw.view) ?? (bornOf(raw.born) ? LIFETIME_VIEW : undefined), // ART
-    city: cityOf(raw.city), // ART: any case (the lifetime link is lower case)
-    born: bornOf(raw.born), // ART
+    view: oneOf([...THEN_NOW_VIEWS, LIFETIME_VIEW], raw.view) ?? (bornOf(raw.born) ? LIFETIME_VIEW : undefined),
+    city: cityOf(raw.city),
+    born: bornOf(raw.born),
     part: oneOf(VIEW_PARTS, raw.part),
     place,
     record: oneOf(HISTORY_METRICS, raw.record),
@@ -58,7 +54,6 @@ export function thenNowSearch(raw: Raw): ThenNowSearch {
 }
 
 interface TranscriptSearch {
-  /** The record whose transcript is shown (Listen's ocean or rain, or an Official record's id); none lists them all. */
   record?: string;
 }
 

@@ -1,8 +1,3 @@
-// Two values beating in one ear: the first tone alone, then the second joins it in the same (left) ear. Both follow
-// one pitch rule, so equal values are one pure tone and any difference beats |f1 − f2| times a second.
-// Proof in unison (idea C1; mapping.json "unison" = sameAs "ocean") plays the frame's value against NASA's file; Compare
-// two dates plays one place at two times by its layer's rule.
-
 import { loudnessGain, mapVoice, unisonTones, voiceSpec } from "@/lib/audio/mapping";
 import type { CaptionParams } from "@/lib/audio/types";
 import { emitCaption } from "./events";
@@ -15,9 +10,7 @@ const TOGETHER_SEC = 3.6;
 const ONE_EAR_PAN = -1;
 
 interface Beating {
-  /** The tones' Hz, and how many times a second they beat. */
   tones: { aHz: number; bHz: number; beatsPerSec: number } | null;
-  /** The mapping.json voice whose envelope and level the tones use. */
   envelope: string;
   name: string;
   caption(beatsPerSec: number): { key: string; params: CaptionParams };
@@ -33,7 +26,6 @@ export function playUnison(pair: { frameC: number; fileC: number }): PlayerHandl
   });
 }
 
-/** The same place at two times by one pitch rule (heat, water): null tones when either value is off the rule. */
 export function playPair(p: { rule: string; a: number; b: number; caption: Beating["caption"] }): PlayerHandle {
   const aHz = mapVoice(p.rule, p.a);
   const bHz = mapVoice(p.rule, p.b);

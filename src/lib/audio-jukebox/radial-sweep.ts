@@ -7,7 +7,7 @@ export interface SweepPoint {
   y: number;
 }
 
-interface SweepRule {
+export interface SweepRule {
   centre: SweepPoint;
   /** Signed: positive turns from +x towards +y (screen coordinates: clockwise on screen). */
   degPerSec: number;
@@ -37,7 +37,7 @@ function angleOf(p: SweepPoint, c: SweepPoint): number {
 }
 
 /** Pitch for a radius fraction: exponential (equal ratios per equal distance) or linear in Hz. */
-function sweepPitch(radiusFrac: number, pitch: SweepRule["pitch"]): number {
+export function sweepPitch(radiusFrac: number, pitch: SweepRule["pitch"]): number {
   const r = Math.min(1, Math.max(0, radiusFrac));
   return pitch.scale === "exponential" ? pitch.minHz * (pitch.maxHz / pitch.minHz) ** r : pitch.minHz + (pitch.maxHz - pitch.minHz) * r;
 }

@@ -11,11 +11,6 @@ import { InlineDisclosure } from "../InlinePanel/Disclosure";
 import { useInlinePanels } from "../LowVision/use-inline-panels";
 import { Facts } from "./Facts";
 
-/**
- * "How we got this": a real button beside a group of numbers, opening a dialog with where they come
- * from, how they are computed, their uncertainty and how they are checked (src/lib/provenance builds the facts from
- * the data files). The dialog has a heading and gives focus back to the button when it closes.
- */
 export function HowWeGotThis({ facts, className }: { facts: readonly Provenance[]; className?: string }) {
   const t = useT();
   const inline = useInlinePanels();
@@ -40,7 +35,6 @@ export function HowWeGotThis({ facts, className }: { facts: readonly Provenance[
         </section>
       ))
     );
-  // Low-vision mode: in the page, right after the button.
   if (inline) {
     return (
       <InlineDisclosure trigger={trigger} triggerLabel={name} triggerClassName={triggerClassName} triggerData={{ "data-how-we-got-this": "" }} title={name} description={t("hwgt.intro")} testId="how-we-got-this">
@@ -60,7 +54,6 @@ export function HowWeGotThis({ facts, className }: { facts: readonly Provenance[
   );
 }
 
-/** A group of numbers and its "How we got this" button: the scan (qa/e2e/mentor/item11) checks every number sits in one. */
 export function ProvenanceGroup({ children, className }: { children: ReactNode; className?: string }) {
   return (
     <div data-provenance-group="" className={className}>

@@ -1,5 +1,3 @@
-// Latest frames, the storm time-lapse and decoded values (sections 1–3). Re-exported from src/types/data-contract.ts.
-
 // ---------------------------------------------------------------------------
 // 1. Latest-frame metadata (latest/sst.json, latest/rain.json)
 // Needed by: L3 — frame label, Truth panel, Provenance drawer, and the grid
@@ -163,7 +161,6 @@ export interface SequenceIndex {
 }
 
 // ---------------------------------------------------------------------------
-// 3. Decoded value output — what lib/data.ts's valueAt returns.
 // Produced by lib/data.ts (L3), not by L1. Neither consumer needs the raw
 // byte layout — only this shape.
 // ---------------------------------------------------------------------------

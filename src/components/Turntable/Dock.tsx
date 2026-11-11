@@ -25,7 +25,7 @@ import type { CameraMode } from "./scene";
 import type { SceneId } from "../Scenes/registry";
 import { SleeveRow } from "./SleeveRow";
 
-interface DockProps {
+export interface DockProps {
   ref?: Ref<HTMLDivElement>;
   rotating: boolean;
   speed: number;

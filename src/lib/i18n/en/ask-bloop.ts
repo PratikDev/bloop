@@ -1,7 +1,3 @@
-// English strings for Ask Bloop (the Ask Bloop spec; src/components/AskBloop).
-// Answers carry no number of their own: every value, date and difference is a slot filled from an engine result
-// (src/lib/ask-bloop/digits.ts checks it). Short, value first.
-
 export const askBloopEn = {
   "ask.title": "Ask Bloop",
   "ask.open": "Ask Bloop",

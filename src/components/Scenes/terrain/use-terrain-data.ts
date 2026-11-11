@@ -22,7 +22,6 @@ export interface TerrainData {
   /** §15, optional: the SVS 5176 anomaly (N: hear it against the normal tone) and MUR's hours since a look (clarity). */
   anomaly: SstAnomalyField | null;
   dt: SstDtField | null;
-  /** NASA's SVS 5176 picture (latest/sst_anom.webp) and its legend colours, shown while the anomaly plays. */
   anomalyImage: HTMLImageElement | null;
   anomalyStops: LegendStop[];
 }
@@ -35,7 +34,6 @@ export function useTerrainData(): { data: TerrainData | null; error: boolean } {
   useEffect(() => {
     let cancelled = false;
     // The §15 grids are optional: a scene without them still plays the temperature itself.
-    // DATA: the 5176 picture too (behind its flag), optional like the grids.
     const anomalyImage = FLAGS.dataLeftovers ? loadImage(EARTH_PATHS.sstAnomImage).catch(() => null) : Promise.resolve(null);
     Promise.all([loadRelief("bay"), loadImage(DATA_PATHS.sstImage), loadSstAnomaly().catch(() => null), loadSstDt().catch(() => null), anomalyImage])
       .then(([relief, image, anomaly, dt, anomalyImage]) => !cancelled && setLoaded({ relief, image, anomaly, dt, anomalyImage }))
@@ -48,7 +46,6 @@ export function useTerrainData(): { data: TerrainData | null; error: boolean } {
   const data = useMemo(() => {
     if (!sst || !loaded) return null;
     const field = terrainField(sst);
-    // DATA: the anomaly legend's colours come from the 5176 picture over the anomaly grid (anomaly-colours.ts).
     const anomalyStops = loaded.anomaly && loaded.anomalyImage ? anomalyColourStops(loaded.anomaly, loaded.anomalyImage) : [];
     return field ? { sst, field, ...loaded, stops: frameColourStops(field, loaded.image), anomalyStops } : null;
   }, [sst, loaded]);

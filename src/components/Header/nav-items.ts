@@ -6,7 +6,6 @@ interface NavItem {
   label: MessageKey;
   /** For narrow screens, when the full label doesn't fit. */
   short: MessageKey;
-  /** One line on Home: what the page shows; a page without one (Team) is not a station there. */
   blurb?: MessageKey;
 }
 
@@ -20,5 +19,4 @@ export const NAV_ITEMS: readonly NavItem[] = [
   { to: PAGE_PATHS.team, label: "nav.team", short: "nav.team" },
 ];
 
-/** Home's stations: the pages that say what they show. */
 export const STATIONS = NAV_ITEMS.filter((item): item is NavItem & { blurb: MessageKey } => item.blurb !== undefined);

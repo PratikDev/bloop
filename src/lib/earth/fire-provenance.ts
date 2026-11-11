@@ -1,4 +1,3 @@
-// How we got this for the fires and fire-weather record: the forecast class, the FIRMS counts, the picture.
 import { formatDay, formatUtc, type BoundT, type Lang } from "@/lib/i18n";
 import type { Provenance } from "@/lib/provenance/types";
 import type { FireData } from "./fire-data";

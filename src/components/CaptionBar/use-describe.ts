@@ -43,12 +43,6 @@ const DESCRIBED = new Set([
   "caption.history.end",
 ]);
 
-/**
- * Describe mode (plan H5, key D): spoken descriptions during playback. Goes
- * through say, so the two-voices rule holds: the built-in voice or the live
- * region, never both. Off during Story Mode, which narrates itself, and
- * while a narrated sound plays (its line was said before it).
- */
 export function useDescribe(): void {
   const { state } = useAppState();
   const { say } = useCommands();

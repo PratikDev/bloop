@@ -21,7 +21,6 @@ import { TimeLapseContext, type TimeLapseFrame, type TimeLapseRun, type TimeLaps
 
 // Player name agreed with L2 (contract-proposals B5): step index = frame index.
 const PLAYER = "timelapse";
-// Frame rate of the plan's C4 ("about 2 frames/s"); also used by the silent visual clock and the timed text.
 const FPS = TIMELAPSE_FPS;
 const NOT_RUN: TimeLapseRun = { finished: false, peak: null, last: null };
 
@@ -49,9 +48,7 @@ export function TimeLapseProvider({ children }: { children: ReactNode }) {
   // Which of the loaded frames this run plays: all of them, or a window around the peak (Story Mode).
   const [played, setPlayed] = useState({ first: 0, count: 0 });
   const handle = useRef<PlayerHandle | null>(null);
-  // Resolves the promise start returned, once the run ends.
   const settle = useRef<((finished: boolean) => void) | null>(null);
-  // Bumped by stop, so a stop during loading cancels the run that was loading.
   const runId = useRef(0);
   const head = usePlayhead(PLAYER);
 
@@ -80,7 +77,7 @@ export function TimeLapseProvider({ children }: { children: ReactNode }) {
 
   const start = useCallback(async (options?: { framesAroundPeak?: number }): Promise<TimeLapseRun> => {
     if (status === "loading" || status === "playing") return NOT_RUN;
-    dispatch({ type: "holdFrame", index: null }); // the run shows its own frames
+    dispatch({ type: "holdFrame", index: null });
     setStatus("loading");
     const id = runId.current;
     let loaded = data;
@@ -123,7 +120,6 @@ export function TimeLapseProvider({ children }: { children: ReactNode }) {
       const h = audio.playTimelapse(path, { fps: FPS });
       handle.current = h;
       if (FLAGS.timedText) followTimelapse({ frames: path, times: frames.map((f) => f.ref.time_utc) });
-      // stop clears the handle first, so only a natural end gets here.
       void h.done.then(() => {
         if (handle.current === h) finish(true);
       });
@@ -134,7 +130,6 @@ export function TimeLapseProvider({ children }: { children: ReactNode }) {
     return { finished: await ended, peak, last: loaded.path[loaded.path.length - 1] ?? null };
   }, [status, data, load, announce, t, state.lang, state.soundOn, finish, dispatch]);
 
-  // PageUp/PageDown on the map: hold a newer or older frame at the needle, loading the frames the first time.
   const stepFrame = useCallback(
     async (dir: 1 | -1) => {
       if (status === "loading" || status === "playing") return;
@@ -187,7 +182,6 @@ export function TimeLapseProvider({ children }: { children: ReactNode }) {
   // Leaving a mode stops the time-lapse (Story Mode starts its own).
   useEffect(() => () => stop(), [state.mode, stop]);
 
-  // A held frame, at the needle: what the map, readout and status region show while it is held.
   const { heldFrame, cursor } = state;
   const held = useMemo<TimeLapseFrame | null>(() => {
     const frame = heldFrame === null || !data ? null : data.seq.frames[heldFrame];
@@ -197,8 +191,6 @@ export function TimeLapseProvider({ children }: { children: ReactNode }) {
     return { index: heldFrame, total: data.seq.frames.length, timeUtc: frame.ref.time_utc, point, image: data.images[heldFrame] ?? null, held: true };
   }, [heldFrame, cursor, data]);
 
-  // Its sound: the live voices play the held frame's rain (the ocean is silent: these are rain frames). The map's own
-  // sound sync stands aside while a frame is held (Commands/use-sound-sync.ts).
   const live = liveSoundOn(state) && stepSound(state) && state.mode === "explore";
   useEffect(() => {
     if (held && live) playReading(readingFromPoint(held.point), held.point.lon);

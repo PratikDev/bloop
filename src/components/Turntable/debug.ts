@@ -19,17 +19,17 @@ import { SPEEDS, type Turntable } from "./use-turntable";
 const FLAT_MAP = { width: 1280, height: 640 };
 
 /** The flat map's pick of a place: lat/lon → its pixel (toXY) → back (toLatLon), as FrameView does on click. */
-function flatMapPoint(at: LatLon): LatLon {
+export function flatMapPoint(at: LatLon): LatLon {
   const p = toXY(at, FLAT_MAP.width, FLAT_MAP.height);
   return toLatLon(p.x, p.y, FLAT_MAP.width, FLAT_MAP.height);
 }
 
-function sameReading(a: Reading, b: Reading): boolean {
+export function sameReading(a: Reading, b: Reading): boolean {
   return a.ocean.valueC === b.ocean.valueC && a.rain.mmPerHour === b.rain.mmPerHour && a.rain.phase === b.rain.phase;
 }
 
 /** What the voices are asked to play for a reading, by mapping.json's rules (null = silent). */
-function voiceTargets(r: Reading): { oceanHz: number | null; dropsPerSec: number | null } {
+export function voiceTargets(r: Reading): { oceanHz: number | null; dropsPerSec: number | null } {
   const mm = r.rain.mmPerHour;
   const dropVoice = r.rain.phase === "liquid" ? "rain" : r.rain.phase === "frozen" ? "snow" : null;
   return { oceanHz: mapVoice("ocean", r.ocean.valueC), dropsPerSec: dropVoice && mm !== null ? mapVoice(dropVoice, mm) : null };
@@ -82,7 +82,7 @@ export function checkPick(tt: Turntable, fields: LiveFields, target: LatLon | nu
 }
 
 /** The loudest frequency on the master analyser, refined by parabolic interpolation. */
-function analyserPeakHz(): number | null {
+export function analyserPeakHz(): number | null {
   const analyser = audio.getAnalyser();
   if (!analyser) return null;
   const bins = new Float32Array(analyser.frequencyBinCount);
@@ -99,7 +99,7 @@ function analyserPeakHz(): number | null {
  * (after the limiter) over `ms`, read every animation frame. A click shows up
  * as a step far above what the steady sound produces.
  */
-function sampleSteps(ms: number): Promise<{ maxStep: number; peak: number; frames: number } | null> {
+export function sampleSteps(ms: number): Promise<{ maxStep: number; peak: number; frames: number } | null> {
   const analyser = audio.getAnalyser();
   if (!analyser) return Promise.resolve(null);
   const samples = new Float32Array(analyser.fftSize);
@@ -121,7 +121,7 @@ function sampleSteps(ms: number): Promise<{ maxStep: number; peak: number; frame
 }
 
 /** Counts scheduled raindrops and snow bells for `ms`. */
-function countDrops(ms: number): Promise<{ rain: number; snow: number; seconds: number }> {
+export function countDrops(ms: number): Promise<{ rain: number; snow: number; seconds: number }> {
   return new Promise((resolve) => {
     const counts = { rain: 0, snow: 0 };
     const off = audio.onAudioEvent((e) => {
@@ -134,7 +134,7 @@ function countDrops(ms: number): Promise<{ rain: number; snow: number; seconds: 
   });
 }
 
-interface DebugApi {
+export interface DebugApi {
   needle(): LatLon;
   /** The reading at a place, without moving the needle. */
   readingAt(lat: number, lon: number): Reading | null;

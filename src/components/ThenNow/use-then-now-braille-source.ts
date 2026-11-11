@@ -15,16 +15,13 @@ import type { ThenNowStatsFile } from "@/types/then-now-stats";
 import { useAppState, useT } from "../AppState/use-app-state";
 import type { Part } from "./use-then-now-player";
 
-/** Each part's unit and stated precision on the braille lines (heat: GISTEMP anomaly; rain: GPCP; water: GRACE). */
 const UNIT: Record<Part, { unit: string; decimals: number }> = {
   heat: { unit: "°C", decimals: 2 },
   monsoon: { unit: "mm/day", decimals: 1 },
   water: { unit: "cm", decimals: 1 },
 };
 const NAME = { heat: "thenNow.part.heat", monsoon: "thenNow.part.monsoon", water: "thenNow.part.water" } as const satisfies Record<Part, string>;
-/** The value line's first word: short, so the year (or month) still fits the 40 cells. */
 const SHORT = { heat: "Heat", monsoon: "Rain", water: "Water" } as const satisfies Record<Part, string>;
-/** The lines name the place (the city, or Bangladesh for water: contract §13); no coordinates are shown or moved. */
 const NOWHERE = { lat: 0, lon: 0 };
 
 export interface ThenNowBrailleInput {
@@ -35,15 +32,9 @@ export interface ThenNowBrailleInput {
   stats: ThenNowStatsFile | null;
 }
 
-/**
- * Then vs Now's Braille Data Explorer source: the shape line is the selected part's series for the
- * selected city on the voice's shared scale (mapping.json, MAIDR's bands), the caret is the year (water: the month),
- * moving it plays that year's value, and R reviews the value with the part's change and its 95% interval.
- */
 export function useThenNowBrailleSource(input: ThenNowBrailleInput | null): BrailleSource | null {
   const { state } = useAppState();
   const t = useT();
-  // The caret, with the part and city it belongs to: another part or city starts again at its latest point.
   const [caret, setCaret] = useState<{ key: string; step: number } | null>(null);
   const playing = useRef<PlayerHandle | null>(null);
   useEffect(() => () => playing.current?.stop(), []);
@@ -97,7 +88,6 @@ export function useThenNowBrailleSource(input: ThenNowBrailleInput | null): Brai
       reading: () => reading(current),
       go(_channel, _mode, point) {
         setCaret({ key, step: point.step });
-        // The caret plays: that year's value on the part's own voice (never while the sound is off).
         playing.current?.stop();
         const v = series[point.step]?.value ?? null;
         if (state.soundOn && v !== null) playing.current = audio.playSeries({ label: series[point.step].label, values: [v], voice: part }, { player: "thenNow.braille" });

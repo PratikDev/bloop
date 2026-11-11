@@ -1,9 +1,3 @@
-// Water's journey on any BaseAudioContext: live (L2's context) or offline for "Play as one piece" (a WAV). Pitched
-// steps: one note a value in the step's Earth Orchestra family, swara + meend landing on the value (dial 1); drops and
-// clicks: short seeded noise bursts; class steps (landslides): each class's fixed rumble from its rule (low-passed seeded
-// noise, pulsed for the highest class), as the record plays it; under each step a drone on its Sa (rate and class steps:
-// A3), and a light reverb on all.
-
 import { FAMILIES, familyFor, familyNote, mixInto, noiseBand, noiseBuffer, type OnSource } from "@/lib/audio/orchestra";
 import { voiceSpec } from "@/lib/audio/mapping";
 import { LANDSLIDE_VOICE } from "@/lib/earth/classes";
@@ -14,7 +8,7 @@ import { MEEND_MIN_STEP, MEEND_SEC, nearestSwara } from "../meend";
 import type { Journey } from "./plan";
 
 const GAIN = 0.2;
-const MONSOON_MONTH = 7; // the suite is the monsoon's water: the drone wears its season colour (an artistic choice)
+const MONSOON_MONTH = 7;
 
 function tick(ctx: BaseAudioContext, out: AudioNode, at: number, noise: "drop" | "click", onSource?: OnSource) {
   const { source, out: band } = noise === "drop" ? noiseBand(ctx, 2500, 1.2, onSource) : noiseBand(ctx, 5000, 2, onSource);
@@ -27,7 +21,6 @@ function tick(ctx: BaseAudioContext, out: AudioNode, at: number, noise: "drop" |
   source.stop(at + 0.1);
 }
 
-/** A class's fixed rumble for `dur` seconds (the landslide record's own sound: same rule, same pulses). */
 function rumble(ctx: BaseAudioContext, out: AudioNode, r: ClassRumble, at: number, dur: number, onSource?: OnSource) {
   const source = new AudioBufferSourceNode(ctx, { buffer: noiseBuffer(ctx), loop: true });
   onSource?.(source);
@@ -49,7 +42,6 @@ function rumble(ctx: BaseAudioContext, out: AudioNode, r: ClassRumble, at: numbe
   source.stop(at + dur + 0.3);
 }
 
-/** Schedules the whole suite from `t0` into `out`. */
 export function renderJourney(ctx: BaseAudioContext, out: AudioNode, j: Journey, t0: number, onSource?: OnSource): void {
   const mix = new GainNode(ctx, { gain: 1 });
   mixInto(mix, out);
@@ -74,7 +66,6 @@ export function renderJourney(ctx: BaseAudioContext, out: AudioNode, j: Journey,
   }
 }
 
-/** The suite rendered offline (deterministic: seeded noise, fixed plan). */
 export async function renderJourneyOffline(j: Journey, sampleRate = 22050): Promise<AudioBuffer> {
   const ctx = new OfflineAudioContext({ numberOfChannels: 2, length: Math.ceil(j.seconds * sampleRate), sampleRate });
   renderJourney(ctx, ctx.destination, j, 0);

@@ -20,19 +20,15 @@ import { buildTracks, type BuiltTracks } from "../../TimedText/build";
 import { SWEEP_STEP_SEC, TIMELAPSE_STEP_SEC } from "../../TimedText/follow";
 
 interface LiveTranscriptData {
-  /** Brief: what, where, when, units and the range. */
   covers: string[];
-  /** What standard adds: the pattern and the change since the frame before. */
   pattern: string[];
   meaning: string | null;
-  /** The sound's timed text (the ocean's sweep, or the rain's storm time-lapse); null while it loads or if it can't. */
   built: BuiltTracks | null;
   builtError: boolean;
   provenance: Provenance | null;
   dataset: string | null;
 }
 
-/** The timed text of the record's sound: the sweep from Chattogram (ocean) or the storm time-lapse (rain). */
 async function soundTracks(record: LiveTranscript, fields: LiveFields): Promise<BuiltTracks> {
   if (record === "ocean") {
     const path = sweepPath(fields, SWEEP_CENTER);
@@ -43,7 +39,6 @@ async function soundTracks(record: LiveTranscript, fields: LiveFields): Promise<
   return buildTracks("timelapse", (x) => timelapseTracks({ frames, times: seq.frames.map((f) => f.ref.time_utc), stepSec: TIMELAPSE_STEP_SEC }, x));
 }
 
-/** A Listen record's transcript, from the frames and files the Listen page plays. */
 export function useLiveTranscript(record: LiveTranscript): LiveTranscriptData | null {
   const { state } = useAppState();
   const t = useT();

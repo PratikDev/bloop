@@ -13,8 +13,6 @@ export const SCENE_SLEEVES = {
   tunnel: "scenes.tunnel.sleeve",
 } as const satisfies Record<SceneId, TurntableKey>;
 
-/** The mapping.json voices each scene plays (its own sound, plus the live track it sets with useSceneTrack); the credits
- * read these to name the data a scene plays (src/lib/credits). */
 export const SCENE_VOICES = {
   ghost: ["heat", "monsoon", "water"],
   delta: ["rain", "snow", "water"],

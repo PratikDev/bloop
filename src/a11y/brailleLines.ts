@@ -32,17 +32,13 @@ export interface BrailleReading {
   unit: string;
   place: { lat: number; lon: number } | { x: number; y: number };
   /** The time step: its ISO time and, when the record states one, its own label ("01 Mar 2017 (approx.)"). */
-  time: { iso: string | null; label: string | null; /** The label for the Bengali table ("2019", "জানুয়ারি 2003"). */ bn?: string };
+  time: { iso: string | null; label: string | null; bn?: string };
   badge: string;
   status: string;
   /** Relative or pattern-only: the line says so first. */
   relative: boolean;
-  /** A short note after the value, in each table's language: Both mode's frame gap ("rain 2d newer"). */
   note?: { en: string; bn: string };
-  /** A named place instead of coordinates (Then vs Now: the city, or Bangladesh for water), in each table's language. */
   placeName?: { en: string; bn: string };
-  /** Said on the review line (R) only, in each table's language: Then vs Now's change between the decades with its
-   *  95% interval (the series' own statistic; a single year has no interval of its own). */
   reviewNote?: { en: string; bn: string };
 }
 

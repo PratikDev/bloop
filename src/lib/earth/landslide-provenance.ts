@@ -3,7 +3,6 @@ import type { Provenance } from "@/lib/provenance/types";
 import type { LandslideClassMetadata } from "@/types/data-contract";
 import { DATA_SCRIPTS, headerProvenance } from "./provenance";
 
-/** How we got this for the landslide class at the needle: the product's header and its acceptance check. */
 export const slideProvenance = (t: BoundT, lang: Lang, meta: LandslideClassMetadata, place: string): Provenance =>
   headerProvenance({
     t,

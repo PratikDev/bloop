@@ -34,7 +34,7 @@ import { createPost, type Post, type PostLook } from "./post";
 import { createStudio, type Studio } from "./studio";
 
 /** Where the needle sits, as an azimuth on the unturned globe (front right, so the camera sees it). */
-const NEEDLE_AZIMUTH_DEG = 35;
+export const NEEDLE_AZIMUTH_DEG = 35;
 const MAX_ANISOTROPY = 8;
 const RAD = Math.PI / 180;
 /** Above this close-up blend the tonearm is hidden and the crosshair marks the needle. */

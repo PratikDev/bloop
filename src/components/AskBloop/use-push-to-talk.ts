@@ -9,12 +9,6 @@ import type { Lang } from "@/lib/i18n";
 import { useAnnounce } from "../Announcer/use-announcer";
 import { useAppState, useT } from "../AppState/use-app-state";
 
-/**
- * Push-to-talk: hold the Speak button, or Alt+K anywhere but a text field (it can be turned off), and
- * release to finish. While listening: Bloop's voice stops, the sonification is ducked (always released, whatever
- * ends it), a short earcon marks the start and the end, and the status region says so. What was heard goes to
- * `onHeard` (the typed box, so it can be corrected before Enter).
- */
 export function usePushToTalk(lang: Lang, enabled: boolean, shortcut: boolean, onHeard: (text: string) => void, onInterim: (text: string) => void) {
   const { state } = useAppState();
   const t = useT();
@@ -53,10 +47,8 @@ export function usePushToTalk(lang: Lang, enabled: boolean, shortcut: boolean, o
   const stop = useCallback(() => session.current?.listening.stop(), []);
   const cancel = useCallback(() => session.current?.listening.cancel(), []);
 
-  // Never left ducked or listening: leaving the page ends it.
   useEffect(() => () => session.current?.listening.cancel(), []);
 
-  // Alt+K: hold to talk, release to finish (never in a text field; off when the reader turns it off).
   useEffect(() => {
     if (!enabled || !shortcut) return;
     const down = (e: KeyboardEvent) => {

@@ -1,5 +1,3 @@
-// What is data, what is our artistic choice, in Bangla: a developer's DRAFT.
-
 import type { choicesEn } from "../en/art-choices";
 
 export const choicesBn: Partial<typeof choicesEn> = {

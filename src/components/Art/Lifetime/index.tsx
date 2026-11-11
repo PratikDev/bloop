@@ -21,14 +21,8 @@ import { useLifetime } from "./use-lifetime";
 
 export const DEFAULT_BORN = 1998;
 
-/** The shareable link: the year and the city only (no personal data). */
 const lifetimeLink = (born: number, city: ClimateCellName) => `/then-now?born=${born}&city=${city.toLowerCase()}`;
 
-/**
- * "Your lifetime" on Then vs Now: a birth year and a city (never stored), that city's yearly record from that year to
- * the latest, one note a year, with a playhead on each part's chart, the same honest statistics as Then vs Now, a link
- * that reproduces it, and MIDI with its value sheet.
- */
 export function Lifetime({ born, city, onChange }: { born: number; city: ClimateCellName; onChange: (next: { born?: number; city?: ClimateCellName }) => void }) {
   const { state } = useAppState();
   const t = useT();

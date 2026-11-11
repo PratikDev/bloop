@@ -10,7 +10,7 @@ export interface GlobeView {
   time: number; // seconds
 }
 
-interface GlobeRenderer {
+export interface GlobeRenderer {
   draw(view: GlobeView): void;
   resize(width: number, height: number): void;
   dispose(): void;

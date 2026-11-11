@@ -1,19 +1,13 @@
-// PURE: MIDI export for a human performer. Each value's exact frequency becomes the
-// nearest MIDI note plus a pitch bend; the bend range is set to ±2 semitones (RPN 0) at the start, so a bend of
-// b (−8192 … +8191) means b / 8192 × 200 cents. One note per value, at the song's own timing. Standard MIDI File,
-// format 0, 480 ticks per quarter note at 120 bpm (960 ticks a second). readMidi reads it back (the 1-cent test).
-
 const PPQ = 480;
-const TICKS_PER_SEC = 960; // 120 bpm
+const TICKS_PER_SEC = 960;
 export const BEND_RANGE_CENTS = 200;
 
 export interface MidiNote {
   hz: number;
-  start: number; // s
-  duration: number; // s
+  start: number;
+  duration: number;
 }
 
-/** A frequency as a MIDI note and a 14-bit pitch bend (8192 = none). */
 function toMidi(hz: number): { note: number; bend: number; cents: number } {
   const exact = 69 + 12 * Math.log2(hz / 440);
   const note = Math.min(127, Math.max(0, Math.round(exact)));
@@ -21,7 +15,6 @@ function toMidi(hz: number): { note: number; bend: number; cents: number } {
   const bend = Math.min(16383, Math.max(0, Math.round(8192 + (cents / BEND_RANGE_CENTS) * 8192)));
   return { note, bend, cents };
 }
-
 
 function vlq(n: number): number[] {
   const out = [n & 0x7f];
@@ -31,14 +24,13 @@ function vlq(n: number): number[] {
 
 const u32 = (n: number) => [(n >>> 24) & 0xff, (n >>> 16) & 0xff, (n >>> 8) & 0xff, n & 0xff];
 
-/** A one-track Standard MIDI File of the notes (channel 1, velocity 80). */
 export function midiFile(notes: readonly MidiNote[]): Uint8Array {
   type Ev = { tick: number; order: number; bytes: number[] };
   const evs: Ev[] = [
-    { tick: 0, order: 0, bytes: [0xff, 0x51, 0x03, 0x07, 0xa1, 0x20] }, // tempo 500 000 µs per quarter (120 bpm)
+    { tick: 0, order: 0, bytes: [0xff, 0x51, 0x03, 0x07, 0xa1, 0x20] },
     { tick: 0, order: 0, bytes: [0xb0, 101, 0] },
     { tick: 0, order: 0, bytes: [0xb0, 100, 0] },
-    { tick: 0, order: 0, bytes: [0xb0, 6, BEND_RANGE_CENTS / 100] }, // RPN 0: bend range in semitones
+    { tick: 0, order: 0, bytes: [0xb0, 6, BEND_RANGE_CENTS / 100] },
     { tick: 0, order: 0, bytes: [0xb0, 38, 0] },
   ];
   for (const n of notes) {
@@ -61,14 +53,12 @@ export function midiFile(notes: readonly MidiNote[]): Uint8Array {
   return Uint8Array.from([...header, 0x4d, 0x54, 0x72, 0x6b, ...u32(track.length), ...track]);
 }
 
-
 export interface SheetRow {
   label: string;
   value: string;
   hz: number | null;
 }
 
-/** The performer's sheet: label, value, exact frequency, note and bend in cents (so rounding can be checked). */
 export function sheetText(title: string, rows: readonly SheetRow[]): string {
   const name = (n: number) => `${["C", "C#", "D", "D#", "E", "F", "F#", "G", "G#", "A", "A#", "B"][n % 12]}${Math.floor(n / 12) - 1}`;
   const lines = rows.map((r) => {

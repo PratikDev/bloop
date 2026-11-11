@@ -18,7 +18,6 @@ interface HowFacts {
   globe: Provenance[];
 }
 
-/** "How we got this" for each How we know card, from the same files the cards read. */
 export function useHowProvenance(duet: GlobeDuetFile | null): HowFacts {
   const t = useT();
   const { state } = useAppState();

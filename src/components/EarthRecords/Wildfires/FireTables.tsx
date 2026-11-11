@@ -13,7 +13,6 @@ import type { WildfiresState } from "./use-wildfires";
 const FRP_DECIMALS = 1;
 const RHO_DECIMALS = 2;
 
-/** View as table: the box's FIRMS counts per day for every sensor, and the chosen sensor's FRP sum. */
 export function FiresTable({ w }: { w: WildfiresState }) {
   const t = useT();
   const { state } = useAppState();
@@ -46,7 +45,6 @@ export function FiresTable({ w }: { w: WildfiresState }) {
   );
 }
 
-/** Forecast meets outcome: the pilot table (class vs the next day's FIRMS count) and Spearman rho with n per sensor. */
 export function PilotTable({ w }: { w: WildfiresState }) {
   const t = useT();
   const { state } = useAppState();

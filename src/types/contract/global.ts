@@ -1,5 +1,3 @@
-// The global history cube, global/* (section 14). Re-exported from src/types/data-contract.ts.
-
 // ---------------------------------------------------------------------------
 // 14. Global history cube (global/*) — OPTIONAL, additive
 // Needed by: L3 (click anywhere / place picker → reuse the History chart);
@@ -14,7 +12,6 @@
 // averaged and listed in duplicate_months_averaged. Values never exceed int16:
 // build_global.py fails (and publishes nothing) if any value would be clipped.
 // Cross-checking: only Dhaka's April–May heat and June–September rain (demo,
-// file 9) were cross-checked against independent records. The ANNUAL values
 // in places.json were not separately cross-checked; label them "annual".
 // Water per place: Bangladesh places use the national box (the same record as the
 // demo); other places use their 3° GRACE cell (water_region.label says which).

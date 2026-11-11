@@ -1,7 +1,3 @@
-// Earth Orchestra's synthesis on any BaseAudioContext (the live one, or an OfflineAudioContext for the pitch-identity
-// check and the WAV export). One ConstantSource drives every oscillator's frequency, so all layers of a note sit on
-// exactly one pitch: the data's. Noise is seeded, so an offline render is the same every time.
-
 import type { OrchestraNote, OrchestraNoteHandle } from "@/lib/audio/layers/types";
 import { noteAttack, type FamilyRecipe } from "./families";
 import { mixInto } from "./mix";
@@ -10,7 +6,6 @@ const NOISE_SEC = 2;
 const noises = new WeakMap<BaseAudioContext, AudioBuffer>();
 const waves = new WeakMap<BaseAudioContext, Map<string, PeriodicWave>>();
 
-/** A deterministic PRNG (mulberry32): the same noise in every render. */
 export function seeded(seed: number): () => number {
   let a = seed >>> 0;
   return () => {
@@ -48,16 +43,13 @@ function waveFor(ctx: BaseAudioContext, partials: readonly number[]): PeriodicWa
   return wave;
 }
 
-/** Gives an oscillator a harmonic spectrum (timbre only: its frequency param is untouched). */
 export function setSpectrum(osc: OscillatorNode, partials: readonly number[], plainType: OscillatorType = "sine"): void {
   if (partials.length === 1) osc.type = plainType;
   else osc.setPeriodicWave(waveFor(osc.context, partials));
 }
 
-/** Registers sources (the live engine's stop list); offline renders pass nothing. */
 export type OnSource = (node: AudioScheduledSourceNode) => void;
 
-/** A looping, seeded noise source through a fixed band-pass. */
 export function noiseBand(ctx: BaseAudioContext, hz: number, q: number, onSource?: OnSource): { source: AudioBufferSourceNode; out: BiquadFilterNode } {
   const source = new AudioBufferSourceNode(ctx, { buffer: noiseBuffer(ctx), loop: true });
   const out = new BiquadFilterNode(ctx, { type: "bandpass", frequency: hz, Q: q });
@@ -67,7 +59,6 @@ export function noiseBand(ctx: BaseAudioContext, hz: number, q: number, onSource
 }
 
 export interface NoteOptions {
-  /** Swara + meend: the note first sounds here, then glides (exponentially) to note.hz, landing exactly at when + glideSec. */
   startHz?: number;
   glideSec?: number;
   onSource?: OnSource;
@@ -75,11 +66,6 @@ export interface NoteOptions {
 
 const lowpasses = new WeakMap<AudioNode, Map<number, BiquadFilterNode>>();
 
-/**
- * One low-pass per output and cutoff, shared by every note into it. The same sound as a filter per note (the filter is
- * linear: filtering the sum = summing the filtered notes), and an offline render is bit-identical every time (Chromium
- * renders a fresh filter per note a float ULP differently run to run, enough to flip a 16-bit sample in a WAV).
- */
 function sharedLowpass(ctx: BaseAudioContext, out: AudioNode, hz: number): BiquadFilterNode {
   let byHz = lowpasses.get(out);
   if (!byHz) lowpasses.set(out, (byHz = new Map()));
@@ -92,7 +78,6 @@ function sharedLowpass(ctx: BaseAudioContext, out: AudioNode, hz: number): Biqua
   return lp;
 }
 
-/** Plays one note of a family into `out`. Its settled pitch is exactly note.hz. */
 export function familyNote(ctx: BaseAudioContext, out: AudioNode, family: FamilyRecipe, note: OrchestraNote, opts: NoteOptions = {}): OrchestraNoteHandle {
   const { when, duration, gain } = note;
   const pitch = new ConstantSourceNode(ctx, { offset: opts.startHz ?? note.hz });

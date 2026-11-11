@@ -16,12 +16,6 @@ import { useStoredChoice } from "./use-stored-choice";
 
 const SHORTCUT = ["on", "off"] as const;
 
-/**
- * Ask Bloop (remaining features: voice + typed command layer): a compact, collapsible panel in the page's tab order
- * after the main controls. A typed box with a visible label (always), push-to-talk where the browser can listen (its
- * own flag), the last answer as text, five starters, and its settings. Answers go through the app's speech mode; the
- * panel never takes focus from the map, and the map's keys never reach the box. Off unless NEXT_PUBLIC_ASK_BLOOP.
- */
 export function AskBloop({ open, onOpenChange, className }: { open: boolean; onOpenChange: (open: boolean) => void; className?: string }) {
   const t = useT();
   const panelId = useId();
@@ -37,14 +31,12 @@ export function AskBloop({ open, onOpenChange, className }: { open: boolean; onO
     voice && open,
     shortcut === "on",
     (heard) => {
-      // What was heard goes in the box (it can be corrected), and is asked at once.
       setText(heard);
       void bloop.ask(heard);
     },
     setText,
   );
 
-  // Opening puts focus in the box (and the box in view): a magnifier or screen reader lands where the typing goes.
   useEffect(() => {
     if (!open) return;
     input.current?.focus();
@@ -58,7 +50,6 @@ export function AskBloop({ open, onOpenChange, className }: { open: boolean; onO
     void bloop.ask(text);
   };
   const onKeyDown = (e: KeyboardEvent) => {
-    // The map's keys never reach the box; Escape ends listening first.
     e.stopPropagation();
     if (e.key === "Escape" && talk.listening) {
       e.preventDefault();
@@ -124,7 +115,7 @@ export function AskBloop({ open, onOpenChange, className }: { open: boolean; onO
 
           <div>
             <h3 className="text-small text-haze">{t("ask.answer")}</h3>
-            {/* Text only: the status region (or Bloop's voice) already said it once. */}
+            {}
             <p data-testid="ask-answer" className="text-lead">
               {bloop.last ?? t("ask.none")}
             </p>

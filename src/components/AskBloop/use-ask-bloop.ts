@@ -24,17 +24,10 @@ import { runQuestion } from "./questions";
 import { runDataQuestion } from "./data-questions";
 import { useStoredChoice } from "./use-stored-choice";
 
-/** How long a value's tone sounds before the needle's own sound comes back (design choice). */
 const TONE_MS = 1500;
 
-/** The starters, in a language: the first example of each. */
 export const starterExamples = (lang: Lang) => STARTERS.map((n) => REGISTRY[n].examples[lang][0]);
 
-/**
- * Ask Bloop's router: what was typed or heard → the parser (then, only with its flag, the AI route) → the
- * registry's handler → an answer through the app's speech mode, after the digit-provenance check, then the value's
- * tone. Keeps the last answer for "repeat" and "more".
- */
 export function useAskBloop() {
   const { state, dispatch } = useAppState();
   const t = useT();
@@ -52,7 +45,6 @@ export function useAskBloop() {
   }, [state.cursor]);
   useEffect(() => () => (toneTimer.current ? clearTimeout(toneTimer.current) : undefined), []);
 
-  /** A value's tone, on the live voices at that point, then the needle's own again (the mixer's mute holds). */
   const playTone = useCallback(
     (at: LatLon) => {
       if (!fields || !state.soundOn) return;
@@ -70,7 +62,6 @@ export function useAskBloop() {
 
   const deliver = useCallback(
     (text: string, answer: Answer) => {
-      // Digit provenance: a number that isn't one of the engine's results never reaches the reader.
       const said = answer.line(t, state.lang);
       const safe = digitsTrace(said, answer.sources(state.lang)) ? answer : plain((tl) => tl("ask.clarify"));
       setLast({ text, answer: safe });
@@ -89,7 +80,6 @@ export function useAskBloop() {
         case "repeat":
           return last ? last.answer : plain((tl) => tl("ask.nothingToRepeat"));
         case "more":
-          // One level more for the last answer: its record's provenance line after it.
           if (!last) return plain((tl) => tl("ask.nothingToRepeat"));
           {
             const about = await runQuestion(ctx, { name: "about_record", record: null });
@@ -106,7 +96,6 @@ export function useAskBloop() {
         case "about_record":
         case "how_reliable":
           return runQuestion(ctx, intent);
-        // the four DATA questions (data-questions.ts)
         case "fire_weather_here":
         case "fires_here":
         case "landslide_here":

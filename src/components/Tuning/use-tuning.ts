@@ -12,14 +12,11 @@ export interface Tuning {
   steps: TuningStep[];
   index: number;
   step: TuningStep;
-  /** Says the step again, then plays its sound again. */
   again(): void;
   next(): void;
-  /** Ends Track 0 (finished or skipped): remembered, so it isn't offered again. */
   finish(): void;
 }
 
-/** Track 0's state: the current step, said through the speech mode, then its sound (with sound on). */
 export function useTuning(): Tuning {
   const { state, dispatch } = useAppState();
   const commands = useCommands();
@@ -28,7 +25,6 @@ export function useTuning(): Tuning {
   const steps = useMemo(() => tuningSteps({ freshness, sst: sst?.meta ?? null, rain: rain?.meta ?? null }), [freshness, sst, rain]);
   const [index, setIndex] = useState(0);
   const playing = useRef<PlayerHandle | null>(null);
-  // Counts presentations, so a slow say never plays the sound of a step already left.
   const shown = useRef(0);
   const step = steps[Math.min(index, steps.length - 1)];
 
@@ -48,13 +44,11 @@ export function useTuning(): Tuning {
     [commands, state.soundOn],
   );
 
-  // Each step is presented once when it becomes current (and when Track 0 opens).
   useEffect(() => {
     present(step);
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [index]);
 
-  // Leaving Track 0 stops its sound.
   useEffect(
     () => () => {
       shown.current++;

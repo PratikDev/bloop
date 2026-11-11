@@ -1,6 +1,3 @@
-// Plays a rendered sample array (the raw-pixel demo, Water's journey) on L2's sonification bus: speech ducks it, Mute
-// all silences it with the master, and Stop / Esc ends it with every other source.
-
 import { getCtx, getGraph } from "@/lib/audio/context";
 import { track } from "@/lib/audio/sources";
 import type { PlayerHandle } from "@/lib/audio/types";

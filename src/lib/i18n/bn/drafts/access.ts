@@ -1,8 +1,6 @@
-// Draft Bangla keys for accessibility: speech, map keys, descriptions, table, tuning, expedition. Listed in DRAFT_KEYS (../drafts.ts).
 import type { MessageKey } from "../../index";
 
 export const ACCESS_DRAFTS: readonly MessageKey[] = [
-  // Speech choices (en/access.ts)
   "access.speech",
   "access.speech.screenReader",
   "access.speech.voice",
@@ -20,7 +18,6 @@ export const ACCESS_DRAFTS: readonly MessageKey[] = [
   "access.channels.both",
   "access.channels.text",
   "access.channels.sound",
-  // Map keys (en/access.ts)
   "access.hide3d",
   "access.hide3d.note",
   "map.instructions.core",
@@ -51,7 +48,6 @@ export const ACCESS_DRAFTS: readonly MessageKey[] = [
   "key.d.here.action",
   "key.shiftD.action",
   "help.browseNote",
-  // Descriptions (en/describe.ts): the templates and the human-written "What this means" blocks
   "describe.lat",
   "describe.ocean.what",
   "describe.ocean.here",
@@ -84,7 +80,6 @@ export const ACCESS_DRAFTS: readonly MessageKey[] = [
   "panel.describe",
   "describe.meaning.ocean",
   "describe.meaning.rain",
-  // Table and places (en/places-table.ts)
   "panel.table",
   "table.caption",
   "table.corner",
@@ -115,7 +110,6 @@ export const ACCESS_DRAFTS: readonly MessageKey[] = [
   "continent.oceania",
   "continent.antarctica",
   "continent.sevenSeas",
-  // Tuning (en/tuning.ts)
   "tuning.title",
   "tuning.progress",
   "tuning.intro",
@@ -138,7 +132,6 @@ export const ACCESS_DRAFTS: readonly MessageKey[] = [
   "provenance.kind.model",
   "provenance.kind.inventory",
   "key.shiftP.action",
-  // Compare, sonar, expedition log (en/expedition.ts)
   "compare.open",
   "compare.short",
   "compare.title",

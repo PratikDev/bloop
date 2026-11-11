@@ -25,8 +25,6 @@ export function HomePage() {
   const toListen = () => void navigate({ to: PAGE_PATHS.listen });
 
   return (
-    // The hero never shrinks below its content: on a short screen (1280×720 before sound is chosen) Home scrolls
-    // rather than painting the hero over the stations, which blocked their first click.
     <div className="flex h-full min-h-0 flex-col overflow-y-auto">
       <section aria-labelledby="home-title" className="relative grid min-h-min flex-1 items-center gap-6 px-4 pt-4 md:px-8 lg:grid-cols-[minmax(0,1.05fr)_minmax(0,1fr)] lg:gap-10 lg:px-12">
         <motion.div variants={STAGGER} initial="hidden" animate="shown" className="relative z-10 space-y-6 md:space-y-8">
@@ -58,7 +56,7 @@ export function HomePage() {
           </motion.div>
         </motion.div>
 
-        {/* Beside the text (lg), the globe takes the height left: its own size never sets the hero's height. */}
+        {}
         <div className="relative mx-auto flex w-full max-w-md flex-col items-center gap-3 lg:h-full lg:max-w-none lg:min-h-0 lg:py-4 lg:[contain:size]">
           <Globe className="w-full max-w-[34rem] lg:min-h-0 lg:w-auto lg:max-w-full lg:flex-1" />
           <FrameLabel className="max-w-sm text-center" />

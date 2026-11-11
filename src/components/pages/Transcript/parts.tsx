@@ -18,7 +18,6 @@ export function TranscriptHeader({ title, lead }: { title: string; lead?: string
   );
 }
 
-/** One part of a transcript: a heading (a landmark to jump to) and its text. */
 export function Section({ id, title, children }: { id: string; title: string; children: ReactNode }) {
   return (
     <section aria-labelledby={`transcript-${id}`} data-testid={`transcript-${id}`} className={SECTION}>
@@ -30,7 +29,6 @@ export function Section({ id, title, children }: { id: string; title: string; ch
   );
 }
 
-/** Sentences, one paragraph each. */
 export function Lines({ lines, lang }: { lines: readonly string[]; lang?: "en" }) {
   return (
     <div lang={lang} className="max-w-prose space-y-2 text-body text-moon">
@@ -41,7 +39,6 @@ export function Lines({ lines, lang }: { lines: readonly string[]; lang?: "en" }
   );
 }
 
-/** A record's moments: the time from the start, then what is heard. */
 export function Moments({ items }: { items: readonly { time: string; text: string }[] }) {
   return (
     <ol className="max-w-prose space-y-1.5 text-body text-moon">

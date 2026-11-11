@@ -1,5 +1,3 @@
-// Bangla for the "What the jukebox read" panel (en/cv-read.ts). Drafts: listed in drafts.ts until a Bangla speaker
-// checks them. Every number is a slot formatted in Bangla digits.
 import type { cvReadEn } from "../en/cv-read";
 import type { Translated } from "../types";
 

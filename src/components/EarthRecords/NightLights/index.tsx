@@ -11,7 +11,7 @@ import { DataTable } from "../../EarthData/DataTable";
 import { HowWeGotThis } from "../../HowWeGotThis";
 import { StatusBadge } from "../../StatusBadge";
 import { TranscriptLink } from "../../TranscriptLink";
-import { RecordLetter } from "../../Art/Letter/RecordLetter"; // ART: the letter on this record
+import { RecordLetter } from "../../Art/Letter/RecordLetter";
 import { lightsLetter } from "@/lib/art/letter/data-records";
 import { AgeNote } from "../AgeNote";
 import { BrailleLine, DescribeButton, LinerNotes, TableToggle } from "../RecordTools";
@@ -21,10 +21,6 @@ import { useNightLights } from "./use-night-lights";
 
 const PCT = 100;
 
-/**
- * Night lights by city: Black Marble daily radiance, one note per night on a log scale; a cloud-masked night is a
- * rest said as "gap: cloud", never darkness; no blackout is ever claimed. Product and satellite from the file.
- */
 export function NightLights() {
   const t = useT();
   const { state } = useAppState();

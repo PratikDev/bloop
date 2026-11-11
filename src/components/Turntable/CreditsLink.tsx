@@ -6,10 +6,6 @@ import { DataCredits } from "../DataCredits";
 import { useInlinePanels } from "../LowVision/use-inline-panels";
 import { useTT } from "./i18n";
 
-/**
- * A tiny link in the corner; the full list (assets, licences, data) opens in a dialog. Attribution stays English.
- * In low-vision mode it opens in the page instead, under the stage, as the drawers do (`onInline` opens that drawer).
- */
 export function CreditsLink({ className, onInline }: { className?: string; onInline: () => void }) {
   const { tt } = useTT();
   const inline = useInlinePanels();
@@ -34,7 +30,6 @@ export function CreditsLink({ className, onInline }: { className?: string; onInl
   );
 }
 
-/** The credits as the low-vision drawer shows them (the same text and list as the dialog). */
 export function CreditsBody() {
   const { tt } = useTT();
   return (

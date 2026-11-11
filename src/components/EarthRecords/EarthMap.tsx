@@ -14,11 +14,6 @@ interface MapBox {
   current: boolean;
 }
 
-/**
- * A whole-Earth picture (equirectangular, 2:1: a shipped .webp, or a class grid drawn by the caller) with the needle
- * on top and, when given, outlined boxes. One Tab stop: arrow keys move the needle (Shift: further), a click or tap
- * places it. The caller's label is its accessible name (alt text and the needle's reading).
- */
 export function EarthMap({ image, label, needle, onMove, boxes = [], children, testId }: { image?: string; label: string; needle: LatLon; onMove(to: LatLon): void; boxes?: readonly MapBox[]; children?: ReactNode; testId?: string }) {
   const x = (lon: number) => ((lon + 180) / 360) * 100;
   const y = (lat: number) => ((90 - lat) / 180) * 100;

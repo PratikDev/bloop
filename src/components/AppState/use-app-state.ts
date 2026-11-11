@@ -4,7 +4,7 @@ import { createContext, useContext, type Dispatch } from "react";
 import { bindT } from "@/lib/i18n";
 import type { AppAction, AppState } from "./reducer";
 
-interface AppStateValue {
+export interface AppStateValue {
   state: AppState;
   dispatch: Dispatch<AppAction>;
 }
@@ -17,7 +17,7 @@ export function useAppState(): AppStateValue {
   return value;
 }
 
-/** t bound to the current language. */
+/** t() bound to the current language. */
 export function useT() {
   const { state } = useAppState();
   return bindT(state.lang);

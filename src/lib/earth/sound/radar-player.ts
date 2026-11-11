@@ -1,8 +1,3 @@
-// The radar method's instruments, synthesised: a glockenspiel (a bright partial at 2.76× decaying fast), a marimba
-// (a partial at 4×, short and woody), and a soft choir-like pad (two slightly detuned triangles, slow attack). NASA's
-// method keeps its own instruments: NASA mode never goes through the Earth Orchestra. Bloop mode is Bloop's data voice
-// (value → pitch, the ocean rule): with Earth Orchestra on it plays in the family of the voice it reads (dataVoice).
-
 import { voiceSpec } from "@/lib/audio/mapping";
 import type { Instrument, RadarMode, RadarNote } from "../radar";
 import { RADAR_RECORD, RADAR_VOICE } from "../radar";
@@ -33,7 +28,6 @@ function note(ctx: BaseAudioContext, out: AudioNode, instrument: Instrument, hz:
 
 let stopAt: (() => void) | null = null;
 
-/** Plays one sweep (every note on the audio clock from now); returns its length in seconds. Stops a sweep playing. */
 export function playRadar(mode: RadarMode, notes: readonly RadarNote[]): number {
   stopRadar();
   const out = dataOut();

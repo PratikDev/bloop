@@ -25,17 +25,10 @@ import { HowWeGotThis, ProvenanceGroup } from "../HowWeGotThis";
 import { usePartProvenance } from "./use-part-provenance";
 import { useThenNowData } from "./use-then-now-data";
 import { useThenNowPlayer, type Part } from "./use-then-now-player";
-import { ThenNowMidi } from "../Art/ThenNowMidi"; // ART
+import { ThenNowMidi } from "../Art/ThenNowMidi";
 
 export const DEFAULT_CITY: ClimateCellName = "Dhaka";
 
-/**
- * Then vs Now, compare decades (the killer demo): the city and a
- * tab per record; for each, the finding (caption, chart) beside how to
- * listen, with the details a click away. Dhaka by default; Chattogram,
- * Rajshahi and Sylhet from L1's cities file (§13); fires and vegetation
- * without sound yet. The city and the part live in the URL (the page passes them in).
- */
 export function ThenNow({
   cityName,
   chosen,
@@ -58,7 +51,6 @@ export function ThenNow({
     const demo = city ? cityDemo(ready.demo, city) : ready.demo;
     return { demo, input: buildThenNowInput(demo, ready.grace) };
   }, [ready, city]);
-  // The cell a part plays from; the sharer's caption already names its reference city, the reference's doesn't.
   const sharedFor = useCallback(
     (p: ViewPart): ClimateCellName[] => {
       const cell = p === "heat" ? city?.heat : p === "monsoon" ? city?.rain.gpcp : null;
@@ -68,7 +60,6 @@ export function ThenNow({
   );
   const stats = ready?.stats ?? null;
   const statLines = useCallback((p: Part) => (stats ? statTexts(stats, cityName, p) : null), [stats, cityName]);
-  // Captions and Describe carry the same notes as the screen: Bangladesh-wide water, shared cells.
   const deg = ready?.grace.mascon_deg ?? null;
   const noteLines = useCallback(
     (p: Part): BiText[] => {
@@ -88,10 +79,7 @@ export function ThenNow({
   const cities = ready?.cities?.cities ?? [];
   const facts = usePartProvenance(ready && view ? { cityName, city, demo: view.demo, grace: ready.grace, stats: ready.stats } : null, part);
 
-  // The Braille Data Explorer: B on the page, or its button beside the play controls. Opening it stops
-  // the part playing, so the caret's own tone is the only sound.
   const [brailleOpen, setBrailleOpen] = useState(false);
-  // One input per part, city and data (a new object each render would rebuild the source and reset the caret).
   const brailleInput = useMemo(
     () => (ready && view && !isFieldPart(part) ? { part, cityName, demo: view.demo, grace: ready.grace, stats: ready.stats ?? null } : null),
     [ready, view, part, cityName],
@@ -193,7 +181,7 @@ export function ThenNow({
                   <>
                     <PlayControls part={part} player={player} />
                     {brailleInput && <ThenNowBraille input={brailleInput} open={brailleOpen} onOpenChange={openBraille} />}
-                    {view && <ThenNowMidi input={view.input} part={part} city={cityName} />} {/* ART: MIDI for a performer */}
+                    {view && <ThenNowMidi input={view.input} part={part} city={cityName} />} {}
                   </>
                 }
                 detailsTitle={t("disclosure.title")}

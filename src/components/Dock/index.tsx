@@ -42,8 +42,7 @@ export function Dock() {
               <CaptionBar className="min-h-0 flex-1 text-body md:text-lead" />
               <Waveform className="h-7 w-16 shrink-0 opacity-90 md:w-24" />
             </div>
-            {/* The mixer is on every page: mute all and solo reach Then vs Now too, so they can be undone there. The row wraps
-                on narrow screens and in the low-vision layouts (reflow at 320 px); one row in the one-screen layout. */}
+            {}
             <div className="col-span-2 flex flex-wrap items-center justify-around gap-0.5 lg:col-span-1 lg:justify-end fit:flex-nowrap">
               {listen && <ListenActions />}
               <MixerMenu />

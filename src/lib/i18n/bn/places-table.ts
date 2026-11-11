@@ -1,5 +1,3 @@
-// Bangla for the table and places (en/places-table.ts). Drafts: listed in drafts.ts until a Bangla speaker
-// checks them.
 import type { placesTableEn } from "../en/places-table";
 import { formatDegrees, formatUtc } from "../format";
 import type { Translated } from "../types";

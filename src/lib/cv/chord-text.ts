@@ -1,5 +1,3 @@
-// The chord in words (status/Describe text, EN/BN through t) and its braille short line: "Two groups: 18.9 °C (40 %)
-// and 20.4 °C (60 %)", "One group around 28.4 °C", brief "Chord: 2 groups"; short "Chord 2 grp 18.9C 40% 20.4C 60%".
 import { brailleNumber, frontLoad } from "@/a11y/brailleText";
 import type { ChordGate, ChordTone } from "@/lib/audio/layers/types";
 import { formatFixed, formatInteger, type BoundT, type Lang } from "@/lib/i18n";
@@ -7,7 +5,6 @@ import { brailleValue, sigDecimals } from "./read-short";
 
 const pct = (f: number) => 100 * f;
 
-/** What the chord says now: its groups, or why it is off. `brief` gives the count only. */
 export function chordText(t: BoundT, lang: Lang, gate: ChordGate, tones: readonly ChordTone[], unit: string, brief: boolean): string {
   if (!gate.allowed || !tones.length) return t(`cv.chord.block.${gate.block ?? "off"}`);
   const u = gate.trust === "relative" ? "" : unit;
@@ -19,7 +16,6 @@ export function chordText(t: BoundT, lang: Lang, gate: ChordGate, tones: readonl
   return t("cv.chord.two", { a: v(a.value), pa: formatInteger(pct(a.fraction), lang), b: v(b.value), pb: formatInteger(pct(b.fraction), lang) }) + rel;
 }
 
-/** The chord's braille line (Western digits, braille-safe); empty when silent. */
 export function chordShort(gate: ChordGate, tones: readonly ChordTone[], unit: string): string {
   if (!gate.allowed || !tones.length) return "";
   const u = gate.trust === "relative" ? "" : unit;

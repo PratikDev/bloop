@@ -1,5 +1,5 @@
 // DRAFT Bangla for the source and data-age badges, written by the developer, NEEDS TRANSLATOR
-// REVIEW. Merged into the Turntable's drafts; the flat map stays English.
+// REVIEW (docs/L3/bangla-strings.md). Merged into the Turntable's drafts; the flat map stays English.
 
 import type { badgesEn } from "@/lib/i18n/en/badges";
 import { formatInteger } from "@/lib/i18n/format";

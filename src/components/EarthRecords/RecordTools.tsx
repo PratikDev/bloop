@@ -10,7 +10,6 @@ import { InfoSheet } from "../InfoSheet";
 
 const TOOL = "h-11 rounded-full px-4 text-body";
 
-/** Describe (layered): says the record's description at the reader's verbosity, through the app's speech mode. */
 export function DescribeButton({ describe }: { describe: (t: BoundT, lang: Lang, level: "brief" | "standard" | "detailed") => string }) {
   const t = useT();
   const { state } = useAppState();
@@ -22,7 +21,6 @@ export function DescribeButton({ describe }: { describe: (t: BoundT, lang: Lang,
   );
 }
 
-/** The record's braille value line: ASCII and Western digits, short (src/a11y/brailleText.ts rules). */
 export function BrailleLine({ line }: { line: string }) {
   const t = useT();
   return (
@@ -35,7 +33,6 @@ export function BrailleLine({ line }: { line: string }) {
   );
 }
 
-/** Liner notes in a sheet: plain lines, most important first. */
 export function LinerNotes({ lines }: { lines: readonly string[] }) {
   const t = useT();
   return (
@@ -47,7 +44,6 @@ export function LinerNotes({ lines }: { lines: readonly string[] }) {
   );
 }
 
-/** "View as table": a button that shows and hides the record's table below it. */
 export function TableToggle({ children, label }: { children: ReactNode; label?: string }) {
   const t = useT();
   const [open, setOpen] = useState(false);

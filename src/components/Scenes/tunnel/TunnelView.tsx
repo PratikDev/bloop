@@ -108,7 +108,6 @@ export function TunnelView({ data, onExit, tier }: SceneProps & { data: TunnelDa
       label: `${gistemp.dataset.split(" (")[0]}, Dhaka
 April-May anomaly ${rows[0].year}-${rows[rows.length - 1].year}`,
     };
-    // The alt text's steps and ring name: one ring of April–May anomalies in °C, a year per step.
     return { rec, file, meta: { unit: "°C", steps: rows.map((r) => String(r.year)), names: ["Dhaka"] } };
   };
   const exportTactile = () => {

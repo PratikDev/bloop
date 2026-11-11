@@ -15,7 +15,6 @@ import { LAYER_LABEL, useCompare } from "./use-compare";
 
 const MONTHS = ["01", "02", "03", "04", "05", "06", "07", "08", "09", "10", "11", "12"] as const;
 
-/** One labelled list (a shadcn Select): its visible label names it for every screen reader. */
 function Pick({ label, value, options, onChange }: { label: string; value: string; options: { value: string; label: string }[]; onChange(v: string): void }) {
   const id = useId();
   return (
@@ -39,11 +38,6 @@ function Pick({ label, value, options, onChange }: { label: string; value: strin
   );
 }
 
-/**
- * Compare two dates: the same place, the cell around the needle, in one
- * month of two years, from NASA's monthly records. The exact values and difference are said; the sound plays both by
- * the record's rule (two tones beating in one ear, or rain's drops one after the other).
- */
 export function CompareMenu() {
   const { state } = useAppState();
   const t = useT();
@@ -52,7 +46,6 @@ export function CompareMenu() {
   const lang = state.lang;
   const month = c.months?.b.slice(5) ?? "01";
   const yearOptions = c.years.map((y) => ({ value: String(y), label: formatYear(y, lang) }));
-  // Only months the record has in both chosen years can be compared; the pickers keep the same month in both.
   const setYearMonth = (side: "a" | "b", year: string, mm: string) =>
     c.months && c.setMonths({ ...c.months, [side]: `${year}-${mm}` });
 

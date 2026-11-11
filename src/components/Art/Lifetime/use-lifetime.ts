@@ -13,7 +13,6 @@ import { loadLifetime } from "@/lib/art/lifetime/load";
 
 export { loadLifetime };
 
-/** The song for a city and birth year, its player, and the playhead (the note sounding now, on the audio clock). */
 export function useLifetime(city: ClimateCellName, born: number) {
   const { value: file } = useLoaded(loadLifetime);
   const parts = useMemo(() => (file ? lifetimeSong(file, city, born) : []), [file, city, born]);

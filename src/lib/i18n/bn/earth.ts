@@ -1,5 +1,3 @@
-// Bangla for the DATA records (en/earth.ts). Drafts by the developer: listed in drafts.ts (DATA block) until a Bangla
-// speaker checks them. Every number is a slot formatted in Bangla by the caller.
 import type { earthEn } from "../en/earth";
 import type { Translated } from "../types";
 

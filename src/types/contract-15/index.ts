@@ -1,4 +1,3 @@
-// Data contract §15: the additive products, split by area so each
 // file stays short. Re-exported from src/types/data-contract.ts.
 
 export type * from "./common";

@@ -1,5 +1,3 @@
-// Plays the CV tasks' sounds with the app's own voices: a view's three percentiles on the Jukebox engine's sweep (the
-// ocean rule), and the groups task's chord on the value chord's own pad voice, for a few seconds.
 import { audio } from "@/lib/audio-jukebox";
 import type { PlayerHandle } from "@/lib/audio-jukebox/types";
 import { silenceTones, soundTones } from "@/lib/audio/layers/chord/voice";

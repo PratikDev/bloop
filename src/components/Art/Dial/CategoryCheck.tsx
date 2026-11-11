@@ -10,7 +10,6 @@ import { useAppState, useT } from "../../AppState/use-app-state";
 import { useCommands } from "../../Commands/use-commands";
 import { checkLine, detail } from "./DialCheck";
 
-/** Every Earth Orchestra family (as the live voice and as OrchestraApi notes) against the art-off render. */
 export function CategoryCheck({ plan }: { plan: () => Promise<ProofPlan | null> }) {
   const { state } = useAppState();
   const t = useT();

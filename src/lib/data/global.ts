@@ -1,4 +1,4 @@
-// Global history cube (contract §14): monthly heat, rain and water on their own grids,
+// Global history cube (contract §14, docs/L1/DATA_HANDOFF.md §8): monthly heat, rain and water on their own grids,
 // for 42 named places and every cell. Optional and heavy (about 13 MB), so each layer loads only when a view first
 // needs it, and is kept after that.
 //   <layer>.i16.gz: gzip of int16 little-endian, [row][month] (row = cells index; cells[row] = cell_id);
@@ -13,7 +13,7 @@ import { gunzip } from "./gunzip";
 import { DATA_PATHS } from "./paths";
 import { DataShapeError, requirePaths } from "./validate";
 
-const CUBE_NO_DATA = -32768;
+export const CUBE_NO_DATA = -32768;
 
 export interface GlobalLayer {
   meta: GlobalLayerFile;
@@ -39,7 +39,7 @@ export const loadGlobalManifest = async (): Promise<GlobalManifest> => {
 export const loadGlobalConfidence = () => fetchJson<GlobalConfidenceFile>(DATA_PATHS.globalConfidence);
 
 /** "YYYY-MM" → months since 0000-01 (for differences). */
-const monthNumber = (ym: string) => Number(ym.slice(0, 4)) * 12 + Number(ym.slice(5, 7)) - 1;
+export const monthNumber = (ym: string) => Number(ym.slice(0, 4)) * 12 + Number(ym.slice(5, 7)) - 1;
 
 /** `start` ("YYYY-MM") plus `count` consecutive months. */
 function monthAxis(start: string, count: number): string[] {

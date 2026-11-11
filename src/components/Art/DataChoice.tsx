@@ -8,7 +8,6 @@ import { voiceSpec } from "@/lib/audio/mapping";
 import { FLAGS } from "@/lib/flags";
 import { useT } from "../AppState/use-app-state";
 
-/** Two short lists for one sound: what comes from the data, and what is our artistic choice (now, at this dial). */
 export function DataChoice({ voiceId }: { voiceId: string }) {
   const t = useT();
   const [art] = useArtSettings();

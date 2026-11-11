@@ -16,7 +16,7 @@ const FOLLOW_PER_SEC = 4;
 /** Far out, the view looks a little east of the needle so the aquifer column beside the map stays in frame. */
 const EAST_LOOK_PER_UNIT = 0.12;
 
-interface DeltaControl {
+export interface DeltaControl {
   bus: ReturnType<typeof createFrameBus<SceneFrame>>;
   build(host: SceneBuildHost): SceneHandle;
   orbit(): Orbit | null;

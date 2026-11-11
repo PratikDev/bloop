@@ -16,7 +16,6 @@ const AFTER_TICK_SEC = 0.5;
 
 export function playWarmup(): PlayerHandle {
   const steps: SequenceStep[] = [
-    // The volume check: the reference tone (legend.ts), as Track 0 plays it.
     { at: 0, run: (time) => liveVoices()?.ocean.set(referenceValue(), 0, { time }) },
     { at: REFERENCE_SEC, run: (time) => liveVoices()?.ocean.set(null, 0, { time }) },
   ];

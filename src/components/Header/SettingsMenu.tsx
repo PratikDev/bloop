@@ -8,9 +8,8 @@ import { AccessSettings } from "../AccessSettings";
 import { useT } from "../AppState/use-app-state";
 import { SettingToggle } from "../SettingToggle";
 import { ChordToggle } from "../JukeboxRead/ChordToggle";
-import { ArtSettings } from "../Art/ArtSettings"; // ART
+import { ArtSettings } from "../Art/ArtSettings";
 
-/** Describe, Captions, Speech (or Built-in voice), Detail, Each step and Reduce motion, one click from anywhere. */
 export function SettingsMenu() {
   const t = useT();
   return (
@@ -22,7 +21,7 @@ export function SettingsMenu() {
         <PopoverTitle className="eyebrow px-1 pb-1">{t("settings.open")}</PopoverTitle>
         <SettingToggle setting="describe" />
         <SettingToggle setting="captions" />
-        {/* With the accessibility core on, the three-way Speech choice replaces the Built-in voice switch. */}
+        {}
         {FLAGS.speechChoices ? (
           <AccessSettings />
         ) : (
@@ -36,7 +35,7 @@ export function SettingsMenu() {
         {/*  */}
         {FLAGS.cvChord && <ChordToggle />}
         {/*  */}
-        <ArtSettings /> {/* ART: Instrument style and the Science to Art dial (each behind its flag) */}
+        <ArtSettings /> {}
       </PopoverContent>
     </Popover>
   );

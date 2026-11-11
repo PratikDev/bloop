@@ -1,5 +1,3 @@
-// ART's English strings, one file per feature; Bangla drafts in ../../bn/art/.
-
 import { dialEn, proofEn } from "./art-dial";
 import { orchestraEn } from "./art-orchestra";
 import { rawPixelEn } from "./art-raw-pixel";

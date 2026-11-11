@@ -14,15 +14,11 @@ import { appRecordTranscript } from "../../EarthRecords";
 
 const route = getRouteApi("/transcript");
 
-/**
- * A transcript per record (WCAG G158): a text version that tells the same
- * story as the sound. ?record= picks Listen's ocean or rain, or an Official record; without it, the list of them all.
- */
 export function TranscriptPage() {
   const { record } = route.useSearch();
   if (!FLAGS.timedText) return <NotFoundPage />;
   if (record && isLiveTranscript(record)) return <LiveTranscript record={record} />;
-  if (record) return appRecordTranscript(record) ?? <OfficialTranscript record={record} />; // DATA: a DATA record's own transcript
+  if (record) return appRecordTranscript(record) ?? <OfficialTranscript record={record} />;
   return <TranscriptList />;
 }
 

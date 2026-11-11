@@ -16,17 +16,11 @@ import { useJourney } from "./use-journey";
 const statusText = (t: BoundT, status: string) =>
   status === "pattern only" || status === "relative" || status === "verified" || status === "observation" || status === "model" ? t(`journey.status.${status}`) : status;
 
-/** A step's line: its name, dataset, period and status (shown, and spoken as it starts). */
 function stepLine(t: BoundT, j: Journey, id: JourneyStepId): string {
   const s = j.steps.find((x) => x.id === id);
   return s ? t("journey.line", { name: t(`journey.step.${id}`), dataset: s.dataset, period: s.period, status: statusText(t, s.status) }) : "";
 }
 
-/**
- * Water's journey: its steps as a list (the one sounding is the current step), its dataset, period and status shown
- * and said as it starts, Play / Stop by button (keyboard and screen reader), "Play as one piece" (a WAV), and the
- * letter to the future at the end, for the Bay of Bengal.
- */
 export function JourneyPanel({ onClose }: { onClose: () => void }) {
   const { state } = useAppState();
   const t = useT();

@@ -1,14 +1,8 @@
-// English templates for the layered descriptions (src/lib/describe/). Every parameter is
-// a slot: text the describer has already formatted from a computed value (a number, a time, a place). The templates
-// themselves never type a digit, which the digit-provenance test checks on every rendered description.
-// Written for the ear: short sentences, names instead of "it", units in words.
-
 import { formatDegrees } from "../format";
 
 type Where = { where: string };
 
 export const describeEn = {
-  /** A latitude as said (the slot for a band's centre). */
   "describe.lat": (p: { lat: number }) => `${formatDegrees(p.lat, "en")} degrees ${p.lat >= 0 ? "north" : "south"}`,
   "describe.ocean.what": (p: { time: string }) => `Ocean surface temperature, ${p.time} UTC.`,
   "describe.ocean.here": (p: Where & { value: string }) => `Here, ${p.where}: ${p.value} degrees Celsius.`,

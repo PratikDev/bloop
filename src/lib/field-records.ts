@@ -7,7 +7,7 @@ import type { FirmsCase, FirmsContextFile, FirmsRegion, NdviContextFile, NdviPoi
 export const FIRE_REGIONS = ["CHT_Bangladesh_MarApr", "Punjab_India_OctNov"] as const satisfies readonly FirmsRegion[];
 
 /** One side of a comparison: a label for the legend and one value per position. */
-interface PairSide {
+export interface PairSide {
   label: string;
   values: number[];
   mean: number | null; // from the file only (NDVI has one; FIRMS doesn't)
@@ -31,7 +31,7 @@ export function pairRows(pair: SeriesPair): PairRow[] {
   return Array.from({ length: n }, (_, i) => ({ i, then: pair.then.values[i] ?? null, now: pair.now.values[i] ?? null }));
 }
 
-interface FirePair extends SeriesPair {
+export interface FirePair extends SeriesPair {
   thenYear: number;
   nowYear: number;
   thenTotal: number;

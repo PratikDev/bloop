@@ -1,5 +1,3 @@
-// The raw-pixel demo. Braille rules apply.
-
 export const rawPixelEn = {
   "raw.title": "Pixel to sound, or Bloop?",
   "raw.figureLabel": "Roughness: the naive scan against Bloop, measured",

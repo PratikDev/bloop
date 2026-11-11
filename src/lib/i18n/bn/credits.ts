@@ -1,5 +1,3 @@
-// Bangla for the credits list (draft, needs review: src/lib/i18n/bn/drafts.ts). Dataset names stay in English.
-
 import type { creditsEn } from "../en/credits";
 import type { Translated } from "../types";
 

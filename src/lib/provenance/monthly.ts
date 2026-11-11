@@ -1,6 +1,3 @@
-// "How we got this" for Then vs Now's Month by month view: the place's monthly record as src/lib/history.ts reads it
-// from the context files (Bangladesh) or the global layers (world places).
-
 import { voiceProduct } from "@/lib/credits/surfaces";
 import { formatFixed, formatInteger, formatMonth, type BoundT, type Lang } from "@/lib/i18n";
 import { HISTORY_VOICE, type HistoryMetric, type PlaceSeries } from "@/lib/history";

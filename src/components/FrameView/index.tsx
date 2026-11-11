@@ -68,7 +68,6 @@ export function FrameView({ className, revealClassName }: { className?: string; 
   }, [shown, state]);
   useOverlayLoop(overlayRef, size, overlayInputs, sweepRef);
 
-  // A click (or a drag's start) is a place "." can come back to; the drag's own steps are not.
   const moveTo = (e: PointerEvent<HTMLDivElement>, remember = false) => {
     if (state.mode === "story") return; // the story moves the cursor
     const rect = e.currentTarget.getBoundingClientRect();

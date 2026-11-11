@@ -8,7 +8,7 @@ export interface LegendStop {
   colour: string; // a data colour from the scene's colormap
 }
 
-interface SceneLegendProps {
+export interface SceneLegendProps {
   title: string;
   minLabel: string;
   maxLabel: string;

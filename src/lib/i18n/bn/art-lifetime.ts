@@ -1,5 +1,3 @@
-// "Your lifetime" and the MIDI export in Bangla: a developer's DRAFT.
-
 import type { lifetimeEn } from "../en/art-lifetime";
 
 export const lifetimeBn: Partial<typeof lifetimeEn> = {

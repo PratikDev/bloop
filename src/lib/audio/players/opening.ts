@@ -1,5 +1,4 @@
 // "Close your eyes" (TEAM_BUILD_PLAN C1): about 10 s of real ocean and rain
-// sound along a path (L3's openingPath over the Bay of Bengal), with long
 // glides, fading in over 2 s and out over 1.5 s. Both tracks play whatever the
 // track mode. Captions tell the listener to close, then open, their eyes.
 
@@ -18,7 +17,6 @@ const FADE_OUT_SEC = 1.5;
 const RESTORE_SEC = 0.05;
 const VOICES = ["ocean", "rain", "snow"] as const;
 
-/** The fade shapes the voices' channel inputs (normally fixed at channelGain); restored afterwards. */
 function scheduleFades(start: number, durationSec: number) {
   for (const id of VOICES) {
     const cap = channelGain(id);

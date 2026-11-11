@@ -1,6 +1,3 @@
-// PURE: discrete value bands for the low-vision map and the Context Lens (4.2).
-// The bands re-draw the decoded values the sound plays with sharp edges, and each band is labelled with its range;
-// labels go in the middle of the map's tiles where one band fills most of the tile, at a cell whose value is in it.
 import type { ValueGrid } from "@/lib/describe/stats";
 import { cellCentre } from "@/lib/describe/stats";
 import type { BandCount } from "./settings";
@@ -10,21 +7,17 @@ export type ShownBands = Exclude<BandCount, 0>;
 
 export interface Band {
   lo: number;
-  /** null: open-ended ("and more"). */
   hi: number | null;
 }
 
-/** Rain's lower band edges in mm/h, on a roughly logarithmic ladder (design choice: drizzle to downpour); 0 is dry. */
 const RAIN_EDGES: Record<ShownBands, readonly number[]> = {
   5: [0, 0.5, 2, 5, 10],
   7: [0, 0.25, 0.5, 1, 2.5, 5, 10],
   10: [0, 0.1, 0.25, 0.5, 1, 2, 4, 8, 16, 32],
 };
 
-/** The bands the lens draws when the map itself has none. */
 export const LENS_BANDS: ShownBands = 7;
 
-/** The finite values of a grid, lowest and highest (null when it has none). */
 function valueRange(g: ValueGrid): { min: number; max: number } | null {
   let min = Number.POSITIVE_INFINITY;
   let max = Number.NEGATIVE_INFINITY;
@@ -37,14 +30,12 @@ function valueRange(g: ValueGrid): { min: number; max: number } | null {
   return min <= max ? { min, max } : null;
 }
 
-/** Ocean: `n` equal bands of whole degrees from the coldest water down to a whole degree, covering the warmest. */
 function oceanBands(range: { min: number; max: number }, n: ShownBands): Band[] {
   const lo = Math.floor(range.min);
   const step = Math.max(1, Math.ceil((range.max - lo) / n + Number.EPSILON));
   return Array.from({ length: n }, (_, i) => ({ lo: lo + i * step, hi: lo + (i + 1) * step }));
 }
 
-/** Rain: the ladder's bands; the top one is open-ended. */
 function rainBands(n: ShownBands): Band[] {
   const edges = RAIN_EDGES[n];
   return edges.map((lo, i) => ({ lo, hi: edges[i + 1] ?? null }));
@@ -56,7 +47,6 @@ export function bandsFor(record: BandRecord, g: ValueGrid, n: ShownBands): Band[
   return range ? oceanBands(range, n) : [];
 }
 
-/** The band a value is in (lower edge included), or -1: no data, or dry rain (0 mm/h is no band: nothing falls). */
 export function bandIndex(bands: readonly Band[], record: BandRecord, v: number | null): number {
   if (v === null || (record === "rain" && v <= 0)) return -1;
   for (let i = bands.length - 1; i >= 0; i--) if (v >= bands[i].lo) return i;
@@ -65,16 +55,13 @@ export function bandIndex(bands: readonly Band[], record: BandRecord, v: number 
 
 interface BandLabel {
   band: number;
-  /** The cell the label sits on (its value is in the band). */
   cell: number;
   lat: number;
   lon: number;
 }
 
-/** The share of a tile one band must fill for its label to go there (design choice: "where it fits"). */
 const LABEL_SHARE = 0.6;
 
-/** A block of grid cells: columns c0 to c1 and rows r0 to r1 (ends exclusive; fractions allowed). */
 interface CellRegion {
   c0: number;
   r0: number;
@@ -82,10 +69,6 @@ interface CellRegion {
   r1: number;
 }
 
-/**
- * One label per tile (tilesX × tilesY over `region`, the whole map by default; the Context Lens passes the part it
- * magnifies) where one band fills at least LABEL_SHARE of its cells. The region is clipped to the grid.
- */
 export function bandLabels(g: ValueGrid, bands: readonly Band[], record: BandRecord, tilesX: number, tilesY: number, region?: CellRegion): BandLabel[] {
   const labels: BandLabel[] = [];
   const left = Math.max(0, region?.c0 ?? 0);
@@ -110,7 +93,6 @@ export function bandLabels(g: ValueGrid, bands: readonly Band[], record: BandRec
       }
       const [band, n] = [...counts.entries()].sort((a, b) => b[1] - a[1])[0] ?? [-1, 0];
       if (band === -1 || n < LABEL_SHARE * cells) continue;
-      // The cell nearest the tile's centre whose value is in the band.
       const cr = (r0 + r1) / 2;
       const cc = (c0 + c1) / 2;
       let best = -1;

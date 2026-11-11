@@ -1,8 +1,3 @@
-// The data-voice check (the pitch-identity test): render one plan under several setups (art off,
-// each dial stop, each family) and assert the data voice is the same: the logged pitch per note identical, the
-// measured settled pitch within 1 cent of the art-off render and of the rule, the onset count and tempo identical.
-// The dial's "Check the data voice" button and the CI test (qa/e2e/art) both run this.
-
 import { DIAL_STOPS, EARTH_CATEGORIES, type DialStop } from "@/lib/audio/layers/types";
 import type { Timbre } from "@/lib/audio/orchestra";
 import { maxCents, measurePitch, onsetTimes } from "./measure";
@@ -16,9 +11,7 @@ interface SetupResult {
   loggedHz: number[];
   measuredHz: number[];
   onsets: number[];
-  /** Largest |measured − rule| (cents) over the notes. */
   centsVsRule: number;
-  /** Largest |measured − art-off measured| (cents). */
   centsVsOff: number;
 }
 
@@ -35,15 +28,12 @@ export interface CheckResult {
 const tempo = (onsets: readonly number[]) => (onsets.length < 2 ? 0 : (onsets[onsets.length - 1] - onsets[0]) / (onsets.length - 1));
 const same = (a: readonly number[], b: readonly number[]) => a.length === b.length && a.every((x, i) => Math.abs(x - b[i]) < 1e-9);
 
-/** The setups for the dial: art off (today's app), then 0, 0.5 and 1, in one family, and 1 again in a monsoon month
- *  (the drone's season colour). */
 export const dialSetups = (timbre: Timbre): Setup[] => [
   { stop: null, timbre: "plain", path: "voice" },
   ...DIAL_STOPS.map((stop: DialStop): Setup => ({ stop, timbre, path: "voice" })),
   { stop: 1, timbre, path: "voice", month: 7 },
 ];
 
-/** The setups for Earth Orchestra: art off, then every family as the live voice and as OrchestraApi notes. */
 export const categorySetups = (): Setup[] => [
   { stop: null, timbre: "plain", path: "voice" },
   ...EARTH_CATEGORIES.flatMap((c): Setup[] => [

@@ -2,7 +2,6 @@ import { clean } from "@/a11y/brailleText";
 import type { FireData } from "@/lib/earth/fire-data";
 import type { BoundT } from "@/lib/i18n";
 
-/** The record's liner notes: what it is, how far to trust it, then credits, each line from the files' headers. */
 export function fireLinerNotes(t: BoundT, data: FireData): string[] {
   return [
     clean(t("earth.fire.title")),

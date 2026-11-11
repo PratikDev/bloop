@@ -10,7 +10,7 @@ import { createHeatVoice, type HeatVoice } from "../voices/heat";
 import { createMonsoonVoice, type MonsoonVoice } from "../voices/monsoon";
 
 export type ContextVoice = CompareSide["voice"];
-type Side = "center" | "left" | "right";
+export type Side = "center" | "left" | "right";
 
 export interface ContextVoices {
   heat: HeatVoice;

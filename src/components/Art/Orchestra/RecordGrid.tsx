@@ -15,15 +15,10 @@ export interface GridRecord {
   brailleLabel?: string;
 }
 
-/** Records grouped by Earth system (getCategory), in the families' order; unplaced records last. */
 function groupRecords<R extends GridRecord>(records: readonly R[]): { group: Group; records: R[] }[] {
   return GROUPS.map((group) => ({ group, records: records.filter((r) => (getCategory(r.record) ?? "unplaced") === group) })).filter((g) => g.records.length);
 }
 
-/**
- * The Official records grouped by Earth system (Earth Orchestra): one labelled group per system, with its icon and name;
- * the chosen record is pressed in its group. Groups whatever records the index lists.
- */
 export function RecordGrid({ records, value, onChange }: { records: readonly GridRecord[]; value: string; onChange: (record: string) => void }) {
   const t = useT();
   return (

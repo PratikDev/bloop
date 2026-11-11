@@ -1,8 +1,3 @@
-// The dial's layers in the live app: one set on the shared AudioContext, after L2's sonification bus (so speech ducks
-// them, Mute all silences them with the master, and Stop / Esc ends them with every other source). Data voices report
-// here (value, sounding, time): the bed and the drone sound only while a data voice does (silence still means no data),
-// the ticks follow round-value crossings at 0 Measure, and the chord is asked for through the hook (owner "dial").
-
 import { getCtx, getGraph, peekEngine } from "@/lib/audio/context";
 import { isVoiceAudible } from "@/lib/audio/mixer";
 import { continuousRule, mapContinuous } from "@/lib/audio/mapping";
@@ -35,7 +30,6 @@ let lastVoice: string | null = null;
 const isL2Voice = (id: string): id is VoiceId => (VOICE_IDS as readonly string[]).includes(id);
 const audible = (id: string) => !isL2Voice(id) || isVoiceAudible(id);
 
-/** The layers the dial asks for now (none when the dial isn't built in). */
 function currentLayers(): DialLayers | null {
   const stop = dialStop();
   return stop === null ? null : dialLayers(stop, getArt().context?.playMode ?? "single", orchestraOn());
@@ -56,7 +50,6 @@ function ensure(): Live | null {
 
 const anySounding = () => [...sounding].some(([id, on]) => on && audible(id));
 
-/** Brings the bed, drone, reverb and chord in line with the dial, the record and whether data sounds. */
 function sync(at?: number) {
   const l = ensure();
   if (!l) return;
@@ -90,12 +83,10 @@ function syncChord(layers: DialLayers | null) {
   const chord = chordLayer();
   const context = getArt().context;
   if (!chord) return;
-  // Opt-in (CV's toggle), and only while a data voice sounds.
   if (layers?.chord && context && chordOptedIn() && anySounding()) chord.enable({ recordId: context.recordId, playMode: context.playMode }, "dial");
   else chord.disable("dial");
 }
 
-/** A data voice's news: its value (input units; null = silent) and whether it sounds, now or at `time`. */
 export function reportVoice(voiceId: string, value: number | null, isSounding: boolean, time?: number): void {
   if (currentLayers() === null) return;
   lastVoice = voiceId;
@@ -126,8 +117,6 @@ function ticks(voiceId: string, prev: number, value: number, time?: number) {
   });
 }
 
-// Stop / Esc: every layer's sources are stopped with the rest; forget them, and let the chord go. The reverb's tail is
-// cut too (it would ring on for a second after its sources stop); the next sync brings the wet level back.
 onStopAll(() => {
   if (live) {
     const now = getCtx().currentTime;

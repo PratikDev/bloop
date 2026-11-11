@@ -6,7 +6,6 @@ import type { SstMetadata } from "@/types/data-contract";
 import { DATA_SCRIPTS } from "./provenance";
 import type { MethodManifest } from "./radar";
 
-/** How we got this for the radar method: NASA's movie (the method's evidence) and the ocean frame it is played on. */
 export function radarProvenance(t: BoundT, lang: Lang, m: MethodManifest, sst: SstMetadata): Provenance[] {
   return [
     {

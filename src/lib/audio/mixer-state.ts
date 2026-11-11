@@ -27,12 +27,12 @@ export const INITIAL_MIXER: MixerState = {
 
 const unit = (v: number) => Math.min(1, Math.max(0, v));
 
-function isLiveVoice(id: VoiceId): id is LiveVoiceId {
+export function isLiveVoice(id: VoiceId): id is LiveVoiceId {
   return (LIVE_VOICES as readonly VoiceId[]).includes(id);
 }
 
 /** Whether the track mode lets a voice play (only live voices are gated). */
-function trackAllows(id: VoiceId, state: MixerState): boolean {
+export function trackAllows(id: VoiceId, state: MixerState): boolean {
   if (!isLiveVoice(id) || state.trackGateLifted) return true;
   return TRACK_VOICES[state.trackMode].includes(id);
 }

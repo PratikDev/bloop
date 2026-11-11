@@ -1,7 +1,7 @@
 // Captions the UI raises itself, next to the sound engine's caption events:
 // spoken lines (Enter, Story, Describe) and the end of Place History, which the
 // engine's playSeries doesn't caption. Same shape as the engine's captions.
-// onCaption is the one place the caption bar and Describe mode listen to both.
+// onCaption() is the one place the caption bar and Describe mode listen to both.
 
 import { onAnyAudioEvent } from "@/lib/audio-engines";
 import type { CaptionParams } from "@/lib/audio-adapter/types";

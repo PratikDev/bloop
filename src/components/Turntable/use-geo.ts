@@ -11,7 +11,6 @@ export interface Geo {
   files: GeoFiles;
 }
 
-/** Loads public/geo/ when the Turntable opens (never before; shared with the Listen map: src/lib/geo/load.ts). */
 export function useGeo(): Geo | null {
   const [geo, setGeo] = useState<Geo | null>(null);
   useEffect(() => {

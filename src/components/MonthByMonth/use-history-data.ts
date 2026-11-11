@@ -6,12 +6,12 @@ import type { BangladeshFiles } from "@/lib/history";
 import type { GlobalManifest, GlobalPlacesFile } from "@/types/data-contract";
 
 /** The global place list and its disclosure (optional: without them, Bangladesh only). */
-interface WorldFiles {
+export interface WorldFiles {
   places: GlobalPlacesFile;
   manifest: GlobalManifest;
 }
 
-type HistoryData = { status: "loading" } | { status: "error" } | ({ status: "ready"; world: WorldFiles | null } & BangladeshFiles);
+export type HistoryData = { status: "loading" } | { status: "error" } | ({ status: "ready"; world: WorldFiles | null } & BangladeshFiles);
 
 /** Loads the Bangladesh records and the global place list when the History tab first opens. */
 export function useHistoryData(): HistoryData {

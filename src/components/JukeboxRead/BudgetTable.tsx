@@ -8,11 +8,6 @@ import { useAppState, useT } from "../AppState/use-app-state";
 import { useLiveData } from "../LiveData/use-live-data";
 import { terrainField } from "../Scenes/terrain/field";
 
-/**
- * Every pitch axis's error budget (public/data/meta/error_budget.json): the measured error, its cents, and what that
- * means. A flagged axis carries its warning; an axis with no source says "error not known", never 0; Sound terrain's
- * zoomed axis is computed from today's span.
- */
 export function BudgetTable() {
   const { state } = useAppState();
   const t = useT();

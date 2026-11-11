@@ -189,7 +189,6 @@ export function LabelLayer({
     };
   }, [subscribe, candidates, graticule, reserved, placedRef]);
 
-  // data-globe-labels: text that is part of the globe picture (WCAG 1.4.3 exempts it; qa/e2e/lib/axe.ts).
   return <div ref={hostRef} aria-hidden="true" data-globe-labels="" className="pointer-events-none absolute inset-0 overflow-hidden" />;
 }
 

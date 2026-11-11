@@ -7,7 +7,7 @@ export interface ScheduledEvent {
   run: (time: number) => void;
 }
 
-interface ScheduleQueue {
+export interface ScheduleQueue {
   add(event: ScheduledEvent): void;
   /**
    * Removes and returns, in time order, every event due before

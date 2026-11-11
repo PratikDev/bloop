@@ -1,8 +1,3 @@
-// Ask Bloop's intent registry: for each intent, whether it acts or answers, and how people say it in
-// English and Bangla. The examples are the parser's test set (every one must parse to its intent) and the starter
-// suggestions' source. The handlers are bound in src/components/AskBloop (each calls what the UI or a key already
-// calls); the answer templates are the i18n keys "ask.answer.<intent>" (en/ask-bloop.ts, bn/ask-bloop.ts).
-// Bangla examples are drafts until a Bangla speaker checks them (needsReview).
 import type { IntentKind, IntentName } from "./intents";
 import { DATA_REGISTRY } from "./data-intents";
 
@@ -77,5 +72,4 @@ export const REGISTRY = {
 
 export const INTENT_NAMES = Object.keys(REGISTRY) as IntentName[];
 
-/** The five starter suggestions (VizAbility): one navigation, one value, one compare, one "what am I hearing", one setting. */
 export const STARTERS = ["go_to_place", "value_here", "compare_dates", "what_am_i_hearing", "set_setting"] as const satisfies readonly IntentName[];

@@ -29,7 +29,6 @@ interface Props<H extends SceneHandle> {
  * update runs first, then the post chain draws.
  */
 export function SceneCanvas<H extends SceneHandle>({ tier, label, build, onReady }: Props<H>) {
-  // Hide 3D views (Settings): the scene keeps running; only the drawing goes.
   const hidden = useHide3d();
   return (
     <>

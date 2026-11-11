@@ -10,11 +10,6 @@ interface XY {
   y: number;
 }
 
-/**
- * A truth-test plot: one dot per pair, the comparison source across, the value read back up, and the
- * 1:1 line where perfect agreement would sit. Both axes share one range so the line is the diagonal. Log axes for
- * rain rates (they span orders of magnitude). Visual only: the caller's figure gives the alt text and the table.
- */
 export function OneToOneChart({ points, xLabel, yLabel, lineLabel, log = false }: { points: readonly XY[]; xLabel: string; yLabel: string; lineLabel: string; log?: boolean }) {
   const axis = useAxisFormat();
   const values = points.flatMap((p) => [p.x, p.y]).filter((v) => !log || v > 0);
@@ -27,8 +22,7 @@ export function OneToOneChart({ points, xLabel, yLabel, lineLabel, log = false }
   return (
     <div className="space-y-1">
       <ChartContainer config={config} className="aspect-square h-44 w-full max-w-56">
-        {/* No keyboard layer: the figure names the plot (alt text) and its numbers are a real table beside it; Recharts'
-            own focusable surface sat inside the figure's aria-hidden picture (axe: aria-hidden-focus). */}
+        {}
         <ScatterChart accessibilityLayer={false} margin={{ top: 6, right: 8, bottom: 18, left: 0 }}>
           <CartesianGrid stroke="var(--line)" strokeOpacity={0.4} />
           <XAxis type="number" dataKey="x" domain={domain} scale={scale} {...AXIS} tickFormatter={axis.value} label={{ value: xLabel, position: "insideBottom", offset: -12, fill: "var(--haze)", fontSize: 12 }} />

@@ -3,7 +3,6 @@
 import type { LightsStep } from "@/lib/earth/nightlights";
 import { cn } from "@/lib/utils";
 
-/** The nights as bars (height = log radiance on the rule's own range), gaps hatched, the playhead outlined. */
 export function Timeline({ steps, current, label, range }: { steps: readonly LightsStep[]; current: number; label: string; range: { min: number; max: number } }) {
   const h = (r: number) => Math.max(0.06, Math.min(1, (Math.log10(r) - Math.log10(range.min)) / (Math.log10(range.max) - Math.log10(range.min))));
   return (

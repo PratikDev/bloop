@@ -19,7 +19,6 @@ export function Globe({ className }: { className?: string }) {
   const { state } = useAppState();
   const { sst: image } = useFrameImages();
   const [canDraw] = useState(supportsWebGL);
-  // Hide 3D views (Settings): the flat frame, as without WebGL.
   const hide3d = useHide3d();
   const webgl = canDraw && !hide3d;
   const canvasRef = useRef<HTMLCanvasElement>(null);

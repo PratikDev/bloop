@@ -61,7 +61,7 @@ export function StoryProvider({ children }: { children: ReactNode }) {
         setFocus(at);
       },
       say(line, source) {
-        // On screen in the chosen language, read when the line starts (the language can change mid-tour); speech may be English.
+        // On screen in the chosen language, read when the line starts (the language can change mid-tour); speech may be English (plan §17).
         const lang = latest.current.state.lang;
         setLine({ text: line(bindT(lang), lang), source: source?.full ?? null });
         return latest.current.commands.say(line, source);

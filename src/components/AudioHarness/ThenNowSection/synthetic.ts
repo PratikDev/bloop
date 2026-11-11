@@ -3,7 +3,7 @@ import type { ThenNowInput } from "@/lib/audio";
 /**
  * SYNTHETIC test input for the harness only: made-up numbers shaped like the
  * demo (not NASA data, never shown in the app). "Load real demo" switches
- * to the real files through L3's buildThenNowInput.
+ * to the real files through L3's buildThenNowInput().
  */
 
 const months = (fromYear: number, n: number) =>

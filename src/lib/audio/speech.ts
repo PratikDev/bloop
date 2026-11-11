@@ -10,7 +10,7 @@ import { pickVoice } from "./voice-pick";
 
 const VOICE_WAIT_MS = 1500; // voices load asynchronously on first use
 const START_TIMEOUT_MS = 5000; // some browsers never fire start or end when they can't speak
-// Errors that mean "a newer speak or stopAll took over", not "this device can't speak".
+// Errors that mean "a newer speak() or stopAll() took over", not "this device can't speak".
 const INTERRUPTIONS = new Set(["interrupted", "canceled"]);
 
 const hasSpeech = () => typeof window !== "undefined" && "speechSynthesis" in window;
