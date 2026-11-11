@@ -40,8 +40,9 @@ export const FLAGS = {
   // Ready on 9 Nov 2026: low-vision.e2e.ts 26/26 (Part 4 in full, plan item 10), the a11y + features + health checks
   // 414/414 with steps 7 and 8 on (Chromium + Firefox).
   lowVision: flag(process.env.NEXT_PUBLIC_A11Y_LOW_VISION, true),
-  /** Ask Bloop (docs/voice/README.md): the panel, typed commands and questions (on in dev and preview). */
-  askBloop: flag(process.env.NEXT_PUBLIC_ASK_BLOOP, false),
+  /** Ask Bloop (docs/voice/README.md): the panel, typed commands and questions (parser only). */
+  // Ready on 11 Nov 2026: e2e/ask-bloop.e2e.ts 16/16 and e2e/data/ask in the integrated final pass (Chromium + Firefox).
+  askBloop: flag(process.env.NEXT_PUBLIC_ASK_BLOOP, true),
   /** Ask Bloop's push-to-talk: only when asked for, until the gate test (docs/voice/GATE_TEST.md) passes. */
   askBloopVoice: process.env.NEXT_PUBLIC_ASK_BLOOP_VOICE === "1",
   /** Ask Bloop's AI fallback: only when asked for, and only with a deployed route (deploy/ask-intent). */
@@ -71,7 +72,7 @@ export const FLAGS = {
   // <<< CV
   // >>> DATA
   // Every shipped dataset in the app (the data-maximize spec). Ready on 11 Nov 2026 after the
-  // integrated final pass (docs/BUILD_2026-11-10.md). Tests per flag: see each line. dataAsk answers only where askBloop is on.
+  // integrated final pass (docs/BUILD_2026-11-10.md). Tests per flag: see each line.
   // 10 Nov 2026, all DATA flags on (production build): unit 513/513; e2e/data 24/24 in Chromium and in Firefox; the
   // existing a11y + features + health-records + ask-bloop + braille suites 332/336 in one run, the two misses (features
   // month-by-month in Chromium, ask-bloop "answered once" in Firefox) passing on rerun (4/4), 2 skipped as before.
