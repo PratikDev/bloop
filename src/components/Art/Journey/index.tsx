@@ -8,6 +8,7 @@ import { formatInteger, type BoundT } from "@/lib/i18n";
 import { cn } from "@/lib/utils";
 import { useAppState, useT } from "../../AppState/use-app-state";
 import { useCommands } from "../../Commands/use-commands";
+import { KEY_ROW, PLAY_KEY, WRAP_KEY } from "../../row-key";
 import { StatusBadge } from "../../StatusBadge";
 import { LetterCard } from "../Letter/LetterCard";
 import { useListenLetter } from "../Letter/use-listen-letter";
@@ -45,25 +46,25 @@ export function JourneyPanel({ onClose }: { onClose: () => void }) {
         <StatusBadge kind="loading">{t("journey.loading")}</StatusBadge>
       ) : (
         <>
-          <ol className="space-y-1">
+          <div className={KEY_ROW}>
+            <Button className={PLAY_KEY} onClick={() => void (j.playing ? j.stop() : (setEnded(false), j.play()))}>
+              {t(j.playing ? "journey.stop" : "journey.play")}
+            </Button>
+            <Button variant="outline" className={WRAP_KEY} disabled={j.rendering} onClick={() => void j.saveWav()}>
+              {t(j.rendering ? "journey.rendering" : "journey.wav")}
+            </Button>
+            <Button variant="ghost" className={WRAP_KEY} onClick={() => { j.stop(); onClose(); }}>
+              {t("journey.close")}
+            </Button>
+          </div>
+          <ol className="space-y-2">
             {j.journey.steps.map((s) => (
-              <li key={s.id} aria-current={j.step === s.id ? "step" : undefined} data-id={s.id} className={cn("text-small", j.step === s.id ? "text-moon" : "text-haze")}>
+              <li key={s.id} aria-current={j.step === s.id ? "step" : undefined} data-id={s.id} className={cn("border-l-4 pl-3 text-small", j.step === s.id ? "border-shapla text-moon" : "border-line text-haze")}>
                 {stepLine(t, j.journey!, s.id)}
               </li>
             ))}
           </ol>
           <p className="text-small text-haze">{t("journey.dial")} {t("journey.season")}</p>
-          <div className="flex flex-wrap gap-2">
-            <Button className="h-11" onClick={() => void (j.playing ? j.stop() : (setEnded(false), j.play()))}>
-              {t(j.playing ? "journey.stop" : "journey.play")}
-            </Button>
-            <Button variant="outline" className="h-11" disabled={j.rendering} onClick={() => void j.saveWav()}>
-              {t(j.rendering ? "journey.rendering" : "journey.wav")}
-            </Button>
-            <Button variant="ghost" className="h-11" onClick={() => { j.stop(); onClose(); }}>
-              {t("journey.close")}
-            </Button>
-          </div>
           {j.wav && (
             <p className="text-small text-moon" data-testid="journey-wav" data-fingerprint={j.wav.id}>
               {t("journey.wavDone", { seconds: formatInteger(j.wav.seconds, state.lang), id: j.wav.id })}

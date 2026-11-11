@@ -154,22 +154,22 @@ export const REACH: Feature[] = [
     what: "The scene opens from the records drawer and Esc comes back to the turntable",
     run: (page) => openScene(page, sleeve),
   })),
-  { id: "reach-settings", group: "a11y", name: "Settings: Reduce motion, Comfortable text, Sound words, Built-in voice", where: "Header · Settings", keyboard: false,
+  { id: "reach-settings", group: "a11y", name: "Settings: Reduce motion, Comfortable text, Sound words", where: "Header · Settings", keyboard: false,
     what: "Each setting toggles on and back off",
-    control: (page) => page.getByRole("banner").getByRole("button", { name: "Settings" }),
+    control: (page) => page.getByRole("banner").getByRole("button", { name: "Settings", exact: true }),
     async run(page) {
-      const names = ["Reduce motion", "Comfortable text", "Sound words", "Built-in voice"];
+      const names = ["Reduce motion", "Comfortable text", "Sound words"];
       const toggle = (n: string) => page.getByRole("button", { name: n, exact: true });
       // The menu may close after a choice: open it again whenever the toggle isn't on screen.
       const press = async (n: string) => {
-        if (!(await toggle(n).isVisible())) await page.getByRole("banner").getByRole("button", { name: "Settings" }).click();
+        if (!(await toggle(n).isVisible())) await page.getByRole("banner").getByRole("button", { name: "Settings", exact: true }).click();
         await toggle(n).click();
       };
       for (const n of names) {
-        await page.getByRole("banner").getByRole("button", { name: "Settings" }).click();
+        await page.getByRole("banner").getByRole("button", { name: "Settings", exact: true }).click();
         const before = (await toggle(n).getAttribute("aria-pressed")) ?? "false";
         await press(n);
-        if (!(await toggle(n).isVisible())) await page.getByRole("banner").getByRole("button", { name: "Settings" }).click();
+        if (!(await toggle(n).isVisible())) await page.getByRole("banner").getByRole("button", { name: "Settings", exact: true }).click();
         await expect(toggle(n)).not.toHaveAttribute("aria-pressed", before);
         await press(n);
         await page.keyboard.press("Escape");

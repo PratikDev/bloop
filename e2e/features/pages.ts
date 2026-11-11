@@ -28,7 +28,7 @@ export const PAGES: Feature[] = [
     async run(page) {
       await page.goto("/");
       await expect(page.getByRole("link", { name: "Continue listening" })).toBeVisible();
-      await page.getByRole("button", { name: "Settings" }).click();
+      await page.getByRole("button", { name: "Settings", exact: true }).click();
       await page.getByRole("button", { name: "Reset sound choice" }).click({ timeout: 15_000 });
       await expect(page.getByRole("button", { name: "Start listening" })).toBeVisible();
       return { evidence: "reload → Reset sound choice offered; → Start listening again" };

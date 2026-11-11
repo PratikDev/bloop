@@ -17,7 +17,7 @@ export function LowVisionButtons({ open, onOpenChange }: { open: boolean; onOpen
   const t = useT();
   return (
     <div className="flex items-center gap-2">
-      <LowVisionToggle />
+      <LowVisionToggle compact />
       <Button
         variant="ghost"
         size="icon-lg"
@@ -34,7 +34,7 @@ export function LowVisionButtons({ open, onOpenChange }: { open: boolean; onOpen
 }
 
 /** The low-vision preset's switch ("Low vision", pressed when on): in the header and in Track 0 (spec 4.7). */
-export function LowVisionToggle({ label = "lv.toggle", className }: { label?: "lv.toggle" | "lv.tuningToggle"; className?: string }) {
+export function LowVisionToggle({ label = "lv.toggle", compact = false, className }: { label?: "lv.toggle" | "lv.tuningToggle"; /** On phones, the eye alone (the words stay its name). */ compact?: boolean; className?: string }) {
   const t = useT();
   const { on, toggle } = useLowVisionPreset();
   return (
@@ -46,7 +46,7 @@ export function LowVisionToggle({ label = "lv.toggle", className }: { label?: "l
       className={cn("key border-navy h-11 gap-1.5 rounded-lg bg-paper px-3 text-small text-moon hover:bg-paper aria-pressed:bg-shapla aria-pressed:hover:bg-shapla", className)}
     >
       <Eye aria-hidden="true" className="size-5" />
-      {t(label)}
+      <span className={cn(compact && "max-sm:sr-only")}>{t(label)}</span>
     </Button>
   );
 }

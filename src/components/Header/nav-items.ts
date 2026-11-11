@@ -17,4 +17,8 @@ export const NAV_ITEMS: readonly NavItem[] = [
 ];
 
 /** Every titled page: the document title reads this list. */
-export const TITLED_PAGES: readonly NavItem[] = [...NAV_ITEMS, { to: PAGE_PATHS.official, label: "nav.official", short: "nav.officialShort" }];
+export const TITLED_PAGES: readonly NavItem[] = [
+  ...NAV_ITEMS,
+  { to: PAGE_PATHS.official, label: "nav.official", short: "nav.officialShort" },
+  { to: PAGE_PATHS.team, label: "nav.team", short: "nav.team" },
+];

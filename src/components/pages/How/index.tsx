@@ -1,7 +1,7 @@
 "use client";
 
 import { Link } from "@tanstack/react-router";
-import { Disc, Keyboard, Sparkle } from "@phosphor-icons/react";
+import { Disc, Keyboard, Sparkle, UsersThree } from "@phosphor-icons/react";
 import { Button } from "@/components/ui/button";
 import { useLoaded } from "@/hooks/use-loaded";
 import { loadGlobeDuet } from "@/lib/data";
@@ -52,6 +52,10 @@ export function HowPage() {
                 <Link to={PAGE_PATHS.official} className={FOOT_LINK}>
                   <Disc aria-hidden="true" className="size-4.5" />
                   {t("records.allOfficial")}
+                </Link>
+                <Link to={PAGE_PATHS.team} className={FOOT_LINK}>
+                  <UsersThree aria-hidden="true" className="size-4.5" />
+                  {t("team.title")}
                 </Link>
                 <Button variant="ghost" onClick={commands.openHelp} className={FOOT_LINK}>
                   <Keyboard aria-hidden="true" className="size-4.5" />

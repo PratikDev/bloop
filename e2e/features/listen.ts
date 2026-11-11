@@ -3,7 +3,7 @@ import { expect } from "@playwright/test";
 import { dock, inspector, live, map, onMap, openGroup, openPlayerMore, openRecords, pressed, reading, sounds, stops, strip, type Feature } from "./common";
 
 const mixerButton = (page: Parameters<Feature["run"]>[0]) => page.getByRole("button", { name: /^Mixer/u });
-const settings = (page: Parameters<Feature["run"]>[0]) => page.getByRole("banner").getByRole("button", { name: "Settings" });
+const settings = (page: Parameters<Feature["run"]>[0]) => page.getByRole("banner").getByRole("button", { name: "Settings", exact: true });
 
 export const LISTEN: Feature[] = [
   // ---- data ----
@@ -71,7 +71,7 @@ export const LISTEN: Feature[] = [
     async run(page) { await onMap(page); await page.keyboard.press("u"); return sounds(page, "unison"); } },
   { id: "motif", group: "sound", name: "Motif", where: "Settings · Play the Bloop motif", keyboard: false,
     what: "Plays the app's short signature", control: (page) => page.getByRole("button", { name: "Play the Bloop motif" }),
-    async run(page) { await page.getByRole("button", { name: "Settings" }).click(); await page.getByRole("button", { name: "Play the Bloop motif" }).click(); return sounds(page, "motif"); } },
+    async run(page) { await page.getByRole("button", { name: "Settings", exact: true }).click(); await page.getByRole("button", { name: "Play the Bloop motif" }).click(); return sounds(page, "motif"); } },
   { id: "pause", group: "sound", name: "Pause and resume", where: "Listen · Space · the dock's sound button", keyboard: true,
     what: "Pauses the live sound", control: (page) => dock(page).getByRole("button", { name: /sound/u }).first(),
     async run(page) {
@@ -116,23 +116,19 @@ export const LISTEN: Feature[] = [
   { id: "enter-speaks", group: "a11y", name: "Speak the value (live region)", where: "Listen · Enter", keyboard: true,
     what: "Announces the value and place through the page's live region", control: map,
     async run(page) {
-      // The live region carries Enter's line when the built-in voice is off (screen-reader users, as Help suggests);
-      // with it on, the line is spoken instead, so the screen reader doesn't hear it twice.
-      await page.getByRole("banner").getByRole("button", { name: "Settings" }).click();
-      const voice = page.getByRole("button", { name: "Built-in voice", exact: true });
-      if ((await voice.getAttribute("aria-pressed")) === "true") await voice.click();
-      await page.keyboard.press("Escape");
+      // Speech is "My screen reader" by default, so Enter's line goes to the live region.
       await onMap(page); await page.keyboard.press("Enter");
       await expect.poll(() => live(page)).toMatch(/°C|mm\/h|Dry/u);
       return { evidence: `live region: "${(await live(page)).replace(/\s+/gu, " ").slice(0, 100)}"` };
     } },
-  { id: "describe", group: "a11y", name: "Describe mode", where: "Header · Settings · Describe · key D", keyboard: true,
+  { id: "describe", group: "a11y", name: "Describe mode", where: "Header · Settings · Describe · Shift+D", keyboard: true,
     what: "Turns spoken descriptions on or off", control: (page) => settings(page),
     async run(page) {
-      await onMap(page); await page.keyboard.press("d");
+      // Plain D describes this place once; Shift+D turns Describe mode on or off.
+      await onMap(page); await page.keyboard.press("Shift+D");
       await settings(page).click();
       await pressed(page.getByRole("button", { name: "Describe" }));
-      return { evidence: "D → Settings shows Describe pressed" };
+      return { evidence: "Shift+D → Settings shows Describe pressed" };
     } },
   { id: "captions", group: "a11y", name: "Captions", where: "Listen · key C", keyboard: true, what: "Shows sound captions as text",
     async run(page) {

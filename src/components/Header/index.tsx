@@ -24,10 +24,10 @@ export function Header() {
   const commands = useCommands();
   const [lvOpen, setLvOpen] = useState(false);
   return (
-    <header className="relative z-(--layer-header) grid grid-cols-[minmax(0,1fr)_auto] items-center gap-x-2 px-4 [view-transition-name:header] lg:grid-cols-[1fr_auto_1fr] lg:px-8">
+    <header className="relative z-(--layer-header) grid grid-cols-[auto_minmax(0,1fr)] items-center gap-x-2 px-4 [view-transition-name:header] lg:grid-cols-[1fr_auto_1fr] lg:px-8">
       <Brand />
       <TuningDial className="col-span-2 row-start-2 lg:col-span-1 lg:col-start-2 lg:row-start-1" />
-      <div className="col-start-2 row-start-1 flex items-center justify-end gap-2 lg:col-start-3">
+      <div className="col-start-2 row-start-1 flex flex-wrap items-center justify-end gap-2 lg:col-start-3 lg:flex-nowrap">
         <LanguageChoice />
         {FLAGS.lowVision && <LowVisionButtons open={lvOpen} onOpenChange={setLvOpen} />}
         <SettingsMenu />
