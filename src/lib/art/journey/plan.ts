@@ -17,7 +17,7 @@ export const JOURNEY_STEPS = ["lightning", "river", "rain", "slope", "water", "s
 export type JourneyStepId = (typeof JOURNEY_STEPS)[number];
 export const GAP_SEC = 2;
 
-export type JourneyEvent =
+type JourneyEvent =
   | { kind: "tone"; hz: number; at: number; dur: number }
   | { kind: "tick"; at: number; noise: "drop" | "click" }
   | { kind: "rumble"; rumble: ClassRumble; at: number; dur: number };
@@ -35,7 +35,7 @@ export interface JourneySource {
   status: string;
 }
 
-export interface JourneyStep extends Omit<JourneySource, "values"> {
+interface JourneyStep extends Omit<JourneySource, "values"> {
   values: (number | null)[];
   category: EarthCategory | null;
   /** The step's Sa: the bottom of its pitch rule (a fixed note; never moved by data); null for a rate rule. */

@@ -15,7 +15,7 @@ export interface TimedRun {
 }
 
 /** The caption key a cue is posted under (its text in both languages). */
-export const CUE_CAPTION = "caption.cue";
+const CUE_CAPTION = "caption.cue";
 const END_CAPTION = { sweep: "caption.sweep.end", timelapse: "caption.timelapse.end" } as const satisfies Record<TimedPlayer, string>;
 const STOPPED = "caption.stopped";
 

@@ -5,8 +5,8 @@ import type { OptionId, TaskId } from "./tasks";
 import type { ExtraRecord } from "./extras/types"; // ART
 import { CV_TASK_IDS } from "./chord";
 
-export const RESULTS_KIND = "bloop-listen-test";
-export const RESULTS_VERSION = 1;
+const RESULTS_KIND = "bloop-listen-test";
+const RESULTS_VERSION = 1;
 // Which set of tasks a session ran, so earlier sessions stay separable: 1 = the five core tasks only (every session
 // before 10 Nov 2026); 2 = + the emotion ratings and ear-vs-eye (ART's build, never deployed); 3 = the integrated test
 // (10 Nov 2026): any of CV's two chord tasks or ART's extras ran.
@@ -48,7 +48,7 @@ export const resultsFile = (lang: "en" | "bn", results: TaskResult[], comment: s
 /** The download's name: the date and time only (the protocol renames it to the session number). */
 export const exportName = (d: Date) => `listen-test-${d.toISOString().slice(0, 16).replace(/[-:]/gu, "").replace("T", "-")}.json`;
 
-export interface TaskSummary {
+interface TaskSummary {
   task: TaskId;
   n: number;
   correct: number;

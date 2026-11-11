@@ -11,7 +11,7 @@ import { useAppState, useT } from "../../AppState/use-app-state";
 import { useLiveData } from "../../LiveData/use-live-data";
 import { PLAYED_VOICES } from "../../panels/MappingPanel";
 
-export interface HowFacts {
+interface HowFacts {
   ocean: Provenance[];
   rain: Provenance[];
   rules: Provenance[];

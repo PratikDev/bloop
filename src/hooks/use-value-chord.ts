@@ -30,7 +30,7 @@ export interface ValueChordState {
 }
 
 /** σ for the chord: the record's measured error in its own units (a log axis has none in value units). */
-export const chordSigma = (budget: LiveBudget | null) => (budget && !budget.axis.log ? budget.axis.error_in_axis_units : null);
+const chordSigma = (budget: LiveBudget | null) => (budget && !budget.axis.log ? budget.axis.error_in_axis_units : null);
 
 /**
  * The value chord on a page: gives the layer the current view (the record and the box's

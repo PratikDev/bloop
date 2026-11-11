@@ -6,7 +6,7 @@ import { parseUtterance } from "@/lib/ask-bloop/parser";
 import { INTENT_NAMES, REGISTRY } from "@/lib/ask-bloop/registry";
 import type { Lang } from "@/lib/i18n/types";
 
-export const PROMPTS_PER_LANG = 20;
+const PROMPTS_PER_LANG = 20;
 
 export interface Prompt {
   text: string;

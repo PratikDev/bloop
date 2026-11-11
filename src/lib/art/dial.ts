@@ -20,7 +20,7 @@ export interface DialLayers {
 }
 
 /** The changes a stop makes, in the order the on-screen line lists them. */
-export const CHANGE_KEYS = ["timbre", "ticks", "bed", "chord", "drone", "reverb", "meend"] as const satisfies readonly (keyof DialLayers)[];
+const CHANGE_KEYS = ["timbre", "ticks", "bed", "chord", "drone", "reverb", "meend"] as const satisfies readonly (keyof DialLayers)[];
 export type ChangeKey = (typeof CHANGE_KEYS)[number];
 
 /**

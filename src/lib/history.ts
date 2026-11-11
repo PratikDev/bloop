@@ -28,7 +28,7 @@ export interface BangladeshFiles {
 }
 
 /** Where a record comes from: a grid cell, or a named region (a GRACE box or 3° cell). */
-export type RecordSource = { kind: "cell"; lat: number; lon: number; neighbour: boolean } | { kind: "region"; label: string | null };
+type RecordSource = { kind: "cell"; lat: number; lon: number; neighbour: boolean } | { kind: "region"; label: string | null };
 
 export interface PlaceSeries {
   months: string[];

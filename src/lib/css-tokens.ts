@@ -30,7 +30,7 @@ const TOKENS = [
   "geo-graticule",
 ] as const;
 
-export type ColorToken = (typeof TOKENS)[number];
+type ColorToken = (typeof TOKENS)[number];
 
 export type Palette = Record<ColorToken, string>;
 

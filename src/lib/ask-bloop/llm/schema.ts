@@ -27,7 +27,7 @@ const SLOT_SCHEMA: Record<string, JsonSchema> = {
 /** Slots that may be null (no place = here; no record = the one playing). */
 const NULLABLE: Partial<Record<IntentName, readonly string[]>> = { extreme_in: ["place"], compare_dates: ["place"], about_record: ["record"] };
 
-export interface ToolSpec {
+interface ToolSpec {
   type: "function";
   function: { name: IntentName; description: string; parameters: { type: "object"; properties: Record<string, JsonSchema>; required: string[]; additionalProperties: false } };
 }

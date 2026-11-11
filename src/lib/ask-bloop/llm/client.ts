@@ -4,7 +4,7 @@ import type { Intent } from "../intents";
 import { validateIntent } from "../validate";
 import { TIMEOUT_MS, type AskIntentReply } from "./types";
 
-export const LLM_URL = process.env.NEXT_PUBLIC_ASK_BLOOP_LLM_URL ?? "";
+const LLM_URL = process.env.NEXT_PUBLIC_ASK_BLOOP_LLM_URL ?? "";
 
 /** The route's intent for `text`, or null (off, unreachable, slow, or nothing valid). */
 export async function llmIntent(text: string, record: string, url: string = LLM_URL): Promise<Intent | null> {

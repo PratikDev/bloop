@@ -16,7 +16,7 @@ export interface Extreme {
 }
 
 /** Which grid an extreme is found in: Ocean (and Ocean + Rain) uses SST, Rain uses rain. */
-export function extremeTrack(track: TrackMode): "ocean" | "rain" {
+function extremeTrack(track: TrackMode): "ocean" | "rain" {
   return track === "rain" ? "rain" : "ocean";
 }
 

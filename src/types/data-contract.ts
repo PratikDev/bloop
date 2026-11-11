@@ -14,7 +14,7 @@ import type { ClassesMapping } from "./contract-15";
 // decoder in lib/data.ts (dimensions + encoding).
 // ---------------------------------------------------------------------------
 
-export interface VerifiedSst {
+interface VerifiedSst {
   metric: "median_abs_error_C";
   value: number;
   p90_abs_error_C?: number;
@@ -24,7 +24,7 @@ export interface VerifiedSst {
   test: string; // e.g. "Check C re-evaluated with corrected colorbar positions ..."
 }
 
-export interface VerifiedRain {
+interface VerifiedRain {
   metric: "median_abs_log10_error";
   value: number;
   approx_percent: number;
@@ -38,7 +38,7 @@ export interface VerifiedRain {
 }
 
 // How the SST colorbar was calibrated against NASA MUR (convert_sst.py).
-export interface SstCalibration {
+interface SstCalibration {
   method: string;
   legend_labels: string; // what the colorbar image says, e.g. "-5..35 C"
   ticks_px: [number, number];
@@ -74,7 +74,7 @@ export interface RainLatestCheck {
 
 // latest/sst.bin — Uint16, width × height.
 // °C = code / scale + offset (i.e. code / 1000 − 5); code === nodata (65535) = land / no data.
-export interface SstGrid {
+interface SstGrid {
   width: number; // 1024
   height: number; // 512
   encoding: "uint16_offset";
@@ -107,7 +107,7 @@ export interface SstMetadata {
 // latest/rain.bin — Uint16, width × height.
 // 0 = dry; 65535 = no data; else mm/h = 10^((code − 1) / 20000 − 1).
 // latest/rain_phase.bin — Uint8, same size: 0 dry, 1 liquid, 2 frozen.
-export interface RainGrid {
+interface RainGrid {
   width: number; // 1800
   height: number; // 900
   encoding: "uint16_log";
@@ -139,8 +139,6 @@ export interface RainMetadata {
   latest_check?: RainLatestCheck;
 }
 
-export type GridMetadata = SstMetadata | RainMetadata;
-
 // ---------------------------------------------------------------------------
 // 2. Storm time-lapse (sequence/index.json, sequence/rain_NNN.json,
 //    sequence/rain_NNN.u8.gz, sequence/rain_NNN.png), oldest → newest.
@@ -170,27 +168,6 @@ export interface SequenceIndex {
   credit: string;
   generated_utc: string;
   colorbar_variant: string;
-}
-
-export interface SequenceFrameMetadata {
-  product: "rain_sequence_frame";
-  index: number;
-  frame_time_utc: string;
-  source_file: string;
-  units: "mm/h";
-  credit: string;
-  grid: {
-    width: number;
-    height: number;
-    file: string; // "rain_000.u8.gz"
-    compression: "gzip";
-    encoding: "uint8_log_phase";
-    formula: string;
-    row0: string;
-    col0: string;
-    aggregation: string; // "max of 3x3 source pixels"
-    resolution_note: string;
-  };
 }
 
 // ---------------------------------------------------------------------------
@@ -272,7 +249,7 @@ export interface GpccContextFile extends RainContextFile {
 
 export type GraceBoxName = "Bangladesh" | "NW_India";
 
-export interface GraceBoxSeries {
+interface GraceBoxSeries {
   box_lon_lat: [number, number, number, number]; // [lon_min, lat_min, lon_max, lat_max]
   months: string[]; // continuous monthly axis from 2002-04
   cm: (number | null)[]; // null = missing month (satellite gap)
@@ -304,8 +281,8 @@ export interface GraceContextFile {
 // ---------------------------------------------------------------------------
 
 export type FirmsRegion = "CHT_Bangladesh_MarApr" | "Punjab_India_OctNov";
-export type FirmsSource = "MODIS_SP" | "VIIRS_SNPP_SP";
-export type FirmsCaseKey = `${FirmsRegion}|${FirmsSource}|${number}`;
+type FirmsSource = "MODIS_SP" | "VIIRS_SNPP_SP";
+type FirmsCaseKey = `${FirmsRegion}|${FirmsSource}|${number}`;
 
 export interface FirmsCase {
   days: string[]; // "YYYY-MM-DD"
@@ -330,7 +307,7 @@ export interface FirmsContextFile {
 
 export type NdviPointName = "Sundarbans" | "Madhupur_forest" | "Dhaka_city_control";
 
-export interface NdviWindow {
+interface NdviWindow {
   dates: string[]; // "YYYY-MM-DD"
   ndvi: number[]; // 0..1
   mean: number;
@@ -355,22 +332,6 @@ export interface NdviContextFile {
 // "Satellite Comparison Table" columns are kept.
 // ---------------------------------------------------------------------------
 
-export type GlobeObservationRow = Record<string, string | number | null>;
-
-export interface GlobeContextFile {
-  dataset: string;
-  rows: number;
-  columns: {
-    time: string; // "Measurement Date (UTC)"
-    lat: string; // "Observation Latitude"
-    lon: string; // "Observation Longitude"
-    cloud_cover: string[];
-    satellite: string[];
-  };
-  note: string;
-  credit: string;
-  observations: GlobeObservationRow[];
-}
 
 // ---------------------------------------------------------------------------
 // 9. The killer demo (demo/dhaka_then_now.json)
@@ -387,7 +348,7 @@ export interface DemoWindow {
   n_years: number;
 }
 
-export interface HeatDemo {
+interface HeatDemo {
   dataset: string;
   A: DemoWindow;
   B: DemoWindow;
@@ -395,7 +356,7 @@ export interface HeatDemo {
   caption: string;
 }
 
-export interface RainSeriesDemo {
+interface RainSeriesDemo {
   dataset: string;
   A: DemoWindow;
   B: DemoWindow;
@@ -403,7 +364,7 @@ export interface RainSeriesDemo {
 }
 
 /** GPCP's own newer decade (WIN_B): an extra, labelled "GPCP only", never shown beside GPCC as comparable. */
-export interface RainNewerDemo extends RainSeriesDemo {
+interface RainNewerDemo extends RainSeriesDemo {
   label: string; // "GPCP only, newer decade; GPCC data ends in 2019"
 }
 
@@ -415,7 +376,7 @@ export interface RainDemo {
   gpcp_newer: RainNewerDemo;
 }
 
-export interface WaterBoxDemo {
+interface WaterBoxDemo {
   mean_A: number;
   mean_B: number;
   trend_cm_per_yr: number;
@@ -424,7 +385,7 @@ export interface WaterBoxDemo {
 }
 
 // Monthly GRACE values (with the gap) live in context/grace.json.
-export interface WaterDemo {
+interface WaterDemo {
   dataset: string;
   Bangladesh: WaterBoxDemo;
   NW_India: WaterBoxDemo;
@@ -450,8 +411,8 @@ export interface DhakaThenNowDemo {
 // sentence is generated from these numbers (lib/audio/mapping.ts ruleText).
 // ---------------------------------------------------------------------------
 
-export type InputScale = "linear" | "log";
-export type OutputScale = "linear" | "exponential";
+type InputScale = "linear" | "log";
+type OutputScale = "linear" | "exponential";
 
 // value → t in [0,1] over [input.min, input.max] (clamped; log uses log10),
 // then t → output: linear = min + (max − min)·t; exponential = min·(max/min)^t.
@@ -545,7 +506,7 @@ export interface MappingSpec {
 // (water is null before 2002-04 and during the Jul 2017–May 2018 GRACE gap).
 // ---------------------------------------------------------------------------
 
-export interface EnsembleVoice {
+interface EnsembleVoice {
   values: (number | null)[];
   units: string;
   dataset: string;
@@ -576,7 +537,7 @@ export interface EnsembleFile {
 // status "insufficient" = fewer than 20 place-days → don't show the teaser.
 // ---------------------------------------------------------------------------
 
-export interface GlobeDuetPair {
+interface GlobeDuetPair {
   date: string; // "YYYY-MM-DD"
   lat: number;
   lon: number;
@@ -643,19 +604,19 @@ export interface GridCellRef {
   lon: number;
 }
 
-export interface CityHeatDemo extends HeatDemo {
+interface CityHeatDemo extends HeatDemo {
   cell: GridCellRef;
   shares_cell_with: ClimateCellName[];
   same_record_as: ClimateCellName | null; // non-null = identical to that city's heat record
 }
 
-export interface CityRainSeriesDemo extends RainSeriesDemo {
+interface CityRainSeriesDemo extends RainSeriesDemo {
   cell: GridCellRef;
   shares_cell_with: ClimateCellName[];
   same_record_as: ClimateCellName | null;
 }
 
-export interface CityRainDemo extends RainDemo {
+interface CityRainDemo extends RainDemo {
   gpcp: CityRainSeriesDemo;
   gpcc: CityRainSeriesDemo;
 }
@@ -731,7 +692,7 @@ export interface GlobalCellRef {
   lon: number;
 }
 
-export interface GlobalWaterRegion {
+interface GlobalWaterRegion {
   kind: "box" | "cell"; // "box" = Bangladesh national box (same record as the demo); "cell" = the place's 3° GRACE cell
   label: string; // e.g. "3° GRACE cell 27°N–30°N, 72°E–75°E"
 }

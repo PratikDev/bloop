@@ -19,7 +19,7 @@ export const DATA_SCRIPTS = {
   pilot: ["src/lib/earth/pilot.ts"],
 } as const;
 
-export interface HeaderFacts {
+interface HeaderFacts {
   t: BoundT;
   lang: Lang;
   header: ProductHeader;

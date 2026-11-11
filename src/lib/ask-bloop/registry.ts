@@ -6,7 +6,7 @@
 import type { IntentKind, IntentName } from "./intents";
 import { DATA_REGISTRY } from "./data-intents";
 
-export interface IntentSpec {
+interface IntentSpec {
   kind: IntentKind;
   examples: { en: readonly string[]; bn: readonly string[] };
 }

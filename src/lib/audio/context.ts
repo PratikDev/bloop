@@ -68,7 +68,7 @@ export function peekEngine(): Engine | null {
   return engine;
 }
 
-export interface AudioInfo {
+interface AudioInfo {
   state: AudioContextState;
   sampleRate: number;
   baseLatencyMs: number;

@@ -33,7 +33,7 @@ export function chordText(t: BoundT, layers: DialLayers, context: PlayContext | 
 }
 
 /** What the dial says under itself: the data voice is unchanged, what changes, the chord, the season colour. */
-export function dialLines(t: BoundT, layers: DialLayers, context: PlayContext | null): string[] {
+function dialLines(t: BoundT, layers: DialLayers, context: PlayContext | null): string[] {
   const list = whatChanges(layers).map((k) => t(`dial.change.${k}`)).join(", ");
   const lines = [t("dial.unchanged"), t("dial.whatChanges", { list })];
   const chord = chordText(t, layers, context);

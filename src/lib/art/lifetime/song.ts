@@ -9,10 +9,10 @@ import { monsoonDrops } from "@/lib/audio/context-maths";
 import type { ClimateCellName } from "@/types/data-contract";
 
 export const NOTE_SEC = 0.25;
-export const LIFETIME_PARTS = ["heat", "rain", "water"] as const;
-export type LifetimePart = (typeof LIFETIME_PARTS)[number];
+const LIFETIME_PARTS = ["heat", "rain", "water"] as const;
+type LifetimePart = (typeof LIFETIME_PARTS)[number];
 
-export interface LifetimeTrend {
+interface LifetimeTrend {
   n: number;
   p: number;
   sen_slope: number;
@@ -21,7 +21,7 @@ export interface LifetimeTrend {
   clear: boolean;
 }
 
-export interface LifetimeSeries {
+interface LifetimeSeries {
   source: string;
   unit: string;
   voice: "heat" | "monsoon" | "water";
@@ -38,7 +38,7 @@ export interface LifetimeFile {
   water: LifetimeSeries;
 }
 
-export interface SongNote {
+interface SongNote {
   year: number;
   value: number;
   /** Heat and water: the rule's pitch (Hz). Rain: null (it plays drops). */
@@ -65,7 +65,7 @@ export const seriesOf = (file: LifetimeFile, city: ClimateCellName, part: Lifeti
   part === "water" ? file.water : file.cities[city][part];
 
 /** One part's song from `born`; null when the record ends before it. */
-export function songPart(file: LifetimeFile, city: ClimateCellName, part: LifetimePart, born: number): SongPart | null {
+function songPart(file: LifetimeFile, city: ClimateCellName, part: LifetimePart, born: number): SongPart | null {
   const s = seriesOf(file, city, part);
   const idx = s.years.map((y, i) => [y, i] as const).filter(([y]) => y >= born);
   if (!idx.length) return null;

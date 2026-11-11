@@ -13,7 +13,7 @@ export const DISC = { radius: 60, hole: 4, base: 2, ridgeMax: 4, ridgeMin: 0.4, 
 const SEGMENTS = { around: 720, radial: 112 } as const;
 const LABEL = { inner: 10, outer: 26, px: 4 } as const; // label band (mm) and canvas pixels per mm
 
-export interface TactileTrack {
+interface TactileTrack {
   /** One value per step, oldest first (null = missing). */
   values: readonly (number | null)[];
   /** Ring band in mm. */
@@ -76,7 +76,7 @@ function heightAt(rec: TactileRecord, mask: (x: number, y: number) => boolean, a
 }
 
 /** A closed (watertight) disc mesh: top surface on a polar grid, flat bottom, inner and outer walls. */
-export function tactileMesh(rec: TactileRecord): Mesh {
+function tactileMesh(rec: TactileRecord): Mesh {
   const mask = labelMask(rec.label);
   const { around: A, radial: R } = SEGMENTS;
   const radius = (j: number) => DISC.hole + (j / R) * (DISC.radius - DISC.hole);

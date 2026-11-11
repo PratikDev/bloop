@@ -3,7 +3,7 @@
 // test checks that every district there belongs to exactly one division. Names only: a division's place on the map
 // is the mean of its districts' label points, computed from the geo file.
 
-export interface Division {
+interface Division {
   id: string;
   name: string;
   nameBn: string;

@@ -5,7 +5,7 @@
 import { continuousRule, mapContinuous, panFor, voiceSpec } from "@/lib/audio/mapping";
 import { glideTo, type Graph } from "../graph";
 
-export interface HazeVoice {
+interface HazeVoice {
   set(value: number | null, lon: number): void;
 }
 

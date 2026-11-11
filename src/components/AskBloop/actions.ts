@@ -10,7 +10,7 @@ import { MODE_LABELS } from "../Commands/use-commands";
 import { plain, type Answer, type AskContext } from "./context";
 
 /** Each page Ask Bloop opens, as the app's mode. */
-export const PAGE_MODE: Record<AskPage, Mode> = {
+const PAGE_MODE: Record<AskPage, Mode> = {
   listen: "explore",
   tour: "story",
   thenNow: "thenNow",
@@ -24,7 +24,7 @@ export const PAGE_MODE: Record<AskPage, Mode> = {
 export const RECORD_LABEL = { ocean: "track.ocean", rain: "track.rain", both: "track.both" } as const satisfies Record<TrackMode, MessageKey>;
 
 /** A gazetteer entry's name in the reader's language. */
-export const entryName = (e: SearchEntry, lang: Lang) => (lang === "bn" && e.nameBn ? e.nameBn : e.name);
+const entryName = (e: SearchEntry, lang: Lang) => (lang === "bn" && e.nameBn ? e.nameBn : e.name);
 
 /** A place as said, resolved; or the answer that asks again ("I don't know…", "Did you mean A or B?"). */
 export async function placeOrAsk(ctx: AskContext, said: string): Promise<{ entry: SearchEntry } | { answer: Answer }> {

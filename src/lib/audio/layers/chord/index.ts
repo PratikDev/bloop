@@ -26,7 +26,7 @@ export interface ChordView {
 }
 
 /** What the CV layer adds to ChordLayer (src/lib/audio/layers/types.ts): the view it reads and a change signal. */
-export interface ValueChordLayer extends ChordLayer {
+interface ValueChordLayer extends ChordLayer {
   setView(view: ChordView | null): void;
   /** The groups found in the current view (also when silent), for the UI's text. */
   modes(): readonly ValueMode[];

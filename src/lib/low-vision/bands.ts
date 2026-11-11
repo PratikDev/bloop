@@ -63,7 +63,7 @@ export function bandIndex(bands: readonly Band[], record: BandRecord, v: number 
   return bands.length ? 0 : -1;
 }
 
-export interface BandLabel {
+interface BandLabel {
   band: number;
   /** The cell the label sits on (its value is in the band). */
   cell: number;
@@ -72,10 +72,10 @@ export interface BandLabel {
 }
 
 /** The share of a tile one band must fill for its label to go there (design choice: "where it fits"). */
-export const LABEL_SHARE = 0.6;
+const LABEL_SHARE = 0.6;
 
 /** A block of grid cells: columns c0 to c1 and rows r0 to r1 (ends exclusive; fractions allowed). */
-export interface CellRegion {
+interface CellRegion {
   c0: number;
   r0: number;
   c1: number;

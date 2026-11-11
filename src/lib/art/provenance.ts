@@ -5,7 +5,7 @@
 import { repoLink } from "@/lib/provenance/repo";
 import type { Provenance, ProvenanceStatus } from "@/lib/provenance/types";
 
-export interface ArtFacts {
+interface ArtFacts {
   subject: string;
   method: string;
   scripts: readonly string[];

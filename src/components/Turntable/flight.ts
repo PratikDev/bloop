@@ -4,10 +4,10 @@
 
 import { wrapLon } from "@/lib/data";
 
-export const FLIGHT_MS = 1200;
+const FLIGHT_MS = 1200;
 const MAX_ARC = 1.6; // extra camera distance at mid-flight, globe radii
 
-export interface FlightPose {
+interface FlightPose {
   lat: number;
   lon: number;
   distance: number;

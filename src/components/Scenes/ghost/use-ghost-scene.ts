@@ -18,7 +18,7 @@ const START_DISTANCE = 6;
 /** Auto-turn at speed 1: the Turntable's one turn a minute. */
 const SPIN_DEG_PER_SEC = 6;
 
-export interface GhostSceneControl {
+interface GhostSceneControl {
   bus: ReturnType<typeof createFrameBus<FrameInfo>>;
   build(host: SceneBuildHost): SceneHandle;
   onReady(handle: SceneHandle | null): void;

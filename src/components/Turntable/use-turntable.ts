@@ -18,7 +18,7 @@ import { DISTANCE, type CameraMode, type ScreenPoint, type TurntableScene } from
 import { useGlobeTexture, type GlobeTexture } from "./use-globe-texture";
 import { useSceneAssets, type SceneSettings } from "./use-scene-assets";
 
-export const NEEDLE_MAX_LAT = 80;
+const NEEDLE_MAX_LAT = 80;
 /** Rotation speeds (× one turn a minute); design choices, not data. */
 export const SPEEDS = [0.25, 0.5, 1, 2, 4] as const;
 const DEFAULT_SPEED_INDEX = 2;

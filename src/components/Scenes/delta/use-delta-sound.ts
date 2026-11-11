@@ -7,7 +7,7 @@ import type { LatLon } from "@/lib/data";
 import type { GraceBoxName, GraceContextFile } from "@/types/data-contract";
 import { useSceneTrack } from "../use-scene-track";
 
-export interface DeltaSound {
+interface DeltaSound {
   playing: boolean;
   /** The box the GRACE playback is on (null when not playing). */
   playingBox: GraceBoxName | null;

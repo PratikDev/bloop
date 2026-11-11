@@ -5,7 +5,7 @@ import type { OfficialValidationFile } from "@/types/data-contract";
 
 const LEADING_SVS = /^(\d{4,5}) /u;
 
-export interface CheckedWithItem {
+interface CheckedWithItem {
   svs: number;
   link: string;
   /** The checks' titles, as the file writes them. */

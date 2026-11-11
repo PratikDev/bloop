@@ -5,7 +5,7 @@ import { continuousRule, semitonesPerUnit, withInputRange } from "@/lib/audio/ma
 import type { ContinuousMapping } from "@/types/data-contract";
 import file from "../../../public/data/meta/error_budget.json";
 
-export interface BudgetAxis {
+interface BudgetAxis {
   id: string;
   label: string;
   voice: string;
@@ -25,7 +25,7 @@ export interface BudgetAxis {
   flag: boolean | null;
 }
 
-export interface ErrorBudget {
+interface ErrorBudget {
   generated_by: string;
   flag_cents: number;
   formula: string;

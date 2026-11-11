@@ -24,7 +24,7 @@ export interface Slots {
   where(at: Spot): string;
 }
 
-export function makeSlots(t: BoundT, lang: Lang, audit = false): Slots {
+function makeSlots(t: BoundT, lang: Lang, audit = false): Slots {
   const slot = (text: string) => (audit ? `${SLOT_OPEN}${text}${SLOT_CLOSE}` : text);
   return {
     temp: (c) => slot(formatTemperature(c, lang)),

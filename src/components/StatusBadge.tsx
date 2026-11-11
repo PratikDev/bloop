@@ -1,7 +1,7 @@
 import type { ReactNode } from "react";
 import { cn } from "@/lib/utils";
 
-export type BadgeKind = "note" | "error" | "loading";
+type BadgeKind = "note" | "error" | "loading";
 
 /** Status is shape + words, never colour: colour means data here. */
 const GLYPHS: Record<BadgeKind, ReactNode> = {

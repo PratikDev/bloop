@@ -8,10 +8,10 @@ import { counterbalance, type ExtraRecord, type ExtraTaskInfo } from "./types";
 export const EAR_EYE: ExtraTaskInfo = { id: "earEye", seconds: 60 };
 export const PEAK_OPTIONS = ["early", "middle", "late"] as const;
 export type PeakOption = (typeof PEAK_OPTIONS)[number];
-export type Sense = "sound" | "picture";
+type Sense = "sound" | "picture";
 export const STEP_MS = 250;
 
-export interface EarEyeItem {
+interface EarEyeItem {
   half: 0 | 1;
   sense: Sense;
   /** mm/h per frame (null = no data) along the storm. */

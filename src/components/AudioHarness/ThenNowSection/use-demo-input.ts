@@ -6,7 +6,7 @@ import { SYNTHETIC } from "./synthetic";
 
 const DECADE_MONTHS = 120;
 
-export interface DemoInput {
+interface DemoInput {
   source: "synthetic" | "real";
   input: ThenNowInput;
   series: CompareSide; // one decade of monthly heat for playSeries

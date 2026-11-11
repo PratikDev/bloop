@@ -16,7 +16,7 @@ export interface TactileAltInput {
   rings: readonly { name: string; values: readonly (number | null)[] }[];
 }
 
-export interface TactileAlt {
+interface TactileAlt {
   alt: string;
   extended: string[];
 }

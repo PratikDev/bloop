@@ -34,7 +34,7 @@ import { reliefMesh, type Relief } from "../relief";
 import type { TerrainField } from "./field";
 
 /** Scene units of height per °C on the zoomed axis (stated on screen in km). */
-export const UNITS_PER_DEGREE_C = 0.7;
+const UNITS_PER_DEGREE_C = 0.7;
 export const KM_PER_DEGREE_C = (UNITS_PER_DEGREE_C * METRES_PER_DEGREE) / 1000;
 const SEA_BASE = 0.08;
 const LAND_EXAGGERATION = 15;

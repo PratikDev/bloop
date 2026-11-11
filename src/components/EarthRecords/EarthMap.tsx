@@ -8,7 +8,7 @@ import type { Box } from "@/lib/earth/class-grid";
 const STEP_DEG = 1;
 const SHIFT_STEP_DEG = 5;
 
-export interface MapBox {
+interface MapBox {
   id: string;
   box: Box;
   current: boolean;

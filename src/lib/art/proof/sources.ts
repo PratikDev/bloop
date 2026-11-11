@@ -14,11 +14,11 @@ import { dropPlan, pitchPlan, type ProofPlan } from "./plan";
 
 /** The CI records: live SST, IMERG rain, SVS 3912, and Then vs Now's heat, monsoon and water voices. */
 export const PROOF_RECORDS = ["ocean", "rain", "currents_3912", "heat", "monsoon", "water"] as const;
-export type ProofRecord = (typeof PROOF_RECORDS)[number];
+type ProofRecord = (typeof PROOF_RECORDS)[number];
 
 const MAX_STEPS = 24;
 /** A cursor's pace on the map (s per value): slow enough for Music's meend to settle. */
-export const CURSOR_STEP_SEC = 0.4;
+const CURSOR_STEP_SEC = 0.4;
 /** The Bay of Bengal row the ocean plan reads (15° N, 81° E eastward, half a degree apart). */
 const BAY_ROW = { lat: 15, lon: 81, stepDeg: 0.5 };
 

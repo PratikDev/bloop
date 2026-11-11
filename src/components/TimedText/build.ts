@@ -6,7 +6,7 @@ import { vttFiles, type TimedPlayer, type TimedTracks, type TrackText } from "@/
 import type { VttKind } from "@/lib/timed-text/vtt";
 import { loadGeoSoon, placeNamers } from "../Describe/place-namer";
 
-export type TrackBuilder = (x: TrackText) => TimedTracks;
+type TrackBuilder = (x: TrackText) => TimedTracks;
 
 /** The tracks and their .vtt files, per language. */
 export interface BuiltTracks {

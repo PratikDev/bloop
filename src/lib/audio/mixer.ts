@@ -27,10 +27,6 @@ function update(next: Partial<MixerState>) {
   applyMixer();
 }
 
-export function getMixerState(): MixerState {
-  return state;
-}
-
 /** Whether a listener can hear this voice now (captions, ticks and drop events are skipped otherwise). */
 export function isVoiceAudible(id: VoiceId): boolean {
   return isAudible(id, state);

@@ -10,7 +10,7 @@ const MIN_VALID_SHARE = 0.25;
 /** Blocks this many blocks apart or less (in either direction) count as the same region. */
 const NEIGHBOUR = 1;
 
-export interface ActiveRegion {
+interface ActiveRegion {
   lat: number;
   lon: number;
   /** Mean class over the block's forecast cells. */

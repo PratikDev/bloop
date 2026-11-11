@@ -4,9 +4,9 @@
 // Check 6 ran) and holding ≥ MIN_SHARE of the box's cells. Two groups split at the lowest point
 // of the smoothed curve between them.
 
-export const MAX_MODES = 2;
+const MAX_MODES = 2;
 /** 5 %: a peak's minimum prominence (of the highest peak) and minimum share of the box's cells. */
-export const MIN_SHARE = 0.05;
+const MIN_SHARE = 0.05;
 /** Bins per σ, the Gaussian's reach in σ, and a cap on the bins (a very wide box gets coarser bins). */
 const BINS_PER_SIGMA = 10;
 const REACH = 4;

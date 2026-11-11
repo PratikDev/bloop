@@ -27,7 +27,7 @@ export const INITIAL_MIXER: MixerState = {
 
 const unit = (v: number) => Math.min(1, Math.max(0, v));
 
-export function isLiveVoice(id: VoiceId): id is LiveVoiceId {
+function isLiveVoice(id: VoiceId): id is LiveVoiceId {
   return (LIVE_VOICES as readonly VoiceId[]).includes(id);
 }
 

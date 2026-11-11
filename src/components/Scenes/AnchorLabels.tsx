@@ -3,11 +3,11 @@
 import { useEffect, useRef } from "react";
 
 /** Anything that can place a named 3D point on screen (null = not visible). */
-export interface AnchorFrame {
+interface AnchorFrame {
   anchor(key: string): { x: number; y: number } | null;
 }
 
-export interface AnchorText {
+interface AnchorText {
   key: string;
   text: string;
 }

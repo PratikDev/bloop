@@ -3,7 +3,7 @@ import type { SweepPoint } from "@/lib/audio";
 import { followStorm, loadSequence } from "@/lib/data";
 import { syntheticStorm } from "./synthetic";
 
-export interface StormInput {
+interface StormInput {
   source: "synthetic" | "real";
   frames: SweepPoint[];
 }

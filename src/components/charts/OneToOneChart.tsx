@@ -5,7 +5,7 @@ import { ChartContainer, type ChartConfig } from "@/components/ui/chart";
 import { AXIS, LegendItem, LineSwatch } from "./chart-style";
 import { useAxisFormat } from "./use-axis-format";
 
-export interface XY {
+interface XY {
   x: number;
   y: number;
 }

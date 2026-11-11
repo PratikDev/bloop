@@ -18,8 +18,6 @@ export const DIVERGING = {
   brownTeal: ["#543005", "#8c510a", "#bf812d", "#dfc27d", "#f6e8c3", "#f5f5f5", "#c7eae5", "#80cdc1", "#35978f", "#01665e", "#003c30"].map(hex),
 } as const satisfies Record<string, Rgb[]>;
 
-export type DivergingName = keyof typeof DIVERGING;
-
 /** t in [0, 1] → colour, linear between the scheme's classes. */
 export function sampleScale(scale: readonly Rgb[], t: number): Rgb {
   const x = Math.min(1, Math.max(0, t)) * (scale.length - 1);
@@ -28,7 +26,7 @@ export function sampleScale(scale: readonly Rgb[], t: number): Rgb {
   return [0, 1, 2].map((c) => Math.round(scale[i][c] + (scale[i + 1][c] - scale[i][c]) * f)) as Rgb;
 }
 
-export const rgbCss = ([r, g, b]: Rgb) => `rgb(${r} ${g} ${b})`;
+const rgbCss = ([r, g, b]: Rgb) => `rgb(${r} ${g} ${b})`;
 
 /** The scheme as legend stops. */
 export const legendStops = (scale: readonly Rgb[]): LegendStop[] => scale.map((c, i) => ({ at: i / (scale.length - 1), colour: rgbCss(c) }));

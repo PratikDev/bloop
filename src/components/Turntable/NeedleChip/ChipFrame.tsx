@@ -20,7 +20,7 @@ const NARROW_PX = 640;
 const NARROW_TOP_PX = 96;
 
 /** Where the needle is on screen this frame (the Turntable's FrameInfo satisfies it). */
-export interface ChipFrameInfo {
+interface ChipFrameInfo {
   width: number;
   height: number;
   needle: { x: number; y: number };

@@ -23,7 +23,7 @@ import { onOverlay } from "../../Turntable/scene/layers";
 import { createStudio } from "../../Turntable/scene/studio";
 import { sampleScale, type Rgb } from "../colormaps";
 
-export const RING_GAP = 1.4;
+const RING_GAP = 1.4;
 const RING_RADIUS = 2.2;
 const RING_TUBE = 0.035;
 const WINDOW_TUBE = 0.075;

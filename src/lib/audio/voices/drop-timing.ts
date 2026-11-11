@@ -22,7 +22,7 @@ export function jitteredInterval(ratePerSec: number, random: () => number = Math
 }
 
 /** A rate change at `time` (drops per second; null = silent, progress pauses). */
-export interface RateChange {
+interface RateChange {
   time: number;
   rate: number | null;
 }

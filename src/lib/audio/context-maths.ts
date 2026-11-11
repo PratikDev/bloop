@@ -4,7 +4,7 @@
 import type { BandsMapping } from "@/types/data-contract";
 import { bandFor, continuousRule, mapContinuous, mapVoice, voiceSpec, withInputRange } from "./mapping";
 
-export interface HeatTone {
+interface HeatTone {
   freq: number; // Hz, heat rule
   band: number; // Anomaly Choir band 0..3
   detuneCents: number; // second voice's detune (0 = no second voice)

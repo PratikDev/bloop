@@ -19,14 +19,14 @@ const sourcesOf = (input: DescribeInput) =>
   );
 
 /** Every record's description as one spoken text, in a language. */
-export function spokenFor(facts: FactsFor, verbosity: Verbosity, t: BoundT, lang: Lang): string {
+function spokenFor(facts: FactsFor, verbosity: Verbosity, t: BoundT, lang: Lang): string {
   return facts(lang)
     .map((f) => spokenDescription(describeRecord(f, verbosity, lang), t)) // ART: D answers with the record's title first (the a11y contract); the earcon, the panel and the braille line carry the system
     .join(" ");
 }
 
 /** The description's braille short form: each record's value at the needle, as one line. */
-export function shortFor(facts: FactsFor, t: BoundT, lang: Lang, degree: DegreeStyle): string {
+function shortFor(facts: FactsFor, t: BoundT, lang: Lang, degree: DegreeStyle): string {
   const records = facts(lang);
   const short = describeShort(t, lang, degree, records.map((f) => ({ record: f.record, value: f.value, frozen: f.frozen, at: f.here, timeUtc: f.timeUtc })));
   return [records.length === 1 ? categoryWord(t, records[0].record) : "", short].filter(Boolean).join(" "); // ART: category word first

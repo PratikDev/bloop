@@ -8,7 +8,7 @@ import type { SstField } from "@/lib/data";
 import type { Bounds } from "../plane";
 
 /** The scene's region: the Bay of Bengal and the northern Indian Ocean (west, south, east, north). */
-export const TERRAIN_REGION: Bounds = [78, 5, 100, 25];
+const TERRAIN_REGION: Bounds = [78, 5, 100, 25];
 
 export interface TerrainField {
   bounds: Bounds;

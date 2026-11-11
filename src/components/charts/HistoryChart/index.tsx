@@ -12,13 +12,13 @@ export type { ChartScrub, ScrubMotion };
 const MARGIN = { top: 8, right: 12, bottom: 4, left: 0 };
 const Y_AXIS_WIDTH = 44;
 
-export interface MonthlyPoint {
+interface MonthlyPoint {
   i: number;
   month: string; // "YYYY-MM"
   [series: string]: number | string | null;
 }
 
-export interface ChartSeries {
+interface ChartSeries {
   key: string;
   label: string;
   tone: "now" | "then"; // brighter = the one being played

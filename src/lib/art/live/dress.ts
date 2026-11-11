@@ -12,7 +12,7 @@ import { MEEND_MIN_STEP, MEEND_SEC, nearestSwara } from "../meend";
 import { dialLayers } from "../dial";
 import { dialStop, getArt, orchestraOn, subscribeArt } from "../settings";
 
-export interface DressOptions {
+interface DressOptions {
   /** The voice's Earth system now (a record voice shared across systems asks the record being played). */
   category: () => EarthCategory | null;
   /** The wave the voice plays as plain tones (the ocean's sine, the heat voice's triangle). */
@@ -77,7 +77,7 @@ export function saFor(voiceId: string): number {
 }
 
 /** Whether the dial is at Music now (meend on). */
-export function meendOn(): boolean {
+function meendOn(): boolean {
   const stop = dialStop();
   const ctx = getArt().context;
   return stop !== null && dialLayers(stop, ctx?.playMode ?? "single", orchestraOn()).meend;

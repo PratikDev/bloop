@@ -3,7 +3,7 @@
 import type { LatLon } from "@/lib/data/places";
 
 const RAD = Math.PI / 180;
-export const EARTH_RADIUS_KM = 6371;
+const EARTH_RADIUS_KM = 6371;
 
 /** Great-circle distance in km (haversine). */
 export function distanceKm(a: LatLon, b: LatLon): number {
@@ -23,7 +23,7 @@ export function bearingDeg(from: LatLon, to: LatLon): number {
   return ((Math.atan2(y, x) / RAD) % 360 + 360) % 360;
 }
 
-export const COMPASS_POINTS = ["N", "NE", "E", "SE", "S", "SW", "W", "NW"] as const;
+const COMPASS_POINTS = ["N", "NE", "E", "SE", "S", "SW", "W", "NW"] as const;
 export type CompassPoint = (typeof COMPASS_POINTS)[number];
 
 /** The nearest of the 8 compass points to a bearing. */

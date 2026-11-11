@@ -3,10 +3,8 @@
 // Joined to the registry, the parser and the validator in their DATA blocks. Bangla examples are drafts.
 
 export const DATA_INTENT_NAMES = ["fire_weather_here", "fires_here", "landslide_here", "night_lights_here"] as const;
-export type DataIntentName = (typeof DATA_INTENT_NAMES)[number];
+type DataIntentName = (typeof DATA_INTENT_NAMES)[number];
 export type DataIntent = { name: DataIntentName };
-
-export const isDataIntent = (i: { name: string }): i is DataIntent => (DATA_INTENT_NAMES as readonly string[]).includes(i.name);
 
 export const DATA_REGISTRY = {
   fire_weather_here: {
@@ -31,7 +29,7 @@ export const DATA_REGISTRY = {
 export const DATA_SLOTS: Record<DataIntentName, readonly string[]> = { fire_weather_here: [], fires_here: [], landslide_here: [], night_lights_here: [] };
 
 /** The parser's DATA rules, most specific first: fire weather before fires. They run before the value rules. */
-export const DATA_RULES: readonly (readonly [RegExp, DataIntentName])[] = [
+const DATA_RULES: readonly (readonly [RegExp, DataIntentName])[] = [
   [/fire[ -]?(?:weather|danger|risk|forecast)|আগুন[- ]?আবহাওয়া|আগুনের (?:ঝুঁকি|পূর্বাভাস)/u, "fire_weather_here"],
   [/landslides?|ভূমিধস/u, "landslide_here"],
   [/night[ -]?lights?|রাতের আলো/u, "night_lights_here"],

@@ -15,7 +15,7 @@ export const ASK_RECORDS = ["ocean", "rain", "both"] as const satisfies readonly
 
 /** Frame steps the Listen page already has (PageUp / PageDown hold a newer or older rain frame). */
 export const FRAME_STEPS = ["next_frame", "previous_frame"] as const;
-export type FrameStep = (typeof FRAME_STEPS)[number];
+type FrameStep = (typeof FRAME_STEPS)[number];
 
 export const EXTREMES = ["highest", "lowest"] as const;
 export type Extreme = (typeof EXTREMES)[number];

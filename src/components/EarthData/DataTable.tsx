@@ -3,7 +3,7 @@
 import type { ReactNode } from "react";
 import { cn } from "@/lib/utils";
 
-export interface DataTableProps {
+interface DataTableProps {
   caption: string;
   columns: readonly string[];
   /** Each row's cells; the first is the row's header (th scope="row"), so a screen reader names every cell by it. */

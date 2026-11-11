@@ -14,7 +14,7 @@ import { FLAGS } from "@/lib/flags";
 export const orchestra: OrchestraApi | null = FLAGS.artOrchestra ? earthOrchestra : null;
 
 /** What a DATA call site plays a note through. */
-export type DataVoice = Pick<OrchestraVoice, "note">;
+type DataVoice = Pick<OrchestraVoice, "note">;
 
 /** A plain tone: one sine, a soft attack, a release on stop. Settles at exactly note.hz. */
 function plainNote(ctx: BaseAudioContext, out: AudioNode, note: OrchestraNote): OrchestraNoteHandle {

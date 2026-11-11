@@ -7,7 +7,7 @@ import type { Bounds } from "./boxes";
 
 /** Global equirectangular bounds (the live grids). */
 export const GLOBAL_BOUNDS: Bounds = [-180, -90, 180, 90];
-export const HIST_BINS = 16;
+const HIST_BINS = 16;
 
 /** A decoded grid with its own bounds (row 0 = north edge, column 0 = west edge). */
 export interface BoxGrid extends ValueGrid {

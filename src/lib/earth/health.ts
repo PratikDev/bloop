@@ -5,14 +5,14 @@
 import { fetchJson } from "@/lib/data/fetch";
 import { EARTH_PATHS } from "./paths";
 
-export interface HealthCheck {
+interface HealthCheck {
   check: string;
   /** true passed, false failed, null not applicable / not run. */
   ok: boolean | null;
   note: string;
 }
 
-export interface HealthRecord {
+interface HealthRecord {
   id: string;
   category: string;
   title: string;
@@ -27,7 +27,7 @@ export interface HealthRecord {
   app_plays: string | null;
 }
 
-export interface HealthHidden {
+interface HealthHidden {
   record: string;
   title: string;
   reason: string;
@@ -41,7 +41,7 @@ export interface HealthFile {
 }
 
 /** What "Is this data fresh?" and the Data health page show for one record. */
-export interface HealthSummary {
+interface HealthSummary {
   id: string;
   title: string;
   category: string;

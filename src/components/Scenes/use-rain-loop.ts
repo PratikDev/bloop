@@ -7,7 +7,7 @@ import type { Bounds } from "./plane";
 /** The 48 half-hourly frames as a 24 h loop: two frames a second (design choice). */
 const FRAME_MS = 500;
 
-export interface RainLoop {
+interface RainLoop {
   seq: Sequence | null;
   frame: number;
   setFrame(i: number): void;

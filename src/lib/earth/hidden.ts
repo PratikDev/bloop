@@ -5,7 +5,7 @@ import { fetchJson } from "@/lib/data/fetch";
 import { DATA_PATHS } from "@/lib/data/paths";
 import type { OfficialIndex } from "@/types/data-contract";
 
-export interface HiddenRecord {
+interface HiddenRecord {
   record: string;
   title: string;
   reason: string;

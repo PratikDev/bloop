@@ -16,7 +16,7 @@ export interface GridRecord {
 }
 
 /** Records grouped by Earth system (getCategory), in the families' order; unplaced records last. */
-export function groupRecords<R extends GridRecord>(records: readonly R[]): { group: Group; records: R[] }[] {
+function groupRecords<R extends GridRecord>(records: readonly R[]): { group: Group; records: R[] }[] {
   return GROUPS.map((group) => ({ group, records: records.filter((r) => (getCategory(r.record) ?? "unplaced") === group) })).filter((g) => g.records.length);
 }
 

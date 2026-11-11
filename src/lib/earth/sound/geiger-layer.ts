@@ -9,7 +9,7 @@ import { addTask, dataOut, report } from "./out";
 /** The cutoff when a day has no FRP to read: the brightness rule's own bottom (the dullest click). */
 const FALLBACK_CUTOFF = () => continuousRule(BRIGHTNESS_VOICE).output.min;
 
-export interface GeigerLayer {
+interface GeigerLayer {
   /** Clicks per second (0 = silence) and the brightness cutoff (null = the rule's bottom). */
   set(rate: number, cutoffHz: number | null, lon: number): void;
   stop(): void;

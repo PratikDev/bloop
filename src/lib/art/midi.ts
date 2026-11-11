@@ -3,8 +3,8 @@
 // b (−8192 … +8191) means b / 8192 × 200 cents. One note per value, at the song's own timing. Standard MIDI File,
 // format 0, 480 ticks per quarter note at 120 bpm (960 ticks a second). readMidi reads it back (the 1-cent test).
 
-export const PPQ = 480;
-export const TICKS_PER_SEC = 960; // 120 bpm
+const PPQ = 480;
+const TICKS_PER_SEC = 960; // 120 bpm
 export const BEND_RANGE_CENTS = 200;
 
 export interface MidiNote {
@@ -22,7 +22,7 @@ export function toMidi(hz: number): { note: number; bend: number; cents: number 
   return { note, bend, cents };
 }
 
-export const fromMidi = (note: number, bend: number) => 440 * 2 ** ((note - 69 + ((bend - 8192) / 8192) * (BEND_RANGE_CENTS / 100)) / 12);
+const fromMidi = (note: number, bend: number) => 440 * 2 ** ((note - 69 + ((bend - 8192) / 8192) * (BEND_RANGE_CENTS / 100)) / 12);
 
 function vlq(n: number): number[] {
   const out = [n & 0x7f];

@@ -32,9 +32,9 @@ type RecognitionCtor = (new () => Recognition) & { available?: (o: { langs: stri
 export type RecognitionMode = "on-device" | "cloud" | "unavailable";
 
 /** Each input language's recogniser locale (Bangladesh's Bangla; English as the browsers know it best). */
-export const RECOGNITION_LANG: Record<Lang, string> = { en: "en-US", bn: "bn-BD" };
+const RECOGNITION_LANG: Record<Lang, string> = { en: "en-US", bn: "bn-BD" };
 /** Longest one press listens (design choice: a command is a few seconds). */
-export const LISTEN_MS = 8000;
+const LISTEN_MS = 8000;
 
 export type Heard = { kind: "heard"; text: string } | { kind: "error"; error: "unavailable" | "no-speech" | "not-allowed" | "aborted" | "network" | "timeout" | "other" };
 

@@ -5,7 +5,7 @@ import type { Gazetteer } from "@/lib/geo/gazetteer";
 import { loadGeo } from "@/lib/geo/load";
 import { regionTree, type RegionNode } from "@/lib/geo/regions";
 
-export type PlacesState = { status: "loading" } | { status: "error" } | { status: "ready"; tree: RegionNode[]; gazetteer: Gazetteer };
+type PlacesState = { status: "loading" } | { status: "error" } | { status: "ready"; tree: RegionNode[]; gazetteer: Gazetteer };
 
 /** The region tree and the gazetteer, loaded the first time Places opens (src/lib/geo/load.ts shares the files). */
 export function usePlaces(open: boolean): PlacesState {

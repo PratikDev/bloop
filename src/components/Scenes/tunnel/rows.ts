@@ -4,7 +4,7 @@
 // months (null where GPCP has no month: before 1979 and after the file ends).
 
 import type { TunnelYear } from "@/lib/audio-jukebox/types";
-import type { DemoWindow, GistempCellSeries, RainCellSeries } from "@/types/data-contract";
+import type { GistempCellSeries, RainCellSeries } from "@/types/data-contract";
 
 const pad = (m: number) => String(m).padStart(2, "0");
 
@@ -24,12 +24,4 @@ export function tunnelYears(heat: GistempCellSeries, rain: RainCellSeries): Tunn
     });
   }
   return years;
-}
-
-/** Quick check: the demo window's values against the rows (returns the years that differ). */
-export function windowMismatches(rows: readonly TunnelYear[], w: DemoWindow): number[] {
-  return w.years.filter((year, i) => {
-    const row = rows.find((r) => r.year === year);
-    return !row || row.heat === null || Math.abs(row.heat - w.values[i]) > 1e-9;
-  });
 }

@@ -24,7 +24,7 @@ export const PLACE_ALIASES: Readonly<Record<string, string>> = {
 /** Bangla case endings on a place name ("ঢাকায়" in Dhaka, "চট্টগ্রামে", "সিলেটের"), longest first. */
 const BN_ENDINGS = [...new Set(["য়ের", "েতে", "তে", "ের", "য়", "ে", "র"].map((e) => e.normalize("NFKD")))].sort((a, b) => b.length - a.length);
 
-export type PlaceMatch = { kind: "one"; place: SearchEntry } | { kind: "ambiguous"; options: SearchEntry[] } | { kind: "none" };
+type PlaceMatch = { kind: "one"; place: SearchEntry } | { kind: "ambiguous"; options: SearchEntry[] } | { kind: "none" };
 
 /** How far apart the top two results' weights must be for the first to win outright (design choice). */
 const CLEAR_LEAD = 1.5;
@@ -33,7 +33,7 @@ const CANDIDATES = 5;
 type Search = (query: string, limit?: number) => SearchEntry[];
 
 /** The spellings worth trying for what was said: as said, its alias, and with a Bangla case ending taken off. */
-export function placeQueries(said: string): string[] {
+function placeQueries(said: string): string[] {
   const q = normalize(said);
   const out = [q];
   const alias = PLACE_ALIASES[q];

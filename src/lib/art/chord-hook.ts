@@ -10,11 +10,7 @@ import type { ChordLayer, ChordLayerHook } from "@/lib/audio/layers/types";
 import { getCvView, subscribeCvView } from "@/lib/cv/view-store";
 import { FLAGS } from "@/lib/flags";
 
-let hook: ChordLayerHook = () => (FLAGS.cvRead && FLAGS.cvChord ? valueChord : null);
-
-export function setChordLayerHook(next: ChordLayerHook): void {
-  hook = next;
-}
+const hook: ChordLayerHook = () => (FLAGS.cvRead && FLAGS.cvChord ? valueChord : null);
 
 /** The chord layer, or null when this build has none. */
 export const chordLayer = (): ChordLayer | null => hook();

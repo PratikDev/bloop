@@ -5,7 +5,7 @@
 
 import type { EarthCategory } from "@/lib/audio/layers/types";
 
-export interface CategoryRule {
+interface CategoryRule {
   category: EarthCategory;
   /** Case-insensitive; matched against the record's words. */
   pattern: RegExp;
@@ -40,7 +40,7 @@ export const CATEGORY_RULES: readonly CategoryRule[] = [
   },
 ];
 
-export interface CategoryMatch {
+interface CategoryMatch {
   category: EarthCategory;
   /** The words that matched (for the table). */
   matched: string;

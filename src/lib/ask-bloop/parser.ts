@@ -6,7 +6,7 @@ import type { AskPage, Extreme, Intent, SettingChange } from "./intents";
 import { monthsIn, normaliseUtterance, withoutMonths } from "./normalise";
 import { dataIntentFor } from "./data-intents";
 
-export interface Parsed {
+interface Parsed {
   intent: Intent;
   /** 0–1: a whole-phrase match is SURE; a keyword match is LIKELY. */
   confidence: number;

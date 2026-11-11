@@ -7,7 +7,7 @@ import { brailleNumber } from "@/a11y/brailleText";
 import type { DemoWindow, GraceContextFile } from "@/types/data-contract";
 import type { StatItem } from "./then-now-stats";
 
-export type SeriesWindow = "A" | "B" | null;
+type SeriesWindow = "A" | "B" | null;
 
 export interface SeriesPoint {
   /** The UEB table's label ("2019", "Jan 2003") and the Bengali table's ("2019", "জানুয়ারি 2003"). */

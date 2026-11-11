@@ -8,7 +8,7 @@ export const TASK_IDS = ["ocean", "rain", "unison", "both", "heat", /*  */ ...CV
 export type TaskId = (typeof TASK_IDS)[number];
 export type OptionId = "warmer" | "colder" | "first" | "second" | "yes" | "no" /*  */ | CvOptionId /*  */;
 
-export interface SweepStep {
+interface SweepStep {
   lat: number;
   lon: number;
   valueC: number | null;
@@ -33,7 +33,7 @@ export interface Task {
   sound: SoundPlan;
 }
 
-export interface RainReading {
+interface RainReading {
   mmPerHour: number | null;
   phase: RainPhase;
 }

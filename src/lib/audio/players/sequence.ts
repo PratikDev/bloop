@@ -17,7 +17,7 @@ import type { PlayerHandle } from "../types";
 import { createStepList } from "./steps";
 
 /** A step that plays a data point emits one step event (player, data index, number of data points). */
-export interface StepEvent {
+interface StepEvent {
   player: string;
   index: number;
   total: number;

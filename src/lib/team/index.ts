@@ -4,12 +4,12 @@
 
 export const TODO = "TODO";
 
-export interface TeamMember {
+interface TeamMember {
   name: string;
   role: string;
 }
 
-export interface TeamFile {
+interface TeamFile {
   teamName: string;
   members: TeamMember[];
   challenge: string;
@@ -19,13 +19,13 @@ export interface TeamFile {
 
 const filled = (v: string): string | null => (v.trim() === "" || v.trim() === TODO ? null : v.trim());
 
-export interface ShownMember {
+interface ShownMember {
   name: string;
   role: string | null;
 }
 
 /** What the page shows: every field that isn't TODO; a member with no name isn't shown. */
-export interface ShownTeam {
+interface ShownTeam {
   teamName: string | null;
   members: ShownMember[];
   challenge: string | null;

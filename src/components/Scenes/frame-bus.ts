@@ -1,7 +1,7 @@
 // A tiny per-frame publish/subscribe: the scene publishes after each update,
 // HTML overlays (the chip, labels) position themselves without React renders.
 
-export interface FrameBus<T> {
+interface FrameBus<T> {
   subscribe(fn: (frame: T) => void): () => void;
   publish(frame: T): void;
 }

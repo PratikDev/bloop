@@ -14,10 +14,10 @@ import type { ContinuousMapping } from "@/types/data-contract";
 import { createVoiceOutput, panTo, voicePeak, type VoiceTiming } from "./common";
 import { createDropClock } from "./drop-clock";
 
-export type DropVoiceId = "rain" | "snow";
+type DropVoiceId = "rain" | "snow";
 
 /** Plays one drop at `time` with a peak level (0..1 of the voice's level) into `out`. */
-export type PlayDrop = (time: number, peak: number, out: AudioNode) => void;
+type PlayDrop = (time: number, peak: number, out: AudioNode) => void;
 
 export interface DropVoice {
   /** mm/h (null or 0 = silence) at a longitude (stereo), now or at `at.time`. */

@@ -9,7 +9,7 @@ import type { EarthCategory } from "@/lib/audio/layers/types";
 export type Timbre = EarthCategory | "plain";
 
 /** One oscillator of a note: harmonic amplitudes (index 0 = the fundamental) and how it fades. */
-export interface SpectrumLayer {
+interface SpectrumLayer {
   partials: readonly number[];
   /** Decay time constant (s); null = sustains until released. Brighter layers decay first (the plucked-string law). */
   decay: number | null;
@@ -39,7 +39,7 @@ export interface FamilyRecipe {
   earcon: readonly number[];
 }
 
-export const EARCON_BASE_HZ = 523.25; // C5
+const EARCON_BASE_HZ = 523.25; // C5
 export const EARCON_SEC = 0.4;
 /** The legend's demo note: one fixed reference pitch for every family (E4). */
 export const REFERENCE_HZ = 329.63;

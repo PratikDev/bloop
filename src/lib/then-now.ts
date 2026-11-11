@@ -63,7 +63,7 @@ export function yearRows(pair: { A: DemoWindow; B: DemoWindow }): YearRow[] {
   ];
 }
 
-export interface MonthRow {
+interface MonthRow {
   i: number;
   month: string;
   bangladesh: number | null;

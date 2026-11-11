@@ -86,7 +86,7 @@ export const BN_STATUS: Record<string, string> = {
 };
 
 /** Units (a relative unit is dropped: the line already says "relative"). */
-export const BN_UNITS: Record<string, string> = {
+const BN_UNITS: Record<string, string> = {
   "°C": "ডিগ্রি সেলসিয়াস", // TEAM (deg C)
   "mm/h": "মিমি প্রতি ঘণ্টা", // TEAM
   "mm/hr": "মিমি প্রতি ঘণ্টা", // TEAM (same unit)
@@ -111,7 +111,7 @@ export const BN_UNITS: Record<string, string> = {
 };
 
 /** Layer names (by layer id, before any _bd / _global suffix). */
-export const BN_LAYERS: Record<string, string> = {
+const BN_LAYERS: Record<string, string> = {
   ocean: "সমুদ্রপৃষ্ঠের তাপমাত্রা", // TEAM (SST)
   sst: "সমুদ্রপৃষ্ঠের তাপমাত্রা", // TEAM (SST)
   rain: "বৃষ্টি", // DRAFT

@@ -14,7 +14,7 @@ const SOLO_SEC = 1.2;
 const TOGETHER_SEC = 3.6;
 const ONE_EAR_PAN = -1;
 
-export interface Beating {
+interface Beating {
   /** The tones' Hz, and how many times a second they beat. */
   tones: { aHz: number; bHz: number; beatsPerSec: number } | null;
   /** The mapping.json voice whose envelope and level the tones use. */

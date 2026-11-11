@@ -12,7 +12,7 @@ export interface ExtraTaskInfo {
 }
 
 /** Estimated seconds per right/wrong task (the five core tasks and CV's two chord tasks alike). */
-export const TASK_SECONDS = 45;
+const TASK_SECONDS = 45;
 /** The test's fixed parts (s): consent and age, the intro, the comment. */
 const FIXED_SECONDS = 30 + 45 + 60;
 /** The whole test's limit (the protocol: 10 minutes). */

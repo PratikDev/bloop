@@ -6,7 +6,7 @@ import type { PanelTab } from "../AppState/reducer";
 import { DescriptionPanel } from "../Describe";
 import { ValueTable } from "../ValueTable";
 
-export interface CoreTab {
+interface CoreTab {
   tab: "describe" | "table";
   label: "panel.describe" | "panel.table";
   panel: ReactNode;

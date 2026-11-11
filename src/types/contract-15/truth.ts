@@ -20,7 +20,7 @@ export interface SstPairsFile extends ProductHeader {
 }
 
 // truth/rain_pairs.json — 150 rain + 150 dry points; frame = 0 on dry points.
-export interface RainTruthPair {
+interface RainTruthPair {
   lat: number;
   lon: number;
   kind: "rain" | "dry";
@@ -36,7 +36,7 @@ export interface RainPairsFile extends ProductHeader {
 }
 
 // truth/threeway.json — frame vs GIBS colormap value vs MUR file, at the sst_pairs points.
-export interface ThreeWayPoint {
+interface ThreeWayPoint {
   lat: number;
   lon: number;
   frame: number;

@@ -13,7 +13,7 @@ export interface BoxView {
 }
 
 /** σ for the groups: the live SST's measured error (error_budget.json). */
-export const sstSigma = () => budgetFor("ocean")?.error_in_axis_units ?? Number.NaN;
+const sstSigma = () => budgetFor("ocean")?.error_in_axis_units ?? Number.NaN;
 
 /** Every named box with values today, in boxes.json order. */
 export function boxViews(sst: SstField): BoxView[] {

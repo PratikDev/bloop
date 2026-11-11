@@ -18,13 +18,13 @@ const DRIVES: Record<string, "pitch" | "rate" | "brightness" | "loudness" | "ech
   reverbSec: "echo",
 };
 
-export interface ArtNow {
+interface ArtNow {
   orchestra: boolean;
   stop: DialStop | null;
   playMode: PlayMode;
 }
 
-export interface DataChoiceLists {
+interface DataChoiceLists {
   data: string[];
   choice: string[];
 }

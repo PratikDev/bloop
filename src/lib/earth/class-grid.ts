@@ -21,7 +21,7 @@ export interface ClassGrid<M extends ClassMeta = ClassMeta> {
 /** [west, south, east, north] in degrees. */
 export type Box = readonly [number, number, number, number];
 
-export function checkClassMeta(name: string, meta: ClassMeta): void {
+function checkClassMeta(name: string, meta: ClassMeta): void {
   if (meta.grid.encoding !== "uint8_class") throw new Error(`${name}: encoding "${meta.grid.encoding}" is not uint8_class`);
   if (!Array.isArray(meta.classes) || meta.classes.length === 0) throw new Error(`${name}: no classes`);
 }
@@ -70,13 +70,6 @@ export function modalClass(size: GridSize & { nodata: number }, codes: Uint8Arra
       most = n;
     }
   }
-  return best;
-}
-
-/** The highest class among a box's cells; null when it has no valid cell. */
-export function maxClass(size: GridSize & { nodata: number }, codes: Uint8Array, box: Box): number | null {
-  let best: number | null = null;
-  for (const code of boxCounts(size, codes, box).keys()) if (code !== size.nodata && (best === null || code > best)) best = code;
   return best;
 }
 

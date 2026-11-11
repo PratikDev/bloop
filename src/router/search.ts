@@ -20,11 +20,11 @@ export function listenSearch(raw: Raw): ListenSearch {
   return raw.tour === true || raw.tour === 1 || raw.tour === "1" ? { tour: true } : {};
 }
 
-export const THEN_NOW_VIEWS = ["compare", "monthly"] as const;
+const THEN_NOW_VIEWS = ["compare", "monthly"] as const;
 export type ThenNowView = (typeof THEN_NOW_VIEWS)[number];
 
 // "Your lifetime": its view, and the birth year of a shared link (?born=1998&city=dhaka)
-export const LIFETIME_VIEW = "lifetime";
+const LIFETIME_VIEW = "lifetime";
 const bornOf = (v: unknown): number | undefined => {
   const y = typeof v === "number" ? v : typeof v === "string" ? Number(v) : NaN;
   return Number.isInteger(y) && y >= 1850 && y <= 2100 ? y : undefined;
@@ -57,7 +57,7 @@ export function thenNowSearch(raw: Raw): ThenNowSearch {
   };
 }
 
-export interface TranscriptSearch {
+interface TranscriptSearch {
   /** The record whose transcript is shown (Listen's ocean or rain, or an Official record's id); none lists them all. */
   record?: string;
 }

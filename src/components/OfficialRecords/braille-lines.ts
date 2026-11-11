@@ -19,7 +19,7 @@ const SIGNIFICANT = 3;
 const GENERIC = /^(value|series|svs\d+)$/u;
 
 /** The short name: the layer's own words ("sea salt"), a GIBS layer's label head ("Night lights"), or the SVS ID. */
-export function shortName(layer: OfficialLayer, svs: number | undefined): string {
+function shortName(layer: OfficialLayer, svs: number | undefined): string {
   if (GENERIC.test(layer.id)) return svs === undefined ? clean(layer.label.split(" (")[0]) : String(svs);
   if (/[A-Z]/u.test(layer.id)) return shortNameOf(layer.label.split(/ \(| —|,/u)[0]);
   return clean(layer.id.replace(/_/gu, " "));

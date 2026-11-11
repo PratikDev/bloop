@@ -19,7 +19,7 @@ import { useLiveData } from "../../LiveData/use-live-data";
 import { buildTracks, type BuiltTracks } from "../../TimedText/build";
 import { SWEEP_STEP_SEC, TIMELAPSE_STEP_SEC } from "../../TimedText/follow";
 
-export interface LiveTranscriptData {
+interface LiveTranscriptData {
   /** Brief: what, where, when, units and the range. */
   covers: string[];
   /** What standard adds: the pattern and the change since the frame before. */

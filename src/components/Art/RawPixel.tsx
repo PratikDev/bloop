@@ -16,7 +16,7 @@ import { Tile } from "../pages/How/Tile";
 const sig = (lang: Lang, v: number) => formatSignificant(v, lang, 3);
 
 /** The stored measurement as the card says it (every number from raw_pixel.json). */
-export function rawNumbers(t: BoundT, lang: Lang, f: RawPixelFile): string {
+function rawNumbers(t: BoundT, lang: Lang, f: RawPixelFile): string {
   return t("raw.numbers", {
     nf: sig(lang, f.naive.flatness),
     nr: sig(lang, f.naive.roughness),

@@ -37,7 +37,7 @@ export interface MethodManifest extends OfficialManifest {
 }
 export type Instrument = "glockenspiel" | "marimba" | "choir";
 
-export interface RadarPoint {
+interface RadarPoint {
   lat: number;
   lon: number;
   km: number;

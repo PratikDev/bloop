@@ -4,7 +4,7 @@ import type { KeyboardEvent } from "react";
 import type { Commands } from "../Commands/use-commands";
 import { ARROWS, BIG_STEP_DEG, letterAction, STEP_DEG } from "../ExploreControls/use-map-keys";
 
-export interface TurntableKeyActions {
+interface TurntableKeyActions {
   commands: Commands;
   nudge(dLat: number, dLon: number): void;
   toggleRotation(): void;

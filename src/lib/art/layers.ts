@@ -50,7 +50,7 @@ export function createBed(ctx: BaseAudioContext, out: AudioNode, sa: number, onS
 }
 
 /** The drone's colour: monsoon months fuller and darker ("Artistic choice: season colour"); Sa never moves. */
-export type DroneColour = "monsoon" | "dry";
+type DroneColour = "monsoon" | "dry";
 
 const DRONE_COLOUR: Record<DroneColour, { partials: number[]; lowpass: number }> = {
   monsoon: { partials: [1, 0.6, 0.45, 0.35, 0.25, 0.2], lowpass: 520 },

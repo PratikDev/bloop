@@ -2,7 +2,7 @@
 // choosing a record is choosing a track: the mixer, frame labels and readout
 // follow exactly as they do on the flat map.
 
-import type { TrackMode, VoiceId } from "@/lib/audio-jukebox/types";
+import type { TrackMode } from "@/lib/audio-jukebox/types";
 import type { LiveFields } from "@/lib/data";
 import { voiceSpec } from "@/lib/audio/mapping";
 import type { BoundT, MessageKey } from "@/lib/i18n";
@@ -14,67 +14,7 @@ export const LIVE_RECORDS = ["ocean", "rain", "both"] as const satisfies readonl
 
 /** EIC areas without a record yet: shown, locked, with no data and no sound. */
 export const COMING_RECORDS = ["air", "forests", "fire", "energy", "seaLevel", "disasters", "agriculture", "water", "ghg"] as const;
-export type ComingRecord = (typeof COMING_RECORDS)[number];
-
-/** The legend a record's range bar uses (its frame's own range). */
-export interface RecordLegend {
-  unit: string;
-  range: [number, number];
-  scale: "linear" | "log";
-}
-
-/**
- * What a new record needs to go live, in one entry: its L1 grid (loaded into a
- * lookup with valueAt semantics: null = no data → silence), the mapping.json
- * voice that plays it, its legend and the display image drawn on the globe.
- */
-export interface RecordPlugin {
-  load(): Promise<(lat: number, lon: number) => number | null>;
-  voice: VoiceId;
-  legend: RecordLegend;
-  image: string;
-}
-
-/** One named place a place record plays (a pipeline file's point or series value). */
-export interface PlacePin {
-  id: string;
-  lat: number;
-  lon: number;
-  label: string;
-  value: number | null; // null = no measurement there → the neutral no-data texture
-}
-
-/**
- * §15: a record built from named places (point series, e.g. SWOT reaches, night-light cities)
- * instead of a global grid. Its pins sit on the globe; the needle plays the pin it is on with
- * the voice's mapping.json rule; off a pin is honest silence. `product` names its
- * meta/freshness.json entry, which the sleeve back reads (datasets, badges, age, check).
- */
-export interface PlaceRecordPlugin {
-  kind: "place";
-  load(): Promise<PlacePin[]>;
-  voice: string; // a mapping.json voice id
-  legend: RecordLegend;
-  product: string;
-}
-
-export type AnyRecordPlugin = (RecordPlugin & { kind?: "grid" }) | PlaceRecordPlugin;
-
-/**
- * TODO(turntable: more records): one live record per EIC area. Each entry stays
- * null until L1 publishes the grid (or the place file) + metadata and L2 adds the voice to mapping.json.
- */
-export const RECORD_PLUGINS: Record<ComingRecord, AnyRecordPlugin | null> = {
-  air: null,
-  forests: null,
-  fire: null,
-  energy: null,
-  seaLevel: null,
-  disasters: null,
-  agriculture: null,
-  water: null,
-  ghg: null,
-};
+type ComingRecord = (typeof COMING_RECORDS)[number];
 
 export const RECORD_LABELS = {
   ocean: "turntable.record.ocean",

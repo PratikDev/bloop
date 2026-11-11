@@ -10,7 +10,7 @@ import { translateData } from "./bn/data";
 export const readData = <T,>(path: string): T => JSON.parse(readFileSync(`public/data/${path}`, "utf8")) as T;
 
 /** Every data-file sentence the UI shows (keep in step with the components that call t("data.text")). */
-export function shownSentences(): string[] {
+function shownSentences(): string[] {
   const demo = readData<DhakaThenNowDemo>("demo/dhaka_then_now.json");
   const cities = readData<CitiesThenNowFile>("demo/cities_then_now.json");
   const grace = readData<GraceContextFile>("context/grace.json");

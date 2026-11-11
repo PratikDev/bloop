@@ -6,7 +6,7 @@
 import { continuousRule, mapContinuous } from "@/lib/audio/mapping";
 import { seeded } from "@/lib/audio/orchestra";
 
-export interface DataStep {
+interface DataStep {
   value: number | null;
   /** The rule's output: Hz for a pitch rule, events per second for a rate rule; null = silence. */
   out: number | null;

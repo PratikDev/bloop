@@ -4,7 +4,7 @@ import { useEffect, useRef, type PointerEvent, type RefObject } from "react";
 
 const TAP_PX = 5;
 
-export interface DragHandlers {
+interface DragHandlers {
   /** Movement while a pointer is down, in CSS pixels. */
   onDrag(dx: number, dy: number): void;
   /** A click/tap that didn't move: position relative to the host, in CSS pixels. */

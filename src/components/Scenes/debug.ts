@@ -7,9 +7,9 @@
 import { useEffect, useRef } from "react";
 import type { SceneId } from "./registry";
 
-export type DebugValue = string | number | boolean | null | DebugValue[] | { [key: string]: DebugValue };
+type DebugValue = string | number | boolean | null | DebugValue[] | { [key: string]: DebugValue };
 
-export interface SceneDebug {
+interface SceneDebug {
   id: SceneId;
   /** What the chip and card show now (numbers as read, before formatting). */
   read(): { [key: string]: DebugValue };

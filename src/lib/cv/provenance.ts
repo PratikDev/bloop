@@ -7,12 +7,12 @@ import type { Bounds } from "./boxes";
 import type { BoxStats } from "./box-stats";
 
 /** The scripts behind the panel's numbers: the browser function, its numpy test, and the budget's generator. */
-export const READ_SCRIPTS = ["src/lib/cv/box-stats.ts", "pipeline/tests/test_box_stats.py", "pipeline/stats/error_budget.py"] as const;
+const READ_SCRIPTS = ["src/lib/cv/box-stats.ts", "pipeline/tests/test_box_stats.py", "pipeline/stats/error_budget.py"] as const;
 
 const deg = (v: number, lang: Lang, pos: string, neg: string) => `${formatFixed(Math.abs(v), lang, 1)}° ${v >= 0 ? pos : neg}`;
 
 /** "5.0° N to 25.0° N, 78.0° E to 100.0° E". */
-export function boundsText(lang: Lang, [w, s, e, n]: Bounds): string {
+function boundsText(lang: Lang, [w, s, e, n]: Bounds): string {
   const lat = `${deg(s, lang, "N", "S")} – ${deg(n, lang, "N", "S")}`;
   const lon = `${deg(w, lang, "E", "W")} – ${deg(e, lang, "E", "W")}`;
   return `${lat}, ${lon}`;

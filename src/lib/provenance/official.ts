@@ -13,7 +13,7 @@ const PLACEHOLDER = /^svs_related_/u;
 /** Check metrics that count the compared points, in the names the pipeline uses. */
 const N_KEYS = ["n_points", "n", "n_pairs", "n_cells"] as const;
 
-export interface OfficialContext {
+interface OfficialContext {
   t: BoundT;
   lang: Lang;
   freshness: FreshnessFile | null;

@@ -27,7 +27,7 @@ export interface ReadSource {
 }
 
 /** A record's status as the chord and panel use it (verified / stated error / relative / pattern only). */
-export function trustOf(status: OfficialStatus): ValueTrust {
+function trustOf(status: OfficialStatus): ValueTrust {
   switch (status) {
     case "verified":
       return "verified";

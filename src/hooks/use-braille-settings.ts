@@ -5,9 +5,9 @@ import type { DegreeStyle } from "@/a11y/brailleText";
 
 /** Display widths offered (cells); 40 is the default, as in MAIDR. */
 export const BRAILLE_WIDTHS = [14, 20, 32, 40, 80] as const;
-export type BrailleWidth = (typeof BRAILLE_WIDTHS)[number];
+type BrailleWidth = (typeof BRAILLE_WIDTHS)[number];
 
-export interface BrailleSettings {
+interface BrailleSettings {
   width: BrailleWidth;
   /** The shape line's field: a multi-line text area or a single-line input (which routes better is a viewer test). */
   field: "textarea" | "input";
@@ -16,7 +16,7 @@ export interface BrailleSettings {
   preview: boolean;
 }
 
-export const DEFAULT_BRAILLE_SETTINGS: BrailleSettings = { width: 40, field: "textarea", degree: "word", preview: false };
+const DEFAULT_BRAILLE_SETTINGS: BrailleSettings = { width: 40, field: "textarea", degree: "word", preview: false };
 
 const KEY = "bloop.braille.v1";
 

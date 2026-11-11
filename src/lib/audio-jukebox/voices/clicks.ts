@@ -5,7 +5,7 @@ import { mapContinuous, continuousRule, panFor, voiceSpec } from "@/lib/audio/ma
 import type { Graph } from "../graph";
 import { addTask } from "../scheduler";
 
-export interface ClickVoice {
+interface ClickVoice {
   set(value: number | null, lon: number): void;
 }
 

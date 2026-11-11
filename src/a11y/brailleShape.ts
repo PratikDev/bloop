@@ -77,7 +77,7 @@ export function encodeRows(rows: readonly (readonly (number | null)[])[]): Cells
 }
 
 /** The text a shape field holds, and the map between caret offsets and data points. */
-export interface ShapeLayout {
+interface ShapeLayout {
   text: string;
   /** Caret offset → data point (null when the caret is on the heading, a separator, a marker or a line break). */
   pointAt(offset: number): number | null;

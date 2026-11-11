@@ -17,7 +17,7 @@ export interface TuningStep {
   play: (() => PlayerHandle | null) | null;
 }
 
-export interface TuningSources {
+interface TuningSources {
   freshness: FreshnessFile | null;
   sst: SstMetadata | null;
   rain: RainMetadata | null;

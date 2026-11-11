@@ -39,7 +39,7 @@ export const loadGlobalManifest = async (): Promise<GlobalManifest> => {
 export const loadGlobalConfidence = () => fetchJson<GlobalConfidenceFile>(DATA_PATHS.globalConfidence);
 
 /** "YYYY-MM" → months since 0000-01 (for differences). */
-export const monthNumber = (ym: string) => Number(ym.slice(0, 4)) * 12 + Number(ym.slice(5, 7)) - 1;
+const monthNumber = (ym: string) => Number(ym.slice(0, 4)) * 12 + Number(ym.slice(5, 7)) - 1;
 
 /** `start` ("YYYY-MM") plus `count` consecutive months. */
 function monthAxis(start: string, count: number): string[] {

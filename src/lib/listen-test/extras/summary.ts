@@ -4,14 +4,14 @@
 
 import type { ResultsFile } from "../results";
 
-export interface ConditionMeans {
+interface ConditionMeans {
   condition: string;
   n: number;
   valence: number;
   connection: number;
 }
 
-export interface SenseAccuracy {
+interface SenseAccuracy {
   sense: string;
   n: number;
   correct: number;
@@ -19,7 +19,7 @@ export interface SenseAccuracy {
 
 const num = (v: unknown) => (typeof v === "number" ? v : NaN);
 
-export function emotionSummary(files: readonly ResultsFile[]): ConditionMeans[] {
+function emotionSummary(files: readonly ResultsFile[]): ConditionMeans[] {
   const rows = files.flatMap((f) => f.extras?.emotion ?? []);
   return ["sound", "visual"].map((condition) => {
     const r = rows.filter((x) => x.condition === condition);
@@ -28,7 +28,7 @@ export function emotionSummary(files: readonly ResultsFile[]): ConditionMeans[] 
   });
 }
 
-export function earEyeSummary(files: readonly ResultsFile[]): SenseAccuracy[] {
+function earEyeSummary(files: readonly ResultsFile[]): SenseAccuracy[] {
   const rows = files.flatMap((f) => f.extras?.earEye ?? []);
   return ["sound", "picture"].map((sense) => {
     const r = rows.filter((x) => x.sense === sense);

@@ -6,14 +6,14 @@ import { loadGlobalConfidence, loadGlobalLayer, loadGlobalManifest, loadGlobalPl
 import type { GlobalConfidenceFile, GlobalLayerName, GlobalManifest, GlobalPlacesFile } from "@/types/data-contract";
 import { buildField, ghostWindows, type GhostField, type GhostWindows } from "./fields";
 
-export interface GhostFiles {
+interface GhostFiles {
   windows: GhostWindows;
   places: GlobalPlacesFile;
   confidence: GlobalConfidenceFile;
   manifest: GlobalManifest;
 }
 
-export interface GhostData {
+interface GhostData {
   files: GhostFiles | null;
   /** The chosen layer's then and now fields (null while loading). */
   field: GhostField | null;

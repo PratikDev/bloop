@@ -15,7 +15,7 @@ import { geoPlane, METRES_PER_DEGREE, type Bounds, type GeoPlane } from "./plane
 
 const BASE = "/textures/scenes/";
 
-export type ReliefName = "bd" | "bay";
+type ReliefName = "bd" | "bay";
 
 interface ReliefSources {
   regions: Record<ReliefName, { bounds: Bounds; colour: string; height: string; height_size: [number, number] }>;

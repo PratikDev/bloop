@@ -29,7 +29,7 @@ const PART_OF_PLAYER: Record<string, Part> = {
 const partLine = (input: ThenNowInput, part: Part) => captionLine("caption.thenNow.caption", { text: input.captions[part] });
 
 /** A part's statistics (stats.json), by part; null when the file is missing (then nothing is said, never a typed number). */
-export type StatLines = (part: Part) => StatTexts | null;
+type StatLines = (part: Part) => StatTexts | null;
 
 const statCaption = (s: StatTexts) => ({ en: s.en, bn: s.bn });
 

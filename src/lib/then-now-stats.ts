@@ -23,7 +23,7 @@ export interface StatItem {
   clear: boolean;
 }
 
-export interface PartStats {
+interface PartStats {
   part: StatPart;
   items: StatItem[];
   verdict: Verdict;
@@ -59,7 +59,7 @@ export function partStats(stats: ThenNowStatsFile, city: ClimateCellName, part: 
 const unitText = (t: BoundT, unit: StatItem["unit"]) => (unit === "%" ? "%" : unit === "°C" ? ` ${t("unit.celsius")}` : ` ${t("stats.unit.cmPerYear")}`);
 
 /** "+1.37 °C (95% CI +0.88 to +1.86)" in the page's language and digits; a % stays on every bound. */
-export function itemText(t: BoundT, lang: Lang, i: StatItem): string {
+function itemText(t: BoundT, lang: Lang, i: StatItem): string {
   const u = unitText(t, i.unit);
   const bound = i.unit === "%" ? "%" : "";
   return t("stats.item", {
@@ -71,7 +71,7 @@ export function itemText(t: BoundT, lang: Lang, i: StatItem): string {
 }
 
 /** The one-line result ("Not a clear change: year-to-year variation is larger."). */
-export const resultText = (t: BoundT, v: Verdict) => t(v === "clear" ? "stats.result.clear" : v === "mixed" ? "stats.result.mixed" : "stats.result.unclear");
+const resultText = (t: BoundT, v: Verdict) => t(v === "clear" ? "stats.result.clear" : v === "mixed" ? "stats.result.mixed" : "stats.result.unclear");
 
 /** The long line: head (when not clear), every item with its range, then the one-line result. */
 export function longLine(t: BoundT, lang: Lang, ps: PartStats): string {

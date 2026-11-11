@@ -4,7 +4,7 @@ import { createContext, useContext, type Dispatch } from "react";
 import { bindT } from "@/lib/i18n";
 import type { AppAction, AppState } from "./reducer";
 
-export interface AppStateValue {
+interface AppStateValue {
   state: AppState;
   dispatch: Dispatch<AppAction>;
 }

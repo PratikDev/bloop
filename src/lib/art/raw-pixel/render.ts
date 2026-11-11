@@ -9,12 +9,12 @@ import { continuousRule, mapContinuous } from "@/lib/audio/mapping";
 export const RAW_RATE = 22050;
 export const RAW_SECONDS = 6;
 /** The path's grid: every 4th pixel of the 360×180 frame. */
-export const RAW_STRIDE = 4;
+const RAW_STRIDE = 4;
 const NAIVE_MIN_HZ = 100;
 const NAIVE_MAX_HZ = 4000;
 const AMP = 0.3;
 /** Bloop's sweep step (the app's sweep: 80 ms). */
-export const BLOOP_STEP_SEC = 0.08;
+const BLOOP_STEP_SEC = 0.08;
 
 export interface Frame {
   width: number;

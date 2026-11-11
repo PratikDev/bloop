@@ -10,7 +10,7 @@ import { datasetLink, versionOf } from "./live";
 import { repoLink, SCRIPTS } from "./repo";
 import type { Provenance } from "./types";
 
-export interface MonthlyContext {
+interface MonthlyContext {
   t: BoundT;
   lang: Lang;
   freshness: FreshnessFile | null;

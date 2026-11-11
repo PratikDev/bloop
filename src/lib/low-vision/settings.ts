@@ -20,20 +20,20 @@ export const LENS_PLACES = ["follow", "topLeft", "topRight", "bottomLeft", "bott
 
 export type Theme = (typeof THEMES)[number];
 export type Dim = (typeof DIMS)[number];
-export type TextScale = (typeof TEXT_SCALES)[number];
-export type ControlSize = (typeof CONTROL_SIZES)[number];
+type TextScale = (typeof TEXT_SCALES)[number];
+type ControlSize = (typeof CONTROL_SIZES)[number];
 export type Font = (typeof FONTS)[number];
-export type BanglaFont = (typeof BANGLA_FONTS)[number];
-export type Spacing = (typeof SPACINGS)[number];
+type BanglaFont = (typeof BANGLA_FONTS)[number];
+type Spacing = (typeof SPACINGS)[number];
 export type Measure = (typeof MEASURES)[number];
 export type Scheme = (typeof SCHEMES)[number];
 export type BandCount = (typeof BAND_COUNTS)[number];
-export type Coast = (typeof COASTS)[number];
-export type LensSize = (typeof LENS_SIZES)[number];
+type Coast = (typeof COASTS)[number];
+type LensSize = (typeof LENS_SIZES)[number];
 export type LensPlace = (typeof LENS_PLACES)[number];
 
 /** A hex colour (#rrggbb), the custom theme's text and background. */
-export type Hex = `#${string}`;
+type Hex = `#${string}`;
 const HEX = /^#[0-9a-f]{6}$/i;
 export const isHex = (v: unknown): v is Hex => typeof v === "string" && HEX.test(v);
 
@@ -66,10 +66,10 @@ export interface LowVision {
   speakDwell: boolean;
 }
 
-export type LowVisionKey = keyof LowVision;
+type LowVisionKey = keyof LowVision;
 
 /** Each choice's allowed values (booleans and colours are checked by type). */
-export const LV_VALUES = {
+const LV_VALUES = {
   theme: THEMES,
   dim: DIMS,
   textScale: TEXT_SCALES,

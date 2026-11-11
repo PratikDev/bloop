@@ -6,7 +6,7 @@
 import { drawJitter, whenProgressDone } from "./drop-timing";
 import { createTimeline } from "./rate-timeline";
 
-export interface DropClock<T> {
+interface DropClock<T> {
   /** State from `time` on (later changes are replaced). Returns the new pending drop time. */
   set(time: number, value: T, now: number): number | null;
   /** A drop was due at `time`: the state in force (null = silent, no sound) and the new pending time. */

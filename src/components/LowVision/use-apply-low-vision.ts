@@ -12,7 +12,7 @@ const DIM = { off: 1, dim: 0.8, dimmer: 0.6 } as const satisfies Record<LowVisio
 const PCT = 100;
 
 /** The theme on screen: "auto", and Bloop's own colours when the OS asks for more contrast, follow the OS. */
-export function shownTheme(theme: Theme, prefersContrast: boolean, prefersLight: boolean): Exclude<Theme, "auto"> {
+function shownTheme(theme: Theme, prefersContrast: boolean, prefersLight: boolean): Exclude<Theme, "auto"> {
   const hc = prefersLight ? "hcLight" : "hcDark";
   if (theme === "auto") return hc;
   if (theme === "app" && prefersContrast) return hc;

@@ -6,7 +6,7 @@
 import { cellIdAt, monthlyRun, windowMean, type GlobalLayer } from "@/lib/data/global";
 import type { DhakaThenNowDemo, GlobalLayerName, GlobalPlace, GlobalPlacesFile, GraceContextFile } from "@/types/data-contract";
 
-export interface MonthWindow {
+interface MonthWindow {
   from: string; // "YYYY-MM"
   to: string;
   /** "1981–1990", "2003–2006" */
@@ -50,7 +50,7 @@ export function buildField(layer: GlobalLayer, windows: { A: MonthWindow; B: Mon
 }
 
 /** The cube's rounding (places.json: two decimals). */
-export const round2 = (v: number) => Math.round(v * 100) / 100;
+const round2 = (v: number) => Math.round(v * 100) / 100;
 
 export interface GhostReading {
   cellId: number;

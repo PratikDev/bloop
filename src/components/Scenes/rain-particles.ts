@@ -42,7 +42,7 @@ export function rainCells(seq: Sequence, frame: SequenceFrame, plane: GeoPlane):
   return cells;
 }
 
-export interface RainParticles {
+interface RainParticles {
   object: LineSegments;
   setCells(cells: RainCell[], cellSize: number): void;
   update(dt: number, enabled: boolean): void;

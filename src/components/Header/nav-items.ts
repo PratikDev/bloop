@@ -1,7 +1,7 @@
 import type { MessageKey } from "@/lib/i18n";
 import { PAGE_PATHS, type PagePath } from "@/router/modes";
 
-export interface NavItem {
+interface NavItem {
   to: Exclude<PagePath, "/">;
   label: MessageKey;
   /** For narrow screens, when the full label doesn't fit. */

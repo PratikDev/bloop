@@ -6,7 +6,7 @@ import type { LiveBudget } from "./error-budget";
 import type { ReadSource } from "./read-source";
 
 /** Decimals that show `digits` significant figures of `v` (the panel shows 3). */
-export const SIG_DIGITS = 3;
+const SIG_DIGITS = 3;
 /** An error is shown to 2 significant figures. */
 const ERR_DIGITS = 2;
 export function sigDecimals(v: number, digits: number = SIG_DIGITS): number {
@@ -20,10 +20,10 @@ export function brailleValue(v: number, unit: string, digits: number = SIG_DIGIT
 }
 
 /** The record's short name: "SST", "Rain", or the layer label shortened. */
-export const shortRecord = (src: Pick<ReadSource, "recordId" | "name">) => (src.recordId === "ocean" ? "SST" : src.recordId === "rain" ? "Rain" : shortNameOf(src.name));
+const shortRecord = (src: Pick<ReadSource, "recordId" | "name">) => (src.recordId === "ocean" ? "SST" : src.recordId === "rain" ? "Rain" : shortNameOf(src.name));
 
 /** The first of `candidates` that fits one line, else the shortest. */
-export function fitFirst(candidates: readonly string[], budget: number = STATUS_BUDGET): string {
+function fitFirst(candidates: readonly string[], budget: number = STATUS_BUDGET): string {
   return candidates.find((c) => [...c].length <= budget) ?? candidates[candidates.length - 1];
 }
 

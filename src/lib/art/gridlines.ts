@@ -2,7 +2,7 @@
 // chart's gridlines. A tick sounds when the value crosses one; it plays the round value's own pitch (the same rule),
 // quietly, and never moves the data voice.
 
-export interface AxisInput {
+interface AxisInput {
   min: number;
   max: number;
   scale: "linear" | "log";

@@ -3,7 +3,7 @@
 
 import type { ClimateCellName, GraceBoxName } from "./data-contract";
 
-export interface StatWindow {
+interface StatWindow {
   window: [number, number];
   n: number;
   mean: number;
@@ -42,13 +42,13 @@ export interface StatTrend {
   clear: boolean;
 }
 
-export interface RainSourceStats extends StatComparison {
+interface RainSourceStats extends StatComparison {
   source: "GPCP" | "GPCC";
   jjas_total_mm: StatComparison;
   annual_total_mm: StatComparison;
 }
 
-export interface CityStats {
+interface CityStats {
   heat: StatComparison & { source: string; season: string; trend: StatTrend };
   rain: {
     season: string;
@@ -59,7 +59,7 @@ export interface CityStats {
   };
 }
 
-export interface WaterStats {
+interface WaterStats {
   windows: StatComparison & { basis: string };
   trend: StatTrend & { basis: string };
   uncertainty_1sigma_cm: { median: number; min: number; max: number } | null;

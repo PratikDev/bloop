@@ -21,7 +21,7 @@ const TurntableCanvas = dynamic(() => import("./TurntableCanvas").then((m) => m.
 // Developer overlay (?debug=1): its own chunk, never loaded otherwise.
 const DebugOverlay = dynamic(() => import("./DebugOverlay").then((m) => m.DebugOverlay), { ssr: false });
 
-export interface StageProps {
+interface StageProps {
   tt: Turntable;
   hostRef: RefObject<HTMLDivElement | null>;
   geo: Geo | null;

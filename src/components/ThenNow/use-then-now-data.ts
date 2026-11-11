@@ -5,7 +5,7 @@ import { loadCities, loadDemo, loadGrace, loadThenNowStats } from "@/lib/data";
 import type { CitiesThenNowFile, DhakaThenNowDemo, GraceContextFile } from "@/types/data-contract";
 import type { ThenNowStatsFile } from "@/types/then-now-stats";
 
-export type ThenNowData =
+type ThenNowData =
   | { status: "loading" }
   | { status: "error" }
   | { status: "ready"; demo: DhakaThenNowDemo; grace: GraceContextFile; cities: CitiesThenNowFile | null; stats: ThenNowStatsFile | null };

@@ -76,7 +76,7 @@ export interface PostLook {
   vignette: number;
 }
 
-export const DEFAULT_POST_LOOK: PostLook = { exposure: 1, bloom: 0.55, vignette: 0.42 };
+const DEFAULT_POST_LOOK: PostLook = { exposure: 1, bloom: 0.55, vignette: 0.42 };
 
 export interface Post {
   /** The globe group (its rotation defines the atmosphere's ECEF frame). */
@@ -93,7 +93,7 @@ export interface Post {
   dispose(): void;
 }
 
-export interface PostOptions {
+interface PostOptions {
   /** The aerial-perspective pass: only for scenes with a globe at radius 1 (default on). */
   atmosphere?: boolean;
 }

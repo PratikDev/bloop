@@ -4,7 +4,7 @@
 
 import { latinDigits } from "./brailleText";
 
-export interface RecordCode {
+interface RecordCode {
   letter: string; // upper case, A–Z
   number: number;
   code: string; // canonical form, e.g. "B7"

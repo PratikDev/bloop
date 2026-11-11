@@ -23,7 +23,7 @@ export interface ExtraStepProps {
   onDone(records: ExtraRecord[]): void;
 }
 
-export interface ExtraModule {
+interface ExtraModule {
   info: ExtraTaskInfo;
   /** The step's heading. */
   heading: MessageKey;

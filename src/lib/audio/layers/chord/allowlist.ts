@@ -4,7 +4,7 @@ import file from "../../../../../public/data/meta/chord_allowlist.json";
 
 export type ChordAllowance = "full" | "modes-only" | "none";
 
-export interface AllowRow {
+interface AllowRow {
   record: string;
   layer?: string;
   voice: string;

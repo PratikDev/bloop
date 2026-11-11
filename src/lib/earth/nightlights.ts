@@ -14,7 +14,7 @@ export const LIGHTS_VOICE = "nightLights";
 const RADIANCE_DECIMALS = 1;
 const KM_PER_DEG = 111.2;
 /** A city counts as "here" within this distance of the needle (a design choice for Ask Bloop and the link). */
-export const LIGHTS_NEAR_KM = 60;
+const LIGHTS_NEAR_KM = 60;
 
 let cached: Promise<NightLightsFile> | null = null;
 export function loadNightLights(): Promise<NightLightsFile> {

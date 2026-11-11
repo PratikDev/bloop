@@ -10,8 +10,8 @@ import { DATA_PATHS } from "./paths";
 import { requirePaths } from "./validate";
 import { withAppRecords } from "@/lib/earth/records";
 
-export const OFFICIAL_NODATA = 65535;
-export const OFFICIAL_BELOW = 65534;
+const OFFICIAL_NODATA = 65535;
+const OFFICIAL_BELOW = 65534;
 /** Significant figures an Official value is shown with (the record page, its transcript). */
 export const OFFICIAL_DIGITS = 3;
 
@@ -42,7 +42,7 @@ const recordPath = (record: string, file: string) =>
 export const loadOfficialIndex = () => fetchJson<OfficialIndex>(DATA_PATHS.official("index.json")).then(withAppRecords);
 /** Feature flag: NEXT_PUBLIC_SHOW_HIDDEN_RELATED=1 also lists the related records the pipeline marks `hidden` (too sparse
  *  to play: a needle reads "no value" as they play). Off by default. */
-export const SHOW_HIDDEN_RELATED = process.env.NEXT_PUBLIC_SHOW_HIDDEN_RELATED === "1";
+const SHOW_HIDDEN_RELATED = process.env.NEXT_PUBLIC_SHOW_HIDDEN_RELATED === "1";
 
 /** The related records the app lists: every row, or (by default) those not marked hidden. */
 export const listedRelated = (index: OfficialIndex, showHidden = SHOW_HIDDEN_RELATED): OfficialIndex =>

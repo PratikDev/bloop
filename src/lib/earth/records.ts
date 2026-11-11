@@ -16,7 +16,7 @@ type TitleKey = { [K in MessageKey]: Messages[K] extends string ? K : never }[Me
 export const APP_RECORD_IDS = ["fires_fwi", "landslide_lhasa", "nightlights_bm"] as const;
 export type AppRecordId = (typeof APP_RECORD_IDS)[number];
 
-export interface AppRecordSpec {
+interface AppRecordSpec {
   id: AppRecordId;
   /** The registry products (meta/freshness.json) the record plays or shows: they move to "Data in this app". */
   products: readonly string[];
@@ -45,7 +45,7 @@ const day = (iso: string | null) => (iso ? iso.slice(0, 10) : "");
 const span = (a: string, b: string) => (a === b ? a : `${a} – ${b}`);
 
 /** The rows, each from its products' own files (title words from the English table: index titles are English). */
-export async function appIndexRows(enabled: (s: AppRecordSpec) => boolean = (s) => s.enabled()): Promise<AppIndexRow[]> {
+async function appIndexRows(enabled: (s: AppRecordSpec) => boolean = (s) => s.enabled()): Promise<AppIndexRow[]> {
   const rows: AppIndexRow[] = [];
   if (enabled(APP_RECORDS.fires_fwi)) {
     const [fwi, firms] = await Promise.all([fetchJson<FwiClassMetadata>(EARTH_PATHS.fwiMeta), fetchJson<FirmsContextFile>(DATA_PATHS.firms)]);
@@ -77,7 +77,7 @@ export async function appIndexRows(enabled: (s: AppRecordSpec) => boolean = (s) 
 export const METHOD_APPLIED_TO: Readonly<Record<string, string>> = { [RADAR_RECORD]: RADAR_APPLIED_VOICE };
 
 /** A pipeline row for a method record (SVS 13786: no layers; the app plays NASA's method on an Earth frame). */
-export const isMethodRow = (row: OfficialIndexRow): boolean => "kind" in row && (row as { kind?: string }).kind === "method";
+const isMethodRow = (row: OfficialIndexRow): boolean => "kind" in row && (row as { kind?: string }).kind === "method";
 
 /** The index with the app records after the pipeline's rows (a failed product load leaves the index as it was). A
  *  method row is listed only with its flag: without it the record has nothing to play. */

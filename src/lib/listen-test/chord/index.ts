@@ -8,7 +8,6 @@ import { groupsTask } from "./groups";
 import { varietyTask } from "./variety";
 
 export const CV_TASK_IDS = ["chordVariety", "chordGroups"] as const;
-export type CvTaskId = (typeof CV_TASK_IDS)[number];
 export type CvOptionId = "one" | "two";
 
 /** A view as the variety task plays it: its 10th, 50th and 90th percentile, low to high, at the box's centre. */

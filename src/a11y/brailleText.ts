@@ -13,7 +13,7 @@ export const STATUS_BUDGET = 40;
 export type DegreeStyle = "symbol" | "word";
 
 /** The one abbreviation set (also listed in BRAILLE.md). */
-export const ABBREV = {
+const ABBREV = {
   observation: "obs",
   model: "model",
   reanalysis: "rean",
@@ -30,10 +30,10 @@ export const ABBREV = {
   stale: "stale",
 } as const;
 
-export type AbbrevKey = keyof typeof ABBREV;
+type AbbrevKey = keyof typeof ABBREV;
 
 /** Characters no braille string may contain, with the reason (for the text-rules test). */
-export const BANNED: readonly { name: string; rx: RegExp }[] = [
+const BANNED: readonly { name: string; rx: RegExp }[] = [
   { name: "emoji or pictograph", rx: /\p{Extended_Pictographic}/u },
   { name: "decorative symbol", rx: /[•·★☆✓✔✗✘→←↑↓↔⇒⇐▲▼◆◇■□●○♪♫]/u },
   { name: "glyph a table may lack", rx: /[≈±≤≥×÷–—−…‘’“”]/u },
@@ -153,7 +153,7 @@ export function wrapText(lines: readonly string[], width: number): string[] {
 }
 
 /** Long names a short line abbreviates (part of the one abbreviation set; BRAILLE.md lists it). */
-export const NAME_ABBREV: Record<string, string> = {
+const NAME_ABBREV: Record<string, string> = {
   "sea surface temperature": "SST",
   "sea surface salinity": "SSS",
   "land surface temperature": "LST",

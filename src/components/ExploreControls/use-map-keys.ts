@@ -26,19 +26,19 @@ export const ARROWS: Record<string, [number, number]> = {
   ArrowRight: [0, 1],
 };
 
-export const TRACK_KEYS: Record<string, TrackMode> = {
+const TRACK_KEYS: Record<string, TrackMode> = {
   "1": "ocean",
   "2": "rain",
   "3": "both",
 };
 
 /** + and − on the main keyboard (= and _ are the same keys unshifted/shifted); the numpad's, if a screen reader lets them through. */
-export const GROW_KEYS = new Set(["+", "="]);
-export const SHRINK_KEYS = new Set(["-", "_", "−"]);
+const GROW_KEYS = new Set(["+", "="]);
+const SHRINK_KEYS = new Set(["-", "_", "−"]);
 /** A modifier pressed on its own (Shift on the way to +) is not a key of its own. */
 const MODIFIERS = new Set(["Shift", "Control", "Alt", "Meta", "CapsLock"]);
 
-export interface MapKeys {
+interface MapKeys {
   onKeyDown(e: KeyboardEvent<HTMLElement>): void;
   /** Ends the J region mode (the map lost focus). */
   disarm(): void;

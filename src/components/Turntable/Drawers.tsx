@@ -139,7 +139,7 @@ function SettingsBody({ settings, update, onMyLocation, onFlatMap }: { settings:
   );
 }
 
-export interface DrawersProps {
+interface DrawersProps {
   open: DrawerId | null;
   onClose(): void;
   settings: TurntableSettings;

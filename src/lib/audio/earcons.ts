@@ -14,7 +14,7 @@ const WHISPER_NOTE_SEC = 0.15;
 const PING_HZ = 2500;
 
 /** Sounds on the earcon bus with their own mapping.json envelope: the earcons and the motif notes. */
-export type ToneId = EarconId | "motif";
+type ToneId = EarconId | "motif";
 
 /** One sine blip on the earcon bus at `time`, shaped by its mapping.json envelope. */
 export function playTone(id: ToneId, freq: number, time: number, lon: number) {

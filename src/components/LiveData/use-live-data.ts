@@ -6,7 +6,7 @@ import type { LiveFields, RainField, SstField } from "@/lib/data";
 
 export type { LoadStatus };
 
-export interface LiveDataValue {
+interface LiveDataValue {
   sst: SstField | null;
   rain: RainField | null;
   sstStatus: LoadStatus;

@@ -16,7 +16,7 @@ export interface NarratedStep<Tag extends string> {
   tag?: Tag;
 }
 
-export interface NarratedScript<Tag extends string> {
+interface NarratedScript<Tag extends string> {
   steps: NarratedStep<Tag>[];
   /** Said after the last sound. */
   end?: Line;

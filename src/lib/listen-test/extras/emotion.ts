@@ -18,7 +18,7 @@ export interface Clip {
   stepMs: number;
 }
 
-export const CLIP_STEP_MS = 300;
+const CLIP_STEP_MS = 300;
 
 export function emotionClip(points: readonly { lat: number; lon: number; frame: number }[]): Clip {
   const sorted = [...points].sort((a, b) => a.lon - b.lon).slice(0, 20);

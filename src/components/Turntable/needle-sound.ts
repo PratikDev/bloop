@@ -18,7 +18,7 @@ export interface SentReading {
   reading: Reading;
 }
 
-export interface NeedleSound {
+interface NeedleSound {
   /** Sends the reading at `at` if a control tick is due and it changed (value, phase or whole-degree pan). */
   tick(fields: LiveFields, at: LatLon, now: number): void;
   /** Forget the last update, so the next tick sends even an unchanged reading. */

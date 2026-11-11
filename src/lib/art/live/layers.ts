@@ -36,7 +36,7 @@ const isL2Voice = (id: string): id is VoiceId => (VOICE_IDS as readonly string[]
 const audible = (id: string) => !isL2Voice(id) || isVoiceAudible(id);
 
 /** The layers the dial asks for now (none when the dial isn't built in). */
-export function currentLayers(): DialLayers | null {
+function currentLayers(): DialLayers | null {
   const stop = dialStop();
   return stop === null ? null : dialLayers(stop, getArt().context?.playMode ?? "single", orchestraOn());
 }

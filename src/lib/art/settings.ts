@@ -8,7 +8,7 @@ import { FLAGS } from "@/lib/flags";
 
 export const STYLES = ["orchestra", "plain"] as const satisfies readonly InstrumentStyle[];
 
-export interface ArtPrefs {
+interface ArtPrefs {
   style: InstrumentStyle;
   dial: DialStop;
 }
@@ -25,7 +25,7 @@ export interface ArtState extends ArtPrefs {
   context: PlayContext | null;
 }
 
-export const ART_DEFAULTS: ArtPrefs = { style: "orchestra", dial: 0.5 };
+const ART_DEFAULTS: ArtPrefs = { style: "orchestra", dial: 0.5 };
 const KEY = "bloop.art.v1";
 
 function read(): ArtPrefs {

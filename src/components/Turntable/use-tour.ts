@@ -7,7 +7,7 @@ import type { StoryPlace } from "@/lib/geo/types";
 
 const DWELL_MS = 2500;
 
-export interface TourSteps {
+interface TourSteps {
   stops: StoryPlace[];
   /** Flies to a stop; resolves false if the flight was interrupted. */
   fly(stop: StoryPlace): Promise<boolean>;

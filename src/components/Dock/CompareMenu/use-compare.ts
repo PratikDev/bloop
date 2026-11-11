@@ -29,7 +29,7 @@ export function compareText(r: CompareResult, t: BoundT, lang: Lang): string {
   return `${head} ${tail}`;
 }
 
-export type LayerState = { status: "loading" } | { status: "error" } | { status: "ready"; layer: GlobalLayer };
+type LayerState = { status: "loading" } | { status: "error" } | { status: "ready"; layer: GlobalLayer };
 
 /** Compare two dates: the chosen layer (loaded on first use), its months, and run. */
 export function useCompare(open: boolean) {

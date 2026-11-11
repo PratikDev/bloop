@@ -22,7 +22,7 @@ interface Loaded {
   geo: GeoData | null;
 }
 
-export interface OfficialTranscriptData {
+interface OfficialTranscriptData {
   title: string;
   mapping: string[];
   covers: string[];

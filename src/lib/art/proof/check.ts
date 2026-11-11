@@ -9,9 +9,9 @@ import { maxCents, measurePitch, onsetTimes } from "./measure";
 import type { ProofPlan } from "./plan";
 import { renderProof, type Setup } from "./render";
 
-export const CENT_LIMIT = 1;
+const CENT_LIMIT = 1;
 
-export interface SetupResult {
+interface SetupResult {
   setup: Setup;
   loggedHz: number[];
   measuredHz: number[];

@@ -6,7 +6,7 @@
 type Biquad = { b: [number, number, number]; a: [number, number, number] };
 
 /** BS.1770's two K-weighting stages at sample rate `fs` (the shelf and the high-pass; pyloudnorm's derivation). */
-export function kWeighting(fs: number): Biquad[] {
+function kWeighting(fs: number): Biquad[] {
   const shelf = (() => {
     const G = 3.99984385397, Q = 0.7071752369554193, fc = 1681.974450955533;
     const K = Math.tan((Math.PI * fc) / fs);

@@ -5,7 +5,7 @@ import type { Turntable } from "./use-turntable";
 
 const SESSION_KEY = "turntable-intro-seen";
 /** Fade from black, camera glide, arm swing and drop, data fades in: under 4 s in all. */
-export const INTRO_MS = 3800;
+const INTRO_MS = 3800;
 const READY_POLL_MS = 150;
 /** Start anyway after this long, even if the Earth textures are still loading. */
 const READY_TIMEOUT_MS = 10_000;

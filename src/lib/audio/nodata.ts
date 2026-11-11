@@ -4,7 +4,7 @@
 
 export type NoDataTrack = "ocean" | "rain";
 
-export interface NoDataTracker {
+interface NoDataTracker {
   /**
    * Reports the latest value's no-data state at `now` (seconds). `entering`:
    * this value moves into no data; `tick`: also far enough from the last tick

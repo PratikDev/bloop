@@ -4,15 +4,15 @@
 import type { CaptionParams } from "@/lib/audio-adapter/types";
 import type { MessageKey } from "@/lib/i18n";
 
-export interface CaptionLike {
+interface CaptionLike {
   key: string;
   params: CaptionParams;
 }
 
 /** The smallest change that counts as rising or falling (the readouts' precision: 0.1 °C, 0.1 mm/h). */
-export const TREND_EPS = 0.05;
+const TREND_EPS = 0.05;
 
-export type SonarTrend = "nearer" | "farther" | "same";
+type SonarTrend = "nearer" | "farther" | "same";
 
 const SONAR_CHIP = { nearer: "sound.pingNearer", farther: "sound.pingFarther", same: "sound.pingSame" } as const satisfies Record<SonarTrend, MessageKey>;
 

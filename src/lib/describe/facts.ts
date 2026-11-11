@@ -11,7 +11,7 @@ import { around, extremes, peakBand, rainAround, warmestAround, type Extreme, ty
 
 export type DescribedRecord = "ocean" | "rain";
 
-export interface RainChange {
+interface RainChange {
   before: number;
   after: number;
   minutes: number;

@@ -19,7 +19,7 @@ export interface OverlayData {
   rivers: Feature<RiverProps, LineGeometry>[];
 }
 
-export interface OverlayVisibility extends Omit<LayerToggles, "clouds"> {
+interface OverlayVisibility extends Omit<LayerToggles, "clouds"> {
   /** Camera distance from the globe's centre, in radii. */
   distance: number;
 }
@@ -32,7 +32,7 @@ export interface Overlays {
 }
 
 /** Zoom thresholds (camera distance, globe radii): where detail switches on. Design choices. */
-export const ZOOM = { detailBorders: 2.4, districts: 1.9, allRivers: 1.9 } as const;
+const ZOOM = { detailBorders: 2.4, districts: 1.9, allRivers: 1.9 } as const;
 
 function areaPaths(features: Feature<unknown, AreaGeometry>[]): Position[][] {
   const paths: Position[][] = [];

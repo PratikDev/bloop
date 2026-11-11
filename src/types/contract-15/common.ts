@@ -3,7 +3,7 @@
 
 export type Agency = "NASA" | "JAXA" | "NOAA" | "Copernicus" | "ground" | "other";
 export type SourceKind = "measurement" | "model" | "inventory";
-export type Pairing = "frame-paired" | "context";
+type Pairing = "frame-paired" | "context";
 
 export interface DatasetRef {
   id: string;
@@ -44,8 +44,8 @@ export interface GridBlock<E extends string> {
 // The app recomputes age from source_time_utc; past limit_days = "recorded" (guardrail 16).
 // ---------------------------------------------------------------------------
 
-export type FreshnessStatus = "ok" | "stale" | "baseline" | "missing" | "no-time";
-export type Cadence = "daily" | "weekly" | "static" | "live";
+type FreshnessStatus = "ok" | "stale" | "baseline" | "missing" | "no-time";
+type Cadence = "daily" | "weekly" | "static" | "live";
 
 export interface FreshnessEntry {
   product: string;

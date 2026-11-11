@@ -8,7 +8,7 @@ import { track } from "../../sources";
 import { voicePeak } from "../../voices/common";
 import type { ChordTone } from "../types";
 
-export const ROLL_SEC = 0.08;
+const ROLL_SEC = 0.08;
 const ATTACK_SEC = 0.25;
 const RELEASE_SEC = 0.4;
 /** The chord sits this many dB under the melody's peak (docs/audio/MIX.md: measured there). */

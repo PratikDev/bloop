@@ -16,7 +16,7 @@ import {
 } from "three";
 import type { Palette } from "@/lib/css-tokens";
 
-export const BACKDROP_RADIUS = 40;
+const BACKDROP_RADIUS = 40;
 const STAR_COUNT = 2400;
 const STAR_RADIUS = 38;
 

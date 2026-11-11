@@ -14,7 +14,7 @@ export type CompareLayer = (typeof COMPARE_LAYERS)[number];
 export const COMPARE_VOICE = { heat: "heat", rain: "monsoon", water: "water" } as const satisfies Record<CompareLayer, string>;
 export const BEATS: Record<CompareLayer, boolean> = { heat: true, rain: false, water: true };
 
-export interface CompareSideValue {
+interface CompareSideValue {
   month: string; // "YYYY-MM"
   value: number | null;
 }

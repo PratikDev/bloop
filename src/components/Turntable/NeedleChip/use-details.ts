@@ -3,7 +3,7 @@
 import { useCallback, useEffect, useRef, useState } from "react";
 
 /** The card closes this long after the last interaction (unless pinned or focused). */
-export const AUTO_COLLAPSE_MS = 4000;
+const AUTO_COLLAPSE_MS = 4000;
 
 export interface Details {
   open: boolean;

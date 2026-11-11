@@ -4,7 +4,7 @@
  * with the old page. Once focus moves anywhere else (the user Tabs to a header link, a page or an overlay places it),
  * it stays there: taking it from a link focused after the move sent the next Enter to the heading.
  */
-export type TitleFocus = "focus" | "wait" | "stop";
+type TitleFocus = "focus" | "wait" | "stop";
 
 export interface FocusSnapshot {
   /** Focus is on nothing (the body, or an element removed with the old page). */

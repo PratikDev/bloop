@@ -11,7 +11,7 @@ import { audio as l2 } from "@/lib/audio-adapter";
 import type { AudioEvent, LiveVoiceId, TrackMode } from "@/lib/audio-adapter/types";
 import { audio as jukebox } from "@/lib/audio-jukebox";
 
-export type EngineId = "l2" | "jukebox";
+type EngineId = "l2" | "jukebox";
 
 /** The pages that play on the Jukebox engine. */
 const JUKEBOX_MODES: readonly Mode[] = ["turntable", "official"];

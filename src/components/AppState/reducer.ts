@@ -19,7 +19,7 @@ export type PrefKey = "lang" | "describe" | "captions" | "builtInVoice" | "hide3
 export type SoundChoice = "sound" | "silent";
 export type Prefs = Partial<Pick<AppState, PrefKey>>;
 
-export interface VoiceMix {
+interface VoiceMix {
   volume: number; // 0..1
   muted: boolean;
 }
@@ -69,7 +69,7 @@ export interface AppState extends AccessChoices {
   osReduceMotion: boolean;
 }
 
-export interface Lead {
+interface Lead {
   text: string;
   n: number;
 }

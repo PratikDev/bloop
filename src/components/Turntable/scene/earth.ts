@@ -41,7 +41,7 @@ export interface EarthLook {
   dataShade: number;
 }
 
-export const DEFAULT_LOOK: EarthLook = { sunIntensity: 1.6, nightGain: 3.2, normalStrength: 1, nightAmbient: 0.035, dataShade: 1 };
+const DEFAULT_LOOK: EarthLook = { sunIntensity: 1.6, nightGain: 3.2, normalStrength: 1, nightAmbient: 0.035, dataShade: 1 };
 
 const SURFACE_VERTEX = /* glsl */ `
 varying vec2 vUv;

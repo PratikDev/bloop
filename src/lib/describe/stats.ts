@@ -40,7 +40,7 @@ export function extremes(g: ValueGrid): { min: Extreme; max: Extreme } | null {
 }
 
 /** Latitude bands for the warmest-band rule, in degrees (design choice). */
-export const BAND_DEG = 5;
+const BAND_DEG = 5;
 /** "Near the equator": a band whose centre is within this many degrees of it (±15°). */
 export const EQUATOR_DEG = 15;
 
@@ -91,9 +91,9 @@ export function around(g: ValueGrid, at: LatLon, spanDeg: number = SPAN_DEG): (n
 }
 
 /** Under this spread between the nine means, the ocean around the needle counts as even (°C; design choice). */
-export const EVEN_C = 0.5;
+const EVEN_C = 0.5;
 /** A cell with at least this share of the nine cells' rain counts as where the rain is concentrated (design choice). */
-export const CONCENTRATED_SHARE = 0.4;
+const CONCENTRATED_SHARE = 0.4;
 
 export type LocalPattern = { kind: "even" } | { kind: "toward"; region: RegionName } | { kind: "spread" } | { kind: "none" };
 

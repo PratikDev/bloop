@@ -16,9 +16,9 @@ import { saFor } from "../live/dress";
 import { continuousRule, mapContinuous } from "@/lib/audio/mapping";
 import { planSeconds, type ProofPlan } from "./plan";
 
-export const PROOF_RATE = 24000;
+const PROOF_RATE = 24000;
 /** Where a note counts as settled: after the longest move (a glide's 0.1 s, or the meend), the same at every stop. */
-export const SETTLE_SEC = Math.max(0.1, MEEND_SEC) + 0.01;
+const SETTLE_SEC = Math.max(0.1, MEEND_SEC) + 0.01;
 const LEVEL = 0.2;
 
 export interface Setup {
@@ -30,7 +30,7 @@ export interface Setup {
   month?: number | null;
 }
 
-export interface LoggedNote {
+interface LoggedNote {
   index: number;
   onset: number;
   hz: number;
@@ -40,7 +40,7 @@ export interface LoggedNote {
   channel: number;
 }
 
-export interface Rendered {
+interface Rendered {
   /** The data voice's channels: [0] for the gliding voice and drops; notes rotate over all four. */
   data: Float32Array[];
   mix: Float32Array;

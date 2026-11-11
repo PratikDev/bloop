@@ -26,7 +26,7 @@ const WHISPER_HOLD_MS = 1500;
 // tour under 90 s (design choice). Explore's time-lapse still plays every frame.
 const STORM_FRAMES = 24;
 
-export interface StoryDeps {
+interface StoryDeps {
   signal: AbortSignal;
   t(): BoundT; // the screen language now (whisper captions)
   soundOn: boolean;

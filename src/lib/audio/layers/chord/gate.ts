@@ -4,7 +4,7 @@ import type { ChordBlock, ChordGate, ChordRequest, ValueTrust } from "../types";
 import type { ChordAllowance } from "./allowlist";
 
 /** What the gate needs to know about the current view of a record. */
-export interface GateInput {
+interface GateInput {
   req: ChordRequest;
   trust: ValueTrust;
   allowance: ChordAllowance;

@@ -11,10 +11,10 @@ import { nextDay } from "./fwi";
 import type { GridSize } from "@/lib/data/grid";
 
 /** Below this n, or below this |ρ|, the table says "too few days to tell" / "no clear agreement". */
-export const PILOT_MIN_N = 10;
-export const PILOT_MIN_RHO = 0.5;
+const PILOT_MIN_N = 10;
+const PILOT_MIN_RHO = 0.5;
 
-export interface PilotRow {
+interface PilotRow {
   region: FirmsDailyRegion;
   /** The day the forecast was issued (the archive's date) and the day it was for. */
   issued: string;
@@ -25,7 +25,7 @@ export interface PilotRow {
   counts: Partial<Record<FirmsNrtSource, number | null>>;
 }
 
-export interface PilotSummary {
+interface PilotSummary {
   source: FirmsNrtSource;
   n: number;
   rho: number | null;

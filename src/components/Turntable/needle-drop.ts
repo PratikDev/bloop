@@ -19,7 +19,7 @@ const TOUCHDOWN: Record<DropKind, number> = {
   intro: INTRO.wait + INTRO.swing + INTRO.lower,
 };
 
-export interface DropFrame {
+interface DropFrame {
   lift: number; // needle height off the globe
   park: number; // 0 = on the groove, 1 = at rest beside the globe
   recordLift: number; // 0 = on the platter, 1 = lifted
@@ -28,7 +28,7 @@ export interface DropFrame {
   done: boolean; // the data voice may play again
 }
 
-export interface NeedleDrop {
+interface NeedleDrop {
   start(now: number, opts: { reduceMotion: boolean; kind: DropKind }): void;
   /** Jump to touchdown (any key or click during a record change). */
   skip(now: number): void;

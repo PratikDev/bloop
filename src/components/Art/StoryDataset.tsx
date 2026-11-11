@@ -16,7 +16,7 @@ interface Sources {
 }
 
 /** The dataset and period a tour step plays (gap #7: named on every step, as the whisper step does), from the files. */
-export function stepDataset(t: BoundT, lang: Lang, step: StoryStepId, s: Sources): string | null {
+function stepDataset(t: BoundT, lang: Lang, step: StoryStepId, s: Sources): string | null {
   const sst = s.sst && t("tour.data", { source: s.sst.meta.source_dataset, period: formatUtc(s.sst.meta.frame_time_utc, lang) });
   const rain = s.rain && t("tour.data", { source: s.rain.meta.source_dataset, period: formatUtc(s.rain.meta.frame_time_utc, lang) });
   switch (step) {
