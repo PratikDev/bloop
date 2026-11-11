@@ -4,6 +4,7 @@ import { useEffect, useState, type MouseEvent } from "react";
 import { Outlet } from "@tanstack/react-router";
 import { MotionConfig } from "motion/react";
 import { startEngineHandOff } from "@/lib/audio-engines";
+import { FLAGS } from "@/lib/flags";
 import { AnnouncerProvider } from "../Announcer";
 import { AppStateProvider } from "../AppState";
 import type { Mode } from "../AppState/reducer";
@@ -12,9 +13,10 @@ import { CommandsProvider } from "../Commands";
 import { useCommands } from "../Commands/use-commands";
 import { Dock } from "../Dock";
 import { Header } from "../Header";
-import { HelpDialog } from "../HelpDialog";
+import { HelpDialog, HelpPanel } from "../HelpDialog";
 import { JukeboxJourney } from "../JukeboxJourney";
 import { LiveDataProvider } from "../LiveData";
+import { useApplyLowVision } from "../LowVision/use-apply-low-vision";
 import { Opening } from "../Opening";
 import { RecordsProvider } from "../Records";
 import { StoryProvider } from "../Story";
@@ -34,6 +36,7 @@ function Shell() {
   const timeLapse = useTimeLapse();
   useGlobalEscape(commands, timeLapse.stop);
   useRouteSync();
+  useApplyLowVision();
   // The two sound engines never play at once unless a page asks (src/lib/audio-engines.ts).
   useEffect(() => startEngineHandOff(), []);
   // Home is the start screen; How we know and Official records can be read without it. The gate appears there only when
@@ -56,6 +59,7 @@ function Shell() {
       <div inert={gated || opening} className="app-shell">
         <Header />
         <main id={CONTENT_ID} tabIndex={-1} onClickCapture={askForSound} className="app-main outline-none">
+          {FLAGS.lowVision && <HelpPanel className="mx-auto my-3 max-w-3xl" />}
           <Outlet />
         </main>
         <Dock />

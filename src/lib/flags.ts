@@ -37,7 +37,7 @@ export const FLAGS = {
    *  Lens, calm view, compact centre, point of regard, the Alt+L preset). */
   // Ready on 9 Nov 2026: low-vision.e2e.ts 26/26 (Part 4 in full, plan item 10), the a11y + features + health checks
   // 414/414 with steps 7 and 8 on (Chromium + Firefox).
-  lowVision: flag(process.env.NEXT_PUBLIC_A11Y_LOW_VISION, false),
+  lowVision: flag(process.env.NEXT_PUBLIC_A11Y_LOW_VISION, true),
   /** Ask Bloop (docs/voice/README.md): the panel, typed commands and questions (parser only). */
   // Ready on 11 Nov 2026: e2e/ask-bloop.e2e.ts 16/16 and e2e/data/ask in the integrated final pass (Chromium + Firefox).
   askBloop: flag(process.env.NEXT_PUBLIC_ASK_BLOOP, true),

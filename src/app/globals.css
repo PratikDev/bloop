@@ -1302,6 +1302,25 @@ next-route-announcer {
   --tt-glass: rgb(0 0 0 / 0.94);
   --tt-glass-strong: rgb(0 0 0 / 0.98);
   --tt-glass-edge: rgb(255 255 255 / 0.6);
+  --tt-glass-shadow: #ffffff;
+  --sea: #000000;
+  --sea-deep: #1c1c1c;
+  --paper: #0a0a0a;
+  --navy: #ffffff;
+  --navy-soft: #e6e6e6;
+  --bubble: #ffff00;
+  --coral: #ffff00;
+  --dial: #ffff00;
+  --space: #000000;
+  --star: #ffffff;
+  --star-warm: #ffff00;
+  --shadow-on-space: #ffffff;
+  --void: #000000;
+  --shadow-tint: #ffffff;
+  --studio-top: #000000;
+  --studio-bottom: #000000;
+  --studio-glow: #000000;
+  --chart-grid: #6b6b6b;
 }
 
 /* High-contrast light: black on white, deep blue for focus and the needle. */
@@ -1330,6 +1349,25 @@ next-route-announcer {
   --tt-glass: rgb(255 255 255 / 0.96);
   --tt-glass-strong: rgb(255 255 255 / 0.99);
   --tt-glass-edge: rgb(0 0 0 / 0.6);
+  --tt-glass-shadow: #000000;
+  --sea: #ffffff;
+  --sea-deep: #e2e2e2;
+  --paper: #f4f4f4;
+  --navy: #000000;
+  --navy-soft: #1f1f1f;
+  --bubble: #0033cc;
+  --coral: #0033cc;
+  --dial: #0033cc;
+  --space: #ffffff;
+  --star: #000000;
+  --star-warm: #0033cc;
+  --shadow-on-space: #000000;
+  --void: #ffffff;
+  --shadow-tint: #000000;
+  --studio-top: #ffffff;
+  --studio-bottom: #ffffff;
+  --studio-glow: #ffffff;
+  --chart-grid: #8a8a8a;
   --lv-two-a: #000000;
   --lv-two-b: #ffffff;
   --lv-land: #d0d0d0;
@@ -1356,9 +1394,53 @@ next-route-announcer {
   --tt-muted: var(--lv-custom-text);
   --tt-glass: var(--lv-custom-bg);
   --tt-glass-strong: var(--lv-custom-bg);
+  --tt-black: var(--lv-custom-bg);
+  --tt-raise: var(--lv-custom-bg);
+  --tt-line: var(--lv-custom-text);
+  --tt-glass-edge: var(--lv-custom-text);
+  --tt-glass-shadow: var(--lv-custom-text);
+  --land: var(--lv-custom-bg);
+  --amber: var(--lv-custom-text);
+  --sea: var(--lv-custom-bg);
+  --sea-deep: var(--lv-custom-bg);
+  --paper: var(--lv-custom-bg);
+  --navy: var(--lv-custom-text);
+  --navy-soft: var(--lv-custom-text);
+  --bubble: var(--lv-custom-text);
+  --coral: var(--lv-custom-text);
+  --dial: var(--lv-custom-text);
+  --space: var(--lv-custom-bg);
+  --star: var(--lv-custom-text);
+  --star-warm: var(--lv-custom-text);
+  --shadow-on-space: var(--lv-custom-text);
+  --void: var(--lv-custom-bg);
+  --shadow-tint: var(--lv-custom-text);
+  --studio-top: var(--lv-custom-bg);
+  --studio-bottom: var(--lv-custom-bg);
+  --studio-glow: var(--lv-custom-bg);
+  --chart-grid: var(--lv-custom-text);
   --lv-coast: var(--lv-custom-text);
   --lv-label: var(--lv-custom-text);
   --lv-label-halo: var(--lv-custom-bg);
+}
+
+/* The daylight design sets the page's text on its accent fills (navy on coral). A theme's accent is its focus and needle
+   colour, so text on a fill takes the colour made to sit on it (--ink), and a paper surface inside a fill goes back to
+   the theme's text. In the night sky --ink is the text on a star-coloured key: the sky's own colour. */
+:root[data-lv-theme] :is(.bg-shapla, .bg-coral, .bg-bubble, .bg-dial, .crown, .comic-box, [aria-pressed="true"].aria-pressed\:bg-shapla) {
+  color: var(--ink);
+}
+@layer base {
+  :root[data-lv-theme] .bg-paper {
+    color: var(--navy);
+  }
+}
+:root[data-lv-theme] .night-sky {
+  --ink: var(--space);
+}
+:root[data-lv-theme] :is(.night-sky, .bg-space, [data-space]) :focus-visible,
+:root[data-lv-theme] .search-field:focus-within {
+  outline-color: var(--star);
 }
 
 /* Text size, independent of the browser's zoom: everything is in rem, so it all grows together. */
@@ -1373,16 +1455,13 @@ html {
 
 /* Fonts: Atkinson Hyperlegible for Latin text, a large clear Bangla face for Bangla (Atkinson has no Bengali). */
 :root[data-lv-font="atkinson"] {
-  --font-geist: var(--font-atkinson);
-  --font-instrument: var(--font-atkinson);
+  --font-archivo: var(--font-atkinson);
 }
 :root[data-lv-bn-font="noto"] {
   --font-anek: var(--font-noto-bn);
-  --font-tiro: var(--font-noto-bn);
 }
 :root[data-lv-bn-font="hind"] {
   --font-anek: var(--font-hind-bn);
-  --font-tiro: var(--font-hind-bn);
 }
 
 /* Spacing: WCAG 1.4.12's values (line 1.5, letters 0.12 em, words 0.16 em, paragraphs 2 em) and a shorter line. */
@@ -1428,6 +1507,28 @@ html {
 }
 :root[data-lv-calm] [data-decorative] {
   display: none !important;
+}
+
+/* Pages flow: the frame is as tall as its page and the page scrolls, so nothing is clipped at 200% text. Listen's
+   cabinet is then sized from its width alone (the map keeps its shape and the page grows). */
+:root[data-lv-flow] .app-shell {
+  height: auto;
+}
+:root[data-lv-flow] .app-main {
+  overflow-y: visible;
+}
+/* The player's row wraps rather than running off the screen. */
+:root[data-lv-flow] .dock-bar :is([data-tt-occluder], [data-tt-occluder] > div) {
+  flex-wrap: wrap;
+}
+@media (min-width: 64rem) {
+  :root[data-lv-flow] .cabinet-sizes > div {
+    height: auto;
+    container-type: inline-size;
+  }
+  :root[data-lv-flow] .cabinet-map {
+    width: calc(100cqw - var(--cab-side));
+  }
 }
 
 /* When low-vision layouts make the page scroll, anything scrolled into view (focus, the needle's map) stops above the

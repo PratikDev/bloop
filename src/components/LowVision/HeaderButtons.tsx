@@ -4,6 +4,7 @@ import { Eye, SlidersHorizontal } from "@phosphor-icons/react";
 import { Button } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
 import { useT } from "../AppState/use-app-state";
+import { HEADER_KEY } from "../Header/header-key";
 import { useLowVisionPreset } from "./use-low-vision-preset";
 
 export const LV_PANEL_ID = "lv-settings";
@@ -15,7 +16,7 @@ export const LV_PANEL_ID = "lv-settings";
 export function LowVisionButtons({ open, onOpenChange }: { open: boolean; onOpenChange: (open: boolean) => void }) {
   const t = useT();
   return (
-    <div className="flex items-center gap-1">
+    <div className="flex items-center gap-2">
       <LowVisionToggle />
       <Button
         variant="ghost"
@@ -24,7 +25,7 @@ export function LowVisionButtons({ open, onOpenChange }: { open: boolean; onOpen
         aria-controls={LV_PANEL_ID}
         aria-label={t("lv.settings")}
         onClick={() => onOpenChange(!open)}
-        className="size-11 text-haze hover:text-moon"
+        className={HEADER_KEY}
       >
         <SlidersHorizontal aria-hidden="true" className="size-5" />
       </Button>
@@ -42,7 +43,7 @@ export function LowVisionToggle({ label = "lv.toggle", className }: { label?: "l
       aria-pressed={on}
       aria-keyshortcuts="Alt+L"
       onClick={toggle}
-      className={cn("h-11 gap-1.5 rounded-full px-3 text-small", on ? "bg-tide text-moon ring-2 ring-shapla" : "text-haze hover:text-moon", className)}
+      className={cn("key border-navy h-11 gap-1.5 rounded-lg bg-paper px-3 text-small text-moon hover:bg-paper aria-pressed:bg-shapla aria-pressed:hover:bg-shapla", className)}
     >
       <Eye aria-hidden="true" className="size-5" />
       {t(label)}

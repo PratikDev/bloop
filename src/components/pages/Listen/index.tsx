@@ -1,5 +1,6 @@
 "use client";
 
+import { FLAGS } from "@/lib/flags";
 import { cn } from "@/lib/utils";
 import { useAppState, useT } from "../../AppState/use-app-state";
 import { useListenPlayContext } from "../../Art/use-play-context";
@@ -9,6 +10,8 @@ import { FireWeatherLayerSound } from "../../EarthData/FireWeatherLayer";
 import { ExploreControls } from "../../ExploreControls";
 import { FrameView } from "../../FrameView";
 import { TimeLapseStage } from "../../Globe/TimeLapseStage";
+import { LvLegend } from "../../LowVision/Legend";
+import { LENS_DOCK_ID } from "../../LowVision/lens-place";
 import { useRecords } from "../../Records/use-records";
 import { StoryPanel } from "../../Story/StoryPanel";
 import { Inspector } from "./Inspector";
@@ -51,6 +54,8 @@ export function ListenPage() {
                 <ListenStatus className="pt-2 lg:absolute lg:top-3 lg:left-3 lg:z-(--layer-map-plates) lg:p-0" />
                 <NeedleSoundWord />
               </div>
+              {FLAGS.lowVision && <div id={LENS_DOCK_ID} className="mt-3 empty:hidden" />}
+              {FLAGS.lowVision && <LvLegend className="mt-3" />}
               <Inspector />
             </div>
           </Cabinet>
