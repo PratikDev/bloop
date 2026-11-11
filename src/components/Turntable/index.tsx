@@ -33,6 +33,8 @@ import { useTurntableActions } from "./use-turntable-actions";
 import { useTurntableKeys } from "./use-turntable-keys";
 import type { SceneId } from "../Scenes/registry";
 import { SceneHost } from "../Scenes/SceneHost";
+import { PauseMotionKey } from "../SpaceWindow/PauseMotionKey";
+import { usePauseMotion } from "../SpaceWindow/use-pause-motion";
 
 const SEND_LOG_MAX = 5000;
 const IDLE_MS = 30_000;
@@ -54,6 +56,7 @@ const focusFlatMap = () => requestAnimationFrame(() => document.getElementById(M
  */
 export function Turntable() {
   const { state, dispatch } = useAppState();
+  const pause = usePauseMotion();
   const { fields } = useLiveData();
   const commands = useCommands();
   const { tt: tr, lang, rootLang } = useTT();
@@ -86,6 +89,7 @@ export function Turntable() {
     liveOn: liveSoundOn(state),
     allMuted: state.allMuted,
     reduceMotion: state.reduceMotion,
+    motionPaused: pause.paused,
     layers: layerToggles(settings),
     introPending,
     paused: sceneOpen !== null,
@@ -195,18 +199,25 @@ export function Turntable() {
           chipDock={chipDock}
           onKeyDown={onKeyDown}
           debug={debug ? { sendLog, placed } : null}
+          motionPaused={pause.paused}
           deckControls={{ rotating: tt.rotating, speed: tt.speed, toggleRotation: actions.toggleRotation, changeSpeed: actions.changeSpeed }}
           className="absolute inset-0"
         />
-        {/* Desktop: the readout and the legend share one column at the edge. */}
+        {/* Desktop: the readout and the legend share one column at the edge. The column is the panel the layout keeps
+            clear of, at least as tall as a three-line readout and the legend: its text changing with every needle move
+            doesn't move the globe or the turntable (opening the details card still does, as it should). */}
         {!phone && (
-          <div data-overlay className="absolute top-6 left-6 z-10 flex w-88 flex-col gap-2">
+          <div data-overlay data-tt-occluder className="absolute top-6 left-6 z-10 flex min-h-64 w-88 flex-col gap-2">
             <div ref={setChipDock} />
             {/* Always laid out, so the globe doesn't resize each time the needle moves. */}
             <LegendBar className={cn(!legendShown && "invisible")} />
           </div>
         )}
         <div data-overlay className="pointer-events-none absolute top-3 right-3 left-3 flex items-start justify-end gap-2 pt-6 sm:pt-0">
+          {/* "Pause motion", as on every stage: holds the Earth's turn, the grille and the tremble; never the sound. */}
+          <div data-tt-occluder className="pointer-events-auto shrink-0">
+            <PauseMotionKey pause={pause} compact />
+          </div>
           <SearchBox gazetteer={geo?.gazetteer ?? null} onChoose={actions.choosePlace} inputRef={searchRef} className="pointer-events-auto max-w-full" />
         </div>
         <div data-overlay className="pointer-events-none absolute inset-x-3 bottom-3 flex flex-col items-center gap-2">
@@ -224,7 +235,7 @@ export function Turntable() {
           {/* On a phone the readout and legend are one compact panel under the globe. The legend is always laid out,
               as on desktop, so the panel (and the stage that grows around it) doesn't resize each time the needle moves. */}
           {phone && (
-            <div data-tt-occluder className="on-space pointer-events-auto w-full rounded-plate p-1">
+            <div data-tt-occluder className="on-space pointer-events-auto min-h-56 w-full rounded-plate p-1">
               <div ref={setChipDock} />
               <LegendBar className={cn("border-0 shadow-none", !legendShown && "invisible")} />
             </div>

@@ -49,11 +49,13 @@ export interface StageProps {
   debug: { sendLog: RefObject<SentReading[]>; placed: { current: PlacedLabels } } | null;
   /** The bar's own actions and state, which the turntable's hardware mirrors. */
   deckControls: DeckControls;
+  /** "Pause motion" (Turntable/index.tsx): the deck's grille and tremble hold still. */
+  motionPaused: boolean;
   className?: string;
 }
 
 /** The globe and everything drawn over it; the focusable region for the Turntable keys. */
-export function Stage({ tt, hostRef, geo, record, tier, place, preview, labels, graticule, details, intro, ready, chipDock, onKeyDown, debug, deckControls, className }: StageProps) {
+export function Stage({ tt, hostRef, geo, record, tier, place, preview, labels, graticule, details, intro, ready, chipDock, onKeyDown, debug, deckControls, motionPaused, className }: StageProps) {
   const { tt: tr, lang } = useTT();
   const { state } = useAppState();
   const pointer = useGlobePointer(tt);
@@ -98,7 +100,7 @@ export function Stage({ tt, hostRef, geo, record, tier, place, preview, labels, 
       </div>
       {/* The turntable beside the globe (under it on narrow screens): placed by use-occluder-fit. Not a panel. */}
       <div data-deck-host className="absolute top-0 left-0 transition-transform duration-(--duration-flip) ease-(--ease-mechanical) motion-reduce:transition-none">
-        <DeckViewCanvas tt={tt} controls={deckControls} />
+        <DeckViewCanvas tt={tt} controls={deckControls} motionPaused={motionPaused} />
       </div>
       {labels && <LabelLayer subscribe={tt.subscribe} candidates={labels} graticule={graticule} reserved={reserved} placedRef={debug?.placed} />}
       <NeedleChip subscribe={tt.subscribe} place={place} preview={preview} details={details} reserved={reserved} dock={chipDock} />

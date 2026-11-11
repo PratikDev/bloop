@@ -29,12 +29,12 @@ const MAX_DPR = 2;
  * The turntable beside the globe: its own canvas, drawn on the globe's frame (the Turntable's frame loop, paused when
  * hidden). Decorative: the needle's place and value are in the readout and the hidden description.
  */
-export function DeckViewCanvas({ tt, controls }: { tt: Turntable; controls: DeckControls }) {
+export function DeckViewCanvas({ tt, controls, motionPaused }: { tt: Turntable; controls: DeckControls; motionPaused: boolean }) {
   const { subscribe } = tt;
   const canvasRef = useRef<HTMLCanvasElement>(null);
   const [view, setView] = useState<DeckView | null>(null);
   useDeckHardware(view, canvasRef, controls);
-  useDeckLevels(view, canvasRef);
+  useDeckLevels(view, canvasRef, motionPaused);
   const { state } = useAppState();
   const { fields } = useLiveData();
   const { sst, rain } = useFrameImages();

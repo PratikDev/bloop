@@ -16,7 +16,7 @@ import type { SentReading } from "./needle-sound";
 import { deckProbe } from "./DeckView";
 import type { DeckPart } from "./DeckView/deck-view";
 import type { CameraMode, TurntableScene } from "./scene";
-import { SPEEDS, type Turntable } from "./use-turntable";
+import { SPEEDS, type DeckPose, type Turntable } from "./use-turntable";
 
 /** A flat-map size for the 2D pick (FrameView maps pixels the same way at any size). */
 const FLAT_MAP = { width: 1280, height: 640 };
@@ -168,6 +168,8 @@ export interface DebugApi {
   discOutline(): { x: number; y: number }[];
   /** The swatch on the globe and the stylus tip on the turntable as drawn now (visible, in front of their camera, on screen). */
   pointer(): (ReturnType<TurntableScene["pointer"]> & { arm: DeckPart | null }) | null;
+  /** The needle as the last frame drew it (place, lift, park), for timing checks. */
+  pose(): DeckPose | null;
   /** The frame's pixel the swatch would show at a point (the same rule and images as the swatch and the record). */
   pixelAt(lat: number, lon: number): [number, number, number] | null;
   /** The record's latitude and longitude under a page point (CSS px), or null off its grooves. */
@@ -192,7 +194,12 @@ export function createDebugApi(
   placed: { current: PlacedLabels },
   track: () => TrackMode,
 ): DebugApi {
+  let lastPose: DeckPose | null = null;
+  tt().subscribe((f) => {
+    lastPose = f.pose ?? null;
+  });
   return {
+    pose: () => lastPose,
     whereAmI: (lat, lon) => geo()?.gazetteer.whereAmI({ lat, lon }) ?? null,
     search: (query) => geo()?.gazetteer.search(query) ?? [],
     async searchAndFly(query) {

@@ -17,12 +17,12 @@ const quantise = (v: number) => Math.ceil(Math.min(1, Math.max(0, v)) * STEPS) /
 
 /**
  * Feeds the deck the sound's levels for the speaker grille (the low band) and the stylus tremble (the overall level),
- * while the record sounds; nothing under reduced motion or with the sound paused (the deck stays still).
+ * while the record sounds; nothing under reduced motion, under Pause motion or with the sound paused (the deck stays still).
  */
-export function useDeckLevels(view: DeckView | null, canvasRef: RefObject<HTMLCanvasElement | null>): void {
+export function useDeckLevels(view: DeckView | null, canvasRef: RefObject<HTMLCanvasElement | null>, motionPaused: boolean): void {
   const { state } = useAppState();
   const sounding = useRecordSounding();
-  const live = sounding && state.soundOn && state.playing && !state.reduceMotion;
+  const live = sounding && state.soundOn && state.playing && !state.reduceMotion && !motionPaused;
   const { mode } = state;
 
   useEffect(() => {

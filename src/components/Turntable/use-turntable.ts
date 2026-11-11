@@ -51,6 +51,8 @@ interface Options {
   liveOn: boolean;
   allMuted: boolean;
   reduceMotion: boolean;
+  /** "Pause motion": the Earth stops turning by itself (the Turn key keeps its state); sound and needle are untouched. */
+  motionPaused?: boolean;
   layers: LayerToggles;
   /** The intro will run (once per session): the arm waits at rest until startIntro(). */
   introPending: boolean;
@@ -318,7 +320,7 @@ export function useTurntable(o: Options): Turntable {
           flight.current = null;
           f.resolve(true);
         }
-      } else if (o.rotating) {
+      } else if (o.rotating && !o.motionPaused) {
         // West to east, like the Earth: the longitude under the needle falls.
         pose.current = { lat: pose.current.lat, lon: wrapLon(pose.current.lon - DEG_PER_SEC * o.speed * dt) };
         moved = true;
@@ -352,12 +354,13 @@ export function useTurntable(o: Options): Turntable {
         recordLift.current = d.recordLift;
         moved = true;
         if (d.landed && o.liveOn && !o.allMuted) audio.playNeedleDrop();
+        // The readout and the app's cursor follow the place the moment the needle touches down, not after the settle.
+        if (d.landed && path) {
+          lastSync.current = 0;
+          unsynced.current = true;
+        }
         if (d.done) {
-          if (path) {
-            swing.current = null;
-            lastSync.current = 0;
-            unsynced.current = true;
-          }
+          if (path) swing.current = null;
           holding.current = false;
           dropDone.current?.();
           dropDone.current = null;

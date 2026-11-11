@@ -19,6 +19,9 @@ const MIN_PANEL_PX = 4;
 function occluderRects(stage: DOMRect, within?: Element): Rect[] {
   const rects: Rect[] = [];
   for (const el of (within ?? document).querySelectorAll(OCCLUDER)) {
+    // A panel inside another (the readout inside its column) is covered by it: only the outer one shapes the layout,
+    // so the inner one's text changing size moves nothing.
+    if (el.parentElement?.closest(OCCLUDER)) continue;
     const r = el.getBoundingClientRect();
     if (r.width > MIN_PANEL_PX && r.height > MIN_PANEL_PX) rects.push({ x: r.left - stage.left, y: r.top - stage.top, w: r.width, h: r.height });
   }
