@@ -66,19 +66,21 @@ export function Tile({
         {context && <p className="text-body text-moon">{context}</p>}
       </div>
       {face}
-      <InfoSheet
-        title={title}
-        triggerClassName={ROW_KEY}
-        trigger={
-          <>
-            {open}
-            <ArrowRight aria-hidden="true" className="size-4" />
-          </>
-        }
-      >
-        {children}
-      </InfoSheet>
-      {facts && <HowWeGotThis facts={facts} />}
+      <div className="flex flex-wrap items-center gap-3">
+        <InfoSheet
+          title={title}
+          triggerClassName={ROW_KEY}
+          trigger={
+            <>
+              {open}
+              <ArrowRight aria-hidden="true" className="size-4" />
+            </>
+          }
+        >
+          {children}
+        </InfoSheet>
+        {facts && <HowWeGotThis facts={facts} />}
+      </div>
     </li>
   );
 }
