@@ -13,8 +13,8 @@
   ],
   "credit": "NASA Black Marble VJ146A2 (NOAA-20 VIIRS), NASA LAADS DAAC.",
   "disclosure": "Median of 5×5 pixels around each city. Cloudy nights are flagged, not filled: clouds, not blackouts.",
-  "source_time_utc": "2026-10-26T00:00:00Z",
-  "generated_utc": "2026-11-06T08:01:16Z",
+  "source_time_utc": "2026-10-28T00:00:00Z",
+  "generated_utc": "2026-11-11T17:01:04Z",
   "short_name": "VJ146A2",
   "variable": "DNB_BRDF-Corrected_NTL",
   "units": "nW·cm⁻²·sr⁻¹",
@@ -46,7 +46,9 @@
         "2026-10-23",
         "2026-10-24",
         "2026-10-25",
-        "2026-10-26"
+        "2026-10-26",
+        "2026-10-27",
+        "2026-10-28"
       ],
       "radiance": [
         26.79,
@@ -69,7 +71,9 @@
         null,
         37.45,
         34.4,
-        30.13
+        30.13,
+        null,
+        null
       ],
       "valid_share": [
         1.0,
@@ -92,7 +96,9 @@
         0.0,
         1.0,
         1.0,
-        1.0
+        1.0,
+        0.0,
+        0.0
       ],
       "cloud_masked": [
         false,
@@ -115,7 +121,9 @@
         true,
         false,
         false,
-        false
+        false,
+        true,
+        true
       ]
     },
     "Chattogram": {
@@ -143,7 +151,9 @@
         "2026-10-23",
         "2026-10-24",
         "2026-10-25",
-        "2026-10-26"
+        "2026-10-26",
+        "2026-10-27",
+        "2026-10-28"
       ],
       "radiance": [
         16.93,
@@ -163,6 +173,8 @@
         37.22,
         24.31,
         19.54,
+        null,
+        null,
         null,
         null,
         null,
@@ -189,6 +201,8 @@
         0.0,
         0.0,
         0.0,
+        0.0,
+        0.0,
         0.0
       ],
       "cloud_masked": [
@@ -209,6 +223,8 @@
         false,
         false,
         false,
+        true,
+        true,
         true,
         true,
         true,
@@ -240,7 +256,9 @@
         "2026-10-23",
         "2026-10-24",
         "2026-10-25",
-        "2026-10-26"
+        "2026-10-26",
+        "2026-10-27",
+        "2026-10-28"
       ],
       "radiance": [
         9.83,
@@ -263,7 +281,9 @@
         16.43,
         22.12,
         19.62,
-        14.33
+        14.33,
+        null,
+        null
       ],
       "valid_share": [
         1.0,
@@ -286,7 +306,9 @@
         1.0,
         1.0,
         1.0,
-        1.0
+        1.0,
+        0.0,
+        0.0
       ],
       "cloud_masked": [
         false,
@@ -309,7 +331,9 @@
         false,
         false,
         false,
-        false
+        false,
+        true,
+        true
       ]
     }
   }

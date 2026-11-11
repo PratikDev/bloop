@@ -11,9 +11,9 @@
  "description": "Plate Carree projection of the most current global precipitation data from IMERG with burned in time stamps. || annotated_flat.jpg (2048x1024) [1.0 MB] || annotated_flat (2048x1024) [900 Item(s)] || annotated_flat_2048x1024.mp4 (2048x1024) [131.4 MB] || ",
  "release_date": "2026-06-05T00:00:00-04:00",
  "period": {
-  "start": "2026-10-18T09:00:00Z",
-  "end": "2026-11-06T02:30:00Z",
-  "label": "18 Oct 2026 – 6 Nov 2026"
+  "start": "2026-10-23T18:00:00Z",
+  "end": "2026-11-11T11:30:00Z",
+  "label": "23 Oct 2026 – 11 Nov 2026"
  },
  "badge": "observation",
  "credits_by_role": {
@@ -67,169 +67,47 @@
   "pass_at": 0.9,
   "shifts_deg": [],
   "iou": {
-   "land": 0.3544374106595875
+   "land": 0.35691916810620833
   },
   "pass": false,
   "best_is_assumed": false
  },
  "colorbar": {
   "geometry": {
-   "x0": 21,
-   "x1": 418,
+   "x0": 23,
+   "x1": 416,
    "band": [
     29,
     44
    ],
    "vertical": false,
-   "outline_rgb": null,
+   "outline_rgb": [
+    0.0,
+    0.0,
+    0.0
+   ],
    "image_size": [
     90,
     440
    ]
   },
-  "ticks": [
-   {
-    "px": 17.0,
-    "value": 0.1,
-    "text": "0.1",
-    "engine": "glyph",
-    "label_px": 17.5,
-    "tick_mark": true
-   },
-   {
-    "px": 54.5,
-    "value": 0.2,
-    "text": "0.2",
-    "engine": "glyph",
-    "label_px": 54.5
-   },
-   {
-    "px": 90.5,
-    "value": 0.3,
-    "text": "0.3",
-    "engine": "glyph",
-    "label_px": 90.5
-   },
-   {
-    "px": 126.5,
-    "value": 0.5,
-    "text": "0.5",
-    "engine": "glyph",
-    "label_px": 126.5
-   },
-   {
-    "px": 162.0,
-    "value": 1.0,
-    "text": "1.0",
-    "engine": "glyph",
-    "label_px": 163.0,
-    "tick_mark": true
-   },
-   {
-    "px": 199.0,
-    "value": 2.0,
-    "text": "2.0",
-    "engine": "glyph",
-    "label_px": 199.5,
-    "tick_mark": true
-   },
-   {
-    "px": 235.5,
-    "value": 3.0,
-    "text": "3.0",
-    "engine": "glyph",
-    "label_px": 235.5
-   },
-   {
-    "px": 271.5,
-    "value": 5.0,
-    "text": "5.0",
-    "engine": "glyph",
-    "label_px": 271.5
-   },
-   {
-    "px": 307.0,
-    "value": 10.0,
-    "text": "10",
-    "engine": "glyph",
-    "label_px": 307.5,
-    "tick_mark": true
-   },
-   {
-    "px": 343.0,
-    "value": 20.0,
-    "text": "20",
-    "engine": "glyph",
-    "label_px": 343.5,
-    "tick_mark": true
-   },
-   {
-    "px": 380.0,
-    "value": 50.0,
-    "text": "50",
-    "engine": "glyph",
-    "label_px": 379.5,
-    "tick_mark": true
-   }
-  ],
-  "scale": "piecewise",
+  "ticks": [],
+  "scale": "stated-range",
   "fit": {
-   "segments": 10,
-   "segment_interp": "linear",
-   "rejected": {
-    "linear": {
-     "a": -11.496861185606845,
-     "b": 0.10694032714878175,
-     "fit": "weighted 1/tolerance",
-     "max_resid_px": 195.05772448263366,
-     "resid_px": [
-      91.44,
-      54.88,
-      19.81,
-      -14.32,
-      -45.14,
-      -72.79,
-      -99.94,
-      -117.24,
-      -105.98,
-      -48.47,
-      195.06
-     ],
-     "ok": false
-    },
-    "log": {
-     "a": -1.153373881408797,
-     "b": 0.007245338098791664,
-     "fit": "weighted 1/tolerance",
-     "max_resid_px": 15.839896842945231,
-     "resid_px": [
-      4.17,
-      8.22,
-      -3.48,
-      -8.86,
-      -2.81,
-      1.74,
-      -10.46,
-      -15.84,
-      -9.79,
-      -4.24,
-      13.68
-     ],
-     "ok": false
-    }
-   }
+   "a": 0.0,
+   "b": 0.002544529262086514
   },
   "notes": [
-   "5 label(s) not on a tick mark (0.2, 0.3, 0.5, 3.0, 5.0): label-centre position, ±5 px."
+   "OCR read []: too few increasing labels; the SVS text's range 0.0–1.0 is used, linear between the strip ends."
   ],
-  "n_samples": 398,
+  "n_samples": 394,
   "value_range": [
-   0.05466666666666667,
-   63.78378378378378
+   0.0,
+   1.0
   ],
   "opacity_varies": false
  },
- "colorbar_source": "page colorbar rainbarwhite2.png",
+ "colorbar_source": "page colorbar rainbarblack2.png (word labels: relative 0–1)",
  "asset": {
   "kind": "frames",
   "owner": 5650,
@@ -329,15 +207,15 @@
  ],
  "decode": {
   "mode": "exact",
-  "decoded_share": 0.04248189300411523
+  "decoded_share": 0.05735936213991769
  },
  "layers": [
   {
    "id": "value",
-   "unit": "colorbar units",
+   "unit": "relative (0–1)",
    "encoding": "linear",
-   "scale": 0.0007705999209987628,
-   "offset": 0.10533332824707031,
+   "scale": 0.0002538071065989848,
+   "offset": 0.04946737363934517,
    "nodata": 65535,
    "below": 65534,
    "grid": {
@@ -354,36 +232,41 @@
     "byte_order": "little"
    },
    "times": [
-    "2026-10-18T09:00:00Z",
-    "2026-10-27T18:00:00Z",
-    "2026-11-06T02:30:00Z"
+    "2026-10-23T18:00:00Z",
+    "2026-11-02T03:00:00Z",
+    "2026-11-11T11:30:00Z"
    ],
    "chunks": [
     {
      "file": "value_000.u16.gz",
      "t0": 0,
      "t1": 3,
-     "bytes": 15525
+     "bytes": 20799
     }
    ],
-   "quantisation_step": 0.0007705999209987628,
-   "coverage": 0.029933127572016462,
+   "quantisation_step": 0.0002538071065989848,
+   "coverage": 0.041378600823045265,
    "value_range": [
-    0.10533332824707031,
-    13.23297119140625
+    0.04946737363934517,
+    0.8429516553878784
    ],
    "label": "Near Real-Time Global Precipitation from the Global Precipitation Measurement Constellation (relative)",
    "aggregation": "mean of decoded pixels per cell",
    "time_labels": [
-    "18 Oct 2026",
-    "27 Oct 2026",
-    "06 Nov 2026"
+    "23 Oct 2026",
+    "02 Nov 2026",
+    "11 Nov 2026"
    ],
    "display": {
     "colours": [
      "#000000",
      "#3a3d48",
-     "#00b330",
+     "#008114",
+     "#008114",
+     "#008114",
+     "#008b52",
+     "#008b52",
+     "#00a939",
      "#00b330",
      "#00b330",
      "#60d300",
@@ -391,6 +274,7 @@
      "#60d300",
      "#b4e700",
      "#b4e700",
+     "#b4e700",
      "#fffb00",
      "#fffb00",
      "#fffb00",
@@ -399,60 +283,54 @@
      "#ffc400",
      "#ff9300",
      "#ff9300",
-     "#ff9300",
-     "#ff4900",
-     "#ff4900",
-     "#ff4900",
+     "#ff6d00",
      "#ff0000",
      "#ff0000",
      "#c80000",
      "#c80000",
      "#c80000",
-     "#910000",
-     "#910000",
-     "#910000",
      "#910000",
      "#000000"
     ],
     "values": [
-     0.05466666666666667,
-     0.08881720430107527,
-     0.12296774193548388,
-     0.1571182795698925,
-     0.1912688172043011,
-     0.2264784946236559,
-     0.26205197132616487,
-     0.2976254480286738,
-     0.3663978494623656,
-     0.4375448028673835,
-     0.522035438437074,
-     0.7024079963652885,
-     0.8827805542935031,
-     1.1211857018308635,
-     1.4673060156931124,
-     1.8134263295553619,
-     2.1617322138753865,
-     2.5125939019001327,
-     2.863455589924879,
-     3.4345878136200714,
-     4.146057347670251,
-     4.85752688172043,
-     6.44252612448887,
-     8.246251703771016,
-     10.098566308243733,
-     13.655913978494631,
-     17.21326164874553,
-     22.249346120313845,
-     32.63295553618133,
-     43.01656495204881,
-     53.4001743679163,
-     63.78378378378378
+     0.0,
+     0.03225806451612904,
+     0.06451612903225808,
+     0.09677419354838711,
+     0.12903225806451615,
+     0.16129032258064518,
+     0.19354838709677422,
+     0.22580645161290328,
+     0.2580645161290323,
+     0.2903225806451613,
+     0.32258064516129037,
+     0.35483870967741943,
+     0.38709677419354843,
+     0.4193548387096775,
+     0.45161290322580655,
+     0.4838709677419355,
+     0.5161290322580646,
+     0.5483870967741936,
+     0.5806451612903226,
+     0.6129032258064516,
+     0.6451612903225807,
+     0.6774193548387097,
+     0.7096774193548389,
+     0.7419354838709677,
+     0.7741935483870969,
+     0.8064516129032259,
+     0.838709677419355,
+     0.870967741935484,
+     0.9032258064516131,
+     0.935483870967742,
+     0.967741935483871,
+     1.0
     ],
     "scale": "linear"
    },
    "status": "relative",
    "status_check": "a_auto_source",
-   "statement": "relative: ρ 0.85 vs IMERG precipitation rate (GIBS)"
+   "statement": "relative: ρ 0.84 vs IMERG precipitation rate (GIBS)"
   }
  ],
  "voices": {
@@ -465,8 +343,8 @@
    "view": "global",
    "map": "value",
    "start": {
-    "lat": 3.5,
-    "lon": 9.5
+    "lat": 0.5,
+    "lon": 1.5
    },
    "steps_per_second": 1,
    "channels": [
@@ -494,28 +372,28 @@
    "frames": 3
   },
   "tried": [],
-  "bytes": 29705,
+  "bytes": 32565,
   "budget": 25000000
  },
  "onboarding": {
   "timings_s": {
-   "api": 11.9,
-   "twins": 0.8,
+   "api": 1.4,
+   "twins": 15.5,
    "asset choice": 0.0,
-   "frames": 8.6,
-   "frame times": 3.2,
-   "georef": 4.2,
-   "colorbar": 0.4,
-   "inversion": 3.7,
-   "validation": 17.4
+   "frames": 1.1,
+   "frame times": 0.1,
+   "georef": 1.3,
+   "colorbar": 1.6,
+   "inversion": 1.0,
+   "validation": 4.7
   },
   "status": "relative"
  },
  "asset_checksums": {
   "file": "checksums.tsv.gz",
-  "rows": 14,
-  "sha256_of_list": "a9a42c1594424f9356682155f0f3fcf1cd571f0c79f027cddddc80e55c603b89"
+  "rows": 7,
+  "sha256_of_list": "02a4d2e116450141c3e943da555c0819d658c157a9ccf7549f1227ee749f8e28"
  },
- "code_commit": "70fbc52ad21bfbc49316cc14d120ad2f0fd7f0a6-dirty",
- "generated_utc": "2026-11-06T08:03:34Z"
+ "code_commit": "3a15a13da51e001cfd73b8043cf28a0970c59ee8-dirty",
+ "generated_utc": "2026-11-11T17:01:57Z"
 }

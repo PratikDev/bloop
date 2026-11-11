@@ -13,8 +13,8 @@
   ],
   "credit": "Visualization: NASA's Scientific Visualization Studio (SVS 5315) for the NASA Earth Information Center.",
   "disclosure": "SVS keeps no archive of this map, so Bloop saves one copy a day.",
-  "source_time_utc": "2026-11-06T07:10:55Z",
-  "generated_utc": "2026-11-06T08:00:11Z",
+  "source_time_utc": "2026-11-11T07:12:26Z",
+  "generated_utc": "2026-11-11T17:00:42Z",
   "keep_days": 60,
   "grid": {
     "width": 1024,
@@ -66,6 +66,26 @@
       "date": "2026-11-06",
       "file": "archive/fwi/FWI_20261106.u8.gz",
       "issued_utc": "2026-11-06T07:10:55Z",
+      "places": {
+        "Dhaka": 1,
+        "Chattogram": 1,
+        "Rajshahi": 1,
+        "Sylhet": 1
+      },
+      "bd_box_counts": {
+        "0": 27,
+        "1": 225,
+        "2": 0,
+        "3": 0,
+        "4": 0,
+        "5": 0,
+        "6": 0
+      }
+    },
+    {
+      "date": "2026-11-11",
+      "file": "archive/fwi/FWI_20261111.u8.gz",
+      "issued_utc": "2026-11-11T07:12:26Z",
       "places": {
         "Dhaka": 1,
         "Chattogram": 1,
