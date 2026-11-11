@@ -106,7 +106,7 @@ What the table needs, from our liblouis checks (4–5 Nov) and confirmed by NVDA
 
 Known ambiguity (Bharati braille itself, not a bug): ⠼ is both the number sign and the letter ণ, so ⠼⠁⠊ is both "19" and "ণই". The forward dots are correct; context tells a reader which.
 
-A draft liblouis issue for the three table problems: [liblouis-issue-draft-bn.md](liblouis-issue-draft-bn.md) (not filed).
+A draft liblouis issue for the three table problems: liblouis-issue-draft-bn.md (not filed).
 
 **The words: who chose them.**
 
@@ -154,9 +154,9 @@ A draft liblouis issue for the three table problems: [liblouis-issue-draft-bn.md
 | Browser side of the protocol (`e2e/braille-protocol.e2e.ts`, Chromium and Firefox) | Checks a–g PASS in both browsers: exposed roles and names, B, Shift+Tab, arrows, R, width 20/40, and "Sound paused" in the live region. |
 | NVDA 2026.3 + Braille Viewer, Chrome, UEB grade 1 (4 Nov 2026: checks b, c, e) | **The dots match Part A cell for cell**, read from nvda.log's "Braille window dots" lines. Differences are NVDA's own presentation, as expected: the cursor blinks as dots 7-8 on the caret cell; the word at the cursor is in computer braille (default setting); only the caret's line of the shape field is shown. **Two value-line problems:** on focus all its text is selected (dots 7-8 on every cell), and a read-only input's caret doesn't move in Chromium, so NVDA shows the line's end. Details and screenshots in the protocol's Results. Not yet run: Firefox, the Bengali table, JAWS, VoiceOver, TalkBack. |
 | Value-line fix and Bangla lines (5 Nov 2026) | **Unit:** every shipped record's UEB core fits 40 cells, and its Bangla line is Bengali-table safe (no Latin letters, colon, dot between digits, Bangla digit or combining nukta); 72 tests. **Playwright** (Chromium): value line focus leaves no selection and the caret at 0, Home/End/arrows move it, typing changes nothing; বাংলা mode writes Bangla-only lines with দশমিক (10/10 e2e in Chromium and Firefox). **liblouis** (`be-in-g1.utb`, 6 records): every number reads back as the same Bangla numerals except 19, which reads as ণই (the ⠼/ণ ambiguity above). |
-| NVDA 2026.3 + Braille Viewer, Chrome (5 Nov 2026: check c again, UEB and Bengali) | **UEB:** the value line now arrives unselected, caret at the start: `SST 30.2C 21.5N 89.8E 1Nov 00UTC obs`. End pans to its end, Home back, and there were no "caret didn't move" events. **Bengali** (`be-in-g1.utb`, app in বাংলা mode): `সমুদ্রপৃষ্ঠের তাপমাত্রা 30 দশমিক 2 …`, with the number as ⠼⠉⠚ ⠙⠩⠍⠊⠅ ⠼⠃. Both sessions' logged dots equal liblouis's prediction cell for cell. Log: [nvda-logs/2026-11-05-nvda-chrome-check-c-ueb-bengali.log.txt](nvda-logs/2026-11-05-nvda-chrome-check-c-ueb-bengali.log.txt). |
+| NVDA 2026.3 + Braille Viewer, Chrome (5 Nov 2026: check c again, UEB and Bengali) | **UEB:** the value line now arrives unselected, caret at the start: `SST 30.2C 21.5N 89.8E 1Nov 00UTC obs`. End pans to its end, Home back, and there were no "caret didn't move" events. **Bengali** (`be-in-g1.utb`, app in বাংলা mode): `সমুদ্রপৃষ্ঠের তাপমাত্রা 30 দশমিক 2 …`, with the number as ⠼⠉⠚ ⠙⠩⠍⠊⠅ ⠼⠃. Both sessions' logged dots equal liblouis's prediction cell for cell. Log: nvda-logs/2026-11-05-nvda-chrome-check-c-ueb-bengali.log.txt. |
 
-Screenshots of the in-app preview (not a screen-reader viewer): [explorer, live rain through time](screens/explorer-live-preview.png), [explorer, official record 5669](screens/explorer-official-5669.png).
+Screenshots of the in-app preview (not a screen-reader viewer): explorer, live rain through time, explorer, official record 5669.
 
 ## Known limits
 

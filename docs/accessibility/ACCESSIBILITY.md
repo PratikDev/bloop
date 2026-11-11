@@ -2,7 +2,7 @@
 
 Bloop turns NASA Earth data into sound. Accessibility is a core theme of the challenge, so the accessible layer is the app's state, not an add-on: the map, the values and the descriptions are real HTML driven by one store, and the 3D views only draw that state. Every task works with the 3D hidden.
 
-This page says what exists, how to use it (English, then Bangla), the keys, the evidence the design rests on, how it was tested, and its limits. Build plan: [CORE_PLAN.md](CORE_PLAN.md). Test results: [RESULTS.md](RESULTS.md). Tests that need a person: [MANUAL_TESTS.md](MANUAL_TESTS.md). Braille: [BRAILLE.md](BRAILLE.md).
+This page says what exists, how to use it (English, then Bangla), the keys, the evidence the design rests on, how it was tested, and its limits. Build plan: CORE_PLAN.md. Test results: RESULTS.md. Tests that need a person: [MANUAL_TESTS.md](MANUAL_TESTS.md). Braille: [BRAILLE.md](BRAILLE.md).
 
 **Scope.** The desktop website, in Chromium and Firefox. Phone touch mode, Android vibration, TalkBack and iPhone checks were not built (decided on 8 Nov 2026); see "Known limits".
 
@@ -118,7 +118,7 @@ Checked on 9 Nov 2026; quoted only as far as the sources say.
 
 ## Test results
 
-Summary here; full tables, commands and dates in [RESULTS.md](RESULTS.md).
+Summary here; full tables, commands and dates in RESULTS.md.
 
 - Unit tests (`bun test`): templates in each detail level (English and Bangla), the digit-provenance test, pattern rules on synthetic grids, the status-region debounce, WebVTT writing and parsing, the sweep and time-lapse cues, sound captions, tactile alt text, low-vision bands, label placement, settings and theme contrast.
 - Browser tests (Playwright, Chromium and Firefox desktop, 3D shown and hidden), one file per step in `e2e/a11y/`; axe-core with zero serious violations on each new panel.

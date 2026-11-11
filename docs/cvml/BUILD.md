@@ -1,6 +1,6 @@
 # CV/ML build (10 Nov 2026): what was built
 
-Built on `wt/cv` from bloop-dev `8576669`, from the gate results in [GO_NO_GO.md](GO_NO_GO.md) (the test session's
+Built on `wt/cv` from bloop-dev `8576669`, from the gate results in GO_NO_GO.md (the test session's
 report; kept in the main folder). Only what passed the gate was built. Every number on screen comes from a grid, a
 manifest, `docs/official/VALIDATION_TABLE.md`, or a JSON written by a committed script; none is typed.
 

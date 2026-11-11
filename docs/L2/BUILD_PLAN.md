@@ -1,7 +1,7 @@
 # L2 Audio — Phased Build Plan
 
 **Lane:** L2 (Audio) · **Version:** 27 Sep 2026 · **Freeze:** Tue 29 Sep, 12:00
-**Parent docs:** [`../TEAM_BUILD_PLAN.md`](../TEAM_BUILD_PLAN.md) (what we build, Sections 9–11, 16) · [`AUDIO_RESEARCH.md`](AUDIO_RESEARCH.md) (how to build it; patterns A1–A8, ear tests T1–T7)
+**Parent docs:** [`../TEAM_BUILD_PLAN.md`](../TEAM_BUILD_PLAN.md) (what we build, Sections 9–11, 16) · `AUDIO_RESEARCH.md` (how to build it; patterns A1–A8, ear tests T1–T7)
 
 > **For any agent or teammate picking this up:** read Section 0 and Section 1 fully, then check the **Phase status** table below to see where work stands. Start at the first phase that is not ✅. Every phase lists its prerequisites; if one isn't met, stop and report it instead of working around it. **Do not start the next phase until the person who owns this lane says so, and do not commit unless asked** (project `AGENTS.md`).
 

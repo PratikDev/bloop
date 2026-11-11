@@ -1,6 +1,6 @@
 # Manual tests: accessibility core
 
-What needs a person, with exact steps. The automated checks are in [RESULTS.md](RESULTS.md); what each feature does is in [ACCESSIBILITY.md](ACCESSIBILITY.md). Build: the production site (`bun run build`, then `python pipeline/health/static_server.py out 3000`) or the deployed preview. Record each run in RESULTS.md (date, browser, what you saw, pass or fail).
+What needs a person, with exact steps. The automated checks are in RESULTS.md; what each feature does is in [ACCESSIBILITY.md](ACCESSIBILITY.md). Build: the production site (`bun run build`, then `python pipeline/health/static_server.py out 3000`) or the deployed preview. Record each run in RESULTS.md (date, browser, what you saw, pass or fail).
 
 **Not built (desktop website only, agreed 8 Nov 2026), so not tested:** phone touch mode, Android vibration ticks, the tactile vocabulary card, TalkBack, iPhone checks and Android magnification. The spec's manual protocols for those are kept at the end, for a later build.
 

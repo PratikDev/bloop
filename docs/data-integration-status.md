@@ -1,7 +1,7 @@
 # Data integration: status
 
 **Branch:** `feat/data-all` (from `feat/3d-scenes-1`).
-**Plan:** [data-integration-plan.md](data-integration-plan.md).
+**Plan:** data-integration-plan.md.
 **Last update:** 28 Oct 2026, end of phase 1.
 
 - Every number below comes from the pipeline JSON or a test log; the book values are listed for comparison only.
@@ -11,7 +11,7 @@
 
 | Item | State |
 |---|---|
-| Core refresh (A2) | **Done.** SST frame 27 Oct 00:00 UTC, rain frame 28 Oct 08:30 UTC, 48-frame sequence. `latest_check` regenerated. A2 **PASS** against the local production build; the deployed A2 waits for the `main` merge (see [data-all-main-pr.md](data-all-main-pr.md)) |
+| Core refresh (A2) | **Done.** SST frame 27 Oct 00:00 UTC, rain frame 28 Oct 08:30 UTC, 48-frame sequence. `latest_check` regenerated. A2 **PASS** against the local production build; the deployed A2 waits for the `main` merge (see data-all-main-pr.md) |
 | Daily Actions cron | **Written** (`data-daily` / `data-weekly` / `data-static` + the shared `data-run`). Each runs only from `main`; locally the same `run_all.py --cadence daily` steps pass |
 | `freshness.json` + age badge | **Done.** 21 products; badges on every frame label, record sleeve, Truth section and Mapping voice; the recorded texture is wired |
 | S-NPP → NOAA-20/21 | **Done for data:** FIRMS NOAA-21/NOAA-20 daily, VJ146A2 night lights. NOAA-20 NDVI found in CMR (`VJ113A1` v002, used in phase 3) |
