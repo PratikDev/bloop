@@ -84,7 +84,7 @@ export function entropy(p: Float64Array): number {
 }
 
 /** Sethares' dissonance of one pair of partials (Hz, linear amplitude). */
-export function pairRoughness(f1: number, f2: number, a1: number, a2: number): number {
+function pairRoughness(f1: number, f2: number, a1: number, a2: number): number {
   const s = 0.24 / (0.0207 * Math.min(f1, f2) + 18.96);
   const d = Math.abs(f2 - f1);
   return a1 * a2 * (Math.exp(-3.5 * s * d) - Math.exp(-5.75 * s * d));

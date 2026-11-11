@@ -78,7 +78,7 @@ export function voiceScale(voice: string, fallback: ShapeScale): ShapeScale {
 }
 
 /** A value's position on the scale, 0..1; null for no data. On a log scale, zero (dry) is the bottom, not missing. */
-export function positionOn(scale: ShapeScale, value: number | null): number | null {
+function positionOn(scale: ShapeScale, value: number | null): number | null {
   if (value === null || !Number.isFinite(value)) return null;
   if (scale.scale === "log" && value <= 0) return 0;
   return normalise(value, scale);
@@ -94,7 +94,7 @@ export function cellsOf(view: ShapeView, scale: ShapeScale): Cells {
 }
 
 /** Significant digits for a scale end ("0.1", "50", "-5"). */
-export function scaleNumber(v: number): string {
+function scaleNumber(v: number): string {
   const decimals = v === 0 ? 0 : Math.max(0, 2 - Math.floor(Math.log10(Math.abs(v))));
   const n = brailleNumber(Number(v.toPrecision(3)), Math.min(decimals, 3));
   return n.includes(".") ? n.replace(/0+$/u, "").replace(/\.$/u, "") : n;

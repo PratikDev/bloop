@@ -13,7 +13,7 @@ export const ZOOM_STEP = 0.85;
 export const DEFAULT_SPEED = 2;
 export const BOXES: readonly GraceBoxName[] = ["Bangladesh", "NW_India"];
 export const BOX_TEXT = { Bangladesh: "scenes.delta.bd", NW_India: "scenes.delta.nw" } as const;
-export const RIVER_TEXT = { Ganges: "scenes.delta.river.Ganges", Brahmaputra: "scenes.delta.river.Brahmaputra" } as const satisfies Record<DeltaRiverName, string>;
+const RIVER_TEXT = { Ganges: "scenes.delta.river.Ganges", Brahmaputra: "scenes.delta.river.Brahmaputra" } as const satisfies Record<DeltaRiverName, string>;
 /** The water legend's ramp: dry ground to the water table's colour (decoration; the value is the level). */
 export const WATER_RAMP = [
   { at: 0, colour: "rgb(60 48 38)" },

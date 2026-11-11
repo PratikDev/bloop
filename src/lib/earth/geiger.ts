@@ -34,11 +34,3 @@ export function seeded(seed: number): () => number {
 
 /** The next gap of a Poisson process at `rate` per second (exponential inter-arrival). */
 export const poissonGap = (rate: number, random: () => number): number => -Math.log(1 - random()) / rate;
-
-/** Every click time in [0, durationSec) at `rate` clicks/s; none at rate 0. */
-export function poissonTimes(rate: number, durationSec: number, random: () => number = Math.random): number[] {
-  if (!(rate > 0)) return [];
-  const out: number[] = [];
-  for (let t = poissonGap(rate, random); t < durationSec; t += poissonGap(rate, random)) out.push(t);
-  return out;
-}

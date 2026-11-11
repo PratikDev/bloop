@@ -172,7 +172,7 @@ export function isVoiceAudible(state: AppState, voice: LiveVoiceId): boolean {
 }
 
 /** Track 0 opens once the intro is over, before the first exploration, until it has been finished or skipped. */
-export const withTuning = (state: AppState, on: boolean = FLAGS.tuning): AppState => (on && !state.tuned ? { ...state, tuning: true } : state);
+const withTuning = (state: AppState, on: boolean = FLAGS.tuning): AppState => (on && !state.tuned ? { ...state, tuning: true } : state);
 
 export function reducer(state: AppState, action: AppAction): AppState {
   switch (action.type) {

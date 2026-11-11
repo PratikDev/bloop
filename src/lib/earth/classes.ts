@@ -3,7 +3,7 @@
 // precision the classes don't have, and they never touch a data voice's pitch.
 
 import { voiceSpec } from "@/lib/audio/mapping";
-import type { ClassCode, ClassesMapping, ClassState } from "@/types/data-contract";
+import type { ClassesMapping, ClassState } from "@/types/data-contract";
 
 export const FIRE_WEATHER_VOICE = "fireWeather";
 export const LANDSLIDE_VOICE = "landslideRumble";
@@ -26,7 +26,3 @@ export function chordHz(rule: ClassesMapping, state: ClassState | null): number[
 
 /** True when a state is a stated silence (or the code isn't in the rule). */
 export const isSilent = (state: ClassState | null): boolean => !state || state.sound === "silence";
-
-/** The rule lists exactly the product's classes, with the product's own labels (the mapping can't drift from the data). */
-export const ruleMatchesClasses = (rule: ClassesMapping, classes: readonly ClassCode[]): boolean =>
-  rule.states.length === classes.length && classes.every((c) => classState(rule, c.code)?.label === c.label);

@@ -8,7 +8,7 @@ import trims from "./mix-trims.json";
 const VOICE_TRIMS: Readonly<Record<string, { trim_db: number }>> = trims.voices;
 
 /** A voice's trim in dB (0 for a voice the mix pass didn't trim). */
-export const trimDb = (voice: string): number => VOICE_TRIMS[voice]?.trim_db ?? 0;
+const trimDb = (voice: string): number => VOICE_TRIMS[voice]?.trim_db ?? 0;
 
 /** A voice channel's input gain: the per-voice cap (public/mapping.json) times its trim. */
 export const channelGain = (voice: string): number => MAPPING.global.voiceMaxGain * 10 ** (trimDb(voice) / 20);

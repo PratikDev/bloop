@@ -153,11 +153,3 @@ export function bnUnit(unit: string): string {
   if (/^relative/iu.test(unit)) return "";
   return BN_UNITS[unit] ?? BN_UNITS[unit.split(" ")[0]] ?? "";
 }
-
-/**
- * True when `s` is safe for the Bengali table: no Latin letters, no colon, no dot between digits, no Bangla digits
- * (no number sign in bn.tbl) and no combining nukta (undefined in bn.tbl).
- */
-export function bnTableSafe(s: string): boolean {
-  return !/[A-Za-z]/u.test(s) && !/:/u.test(s) && !/[0-9]\.[0-9]/u.test(s) && !/[০-৯]/u.test(s) && !/়/u.test(s);
-}

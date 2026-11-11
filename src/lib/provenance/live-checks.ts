@@ -15,7 +15,7 @@ const KEY_COUNT = 6;
 const SIG = 3;
 
 /** Python's "{:.3g}" for one float (validate.py): three significant figures, no trailing zeros, e-notation outside 1e-4…1e3. */
-export function pyG3(x: number): string {
+function pyG3(x: number): string {
   if (x === 0) return "0";
   const exp = Math.floor(Math.log10(Math.abs(Number(x.toPrecision(SIG)))));
   if (exp < -4 || exp >= SIG) {

@@ -9,7 +9,7 @@ import { wrapLines } from "@/lib/expedition-log";
 import { formatDay, formatFixed, formatRainRate, formatTemperature, type BoundT, type Lang } from "@/lib/i18n";
 
 /** The braille-friendly width of the saved letter (characters per line). */
-export const LETTER_WIDTH = 40;
+const LETTER_WIDTH = 40;
 
 export type LetterReading =
   | { kind: "ocean"; valueC: number; medianC: number | null }

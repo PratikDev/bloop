@@ -10,7 +10,7 @@ const RESULTS_VERSION = 1;
 // Which set of tasks a session ran, so earlier sessions stay separable: 1 = the five core tasks only (every session
 // before 10 Nov 2026); 2 = + the emotion ratings and ear-vs-eye (ART's build, never deployed); 3 = the integrated test
 // (10 Nov 2026): any of CV's two chord tasks or ART's extras ran.
-export const TEST_VERSION = 3;
+const TEST_VERSION = 3;
 
 export interface TaskResult {
   task: TaskId;

@@ -30,7 +30,7 @@ export async function ensureDataAudio(): Promise<{ graph: Graph; bus: GainNode }
 }
 
 /** What each DATA layer is playing now, for the browser checks (and nothing else). */
-export interface DataSoundState {
+interface DataSoundState {
   chord: { voice: string; code: number | null; hz: number[] } | null;
   rumble: { code: number | null; cutoffHz: number | null; pulses: number } | null;
   geiger: { rate: number; cutoffHz: number | null; clicks: number } | null;

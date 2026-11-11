@@ -16,8 +16,6 @@ const eslintConfig = defineConfig([
     "public/basis/**",
     // Raw downloads and scratch (Playwright's transform cache lives in data_raw/_tmp): never source.
     "data_raw/**",
-    // Browser and screen-reader tests: their own tsconfig (qa/tsconfig.json), outside the app.
-    "qa/**",
   ]),
 ]);
 

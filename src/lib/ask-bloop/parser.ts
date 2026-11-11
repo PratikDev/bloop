@@ -15,7 +15,7 @@ interface Parsed {
 const SURE = 0.9;
 const LIKELY = 0.7;
 /** Only matches at or above this run (spec: "a fixed threshold"). */
-export const PARSE_THRESHOLD = 0.6;
+const PARSE_THRESHOLD = 0.6;
 
 const RECORD_WORDS: readonly (readonly [RegExp, TrackMode])[] = [
   [/both|ocean and rain|দুটো|দুই/u, "both"],

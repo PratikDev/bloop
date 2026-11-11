@@ -40,7 +40,7 @@ export interface BoxStats {
 const inLon = (lon: number, w: number, e: number) => (w <= e ? lon >= w && lon <= e : lon >= w || lon <= e);
 
 /** Every cell whose centre lies in the box (edges included), row by row. */
-export function cellsInBox(grid: BoxGrid, box: Bounds): number[] {
+function cellsInBox(grid: BoxGrid, box: Bounds): number[] {
   const [gw, gs, ge, gn] = grid.bounds;
   const [w, s, e, n] = box;
   const dLat = (gn - gs) / grid.height;

@@ -12,7 +12,7 @@ interface HiddenRecord {
 }
 
 /** Every hidden row of an index, in its order, with its reason. */
-export const hiddenRecords = (index: OfficialIndex): HiddenRecord[] =>
+const hiddenRecords = (index: OfficialIndex): HiddenRecord[] =>
   index.records.flatMap((r) => (r.hidden ? [{ record: r.record, title: r.title, reason: r.hidden }] : []));
 
 /** The full related index (hidden rows included: loadRelatedIndex leaves them out). */

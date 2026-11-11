@@ -22,7 +22,7 @@ export const NEEDLE_BOX = "needle";
 export const BOX_IDS: readonly string[] = [NEEDLE_BOX, ...NAMED_BOXES.map((b) => b.id)];
 
 /** The SPAN_DEG × SPAN_DEG box centred on the needle (latitudes clamped, longitudes wrapped). */
-export function needleBounds(at: LatLon, spanDeg: number = SPAN_DEG): Bounds {
+function needleBounds(at: LatLon, spanDeg: number = SPAN_DEG): Bounds {
   const h = spanDeg / 2;
   return [wrapLon(at.lon - h), clampLat(at.lat - h), wrapLon(at.lon + h), clampLat(at.lat + h)];
 }

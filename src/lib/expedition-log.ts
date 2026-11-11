@@ -11,7 +11,7 @@ export interface LogEntry {
 }
 
 /** The newest entries kept (a session is short; the log is a summary, not a recording). */
-export const LOG_MAX = 200;
+const LOG_MAX = 200;
 
 export function addEntry(log: readonly LogEntry[], entry: LogEntry): LogEntry[] {
   return [...log, entry].slice(-LOG_MAX);
@@ -43,7 +43,7 @@ export function wrapLines(text: string, width: number): string[] {
 }
 
 /** Every distinct source, in the order first used. */
-export const logSources = (log: readonly LogEntry[]) => [...new Set(log.flatMap((e) => e.sources))];
+const logSources = (log: readonly LogEntry[]) => [...new Set(log.flatMap((e) => e.sources))];
 
 /**
  * The log as plain text: a title, one block per entry (its time, then its words), then the sources. `time` formats an

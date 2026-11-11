@@ -182,9 +182,6 @@ const PATTERNS: Pattern[] = [
   },
 ];
 
-/** A template's Bangla, by its English template (numbers as "#"); the drafts list in TO_TRANSLATE.md reads it. */
-export const templateBangla = (template: string): string | undefined => TEMPLATES[template];
-
 function fromTemplate(text: string): string | null {
   const template = TEMPLATES[text.replace(NUMBER, "#")];
   if (template === undefined) return null;

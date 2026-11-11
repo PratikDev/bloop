@@ -4,7 +4,7 @@ import { clampLat, wrapLon, type LatLon } from "@/lib/data";
 import type { MessageKey } from "@/lib/i18n";
 
 /** Step sizes the arrow keys move by, in degrees (+ and − walk this list). 1° is the app's original step. */
-export const CELL_SIZES = [0.25, 0.5, 1, 2, 5] as const;
+const CELL_SIZES = [0.25, 0.5, 1, 2, 5] as const;
 export const DEFAULT_CELL = 1;
 
 /** The next cell size up (+1) or down (−1), staying at the ends. */
@@ -82,7 +82,7 @@ export function centreOf(b: Bounds): LatLon {
 }
 
 /** How many earlier places "." can go back to. */
-export const TRAIL_MAX = 50;
+const TRAIL_MAX = 50;
 
 /** The trail with `from` added (if it is a new place), keeping the newest TRAIL_MAX. */
 export function remember(trail: readonly LatLon[], from: LatLon): LatLon[] {

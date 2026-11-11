@@ -49,7 +49,7 @@ export interface BrailleReading {
 export type BrailleLang = "en" | "bn";
 
 /** "1Nov 00UTC", "3Nov 0630UTC". */
-export function compactTime(iso: string): string {
+function compactTime(iso: string): string {
   const d = new Date(iso);
   if (Number.isNaN(d.getTime())) return "";
   const month = new Intl.DateTimeFormat("en-GB", { month: "short", timeZone: "UTC" }).format(d);
@@ -105,7 +105,7 @@ export function fitLine(required: readonly (string | false | null | undefined)[]
  * The value line for UEB: the core reading (status for a relative record, name, value, place) in one 40-cell line,
  * then time, SVS ID, badge and status while they fit. If the core alone is too long, the unit goes (R still has it).
  */
-export function uebLine(t: BoundT, r: BrailleReading, degree: DegreeStyle): string {
+function uebLine(t: BoundT, r: BrailleReading, degree: DegreeStyle): string {
   const time = r.time.label ? clean(r.time.label) : r.time.iso ? compactTime(r.time.iso) : "";
   const core = (withUnit: boolean) => [r.relative && (SHORT_STATUS[r.status] ?? abbrev(r.status)), r.short, valueShort(t, r, degree, withUnit), placeShort(r)];
   const required = [...frontLoad(core(true))].length <= STATUS_BUDGET ? core(true) : core(false);
@@ -113,7 +113,7 @@ export function uebLine(t: BoundT, r: BrailleReading, degree: DegreeStyle): stri
 }
 
 /** The review line (R) for UEB: the whole reading in words. */
-export function uebReview(t: BoundT, r: BrailleReading, degree: DegreeStyle): string {
+function uebReview(t: BoundT, r: BrailleReading, degree: DegreeStyle): string {
   const value = r.kind === "pattern" && r.level ? t(`level.${r.level}`) : r.kind === "nodata" || r.value === null ? t("braille.noData") : r.kind === "dry" ? t("braille.dry")
     : `${brailleNumber(r.value, r.decimals)} ${brailleUnit(r.unit, degree)}`.trim()
         .replace("mm/h", t("braille.words.mmh")).replace(/deg C|°C/u, t("braille.words.degC"));
@@ -149,13 +149,13 @@ function bnTimeOf(r: BrailleReading): string {
 }
 
 /** The value line for the Bengali table (বাংলা mode): Bangla words only, front-loaded. */
-export function banglaLine(r: BrailleReading): string {
+function banglaLine(r: BrailleReading): string {
   return bnCompose(frontLoad([r.relative && BN_STATUS[r.status], bnName(r), bnValue(r), bnPlaceOf(r), r.note?.bn, bnTimeOf(r), BN_STATUS[r.badge],
     !r.relative && BN_STATUS[r.status]]));
 }
 
 /** The review line (R) for the Bengali table: the same reading with the time zone named. */
-export function banglaReview(r: BrailleReading): string {
+function banglaReview(r: BrailleReading): string {
   return bnCompose(frontLoad([r.relative && BN_STATUS[r.status], bnName(r), bnValue(r), bnPlaceOf(r), r.note?.bn, r.time.bn ?? (bnTimeOf(r) && `${bnTimeOf(r)} ${BN.utc}`),
     BN_STATUS[r.badge], !r.relative && BN_STATUS[r.status], r.reviewNote?.bn]));
 }

@@ -32,7 +32,7 @@ const ARROW = " --> ";
 const pad = (n: number, width = 2) => String(n).padStart(width, "0");
 
 /** 83.5 → "00:01:23.500" (WebVTT timestamps always carry the hours here, so every file reads the same way). */
-export function vttTimestamp(sec: number): string {
+function vttTimestamp(sec: number): string {
   const ms = Math.max(0, Math.round(sec * MS_PER_SEC));
   const s = Math.floor(ms / MS_PER_SEC);
   const h = Math.floor(s / (SEC_PER_MIN * MIN_PER_HOUR));

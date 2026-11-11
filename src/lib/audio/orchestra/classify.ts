@@ -47,7 +47,7 @@ interface CategoryMatch {
 }
 
 /** The first rule matching `text`, or null. */
-export function matchCategory(text: string): CategoryMatch | null {
+function matchCategory(text: string): CategoryMatch | null {
   for (const rule of CATEGORY_RULES) {
     const m = rule.pattern.exec(text);
     if (m) return { category: rule.category, matched: m[0] };

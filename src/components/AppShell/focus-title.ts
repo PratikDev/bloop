@@ -6,7 +6,7 @@
  */
 type TitleFocus = "focus" | "wait" | "stop";
 
-export interface FocusSnapshot {
+interface FocusSnapshot {
   /** Focus is on nothing (the body, or an element removed with the old page). */
   lost: boolean;
   /** Focus is on the element that had it when the new page came up. */

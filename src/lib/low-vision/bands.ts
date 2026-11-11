@@ -25,7 +25,7 @@ const RAIN_EDGES: Record<ShownBands, readonly number[]> = {
 export const LENS_BANDS: ShownBands = 7;
 
 /** The finite values of a grid, lowest and highest (null when it has none). */
-export function valueRange(g: ValueGrid): { min: number; max: number } | null {
+function valueRange(g: ValueGrid): { min: number; max: number } | null {
   let min = Number.POSITIVE_INFINITY;
   let max = Number.NEGATIVE_INFINITY;
   for (let i = 0; i < g.width * g.height; i++) {
@@ -38,14 +38,14 @@ export function valueRange(g: ValueGrid): { min: number; max: number } | null {
 }
 
 /** Ocean: `n` equal bands of whole degrees from the coldest water down to a whole degree, covering the warmest. */
-export function oceanBands(range: { min: number; max: number }, n: ShownBands): Band[] {
+function oceanBands(range: { min: number; max: number }, n: ShownBands): Band[] {
   const lo = Math.floor(range.min);
   const step = Math.max(1, Math.ceil((range.max - lo) / n + Number.EPSILON));
   return Array.from({ length: n }, (_, i) => ({ lo: lo + i * step, hi: lo + (i + 1) * step }));
 }
 
 /** Rain: the ladder's bands; the top one is open-ended. */
-export function rainBands(n: ShownBands): Band[] {
+function rainBands(n: ShownBands): Band[] {
   const edges = RAIN_EDGES[n];
   return edges.map((lo, i) => ({ lo, hi: edges[i + 1] ?? null }));
 }

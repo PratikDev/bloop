@@ -37,7 +37,7 @@ interface RainNewerDemo extends RainSeriesDemo {
   label: string; // "GPCP only, newer decade; GPCC data ends in 2019"
 }
 
-export interface RainDemo {
+interface RainDemo {
   gpcp: RainSeriesDemo; // same A and B windows as gpcc
   gpcc: RainSeriesDemo;
   caption: string;

@@ -3,7 +3,7 @@
 
 import type { AudioEvent, AudioEventListener } from "./types";
 
-export function createEmitter() {
+function createEmitter() {
   const listeners = new Set<AudioEventListener>();
   return {
     emit(event: AudioEvent) {

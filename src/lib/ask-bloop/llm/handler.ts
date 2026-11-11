@@ -13,7 +13,7 @@ import { TIMEOUT_MS, type AskIntentReply } from "./types";
 
 export { TIMEOUT_MS, type AskIntentReply };
 
-export interface ProviderEnv {
+interface ProviderEnv {
   ASK_BLOOP_BASE_URL?: string;
   ASK_BLOOP_MODEL?: string;
   ASK_BLOOP_API_KEY?: string;
@@ -29,7 +29,7 @@ interface Provider {
 }
 
 /** Requests per IP per minute (design choice: a person asks a few times a minute). */
-export const RATE_PER_MINUTE = 20;
+const RATE_PER_MINUTE = 20;
 const MAX_TEXT = 300;
 const MINUTE = 60_000;
 

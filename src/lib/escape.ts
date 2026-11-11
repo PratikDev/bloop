@@ -14,10 +14,10 @@ export function pushEscapeHandler(handler: EscapeHandler): () => void {
 }
 
 /** The open overlays (dialogs, sheets, popovers, menus, lists) whose own Esc closes them. */
-export const OVERLAY_SELECTOR = '[role="dialog"], [role="alertdialog"], [role="menu"], [role="listbox"]';
+const OVERLAY_SELECTOR = '[role="dialog"], [role="alertdialog"], [role="menu"], [role="listbox"]';
 
 /** Anything that can say whether it sits inside a selector (an Element; a stand-in in the unit test). */
-export interface Closest {
+interface Closest {
   closest(selectors: string): unknown;
 }
 

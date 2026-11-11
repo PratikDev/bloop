@@ -29,11 +29,6 @@ export interface CompareResult {
   diff: number | null;
 }
 
-/** The cell's row in the layer, or −1 when the layer has no data there (ocean, for land temperature). */
-export function rowAt(layer: GlobalLayer, at: LatLon): number {
-  return layer.rowOf[cellIdAt(layer.meta, at.lat, at.lon)] ?? -1;
-}
-
 export function compareAt(layer: GlobalLayer, name: CompareLayer, at: LatLon, a: string, b: string): CompareResult {
   const id = cellIdAt(layer.meta, at.lat, at.lon);
   const row = layer.rowOf[id] ?? -1;

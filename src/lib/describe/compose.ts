@@ -11,8 +11,8 @@ import { EQUATOR_DEG } from "./stats";
 import type { RecordFacts, Spot } from "./facts";
 
 /** Marks around a slot in audit mode (private-use characters: never in real text). */
-export const SLOT_OPEN = "";
-export const SLOT_CLOSE = "";
+const SLOT_OPEN = "";
+const SLOT_CLOSE = "";
 
 /** Formats computed values for the templates; every digit in a description comes from one of these. */
 export interface Slots {

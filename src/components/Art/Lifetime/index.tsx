@@ -22,7 +22,7 @@ import { useLifetime } from "./use-lifetime";
 export const DEFAULT_BORN = 1998;
 
 /** The shareable link: the year and the city only (no personal data). */
-export const lifetimeLink = (born: number, city: ClimateCellName) => `/then-now?born=${born}&city=${city.toLowerCase()}`;
+const lifetimeLink = (born: number, city: ClimateCellName) => `/then-now?born=${born}&city=${city.toLowerCase()}`;
 
 /**
  * "Your lifetime" on Then vs Now: a birth year and a city (never stored), that city's yearly record from that year to

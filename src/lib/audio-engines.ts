@@ -16,7 +16,7 @@ type EngineId = "l2" | "jukebox";
 /** The pages that play on the Jukebox engine. */
 const JUKEBOX_MODES: readonly Mode[] = ["turntable", "official"];
 
-export const engineFor = (mode: Mode): EngineId => (JUKEBOX_MODES.includes(mode) ? "jukebox" : "l2");
+const engineFor = (mode: Mode): EngineId => (JUKEBOX_MODES.includes(mode) ? "jukebox" : "l2");
 
 /** The engine whose live voices follow the cursor (or the Turntable's needle) on a page. */
 export const liveEngine = (mode: Mode) => (engineFor(mode) === "jukebox" ? jukebox : l2);

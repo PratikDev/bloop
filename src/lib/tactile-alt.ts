@@ -45,7 +45,7 @@ export function tactileAlt(t: BoundT, lang: Lang, d: TactileAltInput): TactileAl
 /** The sidecar .txt: the alt text, then the extended description. */
 export const sidecarText = (t: BoundT, a: TactileAlt) => `${t("alt.heading.alt")}\n${a.alt}\n\n${t("alt.heading.extended")}\n${a.extended.join("\n")}\n`;
 
-export const STL_HEADER_BYTES = 80;
+const STL_HEADER_BYTES = 80;
 const PRINTABLE_ASCII = /[^\x20-\x7e]/g;
 
 /** The STL header: the alt text in printable ASCII, never starting "solid" (readers would take the file for ASCII STL). */

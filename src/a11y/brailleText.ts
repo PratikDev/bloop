@@ -32,16 +32,6 @@ const ABBREV = {
 
 type AbbrevKey = keyof typeof ABBREV;
 
-/** Characters no braille string may contain, with the reason (for the text-rules test). */
-const BANNED: readonly { name: string; rx: RegExp }[] = [
-  { name: "emoji or pictograph", rx: /\p{Extended_Pictographic}/u },
-  { name: "decorative symbol", rx: /[•·★☆✓✔✗✘→←↑↓↔⇒⇐▲▼◆◇■□●○♪♫]/u },
-  { name: "glyph a table may lack", rx: /[≈±≤≥×÷–—−…‘’“”]/u },
-  { name: "special space", rx: /[   ​ ]/u },
-  { name: "box drawing or block", rx: /[─-▟]/u },
-  { name: "repeated punctuation", rx: /([!?.,;:*_=~#-])\1/u },
-];
-
 const REPLACE: readonly [RegExp, string][] = [
   [/≈/gu, "about "],
   [/±/gu, "+/-"],
@@ -63,19 +53,6 @@ export function clean(s: string): string {
   out = out.replace(/\p{Extended_Pictographic}|️/gu, "").replace(/[•·★☆✓✔✗✘→←↑↓↔⇒⇐▲▼◆◇■□●○♪♫]/gu, "");
   out = out.replace(/[─-▟]/gu, "").replace(/([!?.,;:*_=~#-])\1+/gu, "$1");
   return out.replace(/\s+/gu, " ").trim();
-}
-
-/** What breaks the rules in `s` (empty = passes). `budget` checks the length too. */
-export function violations(s: string, budget?: number): string[] {
-  const out = BANNED.filter((b) => b.rx.test(s)).map((b) => b.name);
-  if (budget !== undefined && [...s].length > budget) out.push(`longer than ${budget}`);
-  if (s !== s.trim() || /\s{2}/u.test(s)) out.push("stray spaces");
-  return out;
-}
-
-/** Bangla (and other) digits → 0–9, so typed codes and numbers read the same everywhere. */
-export function latinDigits(s: string): string {
-  return s.replace(/[০-৯]/gu, (d) => String(d.charCodeAt(0) - 0x09e6));
 }
 
 /** Decimals a quantisation step allows (0.1 → 1, 0.005 → 3, 2 → 0). */

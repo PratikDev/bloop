@@ -43,7 +43,7 @@ export const classAt = (g: ClassGrid, lat: number, lon: number): number => g.cod
 export const classLabel = (meta: Pick<ClassMeta, "classes">, code: number): string | null => meta.classes.find((c) => c.code === code)?.label ?? null;
 
 /** Cells per class code inside a box (every cell whose centre is in it). */
-export function boxCounts(size: GridSize, codes: Uint8Array, box: Box): Map<number, number> {
+function boxCounts(size: GridSize, codes: Uint8Array, box: Box): Map<number, number> {
   const [w, s, e, n] = box;
   const out = new Map<number, number>();
   for (let r = 0; r < size.height; r++) {

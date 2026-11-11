@@ -21,5 +21,3 @@ export function contrast(a: string, b: string): number {
 
 /** WCAG's enhanced (AAA) text contrast, the high-contrast themes' floor. */
 export const TEXT_AAA = 7;
-/** WCAG's non-text contrast (focus indicator, the needle). */
-export const NON_TEXT = 3;

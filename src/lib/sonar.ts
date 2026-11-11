@@ -29,7 +29,7 @@ export function extremeNear(g: ValueGrid, at: LatLon, kind: "highest" | "lowest"
 export const sonarTarget = (g: ValueGrid, at: LatLon, spanDeg: number = SPAN_DEG): Extreme | null => extremeNear(g, at, "highest", spanDeg);
 
 /** Degrees between two points on the map (lon wrapped the short way). */
-export function mapDistance(a: LatLon, b: LatLon): number {
+function mapDistance(a: LatLon, b: LatLon): number {
   const dLon = Math.abs(wrapLon(a.lon - b.lon));
   return Math.hypot(a.lat - b.lat, dLon);
 }
@@ -41,8 +41,8 @@ export function closeness(at: LatLon, target: LatLon, spanDeg: number = SPAN_DEG
 }
 
 /** The ping's timing (design choice): from FAR_MS between pings when far to NEAR_MS at the target. */
-export const FAR_MS = 1200;
-export const NEAR_MS = 150;
+const FAR_MS = 1200;
+const NEAR_MS = 150;
 export const pingIntervalMs = (c: number) => Math.round(FAR_MS - (FAR_MS - NEAR_MS) * Math.min(1, Math.max(0, c)));
 
 /** Arrived: the needle is in the target's cell, or within one arrow step of it. */

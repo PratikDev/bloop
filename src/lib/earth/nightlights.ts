@@ -7,7 +7,7 @@ import { continuousRule, mapContinuous } from "@/lib/audio/mapping";
 import { fetchJson } from "@/lib/data/fetch";
 import { formatDay, formatFixed, type BoundT, type Lang } from "@/lib/i18n";
 import type { NightLightsCity, NightLightsFile } from "@/types/data-contract";
-import { isSnpp, satelliteIn } from "./firms";
+import { satelliteIn } from "./firms";
 import { EARTH_PATHS } from "./paths";
 
 export const LIGHTS_VOICE = "nightLights";
@@ -44,9 +44,6 @@ export function lightsSteps(city: NightLightsCity): LightsStep[] {
 
 /** The satellite the file names (its title and datasets), e.g. "NOAA-20"; null if it names none. */
 export const lightsSatellite = (file: NightLightsFile): string | null => satelliteIn([file.title, ...file.datasets.map((d) => d.name)].join(" "));
-
-/** True when the file reads S-NPP (it must not: S-NPP stopped on 2 Nov 2026). */
-export const lightsIsSnpp = (file: NightLightsFile): boolean => isSnpp(`${file.short_name} ${file.title} ${file.datasets.map((d) => `${d.id} ${d.name}`).join(" ")}`);
 
 /** The file's city nearest a point, within LIGHTS_NEAR_KM; null if none is that near. */
 export function cityNear(file: NightLightsFile, lat: number, lon: number): string | null {

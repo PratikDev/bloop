@@ -10,7 +10,7 @@ void main() {
 }`;
 
 /** Shared GLSL: the sphere's east/north frame and the surface texture coordinates. */
-export const SURFACE_COMMON = /* glsl */ `
+const SURFACE_COMMON = /* glsl */ `
 uniform vec3 sunDir;       // object space
 uniform float alwaysDay;
 uniform float flipY;

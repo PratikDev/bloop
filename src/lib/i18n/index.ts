@@ -80,9 +80,6 @@ export type ArgsOf<K extends MessageKey> = [ParamsOf<K>] extends [never] ? [] : 
 /** Bangla: every translated key, English for the rest (until a teammate translates them). */
 const bn: Messages = { ...en, ...bnTranslated };
 
-/** The keys still shown in English in Bangla (docs/i18n/TO_TRANSLATE.md). */
-export const UNTRANSLATED_KEYS = (Object.keys(en) as MessageKey[]).filter((key) => !(key in bnTranslated));
-
 const TABLES: Record<Lang, Messages> = { en, bn };
 
 export function t<K extends MessageKey>(lang: Lang, key: K, ...args: ArgsOf<K>): string {

@@ -47,7 +47,7 @@ export function shownTeam(file: TeamFile): ShownTeam {
 }
 
 /** The JSON paths still TODO (or empty), e.g. "members[0].role". */
-export function todoFields(file: TeamFile): string[] {
+function todoFields(file: TeamFile): string[] {
   const out: string[] = [];
   for (const key of ["teamName", "challenge", "localEvent", "licence"] as const) if (!filled(file[key])) out.push(key);
   if (!file.members.length) out.push("members");

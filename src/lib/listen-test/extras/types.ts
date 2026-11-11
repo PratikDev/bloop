@@ -15,8 +15,6 @@ export interface ExtraTaskInfo {
 const TASK_SECONDS = 45;
 /** The test's fixed parts (s): consent and age, the intro, the comment. */
 const FIXED_SECONDS = 30 + 45 + 60;
-/** The whole test's limit (the protocol: 10 minutes). */
-export const LIMIT_SECONDS = 600;
 
 /** The whole test's estimated length (s): its fixed parts, every right/wrong task, and every registered extra. */
 export const planSeconds = (tasks: number, extras: readonly ExtraTaskInfo[]) => FIXED_SECONDS + tasks * TASK_SECONDS + extras.reduce((sum, e) => sum + e.seconds, 0);

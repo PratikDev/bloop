@@ -115,7 +115,7 @@ export const LV_DEFAULTS: LowVision = {
 };
 
 /** What the preset turns on: high-contrast dark, large text and controls, calm, the lens, bands, thick coasts. */
-export const LV_PRESET: Partial<LowVision> = {
+const LV_PRESET: Partial<LowVision> = {
   theme: "hcDark",
   textScale: 150,
   controls: "large",
@@ -134,10 +134,10 @@ export function applyPreset(lv: LowVision, on: boolean): LowVision {
   return { ...lv, ...patch, on };
 }
 
-export const LV_STORAGE_KEY = "bloop.lowvision.v1";
+const LV_STORAGE_KEY = "bloop.lowvision.v1";
 
 /** The saved settings, each kept only when it is an allowed value. */
-export function parseLowVision(raw: unknown): LowVision {
+function parseLowVision(raw: unknown): LowVision {
   const out: LowVision = { ...LV_DEFAULTS };
   if (typeof raw !== "object" || raw === null) return out;
   const saved = raw as Record<string, unknown>;

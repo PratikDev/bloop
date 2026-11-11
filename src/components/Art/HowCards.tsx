@@ -38,7 +38,7 @@ export function ArtHowCards() {
       method: t("dial.hwgt.method"),
       uncertainty: t("dial.hwgt.uncertainty"),
       scripts: ["src/lib/art/proof/render.ts", "src/lib/art/proof/measure.ts", "src/lib/art/proof/check.ts"],
-      test: "qa/e2e/art/dial.e2e.ts",
+      test: "src/lib/art/proof/check.ts",
     }),
   ];
   return (

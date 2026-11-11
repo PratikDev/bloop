@@ -13,7 +13,7 @@ import { gunzip } from "./gunzip";
 import { DATA_PATHS } from "./paths";
 import { DataShapeError, requirePaths } from "./validate";
 
-export const CUBE_NO_DATA = -32768;
+const CUBE_NO_DATA = -32768;
 
 export interface GlobalLayer {
   meta: GlobalLayerFile;

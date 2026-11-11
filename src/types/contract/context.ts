@@ -43,15 +43,6 @@ export interface RainContextFile {
   cells: Record<ClimateCellName, RainCellSeries>;
 }
 
-/** gpcc_bd.json: the product and its coverage, read from the NetCDF by build_context.py. */
-export interface GpccContextFile extends RainContextFile {
-  product: string; // "GPCC Full Data Monthly V2020"
-  resolution_deg: number;
-  first_month: string; // "1891-01"
-  last_month: string; // "2019-12"
-  last_month_text: string; // "December 2019"
-}
-
 // ---------------------------------------------------------------------------
 // 5. GRACE water storage (context/grace.json)
 // Needed by: BOTH — L3 chart + gap caption; L2 bass voice (null = silence).

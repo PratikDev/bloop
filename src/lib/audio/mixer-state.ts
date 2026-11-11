@@ -32,7 +32,7 @@ function isLiveVoice(id: VoiceId): id is LiveVoiceId {
 }
 
 /** Whether the track mode lets a voice play (only live voices are gated). */
-export function trackAllows(id: VoiceId, state: MixerState): boolean {
+function trackAllows(id: VoiceId, state: MixerState): boolean {
   if (!isLiveVoice(id) || state.trackGateLifted) return true;
   return TRACK_VOICES[state.trackMode].includes(id);
 }

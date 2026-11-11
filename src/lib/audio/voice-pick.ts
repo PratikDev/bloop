@@ -3,7 +3,7 @@
 import type { Lang } from "./types";
 
 /** The fields of a speech voice this rule needs (SpeechSynthesisVoice has them). */
-export interface VoiceInfo {
+interface VoiceInfo {
   lang: string; // BCP 47, e.g. "en-US", "bn-BD"
   localService: boolean; // true = works offline
 }

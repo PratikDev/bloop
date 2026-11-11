@@ -28,9 +28,3 @@ export const DRAFT_KEYS: readonly MessageKey[] = [
   // Art (en/art/): every key, a developer's draft
   ...(Object.keys(artBn) as MessageKey[]),
 ];
-
-/** Data-file sentences (bn/data.ts templates) whose Bangla is a draft: the English template, numbers as "#". */
-export const DRAFT_DATA_TEMPLATES: readonly string[] = [
-  "GPCC stops at # because the gauge version we use (GPCC Full Data Monthly V#) ends in December #, so both rain records compare #–# with #–#.",
-  "GPCP only, newer decade; GPCC data ends in #",
-];

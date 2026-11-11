@@ -12,7 +12,7 @@ import { fitLine, readingLine, type BrailleLang, type BrailleReading } from "./b
 import { abbrev, brailleNumber, brailleTime, clean, type DegreeStyle } from "./brailleText";
 
 /** A live value as a short line reads it: the record, the value, the place, the frame time, and an optional note. */
-export interface LiveValue {
+interface LiveValue {
   record: "ocean" | "rain";
   value: number | null;
   frozen: boolean;

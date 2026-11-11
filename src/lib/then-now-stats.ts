@@ -80,7 +80,7 @@ export function longLine(t: BoundT, lang: Lang, ps: PartStats): string {
 }
 
 /** The short form for a braille display (one 40-cell line where possible): the first item, Western digits, ASCII signs. */
-export function shortLine(t: BoundT, lang: Lang, ps: PartStats): string {
+function shortLine(t: BoundT, lang: Lang, ps: PartStats): string {
   const i = ps.items[0];
   const num = (v: number, d: number) => (lang === "bn" ? bnNumber(v, d) : brailleNumber(v, d));
   const sign = i.value > 0 ? "+" : "";

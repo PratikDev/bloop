@@ -38,6 +38,3 @@ export interface Provenance {
   /** A live frame's acceptance check (public/data/official/<liveCheck>/validation.json), read from the file. */
   liveCheck?: LiveCheckRecord;
 }
-
-/** Every Provenance field a reader checks for "not available" (the report lists records with any of these null). */
-export const FACT_FIELDS = ["dataset", "version", "link", "window", "cell", "place", "method", "uncertainty", "n", "status", "validation"] as const satisfies readonly (keyof Provenance)[];

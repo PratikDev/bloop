@@ -15,7 +15,7 @@ const SVS_ID = /^svs(\d+)$/u;
 const SVS_PROVIDER = "NASA's Scientific Visualization Studio";
 export const svsPage = (id: number) => `https://svs.gsfc.nasa.gov/${id}/`;
 
-export interface CreditInputs {
+interface CreditInputs {
   freshness: FreshnessFile;
   /** Official records' own index, and the Related shelf as listed (hidden records already left out). */
   official: OfficialIndex;
@@ -24,7 +24,7 @@ export interface CreditInputs {
 
 /** The registry's provider when it names one; else "MUR SST v4.1 (NASA/JPL PO.DAAC)" → name and provider; else the
  * agency. An SVS frame is credited to SVS under its full name. */
-export function splitProvider(d: Pick<DatasetRef, "id" | "name" | "agency" | "provider">): { name: string; provider: string } {
+function splitProvider(d: Pick<DatasetRef, "id" | "name" | "agency" | "provider">): { name: string; provider: string } {
   if (FRAME.test(d.id)) return { name: d.name, provider: SVS_PROVIDER };
   if (d.provider) return { name: d.name, provider: d.provider };
   const m = /^(.*?)\s*\(([^()]*)\)$/u.exec(d.name);
@@ -49,7 +49,7 @@ function officialRows(inputs: CreditInputs): { row: OfficialIndexRow; output: st
 }
 
 /** Product id → the pages it plays on or shows numbers on. */
-export function playedProducts(inputs: CreditInputs): Plays {
+function playedProducts(inputs: CreditInputs): Plays {
   const plays: Plays = new Map();
   for (const s of SURFACES) {
     for (const v of s.voices) add(plays, voiceProduct(v), s.page);

@@ -15,7 +15,7 @@ import { useLiveData } from "../../LiveData/use-live-data";
 
 /** The letter for a place on the live frames: the ocean value (or rain, when only rain plays), through readAt (the same
  *  reading the sound plays), with the frame's date, dataset and validation line. */
-export function liveLetter(t: BoundT, fields: LiveFields, at: LatLon, track: "ocean" | "rain" | "both", place: string | null, link: string | null): LetterInput {
+function liveLetter(t: BoundT, fields: LiveFields, at: LatLon, track: "ocean" | "rain" | "both", place: string | null, link: string | null): LetterInput {
   const r = readAt(fields, at);
   const name = place ?? t("place.latlon", at);
   if (track !== "rain" && r.ocean.valueC !== null) {

@@ -35,7 +35,7 @@ export const APP_RECORDS: Record<AppRecordId, AppRecordSpec> = {
 export const isAppRecord = (record: string): record is AppRecordId => (APP_RECORD_IDS as readonly string[]).includes(record);
 
 /** An index row of an app record: the products it plays (credits read them). */
-export interface AppIndexRow extends OfficialIndexRow {
+interface AppIndexRow extends OfficialIndexRow {
   products: readonly string[];
 }
 

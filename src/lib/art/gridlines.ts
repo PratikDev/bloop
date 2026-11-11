@@ -9,7 +9,7 @@ interface AxisInput {
 }
 
 /** A 1-2-5 step giving about `target` lines over the range. */
-export function niceStep(span: number, target = 8): number {
+function niceStep(span: number, target = 8): number {
   const raw = span / target;
   const p = 10 ** Math.floor(Math.log10(raw));
   const f = raw / p;

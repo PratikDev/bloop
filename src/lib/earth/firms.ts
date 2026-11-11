@@ -48,8 +48,6 @@ export const satelliteIn = (text: string): string | null => SATELLITE.exec(text)
 /** The satellite a source's dataset name says; null if the name doesn't say. */
 export const satelliteOf = (daily: FirmsDailyBlock, source: FirmsNrtSource): string | null => satelliteIn(sourceDataset(daily, source)?.name ?? "");
 
-/** True for any S-NPP source (stopped on 2 Nov 2026: never a live product). */
-export const isSnpp = (text: string): boolean => /S-NPP|SNPP|Suomi/iu.test(text);
 
 /** A fire-season example from the file's cases ("CHT_Bangladesh_MarApr|MODIS_SP|2023"): its parts, as the key says. */
 export interface SeasonCase {

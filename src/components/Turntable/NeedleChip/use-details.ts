@@ -23,7 +23,7 @@ export interface Details {
  * nothing, and a tap never opened it. A card opened that way ("by the way") stays open on the click;
  * the next click closes it.
  */
-export function chipClick(open: boolean, byTheWay: boolean): "open" | "close" {
+function chipClick(open: boolean, byTheWay: boolean): "open" | "close" {
   return open && !byTheWay ? "close" : "open";
 }
 

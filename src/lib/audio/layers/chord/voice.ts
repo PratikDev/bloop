@@ -12,13 +12,13 @@ const ROLL_SEC = 0.08;
 const ATTACK_SEC = 0.25;
 const RELEASE_SEC = 0.4;
 /** The chord sits this many dB under the melody's peak (docs/audio/MIX.md: measured there). */
-export const CHORD_DB = -8;
+const CHORD_DB = -8;
 /** Partials of the pad (fundamental first): timbre only, the pitch is the fundamental's. */
 export const PARTIALS = [0, 1, 0.3, 0.1];
 
 /** The melody's peak level on the sonification bus (the ocean voice: its peak × its channel's input gain, the cap
  *  times the mix trim), so the chord stays CHORD_DB under the melody it describes. */
-export const melodyPeak = () => voicePeak("ocean") * channelGain("ocean");
+const melodyPeak = () => voicePeak("ocean") * channelGain("ocean");
 /** The chord's total peak: CHORD_DB under the melody, shared between the tones by their area fractions. */
 export const chordPeak = () => melodyPeak() * 10 ** (CHORD_DB / 20);
 

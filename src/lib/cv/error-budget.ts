@@ -2,7 +2,6 @@
 // of pitch a record's measured error spans on its value -> pitch rule. Over FLAG_CENTS, pitch differences smaller than
 // the error carry no meaning, and the app says so. A zoomed axis (Sound terrain) is computed here from its live span.
 import { continuousRule, semitonesPerUnit, withInputRange } from "@/lib/audio/mapping-maths";
-import type { ContinuousMapping } from "@/types/data-contract";
 import file from "../../../public/data/meta/error_budget.json";
 
 interface BudgetAxis {
@@ -33,17 +32,10 @@ interface ErrorBudget {
 }
 
 export const ERROR_BUDGET: ErrorBudget = file;
-export const FLAG_CENTS = ERROR_BUDGET.flag_cents;
-
-/** Semitones per input unit, or per decade on a log input (the generator's maths: semitonesPerUnit for linear). */
-export function semitonesPerStep(rule: ContinuousMapping): number | null {
-  if (rule.input.scale === "linear") return semitonesPerUnit(rule);
-  if (rule.output.param !== "frequency" || rule.output.scale !== "exponential") return null;
-  return (12 * Math.log2(rule.output.max / rule.output.min)) / (Math.log10(rule.input.max) - Math.log10(rule.input.min));
-}
+const FLAG_CENTS = ERROR_BUDGET.flag_cents;
 
 /** cents = 100 × semitones per unit × error. */
-export const centsOf = (stPerUnit: number, error: number) => 100 * stPerUnit * error;
+const centsOf = (stPerUnit: number, error: number) => 100 * stPerUnit * error;
 
 /** The axis describing a record, or null. */
 export const budgetFor = (recordId: string): BudgetAxis | null => ERROR_BUDGET.axes.find((a) => a.records.includes(recordId)) ?? null;

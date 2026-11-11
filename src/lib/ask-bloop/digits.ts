@@ -4,7 +4,7 @@
 import { asciiDigits } from "./normalise";
 
 /** Every number in a text, as ASCII digits: Bangla digits converted, thousands separators dropped, minus signs ignored. */
-export function numbersIn(text: string): string[] {
+function numbersIn(text: string): string[] {
   const plain = asciiDigits(text).replace(/(\d)[,٬](?=\d{3}(?!\d))/gu, "$1");
   return [...plain.matchAll(/\d+(?:\.\d+)?/gu)].map((m) => m[0]);
 }

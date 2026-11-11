@@ -85,7 +85,7 @@ export function instrumentFor(valueC: number, range: readonly [number, number]):
 export const turnSeconds = (degPerSec: number) => FULL_TURN / Math.abs(degPerSec);
 
 /** NASA mode: angle → time, distance → pitch, colour class → instrument. */
-export function nasaNotes(points: readonly RadarPoint[], degPerSec: number, range: readonly [number, number]): RadarNote[] {
+function nasaNotes(points: readonly RadarPoint[], degPerSec: number, range: readonly [number, number]): RadarNote[] {
   const rule = continuousRule(RADAR_VOICE);
   const events: SweepEvent[] = radialSweep(points, {
     centre: { x: 0, y: 0 },
@@ -99,7 +99,7 @@ export function nasaNotes(points: readonly RadarPoint[], degPerSec: number, rang
 }
 
 /** Bloop mode: distance → time (a ring over the same seconds), value → pitch by the Ocean rule. */
-export function bloopNotes(points: readonly RadarPoint[], degPerSec: number): RadarNote[] {
+function bloopNotes(points: readonly RadarPoint[], degPerSec: number): RadarNote[] {
   const rule = continuousRule(RADAR_VOICE);
   const ocean = continuousRule(OCEAN_VOICE);
   const events = radialSweep(points, { centre: { x: 0, y: 0 }, degPerSec: 1, startDeg: 0, maxRadius: rule.input.max, radiusTo: "time", durationSec: turnSeconds(degPerSec), pitch: { minHz: 1, maxHz: 2, scale: "linear" } });

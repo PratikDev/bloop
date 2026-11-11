@@ -5,7 +5,7 @@
 // scale the sound uses), so a braille line never auto-scales away a real difference.
 
 /** U+2800: the blank cell. It means "no data here". */
-export const BLANK = "⠀";
+const BLANK = "⠀";
 
 /** Dot number (1–8) → its bit in the Unicode braille block. */
 const DOT_BIT: Record<number, number> = { 1: 0x01, 2: 0x02, 3: 0x04, 4: 0x08, 5: 0x10, 6: 0x20, 7: 0x40, 8: 0x80 };
@@ -22,13 +22,13 @@ export function dotsOf(ch: string): number[] {
 }
 
 /** Line bands, low to high: dots 7-8 (0–25 %), 3-6 (26–50 %), 2-5 (51–75 %), 1-4 (76–100 %). */
-export const LINE_BANDS = [cell(7, 8), cell(3, 6), cell(2, 5), cell(1, 4)] as const;
+const LINE_BANDS = [cell(7, 8), cell(3, 6), cell(2, 5), cell(1, 4)] as const;
 /** Heat-map bands on six dots: 3-6 (0–33 %), 2-5 (34–66 %), 1-4 (67–100 %). */
-export const GRID_BANDS = [cell(3, 6), cell(2, 5), cell(1, 4)] as const;
+const GRID_BANDS = [cell(3, 6), cell(2, 5), cell(1, 4)] as const;
 /** Between heat-map rows: dots 1-2-5-6. */
-export const ROW_SEPARATOR = cell(1, 2, 5, 6);
+const ROW_SEPARATOR = cell(1, 2, 5, 6);
 /** Ends a wrapped line that continues on the next: all eight dots, a cell no data value uses. */
-export const CONTINUES = cell(1, 2, 3, 4, 5, 6, 7, 8);
+const CONTINUES = cell(1, 2, 3, 4, 5, 6, 7, 8);
 
 /** Upper bounds (whole percent, inclusive) of each band but the last. */
 const LINE_UPPER = [25, 50, 75] as const;
@@ -43,7 +43,7 @@ export function band(t: number, bands: "line" | "grid"): number {
 }
 
 /** One value → its cell; null (no data) → the blank cell. */
-export function encodeValue(t: number | null, bands: "line" | "grid" = "line"): string {
+function encodeValue(t: number | null, bands: "line" | "grid" = "line"): string {
   if (t === null || !Number.isFinite(t)) return BLANK;
   return (bands === "line" ? LINE_BANDS : GRID_BANDS)[band(t, bands)];
 }

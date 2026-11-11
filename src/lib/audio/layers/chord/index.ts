@@ -12,7 +12,7 @@ import { chordPeak, forgetTones, silenceTones, soundTones } from "./voice";
 import type { ValueTrust } from "../types";
 
 /** The view the chord describes: one record's values in the current box (ascending), and how to smooth them. */
-export interface ChordView {
+interface ChordView {
   recordId: string;
   /** The layer, for a record with several (the allowlist is per layer). */
   layer?: string;
@@ -34,7 +34,7 @@ interface ValueChordLayer extends ChordLayer {
   subscribe(listener: () => void): () => void;
 }
 
-export function createValueChord(): ValueChordLayer {
+function createValueChord(): ValueChordLayer {
   const owners = new Set<ChordOwner>();
   const listeners = new Set<() => void>();
   let view: ChordView | null = null;

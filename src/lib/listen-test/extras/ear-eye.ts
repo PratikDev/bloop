@@ -22,7 +22,7 @@ interface EarEyeItem {
 }
 
 /** Where the heaviest frame falls: the first, middle or last third. null when it never rains (no clear answer). */
-export function peakThird(values: readonly (number | null)[]): PeakOption | null {
+function peakThird(values: readonly (number | null)[]): PeakOption | null {
   let best = -1;
   let at = -1;
   values.forEach((v, i) => {

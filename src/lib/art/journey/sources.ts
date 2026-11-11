@@ -15,7 +15,7 @@ import type { JourneySource } from "./plan";
 
 const STEPS = 24;
 /** The Official records the suite plays (credited under "Data in this app" as Official records). */
-export const JOURNEY_RECORDS = { lightning: "lightning_5011", river: "river_4960" } as const;
+const JOURNEY_RECORDS = { lightning: "lightning_5011", river: "river_4960" } as const;
 /** The Bay of Bengal row the last step reads (the same as the data-voice check's). */
 export const BAY = { lat: 15, lon: 81, stepDeg: 0.5 };
 

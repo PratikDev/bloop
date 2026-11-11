@@ -28,7 +28,7 @@ export function voiceLabelBn(voice: VoiceSpec): string {
  * translateData doesn't know, a "same rule as" voice, a falling output (bloop-dev's voices: normalTone, clarity,
  * unison, …). Empty = the Bangla sentence can be built. Listed in docs/i18n/TO_TRANSLATE.md.
  */
-export function missingRuleWords(voice: VoiceSpec): string[] {
+function missingRuleWords(voice: VoiceSpec): string[] {
   const p = ruleParts(voice);
   if (!p) return [];
   const missing: string[] = [];

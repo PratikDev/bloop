@@ -5,7 +5,7 @@
 import { normalize, type SearchEntry } from "@/lib/geo/search";
 
 /** Other names people say or speech recognisers write, to the name in Bloop's place data (tested against public/geo). */
-export const PLACE_ALIASES: Readonly<Record<string, string>> = {
+const PLACE_ALIASES: Readonly<Record<string, string>> = {
   chittagong: "Chattogram",
   chittagang: "Chattogram",
   chatgaon: "Chattogram",

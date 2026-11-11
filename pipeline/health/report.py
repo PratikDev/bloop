@@ -36,9 +36,7 @@ def markdown(doc):
         rs = [r for r in doc["records"] if r["category"] == c]
         bad = sum(1 for r in rs if row_summary(r)[1])
         L.append(f"| {CATEGORIES[c]} | {by[c]} | {len(rs) - bad} | {bad} |")
-    app = doc.get("app") or {}
-    L += ["", f"App checks: {app.get('summary', 'not run (python -m health --app runs qa/e2e/health-records.e2e.ts)')}", "",
-          "## Records", "", "| Record | Category | Status | Last data (UTC) | Source latest (UTC) | Lag (d) | App plays | Checks | Notes |",
+    L += ["", "## Records", "", "| Record | Category | Status | Last data (UTC) | Source latest (UTC) | Lag (d) | App plays | Checks | Notes |",
           "|---|---|---|---|---|---|---|---|---|"]
     for r in doc["records"]:
         passed, failed = row_summary(r)

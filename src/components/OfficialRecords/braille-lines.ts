@@ -26,7 +26,7 @@ function shortName(layer: OfficialLayer, svs: number | undefined): string {
 }
 
 /** The record's stated precision: its quantisation step (linear), three significant digits (log). */
-export function decimalsOf(layer: OfficialLayer, v: number): number {
+function decimalsOf(layer: OfficialLayer, v: number): number {
   if (layer.encoding === "log10") return Math.max(0, SIGNIFICANT - 1 - Math.floor(Math.log10(Math.abs(v) || 1)));
   return decimalsFor(layer.quantisation_step);
 }

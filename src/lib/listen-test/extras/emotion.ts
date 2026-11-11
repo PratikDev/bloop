@@ -8,7 +8,7 @@ import { counterbalance, type ExtraRecord, type ExtraTaskInfo } from "./types";
 export const EMOTION: ExtraTaskInfo = { id: "emotion", seconds: 75 };
 export const SCALE = [1, 2, 3, 4, 5] as const;
 export type Rating = (typeof SCALE)[number];
-export type Condition = "sound" | "visual";
+type Condition = "sound" | "visual";
 
 /** The clip: ocean temperatures read from the frame at the checked points, west to east (the data the test already uses). */
 export interface Clip {
