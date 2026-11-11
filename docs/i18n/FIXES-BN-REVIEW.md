@@ -19,3 +19,11 @@ Notes for the reviewer:
 - `{places}` is the page's own place and the others that share its measurement area, as a list in the language ("Dhaka and Chattogram"; in Bangla "ঢাকা এবং চট্টগ্রাম"), made with `Intl.ListFormat`.
 - "grid cell" is now "measurement area" (পরিমাপ-এলাকা). The Bangla uses a hyphenated compound; a translator may prefer পরিমাপের এলাকা.
 - Rain and water captions on this page, and the Ghost Earths scene's "same grid cell" line (`scenes.ghost.sameRecord`), are unchanged.
+
+## Item 5: one name per screen
+
+| Key | English | Bangla draft | Was |
+|---|---|---|---|
+| `notFound.code` | 404 | ৪০৪ | (the 404 crown repeated the heading: "No signal here" / এখানে কোনো সংকেত নেই) |
+
+`404` is the error number, shown on the jukebox's marquee; the heading under it keeps the sentence. Bangla digits follow the rest of the Bangla interface.
