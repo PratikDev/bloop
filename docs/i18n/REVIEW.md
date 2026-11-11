@@ -1,6 +1,6 @@
 # Bangla drafts for review
 
-Every Bangla string drafted in the final pass, in Pratik's priority order: controls, announcements, errors, headings, then the rest. Each row says which session drafted it (A: the interface, Official records, braille, the truth checks; B: the Turntable, its scenes and the source badges). Rows marked **review first** are Pratik's seven and come first in their group. Every string already shows in Bangla mode; all are drafts until a translator has checked them.
+Every Bangla string drafted in the final pass, in Pratik's priority order: controls, announcements, errors, headings, then the rest. Each row says which session drafted it (A: the interface, Official records, braille, the truth checks; B: the Turntable, its scenes and the source badges; fixes: the audit fixes of 2026-11-11, Then vs Now's plain words and the 404 crown). Rows marked **review first** are Pratik's seven and come first in their group. Every string already shows in Bangla mode; all are drafts until a translator has checked them.
 
 Terms follow `docs/i18n/GLOSSARY.md`: Play বাজান; Pause বিরতি দিন; Stop থামান; Close বন্ধ করুন; amber কমলা; needle সুই; record রেকর্ড; frame ফ্রেম; voice কণ্ঠ (under review: in the Mixer it means a sound layer); scene দৃশ্য. Names, organisations, dataset titles and record titles stay as in English. `{name}` is a value the app fills in; `{name: a / b}` means one of those words is used.
 
@@ -215,7 +215,7 @@ Combined by Session A on 2026-11-10 from `docs/i18n/A-BN-REVIEW.md` and `docs/i1
 | `turntable.myLocation.denied` | Location wasn't shared. Nothing was stored. | অবস্থান শেয়ার করা হয়নি। কিছুই সংরক্ষণ করা হয়নি। | B |
 | `turntable.myLocation.unsupported` | This browser can't share a location. | এই ব্রাউজার অবস্থান শেয়ার করতে পারে না। | B |
 
-## 4. Headings and names (47)
+## 4. Headings and names (49)
 
 | Key | English | Bangla draft | Drafted by |
 |---|---|---|---|
@@ -227,6 +227,7 @@ Combined by Session A on 2026-11-10 from `docs/i18n/A-BN-REVIEW.md` and `docs/i1
 | `braille.txt.heading` | Braille-friendly text | ব্রেইল-বান্ধব লেখা | A |
 | `braille.valueLine` | Value line | মান-লাইন | A |
 | `credits.products` | Data in this app | এই অ্যাপের তথ্য | A |
+| `notFound.code` | 404 | ৪০৪ | fixes |
 | `official.checks` | Checks | যাচাই | A |
 | `official.credits` | Credits | কৃতজ্ঞতা | A |
 | `official.description` | From the SVS page | SVS পাতা থেকে | A |
@@ -238,6 +239,7 @@ Combined by Session A on 2026-11-10 from `docs/i18n/A-BN-REVIEW.md` and `docs/i1
 | `official.provenance` | Where this comes from | এটি কোথা থেকে এসেছে | A |
 | `official.records` | Records | রেকর্ড | A |
 | `official.related.heading` | Related NASA visualizations | সম্পর্কিত নাসা ভিজ্যুয়ালাইজেশন | A |
+| `thenNow.heat.source` | NASA GISTEMP | NASA GISTEMP | fixes |
 | `truth.anomaly.heading` | Ocean temperature vs normal | স্বাভাবিকের তুলনায় সমুদ্রের তাপমাত্রা | A |
 | `truth.threeway.heading` | Three readings of the same points | একই বিন্দুর তিনটি পাঠ | A |
 | `truth.unison.heading` | Proof in unison | একসুরে প্রমাণ | A |
@@ -267,7 +269,7 @@ Combined by Session A on 2026-11-10 from `docs/i18n/A-BN-REVIEW.md` and `docs/i1
 | `turntable.region` | Turntable Earth, playing the {record} record | টার্নটেবিল আর্থ, {record} রেকর্ড বাজছে | B |
 | `turntable.roleDescription` | turntable | টার্নটেবিল | B |
 
-## 5. The rest (186)
+## 5. The rest (191)
 
 | Key | English | Bangla draft | Drafted by |
 |---|---|---|---|
@@ -287,6 +289,8 @@ Combined by Session A on 2026-11-10 from `docs/i18n/A-BN-REVIEW.md` and `docs/i1
 | `braille.words.mmh` | millimetres per hour | মিলিমিটার প্রতি ঘণ্টা | A |
 | `braille.words.observation` | observation | পর্যবেক্ষণ | A |
 | `field.veg.summary` | Vegetation index (NDVI) at {place}, {then} against {now} ({dataset}). | {place}-এ উদ্ভিদ সূচক (NDVI), {then} বনাম {now} ({dataset})। | A |
+| `history.sharedCell` | In this data, {places} share one measurement area | এই ডেটায় {places} একই পরিমাপ-এলাকা ভাগ করে নেয় | fixes |
+| `history.unit.heat` | °C compared with the 1951–1980 normal | °সে, ১৯৫১–১৯৮০ সালের স্বাভাবিকের তুলনায় | fixes |
 | `level.high` | high | বেশি | A |
 | `level.low` | low | কম | A |
 | `level.middle` | middle | মাঝারি | A |
@@ -321,6 +325,9 @@ Combined by Session A on 2026-11-10 from `docs/i18n/A-BN-REVIEW.md` and `docs/i1
 | `official.timeValue` | {time} (step {step} of {total}) | {time} ({total}টির মধ্যে {step} নম্বর ধাপ) | A |
 | `official.value` | {value} {unit} | {value} {unit} | A |
 | `official.voiceSource` | Voice from {label} ({badge}), {period} | কণ্ঠের উৎস {label} ({badge}), {period} | A |
+| `thenNow.heat.cooler` | {place} in April–May: {change} °C cooler in {now} than in {then} | {place}, এপ্রিল–মে: {then} সালের চেয়ে {now} সালে {change} °সে বেশি শীতল | fixes |
+| `thenNow.heat.warmer` | {place} in April–May: {change} °C warmer in {now} than in {then} | {place}, এপ্রিল–মে: {then} সালের চেয়ে {now} সালে {change} °সে বেশি উষ্ণ | fixes |
+| `thenNow.unit.anomaly` | °C compared with the 1951–1980 normal | °সে, ১৯৫১–১৯৮০ সালের স্বাভাবিকের তুলনায় | fixes |
 | `truth.anomaly.sentence` | SST anomaly checked against NOAA Coral Reef Watch: same sign at {signPct}% of {n} points; reads {offset} °C {offset: cooler / warmer} (different baselines). | NOAA Coral Reef Watch-এর সাথে মিলিয়ে দেখা সমুদ্রপৃষ্ঠের তাপমাত্রার অস্বাভাবিকতা: {n}টি বিন্দুর {signPct}%-এ একই দিক; … {offset} °সে {offset: বেশি শীতল / বেশি উষ্ণ} দেখায় (ভিত্তিকাল আলাদা)। | A |
 | `truth.threeway.sentence` | At {n} points, NASA's GIBS map layer and the MUR file differ by a median of {gibs} °C; … the EIC picture and the MUR file by {frame} °C. {decodePct}% of GIBS pixels decode to a value. | {n}টি বিন্দুতে নাসার GIBS মানচিত্র-স্তর ও MUR ফাইলের মধ্যমা পার্থক্য {gibs} °সে; … EIC ছবি ও MUR ফাইলের {frame} °সে। GIBS-এর {decodePct}% পিক্সেল থেকে মান পড়া যায়। | A |
 | `truth.unison.explain` | Two tones: one from the EIC picture, one from NASA's file. Beats mean they disagree. {median} °C ≈ {semitones} of a semitone. | দুটি সুর: একটি EIC ছবি থেকে, একটি নাসার ফাইল থেকে। বিট শোনা গেলে দুটো মেলেনি। {median} °সে ≈ এক সেমিটোনের {semitones} ভাগ। | A |
@@ -457,6 +464,13 @@ Combined by Session A on 2026-11-10 from `docs/i18n/A-BN-REVIEW.md` and `docs/i1
 | `turntable.where.unnamed` | No named place nearby | কাছাকাছি নামওয়ালা কোনো জায়গা নেই | B |
 | `turntable.zoomIn` | Zoom in | জুম ইন | B |
 | `turntable.zoomOut` | Zoom out | জুম আউট | B |
+
+Notes on the **fixes** rows (they replace earlier wording; `{name}` is filled in by the app):
+
+- `thenNow.heat.warmer` / `cooler` replace the data caption "Dhaka, April–May: +1.37 °C (NASA GISTEMP, 1981–1990 vs 2016–2025, 10 years each)." `{change}` has no sign: the word (warmer / cooler, উষ্ণ / শীতল as in the stripe legend) carries the direction. `{now}` and `{then}` are year ranges in Bangla digits; the source name follows the sentence in smaller text (`thenNow.heat.source`).
+- `thenNow.unit.anomaly` and `history.unit.heat` were "°C anomaly" (°সে বিচ্যুতি).
+- `history.sharedCell` was "In this dataset, this is the same grid cell as {places}: one record, not separate places." `{places}` is now the page's place and the ones sharing its area, listed in the language ("ঢাকা এবং চট্টগ্রাম"). পরিমাপ-এলাকা is a draft; a translator may prefer পরিমাপের এলাকা.
+- `notFound.code` is the 404 marquee, which used to repeat the heading (এখানে কোনো সংকেত নেই).
 
 ## 6. Data-file sentences and mapping-rule words (Session A)
 
