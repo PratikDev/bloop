@@ -1,6 +1,5 @@
-// Both mode plays the ocean frame and the rain frame together, but the two are not from the same moment
-//. The gap comes from the two manifests' frame times (latest/sst.json, latest/rain.json), never
-// typed: it changes with every refresh. Under a day it is said in hours, from a day up in whole days.
+// How far apart the ocean and rain frames are when both play (from the manifests' frame times, never typed). Used
+// by the frame-gap note, the commands, the story script, the live braille source, the provenance and the track status.
 
 import { brailleNumber } from "@/a11y/brailleText";
 import { bindT, formatInteger, formatUtc, type BoundT, type Lang } from "@/lib/i18n";

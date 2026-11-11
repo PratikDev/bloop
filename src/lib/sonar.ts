@@ -1,6 +1,5 @@
-// Sonar: find the warmest (ocean) or wettest (rain) spot near the needle.
-// The target is computed from the decoded frame; a ping speeds up and rises as the needle nears it, and arriving is said
-// with the exact value. "Near" is the same neighbourhood the description calls "around here" (SPAN_DEG).
+// Sonar: the warmest (ocean) or wettest (rain) spot near the needle, from the decoded frame. Used by the N key
+// (ExploreControls/use-sonar.ts) and Ask Bloop's "highest/lowest near" answers (AskBloop/questions.ts).
 import type { LatLon } from "@/lib/data";
 import { cellIndex, clampLat, wrapLon } from "@/lib/data/grid";
 import { cellCentre, SPAN_DEG, type Extreme, type ValueGrid } from "@/lib/describe/stats";

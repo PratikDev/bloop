@@ -1,6 +1,5 @@
-// PURE: alt text for an exported tactile disc. STL has no metadata fields
-// (no IPTC "Alt Text (Accessibility)" or "Extended Description"), so the alt text goes in a sidecar .txt saved beside
-// it and, cut to ASCII, in the 80-byte header binary STL leaves free. Every number is a slot from the disc's own data.
+// Alt text for an exported tactile disc (3D-print STL): a sidecar .txt and the STL's 80-byte header, every number
+// from the disc's own data. Used by the tactile export (Scenes/use-tactile-export.ts) and its input type (Scenes/tactile.ts).
 import { formatAxis, formatInteger, type BoundT, type Lang } from "@/lib/i18n";
 import { extremeIndex } from "@/lib/timed-text/sweep";
 

@@ -1,6 +1,5 @@
-// The expedition log: a plain-text record of this session's places,
-// values, comparisons and sources, readable on screen and saved as .txt. Lines wrap at the braille explorer's width
-// setting, so a braille display shows whole lines.
+// The expedition log: this session's places, values, comparisons and sources as plain text, wrapped at the braille
+// width. Used by the app state (AppState/reducer.ts), the Log menu (Dock/LogMenu) and the letter's line wrapping.
 
 export interface LogEntry {
   /** When it was said (ISO, UTC). */
