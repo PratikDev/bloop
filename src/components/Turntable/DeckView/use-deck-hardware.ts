@@ -1,10 +1,10 @@
 "use client";
 
 import { useEffect, useRef, type RefObject } from "react";
-import { LIVE_VOICES } from "@/lib/audio-adapter/types";
 import { useAppState } from "../../AppState/use-app-state";
 import { useCommands } from "../../Commands/use-commands";
 import { SPEEDS } from "../use-turntable";
+import { useVoicesVolume } from "../use-voices-volume";
 import type { DeckView } from "./deck-view";
 import type { HardwareId } from "./hardware";
 
@@ -29,7 +29,6 @@ const KNOB_DRAG_PX = 160;
 const CLICK_SLOP_PX = 4;
 const KNOB_STEP = 0.25;
 
-const voicesVolume = (mix: Record<(typeof LIVE_VOICES)[number], { volume: number }>) => Math.max(...LIVE_VOICES.map((v) => mix[v].volume));
 
 /**
  * The hardware shows its DOM controls' state and does what they do: the start/stop button turns the Earth, the 33/45
@@ -37,28 +36,25 @@ const voicesVolume = (mix: Record<(typeof LIVE_VOICES)[number], { volume: number
  * Clicks on the hardware never reach the record: the handler stops them.
  */
 export function useDeckHardware(view: DeckView | null, canvasRef: RefObject<HTMLCanvasElement | null>, controls: DeckControls): void {
-  const { state, dispatch } = useAppState();
+  const { state } = useAppState();
+  const { volume, setVolume: setVoicesVolume } = useVoicesVolume();
   const commands = useCommands();
-  const volume = voicesVolume(state.mix);
   const paused = !(state.soundOn && state.playing);
 
   useEffect(() => {
     view?.setHardware({ rotating: controls.rotating, fast: controls.speed > SPEED_33, paused, volume });
   }, [view, controls.rotating, controls.speed, paused, volume]);
 
-  const latest = useRef({ controls, commands, volume, dispatch });
+  const latest = useRef({ controls, commands, volume, setVoicesVolume });
   useEffect(() => {
-    latest.current = { controls, commands, volume, dispatch };
+    latest.current = { controls, commands, volume, setVoicesVolume };
   });
 
   useEffect(() => {
     const canvas = canvasRef.current;
     if (!view || !canvas) return;
     const coarse = window.matchMedia("(pointer: coarse)");
-    const setVolume = (v: number) => {
-      const next = Math.min(1, Math.max(0, v));
-      for (const voice of LIVE_VOICES) latest.current.dispatch({ type: "setVoiceMix", voice, mix: { volume: next } });
-    };
+    const setVolume = (v: number) => latest.current.setVoicesVolume(v);
     const act = (id: HardwareId) => {
       const { controls: c, commands: cmd } = latest.current;
       if (id === "start") c.toggleRotation();

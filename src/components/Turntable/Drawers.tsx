@@ -15,6 +15,7 @@ import { OnOffToggle } from "../OnOffToggle";
 import { SettingToggle } from "../SettingToggle";
 import { useTT, type TT } from "./i18n";
 import { TIERS, type Tier } from "./quality";
+import { useVoicesVolume } from "./use-voices-volume";
 import type { TurntableSettings } from "./settings";
 
 export type DrawerId = "layers" | "settings" | "sources";
@@ -51,6 +52,19 @@ const LAYER_LABELS = {
   graticule: "turntable.graticule",
 } as const satisfies Record<(typeof LAYER_KEYS)[number], Parameters<TT>[0]>;
 
+/** "Volume, all sounds": the deck's volume knob, as a control everyone can reach (the same state, both ways). */
+function VolumeAll() {
+  const { tt } = useTT();
+  const { volume, setVolume } = useVoicesVolume();
+  const percent = Math.round(volume * 100);
+  return (
+    <section className={SECTION}>
+      <p className={HEADING}>{tt("turntable.volume.all.value", { percent })}</p>
+      <Slider value={[percent]} onValueChange={(v) => setVolume((Array.isArray(v) ? v[0] : v) / 100)} thumbLabel={tt("turntable.volume.all")} />
+    </section>
+  );
+}
+
 function LayersBody({ settings, update }: { settings: TurntableSettings; update: Update }) {
   const { tt } = useTT();
   const percent = Math.round(settings.dataOpacity * 100);
@@ -86,6 +100,7 @@ function LayersBody({ settings, update }: { settings: TurntableSettings; update:
           itemClassName="h-11"
         />
       </section>
+      <VolumeAll />
       <section className={SECTION}>
         <p className={HEADING}>{tt("turntable.layers.sound")}</p>
         <Mixer className="flex-col items-start" />

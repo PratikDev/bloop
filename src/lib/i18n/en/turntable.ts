@@ -155,6 +155,9 @@ export const turntableEn = {
   "turntable.graticule.capricorn": "Tropic of Capricorn",
   // A point under the mouse (or a drag on the record), shown in the readout before it is selected.
   "turntable.preview": "Preview",
+  // The deck's volume knob as a control: the ocean, rain and snow voices together (there is no master volume).
+  "turntable.volume.all": "Volume, all sounds",
+  "turntable.volume.all.value": (p: { percent: number }) => `Volume, all sounds: ${formatInteger(p.percent, "en")}%`,
   // The turntable beside the globe, in the Turntable's hidden description (updated when the needle settles).
   "turntable.record.description": (p: { lat: string }) =>
     `The record shows the Earth as grooves: outer is north, inner is south. The needle is on the groove for ${p.lat}.`,
