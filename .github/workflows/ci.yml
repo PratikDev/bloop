@@ -24,7 +24,8 @@ jobs:
 
   smoke:
     needs: unit
-    runs-on: ubuntu-latest
+    # Playwright 1.56 installs browser dependencies for Ubuntu up to 24.04 (ubuntu-latest is newer)
+    runs-on: ubuntu-24.04
     timeout-minutes: 30
     steps:
       - uses: actions/checkout@v4
