@@ -204,8 +204,8 @@ flowchart LR
 
 <table>
   <tr>
-    <td width="50%" align="center"><img src="docs/readme/phone-home.png" alt="Home on a phone: the heading, Start listening, the tour and Explore without sound, with the jukebox below" width="78%"></td>
-    <td width="50%" align="center"><img src="docs/readme/phone-listen.png" alt="Listen on a phone: the map in the cabinet with the needle on the Bay of Bengal, and the player below with Pause sound, the value 29.8 degrees and the west to east slider" width="78%"></td>
+    <td width="50%" align="center"><img src="docs/readme/phone-home.png" alt="Home on a phone: the menu button, the heading, Start listening, the tour and Explore without sound, with the jukebox below" width="78%"></td>
+    <td width="50%" align="center"><img src="docs/readme/phone-listen.png" alt="Listen on a phone: the map in the cabinet with the needle on the Bay of Bengal, and the player below with Pause sound, the value 29.2 degrees and the west to east slider" width="78%"></td>
   </tr>
   <tr>
     <td colspan="2" align="center"><sub><b>On a phone:</b> the same app, with 44 px touch targets and the player within thumb reach.</sub></td>
