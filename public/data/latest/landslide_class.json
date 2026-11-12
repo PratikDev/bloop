@@ -8,16 +8,18 @@
       "name": "EIC frame: SVS 5584 landslide exposure (LHASA)",
       "agency": "NASA",
       "kind": "model",
-      "shares_inputs_with": []
+      "shares_inputs_with": [],
+      "url": null,
+      "provider": null
     }
   ],
   "credit": "Visualization: NASA's Scientific Visualization Studio (SVS 5584) for the NASA Earth Information Center. Data: NASA LHASA.",
   "disclosure": "A model nowcast of landslide exposure, decoded from the picture's legend classes.",
-  "source_time_utc": "2026-11-11T05:00:55Z",
-  "generated_utc": "2026-11-11T17:00:50Z",
+  "source_time_utc": "2026-11-12T05:00:56Z",
+  "generated_utc": "2026-11-12T09:54:19Z",
   "svs_id": 5584,
   "svs_page": "https://svs.gsfc.nasa.gov/5584/",
-  "frame_time_utc": "2026-11-11T05:00:55Z",
+  "frame_time_utc": "2026-11-12T05:00:56Z",
   "frame_time_source": "HTTP Last-Modified of landslides_daily.png",
   "source_file": "landslides_daily.png",
   "projection_of_source": "Robinson",
@@ -85,6 +87,6 @@
   "verified": {
     "test": "C5584",
     "status": "PASS",
-    "age_days": 0.5
+    "age_days": 0.2
   }
 }

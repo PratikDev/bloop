@@ -10,13 +10,15 @@
       "kind": "measurement",
       "shares_inputs_with": [
         "firms"
-      ]
+      ],
+      "url": null,
+      "provider": null
     }
   ],
   "credit": "Visualization: NASA's Scientific Visualization Studio (SVS 5113) for the NASA Earth Information Center. Data: VIIRS active fires (NASA FIRMS, LANCE/ESDIS).",
   "disclosure": "Shown as a picture only: its hot pixels agree only moderately with FIRMS, so the sound uses FIRMS counts.",
   "source_time_utc": "2026-11-11T11:26:26Z",
-  "generated_utc": "2026-11-11T17:00:45Z",
+  "generated_utc": "2026-11-12T09:54:13Z",
   "svs_id": 5113,
   "svs_page": "https://svs.gsfc.nasa.gov/5113/",
   "frame_time_utc": "2026-11-11T11:26:26Z",
