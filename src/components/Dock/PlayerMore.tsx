@@ -5,7 +5,7 @@ import { DotsThree } from "@phosphor-icons/react";
 import { Button } from "@/components/ui/button";
 import { Popover, PopoverContent, PopoverTrigger } from "@/components/ui/popover";
 import { useT } from "../AppState/use-app-state";
-import { DOCK_BUTTON } from "./dock-button";
+import { DOCK_BUTTON_FIXED } from "./dock-button";
 import { setMoreSlot } from "./more-slot";
 
 interface MoreMenu {
@@ -32,9 +32,9 @@ export function PlayerMore({ children }: { children: ReactNode }) {
   const button = useRef<HTMLButtonElement>(null);
   return (
     <Popover open={open} onOpenChange={setOpen}>
-      <PopoverTrigger render={<Button ref={button} variant="ghost" aria-label={t("player.more")} className={DOCK_BUTTON} />}>
+      <PopoverTrigger render={<Button ref={button} variant="ghost" aria-label={t("player.more")} className={DOCK_BUTTON_FIXED} />}>
         <DotsThree aria-hidden="true" weight="bold" />
-        <span aria-hidden="true">{t("player.more")}</span>
+        <span aria-hidden="true" className="max-sm:hidden">{t("player.more")}</span>
       </PopoverTrigger>
       <PopoverContent data-tt-occluder aria-label={t("player.more")} side="top" align="end" sideOffset={12} className="surface-glass max-h-(--available-height) w-80 gap-1 overflow-y-auto rounded-plate p-2 text-body">
         <MoreMenuContext.Provider value={{ close: () => setOpen(false), button }}>

@@ -17,7 +17,7 @@ export function RecordsKey({ wide = false }: { wide?: boolean }) {
   const [open, setOpen] = useState(false);
   return (
     <Sheet open={open} onOpenChange={setOpen}>
-      <SheetTrigger render={<DockAction icon={<Disc aria-hidden="true" />} full={t("records.label")} short={t("records.label")} className={wide ? MORE_ITEM : undefined} />} />
+      <SheetTrigger render={<DockAction icon={<Disc aria-hidden="true" />} full={t("records.label")} short={t("records.label")} fixed={!wide} className={wide ? MORE_ITEM : undefined} />} />
       <SheetContent data-tt-occluder closeLabel={t("inspector.close")} side={phone ? "bottom" : "right"} className={phone ? "max-h-[85dvh] overflow-y-auto rounded-t-sheet bg-dusk p-4 pt-14" : "w-full overflow-y-auto rounded-l-sheet bg-dusk p-4 pt-14 sm:max-w-md"}>
         <SheetTitle className="sr-only">{t("records.label")}</SheetTitle>
         <Rack onPicked={() => setOpen(false)} />
