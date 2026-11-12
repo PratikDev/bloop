@@ -36,6 +36,9 @@ export const DRAFT_KEYS: readonly MessageKey[] = [
   "team.localEvent",
   "team.madeWith",
   "team.licence",
+  // the phone header menu (en/pages.ts)
+  "nav.menu",
+  "nav.controls",
   // item 8 (en/listen-test.ts)
   "lt.title",
   "lt.consent.heading",

@@ -9,6 +9,8 @@ export const pagesEn = {
   "app.skipToContent": "Skip to content",
 
   "nav.label": "Pages",
+  "nav.menu": "Menu",
+  "nav.controls": "Controls",
   "nav.home": `${APP_NAME}, home`,
   "nav.listen": "Listen",
   "nav.thenNow": "Then vs Now",

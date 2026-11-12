@@ -11,6 +11,8 @@ export const pagesBn: Translated<typeof pagesEn> = {
   "app.skipToContent": "মূল অংশে যান",
 
   "nav.label": "পাতা",
+  "nav.menu": "মেনু",
+  "nav.controls": "নিয়ন্ত্রণ",
   "nav.home": `${APP_NAME}, প্রথম পাতা`,
   "nav.listen": "শুনুন",
   "nav.thenNow": "আগে বনাম এখন",
