@@ -48,7 +48,7 @@ export function TeamPage() {
 					{t("team.members")}
 				</h2>
 				{/* 6 tracks, each card spans 2: the first row's two cards start at track 2 so they sit centred over the three below. */}
-				<ul className="grid grid-cols-2 gap-3 md:grid-cols-6 md:gap-4 md:*:col-span-2 md:[&>li:first-child]:col-start-2">
+				<ul className="grid grid-cols-1 sm:grid-cols-2 gap-3 md:grid-cols-6 md:gap-4 md:*:col-span-2 md:[&>li:first-child]:col-start-2">
 					{TEAM.members.map((m) => (
 						<MemberCard
 							key={m.name}
