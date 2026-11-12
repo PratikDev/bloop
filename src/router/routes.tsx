@@ -50,7 +50,7 @@ const turntableRoute = createRoute({
 const teamRoute = createRoute({
   getParentRoute: () => rootRoute,
   path: "team",
-  component: lazyRouteComponent(() => import("@/components/pages/Team-v2"), "TeamPage"),
+  component: lazyRouteComponent(() => import("@/components/pages/Team"), "TeamPage"),
 });
 
 // The listener test (mentor item 8): no link to it anywhere, noindex (src/app/[[...path]]/page.tsx).
