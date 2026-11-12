@@ -95,7 +95,15 @@ async function go(page: Page, path: string) {
     await page.getByRole("main").getByRole("button", { name: "Credits", exact: true }).click();
     await page.getByRole("dialog", { name: "Credits" }).getByRole("link", { name: "All official records" }).click();
   }
-  else await page.getByRole("banner").locator(`a[href="${path}"]`).first().click();
+  else {
+    // Below 1024 px the pages sit in the header's menu.
+    const menu = page.getByRole("banner").getByRole("button", { name: "Menu", exact: true });
+    if (await menu.isVisible()) {
+      await menu.click();
+      await page.getByRole("dialog", { name: "Menu" }).locator(`a[href="${path}"]`).click();
+    }
+    else await page.getByRole("banner").locator(`a[href="${path}"]`).first().click();
+  }
   await page.waitForTimeout(SETTLE_MS);
   // Where the page itself scrolls (phones), the sticky player covers what is below the fold until it is scrolled to:
   // at the end of the page, the last content must clear the player.
