@@ -52,6 +52,7 @@ export function useTurntableActions(
   };
 
   const whereAmI = () => {
+    tt.resetFraming();
     const at = tt.needle();
     const line = placeAt(at, lang)?.line ?? t("place.latlon", at);
     setWhere(line);

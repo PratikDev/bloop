@@ -3,13 +3,15 @@
 //   earcon bus ──────────────────────────────────┼→ master → compressor → meter → destination
 //   narration bus ───────────────────────────────┘
 // Each voice channel is  input(level) → mix → sonification bus.  Voices
-// connect their own panners/envelopes into `input`; the mixer only touches `mix`.
+// connect their own panners/envelopes into `input`; the mixer only touches `mix`. The input's level is the voice cap
+// times the mix pass's per-voice trim (mix-trims.ts, docs/audio/MIX.md).
 
 import { MAPPING } from "./mapping";
+import { channelGain } from "./mix-trims";
 import { VOICE_IDS, type VoiceId } from "./types";
 
 export interface Channel {
-  /** Voices connect here. Fixed at the per-voice volume cap. */
+  /** Voices connect here. Fixed at the per-voice volume cap times the voice's mix trim (channelGain). */
   input: GainNode;
   /** 0..1; driven only by the mixer (mute, solo, per-voice volume). */
   mix: GainNode;
@@ -59,7 +61,7 @@ export function buildGraph(ctx: AudioContext): Graph {
 
   const channels = Object.fromEntries(
     VOICE_IDS.map((id) => {
-      const input = new GainNode(ctx, { gain: g.voiceMaxGain });
+      const input = new GainNode(ctx, { gain: channelGain(id) });
       const mix = new GainNode(ctx, { gain: 1 });
       input.connect(mix).connect(sonification);
       return [id, { input, mix }];

@@ -61,26 +61,82 @@ export async function heard(page: Page, ms = 4000): Promise<number> {
 }
 
 /** Opens the app past the start overlay and the intro, with the audio tap (and, when asked, the 3D hidden). */
-export async function start(page: Page, opts: { hide3d?: boolean } = {}) {
+export async function start(page: Page, opts: { hide3d?: boolean; keepTuning?: boolean } = {}) {
+  await tapAudio(page, opts);
+  await open(page, opts);
+}
+
+/** The audio tap (and, when asked, the 3D hidden) on every page this one loads, without starting the app. */
+export async function tapAudio(page: Page, opts: { hide3d?: boolean } = {}) {
   await page.addInitScript(TAP);
   if (opts.hide3d) await page.addInitScript(HIDE_3D);
-  await open(page);
+}
+
+/** Start listening and Skip intro, stopping the moment the journey into Listen is on screen. */
+export async function startToJourney(page: Page, overlay: string) {
+  await tapAudio(page);
+  await page.goto("/");
+  await page.getByRole("button", { name: "Start listening" }).click();
+  await page.getByRole("button", { name: "Skip intro" }).click();
+  await page.locator(overlay).waitFor({ state: "attached", timeout: 10_000 });
 }
 
 /** Loads the app again on a page that already has the init scripts (a fresh start after a failed check). */
-export async function open(page: Page) {
+export async function open(page: Page, opts: { keepTuning?: boolean } = {}) {
   await page.goto("/");
   await page.getByRole("button", { name: "Start listening" }).click();
   // The intro can appear a moment after Start: wait for it (it plays its own sound and takes the keys), then skip it.
   const skip = page.getByRole("button", { name: "Skip intro" });
   if (await skip.waitFor({ state: "visible", timeout: 5000 }).then(() => true, () => false)) await skip.click();
   await skip.waitFor({ state: "hidden", timeout: 10_000 }).catch(() => undefined);
+  // Listen's code loads on demand: wait for its map, and for the intro's fade and the journey to finish, so a check
+  // never acts on (or measures) a page that is still arriving.
+  await page.locator("#sound-map").waitFor({ state: "visible", timeout: 30_000 }).catch(() => undefined);
+  await page.locator("[data-jukebox-journey]").waitFor({ state: "detached", timeout: 10_000 }).catch(() => undefined);
+  await page.waitForFunction(() => document.getAnimations().every((a) => a.playState !== "running" || a.effect?.getTiming().iterations === Infinity), null, { timeout: 5_000 }).catch(() => undefined);
+  // Track 0 "Tuning" follows the intro on a first visit, where it is on: skipped as the intro is, unless asked to keep it.
+  if (opts.keepTuning) return;
+  const skipTuning = page.getByRole("button", { name: "Skip tuning" });
+  if (await skipTuning.isVisible()) await skipTuning.click();
+}
+
+/** An official record's strip on the Official page: its name is its code, then its title. */
+export const officialStrip = (page: Page, title: string) =>
+  page.getByRole("button", { name: new RegExp(`^C\\d+, ${title.replace(/[.*+?^${}()|[\]\\]/gu, "\\$&")}$`, "u") });
+
+/** The Details drawer's names, in English or (the Bangla-mode checks) in Bangla. */
+export const DETAILS_NAMES = { en: { details: "Details", controls: "Controls" }, bn: { details: "বিস্তারিত", controls: "নিয়ন্ত্রণ" } } as const;
+
+/** An official record's braille explorer button: in its Details drawer, on the Controls tab. */
+export async function officialBrailleButton(page: Page, name: string | RegExp = /Braille explorer/u, names: { details: string; controls: string } = DETAILS_NAMES.en) {
+  const drawer = page.getByRole("dialog", { name: names.details });
+  if (!(await drawer.count())) await page.getByRole("button", { name: names.details, exact: true }).click();
+  await drawer.getByRole("tab", { name: names.controls }).click();
+  return drawer.getByRole("button", { name });
 }
 
 /** The header's pages (main's router): a click on the dial's link, as a user moves between pages (the app's state stays). */
 export type PageName = "Listen" | "Then vs Now" | "How we know" | "Official records" | "Turntable";
 
 export async function navTo(page: Page, name: PageName) {
+  // Official records isn't in the header: it is in How we know's Credits drawer (the key beside the page's heading).
+  // By address, so it works in either language.
+  if (name === "Official records") {
+    await page.getByRole("banner").locator('a[href="/how"]').first().click();
+    await page.getByRole("main").locator("header button").first().click();
+    await page.getByRole("dialog").locator('a[href="/official"]').first().click();
+    await page.waitForURL(/official/u);
+    return;
+  }
   await page.getByRole("banner").getByRole("link", { name: new RegExp(`${name}$`, "u") }).first().click();
   await page.waitForURL(/./u);
 }
+
+/** The header's Settings button (exact: the header also has "Low-vision settings"). */
+export const settingsButton = (page: Page) => page.getByRole("banner").getByRole("button", { name: "Settings", exact: true });
+
+/**
+ * The sound map's live reading. Its accessible name is the reading as the map is reached and holds still while it has
+ * focus (each step is said once, by the status region), so checks of where the needle is read this attribute.
+ */
+export const MAP_READING = "data-reading";

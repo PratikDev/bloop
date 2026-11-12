@@ -7,6 +7,16 @@ import { brailleLabel } from "@/a11y/aria";
 import { ToggleGroup, ToggleGroupItem } from "@/components/ui/toggle-group";
 import { SPRING } from "@/lib/motion";
 
+/** The pill around a set of choices, and one choice in it (shared with RadioChoiceGroup). */
+export const CHOICE_GROUP = "max-w-full rounded-3xl border-2 border-line bg-paper p-1";
+export const CHOICE_ITEM =
+  "relative isolate inline-flex h-auto min-h-11 max-w-full min-w-11 shrink items-center justify-center rounded-full px-4 py-1 text-body font-normal whitespace-normal text-haze transition-colors duration-200 hover:bg-transparent hover:text-moon aria-pressed:bg-transparent aria-pressed:text-ink aria-checked:text-ink";
+
+/** The highlight that glides to the chosen option. */
+export function ChoiceHighlight({ id, className }: { id: string; className?: string }) {
+  return <motion.span layoutId={id} transition={SPRING.snappy} aria-hidden="true" className={cn("absolute inset-0 -z-10 bg-moon", className)} />;
+}
+
 export interface Choice<T extends string> {
   value: T;
   label: string;
@@ -52,7 +62,7 @@ export function ChoiceGroup<T extends string>({
       }}
       spacing={1}
       orientation={vertical ? "vertical" : "horizontal"}
-      className={cn("rounded-3xl bg-ink/45 p-1 ring-1 ring-glass-edge", vertical ? "w-full" : "flex-wrap", className)}
+      className={cn(CHOICE_GROUP, vertical ? "w-full" : "flex-wrap", className)}
     >
       {options.map((o) => {
         const chosen = o.value === value;
@@ -63,12 +73,13 @@ export function ChoiceGroup<T extends string>({
             lang={o.lang}
             {...brailleLabel(o.brailleLabel)}
             className={cn(
-              "relative isolate h-11 min-w-11 rounded-full px-4 text-body font-normal text-haze transition-colors duration-200 hover:bg-transparent hover:text-moon aria-pressed:bg-transparent aria-pressed:text-ink md:pointer-fine:h-9",
-              vertical && "h-auto min-h-11 justify-start rounded-2xl py-2 text-left whitespace-normal md:pointer-fine:h-auto md:pointer-fine:min-h-10",
+              // Long names wrap inside the pill: the row never pushes the page sideways.
+              CHOICE_ITEM,
+              vertical && "justify-start rounded-2xl py-2 text-left md:pointer-fine:min-h-10",
               itemClassName,
             )}
           >
-            {chosen && <motion.span layoutId={highlightId} transition={SPRING.snappy} aria-hidden="true" className={cn("absolute inset-0 -z-10 bg-moon", vertical ? "rounded-2xl" : "rounded-full")} />}
+            {chosen && <ChoiceHighlight id={highlightId} className={vertical ? "rounded-2xl" : "rounded-full"} />}
             {o.label}
           </ToggleGroupItem>
         );

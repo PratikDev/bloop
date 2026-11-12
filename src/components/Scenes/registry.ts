@@ -13,5 +13,12 @@ export const SCENE_SLEEVES = {
   tunnel: "scenes.tunnel.sleeve",
 } as const satisfies Record<SceneId, TurntableKey>;
 
-/** Sleeve art: a still from the scene's own render (captured from the production build). */
-export const sceneCover = (id: SceneId) => `/textures/scenes/cover-${id}.webp`;
+/** The mapping.json voices each scene plays (its own sound, plus the live track it sets with useSceneTrack); the credits
+ * read these to name the data a scene plays (src/lib/credits). */
+export const SCENE_VOICES = {
+  ghost: ["heat", "monsoon", "water"],
+  delta: ["rain", "snow", "water"],
+  terrain: ["ocean", "rain", "snow", "normalTone", "clarity"],
+  tunnel: ["heat", "monsoon"],
+} as const satisfies Record<SceneId, readonly string[]>;
+

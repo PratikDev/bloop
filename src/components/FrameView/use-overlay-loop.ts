@@ -4,6 +4,7 @@ import { useEffect, useRef, type RefObject } from "react";
 import { mapVoice, normalise, voiceSpec } from "@/lib/audio/mapping";
 import { audio, clockNow, eventClockTime } from "@/lib/audio-adapter";
 import { readPalette } from "@/lib/css-tokens";
+import { subscribeTicker } from "@/hooks/use-ticker";
 import type { LatLon } from "@/lib/data";
 import { pxPerDeg, toXY } from "@/lib/geo";
 import type { SweepVisual } from "../Commands/use-commands";
@@ -15,6 +16,8 @@ export interface OverlayInputs {
   oceanC: number | null; // only when the ocean voice is audible
   rainMm: number | null; // only when rain or snow is audible
   reduceMotion: boolean;
+  /** Low-vision mode: a larger needle with a thicker dual outline (step 8). */
+  thick: boolean;
 }
 
 // Ring shapes (design-plan §5 #2). Ocean spacing follows pitch.
@@ -47,7 +50,6 @@ export function useOverlayLoop(
     let lastOceanRing = -Infinity;
     // Steps arrive up to 100 ms before they sound; draw the latest one that has started.
     let sweepSteps: { index: number; time: number }[] = [];
-    let raf = 0;
 
     const off = audio.onAudioEvent((e) => {
       if (e.kind === "step" && e.player === "sweep") {
@@ -83,7 +85,6 @@ export function useOverlayLoop(
     };
 
     const draw = () => {
-      raf = requestAnimationFrame(draw);
       const now = clockNow();
       const { cursor, oceanC, rainMm, reduceMotion } = inputsRef.current;
       ctx.clearRect(0, 0, size.width, size.height);
@@ -105,19 +106,13 @@ export function useOverlayLoop(
       } else {
         rings = [];
       }
-      drawCursor(ctx, palette, x, y);
+      drawCursor(ctx, palette, x, y, inputsRef.current.thick);
     };
 
-    const onVisibility = () => {
-      cancelAnimationFrame(raf);
-      if (!document.hidden) raf = requestAnimationFrame(draw);
-    };
-    document.addEventListener("visibilitychange", onVisibility);
-    raf = requestAnimationFrame(draw);
+    const unsubscribe = subscribeTicker(draw, canvas);
     return () => {
       off();
-      cancelAnimationFrame(raf);
-      document.removeEventListener("visibilitychange", onVisibility);
+      unsubscribe();
     };
   }, [canvasRef, size, sweepRef]);
 }

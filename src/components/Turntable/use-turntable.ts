@@ -1,18 +1,21 @@
 "use client";
 
-import { useCallback, useEffect, useRef, useState, type Dispatch, type RefObject } from "react";
+import { type Dispatch, type RefObject, useCallback, useEffect, useRef, useState } from "react";
 import { Vector2 } from "three";
 import { audio } from "@/lib/audio-jukebox";
 import type { TrackMode } from "@/lib/audio-jukebox/types";
 import { wrapLon, type LatLon, type LiveFields } from "@/lib/data";
+import { readAt } from "@/lib/reading";
 import type { ZoomLevel } from "@/lib/geo/search";
 import type { AppAction } from "../AppState/reducer";
 import { useCanvasSize } from "../FrameView/use-canvas-size";
 import { createControl } from "./control";
 import { createFlight, type Flight } from "./flight";
-import { createNeedleDrop, type DropKind } from "./needle-drop";
+import { cubicBezier } from "motion";
+import { EASE_MECHANICAL } from "@/lib/motion";
+import { createNeedleDrop, LIFT_HEIGHT, type DropKind } from "./needle-drop";
 import type { SentReading } from "./needle-sound";
-import { recordLabelCanvas, type RecordLabel } from "./record-label";
+import type { RecordLabel } from "./record-label";
 import type { LayerToggles } from "./settings";
 import { DISTANCE, type CameraMode, type ScreenPoint, type TurntableScene } from "./scene";
 import { useGlobeTexture, type GlobeTexture } from "./use-globe-texture";
@@ -21,12 +24,20 @@ import { useSceneAssets, type SceneSettings } from "./use-scene-assets";
 export const NEEDLE_MAX_LAT = 80;
 /** Rotation speeds (× one turn a minute); design choices, not data. */
 export const SPEEDS = [0.25, 0.5, 1, 2, 4] as const;
+/** A looked-around view turns back to the needle in this long when the needle moves (the motion tokens' scene length). */
+const VIEW_RETURN_MS = 600;
+/** The preview follows the pointer in steps this small (degrees): finer than the data's grid, coarser than every mouse move. */
+const PREVIEW_STEP_DEG = 0.05;
+const mechanicalEase = cubicBezier(...EASE_MECHANICAL);
 const DEFAULT_SPEED_INDEX = 2;
 const DEG_PER_SEC = 6;
 const MAX_FRAME_SEC = 0.1; // after a stall, don't jump the globe
 // While turning, the readout and panels follow the needle at 4 Hz (each sync re-renders the app);
 // keys, clicks and stops sync at once. Sound follows at 30 Hz regardless.
 const CURSOR_SYNC_MS = 250;
+/** Arrow keys: a critically damped glide that settles in about 200 ms. */
+const GLIDE_RATE = 24;
+const GLIDE_SETTLED_DEG = 0.005;
 /** Camera distance for each kind of place (globe radii); design choices. */
 export const ZOOM_DISTANCE: Record<ZoomLevel, number> = { country: 3.0, region: 2.3, local: 1.35 };
 
@@ -41,6 +52,8 @@ interface Options {
   liveOn: boolean;
   allMuted: boolean;
   reduceMotion: boolean;
+  /** "Pause motion": the Earth stops turning by itself (the Turn key keeps its state); sound and needle are untouched. */
+  motionPaused?: boolean;
   layers: LayerToggles;
   /** The intro will run (once per session): the arm waits at rest until startIntro(). */
   introPending: boolean;
@@ -49,7 +62,7 @@ interface Options {
   start: LatLon;
   dispatch: Dispatch<AppAction>;
   onSend?: (sent: SentReading) => void;
-  scene: Omit<SceneSettings, "sst">;
+  scene: SceneSettings;
 }
 
 /** What the HTML overlays need each frame. */
@@ -64,6 +77,20 @@ export interface FrameInfo {
   viewLat: number;
   viewLon: number;
   project(lat: number, lon: number): ScreenPoint;
+  /** The frame's pixel under the needle (null: land, dry or no data). */
+  swatch?: [number, number, number] | null;
+  /** The needle as the turntable beside the globe shows it (DeckView). */
+  pose?: DeckPose;
+}
+
+/** The needle on the record: its place, the arm's lift and park (0..1), the record's lift in a change, and the sound. */
+export interface DeckPose extends LatLon {
+  lift: number;
+  park: number;
+  recordLift: number;
+  spinning: boolean;
+  /** Reduced motion: no easing. */
+  instant: boolean;
 }
 
 export interface Turntable {
@@ -75,8 +102,19 @@ export interface Turntable {
   needle(): LatLon;
   nudge(dLat: number, dLon: number): void;
   moveTo(at: LatLon): void;
+  /** A click on the globe: the arm lifts, swings to the point and drops. */
+  pick(at: LatLon): void;
+  /** Back to the framing that fits the globe into the free space. */
+  resetFraming(): void;
   turnTo(at: LatLon): void;
   pickAt(clientX: number, clientY: number): LatLon | null;
+  /** Looks around: turns the globe by `deg` without moving the needle or what's playing. Any needle move turns it back. */
+  look(deg: number): void;
+  /** The point being previewed (the globe under the mouse, or the record under a drag), or null. Silent. */
+  preview: LatLon | null;
+  setPreview(at: LatLon | null): void;
+  /** Lifts the needle off the record and silences it (a drag on the record), or lets it down again. */
+  hold(on: boolean): void;
   /** Eased flight that brings `at` under the needle; resolves on arrival (or at once if cancelled). */
   flyTo(at: LatLon, zoom: ZoomLevel): Promise<boolean>;
   /** Stops a flight; true if one was running. */
@@ -98,6 +136,7 @@ export interface Turntable {
   texture: GlobeTexture;
   /** R3F hands the scene over here once it exists (and null when it's gone). */
   onSceneReady(scene: TurntableScene | null): void;
+  scene: TurntableScene | null;
   sceneRef: RefObject<TurntableScene | null>;
   fpsRef: RefObject<number>;
   particlesSpawned: RefObject<number>;
@@ -115,6 +154,22 @@ export function useTurntable(o: Options): Turntable {
   const pose = useRef<LatLon>(startPose);
   const reading = useRef<LatLon>(startPose);
   const motion = useRef({ lift: 0, park: 0 });
+  const recordLift = useRef(0);
+  /** Where a pick is swinging from and to. */
+  const swing = useRef<{ from: LatLon; to: LatLon } | null>(null);
+  /** A pick's arm is still in the air: the readout and swatch already show the picked point, never a place on the way. */
+  const picking = useRef(false);
+  /** Where the arrow keys are gliding to, and how fast the glide is going. */
+  const glide = useRef<{ lat: number; lon: number; vLat: number; vLon: number } | null>(null);
+  /** The view turned away from the needle by a drag (degrees), and its ease back when the needle moves. */
+  const yaw = useRef({ deg: 0, from: 0, startedAt: -1 });
+  const [preview, setPreviewState] = useState<LatLon | null>(null);
+  const setPreview = useCallback((at: LatLon | null) => {
+    setPreviewState((was) => {
+      if (!at || !was) return at;
+      return Math.abs(at.lat - was.lat) < PREVIEW_STEP_DEG && Math.abs(wrapLon(at.lon - was.lon)) < PREVIEW_STEP_DEG ? was : at;
+    });
+  }, []);
   const drop = useRef(createNeedleDrop());
   const dropDone = useRef<(() => void) | null>(null);
   const holding = useRef(false);
@@ -123,7 +178,9 @@ export function useTurntable(o: Options): Turntable {
   const inputAt = useRef(0);
   const size = useRef({ width: 1, height: 1 });
 
-  const [rotating, setRotatingState] = useState(!o.reduceMotion);
+  // The record turns when it's playing: with the sound playing the Earth turns from the start; otherwise it waits for
+  // Start or the Turn key. Reduced motion: never by itself (setRotating).
+  const [rotating, setRotatingState] = useState(o.liveOn && !o.reduceMotion);
   const [speedIndex, setSpeedIndex] = useState(DEFAULT_SPEED_INDEX);
   const [cameraMode, setCameraModeState] = useState<CameraMode>("jukebox");
   const speedIndexNow = useRef(DEFAULT_SPEED_INDEX);
@@ -144,13 +201,6 @@ export function useTurntable(o: Options): Turntable {
     setScene(s);
   }, []);
 
-  /** Draws the current record's label onto the record (async: waits for the fonts). */
-  const labelRecord = useCallback((s: TurntableScene) => {
-    const text = live.current.label;
-    void recordLabelCanvas(text).then((canvas) => {
-      if (sceneRef.current === s && live.current.label === text) s.deck.setLabel(canvas);
-    });
-  }, []);
 
   const touched = () => {
     inputAt.current = performance.now();
@@ -159,12 +209,18 @@ export function useTurntable(o: Options): Turntable {
   const applyPose = useCallback(() => {
     const scene = sceneRef.current;
     if (!scene) return;
-    scene.setPose(pose.current.lat, pose.current.lon, motion.current.lift, motion.current.park);
+    scene.setPose(pose.current.lat, pose.current.lon, yaw.current.deg);
     // Stored as read: the reducer leaves these numbers unchanged, so the
     // readout, speech and sound all look up the same grid cell.
     reading.current = scene.readNeedle();
     unsynced.current = true;
   }, []);
+
+  /** The swatch takes a picked point's pixel at once, so the frame after a click never shows the old place's colour. */
+  const paintSwatch = (at: LatLon) => {
+    const { fields, track } = live.current;
+    if (fields) sceneRef.current?.effects.setSwatchColor(textureRef.current.sample(track, readAt(fields, at), at));
+  };
 
   const syncCursor = useCallback(() => {
     dispatch({ type: "setCursor", cursor: reading.current });
@@ -173,13 +229,24 @@ export function useTurntable(o: Options): Turntable {
   }, [dispatch]);
 
   const setRotating = useCallback(
-    (on: boolean) => {
+    (wanted: boolean) => {
+      // Reduced motion: no self-running turn at all.
+      const on = wanted && !live.current.reduceMotion;
       setRotatingState(on);
       live.current.rotating = on;
       if (!on) syncCursor();
     },
     [syncCursor],
   );
+
+  // Sound starting turns the record; pausing (or turning sound off) stops it. Only a change counts, so the Turn key's
+  // choice stands until the sound changes.
+  const wasLive = useRef(o.liveOn);
+  useEffect(() => {
+    if (wasLive.current === o.liveOn) return;
+    wasLive.current = o.liveOn;
+    setRotating(o.liveOn);
+  }, [o.liveOn, setRotating]);
 
   const cancelFlight = useCallback(() => {
     const f = flight.current;
@@ -195,16 +262,33 @@ export function useTurntable(o: Options): Turntable {
     setCameraModeState(mode);
   }, []);
 
+  /** Any needle move brings the looked-around view back to the needle: eased with the move, at once under reduced motion. */
+  const returnView = useCallback(() => {
+    const y = yaw.current;
+    if (y.deg === 0) return;
+    if (live.current.reduceMotion) {
+      y.deg = 0;
+      y.startedAt = -1;
+      return;
+    }
+    y.from = y.deg;
+    y.startedAt = performance.now();
+  }, []);
+
   const place = useCallback(
     (at: LatLon, syncNow: boolean) => {
       touched();
+      returnView();
       cancelFlight();
+      glide.current = null;
+      swing.current = null;
+      picking.current = false;
       if (live.current.rotating) setRotating(false);
       pose.current = { lat: clampNeedleLat(at.lat), lon: wrapLon(at.lon) };
       applyPose();
       if (syncNow) syncCursor();
     },
-    [applyPose, cancelFlight, setRotating, syncCursor],
+    [applyPose, cancelFlight, returnView, setRotating, syncCursor],
   );
 
   const needle = useCallback(() => reading.current, []);
@@ -257,23 +341,65 @@ export function useTurntable(o: Options): Turntable {
           flight.current = null;
           f.resolve(true);
         }
-      } else if (o.rotating) {
+      } else if (o.rotating && !o.motionPaused) {
         // West to east, like the Earth: the longitude under the needle falls.
         pose.current = { lat: pose.current.lat, lon: wrapLon(pose.current.lon - DEG_PER_SEC * o.speed * dt) };
         moved = true;
       }
+      const g = glide.current;
+      if (g && !flight.current) {
+        // A critically damped step, exact for any dt: it can't overshoot.
+        const offLat = pose.current.lat - g.lat;
+        const offLon = wrapLon(pose.current.lon - g.lon);
+        const decay = Math.exp(-GLIDE_RATE * dt);
+        const slipLat = (g.vLat + GLIDE_RATE * offLat) * dt;
+        const slipLon = (g.vLon + GLIDE_RATE * offLon) * dt;
+        const nextLat = (offLat + slipLat) * decay;
+        const nextLon = (offLon + slipLon) * decay;
+        g.vLat = (g.vLat - GLIDE_RATE * slipLat) * decay;
+        g.vLon = (g.vLon - GLIDE_RATE * slipLon) * decay;
+        const settled = Math.abs(nextLat) < GLIDE_SETTLED_DEG && Math.abs(nextLon) < GLIDE_SETTLED_DEG;
+        pose.current = settled ? { lat: g.lat, lon: wrapLon(g.lon) } : { lat: g.lat + nextLat, lon: wrapLon(g.lon + nextLon) };
+        moved = true;
+        if (settled) {
+          glide.current = null;
+          unsynced.current = true;
+          lastSync.current = 0;
+        }
+      }
       const d = drop.current.step(now);
       if (d) {
         motion.current = { lift: d.lift, park: d.park };
-        scene.setRecordLift(d.recordLift);
+        const path = swing.current;
+        if (path) pose.current = { lat: path.from.lat + (path.to.lat - path.from.lat) * d.swing, lon: wrapLon(path.from.lon + wrapLon(path.to.lon - path.from.lon) * d.swing) };
+        recordLift.current = d.recordLift;
         moved = true;
-        if (d.swap) labelRecord(scene);
         if (d.landed && o.liveOn && !o.allMuted) audio.playNeedleDrop();
+        // The readout and the app's cursor follow the place the moment the needle touches down, not after the settle.
+        if (d.landed && path) {
+          picking.current = false;
+          lastSync.current = 0;
+          unsynced.current = true;
+        }
         if (d.done) {
+          if (path) {
+            swing.current = null;
+            picking.current = false;
+          }
           holding.current = false;
           dropDone.current?.();
           dropDone.current = null;
         }
+      }
+      const y = yaw.current;
+      if (y.startedAt >= 0) {
+        const t = Math.min(1, (now - y.startedAt) / VIEW_RETURN_MS);
+        y.deg = y.from * (1 - mechanicalEase(t));
+        if (t >= 1) {
+          y.deg = 0;
+          y.startedAt = -1;
+        }
+        moved = true;
       }
       if (moved) applyPose();
       scene.effects.setMotion(!o.reduceMotion);
@@ -292,6 +418,8 @@ export function useTurntable(o: Options): Turntable {
           viewLat: view.lat,
           viewLon,
           project: scene.project,
+          swatch: scene.effects.swatchColor(),
+          pose: { ...pose.current, ...motion.current, recordLift: recordLift.current, spinning: o.liveOn && !o.allMuted && !holding.current, instant: o.reduceMotion },
         };
         for (const fn of subscribers.current) fn(info);
       }
@@ -309,7 +437,7 @@ export function useTurntable(o: Options): Turntable {
           {
             fields: o.fields,
             track: o.track,
-            needle: reading.current,
+            needle: picking.current && swing.current ? swing.current.to : reading.current,
             viewLon,
             soundOn: o.liveOn && !holding.current,
             allMuted: o.allMuted,
@@ -318,7 +446,7 @@ export function useTurntable(o: Options): Turntable {
           scene.effects,
         );
       }
-      if (unsynced.current && !flight.current && now - lastSync.current >= CURSOR_SYNC_MS) syncCursor();
+      if (unsynced.current && !flight.current && !picking.current && now - lastSync.current >= CURSOR_SYNC_MS) syncCursor();
     };
     raf = requestAnimationFrame(loop);
     if (live.current.introPending) {
@@ -339,19 +467,14 @@ export function useTurntable(o: Options): Turntable {
       flight.current = null;
       if (unsynced.current) syncCursor(); // the flat map opens where the needle was
     };
-  }, [hostRef, scene, paused, applyPose, syncCursor, startDrop, labelRecord]);
+  }, [hostRef, scene, paused, applyPose, syncCursor, startDrop]);
 
-  useSceneAssets(scene, { ...o.scene, sst: o.fields?.sst ?? null });
+  useSceneAssets(scene, o.scene);
 
   // R3F sizes the canvas and the post chain; the overlays project with the same size.
   useEffect(() => {
     if (hostSize) size.current = { width: hostSize.width, height: hostSize.height };
   }, [hostSize]);
-
-  // The record label shows the current record (not mid-change: the swap redraws it).
-  useEffect(() => {
-    if (scene && !drop.current.running()) labelRecord(scene);
-  }, [scene, labelRecord, o.label.title, o.label.subtitle]);
 
   // Every record change is a record-change animation, wherever it was chosen.
   const trackWas = useRef(o.track);
@@ -403,10 +526,62 @@ export function useTurntable(o: Options): Turntable {
     needle,
     nudge(dLat, dLon) {
       toExplore();
-      place({ lat: pose.current.lat + dLat, lon: pose.current.lon + dLon }, true);
+      returnView();
+      if (live.current.reduceMotion) {
+        place({ lat: pose.current.lat + dLat, lon: pose.current.lon + dLon }, true);
+        return;
+      }
+      touched();
+      cancelFlight();
+      swing.current = null;
+      picking.current = false;
+      if (live.current.rotating) setRotating(false);
+      const from = glide.current ?? { ...pose.current, vLat: 0, vLon: 0 };
+      glide.current = { lat: clampNeedleLat(from.lat + dLat), lon: from.lon + dLon, vLat: from.vLat, vLon: from.vLon };
     },
     moveTo: (at) => place(at, true),
+    pick(at) {
+      if (live.current.reduceMotion) {
+        // No drop to lower the needle: put it down at once (a drag on the record had lifted and silenced it).
+        holding.current = false;
+        motion.current = { lift: 0, park: 0 };
+        place(at, true);
+        paintSwatch(reading.current);
+        return;
+      }
+      touched();
+      returnView();
+      cancelFlight();
+      glide.current = null;
+      if (live.current.rotating) setRotating(false);
+      const to = { lat: clampNeedleLat(at.lat), lon: wrapLon(at.lon) };
+      swing.current = { from: { ...pose.current }, to };
+      // The picked place shows from the click on (the readout, the swatch): no frame of the old place or of the way there.
+      picking.current = true;
+      dispatch({ type: "setCursor", cursor: to });
+      paintSwatch(to);
+      startDrop("pick");
+    },
+    resetFraming() {
+      sceneRef.current?.rig.resetFraming();
+    },
     turnTo: (at) => place(at, false),
+    look(deg) {
+      touched();
+      const y = yaw.current;
+      y.startedAt = -1;
+      y.deg = ((y.deg + deg + 540) % 360) - 180;
+      applyPose();
+    },
+    preview,
+    setPreview,
+    hold(on) {
+      touched();
+      holding.current = on;
+      motion.current = { lift: on ? LIFT_HEIGHT : 0, park: 0 };
+      if (on) audio.silenceLive();
+      applyPose();
+    },
     pickAt(clientX, clientY) {
       const host = hostRef.current;
       const scene = sceneRef.current;
@@ -416,6 +591,7 @@ export function useTurntable(o: Options): Turntable {
     },
     flyTo(at, zoom) {
       touched();
+      returnView();
       const scene = sceneRef.current;
       cancelFlight();
       if (live.current.rotating) setRotating(false);
@@ -471,6 +647,7 @@ export function useTurntable(o: Options): Turntable {
     subscribe,
     texture,
     onSceneReady,
+    scene,
     sceneRef,
     fpsRef,
     particlesSpawned,

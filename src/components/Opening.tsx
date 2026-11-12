@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useRef, useState } from "react";
+import { useCallback, useEffect, useRef, useState } from "react";
 import { ArrowRight } from "@phosphor-icons/react";
 import { AnimatePresence, motion } from "motion/react";
 import { Button } from "@/components/ui/button";
@@ -8,17 +8,22 @@ import { EASE_OUT_SOFT } from "@/lib/motion";
 import { audio } from "@/lib/audio-adapter";
 import type { PlayerHandle } from "@/lib/audio-adapter/types";
 import { openingPath } from "@/lib/data";
+import { pushEscapeHandler } from "@/lib/escape";
 import { captionText } from "@/lib/i18n";
 import { useAnnounce } from "./Announcer/use-announcer";
 import { useAppState, useT } from "./AppState/use-app-state";
 import { useLatestCaption } from "./CaptionBar/use-latest-caption";
+import { ComicWordmark } from "./ComicWordmark";
 import { useLiveData } from "./LiveData/use-live-data";
 import { SignalMark } from "./SignalMark";
+import { Starfield } from "./Starfield";
 import { Waveform } from "./Waveform";
 
 const OPENING_KEYS = new Set(["caption.opening.closeEyes", "caption.opening.openEyes"]);
-// The rain grid starts loading at Start; the opening waits this long for it, then plays the ocean alone.
-const RAIN_WAIT_MS = 4000;
+// ── Session B (performance): the rain grid is prefetched while the Start screen is idle (LiveData), so it is usually
+// here at the click; the opening waits at most this long for it, then plays the ocean alone (first sound within 2 s).
+const RAIN_WAIT_MS = 600;
+// ── end Session B
 
 /**
  * "Close your eyes" (feature C1): real ocean and rain sound over darkness, the
@@ -67,13 +72,23 @@ export function Opening() {
   }, [active, sstStatus, dispatch]);
 
   // Skip works whether or not the sound has started yet.
-  const skip = () => {
+  const skip = useCallback(() => {
     handleRef.current?.stop();
     dispatch({ type: "introDone" });
-  };
+  }, [dispatch]);
 
-  // Its own stage, unlike any page: near-black, a breathing glow, a big signal
-  // ring, no header or dock. It fades away as the map opens from the equator.
+  // Esc does exactly what Skip does. The opening claims it, so the global Esc
+  // (stop all sound) doesn't run and leave the map silent after "Start listening".
+  useEffect(() => {
+    if (!active) return;
+    return pushEscapeHandler(() => {
+      skip();
+      return true;
+    });
+  }, [active, skip]);
+
+  // Its own stage, unlike any page: the night sky, a big signal ring, no header
+  // or dock. It fades away as the map opens from the equator.
   return (
     <AnimatePresence>
       {active && (
@@ -85,27 +100,25 @@ export function Opening() {
           animate={{ opacity: 1 }}
           // Click-through while it fades, so the map is usable the moment the intro ends.
           exit={{ opacity: 0, pointerEvents: "none", transition: { duration: 0.8, ease: EASE_OUT_SOFT } }}
-          className="fixed inset-0 z-(--layer-opening) grid grid-rows-[auto_1fr_auto] overflow-hidden bg-void px-5 py-6 md:px-10 md:py-8"
+          className="fixed inset-0 z-(--layer-opening) grid grid-rows-[auto_1fr_auto] overflow-hidden night-sky px-5 py-6 md:px-10 md:py-8"
         >
-          <div aria-hidden="true" className="pointer-events-none absolute top-1/2 left-1/2 size-[min(120vw,70rem)] -translate-x-1/2 -translate-y-1/2">
-            <div className="size-full animate-breathe rounded-full bg-radial from-tide from-0% via-land/35 via-35% to-transparent to-70%" />
-          </div>
-
+          <Starfield />
           <p className="eyebrow relative flex items-center gap-2">
-            <span aria-hidden="true" className="size-1.5 animate-pulse rounded-full bg-shapla" />
+            <span aria-hidden="true" className="size-1.5 rounded-full bg-shapla" />
             {t("opening.label")}
           </p>
 
           <div className="relative flex flex-col items-center justify-center gap-10">
+            <ComicWordmark />
             <SignalMark className="size-16 md:size-20" />
             <AnimatePresence mode="wait">
               <motion.p
                 key={line}
-                initial={{ opacity: 0, y: 12, filter: "blur(6px)" }}
-                animate={{ opacity: 1, y: 0, filter: "blur(0px)" }}
-                exit={{ opacity: 0, y: -8, filter: "blur(6px)" }}
+                initial={{ opacity: 0, y: 12 }}
+                animate={{ opacity: 1, y: 0 }}
+                exit={{ opacity: 0, y: -8 }}
                 transition={{ duration: 0.7, ease: EASE_OUT_SOFT }}
-                className="display-tight min-h-20 max-w-3xl text-center font-serif text-display text-moon italic"
+                className="display-tight min-h-20 max-w-3xl text-center font-wide-display text-display text-moon"
               >
                 {line}
               </motion.p>
@@ -118,7 +131,7 @@ export function Opening() {
             <Button
               autoFocus
               onClick={skip}
-              className="group h-12 gap-2 rounded-full bg-moon px-6 text-body text-ink hover:bg-moon/90 active:scale-[0.98]"
+              className="group h-12 gap-2 key border-navy rounded-full bg-moon px-6 text-body text-ink hover:bg-moon"
             >
               {t("start.skipIntro")}
               <ArrowRight aria-hidden="true" className="size-4 transition-transform duration-200 group-hover:translate-x-0.5" />

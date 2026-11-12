@@ -28,11 +28,11 @@ export function FrameFacts({ frame, now, tt }: { frame: RecordFrame; now: number
       <span className="block text-moon">{time ? tt("turntable.frameTime", { datetime: formatUtc(time, state.lang) }) : tt("turntable.missing")}</span>
       <span className="block text-moon">
         {tt("turntable.error", { text: "" })}
-        <En active={bn}>{measuredError(t, frame)}</En>
+        {measuredError(t, frame)}
       </span>
       {fields && (
         <span className="block text-haze">
-          <En active={bn}>{hearLine(t, frame.product, fields)}</En>
+          {hearLine(t, frame.product, fields)}
         </span>
       )}
       {product && <SourceBadges entry={freshness?.products[product]} now={now} tr={tt} lang={state.lang} className="pt-1" />}

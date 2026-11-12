@@ -39,8 +39,8 @@ export function PairChart({
 
   return (
     <figure aria-label={summary} className="space-y-2">
-      <ChartContainer config={config} className={cn("aspect-auto w-full", heightClass)}>
-        <LineChart data={rows} margin={{ top: 8, right: 16, bottom: 4, left: 0 }} accessibilityLayer>
+      <ChartContainer config={config} aria-hidden="true" className={cn("aspect-auto w-full", heightClass)}>
+        <LineChart data={rows} margin={{ top: 8, right: 16, bottom: 4, left: 0 }} accessibilityLayer={false}>
           <CartesianGrid stroke="var(--chart-grid)" vertical={false} />
           <XAxis dataKey="i" type="number" domain={[0, last]} tickFormatter={tick} minTickGap={32} {...AXIS} />
           <YAxis width={44} tickFormatter={axis.value} {...AXIS} label={unitLabel(unit)} />

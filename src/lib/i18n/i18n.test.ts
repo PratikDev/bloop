@@ -4,6 +4,8 @@
 import { describe, expect, test } from "bun:test";
 import { existsSync, readFileSync, writeFileSync } from "node:fs";
 import { captionText, en, UNTRANSLATED_KEYS } from "./index";
+import { templateBangla } from "./bn/data";
+import { DRAFT_DATA_TEMPLATES, DRAFT_KEYS } from "./bn/drafts";
 import { toTranslateMarkdown } from "./to-translate";
 
 const DOC = new URL("../../../docs/i18n/TO_TRANSLATE.md", import.meta.url);
@@ -13,6 +15,11 @@ describe("Bangla strings", () => {
     const expected = toTranslateMarkdown();
     if (process.env.UPDATE_TO_TRANSLATE === "1") writeFileSync(DOC, expected, "utf8");
     expect(existsSync(DOC) ? readFileSync(DOC, "utf8") : "").toBe(expected);
+  });
+
+  test("every draft Bangla entry exists (bn/drafts.ts lists only translated keys and known templates)", () => {
+    expect(DRAFT_KEYS.filter((k) => UNTRANSLATED_KEYS.includes(k))).toEqual([]);
+    expect(DRAFT_DATA_TEMPLATES.filter((s) => templateBangla(s) === undefined)).toEqual([]);
   });
 
   test("an untranslated key shows its English text in Bangla", () => {

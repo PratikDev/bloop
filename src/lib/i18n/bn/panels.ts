@@ -11,7 +11,7 @@ const int = (v: number) => formatInteger(v, "bn");
 const n2 = (v: number) => formatFixed(v, "bn", 2);
 
 export const panelsBn: Translated<typeof panelsEn> = {
-  "panel.label": "এই শব্দ সম্পর্কে",
+  "panel.label": "উৎস ও যাচাই",
   "panel.truth": "যাচাই",
   "panel.mapping": "যা শুনছেন",
   "panel.provenance": "কোথা থেকে",
@@ -35,7 +35,7 @@ export const panelsBn: Translated<typeof panelsEn> = {
   "truth.checkedOn": (p: { datetime: string }) => `যাচাই করা হয়েছে ${p.datetime} UTC`,
   "truth.rain.plotCaption": (p: { run: string; points: number }) => `ওপরের যাচাই, চিত্রে (IMERG ${p.run} রান, ${int(p.points)}টি বিন্দু)।`,
 
-  "globe.teaser": "টিজার: অক্টোবরে আসছে",
+  "globe.teaser": "প্রাথমিক প্রিভিউ",
   "globe.plan": "নাগরিক পর্যবেক্ষক বনাম স্যাটেলাইট: দুটি দৃষ্টিভঙ্গি, ঠিক বনাম ভুল নয়।",
   "globe.featured": (p: { date: string; lat: number; lon: number; ground: number; satellite: number; reports: number }) =>
     `একটি সাধারণ দিন: ${p.date} তারিখে ${formatFixed(p.lat, "bn", 2)}° উত্তর, ${formatFixed(p.lon, "bn", 2)}° পূর্বের কাছে মাটিতে থাকা পর্যবেক্ষকেরা ` +
@@ -68,4 +68,6 @@ export const panelsBn: Translated<typeof panelsEn> = {
   "provenance.utc": (p: { datetime: string }) => `${p.datetime} UTC`,
   "provenance.check": "যাচাই",
   "provenance.checkIsLatest": (p: { datetime: string }) => `এই যাচাই সর্বশেষ ফ্রেমের (${p.datetime} UTC), দেখানো টাইম-ল্যাপস ফ্রেমের নয়।`,
+  // Draft, review first (audit A-bn, 2026-11-10).
+  "panel.history": "মাসে মাসে",
 };

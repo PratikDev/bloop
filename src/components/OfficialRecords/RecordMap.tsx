@@ -1,16 +1,24 @@
 "use client";
 
 import { useEffect, useRef, type KeyboardEvent, type PointerEvent } from "react";
+import { brailleRole } from "@/a11y/aria";
 import type { LatLon, OfficialGrid } from "@/lib/data";
+import { useT } from "../AppState/use-app-state";
+import { useHeldName } from "../ExploreControls/use-held-name";
+import { CoastLines } from "./CoastLines";
 import { stepImage } from "./colours";
 
 const KEY_STEP_CELLS = 1;
 
 /**
  * The record's map layer at one time step, at its own grid size (scaled up, pixelated), with the needle on top.
- * Click or tap moves the needle; arrow keys move it one cell. The description is the caller's (aria-label).
+ * Click or tap moves the needle; arrow keys move it one cell. The description is the caller's (aria-label), held while
+ * the map has focus as Listen's is (the status region says each move). role="application" so a screen reader passes
+ * the arrow keys through.
  */
 export function RecordMap({ grid, step, needle, onMove, label }: { grid: OfficialGrid; step: number; needle: LatLon; onMove(to: LatLon): void; label: string }) {
+  const t = useT();
+  const name = useHeldName(label, true);
   const canvas = useRef<HTMLCanvasElement>(null);
   const { width, height, bounds } = grid.layer.grid;
   const [west, south, east, north] = bounds;
@@ -44,13 +52,18 @@ export function RecordMap({ grid, step, needle, onMove, label }: { grid: Officia
         ref={canvas}
         width={width}
         height={height}
-        role="img"
+        role="application"
         tabIndex={0}
-        aria-label={label}
+        aria-roledescription={t("map.roleDescription")}
+        {...brailleRole(t("braille.bl.map"))}
+        aria-label={name.name}
         onPointerDown={pick}
         onKeyDown={key}
+        onFocus={name.onFocus}
+        onBlur={name.onBlur}
         className="absolute inset-0 size-full [image-rendering:pixelated] focus-visible:outline-2 focus-visible:outline-moon"
       />
+      {grid.layer.grid.space !== "frame" && <CoastLines bounds={bounds} />}
       <span
         aria-hidden="true"
         className="pointer-events-none absolute size-3 -translate-x-1/2 -translate-y-1/2 rounded-full border-2 border-moon bg-night/40"

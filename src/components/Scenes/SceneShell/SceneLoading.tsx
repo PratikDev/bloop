@@ -14,7 +14,7 @@ export function SceneLoading({ title, how, error, onExit }: { title: string; how
       onKey={() => false}
       onDetails={() => undefined}
       stage={
-        <p role="status" className="absolute inset-x-0 top-1/2 text-center text-body text-haze">
+        <p role="status" className="absolute inset-x-0 top-1/2 text-center text-body text-star">
           {tt(error ? "scenes.failed" : "scenes.loading")}
         </p>
       }

@@ -1,6 +1,6 @@
 "use client";
 
-import { ArrowLeft, CircleHelp, Gauge, Layers, Pause, Play } from "lucide-react";
+import { ArrowLeft, Gauge, Pause, Play, Question, Stack } from "@phosphor-icons/react";
 import type { ReactNode, Ref } from "react";
 import { Popover, PopoverContent, PopoverTrigger } from "@/components/ui/popover";
 import { useCommands } from "../../Commands/use-commands";
@@ -25,7 +25,7 @@ export function SceneDock({ ref, playing, onPlay, speedText, onSpeed, onBack, on
   const { tt } = useTT();
   const commands = useCommands();
   return (
-    <div ref={ref} role="group" aria-label={tt("turntable.dock")} className="glass-dock flex flex-wrap items-center justify-center gap-1 rounded-full p-1.5">
+    <div ref={ref} role="group" aria-label={tt("turntable.dock")} className="glass-dock flex flex-wrap items-center justify-center gap-2 rounded-sheet p-2">
       <DockButton icon={playing ? Pause : Play} label={tt(playing ? "scenes.pause" : "scenes.play")} keys="Space" pressed={playing} onClick={onPlay} />
       <Popover>
         <DockButton icon={Gauge} label={tt("turntable.dock.speed")} keys="[ ]" wrap={(b) => <PopoverTrigger render={b} />} />
@@ -36,8 +36,8 @@ export function SceneDock({ ref, playing, onPlay, speedText, onSpeed, onBack, on
       {extra}
       <DockDivider />
       <DockButton icon={ArrowLeft} label={tt("scenes.back")} keys="Esc" onClick={onBack} />
-      <DockButton icon={Layers} label={tt("turntable.dock.layers")} keys="O" onClick={onLayers} />
-      <DockButton icon={CircleHelp} label={tt("turntable.dock.help")} keys="H" onClick={commands.openHelp} />
+      <DockButton icon={Stack} label={tt("turntable.dock.layers")} keys="O" onClick={onLayers} />
+      <DockButton icon={Question} label={tt("turntable.dock.help")} keys="H" onClick={commands.openHelp} />
     </div>
   );
 }

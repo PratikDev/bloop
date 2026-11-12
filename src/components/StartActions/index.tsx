@@ -9,26 +9,51 @@ import { useCommands } from "../Commands/use-commands";
 import { useLiveData } from "../LiveData/use-live-data";
 import { StatusBadge } from "../StatusBadge";
 
-/** The quiet text button beside the main one (Explore without sound; Home's Reset sound choice). */
-export const QUIET_BUTTON = "h-13 rounded-full px-5 text-body text-moon underline-offset-4 hover:bg-transparent hover:underline";
+/** The quiet text button beside the main one (Explore without sound). */
+const QUIET_BUTTON = "h-13 rounded-full px-5 text-body text-moon underline-offset-4 hover:bg-transparent hover:underline";
+
+/** A secondary action beside the coral one (Home's tour): paper fill. */
+export const PAPER_KEY = "inline-flex h-13 items-center key border-navy rounded-full bg-paper px-5 text-body text-moon hover:bg-paper";
+
+/** The headphones line, once, under the actions. */
+export function StartHint() {
+  const t = useT();
+  return <p className="max-w-md text-small text-haze">{t("start.hint")}</p>;
+}
 
 /**
  * Start listening and Explore without sound (Home and the start gate). Sound can
  * only start from a user gesture, so Start listening creates the AudioContext
- * inside the click. `after` runs once started (Home moves on to Listen).
+ * inside the click. `after` runs once started (Home moves on to Listen); `onTour` adds the tour key, which starts the
+ * same way and then runs it instead. `silentHint` explains Explore without sound (the start gate).
  */
-export function StartActions({ after, autoFocus = false, className }: { after?: () => void; autoFocus?: boolean; className?: string }) {
+export function StartActions({
+  after,
+  onTour,
+  onStartClick,
+  silentHint = false,
+  autoFocus = false,
+  className,
+}: {
+  after?: () => void;
+  onTour?: () => void;
+  /** Runs in the Start listening click, before anything else (Home measures its jukebox here). */
+  onStartClick?: () => void;
+  silentHint?: boolean;
+  autoFocus?: boolean;
+  className?: string;
+}) {
   const { sstStatus } = useLiveData();
   const commands = useCommands();
   const t = useT();
   const [starting, setStarting] = useState(false);
 
-  const start = async () => {
+  const start = async (then?: () => void) => {
     setStarting(true);
-    // If audio fails to start, both buttons come back so nobody is stuck.
+    // If audio fails to start, the buttons come back so nobody is stuck.
     try {
       await commands.start();
-      after?.();
+      then?.();
     } finally {
       setStarting(false);
     }
@@ -44,29 +69,39 @@ export function StartActions({ after, autoFocus = false, className }: { after?: 
         <Button
           autoFocus={autoFocus}
           disabled={starting}
-          onClick={() => void start()}
-          className="group h-13 gap-3 rounded-full bg-shapla pr-5 pl-3 text-lead text-ink shadow-glow transition-transform duration-200 hover:bg-shapla hover:brightness-105 active:scale-[0.98]"
+          onClick={() => {
+            onStartClick?.();
+            void start(after);
+          }}
+          className="group h-13 gap-3 key border-navy rounded-full bg-shapla pr-5 pl-3 text-lead text-moon hover:bg-shapla"
         >
-          <span className="grid size-8 place-items-center rounded-full bg-ink/10">
+          <span className="grid size-8 place-items-center rounded-full bg-moon/10">
             <Headphones aria-hidden="true" weight="fill" className="size-4.5" />
           </span>
           {t("start.button")}
           <ArrowRight aria-hidden="true" className="size-4 transition-transform duration-200 group-hover:translate-x-0.5" />
         </Button>
+        {onTour && (
+          <Button disabled={starting} onClick={() => void start(onTour)} className={PAPER_KEY}>
+            {t("home.tour")}
+          </Button>
+        )}
         <Button
           variant="ghost"
           disabled={starting}
-          aria-describedby="start-silent-hint"
+          aria-describedby={silentHint ? "start-silent-hint" : undefined}
           onClick={startSilent}
           className={QUIET_BUTTON}
         >
           {t("start.silent")}
         </Button>
       </div>
-      <div className="max-w-md space-y-1 text-small text-haze">
-        <p id="start-silent-hint">{t("start.silentHint")}</p>
-        <p>{t("start.hint")}</p>
-      </div>
+      {silentHint && (
+        <p id="start-silent-hint" className="max-w-md text-small text-haze">
+          {t("start.silentHint")}
+        </p>
+      )}
+      <StartHint />
       <div className="min-h-6" aria-live="polite">
         {sstStatus === "loading" && <StatusBadge kind="loading">{t("start.loading")}</StatusBadge>}
         {sstStatus === "error" && <StatusBadge kind="error">{t("error.ocean")}</StatusBadge>}

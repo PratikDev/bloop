@@ -1,0 +1,383 @@
+{
+ "generated_by": "pipeline/stats/error_budget.py",
+ "flag_cents": 100,
+ "formula": "cents = 100 x semitones per unit x measured error",
+ "axes": [
+  {
+   "id": "sst_global",
+   "label": "Ocean temperature, whole ocean (live SVS 5101)",
+   "voice": "ocean",
+   "rule_file": "public/mapping.json",
+   "records": [
+    "ocean"
+   ],
+   "log": false,
+   "unit": "°C",
+   "dynamic": false,
+   "st_per_unit": 0.6,
+   "error": 0.31,
+   "error_in_axis_units": 0.31,
+   "error_kind": "median |error| vs NASA MUR",
+   "error_source": "public/data/latest/sst.json verified.value",
+   "cents": 18.6,
+   "flag": false
+  },
+  {
+   "id": "sst_global_p90",
+   "label": "Ocean temperature, whole ocean, 90th percentile error",
+   "voice": "ocean",
+   "rule_file": "public/mapping.json",
+   "records": [],
+   "log": false,
+   "unit": "°C",
+   "dynamic": false,
+   "st_per_unit": 0.6,
+   "error": 0.77,
+   "error_in_axis_units": 0.77,
+   "error_kind": "90th percentile |error| vs NASA MUR",
+   "error_source": "public/data/latest/sst.json verified.p90_abs_error_C",
+   "cents": 46.2,
+   "flag": false
+  },
+  {
+   "id": "sst_3912",
+   "label": "Ocean temperature, ECCO2 (SVS 3912)",
+   "voice": "ocean",
+   "rule_file": "public/mapping.json",
+   "records": [
+    "currents_3912"
+   ],
+   "log": false,
+   "unit": "°C",
+   "dynamic": false,
+   "st_per_unit": 0.6,
+   "error": 0.644,
+   "error_in_axis_units": 0.644,
+   "error_kind": "median |model - MUR25|",
+   "error_source": "docs/official/VALIDATION_TABLE.md currents_3912 a_sst_mur median_abs_C",
+   "cents": 38.64,
+   "flag": false
+  },
+  {
+   "id": "sst_terrain_zoom",
+   "label": "Ocean temperature, Sound terrain zoom (today's span)",
+   "voice": "ocean",
+   "rule_file": "public/mapping.json",
+   "records": [
+    "terrain"
+   ],
+   "log": false,
+   "unit": "°C",
+   "dynamic": true,
+   "st_per_unit": null,
+   "error": 0.31,
+   "error_in_axis_units": 0.31,
+   "error_kind": "median |error| vs NASA MUR",
+   "error_source": "public/data/latest/sst.json verified.value",
+   "cents": null,
+   "flag": null
+  },
+  {
+   "id": "sst_anomaly",
+   "label": "Ocean temperature against normal (live SVS 5176)",
+   "voice": "normalTone",
+   "rule_file": "public/mapping.json",
+   "records": [
+    "normalTone"
+   ],
+   "log": false,
+   "unit": "°C vs normal",
+   "dynamic": false,
+   "st_per_unit": 3.0,
+   "error": 0.442971,
+   "error_in_axis_units": 0.442971,
+   "error_kind": "median |offset| vs NOAA Coral Reef Watch",
+   "error_source": "public/data/latest/sst_anom.json verified.median_abs_offset_C",
+   "cents": 132.89,
+   "flag": true
+  },
+  {
+   "id": "grace_bangladesh",
+   "label": "Water storage, Bangladesh box (GRACE)",
+   "voice": "water",
+   "rule_file": "public/mapping.json",
+   "records": [
+    "water"
+   ],
+   "log": false,
+   "unit": "cm",
+   "dynamic": false,
+   "st_per_unit": 0.228571,
+   "error": 4.522,
+   "error_in_axis_units": 4.522,
+   "error_kind": "median 1-sigma (JPL mascon)",
+   "error_source": "public/data/context/grace.json boxes.Bangladesh.uncertainty_1sigma_cm.median",
+   "cents": 103.36,
+   "flag": true
+  },
+  {
+   "id": "grace_nw_india",
+   "label": "Water storage, NW India box (GRACE)",
+   "voice": "water",
+   "rule_file": "public/mapping.json",
+   "records": [],
+   "log": false,
+   "unit": "cm",
+   "dynamic": false,
+   "st_per_unit": 0.228571,
+   "error": 2.364,
+   "error_in_axis_units": 2.364,
+   "error_kind": "median 1-sigma (JPL mascon)",
+   "error_source": "public/data/context/grace.json boxes.NW_India.uncertainty_1sigma_cm.median",
+   "cents": 54.03,
+   "flag": false
+  },
+  {
+   "id": "gistemp_heat",
+   "label": "Heat anomaly (GISTEMP)",
+   "voice": "heat",
+   "rule_file": "public/mapping.json",
+   "records": [
+    "heat"
+   ],
+   "log": false,
+   "unit": "°C",
+   "dynamic": false,
+   "st_per_unit": 4.8,
+   "error": null,
+   "error_in_axis_units": null,
+   "error_kind": "no uncertainty in the repo",
+   "error_source": null,
+   "cents": null,
+   "flag": null
+  },
+  {
+   "id": "ndvi_vegetation",
+   "label": "Vegetation index (NDVI)",
+   "voice": "vegetation",
+   "rule_file": "public/mapping.json",
+   "records": [
+    "vegetation"
+   ],
+   "log": false,
+   "unit": "NDVI",
+   "dynamic": false,
+   "st_per_unit": 24.0,
+   "error": null,
+   "error_in_axis_units": null,
+   "error_kind": "no validation source",
+   "error_source": null,
+   "cents": null,
+   "flag": null
+  },
+  {
+   "id": "eic5147",
+   "label": "Near-surface temperature (SVS 5147)",
+   "voice": "eic5147",
+   "rule_file": "public/mapping-official.json",
+   "records": [
+    "eic_5147"
+   ],
+   "log": false,
+   "unit": "°C",
+   "dynamic": false,
+   "st_per_unit": 0.30126,
+   "error": 0.546,
+   "error_in_axis_units": 0.546,
+   "error_kind": "median |error| vs GEOS-FP",
+   "error_source": "docs/official/VALIDATION_TABLE.md eic_5147 a_same_model median_abs",
+   "cents": 16.45,
+   "flag": false
+  },
+  {
+   "id": "eic5148",
+   "label": "Near-surface wind speed (SVS 5148)",
+   "voice": "eic5148",
+   "rule_file": "public/mapping-official.json",
+   "records": [
+    "eic_5148"
+   ],
+   "log": false,
+   "unit": "m/s",
+   "dynamic": false,
+   "st_per_unit": 0.657312,
+   "error": 1.6,
+   "error_in_axis_units": 1.6,
+   "error_kind": "median |error| vs GEOS-FP",
+   "error_source": "docs/official/VALIDATION_TABLE.md eic_5148 a_same_model median_abs",
+   "cents": 105.17,
+   "flag": true
+  },
+  {
+   "id": "eic5149",
+   "label": "Precipitation (SVS 5149)",
+   "voice": "eic5149",
+   "rule_file": "public/mapping-official.json",
+   "records": [
+    "eic_5149"
+   ],
+   "log": false,
+   "unit": "mm",
+   "dynamic": false,
+   "st_per_unit": 1.199236,
+   "error": 0.543,
+   "error_in_axis_units": 0.543,
+   "error_kind": "median |error| vs GEOS-FP",
+   "error_source": "docs/official/VALIDATION_TABLE.md eic_5149 a_same_model median_abs",
+   "cents": 65.12,
+   "flag": false
+  },
+  {
+   "id": "eic5150",
+   "label": "Near-surface humidity (SVS 5150)",
+   "voice": "eic5150",
+   "rule_file": "public/mapping-official.json",
+   "records": [
+    "eic_5150"
+   ],
+   "log": false,
+   "unit": "g/kg",
+   "dynamic": false,
+   "st_per_unit": 1.094264,
+   "error": 0.337,
+   "error_in_axis_units": 0.337,
+   "error_kind": "median |error| vs GEOS-FP",
+   "error_source": "docs/official/VALIDATION_TABLE.md eic_5150 a_same_model median_abs",
+   "cents": 36.88,
+   "flag": false
+  },
+  {
+   "id": "eic5151",
+   "label": "PM2.5 (SVS 5151, log axis)",
+   "voice": "eic5151",
+   "rule_file": "public/mapping-official.json",
+   "records": [
+    "eic_5151"
+   ],
+   "log": true,
+   "unit": "decade",
+   "dynamic": false,
+   "st_per_unit": 8.111256,
+   "error": 0.703,
+   "error_in_axis_units": 0.231215,
+   "error_kind": "median relative error vs GEOS-CF, as log10(1 + e) decades",
+   "error_source": "docs/official/VALIDATION_TABLE.md eic_5151 a_same_model median_rel_error",
+   "cents": 187.54,
+   "flag": true
+  },
+  {
+   "id": "eic5152",
+   "label": "Ozone (SVS 5152)",
+   "voice": "eic5152",
+   "rule_file": "public/mapping-official.json",
+   "records": [
+    "eic_5152"
+   ],
+   "log": false,
+   "unit": "ppbv",
+   "dynamic": false,
+   "st_per_unit": 0.441633,
+   "error": 1.56,
+   "error_in_axis_units": 1.56,
+   "error_kind": "median |error| vs GEOS-CF",
+   "error_source": "docs/official/VALIDATION_TABLE.md eic_5152 a_same_model median_abs",
+   "cents": 68.89,
+   "flag": false
+  },
+  {
+   "id": "eic5153",
+   "label": "Carbon monoxide (SVS 5153)",
+   "voice": "eic5153",
+   "rule_file": "public/mapping-official.json",
+   "records": [
+    "eic_5153"
+   ],
+   "log": false,
+   "unit": "ppbv",
+   "dynamic": false,
+   "st_per_unit": 0.053035,
+   "error": 5.18,
+   "error_in_axis_units": 5.18,
+   "error_kind": "median |error| vs GEOS-CF",
+   "error_source": "docs/official/VALIDATION_TABLE.md eic_5153 a_same_model median_abs",
+   "cents": 27.47,
+   "flag": false
+  },
+  {
+   "id": "eic5154",
+   "label": "Nitrogen oxides (SVS 5154, log axis)",
+   "voice": "eic5154",
+   "rule_file": "public/mapping-official.json",
+   "records": [
+    "eic_5154"
+   ],
+   "log": true,
+   "unit": "decade",
+   "dynamic": false,
+   "st_per_unit": 5.621856,
+   "error": 0.303,
+   "error_in_axis_units": 0.114944,
+   "error_kind": "median relative error vs GEOS-CF, as log10(1 + e) decades",
+   "error_source": "docs/official/VALIDATION_TABLE.md eic_5154 a_same_model median_rel_error",
+   "cents": 64.62,
+   "flag": false
+  },
+  {
+   "id": "ocean2_temperature",
+   "label": "Ocean temperature at depth (SVS 5425)",
+   "voice": "ocean2Temperature",
+   "rule_file": "public/mapping-official.json",
+   "records": [
+    "ocean2_5425"
+   ],
+   "log": false,
+   "unit": "°C",
+   "dynamic": false,
+   "st_per_unit": 0.850159,
+   "error": 5.29,
+   "error_in_axis_units": 5.29,
+   "error_kind": "|median difference| vs MUR (frames show depth)",
+   "error_source": "docs/official/VALIDATION_TABLE.md ocean2_5425 a_temperature_mur median_difference",
+   "cents": 449.73,
+   "flag": true
+  },
+  {
+   "id": "co2",
+   "label": "CO2 (SVS 5196)",
+   "voice": "co2Ppm",
+   "rule_file": "public/mapping-official.json",
+   "records": [
+    "co2_5196"
+   ],
+   "log": false,
+   "unit": "ppm",
+   "dynamic": false,
+   "st_per_unit": 0.461538,
+   "error": 0.0489,
+   "error_in_axis_units": 0.0489,
+   "error_kind": "synthetic round trip only (not vs observations)",
+   "error_source": "docs/official/VALIDATION_TABLE.md co2_5196 a_synthetic_round_trip median_abs_ppm",
+   "cents": 2.26,
+   "flag": false
+  },
+  {
+   "id": "forest_height",
+   "label": "Forest height (SVS 4950)",
+   "voice": "forestHeight",
+   "rule_file": "public/mapping-official.json",
+   "records": [
+    "forest_4950"
+   ],
+   "log": false,
+   "unit": "m",
+   "dynamic": false,
+   "st_per_unit": 0.444444,
+   "error": 9.45,
+   "error_in_axis_units": 9.45,
+   "error_kind": "|median difference| vs GEDI L2B",
+   "error_source": "docs/official/VALIDATION_TABLE.md forest_4950 a_l2b_frame_cells median_diff_m",
+   "cents": 420.0,
+   "flag": true
+  }
+ ]
+}

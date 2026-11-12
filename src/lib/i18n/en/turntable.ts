@@ -2,7 +2,7 @@
 // src/components/Turntable/strings-bn.ts (Turntable only; bn.ts stays empty).
 
 import type { CompassPoint } from "@/lib/geo/spherical";
-import { formatFixed, formatInteger } from "../format";
+import { formatDegrees, formatFixed, formatInteger } from "../format";
 
 const COMPASS_WORDS: Record<CompassPoint, string> = {
   N: "north",
@@ -24,7 +24,7 @@ export const turntableEn = {
     "Arrows turn the globe and move the needle (Shift: 10 degrees). Enter speaks the value. Slash searches places, L says where you are, " +
     "1 to 9 jump to bookmarks, T starts a tour, plus and minus zoom, V switches the view. H lists all keys. Esc goes back to the flat map.",
   "turntable.canvas": (p: { record: string }) =>
-    `A realistic globe on a turntable with the latest available ${p.record} frame over it. A tonearm's needle reads the point beneath it.`,
+    `A globe on a turntable with the latest available ${p.record} frame over it. A tonearm's needle reads the point beneath it.`,
 
   "turntable.records": "Records",
   "turntable.record.ocean": "Ocean",
@@ -50,7 +50,7 @@ export const turntableEn = {
   "turntable.missing": "none",
   "turntable.frameTime": (p: { datetime: string }) => `Frame: ${p.datetime} UTC`,
   "turntable.error": (p: { text: string }) => `Measured error: ${p.text}`,
-  "turntable.error.rain": (p: { percent: number }) => `typically within ~${formatInteger(p.percent, "en")}% (pending team approval)`,
+  "turntable.error.rain": (p: { percent: number }) => `typically within ~${formatInteger(p.percent, "en")}%`,
   "turntable.error.ocean": (p: { median: number; n: number }) =>
     `median ${formatFixed(p.median, "en", 2)} °C against NASA MUR (${formatInteger(p.n, "en")} points, latest frame)`,
 
@@ -82,24 +82,27 @@ export const turntableEn = {
   "turntable.dock.layers": "Layers and sound",
   "turntable.dock.settings": "Settings",
   "turntable.dock.help": "Keys and help",
+  "turntable.more": "More",
+  "turntable.more.back": "Back",
+  "turntable.sources": "Sources and checks",
   "turntable.details.open": "Details of the value under the needle",
   "turntable.details.pin": "Keep details open",
   "turntable.details.unpin": "Let details close",
   "turntable.details.close": "Close details",
-  "turntable.layers.note": "Clouds, borders and names are decoration. The data layer, values and sound don't change.",
+  "turntable.layers.note": "Borders and names are decoration. The data layer, values and sound don't change.",
   "turntable.layers.decoration": "Background and map layers",
-  "turntable.layers.clouds": "Clouds",
   "turntable.layers.labels": "Place names",
   "turntable.layers.borders": "Borders",
   "turntable.layers.districts": "Districts",
   "turntable.layers.rivers": "Rivers",
   "turntable.layers.sound": "Sound mixer",
-  "turntable.howWeKnow": "How we know",
   "turntable.creditsLink": "Credits",
   "turntable.intro.skip": "Press any key to skip",
+  "turntable.loading": "Loading the turntable",
   "turntable.skip": "Skip animation",
 
   "turntable.search.label": "Search places",
+  "turntable.search.short": "Search",
   "turntable.search.placeholder": "Search a place: Dhaka, Sundarbans, Bay of Bengal…",
   "turntable.search.none": "No place found",
   "turntable.search.loading": "Places are still loading",
@@ -134,12 +137,10 @@ export const turntableEn = {
   "turntable.myLocation.denied": "Location wasn't shared. Nothing was stored.",
   "turntable.myLocation.unsupported": "This browser can't share a location.",
   "turntable.idleHint": "Press / to search a place",
-  "turntable.background": "Background: Blue Marble composite, not today's clouds",
   "turntable.credits":
-    "Background: NASA Earth Observatory, Blue Marble Next Generation, September (Reto Stöckli) · " +
-    "Night: NASA Earth Observatory, Black Marble 2016 (Joshua Stevens; Suomi NPP VIIRS data, Miguel Román, NASA GSFC) · " +
-    "Topography: NASA Earth Observatory (Jesse Allen), GEBCO data from the British Oceanographic Data Centre · Clouds: NASA Visible Earth · " +
-    "Studio light: Poly Haven studio_small_09 (CC0) · Atmosphere: Bruneton precomputed scattering via takram three-atmosphere (MIT) · " +
+    "3D scenes: NASA Earth Observatory, Blue Marble Next Generation, September (Reto Stöckli) · " +
+    "Topography: NASA Earth Observatory (Jesse Allen), GEBCO data from the British Oceanographic Data Centre · " +
+    "Studio light: Poly Haven studio_small_09 (CC0) · " +
     "Borders, places, rivers, seas: Natural Earth (public domain) · Districts: geoBoundaries (CC BY 3.0 IGO; source BBS, OCHA ROAP) · " +
     "Data frames: NASA SVS 5101 / 4285 for the NASA Earth Information Center",
   "turntable.inset": "World map: the dot is the needle",
@@ -147,12 +148,21 @@ export const turntableEn = {
   "turntable.legend.rain": "This frame's rain range (logarithmic)",
   "turntable.legend.pixel": "Frame pixel under the needle",
   "turntable.legend.noValue": "No value here",
-  "turntable.legend.marker": "Needle value",
   "turntable.panels.hide": "Hide panels",
   "turntable.panels.show": "Show panels",
   "turntable.graticule.equator": "Equator",
   "turntable.graticule.cancer": "Tropic of Cancer",
   "turntable.graticule.capricorn": "Tropic of Capricorn",
+  // A point under the mouse (or a drag on the record), shown in the readout before it is selected.
+  "turntable.preview": "Preview",
+  // The deck's volume knob as a control: the ocean, rain and snow voices together (there is no master volume).
+  "turntable.volume.all": "Volume, all sounds",
+  "turntable.volume.all.value": (p: { percent: number }) => `Volume, all sounds: ${formatInteger(p.percent, "en")}%`,
+  // The turntable beside the globe, in the Turntable's hidden description (updated when the needle settles).
+  "turntable.record.description": (p: { lat: string }) =>
+    `The record shows the Earth as grooves: outer is north, inner is south. The needle is on the groove for ${p.lat}.`,
+  "turntable.lat": (p: { lat: number }) => `${formatDegrees(p.lat, "en")}° ${p.lat >= 0 ? "N" : "S"}`,
+  "turntable.lon": (p: { lon: number }) => `${formatDegrees(p.lon, "en")}° ${p.lon >= 0 ? "E" : "W"}`,
 
   "turntable.announce.record": (p: { record: string; frames: string }) => `Record: ${p.record}. ${p.frames}`,
   "turntable.announce.frame": (p: { product: string; datetime: string }) =>

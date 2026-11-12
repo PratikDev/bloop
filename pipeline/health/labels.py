@@ -2,6 +2,7 @@
 VALIDATION_TABLE.md say exactly what the manifest and validation.json say, and credits and licence lines are present."""
 import json
 from functools import lru_cache
+from common import nested_credits
 from svs.config import REPO
 from .files import manifest
 from .inventory import DATA
@@ -56,12 +57,6 @@ def _official(rec):
     if m.get("svs_pages") and not m.get("credits_by_role"): missing.append("credits_by_role")
     out.append(res("credits and licence present", not missing, f"missing {missing}" if missing else m["credit_line"][:80]))
     return out
-
-def nested_credits(o):
-    """Credit or dataset strings anywhere in a file (history files credit each voice or section, not the file)."""
-    if isinstance(o, dict):
-        return [v for k, v in o.items() if k in ("credit", "dataset") and isinstance(v, str)] + [x for v in o.values() for x in nested_credits(v)]
-    return [x for v in o for x in nested_credits(v)] if isinstance(o, list) else []
 
 def _product(rec):
     from products.registry import PRODUCTS

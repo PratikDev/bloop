@@ -1,5 +1,5 @@
 // What happens at the needle at the control rate (30 Hz): the voices get the
-// reading (needle-sound.ts, unchanged path), the ripple takes the frame's pixel
+// reading (needle-sound.ts, unchanged path), the swatch takes the frame's pixel
 // colour, the particles fall at the voice's own drops per second, and the
 // extreme ping fires when the needle reaches the groove's extreme cell.
 // Nothing here knows the rotation speed.
@@ -58,7 +58,7 @@ export function createControl(onSend?: (sent: SentReading) => void): Control {
       else sound.reset();
 
       const reading = readAt(fields, needle);
-      effects.setRippleColor(input.sample(track, reading, needle));
+      effects.setSwatchColor(input.sample(track, reading, needle));
       const { perSecond, kind } = particleRate(reading, track);
       effects.setParticles(perSecond, kind);
 

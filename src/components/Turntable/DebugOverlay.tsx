@@ -31,9 +31,9 @@ export function DebugOverlay({
   const { state } = useAppState();
   const { fields } = useLiveData();
   const t = useT();
-  const latest = useRef({ tt, fields, geo });
+  const latest = useRef({ tt, fields, geo, track: state.track });
   useEffect(() => {
-    latest.current = { tt, fields, geo };
+    latest.current = { tt, fields, geo, track: state.track };
   });
   const [snap, setSnap] = useState<{ check: PickCheck | null; fps: number } | null>(null);
 
@@ -44,6 +44,7 @@ export function DebugOverlay({
       sendLog.current,
       () => latest.current.geo,
       placed,
+      () => latest.current.track,
     );
     const timer = setInterval(() => {
       const { tt: now, fields: f } = latest.current;

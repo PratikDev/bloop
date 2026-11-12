@@ -1,65 +1,33 @@
-// Procedural textures for the deck, drawn once (no downloads): vinyl grooves
-// (a normal map), the vinyl's circular brushing (an anisotropy direction map),
-// a brushed-metal direction map, and the record's centre label.
+// Procedural textures for the deck, drawn once (no downloads): the record's
+// grooves as flat rings, and its centre label.
 
-import { CanvasTexture, NoColorSpace, SRGBColorSpace } from "three";
+import { CanvasTexture, SRGBColorSpace } from "three";
 
-const VINYL_SIZE = 2048;
-/** Groove spacing on the playing surface (cycles across the radius); a design choice. */
-const GROOVES = 420;
-/** The label and run-out area, as fractions of the record radius. */
-const PLAYING = { inner: 0.36, outer: 0.975 } as const;
+const GROOVE_SIZE = 1024;
+/** The playing surface, as fractions of the record's radius. */
+const GROOVES = { inner: 0.38, outer: 0.96, step: 0.08 } as const;
+const GROOVE_LINE_PX = 3;
 
-function canvasTexture(size: number, draw: (img: ImageData, half: number) => void, srgb = false): CanvasTexture {
+/** The record's top face: flat `base` with thin `groove` rings (the cylinder cap's UVs are planar). */
+export function grooveTexture(base: string, groove: string): CanvasTexture {
   const canvas = document.createElement("canvas");
-  canvas.width = canvas.height = size;
+  canvas.width = canvas.height = GROOVE_SIZE;
   const ctx = canvas.getContext("2d");
   if (ctx) {
-    const img = ctx.createImageData(size, size);
-    draw(img, size / 2);
-    ctx.putImageData(img, 0, 0);
+    const c = GROOVE_SIZE / 2;
+    ctx.fillStyle = base;
+    ctx.fillRect(0, 0, GROOVE_SIZE, GROOVE_SIZE);
+    ctx.strokeStyle = groove;
+    ctx.lineWidth = GROOVE_LINE_PX;
+    for (let r = GROOVES.inner; r < GROOVES.outer; r += GROOVES.step) {
+      ctx.beginPath();
+      ctx.arc(c, c, c * r, 0, Math.PI * 2);
+      ctx.stroke();
+    }
   }
   const texture = new CanvasTexture(canvas);
-  texture.colorSpace = srgb ? SRGBColorSpace : NoColorSpace;
+  texture.colorSpace = SRGBColorSpace;
   return texture;
-}
-
-/** Concentric grooves as a tangent-space normal map (the cylinder cap's UVs are planar), with a few wider gaps between tracks. */
-export function grooveNormalMap(): CanvasTexture {
-  return canvasTexture(VINYL_SIZE, (img, half) => {
-    for (let y = 0; y < VINYL_SIZE; y++) {
-      for (let x = 0; x < VINYL_SIZE; x++) {
-        const dx = (x - half) / half;
-        const dy = (y - half) / half;
-        const r = Math.hypot(dx, dy);
-        const onRecord = r > PLAYING.inner && r < PLAYING.outer;
-        const trackGap = Math.abs(((r - PLAYING.inner) * 9) % 1 - 0.5) < 0.012;
-        const tilt = onRecord && !trackGap ? 0.22 * Math.sin(r * GROOVES * Math.PI * 2) : 0;
-        const nx = r > 0 ? (dx / r) * tilt : 0;
-        const ny = r > 0 ? (dy / r) * tilt : 0;
-        const nz = Math.sqrt(Math.max(0, 1 - nx * nx - ny * ny));
-        img.data.set([(nx * 0.5 + 0.5) * 255, (ny * 0.5 + 0.5) * 255, nz * 255, 255], (y * VINYL_SIZE + x) * 4);
-      }
-    }
-  });
-}
-
-/**
- * Anisotropy along the grooves: the direction is tangent to each circle (RG,
- * in [0, 1]), strength in B. Gives vinyl its two sweeping highlights.
- */
-export function circularAnisotropyMap(size = 512): CanvasTexture {
-  return canvasTexture(size, (img, half) => {
-    for (let y = 0; y < size; y++) {
-      for (let x = 0; x < size; x++) {
-        const dx = (x - half) / half;
-        const dy = (y - half) / half;
-        const r = Math.hypot(dx, dy) || 1;
-        const strength = r > PLAYING.inner && r < PLAYING.outer ? 255 : 60;
-        img.data.set([(-dy / r) * 127.5 + 127.5, (dx / r) * 127.5 + 127.5, strength, 255], (y * size + x) * 4);
-      }
-    }
-  });
 }
 
 export interface LabelText {
@@ -101,5 +69,9 @@ export function drawLabel(canvas: HTMLCanvasElement, t: LabelText): void {
   ctx.fillStyle = t.accent;
   ctx.beginPath();
   ctx.arc(c, c, LABEL_SIZE * 0.03, 0, Math.PI * 2);
+  ctx.fill();
+  // Off centre, so the record's spin can be seen.
+  ctx.beginPath();
+  ctx.arc(c + c * 0.72, c, LABEL_SIZE * 0.03, 0, Math.PI * 2);
   ctx.fill();
 }

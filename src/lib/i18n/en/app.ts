@@ -10,19 +10,19 @@ const deg = (v: number) => formatDegrees(v, "en");
 export const appEn = {
   "app.title": APP_NAME,
 
-  "start.lead": "Hear NASA's view of the latest ocean and rain as live sound.",
+  "start.lead": "NASA's pictures of Earth, turned into live sound you can explore by ear, with or without sight.",
   "start.hint": "Headphones help: west sounds left, east sounds right.",
   "start.button": "Start listening",
   "start.silent": "Explore without sound",
   "start.silentHint": "Values appear as text and captions. You can turn sound on at any time.",
   "start.loading": "Loading the latest ocean frame",
   "start.skipIntro": "Skip intro",
+  "page.loading": "Loading",
 
   "mode.explore": "Explore",
   "mode.story": "Tour",
   "mode.thenNow": "Then vs Now",
 
-  "track.label": "What you hear",
   "track.ocean": "Ocean",
   "track.rain": "Rain",
   "track.both": "Both",
@@ -33,6 +33,7 @@ export const appEn = {
   "settings.captions": "Captions",
   "settings.builtInVoice": "Built-in voice",
   "settings.reduceMotion": "Reduce motion",
+  "settings.soundWords": "Sound words",
   "settings.language": "Language",
   "settings.open": "Settings",
   "lang.en": "English",
@@ -42,7 +43,7 @@ export const appEn = {
   "help.open": "Help",
   "help.keys": "Keys",
 
-  "badge.comingOctober": "Coming in October",
+  "badge.comingOctober": "Planned",
   "badge.loadingRain": "Loading rain",
 
   "map.roleDescription": "sound map",
@@ -85,6 +86,9 @@ export const appEn = {
   // Plan §16 "Frame label", exact wording.
   "frame.label": (p: { product: string; datetime: string }) =>
     `EIC frame: ${p.product}, ${p.datetime} UTC. Sound generated live from this frame.`,
+  // The same label on one line, for the Listen page's head on screens narrower than 2:1 (FrameLabel compact).
+  "frame.compact": (p: { list: string }) => `EIC frames: ${p.list}. Sound generated live from these frames.`,
+  "frame.compactItem": (p: { product: string; datetime: string }) => `${p.product}, ${p.datetime} UTC`,
 
   "sound.pause": "Pause sound",
   "sound.play": "Play sound",
@@ -102,10 +106,7 @@ export const appEn = {
   "mixer.volume": (p: { voice: string }) => `${p.voice} volume`,
   "mixer.mute": (p: { voice: string }) => `Mute ${p.voice}`,
   "mixer.solo": (p: { voice: string }) => `Solo ${p.voice}`,
-  "sweep.play": "Play sweep",
   "sweep.needsRain": "The sweep starts once rain has loaded.",
-  "timelapse.play": "Play storm time-lapse",
-  "timelapse.stop": "Stop time-lapse",
   "timelapse.loadingStart": "Loading the time-lapse frames",
   "timelapse.loading": (p: { loaded: number; total: number }) => `Loading the time-lapse: ${p.loaded} of ${p.total} files`,
   "timelapse.loadingShort": (p: { percent: number }) => `Loading ${p.percent}%`,
@@ -123,16 +124,15 @@ export const appEn = {
   "whisper.kind.sst": "sea surface temperature",
   "whisper.kind.rain": "rain",
   "whisper.announce": (p: { text: string; source: string }) => `${p.text} Source: ${p.source}.`,
-  "xray.unavailable": "X-ray is coming in October: it needs NASA's colorbar data, which isn't published yet.",
+  "xray.unavailable": "X-ray is planned: it needs NASA's colorbar data, which isn't published yet.",
 
   "announce.track": (p: { track: string }) => `Now hearing: ${p.track}.`,
   "announce.mode": (p: { mode: string }) => `${p.mode} mode.`,
   "announce.toggle": (p: { name: string; on: boolean }) => `${p.name} ${p.on ? "on" : "off"}.`,
+  "start.tapToStart": "Tap to start sound",
   "announce.started": "Sound started. The cursor is over the Bay of Bengal. Arrow keys move it.",
 
-  // Team plan §15 wording, split into what the app uses and what only our tests used
-  // (contract-proposals E3). FIRMS, MODIS and GLOBE moved into the app on 28 Sep (fires,
-  // vegetation, the GLOBE teaser); POWER is shown only as the record we dropped. Dataset names stay in English.
+  // Team plan §15 wording. The full credits list is built from the record registry (src/lib/credits, en/credits.ts).
   "credits.visualizations": `Visualizations: ${CREDIT_NAMES.svs} for the ${CREDIT_NAMES.eic}.`,
   "credits.data": `Data in this app: ${CREDIT_NAMES.data}.`,
   "credits.testing": `Also used in our testing: ${CREDIT_NAMES.power} (dropped: it disagreed with independent records).`,
@@ -142,4 +142,13 @@ export const appEn = {
 
   // English prose from a data file (L1's JSON, L2's mapping.json), shown as the file gives it.
   "data.text": (p: { text: string }) => p.text,
+
+  // Space windows: their "Pause motion" key and the sentence that says what each globe shows.
+  "motion.pause": "Pause motion",
+  "globe.home": "Globe showing today's ocean temperature frame.",
+  "globe.centredOn": (p: { place: string }) => `Globe centred on ${p.place}.`,
+  "globe.following": "Globe following the heaviest rain.",
+  "timelapse.view": "Storm view",
+  "timelapse.view.globe": "Globe",
+  "timelapse.view.flat": "Flat map",
 };

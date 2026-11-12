@@ -1,30 +1,41 @@
 // Needle drop and record change. The data voices go quiet; the arm lifts,
 // swings out and lowers with easing (for a record change the record also rises,
 // its label swaps at the top, and it settles back); the earcon sounds on
-// touchdown, then the data voice fades in. Skippable; instant with reduced motion.
+// touchdown, then the data voice fades in. Picking a point lifts the arm, swings it, drops it and settles it in two
+// steps. Skippable; instant with reduced motion.
 // TODO(turntable: Bloop drop): a data-driven drop cue whose pitch is the Bay of
 // Bengal SST (read with valueAt, mapped by the ocean rule), replacing the UI earcon.
 
+import { cubicBezier } from "motion";
+import { EASE_MECHANICAL } from "@/lib/motion";
+
 const SETTLE_MS = 150; // earcon first, then the data
-const LIFT_HEIGHT = 0.3; // globe radii
+/** How high the needle lifts (globe radii): also its height while the record is dragged under it. */
+export const LIFT_HEIGHT = 0.3;
 
 /** Phases in ms: needle drop alone, a full record change (1.2 s), or the intro (arm from rest, after the camera glide). */
 const DROP = { lift: 220, lower: 280 } as const;
 const CHANGE = { park: 300, rise: 300, fall: 300, back: 300 } as const;
 const INTRO = { wait: 1500, swing: 750, lower: 450 } as const;
+/** Picking a point: under 600 ms in all. */
+const PICK = { lift: 120, swing: 300, drop: 60, settle: 80 } as const;
+/** The little bounce after the needle lands, as a share of the lift. */
+const PICK_SETTLE_LIFT = 0.06;
 
-/** A plain drop, a record change, or the intro's arrival from the rest. */
-export type DropKind = "drop" | "change" | "intro";
+/** A plain drop, a record change, the intro's arrival from the rest, or a swing to a picked point. */
+export type DropKind = "drop" | "change" | "intro" | "pick";
 const TOUCHDOWN: Record<DropKind, number> = {
   drop: DROP.lift + DROP.lower,
   change: CHANGE.park + CHANGE.rise + CHANGE.fall + CHANGE.back,
   intro: INTRO.wait + INTRO.swing + INTRO.lower,
+  pick: PICK.lift + PICK.swing + PICK.drop + PICK.settle,
 };
 
 export interface DropFrame {
   lift: number; // needle height off the globe
   park: number; // 0 = on the groove, 1 = at rest beside the globe
   recordLift: number; // 0 = on the platter, 1 = lifted
+  swing: number; // a pick's progress to the point, 0..1
   swap: boolean; // true on the frame the record's label should change
   landed: boolean; // true on the frame the needle touches down
   done: boolean; // the data voice may play again
@@ -38,10 +49,12 @@ export interface NeedleDrop {
   step(now: number): DropFrame | null;
 }
 
+const clamp01 = (x: number) => Math.min(1, Math.max(0, x));
 const ease = (x: number) => {
-  const t = Math.min(1, Math.max(0, x));
+  const t = clamp01(x);
   return t * t * (3 - 2 * t);
 };
+const mechanical = cubicBezier(...EASE_MECHANICAL);
 
 export function createNeedleDrop(): NeedleDrop {
   let start: number | null = null;
@@ -51,20 +64,29 @@ export function createNeedleDrop(): NeedleDrop {
   let swapped = false;
 
   const shape = (t: number): Omit<DropFrame, "swap" | "landed" | "done"> => {
-    if (t >= touchdown) return { lift: 0, park: 0, recordLift: 0 };
+    if (t >= touchdown) return { lift: 0, park: 0, recordLift: 0, swing: 1 };
+    if (kind === "pick") {
+      const swingEnd = PICK.lift + PICK.swing;
+      const swing = mechanical(clamp01((t - PICK.lift) / PICK.swing));
+      if (t < PICK.lift) return { lift: ease(t / PICK.lift) * LIFT_HEIGHT, park: 0, recordLift: 0, swing };
+      if (t < swingEnd) return { lift: LIFT_HEIGHT, park: 0, recordLift: 0, swing };
+      if (t < swingEnd + PICK.drop) return { lift: (1 - ease((t - swingEnd) / PICK.drop)) * LIFT_HEIGHT, park: 0, recordLift: 0, swing };
+      // Two steps, not an eased bounce: the arm taps once and rests.
+      return { lift: t < swingEnd + PICK.drop + PICK.settle / 2 ? PICK_SETTLE_LIFT * LIFT_HEIGHT : 0, park: 0, recordLift: 0, swing };
+    }
     if (kind === "intro") {
       const park = 1 - ease((t - INTRO.wait) / INTRO.swing);
       const lift = 1 - ease((t - INTRO.wait - INTRO.swing) / INTRO.lower);
-      return { lift: lift * LIFT_HEIGHT, park, recordLift: 0 };
+      return { lift: lift * LIFT_HEIGHT, park, recordLift: 0, swing: 0 };
     }
     if (kind === "drop") {
       const lift = t < DROP.lift ? ease(t / DROP.lift) : ease(1 - (t - DROP.lift) / DROP.lower);
-      return { lift: lift * LIFT_HEIGHT, park: 0, recordLift: 0 };
+      return { lift: lift * LIFT_HEIGHT, park: 0, recordLift: 0, swing: 0 };
     }
     const { park, rise, fall, back } = CHANGE;
     const out = ease(t / park) - ease((t - park - rise - fall) / back);
     const up = ease((t - park * 0.6) / rise) - ease((t - park * 0.6 - rise) / fall);
-    return { lift: LIFT_HEIGHT * Math.max(0, out), park: Math.max(0, out), recordLift: Math.max(0, up) };
+    return { lift: LIFT_HEIGHT * Math.max(0, out), park: Math.max(0, out), recordLift: Math.max(0, up), swing: 0 };
   };
 
   return {

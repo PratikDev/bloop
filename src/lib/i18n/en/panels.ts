@@ -5,12 +5,12 @@ import type { VoiceSpec } from "@/types/data-contract";
 import { formatFixed, formatInteger } from "../format";
 
 export const panelsEn = {
-  "panel.label": "About this sound",
+  "panel.label": "Sources and checks",
   // The Listen page's Inspector tabs.
+  "panel.history": "Month by month",
   "panel.truth": "Checks",
   "panel.mapping": "What you hear",
   "panel.provenance": "Where it's from",
-  "panel.history": "Month by month",
 
   "truth.intro": "We read each value back from the frame's colours, then checked those values against NASA's source data.",
   "truth.ocean.heading": "Ocean temperature",
@@ -40,7 +40,7 @@ export const panelsEn = {
     `The check above, plotted (IMERG ${p.run} run, ${formatInteger(p.points, "en")} points).`,
 
   // GLOBE duet teaser (contract §12; plan §16 "GLOBE (teaser)" wording is the heading line).
-  "globe.teaser": "Teaser: coming in October",
+  "globe.teaser": "Early preview",
   "globe.plan": "Citizen observers vs satellite: two perspectives, not right vs wrong.",
   "globe.featured": (p: { date: string; lat: number; lon: number; ground: number; satellite: number; reports: number }) =>
     `A typical day: on ${p.date} near ${formatFixed(p.lat, "en", 2)}° N, ${formatFixed(p.lon, "en", 2)}° E, observers on the ground ` +

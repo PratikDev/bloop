@@ -134,7 +134,7 @@ export function MonthByMonth({
           />
         )}
         {decade !== undefined && (
-          <Button disabled={!state.soundOn} onClick={play} className="h-11 w-full justify-start gap-2 rounded-full bg-shapla px-4 text-body text-ink hover:bg-shapla/90">
+          <Button disabled={!state.soundOn} onClick={play} className="h-11 w-full justify-start gap-2 key border-navy rounded-full bg-shapla px-4 text-body text-moon hover:bg-shapla">
             <Play aria-hidden="true" weight="fill" />
             {t("history.play", { decade })}
           </Button>
@@ -144,7 +144,7 @@ export function MonthByMonth({
 
       <div className="surface-plate space-y-3 rounded-plate p-4 md:p-5">
         {/* The picked month on screen (its engine caption is left out); the slider announces it to screen readers. */}
-        <p aria-hidden="true" className="min-h-8 font-serif text-title text-moon tabular-nums">
+        <p aria-hidden="true" className="min-h-8 readout-figure text-title text-moon">
           {players.monthIndex !== null ? monthText(players.monthIndex) : name(place)}
         </p>
         <HistoryChart
@@ -162,7 +162,7 @@ export function MonthByMonth({
             to: formatMonth(series.months[series.months.length - 1], state.lang),
           })}
         />
-        <RecordNotes series={series} name={name} world={world && data.world ? { disclosure: t("data.text", { text: data.world.manifest.disclosure }) } : null} />
+        <RecordNotes series={series} place={place} name={name} world={world && data.world ? { disclosure: t("data.text", { text: data.world.manifest.disclosure }) } : null} />
       </div>
     </div>
   );

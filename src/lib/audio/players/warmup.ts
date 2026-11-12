@@ -5,29 +5,22 @@
 import { emitCaption } from "../captions";
 import { playEarconWithCaption } from "../earcons";
 import { liveVoices } from "../live";
-import { voiceSpec } from "../mapping";
 import type { PlayerHandle } from "../types";
-import type { ContinuousMapping } from "@/types/data-contract";
-import { legendSteps } from "./legend";
+import { referenceValue } from "../mapping";
+import { legendSteps, REFERENCE_SEC } from "./legend";
 import { playSequence, type SequenceStep } from "./sequence";
 
-const VOLUME_CHECK_SEC = 3;
 const SECTION_GAP_SEC = 0.8;
 const SILENCE_BEFORE_TICK_SEC = 1;
 const AFTER_TICK_SEC = 0.5;
 
-/** The middle of the ocean rule: a comfortable mid pitch for the volume check. */
-function midOceanValue(): number {
-  const { min, max } = (voiceSpec("ocean").mapping as ContinuousMapping).input;
-  return (min + max) / 2;
-}
-
 export function playWarmup(): PlayerHandle {
   const steps: SequenceStep[] = [
-    { at: 0, run: (time) => liveVoices()?.ocean.set(midOceanValue(), 0, { time }) },
-    { at: VOLUME_CHECK_SEC, run: (time) => liveVoices()?.ocean.set(null, 0, { time }) },
+    // The volume check: the reference tone (legend.ts), as Track 0 plays it.
+    { at: 0, run: (time) => liveVoices()?.ocean.set(referenceValue(), 0, { time }) },
+    { at: REFERENCE_SEC, run: (time) => liveVoices()?.ocean.set(null, 0, { time }) },
   ];
-  let t = VOLUME_CHECK_SEC + SECTION_GAP_SEC;
+  let t = REFERENCE_SEC + SECTION_GAP_SEC;
   for (const voice of ["ocean", "rain", "snow"] as const) {
     const part = legendSteps(voice, t);
     steps.push(...part.steps);

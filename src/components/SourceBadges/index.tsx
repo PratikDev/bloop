@@ -21,7 +21,7 @@ export function ageText(entry: FreshnessEntry, now: number, tr: BadgeT, lang: La
   if (live === "baseline") {
     const [from, to] = entry.period ?? [null, null];
     const month = (s: string | null) => (s ? formatMonth(s.slice(0, 7), lang) : "—");
-    return tr("badge.baseline", { from: month(from), to: month(to) });
+    return from === to || month(from) === month(to) ? month(from) : tr("badge.baseline", { from: month(from), to: month(to) });
   }
   const days = ageDaysAt(entry, now) ?? 0;
   const age = days < 1 ? tr("badge.hours", { n: Math.max(1, Math.round(days / HOUR_DAYS)) }) : tr("badge.days", { n: days });

@@ -1,0 +1,26 @@
+// The listener test's ART tasks: emotion ratings (gap #10) and ear vs eye (gap #11). Braille rules apply.
+
+export const listenTestArtEn = {
+  "ltx.emotion.heading": "How did that feel?",
+  "ltx.emotion.sound": "Listen to this clip: ocean temperatures at the checked places, west to east.",
+  "ltx.emotion.visual": "Watch this clip, without sound: ocean temperatures at the checked places, west to east.",
+  "ltx.emotion.play": "Play the clip",
+  "ltx.emotion.watch": "Show the clip",
+  "ltx.valence": "How did it feel?",
+  "ltx.valence.1": "1, unpleasant",
+  "ltx.valence.5": "5, pleasant",
+  "ltx.connection": "How connected do you feel to this place right now?",
+  "ltx.connection.1": "1, not at all",
+  "ltx.connection.5": "5, very",
+  "ltx.next": "Next",
+  "ltx.eye.heading": "When did the rain peak?",
+  "ltx.eye.sound": "Listen: one storm's rain, half-hour by half-hour (no picture).",
+  "ltx.eye.picture": "Look: one storm's rain, half-hour by half-hour (no sound).",
+  "ltx.eye.listen": "Play the rain",
+  "ltx.eye.question": "When was the rain heaviest?",
+  "ltx.eye.early": "Early",
+  "ltx.eye.middle": "In the middle",
+  "ltx.eye.late": "Late",
+  "ltx.eye.chart": "Bars, one for each half-hour; taller is heavier rain",
+  "ltx.clip.strip": "Bars, one for each place; taller is warmer",
+};

@@ -1,20 +1,27 @@
 "use client";
 
 import { ArrowCounterClockwise, Stop } from "@phosphor-icons/react";
+import { useEffect, useRef } from "react";
 import { AnimatePresence, motion } from "motion/react";
+import { takeFocus } from "@/lib/arrival-focus";
 import { Button } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
 import { useT } from "../AppState/use-app-state";
 import { StatusBadge } from "../StatusBadge";
 import { SKIPPED_STEPS, STORY_STEPS } from "./script";
 import { useStory, type StoryStepId } from "./use-story";
+import { StoryDataset } from "../Art/StoryDataset";
+import { StoryLetter } from "../Art/Letter/StoryLetter";
 
-/** A step's dot: filled once done, pink and pulsing while current. */
+/** How long the tour's heading holds focus after starting from the player (frames, about half a second). */
+const FOCUS_FRAMES = 30;
+
+/** A step's dot: filled once done, coral and a size larger while current (no pulse). */
 function StepDot({ index, current }: { index: number; current: number }) {
   const now = index === current;
   return (
     <span aria-hidden="true" className="relative grid size-2.5 shrink-0 place-items-center">
-      {now && <span className="absolute inset-0 animate-signal-pulse rounded-full border border-shapla" />}
+      {now && <span className="absolute -inset-1 rounded-full border-2 border-shapla" />}
       <span className={cn("size-2.5 rounded-full border", now ? "border-shapla bg-shapla" : index < current ? "border-haze bg-haze" : "border-line bg-night")} />
     </span>
   );
@@ -22,7 +29,7 @@ function StepDot({ index, current }: { index: number; current: number }) {
 
 function SkippedBadge({ id }: { id: StoryStepId }) {
   const t = useT();
-  return SKIPPED_STEPS.has(id) ? <StatusBadge kind="october">{t("badge.comingOctober")}</StatusBadge> : null;
+  return SKIPPED_STEPS.has(id) ? <StatusBadge kind="note">{t("badge.comingOctober")}</StatusBadge> : null;
 }
 
 /**
@@ -36,10 +43,22 @@ export function StoryPanel({ className }: { className?: string }) {
   const t = useT();
   const current = story.step ? STORY_STEPS.indexOf(story.step) : story.status === "finished" ? STORY_STEPS.length : -1;
   const currentId = story.step;
+  const heading = useRef<HTMLHeadingElement>(null);
+  // Started from the player: focus comes to the tour's heading. The Records sheet hands focus back to its key as it
+  // closes, a few frames later, so the heading takes it back until it sticks (about half a second at most).
+  useEffect(() => {
+    if (!takeFocus("tour")) return;
+    let frames = 0;
+    let id = requestAnimationFrame(function hold() {
+      if (document.activeElement !== heading.current) heading.current?.focus({ preventScroll: true });
+      if (++frames < FOCUS_FRAMES) id = requestAnimationFrame(hold);
+    });
+    return () => cancelAnimationFrame(id);
+  }, []);
 
   return (
     <section aria-labelledby="story-heading" className={cn("space-y-3 text-body", className)}>
-      <h2 id="story-heading" className="eyebrow">
+      <h2 ref={heading} id="story-heading" tabIndex={-1} className="eyebrow outline-none">
         {t("story.heading")}
       </h2>
 
@@ -87,15 +106,17 @@ export function StoryPanel({ className }: { className?: string }) {
               transition={{ duration: 0.25 }}
               className="space-y-1"
             >
-              <p className="font-serif text-lead leading-snug text-moon lg:short:text-body">{story.line.text}</p>
+              <p className="text-lead leading-snug text-moon lg:short:text-body">{story.line.text}</p>
               {story.line.source && <p className="text-small text-haze">{t("story.source", { source: story.line.source })}</p>}
             </motion.div>
           )}
         </AnimatePresence>
       </div>
+      <StoryDataset /> {/* The dataset and period on every step */}
+      {story.status === "finished" && <StoryLetter />} {/* The tour ends with a letter to the future */}
       <div className="flex flex-wrap gap-2">
         {story.status === "finished" && (
-          <Button onClick={story.replay} className="h-11 gap-2 rounded-full bg-moon px-4 text-body text-ink hover:bg-moon/90">
+          <Button onClick={story.replay} className="h-11 gap-2 key border-navy rounded-full bg-moon px-4 text-body text-ink hover:bg-moon">
             <ArrowCounterClockwise aria-hidden="true" className="size-4" />
             {t("story.replay")}
           </Button>

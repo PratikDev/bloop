@@ -7,6 +7,7 @@ import { useCommands, type Line } from "@/components/Commands/use-commands";
 import { audio } from "@/lib/audio-adapter";
 import type { PlayerHandle } from "@/lib/audio-adapter/types";
 import { holdDescribe } from "@/lib/ui-captions";
+import { useReportPagePlayer } from "./use-page-player";
 
 /** One sound, and the lines said before it. */
 export interface NarratedStep<Tag extends string> {
@@ -43,6 +44,7 @@ export function useNarratedPlayer<Tag extends string = string>() {
   const saying = useRef(false);
   const [active, setActive] = useState(false);
   const [tag, setTag] = useState<Tag | null>(null);
+  useReportPagePlayer(active);
 
   const cancel = useCallback(() => {
     run.current++;

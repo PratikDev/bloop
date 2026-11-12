@@ -6,6 +6,9 @@ import { formatFixed, formatInteger } from "../format";
 const n1 = (v: number) => formatFixed(v, "en", 1);
 const n2 = (v: number) => formatFixed(v, "en", 2);
 
+/** A heat value's unit on the charts: the temperature change measured against the 1951–1980 normal. */
+const HEAT_UNIT = "°C compared with the 1951–1980 normal";
+
 export const contextEn = {
   "thenNow.contextNote": "Context records, not EIC frames: long-term NASA and partner datasets for Bangladesh.",
   "thenNow.title": (p: { city: string }) => `${p.city} then vs now`,
@@ -32,9 +35,20 @@ export const contextEn = {
   "thenNow.error": "Couldn't load the comparison data. Reload the page to try again.",
   "thenNow.then": (p: { label: string }) => `Then, ${p.label}`,
   "thenNow.now": (p: { label: string }) => `Now, ${p.label}`,
-  "thenNow.unit.anomaly": "°C anomaly",
+  "thenNow.unit.anomaly": HEAT_UNIT,
+  // The heat headline, built from the data's own numbers: the change between the two windows, the place and the years.
+  "thenNow.heat.warmer": (p: { place: string; change: number; now: string; then: string }) =>
+    `${p.place} in April–May: ${n2(p.change)} °C warmer in ${p.now} than in ${p.then}`,
+  "thenNow.heat.cooler": (p: { place: string; change: number; now: string; then: string }) =>
+    `${p.place} in April–May: ${n2(p.change)} °C cooler in ${p.now} than in ${p.then}`,
+  "thenNow.heat.source": "NASA GISTEMP",
   "thenNow.unit.mmPerDay": "mm/day",
   "thenNow.unit.cm": "cm",
+  // The stripes behind each panel's line: amber at or above what the part is compared against, blue below.
+  "thenNow.stripes.heatAbove": "Amber: warmer than the 1951–1980 normal",
+  "thenNow.stripes.heatBelow": "Blue: cooler",
+  "thenNow.stripes.monsoonAbove": (p: { window: string }) => `Amber: more rain than the ${p.window} average`,
+  "thenNow.stripes.monsoonBelow": "Blue: less rain",
   "thenNow.summary.yearly": (p: { part: string; unit: string; thenLabel: string; thenMean: number; nowLabel: string; nowMean: number }) =>
     `${p.part}: mean ${n2(p.thenMean)} ${p.unit} in ${p.thenLabel}, mean ${n2(p.nowMean)} ${p.unit} in ${p.nowLabel}.`,
   "thenNow.water.played": "Bangladesh (you hear this)",
@@ -49,7 +63,7 @@ export const contextEn = {
   "thenNow.moreTitle": "More records, then vs now",
   "thenNow.part.fires": "Fires",
   "thenNow.part.vegetation": "Vegetation",
-  "field.soundOctober": "No sound for this record yet: coming in October",
+  "field.soundOctober": "No sound for this record yet",
   "field.place": "Place",
   "field.sources": "Where these numbers come from",
   "field.rule": "Rule",
@@ -81,6 +95,8 @@ export const contextEn = {
   "disclosure.spread": (p: { value: number; unit: string }) => `year-to-year spread ${n2(p.value)} ${p.unit}`,
   "disclosure.change": (p: { value: string }) => `Change: ${p.value}`,
   "disclosure.crossCheck": "Cross-check, rain gauges (GPCC, not played)",
+  "disclosure.whyYears": "Why these years",
+  "disclosure.extra": "Extra, not compared with GPCC",
   "disclosure.box": (p: { name: string; a: number; b: number; windowA: string; windowB: string; trend: number }) =>
     `${p.name}: ${n2(p.a)} cm (${p.windowA}) → ${n2(p.b)} cm (${p.windowB}); trend ${n2(p.trend)} cm per year`,
   "disclosure.gapNote": "Gap",
@@ -95,18 +111,18 @@ export const contextEn = {
   "history.decade": "Decade",
   "history.decadeLabel": (p: { decade: number }) => `${p.decade}s`,
   "history.play": (p: { decade: number }) => `Play the ${p.decade}s`,
-  "history.unit.heat": "°C anomaly",
+  "history.unit.heat": HEAT_UNIT,
   "history.unit.rain": "mm/day",
   "history.unit.water": "cm",
   "history.group.bangladesh": "Bangladesh",
   "history.group.world": "World",
   "history.loadingWorld": "Loading this record for the world (a few megabytes, first time only)",
   "history.noValue": (p: { month: string }) => `${p.month}: no measurement (silence)`,
-  "history.sharedCell": (p: { places: string }) =>
-    `In this dataset, this is the same grid cell as ${p.places}: one record, not separate places.`,
+  "history.sharedCell": (p: { places: string }) => `In this data, ${p.places} share one measurement area`,
   "history.sharedRegion": (p: { places: string }) => `In this dataset, this is the same GRACE region as ${p.places}: one record, not separate places.`,
   "history.cell": (p: { lat: number; lon: number }) =>
     `Grid cell centred at ${n1(Math.abs(p.lat))}° ${p.lat >= 0 ? "N" : "S"}, ${n1(Math.abs(p.lon))}° ${p.lon >= 0 ? "E" : "W"}`,
+  "history.region": "Bangladesh box (GRACE)",
   "history.neighbour": "(the nearest land cell; the place's own cell is sea)",
   "history.nationalBox": "Bangladesh national box (GRACE): one record for the whole country, the same for every city.",
   // From L1's confidence.json method: GPCP against independent rain gauges (GPCC), annual means 1981–2019.

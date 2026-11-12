@@ -32,7 +32,7 @@ export function GoToMenu() {
   const hintId = `${id}-hint`;
   const errorId = `${id}-error`;
   const form = useGoToForm(state.lang, (place) => {
-    commands.setCursor(place);
+    commands.setCursor(place, { remember: true });
     went.current = true;
     setOpen(false);
   });
@@ -83,7 +83,7 @@ export function GoToMenu() {
                   spellCheck={false}
                   aria-invalid={form.invalid === axis || undefined}
                   aria-describedby={form.invalid === axis ? `${errorId} ${hintId}` : hintId}
-                  className="h-11 rounded-lg border-line bg-ink/45 px-3 font-mono md:text-base pointer-fine:h-9"
+                  className="h-11 rounded-lg border-2 border-line bg-paper px-3 font-mono md:text-base pointer-fine:h-9"
                 />
               </div>
             ))}
@@ -98,7 +98,7 @@ export function GoToMenu() {
               </StatusBadge>
             )}
           </div>
-          <Button type="submit" className="h-11 w-full gap-2 rounded-full bg-shapla text-body text-ink hover:bg-shapla/90 pointer-fine:h-9">
+          <Button type="submit" className="h-11 w-full gap-2 key border-navy rounded-full bg-shapla text-body text-moon hover:bg-shapla pointer-fine:h-9">
             <MapPin aria-hidden="true" weight="fill" />
             {t("goto.submit")}
           </Button>

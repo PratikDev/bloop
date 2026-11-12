@@ -2,6 +2,7 @@
 
 import { useEffect, useRef } from "react";
 import { readPalette } from "@/lib/css-tokens";
+import { subscribeTicker } from "@/hooks/use-ticker";
 import { useAppState } from "../AppState/use-app-state";
 
 const WIDTH = 320;
@@ -49,14 +50,8 @@ export function ProofHelix({ beatsPerSec, label }: { beatsPerSec: number; label:
       draw(beatsPerSec > 0 ? Math.PI / 2 : 0);
       return;
     }
-    let raf = 0;
     const start = performance.now();
-    const loop = (now: number) => {
-      draw(2 * Math.PI * beatsPerSec * ((now - start) / 1000));
-      raf = requestAnimationFrame(loop);
-    };
-    raf = requestAnimationFrame(loop);
-    return () => cancelAnimationFrame(raf);
+    return subscribeTicker((now) => draw(2 * Math.PI * beatsPerSec * ((now - start) / 1000)), canvas);
   }, [beatsPerSec, state.reduceMotion]);
 
   return <canvas ref={ref} role="img" aria-label={label} style={{ width: WIDTH, height: HEIGHT }} className="max-w-full" />;

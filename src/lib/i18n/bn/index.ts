@@ -5,14 +5,43 @@
 
 import type { Messages } from "../index";
 import { appBn } from "./app";
+import { brailleBn } from "./braille";
 import { captionsBn } from "./captions";
 import { contextBn } from "./context";
+import { creditsBn } from "./credits";
+import { provenanceBn } from "./provenance";
+import { teamBn } from "./team";
+import { listenTestBn } from "./listen-test";
+import { accessBn } from "./access";
+import { describeBn } from "./describe";
+import { placesTableBn } from "./places-table";
+import { tuningBn } from "./tuning";
+import { expeditionBn } from "./expedition";
+import { timedTextBn } from "./timed-text";
+import { lowVisionBn } from "./low-vision";
+import { askBloopBn } from "./ask-bloop";
+import { earthBn } from "./earth";
+import { artBn } from "./art";
 import { helpBn } from "./help";
+import { officialBn } from "./official";
 import { pagesBn } from "./pages";
 import { panelsBn } from "./panels";
+import { finalPassBn, recordsBn } from "./records";
+import { badgesBnDraft } from "@/components/SourceBadges/strings-bn";
+import { turntableBnDraft } from "@/components/Turntable/strings-bn";
+import { framesBn } from "./frames";
+import { howBn } from "./how";
+import { statsBn } from "./stats";
 import { storyBn } from "./story";
+import { truthBn } from "./truth";
+import { turntableBn } from "./turntable";
+import { cvBn } from "./cv";
 
-export const bn: Partial<Messages> = { ...appBn, ...helpBn, ...captionsBn, ...panelsBn, ...contextBn, ...storyBn, ...pagesBn };
+export const bn: Partial<Messages> = {
+  ...appBn, ...helpBn, ...captionsBn, ...panelsBn, ...contextBn, ...storyBn, ...pagesBn, ...recordsBn, ...finalPassBn, ...badgesBnDraft, ...turntableBnDraft, ...turntableBn, ...truthBn, ...officialBn, ...brailleBn,
+  ...statsBn, ...framesBn, ...howBn, ...creditsBn, ...provenanceBn, ...teamBn, ...listenTestBn, ...accessBn, ...describeBn, ...placesTableBn, ...tuningBn, ...expeditionBn, ...timedTextBn, ...lowVisionBn, ...askBloopBn,
+  ...cvBn, ...earthBn, ...artBn,
+};
 
 /**
  * Spoken lines (Enter, the tour, Describe) are translated, so speech follows

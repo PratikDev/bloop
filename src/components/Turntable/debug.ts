@@ -2,6 +2,7 @@
 // exposes window.__turntable for the verification script (docs/turntable.md).
 
 import { audio } from "@/lib/audio-jukebox";
+import type { TrackMode } from "@/lib/audio-jukebox/types";
 import { mapVoice } from "@/lib/audio/mapping";
 import type { LatLon, LiveFields } from "@/lib/data";
 import { cellIndex, wrapLon } from "@/lib/data/grid";
@@ -12,8 +13,10 @@ import type { Geo } from "./use-geo";
 import { toLatLon, toXY } from "@/lib/geo";
 import { readAt, type Reading } from "@/lib/reading";
 import type { SentReading } from "./needle-sound";
-import type { CameraMode, SceneInfo, SceneLook } from "./scene";
-import { SPEEDS, type Turntable } from "./use-turntable";
+import { deckProbe } from "./DeckView";
+import type { DeckPart } from "./DeckView/deck-view";
+import type { CameraMode, TurntableScene } from "./scene";
+import { SPEEDS, type DeckPose, type Turntable } from "./use-turntable";
 
 /** A flat-map size for the 2D pick (FrameView maps pixels the same way at any size). */
 const FLAT_MAP = { width: 1280, height: 640 };
@@ -141,9 +144,6 @@ export interface DebugApi {
   moveTo(lat: number, lon: number): void;
   /** Look-dev: camera mode and (optionally) distance in globe radii, applied at once. */
   setView(mode: CameraMode, distance?: number): void;
-  /** Look-dev: the design knobs of the Earth shader and the post chain. */
-  setLook(look: SceneLook): void;
-  info(): SceneInfo | null;
   checkPick(lat: number, lon: number): PickCheck | null;
   setRotating(on: boolean): void;
   setSpeed(multiplier: number): number;
@@ -160,6 +160,22 @@ export interface DebugApi {
   searchAndFly(query: string): Promise<{ entry: SearchEntry; needle: LatLon } | null>;
   /** Label anchors on screen, raycast back to the globe: how far each lands from its own coordinates (degrees). */
   labelCheck(): { key: string; lat: number; lon: number; picked: LatLon | null; errorDeg: number | null }[];
+  /** The globe point under a screen position (for the data-pixel check). */
+  pickAt(x: number, y: number): LatLon | null;
+  /** The frame's pixel the swatch is showing (null: an empty disc). */
+  swatch(): [number, number, number] | null;
+  /** The globe's outline on screen, in CSS pixels inside the stage. */
+  discOutline(): { x: number; y: number }[];
+  /** The swatch on the globe and the stylus tip on the turntable as drawn now (visible, in front of their camera, on screen). */
+  pointer(): (ReturnType<TurntableScene["pointer"]> & { arm: DeckPart | null }) | null;
+  /** The needle as the last frame drew it (place, lift, park), for timing checks. */
+  pose(): DeckPose | null;
+  /** The frame's pixel the swatch would show at a point (the same rule and images as the swatch and the record). */
+  pixelAt(lat: number, lon: number): [number, number, number] | null;
+  /** The record's latitude and longitude under a page point (CSS px), or null off its grooves. */
+  pickRecord(x: number, y: number): { lat: number; lon: number } | null;
+  /** The record under the needle on screen (page CSS px), with the arm hidden or shown for the check. */
+  recordAtNeedle(hideArm: boolean): { x: number; y: number } | null;
   particlesSpawned(): number;
   distance(): number;
 }
@@ -176,8 +192,14 @@ export function createDebugApi(
   log: SentReading[],
   geo: () => Geo | null,
   placed: { current: PlacedLabels },
+  track: () => TrackMode,
 ): DebugApi {
+  let lastPose: DeckPose | null = null;
+  tt().subscribe((f) => {
+    lastPose = f.pose ?? null;
+  });
   return {
+    pose: () => lastPose,
     whereAmI: (lat, lon) => geo()?.gazetteer.whereAmI({ lat, lon }) ?? null,
     search: (query) => geo()?.gazetteer.search(query) ?? [],
     async searchAndFly(query) {
@@ -195,7 +217,33 @@ export function createDebugApi(
         return { key, lat: a.lat, lon: a.lon, picked, errorDeg };
       });
     },
+    pickAt: (x, y) => tt().pickAt(x, y),
+    swatch: () => tt().sceneRef.current?.effects.swatchColor() ?? null,
+    discOutline: () => tt().sceneRef.current?.discOutline() ?? [],
+    pointer() {
+      const p = tt().sceneRef.current?.pointer();
+      return p ? { ...p, arm: deckProbe.view?.stylus() ?? null } : null;
+    },
     particlesSpawned: () => tt().particlesSpawned.current,
+    pixelAt(lat, lon) {
+      const f = fields();
+      if (!f) return null;
+      const at = { lat, lon };
+      return tt().texture.sample(track(), readAt(f, at), at);
+    },
+    pickRecord(x, y) {
+      const box = deckProbe.canvas?.getBoundingClientRect();
+      return box && deckProbe.view ? deckProbe.view.pick(x - box.left, y - box.top) : null;
+    },
+    recordAtNeedle(hideArm) {
+      const view = deckProbe.view;
+      const box = deckProbe.canvas?.getBoundingClientRect();
+      if (!view || !box) return null;
+      view.hideArm(hideArm);
+      const n = tt().needle();
+      const p = view.project(n.lat, n.lon);
+      return { x: box.left + p.x, y: box.top + p.y };
+    },
     distance: () => tt().distance(),
     needle: () => tt().needle(),
     readingAt(lat, lon) {
@@ -207,8 +255,6 @@ export function createDebugApi(
       tt().setCameraMode(mode);
       if (distance !== undefined) tt().sceneRef.current?.rig.setDistance(distance, true);
     },
-    setLook: (look) => tt().sceneRef.current?.setLook(look),
-    info: () => tt().sceneRef.current?.info() ?? null,
     checkPick(lat, lon) {
       const f = fields();
       return f && checkPick(tt(), f, { lat, lon });

@@ -33,6 +33,9 @@ export function oceanText(t: BoundT, v: OceanValue): string {
   return v.valueC === null ? t("reading.oceanNone") : t("reading.oceanValue", { valueC: v.valueC });
 }
 
+/** True when the rain frame says "no rain here" (a value, not a gap): the player's caption already says "dry here". */
+export const rainIsDry = (v: RainValue, loaded: boolean) => loaded && v.phase === "dry" && v.mmPerHour !== null;
+
 export function rainText(t: BoundT, v: RainValue, loaded: boolean): string {
   if (!loaded) return t("reading.rainLoading");
   if (v.phase === "nodata" || v.mmPerHour === null) return t("reading.rainNone");

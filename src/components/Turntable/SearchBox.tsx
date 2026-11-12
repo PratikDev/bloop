@@ -1,6 +1,6 @@
 "use client";
 
-import { Search } from "lucide-react";
+import { MagnifyingGlass } from "@phosphor-icons/react";
 import { useEffect, useId, useMemo, useState, type KeyboardEvent, type Ref } from "react";
 import { pushEscapeHandler } from "@/lib/escape";
 import type { Gazetteer } from "@/lib/geo/gazetteer";
@@ -34,6 +34,7 @@ export function SearchBox({
   const announce = useAnnounce();
   const listId = useId();
   const [query, setQuery] = useState("");
+  const [focused, setFocused] = useState(false);
   const [open, setOpen] = useState(false);
   const [active, setActive] = useState(0);
   const results = useMemo(() => (gazetteer && query.trim() ? gazetteer.search(query) : []), [gazetteer, query]);
@@ -66,19 +67,17 @@ export function SearchBox({
     }
   };
 
+  const fieldOpen = focused || query !== "";
   const optionId = (i: number) => `${listId}-${i}`;
 
   return (
-    <div className={cn("relative", className)}>
-      {/* Compact until used: an icon-sized pill that widens on focus (/ or a click). */}
+    <div data-tt-occluder className={cn("relative", !fieldOpen && "max-sm:sr-only", className)}>
+      {/* Compact until used: a labelled key that opens into the field on focus (/ or a click). */}
       <label
-        className={cn(
-          "glass-chip ml-auto flex h-11 cursor-text items-center gap-2 overflow-hidden rounded-full px-3 transition-[width] duration-200 ease-out focus-within:outline-2 focus-within:outline-shapla motion-reduce:transition-none",
-          query ? "w-80 max-w-full" : "w-11 focus-within:w-80 focus-within:max-w-full",
-        )}
+        className={cn("search-field key ml-auto flex h-11 cursor-text items-center gap-2 overflow-hidden rounded-lg bg-paper px-3", fieldOpen ? "w-80 max-w-full" : "w-fit")}
       >
-        <Search aria-hidden="true" className="size-5 shrink-0 text-moon" />
-        <span className="sr-only">{tt("turntable.search.label")}</span>
+        <MagnifyingGlass aria-hidden="true" className="size-5 shrink-0 text-moon" />
+        <span className={fieldOpen ? "sr-only" : "text-body whitespace-nowrap text-moon"}>{tt("turntable.search.short")}</span>
         <input
           ref={inputRef}
           type="search"
@@ -96,18 +95,26 @@ export function SearchBox({
             const n = gazetteer ? gazetteer.search(e.target.value).length : 0;
             if (e.target.value.trim()) announce(gazetteer ? (n ? tt("turntable.search.count", { count: n }) : tt("turntable.search.none")) : tt("turntable.search.loading"));
           }}
-          onFocus={() => setOpen(true)}
-          onBlur={() => setOpen(false)}
+          onFocus={() => {
+            setOpen(true);
+            setFocused(true);
+          }}
+          onBlur={() => {
+            setOpen(false);
+            setFocused(false);
+          }}
           onKeyDown={onKeyDown}
-          className="h-full min-w-0 flex-1 bg-transparent text-body text-moon placeholder:text-haze focus:outline-none"
+          aria-label={tt("turntable.search.label")}
+          className={cn("h-full min-w-0 bg-transparent text-body text-moon placeholder:text-haze", fieldOpen ? "flex-1" : "w-0")}
         />
       </label>
       <ul
         id={listId}
+        data-tt-occluder={expanded || undefined}
         role="listbox"
         aria-label={tt("turntable.search.label")}
         hidden={!expanded}
-        className="glass-card absolute top-13 right-0 z-30 max-h-80 w-80 max-w-full overflow-y-auto rounded-2xl p-1"
+        className="on-space absolute top-13 right-0 z-30 max-h-80 w-80 max-w-full overflow-y-auto rounded-plate p-1"
       >
         {!gazetteer && <li className="px-3 py-2 text-body text-haze">{tt("turntable.search.loading")}</li>}
         {gazetteer && results.length === 0 && <li className="px-3 py-2 text-body text-haze">{tt("turntable.search.none")}</li>}

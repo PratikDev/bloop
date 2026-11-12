@@ -16,7 +16,7 @@ import { createSpatialRain, type SpatialRain } from "./spatial-rain";
 import { playCompare, playSeries, playThenNow, playYearsAndMonths } from "./then-now";
 import { playTimelapse } from "./timelapse";
 import { setRecordVoice, silenceRecord } from "./record-voices";
-import { playUnison } from "./unison";
+import { playPair, playUnison } from "./unison";
 import { cancelSpeech, initSpeech, speak } from "./speech";
 import type { AudioEngine } from "./types";
 
@@ -68,6 +68,7 @@ export const interimEngine: AudioEngine = {
   setClarity: live.setClarity,
   setRecorded: live.setRecorded,
   playUnison,
+  playPair,
   setRecordVoice(voice, value, lon) {
     const graph = getGraph();
     if (graph) setRecordVoice(graph, voice, value, lon);

@@ -1,6 +1,8 @@
 "use client";
 
 import { useEffect, useMemo, useRef, type PointerEvent } from "react";
+import { useMediaQuery } from "@/hooks/use-media-query";
+import { FLAGS } from "@/lib/flags";
 import { cn } from "@/lib/utils";
 import { readPalette } from "@/lib/css-tokens";
 import type { SstField } from "@/lib/data";
@@ -14,15 +16,22 @@ import { buildLandLayer, drawBase } from "./base-layer";
 import { prepareCanvas, useCanvasSize } from "./use-canvas-size";
 import { useFrameImages } from "./use-frame-images";
 import { useOverlayLoop, type OverlayInputs } from "./use-overlay-loop";
+import { ContextLens } from "../LowVision/ContextLens";
+import { LvMapLayer } from "../LowVision/MapLayer";
+import { useDwellSpeak } from "../LowVision/use-dwell-speak";
+
+const PHONE_PAN = "(max-width: 639px)";
+const DRAG_START_PX = 6;
 
 /**
  * The EIC frame on a 2:1 equirectangular canvas, with the cursor and sound
  * rings on a second canvas. Click, tap or drag to move the cursor.
  * Decorative for assistive tech: the map region around it carries the text.
+ * With `pan`, phones get a tall window that slides sideways to keep the needle in view; drag moves the needle.
  * `revealClassName` animates only the drawing (the opening's reveal), so the
  * click target stays whole while it plays.
  */
-export function FrameView({ className, revealClassName }: { className?: string; revealClassName?: string }) {
+export function FrameView({ className, revealClassName, pan = false }: { className?: string; revealClassName?: string; pan?: boolean }) {
   const { state, dispatch } = useAppState();
   const { sst } = useLiveData();
   const { sweepRef } = useCommands();
@@ -32,6 +41,7 @@ export function FrameView({ className, revealClassName }: { className?: string; 
   const overlayRef = useRef<HTMLCanvasElement>(null);
   const landCache = useRef<{ sst: SstField; canvas: HTMLCanvasElement } | null>(null);
   const size = useCanvasSize(containerRef);
+  const dwell = useDwellSpeak();
 
   const shown = useShownPoint();
   // During the time-lapse the base shows that frame's own image, in the rain style.
@@ -58,33 +68,70 @@ export function FrameView({ className, revealClassName }: { className?: string; 
       oceanC: reading && !timelapse && isVoiceAudible(state, "ocean") ? reading.ocean.valueC : null,
       rainMm: reading && rainAudible ? reading.rain.mmPerHour : null,
       reduceMotion: state.reduceMotion,
+      thick: FLAGS.lowVision && (state.lowVision.on || state.lowVision.controls !== "normal"),
     };
   }, [shown, state]);
   useOverlayLoop(overlayRef, size, overlayInputs, sweepRef);
 
-  const moveTo = (e: PointerEvent<HTMLDivElement>) => {
+  // Phones: the map window shows a tall slice of the world and slides to keep the needle in view.
+  const panning = useMediaQuery(PHONE_PAN) && pan;
+  const windowRef = useRef<HTMLDivElement>(null);
+  const view = useCanvasSize(windowRef);
+  const drag = useRef<{ x: number; y: number; at: typeof shown.cursor; moved: boolean } | null>(null);
+  const left = size && view ? Math.min(0, Math.max(view.width - size.width, view.width / 2 - ((shown.cursor.lon + 180) / 360) * size.width)) : 0;
+
+  // A click (or a drag's start) is a place "." can come back to; the drag's own steps are not.
+  const moveTo = (e: PointerEvent<HTMLDivElement>, remember = false) => {
     if (state.mode === "story") return; // the story moves the cursor
     const rect = e.currentTarget.getBoundingClientRect();
-    dispatch({ type: "setCursor", cursor: toLatLon(e.clientX - rect.left, e.clientY - rect.top, rect.width, rect.height) });
+    dispatch({ type: "setCursor", cursor: toLatLon(e.clientX - rect.left, e.clientY - rect.top, rect.width, rect.height), remember });
   };
 
-  return (
+  const onDown = (e: PointerEvent<HTMLDivElement>) => {
+    e.currentTarget.setPointerCapture(e.pointerId);
+    if (panning) drag.current = { x: e.clientX, y: e.clientY, at: state.cursor, moved: false };
+    else moveTo(e, true);
+  };
+  const onMove = (e: PointerEvent<HTMLDivElement>) => {
+    if (!e.currentTarget.hasPointerCapture(e.pointerId)) return dwell.move(e);
+    if (!panning) return moveTo(e);
+    const from = drag.current;
+    if (!from || state.mode === "story" || !size) return;
+    const dx = e.clientX - from.x;
+    const dy = e.clientY - from.y;
+    if (!from.moved && Math.hypot(dx, dy) < DRAG_START_PX) return;
+    from.moved = true;
+    dispatch({ type: "setCursor", cursor: { lat: from.at.lat + (dy / size.height) * 180, lon: from.at.lon - (dx / size.width) * 360 } });
+  };
+  const onUp = (e: PointerEvent<HTMLDivElement>) => {
+    if (panning && drag.current && !drag.current.moved) moveTo(e, true);
+    drag.current = null;
+  };
+
+  const map = (
     <div
       ref={containerRef}
-      className={cn("relative aspect-[2/1] w-full touch-none select-none", className)}
-      onPointerDown={(e) => {
-        e.currentTarget.setPointerCapture(e.pointerId);
-        moveTo(e);
-      }}
-      onPointerMove={(e) => {
-        if (e.currentTarget.hasPointerCapture(e.pointerId)) moveTo(e);
-      }}
+      style={panning ? { transform: `translateX(${left}px)` } : undefined}
+      className={cn("relative touch-none select-none", panning ? "h-full w-max aspect-[2/1] transition-transform duration-(--duration-flip) ease-(--ease-mechanical) motion-reduce:transition-none" : "aspect-[2/1] w-full", className)}
+      onPointerDown={onDown}
+      onPointerMove={onMove}
+      onPointerUp={onUp}
+      onPointerLeave={dwell.leave}
       aria-hidden="true"
     >
       <div className={cn("absolute inset-0", revealClassName)}>
         <canvas ref={baseRef} className="absolute inset-0 size-full" />
+        <LvMapLayer size={size} rainImage={frameImage ?? images.rain} track={baseTrack} />
         <canvas ref={overlayRef} className="absolute inset-0 size-full" />
       </div>
+      <ContextLens mapRef={containerRef} />
     </div>
+  );
+  return panning ? (
+    <div ref={windowRef} className="h-[60dvh] overflow-hidden">
+      {map}
+    </div>
+  ) : (
+    map
   );
 }

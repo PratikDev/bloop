@@ -5,16 +5,20 @@ import type { PlayerHandle, SweepPoint, TrackMode } from "@/lib/audio-adapter/ty
 import type { LatLon } from "@/lib/data";
 import type { BoundT, Lang } from "@/lib/i18n";
 import type { WhisperSource } from "@/lib/whisper";
-import type { Mode, PanelTab } from "../AppState/reducer";
+import type { Mode, PanelTab, ToggleKey } from "../AppState/reducer";
+import type { DegreeStyle } from "@/a11y/brailleText";
 
-export type SettingKey = "describe" | "captions" | "reduceMotion" | "builtInVoice" | "allMuted";
+export type SettingKey = Exclude<ToggleKey, "timeLapseGlobe">;
 
 export const SETTING_LABELS = {
   describe: "settings.describe",
   captions: "settings.captions",
   reduceMotion: "settings.reduceMotion",
   builtInVoice: "settings.builtInVoice",
+  soundWords: "settings.soundWords",
+  comfortableText: "settings.comfortableText",
   allMuted: "sound.muteAll",
+  hide3d: "access.hide3d",
 } as const satisfies Record<SettingKey, string>;
 
 export const MODE_LABELS = {
@@ -25,6 +29,7 @@ export const MODE_LABELS = {
   how: "nav.how",
   turntable: "mode.turntable",
   official: "mode.official",
+  team: "nav.team",
 } as const satisfies Record<Mode, string>;
 
 /** The sweep currently playing, for the map's sweep ring. */
@@ -37,6 +42,8 @@ export interface SweepVisual {
 
 /** A line to say, built for a language: once for the screen, once for speech. */
 export type Line = (t: BoundT, lang: Lang) => string;
+/** A line's braille short form (plan item 12), in the reader's degree style. */
+export type ShortLine = (t: BoundT, lang: Lang, degree: DegreeStyle) => string;
 
 /** Every user action, shared by keyboard shortcuts and on-screen controls. */
 export interface Commands {
@@ -46,8 +53,15 @@ export interface Commands {
   resetStart(): void;
   enableSound(): Promise<void>;
   moveCursor(dLat: number, dLon: number): void;
-  /** Puts the cursor at an exact place (Go to). */
-  setCursor(cursor: LatLon): void;
+  /** Puts the cursor at an exact place (Go to); `remember` lets "." come back to where it was; `lead` (a region's or
+   *  place's name) leads the map's announcement of the new place. */
+  setCursor(cursor: LatLon, opts?: { remember?: boolean; lead?: string }): void;
+  /** + (1) / − (−1): the next step size for the arrow keys (src/a11y/mapNav.ts), announced. */
+  changeStep(dir: 1 | -1): void;
+  /** Adds a line to the expedition log (step 6): what was said, in the screen's language, and its datasets. */
+  note(text: string, sources: string[]): void;
+  /** ".": back to the needle's previous place, or says there is none. */
+  goBack(): void;
   setTrack(track: TrackMode): void;
   setMode(mode: Mode): void;
   setLang(lang: Lang): void;
@@ -61,11 +75,12 @@ export interface Commands {
    * sound on, the satellite whisper with `source`'s caption. Resolves when it has been
    * said; a later say() or Esc cancels a pending whisper.
    */
-  say(line: Line, source?: WhisperSource | null): Promise<void>;
+  say(line: Line, source?: WhisperSource | null, short?: ShortLine): Promise<void>;
   playSweep(): void;
   /** Starts the sweep from Chattogram with its map ring; null if there's nothing to play. */
   startSweep(): PlayerHandle | null;
-  playLegend(): void;
+  /** The reference sounds for a track (the current one by default); "both" is the full warm-up. */
+  playLegend(track?: TrackMode): void;
   playMotif(): void;
   /** U: proof in unison (C1) at the checked point nearest the cursor (or the turntable's needle). */
   playUnison(): void;
@@ -74,7 +89,8 @@ export interface Commands {
   openHelp(): void;
   /** B: opens or closes the Braille Data Explorer (`open` forces one). */
   toggleBraille(open?: boolean): void;
-  stopAll(): void;
+  /** Esc: stops every sound and closes the panels; `leave` (default) also ends a story or leaves the turntable. */
+  stopAll(opts?: { leave?: boolean }): void;
   sweepRef: RefObject<SweepVisual | null>;
 }
 

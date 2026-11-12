@@ -19,6 +19,7 @@ export function withFallbacks(core: L2AudioApi & Partial<L3AudioExtensions>): Au
     setNormalTone: core.setNormalTone ?? (() => undefined),
     setClarity: core.setClarity ?? (() => undefined),
     playUnison: core.playUnison ?? finishedHandle,
+    playPair: core.playPair ?? finishedHandle,
     setRecorded: core.setRecorded ?? (() => undefined),
     setRecordVoice: core.setRecordVoice ?? (() => undefined),
     silenceRecord: core.silenceRecord ?? (() => undefined),

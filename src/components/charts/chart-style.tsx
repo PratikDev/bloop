@@ -8,10 +8,35 @@ const AXIS_FONT_PX = 12.8;
 /** Chart height on the pages that fit one screen: grows with the screen, within reason (a little less on short laptops). */
 export const CHART_HEIGHT = "h-[clamp(9rem,28dvh,21rem)] lg:short:h-[clamp(8rem,24dvh,18rem)]";
 
+/** A panel's plot: 192 px on phones; from 1024 px it grows into the height the page leaves free (--tn-panel, globals.css). */
+export const PANEL_CHART_HEIGHT = "h-48 lg:h-(--tn-panel)";
+
+/** Where a panel's plot area sits inside its chart: the margins, the y-axis and the padding below (the stripes and playhead line up with it). */
+export const PANEL_AXIS_WIDTH = 44;
+export const PANEL_MARGIN = { top: 8, right: 16, bottom: 4, left: 0 };
+export const PANEL_X_PADDING = 8;
+const X_AXIS_HEIGHT = 30;
+export const PANEL_PLOT_INSET = {
+  left: PANEL_MARGIN.left + PANEL_AXIS_WIDTH + PANEL_X_PADDING,
+  right: PANEL_MARGIN.right + PANEL_X_PADDING,
+  top: PANEL_MARGIN.top,
+  bottom: PANEL_MARGIN.bottom + X_AXIS_HEIGHT,
+};
+
+/** Then vs Now's comic panels hold the 14 px minimum. */
+export const PANEL_AXIS_FONT_PX = 14;
+
 export const AXIS = { stroke: "var(--line)", tick: { fill: "var(--haze)", fontSize: AXIS_FONT_PX, fontFamily: "var(--font-mono)" } };
 
+export const PANEL_AXIS = { ...AXIS, tick: { ...AXIS.tick, fontSize: PANEL_AXIS_FONT_PX } };
+
 /** The unit, written up the y-axis. */
-export const unitLabel = (unit: string) => ({ value: unit, angle: -90, position: "insideLeft" as const, fill: "var(--haze)", fontSize: AXIS_FONT_PX });
+export const unitLabel = (unit: string, fontSize = AXIS_FONT_PX) => ({ value: unit, angle: -90, position: "insideLeft" as const, fill: "var(--haze)", fontSize });
+
+/** A small square swatch of a colour token (stripes, bands). */
+export function SquareSwatch({ className }: { className: string }) {
+  return <span aria-hidden="true" className={`size-3 shrink-0 rounded-xs border border-navy ${className}`} />;
+}
 
 export const ZERO_LINE_STROKE = "var(--line)";
 

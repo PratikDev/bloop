@@ -1,7 +1,7 @@
 // Shared by the feature checks (e2e/features.e2e.ts): the Feature shape, and the helpers each check uses to drive the
 // app the way a user would and read what the user would get.
 import { expect, type Locator, type Page } from "@playwright/test";
-import { AUDIBLE, heard, level, navTo } from "../lib/app";
+import { AUDIBLE, heard, level, MAP_READING, navTo } from "../lib/app";
 
 export type Group = "data" | "sound" | "visuals" | "jukebox" | "a11y" | "truth" | "forms" | "pages";
 export interface Outcome { evidence: string; limit?: string }
@@ -16,13 +16,45 @@ export interface Feature {
 
 export const map = (page: Page) => page.getByRole("application").first();
 export const name = async (l: Locator) => (await l.evaluate((e) => e.getAttribute("aria-label") ?? e.textContent ?? "")).trim();
+/** The sound map's live reading (its name holds still while it has focus). */
+export const reading = async (page: Page) => ((await map(page).getAttribute(MAP_READING)) ?? "").trim();
 export const live = async (page: Page) =>
   (await page.locator('[role="status"], [role="alert"], [aria-live="polite"], [aria-live="assertive"]').allTextContents()).join(" ");
 export const tab = (page: Page, n: string) => page.getByRole("tab", { name: n, exact: true });
 export const pressed = (l: Locator) => expect(l).toHaveAttribute("aria-pressed", "true");
 export const onMap = async (page: Page) => { await map(page).focus(); };
-/** The dock (main's sound bar, on every page after Start but Home and the Turntable). */
-export const dock = (page: Page) => page.getByRole("region", { name: "Sound" });
+/** The player (the bar on every page after Start but Home; the Turntable has its own copy). */
+export const dock = (page: Page) => page.getByRole("region", { name: "Player" });
+
+/** Opens a record group in the Records sheet, if it is closed. */
+export async function openGroup(page: Page, name: RegExp) {
+  await openRecords(page);
+  const group = page.getByRole("dialog", { name: "Records" }).getByRole("button", { name });
+  if ((await group.getAttribute("aria-expanded")) !== "true") await group.click();
+}
+
+/** A record's strip in the Records sheet (its name starts with the code). */
+export const strip = (page: Page, code: string) => page.getByRole("dialog", { name: "Records" }).getByRole("button", { name: new RegExp(`^${code},`, "u") });
+
+/** The Records sheet: a key on the player, or inside its More on pages that spend their keys on their own content
+ *  (Then vs Now, How we know, Official records). */
+export async function openRecords(page: Page) {
+  if (await page.getByRole("dialog", { name: "Records" }).count()) return;
+  const key = dock(page).getByRole("button", { name: "Records", exact: true });
+  if (!(await key.isVisible())) await openPlayerMore(page);
+  await page.getByRole("button", { name: "Records", exact: true }).first().click();
+}
+
+/** Picks a part of Then vs Now from its one-control list. */
+export async function choosePart(page: Page, part: string) {
+  await page.getByRole("combobox", { name: "Part" }).click();
+  await page.getByRole("option", { name: part }).click();
+}
+
+/** The player's More menu. */
+export async function openPlayerMore(page: Page) {
+  await dock(page).getByRole("button", { name: "More", exact: true }).click();
+}
 
 /** The accessible name a screen reader announces for the feature's control. A modal drawer the check opened hides the
  *  rest of the page from the accessibility tree, so the control can't be found until it is closed (Esc closes the top
@@ -48,9 +80,10 @@ export async function stops(page: Page, what: string): Promise<Outcome> {
   return { evidence: `${what}: output level ${l.toExponential(1)} after the key` };
 }
 
-/** Listen's Inspector ("About this sound", the dock) on one of its tabs: Checks, What you hear, Where it's from. */
+/** Listen's Inspector ("Sources and checks", under the readout) on one of its tabs: Checks, What you hear, Where it's from. */
 export async function inspector(page: Page, tabName: "Checks" | "What you hear" | "Where it's from"): Promise<Locator> {
-  await dock(page).getByRole("button", { name: "About this sound" }).click();
+  await openPlayerMore(page);
+  await page.getByRole("button", { name: "Sources and checks" }).click();
   await tab(page, tabName).click();
   const panel = page.getByRole("tabpanel", { name: tabName });
   await expect(panel).toBeVisible();
@@ -69,8 +102,14 @@ export async function turntable(page: Page) {
   return { app, details };
 }
 
+/** Opens the More menu on the Turntable's bar. */
+export async function openMore(page: Page) {
+  await page.getByRole("group", { name: "Turntable controls" }).getByRole("button", { name: "More", exact: true }).click();
+}
+
 export async function openScene(page: Page, sleeve: string): Promise<Outcome> {
   await turntable(page);
+  await openMore(page);
   await page.getByRole("button", { name: "Records", exact: true }).click();
   const open = page.getByRole("button", { name: `Open the ${sleeve} scene` });
   await open.click();

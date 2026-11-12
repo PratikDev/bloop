@@ -2,32 +2,38 @@
 // Then vs Now and Month by month, How we know, Go to, the 404 page, the dev harness hidden in production, phone width
 // and the rain grid loading after Start.
 import { expect, type Page } from "@playwright/test";
-import { AUDIBLE, heard, level, navTo } from "../lib/app";
-import { dock, map, name, onMap, sounds, tab, type Feature } from "./common";
+import { AUDIBLE, heard, level, navTo, officialStrip } from "../lib/app";
+import { choosePart, dock, name, onMap, openPlayerMore, reading, sounds, type Feature } from "./common";
 
 const title = (page: Page) => page.getByRole("heading", { level: 1 }).first();
 
 export const PAGES: Feature[] = [
-  { id: "home", group: "pages", name: "Home: live globe and the five stations", where: "/ (Home)", keyboard: false,
-    what: "The start screen: the live globe, its frame label, and a station for each page",
-    control: (page) => page.getByRole("navigation", { name: "Five ways in" }),
+  { id: "home", group: "pages", name: "Home: live globe, its frame caption and the way in", where: "/ (Home)", keyboard: false,
+    what: "The start screen: the live globe, its frame caption, Continue listening and the tour",
+    control: (page) => page.getByRole("link", { name: "Continue listening" }),
     async run(page) {
       await page.getByRole("banner").getByRole("link", { name: "Bloop, home" }).click();
       await expect(page).toHaveURL(/\/$/u);
-      const stations = page.getByRole("navigation", { name: "Five ways in" }).getByRole("link");
-      await expect(stations).toHaveCount(5);
-      return { evidence: `Home: ${(await stations.allInnerTexts()).map((s) => s.split("\n")[1] ?? s).join(", ")}` };
+      await expect(title(page)).toHaveText(/Hear Earth's ocean and rain/u);
+      const caption = page.getByText(/^NASA EIC frame: ocean temperature, /u);
+      await expect(caption).toBeVisible();
+      await expect(page.getByRole("main").locator("canvas")).toHaveCount(1);
+      await expect(page.getByRole("link", { name: "Continue listening" })).toBeVisible();
+      await expect(page.getByRole("link", { name: "Take the 90-second tour" })).toBeVisible();
+      return { evidence: `Home: ${await caption.innerText()}` };
     } },
-  { id: "start-remembered", group: "pages", name: "The sound choice is remembered; Reset sound choice", where: "Home · Continue listening · Reset sound choice", keyboard: false,
+  { id: "start-remembered", group: "pages", name: "The sound choice is remembered; Reset sound choice", where: "Home · Continue listening; Settings · Reset sound choice", keyboard: false,
     what: "After the first visit Home offers Continue listening; Reset sound choice brings the start buttons back",
     control: (page) => page.getByRole("button", { name: "Reset sound choice" }),
     async run(page) {
       await page.goto("/");
+      await expect(page.getByRole("link", { name: "Continue listening" })).toBeVisible();
+      await page.getByRole("button", { name: "Settings", exact: true }).click();
       await page.getByRole("button", { name: "Reset sound choice" }).click({ timeout: 15_000 });
       await expect(page.getByRole("button", { name: "Start listening" })).toBeVisible();
       return { evidence: "reload → Reset sound choice offered; → Start listening again" };
     } },
-  { id: "mode-tabs", group: "jukebox", name: "Page navigation (header dial)", where: "Header · Listen, Then vs Now, How we know, Official records, Turntable", keyboard: true,
+  { id: "mode-tabs", group: "jukebox", name: "Page navigation (header dial)", where: "Header · Listen, Then vs Now, How we know, Turntable", keyboard: true,
     what: "Moves between the app's pages; the URL drives the page", control: (page) => page.getByRole("banner").getByRole("navigation"),
     async run(page) {
       const link = page.getByRole("banner").getByRole("link", { name: /Turntable$/u }).first();
@@ -45,7 +51,14 @@ export const PAGES: Feature[] = [
       await onMap(page); await page.keyboard.press("t");
       await expect(page).toHaveURL(/\/then-now/u);
       await expect(title(page)).toHaveText(/Then vs Now/u);
-      const parts = await page.getByRole("tablist", { name: "Part" }).getByRole("tab").allInnerTexts();
+      const picker = page.getByRole("combobox", { name: "Part" });
+      await expect(picker).toBeVisible(); // the picker comes with the page's data, a moment after its title
+      await picker.click();
+      // The dropdown (a listbox) opens a moment after the click: read its options once it is open.
+      const list = page.getByRole("listbox");
+      await expect(list.getByRole("option").first()).toBeVisible();
+      const parts = await list.getByRole("option").allInnerTexts();
+      await page.keyboard.press("Escape");
       for (const p of ["Heat", "Monsoon rain", "Water underground", "Fires", "Vegetation"]) if (!parts.some((x) => x.trim().startsWith(p))) throw new Error(`no ${p} part (${parts.join(", ")})`);
       await page.getByRole("button", { name: "Play this part" }).click();
       const s = await sounds(page, "heat part");
@@ -55,8 +68,10 @@ export const PAGES: Feature[] = [
     what: "The national water note shows for every city; cities sharing a grid cell are named",
     async run(page) {
       await navTo(page, "Then vs Now");
-      await tab(page, "Water underground").click();
-      const text = await page.locator("main").innerText();
+      await choosePart(page, "Water underground");
+      await openPlayerMore(page);
+      await page.getByRole("button", { name: "Details" }).click();
+      const text = await page.getByRole("dialog").innerText();
       if (!/Bangladesh|national|whole country/iu.test(text)) throw new Error("no national water note");
       return { evidence: text.replace(/\s+/gu, " ").match(/[^.]*(?:national|whole country|Bangladesh)[^.]*\./iu)?.[0]?.slice(0, 160) ?? "water note shown" };
     } },
@@ -65,7 +80,8 @@ export const PAGES: Feature[] = [
     control: (page) => page.getByRole("slider").first(),
     async run(page) {
       await navTo(page, "Then vs Now");
-      await page.getByRole("group", { name: "View" }).getByRole("button", { name: "Month by month" }).click();
+      await openPlayerMore(page);
+      await page.getByRole("button", { name: "Month by month" }).click();
       const chart = page.getByRole("slider").first();
       await expect(chart).toBeVisible({ timeout: 30_000 });
       await chart.focus();
@@ -84,14 +100,15 @@ export const PAGES: Feature[] = [
       return { evidence: `${rules[1]} sounds with a written rule` };
     } },
   { id: "go-to", group: "pages", name: "Go to a latitude and longitude", where: "Dock · Go to", keyboard: true,
-    what: "Moves the cursor to typed coordinates and reads the value there", control: (page) => dock(page).getByRole("button", { name: "Go to a latitude and longitude" }),
+    what: "Moves the cursor to typed coordinates and reads the value there", control: (page) => dock(page).getByRole("button", { name: "More", exact: true }),
     async run(page) {
-      await dock(page).getByRole("button", { name: "Go to a latitude and longitude" }).click();
+      await openPlayerMore(page);
+      await page.getByRole("button", { name: "Go to a latitude and longitude" }).click();
       await page.getByRole("textbox", { name: /Latitude/u }).fill("23.8");
       await page.getByRole("textbox", { name: /Longitude/u }).fill("90.4");
       await page.keyboard.press("Enter");
-      await expect.poll(() => name(map(page))).toMatch(/23\.8|23\.75|Dhaka/u);
-      return { evidence: `map reads "${(await name(map(page))).slice(0, 100)}"` };
+      await expect.poll(() => reading(page)).toMatch(/23\.8|23\.75|Dhaka/u);
+      return { evidence: `map reads "${(await reading(page)).slice(0, 100)}"` };
     } },
   { id: "not-found", group: "pages", name: "No signal (404) page", where: "Any unknown address", keyboard: false,
     what: "An unknown page says so and offers the way back",
@@ -130,39 +147,58 @@ export const PAGES: Feature[] = [
     async run(page) {
       await heard(page);                                                     // Listen: the L2 live voices
       await navTo(page, "Official records");
-      await page.getByRole("button", { name: "Near-surface temperature (EIC, model)", exact: true }).click();
+      await officialStrip(page, "Near-surface temperature (EIC, model)").click();
       await page.locator('section[aria-labelledby="official-heading"]').getByRole("button", { name: "Play", exact: true }).click();
       const playing = await heard(page);
       if (playing <= AUDIBLE) throw new Error(`the record is silent (${playing.toExponential(1)})`);
       const contexts = await page.evaluate(() => (window as unknown as { __bloopTaps: unknown[] }).__bloopTaps.length);
       if (contexts !== 1) throw new Error(`${contexts} AudioContexts (one shared context expected)`);
-      await dock(page).getByRole("button", { name: /^Mixer/u }).click();
+      await openPlayerMore(page);
+      await page.getByRole("button", { name: /^Mixer/u }).click();
       const muteAll = page.getByRole("button", { name: "Mute all" });
       await muteAll.click();
       await page.waitForTimeout(800);
       const muted = await level(page);
       await muteAll.click();                                                   // the same toggle unmutes
       await page.keyboard.press("Escape");                                     // closes the mixer
+      await page.keyboard.press("Escape");                                     // closes More, which holds it
       await page.keyboard.press("Escape");                                     // stops everything
       await page.waitForTimeout(800);
       const stopped = await level(page);
       if (muted > AUDIBLE || stopped > AUDIBLE) throw new Error(`still sounding: muted ${muted.toExponential(1)}, after Esc ${stopped.toExponential(1)}`);
       return { evidence: `1 AudioContext; record ${playing.toExponential(1)} → M ${muted.toExponential(1)} → Esc ${stopped.toExponential(1)}` };
     } },
-  { id: "rain-after-start", group: "pages", name: "The rain grid loads after Start", where: "Home, before Start", keyboard: false,
-    what: "The first load stays light: the rain grid is fetched only once listening starts",
+  // ── Session B (performance): the rain grid is also the first sound's data, so it is prefetched once the Start screen is
+  // usable (lib/idle.ts) instead of at Start. The check follows: nothing of the rain before the Start button is on
+  // screen, each rain file once, and all of it by the time listening starts.
+  { id: "rain-after-start", group: "pages", name: "The rain grid loads once Home is usable", where: "Home, before Start", keyboard: false,
+    what: "The first load stays light: the rain grid is fetched once, only after the Start screen is up, ready for the first sound",
     async run(page) {
       const context = await page.context().browser()!.newContext({ baseURL: new URL(page.url()).origin });
       const fresh = await context.newPage();
-      const rain: string[] = [];
-      fresh.on("request", (r) => { if (/\/latest\/rain/u.test(r.url())) rain.push(r.url()); });
+      await fresh.addInitScript(() => {
+        const mark = () => {
+          const start = [...document.querySelectorAll("button")].some((b) => b.textContent?.includes("Start listening"));
+          if (start && !("__startShown" in window)) Object.assign(window, { __startShown: performance.now() });
+        };
+        new MutationObserver(mark).observe(document, { childList: true, subtree: true });
+      });
       await fresh.goto("/");
+      await fresh.getByRole("button", { name: "Start listening" }).waitFor();
       await fresh.waitForTimeout(4000);
-      const before = rain.length;
       await fresh.getByRole("button", { name: "Start listening" }).click();
-      await expect.poll(() => rain.length, { timeout: 20_000 }).toBeGreaterThan(before);
+      await fresh.waitForTimeout(1000);
+      const { shown, rain } = await fresh.evaluate(() => ({
+        shown: (window as unknown as { __startShown: number }).__startShown,
+        rain: performance.getEntriesByType("resource").filter((e) => /\/latest\/rain/u.test(e.name)).map((e) => ({ url: e.name, at: e.startTime })),
+      }));
       await context.close();
-      if (before) throw new Error(`${before} rain requests before Start`);
-      return { evidence: `0 rain requests before Start, ${rain.length} after` };
+      const early = rain.filter((r) => r.at < shown);
+      const twice = rain.filter((r, i) => rain.findIndex((x) => x.url === r.url) !== i);
+      if (!rain.length) throw new Error("no rain requests by Start");
+      if (early.length) throw new Error(`${early.length} rain requests before the Start screen was up`);
+      if (twice.length) throw new Error(`rain fetched twice: ${twice.map((r) => r.url).join(", ")}`);
+      return { evidence: `0 rain requests before the Start screen, ${rain.length} after (each once)` };
     } },
+  // ── end Session B
 ];

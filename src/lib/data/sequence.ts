@@ -61,6 +61,51 @@ export async function loadSequence(onProgress?: (loaded: number, total: number) 
   return { index, size, frames };
 }
 
-export function valueInFrame(seq: Sequence, frame: SequenceFrame, lat: number, lon: number) {
+export function valueInFrame(seq: Pick<Sequence, "size">, frame: SequenceFrame, lat: number, lon: number) {
   return decodeSequenceCode(frame.codes[cellIndex(seq.size, lat, lon)]);
+}
+
+// One frame at a time, cached (layered descriptions, accessibility core step 3): the change since the previous frame,
+// and a frame held with PageUp/PageDown, without loading all of them.
+let indexOnce: Promise<SequenceIndex> | null = null;
+const frameOnce = new Map<string, Promise<SequenceFrame>>();
+
+function cachedIndex(): Promise<SequenceIndex> {
+  indexOnce ??= loadSequenceIndex().catch((error: unknown) => {
+    indexOnce = null;
+    throw error;
+  });
+  return indexOnce;
+}
+
+/** One frame of the sequence (its grid decoded), by its position in index.json. */
+export async function loadSequenceFrame(position: number): Promise<{ index: SequenceIndex; frame: SequenceFrame } | null> {
+  const index = await cachedIndex();
+  const ref = index.frames[position];
+  if (!ref) return null;
+  let frame = frameOnce.get(ref.grid);
+  if (!frame) {
+    const size = { width: index.grid.width, height: index.grid.height };
+    frame = fetchBuffer(DATA_PATHS.sequenceFile(ref.grid)).then(async (b) => ({ ref, codes: readUint8(await gunzip(b), size) }));
+    frame.catch(() => frameOnce.delete(ref.grid));
+    frameOnce.set(ref.grid, frame);
+  }
+  return { index, frame: await frame };
+}
+
+/**
+ * Rain at `at` in the sequence frame at `timeUtc` and in the one before it: both from the same grid, so they compare.
+ * Null when the sequence has no frame at that time, or none before it.
+ */
+export async function rainChangeAt(timeUtc: string, lat: number, lon: number): Promise<{ before: number; after: number; minutes: number } | null> {
+  const index = await cachedIndex();
+  const at = index.frames.findIndex((f) => Date.parse(f.time_utc) === Date.parse(timeUtc));
+  if (at < 1) return null;
+  const [now, prev] = await Promise.all([loadSequenceFrame(at), loadSequenceFrame(at - 1)]);
+  if (!now || !prev) return null;
+  const seq = { size: { width: index.grid.width, height: index.grid.height } };
+  const after = valueInFrame(seq, now.frame, lat, lon).mmPerHour;
+  const before = valueInFrame(seq, prev.frame, lat, lon).mmPerHour;
+  const minutes = (Date.parse(now.frame.ref.time_utc) - Date.parse(prev.frame.ref.time_utc)) / 60_000;
+  return before === null || after === null ? null : { before, after, minutes };
 }

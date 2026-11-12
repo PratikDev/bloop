@@ -1,0 +1,104 @@
+{
+ "browser": "chromium",
+ "date": "2026-11-10T19:45:03.885Z",
+ "map": {
+  "snapshot": "- application \"Both. 29.8 °C; Dry at 21.5° N, 89.8° E.\":",
+  "tag": "div",
+  "role": "application",
+  "label": "Both. 29.8 °C; Dry at 21.5° N, 89.8° E.",
+  "roledescription": "sound map",
+  "braillelabel": null,
+  "brailleroledescription": "map",
+  "readonly": null
+ },
+ "shapeLine": {
+  "snapshot": "- textbox \"Shape line\": \"Scale -5 to 35 deg C: ⠉⠉⠉⠉⠉⠉⠉⠉⠒⠉⠒⠒⠉⠉⠉⠀⠉⠉⠉⠉⠀⠉⠉⠉⠉⠉⠉⠉⠉⠉⠉⠉⠒⠀⠀⠀⠀⠀⠀⣿ ⠀⠀⠀⠀⠉⠀⠀⠀⠀⠉⠉⠉⠀⠀⠉⠀⠀⠀⠀⠉⠉⠉⠉⠉⠉⠉⠉⠉⠉⠉⠉⠉⠉\"",
+  "tag": "textarea",
+  "role": null,
+  "label": null,
+  "roledescription": "braille shape",
+  "braillelabel": null,
+  "brailleroledescription": "shape",
+  "readonly": "true"
+ },
+ "valueLine": {
+  "snapshot": "- textbox \"Value line\": SST 29.8C 21.5N 89.8E 4Nov 00UTC obs",
+  "tag": "input",
+  "role": null,
+  "label": null,
+  "roledescription": null,
+  "braillelabel": null,
+  "brailleroledescription": null,
+  "readonly": "true"
+ },
+ "c": {
+  "valueLineFocused": true,
+  "value": "SST 29.8C 21.5N 89.8E 4Nov 00UTC obs"
+ },
+ "live": {
+  "SST along the latitude": {
+   "value": "SST 29.8C 21.5N 89.8E 4Nov 00UTC obs",
+   "shape": "Scale -5 to 35 deg C:\n⠉⠉⠉⠉⠉⠉⠉⠉⠒⠉⠒⠒⠉⠉⠉⠀⠉⠉⠉⠉⠀⠉⠉⠉⠉⠉⠉⠉⠉⠉⠉⠉⠒⠀⠀⠀⠀⠀⠀⣿\n⠀⠀⠀⠀⠉⠀⠀⠀⠀⠉⠉⠉⠀⠀⠉⠀⠀⠀⠀⠉⠉⠉⠉⠉⠉⠉⠉⠉⠉⠉⠉⠉⠉"
+  },
+  "Rain through time": {
+   "value": "Rain dry 21.5N 89.8E 6Nov 0230UTC obs",
+   "shape": "Scale 0.1 to 50 mm/h log:\n⣀⣀⣀⣀⣀⣀⣀⣀⣀⣀⣀⣀⣀⣀⣀⣀⣀⣀⣀⣀⣀⣀⣀⣀⣀⣀⣀⣀⣀⣀⣀⣀⣀⣀⣀⣀⣀⣀⣀⣿\n⣀⣀⣀⣀⣀⣀⣀⣀⣀"
+  },
+  "SST 3 by 3": {
+   "value": "SST 29.8C 21.5N 89.8E 4Nov 00UTC obs",
+   "shape": "Scale -5 to 35 deg C:\n⠀⠀⠀⠳⠀⠀⠀⠳⠀⠀⠉"
+  }
+ },
+ "d": {
+  "before": "SST 29.8C 21.5N 89.8E 4Nov 00UTC obs",
+  "after": "SST no data 21.5N 92.5E 4Nov 00UTC obs"
+ },
+ "e": {
+  "review": "Sea surface temperature no data at 21.5N 92.5E, 4 Nov 00:00 UTC, observation, stale"
+ },
+ "f": {
+  "20": {
+   "lines": 4,
+   "lengths": [
+    20,
+    20,
+    20,
+    15
+   ]
+  },
+  "40": {
+   "lines": 2,
+   "lengths": [
+    40,
+    33
+   ]
+  }
+ },
+ "g": {
+  "liveRegion": "Sound paused"
+ },
+ "recordCard": {
+  "snapshot": "- button \"C1, Aerosols by type (model, 19 Aug 2025)\" [pressed]: C1 Aerosols by type (model, 19 Aug 2025)",
+  "tag": "button",
+  "role": null,
+  "label": "C1, Aerosols by type (model, 19 Aug 2025)",
+  "roledescription": null,
+  "braillelabel": "5669 Aerosols type model",
+  "brailleroledescription": null,
+  "readonly": null
+ },
+ "official": {
+  "aerosols_5669": {
+   "value": "pattern sea salt very low 17.5N 87.5E",
+   "shape": "Relative shape, scale 0 to 0.458 relative density (0-1):\n⠀⠀⣀⠀⠀⣀⣀⣀⣀⣀⣀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⣀⣀⠀⣀⣀⣀⣀⣀⠀⠀⠀⠀⠀⠀⠀⠀⠀⣿\n⠀⠀⠀⠀⠀⣀⠀⠤⠀⠉⠤⠤⠀⠀⣀⠀⠀⠀⠀⠀⠀⠀⠀⠀⣀⣀⠀⠀⣀⣀⠀⠀⣀"
+  },
+  "air_5533": {
+   "value": "co global 287ppbv 23.8N 90.4E 1Jul 00UTC",
+   "shape": "Scale 40 to 500 ppbv log:\n⠉⠒⠒⠒⠒⠒⠒⠒⠒⠒⠒⠒⠒⠒⠒⠒⠒⠒⠒⠒⠒⠒⠒⠉⠒⠒⠒⠒⠒⠒⠒⠒⠒⠒⠒⠒⠉⠉"
+  },
+  "lightning_5011": {
+   "value": "pattern flashes very low 23.8N 90.4E obs",
+   "shape": "Relative shape, scale 0 to 5 flashes per cell:\n⣀⣀⣀⣀⣀⣀⣀⣀⣀⣀⣀⣀⣀⣀⣀⣀⣀⣀⣀⣀⣀⣀⣀⣀⣀⣀⣀⣀⣀⣀⣀⣀⣀⣀⣀⣀⣀⣀⣀⣿\n⣀⣀⣀⣀⣀⣀⣀⣀⣀⣀⣀⣀⣀⣀⣀⠤⣀⣀⣀⣀⣀⣀⣀⣀⣀⣀⣀⣀⣀⣀⣀⣀⣀⣀⣀⠤⣀⣀⣀⣿\n⣀⣀⣀⣀⣀⣀⣀⣀⣀⣀⣀⣀⣀⠤⣀⣀⣀⣀⣀⣀⣀⣀⣀⣀⣀⣀⣀⣀⣀⣀⣀⣀⣀⣀⣀⣀⣀⣀⠤⣿\n⣀⣀⣀⣀⣀⣀⣀⣀⣀⣀⣀⣀⣀⣀⣀⣀⣀⣀⣀⣀⣀⣀⣀⣀⣀⣀⣀⣀⣀⣀⣀⣀⣀⣀⣀⣀⣀⣀⣀⣿\n⣀⣀⠤⣀⣀⣀⣀⣀⣀⣀⣀⣀⣀⣀⣀⣀⣀⣀⣀⣀⣀⣀⣀⣀⣀⣀⣀⣀⣀⣀⠤⣀⣀⣀⣀⣀⣀⣀⣀⣿\n⣀⣀⣀⣀⣀⣀⣀⣀⣀⣀⣀⣀⣀⣀⣀⣀⣀⣀⣀⣀⣀⣀⣀⣀⣀⣀⣀⣀⣀⣀⣀⣀⣀⣀⣀⣀⣀⣀⣀"
+  }
+ }
+}

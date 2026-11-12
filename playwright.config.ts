@@ -7,9 +7,14 @@ import { defineConfig, devices } from "@playwright/test";
 // :3100, much faster than the dev server's on-demand compiles); otherwise the dev server, started if needed.
 const BASE = process.env.BLOOP_URL ?? "http://localhost:3000";
 
+// bloop-dev's feature suites, written for its own layout: each joins the run once its feature works in this design
+// and its selectors follow (docs/superpowers/plans/2026-11-11-bloop-dev-integration.md).
+const PENDING = ["**/e2e/a11y/**", "**/e2e/art/**", "**/e2e/cv/**", "**/e2e/data/**", "**/e2e/integration/**", "**/e2e/mentor/**", "**/e2e/ask-bloop.e2e.ts"];
+
 export default defineConfig({
   testDir: "e2e",
   testMatch: "**/*.e2e.ts",
+  testIgnore: PENDING,
   timeout: 90_000,
   expect: { timeout: 15_000 },
   workers: 1,

@@ -1,37 +1,64 @@
 "use client";
 
-import type { ReactNode } from "react";
+import { createContext, useContext, type ReactNode } from "react";
+import { createPortal } from "react-dom";
 import { CaretDown, ListMagnifyingGlass } from "@phosphor-icons/react";
 import { useT } from "../AppState/use-app-state";
+import { useMoreSlot } from "../Dock/more-slot";
 import { InfoSheet } from "../InfoSheet";
+import { ROW_KEY } from "../row-key";
+
+/** Where a part's own controls go: the row with the place and part pickers. */
+export const PartActionsSlot = createContext<HTMLElement | null>(null);
 
 /**
- * One part of Then vs Now, the same shape for every part: the finding (its
- * caption as the headline, then the chart) beside a side card (how to listen,
- * or which place). The details open in a sheet, so the page never grows.
+ * One part of Then vs Now, the same shape for every part: the finding fills the window, the part's Play and Details
+ * join the row above it, and the other ways to listen go in the player's More.
  */
-export function PartLayout({ finding, side, sideTitle, details, detailsTitle }: { finding: ReactNode; side: ReactNode; sideTitle: string; details: ReactNode; detailsTitle: string }) {
+export function PartLayout({
+  finding,
+  stage,
+  actions,
+  more,
+  details,
+  detailsTitle,
+}: {
+  finding: ReactNode;
+  /** The city globe, beside the finding from 1024 px, in whatever height the finding gives it (never narrowing the chart). */
+  stage?: ReactNode;
+  actions: ReactNode;
+  more?: ReactNode;
+  details: ReactNode;
+  detailsTitle: string;
+}) {
+  const row = useContext(PartActionsSlot);
+  const menu = useMoreSlot();
   return (
-    <div className="grid items-start gap-4 lg:grid-cols-[minmax(0,1fr)_18rem]">
-      <div className="surface-plate space-y-3 rounded-plate p-4 md:p-5 lg:short:space-y-2 lg:short:p-4">{finding}</div>
-      {/* Narrow screens: how to listen comes first (this is a sound app); wide screens: beside the finding. */}
-      <aside aria-label={sideTitle} className="surface-plate -order-1 space-y-3 rounded-plate p-4 lg:order-0 lg:short:space-y-2">
-        <h3 className="eyebrow lg:short:sr-only">{sideTitle}</h3>
-        {side}
-        <div aria-hidden="true" className="stitch-x opacity-50" />
-        <DetailsSheet title={detailsTitle}>{details}</DetailsSheet>
-      </aside>
-    </div>
+    <>
+      <div className={stage ? "grid gap-6 lg:grid-cols-[minmax(0,1fr)_13rem] xl:grid-cols-[minmax(0,1fr)_14.5rem]" : undefined}>
+        <div className="min-w-0 space-y-4">{finding}</div>
+        {stage && <div className="relative -order-1 mx-auto aspect-5/6 w-full max-w-56 lg:order-none lg:aspect-auto lg:max-w-none lg:min-h-52">{stage}</div>}
+      </div>
+      {row &&
+        createPortal(
+          <>
+            {actions}
+            <DetailsSheet title={detailsTitle}>{details}</DetailsSheet>
+          </>,
+          row,
+        )}
+      {menu && more && createPortal(more, menu)}
+    </>
   );
 }
 
-/** "Details": the sources, windows and honesty notes, one click away in a sheet. */
+/** "Details": the sources, windows, data tables and honesty notes, in a drawer (a dialog, so screen readers reach the tables). */
 function DetailsSheet({ title, children }: { title: string; children: ReactNode }) {
   const t = useT();
   return (
     <InfoSheet
       title={title}
-      triggerClassName="h-11 w-full justify-start gap-2 rounded-lg px-3 text-body text-haze hover:bg-tide hover:text-moon lg:pointer-fine:h-9"
+      triggerClassName={ROW_KEY}
       trigger={
         <>
           <ListMagnifyingGlass aria-hidden="true" className="size-5" />

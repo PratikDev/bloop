@@ -1,5 +1,5 @@
 // Rendering quality tiers: chosen automatically from the device, overridable
-// in Settings. Every tier shows the same data; only decoration changes.
+// in Settings. Every tier shows the same data; only sharpness and the Scenes' maps change.
 
 export const TIERS = ["ultra", "high", "low"] as const;
 export type Tier = (typeof TIERS)[number];
@@ -9,17 +9,14 @@ export interface TierSpec {
   surface: 8192 | 4096;
   normal: 4096 | 2048;
   clouds: boolean;
-  ao: boolean;
-  /** Depth of field, Jukebox view only. */
-  dof: boolean;
-  /** Bloom at half resolution with fewer mip levels. */
-  cheapBloom: boolean;
+  /** The sharpest device pixel ratio to draw at. */
+  maxDpr: number;
 }
 
 export const TIER_SPEC: Record<Tier, TierSpec> = {
-  ultra: { surface: 8192, normal: 4096, clouds: true, ao: true, dof: true, cheapBloom: false },
-  high: { surface: 8192, normal: 4096, clouds: true, ao: false, dof: false, cheapBloom: false },
-  low: { surface: 4096, normal: 2048, clouds: false, ao: false, dof: false, cheapBloom: true },
+  ultra: { surface: 8192, normal: 4096, clouds: true, maxDpr: 2 },
+  high: { surface: 8192, normal: 4096, clouds: true, maxDpr: 1.5 },
+  low: { surface: 4096, normal: 2048, clouds: false, maxDpr: 1 },
 };
 
 interface DeviceHints {

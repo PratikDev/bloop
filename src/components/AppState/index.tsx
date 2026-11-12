@@ -1,7 +1,9 @@
 "use client";
 
 import { useEffect, useMemo, useReducer, type ReactNode } from "react";
-import { readPrefs, writePrefs } from "./prefs";
+import { FLAGS } from "@/lib/flags";
+import { readLowVision, writeLowVision } from "@/lib/low-vision/settings";
+import { readPrefs, pickPrefs, writePrefs } from "./prefs";
 import { initialState, reducer, type Mode } from "./reducer";
 import { AppStateContext } from "./use-app-state";
 
@@ -14,7 +16,7 @@ const REDUCED_MOTION_QUERY = "(prefers-reduced-motion: reduce)";
  */
 export function AppStateProvider({ initialMode, children }: { initialMode: Mode; children: ReactNode }) {
   const [state, dispatch] = useReducer(reducer, initialMode, (mode) => {
-    const restored = { ...initialState, ...readPrefs(), mode };
+    const restored = { ...initialState, ...readPrefs(), mode, lowVision: FLAGS.lowVision ? readLowVision() : initialState.lowVision };
     // A return visit skips the Start gate and the opening; sound stays off until a click turns it on (browsers block audio before one).
     return restored.started ? { ...restored, introDone: true } : restored;
   });
@@ -29,14 +31,18 @@ export function AppStateProvider({ initialMode, children }: { initialMode: Mode;
   }, []);
 
   // Settings remembered on this device.
-  const { lang, describe, captions, builtInVoice, started } = state;
-  useEffect(() => writePrefs({ lang, describe, captions, builtInVoice, started }), [lang, describe, captions, builtInVoice, started]);
+  const saved = JSON.stringify(pickPrefs(state));
+  useEffect(() => writePrefs(JSON.parse(saved) as ReturnType<typeof pickPrefs>), [saved]);
+  useEffect(() => {
+    if (FLAGS.lowVision) writeLowVision(state.lowVision);
+  }, [state.lowVision]);
 
   // Language and reduced motion live on <html> so CSS and screen readers see them.
   useEffect(() => {
     document.documentElement.lang = state.lang;
     document.documentElement.dataset.reduceMotion = String(state.reduceMotion);
-  }, [state.lang, state.reduceMotion]);
+    document.documentElement.dataset.text = state.comfortableText ? "comfortable" : "standard";
+  }, [state.lang, state.reduceMotion, state.comfortableText]);
 
   const value = useMemo(() => ({ state, dispatch }), [state]);
   return <AppStateContext.Provider value={value}>{children}</AppStateContext.Provider>;

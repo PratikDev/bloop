@@ -1,6 +1,6 @@
 // Feature checks on the Official records page (official and related shelves) and the open data files.
 import { expect } from "@playwright/test";
-import { navTo } from "../lib/app";
+import { navTo, officialStrip } from "../lib/app";
 import { sounds, type Feature } from "./common";
 
 const SECTION = 'section[aria-labelledby="official-heading"]';
@@ -22,7 +22,7 @@ export const RECORDS: Feature[] = [
     control: (page) => page.locator(SECTION).getByRole("button", { name: "Play", exact: true }),
     async run(page) {
       await navTo(page, "Official records");
-      await page.getByRole("button", { name: "Near-surface temperature (EIC, model)", exact: true }).click();
+      await officialStrip(page, "Near-surface temperature (EIC, model)").click();
       const section = page.locator(SECTION);
       await section.getByRole("button", { name: "Play", exact: true }).click();
       const s = await sounds(page, "EIC near-surface temperature");
@@ -35,10 +35,11 @@ export const RECORDS: Feature[] = [
     control: (page) => page.getByRole("region", { name: "Where this comes from" }),
     async run(page) {
       await navTo(page, "Official records");
+      await page.getByRole("button", { name: "Details" }).click();
       const r = page.getByRole("region", { name: "Where this comes from" });
       const t = await r.innerText();
-      for (const w of ["Credits", "Licence", "Checks", "SVS"]) if (!t.includes(w)) throw new Error(`no ${w}`);
-      return { evidence: "credits, licence, checks and SVS links shown" };
+      for (const w of ["Checks", "SVS"]) if (!t.includes(w)) throw new Error(`no ${w}`);
+      return { evidence: "checks and SVS links shown; credits and licence are on the Credits tab" };
     } },
   { id: "open-data", group: "forms", name: "Open data files", where: "/data/… (static JSON and grids)", keyboard: false,
     what: "Every record's manifest, validation and freshness as plain files",

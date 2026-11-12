@@ -36,8 +36,22 @@ export function useBrailleExplorer(source: BrailleSource, onClose: () => void) {
   const lang: BrailleLang = state.lang === "bn" ? "bn" : "en";
   const announce = useAnnounce();
   const [settings, updateSettings] = useBrailleSettings();
-  const [channel, setChannel] = useState(source.channels[0]?.id ?? "");
-  const [chosenMode, setChosenMode] = useState<ShapeMode | null>(null);
+  // The data and the shape last chosen for this source are kept with the other braille settings.
+  const kept = settings.choices?.[source.key];
+  const [channel, setChannelState] = useState(() => (source.channels.some((c) => c.id === kept?.channel) ? (kept?.channel ?? "") : (source.channels[0]?.id ?? "")));
+  const [chosenMode, setChosenMode] = useState<ShapeMode | null>(kept?.mode ?? null);
+  const keep = useCallback(
+    (choice: { channel?: string; mode?: ShapeMode }) =>
+      updateSettings({ choices: { ...settings.choices, [source.key]: { ...settings.choices?.[source.key], ...choice } } }),
+    [updateSettings, settings.choices, source.key],
+  );
+  const setChannel = useCallback(
+    (id: string) => {
+      setChannelState(id);
+      keep({ channel: id });
+    },
+    [keep],
+  );
   const [review, setReview] = useState(false);
   const [level, setLevel] = useState(0);
   const fieldRef = useRef<ShapeField | null>(null);
@@ -127,9 +141,10 @@ export function useBrailleExplorer(source: BrailleSource, onClose: () => void) {
   const chooseMode = useCallback(
     (m: ShapeMode) => {
       setChosenMode(m);
+      keep({ mode: m });
       announce(t("braille.modeAnnounce", { mode: t(SHAPE_MODE_LABELS[m]) }));
     },
-    [announce, t],
+    [announce, t, keep],
   );
 
   // R reviews; it never steals typing from a field that takes text (the shape and value lines are read-only).
@@ -145,6 +160,8 @@ export function useBrailleExplorer(source: BrailleSource, onClose: () => void) {
   return {
     settings,
     updateSettings,
+    scale,
+    view,
     channel,
     setChannel,
     modes,

@@ -61,7 +61,7 @@ export function UnisonCheck() {
           <p className="text-small text-haze">{t("truth.unison.pair", { frame: near.pair.frame, file: near.pair.file, beats: tones.beatsPerSec })}</p>
         </>
       )}
-      <Button variant="outline" onClick={commands.playUnison}>
+      <Button data-needs-sound variant="outline" onClick={commands.playUnison}>
         {t("truth.unison.play")} <kbd className="ml-1 text-small text-haze">U</kbd>
       </Button>
     </>

@@ -6,15 +6,19 @@ export interface NavItem {
   label: MessageKey;
   /** For narrow screens, when the full label doesn't fit. */
   short: MessageKey;
-  /** One line on Home: what the page shows. */
-  blurb: MessageKey;
 }
 
-/** The places, in dial order. The page title, the header and Home's stations all read this list. */
+/** The places in the header, in order. Official records isn't one: it is reached from the rack, How we know and its URL. */
 export const NAV_ITEMS: readonly NavItem[] = [
-  { to: PAGE_PATHS.listen, label: "nav.listen", short: "nav.listen", blurb: "home.station.listen" },
-  { to: PAGE_PATHS.thenNow, label: "nav.thenNow", short: "nav.thenNow", blurb: "home.station.thenNow" },
-  { to: PAGE_PATHS.how, label: "nav.how", short: "nav.howShort", blurb: "home.station.how" },
-  { to: PAGE_PATHS.official, label: "nav.official", short: "nav.officialShort", blurb: "home.station.official" },
-  { to: PAGE_PATHS.turntable, label: "nav.turntable", short: "nav.turntable", blurb: "home.station.turntable" },
+  { to: PAGE_PATHS.listen, label: "nav.listen", short: "nav.listen" },
+  { to: PAGE_PATHS.thenNow, label: "nav.thenNow", short: "nav.thenNow" },
+  { to: PAGE_PATHS.how, label: "nav.how", short: "nav.howShort" },
+  { to: PAGE_PATHS.turntable, label: "nav.turntable", short: "nav.turntable" },
+];
+
+/** Every titled page: the document title reads this list. */
+export const TITLED_PAGES: readonly NavItem[] = [
+  ...NAV_ITEMS,
+  { to: PAGE_PATHS.official, label: "nav.official", short: "nav.officialShort" },
+  { to: PAGE_PATHS.team, label: "nav.team", short: "nav.team" },
 ];

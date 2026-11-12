@@ -399,8 +399,7 @@ The redesign splits the app into Home, Listen, Then vs Now and How we know (docs
 | `nav.how` | How we know | TODO_BN |  |
 | `nav.howShort` | How | TODO_BN |  |
 | `home.eyebrow` | NASA Earth Information Center · latest frames | TODO_BN |  |
-| `home.titleLead` | Listen to | TODO_BN |  |
-| `home.titleAccent` | Earth's latest frames. | TODO_BN |  |
+| `home.title` | Listen to Earth's latest frames. | TODO_BN |  |
 | `home.continue` | Continue listening | TODO_BN |  |
 | `home.stations` | Three ways in | TODO_BN |  |
 | `home.station.listen` | Move across the latest NASA frame and hear the ocean and rain under the cursor. | TODO_BN |  |

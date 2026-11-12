@@ -16,19 +16,19 @@ const ew = (lon: number) => (lon >= 0 ? "পূর্ব" : "পশ্চিম"
 export const appBn: Translated<typeof appEn> = {
   "app.title": APP_NAME,
 
-  "start.lead": "নাসার চোখে সর্বশেষ সমুদ্র আর বৃষ্টি, শুনুন জীবন্ত শব্দে।",
+  "start.lead": "নাসার তোলা পৃথিবীর ছবি, এখন জীবন্ত শব্দে: কান দিয়ে ঘুরে দেখুন, চোখে দেখতে পান বা না পান।",
   "start.hint": "হেডফোন থাকলে ভালো: পশ্চিম শোনা যায় বাঁ কানে, পূর্ব ডান কানে।",
   "start.button": "শোনা শুরু করুন",
   "start.silent": "শব্দ ছাড়া ঘুরে দেখুন",
   "start.silentHint": "মানগুলো লেখা আর ক্যাপশনে দেখাবে। যেকোনো সময় শব্দ চালু করতে পারবেন।",
   "start.loading": "সর্বশেষ সমুদ্রের ফ্রেম লোড হচ্ছে",
   "start.skipIntro": "ভূমিকা বাদ দিন",
+  "page.loading": "লোড হচ্ছে",
 
   "mode.explore": "ঘুরে দেখা",
   "mode.story": "ট্যুর",
   "mode.thenNow": "আগে বনাম এখন",
 
-  "track.label": "যা শুনছেন",
   "track.ocean": "সমুদ্র",
   "track.rain": "বৃষ্টি",
   "track.both": "দুটোই",
@@ -39,6 +39,7 @@ export const appBn: Translated<typeof appEn> = {
   "settings.captions": "ক্যাপশন",
   "settings.builtInVoice": "বিল্ট-ইন কণ্ঠস্বর",
   "settings.reduceMotion": "অ্যানিমেশন কমান",
+  "settings.soundWords": "ধ্বন্যাত্মক শব্দ",
   "settings.language": "ভাষা",
   "settings.open": "সেটিংস",
   "lang.en": "English",
@@ -48,7 +49,7 @@ export const appBn: Translated<typeof appEn> = {
   "help.open": "সাহায্য",
   "help.keys": "কীবোর্ড",
 
-  "badge.comingOctober": "অক্টোবরে আসছে",
+  "badge.comingOctober": "পরিকল্পিত",
   "badge.loadingRain": "বৃষ্টি লোড হচ্ছে",
 
   "map.roleDescription": "শব্দ-মানচিত্র",
@@ -84,10 +85,12 @@ export const appBn: Translated<typeof appEn> = {
   "frame.product.rain": "বৃষ্টি ও তুষার",
   // Plan §16 "Frame label": a translation, to be checked by the team.
   "frame.label": (p: { product: string; datetime: string }) => `EIC ফ্রেম: ${p.product}, ${p.datetime} UTC। শব্দটি এই ফ্রেম থেকে সরাসরি তৈরি।`,
+  "frame.compact": (p: { list: string }) => `EIC ফ্রেম: ${p.list}। শব্দ এই ফ্রেমগুলো থেকে সরাসরি তৈরি।`,
+  "frame.compactItem": (p: { product: string; datetime: string }) => `${p.product}, ${p.datetime} UTC`,
 
-  "sound.pause": "শব্দ থামান",
-  "sound.play": "শব্দ চালান",
-  "sound.paused": "শব্দ থেমে আছে",
+  "sound.pause": "শব্দে বিরতি দিন",
+  "sound.play": "শব্দ বাজান",
+  "sound.paused": "শব্দে বিরতি চলছে",
   "sound.resumed": "শব্দ চালু",
   "sound.muteAll": "সব মিউট",
   "sound.unmuteAll": "সব আনমিউট",
@@ -101,10 +104,7 @@ export const appBn: Translated<typeof appEn> = {
   "mixer.volume": (p: { voice: string }) => `${p.voice}: ভলিউম`,
   "mixer.mute": (p: { voice: string }) => `${p.voice}: মিউট`,
   "mixer.solo": (p: { voice: string }) => `${p.voice}: সোলো`,
-  "sweep.play": "সুইপ বাজান",
   "sweep.needsRain": "বৃষ্টির তথ্য লোড হলে সুইপ শুরু হবে।",
-  "timelapse.play": "ঝড়ের টাইম-ল্যাপস বাজান",
-  "timelapse.stop": "টাইম-ল্যাপস থামান",
   "timelapse.loadingStart": "টাইম-ল্যাপসের ফ্রেম লোড হচ্ছে",
   "timelapse.loading": (p: { loaded: number; total: number }) => `টাইম-ল্যাপস লোড হচ্ছে: ${int(p.total)}টির মধ্যে ${int(p.loaded)}টি ফাইল`,
   "timelapse.loadingShort": (p: { percent: number }) => `লোড হচ্ছে ${int(p.percent)}%`,
@@ -121,11 +121,12 @@ export const appBn: Translated<typeof appEn> = {
   "whisper.kind.sst": "সমুদ্রপৃষ্ঠের তাপমাত্রা",
   "whisper.kind.rain": "বৃষ্টি",
   "whisper.announce": (p: { text: string; source: string }) => `${p.text} উৎস: ${p.source}।`,
-  "xray.unavailable": "এক্স-রে অক্টোবরে আসছে: এর জন্য নাসার কালারবার ডেটা লাগবে, যা এখনো প্রকাশিত হয়নি।",
+  "xray.unavailable": "এক্স-রে পরিকল্পিত: এর জন্য নাসার কালারবার ডেটা লাগবে, যা এখনো প্রকাশিত হয়নি।",
 
   "announce.track": (p: { track: string }) => `এখন শুনছেন: ${p.track}।`,
   "announce.mode": (p: { mode: string }) => `${p.mode} মোড।`,
   "announce.toggle": (p: { name: string; on: boolean }) => `${p.name} ${p.on ? "চালু" : "বন্ধ"}।`,
+  "start.tapToStart": "শব্দ শুরু করতে ট্যাপ করুন",
   "announce.started": "শব্দ শুরু হয়েছে। কার্সর বঙ্গোপসাগরের ওপর। তীর-কী দিয়ে সরান।",
 
   // Plan §15: only the words around the names are translated.
@@ -137,4 +138,12 @@ export const appBn: Translated<typeof appEn> = {
   "error.rain": "সর্বশেষ বৃষ্টির ফ্রেম লোড করা যায়নি। সমুদ্রের শব্দ চলবে; আবার চেষ্টা করতে পাতাটি রিলোড করুন।",
 
   "data.text": (p: { text: string }) => translateData(p.text),
+
+  "motion.pause": "গতিতে বিরতি দিন",
+  "globe.home": "গ্লোবে আজকের সমুদ্রের তাপমাত্রার ফ্রেম।",
+  "globe.centredOn": (p: { place: string }) => `গ্লোবের কেন্দ্রে ${p.place}।`,
+  "globe.following": "গ্লোব সবচেয়ে ভারী বৃষ্টিকে অনুসরণ করছে।",
+  "timelapse.view": "ঝড়ের দৃশ্য",
+  "timelapse.view.globe": "গ্লোব",
+  "timelapse.view.flat": "সমতল মানচিত্র",
 };

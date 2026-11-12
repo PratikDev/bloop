@@ -1,35 +1,39 @@
 "use client";
 
-import { LocateFixed, Map as MapIcon } from "lucide-react";
+import { GpsFix, MapTrifold as MapIcon } from "@phosphor-icons/react";
 import { Button } from "@/components/ui/button";
 import { Sheet, SheetContent, SheetDescription, SheetTitle } from "@/components/ui/sheet";
 import { Slider } from "@/components/ui/slider";
 import { useMediaQuery } from "@/hooks/use-media-query";
+import { MEDIA } from "@/lib/breakpoints";
 import { cn } from "@/lib/utils";
 import { ChoiceGroup } from "../ChoiceGroup";
+import { PanelTabs } from "../panels/PanelTabs";
+import { CreditsLink } from "./CreditsLink";
 import { Mixer } from "../Mixer";
 import { OnOffToggle } from "../OnOffToggle";
-import { PanelTabs } from "../panels/PanelTabs";
 import { SettingToggle } from "../SettingToggle";
 import { useTT, type TT } from "./i18n";
 import { TIERS, type Tier } from "./quality";
+import { useVoicesVolume } from "./use-voices-volume";
 import type { TurntableSettings } from "./settings";
 
-export type DrawerId = "layers" | "settings" | "howWeKnow";
+export type DrawerId = "layers" | "settings" | "sources";
 
 const SECTION = "space-y-2";
 const HEADING = "text-body font-semibold text-moon";
 
 /** One slide-over drawer: right on wide screens, bottom sheet on phones. */
 export function Drawer({ open, onClose, title, description, children }: { open: boolean; onClose: () => void; title: string; description?: string; children: React.ReactNode }) {
-  const phone = useMediaQuery("(max-width: 767px)");
+  const phone = useMediaQuery(MEDIA.phone);
   return (
     <Sheet open={open} onOpenChange={(o) => !o && onClose()}>
       <SheetContent
+        data-tt-occluder
         side={phone ? "bottom" : "right"}
-        className={cn("tt-warm glass-card overflow-y-auto p-5 text-body", phone ? "max-h-[85dvh] rounded-t-sheet" : "w-full rounded-l-sheet sm:max-w-md")}
+        className={cn("tt-warm on-space overflow-y-auto p-5 text-body", phone ? "max-h-[60dvh] rounded-t-sheet" : "w-full rounded-l-sheet sm:max-w-md")}
       >
-        <SheetTitle className="text-lead font-semibold text-moon">{title}</SheetTitle>
+        <SheetTitle className="font-wide text-title text-moon">{title}</SheetTitle>
         {description && <SheetDescription className="text-body text-haze">{description}</SheetDescription>}
         <div className="mt-2 space-y-5">{children}</div>
       </SheetContent>
@@ -39,15 +43,27 @@ export function Drawer({ open, onClose, title, description, children }: { open: 
 
 type Update = (next: Partial<TurntableSettings>) => void;
 
-const LAYER_KEYS = ["clouds", "labels", "borders", "districts", "rivers", "graticule"] as const;
+const LAYER_KEYS = ["labels", "borders", "districts", "rivers", "graticule"] as const;
 const LAYER_LABELS = {
-  clouds: "turntable.layers.clouds",
   labels: "turntable.layers.labels",
   borders: "turntable.layers.borders",
   districts: "turntable.layers.districts",
   rivers: "turntable.layers.rivers",
   graticule: "turntable.graticule",
 } as const satisfies Record<(typeof LAYER_KEYS)[number], Parameters<TT>[0]>;
+
+/** "Volume, all sounds": the deck's volume knob, as a control everyone can reach (the same state, both ways). */
+function VolumeAll() {
+  const { tt } = useTT();
+  const { volume, setVolume } = useVoicesVolume();
+  const percent = Math.round(volume * 100);
+  return (
+    <section className={SECTION}>
+      <p className={HEADING}>{tt("turntable.volume.all.value", { percent })}</p>
+      <Slider value={[percent]} onValueChange={(v) => setVolume((Array.isArray(v) ? v[0] : v) / 100)} thumbLabel={tt("turntable.volume.all")} />
+    </section>
+  );
+}
 
 function LayersBody({ settings, update }: { settings: TurntableSettings; update: Update }) {
   const { tt } = useTT();
@@ -84,6 +100,7 @@ function LayersBody({ settings, update }: { settings: TurntableSettings; update:
           itemClassName="h-11"
         />
       </section>
+      <VolumeAll />
       <section className={SECTION}>
         <p className={HEADING}>{tt("turntable.layers.sound")}</p>
         <Mixer className="flex-col items-start" />
@@ -114,7 +131,7 @@ function SettingsBody({ settings, update, onMyLocation, onFlatMap }: { settings:
       </section>
       <section className="flex flex-wrap gap-2">
         <Button variant="secondary" onClick={onMyLocation} className="h-11 gap-2 px-3 text-body">
-          <LocateFixed aria-hidden="true" />
+          <GpsFix aria-hidden="true" />
           {tt("turntable.myLocation")}
         </Button>
         <Button variant="secondary" onClick={onFlatMap} className="h-11 gap-2 px-3 text-body">
@@ -123,6 +140,8 @@ function SettingsBody({ settings, update, onMyLocation, onFlatMap }: { settings:
         </Button>
       </section>
       <p className="text-body text-haze">{tt("turntable.myLocation.note")}</p>
+      {/* The corner link is desktop only; phones reach the credits here. */}
+      <CreditsLink className="h-11 justify-start px-3 text-body text-moon lg:hidden" />
     </>
   );
 }
@@ -147,7 +166,7 @@ export function Drawers({ open, onClose, settings, update, onMyLocation, onFlatM
       <Drawer open={open === "settings"} onClose={onClose} title={tt("turntable.dock.settings")}>
         <SettingsBody settings={settings} update={update} onMyLocation={onMyLocation} onFlatMap={onFlatMap} />
       </Drawer>
-      <Drawer open={open === "howWeKnow"} onClose={onClose} title={tt("turntable.howWeKnow")}>
+      <Drawer open={open === "sources"} onClose={onClose} title={tt("turntable.sources")}>
         <PanelTabs />
       </Drawer>
     </>

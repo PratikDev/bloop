@@ -211,7 +211,6 @@ export function createGhostScene(host: SceneBuildHost): GhostScene {
   let texture: DataTexture | null = null;
 
   return {
-    globe,
     setField(field, scale) {
       texture?.dispose();
       texture = fieldTexture(field);

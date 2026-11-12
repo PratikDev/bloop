@@ -25,6 +25,11 @@ export function formatSignedUpTo(value: number, lang: Lang, decimals: number): s
   return fmt(value, lang, { maximumFractionDigits: decimals, signDisplay: "exceptZero" });
 }
 
+/** `digits` significant figures, never rounding the whole part away (3: 488.8 → "489", 0.01234 → "0.0123"). */
+export function formatSignificant(value: number, lang: Lang, digits: number): string {
+  return formatFixed(value, lang, Math.max(0, digits - 1 - Math.floor(Math.log10(Math.abs(value) || 1))));
+}
+
 export function formatInteger(value: number, lang: Lang): string {
   return fmt(value, lang, { maximumFractionDigits: 0 });
 }
@@ -32,11 +37,6 @@ export function formatInteger(value: number, lang: Lang): string {
 /** A year, never grouped: "2016", not "2,016". */
 export function formatYear(year: number, lang: Lang): string {
   return fmt(year, lang, { maximumFractionDigits: 0, useGrouping: false });
-}
-
-/** A position in a list, two digits: "01". */
-export function formatIndex(n: number, lang: Lang): string {
-  return fmt(n, lang, { minimumIntegerDigits: 2, useGrouping: false });
 }
 
 /** A chart axis value: up to two decimals, no trailing zeros. */
@@ -79,6 +79,11 @@ export function formatMonthRange(range: string, lang: Lang): string {
 }
 
 /** "2017-07" → "Jul 2017". */
+/** A month's name alone ("January"), for month pickers; `mm` is "01".."12". */
+export function formatMonthName(mm: string, lang: Lang): string {
+  return new Intl.DateTimeFormat(LOCALE[lang], { month: "long", timeZone: "UTC" }).format(new Date(Date.UTC(2000, Number(mm) - 1, 1)));
+}
+
 export function formatMonth(yyyyMm: string, lang: Lang): string {
   const [y, m] = yyyyMm.split("-").map(Number);
   return new Intl.DateTimeFormat(LOCALE[lang], { month: "short", year: "numeric", timeZone: "UTC" }).format(
@@ -100,15 +105,20 @@ export function formatDay(yyyyMmDd: string, lang: Lang): string {
   );
 }
 
-/** "25 Sep 2026, 00:00" in UTC. */
-export function formatUtc(iso: string, lang: Lang): string {
-  const d = new Date(iso);
-  const date = new Intl.DateTimeFormat(LOCALE[lang], {
+/** "25 Sep 2026" in UTC. */
+export function formatUtcDate(iso: string, lang: Lang): string {
+  return new Intl.DateTimeFormat(LOCALE[lang], {
     day: "numeric",
     month: "short",
     year: "numeric",
     timeZone: "UTC",
-  }).format(d);
+  }).format(new Date(iso));
+}
+
+/** "25 Sep 2026, 00:00" in UTC. */
+export function formatUtc(iso: string, lang: Lang): string {
+  const d = new Date(iso);
+  const date = formatUtcDate(iso, lang);
   const time = new Intl.DateTimeFormat(LOCALE[lang], {
     hour: "2-digit",
     minute: "2-digit",
@@ -116,4 +126,9 @@ export function formatUtc(iso: string, lang: Lang): string {
     timeZone: "UTC",
   }).format(d);
   return `${date}, ${time}`;
+}
+
+/** Names as a list in the language: "Dhaka and Chattogram", "Dhaka, Chattogram and Sylhet" (Bangla: এবং). */
+export function formatList(items: readonly string[], lang: Lang): string {
+  return new Intl.ListFormat(lang, { style: "long", type: "conjunction" }).format(items);
 }

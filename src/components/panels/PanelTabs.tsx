@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useState, type ReactNode } from "react";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import type { HistoryMetric } from "@/lib/history";
 import type { PanelTab } from "../AppState/reducer";
@@ -9,8 +9,11 @@ import { DEFAULT_PLACE, MonthByMonth } from "../MonthByMonth";
 import { MappingPanel } from "./MappingPanel";
 import { ProvenancePanel } from "./ProvenancePanel";
 import { TruthPanel } from "./TruthPanel";
+import { CORE_TABS, shownTab } from "./core-tabs";
 
-const TABS: { tab: PanelTab; label: "panel.truth" | "panel.mapping" | "panel.provenance" | "panel.history" }[] = [
+const TABS: { tab: PanelTab; label: "panel.describe" | "panel.table" | "panel.truth" | "panel.mapping" | "panel.provenance" | "panel.history" }[] = [
+  // The accessibility core's tabs (the needle drives the app's cursor, so they follow it here too).
+  ...CORE_TABS,
   { tab: "truth", label: "panel.truth" },
   { tab: "mapping", label: "panel.mapping" },
   { tab: "provenance", label: "panel.provenance" },
@@ -24,19 +27,24 @@ function HistoryTab() {
   return <MonthByMonth place={place} metric={metric} onPlace={setPlace} onMetric={setMetric} />;
 }
 
-/** Truth, Mapping, Provenance and History: the Turntable's "How we know" drawer. */
-export function PanelTabs() {
+/** Truth, Mapping, Provenance and History: the Turntable's "Sources and checks" drawer. */
+export function PanelTabs({ provenanceNote }: { provenanceNote?: ReactNode }) {
   const { state, dispatch } = useAppState();
   const t = useT();
   return (
-    <Tabs value={state.panel} onValueChange={(panel: PanelTab) => dispatch({ type: "setPanel", panel })} className="gap-4">
-      <TabsList aria-label={t("panel.label")} className="w-full bg-night group-data-horizontal/tabs:h-11">
+    <Tabs value={shownTab(state.panel)} onValueChange={(panel: PanelTab) => dispatch({ type: "setPanel", panel })} className="gap-4">
+      <TabsList aria-label={t("panel.label")} className="w-full bg-paper group-data-horizontal/tabs:h-11">
         {TABS.map(({ tab, label }) => (
-          <TabsTrigger key={tab} value={tab} className="h-full px-2 text-body data-active:bg-tide">
+          <TabsTrigger key={tab} value={tab} className="h-full border-2 px-2 text-body data-active:border-navy data-active:bg-tide">
             {t(label)}
           </TabsTrigger>
         ))}
       </TabsList>
+      {CORE_TABS.map((c) => (
+        <TabsContent key={c.tab} value={c.tab}>
+          {c.panel}
+        </TabsContent>
+      ))}
       <TabsContent value="truth">
         <TruthPanel />
       </TabsContent>
@@ -45,6 +53,7 @@ export function PanelTabs() {
       </TabsContent>
       <TabsContent value="provenance">
         <ProvenancePanel />
+        {provenanceNote && <p className="mt-3 text-body text-moon">{provenanceNote}</p>}
       </TabsContent>
       <TabsContent value="history">
         <HistoryTab />

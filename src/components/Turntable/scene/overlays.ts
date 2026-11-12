@@ -1,6 +1,6 @@
 // Orientation lines on the globe: borders and coastlines, Bangladesh districts,
 // rivers and a graticule. They spin with the surface, appear by zoom level, and
-// are drawn in the overlay pass (above the data frame, never tone-mapped).
+// are drawn in the overlay pass (above the data frame).
 
 import { Color, Group, LineBasicMaterial, LineSegments, type BufferGeometry } from "three";
 import type { Palette } from "@/lib/css-tokens";
@@ -19,7 +19,7 @@ export interface OverlayData {
   rivers: Feature<RiverProps, LineGeometry>[];
 }
 
-export interface OverlayVisibility extends Omit<LayerToggles, "clouds"> {
+export interface OverlayVisibility extends LayerToggles {
   /** Camera distance from the globe's centre, in radii. */
   distance: number;
 }
@@ -54,11 +54,11 @@ export function createOverlays(palette: Palette): Overlays {
   const material = (token: keyof Palette, opacity: number) =>
     new LineBasicMaterial({ color: new Color(palette[token]), transparent: true, opacity, depthWrite: false });
   const materials = {
-    border: material("geo-border", 0.6),
-    district: material("geo-district", 0.45),
-    river: material("geo-river", 0.45),
-    riverMajor: material("geo-river", 0.85),
-    graticule: material("geo-graticule", 0.3),
+    border: material("geo-border", 0.85),
+    district: material("geo-border", 0.45),
+    river: material("haze", 0.55),
+    riverMajor: material("haze", 0.9),
+    graticule: material("haze", 0.3),
   };
   const layer = (paths: Position[][], radius: number, m: LineBasicMaterial) => {
     const g = pathsGeometry(paths, radius);

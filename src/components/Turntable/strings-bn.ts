@@ -8,7 +8,7 @@
 import type { badgesEn } from "@/lib/i18n/en/badges";
 import type { scenesEn } from "@/lib/i18n/en/scenes";
 import type { turntableEn } from "@/lib/i18n/en/turntable";
-import { formatInteger } from "@/lib/i18n/format";
+import { formatDegrees, formatInteger } from "@/lib/i18n/format";
 import { scenesBnDraft } from "../Scenes/strings-bn";
 import { badgesBnDraft } from "../SourceBadges/strings-bn";
 import type { CompassPoint } from "@/lib/geo/spherical";
@@ -37,7 +37,7 @@ export const turntableBnDraft: { [K in TurntableKey]?: Table[K] } = {
   "turntable.instructions":
     "তীর চিহ্নের কী দিয়ে গ্লোব ঘোরান ও সুই সরান (Shift সহ: ১০ ডিগ্রি)। Enter চাপলে মান বলা হবে। স্ল্যাশ (/) দিয়ে জায়গা খুঁজুন, L চাপলে আপনি কোথায় আছেন জানাবে, " +
     "১ থেকে ৯ বুকমার্কে যায়, T দিয়ে ট্যুর শুরু, প্লাস ও মাইনাস দিয়ে জুম, V দিয়ে দৃশ্য বদলান। সব কী দেখতে H চাপুন। Esc চাপলে সমতল মানচিত্রে ফিরবেন।",
-  "turntable.canvas": (p) => `টার্নটেবিলে একটি বাস্তবসম্মত গ্লোব, তার ওপর সর্বশেষ প্রাপ্ত ${p.record} ফ্রেম। টোনআর্মের সুই নিচের বিন্দুটি পড়ে।`,
+  "turntable.canvas": (p) => `টার্নটেবিলে একটি গ্লোব, তার ওপর সর্বশেষ প্রাপ্ত ${p.record} ফ্রেম। টোনআর্মের সুই নিচের বিন্দুটি পড়ে।`,
 
   "turntable.records": "রেকর্ড",
   "turntable.record.ocean": "সমুদ্র",
@@ -61,6 +61,7 @@ export const turntableBnDraft: { [K in TurntableKey]?: Table[K] } = {
 
   "turntable.frameTime": (p) => `ফ্রেম: ${p.datetime} UTC`,
   "turntable.error": (p) => `পরিমাপিত ত্রুটি: ${p.text}`,
+  "turntable.missing": "নেই",
 
   "turntable.turn": "ঘোরান",
   "turntable.stopTurning": "ঘোরানো থামান",
@@ -88,16 +89,21 @@ export const turntableBnDraft: { [K in TurntableKey]?: Table[K] } = {
   "turntable.details.pin": "বিস্তারিত খোলা রাখুন",
   "turntable.details.unpin": "বিস্তারিত বন্ধ হতে দিন",
   "turntable.details.close": "বিস্তারিত বন্ধ করুন",
-  "turntable.layers.note": "মেঘ, সীমানা ও নাম কেবল সাজ। ডেটা স্তর, মান ও শব্দ বদলায় না।",
+  "turntable.layers.note": "সীমানা ও নাম কেবল সাজ। ডেটা স্তর, মান ও শব্দ বদলায় না।",
   "turntable.layers.decoration": "পটভূমি ও মানচিত্রের স্তর",
-  "turntable.layers.clouds": "মেঘ",
   "turntable.layers.labels": "স্থানের নাম",
   "turntable.layers.borders": "সীমানা",
   "turntable.layers.districts": "জেলা",
   "turntable.layers.rivers": "নদী",
   "turntable.layers.sound": "শব্দ মিশ্রণ",
-  "turntable.howWeKnow": "আমরা কীভাবে জানি",
   "turntable.creditsLink": "কৃতজ্ঞতা",
+  // REVIEW FIRST (Pratik, 2026-11-10): labels and joining words only; names, organisations and dataset titles stay as in English.
+  "turntable.credits":
+    "ত্রিমাত্রিক দৃশ্য: NASA Earth Observatory, Blue Marble Next Generation, September (Reto Stöckli) · " +
+    "ভূসংস্থান: NASA Earth Observatory (Jesse Allen), British Oceanographic Data Centre-এর GEBCO ডেটা · " +
+    "স্টুডিওর আলো: Poly Haven studio_small_09 (CC0) · " +
+    "সীমানা, স্থান, নদী, সমুদ্র: Natural Earth (পাবলিক ডোমেইন) · জেলা: geoBoundaries (CC BY 3.0 IGO; উৎস BBS, OCHA ROAP) · " +
+    "ডেটা ফ্রেম: NASA Earth Information Center-এর জন্য NASA SVS 5101 / 4285",
   "turntable.intro.skip": "এড়িয়ে যেতে যেকোনো কী চাপুন",
   "turntable.quality": "ছবির মান",
   "turntable.quality.auto": "স্বয়ংক্রিয়",
@@ -139,18 +145,27 @@ export const turntableBnDraft: { [K in TurntableKey]?: Table[K] } = {
   "turntable.myLocation.denied": "অবস্থান শেয়ার করা হয়নি। কিছুই সংরক্ষণ করা হয়নি।",
   "turntable.myLocation.unsupported": "এই ব্রাউজার অবস্থান শেয়ার করতে পারে না।",
   "turntable.idleHint": "জায়গা খুঁজতে / চাপুন",
-  "turntable.background": "পটভূমি: ব্লু মার্বেল কম্পোজিট, আজকের মেঘ নয়",
+  "turntable.search.short": "খুঁজুন",
+  "turntable.loading": "টার্নটেবিল লোড হচ্ছে",
+  "turntable.more": "আরও",
+  "turntable.more.back": "ফিরে যান",
+  "turntable.sources": "উৎস ও যাচাই",
   "turntable.inset": "বিশ্ব মানচিত্র: বিন্দুটি সুই",
   "turntable.legend.ocean": "এই ফ্রেমের সমুদ্রের তাপমাত্রার সীমা",
   "turntable.legend.rain": "এই ফ্রেমের বৃষ্টির সীমা (লগারিদমিক)",
   "turntable.legend.pixel": "সুইয়ের নিচে ফ্রেমের পিক্সেল",
   "turntable.legend.noValue": "এখানে কোনো মান নেই",
-  "turntable.legend.marker": "সুইয়ের মান",
   "turntable.panels.hide": "প্যানেল লুকান",
   "turntable.panels.show": "প্যানেল দেখান",
   "turntable.graticule.equator": "বিষুবরেখা",
   "turntable.graticule.cancer": "কর্কটক্রান্তি রেখা",
   "turntable.graticule.capricorn": "মকরক্রান্তি রেখা",
+  "turntable.preview": "পূর্বরূপ",
+  "turntable.volume.all": "ভলিউম, সব শব্দ",
+  "turntable.volume.all.value": (p) => `ভলিউম, সব শব্দ: ${bnInt(p.percent)}%`,
+  "turntable.record.description": (p) => `রেকর্ডে পৃথিবী খাঁজ হয়ে আছে: বাইরের দিকে উত্তর, ভেতরের দিকে দক্ষিণ। সুই ${p.lat}-এর খাঁজে আছে।`,
+  "turntable.lat": (p) => `${formatDegrees(p.lat, "bn")}° ${p.lat >= 0 ? "উত্তর" : "দক্ষিণ"}`,
+  "turntable.lon": (p) => `${formatDegrees(p.lon, "bn")}° ${p.lon >= 0 ? "পূর্ব" : "পশ্চিম"}`,
 
   "turntable.announce.record": (p) => `রেকর্ড: ${p.record}। ${p.frames}`,
   "turntable.announce.frame": (p) => `${p.product}, সর্বশেষ প্রাপ্ত ফ্রেম ${p.datetime} UTC।`,

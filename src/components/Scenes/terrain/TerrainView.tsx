@@ -1,14 +1,14 @@
 "use client";
 
-import { Scale, Target } from "lucide-react";
+import { Scales, Target } from "@phosphor-icons/react";
 import { useEffect, useMemo, useRef, useState, type KeyboardEvent } from "react";
 import { continuousRule, mapContinuous, voiceSpec, withInputRange } from "@/lib/audio/mapping";
-import { formatDegrees, formatFixed, formatInteger, formatSigned, formatTemperature, formatUtc, type Lang } from "@/lib/i18n";
-import { useAppState } from "../../AppState/use-app-state";
+import { formatFixed, formatInteger, formatSigned, formatTemperature, formatUtc, type Lang } from "@/lib/i18n";
+import { useAppState, useT } from "../../AppState/use-app-state";
 import { useCommands } from "../../Commands/use-commands";
 import { OnOffToggle } from "../../OnOffToggle";
 import { DockButton } from "../../Turntable/DockButton";
-import { ttFor, useTT } from "../../Turntable/i18n";
+import { latText, lonText, ttFor, useTT } from "../../Turntable/i18n";
 import { LabelLayer, type Rect } from "../../Turntable/LabelLayer";
 import { labelCandidates } from "../../Turntable/labels";
 import { useDetails } from "../../Turntable/NeedleChip/use-details";
@@ -33,8 +33,6 @@ import { useTerrainScene } from "./use-terrain-scene";
 
 const DEFAULT_SPEED = 2;
 const ZOOM_STEP = 0.85;
-const latText = (lat: number, lang: Lang) => `${formatDegrees(lat, lang)}° ${lat >= 0 ? "N" : "S"}`;
-const lonText = (lon: number, lang: Lang) => `${formatDegrees(lon, lang)}° ${lon >= 0 ? "E" : "W"}`;
 
 /** ?debug=1: the anomaly and clarity under the walker, with the Hz and echo length their rules give. */
 function normalDebug(r: TerrainReading) {
@@ -77,6 +75,13 @@ export function TerrainView({ data, onExit, tier, geo }: SceneProps & { data: Te
     [loop.seq, frame, relief.plane],
   );
   const [sstImage] = useState(() => sstTexture(data.image));
+  // The SVS 5176 picture on the terrain while the anomaly plays, with its own legend and frame date.
+  const t = useT();
+  const [anomalyImage] = useState(() => (data.anomalyImage ? sstTexture(data.anomalyImage) : null));
+  useEffect(() => () => anomalyImage?.dispose(), [anomalyImage]);
+  const anomalyShown = vsNormal && anomalyImage !== null && data.anomaly !== null;
+  const anomalyDate = data.anomaly?.meta.frame_time_utc ? formatUtc(data.anomaly.meta.frame_time_utc, lang) : "";
+  const [anomMin, anomMax] = data.anomaly?.meta.value_range ?? [0, 0];
   const ctl = useTerrainScene({
     field,
     relief,
@@ -85,6 +90,7 @@ export function TerrainView({ data, onExit, tier, geo }: SceneProps & { data: Te
     anomaly: data.anomaly,
     dt: data.dt,
     vsNormal,
+    anomalyImage,
     seq: loop.seq,
     frame,
     rain,
@@ -198,6 +204,7 @@ export function TerrainView({ data, onExit, tier, geo }: SceneProps & { data: Te
         found,
         hunting,
         vsNormal,
+        picture: anomalyShown ? "sst_anom" : "sst", // Which frame image is on the terrain
         ...normalDebug(ctl.reading()),
       };
     },
@@ -222,7 +229,12 @@ export function TerrainView({ data, onExit, tier, geo }: SceneProps & { data: Te
       stage={
         <>
           <div ref={hostRef} {...pointer} className="absolute inset-0 touch-none select-none">
-            <SceneCanvas tier={tier} label={tt("scenes.terrain.canvas")} build={ctl.build} onReady={() => undefined} />
+            <SceneCanvas
+              tier={tier}
+              label={anomalyShown ? t("earth.anom.alt", { date: anomalyDate, min: formatSigned(anomMin, lang, 0), max: formatSigned(anomMax, lang, 0) }) : tt("scenes.terrain.canvas")}
+              build={ctl.build}
+              onReady={() => undefined}
+            />
           </div>
           <LabelLayer subscribe={ctl.bus.subscribe} candidates={labels} graticule={null} reserved={reserved} />
           <SceneChip
@@ -261,13 +273,24 @@ export function TerrainView({ data, onExit, tier, geo }: SceneProps & { data: Te
       topRight={<div className="glass-chip pointer-events-auto rounded-full px-3 py-2">{zoomBadge}</div>}
       controls={
         <div className="glass-chip space-y-1 rounded-2xl px-4 py-2">
-          {hunting && <p className="text-center text-body text-moon">{found ? tt("scenes.terrain.found", { value: formatTemperature(field.warmest.valueC, lang), lat: latText(field.warmest.lat, lang), lon: lonText(field.warmest.lon, lang) }) : tt("scenes.terrain.goalOn")}</p>}
+          {hunting && <p className="text-center text-body text-star">{found ? tt("scenes.terrain.found", { value: formatTemperature(field.warmest.valueC, lang), lat: latText(field.warmest.lat, lang), lon: lonText(field.warmest.lon, lang) }) : tt("scenes.terrain.goalOn")}</p>}
           {loop.seq && frame && (
             <Scrubber label={tt("scenes.scrub.rain")} valueText={formatUtc(frame.ref.time_utc, lang)} index={loop.frame} count={loop.seq.frames.length} onChange={loop.setFrame} />
           )}
         </div>
       }
       legend={
+        anomalyShown ? (
+          // The anomaly's legend, its colours from the 5176 picture, its range from sst_anom.json.
+          <SceneLegend
+            title={t("earth.anom.legend")}
+            minLabel={formatSigned(anomMin, lang, 0)}
+            maxLabel={`${formatSigned(anomMax, lang, 0)} ${tt("scenes.unit.celsius")}`}
+            stops={data.anomalyStops}
+            marker={here.r.anomalyC === null ? null : Math.min(1, Math.max(0, (here.r.anomalyC - anomMin) / (anomMax - anomMin)))}
+            badge={<SceneBadge>{t("earth.anom.frame", { date: anomalyDate })}</SceneBadge>}
+          />
+        ) : (
         <SceneLegend
           title={tt("scenes.terrain.legend")}
           minLabel={formatInteger(axis.min, lang)}
@@ -276,6 +299,7 @@ export function TerrainView({ data, onExit, tier, geo }: SceneProps & { data: Te
           marker={marker}
           badge={<SceneBadge>{tt("scenes.terrain.axis", { min: formatInteger(axis.min, lang), max: formatInteger(axis.max, lang) })}</SceneBadge>}
         />
+        )
       }
       disclosure={[
         tt("scenes.framePaired", { datetime: formatUtc(sst.meta.frame_time_utc, lang) }),
@@ -293,7 +317,7 @@ export function TerrainView({ data, onExit, tier, geo }: SceneProps & { data: Te
         extra: (
           <>
             <DockButton icon={Target} label={tt("scenes.terrain.goal")} keys="G" pressed={hunting} onClick={toggleHunt} />
-            {data.anomaly && <DockButton icon={Scale} label={tt("scenes.terrain.vsNormal")} keys="N" pressed={vsNormal} onClick={toggleNormal} />}
+            {data.anomaly && <DockButton icon={Scales} label={tt("scenes.terrain.vsNormal")} keys="N" pressed={vsNormal} onClick={toggleNormal} />}
           </>
         ),
       }}

@@ -11,7 +11,7 @@ const VOICE_LABEL = { ocean: "track.ocean", rain: "track.rain", snow: "mixer.sno
   string
 >;
 
-const SMALL_TOGGLE = "h-9 min-w-12 rounded-full border border-line px-3 text-small pointer-coarse:h-11 aria-pressed:border-shapla aria-pressed:bg-shapla/15 aria-pressed:text-moon";
+const SMALL_TOGGLE = "h-9 min-w-12 rounded-full border border-line px-3 text-small pointer-coarse:h-11 aria-pressed:border-2 aria-pressed:border-line aria-pressed:bg-shapla aria-pressed:text-moon";
 
 /** Volume, mute and solo for each live voice: one row each, aligned in columns. */
 export function Mixer({ className }: { className?: string }) {

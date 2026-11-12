@@ -1,13 +1,13 @@
 "use client";
 
-import { Download } from "lucide-react";
+import { DownloadSimple, FileText } from "@phosphor-icons/react";
 import { useMemo, useRef, useState, type KeyboardEvent } from "react";
 import { mapVoice } from "@/lib/audio/mapping";
 import { valueInFrame, wrapLon, type LatLon } from "@/lib/data";
 import { formatFixed, formatMonth, formatRainRate, formatSigned, formatUtc, type Lang } from "@/lib/i18n";
 import type { GraceBoxName } from "@/types/data-contract";
 import { useAnnounce } from "../../Announcer/use-announcer";
-import { useAppState } from "../../AppState/use-app-state";
+import { useAppState, useT } from "../../AppState/use-app-state";
 import { useCommands } from "../../Commands/use-commands";
 import { OnOffToggle } from "../../OnOffToggle";
 import { DockButton } from "../../Turntable/DockButton";
@@ -24,7 +24,8 @@ import { SceneShell } from "../SceneShell";
 import { SceneChip } from "../SceneShell/SceneChip";
 import { SceneLegend } from "../SceneShell/SceneLegend";
 import { Scrubber } from "../SceneShell/Scrubber";
-import { downloadTactileRecord, scaleTag } from "../tactile";
+import { scaleTag } from "../tactile";
+import { useTactileExport } from "../use-tactile-export";
 import type { SceneProps } from "../types";
 import { usePointerDrag } from "../use-pointer-drag";
 import { useRainLoop } from "../use-rain-loop";
@@ -62,6 +63,7 @@ function semitones(a: number, b: number): number | null {
 
 export function DeltaView({ data, onExit, tier, geo }: SceneProps & { data: DeltaData }) {
   const { state } = useAppState();
+  const t = useT();
   const commands = useCommands();
   const { tt, lang } = useTT();
   const details = useDetails();
@@ -160,26 +162,31 @@ export function DeltaView({ data, onExit, tier, geo }: SceneProps & { data: Delt
   };
   const announce = useAnnounce();
   /** Bonus (3D-4): both GRACE boxes as two ridges on one disc, the shared fixed scale; ticks every ten years. */
-  const exportTactile = () => {
+  const tactileExport = useTactileExport();
+  const tactile = () => {
     const first = months[0];
     const last = months[months.length - 1];
     const ticks = months.flatMap((m, i) => (m.endsWith("-01") && Number(m.slice(0, 4)) % 10 === 0 ? [i / months.length] : []));
     const file = `tactile-record_grace-bd-nw_${first}_${last}_${scaleTag(scene.range, "cm")}.stl`;
-    downloadTactileRecord(
-      {
-        tracks: [
-          { values: grace.boxes.Bangladesh.cm, inner: 30, outer: 40 },
-          { values: grace.boxes.NW_India.cm, inner: 42, outer: 52 },
-        ],
-        range: scene.range,
-        ticks,
-        label: `${grace.dataset.split(" (")[0]}
+    const rec = {
+      tracks: [
+        { values: grace.boxes.Bangladesh.cm, inner: 30, outer: 40 },
+        { values: grace.boxes.NW_India.cm, inner: 42, outer: 52 },
+      ],
+      range: scene.range,
+      ticks,
+      label: `${grace.dataset.split(" (")[0]}
 ${first.slice(0, 4)}-${last.slice(0, 4)}  inner: BD, outer: NW India`,
-      },
-      file,
-    );
+    };
+    // The alt text's steps and ring names (step 7): water in centimetres, a month per step, Bangladesh inside.
+    return { rec, file, meta: { unit: "cm", steps: months.map((m) => formatMonth(m, state.lang)), names: ["Bangladesh", "NW India"] } };
+  };
+  const exportTactile = () => {
+    const { rec, file, meta } = tactile();
+    tactileExport.saveStl(rec, meta, file);
     announce(tt("scenes.tactile.saved", { file }));
   };
+  const exportAlt = tactileExport.saveAlt;
 
   useSceneDebug({
     id: "delta",
@@ -277,7 +284,21 @@ ${first.slice(0, 4)}-${last.slice(0, 4)}  inner: BD, outer: NW India`,
         onPlay: sound.toggle,
         speedText: tt("scenes.speed", { speed: formatFixed(SPEEDS[speedIndex], lang, SPEEDS[speedIndex] < 1 ? 2 : 0) }),
         onSpeed: (step) => setSpeedIndex((i) => Math.min(SPEEDS.length - 1, Math.max(0, i + step))),
-        extra: <DockButton icon={Download} label={tt("scenes.tactile")} onClick={exportTactile} />,
+        extra: (
+          <>
+            <DockButton icon={DownloadSimple} label={tt("scenes.tactile")} onClick={exportTactile} />
+            {exportAlt && (
+              <DockButton
+                icon={FileText}
+                label={t("alt.save")}
+                onClick={() => {
+                  const { rec, file, meta } = tactile();
+                  exportAlt(rec, meta, file);
+                }}
+              />
+            )}
+          </>
+        ),
       }}
       layers={
         <section className="space-y-2">

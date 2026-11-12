@@ -4,21 +4,24 @@ import { useState, type ReactNode } from "react";
 import { useLoaded } from "@/hooks/use-loaded";
 import { loadFirms, loadNdvi, NDVI_POINTS } from "@/lib/data";
 import { FIRE_REGIONS, firesPair, pairRows, vegetationPair, type SeriesPair } from "@/lib/field-records";
-import { formatDayMonth, formatMonth, localDigits } from "@/lib/i18n";
+import { formatDayMonth, formatFixed, formatMonth, localDigits } from "@/lib/i18n";
 import type { FirmsRegion, NdviPointName } from "@/types/data-contract";
 import { useAppState, useT } from "../AppState/use-app-state";
 import { PairChart } from "../charts/PairChart";
-import { ChoiceGroup } from "../ChoiceGroup";
+import { PickOne } from "../PickOne";
 import { StatusBadge } from "../StatusBadge";
 import { Row } from "./Disclosure";
 import { PartLayout } from "./Layout";
+import { SeriesTable } from "./SeriesTable";
 import { Headline } from "./PartView";
 
 export type FieldPart = "fires" | "vegetation";
 
 /** Fires and vegetation in the shared layout: finding left; place and "no sound yet" right; sources folded. */
-function FieldLayout({ picker, pair, chart, caption, facts }: { picker: ReactNode; pair: SeriesPair; chart: Omit<FieldChartProps, "pair">; caption: string; facts: ReactNode }) {
+function FieldLayout({ part, more, stage, decimals, picker, pair, chart, caption, facts }: { part: FieldPart; more: ReactNode; stage: ReactNode; decimals: number; picker: ReactNode; pair: SeriesPair; chart: Omit<FieldChartProps, "pair">; caption: string; facts: ReactNode }) {
+  const { state } = useAppState();
   const t = useT();
+  const value = (v: number | null) => (v === null ? null : formatFixed(v, state.lang, decimals));
   return (
     <PartLayout
       finding={
@@ -27,16 +30,26 @@ function FieldLayout({ picker, pair, chart, caption, facts }: { picker: ReactNod
           <FieldChart pair={pair} {...chart} />
         </>
       }
-      sideTitle={t("field.place")}
-      side={
+      actions={
         <>
           {picker}
           {/* No voice yet for these records (L2's optional list): said, never faked. */}
-          <StatusBadge kind="october">{t("field.soundOctober")}</StatusBadge>
+          <StatusBadge kind="note">{t("field.soundOctober")}</StatusBadge>
         </>
       }
+      more={more}
+      stage={stage}
       detailsTitle={t("field.sources")}
-      details={<dl className="space-y-2">{facts}</dl>}
+      details={
+        <>
+          <dl className="space-y-2">{facts}</dl>
+          <SeriesTable
+            caption={t("table.caption", { part: t(`thenNow.part.${part}`) })}
+            headers={[t("table.period"), pair.then.label, pair.now.label]}
+            rows={pairRows(pair).map((r) => [chart.tick(r.i), value(r.then), value(r.now)])}
+          />
+        </>
+      }
     />
   );
 }
@@ -62,7 +75,7 @@ function FieldChart({ pair, unit, tick, summary }: FieldChartProps) {
   );
 }
 
-function Fires() {
+function Fires({ more, stage }: { more: ReactNode; stage: ReactNode }) {
   const { state } = useAppState();
   const t = useT();
   const { value: file, status } = useLoaded(loadFirms);
@@ -73,7 +86,11 @@ function Fires() {
   const place = t(`field.fires.region.${region}`);
   return (
     <FieldLayout
-      picker={<ChoiceGroup<FirmsRegion> label={t("field.fires.region")} value={region} onChange={setRegion} options={FIRE_REGIONS.map((r) => ({ value: r, label: t(`field.fires.region.${r}`) }))} vertical />}
+      part="fires"
+      more={more}
+      stage={stage}
+      decimals={0}
+      picker={<PickOne<FirmsRegion> label={t("field.fires.region")} value={region} onChange={setRegion} options={FIRE_REGIONS.map((r) => ({ value: r, label: t(`field.fires.region.${r}`) }))} />}
       pair={pair}
       chart={{
         unit: t("field.fires.unit"),
@@ -92,7 +109,7 @@ function Fires() {
   );
 }
 
-function Vegetation() {
+function Vegetation({ more, stage }: { more: ReactNode; stage: ReactNode }) {
   const { state } = useAppState();
   const t = useT();
   const { value: file, status } = useLoaded(loadNdvi);
@@ -103,7 +120,11 @@ function Vegetation() {
   const place = t(`field.veg.point.${point}`);
   return (
     <FieldLayout
-      picker={<ChoiceGroup<NdviPointName> label={t("field.veg.point")} value={point} onChange={setPoint} options={NDVI_POINTS.map((p) => ({ value: p, label: t(`field.veg.point.${p}`) }))} vertical />}
+      part="vegetation"
+      more={more}
+      stage={stage}
+      decimals={2}
+      picker={<PickOne<NdviPointName> label={t("field.veg.point")} value={point} onChange={setPoint} options={NDVI_POINTS.map((p) => ({ value: p, label: t(`field.veg.point.${p}`) }))} />}
       pair={pair}
       chart={{
         unit: t("field.veg.unit"),
@@ -127,6 +148,7 @@ function Vegetation() {
  * example years) and vegetation (NDVI, single pixels). Shown with their data
  * rules; no sound yet. Not tied to the city: fixed places in the files.
  */
-export function FieldPartView({ part }: { part: FieldPart }) {
-  return part === "fires" ? <Fires /> : <Vegetation />;
+/** `stage` is the city globe: Fires and Vegetation have no sound, so it never pulses (and they have no year axis, so no stripes or year). */
+export function FieldPartView({ part, more, stage }: { part: FieldPart; more: ReactNode; stage: ReactNode }) {
+  return part === "fires" ? <Fires more={more} stage={stage} /> : <Vegetation more={more} stage={stage} />;
 }

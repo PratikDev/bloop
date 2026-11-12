@@ -1,11 +1,11 @@
 "use client";
 
 import { Fragment } from "react";
+import { usePlaceName } from "@/hooks/use-place-name";
 import { cn } from "@/lib/utils";
 import { formatRainRate, formatTemperature, type Lang } from "@/lib/i18n";
-import { rainText, type Reading } from "@/lib/reading";
+import { rainIsDry, rainText, type Reading } from "@/lib/reading";
 import { useAppState, useT } from "./AppState/use-app-state";
-import { FrameLabel } from "./FrameLabel";
 import { useShownPoint } from "./TimeLapse/use-shown-point";
 
 const BENGALI_DIGIT = /[০-৯]/;
@@ -38,38 +38,32 @@ export function hero(r: Reading, track: string, lang: Lang): { figure: string; u
 }
 
 /**
- * The value under the cursor: the typographic hero. Visual only; screen readers
- * get the same reading from the map region and the live region.
+ * The value under the needle, on the player right under the map: the figure and the rain, then the place. No boxes. Visual only; screen readers get the same reading from the map region and the live region.
  */
 export function Readout({ className }: { className?: string }) {
   const { state } = useAppState();
   const t = useT();
   const { reading: r, cursor, track, timelapse } = useShownPoint();
+  const place = usePlaceName(cursor);
   if (!r) return null;
 
   const main = hero(r, track, state.lang);
   const fallback = track === "rain" ? rainText(t, r.rain, r.rainLoaded) : t("reading.oceanNone");
 
   return (
-    <div data-slot="readout" className={cn("space-y-2", className)}>
-      {/* From 1024 px off the map: one line under it, or a column beside it when the screen is wide (Listen). */}
-      <div aria-hidden="true" className="space-y-1.5 lg:flex lg:flex-wrap lg:items-baseline lg:gap-x-6 lg:space-y-0 lg:listen-wide:block lg:listen-wide:space-y-1.5">
-        <p key={main?.figure ?? fallback} className="duration-150 animate-in fade-in slide-in-from-bottom-1">
-          {main ? (
-            <span className="readout-figure text-readout-mobile md:text-readout lg:text-readout-strip lg:listen-wide:text-readout-mobile 2xl:listen-wide:text-readout">
-              <Figure text={main.figure} lang={state.lang} />
-              <span className="font-sans text-lead text-haze">{" " + t(main.unit)}</span>
-            </span>
-          ) : (
-            <span className="font-serif text-title">{fallback}</span>
-          )}
-        </p>
-        {track === "both" && <p className="text-lead">{rainText(t, r.rain, r.rainLoaded)}</p>}
-        <p className="font-mono text-body tracking-tight text-moon">{t("place.latlon", cursor)}</p>
-        {timelapse && <p className="font-mono text-small text-shapla">{t("timelapse.frame", { index: timelapse.index + 1, total: timelapse.total })}</p>}
+    <div data-slot="readout" aria-hidden="true" className={cn("min-w-0", className)}>
+      <div className="flex items-baseline gap-x-3">
+        {main ? (
+          <p className="readout-figure text-title">
+            <Figure text={main.figure} lang={state.lang} />
+            <span className="font-sans text-body text-haze">{" " + t(main.unit)}</span>
+          </p>
+        ) : (
+          <p className="text-lead">{fallback}</p>
+        )}
+        {track === "both" && !rainIsDry(r.rain, r.rainLoaded) && <p className="text-body">{rainText(t, r.rain, r.rainLoaded)}</p>}
       </div>
-      {/* From 1024 px the frame times sit in the page head, above the map. */}
-      <FrameLabel className="max-w-md border-t border-glass-edge pt-2 lg:hidden" />
+      <p className="truncate text-small text-haze">{[place, timelapse ? t("timelapse.frame", { index: timelapse.index + 1, total: timelapse.total }) : t("place.latlon", cursor)].filter(Boolean).join(" · ")}</p>
     </div>
   );
 }

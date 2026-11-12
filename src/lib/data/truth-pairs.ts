@@ -2,7 +2,8 @@
 // three-way reading at the same points.
 
 import { distanceKm } from "@/lib/geo/spherical";
-import type { SstPairsFile, SstTruthPair, ThreeWayFile } from "@/types/data-contract";
+import type { RainPairsFile, SstPairsFile, SstTruthPair, ThreeWayFile } from "@/types/data-contract";
+import type { TruthStatsFile } from "@/types/truth-stats";
 import { fetchJson } from "./fetch";
 import { DATA_PATHS } from "./paths";
 import { requirePaths } from "./validate";
@@ -19,6 +20,20 @@ export function loadSstPairs(): Promise<SstPairsFile> {
     pairsCache = null;
   });
   return pairsCache;
+}
+
+/** The rain points behind the newest frame's check (How we know's rain card). */
+export async function loadRainPairs(): Promise<RainPairsFile> {
+  const file = await fetchJson<RainPairsFile>(DATA_PATHS.truthPairs("rain"));
+  requirePaths("rain_pairs.json", file, { pairs: "array", check: "object", datasets: "array" });
+  return file;
+}
+
+/** Spearman's rho and n for each How we know check (pipeline/stats/truth_stats.py). */
+export async function loadTruthStats(): Promise<TruthStatsFile> {
+  const file = await fetchJson<TruthStatsFile>(DATA_PATHS.truthStats);
+  requirePaths("truth/stats.json", file, { "sst.spearman_rho": "number", "rain.spearman_rho": "number", "globe.spearman_rho": "number" });
+  return file;
 }
 
 export async function loadThreeWay(): Promise<ThreeWayFile> {

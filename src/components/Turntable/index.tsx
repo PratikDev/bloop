@@ -1,20 +1,21 @@
 "use client";
 
-import { BookOpenText } from "lucide-react";
+import { MagnifyingGlass } from "@phosphor-icons/react";
 import { useEffect, useMemo, useRef, useState } from "react";
-import { Button } from "@/components/ui/button";
-import { formatDegrees, formatUtc } from "@/lib/i18n";
-import { readAt } from "@/lib/reading";
+import { useMediaQuery } from "@/hooks/use-media-query";
+import { MEDIA } from "@/lib/breakpoints";
+import { formatUtc } from "@/lib/i18n";
+import { cn } from "@/lib/utils";
 import { liveSoundOn } from "../AppState/reducer";
 import { useAppState } from "../AppState/use-app-state";
 import { CaptionBar } from "../CaptionBar";
 import { useCommands } from "../Commands/use-commands";
 import { MAP_REGION_ID } from "../ExploreControls";
 import { useLiveData } from "../LiveData/use-live-data";
-import { CreditsLink } from "./CreditsLink";
+import { CreditsDialog } from "./CreditsLink";
 import { Dock } from "./Dock";
 import { Drawers, type DrawerId } from "./Drawers";
-import { ttFor, useTT } from "./i18n";
+import { latText, ttFor, useTT } from "./i18n";
 import { graticuleLabels, type PlacedLabels } from "./LabelLayer";
 import { labelCandidates } from "./labels";
 import { LegendBar } from "./LegendBar";
@@ -32,17 +33,22 @@ import { useTurntableActions } from "./use-turntable-actions";
 import { useTurntableKeys } from "./use-turntable-keys";
 import type { SceneId } from "../Scenes/registry";
 import { SceneHost } from "../Scenes/SceneHost";
+import { PauseMotionKey } from "../SpaceWindow/PauseMotionKey";
+import { usePauseMotion } from "../SpaceWindow/use-pause-motion";
 
 const SEND_LOG_MAX = 5000;
 const IDLE_MS = 30_000;
+/** How long the legend stays up after the needle was moved. */
+const LEGEND_MS = 2500;
+const LEGEND_CHECK_MS = 250;
+const MAX_BOOKMARKS = 9;
 const IDLE_CHECK_MS = 5_000;
-const GLASS_BUTTON = "glass-chip pointer-events-auto h-11 gap-2 rounded-full px-4 text-body text-moon";
 
 /** After leaving, keyboard focus lands on the flat map rather than the page. */
 const focusFlatMap = () => requestAnimationFrame(() => document.getElementById(MAP_REGION_ID)?.focus());
 
 /**
- * Turntable Earth: the latest EIC frame over a realistic globe on a turntable.
+ * Turntable Earth: the latest EIC frame over a cel-shaded globe on a turntable.
  * The needle is the app's cursor and the records are its tracks, so the value,
  * captions, speech and panels are the flat map's own; the globe, places and
  * motion are presentation only. The screen stays calm: the globe, a needle
@@ -50,6 +56,7 @@ const focusFlatMap = () => requestAnimationFrame(() => document.getElementById(M
  */
 export function Turntable() {
   const { state, dispatch } = useAppState();
+  const pause = usePauseMotion();
   const { fields } = useLiveData();
   const commands = useCommands();
   const { tt: tr, lang, rootLang } = useTT();
@@ -58,6 +65,8 @@ export function Turntable() {
   const hostRef = useRef<HTMLDivElement>(null);
   const searchRef = useRef<HTMLInputElement>(null);
   const dockRef = useRef<HTMLDivElement>(null);
+  const phone = useMediaQuery(MEDIA.narrow);
+  const [chipDock, setChipDock] = useState<HTMLDivElement | null>(null);
   const [debug] = useState(() => new URLSearchParams(window.location.search).get("debug") === "1");
   const sendLog = useRef<SentReading[]>([]);
   const placed = useRef<PlacedLabels>(new Map());
@@ -67,6 +76,7 @@ export function Turntable() {
   const settings = settingsState[0];
   const [drawer, setDrawer] = useState<DrawerId | null>(null);
   const [sceneOpen, setSceneOpen] = useState<SceneId | null>(null);
+  const [creditsOpen, setCreditsOpen] = useState(false);
   const details = useDetails();
   const record = tr(RECORD_LABELS[state.track]);
   const frameTime = recordFrames(state.track, fields)[0]?.meta.frame_time_utc ?? null;
@@ -79,6 +89,7 @@ export function Turntable() {
     liveOn: liveSoundOn(state),
     allMuted: state.allMuted,
     reduceMotion: state.reduceMotion,
+    motionPaused: pause.paused,
     layers: layerToggles(settings),
     introPending,
     paused: sceneOpen !== null,
@@ -91,8 +102,6 @@ export function Turntable() {
         }
       : undefined,
     scene: {
-      quality: settings.quality,
-      frameTime,
       sunTime: settings.sunAtFrameTime ? frameTime : null,
       dataOpacity: settings.dataOpacity,
       geo,
@@ -129,16 +138,25 @@ export function Turntable() {
     const tl = ttFor(lang);
     return graticuleLabels(
       { equator: tl("turntable.graticule.equator"), cancer: tl("turntable.graticule.cancer"), capricorn: tl("turntable.graticule.capricorn") },
-      (lat) => `${formatDegrees(lat, lang)}° ${lat >= 0 ? "N" : "S"}`,
+      (lat) => latText(lat, lang),
     );
   }, [settings.graticule, lang]);
   const place = geo ? placeText(tr, lang, geo.gazetteer.whereAmI(state.cursor)).line : null;
+  // A point under the mouse on the globe, or under a drag on the record: shown in the readout as a preview (silent).
+  const preview = tt.preview && { at: tt.preview, place: geo ? placeText(tr, lang, geo.gazetteer.whereAmI(tt.preview)).line : null };
 
   // The idle hint: after 30 s without input on the turntable.
   const [idle, setIdle] = useState(false);
   const { lastInput } = tt;
   useEffect(() => {
     const id = setInterval(() => setIdle(performance.now() - lastInput() > IDLE_MS), IDLE_CHECK_MS);
+    return () => clearInterval(id);
+  }, [lastInput]);
+
+  // The legend tubes: while the needle is being moved (the readout's hover or focus shows them too).
+  const [needleMoving, setNeedleMoving] = useState(false);
+  useEffect(() => {
+    const id = setInterval(() => setNeedleMoving(performance.now() - lastInput() < LEGEND_MS), LEGEND_CHECK_MS);
     return () => clearInterval(id);
   }, [lastInput]);
 
@@ -160,8 +178,10 @@ export function Turntable() {
     return () => window.removeEventListener("keydown", onKey);
   }, []);
 
+  const legendShown = needleMoving || details.open;
+
   return (
-    <section ref={sectionRef} lang={rootLang} className="tt-warm relative min-h-[32rem] min-w-0 overflow-hidden bg-tt-black">
+    <section ref={sectionRef} data-space data-tt-stage data-tt-preview={preview ? "" : undefined} lang={rootLang} className="tt-warm relative min-h-[32rem] min-w-0 overflow-hidden bg-tt-black">
       <div inert={sceneOpen !== null} className="contents">
         <Stage
           tt={tt}
@@ -170,36 +190,56 @@ export function Turntable() {
           record={record}
           tier={settings.quality}
           place={place}
+          preview={preview}
           labels={settings.labels ? labels : null}
           graticule={graticule}
           details={details}
           intro={intro.phase}
-          idle={idle}
+          ready={intro.ready}
+          chipDock={chipDock}
           onKeyDown={onKeyDown}
           debug={debug ? { sendLog, placed } : null}
+          motionPaused={pause.paused}
+          deckControls={{ rotating: tt.rotating, speed: tt.speed, toggleRotation: actions.toggleRotation, changeSpeed: actions.changeSpeed }}
           className="absolute inset-0"
         />
-        <div className="pointer-events-none absolute top-3 right-3 left-3 flex items-start justify-end gap-2 pt-6 sm:pt-0">
-          <SearchBox gazetteer={geo?.gazetteer ?? null} onChoose={actions.choosePlace} inputRef={searchRef} className="pointer-events-auto max-w-[calc(100%-3.5rem)]" />
-          <Button variant="ghost" onClick={() => setDrawer("howWeKnow")} className={GLASS_BUTTON}>
-            <BookOpenText aria-hidden="true" />
-            <span className="hidden sm:inline">{tr("turntable.howWeKnow")}</span>
-            <span className="sr-only sm:hidden">{tr("turntable.howWeKnow")}</span>
-          </Button>
-        </div>
-        <div className="pointer-events-none absolute inset-x-3 bottom-3 flex flex-col items-center gap-2">
-          <div className="max-w-2xl text-center">
-            <CaptionBar fade className="min-h-0 text-body [text-shadow:0_1px_3px_var(--label-shadow)] sm:text-lead" />
-            {actions.where && (
-              <p key={actions.where} className="caption-fade text-body text-moon [text-shadow:0_1px_3px_var(--label-shadow)]">
-                {actions.where}
-              </p>
-            )}
+        {/* Desktop: the readout and the legend share one column at the edge. The column is the panel the layout keeps
+            clear of, at least as tall as a three-line readout and the legend: its text changing with every needle move
+            doesn't move the globe or the turntable (opening the details card still does, as it should). */}
+        {!phone && (
+          <div data-overlay data-tt-occluder className="absolute top-6 left-6 z-10 flex min-h-64 w-88 flex-col gap-2">
+            <div ref={setChipDock} />
+            {/* Always laid out, so the globe doesn't resize each time the needle moves. */}
+            <LegendBar className={cn(!legendShown && "invisible")} />
           </div>
-          <LegendBar
-            pixel={fields ? tt.texture.sample(state.track, readAt(fields, state.cursor), state.cursor) : null}
-            className="pointer-events-auto w-full max-w-md"
-          />
+        )}
+        <div data-overlay className="pointer-events-none absolute top-3 right-3 left-3 flex items-start justify-end gap-2 pt-6 sm:pt-0">
+          {/* "Pause motion", as on every stage: holds the Earth's turn, the grille and the tremble; never the sound. */}
+          <div data-tt-occluder className="pointer-events-auto shrink-0">
+            <PauseMotionKey pause={pause} compact />
+          </div>
+          <SearchBox gazetteer={geo?.gazetteer ?? null} onChoose={actions.choosePlace} inputRef={searchRef} className="pointer-events-auto max-w-full" />
+        </div>
+        <div data-overlay className="pointer-events-none absolute inset-x-3 bottom-3 flex flex-col items-center gap-2">
+          {actions.where && (
+            <p key={actions.where} data-tt-occluder className="comic-box caption-fade max-w-2xl rounded-caption px-2.5 py-1 text-center text-body">
+              {actions.where}
+            </p>
+          )}
+          {idle && intro.phase === "done" && (
+            <p data-tt-occluder className="on-space flex items-center gap-2 rounded-full px-4 py-2 text-body">
+              <MagnifyingGlass aria-hidden="true" className="size-4" />
+              {tr("turntable.idleHint")}
+            </p>
+          )}
+          {/* On a phone the readout and legend are one compact panel under the globe. The legend is always laid out,
+              as on desktop, so the panel (and the stage that grows around it) doesn't resize each time the needle moves. */}
+          {phone && (
+            <div data-tt-occluder className="on-space pointer-events-auto min-h-56 w-full rounded-plate p-1">
+              <div ref={setChipDock} />
+              <LegendBar className={cn("border-0 shadow-none", !legendShown && "invisible")} />
+            </div>
+          )}
           <div className="pointer-events-auto max-w-full">
             <Dock
               ref={dockRef}
@@ -208,7 +248,6 @@ export function Turntable() {
               touring={actions.touring}
               cameraMode={tt.cameraMode}
               covers={tt.texture.covers}
-              onPlay={commands.togglePlaying}
               onToggleRotation={actions.toggleRotation}
               onSpeed={actions.changeSpeed}
               onSearch={actions.focusSearch}
@@ -220,10 +259,15 @@ export function Turntable() {
               onLayers={() => setDrawer("layers")}
               onSettings={() => setDrawer("settings")}
               onHelp={commands.openHelp}
+              onSources={() => setDrawer("sources")}
+              onCredits={() => setCreditsOpen(true)}
+              bookmarks={geo?.gazetteer.bookmarks.slice(0, MAX_BOOKMARKS).map((b) => b.name) ?? []}
+              onBookmark={actions.bookmark}
+              caption={<CaptionBar soundOnly className="min-h-0 w-fit max-w-full text-body sm:text-lead" />}
             />
           </div>
         </div>
-        <CreditsLink className="absolute right-2 bottom-2 hidden h-8 px-2 text-small text-haze lg:inline-flex" />
+        <CreditsDialog open={creditsOpen} onOpenChange={setCreditsOpen} />
         <Drawers
           open={drawer}
           onClose={() => setDrawer(null)}

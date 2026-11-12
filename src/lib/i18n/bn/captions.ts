@@ -41,6 +41,9 @@ export const captionsBn: Translated<typeof captionsEn> = {
   "caption.thenNow.caption": (p: CaptionParams) => translateData(strParam(p, "text")),
   "caption.thenNow.window": (p: CaptionParams) => `বাজছে ${label(p, "label")}`,
   "caption.thenNow.end": "আগে বনাম এখন শেষ",
+  "caption.thenNow.stats": (p: CaptionParams) => strParam(p, "bn"),
+  "caption.frameGap": (p: CaptionParams) => strParam(p, "bn"),
+  "caption.note": (p: CaptionParams) => strParam(p, "bn"),
   "caption.water.gap": (p: CaptionParams) => {
     const from = month(p, "from");
     const to = month(p, "to");
@@ -61,4 +64,10 @@ export const captionsBn: Translated<typeof captionsEn> = {
   "caption.speech": (p: CaptionParams) => strParam(p, "text"),
   "caption.noBanglaVoice": "এই ডিভাইসে বাংলা কণ্ঠস্বর নেই, তাই মান দেখানো হচ্ছে কিন্তু পড়ে শোনানো হচ্ছে না",
   "caption.noSpeech": "এই ব্রাউজার কথা বলতে পারে না; তাই মান দেখানো হচ্ছে",
+  // Draft, review first (audit A-bn, 2026-11-10).
+  "caption.water.gapTexture": (p: CaptionParams) => {
+    const from = formatMonth(strParam(p, "from"), "bn"),
+      to = formatMonth(strParam(p, "to"), "bn");
+    return from === to ? `নরম টিক: ${from}-এ কোনো স্যাটেলাইট পরিমাপ নেই` : `নরম টিক: ${from} থেকে ${to} পর্যন্ত কোনো স্যাটেলাইট পরিমাপ নেই`;
+  },
 };

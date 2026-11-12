@@ -17,11 +17,13 @@ export async function ensureAudio(): Promise<void> {
 export { getAnalyser, isAudioReady } from "./context";
 export { onAudioEvent } from "./events";
 export { stopAll } from "./stop";
+// Ask Bloop ducks the sonification while it listens (spec §5.5), with the same holder-counted duck speech uses.
+export { beginDuck } from "./duck";
 export { setAllMuted, setMasterVolume, setSolo, setTrackMode, setVoiceMuted, setVoiceVolume } from "./mixer";
 export { setOcean, setRain, silenceLive } from "./live";
 export { speak } from "./speech";
-export { playEarcon } from "./earcons";
-export { playLegend, playLegendForMode } from "./players/legend";
+export { playEarcon, playSonarPing } from "./earcons";
+export { LEGEND_SOUND_SEC, playAnchor, playLegend, playLegendForMode, type Anchor } from "./players/legend";
 export { playWarmup } from "./players/warmup";
 export { playSweep } from "./players/sweep";
 export { playMotif } from "./players/motif";

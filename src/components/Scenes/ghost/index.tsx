@@ -4,14 +4,14 @@ import { useMemo, useRef, useState, type KeyboardEvent } from "react";
 import { audio } from "@/lib/audio-jukebox";
 import type { CompareSide, ContextVoice, PlayerHandle } from "@/lib/audio-jukebox/types";
 import { cellCentre } from "@/lib/data/global";
-import { formatDegrees, formatFixed, formatSigned, type Lang } from "@/lib/i18n";
+import { formatFixed, formatSigned, type Lang } from "@/lib/i18n";
 import type { GlobalLayerName } from "@/types/data-contract";
 import { useAppState } from "../../AppState/use-app-state";
 import { ChoiceGroup } from "../../ChoiceGroup";
 import { useCommands } from "../../Commands/use-commands";
 import { ARROWS } from "../../ExploreControls/use-map-keys";
 import { OnOffToggle } from "../../OnOffToggle";
-import { ttFor, useTT, type TT } from "../../Turntable/i18n";
+import { latText, lonText, ttFor, useTT, type TT } from "../../Turntable/i18n";
 import { LabelLayer, type Rect } from "../../Turntable/LabelLayer";
 import { labelCandidates } from "../../Turntable/labels";
 import { useDetails } from "../../Turntable/NeedleChip/use-details";
@@ -47,8 +47,6 @@ const DEFAULT_SPEED = 2;
 
 const unitOf = (tt: TT, layer: GlobalLayerName) => (layer === "heat" ? tt("scenes.unit.celsius") : layer === "rain" ? tt("scenes.unit.mmDay") : tt("scenes.unit.cm"));
 const fmt = (v: number | null, lang: Lang) => (v === null ? "—" : formatFixed(v, lang, 2));
-const latText = (lat: number, lang: Lang) => `${formatDegrees(lat, lang)}° ${lat >= 0 ? "N" : "S"}`;
-const lonText = (lon: number, lang: Lang) => `${formatDegrees(lon, lang)}° ${lon >= 0 ? "E" : "W"}`;
 
 /** Scene 1 (book 3D-28): the then and now windows of the global history cube as two overlapping Earths. */
 export function GhostEarths({ onExit, tier, geo }: SceneProps) {
@@ -219,7 +217,7 @@ export function GhostEarths({ onExit, tier, geo }: SceneProps) {
             {files && <p className="text-small text-haze">{files.places.basis[layer]}</p>}
             <p className="text-small text-haze">{tt(layer === "water" ? "scenes.ghost.monthly" : "scenes.ghost.yearly")}</p>
           </SceneChip>
-          {!field && <p className="absolute inset-x-0 top-1/2 text-center text-body text-haze">{tt(error ? "scenes.failed" : "scenes.loading")}</p>}
+          {!field && <p className="absolute inset-x-0 top-1/2 text-center text-body text-star">{tt(error ? "scenes.failed" : "scenes.loading")}</p>}
         </>
       }
       topRight={

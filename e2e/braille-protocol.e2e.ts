@@ -5,7 +5,8 @@
 import { expect, test, type Page } from "@playwright/test";
 import { mkdirSync, writeFileSync } from "node:fs";
 import { join } from "node:path";
-import { navTo, open } from "./lib/app";
+import { navTo, officialBrailleButton, officialStrip, open, DETAILS_NAMES } from "./lib/app";
+import { BRAILLE_NAMES, chooseBrailleOption, type BrailleNames } from "./lib/braille";
 
 const CONTINUES = "⣿";
 const OFFICIAL = [
@@ -41,10 +42,10 @@ const lines = async (page: Page) => ({
   shape: await page.getByTestId("braille-shape").inputValue(),
 });
 
-async function chooseVoiceAndMode(page: Page, voice: string, mode: string) {
-  const voices = page.getByRole("group", { name: "Voice" });
-  if (await voices.count()) await voices.getByRole("button", { name: voice, exact: true }).click();
-  await page.getByRole("group", { name: "Shape shows" }).getByRole("button", { name: mode, exact: true }).click();
+/** Picks the data ("ocean" or "rain") and the shape, in English or in Bangla (src/lib/i18n/bn/braille.ts). */
+async function chooseVoiceAndMode(page: Page, voice: "ocean" | "rain", mode: string, names: BrailleNames = BRAILLE_NAMES.en) {
+  await chooseBrailleOption(page, names.data, names[voice], names);
+  await chooseBrailleOption(page, names.shape, mode, names);
 }
 
 test("protocol a–g, browser side; lines saved for liblouis", async ({ page, browserName }) => {
@@ -67,8 +68,8 @@ test("protocol a–g, browser side; lines saved for liblouis", async ({ page, br
 
   // Live records: SST along the latitude, rain through time, SST in the 3x3 grid.
   const live: Record<string, unknown> = {};
-  for (const [name, voice, mode] of [["SST along the latitude", "SST", "Along the latitude"], ["Rain through time", "Rain", "Through time"],
-    ["SST 3 by 3", "SST", "3 by 3 around the needle"]] as const) {
+  for (const [name, voice, mode] of [["SST along the latitude", "ocean", "Along the latitude"], ["Rain through time", "rain", "Through time"],
+    ["SST 3 by 3", "ocean", "3 by 3 around the needle"]] as const) {
     await chooseVoiceAndMode(page, voice, mode);
     await expect(page.getByTestId("braille-shape")).toHaveValue(/^(Scale|Relative)/u);
     live[name] = await lines(page);
@@ -76,7 +77,7 @@ test("protocol a–g, browser side; lines saved for liblouis", async ({ page, br
   out.live = live;
 
   // d) an arrow moves the needle: the value line changes.
-  await chooseVoiceAndMode(page, "SST", "Along the latitude");
+  await chooseVoiceAndMode(page, "ocean", "Along the latitude");
   await page.getByTestId("braille-shape").focus();
   const before = await page.getByTestId("braille-value").inputValue();
   await page.keyboard.press("ArrowRight");
@@ -94,7 +95,7 @@ test("protocol a–g, browser side; lines saved for liblouis", async ({ page, br
   // f) width 20 and 40 wrap, each full line ending in the continuation cell.
   const f: Record<string, unknown> = {};
   for (const w of [20, 40]) {
-    await page.getByRole("group", { name: "Display width (cells)" }).getByRole("button", { name: String(w), exact: true }).click();
+    await chooseBrailleOption(page, BRAILLE_NAMES.en.width, String(w));
     const shapeLines = (await page.getByTestId("braille-shape").inputValue()).split("\n").slice(1);
     for (const l of shapeLines) expect([...l].length).toBeLessThanOrEqual(w);
     for (const l of shapeLines.slice(0, -1)) expect(l.endsWith(CONTINUES)).toBe(true);
@@ -114,15 +115,16 @@ test("protocol a–g, browser side; lines saved for liblouis", async ({ page, br
   await navTo(page, "Official records");
   const official: Record<string, unknown> = {};
   for (const [i, o] of OFFICIAL.entries()) {
-    const card = page.getByRole("group", { name: "Records", exact: true }).getByRole("button", { name: o.title, exact: true });
+    const card = officialStrip(page, o.title);
     await card.click();
     if (i === 0) out.recordCard = await exposed(page, `[aria-braillelabel][aria-pressed="true"]`);
-    const open = page.getByRole("button", { name: "Braille explorer" }).last();
+    const open = await officialBrailleButton(page, "Braille explorer");
     await expect(open).toBeEnabled({ timeout: 60_000 });
     await open.click();
     await expect(page.getByTestId("braille-value")).toHaveValue(/\S/u);
     official[o.record] = await lines(page);
     await page.getByRole("button", { name: "Close braille explorer" }).click();
+    await page.keyboard.press("Escape"); // closes the Details drawer, so the next record can be picked
   }
   out.official = official;
 
@@ -139,9 +141,10 @@ test("বাংলা mode: the same records' lines saved for the Bengali-table 
   await page.keyboard.press("b");
   await expect(page.getByTestId("braille-shape")).toBeFocused();
   const live: Record<string, unknown> = {};
-  for (const [name, voice, mode] of [["SST along the latitude", "SST", "Along the latitude"], ["Rain through time", "Rain", "Through time"],
-    ["SST 3 by 3", "SST", "3 by 3 around the needle"]] as const) {
-    await chooseVoiceAndMode(page, voice, mode);
+  // In Bangla mode the explorer's controls are in Bangla; the voices keep their data names (SST, Rain).
+  for (const [name, voice, mode] of [["SST along the latitude", "ocean", "অক্ষাংশ বরাবর"], ["Rain through time", "rain", "সময়ের সাথে"],
+    ["SST 3 by 3", "ocean", "সুইয়ের চারপাশে ৩ × ৩"]] as const) {
+    await chooseVoiceAndMode(page, voice, mode, BRAILLE_NAMES.bn);
     await expect(page.getByTestId("braille-shape")).toHaveValue(/^(স্কেল|আপেক্ষিক)/u);
     live[name] = await lines(page);
   }
@@ -150,13 +153,14 @@ test("বাংলা mode: the same records' lines saved for the Bengali-table 
   await navTo(page, "Official records");
   const official: Record<string, unknown> = {};
   for (const o of OFFICIAL) {
-    await page.getByRole("button", { name: o.title, exact: true }).first().click();
-    const open = page.getByRole("button", { name: /Braille explorer/u }).last();
+    await officialStrip(page, o.title).first().click();
+    const open = await officialBrailleButton(page, "ব্রেইল এক্সপ্লোরার", DETAILS_NAMES.bn);
     await expect(open).toBeEnabled({ timeout: 60_000 });
     await open.click();
     await expect(page.getByTestId("braille-value")).toHaveValue(/\S/u);
     official[o.record] = await lines(page);
-    await page.getByRole("button", { name: /Close braille explorer/u }).click();
+    await page.getByRole("button", { name: "ব্রেইল এক্সপ্লোরার বন্ধ করুন" }).click();
+    await page.keyboard.press("Escape"); // closes the Details drawer, so the next record can be picked
   }
   out.official = official;
   out.map = { snapshot: (await page.locator("body").ariaSnapshot()).split("\n")[0] };

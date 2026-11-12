@@ -29,7 +29,7 @@ export function ComingInOctober() {
         {ITEMS.map((key) => (
           <li key={key} className="flex flex-wrap items-center gap-x-2 gap-y-1">
             <span>{t(key)}</span>
-            <StatusBadge kind="october">{t("badge.comingOctober")}</StatusBadge>
+            <StatusBadge kind="note">{t("badge.comingOctober")}</StatusBadge>
           </li>
         ))}
       </ul>

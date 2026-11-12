@@ -19,14 +19,18 @@
           "kind": "measurement",
           "shares_inputs_with": [
             "mur"
-          ]
+          ],
+          "url": null,
+          "provider": null
         },
         {
           "id": "mur",
           "name": "MUR SST v4.1 (NASA/JPL PO.DAAC)",
           "agency": "NASA",
           "kind": "measurement",
-          "shares_inputs_with": []
+          "shares_inputs_with": [],
+          "url": "https://doi.org/10.5067/GHGMR-4FJ04",
+          "provider": null
         }
       ],
       "limit_days": 2,
@@ -35,7 +39,8 @@
       "age_days": 1.71,
       "period": null,
       "credit": "Visualization: NASA's Scientific Visualization Studio (SVS 5101), NASA Earth Information Center. Data: MUR SST, NASA/JPL PO.DAAC.",
-      "bytes": 1252616
+      "bytes": 1252616,
+      "checked_against": []
     },
     "rain": {
       "product": "rain",
@@ -56,14 +61,18 @@
           "kind": "measurement",
           "shares_inputs_with": [
             "imerg"
-          ]
+          ],
+          "url": null,
+          "provider": null
         },
         {
           "id": "imerg",
           "name": "GPM IMERG half-hourly V07 (NASA/JAXA, GES DISC)",
           "agency": "NASA",
           "kind": "measurement",
-          "shares_inputs_with": []
+          "shares_inputs_with": [],
+          "url": "https://doi.org/10.5067/GPM/IMERG/3B-HH/07",
+          "provider": null
         }
       ],
       "limit_days": 2,
@@ -72,7 +81,8 @@
       "age_days": 0.23,
       "period": null,
       "credit": "Visualization: NASA's Scientific Visualization Studio (SVS 4285), NASA Earth Information Center. Data: GPM IMERG (NASA/JAXA), GES DISC.",
-      "bytes": 5734214
+      "bytes": 5734214,
+      "checked_against": []
     },
     "sequence": {
       "product": "sequence",
@@ -90,7 +100,9 @@
           "kind": "measurement",
           "shares_inputs_with": [
             "imerg"
-          ]
+          ],
+          "url": null,
+          "provider": null
         }
       ],
       "limit_days": 2,
@@ -99,7 +111,8 @@
       "age_days": 0.23,
       "period": null,
       "credit": "Visualization: NASA's Scientific Visualization Studio (SVS 4285), NASA Earth Information Center. Data: GPM IMERG (NASA/JAXA), GES DISC.",
-      "bytes": 8168
+      "bytes": 8168,
+      "checked_against": []
     },
     "grace": {
       "product": "grace",
@@ -115,7 +128,9 @@
           "name": "GRACE/GRACE-FO JPL mascons RL06.3 v4 (NASA/JPL PO.DAAC)",
           "agency": "NASA",
           "kind": "measurement",
-          "shares_inputs_with": []
+          "shares_inputs_with": [],
+          "url": "https://doi.org/10.5067/TEMSC-3JC634",
+          "provider": null
         }
       ],
       "limit_days": null,
@@ -127,7 +142,8 @@
         "2026-07"
       ],
       "credit": "GRACE/GRACE-FO JPL RL06.3Mv04 CRI mascons, NASA/JPL PO.DAAC",
-      "bytes": 21455
+      "bytes": 21455,
+      "checked_against": []
     },
     "gistemp_bd": {
       "product": "gistemp_bd",
@@ -143,7 +159,9 @@
           "name": "NASA GISTEMP v4",
           "agency": "NASA",
           "kind": "measurement",
-          "shares_inputs_with": []
+          "shares_inputs_with": [],
+          "url": "https://data.giss.nasa.gov/gistemp/",
+          "provider": "NASA Goddard Institute for Space Studies"
         }
       ],
       "limit_days": null,
@@ -155,7 +173,8 @@
         "2026-08"
       ],
       "credit": "GISTEMP Team, NASA Goddard Institute for Space Studies",
-      "bytes": 121310
+      "bytes": 121310,
+      "checked_against": []
     },
     "gpcp_bd": {
       "product": "gpcp_bd",
@@ -171,7 +190,9 @@
           "name": "GPCP v2.3 (via NOAA PSL)",
           "agency": "NASA",
           "kind": "measurement",
-          "shares_inputs_with": []
+          "shares_inputs_with": [],
+          "url": "https://psl.noaa.gov/data/gridded/data.gpcp.html",
+          "provider": null
         }
       ],
       "limit_days": null,
@@ -183,7 +204,8 @@
         "2026-06"
       ],
       "credit": "GPCP v2.3 (Adler et al.); data provided by NOAA PSL",
-      "bytes": 78690
+      "bytes": 78690,
+      "checked_against": []
     },
     "gpcc_bd": {
       "product": "gpcc_bd",
@@ -199,7 +221,9 @@
           "name": "GPCC full v2020 rain gauges (DWD, via NOAA PSL)",
           "agency": "other",
           "kind": "measurement",
-          "shares_inputs_with": []
+          "shares_inputs_with": [],
+          "url": "https://opendata.dwd.de/climate_environment/GPCC/html/fulldata-monthly_v2020_doi_download.html",
+          "provider": null
         }
       ],
       "limit_days": null,
@@ -211,7 +235,8 @@
         "2019-12"
       ],
       "credit": "GPCC, Deutscher Wetterdienst; data provided by NOAA PSL",
-      "bytes": 212294
+      "bytes": 212294,
+      "checked_against": []
     },
     "firms": {
       "product": "firms",
@@ -227,7 +252,9 @@
           "name": "NASA FIRMS archive (MODIS_SP, VIIRS_SNPP_SP)",
           "agency": "NASA",
           "kind": "measurement",
-          "shares_inputs_with": []
+          "shares_inputs_with": [],
+          "url": "https://firms.modaps.eosdis.nasa.gov/",
+          "provider": "NASA FIRMS (LANCE/ESDIS)"
         }
       ],
       "limit_days": null,
@@ -236,7 +263,8 @@
       "age_days": null,
       "period": null,
       "credit": "NASA FIRMS (LANCE/ESDIS)",
-      "bytes": 26012
+      "bytes": 26012,
+      "checked_against": []
     },
     "ndvi": {
       "product": "ndvi",
@@ -252,7 +280,9 @@
           "name": "MODIS MOD13Q1 NDVI (ORNL DAAC)",
           "agency": "NASA",
           "kind": "measurement",
-          "shares_inputs_with": []
+          "shares_inputs_with": [],
+          "url": null,
+          "provider": null
         }
       ],
       "limit_days": null,
@@ -264,7 +294,8 @@
         "2023-12-19"
       ],
       "credit": "MODIS MOD13Q1, ORNL DAAC",
-      "bytes": 18541
+      "bytes": 18541,
+      "checked_against": []
     },
     "globe_bd": {
       "product": "globe_bd",
@@ -280,7 +311,9 @@
           "name": "NASA GLOBE Program cloud observations",
           "agency": "ground",
           "kind": "measurement",
-          "shares_inputs_with": []
+          "shares_inputs_with": [],
+          "url": null,
+          "provider": "NASA GLOBE Program"
         }
       ],
       "limit_days": null,
@@ -292,7 +325,8 @@
         "2025-12-31"
       ],
       "credit": "NASA GLOBE Program",
-      "bytes": 621029
+      "bytes": 621029,
+      "checked_against": []
     },
     "sst_pairs": {
       "product": "sst_pairs",
@@ -310,14 +344,18 @@
           "kind": "measurement",
           "shares_inputs_with": [
             "mur"
-          ]
+          ],
+          "url": null,
+          "provider": null
         },
         {
           "id": "mur",
           "name": "MUR SST v4.1 (NASA/JPL PO.DAAC)",
           "agency": "NASA",
           "kind": "measurement",
-          "shares_inputs_with": []
+          "shares_inputs_with": [],
+          "url": "https://doi.org/10.5067/GHGMR-4FJ04",
+          "provider": null
         }
       ],
       "limit_days": 4,
@@ -326,7 +364,8 @@
       "age_days": 1.71,
       "period": null,
       "credit": "Data: MUR SST (NASA/JPL PO.DAAC). Visualization: NASA's Scientific Visualization Studio (SVS 5101) for the NASA Earth Information Center.",
-      "bytes": 8564
+      "bytes": 8564,
+      "checked_against": []
     },
     "rain_pairs": {
       "product": "rain_pairs",
@@ -344,14 +383,18 @@
           "kind": "measurement",
           "shares_inputs_with": [
             "imerg"
-          ]
+          ],
+          "url": null,
+          "provider": null
         },
         {
           "id": "imerg",
           "name": "GPM IMERG half-hourly V07 (NASA/JAXA, GES DISC)",
           "agency": "NASA",
           "kind": "measurement",
-          "shares_inputs_with": []
+          "shares_inputs_with": [],
+          "url": "https://doi.org/10.5067/GPM/IMERG/3B-HH/07",
+          "provider": null
         }
       ],
       "limit_days": 3,
@@ -360,7 +403,8 @@
       "age_days": 0.23,
       "period": null,
       "credit": "Data: GPM IMERG (NASA/JAXA, GES DISC). Visualization: NASA's Scientific Visualization Studio (SVS 4285) for the NASA Earth Information Center.",
-      "bytes": 39984
+      "bytes": 39984,
+      "checked_against": []
     },
     "threeway": {
       "product": "threeway",
@@ -378,7 +422,9 @@
           "kind": "measurement",
           "shares_inputs_with": [
             "mur"
-          ]
+          ],
+          "url": null,
+          "provider": null
         },
         {
           "id": "gibs_mur",
@@ -387,14 +433,18 @@
           "kind": "measurement",
           "shares_inputs_with": [
             "mur"
-          ]
+          ],
+          "url": "https://nasa-gibs.github.io/gibs-api-docs/",
+          "provider": null
         },
         {
           "id": "mur",
           "name": "MUR SST v4.1 (NASA/JPL PO.DAAC)",
           "agency": "NASA",
           "kind": "measurement",
-          "shares_inputs_with": []
+          "shares_inputs_with": [],
+          "url": "https://doi.org/10.5067/GHGMR-4FJ04",
+          "provider": null
         }
       ],
       "limit_days": 4,
@@ -403,7 +453,8 @@
       "age_days": 1.71,
       "period": null,
       "credit": "Data: MUR SST (NASA/JPL PO.DAAC); GIBS (NASA EOSDIS). Visualization: NASA's Scientific Visualization Studio (SVS 5101) for the NASA Earth Information Center.",
-      "bytes": 15280
+      "bytes": 15280,
+      "checked_against": []
     },
     "sst_anom": {
       "product": "sst_anom",
@@ -423,21 +474,27 @@
           "kind": "measurement",
           "shares_inputs_with": [
             "mur"
-          ]
+          ],
+          "url": null,
+          "provider": null
         },
         {
           "id": "mur",
           "name": "MUR SST v4.1 (NASA/JPL PO.DAAC)",
           "agency": "NASA",
           "kind": "measurement",
-          "shares_inputs_with": []
+          "shares_inputs_with": [],
+          "url": "https://doi.org/10.5067/GHGMR-4FJ04",
+          "provider": null
         },
         {
           "id": "crw",
           "name": "NOAA Coral Reef Watch SST anomaly and Degree Heating Weeks (5 km)",
           "agency": "NOAA",
           "kind": "measurement",
-          "shares_inputs_with": []
+          "shares_inputs_with": [],
+          "url": "https://coastwatch.noaa.gov/erddap/griddap/noaacrwdhwDaily",
+          "provider": "NOAA Coral Reef Watch"
         }
       ],
       "limit_days": 5,
@@ -446,7 +503,10 @@
       "age_days": 3.71,
       "period": null,
       "credit": "Visualization: NASA's Scientific Visualization Studio (SVS 5176) for the NASA Earth Information Center. Data: MUR SST (NASA/JPL PO.DAAC). Check: NOAA Coral Reef Watch.",
-      "bytes": 1498607
+      "bytes": 1498607,
+      "checked_against": [
+        "crw"
+      ]
     },
     "sst_dt": {
       "product": "sst_dt",
@@ -463,7 +523,9 @@
           "name": "MUR SST v4.1 (NASA/JPL PO.DAAC)",
           "agency": "NASA",
           "kind": "measurement",
-          "shares_inputs_with": []
+          "shares_inputs_with": [],
+          "url": "https://doi.org/10.5067/GHGMR-4FJ04",
+          "provider": null
         }
       ],
       "limit_days": 3,
@@ -472,7 +534,8 @@
       "age_days": 1.33,
       "period": null,
       "credit": "Data: MUR SST v4.1, dt_1km_data (NASA/JPL PO.DAAC).",
-      "bytes": 525713
+      "bytes": 525713,
+      "checked_against": []
     },
     "fwi_class": {
       "product": "fwi_class",
@@ -489,7 +552,9 @@
           "name": "EIC frame: SVS 5315 Fire Weather Index, 1-day forecast (NASA GISS GlobalFWI)",
           "agency": "NASA",
           "kind": "model",
-          "shares_inputs_with": []
+          "shares_inputs_with": [],
+          "url": null,
+          "provider": null
         }
       ],
       "limit_days": 2,
@@ -498,7 +563,8 @@
       "age_days": 0.41,
       "period": null,
       "credit": "Visualization: NASA's Scientific Visualization Studio (SVS 5315) for the NASA Earth Information Center. Data: NASA GISS GlobalFWI (experimental).",
-      "bytes": 526668
+      "bytes": 526668,
+      "checked_against": []
     },
     "fwi_archive": {
       "product": "fwi_archive",
@@ -514,7 +580,9 @@
           "name": "EIC frame: SVS 5315 Fire Weather Index, 1-day forecast (NASA GISS GlobalFWI)",
           "agency": "NASA",
           "kind": "model",
-          "shares_inputs_with": []
+          "shares_inputs_with": [],
+          "url": null,
+          "provider": null
         }
       ],
       "limit_days": 2,
@@ -523,7 +591,8 @@
       "age_days": 0.41,
       "period": null,
       "credit": "Visualization: NASA's Scientific Visualization Studio (SVS 5315) for the NASA Earth Information Center.",
-      "bytes": 2368
+      "bytes": 2368,
+      "checked_against": []
     },
     "fires_frame": {
       "product": "fires_frame",
@@ -542,7 +611,9 @@
           "kind": "measurement",
           "shares_inputs_with": [
             "firms"
-          ]
+          ],
+          "url": null,
+          "provider": null
         }
       ],
       "limit_days": 3,
@@ -551,7 +622,8 @@
       "age_days": 0.23,
       "period": null,
       "credit": "Visualization: NASA's Scientific Visualization Studio (SVS 5113) for the NASA Earth Information Center. Data: VIIRS active fires (NASA FIRMS, LANCE/ESDIS).",
-      "bytes": 96537
+      "bytes": 96537,
+      "checked_against": []
     },
     "firms_daily": {
       "product": "firms_daily",
@@ -567,21 +639,27 @@
           "name": "NASA FIRMS VIIRS NOAA-21 NRT",
           "agency": "NASA",
           "kind": "measurement",
-          "shares_inputs_with": []
+          "shares_inputs_with": [],
+          "url": "https://firms.modaps.eosdis.nasa.gov/",
+          "provider": "NASA FIRMS (LANCE/ESDIS)"
         },
         {
           "id": "firms_viirs_noaa20_nrt",
           "name": "NASA FIRMS VIIRS NOAA-20 NRT",
           "agency": "NASA",
           "kind": "measurement",
-          "shares_inputs_with": []
+          "shares_inputs_with": [],
+          "url": "https://firms.modaps.eosdis.nasa.gov/",
+          "provider": "NASA FIRMS (LANCE/ESDIS)"
         },
         {
           "id": "firms_modis_nrt",
           "name": "NASA FIRMS MODIS NRT",
           "agency": "NASA",
           "kind": "measurement",
-          "shares_inputs_with": []
+          "shares_inputs_with": [],
+          "url": "https://firms.modaps.eosdis.nasa.gov/",
+          "provider": "NASA FIRMS (LANCE/ESDIS)"
         }
       ],
       "limit_days": 2,
@@ -590,7 +668,8 @@
       "age_days": 0.0,
       "period": null,
       "credit": "NASA FIRMS (LANCE/ESDIS): VIIRS NOAA-21 and NOAA-20, MODIS.",
-      "bytes": 26012
+      "bytes": 26012,
+      "checked_against": []
     },
     "landslide_class": {
       "product": "landslide_class",
@@ -607,7 +686,9 @@
           "name": "EIC frame: SVS 5584 landslide exposure (LHASA)",
           "agency": "NASA",
           "kind": "model",
-          "shares_inputs_with": []
+          "shares_inputs_with": [],
+          "url": null,
+          "provider": null
         }
       ],
       "limit_days": 2,
@@ -616,7 +697,8 @@
       "age_days": 0.5,
       "period": null,
       "credit": "Visualization: NASA's Scientific Visualization Studio (SVS 5584) for the NASA Earth Information Center. Data: NASA LHASA.",
-      "bytes": 526138
+      "bytes": 526138,
+      "checked_against": []
     },
     "nightlights": {
       "product": "nightlights",
@@ -632,7 +714,9 @@
           "name": "Black Marble VJ146A2, NOAA-20 VIIRS (NASA LAADS)",
           "agency": "NASA",
           "kind": "measurement",
-          "shares_inputs_with": []
+          "shares_inputs_with": [],
+          "url": null,
+          "provider": null
         }
       ],
       "limit_days": 14,
@@ -641,7 +725,8 @@
       "age_days": 14.71,
       "period": null,
       "credit": "NASA Black Marble VJ146A2 (NOAA-20 VIIRS), NASA LAADS DAAC.",
-      "bytes": 5855
+      "bytes": 5855,
+      "checked_against": []
     },
     "air_5533": {
       "product": "air_5533",
@@ -659,14 +744,18 @@
           "kind": "model",
           "shares_inputs_with": [
             "geoscf"
-          ]
+          ],
+          "url": null,
+          "provider": null
         },
         {
           "id": "geoscf",
           "name": "NASA GEOS-CF composition model (GMAO)",
           "agency": "NASA",
           "kind": "model",
-          "shares_inputs_with": []
+          "shares_inputs_with": [],
+          "url": "https://gmao.gsfc.nasa.gov/gmao-products/geos-cf/",
+          "provider": null
         }
       ],
       "limit_days": null,
@@ -678,7 +767,8 @@
         "2024-09-14T00:00:00Z"
       ],
       "credit": "Visualization: NASA's Scientific Visualization Studio (SVS 5533, 5518) for the NASA Earth Information Center. Data: NASA GEOS-CF (GMAO), model output.",
-      "bytes": 248240
+      "bytes": 248240,
+      "checked_against": []
     },
     "currents_3912": {
       "product": "currents_3912",
@@ -696,21 +786,27 @@
           "kind": "model",
           "shares_inputs_with": [
             "ecco2"
-          ]
+          ],
+          "url": null,
+          "provider": null
         },
         {
           "id": "ecco2",
           "name": "ECCO2 ocean model (MIT/JPL)",
           "agency": "NASA",
           "kind": "model",
-          "shares_inputs_with": []
+          "shares_inputs_with": [],
+          "url": "https://www.ecco-group.org",
+          "provider": null
         },
         {
           "id": "oscar",
           "name": "OSCAR L4 surface currents, final v2.0 (ESR, NASA PO.DAAC)",
           "agency": "NASA",
           "kind": "measurement",
-          "shares_inputs_with": []
+          "shares_inputs_with": [],
+          "url": "https://doi.org/10.5067/OSCAR-25F20",
+          "provider": null
         }
       ],
       "limit_days": null,
@@ -722,7 +818,8 @@
         "2008-03-03T12:00:00Z"
       ],
       "credit": "Visualization: NASA's Scientific Visualization Studio (SVS 3912) for the NASA Earth Information Center. Data: ECCO2 ocean model (MIT/JPL). Currents voice: NASA OSCAR surface currents (ESR, PO.DAAC).",
-      "bytes": 25525
+      "bytes": 25525,
+      "checked_against": []
     },
     "ocean2_5425": {
       "product": "ocean2_5425",
@@ -740,14 +837,18 @@
           "kind": "model",
           "shares_inputs_with": [
             "ecco"
-          ]
+          ],
+          "url": null,
+          "provider": null
         },
         {
           "id": "ecco",
           "name": "ECCO ocean state estimate (NASA/JPL)",
           "agency": "NASA",
           "kind": "model",
-          "shares_inputs_with": []
+          "shares_inputs_with": [],
+          "url": "https://www.ecco-group.org",
+          "provider": null
         }
       ],
       "limit_days": null,
@@ -759,7 +860,8 @@
         "2023-12-25T00:00:00Z"
       ],
       "credit": "Visualization: NASA's Scientific Visualization Studio (SVS 5425) for the NASA Earth Information Center. Data: ECCO ocean state estimate (NASA/JPL).",
-      "bytes": 30512
+      "bytes": 30512,
+      "checked_against": []
     },
     "river_4960": {
       "product": "river_4960",
@@ -777,14 +879,18 @@
           "kind": "model",
           "shares_inputs_with": [
             "merra2"
-          ]
+          ],
+          "url": null,
+          "provider": null
         },
         {
           "id": "merra2",
           "name": "NASA MERRA-2 reanalysis (GMAO, GES DISC)",
           "agency": "NASA",
           "kind": "model",
-          "shares_inputs_with": []
+          "shares_inputs_with": [],
+          "url": "https://gmao.gsfc.nasa.gov/gmao-products/merra-2/",
+          "provider": null
         }
       ],
       "limit_days": null,
@@ -796,7 +902,8 @@
         "2010-12-14T00:00:00Z"
       ],
       "credit": "Visualization: NASA's Scientific Visualization Studio (SVS 4960) for the NASA Earth Information Center. Data: NASA MERRA-2 reanalysis (GMAO).",
-      "bytes": 15181
+      "bytes": 15181,
+      "checked_against": []
     },
     "sonification_13786": {
       "product": "sonification_13786",
@@ -812,7 +919,9 @@
           "name": "SVS 13786 Data Sonification: Caldwell 73 (SYSTEM Sounds; Hubble image)",
           "agency": "NASA",
           "kind": "measurement",
-          "shares_inputs_with": []
+          "shares_inputs_with": [],
+          "url": null,
+          "provider": null
         }
       ],
       "limit_days": null,
@@ -824,7 +933,8 @@
         "2020-12-23T09:00:00Z"
       ],
       "credit": "Credit: SYSTEM Sounds (M. Russo, A. Santaguida) and NASA (SVS 13786).",
-      "bytes": 3553
+      "bytes": 3553,
+      "checked_against": []
     },
     "co2_5196": {
       "product": "co2_5196",
@@ -842,14 +952,18 @@
           "kind": "model",
           "shares_inputs_with": [
             "dyamond"
-          ]
+          ],
+          "url": null,
+          "provider": null
         },
         {
           "id": "dyamond",
           "name": "GEOS–MITgcm DYAMOND coupled nature run (NASA GMAO)",
           "agency": "NASA",
           "kind": "model",
-          "shares_inputs_with": []
+          "shares_inputs_with": [],
+          "url": null,
+          "provider": null
         }
       ],
       "limit_days": null,
@@ -861,7 +975,8 @@
         "2020-03-03T00:00:00Z"
       ],
       "credit": "Visualization: NASA's Scientific Visualization Studio (SVS 5196, 5436) for the NASA Earth Information Center. Data: NASA GEOS–MITgcm DYAMOND nature run (GMAO).",
-      "bytes": 10446
+      "bytes": 10446,
+      "checked_against": []
     },
     "forest_4950": {
       "product": "forest_4950",
@@ -879,14 +994,18 @@
           "kind": "measurement",
           "shares_inputs_with": [
             "gedi"
-          ]
+          ],
+          "url": null,
+          "provider": null
         },
         {
           "id": "gedi",
           "name": "GEDI L2B/L3 canopy height (NASA, ORNL DAAC)",
           "agency": "NASA",
           "kind": "measurement",
-          "shares_inputs_with": []
+          "shares_inputs_with": [],
+          "url": "https://doi.org/10.5067/GEDI/GEDI02_B.002",
+          "provider": null
         }
       ],
       "limit_days": null,
@@ -898,7 +1017,8 @@
         "2020-04-30T00:00:00Z"
       ],
       "credit": "Visualization: NASA's Scientific Visualization Studio (SVS 4950) for the NASA Earth Information Center. Data: NASA GEDI (University of Maryland, ORNL DAAC).",
-      "bytes": 11617
+      "bytes": 11617,
+      "checked_against": []
     },
     "aerosols_5669": {
       "product": "aerosols_5669",
@@ -916,14 +1036,18 @@
           "kind": "model",
           "shares_inputs_with": [
             "geosfp"
-          ]
+          ],
+          "url": null,
+          "provider": null
         },
         {
           "id": "geosfp",
           "name": "NASA GEOS-FP forward-processing model (GMAO)",
           "agency": "NASA",
           "kind": "model",
-          "shares_inputs_with": []
+          "shares_inputs_with": [],
+          "url": "https://fluid.nccs.nasa.gov/weather/",
+          "provider": null
         }
       ],
       "limit_days": null,
@@ -935,7 +1059,8 @@
         "2025-08-19T20:00:00Z"
       ],
       "credit": "Visualization: NASA's Scientific Visualization Studio (SVS 5669, 5572) for the NASA Earth Information Center. Data: NASA GEOS-FP (GMAO), model output.",
-      "bytes": 17868
+      "bytes": 17868,
+      "checked_against": []
     },
     "lightning_5011": {
       "product": "lightning_5011",
@@ -953,14 +1078,18 @@
           "kind": "measurement",
           "shares_inputs_with": [
             "isslis"
-          ]
+          ],
+          "url": null,
+          "provider": null
         },
         {
           "id": "isslis",
           "name": "ISS LIS quality-controlled science data V3 (NASA GHRC DAAC)",
           "agency": "NASA",
           "kind": "measurement",
-          "shares_inputs_with": []
+          "shares_inputs_with": [],
+          "url": "https://www.earthdata.nasa.gov/data/catalog/ghrc-daac-isslis-v3-fin-3",
+          "provider": null
         }
       ],
       "limit_days": null,
@@ -972,7 +1101,8 @@
         "2023-07-31T00:00:00Z"
       ],
       "credit": "Visualization: NASA's Scientific Visualization Studio (SVS 5011) for the NASA Earth Information Center. Data: NASA ISS LIS (GHRC DAAC).",
-      "bytes": 26080
+      "bytes": 26080,
+      "checked_against": []
     },
     "lights_5313": {
       "product": "lights_5313",
@@ -990,14 +1120,18 @@
           "kind": "measurement",
           "shares_inputs_with": [
             "vnp46a4"
-          ]
+          ],
+          "url": null,
+          "provider": null
         },
         {
           "id": "vnp46a4",
           "name": "Black Marble VNP46A4 v2 annual night lights, S-NPP VIIRS (NASA LAADS)",
           "agency": "NASA",
           "kind": "measurement",
-          "shares_inputs_with": []
+          "shares_inputs_with": [],
+          "url": "https://doi.org/10.5067/VIIRS/VNP46A4.002",
+          "provider": null
         }
       ],
       "limit_days": null,
@@ -1009,7 +1143,8 @@
         "2023-12-31T00:00:00Z"
       ],
       "credit": "Visualization: NASA's Scientific Visualization Studio (SVS 5313, 5276, 5475) for the NASA Earth Information Center. Data: NASA Black Marble (S-NPP VIIRS).",
-      "bytes": 10559
+      "bytes": 10559,
+      "checked_against": []
     },
     "oscar_3912": {
       "product": "oscar_3912",
@@ -1025,7 +1160,9 @@
           "name": "OSCAR L4 surface currents, final v2.0 (ESR, NASA PO.DAAC)",
           "agency": "NASA",
           "kind": "measurement",
-          "shares_inputs_with": []
+          "shares_inputs_with": [],
+          "url": "https://doi.org/10.5067/OSCAR-25F20",
+          "provider": null
         }
       ],
       "limit_days": null,
@@ -1037,7 +1174,8 @@
         "2008-03-03T12:00:00Z"
       ],
       "credit": "NASA OSCAR L4 surface currents, final v2.0 (ESR, PO.DAAC); full citation in the record's voice sources.",
-      "bytes": 25525
+      "bytes": 25525,
+      "checked_against": []
     },
     "eic_5147": {
       "product": "eic_5147",
@@ -1054,8 +1192,11 @@
           "agency": "NASA",
           "kind": "model",
           "shares_inputs_with": [
-            "geosfp"
-          ]
+            "geosfp",
+            "geoscf"
+          ],
+          "url": null,
+          "provider": null
         }
       ],
       "limit_days": null,
@@ -1067,7 +1208,8 @@
         "2026-10-28T22:00:00Z"
       ],
       "credit": "Visualization: NASA's Scientific Visualization Studio (SVS 5147) for the NASA Earth Information Center.",
-      "bytes": 7918
+      "bytes": 7918,
+      "checked_against": []
     },
     "eic_5148": {
       "product": "eic_5148",
@@ -1084,8 +1226,11 @@
           "agency": "NASA",
           "kind": "model",
           "shares_inputs_with": [
-            "geosfp"
-          ]
+            "geosfp",
+            "geoscf"
+          ],
+          "url": null,
+          "provider": null
         }
       ],
       "limit_days": null,
@@ -1097,7 +1242,8 @@
         "2026-10-28T22:00:00Z"
       ],
       "credit": "Visualization: NASA's Scientific Visualization Studio (SVS 5148) for the NASA Earth Information Center.",
-      "bytes": 7871
+      "bytes": 7871,
+      "checked_against": []
     },
     "eic_5149": {
       "product": "eic_5149",
@@ -1114,8 +1260,11 @@
           "agency": "NASA",
           "kind": "model",
           "shares_inputs_with": [
-            "geosfp"
-          ]
+            "geosfp",
+            "geoscf"
+          ],
+          "url": null,
+          "provider": null
         }
       ],
       "limit_days": null,
@@ -1127,7 +1276,8 @@
         "2026-10-28T22:00:00Z"
       ],
       "credit": "Visualization: NASA's Scientific Visualization Studio (SVS 5149) for the NASA Earth Information Center.",
-      "bytes": 8259
+      "bytes": 8259,
+      "checked_against": []
     },
     "eic_5150": {
       "product": "eic_5150",
@@ -1144,8 +1294,11 @@
           "agency": "NASA",
           "kind": "model",
           "shares_inputs_with": [
-            "geosfp"
-          ]
+            "geosfp",
+            "geoscf"
+          ],
+          "url": null,
+          "provider": null
         }
       ],
       "limit_days": null,
@@ -1157,7 +1310,8 @@
         "2026-10-29T22:00:00Z"
       ],
       "credit": "Visualization: NASA's Scientific Visualization Studio (SVS 5150) for the NASA Earth Information Center.",
-      "bytes": 8384
+      "bytes": 8384,
+      "checked_against": []
     },
     "eic_5151": {
       "product": "eic_5151",
@@ -1174,8 +1328,11 @@
           "agency": "NASA",
           "kind": "model",
           "shares_inputs_with": [
-            "geosfp"
-          ]
+            "geosfp",
+            "geoscf"
+          ],
+          "url": null,
+          "provider": null
         }
       ],
       "limit_days": null,
@@ -1187,7 +1344,8 @@
         "2026-10-28T22:00:00Z"
       ],
       "credit": "Visualization: NASA's Scientific Visualization Studio (SVS 5151) for the NASA Earth Information Center.",
-      "bytes": 7334
+      "bytes": 7334,
+      "checked_against": []
     },
     "eic_5152": {
       "product": "eic_5152",
@@ -1204,8 +1362,11 @@
           "agency": "NASA",
           "kind": "model",
           "shares_inputs_with": [
-            "geosfp"
-          ]
+            "geosfp",
+            "geoscf"
+          ],
+          "url": null,
+          "provider": null
         }
       ],
       "limit_days": null,
@@ -1217,7 +1378,8 @@
         "2026-10-28T22:00:00Z"
       ],
       "credit": "Visualization: NASA's Scientific Visualization Studio (SVS 5152) for the NASA Earth Information Center.",
-      "bytes": 7027
+      "bytes": 7027,
+      "checked_against": []
     },
     "eic_5153": {
       "product": "eic_5153",
@@ -1234,8 +1396,11 @@
           "agency": "NASA",
           "kind": "model",
           "shares_inputs_with": [
-            "geosfp"
-          ]
+            "geosfp",
+            "geoscf"
+          ],
+          "url": null,
+          "provider": null
         }
       ],
       "limit_days": null,
@@ -1247,7 +1412,8 @@
         "2026-10-28T22:00:00Z"
       ],
       "credit": "Visualization: NASA's Scientific Visualization Studio (SVS 5153) for the NASA Earth Information Center.",
-      "bytes": 7436
+      "bytes": 7436,
+      "checked_against": []
     },
     "eic_5154": {
       "product": "eic_5154",
@@ -1264,8 +1430,11 @@
           "agency": "NASA",
           "kind": "model",
           "shares_inputs_with": [
-            "geosfp"
-          ]
+            "geosfp",
+            "geoscf"
+          ],
+          "url": null,
+          "provider": null
         }
       ],
       "limit_days": null,
@@ -1277,7 +1446,8 @@
         "2026-10-28T22:00:00Z"
       ],
       "credit": "Visualization: NASA's Scientific Visualization Studio (SVS 5154) for the NASA Earth Information Center.",
-      "bytes": 7628
+      "bytes": 7628,
+      "checked_against": []
     },
     "eic_5544": {
       "product": "eic_5544",
@@ -1293,7 +1463,9 @@
           "name": "EIC frames: SVS 5544 near-real-time NDVI (S-NPP VIIRS)",
           "agency": "NASA",
           "kind": "measurement",
-          "shares_inputs_with": []
+          "shares_inputs_with": [],
+          "url": null,
+          "provider": null
         }
       ],
       "limit_days": null,
@@ -1305,7 +1477,8 @@
         "2026-06-13T00:00:00Z"
       ],
       "credit": "Visualization: NASA's Scientific Visualization Studio (SVS 5544) for the NASA Earth Information Center.",
-      "bytes": 5916
+      "bytes": 5916,
+      "checked_against": []
     },
     "rel_30919": {
       "product": "rel_30919",
@@ -1321,7 +1494,9 @@
           "name": "SVS related visualizations (observations), onboarded by svs.onboard",
           "agency": "NASA",
           "kind": "measurement",
-          "shares_inputs_with": []
+          "shares_inputs_with": [],
+          "url": null,
+          "provider": null
         }
       ],
       "limit_days": null,
@@ -1333,7 +1508,8 @@
         "2017-12-06T05:00:00Z"
       ],
       "credit": "Visualization: NASA's Scientific Visualization Studio (SVS 30919) for the NASA Earth Information Center.",
-      "bytes": 6459
+      "bytes": 6459,
+      "checked_against": []
     },
     "rel_3143": {
       "product": "rel_3143",
@@ -1349,7 +1525,9 @@
           "name": "SVS related visualizations (observations), onboarded by svs.onboard",
           "agency": "NASA",
           "kind": "measurement",
-          "shares_inputs_with": []
+          "shares_inputs_with": [],
+          "url": null,
+          "provider": null
         }
       ],
       "limit_days": null,
@@ -1361,7 +1539,8 @@
         "2005-04-14T16:00:00Z"
       ],
       "credit": "Visualization: NASA's Scientific Visualization Studio (SVS 3143) for the NASA Earth Information Center.",
-      "bytes": 9126
+      "bytes": 9126,
+      "checked_against": []
     },
     "rel_3144": {
       "product": "rel_3144",
@@ -1377,7 +1556,9 @@
           "name": "SVS related visualizations (observations), onboarded by svs.onboard",
           "agency": "NASA",
           "kind": "measurement",
-          "shares_inputs_with": []
+          "shares_inputs_with": [],
+          "url": null,
+          "provider": null
         }
       ],
       "limit_days": null,
@@ -1389,7 +1570,8 @@
         "2005-04-14T16:00:00Z"
       ],
       "credit": "Visualization: NASA's Scientific Visualization Studio (SVS 3144) for the NASA Earth Information Center.",
-      "bytes": 9315
+      "bytes": 9315,
+      "checked_against": []
     },
     "rel_3821": {
       "product": "rel_3821",
@@ -1405,7 +1587,9 @@
           "name": "SVS related visualizations (model or reanalysis), onboarded by svs.onboard",
           "agency": "NASA",
           "kind": "model",
-          "shares_inputs_with": []
+          "shares_inputs_with": [],
+          "url": null,
+          "provider": null
         }
       ],
       "limit_days": null,
@@ -1417,7 +1601,8 @@
         "2006-01-01T00:00:00Z"
       ],
       "credit": "Visualization: NASA's Scientific Visualization Studio (SVS 3821) for the NASA Earth Information Center.",
-      "bytes": 10061
+      "bytes": 10061,
+      "checked_against": []
     },
     "rel_3913": {
       "product": "rel_3913",
@@ -1433,7 +1618,9 @@
           "name": "SVS related visualizations (model or reanalysis), onboarded by svs.onboard",
           "agency": "NASA",
           "kind": "model",
-          "shares_inputs_with": []
+          "shares_inputs_with": [],
+          "url": null,
+          "provider": null
         }
       ],
       "limit_days": null,
@@ -1445,7 +1632,8 @@
         "2012-02-15T05:00:00Z"
       ],
       "credit": "Visualization: NASA's Scientific Visualization Studio (SVS 3913) for the NASA Earth Information Center.",
-      "bytes": 12889
+      "bytes": 12889,
+      "checked_against": []
     },
     "rel_4272": {
       "product": "rel_4272",
@@ -1461,7 +1649,9 @@
           "name": "SVS related visualizations (model or reanalysis), onboarded by svs.onboard",
           "agency": "NASA",
           "kind": "model",
-          "shares_inputs_with": []
+          "shares_inputs_with": [],
+          "url": null,
+          "provider": null
         }
       ],
       "limit_days": null,
@@ -1473,7 +1663,8 @@
         "2015-02-09T05:00:00Z"
       ],
       "credit": "Visualization: NASA's Scientific Visualization Studio (SVS 4272) for the NASA Earth Information Center.",
-      "bytes": 7909
+      "bytes": 7909,
+      "checked_against": []
     },
     "rel_4284": {
       "product": "rel_4284",
@@ -1489,7 +1680,9 @@
           "name": "SVS related visualizations (observations), onboarded by svs.onboard",
           "agency": "NASA",
           "kind": "measurement",
-          "shares_inputs_with": []
+          "shares_inputs_with": [],
+          "url": null,
+          "provider": null
         }
       ],
       "limit_days": null,
@@ -1501,7 +1694,8 @@
         "2014-08-11T00:00:00Z"
       ],
       "credit": "Visualization: NASA's Scientific Visualization Studio (SVS 4284) for the NASA Earth Information Center.",
-      "bytes": 9126
+      "bytes": 9126,
+      "checked_against": []
     },
     "rel_4332": {
       "product": "rel_4332",
@@ -1517,7 +1711,9 @@
           "name": "SVS related visualizations (observations), onboarded by svs.onboard",
           "agency": "NASA",
           "kind": "measurement",
-          "shares_inputs_with": []
+          "shares_inputs_with": [],
+          "url": null,
+          "provider": null
         }
       ],
       "limit_days": null,
@@ -1529,7 +1725,8 @@
         "2015-09-23T04:00:00Z"
       ],
       "credit": "Visualization: NASA's Scientific Visualization Studio (SVS 4332) for the NASA Earth Information Center.",
-      "bytes": 7305
+      "bytes": 7305,
+      "checked_against": []
     },
     "rel_4345": {
       "product": "rel_4345",
@@ -1545,7 +1742,9 @@
           "name": "SVS related visualizations (observations), onboarded by svs.onboard",
           "agency": "NASA",
           "kind": "measurement",
-          "shares_inputs_with": []
+          "shares_inputs_with": [],
+          "url": null,
+          "provider": null
         }
       ],
       "limit_days": null,
@@ -1557,7 +1756,8 @@
         "2015-08-26T13:30:00Z"
       ],
       "credit": "Visualization: NASA's Scientific Visualization Studio (SVS 4345) for the NASA Earth Information Center.",
-      "bytes": 8959
+      "bytes": 8959,
+      "checked_against": []
     },
     "rel_4353": {
       "product": "rel_4353",
@@ -1573,7 +1773,9 @@
           "name": "SVS related visualizations (observations), onboarded by svs.onboard",
           "agency": "NASA",
           "kind": "measurement",
-          "shares_inputs_with": []
+          "shares_inputs_with": [],
+          "url": null,
+          "provider": null
         }
       ],
       "limit_days": null,
@@ -1585,7 +1787,8 @@
         "2015-09-10T04:00:00Z"
       ],
       "credit": "Visualization: NASA's Scientific Visualization Studio (SVS 4353) for the NASA Earth Information Center.",
-      "bytes": 9965
+      "bytes": 9965,
+      "checked_against": []
     },
     "rel_4372": {
       "product": "rel_4372",
@@ -1601,7 +1804,9 @@
           "name": "SVS related visualizations (observations), onboarded by svs.onboard",
           "agency": "NASA",
           "kind": "measurement",
-          "shares_inputs_with": []
+          "shares_inputs_with": [],
+          "url": null,
+          "provider": null
         }
       ],
       "limit_days": null,
@@ -1613,7 +1818,8 @@
         "2015-10-02T04:00:00Z"
       ],
       "credit": "Visualization: NASA's Scientific Visualization Studio (SVS 4372) for the NASA Earth Information Center.",
-      "bytes": 14898
+      "bytes": 14898,
+      "checked_against": []
     },
     "rel_4417": {
       "product": "rel_4417",
@@ -1629,7 +1835,9 @@
           "name": "SVS related visualizations (model or reanalysis), onboarded by svs.onboard",
           "agency": "NASA",
           "kind": "model",
-          "shares_inputs_with": []
+          "shares_inputs_with": [],
+          "url": null,
+          "provider": null
         }
       ],
       "limit_days": null,
@@ -1641,7 +1849,8 @@
         "2016-01-11T05:00:00Z"
       ],
       "credit": "Visualization: NASA's Scientific Visualization Studio (SVS 4417) for the NASA Earth Information Center.",
-      "bytes": 6638
+      "bytes": 6638,
+      "checked_against": []
     },
     "rel_4445": {
       "product": "rel_4445",
@@ -1657,7 +1866,9 @@
           "name": "SVS related visualizations (observations), onboarded by svs.onboard",
           "agency": "NASA",
           "kind": "measurement",
-          "shares_inputs_with": []
+          "shares_inputs_with": [],
+          "url": null,
+          "provider": null
         }
       ],
       "limit_days": null,
@@ -1669,7 +1880,8 @@
         "2016-04-18T04:00:00Z"
       ],
       "credit": "Visualization: NASA's Scientific Visualization Studio (SVS 4445) for the NASA Earth Information Center.",
-      "bytes": 7402
+      "bytes": 7402,
+      "checked_against": []
     },
     "rel_4658": {
       "product": "rel_4658",
@@ -1685,7 +1897,9 @@
           "name": "SVS related visualizations (observations), onboarded by svs.onboard",
           "agency": "NASA",
           "kind": "measurement",
-          "shares_inputs_with": []
+          "shares_inputs_with": [],
+          "url": null,
+          "provider": null
         }
       ],
       "limit_days": null,
@@ -1697,7 +1911,8 @@
         "2018-12-09T05:00:00Z"
       ],
       "credit": "Visualization: NASA's Scientific Visualization Studio (SVS 4658) for the NASA Earth Information Center.",
-      "bytes": 7719
+      "bytes": 7719,
+      "checked_against": []
     },
     "rel_4764": {
       "product": "rel_4764",
@@ -1713,7 +1928,9 @@
           "name": "SVS related visualizations (model or reanalysis), onboarded by svs.onboard",
           "agency": "NASA",
           "kind": "model",
-          "shares_inputs_with": []
+          "shares_inputs_with": [],
+          "url": null,
+          "provider": null
         }
       ],
       "limit_days": null,
@@ -1725,7 +1942,8 @@
         "2019-11-07T05:00:00Z"
       ],
       "credit": "Visualization: NASA's Scientific Visualization Studio (SVS 4764) for the NASA Earth Information Center.",
-      "bytes": 6617
+      "bytes": 6617,
+      "checked_against": []
     },
     "rel_4810": {
       "product": "rel_4810",
@@ -1741,7 +1959,9 @@
           "name": "SVS related visualizations (observations), onboarded by svs.onboard",
           "agency": "NASA",
           "kind": "measurement",
-          "shares_inputs_with": []
+          "shares_inputs_with": [],
+          "url": null,
+          "provider": null
         }
       ],
       "limit_days": null,
@@ -1753,7 +1973,8 @@
         "2020-04-24T04:00:00Z"
       ],
       "credit": "Visualization: NASA's Scientific Visualization Studio (SVS 4810) for the NASA Earth Information Center.",
-      "bytes": 7785
+      "bytes": 7785,
+      "checked_against": []
     },
     "rel_4889": {
       "product": "rel_4889",
@@ -1769,7 +1990,9 @@
           "name": "SVS related visualizations (observations), onboarded by svs.onboard",
           "agency": "NASA",
           "kind": "measurement",
-          "shares_inputs_with": []
+          "shares_inputs_with": [],
+          "url": null,
+          "provider": null
         }
       ],
       "limit_days": null,
@@ -1781,7 +2004,8 @@
         "2021-03-03T19:00:00Z"
       ],
       "credit": "Visualization: NASA's Scientific Visualization Studio (SVS 4889) for the NASA Earth Information Center.",
-      "bytes": 6614
+      "bytes": 6614,
+      "checked_against": []
     },
     "rel_4939": {
       "product": "rel_4939",
@@ -1797,7 +2021,9 @@
           "name": "SVS related visualizations (observations), onboarded by svs.onboard",
           "agency": "NASA",
           "kind": "measurement",
-          "shares_inputs_with": []
+          "shares_inputs_with": [],
+          "url": null,
+          "provider": null
         }
       ],
       "limit_days": null,
@@ -1809,7 +2035,8 @@
         "2021-10-07T04:00:00Z"
       ],
       "credit": "Visualization: NASA's Scientific Visualization Studio (SVS 4939) for the NASA Earth Information Center.",
-      "bytes": 8736
+      "bytes": 8736,
+      "checked_against": []
     },
     "rel_4993": {
       "product": "rel_4993",
@@ -1825,7 +2052,9 @@
           "name": "SVS related visualizations (observations), onboarded by svs.onboard",
           "agency": "NASA",
           "kind": "measurement",
-          "shares_inputs_with": []
+          "shares_inputs_with": [],
+          "url": null,
+          "provider": null
         }
       ],
       "limit_days": null,
@@ -1837,7 +2066,8 @@
         "2022-06-01T13:00:00Z"
       ],
       "credit": "Visualization: NASA's Scientific Visualization Studio (SVS 4993) for the NASA Earth Information Center.",
-      "bytes": 8114
+      "bytes": 8114,
+      "checked_against": []
     },
     "rel_5017": {
       "product": "rel_5017",
@@ -1853,7 +2083,9 @@
           "name": "SVS related visualizations (observations), onboarded by svs.onboard",
           "agency": "NASA",
           "kind": "measurement",
-          "shares_inputs_with": []
+          "shares_inputs_with": [],
+          "url": null,
+          "provider": null
         }
       ],
       "limit_days": null,
@@ -1865,7 +2097,8 @@
         "2021-09-01T00:00:00Z"
       ],
       "credit": "Visualization: NASA's Scientific Visualization Studio (SVS 5017) for the NASA Earth Information Center.",
-      "bytes": 11105
+      "bytes": 11105,
+      "checked_against": []
     },
     "rel_5070": {
       "product": "rel_5070",
@@ -1881,7 +2114,9 @@
           "name": "SVS related visualizations (observations), onboarded by svs.onboard",
           "agency": "NASA",
           "kind": "measurement",
-          "shares_inputs_with": []
+          "shares_inputs_with": [],
+          "url": null,
+          "provider": null
         }
       ],
       "limit_days": null,
@@ -1893,7 +2128,8 @@
         "2023-02-06T05:00:00Z"
       ],
       "credit": "Visualization: NASA's Scientific Visualization Studio (SVS 5070) for the NASA Earth Information Center.",
-      "bytes": 6724
+      "bytes": 6724,
+      "checked_against": []
     },
     "rel_5098": {
       "product": "rel_5098",
@@ -1909,7 +2145,9 @@
           "name": "SVS related visualizations (observations), onboarded by svs.onboard",
           "agency": "NASA",
           "kind": "measurement",
-          "shares_inputs_with": []
+          "shares_inputs_with": [],
+          "url": null,
+          "provider": null
         }
       ],
       "limit_days": null,
@@ -1921,7 +2159,8 @@
         "2023-04-24T13:00:00Z"
       ],
       "credit": "Visualization: NASA's Scientific Visualization Studio (SVS 5098) for the NASA Earth Information Center.",
-      "bytes": 7237
+      "bytes": 7237,
+      "checked_against": []
     },
     "rel_5104": {
       "product": "rel_5104",
@@ -1937,7 +2176,9 @@
           "name": "SVS related visualizations (observations), onboarded by svs.onboard",
           "agency": "NASA",
           "kind": "measurement",
-          "shares_inputs_with": []
+          "shares_inputs_with": [],
+          "url": null,
+          "provider": null
         }
       ],
       "limit_days": null,
@@ -1949,7 +2190,8 @@
         "2023-05-23T04:00:00Z"
       ],
       "credit": "Visualization: NASA's Scientific Visualization Studio (SVS 5104) for the NASA Earth Information Center.",
-      "bytes": 8171
+      "bytes": 8171,
+      "checked_against": []
     },
     "rel_5110": {
       "product": "rel_5110",
@@ -1965,7 +2207,9 @@
           "name": "SVS related visualizations (model or reanalysis), onboarded by svs.onboard",
           "agency": "NASA",
           "kind": "model",
-          "shares_inputs_with": []
+          "shares_inputs_with": [],
+          "url": null,
+          "provider": null
         }
       ],
       "limit_days": null,
@@ -1977,7 +2221,8 @@
         "2023-06-16T14:00:00Z"
       ],
       "credit": "Visualization: NASA's Scientific Visualization Studio (SVS 5110) for the NASA Earth Information Center.",
-      "bytes": 19883
+      "bytes": 19883,
+      "checked_against": []
     },
     "rel_5111": {
       "product": "rel_5111",
@@ -1993,7 +2238,9 @@
           "name": "SVS related visualizations (observations), onboarded by svs.onboard",
           "agency": "NASA",
           "kind": "measurement",
-          "shares_inputs_with": []
+          "shares_inputs_with": [],
+          "url": null,
+          "provider": null
         }
       ],
       "limit_days": null,
@@ -2005,7 +2252,8 @@
         "2023-07-02T12:00:00Z"
       ],
       "credit": "Visualization: NASA's Scientific Visualization Studio (SVS 5111) for the NASA Earth Information Center.",
-      "bytes": 9281
+      "bytes": 9281,
+      "checked_against": []
     },
     "rel_5119": {
       "product": "rel_5119",
@@ -2021,7 +2269,9 @@
           "name": "SVS related visualizations (observations), onboarded by svs.onboard",
           "agency": "NASA",
           "kind": "measurement",
-          "shares_inputs_with": []
+          "shares_inputs_with": [],
+          "url": null,
+          "provider": null
         }
       ],
       "limit_days": null,
@@ -2033,7 +2283,8 @@
         "2025-07-01T00:00:00Z"
       ],
       "credit": "Visualization: NASA's Scientific Visualization Studio (SVS 5119) for the NASA Earth Information Center.",
-      "bytes": 8663
+      "bytes": 8663,
+      "checked_against": []
     },
     "rel_5126": {
       "product": "rel_5126",
@@ -2049,7 +2300,9 @@
           "name": "SVS related visualizations (observations), onboarded by svs.onboard",
           "agency": "NASA",
           "kind": "measurement",
-          "shares_inputs_with": []
+          "shares_inputs_with": [],
+          "url": null,
+          "provider": null
         }
       ],
       "limit_days": null,
@@ -2061,7 +2314,8 @@
         "2025-07-01T00:00:00Z"
       ],
       "credit": "Visualization: NASA's Scientific Visualization Studio (SVS 5126) for the NASA Earth Information Center.",
-      "bytes": 6787
+      "bytes": 6787,
+      "checked_against": []
     },
     "rel_5142": {
       "product": "rel_5142",
@@ -2077,7 +2331,9 @@
           "name": "SVS related visualizations (observations), onboarded by svs.onboard",
           "agency": "NASA",
           "kind": "measurement",
-          "shares_inputs_with": []
+          "shares_inputs_with": [],
+          "url": null,
+          "provider": null
         }
       ],
       "limit_days": null,
@@ -2089,7 +2345,8 @@
         "2023-08-24T14:45:00Z"
       ],
       "credit": "Visualization: NASA's Scientific Visualization Studio (SVS 5142) for the NASA Earth Information Center.",
-      "bytes": 7773
+      "bytes": 7773,
+      "checked_against": []
     },
     "rel_5190": {
       "product": "rel_5190",
@@ -2105,7 +2362,9 @@
           "name": "SVS related visualizations (observations), onboarded by svs.onboard",
           "agency": "NASA",
           "kind": "measurement",
-          "shares_inputs_with": []
+          "shares_inputs_with": [],
+          "url": null,
+          "provider": null
         }
       ],
       "limit_days": null,
@@ -2117,7 +2376,8 @@
         "2026-09-15T00:00:00Z"
       ],
       "credit": "Visualization: NASA's Scientific Visualization Studio (SVS 5190) for the NASA Earth Information Center.",
-      "bytes": 89280
+      "bytes": 89280,
+      "checked_against": []
     },
     "rel_5191": {
       "product": "rel_5191",
@@ -2133,7 +2393,9 @@
           "name": "SVS related visualizations (observations), onboarded by svs.onboard",
           "agency": "NASA",
           "kind": "measurement",
-          "shares_inputs_with": []
+          "shares_inputs_with": [],
+          "url": null,
+          "provider": null
         }
       ],
       "limit_days": null,
@@ -2145,7 +2407,8 @@
         "2025-07-01T00:00:00Z"
       ],
       "credit": "Visualization: NASA's Scientific Visualization Studio (SVS 5191) for the NASA Earth Information Center.",
-      "bytes": 12845
+      "bytes": 12845,
+      "checked_against": []
     },
     "rel_5207": {
       "product": "rel_5207",
@@ -2161,7 +2424,9 @@
           "name": "SVS related visualizations (observations), onboarded by svs.onboard",
           "agency": "NASA",
           "kind": "measurement",
-          "shares_inputs_with": []
+          "shares_inputs_with": [],
+          "url": null,
+          "provider": null
         }
       ],
       "limit_days": null,
@@ -2173,7 +2438,8 @@
         "2025-07-01T00:00:00Z"
       ],
       "credit": "Visualization: NASA's Scientific Visualization Studio (SVS 5207) for the NASA Earth Information Center.",
-      "bytes": 13549
+      "bytes": 13549,
+      "checked_against": []
     },
     "rel_5209": {
       "product": "rel_5209",
@@ -2189,7 +2455,9 @@
           "name": "SVS related visualizations (observations), onboarded by svs.onboard",
           "agency": "NASA",
           "kind": "measurement",
-          "shares_inputs_with": []
+          "shares_inputs_with": [],
+          "url": null,
+          "provider": null
         }
       ],
       "limit_days": null,
@@ -2201,7 +2469,8 @@
         "2025-07-01T00:00:00Z"
       ],
       "credit": "Visualization: NASA's Scientific Visualization Studio (SVS 5209) for the NASA Earth Information Center.",
-      "bytes": 13002
+      "bytes": 13002,
+      "checked_against": []
     },
     "rel_5221": {
       "product": "rel_5221",
@@ -2217,7 +2486,9 @@
           "name": "SVS related visualizations (observations), onboarded by svs.onboard",
           "agency": "NASA",
           "kind": "measurement",
-          "shares_inputs_with": []
+          "shares_inputs_with": [],
+          "url": null,
+          "provider": null
         }
       ],
       "limit_days": null,
@@ -2229,7 +2500,8 @@
         "2022-12-26T01:54:46Z"
       ],
       "credit": "Visualization: NASA's Scientific Visualization Studio (SVS 5221) for the NASA Earth Information Center.",
-      "bytes": 58001
+      "bytes": 58001,
+      "checked_against": []
     },
     "rel_5235": {
       "product": "rel_5235",
@@ -2245,7 +2517,9 @@
           "name": "SVS related visualizations (observations), onboarded by svs.onboard",
           "agency": "NASA",
           "kind": "measurement",
-          "shares_inputs_with": []
+          "shares_inputs_with": [],
+          "url": null,
+          "provider": null
         }
       ],
       "limit_days": null,
@@ -2257,7 +2531,8 @@
         "2022-12-26T01:54:46Z"
       ],
       "credit": "Visualization: NASA's Scientific Visualization Studio (SVS 5235) for the NASA Earth Information Center.",
-      "bytes": 59159
+      "bytes": 59159,
+      "checked_against": []
     },
     "rel_5303": {
       "product": "rel_5303",
@@ -2273,7 +2548,9 @@
           "name": "SVS related visualizations (observations), onboarded by svs.onboard",
           "agency": "NASA",
           "kind": "measurement",
-          "shares_inputs_with": []
+          "shares_inputs_with": [],
+          "url": null,
+          "provider": null
         }
       ],
       "limit_days": null,
@@ -2285,7 +2562,8 @@
         "2024-05-30T18:00:00Z"
       ],
       "credit": "Visualization: NASA's Scientific Visualization Studio (SVS 5303) for the NASA Earth Information Center.",
-      "bytes": 8456
+      "bytes": 8456,
+      "checked_against": []
     },
     "rel_5453": {
       "product": "rel_5453",
@@ -2301,7 +2579,9 @@
           "name": "SVS related visualizations (observations), onboarded by svs.onboard",
           "agency": "NASA",
           "kind": "measurement",
-          "shares_inputs_with": []
+          "shares_inputs_with": [],
+          "url": null,
+          "provider": null
         }
       ],
       "limit_days": null,
@@ -2313,7 +2593,8 @@
         "2025-01-03T16:00:00Z"
       ],
       "credit": "Visualization: NASA's Scientific Visualization Studio (SVS 5453) for the NASA Earth Information Center.",
-      "bytes": 6355
+      "bytes": 6355,
+      "checked_against": []
     },
     "rel_5468": {
       "product": "rel_5468",
@@ -2329,7 +2610,9 @@
           "name": "SVS related visualizations (model or reanalysis), onboarded by svs.onboard",
           "agency": "NASA",
           "kind": "model",
-          "shares_inputs_with": []
+          "shares_inputs_with": [],
+          "url": null,
+          "provider": null
         }
       ],
       "limit_days": null,
@@ -2341,7 +2624,8 @@
         "2025-01-10T16:49:00Z"
       ],
       "credit": "Visualization: NASA's Scientific Visualization Studio (SVS 5468) for the NASA Earth Information Center.",
-      "bytes": 9233
+      "bytes": 9233,
+      "checked_against": []
     },
     "rel_5477": {
       "product": "rel_5477",
@@ -2357,7 +2641,9 @@
           "name": "SVS related visualizations (observations), onboarded by svs.onboard",
           "agency": "NASA",
           "kind": "measurement",
-          "shares_inputs_with": []
+          "shares_inputs_with": [],
+          "url": null,
+          "provider": null
         }
       ],
       "limit_days": null,
@@ -2369,7 +2655,8 @@
         "2025-05-16T17:00:00Z"
       ],
       "credit": "Visualization: NASA's Scientific Visualization Studio (SVS 5477) for the NASA Earth Information Center.",
-      "bytes": 6230
+      "bytes": 6230,
+      "checked_against": []
     },
     "rel_5516": {
       "product": "rel_5516",
@@ -2385,7 +2672,9 @@
           "name": "SVS related visualizations (observations), onboarded by svs.onboard",
           "agency": "NASA",
           "kind": "measurement",
-          "shares_inputs_with": []
+          "shares_inputs_with": [],
+          "url": null,
+          "provider": null
         }
       ],
       "limit_days": null,
@@ -2397,7 +2686,8 @@
         "2022-12-26T01:54:46Z"
       ],
       "credit": "Visualization: NASA's Scientific Visualization Studio (SVS 5516) for the NASA Earth Information Center.",
-      "bytes": 57454
+      "bytes": 57454,
+      "checked_against": []
     },
     "rel_5557": {
       "product": "rel_5557",
@@ -2413,7 +2703,9 @@
           "name": "SVS related visualizations (model or reanalysis), onboarded by svs.onboard",
           "agency": "NASA",
           "kind": "model",
-          "shares_inputs_with": []
+          "shares_inputs_with": [],
+          "url": null,
+          "provider": null
         }
       ],
       "limit_days": null,
@@ -2425,7 +2717,8 @@
         "2025-09-26T00:00:00Z"
       ],
       "credit": "Visualization: NASA's Scientific Visualization Studio (SVS 5557) for the NASA Earth Information Center.",
-      "bytes": 14335
+      "bytes": 14335,
+      "checked_against": []
     },
     "rel_5597": {
       "product": "rel_5597",
@@ -2441,7 +2734,9 @@
           "name": "SVS related visualizations (model or reanalysis), onboarded by svs.onboard",
           "agency": "NASA",
           "kind": "model",
-          "shares_inputs_with": []
+          "shares_inputs_with": [],
+          "url": null,
+          "provider": null
         }
       ],
       "limit_days": null,
@@ -2453,7 +2748,8 @@
         "2025-09-26T00:00:00Z"
       ],
       "credit": "Visualization: NASA's Scientific Visualization Studio (SVS 5597) for the NASA Earth Information Center.",
-      "bytes": 11867
+      "bytes": 11867,
+      "checked_against": []
     },
     "rel_5601": {
       "product": "rel_5601",
@@ -2469,7 +2765,9 @@
           "name": "SVS related visualizations (model or reanalysis), onboarded by svs.onboard",
           "agency": "NASA",
           "kind": "model",
-          "shares_inputs_with": []
+          "shares_inputs_with": [],
+          "url": null,
+          "provider": null
         }
       ],
       "limit_days": null,
@@ -2481,7 +2779,8 @@
         "2026-01-02T17:27:00Z"
       ],
       "credit": "Visualization: NASA's Scientific Visualization Studio (SVS 5601) for the NASA Earth Information Center.",
-      "bytes": 10126
+      "bytes": 10126,
+      "checked_against": []
     },
     "rel_5611": {
       "product": "rel_5611",
@@ -2497,7 +2796,9 @@
           "name": "SVS related visualizations (observations), onboarded by svs.onboard",
           "agency": "NASA",
           "kind": "measurement",
-          "shares_inputs_with": []
+          "shares_inputs_with": [],
+          "url": null,
+          "provider": null
         }
       ],
       "limit_days": null,
@@ -2509,7 +2810,8 @@
         "2022-12-26T01:54:46Z"
       ],
       "credit": "Visualization: NASA's Scientific Visualization Studio (SVS 5611) for the NASA Earth Information Center.",
-      "bytes": 57478
+      "bytes": 57478,
+      "checked_against": []
     },
     "rel_5624": {
       "product": "rel_5624",
@@ -2525,7 +2827,9 @@
           "name": "SVS related visualizations (model or reanalysis), onboarded by svs.onboard",
           "agency": "NASA",
           "kind": "model",
-          "shares_inputs_with": []
+          "shares_inputs_with": [],
+          "url": null,
+          "provider": null
         }
       ],
       "limit_days": 2.0,
@@ -2534,7 +2838,8 @@
       "age_days": 4.38,
       "period": null,
       "credit": "Visualization: NASA's Scientific Visualization Studio (SVS 5624) for the NASA Earth Information Center.",
-      "bytes": 8558
+      "bytes": 8558,
+      "checked_against": []
     },
     "rel_5639": {
       "product": "rel_5639",
@@ -2550,7 +2855,9 @@
           "name": "SVS related visualizations (model or reanalysis), onboarded by svs.onboard",
           "agency": "NASA",
           "kind": "model",
-          "shares_inputs_with": []
+          "shares_inputs_with": [],
+          "url": null,
+          "provider": null
         }
       ],
       "limit_days": null,
@@ -2562,7 +2869,8 @@
         "2026-08-11T00:00:00Z"
       ],
       "credit": "Visualization: NASA's Scientific Visualization Studio (SVS 5639) for the NASA Earth Information Center.",
-      "bytes": 13406
+      "bytes": 13406,
+      "checked_against": []
     },
     "rel_5650": {
       "product": "rel_5650",
@@ -2578,7 +2886,9 @@
           "name": "SVS related visualizations (observations), onboarded by svs.onboard",
           "agency": "NASA",
           "kind": "measurement",
-          "shares_inputs_with": []
+          "shares_inputs_with": [],
+          "url": null,
+          "provider": null
         }
       ],
       "limit_days": 2.0,
@@ -2587,7 +2897,8 @@
       "age_days": 0.23,
       "period": null,
       "credit": "Visualization: NASA's Scientific Visualization Studio (SVS 5650) for the NASA Earth Information Center.",
-      "bytes": 10283
+      "bytes": 10283,
+      "checked_against": []
     },
     "rel_gibs": {
       "product": "rel_gibs",
@@ -2599,11 +2910,13 @@
       "pairing": "frame-paired",
       "datasets": [
         {
-          "id": "svs_related_obs",
-          "name": "SVS related visualizations (observations), onboarded by svs.onboard",
+          "id": "gibs",
+          "name": "NASA GIBS imagery layers, decoded from each layer's colormap (NASA EOSDIS)",
           "agency": "NASA",
           "kind": "measurement",
-          "shares_inputs_with": []
+          "shares_inputs_with": [],
+          "url": "https://nasa-gibs.github.io/gibs-api-docs/",
+          "provider": null
         }
       ],
       "limit_days": null,
@@ -2615,7 +2928,8 @@
         "2026-10-31T00:00:00Z"
       ],
       "credit": "Imagery: NASA Global Imagery Browse Services (GIBS), part of NASA's Earth Science Data and Information System.",
-      "bytes": 52606
+      "bytes": 52606,
+      "checked_against": []
     },
     "rel_oisst": {
       "product": "rel_oisst",
@@ -2627,11 +2941,13 @@
       "pairing": "frame-paired",
       "datasets": [
         {
-          "id": "svs_related_obs",
-          "name": "SVS related visualizations (observations), onboarded by svs.onboard",
-          "agency": "NASA",
+          "id": "oisst",
+          "name": "NOAA NCEI OISST v2.1 (via NOAA CoastWatch ERDDAP)",
+          "agency": "NOAA",
           "kind": "measurement",
-          "shares_inputs_with": []
+          "shares_inputs_with": [],
+          "url": "https://coastwatch.pfeg.noaa.gov/erddap/griddap/ncdcOisst21Agg_LonPM180",
+          "provider": null
         }
       ],
       "limit_days": null,
@@ -2643,7 +2959,8 @@
         "2026-10-29T12:00:00Z"
       ],
       "credit": "Data: NOAA NCEI OISST v2.1 (Huang et al. 2021), served by NOAA CoastWatch ERDDAP.",
-      "bytes": 6536
+      "bytes": 6536,
+      "checked_against": []
     },
     "patterns_eic": {
       "product": "patterns_eic",
@@ -2659,7 +2976,9 @@
           "name": "EIC Content Database preview images (class B: pattern, not values)",
           "agency": "NASA",
           "kind": "measurement",
-          "shares_inputs_with": []
+          "shares_inputs_with": [],
+          "url": null,
+          "provider": null
         }
       ],
       "limit_days": null,
@@ -2671,7 +2990,8 @@
         "2026-10-29T13:25:02Z"
       ],
       "credit": "Visualizations: NASA's Scientific Visualization Studio for the NASA Earth Information Center.",
-      "bytes": 134393
+      "bytes": 134393,
+      "checked_against": []
     }
   }
 }

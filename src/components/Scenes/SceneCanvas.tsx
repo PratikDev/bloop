@@ -5,9 +5,12 @@ import { Canvas, useFrame, useThree } from "@react-three/fiber";
 import { useEffect, useRef } from "react";
 import { PerspectiveCamera } from "three";
 import { readPalette } from "@/lib/css-tokens";
+import { cn } from "@/lib/utils";
+import { Hidden3DNote, useHide3d } from "../Hidden3D";
 import { CAMERA, GL_OPTIONS, noPointerEvents, STUDIO_ENV_INTENSITY, STUDIO_HDRI } from "../Turntable/canvas-config";
 import { resolveTier, type Tier } from "../Turntable/quality";
 import { createPost, type Post } from "../Turntable/scene/post";
+import { useTierDpr } from "../Turntable/use-tier-dpr";
 import { sceneDebugOn } from "./debug";
 import type { SceneBuildHost, SceneHandle } from "./types";
 
@@ -23,15 +26,30 @@ interface Props<H extends SceneHandle> {
 
 /**
  * A scene's 3D view: Turntable v3's renderer setup (R3F, the studio HDRI, the
- * same post chain and quality tiers). R3F runs the frame loop; the scene's
+ * same overlay compositing and quality tiers). R3F runs the frame loop; the scene's
  * update runs first, then the post chain draws.
  */
 export function SceneCanvas<H extends SceneHandle>({ tier, label, build, onReady }: Props<H>) {
+  // Hide 3D views (Settings): the scene keeps running; only the drawing goes.
+  const hidden = useHide3d();
   return (
-    <Canvas frameloop="always" flat dpr={[1, 2]} gl={GL_OPTIONS} camera={CAMERA} events={noPointerEvents} role="img" aria-label={label} className="absolute inset-0">
-      <Environment files={STUDIO_HDRI} environmentIntensity={STUDIO_ENV_INTENSITY} />
-      <Bridge tier={tier} build={build} onReady={onReady} />
-    </Canvas>
+    <>
+      <Canvas
+        frameloop="always"
+        flat
+        dpr={[1, 2]}
+        gl={GL_OPTIONS}
+        camera={CAMERA}
+        events={noPointerEvents}
+        role="img"
+        aria-label={label}
+        className={cn("absolute inset-0", hidden && "invisible")}
+      >
+        <Environment files={STUDIO_HDRI} environmentIntensity={STUDIO_ENV_INTENSITY} />
+        <Bridge tier={tier} build={build} onReady={onReady} />
+      </Canvas>
+      {hidden && <Hidden3DNote />}
+    </>
   );
 }
 
@@ -40,6 +58,7 @@ function Bridge<H extends SceneHandle>({ tier, build, onReady }: Omit<Props<H>, 
   const scene = useThree((s) => s.scene);
   const camera = useThree((s) => s.camera);
   const size = useThree((s) => s.size);
+  useTierDpr(tier);
   const handleRef = useRef<H | null>(null);
   const postRef = useRef<Post | null>(null);
   const resolved = resolveTier(tier, gl.capabilities.maxTextureSize);
@@ -58,28 +77,25 @@ function Bridge<H extends SceneHandle>({ tier, build, onReady }: Omit<Props<H>, 
       handleRef.current = null;
       handle.dispose();
     };
-    // The tier only changes the post chain (below); the scene is built once.
+    // The scene is built once; the tier only changes the drawing resolution.
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [gl, scene, camera]);
 
   useEffect(() => {
-    if (!(camera instanceof PerspectiveCamera) || !handleRef.current) return;
-    const globe = handleRef.current.globe;
-    const post = createPost(gl, scene, camera, resolved, { atmosphere: globe !== undefined });
-    if (globe) post.setGlobe(globe);
-    post.setSun(null);
+    if (!(camera instanceof PerspectiveCamera)) return;
+    const post = createPost(gl, scene, camera, { toneMapping: true });
     postRef.current = post;
     return () => {
       postRef.current = null;
       post.dispose();
     };
-  }, [gl, scene, camera, resolved]);
+  }, [gl, scene, camera]);
 
   useEffect(() => {
     if (camera instanceof PerspectiveCamera && size.height > 0) camera.setViewOffset(size.width, size.height, 0, size.height * VIEW_SHIFT, size.width, size.height);
     postRef.current?.setSize(size.width, size.height);
     handleRef.current?.resize?.(size.width, size.height);
-  }, [size, resolved, camera]);
+  }, [size, camera]);
 
   useFrame((_, dt) => {
     handleRef.current?.update(Math.min(dt, 0.1));

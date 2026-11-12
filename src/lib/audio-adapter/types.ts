@@ -36,7 +36,7 @@ export type {
   VoiceId,
   WindowSeries,
 } from "@/lib/audio";
-export { LIVE_VOICES, TRACK_VOICES } from "@/lib/audio";
+export { LEGEND_SOUND_SEC, LIVE_VOICES, TRACK_VOICES } from "@/lib/audio";
 
 /**
  * Exactly the part of L2's API (docs/L2/BUILD_PLAN.md §2.2, §8) that the UI
@@ -63,8 +63,12 @@ export interface L2AudioApi {
   // Speech, legend, earcons
   speak(text: string, lang: Lang): Promise<void>;
   playEarcon(id: EarconId, opts?: { lon?: number; params?: CaptionParams }): void;
+  // Accessibility core, step 6: the sonar's ping, rising and (by the caller's timing) quickening near the target.
+  playSonarPing(closeness: number, lon?: number): void;
   playLegend(voice: LegendVoice): PlayerHandle;
   playWarmup(): PlayerHandle;
+  // Track 0 ("Tuning", accessibility core step 5): one legend anchor, or the reference tone.
+  playAnchor(voice: LegendVoice, which: "lowest" | "highest" | "reference"): PlayerHandle;
 
   // Sequences
   playSweep(points: SweepPoint[], opts?: { stepMs?: number }): PlayerHandle;

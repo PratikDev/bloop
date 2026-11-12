@@ -1,67 +1,92 @@
 "use client";
 
+import { useMemo, useRef, useState } from "react";
 import { Link, useNavigate } from "@tanstack/react-router";
 import { ArrowRight } from "@phosphor-icons/react";
-import { motion } from "motion/react";
-import { Button } from "@/components/ui/button";
-import { RISE, STAGGER } from "@/lib/motion";
-import { PAGE_PATHS } from "@/router/modes";
-import { useAppState, useT } from "../../AppState/use-app-state";
-import { useCommands } from "../../Commands/use-commands";
-import { FrameLabel } from "../../FrameLabel";
+import type { LatLon } from "@/lib/data";
 import { Globe } from "../../Globe";
-import { QUIET_BUTTON, StartActions } from "../../StartActions";
-import { Stations } from "./Stations";
+import { useFrameImages } from "../../FrameView/use-frame-images";
+import { SpaceWindow } from "../../SpaceWindow";
+import { PauseMotionKey } from "../../SpaceWindow/PauseMotionKey";
+import { usePauseMotion } from "../../SpaceWindow/use-pause-motion";
+import { formatUtcDate } from "@/lib/i18n";
+import { locationForMode, PAGE_PATHS } from "@/router/modes";
+import { useAppState, useT } from "../../AppState/use-app-state";
+import { JukeboxFrame } from "../../JukeboxArt/Frame";
+import { DataTube } from "../../JukeboxArt/DataTube";
+import { armJourney } from "../../JukeboxJourney/journey-store";
+import { requestFocus } from "@/lib/arrival-focus";
+import { useLiveData } from "../../LiveData/use-live-data";
+import { PAPER_KEY, StartActions, StartHint } from "../../StartActions";
 
-/**
- * Home: what this is, in one line, on today's real frame turning as a globe;
- * the one thing to do (Start listening); and the three pages below.
- */
+/** Home has one job: say what this is, then start listening. Today's real ocean frame turns inside the jukebox beside it. */
 export function HomePage() {
   const { state } = useAppState();
+  const { sst, fields } = useLiveData();
+  const { sst: sstImage } = useFrameImages();
+  const images = useMemo(() => (sstImage ? [sstImage] : []), [sstImage]);
+  const pause = usePauseMotion();
+  const drift = useRef<HTMLDivElement>(null);
   const t = useT();
-  const commands = useCommands();
   const navigate = useNavigate();
-  const toListen = () => void navigate({ to: PAGE_PATHS.listen });
+  const toListen = () => {
+    requestFocus("map");
+    void navigate({ to: PAGE_PATHS.listen });
+  };
+  const continueListening = () => {
+    armJourney();
+    requestFocus("map");
+  };
+  // The point the globe faces (the Globe reports it once it is mounted in the window); null drains the amber tube.
+  const [facing, setFacing] = useState<LatLon | null>(null);
+  // While the intro plays, its wordmark follows the sound instead: only one at a time.
+  const opening = state.started && !state.introDone;
+  const toTour = () => void navigate(locationForMode("story"));
 
   return (
-    <div className="flex h-full min-h-0 flex-col">
-      <section aria-labelledby="home-title" className="relative grid min-h-0 flex-1 items-center gap-6 px-4 pt-4 md:px-8 lg:grid-cols-[minmax(0,1.05fr)_minmax(0,1fr)] lg:gap-10 lg:px-12">
-        <motion.div variants={STAGGER} initial="hidden" animate="shown" className="relative z-10 space-y-6 md:space-y-8">
-          <motion.p variants={RISE} className="eyebrow flex items-center gap-2">
-            <span aria-hidden="true" className="size-1.5 animate-pulse rounded-full bg-shapla" />
-            {t("home.eyebrow")}
-          </motion.p>
-          <motion.h1 variants={RISE} id="home-title" data-page-title tabIndex={-1} className="display-tight font-serif text-display">
-            {t("home.titleLead")} <em className="text-shapla">{t("home.titleAccent")}</em>
-          </motion.h1>
-          <motion.p variants={RISE} className="max-w-lg text-lead text-moon/90">
-            {t("start.lead")}
-          </motion.p>
-          <motion.div variants={RISE}>
-            {state.started ? (
-              <div className="flex flex-wrap items-center gap-3">
-                <Link to={PAGE_PATHS.listen} className="group inline-flex h-13 items-center gap-3 rounded-full bg-shapla pr-5 pl-6 text-lead text-ink shadow-glow transition-transform duration-200 active:scale-[0.98]">
-                  {t("home.continue")}
-                  <ArrowRight aria-hidden="true" className="size-4 transition-transform duration-200 group-hover:translate-x-0.5" />
-                </Link>
-                {/* The Start buttons come back in its place, Start listening focused. */}
-                <Button variant="ghost" onClick={commands.resetStart} className={QUIET_BUTTON}>
-                  {t("home.resetChoice")}
-                </Button>
-              </div>
-            ) : (
-              <StartActions autoFocus after={toListen} />
-            )}
-          </motion.div>
-        </motion.div>
+    <section aria-labelledby="home-title" className="flex min-h-full flex-col justify-center gap-6 px-4 py-6 lg:flex-row lg:items-center lg:px-8 lg:pt-6 lg:pb-2">
+      <div className="min-w-0 space-y-6 lg:w-96 lg:shrink-0 xl:w-lg">
+        <h1 id="home-title" data-page-title tabIndex={-1} className="display-tight font-wide-display text-hero text-moon">
+          {t("home.title")}
+        </h1>
+        <p className="max-w-lg text-lead text-moon">{t("start.lead")}</p>
+        {state.started ? (
+          <div className="space-y-4">
+            <div className="flex flex-wrap items-center gap-3">
+              <Link to={PAGE_PATHS.listen} onClick={continueListening} className="inline-flex h-13 items-center gap-3 key border-navy rounded-full bg-shapla pr-5 pl-6 text-lead text-moon">
+                {t("home.continue")}
+                <ArrowRight aria-hidden="true" className="size-4" />
+              </Link>
+              <Link {...locationForMode("story")} className={PAPER_KEY}>
+                {t("home.tour")}
+              </Link>
+            </div>
+            <StartHint />
+          </div>
+        ) : (
+          <StartActions autoFocus after={toListen} onStartClick={armJourney} onTour={toTour} />
+        )}
+      </div>
 
-        <div className="relative mx-auto flex w-full max-w-md flex-col items-center gap-3 lg:h-full lg:max-w-none lg:min-h-0 lg:py-4">
-          <Globe className="w-full max-w-[34rem] lg:min-h-0 lg:w-auto lg:max-w-full lg:flex-1" />
-          <FrameLabel className="max-w-sm text-center" />
-        </div>
-      </section>
-      <Stations />
-    </div>
+      <div className="jukebox-home -mx-4 flex min-w-0 flex-col items-center lg:mx-0 lg:flex-1">
+        <JukeboxFrame
+          marquee={t("app.title")}
+          reactive={!opening}
+          tube={<DataTube facing={facing} paused={pause.paused} />}
+          window={
+            <SpaceWindow density="sparse" still={pause.paused} driftRef={drift} className="size-full rounded-full border-0">
+              <Globe images={images} autoTurn paused={pause.paused} driftRef={drift} onViewChange={setFacing} dataKey={fields} />
+            </SpaceWindow>
+          }
+          footer={
+            <>
+              {sst && <p className="text-center text-small text-haze">{t("home.frameCaption", { date: formatUtcDate(sst.meta.frame_time_utc, state.lang) })}</p>}
+              <PauseMotionKey pause={pause} />
+            </>
+          }
+        />
+        <p className="sr-only">{t("globe.home")}</p>
+      </div>
+    </section>
   );
 }

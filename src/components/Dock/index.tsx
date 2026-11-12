@@ -3,47 +3,73 @@
 import { AnimatePresence, motion } from "motion/react";
 import { SPRING } from "@/lib/motion";
 import { useAppState, useT } from "../AppState/use-app-state";
-import { CaptionBar } from "../CaptionBar";
-import { Waveform } from "../Waveform";
-import { ListenActions } from "./ListenActions";
+import { useTimeLapse } from "../TimeLapse/use-time-lapse";
+import { GoToMenu } from "./GoToMenu";
+import { MiniPlayer } from "./MiniPlayer";
 import { MixerMenu } from "./MixerMenu";
-import { SoundButton } from "./SoundButton";
+import { ListenItems, NowPlayingItem, StepItems } from "./MoreItems";
+import { NeedleSlider } from "./NeedleSliders";
+import { PlayerMore } from "./PlayerMore";
+import { RecordsKey } from "./RecordsKey";
+import { useDockHeight } from "./use-dock-height";
+
+export const PLAYER_ID = "player";
 
 /**
- * The sound dock, on every page after Start (not on Home or the Turntable): the main sound
- * button, what is playing now (caption and live waveform), and on Listen its
- * actions. It keeps its own view-transition name, so it stays put between pages.
+ * The player, on every page after Start (not on Home; the Turntable mounts the same MiniPlayer inside its stage).
+ * It keeps its own view-transition name, so it stays put between pages.
  */
 export function Dock() {
   const { state } = useAppState();
   const t = useT();
-  // Home is the start screen; the Turntable brings its own dock and captions.
+  const { status } = useTimeLapse();
+  // Publishes the bar's height: low-vision layouts keep scrolled-to content above it, and un-stick a tall bar.
+  const dockRef = useDockHeight();
   const shown = state.started && state.mode !== "home" && state.mode !== "turntable";
-  const listen = state.mode === "explore" || state.mode === "story";
+  const explore = state.mode === "explore";
+  // While the time-lapse runs, the sheet is what people are after: it comes first.
+  const storm = status === "playing" || status === "loading";
+  // Pages that spend their controls on their own content: Records joins the rest in More.
+  const inMore = state.mode === "thenNow" || state.mode === "how" || state.mode === "official";
 
   return (
     <AnimatePresence initial={false}>
       {shown && (
         <motion.section
           key="dock"
+          id={PLAYER_ID}
+          ref={dockRef}
+          data-dock
+          tabIndex={-1}
           aria-label={t("dock.label")}
           initial={{ opacity: 0, y: 24 }}
           animate={{ opacity: 1, y: 0, transition: SPRING.gentle }}
           exit={{ opacity: 0, y: 24 }}
-          className="sticky bottom-0 z-(--layer-dock) px-2 pb-2 [view-transition-name:dock] md:px-4 md:pb-3"
+          className="dock-bar z-(--layer-dock) outline-none [view-transition-name:dock]"
         >
-          <div className="surface-glass mx-auto grid max-w-7xl grid-cols-[auto_minmax(0,1fr)] items-center gap-x-3 gap-y-1 rounded-plate p-1.5 md:p-2 lg:flex lg:gap-4">
-            <SoundButton />
-            <div className="flex min-w-0 flex-1 items-center gap-3 px-1">
-              <CaptionBar className="min-h-0 flex-1 text-body md:text-lead" />
-              <Waveform className="h-7 w-16 shrink-0 opacity-90 md:w-24" />
-            </div>
-            {/* The mixer is on every page: mute all and solo reach Then vs Now too, so they can be undone there. */}
-            <div className="col-span-2 flex items-center justify-around gap-0.5 lg:col-span-1 lg:justify-end">
-              {listen && <ListenActions />}
-              <MixerMenu />
-            </div>
-          </div>
+          <MiniPlayer
+            slider={explore}
+            keys={
+              <>
+                {!inMore && <RecordsKey />}
+                <PlayerMore>
+                  {storm && <NowPlayingItem />}
+                  {inMore && <RecordsKey wide />}
+                  <StepItems />
+                  {explore && (
+                    <div role="group" aria-label={t("needle.group")} className="space-y-1">
+                      <NeedleSlider axis="lat" className="px-3" />
+                      <GoToMenu />
+                    </div>
+                  )}
+                  {explore && <ListenItems />}
+                  {!storm && <NowPlayingItem />}
+                  {/* On every page: mute all and solo reach Then vs Now too, so they can be undone there. */}
+                  <MixerMenu />
+                </PlayerMore>
+              </>
+            }
+          />
         </motion.section>
       )}
     </AnimatePresence>

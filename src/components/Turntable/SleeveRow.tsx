@@ -1,6 +1,6 @@
 "use client";
 
-import { Box, Lock, Play, RotateCcw, Volume2 } from "lucide-react";
+import { ArrowCounterClockwise, Clock, Cube, Ghost, Lock, Mountains, Play, SpeakerHigh, Waves, type Icon as PhosphorIcon } from "@phosphor-icons/react";
 import { brailleLabel } from "@/a11y/aria";
 import { useState } from "react";
 import { Button } from "@/components/ui/button";
@@ -11,7 +11,15 @@ import { useLiveData } from "../LiveData/use-live-data";
 import { useTT } from "./i18n";
 import { FrameFacts } from "./FrameFacts";
 import { COMING_RECORDS, LIVE_RECORDS, RECORD_LABELS, recordFrames } from "./records";
-import { SCENE_IDS, SCENE_SLEEVES, sceneCover, type SceneId } from "../Scenes/registry";
+import { SCENE_IDS, SCENE_SLEEVES, type SceneId } from "../Scenes/registry";
+
+/** Each scene's sleeve: flat line art on one palette fill. */
+const SCENE_ART: Record<SceneId, { icon: PhosphorIcon; fill: string }> = {
+  ghost: { icon: Ghost, fill: "bg-dial" },
+  delta: { icon: Waves, fill: "bg-sea-deep" },
+  terrain: { icon: Mountains, fill: "bg-bubble" },
+  tunnel: { icon: Clock, fill: "bg-shapla" },
+};
 
 function Sleeve({ track, cover, now, onSelect }: { track: TrackMode; cover: string | undefined; now: number; onSelect: (t: TrackMode) => void }) {
   const { state } = useAppState();
@@ -42,7 +50,7 @@ function Sleeve({ track, cover, now, onSelect }: { track: TrackMode; cover: stri
               <span className="text-lead font-semibold text-moon">{name}</span>
               {playing ? (
                 <span className="flex items-center gap-1 text-body text-moon">
-                  <Volume2 aria-hidden="true" className="size-4" />
+                  <SpeakerHigh aria-hidden="true" className="size-4" />
                   {tt("turntable.sleeve.playing")}
                 </span>
               ) : (
@@ -68,32 +76,34 @@ function Sleeve({ track, cover, now, onSelect }: { track: TrackMode; cover: stri
         onClick={() => setBack((b) => !b)}
         className="mt-1 h-11 w-full gap-2 text-body"
       >
-        <RotateCcw aria-hidden="true" />
+        <ArrowCounterClockwise aria-hidden="true" />
         {tt(back ? "turntable.sleeve.cover" : "turntable.sleeve.details")}
       </Button>
     </li>
   );
 }
 
-/** A scene's sleeve: a still from its own render; choosing it drops the needle into the scene. */
+/** A scene's sleeve; choosing it drops the needle into the scene. */
 function SceneSleeve({ id, onScene }: { id: SceneId; onScene: (id: SceneId) => void }) {
   const { tt } = useTT();
   const t = useT();
   const name = tt(SCENE_SLEEVES[id]);
+  const { icon: Icon, fill } = SCENE_ART[id];
   return (
-    <li className="w-44 shrink-0 snap-start">
+    <li className="w-44 shrink-0 snap-start p-1">
       <button
         type="button"
         onClick={() => onScene(id)}
         aria-label={tt("scenes.open", { scene: name })}
         {...brailleLabel(t("braille.bl.scene", { scene: name }))}
-        className="relative block h-32 w-full overflow-hidden rounded-lg border-2 border-haze bg-night text-left hover:border-amber focus-visible:border-amber"
+        className="key flex aspect-square w-full flex-col overflow-hidden rounded-lg bg-paper text-left"
       >
-        {/* eslint-disable-next-line @next/next/no-img-element */}
-        <img src={sceneCover(id)} alt="" className="absolute inset-0 size-full object-cover" />
-        <span className="absolute inset-x-0 bottom-0 flex items-center justify-between gap-2 bg-scrim px-3 py-2">
-          <span className="text-body font-semibold text-moon">{name}</span>
-          <Box aria-hidden="true" className="size-4 shrink-0 text-moon" />
+        <span aria-hidden="true" className={cn("flex min-h-0 w-full flex-1 items-center justify-center", fill)}>
+          <Icon aria-hidden="true" className="size-16 text-moon" />
+        </span>
+        <span className="flex items-center justify-between gap-2 border-t-2 border-line px-3 py-2">
+          <span className="font-strip text-lead text-moon">{name}</span>
+          <Cube aria-hidden="true" className="size-4 shrink-0 text-moon" />
         </span>
       </button>
     </li>

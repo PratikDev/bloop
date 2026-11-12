@@ -21,6 +21,7 @@ class Product:
     limit_days: float | None = None     # None = baseline / climatology: never presented as current
     period_keys: tuple[str, str] | None = None   # first and last date in outputs[0], shown instead of an age (baselines)
     time_key: str = "source_time_utc"   # where outputs[0] keeps its newest source time ("a.b.-1.c" paths allowed)
+    checked_against: tuple[D.Dataset, ...] = ()   # of `datasets`, the ones used only to check the product, never played
 
     def __post_init__(self):
         assert self.cadence in CADENCES and self.pairing in PAIRINGS, self.id
@@ -66,7 +67,7 @@ _ALL = [
 
     # ---- ocean ----
     Product("sst_anom", "Ocean temperature vs normal (EIC frame)", ("latest/sst_anom.json", "latest/sst_anom.bin", "latest/sst_anom.webp"),
-            "daily", "frame-paired", (D.SVS5176, D.MUR, D.CRW), module="products.ocean.sst_anom",
+            "daily", "frame-paired", (D.SVS5176, D.MUR, D.CRW), module="products.ocean.sst_anom", checked_against=(D.CRW,),
             credit=SVS_CREDIT.format(id=5176) + " Data: MUR SST (NASA/JPL PO.DAAC). Check: NOAA Coral Reef Watch.",
             disclosure="Anomaly = difference from MUR's own climatology. NOAA Coral Reef Watch uses a different baseline, "
                        "so an offset is expected.", limit_days=5, time_key="frame_time_utc"),
@@ -173,6 +174,9 @@ def _eic_products():
 
 _ALL += _eic_products()
 
+# Related records read from a service rather than an SVS page: their dataset is the service itself.
+RELATED_SERVICES = {"rel_gibs": (D.GIBS,), "rel_oisst": (D.OISST,)}
+
 def _related_products():
     """One product per related record (pipeline/svs/cache/related_records.json, written by svs.onboard): no per-item code."""
     import json
@@ -180,7 +184,7 @@ def _related_products():
     path = Path(__file__).resolve().parents[1] / "svs" / "cache" / "related_records.json"
     rows = json.loads(path.read_text(encoding="utf-8")) if path.exists() else []
     return [Product(r["record"], f"{r['title']} (related)", (f"related/{r['record']}/manifest.json",), r.get("cadence", "static"), "frame-paired",
-                    (D.RELATED_OBS if r["badge"] == "observation" else D.RELATED_MODEL,), credit=r.get("credit") or SVS_CREDIT.format(id=r["svs_id"]),
+                    RELATED_SERVICES.get(r["record"]) or (D.RELATED_OBS if r["badge"] == "observation" else D.RELATED_MODEL,), credit=r.get("credit") or SVS_CREDIT.format(id=r["svs_id"]),
                     disclosure=r.get("disclosure") or f"A related NASA visualization read back through its key ({r['status']}).",
                     module=r.get("module"), limit_days=r.get("limit_days"),
                     period_keys=None if r.get("limit_days") else ("period.start", "period.end"), time_key="period.end") for r in rows]

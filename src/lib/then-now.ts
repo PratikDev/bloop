@@ -49,6 +49,48 @@ export function yearlyWindows(demo: DhakaThenNowDemo, part: YearlyPart): { A: De
   return part === "heat" ? demo.heat : demo.rain.gpcp;
 }
 
+/** The year(s) at the playhead: index runs through both windows; splitIndex plays the same index in both at once. */
+export function playheadYears(pair: { A: DemoWindow; B: DemoWindow }, index: number | null, splitIndex: number | null): number[] {
+  if (splitIndex !== null) return [pair.A.years[splitIndex], pair.B.years[splitIndex]].filter((y) => y !== undefined);
+  const year = index === null ? undefined : [...pair.A.years, ...pair.B.years][index];
+  return year === undefined ? [] : [year];
+}
+
+/** What a stripe or the ring compares against: heat is an anomaly from its normal (0), rain against the "then" window's own mean. */
+export function yearlyBaseline(part: YearlyPart, pair: { A: DemoWindow; B: DemoWindow }): number {
+  return part === "heat" ? 0 : pair.A.mean;
+}
+
+/** The value sounding now and what it's compared against. `value` is null where the record has none. */
+export interface Beat {
+  year: number;
+  value: number | null;
+  baseline: number;
+}
+
+export function yearlyBeat(part: YearlyPart, pair: { A: DemoWindow; B: DemoWindow }, index: number | null, splitIndex: number | null): Beat | null {
+  const [year] = playheadYears(pair, index, splitIndex);
+  if (year === undefined) return null;
+  const i = splitIndex ?? (index as number);
+  const value = splitIndex !== null ? pair.A.values[i] : [...pair.A.values, ...pair.B.values][i];
+  return { year, value: value ?? null, baseline: yearlyBaseline(part, pair) };
+}
+
+export function waterBeat(grace: GraceContextFile, index: number | null): Beat | null {
+  if (index === null) return null;
+  const bd = grace.boxes.Bangladesh;
+  const month = bd.months[index];
+  return month === undefined ? null : { year: Number(month.slice(0, 4)), value: bd.cm[index] ?? null, baseline: 0 };
+}
+
+/** Where a playhead at `position` (a fractional index) falls within one window's panel, 0..1; null if it's in the other window. */
+export function panelPosition(position: number, side: "then" | "now", nA: number, nB: number, split: boolean): number | null {
+  const n = side === "then" ? nA : nB;
+  const local = split || side === "then" ? position : position - nA;
+  if (local < 0 || local > n - 1 || n < 2) return null;
+  return local / (n - 1);
+}
+
 export interface YearRow {
   year: number;
   then: number | null;
@@ -61,6 +103,28 @@ export function yearRows(pair: { A: DemoWindow; B: DemoWindow }): YearRow[] {
     ...pair.A.years.map((year, i) => ({ year, then: pair.A.values[i], now: null })),
     ...pair.B.years.map((year, i) => ({ year, then: null, now: pair.B.values[i] })),
   ];
+}
+
+export interface ChartScale {
+  domain: [number, number];
+  ticks: number[];
+}
+
+const TICK_TARGET = 5;
+const NICE_STEPS = [1, 2, 2.5, 5, 10];
+
+/** One y-axis for both panels of a comparison, so equal heights mean equal values. Always includes zero, as a single chart's axis does. */
+export function sharedYScale(values: readonly number[]): ChartScale {
+  const lo = Math.min(0, ...values);
+  const hi = Math.max(0, ...values);
+  const rough = (hi - lo || 1) / (TICK_TARGET - 1);
+  const magnitude = 10 ** Math.floor(Math.log10(rough));
+  const step = (NICE_STEPS.find((s) => s * magnitude >= rough) ?? 10) * magnitude;
+  const first = Math.floor(lo / step);
+  const last = Math.max(first + 1, Math.ceil(hi / step)); // never an empty range, even if every value is 0
+  // Rounded back from the multiples: 0.1 × 3 must not print as 0.30000000000000004.
+  const ticks = Array.from({ length: last - first + 1 }, (_, i) => Number(((first + i) * step).toFixed(6)));
+  return { domain: [ticks[0], ticks[ticks.length - 1]], ticks };
 }
 
 export interface MonthRow {

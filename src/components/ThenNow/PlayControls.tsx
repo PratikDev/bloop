@@ -3,38 +3,52 @@
 import { Headphones, Playlist, Play, Stop } from "@phosphor-icons/react";
 import { Button } from "@/components/ui/button";
 import { useAppState, useT } from "../AppState/use-app-state";
+import { useCommands } from "../Commands/use-commands";
+import { MORE_ITEM } from "../Dock/PlayerMore";
 import type { Part, useThenNowPlayer } from "./use-then-now-player";
 
-const ACTION = "h-11 w-full justify-start gap-2 rounded-lg px-3 text-body lg:pointer-fine:h-9";
+type Player = ReturnType<typeof useThenNowPlayer>;
 
 /**
- * The Listen card: this part first (the main action), then "then left, now
- * right" (heat and monsoon), the three sounded parts in turn, and Stop.
+ * The one coral action on the page: play this part, or stop it while anything plays (the same key, so focus stays on
+ * it). With sound off, the same press turns sound on and plays (the click is the gesture that unlocks audio).
  */
-export function PlayControls({ part, player }: { part: Part; player: ReturnType<typeof useThenNowPlayer> }) {
+export function PlayPartButton({ part, player }: { part: Part; player: Player }) {
+  const { state } = useAppState();
+  const commands = useCommands();
+  const t = useT();
+  const playing = player.soundingPart !== null;
+  const Icon = playing ? Stop : Play;
+  const press = async () => {
+    if (playing) return player.stop();
+    if (!state.soundOn) await commands.enableSound();
+    player.playPart(part);
+  };
+  return (
+    <Button onClick={() => void press()} className="key border-navy h-11 gap-2 rounded-lg bg-shapla px-4 text-body text-moon hover:bg-shapla">
+      <Icon aria-hidden="true" weight="fill" />
+      {t(playing ? "thenNow.stop" : "thenNow.play")}
+    </Button>
+  );
+}
+
+/** The other ways to listen, and Stop, in the player's More. */
+export function ListenMoreItems({ part, player }: { part: Part; player: Player }) {
   const { state } = useAppState();
   const t = useT();
   return (
-    <div className="space-y-1.5">
-      <Button disabled={!state.soundOn} onClick={() => player.playPart(part)} className={`${ACTION} bg-shapla text-ink hover:bg-shapla/90`}>
-        <Play aria-hidden="true" weight="fill" />
-        {t("thenNow.play")}
-      </Button>
+    <>
       {part !== "water" && (
-        <Button variant="ghost" disabled={!state.soundOn} onClick={() => player.playSplit(part)} className={ACTION}>
+        <Button variant="ghost" disabled={!state.soundOn} onClick={() => player.playSplit(part)} className={MORE_ITEM}>
           <Headphones aria-hidden="true" />
           {t("thenNow.split")}
         </Button>
       )}
-      <Button variant="ghost" disabled={!state.soundOn} onClick={() => player.playPart("all")} className={ACTION}>
+      <Button variant="ghost" disabled={!state.soundOn} onClick={() => player.playPart("all")} className={MORE_ITEM}>
         <Playlist aria-hidden="true" />
         {t("thenNow.playAll")}
       </Button>
-      <Button variant="ghost" onClick={player.stop} className={ACTION}>
-        <Stop aria-hidden="true" />
-        {t("thenNow.stop")}
-      </Button>
-      {!state.soundOn && <p className="pt-1 text-small text-haze">{t("thenNow.soundOff")}</p>}
-    </div>
+      {!state.soundOn && <p className="px-3 text-small text-haze">{t("thenNow.soundOff")}</p>}
+    </>
   );
 }

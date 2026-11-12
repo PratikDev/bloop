@@ -21,7 +21,7 @@ export function GlobeTeaser() {
 
   return (
     <section className="space-y-2 rounded-lg border border-tide p-4">
-      <StatusBadge kind="october">{t("globe.teaser")}</StatusBadge>
+      <StatusBadge kind="note">{t("globe.teaser")}</StatusBadge>
       <h3 className="text-lead font-medium">{t("data.text", { text: duet.title })}</h3>
       <p className="text-moon">{t("globe.plan")}</p>
       <p>

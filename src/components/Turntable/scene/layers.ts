@@ -1,7 +1,7 @@
 // three.js render layers. The main pass draws the lit scene (layer 0). Data,
 // orientation lines and needle effects are drawn into a separate overlay
-// target (OVERLAY) and composited after tone mapping, so their colours are
-// never changed by the realism layers; OCCLUDER objects (the globe, the arm)
+// target (OVERLAY) and composited last, so their colours are never changed;
+// OCCLUDER objects (the globe, the arm)
 // are drawn depth-only first so the overlay is hidden behind them.
 
 import type { Object3D } from "three";

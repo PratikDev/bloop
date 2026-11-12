@@ -1,13 +1,15 @@
 "use client";
 
 import { useEffect, useRef } from "react";
-import { useRouterState } from "@tanstack/react-router";
+import { useRouter, useRouterState } from "@tanstack/react-router";
 import { modeFromLocation } from "@/router/modes";
+import { TRANSCRIPT_PATH } from "@/lib/transcript";
 import { useAnnounce } from "../Announcer/use-announcer";
 import type { Mode } from "../AppState/reducer";
 import { useAppState, useT } from "../AppState/use-app-state";
 import { MODE_LABELS } from "../Commands/use-commands";
-import { NAV_ITEMS } from "../Header/nav-items";
+import { TITLED_PAGES } from "../Header/nav-items";
+import { titleFocus } from "./focus-title";
 
 const FOCUS_TRIES = 60; // frames: a page whose code is still loading gets about a second
 
@@ -31,10 +33,8 @@ export function useUrlMode(): Mode {
 /**
  * Keeps the app in step with the URL: copies the mode into the state, names
  * the browser tab, and after moving to another page puts focus on its heading
- * (screen readers read it; Tab continues from the top of the new page). Only
- * when focus was on the link that moved it (in the header) or was lost with the
- * old page: a page that places focus itself (Listen's map) or an overlay (the
- * intro's Skip button) keeps it.
+ * (screen readers read it; Tab continues from the top of the new page), by the
+ * rule in `focus-title.ts`.
  */
 export function useRouteSync(): void {
   const { state, dispatch } = useAppState();
@@ -50,23 +50,45 @@ export function useRouteSync(): void {
     if (mode === "story") announce(t("announce.mode", { mode: t(MODE_LABELS.story) }));
   }, [mode, state.mode, dispatch, announce, t]);
 
-  const page = NAV_ITEMS.find((item) => item.to === pathname);
-  const title = page ? `${t(page.label)} · ${t("app.title")}` : t("app.title");
+  const page = TITLED_PAGES.find((item) => item.to === pathname);
+  const label = page ? t(page.label) : pathname === TRANSCRIPT_PATH ? t("transcript.choose") : null;
+  const title = label ? `${label} · ${t("app.title")}` : t("app.title");
   useEffect(() => {
     document.title = title;
   }, [title]);
+
+  // Where focus was when the move began (the header link that moved it, Start, an overlay): read then, not once the
+  // new page has loaded, so a link Tabbed to while the page's code loads isn't taken for the one that moved it.
+  const router = useRouter();
+  const movedFrom = useRef<Element | null>(null);
+  useEffect(
+    () => router.subscribe("onBeforeNavigate", (e) => {
+      if (e.pathChanged) movedFrom.current = document.activeElement;
+    }),
+    [router],
+  );
 
   const firstPath = useRef(pathname);
   useEffect(() => {
     if (pathname === firstPath.current) return;
     firstPath.current = "";
+    // From now on a page's panels land as it opens (motion item 8); never on the first load.
+    document.documentElement.dataset.navigated = "";
+    // Pages scroll inside main, which stays mounted: a new page starts at its top.
+    document.querySelector("main")?.scrollTo({ top: 0 });
+    const from = movedFrom.current ?? document.activeElement;
     let tries = 0;
     let frame = requestAnimationFrame(function focusTitle() {
       const heading = document.querySelector<HTMLElement>("[data-page-title]");
       const active = document.activeElement;
-      const lost = !active || active === document.body || document.querySelector("header")?.contains(active);
-      if (heading && lost) heading.focus({ preventScroll: true });
-      else if (++tries < FOCUS_TRIES) frame = requestAnimationFrame(focusTitle);
+      const next = titleFocus({
+        lost: !active || active === document.body,
+        unmoved: active === from,
+        inHeader: Boolean(active && document.querySelector("header")?.contains(active)),
+        heading: Boolean(heading),
+      });
+      if (next === "focus") heading?.focus({ preventScroll: true });
+      else if (next === "wait" && ++tries < FOCUS_TRIES) frame = requestAnimationFrame(focusTitle);
     });
     return () => cancelAnimationFrame(frame);
   }, [pathname]);

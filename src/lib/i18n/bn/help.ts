@@ -14,7 +14,7 @@ export const helpBn: Translated<typeof helpEn> = {
   "key.arrows.action": "কার্সর ১ ডিগ্রি সরান (Shift সহ: ১০ ডিগ্রি)",
   "key.enter.action": "মান ও অবস্থান শুনুন",
   "key.space": "স্পেস",
-  "key.space.action": "লাইভ শব্দ থামান বা আবার চালান",
+  "key.space.action": "লাইভ শব্দে বিরতি দিন বা আবার চালান",
   "key.s.action": `${PLACE_NAMES_BN.sweepCenter} থেকে চারদিকে সুইপ বাজান`,
   "key.123.action": "সমুদ্র, বৃষ্টি, বা দুটোই শুনুন",
   "key.m.action": "সব মিউট বা আনমিউট",
@@ -23,9 +23,9 @@ export const helpBn: Translated<typeof helpEn> = {
   "key.t.action": "আগে বনাম এখন",
   "key.l.action": "লেজেন্ড শুনুন (নমুনা শব্দ)",
   "key.p.action": "এই মান কোথা থেকে এসেছে",
-  "key.x.action": "এক্স-রে: একটি রং কীভাবে সংখ্যা ও শব্দ হয় (অক্টোবরে আসছে)",
+  "key.x.action": "এক্স-রে: একটি রং কীভাবে সংখ্যা ও শব্দ হয় (পরিকল্পিত)",
 
-  "october.heading": "এখনো তৈরি হয়নি",
+  "october.heading": "পরের পরিকল্পনা",
   "october.xray": "এক্স-রে: একটি রং কীভাবে সংখ্যা ও শব্দ হয় (নাসার কালারবার ডেটার অপেক্ষায়)",
   "october.aiByEar": "“কানে শুনে এআই যাচাই” আর “পৃথিবীকে জিজ্ঞেস করুন”, একটি ভয়েস এজেন্ট (এআই কখনো সংখ্যা তৈরি করে না)",
   "october.study": "অন্ধ ও স্বল্পদৃষ্টিসম্পন্ন প্রাপ্তবয়স্কদের নিয়ে একটি শ্রবণ-গবেষণা",
@@ -38,4 +38,7 @@ export const helpBn: Translated<typeof helpEn> = {
   "key.h.action": "এই সাহায্য খুলুন",
   "key.esc": "Esc",
   "key.esc.action": "সব শব্দ থামান ও প্যানেল বন্ধ করুন",
+  // Drafts, review first (audit A-bn, 2026-11-10).
+  "key.b.action": "ব্রেইল ডেটা এক্সপ্লোরার: তথ্যগুলো ব্রেইল সেল হিসেবে অনুভব করুন; এর ক্যারেট হলো সুই",
+  "key.r.action": "ব্রেইল এক্সপ্লোরারে: মানটি কথায় শুনুন",
 };
