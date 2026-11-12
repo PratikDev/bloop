@@ -1,5 +1,5 @@
 {
-  "generated_utc": "2026-11-06T20:00:08Z",
+  "generated_utc": "2026-11-11T17:01:57Z",
   "products": {
     "sst": {
       "product": "sst",
@@ -34,12 +34,12 @@
         }
       ],
       "limit_days": 2,
-      "status": "stale",
-      "source_time_utc": "2026-11-04T00:00:00Z",
-      "age_days": 2.83,
+      "status": "ok",
+      "source_time_utc": "2026-11-10T00:00:00Z",
+      "age_days": 1.71,
       "period": null,
       "credit": "Visualization: NASA's Scientific Visualization Studio (SVS 5101), NASA Earth Information Center. Data: MUR SST, NASA/JPL PO.DAAC.",
-      "bytes": 1252087,
+      "bytes": 1252616,
       "checked_against": []
     },
     "rain": {
@@ -77,11 +77,11 @@
       ],
       "limit_days": 2,
       "status": "ok",
-      "source_time_utc": "2026-11-06T01:30:00Z",
-      "age_days": 0.77,
+      "source_time_utc": "2026-11-11T11:30:00Z",
+      "age_days": 0.23,
       "period": null,
       "credit": "Visualization: NASA's Scientific Visualization Studio (SVS 4285), NASA Earth Information Center. Data: GPM IMERG (NASA/JAXA), GES DISC.",
-      "bytes": 5715260,
+      "bytes": 5734214,
       "checked_against": []
     },
     "sequence": {
@@ -107,11 +107,11 @@
       ],
       "limit_days": 2,
       "status": "ok",
-      "source_time_utc": "2026-11-06T02:30:00Z",
-      "age_days": 0.73,
+      "source_time_utc": "2026-11-11T11:30:00Z",
+      "age_days": 0.23,
       "period": null,
       "credit": "Visualization: NASA's Scientific Visualization Studio (SVS 4285), NASA Earth Information Center. Data: GPM IMERG (NASA/JAXA), GES DISC.",
-      "bytes": 8516,
+      "bytes": 8168,
       "checked_against": []
     },
     "grace": {
@@ -142,7 +142,7 @@
         "2026-07"
       ],
       "credit": "GRACE/GRACE-FO JPL RL06.3Mv04 CRI mascons, NASA/JPL PO.DAAC",
-      "bytes": 22666,
+      "bytes": 21455,
       "checked_against": []
     },
     "gistemp_bd": {
@@ -173,7 +173,7 @@
         "2026-08"
       ],
       "credit": "GISTEMP Team, NASA Goddard Institute for Space Studies",
-      "bytes": 128612,
+      "bytes": 121310,
       "checked_against": []
     },
     "gpcp_bd": {
@@ -204,7 +204,7 @@
         "2026-06"
       ],
       "credit": "GPCP v2.3 (Adler et al.); data provided by NOAA PSL",
-      "bytes": 83289,
+      "bytes": 78690,
       "checked_against": []
     },
     "gpcc_bd": {
@@ -235,7 +235,7 @@
         "2019-12"
       ],
       "credit": "GPCC, Deutscher Wetterdienst; data provided by NOAA PSL",
-      "bytes": 224716,
+      "bytes": 212294,
       "checked_against": []
     },
     "firms": {
@@ -263,7 +263,7 @@
       "age_days": null,
       "period": null,
       "credit": "NASA FIRMS (LANCE/ESDIS)",
-      "bytes": 24916,
+      "bytes": 26012,
       "checked_against": []
     },
     "ndvi": {
@@ -294,7 +294,7 @@
         "2023-12-19"
       ],
       "credit": "MODIS MOD13Q1, ORNL DAAC",
-      "bytes": 19429,
+      "bytes": 18541,
       "checked_against": []
     },
     "globe_bd": {
@@ -325,7 +325,7 @@
         "2025-12-31"
       ],
       "credit": "NASA GLOBE Program",
-      "bytes": 637680,
+      "bytes": 621029,
       "checked_against": []
     },
     "sst_pairs": {
@@ -360,11 +360,11 @@
       ],
       "limit_days": 4,
       "status": "ok",
-      "source_time_utc": "2026-11-04T00:00:00Z",
-      "age_days": 2.83,
+      "source_time_utc": "2026-11-10T00:00:00Z",
+      "age_days": 1.71,
       "period": null,
       "credit": "Data: MUR SST (NASA/JPL PO.DAAC). Visualization: NASA's Scientific Visualization Studio (SVS 5101) for the NASA Earth Information Center.",
-      "bytes": 8958,
+      "bytes": 8564,
       "checked_against": []
     },
     "rain_pairs": {
@@ -399,11 +399,11 @@
       ],
       "limit_days": 3,
       "status": "ok",
-      "source_time_utc": "2026-11-06T01:30:00Z",
-      "age_days": 0.77,
+      "source_time_utc": "2026-11-11T11:30:00Z",
+      "age_days": 0.23,
       "period": null,
       "credit": "Data: GPM IMERG (NASA/JAXA, GES DISC). Visualization: NASA's Scientific Visualization Studio (SVS 4285) for the NASA Earth Information Center.",
-      "bytes": 42100,
+      "bytes": 39984,
       "checked_against": []
     },
     "threeway": {
@@ -449,11 +449,11 @@
       ],
       "limit_days": 4,
       "status": "ok",
-      "source_time_utc": "2026-11-04T00:00:00Z",
-      "age_days": 2.83,
+      "source_time_utc": "2026-11-10T00:00:00Z",
+      "age_days": 1.71,
       "period": null,
       "credit": "Data: MUR SST (NASA/JPL PO.DAAC); GIBS (NASA EOSDIS). Visualization: NASA's Scientific Visualization Studio (SVS 5101) for the NASA Earth Information Center.",
-      "bytes": 16081,
+      "bytes": 15280,
       "checked_against": []
     },
     "sst_anom": {
@@ -499,11 +499,11 @@
       ],
       "limit_days": 5,
       "status": "ok",
-      "source_time_utc": "2026-11-03T00:00:00Z",
-      "age_days": 3.83,
+      "source_time_utc": "2026-11-08T00:00:00Z",
+      "age_days": 3.71,
       "period": null,
       "credit": "Visualization: NASA's Scientific Visualization Studio (SVS 5176) for the NASA Earth Information Center. Data: MUR SST (NASA/JPL PO.DAAC). Check: NOAA Coral Reef Watch.",
-      "bytes": 1495634,
+      "bytes": 1498607,
       "checked_against": [
         "crw"
       ]
@@ -530,11 +530,11 @@
       ],
       "limit_days": 3,
       "status": "ok",
-      "source_time_utc": "2026-11-04T09:00:00Z",
-      "age_days": 2.46,
+      "source_time_utc": "2026-11-10T09:00:00Z",
+      "age_days": 1.33,
       "period": null,
       "credit": "Data: MUR SST v4.1, dt_1km_data (NASA/JPL PO.DAAC).",
-      "bytes": 525751,
+      "bytes": 525713,
       "checked_against": []
     },
     "fwi_class": {
@@ -559,11 +559,11 @@
       ],
       "limit_days": 2,
       "status": "ok",
-      "source_time_utc": "2026-11-06T07:10:55Z",
-      "age_days": 0.53,
+      "source_time_utc": "2026-11-11T07:12:26Z",
+      "age_days": 0.41,
       "period": null,
       "credit": "Visualization: NASA's Scientific Visualization Studio (SVS 5315) for the NASA Earth Information Center. Data: NASA GISS GlobalFWI (experimental).",
-      "bytes": 526786,
+      "bytes": 526668,
       "checked_against": []
     },
     "fwi_archive": {
@@ -587,11 +587,11 @@
       ],
       "limit_days": 2,
       "status": "ok",
-      "source_time_utc": "2026-11-06T07:10:55Z",
-      "age_days": 0.53,
+      "source_time_utc": "2026-11-11T07:12:26Z",
+      "age_days": 0.41,
       "period": null,
       "credit": "Visualization: NASA's Scientific Visualization Studio (SVS 5315) for the NASA Earth Information Center.",
-      "bytes": 2058,
+      "bytes": 2368,
       "checked_against": []
     },
     "fires_frame": {
@@ -618,11 +618,11 @@
       ],
       "limit_days": 3,
       "status": "ok",
-      "source_time_utc": "2026-11-05T11:27:36Z",
-      "age_days": 1.36,
+      "source_time_utc": "2026-11-11T11:26:26Z",
+      "age_days": 0.23,
       "period": null,
       "credit": "Visualization: NASA's Scientific Visualization Studio (SVS 5113) for the NASA Earth Information Center. Data: VIIRS active fires (NASA FIRMS, LANCE/ESDIS).",
-      "bytes": 113675,
+      "bytes": 96537,
       "checked_against": []
     },
     "firms_daily": {
@@ -664,11 +664,11 @@
       ],
       "limit_days": 2,
       "status": "ok",
-      "source_time_utc": "2026-11-06T08:00:57Z",
-      "age_days": 0.5,
+      "source_time_utc": "2026-11-11T17:00:48Z",
+      "age_days": 0.0,
       "period": null,
       "credit": "NASA FIRMS (LANCE/ESDIS): VIIRS NOAA-21 and NOAA-20, MODIS.",
-      "bytes": 24916,
+      "bytes": 26012,
       "checked_against": []
     },
     "landslide_class": {
@@ -693,11 +693,11 @@
       ],
       "limit_days": 2,
       "status": "ok",
-      "source_time_utc": "2026-11-06T05:00:58Z",
-      "age_days": 0.62,
+      "source_time_utc": "2026-11-11T05:00:55Z",
+      "age_days": 0.5,
       "period": null,
       "credit": "Visualization: NASA's Scientific Visualization Studio (SVS 5584) for the NASA Earth Information Center. Data: NASA LHASA.",
-      "bytes": 526228,
+      "bytes": 526138,
       "checked_against": []
     },
     "nightlights": {
@@ -720,12 +720,12 @@
         }
       ],
       "limit_days": 14,
-      "status": "ok",
-      "source_time_utc": "2026-10-26T00:00:00Z",
-      "age_days": 11.83,
+      "status": "stale",
+      "source_time_utc": "2026-10-28T00:00:00Z",
+      "age_days": 14.71,
       "period": null,
       "credit": "NASA Black Marble VJ146A2 (NOAA-20 VIIRS), NASA LAADS DAAC.",
-      "bytes": 5792,
+      "bytes": 5855,
       "checked_against": []
     },
     "air_5533": {
@@ -761,13 +761,13 @@
       "limit_days": null,
       "status": "baseline",
       "source_time_utc": "2024-09-14T00:00:00Z",
-      "age_days": 783.83,
+      "age_days": 788.71,
       "period": [
         "2024-07-01T00:00:00Z",
         "2024-09-14T00:00:00Z"
       ],
       "credit": "Visualization: NASA's Scientific Visualization Studio (SVS 5533, 5518) for the NASA Earth Information Center. Data: NASA GEOS-CF (GMAO), model output.",
-      "bytes": 257673,
+      "bytes": 248240,
       "checked_against": []
     },
     "currents_3912": {
@@ -812,13 +812,13 @@
       "limit_days": null,
       "status": "baseline",
       "source_time_utc": "2008-03-03T12:00:00Z",
-      "age_days": 6822.33,
+      "age_days": 6827.21,
       "period": [
         "2007-03-25T12:00:00Z",
         "2008-03-03T12:00:00Z"
       ],
       "credit": "Visualization: NASA's Scientific Visualization Studio (SVS 3912) for the NASA Earth Information Center. Data: ECCO2 ocean model (MIT/JPL). Currents voice: NASA OSCAR surface currents (ESR, PO.DAAC).",
-      "bytes": 26599,
+      "bytes": 25525,
       "checked_against": []
     },
     "ocean2_5425": {
@@ -854,13 +854,13 @@
       "limit_days": null,
       "status": "baseline",
       "source_time_utc": "2023-12-25T00:00:00Z",
-      "age_days": 1047.83,
+      "age_days": 1052.71,
       "period": [
         "2022-01-25T00:00:00Z",
         "2023-12-25T00:00:00Z"
       ],
       "credit": "Visualization: NASA's Scientific Visualization Studio (SVS 5425) for the NASA Earth Information Center. Data: ECCO ocean state estimate (NASA/JPL).",
-      "bytes": 31946,
+      "bytes": 30512,
       "checked_against": []
     },
     "river_4960": {
@@ -896,13 +896,13 @@
       "limit_days": null,
       "status": "baseline",
       "source_time_utc": "2010-12-14T00:00:00Z",
-      "age_days": 5806.83,
+      "age_days": 5811.71,
       "period": [
         "2010-10-01T00:00:00Z",
         "2010-12-14T00:00:00Z"
       ],
       "credit": "Visualization: NASA's Scientific Visualization Studio (SVS 4960) for the NASA Earth Information Center. Data: NASA MERRA-2 reanalysis (GMAO).",
-      "bytes": 15802,
+      "bytes": 15181,
       "checked_against": []
     },
     "sonification_13786": {
@@ -927,13 +927,13 @@
       "limit_days": null,
       "status": "baseline",
       "source_time_utc": "2020-12-23T09:00:00Z",
-      "age_days": 2144.46,
+      "age_days": 2149.33,
       "period": [
         "2020-12-23T09:00:00Z",
         "2020-12-23T09:00:00Z"
       ],
       "credit": "Credit: SYSTEM Sounds (M. Russo, A. Santaguida) and NASA (SVS 13786).",
-      "bytes": 3664,
+      "bytes": 3553,
       "checked_against": []
     },
     "co2_5196": {
@@ -969,13 +969,13 @@
       "limit_days": null,
       "status": "baseline",
       "source_time_utc": "2020-03-03T00:00:00Z",
-      "age_days": 2439.83,
+      "age_days": 2444.71,
       "period": [
         "2020-01-14T00:00:00Z",
         "2020-03-03T00:00:00Z"
       ],
       "credit": "Visualization: NASA's Scientific Visualization Studio (SVS 5196, 5436) for the NASA Earth Information Center. Data: NASA GEOS–MITgcm DYAMOND nature run (GMAO).",
-      "bytes": 10887,
+      "bytes": 10446,
       "checked_against": []
     },
     "forest_4950": {
@@ -1011,13 +1011,13 @@
       "limit_days": null,
       "status": "baseline",
       "source_time_utc": "2020-04-30T00:00:00Z",
-      "age_days": 2381.83,
+      "age_days": 2386.71,
       "period": [
         "2019-04-18T00:00:00Z",
         "2020-04-30T00:00:00Z"
       ],
       "credit": "Visualization: NASA's Scientific Visualization Studio (SVS 4950) for the NASA Earth Information Center. Data: NASA GEDI (University of Maryland, ORNL DAAC).",
-      "bytes": 12174,
+      "bytes": 11617,
       "checked_against": []
     },
     "aerosols_5669": {
@@ -1053,13 +1053,13 @@
       "limit_days": null,
       "status": "baseline",
       "source_time_utc": "2025-08-19T20:00:00Z",
-      "age_days": 444.0,
+      "age_days": 448.88,
       "period": [
         "2025-08-19T20:00:00Z",
         "2025-08-19T20:00:00Z"
       ],
       "credit": "Visualization: NASA's Scientific Visualization Studio (SVS 5669, 5572) for the NASA Earth Information Center. Data: NASA GEOS-FP (GMAO), model output.",
-      "bytes": 18713,
+      "bytes": 17868,
       "checked_against": []
     },
     "lightning_5011": {
@@ -1095,13 +1095,13 @@
       "limit_days": null,
       "status": "baseline",
       "source_time_utc": "2023-07-31T00:00:00Z",
-      "age_days": 1194.83,
+      "age_days": 1199.71,
       "period": [
         "2017-03-01T00:00:00Z",
         "2023-07-31T00:00:00Z"
       ],
       "credit": "Visualization: NASA's Scientific Visualization Studio (SVS 5011) for the NASA Earth Information Center. Data: NASA ISS LIS (GHRC DAAC).",
-      "bytes": 26949,
+      "bytes": 26080,
       "checked_against": []
     },
     "lights_5313": {
@@ -1137,13 +1137,13 @@
       "limit_days": null,
       "status": "baseline",
       "source_time_utc": "2023-12-31T00:00:00Z",
-      "age_days": 1041.83,
+      "age_days": 1046.71,
       "period": [
         "2012-01-01T00:00:00Z",
         "2023-12-31T00:00:00Z"
       ],
       "credit": "Visualization: NASA's Scientific Visualization Studio (SVS 5313, 5276, 5475) for the NASA Earth Information Center. Data: NASA Black Marble (S-NPP VIIRS).",
-      "bytes": 10990,
+      "bytes": 10559,
       "checked_against": []
     },
     "oscar_3912": {
@@ -1168,13 +1168,13 @@
       "limit_days": null,
       "status": "baseline",
       "source_time_utc": "2008-03-03T12:00:00Z",
-      "age_days": 6822.33,
+      "age_days": 6827.21,
       "period": [
         "2007-03-25T12:00:00Z",
         "2008-03-03T12:00:00Z"
       ],
       "credit": "NASA OSCAR L4 surface currents, final v2.0 (ESR, PO.DAAC); full citation in the record's voice sources.",
-      "bytes": 26599,
+      "bytes": 25525,
       "checked_against": []
     },
     "eic_5147": {
@@ -1202,13 +1202,13 @@
       "limit_days": null,
       "status": "baseline",
       "source_time_utc": "2026-10-28T22:00:00Z",
-      "age_days": 8.92,
+      "age_days": 13.79,
       "period": [
         "2026-10-28T22:00:00Z",
         "2026-10-28T22:00:00Z"
       ],
       "credit": "Visualization: NASA's Scientific Visualization Studio (SVS 5147) for the NASA Earth Information Center.",
-      "bytes": 8275,
+      "bytes": 7918,
       "checked_against": []
     },
     "eic_5148": {
@@ -1236,13 +1236,13 @@
       "limit_days": null,
       "status": "baseline",
       "source_time_utc": "2026-10-28T22:00:00Z",
-      "age_days": 8.92,
+      "age_days": 13.79,
       "period": [
         "2026-10-28T22:00:00Z",
         "2026-10-28T22:00:00Z"
       ],
       "credit": "Visualization: NASA's Scientific Visualization Studio (SVS 5148) for the NASA Earth Information Center.",
-      "bytes": 8233,
+      "bytes": 7871,
       "checked_against": []
     },
     "eic_5149": {
@@ -1270,13 +1270,13 @@
       "limit_days": null,
       "status": "baseline",
       "source_time_utc": "2026-10-28T22:00:00Z",
-      "age_days": 8.92,
+      "age_days": 13.79,
       "period": [
         "2026-10-28T22:00:00Z",
         "2026-10-28T22:00:00Z"
       ],
       "credit": "Visualization: NASA's Scientific Visualization Studio (SVS 5149) for the NASA Earth Information Center.",
-      "bytes": 8647,
+      "bytes": 8259,
       "checked_against": []
     },
     "eic_5150": {
@@ -1304,13 +1304,13 @@
       "limit_days": null,
       "status": "baseline",
       "source_time_utc": "2026-10-29T22:00:00Z",
-      "age_days": 7.92,
+      "age_days": 12.79,
       "period": [
         "2026-10-29T22:00:00Z",
         "2026-10-29T22:00:00Z"
       ],
       "credit": "Visualization: NASA's Scientific Visualization Studio (SVS 5150) for the NASA Earth Information Center.",
-      "bytes": 8777,
+      "bytes": 8384,
       "checked_against": []
     },
     "eic_5151": {
@@ -1338,13 +1338,13 @@
       "limit_days": null,
       "status": "baseline",
       "source_time_utc": "2026-10-28T22:00:00Z",
-      "age_days": 8.92,
+      "age_days": 13.79,
       "period": [
         "2026-10-28T22:00:00Z",
         "2026-10-28T22:00:00Z"
       ],
       "credit": "Visualization: NASA's Scientific Visualization Studio (SVS 5151) for the NASA Earth Information Center.",
-      "bytes": 7672,
+      "bytes": 7334,
       "checked_against": []
     },
     "eic_5152": {
@@ -1372,13 +1372,13 @@
       "limit_days": null,
       "status": "baseline",
       "source_time_utc": "2026-10-28T22:00:00Z",
-      "age_days": 8.92,
+      "age_days": 13.79,
       "period": [
         "2026-10-28T22:00:00Z",
         "2026-10-28T22:00:00Z"
       ],
       "credit": "Visualization: NASA's Scientific Visualization Studio (SVS 5152) for the NASA Earth Information Center.",
-      "bytes": 7351,
+      "bytes": 7027,
       "checked_against": []
     },
     "eic_5153": {
@@ -1406,13 +1406,13 @@
       "limit_days": null,
       "status": "baseline",
       "source_time_utc": "2026-10-28T22:00:00Z",
-      "age_days": 8.92,
+      "age_days": 13.79,
       "period": [
         "2026-10-28T22:00:00Z",
         "2026-10-28T22:00:00Z"
       ],
       "credit": "Visualization: NASA's Scientific Visualization Studio (SVS 5153) for the NASA Earth Information Center.",
-      "bytes": 7784,
+      "bytes": 7436,
       "checked_against": []
     },
     "eic_5154": {
@@ -1440,13 +1440,13 @@
       "limit_days": null,
       "status": "baseline",
       "source_time_utc": "2026-10-28T22:00:00Z",
-      "age_days": 8.92,
+      "age_days": 13.79,
       "period": [
         "2026-10-28T22:00:00Z",
         "2026-10-28T22:00:00Z"
       ],
       "credit": "Visualization: NASA's Scientific Visualization Studio (SVS 5154) for the NASA Earth Information Center.",
-      "bytes": 7977,
+      "bytes": 7628,
       "checked_against": []
     },
     "eic_5544": {
@@ -1471,13 +1471,13 @@
       "limit_days": null,
       "status": "baseline",
       "source_time_utc": "2026-06-13T00:00:00Z",
-      "age_days": 146.83,
+      "age_days": 151.71,
       "period": [
         "2026-06-13T00:00:00Z",
         "2026-06-13T00:00:00Z"
       ],
       "credit": "Visualization: NASA's Scientific Visualization Studio (SVS 5544) for the NASA Earth Information Center.",
-      "bytes": 6202,
+      "bytes": 5916,
       "checked_against": []
     },
     "rel_30919": {
@@ -1502,13 +1502,13 @@
       "limit_days": null,
       "status": "baseline",
       "source_time_utc": "2017-12-06T05:00:00Z",
-      "age_days": 3257.63,
+      "age_days": 3262.5,
       "period": [
         "2017-12-06T05:00:00Z",
         "2017-12-06T05:00:00Z"
       ],
       "credit": "Visualization: NASA's Scientific Visualization Studio (SVS 30919) for the NASA Earth Information Center.",
-      "bytes": 6751,
+      "bytes": 6459,
       "checked_against": []
     },
     "rel_3143": {
@@ -1533,13 +1533,13 @@
       "limit_days": null,
       "status": "baseline",
       "source_time_utc": "2005-04-14T16:00:00Z",
-      "age_days": 7876.17,
+      "age_days": 7881.04,
       "period": [
         "2005-04-14T16:00:00Z",
         "2005-04-14T16:00:00Z"
       ],
       "credit": "Visualization: NASA's Scientific Visualization Studio (SVS 3143) for the NASA Earth Information Center.",
-      "bytes": 9535,
+      "bytes": 9126,
       "checked_against": []
     },
     "rel_3144": {
@@ -1564,13 +1564,13 @@
       "limit_days": null,
       "status": "baseline",
       "source_time_utc": "2005-04-14T16:00:00Z",
-      "age_days": 7876.17,
+      "age_days": 7881.04,
       "period": [
         "2005-04-14T16:00:00Z",
         "2005-04-14T16:00:00Z"
       ],
       "credit": "Visualization: NASA's Scientific Visualization Studio (SVS 3144) for the NASA Earth Information Center.",
-      "bytes": 9751,
+      "bytes": 9315,
       "checked_against": []
     },
     "rel_3821": {
@@ -1595,13 +1595,13 @@
       "limit_days": null,
       "status": "baseline",
       "source_time_utc": "2006-01-01T00:00:00Z",
-      "age_days": 7614.83,
+      "age_days": 7619.71,
       "period": [
         "2005-01-01T00:00:00Z",
         "2006-01-01T00:00:00Z"
       ],
       "credit": "Visualization: NASA's Scientific Visualization Studio (SVS 3821) for the NASA Earth Information Center.",
-      "bytes": 10474,
+      "bytes": 10061,
       "checked_against": []
     },
     "rel_3913": {
@@ -1626,13 +1626,13 @@
       "limit_days": null,
       "status": "baseline",
       "source_time_utc": "2012-02-15T05:00:00Z",
-      "age_days": 5378.63,
+      "age_days": 5383.5,
       "period": [
         "2012-02-15T05:00:00Z",
         "2012-02-15T05:00:00Z"
       ],
       "credit": "Visualization: NASA's Scientific Visualization Studio (SVS 3913) for the NASA Earth Information Center.",
-      "bytes": 13418,
+      "bytes": 12889,
       "checked_against": []
     },
     "rel_4272": {
@@ -1657,13 +1657,13 @@
       "limit_days": null,
       "status": "baseline",
       "source_time_utc": "2015-02-09T05:00:00Z",
-      "age_days": 4288.63,
+      "age_days": 4293.5,
       "period": [
         "2015-02-09T05:00:00Z",
         "2015-02-09T05:00:00Z"
       ],
       "credit": "Visualization: NASA's Scientific Visualization Studio (SVS 4272) for the NASA Earth Information Center.",
-      "bytes": 8267,
+      "bytes": 7909,
       "checked_against": []
     },
     "rel_4284": {
@@ -1688,13 +1688,13 @@
       "limit_days": null,
       "status": "baseline",
       "source_time_utc": "2014-08-11T00:00:00Z",
-      "age_days": 4470.83,
+      "age_days": 4475.71,
       "period": [
         "2014-08-04T00:00:00Z",
         "2014-08-11T00:00:00Z"
       ],
       "credit": "Visualization: NASA's Scientific Visualization Studio (SVS 4284) for the NASA Earth Information Center.",
-      "bytes": 9529,
+      "bytes": 9126,
       "checked_against": []
     },
     "rel_4332": {
@@ -1719,13 +1719,13 @@
       "limit_days": null,
       "status": "baseline",
       "source_time_utc": "2015-09-23T04:00:00Z",
-      "age_days": 4062.67,
+      "age_days": 4067.54,
       "period": [
         "2015-09-23T04:00:00Z",
         "2015-09-23T04:00:00Z"
       ],
       "credit": "Visualization: NASA's Scientific Visualization Studio (SVS 4332) for the NASA Earth Information Center.",
-      "bytes": 7629,
+      "bytes": 7305,
       "checked_against": []
     },
     "rel_4345": {
@@ -1750,13 +1750,13 @@
       "limit_days": null,
       "status": "baseline",
       "source_time_utc": "2015-08-26T13:30:00Z",
-      "age_days": 4090.27,
+      "age_days": 4095.15,
       "period": [
         "2015-08-26T13:30:00Z",
         "2015-08-26T13:30:00Z"
       ],
       "credit": "Visualization: NASA's Scientific Visualization Studio (SVS 4345) for the NASA Earth Information Center.",
-      "bytes": 9336,
+      "bytes": 8959,
       "checked_against": []
     },
     "rel_4353": {
@@ -1781,13 +1781,13 @@
       "limit_days": null,
       "status": "baseline",
       "source_time_utc": "2015-09-10T04:00:00Z",
-      "age_days": 4075.67,
+      "age_days": 4080.54,
       "period": [
         "2015-09-10T04:00:00Z",
         "2015-09-10T04:00:00Z"
       ],
       "credit": "Visualization: NASA's Scientific Visualization Studio (SVS 4353) for the NASA Earth Information Center.",
-      "bytes": 10401,
+      "bytes": 9965,
       "checked_against": []
     },
     "rel_4372": {
@@ -1812,13 +1812,13 @@
       "limit_days": null,
       "status": "baseline",
       "source_time_utc": "2015-10-02T04:00:00Z",
-      "age_days": 4053.67,
+      "age_days": 4058.54,
       "period": [
         "2015-10-02T04:00:00Z",
         "2015-10-02T04:00:00Z"
       ],
       "credit": "Visualization: NASA's Scientific Visualization Studio (SVS 4372) for the NASA Earth Information Center.",
-      "bytes": 15465,
+      "bytes": 14898,
       "checked_against": []
     },
     "rel_4417": {
@@ -1843,13 +1843,13 @@
       "limit_days": null,
       "status": "baseline",
       "source_time_utc": "2016-01-11T05:00:00Z",
-      "age_days": 3952.63,
+      "age_days": 3957.5,
       "period": [
         "2016-01-11T05:00:00Z",
         "2016-01-11T05:00:00Z"
       ],
       "credit": "Visualization: NASA's Scientific Visualization Studio (SVS 4417) for the NASA Earth Information Center.",
-      "bytes": 6925,
+      "bytes": 6638,
       "checked_against": []
     },
     "rel_4445": {
@@ -1874,13 +1874,13 @@
       "limit_days": null,
       "status": "baseline",
       "source_time_utc": "2016-04-18T04:00:00Z",
-      "age_days": 3854.67,
+      "age_days": 3859.54,
       "period": [
         "2016-04-18T04:00:00Z",
         "2016-04-18T04:00:00Z"
       ],
       "credit": "Visualization: NASA's Scientific Visualization Studio (SVS 4445) for the NASA Earth Information Center.",
-      "bytes": 7657,
+      "bytes": 7402,
       "checked_against": []
     },
     "rel_4658": {
@@ -1905,13 +1905,13 @@
       "limit_days": null,
       "status": "baseline",
       "source_time_utc": "2018-12-09T05:00:00Z",
-      "age_days": 2889.63,
+      "age_days": 2894.5,
       "period": [
         "2018-12-09T05:00:00Z",
         "2018-12-09T05:00:00Z"
       ],
       "credit": "Visualization: NASA's Scientific Visualization Studio (SVS 4658) for the NASA Earth Information Center.",
-      "bytes": 7974,
+      "bytes": 7719,
       "checked_against": []
     },
     "rel_4764": {
@@ -1936,13 +1936,13 @@
       "limit_days": null,
       "status": "baseline",
       "source_time_utc": "2019-11-07T05:00:00Z",
-      "age_days": 2556.63,
+      "age_days": 2561.5,
       "period": [
         "2019-11-07T05:00:00Z",
         "2019-11-07T05:00:00Z"
       ],
       "credit": "Visualization: NASA's Scientific Visualization Studio (SVS 4764) for the NASA Earth Information Center.",
-      "bytes": 6923,
+      "bytes": 6617,
       "checked_against": []
     },
     "rel_4810": {
@@ -1967,13 +1967,13 @@
       "limit_days": null,
       "status": "baseline",
       "source_time_utc": "2020-04-24T04:00:00Z",
-      "age_days": 2387.67,
+      "age_days": 2392.54,
       "period": [
         "2020-04-24T04:00:00Z",
         "2020-04-24T04:00:00Z"
       ],
       "credit": "Visualization: NASA's Scientific Visualization Studio (SVS 4810) for the NASA Earth Information Center.",
-      "bytes": 8128,
+      "bytes": 7785,
       "checked_against": []
     },
     "rel_4889": {
@@ -1998,13 +1998,13 @@
       "limit_days": null,
       "status": "baseline",
       "source_time_utc": "2021-03-03T19:00:00Z",
-      "age_days": 2074.04,
+      "age_days": 2078.92,
       "period": [
         "2021-03-03T19:00:00Z",
         "2021-03-03T19:00:00Z"
       ],
       "credit": "Visualization: NASA's Scientific Visualization Studio (SVS 4889) for the NASA Earth Information Center.",
-      "bytes": 6916,
+      "bytes": 6614,
       "checked_against": []
     },
     "rel_4939": {
@@ -2029,13 +2029,13 @@
       "limit_days": null,
       "status": "baseline",
       "source_time_utc": "2021-10-07T04:00:00Z",
-      "age_days": 1856.67,
+      "age_days": 1861.54,
       "period": [
         "2021-10-07T04:00:00Z",
         "2021-10-07T04:00:00Z"
       ],
       "credit": "Visualization: NASA's Scientific Visualization Studio (SVS 4939) for the NASA Earth Information Center.",
-      "bytes": 9223,
+      "bytes": 8736,
       "checked_against": []
     },
     "rel_4993": {
@@ -2060,13 +2060,13 @@
       "limit_days": null,
       "status": "baseline",
       "source_time_utc": "2022-06-01T13:00:00Z",
-      "age_days": 1619.29,
+      "age_days": 1624.17,
       "period": [
         "2022-06-01T13:00:00Z",
         "2022-06-01T13:00:00Z"
       ],
       "credit": "Visualization: NASA's Scientific Visualization Studio (SVS 4993) for the NASA Earth Information Center.",
-      "bytes": 8418,
+      "bytes": 8114,
       "checked_against": []
     },
     "rel_5017": {
@@ -2091,13 +2091,13 @@
       "limit_days": null,
       "status": "baseline",
       "source_time_utc": "2021-09-01T00:00:00Z",
-      "age_days": 1892.83,
+      "age_days": 1897.71,
       "period": [
         "2011-09-01T00:00:00Z",
         "2021-09-01T00:00:00Z"
       ],
       "credit": "Visualization: NASA's Scientific Visualization Studio (SVS 5017) for the NASA Earth Information Center.",
-      "bytes": 11573,
+      "bytes": 11105,
       "checked_against": []
     },
     "rel_5070": {
@@ -2122,13 +2122,13 @@
       "limit_days": null,
       "status": "baseline",
       "source_time_utc": "2023-02-06T05:00:00Z",
-      "age_days": 1369.63,
+      "age_days": 1374.5,
       "period": [
         "2023-02-06T05:00:00Z",
         "2023-02-06T05:00:00Z"
       ],
       "credit": "Visualization: NASA's Scientific Visualization Studio (SVS 5070) for the NASA Earth Information Center.",
-      "bytes": 7035,
+      "bytes": 6724,
       "checked_against": []
     },
     "rel_5098": {
@@ -2153,13 +2153,13 @@
       "limit_days": null,
       "status": "baseline",
       "source_time_utc": "2023-04-24T13:00:00Z",
-      "age_days": 1292.29,
+      "age_days": 1297.17,
       "period": [
         "2023-04-24T13:00:00Z",
         "2023-04-24T13:00:00Z"
       ],
       "credit": "Visualization: NASA's Scientific Visualization Studio (SVS 5098) for the NASA Earth Information Center.",
-      "bytes": 7553,
+      "bytes": 7237,
       "checked_against": []
     },
     "rel_5104": {
@@ -2184,13 +2184,13 @@
       "limit_days": null,
       "status": "baseline",
       "source_time_utc": "2023-05-23T04:00:00Z",
-      "age_days": 1263.67,
+      "age_days": 1268.54,
       "period": [
         "2023-05-23T04:00:00Z",
         "2023-05-23T04:00:00Z"
       ],
       "credit": "Visualization: NASA's Scientific Visualization Studio (SVS 5104) for the NASA Earth Information Center.",
-      "bytes": 8517,
+      "bytes": 8171,
       "checked_against": []
     },
     "rel_5110": {
@@ -2215,13 +2215,13 @@
       "limit_days": null,
       "status": "baseline",
       "source_time_utc": "2023-06-16T14:00:00Z",
-      "age_days": 1239.25,
+      "age_days": 1244.13,
       "period": [
         "2023-06-16T14:00:00Z",
         "2023-06-16T14:00:00Z"
       ],
       "credit": "Visualization: NASA's Scientific Visualization Studio (SVS 5110) for the NASA Earth Information Center.",
-      "bytes": 20515,
+      "bytes": 19883,
       "checked_against": []
     },
     "rel_5111": {
@@ -2246,13 +2246,13 @@
       "limit_days": null,
       "status": "baseline",
       "source_time_utc": "2023-07-02T12:00:00Z",
-      "age_days": 1223.33,
+      "age_days": 1228.21,
       "period": [
         "1957-07-02T12:00:00Z",
         "2023-07-02T12:00:00Z"
       ],
       "credit": "Visualization: NASA's Scientific Visualization Studio (SVS 5111) for the NASA Earth Information Center.",
-      "bytes": 9672,
+      "bytes": 9281,
       "checked_against": []
     },
     "rel_5119": {
@@ -2277,13 +2277,13 @@
       "limit_days": null,
       "status": "baseline",
       "source_time_utc": "2025-07-01T00:00:00Z",
-      "age_days": 493.83,
+      "age_days": 498.71,
       "period": [
         "1959-07-01T00:00:00Z",
         "2025-07-01T00:00:00Z"
       ],
       "credit": "Visualization: NASA's Scientific Visualization Studio (SVS 5119) for the NASA Earth Information Center.",
-      "bytes": 9039,
+      "bytes": 8663,
       "checked_against": []
     },
     "rel_5126": {
@@ -2308,13 +2308,13 @@
       "limit_days": null,
       "status": "baseline",
       "source_time_utc": "2025-07-01T00:00:00Z",
-      "age_days": 493.83,
+      "age_days": 498.71,
       "period": [
         "1979-07-01T00:00:00Z",
         "2025-07-01T00:00:00Z"
       ],
       "credit": "Visualization: NASA's Scientific Visualization Studio (SVS 5126) for the NASA Earth Information Center.",
-      "bytes": 7119,
+      "bytes": 6787,
       "checked_against": []
     },
     "rel_5142": {
@@ -2339,13 +2339,13 @@
       "limit_days": null,
       "status": "baseline",
       "source_time_utc": "2023-08-24T14:45:00Z",
-      "age_days": 1170.22,
+      "age_days": 1175.1,
       "period": [
         "2023-08-24T14:45:00Z",
         "2023-08-24T14:45:00Z"
       ],
       "credit": "Visualization: NASA's Scientific Visualization Studio (SVS 5142) for the NASA Earth Information Center.",
-      "bytes": 8121,
+      "bytes": 7773,
       "checked_against": []
     },
     "rel_5190": {
@@ -2370,13 +2370,13 @@
       "limit_days": null,
       "status": "baseline",
       "source_time_utc": "2026-09-15T00:00:00Z",
-      "age_days": 52.83,
+      "age_days": 57.71,
       "period": [
         "1880-01-15T00:00:00Z",
         "2026-09-15T00:00:00Z"
       ],
       "credit": "Visualization: NASA's Scientific Visualization Studio (SVS 5190) for the NASA Earth Information Center.",
-      "bytes": 93384,
+      "bytes": 89280,
       "checked_against": []
     },
     "rel_5191": {
@@ -2401,13 +2401,13 @@
       "limit_days": null,
       "status": "baseline",
       "source_time_utc": "2025-07-01T00:00:00Z",
-      "age_days": 493.83,
+      "age_days": 498.71,
       "period": [
         "1880-07-01T00:00:00Z",
         "2025-07-01T00:00:00Z"
       ],
       "credit": "Visualization: NASA's Scientific Visualization Studio (SVS 5191) for the NASA Earth Information Center.",
-      "bytes": 13426,
+      "bytes": 12845,
       "checked_against": []
     },
     "rel_5207": {
@@ -2432,13 +2432,13 @@
       "limit_days": null,
       "status": "baseline",
       "source_time_utc": "2025-07-01T00:00:00Z",
-      "age_days": 493.83,
+      "age_days": 498.71,
       "period": [
         "1880-07-01T00:00:00Z",
         "2025-07-01T00:00:00Z"
       ],
       "credit": "Visualization: NASA's Scientific Visualization Studio (SVS 5207) for the NASA Earth Information Center.",
-      "bytes": 14120,
+      "bytes": 13549,
       "checked_against": []
     },
     "rel_5209": {
@@ -2463,13 +2463,13 @@
       "limit_days": null,
       "status": "baseline",
       "source_time_utc": "2025-07-01T00:00:00Z",
-      "age_days": 493.83,
+      "age_days": 498.71,
       "period": [
         "1880-07-01T00:00:00Z",
         "2025-07-01T00:00:00Z"
       ],
       "credit": "Visualization: NASA's Scientific Visualization Studio (SVS 5209) for the NASA Earth Information Center.",
-      "bytes": 13560,
+      "bytes": 13002,
       "checked_against": []
     },
     "rel_5221": {
@@ -2494,13 +2494,13 @@
       "limit_days": null,
       "status": "baseline",
       "source_time_utc": "2022-12-26T01:54:46Z",
-      "age_days": 1411.75,
+      "age_days": 1416.63,
       "period": [
         "1993-01-05T04:58:03Z",
         "2022-12-26T01:54:46Z"
       ],
       "credit": "Visualization: NASA's Scientific Visualization Studio (SVS 5221) for the NASA Earth Information Center.",
-      "bytes": 60656,
+      "bytes": 58001,
       "checked_against": []
     },
     "rel_5235": {
@@ -2525,13 +2525,13 @@
       "limit_days": null,
       "status": "baseline",
       "source_time_utc": "2022-12-26T01:54:46Z",
-      "age_days": 1411.75,
+      "age_days": 1416.63,
       "period": [
         "1993-01-05T04:58:03Z",
         "2022-12-26T01:54:46Z"
       ],
       "credit": "Visualization: NASA's Scientific Visualization Studio (SVS 5235) for the NASA Earth Information Center.",
-      "bytes": 61811,
+      "bytes": 59159,
       "checked_against": []
     },
     "rel_5303": {
@@ -2556,13 +2556,13 @@
       "limit_days": null,
       "status": "baseline",
       "source_time_utc": "2024-05-30T18:00:00Z",
-      "age_days": 890.08,
+      "age_days": 894.96,
       "period": [
         "2024-05-30T18:00:00Z",
         "2024-05-30T18:00:00Z"
       ],
       "credit": "Visualization: NASA's Scientific Visualization Studio (SVS 5303) for the NASA Earth Information Center.",
-      "bytes": 8764,
+      "bytes": 8456,
       "checked_against": []
     },
     "rel_5453": {
@@ -2587,13 +2587,13 @@
       "limit_days": null,
       "status": "baseline",
       "source_time_utc": "2025-01-03T16:00:00Z",
-      "age_days": 672.17,
+      "age_days": 677.04,
       "period": [
         "2025-01-03T16:00:00Z",
         "2025-01-03T16:00:00Z"
       ],
       "credit": "Visualization: NASA's Scientific Visualization Studio (SVS 5453) for the NASA Earth Information Center.",
-      "bytes": 6627,
+      "bytes": 6355,
       "checked_against": []
     },
     "rel_5468": {
@@ -2618,13 +2618,13 @@
       "limit_days": null,
       "status": "baseline",
       "source_time_utc": "2025-01-10T16:49:00Z",
-      "age_days": 665.13,
+      "age_days": 670.01,
       "period": [
         "2025-01-10T16:49:00Z",
         "2025-01-10T16:49:00Z"
       ],
       "credit": "Visualization: NASA's Scientific Visualization Studio (SVS 5468) for the NASA Earth Information Center.",
-      "bytes": 9681,
+      "bytes": 9233,
       "checked_against": []
     },
     "rel_5477": {
@@ -2649,13 +2649,13 @@
       "limit_days": null,
       "status": "baseline",
       "source_time_utc": "2025-05-16T17:00:00Z",
-      "age_days": 539.13,
+      "age_days": 544.0,
       "period": [
         "2025-05-16T17:00:00Z",
         "2025-05-16T17:00:00Z"
       ],
       "credit": "Visualization: NASA's Scientific Visualization Studio (SVS 5477) for the NASA Earth Information Center.",
-      "bytes": 6505,
+      "bytes": 6230,
       "checked_against": []
     },
     "rel_5516": {
@@ -2680,13 +2680,13 @@
       "limit_days": null,
       "status": "baseline",
       "source_time_utc": "2022-12-26T01:54:46Z",
-      "age_days": 1411.75,
+      "age_days": 1416.63,
       "period": [
         "1993-01-05T04:58:03Z",
         "2022-12-26T01:54:46Z"
       ],
       "credit": "Visualization: NASA's Scientific Visualization Studio (SVS 5516) for the NASA Earth Information Center.",
-      "bytes": 60109,
+      "bytes": 57454,
       "checked_against": []
     },
     "rel_5557": {
@@ -2711,13 +2711,13 @@
       "limit_days": null,
       "status": "baseline",
       "source_time_utc": "2025-09-26T00:00:00Z",
-      "age_days": 406.83,
+      "age_days": 411.71,
       "period": [
         "2025-09-16T00:00:00Z",
         "2025-09-26T00:00:00Z"
       ],
       "credit": "Visualization: NASA's Scientific Visualization Studio (SVS 5557) for the NASA Earth Information Center.",
-      "bytes": 14857,
+      "bytes": 14335,
       "checked_against": []
     },
     "rel_5597": {
@@ -2742,13 +2742,13 @@
       "limit_days": null,
       "status": "baseline",
       "source_time_utc": "2025-09-26T00:00:00Z",
-      "age_days": 406.83,
+      "age_days": 411.71,
       "period": [
         "2025-09-16T00:00:00Z",
         "2025-09-26T00:00:00Z"
       ],
       "credit": "Visualization: NASA's Scientific Visualization Studio (SVS 5597) for the NASA Earth Information Center.",
-      "bytes": 12315,
+      "bytes": 11867,
       "checked_against": []
     },
     "rel_5601": {
@@ -2773,13 +2773,13 @@
       "limit_days": null,
       "status": "baseline",
       "source_time_utc": "2026-01-02T17:27:00Z",
-      "age_days": 308.11,
+      "age_days": 312.98,
       "period": [
         "2026-01-02T17:27:00Z",
         "2026-01-02T17:27:00Z"
       ],
       "credit": "Visualization: NASA's Scientific Visualization Studio (SVS 5601) for the NASA Earth Information Center.",
-      "bytes": 10528,
+      "bytes": 10126,
       "checked_against": []
     },
     "rel_5611": {
@@ -2804,13 +2804,13 @@
       "limit_days": null,
       "status": "baseline",
       "source_time_utc": "2022-12-26T01:54:46Z",
-      "age_days": 1411.75,
+      "age_days": 1416.63,
       "period": [
         "1993-01-05T04:58:03Z",
         "2022-12-26T01:54:46Z"
       ],
       "credit": "Visualization: NASA's Scientific Visualization Studio (SVS 5611) for the NASA Earth Information Center.",
-      "bytes": 60134,
+      "bytes": 57478,
       "checked_against": []
     },
     "rel_5624": {
@@ -2833,12 +2833,12 @@
         }
       ],
       "limit_days": 2.0,
-      "status": "ok",
+      "status": "stale",
       "source_time_utc": "2026-11-07T08:00:00Z",
-      "age_days": -0.5,
+      "age_days": 4.38,
       "period": null,
       "credit": "Visualization: NASA's Scientific Visualization Studio (SVS 5624) for the NASA Earth Information Center.",
-      "bytes": 8919,
+      "bytes": 8558,
       "checked_against": []
     },
     "rel_5639": {
@@ -2863,13 +2863,13 @@
       "limit_days": null,
       "status": "baseline",
       "source_time_utc": "2026-08-11T00:00:00Z",
-      "age_days": 87.83,
+      "age_days": 92.71,
       "period": [
         "2026-06-30T00:00:00Z",
         "2026-08-11T00:00:00Z"
       ],
       "credit": "Visualization: NASA's Scientific Visualization Studio (SVS 5639) for the NASA Earth Information Center.",
-      "bytes": 13901,
+      "bytes": 13406,
       "checked_against": []
     },
     "rel_5650": {
@@ -2893,11 +2893,11 @@
       ],
       "limit_days": 2.0,
       "status": "ok",
-      "source_time_utc": "2026-11-06T02:30:00Z",
-      "age_days": 0.73,
+      "source_time_utc": "2026-11-11T11:30:00Z",
+      "age_days": 0.23,
       "period": null,
       "credit": "Visualization: NASA's Scientific Visualization Studio (SVS 5650) for the NASA Earth Information Center.",
-      "bytes": 12834,
+      "bytes": 10283,
       "checked_against": []
     },
     "rel_gibs": {
@@ -2922,13 +2922,13 @@
       "limit_days": null,
       "status": "baseline",
       "source_time_utc": "2026-10-31T00:00:00Z",
-      "age_days": 6.83,
+      "age_days": 11.71,
       "period": [
         "1995-05-04T00:00:00Z",
         "2026-10-31T00:00:00Z"
       ],
       "credit": "Imagery: NASA Global Imagery Browse Services (GIBS), part of NASA's Earth Science Data and Information System.",
-      "bytes": 55377,
+      "bytes": 52606,
       "checked_against": []
     },
     "rel_oisst": {
@@ -2953,13 +2953,13 @@
       "limit_days": null,
       "status": "baseline",
       "source_time_utc": "2026-10-29T12:00:00Z",
-      "age_days": 8.33,
+      "age_days": 13.21,
       "period": [
         "2026-10-29T12:00:00Z",
         "2026-10-29T12:00:00Z"
       ],
       "credit": "Data: NOAA NCEI OISST v2.1 (Huang et al. 2021), served by NOAA CoastWatch ERDDAP.",
-      "bytes": 6856,
+      "bytes": 6536,
       "checked_against": []
     },
     "patterns_eic": {
@@ -2984,13 +2984,13 @@
       "limit_days": null,
       "status": "baseline",
       "source_time_utc": "2026-10-29T13:25:02Z",
-      "age_days": 8.27,
+      "age_days": 13.15,
       "period": [
         "2026-10-29T13:25:02Z",
         "2026-10-29T13:25:02Z"
       ],
       "credit": "Visualizations: NASA's Scientific Visualization Studio for the NASA Earth Information Center.",
-      "bytes": 140927,
+      "bytes": 134393,
       "checked_against": []
     }
   }
