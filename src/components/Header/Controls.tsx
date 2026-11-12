@@ -7,7 +7,7 @@ import { cn } from "@/lib/utils";
 import { useT } from "../AppState/use-app-state";
 import { useCommands } from "../Commands/use-commands";
 import { LanguageChoice } from "../LanguageChoice";
-import { LowVisionButtons } from "../LowVision/HeaderButtons";
+import { type IconOnly, LowVisionButtons } from "../LowVision/HeaderButtons";
 import { HEADER_KEY } from "./header-key";
 import { SettingsMenu } from "./SettingsMenu";
 
@@ -15,7 +15,7 @@ import { SettingsMenu } from "./SettingsMenu";
  * Language, low vision, Settings and Help: in the header from 1024 px, in the phone menu below it. `onLeave` runs
  * before a control that opens something elsewhere (Help, the low-vision panel), so the menu can close first.
  */
-export function HeaderControls({ lvOpen, onLvOpenChange, onLeave, className }: { lvOpen: boolean; onLvOpenChange: (open: boolean) => void; onLeave?: () => void; className?: string }) {
+export function HeaderControls({ lvOpen, onLvOpenChange, onLeave, iconOnly = "belowXl", className }: { lvOpen: boolean; onLvOpenChange: (open: boolean) => void; onLeave?: () => void; iconOnly?: IconOnly; className?: string }) {
 	const t = useT();
 	const commands = useCommands();
 	return (
@@ -24,6 +24,7 @@ export function HeaderControls({ lvOpen, onLvOpenChange, onLeave, className }: {
 			{FLAGS.lowVision && (
 				<LowVisionButtons
 					open={lvOpen}
+					iconOnly={iconOnly}
 					onOpenChange={(open) => {
 						onLeave?.();
 						onLvOpenChange(open);

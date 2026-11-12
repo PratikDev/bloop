@@ -65,6 +65,7 @@ export function MenuBar({ lvOpen, onLvOpenChange, className }: { lvOpen: boolean
 							lvOpen={lvOpen}
 							onLvOpenChange={onLvOpenChange}
 							onLeave={close}
+							iconOnly="always"
 						/>
 					</section>
 				</div>
