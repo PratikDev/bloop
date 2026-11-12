@@ -127,7 +127,8 @@ export const REACH: Feature[] = [
         const strip = list.nth(i);
         const label = ((await strip.getAttribute("aria-label")) ?? (await strip.innerText())).split(",")[0].trim();
         await strip.click();
-        const ok = await expect(page.locator(OFFICIAL).getByRole("button", { name: "Play", exact: true })).toBeEnabled({ timeout: 30_000 }).then(() => true, () => false);
+        // A record with its own player names its key for what it plays ("Play at the needle", "Play the nights").
+        const ok = await expect(page.locator(OFFICIAL).getByRole("button", { name: /^Play/u }).first()).toBeEnabled({ timeout: 30_000 }).then(() => true, () => false);
         if (!ok) failed.push(label);
       }
       if (failed.length) throw new Error(`not playable: ${failed.join(", ")}`);
