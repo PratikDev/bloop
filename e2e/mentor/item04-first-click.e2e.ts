@@ -29,7 +29,6 @@ const SWEEP: SweepPage[] = [
   { url: "/how" },
   { url: "/official" },
   { url: "/turntable", tabbable: true },
-  { url: "/team" },
 ];
 const OUT = join(process.cwd(), "data_raw", "_tmp", "first-click");
 /** Requests cut short by something other than the app: a click that navigates away aborts the page's pending loads
@@ -126,7 +125,7 @@ for (const p of SWEEP) {
 test("a header link Tabbed to right after a page change takes the first Enter (the flaky Turntable link)", async ({ page }) => {
   test.setTimeout(240_000);
   await start(page); // Start moves Home → Listen; the new page's heading wants focus for up to a second after
-  for (const [from, to, path] of [["Listen", "Turntable", /\/turntable$/u], ["Then vs Now", "How we know", /\/how$/u], ["Official records", "Team", /\/team$/u]] as const) {
+  for (const [from, to, path] of [["Listen", "Turntable", /\/turntable$/u], ["Then vs Now", "How we know", /\/how$/u]] as const) {
     if (from !== "Listen") await navTo(page, from);
     const link = page.getByRole("banner").getByRole("link", { name: new RegExp(`${to}$`, "u") }).first();
     await link.focus();

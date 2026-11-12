@@ -498,6 +498,20 @@
   box-shadow: var(--shadow-key) var(--shadow-key) 0 var(--navy);
 }
 
+/* A plate that lifts off the page on hover: it rises and its hard shadow grows beneath it. */
+@utility levitate {
+  transition:
+    transform 200ms ease-out,
+    box-shadow 200ms ease-out;
+  &:hover {
+    transform: translate(-2px, -6px);
+    box-shadow: calc(var(--shadow-key) + 2px) calc(var(--shadow-key) + 6px) 0 var(--navy);
+  }
+  @media (prefers-reduced-motion: reduce) {
+    transition: none;
+  }
+}
+
 @layer base {
   * {
     @apply border-border;

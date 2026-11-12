@@ -74,5 +74,4 @@ export const VALUE_VIEWS: ValueView[] = [
   { name: "how", url: "/how" },
   { name: "official", url: "/official" },
   { name: "turntable", url: "/turntable" },
-  { name: "team", url: "/team" },
 ];

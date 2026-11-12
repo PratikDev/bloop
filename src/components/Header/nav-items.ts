@@ -14,11 +14,11 @@ export const NAV_ITEMS: readonly NavItem[] = [
   { to: PAGE_PATHS.thenNow, label: "nav.thenNow", short: "nav.thenNow" },
   { to: PAGE_PATHS.how, label: "nav.how", short: "nav.howShort" },
   { to: PAGE_PATHS.turntable, label: "nav.turntable", short: "nav.turntable" },
+  { to: PAGE_PATHS.team, label: "nav.team", short: "nav.team" },
 ];
 
 /** Every titled page: the document title reads this list. */
 export const TITLED_PAGES: readonly NavItem[] = [
   ...NAV_ITEMS,
   { to: PAGE_PATHS.official, label: "nav.official", short: "nav.officialShort" },
-  { to: PAGE_PATHS.team, label: "nav.team", short: "nav.team" },
 ];

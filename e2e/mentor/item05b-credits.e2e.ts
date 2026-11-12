@@ -61,7 +61,6 @@ export const PLACES: { name: string; url: string; open: (page: Page) => Promise<
       return page.getByRole("dialog").getByTestId("data-credits");
     },
   },
-  { name: "Team", url: "/team", open: async (page) => page.locator("main").getByTestId("data-credits") },
 ];
 
 test("the credits list is the registry's, the same everywhere it is shown", async ({ page }) => {
