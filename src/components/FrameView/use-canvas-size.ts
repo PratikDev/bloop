@@ -24,13 +24,18 @@ export function useCanvasSize(ref: RefObject<HTMLElement | null>): CanvasSize | 
   return size;
 }
 
-/** Sizes a canvas's backing store for the pixel ratio; drawing then uses CSS pixels. */
+/**
+ * Sizes a canvas's backing store for the pixel ratio and clears it; drawing then uses CSS pixels. Resizing alone
+ * clears only when the size changes, so a redraw at the same size (low vision turned off) would keep the last picture.
+ */
 export function prepareCanvas(canvas: HTMLCanvasElement, size: CanvasSize): CanvasRenderingContext2D | null {
   const w = Math.round(size.width * size.dpr);
   const h = Math.round(size.height * size.dpr);
   if (canvas.width !== w) canvas.width = w;
   if (canvas.height !== h) canvas.height = h;
   const ctx = canvas.getContext("2d");
+  ctx?.setTransform(1, 0, 0, 1, 0, 0);
+  ctx?.clearRect(0, 0, w, h);
   ctx?.setTransform(size.dpr, 0, 0, size.dpr, 0, 0);
   return ctx;
 }
