@@ -25,7 +25,7 @@ const button = (page: Page, name: string) => page.locator("main").getByRole("but
 test("hidden: no link to it, noindex, not a station", async ({ page, request }) => {
   const html = await (await request.get("/listen-test")).text();
   expect(html).toMatch(/<meta name="robots" content="noindex, ?nofollow"/u);
-  for (const url of ["/", "/listen", "/how", "/team"]) {
+  for (const url of ["/", "/listen", "/how"]) {
     await openAt(page, url);
     expect([url, await page.locator('a[href*="listen-test"]').count()]).toEqual([url, 0]);
   }

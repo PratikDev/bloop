@@ -234,7 +234,6 @@ bun run dev      # open http://localhost:3000
 | `npm run health` | Record health check: writes `docs/HEALTH.md` (Python and Playwright) |
 | `npm run refresh:live` | Refreshes every updating record; ships only what passes its truth check |
 | `bun run i18n:todo` | Rewrites `docs/i18n/TO_TRANSLATE.md`, the Bangla strings still to translate |
-| `bun run check:team` | Checks `content/team.json` for fields still marked `"TODO"` |
 
 <details>
 <summary><b>Feature flags</b></summary>

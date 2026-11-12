@@ -5,7 +5,7 @@ import { axeSerious } from "../lib/axe";
 import { tapAudio } from "../lib/app";
 import { openAt, settle } from "./lib";
 
-const STARTED = ["/", "/listen", "/then-now", "/then-now?view=monthly", "/how", "/official", "/turntable", "/team", "/listen-test"];
+const STARTED = ["/", "/listen", "/then-now", "/then-now?view=monthly", "/how", "/official", "/turntable", "/listen-test"];
 
 test("axe: no serious violation on any page", async ({ page }) => {
   test.setTimeout(600_000);
