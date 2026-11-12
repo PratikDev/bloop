@@ -46,14 +46,14 @@
     "note": "Frame colours checked against MUR imply this scale; out-of-sample test = verify_latest.py on a new frame."
   },
   "credit": "Visualization: NASA's Scientific Visualization Studio (SVS 5101), NASA Earth Information Center. Data: MUR SST, NASA/JPL PO.DAAC.",
-  "generated_utc": "2026-11-11T16:57:32Z",
+  "generated_utc": "2026-11-12T09:50:03Z",
   "latest_check": {
     "date": "2026-11-10",
     "n": 60,
-    "median_abs": 0.29483754730222245,
-    "p90_abs": 0.6633644592285066,
-    "bias": 0.054192129357652635,
+    "median_abs": 0.3071378488540688,
+    "p90_abs": 0.6906961114883586,
+    "bias": 0.060692129357657144,
     "pass": true,
-    "checked_utc": "2026-11-11T16:59:46Z"
+    "checked_utc": "2026-11-12T09:53:22Z"
   }
 }

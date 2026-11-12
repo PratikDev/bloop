@@ -8,13 +8,15 @@
       "name": "MUR SST v4.1 (NASA/JPL PO.DAAC)",
       "agency": "NASA",
       "kind": "measurement",
-      "shares_inputs_with": []
+      "shares_inputs_with": [],
+      "url": "https://doi.org/10.5067/GHGMR-4FJ04",
+      "provider": null
     }
   ],
   "credit": "Data: MUR SST v4.1, dt_1km_data (NASA/JPL PO.DAAC).",
   "disclosure": "Hours between the analysis and the nearest 1 km infrared measurement. Long gaps (often clouds) mean the value is filled in from other sensors.",
   "source_time_utc": "2026-11-10T09:00:00Z",
-  "generated_utc": "2026-11-11T17:00:39Z",
+  "generated_utc": "2026-11-12T09:54:08Z",
   "mur_date": "2026-11-10",
   "mur_file": "20261110090000-JPL-L4_GHRSST-SSTfnd-MUR-GLOB-v02.0-fv04.1.nc",
   "units": "hours",
