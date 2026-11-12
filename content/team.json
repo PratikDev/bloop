@@ -1,9 +1,31 @@
 {
   "teamName": "Team PTSD",
   "members": [
-    { "name": "Pratik Dev", "role": "TODO" },
-    { "name": "Samonwita Sarker", "role": "TODO" },
-    { "name": "TODO", "role": "TODO" }
+    {
+      "name": "Dipika Nath",
+      "role": "Research & Data Lead",
+      "photo": "/images/team/dipika.jpeg"
+    },
+    {
+      "name": "Samonwita Sarker",
+      "role": "Frontend Developer",
+      "photo": "/images/team/samonwita.jpeg"
+    },
+    {
+      "name": "Pratik Dev",
+      "role": "Audio Engineer",
+      "photo": "/images/team/pratik.jpeg"
+    },
+    {
+      "name": "Arnob Mozumder",
+      "role": "Video Editing & Animations",
+      "photo": "/images/team/arnob.jpeg"
+    },
+    {
+      "name": "Rashed UL Islam",
+      "role": "Researcher",
+      "photo": "/images/team/rashed.jpeg"
+    }
   ],
   "challenge": "NASA Space Apps Challenge 2026, Challenge #14: The Earth Information Jukebox",
   "localEvent": "Chattogram",
