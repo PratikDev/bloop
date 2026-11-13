@@ -15,10 +15,10 @@
   ],
   "credit": "Data: MUR SST v4.1, dt_1km_data (NASA/JPL PO.DAAC).",
   "disclosure": "Hours between the analysis and the nearest 1 km infrared measurement. Long gaps (often clouds) mean the value is filled in from other sensors.",
-  "source_time_utc": "2026-11-10T09:00:00Z",
-  "generated_utc": "2026-11-12T09:54:08Z",
-  "mur_date": "2026-11-10",
-  "mur_file": "20261110090000-JPL-L4_GHRSST-SSTfnd-MUR-GLOB-v02.0-fv04.1.nc",
+  "source_time_utc": "2026-11-11T09:00:00Z",
+  "generated_utc": "2026-11-13T09:34:50Z",
+  "mur_date": "2026-11-11",
+  "mur_file": "20261111090000-JPL-L4_GHRSST-SSTfnd-MUR-GLOB-v02.0-fv04.1.nc",
   "units": "hours",
   "variable": "dt_1km_data",
   "variable_comment": "The grid value is hours between the analysis time and the most recent MODIS or VIIRS 1km L2P datum within 0.01 degrees from the grid point.  \"Fill value\" indicates absence of such 1km data at the grid point.",
@@ -34,8 +34,8 @@
     "aggregation": "mean |hours| over pixels with a 1 km datum; 254 when fewer than 50% of the cell's pixels had one; 255 = land (no SST)"
   },
   "summary": {
-    "ocean_cells": 352386,
-    "looked_share": 0.2016,
-    "median_hours": 17.0
+    "ocean_cells": 352422,
+    "looked_share": 0.2043,
+    "median_hours": 18.0
   }
 }

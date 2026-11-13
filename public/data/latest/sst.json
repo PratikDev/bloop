@@ -2,8 +2,8 @@
   "product": "sst",
   "svs_id": 5101,
   "svs_page": "https://svs.gsfc.nasa.gov/5101/",
-  "frame_time_utc": "2026-11-10T00:00:00Z",
-  "source_file": "sst_sst_mur_20261110_no-dates.exr",
+  "frame_time_utc": "2026-11-11T00:00:00Z",
+  "source_file": "sst_sst_mur_20261111_no-dates.exr",
   "source_dataset": "MUR-JPL-L4-GLOB-v4.1 (NASA/JPL PO.DAAC)",
   "grid": {
     "width": 1024,
@@ -46,14 +46,14 @@
     "note": "Frame colours checked against MUR imply this scale; out-of-sample test = verify_latest.py on a new frame."
   },
   "credit": "Visualization: NASA's Scientific Visualization Studio (SVS 5101), NASA Earth Information Center. Data: MUR SST, NASA/JPL PO.DAAC.",
-  "generated_utc": "2026-11-12T09:50:03Z",
+  "generated_utc": "2026-11-13T09:31:02Z",
   "latest_check": {
-    "date": "2026-11-10",
+    "date": "2026-11-11",
     "n": 60,
-    "median_abs": 0.3071378488540688,
-    "p90_abs": 0.6906961114883586,
-    "bias": 0.060692129357657144,
+    "median_abs": 0.32487222051619824,
+    "p90_abs": 0.58460660247805,
+    "bias": 0.04831585517339363,
     "pass": true,
-    "checked_utc": "2026-11-12T09:53:22Z"
+    "checked_utc": "2026-11-13T09:34:02Z"
   }
 }
