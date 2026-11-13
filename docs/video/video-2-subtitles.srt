@@ -1,0 +1,200 @@
+1
+00:00:01,500 --> 00:00:03,600
+Close your eyes.
+
+2
+00:00:05,000 --> 00:00:12,036
+This isn't music. It's the Bay of Bengal: its
+water and its rain, measured by NASA and played
+
+3
+00:00:12,036 --> 00:00:13,600
+live by our code.
+
+4
+00:00:14,300 --> 00:00:17,700
+We're Team PTSD, from Chattogram, Bangladesh.
+
+5
+00:00:18,000 --> 00:00:23,700
+Dipika Nath. Samonwita Sarker. Pratik Dev. Arnob
+Mozumder. Rashed UL Islam.
+
+6
+00:00:24,300 --> 00:00:33,157
+In Bangladesh, you hear the monsoon before you see
+it. Rain on a tin roof. We know our weather by
+
+7
+00:00:33,157 --> 00:00:33,600
+ear.
+
+8
+00:00:34,300 --> 00:00:40,312
+NASA's Earth Information Center turns satellite
+data into pictures: today's ocean, the last half
+
+9
+00:00:40,312 --> 00:00:41,600
+hour of rain.
+
+10
+00:00:42,000 --> 00:00:47,600
+But a picture asks one thing of you first: that
+you can see it.
+
+11
+00:00:49,600 --> 00:00:55,700
+Forty-three million people are blind. Nearly three
+hundred million more live with serious sight loss.
+
+12
+00:00:56,300 --> 00:01:01,029
+That's the problem behind Challenge fourteen:
+Earth science shown through visualization alone
+
+13
+00:01:01,029 --> 00:01:03,000
+limits who can reach it.
+
+14
+00:01:03,400 --> 00:01:09,306
+The challenge: translate sight into sound, in real
+time, from the Earth Information Center's own
+
+15
+00:01:09,306 --> 00:01:09,700
+frames.
+
+16
+00:01:10,200 --> 00:01:17,283
+So we built Bloop for the people pictures leave
+out. Not a soundtrack: the picture itself, as
+
+17
+00:01:17,283 --> 00:01:17,700
+sound.
+
+18
+00:01:18,300 --> 00:01:25,200
+Bloop reads each pixel of NASA's frame back into
+its number, using the frame's own colour bar.
+
+19
+00:01:25,500 --> 00:01:30,700
+Warmer water, higher note. More rain, more drops.
+West left, east right.
+
+20
+00:01:31,300 --> 00:01:38,784
+This is how Bloop works with a screen reader.
+Arrow keys move the needle; each step is spoken
+
+21
+00:01:38,784 --> 00:01:39,200
+once.
+
+22
+00:01:40,900 --> 00:01:49,075
+Enter gives the value and the place. P says
+exactly where it came from. Over land, it says
+
+23
+00:01:49,075 --> 00:01:51,800
+there's no data. It never guesses.
+
+24
+00:01:53,400 --> 00:02:01,600
+Press B, and the same reading becomes braille, in
+English or Bangla, with the needle as the cursor.
+
+25
+00:02:03,300 --> 00:02:10,657
+For low vision: Alt and L. High contrast, larger
+text, and a lens that follows the needle, the
+
+26
+00:02:10,657 --> 00:02:12,700
+value in very large type.
+
+27
+00:02:13,000 --> 00:02:18,700
+Re-colour the map for your eyes, or get NASA's
+colours back in one press.
+
+28
+00:02:19,300 --> 00:02:25,977
+Our data is all NASA's: Earth Information Center
+frames from the Scientific Visualization Studio,
+
+29
+00:02:25,977 --> 00:02:31,700
+MUR sea surface temperature, GPM IMERG rain,
+GISTEMP, and GRACE and GRACE-FO.
+
+30
+00:02:32,300 --> 00:02:38,714
+And there's a whole rack behind it: twenty-three
+official NASA records, a turntable Earth, Water's
+
+31
+00:02:38,714 --> 00:02:44,700
+journey, and Ask Bloop in English or Bangla. All
+of it from the keyboard.
+
+32
+00:02:45,300 --> 00:02:52,458
+Every value is checked against NASA's own data.
+Ocean: a median error of 0.31 degrees. Rain: about
+
+33
+00:02:52,458 --> 00:02:53,300
+27 percent.
+
+34
+00:02:53,600 --> 00:02:57,200
+We dropped NASA POWER: it disagreed with
+independent records.
+
+35
+00:02:57,500 --> 00:03:03,700
+And the music can't bend the data. Every note is
+checked to within one cent.
+
+36
+00:03:04,300 --> 00:03:08,400
+Dhaka, every April and May, from NASA GISTEMP. The
+1980s…
+
+37
+00:03:12,000 --> 00:03:13,600
+…the last ten years.
+
+38
+00:03:18,300 --> 00:03:20,800
+One point three seven degrees warmer.
+
+39
+00:03:21,000 --> 00:03:25,800
+And under the ground, GRACE shows Bangladesh's
+stored water falling since 2002.
+
+40
+00:03:26,200 --> 00:03:32,200
+Next, blind and low-vision listeners test it. They
+decide what we build next.
+
+41
+00:03:32,800 --> 00:03:40,000
+In 1997, the ocean made a sound no one could
+explain: the Bloop. It was ice, breaking off
+
+42
+00:03:40,000 --> 00:03:40,400
+Antarctica.
+
+43
+00:03:40,700 --> 00:03:46,900
+The Earth has always been telling us it's
+changing. Now everyone can hear it.
+
