@@ -16,7 +16,7 @@
   "credit": "NASA Black Marble VJ146A2 (NOAA-20 VIIRS), NASA LAADS DAAC.",
   "disclosure": "Median of 5×5 pixels around each city. Cloudy nights are flagged, not filled: clouds, not blackouts.",
   "source_time_utc": "2026-10-28T00:00:00Z",
-  "generated_utc": "2026-11-13T09:35:09Z",
+  "generated_utc": "2026-11-14T09:02:32Z",
   "short_name": "VJ146A2",
   "variable": "DNB_BRDF-Corrected_NTL",
   "units": "nW·cm⁻²·sr⁻¹",

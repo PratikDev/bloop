@@ -4,17 +4,17 @@
   "credit": "Data: MUR SST (NASA/JPL PO.DAAC). Visualization: NASA's Scientific Visualization Studio (SVS 5101) for the NASA Earth Information Center.; Data: GPM IMERG (NASA/JAXA, GES DISC). Visualization: NASA's Scientific Visualization Studio (SVS 4285) for the NASA Earth Information Center.; NASA GLOBE Program (GLOBE Clouds 2025 v3.4, satellite-matched)",
   "sst": {
     "source": "truth/sst_pairs.json",
-    "frame_time_utc": "2026-11-11T00:00:00Z",
+    "frame_time_utc": "2026-11-12T00:00:00Z",
     "spearman_rho": 0.999,
-    "p": 4.875301468803452e-78,
+    "p": 2.5498663541015773e-84,
     "n": 60
   },
   "rain": {
     "source": "truth/rain_pairs.json",
-    "frame_time_utc": "2026-11-13T04:30:00Z",
+    "frame_time_utc": "2026-11-14T03:30:00Z",
     "pairs_used": "both rain (kind = rain)",
-    "spearman_rho": 0.986,
-    "p": 4.913573140940226e-118,
+    "spearman_rho": 0.988,
+    "p": 2.285000841614006e-121,
     "n": 150
   },
   "globe": {
@@ -23,5 +23,5 @@
     "p": 0.07191928404316646,
     "n": 96
   },
-  "generated_utc": "2026-11-13T09:34:03Z"
+  "generated_utc": "2026-11-14T09:01:32Z"
 }

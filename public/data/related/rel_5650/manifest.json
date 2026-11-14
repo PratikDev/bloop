@@ -11,9 +11,9 @@
  "description": "Plate Carree projection of the most current global precipitation data from IMERG with burned in time stamps. || annotated_flat.jpg (2048x1024) [1.0 MB] || annotated_flat (2048x1024) [900 Item(s)] || annotated_flat_2048x1024.mp4 (2048x1024) [131.4 MB] || ",
  "release_date": "2026-06-05T00:00:00-04:00",
  "period": {
-  "start": "2026-10-25T10:00:00Z",
-  "end": "2026-11-13T03:30:00Z",
-  "label": "25 Oct 2026 – 13 Nov 2026"
+  "start": "2026-10-26T10:00:00Z",
+  "end": "2026-11-14T03:30:00Z",
+  "label": "26 Oct 2026 – 14 Nov 2026"
  },
  "badge": "observation",
  "credits_by_role": {
@@ -67,7 +67,7 @@
   "pass_at": 0.9,
   "shifts_deg": [],
   "iou": {
-   "land": 0.35371727834142935
+   "land": 0.3533682142538216
   },
   "pass": false,
   "best_is_assumed": false
@@ -207,7 +207,7 @@
  ],
  "decode": {
   "mode": "exact",
-  "decoded_share": 0.05407109053497943
+  "decoded_share": 0.052911934156378605
  },
  "layers": [
   {
@@ -215,7 +215,7 @@
    "unit": "relative (0–1)",
    "encoding": "linear",
    "scale": 0.0002538071065989848,
-   "offset": 0.04325699806213379,
+   "offset": 0.04325699433684349,
    "nodata": 65535,
    "below": 65534,
    "grid": {
@@ -232,30 +232,30 @@
     "byte_order": "little"
    },
    "times": [
-    "2026-10-25T10:00:00Z",
-    "2026-11-03T19:00:00Z",
-    "2026-11-13T03:30:00Z"
+    "2026-10-26T10:00:00Z",
+    "2026-11-04T19:00:00Z",
+    "2026-11-14T03:30:00Z"
    ],
    "chunks": [
     {
      "file": "value_000.u16.gz",
      "t0": 0,
      "t1": 3,
-     "bytes": 20100
+     "bytes": 19550
     }
    ],
    "quantisation_step": 0.0002538071065989848,
-   "coverage": 0.0398559670781893,
+   "coverage": 0.03838991769547325,
    "value_range": [
-    0.04325699806213379,
-    0.8063104152679443
+    0.04325699433684349,
+    0.9079899191856384
    ],
    "label": "Near Real-Time Global Precipitation from the Global Precipitation Measurement Constellation (relative)",
    "aggregation": "mean of decoded pixels per cell",
    "time_labels": [
-    "25 Oct 2026",
-    "03 Nov 2026",
-    "13 Nov 2026"
+    "26 Oct 2026",
+    "04 Nov 2026",
+    "14 Nov 2026"
    ],
    "display": {
     "colours": [
@@ -330,7 +330,7 @@
    },
    "status": "relative",
    "status_check": "a_auto_source",
-   "statement": "relative: ρ 0.87 vs IMERG precipitation rate (GIBS)"
+   "statement": "relative: ρ 0.86 vs IMERG precipitation rate (GIBS)"
   }
  ],
  "voices": {
@@ -372,28 +372,28 @@
    "frames": 3
   },
   "tried": [],
-  "bytes": 31869,
+  "bytes": 31320,
   "budget": 25000000
  },
  "onboarding": {
   "timings_s": {
-   "api": 2.0,
-   "twins": 16.6,
+   "api": 3.3,
+   "twins": 27.7,
    "asset choice": 0.0,
-   "frames": 1.5,
+   "frames": 1.0,
    "frame times": 0.1,
-   "georef": 2.5,
-   "colorbar": 1.8,
-   "inversion": 2.9,
-   "validation": 12.7
+   "georef": 1.7,
+   "colorbar": 1.6,
+   "inversion": 4.0,
+   "validation": 4.5
   },
   "status": "relative"
  },
  "asset_checksums": {
   "file": "checksums.tsv.gz",
   "rows": 7,
-  "sha256_of_list": "785c99158ebf6e8781dcbccc7049cc261b97250223dc1b1bbf322d9800440ecf"
+  "sha256_of_list": "1d5543e9e65c95ead27a885e5eb0adff8f12205c6547de1eb2eec8210f6f7ccd"
  },
- "code_commit": "bf71fbdeba69b62ce3e67b2b463f514fe56c82d9-dirty",
- "generated_utc": "2026-11-13T09:36:21Z"
+ "code_commit": "2c885ac52fb0a8ae480bc1a31501d8f137a31bd1-dirty",
+ "generated_utc": "2026-11-14T09:03:57Z"
 }

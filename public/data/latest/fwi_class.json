@@ -15,11 +15,11 @@
   ],
   "credit": "Visualization: NASA's Scientific Visualization Studio (SVS 5315) for the NASA Earth Information Center. Data: NASA GISS GlobalFWI (experimental).",
   "disclosure": "An experimental 1-day forecast (a model), decoded from the picture's six legend classes.",
-  "source_time_utc": "2026-11-13T07:18:02Z",
-  "generated_utc": "2026-11-13T09:34:53Z",
+  "source_time_utc": "2026-11-14T07:10:51Z",
+  "generated_utc": "2026-11-14T09:02:20Z",
   "svs_id": 5315,
   "svs_page": "https://svs.gsfc.nasa.gov/5315/",
-  "frame_time_utc": "2026-11-13T07:18:02Z",
+  "frame_time_utc": "2026-11-14T07:10:51Z",
   "frame_time_source": "HTTP Last-Modified of FWI_forecast_latest.png",
   "forecast": "1-day",
   "source_file": "FWI_forecast_latest.png",
@@ -67,7 +67,7 @@
   "verified": {
     "test": "C5315",
     "status": "PASS",
-    "decoded_share": 0.9294088507265522,
+    "decoded_share": 0.9283741229766311,
     "swatches": [
       [
         127,
