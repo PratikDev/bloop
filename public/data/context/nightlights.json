@@ -15,8 +15,8 @@
   ],
   "credit": "NASA Black Marble VJ146A2 (NOAA-20 VIIRS), NASA LAADS DAAC.",
   "disclosure": "Median of 5×5 pixels around each city. Cloudy nights are flagged, not filled: clouds, not blackouts.",
-  "source_time_utc": "2026-10-28T00:00:00Z",
-  "generated_utc": "2026-11-14T09:02:32Z",
+  "source_time_utc": "2026-10-31T00:00:00Z",
+  "generated_utc": "2026-11-15T09:28:36Z",
   "short_name": "VJ146A2",
   "variable": "DNB_BRDF-Corrected_NTL",
   "units": "nW·cm⁻²·sr⁻¹",
@@ -50,7 +50,10 @@
         "2026-10-25",
         "2026-10-26",
         "2026-10-27",
-        "2026-10-28"
+        "2026-10-28",
+        "2026-10-29",
+        "2026-10-30",
+        "2026-10-31"
       ],
       "radiance": [
         26.79,
@@ -75,7 +78,10 @@
         34.4,
         30.13,
         null,
-        null
+        null,
+        null,
+        null,
+        23.69
       ],
       "valid_share": [
         1.0,
@@ -100,7 +106,10 @@
         1.0,
         1.0,
         0.0,
-        0.0
+        0.0,
+        0.0,
+        0.0,
+        1.0
       ],
       "cloud_masked": [
         false,
@@ -125,7 +134,10 @@
         false,
         false,
         true,
-        true
+        true,
+        true,
+        true,
+        false
       ]
     },
     "Chattogram": {
@@ -155,7 +167,10 @@
         "2026-10-25",
         "2026-10-26",
         "2026-10-27",
-        "2026-10-28"
+        "2026-10-28",
+        "2026-10-29",
+        "2026-10-30",
+        "2026-10-31"
       ],
       "radiance": [
         16.93,
@@ -180,7 +195,10 @@
         null,
         null,
         null,
-        null
+        null,
+        25.02,
+        31.33,
+        31.52
       ],
       "valid_share": [
         1.0,
@@ -205,7 +223,10 @@
         0.0,
         0.0,
         0.0,
-        0.0
+        0.0,
+        0.92,
+        1.0,
+        1.0
       ],
       "cloud_masked": [
         false,
@@ -230,7 +251,10 @@
         true,
         true,
         true,
-        true
+        true,
+        false,
+        false,
+        false
       ]
     },
     "Khulna": {
@@ -260,7 +284,10 @@
         "2026-10-25",
         "2026-10-26",
         "2026-10-27",
-        "2026-10-28"
+        "2026-10-28",
+        "2026-10-29",
+        "2026-10-30",
+        "2026-10-31"
       ],
       "radiance": [
         9.83,
@@ -285,7 +312,10 @@
         19.62,
         14.33,
         null,
-        null
+        null,
+        null,
+        null,
+        15.92
       ],
       "valid_share": [
         1.0,
@@ -310,7 +340,10 @@
         1.0,
         1.0,
         0.0,
-        0.0
+        0.0,
+        0.0,
+        0.0,
+        1.0
       ],
       "cloud_masked": [
         false,
@@ -335,7 +368,10 @@
         false,
         false,
         true,
-        true
+        true,
+        true,
+        true,
+        false
       ]
     }
   }
