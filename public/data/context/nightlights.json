@@ -15,8 +15,8 @@
   ],
   "credit": "NASA Black Marble VJ146A2 (NOAA-20 VIIRS), NASA LAADS DAAC.",
   "disclosure": "Median of 5×5 pixels around each city. Cloudy nights are flagged, not filled: clouds, not blackouts.",
-  "source_time_utc": "2026-10-31T00:00:00Z",
-  "generated_utc": "2026-11-15T09:28:36Z",
+  "source_time_utc": "2026-11-01T00:00:00Z",
+  "generated_utc": "2026-11-16T09:46:07Z",
   "short_name": "VJ146A2",
   "variable": "DNB_BRDF-Corrected_NTL",
   "units": "nW·cm⁻²·sr⁻¹",
@@ -53,7 +53,8 @@
         "2026-10-28",
         "2026-10-29",
         "2026-10-30",
-        "2026-10-31"
+        "2026-10-31",
+        "2026-11-01"
       ],
       "radiance": [
         26.79,
@@ -81,7 +82,8 @@
         null,
         null,
         null,
-        23.69
+        23.69,
+        27.87
       ],
       "valid_share": [
         1.0,
@@ -109,6 +111,7 @@
         0.0,
         0.0,
         0.0,
+        1.0,
         1.0
       ],
       "cloud_masked": [
@@ -137,6 +140,7 @@
         true,
         true,
         true,
+        false,
         false
       ]
     },
@@ -170,7 +174,8 @@
         "2026-10-28",
         "2026-10-29",
         "2026-10-30",
-        "2026-10-31"
+        "2026-10-31",
+        "2026-11-01"
       ],
       "radiance": [
         16.93,
@@ -198,7 +203,8 @@
         null,
         25.02,
         31.33,
-        31.52
+        31.52,
+        22.58
       ],
       "valid_share": [
         1.0,
@@ -226,6 +232,7 @@
         0.0,
         0.92,
         1.0,
+        1.0,
         1.0
       ],
       "cloud_masked": [
@@ -252,6 +259,7 @@
         true,
         true,
         true,
+        false,
         false,
         false,
         false
@@ -287,7 +295,8 @@
         "2026-10-28",
         "2026-10-29",
         "2026-10-30",
-        "2026-10-31"
+        "2026-10-31",
+        "2026-11-01"
       ],
       "radiance": [
         9.83,
@@ -315,7 +324,8 @@
         null,
         null,
         null,
-        15.92
+        15.92,
+        15.73
       ],
       "valid_share": [
         1.0,
@@ -343,7 +353,8 @@
         0.0,
         0.0,
         0.0,
-        1.0
+        1.0,
+        0.92
       ],
       "cloud_masked": [
         false,
@@ -371,6 +382,7 @@
         true,
         true,
         true,
+        false,
         false
       ]
     }
