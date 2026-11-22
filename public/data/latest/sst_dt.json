@@ -16,7 +16,7 @@
   "credit": "Data: MUR SST v4.1, dt_1km_data (NASA/JPL PO.DAAC).",
   "disclosure": "Hours between the analysis and the nearest 1 km infrared measurement. Long gaps (often clouds) mean the value is filled in from other sensors.",
   "source_time_utc": "2026-11-19T09:00:00Z",
-  "generated_utc": "2026-11-21T09:53:31Z",
+  "generated_utc": "2026-11-22T09:50:54Z",
   "mur_date": "2026-11-19",
   "mur_file": "20261119090000-JPL-L4_GHRSST-SSTfnd-MUR-GLOB-v02.0-fv04.1.nc",
   "units": "hours",
@@ -34,7 +34,7 @@
     "aggregation": "mean |hours| over pixels with a 1 km datum; 254 when fewer than 50% of the cell's pixels had one; 255 = land (no SST)"
   },
   "summary": {
-    "ocean_cells": 352447,
+    "ocean_cells": 352438,
     "looked_share": 0.1896,
     "median_hours": 17.0
   }
