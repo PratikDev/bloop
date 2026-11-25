@@ -10,27 +10,27 @@
    "metrics": {
     "rung": "same product (IMERG)",
     "unit": "mm/hr",
-    "spearman": 0.8650821617153753,
-    "n": 6755,
-    "median_rel_error": 0.731926938078321,
-    "bias": -1.6490935527223909,
+    "spearman": 0.87598094640453,
+    "n": 6955,
+    "median_rel_error": 0.7332252739511361,
+    "bias": -1.6451759445204484,
     "dates": [
      {
-      "date": "2026-11-04"
+      "date": "2026-11-06"
      },
      {
-      "date": "2026-11-13"
+      "date": "2026-11-15"
      },
      {
-      "date": "2026-11-23"
+      "date": "2026-11-25"
      }
     ]
    },
    "threshold": "Spearman ≥ 0.9 and median relative error ≤ 15 % → verified; ρ ≥ 0.9 → values with stated error; ρ ≥ 0.6 → relative (provisional, onboarding defaults)",
    "pass": false,
    "note": "Rung: same product (IMERG). Onboarding run, 3 frames.",
-   "run_utc": "2026-11-23T10:51:07Z"
+   "run_utc": "2026-11-25T11:22:39Z"
   }
  ],
- "updated_utc": "2026-11-23T10:51:07Z"
+ "updated_utc": "2026-11-25T11:22:39Z"
 }
